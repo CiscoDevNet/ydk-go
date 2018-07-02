@@ -60,10 +60,13 @@ func (subscriberManager *SubscriberManager) GetEntityData() *types.CommonEntityD
     subscriberManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    subscriberManager.EntityData.Children = make(map[string]types.YChild)
-    subscriberManager.EntityData.Children["accounting"] = types.YChild{"Accounting", &subscriberManager.Accounting}
-    subscriberManager.EntityData.Children["srg"] = types.YChild{"Srg", &subscriberManager.Srg}
-    subscriberManager.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscriberManager.EntityData.Children = types.NewOrderedMap()
+    subscriberManager.EntityData.Children.Append("accounting", types.YChild{"Accounting", &subscriberManager.Accounting})
+    subscriberManager.EntityData.Children.Append("srg", types.YChild{"Srg", &subscriberManager.Srg})
+    subscriberManager.EntityData.Leafs = types.NewOrderedMap()
+
+    subscriberManager.EntityData.YListKeys = []string {}
+
     return &(subscriberManager.EntityData)
 }
 
@@ -90,10 +93,13 @@ func (accounting *SubscriberManager_Accounting) GetEntityData() *types.CommonEnt
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accounting.EntityData.Children = make(map[string]types.YChild)
-    accounting.EntityData.Children["send-stop"] = types.YChild{"SendStop", &accounting.SendStop}
-    accounting.EntityData.Children["interim"] = types.YChild{"Interim", &accounting.Interim}
-    accounting.EntityData.Leafs = make(map[string]types.YLeaf)
+    accounting.EntityData.Children = types.NewOrderedMap()
+    accounting.EntityData.Children.Append("send-stop", types.YChild{"SendStop", &accounting.SendStop})
+    accounting.EntityData.Children.Append("interim", types.YChild{"Interim", &accounting.Interim})
+    accounting.EntityData.Leafs = types.NewOrderedMap()
+
+    accounting.EntityData.YListKeys = []string {}
+
     return &(accounting.EntityData)
 }
 
@@ -117,9 +123,12 @@ func (sendStop *SubscriberManager_Accounting_SendStop) GetEntityData() *types.Co
     sendStop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendStop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sendStop.EntityData.Children = make(map[string]types.YChild)
-    sendStop.EntityData.Children["setup-failure"] = types.YChild{"SetupFailure", &sendStop.SetupFailure}
-    sendStop.EntityData.Leafs = make(map[string]types.YLeaf)
+    sendStop.EntityData.Children = types.NewOrderedMap()
+    sendStop.EntityData.Children.Append("setup-failure", types.YChild{"SetupFailure", &sendStop.SetupFailure})
+    sendStop.EntityData.Leafs = types.NewOrderedMap()
+
+    sendStop.EntityData.YListKeys = []string {}
+
     return &(sendStop.EntityData)
 }
 
@@ -143,9 +152,12 @@ func (setupFailure *SubscriberManager_Accounting_SendStop_SetupFailure) GetEntit
     setupFailure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     setupFailure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    setupFailure.EntityData.Children = make(map[string]types.YChild)
-    setupFailure.EntityData.Leafs = make(map[string]types.YLeaf)
-    setupFailure.EntityData.Leafs["method-list-name"] = types.YLeaf{"MethodListName", setupFailure.MethodListName}
+    setupFailure.EntityData.Children = types.NewOrderedMap()
+    setupFailure.EntityData.Leafs = types.NewOrderedMap()
+    setupFailure.EntityData.Leafs.Append("method-list-name", types.YLeaf{"MethodListName", setupFailure.MethodListName})
+
+    setupFailure.EntityData.YListKeys = []string {}
+
     return &(setupFailure.EntityData)
 }
 
@@ -170,9 +182,12 @@ func (interim *SubscriberManager_Accounting_Interim) GetEntityData() *types.Comm
     interim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interim.EntityData.Children = make(map[string]types.YChild)
-    interim.EntityData.Children["variation"] = types.YChild{"Variation", &interim.Variation}
-    interim.EntityData.Leafs = make(map[string]types.YLeaf)
+    interim.EntityData.Children = types.NewOrderedMap()
+    interim.EntityData.Children.Append("variation", types.YChild{"Variation", &interim.Variation})
+    interim.EntityData.Leafs = types.NewOrderedMap()
+
+    interim.EntityData.YListKeys = []string {}
+
     return &(interim.EntityData)
 }
 
@@ -198,9 +213,12 @@ func (variation *SubscriberManager_Accounting_Interim_Variation) GetEntityData()
     variation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     variation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    variation.EntityData.Children = make(map[string]types.YChild)
-    variation.EntityData.Leafs = make(map[string]types.YLeaf)
-    variation.EntityData.Leafs["maximum-percentage-variation"] = types.YLeaf{"MaximumPercentageVariation", variation.MaximumPercentageVariation}
+    variation.EntityData.Children = types.NewOrderedMap()
+    variation.EntityData.Leafs = types.NewOrderedMap()
+    variation.EntityData.Leafs.Append("maximum-percentage-variation", types.YLeaf{"MaximumPercentageVariation", variation.MaximumPercentageVariation})
+
+    variation.EntityData.YListKeys = []string {}
+
     return &(variation.EntityData)
 }
 
@@ -224,9 +242,12 @@ func (srg *SubscriberManager_Srg) GetEntityData() *types.CommonEntityData {
     srg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    srg.EntityData.Children = make(map[string]types.YChild)
-    srg.EntityData.Leafs = make(map[string]types.YLeaf)
-    srg.EntityData.Leafs["sync-account-session-id"] = types.YLeaf{"SyncAccountSessionId", srg.SyncAccountSessionId}
+    srg.EntityData.Children = types.NewOrderedMap()
+    srg.EntityData.Leafs = types.NewOrderedMap()
+    srg.EntityData.Leafs.Append("sync-account-session-id", types.YLeaf{"SyncAccountSessionId", srg.SyncAccountSessionId})
+
+    srg.EntityData.YListKeys = []string {}
+
     return &(srg.EntityData)
 }
 
@@ -238,7 +259,7 @@ type SubscriberFeaturette struct {
 
     // enable featurette processing. The type is slice of
     // SubscriberFeaturette_FeaturetteName.
-    FeaturetteName []SubscriberFeaturette_FeaturetteName
+    FeaturetteName []*SubscriberFeaturette_FeaturetteName
 }
 
 func (subscriberFeaturette *SubscriberFeaturette) GetEntityData() *types.CommonEntityData {
@@ -251,12 +272,15 @@ func (subscriberFeaturette *SubscriberFeaturette) GetEntityData() *types.CommonE
     subscriberFeaturette.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberFeaturette.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    subscriberFeaturette.EntityData.Children = make(map[string]types.YChild)
-    subscriberFeaturette.EntityData.Children["featurette-name"] = types.YChild{"FeaturetteName", nil}
+    subscriberFeaturette.EntityData.Children = types.NewOrderedMap()
+    subscriberFeaturette.EntityData.Children.Append("featurette-name", types.YChild{"FeaturetteName", nil})
     for i := range subscriberFeaturette.FeaturetteName {
-        subscriberFeaturette.EntityData.Children[types.GetSegmentPath(&subscriberFeaturette.FeaturetteName[i])] = types.YChild{"FeaturetteName", &subscriberFeaturette.FeaturetteName[i]}
+        subscriberFeaturette.EntityData.Children.Append(types.GetSegmentPath(subscriberFeaturette.FeaturetteName[i]), types.YChild{"FeaturetteName", subscriberFeaturette.FeaturetteName[i]})
     }
-    subscriberFeaturette.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscriberFeaturette.EntityData.Leafs = types.NewOrderedMap()
+
+    subscriberFeaturette.EntityData.YListKeys = []string {}
+
     return &(subscriberFeaturette.EntityData)
 }
 
@@ -267,11 +291,10 @@ type SubscriberFeaturette_FeaturetteName struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. subscriber feature. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Featurette interface{}
 
-    // instance of featurette. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // instance of featurette. The type is interface{} with range: 0..4294967295.
     Enable interface{}
 }
 
@@ -280,15 +303,18 @@ func (featuretteName *SubscriberFeaturette_FeaturetteName) GetEntityData() *type
     featuretteName.EntityData.YangName = "featurette-name"
     featuretteName.EntityData.BundleName = "cisco_ios_xr"
     featuretteName.EntityData.ParentYangName = "subscriber-featurette"
-    featuretteName.EntityData.SegmentPath = "featurette-name" + "[featurette='" + fmt.Sprintf("%v", featuretteName.Featurette) + "']"
+    featuretteName.EntityData.SegmentPath = "featurette-name" + types.AddKeyToken(featuretteName.Featurette, "featurette")
     featuretteName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     featuretteName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     featuretteName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    featuretteName.EntityData.Children = make(map[string]types.YChild)
-    featuretteName.EntityData.Leafs = make(map[string]types.YLeaf)
-    featuretteName.EntityData.Leafs["featurette"] = types.YLeaf{"Featurette", featuretteName.Featurette}
-    featuretteName.EntityData.Leafs["enable"] = types.YLeaf{"Enable", featuretteName.Enable}
+    featuretteName.EntityData.Children = types.NewOrderedMap()
+    featuretteName.EntityData.Leafs = types.NewOrderedMap()
+    featuretteName.EntityData.Leafs.Append("featurette", types.YLeaf{"Featurette", featuretteName.Featurette})
+    featuretteName.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", featuretteName.Enable})
+
+    featuretteName.EntityData.YListKeys = []string {"Featurette"}
+
     return &(featuretteName.EntityData)
 }
 
@@ -298,8 +324,9 @@ type IedgeLicenseManager struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Location. For eg., 0/1/CPU0. The type is slice of IedgeLicenseManager_Node.
-    Node []IedgeLicenseManager_Node
+    // Session limit configured on linecard. The type is interface{} with range:
+    // 1..200000.
+    SessionLimit interface{}
 }
 
 func (iedgeLicenseManager *IedgeLicenseManager) GetEntityData() *types.CommonEntityData {
@@ -312,50 +339,13 @@ func (iedgeLicenseManager *IedgeLicenseManager) GetEntityData() *types.CommonEnt
     iedgeLicenseManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iedgeLicenseManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    iedgeLicenseManager.EntityData.Children = make(map[string]types.YChild)
-    iedgeLicenseManager.EntityData.Children["node"] = types.YChild{"Node", nil}
-    for i := range iedgeLicenseManager.Node {
-        iedgeLicenseManager.EntityData.Children[types.GetSegmentPath(&iedgeLicenseManager.Node[i])] = types.YChild{"Node", &iedgeLicenseManager.Node[i]}
-    }
-    iedgeLicenseManager.EntityData.Leafs = make(map[string]types.YLeaf)
+    iedgeLicenseManager.EntityData.Children = types.NewOrderedMap()
+    iedgeLicenseManager.EntityData.Leafs = types.NewOrderedMap()
+    iedgeLicenseManager.EntityData.Leafs.Append("session-limit", types.YLeaf{"SessionLimit", iedgeLicenseManager.SessionLimit})
+
+    iedgeLicenseManager.EntityData.YListKeys = []string {}
+
     return &(iedgeLicenseManager.EntityData)
-}
-
-// IedgeLicenseManager_Node
-// Location. For eg., 0/1/CPU0
-type IedgeLicenseManager_Node struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. The node id to filter on. For eg., 0/1/CPU0. The
-    // type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
-    NodeName interface{}
-
-    // Session limit configured on linecard. The type is interface{} with range:
-    // -2147483648..2147483647.
-    SessionLimit interface{}
-
-    // Session threshold configured on linecard. The type is interface{} with
-    // range: -2147483648..2147483647.
-    SessionThreshold interface{}
-}
-
-func (node *IedgeLicenseManager_Node) GetEntityData() *types.CommonEntityData {
-    node.EntityData.YFilter = node.YFilter
-    node.EntityData.YangName = "node"
-    node.EntityData.BundleName = "cisco_ios_xr"
-    node.EntityData.ParentYangName = "iedge-license-manager"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
-    node.EntityData.Leafs["session-limit"] = types.YLeaf{"SessionLimit", node.SessionLimit}
-    node.EntityData.Leafs["session-threshold"] = types.YLeaf{"SessionThreshold", node.SessionThreshold}
-    return &(node.EntityData)
 }
 
 // SubManager
@@ -365,7 +355,7 @@ type SubManager struct {
     YFilter yfilter.YFilter
 
     // Select location. The type is slice of SubManager_Location.
-    Location []SubManager_Location
+    Location []*SubManager_Location
 }
 
 func (subManager *SubManager) GetEntityData() *types.CommonEntityData {
@@ -378,12 +368,15 @@ func (subManager *SubManager) GetEntityData() *types.CommonEntityData {
     subManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    subManager.EntityData.Children = make(map[string]types.YChild)
-    subManager.EntityData.Children["location"] = types.YChild{"Location", nil}
+    subManager.EntityData.Children = types.NewOrderedMap()
+    subManager.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range subManager.Location {
-        subManager.EntityData.Children[types.GetSegmentPath(&subManager.Location[i])] = types.YChild{"Location", &subManager.Location[i]}
+        subManager.EntityData.Children.Append(types.GetSegmentPath(subManager.Location[i]), types.YChild{"Location", subManager.Location[i]})
     }
-    subManager.EntityData.Leafs = make(map[string]types.YLeaf)
+    subManager.EntityData.Leafs = types.NewOrderedMap()
+
+    subManager.EntityData.YListKeys = []string {}
+
     return &(subManager.EntityData)
 }
 
@@ -394,7 +387,7 @@ type SubManager_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Specify location. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Location1 interface{}
 
     // Disable history for subscriber manager. The type is interface{}.
@@ -409,16 +402,19 @@ func (location *SubManager_Location) GetEntityData() *types.CommonEntityData {
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "sub-manager"
-    location.EntityData.SegmentPath = "location" + "[location1='" + fmt.Sprintf("%v", location.Location1) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location1, "location1")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["trace"] = types.YChild{"Trace", &location.Trace}
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location1"] = types.YLeaf{"Location1", location.Location1}
-    location.EntityData.Leafs["history"] = types.YLeaf{"History", location.History}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("trace", types.YChild{"Trace", &location.Trace})
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location1", types.YLeaf{"Location1", location.Location1})
+    location.EntityData.Leafs.Append("history", types.YLeaf{"History", location.History})
+
+    location.EntityData.YListKeys = []string {"Location1"}
+
     return &(location.EntityData)
 }
 
@@ -429,7 +425,7 @@ type SubManager_Location_Trace struct {
     YFilter yfilter.YFilter
 
     // Subscriber manager trace level. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     TraceLevel interface{}
 }
 
@@ -443,9 +439,12 @@ func (trace *SubManager_Location_Trace) GetEntityData() *types.CommonEntityData 
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trace.EntityData.Children = make(map[string]types.YChild)
-    trace.EntityData.Leafs = make(map[string]types.YLeaf)
-    trace.EntityData.Leafs["trace-level"] = types.YLeaf{"TraceLevel", trace.TraceLevel}
+    trace.EntityData.Children = types.NewOrderedMap()
+    trace.EntityData.Leafs = types.NewOrderedMap()
+    trace.EntityData.Leafs.Append("trace-level", types.YLeaf{"TraceLevel", trace.TraceLevel})
+
+    trace.EntityData.YListKeys = []string {}
+
     return &(trace.EntityData)
 }
 

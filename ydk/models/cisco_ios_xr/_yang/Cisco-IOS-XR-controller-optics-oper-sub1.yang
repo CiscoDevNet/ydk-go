@@ -26,6 +26,10 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -440,6 +444,11 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
         description
           "FEC DISABLED";
       }
+      enum "fec-cl91" {
+        value 64;
+        description
+          "FEC CL91 ";
+      }
     }
     description
       "Optics fec";
@@ -731,6 +740,51 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
         value 56;
         description
           "1G BX optics";
+      }
+      enum "ten-x-ten-gig-e-long-reach-one-lane" {
+        value 57;
+        description
+          "Long Reach 1 Lane";
+      }
+      enum "ten-x-ten-gig-e-extended-reach-one-lane" {
+        value 58;
+        description
+          "Extended Reach 1 Lane";
+      }
+      enum "passive-copper-one-lane" {
+        value 59;
+        description
+          "Passive Copper One Lane";
+      }
+      enum "ten-gig-ecwdm" {
+        value 60;
+        description
+          "TenGigE CWDM One Lane";
+      }
+      enum "one-gig-ecwdm" {
+        value 61;
+        description
+          "One GigE CWDM One Lane";
+      }
+      enum "one-gig-edwdm" {
+        value 62;
+        description
+          "One GigE DWDM One Lane";
+      }
+      enum "fx-one-lane" {
+        value 63;
+        description
+          "FX One Lane";
+      }
+      enum "ten-gig-emrdwdm" {
+        value 64;
+        description
+          "TenGigE Multi Rate DWDM 1 Lane";
+      }
+      enum "ten-gig-e-edge-performance" {
+        value 65;
+        description
+          "TenGigE Edge Performance 1 Lane";
       }
     }
     description
@@ -2498,11 +2552,6 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
       description
         "Optics FEC";
     }
-    leaf skip-snmp-pm-table {
-      type int32;
-      description
-        "PM enabled or not";
-    }
     leaf port-type {
       type Optics-port;
       description
@@ -2697,6 +2746,11 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
       description
         "Volt High warning threshold value";
     }
+    leaf description {
+      type string;
+      description
+        "Controller description string";
+    }
     leaf ampli-gain-range {
       type Optics-amplifier-gain-range;
       description
@@ -2712,10 +2766,15 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
       description
         "OSRI";
     }
-    leaf description {
-      type string;
+    leaf tx-enable {
+      type boolean;
       description
-        "Controller description string";
+        "TX Enable";
+    }
+    leaf rx-enable {
+      type boolean;
+      description
+        "RX Enable";
     }
     leaf is-optics-type-string-valid {
       type boolean;
@@ -2726,16 +2785,6 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
       type string;
       description
         "optics type String";
-    }
-    leaf tx-enable {
-      type boolean;
-      description
-        "TX Enable";
-    }
-    leaf rx-enable {
-      type boolean;
-      description
-        "RX Enable";
     }
     leaf rx-low-threshold-current {
       type int32;

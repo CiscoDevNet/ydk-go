@@ -5,11 +5,8 @@ module Cisco-IOS-XR-infra-xtc-oper {
   import ietf-inet-types {
     prefix inet;
   }
-  import Cisco-IOS-XR-types {
-    prefix xr;
-  }
   include Cisco-IOS-XR-infra-xtc-oper-sub1 {
-    revision-date 2017-08-24;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -38,6 +35,10 @@ module Cisco-IOS-XR-infra-xtc-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-08-24 {
     description
       "Added C flag to pcep flags.";
@@ -137,7 +138,7 @@ module Cisco-IOS-XR-infra-xtc-oper {
         description
           "PCE prefix information";
         leaf node-identifier {
-          type int32;
+          type uint32;
           description
             "Node ID";
         }
@@ -162,12 +163,12 @@ module Cisco-IOS-XR-infra-xtc-oper {
             "Peer Address";
         }
         leaf plsp-id {
-          type int32;
+          type uint32;
           description
             "PCEP LSP ID";
         }
         leaf tunnel-name {
-          type xr:Cisco-ios-xr-string;
+          type string;
           description
             "Tunnel name";
         }
@@ -207,7 +208,7 @@ module Cisco-IOS-XR-infra-xtc-oper {
         description
           "Node information";
         leaf node-identifier {
-          type int32;
+          type uint32;
           description
             "Node Identifier";
         }
@@ -232,12 +233,12 @@ module Cisco-IOS-XR-infra-xtc-oper {
             "Peer Address";
         }
         leaf plsp-id {
-          type int32;
+          type uint32;
           description
             "PCEP LSP ID";
         }
         leaf tunnel-name {
-          type xr:Cisco-ios-xr-string;
+          type string;
           description
             "Tunnel name";
         }
@@ -281,7 +282,7 @@ module Cisco-IOS-XR-infra-xtc-oper {
         description
           "PCE Association information";
         leaf group-id {
-          type int32;
+          type uint32;
           description
             "Group ID";
         }
@@ -291,7 +292,7 @@ module Cisco-IOS-XR-infra-xtc-oper {
             "Type";
         }
         leaf sub-id {
-          type int32;
+          type inet:ip-address-no-zone;
           description
             "Sub ID";
         }
@@ -312,7 +313,7 @@ module Cisco-IOS-XR-infra-xtc-oper {
             "A GET operation on this class returns the path
              .";
           leaf af {
-            type int32;
+            type uint32;
             description
               "Address Family";
           }
@@ -327,7 +328,7 @@ module Cisco-IOS-XR-infra-xtc-oper {
               "Destination of path 1";
           }
           leaf metric-type {
-            type int32;
+            type uint32;
             description
               "Metric type";
           }
@@ -342,17 +343,17 @@ module Cisco-IOS-XR-infra-xtc-oper {
               "Destination of path 2";
           }
           leaf disjoint-level {
-            type int32;
+            type uint32;
             description
               "Disjointness level";
           }
           leaf disjoint-strict {
-            type int32;
+            type uint32;
             description
               "Strict disjointness required";
           }
           leaf shortest-path {
-            type int32;
+            type uint32;
             description
               "Whether path 1 or 2 should be shortest";
           }

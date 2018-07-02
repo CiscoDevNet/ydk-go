@@ -44,9 +44,12 @@ func (tty *Tty) GetEntityData() *types.CommonEntityData {
     tty.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tty.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tty.EntityData.Children = make(map[string]types.YChild)
-    tty.EntityData.Children["tty-lines"] = types.YChild{"TtyLines", &tty.TtyLines}
-    tty.EntityData.Leafs = make(map[string]types.YLeaf)
+    tty.EntityData.Children = types.NewOrderedMap()
+    tty.EntityData.Children.Append("tty-lines", types.YChild{"TtyLines", &tty.TtyLines})
+    tty.EntityData.Leafs = types.NewOrderedMap()
+
+    tty.EntityData.YListKeys = []string {}
+
     return &(tty.EntityData)
 }
 
@@ -59,7 +62,7 @@ type Tty_TtyLines struct {
     // TTY Line,Use string 'console' to configure a console line,Use string
     // 'default' to configure a default line,Use any string to configure a user
     // defined template. The type is slice of Tty_TtyLines_TtyLine.
-    TtyLine []Tty_TtyLines_TtyLine
+    TtyLine []*Tty_TtyLines_TtyLine
 }
 
 func (ttyLines *Tty_TtyLines) GetEntityData() *types.CommonEntityData {
@@ -72,12 +75,15 @@ func (ttyLines *Tty_TtyLines) GetEntityData() *types.CommonEntityData {
     ttyLines.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ttyLines.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ttyLines.EntityData.Children = make(map[string]types.YChild)
-    ttyLines.EntityData.Children["tty-line"] = types.YChild{"TtyLine", nil}
+    ttyLines.EntityData.Children = types.NewOrderedMap()
+    ttyLines.EntityData.Children.Append("tty-line", types.YChild{"TtyLine", nil})
     for i := range ttyLines.TtyLine {
-        ttyLines.EntityData.Children[types.GetSegmentPath(&ttyLines.TtyLine[i])] = types.YChild{"TtyLine", &ttyLines.TtyLine[i]}
+        ttyLines.EntityData.Children.Append(types.GetSegmentPath(ttyLines.TtyLine[i]), types.YChild{"TtyLine", ttyLines.TtyLine[i]})
     }
-    ttyLines.EntityData.Leafs = make(map[string]types.YLeaf)
+    ttyLines.EntityData.Leafs = types.NewOrderedMap()
+
+    ttyLines.EntityData.YListKeys = []string {}
+
     return &(ttyLines.EntityData)
 }
 
@@ -91,7 +97,7 @@ type Tty_TtyLines_TtyLine struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the template. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // TTY line general configuration.
@@ -118,20 +124,23 @@ func (ttyLine *Tty_TtyLines_TtyLine) GetEntityData() *types.CommonEntityData {
     ttyLine.EntityData.YangName = "tty-line"
     ttyLine.EntityData.BundleName = "cisco_ios_xr"
     ttyLine.EntityData.ParentYangName = "tty-lines"
-    ttyLine.EntityData.SegmentPath = "tty-line" + "[name='" + fmt.Sprintf("%v", ttyLine.Name) + "']"
+    ttyLine.EntityData.SegmentPath = "tty-line" + types.AddKeyToken(ttyLine.Name, "name")
     ttyLine.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ttyLine.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ttyLine.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ttyLine.EntityData.Children = make(map[string]types.YChild)
-    ttyLine.EntityData.Children["general"] = types.YChild{"General", &ttyLine.General}
-    ttyLine.EntityData.Children["telnet"] = types.YChild{"Telnet", &ttyLine.Telnet}
-    ttyLine.EntityData.Children["aaa"] = types.YChild{"Aaa", &ttyLine.Aaa}
-    ttyLine.EntityData.Children["exec"] = types.YChild{"Exec", &ttyLine.Exec}
-    ttyLine.EntityData.Children["Cisco-IOS-XR-tty-management-cfg:connection"] = types.YChild{"Connection", &ttyLine.Connection}
-    ttyLine.EntityData.Children["Cisco-IOS-XR-tty-management-cfg:exec-mode"] = types.YChild{"ExecMode", &ttyLine.ExecMode}
-    ttyLine.EntityData.Leafs = make(map[string]types.YLeaf)
-    ttyLine.EntityData.Leafs["name"] = types.YLeaf{"Name", ttyLine.Name}
+    ttyLine.EntityData.Children = types.NewOrderedMap()
+    ttyLine.EntityData.Children.Append("general", types.YChild{"General", &ttyLine.General})
+    ttyLine.EntityData.Children.Append("telnet", types.YChild{"Telnet", &ttyLine.Telnet})
+    ttyLine.EntityData.Children.Append("aaa", types.YChild{"Aaa", &ttyLine.Aaa})
+    ttyLine.EntityData.Children.Append("exec", types.YChild{"Exec", &ttyLine.Exec})
+    ttyLine.EntityData.Children.Append("Cisco-IOS-XR-tty-management-cfg:connection", types.YChild{"Connection", &ttyLine.Connection})
+    ttyLine.EntityData.Children.Append("Cisco-IOS-XR-tty-management-cfg:exec-mode", types.YChild{"ExecMode", &ttyLine.ExecMode})
+    ttyLine.EntityData.Leafs = types.NewOrderedMap()
+    ttyLine.EntityData.Leafs.Append("name", types.YLeaf{"Name", ttyLine.Name})
+
+    ttyLine.EntityData.YListKeys = []string {"Name"}
+
     return &(ttyLine.EntityData)
 }
 
@@ -164,11 +173,14 @@ func (general *Tty_TtyLines_TtyLine_General) GetEntityData() *types.CommonEntity
     general.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     general.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    general.EntityData.Children = make(map[string]types.YChild)
-    general.EntityData.Leafs = make(map[string]types.YLeaf)
-    general.EntityData.Leafs["length"] = types.YLeaf{"Length", general.Length}
-    general.EntityData.Leafs["absolute-timeout"] = types.YLeaf{"AbsoluteTimeout", general.AbsoluteTimeout}
-    general.EntityData.Leafs["width"] = types.YLeaf{"Width", general.Width}
+    general.EntityData.Children = types.NewOrderedMap()
+    general.EntityData.Leafs = types.NewOrderedMap()
+    general.EntityData.Leafs.Append("length", types.YLeaf{"Length", general.Length})
+    general.EntityData.Leafs.Append("absolute-timeout", types.YLeaf{"AbsoluteTimeout", general.AbsoluteTimeout})
+    general.EntityData.Leafs.Append("width", types.YLeaf{"Width", general.Width})
+
+    general.EntityData.YListKeys = []string {}
+
     return &(general.EntityData)
 }
 
@@ -193,9 +205,12 @@ func (telnet *Tty_TtyLines_TtyLine_Telnet) GetEntityData() *types.CommonEntityDa
     telnet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     telnet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    telnet.EntityData.Children = make(map[string]types.YChild)
-    telnet.EntityData.Leafs = make(map[string]types.YLeaf)
-    telnet.EntityData.Leafs["transparent"] = types.YLeaf{"Transparent", telnet.Transparent}
+    telnet.EntityData.Children = types.NewOrderedMap()
+    telnet.EntityData.Leafs = types.NewOrderedMap()
+    telnet.EntityData.Leafs.Append("transparent", types.YLeaf{"Transparent", telnet.Transparent})
+
+    telnet.EntityData.YListKeys = []string {}
+
     return &(telnet.EntityData)
 }
 
@@ -211,11 +226,11 @@ type Tty_TtyLines_TtyLine_Aaa struct {
     LoginTimeout interface{}
 
     // Configure a secure one way encrypted password. The type is string with
-    // pattern: b'(!.+)|([^!].+)'.
+    // pattern: (!.+)|([^!].+).
     Secret interface{}
 
     // Configure the password for the user. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Password interface{}
 
     // Users characteristics.
@@ -241,15 +256,18 @@ func (aaa *Tty_TtyLines_TtyLine_Aaa) GetEntityData() *types.CommonEntityData {
     aaa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aaa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aaa.EntityData.Children = make(map[string]types.YChild)
-    aaa.EntityData.Children["user-groups"] = types.YChild{"UserGroups", &aaa.UserGroups}
-    aaa.EntityData.Children["authorization"] = types.YChild{"Authorization", &aaa.Authorization}
-    aaa.EntityData.Children["authentication"] = types.YChild{"Authentication", &aaa.Authentication}
-    aaa.EntityData.Children["accounting"] = types.YChild{"Accounting", &aaa.Accounting}
-    aaa.EntityData.Leafs = make(map[string]types.YLeaf)
-    aaa.EntityData.Leafs["login-timeout"] = types.YLeaf{"LoginTimeout", aaa.LoginTimeout}
-    aaa.EntityData.Leafs["secret"] = types.YLeaf{"Secret", aaa.Secret}
-    aaa.EntityData.Leafs["password"] = types.YLeaf{"Password", aaa.Password}
+    aaa.EntityData.Children = types.NewOrderedMap()
+    aaa.EntityData.Children.Append("user-groups", types.YChild{"UserGroups", &aaa.UserGroups})
+    aaa.EntityData.Children.Append("authorization", types.YChild{"Authorization", &aaa.Authorization})
+    aaa.EntityData.Children.Append("authentication", types.YChild{"Authentication", &aaa.Authentication})
+    aaa.EntityData.Children.Append("accounting", types.YChild{"Accounting", &aaa.Accounting})
+    aaa.EntityData.Leafs = types.NewOrderedMap()
+    aaa.EntityData.Leafs.Append("login-timeout", types.YLeaf{"LoginTimeout", aaa.LoginTimeout})
+    aaa.EntityData.Leafs.Append("secret", types.YLeaf{"Secret", aaa.Secret})
+    aaa.EntityData.Leafs.Append("password", types.YLeaf{"Password", aaa.Password})
+
+    aaa.EntityData.YListKeys = []string {}
+
     return &(aaa.EntityData)
 }
 
@@ -261,7 +279,7 @@ type Tty_TtyLines_TtyLine_Aaa_UserGroups struct {
 
     // Group to which the user will belong. The type is slice of
     // Tty_TtyLines_TtyLine_Aaa_UserGroups_UserGroup.
-    UserGroup []Tty_TtyLines_TtyLine_Aaa_UserGroups_UserGroup
+    UserGroup []*Tty_TtyLines_TtyLine_Aaa_UserGroups_UserGroup
 }
 
 func (userGroups *Tty_TtyLines_TtyLine_Aaa_UserGroups) GetEntityData() *types.CommonEntityData {
@@ -274,12 +292,15 @@ func (userGroups *Tty_TtyLines_TtyLine_Aaa_UserGroups) GetEntityData() *types.Co
     userGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     userGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    userGroups.EntityData.Children = make(map[string]types.YChild)
-    userGroups.EntityData.Children["user-group"] = types.YChild{"UserGroup", nil}
+    userGroups.EntityData.Children = types.NewOrderedMap()
+    userGroups.EntityData.Children.Append("user-group", types.YChild{"UserGroup", nil})
     for i := range userGroups.UserGroup {
-        userGroups.EntityData.Children[types.GetSegmentPath(&userGroups.UserGroup[i])] = types.YChild{"UserGroup", &userGroups.UserGroup[i]}
+        userGroups.EntityData.Children.Append(types.GetSegmentPath(userGroups.UserGroup[i]), types.YChild{"UserGroup", userGroups.UserGroup[i]})
     }
-    userGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    userGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    userGroups.EntityData.YListKeys = []string {}
+
     return &(userGroups.EntityData)
 }
 
@@ -290,7 +311,7 @@ type Tty_TtyLines_TtyLine_Aaa_UserGroups_UserGroup struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the group. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Specify as 'root-system' for root-system group and 'other' for remaining
@@ -303,15 +324,18 @@ func (userGroup *Tty_TtyLines_TtyLine_Aaa_UserGroups_UserGroup) GetEntityData() 
     userGroup.EntityData.YangName = "user-group"
     userGroup.EntityData.BundleName = "cisco_ios_xr"
     userGroup.EntityData.ParentYangName = "user-groups"
-    userGroup.EntityData.SegmentPath = "user-group" + "[name='" + fmt.Sprintf("%v", userGroup.Name) + "']"
+    userGroup.EntityData.SegmentPath = "user-group" + types.AddKeyToken(userGroup.Name, "name")
     userGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     userGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     userGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    userGroup.EntityData.Children = make(map[string]types.YChild)
-    userGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    userGroup.EntityData.Leafs["name"] = types.YLeaf{"Name", userGroup.Name}
-    userGroup.EntityData.Leafs["category"] = types.YLeaf{"Category", userGroup.Category}
+    userGroup.EntityData.Children = types.NewOrderedMap()
+    userGroup.EntityData.Leafs = types.NewOrderedMap()
+    userGroup.EntityData.Leafs.Append("name", types.YLeaf{"Name", userGroup.Name})
+    userGroup.EntityData.Leafs.Append("category", types.YLeaf{"Category", userGroup.Category})
+
+    userGroup.EntityData.YListKeys = []string {"Name"}
+
     return &(userGroup.EntityData)
 }
 
@@ -342,11 +366,14 @@ func (authorization *Tty_TtyLines_TtyLine_Aaa_Authorization) GetEntityData() *ty
     authorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authorization.EntityData.Children = make(map[string]types.YChild)
-    authorization.EntityData.Leafs = make(map[string]types.YLeaf)
-    authorization.EntityData.Leafs["exec"] = types.YLeaf{"Exec", authorization.Exec}
-    authorization.EntityData.Leafs["event-manager"] = types.YLeaf{"EventManager", authorization.EventManager}
-    authorization.EntityData.Leafs["commands"] = types.YLeaf{"Commands", authorization.Commands}
+    authorization.EntityData.Children = types.NewOrderedMap()
+    authorization.EntityData.Leafs = types.NewOrderedMap()
+    authorization.EntityData.Leafs.Append("exec", types.YLeaf{"Exec", authorization.Exec})
+    authorization.EntityData.Leafs.Append("event-manager", types.YLeaf{"EventManager", authorization.EventManager})
+    authorization.EntityData.Leafs.Append("commands", types.YLeaf{"Commands", authorization.Commands})
+
+    authorization.EntityData.YListKeys = []string {}
+
     return &(authorization.EntityData)
 }
 
@@ -370,9 +397,12 @@ func (authentication *Tty_TtyLines_TtyLine_Aaa_Authentication) GetEntityData() *
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authentication.EntityData.Children = make(map[string]types.YChild)
-    authentication.EntityData.Leafs = make(map[string]types.YLeaf)
-    authentication.EntityData.Leafs["login"] = types.YLeaf{"Login", authentication.Login}
+    authentication.EntityData.Children = types.NewOrderedMap()
+    authentication.EntityData.Leafs = types.NewOrderedMap()
+    authentication.EntityData.Leafs.Append("login", types.YLeaf{"Login", authentication.Login})
+
+    authentication.EntityData.YListKeys = []string {}
+
     return &(authentication.EntityData)
 }
 
@@ -399,10 +429,13 @@ func (accounting *Tty_TtyLines_TtyLine_Aaa_Accounting) GetEntityData() *types.Co
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accounting.EntityData.Children = make(map[string]types.YChild)
-    accounting.EntityData.Leafs = make(map[string]types.YLeaf)
-    accounting.EntityData.Leafs["exec"] = types.YLeaf{"Exec", accounting.Exec}
-    accounting.EntityData.Leafs["commands"] = types.YLeaf{"Commands", accounting.Commands}
+    accounting.EntityData.Children = types.NewOrderedMap()
+    accounting.EntityData.Leafs = types.NewOrderedMap()
+    accounting.EntityData.Leafs.Append("exec", types.YLeaf{"Exec", accounting.Exec})
+    accounting.EntityData.Leafs.Append("commands", types.YLeaf{"Commands", accounting.Commands})
+
+    accounting.EntityData.YListKeys = []string {}
+
     return &(accounting.EntityData)
 }
 
@@ -429,10 +462,13 @@ func (exec *Tty_TtyLines_TtyLine_Exec) GetEntityData() *types.CommonEntityData {
     exec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exec.EntityData.Children = make(map[string]types.YChild)
-    exec.EntityData.Children["timeout"] = types.YChild{"Timeout", &exec.Timeout}
-    exec.EntityData.Leafs = make(map[string]types.YLeaf)
-    exec.EntityData.Leafs["time-stamp"] = types.YLeaf{"TimeStamp", exec.TimeStamp}
+    exec.EntityData.Children = types.NewOrderedMap()
+    exec.EntityData.Children.Append("timeout", types.YChild{"Timeout", &exec.Timeout})
+    exec.EntityData.Leafs = types.NewOrderedMap()
+    exec.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", exec.TimeStamp})
+
+    exec.EntityData.YListKeys = []string {}
+
     return &(exec.EntityData)
 }
 
@@ -442,6 +478,7 @@ func (exec *Tty_TtyLines_TtyLine_Exec) GetEntityData() *types.CommonEntityData {
 type Tty_TtyLines_TtyLine_Exec_Timeout struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Timeout in minutes. The type is interface{} with range: 0..35791. This
     // attribute is mandatory. Units are minute.
@@ -462,10 +499,13 @@ func (timeout *Tty_TtyLines_TtyLine_Exec_Timeout) GetEntityData() *types.CommonE
     timeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timeout.EntityData.Children = make(map[string]types.YChild)
-    timeout.EntityData.Leafs = make(map[string]types.YLeaf)
-    timeout.EntityData.Leafs["minutes"] = types.YLeaf{"Minutes", timeout.Minutes}
-    timeout.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", timeout.Seconds}
+    timeout.EntityData.Children = types.NewOrderedMap()
+    timeout.EntityData.Leafs = types.NewOrderedMap()
+    timeout.EntityData.Leafs.Append("minutes", types.YLeaf{"Minutes", timeout.Minutes})
+    timeout.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", timeout.Seconds})
+
+    timeout.EntityData.YListKeys = []string {}
+
     return &(timeout.EntityData)
 }
 
@@ -477,8 +517,7 @@ type Tty_TtyLines_TtyLine_Connection struct {
 
     // Disconnect character's decimal equivalent value or Character . The type is
     // one of the following types: string with pattern:
-    // b'(\\p{IsBasicLatin}|\\p{IsLatin-1Supplement})*', or int with range:
-    // 0..255.
+    // (\p{IsBasicLatin}|\p{IsLatin-1Supplement})*, or int with range: 0..255.
     DisconnectCharacter interface{}
 
     // ACL to filter ingoing connections. The type is string.
@@ -497,9 +536,8 @@ type Tty_TtyLines_TtyLine_Connection struct {
     // Escape character or ASCII decimal equivalent value orspecial strings
     // NONE,DEFAULT,BREAK. The type is one of the following types: string with
     // pattern:
-    // b'(\\p{IsBasicLatin}|\\p{IsLatin-1Supplement})|(DEFAULT)|(BREAK)|(NONE)'
-    // The default value is 30., or int with range: 0..255 The default value is
-    // 30..
+    // (\p{IsBasicLatin}|\p{IsLatin-1Supplement})|(DEFAULT)|(BREAK)|(NONE) The
+    // default value is 30., or int with range: 0..255 The default value is 30..
     EscapeCharacter interface{}
 
     // The preferred protocol to use. The type is TtyTransportProtocol.
@@ -525,18 +563,21 @@ func (connection *Tty_TtyLines_TtyLine_Connection) GetEntityData() *types.Common
     connection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    connection.EntityData.Children = make(map[string]types.YChild)
-    connection.EntityData.Children["transport-input"] = types.YChild{"TransportInput", &connection.TransportInput}
-    connection.EntityData.Children["transport-output"] = types.YChild{"TransportOutput", &connection.TransportOutput}
-    connection.EntityData.Children["session-timeout"] = types.YChild{"SessionTimeout", &connection.SessionTimeout}
-    connection.EntityData.Leafs = make(map[string]types.YLeaf)
-    connection.EntityData.Leafs["disconnect-character"] = types.YLeaf{"DisconnectCharacter", connection.DisconnectCharacter}
-    connection.EntityData.Leafs["acl-in"] = types.YLeaf{"AclIn", connection.AclIn}
-    connection.EntityData.Leafs["acl-out"] = types.YLeaf{"AclOut", connection.AclOut}
-    connection.EntityData.Leafs["cli-white-space-completion"] = types.YLeaf{"CliWhiteSpaceCompletion", connection.CliWhiteSpaceCompletion}
-    connection.EntityData.Leafs["session-limit"] = types.YLeaf{"SessionLimit", connection.SessionLimit}
-    connection.EntityData.Leafs["escape-character"] = types.YLeaf{"EscapeCharacter", connection.EscapeCharacter}
-    connection.EntityData.Leafs["transport-preferred"] = types.YLeaf{"TransportPreferred", connection.TransportPreferred}
+    connection.EntityData.Children = types.NewOrderedMap()
+    connection.EntityData.Children.Append("transport-input", types.YChild{"TransportInput", &connection.TransportInput})
+    connection.EntityData.Children.Append("transport-output", types.YChild{"TransportOutput", &connection.TransportOutput})
+    connection.EntityData.Children.Append("session-timeout", types.YChild{"SessionTimeout", &connection.SessionTimeout})
+    connection.EntityData.Leafs = types.NewOrderedMap()
+    connection.EntityData.Leafs.Append("disconnect-character", types.YLeaf{"DisconnectCharacter", connection.DisconnectCharacter})
+    connection.EntityData.Leafs.Append("acl-in", types.YLeaf{"AclIn", connection.AclIn})
+    connection.EntityData.Leafs.Append("acl-out", types.YLeaf{"AclOut", connection.AclOut})
+    connection.EntityData.Leafs.Append("cli-white-space-completion", types.YLeaf{"CliWhiteSpaceCompletion", connection.CliWhiteSpaceCompletion})
+    connection.EntityData.Leafs.Append("session-limit", types.YLeaf{"SessionLimit", connection.SessionLimit})
+    connection.EntityData.Leafs.Append("escape-character", types.YLeaf{"EscapeCharacter", connection.EscapeCharacter})
+    connection.EntityData.Leafs.Append("transport-preferred", types.YLeaf{"TransportPreferred", connection.TransportPreferred})
+
+    connection.EntityData.YListKeys = []string {}
+
     return &(connection.EntityData)
 }
 
@@ -549,7 +590,7 @@ type Tty_TtyLines_TtyLine_Connection_TransportInput struct {
 
     // Choose transport protocols. The type is TtyTransportProtocolSelect. The
     // default value is all.
-    Select_ interface{}
+    Select interface{}
 
     // Transport protocol1. The type is TtyTransportProtocol.
     Protocol1 interface{}
@@ -571,12 +612,15 @@ func (transportInput *Tty_TtyLines_TtyLine_Connection_TransportInput) GetEntityD
     transportInput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transportInput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transportInput.EntityData.Children = make(map[string]types.YChild)
-    transportInput.EntityData.Leafs = make(map[string]types.YLeaf)
-    transportInput.EntityData.Leafs["select"] = types.YLeaf{"Select_", transportInput.Select_}
-    transportInput.EntityData.Leafs["protocol1"] = types.YLeaf{"Protocol1", transportInput.Protocol1}
-    transportInput.EntityData.Leafs["protocol2"] = types.YLeaf{"Protocol2", transportInput.Protocol2}
-    transportInput.EntityData.Leafs["none"] = types.YLeaf{"None", transportInput.None}
+    transportInput.EntityData.Children = types.NewOrderedMap()
+    transportInput.EntityData.Leafs = types.NewOrderedMap()
+    transportInput.EntityData.Leafs.Append("select", types.YLeaf{"Select", transportInput.Select})
+    transportInput.EntityData.Leafs.Append("protocol1", types.YLeaf{"Protocol1", transportInput.Protocol1})
+    transportInput.EntityData.Leafs.Append("protocol2", types.YLeaf{"Protocol2", transportInput.Protocol2})
+    transportInput.EntityData.Leafs.Append("none", types.YLeaf{"None", transportInput.None})
+
+    transportInput.EntityData.YListKeys = []string {}
+
     return &(transportInput.EntityData)
 }
 
@@ -586,10 +630,11 @@ func (transportInput *Tty_TtyLines_TtyLine_Connection_TransportInput) GetEntityD
 type Tty_TtyLines_TtyLine_Connection_TransportOutput struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Choose transport protocols. The type is TtyTransportProtocolSelect. This
     // attribute is mandatory.
-    Select_ interface{}
+    Select interface{}
 
     // Transport protocol1. The type is TtyTransportProtocol.
     Protocol1 interface{}
@@ -611,12 +656,15 @@ func (transportOutput *Tty_TtyLines_TtyLine_Connection_TransportOutput) GetEntit
     transportOutput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transportOutput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transportOutput.EntityData.Children = make(map[string]types.YChild)
-    transportOutput.EntityData.Leafs = make(map[string]types.YLeaf)
-    transportOutput.EntityData.Leafs["select"] = types.YLeaf{"Select_", transportOutput.Select_}
-    transportOutput.EntityData.Leafs["protocol1"] = types.YLeaf{"Protocol1", transportOutput.Protocol1}
-    transportOutput.EntityData.Leafs["protocol2"] = types.YLeaf{"Protocol2", transportOutput.Protocol2}
-    transportOutput.EntityData.Leafs["none"] = types.YLeaf{"None", transportOutput.None}
+    transportOutput.EntityData.Children = types.NewOrderedMap()
+    transportOutput.EntityData.Leafs = types.NewOrderedMap()
+    transportOutput.EntityData.Leafs.Append("select", types.YLeaf{"Select", transportOutput.Select})
+    transportOutput.EntityData.Leafs.Append("protocol1", types.YLeaf{"Protocol1", transportOutput.Protocol1})
+    transportOutput.EntityData.Leafs.Append("protocol2", types.YLeaf{"Protocol2", transportOutput.Protocol2})
+    transportOutput.EntityData.Leafs.Append("none", types.YLeaf{"None", transportOutput.None})
+
+    transportOutput.EntityData.YListKeys = []string {}
+
     return &(transportOutput.EntityData)
 }
 
@@ -627,6 +675,7 @@ func (transportOutput *Tty_TtyLines_TtyLine_Connection_TransportOutput) GetEntit
 type Tty_TtyLines_TtyLine_Connection_SessionTimeout struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Session timeout interval in minutes. The type is interface{} with range:
     // 0..35791. This attribute is mandatory.
@@ -647,10 +696,13 @@ func (sessionTimeout *Tty_TtyLines_TtyLine_Connection_SessionTimeout) GetEntityD
     sessionTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionTimeout.EntityData.Children = make(map[string]types.YChild)
-    sessionTimeout.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionTimeout.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", sessionTimeout.Timeout}
-    sessionTimeout.EntityData.Leafs["direction"] = types.YLeaf{"Direction", sessionTimeout.Direction}
+    sessionTimeout.EntityData.Children = types.NewOrderedMap()
+    sessionTimeout.EntityData.Leafs = types.NewOrderedMap()
+    sessionTimeout.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", sessionTimeout.Timeout})
+    sessionTimeout.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", sessionTimeout.Direction})
+
+    sessionTimeout.EntityData.YListKeys = []string {}
+
     return &(sessionTimeout.EntityData)
 }
 
@@ -674,9 +726,12 @@ func (execMode *Tty_TtyLines_TtyLine_ExecMode) GetEntityData() *types.CommonEnti
     execMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     execMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    execMode.EntityData.Children = make(map[string]types.YChild)
-    execMode.EntityData.Leafs = make(map[string]types.YLeaf)
-    execMode.EntityData.Leafs["pager"] = types.YLeaf{"Pager", execMode.Pager}
+    execMode.EntityData.Children = types.NewOrderedMap()
+    execMode.EntityData.Leafs = types.NewOrderedMap()
+    execMode.EntityData.Leafs.Append("pager", types.YLeaf{"Pager", execMode.Pager})
+
+    execMode.EntityData.YListKeys = []string {}
+
     return &(execMode.EntityData)
 }
 

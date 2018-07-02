@@ -1,3 +1,6 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin configuration.
 // This module contains definitions
@@ -5,6 +8,9 @@
 // debug_trace: Calvados debug trace.
 // 
 // Copyright (c) 2015-2017 by Cisco Systems, Inc.
+// All rights reserved.
+// 
+// Copyright (c) 2012-2017 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_debug_trace
 
@@ -42,9 +48,12 @@ func (config *Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Children["debug"] = types.YChild{"Debug", &config.Debug}
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Children.Append("debug", types.YChild{"Debug", &config.Debug})
+    config.EntityData.Leafs = types.NewOrderedMap()
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -54,7 +63,7 @@ type Config_Debug struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Config_Debug_Trace.
-    Trace []Config_Debug_Trace
+    Trace []*Config_Debug_Trace
 }
 
 func (debug *Config_Debug) GetEntityData() *types.CommonEntityData {
@@ -67,12 +76,15 @@ func (debug *Config_Debug) GetEntityData() *types.CommonEntityData {
     debug.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     debug.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    debug.EntityData.Children = make(map[string]types.YChild)
-    debug.EntityData.Children["trace"] = types.YChild{"Trace", nil}
+    debug.EntityData.Children = types.NewOrderedMap()
+    debug.EntityData.Children.Append("trace", types.YChild{"Trace", nil})
     for i := range debug.Trace {
-        debug.EntityData.Children[types.GetSegmentPath(&debug.Trace[i])] = types.YChild{"Trace", &debug.Trace[i]}
+        debug.EntityData.Children.Append(types.GetSegmentPath(debug.Trace[i]), types.YChild{"Trace", debug.Trace[i]})
     }
-    debug.EntityData.Leafs = make(map[string]types.YLeaf)
+    debug.EntityData.Leafs = types.NewOrderedMap()
+
+    debug.EntityData.YListKeys = []string {}
+
     return &(debug.EntityData)
 }
 
@@ -96,16 +108,19 @@ func (trace *Config_Debug_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.YangName = "trace"
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "debug"
-    trace.EntityData.SegmentPath = "trace" + "[connection_type='" + fmt.Sprintf("%v", trace.ConnectionType) + "']"
+    trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.ConnectionType, "connection_type")
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trace.EntityData.Children = make(map[string]types.YChild)
-    trace.EntityData.Leafs = make(map[string]types.YLeaf)
-    trace.EntityData.Leafs["connection_type"] = types.YLeaf{"ConnectionType", trace.ConnectionType}
-    trace.EntityData.Leafs["enable"] = types.YLeaf{"Enable", trace.Enable}
-    trace.EntityData.Leafs["disable"] = types.YLeaf{"Disable", trace.Disable}
+    trace.EntityData.Children = types.NewOrderedMap()
+    trace.EntityData.Leafs = types.NewOrderedMap()
+    trace.EntityData.Leafs.Append("connection_type", types.YLeaf{"ConnectionType", trace.ConnectionType})
+    trace.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", trace.Enable})
+    trace.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", trace.Disable})
+
+    trace.EntityData.YListKeys = []string {"ConnectionType"}
+
     return &(trace.EntityData)
 }
 

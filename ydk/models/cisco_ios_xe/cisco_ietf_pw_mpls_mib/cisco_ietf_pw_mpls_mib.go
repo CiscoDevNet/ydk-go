@@ -23,27 +23,27 @@ type CISCOIETFPWMPLSMIB struct {
     YFilter yfilter.YFilter
 
     
-    Cpwvcmplsobjects CISCOIETFPWMPLSMIB_Cpwvcmplsobjects
+    CpwVcMplsObjects CISCOIETFPWMPLSMIB_CpwVcMplsObjects
 
     // This table specifies information for VC to be carried over   MPLS PSN.
-    Cpwvcmplstable CISCOIETFPWMPLSMIB_Cpwvcmplstable
+    CpwVcMplsTable CISCOIETFPWMPLSMIB_CpwVcMplsTable
 
     // This table associates VCs using MPLS PSN with the outbound  MPLS tunnels
     // (i.e. toward the PSN) or the physical   interface in case of VC only.
-    Cpwvcmplsoutboundtable CISCOIETFPWMPLSMIB_Cpwvcmplsoutboundtable
+    CpwVcMplsOutboundTable CISCOIETFPWMPLSMIB_CpwVcMplsOutboundTable
 
     // This table associates VCs using MPLS PSN with the inbound  MPLS tunnels
     // (i.e. for packets coming from the PSN),   if such association is desired
     // (mainly for security   reasons).
-    Cpwvcmplsinboundtable CISCOIETFPWMPLSMIB_Cpwvcmplsinboundtable
+    CpwVcMplsInboundTable CISCOIETFPWMPLSMIB_CpwVcMplsInboundTable
 
     // This table maps an inbound/outbound Tunnel to a VC in non-  TE
     // applications.
-    Cpwvcmplsnontemappingtable CISCOIETFPWMPLSMIB_Cpwvcmplsnontemappingtable
+    CpwVcMplsNonTeMappingTable CISCOIETFPWMPLSMIB_CpwVcMplsNonTeMappingTable
 
     // This table maps an inbound/outbound Tunnel to a VC in   MPLS-TE
     // applications.
-    Cpwvcmplstemappingtable CISCOIETFPWMPLSMIB_Cpwvcmplstemappingtable
+    CpwVcMplsTeMappingTable CISCOIETFPWMPLSMIB_CpwVcMplsTeMappingTable
 }
 
 func (cISCOIETFPWMPLSMIB *CISCOIETFPWMPLSMIB) GetEntityData() *types.CommonEntityData {
@@ -56,19 +56,22 @@ func (cISCOIETFPWMPLSMIB *CISCOIETFPWMPLSMIB) GetEntityData() *types.CommonEntit
     cISCOIETFPWMPLSMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIETFPWMPLSMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOIETFPWMPLSMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOIETFPWMPLSMIB.EntityData.Children["cpwVcMplsObjects"] = types.YChild{"Cpwvcmplsobjects", &cISCOIETFPWMPLSMIB.Cpwvcmplsobjects}
-    cISCOIETFPWMPLSMIB.EntityData.Children["cpwVcMplsTable"] = types.YChild{"Cpwvcmplstable", &cISCOIETFPWMPLSMIB.Cpwvcmplstable}
-    cISCOIETFPWMPLSMIB.EntityData.Children["cpwVcMplsOutboundTable"] = types.YChild{"Cpwvcmplsoutboundtable", &cISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable}
-    cISCOIETFPWMPLSMIB.EntityData.Children["cpwVcMplsInboundTable"] = types.YChild{"Cpwvcmplsinboundtable", &cISCOIETFPWMPLSMIB.Cpwvcmplsinboundtable}
-    cISCOIETFPWMPLSMIB.EntityData.Children["cpwVcMplsNonTeMappingTable"] = types.YChild{"Cpwvcmplsnontemappingtable", &cISCOIETFPWMPLSMIB.Cpwvcmplsnontemappingtable}
-    cISCOIETFPWMPLSMIB.EntityData.Children["cpwVcMplsTeMappingTable"] = types.YChild{"Cpwvcmplstemappingtable", &cISCOIETFPWMPLSMIB.Cpwvcmplstemappingtable}
-    cISCOIETFPWMPLSMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOIETFPWMPLSMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOIETFPWMPLSMIB.EntityData.Children.Append("cpwVcMplsObjects", types.YChild{"CpwVcMplsObjects", &cISCOIETFPWMPLSMIB.CpwVcMplsObjects})
+    cISCOIETFPWMPLSMIB.EntityData.Children.Append("cpwVcMplsTable", types.YChild{"CpwVcMplsTable", &cISCOIETFPWMPLSMIB.CpwVcMplsTable})
+    cISCOIETFPWMPLSMIB.EntityData.Children.Append("cpwVcMplsOutboundTable", types.YChild{"CpwVcMplsOutboundTable", &cISCOIETFPWMPLSMIB.CpwVcMplsOutboundTable})
+    cISCOIETFPWMPLSMIB.EntityData.Children.Append("cpwVcMplsInboundTable", types.YChild{"CpwVcMplsInboundTable", &cISCOIETFPWMPLSMIB.CpwVcMplsInboundTable})
+    cISCOIETFPWMPLSMIB.EntityData.Children.Append("cpwVcMplsNonTeMappingTable", types.YChild{"CpwVcMplsNonTeMappingTable", &cISCOIETFPWMPLSMIB.CpwVcMplsNonTeMappingTable})
+    cISCOIETFPWMPLSMIB.EntityData.Children.Append("cpwVcMplsTeMappingTable", types.YChild{"CpwVcMplsTeMappingTable", &cISCOIETFPWMPLSMIB.CpwVcMplsTeMappingTable})
+    cISCOIETFPWMPLSMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOIETFPWMPLSMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOIETFPWMPLSMIB.EntityData)
 }
 
-// CISCOIETFPWMPLSMIB_Cpwvcmplsobjects
-type CISCOIETFPWMPLSMIB_Cpwvcmplsobjects struct {
+// CISCOIETFPWMPLSMIB_CpwVcMplsObjects
+type CISCOIETFPWMPLSMIB_CpwVcMplsObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -81,7 +84,7 @@ type CISCOIETFPWMPLSMIB_Cpwvcmplsobjects struct {
     // should modify the value to  the next unassigned index, however the agent
     // MUST  NOT assume such retrieval will be done for each   row created. The
     // type is interface{} with range: 0..4294967295.
-    Cpwvcmplsoutboundindexnext interface{}
+    CpwVcMplsOutboundIndexNext interface{}
 
     // This object contains an appropriate value to  be used for
     // cpwVcMplsInboundIndex when creating  entries in the cpwVcMplsInboundTable.
@@ -92,30 +95,33 @@ type CISCOIETFPWMPLSMIB_Cpwvcmplsobjects struct {
     // the next unassigned index, however the agent MUST  NOT assume such
     // retrieval will be done for each   row created. The type is interface{} with
     // range: 0..4294967295.
-    Cpwvcmplsinboundindexnext interface{}
+    CpwVcMplsInboundIndexNext interface{}
 }
 
-func (cpwvcmplsobjects *CISCOIETFPWMPLSMIB_Cpwvcmplsobjects) GetEntityData() *types.CommonEntityData {
-    cpwvcmplsobjects.EntityData.YFilter = cpwvcmplsobjects.YFilter
-    cpwvcmplsobjects.EntityData.YangName = "cpwVcMplsObjects"
-    cpwvcmplsobjects.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcmplsobjects.EntityData.ParentYangName = "CISCO-IETF-PW-MPLS-MIB"
-    cpwvcmplsobjects.EntityData.SegmentPath = "cpwVcMplsObjects"
-    cpwvcmplsobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcmplsobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcmplsobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcMplsObjects *CISCOIETFPWMPLSMIB_CpwVcMplsObjects) GetEntityData() *types.CommonEntityData {
+    cpwVcMplsObjects.EntityData.YFilter = cpwVcMplsObjects.YFilter
+    cpwVcMplsObjects.EntityData.YangName = "cpwVcMplsObjects"
+    cpwVcMplsObjects.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcMplsObjects.EntityData.ParentYangName = "CISCO-IETF-PW-MPLS-MIB"
+    cpwVcMplsObjects.EntityData.SegmentPath = "cpwVcMplsObjects"
+    cpwVcMplsObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcMplsObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcMplsObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcmplsobjects.EntityData.Children = make(map[string]types.YChild)
-    cpwvcmplsobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwvcmplsobjects.EntityData.Leafs["cpwVcMplsOutboundIndexNext"] = types.YLeaf{"Cpwvcmplsoutboundindexnext", cpwvcmplsobjects.Cpwvcmplsoutboundindexnext}
-    cpwvcmplsobjects.EntityData.Leafs["cpwVcMplsInboundIndexNext"] = types.YLeaf{"Cpwvcmplsinboundindexnext", cpwvcmplsobjects.Cpwvcmplsinboundindexnext}
-    return &(cpwvcmplsobjects.EntityData)
+    cpwVcMplsObjects.EntityData.Children = types.NewOrderedMap()
+    cpwVcMplsObjects.EntityData.Leafs = types.NewOrderedMap()
+    cpwVcMplsObjects.EntityData.Leafs.Append("cpwVcMplsOutboundIndexNext", types.YLeaf{"CpwVcMplsOutboundIndexNext", cpwVcMplsObjects.CpwVcMplsOutboundIndexNext})
+    cpwVcMplsObjects.EntityData.Leafs.Append("cpwVcMplsInboundIndexNext", types.YLeaf{"CpwVcMplsInboundIndexNext", cpwVcMplsObjects.CpwVcMplsInboundIndexNext})
+
+    cpwVcMplsObjects.EntityData.YListKeys = []string {}
+
+    return &(cpwVcMplsObjects.EntityData)
 }
 
-// CISCOIETFPWMPLSMIB_Cpwvcmplstable
+// CISCOIETFPWMPLSMIB_CpwVcMplsTable
 // This table specifies information for VC to be carried over  
 // MPLS PSN.
-type CISCOIETFPWMPLSMIB_Cpwvcmplstable struct {
+type CISCOIETFPWMPLSMIB_CpwVcMplsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -123,42 +129,45 @@ type CISCOIETFPWMPLSMIB_Cpwvcmplstable struct {
     // pseudo wire connection (VC). The row is created   automatically by the
     // local agent if the cpwVcPsnType is   MPLS. It is indexed by cpwVcIndex,
     // which uniquely   identifying a singular connection. . The type is slice of
-    // CISCOIETFPWMPLSMIB_Cpwvcmplstable_Cpwvcmplsentry.
-    Cpwvcmplsentry []CISCOIETFPWMPLSMIB_Cpwvcmplstable_Cpwvcmplsentry
+    // CISCOIETFPWMPLSMIB_CpwVcMplsTable_CpwVcMplsEntry.
+    CpwVcMplsEntry []*CISCOIETFPWMPLSMIB_CpwVcMplsTable_CpwVcMplsEntry
 }
 
-func (cpwvcmplstable *CISCOIETFPWMPLSMIB_Cpwvcmplstable) GetEntityData() *types.CommonEntityData {
-    cpwvcmplstable.EntityData.YFilter = cpwvcmplstable.YFilter
-    cpwvcmplstable.EntityData.YangName = "cpwVcMplsTable"
-    cpwvcmplstable.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcmplstable.EntityData.ParentYangName = "CISCO-IETF-PW-MPLS-MIB"
-    cpwvcmplstable.EntityData.SegmentPath = "cpwVcMplsTable"
-    cpwvcmplstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcmplstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcmplstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcMplsTable *CISCOIETFPWMPLSMIB_CpwVcMplsTable) GetEntityData() *types.CommonEntityData {
+    cpwVcMplsTable.EntityData.YFilter = cpwVcMplsTable.YFilter
+    cpwVcMplsTable.EntityData.YangName = "cpwVcMplsTable"
+    cpwVcMplsTable.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcMplsTable.EntityData.ParentYangName = "CISCO-IETF-PW-MPLS-MIB"
+    cpwVcMplsTable.EntityData.SegmentPath = "cpwVcMplsTable"
+    cpwVcMplsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcMplsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcMplsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcmplstable.EntityData.Children = make(map[string]types.YChild)
-    cpwvcmplstable.EntityData.Children["cpwVcMplsEntry"] = types.YChild{"Cpwvcmplsentry", nil}
-    for i := range cpwvcmplstable.Cpwvcmplsentry {
-        cpwvcmplstable.EntityData.Children[types.GetSegmentPath(&cpwvcmplstable.Cpwvcmplsentry[i])] = types.YChild{"Cpwvcmplsentry", &cpwvcmplstable.Cpwvcmplsentry[i]}
+    cpwVcMplsTable.EntityData.Children = types.NewOrderedMap()
+    cpwVcMplsTable.EntityData.Children.Append("cpwVcMplsEntry", types.YChild{"CpwVcMplsEntry", nil})
+    for i := range cpwVcMplsTable.CpwVcMplsEntry {
+        cpwVcMplsTable.EntityData.Children.Append(types.GetSegmentPath(cpwVcMplsTable.CpwVcMplsEntry[i]), types.YChild{"CpwVcMplsEntry", cpwVcMplsTable.CpwVcMplsEntry[i]})
     }
-    cpwvcmplstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpwvcmplstable.EntityData)
+    cpwVcMplsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpwVcMplsTable.EntityData.YListKeys = []string {}
+
+    return &(cpwVcMplsTable.EntityData)
 }
 
-// CISCOIETFPWMPLSMIB_Cpwvcmplstable_Cpwvcmplsentry
+// CISCOIETFPWMPLSMIB_CpwVcMplsTable_CpwVcMplsEntry
 // A row in this table represents parameters specific to MPLS  
 // PSN for a pseudo wire connection (VC). The row is created  
 // automatically by the local agent if the cpwVcPsnType is  
 // MPLS. It is indexed by cpwVcIndex, which uniquely  
 // identifying a singular connection. 
-type CISCOIETFPWMPLSMIB_Cpwvcmplstable_Cpwvcmplsentry struct {
+type CISCOIETFPWMPLSMIB_CpwVcMplsTable_CpwVcMplsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
-    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcindex
-    Cpwvcindex interface{}
+    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
+    CpwVcIndex interface{}
 
     // Set by the operator to indicate the outer tunnel types, if  exists. mplsTe
     // is used if the outer tunnel was set-up by   MPLS-TE, and mplsNonTe is used
@@ -166,7 +175,7 @@ type CISCOIETFPWMPLSMIB_Cpwvcmplstable_Cpwvcmplsentry struct {
     // mplsNonTe   may exist in case of outer tunnel protection.  vcOnly is used
     // if there is no outer tunnel label. vcOnly   cannot be combined with
     // mplsNonTe or mplsTe. The type is map[string]bool.
-    Cpwvcmplsmplstype interface{}
+    CpwVcMplsMplsType interface{}
 
     // Set by the operator to indicate the way the VC shim label  EXP bits are to
     // be determined. The value of outerTunnel(1)  is used where there is an outer
@@ -177,78 +186,81 @@ type CISCOIETFPWMPLSMIB_Cpwvcmplstable_Cpwvcmplsentry struct {
     // cpwVcMplsExpBits, and   serviceDependant(3) indicate that the EXP bits are
     // setup   based on a rule specified in the emulated service specific  
     // tables, for example when the EXP bits are a function of   802.1p marking
-    // for Ethernet emulated service. The type is Cpwvcmplsexpbitsmode.
-    Cpwvcmplsexpbitsmode interface{}
+    // for Ethernet emulated service. The type is CpwVcMplsExpBitsMode.
+    CpwVcMplsExpBitsMode interface{}
 
     // Set by the operator to indicate the MPLS EXP bits to be   used on the VC
     // shim label if cpwVcMplsExpBitsMode is    specifiedValue(2), zero otherwise.
     // The type is interface{} with range: 0..7.
-    Cpwvcmplsexpbits interface{}
+    CpwVcMplsExpBits interface{}
 
     // Set by the operator to indicate the VC TTL bits to be used  on the VC shim
     // label. The type is interface{} with range: 0..255.
-    Cpwvcmplsttl interface{}
+    CpwVcMplsTtl interface{}
 
     // The local LDP identifier of the LDP entity creating  this VC in the local
     // node. As the VC labels are always  set from the per platform label space,
     // the last two octets   in the LDP ID MUST be always both zeros. The type is
     // string.
-    Cpwvcmplslocalldpid interface{}
+    CpwVcMplsLocalLdpID interface{}
 
     // The local LDP Entity index of the LDP entity to be used   for this VC on
     // the local node. Should be set to all zeros   if not used. The type is
     // interface{} with range: 0..4294967295.
-    Cpwvcmplslocalldpentityid interface{}
+    CpwVcMplsLocalLdpEntityID interface{}
 
     // The peer LDP identifier as identified from the LDP   session. Should be
     // zero if not relevant or not known yet. The type is string.
-    Cpwvcmplspeerldpid interface{}
+    CpwVcMplsPeerLdpID interface{}
 
     // This variable indicates the storage type for this row. The type is
     // StorageType.
-    Cpwvcmplsstoragetype interface{}
+    CpwVcMplsStorageType interface{}
 }
 
-func (cpwvcmplsentry *CISCOIETFPWMPLSMIB_Cpwvcmplstable_Cpwvcmplsentry) GetEntityData() *types.CommonEntityData {
-    cpwvcmplsentry.EntityData.YFilter = cpwvcmplsentry.YFilter
-    cpwvcmplsentry.EntityData.YangName = "cpwVcMplsEntry"
-    cpwvcmplsentry.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcmplsentry.EntityData.ParentYangName = "cpwVcMplsTable"
-    cpwvcmplsentry.EntityData.SegmentPath = "cpwVcMplsEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwvcmplsentry.Cpwvcindex) + "']"
-    cpwvcmplsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcmplsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcmplsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcMplsEntry *CISCOIETFPWMPLSMIB_CpwVcMplsTable_CpwVcMplsEntry) GetEntityData() *types.CommonEntityData {
+    cpwVcMplsEntry.EntityData.YFilter = cpwVcMplsEntry.YFilter
+    cpwVcMplsEntry.EntityData.YangName = "cpwVcMplsEntry"
+    cpwVcMplsEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcMplsEntry.EntityData.ParentYangName = "cpwVcMplsTable"
+    cpwVcMplsEntry.EntityData.SegmentPath = "cpwVcMplsEntry" + types.AddKeyToken(cpwVcMplsEntry.CpwVcIndex, "cpwVcIndex")
+    cpwVcMplsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcMplsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcMplsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcmplsentry.EntityData.Children = make(map[string]types.YChild)
-    cpwvcmplsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwvcmplsentry.EntityData.Leafs["cpwVcIndex"] = types.YLeaf{"Cpwvcindex", cpwvcmplsentry.Cpwvcindex}
-    cpwvcmplsentry.EntityData.Leafs["cpwVcMplsMplsType"] = types.YLeaf{"Cpwvcmplsmplstype", cpwvcmplsentry.Cpwvcmplsmplstype}
-    cpwvcmplsentry.EntityData.Leafs["cpwVcMplsExpBitsMode"] = types.YLeaf{"Cpwvcmplsexpbitsmode", cpwvcmplsentry.Cpwvcmplsexpbitsmode}
-    cpwvcmplsentry.EntityData.Leafs["cpwVcMplsExpBits"] = types.YLeaf{"Cpwvcmplsexpbits", cpwvcmplsentry.Cpwvcmplsexpbits}
-    cpwvcmplsentry.EntityData.Leafs["cpwVcMplsTtl"] = types.YLeaf{"Cpwvcmplsttl", cpwvcmplsentry.Cpwvcmplsttl}
-    cpwvcmplsentry.EntityData.Leafs["cpwVcMplsLocalLdpID"] = types.YLeaf{"Cpwvcmplslocalldpid", cpwvcmplsentry.Cpwvcmplslocalldpid}
-    cpwvcmplsentry.EntityData.Leafs["cpwVcMplsLocalLdpEntityID"] = types.YLeaf{"Cpwvcmplslocalldpentityid", cpwvcmplsentry.Cpwvcmplslocalldpentityid}
-    cpwvcmplsentry.EntityData.Leafs["cpwVcMplsPeerLdpID"] = types.YLeaf{"Cpwvcmplspeerldpid", cpwvcmplsentry.Cpwvcmplspeerldpid}
-    cpwvcmplsentry.EntityData.Leafs["cpwVcMplsStorageType"] = types.YLeaf{"Cpwvcmplsstoragetype", cpwvcmplsentry.Cpwvcmplsstoragetype}
-    return &(cpwvcmplsentry.EntityData)
+    cpwVcMplsEntry.EntityData.Children = types.NewOrderedMap()
+    cpwVcMplsEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpwVcMplsEntry.EntityData.Leafs.Append("cpwVcIndex", types.YLeaf{"CpwVcIndex", cpwVcMplsEntry.CpwVcIndex})
+    cpwVcMplsEntry.EntityData.Leafs.Append("cpwVcMplsMplsType", types.YLeaf{"CpwVcMplsMplsType", cpwVcMplsEntry.CpwVcMplsMplsType})
+    cpwVcMplsEntry.EntityData.Leafs.Append("cpwVcMplsExpBitsMode", types.YLeaf{"CpwVcMplsExpBitsMode", cpwVcMplsEntry.CpwVcMplsExpBitsMode})
+    cpwVcMplsEntry.EntityData.Leafs.Append("cpwVcMplsExpBits", types.YLeaf{"CpwVcMplsExpBits", cpwVcMplsEntry.CpwVcMplsExpBits})
+    cpwVcMplsEntry.EntityData.Leafs.Append("cpwVcMplsTtl", types.YLeaf{"CpwVcMplsTtl", cpwVcMplsEntry.CpwVcMplsTtl})
+    cpwVcMplsEntry.EntityData.Leafs.Append("cpwVcMplsLocalLdpID", types.YLeaf{"CpwVcMplsLocalLdpID", cpwVcMplsEntry.CpwVcMplsLocalLdpID})
+    cpwVcMplsEntry.EntityData.Leafs.Append("cpwVcMplsLocalLdpEntityID", types.YLeaf{"CpwVcMplsLocalLdpEntityID", cpwVcMplsEntry.CpwVcMplsLocalLdpEntityID})
+    cpwVcMplsEntry.EntityData.Leafs.Append("cpwVcMplsPeerLdpID", types.YLeaf{"CpwVcMplsPeerLdpID", cpwVcMplsEntry.CpwVcMplsPeerLdpID})
+    cpwVcMplsEntry.EntityData.Leafs.Append("cpwVcMplsStorageType", types.YLeaf{"CpwVcMplsStorageType", cpwVcMplsEntry.CpwVcMplsStorageType})
+
+    cpwVcMplsEntry.EntityData.YListKeys = []string {"CpwVcIndex"}
+
+    return &(cpwVcMplsEntry.EntityData)
 }
 
-// CISCOIETFPWMPLSMIB_Cpwvcmplstable_Cpwvcmplsentry_Cpwvcmplsexpbitsmode represents 802.1p marking for Ethernet emulated service.
-type CISCOIETFPWMPLSMIB_Cpwvcmplstable_Cpwvcmplsentry_Cpwvcmplsexpbitsmode string
+// CISCOIETFPWMPLSMIB_CpwVcMplsTable_CpwVcMplsEntry_CpwVcMplsExpBitsMode represents 802.1p marking for Ethernet emulated service.
+type CISCOIETFPWMPLSMIB_CpwVcMplsTable_CpwVcMplsEntry_CpwVcMplsExpBitsMode string
 
 const (
-    CISCOIETFPWMPLSMIB_Cpwvcmplstable_Cpwvcmplsentry_Cpwvcmplsexpbitsmode_outerTunnel CISCOIETFPWMPLSMIB_Cpwvcmplstable_Cpwvcmplsentry_Cpwvcmplsexpbitsmode = "outerTunnel"
+    CISCOIETFPWMPLSMIB_CpwVcMplsTable_CpwVcMplsEntry_CpwVcMplsExpBitsMode_outerTunnel CISCOIETFPWMPLSMIB_CpwVcMplsTable_CpwVcMplsEntry_CpwVcMplsExpBitsMode = "outerTunnel"
 
-    CISCOIETFPWMPLSMIB_Cpwvcmplstable_Cpwvcmplsentry_Cpwvcmplsexpbitsmode_specifiedValue CISCOIETFPWMPLSMIB_Cpwvcmplstable_Cpwvcmplsentry_Cpwvcmplsexpbitsmode = "specifiedValue"
+    CISCOIETFPWMPLSMIB_CpwVcMplsTable_CpwVcMplsEntry_CpwVcMplsExpBitsMode_specifiedValue CISCOIETFPWMPLSMIB_CpwVcMplsTable_CpwVcMplsEntry_CpwVcMplsExpBitsMode = "specifiedValue"
 
-    CISCOIETFPWMPLSMIB_Cpwvcmplstable_Cpwvcmplsentry_Cpwvcmplsexpbitsmode_serviceDependant CISCOIETFPWMPLSMIB_Cpwvcmplstable_Cpwvcmplsentry_Cpwvcmplsexpbitsmode = "serviceDependant"
+    CISCOIETFPWMPLSMIB_CpwVcMplsTable_CpwVcMplsEntry_CpwVcMplsExpBitsMode_serviceDependant CISCOIETFPWMPLSMIB_CpwVcMplsTable_CpwVcMplsEntry_CpwVcMplsExpBitsMode = "serviceDependant"
 )
 
-// CISCOIETFPWMPLSMIB_Cpwvcmplsoutboundtable
+// CISCOIETFPWMPLSMIB_CpwVcMplsOutboundTable
 // This table associates VCs using MPLS PSN with the outbound 
 // MPLS tunnels (i.e. toward the PSN) or the physical  
 // interface in case of VC only.
-type CISCOIETFPWMPLSMIB_Cpwvcmplsoutboundtable struct {
+type CISCOIETFPWMPLSMIB_CpwVcMplsOutboundTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -270,30 +282,33 @@ type CISCOIETFPWMPLSMIB_Cpwvcmplsoutboundtable struct {
     // multiple rows in this tables if protection   is available at the outer
     // tunnel level, each row may be of  different type except for VC only, on
     // which only rows with  ifIndex of the port are allowed. . The type is slice
-    // of CISCOIETFPWMPLSMIB_Cpwvcmplsoutboundtable_Cpwvcmplsoutboundentry.
-    Cpwvcmplsoutboundentry []CISCOIETFPWMPLSMIB_Cpwvcmplsoutboundtable_Cpwvcmplsoutboundentry
+    // of CISCOIETFPWMPLSMIB_CpwVcMplsOutboundTable_CpwVcMplsOutboundEntry.
+    CpwVcMplsOutboundEntry []*CISCOIETFPWMPLSMIB_CpwVcMplsOutboundTable_CpwVcMplsOutboundEntry
 }
 
-func (cpwvcmplsoutboundtable *CISCOIETFPWMPLSMIB_Cpwvcmplsoutboundtable) GetEntityData() *types.CommonEntityData {
-    cpwvcmplsoutboundtable.EntityData.YFilter = cpwvcmplsoutboundtable.YFilter
-    cpwvcmplsoutboundtable.EntityData.YangName = "cpwVcMplsOutboundTable"
-    cpwvcmplsoutboundtable.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcmplsoutboundtable.EntityData.ParentYangName = "CISCO-IETF-PW-MPLS-MIB"
-    cpwvcmplsoutboundtable.EntityData.SegmentPath = "cpwVcMplsOutboundTable"
-    cpwvcmplsoutboundtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcmplsoutboundtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcmplsoutboundtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcMplsOutboundTable *CISCOIETFPWMPLSMIB_CpwVcMplsOutboundTable) GetEntityData() *types.CommonEntityData {
+    cpwVcMplsOutboundTable.EntityData.YFilter = cpwVcMplsOutboundTable.YFilter
+    cpwVcMplsOutboundTable.EntityData.YangName = "cpwVcMplsOutboundTable"
+    cpwVcMplsOutboundTable.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcMplsOutboundTable.EntityData.ParentYangName = "CISCO-IETF-PW-MPLS-MIB"
+    cpwVcMplsOutboundTable.EntityData.SegmentPath = "cpwVcMplsOutboundTable"
+    cpwVcMplsOutboundTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcMplsOutboundTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcMplsOutboundTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcmplsoutboundtable.EntityData.Children = make(map[string]types.YChild)
-    cpwvcmplsoutboundtable.EntityData.Children["cpwVcMplsOutboundEntry"] = types.YChild{"Cpwvcmplsoutboundentry", nil}
-    for i := range cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry {
-        cpwvcmplsoutboundtable.EntityData.Children[types.GetSegmentPath(&cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry[i])] = types.YChild{"Cpwvcmplsoutboundentry", &cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry[i]}
+    cpwVcMplsOutboundTable.EntityData.Children = types.NewOrderedMap()
+    cpwVcMplsOutboundTable.EntityData.Children.Append("cpwVcMplsOutboundEntry", types.YChild{"CpwVcMplsOutboundEntry", nil})
+    for i := range cpwVcMplsOutboundTable.CpwVcMplsOutboundEntry {
+        cpwVcMplsOutboundTable.EntityData.Children.Append(types.GetSegmentPath(cpwVcMplsOutboundTable.CpwVcMplsOutboundEntry[i]), types.YChild{"CpwVcMplsOutboundEntry", cpwVcMplsOutboundTable.CpwVcMplsOutboundEntry[i]})
     }
-    cpwvcmplsoutboundtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpwvcmplsoutboundtable.EntityData)
+    cpwVcMplsOutboundTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpwVcMplsOutboundTable.EntityData.YListKeys = []string {}
+
+    return &(cpwVcMplsOutboundTable.EntityData)
 }
 
-// CISCOIETFPWMPLSMIB_Cpwvcmplsoutboundtable_Cpwvcmplsoutboundentry
+// CISCOIETFPWMPLSMIB_CpwVcMplsOutboundTable_CpwVcMplsOutboundEntry
 // A row in this table represents a link between PW VC (that 
 // require MPLS tunnels) and MPLS tunnel toward the PSN. 
 // In the case of VC only, it associate the VC with the  
@@ -321,88 +336,91 @@ func (cpwvcmplsoutboundtable *CISCOIETFPWMPLSMIB_Cpwvcmplsoutboundtable) GetEnti
 // is available at the outer tunnel level, each row may be of 
 // different type except for VC only, on which only rows with 
 // ifIndex of the port are allowed. 
-type CISCOIETFPWMPLSMIB_Cpwvcmplsoutboundtable_Cpwvcmplsoutboundentry struct {
+type CISCOIETFPWMPLSMIB_CpwVcMplsOutboundTable_CpwVcMplsOutboundEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
-    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcindex
-    Cpwvcindex interface{}
+    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
+    CpwVcIndex interface{}
 
     // This attribute is a key. Arbitrary index for enabling multiple rows per VC
     // in  this table. Next available free index can be retrieved   using
     // cpwVcMplsOutboundIndexNext. . The type is interface{} with range:
     // 0..4294967295.
-    Cpwvcmplsoutboundindex interface{}
+    CpwVcMplsOutboundIndex interface{}
 
     // This object will be set by the operator. If the outer  label is defined in
     // the MPL-LSR-MIB, i.e. set by LDP  or manually, this object points to the XC
     // index   of the outer tunnel. Otherwise, it is set to zero. The type is
     // interface{} with range: 0..4294967295.
-    Cpwvcmplsoutboundlsrxcindex interface{}
+    CpwVcMplsOutboundLsrXcIndex interface{}
 
     // Part of set of indexes for outbound tunnel in the case of   MPLS-TE outer
     // tunnel, otherwise set to zero. The type is interface{} with range:
     // 0..65535.
-    Cpwvcmplsoutboundtunnelindex interface{}
+    CpwVcMplsOutboundTunnelIndex interface{}
 
     // Part of set of indexes for outbound tunnel in the case of   MPLS-TE outer
     // tunnel, otherwise set to zero. The type is interface{} with range:
     // 0..4294967295.
-    Cpwvcmplsoutboundtunnelinstance interface{}
+    CpwVcMplsOutboundTunnelInstance interface{}
 
     // Part of set of indexes for outbound tunnel in the case of   MPLS-TE outer
     // tunnel, otherwise set to zero. The type is string with length: 4.
-    Cpwvcmplsoutboundtunnellcllsr interface{}
+    CpwVcMplsOutboundTunnelLclLSR interface{}
 
     // Part of set of indexes for outbound tunnel in the case of   MPLS-TE outer
     // tunnel, otherwise set to zero. The type is string with length: 4.
-    Cpwvcmplsoutboundtunnelpeerlsr interface{}
+    CpwVcMplsOutboundTunnelPeerLSR interface{}
 
     // In case of VC only (no outer tunnel), this object holds  the ifIndex of the
     // outbound port, otherwise set to zero. The type is interface{} with range:
     // 0..2147483647.
-    Cpwvcmplsoutboundifindex interface{}
+    CpwVcMplsOutboundIfIndex interface{}
 
     // For creating, modifying, and deleting this row. The type is RowStatus.
-    Cpwvcmplsoutboundrowstatus interface{}
+    CpwVcMplsOutboundRowStatus interface{}
 
     // This variable indicates the storage type for this object. The type is
     // StorageType.
-    Cpwvcmplsoutboundstoragetype interface{}
+    CpwVcMplsOutboundStorageType interface{}
 }
 
-func (cpwvcmplsoutboundentry *CISCOIETFPWMPLSMIB_Cpwvcmplsoutboundtable_Cpwvcmplsoutboundentry) GetEntityData() *types.CommonEntityData {
-    cpwvcmplsoutboundentry.EntityData.YFilter = cpwvcmplsoutboundentry.YFilter
-    cpwvcmplsoutboundentry.EntityData.YangName = "cpwVcMplsOutboundEntry"
-    cpwvcmplsoutboundentry.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcmplsoutboundentry.EntityData.ParentYangName = "cpwVcMplsOutboundTable"
-    cpwvcmplsoutboundentry.EntityData.SegmentPath = "cpwVcMplsOutboundEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwvcmplsoutboundentry.Cpwvcindex) + "']" + "[cpwVcMplsOutboundIndex='" + fmt.Sprintf("%v", cpwvcmplsoutboundentry.Cpwvcmplsoutboundindex) + "']"
-    cpwvcmplsoutboundentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcmplsoutboundentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcmplsoutboundentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcMplsOutboundEntry *CISCOIETFPWMPLSMIB_CpwVcMplsOutboundTable_CpwVcMplsOutboundEntry) GetEntityData() *types.CommonEntityData {
+    cpwVcMplsOutboundEntry.EntityData.YFilter = cpwVcMplsOutboundEntry.YFilter
+    cpwVcMplsOutboundEntry.EntityData.YangName = "cpwVcMplsOutboundEntry"
+    cpwVcMplsOutboundEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcMplsOutboundEntry.EntityData.ParentYangName = "cpwVcMplsOutboundTable"
+    cpwVcMplsOutboundEntry.EntityData.SegmentPath = "cpwVcMplsOutboundEntry" + types.AddKeyToken(cpwVcMplsOutboundEntry.CpwVcIndex, "cpwVcIndex") + types.AddKeyToken(cpwVcMplsOutboundEntry.CpwVcMplsOutboundIndex, "cpwVcMplsOutboundIndex")
+    cpwVcMplsOutboundEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcMplsOutboundEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcMplsOutboundEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcmplsoutboundentry.EntityData.Children = make(map[string]types.YChild)
-    cpwvcmplsoutboundentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwvcmplsoutboundentry.EntityData.Leafs["cpwVcIndex"] = types.YLeaf{"Cpwvcindex", cpwvcmplsoutboundentry.Cpwvcindex}
-    cpwvcmplsoutboundentry.EntityData.Leafs["cpwVcMplsOutboundIndex"] = types.YLeaf{"Cpwvcmplsoutboundindex", cpwvcmplsoutboundentry.Cpwvcmplsoutboundindex}
-    cpwvcmplsoutboundentry.EntityData.Leafs["cpwVcMplsOutboundLsrXcIndex"] = types.YLeaf{"Cpwvcmplsoutboundlsrxcindex", cpwvcmplsoutboundentry.Cpwvcmplsoutboundlsrxcindex}
-    cpwvcmplsoutboundentry.EntityData.Leafs["cpwVcMplsOutboundTunnelIndex"] = types.YLeaf{"Cpwvcmplsoutboundtunnelindex", cpwvcmplsoutboundentry.Cpwvcmplsoutboundtunnelindex}
-    cpwvcmplsoutboundentry.EntityData.Leafs["cpwVcMplsOutboundTunnelInstance"] = types.YLeaf{"Cpwvcmplsoutboundtunnelinstance", cpwvcmplsoutboundentry.Cpwvcmplsoutboundtunnelinstance}
-    cpwvcmplsoutboundentry.EntityData.Leafs["cpwVcMplsOutboundTunnelLclLSR"] = types.YLeaf{"Cpwvcmplsoutboundtunnellcllsr", cpwvcmplsoutboundentry.Cpwvcmplsoutboundtunnellcllsr}
-    cpwvcmplsoutboundentry.EntityData.Leafs["cpwVcMplsOutboundTunnelPeerLSR"] = types.YLeaf{"Cpwvcmplsoutboundtunnelpeerlsr", cpwvcmplsoutboundentry.Cpwvcmplsoutboundtunnelpeerlsr}
-    cpwvcmplsoutboundentry.EntityData.Leafs["cpwVcMplsOutboundIfIndex"] = types.YLeaf{"Cpwvcmplsoutboundifindex", cpwvcmplsoutboundentry.Cpwvcmplsoutboundifindex}
-    cpwvcmplsoutboundentry.EntityData.Leafs["cpwVcMplsOutboundRowStatus"] = types.YLeaf{"Cpwvcmplsoutboundrowstatus", cpwvcmplsoutboundentry.Cpwvcmplsoutboundrowstatus}
-    cpwvcmplsoutboundentry.EntityData.Leafs["cpwVcMplsOutboundStorageType"] = types.YLeaf{"Cpwvcmplsoutboundstoragetype", cpwvcmplsoutboundentry.Cpwvcmplsoutboundstoragetype}
-    return &(cpwvcmplsoutboundentry.EntityData)
+    cpwVcMplsOutboundEntry.EntityData.Children = types.NewOrderedMap()
+    cpwVcMplsOutboundEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpwVcMplsOutboundEntry.EntityData.Leafs.Append("cpwVcIndex", types.YLeaf{"CpwVcIndex", cpwVcMplsOutboundEntry.CpwVcIndex})
+    cpwVcMplsOutboundEntry.EntityData.Leafs.Append("cpwVcMplsOutboundIndex", types.YLeaf{"CpwVcMplsOutboundIndex", cpwVcMplsOutboundEntry.CpwVcMplsOutboundIndex})
+    cpwVcMplsOutboundEntry.EntityData.Leafs.Append("cpwVcMplsOutboundLsrXcIndex", types.YLeaf{"CpwVcMplsOutboundLsrXcIndex", cpwVcMplsOutboundEntry.CpwVcMplsOutboundLsrXcIndex})
+    cpwVcMplsOutboundEntry.EntityData.Leafs.Append("cpwVcMplsOutboundTunnelIndex", types.YLeaf{"CpwVcMplsOutboundTunnelIndex", cpwVcMplsOutboundEntry.CpwVcMplsOutboundTunnelIndex})
+    cpwVcMplsOutboundEntry.EntityData.Leafs.Append("cpwVcMplsOutboundTunnelInstance", types.YLeaf{"CpwVcMplsOutboundTunnelInstance", cpwVcMplsOutboundEntry.CpwVcMplsOutboundTunnelInstance})
+    cpwVcMplsOutboundEntry.EntityData.Leafs.Append("cpwVcMplsOutboundTunnelLclLSR", types.YLeaf{"CpwVcMplsOutboundTunnelLclLSR", cpwVcMplsOutboundEntry.CpwVcMplsOutboundTunnelLclLSR})
+    cpwVcMplsOutboundEntry.EntityData.Leafs.Append("cpwVcMplsOutboundTunnelPeerLSR", types.YLeaf{"CpwVcMplsOutboundTunnelPeerLSR", cpwVcMplsOutboundEntry.CpwVcMplsOutboundTunnelPeerLSR})
+    cpwVcMplsOutboundEntry.EntityData.Leafs.Append("cpwVcMplsOutboundIfIndex", types.YLeaf{"CpwVcMplsOutboundIfIndex", cpwVcMplsOutboundEntry.CpwVcMplsOutboundIfIndex})
+    cpwVcMplsOutboundEntry.EntityData.Leafs.Append("cpwVcMplsOutboundRowStatus", types.YLeaf{"CpwVcMplsOutboundRowStatus", cpwVcMplsOutboundEntry.CpwVcMplsOutboundRowStatus})
+    cpwVcMplsOutboundEntry.EntityData.Leafs.Append("cpwVcMplsOutboundStorageType", types.YLeaf{"CpwVcMplsOutboundStorageType", cpwVcMplsOutboundEntry.CpwVcMplsOutboundStorageType})
+
+    cpwVcMplsOutboundEntry.EntityData.YListKeys = []string {"CpwVcIndex", "CpwVcMplsOutboundIndex"}
+
+    return &(cpwVcMplsOutboundEntry.EntityData)
 }
 
-// CISCOIETFPWMPLSMIB_Cpwvcmplsinboundtable
+// CISCOIETFPWMPLSMIB_CpwVcMplsInboundTable
 // This table associates VCs using MPLS PSN with the inbound 
 // MPLS tunnels (i.e. for packets coming from the PSN),  
 // if such association is desired (mainly for security  
 // reasons).
-type CISCOIETFPWMPLSMIB_Cpwvcmplsinboundtable struct {
+type CISCOIETFPWMPLSMIB_CpwVcMplsInboundTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -425,30 +443,33 @@ type CISCOIETFPWMPLSMIB_Cpwvcmplsinboundtable struct {
     // tables if protection   is available at the outer tunnel level, each row may
     // be of  different type except for VC only, on which only rows with  ifIndex
     // of the port are allowed. . The type is slice of
-    // CISCOIETFPWMPLSMIB_Cpwvcmplsinboundtable_Cpwvcmplsinboundentry.
-    Cpwvcmplsinboundentry []CISCOIETFPWMPLSMIB_Cpwvcmplsinboundtable_Cpwvcmplsinboundentry
+    // CISCOIETFPWMPLSMIB_CpwVcMplsInboundTable_CpwVcMplsInboundEntry.
+    CpwVcMplsInboundEntry []*CISCOIETFPWMPLSMIB_CpwVcMplsInboundTable_CpwVcMplsInboundEntry
 }
 
-func (cpwvcmplsinboundtable *CISCOIETFPWMPLSMIB_Cpwvcmplsinboundtable) GetEntityData() *types.CommonEntityData {
-    cpwvcmplsinboundtable.EntityData.YFilter = cpwvcmplsinboundtable.YFilter
-    cpwvcmplsinboundtable.EntityData.YangName = "cpwVcMplsInboundTable"
-    cpwvcmplsinboundtable.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcmplsinboundtable.EntityData.ParentYangName = "CISCO-IETF-PW-MPLS-MIB"
-    cpwvcmplsinboundtable.EntityData.SegmentPath = "cpwVcMplsInboundTable"
-    cpwvcmplsinboundtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcmplsinboundtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcmplsinboundtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcMplsInboundTable *CISCOIETFPWMPLSMIB_CpwVcMplsInboundTable) GetEntityData() *types.CommonEntityData {
+    cpwVcMplsInboundTable.EntityData.YFilter = cpwVcMplsInboundTable.YFilter
+    cpwVcMplsInboundTable.EntityData.YangName = "cpwVcMplsInboundTable"
+    cpwVcMplsInboundTable.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcMplsInboundTable.EntityData.ParentYangName = "CISCO-IETF-PW-MPLS-MIB"
+    cpwVcMplsInboundTable.EntityData.SegmentPath = "cpwVcMplsInboundTable"
+    cpwVcMplsInboundTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcMplsInboundTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcMplsInboundTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcmplsinboundtable.EntityData.Children = make(map[string]types.YChild)
-    cpwvcmplsinboundtable.EntityData.Children["cpwVcMplsInboundEntry"] = types.YChild{"Cpwvcmplsinboundentry", nil}
-    for i := range cpwvcmplsinboundtable.Cpwvcmplsinboundentry {
-        cpwvcmplsinboundtable.EntityData.Children[types.GetSegmentPath(&cpwvcmplsinboundtable.Cpwvcmplsinboundentry[i])] = types.YChild{"Cpwvcmplsinboundentry", &cpwvcmplsinboundtable.Cpwvcmplsinboundentry[i]}
+    cpwVcMplsInboundTable.EntityData.Children = types.NewOrderedMap()
+    cpwVcMplsInboundTable.EntityData.Children.Append("cpwVcMplsInboundEntry", types.YChild{"CpwVcMplsInboundEntry", nil})
+    for i := range cpwVcMplsInboundTable.CpwVcMplsInboundEntry {
+        cpwVcMplsInboundTable.EntityData.Children.Append(types.GetSegmentPath(cpwVcMplsInboundTable.CpwVcMplsInboundEntry[i]), types.YChild{"CpwVcMplsInboundEntry", cpwVcMplsInboundTable.CpwVcMplsInboundEntry[i]})
     }
-    cpwvcmplsinboundtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpwvcmplsinboundtable.EntityData)
+    cpwVcMplsInboundTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpwVcMplsInboundTable.EntityData.YListKeys = []string {}
+
+    return &(cpwVcMplsInboundTable.EntityData)
 }
 
-// CISCOIETFPWMPLSMIB_Cpwvcmplsinboundtable_Cpwvcmplsinboundentry
+// CISCOIETFPWMPLSMIB_CpwVcMplsInboundTable_CpwVcMplsInboundEntry
 // A row in this table represents a link between PW VCs (that 
 // require MPLS tunnels) and MPLS tunnel for packets arriving 
 // from the PSN. 
@@ -481,86 +502,89 @@ func (cpwvcmplsinboundtable *CISCOIETFPWMPLSMIB_Cpwvcmplsinboundtable) GetEntity
 // is available at the outer tunnel level, each row may be of 
 // different type except for VC only, on which only rows with 
 // ifIndex of the port are allowed. 
-type CISCOIETFPWMPLSMIB_Cpwvcmplsinboundtable_Cpwvcmplsinboundentry struct {
+type CISCOIETFPWMPLSMIB_CpwVcMplsInboundTable_CpwVcMplsInboundEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
-    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcindex
-    Cpwvcindex interface{}
+    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
+    CpwVcIndex interface{}
 
     // This attribute is a key. Arbitrary index for enabling multiple rows per VC
     // in  this table. Next available free index can be retrieved  using
     // cpwVcMplsInboundIndexNext. . The type is interface{} with range:
     // 0..4294967295.
-    Cpwvcmplsinboundindex interface{}
+    CpwVcMplsInboundIndex interface{}
 
     // If the outer label is defined in the MPL-LSR-MIB, i.e. set   by LDP or
     // manually, this object points to the XC index   of the outer tunnel.
     // Otherwise, it is set to zero. The type is interface{} with range:
     // 0..4294967295.
-    Cpwvcmplsinboundlsrxcindex interface{}
+    CpwVcMplsInboundLsrXcIndex interface{}
 
     // Part of set of indexes for outbound tunnel in the case of   MPLS-TE outer
     // tunnel, otherwise set to zero. The type is interface{} with range:
     // 0..65535.
-    Cpwvcmplsinboundtunnelindex interface{}
+    CpwVcMplsInboundTunnelIndex interface{}
 
     // Part of set of indexes for outbound tunnel in the case of   MPLS-TE outer
     // tunnel, otherwise set to zero. The type is interface{} with range:
     // 0..4294967295.
-    Cpwvcmplsinboundtunnelinstance interface{}
+    CpwVcMplsInboundTunnelInstance interface{}
 
     // Part of set of indexes for outbound tunnel in the case of   MPLS-TE outer
     // tunnel, otherwise set to zero. The type is string with length: 4.
-    Cpwvcmplsinboundtunnellcllsr interface{}
+    CpwVcMplsInboundTunnelLclLSR interface{}
 
     // Part of set of indexes for outbound tunnel in the case of   MPLS-TE outer
     // tunnel, otherwise set to zero. The type is string with length: 4.
-    Cpwvcmplsinboundtunnelpeerlsr interface{}
+    CpwVcMplsInboundTunnelPeerLSR interface{}
 
     // In case of VC only (no outer tunnel), this object holds the  ifIndex of the
     // inbound port, otherwise set to zero. The type is interface{} with range:
     // 0..2147483647.
-    Cpwvcmplsinboundifindex interface{}
+    CpwVcMplsInboundIfIndex interface{}
 
     // For creating, modifying, and deleting this row. The type is RowStatus.
-    Cpwvcmplsinboundrowstatus interface{}
+    CpwVcMplsInboundRowStatus interface{}
 
     // This variable indicates the storage type for this row. The type is
     // StorageType.
-    Cpwvcmplsinboundstoragetype interface{}
+    CpwVcMplsInboundStorageType interface{}
 }
 
-func (cpwvcmplsinboundentry *CISCOIETFPWMPLSMIB_Cpwvcmplsinboundtable_Cpwvcmplsinboundentry) GetEntityData() *types.CommonEntityData {
-    cpwvcmplsinboundentry.EntityData.YFilter = cpwvcmplsinboundentry.YFilter
-    cpwvcmplsinboundentry.EntityData.YangName = "cpwVcMplsInboundEntry"
-    cpwvcmplsinboundentry.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcmplsinboundentry.EntityData.ParentYangName = "cpwVcMplsInboundTable"
-    cpwvcmplsinboundentry.EntityData.SegmentPath = "cpwVcMplsInboundEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwvcmplsinboundentry.Cpwvcindex) + "']" + "[cpwVcMplsInboundIndex='" + fmt.Sprintf("%v", cpwvcmplsinboundentry.Cpwvcmplsinboundindex) + "']"
-    cpwvcmplsinboundentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcmplsinboundentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcmplsinboundentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcMplsInboundEntry *CISCOIETFPWMPLSMIB_CpwVcMplsInboundTable_CpwVcMplsInboundEntry) GetEntityData() *types.CommonEntityData {
+    cpwVcMplsInboundEntry.EntityData.YFilter = cpwVcMplsInboundEntry.YFilter
+    cpwVcMplsInboundEntry.EntityData.YangName = "cpwVcMplsInboundEntry"
+    cpwVcMplsInboundEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcMplsInboundEntry.EntityData.ParentYangName = "cpwVcMplsInboundTable"
+    cpwVcMplsInboundEntry.EntityData.SegmentPath = "cpwVcMplsInboundEntry" + types.AddKeyToken(cpwVcMplsInboundEntry.CpwVcIndex, "cpwVcIndex") + types.AddKeyToken(cpwVcMplsInboundEntry.CpwVcMplsInboundIndex, "cpwVcMplsInboundIndex")
+    cpwVcMplsInboundEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcMplsInboundEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcMplsInboundEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcmplsinboundentry.EntityData.Children = make(map[string]types.YChild)
-    cpwvcmplsinboundentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwvcmplsinboundentry.EntityData.Leafs["cpwVcIndex"] = types.YLeaf{"Cpwvcindex", cpwvcmplsinboundentry.Cpwvcindex}
-    cpwvcmplsinboundentry.EntityData.Leafs["cpwVcMplsInboundIndex"] = types.YLeaf{"Cpwvcmplsinboundindex", cpwvcmplsinboundentry.Cpwvcmplsinboundindex}
-    cpwvcmplsinboundentry.EntityData.Leafs["cpwVcMplsInboundLsrXcIndex"] = types.YLeaf{"Cpwvcmplsinboundlsrxcindex", cpwvcmplsinboundentry.Cpwvcmplsinboundlsrxcindex}
-    cpwvcmplsinboundentry.EntityData.Leafs["cpwVcMplsInboundTunnelIndex"] = types.YLeaf{"Cpwvcmplsinboundtunnelindex", cpwvcmplsinboundentry.Cpwvcmplsinboundtunnelindex}
-    cpwvcmplsinboundentry.EntityData.Leafs["cpwVcMplsInboundTunnelInstance"] = types.YLeaf{"Cpwvcmplsinboundtunnelinstance", cpwvcmplsinboundentry.Cpwvcmplsinboundtunnelinstance}
-    cpwvcmplsinboundentry.EntityData.Leafs["cpwVcMplsInboundTunnelLclLSR"] = types.YLeaf{"Cpwvcmplsinboundtunnellcllsr", cpwvcmplsinboundentry.Cpwvcmplsinboundtunnellcllsr}
-    cpwvcmplsinboundentry.EntityData.Leafs["cpwVcMplsInboundTunnelPeerLSR"] = types.YLeaf{"Cpwvcmplsinboundtunnelpeerlsr", cpwvcmplsinboundentry.Cpwvcmplsinboundtunnelpeerlsr}
-    cpwvcmplsinboundentry.EntityData.Leafs["cpwVcMplsInboundIfIndex"] = types.YLeaf{"Cpwvcmplsinboundifindex", cpwvcmplsinboundentry.Cpwvcmplsinboundifindex}
-    cpwvcmplsinboundentry.EntityData.Leafs["cpwVcMplsInboundRowStatus"] = types.YLeaf{"Cpwvcmplsinboundrowstatus", cpwvcmplsinboundentry.Cpwvcmplsinboundrowstatus}
-    cpwvcmplsinboundentry.EntityData.Leafs["cpwVcMplsInboundStorageType"] = types.YLeaf{"Cpwvcmplsinboundstoragetype", cpwvcmplsinboundentry.Cpwvcmplsinboundstoragetype}
-    return &(cpwvcmplsinboundentry.EntityData)
+    cpwVcMplsInboundEntry.EntityData.Children = types.NewOrderedMap()
+    cpwVcMplsInboundEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpwVcMplsInboundEntry.EntityData.Leafs.Append("cpwVcIndex", types.YLeaf{"CpwVcIndex", cpwVcMplsInboundEntry.CpwVcIndex})
+    cpwVcMplsInboundEntry.EntityData.Leafs.Append("cpwVcMplsInboundIndex", types.YLeaf{"CpwVcMplsInboundIndex", cpwVcMplsInboundEntry.CpwVcMplsInboundIndex})
+    cpwVcMplsInboundEntry.EntityData.Leafs.Append("cpwVcMplsInboundLsrXcIndex", types.YLeaf{"CpwVcMplsInboundLsrXcIndex", cpwVcMplsInboundEntry.CpwVcMplsInboundLsrXcIndex})
+    cpwVcMplsInboundEntry.EntityData.Leafs.Append("cpwVcMplsInboundTunnelIndex", types.YLeaf{"CpwVcMplsInboundTunnelIndex", cpwVcMplsInboundEntry.CpwVcMplsInboundTunnelIndex})
+    cpwVcMplsInboundEntry.EntityData.Leafs.Append("cpwVcMplsInboundTunnelInstance", types.YLeaf{"CpwVcMplsInboundTunnelInstance", cpwVcMplsInboundEntry.CpwVcMplsInboundTunnelInstance})
+    cpwVcMplsInboundEntry.EntityData.Leafs.Append("cpwVcMplsInboundTunnelLclLSR", types.YLeaf{"CpwVcMplsInboundTunnelLclLSR", cpwVcMplsInboundEntry.CpwVcMplsInboundTunnelLclLSR})
+    cpwVcMplsInboundEntry.EntityData.Leafs.Append("cpwVcMplsInboundTunnelPeerLSR", types.YLeaf{"CpwVcMplsInboundTunnelPeerLSR", cpwVcMplsInboundEntry.CpwVcMplsInboundTunnelPeerLSR})
+    cpwVcMplsInboundEntry.EntityData.Leafs.Append("cpwVcMplsInboundIfIndex", types.YLeaf{"CpwVcMplsInboundIfIndex", cpwVcMplsInboundEntry.CpwVcMplsInboundIfIndex})
+    cpwVcMplsInboundEntry.EntityData.Leafs.Append("cpwVcMplsInboundRowStatus", types.YLeaf{"CpwVcMplsInboundRowStatus", cpwVcMplsInboundEntry.CpwVcMplsInboundRowStatus})
+    cpwVcMplsInboundEntry.EntityData.Leafs.Append("cpwVcMplsInboundStorageType", types.YLeaf{"CpwVcMplsInboundStorageType", cpwVcMplsInboundEntry.CpwVcMplsInboundStorageType})
+
+    cpwVcMplsInboundEntry.EntityData.YListKeys = []string {"CpwVcIndex", "CpwVcMplsInboundIndex"}
+
+    return &(cpwVcMplsInboundEntry.EntityData)
 }
 
-// CISCOIETFPWMPLSMIB_Cpwvcmplsnontemappingtable
+// CISCOIETFPWMPLSMIB_CpwVcMplsNonTeMappingTable
 // This table maps an inbound/outbound Tunnel to a VC in non- 
 // TE applications.
-type CISCOIETFPWMPLSMIB_Cpwvcmplsnontemappingtable struct {
+type CISCOIETFPWMPLSMIB_CpwVcMplsNonTeMappingTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -575,30 +599,33 @@ type CISCOIETFPWMPLSMIB_Cpwvcmplsnontemappingtable struct {
     // the inbound association is not known, no rows should exist   for it.   Rows
     // are created by the local agent when all the   association data is available
     // for display. The type is slice of
-    // CISCOIETFPWMPLSMIB_Cpwvcmplsnontemappingtable_Cpwvcmplsnontemappingentry.
-    Cpwvcmplsnontemappingentry []CISCOIETFPWMPLSMIB_Cpwvcmplsnontemappingtable_Cpwvcmplsnontemappingentry
+    // CISCOIETFPWMPLSMIB_CpwVcMplsNonTeMappingTable_CpwVcMplsNonTeMappingEntry.
+    CpwVcMplsNonTeMappingEntry []*CISCOIETFPWMPLSMIB_CpwVcMplsNonTeMappingTable_CpwVcMplsNonTeMappingEntry
 }
 
-func (cpwvcmplsnontemappingtable *CISCOIETFPWMPLSMIB_Cpwvcmplsnontemappingtable) GetEntityData() *types.CommonEntityData {
-    cpwvcmplsnontemappingtable.EntityData.YFilter = cpwvcmplsnontemappingtable.YFilter
-    cpwvcmplsnontemappingtable.EntityData.YangName = "cpwVcMplsNonTeMappingTable"
-    cpwvcmplsnontemappingtable.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcmplsnontemappingtable.EntityData.ParentYangName = "CISCO-IETF-PW-MPLS-MIB"
-    cpwvcmplsnontemappingtable.EntityData.SegmentPath = "cpwVcMplsNonTeMappingTable"
-    cpwvcmplsnontemappingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcmplsnontemappingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcmplsnontemappingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcMplsNonTeMappingTable *CISCOIETFPWMPLSMIB_CpwVcMplsNonTeMappingTable) GetEntityData() *types.CommonEntityData {
+    cpwVcMplsNonTeMappingTable.EntityData.YFilter = cpwVcMplsNonTeMappingTable.YFilter
+    cpwVcMplsNonTeMappingTable.EntityData.YangName = "cpwVcMplsNonTeMappingTable"
+    cpwVcMplsNonTeMappingTable.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcMplsNonTeMappingTable.EntityData.ParentYangName = "CISCO-IETF-PW-MPLS-MIB"
+    cpwVcMplsNonTeMappingTable.EntityData.SegmentPath = "cpwVcMplsNonTeMappingTable"
+    cpwVcMplsNonTeMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcMplsNonTeMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcMplsNonTeMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcmplsnontemappingtable.EntityData.Children = make(map[string]types.YChild)
-    cpwvcmplsnontemappingtable.EntityData.Children["cpwVcMplsNonTeMappingEntry"] = types.YChild{"Cpwvcmplsnontemappingentry", nil}
-    for i := range cpwvcmplsnontemappingtable.Cpwvcmplsnontemappingentry {
-        cpwvcmplsnontemappingtable.EntityData.Children[types.GetSegmentPath(&cpwvcmplsnontemappingtable.Cpwvcmplsnontemappingentry[i])] = types.YChild{"Cpwvcmplsnontemappingentry", &cpwvcmplsnontemappingtable.Cpwvcmplsnontemappingentry[i]}
+    cpwVcMplsNonTeMappingTable.EntityData.Children = types.NewOrderedMap()
+    cpwVcMplsNonTeMappingTable.EntityData.Children.Append("cpwVcMplsNonTeMappingEntry", types.YChild{"CpwVcMplsNonTeMappingEntry", nil})
+    for i := range cpwVcMplsNonTeMappingTable.CpwVcMplsNonTeMappingEntry {
+        cpwVcMplsNonTeMappingTable.EntityData.Children.Append(types.GetSegmentPath(cpwVcMplsNonTeMappingTable.CpwVcMplsNonTeMappingEntry[i]), types.YChild{"CpwVcMplsNonTeMappingEntry", cpwVcMplsNonTeMappingTable.CpwVcMplsNonTeMappingEntry[i]})
     }
-    cpwvcmplsnontemappingtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpwvcmplsnontemappingtable.EntityData)
+    cpwVcMplsNonTeMappingTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpwVcMplsNonTeMappingTable.EntityData.YListKeys = []string {}
+
+    return &(cpwVcMplsNonTeMappingTable.EntityData)
 }
 
-// CISCOIETFPWMPLSMIB_Cpwvcmplsnontemappingtable_Cpwvcmplsnontemappingentry
+// CISCOIETFPWMPLSMIB_CpwVcMplsNonTeMappingTable_CpwVcMplsNonTeMappingEntry
 // A row in this table represents the association 
 // between the PW VC and it's non TE MPLS outer Tunnel 
 // it's physical interface if there is no outer tunnel  
@@ -619,60 +646,63 @@ func (cpwvcmplsnontemappingtable *CISCOIETFPWMPLSMIB_Cpwvcmplsnontemappingtable)
 // 
 // Rows are created by the local agent when all the  
 // association data is available for display.
-type CISCOIETFPWMPLSMIB_Cpwvcmplsnontemappingtable_Cpwvcmplsnontemappingentry struct {
+type CISCOIETFPWMPLSMIB_CpwVcMplsNonTeMappingTable_CpwVcMplsNonTeMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Identifies if the row represent an outbound or
-    // inbound   mapping. The type is Cpwvcmplsnontemappingtunneldirection.
-    Cpwvcmplsnontemappingtunneldirection interface{}
+    // inbound   mapping. The type is CpwVcMplsNonTeMappingTunnelDirection.
+    CpwVcMplsNonTeMappingTunnelDirection interface{}
 
     // This attribute is a key. Index for the conceptual XC row identifying Tunnel
     // to VC   mappings when the outer tunnel is created by the MPLS-LSR-  MIB,
     // Zero otherwise. The type is interface{} with range: 0..4294967295.
-    Cpwvcmplsnontemappingxctunnelindex interface{}
+    CpwVcMplsNonTeMappingXcTunnelIndex interface{}
 
     // This attribute is a key. Identify the port on which the VC is carried for
     // VC only   case. The type is interface{} with range: 0..2147483647.
-    Cpwvcmplsnontemappingifindex interface{}
+    CpwVcMplsNonTeMappingIfIndex interface{}
 
     // This attribute is a key. The value that represent the VC in the cpwVcTable.
     // The type is interface{} with range: 0..4294967295.
-    Cpwvcmplsnontemappingvcindex interface{}
+    CpwVcMplsNonTeMappingVcIndex interface{}
 }
 
-func (cpwvcmplsnontemappingentry *CISCOIETFPWMPLSMIB_Cpwvcmplsnontemappingtable_Cpwvcmplsnontemappingentry) GetEntityData() *types.CommonEntityData {
-    cpwvcmplsnontemappingentry.EntityData.YFilter = cpwvcmplsnontemappingentry.YFilter
-    cpwvcmplsnontemappingentry.EntityData.YangName = "cpwVcMplsNonTeMappingEntry"
-    cpwvcmplsnontemappingentry.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcmplsnontemappingentry.EntityData.ParentYangName = "cpwVcMplsNonTeMappingTable"
-    cpwvcmplsnontemappingentry.EntityData.SegmentPath = "cpwVcMplsNonTeMappingEntry" + "[cpwVcMplsNonTeMappingTunnelDirection='" + fmt.Sprintf("%v", cpwvcmplsnontemappingentry.Cpwvcmplsnontemappingtunneldirection) + "']" + "[cpwVcMplsNonTeMappingXcTunnelIndex='" + fmt.Sprintf("%v", cpwvcmplsnontemappingentry.Cpwvcmplsnontemappingxctunnelindex) + "']" + "[cpwVcMplsNonTeMappingIfIndex='" + fmt.Sprintf("%v", cpwvcmplsnontemappingentry.Cpwvcmplsnontemappingifindex) + "']" + "[cpwVcMplsNonTeMappingVcIndex='" + fmt.Sprintf("%v", cpwvcmplsnontemappingentry.Cpwvcmplsnontemappingvcindex) + "']"
-    cpwvcmplsnontemappingentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcmplsnontemappingentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcmplsnontemappingentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcMplsNonTeMappingEntry *CISCOIETFPWMPLSMIB_CpwVcMplsNonTeMappingTable_CpwVcMplsNonTeMappingEntry) GetEntityData() *types.CommonEntityData {
+    cpwVcMplsNonTeMappingEntry.EntityData.YFilter = cpwVcMplsNonTeMappingEntry.YFilter
+    cpwVcMplsNonTeMappingEntry.EntityData.YangName = "cpwVcMplsNonTeMappingEntry"
+    cpwVcMplsNonTeMappingEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcMplsNonTeMappingEntry.EntityData.ParentYangName = "cpwVcMplsNonTeMappingTable"
+    cpwVcMplsNonTeMappingEntry.EntityData.SegmentPath = "cpwVcMplsNonTeMappingEntry" + types.AddKeyToken(cpwVcMplsNonTeMappingEntry.CpwVcMplsNonTeMappingTunnelDirection, "cpwVcMplsNonTeMappingTunnelDirection") + types.AddKeyToken(cpwVcMplsNonTeMappingEntry.CpwVcMplsNonTeMappingXcTunnelIndex, "cpwVcMplsNonTeMappingXcTunnelIndex") + types.AddKeyToken(cpwVcMplsNonTeMappingEntry.CpwVcMplsNonTeMappingIfIndex, "cpwVcMplsNonTeMappingIfIndex") + types.AddKeyToken(cpwVcMplsNonTeMappingEntry.CpwVcMplsNonTeMappingVcIndex, "cpwVcMplsNonTeMappingVcIndex")
+    cpwVcMplsNonTeMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcMplsNonTeMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcMplsNonTeMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcmplsnontemappingentry.EntityData.Children = make(map[string]types.YChild)
-    cpwvcmplsnontemappingentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwvcmplsnontemappingentry.EntityData.Leafs["cpwVcMplsNonTeMappingTunnelDirection"] = types.YLeaf{"Cpwvcmplsnontemappingtunneldirection", cpwvcmplsnontemappingentry.Cpwvcmplsnontemappingtunneldirection}
-    cpwvcmplsnontemappingentry.EntityData.Leafs["cpwVcMplsNonTeMappingXcTunnelIndex"] = types.YLeaf{"Cpwvcmplsnontemappingxctunnelindex", cpwvcmplsnontemappingentry.Cpwvcmplsnontemappingxctunnelindex}
-    cpwvcmplsnontemappingentry.EntityData.Leafs["cpwVcMplsNonTeMappingIfIndex"] = types.YLeaf{"Cpwvcmplsnontemappingifindex", cpwvcmplsnontemappingentry.Cpwvcmplsnontemappingifindex}
-    cpwvcmplsnontemappingentry.EntityData.Leafs["cpwVcMplsNonTeMappingVcIndex"] = types.YLeaf{"Cpwvcmplsnontemappingvcindex", cpwvcmplsnontemappingentry.Cpwvcmplsnontemappingvcindex}
-    return &(cpwvcmplsnontemappingentry.EntityData)
+    cpwVcMplsNonTeMappingEntry.EntityData.Children = types.NewOrderedMap()
+    cpwVcMplsNonTeMappingEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpwVcMplsNonTeMappingEntry.EntityData.Leafs.Append("cpwVcMplsNonTeMappingTunnelDirection", types.YLeaf{"CpwVcMplsNonTeMappingTunnelDirection", cpwVcMplsNonTeMappingEntry.CpwVcMplsNonTeMappingTunnelDirection})
+    cpwVcMplsNonTeMappingEntry.EntityData.Leafs.Append("cpwVcMplsNonTeMappingXcTunnelIndex", types.YLeaf{"CpwVcMplsNonTeMappingXcTunnelIndex", cpwVcMplsNonTeMappingEntry.CpwVcMplsNonTeMappingXcTunnelIndex})
+    cpwVcMplsNonTeMappingEntry.EntityData.Leafs.Append("cpwVcMplsNonTeMappingIfIndex", types.YLeaf{"CpwVcMplsNonTeMappingIfIndex", cpwVcMplsNonTeMappingEntry.CpwVcMplsNonTeMappingIfIndex})
+    cpwVcMplsNonTeMappingEntry.EntityData.Leafs.Append("cpwVcMplsNonTeMappingVcIndex", types.YLeaf{"CpwVcMplsNonTeMappingVcIndex", cpwVcMplsNonTeMappingEntry.CpwVcMplsNonTeMappingVcIndex})
+
+    cpwVcMplsNonTeMappingEntry.EntityData.YListKeys = []string {"CpwVcMplsNonTeMappingTunnelDirection", "CpwVcMplsNonTeMappingXcTunnelIndex", "CpwVcMplsNonTeMappingIfIndex", "CpwVcMplsNonTeMappingVcIndex"}
+
+    return &(cpwVcMplsNonTeMappingEntry.EntityData)
 }
 
-// CISCOIETFPWMPLSMIB_Cpwvcmplsnontemappingtable_Cpwvcmplsnontemappingentry_Cpwvcmplsnontemappingtunneldirection represents mapping.
-type CISCOIETFPWMPLSMIB_Cpwvcmplsnontemappingtable_Cpwvcmplsnontemappingentry_Cpwvcmplsnontemappingtunneldirection string
+// CISCOIETFPWMPLSMIB_CpwVcMplsNonTeMappingTable_CpwVcMplsNonTeMappingEntry_CpwVcMplsNonTeMappingTunnelDirection represents mapping.
+type CISCOIETFPWMPLSMIB_CpwVcMplsNonTeMappingTable_CpwVcMplsNonTeMappingEntry_CpwVcMplsNonTeMappingTunnelDirection string
 
 const (
-    CISCOIETFPWMPLSMIB_Cpwvcmplsnontemappingtable_Cpwvcmplsnontemappingentry_Cpwvcmplsnontemappingtunneldirection_outbound CISCOIETFPWMPLSMIB_Cpwvcmplsnontemappingtable_Cpwvcmplsnontemappingentry_Cpwvcmplsnontemappingtunneldirection = "outbound"
+    CISCOIETFPWMPLSMIB_CpwVcMplsNonTeMappingTable_CpwVcMplsNonTeMappingEntry_CpwVcMplsNonTeMappingTunnelDirection_outbound CISCOIETFPWMPLSMIB_CpwVcMplsNonTeMappingTable_CpwVcMplsNonTeMappingEntry_CpwVcMplsNonTeMappingTunnelDirection = "outbound"
 
-    CISCOIETFPWMPLSMIB_Cpwvcmplsnontemappingtable_Cpwvcmplsnontemappingentry_Cpwvcmplsnontemappingtunneldirection_inbound CISCOIETFPWMPLSMIB_Cpwvcmplsnontemappingtable_Cpwvcmplsnontemappingentry_Cpwvcmplsnontemappingtunneldirection = "inbound"
+    CISCOIETFPWMPLSMIB_CpwVcMplsNonTeMappingTable_CpwVcMplsNonTeMappingEntry_CpwVcMplsNonTeMappingTunnelDirection_inbound CISCOIETFPWMPLSMIB_CpwVcMplsNonTeMappingTable_CpwVcMplsNonTeMappingEntry_CpwVcMplsNonTeMappingTunnelDirection = "inbound"
 )
 
-// CISCOIETFPWMPLSMIB_Cpwvcmplstemappingtable
+// CISCOIETFPWMPLSMIB_CpwVcMplsTeMappingTable
 // This table maps an inbound/outbound Tunnel to a VC in  
 // MPLS-TE applications.
-type CISCOIETFPWMPLSMIB_Cpwvcmplstemappingtable struct {
+type CISCOIETFPWMPLSMIB_CpwVcMplsTeMappingTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -685,30 +715,33 @@ type CISCOIETFPWMPLSMIB_Cpwvcmplstemappingtable struct {
     // inbound association is not known, no rows should exist for   it.   Rows are
     // created by the local agent when all the   association data is available for
     // display. The type is slice of
-    // CISCOIETFPWMPLSMIB_Cpwvcmplstemappingtable_Cpwvcmplstemappingentry.
-    Cpwvcmplstemappingentry []CISCOIETFPWMPLSMIB_Cpwvcmplstemappingtable_Cpwvcmplstemappingentry
+    // CISCOIETFPWMPLSMIB_CpwVcMplsTeMappingTable_CpwVcMplsTeMappingEntry.
+    CpwVcMplsTeMappingEntry []*CISCOIETFPWMPLSMIB_CpwVcMplsTeMappingTable_CpwVcMplsTeMappingEntry
 }
 
-func (cpwvcmplstemappingtable *CISCOIETFPWMPLSMIB_Cpwvcmplstemappingtable) GetEntityData() *types.CommonEntityData {
-    cpwvcmplstemappingtable.EntityData.YFilter = cpwvcmplstemappingtable.YFilter
-    cpwvcmplstemappingtable.EntityData.YangName = "cpwVcMplsTeMappingTable"
-    cpwvcmplstemappingtable.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcmplstemappingtable.EntityData.ParentYangName = "CISCO-IETF-PW-MPLS-MIB"
-    cpwvcmplstemappingtable.EntityData.SegmentPath = "cpwVcMplsTeMappingTable"
-    cpwvcmplstemappingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcmplstemappingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcmplstemappingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcMplsTeMappingTable *CISCOIETFPWMPLSMIB_CpwVcMplsTeMappingTable) GetEntityData() *types.CommonEntityData {
+    cpwVcMplsTeMappingTable.EntityData.YFilter = cpwVcMplsTeMappingTable.YFilter
+    cpwVcMplsTeMappingTable.EntityData.YangName = "cpwVcMplsTeMappingTable"
+    cpwVcMplsTeMappingTable.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcMplsTeMappingTable.EntityData.ParentYangName = "CISCO-IETF-PW-MPLS-MIB"
+    cpwVcMplsTeMappingTable.EntityData.SegmentPath = "cpwVcMplsTeMappingTable"
+    cpwVcMplsTeMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcMplsTeMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcMplsTeMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcmplstemappingtable.EntityData.Children = make(map[string]types.YChild)
-    cpwvcmplstemappingtable.EntityData.Children["cpwVcMplsTeMappingEntry"] = types.YChild{"Cpwvcmplstemappingentry", nil}
-    for i := range cpwvcmplstemappingtable.Cpwvcmplstemappingentry {
-        cpwvcmplstemappingtable.EntityData.Children[types.GetSegmentPath(&cpwvcmplstemappingtable.Cpwvcmplstemappingentry[i])] = types.YChild{"Cpwvcmplstemappingentry", &cpwvcmplstemappingtable.Cpwvcmplstemappingentry[i]}
+    cpwVcMplsTeMappingTable.EntityData.Children = types.NewOrderedMap()
+    cpwVcMplsTeMappingTable.EntityData.Children.Append("cpwVcMplsTeMappingEntry", types.YChild{"CpwVcMplsTeMappingEntry", nil})
+    for i := range cpwVcMplsTeMappingTable.CpwVcMplsTeMappingEntry {
+        cpwVcMplsTeMappingTable.EntityData.Children.Append(types.GetSegmentPath(cpwVcMplsTeMappingTable.CpwVcMplsTeMappingEntry[i]), types.YChild{"CpwVcMplsTeMappingEntry", cpwVcMplsTeMappingTable.CpwVcMplsTeMappingEntry[i]})
     }
-    cpwvcmplstemappingtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpwvcmplstemappingtable.EntityData)
+    cpwVcMplsTeMappingTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpwVcMplsTeMappingTable.EntityData.YListKeys = []string {}
+
+    return &(cpwVcMplsTeMappingTable.EntityData)
 }
 
-// CISCOIETFPWMPLSMIB_Cpwvcmplstemappingtable_Cpwvcmplstemappingentry
+// CISCOIETFPWMPLSMIB_CpwVcMplsTeMappingTable_CpwVcMplsTeMappingEntry
 // A row in this table represents the association 
 // between a PW VC and it's MPLS-TE outer Tunnel. 
 // 
@@ -725,62 +758,65 @@ func (cpwvcmplstemappingtable *CISCOIETFPWMPLSMIB_Cpwvcmplstemappingtable) GetEn
 // 
 // Rows are created by the local agent when all the  
 // association data is available for display.
-type CISCOIETFPWMPLSMIB_Cpwvcmplstemappingtable_Cpwvcmplstemappingentry struct {
+type CISCOIETFPWMPLSMIB_CpwVcMplsTeMappingTable_CpwVcMplsTeMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Identifies if the row represent an outbound or
-    // inbound   mapping. The type is Cpwvcmplstemappingtunneldirection.
-    Cpwvcmplstemappingtunneldirection interface{}
+    // inbound   mapping. The type is CpwVcMplsTeMappingTunnelDirection.
+    CpwVcMplsTeMappingTunnelDirection interface{}
 
     // This attribute is a key. Primary index for the conceptual row identifying
     // the   MPLS-TE tunnel. The type is interface{} with range: 0..65535.
-    Cpwvcmplstemappingtunnelindex interface{}
+    CpwVcMplsTeMappingTunnelIndex interface{}
 
     // This attribute is a key. Identifies an instance of the MPLS-TE tunnel. The
     // type is interface{} with range: 0..4294967295.
-    Cpwvcmplstemappingtunnelinstance interface{}
+    CpwVcMplsTeMappingTunnelInstance interface{}
 
     // This attribute is a key. Identifies an Peer LSR when the outer tunnel is
     // MPLS-TE   based. The type is string with length: 4.
-    Cpwvcmplstemappingtunnelpeerlsrid interface{}
+    CpwVcMplsTeMappingTunnelPeerLsrID interface{}
 
     // This attribute is a key. Identifies the local LSR. The type is string with
     // length: 4.
-    Cpwvcmplstemappingtunnellocallsrid interface{}
+    CpwVcMplsTeMappingTunnelLocalLsrID interface{}
 
     // This attribute is a key. The value that represent the VC in the cpwVcTable.
     // The type is interface{} with range: 0..4294967295.
-    Cpwvcmplstemappingvcindex interface{}
+    CpwVcMplsTeMappingVcIndex interface{}
 }
 
-func (cpwvcmplstemappingentry *CISCOIETFPWMPLSMIB_Cpwvcmplstemappingtable_Cpwvcmplstemappingentry) GetEntityData() *types.CommonEntityData {
-    cpwvcmplstemappingentry.EntityData.YFilter = cpwvcmplstemappingentry.YFilter
-    cpwvcmplstemappingentry.EntityData.YangName = "cpwVcMplsTeMappingEntry"
-    cpwvcmplstemappingentry.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcmplstemappingentry.EntityData.ParentYangName = "cpwVcMplsTeMappingTable"
-    cpwvcmplstemappingentry.EntityData.SegmentPath = "cpwVcMplsTeMappingEntry" + "[cpwVcMplsTeMappingTunnelDirection='" + fmt.Sprintf("%v", cpwvcmplstemappingentry.Cpwvcmplstemappingtunneldirection) + "']" + "[cpwVcMplsTeMappingTunnelIndex='" + fmt.Sprintf("%v", cpwvcmplstemappingentry.Cpwvcmplstemappingtunnelindex) + "']" + "[cpwVcMplsTeMappingTunnelInstance='" + fmt.Sprintf("%v", cpwvcmplstemappingentry.Cpwvcmplstemappingtunnelinstance) + "']" + "[cpwVcMplsTeMappingTunnelPeerLsrID='" + fmt.Sprintf("%v", cpwvcmplstemappingentry.Cpwvcmplstemappingtunnelpeerlsrid) + "']" + "[cpwVcMplsTeMappingTunnelLocalLsrID='" + fmt.Sprintf("%v", cpwvcmplstemappingentry.Cpwvcmplstemappingtunnellocallsrid) + "']" + "[cpwVcMplsTeMappingVcIndex='" + fmt.Sprintf("%v", cpwvcmplstemappingentry.Cpwvcmplstemappingvcindex) + "']"
-    cpwvcmplstemappingentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcmplstemappingentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcmplstemappingentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcMplsTeMappingEntry *CISCOIETFPWMPLSMIB_CpwVcMplsTeMappingTable_CpwVcMplsTeMappingEntry) GetEntityData() *types.CommonEntityData {
+    cpwVcMplsTeMappingEntry.EntityData.YFilter = cpwVcMplsTeMappingEntry.YFilter
+    cpwVcMplsTeMappingEntry.EntityData.YangName = "cpwVcMplsTeMappingEntry"
+    cpwVcMplsTeMappingEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcMplsTeMappingEntry.EntityData.ParentYangName = "cpwVcMplsTeMappingTable"
+    cpwVcMplsTeMappingEntry.EntityData.SegmentPath = "cpwVcMplsTeMappingEntry" + types.AddKeyToken(cpwVcMplsTeMappingEntry.CpwVcMplsTeMappingTunnelDirection, "cpwVcMplsTeMappingTunnelDirection") + types.AddKeyToken(cpwVcMplsTeMappingEntry.CpwVcMplsTeMappingTunnelIndex, "cpwVcMplsTeMappingTunnelIndex") + types.AddKeyToken(cpwVcMplsTeMappingEntry.CpwVcMplsTeMappingTunnelInstance, "cpwVcMplsTeMappingTunnelInstance") + types.AddKeyToken(cpwVcMplsTeMappingEntry.CpwVcMplsTeMappingTunnelPeerLsrID, "cpwVcMplsTeMappingTunnelPeerLsrID") + types.AddKeyToken(cpwVcMplsTeMappingEntry.CpwVcMplsTeMappingTunnelLocalLsrID, "cpwVcMplsTeMappingTunnelLocalLsrID") + types.AddKeyToken(cpwVcMplsTeMappingEntry.CpwVcMplsTeMappingVcIndex, "cpwVcMplsTeMappingVcIndex")
+    cpwVcMplsTeMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcMplsTeMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcMplsTeMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcmplstemappingentry.EntityData.Children = make(map[string]types.YChild)
-    cpwvcmplstemappingentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwvcmplstemappingentry.EntityData.Leafs["cpwVcMplsTeMappingTunnelDirection"] = types.YLeaf{"Cpwvcmplstemappingtunneldirection", cpwvcmplstemappingentry.Cpwvcmplstemappingtunneldirection}
-    cpwvcmplstemappingentry.EntityData.Leafs["cpwVcMplsTeMappingTunnelIndex"] = types.YLeaf{"Cpwvcmplstemappingtunnelindex", cpwvcmplstemappingentry.Cpwvcmplstemappingtunnelindex}
-    cpwvcmplstemappingentry.EntityData.Leafs["cpwVcMplsTeMappingTunnelInstance"] = types.YLeaf{"Cpwvcmplstemappingtunnelinstance", cpwvcmplstemappingentry.Cpwvcmplstemappingtunnelinstance}
-    cpwvcmplstemappingentry.EntityData.Leafs["cpwVcMplsTeMappingTunnelPeerLsrID"] = types.YLeaf{"Cpwvcmplstemappingtunnelpeerlsrid", cpwvcmplstemappingentry.Cpwvcmplstemappingtunnelpeerlsrid}
-    cpwvcmplstemappingentry.EntityData.Leafs["cpwVcMplsTeMappingTunnelLocalLsrID"] = types.YLeaf{"Cpwvcmplstemappingtunnellocallsrid", cpwvcmplstemappingentry.Cpwvcmplstemappingtunnellocallsrid}
-    cpwvcmplstemappingentry.EntityData.Leafs["cpwVcMplsTeMappingVcIndex"] = types.YLeaf{"Cpwvcmplstemappingvcindex", cpwvcmplstemappingentry.Cpwvcmplstemappingvcindex}
-    return &(cpwvcmplstemappingentry.EntityData)
+    cpwVcMplsTeMappingEntry.EntityData.Children = types.NewOrderedMap()
+    cpwVcMplsTeMappingEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpwVcMplsTeMappingEntry.EntityData.Leafs.Append("cpwVcMplsTeMappingTunnelDirection", types.YLeaf{"CpwVcMplsTeMappingTunnelDirection", cpwVcMplsTeMappingEntry.CpwVcMplsTeMappingTunnelDirection})
+    cpwVcMplsTeMappingEntry.EntityData.Leafs.Append("cpwVcMplsTeMappingTunnelIndex", types.YLeaf{"CpwVcMplsTeMappingTunnelIndex", cpwVcMplsTeMappingEntry.CpwVcMplsTeMappingTunnelIndex})
+    cpwVcMplsTeMappingEntry.EntityData.Leafs.Append("cpwVcMplsTeMappingTunnelInstance", types.YLeaf{"CpwVcMplsTeMappingTunnelInstance", cpwVcMplsTeMappingEntry.CpwVcMplsTeMappingTunnelInstance})
+    cpwVcMplsTeMappingEntry.EntityData.Leafs.Append("cpwVcMplsTeMappingTunnelPeerLsrID", types.YLeaf{"CpwVcMplsTeMappingTunnelPeerLsrID", cpwVcMplsTeMappingEntry.CpwVcMplsTeMappingTunnelPeerLsrID})
+    cpwVcMplsTeMappingEntry.EntityData.Leafs.Append("cpwVcMplsTeMappingTunnelLocalLsrID", types.YLeaf{"CpwVcMplsTeMappingTunnelLocalLsrID", cpwVcMplsTeMappingEntry.CpwVcMplsTeMappingTunnelLocalLsrID})
+    cpwVcMplsTeMappingEntry.EntityData.Leafs.Append("cpwVcMplsTeMappingVcIndex", types.YLeaf{"CpwVcMplsTeMappingVcIndex", cpwVcMplsTeMappingEntry.CpwVcMplsTeMappingVcIndex})
+
+    cpwVcMplsTeMappingEntry.EntityData.YListKeys = []string {"CpwVcMplsTeMappingTunnelDirection", "CpwVcMplsTeMappingTunnelIndex", "CpwVcMplsTeMappingTunnelInstance", "CpwVcMplsTeMappingTunnelPeerLsrID", "CpwVcMplsTeMappingTunnelLocalLsrID", "CpwVcMplsTeMappingVcIndex"}
+
+    return &(cpwVcMplsTeMappingEntry.EntityData)
 }
 
-// CISCOIETFPWMPLSMIB_Cpwvcmplstemappingtable_Cpwvcmplstemappingentry_Cpwvcmplstemappingtunneldirection represents mapping.
-type CISCOIETFPWMPLSMIB_Cpwvcmplstemappingtable_Cpwvcmplstemappingentry_Cpwvcmplstemappingtunneldirection string
+// CISCOIETFPWMPLSMIB_CpwVcMplsTeMappingTable_CpwVcMplsTeMappingEntry_CpwVcMplsTeMappingTunnelDirection represents mapping.
+type CISCOIETFPWMPLSMIB_CpwVcMplsTeMappingTable_CpwVcMplsTeMappingEntry_CpwVcMplsTeMappingTunnelDirection string
 
 const (
-    CISCOIETFPWMPLSMIB_Cpwvcmplstemappingtable_Cpwvcmplstemappingentry_Cpwvcmplstemappingtunneldirection_outbound CISCOIETFPWMPLSMIB_Cpwvcmplstemappingtable_Cpwvcmplstemappingentry_Cpwvcmplstemappingtunneldirection = "outbound"
+    CISCOIETFPWMPLSMIB_CpwVcMplsTeMappingTable_CpwVcMplsTeMappingEntry_CpwVcMplsTeMappingTunnelDirection_outbound CISCOIETFPWMPLSMIB_CpwVcMplsTeMappingTable_CpwVcMplsTeMappingEntry_CpwVcMplsTeMappingTunnelDirection = "outbound"
 
-    CISCOIETFPWMPLSMIB_Cpwvcmplstemappingtable_Cpwvcmplstemappingentry_Cpwvcmplstemappingtunneldirection_inbound CISCOIETFPWMPLSMIB_Cpwvcmplstemappingtable_Cpwvcmplstemappingentry_Cpwvcmplstemappingtunneldirection = "inbound"
+    CISCOIETFPWMPLSMIB_CpwVcMplsTeMappingTable_CpwVcMplsTeMappingEntry_CpwVcMplsTeMappingTunnelDirection_inbound CISCOIETFPWMPLSMIB_CpwVcMplsTeMappingTable_CpwVcMplsTeMappingEntry_CpwVcMplsTeMappingTunnelDirection = "inbound"
 )
 

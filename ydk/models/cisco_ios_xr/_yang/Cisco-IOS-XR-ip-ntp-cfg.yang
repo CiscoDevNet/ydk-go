@@ -39,6 +39,14 @@ module Cisco-IOS-XR-ip-ntp-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-10-15 {
+    description
+      "Removed presence statement generated from internal CLI data.";
+  }
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -183,9 +191,61 @@ module Cisco-IOS-XR-ip-ntp-cfg {
     }
   }
   container ntp {
-    presence "Indicates a ntp node is configured.";
     description
       "NTP configuration";
+    container admin-types {
+      description
+        "Configure NTP server admin-plane";
+      list admin-type {
+        key "peer-type";
+        description
+          "Configure NTP server admin plane";
+        leaf peer-type {
+          type Ntp-peer;
+          description
+            "Peer or Server";
+        }
+        leaf ntp-version {
+          type Ntp-version;
+          description
+            "NTP version";
+        }
+        leaf authentication-key {
+          type Ntp-key-number;
+          description
+            "Authentication Key";
+        }
+        leaf min-poll {
+          type uint32 {
+            range "4..17";
+          }
+          description
+            "Minimum poll interval";
+        }
+        leaf max-poll {
+          type uint32 {
+            range "4..17";
+          }
+          description
+            "Maxinum poll interval";
+        }
+        leaf preferred-peer {
+          type Ntp-prefer-peer;
+          description
+            "Preferred peer";
+        }
+        leaf burst {
+          type Ntp-burst;
+          description
+            "Use burst mode";
+        }
+        leaf iburst {
+          type Ntpi-burst;
+          description
+            "Use iburst mode";
+        }
+      }
+    }
     container peer-vrfs {
       description
         "Configures NTP Peers or Servers";
@@ -417,7 +477,9 @@ module Cisco-IOS-XR-ip-ntp-cfg {
           type string;
           default "PWD";
           description
-            "PWD or disk0 etc";
+            "disk0 or apphost or config or ftp or harddisk
+             or rootfs or tftp. Defaults to PWD if none
+             specified";
         }
         leaf filename {
           type string;
@@ -551,23 +613,33 @@ module Cisco-IOS-XR-ip-ntp-cfg {
           container interface-broadcast {
             description
               "Configure NTP broadcast service";
-            container broadcast {
+            container broadcast-servers {
               description
                 "Configure NTP broadcast";
-              leaf address {
-                type inet:ipv4-address-no-zone;
+              list broadcast-server {
+                key "broadcast-type";
                 description
-                  "Destination broadcast IPv4 address";
-              }
-              leaf authentication-key {
-                type Ntp-key-number;
-                description
-                  "Authentication key";
-              }
-              leaf ntp-version {
-                type Ntp-version;
-                description
-                  "NTP version";
+                  "Configure NTP broadcast server";
+                leaf broadcast-type {
+                  type xr:Cisco-ios-xr-string;
+                  description
+                    "Broadcast Type";
+                }
+                leaf address {
+                  type inet:ipv4-address-no-zone;
+                  description
+                    "Destination broadcast IPv4 address";
+                }
+                leaf authentication-key {
+                  type Ntp-key-number;
+                  description
+                    "Authentication key";
+                }
+                leaf ntp-version {
+                  type Ntp-version;
+                  description
+                    "NTP version";
+                }
               }
             }
             leaf broadcast-client {

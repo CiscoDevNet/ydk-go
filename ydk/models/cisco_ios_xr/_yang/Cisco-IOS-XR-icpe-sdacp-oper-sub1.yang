@@ -119,6 +119,36 @@ submodule Cisco-IOS-XR-icpe-sdacp-oper-sub1 {
       "Icpe cpm control fsm state";
   }
 
+  grouping ICPE-YANG-CAPABILITIES-TLV-TYPE {
+    description
+      "ICPE YANG CAPABILITIES TLV TYPE";
+    leaf type {
+      type uint32;
+      description
+        "Type";
+    }
+    leaf debug {
+      type Xr-yang-string;
+      description
+        "Debug";
+    }
+    leaf-list value {
+      type uint8;
+      description
+        "Value";
+    }
+  }
+
+  grouping ICPE-YANG-CAPABILITIES-TYPE {
+    description
+      "ICPE YANG CAPABILITIES TYPE";
+    list tl-vs {
+      description
+        "Capability TLVs table";
+      uses ICPE-YANG-CAPABILITIES-TLV-TYPE;
+    }
+  }
+
   grouping ICPE-CPM-OPER-CHAN-TYPE {
     description
       "ICPE CPM OPER CHAN TYPE";

@@ -3,12 +3,6 @@ submodule Cisco-IOS-XR-icpe-infra-oper-sub7 {
     prefix Cisco-IOS-XR-icpe-infra-oper;
   }
 
-  import ietf-yang-types {
-    prefix yang;
-  }
-  import Cisco-IOS-XR-types {
-    prefix xr;
-  }
   include Cisco-IOS-XR-icpe-infra-oper-sub3 {
     revision-date 2015-11-09;
   }
@@ -37,239 +31,63 @@ submodule Cisco-IOS-XR-icpe-infra-oper-sub7 {
       "IOS XR 6.0 revision.";
   }
 
-  typedef Icpe-oper-topo-remote-source {
-    type enumeration {
-      enum "icpe-oper-topo-remote-source-unknown" {
-        description
-          "Unknown";
-      }
-      enum "icpe-oper-topo-remote-source-remote-icl-id" {
-        description
-          "Remote ICL ID";
-      }
-      enum "icpe-oper-topo-remote-source-remote-satellite-mac" {
-        description
-          "Remote satellite MAC";
-      }
-      enum "icpe-oper-topo-remote-source-remote-host-mac" {
-        description
-          "Remote host MAC";
-      }
-      enum "icpe-oper-topo-remote-source-direct-satellite" {
-        description
-          "Direct satellite";
-      }
-      enum "icpe-oper-topo-remote-source-direct-host" {
-        description
-          "Direct host";
-      }
-    }
+  grouping ICPE-OPER-SAT-VERSION-TYPE {
     description
-      "Icpe oper topo remote source";
-  }
-
-  grouping ICPE-OPER-TOPO-REMOTE-SFL-TYPE {
-    description
-      "ICPE OPER TOPO REMOTE SFL TYPE";
-    leaf mac-address {
-      type yang:mac-address;
+      "ICPE OPER SAT VERSION TYPE";
+    leaf version-check-state {
+      type Icpe-oper-ver-check-state;
       description
-        "MAC address";
+        "Version check state";
     }
-    leaf source {
-      type Icpe-oper-topo-remote-source;
-      description
-        "Source";
-    }
-    leaf remote-is-satellite {
+    leaf remote-version-present {
       type boolean;
       description
-        "Remote is satellite";
+        "Remote version present";
     }
-    leaf remote-is-local-host {
-      type boolean;
-      description
-        "Remote is local host";
-    }
-    leaf icl-id {
-      type uint32;
-      description
-        "ICL ID";
-    }
-    leaf interface-handle {
-      type xr:Interface-name;
-      description
-        "Interface handle";
-    }
-    leaf interface-name {
+    leaf-list remote-version {
       type Xr-yang-string;
       description
-        "Interface name";
+        "Remote version";
     }
   }
 
-  grouping ICPE-OPER-TOPO-LOCAL-SFL-TYPE {
+  grouping ICPE-OPER-SAT-REMOTE-VERSION-TYPE {
     description
-      "ICPE OPER TOPO LOCAL SFL TYPE";
-    leaf icl-id {
-      type uint32;
+      "Satellite remote version information";
+    container active-version {
       description
-        "ICL ID";
+        "Satellite active version information";
+      uses ICPE-OPER-SAT-VERSION-TYPE;
     }
-    leaf interface-name {
-      type Xr-yang-string;
+    container transferred-version {
       description
-        "Interface name";
+        "Satellite transferred version information";
+      uses ICPE-OPER-SAT-VERSION-TYPE;
     }
-    leaf display-name {
-      type Xr-yang-string;
+    container committed-version {
       description
-        "Display name";
+        "Satellite committed version information";
+      uses ICPE-OPER-SAT-VERSION-TYPE;
     }
-    leaf redundant {
-      type boolean;
-      description
-        "Redundant";
-    }
-    leaf active {
-      type boolean;
-      description
-        "Active";
-    }
-    leaf obsolete {
-      type boolean;
-      description
-        "Obsolete";
-    }
-    list remote-device {
-      description
-        "Remote Device table";
-      uses ICPE-OPER-TOPO-REMOTE-SFL-TYPE;
-    }
-  }
-
-  grouping ICPE-OPER-TOPO-SATTUN-TYPE {
-    description
-      "ICPE OPER TOPO SATTUN TYPE";
-    leaf mac-address {
-      type yang:mac-address;
-      description
-        "MAC address";
-    }
-    leaf configured {
-      type boolean;
-      description
-        "Configured";
-    }
-    leaf num-hops {
-      type uint16;
-      description
-        "Num hops";
-    }
-    leaf type {
-      type Xr-yang-string;
-      description
-        "Type";
-    }
-    leaf satellite-id {
+    leaf satellite-id-xr {
       type uint16;
       description
         "Satellite ID";
     }
-    leaf received-serial-number {
-      type Xr-yang-string;
+    leaf version-check-state {
+      type Icpe-oper-ver-check-state;
       description
-        "Received serial number";
+        "Version check state";
     }
-    leaf received-serial-number-present {
+    leaf remote-version-present {
       type boolean;
       description
-        "Received serial number present";
+        "Remote version present";
     }
-    leaf vlan-id {
-      type uint16;
-      description
-        "VLAN ID";
-    }
-    leaf display-name {
+    leaf-list remote-version {
       type Xr-yang-string;
       description
-        "Display name";
-    }
-    leaf conflict-reason {
-      type Icpe-oper-conflict;
-      description
-        "Conflict reason";
-    }
-    leaf conflict-context {
-      type Xr-yang-string;
-      description
-        "Conflict context";
-    }
-    list fabric-link {
-      description
-        "Local Satellite Fabric Link table";
-      uses ICPE-OPER-TOPO-LOCAL-SFL-TYPE;
-    }
-  }
-
-  grouping ICPE-OPER-TOPO-DSFL-TYPE {
-    description
-      "ICPE OPER TOPO DSFL TYPE";
-    leaf interface-name {
-      type Xr-yang-string;
-      description
-        "Interface name";
-    }
-    leaf interface-handle {
-      type xr:Interface-name;
-      description
-        "Interface handle";
-    }
-    leaf discovery-running {
-      type boolean;
-      description
-        "Discovery running";
-    }
-  }
-
-  grouping ICPE-OPER-TOPO-CSFL-TYPE {
-    description
-      "Satellite Topology Information";
-    leaf interface-name-xr {
-      type Xr-yang-string;
-      description
-        "Interface name";
-    }
-    leaf interface-handle {
-      type xr:Interface-name;
-      description
-        "Interface handle";
-    }
-    leaf redundancy-iccp-group {
-      type uint32;
-      description
-        "Redundancy ICCP group";
-    }
-    leaf is-physical {
-      type boolean;
-      description
-        "Is physical";
-    }
-    leaf ring-whole {
-      type boolean;
-      description
-        "Ring whole";
-    }
-    list discovered-link {
-      description
-        "Discovered Links table";
-      uses ICPE-OPER-TOPO-DSFL-TYPE;
-    }
-    list satellite {
-      description
-        "Satellite table";
-      uses ICPE-OPER-TOPO-SATTUN-TYPE;
+        "Remote version";
     }
   }
 }

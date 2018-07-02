@@ -29,6 +29,14 @@ module Cisco-IOS-XR-infra-rcmd-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-10-15 {
+    description
+      "Removed presence statement generated from internal CLI data.";
+  }
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -100,7 +108,7 @@ module Cisco-IOS-XR-infra-rcmd-cfg {
             description
               "Priority";
             leaf threshold {
-              type int32;
+              type uint32;
               description
                 "Threshold value for convergence (in msec)";
             }
@@ -157,7 +165,6 @@ module Cisco-IOS-XR-infra-rcmd-cfg {
       }
     }
     container storage-location {
-      presence "Indicates a storage-location node is configured.";
       description
         "Absolute directory path for saving the archive
          files. Example /disk0:/rcmd/ or
@@ -193,11 +200,9 @@ module Cisco-IOS-XR-infra-rcmd-cfg {
       }
     }
     container mpls-ldp {
-      presence "Indicates a mpls-ldp node is configured.";
       description
         "RCMD related configuration for MPLS-LDP";
       container remote-lfa {
-        presence "Indicates a remote-lfa node is configured.";
         description
           "Monitoring configuration for Remote LFA";
         leaf threshold {

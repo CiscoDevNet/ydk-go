@@ -33,6 +33,10 @@ module Cisco-IOS-XR-rgmgr-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-08-01 {
+    description
+      "Adding CCV support";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";

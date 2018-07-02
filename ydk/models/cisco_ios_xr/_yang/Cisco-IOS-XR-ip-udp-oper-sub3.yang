@@ -22,6 +22,10 @@ submodule Cisco-IOS-XR-ip-udp-oper-sub3 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2016-02-26 {
     description
       "Descriptions updated.";

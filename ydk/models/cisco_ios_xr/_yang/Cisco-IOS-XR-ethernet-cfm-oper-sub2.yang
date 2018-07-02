@@ -10,7 +10,7 @@ submodule Cisco-IOS-XR-ethernet-cfm-oper-sub2 {
     prefix xr;
   }
   include Cisco-IOS-XR-ethernet-cfm-oper-sub3 {
-    revision-date 2015-11-09;
+    revision-date 2017-10-06;
   }
 
   organization
@@ -32,6 +32,10 @@ submodule Cisco-IOS-XR-ethernet-cfm-oper-sub2 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-10-06 {
+    description
+      "Traceroute transaction ID changed from int to uint.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";

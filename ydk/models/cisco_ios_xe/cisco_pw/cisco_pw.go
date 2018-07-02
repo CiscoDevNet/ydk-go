@@ -30,6 +30,48 @@ func init() {
     ydk.RegisterEntity("cisco-pw:pseudowire-state", reflect.TypeOf(PseudowireState{}))
 }
 
+type PwVcTypeEther struct {
+}
+
+func (id PwVcTypeEther) String() string {
+	return "cisco-pw:pw-vc-type-ether"
+}
+
+type PwLbEthSrcDstMac struct {
+}
+
+func (id PwLbEthSrcDstMac) String() string {
+	return "cisco-pw:pw-lb-eth-src-dst-mac"
+}
+
+type PwSignalingProtocolType struct {
+}
+
+func (id PwSignalingProtocolType) String() string {
+	return "cisco-pw:pw-signaling-protocol-type"
+}
+
+type PwLoadBalanceType struct {
+}
+
+func (id PwLoadBalanceType) String() string {
+	return "cisco-pw:pw-load-balance-type"
+}
+
+type PwSequencingTransmit struct {
+}
+
+func (id PwSequencingTransmit) String() string {
+	return "cisco-pw:pw-sequencing-transmit"
+}
+
+type PwVcTypeVlanPassthrough struct {
+}
+
+func (id PwVcTypeVlanPassthrough) String() string {
+	return "cisco-pw:pw-vc-type-vlan-passthrough"
+}
+
 type PwEncapsulationType struct {
 }
 
@@ -51,74 +93,11 @@ func (id PwVcType) String() string {
 	return "cisco-pw:pw-vc-type"
 }
 
-type PwVcTypeEther struct {
-}
-
-func (id PwVcTypeEther) String() string {
-	return "cisco-pw:pw-vc-type-ether"
-}
-
-type PwVcTypeVlan struct {
-}
-
-func (id PwVcTypeVlan) String() string {
-	return "cisco-pw:pw-vc-type-vlan"
-}
-
-type PwVcTypeVlanPassthrough struct {
-}
-
-func (id PwVcTypeVlanPassthrough) String() string {
-	return "cisco-pw:pw-vc-type-vlan-passthrough"
-}
-
-type PwLoadBalanceType struct {
-}
-
-func (id PwLoadBalanceType) String() string {
-	return "cisco-pw:pw-load-balance-type"
-}
-
-type PwLbEthernetType struct {
-}
-
-func (id PwLbEthernetType) String() string {
-	return "cisco-pw:pw-lb-ethernet-type"
-}
-
-type PwLbEthSrcMac struct {
-}
-
-func (id PwLbEthSrcMac) String() string {
-	return "cisco-pw:pw-lb-eth-src-mac"
-}
-
 type PwLbEthDstMac struct {
 }
 
 func (id PwLbEthDstMac) String() string {
 	return "cisco-pw:pw-lb-eth-dst-mac"
-}
-
-type PwLbEthSrcDstMac struct {
-}
-
-func (id PwLbEthSrcDstMac) String() string {
-	return "cisco-pw:pw-lb-eth-src-dst-mac"
-}
-
-type PwLbIpType struct {
-}
-
-func (id PwLbIpType) String() string {
-	return "cisco-pw:pw-lb-ip-type"
-}
-
-type PwLbIpSrcIp struct {
-}
-
-func (id PwLbIpSrcIp) String() string {
-	return "cisco-pw:pw-lb-ip-src-ip"
 }
 
 type PwLbIpDstIp struct {
@@ -135,32 +114,25 @@ func (id PwLbIpSrcDstIp) String() string {
 	return "cisco-pw:pw-lb-ip-src-dst-ip"
 }
 
-type PwSignalingProtocolType struct {
+type PwSequencingReceive struct {
 }
 
-func (id PwSignalingProtocolType) String() string {
-	return "cisco-pw:pw-signaling-protocol-type"
+func (id PwSequencingReceive) String() string {
+	return "cisco-pw:pw-sequencing-receive"
 }
 
-type PwSignalingProtocolNone struct {
+type PwLbEthSrcMac struct {
 }
 
-func (id PwSignalingProtocolNone) String() string {
-	return "cisco-pw:pw-signaling-protocol-none"
+func (id PwLbEthSrcMac) String() string {
+	return "cisco-pw:pw-lb-eth-src-mac"
 }
 
-type PwSignalingProtocolLdp struct {
+type PwLbEthernetType struct {
 }
 
-func (id PwSignalingProtocolLdp) String() string {
-	return "cisco-pw:pw-signaling-protocol-ldp"
-}
-
-type PwSignalingProtocolBgp struct {
-}
-
-func (id PwSignalingProtocolBgp) String() string {
-	return "cisco-pw:pw-signaling-protocol-bgp"
+func (id PwLbEthernetType) String() string {
+	return "cisco-pw:pw-lb-ethernet-type"
 }
 
 type PwSequencingType struct {
@@ -170,18 +142,11 @@ func (id PwSequencingType) String() string {
 	return "cisco-pw:pw-sequencing-type"
 }
 
-type PwSequencingReceive struct {
+type PwSignalingProtocolLdp struct {
 }
 
-func (id PwSequencingReceive) String() string {
-	return "cisco-pw:pw-sequencing-receive"
-}
-
-type PwSequencingTransmit struct {
-}
-
-func (id PwSequencingTransmit) String() string {
-	return "cisco-pw:pw-sequencing-transmit"
+func (id PwSignalingProtocolLdp) String() string {
+	return "cisco-pw:pw-signaling-protocol-ldp"
 }
 
 type PwSequencingBoth struct {
@@ -189,6 +154,41 @@ type PwSequencingBoth struct {
 
 func (id PwSequencingBoth) String() string {
 	return "cisco-pw:pw-sequencing-both"
+}
+
+type PwVcTypeVlan struct {
+}
+
+func (id PwVcTypeVlan) String() string {
+	return "cisco-pw:pw-vc-type-vlan"
+}
+
+type PwLbIpType struct {
+}
+
+func (id PwLbIpType) String() string {
+	return "cisco-pw:pw-lb-ip-type"
+}
+
+type PwSignalingProtocolNone struct {
+}
+
+func (id PwSignalingProtocolNone) String() string {
+	return "cisco-pw:pw-signaling-protocol-none"
+}
+
+type PwSignalingProtocolBgp struct {
+}
+
+func (id PwSignalingProtocolBgp) String() string {
+	return "cisco-pw:pw-signaling-protocol-bgp"
+}
+
+type PwLbIpSrcIp struct {
+}
+
+func (id PwLbIpSrcIp) String() string {
+	return "cisco-pw:pw-lb-ip-src-ip"
 }
 
 // PwOperStateType represents Indicates the operational status of the PW VC
@@ -268,11 +268,14 @@ func (pseudowireConfig *PseudowireConfig) GetEntityData() *types.CommonEntityDat
     pseudowireConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pseudowireConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    pseudowireConfig.EntityData.Children = make(map[string]types.YChild)
-    pseudowireConfig.EntityData.Children["global"] = types.YChild{"Global", &pseudowireConfig.Global}
-    pseudowireConfig.EntityData.Children["pw-templates"] = types.YChild{"PwTemplates", &pseudowireConfig.PwTemplates}
-    pseudowireConfig.EntityData.Children["pw-static-oam-classes"] = types.YChild{"PwStaticOamClasses", &pseudowireConfig.PwStaticOamClasses}
-    pseudowireConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    pseudowireConfig.EntityData.Children = types.NewOrderedMap()
+    pseudowireConfig.EntityData.Children.Append("global", types.YChild{"Global", &pseudowireConfig.Global})
+    pseudowireConfig.EntityData.Children.Append("pw-templates", types.YChild{"PwTemplates", &pseudowireConfig.PwTemplates})
+    pseudowireConfig.EntityData.Children.Append("pw-static-oam-classes", types.YChild{"PwStaticOamClasses", &pseudowireConfig.PwStaticOamClasses})
+    pseudowireConfig.EntityData.Leafs = types.NewOrderedMap()
+
+    pseudowireConfig.EntityData.YListKeys = []string {}
+
     return &(pseudowireConfig.EntityData)
 }
 
@@ -329,15 +332,18 @@ func (global *PseudowireConfig_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    global.EntityData.Children = make(map[string]types.YChild)
-    global.EntityData.Leafs = make(map[string]types.YLeaf)
-    global.EntityData.Leafs["pw-grouping"] = types.YLeaf{"PwGrouping", global.PwGrouping}
-    global.EntityData.Leafs["pw-oam-refresh-transmit"] = types.YLeaf{"PwOamRefreshTransmit", global.PwOamRefreshTransmit}
-    global.EntityData.Leafs["pw-status"] = types.YLeaf{"PwStatus", global.PwStatus}
-    global.EntityData.Leafs["predictive-redundancy"] = types.YLeaf{"PredictiveRedundancy", global.PredictiveRedundancy}
-    global.EntityData.Leafs["vc-state-notification-enabled"] = types.YLeaf{"VcStateNotificationEnabled", global.VcStateNotificationEnabled}
-    global.EntityData.Leafs["vc-state-notification-batch-size"] = types.YLeaf{"VcStateNotificationBatchSize", global.VcStateNotificationBatchSize}
-    global.EntityData.Leafs["vc-state-notification-rate"] = types.YLeaf{"VcStateNotificationRate", global.VcStateNotificationRate}
+    global.EntityData.Children = types.NewOrderedMap()
+    global.EntityData.Leafs = types.NewOrderedMap()
+    global.EntityData.Leafs.Append("pw-grouping", types.YLeaf{"PwGrouping", global.PwGrouping})
+    global.EntityData.Leafs.Append("pw-oam-refresh-transmit", types.YLeaf{"PwOamRefreshTransmit", global.PwOamRefreshTransmit})
+    global.EntityData.Leafs.Append("pw-status", types.YLeaf{"PwStatus", global.PwStatus})
+    global.EntityData.Leafs.Append("predictive-redundancy", types.YLeaf{"PredictiveRedundancy", global.PredictiveRedundancy})
+    global.EntityData.Leafs.Append("vc-state-notification-enabled", types.YLeaf{"VcStateNotificationEnabled", global.VcStateNotificationEnabled})
+    global.EntityData.Leafs.Append("vc-state-notification-batch-size", types.YLeaf{"VcStateNotificationBatchSize", global.VcStateNotificationBatchSize})
+    global.EntityData.Leafs.Append("vc-state-notification-rate", types.YLeaf{"VcStateNotificationRate", global.VcStateNotificationRate})
+
+    global.EntityData.YListKeys = []string {}
+
     return &(global.EntityData)
 }
 
@@ -350,7 +356,7 @@ type PseudowireConfig_PwTemplates struct {
 
     // Pseudowire template list. The type is slice of
     // PseudowireConfig_PwTemplates_PwTemplate.
-    PwTemplate []PseudowireConfig_PwTemplates_PwTemplate
+    PwTemplate []*PseudowireConfig_PwTemplates_PwTemplate
 }
 
 func (pwTemplates *PseudowireConfig_PwTemplates) GetEntityData() *types.CommonEntityData {
@@ -363,12 +369,15 @@ func (pwTemplates *PseudowireConfig_PwTemplates) GetEntityData() *types.CommonEn
     pwTemplates.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pwTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    pwTemplates.EntityData.Children = make(map[string]types.YChild)
-    pwTemplates.EntityData.Children["pw-template"] = types.YChild{"PwTemplate", nil}
+    pwTemplates.EntityData.Children = types.NewOrderedMap()
+    pwTemplates.EntityData.Children.Append("pw-template", types.YChild{"PwTemplate", nil})
     for i := range pwTemplates.PwTemplate {
-        pwTemplates.EntityData.Children[types.GetSegmentPath(&pwTemplates.PwTemplate[i])] = types.YChild{"PwTemplate", &pwTemplates.PwTemplate[i]}
+        pwTemplates.EntityData.Children.Append(types.GetSegmentPath(pwTemplates.PwTemplate[i]), types.YChild{"PwTemplate", pwTemplates.PwTemplate[i]})
     }
-    pwTemplates.EntityData.Leafs = make(map[string]types.YLeaf)
+    pwTemplates.EntityData.Leafs = types.NewOrderedMap()
+
+    pwTemplates.EntityData.YListKeys = []string {}
+
     return &(pwTemplates.EntityData)
 }
 
@@ -388,18 +397,18 @@ type PseudowireConfig_PwTemplates_PwTemplate struct {
     ControlWord interface{}
 
     // Signaling protocol to use. The type is one of the following:
-    // PwSignalingProtocolNonePwSignalingProtocolLdpPwSignalingProtocolBgp.
+    // PwSignalingProtocolLdpPwSignalingProtocolNonePwSignalingProtocolBgp.
     SignalingProtocol interface{}
 
     // Type of VC in the PW. The type is one of the following:
-    // PwVcTypeEtherPwVcTypeVlanPwVcTypeVlanPassthrough.
+    // PwVcTypeEtherPwVcTypeVlanPassthroughPwVcTypeVlan.
     VcType interface{}
 
     // Send switching TLV. The type is bool.
     SwitchingTlv interface{}
 
     // The local source IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceIp interface{}
 
     // Configure ingress tag rewrite vlan. The type is interface{} with range:
@@ -438,29 +447,32 @@ func (pwTemplate *PseudowireConfig_PwTemplates_PwTemplate) GetEntityData() *type
     pwTemplate.EntityData.YangName = "pw-template"
     pwTemplate.EntityData.BundleName = "cisco_ios_xe"
     pwTemplate.EntityData.ParentYangName = "pw-templates"
-    pwTemplate.EntityData.SegmentPath = "pw-template" + "[name='" + fmt.Sprintf("%v", pwTemplate.Name) + "']"
+    pwTemplate.EntityData.SegmentPath = "pw-template" + types.AddKeyToken(pwTemplate.Name, "name")
     pwTemplate.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pwTemplate.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pwTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    pwTemplate.EntityData.Children = make(map[string]types.YChild)
-    pwTemplate.EntityData.Children["load-balance"] = types.YChild{"LoadBalance", &pwTemplate.LoadBalance}
-    pwTemplate.EntityData.Children["preferred-path"] = types.YChild{"PreferredPath", &pwTemplate.PreferredPath}
-    pwTemplate.EntityData.Children["sequencing"] = types.YChild{"Sequencing", &pwTemplate.Sequencing}
-    pwTemplate.EntityData.Children["vccv"] = types.YChild{"Vccv", &pwTemplate.Vccv}
-    pwTemplate.EntityData.Children["switchover-delay"] = types.YChild{"SwitchoverDelay", &pwTemplate.SwitchoverDelay}
-    pwTemplate.EntityData.Children["status"] = types.YChild{"Status", &pwTemplate.Status}
-    pwTemplate.EntityData.Children["port-profile-spec"] = types.YChild{"PortProfileSpec", &pwTemplate.PortProfileSpec}
-    pwTemplate.EntityData.Leafs = make(map[string]types.YLeaf)
-    pwTemplate.EntityData.Leafs["name"] = types.YLeaf{"Name", pwTemplate.Name}
-    pwTemplate.EntityData.Leafs["encapsulation"] = types.YLeaf{"Encapsulation", pwTemplate.Encapsulation}
-    pwTemplate.EntityData.Leafs["control-word"] = types.YLeaf{"ControlWord", pwTemplate.ControlWord}
-    pwTemplate.EntityData.Leafs["signaling-protocol"] = types.YLeaf{"SignalingProtocol", pwTemplate.SignalingProtocol}
-    pwTemplate.EntityData.Leafs["vc-type"] = types.YLeaf{"VcType", pwTemplate.VcType}
-    pwTemplate.EntityData.Leafs["switching-tlv"] = types.YLeaf{"SwitchingTlv", pwTemplate.SwitchingTlv}
-    pwTemplate.EntityData.Leafs["source-ip"] = types.YLeaf{"SourceIp", pwTemplate.SourceIp}
-    pwTemplate.EntityData.Leafs["tag-rewrite-ingress-vlan"] = types.YLeaf{"TagRewriteIngressVlan", pwTemplate.TagRewriteIngressVlan}
-    pwTemplate.EntityData.Leafs["mac-withdraw"] = types.YLeaf{"MacWithdraw", pwTemplate.MacWithdraw}
+    pwTemplate.EntityData.Children = types.NewOrderedMap()
+    pwTemplate.EntityData.Children.Append("load-balance", types.YChild{"LoadBalance", &pwTemplate.LoadBalance})
+    pwTemplate.EntityData.Children.Append("preferred-path", types.YChild{"PreferredPath", &pwTemplate.PreferredPath})
+    pwTemplate.EntityData.Children.Append("sequencing", types.YChild{"Sequencing", &pwTemplate.Sequencing})
+    pwTemplate.EntityData.Children.Append("vccv", types.YChild{"Vccv", &pwTemplate.Vccv})
+    pwTemplate.EntityData.Children.Append("switchover-delay", types.YChild{"SwitchoverDelay", &pwTemplate.SwitchoverDelay})
+    pwTemplate.EntityData.Children.Append("status", types.YChild{"Status", &pwTemplate.Status})
+    pwTemplate.EntityData.Children.Append("port-profile-spec", types.YChild{"PortProfileSpec", &pwTemplate.PortProfileSpec})
+    pwTemplate.EntityData.Leafs = types.NewOrderedMap()
+    pwTemplate.EntityData.Leafs.Append("name", types.YLeaf{"Name", pwTemplate.Name})
+    pwTemplate.EntityData.Leafs.Append("encapsulation", types.YLeaf{"Encapsulation", pwTemplate.Encapsulation})
+    pwTemplate.EntityData.Leafs.Append("control-word", types.YLeaf{"ControlWord", pwTemplate.ControlWord})
+    pwTemplate.EntityData.Leafs.Append("signaling-protocol", types.YLeaf{"SignalingProtocol", pwTemplate.SignalingProtocol})
+    pwTemplate.EntityData.Leafs.Append("vc-type", types.YLeaf{"VcType", pwTemplate.VcType})
+    pwTemplate.EntityData.Leafs.Append("switching-tlv", types.YLeaf{"SwitchingTlv", pwTemplate.SwitchingTlv})
+    pwTemplate.EntityData.Leafs.Append("source-ip", types.YLeaf{"SourceIp", pwTemplate.SourceIp})
+    pwTemplate.EntityData.Leafs.Append("tag-rewrite-ingress-vlan", types.YLeaf{"TagRewriteIngressVlan", pwTemplate.TagRewriteIngressVlan})
+    pwTemplate.EntityData.Leafs.Append("mac-withdraw", types.YLeaf{"MacWithdraw", pwTemplate.MacWithdraw})
+
+    pwTemplate.EntityData.YListKeys = []string {"Name"}
+
     return &(pwTemplate.EntityData)
 }
 
@@ -471,12 +483,12 @@ type PseudowireConfig_PwTemplates_PwTemplate_LoadBalance struct {
     YFilter yfilter.YFilter
 
     // Ethernet mac address based load balancing. The type is one of the
-    // following: PwLbEthSrcMacPwLbEthDstMacPwLbEthSrcDstMac. The default value is
+    // following: PwLbEthSrcDstMacPwLbEthDstMacPwLbEthSrcMac. The default value is
     // pw-lb-eth-src-dst-mac.
     Ethernet interface{}
 
     // IP address based load balancing. The type is one of the following:
-    // PwLbIpSrcIpPwLbIpSrcDstIp.
+    // PwLbIpSrcDstIpPwLbIpSrcIp.
     Ip interface{}
 
     // Enable Flow Aware Label (FAT) PW - the capability to carry flow label on
@@ -494,11 +506,14 @@ func (loadBalance *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance) GetEntit
     loadBalance.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     loadBalance.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    loadBalance.EntityData.Children = make(map[string]types.YChild)
-    loadBalance.EntityData.Children["flow-label"] = types.YChild{"FlowLabel", &loadBalance.FlowLabel}
-    loadBalance.EntityData.Leafs = make(map[string]types.YLeaf)
-    loadBalance.EntityData.Leafs["ethernet"] = types.YLeaf{"Ethernet", loadBalance.Ethernet}
-    loadBalance.EntityData.Leafs["ip"] = types.YLeaf{"Ip", loadBalance.Ip}
+    loadBalance.EntityData.Children = types.NewOrderedMap()
+    loadBalance.EntityData.Children.Append("flow-label", types.YChild{"FlowLabel", &loadBalance.FlowLabel})
+    loadBalance.EntityData.Leafs = types.NewOrderedMap()
+    loadBalance.EntityData.Leafs.Append("ethernet", types.YLeaf{"Ethernet", loadBalance.Ethernet})
+    loadBalance.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", loadBalance.Ip})
+
+    loadBalance.EntityData.YListKeys = []string {}
+
     return &(loadBalance.EntityData)
 }
 
@@ -531,11 +546,14 @@ func (flowLabel *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel) 
     flowLabel.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flowLabel.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    flowLabel.EntityData.Children = make(map[string]types.YChild)
-    flowLabel.EntityData.Leafs = make(map[string]types.YLeaf)
-    flowLabel.EntityData.Leafs["direction"] = types.YLeaf{"Direction", flowLabel.Direction}
-    flowLabel.EntityData.Leafs["tlv-code-17"] = types.YLeaf{"TlvCode17", flowLabel.TlvCode17}
-    flowLabel.EntityData.Leafs["static"] = types.YLeaf{"Static", flowLabel.Static}
+    flowLabel.EntityData.Children = types.NewOrderedMap()
+    flowLabel.EntityData.Leafs = types.NewOrderedMap()
+    flowLabel.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", flowLabel.Direction})
+    flowLabel.EntityData.Leafs.Append("tlv-code-17", types.YLeaf{"TlvCode17", flowLabel.TlvCode17})
+    flowLabel.EntityData.Leafs.Append("static", types.YLeaf{"Static", flowLabel.Static})
+
+    flowLabel.EntityData.YListKeys = []string {}
+
     return &(flowLabel.EntityData)
 }
 
@@ -561,12 +579,12 @@ type PseudowireConfig_PwTemplates_PwTemplate_PreferredPath struct {
 
     // Reference to a tunnel interface. The type is string. Refers to
     // ietf_interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // TODO. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // TODO. The type is string.
@@ -586,12 +604,15 @@ func (preferredPath *PseudowireConfig_PwTemplates_PwTemplate_PreferredPath) GetE
     preferredPath.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     preferredPath.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    preferredPath.EntityData.Children = make(map[string]types.YChild)
-    preferredPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    preferredPath.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", preferredPath.Interface_}
-    preferredPath.EntityData.Leafs["address"] = types.YLeaf{"Address", preferredPath.Address}
-    preferredPath.EntityData.Leafs["hostname"] = types.YLeaf{"Hostname", preferredPath.Hostname}
-    preferredPath.EntityData.Leafs["disable-fallback"] = types.YLeaf{"DisableFallback", preferredPath.DisableFallback}
+    preferredPath.EntityData.Children = types.NewOrderedMap()
+    preferredPath.EntityData.Leafs = types.NewOrderedMap()
+    preferredPath.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", preferredPath.Interface})
+    preferredPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", preferredPath.Address})
+    preferredPath.EntityData.Leafs.Append("hostname", types.YLeaf{"Hostname", preferredPath.Hostname})
+    preferredPath.EntityData.Leafs.Append("disable-fallback", types.YLeaf{"DisableFallback", preferredPath.DisableFallback})
+
+    preferredPath.EntityData.YListKeys = []string {}
+
     return &(preferredPath.EntityData)
 }
 
@@ -602,7 +623,7 @@ type PseudowireConfig_PwTemplates_PwTemplate_Sequencing struct {
     YFilter yfilter.YFilter
 
     // TODO. The type is one of the following:
-    // PwSequencingReceivePwSequencingTransmitPwSequencingBoth.
+    // PwSequencingTransmitPwSequencingReceivePwSequencingBoth.
     Direction interface{}
 
     // TODO. The type is interface{} with range: 5..65535.
@@ -619,10 +640,13 @@ func (sequencing *PseudowireConfig_PwTemplates_PwTemplate_Sequencing) GetEntityD
     sequencing.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sequencing.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sequencing.EntityData.Children = make(map[string]types.YChild)
-    sequencing.EntityData.Leafs = make(map[string]types.YLeaf)
-    sequencing.EntityData.Leafs["direction"] = types.YLeaf{"Direction", sequencing.Direction}
-    sequencing.EntityData.Leafs["resync"] = types.YLeaf{"Resync", sequencing.Resync}
+    sequencing.EntityData.Children = types.NewOrderedMap()
+    sequencing.EntityData.Leafs = types.NewOrderedMap()
+    sequencing.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", sequencing.Direction})
+    sequencing.EntityData.Leafs.Append("resync", types.YLeaf{"Resync", sequencing.Resync})
+
+    sequencing.EntityData.YListKeys = []string {}
+
     return &(sequencing.EntityData)
 }
 
@@ -646,9 +670,12 @@ func (vccv *PseudowireConfig_PwTemplates_PwTemplate_Vccv) GetEntityData() *types
     vccv.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vccv.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vccv.EntityData.Children = make(map[string]types.YChild)
-    vccv.EntityData.Leafs = make(map[string]types.YLeaf)
-    vccv.EntityData.Leafs["control-word"] = types.YLeaf{"ControlWord", vccv.ControlWord}
+    vccv.EntityData.Children = types.NewOrderedMap()
+    vccv.EntityData.Leafs = types.NewOrderedMap()
+    vccv.EntityData.Leafs.Append("control-word", types.YLeaf{"ControlWord", vccv.ControlWord})
+
+    vccv.EntityData.YListKeys = []string {}
+
     return &(vccv.EntityData)
 }
 
@@ -683,11 +710,14 @@ func (switchoverDelay *PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay) 
     switchoverDelay.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     switchoverDelay.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    switchoverDelay.EntityData.Children = make(map[string]types.YChild)
-    switchoverDelay.EntityData.Leafs = make(map[string]types.YLeaf)
-    switchoverDelay.EntityData.Leafs["switchover-timer"] = types.YLeaf{"SwitchoverTimer", switchoverDelay.SwitchoverTimer}
-    switchoverDelay.EntityData.Leafs["timer"] = types.YLeaf{"Timer", switchoverDelay.Timer}
-    switchoverDelay.EntityData.Leafs["never"] = types.YLeaf{"Never", switchoverDelay.Never}
+    switchoverDelay.EntityData.Children = types.NewOrderedMap()
+    switchoverDelay.EntityData.Leafs = types.NewOrderedMap()
+    switchoverDelay.EntityData.Leafs.Append("switchover-timer", types.YLeaf{"SwitchoverTimer", switchoverDelay.SwitchoverTimer})
+    switchoverDelay.EntityData.Leafs.Append("timer", types.YLeaf{"Timer", switchoverDelay.Timer})
+    switchoverDelay.EntityData.Leafs.Append("never", types.YLeaf{"Never", switchoverDelay.Never})
+
+    switchoverDelay.EntityData.YListKeys = []string {}
+
     return &(switchoverDelay.EntityData)
 }
 
@@ -732,13 +762,16 @@ func (status *PseudowireConfig_PwTemplates_PwTemplate_Status) GetEntityData() *t
     status.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    status.EntityData.Children = make(map[string]types.YChild)
-    status.EntityData.Leafs = make(map[string]types.YLeaf)
-    status.EntityData.Leafs["decoupled"] = types.YLeaf{"Decoupled", status.Decoupled}
-    status.EntityData.Leafs["disable"] = types.YLeaf{"Disable", status.Disable}
-    status.EntityData.Leafs["peer-topo-dual-homed"] = types.YLeaf{"PeerTopoDualHomed", status.PeerTopoDualHomed}
-    status.EntityData.Leafs["route-watch-disable"] = types.YLeaf{"RouteWatchDisable", status.RouteWatchDisable}
-    status.EntityData.Leafs["redundancy-master"] = types.YLeaf{"RedundancyMaster", status.RedundancyMaster}
+    status.EntityData.Children = types.NewOrderedMap()
+    status.EntityData.Leafs = types.NewOrderedMap()
+    status.EntityData.Leafs.Append("decoupled", types.YLeaf{"Decoupled", status.Decoupled})
+    status.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", status.Disable})
+    status.EntityData.Leafs.Append("peer-topo-dual-homed", types.YLeaf{"PeerTopoDualHomed", status.PeerTopoDualHomed})
+    status.EntityData.Leafs.Append("route-watch-disable", types.YLeaf{"RouteWatchDisable", status.RouteWatchDisable})
+    status.EntityData.Leafs.Append("redundancy-master", types.YLeaf{"RedundancyMaster", status.RedundancyMaster})
+
+    status.EntityData.YListKeys = []string {}
+
     return &(status.EntityData)
 }
 
@@ -778,14 +811,17 @@ func (portProfileSpec *PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec) 
     portProfileSpec.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     portProfileSpec.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    portProfileSpec.EntityData.Children = make(map[string]types.YChild)
-    portProfileSpec.EntityData.Leafs = make(map[string]types.YLeaf)
-    portProfileSpec.EntityData.Leafs["description"] = types.YLeaf{"Description", portProfileSpec.Description}
-    portProfileSpec.EntityData.Leafs["shutdown"] = types.YLeaf{"Shutdown", portProfileSpec.Shutdown}
-    portProfileSpec.EntityData.Leafs["shut-force"] = types.YLeaf{"ShutForce", portProfileSpec.ShutForce}
-    portProfileSpec.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", portProfileSpec.Mtu}
-    portProfileSpec.EntityData.Leafs["max-ports"] = types.YLeaf{"MaxPorts", portProfileSpec.MaxPorts}
-    portProfileSpec.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", portProfileSpec.Enabled}
+    portProfileSpec.EntityData.Children = types.NewOrderedMap()
+    portProfileSpec.EntityData.Leafs = types.NewOrderedMap()
+    portProfileSpec.EntityData.Leafs.Append("description", types.YLeaf{"Description", portProfileSpec.Description})
+    portProfileSpec.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", portProfileSpec.Shutdown})
+    portProfileSpec.EntityData.Leafs.Append("shut-force", types.YLeaf{"ShutForce", portProfileSpec.ShutForce})
+    portProfileSpec.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", portProfileSpec.Mtu})
+    portProfileSpec.EntityData.Leafs.Append("max-ports", types.YLeaf{"MaxPorts", portProfileSpec.MaxPorts})
+    portProfileSpec.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", portProfileSpec.Enabled})
+
+    portProfileSpec.EntityData.YListKeys = []string {}
+
     return &(portProfileSpec.EntityData)
 }
 
@@ -797,7 +833,7 @@ type PseudowireConfig_PwStaticOamClasses struct {
 
     // Pseudowire static oam class configuration. The type is slice of
     // PseudowireConfig_PwStaticOamClasses_PwStaticOamClass.
-    PwStaticOamClass []PseudowireConfig_PwStaticOamClasses_PwStaticOamClass
+    PwStaticOamClass []*PseudowireConfig_PwStaticOamClasses_PwStaticOamClass
 }
 
 func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) GetEntityData() *types.CommonEntityData {
@@ -810,12 +846,15 @@ func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) GetEntityData() *
     pwStaticOamClasses.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pwStaticOamClasses.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    pwStaticOamClasses.EntityData.Children = make(map[string]types.YChild)
-    pwStaticOamClasses.EntityData.Children["pw-static-oam-class"] = types.YChild{"PwStaticOamClass", nil}
+    pwStaticOamClasses.EntityData.Children = types.NewOrderedMap()
+    pwStaticOamClasses.EntityData.Children.Append("pw-static-oam-class", types.YChild{"PwStaticOamClass", nil})
     for i := range pwStaticOamClasses.PwStaticOamClass {
-        pwStaticOamClasses.EntityData.Children[types.GetSegmentPath(&pwStaticOamClasses.PwStaticOamClass[i])] = types.YChild{"PwStaticOamClass", &pwStaticOamClasses.PwStaticOamClass[i]}
+        pwStaticOamClasses.EntityData.Children.Append(types.GetSegmentPath(pwStaticOamClasses.PwStaticOamClass[i]), types.YChild{"PwStaticOamClass", pwStaticOamClasses.PwStaticOamClass[i]})
     }
-    pwStaticOamClasses.EntityData.Leafs = make(map[string]types.YLeaf)
+    pwStaticOamClasses.EntityData.Leafs = types.NewOrderedMap()
+
+    pwStaticOamClasses.EntityData.YListKeys = []string {}
+
     return &(pwStaticOamClasses.EntityData)
 }
 
@@ -849,18 +888,21 @@ func (pwStaticOamClass *PseudowireConfig_PwStaticOamClasses_PwStaticOamClass) Ge
     pwStaticOamClass.EntityData.YangName = "pw-static-oam-class"
     pwStaticOamClass.EntityData.BundleName = "cisco_ios_xe"
     pwStaticOamClass.EntityData.ParentYangName = "pw-static-oam-classes"
-    pwStaticOamClass.EntityData.SegmentPath = "pw-static-oam-class" + "[name='" + fmt.Sprintf("%v", pwStaticOamClass.Name) + "']"
+    pwStaticOamClass.EntityData.SegmentPath = "pw-static-oam-class" + types.AddKeyToken(pwStaticOamClass.Name, "name")
     pwStaticOamClass.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pwStaticOamClass.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pwStaticOamClass.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    pwStaticOamClass.EntityData.Children = make(map[string]types.YChild)
-    pwStaticOamClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    pwStaticOamClass.EntityData.Leafs["name"] = types.YLeaf{"Name", pwStaticOamClass.Name}
-    pwStaticOamClass.EntityData.Leafs["ack"] = types.YLeaf{"Ack", pwStaticOamClass.Ack}
-    pwStaticOamClass.EntityData.Leafs["keepalive"] = types.YLeaf{"Keepalive", pwStaticOamClass.Keepalive}
-    pwStaticOamClass.EntityData.Leafs["timeout-refresh-send"] = types.YLeaf{"TimeoutRefreshSend", pwStaticOamClass.TimeoutRefreshSend}
-    pwStaticOamClass.EntityData.Leafs["timeout-refresh-ack"] = types.YLeaf{"TimeoutRefreshAck", pwStaticOamClass.TimeoutRefreshAck}
+    pwStaticOamClass.EntityData.Children = types.NewOrderedMap()
+    pwStaticOamClass.EntityData.Leafs = types.NewOrderedMap()
+    pwStaticOamClass.EntityData.Leafs.Append("name", types.YLeaf{"Name", pwStaticOamClass.Name})
+    pwStaticOamClass.EntityData.Leafs.Append("ack", types.YLeaf{"Ack", pwStaticOamClass.Ack})
+    pwStaticOamClass.EntityData.Leafs.Append("keepalive", types.YLeaf{"Keepalive", pwStaticOamClass.Keepalive})
+    pwStaticOamClass.EntityData.Leafs.Append("timeout-refresh-send", types.YLeaf{"TimeoutRefreshSend", pwStaticOamClass.TimeoutRefreshSend})
+    pwStaticOamClass.EntityData.Leafs.Append("timeout-refresh-ack", types.YLeaf{"TimeoutRefreshAck", pwStaticOamClass.TimeoutRefreshAck})
+
+    pwStaticOamClass.EntityData.YListKeys = []string {"Name"}
+
     return &(pwStaticOamClass.EntityData)
 }
 
@@ -877,7 +919,7 @@ type PseudowireState struct {
     // Additional filtering of the list by the agent may be performed upon request
     // by the client using subtree filtering as described in RFC 6020 Section 6.
     // The type is slice of PseudowireState_Pseudowires.
-    Pseudowires []PseudowireState_Pseudowires
+    Pseudowires []*PseudowireState_Pseudowires
 }
 
 func (pseudowireState *PseudowireState) GetEntityData() *types.CommonEntityData {
@@ -890,12 +932,15 @@ func (pseudowireState *PseudowireState) GetEntityData() *types.CommonEntityData 
     pseudowireState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pseudowireState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    pseudowireState.EntityData.Children = make(map[string]types.YChild)
-    pseudowireState.EntityData.Children["pseudowires"] = types.YChild{"Pseudowires", nil}
+    pseudowireState.EntityData.Children = types.NewOrderedMap()
+    pseudowireState.EntityData.Children.Append("pseudowires", types.YChild{"Pseudowires", nil})
     for i := range pseudowireState.Pseudowires {
-        pseudowireState.EntityData.Children[types.GetSegmentPath(&pseudowireState.Pseudowires[i])] = types.YChild{"Pseudowires", &pseudowireState.Pseudowires[i]}
+        pseudowireState.EntityData.Children.Append(types.GetSegmentPath(pseudowireState.Pseudowires[i]), types.YChild{"Pseudowires", pseudowireState.Pseudowires[i]})
     }
-    pseudowireState.EntityData.Leafs = make(map[string]types.YLeaf)
+    pseudowireState.EntityData.Leafs = types.NewOrderedMap()
+
+    pseudowireState.EntityData.YListKeys = []string {}
+
     return &(pseudowireState.EntityData)
 }
 
@@ -913,9 +958,9 @@ type PseudowireState_Pseudowires struct {
     // This attribute is a key. This object contains the value of the peer node
     // address of the PW/PE protocol entity. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VcPeerAddress interface{}
 
     // This attribute is a key. Used to distinguish between pseudowires going to
@@ -936,7 +981,7 @@ type PseudowireState_Pseudowires struct {
     VcIndex interface{}
 
     // Indicates the service to be carried over this VC. The type is one of the
-    // following: PwVcTypeEtherPwVcTypeVlanPwVcTypeVlanPassthrough.
+    // following: PwVcTypeEtherPwVcTypeVlanPassthroughPwVcTypeVlan.
     VcType interface{}
 
     // Name of the L2VPN service instance that created the pseudowire VC. The type
@@ -1015,33 +1060,36 @@ func (pseudowires *PseudowireState_Pseudowires) GetEntityData() *types.CommonEnt
     pseudowires.EntityData.YangName = "pseudowires"
     pseudowires.EntityData.BundleName = "cisco_ios_xe"
     pseudowires.EntityData.ParentYangName = "pseudowire-state"
-    pseudowires.EntityData.SegmentPath = "pseudowires" + "[vc-peer-address='" + fmt.Sprintf("%v", pseudowires.VcPeerAddress) + "']" + "[vc-id='" + fmt.Sprintf("%v", pseudowires.VcId) + "']" + "[vc-owner-type='" + fmt.Sprintf("%v", pseudowires.VcOwnerType) + "']" + "[vc-name='" + fmt.Sprintf("%v", pseudowires.VcName) + "']" + "[vc-index='" + fmt.Sprintf("%v", pseudowires.VcIndex) + "']"
+    pseudowires.EntityData.SegmentPath = "pseudowires" + types.AddKeyToken(pseudowires.VcPeerAddress, "vc-peer-address") + types.AddKeyToken(pseudowires.VcId, "vc-id") + types.AddKeyToken(pseudowires.VcOwnerType, "vc-owner-type") + types.AddKeyToken(pseudowires.VcName, "vc-name") + types.AddKeyToken(pseudowires.VcIndex, "vc-index")
     pseudowires.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pseudowires.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pseudowires.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    pseudowires.EntityData.Children = make(map[string]types.YChild)
-    pseudowires.EntityData.Children["statistics"] = types.YChild{"Statistics", &pseudowires.Statistics}
-    pseudowires.EntityData.Leafs = make(map[string]types.YLeaf)
-    pseudowires.EntityData.Leafs["vc-peer-address"] = types.YLeaf{"VcPeerAddress", pseudowires.VcPeerAddress}
-    pseudowires.EntityData.Leafs["vc-id"] = types.YLeaf{"VcId", pseudowires.VcId}
-    pseudowires.EntityData.Leafs["vc-owner-type"] = types.YLeaf{"VcOwnerType", pseudowires.VcOwnerType}
-    pseudowires.EntityData.Leafs["vc-name"] = types.YLeaf{"VcName", pseudowires.VcName}
-    pseudowires.EntityData.Leafs["vc-index"] = types.YLeaf{"VcIndex", pseudowires.VcIndex}
-    pseudowires.EntityData.Leafs["vc-type"] = types.YLeaf{"VcType", pseudowires.VcType}
-    pseudowires.EntityData.Leafs["vc-owner-name"] = types.YLeaf{"VcOwnerName", pseudowires.VcOwnerName}
-    pseudowires.EntityData.Leafs["vc-psn-type"] = types.YLeaf{"VcPsnType", pseudowires.VcPsnType}
-    pseudowires.EntityData.Leafs["vc-local-group-id"] = types.YLeaf{"VcLocalGroupId", pseudowires.VcLocalGroupId}
-    pseudowires.EntityData.Leafs["vc-control-word"] = types.YLeaf{"VcControlWord", pseudowires.VcControlWord}
-    pseudowires.EntityData.Leafs["vc-local-if-mtu"] = types.YLeaf{"VcLocalIfMtu", pseudowires.VcLocalIfMtu}
-    pseudowires.EntityData.Leafs["vc-remote-group-id"] = types.YLeaf{"VcRemoteGroupId", pseudowires.VcRemoteGroupId}
-    pseudowires.EntityData.Leafs["vc-remote-control-word"] = types.YLeaf{"VcRemoteControlWord", pseudowires.VcRemoteControlWord}
-    pseudowires.EntityData.Leafs["vc-remote-if-mtu"] = types.YLeaf{"VcRemoteIfMtu", pseudowires.VcRemoteIfMtu}
-    pseudowires.EntityData.Leafs["vc-outbound-label"] = types.YLeaf{"VcOutboundLabel", pseudowires.VcOutboundLabel}
-    pseudowires.EntityData.Leafs["vc-inbound-label"] = types.YLeaf{"VcInboundLabel", pseudowires.VcInboundLabel}
-    pseudowires.EntityData.Leafs["vc-oper-status"] = types.YLeaf{"VcOperStatus", pseudowires.VcOperStatus}
-    pseudowires.EntityData.Leafs["vc-inbound-oper-status"] = types.YLeaf{"VcInboundOperStatus", pseudowires.VcInboundOperStatus}
-    pseudowires.EntityData.Leafs["vc-outbound-oper-status"] = types.YLeaf{"VcOutboundOperStatus", pseudowires.VcOutboundOperStatus}
+    pseudowires.EntityData.Children = types.NewOrderedMap()
+    pseudowires.EntityData.Children.Append("statistics", types.YChild{"Statistics", &pseudowires.Statistics})
+    pseudowires.EntityData.Leafs = types.NewOrderedMap()
+    pseudowires.EntityData.Leafs.Append("vc-peer-address", types.YLeaf{"VcPeerAddress", pseudowires.VcPeerAddress})
+    pseudowires.EntityData.Leafs.Append("vc-id", types.YLeaf{"VcId", pseudowires.VcId})
+    pseudowires.EntityData.Leafs.Append("vc-owner-type", types.YLeaf{"VcOwnerType", pseudowires.VcOwnerType})
+    pseudowires.EntityData.Leafs.Append("vc-name", types.YLeaf{"VcName", pseudowires.VcName})
+    pseudowires.EntityData.Leafs.Append("vc-index", types.YLeaf{"VcIndex", pseudowires.VcIndex})
+    pseudowires.EntityData.Leafs.Append("vc-type", types.YLeaf{"VcType", pseudowires.VcType})
+    pseudowires.EntityData.Leafs.Append("vc-owner-name", types.YLeaf{"VcOwnerName", pseudowires.VcOwnerName})
+    pseudowires.EntityData.Leafs.Append("vc-psn-type", types.YLeaf{"VcPsnType", pseudowires.VcPsnType})
+    pseudowires.EntityData.Leafs.Append("vc-local-group-id", types.YLeaf{"VcLocalGroupId", pseudowires.VcLocalGroupId})
+    pseudowires.EntityData.Leafs.Append("vc-control-word", types.YLeaf{"VcControlWord", pseudowires.VcControlWord})
+    pseudowires.EntityData.Leafs.Append("vc-local-if-mtu", types.YLeaf{"VcLocalIfMtu", pseudowires.VcLocalIfMtu})
+    pseudowires.EntityData.Leafs.Append("vc-remote-group-id", types.YLeaf{"VcRemoteGroupId", pseudowires.VcRemoteGroupId})
+    pseudowires.EntityData.Leafs.Append("vc-remote-control-word", types.YLeaf{"VcRemoteControlWord", pseudowires.VcRemoteControlWord})
+    pseudowires.EntityData.Leafs.Append("vc-remote-if-mtu", types.YLeaf{"VcRemoteIfMtu", pseudowires.VcRemoteIfMtu})
+    pseudowires.EntityData.Leafs.Append("vc-outbound-label", types.YLeaf{"VcOutboundLabel", pseudowires.VcOutboundLabel})
+    pseudowires.EntityData.Leafs.Append("vc-inbound-label", types.YLeaf{"VcInboundLabel", pseudowires.VcInboundLabel})
+    pseudowires.EntityData.Leafs.Append("vc-oper-status", types.YLeaf{"VcOperStatus", pseudowires.VcOperStatus})
+    pseudowires.EntityData.Leafs.Append("vc-inbound-oper-status", types.YLeaf{"VcInboundOperStatus", pseudowires.VcInboundOperStatus})
+    pseudowires.EntityData.Leafs.Append("vc-outbound-oper-status", types.YLeaf{"VcOutboundOperStatus", pseudowires.VcOutboundOperStatus})
+
+    pseudowires.EntityData.YListKeys = []string {"VcPeerAddress", "VcId", "VcOwnerType", "VcName", "VcIndex"}
+
     return &(pseudowires.EntityData)
 }
 
@@ -1064,8 +1112,8 @@ type PseudowireState_Pseudowires_Statistics struct {
     // since the last re-initialization of the local management subsystem, then
     // this node contains the time the local management subsystem re-initialized
     // itself. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
-    // This attribute is mandatory.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}). This
+    // attribute is mandatory.
     DiscontinuityTime interface{}
 
     // The total number of octets received on this pseudowire.  Discontinuities in
@@ -1121,17 +1169,20 @@ func (statistics *PseudowireState_Pseudowires_Statistics) GetEntityData() *types
     statistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    statistics.EntityData.Children = make(map[string]types.YChild)
-    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    statistics.EntityData.Leafs["vc-create-time"] = types.YLeaf{"VcCreateTime", statistics.VcCreateTime}
-    statistics.EntityData.Leafs["vc-up-time"] = types.YLeaf{"VcUpTime", statistics.VcUpTime}
-    statistics.EntityData.Leafs["discontinuity-time"] = types.YLeaf{"DiscontinuityTime", statistics.DiscontinuityTime}
-    statistics.EntityData.Leafs["in-octets"] = types.YLeaf{"InOctets", statistics.InOctets}
-    statistics.EntityData.Leafs["in-pkts"] = types.YLeaf{"InPkts", statistics.InPkts}
-    statistics.EntityData.Leafs["in-errors"] = types.YLeaf{"InErrors", statistics.InErrors}
-    statistics.EntityData.Leafs["out-octets"] = types.YLeaf{"OutOctets", statistics.OutOctets}
-    statistics.EntityData.Leafs["out-pkts"] = types.YLeaf{"OutPkts", statistics.OutPkts}
-    statistics.EntityData.Leafs["out-errors"] = types.YLeaf{"OutErrors", statistics.OutErrors}
+    statistics.EntityData.Children = types.NewOrderedMap()
+    statistics.EntityData.Leafs = types.NewOrderedMap()
+    statistics.EntityData.Leafs.Append("vc-create-time", types.YLeaf{"VcCreateTime", statistics.VcCreateTime})
+    statistics.EntityData.Leafs.Append("vc-up-time", types.YLeaf{"VcUpTime", statistics.VcUpTime})
+    statistics.EntityData.Leafs.Append("discontinuity-time", types.YLeaf{"DiscontinuityTime", statistics.DiscontinuityTime})
+    statistics.EntityData.Leafs.Append("in-octets", types.YLeaf{"InOctets", statistics.InOctets})
+    statistics.EntityData.Leafs.Append("in-pkts", types.YLeaf{"InPkts", statistics.InPkts})
+    statistics.EntityData.Leafs.Append("in-errors", types.YLeaf{"InErrors", statistics.InErrors})
+    statistics.EntityData.Leafs.Append("out-octets", types.YLeaf{"OutOctets", statistics.OutOctets})
+    statistics.EntityData.Leafs.Append("out-pkts", types.YLeaf{"OutPkts", statistics.OutPkts})
+    statistics.EntityData.Leafs.Append("out-errors", types.YLeaf{"OutErrors", statistics.OutErrors})
+
+    statistics.EntityData.YListKeys = []string {}
+
     return &(statistics.EntityData)
 }
 

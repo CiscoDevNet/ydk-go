@@ -50,9 +50,12 @@ func (clearOspfv3Routes *ClearOspfv3Routes) GetEntityData() *types.CommonEntityD
     clearOspfv3Routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearOspfv3Routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clearOspfv3Routes.EntityData.Children = make(map[string]types.YChild)
-    clearOspfv3Routes.EntityData.Children["input"] = types.YChild{"Input", &clearOspfv3Routes.Input}
-    clearOspfv3Routes.EntityData.Leafs = make(map[string]types.YLeaf)
+    clearOspfv3Routes.EntityData.Children = types.NewOrderedMap()
+    clearOspfv3Routes.EntityData.Children.Append("input", types.YChild{"Input", &clearOspfv3Routes.Input})
+    clearOspfv3Routes.EntityData.Leafs = types.NewOrderedMap()
+
+    clearOspfv3Routes.EntityData.YListKeys = []string {}
+
     return &(clearOspfv3Routes.EntityData)
 }
 
@@ -79,10 +82,13 @@ func (input *ClearOspfv3Routes_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["instance"] = types.YChild{"Instance", &input.Instance}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["route"] = types.YLeaf{"Route", input.Route}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("instance", types.YChild{"Instance", &input.Instance})
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("route", types.YLeaf{"Route", input.Route})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -106,9 +112,12 @@ func (instance *ClearOspfv3Routes_Input_Instance) GetEntityData() *types.CommonE
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["instance-identifier"] = types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("instance-identifier", types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier})
+
+    instance.EntityData.YListKeys = []string {}
+
     return &(instance.EntityData)
 }
 
@@ -132,9 +141,12 @@ func (clearOspfv3Redistribution *ClearOspfv3Redistribution) GetEntityData() *typ
     clearOspfv3Redistribution.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearOspfv3Redistribution.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clearOspfv3Redistribution.EntityData.Children = make(map[string]types.YChild)
-    clearOspfv3Redistribution.EntityData.Children["input"] = types.YChild{"Input", &clearOspfv3Redistribution.Input}
-    clearOspfv3Redistribution.EntityData.Leafs = make(map[string]types.YLeaf)
+    clearOspfv3Redistribution.EntityData.Children = types.NewOrderedMap()
+    clearOspfv3Redistribution.EntityData.Children.Append("input", types.YChild{"Input", &clearOspfv3Redistribution.Input})
+    clearOspfv3Redistribution.EntityData.Leafs = types.NewOrderedMap()
+
+    clearOspfv3Redistribution.EntityData.YListKeys = []string {}
+
     return &(clearOspfv3Redistribution.EntityData)
 }
 
@@ -161,10 +173,13 @@ func (input *ClearOspfv3Redistribution_Input) GetEntityData() *types.CommonEntit
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["instance"] = types.YChild{"Instance", &input.Instance}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["redistribution"] = types.YLeaf{"Redistribution", input.Redistribution}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("instance", types.YChild{"Instance", &input.Instance})
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("redistribution", types.YLeaf{"Redistribution", input.Redistribution})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -188,9 +203,12 @@ func (instance *ClearOspfv3Redistribution_Input_Instance) GetEntityData() *types
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["instance-identifier"] = types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("instance-identifier", types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier})
+
+    instance.EntityData.YListKeys = []string {}
+
     return &(instance.EntityData)
 }
 
@@ -214,9 +232,12 @@ func (clearOspfv3Process *ClearOspfv3Process) GetEntityData() *types.CommonEntit
     clearOspfv3Process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearOspfv3Process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clearOspfv3Process.EntityData.Children = make(map[string]types.YChild)
-    clearOspfv3Process.EntityData.Children["input"] = types.YChild{"Input", &clearOspfv3Process.Input}
-    clearOspfv3Process.EntityData.Leafs = make(map[string]types.YLeaf)
+    clearOspfv3Process.EntityData.Children = types.NewOrderedMap()
+    clearOspfv3Process.EntityData.Children.Append("input", types.YChild{"Input", &clearOspfv3Process.Input})
+    clearOspfv3Process.EntityData.Leafs = types.NewOrderedMap()
+
+    clearOspfv3Process.EntityData.YListKeys = []string {}
+
     return &(clearOspfv3Process.EntityData)
 }
 
@@ -242,10 +263,13 @@ func (input *ClearOspfv3Process_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["instance"] = types.YChild{"Instance", &input.Instance}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["process"] = types.YLeaf{"Process", input.Process}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("instance", types.YChild{"Instance", &input.Instance})
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("process", types.YLeaf{"Process", input.Process})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -269,9 +293,12 @@ func (instance *ClearOspfv3Process_Input_Instance) GetEntityData() *types.Common
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["instance-identifier"] = types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("instance-identifier", types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier})
+
+    instance.EntityData.YListKeys = []string {}
+
     return &(instance.EntityData)
 }
 
@@ -295,9 +322,12 @@ func (clearOspfv3StatisticsNeighbor *ClearOspfv3StatisticsNeighbor) GetEntityDat
     clearOspfv3StatisticsNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearOspfv3StatisticsNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clearOspfv3StatisticsNeighbor.EntityData.Children = make(map[string]types.YChild)
-    clearOspfv3StatisticsNeighbor.EntityData.Children["input"] = types.YChild{"Input", &clearOspfv3StatisticsNeighbor.Input}
-    clearOspfv3StatisticsNeighbor.EntityData.Leafs = make(map[string]types.YLeaf)
+    clearOspfv3StatisticsNeighbor.EntityData.Children = types.NewOrderedMap()
+    clearOspfv3StatisticsNeighbor.EntityData.Children.Append("input", types.YChild{"Input", &clearOspfv3StatisticsNeighbor.Input})
+    clearOspfv3StatisticsNeighbor.EntityData.Leafs = types.NewOrderedMap()
+
+    clearOspfv3StatisticsNeighbor.EntityData.YListKeys = []string {}
+
     return &(clearOspfv3StatisticsNeighbor.EntityData)
 }
 
@@ -323,10 +353,13 @@ func (input *ClearOspfv3StatisticsNeighbor_Input) GetEntityData() *types.CommonE
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["instance"] = types.YChild{"Instance", &input.Instance}
-    input.EntityData.Children["neighbor"] = types.YChild{"Neighbor", &input.Neighbor}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("instance", types.YChild{"Instance", &input.Instance})
+    input.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", &input.Neighbor})
+    input.EntityData.Leafs = types.NewOrderedMap()
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -350,9 +383,12 @@ func (instance *ClearOspfv3StatisticsNeighbor_Input_Instance) GetEntityData() *t
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["instance-identifier"] = types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("instance-identifier", types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier})
+
+    instance.EntityData.YListKeys = []string {}
+
     return &(instance.EntityData)
 }
 
@@ -362,10 +398,10 @@ type ClearOspfv3StatisticsNeighbor_Input_Neighbor struct {
     YFilter yfilter.YFilter
 
     // Neighbor ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborId interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 }
 
@@ -379,10 +415,13 @@ func (neighbor *ClearOspfv3StatisticsNeighbor_Input_Neighbor) GetEntityData() *t
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["neighbor-id"] = types.YLeaf{"NeighborId", neighbor.NeighborId}
-    neighbor.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", neighbor.InterfaceName}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("neighbor-id", types.YLeaf{"NeighborId", neighbor.NeighborId})
+    neighbor.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighbor.InterfaceName})
+
+    neighbor.EntityData.YListKeys = []string {}
+
     return &(neighbor.EntityData)
 }
 
@@ -406,9 +445,12 @@ func (clearOspfv3Statistics *ClearOspfv3Statistics) GetEntityData() *types.Commo
     clearOspfv3Statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearOspfv3Statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clearOspfv3Statistics.EntityData.Children = make(map[string]types.YChild)
-    clearOspfv3Statistics.EntityData.Children["input"] = types.YChild{"Input", &clearOspfv3Statistics.Input}
-    clearOspfv3Statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    clearOspfv3Statistics.EntityData.Children = types.NewOrderedMap()
+    clearOspfv3Statistics.EntityData.Children.Append("input", types.YChild{"Input", &clearOspfv3Statistics.Input})
+    clearOspfv3Statistics.EntityData.Leafs = types.NewOrderedMap()
+
+    clearOspfv3Statistics.EntityData.YListKeys = []string {}
+
     return &(clearOspfv3Statistics.EntityData)
 }
 
@@ -440,12 +482,15 @@ func (input *ClearOspfv3Statistics_Input) GetEntityData() *types.CommonEntityDat
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["instance"] = types.YChild{"Instance", &input.Instance}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["prefix-priority"] = types.YLeaf{"PrefixPriority", input.PrefixPriority}
-    input.EntityData.Leafs["spf"] = types.YLeaf{"Spf", input.Spf}
-    input.EntityData.Leafs["neighbor"] = types.YLeaf{"Neighbor", input.Neighbor}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("instance", types.YChild{"Instance", &input.Instance})
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("prefix-priority", types.YLeaf{"PrefixPriority", input.PrefixPriority})
+    input.EntityData.Leafs.Append("spf", types.YLeaf{"Spf", input.Spf})
+    input.EntityData.Leafs.Append("neighbor", types.YLeaf{"Neighbor", input.Neighbor})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -469,9 +514,12 @@ func (instance *ClearOspfv3Statistics_Input_Instance) GetEntityData() *types.Com
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["instance-identifier"] = types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("instance-identifier", types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier})
+
+    instance.EntityData.YListKeys = []string {}
+
     return &(instance.EntityData)
 }
 
@@ -495,9 +543,12 @@ func (clearOspfv3InstanceVrf *ClearOspfv3InstanceVrf) GetEntityData() *types.Com
     clearOspfv3InstanceVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearOspfv3InstanceVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clearOspfv3InstanceVrf.EntityData.Children = make(map[string]types.YChild)
-    clearOspfv3InstanceVrf.EntityData.Children["input"] = types.YChild{"Input", &clearOspfv3InstanceVrf.Input}
-    clearOspfv3InstanceVrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    clearOspfv3InstanceVrf.EntityData.Children = types.NewOrderedMap()
+    clearOspfv3InstanceVrf.EntityData.Children.Append("input", types.YChild{"Input", &clearOspfv3InstanceVrf.Input})
+    clearOspfv3InstanceVrf.EntityData.Leafs = types.NewOrderedMap()
+
+    clearOspfv3InstanceVrf.EntityData.YListKeys = []string {}
+
     return &(clearOspfv3InstanceVrf.EntityData)
 }
 
@@ -520,9 +571,12 @@ func (input *ClearOspfv3InstanceVrf_Input) GetEntityData() *types.CommonEntityDa
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["instance"] = types.YChild{"Instance", &input.Instance}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("instance", types.YChild{"Instance", &input.Instance})
+    input.EntityData.Leafs = types.NewOrderedMap()
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -556,12 +610,15 @@ func (instance *ClearOspfv3InstanceVrf_Input_Instance) GetEntityData() *types.Co
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Children["vrf"] = types.YChild{"Vrf", &instance.Vrf}
-    instance.EntityData.Children["all"] = types.YChild{"All", &instance.All}
-    instance.EntityData.Children["all-inclusive"] = types.YChild{"AllInclusive", &instance.AllInclusive}
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["instance-identifier"] = types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Children.Append("vrf", types.YChild{"Vrf", &instance.Vrf})
+    instance.EntityData.Children.Append("all", types.YChild{"All", &instance.All})
+    instance.EntityData.Children.Append("all-inclusive", types.YChild{"AllInclusive", &instance.AllInclusive})
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("instance-identifier", types.YLeaf{"InstanceIdentifier", instance.InstanceIdentifier})
+
+    instance.EntityData.YListKeys = []string {}
+
     return &(instance.EntityData)
 }
 
@@ -597,13 +654,16 @@ func (vrf *ClearOspfv3InstanceVrf_Input_Instance_Vrf) GetEntityData() *types.Com
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["stats"] = types.YChild{"Stats", &vrf.Stats}
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
-    vrf.EntityData.Leafs["process"] = types.YLeaf{"Process", vrf.Process}
-    vrf.EntityData.Leafs["redistribution"] = types.YLeaf{"Redistribution", vrf.Redistribution}
-    vrf.EntityData.Leafs["route"] = types.YLeaf{"Route", vrf.Route}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("stats", types.YChild{"Stats", &vrf.Stats})
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+    vrf.EntityData.Leafs.Append("process", types.YLeaf{"Process", vrf.Process})
+    vrf.EntityData.Leafs.Append("redistribution", types.YLeaf{"Redistribution", vrf.Redistribution})
+    vrf.EntityData.Leafs.Append("route", types.YLeaf{"Route", vrf.Route})
+
+    vrf.EntityData.YListKeys = []string {}
+
     return &(vrf.EntityData)
 }
 
@@ -633,11 +693,14 @@ func (stats *ClearOspfv3InstanceVrf_Input_Instance_Vrf_Stats) GetEntityData() *t
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stats.EntityData.Children = make(map[string]types.YChild)
-    stats.EntityData.Children["neighbor"] = types.YChild{"Neighbor", &stats.Neighbor}
-    stats.EntityData.Leafs = make(map[string]types.YLeaf)
-    stats.EntityData.Leafs["spf"] = types.YLeaf{"Spf", stats.Spf}
-    stats.EntityData.Leafs["prefix-priority"] = types.YLeaf{"PrefixPriority", stats.PrefixPriority}
+    stats.EntityData.Children = types.NewOrderedMap()
+    stats.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", &stats.Neighbor})
+    stats.EntityData.Leafs = types.NewOrderedMap()
+    stats.EntityData.Leafs.Append("spf", types.YLeaf{"Spf", stats.Spf})
+    stats.EntityData.Leafs.Append("prefix-priority", types.YLeaf{"PrefixPriority", stats.PrefixPriority})
+
+    stats.EntityData.YListKeys = []string {}
+
     return &(stats.EntityData)
 }
 
@@ -648,11 +711,11 @@ type ClearOspfv3InstanceVrf_Input_Instance_Vrf_Stats_Neighbor struct {
     YFilter yfilter.YFilter
 
     // Neighbor ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborId interface{}
 
     
-    Interface_ ClearOspfv3InstanceVrf_Input_Instance_Vrf_Stats_Neighbor_Interface
+    Interface ClearOspfv3InstanceVrf_Input_Instance_Vrf_Stats_Neighbor_Interface
 }
 
 func (neighbor *ClearOspfv3InstanceVrf_Input_Instance_Vrf_Stats_Neighbor) GetEntityData() *types.CommonEntityData {
@@ -665,10 +728,13 @@ func (neighbor *ClearOspfv3InstanceVrf_Input_Instance_Vrf_Stats_Neighbor) GetEnt
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Children["interface"] = types.YChild{"Interface_", &neighbor.Interface_}
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["neighbor-id"] = types.YLeaf{"NeighborId", neighbor.NeighborId}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Children.Append("interface", types.YChild{"Interface", &neighbor.Interface})
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("neighbor-id", types.YLeaf{"NeighborId", neighbor.NeighborId})
+
+    neighbor.EntityData.YListKeys = []string {}
+
     return &(neighbor.EntityData)
 }
 
@@ -678,7 +744,7 @@ type ClearOspfv3InstanceVrf_Input_Instance_Vrf_Stats_Neighbor_Interface struct {
     YFilter yfilter.YFilter
 
     // OSPFv3 interface statistics. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 }
 
@@ -692,9 +758,12 @@ func (self *ClearOspfv3InstanceVrf_Input_Instance_Vrf_Stats_Neighbor_Interface) 
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -727,12 +796,15 @@ func (all *ClearOspfv3InstanceVrf_Input_Instance_All) GetEntityData() *types.Com
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    all.EntityData.Children = make(map[string]types.YChild)
-    all.EntityData.Children["stats"] = types.YChild{"Stats", &all.Stats}
-    all.EntityData.Leafs = make(map[string]types.YLeaf)
-    all.EntityData.Leafs["process"] = types.YLeaf{"Process", all.Process}
-    all.EntityData.Leafs["redistribution"] = types.YLeaf{"Redistribution", all.Redistribution}
-    all.EntityData.Leafs["route"] = types.YLeaf{"Route", all.Route}
+    all.EntityData.Children = types.NewOrderedMap()
+    all.EntityData.Children.Append("stats", types.YChild{"Stats", &all.Stats})
+    all.EntityData.Leafs = types.NewOrderedMap()
+    all.EntityData.Leafs.Append("process", types.YLeaf{"Process", all.Process})
+    all.EntityData.Leafs.Append("redistribution", types.YLeaf{"Redistribution", all.Redistribution})
+    all.EntityData.Leafs.Append("route", types.YLeaf{"Route", all.Route})
+
+    all.EntityData.YListKeys = []string {}
+
     return &(all.EntityData)
 }
 
@@ -762,11 +834,14 @@ func (stats *ClearOspfv3InstanceVrf_Input_Instance_All_Stats) GetEntityData() *t
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stats.EntityData.Children = make(map[string]types.YChild)
-    stats.EntityData.Children["neighbor"] = types.YChild{"Neighbor", &stats.Neighbor}
-    stats.EntityData.Leafs = make(map[string]types.YLeaf)
-    stats.EntityData.Leafs["spf"] = types.YLeaf{"Spf", stats.Spf}
-    stats.EntityData.Leafs["prefix-priority"] = types.YLeaf{"PrefixPriority", stats.PrefixPriority}
+    stats.EntityData.Children = types.NewOrderedMap()
+    stats.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", &stats.Neighbor})
+    stats.EntityData.Leafs = types.NewOrderedMap()
+    stats.EntityData.Leafs.Append("spf", types.YLeaf{"Spf", stats.Spf})
+    stats.EntityData.Leafs.Append("prefix-priority", types.YLeaf{"PrefixPriority", stats.PrefixPriority})
+
+    stats.EntityData.YListKeys = []string {}
+
     return &(stats.EntityData)
 }
 
@@ -777,11 +852,11 @@ type ClearOspfv3InstanceVrf_Input_Instance_All_Stats_Neighbor struct {
     YFilter yfilter.YFilter
 
     // Neighbor ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborId interface{}
 
     
-    Interface_ ClearOspfv3InstanceVrf_Input_Instance_All_Stats_Neighbor_Interface
+    Interface ClearOspfv3InstanceVrf_Input_Instance_All_Stats_Neighbor_Interface
 }
 
 func (neighbor *ClearOspfv3InstanceVrf_Input_Instance_All_Stats_Neighbor) GetEntityData() *types.CommonEntityData {
@@ -794,10 +869,13 @@ func (neighbor *ClearOspfv3InstanceVrf_Input_Instance_All_Stats_Neighbor) GetEnt
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Children["interface"] = types.YChild{"Interface_", &neighbor.Interface_}
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["neighbor-id"] = types.YLeaf{"NeighborId", neighbor.NeighborId}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Children.Append("interface", types.YChild{"Interface", &neighbor.Interface})
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("neighbor-id", types.YLeaf{"NeighborId", neighbor.NeighborId})
+
+    neighbor.EntityData.YListKeys = []string {}
+
     return &(neighbor.EntityData)
 }
 
@@ -807,7 +885,7 @@ type ClearOspfv3InstanceVrf_Input_Instance_All_Stats_Neighbor_Interface struct {
     YFilter yfilter.YFilter
 
     // OSPFv3 interface statistics. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 }
 
@@ -821,9 +899,12 @@ func (self *ClearOspfv3InstanceVrf_Input_Instance_All_Stats_Neighbor_Interface) 
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -856,12 +937,15 @@ func (allInclusive *ClearOspfv3InstanceVrf_Input_Instance_AllInclusive) GetEntit
     allInclusive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allInclusive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allInclusive.EntityData.Children = make(map[string]types.YChild)
-    allInclusive.EntityData.Children["stats"] = types.YChild{"Stats", &allInclusive.Stats}
-    allInclusive.EntityData.Leafs = make(map[string]types.YLeaf)
-    allInclusive.EntityData.Leafs["process"] = types.YLeaf{"Process", allInclusive.Process}
-    allInclusive.EntityData.Leafs["redistribution"] = types.YLeaf{"Redistribution", allInclusive.Redistribution}
-    allInclusive.EntityData.Leafs["route"] = types.YLeaf{"Route", allInclusive.Route}
+    allInclusive.EntityData.Children = types.NewOrderedMap()
+    allInclusive.EntityData.Children.Append("stats", types.YChild{"Stats", &allInclusive.Stats})
+    allInclusive.EntityData.Leafs = types.NewOrderedMap()
+    allInclusive.EntityData.Leafs.Append("process", types.YLeaf{"Process", allInclusive.Process})
+    allInclusive.EntityData.Leafs.Append("redistribution", types.YLeaf{"Redistribution", allInclusive.Redistribution})
+    allInclusive.EntityData.Leafs.Append("route", types.YLeaf{"Route", allInclusive.Route})
+
+    allInclusive.EntityData.YListKeys = []string {}
+
     return &(allInclusive.EntityData)
 }
 
@@ -891,11 +975,14 @@ func (stats *ClearOspfv3InstanceVrf_Input_Instance_AllInclusive_Stats) GetEntity
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stats.EntityData.Children = make(map[string]types.YChild)
-    stats.EntityData.Children["neighbor"] = types.YChild{"Neighbor", &stats.Neighbor}
-    stats.EntityData.Leafs = make(map[string]types.YLeaf)
-    stats.EntityData.Leafs["spf"] = types.YLeaf{"Spf", stats.Spf}
-    stats.EntityData.Leafs["prefix-priority"] = types.YLeaf{"PrefixPriority", stats.PrefixPriority}
+    stats.EntityData.Children = types.NewOrderedMap()
+    stats.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", &stats.Neighbor})
+    stats.EntityData.Leafs = types.NewOrderedMap()
+    stats.EntityData.Leafs.Append("spf", types.YLeaf{"Spf", stats.Spf})
+    stats.EntityData.Leafs.Append("prefix-priority", types.YLeaf{"PrefixPriority", stats.PrefixPriority})
+
+    stats.EntityData.YListKeys = []string {}
+
     return &(stats.EntityData)
 }
 
@@ -906,11 +993,11 @@ type ClearOspfv3InstanceVrf_Input_Instance_AllInclusive_Stats_Neighbor struct {
     YFilter yfilter.YFilter
 
     // Neighbor ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborId interface{}
 
     
-    Interface_ ClearOspfv3InstanceVrf_Input_Instance_AllInclusive_Stats_Neighbor_Interface
+    Interface ClearOspfv3InstanceVrf_Input_Instance_AllInclusive_Stats_Neighbor_Interface
 }
 
 func (neighbor *ClearOspfv3InstanceVrf_Input_Instance_AllInclusive_Stats_Neighbor) GetEntityData() *types.CommonEntityData {
@@ -923,10 +1010,13 @@ func (neighbor *ClearOspfv3InstanceVrf_Input_Instance_AllInclusive_Stats_Neighbo
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Children["interface"] = types.YChild{"Interface_", &neighbor.Interface_}
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["neighbor-id"] = types.YLeaf{"NeighborId", neighbor.NeighborId}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Children.Append("interface", types.YChild{"Interface", &neighbor.Interface})
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("neighbor-id", types.YLeaf{"NeighborId", neighbor.NeighborId})
+
+    neighbor.EntityData.YListKeys = []string {}
+
     return &(neighbor.EntityData)
 }
 
@@ -936,7 +1026,7 @@ type ClearOspfv3InstanceVrf_Input_Instance_AllInclusive_Stats_Neighbor_Interface
     YFilter yfilter.YFilter
 
     // OSPFv3 interface statistics. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 }
 
@@ -950,9 +1040,12 @@ func (self *ClearOspfv3InstanceVrf_Input_Instance_AllInclusive_Stats_Neighbor_In
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 

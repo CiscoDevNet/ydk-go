@@ -5,9 +5,6 @@ module Cisco-IOS-XR-icpe-infra-oper {
   import Cisco-IOS-XR-types {
     prefix xr;
   }
-  include Cisco-IOS-XR-icpe-infra-oper-sub12 {
-    revision-date 2015-11-09;
-  }
   include Cisco-IOS-XR-icpe-infra-oper-sub11 {
     revision-date 2015-11-09;
   }
@@ -230,21 +227,6 @@ module Cisco-IOS-XR-icpe-infra-oper {
         uses ICPE-INSTALL-PROGRESS;
       }
     }
-    container reload-statuses {
-      description
-        "Detailed breakdown of reload status table";
-      list reload-status {
-        key "satellite-range";
-        description
-          "Detailed breakdown of reload status";
-        leaf satellite-range {
-          type xr:Cisco-ios-xr-string;
-          description
-            "Satellite range";
-        }
-        uses ICPE-RELOAD-STATUS-DETAIL;
-      }
-    }
     container install {
       description
         "Satellite Install Information";
@@ -297,16 +279,12 @@ module Cisco-IOS-XR-icpe-infra-oper {
               "Sat ID range";
           }
           leaf min {
-            type uint32 {
-              range "0..2147483647";
-            }
+            type Icpe-sat-id;
             description
               "Min";
           }
           leaf max {
-            type uint32 {
-              range "0..2147483647";
-            }
+            type Icpe-sat-id;
             description
               "Max";
           }

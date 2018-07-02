@@ -44,9 +44,12 @@ func (hardwareModuleExtUsb *HardwareModuleExtUsb) GetEntityData() *types.CommonE
     hardwareModuleExtUsb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareModuleExtUsb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareModuleExtUsb.EntityData.Children = make(map[string]types.YChild)
-    hardwareModuleExtUsb.EntityData.Leafs = make(map[string]types.YLeaf)
-    hardwareModuleExtUsb.EntityData.Leafs["disable"] = types.YLeaf{"Disable", hardwareModuleExtUsb.Disable}
+    hardwareModuleExtUsb.EntityData.Children = types.NewOrderedMap()
+    hardwareModuleExtUsb.EntityData.Leafs = types.NewOrderedMap()
+    hardwareModuleExtUsb.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", hardwareModuleExtUsb.Disable})
+
+    hardwareModuleExtUsb.EntityData.YListKeys = []string {}
+
     return &(hardwareModuleExtUsb.EntityData)
 }
 

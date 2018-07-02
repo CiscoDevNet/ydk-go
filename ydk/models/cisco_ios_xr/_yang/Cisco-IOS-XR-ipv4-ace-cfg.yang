@@ -28,20 +28,40 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR IPv4 ACL entry configuration.
      
-     Copyright (c) 2013, 2015-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013, 2015-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-02-01 {
+    description
+      "Using YANG bit types for tcp flags.";
+  }
+  revision 2018-01-03 {
+    description
+      "6.4.1 revision.
+       Fixed a few typos in the description.";
+  }
+  revision 2017-10-15 {
+    description
+      "Removed presence statement generated from internal CLI data.";
+  }
   revision 2017-06-08 {
     description
-      "6.3.1 fragment-type revision";
+      "6.3.1 revision.
+       This revision adds the following new leaf:
+       - fragment-type";
   }
   revision 2017-05-11 {
     description
-      "6.3.1 revision";
+      "6.3.1 revision,
+       This revision adds the following new leaf:
+       - fragment-type";
   }
   revision 2016-11-07 {
     description
-      "6.2.1 revision.";
+      "6.2.1 revision.
+       This revision adds the following new leaves:
+       - protocol-operator
+       - protocol2";
   }
   revision 2015-11-09 {
     description
@@ -73,24 +93,32 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
     leaf grant {
       type ipv4-acl-dt:Ipv4-acl-grant-enum;
       description
-        "Whether to forward or drop packets matching the 
-         ACE.";
+        "Forwarding action for the packet. This is required
+         for any non-remark ACE. Leave unspecified otherwise.";
     }
     leaf protocol-operator {
       type ipv4-acl-dt:Ipv4-acl-operator-enum;
       description
-        "Protocol operator. Leave unspecified
-         if no protocol comparison is to be done.";
+        "Protocol operator. User can specify equal or leave
+         it unspecified for singleton protocol match, or
+         specify range for protocol range match.";
     }
     leaf protocol {
       type ipv4-acl-dt:Ipv4-acl-protocol-number;
       description
-        "Protocol to match.";
+        "Protocol number to match. It can be used for the lower
+         bound (range operator) or single value (equal operator).
+         Any value not in the permissible range will be rejected.
+         When leave unspecified, default value is ipv4.";
+      reference "RFC 758 - ASSIGNED INTERNET PROTOCOL NUMBERS";
     }
     leaf protocol2 {
       type ipv4-acl-dt:Ipv4-acl-protocol-number;
       description
-        "Protocol2 to match.";
+        "Protocol2 to match. It is used in upper bound (range
+         operator). Any value not in the permissible range will
+         be rejected.";
+      reference "RFC 758 - ASSIGNED INTERNET PROTOCOL NUMBERS";
     }
     container source-network {
       description
@@ -150,22 +178,29 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
       leaf source-operator {
         type ipv4-acl-dt:Ipv4-acl-operator-enum;
         description
-          "Source comparison operator . Leave unspecified 
+          "Source port comparison operator. This is a required 
+           field if any source port value is given, otherwise,
+           config will be rejected. Leave unspecified
            if no source port comparison is to be done.";
       }
       leaf first-source-port {
         type ipv4-acl-dt:Ipv4-acl-port-number;
         description
-          "First source port for comparison, leave 
-           unspecified if source port comparison is not to
-           be performed.";
+          "Lower source port for comparison. It can be used
+           for the lower bound (range operator) or single value
+           (equal, less, greater..etc). Any value not in the 
+           permissible range will be rejected. Leave unspecified
+           otherwise.";
+        reference "RFC 1700 - WELL KNOWN PORT NUMBERS";
       }
       leaf second-source-port {
         type ipv4-acl-dt:Ipv4-acl-port-number;
         description
-          "Second source port for comparion, leave 
-           unspecified if source port comparison is not to
-           be performed.";
+          "Upper source port for comparion. It is used
+           in the upper bound (range operator). Any value not in the
+           permissible range will be rejected. Leave unspecified
+           otherwise.";
+        reference "RFC 1700 - WELL KNOWN PORT NUMBERS";
       }
     }
     container destination-port {
@@ -178,23 +213,30 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
       leaf destination-operator {
         type ipv4-acl-dt:Ipv4-acl-operator-enum;
         description
-          "Destination comparison operator. Leave 
-           unspecified if no destination port comparison is
-           to be done.";
+          "Destination port comparison operator. This is a
+           required field if any destination port value is
+           given, otherwise, config will be rejected.
+           Leave unspecified if no destination
+           port comparison is to be done.";
       }
       leaf first-destination-port {
         type ipv4-acl-dt:Ipv4-acl-port-number;
         description
-          "First destination port for comparison, leave
-           unspecified if destination port comparison is
-           not to be performed.";
+          "Lower destination port for comparison. It can be used
+           for the lower bound (range operator) or single value
+           (equal, less, greater..etc). Any value not in the
+           permissible range will be rejected. Leave unspecified
+           otherwise.";
+        reference "RFC 1700 - WELL KNOWN PORT NUMBERS";
       }
       leaf second-destination-port {
         type ipv4-acl-dt:Ipv4-acl-port-number;
         description
-          "Second destination port for comparion, leave
-           unspecified if destination port comparison is
-           not to be performed.";
+          "Upper destination port for comparison. It is used
+           in the upper bound (range operator). Any value not in the
+           permissible range will be rejected. Leave unspecified
+           otherwise.";
+        reference "RFC 1700 - WELL KNOWN PORT NUMBERS";
       }
     }
     container icmp {
@@ -210,6 +252,7 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
           "Well known ICMP message code types to match, 
            leave unspecified if ICMP message code type 
            comparion is not to be performed.";
+        reference "RFC 792";
       }
     }
     container tcp {
@@ -232,6 +275,7 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
           "TCP bits to match.
            Leave unspecified if comparison of TCP bits is
            not required.";
+        reference "RFC 793 Section 3.1 Control Bits";
       }
       leaf tcp-bits-mask {
         type ipv4-acl-dt:Ipv4-acl-tcp-bits-number;
@@ -247,25 +291,26 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
       leaf packet-length-operator {
         type ipv4-acl-dt:Ipv4-acl-operator-enum;
         description
-          "Packet length operator applicable if Packet 
-           length is to be compared. Leave unspecified if 
-           no packet length comparison is to be done.";
+          "Packet length operator applicable if packet length
+           is to be compared. This is a required field if any
+           packet-length value is given, otherwise, config 
+           will be rejected.";
       }
       leaf packet-length-min {
         type ipv4-acl-dt:Ipv4-acl-plen-range;
         description
-          "Minimum packet length for comparison, leave 
-           unspecified if packet length comparison is not 
-           to be performed or if only the maximum packet 
-           length should be considered.";
+          "Mininum packet length value for comparison. It can be used 
+           for the lower bound (range operator) or single value
+           (equal, less, greater..etc). Any value not in the permissible 
+           range will be rejected. Leave unspecified otherwise.";
       }
       leaf packet-length-max {
         type ipv4-acl-dt:Ipv4-acl-plen-range;
         description
-          "Maximum packet length for comparion, leave 
-           unspecified if packet length comparison is not 
-           to be performed or if only the minimum packet 
-           length should be considered.";
+          "Maximum packet length value for comparison. It is used 
+           in the upper bound (range operator). Any value not in the
+           permissible range will be rejected. Leave unspecified
+           otherwise.";
       }
     }
     container time-to-live {
@@ -274,23 +319,28 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
       leaf time-to-live-operator {
         type ipv4-acl-dt:Ipv4-acl-operator-enum;
         description
-          "TTL operator is applicable if TTL is to be 
-           compared. Leave unspecified if TTL 
-           classification is not required.";
+          "TTL operator is applicable if TTL is to be compared.
+           This is a required field if any TTL value is given,
+           otherwise, config will be rejected. Leave
+           unspecified if TTL classification is not required.";
       }
       leaf time-to-live-min {
         type ipv4-acl-dt:Ipv4-acl-ttl-range;
         description
-          "TTL value for comparison OR Minimum TTL value 
-           for TTL range comparision, leave unspecified if 
-           TTL classification is not required.";
+          "Mininum TTL value for comparison. It can be used for the
+           lower bound (range operator) or single value (equal, less,
+           greater..etc). Any value not in the permissible range will
+           be rejected. Leave unspecified otherwise.";
+        reference "RFC 791 Section 3.2 - Time to Live";
       }
       leaf time-to-live-max {
         type ipv4-acl-dt:Ipv4-acl-ttl-range;
         description
-          "Maximum TTL for comparion, leave unspecified if 
-           TTL comparison is not to be performed or if only
-           the minimum TTL should be considered.";
+          "Maximum TTL value for comparison. It is used in the
+           upper bound (range operator). Any value not in the
+           permissible range will be rejected. Leave unspecified
+           otherwise.";
+        reference "RFC 791 Section 3.2 - Time to Live";
       }
     }
     container fragment-offset {
@@ -299,25 +349,29 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
       leaf fragment-offset-operator {
         type ipv4-acl-dt:Ipv4-acl-operator-enum;
         description
-          "Fragment-offset operator is applicable if fragment-offset
-           is to be compared. Leave unspecified if fragment-offset
-           classification is not required.";
+          "Fragment-offset operator if fragment-offset is to be
+           compared. This is a required field if any fragment-offset
+           value is given, otherwise, config will be rejected.
+           Leave unspecified if fragment-offset classification
+           is not required.";
       }
       leaf fragment-offset-1 {
         type ipv4-acl-dt:Ipv4-acl-frag-offset-range;
         description
-          "Fragment-offset value for comparison OR first
-           fragment-offset value for fragment-offset range
-           comparision, leave unspecified if fragment-offset
-           classification is not required.";
+          "Fragment-offset value for comparison. It can be used
+           for the lower bound (range operator) or single value
+           (equal, less, greater..etc). Any value not in the permissible
+           range will be rejected. Leave unspecified otherwise.";
+        reference "RFC 791 Section 2.3 - Fragmentation";
       }
       leaf fragment-offset-2 {
         type ipv4-acl-dt:Ipv4-acl-frag-offset-range;
         description
-          "Second fragment-offset value for comparion,
-           leave unspecified if fragment-offset comparison is not
-           to be performed or if only the first fragment-offset
-           value should be considered.";
+          "Second fragment-offset value for comparison. It is used
+           in the upper bound (range operator). Any value not in the
+           permissible range will be rejected. Leave unspecified
+           otherwise.";
+        reference "RFC 791 Section 2.3 - Fragmentation";
       }
     }
     leaf fragment-type {
@@ -325,6 +379,7 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
       description
         "Fragment flags, such as dont-fragment, is-fragment,
          first-fragment, and last-fragment.";
+      reference "RFC 791 Section 2.3 - Fragmentation";
     }
     container next-hop {
       description
@@ -343,12 +398,16 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
             "The IPv4 address of the next-hop.";
         }
         leaf vrf-name {
-          type string;
+          type string {
+            length "1..32";
+          }
           description
             "The VRF name of the next-hop.";
         }
         leaf track-name {
-          type string;
+          type string {
+            length "1..32";
+          }
           description
             "The object tracking name for the next-hop.";
         }
@@ -362,12 +421,16 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
             "The IPv4 address of the next-hop.";
         }
         leaf vrf-name {
-          type string;
+          type string {
+            length "1..32";
+          }
           description
             "The VRF name of the next-hop.";
         }
         leaf track-name {
-          type string;
+          type string {
+            length "1..32";
+          }
           description
             "The object tracking name for the next-hop.";
         }
@@ -381,21 +444,27 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
             "The IPv4 address of the next-hop.";
         }
         leaf vrf-name {
-          type string;
+          type string {
+            length "1..32";
+          }
           description
             "The VRF name of the next-hop.";
         }
         leaf track-name {
-          type string;
+          type string {
+            length "1..32";
+          }
           description
             "The object tracking name for the next-hop.";
         }
       }
     }
     leaf counter-name {
-      type string;
+      type string {
+        length "1..64";
+      }
       description
-        "Counter name.";
+        "Name of counter to aggregate hardware statistics.";
     }
     leaf igmp-message-type {
       when "../protocol = '2' or ../protocol = 'igmp'" {
@@ -406,6 +475,7 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
       description
         "IGMP message type to match. Leave unspecified if 
          no message type comparison is to be done.";
+      reference "RFC 3376";
     }
     container dscp {
       description
@@ -420,36 +490,40 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
       leaf dscp-min {
         type ipv4-acl-dt:Ipv4-acl-dscp-number;
         description
-          "DSCP value to match or minimum DSCP value 
-           for DSCP range comparison, leave unspecified 
-           if DSCP comparion is not to be performed.";
+          "Mininum DSCP value for comparison. It can be used for the
+           lower bound (range operator) or single value (equal, less,
+           greater..etc). Any value not in the permissible range will
+           be rejected. Leave unspecified otherwise.";
+        reference "RFC 2474";
       }
       leaf dscp-max {
         type ipv4-acl-dt:Ipv4-acl-dscp-number;
         description
-          "Maximum DSCP value for comparion, leave 
-           unspecified if DSCP comparison is not to 
-           be performed or if only the minimum DSCP
-           should be considered.";
+          "Maximum DSCP value for comparison. It is used in the
+           upper bound (range operator). Any value not in the
+           permissible range will be rejected. Leave unspecified
+           otherwise.";
+        reference "RFC 2474";
       }
     }
     leaf precedence {
       type ipv4-acl-dt:Ipv4-acl-precedence-number;
       description
-        "Precedence value to match (if a protocol was 
-         specified), leave unspecified if precedence 
-         comparion is not to be performed.";
+        "Precedence value to match (if a protocol was specified).
+         Any value not in the permissible range will be rejected.
+         Leave unspecified if precedence comparion is not to be
+         performed.";
+      reference "RFC 791 Section 3.1 - Precedence";
     }
     leaf log-option {
       type ipv4-acl-dt:Ipv4-acl-logging-enum;
       description
-        "Whether and how to log matches against this 
-         entry.";
+        "Log the packet on this access-list-entry/rule.";
     }
     leaf capture {
       type boolean;
       description
-        "Enable capture.";
+        "Enable capture if set to TRUE.";
     }
     leaf icmp-off {
       type empty;
@@ -459,12 +533,14 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
     leaf qos-group {
       type ipv4-acl-dt:Ipv4-acl-qos-group-number;
       description
-        "Set qos-group number.";
+        "Set qos-group number. Any value not in the permissible
+         range will be rejected.";
     }
     leaf set-ttl {
       type ipv4-acl-dt:Ipv4-acl-ttl-range;
       description
-        "Set TTL Value. Ranges from 0-255";
+        "Set TTL Value. Any value not in the permissible range
+         will be rejected.";
     }
     leaf fragments {
       when "../protocol = '1' or ../protocol = 'icmp' or ../protocol = '2' or ../protocol = 'igmp' or ../protocol = '6' or ../protocol = 'tcp' or ../protocol = '17' or ../protocol = 'udp' or ../protocol = '132' or ../protocol = 'sctp'" {
@@ -477,11 +553,14 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
         "Check non-initial fragments. Item is mutually 
          exclusive with TCP, SCTP, UDP, IGMP and ICMP 
          comparions and with logging.";
+      reference "RFC 791 Section 2.3 - Fragmentation";
     }
     leaf remark {
-      type string;
+      type string {
+        length "0..255";
+      }
       description
-        "Comments or a description for the access list.";
+        "Description for the access-list-entry/rules.";
     }
     leaf source-prefix-group {
       type string {

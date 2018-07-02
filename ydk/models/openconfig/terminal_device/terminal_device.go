@@ -93,12 +93,15 @@ func (terminalDevice *TerminalDevice) GetEntityData() *types.CommonEntityData {
     terminalDevice.EntityData.NamespaceTable = openconfig.GetNamespaces()
     terminalDevice.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    terminalDevice.EntityData.Children = make(map[string]types.YChild)
-    terminalDevice.EntityData.Children["config"] = types.YChild{"Config", &terminalDevice.Config}
-    terminalDevice.EntityData.Children["state"] = types.YChild{"State", &terminalDevice.State}
-    terminalDevice.EntityData.Children["logical-channels"] = types.YChild{"LogicalChannels", &terminalDevice.LogicalChannels}
-    terminalDevice.EntityData.Children["operational-modes"] = types.YChild{"OperationalModes", &terminalDevice.OperationalModes}
-    terminalDevice.EntityData.Leafs = make(map[string]types.YLeaf)
+    terminalDevice.EntityData.Children = types.NewOrderedMap()
+    terminalDevice.EntityData.Children.Append("config", types.YChild{"Config", &terminalDevice.Config})
+    terminalDevice.EntityData.Children.Append("state", types.YChild{"State", &terminalDevice.State})
+    terminalDevice.EntityData.Children.Append("logical-channels", types.YChild{"LogicalChannels", &terminalDevice.LogicalChannels})
+    terminalDevice.EntityData.Children.Append("operational-modes", types.YChild{"OperationalModes", &terminalDevice.OperationalModes})
+    terminalDevice.EntityData.Leafs = types.NewOrderedMap()
+
+    terminalDevice.EntityData.YListKeys = []string {}
+
     return &(terminalDevice.EntityData)
 }
 
@@ -119,8 +122,11 @@ func (config *TerminalDevice_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -141,8 +147,11 @@ func (state *TerminalDevice_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -154,7 +163,7 @@ type TerminalDevice_LogicalChannels struct {
 
     // List of logical channels. The type is slice of
     // TerminalDevice_LogicalChannels_Channel.
-    Channel []TerminalDevice_LogicalChannels_Channel
+    Channel []*TerminalDevice_LogicalChannels_Channel
 }
 
 func (logicalChannels *TerminalDevice_LogicalChannels) GetEntityData() *types.CommonEntityData {
@@ -167,12 +176,15 @@ func (logicalChannels *TerminalDevice_LogicalChannels) GetEntityData() *types.Co
     logicalChannels.EntityData.NamespaceTable = openconfig.GetNamespaces()
     logicalChannels.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    logicalChannels.EntityData.Children = make(map[string]types.YChild)
-    logicalChannels.EntityData.Children["channel"] = types.YChild{"Channel", nil}
+    logicalChannels.EntityData.Children = types.NewOrderedMap()
+    logicalChannels.EntityData.Children.Append("channel", types.YChild{"Channel", nil})
     for i := range logicalChannels.Channel {
-        logicalChannels.EntityData.Children[types.GetSegmentPath(&logicalChannels.Channel[i])] = types.YChild{"Channel", &logicalChannels.Channel[i]}
+        logicalChannels.EntityData.Children.Append(types.GetSegmentPath(logicalChannels.Channel[i]), types.YChild{"Channel", logicalChannels.Channel[i]})
     }
-    logicalChannels.EntityData.Leafs = make(map[string]types.YLeaf)
+    logicalChannels.EntityData.Leafs = types.NewOrderedMap()
+
+    logicalChannels.EntityData.YListKeys = []string {}
+
     return &(logicalChannels.EntityData)
 }
 
@@ -214,20 +226,23 @@ func (channel *TerminalDevice_LogicalChannels_Channel) GetEntityData() *types.Co
     channel.EntityData.YangName = "channel"
     channel.EntityData.BundleName = "openconfig"
     channel.EntityData.ParentYangName = "logical-channels"
-    channel.EntityData.SegmentPath = "channel" + "[index='" + fmt.Sprintf("%v", channel.Index) + "']"
+    channel.EntityData.SegmentPath = "channel" + types.AddKeyToken(channel.Index, "index")
     channel.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     channel.EntityData.NamespaceTable = openconfig.GetNamespaces()
     channel.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    channel.EntityData.Children = make(map[string]types.YChild)
-    channel.EntityData.Children["config"] = types.YChild{"Config", &channel.Config}
-    channel.EntityData.Children["state"] = types.YChild{"State", &channel.State}
-    channel.EntityData.Children["otn"] = types.YChild{"Otn", &channel.Otn}
-    channel.EntityData.Children["ethernet"] = types.YChild{"Ethernet", &channel.Ethernet}
-    channel.EntityData.Children["ingress"] = types.YChild{"Ingress", &channel.Ingress}
-    channel.EntityData.Children["logical-channel-assignments"] = types.YChild{"LogicalChannelAssignments", &channel.LogicalChannelAssignments}
-    channel.EntityData.Leafs = make(map[string]types.YLeaf)
-    channel.EntityData.Leafs["index"] = types.YLeaf{"Index", channel.Index}
+    channel.EntityData.Children = types.NewOrderedMap()
+    channel.EntityData.Children.Append("config", types.YChild{"Config", &channel.Config})
+    channel.EntityData.Children.Append("state", types.YChild{"State", &channel.State})
+    channel.EntityData.Children.Append("otn", types.YChild{"Otn", &channel.Otn})
+    channel.EntityData.Children.Append("ethernet", types.YChild{"Ethernet", &channel.Ethernet})
+    channel.EntityData.Children.Append("ingress", types.YChild{"Ingress", &channel.Ingress})
+    channel.EntityData.Children.Append("logical-channel-assignments", types.YChild{"LogicalChannelAssignments", &channel.LogicalChannelAssignments})
+    channel.EntityData.Leafs = types.NewOrderedMap()
+    channel.EntityData.Leafs.Append("index", types.YLeaf{"Index", channel.Index})
+
+    channel.EntityData.YListKeys = []string {"Index"}
+
     return &(channel.EntityData)
 }
 
@@ -249,7 +264,7 @@ type TerminalDevice_LogicalChannels_Channel_Config struct {
 
     // Rounded bit rate of the tributary signal. Exact bit rate will be refined by
     // protocol selection. The type is one of the following:
-    // TRIBRATE1GTRIBRATE2DOT5GTRIBRATE10GTRIBRATE40GTRIBRATE100G.
+    // TRIBRATE10GTRIBRATE40GTRIBRATE100GTRIBRATE1GTRIBRATE2DOT5G.
     RateClass interface{}
 
     // Protocol framing of the tributary signal. If this LogicalChannel is
@@ -266,7 +281,7 @@ type TerminalDevice_LogicalChannels_Channel_Config struct {
     // class: 40G protocols:  40GE, OC768, STM256, OTU3, ODU3  rate class: 100G
     // protocols:  100GE, 100G MLG, OTU4, OTUCn, ODU4. The type is one of the
     // following:
-    // PROT1GEPROTOC48PROTSTM16PROT10GELANPROT10GEWANPROTOC192PROTSTM64PROTOTU2PROTOTU2EPROTOTU1EPROTODU2PROTODU2EPROT40GEPROTOC768PROTSTM256PROTOTU3PROTODU3PROT100GEPROT100GMLGPROTOTU4PROTOTUCNPROTODU4.
+    // PROTOTU2EPROTODU2EPROTOC768PROT10GEWANPROTSTM16PROTOTUCNPROT1GEPROT100GEPROTOTU3PROTOTU2PROTOTU4PROTSTM256PROT10GELANPROTOC48PROTOC192PROT40GEPROT100GMLGPROTODU3PROTODU2PROTODU4PROTSTM64PROTOTU1E.
     TribProtocol interface{}
 
     // The type / stage of the logical element determines the configuration and
@@ -290,15 +305,18 @@ func (config *TerminalDevice_LogicalChannels_Channel_Config) GetEntityData() *ty
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["index"] = types.YLeaf{"Index", config.Index}
-    config.EntityData.Leafs["description"] = types.YLeaf{"Description", config.Description}
-    config.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", config.AdminState}
-    config.EntityData.Leafs["rate-class"] = types.YLeaf{"RateClass", config.RateClass}
-    config.EntityData.Leafs["trib-protocol"] = types.YLeaf{"TribProtocol", config.TribProtocol}
-    config.EntityData.Leafs["logical-channel-type"] = types.YLeaf{"LogicalChannelType", config.LogicalChannelType}
-    config.EntityData.Leafs["loopback-mode"] = types.YLeaf{"LoopbackMode", config.LoopbackMode}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("index", types.YLeaf{"Index", config.Index})
+    config.EntityData.Leafs.Append("description", types.YLeaf{"Description", config.Description})
+    config.EntityData.Leafs.Append("admin-state", types.YLeaf{"AdminState", config.AdminState})
+    config.EntityData.Leafs.Append("rate-class", types.YLeaf{"RateClass", config.RateClass})
+    config.EntityData.Leafs.Append("trib-protocol", types.YLeaf{"TribProtocol", config.TribProtocol})
+    config.EntityData.Leafs.Append("logical-channel-type", types.YLeaf{"LogicalChannelType", config.LogicalChannelType})
+    config.EntityData.Leafs.Append("loopback-mode", types.YLeaf{"LoopbackMode", config.LoopbackMode})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -320,7 +338,7 @@ type TerminalDevice_LogicalChannels_Channel_State struct {
 
     // Rounded bit rate of the tributary signal. Exact bit rate will be refined by
     // protocol selection. The type is one of the following:
-    // TRIBRATE1GTRIBRATE2DOT5GTRIBRATE10GTRIBRATE40GTRIBRATE100G.
+    // TRIBRATE10GTRIBRATE40GTRIBRATE100GTRIBRATE1GTRIBRATE2DOT5G.
     RateClass interface{}
 
     // Protocol framing of the tributary signal. If this LogicalChannel is
@@ -337,7 +355,7 @@ type TerminalDevice_LogicalChannels_Channel_State struct {
     // class: 40G protocols:  40GE, OC768, STM256, OTU3, ODU3  rate class: 100G
     // protocols:  100GE, 100G MLG, OTU4, OTUCn, ODU4. The type is one of the
     // following:
-    // PROT1GEPROTOC48PROTSTM16PROT10GELANPROT10GEWANPROTOC192PROTSTM64PROTOTU2PROTOTU2EPROTOTU1EPROTODU2PROTODU2EPROT40GEPROTOC768PROTSTM256PROTOTU3PROTODU3PROT100GEPROT100GMLGPROTOTU4PROTOTUCNPROTODU4.
+    // PROTOTU2EPROTODU2EPROTOC768PROT10GEWANPROTSTM16PROTOTUCNPROT1GEPROT100GEPROTOTU3PROTOTU2PROTOTU4PROTSTM256PROT10GELANPROTOC48PROTOC192PROT40GEPROT100GMLGPROTODU3PROTODU2PROTODU4PROTSTM64PROTOTU1E.
     TribProtocol interface{}
 
     // The type / stage of the logical element determines the configuration and
@@ -365,16 +383,19 @@ func (state *TerminalDevice_LogicalChannels_Channel_State) GetEntityData() *type
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["index"] = types.YLeaf{"Index", state.Index}
-    state.EntityData.Leafs["description"] = types.YLeaf{"Description", state.Description}
-    state.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", state.AdminState}
-    state.EntityData.Leafs["rate-class"] = types.YLeaf{"RateClass", state.RateClass}
-    state.EntityData.Leafs["trib-protocol"] = types.YLeaf{"TribProtocol", state.TribProtocol}
-    state.EntityData.Leafs["logical-channel-type"] = types.YLeaf{"LogicalChannelType", state.LogicalChannelType}
-    state.EntityData.Leafs["loopback-mode"] = types.YLeaf{"LoopbackMode", state.LoopbackMode}
-    state.EntityData.Leafs["link-state"] = types.YLeaf{"LinkState", state.LinkState}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("index", types.YLeaf{"Index", state.Index})
+    state.EntityData.Leafs.Append("description", types.YLeaf{"Description", state.Description})
+    state.EntityData.Leafs.Append("admin-state", types.YLeaf{"AdminState", state.AdminState})
+    state.EntityData.Leafs.Append("rate-class", types.YLeaf{"RateClass", state.RateClass})
+    state.EntityData.Leafs.Append("trib-protocol", types.YLeaf{"TribProtocol", state.TribProtocol})
+    state.EntityData.Leafs.Append("logical-channel-type", types.YLeaf{"LogicalChannelType", state.LogicalChannelType})
+    state.EntityData.Leafs.Append("loopback-mode", types.YLeaf{"LoopbackMode", state.LoopbackMode})
+    state.EntityData.Leafs.Append("link-state", types.YLeaf{"LinkState", state.LinkState})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -414,10 +435,13 @@ func (otn *TerminalDevice_LogicalChannels_Channel_Otn) GetEntityData() *types.Co
     otn.EntityData.NamespaceTable = openconfig.GetNamespaces()
     otn.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    otn.EntityData.Children = make(map[string]types.YChild)
-    otn.EntityData.Children["config"] = types.YChild{"Config", &otn.Config}
-    otn.EntityData.Children["state"] = types.YChild{"State", &otn.State}
-    otn.EntityData.Leafs = make(map[string]types.YLeaf)
+    otn.EntityData.Children = types.NewOrderedMap()
+    otn.EntityData.Children.Append("config", types.YChild{"Config", &otn.Config})
+    otn.EntityData.Children.Append("state", types.YChild{"State", &otn.State})
+    otn.EntityData.Leafs = types.NewOrderedMap()
+
+    otn.EntityData.YListKeys = []string {}
+
     return &(otn.EntityData)
 }
 
@@ -449,11 +473,14 @@ func (config *TerminalDevice_LogicalChannels_Channel_Otn_Config) GetEntityData()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["tti-msg-transmit"] = types.YLeaf{"TtiMsgTransmit", config.TtiMsgTransmit}
-    config.EntityData.Leafs["tti-msg-expected"] = types.YLeaf{"TtiMsgExpected", config.TtiMsgExpected}
-    config.EntityData.Leafs["tti-msg-auto"] = types.YLeaf{"TtiMsgAuto", config.TtiMsgAuto}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("tti-msg-transmit", types.YLeaf{"TtiMsgTransmit", config.TtiMsgTransmit})
+    config.EntityData.Leafs.Append("tti-msg-expected", types.YLeaf{"TtiMsgExpected", config.TtiMsgExpected})
+    config.EntityData.Leafs.Append("tti-msg-auto", types.YLeaf{"TtiMsgAuto", config.TtiMsgAuto})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -541,25 +568,28 @@ func (state *TerminalDevice_LogicalChannels_Channel_Otn_State) GetEntityData() *
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["pre-fec-ber"] = types.YChild{"PreFecBer", &state.PreFecBer}
-    state.EntityData.Children["post-fec-ber"] = types.YChild{"PostFecBer", &state.PostFecBer}
-    state.EntityData.Children["q-value"] = types.YChild{"QValue", &state.QValue}
-    state.EntityData.Children["esnr"] = types.YChild{"Esnr", &state.Esnr}
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["tti-msg-transmit"] = types.YLeaf{"TtiMsgTransmit", state.TtiMsgTransmit}
-    state.EntityData.Leafs["tti-msg-expected"] = types.YLeaf{"TtiMsgExpected", state.TtiMsgExpected}
-    state.EntityData.Leafs["tti-msg-auto"] = types.YLeaf{"TtiMsgAuto", state.TtiMsgAuto}
-    state.EntityData.Leafs["tti-msg-recv"] = types.YLeaf{"TtiMsgRecv", state.TtiMsgRecv}
-    state.EntityData.Leafs["rdi-msg"] = types.YLeaf{"RdiMsg", state.RdiMsg}
-    state.EntityData.Leafs["errored-seconds"] = types.YLeaf{"ErroredSeconds", state.ErroredSeconds}
-    state.EntityData.Leafs["severely-errored-seconds"] = types.YLeaf{"SeverelyErroredSeconds", state.SeverelyErroredSeconds}
-    state.EntityData.Leafs["unavailable-seconds"] = types.YLeaf{"UnavailableSeconds", state.UnavailableSeconds}
-    state.EntityData.Leafs["code-violations"] = types.YLeaf{"CodeViolations", state.CodeViolations}
-    state.EntityData.Leafs["fec-uncorrectable-words"] = types.YLeaf{"FecUncorrectableWords", state.FecUncorrectableWords}
-    state.EntityData.Leafs["fec-corrected-bytes"] = types.YLeaf{"FecCorrectedBytes", state.FecCorrectedBytes}
-    state.EntityData.Leafs["fec-corrected-bits"] = types.YLeaf{"FecCorrectedBits", state.FecCorrectedBits}
-    state.EntityData.Leafs["background-block-errors"] = types.YLeaf{"BackgroundBlockErrors", state.BackgroundBlockErrors}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("pre-fec-ber", types.YChild{"PreFecBer", &state.PreFecBer})
+    state.EntityData.Children.Append("post-fec-ber", types.YChild{"PostFecBer", &state.PostFecBer})
+    state.EntityData.Children.Append("q-value", types.YChild{"QValue", &state.QValue})
+    state.EntityData.Children.Append("esnr", types.YChild{"Esnr", &state.Esnr})
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("tti-msg-transmit", types.YLeaf{"TtiMsgTransmit", state.TtiMsgTransmit})
+    state.EntityData.Leafs.Append("tti-msg-expected", types.YLeaf{"TtiMsgExpected", state.TtiMsgExpected})
+    state.EntityData.Leafs.Append("tti-msg-auto", types.YLeaf{"TtiMsgAuto", state.TtiMsgAuto})
+    state.EntityData.Leafs.Append("tti-msg-recv", types.YLeaf{"TtiMsgRecv", state.TtiMsgRecv})
+    state.EntityData.Leafs.Append("rdi-msg", types.YLeaf{"RdiMsg", state.RdiMsg})
+    state.EntityData.Leafs.Append("errored-seconds", types.YLeaf{"ErroredSeconds", state.ErroredSeconds})
+    state.EntityData.Leafs.Append("severely-errored-seconds", types.YLeaf{"SeverelyErroredSeconds", state.SeverelyErroredSeconds})
+    state.EntityData.Leafs.Append("unavailable-seconds", types.YLeaf{"UnavailableSeconds", state.UnavailableSeconds})
+    state.EntityData.Leafs.Append("code-violations", types.YLeaf{"CodeViolations", state.CodeViolations})
+    state.EntityData.Leafs.Append("fec-uncorrectable-words", types.YLeaf{"FecUncorrectableWords", state.FecUncorrectableWords})
+    state.EntityData.Leafs.Append("fec-corrected-bytes", types.YLeaf{"FecCorrectedBytes", state.FecCorrectedBytes})
+    state.EntityData.Leafs.Append("fec-corrected-bits", types.YLeaf{"FecCorrectedBits", state.FecCorrectedBits})
+    state.EntityData.Leafs.Append("background-block-errors", types.YLeaf{"BackgroundBlockErrors", state.BackgroundBlockErrors})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -597,12 +627,15 @@ func (preFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer) Get
     preFecBer.EntityData.NamespaceTable = openconfig.GetNamespaces()
     preFecBer.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    preFecBer.EntityData.Children = make(map[string]types.YChild)
-    preFecBer.EntityData.Leafs = make(map[string]types.YLeaf)
-    preFecBer.EntityData.Leafs["instant"] = types.YLeaf{"Instant", preFecBer.Instant}
-    preFecBer.EntityData.Leafs["avg"] = types.YLeaf{"Avg", preFecBer.Avg}
-    preFecBer.EntityData.Leafs["min"] = types.YLeaf{"Min", preFecBer.Min}
-    preFecBer.EntityData.Leafs["max"] = types.YLeaf{"Max", preFecBer.Max}
+    preFecBer.EntityData.Children = types.NewOrderedMap()
+    preFecBer.EntityData.Leafs = types.NewOrderedMap()
+    preFecBer.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", preFecBer.Instant})
+    preFecBer.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", preFecBer.Avg})
+    preFecBer.EntityData.Leafs.Append("min", types.YLeaf{"Min", preFecBer.Min})
+    preFecBer.EntityData.Leafs.Append("max", types.YLeaf{"Max", preFecBer.Max})
+
+    preFecBer.EntityData.YListKeys = []string {}
+
     return &(preFecBer.EntityData)
 }
 
@@ -640,12 +673,15 @@ func (postFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer) G
     postFecBer.EntityData.NamespaceTable = openconfig.GetNamespaces()
     postFecBer.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    postFecBer.EntityData.Children = make(map[string]types.YChild)
-    postFecBer.EntityData.Leafs = make(map[string]types.YLeaf)
-    postFecBer.EntityData.Leafs["instant"] = types.YLeaf{"Instant", postFecBer.Instant}
-    postFecBer.EntityData.Leafs["avg"] = types.YLeaf{"Avg", postFecBer.Avg}
-    postFecBer.EntityData.Leafs["min"] = types.YLeaf{"Min", postFecBer.Min}
-    postFecBer.EntityData.Leafs["max"] = types.YLeaf{"Max", postFecBer.Max}
+    postFecBer.EntityData.Children = types.NewOrderedMap()
+    postFecBer.EntityData.Leafs = types.NewOrderedMap()
+    postFecBer.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", postFecBer.Instant})
+    postFecBer.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", postFecBer.Avg})
+    postFecBer.EntityData.Leafs.Append("min", types.YLeaf{"Min", postFecBer.Min})
+    postFecBer.EntityData.Leafs.Append("max", types.YLeaf{"Max", postFecBer.Max})
+
+    postFecBer.EntityData.YListKeys = []string {}
+
     return &(postFecBer.EntityData)
 }
 
@@ -682,12 +718,15 @@ func (qValue *TerminalDevice_LogicalChannels_Channel_Otn_State_QValue) GetEntity
     qValue.EntityData.NamespaceTable = openconfig.GetNamespaces()
     qValue.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    qValue.EntityData.Children = make(map[string]types.YChild)
-    qValue.EntityData.Leafs = make(map[string]types.YLeaf)
-    qValue.EntityData.Leafs["instant"] = types.YLeaf{"Instant", qValue.Instant}
-    qValue.EntityData.Leafs["avg"] = types.YLeaf{"Avg", qValue.Avg}
-    qValue.EntityData.Leafs["min"] = types.YLeaf{"Min", qValue.Min}
-    qValue.EntityData.Leafs["max"] = types.YLeaf{"Max", qValue.Max}
+    qValue.EntityData.Children = types.NewOrderedMap()
+    qValue.EntityData.Leafs = types.NewOrderedMap()
+    qValue.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", qValue.Instant})
+    qValue.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", qValue.Avg})
+    qValue.EntityData.Leafs.Append("min", types.YLeaf{"Min", qValue.Min})
+    qValue.EntityData.Leafs.Append("max", types.YLeaf{"Max", qValue.Max})
+
+    qValue.EntityData.YListKeys = []string {}
+
     return &(qValue.EntityData)
 }
 
@@ -726,12 +765,15 @@ func (esnr *TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr) GetEntityData
     esnr.EntityData.NamespaceTable = openconfig.GetNamespaces()
     esnr.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    esnr.EntityData.Children = make(map[string]types.YChild)
-    esnr.EntityData.Leafs = make(map[string]types.YLeaf)
-    esnr.EntityData.Leafs["instant"] = types.YLeaf{"Instant", esnr.Instant}
-    esnr.EntityData.Leafs["avg"] = types.YLeaf{"Avg", esnr.Avg}
-    esnr.EntityData.Leafs["min"] = types.YLeaf{"Min", esnr.Min}
-    esnr.EntityData.Leafs["max"] = types.YLeaf{"Max", esnr.Max}
+    esnr.EntityData.Children = types.NewOrderedMap()
+    esnr.EntityData.Leafs = types.NewOrderedMap()
+    esnr.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", esnr.Instant})
+    esnr.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", esnr.Avg})
+    esnr.EntityData.Leafs.Append("min", types.YLeaf{"Min", esnr.Min})
+    esnr.EntityData.Leafs.Append("max", types.YLeaf{"Max", esnr.Max})
+
+    esnr.EntityData.YListKeys = []string {}
+
     return &(esnr.EntityData)
 }
 
@@ -759,10 +801,13 @@ func (ethernet *TerminalDevice_LogicalChannels_Channel_Ethernet) GetEntityData()
     ethernet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ethernet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ethernet.EntityData.Children = make(map[string]types.YChild)
-    ethernet.EntityData.Children["config"] = types.YChild{"Config", &ethernet.Config}
-    ethernet.EntityData.Children["state"] = types.YChild{"State", &ethernet.State}
-    ethernet.EntityData.Leafs = make(map[string]types.YLeaf)
+    ethernet.EntityData.Children = types.NewOrderedMap()
+    ethernet.EntityData.Children.Append("config", types.YChild{"Config", &ethernet.Config})
+    ethernet.EntityData.Children.Append("state", types.YChild{"State", &ethernet.State})
+    ethernet.EntityData.Leafs = types.NewOrderedMap()
+
+    ethernet.EntityData.YListKeys = []string {}
+
     return &(ethernet.EntityData)
 }
 
@@ -784,8 +829,11 @@ func (config *TerminalDevice_LogicalChannels_Channel_Ethernet_Config) GetEntityD
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -821,7 +869,7 @@ type TerminalDevice_LogicalChannels_Channel_Ethernet_State struct {
 
     // Number of 802.1q tagged frames received on the interface. The type is
     // interface{} with range: 0..18446744073709551615.
-    In8021QFrames interface{}
+    In8021qFrames interface{}
 
     // Number of receive error events due to FCS/CRC check failure. The type is
     // interface{} with range: 0..18446744073709551615.
@@ -837,7 +885,7 @@ type TerminalDevice_LogicalChannels_Channel_Ethernet_State struct {
 
     // Number of 802.1q tagged frames sent on the interface. The type is
     // interface{} with range: 0..18446744073709551615.
-    Out8021QFrames interface{}
+    Out8021qFrames interface{}
 }
 
 func (state *TerminalDevice_LogicalChannels_Channel_Ethernet_State) GetEntityData() *types.CommonEntityData {
@@ -850,18 +898,21 @@ func (state *TerminalDevice_LogicalChannels_Channel_Ethernet_State) GetEntityDat
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["in-mac-control-frames"] = types.YLeaf{"InMacControlFrames", state.InMacControlFrames}
-    state.EntityData.Leafs["in-mac-pause-frames"] = types.YLeaf{"InMacPauseFrames", state.InMacPauseFrames}
-    state.EntityData.Leafs["in-oversize-frames"] = types.YLeaf{"InOversizeFrames", state.InOversizeFrames}
-    state.EntityData.Leafs["in-jabber-frames"] = types.YLeaf{"InJabberFrames", state.InJabberFrames}
-    state.EntityData.Leafs["in-fragment-frames"] = types.YLeaf{"InFragmentFrames", state.InFragmentFrames}
-    state.EntityData.Leafs["in-8021q-frames"] = types.YLeaf{"In8021QFrames", state.In8021QFrames}
-    state.EntityData.Leafs["in-crc-errors"] = types.YLeaf{"InCrcErrors", state.InCrcErrors}
-    state.EntityData.Leafs["out-mac-control-frames"] = types.YLeaf{"OutMacControlFrames", state.OutMacControlFrames}
-    state.EntityData.Leafs["out-mac-pause-frames"] = types.YLeaf{"OutMacPauseFrames", state.OutMacPauseFrames}
-    state.EntityData.Leafs["out-8021q-frames"] = types.YLeaf{"Out8021QFrames", state.Out8021QFrames}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("in-mac-control-frames", types.YLeaf{"InMacControlFrames", state.InMacControlFrames})
+    state.EntityData.Leafs.Append("in-mac-pause-frames", types.YLeaf{"InMacPauseFrames", state.InMacPauseFrames})
+    state.EntityData.Leafs.Append("in-oversize-frames", types.YLeaf{"InOversizeFrames", state.InOversizeFrames})
+    state.EntityData.Leafs.Append("in-jabber-frames", types.YLeaf{"InJabberFrames", state.InJabberFrames})
+    state.EntityData.Leafs.Append("in-fragment-frames", types.YLeaf{"InFragmentFrames", state.InFragmentFrames})
+    state.EntityData.Leafs.Append("in-8021q-frames", types.YLeaf{"In8021qFrames", state.In8021qFrames})
+    state.EntityData.Leafs.Append("in-crc-errors", types.YLeaf{"InCrcErrors", state.InCrcErrors})
+    state.EntityData.Leafs.Append("out-mac-control-frames", types.YLeaf{"OutMacControlFrames", state.OutMacControlFrames})
+    state.EntityData.Leafs.Append("out-mac-pause-frames", types.YLeaf{"OutMacPauseFrames", state.OutMacPauseFrames})
+    state.EntityData.Leafs.Append("out-8021q-frames", types.YLeaf{"Out8021qFrames", state.Out8021qFrames})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -890,10 +941,13 @@ func (ingress *TerminalDevice_LogicalChannels_Channel_Ingress) GetEntityData() *
     ingress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ingress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ingress.EntityData.Children = make(map[string]types.YChild)
-    ingress.EntityData.Children["config"] = types.YChild{"Config", &ingress.Config}
-    ingress.EntityData.Children["state"] = types.YChild{"State", &ingress.State}
-    ingress.EntityData.Leafs = make(map[string]types.YLeaf)
+    ingress.EntityData.Children = types.NewOrderedMap()
+    ingress.EntityData.Children.Append("config", types.YChild{"Config", &ingress.Config})
+    ingress.EntityData.Children.Append("state", types.YChild{"State", &ingress.State})
+    ingress.EntityData.Leafs = types.NewOrderedMap()
+
+    ingress.EntityData.YListKeys = []string {}
+
     return &(ingress.EntityData)
 }
 
@@ -931,10 +985,13 @@ func (config *TerminalDevice_LogicalChannels_Channel_Ingress_Config) GetEntityDa
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["transceiver"] = types.YLeaf{"Transceiver", config.Transceiver}
-    config.EntityData.Leafs["physical-channel"] = types.YLeaf{"PhysicalChannel", config.PhysicalChannel}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("transceiver", types.YLeaf{"Transceiver", config.Transceiver})
+    config.EntityData.Leafs.Append("physical-channel", types.YLeaf{"PhysicalChannel", config.PhysicalChannel})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -972,10 +1029,13 @@ func (state *TerminalDevice_LogicalChannels_Channel_Ingress_State) GetEntityData
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["transceiver"] = types.YLeaf{"Transceiver", state.Transceiver}
-    state.EntityData.Leafs["physical-channel"] = types.YLeaf{"PhysicalChannel", state.PhysicalChannel}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("transceiver", types.YLeaf{"Transceiver", state.Transceiver})
+    state.EntityData.Leafs.Append("physical-channel", types.YLeaf{"PhysicalChannel", state.PhysicalChannel})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -999,7 +1059,7 @@ type TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments struct {
     // along with a bandwidth allocation for the corresponding assignment (e.g.,
     // to split or combine signal). The type is slice of
     // TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment.
-    Assignment []TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment
+    Assignment []*TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment
 }
 
 func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments) GetEntityData() *types.CommonEntityData {
@@ -1012,12 +1072,15 @@ func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalC
     logicalChannelAssignments.EntityData.NamespaceTable = openconfig.GetNamespaces()
     logicalChannelAssignments.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    logicalChannelAssignments.EntityData.Children = make(map[string]types.YChild)
-    logicalChannelAssignments.EntityData.Children["assignment"] = types.YChild{"Assignment", nil}
+    logicalChannelAssignments.EntityData.Children = types.NewOrderedMap()
+    logicalChannelAssignments.EntityData.Children.Append("assignment", types.YChild{"Assignment", nil})
     for i := range logicalChannelAssignments.Assignment {
-        logicalChannelAssignments.EntityData.Children[types.GetSegmentPath(&logicalChannelAssignments.Assignment[i])] = types.YChild{"Assignment", &logicalChannelAssignments.Assignment[i]}
+        logicalChannelAssignments.EntityData.Children.Append(types.GetSegmentPath(logicalChannelAssignments.Assignment[i]), types.YChild{"Assignment", logicalChannelAssignments.Assignment[i]})
     }
-    logicalChannelAssignments.EntityData.Leafs = make(map[string]types.YLeaf)
+    logicalChannelAssignments.EntityData.Leafs = types.NewOrderedMap()
+
+    logicalChannelAssignments.EntityData.YListKeys = []string {}
+
     return &(logicalChannelAssignments.EntityData)
 }
 
@@ -1062,16 +1125,19 @@ func (assignment *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignmen
     assignment.EntityData.YangName = "assignment"
     assignment.EntityData.BundleName = "openconfig"
     assignment.EntityData.ParentYangName = "logical-channel-assignments"
-    assignment.EntityData.SegmentPath = "assignment" + "[index='" + fmt.Sprintf("%v", assignment.Index) + "']"
+    assignment.EntityData.SegmentPath = "assignment" + types.AddKeyToken(assignment.Index, "index")
     assignment.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     assignment.EntityData.NamespaceTable = openconfig.GetNamespaces()
     assignment.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    assignment.EntityData.Children = make(map[string]types.YChild)
-    assignment.EntityData.Children["config"] = types.YChild{"Config", &assignment.Config}
-    assignment.EntityData.Children["state"] = types.YChild{"State", &assignment.State}
-    assignment.EntityData.Leafs = make(map[string]types.YLeaf)
-    assignment.EntityData.Leafs["index"] = types.YLeaf{"Index", assignment.Index}
+    assignment.EntityData.Children = types.NewOrderedMap()
+    assignment.EntityData.Children.Append("config", types.YChild{"Config", &assignment.Config})
+    assignment.EntityData.Children.Append("state", types.YChild{"State", &assignment.State})
+    assignment.EntityData.Leafs = types.NewOrderedMap()
+    assignment.EntityData.Leafs.Append("index", types.YLeaf{"Index", assignment.Index})
+
+    assignment.EntityData.YListKeys = []string {"Index"}
+
     return &(assignment.EntityData)
 }
 
@@ -1120,14 +1186,17 @@ func (config *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_A
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["index"] = types.YLeaf{"Index", config.Index}
-    config.EntityData.Leafs["description"] = types.YLeaf{"Description", config.Description}
-    config.EntityData.Leafs["assignment-type"] = types.YLeaf{"AssignmentType", config.AssignmentType}
-    config.EntityData.Leafs["logical-channel"] = types.YLeaf{"LogicalChannel", config.LogicalChannel}
-    config.EntityData.Leafs["optical-channel"] = types.YLeaf{"OpticalChannel", config.OpticalChannel}
-    config.EntityData.Leafs["allocation"] = types.YLeaf{"Allocation", config.Allocation}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("index", types.YLeaf{"Index", config.Index})
+    config.EntityData.Leafs.Append("description", types.YLeaf{"Description", config.Description})
+    config.EntityData.Leafs.Append("assignment-type", types.YLeaf{"AssignmentType", config.AssignmentType})
+    config.EntityData.Leafs.Append("logical-channel", types.YLeaf{"LogicalChannel", config.LogicalChannel})
+    config.EntityData.Leafs.Append("optical-channel", types.YLeaf{"OpticalChannel", config.OpticalChannel})
+    config.EntityData.Leafs.Append("allocation", types.YLeaf{"Allocation", config.Allocation})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1187,14 +1256,17 @@ func (state *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_As
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["index"] = types.YLeaf{"Index", state.Index}
-    state.EntityData.Leafs["description"] = types.YLeaf{"Description", state.Description}
-    state.EntityData.Leafs["assignment-type"] = types.YLeaf{"AssignmentType", state.AssignmentType}
-    state.EntityData.Leafs["logical-channel"] = types.YLeaf{"LogicalChannel", state.LogicalChannel}
-    state.EntityData.Leafs["optical-channel"] = types.YLeaf{"OpticalChannel", state.OpticalChannel}
-    state.EntityData.Leafs["allocation"] = types.YLeaf{"Allocation", state.Allocation}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("index", types.YLeaf{"Index", state.Index})
+    state.EntityData.Leafs.Append("description", types.YLeaf{"Description", state.Description})
+    state.EntityData.Leafs.Append("assignment-type", types.YLeaf{"AssignmentType", state.AssignmentType})
+    state.EntityData.Leafs.Append("logical-channel", types.YLeaf{"LogicalChannel", state.LogicalChannel})
+    state.EntityData.Leafs.Append("optical-channel", types.YLeaf{"OpticalChannel", state.OpticalChannel})
+    state.EntityData.Leafs.Append("allocation", types.YLeaf{"Allocation", state.Allocation})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1219,7 +1291,7 @@ type TerminalDevice_OperationalModes struct {
     // provides a platform-defined summary of information such as symbol rate,
     // modulation, pulse shaping, etc. The type is slice of
     // TerminalDevice_OperationalModes_Mode.
-    Mode []TerminalDevice_OperationalModes_Mode
+    Mode []*TerminalDevice_OperationalModes_Mode
 }
 
 func (operationalModes *TerminalDevice_OperationalModes) GetEntityData() *types.CommonEntityData {
@@ -1232,12 +1304,15 @@ func (operationalModes *TerminalDevice_OperationalModes) GetEntityData() *types.
     operationalModes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     operationalModes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    operationalModes.EntityData.Children = make(map[string]types.YChild)
-    operationalModes.EntityData.Children["mode"] = types.YChild{"Mode", nil}
+    operationalModes.EntityData.Children = types.NewOrderedMap()
+    operationalModes.EntityData.Children.Append("mode", types.YChild{"Mode", nil})
     for i := range operationalModes.Mode {
-        operationalModes.EntityData.Children[types.GetSegmentPath(&operationalModes.Mode[i])] = types.YChild{"Mode", &operationalModes.Mode[i]}
+        operationalModes.EntityData.Children.Append(types.GetSegmentPath(operationalModes.Mode[i]), types.YChild{"Mode", operationalModes.Mode[i]})
     }
-    operationalModes.EntityData.Leafs = make(map[string]types.YLeaf)
+    operationalModes.EntityData.Leafs = types.NewOrderedMap()
+
+    operationalModes.EntityData.YListKeys = []string {}
+
     return &(operationalModes.EntityData)
 }
 
@@ -1267,16 +1342,19 @@ func (mode *TerminalDevice_OperationalModes_Mode) GetEntityData() *types.CommonE
     mode.EntityData.YangName = "mode"
     mode.EntityData.BundleName = "openconfig"
     mode.EntityData.ParentYangName = "operational-modes"
-    mode.EntityData.SegmentPath = "mode" + "[mode-id='" + fmt.Sprintf("%v", mode.ModeId) + "']"
+    mode.EntityData.SegmentPath = "mode" + types.AddKeyToken(mode.ModeId, "mode-id")
     mode.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     mode.EntityData.NamespaceTable = openconfig.GetNamespaces()
     mode.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    mode.EntityData.Children = make(map[string]types.YChild)
-    mode.EntityData.Children["config"] = types.YChild{"Config", &mode.Config}
-    mode.EntityData.Children["state"] = types.YChild{"State", &mode.State}
-    mode.EntityData.Leafs = make(map[string]types.YLeaf)
-    mode.EntityData.Leafs["mode-id"] = types.YLeaf{"ModeId", mode.ModeId}
+    mode.EntityData.Children = types.NewOrderedMap()
+    mode.EntityData.Children.Append("config", types.YChild{"Config", &mode.Config})
+    mode.EntityData.Children.Append("state", types.YChild{"State", &mode.State})
+    mode.EntityData.Leafs = types.NewOrderedMap()
+    mode.EntityData.Leafs.Append("mode-id", types.YLeaf{"ModeId", mode.ModeId})
+
+    mode.EntityData.YListKeys = []string {"ModeId"}
+
     return &(mode.EntityData)
 }
 
@@ -1297,8 +1375,11 @@ func (config *TerminalDevice_OperationalModes_Mode_Config) GetEntityData() *type
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1333,11 +1414,14 @@ func (state *TerminalDevice_OperationalModes_Mode_State) GetEntityData() *types.
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["mode-id"] = types.YLeaf{"ModeId", state.ModeId}
-    state.EntityData.Leafs["description"] = types.YLeaf{"Description", state.Description}
-    state.EntityData.Leafs["vendor-id"] = types.YLeaf{"VendorId", state.VendorId}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("mode-id", types.YLeaf{"ModeId", state.ModeId})
+    state.EntityData.Leafs.Append("description", types.YLeaf{"Description", state.Description})
+    state.EntityData.Leafs.Append("vendor-id", types.YLeaf{"VendorId", state.VendorId})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 

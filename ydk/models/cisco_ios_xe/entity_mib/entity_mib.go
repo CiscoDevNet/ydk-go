@@ -56,17 +56,17 @@ type ENTITYMIB struct {
     YFilter yfilter.YFilter
 
     
-    Entitygeneral ENTITYMIB_Entitygeneral
+    EntityGeneral ENTITYMIB_EntityGeneral
 
     // This table contains one row per physical entity.  There is always at least
     // one row for an 'overall' physical entity.
-    Entphysicaltable ENTITYMIB_Entphysicaltable
+    EntPhysicalTable ENTITYMIB_EntPhysicalTable
 
     // This table contains one row per logical entity.  For agents that implement
     // more than one naming scope, at least one entry must exist.  Agents which
     // instantiate all MIB objects within a single naming scope are not required
     // to implement this table.
-    Entlogicaltable ENTITYMIB_Entlogicaltable
+    EntLogicalTable ENTITYMIB_EntLogicalTable
 
     // This table contains zero or more rows of logical entity to physical
     // equipment associations.  For each logical entity known by this agent, there
@@ -87,7 +87,7 @@ type ENTITYMIB struct {
     // then mappings between each bridge and the ports it used would be
     // appropriate.  Also, in the case of a single backplane repeater, a mapping
     // for the backplane to the single repeater entity is not necessary.
-    Entlpmappingtable ENTITYMIB_Entlpmappingtable
+    EntLPMappingTable ENTITYMIB_EntLPMappingTable
 
     // This table contains zero or more rows, representing mappings of logical
     // entity and physical component to external MIB identifiers.  Each physical
@@ -95,7 +95,7 @@ type ENTITYMIB struct {
     // identifier, which itself is associated with a particular logical entity's
     // naming scope.  A 'wildcard' mechanism is provided to indicate that an
     // identifier is associated with more than one logical entity.
-    Entaliasmappingtable ENTITYMIB_Entaliasmappingtable
+    EntAliasMappingTable ENTITYMIB_EntAliasMappingTable
 
     // A table that exposes the container/'containee' relationships between
     // physical entities.  This table provides all the information found by
@@ -104,7 +104,7 @@ type ENTITYMIB struct {
     // more than one other physical entity (e.g., double-wide modules), this table
     // should include these additional mappings, which cannot be represented in
     // the entPhysicalTable virtual containment tree.
-    Entphysicalcontainstable ENTITYMIB_Entphysicalcontainstable
+    EntPhysicalContainsTable ENTITYMIB_EntPhysicalContainsTable
 }
 
 func (eNTITYMIB *ENTITYMIB) GetEntityData() *types.CommonEntityData {
@@ -117,19 +117,22 @@ func (eNTITYMIB *ENTITYMIB) GetEntityData() *types.CommonEntityData {
     eNTITYMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     eNTITYMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    eNTITYMIB.EntityData.Children = make(map[string]types.YChild)
-    eNTITYMIB.EntityData.Children["entityGeneral"] = types.YChild{"Entitygeneral", &eNTITYMIB.Entitygeneral}
-    eNTITYMIB.EntityData.Children["entPhysicalTable"] = types.YChild{"Entphysicaltable", &eNTITYMIB.Entphysicaltable}
-    eNTITYMIB.EntityData.Children["entLogicalTable"] = types.YChild{"Entlogicaltable", &eNTITYMIB.Entlogicaltable}
-    eNTITYMIB.EntityData.Children["entLPMappingTable"] = types.YChild{"Entlpmappingtable", &eNTITYMIB.Entlpmappingtable}
-    eNTITYMIB.EntityData.Children["entAliasMappingTable"] = types.YChild{"Entaliasmappingtable", &eNTITYMIB.Entaliasmappingtable}
-    eNTITYMIB.EntityData.Children["entPhysicalContainsTable"] = types.YChild{"Entphysicalcontainstable", &eNTITYMIB.Entphysicalcontainstable}
-    eNTITYMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    eNTITYMIB.EntityData.Children = types.NewOrderedMap()
+    eNTITYMIB.EntityData.Children.Append("entityGeneral", types.YChild{"EntityGeneral", &eNTITYMIB.EntityGeneral})
+    eNTITYMIB.EntityData.Children.Append("entPhysicalTable", types.YChild{"EntPhysicalTable", &eNTITYMIB.EntPhysicalTable})
+    eNTITYMIB.EntityData.Children.Append("entLogicalTable", types.YChild{"EntLogicalTable", &eNTITYMIB.EntLogicalTable})
+    eNTITYMIB.EntityData.Children.Append("entLPMappingTable", types.YChild{"EntLPMappingTable", &eNTITYMIB.EntLPMappingTable})
+    eNTITYMIB.EntityData.Children.Append("entAliasMappingTable", types.YChild{"EntAliasMappingTable", &eNTITYMIB.EntAliasMappingTable})
+    eNTITYMIB.EntityData.Children.Append("entPhysicalContainsTable", types.YChild{"EntPhysicalContainsTable", &eNTITYMIB.EntPhysicalContainsTable})
+    eNTITYMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    eNTITYMIB.EntityData.YListKeys = []string {}
+
     return &(eNTITYMIB.EntityData)
 }
 
-// ENTITYMIB_Entitygeneral
-type ENTITYMIB_Entitygeneral struct {
+// ENTITYMIB_EntityGeneral
+type ENTITYMIB_EntityGeneral struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -138,29 +141,32 @@ type ENTITYMIB_Entitygeneral struct {
     // entLogicalTable         - entLPMappingTable         - entAliasMappingTable 
     // - entPhysicalContainsTable. The type is interface{} with range:
     // 0..4294967295.
-    Entlastchangetime interface{}
+    EntLastChangeTime interface{}
 }
 
-func (entitygeneral *ENTITYMIB_Entitygeneral) GetEntityData() *types.CommonEntityData {
-    entitygeneral.EntityData.YFilter = entitygeneral.YFilter
-    entitygeneral.EntityData.YangName = "entityGeneral"
-    entitygeneral.EntityData.BundleName = "cisco_ios_xe"
-    entitygeneral.EntityData.ParentYangName = "ENTITY-MIB"
-    entitygeneral.EntityData.SegmentPath = "entityGeneral"
-    entitygeneral.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    entitygeneral.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    entitygeneral.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (entityGeneral *ENTITYMIB_EntityGeneral) GetEntityData() *types.CommonEntityData {
+    entityGeneral.EntityData.YFilter = entityGeneral.YFilter
+    entityGeneral.EntityData.YangName = "entityGeneral"
+    entityGeneral.EntityData.BundleName = "cisco_ios_xe"
+    entityGeneral.EntityData.ParentYangName = "ENTITY-MIB"
+    entityGeneral.EntityData.SegmentPath = "entityGeneral"
+    entityGeneral.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entityGeneral.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entityGeneral.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    entitygeneral.EntityData.Children = make(map[string]types.YChild)
-    entitygeneral.EntityData.Leafs = make(map[string]types.YLeaf)
-    entitygeneral.EntityData.Leafs["entLastChangeTime"] = types.YLeaf{"Entlastchangetime", entitygeneral.Entlastchangetime}
-    return &(entitygeneral.EntityData)
+    entityGeneral.EntityData.Children = types.NewOrderedMap()
+    entityGeneral.EntityData.Leafs = types.NewOrderedMap()
+    entityGeneral.EntityData.Leafs.Append("entLastChangeTime", types.YLeaf{"EntLastChangeTime", entityGeneral.EntLastChangeTime})
+
+    entityGeneral.EntityData.YListKeys = []string {}
+
+    return &(entityGeneral.EntityData)
 }
 
-// ENTITYMIB_Entphysicaltable
+// ENTITYMIB_EntPhysicalTable
 // This table contains one row per physical entity.  There is
 // always at least one row for an 'overall' physical entity.
-type ENTITYMIB_Entphysicaltable struct {
+type ENTITYMIB_EntPhysicalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -169,30 +175,33 @@ type ENTITYMIB_Entphysicaltable struct {
     // help an NMS identify and characterize the entry, and objects
     // (entPhysicalContainedIn and entPhysicalParentRelPos) to help an NMS relate
     // the particular entry to other entries in this table. The type is slice of
-    // ENTITYMIB_Entphysicaltable_Entphysicalentry.
-    Entphysicalentry []ENTITYMIB_Entphysicaltable_Entphysicalentry
+    // ENTITYMIB_EntPhysicalTable_EntPhysicalEntry.
+    EntPhysicalEntry []*ENTITYMIB_EntPhysicalTable_EntPhysicalEntry
 }
 
-func (entphysicaltable *ENTITYMIB_Entphysicaltable) GetEntityData() *types.CommonEntityData {
-    entphysicaltable.EntityData.YFilter = entphysicaltable.YFilter
-    entphysicaltable.EntityData.YangName = "entPhysicalTable"
-    entphysicaltable.EntityData.BundleName = "cisco_ios_xe"
-    entphysicaltable.EntityData.ParentYangName = "ENTITY-MIB"
-    entphysicaltable.EntityData.SegmentPath = "entPhysicalTable"
-    entphysicaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    entphysicaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    entphysicaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (entPhysicalTable *ENTITYMIB_EntPhysicalTable) GetEntityData() *types.CommonEntityData {
+    entPhysicalTable.EntityData.YFilter = entPhysicalTable.YFilter
+    entPhysicalTable.EntityData.YangName = "entPhysicalTable"
+    entPhysicalTable.EntityData.BundleName = "cisco_ios_xe"
+    entPhysicalTable.EntityData.ParentYangName = "ENTITY-MIB"
+    entPhysicalTable.EntityData.SegmentPath = "entPhysicalTable"
+    entPhysicalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entPhysicalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entPhysicalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    entphysicaltable.EntityData.Children = make(map[string]types.YChild)
-    entphysicaltable.EntityData.Children["entPhysicalEntry"] = types.YChild{"Entphysicalentry", nil}
-    for i := range entphysicaltable.Entphysicalentry {
-        entphysicaltable.EntityData.Children[types.GetSegmentPath(&entphysicaltable.Entphysicalentry[i])] = types.YChild{"Entphysicalentry", &entphysicaltable.Entphysicalentry[i]}
+    entPhysicalTable.EntityData.Children = types.NewOrderedMap()
+    entPhysicalTable.EntityData.Children.Append("entPhysicalEntry", types.YChild{"EntPhysicalEntry", nil})
+    for i := range entPhysicalTable.EntPhysicalEntry {
+        entPhysicalTable.EntityData.Children.Append(types.GetSegmentPath(entPhysicalTable.EntPhysicalEntry[i]), types.YChild{"EntPhysicalEntry", entPhysicalTable.EntPhysicalEntry[i]})
     }
-    entphysicaltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(entphysicaltable.EntityData)
+    entPhysicalTable.EntityData.Leafs = types.NewOrderedMap()
+
+    entPhysicalTable.EntityData.YListKeys = []string {}
+
+    return &(entPhysicalTable.EntityData)
 }
 
-// ENTITYMIB_Entphysicaltable_Entphysicalentry
+// ENTITYMIB_EntPhysicalTable_EntPhysicalEntry
 // Information about a particular physical entity.
 // 
 // Each entry provides objects (entPhysicalDescr,
@@ -201,19 +210,19 @@ func (entphysicaltable *ENTITYMIB_Entphysicaltable) GetEntityData() *types.Commo
 // (entPhysicalContainedIn and entPhysicalParentRelPos) to help
 // an NMS relate the particular entry to other entries in this
 // table.
-type ENTITYMIB_Entphysicaltable_Entphysicalentry struct {
+type ENTITYMIB_EntPhysicalTable_EntPhysicalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index for this entry. The type is interface{}
     // with range: 1..2147483647.
-    Entphysicalindex interface{}
+    EntPhysicalIndex interface{}
 
     // A textual description of physical entity.  This object should contain a
     // string that identifies the manufacturer's name for the physical entity, and
     // should be set to a distinct value for each version or model of the physical
     // entity. The type is string.
-    Entphysicaldescr interface{}
+    EntPhysicalDescr interface{}
 
     // An indication of the vendor-specific hardware type of the physical entity. 
     // Note that this is different from the definition of MIB-II's sysObjectID. 
@@ -223,8 +232,8 @@ type ENTITYMIB_Entphysicaltable_Entphysicalentry struct {
     // type of hardware device.  If no vendor-specific registration identifier
     // exists for this physical entity, or the value is unknown by this agent,
     // then the value { 0 0 } is returned. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Entphysicalvendortype interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    EntPhysicalVendorType interface{}
 
     // The value of entPhysicalIndex for the physical entity which 'contains' this
     // physical entity.  A value of zero indicates this physical entity is not
@@ -234,7 +243,7 @@ type ENTITYMIB_Entphysicaltable_Entphysicalentry struct {
     // entity (e.g., double-wide modules), this object should identify the
     // containing entity with the lowest value of entPhysicalIndex. The type is
     // interface{} with range: 0..2147483647.
-    Entphysicalcontainedin interface{}
+    EntPhysicalContainedIn interface{}
 
     // An indication of the general hardware type of the physical entity.  An
     // agent should set this object to the standard enumeration value that most
@@ -243,7 +252,7 @@ type ENTITYMIB_Entphysicaltable_Entphysicalentry struct {
     // registration identifier exists for this physical entity, then the value
     // 'other(1)' is returned.  If the value is unknown by this agent, then the
     // value 'unknown(2)' is returned. The type is PhysicalClass.
-    Entphysicalclass interface{}
+    EntPhysicalClass interface{}
 
     // An indication of the relative position of this 'child' component among all
     // its 'sibling' components.  Sibling components are defined as
@@ -277,7 +286,7 @@ type ENTITYMIB_Entphysicaltable_Entphysicalentry struct {
     // The agent should retain parent-relative position values across reboots,
     // either through algorithmic assignment or use of non-volatile storage. The
     // type is interface{} with range: -1..2147483647.
-    Entphysicalparentrelpos interface{}
+    EntPhysicalParentRelPos interface{}
 
     // The textual name of the physical entity.  The value of this object should
     // be the name of the component as assigned by the local device and should be
@@ -289,7 +298,7 @@ type ENTITYMIB_Entphysicaltable_Entphysicalentry struct {
     // Note that the value of entPhysicalName for two physical entities will be
     // the same in the event that the console interface does not distinguish
     // between them, e.g., slot-1 and the card in slot-1. The type is string.
-    Entphysicalname interface{}
+    EntPhysicalName interface{}
 
     // The vendor-specific hardware revision string for the physical entity.  The
     // preferred value is the hardware revision identifier actually printed on the
@@ -300,7 +309,7 @@ type ENTITYMIB_Entphysicaltable_Entphysicalentry struct {
     // associated with the physical component, or if this information is unknown
     // to the agent, then this object will contain a zero-length string. The type
     // is string.
-    Entphysicalhardwarerev interface{}
+    EntPhysicalHardwareRev interface{}
 
     // The vendor-specific firmware revision string for the physical entity.  Note
     // that if revision information is stored internally in a non-printable (e.g.,
@@ -309,7 +318,7 @@ type ENTITYMIB_Entphysicaltable_Entphysicalentry struct {
     // programs are associated with the physical component, or if this information
     // is unknown to the agent, then this object will contain a zero-length
     // string. The type is string.
-    Entphysicalfirmwarerev interface{}
+    EntPhysicalFirmwareRev interface{}
 
     // The vendor-specific software revision string for the physical entity.  Note
     // that if revision information is stored internally in a   non-printable
@@ -318,7 +327,7 @@ type ENTITYMIB_Entphysicaltable_Entphysicalentry struct {
     // software programs are associated with the physical component, or if this
     // information is unknown to the agent, then this object will contain a
     // zero-length string. The type is string.
-    Entphysicalsoftwarerev interface{}
+    EntPhysicalSoftwareRev interface{}
 
     // The vendor-specific serial number string for the physical entity.  The
     // preferred value is the serial number string actually printed on the
@@ -344,7 +353,7 @@ type ENTITYMIB_Entphysicaltable_Entphysicalentry struct {
     // instantiations across all re-initializations/reboots of the network
     // management system, including those resulting in a change of the physical  
     // entity's entPhysicalIndex value. The type is string with length: 0..32.
-    Entphysicalserialnum interface{}
+    EntPhysicalSerialNum interface{}
 
     // The name of the manufacturer of this physical component. The preferred
     // value is the manufacturer name string actually printed on the component
@@ -355,14 +364,14 @@ type ENTITYMIB_Entphysicaltable_Entphysicalentry struct {
     // manufacturer name string associated with the physical component is unknown
     // to the agent, then this object will contain a zero-length string. The type
     // is string.
-    Entphysicalmfgname interface{}
+    EntPhysicalMfgName interface{}
 
     // The vendor-specific model name identifier string associated with this
     // physical component.  The preferred value is the customer-visible part
     // number, which may be printed on the component itself.  If the model name
     // string associated with the physical component is unknown to the agent, then
     // this object will contain a zero-length string. The type is string.
-    Entphysicalmodelname interface{}
+    EntPhysicalModelName interface{}
 
     // This object is an 'alias' name for the physical entity, as specified by a
     // network manager, and provides a non-volatile 'handle' for the physical
@@ -377,7 +386,7 @@ type ENTITYMIB_Entphysicaltable_Entphysicalentry struct {
     // re-initializations/reboots of the network management system, including
     // those resulting in a change of the physical entity's entPhysicalIndex
     // value. The type is string with length: 0..32.
-    Entphysicalalias interface{}
+    EntPhysicalAlias interface{}
 
     // This object is a user-assigned asset tracking identifier (as specified by a
     // network manager) for the physical entity, and provides non-volatile storage
@@ -398,7 +407,7 @@ type ENTITYMIB_Entphysicaltable_Entphysicalentry struct {
     // entity's entPhysicalIndex value.   If no asset tracking information is
     // associated with the physical component, then this object will contain a
     // zero-length string. The type is string with length: 0..32.
-    Entphysicalassetid interface{}
+    EntPhysicalAssetID interface{}
 
     // This object indicates whether or not this physical entity is considered a
     // 'field replaceable unit' by the vendor.  If this object contains the value
@@ -406,13 +415,13 @@ type ENTITYMIB_Entphysicaltable_Entphysicalentry struct {
     // For all entPhysicalEntries that represent components permanently contained
     // within a field replaceable unit, the value 'false(2)' should be returned
     // for this object. The type is bool.
-    Entphysicalisfru interface{}
+    EntPhysicalIsFRU interface{}
 
     // This object contains the date of manufacturing of the managed entity.  If
     // the manufacturing date is unknown or not supported, the object is not
     // instantiated.  The special value '0000000000000000'H may also be returned
     // in this case. The type is string.
-    Entphysicalmfgdate interface{}
+    EntPhysicalMfgDate interface{}
 
     // This object contains additional identification information about the
     // physical entity.  The object contains URIs and, therefore, the syntax of
@@ -422,7 +431,7 @@ type ENTITYMIB_Entphysicaltable_Entphysicalentry struct {
     // information is known about the physical entity or supported, the object is
     // not instantiated.  A zero length octet string may also be   returned in
     // this case. The type is string.
-    Entphysicaluris interface{}
+    EntPhysicalUris interface{}
 
     // This object represents the vendor-specific second serial number string for
     // the physical entity.  The first serial number string of the physical entity
@@ -449,83 +458,89 @@ type ENTITYMIB_Entphysicaltable_Entphysicalentry struct {
     // instantiations across all re- initializations/reboots of the network
     // management system, including those which result in a change of the physical
     // entity's entPhysicalIndex value. The type is string with length: 0..32.
-    Ceentphysicalsecondserialnum interface{}
+    CeEntPhysicalSecondSerialNum interface{}
 }
 
-func (entphysicalentry *ENTITYMIB_Entphysicaltable_Entphysicalentry) GetEntityData() *types.CommonEntityData {
-    entphysicalentry.EntityData.YFilter = entphysicalentry.YFilter
-    entphysicalentry.EntityData.YangName = "entPhysicalEntry"
-    entphysicalentry.EntityData.BundleName = "cisco_ios_xe"
-    entphysicalentry.EntityData.ParentYangName = "entPhysicalTable"
-    entphysicalentry.EntityData.SegmentPath = "entPhysicalEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", entphysicalentry.Entphysicalindex) + "']"
-    entphysicalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    entphysicalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    entphysicalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (entPhysicalEntry *ENTITYMIB_EntPhysicalTable_EntPhysicalEntry) GetEntityData() *types.CommonEntityData {
+    entPhysicalEntry.EntityData.YFilter = entPhysicalEntry.YFilter
+    entPhysicalEntry.EntityData.YangName = "entPhysicalEntry"
+    entPhysicalEntry.EntityData.BundleName = "cisco_ios_xe"
+    entPhysicalEntry.EntityData.ParentYangName = "entPhysicalTable"
+    entPhysicalEntry.EntityData.SegmentPath = "entPhysicalEntry" + types.AddKeyToken(entPhysicalEntry.EntPhysicalIndex, "entPhysicalIndex")
+    entPhysicalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entPhysicalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entPhysicalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    entphysicalentry.EntityData.Children = make(map[string]types.YChild)
-    entphysicalentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    entphysicalentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", entphysicalentry.Entphysicalindex}
-    entphysicalentry.EntityData.Leafs["entPhysicalDescr"] = types.YLeaf{"Entphysicaldescr", entphysicalentry.Entphysicaldescr}
-    entphysicalentry.EntityData.Leafs["entPhysicalVendorType"] = types.YLeaf{"Entphysicalvendortype", entphysicalentry.Entphysicalvendortype}
-    entphysicalentry.EntityData.Leafs["entPhysicalContainedIn"] = types.YLeaf{"Entphysicalcontainedin", entphysicalentry.Entphysicalcontainedin}
-    entphysicalentry.EntityData.Leafs["entPhysicalClass"] = types.YLeaf{"Entphysicalclass", entphysicalentry.Entphysicalclass}
-    entphysicalentry.EntityData.Leafs["entPhysicalParentRelPos"] = types.YLeaf{"Entphysicalparentrelpos", entphysicalentry.Entphysicalparentrelpos}
-    entphysicalentry.EntityData.Leafs["entPhysicalName"] = types.YLeaf{"Entphysicalname", entphysicalentry.Entphysicalname}
-    entphysicalentry.EntityData.Leafs["entPhysicalHardwareRev"] = types.YLeaf{"Entphysicalhardwarerev", entphysicalentry.Entphysicalhardwarerev}
-    entphysicalentry.EntityData.Leafs["entPhysicalFirmwareRev"] = types.YLeaf{"Entphysicalfirmwarerev", entphysicalentry.Entphysicalfirmwarerev}
-    entphysicalentry.EntityData.Leafs["entPhysicalSoftwareRev"] = types.YLeaf{"Entphysicalsoftwarerev", entphysicalentry.Entphysicalsoftwarerev}
-    entphysicalentry.EntityData.Leafs["entPhysicalSerialNum"] = types.YLeaf{"Entphysicalserialnum", entphysicalentry.Entphysicalserialnum}
-    entphysicalentry.EntityData.Leafs["entPhysicalMfgName"] = types.YLeaf{"Entphysicalmfgname", entphysicalentry.Entphysicalmfgname}
-    entphysicalentry.EntityData.Leafs["entPhysicalModelName"] = types.YLeaf{"Entphysicalmodelname", entphysicalentry.Entphysicalmodelname}
-    entphysicalentry.EntityData.Leafs["entPhysicalAlias"] = types.YLeaf{"Entphysicalalias", entphysicalentry.Entphysicalalias}
-    entphysicalentry.EntityData.Leafs["entPhysicalAssetID"] = types.YLeaf{"Entphysicalassetid", entphysicalentry.Entphysicalassetid}
-    entphysicalentry.EntityData.Leafs["entPhysicalIsFRU"] = types.YLeaf{"Entphysicalisfru", entphysicalentry.Entphysicalisfru}
-    entphysicalentry.EntityData.Leafs["entPhysicalMfgDate"] = types.YLeaf{"Entphysicalmfgdate", entphysicalentry.Entphysicalmfgdate}
-    entphysicalentry.EntityData.Leafs["entPhysicalUris"] = types.YLeaf{"Entphysicaluris", entphysicalentry.Entphysicaluris}
-    entphysicalentry.EntityData.Leafs["ceEntPhysicalSecondSerialNum"] = types.YLeaf{"Ceentphysicalsecondserialnum", entphysicalentry.Ceentphysicalsecondserialnum}
-    return &(entphysicalentry.EntityData)
+    entPhysicalEntry.EntityData.Children = types.NewOrderedMap()
+    entPhysicalEntry.EntityData.Leafs = types.NewOrderedMap()
+    entPhysicalEntry.EntityData.Leafs.Append("entPhysicalIndex", types.YLeaf{"EntPhysicalIndex", entPhysicalEntry.EntPhysicalIndex})
+    entPhysicalEntry.EntityData.Leafs.Append("entPhysicalDescr", types.YLeaf{"EntPhysicalDescr", entPhysicalEntry.EntPhysicalDescr})
+    entPhysicalEntry.EntityData.Leafs.Append("entPhysicalVendorType", types.YLeaf{"EntPhysicalVendorType", entPhysicalEntry.EntPhysicalVendorType})
+    entPhysicalEntry.EntityData.Leafs.Append("entPhysicalContainedIn", types.YLeaf{"EntPhysicalContainedIn", entPhysicalEntry.EntPhysicalContainedIn})
+    entPhysicalEntry.EntityData.Leafs.Append("entPhysicalClass", types.YLeaf{"EntPhysicalClass", entPhysicalEntry.EntPhysicalClass})
+    entPhysicalEntry.EntityData.Leafs.Append("entPhysicalParentRelPos", types.YLeaf{"EntPhysicalParentRelPos", entPhysicalEntry.EntPhysicalParentRelPos})
+    entPhysicalEntry.EntityData.Leafs.Append("entPhysicalName", types.YLeaf{"EntPhysicalName", entPhysicalEntry.EntPhysicalName})
+    entPhysicalEntry.EntityData.Leafs.Append("entPhysicalHardwareRev", types.YLeaf{"EntPhysicalHardwareRev", entPhysicalEntry.EntPhysicalHardwareRev})
+    entPhysicalEntry.EntityData.Leafs.Append("entPhysicalFirmwareRev", types.YLeaf{"EntPhysicalFirmwareRev", entPhysicalEntry.EntPhysicalFirmwareRev})
+    entPhysicalEntry.EntityData.Leafs.Append("entPhysicalSoftwareRev", types.YLeaf{"EntPhysicalSoftwareRev", entPhysicalEntry.EntPhysicalSoftwareRev})
+    entPhysicalEntry.EntityData.Leafs.Append("entPhysicalSerialNum", types.YLeaf{"EntPhysicalSerialNum", entPhysicalEntry.EntPhysicalSerialNum})
+    entPhysicalEntry.EntityData.Leafs.Append("entPhysicalMfgName", types.YLeaf{"EntPhysicalMfgName", entPhysicalEntry.EntPhysicalMfgName})
+    entPhysicalEntry.EntityData.Leafs.Append("entPhysicalModelName", types.YLeaf{"EntPhysicalModelName", entPhysicalEntry.EntPhysicalModelName})
+    entPhysicalEntry.EntityData.Leafs.Append("entPhysicalAlias", types.YLeaf{"EntPhysicalAlias", entPhysicalEntry.EntPhysicalAlias})
+    entPhysicalEntry.EntityData.Leafs.Append("entPhysicalAssetID", types.YLeaf{"EntPhysicalAssetID", entPhysicalEntry.EntPhysicalAssetID})
+    entPhysicalEntry.EntityData.Leafs.Append("entPhysicalIsFRU", types.YLeaf{"EntPhysicalIsFRU", entPhysicalEntry.EntPhysicalIsFRU})
+    entPhysicalEntry.EntityData.Leafs.Append("entPhysicalMfgDate", types.YLeaf{"EntPhysicalMfgDate", entPhysicalEntry.EntPhysicalMfgDate})
+    entPhysicalEntry.EntityData.Leafs.Append("entPhysicalUris", types.YLeaf{"EntPhysicalUris", entPhysicalEntry.EntPhysicalUris})
+    entPhysicalEntry.EntityData.Leafs.Append("ceEntPhysicalSecondSerialNum", types.YLeaf{"CeEntPhysicalSecondSerialNum", entPhysicalEntry.CeEntPhysicalSecondSerialNum})
+
+    entPhysicalEntry.EntityData.YListKeys = []string {"EntPhysicalIndex"}
+
+    return &(entPhysicalEntry.EntityData)
 }
 
-// ENTITYMIB_Entlogicaltable
+// ENTITYMIB_EntLogicalTable
 // This table contains one row per logical entity.  For agents
 // that implement more than one naming scope, at least one
 // entry must exist.  Agents which instantiate all MIB objects
 // within a single naming scope are not required to implement
 // this table.
-type ENTITYMIB_Entlogicaltable struct {
+type ENTITYMIB_EntLogicalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a particular logical entity.  Entities may be managed by
     // this agent or other SNMP agents (possibly) in the same chassis. The type is
-    // slice of ENTITYMIB_Entlogicaltable_Entlogicalentry.
-    Entlogicalentry []ENTITYMIB_Entlogicaltable_Entlogicalentry
+    // slice of ENTITYMIB_EntLogicalTable_EntLogicalEntry.
+    EntLogicalEntry []*ENTITYMIB_EntLogicalTable_EntLogicalEntry
 }
 
-func (entlogicaltable *ENTITYMIB_Entlogicaltable) GetEntityData() *types.CommonEntityData {
-    entlogicaltable.EntityData.YFilter = entlogicaltable.YFilter
-    entlogicaltable.EntityData.YangName = "entLogicalTable"
-    entlogicaltable.EntityData.BundleName = "cisco_ios_xe"
-    entlogicaltable.EntityData.ParentYangName = "ENTITY-MIB"
-    entlogicaltable.EntityData.SegmentPath = "entLogicalTable"
-    entlogicaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    entlogicaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    entlogicaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (entLogicalTable *ENTITYMIB_EntLogicalTable) GetEntityData() *types.CommonEntityData {
+    entLogicalTable.EntityData.YFilter = entLogicalTable.YFilter
+    entLogicalTable.EntityData.YangName = "entLogicalTable"
+    entLogicalTable.EntityData.BundleName = "cisco_ios_xe"
+    entLogicalTable.EntityData.ParentYangName = "ENTITY-MIB"
+    entLogicalTable.EntityData.SegmentPath = "entLogicalTable"
+    entLogicalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entLogicalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entLogicalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    entlogicaltable.EntityData.Children = make(map[string]types.YChild)
-    entlogicaltable.EntityData.Children["entLogicalEntry"] = types.YChild{"Entlogicalentry", nil}
-    for i := range entlogicaltable.Entlogicalentry {
-        entlogicaltable.EntityData.Children[types.GetSegmentPath(&entlogicaltable.Entlogicalentry[i])] = types.YChild{"Entlogicalentry", &entlogicaltable.Entlogicalentry[i]}
+    entLogicalTable.EntityData.Children = types.NewOrderedMap()
+    entLogicalTable.EntityData.Children.Append("entLogicalEntry", types.YChild{"EntLogicalEntry", nil})
+    for i := range entLogicalTable.EntLogicalEntry {
+        entLogicalTable.EntityData.Children.Append(types.GetSegmentPath(entLogicalTable.EntLogicalEntry[i]), types.YChild{"EntLogicalEntry", entLogicalTable.EntLogicalEntry[i]})
     }
-    entlogicaltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(entlogicaltable.EntityData)
+    entLogicalTable.EntityData.Leafs = types.NewOrderedMap()
+
+    entLogicalTable.EntityData.YListKeys = []string {}
+
+    return &(entLogicalTable.EntityData)
 }
 
-// ENTITYMIB_Entlogicaltable_Entlogicalentry
+// ENTITYMIB_EntLogicalTable_EntLogicalEntry
 // Information about a particular logical entity.  Entities
 // may be managed by this agent or other SNMP agents (possibly)
 // in the same chassis.
-type ENTITYMIB_Entlogicaltable_Entlogicalentry struct {
+type ENTITYMIB_EntLogicalTable_EntLogicalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -533,13 +548,13 @@ type ENTITYMIB_Entlogicaltable_Entlogicalentry struct {
     // logical entity.  The value should be a small positive integer; index values
     // for different logical entities are not necessarily contiguous. The type is
     // interface{} with range: 1..2147483647.
-    Entlogicalindex interface{}
+    EntLogicalIndex interface{}
 
     // A textual description of the logical entity.  This object should contain a
     // string that identifies the manufacturer's name for the logical entity, and
     // should be set to a distinct value for each version of the logical entity.
     // The type is string.
-    Entlogicaldescr interface{}
+    EntLogicalDescr interface{}
 
     // An indication of the type of logical entity.  This will typically be the
     // OBJECT IDENTIFIER name of the node in the SMI's naming hierarchy which
@@ -549,8 +564,8 @@ type ENTITYMIB_Entlogicaltable_Entlogicalentry struct {
     // dot1dBridge    a logical entity of a 802.3 repeater -> snmpDot3RptrMgmt If
     // an appropriate node in the SMI's naming hierarchy cannot be identified, the
     // value 'mib-2' should be used. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Entlogicaltype interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    EntLogicalType interface{}
 
     // An SNMPv1 or SNMPv2C community-string, which can be used to access detailed
     // management information for this logical entity.  The agent should allow
@@ -579,7 +594,7 @@ type ENTITYMIB_Entlogicaltable_Entlogicalentry struct {
     // zero-length string for this object, or may continue to return a community
     // string (e.g., tri-lingual agent support). The type is string with length:
     // 0..255.
-    Entlogicalcommunity interface{}
+    EntLogicalCommunity interface{}
 
     // The transport service address by which the logical entity receives network
     // management traffic, formatted according to the corresponding value of
@@ -589,14 +604,14 @@ type ENTITYMIB_Entlogicaltable_Entlogicalentry struct {
     // for the Simple Network Management Protocol' (STD 62, RFC 3417 [RFC3417])
     // for further information on snmpUDPDomain. The type is string with length:
     // 1..255.
-    Entlogicaltaddress interface{}
+    EntLogicalTAddress interface{}
 
     // Indicates the kind of transport service by which the logical entity
     // receives network management traffic. Possible values for this object are
     // presently found in the Transport Mappings for Simple Network Management
     // Protocol' (STD 62, RFC 3417 [RFC3417]). The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Entlogicaltdomain interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    EntLogicalTDomain interface{}
 
     // The authoritative contextEngineID that can be used to send an SNMP message
     // concerning information held by this logical entity, to the address
@@ -607,7 +622,7 @@ type ENTITYMIB_Entlogicaltable_Entlogicalentry struct {
     // pair.  If no value has been configured by the agent, a zero-length string
     // is returned, or the agent may choose not to instantiate this object at all.
     // The type is string with length: 0..32.
-    Entlogicalcontextengineid interface{}
+    EntLogicalContextEngineID interface{}
 
     // The contextName that can be used to send an SNMP message concerning
     // information held by this logical entity, to the address specified by the
@@ -618,33 +633,36 @@ type ENTITYMIB_Entlogicaltable_Entlogicalentry struct {
     // value has been configured by the agent, a zero-length string is returned,
     // or the agent may choose not to instantiate this object at all. The type is
     // string.
-    Entlogicalcontextname interface{}
+    EntLogicalContextName interface{}
 }
 
-func (entlogicalentry *ENTITYMIB_Entlogicaltable_Entlogicalentry) GetEntityData() *types.CommonEntityData {
-    entlogicalentry.EntityData.YFilter = entlogicalentry.YFilter
-    entlogicalentry.EntityData.YangName = "entLogicalEntry"
-    entlogicalentry.EntityData.BundleName = "cisco_ios_xe"
-    entlogicalentry.EntityData.ParentYangName = "entLogicalTable"
-    entlogicalentry.EntityData.SegmentPath = "entLogicalEntry" + "[entLogicalIndex='" + fmt.Sprintf("%v", entlogicalentry.Entlogicalindex) + "']"
-    entlogicalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    entlogicalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    entlogicalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (entLogicalEntry *ENTITYMIB_EntLogicalTable_EntLogicalEntry) GetEntityData() *types.CommonEntityData {
+    entLogicalEntry.EntityData.YFilter = entLogicalEntry.YFilter
+    entLogicalEntry.EntityData.YangName = "entLogicalEntry"
+    entLogicalEntry.EntityData.BundleName = "cisco_ios_xe"
+    entLogicalEntry.EntityData.ParentYangName = "entLogicalTable"
+    entLogicalEntry.EntityData.SegmentPath = "entLogicalEntry" + types.AddKeyToken(entLogicalEntry.EntLogicalIndex, "entLogicalIndex")
+    entLogicalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entLogicalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entLogicalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    entlogicalentry.EntityData.Children = make(map[string]types.YChild)
-    entlogicalentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    entlogicalentry.EntityData.Leafs["entLogicalIndex"] = types.YLeaf{"Entlogicalindex", entlogicalentry.Entlogicalindex}
-    entlogicalentry.EntityData.Leafs["entLogicalDescr"] = types.YLeaf{"Entlogicaldescr", entlogicalentry.Entlogicaldescr}
-    entlogicalentry.EntityData.Leafs["entLogicalType"] = types.YLeaf{"Entlogicaltype", entlogicalentry.Entlogicaltype}
-    entlogicalentry.EntityData.Leafs["entLogicalCommunity"] = types.YLeaf{"Entlogicalcommunity", entlogicalentry.Entlogicalcommunity}
-    entlogicalentry.EntityData.Leafs["entLogicalTAddress"] = types.YLeaf{"Entlogicaltaddress", entlogicalentry.Entlogicaltaddress}
-    entlogicalentry.EntityData.Leafs["entLogicalTDomain"] = types.YLeaf{"Entlogicaltdomain", entlogicalentry.Entlogicaltdomain}
-    entlogicalentry.EntityData.Leafs["entLogicalContextEngineID"] = types.YLeaf{"Entlogicalcontextengineid", entlogicalentry.Entlogicalcontextengineid}
-    entlogicalentry.EntityData.Leafs["entLogicalContextName"] = types.YLeaf{"Entlogicalcontextname", entlogicalentry.Entlogicalcontextname}
-    return &(entlogicalentry.EntityData)
+    entLogicalEntry.EntityData.Children = types.NewOrderedMap()
+    entLogicalEntry.EntityData.Leafs = types.NewOrderedMap()
+    entLogicalEntry.EntityData.Leafs.Append("entLogicalIndex", types.YLeaf{"EntLogicalIndex", entLogicalEntry.EntLogicalIndex})
+    entLogicalEntry.EntityData.Leafs.Append("entLogicalDescr", types.YLeaf{"EntLogicalDescr", entLogicalEntry.EntLogicalDescr})
+    entLogicalEntry.EntityData.Leafs.Append("entLogicalType", types.YLeaf{"EntLogicalType", entLogicalEntry.EntLogicalType})
+    entLogicalEntry.EntityData.Leafs.Append("entLogicalCommunity", types.YLeaf{"EntLogicalCommunity", entLogicalEntry.EntLogicalCommunity})
+    entLogicalEntry.EntityData.Leafs.Append("entLogicalTAddress", types.YLeaf{"EntLogicalTAddress", entLogicalEntry.EntLogicalTAddress})
+    entLogicalEntry.EntityData.Leafs.Append("entLogicalTDomain", types.YLeaf{"EntLogicalTDomain", entLogicalEntry.EntLogicalTDomain})
+    entLogicalEntry.EntityData.Leafs.Append("entLogicalContextEngineID", types.YLeaf{"EntLogicalContextEngineID", entLogicalEntry.EntLogicalContextEngineID})
+    entLogicalEntry.EntityData.Leafs.Append("entLogicalContextName", types.YLeaf{"EntLogicalContextName", entLogicalEntry.EntLogicalContextName})
+
+    entLogicalEntry.EntityData.YListKeys = []string {"EntLogicalIndex"}
+
+    return &(entLogicalEntry.EntityData)
 }
 
-// ENTITYMIB_Entlpmappingtable
+// ENTITYMIB_EntLPMappingTable
 // This table contains zero or more rows of logical entity to
 // physical equipment associations.  For each logical entity
 // known by this agent, there are zero or more mappings to the
@@ -675,7 +693,7 @@ func (entlogicalentry *ENTITYMIB_Entlogicaltable_Entlogicalentry) GetEntityData(
 // Also, in the case of a single backplane repeater, a mapping
 // for the backplane to the single repeater entity is not
 // necessary.
-type ENTITYMIB_Entlpmappingtable struct {
+type ENTITYMIB_EntLPMappingTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -684,69 +702,75 @@ type ENTITYMIB_Entlpmappingtable struct {
     // identified in this entry. It is expected that sufficient information exists
     // in the MIBs used to manage a particular logical entity to infer how
     // physical component information is utilized. The type is slice of
-    // ENTITYMIB_Entlpmappingtable_Entlpmappingentry.
-    Entlpmappingentry []ENTITYMIB_Entlpmappingtable_Entlpmappingentry
+    // ENTITYMIB_EntLPMappingTable_EntLPMappingEntry.
+    EntLPMappingEntry []*ENTITYMIB_EntLPMappingTable_EntLPMappingEntry
 }
 
-func (entlpmappingtable *ENTITYMIB_Entlpmappingtable) GetEntityData() *types.CommonEntityData {
-    entlpmappingtable.EntityData.YFilter = entlpmappingtable.YFilter
-    entlpmappingtable.EntityData.YangName = "entLPMappingTable"
-    entlpmappingtable.EntityData.BundleName = "cisco_ios_xe"
-    entlpmappingtable.EntityData.ParentYangName = "ENTITY-MIB"
-    entlpmappingtable.EntityData.SegmentPath = "entLPMappingTable"
-    entlpmappingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    entlpmappingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    entlpmappingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (entLPMappingTable *ENTITYMIB_EntLPMappingTable) GetEntityData() *types.CommonEntityData {
+    entLPMappingTable.EntityData.YFilter = entLPMappingTable.YFilter
+    entLPMappingTable.EntityData.YangName = "entLPMappingTable"
+    entLPMappingTable.EntityData.BundleName = "cisco_ios_xe"
+    entLPMappingTable.EntityData.ParentYangName = "ENTITY-MIB"
+    entLPMappingTable.EntityData.SegmentPath = "entLPMappingTable"
+    entLPMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entLPMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entLPMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    entlpmappingtable.EntityData.Children = make(map[string]types.YChild)
-    entlpmappingtable.EntityData.Children["entLPMappingEntry"] = types.YChild{"Entlpmappingentry", nil}
-    for i := range entlpmappingtable.Entlpmappingentry {
-        entlpmappingtable.EntityData.Children[types.GetSegmentPath(&entlpmappingtable.Entlpmappingentry[i])] = types.YChild{"Entlpmappingentry", &entlpmappingtable.Entlpmappingentry[i]}
+    entLPMappingTable.EntityData.Children = types.NewOrderedMap()
+    entLPMappingTable.EntityData.Children.Append("entLPMappingEntry", types.YChild{"EntLPMappingEntry", nil})
+    for i := range entLPMappingTable.EntLPMappingEntry {
+        entLPMappingTable.EntityData.Children.Append(types.GetSegmentPath(entLPMappingTable.EntLPMappingEntry[i]), types.YChild{"EntLPMappingEntry", entLPMappingTable.EntLPMappingEntry[i]})
     }
-    entlpmappingtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(entlpmappingtable.EntityData)
+    entLPMappingTable.EntityData.Leafs = types.NewOrderedMap()
+
+    entLPMappingTable.EntityData.YListKeys = []string {}
+
+    return &(entLPMappingTable.EntityData)
 }
 
-// ENTITYMIB_Entlpmappingtable_Entlpmappingentry
+// ENTITYMIB_EntLPMappingTable_EntLPMappingEntry
 // Information about a particular logical entity to physical
 // equipment association.  Note that the nature of the
 // association is not specifically identified in this entry.
 // It is expected that sufficient information exists in the
 // MIBs used to manage a particular logical entity to infer how
 // physical component information is utilized.
-type ENTITYMIB_Entlpmappingtable_Entlpmappingentry struct {
+type ENTITYMIB_EntLPMappingTable_EntLPMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // entity_mib.ENTITYMIB_Entlogicaltable_Entlogicalentry_Entlogicalindex
-    Entlogicalindex interface{}
+    // entity_mib.ENTITYMIB_EntLogicalTable_EntLogicalEntry_EntLogicalIndex
+    EntLogicalIndex interface{}
 
     // This attribute is a key. The value of this object identifies the index
     // value of a particular entPhysicalEntry associated with the indicated
     // entLogicalEntity. The type is interface{} with range: 1..2147483647.
-    Entlpphysicalindex interface{}
+    EntLPPhysicalIndex interface{}
 }
 
-func (entlpmappingentry *ENTITYMIB_Entlpmappingtable_Entlpmappingentry) GetEntityData() *types.CommonEntityData {
-    entlpmappingentry.EntityData.YFilter = entlpmappingentry.YFilter
-    entlpmappingentry.EntityData.YangName = "entLPMappingEntry"
-    entlpmappingentry.EntityData.BundleName = "cisco_ios_xe"
-    entlpmappingentry.EntityData.ParentYangName = "entLPMappingTable"
-    entlpmappingentry.EntityData.SegmentPath = "entLPMappingEntry" + "[entLogicalIndex='" + fmt.Sprintf("%v", entlpmappingentry.Entlogicalindex) + "']" + "[entLPPhysicalIndex='" + fmt.Sprintf("%v", entlpmappingentry.Entlpphysicalindex) + "']"
-    entlpmappingentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    entlpmappingentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    entlpmappingentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (entLPMappingEntry *ENTITYMIB_EntLPMappingTable_EntLPMappingEntry) GetEntityData() *types.CommonEntityData {
+    entLPMappingEntry.EntityData.YFilter = entLPMappingEntry.YFilter
+    entLPMappingEntry.EntityData.YangName = "entLPMappingEntry"
+    entLPMappingEntry.EntityData.BundleName = "cisco_ios_xe"
+    entLPMappingEntry.EntityData.ParentYangName = "entLPMappingTable"
+    entLPMappingEntry.EntityData.SegmentPath = "entLPMappingEntry" + types.AddKeyToken(entLPMappingEntry.EntLogicalIndex, "entLogicalIndex") + types.AddKeyToken(entLPMappingEntry.EntLPPhysicalIndex, "entLPPhysicalIndex")
+    entLPMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entLPMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entLPMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    entlpmappingentry.EntityData.Children = make(map[string]types.YChild)
-    entlpmappingentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    entlpmappingentry.EntityData.Leafs["entLogicalIndex"] = types.YLeaf{"Entlogicalindex", entlpmappingentry.Entlogicalindex}
-    entlpmappingentry.EntityData.Leafs["entLPPhysicalIndex"] = types.YLeaf{"Entlpphysicalindex", entlpmappingentry.Entlpphysicalindex}
-    return &(entlpmappingentry.EntityData)
+    entLPMappingEntry.EntityData.Children = types.NewOrderedMap()
+    entLPMappingEntry.EntityData.Leafs = types.NewOrderedMap()
+    entLPMappingEntry.EntityData.Leafs.Append("entLogicalIndex", types.YLeaf{"EntLogicalIndex", entLPMappingEntry.EntLogicalIndex})
+    entLPMappingEntry.EntityData.Leafs.Append("entLPPhysicalIndex", types.YLeaf{"EntLPPhysicalIndex", entLPMappingEntry.EntLPPhysicalIndex})
+
+    entLPMappingEntry.EntityData.YListKeys = []string {"EntLogicalIndex", "EntLPPhysicalIndex"}
+
+    return &(entLPMappingEntry.EntityData)
 }
 
-// ENTITYMIB_Entaliasmappingtable
+// ENTITYMIB_EntAliasMappingTable
 // This table contains zero or more rows, representing
 // mappings of logical entity and physical component to
 // external MIB identifiers.  Each physical port in the system
@@ -755,7 +779,7 @@ func (entlpmappingentry *ENTITYMIB_Entlpmappingtable_Entlpmappingentry) GetEntit
 // entity's naming scope.  A 'wildcard' mechanism is provided
 // to indicate that an identifier is associated with more than
 // one logical entity.
-type ENTITYMIB_Entaliasmappingtable struct {
+type ENTITYMIB_EntAliasMappingTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -766,30 +790,33 @@ type ENTITYMIB_Entaliasmappingtable struct {
     // object DESCRIPTION clause for details.)  Note that only entPhysicalIndex
     // values that represent physical ports (i.e., associated entPhysicalClass
     // value is 'port(10)') are permitted to exist in this table. The type is
-    // slice of ENTITYMIB_Entaliasmappingtable_Entaliasmappingentry.
-    Entaliasmappingentry []ENTITYMIB_Entaliasmappingtable_Entaliasmappingentry
+    // slice of ENTITYMIB_EntAliasMappingTable_EntAliasMappingEntry.
+    EntAliasMappingEntry []*ENTITYMIB_EntAliasMappingTable_EntAliasMappingEntry
 }
 
-func (entaliasmappingtable *ENTITYMIB_Entaliasmappingtable) GetEntityData() *types.CommonEntityData {
-    entaliasmappingtable.EntityData.YFilter = entaliasmappingtable.YFilter
-    entaliasmappingtable.EntityData.YangName = "entAliasMappingTable"
-    entaliasmappingtable.EntityData.BundleName = "cisco_ios_xe"
-    entaliasmappingtable.EntityData.ParentYangName = "ENTITY-MIB"
-    entaliasmappingtable.EntityData.SegmentPath = "entAliasMappingTable"
-    entaliasmappingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    entaliasmappingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    entaliasmappingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (entAliasMappingTable *ENTITYMIB_EntAliasMappingTable) GetEntityData() *types.CommonEntityData {
+    entAliasMappingTable.EntityData.YFilter = entAliasMappingTable.YFilter
+    entAliasMappingTable.EntityData.YangName = "entAliasMappingTable"
+    entAliasMappingTable.EntityData.BundleName = "cisco_ios_xe"
+    entAliasMappingTable.EntityData.ParentYangName = "ENTITY-MIB"
+    entAliasMappingTable.EntityData.SegmentPath = "entAliasMappingTable"
+    entAliasMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entAliasMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entAliasMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    entaliasmappingtable.EntityData.Children = make(map[string]types.YChild)
-    entaliasmappingtable.EntityData.Children["entAliasMappingEntry"] = types.YChild{"Entaliasmappingentry", nil}
-    for i := range entaliasmappingtable.Entaliasmappingentry {
-        entaliasmappingtable.EntityData.Children[types.GetSegmentPath(&entaliasmappingtable.Entaliasmappingentry[i])] = types.YChild{"Entaliasmappingentry", &entaliasmappingtable.Entaliasmappingentry[i]}
+    entAliasMappingTable.EntityData.Children = types.NewOrderedMap()
+    entAliasMappingTable.EntityData.Children.Append("entAliasMappingEntry", types.YChild{"EntAliasMappingEntry", nil})
+    for i := range entAliasMappingTable.EntAliasMappingEntry {
+        entAliasMappingTable.EntityData.Children.Append(types.GetSegmentPath(entAliasMappingTable.EntAliasMappingEntry[i]), types.YChild{"EntAliasMappingEntry", entAliasMappingTable.EntAliasMappingEntry[i]})
     }
-    entaliasmappingtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(entaliasmappingtable.EntityData)
+    entAliasMappingTable.EntityData.Leafs = types.NewOrderedMap()
+
+    entAliasMappingTable.EntityData.YListKeys = []string {}
+
+    return &(entAliasMappingTable.EntityData)
 }
 
-// ENTITYMIB_Entaliasmappingtable_Entaliasmappingentry
+// ENTITYMIB_EntAliasMappingTable_EntAliasMappingEntry
 // Information about a particular physical equipment, logical
 // 
 // 
@@ -802,14 +829,14 @@ func (entaliasmappingtable *ENTITYMIB_Entaliasmappingtable) GetEntityData() *typ
 // Note that only entPhysicalIndex values that represent
 // physical ports (i.e., associated entPhysicalClass value is
 // 'port(10)') are permitted to exist in this table.
-type ENTITYMIB_Entaliasmappingtable_Entaliasmappingentry struct {
+type ENTITYMIB_EntAliasMappingTable_EntAliasMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // entity_mib.ENTITYMIB_Entphysicaltable_Entphysicalentry_Entphysicalindex
-    Entphysicalindex interface{}
+    // entity_mib.ENTITYMIB_EntPhysicalTable_EntPhysicalEntry_EntPhysicalIndex
+    EntPhysicalIndex interface{}
 
     // This attribute is a key. The value of this object identifies the logical
     // entity that defines the naming scope for the associated instance of the
@@ -834,7 +861,7 @@ type ENTITYMIB_Entaliasmappingtable_Entaliasmappingentry struct {
     // zero-indexed entries.  In this example, all logical entities except 4, 5,
     // and 10, associate physical entity 33 with ifIndex.6. The type is
     // interface{} with range: 0..2147483647.
-    Entaliaslogicalindexorzero interface{}
+    EntAliasLogicalIndexOrZero interface{}
 
     // The value of this object identifies a particular conceptual row associated
     // with the indicated entPhysicalIndex and entLogicalIndex pair.  Because only
@@ -852,29 +879,32 @@ type ENTITYMIB_Entaliasmappingtable_Entaliasmappingentry struct {
     // future, as required.  Bridge ports are identified by examining the Bridge
     // MIB and appropriate ifEntries associated with each 'dot1dBasePort', and are
     // thus not represented in this table. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Entaliasmappingidentifier interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    EntAliasMappingIdentifier interface{}
 }
 
-func (entaliasmappingentry *ENTITYMIB_Entaliasmappingtable_Entaliasmappingentry) GetEntityData() *types.CommonEntityData {
-    entaliasmappingentry.EntityData.YFilter = entaliasmappingentry.YFilter
-    entaliasmappingentry.EntityData.YangName = "entAliasMappingEntry"
-    entaliasmappingentry.EntityData.BundleName = "cisco_ios_xe"
-    entaliasmappingentry.EntityData.ParentYangName = "entAliasMappingTable"
-    entaliasmappingentry.EntityData.SegmentPath = "entAliasMappingEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", entaliasmappingentry.Entphysicalindex) + "']" + "[entAliasLogicalIndexOrZero='" + fmt.Sprintf("%v", entaliasmappingentry.Entaliaslogicalindexorzero) + "']"
-    entaliasmappingentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    entaliasmappingentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    entaliasmappingentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (entAliasMappingEntry *ENTITYMIB_EntAliasMappingTable_EntAliasMappingEntry) GetEntityData() *types.CommonEntityData {
+    entAliasMappingEntry.EntityData.YFilter = entAliasMappingEntry.YFilter
+    entAliasMappingEntry.EntityData.YangName = "entAliasMappingEntry"
+    entAliasMappingEntry.EntityData.BundleName = "cisco_ios_xe"
+    entAliasMappingEntry.EntityData.ParentYangName = "entAliasMappingTable"
+    entAliasMappingEntry.EntityData.SegmentPath = "entAliasMappingEntry" + types.AddKeyToken(entAliasMappingEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(entAliasMappingEntry.EntAliasLogicalIndexOrZero, "entAliasLogicalIndexOrZero")
+    entAliasMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entAliasMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entAliasMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    entaliasmappingentry.EntityData.Children = make(map[string]types.YChild)
-    entaliasmappingentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    entaliasmappingentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", entaliasmappingentry.Entphysicalindex}
-    entaliasmappingentry.EntityData.Leafs["entAliasLogicalIndexOrZero"] = types.YLeaf{"Entaliaslogicalindexorzero", entaliasmappingentry.Entaliaslogicalindexorzero}
-    entaliasmappingentry.EntityData.Leafs["entAliasMappingIdentifier"] = types.YLeaf{"Entaliasmappingidentifier", entaliasmappingentry.Entaliasmappingidentifier}
-    return &(entaliasmappingentry.EntityData)
+    entAliasMappingEntry.EntityData.Children = types.NewOrderedMap()
+    entAliasMappingEntry.EntityData.Leafs = types.NewOrderedMap()
+    entAliasMappingEntry.EntityData.Leafs.Append("entPhysicalIndex", types.YLeaf{"EntPhysicalIndex", entAliasMappingEntry.EntPhysicalIndex})
+    entAliasMappingEntry.EntityData.Leafs.Append("entAliasLogicalIndexOrZero", types.YLeaf{"EntAliasLogicalIndexOrZero", entAliasMappingEntry.EntAliasLogicalIndexOrZero})
+    entAliasMappingEntry.EntityData.Leafs.Append("entAliasMappingIdentifier", types.YLeaf{"EntAliasMappingIdentifier", entAliasMappingEntry.EntAliasMappingIdentifier})
+
+    entAliasMappingEntry.EntityData.YListKeys = []string {"EntPhysicalIndex", "EntAliasLogicalIndexOrZero"}
+
+    return &(entAliasMappingEntry.EntityData)
 }
 
-// ENTITYMIB_Entphysicalcontainstable
+// ENTITYMIB_EntPhysicalContainsTable
 // A table that exposes the container/'containee'
 // relationships between physical entities.  This table
 // provides all the information found by constructing the
@@ -886,64 +916,70 @@ func (entaliasmappingentry *ENTITYMIB_Entaliasmappingtable_Entaliasmappingentry)
 // table should include these additional mappings, which cannot
 // be represented in the entPhysicalTable virtual containment
 // tree.
-type ENTITYMIB_Entphysicalcontainstable struct {
+type ENTITYMIB_EntPhysicalContainsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single container/'containee' relationship. The type is slice of
-    // ENTITYMIB_Entphysicalcontainstable_Entphysicalcontainsentry.
-    Entphysicalcontainsentry []ENTITYMIB_Entphysicalcontainstable_Entphysicalcontainsentry
+    // ENTITYMIB_EntPhysicalContainsTable_EntPhysicalContainsEntry.
+    EntPhysicalContainsEntry []*ENTITYMIB_EntPhysicalContainsTable_EntPhysicalContainsEntry
 }
 
-func (entphysicalcontainstable *ENTITYMIB_Entphysicalcontainstable) GetEntityData() *types.CommonEntityData {
-    entphysicalcontainstable.EntityData.YFilter = entphysicalcontainstable.YFilter
-    entphysicalcontainstable.EntityData.YangName = "entPhysicalContainsTable"
-    entphysicalcontainstable.EntityData.BundleName = "cisco_ios_xe"
-    entphysicalcontainstable.EntityData.ParentYangName = "ENTITY-MIB"
-    entphysicalcontainstable.EntityData.SegmentPath = "entPhysicalContainsTable"
-    entphysicalcontainstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    entphysicalcontainstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    entphysicalcontainstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (entPhysicalContainsTable *ENTITYMIB_EntPhysicalContainsTable) GetEntityData() *types.CommonEntityData {
+    entPhysicalContainsTable.EntityData.YFilter = entPhysicalContainsTable.YFilter
+    entPhysicalContainsTable.EntityData.YangName = "entPhysicalContainsTable"
+    entPhysicalContainsTable.EntityData.BundleName = "cisco_ios_xe"
+    entPhysicalContainsTable.EntityData.ParentYangName = "ENTITY-MIB"
+    entPhysicalContainsTable.EntityData.SegmentPath = "entPhysicalContainsTable"
+    entPhysicalContainsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entPhysicalContainsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entPhysicalContainsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    entphysicalcontainstable.EntityData.Children = make(map[string]types.YChild)
-    entphysicalcontainstable.EntityData.Children["entPhysicalContainsEntry"] = types.YChild{"Entphysicalcontainsentry", nil}
-    for i := range entphysicalcontainstable.Entphysicalcontainsentry {
-        entphysicalcontainstable.EntityData.Children[types.GetSegmentPath(&entphysicalcontainstable.Entphysicalcontainsentry[i])] = types.YChild{"Entphysicalcontainsentry", &entphysicalcontainstable.Entphysicalcontainsentry[i]}
+    entPhysicalContainsTable.EntityData.Children = types.NewOrderedMap()
+    entPhysicalContainsTable.EntityData.Children.Append("entPhysicalContainsEntry", types.YChild{"EntPhysicalContainsEntry", nil})
+    for i := range entPhysicalContainsTable.EntPhysicalContainsEntry {
+        entPhysicalContainsTable.EntityData.Children.Append(types.GetSegmentPath(entPhysicalContainsTable.EntPhysicalContainsEntry[i]), types.YChild{"EntPhysicalContainsEntry", entPhysicalContainsTable.EntPhysicalContainsEntry[i]})
     }
-    entphysicalcontainstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(entphysicalcontainstable.EntityData)
+    entPhysicalContainsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    entPhysicalContainsTable.EntityData.YListKeys = []string {}
+
+    return &(entPhysicalContainsTable.EntityData)
 }
 
-// ENTITYMIB_Entphysicalcontainstable_Entphysicalcontainsentry
+// ENTITYMIB_EntPhysicalContainsTable_EntPhysicalContainsEntry
 // A single container/'containee' relationship.
-type ENTITYMIB_Entphysicalcontainstable_Entphysicalcontainsentry struct {
+type ENTITYMIB_EntPhysicalContainsTable_EntPhysicalContainsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // entity_mib.ENTITYMIB_Entphysicaltable_Entphysicalentry_Entphysicalindex
-    Entphysicalindex interface{}
+    // entity_mib.ENTITYMIB_EntPhysicalTable_EntPhysicalEntry_EntPhysicalIndex
+    EntPhysicalIndex interface{}
 
     // This attribute is a key. The value of entPhysicalIndex for the contained
     // physical entity. The type is interface{} with range: 1..2147483647.
-    Entphysicalchildindex interface{}
+    EntPhysicalChildIndex interface{}
 }
 
-func (entphysicalcontainsentry *ENTITYMIB_Entphysicalcontainstable_Entphysicalcontainsentry) GetEntityData() *types.CommonEntityData {
-    entphysicalcontainsentry.EntityData.YFilter = entphysicalcontainsentry.YFilter
-    entphysicalcontainsentry.EntityData.YangName = "entPhysicalContainsEntry"
-    entphysicalcontainsentry.EntityData.BundleName = "cisco_ios_xe"
-    entphysicalcontainsentry.EntityData.ParentYangName = "entPhysicalContainsTable"
-    entphysicalcontainsentry.EntityData.SegmentPath = "entPhysicalContainsEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", entphysicalcontainsentry.Entphysicalindex) + "']" + "[entPhysicalChildIndex='" + fmt.Sprintf("%v", entphysicalcontainsentry.Entphysicalchildindex) + "']"
-    entphysicalcontainsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    entphysicalcontainsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    entphysicalcontainsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (entPhysicalContainsEntry *ENTITYMIB_EntPhysicalContainsTable_EntPhysicalContainsEntry) GetEntityData() *types.CommonEntityData {
+    entPhysicalContainsEntry.EntityData.YFilter = entPhysicalContainsEntry.YFilter
+    entPhysicalContainsEntry.EntityData.YangName = "entPhysicalContainsEntry"
+    entPhysicalContainsEntry.EntityData.BundleName = "cisco_ios_xe"
+    entPhysicalContainsEntry.EntityData.ParentYangName = "entPhysicalContainsTable"
+    entPhysicalContainsEntry.EntityData.SegmentPath = "entPhysicalContainsEntry" + types.AddKeyToken(entPhysicalContainsEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(entPhysicalContainsEntry.EntPhysicalChildIndex, "entPhysicalChildIndex")
+    entPhysicalContainsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entPhysicalContainsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entPhysicalContainsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    entphysicalcontainsentry.EntityData.Children = make(map[string]types.YChild)
-    entphysicalcontainsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    entphysicalcontainsentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", entphysicalcontainsentry.Entphysicalindex}
-    entphysicalcontainsentry.EntityData.Leafs["entPhysicalChildIndex"] = types.YLeaf{"Entphysicalchildindex", entphysicalcontainsentry.Entphysicalchildindex}
-    return &(entphysicalcontainsentry.EntityData)
+    entPhysicalContainsEntry.EntityData.Children = types.NewOrderedMap()
+    entPhysicalContainsEntry.EntityData.Leafs = types.NewOrderedMap()
+    entPhysicalContainsEntry.EntityData.Leafs.Append("entPhysicalIndex", types.YLeaf{"EntPhysicalIndex", entPhysicalContainsEntry.EntPhysicalIndex})
+    entPhysicalContainsEntry.EntityData.Leafs.Append("entPhysicalChildIndex", types.YLeaf{"EntPhysicalChildIndex", entPhysicalContainsEntry.EntPhysicalChildIndex})
+
+    entPhysicalContainsEntry.EntityData.YListKeys = []string {"EntPhysicalIndex", "EntPhysicalChildIndex"}
+
+    return &(entPhysicalContainsEntry.EntityData)
 }
 

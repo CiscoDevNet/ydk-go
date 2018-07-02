@@ -119,6 +119,11 @@ module Cisco-IOS-XR-ptp-oper {
         }
       }
     }
+    container summary {
+      description
+        "Summary operational data";
+      uses PTP-SUMMARY-INFO;
+    }
     container interface-configuration-errors {
       description
         "Table for interface configuration error

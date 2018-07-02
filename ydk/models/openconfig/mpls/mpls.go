@@ -54,55 +54,16 @@ func init() {
     ydk.RegisterEntity("openconfig-mpls:mpls", reflect.TypeOf(Mpls{}))
 }
 
-type PathComputationMethod struct {
-}
-
-func (id PathComputationMethod) String() string {
-	return "openconfig-mpls-te:path-computation-method"
-}
-
-type LocallyComputed struct {
-}
-
-func (id LocallyComputed) String() string {
-	return "openconfig-mpls-te:locally-computed"
-}
-
-type ExternallyQueried struct {
-}
-
-func (id ExternallyQueried) String() string {
-	return "openconfig-mpls-te:externally-queried"
-}
-
-type ExplicitlyDefined struct {
-}
-
-func (id ExplicitlyDefined) String() string {
-	return "openconfig-mpls-te:explicitly-defined"
-}
-
-// TeBandwidthType represents explicitly specified or automatically computed
-type TeBandwidthType string
-
-const (
-    // Bandwidth is explicitly specified
-    TeBandwidthType_SPECIFIED TeBandwidthType = "SPECIFIED"
-
-    // Bandwidth is automatically computed
-    TeBandwidthType_AUTO TeBandwidthType = "AUTO"
-)
-
 // MplsSrlgFloodingType represents Enumerated bype for specifying how the SRLG is flooded
 type MplsSrlgFloodingType string
 
 const (
     // SRLG is flooded in the IGP
-    MplsSrlgFloodingType_FLOODED_SRLG MplsSrlgFloodingType = "FLOODED-SRLG"
+    MplsSrlgFloodingType_FLOODED_SRLG MplsSrlgFloodingType = "FLOODED_SRLG"
 
     // SRLG is not flooded, the members are
     // statically configured
-    MplsSrlgFloodingType_STATIC_SRLG MplsSrlgFloodingType = "STATIC-SRLG"
+    MplsSrlgFloodingType_STATIC_SRLG MplsSrlgFloodingType = "STATIC_SRLG"
 )
 
 // MplsHopType represents paths
@@ -114,15 +75,6 @@ const (
 
     // strict hop in an explicit path
     MplsHopType_STRICT MplsHopType = "STRICT"
-)
-
-// TeMetricType represents static value, or to track the IGP metric
-type TeMetricType string
-
-const (
-    // set the LSP metric to track the underlying
-    // IGP metric
-    TeMetricType_IGP TeMetricType = "IGP"
 )
 
 // CspfTieBreaking represents multiple equal cost paths are available
@@ -142,10 +94,29 @@ const (
     CspfTieBreaking_MOST_FILL CspfTieBreaking = "MOST_FILL"
 )
 
+// TeMetricType represents static value, or to track the IGP metric
+type TeMetricType string
+
+const (
+    // set the LSP metric to track the underlying
+    // IGP metric
+    TeMetricType_IGP TeMetricType = "IGP"
+)
+
+// TeBandwidthType represents explicitly specified or automatically computed
+type TeBandwidthType string
+
+const (
+    // Bandwidth is explicitly specified
+    TeBandwidthType_SPECIFIED TeBandwidthType = "SPECIFIED"
+
+    // Bandwidth is automatically computed
+    TeBandwidthType_AUTO TeBandwidthType = "AUTO"
+)
+
 // Mpls
 // Anchor point for mpls configuration and operational
 // data
-// This type is a presence type.
 type Mpls struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -177,13 +148,16 @@ func (mpls *Mpls) GetEntityData() *types.CommonEntityData {
     mpls.EntityData.NamespaceTable = openconfig.GetNamespaces()
     mpls.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    mpls.EntityData.Children = make(map[string]types.YChild)
-    mpls.EntityData.Children["global"] = types.YChild{"Global", &mpls.Global}
-    mpls.EntityData.Children["te-global-attributes"] = types.YChild{"TeGlobalAttributes", &mpls.TeGlobalAttributes}
-    mpls.EntityData.Children["te-interface-attributes"] = types.YChild{"TeInterfaceAttributes", &mpls.TeInterfaceAttributes}
-    mpls.EntityData.Children["signaling-protocols"] = types.YChild{"SignalingProtocols", &mpls.SignalingProtocols}
-    mpls.EntityData.Children["lsps"] = types.YChild{"Lsps", &mpls.Lsps}
-    mpls.EntityData.Leafs = make(map[string]types.YLeaf)
+    mpls.EntityData.Children = types.NewOrderedMap()
+    mpls.EntityData.Children.Append("global", types.YChild{"Global", &mpls.Global})
+    mpls.EntityData.Children.Append("te-global-attributes", types.YChild{"TeGlobalAttributes", &mpls.TeGlobalAttributes})
+    mpls.EntityData.Children.Append("te-interface-attributes", types.YChild{"TeInterfaceAttributes", &mpls.TeInterfaceAttributes})
+    mpls.EntityData.Children.Append("signaling-protocols", types.YChild{"SignalingProtocols", &mpls.SignalingProtocols})
+    mpls.EntityData.Children.Append("lsps", types.YChild{"Lsps", &mpls.Lsps})
+    mpls.EntityData.Leafs = types.NewOrderedMap()
+
+    mpls.EntityData.YListKeys = []string {}
+
     return &(mpls.EntityData)
 }
 
@@ -202,7 +176,14 @@ type Mpls_Global struct {
     State Mpls_Global_State
 
     // Parameters related to MPLS interfaces.
-    MplsInterfaceAttributes Mpls_Global_MplsInterfaceAttributes
+    InterfaceAttributes Mpls_Global_InterfaceAttributes
+
+    // A range of labels starting with the start-label and up-to and including the
+    // end label that should be allocated as reserved. These labels should not be
+    // utilised by any dynamic label allocation on the local system unless the
+    // allocating protocol is explicitly configured to specify that allocation of
+    // labels should be out of the label block specified.
+    ReservedLabelBlocks Mpls_Global_ReservedLabelBlocks
 }
 
 func (global *Mpls_Global) GetEntityData() *types.CommonEntityData {
@@ -215,11 +196,15 @@ func (global *Mpls_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.NamespaceTable = openconfig.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    global.EntityData.Children = make(map[string]types.YChild)
-    global.EntityData.Children["config"] = types.YChild{"Config", &global.Config}
-    global.EntityData.Children["state"] = types.YChild{"State", &global.State}
-    global.EntityData.Children["mpls-interface-attributes"] = types.YChild{"MplsInterfaceAttributes", &global.MplsInterfaceAttributes}
-    global.EntityData.Leafs = make(map[string]types.YLeaf)
+    global.EntityData.Children = types.NewOrderedMap()
+    global.EntityData.Children.Append("config", types.YChild{"Config", &global.Config})
+    global.EntityData.Children.Append("state", types.YChild{"State", &global.State})
+    global.EntityData.Children.Append("interface-attributes", types.YChild{"InterfaceAttributes", &global.InterfaceAttributes})
+    global.EntityData.Children.Append("reserved-label-blocks", types.YChild{"ReservedLabelBlocks", &global.ReservedLabelBlocks})
+    global.EntityData.Leafs = types.NewOrderedMap()
+
+    global.EntityData.YListKeys = []string {}
+
     return &(global.EntityData)
 }
 
@@ -230,7 +215,7 @@ type Mpls_Global_Config struct {
     YFilter yfilter.YFilter
 
     // The null-label type used, implicit or explicit. The type is one of the
-    // following: EXPLICITIMPLICIT. The default value is mplst:IMPLICIT.
+    // following: EXPLICITIMPLICIT. The default value is oc-mplst:IMPLICIT.
     NullLabel interface{}
 }
 
@@ -244,9 +229,12 @@ func (config *Mpls_Global_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["null-label"] = types.YLeaf{"NullLabel", config.NullLabel}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("null-label", types.YLeaf{"NullLabel", config.NullLabel})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -257,7 +245,7 @@ type Mpls_Global_State struct {
     YFilter yfilter.YFilter
 
     // The null-label type used, implicit or explicit. The type is one of the
-    // following: EXPLICITIMPLICIT. The default value is mplst:IMPLICIT.
+    // following: EXPLICITIMPLICIT. The default value is oc-mplst:IMPLICIT.
     NullLabel interface{}
 }
 
@@ -271,93 +259,106 @@ func (state *Mpls_Global_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["null-label"] = types.YLeaf{"NullLabel", state.NullLabel}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("null-label", types.YLeaf{"NullLabel", state.NullLabel})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Mpls_Global_MplsInterfaceAttributes
+// Mpls_Global_InterfaceAttributes
 // Parameters related to MPLS interfaces
-type Mpls_Global_MplsInterfaceAttributes struct {
+type Mpls_Global_InterfaceAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of TE interfaces. The type is slice of
-    // Mpls_Global_MplsInterfaceAttributes_Interface_.
-    Interface_ []Mpls_Global_MplsInterfaceAttributes_Interface
+    // Mpls_Global_InterfaceAttributes_Interface.
+    Interface []*Mpls_Global_InterfaceAttributes_Interface
 }
 
-func (mplsInterfaceAttributes *Mpls_Global_MplsInterfaceAttributes) GetEntityData() *types.CommonEntityData {
-    mplsInterfaceAttributes.EntityData.YFilter = mplsInterfaceAttributes.YFilter
-    mplsInterfaceAttributes.EntityData.YangName = "mpls-interface-attributes"
-    mplsInterfaceAttributes.EntityData.BundleName = "openconfig"
-    mplsInterfaceAttributes.EntityData.ParentYangName = "global"
-    mplsInterfaceAttributes.EntityData.SegmentPath = "mpls-interface-attributes"
-    mplsInterfaceAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    mplsInterfaceAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    mplsInterfaceAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (interfaceAttributes *Mpls_Global_InterfaceAttributes) GetEntityData() *types.CommonEntityData {
+    interfaceAttributes.EntityData.YFilter = interfaceAttributes.YFilter
+    interfaceAttributes.EntityData.YangName = "interface-attributes"
+    interfaceAttributes.EntityData.BundleName = "openconfig"
+    interfaceAttributes.EntityData.ParentYangName = "global"
+    interfaceAttributes.EntityData.SegmentPath = "interface-attributes"
+    interfaceAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    interfaceAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    interfaceAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    mplsInterfaceAttributes.EntityData.Children = make(map[string]types.YChild)
-    mplsInterfaceAttributes.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range mplsInterfaceAttributes.Interface_ {
-        mplsInterfaceAttributes.EntityData.Children[types.GetSegmentPath(&mplsInterfaceAttributes.Interface_[i])] = types.YChild{"Interface_", &mplsInterfaceAttributes.Interface_[i]}
+    interfaceAttributes.EntityData.Children = types.NewOrderedMap()
+    interfaceAttributes.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaceAttributes.Interface {
+        interfaceAttributes.EntityData.Children.Append(types.GetSegmentPath(interfaceAttributes.Interface[i]), types.YChild{"Interface", interfaceAttributes.Interface[i]})
     }
-    mplsInterfaceAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mplsInterfaceAttributes.EntityData)
+    interfaceAttributes.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceAttributes.EntityData.YListKeys = []string {}
+
+    return &(interfaceAttributes.EntityData)
 }
 
-// Mpls_Global_MplsInterfaceAttributes_Interface
+// Mpls_Global_InterfaceAttributes_Interface
 // List of TE interfaces
-type Mpls_Global_MplsInterfaceAttributes_Interface struct {
+type Mpls_Global_InterfaceAttributes_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. The interface name. The type is string. Refers to
-    // mpls.Mpls_Global_MplsInterfaceAttributes_Interface_Config_Name
-    Name interface{}
+    // This attribute is a key. Reference to the interface id list key. The type
+    // is string. Refers to
+    // mpls.Mpls_Global_InterfaceAttributes_Interface_Config_InterfaceId
+    InterfaceId interface{}
 
     // Configuration parameters related to MPLS interfaces:.
-    Config Mpls_Global_MplsInterfaceAttributes_Interface_Config
+    Config Mpls_Global_InterfaceAttributes_Interface_Config
 
     // State parameters related to TE interfaces.
-    State Mpls_Global_MplsInterfaceAttributes_Interface_State
+    State Mpls_Global_InterfaceAttributes_Interface_State
+
+    // Reference to an interface or subinterface.
+    InterfaceRef Mpls_Global_InterfaceAttributes_Interface_InterfaceRef
 }
 
-func (self *Mpls_Global_MplsInterfaceAttributes_Interface) GetEntityData() *types.CommonEntityData {
+func (self *Mpls_Global_InterfaceAttributes_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.YFilter = self.YFilter
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "openconfig"
-    self.EntityData.ParentYangName = "mpls-interface-attributes"
-    self.EntityData.SegmentPath = "interface" + "[name='" + fmt.Sprintf("%v", self.Name) + "']"
+    self.EntityData.ParentYangName = "interface-attributes"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceId, "interface-id")
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["config"] = types.YChild{"Config", &self.Config}
-    self.EntityData.Children["state"] = types.YChild{"State", &self.State}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("config", types.YChild{"Config", &self.Config})
+    self.EntityData.Children.Append("state", types.YChild{"State", &self.State})
+    self.EntityData.Children.Append("interface-ref", types.YChild{"InterfaceRef", &self.InterfaceRef})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-id", types.YLeaf{"InterfaceId", self.InterfaceId})
+
+    self.EntityData.YListKeys = []string {"InterfaceId"}
+
     return &(self.EntityData)
 }
 
-// Mpls_Global_MplsInterfaceAttributes_Interface_Config
+// Mpls_Global_InterfaceAttributes_Interface_Config
 // Configuration parameters related to MPLS interfaces:
-type Mpls_Global_MplsInterfaceAttributes_Interface_Config struct {
+type Mpls_Global_InterfaceAttributes_Interface_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // reference to interface name. The type is string. Refers to
-    // interfaces.Interfaces_Interface_Name
-    Name interface{}
+    // Indentifier for the MPLS interface. The type is string.
+    InterfaceId interface{}
 
-    // Enable MPLS forwarding on this interfacek. The type is bool. The default
+    // Enable MPLS forwarding on this interface. The type is bool. The default
     // value is false.
     MplsEnabled interface{}
 }
 
-func (config *Mpls_Global_MplsInterfaceAttributes_Interface_Config) GetEntityData() *types.CommonEntityData {
+func (config *Mpls_Global_InterfaceAttributes_Interface_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -367,29 +368,31 @@ func (config *Mpls_Global_MplsInterfaceAttributes_Interface_Config) GetEntityDat
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["name"] = types.YLeaf{"Name", config.Name}
-    config.EntityData.Leafs["mpls-enabled"] = types.YLeaf{"MplsEnabled", config.MplsEnabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("interface-id", types.YLeaf{"InterfaceId", config.InterfaceId})
+    config.EntityData.Leafs.Append("mpls-enabled", types.YLeaf{"MplsEnabled", config.MplsEnabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Mpls_Global_MplsInterfaceAttributes_Interface_State
+// Mpls_Global_InterfaceAttributes_Interface_State
 // State parameters related to TE interfaces
-type Mpls_Global_MplsInterfaceAttributes_Interface_State struct {
+type Mpls_Global_InterfaceAttributes_Interface_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // reference to interface name. The type is string. Refers to
-    // interfaces.Interfaces_Interface_Name
-    Name interface{}
+    // Indentifier for the MPLS interface. The type is string.
+    InterfaceId interface{}
 
-    // Enable MPLS forwarding on this interfacek. The type is bool. The default
+    // Enable MPLS forwarding on this interface. The type is bool. The default
     // value is false.
     MplsEnabled interface{}
 }
 
-func (state *Mpls_Global_MplsInterfaceAttributes_Interface_State) GetEntityData() *types.CommonEntityData {
+func (state *Mpls_Global_InterfaceAttributes_Interface_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -399,10 +402,286 @@ func (state *Mpls_Global_MplsInterfaceAttributes_Interface_State) GetEntityData(
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["name"] = types.YLeaf{"Name", state.Name}
-    state.EntityData.Leafs["mpls-enabled"] = types.YLeaf{"MplsEnabled", state.MplsEnabled}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("interface-id", types.YLeaf{"InterfaceId", state.InterfaceId})
+    state.EntityData.Leafs.Append("mpls-enabled", types.YLeaf{"MplsEnabled", state.MplsEnabled})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
+// Mpls_Global_InterfaceAttributes_Interface_InterfaceRef
+// Reference to an interface or subinterface
+type Mpls_Global_InterfaceAttributes_Interface_InterfaceRef struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configured reference to interface / subinterface.
+    Config Mpls_Global_InterfaceAttributes_Interface_InterfaceRef_Config
+
+    // Operational state for interface-ref.
+    State Mpls_Global_InterfaceAttributes_Interface_InterfaceRef_State
+}
+
+func (interfaceRef *Mpls_Global_InterfaceAttributes_Interface_InterfaceRef) GetEntityData() *types.CommonEntityData {
+    interfaceRef.EntityData.YFilter = interfaceRef.YFilter
+    interfaceRef.EntityData.YangName = "interface-ref"
+    interfaceRef.EntityData.BundleName = "openconfig"
+    interfaceRef.EntityData.ParentYangName = "interface"
+    interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    interfaceRef.EntityData.Children = types.NewOrderedMap()
+    interfaceRef.EntityData.Children.Append("config", types.YChild{"Config", &interfaceRef.Config})
+    interfaceRef.EntityData.Children.Append("state", types.YChild{"State", &interfaceRef.State})
+    interfaceRef.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceRef.EntityData.YListKeys = []string {}
+
+    return &(interfaceRef.EntityData)
+}
+
+// Mpls_Global_InterfaceAttributes_Interface_InterfaceRef_Config
+// Configured reference to interface / subinterface
+type Mpls_Global_InterfaceAttributes_Interface_InterfaceRef_Config struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Reference to a base interface.  If a reference to a subinterface is
+    // required, this leaf must be specified to indicate the base interface. The
+    // type is string. Refers to interfaces.Interfaces_Interface_Name
+    Interface interface{}
+
+    // Reference to a subinterface -- this requires the base interface to be
+    // specified using the interface leaf in this container.  If only a reference
+    // to a base interface is requuired, this leaf should not be set. The type is
+    // string with range: 0..4294967295. Refers to
+    // interfaces.Interfaces_Interface_Subinterfaces_Subinterface_Index
+    Subinterface interface{}
+}
+
+func (config *Mpls_Global_InterfaceAttributes_Interface_InterfaceRef_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "interface-ref"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", config.Interface})
+    config.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", config.Subinterface})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// Mpls_Global_InterfaceAttributes_Interface_InterfaceRef_State
+// Operational state for interface-ref
+type Mpls_Global_InterfaceAttributes_Interface_InterfaceRef_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Reference to a base interface.  If a reference to a subinterface is
+    // required, this leaf must be specified to indicate the base interface. The
+    // type is string. Refers to interfaces.Interfaces_Interface_Name
+    Interface interface{}
+
+    // Reference to a subinterface -- this requires the base interface to be
+    // specified using the interface leaf in this container.  If only a reference
+    // to a base interface is requuired, this leaf should not be set. The type is
+    // string with range: 0..4294967295. Refers to
+    // interfaces.Interfaces_Interface_Subinterfaces_Subinterface_Index
+    Subinterface interface{}
+}
+
+func (state *Mpls_Global_InterfaceAttributes_Interface_InterfaceRef_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "interface-ref"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", state.Interface})
+    state.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", state.Subinterface})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
+// Mpls_Global_ReservedLabelBlocks
+// A range of labels starting with the start-label and up-to and including
+// the end label that should be allocated as reserved. These labels should
+// not be utilised by any dynamic label allocation on the local system unless
+// the allocating protocol is explicitly configured to specify that
+// allocation of labels should be out of the label block specified.
+type Mpls_Global_ReservedLabelBlocks struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // A range of labels starting with the start-label up to and including the end
+    // label that should be allocated for use by a specific protocol. The type is
+    // slice of Mpls_Global_ReservedLabelBlocks_ReservedLabelBlock.
+    ReservedLabelBlock []*Mpls_Global_ReservedLabelBlocks_ReservedLabelBlock
+}
+
+func (reservedLabelBlocks *Mpls_Global_ReservedLabelBlocks) GetEntityData() *types.CommonEntityData {
+    reservedLabelBlocks.EntityData.YFilter = reservedLabelBlocks.YFilter
+    reservedLabelBlocks.EntityData.YangName = "reserved-label-blocks"
+    reservedLabelBlocks.EntityData.BundleName = "openconfig"
+    reservedLabelBlocks.EntityData.ParentYangName = "global"
+    reservedLabelBlocks.EntityData.SegmentPath = "reserved-label-blocks"
+    reservedLabelBlocks.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    reservedLabelBlocks.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    reservedLabelBlocks.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    reservedLabelBlocks.EntityData.Children = types.NewOrderedMap()
+    reservedLabelBlocks.EntityData.Children.Append("reserved-label-block", types.YChild{"ReservedLabelBlock", nil})
+    for i := range reservedLabelBlocks.ReservedLabelBlock {
+        reservedLabelBlocks.EntityData.Children.Append(types.GetSegmentPath(reservedLabelBlocks.ReservedLabelBlock[i]), types.YChild{"ReservedLabelBlock", reservedLabelBlocks.ReservedLabelBlock[i]})
+    }
+    reservedLabelBlocks.EntityData.Leafs = types.NewOrderedMap()
+
+    reservedLabelBlocks.EntityData.YListKeys = []string {}
+
+    return &(reservedLabelBlocks.EntityData)
+}
+
+// Mpls_Global_ReservedLabelBlocks_ReservedLabelBlock
+// A range of labels starting with the start-label up to and including
+// the end label that should be allocated for use by a specific protocol.
+type Mpls_Global_ReservedLabelBlocks_ReservedLabelBlock struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. A reference to a unique local identifier for this
+    // label block. The type is string. Refers to
+    // mpls.Mpls_Global_ReservedLabelBlocks_ReservedLabelBlock_Config_LocalId
+    LocalId interface{}
+
+    // Configuration parameters relating to the label block.
+    Config Mpls_Global_ReservedLabelBlocks_ReservedLabelBlock_Config
+
+    // State parameters relating to the label block.
+    State Mpls_Global_ReservedLabelBlocks_ReservedLabelBlock_State
+}
+
+func (reservedLabelBlock *Mpls_Global_ReservedLabelBlocks_ReservedLabelBlock) GetEntityData() *types.CommonEntityData {
+    reservedLabelBlock.EntityData.YFilter = reservedLabelBlock.YFilter
+    reservedLabelBlock.EntityData.YangName = "reserved-label-block"
+    reservedLabelBlock.EntityData.BundleName = "openconfig"
+    reservedLabelBlock.EntityData.ParentYangName = "reserved-label-blocks"
+    reservedLabelBlock.EntityData.SegmentPath = "reserved-label-block" + types.AddKeyToken(reservedLabelBlock.LocalId, "local-id")
+    reservedLabelBlock.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    reservedLabelBlock.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    reservedLabelBlock.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    reservedLabelBlock.EntityData.Children = types.NewOrderedMap()
+    reservedLabelBlock.EntityData.Children.Append("config", types.YChild{"Config", &reservedLabelBlock.Config})
+    reservedLabelBlock.EntityData.Children.Append("state", types.YChild{"State", &reservedLabelBlock.State})
+    reservedLabelBlock.EntityData.Leafs = types.NewOrderedMap()
+    reservedLabelBlock.EntityData.Leafs.Append("local-id", types.YLeaf{"LocalId", reservedLabelBlock.LocalId})
+
+    reservedLabelBlock.EntityData.YListKeys = []string {"LocalId"}
+
+    return &(reservedLabelBlock.EntityData)
+}
+
+// Mpls_Global_ReservedLabelBlocks_ReservedLabelBlock_Config
+// Configuration parameters relating to the label block.
+type Mpls_Global_ReservedLabelBlocks_ReservedLabelBlock_Config struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // A local identifier for the global label block allocation. The type is
+    // string.
+    LocalId interface{}
+
+    // Lower bound of the global label block. The block is defined to include this
+    // label. The type is one of the following types: int with range: 16..1048575,
+    // or enumeration MplsLabel.
+    LowerBound interface{}
+
+    // Upper bound for the global label block. The block is defined to include
+    // this label. The type is one of the following types: int with range:
+    // 16..1048575, or enumeration MplsLabel.
+    UpperBound interface{}
+}
+
+func (config *Mpls_Global_ReservedLabelBlocks_ReservedLabelBlock_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "reserved-label-block"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("local-id", types.YLeaf{"LocalId", config.LocalId})
+    config.EntityData.Leafs.Append("lower-bound", types.YLeaf{"LowerBound", config.LowerBound})
+    config.EntityData.Leafs.Append("upper-bound", types.YLeaf{"UpperBound", config.UpperBound})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// Mpls_Global_ReservedLabelBlocks_ReservedLabelBlock_State
+// State parameters relating to the label block.
+type Mpls_Global_ReservedLabelBlocks_ReservedLabelBlock_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // A local identifier for the global label block allocation. The type is
+    // string.
+    LocalId interface{}
+
+    // Lower bound of the global label block. The block is defined to include this
+    // label. The type is one of the following types: int with range: 16..1048575,
+    // or enumeration MplsLabel.
+    LowerBound interface{}
+
+    // Upper bound for the global label block. The block is defined to include
+    // this label. The type is one of the following types: int with range:
+    // 16..1048575, or enumeration MplsLabel.
+    UpperBound interface{}
+}
+
+func (state *Mpls_Global_ReservedLabelBlocks_ReservedLabelBlock_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "reserved-label-block"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("local-id", types.YLeaf{"LocalId", state.LocalId})
+    state.EntityData.Leafs.Append("lower-bound", types.YLeaf{"LowerBound", state.LowerBound})
+    state.EntityData.Leafs.Append("upper-bound", types.YLeaf{"UpperBound", state.UpperBound})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -413,11 +692,7 @@ type Mpls_TeGlobalAttributes struct {
     YFilter yfilter.YFilter
 
     // Shared risk link groups attributes.
-    Srlg Mpls_TeGlobalAttributes_Srlg
-
-    // Interface bandwidth change percentages that trigger update events into the
-    // IGP traffic engineering database (TED).
-    IgpFloodingBandwidth Mpls_TeGlobalAttributes_IgpFloodingBandwidth
+    Srlgs Mpls_TeGlobalAttributes_Srlgs
 
     // Top-level container for admin-groups configuration and state.
     MplsAdminGroups Mpls_TeGlobalAttributes_MplsAdminGroups
@@ -436,87 +711,95 @@ func (teGlobalAttributes *Mpls_TeGlobalAttributes) GetEntityData() *types.Common
     teGlobalAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     teGlobalAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    teGlobalAttributes.EntityData.Children = make(map[string]types.YChild)
-    teGlobalAttributes.EntityData.Children["srlg"] = types.YChild{"Srlg", &teGlobalAttributes.Srlg}
-    teGlobalAttributes.EntityData.Children["igp-flooding-bandwidth"] = types.YChild{"IgpFloodingBandwidth", &teGlobalAttributes.IgpFloodingBandwidth}
-    teGlobalAttributes.EntityData.Children["mpls-admin-groups"] = types.YChild{"MplsAdminGroups", &teGlobalAttributes.MplsAdminGroups}
-    teGlobalAttributes.EntityData.Children["te-lsp-timers"] = types.YChild{"TeLspTimers", &teGlobalAttributes.TeLspTimers}
-    teGlobalAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    teGlobalAttributes.EntityData.Children = types.NewOrderedMap()
+    teGlobalAttributes.EntityData.Children.Append("srlgs", types.YChild{"Srlgs", &teGlobalAttributes.Srlgs})
+    teGlobalAttributes.EntityData.Children.Append("mpls-admin-groups", types.YChild{"MplsAdminGroups", &teGlobalAttributes.MplsAdminGroups})
+    teGlobalAttributes.EntityData.Children.Append("te-lsp-timers", types.YChild{"TeLspTimers", &teGlobalAttributes.TeLspTimers})
+    teGlobalAttributes.EntityData.Leafs = types.NewOrderedMap()
+
+    teGlobalAttributes.EntityData.YListKeys = []string {}
+
     return &(teGlobalAttributes.EntityData)
 }
 
-// Mpls_TeGlobalAttributes_Srlg
+// Mpls_TeGlobalAttributes_Srlgs
 // Shared risk link groups attributes
-type Mpls_TeGlobalAttributes_Srlg struct {
+type Mpls_TeGlobalAttributes_Srlgs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of shared risk link groups. The type is slice of
-    // Mpls_TeGlobalAttributes_Srlg_Srlg.
-    Srlg []Mpls_TeGlobalAttributes_Srlg_Srlg_
+    // Mpls_TeGlobalAttributes_Srlgs_Srlg.
+    Srlg []*Mpls_TeGlobalAttributes_Srlgs_Srlg
 }
 
-func (srlg *Mpls_TeGlobalAttributes_Srlg) GetEntityData() *types.CommonEntityData {
-    srlg.EntityData.YFilter = srlg.YFilter
-    srlg.EntityData.YangName = "srlg"
-    srlg.EntityData.BundleName = "openconfig"
-    srlg.EntityData.ParentYangName = "te-global-attributes"
-    srlg.EntityData.SegmentPath = "srlg"
-    srlg.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    srlg.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    srlg.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (srlgs *Mpls_TeGlobalAttributes_Srlgs) GetEntityData() *types.CommonEntityData {
+    srlgs.EntityData.YFilter = srlgs.YFilter
+    srlgs.EntityData.YangName = "srlgs"
+    srlgs.EntityData.BundleName = "openconfig"
+    srlgs.EntityData.ParentYangName = "te-global-attributes"
+    srlgs.EntityData.SegmentPath = "srlgs"
+    srlgs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    srlgs.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    srlgs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    srlg.EntityData.Children = make(map[string]types.YChild)
-    srlg.EntityData.Children["srlg"] = types.YChild{"Srlg", nil}
-    for i := range srlg.Srlg {
-        srlg.EntityData.Children[types.GetSegmentPath(&srlg.Srlg[i])] = types.YChild{"Srlg", &srlg.Srlg[i]}
+    srlgs.EntityData.Children = types.NewOrderedMap()
+    srlgs.EntityData.Children.Append("srlg", types.YChild{"Srlg", nil})
+    for i := range srlgs.Srlg {
+        srlgs.EntityData.Children.Append(types.GetSegmentPath(srlgs.Srlg[i]), types.YChild{"Srlg", srlgs.Srlg[i]})
     }
-    srlg.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(srlg.EntityData)
+    srlgs.EntityData.Leafs = types.NewOrderedMap()
+
+    srlgs.EntityData.YListKeys = []string {}
+
+    return &(srlgs.EntityData)
 }
 
-// Mpls_TeGlobalAttributes_Srlg_Srlg_
+// Mpls_TeGlobalAttributes_Srlgs_Srlg
 // List of shared risk link groups
-type Mpls_TeGlobalAttributes_Srlg_Srlg_ struct {
+type Mpls_TeGlobalAttributes_Srlgs_Srlg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The SRLG group identifier. The type is string.
-    // Refers to mpls.Mpls_TeGlobalAttributes_Srlg_Srlg__Config_Name
+    // Refers to mpls.Mpls_TeGlobalAttributes_Srlgs_Srlg_Config_Name
     Name interface{}
 
     // Configuration parameters related to the SRLG.
-    Config Mpls_TeGlobalAttributes_Srlg_Srlg__Config
+    Config Mpls_TeGlobalAttributes_Srlgs_Srlg_Config
 
     // State parameters related to the SRLG.
-    State Mpls_TeGlobalAttributes_Srlg_Srlg__State
+    State Mpls_TeGlobalAttributes_Srlgs_Srlg_State
 
     // SRLG members for static (not flooded) SRLGs .
-    StaticSrlgMembers Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers
+    StaticSrlgMembers Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers
 }
 
-func (srlg_ *Mpls_TeGlobalAttributes_Srlg_Srlg_) GetEntityData() *types.CommonEntityData {
-    srlg_.EntityData.YFilter = srlg_.YFilter
-    srlg_.EntityData.YangName = "srlg"
-    srlg_.EntityData.BundleName = "openconfig"
-    srlg_.EntityData.ParentYangName = "srlg"
-    srlg_.EntityData.SegmentPath = "srlg" + "[name='" + fmt.Sprintf("%v", srlg_.Name) + "']"
-    srlg_.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    srlg_.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    srlg_.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (srlg *Mpls_TeGlobalAttributes_Srlgs_Srlg) GetEntityData() *types.CommonEntityData {
+    srlg.EntityData.YFilter = srlg.YFilter
+    srlg.EntityData.YangName = "srlg"
+    srlg.EntityData.BundleName = "openconfig"
+    srlg.EntityData.ParentYangName = "srlgs"
+    srlg.EntityData.SegmentPath = "srlg" + types.AddKeyToken(srlg.Name, "name")
+    srlg.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    srlg.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    srlg.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    srlg_.EntityData.Children = make(map[string]types.YChild)
-    srlg_.EntityData.Children["config"] = types.YChild{"Config", &srlg_.Config}
-    srlg_.EntityData.Children["state"] = types.YChild{"State", &srlg_.State}
-    srlg_.EntityData.Children["static-srlg-members"] = types.YChild{"StaticSrlgMembers", &srlg_.StaticSrlgMembers}
-    srlg_.EntityData.Leafs = make(map[string]types.YLeaf)
-    srlg_.EntityData.Leafs["name"] = types.YLeaf{"Name", srlg_.Name}
-    return &(srlg_.EntityData)
+    srlg.EntityData.Children = types.NewOrderedMap()
+    srlg.EntityData.Children.Append("config", types.YChild{"Config", &srlg.Config})
+    srlg.EntityData.Children.Append("state", types.YChild{"State", &srlg.State})
+    srlg.EntityData.Children.Append("static-srlg-members", types.YChild{"StaticSrlgMembers", &srlg.StaticSrlgMembers})
+    srlg.EntityData.Leafs = types.NewOrderedMap()
+    srlg.EntityData.Leafs.Append("name", types.YLeaf{"Name", srlg.Name})
+
+    srlg.EntityData.YListKeys = []string {"Name"}
+
+    return &(srlg.EntityData)
 }
 
-// Mpls_TeGlobalAttributes_Srlg_Srlg__Config
+// Mpls_TeGlobalAttributes_Srlgs_Srlg_Config
 // Configuration parameters related to the SRLG
-type Mpls_TeGlobalAttributes_Srlg_Srlg__Config struct {
+type Mpls_TeGlobalAttributes_Srlgs_Srlg_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -531,11 +814,11 @@ type Mpls_TeGlobalAttributes_Srlg_Srlg__Config struct {
     Cost interface{}
 
     // The type of SRLG, either flooded in the IGP or statically configured. The
-    // type is MplsSrlgFloodingType. The default value is FLOODED-SRLG.
+    // type is MplsSrlgFloodingType. The default value is FLOODED_SRLG.
     FloodingType interface{}
 }
 
-func (config *Mpls_TeGlobalAttributes_Srlg_Srlg__Config) GetEntityData() *types.CommonEntityData {
+func (config *Mpls_TeGlobalAttributes_Srlgs_Srlg_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -545,18 +828,21 @@ func (config *Mpls_TeGlobalAttributes_Srlg_Srlg__Config) GetEntityData() *types.
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["name"] = types.YLeaf{"Name", config.Name}
-    config.EntityData.Leafs["value"] = types.YLeaf{"Value", config.Value}
-    config.EntityData.Leafs["cost"] = types.YLeaf{"Cost", config.Cost}
-    config.EntityData.Leafs["flooding-type"] = types.YLeaf{"FloodingType", config.FloodingType}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("name", types.YLeaf{"Name", config.Name})
+    config.EntityData.Leafs.Append("value", types.YLeaf{"Value", config.Value})
+    config.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", config.Cost})
+    config.EntityData.Leafs.Append("flooding-type", types.YLeaf{"FloodingType", config.FloodingType})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Mpls_TeGlobalAttributes_Srlg_Srlg__State
+// Mpls_TeGlobalAttributes_Srlgs_Srlg_State
 // State parameters related to the SRLG
-type Mpls_TeGlobalAttributes_Srlg_Srlg__State struct {
+type Mpls_TeGlobalAttributes_Srlgs_Srlg_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -571,11 +857,11 @@ type Mpls_TeGlobalAttributes_Srlg_Srlg__State struct {
     Cost interface{}
 
     // The type of SRLG, either flooded in the IGP or statically configured. The
-    // type is MplsSrlgFloodingType. The default value is FLOODED-SRLG.
+    // type is MplsSrlgFloodingType. The default value is FLOODED_SRLG.
     FloodingType interface{}
 }
 
-func (state *Mpls_TeGlobalAttributes_Srlg_Srlg__State) GetEntityData() *types.CommonEntityData {
+func (state *Mpls_TeGlobalAttributes_Srlgs_Srlg_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -585,28 +871,31 @@ func (state *Mpls_TeGlobalAttributes_Srlg_Srlg__State) GetEntityData() *types.Co
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["name"] = types.YLeaf{"Name", state.Name}
-    state.EntityData.Leafs["value"] = types.YLeaf{"Value", state.Value}
-    state.EntityData.Leafs["cost"] = types.YLeaf{"Cost", state.Cost}
-    state.EntityData.Leafs["flooding-type"] = types.YLeaf{"FloodingType", state.FloodingType}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("name", types.YLeaf{"Name", state.Name})
+    state.EntityData.Leafs.Append("value", types.YLeaf{"Value", state.Value})
+    state.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", state.Cost})
+    state.EntityData.Leafs.Append("flooding-type", types.YLeaf{"FloodingType", state.FloodingType})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers
+// Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers
 // SRLG members for static (not flooded) SRLGs 
-type Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers struct {
+type Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of SRLG members, which are expressed as IP address endpoints of links
     // contained in the SRLG. The type is slice of
-    // Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers_MembersList.
-    MembersList []Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers_MembersList
+    // Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers_MembersList.
+    MembersList []*Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers_MembersList
 }
 
-func (staticSrlgMembers *Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers) GetEntityData() *types.CommonEntityData {
+func (staticSrlgMembers *Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers) GetEntityData() *types.CommonEntityData {
     staticSrlgMembers.EntityData.YFilter = staticSrlgMembers.YFilter
     staticSrlgMembers.EntityData.YangName = "static-srlg-members"
     staticSrlgMembers.EntityData.BundleName = "openconfig"
@@ -616,78 +905,84 @@ func (staticSrlgMembers *Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers) G
     staticSrlgMembers.EntityData.NamespaceTable = openconfig.GetNamespaces()
     staticSrlgMembers.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    staticSrlgMembers.EntityData.Children = make(map[string]types.YChild)
-    staticSrlgMembers.EntityData.Children["members-list"] = types.YChild{"MembersList", nil}
+    staticSrlgMembers.EntityData.Children = types.NewOrderedMap()
+    staticSrlgMembers.EntityData.Children.Append("members-list", types.YChild{"MembersList", nil})
     for i := range staticSrlgMembers.MembersList {
-        staticSrlgMembers.EntityData.Children[types.GetSegmentPath(&staticSrlgMembers.MembersList[i])] = types.YChild{"MembersList", &staticSrlgMembers.MembersList[i]}
+        staticSrlgMembers.EntityData.Children.Append(types.GetSegmentPath(staticSrlgMembers.MembersList[i]), types.YChild{"MembersList", staticSrlgMembers.MembersList[i]})
     }
-    staticSrlgMembers.EntityData.Leafs = make(map[string]types.YLeaf)
+    staticSrlgMembers.EntityData.Leafs = types.NewOrderedMap()
+
+    staticSrlgMembers.EntityData.YListKeys = []string {}
+
     return &(staticSrlgMembers.EntityData)
 }
 
-// Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers_MembersList
+// Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers_MembersList
 // List of SRLG members, which are expressed
 // as IP address endpoints of links contained in the
 // SRLG
-type Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers_MembersList struct {
+type Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers_MembersList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The from address of the link in the SRLG. The type
     // is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     FromAddress interface{}
 
     // Configuration parameters relating to the SRLG members.
-    Config Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers_MembersList_Config
+    Config Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers_MembersList_Config
 
     // State parameters relating to the SRLG members.
-    State Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers_MembersList_State
+    State Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers_MembersList_State
 }
 
-func (membersList *Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers_MembersList) GetEntityData() *types.CommonEntityData {
+func (membersList *Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers_MembersList) GetEntityData() *types.CommonEntityData {
     membersList.EntityData.YFilter = membersList.YFilter
     membersList.EntityData.YangName = "members-list"
     membersList.EntityData.BundleName = "openconfig"
     membersList.EntityData.ParentYangName = "static-srlg-members"
-    membersList.EntityData.SegmentPath = "members-list" + "[from-address='" + fmt.Sprintf("%v", membersList.FromAddress) + "']"
+    membersList.EntityData.SegmentPath = "members-list" + types.AddKeyToken(membersList.FromAddress, "from-address")
     membersList.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     membersList.EntityData.NamespaceTable = openconfig.GetNamespaces()
     membersList.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    membersList.EntityData.Children = make(map[string]types.YChild)
-    membersList.EntityData.Children["config"] = types.YChild{"Config", &membersList.Config}
-    membersList.EntityData.Children["state"] = types.YChild{"State", &membersList.State}
-    membersList.EntityData.Leafs = make(map[string]types.YLeaf)
-    membersList.EntityData.Leafs["from-address"] = types.YLeaf{"FromAddress", membersList.FromAddress}
+    membersList.EntityData.Children = types.NewOrderedMap()
+    membersList.EntityData.Children.Append("config", types.YChild{"Config", &membersList.Config})
+    membersList.EntityData.Children.Append("state", types.YChild{"State", &membersList.State})
+    membersList.EntityData.Leafs = types.NewOrderedMap()
+    membersList.EntityData.Leafs.Append("from-address", types.YLeaf{"FromAddress", membersList.FromAddress})
+
+    membersList.EntityData.YListKeys = []string {"FromAddress"}
+
     return &(membersList.EntityData)
 }
 
-// Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers_MembersList_Config
+// Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers_MembersList_Config
 // Configuration parameters relating to the
 // SRLG members
-type Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers_MembersList_Config struct {
+type Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers_MembersList_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP address of the a-side of the SRLG link. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     FromAddress interface{}
 
     // IP address of the z-side of the SRLG link. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     ToAddress interface{}
 }
 
-func (config *Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers_MembersList_Config) GetEntityData() *types.CommonEntityData {
+func (config *Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers_MembersList_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -697,36 +992,39 @@ func (config *Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers_MembersList_C
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["from-address"] = types.YLeaf{"FromAddress", config.FromAddress}
-    config.EntityData.Leafs["to-address"] = types.YLeaf{"ToAddress", config.ToAddress}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("from-address", types.YLeaf{"FromAddress", config.FromAddress})
+    config.EntityData.Leafs.Append("to-address", types.YLeaf{"ToAddress", config.ToAddress})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers_MembersList_State
+// Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers_MembersList_State
 // State parameters relating to the SRLG
 // members
-type Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers_MembersList_State struct {
+type Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers_MembersList_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP address of the a-side of the SRLG link. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     FromAddress interface{}
 
     // IP address of the z-side of the SRLG link. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     ToAddress interface{}
 }
 
-func (state *Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers_MembersList_State) GetEntityData() *types.CommonEntityData {
+func (state *Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers_MembersList_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -736,257 +1034,15 @@ func (state *Mpls_TeGlobalAttributes_Srlg_Srlg__StaticSrlgMembers_MembersList_St
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["from-address"] = types.YLeaf{"FromAddress", state.FromAddress}
-    state.EntityData.Leafs["to-address"] = types.YLeaf{"ToAddress", state.ToAddress}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("from-address", types.YLeaf{"FromAddress", state.FromAddress})
+    state.EntityData.Leafs.Append("to-address", types.YLeaf{"ToAddress", state.ToAddress})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
-
-// Mpls_TeGlobalAttributes_IgpFloodingBandwidth
-// Interface bandwidth change percentages
-// that trigger update events into the IGP traffic
-// engineering database (TED)
-type Mpls_TeGlobalAttributes_IgpFloodingBandwidth struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configuration parameters for TED update threshold .
-    Config Mpls_TeGlobalAttributes_IgpFloodingBandwidth_Config
-
-    // State parameters for TED update threshold .
-    State Mpls_TeGlobalAttributes_IgpFloodingBandwidth_State
-}
-
-func (igpFloodingBandwidth *Mpls_TeGlobalAttributes_IgpFloodingBandwidth) GetEntityData() *types.CommonEntityData {
-    igpFloodingBandwidth.EntityData.YFilter = igpFloodingBandwidth.YFilter
-    igpFloodingBandwidth.EntityData.YangName = "igp-flooding-bandwidth"
-    igpFloodingBandwidth.EntityData.BundleName = "openconfig"
-    igpFloodingBandwidth.EntityData.ParentYangName = "te-global-attributes"
-    igpFloodingBandwidth.EntityData.SegmentPath = "igp-flooding-bandwidth"
-    igpFloodingBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    igpFloodingBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    igpFloodingBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    igpFloodingBandwidth.EntityData.Children = make(map[string]types.YChild)
-    igpFloodingBandwidth.EntityData.Children["config"] = types.YChild{"Config", &igpFloodingBandwidth.Config}
-    igpFloodingBandwidth.EntityData.Children["state"] = types.YChild{"State", &igpFloodingBandwidth.State}
-    igpFloodingBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(igpFloodingBandwidth.EntityData)
-}
-
-// Mpls_TeGlobalAttributes_IgpFloodingBandwidth_Config
-// Configuration parameters for TED
-// update threshold 
-type Mpls_TeGlobalAttributes_IgpFloodingBandwidth_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The type of threshold that should be used to specify the values at which
-    // bandwidth is flooded. DELTA indicates that the local system should flood
-    // IGP updates when a change in reserved bandwidth >= the specified delta
-    // occurs on the interface. Where THRESHOLD-CROSSED is specified, the local
-    // system should trigger an update (and hence flood) the reserved bandwidth
-    // when the reserved bandwidth changes such that it crosses, or becomes equal
-    // to one of the threshold values. The type is ThresholdType.
-    ThresholdType interface{}
-
-    // The percentage of the maximum-reservable-bandwidth considered as the delta
-    // that results in an IGP update being flooded. The type is interface{} with
-    // range: 0..100.
-    DeltaPercentage interface{}
-
-    // This value specifies whether a single set of threshold values should be
-    // used for both increasing and decreasing bandwidth when determining whether
-    // to trigger updated bandwidth values to be flooded in the IGP TE extensions.
-    // MIRRORED-UP-DOWN indicates that a single value (or set of values) should be
-    // used for both increasing and decreasing values, where SEPARATE-UP-DOWN
-    // specifies that the increasing and decreasing values will be separately
-    // specified. The type is ThresholdSpecification.
-    ThresholdSpecification interface{}
-
-    // The thresholds (expressed as a percentage of the maximum reservable
-    // bandwidth) at which bandwidth updates are to be triggered when the
-    // bandwidth is increasing. The type is slice of interface{} with range:
-    // 0..100.
-    UpThresholds []interface{}
-
-    // The thresholds (expressed as a percentage of the maximum reservable
-    // bandwidth) at which bandwidth updates are to be triggered when the
-    // bandwidth is decreasing. The type is slice of interface{} with range:
-    // 0..100.
-    DownThresholds []interface{}
-
-    // The thresholds (expressed as a percentage of the maximum reservable
-    // bandwidth of the interface) at which bandwidth updates are flooded - used
-    // both when the bandwidth is increasing and decreasing. The type is slice of
-    // interface{} with range: 0..100.
-    UpDownThresholds []interface{}
-}
-
-func (config *Mpls_TeGlobalAttributes_IgpFloodingBandwidth_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "igp-flooding-bandwidth"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["threshold-type"] = types.YLeaf{"ThresholdType", config.ThresholdType}
-    config.EntityData.Leafs["delta-percentage"] = types.YLeaf{"DeltaPercentage", config.DeltaPercentage}
-    config.EntityData.Leafs["threshold-specification"] = types.YLeaf{"ThresholdSpecification", config.ThresholdSpecification}
-    config.EntityData.Leafs["up-thresholds"] = types.YLeaf{"UpThresholds", config.UpThresholds}
-    config.EntityData.Leafs["down-thresholds"] = types.YLeaf{"DownThresholds", config.DownThresholds}
-    config.EntityData.Leafs["up-down-thresholds"] = types.YLeaf{"UpDownThresholds", config.UpDownThresholds}
-    return &(config.EntityData)
-}
-
-// Mpls_TeGlobalAttributes_IgpFloodingBandwidth_Config_ThresholdSpecification represents and decreasing values will be separately specified
-type Mpls_TeGlobalAttributes_IgpFloodingBandwidth_Config_ThresholdSpecification string
-
-const (
-    // MIRRORED-UP-DOWN indicates that a single set of
-    // threshold values should be used for both increasing
-    // and decreasing bandwidth when determining whether
-    // to trigger updated bandwidth values to be flooded
-    // in the IGP TE extensions.
-    Mpls_TeGlobalAttributes_IgpFloodingBandwidth_Config_ThresholdSpecification_MIRRORED_UP_DOWN Mpls_TeGlobalAttributes_IgpFloodingBandwidth_Config_ThresholdSpecification = "MIRRORED-UP-DOWN"
-
-    // SEPARATE-UP-DOWN indicates that a separate
-    // threshold values should be used for the increasing
-    // and decreasing bandwidth when determining whether
-    // to trigger updated bandwidth values to be flooded
-    // in the IGP TE extensions.
-    Mpls_TeGlobalAttributes_IgpFloodingBandwidth_Config_ThresholdSpecification_SEPARATE_UP_DOWN Mpls_TeGlobalAttributes_IgpFloodingBandwidth_Config_ThresholdSpecification = "SEPARATE-UP-DOWN"
-)
-
-// Mpls_TeGlobalAttributes_IgpFloodingBandwidth_Config_ThresholdType represents values
-type Mpls_TeGlobalAttributes_IgpFloodingBandwidth_Config_ThresholdType string
-
-const (
-    // DELTA indicates that the local
-    // system should flood IGP updates when a
-    // change in reserved bandwidth >= the specified
-    // delta occurs on the interface.
-    Mpls_TeGlobalAttributes_IgpFloodingBandwidth_Config_ThresholdType_DELTA Mpls_TeGlobalAttributes_IgpFloodingBandwidth_Config_ThresholdType = "DELTA"
-
-    // THRESHOLD-CROSSED indicates that
-    // the local system should trigger an update (and
-    // hence flood) the reserved bandwidth when the
-    // reserved bandwidth changes such that it crosses,
-    // or becomes equal to one of the threshold values.
-    Mpls_TeGlobalAttributes_IgpFloodingBandwidth_Config_ThresholdType_THRESHOLD_CROSSED Mpls_TeGlobalAttributes_IgpFloodingBandwidth_Config_ThresholdType = "THRESHOLD-CROSSED"
-)
-
-// Mpls_TeGlobalAttributes_IgpFloodingBandwidth_State
-// State parameters for TED update threshold 
-type Mpls_TeGlobalAttributes_IgpFloodingBandwidth_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The type of threshold that should be used to specify the values at which
-    // bandwidth is flooded. DELTA indicates that the local system should flood
-    // IGP updates when a change in reserved bandwidth >= the specified delta
-    // occurs on the interface. Where THRESHOLD-CROSSED is specified, the local
-    // system should trigger an update (and hence flood) the reserved bandwidth
-    // when the reserved bandwidth changes such that it crosses, or becomes equal
-    // to one of the threshold values. The type is ThresholdType.
-    ThresholdType interface{}
-
-    // The percentage of the maximum-reservable-bandwidth considered as the delta
-    // that results in an IGP update being flooded. The type is interface{} with
-    // range: 0..100.
-    DeltaPercentage interface{}
-
-    // This value specifies whether a single set of threshold values should be
-    // used for both increasing and decreasing bandwidth when determining whether
-    // to trigger updated bandwidth values to be flooded in the IGP TE extensions.
-    // MIRRORED-UP-DOWN indicates that a single value (or set of values) should be
-    // used for both increasing and decreasing values, where SEPARATE-UP-DOWN
-    // specifies that the increasing and decreasing values will be separately
-    // specified. The type is ThresholdSpecification.
-    ThresholdSpecification interface{}
-
-    // The thresholds (expressed as a percentage of the maximum reservable
-    // bandwidth) at which bandwidth updates are to be triggered when the
-    // bandwidth is increasing. The type is slice of interface{} with range:
-    // 0..100.
-    UpThresholds []interface{}
-
-    // The thresholds (expressed as a percentage of the maximum reservable
-    // bandwidth) at which bandwidth updates are to be triggered when the
-    // bandwidth is decreasing. The type is slice of interface{} with range:
-    // 0..100.
-    DownThresholds []interface{}
-
-    // The thresholds (expressed as a percentage of the maximum reservable
-    // bandwidth of the interface) at which bandwidth updates are flooded - used
-    // both when the bandwidth is increasing and decreasing. The type is slice of
-    // interface{} with range: 0..100.
-    UpDownThresholds []interface{}
-}
-
-func (state *Mpls_TeGlobalAttributes_IgpFloodingBandwidth_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "igp-flooding-bandwidth"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["threshold-type"] = types.YLeaf{"ThresholdType", state.ThresholdType}
-    state.EntityData.Leafs["delta-percentage"] = types.YLeaf{"DeltaPercentage", state.DeltaPercentage}
-    state.EntityData.Leafs["threshold-specification"] = types.YLeaf{"ThresholdSpecification", state.ThresholdSpecification}
-    state.EntityData.Leafs["up-thresholds"] = types.YLeaf{"UpThresholds", state.UpThresholds}
-    state.EntityData.Leafs["down-thresholds"] = types.YLeaf{"DownThresholds", state.DownThresholds}
-    state.EntityData.Leafs["up-down-thresholds"] = types.YLeaf{"UpDownThresholds", state.UpDownThresholds}
-    return &(state.EntityData)
-}
-
-// Mpls_TeGlobalAttributes_IgpFloodingBandwidth_State_ThresholdSpecification represents and decreasing values will be separately specified
-type Mpls_TeGlobalAttributes_IgpFloodingBandwidth_State_ThresholdSpecification string
-
-const (
-    // MIRRORED-UP-DOWN indicates that a single set of
-    // threshold values should be used for both increasing
-    // and decreasing bandwidth when determining whether
-    // to trigger updated bandwidth values to be flooded
-    // in the IGP TE extensions.
-    Mpls_TeGlobalAttributes_IgpFloodingBandwidth_State_ThresholdSpecification_MIRRORED_UP_DOWN Mpls_TeGlobalAttributes_IgpFloodingBandwidth_State_ThresholdSpecification = "MIRRORED-UP-DOWN"
-
-    // SEPARATE-UP-DOWN indicates that a separate
-    // threshold values should be used for the increasing
-    // and decreasing bandwidth when determining whether
-    // to trigger updated bandwidth values to be flooded
-    // in the IGP TE extensions.
-    Mpls_TeGlobalAttributes_IgpFloodingBandwidth_State_ThresholdSpecification_SEPARATE_UP_DOWN Mpls_TeGlobalAttributes_IgpFloodingBandwidth_State_ThresholdSpecification = "SEPARATE-UP-DOWN"
-)
-
-// Mpls_TeGlobalAttributes_IgpFloodingBandwidth_State_ThresholdType represents values
-type Mpls_TeGlobalAttributes_IgpFloodingBandwidth_State_ThresholdType string
-
-const (
-    // DELTA indicates that the local
-    // system should flood IGP updates when a
-    // change in reserved bandwidth >= the specified
-    // delta occurs on the interface.
-    Mpls_TeGlobalAttributes_IgpFloodingBandwidth_State_ThresholdType_DELTA Mpls_TeGlobalAttributes_IgpFloodingBandwidth_State_ThresholdType = "DELTA"
-
-    // THRESHOLD-CROSSED indicates that
-    // the local system should trigger an update (and
-    // hence flood) the reserved bandwidth when the
-    // reserved bandwidth changes such that it crosses,
-    // or becomes equal to one of the threshold values.
-    Mpls_TeGlobalAttributes_IgpFloodingBandwidth_State_ThresholdType_THRESHOLD_CROSSED Mpls_TeGlobalAttributes_IgpFloodingBandwidth_State_ThresholdType = "THRESHOLD-CROSSED"
-)
 
 // Mpls_TeGlobalAttributes_MplsAdminGroups
 // Top-level container for admin-groups configuration
@@ -997,7 +1053,7 @@ type Mpls_TeGlobalAttributes_MplsAdminGroups struct {
 
     // configuration of value to name mapping for mpls affinities/admin-groups.
     // The type is slice of Mpls_TeGlobalAttributes_MplsAdminGroups_AdminGroup.
-    AdminGroup []Mpls_TeGlobalAttributes_MplsAdminGroups_AdminGroup
+    AdminGroup []*Mpls_TeGlobalAttributes_MplsAdminGroups_AdminGroup
 }
 
 func (mplsAdminGroups *Mpls_TeGlobalAttributes_MplsAdminGroups) GetEntityData() *types.CommonEntityData {
@@ -1010,12 +1066,15 @@ func (mplsAdminGroups *Mpls_TeGlobalAttributes_MplsAdminGroups) GetEntityData() 
     mplsAdminGroups.EntityData.NamespaceTable = openconfig.GetNamespaces()
     mplsAdminGroups.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    mplsAdminGroups.EntityData.Children = make(map[string]types.YChild)
-    mplsAdminGroups.EntityData.Children["admin-group"] = types.YChild{"AdminGroup", nil}
+    mplsAdminGroups.EntityData.Children = types.NewOrderedMap()
+    mplsAdminGroups.EntityData.Children.Append("admin-group", types.YChild{"AdminGroup", nil})
     for i := range mplsAdminGroups.AdminGroup {
-        mplsAdminGroups.EntityData.Children[types.GetSegmentPath(&mplsAdminGroups.AdminGroup[i])] = types.YChild{"AdminGroup", &mplsAdminGroups.AdminGroup[i]}
+        mplsAdminGroups.EntityData.Children.Append(types.GetSegmentPath(mplsAdminGroups.AdminGroup[i]), types.YChild{"AdminGroup", mplsAdminGroups.AdminGroup[i]})
     }
-    mplsAdminGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsAdminGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsAdminGroups.EntityData.YListKeys = []string {}
+
     return &(mplsAdminGroups.EntityData)
 }
 
@@ -1043,16 +1102,19 @@ func (adminGroup *Mpls_TeGlobalAttributes_MplsAdminGroups_AdminGroup) GetEntityD
     adminGroup.EntityData.YangName = "admin-group"
     adminGroup.EntityData.BundleName = "openconfig"
     adminGroup.EntityData.ParentYangName = "mpls-admin-groups"
-    adminGroup.EntityData.SegmentPath = "admin-group" + "[admin-group-name='" + fmt.Sprintf("%v", adminGroup.AdminGroupName) + "']"
+    adminGroup.EntityData.SegmentPath = "admin-group" + types.AddKeyToken(adminGroup.AdminGroupName, "admin-group-name")
     adminGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adminGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adminGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    adminGroup.EntityData.Children = make(map[string]types.YChild)
-    adminGroup.EntityData.Children["config"] = types.YChild{"Config", &adminGroup.Config}
-    adminGroup.EntityData.Children["state"] = types.YChild{"State", &adminGroup.State}
-    adminGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    adminGroup.EntityData.Leafs["admin-group-name"] = types.YLeaf{"AdminGroupName", adminGroup.AdminGroupName}
+    adminGroup.EntityData.Children = types.NewOrderedMap()
+    adminGroup.EntityData.Children.Append("config", types.YChild{"Config", &adminGroup.Config})
+    adminGroup.EntityData.Children.Append("state", types.YChild{"State", &adminGroup.State})
+    adminGroup.EntityData.Leafs = types.NewOrderedMap()
+    adminGroup.EntityData.Leafs.Append("admin-group-name", types.YLeaf{"AdminGroupName", adminGroup.AdminGroupName})
+
+    adminGroup.EntityData.YListKeys = []string {"AdminGroupName"}
+
     return &(adminGroup.EntityData)
 }
 
@@ -1083,10 +1145,13 @@ func (config *Mpls_TeGlobalAttributes_MplsAdminGroups_AdminGroup_Config) GetEnti
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["admin-group-name"] = types.YLeaf{"AdminGroupName", config.AdminGroupName}
-    config.EntityData.Leafs["bit-position"] = types.YLeaf{"BitPosition", config.BitPosition}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("admin-group-name", types.YLeaf{"AdminGroupName", config.AdminGroupName})
+    config.EntityData.Leafs.Append("bit-position", types.YLeaf{"BitPosition", config.BitPosition})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1117,10 +1182,13 @@ func (state *Mpls_TeGlobalAttributes_MplsAdminGroups_AdminGroup_State) GetEntity
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["admin-group-name"] = types.YLeaf{"AdminGroupName", state.AdminGroupName}
-    state.EntityData.Leafs["bit-position"] = types.YLeaf{"BitPosition", state.BitPosition}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("admin-group-name", types.YLeaf{"AdminGroupName", state.AdminGroupName})
+    state.EntityData.Leafs.Append("bit-position", types.YLeaf{"BitPosition", state.BitPosition})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1148,10 +1216,13 @@ func (teLspTimers *Mpls_TeGlobalAttributes_TeLspTimers) GetEntityData() *types.C
     teLspTimers.EntityData.NamespaceTable = openconfig.GetNamespaces()
     teLspTimers.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    teLspTimers.EntityData.Children = make(map[string]types.YChild)
-    teLspTimers.EntityData.Children["config"] = types.YChild{"Config", &teLspTimers.Config}
-    teLspTimers.EntityData.Children["state"] = types.YChild{"State", &teLspTimers.State}
-    teLspTimers.EntityData.Leafs = make(map[string]types.YLeaf)
+    teLspTimers.EntityData.Children = types.NewOrderedMap()
+    teLspTimers.EntityData.Children.Append("config", types.YChild{"Config", &teLspTimers.Config})
+    teLspTimers.EntityData.Children.Append("state", types.YChild{"State", &teLspTimers.State})
+    teLspTimers.EntityData.Leafs = types.NewOrderedMap()
+
+    teLspTimers.EntityData.YListKeys = []string {}
+
     return &(teLspTimers.EntityData)
 }
 
@@ -1185,11 +1256,14 @@ func (config *Mpls_TeGlobalAttributes_TeLspTimers_Config) GetEntityData() *types
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["install-delay"] = types.YLeaf{"InstallDelay", config.InstallDelay}
-    config.EntityData.Leafs["cleanup-delay"] = types.YLeaf{"CleanupDelay", config.CleanupDelay}
-    config.EntityData.Leafs["reoptimize-timer"] = types.YLeaf{"ReoptimizeTimer", config.ReoptimizeTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("install-delay", types.YLeaf{"InstallDelay", config.InstallDelay})
+    config.EntityData.Leafs.Append("cleanup-delay", types.YLeaf{"CleanupDelay", config.CleanupDelay})
+    config.EntityData.Leafs.Append("reoptimize-timer", types.YLeaf{"ReoptimizeTimer", config.ReoptimizeTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1222,11 +1296,14 @@ func (state *Mpls_TeGlobalAttributes_TeLspTimers_State) GetEntityData() *types.C
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["install-delay"] = types.YLeaf{"InstallDelay", state.InstallDelay}
-    state.EntityData.Leafs["cleanup-delay"] = types.YLeaf{"CleanupDelay", state.CleanupDelay}
-    state.EntityData.Leafs["reoptimize-timer"] = types.YLeaf{"ReoptimizeTimer", state.ReoptimizeTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("install-delay", types.YLeaf{"InstallDelay", state.InstallDelay})
+    state.EntityData.Leafs.Append("cleanup-delay", types.YLeaf{"CleanupDelay", state.CleanupDelay})
+    state.EntityData.Leafs.Append("reoptimize-timer", types.YLeaf{"ReoptimizeTimer", state.ReoptimizeTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1238,8 +1315,8 @@ type Mpls_TeInterfaceAttributes struct {
     YFilter yfilter.YFilter
 
     // List of TE interfaces. The type is slice of
-    // Mpls_TeInterfaceAttributes_Interface_.
-    Interface_ []Mpls_TeInterfaceAttributes_Interface
+    // Mpls_TeInterfaceAttributes_Interface.
+    Interface []*Mpls_TeInterfaceAttributes_Interface
 }
 
 func (teInterfaceAttributes *Mpls_TeInterfaceAttributes) GetEntityData() *types.CommonEntityData {
@@ -1252,12 +1329,15 @@ func (teInterfaceAttributes *Mpls_TeInterfaceAttributes) GetEntityData() *types.
     teInterfaceAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     teInterfaceAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    teInterfaceAttributes.EntityData.Children = make(map[string]types.YChild)
-    teInterfaceAttributes.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range teInterfaceAttributes.Interface_ {
-        teInterfaceAttributes.EntityData.Children[types.GetSegmentPath(&teInterfaceAttributes.Interface_[i])] = types.YChild{"Interface_", &teInterfaceAttributes.Interface_[i]}
+    teInterfaceAttributes.EntityData.Children = types.NewOrderedMap()
+    teInterfaceAttributes.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range teInterfaceAttributes.Interface {
+        teInterfaceAttributes.EntityData.Children.Append(types.GetSegmentPath(teInterfaceAttributes.Interface[i]), types.YChild{"Interface", teInterfaceAttributes.Interface[i]})
     }
-    teInterfaceAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    teInterfaceAttributes.EntityData.Leafs = types.NewOrderedMap()
+
+    teInterfaceAttributes.EntityData.YListKeys = []string {}
+
     return &(teInterfaceAttributes.EntityData)
 }
 
@@ -1267,15 +1347,19 @@ type Mpls_TeInterfaceAttributes_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. The interface name. The type is string. Refers to
-    // mpls.Mpls_TeInterfaceAttributes_Interface_Config_Name
-    Name interface{}
+    // This attribute is a key. Reference to the interface id list key. The type
+    // is string. Refers to
+    // mpls.Mpls_TeInterfaceAttributes_Interface_Config_InterfaceId
+    InterfaceId interface{}
 
     // Configuration parameters related to TE interfaces:.
     Config Mpls_TeInterfaceAttributes_Interface_Config
 
     // State parameters related to TE interfaces.
     State Mpls_TeInterfaceAttributes_Interface_State
+
+    // Reference to an interface or subinterface.
+    InterfaceRef Mpls_TeInterfaceAttributes_Interface_InterfaceRef
 
     // Interface bandwidth change percentages that trigger update events into the
     // IGP traffic engineering database (TED).
@@ -1287,17 +1371,21 @@ func (self *Mpls_TeInterfaceAttributes_Interface) GetEntityData() *types.CommonE
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "openconfig"
     self.EntityData.ParentYangName = "te-interface-attributes"
-    self.EntityData.SegmentPath = "interface" + "[name='" + fmt.Sprintf("%v", self.Name) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceId, "interface-id")
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["config"] = types.YChild{"Config", &self.Config}
-    self.EntityData.Children["state"] = types.YChild{"State", &self.State}
-    self.EntityData.Children["igp-flooding-bandwidth"] = types.YChild{"IgpFloodingBandwidth", &self.IgpFloodingBandwidth}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("config", types.YChild{"Config", &self.Config})
+    self.EntityData.Children.Append("state", types.YChild{"State", &self.State})
+    self.EntityData.Children.Append("interface-ref", types.YChild{"InterfaceRef", &self.InterfaceRef})
+    self.EntityData.Children.Append("igp-flooding-bandwidth", types.YChild{"IgpFloodingBandwidth", &self.IgpFloodingBandwidth})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-id", types.YLeaf{"InterfaceId", self.InterfaceId})
+
+    self.EntityData.YListKeys = []string {"InterfaceId"}
+
     return &(self.EntityData)
 }
 
@@ -1307,9 +1395,8 @@ type Mpls_TeInterfaceAttributes_Interface_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // reference to interface name. The type is string. Refers to
-    // interfaces.Interfaces_Interface_Name
-    Name interface{}
+    // Id of the interface. The type is string.
+    InterfaceId interface{}
 
     // TE specific metric for the link. The type is interface{} with range:
     // 0..4294967295.
@@ -1317,7 +1404,7 @@ type Mpls_TeInterfaceAttributes_Interface_Config struct {
 
     // list of references to named shared risk link groups that the interface
     // belongs to. The type is slice of string. Refers to
-    // mpls.Mpls_TeGlobalAttributes_Srlg_Srlg__Name
+    // mpls.Mpls_TeGlobalAttributes_Srlgs_Srlg_Name
     SrlgMembership []interface{}
 
     // list of admin groups (by name) on the interface. The type is slice of
@@ -1335,12 +1422,15 @@ func (config *Mpls_TeInterfaceAttributes_Interface_Config) GetEntityData() *type
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["name"] = types.YLeaf{"Name", config.Name}
-    config.EntityData.Leafs["te-metric"] = types.YLeaf{"TeMetric", config.TeMetric}
-    config.EntityData.Leafs["srlg-membership"] = types.YLeaf{"SrlgMembership", config.SrlgMembership}
-    config.EntityData.Leafs["admin-group"] = types.YLeaf{"AdminGroup", config.AdminGroup}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("interface-id", types.YLeaf{"InterfaceId", config.InterfaceId})
+    config.EntityData.Leafs.Append("te-metric", types.YLeaf{"TeMetric", config.TeMetric})
+    config.EntityData.Leafs.Append("srlg-membership", types.YLeaf{"SrlgMembership", config.SrlgMembership})
+    config.EntityData.Leafs.Append("admin-group", types.YLeaf{"AdminGroup", config.AdminGroup})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1350,9 +1440,8 @@ type Mpls_TeInterfaceAttributes_Interface_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // reference to interface name. The type is string. Refers to
-    // interfaces.Interfaces_Interface_Name
-    Name interface{}
+    // Id of the interface. The type is string.
+    InterfaceId interface{}
 
     // TE specific metric for the link. The type is interface{} with range:
     // 0..4294967295.
@@ -1360,7 +1449,7 @@ type Mpls_TeInterfaceAttributes_Interface_State struct {
 
     // list of references to named shared risk link groups that the interface
     // belongs to. The type is slice of string. Refers to
-    // mpls.Mpls_TeGlobalAttributes_Srlg_Srlg__Name
+    // mpls.Mpls_TeGlobalAttributes_Srlgs_Srlg_Name
     SrlgMembership []interface{}
 
     // list of admin groups (by name) on the interface. The type is slice of
@@ -1378,12 +1467,126 @@ func (state *Mpls_TeInterfaceAttributes_Interface_State) GetEntityData() *types.
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["name"] = types.YLeaf{"Name", state.Name}
-    state.EntityData.Leafs["te-metric"] = types.YLeaf{"TeMetric", state.TeMetric}
-    state.EntityData.Leafs["srlg-membership"] = types.YLeaf{"SrlgMembership", state.SrlgMembership}
-    state.EntityData.Leafs["admin-group"] = types.YLeaf{"AdminGroup", state.AdminGroup}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("interface-id", types.YLeaf{"InterfaceId", state.InterfaceId})
+    state.EntityData.Leafs.Append("te-metric", types.YLeaf{"TeMetric", state.TeMetric})
+    state.EntityData.Leafs.Append("srlg-membership", types.YLeaf{"SrlgMembership", state.SrlgMembership})
+    state.EntityData.Leafs.Append("admin-group", types.YLeaf{"AdminGroup", state.AdminGroup})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
+// Mpls_TeInterfaceAttributes_Interface_InterfaceRef
+// Reference to an interface or subinterface
+type Mpls_TeInterfaceAttributes_Interface_InterfaceRef struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configured reference to interface / subinterface.
+    Config Mpls_TeInterfaceAttributes_Interface_InterfaceRef_Config
+
+    // Operational state for interface-ref.
+    State Mpls_TeInterfaceAttributes_Interface_InterfaceRef_State
+}
+
+func (interfaceRef *Mpls_TeInterfaceAttributes_Interface_InterfaceRef) GetEntityData() *types.CommonEntityData {
+    interfaceRef.EntityData.YFilter = interfaceRef.YFilter
+    interfaceRef.EntityData.YangName = "interface-ref"
+    interfaceRef.EntityData.BundleName = "openconfig"
+    interfaceRef.EntityData.ParentYangName = "interface"
+    interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    interfaceRef.EntityData.Children = types.NewOrderedMap()
+    interfaceRef.EntityData.Children.Append("config", types.YChild{"Config", &interfaceRef.Config})
+    interfaceRef.EntityData.Children.Append("state", types.YChild{"State", &interfaceRef.State})
+    interfaceRef.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceRef.EntityData.YListKeys = []string {}
+
+    return &(interfaceRef.EntityData)
+}
+
+// Mpls_TeInterfaceAttributes_Interface_InterfaceRef_Config
+// Configured reference to interface / subinterface
+type Mpls_TeInterfaceAttributes_Interface_InterfaceRef_Config struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Reference to a base interface.  If a reference to a subinterface is
+    // required, this leaf must be specified to indicate the base interface. The
+    // type is string. Refers to interfaces.Interfaces_Interface_Name
+    Interface interface{}
+
+    // Reference to a subinterface -- this requires the base interface to be
+    // specified using the interface leaf in this container.  If only a reference
+    // to a base interface is requuired, this leaf should not be set. The type is
+    // string with range: 0..4294967295. Refers to
+    // interfaces.Interfaces_Interface_Subinterfaces_Subinterface_Index
+    Subinterface interface{}
+}
+
+func (config *Mpls_TeInterfaceAttributes_Interface_InterfaceRef_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "interface-ref"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", config.Interface})
+    config.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", config.Subinterface})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// Mpls_TeInterfaceAttributes_Interface_InterfaceRef_State
+// Operational state for interface-ref
+type Mpls_TeInterfaceAttributes_Interface_InterfaceRef_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Reference to a base interface.  If a reference to a subinterface is
+    // required, this leaf must be specified to indicate the base interface. The
+    // type is string. Refers to interfaces.Interfaces_Interface_Name
+    Interface interface{}
+
+    // Reference to a subinterface -- this requires the base interface to be
+    // specified using the interface leaf in this container.  If only a reference
+    // to a base interface is requuired, this leaf should not be set. The type is
+    // string with range: 0..4294967295. Refers to
+    // interfaces.Interfaces_Interface_Subinterfaces_Subinterface_Index
+    Subinterface interface{}
+}
+
+func (state *Mpls_TeInterfaceAttributes_Interface_InterfaceRef_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "interface-ref"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", state.Interface})
+    state.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", state.Subinterface})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1412,10 +1615,13 @@ func (igpFloodingBandwidth *Mpls_TeInterfaceAttributes_Interface_IgpFloodingBand
     igpFloodingBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     igpFloodingBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    igpFloodingBandwidth.EntityData.Children = make(map[string]types.YChild)
-    igpFloodingBandwidth.EntityData.Children["config"] = types.YChild{"Config", &igpFloodingBandwidth.Config}
-    igpFloodingBandwidth.EntityData.Children["state"] = types.YChild{"State", &igpFloodingBandwidth.State}
-    igpFloodingBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
+    igpFloodingBandwidth.EntityData.Children = types.NewOrderedMap()
+    igpFloodingBandwidth.EntityData.Children.Append("config", types.YChild{"Config", &igpFloodingBandwidth.Config})
+    igpFloodingBandwidth.EntityData.Children.Append("state", types.YChild{"State", &igpFloodingBandwidth.State})
+    igpFloodingBandwidth.EntityData.Leafs = types.NewOrderedMap()
+
+    igpFloodingBandwidth.EntityData.YListKeys = []string {}
+
     return &(igpFloodingBandwidth.EntityData)
 }
 
@@ -1429,7 +1635,7 @@ type Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_Config struct {
     // The type of threshold that should be used to specify the values at which
     // bandwidth is flooded. DELTA indicates that the local system should flood
     // IGP updates when a change in reserved bandwidth >= the specified delta
-    // occurs on the interface. Where THRESHOLD-CROSSED is specified, the local
+    // occurs on the interface. Where THRESHOLD_CROSSED is specified, the local
     // system should trigger an update (and hence flood) the reserved bandwidth
     // when the reserved bandwidth changes such that it crosses, or becomes equal
     // to one of the threshold values. The type is ThresholdType.
@@ -1478,14 +1684,17 @@ func (config *Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_Config) 
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["threshold-type"] = types.YLeaf{"ThresholdType", config.ThresholdType}
-    config.EntityData.Leafs["delta-percentage"] = types.YLeaf{"DeltaPercentage", config.DeltaPercentage}
-    config.EntityData.Leafs["threshold-specification"] = types.YLeaf{"ThresholdSpecification", config.ThresholdSpecification}
-    config.EntityData.Leafs["up-thresholds"] = types.YLeaf{"UpThresholds", config.UpThresholds}
-    config.EntityData.Leafs["down-thresholds"] = types.YLeaf{"DownThresholds", config.DownThresholds}
-    config.EntityData.Leafs["up-down-thresholds"] = types.YLeaf{"UpDownThresholds", config.UpDownThresholds}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("threshold-type", types.YLeaf{"ThresholdType", config.ThresholdType})
+    config.EntityData.Leafs.Append("delta-percentage", types.YLeaf{"DeltaPercentage", config.DeltaPercentage})
+    config.EntityData.Leafs.Append("threshold-specification", types.YLeaf{"ThresholdSpecification", config.ThresholdSpecification})
+    config.EntityData.Leafs.Append("up-thresholds", types.YLeaf{"UpThresholds", config.UpThresholds})
+    config.EntityData.Leafs.Append("down-thresholds", types.YLeaf{"DownThresholds", config.DownThresholds})
+    config.EntityData.Leafs.Append("up-down-thresholds", types.YLeaf{"UpDownThresholds", config.UpDownThresholds})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1493,19 +1702,19 @@ func (config *Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_Config) 
 type Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_Config_ThresholdSpecification string
 
 const (
-    // MIRRORED-UP-DOWN indicates that a single set of
+    // MIRRORED_UP_DOWN indicates that a single set of
     // threshold values should be used for both increasing
     // and decreasing bandwidth when determining whether
     // to trigger updated bandwidth values to be flooded
     // in the IGP TE extensions.
-    Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_Config_ThresholdSpecification_MIRRORED_UP_DOWN Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_Config_ThresholdSpecification = "MIRRORED-UP-DOWN"
+    Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_Config_ThresholdSpecification_MIRRORED_UP_DOWN Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_Config_ThresholdSpecification = "MIRRORED_UP_DOWN"
 
-    // SEPARATE-UP-DOWN indicates that a separate
+    // SEPARATE_UP_DOWN indicates that a separate
     // threshold values should be used for the increasing
     // and decreasing bandwidth when determining whether
     // to trigger updated bandwidth values to be flooded
     // in the IGP TE extensions.
-    Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_Config_ThresholdSpecification_SEPARATE_UP_DOWN Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_Config_ThresholdSpecification = "SEPARATE-UP-DOWN"
+    Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_Config_ThresholdSpecification_SEPARATE_UP_DOWN Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_Config_ThresholdSpecification = "SEPARATE_UP_DOWN"
 )
 
 // Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_Config_ThresholdType represents values
@@ -1523,7 +1732,7 @@ const (
     // hence flood) the reserved bandwidth when the
     // reserved bandwidth changes such that it crosses,
     // or becomes equal to one of the threshold values.
-    Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_Config_ThresholdType_THRESHOLD_CROSSED Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_Config_ThresholdType = "THRESHOLD-CROSSED"
+    Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_Config_ThresholdType_THRESHOLD_CROSSED Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_Config_ThresholdType = "THRESHOLD_CROSSED"
 )
 
 // Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_State
@@ -1535,7 +1744,7 @@ type Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_State struct {
     // The type of threshold that should be used to specify the values at which
     // bandwidth is flooded. DELTA indicates that the local system should flood
     // IGP updates when a change in reserved bandwidth >= the specified delta
-    // occurs on the interface. Where THRESHOLD-CROSSED is specified, the local
+    // occurs on the interface. Where THRESHOLD_CROSSED is specified, the local
     // system should trigger an update (and hence flood) the reserved bandwidth
     // when the reserved bandwidth changes such that it crosses, or becomes equal
     // to one of the threshold values. The type is ThresholdType.
@@ -1584,14 +1793,17 @@ func (state *Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_State) Ge
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["threshold-type"] = types.YLeaf{"ThresholdType", state.ThresholdType}
-    state.EntityData.Leafs["delta-percentage"] = types.YLeaf{"DeltaPercentage", state.DeltaPercentage}
-    state.EntityData.Leafs["threshold-specification"] = types.YLeaf{"ThresholdSpecification", state.ThresholdSpecification}
-    state.EntityData.Leafs["up-thresholds"] = types.YLeaf{"UpThresholds", state.UpThresholds}
-    state.EntityData.Leafs["down-thresholds"] = types.YLeaf{"DownThresholds", state.DownThresholds}
-    state.EntityData.Leafs["up-down-thresholds"] = types.YLeaf{"UpDownThresholds", state.UpDownThresholds}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("threshold-type", types.YLeaf{"ThresholdType", state.ThresholdType})
+    state.EntityData.Leafs.Append("delta-percentage", types.YLeaf{"DeltaPercentage", state.DeltaPercentage})
+    state.EntityData.Leafs.Append("threshold-specification", types.YLeaf{"ThresholdSpecification", state.ThresholdSpecification})
+    state.EntityData.Leafs.Append("up-thresholds", types.YLeaf{"UpThresholds", state.UpThresholds})
+    state.EntityData.Leafs.Append("down-thresholds", types.YLeaf{"DownThresholds", state.DownThresholds})
+    state.EntityData.Leafs.Append("up-down-thresholds", types.YLeaf{"UpDownThresholds", state.UpDownThresholds})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1599,19 +1811,19 @@ func (state *Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_State) Ge
 type Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_State_ThresholdSpecification string
 
 const (
-    // MIRRORED-UP-DOWN indicates that a single set of
+    // MIRRORED_UP_DOWN indicates that a single set of
     // threshold values should be used for both increasing
     // and decreasing bandwidth when determining whether
     // to trigger updated bandwidth values to be flooded
     // in the IGP TE extensions.
-    Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_State_ThresholdSpecification_MIRRORED_UP_DOWN Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_State_ThresholdSpecification = "MIRRORED-UP-DOWN"
+    Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_State_ThresholdSpecification_MIRRORED_UP_DOWN Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_State_ThresholdSpecification = "MIRRORED_UP_DOWN"
 
-    // SEPARATE-UP-DOWN indicates that a separate
+    // SEPARATE_UP_DOWN indicates that a separate
     // threshold values should be used for the increasing
     // and decreasing bandwidth when determining whether
     // to trigger updated bandwidth values to be flooded
     // in the IGP TE extensions.
-    Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_State_ThresholdSpecification_SEPARATE_UP_DOWN Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_State_ThresholdSpecification = "SEPARATE-UP-DOWN"
+    Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_State_ThresholdSpecification_SEPARATE_UP_DOWN Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_State_ThresholdSpecification = "SEPARATE_UP_DOWN"
 )
 
 // Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_State_ThresholdType represents values
@@ -1629,7 +1841,7 @@ const (
     // hence flood) the reserved bandwidth when the
     // reserved bandwidth changes such that it crosses,
     // or becomes equal to one of the threshold values.
-    Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_State_ThresholdType_THRESHOLD_CROSSED Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_State_ThresholdType = "THRESHOLD-CROSSED"
+    Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_State_ThresholdType_THRESHOLD_CROSSED Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_State_ThresholdType = "THRESHOLD_CROSSED"
 )
 
 // Mpls_SignalingProtocols
@@ -1641,11 +1853,12 @@ type Mpls_SignalingProtocols struct {
     // RSVP-TE global signaling protocol configuration.
     RsvpTe Mpls_SignalingProtocols_RsvpTe
 
-    // SR global signaling config.
-    SegmentRouting Mpls_SignalingProtocols_SegmentRouting
-
     // LDP global signaling configuration.
     Ldp Mpls_SignalingProtocols_Ldp
+
+    // MPLS-specific Segment Routing configuration and operational state
+    // parameters.
+    SegmentRouting Mpls_SignalingProtocols_SegmentRouting
 }
 
 func (signalingProtocols *Mpls_SignalingProtocols) GetEntityData() *types.CommonEntityData {
@@ -1658,11 +1871,14 @@ func (signalingProtocols *Mpls_SignalingProtocols) GetEntityData() *types.Common
     signalingProtocols.EntityData.NamespaceTable = openconfig.GetNamespaces()
     signalingProtocols.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    signalingProtocols.EntityData.Children = make(map[string]types.YChild)
-    signalingProtocols.EntityData.Children["rsvp-te"] = types.YChild{"RsvpTe", &signalingProtocols.RsvpTe}
-    signalingProtocols.EntityData.Children["segment-routing"] = types.YChild{"SegmentRouting", &signalingProtocols.SegmentRouting}
-    signalingProtocols.EntityData.Children["ldp"] = types.YChild{"Ldp", &signalingProtocols.Ldp}
-    signalingProtocols.EntityData.Leafs = make(map[string]types.YLeaf)
+    signalingProtocols.EntityData.Children = types.NewOrderedMap()
+    signalingProtocols.EntityData.Children.Append("rsvp-te", types.YChild{"RsvpTe", &signalingProtocols.RsvpTe})
+    signalingProtocols.EntityData.Children.Append("ldp", types.YChild{"Ldp", &signalingProtocols.Ldp})
+    signalingProtocols.EntityData.Children.Append("segment-routing", types.YChild{"SegmentRouting", &signalingProtocols.SegmentRouting})
+    signalingProtocols.EntityData.Leafs = types.NewOrderedMap()
+
+    signalingProtocols.EntityData.YListKeys = []string {}
+
     return &(signalingProtocols.EntityData)
 }
 
@@ -1672,7 +1888,7 @@ type Mpls_SignalingProtocols_RsvpTe struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Configuration and state of RSVP sessions.
+    // Enclosing container for sessions.
     Sessions Mpls_SignalingProtocols_RsvpTe_Sessions
 
     // Configuration and state for RSVP neighbors connecting to the device.
@@ -1695,26 +1911,27 @@ func (rsvpTe *Mpls_SignalingProtocols_RsvpTe) GetEntityData() *types.CommonEntit
     rsvpTe.EntityData.NamespaceTable = openconfig.GetNamespaces()
     rsvpTe.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    rsvpTe.EntityData.Children = make(map[string]types.YChild)
-    rsvpTe.EntityData.Children["sessions"] = types.YChild{"Sessions", &rsvpTe.Sessions}
-    rsvpTe.EntityData.Children["neighbors"] = types.YChild{"Neighbors", &rsvpTe.Neighbors}
-    rsvpTe.EntityData.Children["global"] = types.YChild{"Global", &rsvpTe.Global}
-    rsvpTe.EntityData.Children["interface-attributes"] = types.YChild{"InterfaceAttributes", &rsvpTe.InterfaceAttributes}
-    rsvpTe.EntityData.Leafs = make(map[string]types.YLeaf)
+    rsvpTe.EntityData.Children = types.NewOrderedMap()
+    rsvpTe.EntityData.Children.Append("sessions", types.YChild{"Sessions", &rsvpTe.Sessions})
+    rsvpTe.EntityData.Children.Append("neighbors", types.YChild{"Neighbors", &rsvpTe.Neighbors})
+    rsvpTe.EntityData.Children.Append("global", types.YChild{"Global", &rsvpTe.Global})
+    rsvpTe.EntityData.Children.Append("interface-attributes", types.YChild{"InterfaceAttributes", &rsvpTe.InterfaceAttributes})
+    rsvpTe.EntityData.Leafs = types.NewOrderedMap()
+
+    rsvpTe.EntityData.YListKeys = []string {}
+
     return &(rsvpTe.EntityData)
 }
 
 // Mpls_SignalingProtocols_RsvpTe_Sessions
-// Configuration and state of RSVP sessions
+// Enclosing container for sessions
 type Mpls_SignalingProtocols_RsvpTe_Sessions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Configuration of RSVP sessions on the device.
-    Config Mpls_SignalingProtocols_RsvpTe_Sessions_Config
-
-    // State information relating to RSVP sessions on the device.
-    State Mpls_SignalingProtocols_RsvpTe_Sessions_State
+    // List of RSVP sessions. The type is slice of
+    // Mpls_SignalingProtocols_RsvpTe_Sessions_Session.
+    Session []*Mpls_SignalingProtocols_RsvpTe_Sessions_Session
 }
 
 func (sessions *Mpls_SignalingProtocols_RsvpTe_Sessions) GetEntityData() *types.CommonEntityData {
@@ -1727,103 +1944,235 @@ func (sessions *Mpls_SignalingProtocols_RsvpTe_Sessions) GetEntityData() *types.
     sessions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    sessions.EntityData.Children = make(map[string]types.YChild)
-    sessions.EntityData.Children["config"] = types.YChild{"Config", &sessions.Config}
-    sessions.EntityData.Children["state"] = types.YChild{"State", &sessions.State}
-    sessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessions.EntityData.Children = types.NewOrderedMap()
+    sessions.EntityData.Children.Append("session", types.YChild{"Session", nil})
+    for i := range sessions.Session {
+        sessions.EntityData.Children.Append(types.GetSegmentPath(sessions.Session[i]), types.YChild{"Session", sessions.Session[i]})
+    }
+    sessions.EntityData.Leafs = types.NewOrderedMap()
+
+    sessions.EntityData.YListKeys = []string {}
+
     return &(sessions.EntityData)
 }
 
-// Mpls_SignalingProtocols_RsvpTe_Sessions_Config
-// Configuration of RSVP sessions on the device
-type Mpls_SignalingProtocols_RsvpTe_Sessions_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (config *Mpls_SignalingProtocols_RsvpTe_Sessions_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "sessions"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(config.EntityData)
-}
-
-// Mpls_SignalingProtocols_RsvpTe_Sessions_State
-// State information relating to RSVP sessions
-// on the device
-type Mpls_SignalingProtocols_RsvpTe_Sessions_State struct {
+// Mpls_SignalingProtocols_RsvpTe_Sessions_Session
+// List of RSVP sessions
+type Mpls_SignalingProtocols_RsvpTe_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // List of RSVP sessions. The type is slice of
-    // Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session.
-    Session []Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session
+    // This attribute is a key. Reference to the local index for the RSVP session.
+    // The type is string with range: 0..18446744073709551615. Refers to
+    // mpls.Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State_LocalIndex
+    LocalIndex interface{}
+
+    // Enclosing container for MPLS RRO objects associated with the traffic
+    // engineered tunnel.
+    RecordRouteObjects Mpls_SignalingProtocols_RsvpTe_Sessions_Session_RecordRouteObjects
+
+    // Operational state parameters relating to the RSVP session.
+    State Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State
 }
 
-func (state *Mpls_SignalingProtocols_RsvpTe_Sessions_State) GetEntityData() *types.CommonEntityData {
+func (session *Mpls_SignalingProtocols_RsvpTe_Sessions_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "openconfig"
+    session.EntityData.ParentYangName = "sessions"
+    session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.LocalIndex, "local-index")
+    session.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    session.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Children.Append("record-route-objects", types.YChild{"RecordRouteObjects", &session.RecordRouteObjects})
+    session.EntityData.Children.Append("state", types.YChild{"State", &session.State})
+    session.EntityData.Leafs = types.NewOrderedMap()
+    session.EntityData.Leafs.Append("local-index", types.YLeaf{"LocalIndex", session.LocalIndex})
+
+    session.EntityData.YListKeys = []string {"LocalIndex"}
+
+    return &(session.EntityData)
+}
+
+// Mpls_SignalingProtocols_RsvpTe_Sessions_Session_RecordRouteObjects
+// Enclosing container for MPLS RRO objects associated with the
+// traffic engineered tunnel.
+type Mpls_SignalingProtocols_RsvpTe_Sessions_Session_RecordRouteObjects struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Read-only list of record route objects associated with the traffic
+    // engineered tunnel. Each entry in the list may contain a hop IP address,
+    // MPLS label allocated at the hop, and the flags associated with the entry.
+    // The type is slice of
+    // Mpls_SignalingProtocols_RsvpTe_Sessions_Session_RecordRouteObjects_RecordRouteObject.
+    RecordRouteObject []*Mpls_SignalingProtocols_RsvpTe_Sessions_Session_RecordRouteObjects_RecordRouteObject
+}
+
+func (recordRouteObjects *Mpls_SignalingProtocols_RsvpTe_Sessions_Session_RecordRouteObjects) GetEntityData() *types.CommonEntityData {
+    recordRouteObjects.EntityData.YFilter = recordRouteObjects.YFilter
+    recordRouteObjects.EntityData.YangName = "record-route-objects"
+    recordRouteObjects.EntityData.BundleName = "openconfig"
+    recordRouteObjects.EntityData.ParentYangName = "session"
+    recordRouteObjects.EntityData.SegmentPath = "record-route-objects"
+    recordRouteObjects.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    recordRouteObjects.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    recordRouteObjects.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    recordRouteObjects.EntityData.Children = types.NewOrderedMap()
+    recordRouteObjects.EntityData.Children.Append("record-route-object", types.YChild{"RecordRouteObject", nil})
+    for i := range recordRouteObjects.RecordRouteObject {
+        recordRouteObjects.EntityData.Children.Append(types.GetSegmentPath(recordRouteObjects.RecordRouteObject[i]), types.YChild{"RecordRouteObject", recordRouteObjects.RecordRouteObject[i]})
+    }
+    recordRouteObjects.EntityData.Leafs = types.NewOrderedMap()
+
+    recordRouteObjects.EntityData.YListKeys = []string {}
+
+    return &(recordRouteObjects.EntityData)
+}
+
+// Mpls_SignalingProtocols_RsvpTe_Sessions_Session_RecordRouteObjects_RecordRouteObject
+// Read-only list of record route objects associated with the
+// traffic engineered tunnel. Each entry in the list
+// may contain a hop IP address, MPLS label allocated
+// at the hop, and the flags associated with the entry.
+type Mpls_SignalingProtocols_RsvpTe_Sessions_Session_RecordRouteObjects_RecordRouteObject struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Reference to the index of the record route object.
+    // The index is used to indicate the ordering of hops in the path. The type is
+    // string with range: 0..255. Refers to
+    // mpls.Mpls_SignalingProtocols_RsvpTe_Sessions_Session_RecordRouteObjects_RecordRouteObject_State_Index
+    Index interface{}
+
+    // Information related to RRO objects. The hop, label, and optional flags are
+    // present for each entry in the list.
+    State Mpls_SignalingProtocols_RsvpTe_Sessions_Session_RecordRouteObjects_RecordRouteObject_State
+}
+
+func (recordRouteObject *Mpls_SignalingProtocols_RsvpTe_Sessions_Session_RecordRouteObjects_RecordRouteObject) GetEntityData() *types.CommonEntityData {
+    recordRouteObject.EntityData.YFilter = recordRouteObject.YFilter
+    recordRouteObject.EntityData.YangName = "record-route-object"
+    recordRouteObject.EntityData.BundleName = "openconfig"
+    recordRouteObject.EntityData.ParentYangName = "record-route-objects"
+    recordRouteObject.EntityData.SegmentPath = "record-route-object" + types.AddKeyToken(recordRouteObject.Index, "index")
+    recordRouteObject.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    recordRouteObject.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    recordRouteObject.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    recordRouteObject.EntityData.Children = types.NewOrderedMap()
+    recordRouteObject.EntityData.Children.Append("state", types.YChild{"State", &recordRouteObject.State})
+    recordRouteObject.EntityData.Leafs = types.NewOrderedMap()
+    recordRouteObject.EntityData.Leafs.Append("index", types.YLeaf{"Index", recordRouteObject.Index})
+
+    recordRouteObject.EntityData.YListKeys = []string {"Index"}
+
+    return &(recordRouteObject.EntityData)
+}
+
+// Mpls_SignalingProtocols_RsvpTe_Sessions_Session_RecordRouteObjects_RecordRouteObject_State
+// Information related to RRO objects. The hop, label, and
+// optional flags are present for each entry in the list.
+type Mpls_SignalingProtocols_RsvpTe_Sessions_Session_RecordRouteObjects_RecordRouteObject_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Index of object in the list. Used for ordering. The type is interface{}
+    // with range: 0..255.
+    Index interface{}
+
+    // IP router hop for RRO entry. The type is one of the following types: string
+    // with pattern:
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
+    // or string with pattern:
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
+    Address interface{}
+
+    // Label reported for RRO hop. The type is one of the following types: int
+    // with range: 16..1048575, or enumeration MplsLabel.
+    ReportedLabel interface{}
+
+    // Subobject flags for MPLS label. The type is interface{} with range: 0..255.
+    ReportedFlags interface{}
+}
+
+func (state *Mpls_SignalingProtocols_RsvpTe_Sessions_Session_RecordRouteObjects_RecordRouteObject_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "sessions"
+    state.EntityData.ParentYangName = "record-route-object"
     state.EntityData.SegmentPath = "state"
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["session"] = types.YChild{"Session", nil}
-    for i := range state.Session {
-        state.EntityData.Children[types.GetSegmentPath(&state.Session[i])] = types.YChild{"Session", &state.Session[i]}
-    }
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("index", types.YLeaf{"Index", state.Index})
+    state.EntityData.Leafs.Append("address", types.YLeaf{"Address", state.Address})
+    state.EntityData.Leafs.Append("reported-label", types.YLeaf{"ReportedLabel", state.ReportedLabel})
+    state.EntityData.Leafs.Append("reported-flags", types.YLeaf{"ReportedFlags", state.ReportedFlags})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session
-// List of RSVP sessions
-type Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session struct {
+// Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State
+// Operational state parameters relating to the
+// RSVP session
+type Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. RSVP source port. The type is interface{} with
-    // range: 0..65535.
-    SourcePort interface{}
+    // The index used to identify the RSVP session on the local network element.
+    // This index is generated by the device and is unique only to the local
+    // network element. The type is interface{} with range:
+    // 0..18446744073709551615.
+    LocalIndex interface{}
 
-    // This attribute is a key. RSVP source port. The type is interface{} with
-    // range: 0..65535.
-    DestinationPort interface{}
-
-    // This attribute is a key. Origin address of RSVP session. The type is one of
-    // the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // Origin address of RSVP session. The type is one of the following types:
+    // string with pattern:
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     SourceAddress interface{}
 
-    // This attribute is a key. Destination address of RSVP session. The type is
-    // one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // Destination address of RSVP session. The type is one of the following
+    // types: string with pattern:
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     DestinationAddress interface{}
+
+    // The tunnel ID is an identifier used in the RSVP session, which remains
+    // constant over the life of the tunnel. The type is interface{} with range:
+    // 0..65535.
+    TunnelId interface{}
+
+    // The LSP ID distinguishes between two LSPs originated from the same headend,
+    // and is commonly used to distinguish RSVP sessions during make before break
+    // operations. The type is interface{} with range: 0..65535.
+    LspId interface{}
+
+    // The signaled name of this RSVP session. The type is string.
+    SessionName interface{}
 
     // Enumeration of RSVP session states. The type is Status.
     Status interface{}
 
-    // Enumeration of possible RSVP session types. The type is Type_.
-    Type_ interface{}
+    // The type/role of the RSVP session, signifing the session's role on the
+    // current device, such as a transit session vs. an ingress session. The type
+    // is one of the following: INGRESSEGRESSTRANSIT.
+    Type interface{}
 
-    // Unique identifier of RSVP session. The type is interface{} with range:
-    // 0..65535.
-    TunnelId interface{}
+    // The type of protection requested for the RSVP session. The type is one of
+    // the following:
+    // LINKPROTECTIONREQUIREDLINKNODEPROTECTIONREQUESTEDUNPROTECTED.
+    ProtectionRequested interface{}
 
     // Incoming MPLS label associated with this RSVP session. The type is one of
     // the following types: int with range: 16..1048575, or enumeration MplsLabel.
@@ -1833,60 +2182,103 @@ type Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session struct {
     // the following types: int with range: 16..1048575, or enumeration MplsLabel.
     LabelOut interface{}
 
-    // List of label switched paths associated with this RSVP session. The type is
-    // slice of string. Refers to
-    // mpls.Mpls_Lsps_ConstrainedPath_Tunnel_Config_Name
-    AssociatedLsps []interface{}
+    // Operational state statistics relating to the SENDER_TSPEC received for the
+    // RSVP session.
+    SenderTspec Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State_SenderTspec
 }
 
-func (session *Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session) GetEntityData() *types.CommonEntityData {
-    session.EntityData.YFilter = session.YFilter
-    session.EntityData.YangName = "session"
-    session.EntityData.BundleName = "openconfig"
-    session.EntityData.ParentYangName = "state"
-    session.EntityData.SegmentPath = "session" + "[source-port='" + fmt.Sprintf("%v", session.SourcePort) + "']" + "[destination-port='" + fmt.Sprintf("%v", session.DestinationPort) + "']" + "[source-address='" + fmt.Sprintf("%v", session.SourceAddress) + "']" + "[destination-address='" + fmt.Sprintf("%v", session.DestinationAddress) + "']"
-    session.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    session.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    session.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (state *Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "session"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    session.EntityData.Children = make(map[string]types.YChild)
-    session.EntityData.Leafs = make(map[string]types.YLeaf)
-    session.EntityData.Leafs["source-port"] = types.YLeaf{"SourcePort", session.SourcePort}
-    session.EntityData.Leafs["destination-port"] = types.YLeaf{"DestinationPort", session.DestinationPort}
-    session.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", session.SourceAddress}
-    session.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", session.DestinationAddress}
-    session.EntityData.Leafs["status"] = types.YLeaf{"Status", session.Status}
-    session.EntityData.Leafs["type"] = types.YLeaf{"Type_", session.Type_}
-    session.EntityData.Leafs["tunnel-id"] = types.YLeaf{"TunnelId", session.TunnelId}
-    session.EntityData.Leafs["label-in"] = types.YLeaf{"LabelIn", session.LabelIn}
-    session.EntityData.Leafs["label-out"] = types.YLeaf{"LabelOut", session.LabelOut}
-    session.EntityData.Leafs["associated-lsps"] = types.YLeaf{"AssociatedLsps", session.AssociatedLsps}
-    return &(session.EntityData)
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("sender-tspec", types.YChild{"SenderTspec", &state.SenderTspec})
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("local-index", types.YLeaf{"LocalIndex", state.LocalIndex})
+    state.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", state.SourceAddress})
+    state.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", state.DestinationAddress})
+    state.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", state.TunnelId})
+    state.EntityData.Leafs.Append("lsp-id", types.YLeaf{"LspId", state.LspId})
+    state.EntityData.Leafs.Append("session-name", types.YLeaf{"SessionName", state.SessionName})
+    state.EntityData.Leafs.Append("status", types.YLeaf{"Status", state.Status})
+    state.EntityData.Leafs.Append("type", types.YLeaf{"Type", state.Type})
+    state.EntityData.Leafs.Append("protection-requested", types.YLeaf{"ProtectionRequested", state.ProtectionRequested})
+    state.EntityData.Leafs.Append("label-in", types.YLeaf{"LabelIn", state.LabelIn})
+    state.EntityData.Leafs.Append("label-out", types.YLeaf{"LabelOut", state.LabelOut})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
 }
 
-// Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session_Status represents Enumeration of RSVP session states
-type Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session_Status string
+// Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State_SenderTspec
+// Operational state statistics relating to the SENDER_TSPEC
+// received for the RSVP session
+type Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State_SenderTspec struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The rate at which the head-end device generates traffic, expressed in bytes
+    // per second. The type is string with length: 32. Units are Bps.
+    Rate interface{}
+
+    // The size of the token bucket that is used to determine the rate at which
+    // the head-end device generates traffic, expressed in bytes per second. The
+    // type is string with length: 32. Units are bytes per second.
+    Size interface{}
+
+    // The maximum traffic generation rate that the head-end device sends traffic
+    // at. The type is one of the following types: string with length: 32 Units
+    // are bytes per second., or enumeration
+    // NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec.PeakDataRate
+    // Units are bytes per second..
+    PeakDataRate interface{}
+}
+
+func (senderTspec *Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State_SenderTspec) GetEntityData() *types.CommonEntityData {
+    senderTspec.EntityData.YFilter = senderTspec.YFilter
+    senderTspec.EntityData.YangName = "sender-tspec"
+    senderTspec.EntityData.BundleName = "openconfig"
+    senderTspec.EntityData.ParentYangName = "state"
+    senderTspec.EntityData.SegmentPath = "sender-tspec"
+    senderTspec.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    senderTspec.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    senderTspec.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    senderTspec.EntityData.Children = types.NewOrderedMap()
+    senderTspec.EntityData.Leafs = types.NewOrderedMap()
+    senderTspec.EntityData.Leafs.Append("rate", types.YLeaf{"Rate", senderTspec.Rate})
+    senderTspec.EntityData.Leafs.Append("size", types.YLeaf{"Size", senderTspec.Size})
+    senderTspec.EntityData.Leafs.Append("peak-data-rate", types.YLeaf{"PeakDataRate", senderTspec.PeakDataRate})
+
+    senderTspec.EntityData.YListKeys = []string {}
+
+    return &(senderTspec.EntityData)
+}
+
+// Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State_SenderTspec_PeakDataRate represents device sends traffic at.
+type Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State_SenderTspec_PeakDataRate string
+
+const (
+    // The head-end device has no maximum data rate.
+    Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State_SenderTspec_PeakDataRate_INFINITY Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State_SenderTspec_PeakDataRate = "INFINITY"
+)
+
+// Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State_Status represents Enumeration of RSVP session states
+type Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State_Status string
 
 const (
     // RSVP session is up
-    Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session_Status_UP Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session_Status = "UP"
+    Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State_Status_UP Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State_Status = "UP"
 
     // RSVP session is down
-    Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session_Status_DOWN Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session_Status = "DOWN"
-)
-
-// Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session_Type_ represents Enumeration of possible RSVP session types
-type Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session_Type_ string
-
-const (
-    // RSVP session originates on this device
-    Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session_Type__SOURCE Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session_Type_ = "SOURCE"
-
-    // RSVP session transits this device only
-    Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session_Type__TRANSIT Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session_Type_ = "TRANSIT"
-
-    // RSVP session terminates on this device
-    Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session_Type__DESTINATION Mpls_SignalingProtocols_RsvpTe_Sessions_State_Session_Type_ = "DESTINATION"
+    Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State_Status_DOWN Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State_Status = "DOWN"
 )
 
 // Mpls_SignalingProtocols_RsvpTe_Neighbors
@@ -1896,11 +2288,9 @@ type Mpls_SignalingProtocols_RsvpTe_Neighbors struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Configuration of RSVP neighbor information.
-    Config Mpls_SignalingProtocols_RsvpTe_Neighbors_Config
-
-    // State information relating to RSVP neighbors.
-    State Mpls_SignalingProtocols_RsvpTe_Neighbors_State
+    // List of RSVP neighbors of the local system. The type is slice of
+    // Mpls_SignalingProtocols_RsvpTe_Neighbors_Neighbor.
+    Neighbor []*Mpls_SignalingProtocols_RsvpTe_Neighbors_Neighbor
 }
 
 func (neighbors *Mpls_SignalingProtocols_RsvpTe_Neighbors) GetEntityData() *types.CommonEntityData {
@@ -1913,78 +2303,67 @@ func (neighbors *Mpls_SignalingProtocols_RsvpTe_Neighbors) GetEntityData() *type
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighbors.EntityData.Children = make(map[string]types.YChild)
-    neighbors.EntityData.Children["config"] = types.YChild{"Config", &neighbors.Config}
-    neighbors.EntityData.Children["state"] = types.YChild{"State", &neighbors.State}
-    neighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighbors.EntityData.Children = types.NewOrderedMap()
+    neighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
+    for i := range neighbors.Neighbor {
+        neighbors.EntityData.Children.Append(types.GetSegmentPath(neighbors.Neighbor[i]), types.YChild{"Neighbor", neighbors.Neighbor[i]})
+    }
+    neighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    neighbors.EntityData.YListKeys = []string {}
+
     return &(neighbors.EntityData)
 }
 
-// Mpls_SignalingProtocols_RsvpTe_Neighbors_Config
-// Configuration of RSVP neighbor information
-type Mpls_SignalingProtocols_RsvpTe_Neighbors_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (config *Mpls_SignalingProtocols_RsvpTe_Neighbors_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "neighbors"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(config.EntityData)
-}
-
-// Mpls_SignalingProtocols_RsvpTe_Neighbors_State
-// State information relating to RSVP neighbors
-type Mpls_SignalingProtocols_RsvpTe_Neighbors_State struct {
+// Mpls_SignalingProtocols_RsvpTe_Neighbors_Neighbor
+// List of RSVP neighbors of the local system
+type Mpls_SignalingProtocols_RsvpTe_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // List of RSVP neighbors connecting to the device, keyed by neighbor address.
-    // The type is slice of
-    // Mpls_SignalingProtocols_RsvpTe_Neighbors_State_Neighbor.
-    Neighbor []Mpls_SignalingProtocols_RsvpTe_Neighbors_State_Neighbor
-}
-
-func (state *Mpls_SignalingProtocols_RsvpTe_Neighbors_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "neighbors"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
-    for i := range state.Neighbor {
-        state.EntityData.Children[types.GetSegmentPath(&state.Neighbor[i])] = types.YChild{"Neighbor", &state.Neighbor[i]}
-    }
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(state.EntityData)
-}
-
-// Mpls_SignalingProtocols_RsvpTe_Neighbors_State_Neighbor
-// List of RSVP neighbors connecting to the device,
-// keyed by neighbor address
-type Mpls_SignalingProtocols_RsvpTe_Neighbors_State_Neighbor struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. Address of RSVP neighbor. The type is one of the
-    // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // This attribute is a key. Reference to the address of the RSVP neighbor. The
+    // type is one of the following types: string with pattern:
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
+    Address interface{}
+
+    // Operational state parameters relating to the RSVP neighbor.
+    State Mpls_SignalingProtocols_RsvpTe_Neighbors_Neighbor_State
+}
+
+func (neighbor *Mpls_SignalingProtocols_RsvpTe_Neighbors_Neighbor) GetEntityData() *types.CommonEntityData {
+    neighbor.EntityData.YFilter = neighbor.YFilter
+    neighbor.EntityData.YangName = "neighbor"
+    neighbor.EntityData.BundleName = "openconfig"
+    neighbor.EntityData.ParentYangName = "neighbors"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Address, "address")
+    neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Children.Append("state", types.YChild{"State", &neighbor.State})
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighbor.Address})
+
+    neighbor.EntityData.YListKeys = []string {"Address"}
+
+    return &(neighbor.EntityData)
+}
+
+// Mpls_SignalingProtocols_RsvpTe_Neighbors_Neighbor_State
+// Operational state parameters relating to the
+// RSVP neighbor
+type Mpls_SignalingProtocols_RsvpTe_Neighbors_Neighbor_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Address of RSVP neighbor. The type is one of the following types: string
+    // with pattern:
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
+    // or string with pattern:
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Address interface{}
 
     // Interface where RSVP neighbor was detected. The type is string.
@@ -1997,36 +2376,39 @@ type Mpls_SignalingProtocols_RsvpTe_Neighbors_State_Neighbor struct {
     RefreshReduction interface{}
 }
 
-func (neighbor *Mpls_SignalingProtocols_RsvpTe_Neighbors_State_Neighbor) GetEntityData() *types.CommonEntityData {
-    neighbor.EntityData.YFilter = neighbor.YFilter
-    neighbor.EntityData.YangName = "neighbor"
-    neighbor.EntityData.BundleName = "openconfig"
-    neighbor.EntityData.ParentYangName = "state"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[address='" + fmt.Sprintf("%v", neighbor.Address) + "']"
-    neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (state *Mpls_SignalingProtocols_RsvpTe_Neighbors_Neighbor_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "neighbor"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["address"] = types.YLeaf{"Address", neighbor.Address}
-    neighbor.EntityData.Leafs["detected-interface"] = types.YLeaf{"DetectedInterface", neighbor.DetectedInterface}
-    neighbor.EntityData.Leafs["neighbor-status"] = types.YLeaf{"NeighborStatus", neighbor.NeighborStatus}
-    neighbor.EntityData.Leafs["refresh-reduction"] = types.YLeaf{"RefreshReduction", neighbor.RefreshReduction}
-    return &(neighbor.EntityData)
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("address", types.YLeaf{"Address", state.Address})
+    state.EntityData.Leafs.Append("detected-interface", types.YLeaf{"DetectedInterface", state.DetectedInterface})
+    state.EntityData.Leafs.Append("neighbor-status", types.YLeaf{"NeighborStatus", state.NeighborStatus})
+    state.EntityData.Leafs.Append("refresh-reduction", types.YLeaf{"RefreshReduction", state.RefreshReduction})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
 }
 
-// Mpls_SignalingProtocols_RsvpTe_Neighbors_State_Neighbor_NeighborStatus represents Enumuration of possible RSVP neighbor states
-type Mpls_SignalingProtocols_RsvpTe_Neighbors_State_Neighbor_NeighborStatus string
+// Mpls_SignalingProtocols_RsvpTe_Neighbors_Neighbor_State_NeighborStatus represents Enumuration of possible RSVP neighbor states
+type Mpls_SignalingProtocols_RsvpTe_Neighbors_Neighbor_State_NeighborStatus string
 
 const (
     // RSVP hello messages are detected from the neighbor
-    Mpls_SignalingProtocols_RsvpTe_Neighbors_State_Neighbor_NeighborStatus_UP Mpls_SignalingProtocols_RsvpTe_Neighbors_State_Neighbor_NeighborStatus = "UP"
+    Mpls_SignalingProtocols_RsvpTe_Neighbors_Neighbor_State_NeighborStatus_UP Mpls_SignalingProtocols_RsvpTe_Neighbors_Neighbor_State_NeighborStatus = "UP"
 
     // RSVP neighbor not detected as up, due to a
     // communication failure or IGP notification
     // the neighbor is unavailable
-    Mpls_SignalingProtocols_RsvpTe_Neighbors_State_Neighbor_NeighborStatus_DOWN Mpls_SignalingProtocols_RsvpTe_Neighbors_State_Neighbor_NeighborStatus = "DOWN"
+    Mpls_SignalingProtocols_RsvpTe_Neighbors_Neighbor_State_NeighborStatus_DOWN Mpls_SignalingProtocols_RsvpTe_Neighbors_Neighbor_State_NeighborStatus = "DOWN"
 )
 
 // Mpls_SignalingProtocols_RsvpTe_Global
@@ -2059,12 +2441,15 @@ func (global *Mpls_SignalingProtocols_RsvpTe_Global) GetEntityData() *types.Comm
     global.EntityData.NamespaceTable = openconfig.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    global.EntityData.Children = make(map[string]types.YChild)
-    global.EntityData.Children["graceful-restart"] = types.YChild{"GracefulRestart", &global.GracefulRestart}
-    global.EntityData.Children["soft-preemption"] = types.YChild{"SoftPreemption", &global.SoftPreemption}
-    global.EntityData.Children["hellos"] = types.YChild{"Hellos", &global.Hellos}
-    global.EntityData.Children["state"] = types.YChild{"State", &global.State}
-    global.EntityData.Leafs = make(map[string]types.YLeaf)
+    global.EntityData.Children = types.NewOrderedMap()
+    global.EntityData.Children.Append("graceful-restart", types.YChild{"GracefulRestart", &global.GracefulRestart})
+    global.EntityData.Children.Append("soft-preemption", types.YChild{"SoftPreemption", &global.SoftPreemption})
+    global.EntityData.Children.Append("hellos", types.YChild{"Hellos", &global.Hellos})
+    global.EntityData.Children.Append("state", types.YChild{"State", &global.State})
+    global.EntityData.Leafs = types.NewOrderedMap()
+
+    global.EntityData.YListKeys = []string {}
+
     return &(global.EntityData)
 }
 
@@ -2092,10 +2477,13 @@ func (gracefulRestart *Mpls_SignalingProtocols_RsvpTe_Global_GracefulRestart) Ge
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    gracefulRestart.EntityData.Children = make(map[string]types.YChild)
-    gracefulRestart.EntityData.Children["config"] = types.YChild{"Config", &gracefulRestart.Config}
-    gracefulRestart.EntityData.Children["state"] = types.YChild{"State", &gracefulRestart.State}
-    gracefulRestart.EntityData.Leafs = make(map[string]types.YLeaf)
+    gracefulRestart.EntityData.Children = types.NewOrderedMap()
+    gracefulRestart.EntityData.Children.Append("config", types.YChild{"Config", &gracefulRestart.Config})
+    gracefulRestart.EntityData.Children.Append("state", types.YChild{"State", &gracefulRestart.State})
+    gracefulRestart.EntityData.Leafs = types.NewOrderedMap()
+
+    gracefulRestart.EntityData.YListKeys = []string {}
+
     return &(gracefulRestart.EntityData)
 }
 
@@ -2129,11 +2517,14 @@ func (config *Mpls_SignalingProtocols_RsvpTe_Global_GracefulRestart_Config) GetE
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enable"] = types.YLeaf{"Enable", config.Enable}
-    config.EntityData.Leafs["restart-time"] = types.YLeaf{"RestartTime", config.RestartTime}
-    config.EntityData.Leafs["recovery-time"] = types.YLeaf{"RecoveryTime", config.RecoveryTime}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", config.Enable})
+    config.EntityData.Leafs.Append("restart-time", types.YLeaf{"RestartTime", config.RestartTime})
+    config.EntityData.Leafs.Append("recovery-time", types.YLeaf{"RecoveryTime", config.RecoveryTime})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2167,11 +2558,14 @@ func (state *Mpls_SignalingProtocols_RsvpTe_Global_GracefulRestart_State) GetEnt
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enable"] = types.YLeaf{"Enable", state.Enable}
-    state.EntityData.Leafs["restart-time"] = types.YLeaf{"RestartTime", state.RestartTime}
-    state.EntityData.Leafs["recovery-time"] = types.YLeaf{"RecoveryTime", state.RecoveryTime}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", state.Enable})
+    state.EntityData.Leafs.Append("restart-time", types.YLeaf{"RestartTime", state.RestartTime})
+    state.EntityData.Leafs.Append("recovery-time", types.YLeaf{"RecoveryTime", state.RecoveryTime})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2199,10 +2593,13 @@ func (softPreemption *Mpls_SignalingProtocols_RsvpTe_Global_SoftPreemption) GetE
     softPreemption.EntityData.NamespaceTable = openconfig.GetNamespaces()
     softPreemption.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    softPreemption.EntityData.Children = make(map[string]types.YChild)
-    softPreemption.EntityData.Children["config"] = types.YChild{"Config", &softPreemption.Config}
-    softPreemption.EntityData.Children["state"] = types.YChild{"State", &softPreemption.State}
-    softPreemption.EntityData.Leafs = make(map[string]types.YLeaf)
+    softPreemption.EntityData.Children = types.NewOrderedMap()
+    softPreemption.EntityData.Children.Append("config", types.YChild{"Config", &softPreemption.Config})
+    softPreemption.EntityData.Children.Append("state", types.YChild{"State", &softPreemption.State})
+    softPreemption.EntityData.Leafs = types.NewOrderedMap()
+
+    softPreemption.EntityData.YListKeys = []string {}
+
     return &(softPreemption.EntityData)
 }
 
@@ -2217,8 +2614,10 @@ type Mpls_SignalingProtocols_RsvpTe_Global_SoftPreemption_Config struct {
     // false.
     Enable interface{}
 
-    // Timeout value for soft preemption to revert to hard preemption. The type is
-    // interface{} with range: 0..65535. The default value is 0.
+    // Timeout value for soft preemption to revert to hard preemption. The default
+    // timeout for soft-preemption is 30 seconds - after which the local system
+    // reverts to hard pre-emption. The type is interface{} with range: 0..65535.
+    // The default value is 30.
     SoftPreemptionTimeout interface{}
 }
 
@@ -2232,10 +2631,13 @@ func (config *Mpls_SignalingProtocols_RsvpTe_Global_SoftPreemption_Config) GetEn
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enable"] = types.YLeaf{"Enable", config.Enable}
-    config.EntityData.Leafs["soft-preemption-timeout"] = types.YLeaf{"SoftPreemptionTimeout", config.SoftPreemptionTimeout}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", config.Enable})
+    config.EntityData.Leafs.Append("soft-preemption-timeout", types.YLeaf{"SoftPreemptionTimeout", config.SoftPreemptionTimeout})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2250,8 +2652,10 @@ type Mpls_SignalingProtocols_RsvpTe_Global_SoftPreemption_State struct {
     // false.
     Enable interface{}
 
-    // Timeout value for soft preemption to revert to hard preemption. The type is
-    // interface{} with range: 0..65535. The default value is 0.
+    // Timeout value for soft preemption to revert to hard preemption. The default
+    // timeout for soft-preemption is 30 seconds - after which the local system
+    // reverts to hard pre-emption. The type is interface{} with range: 0..65535.
+    // The default value is 30.
     SoftPreemptionTimeout interface{}
 }
 
@@ -2265,10 +2669,13 @@ func (state *Mpls_SignalingProtocols_RsvpTe_Global_SoftPreemption_State) GetEnti
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enable"] = types.YLeaf{"Enable", state.Enable}
-    state.EntityData.Leafs["soft-preemption-timeout"] = types.YLeaf{"SoftPreemptionTimeout", state.SoftPreemptionTimeout}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", state.Enable})
+    state.EntityData.Leafs.Append("soft-preemption-timeout", types.YLeaf{"SoftPreemptionTimeout", state.SoftPreemptionTimeout})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2295,10 +2702,13 @@ func (hellos *Mpls_SignalingProtocols_RsvpTe_Global_Hellos) GetEntityData() *typ
     hellos.EntityData.NamespaceTable = openconfig.GetNamespaces()
     hellos.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    hellos.EntityData.Children = make(map[string]types.YChild)
-    hellos.EntityData.Children["config"] = types.YChild{"Config", &hellos.Config}
-    hellos.EntityData.Children["state"] = types.YChild{"State", &hellos.State}
-    hellos.EntityData.Leafs = make(map[string]types.YLeaf)
+    hellos.EntityData.Children = types.NewOrderedMap()
+    hellos.EntityData.Children.Append("config", types.YChild{"Config", &hellos.Config})
+    hellos.EntityData.Children.Append("state", types.YChild{"State", &hellos.State})
+    hellos.EntityData.Leafs = types.NewOrderedMap()
+
+    hellos.EntityData.YListKeys = []string {}
+
     return &(hellos.EntityData)
 }
 
@@ -2329,10 +2739,13 @@ func (config *Mpls_SignalingProtocols_RsvpTe_Global_Hellos_Config) GetEntityData
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["hello-interval"] = types.YLeaf{"HelloInterval", config.HelloInterval}
-    config.EntityData.Leafs["refresh-reduction"] = types.YLeaf{"RefreshReduction", config.RefreshReduction}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", config.HelloInterval})
+    config.EntityData.Leafs.Append("refresh-reduction", types.YLeaf{"RefreshReduction", config.RefreshReduction})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2362,10 +2775,13 @@ func (state *Mpls_SignalingProtocols_RsvpTe_Global_Hellos_State) GetEntityData()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["hello-interval"] = types.YLeaf{"HelloInterval", state.HelloInterval}
-    state.EntityData.Leafs["refresh-reduction"] = types.YLeaf{"RefreshReduction", state.RefreshReduction}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", state.HelloInterval})
+    state.EntityData.Leafs.Append("refresh-reduction", types.YLeaf{"RefreshReduction", state.RefreshReduction})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2389,9 +2805,12 @@ func (state *Mpls_SignalingProtocols_RsvpTe_Global_State) GetEntityData() *types
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["counters"] = types.YChild{"Counters", &state.Counters}
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("counters", types.YChild{"Counters", &state.Counters})
+    state.EntityData.Leafs = types.NewOrderedMap()
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2494,29 +2913,32 @@ func (counters *Mpls_SignalingProtocols_RsvpTe_Global_State_Counters) GetEntityD
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    counters.EntityData.Children = make(map[string]types.YChild)
-    counters.EntityData.Leafs = make(map[string]types.YLeaf)
-    counters.EntityData.Leafs["path-timeouts"] = types.YLeaf{"PathTimeouts", counters.PathTimeouts}
-    counters.EntityData.Leafs["reservation-timeouts"] = types.YLeaf{"ReservationTimeouts", counters.ReservationTimeouts}
-    counters.EntityData.Leafs["rate-limited-messages"] = types.YLeaf{"RateLimitedMessages", counters.RateLimitedMessages}
-    counters.EntityData.Leafs["in-path-messages"] = types.YLeaf{"InPathMessages", counters.InPathMessages}
-    counters.EntityData.Leafs["in-path-error-messages"] = types.YLeaf{"InPathErrorMessages", counters.InPathErrorMessages}
-    counters.EntityData.Leafs["in-path-tear-messages"] = types.YLeaf{"InPathTearMessages", counters.InPathTearMessages}
-    counters.EntityData.Leafs["in-reservation-messages"] = types.YLeaf{"InReservationMessages", counters.InReservationMessages}
-    counters.EntityData.Leafs["in-reservation-error-messages"] = types.YLeaf{"InReservationErrorMessages", counters.InReservationErrorMessages}
-    counters.EntityData.Leafs["in-reservation-tear-messages"] = types.YLeaf{"InReservationTearMessages", counters.InReservationTearMessages}
-    counters.EntityData.Leafs["in-hello-messages"] = types.YLeaf{"InHelloMessages", counters.InHelloMessages}
-    counters.EntityData.Leafs["in-srefresh-messages"] = types.YLeaf{"InSrefreshMessages", counters.InSrefreshMessages}
-    counters.EntityData.Leafs["in-ack-messages"] = types.YLeaf{"InAckMessages", counters.InAckMessages}
-    counters.EntityData.Leafs["out-path-messages"] = types.YLeaf{"OutPathMessages", counters.OutPathMessages}
-    counters.EntityData.Leafs["out-path-error-messages"] = types.YLeaf{"OutPathErrorMessages", counters.OutPathErrorMessages}
-    counters.EntityData.Leafs["out-path-tear-messages"] = types.YLeaf{"OutPathTearMessages", counters.OutPathTearMessages}
-    counters.EntityData.Leafs["out-reservation-messages"] = types.YLeaf{"OutReservationMessages", counters.OutReservationMessages}
-    counters.EntityData.Leafs["out-reservation-error-messages"] = types.YLeaf{"OutReservationErrorMessages", counters.OutReservationErrorMessages}
-    counters.EntityData.Leafs["out-reservation-tear-messages"] = types.YLeaf{"OutReservationTearMessages", counters.OutReservationTearMessages}
-    counters.EntityData.Leafs["out-hello-messages"] = types.YLeaf{"OutHelloMessages", counters.OutHelloMessages}
-    counters.EntityData.Leafs["out-srefresh-messages"] = types.YLeaf{"OutSrefreshMessages", counters.OutSrefreshMessages}
-    counters.EntityData.Leafs["out-ack-messages"] = types.YLeaf{"OutAckMessages", counters.OutAckMessages}
+    counters.EntityData.Children = types.NewOrderedMap()
+    counters.EntityData.Leafs = types.NewOrderedMap()
+    counters.EntityData.Leafs.Append("path-timeouts", types.YLeaf{"PathTimeouts", counters.PathTimeouts})
+    counters.EntityData.Leafs.Append("reservation-timeouts", types.YLeaf{"ReservationTimeouts", counters.ReservationTimeouts})
+    counters.EntityData.Leafs.Append("rate-limited-messages", types.YLeaf{"RateLimitedMessages", counters.RateLimitedMessages})
+    counters.EntityData.Leafs.Append("in-path-messages", types.YLeaf{"InPathMessages", counters.InPathMessages})
+    counters.EntityData.Leafs.Append("in-path-error-messages", types.YLeaf{"InPathErrorMessages", counters.InPathErrorMessages})
+    counters.EntityData.Leafs.Append("in-path-tear-messages", types.YLeaf{"InPathTearMessages", counters.InPathTearMessages})
+    counters.EntityData.Leafs.Append("in-reservation-messages", types.YLeaf{"InReservationMessages", counters.InReservationMessages})
+    counters.EntityData.Leafs.Append("in-reservation-error-messages", types.YLeaf{"InReservationErrorMessages", counters.InReservationErrorMessages})
+    counters.EntityData.Leafs.Append("in-reservation-tear-messages", types.YLeaf{"InReservationTearMessages", counters.InReservationTearMessages})
+    counters.EntityData.Leafs.Append("in-hello-messages", types.YLeaf{"InHelloMessages", counters.InHelloMessages})
+    counters.EntityData.Leafs.Append("in-srefresh-messages", types.YLeaf{"InSrefreshMessages", counters.InSrefreshMessages})
+    counters.EntityData.Leafs.Append("in-ack-messages", types.YLeaf{"InAckMessages", counters.InAckMessages})
+    counters.EntityData.Leafs.Append("out-path-messages", types.YLeaf{"OutPathMessages", counters.OutPathMessages})
+    counters.EntityData.Leafs.Append("out-path-error-messages", types.YLeaf{"OutPathErrorMessages", counters.OutPathErrorMessages})
+    counters.EntityData.Leafs.Append("out-path-tear-messages", types.YLeaf{"OutPathTearMessages", counters.OutPathTearMessages})
+    counters.EntityData.Leafs.Append("out-reservation-messages", types.YLeaf{"OutReservationMessages", counters.OutReservationMessages})
+    counters.EntityData.Leafs.Append("out-reservation-error-messages", types.YLeaf{"OutReservationErrorMessages", counters.OutReservationErrorMessages})
+    counters.EntityData.Leafs.Append("out-reservation-tear-messages", types.YLeaf{"OutReservationTearMessages", counters.OutReservationTearMessages})
+    counters.EntityData.Leafs.Append("out-hello-messages", types.YLeaf{"OutHelloMessages", counters.OutHelloMessages})
+    counters.EntityData.Leafs.Append("out-srefresh-messages", types.YLeaf{"OutSrefreshMessages", counters.OutSrefreshMessages})
+    counters.EntityData.Leafs.Append("out-ack-messages", types.YLeaf{"OutAckMessages", counters.OutAckMessages})
+
+    counters.EntityData.YListKeys = []string {}
+
     return &(counters.EntityData)
 }
 
@@ -2527,8 +2949,8 @@ type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes struct {
     YFilter yfilter.YFilter
 
     // list of per-interface RSVP configurations. The type is slice of
-    // Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_.
-    Interface_ []Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface
+    // Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface.
+    Interface []*Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface
 }
 
 func (interfaceAttributes *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes) GetEntityData() *types.CommonEntityData {
@@ -2541,12 +2963,15 @@ func (interfaceAttributes *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes) G
     interfaceAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    interfaceAttributes.EntityData.Children = make(map[string]types.YChild)
-    interfaceAttributes.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaceAttributes.Interface_ {
-        interfaceAttributes.EntityData.Children[types.GetSegmentPath(&interfaceAttributes.Interface_[i])] = types.YChild{"Interface_", &interfaceAttributes.Interface_[i]}
+    interfaceAttributes.EntityData.Children = types.NewOrderedMap()
+    interfaceAttributes.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaceAttributes.Interface {
+        interfaceAttributes.EntityData.Children.Append(types.GetSegmentPath(interfaceAttributes.Interface[i]), types.YChild{"Interface", interfaceAttributes.Interface[i]})
     }
-    interfaceAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceAttributes.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceAttributes.EntityData.YListKeys = []string {}
+
     return &(interfaceAttributes.EntityData)
 }
 
@@ -2556,16 +2981,22 @@ type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. references a configured IP interface. The type is
+    // This attribute is a key. reference to the interface-id data. The type is
     // string. Refers to
-    // mpls.Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Config_InterfaceName
-    InterfaceName interface{}
+    // mpls.Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Config_InterfaceId
+    InterfaceId interface{}
 
     // Configuration of per-interface RSVP parameters.
     Config Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Config
 
     // Per-interface RSVP protocol and state information.
     State Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_State
+
+    // Reference to an interface or subinterface.
+    InterfaceRef Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_InterfaceRef
+
+    // Enclosing container for bandwidth reservation.
+    BandwidthReservations Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations
 
     // Top level container for RSVP hello parameters.
     Hellos Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Hellos
@@ -2586,20 +3017,25 @@ func (self *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface) GetEnt
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "openconfig"
     self.EntityData.ParentYangName = "interface-attributes"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceId, "interface-id")
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["config"] = types.YChild{"Config", &self.Config}
-    self.EntityData.Children["state"] = types.YChild{"State", &self.State}
-    self.EntityData.Children["hellos"] = types.YChild{"Hellos", &self.Hellos}
-    self.EntityData.Children["authentication"] = types.YChild{"Authentication", &self.Authentication}
-    self.EntityData.Children["subscription"] = types.YChild{"Subscription", &self.Subscription}
-    self.EntityData.Children["protection"] = types.YChild{"Protection", &self.Protection}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("config", types.YChild{"Config", &self.Config})
+    self.EntityData.Children.Append("state", types.YChild{"State", &self.State})
+    self.EntityData.Children.Append("interface-ref", types.YChild{"InterfaceRef", &self.InterfaceRef})
+    self.EntityData.Children.Append("bandwidth-reservations", types.YChild{"BandwidthReservations", &self.BandwidthReservations})
+    self.EntityData.Children.Append("hellos", types.YChild{"Hellos", &self.Hellos})
+    self.EntityData.Children.Append("authentication", types.YChild{"Authentication", &self.Authentication})
+    self.EntityData.Children.Append("subscription", types.YChild{"Subscription", &self.Subscription})
+    self.EntityData.Children.Append("protection", types.YChild{"Protection", &self.Protection})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-id", types.YLeaf{"InterfaceId", self.InterfaceId})
+
+    self.EntityData.YListKeys = []string {"InterfaceId"}
+
     return &(self.EntityData)
 }
 
@@ -2609,9 +3045,8 @@ type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Config struct 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Name of configured IP interface. The type is string. Refers to
-    // interfaces.Interfaces_Interface_Name
-    InterfaceName interface{}
+    // Identifier for the interface. The type is string.
+    InterfaceId interface{}
 }
 
 func (config *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Config) GetEntityData() *types.CommonEntityData {
@@ -2624,9 +3059,12 @@ func (config *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Confi
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", config.InterfaceName}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("interface-id", types.YLeaf{"InterfaceId", config.InterfaceId})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2636,18 +3074,8 @@ type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Maximum bandwidth ever reserved. The type is interface{} with range:
-    // 0..18446744073709551615.
-    HighwaterMark interface{}
-
-    // Number of active RSVP reservations. The type is interface{} with range:
-    // 0..18446744073709551615.
-    ActiveReservationCount interface{}
-
-    // Available and reserved bandwidth by priority on the interface. The type is
-    // slice of
-    // Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_State_Bandwidth.
-    Bandwidth []Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_State_Bandwidth
+    // Identifier for the interface. The type is string.
+    InterfaceId interface{}
 
     // Interface specific RSVP statistics and counters.
     Counters Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_State_Counters
@@ -2663,54 +3091,14 @@ func (state *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_State)
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["bandwidth"] = types.YChild{"Bandwidth", nil}
-    for i := range state.Bandwidth {
-        state.EntityData.Children[types.GetSegmentPath(&state.Bandwidth[i])] = types.YChild{"Bandwidth", &state.Bandwidth[i]}
-    }
-    state.EntityData.Children["counters"] = types.YChild{"Counters", &state.Counters}
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["highwater-mark"] = types.YLeaf{"HighwaterMark", state.HighwaterMark}
-    state.EntityData.Leafs["active-reservation-count"] = types.YLeaf{"ActiveReservationCount", state.ActiveReservationCount}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("counters", types.YChild{"Counters", &state.Counters})
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("interface-id", types.YLeaf{"InterfaceId", state.InterfaceId})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
-}
-
-// Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_State_Bandwidth
-// Available and reserved bandwidth by priority on
-// the interface.
-type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_State_Bandwidth struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. RSVP priority level for LSPs traversing the
-    // interface. The type is interface{} with range: 0..7.
-    Priority interface{}
-
-    // Bandwidth currently available. The type is interface{} with range:
-    // 0..18446744073709551615.
-    AvailableBandwidth interface{}
-
-    // Bandwidth currently reserved. The type is interface{} with range:
-    // 0..18446744073709551615.
-    ReservedBandwidth interface{}
-}
-
-func (bandwidth *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_State_Bandwidth) GetEntityData() *types.CommonEntityData {
-    bandwidth.EntityData.YFilter = bandwidth.YFilter
-    bandwidth.EntityData.YangName = "bandwidth"
-    bandwidth.EntityData.BundleName = "openconfig"
-    bandwidth.EntityData.ParentYangName = "state"
-    bandwidth.EntityData.SegmentPath = "bandwidth" + "[priority='" + fmt.Sprintf("%v", bandwidth.Priority) + "']"
-    bandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    bandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    bandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    bandwidth.EntityData.Children = make(map[string]types.YChild)
-    bandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
-    bandwidth.EntityData.Leafs["priority"] = types.YLeaf{"Priority", bandwidth.Priority}
-    bandwidth.EntityData.Leafs["available-bandwidth"] = types.YLeaf{"AvailableBandwidth", bandwidth.AvailableBandwidth}
-    bandwidth.EntityData.Leafs["reserved-bandwidth"] = types.YLeaf{"ReservedBandwidth", bandwidth.ReservedBandwidth}
-    return &(bandwidth.EntityData)
 }
 
 // Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_State_Counters
@@ -2802,28 +3190,280 @@ func (counters *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Sta
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    counters.EntityData.Children = make(map[string]types.YChild)
-    counters.EntityData.Leafs = make(map[string]types.YLeaf)
-    counters.EntityData.Leafs["in-path-messages"] = types.YLeaf{"InPathMessages", counters.InPathMessages}
-    counters.EntityData.Leafs["in-path-error-messages"] = types.YLeaf{"InPathErrorMessages", counters.InPathErrorMessages}
-    counters.EntityData.Leafs["in-path-tear-messages"] = types.YLeaf{"InPathTearMessages", counters.InPathTearMessages}
-    counters.EntityData.Leafs["in-reservation-messages"] = types.YLeaf{"InReservationMessages", counters.InReservationMessages}
-    counters.EntityData.Leafs["in-reservation-error-messages"] = types.YLeaf{"InReservationErrorMessages", counters.InReservationErrorMessages}
-    counters.EntityData.Leafs["in-reservation-tear-messages"] = types.YLeaf{"InReservationTearMessages", counters.InReservationTearMessages}
-    counters.EntityData.Leafs["in-hello-messages"] = types.YLeaf{"InHelloMessages", counters.InHelloMessages}
-    counters.EntityData.Leafs["in-srefresh-messages"] = types.YLeaf{"InSrefreshMessages", counters.InSrefreshMessages}
-    counters.EntityData.Leafs["in-ack-messages"] = types.YLeaf{"InAckMessages", counters.InAckMessages}
-    counters.EntityData.Leafs["out-path-messages"] = types.YLeaf{"OutPathMessages", counters.OutPathMessages}
-    counters.EntityData.Leafs["out-path-error-messages"] = types.YLeaf{"OutPathErrorMessages", counters.OutPathErrorMessages}
-    counters.EntityData.Leafs["out-path-tear-messages"] = types.YLeaf{"OutPathTearMessages", counters.OutPathTearMessages}
-    counters.EntityData.Leafs["out-reservation-messages"] = types.YLeaf{"OutReservationMessages", counters.OutReservationMessages}
-    counters.EntityData.Leafs["out-reservation-error-messages"] = types.YLeaf{"OutReservationErrorMessages", counters.OutReservationErrorMessages}
-    counters.EntityData.Leafs["out-reservation-tear-messages"] = types.YLeaf{"OutReservationTearMessages", counters.OutReservationTearMessages}
-    counters.EntityData.Leafs["out-hello-messages"] = types.YLeaf{"OutHelloMessages", counters.OutHelloMessages}
-    counters.EntityData.Leafs["out-srefresh-messages"] = types.YLeaf{"OutSrefreshMessages", counters.OutSrefreshMessages}
-    counters.EntityData.Leafs["out-ack-messages"] = types.YLeaf{"OutAckMessages", counters.OutAckMessages}
+    counters.EntityData.Children = types.NewOrderedMap()
+    counters.EntityData.Leafs = types.NewOrderedMap()
+    counters.EntityData.Leafs.Append("in-path-messages", types.YLeaf{"InPathMessages", counters.InPathMessages})
+    counters.EntityData.Leafs.Append("in-path-error-messages", types.YLeaf{"InPathErrorMessages", counters.InPathErrorMessages})
+    counters.EntityData.Leafs.Append("in-path-tear-messages", types.YLeaf{"InPathTearMessages", counters.InPathTearMessages})
+    counters.EntityData.Leafs.Append("in-reservation-messages", types.YLeaf{"InReservationMessages", counters.InReservationMessages})
+    counters.EntityData.Leafs.Append("in-reservation-error-messages", types.YLeaf{"InReservationErrorMessages", counters.InReservationErrorMessages})
+    counters.EntityData.Leafs.Append("in-reservation-tear-messages", types.YLeaf{"InReservationTearMessages", counters.InReservationTearMessages})
+    counters.EntityData.Leafs.Append("in-hello-messages", types.YLeaf{"InHelloMessages", counters.InHelloMessages})
+    counters.EntityData.Leafs.Append("in-srefresh-messages", types.YLeaf{"InSrefreshMessages", counters.InSrefreshMessages})
+    counters.EntityData.Leafs.Append("in-ack-messages", types.YLeaf{"InAckMessages", counters.InAckMessages})
+    counters.EntityData.Leafs.Append("out-path-messages", types.YLeaf{"OutPathMessages", counters.OutPathMessages})
+    counters.EntityData.Leafs.Append("out-path-error-messages", types.YLeaf{"OutPathErrorMessages", counters.OutPathErrorMessages})
+    counters.EntityData.Leafs.Append("out-path-tear-messages", types.YLeaf{"OutPathTearMessages", counters.OutPathTearMessages})
+    counters.EntityData.Leafs.Append("out-reservation-messages", types.YLeaf{"OutReservationMessages", counters.OutReservationMessages})
+    counters.EntityData.Leafs.Append("out-reservation-error-messages", types.YLeaf{"OutReservationErrorMessages", counters.OutReservationErrorMessages})
+    counters.EntityData.Leafs.Append("out-reservation-tear-messages", types.YLeaf{"OutReservationTearMessages", counters.OutReservationTearMessages})
+    counters.EntityData.Leafs.Append("out-hello-messages", types.YLeaf{"OutHelloMessages", counters.OutHelloMessages})
+    counters.EntityData.Leafs.Append("out-srefresh-messages", types.YLeaf{"OutSrefreshMessages", counters.OutSrefreshMessages})
+    counters.EntityData.Leafs.Append("out-ack-messages", types.YLeaf{"OutAckMessages", counters.OutAckMessages})
+
+    counters.EntityData.YListKeys = []string {}
+
     return &(counters.EntityData)
 }
+
+// Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_InterfaceRef
+// Reference to an interface or subinterface
+type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_InterfaceRef struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configured reference to interface / subinterface.
+    Config Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_InterfaceRef_Config
+
+    // Operational state for interface-ref.
+    State Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_InterfaceRef_State
+}
+
+func (interfaceRef *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_InterfaceRef) GetEntityData() *types.CommonEntityData {
+    interfaceRef.EntityData.YFilter = interfaceRef.YFilter
+    interfaceRef.EntityData.YangName = "interface-ref"
+    interfaceRef.EntityData.BundleName = "openconfig"
+    interfaceRef.EntityData.ParentYangName = "interface"
+    interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    interfaceRef.EntityData.Children = types.NewOrderedMap()
+    interfaceRef.EntityData.Children.Append("config", types.YChild{"Config", &interfaceRef.Config})
+    interfaceRef.EntityData.Children.Append("state", types.YChild{"State", &interfaceRef.State})
+    interfaceRef.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceRef.EntityData.YListKeys = []string {}
+
+    return &(interfaceRef.EntityData)
+}
+
+// Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_InterfaceRef_Config
+// Configured reference to interface / subinterface
+type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_InterfaceRef_Config struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Reference to a base interface.  If a reference to a subinterface is
+    // required, this leaf must be specified to indicate the base interface. The
+    // type is string. Refers to interfaces.Interfaces_Interface_Name
+    Interface interface{}
+
+    // Reference to a subinterface -- this requires the base interface to be
+    // specified using the interface leaf in this container.  If only a reference
+    // to a base interface is requuired, this leaf should not be set. The type is
+    // string with range: 0..4294967295. Refers to
+    // interfaces.Interfaces_Interface_Subinterfaces_Subinterface_Index
+    Subinterface interface{}
+}
+
+func (config *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_InterfaceRef_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "interface-ref"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", config.Interface})
+    config.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", config.Subinterface})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_InterfaceRef_State
+// Operational state for interface-ref
+type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_InterfaceRef_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Reference to a base interface.  If a reference to a subinterface is
+    // required, this leaf must be specified to indicate the base interface. The
+    // type is string. Refers to interfaces.Interfaces_Interface_Name
+    Interface interface{}
+
+    // Reference to a subinterface -- this requires the base interface to be
+    // specified using the interface leaf in this container.  If only a reference
+    // to a base interface is requuired, this leaf should not be set. The type is
+    // string with range: 0..4294967295. Refers to
+    // interfaces.Interfaces_Interface_Subinterfaces_Subinterface_Index
+    Subinterface interface{}
+}
+
+func (state *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_InterfaceRef_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "interface-ref"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", state.Interface})
+    state.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", state.Subinterface})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
+// Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations
+// Enclosing container for bandwidth reservation
+type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Available and reserved bandwidth by priority on the interface. The type is
+    // slice of
+    // Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation.
+    BandwidthReservation []*Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation
+}
+
+func (bandwidthReservations *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations) GetEntityData() *types.CommonEntityData {
+    bandwidthReservations.EntityData.YFilter = bandwidthReservations.YFilter
+    bandwidthReservations.EntityData.YangName = "bandwidth-reservations"
+    bandwidthReservations.EntityData.BundleName = "openconfig"
+    bandwidthReservations.EntityData.ParentYangName = "interface"
+    bandwidthReservations.EntityData.SegmentPath = "bandwidth-reservations"
+    bandwidthReservations.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    bandwidthReservations.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    bandwidthReservations.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    bandwidthReservations.EntityData.Children = types.NewOrderedMap()
+    bandwidthReservations.EntityData.Children.Append("bandwidth-reservation", types.YChild{"BandwidthReservation", nil})
+    for i := range bandwidthReservations.BandwidthReservation {
+        bandwidthReservations.EntityData.Children.Append(types.GetSegmentPath(bandwidthReservations.BandwidthReservation[i]), types.YChild{"BandwidthReservation", bandwidthReservations.BandwidthReservation[i]})
+    }
+    bandwidthReservations.EntityData.Leafs = types.NewOrderedMap()
+
+    bandwidthReservations.EntityData.YListKeys = []string {}
+
+    return &(bandwidthReservations.EntityData)
+}
+
+// Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation
+// Available and reserved bandwidth by priority on
+// the interface.
+type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Reference to the RSVP priority level. The type is
+    // one of the following types: int with range: 0..7, or
+    // :go:struct:`NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority
+    // <ydk/models/network_instance/NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority>`.
+    Priority interface{}
+
+    // Operational state parameters relating to a bandwidth reservation at a
+    // certain priority.
+    State Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State
+}
+
+func (bandwidthReservation *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation) GetEntityData() *types.CommonEntityData {
+    bandwidthReservation.EntityData.YFilter = bandwidthReservation.YFilter
+    bandwidthReservation.EntityData.YangName = "bandwidth-reservation"
+    bandwidthReservation.EntityData.BundleName = "openconfig"
+    bandwidthReservation.EntityData.ParentYangName = "bandwidth-reservations"
+    bandwidthReservation.EntityData.SegmentPath = "bandwidth-reservation" + types.AddKeyToken(bandwidthReservation.Priority, "priority")
+    bandwidthReservation.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    bandwidthReservation.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    bandwidthReservation.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    bandwidthReservation.EntityData.Children = types.NewOrderedMap()
+    bandwidthReservation.EntityData.Children.Append("state", types.YChild{"State", &bandwidthReservation.State})
+    bandwidthReservation.EntityData.Leafs = types.NewOrderedMap()
+    bandwidthReservation.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", bandwidthReservation.Priority})
+
+    bandwidthReservation.EntityData.YListKeys = []string {"Priority"}
+
+    return &(bandwidthReservation.EntityData)
+}
+
+// Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State
+// Operational state parameters relating to a
+// bandwidth reservation at a certain priority
+type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // RSVP priority level for LSPs traversing the interface. The type is one of
+    // the following types: int with range: 0..7, or enumeration
+    // NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority.
+    Priority interface{}
+
+    // Bandwidth currently available with the priority level, or for the entire
+    // interface when the priority is set to ALL. The type is interface{} with
+    // range: 0..18446744073709551615.
+    AvailableBandwidth interface{}
+
+    // Bandwidth currently reserved within the priority level, or the sum of all
+    // priority levels when the keyword is set to ALL. The type is interface{}
+    // with range: 0..18446744073709551615.
+    ReservedBandwidth interface{}
+
+    // Number of active RSVP reservations in the associated priority, or the sum
+    // of all reservations when the priority level is set to ALL. The type is
+    // interface{} with range: 0..18446744073709551615.
+    ActiveReservationsCount interface{}
+
+    // Maximum bandwidth reserved on the interface within the priority, or across
+    // all priorities in the case that the priority level is set to ALL. The type
+    // is interface{} with range: 0..18446744073709551615.
+    HighwaterMark interface{}
+}
+
+func (state *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "bandwidth-reservation"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", state.Priority})
+    state.EntityData.Leafs.Append("available-bandwidth", types.YLeaf{"AvailableBandwidth", state.AvailableBandwidth})
+    state.EntityData.Leafs.Append("reserved-bandwidth", types.YLeaf{"ReservedBandwidth", state.ReservedBandwidth})
+    state.EntityData.Leafs.Append("active-reservations-count", types.YLeaf{"ActiveReservationsCount", state.ActiveReservationsCount})
+    state.EntityData.Leafs.Append("highwater-mark", types.YLeaf{"HighwaterMark", state.HighwaterMark})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
+// Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority represents RSVP priority level for LSPs traversing the interface
+type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority string
+
+const (
+    // The ALL keyword represents the overall
+    // state of the interface - i.e., the union
+    // of all of the priority levels
+    Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority_ALL Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority = "ALL"
+)
 
 // Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Hellos
 // Top level container for RSVP hello parameters
@@ -2848,10 +3488,13 @@ func (hellos *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Hello
     hellos.EntityData.NamespaceTable = openconfig.GetNamespaces()
     hellos.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    hellos.EntityData.Children = make(map[string]types.YChild)
-    hellos.EntityData.Children["config"] = types.YChild{"Config", &hellos.Config}
-    hellos.EntityData.Children["state"] = types.YChild{"State", &hellos.State}
-    hellos.EntityData.Leafs = make(map[string]types.YLeaf)
+    hellos.EntityData.Children = types.NewOrderedMap()
+    hellos.EntityData.Children.Append("config", types.YChild{"Config", &hellos.Config})
+    hellos.EntityData.Children.Append("state", types.YChild{"State", &hellos.State})
+    hellos.EntityData.Leafs = types.NewOrderedMap()
+
+    hellos.EntityData.YListKeys = []string {}
+
     return &(hellos.EntityData)
 }
 
@@ -2882,10 +3525,13 @@ func (config *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Hello
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["hello-interval"] = types.YLeaf{"HelloInterval", config.HelloInterval}
-    config.EntityData.Leafs["refresh-reduction"] = types.YLeaf{"RefreshReduction", config.RefreshReduction}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", config.HelloInterval})
+    config.EntityData.Leafs.Append("refresh-reduction", types.YLeaf{"RefreshReduction", config.RefreshReduction})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2915,10 +3561,13 @@ func (state *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Hellos
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["hello-interval"] = types.YLeaf{"HelloInterval", state.HelloInterval}
-    state.EntityData.Leafs["refresh-reduction"] = types.YLeaf{"RefreshReduction", state.RefreshReduction}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", state.HelloInterval})
+    state.EntityData.Leafs.Append("refresh-reduction", types.YLeaf{"RefreshReduction", state.RefreshReduction})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2946,10 +3595,13 @@ func (authentication *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interfa
     authentication.EntityData.NamespaceTable = openconfig.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    authentication.EntityData.Children = make(map[string]types.YChild)
-    authentication.EntityData.Children["config"] = types.YChild{"Config", &authentication.Config}
-    authentication.EntityData.Children["state"] = types.YChild{"State", &authentication.State}
-    authentication.EntityData.Leafs = make(map[string]types.YLeaf)
+    authentication.EntityData.Children = types.NewOrderedMap()
+    authentication.EntityData.Children.Append("config", types.YChild{"Config", &authentication.Config})
+    authentication.EntityData.Children.Append("state", types.YChild{"State", &authentication.State})
+    authentication.EntityData.Leafs = types.NewOrderedMap()
+
+    authentication.EntityData.YListKeys = []string {}
+
     return &(authentication.EntityData)
 }
 
@@ -2979,10 +3631,13 @@ func (config *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Authe
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enable"] = types.YLeaf{"Enable", config.Enable}
-    config.EntityData.Leafs["authentication-key"] = types.YLeaf{"AuthenticationKey", config.AuthenticationKey}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", config.Enable})
+    config.EntityData.Leafs.Append("authentication-key", types.YLeaf{"AuthenticationKey", config.AuthenticationKey})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3012,10 +3667,13 @@ func (state *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Authen
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enable"] = types.YLeaf{"Enable", state.Enable}
-    state.EntityData.Leafs["authentication-key"] = types.YLeaf{"AuthenticationKey", state.AuthenticationKey}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", state.Enable})
+    state.EntityData.Leafs.Append("authentication-key", types.YLeaf{"AuthenticationKey", state.AuthenticationKey})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -3043,10 +3701,13 @@ func (subscription *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface
     subscription.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subscription.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    subscription.EntityData.Children = make(map[string]types.YChild)
-    subscription.EntityData.Children["config"] = types.YChild{"Config", &subscription.Config}
-    subscription.EntityData.Children["state"] = types.YChild{"State", &subscription.State}
-    subscription.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscription.EntityData.Children = types.NewOrderedMap()
+    subscription.EntityData.Children.Append("config", types.YChild{"Config", &subscription.Config})
+    subscription.EntityData.Children.Append("state", types.YChild{"State", &subscription.State})
+    subscription.EntityData.Leafs = types.NewOrderedMap()
+
+    subscription.EntityData.YListKeys = []string {}
+
     return &(subscription.EntityData)
 }
 
@@ -3072,9 +3733,12 @@ func (config *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Subsc
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["subscription"] = types.YLeaf{"Subscription", config.Subscription}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("subscription", types.YLeaf{"Subscription", config.Subscription})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3088,6 +3752,12 @@ type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Subscription_S
     // percentage of the interface bandwidth that RSVP can reserve. The type is
     // interface{} with range: 0..100.
     Subscription interface{}
+
+    // The calculated absolute value of the bandwidth which is reservable to
+    // RSVP-TE on the interface prior to any adjustments that may be made from
+    // external sources. The type is interface{} with range:
+    // 0..18446744073709551615. Units are kbps.
+    CalculatedAbsoluteSubscriptionBw interface{}
 }
 
 func (state *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Subscription_State) GetEntityData() *types.CommonEntityData {
@@ -3100,9 +3770,13 @@ func (state *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Subscr
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["subscription"] = types.YLeaf{"Subscription", state.Subscription}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("subscription", types.YLeaf{"Subscription", state.Subscription})
+    state.EntityData.Leafs.Append("calculated-absolute-subscription-bw", types.YLeaf{"CalculatedAbsoluteSubscriptionBw", state.CalculatedAbsoluteSubscriptionBw})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -3129,10 +3803,13 @@ func (protection *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_P
     protection.EntityData.NamespaceTable = openconfig.GetNamespaces()
     protection.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    protection.EntityData.Children = make(map[string]types.YChild)
-    protection.EntityData.Children["config"] = types.YChild{"Config", &protection.Config}
-    protection.EntityData.Children["state"] = types.YChild{"State", &protection.State}
-    protection.EntityData.Leafs = make(map[string]types.YLeaf)
+    protection.EntityData.Children = types.NewOrderedMap()
+    protection.EntityData.Children.Append("config", types.YChild{"Config", &protection.Config})
+    protection.EntityData.Children.Append("state", types.YChild{"State", &protection.State})
+    protection.EntityData.Leafs = types.NewOrderedMap()
+
+    protection.EntityData.YListKeys = []string {}
+
     return &(protection.EntityData)
 }
 
@@ -3144,8 +3821,8 @@ type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Protection_Con
 
     // Style of mpls frr protection desired: link, link-node, or unprotected. The
     // type is one of the following:
-    // UnprotectedLinkProtectionRequestedLinkNodeProtectionRequested. The default
-    // value is mplst:link-node-protection-requested.
+    // LINKPROTECTIONREQUIREDLINKNODEPROTECTIONREQUESTEDUNPROTECTED. The default
+    // value is oc-mplst:LINK_NODE_PROTECTION_REQUESTED.
     LinkProtectionStyleRequested interface{}
 
     // interval between periodic optimization of the bypass LSPs. The type is
@@ -3163,10 +3840,13 @@ func (config *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Prote
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["link-protection-style-requested"] = types.YLeaf{"LinkProtectionStyleRequested", config.LinkProtectionStyleRequested}
-    config.EntityData.Leafs["bypass-optimize-interval"] = types.YLeaf{"BypassOptimizeInterval", config.BypassOptimizeInterval}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("link-protection-style-requested", types.YLeaf{"LinkProtectionStyleRequested", config.LinkProtectionStyleRequested})
+    config.EntityData.Leafs.Append("bypass-optimize-interval", types.YLeaf{"BypassOptimizeInterval", config.BypassOptimizeInterval})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3178,8 +3858,8 @@ type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Protection_Sta
 
     // Style of mpls frr protection desired: link, link-node, or unprotected. The
     // type is one of the following:
-    // UnprotectedLinkProtectionRequestedLinkNodeProtectionRequested. The default
-    // value is mplst:link-node-protection-requested.
+    // LINKPROTECTIONREQUIREDLINKNODEPROTECTIONREQUESTEDUNPROTECTED. The default
+    // value is oc-mplst:LINK_NODE_PROTECTION_REQUESTED.
     LinkProtectionStyleRequested interface{}
 
     // interval between periodic optimization of the bypass LSPs. The type is
@@ -3197,420 +3877,21 @@ func (state *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Protec
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["link-protection-style-requested"] = types.YLeaf{"LinkProtectionStyleRequested", state.LinkProtectionStyleRequested}
-    state.EntityData.Leafs["bypass-optimize-interval"] = types.YLeaf{"BypassOptimizeInterval", state.BypassOptimizeInterval}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("link-protection-style-requested", types.YLeaf{"LinkProtectionStyleRequested", state.LinkProtectionStyleRequested})
+    state.EntityData.Leafs.Append("bypass-optimize-interval", types.YLeaf{"BypassOptimizeInterval", state.BypassOptimizeInterval})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
-
-// Mpls_SignalingProtocols_SegmentRouting
-// SR global signaling config
-type Mpls_SignalingProtocols_SegmentRouting struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // List of Segment Routing Global Block (SRGB) entries. These label blocks are
-    // reserved to be allocated as domain-wide entries. The type is slice of
-    // Mpls_SignalingProtocols_SegmentRouting_Srgb.
-    Srgb []Mpls_SignalingProtocols_SegmentRouting_Srgb
-
-    // List of interfaces with associated segment routing configuration. The type
-    // is slice of Mpls_SignalingProtocols_SegmentRouting_Interfaces.
-    Interfaces []Mpls_SignalingProtocols_SegmentRouting_Interfaces
-}
-
-func (segmentRouting *Mpls_SignalingProtocols_SegmentRouting) GetEntityData() *types.CommonEntityData {
-    segmentRouting.EntityData.YFilter = segmentRouting.YFilter
-    segmentRouting.EntityData.YangName = "segment-routing"
-    segmentRouting.EntityData.BundleName = "openconfig"
-    segmentRouting.EntityData.ParentYangName = "signaling-protocols"
-    segmentRouting.EntityData.SegmentPath = "segment-routing"
-    segmentRouting.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    segmentRouting.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    segmentRouting.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    segmentRouting.EntityData.Children = make(map[string]types.YChild)
-    segmentRouting.EntityData.Children["srgb"] = types.YChild{"Srgb", nil}
-    for i := range segmentRouting.Srgb {
-        segmentRouting.EntityData.Children[types.GetSegmentPath(&segmentRouting.Srgb[i])] = types.YChild{"Srgb", &segmentRouting.Srgb[i]}
-    }
-    segmentRouting.EntityData.Children["interfaces"] = types.YChild{"Interfaces", nil}
-    for i := range segmentRouting.Interfaces {
-        segmentRouting.EntityData.Children[types.GetSegmentPath(&segmentRouting.Interfaces[i])] = types.YChild{"Interfaces", &segmentRouting.Interfaces[i]}
-    }
-    segmentRouting.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(segmentRouting.EntityData)
-}
-
-// Mpls_SignalingProtocols_SegmentRouting_Srgb
-// List of Segment Routing Global Block (SRGB) entries. These
-// label blocks are reserved to be allocated as domain-wide
-// entries.
-type Mpls_SignalingProtocols_SegmentRouting_Srgb struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. Lower value in the block. The type is interface{}
-    // with range: 0..4294967295.
-    LowerBound interface{}
-
-    // This attribute is a key. Upper value in the block. The type is interface{}
-    // with range: 0..4294967295.
-    UpperBound interface{}
-
-    // Configuration parameters relating to the Segment Routing Global Block
-    // (SRGB).
-    Config Mpls_SignalingProtocols_SegmentRouting_Srgb_Config
-
-    // State parameters relating to the Segment Routing Global Block (SRGB).
-    State Mpls_SignalingProtocols_SegmentRouting_Srgb_State
-}
-
-func (srgb *Mpls_SignalingProtocols_SegmentRouting_Srgb) GetEntityData() *types.CommonEntityData {
-    srgb.EntityData.YFilter = srgb.YFilter
-    srgb.EntityData.YangName = "srgb"
-    srgb.EntityData.BundleName = "openconfig"
-    srgb.EntityData.ParentYangName = "segment-routing"
-    srgb.EntityData.SegmentPath = "srgb" + "[lower-bound='" + fmt.Sprintf("%v", srgb.LowerBound) + "']" + "[upper-bound='" + fmt.Sprintf("%v", srgb.UpperBound) + "']"
-    srgb.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    srgb.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    srgb.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    srgb.EntityData.Children = make(map[string]types.YChild)
-    srgb.EntityData.Children["config"] = types.YChild{"Config", &srgb.Config}
-    srgb.EntityData.Children["state"] = types.YChild{"State", &srgb.State}
-    srgb.EntityData.Leafs = make(map[string]types.YLeaf)
-    srgb.EntityData.Leafs["lower-bound"] = types.YLeaf{"LowerBound", srgb.LowerBound}
-    srgb.EntityData.Leafs["upper-bound"] = types.YLeaf{"UpperBound", srgb.UpperBound}
-    return &(srgb.EntityData)
-}
-
-// Mpls_SignalingProtocols_SegmentRouting_Srgb_Config
-// Configuration parameters relating to the Segment Routing
-// Global Block (SRGB)
-type Mpls_SignalingProtocols_SegmentRouting_Srgb_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Lower value in the block. The type is interface{} with range:
-    // 0..4294967295.
-    LowerBound interface{}
-
-    // Upper value in the block. The type is interface{} with range:
-    // 0..4294967295.
-    UpperBound interface{}
-}
-
-func (config *Mpls_SignalingProtocols_SegmentRouting_Srgb_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "srgb"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["lower-bound"] = types.YLeaf{"LowerBound", config.LowerBound}
-    config.EntityData.Leafs["upper-bound"] = types.YLeaf{"UpperBound", config.UpperBound}
-    return &(config.EntityData)
-}
-
-// Mpls_SignalingProtocols_SegmentRouting_Srgb_State
-// State parameters relating to the Segment Routing Global
-// Block (SRGB)
-type Mpls_SignalingProtocols_SegmentRouting_Srgb_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Lower value in the block. The type is interface{} with range:
-    // 0..4294967295.
-    LowerBound interface{}
-
-    // Upper value in the block. The type is interface{} with range:
-    // 0..4294967295.
-    UpperBound interface{}
-
-    // Number of indexes in the SRGB block. The type is interface{} with range:
-    // 0..4294967295.
-    Size interface{}
-
-    // Number of SRGB indexes that have not yet been allocated. The type is
-    // interface{} with range: 0..4294967295.
-    Free interface{}
-
-    // Number of SRGB indexes that are currently allocated. The type is
-    // interface{} with range: 0..4294967295.
-    Used interface{}
-}
-
-func (state *Mpls_SignalingProtocols_SegmentRouting_Srgb_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "srgb"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["lower-bound"] = types.YLeaf{"LowerBound", state.LowerBound}
-    state.EntityData.Leafs["upper-bound"] = types.YLeaf{"UpperBound", state.UpperBound}
-    state.EntityData.Leafs["size"] = types.YLeaf{"Size", state.Size}
-    state.EntityData.Leafs["free"] = types.YLeaf{"Free", state.Free}
-    state.EntityData.Leafs["used"] = types.YLeaf{"Used", state.Used}
-    return &(state.EntityData)
-}
-
-// Mpls_SignalingProtocols_SegmentRouting_Interfaces
-// List of interfaces with associated segment routing
-// configuration
-type Mpls_SignalingProtocols_SegmentRouting_Interfaces struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. Reference to the interface for which segment
-    // routing configuration is to be applied. The type is string. Refers to
-    // interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
-
-    // Interface configuration parameters for Segment Routing relating to the
-    // specified interface.
-    Config Mpls_SignalingProtocols_SegmentRouting_Interfaces_Config
-
-    // State parameters for Segment Routing features relating to the specified
-    // interface.
-    State Mpls_SignalingProtocols_SegmentRouting_Interfaces_State
-
-    // Configuration for Adjacency SIDs that are related to the specified
-    // interface.
-    AdjacencySid Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid
-}
-
-func (interfaces *Mpls_SignalingProtocols_SegmentRouting_Interfaces) GetEntityData() *types.CommonEntityData {
-    interfaces.EntityData.YFilter = interfaces.YFilter
-    interfaces.EntityData.YangName = "interfaces"
-    interfaces.EntityData.BundleName = "openconfig"
-    interfaces.EntityData.ParentYangName = "segment-routing"
-    interfaces.EntityData.SegmentPath = "interfaces" + "[interface='" + fmt.Sprintf("%v", interfaces.Interface_) + "']"
-    interfaces.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    interfaces.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    interfaces.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["config"] = types.YChild{"Config", &interfaces.Config}
-    interfaces.EntityData.Children["state"] = types.YChild{"State", &interfaces.State}
-    interfaces.EntityData.Children["adjacency-sid"] = types.YChild{"AdjacencySid", &interfaces.AdjacencySid}
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaces.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", interfaces.Interface_}
-    return &(interfaces.EntityData)
-}
-
-// Mpls_SignalingProtocols_SegmentRouting_Interfaces_Config
-// Interface configuration parameters for Segment Routing
-// relating to the specified interface
-type Mpls_SignalingProtocols_SegmentRouting_Interfaces_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Reference to the interface for which segment routing configuration is to be
-    // applied. The type is string. Refers to interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
-}
-
-func (config *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "interfaces"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", config.Interface_}
-    return &(config.EntityData)
-}
-
-// Mpls_SignalingProtocols_SegmentRouting_Interfaces_State
-// State parameters for Segment Routing features relating
-// to the specified interface
-type Mpls_SignalingProtocols_SegmentRouting_Interfaces_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Reference to the interface for which segment routing configuration is to be
-    // applied. The type is string. Refers to interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
-}
-
-func (state *Mpls_SignalingProtocols_SegmentRouting_Interfaces_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "interfaces"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", state.Interface_}
-    return &(state.EntityData)
-}
-
-// Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid
-// Configuration for Adjacency SIDs that are related to
-// the specified interface
-type Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configuration parameters for the Adjacency-SIDs that are related to this
-    // interface.
-    Config Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_Config
-
-    // State parameters for the Adjacency-SIDs that are related to this interface.
-    State Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_State
-}
-
-func (adjacencySid *Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid) GetEntityData() *types.CommonEntityData {
-    adjacencySid.EntityData.YFilter = adjacencySid.YFilter
-    adjacencySid.EntityData.YangName = "adjacency-sid"
-    adjacencySid.EntityData.BundleName = "openconfig"
-    adjacencySid.EntityData.ParentYangName = "interfaces"
-    adjacencySid.EntityData.SegmentPath = "adjacency-sid"
-    adjacencySid.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    adjacencySid.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    adjacencySid.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    adjacencySid.EntityData.Children = make(map[string]types.YChild)
-    adjacencySid.EntityData.Children["config"] = types.YChild{"Config", &adjacencySid.Config}
-    adjacencySid.EntityData.Children["state"] = types.YChild{"State", &adjacencySid.State}
-    adjacencySid.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(adjacencySid.EntityData)
-}
-
-// Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_Config
-// Configuration parameters for the Adjacency-SIDs
-// that are related to this interface
-type Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Specifies the type of adjacency SID which should be advertised for the
-    // specified entity. The type is slice of Advertise.
-    Advertise []interface{}
-
-    // Specifies the groups to which this interface belongs. Setting a value in
-    // this list results in an additional AdjSID being advertised, with the S-bit
-    // set to 1. The AdjSID is assumed to be protected. The type is slice of
-    // interface{} with range: 0..4294967295.
-    Groups []interface{}
-}
-
-func (config *Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "adjacency-sid"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["advertise"] = types.YLeaf{"Advertise", config.Advertise}
-    config.EntityData.Leafs["groups"] = types.YLeaf{"Groups", config.Groups}
-    return &(config.EntityData)
-}
-
-// Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_Config_Advertise represents advertised for the specified entity.
-type Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_Config_Advertise string
-
-const (
-    // Advertise an Adjacency-SID for this interface, which is
-    // eligible to be protected using a local protection
-    // mechanism on the local LSR. The local protection
-    // mechanism selected is dependent upon the configuration
-    // of RSVP-TE FRR or LFA elsewhere on the system
-    Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_Config_Advertise_PROTECTED Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_Config_Advertise = "PROTECTED"
-
-    // Advertise an Adajcency-SID for this interface, which is
-    // explicitly excluded from being protected by any local
-    // protection mechanism
-    Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_Config_Advertise_UNPROTECTED Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_Config_Advertise = "UNPROTECTED"
-)
-
-// Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_State
-// State parameters for the Adjacency-SIDs that are
-// related to this interface
-type Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Specifies the type of adjacency SID which should be advertised for the
-    // specified entity. The type is slice of Advertise.
-    Advertise []interface{}
-
-    // Specifies the groups to which this interface belongs. Setting a value in
-    // this list results in an additional AdjSID being advertised, with the S-bit
-    // set to 1. The AdjSID is assumed to be protected. The type is slice of
-    // interface{} with range: 0..4294967295.
-    Groups []interface{}
-}
-
-func (state *Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "adjacency-sid"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["advertise"] = types.YLeaf{"Advertise", state.Advertise}
-    state.EntityData.Leafs["groups"] = types.YLeaf{"Groups", state.Groups}
-    return &(state.EntityData)
-}
-
-// Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_State_Advertise represents advertised for the specified entity.
-type Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_State_Advertise string
-
-const (
-    // Advertise an Adjacency-SID for this interface, which is
-    // eligible to be protected using a local protection
-    // mechanism on the local LSR. The local protection
-    // mechanism selected is dependent upon the configuration
-    // of RSVP-TE FRR or LFA elsewhere on the system
-    Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_State_Advertise_PROTECTED Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_State_Advertise = "PROTECTED"
-
-    // Advertise an Adajcency-SID for this interface, which is
-    // explicitly excluded from being protected by any local
-    // protection mechanism
-    Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_State_Advertise_UNPROTECTED Mpls_SignalingProtocols_SegmentRouting_Interfaces_AdjacencySid_State_Advertise = "UNPROTECTED"
-)
 
 // Mpls_SignalingProtocols_Ldp
 // LDP global signaling configuration
 type Mpls_SignalingProtocols_Ldp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // LDP timers.
-    Timers Mpls_SignalingProtocols_Ldp_Timers
 }
 
 func (ldp *Mpls_SignalingProtocols_Ldp) GetEntityData() *types.CommonEntityData {
@@ -3623,32 +3904,720 @@ func (ldp *Mpls_SignalingProtocols_Ldp) GetEntityData() *types.CommonEntityData 
     ldp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ldp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ldp.EntityData.Children = make(map[string]types.YChild)
-    ldp.EntityData.Children["timers"] = types.YChild{"Timers", &ldp.Timers}
-    ldp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ldp.EntityData.Children = types.NewOrderedMap()
+    ldp.EntityData.Leafs = types.NewOrderedMap()
+
+    ldp.EntityData.YListKeys = []string {}
+
     return &(ldp.EntityData)
 }
 
-// Mpls_SignalingProtocols_Ldp_Timers
-// LDP timers
-type Mpls_SignalingProtocols_Ldp_Timers struct {
+// Mpls_SignalingProtocols_SegmentRouting
+// MPLS-specific Segment Routing configuration and operational state
+// parameters
+type Mpls_SignalingProtocols_SegmentRouting struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+
+    // Per-SID counters aggregated across all interfaces on the local system.
+    AggregateSidCounters Mpls_SignalingProtocols_SegmentRouting_AggregateSidCounters
+
+    // Interface related Segment Routing parameters.
+    Interfaces Mpls_SignalingProtocols_SegmentRouting_Interfaces
 }
 
-func (timers *Mpls_SignalingProtocols_Ldp_Timers) GetEntityData() *types.CommonEntityData {
-    timers.EntityData.YFilter = timers.YFilter
-    timers.EntityData.YangName = "timers"
-    timers.EntityData.BundleName = "openconfig"
-    timers.EntityData.ParentYangName = "ldp"
-    timers.EntityData.SegmentPath = "timers"
-    timers.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    timers.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    timers.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (segmentRouting *Mpls_SignalingProtocols_SegmentRouting) GetEntityData() *types.CommonEntityData {
+    segmentRouting.EntityData.YFilter = segmentRouting.YFilter
+    segmentRouting.EntityData.YangName = "segment-routing"
+    segmentRouting.EntityData.BundleName = "openconfig"
+    segmentRouting.EntityData.ParentYangName = "signaling-protocols"
+    segmentRouting.EntityData.SegmentPath = "segment-routing"
+    segmentRouting.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    segmentRouting.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    segmentRouting.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    timers.EntityData.Children = make(map[string]types.YChild)
-    timers.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(timers.EntityData)
+    segmentRouting.EntityData.Children = types.NewOrderedMap()
+    segmentRouting.EntityData.Children.Append("aggregate-sid-counters", types.YChild{"AggregateSidCounters", &segmentRouting.AggregateSidCounters})
+    segmentRouting.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &segmentRouting.Interfaces})
+    segmentRouting.EntityData.Leafs = types.NewOrderedMap()
+
+    segmentRouting.EntityData.YListKeys = []string {}
+
+    return &(segmentRouting.EntityData)
+}
+
+// Mpls_SignalingProtocols_SegmentRouting_AggregateSidCounters
+// Per-SID counters aggregated across all interfaces on the local system
+type Mpls_SignalingProtocols_SegmentRouting_AggregateSidCounters struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Counters aggregated across all of the interfaces of the local system
+    // corresponding to traffic received or forwarded with a particular SID. The
+    // type is slice of
+    // Mpls_SignalingProtocols_SegmentRouting_AggregateSidCounters_AggregateSidCounter.
+    AggregateSidCounter []*Mpls_SignalingProtocols_SegmentRouting_AggregateSidCounters_AggregateSidCounter
+}
+
+func (aggregateSidCounters *Mpls_SignalingProtocols_SegmentRouting_AggregateSidCounters) GetEntityData() *types.CommonEntityData {
+    aggregateSidCounters.EntityData.YFilter = aggregateSidCounters.YFilter
+    aggregateSidCounters.EntityData.YangName = "aggregate-sid-counters"
+    aggregateSidCounters.EntityData.BundleName = "openconfig"
+    aggregateSidCounters.EntityData.ParentYangName = "segment-routing"
+    aggregateSidCounters.EntityData.SegmentPath = "aggregate-sid-counters"
+    aggregateSidCounters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    aggregateSidCounters.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    aggregateSidCounters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    aggregateSidCounters.EntityData.Children = types.NewOrderedMap()
+    aggregateSidCounters.EntityData.Children.Append("aggregate-sid-counter", types.YChild{"AggregateSidCounter", nil})
+    for i := range aggregateSidCounters.AggregateSidCounter {
+        aggregateSidCounters.EntityData.Children.Append(types.GetSegmentPath(aggregateSidCounters.AggregateSidCounter[i]), types.YChild{"AggregateSidCounter", aggregateSidCounters.AggregateSidCounter[i]})
+    }
+    aggregateSidCounters.EntityData.Leafs = types.NewOrderedMap()
+
+    aggregateSidCounters.EntityData.YListKeys = []string {}
+
+    return &(aggregateSidCounters.EntityData)
+}
+
+// Mpls_SignalingProtocols_SegmentRouting_AggregateSidCounters_AggregateSidCounter
+// Counters aggregated across all of the interfaces of the local
+// system corresponding to traffic received or forwarded with a
+// particular SID
+type Mpls_SignalingProtocols_SegmentRouting_AggregateSidCounters_AggregateSidCounter struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. The MPLS label representing the segment
+    // identifier. The type is one of the following types: int with range:
+    // 16..1048575, or :go:struct:`MplsLabel
+    // <ydk/models/segment_routing/MplsLabel>`.
+    MplsLabel interface{}
+
+    // State parameters for per-SID statistics.
+    State Mpls_SignalingProtocols_SegmentRouting_AggregateSidCounters_AggregateSidCounter_State
+}
+
+func (aggregateSidCounter *Mpls_SignalingProtocols_SegmentRouting_AggregateSidCounters_AggregateSidCounter) GetEntityData() *types.CommonEntityData {
+    aggregateSidCounter.EntityData.YFilter = aggregateSidCounter.YFilter
+    aggregateSidCounter.EntityData.YangName = "aggregate-sid-counter"
+    aggregateSidCounter.EntityData.BundleName = "openconfig"
+    aggregateSidCounter.EntityData.ParentYangName = "aggregate-sid-counters"
+    aggregateSidCounter.EntityData.SegmentPath = "aggregate-sid-counter" + types.AddKeyToken(aggregateSidCounter.MplsLabel, "mpls-label")
+    aggregateSidCounter.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    aggregateSidCounter.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    aggregateSidCounter.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    aggregateSidCounter.EntityData.Children = types.NewOrderedMap()
+    aggregateSidCounter.EntityData.Children.Append("state", types.YChild{"State", &aggregateSidCounter.State})
+    aggregateSidCounter.EntityData.Leafs = types.NewOrderedMap()
+    aggregateSidCounter.EntityData.Leafs.Append("mpls-label", types.YLeaf{"MplsLabel", aggregateSidCounter.MplsLabel})
+
+    aggregateSidCounter.EntityData.YListKeys = []string {"MplsLabel"}
+
+    return &(aggregateSidCounter.EntityData)
+}
+
+// Mpls_SignalingProtocols_SegmentRouting_AggregateSidCounters_AggregateSidCounter_State
+// State parameters for per-SID statistics
+type Mpls_SignalingProtocols_SegmentRouting_AggregateSidCounters_AggregateSidCounter_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The MPLS label used for the segment identifier. The type is one of the
+    // following types: int with range: 16..1048575, or enumeration MplsLabel.
+    MplsLabel interface{}
+
+    // A cumulative counter of the packets received within the context which have
+    // matched a label corresponding to an SR Segment Identifier. The type is
+    // interface{} with range: 0..18446744073709551615.
+    InPkts interface{}
+
+    // The cumulative counter of the total bytes received within the context which
+    // have matched a label corresponding to an SR Segment Identifier. The type is
+    // interface{} with range: 0..18446744073709551615.
+    InOctets interface{}
+
+    // A cumulative counter of the total number of packets transmitted by the
+    // local system within the context which have a label imposed that corresponds
+    // to an Segment Identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    OutPkts interface{}
+
+    // A cumulative counter of the total bytes transmitted by the local system
+    // within the context which have a label imported that corresponds to an SR
+    // Segment Identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    OutOctets interface{}
+}
+
+func (state *Mpls_SignalingProtocols_SegmentRouting_AggregateSidCounters_AggregateSidCounter_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "aggregate-sid-counter"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("mpls-label", types.YLeaf{"MplsLabel", state.MplsLabel})
+    state.EntityData.Leafs.Append("in-pkts", types.YLeaf{"InPkts", state.InPkts})
+    state.EntityData.Leafs.Append("in-octets", types.YLeaf{"InOctets", state.InOctets})
+    state.EntityData.Leafs.Append("out-pkts", types.YLeaf{"OutPkts", state.OutPkts})
+    state.EntityData.Leafs.Append("out-octets", types.YLeaf{"OutOctets", state.OutOctets})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
+// Mpls_SignalingProtocols_SegmentRouting_Interfaces
+// Interface related Segment Routing parameters.
+type Mpls_SignalingProtocols_SegmentRouting_Interfaces struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Parameters and MPLS-specific configuration relating to Segment Routing on
+    // an interface. The type is slice of
+    // Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface.
+    Interface []*Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface
+}
+
+func (interfaces *Mpls_SignalingProtocols_SegmentRouting_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "openconfig"
+    interfaces.EntityData.ParentYangName = "segment-routing"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
+    }
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
+    return &(interfaces.EntityData)
+}
+
+// Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface
+// Parameters and MPLS-specific configuration relating to Segment
+// Routing on an interface.
+type Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. A reference to the ID for the interface for which
+    // SR is configured. The type is string. Refers to
+    // mpls.Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_Config_InterfaceId
+    InterfaceId interface{}
+
+    // MPLS-specific Segment Routing configuration parameters related to an
+    // interface.
+    Config Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_Config
+
+    // MPLS-specific Segment Routing operational state parameters related to an
+    // interface.
+    State Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_State
+
+    // Per-SID statistics for MPLS.
+    SidCounters Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters
+
+    // Reference to an interface or subinterface.
+    InterfaceRef Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_InterfaceRef
+}
+
+func (self *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "openconfig"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceId, "interface-id")
+    self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    self.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("config", types.YChild{"Config", &self.Config})
+    self.EntityData.Children.Append("state", types.YChild{"State", &self.State})
+    self.EntityData.Children.Append("sid-counters", types.YChild{"SidCounters", &self.SidCounters})
+    self.EntityData.Children.Append("interface-ref", types.YChild{"InterfaceRef", &self.InterfaceRef})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-id", types.YLeaf{"InterfaceId", self.InterfaceId})
+
+    self.EntityData.YListKeys = []string {"InterfaceId"}
+
+    return &(self.EntityData)
+}
+
+// Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_Config
+// MPLS-specific Segment Routing configuration parameters
+// related to an interface.
+type Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_Config struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // A unique identifier for the interface. The type is string.
+    InterfaceId interface{}
+}
+
+func (config *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "interface"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("interface-id", types.YLeaf{"InterfaceId", config.InterfaceId})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_State
+// MPLS-specific Segment Routing operational state parameters
+// related to an interface.
+type Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // A unique identifier for the interface. The type is string.
+    InterfaceId interface{}
+
+    // A cumulative counter of the packets received within the context which have
+    // matched a label corresponding to an SR Segment Identifier. The type is
+    // interface{} with range: 0..18446744073709551615.
+    InPkts interface{}
+
+    // The cumulative counter of the total bytes received within the context which
+    // have matched a label corresponding to an SR Segment Identifier. The type is
+    // interface{} with range: 0..18446744073709551615.
+    InOctets interface{}
+
+    // A cumulative counter of the total number of packets transmitted by the
+    // local system within the context which have a label imposed that corresponds
+    // to an Segment Identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    OutPkts interface{}
+
+    // A cumulative counter of the total bytes transmitted by the local system
+    // within the context which have a label imported that corresponds to an SR
+    // Segment Identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    OutOctets interface{}
+}
+
+func (state *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "interface"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("interface-id", types.YLeaf{"InterfaceId", state.InterfaceId})
+    state.EntityData.Leafs.Append("in-pkts", types.YLeaf{"InPkts", state.InPkts})
+    state.EntityData.Leafs.Append("in-octets", types.YLeaf{"InOctets", state.InOctets})
+    state.EntityData.Leafs.Append("out-pkts", types.YLeaf{"OutPkts", state.OutPkts})
+    state.EntityData.Leafs.Append("out-octets", types.YLeaf{"OutOctets", state.OutOctets})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
+// Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters
+// Per-SID statistics for MPLS
+type Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Per segment identifier counters for the MPLS dataplane. The type is slice
+    // of
+    // Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter.
+    SidCounter []*Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter
+}
+
+func (sidCounters *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters) GetEntityData() *types.CommonEntityData {
+    sidCounters.EntityData.YFilter = sidCounters.YFilter
+    sidCounters.EntityData.YangName = "sid-counters"
+    sidCounters.EntityData.BundleName = "openconfig"
+    sidCounters.EntityData.ParentYangName = "interface"
+    sidCounters.EntityData.SegmentPath = "sid-counters"
+    sidCounters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    sidCounters.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    sidCounters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    sidCounters.EntityData.Children = types.NewOrderedMap()
+    sidCounters.EntityData.Children.Append("sid-counter", types.YChild{"SidCounter", nil})
+    for i := range sidCounters.SidCounter {
+        sidCounters.EntityData.Children.Append(types.GetSegmentPath(sidCounters.SidCounter[i]), types.YChild{"SidCounter", sidCounters.SidCounter[i]})
+    }
+    sidCounters.EntityData.Leafs = types.NewOrderedMap()
+
+    sidCounters.EntityData.YListKeys = []string {}
+
+    return &(sidCounters.EntityData)
+}
+
+// Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter
+// Per segment identifier counters for the MPLS dataplane.
+type Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. The MPLS label representing the segment
+    // identifier. The type is one of the following types: int with range:
+    // 16..1048575, or :go:struct:`MplsLabel
+    // <ydk/models/segment_routing/MplsLabel>`.
+    MplsLabel interface{}
+
+    // State parameters for per-SID statistics.
+    State Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_State
+
+    // Per-SID per-forwarding class counters for Segment Routing.
+    ForwardingClasses Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_ForwardingClasses
+}
+
+func (sidCounter *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter) GetEntityData() *types.CommonEntityData {
+    sidCounter.EntityData.YFilter = sidCounter.YFilter
+    sidCounter.EntityData.YangName = "sid-counter"
+    sidCounter.EntityData.BundleName = "openconfig"
+    sidCounter.EntityData.ParentYangName = "sid-counters"
+    sidCounter.EntityData.SegmentPath = "sid-counter" + types.AddKeyToken(sidCounter.MplsLabel, "mpls-label")
+    sidCounter.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    sidCounter.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    sidCounter.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    sidCounter.EntityData.Children = types.NewOrderedMap()
+    sidCounter.EntityData.Children.Append("state", types.YChild{"State", &sidCounter.State})
+    sidCounter.EntityData.Children.Append("forwarding-classes", types.YChild{"ForwardingClasses", &sidCounter.ForwardingClasses})
+    sidCounter.EntityData.Leafs = types.NewOrderedMap()
+    sidCounter.EntityData.Leafs.Append("mpls-label", types.YLeaf{"MplsLabel", sidCounter.MplsLabel})
+
+    sidCounter.EntityData.YListKeys = []string {"MplsLabel"}
+
+    return &(sidCounter.EntityData)
+}
+
+// Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_State
+// State parameters for per-SID statistics
+type Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The MPLS label used for the segment identifier. The type is one of the
+    // following types: int with range: 16..1048575, or enumeration MplsLabel.
+    MplsLabel interface{}
+
+    // A cumulative counter of the packets received within the context which have
+    // matched a label corresponding to an SR Segment Identifier. The type is
+    // interface{} with range: 0..18446744073709551615.
+    InPkts interface{}
+
+    // The cumulative counter of the total bytes received within the context which
+    // have matched a label corresponding to an SR Segment Identifier. The type is
+    // interface{} with range: 0..18446744073709551615.
+    InOctets interface{}
+
+    // A cumulative counter of the total number of packets transmitted by the
+    // local system within the context which have a label imposed that corresponds
+    // to an Segment Identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    OutPkts interface{}
+
+    // A cumulative counter of the total bytes transmitted by the local system
+    // within the context which have a label imported that corresponds to an SR
+    // Segment Identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    OutOctets interface{}
+}
+
+func (state *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "sid-counter"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("mpls-label", types.YLeaf{"MplsLabel", state.MplsLabel})
+    state.EntityData.Leafs.Append("in-pkts", types.YLeaf{"InPkts", state.InPkts})
+    state.EntityData.Leafs.Append("in-octets", types.YLeaf{"InOctets", state.InOctets})
+    state.EntityData.Leafs.Append("out-pkts", types.YLeaf{"OutPkts", state.OutPkts})
+    state.EntityData.Leafs.Append("out-octets", types.YLeaf{"OutOctets", state.OutOctets})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
+// Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_ForwardingClasses
+// Per-SID per-forwarding class counters for Segment Routing.
+type Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_ForwardingClasses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // SID entries for the forwarding class associated with the referenced MPLS
+    // EXP. The type is slice of
+    // Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_ForwardingClasses_ForwardingClass.
+    ForwardingClass []*Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_ForwardingClasses_ForwardingClass
+}
+
+func (forwardingClasses *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_ForwardingClasses) GetEntityData() *types.CommonEntityData {
+    forwardingClasses.EntityData.YFilter = forwardingClasses.YFilter
+    forwardingClasses.EntityData.YangName = "forwarding-classes"
+    forwardingClasses.EntityData.BundleName = "openconfig"
+    forwardingClasses.EntityData.ParentYangName = "sid-counter"
+    forwardingClasses.EntityData.SegmentPath = "forwarding-classes"
+    forwardingClasses.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    forwardingClasses.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    forwardingClasses.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    forwardingClasses.EntityData.Children = types.NewOrderedMap()
+    forwardingClasses.EntityData.Children.Append("forwarding-class", types.YChild{"ForwardingClass", nil})
+    for i := range forwardingClasses.ForwardingClass {
+        forwardingClasses.EntityData.Children.Append(types.GetSegmentPath(forwardingClasses.ForwardingClass[i]), types.YChild{"ForwardingClass", forwardingClasses.ForwardingClass[i]})
+    }
+    forwardingClasses.EntityData.Leafs = types.NewOrderedMap()
+
+    forwardingClasses.EntityData.YListKeys = []string {}
+
+    return &(forwardingClasses.EntityData)
+}
+
+// Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_ForwardingClasses_ForwardingClass
+// SID entries for the forwarding class associated with the
+// referenced MPLS EXP.
+type Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_ForwardingClasses_ForwardingClass struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Reference to the value of the EXP bits of the
+    // segment identifier. The type is string with range: 0..7. Refers to
+    // mpls.Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_ForwardingClasses_ForwardingClass_State_Exp
+    Exp interface{}
+
+    // Per-SID, per forwarding class counters for Segment Routing with the MPLS
+    // dataplane.
+    State Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_ForwardingClasses_ForwardingClass_State
+}
+
+func (forwardingClass *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_ForwardingClasses_ForwardingClass) GetEntityData() *types.CommonEntityData {
+    forwardingClass.EntityData.YFilter = forwardingClass.YFilter
+    forwardingClass.EntityData.YangName = "forwarding-class"
+    forwardingClass.EntityData.BundleName = "openconfig"
+    forwardingClass.EntityData.ParentYangName = "forwarding-classes"
+    forwardingClass.EntityData.SegmentPath = "forwarding-class" + types.AddKeyToken(forwardingClass.Exp, "exp")
+    forwardingClass.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    forwardingClass.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    forwardingClass.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    forwardingClass.EntityData.Children = types.NewOrderedMap()
+    forwardingClass.EntityData.Children.Append("state", types.YChild{"State", &forwardingClass.State})
+    forwardingClass.EntityData.Leafs = types.NewOrderedMap()
+    forwardingClass.EntityData.Leafs.Append("exp", types.YLeaf{"Exp", forwardingClass.Exp})
+
+    forwardingClass.EntityData.YListKeys = []string {"Exp"}
+
+    return &(forwardingClass.EntityData)
+}
+
+// Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_ForwardingClasses_ForwardingClass_State
+// Per-SID, per forwarding class counters for Segment Routing
+// with the MPLS dataplane
+type Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_ForwardingClasses_ForwardingClass_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The value of the MPLS EXP (experimental) or Traffic Class bits that the SID
+    // statistics relate to. Packets received with a MPLS label value equal to the
+    // SID's MPLS label and EXP bits equal to the this value should be counted
+    // towards the associated ingress statistics. Packets that are forwarded to
+    // the destination MPLS label corresponding to the SID should be counted
+    // towards this value. In the egress direction, where forwarding follows a SID
+    // value that requires PHP at the local node, packets should still be counted
+    // towards the egress counters. The type is interface{} with range: 0..7.
+    Exp interface{}
+
+    // A cumulative counter of the packets received within the context which have
+    // matched a label corresponding to an SR Segment Identifier. The type is
+    // interface{} with range: 0..18446744073709551615.
+    InPkts interface{}
+
+    // The cumulative counter of the total bytes received within the context which
+    // have matched a label corresponding to an SR Segment Identifier. The type is
+    // interface{} with range: 0..18446744073709551615.
+    InOctets interface{}
+
+    // A cumulative counter of the total number of packets transmitted by the
+    // local system within the context which have a label imposed that corresponds
+    // to an Segment Identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    OutPkts interface{}
+
+    // A cumulative counter of the total bytes transmitted by the local system
+    // within the context which have a label imported that corresponds to an SR
+    // Segment Identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    OutOctets interface{}
+}
+
+func (state *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_ForwardingClasses_ForwardingClass_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "forwarding-class"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("exp", types.YLeaf{"Exp", state.Exp})
+    state.EntityData.Leafs.Append("in-pkts", types.YLeaf{"InPkts", state.InPkts})
+    state.EntityData.Leafs.Append("in-octets", types.YLeaf{"InOctets", state.InOctets})
+    state.EntityData.Leafs.Append("out-pkts", types.YLeaf{"OutPkts", state.OutPkts})
+    state.EntityData.Leafs.Append("out-octets", types.YLeaf{"OutOctets", state.OutOctets})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
+// Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_InterfaceRef
+// Reference to an interface or subinterface
+type Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_InterfaceRef struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configured reference to interface / subinterface.
+    Config Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_InterfaceRef_Config
+
+    // Operational state for interface-ref.
+    State Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_InterfaceRef_State
+}
+
+func (interfaceRef *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_InterfaceRef) GetEntityData() *types.CommonEntityData {
+    interfaceRef.EntityData.YFilter = interfaceRef.YFilter
+    interfaceRef.EntityData.YangName = "interface-ref"
+    interfaceRef.EntityData.BundleName = "openconfig"
+    interfaceRef.EntityData.ParentYangName = "interface"
+    interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    interfaceRef.EntityData.Children = types.NewOrderedMap()
+    interfaceRef.EntityData.Children.Append("config", types.YChild{"Config", &interfaceRef.Config})
+    interfaceRef.EntityData.Children.Append("state", types.YChild{"State", &interfaceRef.State})
+    interfaceRef.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceRef.EntityData.YListKeys = []string {}
+
+    return &(interfaceRef.EntityData)
+}
+
+// Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_InterfaceRef_Config
+// Configured reference to interface / subinterface
+type Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_InterfaceRef_Config struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Reference to a base interface.  If a reference to a subinterface is
+    // required, this leaf must be specified to indicate the base interface. The
+    // type is string. Refers to interfaces.Interfaces_Interface_Name
+    Interface interface{}
+
+    // Reference to a subinterface -- this requires the base interface to be
+    // specified using the interface leaf in this container.  If only a reference
+    // to a base interface is requuired, this leaf should not be set. The type is
+    // string with range: 0..4294967295. Refers to
+    // interfaces.Interfaces_Interface_Subinterfaces_Subinterface_Index
+    Subinterface interface{}
+}
+
+func (config *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_InterfaceRef_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "interface-ref"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", config.Interface})
+    config.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", config.Subinterface})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_InterfaceRef_State
+// Operational state for interface-ref
+type Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_InterfaceRef_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Reference to a base interface.  If a reference to a subinterface is
+    // required, this leaf must be specified to indicate the base interface. The
+    // type is string. Refers to interfaces.Interfaces_Interface_Name
+    Interface interface{}
+
+    // Reference to a subinterface -- this requires the base interface to be
+    // specified using the interface leaf in this container.  If only a reference
+    // to a base interface is requuired, this leaf should not be set. The type is
+    // string with range: 0..4294967295. Refers to
+    // interfaces.Interfaces_Interface_Subinterfaces_Subinterface_Index
+    Subinterface interface{}
+}
+
+func (state *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_InterfaceRef_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "interface-ref"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", state.Interface})
+    state.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", state.Subinterface})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
 }
 
 // Mpls_Lsps
@@ -3679,11 +4648,14 @@ func (lsps *Mpls_Lsps) GetEntityData() *types.CommonEntityData {
     lsps.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lsps.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    lsps.EntityData.Children = make(map[string]types.YChild)
-    lsps.EntityData.Children["constrained-path"] = types.YChild{"ConstrainedPath", &lsps.ConstrainedPath}
-    lsps.EntityData.Children["unconstrained-path"] = types.YChild{"UnconstrainedPath", &lsps.UnconstrainedPath}
-    lsps.EntityData.Children["static-lsps"] = types.YChild{"StaticLsps", &lsps.StaticLsps}
-    lsps.EntityData.Leafs = make(map[string]types.YLeaf)
+    lsps.EntityData.Children = types.NewOrderedMap()
+    lsps.EntityData.Children.Append("constrained-path", types.YChild{"ConstrainedPath", &lsps.ConstrainedPath})
+    lsps.EntityData.Children.Append("unconstrained-path", types.YChild{"UnconstrainedPath", &lsps.UnconstrainedPath})
+    lsps.EntityData.Children.Append("static-lsps", types.YChild{"StaticLsps", &lsps.StaticLsps})
+    lsps.EntityData.Leafs = types.NewOrderedMap()
+
+    lsps.EntityData.YListKeys = []string {}
+
     return &(lsps.EntityData)
 }
 
@@ -3694,12 +4666,11 @@ type Mpls_Lsps_ConstrainedPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // A list of explicit paths. The type is slice of
-    // Mpls_Lsps_ConstrainedPath_NamedExplicitPaths.
-    NamedExplicitPaths []Mpls_Lsps_ConstrainedPath_NamedExplicitPaths
+    // Enclosing container for the named explicit paths.
+    NamedExplicitPaths Mpls_Lsps_ConstrainedPath_NamedExplicitPaths
 
-    // List of TE tunnels. The type is slice of Mpls_Lsps_ConstrainedPath_Tunnel.
-    Tunnel []Mpls_Lsps_ConstrainedPath_Tunnel
+    // Enclosing container for tunnels.
+    Tunnels Mpls_Lsps_ConstrainedPath_Tunnels
 }
 
 func (constrainedPath *Mpls_Lsps_ConstrainedPath) GetEntityData() *types.CommonEntityData {
@@ -3712,39 +4683,25 @@ func (constrainedPath *Mpls_Lsps_ConstrainedPath) GetEntityData() *types.CommonE
     constrainedPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     constrainedPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    constrainedPath.EntityData.Children = make(map[string]types.YChild)
-    constrainedPath.EntityData.Children["named-explicit-paths"] = types.YChild{"NamedExplicitPaths", nil}
-    for i := range constrainedPath.NamedExplicitPaths {
-        constrainedPath.EntityData.Children[types.GetSegmentPath(&constrainedPath.NamedExplicitPaths[i])] = types.YChild{"NamedExplicitPaths", &constrainedPath.NamedExplicitPaths[i]}
-    }
-    constrainedPath.EntityData.Children["tunnel"] = types.YChild{"Tunnel", nil}
-    for i := range constrainedPath.Tunnel {
-        constrainedPath.EntityData.Children[types.GetSegmentPath(&constrainedPath.Tunnel[i])] = types.YChild{"Tunnel", &constrainedPath.Tunnel[i]}
-    }
-    constrainedPath.EntityData.Leafs = make(map[string]types.YLeaf)
+    constrainedPath.EntityData.Children = types.NewOrderedMap()
+    constrainedPath.EntityData.Children.Append("named-explicit-paths", types.YChild{"NamedExplicitPaths", &constrainedPath.NamedExplicitPaths})
+    constrainedPath.EntityData.Children.Append("tunnels", types.YChild{"Tunnels", &constrainedPath.Tunnels})
+    constrainedPath.EntityData.Leafs = types.NewOrderedMap()
+
+    constrainedPath.EntityData.YListKeys = []string {}
+
     return &(constrainedPath.EntityData)
 }
 
 // Mpls_Lsps_ConstrainedPath_NamedExplicitPaths
-// A list of explicit paths
+// Enclosing container for the named explicit paths
 type Mpls_Lsps_ConstrainedPath_NamedExplicitPaths struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. A string name that uniquely identifies an explicit
-    // path. The type is string. Refers to
-    // mpls.Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_Config_Name
-    Name interface{}
-
-    // Configuration parameters relating to named explicit paths.
-    Config Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_Config
-
-    // Operational state parameters relating to the named explicit paths.
-    State Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_State
-
-    // List of explicit route objects. The type is slice of
-    // Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_ExplicitRouteObjects.
-    ExplicitRouteObjects []Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_ExplicitRouteObjects
+    // A list of explicit paths. The type is slice of
+    // Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath.
+    NamedExplicitPath []*Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath
 }
 
 func (namedExplicitPaths *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths) GetEntityData() *types.CommonEntityData {
@@ -3752,127 +4709,264 @@ func (namedExplicitPaths *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths) GetEntit
     namedExplicitPaths.EntityData.YangName = "named-explicit-paths"
     namedExplicitPaths.EntityData.BundleName = "openconfig"
     namedExplicitPaths.EntityData.ParentYangName = "constrained-path"
-    namedExplicitPaths.EntityData.SegmentPath = "named-explicit-paths" + "[name='" + fmt.Sprintf("%v", namedExplicitPaths.Name) + "']"
+    namedExplicitPaths.EntityData.SegmentPath = "named-explicit-paths"
     namedExplicitPaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     namedExplicitPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     namedExplicitPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    namedExplicitPaths.EntityData.Children = make(map[string]types.YChild)
-    namedExplicitPaths.EntityData.Children["config"] = types.YChild{"Config", &namedExplicitPaths.Config}
-    namedExplicitPaths.EntityData.Children["state"] = types.YChild{"State", &namedExplicitPaths.State}
-    namedExplicitPaths.EntityData.Children["explicit-route-objects"] = types.YChild{"ExplicitRouteObjects", nil}
-    for i := range namedExplicitPaths.ExplicitRouteObjects {
-        namedExplicitPaths.EntityData.Children[types.GetSegmentPath(&namedExplicitPaths.ExplicitRouteObjects[i])] = types.YChild{"ExplicitRouteObjects", &namedExplicitPaths.ExplicitRouteObjects[i]}
+    namedExplicitPaths.EntityData.Children = types.NewOrderedMap()
+    namedExplicitPaths.EntityData.Children.Append("named-explicit-path", types.YChild{"NamedExplicitPath", nil})
+    for i := range namedExplicitPaths.NamedExplicitPath {
+        namedExplicitPaths.EntityData.Children.Append(types.GetSegmentPath(namedExplicitPaths.NamedExplicitPath[i]), types.YChild{"NamedExplicitPath", namedExplicitPaths.NamedExplicitPath[i]})
     }
-    namedExplicitPaths.EntityData.Leafs = make(map[string]types.YLeaf)
-    namedExplicitPaths.EntityData.Leafs["name"] = types.YLeaf{"Name", namedExplicitPaths.Name}
+    namedExplicitPaths.EntityData.Leafs = types.NewOrderedMap()
+
+    namedExplicitPaths.EntityData.YListKeys = []string {}
+
     return &(namedExplicitPaths.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_Config
+// Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath
+// A list of explicit paths
+type Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. A string name that uniquely identifies an explicit
+    // path. The type is string. Refers to
+    // mpls.Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_Config_Name
+    Name interface{}
+
+    // Configuration parameters relating to named explicit paths.
+    Config Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_Config
+
+    // Operational state parameters relating to the named explicit paths.
+    State Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_State
+
+    // Enclosing container for EROs.
+    ExplicitRouteObjects Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects
+}
+
+func (namedExplicitPath *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath) GetEntityData() *types.CommonEntityData {
+    namedExplicitPath.EntityData.YFilter = namedExplicitPath.YFilter
+    namedExplicitPath.EntityData.YangName = "named-explicit-path"
+    namedExplicitPath.EntityData.BundleName = "openconfig"
+    namedExplicitPath.EntityData.ParentYangName = "named-explicit-paths"
+    namedExplicitPath.EntityData.SegmentPath = "named-explicit-path" + types.AddKeyToken(namedExplicitPath.Name, "name")
+    namedExplicitPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    namedExplicitPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    namedExplicitPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    namedExplicitPath.EntityData.Children = types.NewOrderedMap()
+    namedExplicitPath.EntityData.Children.Append("config", types.YChild{"Config", &namedExplicitPath.Config})
+    namedExplicitPath.EntityData.Children.Append("state", types.YChild{"State", &namedExplicitPath.State})
+    namedExplicitPath.EntityData.Children.Append("explicit-route-objects", types.YChild{"ExplicitRouteObjects", &namedExplicitPath.ExplicitRouteObjects})
+    namedExplicitPath.EntityData.Leafs = types.NewOrderedMap()
+    namedExplicitPath.EntityData.Leafs.Append("name", types.YLeaf{"Name", namedExplicitPath.Name})
+
+    namedExplicitPath.EntityData.YListKeys = []string {"Name"}
+
+    return &(namedExplicitPath.EntityData)
+}
+
+// Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_Config
 // Configuration parameters relating to named explicit
 // paths
-type Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_Config struct {
+type Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A string name that uniquely identifies an explicit path. The type is
     // string.
     Name interface{}
+
+    // The restrictions placed on the SIDs to be selected by the calculation
+    // method for the explicit path when it is instantiated for a SR-TE LSP. The
+    // type is SidSelectionMode. The default value is MIXED_MODE.
+    SidSelectionMode interface{}
+
+    // When this value is set to true, only SIDs that are protected are to be
+    // selected by the calculating method when the explicit path is instantiated
+    // by a SR-TE LSP. The type is bool. The default value is false.
+    SidProtectionRequired interface{}
 }
 
-func (config *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_Config) GetEntityData() *types.CommonEntityData {
+func (config *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "named-explicit-paths"
+    config.EntityData.ParentYangName = "named-explicit-path"
     config.EntityData.SegmentPath = "config"
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["name"] = types.YLeaf{"Name", config.Name}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("name", types.YLeaf{"Name", config.Name})
+    config.EntityData.Leafs.Append("sid-selection-mode", types.YLeaf{"SidSelectionMode", config.SidSelectionMode})
+    config.EntityData.Leafs.Append("sid-protection-required", types.YLeaf{"SidProtectionRequired", config.SidProtectionRequired})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_State
+// Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_Config_SidSelectionMode represents instantiated for a SR-TE LSP
+type Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_Config_SidSelectionMode string
+
+const (
+    // The SR-TE tunnel should only use adjacency SIDs
+    // to build the SID stack to be pushed for the LSP
+    Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_Config_SidSelectionMode_ADJ_SID_ONLY Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_Config_SidSelectionMode = "ADJ_SID_ONLY"
+
+    // The SR-TE tunnel can use a mix of adjacency
+    // and prefix SIDs to build the SID stack to be pushed
+    // to the LSP
+    Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_Config_SidSelectionMode_MIXED_MODE Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_Config_SidSelectionMode = "MIXED_MODE"
+)
+
+// Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_State
 // Operational state parameters relating to the named
 // explicit paths
-type Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_State struct {
+type Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A string name that uniquely identifies an explicit path. The type is
     // string.
     Name interface{}
+
+    // The restrictions placed on the SIDs to be selected by the calculation
+    // method for the explicit path when it is instantiated for a SR-TE LSP. The
+    // type is SidSelectionMode. The default value is MIXED_MODE.
+    SidSelectionMode interface{}
+
+    // When this value is set to true, only SIDs that are protected are to be
+    // selected by the calculating method when the explicit path is instantiated
+    // by a SR-TE LSP. The type is bool. The default value is false.
+    SidProtectionRequired interface{}
 }
 
-func (state *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_State) GetEntityData() *types.CommonEntityData {
+func (state *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "named-explicit-paths"
+    state.EntityData.ParentYangName = "named-explicit-path"
     state.EntityData.SegmentPath = "state"
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["name"] = types.YLeaf{"Name", state.Name}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("name", types.YLeaf{"Name", state.Name})
+    state.EntityData.Leafs.Append("sid-selection-mode", types.YLeaf{"SidSelectionMode", state.SidSelectionMode})
+    state.EntityData.Leafs.Append("sid-protection-required", types.YLeaf{"SidProtectionRequired", state.SidProtectionRequired})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_ExplicitRouteObjects
+// Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_State_SidSelectionMode represents instantiated for a SR-TE LSP
+type Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_State_SidSelectionMode string
+
+const (
+    // The SR-TE tunnel should only use adjacency SIDs
+    // to build the SID stack to be pushed for the LSP
+    Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_State_SidSelectionMode_ADJ_SID_ONLY Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_State_SidSelectionMode = "ADJ_SID_ONLY"
+
+    // The SR-TE tunnel can use a mix of adjacency
+    // and prefix SIDs to build the SID stack to be pushed
+    // to the LSP
+    Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_State_SidSelectionMode_MIXED_MODE Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_State_SidSelectionMode = "MIXED_MODE"
+)
+
+// Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects
+// Enclosing container for EROs
+type Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of explicit route objects. The type is slice of
+    // Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects_ExplicitRouteObject.
+    ExplicitRouteObject []*Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects_ExplicitRouteObject
+}
+
+func (explicitRouteObjects *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects) GetEntityData() *types.CommonEntityData {
+    explicitRouteObjects.EntityData.YFilter = explicitRouteObjects.YFilter
+    explicitRouteObjects.EntityData.YangName = "explicit-route-objects"
+    explicitRouteObjects.EntityData.BundleName = "openconfig"
+    explicitRouteObjects.EntityData.ParentYangName = "named-explicit-path"
+    explicitRouteObjects.EntityData.SegmentPath = "explicit-route-objects"
+    explicitRouteObjects.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    explicitRouteObjects.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    explicitRouteObjects.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    explicitRouteObjects.EntityData.Children = types.NewOrderedMap()
+    explicitRouteObjects.EntityData.Children.Append("explicit-route-object", types.YChild{"ExplicitRouteObject", nil})
+    for i := range explicitRouteObjects.ExplicitRouteObject {
+        explicitRouteObjects.EntityData.Children.Append(types.GetSegmentPath(explicitRouteObjects.ExplicitRouteObject[i]), types.YChild{"ExplicitRouteObject", explicitRouteObjects.ExplicitRouteObject[i]})
+    }
+    explicitRouteObjects.EntityData.Leafs = types.NewOrderedMap()
+
+    explicitRouteObjects.EntityData.YListKeys = []string {}
+
+    return &(explicitRouteObjects.EntityData)
+}
+
+// Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects_ExplicitRouteObject
 // List of explicit route objects
-type Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_ExplicitRouteObjects struct {
+type Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects_ExplicitRouteObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Index of this explicit route object, to express
     // the order of hops in path. The type is string with range: 0..255. Refers to
-    // mpls.Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_ExplicitRouteObjects_Config_Index
+    // mpls.Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects_ExplicitRouteObject_Config_Index
     Index interface{}
 
     // Configuration parameters relating to an explicit route.
-    Config Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_ExplicitRouteObjects_Config
+    Config Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects_ExplicitRouteObject_Config
 
     // State parameters relating to an explicit route.
-    State Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_ExplicitRouteObjects_State
+    State Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects_ExplicitRouteObject_State
 }
 
-func (explicitRouteObjects *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_ExplicitRouteObjects) GetEntityData() *types.CommonEntityData {
-    explicitRouteObjects.EntityData.YFilter = explicitRouteObjects.YFilter
-    explicitRouteObjects.EntityData.YangName = "explicit-route-objects"
-    explicitRouteObjects.EntityData.BundleName = "openconfig"
-    explicitRouteObjects.EntityData.ParentYangName = "named-explicit-paths"
-    explicitRouteObjects.EntityData.SegmentPath = "explicit-route-objects" + "[index='" + fmt.Sprintf("%v", explicitRouteObjects.Index) + "']"
-    explicitRouteObjects.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    explicitRouteObjects.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    explicitRouteObjects.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (explicitRouteObject *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects_ExplicitRouteObject) GetEntityData() *types.CommonEntityData {
+    explicitRouteObject.EntityData.YFilter = explicitRouteObject.YFilter
+    explicitRouteObject.EntityData.YangName = "explicit-route-object"
+    explicitRouteObject.EntityData.BundleName = "openconfig"
+    explicitRouteObject.EntityData.ParentYangName = "explicit-route-objects"
+    explicitRouteObject.EntityData.SegmentPath = "explicit-route-object" + types.AddKeyToken(explicitRouteObject.Index, "index")
+    explicitRouteObject.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    explicitRouteObject.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    explicitRouteObject.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    explicitRouteObjects.EntityData.Children = make(map[string]types.YChild)
-    explicitRouteObjects.EntityData.Children["config"] = types.YChild{"Config", &explicitRouteObjects.Config}
-    explicitRouteObjects.EntityData.Children["state"] = types.YChild{"State", &explicitRouteObjects.State}
-    explicitRouteObjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    explicitRouteObjects.EntityData.Leafs["index"] = types.YLeaf{"Index", explicitRouteObjects.Index}
-    return &(explicitRouteObjects.EntityData)
+    explicitRouteObject.EntityData.Children = types.NewOrderedMap()
+    explicitRouteObject.EntityData.Children.Append("config", types.YChild{"Config", &explicitRouteObject.Config})
+    explicitRouteObject.EntityData.Children.Append("state", types.YChild{"State", &explicitRouteObject.State})
+    explicitRouteObject.EntityData.Leafs = types.NewOrderedMap()
+    explicitRouteObject.EntityData.Leafs.Append("index", types.YLeaf{"Index", explicitRouteObject.Index})
+
+    explicitRouteObject.EntityData.YListKeys = []string {"Index"}
+
+    return &(explicitRouteObject.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_ExplicitRouteObjects_Config
+// Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects_ExplicitRouteObject_Config
 // Configuration parameters relating to an explicit
 // route
-type Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_ExplicitRouteObjects_Config struct {
+type Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects_ExplicitRouteObject_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // router hop for the LSP path. The type is one of the following types: string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Address interface{}
 
     // strict or loose hop. The type is MplsHopType.
@@ -3883,35 +4977,38 @@ type Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_ExplicitRouteObjects_Config st
     Index interface{}
 }
 
-func (config *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_ExplicitRouteObjects_Config) GetEntityData() *types.CommonEntityData {
+func (config *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects_ExplicitRouteObject_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "explicit-route-objects"
+    config.EntityData.ParentYangName = "explicit-route-object"
     config.EntityData.SegmentPath = "config"
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["address"] = types.YLeaf{"Address", config.Address}
-    config.EntityData.Leafs["hop-type"] = types.YLeaf{"HopType", config.HopType}
-    config.EntityData.Leafs["index"] = types.YLeaf{"Index", config.Index}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("address", types.YLeaf{"Address", config.Address})
+    config.EntityData.Leafs.Append("hop-type", types.YLeaf{"HopType", config.HopType})
+    config.EntityData.Leafs.Append("index", types.YLeaf{"Index", config.Index})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_ExplicitRouteObjects_State
+// Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects_ExplicitRouteObject_State
 // State parameters relating to an explicit route
-type Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_ExplicitRouteObjects_State struct {
+type Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects_ExplicitRouteObject_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // router hop for the LSP path. The type is one of the following types: string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Address interface{}
 
     // strict or loose hop. The type is MplsHopType.
@@ -3922,75 +5019,116 @@ type Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_ExplicitRouteObjects_State str
     Index interface{}
 }
 
-func (state *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_ExplicitRouteObjects_State) GetEntityData() *types.CommonEntityData {
+func (state *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects_ExplicitRouteObject_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "explicit-route-objects"
+    state.EntityData.ParentYangName = "explicit-route-object"
     state.EntityData.SegmentPath = "state"
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["address"] = types.YLeaf{"Address", state.Address}
-    state.EntityData.Leafs["hop-type"] = types.YLeaf{"HopType", state.HopType}
-    state.EntityData.Leafs["index"] = types.YLeaf{"Index", state.Index}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("address", types.YLeaf{"Address", state.Address})
+    state.EntityData.Leafs.Append("hop-type", types.YLeaf{"HopType", state.HopType})
+    state.EntityData.Leafs.Append("index", types.YLeaf{"Index", state.Index})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel
-// List of TE tunnels
-type Mpls_Lsps_ConstrainedPath_Tunnel struct {
+// Mpls_Lsps_ConstrainedPath_Tunnels
+// Enclosing container for tunnels
+type Mpls_Lsps_ConstrainedPath_Tunnels struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of TE tunnels. This list contains only the LSPs that the current
+    // device originates (i.e., for which it is the head-end). Where the signaling
+    // protocol utilised for an LSP allows a mid-point or tail device to be aware
+    // of the LSP (e.g., RSVP-TE), then the associated sessions are maintained per
+    // protocol. The type is slice of Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel.
+    Tunnel []*Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel
+}
+
+func (tunnels *Mpls_Lsps_ConstrainedPath_Tunnels) GetEntityData() *types.CommonEntityData {
+    tunnels.EntityData.YFilter = tunnels.YFilter
+    tunnels.EntityData.YangName = "tunnels"
+    tunnels.EntityData.BundleName = "openconfig"
+    tunnels.EntityData.ParentYangName = "constrained-path"
+    tunnels.EntityData.SegmentPath = "tunnels"
+    tunnels.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    tunnels.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    tunnels.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    tunnels.EntityData.Children = types.NewOrderedMap()
+    tunnels.EntityData.Children.Append("tunnel", types.YChild{"Tunnel", nil})
+    for i := range tunnels.Tunnel {
+        tunnels.EntityData.Children.Append(types.GetSegmentPath(tunnels.Tunnel[i]), types.YChild{"Tunnel", tunnels.Tunnel[i]})
+    }
+    tunnels.EntityData.Leafs = types.NewOrderedMap()
+
+    tunnels.EntityData.YListKeys = []string {}
+
+    return &(tunnels.EntityData)
+}
+
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel
+// List of TE tunnels. This list contains only the LSPs that the
+// current device originates (i.e., for which it is the head-end).
+// Where the signaling protocol utilised for an LSP allows a mid-point
+// or tail device to be aware of the LSP (e.g., RSVP-TE), then the
+// associated sessions are maintained per protocol
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The tunnel name. The type is string. Refers to
-    // mpls.Mpls_Lsps_ConstrainedPath_Tunnel_Config_Name
+    // mpls.Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Config_Name
     Name interface{}
 
-    // This attribute is a key. The tunnel type, p2p or p2mp. The type is one of
-    // the following: P2PP2MP.
-    Type_ interface{}
-
     // Configuration parameters related to TE tunnels:.
-    Config Mpls_Lsps_ConstrainedPath_Tunnel_Config
+    Config Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Config
 
     // State parameters related to TE tunnels.
-    State Mpls_Lsps_ConstrainedPath_Tunnel_State
+    State Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_State
 
     // Bandwidth configuration for TE LSPs.
-    Bandwidth Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth
+    Bandwidth Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth
 
     // Parameters related to LSPs of type P2P.
-    P2PTunnelAttributes Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes
+    P2pTunnelAttributes Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes
 }
 
-func (tunnel *Mpls_Lsps_ConstrainedPath_Tunnel) GetEntityData() *types.CommonEntityData {
+func (tunnel *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
     tunnel.EntityData.YFilter = tunnel.YFilter
     tunnel.EntityData.YangName = "tunnel"
     tunnel.EntityData.BundleName = "openconfig"
-    tunnel.EntityData.ParentYangName = "constrained-path"
-    tunnel.EntityData.SegmentPath = "tunnel" + "[name='" + fmt.Sprintf("%v", tunnel.Name) + "']" + "[type='" + fmt.Sprintf("%v", tunnel.Type_) + "']"
+    tunnel.EntityData.ParentYangName = "tunnels"
+    tunnel.EntityData.SegmentPath = "tunnel" + types.AddKeyToken(tunnel.Name, "name")
     tunnel.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tunnel.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    tunnel.EntityData.Children = make(map[string]types.YChild)
-    tunnel.EntityData.Children["config"] = types.YChild{"Config", &tunnel.Config}
-    tunnel.EntityData.Children["state"] = types.YChild{"State", &tunnel.State}
-    tunnel.EntityData.Children["bandwidth"] = types.YChild{"Bandwidth", &tunnel.Bandwidth}
-    tunnel.EntityData.Children["p2p-tunnel-attributes"] = types.YChild{"P2PTunnelAttributes", &tunnel.P2PTunnelAttributes}
-    tunnel.EntityData.Leafs = make(map[string]types.YLeaf)
-    tunnel.EntityData.Leafs["name"] = types.YLeaf{"Name", tunnel.Name}
-    tunnel.EntityData.Leafs["type"] = types.YLeaf{"Type_", tunnel.Type_}
+    tunnel.EntityData.Children = types.NewOrderedMap()
+    tunnel.EntityData.Children.Append("config", types.YChild{"Config", &tunnel.Config})
+    tunnel.EntityData.Children.Append("state", types.YChild{"State", &tunnel.State})
+    tunnel.EntityData.Children.Append("bandwidth", types.YChild{"Bandwidth", &tunnel.Bandwidth})
+    tunnel.EntityData.Children.Append("p2p-tunnel-attributes", types.YChild{"P2pTunnelAttributes", &tunnel.P2pTunnelAttributes})
+    tunnel.EntityData.Leafs = types.NewOrderedMap()
+    tunnel.EntityData.Leafs.Append("name", types.YLeaf{"Name", tunnel.Name})
+
+    tunnel.EntityData.YListKeys = []string {"Name"}
+
     return &(tunnel.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_Config
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Config
 // Configuration parameters related to TE tunnels:
-type Mpls_Lsps_ConstrainedPath_Tunnel_Config struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3998,36 +5136,49 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_Config struct {
     Name interface{}
 
     // Tunnel type, p2p or p2mp. The type is one of the following: P2PP2MP.
-    Type_ interface{}
+    Type interface{}
 
     // Signaling protocol used to set up this tunnel. The type is one of the
-    // following: P2PP2MP.
+    // following: PATHSETUPSRPATHSETUPRSVPPATHSETUPLDP.
     SignalingProtocol interface{}
-
-    // locally signficant optional identifier for the tunnel; may be a numerical
-    // or string value. The type is one of the following types: int with range:
-    // 0..4294967295, or string.
-    LocalId interface{}
 
     // optional text description for the tunnel. The type is string.
     Description interface{}
 
     // TE tunnel administrative state. The type is one of the following:
-    // ADMINDOWNADMINUP. The default value is mplst:ADMIN_UP.
+    // ADMINUPADMINDOWN. The default value is oc-mplst:ADMIN_UP.
     AdminStatus interface{}
 
     // Specifies a preference for this tunnel. A lower number signifies a better
     // preference. The type is interface{} with range: 1..255.
     Preference interface{}
 
-    // LSP metric, either explicit or IGP. The type is one of the following types:
-    // enumeration TeMetricType, or int with range: 0..4294967295.
+    // The type of metric specification that should be used to set the LSP(s)
+    // metric. The type is one of the following:
+    // LSPMETRICINHERITEDLSPMETRICABSOLUTELSPMETRICRELATIVE. The default value is
+    // oc-mplst:LSP_METRIC_INHERITED.
+    MetricType interface{}
+
+    // The value of the metric that should be specified. The value supplied in
+    // this leaf is used in conjunction with the metric type to determine the
+    // value of the metric used by the system. Where the metric-type is set to
+    // LSP_METRIC_ABSOLUTE - the value of this leaf is used directly; where it is
+    // set to LSP_METRIC_RELATIVE, the relevant (positive or negative) offset is
+    // used to formulate the metric; where metric-type is LSP_METRIC_INHERITED,
+    // the value of this leaf is not utilised. The type is interface{} with range:
+    // -2147483648..2147483647.
     Metric interface{}
+
+    // Whether this LSP is considered to be eligible for us as a shortcut in the
+    // IGP. In the case that this leaf is set to true, the IGP SPF calculation
+    // uses the metric specified to determine whether traffic should be carried
+    // over this LSP. The type is bool. The default value is true.
+    ShortcutEligible interface{}
 
     // style of mpls frr protection desired: can be link, link-node or
     // unprotected. The type is one of the following:
-    // UnprotectedLinkProtectionRequestedLinkNodeProtectionRequested. The default
-    // value is mplst:unprotected.
+    // LINKPROTECTIONREQUIREDLINKNODEPROTECTIONREQUESTEDUNPROTECTED. The default
+    // value is oc-mplst:UNPROTECTED.
     ProtectionStyleRequested interface{}
 
     // frequency of reoptimization of a traffic engineered LSP. The type is
@@ -4036,9 +5187,9 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_Config struct {
 
     // RSVP-TE tunnel source address. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Source interface{}
 
     // Enables RSVP soft-preemption on this LSP. The type is bool. The default
@@ -4056,7 +5207,7 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_Config struct {
     HoldPriority interface{}
 }
 
-func (config *Mpls_Lsps_ConstrainedPath_Tunnel_Config) GetEntityData() *types.CommonEntityData {
+func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -4066,28 +5217,32 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnel_Config) GetEntityData() *types.Co
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["name"] = types.YLeaf{"Name", config.Name}
-    config.EntityData.Leafs["type"] = types.YLeaf{"Type_", config.Type_}
-    config.EntityData.Leafs["signaling-protocol"] = types.YLeaf{"SignalingProtocol", config.SignalingProtocol}
-    config.EntityData.Leafs["local-id"] = types.YLeaf{"LocalId", config.LocalId}
-    config.EntityData.Leafs["description"] = types.YLeaf{"Description", config.Description}
-    config.EntityData.Leafs["admin-status"] = types.YLeaf{"AdminStatus", config.AdminStatus}
-    config.EntityData.Leafs["preference"] = types.YLeaf{"Preference", config.Preference}
-    config.EntityData.Leafs["metric"] = types.YLeaf{"Metric", config.Metric}
-    config.EntityData.Leafs["protection-style-requested"] = types.YLeaf{"ProtectionStyleRequested", config.ProtectionStyleRequested}
-    config.EntityData.Leafs["reoptimize-timer"] = types.YLeaf{"ReoptimizeTimer", config.ReoptimizeTimer}
-    config.EntityData.Leafs["source"] = types.YLeaf{"Source", config.Source}
-    config.EntityData.Leafs["soft-preemption"] = types.YLeaf{"SoftPreemption", config.SoftPreemption}
-    config.EntityData.Leafs["setup-priority"] = types.YLeaf{"SetupPriority", config.SetupPriority}
-    config.EntityData.Leafs["hold-priority"] = types.YLeaf{"HoldPriority", config.HoldPriority}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("name", types.YLeaf{"Name", config.Name})
+    config.EntityData.Leafs.Append("type", types.YLeaf{"Type", config.Type})
+    config.EntityData.Leafs.Append("signaling-protocol", types.YLeaf{"SignalingProtocol", config.SignalingProtocol})
+    config.EntityData.Leafs.Append("description", types.YLeaf{"Description", config.Description})
+    config.EntityData.Leafs.Append("admin-status", types.YLeaf{"AdminStatus", config.AdminStatus})
+    config.EntityData.Leafs.Append("preference", types.YLeaf{"Preference", config.Preference})
+    config.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", config.MetricType})
+    config.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", config.Metric})
+    config.EntityData.Leafs.Append("shortcut-eligible", types.YLeaf{"ShortcutEligible", config.ShortcutEligible})
+    config.EntityData.Leafs.Append("protection-style-requested", types.YLeaf{"ProtectionStyleRequested", config.ProtectionStyleRequested})
+    config.EntityData.Leafs.Append("reoptimize-timer", types.YLeaf{"ReoptimizeTimer", config.ReoptimizeTimer})
+    config.EntityData.Leafs.Append("source", types.YLeaf{"Source", config.Source})
+    config.EntityData.Leafs.Append("soft-preemption", types.YLeaf{"SoftPreemption", config.SoftPreemption})
+    config.EntityData.Leafs.Append("setup-priority", types.YLeaf{"SetupPriority", config.SetupPriority})
+    config.EntityData.Leafs.Append("hold-priority", types.YLeaf{"HoldPriority", config.HoldPriority})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_State
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_State
 // State parameters related to TE tunnels
-type Mpls_Lsps_ConstrainedPath_Tunnel_State struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4095,36 +5250,49 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_State struct {
     Name interface{}
 
     // Tunnel type, p2p or p2mp. The type is one of the following: P2PP2MP.
-    Type_ interface{}
+    Type interface{}
 
     // Signaling protocol used to set up this tunnel. The type is one of the
-    // following: P2PP2MP.
+    // following: PATHSETUPSRPATHSETUPRSVPPATHSETUPLDP.
     SignalingProtocol interface{}
-
-    // locally signficant optional identifier for the tunnel; may be a numerical
-    // or string value. The type is one of the following types: int with range:
-    // 0..4294967295, or string.
-    LocalId interface{}
 
     // optional text description for the tunnel. The type is string.
     Description interface{}
 
     // TE tunnel administrative state. The type is one of the following:
-    // ADMINDOWNADMINUP. The default value is mplst:ADMIN_UP.
+    // ADMINUPADMINDOWN. The default value is oc-mplst:ADMIN_UP.
     AdminStatus interface{}
 
     // Specifies a preference for this tunnel. A lower number signifies a better
     // preference. The type is interface{} with range: 1..255.
     Preference interface{}
 
-    // LSP metric, either explicit or IGP. The type is one of the following types:
-    // enumeration TeMetricType, or int with range: 0..4294967295.
+    // The type of metric specification that should be used to set the LSP(s)
+    // metric. The type is one of the following:
+    // LSPMETRICINHERITEDLSPMETRICABSOLUTELSPMETRICRELATIVE. The default value is
+    // oc-mplst:LSP_METRIC_INHERITED.
+    MetricType interface{}
+
+    // The value of the metric that should be specified. The value supplied in
+    // this leaf is used in conjunction with the metric type to determine the
+    // value of the metric used by the system. Where the metric-type is set to
+    // LSP_METRIC_ABSOLUTE - the value of this leaf is used directly; where it is
+    // set to LSP_METRIC_RELATIVE, the relevant (positive or negative) offset is
+    // used to formulate the metric; where metric-type is LSP_METRIC_INHERITED,
+    // the value of this leaf is not utilised. The type is interface{} with range:
+    // -2147483648..2147483647.
     Metric interface{}
+
+    // Whether this LSP is considered to be eligible for us as a shortcut in the
+    // IGP. In the case that this leaf is set to true, the IGP SPF calculation
+    // uses the metric specified to determine whether traffic should be carried
+    // over this LSP. The type is bool. The default value is true.
+    ShortcutEligible interface{}
 
     // style of mpls frr protection desired: can be link, link-node or
     // unprotected. The type is one of the following:
-    // UnprotectedLinkProtectionRequestedLinkNodeProtectionRequested. The default
-    // value is mplst:unprotected.
+    // LINKPROTECTIONREQUIREDLINKNODEPROTECTIONREQUESTEDUNPROTECTED. The default
+    // value is oc-mplst:UNPROTECTED.
     ProtectionStyleRequested interface{}
 
     // frequency of reoptimization of a traffic engineered LSP. The type is
@@ -4133,9 +5301,9 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_State struct {
 
     // RSVP-TE tunnel source address. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Source interface{}
 
     // Enables RSVP soft-preemption on this LSP. The type is bool. The default
@@ -4162,10 +5330,10 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_State struct {
 
     // State data for MPLS label switched paths. This state data is specific to a
     // single label switched path.
-    Counters Mpls_Lsps_ConstrainedPath_Tunnel_State_Counters
+    Counters Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_State_Counters
 }
 
-func (state *Mpls_Lsps_ConstrainedPath_Tunnel_State) GetEntityData() *types.CommonEntityData {
+func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -4175,32 +5343,36 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnel_State) GetEntityData() *types.Comm
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["counters"] = types.YChild{"Counters", &state.Counters}
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["name"] = types.YLeaf{"Name", state.Name}
-    state.EntityData.Leafs["type"] = types.YLeaf{"Type_", state.Type_}
-    state.EntityData.Leafs["signaling-protocol"] = types.YLeaf{"SignalingProtocol", state.SignalingProtocol}
-    state.EntityData.Leafs["local-id"] = types.YLeaf{"LocalId", state.LocalId}
-    state.EntityData.Leafs["description"] = types.YLeaf{"Description", state.Description}
-    state.EntityData.Leafs["admin-status"] = types.YLeaf{"AdminStatus", state.AdminStatus}
-    state.EntityData.Leafs["preference"] = types.YLeaf{"Preference", state.Preference}
-    state.EntityData.Leafs["metric"] = types.YLeaf{"Metric", state.Metric}
-    state.EntityData.Leafs["protection-style-requested"] = types.YLeaf{"ProtectionStyleRequested", state.ProtectionStyleRequested}
-    state.EntityData.Leafs["reoptimize-timer"] = types.YLeaf{"ReoptimizeTimer", state.ReoptimizeTimer}
-    state.EntityData.Leafs["source"] = types.YLeaf{"Source", state.Source}
-    state.EntityData.Leafs["soft-preemption"] = types.YLeaf{"SoftPreemption", state.SoftPreemption}
-    state.EntityData.Leafs["setup-priority"] = types.YLeaf{"SetupPriority", state.SetupPriority}
-    state.EntityData.Leafs["hold-priority"] = types.YLeaf{"HoldPriority", state.HoldPriority}
-    state.EntityData.Leafs["oper-status"] = types.YLeaf{"OperStatus", state.OperStatus}
-    state.EntityData.Leafs["role"] = types.YLeaf{"Role", state.Role}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("counters", types.YChild{"Counters", &state.Counters})
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("name", types.YLeaf{"Name", state.Name})
+    state.EntityData.Leafs.Append("type", types.YLeaf{"Type", state.Type})
+    state.EntityData.Leafs.Append("signaling-protocol", types.YLeaf{"SignalingProtocol", state.SignalingProtocol})
+    state.EntityData.Leafs.Append("description", types.YLeaf{"Description", state.Description})
+    state.EntityData.Leafs.Append("admin-status", types.YLeaf{"AdminStatus", state.AdminStatus})
+    state.EntityData.Leafs.Append("preference", types.YLeaf{"Preference", state.Preference})
+    state.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", state.MetricType})
+    state.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", state.Metric})
+    state.EntityData.Leafs.Append("shortcut-eligible", types.YLeaf{"ShortcutEligible", state.ShortcutEligible})
+    state.EntityData.Leafs.Append("protection-style-requested", types.YLeaf{"ProtectionStyleRequested", state.ProtectionStyleRequested})
+    state.EntityData.Leafs.Append("reoptimize-timer", types.YLeaf{"ReoptimizeTimer", state.ReoptimizeTimer})
+    state.EntityData.Leafs.Append("source", types.YLeaf{"Source", state.Source})
+    state.EntityData.Leafs.Append("soft-preemption", types.YLeaf{"SoftPreemption", state.SoftPreemption})
+    state.EntityData.Leafs.Append("setup-priority", types.YLeaf{"SetupPriority", state.SetupPriority})
+    state.EntityData.Leafs.Append("hold-priority", types.YLeaf{"HoldPriority", state.HoldPriority})
+    state.EntityData.Leafs.Append("oper-status", types.YLeaf{"OperStatus", state.OperStatus})
+    state.EntityData.Leafs.Append("role", types.YLeaf{"Role", state.Role})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_State_Counters
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_State_Counters
 // State data for MPLS label switched paths. This state
 // data is specific to a single label switched path.
-type Mpls_Lsps_ConstrainedPath_Tunnel_State_Counters struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_State_Counters struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4222,21 +5394,21 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_State_Counters struct {
 
     // Indication of the time the label switched path transitioned to an Oper Up
     // or in-service state. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // ^[0-9]{4}\-[0-9]{2}\-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\.[0-9]+)?Z[+-][0-9]{2}:[0-9]{2}$.
     OnlineTime interface{}
 
     // Indicates the time the LSP switched onto its current path. This is reset
     // upon a LSP path change. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // ^[0-9]{4}\-[0-9]{2}\-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\.[0-9]+)?Z[+-][0-9]{2}:[0-9]{2}$.
     CurrentPathTime interface{}
 
     // Indicates the next scheduled time the LSP will be reoptimized. The type is
     // string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // ^[0-9]{4}\-[0-9]{2}\-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\.[0-9]+)?Z[+-][0-9]{2}:[0-9]{2}$.
     NextReoptimizationTime interface{}
 }
 
-func (counters *Mpls_Lsps_ConstrainedPath_Tunnel_State_Counters) GetEntityData() *types.CommonEntityData {
+func (counters *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_State_Counters) GetEntityData() *types.CommonEntityData {
     counters.EntityData.YFilter = counters.YFilter
     counters.EntityData.YangName = "counters"
     counters.EntityData.BundleName = "openconfig"
@@ -4246,35 +5418,38 @@ func (counters *Mpls_Lsps_ConstrainedPath_Tunnel_State_Counters) GetEntityData()
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    counters.EntityData.Children = make(map[string]types.YChild)
-    counters.EntityData.Leafs = make(map[string]types.YLeaf)
-    counters.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", counters.Bytes}
-    counters.EntityData.Leafs["packets"] = types.YLeaf{"Packets", counters.Packets}
-    counters.EntityData.Leafs["path-changes"] = types.YLeaf{"PathChanges", counters.PathChanges}
-    counters.EntityData.Leafs["state-changes"] = types.YLeaf{"StateChanges", counters.StateChanges}
-    counters.EntityData.Leafs["online-time"] = types.YLeaf{"OnlineTime", counters.OnlineTime}
-    counters.EntityData.Leafs["current-path-time"] = types.YLeaf{"CurrentPathTime", counters.CurrentPathTime}
-    counters.EntityData.Leafs["next-reoptimization-time"] = types.YLeaf{"NextReoptimizationTime", counters.NextReoptimizationTime}
+    counters.EntityData.Children = types.NewOrderedMap()
+    counters.EntityData.Leafs = types.NewOrderedMap()
+    counters.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", counters.Bytes})
+    counters.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", counters.Packets})
+    counters.EntityData.Leafs.Append("path-changes", types.YLeaf{"PathChanges", counters.PathChanges})
+    counters.EntityData.Leafs.Append("state-changes", types.YLeaf{"StateChanges", counters.StateChanges})
+    counters.EntityData.Leafs.Append("online-time", types.YLeaf{"OnlineTime", counters.OnlineTime})
+    counters.EntityData.Leafs.Append("current-path-time", types.YLeaf{"CurrentPathTime", counters.CurrentPathTime})
+    counters.EntityData.Leafs.Append("next-reoptimization-time", types.YLeaf{"NextReoptimizationTime", counters.NextReoptimizationTime})
+
+    counters.EntityData.YListKeys = []string {}
+
     return &(counters.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth
 // Bandwidth configuration for TE LSPs
-type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters related to bandwidth on TE tunnels:.
-    Config Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_Config
+    Config Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_Config
 
     // State parameters related to bandwidth configuration of TE tunnels.
-    State Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_State
+    State Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_State
 
     // Parameters related to auto-bandwidth.
-    AutoBandwidth Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth
+    AutoBandwidth Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth
 }
 
-func (bandwidth *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth) GetEntityData() *types.CommonEntityData {
+func (bandwidth *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth) GetEntityData() *types.CommonEntityData {
     bandwidth.EntityData.YFilter = bandwidth.YFilter
     bandwidth.EntityData.YangName = "bandwidth"
     bandwidth.EntityData.BundleName = "openconfig"
@@ -4284,18 +5459,21 @@ func (bandwidth *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth) GetEntityData() *ty
     bandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    bandwidth.EntityData.Children = make(map[string]types.YChild)
-    bandwidth.EntityData.Children["config"] = types.YChild{"Config", &bandwidth.Config}
-    bandwidth.EntityData.Children["state"] = types.YChild{"State", &bandwidth.State}
-    bandwidth.EntityData.Children["auto-bandwidth"] = types.YChild{"AutoBandwidth", &bandwidth.AutoBandwidth}
-    bandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
+    bandwidth.EntityData.Children = types.NewOrderedMap()
+    bandwidth.EntityData.Children.Append("config", types.YChild{"Config", &bandwidth.Config})
+    bandwidth.EntityData.Children.Append("state", types.YChild{"State", &bandwidth.State})
+    bandwidth.EntityData.Children.Append("auto-bandwidth", types.YChild{"AutoBandwidth", &bandwidth.AutoBandwidth})
+    bandwidth.EntityData.Leafs = types.NewOrderedMap()
+
+    bandwidth.EntityData.YListKeys = []string {}
+
     return &(bandwidth.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_Config
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_Config
 // Configuration parameters related to bandwidth on TE
 // tunnels:
-type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_Config struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4304,11 +5482,11 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_Config struct {
     SpecificationType interface{}
 
     // set bandwidth explicitly, e.g., using offline calculation. The type is
-    // interface{} with range: 0..4294967295.
+    // interface{} with range: 0..18446744073709551615.
     SetBandwidth interface{}
 }
 
-func (config *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_Config) GetEntityData() *types.CommonEntityData {
+func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -4318,17 +5496,20 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_Config) GetEntityData()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["specification-type"] = types.YLeaf{"SpecificationType", config.SpecificationType}
-    config.EntityData.Leafs["set-bandwidth"] = types.YLeaf{"SetBandwidth", config.SetBandwidth}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("specification-type", types.YLeaf{"SpecificationType", config.SpecificationType})
+    config.EntityData.Leafs.Append("set-bandwidth", types.YLeaf{"SetBandwidth", config.SetBandwidth})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_State
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_State
 // State parameters related to bandwidth
 // configuration of TE tunnels
-type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_State struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4337,11 +5518,18 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_State struct {
     SpecificationType interface{}
 
     // set bandwidth explicitly, e.g., using offline calculation. The type is
-    // interface{} with range: 0..4294967295.
+    // interface{} with range: 0..18446744073709551615.
     SetBandwidth interface{}
+
+    // The currently signaled bandwidth of the LSP. In the case where the
+    // bandwidth is specified explicitly, then this will match the value of the
+    // set-bandwidth leaf; in cases where the bandwidth is dynamically computed by
+    // the system, the current value of the bandwidth should be reflected. The
+    // type is interface{} with range: 0..18446744073709551615.
+    SignaledBandwidth interface{}
 }
 
-func (state *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_State) GetEntityData() *types.CommonEntityData {
+func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -4351,34 +5539,37 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_State) GetEntityData() *
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["specification-type"] = types.YLeaf{"SpecificationType", state.SpecificationType}
-    state.EntityData.Leafs["set-bandwidth"] = types.YLeaf{"SetBandwidth", state.SetBandwidth}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("specification-type", types.YLeaf{"SpecificationType", state.SpecificationType})
+    state.EntityData.Leafs.Append("set-bandwidth", types.YLeaf{"SetBandwidth", state.SetBandwidth})
+    state.EntityData.Leafs.Append("signaled-bandwidth", types.YLeaf{"SignaledBandwidth", state.SignaledBandwidth})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth
 // Parameters related to auto-bandwidth
-type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters relating to MPLS auto-bandwidth on the tunnel.
-    Config Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Config
+    Config Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Config
 
     // State parameters relating to MPLS auto-bandwidth on the tunnel.
-    State Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_State
+    State Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_State
 
     // configuration of MPLS overflow bandwidth adjustement for the LSP.
-    Overflow Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Overflow
+    Overflow Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Overflow
 
-    // configuration of MPLS underflow bandwidth           adjustement for the
-    // LSP.
-    Underflow Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Underflow
+    // configuration of MPLS underflow bandwidth adjustement for the LSP.
+    Underflow Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Underflow
 }
 
-func (autoBandwidth *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth) GetEntityData() *types.CommonEntityData {
+func (autoBandwidth *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth) GetEntityData() *types.CommonEntityData {
     autoBandwidth.EntityData.YFilter = autoBandwidth.YFilter
     autoBandwidth.EntityData.YangName = "auto-bandwidth"
     autoBandwidth.EntityData.BundleName = "openconfig"
@@ -4388,19 +5579,22 @@ func (autoBandwidth *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth) G
     autoBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     autoBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    autoBandwidth.EntityData.Children = make(map[string]types.YChild)
-    autoBandwidth.EntityData.Children["config"] = types.YChild{"Config", &autoBandwidth.Config}
-    autoBandwidth.EntityData.Children["state"] = types.YChild{"State", &autoBandwidth.State}
-    autoBandwidth.EntityData.Children["overflow"] = types.YChild{"Overflow", &autoBandwidth.Overflow}
-    autoBandwidth.EntityData.Children["underflow"] = types.YChild{"Underflow", &autoBandwidth.Underflow}
-    autoBandwidth.EntityData.Leafs = make(map[string]types.YLeaf)
+    autoBandwidth.EntityData.Children = types.NewOrderedMap()
+    autoBandwidth.EntityData.Children.Append("config", types.YChild{"Config", &autoBandwidth.Config})
+    autoBandwidth.EntityData.Children.Append("state", types.YChild{"State", &autoBandwidth.State})
+    autoBandwidth.EntityData.Children.Append("overflow", types.YChild{"Overflow", &autoBandwidth.Overflow})
+    autoBandwidth.EntityData.Children.Append("underflow", types.YChild{"Underflow", &autoBandwidth.Underflow})
+    autoBandwidth.EntityData.Leafs = types.NewOrderedMap()
+
+    autoBandwidth.EntityData.YListKeys = []string {}
+
     return &(autoBandwidth.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Config
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Config
 // Configuration parameters relating to MPLS
 // auto-bandwidth on the tunnel.
-type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Config struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4408,12 +5602,12 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Config struct {
     // is false.
     Enabled interface{}
 
-    // set the minimum bandwidth in Mbps for an auto-bandwidth LSP. The type is
-    // interface{} with range: 0..4294967295.
+    // set the minimum bandwidth in Kbps for an auto-bandwidth LSP. The type is
+    // interface{} with range: 0..18446744073709551615.
     MinBw interface{}
 
-    // set the maximum bandwidth in Mbps for an auto-bandwidth LSP. The type is
-    // interface{} with range: 0..4294967295.
+    // set the maximum bandwidth in Kbps for an auto-bandwidth LSP. The type is
+    // interface{} with range: 0..18446744073709551615.
     MaxBw interface{}
 
     // time in seconds between adjustments to LSP bandwidth. The type is
@@ -4427,7 +5621,7 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Config struct {
     AdjustThreshold interface{}
 }
 
-func (config *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Config) GetEntityData() *types.CommonEntityData {
+func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -4437,20 +5631,23 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Config) G
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
-    config.EntityData.Leafs["min-bw"] = types.YLeaf{"MinBw", config.MinBw}
-    config.EntityData.Leafs["max-bw"] = types.YLeaf{"MaxBw", config.MaxBw}
-    config.EntityData.Leafs["adjust-interval"] = types.YLeaf{"AdjustInterval", config.AdjustInterval}
-    config.EntityData.Leafs["adjust-threshold"] = types.YLeaf{"AdjustThreshold", config.AdjustThreshold}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+    config.EntityData.Leafs.Append("min-bw", types.YLeaf{"MinBw", config.MinBw})
+    config.EntityData.Leafs.Append("max-bw", types.YLeaf{"MaxBw", config.MaxBw})
+    config.EntityData.Leafs.Append("adjust-interval", types.YLeaf{"AdjustInterval", config.AdjustInterval})
+    config.EntityData.Leafs.Append("adjust-threshold", types.YLeaf{"AdjustThreshold", config.AdjustThreshold})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_State
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_State
 // State parameters relating to MPLS
 // auto-bandwidth on the tunnel.
-type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_State struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4458,12 +5655,12 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_State struct {
     // is false.
     Enabled interface{}
 
-    // set the minimum bandwidth in Mbps for an auto-bandwidth LSP. The type is
-    // interface{} with range: 0..4294967295.
+    // set the minimum bandwidth in Kbps for an auto-bandwidth LSP. The type is
+    // interface{} with range: 0..18446744073709551615.
     MinBw interface{}
 
-    // set the maximum bandwidth in Mbps for an auto-bandwidth LSP. The type is
-    // interface{} with range: 0..4294967295.
+    // set the maximum bandwidth in Kbps for an auto-bandwidth LSP. The type is
+    // interface{} with range: 0..18446744073709551615.
     MaxBw interface{}
 
     // time in seconds between adjustments to LSP bandwidth. The type is
@@ -4477,7 +5674,7 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_State struct {
     AdjustThreshold interface{}
 }
 
-func (state *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_State) GetEntityData() *types.CommonEntityData {
+func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -4487,31 +5684,34 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_State) Get
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["min-bw"] = types.YLeaf{"MinBw", state.MinBw}
-    state.EntityData.Leafs["max-bw"] = types.YLeaf{"MaxBw", state.MaxBw}
-    state.EntityData.Leafs["adjust-interval"] = types.YLeaf{"AdjustInterval", state.AdjustInterval}
-    state.EntityData.Leafs["adjust-threshold"] = types.YLeaf{"AdjustThreshold", state.AdjustThreshold}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("min-bw", types.YLeaf{"MinBw", state.MinBw})
+    state.EntityData.Leafs.Append("max-bw", types.YLeaf{"MaxBw", state.MaxBw})
+    state.EntityData.Leafs.Append("adjust-interval", types.YLeaf{"AdjustInterval", state.AdjustInterval})
+    state.EntityData.Leafs.Append("adjust-threshold", types.YLeaf{"AdjustThreshold", state.AdjustThreshold})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Overflow
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Overflow
 // configuration of MPLS overflow bandwidth
 // adjustement for the LSP
-type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Overflow struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Overflow struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Config information for MPLS overflow bandwidth adjustment.
-    Config Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Overflow_Config
+    Config Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Overflow_Config
 
     // Config information for MPLS overflow bandwidth adjustment.
-    State Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Overflow_State
+    State Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Overflow_State
 }
 
-func (overflow *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Overflow) GetEntityData() *types.CommonEntityData {
+func (overflow *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Overflow) GetEntityData() *types.CommonEntityData {
     overflow.EntityData.YFilter = overflow.YFilter
     overflow.EntityData.YangName = "overflow"
     overflow.EntityData.BundleName = "openconfig"
@@ -4521,17 +5721,20 @@ func (overflow *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Overflo
     overflow.EntityData.NamespaceTable = openconfig.GetNamespaces()
     overflow.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    overflow.EntityData.Children = make(map[string]types.YChild)
-    overflow.EntityData.Children["config"] = types.YChild{"Config", &overflow.Config}
-    overflow.EntityData.Children["state"] = types.YChild{"State", &overflow.State}
-    overflow.EntityData.Leafs = make(map[string]types.YLeaf)
+    overflow.EntityData.Children = types.NewOrderedMap()
+    overflow.EntityData.Children.Append("config", types.YChild{"Config", &overflow.Config})
+    overflow.EntityData.Children.Append("state", types.YChild{"State", &overflow.State})
+    overflow.EntityData.Leafs = types.NewOrderedMap()
+
+    overflow.EntityData.YListKeys = []string {}
+
     return &(overflow.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Overflow_Config
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Overflow_Config
 // Config information for MPLS overflow bandwidth
 // adjustment
-type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Overflow_Config struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Overflow_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4548,7 +5751,7 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Overflow_Config st
     TriggerEventCount interface{}
 }
 
-func (config *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Overflow_Config) GetEntityData() *types.CommonEntityData {
+func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Overflow_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -4558,18 +5761,21 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Overflow_
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
-    config.EntityData.Leafs["overflow-threshold"] = types.YLeaf{"OverflowThreshold", config.OverflowThreshold}
-    config.EntityData.Leafs["trigger-event-count"] = types.YLeaf{"TriggerEventCount", config.TriggerEventCount}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+    config.EntityData.Leafs.Append("overflow-threshold", types.YLeaf{"OverflowThreshold", config.OverflowThreshold})
+    config.EntityData.Leafs.Append("trigger-event-count", types.YLeaf{"TriggerEventCount", config.TriggerEventCount})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Overflow_State
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Overflow_State
 // Config information for MPLS overflow bandwidth
 // adjustment
-type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Overflow_State struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Overflow_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4586,7 +5792,7 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Overflow_State str
     TriggerEventCount interface{}
 }
 
-func (state *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Overflow_State) GetEntityData() *types.CommonEntityData {
+func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Overflow_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -4596,29 +5802,32 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Overflow_S
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["overflow-threshold"] = types.YLeaf{"OverflowThreshold", state.OverflowThreshold}
-    state.EntityData.Leafs["trigger-event-count"] = types.YLeaf{"TriggerEventCount", state.TriggerEventCount}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("overflow-threshold", types.YLeaf{"OverflowThreshold", state.OverflowThreshold})
+    state.EntityData.Leafs.Append("trigger-event-count", types.YLeaf{"TriggerEventCount", state.TriggerEventCount})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Underflow
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Underflow
 // configuration of MPLS underflow bandwidth
-//           adjustement for the LSP
-type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Underflow struct {
+// adjustement for the LSP
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Underflow struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Config information for MPLS underflow bandwidth           adjustment.
-    Config Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Underflow_Config
+    // Config information for MPLS underflow bandwidth adjustment.
+    Config Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Underflow_Config
 
-    // State information for MPLS underflow bandwidth           adjustment.
-    State Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Underflow_State
+    // State information for MPLS underflow bandwidth adjustment.
+    State Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Underflow_State
 }
 
-func (underflow *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Underflow) GetEntityData() *types.CommonEntityData {
+func (underflow *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Underflow) GetEntityData() *types.CommonEntityData {
     underflow.EntityData.YFilter = underflow.YFilter
     underflow.EntityData.YangName = "underflow"
     underflow.EntityData.BundleName = "openconfig"
@@ -4628,17 +5837,20 @@ func (underflow *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Underf
     underflow.EntityData.NamespaceTable = openconfig.GetNamespaces()
     underflow.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    underflow.EntityData.Children = make(map[string]types.YChild)
-    underflow.EntityData.Children["config"] = types.YChild{"Config", &underflow.Config}
-    underflow.EntityData.Children["state"] = types.YChild{"State", &underflow.State}
-    underflow.EntityData.Leafs = make(map[string]types.YLeaf)
+    underflow.EntityData.Children = types.NewOrderedMap()
+    underflow.EntityData.Children.Append("config", types.YChild{"Config", &underflow.Config})
+    underflow.EntityData.Children.Append("state", types.YChild{"State", &underflow.State})
+    underflow.EntityData.Leafs = types.NewOrderedMap()
+
+    underflow.EntityData.YListKeys = []string {}
+
     return &(underflow.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Underflow_Config
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Underflow_Config
 // Config information for MPLS underflow bandwidth
-//           adjustment
-type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Underflow_Config struct {
+// adjustment
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Underflow_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4655,7 +5867,7 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Underflow_Config s
     TriggerEventCount interface{}
 }
 
-func (config *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Underflow_Config) GetEntityData() *types.CommonEntityData {
+func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Underflow_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -4665,18 +5877,21 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Underflow
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
-    config.EntityData.Leafs["underflow-threshold"] = types.YLeaf{"UnderflowThreshold", config.UnderflowThreshold}
-    config.EntityData.Leafs["trigger-event-count"] = types.YLeaf{"TriggerEventCount", config.TriggerEventCount}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+    config.EntityData.Leafs.Append("underflow-threshold", types.YLeaf{"UnderflowThreshold", config.UnderflowThreshold})
+    config.EntityData.Leafs.Append("trigger-event-count", types.YLeaf{"TriggerEventCount", config.TriggerEventCount})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Underflow_State
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Underflow_State
 // State information for MPLS underflow bandwidth
-//           adjustment
-type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Underflow_State struct {
+// adjustment
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Underflow_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4693,7 +5908,7 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Underflow_State st
     TriggerEventCount interface{}
 }
 
-func (state *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Underflow_State) GetEntityData() *types.CommonEntityData {
+func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Underflow_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -4703,75 +5918,73 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnel_Bandwidth_AutoBandwidth_Underflow_
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["underflow-threshold"] = types.YLeaf{"UnderflowThreshold", state.UnderflowThreshold}
-    state.EntityData.Leafs["trigger-event-count"] = types.YLeaf{"TriggerEventCount", state.TriggerEventCount}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("underflow-threshold", types.YLeaf{"UnderflowThreshold", state.UnderflowThreshold})
+    state.EntityData.Leafs.Append("trigger-event-count", types.YLeaf{"TriggerEventCount", state.TriggerEventCount})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes
 // Parameters related to LSPs of type P2P
-type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters for P2P LSPs.
-    Config Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_Config
+    Config Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_Config
 
     // State parameters for P2P LSPs.
-    State Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_State
+    State Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_State
 
-    // List of p2p primary paths for a tunnel. The type is slice of
-    // Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths.
-    P2PPrimaryPaths []Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths
+    // Primary paths associated with the LSP.
+    P2pPrimaryPath Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath
 
-    // List of p2p primary paths for a tunnel. The type is slice of
-    // Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths.
-    P2PSecondaryPaths []Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths
+    // Secondary paths for the LSP.
+    P2pSecondaryPaths Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths
 }
 
-func (p2PTunnelAttributes *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes) GetEntityData() *types.CommonEntityData {
-    p2PTunnelAttributes.EntityData.YFilter = p2PTunnelAttributes.YFilter
-    p2PTunnelAttributes.EntityData.YangName = "p2p-tunnel-attributes"
-    p2PTunnelAttributes.EntityData.BundleName = "openconfig"
-    p2PTunnelAttributes.EntityData.ParentYangName = "tunnel"
-    p2PTunnelAttributes.EntityData.SegmentPath = "p2p-tunnel-attributes"
-    p2PTunnelAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    p2PTunnelAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    p2PTunnelAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (p2pTunnelAttributes *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes) GetEntityData() *types.CommonEntityData {
+    p2pTunnelAttributes.EntityData.YFilter = p2pTunnelAttributes.YFilter
+    p2pTunnelAttributes.EntityData.YangName = "p2p-tunnel-attributes"
+    p2pTunnelAttributes.EntityData.BundleName = "openconfig"
+    p2pTunnelAttributes.EntityData.ParentYangName = "tunnel"
+    p2pTunnelAttributes.EntityData.SegmentPath = "p2p-tunnel-attributes"
+    p2pTunnelAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    p2pTunnelAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    p2pTunnelAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    p2PTunnelAttributes.EntityData.Children = make(map[string]types.YChild)
-    p2PTunnelAttributes.EntityData.Children["config"] = types.YChild{"Config", &p2PTunnelAttributes.Config}
-    p2PTunnelAttributes.EntityData.Children["state"] = types.YChild{"State", &p2PTunnelAttributes.State}
-    p2PTunnelAttributes.EntityData.Children["p2p-primary-paths"] = types.YChild{"P2PPrimaryPaths", nil}
-    for i := range p2PTunnelAttributes.P2PPrimaryPaths {
-        p2PTunnelAttributes.EntityData.Children[types.GetSegmentPath(&p2PTunnelAttributes.P2PPrimaryPaths[i])] = types.YChild{"P2PPrimaryPaths", &p2PTunnelAttributes.P2PPrimaryPaths[i]}
-    }
-    p2PTunnelAttributes.EntityData.Children["p2p-secondary-paths"] = types.YChild{"P2PSecondaryPaths", nil}
-    for i := range p2PTunnelAttributes.P2PSecondaryPaths {
-        p2PTunnelAttributes.EntityData.Children[types.GetSegmentPath(&p2PTunnelAttributes.P2PSecondaryPaths[i])] = types.YChild{"P2PSecondaryPaths", &p2PTunnelAttributes.P2PSecondaryPaths[i]}
-    }
-    p2PTunnelAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(p2PTunnelAttributes.EntityData)
+    p2pTunnelAttributes.EntityData.Children = types.NewOrderedMap()
+    p2pTunnelAttributes.EntityData.Children.Append("config", types.YChild{"Config", &p2pTunnelAttributes.Config})
+    p2pTunnelAttributes.EntityData.Children.Append("state", types.YChild{"State", &p2pTunnelAttributes.State})
+    p2pTunnelAttributes.EntityData.Children.Append("p2p-primary-path", types.YChild{"P2pPrimaryPath", &p2pTunnelAttributes.P2pPrimaryPath})
+    p2pTunnelAttributes.EntityData.Children.Append("p2p-secondary-paths", types.YChild{"P2pSecondaryPaths", &p2pTunnelAttributes.P2pSecondaryPaths})
+    p2pTunnelAttributes.EntityData.Leafs = types.NewOrderedMap()
+
+    p2pTunnelAttributes.EntityData.YListKeys = []string {}
+
+    return &(p2pTunnelAttributes.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_Config
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_Config
 // Configuration parameters for P2P LSPs
-type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_Config struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // P2P tunnel destination address. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Destination interface{}
 }
 
-func (config *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_Config) GetEntityData() *types.CommonEntityData {
+func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -4781,27 +5994,30 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_Config) GetEn
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["destination"] = types.YLeaf{"Destination", config.Destination}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("destination", types.YLeaf{"Destination", config.Destination})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_State
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_State
 // State parameters for P2P LSPs
-type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_State struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // P2P tunnel destination address. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Destination interface{}
 }
 
-func (state *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_State) GetEntityData() *types.CommonEntityData {
+func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -4811,27 +6027,63 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_State) GetEnti
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["destination"] = types.YLeaf{"Destination", state.Destination}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("destination", types.YLeaf{"Destination", state.Destination})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath
+// Primary paths associated with the LSP
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of p2p primary paths for a tunnel. The type is slice of
+    // Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath.
+    P2pPrimaryPath []*Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath
+}
+
+func (p2pPrimaryPath *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath) GetEntityData() *types.CommonEntityData {
+    p2pPrimaryPath.EntityData.YFilter = p2pPrimaryPath.YFilter
+    p2pPrimaryPath.EntityData.YangName = "p2p-primary-path"
+    p2pPrimaryPath.EntityData.BundleName = "openconfig"
+    p2pPrimaryPath.EntityData.ParentYangName = "p2p-tunnel-attributes"
+    p2pPrimaryPath.EntityData.SegmentPath = "p2p-primary-path"
+    p2pPrimaryPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    p2pPrimaryPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    p2pPrimaryPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    p2pPrimaryPath.EntityData.Children = types.NewOrderedMap()
+    p2pPrimaryPath.EntityData.Children.Append("p2p-primary-path", types.YChild{"P2pPrimaryPath", nil})
+    for i := range p2pPrimaryPath.P2pPrimaryPath {
+        p2pPrimaryPath.EntityData.Children.Append(types.GetSegmentPath(p2pPrimaryPath.P2pPrimaryPath[i]), types.YChild{"P2pPrimaryPath", p2pPrimaryPath.P2pPrimaryPath[i]})
+    }
+    p2pPrimaryPath.EntityData.Leafs = types.NewOrderedMap()
+
+    p2pPrimaryPath.EntityData.YListKeys = []string {}
+
+    return &(p2pPrimaryPath.EntityData)
+}
+
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath
 // List of p2p primary paths for a tunnel
-type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Path name. The type is string. Refers to
-    // mpls.Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_Config_Name
+    // mpls.Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_Config_Name
     Name interface{}
 
     // Configuration parameters related to paths.
-    Config Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_Config
+    Config Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_Config
 
     // State parameters related to paths.
-    State Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_State
+    State Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_State
 
     // The set of candidate secondary paths which may be used for this primary
     // path. When secondary paths are specified in the list the path of the
@@ -4841,35 +6093,38 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths struct
     // priority 0 is the most preferred path. In the case that the list is empty,
     // any secondary path option may be utilised when the current primary path is
     // in use.
-    CandidateSecondaryPaths Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_CandidateSecondaryPaths
+    CandidateSecondaryPaths Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths
 
     // Top-level container for include/exclude constraints for link affinities.
-    AdminGroups Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_AdminGroups
+    AdminGroups Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_AdminGroups
 }
 
-func (p2PPrimaryPaths *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths) GetEntityData() *types.CommonEntityData {
-    p2PPrimaryPaths.EntityData.YFilter = p2PPrimaryPaths.YFilter
-    p2PPrimaryPaths.EntityData.YangName = "p2p-primary-paths"
-    p2PPrimaryPaths.EntityData.BundleName = "openconfig"
-    p2PPrimaryPaths.EntityData.ParentYangName = "p2p-tunnel-attributes"
-    p2PPrimaryPaths.EntityData.SegmentPath = "p2p-primary-paths" + "[name='" + fmt.Sprintf("%v", p2PPrimaryPaths.Name) + "']"
-    p2PPrimaryPaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    p2PPrimaryPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    p2PPrimaryPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (p2pPrimaryPath *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath) GetEntityData() *types.CommonEntityData {
+    p2pPrimaryPath.EntityData.YFilter = p2pPrimaryPath.YFilter
+    p2pPrimaryPath.EntityData.YangName = "p2p-primary-path"
+    p2pPrimaryPath.EntityData.BundleName = "openconfig"
+    p2pPrimaryPath.EntityData.ParentYangName = "p2p-primary-path"
+    p2pPrimaryPath.EntityData.SegmentPath = "p2p-primary-path" + types.AddKeyToken(p2pPrimaryPath.Name, "name")
+    p2pPrimaryPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    p2pPrimaryPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    p2pPrimaryPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    p2PPrimaryPaths.EntityData.Children = make(map[string]types.YChild)
-    p2PPrimaryPaths.EntityData.Children["config"] = types.YChild{"Config", &p2PPrimaryPaths.Config}
-    p2PPrimaryPaths.EntityData.Children["state"] = types.YChild{"State", &p2PPrimaryPaths.State}
-    p2PPrimaryPaths.EntityData.Children["candidate-secondary-paths"] = types.YChild{"CandidateSecondaryPaths", &p2PPrimaryPaths.CandidateSecondaryPaths}
-    p2PPrimaryPaths.EntityData.Children["admin-groups"] = types.YChild{"AdminGroups", &p2PPrimaryPaths.AdminGroups}
-    p2PPrimaryPaths.EntityData.Leafs = make(map[string]types.YLeaf)
-    p2PPrimaryPaths.EntityData.Leafs["name"] = types.YLeaf{"Name", p2PPrimaryPaths.Name}
-    return &(p2PPrimaryPaths.EntityData)
+    p2pPrimaryPath.EntityData.Children = types.NewOrderedMap()
+    p2pPrimaryPath.EntityData.Children.Append("config", types.YChild{"Config", &p2pPrimaryPath.Config})
+    p2pPrimaryPath.EntityData.Children.Append("state", types.YChild{"State", &p2pPrimaryPath.State})
+    p2pPrimaryPath.EntityData.Children.Append("candidate-secondary-paths", types.YChild{"CandidateSecondaryPaths", &p2pPrimaryPath.CandidateSecondaryPaths})
+    p2pPrimaryPath.EntityData.Children.Append("admin-groups", types.YChild{"AdminGroups", &p2pPrimaryPath.AdminGroups})
+    p2pPrimaryPath.EntityData.Leafs = types.NewOrderedMap()
+    p2pPrimaryPath.EntityData.Leafs.Append("name", types.YLeaf{"Name", p2pPrimaryPath.Name})
+
+    p2pPrimaryPath.EntityData.YListKeys = []string {"Name"}
+
+    return &(p2pPrimaryPath.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_Config
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_Config
 // Configuration parameters related to paths
-type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_Config struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4878,8 +6133,8 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_Config
 
     // The method used for computing the path, either locally computed, queried
     // from a server or not computed at all (explicitly configured). The type is
-    // one of the following: LocallyComputedExternallyQueriedExplicitlyDefined.
-    // The default value is locally-computed.
+    // one of the following: LOCALLYCOMPUTEDEXTERNALLYQUERIEDEXPLICITLYDEFINED.
+    // The default value is oc-mplst:LOCALLY_COMPUTED.
     PathComputationMethod interface{}
 
     // Flag to enable CSPF for locally computed LSPs. The type is bool.
@@ -4891,13 +6146,13 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_Config
 
     // Address of the external path computation server. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     PathComputationServer interface{}
 
     // reference to a defined path. The type is string. Refers to
-    // mpls.Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_Config_Name
+    // mpls.Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_Config_Name
     ExplicitPathName interface{}
 
     // Specifies a preference for this path. The lower the number higher the
@@ -4919,34 +6174,37 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_Config
     RetryTimer interface{}
 }
 
-func (config *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_Config) GetEntityData() *types.CommonEntityData {
+func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "p2p-primary-paths"
+    config.EntityData.ParentYangName = "p2p-primary-path"
     config.EntityData.SegmentPath = "config"
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["name"] = types.YLeaf{"Name", config.Name}
-    config.EntityData.Leafs["path-computation-method"] = types.YLeaf{"PathComputationMethod", config.PathComputationMethod}
-    config.EntityData.Leafs["use-cspf"] = types.YLeaf{"UseCspf", config.UseCspf}
-    config.EntityData.Leafs["cspf-tiebreaker"] = types.YLeaf{"CspfTiebreaker", config.CspfTiebreaker}
-    config.EntityData.Leafs["path-computation-server"] = types.YLeaf{"PathComputationServer", config.PathComputationServer}
-    config.EntityData.Leafs["explicit-path-name"] = types.YLeaf{"ExplicitPathName", config.ExplicitPathName}
-    config.EntityData.Leafs["preference"] = types.YLeaf{"Preference", config.Preference}
-    config.EntityData.Leafs["setup-priority"] = types.YLeaf{"SetupPriority", config.SetupPriority}
-    config.EntityData.Leafs["hold-priority"] = types.YLeaf{"HoldPriority", config.HoldPriority}
-    config.EntityData.Leafs["retry-timer"] = types.YLeaf{"RetryTimer", config.RetryTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("name", types.YLeaf{"Name", config.Name})
+    config.EntityData.Leafs.Append("path-computation-method", types.YLeaf{"PathComputationMethod", config.PathComputationMethod})
+    config.EntityData.Leafs.Append("use-cspf", types.YLeaf{"UseCspf", config.UseCspf})
+    config.EntityData.Leafs.Append("cspf-tiebreaker", types.YLeaf{"CspfTiebreaker", config.CspfTiebreaker})
+    config.EntityData.Leafs.Append("path-computation-server", types.YLeaf{"PathComputationServer", config.PathComputationServer})
+    config.EntityData.Leafs.Append("explicit-path-name", types.YLeaf{"ExplicitPathName", config.ExplicitPathName})
+    config.EntityData.Leafs.Append("preference", types.YLeaf{"Preference", config.Preference})
+    config.EntityData.Leafs.Append("setup-priority", types.YLeaf{"SetupPriority", config.SetupPriority})
+    config.EntityData.Leafs.Append("hold-priority", types.YLeaf{"HoldPriority", config.HoldPriority})
+    config.EntityData.Leafs.Append("retry-timer", types.YLeaf{"RetryTimer", config.RetryTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_State
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_State
 // State parameters related to paths
-type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_State struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4955,8 +6213,8 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_State 
 
     // The method used for computing the path, either locally computed, queried
     // from a server or not computed at all (explicitly configured). The type is
-    // one of the following: LocallyComputedExternallyQueriedExplicitlyDefined.
-    // The default value is locally-computed.
+    // one of the following: LOCALLYCOMPUTEDEXTERNALLYQUERIEDEXPLICITLYDEFINED.
+    // The default value is oc-mplst:LOCALLY_COMPUTED.
     PathComputationMethod interface{}
 
     // Flag to enable CSPF for locally computed LSPs. The type is bool.
@@ -4968,13 +6226,13 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_State 
 
     // Address of the external path computation server. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     PathComputationServer interface{}
 
     // reference to a defined path. The type is string. Refers to
-    // mpls.Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_Config_Name
+    // mpls.Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_Config_Name
     ExplicitPathName interface{}
 
     // Specifies a preference for this path. The lower the number higher the
@@ -4994,34 +6252,45 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_State 
     // sets the time between attempts to establish the LSP. The type is
     // interface{} with range: 1..600. Units are seconds.
     RetryTimer interface{}
+
+    // If the signalling protocol specified for this path is RSVP-TE, this leaf
+    // provides a reference to the associated session within the RSVP-TE protocol
+    // sessions list, such that details of the signaling can be retrieved. The
+    // type is string with range: 0..18446744073709551615. Refers to
+    // mpls.Mpls_SignalingProtocols_RsvpTe_Sessions_Session_LocalIndex
+    AssociatedRsvpSession interface{}
 }
 
-func (state *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_State) GetEntityData() *types.CommonEntityData {
+func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "p2p-primary-paths"
+    state.EntityData.ParentYangName = "p2p-primary-path"
     state.EntityData.SegmentPath = "state"
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["name"] = types.YLeaf{"Name", state.Name}
-    state.EntityData.Leafs["path-computation-method"] = types.YLeaf{"PathComputationMethod", state.PathComputationMethod}
-    state.EntityData.Leafs["use-cspf"] = types.YLeaf{"UseCspf", state.UseCspf}
-    state.EntityData.Leafs["cspf-tiebreaker"] = types.YLeaf{"CspfTiebreaker", state.CspfTiebreaker}
-    state.EntityData.Leafs["path-computation-server"] = types.YLeaf{"PathComputationServer", state.PathComputationServer}
-    state.EntityData.Leafs["explicit-path-name"] = types.YLeaf{"ExplicitPathName", state.ExplicitPathName}
-    state.EntityData.Leafs["preference"] = types.YLeaf{"Preference", state.Preference}
-    state.EntityData.Leafs["setup-priority"] = types.YLeaf{"SetupPriority", state.SetupPriority}
-    state.EntityData.Leafs["hold-priority"] = types.YLeaf{"HoldPriority", state.HoldPriority}
-    state.EntityData.Leafs["retry-timer"] = types.YLeaf{"RetryTimer", state.RetryTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("name", types.YLeaf{"Name", state.Name})
+    state.EntityData.Leafs.Append("path-computation-method", types.YLeaf{"PathComputationMethod", state.PathComputationMethod})
+    state.EntityData.Leafs.Append("use-cspf", types.YLeaf{"UseCspf", state.UseCspf})
+    state.EntityData.Leafs.Append("cspf-tiebreaker", types.YLeaf{"CspfTiebreaker", state.CspfTiebreaker})
+    state.EntityData.Leafs.Append("path-computation-server", types.YLeaf{"PathComputationServer", state.PathComputationServer})
+    state.EntityData.Leafs.Append("explicit-path-name", types.YLeaf{"ExplicitPathName", state.ExplicitPathName})
+    state.EntityData.Leafs.Append("preference", types.YLeaf{"Preference", state.Preference})
+    state.EntityData.Leafs.Append("setup-priority", types.YLeaf{"SetupPriority", state.SetupPriority})
+    state.EntityData.Leafs.Append("hold-priority", types.YLeaf{"HoldPriority", state.HoldPriority})
+    state.EntityData.Leafs.Append("retry-timer", types.YLeaf{"RetryTimer", state.RetryTimer})
+    state.EntityData.Leafs.Append("associated-rsvp-session", types.YLeaf{"AssociatedRsvpSession", state.AssociatedRsvpSession})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_CandidateSecondaryPaths
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths
 // The set of candidate secondary paths which may be used
 // for this primary path. When secondary paths are specified
 // in the list the path of the secondary LSP in use must be
@@ -5032,83 +6301,89 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPath
 // path. In the case that the list is empty, any secondary
 // path option may be utilised when the current primary path
 // is in use.
-type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_CandidateSecondaryPaths struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of secondary paths which may be utilised when the current primary path
     // is in use. The type is slice of
-    // Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_CandidateSecondaryPaths_CandidateSecondaryPath.
-    CandidateSecondaryPath []Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_CandidateSecondaryPaths_CandidateSecondaryPath
+    // Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths_CandidateSecondaryPath.
+    CandidateSecondaryPath []*Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths_CandidateSecondaryPath
 }
 
-func (candidateSecondaryPaths *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_CandidateSecondaryPaths) GetEntityData() *types.CommonEntityData {
+func (candidateSecondaryPaths *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths) GetEntityData() *types.CommonEntityData {
     candidateSecondaryPaths.EntityData.YFilter = candidateSecondaryPaths.YFilter
     candidateSecondaryPaths.EntityData.YangName = "candidate-secondary-paths"
     candidateSecondaryPaths.EntityData.BundleName = "openconfig"
-    candidateSecondaryPaths.EntityData.ParentYangName = "p2p-primary-paths"
+    candidateSecondaryPaths.EntityData.ParentYangName = "p2p-primary-path"
     candidateSecondaryPaths.EntityData.SegmentPath = "candidate-secondary-paths"
     candidateSecondaryPaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     candidateSecondaryPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     candidateSecondaryPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    candidateSecondaryPaths.EntityData.Children = make(map[string]types.YChild)
-    candidateSecondaryPaths.EntityData.Children["candidate-secondary-path"] = types.YChild{"CandidateSecondaryPath", nil}
+    candidateSecondaryPaths.EntityData.Children = types.NewOrderedMap()
+    candidateSecondaryPaths.EntityData.Children.Append("candidate-secondary-path", types.YChild{"CandidateSecondaryPath", nil})
     for i := range candidateSecondaryPaths.CandidateSecondaryPath {
-        candidateSecondaryPaths.EntityData.Children[types.GetSegmentPath(&candidateSecondaryPaths.CandidateSecondaryPath[i])] = types.YChild{"CandidateSecondaryPath", &candidateSecondaryPaths.CandidateSecondaryPath[i]}
+        candidateSecondaryPaths.EntityData.Children.Append(types.GetSegmentPath(candidateSecondaryPaths.CandidateSecondaryPath[i]), types.YChild{"CandidateSecondaryPath", candidateSecondaryPaths.CandidateSecondaryPath[i]})
     }
-    candidateSecondaryPaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    candidateSecondaryPaths.EntityData.Leafs = types.NewOrderedMap()
+
+    candidateSecondaryPaths.EntityData.YListKeys = []string {}
+
     return &(candidateSecondaryPaths.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_CandidateSecondaryPaths_CandidateSecondaryPath
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths_CandidateSecondaryPath
 // List of secondary paths which may be utilised when the
 // current primary path is in use
-type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_CandidateSecondaryPaths_CandidateSecondaryPath struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths_CandidateSecondaryPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A reference to the secondary path option reference
     // which acts as the key of the candidate-secondary-path list. The type is
     // string. Refers to
-    // mpls.Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_CandidateSecondaryPaths_CandidateSecondaryPath_Config_SecondaryPath
+    // mpls.Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths_CandidateSecondaryPath_Config_SecondaryPath
     SecondaryPath interface{}
 
     // Configuration parameters relating to the candidate secondary path.
-    Config Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_CandidateSecondaryPaths_CandidateSecondaryPath_Config
+    Config Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths_CandidateSecondaryPath_Config
 
     // Operational state parameters relating to the candidate secondary path.
-    State Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_CandidateSecondaryPaths_CandidateSecondaryPath_State
+    State Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths_CandidateSecondaryPath_State
 }
 
-func (candidateSecondaryPath *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_CandidateSecondaryPaths_CandidateSecondaryPath) GetEntityData() *types.CommonEntityData {
+func (candidateSecondaryPath *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths_CandidateSecondaryPath) GetEntityData() *types.CommonEntityData {
     candidateSecondaryPath.EntityData.YFilter = candidateSecondaryPath.YFilter
     candidateSecondaryPath.EntityData.YangName = "candidate-secondary-path"
     candidateSecondaryPath.EntityData.BundleName = "openconfig"
     candidateSecondaryPath.EntityData.ParentYangName = "candidate-secondary-paths"
-    candidateSecondaryPath.EntityData.SegmentPath = "candidate-secondary-path" + "[secondary-path='" + fmt.Sprintf("%v", candidateSecondaryPath.SecondaryPath) + "']"
+    candidateSecondaryPath.EntityData.SegmentPath = "candidate-secondary-path" + types.AddKeyToken(candidateSecondaryPath.SecondaryPath, "secondary-path")
     candidateSecondaryPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     candidateSecondaryPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     candidateSecondaryPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    candidateSecondaryPath.EntityData.Children = make(map[string]types.YChild)
-    candidateSecondaryPath.EntityData.Children["config"] = types.YChild{"Config", &candidateSecondaryPath.Config}
-    candidateSecondaryPath.EntityData.Children["state"] = types.YChild{"State", &candidateSecondaryPath.State}
-    candidateSecondaryPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    candidateSecondaryPath.EntityData.Leafs["secondary-path"] = types.YLeaf{"SecondaryPath", candidateSecondaryPath.SecondaryPath}
+    candidateSecondaryPath.EntityData.Children = types.NewOrderedMap()
+    candidateSecondaryPath.EntityData.Children.Append("config", types.YChild{"Config", &candidateSecondaryPath.Config})
+    candidateSecondaryPath.EntityData.Children.Append("state", types.YChild{"State", &candidateSecondaryPath.State})
+    candidateSecondaryPath.EntityData.Leafs = types.NewOrderedMap()
+    candidateSecondaryPath.EntityData.Leafs.Append("secondary-path", types.YLeaf{"SecondaryPath", candidateSecondaryPath.SecondaryPath})
+
+    candidateSecondaryPath.EntityData.YListKeys = []string {"SecondaryPath"}
+
     return &(candidateSecondaryPath.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_CandidateSecondaryPaths_CandidateSecondaryPath_Config
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths_CandidateSecondaryPath_Config
 // Configuration parameters relating to the candidate
 // secondary path
-type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_CandidateSecondaryPaths_CandidateSecondaryPath_Config struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths_CandidateSecondaryPath_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A reference to the secondary path that should be utilised when the
     // containing primary path option is in use. The type is string. Refers to
-    // mpls.Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_Config_Name
+    // mpls.Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_Config_Name
     SecondaryPath interface{}
 
     // The priority of the specified secondary path option. Higher priority
@@ -5118,7 +6393,7 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_Candid
     Priority interface{}
 }
 
-func (config *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_CandidateSecondaryPaths_CandidateSecondaryPath_Config) GetEntityData() *types.CommonEntityData {
+func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths_CandidateSecondaryPath_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -5128,23 +6403,26 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPat
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["secondary-path"] = types.YLeaf{"SecondaryPath", config.SecondaryPath}
-    config.EntityData.Leafs["priority"] = types.YLeaf{"Priority", config.Priority}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("secondary-path", types.YLeaf{"SecondaryPath", config.SecondaryPath})
+    config.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", config.Priority})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_CandidateSecondaryPaths_CandidateSecondaryPath_State
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths_CandidateSecondaryPath_State
 // Operational state parameters relating to the candidate
 // secondary path
-type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_CandidateSecondaryPaths_CandidateSecondaryPath_State struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths_CandidateSecondaryPath_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A reference to the secondary path that should be utilised when the
     // containing primary path option is in use. The type is string. Refers to
-    // mpls.Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_Config_Name
+    // mpls.Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_Config_Name
     SecondaryPath interface{}
 
     // The priority of the specified secondary path option. Higher priority
@@ -5158,7 +6436,7 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_Candid
     Active interface{}
 }
 
-func (state *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_CandidateSecondaryPaths_CandidateSecondaryPath_State) GetEntityData() *types.CommonEntityData {
+func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths_CandidateSecondaryPath_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -5168,48 +6446,54 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPath
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["secondary-path"] = types.YLeaf{"SecondaryPath", state.SecondaryPath}
-    state.EntityData.Leafs["priority"] = types.YLeaf{"Priority", state.Priority}
-    state.EntityData.Leafs["active"] = types.YLeaf{"Active", state.Active}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("secondary-path", types.YLeaf{"SecondaryPath", state.SecondaryPath})
+    state.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", state.Priority})
+    state.EntityData.Leafs.Append("active", types.YLeaf{"Active", state.Active})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_AdminGroups
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_AdminGroups
 // Top-level container for include/exclude constraints for
 // link affinities
-type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_AdminGroups struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_AdminGroups struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration data .
-    Config Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_AdminGroups_Config
+    Config Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_AdminGroups_Config
 
     // Operational state data .
-    State Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_AdminGroups_State
+    State Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_AdminGroups_State
 }
 
-func (adminGroups *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_AdminGroups) GetEntityData() *types.CommonEntityData {
+func (adminGroups *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_AdminGroups) GetEntityData() *types.CommonEntityData {
     adminGroups.EntityData.YFilter = adminGroups.YFilter
     adminGroups.EntityData.YangName = "admin-groups"
     adminGroups.EntityData.BundleName = "openconfig"
-    adminGroups.EntityData.ParentYangName = "p2p-primary-paths"
+    adminGroups.EntityData.ParentYangName = "p2p-primary-path"
     adminGroups.EntityData.SegmentPath = "admin-groups"
     adminGroups.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adminGroups.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adminGroups.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    adminGroups.EntityData.Children = make(map[string]types.YChild)
-    adminGroups.EntityData.Children["config"] = types.YChild{"Config", &adminGroups.Config}
-    adminGroups.EntityData.Children["state"] = types.YChild{"State", &adminGroups.State}
-    adminGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    adminGroups.EntityData.Children = types.NewOrderedMap()
+    adminGroups.EntityData.Children.Append("config", types.YChild{"Config", &adminGroups.Config})
+    adminGroups.EntityData.Children.Append("state", types.YChild{"State", &adminGroups.State})
+    adminGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    adminGroups.EntityData.YListKeys = []string {}
+
     return &(adminGroups.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_AdminGroups_Config
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_AdminGroups_Config
 // Configuration data 
-type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_AdminGroups_Config struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_AdminGroups_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5229,7 +6513,7 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_AdminG
     IncludeAnyGroup []interface{}
 }
 
-func (config *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_AdminGroups_Config) GetEntityData() *types.CommonEntityData {
+func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_AdminGroups_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -5239,17 +6523,20 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPat
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["exclude-group"] = types.YLeaf{"ExcludeGroup", config.ExcludeGroup}
-    config.EntityData.Leafs["include-all-group"] = types.YLeaf{"IncludeAllGroup", config.IncludeAllGroup}
-    config.EntityData.Leafs["include-any-group"] = types.YLeaf{"IncludeAnyGroup", config.IncludeAnyGroup}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("exclude-group", types.YLeaf{"ExcludeGroup", config.ExcludeGroup})
+    config.EntityData.Leafs.Append("include-all-group", types.YLeaf{"IncludeAllGroup", config.IncludeAllGroup})
+    config.EntityData.Leafs.Append("include-any-group", types.YLeaf{"IncludeAnyGroup", config.IncludeAnyGroup})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_AdminGroups_State
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_AdminGroups_State
 // Operational state data 
-type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_AdminGroups_State struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_AdminGroups_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5269,7 +6556,7 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_AdminG
     IncludeAnyGroup []interface{}
 }
 
-func (state *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPaths_AdminGroups_State) GetEntityData() *types.CommonEntityData {
+func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_AdminGroups_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -5279,56 +6566,95 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PPrimaryPath
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["exclude-group"] = types.YLeaf{"ExcludeGroup", state.ExcludeGroup}
-    state.EntityData.Leafs["include-all-group"] = types.YLeaf{"IncludeAllGroup", state.IncludeAllGroup}
-    state.EntityData.Leafs["include-any-group"] = types.YLeaf{"IncludeAnyGroup", state.IncludeAnyGroup}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("exclude-group", types.YLeaf{"ExcludeGroup", state.ExcludeGroup})
+    state.EntityData.Leafs.Append("include-all-group", types.YLeaf{"IncludeAllGroup", state.IncludeAllGroup})
+    state.EntityData.Leafs.Append("include-any-group", types.YLeaf{"IncludeAnyGroup", state.IncludeAnyGroup})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths
+// Secondary paths for the LSP
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of p2p primary paths for a tunnel. The type is slice of
+    // Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath.
+    P2pSecondaryPath []*Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath
+}
+
+func (p2pSecondaryPaths *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths) GetEntityData() *types.CommonEntityData {
+    p2pSecondaryPaths.EntityData.YFilter = p2pSecondaryPaths.YFilter
+    p2pSecondaryPaths.EntityData.YangName = "p2p-secondary-paths"
+    p2pSecondaryPaths.EntityData.BundleName = "openconfig"
+    p2pSecondaryPaths.EntityData.ParentYangName = "p2p-tunnel-attributes"
+    p2pSecondaryPaths.EntityData.SegmentPath = "p2p-secondary-paths"
+    p2pSecondaryPaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    p2pSecondaryPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    p2pSecondaryPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    p2pSecondaryPaths.EntityData.Children = types.NewOrderedMap()
+    p2pSecondaryPaths.EntityData.Children.Append("p2p-secondary-path", types.YChild{"P2pSecondaryPath", nil})
+    for i := range p2pSecondaryPaths.P2pSecondaryPath {
+        p2pSecondaryPaths.EntityData.Children.Append(types.GetSegmentPath(p2pSecondaryPaths.P2pSecondaryPath[i]), types.YChild{"P2pSecondaryPath", p2pSecondaryPaths.P2pSecondaryPath[i]})
+    }
+    p2pSecondaryPaths.EntityData.Leafs = types.NewOrderedMap()
+
+    p2pSecondaryPaths.EntityData.YListKeys = []string {}
+
+    return &(p2pSecondaryPaths.EntityData)
+}
+
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath
 // List of p2p primary paths for a tunnel
-type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Path name. The type is string. Refers to
-    // mpls.Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_Config_Name
+    // mpls.Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_Config_Name
     Name interface{}
 
     // Configuration parameters related to paths.
-    Config Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_Config
+    Config Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_Config
 
     // State parameters related to paths.
-    State Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_State
+    State Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_State
 
     // Top-level container for include/exclude constraints for link affinities.
-    AdminGroups Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_AdminGroups
+    AdminGroups Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_AdminGroups
 }
 
-func (p2PSecondaryPaths *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths) GetEntityData() *types.CommonEntityData {
-    p2PSecondaryPaths.EntityData.YFilter = p2PSecondaryPaths.YFilter
-    p2PSecondaryPaths.EntityData.YangName = "p2p-secondary-paths"
-    p2PSecondaryPaths.EntityData.BundleName = "openconfig"
-    p2PSecondaryPaths.EntityData.ParentYangName = "p2p-tunnel-attributes"
-    p2PSecondaryPaths.EntityData.SegmentPath = "p2p-secondary-paths" + "[name='" + fmt.Sprintf("%v", p2PSecondaryPaths.Name) + "']"
-    p2PSecondaryPaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    p2PSecondaryPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    p2PSecondaryPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (p2pSecondaryPath *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath) GetEntityData() *types.CommonEntityData {
+    p2pSecondaryPath.EntityData.YFilter = p2pSecondaryPath.YFilter
+    p2pSecondaryPath.EntityData.YangName = "p2p-secondary-path"
+    p2pSecondaryPath.EntityData.BundleName = "openconfig"
+    p2pSecondaryPath.EntityData.ParentYangName = "p2p-secondary-paths"
+    p2pSecondaryPath.EntityData.SegmentPath = "p2p-secondary-path" + types.AddKeyToken(p2pSecondaryPath.Name, "name")
+    p2pSecondaryPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    p2pSecondaryPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    p2pSecondaryPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    p2PSecondaryPaths.EntityData.Children = make(map[string]types.YChild)
-    p2PSecondaryPaths.EntityData.Children["config"] = types.YChild{"Config", &p2PSecondaryPaths.Config}
-    p2PSecondaryPaths.EntityData.Children["state"] = types.YChild{"State", &p2PSecondaryPaths.State}
-    p2PSecondaryPaths.EntityData.Children["admin-groups"] = types.YChild{"AdminGroups", &p2PSecondaryPaths.AdminGroups}
-    p2PSecondaryPaths.EntityData.Leafs = make(map[string]types.YLeaf)
-    p2PSecondaryPaths.EntityData.Leafs["name"] = types.YLeaf{"Name", p2PSecondaryPaths.Name}
-    return &(p2PSecondaryPaths.EntityData)
+    p2pSecondaryPath.EntityData.Children = types.NewOrderedMap()
+    p2pSecondaryPath.EntityData.Children.Append("config", types.YChild{"Config", &p2pSecondaryPath.Config})
+    p2pSecondaryPath.EntityData.Children.Append("state", types.YChild{"State", &p2pSecondaryPath.State})
+    p2pSecondaryPath.EntityData.Children.Append("admin-groups", types.YChild{"AdminGroups", &p2pSecondaryPath.AdminGroups})
+    p2pSecondaryPath.EntityData.Leafs = types.NewOrderedMap()
+    p2pSecondaryPath.EntityData.Leafs.Append("name", types.YLeaf{"Name", p2pSecondaryPath.Name})
+
+    p2pSecondaryPath.EntityData.YListKeys = []string {"Name"}
+
+    return &(p2pSecondaryPath.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_Config
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_Config
 // Configuration parameters related to paths
-type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_Config struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5337,8 +6663,8 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_Conf
 
     // The method used for computing the path, either locally computed, queried
     // from a server or not computed at all (explicitly configured). The type is
-    // one of the following: LocallyComputedExternallyQueriedExplicitlyDefined.
-    // The default value is locally-computed.
+    // one of the following: LOCALLYCOMPUTEDEXTERNALLYQUERIEDEXPLICITLYDEFINED.
+    // The default value is oc-mplst:LOCALLY_COMPUTED.
     PathComputationMethod interface{}
 
     // Flag to enable CSPF for locally computed LSPs. The type is bool.
@@ -5350,13 +6676,13 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_Conf
 
     // Address of the external path computation server. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     PathComputationServer interface{}
 
     // reference to a defined path. The type is string. Refers to
-    // mpls.Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_Config_Name
+    // mpls.Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_Config_Name
     ExplicitPathName interface{}
 
     // Specifies a preference for this path. The lower the number higher the
@@ -5378,34 +6704,37 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_Conf
     RetryTimer interface{}
 }
 
-func (config *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_Config) GetEntityData() *types.CommonEntityData {
+func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "p2p-secondary-paths"
+    config.EntityData.ParentYangName = "p2p-secondary-path"
     config.EntityData.SegmentPath = "config"
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["name"] = types.YLeaf{"Name", config.Name}
-    config.EntityData.Leafs["path-computation-method"] = types.YLeaf{"PathComputationMethod", config.PathComputationMethod}
-    config.EntityData.Leafs["use-cspf"] = types.YLeaf{"UseCspf", config.UseCspf}
-    config.EntityData.Leafs["cspf-tiebreaker"] = types.YLeaf{"CspfTiebreaker", config.CspfTiebreaker}
-    config.EntityData.Leafs["path-computation-server"] = types.YLeaf{"PathComputationServer", config.PathComputationServer}
-    config.EntityData.Leafs["explicit-path-name"] = types.YLeaf{"ExplicitPathName", config.ExplicitPathName}
-    config.EntityData.Leafs["preference"] = types.YLeaf{"Preference", config.Preference}
-    config.EntityData.Leafs["setup-priority"] = types.YLeaf{"SetupPriority", config.SetupPriority}
-    config.EntityData.Leafs["hold-priority"] = types.YLeaf{"HoldPriority", config.HoldPriority}
-    config.EntityData.Leafs["retry-timer"] = types.YLeaf{"RetryTimer", config.RetryTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("name", types.YLeaf{"Name", config.Name})
+    config.EntityData.Leafs.Append("path-computation-method", types.YLeaf{"PathComputationMethod", config.PathComputationMethod})
+    config.EntityData.Leafs.Append("use-cspf", types.YLeaf{"UseCspf", config.UseCspf})
+    config.EntityData.Leafs.Append("cspf-tiebreaker", types.YLeaf{"CspfTiebreaker", config.CspfTiebreaker})
+    config.EntityData.Leafs.Append("path-computation-server", types.YLeaf{"PathComputationServer", config.PathComputationServer})
+    config.EntityData.Leafs.Append("explicit-path-name", types.YLeaf{"ExplicitPathName", config.ExplicitPathName})
+    config.EntityData.Leafs.Append("preference", types.YLeaf{"Preference", config.Preference})
+    config.EntityData.Leafs.Append("setup-priority", types.YLeaf{"SetupPriority", config.SetupPriority})
+    config.EntityData.Leafs.Append("hold-priority", types.YLeaf{"HoldPriority", config.HoldPriority})
+    config.EntityData.Leafs.Append("retry-timer", types.YLeaf{"RetryTimer", config.RetryTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_State
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_State
 // State parameters related to paths
-type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_State struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5414,8 +6743,8 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_Stat
 
     // The method used for computing the path, either locally computed, queried
     // from a server or not computed at all (explicitly configured). The type is
-    // one of the following: LocallyComputedExternallyQueriedExplicitlyDefined.
-    // The default value is locally-computed.
+    // one of the following: LOCALLYCOMPUTEDEXTERNALLYQUERIEDEXPLICITLYDEFINED.
+    // The default value is oc-mplst:LOCALLY_COMPUTED.
     PathComputationMethod interface{}
 
     // Flag to enable CSPF for locally computed LSPs. The type is bool.
@@ -5427,13 +6756,13 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_Stat
 
     // Address of the external path computation server. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     PathComputationServer interface{}
 
     // reference to a defined path. The type is string. Refers to
-    // mpls.Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_Config_Name
+    // mpls.Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_Config_Name
     ExplicitPathName interface{}
 
     // Specifies a preference for this path. The lower the number higher the
@@ -5453,67 +6782,81 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_Stat
     // sets the time between attempts to establish the LSP. The type is
     // interface{} with range: 1..600. Units are seconds.
     RetryTimer interface{}
+
+    // If the signalling protocol specified for this path is RSVP-TE, this leaf
+    // provides a reference to the associated session within the RSVP-TE protocol
+    // sessions list, such that details of the signaling can be retrieved. The
+    // type is string with range: 0..18446744073709551615. Refers to
+    // mpls.Mpls_SignalingProtocols_RsvpTe_Sessions_Session_LocalIndex
+    AssociatedRsvpSession interface{}
 }
 
-func (state *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_State) GetEntityData() *types.CommonEntityData {
+func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "p2p-secondary-paths"
+    state.EntityData.ParentYangName = "p2p-secondary-path"
     state.EntityData.SegmentPath = "state"
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["name"] = types.YLeaf{"Name", state.Name}
-    state.EntityData.Leafs["path-computation-method"] = types.YLeaf{"PathComputationMethod", state.PathComputationMethod}
-    state.EntityData.Leafs["use-cspf"] = types.YLeaf{"UseCspf", state.UseCspf}
-    state.EntityData.Leafs["cspf-tiebreaker"] = types.YLeaf{"CspfTiebreaker", state.CspfTiebreaker}
-    state.EntityData.Leafs["path-computation-server"] = types.YLeaf{"PathComputationServer", state.PathComputationServer}
-    state.EntityData.Leafs["explicit-path-name"] = types.YLeaf{"ExplicitPathName", state.ExplicitPathName}
-    state.EntityData.Leafs["preference"] = types.YLeaf{"Preference", state.Preference}
-    state.EntityData.Leafs["setup-priority"] = types.YLeaf{"SetupPriority", state.SetupPriority}
-    state.EntityData.Leafs["hold-priority"] = types.YLeaf{"HoldPriority", state.HoldPriority}
-    state.EntityData.Leafs["retry-timer"] = types.YLeaf{"RetryTimer", state.RetryTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("name", types.YLeaf{"Name", state.Name})
+    state.EntityData.Leafs.Append("path-computation-method", types.YLeaf{"PathComputationMethod", state.PathComputationMethod})
+    state.EntityData.Leafs.Append("use-cspf", types.YLeaf{"UseCspf", state.UseCspf})
+    state.EntityData.Leafs.Append("cspf-tiebreaker", types.YLeaf{"CspfTiebreaker", state.CspfTiebreaker})
+    state.EntityData.Leafs.Append("path-computation-server", types.YLeaf{"PathComputationServer", state.PathComputationServer})
+    state.EntityData.Leafs.Append("explicit-path-name", types.YLeaf{"ExplicitPathName", state.ExplicitPathName})
+    state.EntityData.Leafs.Append("preference", types.YLeaf{"Preference", state.Preference})
+    state.EntityData.Leafs.Append("setup-priority", types.YLeaf{"SetupPriority", state.SetupPriority})
+    state.EntityData.Leafs.Append("hold-priority", types.YLeaf{"HoldPriority", state.HoldPriority})
+    state.EntityData.Leafs.Append("retry-timer", types.YLeaf{"RetryTimer", state.RetryTimer})
+    state.EntityData.Leafs.Append("associated-rsvp-session", types.YLeaf{"AssociatedRsvpSession", state.AssociatedRsvpSession})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_AdminGroups
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_AdminGroups
 // Top-level container for include/exclude constraints for
 // link affinities
-type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_AdminGroups struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_AdminGroups struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration data .
-    Config Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_AdminGroups_Config
+    Config Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_AdminGroups_Config
 
     // Operational state data .
-    State Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_AdminGroups_State
+    State Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_AdminGroups_State
 }
 
-func (adminGroups *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_AdminGroups) GetEntityData() *types.CommonEntityData {
+func (adminGroups *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_AdminGroups) GetEntityData() *types.CommonEntityData {
     adminGroups.EntityData.YFilter = adminGroups.YFilter
     adminGroups.EntityData.YangName = "admin-groups"
     adminGroups.EntityData.BundleName = "openconfig"
-    adminGroups.EntityData.ParentYangName = "p2p-secondary-paths"
+    adminGroups.EntityData.ParentYangName = "p2p-secondary-path"
     adminGroups.EntityData.SegmentPath = "admin-groups"
     adminGroups.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adminGroups.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adminGroups.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    adminGroups.EntityData.Children = make(map[string]types.YChild)
-    adminGroups.EntityData.Children["config"] = types.YChild{"Config", &adminGroups.Config}
-    adminGroups.EntityData.Children["state"] = types.YChild{"State", &adminGroups.State}
-    adminGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    adminGroups.EntityData.Children = types.NewOrderedMap()
+    adminGroups.EntityData.Children.Append("config", types.YChild{"Config", &adminGroups.Config})
+    adminGroups.EntityData.Children.Append("state", types.YChild{"State", &adminGroups.State})
+    adminGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    adminGroups.EntityData.YListKeys = []string {}
+
     return &(adminGroups.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_AdminGroups_Config
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_AdminGroups_Config
 // Configuration data 
-type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_AdminGroups_Config struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_AdminGroups_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5533,7 +6876,7 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_Admi
     IncludeAnyGroup []interface{}
 }
 
-func (config *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_AdminGroups_Config) GetEntityData() *types.CommonEntityData {
+func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_AdminGroups_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -5543,17 +6886,20 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryP
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["exclude-group"] = types.YLeaf{"ExcludeGroup", config.ExcludeGroup}
-    config.EntityData.Leafs["include-all-group"] = types.YLeaf{"IncludeAllGroup", config.IncludeAllGroup}
-    config.EntityData.Leafs["include-any-group"] = types.YLeaf{"IncludeAnyGroup", config.IncludeAnyGroup}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("exclude-group", types.YLeaf{"ExcludeGroup", config.ExcludeGroup})
+    config.EntityData.Leafs.Append("include-all-group", types.YLeaf{"IncludeAllGroup", config.IncludeAllGroup})
+    config.EntityData.Leafs.Append("include-any-group", types.YLeaf{"IncludeAnyGroup", config.IncludeAnyGroup})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_AdminGroups_State
+// Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_AdminGroups_State
 // Operational state data 
-type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_AdminGroups_State struct {
+type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_AdminGroups_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5573,7 +6919,7 @@ type Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_Admi
     IncludeAnyGroup []interface{}
 }
 
-func (state *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPaths_AdminGroups_State) GetEntityData() *types.CommonEntityData {
+func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_AdminGroups_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -5583,11 +6929,14 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnel_P2PTunnelAttributes_P2PSecondaryPa
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["exclude-group"] = types.YLeaf{"ExcludeGroup", state.ExcludeGroup}
-    state.EntityData.Leafs["include-all-group"] = types.YLeaf{"IncludeAllGroup", state.IncludeAllGroup}
-    state.EntityData.Leafs["include-any-group"] = types.YLeaf{"IncludeAnyGroup", state.IncludeAnyGroup}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("exclude-group", types.YLeaf{"ExcludeGroup", state.ExcludeGroup})
+    state.EntityData.Leafs.Append("include-all-group", types.YLeaf{"IncludeAllGroup", state.IncludeAllGroup})
+    state.EntityData.Leafs.Append("include-any-group", types.YLeaf{"IncludeAnyGroup", state.IncludeAnyGroup})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -5612,9 +6961,12 @@ func (unconstrainedPath *Mpls_Lsps_UnconstrainedPath) GetEntityData() *types.Com
     unconstrainedPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unconstrainedPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    unconstrainedPath.EntityData.Children = make(map[string]types.YChild)
-    unconstrainedPath.EntityData.Children["path-setup-protocol"] = types.YChild{"PathSetupProtocol", &unconstrainedPath.PathSetupProtocol}
-    unconstrainedPath.EntityData.Leafs = make(map[string]types.YLeaf)
+    unconstrainedPath.EntityData.Children = types.NewOrderedMap()
+    unconstrainedPath.EntityData.Children.Append("path-setup-protocol", types.YChild{"PathSetupProtocol", &unconstrainedPath.PathSetupProtocol})
+    unconstrainedPath.EntityData.Leafs = types.NewOrderedMap()
+
+    unconstrainedPath.EntityData.YListKeys = []string {}
+
     return &(unconstrainedPath.EntityData)
 }
 
@@ -5627,9 +6979,6 @@ type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol struct {
 
     // LDP signaling setup for IGP-congruent LSPs.
     Ldp Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp
-
-    // segment routing signaling extensions for IGP-confgruent LSPs.
-    SegmentRouting Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting
 }
 
 func (pathSetupProtocol *Mpls_Lsps_UnconstrainedPath_PathSetupProtocol) GetEntityData() *types.CommonEntityData {
@@ -5642,23 +6991,20 @@ func (pathSetupProtocol *Mpls_Lsps_UnconstrainedPath_PathSetupProtocol) GetEntit
     pathSetupProtocol.EntityData.NamespaceTable = openconfig.GetNamespaces()
     pathSetupProtocol.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    pathSetupProtocol.EntityData.Children = make(map[string]types.YChild)
-    pathSetupProtocol.EntityData.Children["ldp"] = types.YChild{"Ldp", &pathSetupProtocol.Ldp}
-    pathSetupProtocol.EntityData.Children["segment-routing"] = types.YChild{"SegmentRouting", &pathSetupProtocol.SegmentRouting}
-    pathSetupProtocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    pathSetupProtocol.EntityData.Children = types.NewOrderedMap()
+    pathSetupProtocol.EntityData.Children.Append("ldp", types.YChild{"Ldp", &pathSetupProtocol.Ldp})
+    pathSetupProtocol.EntityData.Leafs = types.NewOrderedMap()
+
+    pathSetupProtocol.EntityData.YListKeys = []string {}
+
     return &(pathSetupProtocol.EntityData)
 }
 
 // Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp
 // LDP signaling setup for IGP-congruent LSPs
-// This type is a presence type.
 type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // contains configuration stanzas for different LSP tunnel types (P2P, P2MP,
-    // etc.).
-    Tunnel Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel
 }
 
 func (ldp *Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp) GetEntityData() *types.CommonEntityData {
@@ -5671,514 +7017,13 @@ func (ldp *Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp) GetEntityData() *t
     ldp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ldp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ldp.EntityData.Children = make(map[string]types.YChild)
-    ldp.EntityData.Children["tunnel"] = types.YChild{"Tunnel", &ldp.Tunnel}
-    ldp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ldp.EntityData.Children = types.NewOrderedMap()
+    ldp.EntityData.Leafs = types.NewOrderedMap()
+
+    ldp.EntityData.YListKeys = []string {}
+
     return &(ldp.EntityData)
 }
-
-// Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel
-// contains configuration stanzas for different LSP
-// tunnel types (P2P, P2MP, etc.)
-type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // specifies the type of LSP, e.g., P2P or P2MP. The type is TunnelType_.
-    TunnelType interface{}
-
-    // specify basic or targeted LDP LSP. The type is LdpType.
-    LdpType interface{}
-
-    // properties of point-to-point tunnels.
-    P2PLsp Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel_P2PLsp
-
-    // properties of point-to-multipoint tunnels.
-    P2MpLsp Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel_P2MpLsp
-
-    // properties of multipoint-to-multipoint tunnels.
-    Mp2MpLsp Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel_Mp2MpLsp
-}
-
-func (tunnel *Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel) GetEntityData() *types.CommonEntityData {
-    tunnel.EntityData.YFilter = tunnel.YFilter
-    tunnel.EntityData.YangName = "tunnel"
-    tunnel.EntityData.BundleName = "openconfig"
-    tunnel.EntityData.ParentYangName = "ldp"
-    tunnel.EntityData.SegmentPath = "tunnel"
-    tunnel.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    tunnel.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    tunnel.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    tunnel.EntityData.Children = make(map[string]types.YChild)
-    tunnel.EntityData.Children["p2p-lsp"] = types.YChild{"P2PLsp", &tunnel.P2PLsp}
-    tunnel.EntityData.Children["p2mp-lsp"] = types.YChild{"P2MpLsp", &tunnel.P2MpLsp}
-    tunnel.EntityData.Children["mp2mp-lsp"] = types.YChild{"Mp2MpLsp", &tunnel.Mp2MpLsp}
-    tunnel.EntityData.Leafs = make(map[string]types.YLeaf)
-    tunnel.EntityData.Leafs["tunnel-type"] = types.YLeaf{"TunnelType", tunnel.TunnelType}
-    tunnel.EntityData.Leafs["ldp-type"] = types.YLeaf{"LdpType", tunnel.LdpType}
-    return &(tunnel.EntityData)
-}
-
-// Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel_P2PLsp
-// properties of point-to-point tunnels
-type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel_P2PLsp struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Address prefix for packets sharing the same forwarding equivalence class
-    // for the IGP-based LSP. The type is one of the following types: slice of
-    // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
-    // or slice of string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
-    FecAddress []interface{}
-}
-
-func (p2PLsp *Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel_P2PLsp) GetEntityData() *types.CommonEntityData {
-    p2PLsp.EntityData.YFilter = p2PLsp.YFilter
-    p2PLsp.EntityData.YangName = "p2p-lsp"
-    p2PLsp.EntityData.BundleName = "openconfig"
-    p2PLsp.EntityData.ParentYangName = "tunnel"
-    p2PLsp.EntityData.SegmentPath = "p2p-lsp"
-    p2PLsp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    p2PLsp.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    p2PLsp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    p2PLsp.EntityData.Children = make(map[string]types.YChild)
-    p2PLsp.EntityData.Leafs = make(map[string]types.YLeaf)
-    p2PLsp.EntityData.Leafs["fec-address"] = types.YLeaf{"FecAddress", p2PLsp.FecAddress}
-    return &(p2PLsp.EntityData)
-}
-
-// Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel_P2MpLsp
-// properties of point-to-multipoint tunnels
-type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel_P2MpLsp struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (p2MpLsp *Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel_P2MpLsp) GetEntityData() *types.CommonEntityData {
-    p2MpLsp.EntityData.YFilter = p2MpLsp.YFilter
-    p2MpLsp.EntityData.YangName = "p2mp-lsp"
-    p2MpLsp.EntityData.BundleName = "openconfig"
-    p2MpLsp.EntityData.ParentYangName = "tunnel"
-    p2MpLsp.EntityData.SegmentPath = "p2mp-lsp"
-    p2MpLsp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    p2MpLsp.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    p2MpLsp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    p2MpLsp.EntityData.Children = make(map[string]types.YChild)
-    p2MpLsp.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(p2MpLsp.EntityData)
-}
-
-// Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel_Mp2MpLsp
-// properties of multipoint-to-multipoint tunnels
-type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel_Mp2MpLsp struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (mp2MpLsp *Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel_Mp2MpLsp) GetEntityData() *types.CommonEntityData {
-    mp2MpLsp.EntityData.YFilter = mp2MpLsp.YFilter
-    mp2MpLsp.EntityData.YangName = "mp2mp-lsp"
-    mp2MpLsp.EntityData.BundleName = "openconfig"
-    mp2MpLsp.EntityData.ParentYangName = "tunnel"
-    mp2MpLsp.EntityData.SegmentPath = "mp2mp-lsp"
-    mp2MpLsp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    mp2MpLsp.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    mp2MpLsp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    mp2MpLsp.EntityData.Children = make(map[string]types.YChild)
-    mp2MpLsp.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mp2MpLsp.EntityData)
-}
-
-// Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel_LdpType represents specify basic or targeted LDP LSP
-type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel_LdpType string
-
-const (
-    // basic hop-by-hop LSP
-    Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel_LdpType_BASIC Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel_LdpType = "BASIC"
-
-    // tLDP LSP
-    Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel_LdpType_TARGETED Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp_Tunnel_LdpType = "TARGETED"
-)
-
-// Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting
-// segment routing signaling extensions for
-// IGP-confgruent LSPs
-// This type is a presence type.
-type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // contains configuration stanzas for different LSP tunnel types (P2P, P2MP,
-    // etc.).
-    Tunnel Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel
-}
-
-func (segmentRouting *Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting) GetEntityData() *types.CommonEntityData {
-    segmentRouting.EntityData.YFilter = segmentRouting.YFilter
-    segmentRouting.EntityData.YangName = "segment-routing"
-    segmentRouting.EntityData.BundleName = "openconfig"
-    segmentRouting.EntityData.ParentYangName = "path-setup-protocol"
-    segmentRouting.EntityData.SegmentPath = "segment-routing"
-    segmentRouting.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    segmentRouting.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    segmentRouting.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    segmentRouting.EntityData.Children = make(map[string]types.YChild)
-    segmentRouting.EntityData.Children["tunnel"] = types.YChild{"Tunnel", &segmentRouting.Tunnel}
-    segmentRouting.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(segmentRouting.EntityData)
-}
-
-// Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel
-// contains configuration stanzas for different LSP
-// tunnel types (P2P, P2MP, etc.)
-type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // specifies the type of LSP, e.g., P2P or P2MP. The type is TunnelType_.
-    TunnelType interface{}
-
-    // properties of point-to-point tunnels.
-    P2PLsp Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp
-}
-
-func (tunnel *Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel) GetEntityData() *types.CommonEntityData {
-    tunnel.EntityData.YFilter = tunnel.YFilter
-    tunnel.EntityData.YangName = "tunnel"
-    tunnel.EntityData.BundleName = "openconfig"
-    tunnel.EntityData.ParentYangName = "segment-routing"
-    tunnel.EntityData.SegmentPath = "tunnel"
-    tunnel.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    tunnel.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    tunnel.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    tunnel.EntityData.Children = make(map[string]types.YChild)
-    tunnel.EntityData.Children["p2p-lsp"] = types.YChild{"P2PLsp", &tunnel.P2PLsp}
-    tunnel.EntityData.Leafs = make(map[string]types.YLeaf)
-    tunnel.EntityData.Leafs["tunnel-type"] = types.YLeaf{"TunnelType", tunnel.TunnelType}
-    return &(tunnel.EntityData)
-}
-
-// Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp
-// properties of point-to-point tunnels
-type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // List of FECs that are to be originated as SR LSPs. The type is slice of
-    // Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec.
-    Fec []Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec
-}
-
-func (p2PLsp *Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp) GetEntityData() *types.CommonEntityData {
-    p2PLsp.EntityData.YFilter = p2PLsp.YFilter
-    p2PLsp.EntityData.YangName = "p2p-lsp"
-    p2PLsp.EntityData.BundleName = "openconfig"
-    p2PLsp.EntityData.ParentYangName = "tunnel"
-    p2PLsp.EntityData.SegmentPath = "p2p-lsp"
-    p2PLsp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    p2PLsp.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    p2PLsp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    p2PLsp.EntityData.Children = make(map[string]types.YChild)
-    p2PLsp.EntityData.Children["fec"] = types.YChild{"Fec", nil}
-    for i := range p2PLsp.Fec {
-        p2PLsp.EntityData.Children[types.GetSegmentPath(&p2PLsp.Fec[i])] = types.YChild{"Fec", &p2PLsp.Fec[i]}
-    }
-    p2PLsp.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(p2PLsp.EntityData)
-}
-
-// Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec
-// List of FECs that are to be originated as SR LSPs
-type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. FEC that is to be advertised as part of the
-    // Prefix-SID. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
-    // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
-    FecAddress interface{}
-
-    // Configuration parameters relating to the FEC to be advertised by SR.
-    Config Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_Config
-
-    // Operational state relating to a FEC advertised by SR.
-    State Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_State
-
-    // Parameters relating to the Prefix-SID used for the originated FEC.
-    PrefixSid Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid
-}
-
-func (fec *Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec) GetEntityData() *types.CommonEntityData {
-    fec.EntityData.YFilter = fec.YFilter
-    fec.EntityData.YangName = "fec"
-    fec.EntityData.BundleName = "openconfig"
-    fec.EntityData.ParentYangName = "p2p-lsp"
-    fec.EntityData.SegmentPath = "fec" + "[fec-address='" + fmt.Sprintf("%v", fec.FecAddress) + "']"
-    fec.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    fec.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    fec.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    fec.EntityData.Children = make(map[string]types.YChild)
-    fec.EntityData.Children["config"] = types.YChild{"Config", &fec.Config}
-    fec.EntityData.Children["state"] = types.YChild{"State", &fec.State}
-    fec.EntityData.Children["prefix-sid"] = types.YChild{"PrefixSid", &fec.PrefixSid}
-    fec.EntityData.Leafs = make(map[string]types.YLeaf)
-    fec.EntityData.Leafs["fec-address"] = types.YLeaf{"FecAddress", fec.FecAddress}
-    return &(fec.EntityData)
-}
-
-// Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_Config
-// Configuration parameters relating to the FEC to be
-// advertised by SR
-type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // FEC that is to be advertised as part of the Prefix-SID. The type is one of
-    // the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
-    // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
-    FecAddress interface{}
-}
-
-func (config *Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "fec"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["fec-address"] = types.YLeaf{"FecAddress", config.FecAddress}
-    return &(config.EntityData)
-}
-
-// Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_State
-// Operational state relating to a FEC advertised by SR
-type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // FEC that is to be advertised as part of the Prefix-SID. The type is one of
-    // the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
-    // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
-    FecAddress interface{}
-}
-
-func (state *Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "fec"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["fec-address"] = types.YLeaf{"FecAddress", state.FecAddress}
-    return &(state.EntityData)
-}
-
-// Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid
-// Parameters relating to the Prefix-SID
-// used for the originated FEC
-type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configuration parameters relating to the Prefix-SID used for the originated
-    // FEC.
-    Config Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_Config
-
-    // Operational state parameters relating to the Prefix-SID used for the
-    // originated FEC.
-    State Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_State
-}
-
-func (prefixSid *Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid) GetEntityData() *types.CommonEntityData {
-    prefixSid.EntityData.YFilter = prefixSid.YFilter
-    prefixSid.EntityData.YangName = "prefix-sid"
-    prefixSid.EntityData.BundleName = "openconfig"
-    prefixSid.EntityData.ParentYangName = "fec"
-    prefixSid.EntityData.SegmentPath = "prefix-sid"
-    prefixSid.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    prefixSid.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    prefixSid.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    prefixSid.EntityData.Children = make(map[string]types.YChild)
-    prefixSid.EntityData.Children["config"] = types.YChild{"Config", &prefixSid.Config}
-    prefixSid.EntityData.Children["state"] = types.YChild{"State", &prefixSid.State}
-    prefixSid.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(prefixSid.EntityData)
-}
-
-// Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_Config
-// Configuration parameters relating to the Prefix-SID
-// used for the originated FEC
-type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Specifies how the value of the Prefix-SID should be interpreted - whether
-    // as an offset to the SRGB, or as an absolute value. The type is Type_. The
-    // default value is INDEX.
-    Type_ interface{}
-
-    // Specifies that the Prefix-SID is to be treated as a Node-SID by setting the
-    // N-flag in the advertised Prefix-SID TLV in the IGP. The type is bool.
-    NodeFlag interface{}
-
-    // Configuration relating to the LFIB actions for the Prefix-SID to be used by
-    // the penultimate-hop. The type is LastHopBehavior.
-    LastHopBehavior interface{}
-}
-
-func (config *Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "prefix-sid"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["type"] = types.YLeaf{"Type_", config.Type_}
-    config.EntityData.Leafs["node-flag"] = types.YLeaf{"NodeFlag", config.NodeFlag}
-    config.EntityData.Leafs["last-hop-behavior"] = types.YLeaf{"LastHopBehavior", config.LastHopBehavior}
-    return &(config.EntityData)
-}
-
-// Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_Config_LastHopBehavior represents Prefix-SID to be used by the penultimate-hop
-type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_Config_LastHopBehavior string
-
-const (
-    // Specifies that the explicit null label is to be used
-    // when the penultimate hop forwards a labelled packet to
-    // this Prefix-SID
-    Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_Config_LastHopBehavior_EXPLICIT_NULL Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_Config_LastHopBehavior = "EXPLICIT-NULL"
-
-    // Specicies that the Prefix-SID's label value is to be
-    // left in place when the penultimate hop forwards to this
-    // Prefix-SID
-    Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_Config_LastHopBehavior_UNCHANGED Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_Config_LastHopBehavior = "UNCHANGED"
-
-    // Specicies that the penultimate hop should pop the
-    // Prefix-SID label before forwarding to the eLER
-    Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_Config_LastHopBehavior_PHP Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_Config_LastHopBehavior = "PHP"
-)
-
-// Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_Config_Type_ represents absolute value
-type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_Config_Type_ string
-
-const (
-    // Set when the value of the prefix SID should be specified
-    // as an off-set from the SRGB's zero-value. When multiple
-    // SRGBs are specified, the zero-value is the minimum
-    // of their lower bounds
-    Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_Config_Type__INDEX Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_Config_Type_ = "INDEX"
-
-    // Set when the value of a prefix SID is specified as the
-    // absolute value within an SRGB. It is an error to specify
-    // an absolute value outside of a specified SRGB
-    Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_Config_Type__ABSOLUTE Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_Config_Type_ = "ABSOLUTE"
-)
-
-// Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_State
-// Operational state parameters relating to the
-// Prefix-SID used for the originated FEC
-type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Specifies how the value of the Prefix-SID should be interpreted - whether
-    // as an offset to the SRGB, or as an absolute value. The type is Type_. The
-    // default value is INDEX.
-    Type_ interface{}
-
-    // Specifies that the Prefix-SID is to be treated as a Node-SID by setting the
-    // N-flag in the advertised Prefix-SID TLV in the IGP. The type is bool.
-    NodeFlag interface{}
-
-    // Configuration relating to the LFIB actions for the Prefix-SID to be used by
-    // the penultimate-hop. The type is LastHopBehavior.
-    LastHopBehavior interface{}
-}
-
-func (state *Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "prefix-sid"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["type"] = types.YLeaf{"Type_", state.Type_}
-    state.EntityData.Leafs["node-flag"] = types.YLeaf{"NodeFlag", state.NodeFlag}
-    state.EntityData.Leafs["last-hop-behavior"] = types.YLeaf{"LastHopBehavior", state.LastHopBehavior}
-    return &(state.EntityData)
-}
-
-// Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_State_LastHopBehavior represents Prefix-SID to be used by the penultimate-hop
-type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_State_LastHopBehavior string
-
-const (
-    // Specifies that the explicit null label is to be used
-    // when the penultimate hop forwards a labelled packet to
-    // this Prefix-SID
-    Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_State_LastHopBehavior_EXPLICIT_NULL Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_State_LastHopBehavior = "EXPLICIT-NULL"
-
-    // Specicies that the Prefix-SID's label value is to be
-    // left in place when the penultimate hop forwards to this
-    // Prefix-SID
-    Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_State_LastHopBehavior_UNCHANGED Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_State_LastHopBehavior = "UNCHANGED"
-
-    // Specicies that the penultimate hop should pop the
-    // Prefix-SID label before forwarding to the eLER
-    Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_State_LastHopBehavior_PHP Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_State_LastHopBehavior = "PHP"
-)
-
-// Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_State_Type_ represents absolute value
-type Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_State_Type_ string
-
-const (
-    // Set when the value of the prefix SID should be specified
-    // as an off-set from the SRGB's zero-value. When multiple
-    // SRGBs are specified, the zero-value is the minimum
-    // of their lower bounds
-    Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_State_Type__INDEX Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_State_Type_ = "INDEX"
-
-    // Set when the value of a prefix SID is specified as the
-    // absolute value within an SRGB. It is an error to specify
-    // an absolute value outside of a specified SRGB
-    Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_State_Type__ABSOLUTE Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_SegmentRouting_Tunnel_P2PLsp_Fec_PrefixSid_State_Type_ = "ABSOLUTE"
-)
 
 // Mpls_Lsps_StaticLsps
 // statically configured LSPs, without dynamic
@@ -6188,8 +7033,8 @@ type Mpls_Lsps_StaticLsps struct {
     YFilter yfilter.YFilter
 
     // list of defined static LSPs. The type is slice of
-    // Mpls_Lsps_StaticLsps_LabelSwitchedPath.
-    LabelSwitchedPath []Mpls_Lsps_StaticLsps_LabelSwitchedPath
+    // Mpls_Lsps_StaticLsps_StaticLsp.
+    StaticLsp []*Mpls_Lsps_StaticLsps_StaticLsp
 }
 
 func (staticLsps *Mpls_Lsps_StaticLsps) GetEntityData() *types.CommonEntityData {
@@ -6202,106 +7047,171 @@ func (staticLsps *Mpls_Lsps_StaticLsps) GetEntityData() *types.CommonEntityData 
     staticLsps.EntityData.NamespaceTable = openconfig.GetNamespaces()
     staticLsps.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    staticLsps.EntityData.Children = make(map[string]types.YChild)
-    staticLsps.EntityData.Children["label-switched-path"] = types.YChild{"LabelSwitchedPath", nil}
-    for i := range staticLsps.LabelSwitchedPath {
-        staticLsps.EntityData.Children[types.GetSegmentPath(&staticLsps.LabelSwitchedPath[i])] = types.YChild{"LabelSwitchedPath", &staticLsps.LabelSwitchedPath[i]}
+    staticLsps.EntityData.Children = types.NewOrderedMap()
+    staticLsps.EntityData.Children.Append("static-lsp", types.YChild{"StaticLsp", nil})
+    for i := range staticLsps.StaticLsp {
+        staticLsps.EntityData.Children.Append(types.GetSegmentPath(staticLsps.StaticLsp[i]), types.YChild{"StaticLsp", staticLsps.StaticLsp[i]})
     }
-    staticLsps.EntityData.Leafs = make(map[string]types.YLeaf)
+    staticLsps.EntityData.Leafs = types.NewOrderedMap()
+
+    staticLsps.EntityData.YListKeys = []string {}
+
     return &(staticLsps.EntityData)
 }
 
-// Mpls_Lsps_StaticLsps_LabelSwitchedPath
+// Mpls_Lsps_StaticLsps_StaticLsp
 // list of defined static LSPs
-type Mpls_Lsps_StaticLsps_LabelSwitchedPath struct {
+type Mpls_Lsps_StaticLsps_StaticLsp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. name to identify the LSP. The type is string.
+    // This attribute is a key. Reference the name list key. The type is string.
+    // Refers to mpls.Mpls_Lsps_StaticLsps_StaticLsp_Config_Name
     Name interface{}
 
-    // Static LSPs for which the router is an ingress node.
-    Ingress Mpls_Lsps_StaticLsps_LabelSwitchedPath_Ingress
+    // Configuration data for the static lsp.
+    Config Mpls_Lsps_StaticLsps_StaticLsp_Config
 
-    // static LSPs for which the router is a transit node.
-    Transit Mpls_Lsps_StaticLsps_LabelSwitchedPath_Transit
+    // Operational state data for the static lsp.
+    State Mpls_Lsps_StaticLsps_StaticLsp_State
 
-    // static LSPs for which the router is a egress  node.
-    Egress Mpls_Lsps_StaticLsps_LabelSwitchedPath_Egress
+    // Static LSPs for which the router is an  ingress node.
+    Ingress Mpls_Lsps_StaticLsps_StaticLsp_Ingress
+
+    // Static LSPs for which the router is an  transit node.
+    Transit Mpls_Lsps_StaticLsps_StaticLsp_Transit
+
+    // Static LSPs for which the router is an  egress node.
+    Egress Mpls_Lsps_StaticLsps_StaticLsp_Egress
 }
 
-func (labelSwitchedPath *Mpls_Lsps_StaticLsps_LabelSwitchedPath) GetEntityData() *types.CommonEntityData {
-    labelSwitchedPath.EntityData.YFilter = labelSwitchedPath.YFilter
-    labelSwitchedPath.EntityData.YangName = "label-switched-path"
-    labelSwitchedPath.EntityData.BundleName = "openconfig"
-    labelSwitchedPath.EntityData.ParentYangName = "static-lsps"
-    labelSwitchedPath.EntityData.SegmentPath = "label-switched-path" + "[name='" + fmt.Sprintf("%v", labelSwitchedPath.Name) + "']"
-    labelSwitchedPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    labelSwitchedPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    labelSwitchedPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (staticLsp *Mpls_Lsps_StaticLsps_StaticLsp) GetEntityData() *types.CommonEntityData {
+    staticLsp.EntityData.YFilter = staticLsp.YFilter
+    staticLsp.EntityData.YangName = "static-lsp"
+    staticLsp.EntityData.BundleName = "openconfig"
+    staticLsp.EntityData.ParentYangName = "static-lsps"
+    staticLsp.EntityData.SegmentPath = "static-lsp" + types.AddKeyToken(staticLsp.Name, "name")
+    staticLsp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    staticLsp.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    staticLsp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    labelSwitchedPath.EntityData.Children = make(map[string]types.YChild)
-    labelSwitchedPath.EntityData.Children["ingress"] = types.YChild{"Ingress", &labelSwitchedPath.Ingress}
-    labelSwitchedPath.EntityData.Children["transit"] = types.YChild{"Transit", &labelSwitchedPath.Transit}
-    labelSwitchedPath.EntityData.Children["egress"] = types.YChild{"Egress", &labelSwitchedPath.Egress}
-    labelSwitchedPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    labelSwitchedPath.EntityData.Leafs["name"] = types.YLeaf{"Name", labelSwitchedPath.Name}
-    return &(labelSwitchedPath.EntityData)
+    staticLsp.EntityData.Children = types.NewOrderedMap()
+    staticLsp.EntityData.Children.Append("config", types.YChild{"Config", &staticLsp.Config})
+    staticLsp.EntityData.Children.Append("state", types.YChild{"State", &staticLsp.State})
+    staticLsp.EntityData.Children.Append("ingress", types.YChild{"Ingress", &staticLsp.Ingress})
+    staticLsp.EntityData.Children.Append("transit", types.YChild{"Transit", &staticLsp.Transit})
+    staticLsp.EntityData.Children.Append("egress", types.YChild{"Egress", &staticLsp.Egress})
+    staticLsp.EntityData.Leafs = types.NewOrderedMap()
+    staticLsp.EntityData.Leafs.Append("name", types.YLeaf{"Name", staticLsp.Name})
+
+    staticLsp.EntityData.YListKeys = []string {"Name"}
+
+    return &(staticLsp.EntityData)
 }
 
-// Mpls_Lsps_StaticLsps_LabelSwitchedPath_Ingress
-// Static LSPs for which the router is an
-// ingress node
-type Mpls_Lsps_StaticLsps_LabelSwitchedPath_Ingress struct {
+// Mpls_Lsps_StaticLsps_StaticLsp_Config
+// Configuration data for the static lsp
+type Mpls_Lsps_StaticLsps_StaticLsp_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // next hop IP address for the LSP. The type is one of the following types:
-    // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
-    // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
-    NextHop interface{}
-
-    // label value on the incoming packet. The type is one of the following types:
-    // int with range: 16..1048575, or enumeration MplsLabel.
-    IncomingLabel interface{}
-
-    // label value to push at the current hop for the LSP. The type is one of the
-    // following types: int with range: 16..1048575, or enumeration MplsLabel.
-    PushLabel interface{}
+    // name to identify the LSP. The type is string.
+    Name interface{}
 }
 
-func (ingress *Mpls_Lsps_StaticLsps_LabelSwitchedPath_Ingress) GetEntityData() *types.CommonEntityData {
+func (config *Mpls_Lsps_StaticLsps_StaticLsp_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "static-lsp"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("name", types.YLeaf{"Name", config.Name})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// Mpls_Lsps_StaticLsps_StaticLsp_State
+// Operational state data for the static lsp
+type Mpls_Lsps_StaticLsps_StaticLsp_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // name to identify the LSP. The type is string.
+    Name interface{}
+}
+
+func (state *Mpls_Lsps_StaticLsps_StaticLsp_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "static-lsp"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("name", types.YLeaf{"Name", state.Name})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
+// Mpls_Lsps_StaticLsps_StaticLsp_Ingress
+// Static LSPs for which the router is an
+//  ingress node
+type Mpls_Lsps_StaticLsps_StaticLsp_Ingress struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configuration data for ingress LSPs.
+    Config Mpls_Lsps_StaticLsps_StaticLsp_Ingress_Config
+
+    // Operational state data for ingress LSPs.
+    State Mpls_Lsps_StaticLsps_StaticLsp_Ingress_State
+}
+
+func (ingress *Mpls_Lsps_StaticLsps_StaticLsp_Ingress) GetEntityData() *types.CommonEntityData {
     ingress.EntityData.YFilter = ingress.YFilter
     ingress.EntityData.YangName = "ingress"
     ingress.EntityData.BundleName = "openconfig"
-    ingress.EntityData.ParentYangName = "label-switched-path"
+    ingress.EntityData.ParentYangName = "static-lsp"
     ingress.EntityData.SegmentPath = "ingress"
     ingress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ingress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ingress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ingress.EntityData.Children = make(map[string]types.YChild)
-    ingress.EntityData.Leafs = make(map[string]types.YLeaf)
-    ingress.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", ingress.NextHop}
-    ingress.EntityData.Leafs["incoming-label"] = types.YLeaf{"IncomingLabel", ingress.IncomingLabel}
-    ingress.EntityData.Leafs["push-label"] = types.YLeaf{"PushLabel", ingress.PushLabel}
+    ingress.EntityData.Children = types.NewOrderedMap()
+    ingress.EntityData.Children.Append("config", types.YChild{"Config", &ingress.Config})
+    ingress.EntityData.Children.Append("state", types.YChild{"State", &ingress.State})
+    ingress.EntityData.Leafs = types.NewOrderedMap()
+
+    ingress.EntityData.YListKeys = []string {}
+
     return &(ingress.EntityData)
 }
 
-// Mpls_Lsps_StaticLsps_LabelSwitchedPath_Transit
-// static LSPs for which the router is a
-// transit node
-type Mpls_Lsps_StaticLsps_LabelSwitchedPath_Transit struct {
+// Mpls_Lsps_StaticLsps_StaticLsp_Ingress_Config
+// Configuration data for ingress LSPs
+type Mpls_Lsps_StaticLsps_StaticLsp_Ingress_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // next hop IP address for the LSP. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     NextHop interface{}
 
     // label value on the incoming packet. The type is one of the following types:
@@ -6313,36 +7223,115 @@ type Mpls_Lsps_StaticLsps_LabelSwitchedPath_Transit struct {
     PushLabel interface{}
 }
 
-func (transit *Mpls_Lsps_StaticLsps_LabelSwitchedPath_Transit) GetEntityData() *types.CommonEntityData {
+func (config *Mpls_Lsps_StaticLsps_StaticLsp_Ingress_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "ingress"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", config.NextHop})
+    config.EntityData.Leafs.Append("incoming-label", types.YLeaf{"IncomingLabel", config.IncomingLabel})
+    config.EntityData.Leafs.Append("push-label", types.YLeaf{"PushLabel", config.PushLabel})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// Mpls_Lsps_StaticLsps_StaticLsp_Ingress_State
+// Operational state data for ingress LSPs
+type Mpls_Lsps_StaticLsps_StaticLsp_Ingress_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // next hop IP address for the LSP. The type is one of the following types:
+    // string with pattern:
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
+    // or string with pattern:
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
+    NextHop interface{}
+
+    // label value on the incoming packet. The type is one of the following types:
+    // int with range: 16..1048575, or enumeration MplsLabel.
+    IncomingLabel interface{}
+
+    // label value to push at the current hop for the LSP. The type is one of the
+    // following types: int with range: 16..1048575, or enumeration MplsLabel.
+    PushLabel interface{}
+}
+
+func (state *Mpls_Lsps_StaticLsps_StaticLsp_Ingress_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "ingress"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", state.NextHop})
+    state.EntityData.Leafs.Append("incoming-label", types.YLeaf{"IncomingLabel", state.IncomingLabel})
+    state.EntityData.Leafs.Append("push-label", types.YLeaf{"PushLabel", state.PushLabel})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
+// Mpls_Lsps_StaticLsps_StaticLsp_Transit
+// Static LSPs for which the router is an
+//  transit node
+type Mpls_Lsps_StaticLsps_StaticLsp_Transit struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configuration data for transit LSPs.
+    Config Mpls_Lsps_StaticLsps_StaticLsp_Transit_Config
+
+    // Operational state data for transit LSPs.
+    State Mpls_Lsps_StaticLsps_StaticLsp_Transit_State
+}
+
+func (transit *Mpls_Lsps_StaticLsps_StaticLsp_Transit) GetEntityData() *types.CommonEntityData {
     transit.EntityData.YFilter = transit.YFilter
     transit.EntityData.YangName = "transit"
     transit.EntityData.BundleName = "openconfig"
-    transit.EntityData.ParentYangName = "label-switched-path"
+    transit.EntityData.ParentYangName = "static-lsp"
     transit.EntityData.SegmentPath = "transit"
     transit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     transit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     transit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    transit.EntityData.Children = make(map[string]types.YChild)
-    transit.EntityData.Leafs = make(map[string]types.YLeaf)
-    transit.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", transit.NextHop}
-    transit.EntityData.Leafs["incoming-label"] = types.YLeaf{"IncomingLabel", transit.IncomingLabel}
-    transit.EntityData.Leafs["push-label"] = types.YLeaf{"PushLabel", transit.PushLabel}
+    transit.EntityData.Children = types.NewOrderedMap()
+    transit.EntityData.Children.Append("config", types.YChild{"Config", &transit.Config})
+    transit.EntityData.Children.Append("state", types.YChild{"State", &transit.State})
+    transit.EntityData.Leafs = types.NewOrderedMap()
+
+    transit.EntityData.YListKeys = []string {}
+
     return &(transit.EntityData)
 }
 
-// Mpls_Lsps_StaticLsps_LabelSwitchedPath_Egress
-// static LSPs for which the router is a
-// egress  node
-type Mpls_Lsps_StaticLsps_LabelSwitchedPath_Egress struct {
+// Mpls_Lsps_StaticLsps_StaticLsp_Transit_Config
+// Configuration data for transit LSPs
+type Mpls_Lsps_StaticLsps_StaticLsp_Transit_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // next hop IP address for the LSP. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     NextHop interface{}
 
     // label value on the incoming packet. The type is one of the following types:
@@ -6354,21 +7343,187 @@ type Mpls_Lsps_StaticLsps_LabelSwitchedPath_Egress struct {
     PushLabel interface{}
 }
 
-func (egress *Mpls_Lsps_StaticLsps_LabelSwitchedPath_Egress) GetEntityData() *types.CommonEntityData {
+func (config *Mpls_Lsps_StaticLsps_StaticLsp_Transit_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "transit"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", config.NextHop})
+    config.EntityData.Leafs.Append("incoming-label", types.YLeaf{"IncomingLabel", config.IncomingLabel})
+    config.EntityData.Leafs.Append("push-label", types.YLeaf{"PushLabel", config.PushLabel})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// Mpls_Lsps_StaticLsps_StaticLsp_Transit_State
+// Operational state data for transit LSPs
+type Mpls_Lsps_StaticLsps_StaticLsp_Transit_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // next hop IP address for the LSP. The type is one of the following types:
+    // string with pattern:
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
+    // or string with pattern:
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
+    NextHop interface{}
+
+    // label value on the incoming packet. The type is one of the following types:
+    // int with range: 16..1048575, or enumeration MplsLabel.
+    IncomingLabel interface{}
+
+    // label value to push at the current hop for the LSP. The type is one of the
+    // following types: int with range: 16..1048575, or enumeration MplsLabel.
+    PushLabel interface{}
+}
+
+func (state *Mpls_Lsps_StaticLsps_StaticLsp_Transit_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "transit"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", state.NextHop})
+    state.EntityData.Leafs.Append("incoming-label", types.YLeaf{"IncomingLabel", state.IncomingLabel})
+    state.EntityData.Leafs.Append("push-label", types.YLeaf{"PushLabel", state.PushLabel})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
+// Mpls_Lsps_StaticLsps_StaticLsp_Egress
+// Static LSPs for which the router is an
+//  egress node
+type Mpls_Lsps_StaticLsps_StaticLsp_Egress struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configuration data for egress LSPs.
+    Config Mpls_Lsps_StaticLsps_StaticLsp_Egress_Config
+
+    // Operational state data for egress LSPs.
+    State Mpls_Lsps_StaticLsps_StaticLsp_Egress_State
+}
+
+func (egress *Mpls_Lsps_StaticLsps_StaticLsp_Egress) GetEntityData() *types.CommonEntityData {
     egress.EntityData.YFilter = egress.YFilter
     egress.EntityData.YangName = "egress"
     egress.EntityData.BundleName = "openconfig"
-    egress.EntityData.ParentYangName = "label-switched-path"
+    egress.EntityData.ParentYangName = "static-lsp"
     egress.EntityData.SegmentPath = "egress"
     egress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     egress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     egress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    egress.EntityData.Children = make(map[string]types.YChild)
-    egress.EntityData.Leafs = make(map[string]types.YLeaf)
-    egress.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", egress.NextHop}
-    egress.EntityData.Leafs["incoming-label"] = types.YLeaf{"IncomingLabel", egress.IncomingLabel}
-    egress.EntityData.Leafs["push-label"] = types.YLeaf{"PushLabel", egress.PushLabel}
+    egress.EntityData.Children = types.NewOrderedMap()
+    egress.EntityData.Children.Append("config", types.YChild{"Config", &egress.Config})
+    egress.EntityData.Children.Append("state", types.YChild{"State", &egress.State})
+    egress.EntityData.Leafs = types.NewOrderedMap()
+
+    egress.EntityData.YListKeys = []string {}
+
     return &(egress.EntityData)
+}
+
+// Mpls_Lsps_StaticLsps_StaticLsp_Egress_Config
+// Configuration data for egress LSPs
+type Mpls_Lsps_StaticLsps_StaticLsp_Egress_Config struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // next hop IP address for the LSP. The type is one of the following types:
+    // string with pattern:
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
+    // or string with pattern:
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
+    NextHop interface{}
+
+    // label value on the incoming packet. The type is one of the following types:
+    // int with range: 16..1048575, or enumeration MplsLabel.
+    IncomingLabel interface{}
+
+    // label value to push at the current hop for the LSP. The type is one of the
+    // following types: int with range: 16..1048575, or enumeration MplsLabel.
+    PushLabel interface{}
+}
+
+func (config *Mpls_Lsps_StaticLsps_StaticLsp_Egress_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "egress"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", config.NextHop})
+    config.EntityData.Leafs.Append("incoming-label", types.YLeaf{"IncomingLabel", config.IncomingLabel})
+    config.EntityData.Leafs.Append("push-label", types.YLeaf{"PushLabel", config.PushLabel})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// Mpls_Lsps_StaticLsps_StaticLsp_Egress_State
+// Operational state data for egress LSPs
+type Mpls_Lsps_StaticLsps_StaticLsp_Egress_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // next hop IP address for the LSP. The type is one of the following types:
+    // string with pattern:
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
+    // or string with pattern:
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
+    NextHop interface{}
+
+    // label value on the incoming packet. The type is one of the following types:
+    // int with range: 16..1048575, or enumeration MplsLabel.
+    IncomingLabel interface{}
+
+    // label value to push at the current hop for the LSP. The type is one of the
+    // following types: int with range: 16..1048575, or enumeration MplsLabel.
+    PushLabel interface{}
+}
+
+func (state *Mpls_Lsps_StaticLsps_StaticLsp_Egress_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "egress"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", state.NextHop})
+    state.EntityData.Leafs.Append("incoming-label", types.YLeaf{"IncomingLabel", state.IncomingLabel})
+    state.EntityData.Leafs.Append("push-label", types.YLeaf{"PushLabel", state.PushLabel})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
 }
 

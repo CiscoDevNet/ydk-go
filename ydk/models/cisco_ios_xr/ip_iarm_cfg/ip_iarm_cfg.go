@@ -66,10 +66,13 @@ func (ipArm *IpArm) GetEntityData() *types.CommonEntityData {
     ipArm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipArm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipArm.EntityData.Children = make(map[string]types.YChild)
-    ipArm.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &ipArm.Ipv4}
-    ipArm.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &ipArm.Ipv6}
-    ipArm.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipArm.EntityData.Children = types.NewOrderedMap()
+    ipArm.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &ipArm.Ipv4})
+    ipArm.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &ipArm.Ipv6})
+    ipArm.EntityData.Leafs = types.NewOrderedMap()
+
+    ipArm.EntityData.YListKeys = []string {}
+
     return &(ipArm.EntityData)
 }
 
@@ -96,10 +99,13 @@ func (ipv4 *IpArm_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["conflict-policy-table"] = types.YChild{"ConflictPolicyTable", &ipv4.ConflictPolicyTable}
-    ipv4.EntityData.Children["multicast-host"] = types.YChild{"MulticastHost", &ipv4.MulticastHost}
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("conflict-policy-table", types.YChild{"ConflictPolicyTable", &ipv4.ConflictPolicyTable})
+    ipv4.EntityData.Children.Append("multicast-host", types.YChild{"MulticastHost", &ipv4.MulticastHost})
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -123,9 +129,12 @@ func (conflictPolicyTable *IpArm_Ipv4_ConflictPolicyTable) GetEntityData() *type
     conflictPolicyTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conflictPolicyTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    conflictPolicyTable.EntityData.Children = make(map[string]types.YChild)
-    conflictPolicyTable.EntityData.Leafs = make(map[string]types.YLeaf)
-    conflictPolicyTable.EntityData.Leafs["conflict-policy"] = types.YLeaf{"ConflictPolicy", conflictPolicyTable.ConflictPolicy}
+    conflictPolicyTable.EntityData.Children = types.NewOrderedMap()
+    conflictPolicyTable.EntityData.Leafs = types.NewOrderedMap()
+    conflictPolicyTable.EntityData.Leafs.Append("conflict-policy", types.YLeaf{"ConflictPolicy", conflictPolicyTable.ConflictPolicy})
+
+    conflictPolicyTable.EntityData.YListKeys = []string {}
+
     return &(conflictPolicyTable.EntityData)
 }
 
@@ -136,7 +145,7 @@ type IpArm_Ipv4_MulticastHost struct {
     YFilter yfilter.YFilter
 
     // Default multicast host interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     MulticastHostInterface interface{}
 }
 
@@ -150,9 +159,12 @@ func (multicastHost *IpArm_Ipv4_MulticastHost) GetEntityData() *types.CommonEnti
     multicastHost.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicastHost.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    multicastHost.EntityData.Children = make(map[string]types.YChild)
-    multicastHost.EntityData.Leafs = make(map[string]types.YLeaf)
-    multicastHost.EntityData.Leafs["multicast-host-interface"] = types.YLeaf{"MulticastHostInterface", multicastHost.MulticastHostInterface}
+    multicastHost.EntityData.Children = types.NewOrderedMap()
+    multicastHost.EntityData.Leafs = types.NewOrderedMap()
+    multicastHost.EntityData.Leafs.Append("multicast-host-interface", types.YLeaf{"MulticastHostInterface", multicastHost.MulticastHostInterface})
+
+    multicastHost.EntityData.YListKeys = []string {}
+
     return &(multicastHost.EntityData)
 }
 
@@ -179,10 +191,13 @@ func (ipv6 *IpArm_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["conflict-policy-table"] = types.YChild{"ConflictPolicyTable", &ipv6.ConflictPolicyTable}
-    ipv6.EntityData.Children["multicast-host"] = types.YChild{"MulticastHost", &ipv6.MulticastHost}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("conflict-policy-table", types.YChild{"ConflictPolicyTable", &ipv6.ConflictPolicyTable})
+    ipv6.EntityData.Children.Append("multicast-host", types.YChild{"MulticastHost", &ipv6.MulticastHost})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -206,9 +221,12 @@ func (conflictPolicyTable *IpArm_Ipv6_ConflictPolicyTable) GetEntityData() *type
     conflictPolicyTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conflictPolicyTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    conflictPolicyTable.EntityData.Children = make(map[string]types.YChild)
-    conflictPolicyTable.EntityData.Leafs = make(map[string]types.YLeaf)
-    conflictPolicyTable.EntityData.Leafs["conflict-policy"] = types.YLeaf{"ConflictPolicy", conflictPolicyTable.ConflictPolicy}
+    conflictPolicyTable.EntityData.Children = types.NewOrderedMap()
+    conflictPolicyTable.EntityData.Leafs = types.NewOrderedMap()
+    conflictPolicyTable.EntityData.Leafs.Append("conflict-policy", types.YLeaf{"ConflictPolicy", conflictPolicyTable.ConflictPolicy})
+
+    conflictPolicyTable.EntityData.YListKeys = []string {}
+
     return &(conflictPolicyTable.EntityData)
 }
 
@@ -219,7 +237,7 @@ type IpArm_Ipv6_MulticastHost struct {
     YFilter yfilter.YFilter
 
     // Default multicast host interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     MulticastHostInterface interface{}
 }
 
@@ -233,9 +251,12 @@ func (multicastHost *IpArm_Ipv6_MulticastHost) GetEntityData() *types.CommonEnti
     multicastHost.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicastHost.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    multicastHost.EntityData.Children = make(map[string]types.YChild)
-    multicastHost.EntityData.Leafs = make(map[string]types.YLeaf)
-    multicastHost.EntityData.Leafs["multicast-host-interface"] = types.YLeaf{"MulticastHostInterface", multicastHost.MulticastHostInterface}
+    multicastHost.EntityData.Children = types.NewOrderedMap()
+    multicastHost.EntityData.Leafs = types.NewOrderedMap()
+    multicastHost.EntityData.Leafs.Append("multicast-host-interface", types.YLeaf{"MulticastHostInterface", multicastHost.MulticastHostInterface})
+
+    multicastHost.EntityData.YListKeys = []string {}
+
     return &(multicastHost.EntityData)
 }
 

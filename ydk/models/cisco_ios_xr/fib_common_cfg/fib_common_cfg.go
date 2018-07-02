@@ -24,14 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-fib-common-cfg:fib", reflect.TypeOf(Fib{}))
 }
 
-// FibPbtsForwardClass represents Fib pbts forward class
-type FibPbtsForwardClass string
-
-const (
-    // Any class
-    FibPbtsForwardClass_any FibPbtsForwardClass = "any"
-)
-
 // FibPbtsFallback represents Fib pbts fallback
 type FibPbtsFallback string
 
@@ -46,6 +38,14 @@ const (
     FibPbtsFallback_drop FibPbtsFallback = "drop"
 )
 
+// FibPbtsForwardClass represents Fib pbts forward class
+type FibPbtsForwardClass string
+
+const (
+    // Any class
+    FibPbtsForwardClass_any FibPbtsForwardClass = "any"
+)
+
 // Fib
 // CEF configuration
 type Fib struct {
@@ -54,10 +54,6 @@ type Fib struct {
 
     // Set options for adjacency routes overriding RIB routes. The type is bool.
     PreferAibRoutes interface{}
-
-    // Set option for fast-reroute to follow BGP PIC update, not to wait for
-    // timeout. The type is bool.
-    FrrFollowBgpPic interface{}
 
     // PBTS class configuration.
     PbtsForwardClassFallbacks Fib_PbtsForwardClassFallbacks
@@ -76,12 +72,14 @@ func (fib *Fib) GetEntityData() *types.CommonEntityData {
     fib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fib.EntityData.Children = make(map[string]types.YChild)
-    fib.EntityData.Children["pbts-forward-class-fallbacks"] = types.YChild{"PbtsForwardClassFallbacks", &fib.PbtsForwardClassFallbacks}
-    fib.EntityData.Children["platform"] = types.YChild{"Platform", &fib.Platform}
-    fib.EntityData.Leafs = make(map[string]types.YLeaf)
-    fib.EntityData.Leafs["prefer-aib-routes"] = types.YLeaf{"PreferAibRoutes", fib.PreferAibRoutes}
-    fib.EntityData.Leafs["frr-follow-bgp-pic"] = types.YLeaf{"FrrFollowBgpPic", fib.FrrFollowBgpPic}
+    fib.EntityData.Children = types.NewOrderedMap()
+    fib.EntityData.Children.Append("pbts-forward-class-fallbacks", types.YChild{"PbtsForwardClassFallbacks", &fib.PbtsForwardClassFallbacks})
+    fib.EntityData.Children.Append("platform", types.YChild{"Platform", &fib.Platform})
+    fib.EntityData.Leafs = types.NewOrderedMap()
+    fib.EntityData.Leafs.Append("prefer-aib-routes", types.YLeaf{"PreferAibRoutes", fib.PreferAibRoutes})
+
+    fib.EntityData.YListKeys = []string {}
+
     return &(fib.EntityData)
 }
 
@@ -93,7 +91,7 @@ type Fib_PbtsForwardClassFallbacks struct {
 
     // Set PBTS class for fallback. The type is slice of
     // Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback.
-    PbtsForwardClassFallback []Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback
+    PbtsForwardClassFallback []*Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback
 }
 
 func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) GetEntityData() *types.CommonEntityData {
@@ -106,12 +104,15 @@ func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) GetEntityData() 
     pbtsForwardClassFallbacks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbtsForwardClassFallbacks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbtsForwardClassFallbacks.EntityData.Children = make(map[string]types.YChild)
-    pbtsForwardClassFallbacks.EntityData.Children["pbts-forward-class-fallback"] = types.YChild{"PbtsForwardClassFallback", nil}
+    pbtsForwardClassFallbacks.EntityData.Children = types.NewOrderedMap()
+    pbtsForwardClassFallbacks.EntityData.Children.Append("pbts-forward-class-fallback", types.YChild{"PbtsForwardClassFallback", nil})
     for i := range pbtsForwardClassFallbacks.PbtsForwardClassFallback {
-        pbtsForwardClassFallbacks.EntityData.Children[types.GetSegmentPath(&pbtsForwardClassFallbacks.PbtsForwardClassFallback[i])] = types.YChild{"PbtsForwardClassFallback", &pbtsForwardClassFallbacks.PbtsForwardClassFallback[i]}
+        pbtsForwardClassFallbacks.EntityData.Children.Append(types.GetSegmentPath(pbtsForwardClassFallbacks.PbtsForwardClassFallback[i]), types.YChild{"PbtsForwardClassFallback", pbtsForwardClassFallbacks.PbtsForwardClassFallback[i]})
     }
-    pbtsForwardClassFallbacks.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbtsForwardClassFallbacks.EntityData.Leafs = types.NewOrderedMap()
+
+    pbtsForwardClassFallbacks.EntityData.YListKeys = []string {}
+
     return &(pbtsForwardClassFallbacks.EntityData)
 }
 
@@ -139,16 +140,19 @@ func (pbtsForwardClassFallback *Fib_PbtsForwardClassFallbacks_PbtsForwardClassFa
     pbtsForwardClassFallback.EntityData.YangName = "pbts-forward-class-fallback"
     pbtsForwardClassFallback.EntityData.BundleName = "cisco_ios_xr"
     pbtsForwardClassFallback.EntityData.ParentYangName = "pbts-forward-class-fallbacks"
-    pbtsForwardClassFallback.EntityData.SegmentPath = "pbts-forward-class-fallback" + "[forward-class-number='" + fmt.Sprintf("%v", pbtsForwardClassFallback.ForwardClassNumber) + "']"
+    pbtsForwardClassFallback.EntityData.SegmentPath = "pbts-forward-class-fallback" + types.AddKeyToken(pbtsForwardClassFallback.ForwardClassNumber, "forward-class-number")
     pbtsForwardClassFallback.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbtsForwardClassFallback.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbtsForwardClassFallback.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pbtsForwardClassFallback.EntityData.Children = make(map[string]types.YChild)
-    pbtsForwardClassFallback.EntityData.Leafs = make(map[string]types.YLeaf)
-    pbtsForwardClassFallback.EntityData.Leafs["forward-class-number"] = types.YLeaf{"ForwardClassNumber", pbtsForwardClassFallback.ForwardClassNumber}
-    pbtsForwardClassFallback.EntityData.Leafs["fallback-type"] = types.YLeaf{"FallbackType", pbtsForwardClassFallback.FallbackType}
-    pbtsForwardClassFallback.EntityData.Leafs["fallback-class-number-array"] = types.YLeaf{"FallbackClassNumberArray", pbtsForwardClassFallback.FallbackClassNumberArray}
+    pbtsForwardClassFallback.EntityData.Children = types.NewOrderedMap()
+    pbtsForwardClassFallback.EntityData.Leafs = types.NewOrderedMap()
+    pbtsForwardClassFallback.EntityData.Leafs.Append("forward-class-number", types.YLeaf{"ForwardClassNumber", pbtsForwardClassFallback.ForwardClassNumber})
+    pbtsForwardClassFallback.EntityData.Leafs.Append("fallback-type", types.YLeaf{"FallbackType", pbtsForwardClassFallback.FallbackType})
+    pbtsForwardClassFallback.EntityData.Leafs.Append("fallback-class-number-array", types.YLeaf{"FallbackClassNumberArray", pbtsForwardClassFallback.FallbackClassNumberArray})
+
+    pbtsForwardClassFallback.EntityData.YListKeys = []string {"ForwardClassNumber"}
+
     return &(pbtsForwardClassFallback.EntityData)
 }
 
@@ -172,9 +176,12 @@ func (platform *Fib_Platform) GetEntityData() *types.CommonEntityData {
     platform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    platform.EntityData.Children = make(map[string]types.YChild)
-    platform.EntityData.Children["label-switched-multicast"] = types.YChild{"LabelSwitchedMulticast", &platform.LabelSwitchedMulticast}
-    platform.EntityData.Leafs = make(map[string]types.YLeaf)
+    platform.EntityData.Children = types.NewOrderedMap()
+    platform.EntityData.Children.Append("label-switched-multicast", types.YChild{"LabelSwitchedMulticast", &platform.LabelSwitchedMulticast})
+    platform.EntityData.Leafs = types.NewOrderedMap()
+
+    platform.EntityData.YListKeys = []string {}
+
     return &(platform.EntityData)
 }
 
@@ -199,9 +206,12 @@ func (labelSwitchedMulticast *Fib_Platform_LabelSwitchedMulticast) GetEntityData
     labelSwitchedMulticast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelSwitchedMulticast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelSwitchedMulticast.EntityData.Children = make(map[string]types.YChild)
-    labelSwitchedMulticast.EntityData.Leafs = make(map[string]types.YLeaf)
-    labelSwitchedMulticast.EntityData.Leafs["frr-holdtime"] = types.YLeaf{"FrrHoldtime", labelSwitchedMulticast.FrrHoldtime}
+    labelSwitchedMulticast.EntityData.Children = types.NewOrderedMap()
+    labelSwitchedMulticast.EntityData.Leafs = types.NewOrderedMap()
+    labelSwitchedMulticast.EntityData.Leafs.Append("frr-holdtime", types.YLeaf{"FrrHoldtime", labelSwitchedMulticast.FrrHoldtime})
+
+    labelSwitchedMulticast.EntityData.YListKeys = []string {}
+
     return &(labelSwitchedMulticast.EntityData)
 }
 

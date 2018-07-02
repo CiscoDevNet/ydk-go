@@ -1,3 +1,6 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module contains a collection of YANG definitions
 // for Cisco IOS-XR syadmin hostname configuration and cli.
 // 
@@ -6,6 +9,9 @@
 // hostname cli and configuration data
 // 
 // Copyright (c) 2017 by Cisco Systems, Inc.
+// All rights reserved.
+// 
+// Copyright (c) 2012-2017 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_nto_misc_set_hostname
 
@@ -30,7 +36,7 @@ type Hostname struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The type is string with pattern: b'[a-zA-Z0-9_.{}+-]+'.
+    // The type is string with pattern: [a-zA-Z0-9_.{}+-]+.
     Name interface{}
 }
 
@@ -44,9 +50,12 @@ func (hostname *Hostname) GetEntityData() *types.CommonEntityData {
     hostname.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hostname.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hostname.EntityData.Children = make(map[string]types.YChild)
-    hostname.EntityData.Leafs = make(map[string]types.YLeaf)
-    hostname.EntityData.Leafs["name"] = types.YLeaf{"Name", hostname.Name}
+    hostname.EntityData.Children = types.NewOrderedMap()
+    hostname.EntityData.Leafs = types.NewOrderedMap()
+    hostname.EntityData.Leafs.Append("name", types.YLeaf{"Name", hostname.Name})
+
+    hostname.EntityData.YListKeys = []string {}
+
     return &(hostname.EntityData)
 }
 

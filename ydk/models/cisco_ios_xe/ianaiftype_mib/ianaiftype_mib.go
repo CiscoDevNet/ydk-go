@@ -12,6 +12,39 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package ianaiftype_mib"))
 }
 
+// IANAtunnelType represents values.
+type IANAtunnelType string
+
+const (
+    IANAtunnelType_other IANAtunnelType = "other"
+
+    IANAtunnelType_direct IANAtunnelType = "direct"
+
+    IANAtunnelType_gre IANAtunnelType = "gre"
+
+    IANAtunnelType_minimal IANAtunnelType = "minimal"
+
+    IANAtunnelType_l2tp IANAtunnelType = "l2tp"
+
+    IANAtunnelType_pptp IANAtunnelType = "pptp"
+
+    IANAtunnelType_l2f IANAtunnelType = "l2f"
+
+    IANAtunnelType_udp IANAtunnelType = "udp"
+
+    IANAtunnelType_atmp IANAtunnelType = "atmp"
+
+    IANAtunnelType_msdp IANAtunnelType = "msdp"
+
+    IANAtunnelType_sixToFour IANAtunnelType = "sixToFour"
+
+    IANAtunnelType_sixOverFour IANAtunnelType = "sixOverFour"
+
+    IANAtunnelType_isatap IANAtunnelType = "isatap"
+
+    IANAtunnelType_teredo IANAtunnelType = "teredo"
+)
+
 // IANAifType represents transmission subtree OIDs.
 type IANAifType string
 
@@ -583,38 +616,5 @@ const (
     IANAifType_docsCableNdf IANAifType = "docsCableNdf"
 
     IANAifType_docsCableNdr IANAifType = "docsCableNdr"
-)
-
-// IANAtunnelType represents values.
-type IANAtunnelType string
-
-const (
-    IANAtunnelType_other IANAtunnelType = "other"
-
-    IANAtunnelType_direct IANAtunnelType = "direct"
-
-    IANAtunnelType_gre IANAtunnelType = "gre"
-
-    IANAtunnelType_minimal IANAtunnelType = "minimal"
-
-    IANAtunnelType_l2tp IANAtunnelType = "l2tp"
-
-    IANAtunnelType_pptp IANAtunnelType = "pptp"
-
-    IANAtunnelType_l2f IANAtunnelType = "l2f"
-
-    IANAtunnelType_udp IANAtunnelType = "udp"
-
-    IANAtunnelType_atmp IANAtunnelType = "atmp"
-
-    IANAtunnelType_msdp IANAtunnelType = "msdp"
-
-    IANAtunnelType_sixToFour IANAtunnelType = "sixToFour"
-
-    IANAtunnelType_sixOverFour IANAtunnelType = "sixOverFour"
-
-    IANAtunnelType_isatap IANAtunnelType = "isatap"
-
-    IANAtunnelType_teredo IANAtunnelType = "teredo"
 )
 

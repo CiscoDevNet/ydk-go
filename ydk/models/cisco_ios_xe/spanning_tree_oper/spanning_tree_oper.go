@@ -19,6 +19,54 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-spanning-tree-oper:stp-details", reflect.TypeOf(StpDetails{}))
 }
 
+// StpPortBpduguard represents Accept BPDUs on this interface
+type StpPortBpduguard string
+
+const (
+    StpPortBpduguard_stp_port_bpduguard_disable StpPortBpduguard = "stp-port-bpduguard-disable"
+
+    StpPortBpduguard_stp_port_bpduguard_enable StpPortBpduguard = "stp-port-bpduguard-enable"
+
+    StpPortBpduguard_stp_port_bpduguard_default StpPortBpduguard = "stp-port-bpduguard-default"
+)
+
+// StpLinkRole represents Type definition for the different link types
+type StpLinkRole string
+
+const (
+    StpLinkRole_stp_auto StpLinkRole = "stp-auto"
+
+    StpLinkRole_stp_point_to_point StpLinkRole = "stp-point-to-point"
+
+    StpLinkRole_stp_shared StpLinkRole = "stp-shared"
+)
+
+// StpMode represents Spanning tree operating mode
+type StpMode string
+
+const (
+    StpMode_stp_mode_pvst StpMode = "stp-mode-pvst"
+
+    StpMode_stp_mode_rapid_pvst StpMode = "stp-mode-rapid-pvst"
+
+    StpMode_stp_mode_mst StpMode = "stp-mode-mst"
+)
+
+// StpPortRole represents Spanning Tree Protocol port roles
+type StpPortRole string
+
+const (
+    StpPortRole_stp_master StpPortRole = "stp-master"
+
+    StpPortRole_stp_alternate StpPortRole = "stp-alternate"
+
+    StpPortRole_stp_root StpPortRole = "stp-root"
+
+    StpPortRole_stp_designated StpPortRole = "stp-designated"
+
+    StpPortRole_stp_backup StpPortRole = "stp-backup"
+)
+
 // StpPortState represents Spanning Tree Protocol port states
 type StpPortState string
 
@@ -38,30 +86,15 @@ const (
     StpPortState_stp_invalid StpPortState = "stp-invalid"
 )
 
-// StpPortRole represents Spanning Tree Protocol port roles
-type StpPortRole string
+// StpPortBpdufilter represents Send or receive BPDUs on this interface
+type StpPortBpdufilter string
 
 const (
-    StpPortRole_stp_master StpPortRole = "stp-master"
+    StpPortBpdufilter_stp_port_bpdufilter_disable StpPortBpdufilter = "stp-port-bpdufilter-disable"
 
-    StpPortRole_stp_alternate StpPortRole = "stp-alternate"
+    StpPortBpdufilter_stp_port_bpdufilter_enable StpPortBpdufilter = "stp-port-bpdufilter-enable"
 
-    StpPortRole_stp_root StpPortRole = "stp-root"
-
-    StpPortRole_stp_designated StpPortRole = "stp-designated"
-
-    StpPortRole_stp_backup StpPortRole = "stp-backup"
-)
-
-// StpLinkRole represents Type definition for the different link types
-type StpLinkRole string
-
-const (
-    StpLinkRole_stp_auto StpLinkRole = "stp-auto"
-
-    StpLinkRole_stp_point_to_point StpLinkRole = "stp-point-to-point"
-
-    StpLinkRole_stp_shared StpLinkRole = "stp-shared"
+    StpPortBpdufilter_stp_port_bpdufilter_default StpPortBpdufilter = "stp-port-bpdufilter-default"
 )
 
 // StpPortGuard represents Interface's spanning tree guard mode
@@ -77,39 +110,6 @@ const (
     StpPortGuard_stp_port_guard_none StpPortGuard = "stp-port-guard-none"
 )
 
-// StpPortBpduguard represents Accept BPDUs on this interface
-type StpPortBpduguard string
-
-const (
-    StpPortBpduguard_stp_port_bpduguard_disable StpPortBpduguard = "stp-port-bpduguard-disable"
-
-    StpPortBpduguard_stp_port_bpduguard_enable StpPortBpduguard = "stp-port-bpduguard-enable"
-
-    StpPortBpduguard_stp_port_bpduguard_default StpPortBpduguard = "stp-port-bpduguard-default"
-)
-
-// StpPortBpdufilter represents Send or receive BPDUs on this interface
-type StpPortBpdufilter string
-
-const (
-    StpPortBpdufilter_stp_port_bpdufilter_disable StpPortBpdufilter = "stp-port-bpdufilter-disable"
-
-    StpPortBpdufilter_stp_port_bpdufilter_enable StpPortBpdufilter = "stp-port-bpdufilter-enable"
-
-    StpPortBpdufilter_stp_port_bpdufilter_default StpPortBpdufilter = "stp-port-bpdufilter-default"
-)
-
-// StpMode represents Spanning tree operating mode
-type StpMode string
-
-const (
-    StpMode_stp_mode_pvst StpMode = "stp-mode-pvst"
-
-    StpMode_stp_mode_rapid_pvst StpMode = "stp-mode-rapid-pvst"
-
-    StpMode_stp_mode_mst StpMode = "stp-mode-mst"
-)
-
 // StpDetails
 // Top-level container for spanning tree operational data
 type StpDetails struct {
@@ -118,7 +118,7 @@ type StpDetails struct {
 
     // List of mst/rapid-pvst spanning-tree, keyed by instance name. The type is
     // slice of StpDetails_StpDetail.
-    StpDetail []StpDetails_StpDetail
+    StpDetail []*StpDetails_StpDetail
 
     // Global state data.
     StpGlobal StpDetails_StpGlobal
@@ -134,13 +134,16 @@ func (stpDetails *StpDetails) GetEntityData() *types.CommonEntityData {
     stpDetails.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpDetails.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpDetails.EntityData.Children = make(map[string]types.YChild)
-    stpDetails.EntityData.Children["stp-detail"] = types.YChild{"StpDetail", nil}
+    stpDetails.EntityData.Children = types.NewOrderedMap()
+    stpDetails.EntityData.Children.Append("stp-detail", types.YChild{"StpDetail", nil})
     for i := range stpDetails.StpDetail {
-        stpDetails.EntityData.Children[types.GetSegmentPath(&stpDetails.StpDetail[i])] = types.YChild{"StpDetail", &stpDetails.StpDetail[i]}
+        stpDetails.EntityData.Children.Append(types.GetSegmentPath(stpDetails.StpDetail[i]), types.YChild{"StpDetail", stpDetails.StpDetail[i]})
     }
-    stpDetails.EntityData.Children["stp-global"] = types.YChild{"StpGlobal", &stpDetails.StpGlobal}
-    stpDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    stpDetails.EntityData.Children.Append("stp-global", types.YChild{"StpGlobal", &stpDetails.StpGlobal})
+    stpDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    stpDetails.EntityData.YListKeys = []string {}
+
     return &(stpDetails.EntityData)
 }
 
@@ -177,7 +180,7 @@ type StpDetails_StpDetail struct {
 
     // A unique 48-bit Universally Administered MAC Address assigned to the
     // bridge. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     BridgeAddress interface{}
 
     // The bridge priority of the root of the spanning tree, as determined by the
@@ -187,7 +190,7 @@ type StpDetails_StpDetail struct {
 
     // The bridge address of the root of the spanning tree, as determined by the
     // Spanning Tree Protocol, as executed by this node. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DesignatedRootAddress interface{}
 
     // The port number of the port which offers the lowest cost path from this
@@ -210,7 +213,7 @@ type StpDetails_StpDetail struct {
 
     // The time of the last topology change that was detected by the bridge
     // entity.The time is POSIX time UTC. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     TimeOfLastTopologyChange interface{}
 
     // List of interfaces on which STP is enable.
@@ -222,28 +225,31 @@ func (stpDetail *StpDetails_StpDetail) GetEntityData() *types.CommonEntityData {
     stpDetail.EntityData.YangName = "stp-detail"
     stpDetail.EntityData.BundleName = "cisco_ios_xe"
     stpDetail.EntityData.ParentYangName = "stp-details"
-    stpDetail.EntityData.SegmentPath = "stp-detail" + "[instance='" + fmt.Sprintf("%v", stpDetail.Instance) + "']"
+    stpDetail.EntityData.SegmentPath = "stp-detail" + types.AddKeyToken(stpDetail.Instance, "instance")
     stpDetail.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpDetail.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpDetail.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpDetail.EntityData.Children = make(map[string]types.YChild)
-    stpDetail.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &stpDetail.Interfaces}
-    stpDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpDetail.EntityData.Leafs["instance"] = types.YLeaf{"Instance", stpDetail.Instance}
-    stpDetail.EntityData.Leafs["hello-time"] = types.YLeaf{"HelloTime", stpDetail.HelloTime}
-    stpDetail.EntityData.Leafs["max-age"] = types.YLeaf{"MaxAge", stpDetail.MaxAge}
-    stpDetail.EntityData.Leafs["forwarding-delay"] = types.YLeaf{"ForwardingDelay", stpDetail.ForwardingDelay}
-    stpDetail.EntityData.Leafs["hold-count"] = types.YLeaf{"HoldCount", stpDetail.HoldCount}
-    stpDetail.EntityData.Leafs["bridge-priority"] = types.YLeaf{"BridgePriority", stpDetail.BridgePriority}
-    stpDetail.EntityData.Leafs["bridge-address"] = types.YLeaf{"BridgeAddress", stpDetail.BridgeAddress}
-    stpDetail.EntityData.Leafs["designated-root-priority"] = types.YLeaf{"DesignatedRootPriority", stpDetail.DesignatedRootPriority}
-    stpDetail.EntityData.Leafs["designated-root-address"] = types.YLeaf{"DesignatedRootAddress", stpDetail.DesignatedRootAddress}
-    stpDetail.EntityData.Leafs["root-port"] = types.YLeaf{"RootPort", stpDetail.RootPort}
-    stpDetail.EntityData.Leafs["root-cost"] = types.YLeaf{"RootCost", stpDetail.RootCost}
-    stpDetail.EntityData.Leafs["hold-time"] = types.YLeaf{"HoldTime", stpDetail.HoldTime}
-    stpDetail.EntityData.Leafs["topology-changes"] = types.YLeaf{"TopologyChanges", stpDetail.TopologyChanges}
-    stpDetail.EntityData.Leafs["time-of-last-topology-change"] = types.YLeaf{"TimeOfLastTopologyChange", stpDetail.TimeOfLastTopologyChange}
+    stpDetail.EntityData.Children = types.NewOrderedMap()
+    stpDetail.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &stpDetail.Interfaces})
+    stpDetail.EntityData.Leafs = types.NewOrderedMap()
+    stpDetail.EntityData.Leafs.Append("instance", types.YLeaf{"Instance", stpDetail.Instance})
+    stpDetail.EntityData.Leafs.Append("hello-time", types.YLeaf{"HelloTime", stpDetail.HelloTime})
+    stpDetail.EntityData.Leafs.Append("max-age", types.YLeaf{"MaxAge", stpDetail.MaxAge})
+    stpDetail.EntityData.Leafs.Append("forwarding-delay", types.YLeaf{"ForwardingDelay", stpDetail.ForwardingDelay})
+    stpDetail.EntityData.Leafs.Append("hold-count", types.YLeaf{"HoldCount", stpDetail.HoldCount})
+    stpDetail.EntityData.Leafs.Append("bridge-priority", types.YLeaf{"BridgePriority", stpDetail.BridgePriority})
+    stpDetail.EntityData.Leafs.Append("bridge-address", types.YLeaf{"BridgeAddress", stpDetail.BridgeAddress})
+    stpDetail.EntityData.Leafs.Append("designated-root-priority", types.YLeaf{"DesignatedRootPriority", stpDetail.DesignatedRootPriority})
+    stpDetail.EntityData.Leafs.Append("designated-root-address", types.YLeaf{"DesignatedRootAddress", stpDetail.DesignatedRootAddress})
+    stpDetail.EntityData.Leafs.Append("root-port", types.YLeaf{"RootPort", stpDetail.RootPort})
+    stpDetail.EntityData.Leafs.Append("root-cost", types.YLeaf{"RootCost", stpDetail.RootCost})
+    stpDetail.EntityData.Leafs.Append("hold-time", types.YLeaf{"HoldTime", stpDetail.HoldTime})
+    stpDetail.EntityData.Leafs.Append("topology-changes", types.YLeaf{"TopologyChanges", stpDetail.TopologyChanges})
+    stpDetail.EntityData.Leafs.Append("time-of-last-topology-change", types.YLeaf{"TimeOfLastTopologyChange", stpDetail.TimeOfLastTopologyChange})
+
+    stpDetail.EntityData.YListKeys = []string {"Instance"}
+
     return &(stpDetail.EntityData)
 }
 
@@ -254,8 +260,8 @@ type StpDetails_StpDetail_Interfaces struct {
     YFilter yfilter.YFilter
 
     // List of interfaces on which STP is enable. The type is slice of
-    // StpDetails_StpDetail_Interfaces_Interface_.
-    Interface_ []StpDetails_StpDetail_Interfaces_Interface
+    // StpDetails_StpDetail_Interfaces_Interface.
+    Interface []*StpDetails_StpDetail_Interfaces_Interface
 }
 
 func (interfaces *StpDetails_StpDetail_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -268,12 +274,15 @@ func (interfaces *StpDetails_StpDetail_Interfaces) GetEntityData() *types.Common
     interfaces.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -314,7 +323,7 @@ type StpDetails_StpDetail_Interfaces_Interface struct {
     // The bridge address of the bridge recorded as the root in the configuration
     // BPDUs transmitted by the designated bridge for the segment to which the
     // port is attached. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DesignatedRootAddress interface{}
 
     // The path cost of the Designated Port of the segment connected to this port.
@@ -328,7 +337,7 @@ type StpDetails_StpDetail_Interfaces_Interface struct {
 
     // The bridge address of the bridge that this port considers to be the
     // designated bridge for this port's segment. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DesignatedBridgeAddress interface{}
 
     // The Port priority of the port on the Designated Bridge for this port's
@@ -370,33 +379,36 @@ func (self *StpDetails_StpDetail_Interfaces_Interface) GetEntityData() *types.Co
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[name='" + fmt.Sprintf("%v", self.Name) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
-    self.EntityData.Leafs["cost"] = types.YLeaf{"Cost", self.Cost}
-    self.EntityData.Leafs["port-priority"] = types.YLeaf{"PortPriority", self.PortPriority}
-    self.EntityData.Leafs["port-num"] = types.YLeaf{"PortNum", self.PortNum}
-    self.EntityData.Leafs["role"] = types.YLeaf{"Role", self.Role}
-    self.EntityData.Leafs["state"] = types.YLeaf{"State", self.State}
-    self.EntityData.Leafs["designated-root-priority"] = types.YLeaf{"DesignatedRootPriority", self.DesignatedRootPriority}
-    self.EntityData.Leafs["designated-root-address"] = types.YLeaf{"DesignatedRootAddress", self.DesignatedRootAddress}
-    self.EntityData.Leafs["designated-cost"] = types.YLeaf{"DesignatedCost", self.DesignatedCost}
-    self.EntityData.Leafs["designated-bridge-priority"] = types.YLeaf{"DesignatedBridgePriority", self.DesignatedBridgePriority}
-    self.EntityData.Leafs["designated-bridge-address"] = types.YLeaf{"DesignatedBridgeAddress", self.DesignatedBridgeAddress}
-    self.EntityData.Leafs["designated-port-priority"] = types.YLeaf{"DesignatedPortPriority", self.DesignatedPortPriority}
-    self.EntityData.Leafs["designated-port-num"] = types.YLeaf{"DesignatedPortNum", self.DesignatedPortNum}
-    self.EntityData.Leafs["forward-transitions"] = types.YLeaf{"ForwardTransitions", self.ForwardTransitions}
-    self.EntityData.Leafs["link-type"] = types.YLeaf{"LinkType", self.LinkType}
-    self.EntityData.Leafs["guard"] = types.YLeaf{"Guard", self.Guard}
-    self.EntityData.Leafs["bpdu-guard"] = types.YLeaf{"BpduGuard", self.BpduGuard}
-    self.EntityData.Leafs["bpdu-filter"] = types.YLeaf{"BpduFilter", self.BpduFilter}
-    self.EntityData.Leafs["bpdu-sent"] = types.YLeaf{"BpduSent", self.BpduSent}
-    self.EntityData.Leafs["bpdu-received"] = types.YLeaf{"BpduReceived", self.BpduReceived}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", self.Cost})
+    self.EntityData.Leafs.Append("port-priority", types.YLeaf{"PortPriority", self.PortPriority})
+    self.EntityData.Leafs.Append("port-num", types.YLeaf{"PortNum", self.PortNum})
+    self.EntityData.Leafs.Append("role", types.YLeaf{"Role", self.Role})
+    self.EntityData.Leafs.Append("state", types.YLeaf{"State", self.State})
+    self.EntityData.Leafs.Append("designated-root-priority", types.YLeaf{"DesignatedRootPriority", self.DesignatedRootPriority})
+    self.EntityData.Leafs.Append("designated-root-address", types.YLeaf{"DesignatedRootAddress", self.DesignatedRootAddress})
+    self.EntityData.Leafs.Append("designated-cost", types.YLeaf{"DesignatedCost", self.DesignatedCost})
+    self.EntityData.Leafs.Append("designated-bridge-priority", types.YLeaf{"DesignatedBridgePriority", self.DesignatedBridgePriority})
+    self.EntityData.Leafs.Append("designated-bridge-address", types.YLeaf{"DesignatedBridgeAddress", self.DesignatedBridgeAddress})
+    self.EntityData.Leafs.Append("designated-port-priority", types.YLeaf{"DesignatedPortPriority", self.DesignatedPortPriority})
+    self.EntityData.Leafs.Append("designated-port-num", types.YLeaf{"DesignatedPortNum", self.DesignatedPortNum})
+    self.EntityData.Leafs.Append("forward-transitions", types.YLeaf{"ForwardTransitions", self.ForwardTransitions})
+    self.EntityData.Leafs.Append("link-type", types.YLeaf{"LinkType", self.LinkType})
+    self.EntityData.Leafs.Append("guard", types.YLeaf{"Guard", self.Guard})
+    self.EntityData.Leafs.Append("bpdu-guard", types.YLeaf{"BpduGuard", self.BpduGuard})
+    self.EntityData.Leafs.Append("bpdu-filter", types.YLeaf{"BpduFilter", self.BpduFilter})
+    self.EntityData.Leafs.Append("bpdu-sent", types.YLeaf{"BpduSent", self.BpduSent})
+    self.EntityData.Leafs.Append("bpdu-received", types.YLeaf{"BpduReceived", self.BpduReceived})
+
+    self.EntityData.YListKeys = []string {"Name"}
+
     return &(self.EntityData)
 }
 
@@ -406,6 +418,7 @@ func (self *StpDetails_StpDetail_Interfaces_Interface) GetEntityData() *types.Co
 type StpDetails_StpGlobal struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Spanning tree mode enabled on the device. The type is StpMode.
     Mode interface{}
@@ -440,15 +453,18 @@ func (stpGlobal *StpDetails_StpGlobal) GetEntityData() *types.CommonEntityData {
     stpGlobal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpGlobal.EntityData.Children = make(map[string]types.YChild)
-    stpGlobal.EntityData.Children["mst-only"] = types.YChild{"MstOnly", &stpGlobal.MstOnly}
-    stpGlobal.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpGlobal.EntityData.Leafs["mode"] = types.YLeaf{"Mode", stpGlobal.Mode}
-    stpGlobal.EntityData.Leafs["bridge-assurance"] = types.YLeaf{"BridgeAssurance", stpGlobal.BridgeAssurance}
-    stpGlobal.EntityData.Leafs["loop-guard"] = types.YLeaf{"LoopGuard", stpGlobal.LoopGuard}
-    stpGlobal.EntityData.Leafs["bpdu-guard"] = types.YLeaf{"BpduGuard", stpGlobal.BpduGuard}
-    stpGlobal.EntityData.Leafs["bpdu-filter"] = types.YLeaf{"BpduFilter", stpGlobal.BpduFilter}
-    stpGlobal.EntityData.Leafs["etherchannel-misconfig-guard"] = types.YLeaf{"EtherchannelMisconfigGuard", stpGlobal.EtherchannelMisconfigGuard}
+    stpGlobal.EntityData.Children = types.NewOrderedMap()
+    stpGlobal.EntityData.Children.Append("mst-only", types.YChild{"MstOnly", &stpGlobal.MstOnly})
+    stpGlobal.EntityData.Leafs = types.NewOrderedMap()
+    stpGlobal.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", stpGlobal.Mode})
+    stpGlobal.EntityData.Leafs.Append("bridge-assurance", types.YLeaf{"BridgeAssurance", stpGlobal.BridgeAssurance})
+    stpGlobal.EntityData.Leafs.Append("loop-guard", types.YLeaf{"LoopGuard", stpGlobal.LoopGuard})
+    stpGlobal.EntityData.Leafs.Append("bpdu-guard", types.YLeaf{"BpduGuard", stpGlobal.BpduGuard})
+    stpGlobal.EntityData.Leafs.Append("bpdu-filter", types.YLeaf{"BpduFilter", stpGlobal.BpduFilter})
+    stpGlobal.EntityData.Leafs.Append("etherchannel-misconfig-guard", types.YLeaf{"EtherchannelMisconfigGuard", stpGlobal.EtherchannelMisconfigGuard})
+
+    stpGlobal.EntityData.YListKeys = []string {}
+
     return &(stpGlobal.EntityData)
 }
 
@@ -480,11 +496,14 @@ func (mstOnly *StpDetails_StpGlobal_MstOnly) GetEntityData() *types.CommonEntity
     mstOnly.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mstOnly.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mstOnly.EntityData.Children = make(map[string]types.YChild)
-    mstOnly.EntityData.Leafs = make(map[string]types.YLeaf)
-    mstOnly.EntityData.Leafs["mst-config-revision"] = types.YLeaf{"MstConfigRevision", mstOnly.MstConfigRevision}
-    mstOnly.EntityData.Leafs["mst-config-name"] = types.YLeaf{"MstConfigName", mstOnly.MstConfigName}
-    mstOnly.EntityData.Leafs["max-hops"] = types.YLeaf{"MaxHops", mstOnly.MaxHops}
+    mstOnly.EntityData.Children = types.NewOrderedMap()
+    mstOnly.EntityData.Leafs = types.NewOrderedMap()
+    mstOnly.EntityData.Leafs.Append("mst-config-revision", types.YLeaf{"MstConfigRevision", mstOnly.MstConfigRevision})
+    mstOnly.EntityData.Leafs.Append("mst-config-name", types.YLeaf{"MstConfigName", mstOnly.MstConfigName})
+    mstOnly.EntityData.Leafs.Append("max-hops", types.YLeaf{"MaxHops", mstOnly.MaxHops})
+
+    mstOnly.EntityData.YListKeys = []string {}
+
     return &(mstOnly.EntityData)
 }
 

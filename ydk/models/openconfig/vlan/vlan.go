@@ -25,7 +25,7 @@ type Vlans struct {
     YFilter yfilter.YFilter
 
     // Configured VLANs keyed by id. The type is slice of Vlans_Vlan.
-    Vlan []Vlans_Vlan
+    Vlan []*Vlans_Vlan
 }
 
 func (vlans *Vlans) GetEntityData() *types.CommonEntityData {
@@ -38,12 +38,15 @@ func (vlans *Vlans) GetEntityData() *types.CommonEntityData {
     vlans.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vlans.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    vlans.EntityData.Children = make(map[string]types.YChild)
-    vlans.EntityData.Children["vlan"] = types.YChild{"Vlan", nil}
+    vlans.EntityData.Children = types.NewOrderedMap()
+    vlans.EntityData.Children.Append("vlan", types.YChild{"Vlan", nil})
     for i := range vlans.Vlan {
-        vlans.EntityData.Children[types.GetSegmentPath(&vlans.Vlan[i])] = types.YChild{"Vlan", &vlans.Vlan[i]}
+        vlans.EntityData.Children.Append(types.GetSegmentPath(vlans.Vlan[i]), types.YChild{"Vlan", vlans.Vlan[i]})
     }
-    vlans.EntityData.Leafs = make(map[string]types.YLeaf)
+    vlans.EntityData.Leafs = types.NewOrderedMap()
+
+    vlans.EntityData.YListKeys = []string {}
+
     return &(vlans.EntityData)
 }
 
@@ -72,17 +75,20 @@ func (vlan *Vlans_Vlan) GetEntityData() *types.CommonEntityData {
     vlan.EntityData.YangName = "vlan"
     vlan.EntityData.BundleName = "openconfig"
     vlan.EntityData.ParentYangName = "vlans"
-    vlan.EntityData.SegmentPath = "vlan" + "[vlan-id='" + fmt.Sprintf("%v", vlan.VlanId) + "']"
+    vlan.EntityData.SegmentPath = "vlan" + types.AddKeyToken(vlan.VlanId, "vlan-id")
     vlan.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     vlan.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vlan.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    vlan.EntityData.Children = make(map[string]types.YChild)
-    vlan.EntityData.Children["config"] = types.YChild{"Config", &vlan.Config}
-    vlan.EntityData.Children["state"] = types.YChild{"State", &vlan.State}
-    vlan.EntityData.Children["members"] = types.YChild{"Members", &vlan.Members}
-    vlan.EntityData.Leafs = make(map[string]types.YLeaf)
-    vlan.EntityData.Leafs["vlan-id"] = types.YLeaf{"VlanId", vlan.VlanId}
+    vlan.EntityData.Children = types.NewOrderedMap()
+    vlan.EntityData.Children.Append("config", types.YChild{"Config", &vlan.Config})
+    vlan.EntityData.Children.Append("state", types.YChild{"State", &vlan.State})
+    vlan.EntityData.Children.Append("members", types.YChild{"Members", &vlan.Members})
+    vlan.EntityData.Leafs = types.NewOrderedMap()
+    vlan.EntityData.Leafs.Append("vlan-id", types.YLeaf{"VlanId", vlan.VlanId})
+
+    vlan.EntityData.YListKeys = []string {"VlanId"}
+
     return &(vlan.EntityData)
 }
 
@@ -103,7 +109,7 @@ type Vlans_Vlan_Config struct {
 
     // Optionally set the tag protocol identifier field (TPID) that is accepted on
     // the VLAN. The type is one of the following:
-    // TPID0x8100TPID0x8A88TPID0x9100TPID0X9200. The default value is
+    // TPID0X9200TPID0x8A88TPID0x8100TPID0x9100. The default value is
     // oc-vlan-types:TPID_0x8100.
     Tpid interface{}
 }
@@ -118,12 +124,15 @@ func (config *Vlans_Vlan_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["vlan-id"] = types.YLeaf{"VlanId", config.VlanId}
-    config.EntityData.Leafs["name"] = types.YLeaf{"Name", config.Name}
-    config.EntityData.Leafs["status"] = types.YLeaf{"Status", config.Status}
-    config.EntityData.Leafs["tpid"] = types.YLeaf{"Tpid", config.Tpid}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("vlan-id", types.YLeaf{"VlanId", config.VlanId})
+    config.EntityData.Leafs.Append("name", types.YLeaf{"Name", config.Name})
+    config.EntityData.Leafs.Append("status", types.YLeaf{"Status", config.Status})
+    config.EntityData.Leafs.Append("tpid", types.YLeaf{"Tpid", config.Tpid})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -155,7 +164,7 @@ type Vlans_Vlan_State struct {
 
     // Optionally set the tag protocol identifier field (TPID) that is accepted on
     // the VLAN. The type is one of the following:
-    // TPID0x8100TPID0x8A88TPID0x9100TPID0X9200. The default value is
+    // TPID0X9200TPID0x8A88TPID0x8100TPID0x9100. The default value is
     // oc-vlan-types:TPID_0x8100.
     Tpid interface{}
 }
@@ -170,12 +179,15 @@ func (state *Vlans_Vlan_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["vlan-id"] = types.YLeaf{"VlanId", state.VlanId}
-    state.EntityData.Leafs["name"] = types.YLeaf{"Name", state.Name}
-    state.EntityData.Leafs["status"] = types.YLeaf{"Status", state.Status}
-    state.EntityData.Leafs["tpid"] = types.YLeaf{"Tpid", state.Tpid}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("vlan-id", types.YLeaf{"VlanId", state.VlanId})
+    state.EntityData.Leafs.Append("name", types.YLeaf{"Name", state.Name})
+    state.EntityData.Leafs.Append("status", types.YLeaf{"Status", state.Status})
+    state.EntityData.Leafs.Append("tpid", types.YLeaf{"Tpid", state.Tpid})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -198,7 +210,7 @@ type Vlans_Vlan_Members struct {
 
     // List of references to interfaces / subinterfaces associated with the VLAN.
     // The type is slice of Vlans_Vlan_Members_Member.
-    Member []Vlans_Vlan_Members_Member
+    Member []*Vlans_Vlan_Members_Member
 }
 
 func (members *Vlans_Vlan_Members) GetEntityData() *types.CommonEntityData {
@@ -211,12 +223,15 @@ func (members *Vlans_Vlan_Members) GetEntityData() *types.CommonEntityData {
     members.EntityData.NamespaceTable = openconfig.GetNamespaces()
     members.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    members.EntityData.Children = make(map[string]types.YChild)
-    members.EntityData.Children["member"] = types.YChild{"Member", nil}
+    members.EntityData.Children = types.NewOrderedMap()
+    members.EntityData.Children.Append("member", types.YChild{"Member", nil})
     for i := range members.Member {
-        members.EntityData.Children[types.GetSegmentPath(&members.Member[i])] = types.YChild{"Member", &members.Member[i]}
+        members.EntityData.Children.Append(types.GetSegmentPath(members.Member[i]), types.YChild{"Member", members.Member[i]})
     }
-    members.EntityData.Leafs = make(map[string]types.YLeaf)
+    members.EntityData.Leafs = types.NewOrderedMap()
+
+    members.EntityData.YListKeys = []string {}
+
     return &(members.EntityData)
 }
 
@@ -241,9 +256,12 @@ func (member *Vlans_Vlan_Members_Member) GetEntityData() *types.CommonEntityData
     member.EntityData.NamespaceTable = openconfig.GetNamespaces()
     member.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    member.EntityData.Children = make(map[string]types.YChild)
-    member.EntityData.Children["interface-ref"] = types.YChild{"InterfaceRef", &member.InterfaceRef}
-    member.EntityData.Leafs = make(map[string]types.YLeaf)
+    member.EntityData.Children = types.NewOrderedMap()
+    member.EntityData.Children.Append("interface-ref", types.YChild{"InterfaceRef", &member.InterfaceRef})
+    member.EntityData.Leafs = types.NewOrderedMap()
+
+    member.EntityData.YListKeys = []string {}
+
     return &(member.EntityData)
 }
 
@@ -267,9 +285,12 @@ func (interfaceRef *Vlans_Vlan_Members_Member_InterfaceRef) GetEntityData() *typ
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    interfaceRef.EntityData.Children = make(map[string]types.YChild)
-    interfaceRef.EntityData.Children["state"] = types.YChild{"State", &interfaceRef.State}
-    interfaceRef.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceRef.EntityData.Children = types.NewOrderedMap()
+    interfaceRef.EntityData.Children.Append("state", types.YChild{"State", &interfaceRef.State})
+    interfaceRef.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceRef.EntityData.YListKeys = []string {}
+
     return &(interfaceRef.EntityData)
 }
 
@@ -282,7 +303,7 @@ type Vlans_Vlan_Members_Member_InterfaceRef_State struct {
     // Reference to a base interface.  If a reference to a subinterface is
     // required, this leaf must be specified to indicate the base interface. The
     // type is string. Refers to interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // Reference to a subinterface -- this requires the base interface to be
     // specified using the interface leaf in this container.  If only a reference
@@ -302,10 +323,13 @@ func (state *Vlans_Vlan_Members_Member_InterfaceRef_State) GetEntityData() *type
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", state.Interface_}
-    state.EntityData.Leafs["subinterface"] = types.YLeaf{"Subinterface", state.Subinterface}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", state.Interface})
+    state.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", state.Subinterface})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 

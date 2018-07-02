@@ -26,7 +26,7 @@ type CISCOOSPFTRAPMIB struct {
     YFilter yfilter.YFilter
 
     
-    Cospftrapcontrol CISCOOSPFTRAPMIB_Cospftrapcontrol
+    CospfTrapControl CISCOOSPFTRAPMIB_CospfTrapControl
 }
 
 func (cISCOOSPFTRAPMIB *CISCOOSPFTRAPMIB) GetEntityData() *types.CommonEntityData {
@@ -39,14 +39,17 @@ func (cISCOOSPFTRAPMIB *CISCOOSPFTRAPMIB) GetEntityData() *types.CommonEntityDat
     cISCOOSPFTRAPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOOSPFTRAPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOOSPFTRAPMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOOSPFTRAPMIB.EntityData.Children["cospfTrapControl"] = types.YChild{"Cospftrapcontrol", &cISCOOSPFTRAPMIB.Cospftrapcontrol}
-    cISCOOSPFTRAPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOOSPFTRAPMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOOSPFTRAPMIB.EntityData.Children.Append("cospfTrapControl", types.YChild{"CospfTrapControl", &cISCOOSPFTRAPMIB.CospfTrapControl})
+    cISCOOSPFTRAPMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOOSPFTRAPMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOOSPFTRAPMIB.EntityData)
 }
 
-// CISCOOSPFTRAPMIB_Cospftrapcontrol
-type CISCOOSPFTRAPMIB_Cospftrapcontrol struct {
+// CISCOOSPFTRAPMIB_CospfTrapControl
+type CISCOOSPFTRAPMIB_CospfTrapControl struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -54,92 +57,95 @@ type CISCOOSPFTRAPMIB_Cospftrapcontrol struct {
     // OSPF traps in  this MIB. This object is used to enable and   disable 
     // specific OSPF   traps   where  a  1   in  the  corresponding bit  field
     // represents  enabled. The type is map[string]bool.
-    Cospfsettrap interface{}
+    CospfSetTrap interface{}
 
     // Potential types of configuration conflicts. Used  by the cospfConfigError
     // and cospfConfigVirtError traps. When the last value of a trap using this
     // object is needed, but no traps of that type have been sent, this value
     // pertaining to this object should be returned as noError. The type is
-    // Cospfconfigerrortype.
-    Cospfconfigerrortype interface{}
+    // CospfConfigErrorType.
+    CospfConfigErrorType interface{}
 
     // OSPF packet types. When the last value of a trap using this object is
     // needed, but no traps of that type have been sent, this value pertaining to
-    // this object should be returned as nullPacket. The type is Cospfpackettype.
-    Cospfpackettype interface{}
+    // this object should be returned as nullPacket. The type is CospfPacketType.
+    CospfPacketType interface{}
 
     // The IP address of an inbound packet that can- not be identified by a
     // neighbor instance. When the last value of a trap using this object is
     // needed, but no traps of that type have been sent, this value pertaining to
     // this object should be returned as 0.0.0.0. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Cospfpacketsrc interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CospfPacketSrc interface{}
 }
 
-func (cospftrapcontrol *CISCOOSPFTRAPMIB_Cospftrapcontrol) GetEntityData() *types.CommonEntityData {
-    cospftrapcontrol.EntityData.YFilter = cospftrapcontrol.YFilter
-    cospftrapcontrol.EntityData.YangName = "cospfTrapControl"
-    cospftrapcontrol.EntityData.BundleName = "cisco_ios_xe"
-    cospftrapcontrol.EntityData.ParentYangName = "CISCO-OSPF-TRAP-MIB"
-    cospftrapcontrol.EntityData.SegmentPath = "cospfTrapControl"
-    cospftrapcontrol.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cospftrapcontrol.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cospftrapcontrol.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cospfTrapControl *CISCOOSPFTRAPMIB_CospfTrapControl) GetEntityData() *types.CommonEntityData {
+    cospfTrapControl.EntityData.YFilter = cospfTrapControl.YFilter
+    cospfTrapControl.EntityData.YangName = "cospfTrapControl"
+    cospfTrapControl.EntityData.BundleName = "cisco_ios_xe"
+    cospfTrapControl.EntityData.ParentYangName = "CISCO-OSPF-TRAP-MIB"
+    cospfTrapControl.EntityData.SegmentPath = "cospfTrapControl"
+    cospfTrapControl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cospfTrapControl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cospfTrapControl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cospftrapcontrol.EntityData.Children = make(map[string]types.YChild)
-    cospftrapcontrol.EntityData.Leafs = make(map[string]types.YLeaf)
-    cospftrapcontrol.EntityData.Leafs["cospfSetTrap"] = types.YLeaf{"Cospfsettrap", cospftrapcontrol.Cospfsettrap}
-    cospftrapcontrol.EntityData.Leafs["cospfConfigErrorType"] = types.YLeaf{"Cospfconfigerrortype", cospftrapcontrol.Cospfconfigerrortype}
-    cospftrapcontrol.EntityData.Leafs["cospfPacketType"] = types.YLeaf{"Cospfpackettype", cospftrapcontrol.Cospfpackettype}
-    cospftrapcontrol.EntityData.Leafs["cospfPacketSrc"] = types.YLeaf{"Cospfpacketsrc", cospftrapcontrol.Cospfpacketsrc}
-    return &(cospftrapcontrol.EntityData)
+    cospfTrapControl.EntityData.Children = types.NewOrderedMap()
+    cospfTrapControl.EntityData.Leafs = types.NewOrderedMap()
+    cospfTrapControl.EntityData.Leafs.Append("cospfSetTrap", types.YLeaf{"CospfSetTrap", cospfTrapControl.CospfSetTrap})
+    cospfTrapControl.EntityData.Leafs.Append("cospfConfigErrorType", types.YLeaf{"CospfConfigErrorType", cospfTrapControl.CospfConfigErrorType})
+    cospfTrapControl.EntityData.Leafs.Append("cospfPacketType", types.YLeaf{"CospfPacketType", cospfTrapControl.CospfPacketType})
+    cospfTrapControl.EntityData.Leafs.Append("cospfPacketSrc", types.YLeaf{"CospfPacketSrc", cospfTrapControl.CospfPacketSrc})
+
+    cospfTrapControl.EntityData.YListKeys = []string {}
+
+    return &(cospfTrapControl.EntityData)
 }
 
-// CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype represents to this object should be returned as noError.
-type CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype string
+// CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType represents to this object should be returned as noError.
+type CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType string
 
 const (
-    CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype_badVersion CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype = "badVersion"
+    CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType_badVersion CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType = "badVersion"
 
-    CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype_areaMismatch CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype = "areaMismatch"
+    CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType_areaMismatch CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType = "areaMismatch"
 
-    CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype_unknownNbmaNbr CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype = "unknownNbmaNbr"
+    CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType_unknownNbmaNbr CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType = "unknownNbmaNbr"
 
-    CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype_unknownVirtualNbr CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype = "unknownVirtualNbr"
+    CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType_unknownVirtualNbr CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType = "unknownVirtualNbr"
 
-    CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype_authTypeMismatch CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype = "authTypeMismatch"
+    CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType_authTypeMismatch CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType = "authTypeMismatch"
 
-    CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype_authFailure CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype = "authFailure"
+    CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType_authFailure CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType = "authFailure"
 
-    CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype_netMaskMismatch CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype = "netMaskMismatch"
+    CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType_netMaskMismatch CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType = "netMaskMismatch"
 
-    CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype_helloIntervalMismatch CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype = "helloIntervalMismatch"
+    CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType_helloIntervalMismatch CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType = "helloIntervalMismatch"
 
-    CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype_deadIntervalMismatch CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype = "deadIntervalMismatch"
+    CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType_deadIntervalMismatch CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType = "deadIntervalMismatch"
 
-    CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype_optionMismatch CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype = "optionMismatch"
+    CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType_optionMismatch CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType = "optionMismatch"
 
-    CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype_mtuMismatch CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype = "mtuMismatch"
+    CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType_mtuMismatch CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType = "mtuMismatch"
 
-    CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype_noError CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype = "noError"
+    CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType_noError CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType = "noError"
 
-    CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype_unknownShamLinkNbr CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype = "unknownShamLinkNbr"
+    CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType_unknownShamLinkNbr CISCOOSPFTRAPMIB_CospfTrapControl_CospfConfigErrorType = "unknownShamLinkNbr"
 )
 
-// CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfpackettype represents to this object should be returned as nullPacket.
-type CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfpackettype string
+// CISCOOSPFTRAPMIB_CospfTrapControl_CospfPacketType represents to this object should be returned as nullPacket.
+type CISCOOSPFTRAPMIB_CospfTrapControl_CospfPacketType string
 
 const (
-    CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfpackettype_hello CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfpackettype = "hello"
+    CISCOOSPFTRAPMIB_CospfTrapControl_CospfPacketType_hello CISCOOSPFTRAPMIB_CospfTrapControl_CospfPacketType = "hello"
 
-    CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfpackettype_dbDescript CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfpackettype = "dbDescript"
+    CISCOOSPFTRAPMIB_CospfTrapControl_CospfPacketType_dbDescript CISCOOSPFTRAPMIB_CospfTrapControl_CospfPacketType = "dbDescript"
 
-    CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfpackettype_lsReq CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfpackettype = "lsReq"
+    CISCOOSPFTRAPMIB_CospfTrapControl_CospfPacketType_lsReq CISCOOSPFTRAPMIB_CospfTrapControl_CospfPacketType = "lsReq"
 
-    CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfpackettype_lsUpdate CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfpackettype = "lsUpdate"
+    CISCOOSPFTRAPMIB_CospfTrapControl_CospfPacketType_lsUpdate CISCOOSPFTRAPMIB_CospfTrapControl_CospfPacketType = "lsUpdate"
 
-    CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfpackettype_lsAck CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfpackettype = "lsAck"
+    CISCOOSPFTRAPMIB_CospfTrapControl_CospfPacketType_lsAck CISCOOSPFTRAPMIB_CospfTrapControl_CospfPacketType = "lsAck"
 
-    CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfpackettype_nullPacket CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfpackettype = "nullPacket"
+    CISCOOSPFTRAPMIB_CospfTrapControl_CospfPacketType_nullPacket CISCOOSPFTRAPMIB_CospfTrapControl_CospfPacketType = "nullPacket"
 )
 

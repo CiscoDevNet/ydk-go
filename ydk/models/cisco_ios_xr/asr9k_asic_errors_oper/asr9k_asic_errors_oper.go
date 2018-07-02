@@ -44,9 +44,12 @@ func (asicErrorStats *AsicErrorStats) GetEntityData() *types.CommonEntityData {
     asicErrorStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicErrorStats.EntityData.Children = make(map[string]types.YChild)
-    asicErrorStats.EntityData.Children["racks"] = types.YChild{"Racks", &asicErrorStats.Racks}
-    asicErrorStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicErrorStats.EntityData.Children = types.NewOrderedMap()
+    asicErrorStats.EntityData.Children.Append("racks", types.YChild{"Racks", &asicErrorStats.Racks})
+    asicErrorStats.EntityData.Leafs = types.NewOrderedMap()
+
+    asicErrorStats.EntityData.YListKeys = []string {}
+
     return &(asicErrorStats.EntityData)
 }
 
@@ -57,7 +60,7 @@ type AsicErrorStats_Racks struct {
     YFilter yfilter.YFilter
 
     // Number. The type is slice of AsicErrorStats_Racks_Rack.
-    Rack []AsicErrorStats_Racks_Rack
+    Rack []*AsicErrorStats_Racks_Rack
 }
 
 func (racks *AsicErrorStats_Racks) GetEntityData() *types.CommonEntityData {
@@ -70,12 +73,15 @@ func (racks *AsicErrorStats_Racks) GetEntityData() *types.CommonEntityData {
     racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    racks.EntityData.Children = make(map[string]types.YChild)
-    racks.EntityData.Children["rack"] = types.YChild{"Rack", nil}
+    racks.EntityData.Children = types.NewOrderedMap()
+    racks.EntityData.Children.Append("rack", types.YChild{"Rack", nil})
     for i := range racks.Rack {
-        racks.EntityData.Children[types.GetSegmentPath(&racks.Rack[i])] = types.YChild{"Rack", &racks.Rack[i]}
+        racks.EntityData.Children.Append(types.GetSegmentPath(racks.Rack[i]), types.YChild{"Rack", racks.Rack[i]})
     }
-    racks.EntityData.Leafs = make(map[string]types.YLeaf)
+    racks.EntityData.Leafs = types.NewOrderedMap()
+
+    racks.EntityData.YListKeys = []string {}
+
     return &(racks.EntityData)
 }
 
@@ -86,7 +92,7 @@ type AsicErrorStats_Racks_Rack struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Rack number. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Rack interface{}
 
     // Table of Nodes.
@@ -98,15 +104,18 @@ func (rack *AsicErrorStats_Racks_Rack) GetEntityData() *types.CommonEntityData {
     rack.EntityData.YangName = "rack"
     rack.EntityData.BundleName = "cisco_ios_xr"
     rack.EntityData.ParentYangName = "racks"
-    rack.EntityData.SegmentPath = "rack" + "[rack='" + fmt.Sprintf("%v", rack.Rack) + "']"
+    rack.EntityData.SegmentPath = "rack" + types.AddKeyToken(rack.Rack, "rack")
     rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rack.EntityData.Children = make(map[string]types.YChild)
-    rack.EntityData.Children["nodes"] = types.YChild{"Nodes", &rack.Nodes}
-    rack.EntityData.Leafs = make(map[string]types.YLeaf)
-    rack.EntityData.Leafs["rack"] = types.YLeaf{"Rack", rack.Rack}
+    rack.EntityData.Children = types.NewOrderedMap()
+    rack.EntityData.Children.Append("nodes", types.YChild{"Nodes", &rack.Nodes})
+    rack.EntityData.Leafs = types.NewOrderedMap()
+    rack.EntityData.Leafs.Append("rack", types.YLeaf{"Rack", rack.Rack})
+
+    rack.EntityData.YListKeys = []string {"Rack"}
+
     return &(rack.EntityData)
 }
 
@@ -118,7 +127,7 @@ type AsicErrorStats_Racks_Rack_Nodes struct {
 
     // Information about a particular node. The type is slice of
     // AsicErrorStats_Racks_Rack_Nodes_Node.
-    Node []AsicErrorStats_Racks_Rack_Nodes_Node
+    Node []*AsicErrorStats_Racks_Rack_Nodes_Node
 }
 
 func (nodes *AsicErrorStats_Racks_Rack_Nodes) GetEntityData() *types.CommonEntityData {
@@ -131,12 +140,15 @@ func (nodes *AsicErrorStats_Racks_Rack_Nodes) GetEntityData() *types.CommonEntit
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -147,7 +159,7 @@ type AsicErrorStats_Racks_Rack_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Table of all Asic Types information on a node.
@@ -159,15 +171,18 @@ func (node *AsicErrorStats_Racks_Rack_Nodes_Node) GetEntityData() *types.CommonE
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["counts"] = types.YChild{"Counts", &node.Counts}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("counts", types.YChild{"Counts", &node.Counts})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -180,7 +195,7 @@ type AsicErrorStats_Racks_Rack_Nodes_Node_Counts struct {
 
     // Summary Asic error counts for a Asic Type. The type is slice of
     // AsicErrorStats_Racks_Rack_Nodes_Node_Counts_Count.
-    Count []AsicErrorStats_Racks_Rack_Nodes_Node_Counts_Count
+    Count []*AsicErrorStats_Racks_Rack_Nodes_Node_Counts_Count
 }
 
 func (counts *AsicErrorStats_Racks_Rack_Nodes_Node_Counts) GetEntityData() *types.CommonEntityData {
@@ -193,12 +208,15 @@ func (counts *AsicErrorStats_Racks_Rack_Nodes_Node_Counts) GetEntityData() *type
     counts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    counts.EntityData.Children = make(map[string]types.YChild)
-    counts.EntityData.Children["count"] = types.YChild{"Count", nil}
+    counts.EntityData.Children = types.NewOrderedMap()
+    counts.EntityData.Children.Append("count", types.YChild{"Count", nil})
     for i := range counts.Count {
-        counts.EntityData.Children[types.GetSegmentPath(&counts.Count[i])] = types.YChild{"Count", &counts.Count[i]}
+        counts.EntityData.Children.Append(types.GetSegmentPath(counts.Count[i]), types.YChild{"Count", counts.Count[i]})
     }
-    counts.EntityData.Leafs = make(map[string]types.YLeaf)
+    counts.EntityData.Leafs = types.NewOrderedMap()
+
+    counts.EntityData.YListKeys = []string {}
+
     return &(counts.EntityData)
 }
 
@@ -209,12 +227,12 @@ type AsicErrorStats_Racks_Rack_Nodes_Node_Counts_Count struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Asic Type. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
-    Type_ interface{}
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    Type interface{}
 
     // sum data. The type is slice of
     // AsicErrorStats_Racks_Rack_Nodes_Node_Counts_Count_SumData.
-    SumData []AsicErrorStats_Racks_Rack_Nodes_Node_Counts_Count_SumData
+    SumData []*AsicErrorStats_Racks_Rack_Nodes_Node_Counts_Count_SumData
 }
 
 func (count *AsicErrorStats_Racks_Rack_Nodes_Node_Counts_Count) GetEntityData() *types.CommonEntityData {
@@ -222,18 +240,21 @@ func (count *AsicErrorStats_Racks_Rack_Nodes_Node_Counts_Count) GetEntityData() 
     count.EntityData.YangName = "count"
     count.EntityData.BundleName = "cisco_ios_xr"
     count.EntityData.ParentYangName = "counts"
-    count.EntityData.SegmentPath = "count" + "[type='" + fmt.Sprintf("%v", count.Type_) + "']"
+    count.EntityData.SegmentPath = "count" + types.AddKeyToken(count.Type, "type")
     count.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     count.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     count.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    count.EntityData.Children = make(map[string]types.YChild)
-    count.EntityData.Children["sum-data"] = types.YChild{"SumData", nil}
+    count.EntityData.Children = types.NewOrderedMap()
+    count.EntityData.Children.Append("sum-data", types.YChild{"SumData", nil})
     for i := range count.SumData {
-        count.EntityData.Children[types.GetSegmentPath(&count.SumData[i])] = types.YChild{"SumData", &count.SumData[i]}
+        count.EntityData.Children.Append(types.GetSegmentPath(count.SumData[i]), types.YChild{"SumData", count.SumData[i]})
     }
-    count.EntityData.Leafs = make(map[string]types.YLeaf)
-    count.EntityData.Leafs["type"] = types.YLeaf{"Type_", count.Type_}
+    count.EntityData.Leafs = types.NewOrderedMap()
+    count.EntityData.Leafs.Append("type", types.YLeaf{"Type", count.Type})
+
+    count.EntityData.YListKeys = []string {"Type"}
+
     return &(count.EntityData)
 }
 
@@ -281,17 +302,20 @@ func (sumData *AsicErrorStats_Racks_Rack_Nodes_Node_Counts_Count_SumData) GetEnt
     sumData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sumData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sumData.EntityData.Children = make(map[string]types.YChild)
-    sumData.EntityData.Leafs = make(map[string]types.YLeaf)
-    sumData.EntityData.Leafs["instance"] = types.YLeaf{"Instance", sumData.Instance}
-    sumData.EntityData.Leafs["num-nodes"] = types.YLeaf{"NumNodes", sumData.NumNodes}
-    sumData.EntityData.Leafs["crc-err-count"] = types.YLeaf{"CrcErrCount", sumData.CrcErrCount}
-    sumData.EntityData.Leafs["sbe-err-count"] = types.YLeaf{"SbeErrCount", sumData.SbeErrCount}
-    sumData.EntityData.Leafs["mbe-err-count"] = types.YLeaf{"MbeErrCount", sumData.MbeErrCount}
-    sumData.EntityData.Leafs["par-err-count"] = types.YLeaf{"ParErrCount", sumData.ParErrCount}
-    sumData.EntityData.Leafs["gen-err-count"] = types.YLeaf{"GenErrCount", sumData.GenErrCount}
-    sumData.EntityData.Leafs["reset-err-count"] = types.YLeaf{"ResetErrCount", sumData.ResetErrCount}
-    sumData.EntityData.Leafs["node-key"] = types.YLeaf{"NodeKey", sumData.NodeKey}
+    sumData.EntityData.Children = types.NewOrderedMap()
+    sumData.EntityData.Leafs = types.NewOrderedMap()
+    sumData.EntityData.Leafs.Append("instance", types.YLeaf{"Instance", sumData.Instance})
+    sumData.EntityData.Leafs.Append("num-nodes", types.YLeaf{"NumNodes", sumData.NumNodes})
+    sumData.EntityData.Leafs.Append("crc-err-count", types.YLeaf{"CrcErrCount", sumData.CrcErrCount})
+    sumData.EntityData.Leafs.Append("sbe-err-count", types.YLeaf{"SbeErrCount", sumData.SbeErrCount})
+    sumData.EntityData.Leafs.Append("mbe-err-count", types.YLeaf{"MbeErrCount", sumData.MbeErrCount})
+    sumData.EntityData.Leafs.Append("par-err-count", types.YLeaf{"ParErrCount", sumData.ParErrCount})
+    sumData.EntityData.Leafs.Append("gen-err-count", types.YLeaf{"GenErrCount", sumData.GenErrCount})
+    sumData.EntityData.Leafs.Append("reset-err-count", types.YLeaf{"ResetErrCount", sumData.ResetErrCount})
+    sumData.EntityData.Leafs.Append("node-key", types.YLeaf{"NodeKey", sumData.NodeKey})
+
+    sumData.EntityData.YListKeys = []string {}
+
     return &(sumData.EntityData)
 }
 

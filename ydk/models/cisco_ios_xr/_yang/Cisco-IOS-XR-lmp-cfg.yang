@@ -161,7 +161,7 @@ module Cisco-IOS-XR-lmp-cfg {
                 description
                   "../AddressType = Unnumbered";
               }
-              type int32;
+              type uint32;
               description
                 "Local address unnumbered ";
             }
@@ -194,7 +194,7 @@ module Cisco-IOS-XR-lmp-cfg {
                     description
                       "../AddressType = Unnumbered";
                   }
-                  type int32;
+                  type uint32;
                   description
                     "Local address unnumbered ";
                 }
@@ -221,7 +221,7 @@ module Cisco-IOS-XR-lmp-cfg {
                     description
                       "../AddressType = Unnumbered";
                   }
-                  type int32;
+                  type uint32;
                   description
                     "Neighbor address unnumbered [Not
                      supported]";
@@ -252,7 +252,7 @@ module Cisco-IOS-XR-lmp-cfg {
                    configuration";
               }
               leaf flexi-grid-capable {
-                type int32;
+                type uint32;
                 description
                   "Remote node flexi grid capability ";
               }
@@ -276,12 +276,6 @@ module Cisco-IOS-XR-lmp-cfg {
       type empty;
       description
         "Enable the OLM/LMP application";
-    }
-    leaf port {
-      type xr:Cisco-ios-xr-port-number;
-      default "701";
-      description
-        "LMP protocol UDP port number";
     }
   }
 }

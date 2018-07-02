@@ -50,11 +50,14 @@ func (ipRaw *IpRaw) GetEntityData() *types.CommonEntityData {
     ipRaw.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipRaw.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipRaw.EntityData.Children = make(map[string]types.YChild)
-    ipRaw.EntityData.Children["num-thread"] = types.YChild{"NumThread", &ipRaw.NumThread}
-    ipRaw.EntityData.Children["directory"] = types.YChild{"Directory", &ipRaw.Directory}
-    ipRaw.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipRaw.EntityData.Leafs["receive-q"] = types.YLeaf{"ReceiveQ", ipRaw.ReceiveQ}
+    ipRaw.EntityData.Children = types.NewOrderedMap()
+    ipRaw.EntityData.Children.Append("num-thread", types.YChild{"NumThread", &ipRaw.NumThread})
+    ipRaw.EntityData.Children.Append("directory", types.YChild{"Directory", &ipRaw.Directory})
+    ipRaw.EntityData.Leafs = types.NewOrderedMap()
+    ipRaw.EntityData.Leafs.Append("receive-q", types.YLeaf{"ReceiveQ", ipRaw.ReceiveQ})
+
+    ipRaw.EntityData.YListKeys = []string {}
+
     return &(ipRaw.EntityData)
 }
 
@@ -64,6 +67,7 @@ func (ipRaw *IpRaw) GetEntityData() *types.CommonEntityData {
 type IpRaw_NumThread struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // InQ Threads. The type is interface{} with range: 1..16. This attribute is
     // mandatory.
@@ -84,10 +88,13 @@ func (numThread *IpRaw_NumThread) GetEntityData() *types.CommonEntityData {
     numThread.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     numThread.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    numThread.EntityData.Children = make(map[string]types.YChild)
-    numThread.EntityData.Leafs = make(map[string]types.YLeaf)
-    numThread.EntityData.Leafs["raw-in-q-threads"] = types.YLeaf{"RawInQThreads", numThread.RawInQThreads}
-    numThread.EntityData.Leafs["raw-out-q-threads"] = types.YLeaf{"RawOutQThreads", numThread.RawOutQThreads}
+    numThread.EntityData.Children = types.NewOrderedMap()
+    numThread.EntityData.Leafs = types.NewOrderedMap()
+    numThread.EntityData.Leafs.Append("raw-in-q-threads", types.YLeaf{"RawInQThreads", numThread.RawInQThreads})
+    numThread.EntityData.Leafs.Append("raw-out-q-threads", types.YLeaf{"RawOutQThreads", numThread.RawOutQThreads})
+
+    numThread.EntityData.YListKeys = []string {}
+
     return &(numThread.EntityData)
 }
 
@@ -97,6 +104,7 @@ func (numThread *IpRaw_NumThread) GetEntityData() *types.CommonEntityData {
 type IpRaw_Directory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Directory name. The type is string. This attribute is mandatory.
     Directoryname interface{}
@@ -120,11 +128,14 @@ func (directory *IpRaw_Directory) GetEntityData() *types.CommonEntityData {
     directory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     directory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    directory.EntityData.Children = make(map[string]types.YChild)
-    directory.EntityData.Leafs = make(map[string]types.YLeaf)
-    directory.EntityData.Leafs["directoryname"] = types.YLeaf{"Directoryname", directory.Directoryname}
-    directory.EntityData.Leafs["max-raw-debug-files"] = types.YLeaf{"MaxRawDebugFiles", directory.MaxRawDebugFiles}
-    directory.EntityData.Leafs["max-file-size-files"] = types.YLeaf{"MaxFileSizeFiles", directory.MaxFileSizeFiles}
+    directory.EntityData.Children = types.NewOrderedMap()
+    directory.EntityData.Leafs = types.NewOrderedMap()
+    directory.EntityData.Leafs.Append("directoryname", types.YLeaf{"Directoryname", directory.Directoryname})
+    directory.EntityData.Leafs.Append("max-raw-debug-files", types.YLeaf{"MaxRawDebugFiles", directory.MaxRawDebugFiles})
+    directory.EntityData.Leafs.Append("max-file-size-files", types.YLeaf{"MaxFileSizeFiles", directory.MaxFileSizeFiles})
+
+    directory.EntityData.YListKeys = []string {}
+
     return &(directory.EntityData)
 }
 

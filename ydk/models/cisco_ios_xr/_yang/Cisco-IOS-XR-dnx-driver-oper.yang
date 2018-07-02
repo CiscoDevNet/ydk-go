@@ -6,7 +6,7 @@ module Cisco-IOS-XR-dnx-driver-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-dnx-driver-oper-sub1 {
-    revision-date 2017-08-29;
+    revision-date 2015-11-09;
   }
 
   organization
@@ -32,10 +32,6 @@ module Cisco-IOS-XR-dnx-driver-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2017-08-29 {
-    description
-      "Changed blk and field info to be dynamic.";
-  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";

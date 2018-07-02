@@ -32,10 +32,10 @@ type CISCOIPSLAJITTERMIB struct {
     YFilter yfilter.YFilter
 
     // A table that contains UDP jitter template specific definitions.
-    Cipslaudpjittertmpltable CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable
+    CipslaUdpJitterTmplTable CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable
 
     // A table that contains ICMP jitter template specific definitions.
-    Cipslaicmpjittertmpltable CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable
+    CipslaIcmpJitterTmplTable CISCOIPSLAJITTERMIB_CipslaIcmpJitterTmplTable
 }
 
 func (cISCOIPSLAJITTERMIB *CISCOIPSLAJITTERMIB) GetEntityData() *types.CommonEntityData {
@@ -48,61 +48,67 @@ func (cISCOIPSLAJITTERMIB *CISCOIPSLAJITTERMIB) GetEntityData() *types.CommonEnt
     cISCOIPSLAJITTERMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIPSLAJITTERMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOIPSLAJITTERMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOIPSLAJITTERMIB.EntityData.Children["cipslaUdpJitterTmplTable"] = types.YChild{"Cipslaudpjittertmpltable", &cISCOIPSLAJITTERMIB.Cipslaudpjittertmpltable}
-    cISCOIPSLAJITTERMIB.EntityData.Children["cipslaIcmpJitterTmplTable"] = types.YChild{"Cipslaicmpjittertmpltable", &cISCOIPSLAJITTERMIB.Cipslaicmpjittertmpltable}
-    cISCOIPSLAJITTERMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOIPSLAJITTERMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOIPSLAJITTERMIB.EntityData.Children.Append("cipslaUdpJitterTmplTable", types.YChild{"CipslaUdpJitterTmplTable", &cISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable})
+    cISCOIPSLAJITTERMIB.EntityData.Children.Append("cipslaIcmpJitterTmplTable", types.YChild{"CipslaIcmpJitterTmplTable", &cISCOIPSLAJITTERMIB.CipslaIcmpJitterTmplTable})
+    cISCOIPSLAJITTERMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOIPSLAJITTERMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOIPSLAJITTERMIB.EntityData)
 }
 
-// CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable
+// CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable
 // A table that contains UDP jitter template specific definitions.
-type CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable struct {
+type CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row entry representing an IPSLA UDP jitter template. The type is slice of
-    // CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry.
-    Cipslaudpjittertmplentry []CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry
+    // CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry.
+    CipslaUdpJitterTmplEntry []*CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry
 }
 
-func (cipslaudpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable) GetEntityData() *types.CommonEntityData {
-    cipslaudpjittertmpltable.EntityData.YFilter = cipslaudpjittertmpltable.YFilter
-    cipslaudpjittertmpltable.EntityData.YangName = "cipslaUdpJitterTmplTable"
-    cipslaudpjittertmpltable.EntityData.BundleName = "cisco_ios_xe"
-    cipslaudpjittertmpltable.EntityData.ParentYangName = "CISCO-IPSLA-JITTER-MIB"
-    cipslaudpjittertmpltable.EntityData.SegmentPath = "cipslaUdpJitterTmplTable"
-    cipslaudpjittertmpltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipslaudpjittertmpltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipslaudpjittertmpltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipslaUdpJitterTmplTable *CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable) GetEntityData() *types.CommonEntityData {
+    cipslaUdpJitterTmplTable.EntityData.YFilter = cipslaUdpJitterTmplTable.YFilter
+    cipslaUdpJitterTmplTable.EntityData.YangName = "cipslaUdpJitterTmplTable"
+    cipslaUdpJitterTmplTable.EntityData.BundleName = "cisco_ios_xe"
+    cipslaUdpJitterTmplTable.EntityData.ParentYangName = "CISCO-IPSLA-JITTER-MIB"
+    cipslaUdpJitterTmplTable.EntityData.SegmentPath = "cipslaUdpJitterTmplTable"
+    cipslaUdpJitterTmplTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaUdpJitterTmplTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaUdpJitterTmplTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipslaudpjittertmpltable.EntityData.Children = make(map[string]types.YChild)
-    cipslaudpjittertmpltable.EntityData.Children["cipslaUdpJitterTmplEntry"] = types.YChild{"Cipslaudpjittertmplentry", nil}
-    for i := range cipslaudpjittertmpltable.Cipslaudpjittertmplentry {
-        cipslaudpjittertmpltable.EntityData.Children[types.GetSegmentPath(&cipslaudpjittertmpltable.Cipslaudpjittertmplentry[i])] = types.YChild{"Cipslaudpjittertmplentry", &cipslaudpjittertmpltable.Cipslaudpjittertmplentry[i]}
+    cipslaUdpJitterTmplTable.EntityData.Children = types.NewOrderedMap()
+    cipslaUdpJitterTmplTable.EntityData.Children.Append("cipslaUdpJitterTmplEntry", types.YChild{"CipslaUdpJitterTmplEntry", nil})
+    for i := range cipslaUdpJitterTmplTable.CipslaUdpJitterTmplEntry {
+        cipslaUdpJitterTmplTable.EntityData.Children.Append(types.GetSegmentPath(cipslaUdpJitterTmplTable.CipslaUdpJitterTmplEntry[i]), types.YChild{"CipslaUdpJitterTmplEntry", cipslaUdpJitterTmplTable.CipslaUdpJitterTmplEntry[i]})
     }
-    cipslaudpjittertmpltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cipslaudpjittertmpltable.EntityData)
+    cipslaUdpJitterTmplTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cipslaUdpJitterTmplTable.EntityData.YListKeys = []string {}
+
+    return &(cipslaUdpJitterTmplTable.EntityData)
 }
 
-// CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry
+// CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry
 // A row entry representing an IPSLA UDP jitter template.
-type CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry struct {
+type CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A string which specifies the UDP Jitter template
     // name. The type is string with length: 1..64.
-    Cipslaudpjittertmplname interface{}
+    CipslaUdpJitterTmplName interface{}
 
     // A string which provides description of UDP Jitter template. The type is
     // string with length: 0..128.
-    Cipslaudpjittertmpldescription interface{}
+    CipslaUdpJitterTmplDescription interface{}
 
     // If this object is enabled, then the IP SLA application will send control
     // messages to a responder, residing on the target router to respond to the
     // data request packets being sent by the source router. The type is bool.
-    Cipslaudpjittertmplcontrolenable interface{}
+    CipslaUdpJitterTmplControlEnable interface{}
 
     // Specifies the duration to wait for a IP SLA operation completion.   For
     // connection oriented protocols, this may cause the connection to be closed
@@ -110,64 +116,64 @@ type CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry struc
     // reestablishment will be performed.  To prevent unwanted closure of
     // connections, be sure to set this value to a realistic connection timeout.
     // The type is interface{} with range: 0..604800000. Units are milliseconds.
-    Cipslaudpjittertmpltimeout interface{}
+    CipslaUdpJitterTmplTimeOut interface{}
 
     // When set to true, the resulting data in each IP SLA operation is compared
     // with the expected data.  This includes checking header information (if
     // possible) and exact packet size. The type is bool.
-    Cipslaudpjittertmplverifydata interface{}
+    CipslaUdpJitterTmplVerifyData interface{}
 
     // Specifies the codec type to be used with UDP jitter operation.  If
     // codec-type is configured the following parameters cannot be  configured.
     // cipslaUdpJitterReqDataSize cipslaUdpJitterInterval cipslaUdpJitterNumPkts.
     // The type is IpSlaCodecType.
-    Cipslaudpjittertmplcodectype interface{}
+    CipslaUdpJitterTmplCodecType interface{}
 
     // This field represents the inter-packet delay between packets and is in
     // milliseconds. This object is applicable only to UDP jitter operation  which
     // uses codec type. The type is interface{} with range: 4..60000. Units are
     // milliseconds.
-    Cipslaudpjittertmplcodecinterval interface{}
+    CipslaUdpJitterTmplCodecInterval interface{}
 
     // This object represents the number of octets that needs to be placed into
     // the Data portion of the message. This value is used only for UDP jitter
     // operation  which uses codec type. The type is interface{} with range:
     // 0..16384. Units are octets.
-    Cipslaudpjittertmplcodecpayload interface{}
+    CipslaUdpJitterTmplCodecPayload interface{}
 
     // This value represents the number of packets that need to be transmitted.
     // This value is used only for UDP jitter  operation which uses codec type.
     // The type is interface{} with range: 1..60000. Units are packets.
-    Cipslaudpjittertmplcodecnumpkts interface{}
+    CipslaUdpJitterTmplCodecNumPkts interface{}
 
     // This value represents the inter-packet delay between packets and is in
     // milliseconds. The type is interface{} with range: 4..60000. Units are
     // milliseconds.
-    Cipslaudpjittertmplinterval interface{}
+    CipslaUdpJitterTmplInterval interface{}
 
     // This value represents the number of packets that need to be transmitted.
     // The type is interface{} with range: 1..60000. Units are packets.
-    Cipslaudpjittertmplnumpkts interface{}
+    CipslaUdpJitterTmplNumPkts interface{}
 
     // An enumerated value which specifies the IP address type of the source. It
     // must be used along with the cipslaUdpJitterTmplSrcAddr object. The type is
     // InetAddressType.
-    Cipslaudpjittertmplsrcaddrtype interface{}
+    CipslaUdpJitterTmplSrcAddrType interface{}
 
     // This field specifies the IP address of the source. The type is string with
     // length: 0..255.
-    Cipslaudpjittertmplsrcaddr interface{}
+    CipslaUdpJitterTmplSrcAddr interface{}
 
     // This object represents the source's port number. If this object is not
     // specified, the application will get a port allocated by the system. The
     // type is interface{} with range: 0..65535.
-    Cipslaudpjittertmplsrcport interface{}
+    CipslaUdpJitterTmplSrcPort interface{}
 
     // This object specifies the accuracy of jitter statistics in
     // rttMonJitterStatsTable that needs to be calculated. milliseconds(1) - The
     // accuracy of stats will be of milliseconds. microseconds(2) - The accuracy
-    // of stats will be in microseconds. The type is Cipslaudpjittertmplprecision.
-    Cipslaudpjittertmplprecision interface{}
+    // of stats will be in microseconds. The type is CipslaUdpJitterTmplPrecision.
+    CipslaUdpJitterTmplPrecision interface{}
 
     // This object represents the number of octets to be placed into the ARR Data
     // portion of the request message, when using SNA protocols.  For non-ARR
@@ -175,28 +181,28 @@ type CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry struc
     // payload size.  REMEMBER:  The ARR Header overhead is not included          
     // in this value. The type is interface{} with range: 16..65024. Units are
     // octets.
-    Cipslaudpjittertmplreqdatasize interface{}
+    CipslaUdpJitterTmplReqDataSize interface{}
 
     // This object specifies the priority that will be assigned to operation
     // packet.  normal(1) - The packet is of normal priority. high(2)   - The
-    // packet is of high priority. The type is Cipslaudpjittertmplpktpriority.
-    Cipslaudpjittertmplpktpriority interface{}
+    // packet is of high priority. The type is CipslaUdpJitterTmplPktPriority.
+    CipslaUdpJitterTmplPktPriority interface{}
 
     // This object represents the type of service octet in an IP header. The type
     // is interface{} with range: 0..255.
-    Cipslaudpjittertmpltos interface{}
+    CipslaUdpJitterTmplTOS interface{}
 
     // This field is used to specify the VRF name in which the IP SLA operation
     // will be used. For regular IP SLA operation this field should not be
     // configured. The agent will use this field to identify the VPN routing table
     // for this operation. The type is string with length: 0..32.
-    Cipslaudpjittertmplvrfname interface{}
+    CipslaUdpJitterTmplVrfName interface{}
 
     // This object defines an administrative threshold limit. If the IP SLA
     // operation time exceeds this limit, then one threshold crossing occurrence
     // will be counted. The type is interface{} with range: 0..2147483647. Units
     // are milliseconds.
-    Cipslaudpjittertmplthreshold interface{}
+    CipslaUdpJitterTmplThreshold interface{}
 
     // This object specifies the total clock synchronization error on source and
     // responder that is considered tolerable for  oneway measurement when NTP is
@@ -205,7 +211,7 @@ type CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry struc
     // microseconds. This value can be set only for UDP jitter operation  with
     // precision of microsecond. The type is interface{} with range: 0..100000.
     // Units are microseconds.
-    Cipslaudpjittertmplntptolabs interface{}
+    CipslaUdpJitterTmplNTPTolAbs interface{}
 
     // This object specifies the total clock synchronization error on source and
     // responder that is considered tolerable for  oneway measurement when NTP is
@@ -214,21 +220,21 @@ type CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry struc
     // expressed  as the percentage of actual oneway latency that is measured. 
     // This value can be set only for UDP jitter operation with precision  of
     // microsecond. The type is interface{} with range: 0..100.
-    Cipslaudpjittertmplntptolpct interface{}
+    CipslaUdpJitterTmplNTPTolPct interface{}
 
     // This object specifies whether the value specified for oneway NTP sync
     // tolerance is absolute value or percent value.  percent(1)  - The value for
     // oneway NTP sync tolerance is                absolute value. absolute(2) -
     // The value for oneway NTP sync tolerance is                percent value.
-    // The type is Cipslaudpjittertmplntptoltype.
-    Cipslaudpjittertmplntptoltype interface{}
+    // The type is CipslaUdpJitterTmplNTPTolType.
+    CipslaUdpJitterTmplNTPTolType interface{}
 
     // The advantage factor is dependant on the type of access and how the service
     // is to be used. Conventional Wire-line     0 Mobility within Building    5
     // Mobility within geographic area  10 Access to hard-to-reach location   20 
     // It is used when calculating the ICPIF value. The type is interface{} with
     // range: 0..20.
-    Cipslaudpjittertmplicpiffactor interface{}
+    CipslaUdpJitterTmplIcpifFactor interface{}
 
     // The maximum number of hours for which statistics are maintained.
     // Specifically this is the number of hourly groups to keep before rolling
@@ -237,14 +243,14 @@ type CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry struc
     // have the opportunity to retrieve the statistics.  The value of zero will
     // shut off data collection. The type is interface{} with range: 0..25. Units
     // are hours.
-    Cipslaudpjittertmplstatshours interface{}
+    CipslaUdpJitterTmplStatsHours interface{}
 
     // The maximum number of statistical distribution buckets to accumulate. 
     // Since this index does not rollover, only the first
     // cipslaUdpJitterTmplDistBuckets will be kept.  The last bucket will contain
     // all entries from its  distribution interval start point to infinity. The
     // type is interface{} with range: 1..20.
-    Cipslaudpjittertmpldistbuckets interface{}
+    CipslaUdpJitterTmplDistBuckets interface{}
 
     // The statistical distribution buckets interval.  Distribution Bucket
     // Example:  cipslaUdpJitterTmplDistBuckets = 5 buckets
@@ -256,131 +262,137 @@ type CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry struc
     // cipslaUdpJitterTmplDistInterval does not apply when
     // cipslaUdpJitterTmplDistBuckets is one. The type is interface{} with range:
     // 1..100. Units are milliseconds.
-    Cipslaudpjittertmpldistinterval interface{}
+    CipslaUdpJitterTmplDistInterval interface{}
 
     // The storage type of this conceptual row. The type is StorageType.
-    Cipslaudpjittertmplstoragetype interface{}
+    CipslaUdpJitterTmplStorageType interface{}
 
     // The status of the conceptual UDP Jitter template control row. When the
     // status is active, all the read-create objects in that  row can be modified.
     // The type is RowStatus.
-    Cipslaudpjittertmplrowstatus interface{}
+    CipslaUdpJitterTmplRowStatus interface{}
 }
 
-func (cipslaudpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry) GetEntityData() *types.CommonEntityData {
-    cipslaudpjittertmplentry.EntityData.YFilter = cipslaudpjittertmplentry.YFilter
-    cipslaudpjittertmplentry.EntityData.YangName = "cipslaUdpJitterTmplEntry"
-    cipslaudpjittertmplentry.EntityData.BundleName = "cisco_ios_xe"
-    cipslaudpjittertmplentry.EntityData.ParentYangName = "cipslaUdpJitterTmplTable"
-    cipslaudpjittertmplentry.EntityData.SegmentPath = "cipslaUdpJitterTmplEntry" + "[cipslaUdpJitterTmplName='" + fmt.Sprintf("%v", cipslaudpjittertmplentry.Cipslaudpjittertmplname) + "']"
-    cipslaudpjittertmplentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipslaudpjittertmplentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipslaudpjittertmplentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipslaUdpJitterTmplEntry *CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry) GetEntityData() *types.CommonEntityData {
+    cipslaUdpJitterTmplEntry.EntityData.YFilter = cipslaUdpJitterTmplEntry.YFilter
+    cipslaUdpJitterTmplEntry.EntityData.YangName = "cipslaUdpJitterTmplEntry"
+    cipslaUdpJitterTmplEntry.EntityData.BundleName = "cisco_ios_xe"
+    cipslaUdpJitterTmplEntry.EntityData.ParentYangName = "cipslaUdpJitterTmplTable"
+    cipslaUdpJitterTmplEntry.EntityData.SegmentPath = "cipslaUdpJitterTmplEntry" + types.AddKeyToken(cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplName, "cipslaUdpJitterTmplName")
+    cipslaUdpJitterTmplEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaUdpJitterTmplEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaUdpJitterTmplEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipslaudpjittertmplentry.EntityData.Children = make(map[string]types.YChild)
-    cipslaudpjittertmplentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplName"] = types.YLeaf{"Cipslaudpjittertmplname", cipslaudpjittertmplentry.Cipslaudpjittertmplname}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplDescription"] = types.YLeaf{"Cipslaudpjittertmpldescription", cipslaudpjittertmplentry.Cipslaudpjittertmpldescription}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplControlEnable"] = types.YLeaf{"Cipslaudpjittertmplcontrolenable", cipslaudpjittertmplentry.Cipslaudpjittertmplcontrolenable}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplTimeOut"] = types.YLeaf{"Cipslaudpjittertmpltimeout", cipslaudpjittertmplentry.Cipslaudpjittertmpltimeout}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplVerifyData"] = types.YLeaf{"Cipslaudpjittertmplverifydata", cipslaudpjittertmplentry.Cipslaudpjittertmplverifydata}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplCodecType"] = types.YLeaf{"Cipslaudpjittertmplcodectype", cipslaudpjittertmplentry.Cipslaudpjittertmplcodectype}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplCodecInterval"] = types.YLeaf{"Cipslaudpjittertmplcodecinterval", cipslaudpjittertmplentry.Cipslaudpjittertmplcodecinterval}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplCodecPayload"] = types.YLeaf{"Cipslaudpjittertmplcodecpayload", cipslaudpjittertmplentry.Cipslaudpjittertmplcodecpayload}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplCodecNumPkts"] = types.YLeaf{"Cipslaudpjittertmplcodecnumpkts", cipslaudpjittertmplentry.Cipslaudpjittertmplcodecnumpkts}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplInterval"] = types.YLeaf{"Cipslaudpjittertmplinterval", cipslaudpjittertmplentry.Cipslaudpjittertmplinterval}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplNumPkts"] = types.YLeaf{"Cipslaudpjittertmplnumpkts", cipslaudpjittertmplentry.Cipslaudpjittertmplnumpkts}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplSrcAddrType"] = types.YLeaf{"Cipslaudpjittertmplsrcaddrtype", cipslaudpjittertmplentry.Cipslaudpjittertmplsrcaddrtype}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplSrcAddr"] = types.YLeaf{"Cipslaudpjittertmplsrcaddr", cipslaudpjittertmplentry.Cipslaudpjittertmplsrcaddr}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplSrcPort"] = types.YLeaf{"Cipslaudpjittertmplsrcport", cipslaudpjittertmplentry.Cipslaudpjittertmplsrcport}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplPrecision"] = types.YLeaf{"Cipslaudpjittertmplprecision", cipslaudpjittertmplentry.Cipslaudpjittertmplprecision}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplReqDataSize"] = types.YLeaf{"Cipslaudpjittertmplreqdatasize", cipslaudpjittertmplentry.Cipslaudpjittertmplreqdatasize}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplPktPriority"] = types.YLeaf{"Cipslaudpjittertmplpktpriority", cipslaudpjittertmplentry.Cipslaudpjittertmplpktpriority}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplTOS"] = types.YLeaf{"Cipslaudpjittertmpltos", cipslaudpjittertmplentry.Cipslaudpjittertmpltos}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplVrfName"] = types.YLeaf{"Cipslaudpjittertmplvrfname", cipslaudpjittertmplentry.Cipslaudpjittertmplvrfname}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplThreshold"] = types.YLeaf{"Cipslaudpjittertmplthreshold", cipslaudpjittertmplentry.Cipslaudpjittertmplthreshold}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplNTPTolAbs"] = types.YLeaf{"Cipslaudpjittertmplntptolabs", cipslaudpjittertmplentry.Cipslaudpjittertmplntptolabs}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplNTPTolPct"] = types.YLeaf{"Cipslaudpjittertmplntptolpct", cipslaudpjittertmplentry.Cipslaudpjittertmplntptolpct}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplNTPTolType"] = types.YLeaf{"Cipslaudpjittertmplntptoltype", cipslaudpjittertmplentry.Cipslaudpjittertmplntptoltype}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplIcpifFactor"] = types.YLeaf{"Cipslaudpjittertmplicpiffactor", cipslaudpjittertmplentry.Cipslaudpjittertmplicpiffactor}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplStatsHours"] = types.YLeaf{"Cipslaudpjittertmplstatshours", cipslaudpjittertmplentry.Cipslaudpjittertmplstatshours}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplDistBuckets"] = types.YLeaf{"Cipslaudpjittertmpldistbuckets", cipslaudpjittertmplentry.Cipslaudpjittertmpldistbuckets}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplDistInterval"] = types.YLeaf{"Cipslaudpjittertmpldistinterval", cipslaudpjittertmplentry.Cipslaudpjittertmpldistinterval}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplStorageType"] = types.YLeaf{"Cipslaudpjittertmplstoragetype", cipslaudpjittertmplentry.Cipslaudpjittertmplstoragetype}
-    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplRowStatus"] = types.YLeaf{"Cipslaudpjittertmplrowstatus", cipslaudpjittertmplentry.Cipslaudpjittertmplrowstatus}
-    return &(cipslaudpjittertmplentry.EntityData)
+    cipslaUdpJitterTmplEntry.EntityData.Children = types.NewOrderedMap()
+    cipslaUdpJitterTmplEntry.EntityData.Leafs = types.NewOrderedMap()
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplName", types.YLeaf{"CipslaUdpJitterTmplName", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplName})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplDescription", types.YLeaf{"CipslaUdpJitterTmplDescription", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplDescription})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplControlEnable", types.YLeaf{"CipslaUdpJitterTmplControlEnable", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplControlEnable})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplTimeOut", types.YLeaf{"CipslaUdpJitterTmplTimeOut", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplTimeOut})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplVerifyData", types.YLeaf{"CipslaUdpJitterTmplVerifyData", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplVerifyData})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplCodecType", types.YLeaf{"CipslaUdpJitterTmplCodecType", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplCodecType})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplCodecInterval", types.YLeaf{"CipslaUdpJitterTmplCodecInterval", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplCodecInterval})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplCodecPayload", types.YLeaf{"CipslaUdpJitterTmplCodecPayload", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplCodecPayload})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplCodecNumPkts", types.YLeaf{"CipslaUdpJitterTmplCodecNumPkts", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplCodecNumPkts})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplInterval", types.YLeaf{"CipslaUdpJitterTmplInterval", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplInterval})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplNumPkts", types.YLeaf{"CipslaUdpJitterTmplNumPkts", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplNumPkts})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplSrcAddrType", types.YLeaf{"CipslaUdpJitterTmplSrcAddrType", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplSrcAddrType})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplSrcAddr", types.YLeaf{"CipslaUdpJitterTmplSrcAddr", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplSrcAddr})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplSrcPort", types.YLeaf{"CipslaUdpJitterTmplSrcPort", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplSrcPort})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplPrecision", types.YLeaf{"CipslaUdpJitterTmplPrecision", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplPrecision})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplReqDataSize", types.YLeaf{"CipslaUdpJitterTmplReqDataSize", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplReqDataSize})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplPktPriority", types.YLeaf{"CipslaUdpJitterTmplPktPriority", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplPktPriority})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplTOS", types.YLeaf{"CipslaUdpJitterTmplTOS", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplTOS})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplVrfName", types.YLeaf{"CipslaUdpJitterTmplVrfName", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplVrfName})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplThreshold", types.YLeaf{"CipslaUdpJitterTmplThreshold", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplThreshold})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplNTPTolAbs", types.YLeaf{"CipslaUdpJitterTmplNTPTolAbs", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplNTPTolAbs})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplNTPTolPct", types.YLeaf{"CipslaUdpJitterTmplNTPTolPct", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplNTPTolPct})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplNTPTolType", types.YLeaf{"CipslaUdpJitterTmplNTPTolType", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplNTPTolType})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplIcpifFactor", types.YLeaf{"CipslaUdpJitterTmplIcpifFactor", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplIcpifFactor})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplStatsHours", types.YLeaf{"CipslaUdpJitterTmplStatsHours", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplStatsHours})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplDistBuckets", types.YLeaf{"CipslaUdpJitterTmplDistBuckets", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplDistBuckets})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplDistInterval", types.YLeaf{"CipslaUdpJitterTmplDistInterval", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplDistInterval})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplStorageType", types.YLeaf{"CipslaUdpJitterTmplStorageType", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplStorageType})
+    cipslaUdpJitterTmplEntry.EntityData.Leafs.Append("cipslaUdpJitterTmplRowStatus", types.YLeaf{"CipslaUdpJitterTmplRowStatus", cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplRowStatus})
+
+    cipslaUdpJitterTmplEntry.EntityData.YListKeys = []string {"CipslaUdpJitterTmplName"}
+
+    return &(cipslaUdpJitterTmplEntry.EntityData)
 }
 
-// CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplntptoltype represents               percent value.
-type CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplntptoltype string
+// CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry_CipslaUdpJitterTmplNTPTolType represents               percent value.
+type CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry_CipslaUdpJitterTmplNTPTolType string
 
 const (
-    CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplntptoltype_percent CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplntptoltype = "percent"
+    CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry_CipslaUdpJitterTmplNTPTolType_percent CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry_CipslaUdpJitterTmplNTPTolType = "percent"
 
-    CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplntptoltype_absolute CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplntptoltype = "absolute"
+    CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry_CipslaUdpJitterTmplNTPTolType_absolute CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry_CipslaUdpJitterTmplNTPTolType = "absolute"
 )
 
-// CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplpktpriority represents high(2)   - The packet is of high priority.
-type CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplpktpriority string
+// CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry_CipslaUdpJitterTmplPktPriority represents high(2)   - The packet is of high priority.
+type CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry_CipslaUdpJitterTmplPktPriority string
 
 const (
-    CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplpktpriority_normal CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplpktpriority = "normal"
+    CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry_CipslaUdpJitterTmplPktPriority_normal CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry_CipslaUdpJitterTmplPktPriority = "normal"
 
-    CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplpktpriority_high CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplpktpriority = "high"
+    CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry_CipslaUdpJitterTmplPktPriority_high CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry_CipslaUdpJitterTmplPktPriority = "high"
 )
 
-// CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplprecision represents microseconds(2) - The accuracy of stats will be in microseconds.
-type CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplprecision string
+// CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry_CipslaUdpJitterTmplPrecision represents microseconds(2) - The accuracy of stats will be in microseconds.
+type CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry_CipslaUdpJitterTmplPrecision string
 
 const (
-    CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplprecision_milliseconds CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplprecision = "milliseconds"
+    CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry_CipslaUdpJitterTmplPrecision_milliseconds CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry_CipslaUdpJitterTmplPrecision = "milliseconds"
 
-    CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplprecision_microseconds CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplprecision = "microseconds"
+    CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry_CipslaUdpJitterTmplPrecision_microseconds CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry_CipslaUdpJitterTmplPrecision = "microseconds"
 )
 
-// CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable
+// CISCOIPSLAJITTERMIB_CipslaIcmpJitterTmplTable
 // A table that contains ICMP jitter template specific definitions.
-type CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable struct {
+type CISCOIPSLAJITTERMIB_CipslaIcmpJitterTmplTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row entry representing an IP SLA ICMP Jitter template. The type is slice
-    // of CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry.
-    Cipslaicmpjittertmplentry []CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry
+    // of CISCOIPSLAJITTERMIB_CipslaIcmpJitterTmplTable_CipslaIcmpJitterTmplEntry.
+    CipslaIcmpJitterTmplEntry []*CISCOIPSLAJITTERMIB_CipslaIcmpJitterTmplTable_CipslaIcmpJitterTmplEntry
 }
 
-func (cipslaicmpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable) GetEntityData() *types.CommonEntityData {
-    cipslaicmpjittertmpltable.EntityData.YFilter = cipslaicmpjittertmpltable.YFilter
-    cipslaicmpjittertmpltable.EntityData.YangName = "cipslaIcmpJitterTmplTable"
-    cipslaicmpjittertmpltable.EntityData.BundleName = "cisco_ios_xe"
-    cipslaicmpjittertmpltable.EntityData.ParentYangName = "CISCO-IPSLA-JITTER-MIB"
-    cipslaicmpjittertmpltable.EntityData.SegmentPath = "cipslaIcmpJitterTmplTable"
-    cipslaicmpjittertmpltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipslaicmpjittertmpltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipslaicmpjittertmpltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipslaIcmpJitterTmplTable *CISCOIPSLAJITTERMIB_CipslaIcmpJitterTmplTable) GetEntityData() *types.CommonEntityData {
+    cipslaIcmpJitterTmplTable.EntityData.YFilter = cipslaIcmpJitterTmplTable.YFilter
+    cipslaIcmpJitterTmplTable.EntityData.YangName = "cipslaIcmpJitterTmplTable"
+    cipslaIcmpJitterTmplTable.EntityData.BundleName = "cisco_ios_xe"
+    cipslaIcmpJitterTmplTable.EntityData.ParentYangName = "CISCO-IPSLA-JITTER-MIB"
+    cipslaIcmpJitterTmplTable.EntityData.SegmentPath = "cipslaIcmpJitterTmplTable"
+    cipslaIcmpJitterTmplTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaIcmpJitterTmplTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaIcmpJitterTmplTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipslaicmpjittertmpltable.EntityData.Children = make(map[string]types.YChild)
-    cipslaicmpjittertmpltable.EntityData.Children["cipslaIcmpJitterTmplEntry"] = types.YChild{"Cipslaicmpjittertmplentry", nil}
-    for i := range cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry {
-        cipslaicmpjittertmpltable.EntityData.Children[types.GetSegmentPath(&cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry[i])] = types.YChild{"Cipslaicmpjittertmplentry", &cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry[i]}
+    cipslaIcmpJitterTmplTable.EntityData.Children = types.NewOrderedMap()
+    cipslaIcmpJitterTmplTable.EntityData.Children.Append("cipslaIcmpJitterTmplEntry", types.YChild{"CipslaIcmpJitterTmplEntry", nil})
+    for i := range cipslaIcmpJitterTmplTable.CipslaIcmpJitterTmplEntry {
+        cipslaIcmpJitterTmplTable.EntityData.Children.Append(types.GetSegmentPath(cipslaIcmpJitterTmplTable.CipslaIcmpJitterTmplEntry[i]), types.YChild{"CipslaIcmpJitterTmplEntry", cipslaIcmpJitterTmplTable.CipslaIcmpJitterTmplEntry[i]})
     }
-    cipslaicmpjittertmpltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cipslaicmpjittertmpltable.EntityData)
+    cipslaIcmpJitterTmplTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cipslaIcmpJitterTmplTable.EntityData.YListKeys = []string {}
+
+    return &(cipslaIcmpJitterTmplTable.EntityData)
 }
 
-// CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry
+// CISCOIPSLAJITTERMIB_CipslaIcmpJitterTmplTable_CipslaIcmpJitterTmplEntry
 // A row entry representing an IP SLA ICMP Jitter template.
-type CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry struct {
+type CISCOIPSLAJITTERMIB_CipslaIcmpJitterTmplTable_CipslaIcmpJitterTmplEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A string which specifies the ICMP jitter template
     // name. The type is string with length: 1..64.
-    Cipslaicmpjittertmplname interface{}
+    CipslaIcmpJitterTmplName interface{}
 
     // A string which provides description of ICMP Jitter template. The type is
     // string with length: 0..128.
-    Cipslaicmpjittertmpldescription interface{}
+    CipslaIcmpJitterTmplDescription interface{}
 
     // Specifies the duration to wait for a IP SLA operation completion.  For
     // connection oriented protocols, this may cause the connection to be closed
@@ -388,46 +400,46 @@ type CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry str
     // reestablishment will be performed.  To prevent unwanted closure of
     // connections, be sure to set this value to a realistic connection timeout.
     // The type is interface{} with range: 0..604800000. Units are milliseconds.
-    Cipslaicmpjittertmpltimeout interface{}
+    CipslaIcmpJitterTmplTimeOut interface{}
 
     // When set to true, the resulting data in each IP SLA operation is compared
     // with the expected data.  This includes checking header information (if
     // possible) and exact packet size. The type is bool.
-    Cipslaicmpjittertmplverifydata interface{}
+    CipslaIcmpJitterTmplVerifyData interface{}
 
     // This value represents the number of packets that need to be transmitted.
     // The type is interface{} with range: 1..60000. Units are packets.
-    Cipslaicmpjittertmplnumpkts interface{}
+    CipslaIcmpJitterTmplNumPkts interface{}
 
     // This value represents the inter-packet delay between packets and is in
     // milliseconds. The type is interface{} with range: 4..60000. Units are
     // milliseconds.
-    Cipslaicmpjittertmplinterval interface{}
+    CipslaIcmpJitterTmplInterval interface{}
 
     // An enumerated value which specifies the IP address type of the source. It
     // must be used along with the cipslaIcmpJitterTmplSrcAddr object. The type is
     // InetAddressType.
-    Cipslaicmpjittertmplsrcaddrtype interface{}
+    CipslaIcmpJitterTmplSrcAddrType interface{}
 
     // A string which specifies the IP address of the source. The type is string
     // with length: 0..255.
-    Cipslaicmpjittertmplsrcaddr interface{}
+    CipslaIcmpJitterTmplSrcAddr interface{}
 
     // This object represents the type of service octet in an IP header. The type
     // is interface{} with range: 0..255.
-    Cipslaicmpjittertmpltos interface{}
+    CipslaIcmpJitterTmplTOS interface{}
 
     // This field is used to specify the VRF name in which the IP SLA operation
     // will be used. For regular IP SLA operation this field should not be
     // configured. The agent will use this field to identify the VPN routing Table
     // for this operation. The type is string with length: 0..32.
-    Cipslaicmpjittertmplvrfname interface{}
+    CipslaIcmpJitterTmplVrfName interface{}
 
     // This object defines an administrative threshold limit. If the IP SLA
     // operation time exceeds this limit, then  one threshold crossing occurrence
     // will be counted. The type is interface{} with range: 0..2147483647. Units
     // are milliseconds.
-    Cipslaicmpjittertmplthreshold interface{}
+    CipslaIcmpJitterTmplThreshold interface{}
 
     // The maximum number of hourss for which statistics are maintained.
     // Specifically this is the number of hourly groups to keep before rolling
@@ -436,14 +448,14 @@ type CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry str
     // have the opportunity to retrieve the statistics.  The value of zero will
     // shut off data collection. The type is interface{} with range: 0..25. Units
     // are hours.
-    Cipslaicmpjittertmplstatshours interface{}
+    CipslaIcmpJitterTmplStatsHours interface{}
 
     // The maximum number of statistical distribution buckets to accumulate. 
     // Since this index does not rollover, only the first
     // cipslaIcmpJitterTmplDistBuckets will be kept.  The last bucket will contain
     // all entries from its  distribution interval start point to infinity. The
     // type is interface{} with range: 1..20.
-    Cipslaicmpjittertmpldistbuckets interface{}
+    CipslaIcmpJitterTmplDistBuckets interface{}
 
     // The statistical distribution buckets interval.  Distribution Bucket
     // Example:  cipslaIcmpJitterTmplDistBuckets = 5 buckets
@@ -455,45 +467,48 @@ type CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry str
     // cipslaIcmpJitterTmplDistInterval does not apply when
     // cipslaIcmpJitterTmplDistBuckets is one. The type is interface{} with range:
     // 1..100. Units are milliseconds.
-    Cipslaicmpjittertmpldistinterval interface{}
+    CipslaIcmpJitterTmplDistInterval interface{}
 
     // The storage type of this conceptual row. The type is StorageType.
-    Cipslaicmpjittertmplstoragetype interface{}
+    CipslaIcmpJitterTmplStorageType interface{}
 
     // The status of the conceptual ICMP jitter template control row. When the
     // status is active, all the read-create objects in  that row can be modified.
     // The type is RowStatus.
-    Cipslaicmpjittertmplrowstatus interface{}
+    CipslaIcmpJitterTmplRowStatus interface{}
 }
 
-func (cipslaicmpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry) GetEntityData() *types.CommonEntityData {
-    cipslaicmpjittertmplentry.EntityData.YFilter = cipslaicmpjittertmplentry.YFilter
-    cipslaicmpjittertmplentry.EntityData.YangName = "cipslaIcmpJitterTmplEntry"
-    cipslaicmpjittertmplentry.EntityData.BundleName = "cisco_ios_xe"
-    cipslaicmpjittertmplentry.EntityData.ParentYangName = "cipslaIcmpJitterTmplTable"
-    cipslaicmpjittertmplentry.EntityData.SegmentPath = "cipslaIcmpJitterTmplEntry" + "[cipslaIcmpJitterTmplName='" + fmt.Sprintf("%v", cipslaicmpjittertmplentry.Cipslaicmpjittertmplname) + "']"
-    cipslaicmpjittertmplentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipslaicmpjittertmplentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipslaicmpjittertmplentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipslaIcmpJitterTmplEntry *CISCOIPSLAJITTERMIB_CipslaIcmpJitterTmplTable_CipslaIcmpJitterTmplEntry) GetEntityData() *types.CommonEntityData {
+    cipslaIcmpJitterTmplEntry.EntityData.YFilter = cipslaIcmpJitterTmplEntry.YFilter
+    cipslaIcmpJitterTmplEntry.EntityData.YangName = "cipslaIcmpJitterTmplEntry"
+    cipslaIcmpJitterTmplEntry.EntityData.BundleName = "cisco_ios_xe"
+    cipslaIcmpJitterTmplEntry.EntityData.ParentYangName = "cipslaIcmpJitterTmplTable"
+    cipslaIcmpJitterTmplEntry.EntityData.SegmentPath = "cipslaIcmpJitterTmplEntry" + types.AddKeyToken(cipslaIcmpJitterTmplEntry.CipslaIcmpJitterTmplName, "cipslaIcmpJitterTmplName")
+    cipslaIcmpJitterTmplEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaIcmpJitterTmplEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaIcmpJitterTmplEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipslaicmpjittertmplentry.EntityData.Children = make(map[string]types.YChild)
-    cipslaicmpjittertmplentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplName"] = types.YLeaf{"Cipslaicmpjittertmplname", cipslaicmpjittertmplentry.Cipslaicmpjittertmplname}
-    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplDescription"] = types.YLeaf{"Cipslaicmpjittertmpldescription", cipslaicmpjittertmplentry.Cipslaicmpjittertmpldescription}
-    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplTimeOut"] = types.YLeaf{"Cipslaicmpjittertmpltimeout", cipslaicmpjittertmplentry.Cipslaicmpjittertmpltimeout}
-    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplVerifyData"] = types.YLeaf{"Cipslaicmpjittertmplverifydata", cipslaicmpjittertmplentry.Cipslaicmpjittertmplverifydata}
-    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplNumPkts"] = types.YLeaf{"Cipslaicmpjittertmplnumpkts", cipslaicmpjittertmplentry.Cipslaicmpjittertmplnumpkts}
-    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplInterval"] = types.YLeaf{"Cipslaicmpjittertmplinterval", cipslaicmpjittertmplentry.Cipslaicmpjittertmplinterval}
-    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplSrcAddrType"] = types.YLeaf{"Cipslaicmpjittertmplsrcaddrtype", cipslaicmpjittertmplentry.Cipslaicmpjittertmplsrcaddrtype}
-    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplSrcAddr"] = types.YLeaf{"Cipslaicmpjittertmplsrcaddr", cipslaicmpjittertmplentry.Cipslaicmpjittertmplsrcaddr}
-    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplTOS"] = types.YLeaf{"Cipslaicmpjittertmpltos", cipslaicmpjittertmplentry.Cipslaicmpjittertmpltos}
-    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplVrfName"] = types.YLeaf{"Cipslaicmpjittertmplvrfname", cipslaicmpjittertmplentry.Cipslaicmpjittertmplvrfname}
-    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplThreshold"] = types.YLeaf{"Cipslaicmpjittertmplthreshold", cipslaicmpjittertmplentry.Cipslaicmpjittertmplthreshold}
-    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplStatsHours"] = types.YLeaf{"Cipslaicmpjittertmplstatshours", cipslaicmpjittertmplentry.Cipslaicmpjittertmplstatshours}
-    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplDistBuckets"] = types.YLeaf{"Cipslaicmpjittertmpldistbuckets", cipslaicmpjittertmplentry.Cipslaicmpjittertmpldistbuckets}
-    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplDistInterval"] = types.YLeaf{"Cipslaicmpjittertmpldistinterval", cipslaicmpjittertmplentry.Cipslaicmpjittertmpldistinterval}
-    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplStorageType"] = types.YLeaf{"Cipslaicmpjittertmplstoragetype", cipslaicmpjittertmplentry.Cipslaicmpjittertmplstoragetype}
-    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplRowStatus"] = types.YLeaf{"Cipslaicmpjittertmplrowstatus", cipslaicmpjittertmplentry.Cipslaicmpjittertmplrowstatus}
-    return &(cipslaicmpjittertmplentry.EntityData)
+    cipslaIcmpJitterTmplEntry.EntityData.Children = types.NewOrderedMap()
+    cipslaIcmpJitterTmplEntry.EntityData.Leafs = types.NewOrderedMap()
+    cipslaIcmpJitterTmplEntry.EntityData.Leafs.Append("cipslaIcmpJitterTmplName", types.YLeaf{"CipslaIcmpJitterTmplName", cipslaIcmpJitterTmplEntry.CipslaIcmpJitterTmplName})
+    cipslaIcmpJitterTmplEntry.EntityData.Leafs.Append("cipslaIcmpJitterTmplDescription", types.YLeaf{"CipslaIcmpJitterTmplDescription", cipslaIcmpJitterTmplEntry.CipslaIcmpJitterTmplDescription})
+    cipslaIcmpJitterTmplEntry.EntityData.Leafs.Append("cipslaIcmpJitterTmplTimeOut", types.YLeaf{"CipslaIcmpJitterTmplTimeOut", cipslaIcmpJitterTmplEntry.CipslaIcmpJitterTmplTimeOut})
+    cipslaIcmpJitterTmplEntry.EntityData.Leafs.Append("cipslaIcmpJitterTmplVerifyData", types.YLeaf{"CipslaIcmpJitterTmplVerifyData", cipslaIcmpJitterTmplEntry.CipslaIcmpJitterTmplVerifyData})
+    cipslaIcmpJitterTmplEntry.EntityData.Leafs.Append("cipslaIcmpJitterTmplNumPkts", types.YLeaf{"CipslaIcmpJitterTmplNumPkts", cipslaIcmpJitterTmplEntry.CipslaIcmpJitterTmplNumPkts})
+    cipslaIcmpJitterTmplEntry.EntityData.Leafs.Append("cipslaIcmpJitterTmplInterval", types.YLeaf{"CipslaIcmpJitterTmplInterval", cipslaIcmpJitterTmplEntry.CipslaIcmpJitterTmplInterval})
+    cipslaIcmpJitterTmplEntry.EntityData.Leafs.Append("cipslaIcmpJitterTmplSrcAddrType", types.YLeaf{"CipslaIcmpJitterTmplSrcAddrType", cipslaIcmpJitterTmplEntry.CipslaIcmpJitterTmplSrcAddrType})
+    cipslaIcmpJitterTmplEntry.EntityData.Leafs.Append("cipslaIcmpJitterTmplSrcAddr", types.YLeaf{"CipslaIcmpJitterTmplSrcAddr", cipslaIcmpJitterTmplEntry.CipslaIcmpJitterTmplSrcAddr})
+    cipslaIcmpJitterTmplEntry.EntityData.Leafs.Append("cipslaIcmpJitterTmplTOS", types.YLeaf{"CipslaIcmpJitterTmplTOS", cipslaIcmpJitterTmplEntry.CipslaIcmpJitterTmplTOS})
+    cipslaIcmpJitterTmplEntry.EntityData.Leafs.Append("cipslaIcmpJitterTmplVrfName", types.YLeaf{"CipslaIcmpJitterTmplVrfName", cipslaIcmpJitterTmplEntry.CipslaIcmpJitterTmplVrfName})
+    cipslaIcmpJitterTmplEntry.EntityData.Leafs.Append("cipslaIcmpJitterTmplThreshold", types.YLeaf{"CipslaIcmpJitterTmplThreshold", cipslaIcmpJitterTmplEntry.CipslaIcmpJitterTmplThreshold})
+    cipslaIcmpJitterTmplEntry.EntityData.Leafs.Append("cipslaIcmpJitterTmplStatsHours", types.YLeaf{"CipslaIcmpJitterTmplStatsHours", cipslaIcmpJitterTmplEntry.CipslaIcmpJitterTmplStatsHours})
+    cipslaIcmpJitterTmplEntry.EntityData.Leafs.Append("cipslaIcmpJitterTmplDistBuckets", types.YLeaf{"CipslaIcmpJitterTmplDistBuckets", cipslaIcmpJitterTmplEntry.CipslaIcmpJitterTmplDistBuckets})
+    cipslaIcmpJitterTmplEntry.EntityData.Leafs.Append("cipslaIcmpJitterTmplDistInterval", types.YLeaf{"CipslaIcmpJitterTmplDistInterval", cipslaIcmpJitterTmplEntry.CipslaIcmpJitterTmplDistInterval})
+    cipslaIcmpJitterTmplEntry.EntityData.Leafs.Append("cipslaIcmpJitterTmplStorageType", types.YLeaf{"CipslaIcmpJitterTmplStorageType", cipslaIcmpJitterTmplEntry.CipslaIcmpJitterTmplStorageType})
+    cipslaIcmpJitterTmplEntry.EntityData.Leafs.Append("cipslaIcmpJitterTmplRowStatus", types.YLeaf{"CipslaIcmpJitterTmplRowStatus", cipslaIcmpJitterTmplEntry.CipslaIcmpJitterTmplRowStatus})
+
+    cipslaIcmpJitterTmplEntry.EntityData.YListKeys = []string {"CipslaIcmpJitterTmplName"}
+
+    return &(cipslaIcmpJitterTmplEntry.EntityData)
 }
 

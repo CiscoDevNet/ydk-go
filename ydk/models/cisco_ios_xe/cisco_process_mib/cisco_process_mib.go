@@ -30,39 +30,39 @@ type CISCOPROCESSMIB struct {
     YFilter yfilter.YFilter
 
     
-    Cpmcpuhistory CISCOPROCESSMIB_Cpmcpuhistory
+    CpmCPUHistory CISCOPROCESSMIB_CpmCPUHistory
 
     // A table of overall CPU statistics.
-    Cpmcputotaltable CISCOPROCESSMIB_Cpmcputotaltable
+    CpmCPUTotalTable CISCOPROCESSMIB_CpmCPUTotalTable
 
     // A table of per-Core statistics.
-    Cpmcoretable CISCOPROCESSMIB_Cpmcoretable
+    CpmCoreTable CISCOPROCESSMIB_CpmCoreTable
 
     // A table of generic information on all active processes on this device.
-    Cpmprocesstable CISCOPROCESSMIB_Cpmprocesstable
+    CpmProcessTable CISCOPROCESSMIB_CpmProcessTable
 
     // This table contains information that may or may not be available on all
     // cisco devices. It contains additional objects for the more general
     // cpmProcessTable. This object deprecates  cpmProcessExtTable.
-    Cpmprocessextrevtable CISCOPROCESSMIB_Cpmprocessextrevtable
+    CpmProcessExtRevTable CISCOPROCESSMIB_CpmProcessExtRevTable
 
     // This table contains the information about the thresholding values for CPU ,
     // configured by the user.
-    Cpmcputhresholdtable CISCOPROCESSMIB_Cpmcputhresholdtable
+    CpmCPUThresholdTable CISCOPROCESSMIB_CpmCPUThresholdTable
 
     // A list of CPU utilization history entries.
-    Cpmcpuhistorytable CISCOPROCESSMIB_Cpmcpuhistorytable
+    CpmCPUHistoryTable CISCOPROCESSMIB_CpmCPUHistoryTable
 
     // A list of process history entries. This table contains CPU utilization of
     // processes which crossed the  cpmCPUHistoryThreshold.
-    Cpmcpuprocesshistorytable CISCOPROCESSMIB_Cpmcpuprocesshistorytable
+    CpmCPUProcessHistoryTable CISCOPROCESSMIB_CpmCPUProcessHistoryTable
 
     // This table contains generic information about POSIX threads in the device.
-    Cpmthreadtable CISCOPROCESSMIB_Cpmthreadtable
+    CpmThreadTable CISCOPROCESSMIB_CpmThreadTable
 
     // This table contains information about virtual processes in a virtual
     // machine.
-    Cpmvirtualprocesstable CISCOPROCESSMIB_Cpmvirtualprocesstable
+    CpmVirtualProcessTable CISCOPROCESSMIB_CpmVirtualProcessTable
 }
 
 func (cISCOPROCESSMIB *CISCOPROCESSMIB) GetEntityData() *types.CommonEntityData {
@@ -75,23 +75,26 @@ func (cISCOPROCESSMIB *CISCOPROCESSMIB) GetEntityData() *types.CommonEntityData 
     cISCOPROCESSMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOPROCESSMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOPROCESSMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOPROCESSMIB.EntityData.Children["cpmCPUHistory"] = types.YChild{"Cpmcpuhistory", &cISCOPROCESSMIB.Cpmcpuhistory}
-    cISCOPROCESSMIB.EntityData.Children["cpmCPUTotalTable"] = types.YChild{"Cpmcputotaltable", &cISCOPROCESSMIB.Cpmcputotaltable}
-    cISCOPROCESSMIB.EntityData.Children["cpmCoreTable"] = types.YChild{"Cpmcoretable", &cISCOPROCESSMIB.Cpmcoretable}
-    cISCOPROCESSMIB.EntityData.Children["cpmProcessTable"] = types.YChild{"Cpmprocesstable", &cISCOPROCESSMIB.Cpmprocesstable}
-    cISCOPROCESSMIB.EntityData.Children["cpmProcessExtRevTable"] = types.YChild{"Cpmprocessextrevtable", &cISCOPROCESSMIB.Cpmprocessextrevtable}
-    cISCOPROCESSMIB.EntityData.Children["cpmCPUThresholdTable"] = types.YChild{"Cpmcputhresholdtable", &cISCOPROCESSMIB.Cpmcputhresholdtable}
-    cISCOPROCESSMIB.EntityData.Children["cpmCPUHistoryTable"] = types.YChild{"Cpmcpuhistorytable", &cISCOPROCESSMIB.Cpmcpuhistorytable}
-    cISCOPROCESSMIB.EntityData.Children["cpmCPUProcessHistoryTable"] = types.YChild{"Cpmcpuprocesshistorytable", &cISCOPROCESSMIB.Cpmcpuprocesshistorytable}
-    cISCOPROCESSMIB.EntityData.Children["cpmThreadTable"] = types.YChild{"Cpmthreadtable", &cISCOPROCESSMIB.Cpmthreadtable}
-    cISCOPROCESSMIB.EntityData.Children["cpmVirtualProcessTable"] = types.YChild{"Cpmvirtualprocesstable", &cISCOPROCESSMIB.Cpmvirtualprocesstable}
-    cISCOPROCESSMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOPROCESSMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOPROCESSMIB.EntityData.Children.Append("cpmCPUHistory", types.YChild{"CpmCPUHistory", &cISCOPROCESSMIB.CpmCPUHistory})
+    cISCOPROCESSMIB.EntityData.Children.Append("cpmCPUTotalTable", types.YChild{"CpmCPUTotalTable", &cISCOPROCESSMIB.CpmCPUTotalTable})
+    cISCOPROCESSMIB.EntityData.Children.Append("cpmCoreTable", types.YChild{"CpmCoreTable", &cISCOPROCESSMIB.CpmCoreTable})
+    cISCOPROCESSMIB.EntityData.Children.Append("cpmProcessTable", types.YChild{"CpmProcessTable", &cISCOPROCESSMIB.CpmProcessTable})
+    cISCOPROCESSMIB.EntityData.Children.Append("cpmProcessExtRevTable", types.YChild{"CpmProcessExtRevTable", &cISCOPROCESSMIB.CpmProcessExtRevTable})
+    cISCOPROCESSMIB.EntityData.Children.Append("cpmCPUThresholdTable", types.YChild{"CpmCPUThresholdTable", &cISCOPROCESSMIB.CpmCPUThresholdTable})
+    cISCOPROCESSMIB.EntityData.Children.Append("cpmCPUHistoryTable", types.YChild{"CpmCPUHistoryTable", &cISCOPROCESSMIB.CpmCPUHistoryTable})
+    cISCOPROCESSMIB.EntityData.Children.Append("cpmCPUProcessHistoryTable", types.YChild{"CpmCPUProcessHistoryTable", &cISCOPROCESSMIB.CpmCPUProcessHistoryTable})
+    cISCOPROCESSMIB.EntityData.Children.Append("cpmThreadTable", types.YChild{"CpmThreadTable", &cISCOPROCESSMIB.CpmThreadTable})
+    cISCOPROCESSMIB.EntityData.Children.Append("cpmVirtualProcessTable", types.YChild{"CpmVirtualProcessTable", &cISCOPROCESSMIB.CpmVirtualProcessTable})
+    cISCOPROCESSMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOPROCESSMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOPROCESSMIB.EntityData)
 }
 
-// CISCOPROCESSMIB_Cpmcpuhistory
-type CISCOPROCESSMIB_Cpmcpuhistory struct {
+// CISCOPROCESSMIB_CpmCPUHistory
+type CISCOPROCESSMIB_CpmCPUHistory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -100,7 +103,7 @@ type CISCOPROCESSMIB_Cpmcpuhistory struct {
     // be a  member of history table. When this object is changed the new value
     // will have effect in the next interval. The type is interface{} with range:
     // 1..100.
-    Cpmcpuhistorythreshold interface{}
+    CpmCPUHistoryThreshold interface{}
 
     // A value configured by the user which specifies the number of reports in the
     // history table.  A report contains set of processes which crossed the
@@ -108,62 +111,68 @@ type CISCOPROCESSMIB_Cpmcpuhistory struct {
     // at which this report is created, total and interrupt CPU utilizations. 
     // When this object is changed the new value will have effect in the next
     // interval. The type is interface{} with range: 1..4294967295.
-    Cpmcpuhistorysize interface{}
+    CpmCPUHistorySize interface{}
 }
 
-func (cpmcpuhistory *CISCOPROCESSMIB_Cpmcpuhistory) GetEntityData() *types.CommonEntityData {
-    cpmcpuhistory.EntityData.YFilter = cpmcpuhistory.YFilter
-    cpmcpuhistory.EntityData.YangName = "cpmCPUHistory"
-    cpmcpuhistory.EntityData.BundleName = "cisco_ios_xe"
-    cpmcpuhistory.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
-    cpmcpuhistory.EntityData.SegmentPath = "cpmCPUHistory"
-    cpmcpuhistory.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpmcpuhistory.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpmcpuhistory.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpmCPUHistory *CISCOPROCESSMIB_CpmCPUHistory) GetEntityData() *types.CommonEntityData {
+    cpmCPUHistory.EntityData.YFilter = cpmCPUHistory.YFilter
+    cpmCPUHistory.EntityData.YangName = "cpmCPUHistory"
+    cpmCPUHistory.EntityData.BundleName = "cisco_ios_xe"
+    cpmCPUHistory.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
+    cpmCPUHistory.EntityData.SegmentPath = "cpmCPUHistory"
+    cpmCPUHistory.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpmCPUHistory.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpmCPUHistory.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpmcpuhistory.EntityData.Children = make(map[string]types.YChild)
-    cpmcpuhistory.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpmcpuhistory.EntityData.Leafs["cpmCPUHistoryThreshold"] = types.YLeaf{"Cpmcpuhistorythreshold", cpmcpuhistory.Cpmcpuhistorythreshold}
-    cpmcpuhistory.EntityData.Leafs["cpmCPUHistorySize"] = types.YLeaf{"Cpmcpuhistorysize", cpmcpuhistory.Cpmcpuhistorysize}
-    return &(cpmcpuhistory.EntityData)
+    cpmCPUHistory.EntityData.Children = types.NewOrderedMap()
+    cpmCPUHistory.EntityData.Leafs = types.NewOrderedMap()
+    cpmCPUHistory.EntityData.Leafs.Append("cpmCPUHistoryThreshold", types.YLeaf{"CpmCPUHistoryThreshold", cpmCPUHistory.CpmCPUHistoryThreshold})
+    cpmCPUHistory.EntityData.Leafs.Append("cpmCPUHistorySize", types.YLeaf{"CpmCPUHistorySize", cpmCPUHistory.CpmCPUHistorySize})
+
+    cpmCPUHistory.EntityData.YListKeys = []string {}
+
+    return &(cpmCPUHistory.EntityData)
 }
 
-// CISCOPROCESSMIB_Cpmcputotaltable
+// CISCOPROCESSMIB_CpmCPUTotalTable
 // A table of overall CPU statistics.
-type CISCOPROCESSMIB_Cpmcputotaltable struct {
+type CISCOPROCESSMIB_CpmCPUTotalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Overall information about the CPU load. Entries in this table come and go
     // as CPUs are added and removed from the system. The type is slice of
-    // CISCOPROCESSMIB_Cpmcputotaltable_Cpmcputotalentry.
-    Cpmcputotalentry []CISCOPROCESSMIB_Cpmcputotaltable_Cpmcputotalentry
+    // CISCOPROCESSMIB_CpmCPUTotalTable_CpmCPUTotalEntry.
+    CpmCPUTotalEntry []*CISCOPROCESSMIB_CpmCPUTotalTable_CpmCPUTotalEntry
 }
 
-func (cpmcputotaltable *CISCOPROCESSMIB_Cpmcputotaltable) GetEntityData() *types.CommonEntityData {
-    cpmcputotaltable.EntityData.YFilter = cpmcputotaltable.YFilter
-    cpmcputotaltable.EntityData.YangName = "cpmCPUTotalTable"
-    cpmcputotaltable.EntityData.BundleName = "cisco_ios_xe"
-    cpmcputotaltable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
-    cpmcputotaltable.EntityData.SegmentPath = "cpmCPUTotalTable"
-    cpmcputotaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpmcputotaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpmcputotaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpmCPUTotalTable *CISCOPROCESSMIB_CpmCPUTotalTable) GetEntityData() *types.CommonEntityData {
+    cpmCPUTotalTable.EntityData.YFilter = cpmCPUTotalTable.YFilter
+    cpmCPUTotalTable.EntityData.YangName = "cpmCPUTotalTable"
+    cpmCPUTotalTable.EntityData.BundleName = "cisco_ios_xe"
+    cpmCPUTotalTable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
+    cpmCPUTotalTable.EntityData.SegmentPath = "cpmCPUTotalTable"
+    cpmCPUTotalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpmCPUTotalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpmCPUTotalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpmcputotaltable.EntityData.Children = make(map[string]types.YChild)
-    cpmcputotaltable.EntityData.Children["cpmCPUTotalEntry"] = types.YChild{"Cpmcputotalentry", nil}
-    for i := range cpmcputotaltable.Cpmcputotalentry {
-        cpmcputotaltable.EntityData.Children[types.GetSegmentPath(&cpmcputotaltable.Cpmcputotalentry[i])] = types.YChild{"Cpmcputotalentry", &cpmcputotaltable.Cpmcputotalentry[i]}
+    cpmCPUTotalTable.EntityData.Children = types.NewOrderedMap()
+    cpmCPUTotalTable.EntityData.Children.Append("cpmCPUTotalEntry", types.YChild{"CpmCPUTotalEntry", nil})
+    for i := range cpmCPUTotalTable.CpmCPUTotalEntry {
+        cpmCPUTotalTable.EntityData.Children.Append(types.GetSegmentPath(cpmCPUTotalTable.CpmCPUTotalEntry[i]), types.YChild{"CpmCPUTotalEntry", cpmCPUTotalTable.CpmCPUTotalEntry[i]})
     }
-    cpmcputotaltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpmcputotaltable.EntityData)
+    cpmCPUTotalTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpmCPUTotalTable.EntityData.YListKeys = []string {}
+
+    return &(cpmCPUTotalTable.EntityData)
 }
 
-// CISCOPROCESSMIB_Cpmcputotaltable_Cpmcputotalentry
+// CISCOPROCESSMIB_CpmCPUTotalTable_CpmCPUTotalEntry
 // Overall information about the CPU load. Entries in this
 // table come and go as CPUs are added and removed from the
 // system.
-type CISCOPROCESSMIB_Cpmcputotaltable_Cpmcputotalentry struct {
+type CISCOPROCESSMIB_CpmCPUTotalTable_CpmCPUTotalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -171,7 +180,7 @@ type CISCOPROCESSMIB_Cpmcputotaltable_Cpmcputotalentry struct {
     // of CPUs) whose CPU load information is reported by a row in this table.
     // This index is assigned arbitrarily by the engine and is not saved over
     // reboots. The type is interface{} with range: 1..4294967295.
-    Cpmcputotalindex interface{}
+    CpmCPUTotalIndex interface{}
 
     // The entPhysicalIndex of the physical entity for which the CPU statistics in
     // this entry are maintained. The physical entity can be a CPU chip, a group
@@ -180,238 +189,244 @@ type CISCOPROCESSMIB_Cpmcputotaltable_Cpmcputotalentry struct {
     // to more than one physical entity (or to no physical entity), or if the
     // entPhysicalTable is not supported on the SNMP agent, the value of this
     // object must be zero. The type is interface{} with range: 0..2147483647.
-    Cpmcputotalphysicalindex interface{}
+    CpmCPUTotalPhysicalIndex interface{}
 
     // The overall CPU busy percentage in the last 5 second period. This object
     // obsoletes the busyPer object from  the OLD-CISCO-SYSTEM-MIB. This object is
     // deprecated by cpmCPUTotal5secRev which has the changed range of value
     // (0..100). The type is interface{} with range: 0..100.
-    Cpmcputotal5Sec interface{}
+    CpmCPUTotal5sec interface{}
 
     // The overall CPU busy percentage in the last 1 minute period. This object
     // obsoletes the avgBusy1 object from  the OLD-CISCO-SYSTEM-MIB. This object
     // is deprecated by cpmCPUTotal1minRev which has the changed range of value
     // (0..100). The type is interface{} with range: 0..100.
-    Cpmcputotal1Min interface{}
+    CpmCPUTotal1min interface{}
 
     // The overall CPU busy percentage in the last 5 minute period. This object
     // deprecates the avgBusy5 object from  the OLD-CISCO-SYSTEM-MIB. This object
     // is deprecated by cpmCPUTotal5minRev which has the changed range  of value
     // (0..100). The type is interface{} with range: 0..100.
-    Cpmcputotal5Min interface{}
+    CpmCPUTotal5min interface{}
 
     // The overall CPU busy percentage in the last 5 second period. This object
     // deprecates the object cpmCPUTotal5sec  and increases the value range to
     // (0..100). This object is deprecated by cpmCPUTotalMonIntervalValue. The
     // type is interface{} with range: 0..100. Units are percent.
-    Cpmcputotal5Secrev interface{}
+    CpmCPUTotal5secRev interface{}
 
     // The overall CPU busy percentage in the last 1 minute period. This object
     // deprecates the object cpmCPUTotal1min  and increases the value range to
     // (0..100). The type is interface{} with range: 0..100. Units are percent.
-    Cpmcputotal1Minrev interface{}
+    CpmCPUTotal1minRev interface{}
 
     // The overall CPU busy percentage in the last 5 minute period. This object
     // deprecates the object cpmCPUTotal5min  and increases the value range to
     // (0..100). The type is interface{} with range: 0..100. Units are percent.
-    Cpmcputotal5Minrev interface{}
+    CpmCPUTotal5minRev interface{}
 
     // CPU usage monitoring interval. The value of this object in seconds
     // indicates the how often the  CPU utilization is calculated and monitored.
     // The type is interface{} with range: 0..4294967295. Units are seconds.
-    Cpmcpumoninterval interface{}
+    CpmCPUMonInterval interface{}
 
     // The overall CPU busy percentage in the last cpmCPUMonInterval period.  This
     // object deprecates the object cpmCPUTotal5secRev. The type is interface{}
     // with range: 0..100. Units are percent.
-    Cpmcputotalmonintervalvalue interface{}
+    CpmCPUTotalMonIntervalValue interface{}
 
     // The overall CPU busy percentage in the interrupt context in the last
     // cpmCPUMonInterval period. The type is interface{} with range: 0..100. Units
     // are percent.
-    Cpmcpuinterruptmonintervalvalue interface{}
+    CpmCPUInterruptMonIntervalValue interface{}
 
     // The overall CPU wide system memory which is currently under use. The type
     // is interface{} with range: 0..4294967295. Units are kilo-bytes.
-    Cpmcpumemoryused interface{}
+    CpmCPUMemoryUsed interface{}
 
     // The overall CPU wide system memory which is currently free. The type is
     // interface{} with range: 0..4294967295. Units are kilo-bytes.
-    Cpmcpumemoryfree interface{}
+    CpmCPUMemoryFree interface{}
 
     // The overall CPU wide system memory which is reserved for kernel usage. The
     // type is interface{} with range: 0..4294967295. Units are kilo-bytes.
-    Cpmcpumemorykernelreserved interface{}
+    CpmCPUMemoryKernelReserved interface{}
 
     // The lowest free memory that has been recorded since device has booted. The
     // type is interface{} with range: 0..4294967295. Units are bytes.
-    Cpmcpumemorylowest interface{}
+    CpmCPUMemoryLowest interface{}
 
     // This object represents the upper 32-bit of cpmCPUMemoryUsed. This object
     // needs to be supported only when the value of cpmCPUMemoryUsed exceeds
     // 32-bit, otherwise this object value would be set to 0. The type is
     // interface{} with range: 0..4294967295. Units are kilo-bytes.
-    Cpmcpumemoryusedovrflw interface{}
+    CpmCPUMemoryUsedOvrflw interface{}
 
     // The overall CPU wide system memory which is currently under use. This
     // object is a 64-bit version of cpmCPUMemoryUsed. The type is interface{}
     // with range: 0..18446744073709551615. Units are kilo-bytes.
-    Cpmcpumemoryhcused interface{}
+    CpmCPUMemoryHCUsed interface{}
 
     // This object represents the upper 32-bit of cpmCPUMemoryFree. This object
     // needs to be supported only when the value of cpmCPUMemoryFree exceeds
     // 32-bit, otherwise this object value would be set to 0. The type is
     // interface{} with range: 0..4294967295. Units are kilo-bytes.
-    Cpmcpumemoryfreeovrflw interface{}
+    CpmCPUMemoryFreeOvrflw interface{}
 
     // The overall CPU wide system memory which is currently free. This object is
     // a 64-bit version of cpmCPUMemoryFree. The type is interface{} with range:
     // 0..18446744073709551615. Units are kilo-bytes.
-    Cpmcpumemoryhcfree interface{}
+    CpmCPUMemoryHCFree interface{}
 
     // This object represents the upper 32-bit of cpmCPUMemoryKernelReserved. This
     // object needs  to be supported only when the value of 
     // cpmCPUMemoryKernelReserved exceeds 32-bit, otherwise this object value
     // would be set to 0. The type is interface{} with range: 0..4294967295. Units
     // are kilo-bytes.
-    Cpmcpumemorykernelreservedovrflw interface{}
+    CpmCPUMemoryKernelReservedOvrflw interface{}
 
     // The overall CPU wide system memory which is reserved for kernel usage. This
     // object is a 64-bit version of cpmCPUMemoryKernelReserved. The type is
     // interface{} with range: 0..18446744073709551615. Units are kilo-bytes.
-    Cpmcpumemoryhckernelreserved interface{}
+    CpmCPUMemoryHCKernelReserved interface{}
 
     // This object represents the upper 32-bit of cpmCPUMemoryLowest. This object
     // needs to be supported only when the value of cpmCPUMemoryLowest exceeds
     // 32-bit, otherwise this object value would be set to 0. The type is
     // interface{} with range: 0..4294967295. Units are kilo-bytes.
-    Cpmcpumemorylowestovrflw interface{}
+    CpmCPUMemoryLowestOvrflw interface{}
 
     // The lowest free memory that has been recorded since device has booted. This
     // object is a 64-bit version of cpmCPUMemoryLowest. The type is interface{}
     // with range: 0..18446744073709551615. Units are kilo-bytes.
-    Cpmcpumemoryhclowest interface{}
+    CpmCPUMemoryHCLowest interface{}
 
     // The overall CPU load Average in the last 1 minute period. The type is
     // interface{} with range: 0..4294967295. Units are hundredths of processes.
-    Cpmcpuloadavg1Min interface{}
+    CpmCPULoadAvg1min interface{}
 
     // The overall CPU load Average in the last 5 minutes period. The type is
     // interface{} with range: 0..4294967295. Units are hundredths of processes.
-    Cpmcpuloadavg5Min interface{}
+    CpmCPULoadAvg5min interface{}
 
     // The overall CPU load Average in the last 15 minutes period. The type is
     // interface{} with range: 0..4294967295. Units are hundredths of processes.
-    Cpmcpuloadavg15Min interface{}
+    CpmCPULoadAvg15min interface{}
 
     // The overall CPU wide system memory which is currently Committed. The type
     // is interface{} with range: 0..4294967295.
-    Cpmcpumemorycommitted interface{}
+    CpmCPUMemoryCommitted interface{}
 
     // This object represents the upper 32-bit of cpmCPUMemoryCommitted. This
     // object needs to be supported only when the value of cpmCPUMemoryCommitted
     // exceeds 32-bit, otherwise this object value would be set to 0. The type is
     // interface{} with range: 0..4294967295.
-    Cpmcpumemorycommittedovrflw interface{}
+    CpmCPUMemoryCommittedOvrflw interface{}
 
     // The overall CPU wide system memory which is currently committed. This
     // object is a 64-bit version of cpmCPUMemoryCommitted. The type is
     // interface{} with range: 0..18446744073709551615.
-    Cpmcpumemoryhccommitted interface{}
+    CpmCPUMemoryHCCommitted interface{}
 }
 
-func (cpmcputotalentry *CISCOPROCESSMIB_Cpmcputotaltable_Cpmcputotalentry) GetEntityData() *types.CommonEntityData {
-    cpmcputotalentry.EntityData.YFilter = cpmcputotalentry.YFilter
-    cpmcputotalentry.EntityData.YangName = "cpmCPUTotalEntry"
-    cpmcputotalentry.EntityData.BundleName = "cisco_ios_xe"
-    cpmcputotalentry.EntityData.ParentYangName = "cpmCPUTotalTable"
-    cpmcputotalentry.EntityData.SegmentPath = "cpmCPUTotalEntry" + "[cpmCPUTotalIndex='" + fmt.Sprintf("%v", cpmcputotalentry.Cpmcputotalindex) + "']"
-    cpmcputotalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpmcputotalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpmcputotalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpmCPUTotalEntry *CISCOPROCESSMIB_CpmCPUTotalTable_CpmCPUTotalEntry) GetEntityData() *types.CommonEntityData {
+    cpmCPUTotalEntry.EntityData.YFilter = cpmCPUTotalEntry.YFilter
+    cpmCPUTotalEntry.EntityData.YangName = "cpmCPUTotalEntry"
+    cpmCPUTotalEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpmCPUTotalEntry.EntityData.ParentYangName = "cpmCPUTotalTable"
+    cpmCPUTotalEntry.EntityData.SegmentPath = "cpmCPUTotalEntry" + types.AddKeyToken(cpmCPUTotalEntry.CpmCPUTotalIndex, "cpmCPUTotalIndex")
+    cpmCPUTotalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpmCPUTotalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpmCPUTotalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpmcputotalentry.EntityData.Children = make(map[string]types.YChild)
-    cpmcputotalentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpmcputotalentry.EntityData.Leafs["cpmCPUTotalIndex"] = types.YLeaf{"Cpmcputotalindex", cpmcputotalentry.Cpmcputotalindex}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUTotalPhysicalIndex"] = types.YLeaf{"Cpmcputotalphysicalindex", cpmcputotalentry.Cpmcputotalphysicalindex}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUTotal5sec"] = types.YLeaf{"Cpmcputotal5Sec", cpmcputotalentry.Cpmcputotal5Sec}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUTotal1min"] = types.YLeaf{"Cpmcputotal1Min", cpmcputotalentry.Cpmcputotal1Min}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUTotal5min"] = types.YLeaf{"Cpmcputotal5Min", cpmcputotalentry.Cpmcputotal5Min}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUTotal5secRev"] = types.YLeaf{"Cpmcputotal5Secrev", cpmcputotalentry.Cpmcputotal5Secrev}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUTotal1minRev"] = types.YLeaf{"Cpmcputotal1Minrev", cpmcputotalentry.Cpmcputotal1Minrev}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUTotal5minRev"] = types.YLeaf{"Cpmcputotal5Minrev", cpmcputotalentry.Cpmcputotal5Minrev}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUMonInterval"] = types.YLeaf{"Cpmcpumoninterval", cpmcputotalentry.Cpmcpumoninterval}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUTotalMonIntervalValue"] = types.YLeaf{"Cpmcputotalmonintervalvalue", cpmcputotalentry.Cpmcputotalmonintervalvalue}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUInterruptMonIntervalValue"] = types.YLeaf{"Cpmcpuinterruptmonintervalvalue", cpmcputotalentry.Cpmcpuinterruptmonintervalvalue}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUMemoryUsed"] = types.YLeaf{"Cpmcpumemoryused", cpmcputotalentry.Cpmcpumemoryused}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUMemoryFree"] = types.YLeaf{"Cpmcpumemoryfree", cpmcputotalentry.Cpmcpumemoryfree}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUMemoryKernelReserved"] = types.YLeaf{"Cpmcpumemorykernelreserved", cpmcputotalentry.Cpmcpumemorykernelreserved}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUMemoryLowest"] = types.YLeaf{"Cpmcpumemorylowest", cpmcputotalentry.Cpmcpumemorylowest}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUMemoryUsedOvrflw"] = types.YLeaf{"Cpmcpumemoryusedovrflw", cpmcputotalentry.Cpmcpumemoryusedovrflw}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUMemoryHCUsed"] = types.YLeaf{"Cpmcpumemoryhcused", cpmcputotalentry.Cpmcpumemoryhcused}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUMemoryFreeOvrflw"] = types.YLeaf{"Cpmcpumemoryfreeovrflw", cpmcputotalentry.Cpmcpumemoryfreeovrflw}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUMemoryHCFree"] = types.YLeaf{"Cpmcpumemoryhcfree", cpmcputotalentry.Cpmcpumemoryhcfree}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUMemoryKernelReservedOvrflw"] = types.YLeaf{"Cpmcpumemorykernelreservedovrflw", cpmcputotalentry.Cpmcpumemorykernelreservedovrflw}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUMemoryHCKernelReserved"] = types.YLeaf{"Cpmcpumemoryhckernelreserved", cpmcputotalentry.Cpmcpumemoryhckernelreserved}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUMemoryLowestOvrflw"] = types.YLeaf{"Cpmcpumemorylowestovrflw", cpmcputotalentry.Cpmcpumemorylowestovrflw}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUMemoryHCLowest"] = types.YLeaf{"Cpmcpumemoryhclowest", cpmcputotalentry.Cpmcpumemoryhclowest}
-    cpmcputotalentry.EntityData.Leafs["cpmCPULoadAvg1min"] = types.YLeaf{"Cpmcpuloadavg1Min", cpmcputotalentry.Cpmcpuloadavg1Min}
-    cpmcputotalentry.EntityData.Leafs["cpmCPULoadAvg5min"] = types.YLeaf{"Cpmcpuloadavg5Min", cpmcputotalentry.Cpmcpuloadavg5Min}
-    cpmcputotalentry.EntityData.Leafs["cpmCPULoadAvg15min"] = types.YLeaf{"Cpmcpuloadavg15Min", cpmcputotalentry.Cpmcpuloadavg15Min}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUMemoryCommitted"] = types.YLeaf{"Cpmcpumemorycommitted", cpmcputotalentry.Cpmcpumemorycommitted}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUMemoryCommittedOvrflw"] = types.YLeaf{"Cpmcpumemorycommittedovrflw", cpmcputotalentry.Cpmcpumemorycommittedovrflw}
-    cpmcputotalentry.EntityData.Leafs["cpmCPUMemoryHCCommitted"] = types.YLeaf{"Cpmcpumemoryhccommitted", cpmcputotalentry.Cpmcpumemoryhccommitted}
-    return &(cpmcputotalentry.EntityData)
+    cpmCPUTotalEntry.EntityData.Children = types.NewOrderedMap()
+    cpmCPUTotalEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUTotalIndex", types.YLeaf{"CpmCPUTotalIndex", cpmCPUTotalEntry.CpmCPUTotalIndex})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUTotalPhysicalIndex", types.YLeaf{"CpmCPUTotalPhysicalIndex", cpmCPUTotalEntry.CpmCPUTotalPhysicalIndex})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUTotal5sec", types.YLeaf{"CpmCPUTotal5sec", cpmCPUTotalEntry.CpmCPUTotal5sec})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUTotal1min", types.YLeaf{"CpmCPUTotal1min", cpmCPUTotalEntry.CpmCPUTotal1min})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUTotal5min", types.YLeaf{"CpmCPUTotal5min", cpmCPUTotalEntry.CpmCPUTotal5min})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUTotal5secRev", types.YLeaf{"CpmCPUTotal5secRev", cpmCPUTotalEntry.CpmCPUTotal5secRev})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUTotal1minRev", types.YLeaf{"CpmCPUTotal1minRev", cpmCPUTotalEntry.CpmCPUTotal1minRev})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUTotal5minRev", types.YLeaf{"CpmCPUTotal5minRev", cpmCPUTotalEntry.CpmCPUTotal5minRev})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUMonInterval", types.YLeaf{"CpmCPUMonInterval", cpmCPUTotalEntry.CpmCPUMonInterval})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUTotalMonIntervalValue", types.YLeaf{"CpmCPUTotalMonIntervalValue", cpmCPUTotalEntry.CpmCPUTotalMonIntervalValue})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUInterruptMonIntervalValue", types.YLeaf{"CpmCPUInterruptMonIntervalValue", cpmCPUTotalEntry.CpmCPUInterruptMonIntervalValue})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUMemoryUsed", types.YLeaf{"CpmCPUMemoryUsed", cpmCPUTotalEntry.CpmCPUMemoryUsed})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUMemoryFree", types.YLeaf{"CpmCPUMemoryFree", cpmCPUTotalEntry.CpmCPUMemoryFree})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUMemoryKernelReserved", types.YLeaf{"CpmCPUMemoryKernelReserved", cpmCPUTotalEntry.CpmCPUMemoryKernelReserved})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUMemoryLowest", types.YLeaf{"CpmCPUMemoryLowest", cpmCPUTotalEntry.CpmCPUMemoryLowest})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUMemoryUsedOvrflw", types.YLeaf{"CpmCPUMemoryUsedOvrflw", cpmCPUTotalEntry.CpmCPUMemoryUsedOvrflw})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUMemoryHCUsed", types.YLeaf{"CpmCPUMemoryHCUsed", cpmCPUTotalEntry.CpmCPUMemoryHCUsed})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUMemoryFreeOvrflw", types.YLeaf{"CpmCPUMemoryFreeOvrflw", cpmCPUTotalEntry.CpmCPUMemoryFreeOvrflw})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUMemoryHCFree", types.YLeaf{"CpmCPUMemoryHCFree", cpmCPUTotalEntry.CpmCPUMemoryHCFree})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUMemoryKernelReservedOvrflw", types.YLeaf{"CpmCPUMemoryKernelReservedOvrflw", cpmCPUTotalEntry.CpmCPUMemoryKernelReservedOvrflw})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUMemoryHCKernelReserved", types.YLeaf{"CpmCPUMemoryHCKernelReserved", cpmCPUTotalEntry.CpmCPUMemoryHCKernelReserved})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUMemoryLowestOvrflw", types.YLeaf{"CpmCPUMemoryLowestOvrflw", cpmCPUTotalEntry.CpmCPUMemoryLowestOvrflw})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUMemoryHCLowest", types.YLeaf{"CpmCPUMemoryHCLowest", cpmCPUTotalEntry.CpmCPUMemoryHCLowest})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPULoadAvg1min", types.YLeaf{"CpmCPULoadAvg1min", cpmCPUTotalEntry.CpmCPULoadAvg1min})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPULoadAvg5min", types.YLeaf{"CpmCPULoadAvg5min", cpmCPUTotalEntry.CpmCPULoadAvg5min})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPULoadAvg15min", types.YLeaf{"CpmCPULoadAvg15min", cpmCPUTotalEntry.CpmCPULoadAvg15min})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUMemoryCommitted", types.YLeaf{"CpmCPUMemoryCommitted", cpmCPUTotalEntry.CpmCPUMemoryCommitted})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUMemoryCommittedOvrflw", types.YLeaf{"CpmCPUMemoryCommittedOvrflw", cpmCPUTotalEntry.CpmCPUMemoryCommittedOvrflw})
+    cpmCPUTotalEntry.EntityData.Leafs.Append("cpmCPUMemoryHCCommitted", types.YLeaf{"CpmCPUMemoryHCCommitted", cpmCPUTotalEntry.CpmCPUMemoryHCCommitted})
+
+    cpmCPUTotalEntry.EntityData.YListKeys = []string {"CpmCPUTotalIndex"}
+
+    return &(cpmCPUTotalEntry.EntityData)
 }
 
-// CISCOPROCESSMIB_Cpmcoretable
+// CISCOPROCESSMIB_CpmCoreTable
 // A table of per-Core statistics.
-type CISCOPROCESSMIB_Cpmcoretable struct {
+type CISCOPROCESSMIB_CpmCoreTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Overall information about the Core load. Entries in this table could come
     // and go as Cores go online or offline. The type is slice of
-    // CISCOPROCESSMIB_Cpmcoretable_Cpmcoreentry.
-    Cpmcoreentry []CISCOPROCESSMIB_Cpmcoretable_Cpmcoreentry
+    // CISCOPROCESSMIB_CpmCoreTable_CpmCoreEntry.
+    CpmCoreEntry []*CISCOPROCESSMIB_CpmCoreTable_CpmCoreEntry
 }
 
-func (cpmcoretable *CISCOPROCESSMIB_Cpmcoretable) GetEntityData() *types.CommonEntityData {
-    cpmcoretable.EntityData.YFilter = cpmcoretable.YFilter
-    cpmcoretable.EntityData.YangName = "cpmCoreTable"
-    cpmcoretable.EntityData.BundleName = "cisco_ios_xe"
-    cpmcoretable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
-    cpmcoretable.EntityData.SegmentPath = "cpmCoreTable"
-    cpmcoretable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpmcoretable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpmcoretable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpmCoreTable *CISCOPROCESSMIB_CpmCoreTable) GetEntityData() *types.CommonEntityData {
+    cpmCoreTable.EntityData.YFilter = cpmCoreTable.YFilter
+    cpmCoreTable.EntityData.YangName = "cpmCoreTable"
+    cpmCoreTable.EntityData.BundleName = "cisco_ios_xe"
+    cpmCoreTable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
+    cpmCoreTable.EntityData.SegmentPath = "cpmCoreTable"
+    cpmCoreTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpmCoreTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpmCoreTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpmcoretable.EntityData.Children = make(map[string]types.YChild)
-    cpmcoretable.EntityData.Children["cpmCoreEntry"] = types.YChild{"Cpmcoreentry", nil}
-    for i := range cpmcoretable.Cpmcoreentry {
-        cpmcoretable.EntityData.Children[types.GetSegmentPath(&cpmcoretable.Cpmcoreentry[i])] = types.YChild{"Cpmcoreentry", &cpmcoretable.Cpmcoreentry[i]}
+    cpmCoreTable.EntityData.Children = types.NewOrderedMap()
+    cpmCoreTable.EntityData.Children.Append("cpmCoreEntry", types.YChild{"CpmCoreEntry", nil})
+    for i := range cpmCoreTable.CpmCoreEntry {
+        cpmCoreTable.EntityData.Children.Append(types.GetSegmentPath(cpmCoreTable.CpmCoreEntry[i]), types.YChild{"CpmCoreEntry", cpmCoreTable.CpmCoreEntry[i]})
     }
-    cpmcoretable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpmcoretable.EntityData)
+    cpmCoreTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpmCoreTable.EntityData.YListKeys = []string {}
+
+    return &(cpmCoreTable.EntityData)
 }
 
-// CISCOPROCESSMIB_Cpmcoretable_Cpmcoreentry
+// CISCOPROCESSMIB_CpmCoreTable_CpmCoreEntry
 // Overall information about the Core load. Entries in this
 // table could come and go as Cores go online or offline.
-type CISCOPROCESSMIB_Cpmcoretable_Cpmcoreentry struct {
+type CISCOPROCESSMIB_CpmCoreTable_CpmCoreEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // cisco_process_mib.CISCOPROCESSMIB_Cpmcputotaltable_Cpmcputotalentry_Cpmcputotalindex
-    Cpmcputotalindex interface{}
+    // cisco_process_mib.CISCOPROCESSMIB_CpmCPUTotalTable_CpmCPUTotalEntry_CpmCPUTotalIndex
+    CpmCPUTotalIndex interface{}
 
     // This attribute is a key. An index that uniquely represents a Core (or group
     // of Cores) whose Core load information is reported by a row in this table.
     // This index is assigned arbitrarily by the engine and is not saved over
     // reboots. The type is interface{} with range: 0..4294967295.
-    Cpmcoreindex interface{}
+    CpmCoreIndex interface{}
 
     // The entCorePhysicalIndex of the physical entity for which the Core
     // statistics in this entry are maintained. The physical entity can be a CPU
@@ -421,150 +436,156 @@ type CISCOPROCESSMIB_Cpmcoretable_Cpmcoreentry struct {
     // entity), or if the entPhysicalTable is not supported on the SNMP agent, the
     // value of this object must be zero. The type is interface{} with range:
     // 0..2147483647.
-    Cpmcorephysicalindex interface{}
+    CpmCorePhysicalIndex interface{}
 
     // The overall Core busy percentage in the last 5 second period. The type is
     // interface{} with range: 0..100.
-    Cpmcore5Sec interface{}
+    CpmCore5sec interface{}
 
     // The overall Core busy percentage in the last 1 minute period. The type is
     // interface{} with range: 0..100.
-    Cpmcore1Min interface{}
+    CpmCore1min interface{}
 
     // The overall Core busy percentage in the last 5 minute period. The type is
     // interface{} with range: 0..100.
-    Cpmcore5Min interface{}
+    CpmCore5min interface{}
 
     // The overall Core load Average in the last 1 minute period. The type is
     // interface{} with range: 0..4294967295. Units are hundredths of processes.
-    Cpmcoreloadavg1Min interface{}
+    CpmCoreLoadAvg1min interface{}
 
     // The overall Core load Average in the last 5 minutes period. The type is
     // interface{} with range: 0..4294967295. Units are hundredths of processes.
-    Cpmcoreloadavg5Min interface{}
+    CpmCoreLoadAvg5min interface{}
 
     // The overall Core load Average in the last 15 minutes period. The type is
     // interface{} with range: 0..4294967295. Units are hundredths of processes.
-    Cpmcoreloadavg15Min interface{}
+    CpmCoreLoadAvg15min interface{}
 }
 
-func (cpmcoreentry *CISCOPROCESSMIB_Cpmcoretable_Cpmcoreentry) GetEntityData() *types.CommonEntityData {
-    cpmcoreentry.EntityData.YFilter = cpmcoreentry.YFilter
-    cpmcoreentry.EntityData.YangName = "cpmCoreEntry"
-    cpmcoreentry.EntityData.BundleName = "cisco_ios_xe"
-    cpmcoreentry.EntityData.ParentYangName = "cpmCoreTable"
-    cpmcoreentry.EntityData.SegmentPath = "cpmCoreEntry" + "[cpmCPUTotalIndex='" + fmt.Sprintf("%v", cpmcoreentry.Cpmcputotalindex) + "']" + "[cpmCoreIndex='" + fmt.Sprintf("%v", cpmcoreentry.Cpmcoreindex) + "']"
-    cpmcoreentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpmcoreentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpmcoreentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpmCoreEntry *CISCOPROCESSMIB_CpmCoreTable_CpmCoreEntry) GetEntityData() *types.CommonEntityData {
+    cpmCoreEntry.EntityData.YFilter = cpmCoreEntry.YFilter
+    cpmCoreEntry.EntityData.YangName = "cpmCoreEntry"
+    cpmCoreEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpmCoreEntry.EntityData.ParentYangName = "cpmCoreTable"
+    cpmCoreEntry.EntityData.SegmentPath = "cpmCoreEntry" + types.AddKeyToken(cpmCoreEntry.CpmCPUTotalIndex, "cpmCPUTotalIndex") + types.AddKeyToken(cpmCoreEntry.CpmCoreIndex, "cpmCoreIndex")
+    cpmCoreEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpmCoreEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpmCoreEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpmcoreentry.EntityData.Children = make(map[string]types.YChild)
-    cpmcoreentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpmcoreentry.EntityData.Leafs["cpmCPUTotalIndex"] = types.YLeaf{"Cpmcputotalindex", cpmcoreentry.Cpmcputotalindex}
-    cpmcoreentry.EntityData.Leafs["cpmCoreIndex"] = types.YLeaf{"Cpmcoreindex", cpmcoreentry.Cpmcoreindex}
-    cpmcoreentry.EntityData.Leafs["cpmCorePhysicalIndex"] = types.YLeaf{"Cpmcorephysicalindex", cpmcoreentry.Cpmcorephysicalindex}
-    cpmcoreentry.EntityData.Leafs["cpmCore5sec"] = types.YLeaf{"Cpmcore5Sec", cpmcoreentry.Cpmcore5Sec}
-    cpmcoreentry.EntityData.Leafs["cpmCore1min"] = types.YLeaf{"Cpmcore1Min", cpmcoreentry.Cpmcore1Min}
-    cpmcoreentry.EntityData.Leafs["cpmCore5min"] = types.YLeaf{"Cpmcore5Min", cpmcoreentry.Cpmcore5Min}
-    cpmcoreentry.EntityData.Leafs["cpmCoreLoadAvg1min"] = types.YLeaf{"Cpmcoreloadavg1Min", cpmcoreentry.Cpmcoreloadavg1Min}
-    cpmcoreentry.EntityData.Leafs["cpmCoreLoadAvg5min"] = types.YLeaf{"Cpmcoreloadavg5Min", cpmcoreentry.Cpmcoreloadavg5Min}
-    cpmcoreentry.EntityData.Leafs["cpmCoreLoadAvg15min"] = types.YLeaf{"Cpmcoreloadavg15Min", cpmcoreentry.Cpmcoreloadavg15Min}
-    return &(cpmcoreentry.EntityData)
+    cpmCoreEntry.EntityData.Children = types.NewOrderedMap()
+    cpmCoreEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpmCoreEntry.EntityData.Leafs.Append("cpmCPUTotalIndex", types.YLeaf{"CpmCPUTotalIndex", cpmCoreEntry.CpmCPUTotalIndex})
+    cpmCoreEntry.EntityData.Leafs.Append("cpmCoreIndex", types.YLeaf{"CpmCoreIndex", cpmCoreEntry.CpmCoreIndex})
+    cpmCoreEntry.EntityData.Leafs.Append("cpmCorePhysicalIndex", types.YLeaf{"CpmCorePhysicalIndex", cpmCoreEntry.CpmCorePhysicalIndex})
+    cpmCoreEntry.EntityData.Leafs.Append("cpmCore5sec", types.YLeaf{"CpmCore5sec", cpmCoreEntry.CpmCore5sec})
+    cpmCoreEntry.EntityData.Leafs.Append("cpmCore1min", types.YLeaf{"CpmCore1min", cpmCoreEntry.CpmCore1min})
+    cpmCoreEntry.EntityData.Leafs.Append("cpmCore5min", types.YLeaf{"CpmCore5min", cpmCoreEntry.CpmCore5min})
+    cpmCoreEntry.EntityData.Leafs.Append("cpmCoreLoadAvg1min", types.YLeaf{"CpmCoreLoadAvg1min", cpmCoreEntry.CpmCoreLoadAvg1min})
+    cpmCoreEntry.EntityData.Leafs.Append("cpmCoreLoadAvg5min", types.YLeaf{"CpmCoreLoadAvg5min", cpmCoreEntry.CpmCoreLoadAvg5min})
+    cpmCoreEntry.EntityData.Leafs.Append("cpmCoreLoadAvg15min", types.YLeaf{"CpmCoreLoadAvg15min", cpmCoreEntry.CpmCoreLoadAvg15min})
+
+    cpmCoreEntry.EntityData.YListKeys = []string {"CpmCPUTotalIndex", "CpmCoreIndex"}
+
+    return &(cpmCoreEntry.EntityData)
 }
 
-// CISCOPROCESSMIB_Cpmprocesstable
+// CISCOPROCESSMIB_CpmProcessTable
 // A table of generic information on all active
 // processes on this device.
-type CISCOPROCESSMIB_Cpmprocesstable struct {
+type CISCOPROCESSMIB_CpmProcessTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Generic information about an active process on this device. Entries in this
     // table come and go as processes are  created and destroyed by the device.
-    // The type is slice of CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry.
-    Cpmprocessentry []CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry
+    // The type is slice of CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry.
+    CpmProcessEntry []*CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry
 }
 
-func (cpmprocesstable *CISCOPROCESSMIB_Cpmprocesstable) GetEntityData() *types.CommonEntityData {
-    cpmprocesstable.EntityData.YFilter = cpmprocesstable.YFilter
-    cpmprocesstable.EntityData.YangName = "cpmProcessTable"
-    cpmprocesstable.EntityData.BundleName = "cisco_ios_xe"
-    cpmprocesstable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
-    cpmprocesstable.EntityData.SegmentPath = "cpmProcessTable"
-    cpmprocesstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpmprocesstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpmprocesstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpmProcessTable *CISCOPROCESSMIB_CpmProcessTable) GetEntityData() *types.CommonEntityData {
+    cpmProcessTable.EntityData.YFilter = cpmProcessTable.YFilter
+    cpmProcessTable.EntityData.YangName = "cpmProcessTable"
+    cpmProcessTable.EntityData.BundleName = "cisco_ios_xe"
+    cpmProcessTable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
+    cpmProcessTable.EntityData.SegmentPath = "cpmProcessTable"
+    cpmProcessTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpmProcessTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpmProcessTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpmprocesstable.EntityData.Children = make(map[string]types.YChild)
-    cpmprocesstable.EntityData.Children["cpmProcessEntry"] = types.YChild{"Cpmprocessentry", nil}
-    for i := range cpmprocesstable.Cpmprocessentry {
-        cpmprocesstable.EntityData.Children[types.GetSegmentPath(&cpmprocesstable.Cpmprocessentry[i])] = types.YChild{"Cpmprocessentry", &cpmprocesstable.Cpmprocessentry[i]}
+    cpmProcessTable.EntityData.Children = types.NewOrderedMap()
+    cpmProcessTable.EntityData.Children.Append("cpmProcessEntry", types.YChild{"CpmProcessEntry", nil})
+    for i := range cpmProcessTable.CpmProcessEntry {
+        cpmProcessTable.EntityData.Children.Append(types.GetSegmentPath(cpmProcessTable.CpmProcessEntry[i]), types.YChild{"CpmProcessEntry", cpmProcessTable.CpmProcessEntry[i]})
     }
-    cpmprocesstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpmprocesstable.EntityData)
+    cpmProcessTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpmProcessTable.EntityData.YListKeys = []string {}
+
+    return &(cpmProcessTable.EntityData)
 }
 
-// CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry
+// CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry
 // Generic information about an active process on this
 // device. Entries in this table come and go as processes are 
 // created and destroyed by the device.
-type CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry struct {
+type CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // cisco_process_mib.CISCOPROCESSMIB_Cpmcputotaltable_Cpmcputotalentry_Cpmcputotalindex
-    Cpmcputotalindex interface{}
+    // cisco_process_mib.CISCOPROCESSMIB_CpmCPUTotalTable_CpmCPUTotalEntry_CpmCPUTotalIndex
+    CpmCPUTotalIndex interface{}
 
     // This attribute is a key. This object contains the process ID.
     // cpmTimeCreated should be checked against the last time it was polled, and
     // if it has changed the PID has been reused and the entire entry should be
     // polled again. The type is interface{} with range: 0..4294967295.
-    Cpmprocesspid interface{}
+    CpmProcessPID interface{}
 
     // The name associated with this process. If the name is longer than 32
     // characters, it will be truncated to the first 31 characters, and a `*' will
     // be appended as the last character to imply this is a truncated process
     // name. The type is string with length: 1..32.
-    Cpmprocessname interface{}
+    CpmProcessName interface{}
 
     // Average elapsed CPU time in microseconds when the process was active. This
     // object is deprecated by cpmProcessAverageUSecs. The type is interface{}
     // with range: 0..4294967295. Units are microseconds.
-    Cpmprocessusecs interface{}
+    CpmProcessuSecs interface{}
 
     // The time when the process was created. The process ID and the time when the
     // process was created, uniquely  identifies a process. The type is
     // interface{} with range: 0..4294967295.
-    Cpmprocesstimecreated interface{}
+    CpmProcessTimeCreated interface{}
 
     // Average elapsed CPU time in microseconds when the process was active. This
     // object deprecates the object cpmProcessuSecs. The type is interface{} with
     // range: 0..4294967295. Units are microseconds.
-    Cpmprocessaverageusecs interface{}
+    CpmProcessAverageUSecs interface{}
 
     // The sum of all the dynamically allocated memory that this process has
     // received from the system. This includes memory that may have been returned.
     // The sum of freed memory is provided by cpmProcExtMemFreed. This object is
     // deprecated by cpmProcExtMemAllocatedRev. The type is interface{} with
     // range: 0..4294967295. Units are bytes.
-    Cpmprocextmemallocated interface{}
+    CpmProcExtMemAllocated interface{}
 
     // The sum of all memory that this process has returned to the system. This
     // object is deprecated by  cpmProcExtMemFreedRev. The type is interface{}
     // with range: 0..4294967295. Units are bytes.
-    Cpmprocextmemfreed interface{}
+    CpmProcExtMemFreed interface{}
 
     // The number of times since cpmTimeCreated that the process has been invoked.
     // This object is deprecated by cpmProcExtInvokedRev. The type is interface{}
     // with range: 0..4294967295.
-    Cpmprocextinvoked interface{}
+    CpmProcExtInvoked interface{}
 
     // The amount of CPU time the process has used, in microseconds. This object
     // is deprecated by cpmProcExtRuntimeRev. The type is interface{} with range:
     // 0..4294967295. Units are microseconds.
-    Cpmprocextruntime interface{}
+    CpmProcExtRuntime interface{}
 
     // This object provides a general idea of how busy a process caused the
     // processor to be over a 5  second period. It is determined as a weighted 
@@ -572,7 +593,7 @@ type CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry struct {
     // that this information  should be used as an estimate only. This object is 
     // deprecated by cpmProcExtUtil5SecRev which has the  changed range of value
     // (0..100). The type is interface{} with range: 0..100.
-    Cpmprocextutil5Sec interface{}
+    CpmProcExtUtil5Sec interface{}
 
     // This object provides a general idea of how busy a process caused the
     // processor to be over a 1  minute period. It is determined as a weighted 
@@ -580,7 +601,7 @@ type CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry struct {
     // that this information  should be used as an estimate only. This object is 
     // deprecated by cpmProcExtUtil1MinRev which has the changed range of value
     // (0..100). The type is interface{} with range: 0..100.
-    Cpmprocextutil1Min interface{}
+    CpmProcExtUtil1Min interface{}
 
     // This object provides a general idea of how busy a process caused the
     // processor to be over a 5  minute period. It is determined as a weighted 
@@ -588,131 +609,137 @@ type CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry struct {
     // that this information  should be used as an estimate only. This object is
     // deprecated by cpmProcExtUtil5MinRev which has the changed range of value
     // (0..100). The type is interface{} with range: 0..100.
-    Cpmprocextutil5Min interface{}
+    CpmProcExtUtil5Min interface{}
 
     // The priority level at which the process is running. This object is
-    // deprecated by cpmProcExtPriorityRev. The type is Cpmprocextpriority.
-    Cpmprocextpriority interface{}
+    // deprecated by cpmProcExtPriorityRev. The type is CpmProcExtPriority.
+    CpmProcExtPriority interface{}
 }
 
-func (cpmprocessentry *CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry) GetEntityData() *types.CommonEntityData {
-    cpmprocessentry.EntityData.YFilter = cpmprocessentry.YFilter
-    cpmprocessentry.EntityData.YangName = "cpmProcessEntry"
-    cpmprocessentry.EntityData.BundleName = "cisco_ios_xe"
-    cpmprocessentry.EntityData.ParentYangName = "cpmProcessTable"
-    cpmprocessentry.EntityData.SegmentPath = "cpmProcessEntry" + "[cpmCPUTotalIndex='" + fmt.Sprintf("%v", cpmprocessentry.Cpmcputotalindex) + "']" + "[cpmProcessPID='" + fmt.Sprintf("%v", cpmprocessentry.Cpmprocesspid) + "']"
-    cpmprocessentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpmprocessentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpmprocessentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpmProcessEntry *CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry) GetEntityData() *types.CommonEntityData {
+    cpmProcessEntry.EntityData.YFilter = cpmProcessEntry.YFilter
+    cpmProcessEntry.EntityData.YangName = "cpmProcessEntry"
+    cpmProcessEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpmProcessEntry.EntityData.ParentYangName = "cpmProcessTable"
+    cpmProcessEntry.EntityData.SegmentPath = "cpmProcessEntry" + types.AddKeyToken(cpmProcessEntry.CpmCPUTotalIndex, "cpmCPUTotalIndex") + types.AddKeyToken(cpmProcessEntry.CpmProcessPID, "cpmProcessPID")
+    cpmProcessEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpmProcessEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpmProcessEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpmprocessentry.EntityData.Children = make(map[string]types.YChild)
-    cpmprocessentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpmprocessentry.EntityData.Leafs["cpmCPUTotalIndex"] = types.YLeaf{"Cpmcputotalindex", cpmprocessentry.Cpmcputotalindex}
-    cpmprocessentry.EntityData.Leafs["cpmProcessPID"] = types.YLeaf{"Cpmprocesspid", cpmprocessentry.Cpmprocesspid}
-    cpmprocessentry.EntityData.Leafs["cpmProcessName"] = types.YLeaf{"Cpmprocessname", cpmprocessentry.Cpmprocessname}
-    cpmprocessentry.EntityData.Leafs["cpmProcessuSecs"] = types.YLeaf{"Cpmprocessusecs", cpmprocessentry.Cpmprocessusecs}
-    cpmprocessentry.EntityData.Leafs["cpmProcessTimeCreated"] = types.YLeaf{"Cpmprocesstimecreated", cpmprocessentry.Cpmprocesstimecreated}
-    cpmprocessentry.EntityData.Leafs["cpmProcessAverageUSecs"] = types.YLeaf{"Cpmprocessaverageusecs", cpmprocessentry.Cpmprocessaverageusecs}
-    cpmprocessentry.EntityData.Leafs["cpmProcExtMemAllocated"] = types.YLeaf{"Cpmprocextmemallocated", cpmprocessentry.Cpmprocextmemallocated}
-    cpmprocessentry.EntityData.Leafs["cpmProcExtMemFreed"] = types.YLeaf{"Cpmprocextmemfreed", cpmprocessentry.Cpmprocextmemfreed}
-    cpmprocessentry.EntityData.Leafs["cpmProcExtInvoked"] = types.YLeaf{"Cpmprocextinvoked", cpmprocessentry.Cpmprocextinvoked}
-    cpmprocessentry.EntityData.Leafs["cpmProcExtRuntime"] = types.YLeaf{"Cpmprocextruntime", cpmprocessentry.Cpmprocextruntime}
-    cpmprocessentry.EntityData.Leafs["cpmProcExtUtil5Sec"] = types.YLeaf{"Cpmprocextutil5Sec", cpmprocessentry.Cpmprocextutil5Sec}
-    cpmprocessentry.EntityData.Leafs["cpmProcExtUtil1Min"] = types.YLeaf{"Cpmprocextutil1Min", cpmprocessentry.Cpmprocextutil1Min}
-    cpmprocessentry.EntityData.Leafs["cpmProcExtUtil5Min"] = types.YLeaf{"Cpmprocextutil5Min", cpmprocessentry.Cpmprocextutil5Min}
-    cpmprocessentry.EntityData.Leafs["cpmProcExtPriority"] = types.YLeaf{"Cpmprocextpriority", cpmprocessentry.Cpmprocextpriority}
-    return &(cpmprocessentry.EntityData)
+    cpmProcessEntry.EntityData.Children = types.NewOrderedMap()
+    cpmProcessEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpmProcessEntry.EntityData.Leafs.Append("cpmCPUTotalIndex", types.YLeaf{"CpmCPUTotalIndex", cpmProcessEntry.CpmCPUTotalIndex})
+    cpmProcessEntry.EntityData.Leafs.Append("cpmProcessPID", types.YLeaf{"CpmProcessPID", cpmProcessEntry.CpmProcessPID})
+    cpmProcessEntry.EntityData.Leafs.Append("cpmProcessName", types.YLeaf{"CpmProcessName", cpmProcessEntry.CpmProcessName})
+    cpmProcessEntry.EntityData.Leafs.Append("cpmProcessuSecs", types.YLeaf{"CpmProcessuSecs", cpmProcessEntry.CpmProcessuSecs})
+    cpmProcessEntry.EntityData.Leafs.Append("cpmProcessTimeCreated", types.YLeaf{"CpmProcessTimeCreated", cpmProcessEntry.CpmProcessTimeCreated})
+    cpmProcessEntry.EntityData.Leafs.Append("cpmProcessAverageUSecs", types.YLeaf{"CpmProcessAverageUSecs", cpmProcessEntry.CpmProcessAverageUSecs})
+    cpmProcessEntry.EntityData.Leafs.Append("cpmProcExtMemAllocated", types.YLeaf{"CpmProcExtMemAllocated", cpmProcessEntry.CpmProcExtMemAllocated})
+    cpmProcessEntry.EntityData.Leafs.Append("cpmProcExtMemFreed", types.YLeaf{"CpmProcExtMemFreed", cpmProcessEntry.CpmProcExtMemFreed})
+    cpmProcessEntry.EntityData.Leafs.Append("cpmProcExtInvoked", types.YLeaf{"CpmProcExtInvoked", cpmProcessEntry.CpmProcExtInvoked})
+    cpmProcessEntry.EntityData.Leafs.Append("cpmProcExtRuntime", types.YLeaf{"CpmProcExtRuntime", cpmProcessEntry.CpmProcExtRuntime})
+    cpmProcessEntry.EntityData.Leafs.Append("cpmProcExtUtil5Sec", types.YLeaf{"CpmProcExtUtil5Sec", cpmProcessEntry.CpmProcExtUtil5Sec})
+    cpmProcessEntry.EntityData.Leafs.Append("cpmProcExtUtil1Min", types.YLeaf{"CpmProcExtUtil1Min", cpmProcessEntry.CpmProcExtUtil1Min})
+    cpmProcessEntry.EntityData.Leafs.Append("cpmProcExtUtil5Min", types.YLeaf{"CpmProcExtUtil5Min", cpmProcessEntry.CpmProcExtUtil5Min})
+    cpmProcessEntry.EntityData.Leafs.Append("cpmProcExtPriority", types.YLeaf{"CpmProcExtPriority", cpmProcessEntry.CpmProcExtPriority})
+
+    cpmProcessEntry.EntityData.YListKeys = []string {"CpmCPUTotalIndex", "CpmProcessPID"}
+
+    return &(cpmProcessEntry.EntityData)
 }
 
-// CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry_Cpmprocextpriority represents cpmProcExtPriorityRev.
-type CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry_Cpmprocextpriority string
+// CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry_CpmProcExtPriority represents cpmProcExtPriorityRev.
+type CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry_CpmProcExtPriority string
 
 const (
-    CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry_Cpmprocextpriority_critical CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry_Cpmprocextpriority = "critical"
+    CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry_CpmProcExtPriority_critical CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry_CpmProcExtPriority = "critical"
 
-    CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry_Cpmprocextpriority_high CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry_Cpmprocextpriority = "high"
+    CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry_CpmProcExtPriority_high CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry_CpmProcExtPriority = "high"
 
-    CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry_Cpmprocextpriority_normal CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry_Cpmprocextpriority = "normal"
+    CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry_CpmProcExtPriority_normal CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry_CpmProcExtPriority = "normal"
 
-    CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry_Cpmprocextpriority_low CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry_Cpmprocextpriority = "low"
+    CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry_CpmProcExtPriority_low CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry_CpmProcExtPriority = "low"
 
-    CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry_Cpmprocextpriority_notAssigned CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry_Cpmprocextpriority = "notAssigned"
+    CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry_CpmProcExtPriority_notAssigned CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry_CpmProcExtPriority = "notAssigned"
 )
 
-// CISCOPROCESSMIB_Cpmprocessextrevtable
+// CISCOPROCESSMIB_CpmProcessExtRevTable
 // This table contains information that may or may
 // not be available on all cisco devices. It contains
 // additional objects for the more general
 // cpmProcessTable. This object deprecates 
 // cpmProcessExtTable.
-type CISCOPROCESSMIB_Cpmprocessextrevtable struct {
+type CISCOPROCESSMIB_CpmProcessExtRevTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing additional information for a particular process. This
     // object deprecates  cpmProcessExtEntry. The type is slice of
-    // CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry.
-    Cpmprocessextreventry []CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry
+    // CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry.
+    CpmProcessExtRevEntry []*CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry
 }
 
-func (cpmprocessextrevtable *CISCOPROCESSMIB_Cpmprocessextrevtable) GetEntityData() *types.CommonEntityData {
-    cpmprocessextrevtable.EntityData.YFilter = cpmprocessextrevtable.YFilter
-    cpmprocessextrevtable.EntityData.YangName = "cpmProcessExtRevTable"
-    cpmprocessextrevtable.EntityData.BundleName = "cisco_ios_xe"
-    cpmprocessextrevtable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
-    cpmprocessextrevtable.EntityData.SegmentPath = "cpmProcessExtRevTable"
-    cpmprocessextrevtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpmprocessextrevtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpmprocessextrevtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpmProcessExtRevTable *CISCOPROCESSMIB_CpmProcessExtRevTable) GetEntityData() *types.CommonEntityData {
+    cpmProcessExtRevTable.EntityData.YFilter = cpmProcessExtRevTable.YFilter
+    cpmProcessExtRevTable.EntityData.YangName = "cpmProcessExtRevTable"
+    cpmProcessExtRevTable.EntityData.BundleName = "cisco_ios_xe"
+    cpmProcessExtRevTable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
+    cpmProcessExtRevTable.EntityData.SegmentPath = "cpmProcessExtRevTable"
+    cpmProcessExtRevTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpmProcessExtRevTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpmProcessExtRevTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpmprocessextrevtable.EntityData.Children = make(map[string]types.YChild)
-    cpmprocessextrevtable.EntityData.Children["cpmProcessExtRevEntry"] = types.YChild{"Cpmprocessextreventry", nil}
-    for i := range cpmprocessextrevtable.Cpmprocessextreventry {
-        cpmprocessextrevtable.EntityData.Children[types.GetSegmentPath(&cpmprocessextrevtable.Cpmprocessextreventry[i])] = types.YChild{"Cpmprocessextreventry", &cpmprocessextrevtable.Cpmprocessextreventry[i]}
+    cpmProcessExtRevTable.EntityData.Children = types.NewOrderedMap()
+    cpmProcessExtRevTable.EntityData.Children.Append("cpmProcessExtRevEntry", types.YChild{"CpmProcessExtRevEntry", nil})
+    for i := range cpmProcessExtRevTable.CpmProcessExtRevEntry {
+        cpmProcessExtRevTable.EntityData.Children.Append(types.GetSegmentPath(cpmProcessExtRevTable.CpmProcessExtRevEntry[i]), types.YChild{"CpmProcessExtRevEntry", cpmProcessExtRevTable.CpmProcessExtRevEntry[i]})
     }
-    cpmprocessextrevtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpmprocessextrevtable.EntityData)
+    cpmProcessExtRevTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpmProcessExtRevTable.EntityData.YListKeys = []string {}
+
+    return &(cpmProcessExtRevTable.EntityData)
 }
 
-// CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry
+// CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry
 // An entry containing additional information for
 // a particular process. This object deprecates 
 // cpmProcessExtEntry.
-type CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry struct {
+type CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // cisco_process_mib.CISCOPROCESSMIB_Cpmcputotaltable_Cpmcputotalentry_Cpmcputotalindex
-    Cpmcputotalindex interface{}
+    // cisco_process_mib.CISCOPROCESSMIB_CpmCPUTotalTable_CpmCPUTotalEntry_CpmCPUTotalIndex
+    CpmCPUTotalIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // cisco_process_mib.CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry_Cpmprocesspid
-    Cpmprocesspid interface{}
+    // cisco_process_mib.CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry_CpmProcessPID
+    CpmProcessPID interface{}
 
     // The sum of all the dynamically allocated memory that this process has
     // received from the system. This includes memory that may have been returned.
     // The sum of freed memory is provided by cpmProcExtMemFreedRev. This object
     // deprecates cpmProcExtMemAllocated. The type is interface{} with range:
     // 0..4294967295. Units are bytes.
-    Cpmprocextmemallocatedrev interface{}
+    CpmProcExtMemAllocatedRev interface{}
 
     // The sum of all memory that this process has returned to the system. This
     // object  deprecates  cpmProcExtMemFreed. The type is interface{} with range:
     // 0..4294967295. Units are bytes.
-    Cpmprocextmemfreedrev interface{}
+    CpmProcExtMemFreedRev interface{}
 
     // The number of times since cpmTimeCreated that the process has been invoked.
     // This object  deprecates cpmProcExtInvoked. The type is interface{} with
     // range: 0..4294967295.
-    Cpmprocextinvokedrev interface{}
+    CpmProcExtInvokedRev interface{}
 
     // The amount of CPU time the process has used, in microseconds. This object
     // deprecates cpmProcExtRuntime. The type is interface{} with range:
     // 0..4294967295. Units are microseconds.
-    Cpmprocextruntimerev interface{}
+    CpmProcExtRuntimeRev interface{}
 
     // This object provides a general idea of how busy a process caused the
     // processor to be over a 5  second period. It is determined as a weighted 
@@ -720,7 +747,7 @@ type CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry struct {
     // that this information  should be used as an estimate only. This object
     // deprecates cpmProcExtUtil5Sec and increases the  value range to (0..100).
     // The type is interface{} with range: 0..100. Units are percent.
-    Cpmprocextutil5Secrev interface{}
+    CpmProcExtUtil5SecRev interface{}
 
     // This object provides a general idea of how busy a process caused the
     // processor to be over a 1  minute period. It is determined as a weighted 
@@ -728,7 +755,7 @@ type CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry struct {
     // that this information  should be used as an estimate only. This object 
     // deprecates cpmProcExtUtil1Min and increases the value range to (0..100).
     // The type is interface{} with range: 0..100. Units are percent.
-    Cpmprocextutil1Minrev interface{}
+    CpmProcExtUtil1MinRev interface{}
 
     // This object provides a general idea of how busy a process caused the
     // processor to be over a 5  minute period. It is determined as a weighted 
@@ -736,28 +763,28 @@ type CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry struct {
     // that this information  should be used as an estimate only. This object
     // deprecates cpmProcExtUtil5Min and increases the value range to (0..100).
     // The type is interface{} with range: 0..100. Units are percent.
-    Cpmprocextutil5Minrev interface{}
+    CpmProcExtUtil5MinRev interface{}
 
     // The priority level at  which the process is running. This object deprecates
-    // cpmProcExtPriority. The type is Cpmprocextpriorityrev.
-    Cpmprocextpriorityrev interface{}
+    // cpmProcExtPriority. The type is CpmProcExtPriorityRev.
+    CpmProcExtPriorityRev interface{}
 
-    // This indicates the kind of process in context. The type is Cpmprocesstype.
-    Cpmprocesstype interface{}
+    // This indicates the kind of process in context. The type is CpmProcessType.
+    CpmProcessType interface{}
 
     // This indicates whether respawn of a process is enabled or not. If enabled
     // the process in context repawns after it has crashed/stopped. The type is
     // interface{} with range: 0..2.
-    Cpmprocessrespawn interface{}
+    CpmProcessRespawn interface{}
 
     // This indicates the number of times the process has respawned/restarted. The
     // type is interface{} with range: 0..4294967295.
-    Cpmprocessrespawncount interface{}
+    CpmProcessRespawnCount interface{}
 
     // This indicates the number of times a process has restarted after the last
     // patch is applied. This is to  determine the stability of the last patch.
     // The type is interface{} with range: 0..4294967295.
-    Cpmprocessrespawnafterlastpatch interface{}
+    CpmProcessRespawnAfterLastPatch interface{}
 
     // This indicates the part of process memory to be dumped when a process
     // crashes. The process  memory is used for debugging purposes to trace the 
@@ -765,362 +792,374 @@ type CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry struct {
     // minimal                 dump of process core like register                
     // info, partial stack, partial memory                 pages especially for
     // critical process                 to facilitate faster process restart. The
-    // type is Cpmprocessmemorycore.
-    Cpmprocessmemorycore interface{}
+    // type is CpmProcessMemoryCore.
+    CpmProcessMemoryCore interface{}
 
     // This indicate the user that has last restarted the process or has taken
     // running coredump of the process. The type is string.
-    Cpmprocesslastrestartuser interface{}
+    CpmProcessLastRestartUser interface{}
 
     // This indicates the text memory of a process and all its shared objects. The
     // type is interface{} with range: 0..4294967295. Units are kilo-bytes.
-    Cpmprocesstextsegmentsize interface{}
+    CpmProcessTextSegmentSize interface{}
 
     // This indicates the data segment of a process and all its shared objects.
     // The type is interface{} with range: 0..4294967295. Units are kilo-bytes.
-    Cpmprocessdatasegmentsize interface{}
+    CpmProcessDataSegmentSize interface{}
 
     // This indicates the amount of stack memory used by the process. The type is
     // interface{} with range: 0..4294967295. Units are kilo-bytes.
-    Cpmprocessstacksize interface{}
+    CpmProcessStackSize interface{}
 
     // This indicates the amount of dynamic memory being used by the process. The
     // type is interface{} with range: 0..4294967295. Units are kilo-bytes.
-    Cpmprocessdynamicmemorysize interface{}
+    CpmProcessDynamicMemorySize interface{}
 
     // This object represents the upper 32-bit of cpmProcExtMemAllocatedRev. This
     // object needs to be supported only when the value of 
     // cpmProcExtMemAllocatedRev exceeds 32-bit,  otherwise this object value
     // would be set to 0. The type is interface{} with range: 0..4294967295. Units
     // are bytes.
-    Cpmprocextmemallocatedrevovrflw interface{}
+    CpmProcExtMemAllocatedRevOvrflw interface{}
 
     // The sum of all the dynamically allocated memory that this process has
     // received from the system. This includes memory that may have been returned.
     // This object is a 64-bit version of cpmProcExtMemAllocatedRev. The type is
     // interface{} with range: 0..18446744073709551615. Units are bytes.
-    Cpmprocexthcmemallocatedrev interface{}
+    CpmProcExtHCMemAllocatedRev interface{}
 
     // This object represents the upper 32-bit of cpmProcExtMemFreedRev. This
     // object needs to  be supported only when the value of cpmProcExtMemFreedRev
     // exceeds 32-bit,otherwise this object value would be set to 0. The type is
     // interface{} with range: 0..4294967295. Units are bytes.
-    Cpmprocextmemfreedrevovrflw interface{}
+    CpmProcExtMemFreedRevOvrflw interface{}
 
     // The sum of all memory that this process has returned to the system. This
     // object is a 64-bit version of cpmProcExtMemFreedRev. The type is
     // interface{} with range: 0..18446744073709551615. Units are bytes.
-    Cpmprocexthcmemfreedrev interface{}
+    CpmProcExtHCMemFreedRev interface{}
 
     // This object represents the upper 32-bit of cpmProcessTextSegmentSize. This
     // object needs to be supported only when the value of 
     // cpmProcessTextSegmentSize exceeds 32-bit,  otherwise this object value
     // would be set to 0. The type is interface{} with range: 0..4294967295. Units
     // are kilo-bytes.
-    Cpmprocesstextsegmentsizeovrflw interface{}
+    CpmProcessTextSegmentSizeOvrflw interface{}
 
     // This indicates the text memory of a process and all its shared objects.
     // This object is a 64-bit version of cpmProcessTextSegmentSize. The type is
     // interface{} with range: 0..18446744073709551615. Units are kilo-bytes.
-    Cpmprocesshctextsegmentsize interface{}
+    CpmProcessHCTextSegmentSize interface{}
 
     // This object represents the upper 32-bit of cpmProcessDataSegmentSize. This
     // object needs to be supported only when the value of 
     // cpmProcessDataSegmentSize exceeds 32-bit,  otherwise this object value
     // would be set to 0. The type is interface{} with range: 0..4294967295. Units
     // are kilo-bytes.
-    Cpmprocessdatasegmentsizeovrflw interface{}
+    CpmProcessDataSegmentSizeOvrflw interface{}
 
     // This indicates the data segment of a process and all its shared objects..
     // This object is a 64-bit version of cpmProcessDataSegmentSize. The type is
     // interface{} with range: 0..18446744073709551615. Units are kilo-bytes.
-    Cpmprocesshcdatasegmentsize interface{}
+    CpmProcessHCDataSegmentSize interface{}
 
     // This object represents the upper 32-bit of cpmProcessStackSize. This object
     // needs to be supported only when the value of cpmProcessStackSize exceeds
     // 32-bit, otherwise this object value would be set to 0. The type is
     // interface{} with range: 0..4294967295. Units are kilo-bytes.
-    Cpmprocessstacksizeovrflw interface{}
+    CpmProcessStackSizeOvrflw interface{}
 
     // This indicates the amount of stack memory used by the process. This object
     // is a 64-bit version of cpmProcessStackSize. The type is interface{} with
     // range: 0..18446744073709551615. Units are kilo-bytes.
-    Cpmprocesshcstacksize interface{}
+    CpmProcessHCStackSize interface{}
 
     // This object represents the upper 32-bit of cpmProcessDynamicMemorySize.
     // This object needs to be supported only when the value of 
     // cpmProcessDynamicMemorySize exceeds 32-bit,  otherwise this object value
     // would be set to 0. The type is interface{} with range: 0..4294967295. Units
     // are kilo-bytes.
-    Cpmprocessdynamicmemorysizeovrflw interface{}
+    CpmProcessDynamicMemorySizeOvrflw interface{}
 
     // This indicates the amount of dynamic memory being used by the process. This
     // object is a 64-bit version of cpmProcessDynamicMemorySize. The type is
     // interface{} with range: 0..18446744073709551615. Units are kilo-bytes.
-    Cpmprocesshcdynamicmemorysize interface{}
+    CpmProcessHCDynamicMemorySize interface{}
 }
 
-func (cpmprocessextreventry *CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry) GetEntityData() *types.CommonEntityData {
-    cpmprocessextreventry.EntityData.YFilter = cpmprocessextreventry.YFilter
-    cpmprocessextreventry.EntityData.YangName = "cpmProcessExtRevEntry"
-    cpmprocessextreventry.EntityData.BundleName = "cisco_ios_xe"
-    cpmprocessextreventry.EntityData.ParentYangName = "cpmProcessExtRevTable"
-    cpmprocessextreventry.EntityData.SegmentPath = "cpmProcessExtRevEntry" + "[cpmCPUTotalIndex='" + fmt.Sprintf("%v", cpmprocessextreventry.Cpmcputotalindex) + "']" + "[cpmProcessPID='" + fmt.Sprintf("%v", cpmprocessextreventry.Cpmprocesspid) + "']"
-    cpmprocessextreventry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpmprocessextreventry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpmprocessextreventry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpmProcessExtRevEntry *CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry) GetEntityData() *types.CommonEntityData {
+    cpmProcessExtRevEntry.EntityData.YFilter = cpmProcessExtRevEntry.YFilter
+    cpmProcessExtRevEntry.EntityData.YangName = "cpmProcessExtRevEntry"
+    cpmProcessExtRevEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpmProcessExtRevEntry.EntityData.ParentYangName = "cpmProcessExtRevTable"
+    cpmProcessExtRevEntry.EntityData.SegmentPath = "cpmProcessExtRevEntry" + types.AddKeyToken(cpmProcessExtRevEntry.CpmCPUTotalIndex, "cpmCPUTotalIndex") + types.AddKeyToken(cpmProcessExtRevEntry.CpmProcessPID, "cpmProcessPID")
+    cpmProcessExtRevEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpmProcessExtRevEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpmProcessExtRevEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpmprocessextreventry.EntityData.Children = make(map[string]types.YChild)
-    cpmprocessextreventry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpmprocessextreventry.EntityData.Leafs["cpmCPUTotalIndex"] = types.YLeaf{"Cpmcputotalindex", cpmprocessextreventry.Cpmcputotalindex}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcessPID"] = types.YLeaf{"Cpmprocesspid", cpmprocessextreventry.Cpmprocesspid}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcExtMemAllocatedRev"] = types.YLeaf{"Cpmprocextmemallocatedrev", cpmprocessextreventry.Cpmprocextmemallocatedrev}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcExtMemFreedRev"] = types.YLeaf{"Cpmprocextmemfreedrev", cpmprocessextreventry.Cpmprocextmemfreedrev}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcExtInvokedRev"] = types.YLeaf{"Cpmprocextinvokedrev", cpmprocessextreventry.Cpmprocextinvokedrev}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcExtRuntimeRev"] = types.YLeaf{"Cpmprocextruntimerev", cpmprocessextreventry.Cpmprocextruntimerev}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcExtUtil5SecRev"] = types.YLeaf{"Cpmprocextutil5Secrev", cpmprocessextreventry.Cpmprocextutil5Secrev}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcExtUtil1MinRev"] = types.YLeaf{"Cpmprocextutil1Minrev", cpmprocessextreventry.Cpmprocextutil1Minrev}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcExtUtil5MinRev"] = types.YLeaf{"Cpmprocextutil5Minrev", cpmprocessextreventry.Cpmprocextutil5Minrev}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcExtPriorityRev"] = types.YLeaf{"Cpmprocextpriorityrev", cpmprocessextreventry.Cpmprocextpriorityrev}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcessType"] = types.YLeaf{"Cpmprocesstype", cpmprocessextreventry.Cpmprocesstype}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcessRespawn"] = types.YLeaf{"Cpmprocessrespawn", cpmprocessextreventry.Cpmprocessrespawn}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcessRespawnCount"] = types.YLeaf{"Cpmprocessrespawncount", cpmprocessextreventry.Cpmprocessrespawncount}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcessRespawnAfterLastPatch"] = types.YLeaf{"Cpmprocessrespawnafterlastpatch", cpmprocessextreventry.Cpmprocessrespawnafterlastpatch}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcessMemoryCore"] = types.YLeaf{"Cpmprocessmemorycore", cpmprocessextreventry.Cpmprocessmemorycore}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcessLastRestartUser"] = types.YLeaf{"Cpmprocesslastrestartuser", cpmprocessextreventry.Cpmprocesslastrestartuser}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcessTextSegmentSize"] = types.YLeaf{"Cpmprocesstextsegmentsize", cpmprocessextreventry.Cpmprocesstextsegmentsize}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcessDataSegmentSize"] = types.YLeaf{"Cpmprocessdatasegmentsize", cpmprocessextreventry.Cpmprocessdatasegmentsize}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcessStackSize"] = types.YLeaf{"Cpmprocessstacksize", cpmprocessextreventry.Cpmprocessstacksize}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcessDynamicMemorySize"] = types.YLeaf{"Cpmprocessdynamicmemorysize", cpmprocessextreventry.Cpmprocessdynamicmemorysize}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcExtMemAllocatedRevOvrflw"] = types.YLeaf{"Cpmprocextmemallocatedrevovrflw", cpmprocessextreventry.Cpmprocextmemallocatedrevovrflw}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcExtHCMemAllocatedRev"] = types.YLeaf{"Cpmprocexthcmemallocatedrev", cpmprocessextreventry.Cpmprocexthcmemallocatedrev}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcExtMemFreedRevOvrflw"] = types.YLeaf{"Cpmprocextmemfreedrevovrflw", cpmprocessextreventry.Cpmprocextmemfreedrevovrflw}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcExtHCMemFreedRev"] = types.YLeaf{"Cpmprocexthcmemfreedrev", cpmprocessextreventry.Cpmprocexthcmemfreedrev}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcessTextSegmentSizeOvrflw"] = types.YLeaf{"Cpmprocesstextsegmentsizeovrflw", cpmprocessextreventry.Cpmprocesstextsegmentsizeovrflw}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcessHCTextSegmentSize"] = types.YLeaf{"Cpmprocesshctextsegmentsize", cpmprocessextreventry.Cpmprocesshctextsegmentsize}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcessDataSegmentSizeOvrflw"] = types.YLeaf{"Cpmprocessdatasegmentsizeovrflw", cpmprocessextreventry.Cpmprocessdatasegmentsizeovrflw}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcessHCDataSegmentSize"] = types.YLeaf{"Cpmprocesshcdatasegmentsize", cpmprocessextreventry.Cpmprocesshcdatasegmentsize}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcessStackSizeOvrflw"] = types.YLeaf{"Cpmprocessstacksizeovrflw", cpmprocessextreventry.Cpmprocessstacksizeovrflw}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcessHCStackSize"] = types.YLeaf{"Cpmprocesshcstacksize", cpmprocessextreventry.Cpmprocesshcstacksize}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcessDynamicMemorySizeOvrflw"] = types.YLeaf{"Cpmprocessdynamicmemorysizeovrflw", cpmprocessextreventry.Cpmprocessdynamicmemorysizeovrflw}
-    cpmprocessextreventry.EntityData.Leafs["cpmProcessHCDynamicMemorySize"] = types.YLeaf{"Cpmprocesshcdynamicmemorysize", cpmprocessextreventry.Cpmprocesshcdynamicmemorysize}
-    return &(cpmprocessextreventry.EntityData)
+    cpmProcessExtRevEntry.EntityData.Children = types.NewOrderedMap()
+    cpmProcessExtRevEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmCPUTotalIndex", types.YLeaf{"CpmCPUTotalIndex", cpmProcessExtRevEntry.CpmCPUTotalIndex})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcessPID", types.YLeaf{"CpmProcessPID", cpmProcessExtRevEntry.CpmProcessPID})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcExtMemAllocatedRev", types.YLeaf{"CpmProcExtMemAllocatedRev", cpmProcessExtRevEntry.CpmProcExtMemAllocatedRev})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcExtMemFreedRev", types.YLeaf{"CpmProcExtMemFreedRev", cpmProcessExtRevEntry.CpmProcExtMemFreedRev})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcExtInvokedRev", types.YLeaf{"CpmProcExtInvokedRev", cpmProcessExtRevEntry.CpmProcExtInvokedRev})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcExtRuntimeRev", types.YLeaf{"CpmProcExtRuntimeRev", cpmProcessExtRevEntry.CpmProcExtRuntimeRev})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcExtUtil5SecRev", types.YLeaf{"CpmProcExtUtil5SecRev", cpmProcessExtRevEntry.CpmProcExtUtil5SecRev})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcExtUtil1MinRev", types.YLeaf{"CpmProcExtUtil1MinRev", cpmProcessExtRevEntry.CpmProcExtUtil1MinRev})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcExtUtil5MinRev", types.YLeaf{"CpmProcExtUtil5MinRev", cpmProcessExtRevEntry.CpmProcExtUtil5MinRev})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcExtPriorityRev", types.YLeaf{"CpmProcExtPriorityRev", cpmProcessExtRevEntry.CpmProcExtPriorityRev})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcessType", types.YLeaf{"CpmProcessType", cpmProcessExtRevEntry.CpmProcessType})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcessRespawn", types.YLeaf{"CpmProcessRespawn", cpmProcessExtRevEntry.CpmProcessRespawn})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcessRespawnCount", types.YLeaf{"CpmProcessRespawnCount", cpmProcessExtRevEntry.CpmProcessRespawnCount})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcessRespawnAfterLastPatch", types.YLeaf{"CpmProcessRespawnAfterLastPatch", cpmProcessExtRevEntry.CpmProcessRespawnAfterLastPatch})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcessMemoryCore", types.YLeaf{"CpmProcessMemoryCore", cpmProcessExtRevEntry.CpmProcessMemoryCore})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcessLastRestartUser", types.YLeaf{"CpmProcessLastRestartUser", cpmProcessExtRevEntry.CpmProcessLastRestartUser})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcessTextSegmentSize", types.YLeaf{"CpmProcessTextSegmentSize", cpmProcessExtRevEntry.CpmProcessTextSegmentSize})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcessDataSegmentSize", types.YLeaf{"CpmProcessDataSegmentSize", cpmProcessExtRevEntry.CpmProcessDataSegmentSize})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcessStackSize", types.YLeaf{"CpmProcessStackSize", cpmProcessExtRevEntry.CpmProcessStackSize})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcessDynamicMemorySize", types.YLeaf{"CpmProcessDynamicMemorySize", cpmProcessExtRevEntry.CpmProcessDynamicMemorySize})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcExtMemAllocatedRevOvrflw", types.YLeaf{"CpmProcExtMemAllocatedRevOvrflw", cpmProcessExtRevEntry.CpmProcExtMemAllocatedRevOvrflw})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcExtHCMemAllocatedRev", types.YLeaf{"CpmProcExtHCMemAllocatedRev", cpmProcessExtRevEntry.CpmProcExtHCMemAllocatedRev})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcExtMemFreedRevOvrflw", types.YLeaf{"CpmProcExtMemFreedRevOvrflw", cpmProcessExtRevEntry.CpmProcExtMemFreedRevOvrflw})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcExtHCMemFreedRev", types.YLeaf{"CpmProcExtHCMemFreedRev", cpmProcessExtRevEntry.CpmProcExtHCMemFreedRev})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcessTextSegmentSizeOvrflw", types.YLeaf{"CpmProcessTextSegmentSizeOvrflw", cpmProcessExtRevEntry.CpmProcessTextSegmentSizeOvrflw})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcessHCTextSegmentSize", types.YLeaf{"CpmProcessHCTextSegmentSize", cpmProcessExtRevEntry.CpmProcessHCTextSegmentSize})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcessDataSegmentSizeOvrflw", types.YLeaf{"CpmProcessDataSegmentSizeOvrflw", cpmProcessExtRevEntry.CpmProcessDataSegmentSizeOvrflw})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcessHCDataSegmentSize", types.YLeaf{"CpmProcessHCDataSegmentSize", cpmProcessExtRevEntry.CpmProcessHCDataSegmentSize})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcessStackSizeOvrflw", types.YLeaf{"CpmProcessStackSizeOvrflw", cpmProcessExtRevEntry.CpmProcessStackSizeOvrflw})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcessHCStackSize", types.YLeaf{"CpmProcessHCStackSize", cpmProcessExtRevEntry.CpmProcessHCStackSize})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcessDynamicMemorySizeOvrflw", types.YLeaf{"CpmProcessDynamicMemorySizeOvrflw", cpmProcessExtRevEntry.CpmProcessDynamicMemorySizeOvrflw})
+    cpmProcessExtRevEntry.EntityData.Leafs.Append("cpmProcessHCDynamicMemorySize", types.YLeaf{"CpmProcessHCDynamicMemorySize", cpmProcessExtRevEntry.CpmProcessHCDynamicMemorySize})
+
+    cpmProcessExtRevEntry.EntityData.YListKeys = []string {"CpmCPUTotalIndex", "CpmProcessPID"}
+
+    return &(cpmProcessExtRevEntry.EntityData)
 }
 
-// CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore represents                 to facilitate faster process restart.
-type CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore string
+// CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcExtPriorityRev represents cpmProcExtPriority.
+type CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcExtPriorityRev string
 
 const (
-    CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore_none CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore = "none"
+    CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcExtPriorityRev_critical CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcExtPriorityRev = "critical"
 
-    CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore_other CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore = "other"
+    CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcExtPriorityRev_high CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcExtPriorityRev = "high"
 
-    CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore_mainmem CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore = "mainmem"
+    CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcExtPriorityRev_normal CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcExtPriorityRev = "normal"
 
-    CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore_mainmemSharedmem CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore = "mainmemSharedmem"
+    CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcExtPriorityRev_low CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcExtPriorityRev = "low"
 
-    CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore_mainmemText CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore = "mainmemText"
-
-    CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore_mainmemTextSharedmem CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore = "mainmemTextSharedmem"
-
-    CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore_sharedmem CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore = "sharedmem"
-
-    CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore_sparse CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore = "sparse"
-
-    CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore_off CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocessmemorycore = "off"
+    CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcExtPriorityRev_notAssigned CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcExtPriorityRev = "notAssigned"
 )
 
-// CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocesstype represents This indicates the kind of process in context.
-type CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocesstype string
+// CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore represents                 to facilitate faster process restart.
+type CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore string
 
 const (
-    CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocesstype_none CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocesstype = "none"
+    CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore_none CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore = "none"
 
-    CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocesstype_other CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocesstype = "other"
+    CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore_other CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore = "other"
 
-    CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocesstype_posix CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocesstype = "posix"
+    CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore_mainmem CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore = "mainmem"
 
-    CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocesstype_ios CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocesstype = "ios"
+    CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore_mainmemSharedmem CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore = "mainmemSharedmem"
+
+    CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore_mainmemText CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore = "mainmemText"
+
+    CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore_mainmemTextSharedmem CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore = "mainmemTextSharedmem"
+
+    CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore_sharedmem CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore = "sharedmem"
+
+    CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore_sparse CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore = "sparse"
+
+    CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore_off CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessMemoryCore = "off"
 )
 
-// CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocextpriorityrev represents cpmProcExtPriority.
-type CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocextpriorityrev string
+// CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessType represents This indicates the kind of process in context.
+type CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessType string
 
 const (
-    CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocextpriorityrev_critical CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocextpriorityrev = "critical"
+    CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessType_none CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessType = "none"
 
-    CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocextpriorityrev_high CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocextpriorityrev = "high"
+    CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessType_other CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessType = "other"
 
-    CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocextpriorityrev_normal CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocextpriorityrev = "normal"
+    CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessType_posix CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessType = "posix"
 
-    CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocextpriorityrev_low CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocextpriorityrev = "low"
-
-    CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocextpriorityrev_notAssigned CISCOPROCESSMIB_Cpmprocessextrevtable_Cpmprocessextreventry_Cpmprocextpriorityrev = "notAssigned"
+    CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessType_ios CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry_CpmProcessType = "ios"
 )
 
-// CISCOPROCESSMIB_Cpmcputhresholdtable
+// CISCOPROCESSMIB_CpmCPUThresholdTable
 // This table contains the information about the
 // thresholding values for CPU , configured by the user.
-type CISCOPROCESSMIB_Cpmcputhresholdtable struct {
+type CISCOPROCESSMIB_CpmCPUThresholdTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing information about CPU thresholding parameters.
     // cpmCPUTotalIndex identifies the CPU (or group of CPUs) for which this
     // configuration applies. The type is slice of
-    // CISCOPROCESSMIB_Cpmcputhresholdtable_Cpmcputhresholdentry.
-    Cpmcputhresholdentry []CISCOPROCESSMIB_Cpmcputhresholdtable_Cpmcputhresholdentry
+    // CISCOPROCESSMIB_CpmCPUThresholdTable_CpmCPUThresholdEntry.
+    CpmCPUThresholdEntry []*CISCOPROCESSMIB_CpmCPUThresholdTable_CpmCPUThresholdEntry
 }
 
-func (cpmcputhresholdtable *CISCOPROCESSMIB_Cpmcputhresholdtable) GetEntityData() *types.CommonEntityData {
-    cpmcputhresholdtable.EntityData.YFilter = cpmcputhresholdtable.YFilter
-    cpmcputhresholdtable.EntityData.YangName = "cpmCPUThresholdTable"
-    cpmcputhresholdtable.EntityData.BundleName = "cisco_ios_xe"
-    cpmcputhresholdtable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
-    cpmcputhresholdtable.EntityData.SegmentPath = "cpmCPUThresholdTable"
-    cpmcputhresholdtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpmcputhresholdtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpmcputhresholdtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpmCPUThresholdTable *CISCOPROCESSMIB_CpmCPUThresholdTable) GetEntityData() *types.CommonEntityData {
+    cpmCPUThresholdTable.EntityData.YFilter = cpmCPUThresholdTable.YFilter
+    cpmCPUThresholdTable.EntityData.YangName = "cpmCPUThresholdTable"
+    cpmCPUThresholdTable.EntityData.BundleName = "cisco_ios_xe"
+    cpmCPUThresholdTable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
+    cpmCPUThresholdTable.EntityData.SegmentPath = "cpmCPUThresholdTable"
+    cpmCPUThresholdTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpmCPUThresholdTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpmCPUThresholdTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpmcputhresholdtable.EntityData.Children = make(map[string]types.YChild)
-    cpmcputhresholdtable.EntityData.Children["cpmCPUThresholdEntry"] = types.YChild{"Cpmcputhresholdentry", nil}
-    for i := range cpmcputhresholdtable.Cpmcputhresholdentry {
-        cpmcputhresholdtable.EntityData.Children[types.GetSegmentPath(&cpmcputhresholdtable.Cpmcputhresholdentry[i])] = types.YChild{"Cpmcputhresholdentry", &cpmcputhresholdtable.Cpmcputhresholdentry[i]}
+    cpmCPUThresholdTable.EntityData.Children = types.NewOrderedMap()
+    cpmCPUThresholdTable.EntityData.Children.Append("cpmCPUThresholdEntry", types.YChild{"CpmCPUThresholdEntry", nil})
+    for i := range cpmCPUThresholdTable.CpmCPUThresholdEntry {
+        cpmCPUThresholdTable.EntityData.Children.Append(types.GetSegmentPath(cpmCPUThresholdTable.CpmCPUThresholdEntry[i]), types.YChild{"CpmCPUThresholdEntry", cpmCPUThresholdTable.CpmCPUThresholdEntry[i]})
     }
-    cpmcputhresholdtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpmcputhresholdtable.EntityData)
+    cpmCPUThresholdTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpmCPUThresholdTable.EntityData.YListKeys = []string {}
+
+    return &(cpmCPUThresholdTable.EntityData)
 }
 
-// CISCOPROCESSMIB_Cpmcputhresholdtable_Cpmcputhresholdentry
+// CISCOPROCESSMIB_CpmCPUThresholdTable_CpmCPUThresholdEntry
 // An entry containing information about
 // CPU thresholding parameters. cpmCPUTotalIndex
 // identifies the CPU (or group of CPUs) for which this
 // configuration applies.
-type CISCOPROCESSMIB_Cpmcputhresholdtable_Cpmcputhresholdentry struct {
+type CISCOPROCESSMIB_CpmCPUThresholdTable_CpmCPUThresholdEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // cisco_process_mib.CISCOPROCESSMIB_Cpmcputotaltable_Cpmcputotalentry_Cpmcputotalindex
-    Cpmcputotalindex interface{}
+    // cisco_process_mib.CISCOPROCESSMIB_CpmCPUTotalTable_CpmCPUTotalEntry_CpmCPUTotalIndex
+    CpmCPUTotalIndex interface{}
 
     // This attribute is a key. Value of this object indicates the type of
     // utilization, which is monitored. The total(1) indicates the total CPU
     // utilization, interrupt(2) indicates the the CPU utilization in interrupt
     // context and process(3) indicates the CPU utilization in the process level
-    // execution context. The type is Cpmcputhresholdclass.
-    Cpmcputhresholdclass interface{}
+    // execution context. The type is CpmCPUThresholdClass.
+    CpmCPUThresholdClass interface{}
 
     // The percentage rising threshold value configured by the user. The value
     // indicates,  if the percentage CPU utilization is equal to or above this
     // value for cpmCPURisingThresholdPeriod duration  then send a
     // cpmCPURisingThreshold notification to the NMS. The type is interface{} with
     // range: 1..100.
-    Cpmcpurisingthresholdvalue interface{}
+    CpmCPURisingThresholdValue interface{}
 
     // This is an observation interval. The value of this object indicates that 
     // the CPU utilization should be above cpmCPURisingThresholdValue for this
     // duration to send a  cpmCPURisingThreshold notification to the NMS. The type
     // is interface{} with range: 5..4294967295. Units are seconds.
-    Cpmcpurisingthresholdperiod interface{}
+    CpmCPURisingThresholdPeriod interface{}
 
     // The percentage falling threshold value configured by the user. The value
     // indicates, if the percentage  CPU utilization is equal to or below this
     // value for  cpmCPUFallingThresholdPeriod duration then send a
     // cpmCPUFallingThreshold notification  to the NMS. The type is interface{}
     // with range: 1..100.
-    Cpmcpufallingthresholdvalue interface{}
+    CpmCPUFallingThresholdValue interface{}
 
     // This is an observation interval. The value of this object indicates that
     // CPU utilization should be below cpmCPUFallingThresholdValue for this
     // duration to send a  cpmCPURisingThreshold notification to the NMS. The type
     // is interface{} with range: 5..4294967295. Units are seconds.
-    Cpmcpufallingthresholdperiod interface{}
+    CpmCPUFallingThresholdPeriod interface{}
 
     // The status of this table entry. The type is RowStatus.
-    Cpmcputhresholdentrystatus interface{}
+    CpmCPUThresholdEntryStatus interface{}
 }
 
-func (cpmcputhresholdentry *CISCOPROCESSMIB_Cpmcputhresholdtable_Cpmcputhresholdentry) GetEntityData() *types.CommonEntityData {
-    cpmcputhresholdentry.EntityData.YFilter = cpmcputhresholdentry.YFilter
-    cpmcputhresholdentry.EntityData.YangName = "cpmCPUThresholdEntry"
-    cpmcputhresholdentry.EntityData.BundleName = "cisco_ios_xe"
-    cpmcputhresholdentry.EntityData.ParentYangName = "cpmCPUThresholdTable"
-    cpmcputhresholdentry.EntityData.SegmentPath = "cpmCPUThresholdEntry" + "[cpmCPUTotalIndex='" + fmt.Sprintf("%v", cpmcputhresholdentry.Cpmcputotalindex) + "']" + "[cpmCPUThresholdClass='" + fmt.Sprintf("%v", cpmcputhresholdentry.Cpmcputhresholdclass) + "']"
-    cpmcputhresholdentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpmcputhresholdentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpmcputhresholdentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpmCPUThresholdEntry *CISCOPROCESSMIB_CpmCPUThresholdTable_CpmCPUThresholdEntry) GetEntityData() *types.CommonEntityData {
+    cpmCPUThresholdEntry.EntityData.YFilter = cpmCPUThresholdEntry.YFilter
+    cpmCPUThresholdEntry.EntityData.YangName = "cpmCPUThresholdEntry"
+    cpmCPUThresholdEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpmCPUThresholdEntry.EntityData.ParentYangName = "cpmCPUThresholdTable"
+    cpmCPUThresholdEntry.EntityData.SegmentPath = "cpmCPUThresholdEntry" + types.AddKeyToken(cpmCPUThresholdEntry.CpmCPUTotalIndex, "cpmCPUTotalIndex") + types.AddKeyToken(cpmCPUThresholdEntry.CpmCPUThresholdClass, "cpmCPUThresholdClass")
+    cpmCPUThresholdEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpmCPUThresholdEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpmCPUThresholdEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpmcputhresholdentry.EntityData.Children = make(map[string]types.YChild)
-    cpmcputhresholdentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpmcputhresholdentry.EntityData.Leafs["cpmCPUTotalIndex"] = types.YLeaf{"Cpmcputotalindex", cpmcputhresholdentry.Cpmcputotalindex}
-    cpmcputhresholdentry.EntityData.Leafs["cpmCPUThresholdClass"] = types.YLeaf{"Cpmcputhresholdclass", cpmcputhresholdentry.Cpmcputhresholdclass}
-    cpmcputhresholdentry.EntityData.Leafs["cpmCPURisingThresholdValue"] = types.YLeaf{"Cpmcpurisingthresholdvalue", cpmcputhresholdentry.Cpmcpurisingthresholdvalue}
-    cpmcputhresholdentry.EntityData.Leafs["cpmCPURisingThresholdPeriod"] = types.YLeaf{"Cpmcpurisingthresholdperiod", cpmcputhresholdentry.Cpmcpurisingthresholdperiod}
-    cpmcputhresholdentry.EntityData.Leafs["cpmCPUFallingThresholdValue"] = types.YLeaf{"Cpmcpufallingthresholdvalue", cpmcputhresholdentry.Cpmcpufallingthresholdvalue}
-    cpmcputhresholdentry.EntityData.Leafs["cpmCPUFallingThresholdPeriod"] = types.YLeaf{"Cpmcpufallingthresholdperiod", cpmcputhresholdentry.Cpmcpufallingthresholdperiod}
-    cpmcputhresholdentry.EntityData.Leafs["cpmCPUThresholdEntryStatus"] = types.YLeaf{"Cpmcputhresholdentrystatus", cpmcputhresholdentry.Cpmcputhresholdentrystatus}
-    return &(cpmcputhresholdentry.EntityData)
+    cpmCPUThresholdEntry.EntityData.Children = types.NewOrderedMap()
+    cpmCPUThresholdEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpmCPUThresholdEntry.EntityData.Leafs.Append("cpmCPUTotalIndex", types.YLeaf{"CpmCPUTotalIndex", cpmCPUThresholdEntry.CpmCPUTotalIndex})
+    cpmCPUThresholdEntry.EntityData.Leafs.Append("cpmCPUThresholdClass", types.YLeaf{"CpmCPUThresholdClass", cpmCPUThresholdEntry.CpmCPUThresholdClass})
+    cpmCPUThresholdEntry.EntityData.Leafs.Append("cpmCPURisingThresholdValue", types.YLeaf{"CpmCPURisingThresholdValue", cpmCPUThresholdEntry.CpmCPURisingThresholdValue})
+    cpmCPUThresholdEntry.EntityData.Leafs.Append("cpmCPURisingThresholdPeriod", types.YLeaf{"CpmCPURisingThresholdPeriod", cpmCPUThresholdEntry.CpmCPURisingThresholdPeriod})
+    cpmCPUThresholdEntry.EntityData.Leafs.Append("cpmCPUFallingThresholdValue", types.YLeaf{"CpmCPUFallingThresholdValue", cpmCPUThresholdEntry.CpmCPUFallingThresholdValue})
+    cpmCPUThresholdEntry.EntityData.Leafs.Append("cpmCPUFallingThresholdPeriod", types.YLeaf{"CpmCPUFallingThresholdPeriod", cpmCPUThresholdEntry.CpmCPUFallingThresholdPeriod})
+    cpmCPUThresholdEntry.EntityData.Leafs.Append("cpmCPUThresholdEntryStatus", types.YLeaf{"CpmCPUThresholdEntryStatus", cpmCPUThresholdEntry.CpmCPUThresholdEntryStatus})
+
+    cpmCPUThresholdEntry.EntityData.YListKeys = []string {"CpmCPUTotalIndex", "CpmCPUThresholdClass"}
+
+    return &(cpmCPUThresholdEntry.EntityData)
 }
 
-// CISCOPROCESSMIB_Cpmcputhresholdtable_Cpmcputhresholdentry_Cpmcputhresholdclass represents execution context.
-type CISCOPROCESSMIB_Cpmcputhresholdtable_Cpmcputhresholdentry_Cpmcputhresholdclass string
+// CISCOPROCESSMIB_CpmCPUThresholdTable_CpmCPUThresholdEntry_CpmCPUThresholdClass represents execution context.
+type CISCOPROCESSMIB_CpmCPUThresholdTable_CpmCPUThresholdEntry_CpmCPUThresholdClass string
 
 const (
-    CISCOPROCESSMIB_Cpmcputhresholdtable_Cpmcputhresholdentry_Cpmcputhresholdclass_total CISCOPROCESSMIB_Cpmcputhresholdtable_Cpmcputhresholdentry_Cpmcputhresholdclass = "total"
+    CISCOPROCESSMIB_CpmCPUThresholdTable_CpmCPUThresholdEntry_CpmCPUThresholdClass_total CISCOPROCESSMIB_CpmCPUThresholdTable_CpmCPUThresholdEntry_CpmCPUThresholdClass = "total"
 
-    CISCOPROCESSMIB_Cpmcputhresholdtable_Cpmcputhresholdentry_Cpmcputhresholdclass_interrupt CISCOPROCESSMIB_Cpmcputhresholdtable_Cpmcputhresholdentry_Cpmcputhresholdclass = "interrupt"
+    CISCOPROCESSMIB_CpmCPUThresholdTable_CpmCPUThresholdEntry_CpmCPUThresholdClass_interrupt CISCOPROCESSMIB_CpmCPUThresholdTable_CpmCPUThresholdEntry_CpmCPUThresholdClass = "interrupt"
 
-    CISCOPROCESSMIB_Cpmcputhresholdtable_Cpmcputhresholdentry_Cpmcputhresholdclass_process CISCOPROCESSMIB_Cpmcputhresholdtable_Cpmcputhresholdentry_Cpmcputhresholdclass = "process"
+    CISCOPROCESSMIB_CpmCPUThresholdTable_CpmCPUThresholdEntry_CpmCPUThresholdClass_process CISCOPROCESSMIB_CpmCPUThresholdTable_CpmCPUThresholdEntry_CpmCPUThresholdClass = "process"
 )
 
-// CISCOPROCESSMIB_Cpmcpuhistorytable
+// CISCOPROCESSMIB_CpmCPUHistoryTable
 // A list of CPU utilization history entries.
-type CISCOPROCESSMIB_Cpmcpuhistorytable struct {
+type CISCOPROCESSMIB_CpmCPUHistoryTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A historical sample of CPU utilization statistics. cpmCPUTotalIndex
     // identifies the CPU (or group of CPUs) for which this history is collected. 
     // When the cpmCPUHistorySize is reached the least recent entry is lost. The
-    // type is slice of CISCOPROCESSMIB_Cpmcpuhistorytable_Cpmcpuhistoryentry.
-    Cpmcpuhistoryentry []CISCOPROCESSMIB_Cpmcpuhistorytable_Cpmcpuhistoryentry
+    // type is slice of CISCOPROCESSMIB_CpmCPUHistoryTable_CpmCPUHistoryEntry.
+    CpmCPUHistoryEntry []*CISCOPROCESSMIB_CpmCPUHistoryTable_CpmCPUHistoryEntry
 }
 
-func (cpmcpuhistorytable *CISCOPROCESSMIB_Cpmcpuhistorytable) GetEntityData() *types.CommonEntityData {
-    cpmcpuhistorytable.EntityData.YFilter = cpmcpuhistorytable.YFilter
-    cpmcpuhistorytable.EntityData.YangName = "cpmCPUHistoryTable"
-    cpmcpuhistorytable.EntityData.BundleName = "cisco_ios_xe"
-    cpmcpuhistorytable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
-    cpmcpuhistorytable.EntityData.SegmentPath = "cpmCPUHistoryTable"
-    cpmcpuhistorytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpmcpuhistorytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpmcpuhistorytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpmCPUHistoryTable *CISCOPROCESSMIB_CpmCPUHistoryTable) GetEntityData() *types.CommonEntityData {
+    cpmCPUHistoryTable.EntityData.YFilter = cpmCPUHistoryTable.YFilter
+    cpmCPUHistoryTable.EntityData.YangName = "cpmCPUHistoryTable"
+    cpmCPUHistoryTable.EntityData.BundleName = "cisco_ios_xe"
+    cpmCPUHistoryTable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
+    cpmCPUHistoryTable.EntityData.SegmentPath = "cpmCPUHistoryTable"
+    cpmCPUHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpmCPUHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpmCPUHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpmcpuhistorytable.EntityData.Children = make(map[string]types.YChild)
-    cpmcpuhistorytable.EntityData.Children["cpmCPUHistoryEntry"] = types.YChild{"Cpmcpuhistoryentry", nil}
-    for i := range cpmcpuhistorytable.Cpmcpuhistoryentry {
-        cpmcpuhistorytable.EntityData.Children[types.GetSegmentPath(&cpmcpuhistorytable.Cpmcpuhistoryentry[i])] = types.YChild{"Cpmcpuhistoryentry", &cpmcpuhistorytable.Cpmcpuhistoryentry[i]}
+    cpmCPUHistoryTable.EntityData.Children = types.NewOrderedMap()
+    cpmCPUHistoryTable.EntityData.Children.Append("cpmCPUHistoryEntry", types.YChild{"CpmCPUHistoryEntry", nil})
+    for i := range cpmCPUHistoryTable.CpmCPUHistoryEntry {
+        cpmCPUHistoryTable.EntityData.Children.Append(types.GetSegmentPath(cpmCPUHistoryTable.CpmCPUHistoryEntry[i]), types.YChild{"CpmCPUHistoryEntry", cpmCPUHistoryTable.CpmCPUHistoryEntry[i]})
     }
-    cpmcpuhistorytable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpmcpuhistorytable.EntityData)
+    cpmCPUHistoryTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpmCPUHistoryTable.EntityData.YListKeys = []string {}
+
+    return &(cpmCPUHistoryTable.EntityData)
 }
 
-// CISCOPROCESSMIB_Cpmcpuhistorytable_Cpmcpuhistoryentry
+// CISCOPROCESSMIB_CpmCPUHistoryTable_CpmCPUHistoryEntry
 // A historical sample of CPU utilization statistics.
 // cpmCPUTotalIndex identifies the CPU (or group of CPUs)
 // for which this history is collected. 
 // When the cpmCPUHistorySize is
 // reached the least recent entry is lost.
-type CISCOPROCESSMIB_Cpmcpuhistorytable_Cpmcpuhistoryentry struct {
+type CISCOPROCESSMIB_CpmCPUHistoryTable_CpmCPUHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // cisco_process_mib.CISCOPROCESSMIB_Cpmcputotaltable_Cpmcputotalentry_Cpmcputotalindex
-    Cpmcputotalindex interface{}
+    // cisco_process_mib.CISCOPROCESSMIB_CpmCPUTotalTable_CpmCPUTotalEntry_CpmCPUTotalIndex
+    CpmCPUTotalIndex interface{}
 
     // This attribute is a key. All the entries which are created at the same time
     // will have same value for this object. When the configured threshold for
@@ -1129,53 +1168,56 @@ type CISCOPROCESSMIB_Cpmcpuhistorytable_Cpmcpuhistoryentry struct {
     // history table at one instant will have the same value for this object. When
     // this object reaches the max index value then it will wrap around. The type
     // is interface{} with range: 0..4294967295.
-    Cpmcpuhistoryreportid interface{}
+    CpmCPUHistoryReportId interface{}
 
     // The number of process entries in a report. This object gives information
     // about how many processes  became a part of history table at one instant.
     // The type is interface{} with range: 0..4294967295.
-    Cpmcpuhistoryreportsize interface{}
+    CpmCPUHistoryReportSize interface{}
 
     // Total percentage of CPU utilization at cpmCPUHistoryCreated. The type is
     // interface{} with range: 0..100. Units are percent.
-    Cpmcpuhistorytotalutil interface{}
+    CpmCPUHistoryTotalUtil interface{}
 
     // Percentage of CPU utilization in the interrupt context at
     // cpmCPUHistoryCreated. The type is interface{} with range: 0..100. Units are
     // percent.
-    Cpmcpuhistoryinterruptutil interface{}
+    CpmCPUHistoryInterruptUtil interface{}
 
     // Time stamp with respect to sysUpTime indicating the time at which this
     // report is created. The type is interface{} with range: 0..4294967295.
-    Cpmcpuhistorycreatedtime interface{}
+    CpmCPUHistoryCreatedTime interface{}
 }
 
-func (cpmcpuhistoryentry *CISCOPROCESSMIB_Cpmcpuhistorytable_Cpmcpuhistoryentry) GetEntityData() *types.CommonEntityData {
-    cpmcpuhistoryentry.EntityData.YFilter = cpmcpuhistoryentry.YFilter
-    cpmcpuhistoryentry.EntityData.YangName = "cpmCPUHistoryEntry"
-    cpmcpuhistoryentry.EntityData.BundleName = "cisco_ios_xe"
-    cpmcpuhistoryentry.EntityData.ParentYangName = "cpmCPUHistoryTable"
-    cpmcpuhistoryentry.EntityData.SegmentPath = "cpmCPUHistoryEntry" + "[cpmCPUTotalIndex='" + fmt.Sprintf("%v", cpmcpuhistoryentry.Cpmcputotalindex) + "']" + "[cpmCPUHistoryReportId='" + fmt.Sprintf("%v", cpmcpuhistoryentry.Cpmcpuhistoryreportid) + "']"
-    cpmcpuhistoryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpmcpuhistoryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpmcpuhistoryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpmCPUHistoryEntry *CISCOPROCESSMIB_CpmCPUHistoryTable_CpmCPUHistoryEntry) GetEntityData() *types.CommonEntityData {
+    cpmCPUHistoryEntry.EntityData.YFilter = cpmCPUHistoryEntry.YFilter
+    cpmCPUHistoryEntry.EntityData.YangName = "cpmCPUHistoryEntry"
+    cpmCPUHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpmCPUHistoryEntry.EntityData.ParentYangName = "cpmCPUHistoryTable"
+    cpmCPUHistoryEntry.EntityData.SegmentPath = "cpmCPUHistoryEntry" + types.AddKeyToken(cpmCPUHistoryEntry.CpmCPUTotalIndex, "cpmCPUTotalIndex") + types.AddKeyToken(cpmCPUHistoryEntry.CpmCPUHistoryReportId, "cpmCPUHistoryReportId")
+    cpmCPUHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpmCPUHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpmCPUHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpmcpuhistoryentry.EntityData.Children = make(map[string]types.YChild)
-    cpmcpuhistoryentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpmcpuhistoryentry.EntityData.Leafs["cpmCPUTotalIndex"] = types.YLeaf{"Cpmcputotalindex", cpmcpuhistoryentry.Cpmcputotalindex}
-    cpmcpuhistoryentry.EntityData.Leafs["cpmCPUHistoryReportId"] = types.YLeaf{"Cpmcpuhistoryreportid", cpmcpuhistoryentry.Cpmcpuhistoryreportid}
-    cpmcpuhistoryentry.EntityData.Leafs["cpmCPUHistoryReportSize"] = types.YLeaf{"Cpmcpuhistoryreportsize", cpmcpuhistoryentry.Cpmcpuhistoryreportsize}
-    cpmcpuhistoryentry.EntityData.Leafs["cpmCPUHistoryTotalUtil"] = types.YLeaf{"Cpmcpuhistorytotalutil", cpmcpuhistoryentry.Cpmcpuhistorytotalutil}
-    cpmcpuhistoryentry.EntityData.Leafs["cpmCPUHistoryInterruptUtil"] = types.YLeaf{"Cpmcpuhistoryinterruptutil", cpmcpuhistoryentry.Cpmcpuhistoryinterruptutil}
-    cpmcpuhistoryentry.EntityData.Leafs["cpmCPUHistoryCreatedTime"] = types.YLeaf{"Cpmcpuhistorycreatedtime", cpmcpuhistoryentry.Cpmcpuhistorycreatedtime}
-    return &(cpmcpuhistoryentry.EntityData)
+    cpmCPUHistoryEntry.EntityData.Children = types.NewOrderedMap()
+    cpmCPUHistoryEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpmCPUHistoryEntry.EntityData.Leafs.Append("cpmCPUTotalIndex", types.YLeaf{"CpmCPUTotalIndex", cpmCPUHistoryEntry.CpmCPUTotalIndex})
+    cpmCPUHistoryEntry.EntityData.Leafs.Append("cpmCPUHistoryReportId", types.YLeaf{"CpmCPUHistoryReportId", cpmCPUHistoryEntry.CpmCPUHistoryReportId})
+    cpmCPUHistoryEntry.EntityData.Leafs.Append("cpmCPUHistoryReportSize", types.YLeaf{"CpmCPUHistoryReportSize", cpmCPUHistoryEntry.CpmCPUHistoryReportSize})
+    cpmCPUHistoryEntry.EntityData.Leafs.Append("cpmCPUHistoryTotalUtil", types.YLeaf{"CpmCPUHistoryTotalUtil", cpmCPUHistoryEntry.CpmCPUHistoryTotalUtil})
+    cpmCPUHistoryEntry.EntityData.Leafs.Append("cpmCPUHistoryInterruptUtil", types.YLeaf{"CpmCPUHistoryInterruptUtil", cpmCPUHistoryEntry.CpmCPUHistoryInterruptUtil})
+    cpmCPUHistoryEntry.EntityData.Leafs.Append("cpmCPUHistoryCreatedTime", types.YLeaf{"CpmCPUHistoryCreatedTime", cpmCPUHistoryEntry.CpmCPUHistoryCreatedTime})
+
+    cpmCPUHistoryEntry.EntityData.YListKeys = []string {"CpmCPUTotalIndex", "CpmCPUHistoryReportId"}
+
+    return &(cpmCPUHistoryEntry.EntityData)
 }
 
-// CISCOPROCESSMIB_Cpmcpuprocesshistorytable
+// CISCOPROCESSMIB_CpmCPUProcessHistoryTable
 // A list of process history entries. This table contains
 // CPU utilization of processes which crossed the 
 // cpmCPUHistoryThreshold.
-type CISCOPROCESSMIB_Cpmcpuprocesshistorytable struct {
+type CISCOPROCESSMIB_CpmCPUProcessHistoryTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1183,156 +1225,165 @@ type CISCOPROCESSMIB_Cpmcpuprocesshistorytable struct {
     // table will have corresponding entires in the cpmCPUHistoryTable. The
     // entries in this table get deleted when the entry associated with this entry
     // in the cpmCPUHistoryTable  gets deleted. The type is slice of
-    // CISCOPROCESSMIB_Cpmcpuprocesshistorytable_Cpmcpuprocesshistoryentry.
-    Cpmcpuprocesshistoryentry []CISCOPROCESSMIB_Cpmcpuprocesshistorytable_Cpmcpuprocesshistoryentry
+    // CISCOPROCESSMIB_CpmCPUProcessHistoryTable_CpmCPUProcessHistoryEntry.
+    CpmCPUProcessHistoryEntry []*CISCOPROCESSMIB_CpmCPUProcessHistoryTable_CpmCPUProcessHistoryEntry
 }
 
-func (cpmcpuprocesshistorytable *CISCOPROCESSMIB_Cpmcpuprocesshistorytable) GetEntityData() *types.CommonEntityData {
-    cpmcpuprocesshistorytable.EntityData.YFilter = cpmcpuprocesshistorytable.YFilter
-    cpmcpuprocesshistorytable.EntityData.YangName = "cpmCPUProcessHistoryTable"
-    cpmcpuprocesshistorytable.EntityData.BundleName = "cisco_ios_xe"
-    cpmcpuprocesshistorytable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
-    cpmcpuprocesshistorytable.EntityData.SegmentPath = "cpmCPUProcessHistoryTable"
-    cpmcpuprocesshistorytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpmcpuprocesshistorytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpmcpuprocesshistorytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpmCPUProcessHistoryTable *CISCOPROCESSMIB_CpmCPUProcessHistoryTable) GetEntityData() *types.CommonEntityData {
+    cpmCPUProcessHistoryTable.EntityData.YFilter = cpmCPUProcessHistoryTable.YFilter
+    cpmCPUProcessHistoryTable.EntityData.YangName = "cpmCPUProcessHistoryTable"
+    cpmCPUProcessHistoryTable.EntityData.BundleName = "cisco_ios_xe"
+    cpmCPUProcessHistoryTable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
+    cpmCPUProcessHistoryTable.EntityData.SegmentPath = "cpmCPUProcessHistoryTable"
+    cpmCPUProcessHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpmCPUProcessHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpmCPUProcessHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpmcpuprocesshistorytable.EntityData.Children = make(map[string]types.YChild)
-    cpmcpuprocesshistorytable.EntityData.Children["cpmCPUProcessHistoryEntry"] = types.YChild{"Cpmcpuprocesshistoryentry", nil}
-    for i := range cpmcpuprocesshistorytable.Cpmcpuprocesshistoryentry {
-        cpmcpuprocesshistorytable.EntityData.Children[types.GetSegmentPath(&cpmcpuprocesshistorytable.Cpmcpuprocesshistoryentry[i])] = types.YChild{"Cpmcpuprocesshistoryentry", &cpmcpuprocesshistorytable.Cpmcpuprocesshistoryentry[i]}
+    cpmCPUProcessHistoryTable.EntityData.Children = types.NewOrderedMap()
+    cpmCPUProcessHistoryTable.EntityData.Children.Append("cpmCPUProcessHistoryEntry", types.YChild{"CpmCPUProcessHistoryEntry", nil})
+    for i := range cpmCPUProcessHistoryTable.CpmCPUProcessHistoryEntry {
+        cpmCPUProcessHistoryTable.EntityData.Children.Append(types.GetSegmentPath(cpmCPUProcessHistoryTable.CpmCPUProcessHistoryEntry[i]), types.YChild{"CpmCPUProcessHistoryEntry", cpmCPUProcessHistoryTable.CpmCPUProcessHistoryEntry[i]})
     }
-    cpmcpuprocesshistorytable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpmcpuprocesshistorytable.EntityData)
+    cpmCPUProcessHistoryTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpmCPUProcessHistoryTable.EntityData.YListKeys = []string {}
+
+    return &(cpmCPUProcessHistoryTable.EntityData)
 }
 
-// CISCOPROCESSMIB_Cpmcpuprocesshistorytable_Cpmcpuprocesshistoryentry
+// CISCOPROCESSMIB_CpmCPUProcessHistoryTable_CpmCPUProcessHistoryEntry
 // A historical sample of process utilization
 // statistics. The entries in this table will have
 // corresponding entires in the cpmCPUHistoryTable.
 // The entries in this table get deleted when the entry
 // associated with this entry in the cpmCPUHistoryTable 
 // gets deleted.
-type CISCOPROCESSMIB_Cpmcpuprocesshistorytable_Cpmcpuprocesshistoryentry struct {
+type CISCOPROCESSMIB_CpmCPUProcessHistoryTable_CpmCPUProcessHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // cisco_process_mib.CISCOPROCESSMIB_Cpmcputotaltable_Cpmcputotalentry_Cpmcputotalindex
-    Cpmcputotalindex interface{}
+    // cisco_process_mib.CISCOPROCESSMIB_CpmCPUTotalTable_CpmCPUTotalEntry_CpmCPUTotalIndex
+    CpmCPUTotalIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // cisco_process_mib.CISCOPROCESSMIB_Cpmcpuhistorytable_Cpmcpuhistoryentry_Cpmcpuhistoryreportid
-    Cpmcpuhistoryreportid interface{}
+    // cisco_process_mib.CISCOPROCESSMIB_CpmCPUHistoryTable_CpmCPUHistoryEntry_CpmCPUHistoryReportId
+    CpmCPUHistoryReportId interface{}
 
     // This attribute is a key. An index that uniquely identifies an entry in the
     // cmpCPUProcessHistory table among those in the  same report. This index is
     // between 1 to N,  where N is the cpmCPUHistoryReportSize. The type is
     // interface{} with range: 1..4294967295.
-    Cpmcpuprocesshistoryindex interface{}
+    CpmCPUProcessHistoryIndex interface{}
 
     // The process Id associated with this entry. The type is interface{} with
     // range: 1..2147483647.
-    Cpmcpuhistoryprocid interface{}
+    CpmCPUHistoryProcId interface{}
 
     // The process name associated with this entry. The type is string.
-    Cpmcpuhistoryprocname interface{}
+    CpmCPUHistoryProcName interface{}
 
     // The time when the process was created. The process ID and the time when the
     // process was created, uniquely  identifies a process. The type is
     // interface{} with range: 0..4294967295.
-    Cpmcpuhistoryproccreated interface{}
+    CpmCPUHistoryProcCreated interface{}
 
     // The percentage CPU utilization of a process at cpmCPUHistoryCreatedTime.
     // The type is interface{} with range: 0..100. Units are percent.
-    Cpmcpuhistoryprocutil interface{}
+    CpmCPUHistoryProcUtil interface{}
 }
 
-func (cpmcpuprocesshistoryentry *CISCOPROCESSMIB_Cpmcpuprocesshistorytable_Cpmcpuprocesshistoryentry) GetEntityData() *types.CommonEntityData {
-    cpmcpuprocesshistoryentry.EntityData.YFilter = cpmcpuprocesshistoryentry.YFilter
-    cpmcpuprocesshistoryentry.EntityData.YangName = "cpmCPUProcessHistoryEntry"
-    cpmcpuprocesshistoryentry.EntityData.BundleName = "cisco_ios_xe"
-    cpmcpuprocesshistoryentry.EntityData.ParentYangName = "cpmCPUProcessHistoryTable"
-    cpmcpuprocesshistoryentry.EntityData.SegmentPath = "cpmCPUProcessHistoryEntry" + "[cpmCPUTotalIndex='" + fmt.Sprintf("%v", cpmcpuprocesshistoryentry.Cpmcputotalindex) + "']" + "[cpmCPUHistoryReportId='" + fmt.Sprintf("%v", cpmcpuprocesshistoryentry.Cpmcpuhistoryreportid) + "']" + "[cpmCPUProcessHistoryIndex='" + fmt.Sprintf("%v", cpmcpuprocesshistoryentry.Cpmcpuprocesshistoryindex) + "']"
-    cpmcpuprocesshistoryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpmcpuprocesshistoryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpmcpuprocesshistoryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpmCPUProcessHistoryEntry *CISCOPROCESSMIB_CpmCPUProcessHistoryTable_CpmCPUProcessHistoryEntry) GetEntityData() *types.CommonEntityData {
+    cpmCPUProcessHistoryEntry.EntityData.YFilter = cpmCPUProcessHistoryEntry.YFilter
+    cpmCPUProcessHistoryEntry.EntityData.YangName = "cpmCPUProcessHistoryEntry"
+    cpmCPUProcessHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpmCPUProcessHistoryEntry.EntityData.ParentYangName = "cpmCPUProcessHistoryTable"
+    cpmCPUProcessHistoryEntry.EntityData.SegmentPath = "cpmCPUProcessHistoryEntry" + types.AddKeyToken(cpmCPUProcessHistoryEntry.CpmCPUTotalIndex, "cpmCPUTotalIndex") + types.AddKeyToken(cpmCPUProcessHistoryEntry.CpmCPUHistoryReportId, "cpmCPUHistoryReportId") + types.AddKeyToken(cpmCPUProcessHistoryEntry.CpmCPUProcessHistoryIndex, "cpmCPUProcessHistoryIndex")
+    cpmCPUProcessHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpmCPUProcessHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpmCPUProcessHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpmcpuprocesshistoryentry.EntityData.Children = make(map[string]types.YChild)
-    cpmcpuprocesshistoryentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpmcpuprocesshistoryentry.EntityData.Leafs["cpmCPUTotalIndex"] = types.YLeaf{"Cpmcputotalindex", cpmcpuprocesshistoryentry.Cpmcputotalindex}
-    cpmcpuprocesshistoryentry.EntityData.Leafs["cpmCPUHistoryReportId"] = types.YLeaf{"Cpmcpuhistoryreportid", cpmcpuprocesshistoryentry.Cpmcpuhistoryreportid}
-    cpmcpuprocesshistoryentry.EntityData.Leafs["cpmCPUProcessHistoryIndex"] = types.YLeaf{"Cpmcpuprocesshistoryindex", cpmcpuprocesshistoryentry.Cpmcpuprocesshistoryindex}
-    cpmcpuprocesshistoryentry.EntityData.Leafs["cpmCPUHistoryProcId"] = types.YLeaf{"Cpmcpuhistoryprocid", cpmcpuprocesshistoryentry.Cpmcpuhistoryprocid}
-    cpmcpuprocesshistoryentry.EntityData.Leafs["cpmCPUHistoryProcName"] = types.YLeaf{"Cpmcpuhistoryprocname", cpmcpuprocesshistoryentry.Cpmcpuhistoryprocname}
-    cpmcpuprocesshistoryentry.EntityData.Leafs["cpmCPUHistoryProcCreated"] = types.YLeaf{"Cpmcpuhistoryproccreated", cpmcpuprocesshistoryentry.Cpmcpuhistoryproccreated}
-    cpmcpuprocesshistoryentry.EntityData.Leafs["cpmCPUHistoryProcUtil"] = types.YLeaf{"Cpmcpuhistoryprocutil", cpmcpuprocesshistoryentry.Cpmcpuhistoryprocutil}
-    return &(cpmcpuprocesshistoryentry.EntityData)
+    cpmCPUProcessHistoryEntry.EntityData.Children = types.NewOrderedMap()
+    cpmCPUProcessHistoryEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpmCPUProcessHistoryEntry.EntityData.Leafs.Append("cpmCPUTotalIndex", types.YLeaf{"CpmCPUTotalIndex", cpmCPUProcessHistoryEntry.CpmCPUTotalIndex})
+    cpmCPUProcessHistoryEntry.EntityData.Leafs.Append("cpmCPUHistoryReportId", types.YLeaf{"CpmCPUHistoryReportId", cpmCPUProcessHistoryEntry.CpmCPUHistoryReportId})
+    cpmCPUProcessHistoryEntry.EntityData.Leafs.Append("cpmCPUProcessHistoryIndex", types.YLeaf{"CpmCPUProcessHistoryIndex", cpmCPUProcessHistoryEntry.CpmCPUProcessHistoryIndex})
+    cpmCPUProcessHistoryEntry.EntityData.Leafs.Append("cpmCPUHistoryProcId", types.YLeaf{"CpmCPUHistoryProcId", cpmCPUProcessHistoryEntry.CpmCPUHistoryProcId})
+    cpmCPUProcessHistoryEntry.EntityData.Leafs.Append("cpmCPUHistoryProcName", types.YLeaf{"CpmCPUHistoryProcName", cpmCPUProcessHistoryEntry.CpmCPUHistoryProcName})
+    cpmCPUProcessHistoryEntry.EntityData.Leafs.Append("cpmCPUHistoryProcCreated", types.YLeaf{"CpmCPUHistoryProcCreated", cpmCPUProcessHistoryEntry.CpmCPUHistoryProcCreated})
+    cpmCPUProcessHistoryEntry.EntityData.Leafs.Append("cpmCPUHistoryProcUtil", types.YLeaf{"CpmCPUHistoryProcUtil", cpmCPUProcessHistoryEntry.CpmCPUHistoryProcUtil})
+
+    cpmCPUProcessHistoryEntry.EntityData.YListKeys = []string {"CpmCPUTotalIndex", "CpmCPUHistoryReportId", "CpmCPUProcessHistoryIndex"}
+
+    return &(cpmCPUProcessHistoryEntry.EntityData)
 }
 
-// CISCOPROCESSMIB_Cpmthreadtable
+// CISCOPROCESSMIB_CpmThreadTable
 // This table contains generic information about
 // POSIX threads in the device.
-type CISCOPROCESSMIB_Cpmthreadtable struct {
+type CISCOPROCESSMIB_CpmThreadTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing the general statistics of a POSIX thread. The type is
-    // slice of CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry.
-    Cpmthreadentry []CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry
+    // slice of CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry.
+    CpmThreadEntry []*CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry
 }
 
-func (cpmthreadtable *CISCOPROCESSMIB_Cpmthreadtable) GetEntityData() *types.CommonEntityData {
-    cpmthreadtable.EntityData.YFilter = cpmthreadtable.YFilter
-    cpmthreadtable.EntityData.YangName = "cpmThreadTable"
-    cpmthreadtable.EntityData.BundleName = "cisco_ios_xe"
-    cpmthreadtable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
-    cpmthreadtable.EntityData.SegmentPath = "cpmThreadTable"
-    cpmthreadtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpmthreadtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpmthreadtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpmThreadTable *CISCOPROCESSMIB_CpmThreadTable) GetEntityData() *types.CommonEntityData {
+    cpmThreadTable.EntityData.YFilter = cpmThreadTable.YFilter
+    cpmThreadTable.EntityData.YangName = "cpmThreadTable"
+    cpmThreadTable.EntityData.BundleName = "cisco_ios_xe"
+    cpmThreadTable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
+    cpmThreadTable.EntityData.SegmentPath = "cpmThreadTable"
+    cpmThreadTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpmThreadTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpmThreadTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpmthreadtable.EntityData.Children = make(map[string]types.YChild)
-    cpmthreadtable.EntityData.Children["cpmThreadEntry"] = types.YChild{"Cpmthreadentry", nil}
-    for i := range cpmthreadtable.Cpmthreadentry {
-        cpmthreadtable.EntityData.Children[types.GetSegmentPath(&cpmthreadtable.Cpmthreadentry[i])] = types.YChild{"Cpmthreadentry", &cpmthreadtable.Cpmthreadentry[i]}
+    cpmThreadTable.EntityData.Children = types.NewOrderedMap()
+    cpmThreadTable.EntityData.Children.Append("cpmThreadEntry", types.YChild{"CpmThreadEntry", nil})
+    for i := range cpmThreadTable.CpmThreadEntry {
+        cpmThreadTable.EntityData.Children.Append(types.GetSegmentPath(cpmThreadTable.CpmThreadEntry[i]), types.YChild{"CpmThreadEntry", cpmThreadTable.CpmThreadEntry[i]})
     }
-    cpmthreadtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpmthreadtable.EntityData)
+    cpmThreadTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpmThreadTable.EntityData.YListKeys = []string {}
+
+    return &(cpmThreadTable.EntityData)
 }
 
-// CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry
+// CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry
 // An entry containing the general statistics
 // of a POSIX thread.
-type CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry struct {
+type CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // cisco_process_mib.CISCOPROCESSMIB_Cpmcputotaltable_Cpmcputotalentry_Cpmcputotalindex
-    Cpmcputotalindex interface{}
+    // cisco_process_mib.CISCOPROCESSMIB_CpmCPUTotalTable_CpmCPUTotalEntry_CpmCPUTotalIndex
+    CpmCPUTotalIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // cisco_process_mib.CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry_Cpmprocesspid
-    Cpmprocesspid interface{}
+    // cisco_process_mib.CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry_CpmProcessPID
+    CpmProcessPID interface{}
 
     // This attribute is a key. This object contains the thread ID. ThreadID is
     // Unique per process. The type is interface{} with range: 0..4294967295.
-    Cpmthreadid interface{}
+    CpmThreadID interface{}
 
     // This object represents the name of the thread. Thread names need not be
     // unique. Hence statistics  should be analyzed against thread ID. The type is
     // string.
-    Cpmthreadname interface{}
+    CpmThreadName interface{}
 
     // This object indicates the priority of a POSIX thread. The higher the
     // number, the higher the priority of the  thread over other threads. The type
     // is interface{} with range: 0..63.
-    Cpmthreadpriority interface{}
+    CpmThreadPriority interface{}
 
     // This object indicates the current state of a thread. Running state means
     // that the thread is actively  consumig CPU. All the other states are just
@@ -1352,253 +1403,262 @@ type CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry struct {
     // condvar       - Waiting for a condition variable to be                 
     // signalled. join          - Waiting for the completion of another           
     // thread. intr          - Waiting for an interrupt. sem           - Waiting
-    // to acquire a semaphore. The type is Cpmthreadstate.
-    Cpmthreadstate interface{}
+    // to acquire a semaphore. The type is CpmThreadState.
+    CpmThreadState interface{}
 
     // This object identifies the process on which the current thread is blocked
     // on. This points to the  cpmProcessTable of the process on which the thread 
     // in context is blocked. This is valid only to threads which are either in
     // send/reply states. For the  rest of the threads it is returned as 0.0. The
     // type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Cpmthreadblockingprocess interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    CpmThreadBlockingProcess interface{}
 
     // This object provides a general idea on how busy the thread in context
     // caused the processor to be. The type is interface{} with range:
     // 0..4294967295. Units are milliseconds.
-    Cpmthreadcpuutilization interface{}
+    CpmThreadCpuUtilization interface{}
 
     // This object indicates the stack size allocated to the thread in context.
     // The type is interface{} with range: 0..4294967295. Units are bytes.
-    Cpmthreadstacksize interface{}
+    CpmThreadStackSize interface{}
 
     // This object represents the upper 32-bit of cpmThreadStackSize. This object
     // needs to be supported only when the value of cpmThreadStackSize exceeds
     // 32-bit, otherwise this object value would be set to 0. The type is
     // interface{} with range: 0..4294967295. Units are bytes.
-    Cpmthreadstacksizeovrflw interface{}
+    CpmThreadStackSizeOvrflw interface{}
 
     // This object indicates the stack size allocated to the thread in context.
     // This object is a 64-bit version of cpmThreadStackSize. The type is
     // interface{} with range: 0..18446744073709551615. Units are bytes.
-    Cpmthreadhcstacksize interface{}
+    CpmThreadHCStackSize interface{}
 }
 
-func (cpmthreadentry *CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry) GetEntityData() *types.CommonEntityData {
-    cpmthreadentry.EntityData.YFilter = cpmthreadentry.YFilter
-    cpmthreadentry.EntityData.YangName = "cpmThreadEntry"
-    cpmthreadentry.EntityData.BundleName = "cisco_ios_xe"
-    cpmthreadentry.EntityData.ParentYangName = "cpmThreadTable"
-    cpmthreadentry.EntityData.SegmentPath = "cpmThreadEntry" + "[cpmCPUTotalIndex='" + fmt.Sprintf("%v", cpmthreadentry.Cpmcputotalindex) + "']" + "[cpmProcessPID='" + fmt.Sprintf("%v", cpmthreadentry.Cpmprocesspid) + "']" + "[cpmThreadID='" + fmt.Sprintf("%v", cpmthreadentry.Cpmthreadid) + "']"
-    cpmthreadentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpmthreadentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpmthreadentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpmThreadEntry *CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry) GetEntityData() *types.CommonEntityData {
+    cpmThreadEntry.EntityData.YFilter = cpmThreadEntry.YFilter
+    cpmThreadEntry.EntityData.YangName = "cpmThreadEntry"
+    cpmThreadEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpmThreadEntry.EntityData.ParentYangName = "cpmThreadTable"
+    cpmThreadEntry.EntityData.SegmentPath = "cpmThreadEntry" + types.AddKeyToken(cpmThreadEntry.CpmCPUTotalIndex, "cpmCPUTotalIndex") + types.AddKeyToken(cpmThreadEntry.CpmProcessPID, "cpmProcessPID") + types.AddKeyToken(cpmThreadEntry.CpmThreadID, "cpmThreadID")
+    cpmThreadEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpmThreadEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpmThreadEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpmthreadentry.EntityData.Children = make(map[string]types.YChild)
-    cpmthreadentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpmthreadentry.EntityData.Leafs["cpmCPUTotalIndex"] = types.YLeaf{"Cpmcputotalindex", cpmthreadentry.Cpmcputotalindex}
-    cpmthreadentry.EntityData.Leafs["cpmProcessPID"] = types.YLeaf{"Cpmprocesspid", cpmthreadentry.Cpmprocesspid}
-    cpmthreadentry.EntityData.Leafs["cpmThreadID"] = types.YLeaf{"Cpmthreadid", cpmthreadentry.Cpmthreadid}
-    cpmthreadentry.EntityData.Leafs["cpmThreadName"] = types.YLeaf{"Cpmthreadname", cpmthreadentry.Cpmthreadname}
-    cpmthreadentry.EntityData.Leafs["cpmThreadPriority"] = types.YLeaf{"Cpmthreadpriority", cpmthreadentry.Cpmthreadpriority}
-    cpmthreadentry.EntityData.Leafs["cpmThreadState"] = types.YLeaf{"Cpmthreadstate", cpmthreadentry.Cpmthreadstate}
-    cpmthreadentry.EntityData.Leafs["cpmThreadBlockingProcess"] = types.YLeaf{"Cpmthreadblockingprocess", cpmthreadentry.Cpmthreadblockingprocess}
-    cpmthreadentry.EntityData.Leafs["cpmThreadCpuUtilization"] = types.YLeaf{"Cpmthreadcpuutilization", cpmthreadentry.Cpmthreadcpuutilization}
-    cpmthreadentry.EntityData.Leafs["cpmThreadStackSize"] = types.YLeaf{"Cpmthreadstacksize", cpmthreadentry.Cpmthreadstacksize}
-    cpmthreadentry.EntityData.Leafs["cpmThreadStackSizeOvrflw"] = types.YLeaf{"Cpmthreadstacksizeovrflw", cpmthreadentry.Cpmthreadstacksizeovrflw}
-    cpmthreadentry.EntityData.Leafs["cpmThreadHCStackSize"] = types.YLeaf{"Cpmthreadhcstacksize", cpmthreadentry.Cpmthreadhcstacksize}
-    return &(cpmthreadentry.EntityData)
+    cpmThreadEntry.EntityData.Children = types.NewOrderedMap()
+    cpmThreadEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpmThreadEntry.EntityData.Leafs.Append("cpmCPUTotalIndex", types.YLeaf{"CpmCPUTotalIndex", cpmThreadEntry.CpmCPUTotalIndex})
+    cpmThreadEntry.EntityData.Leafs.Append("cpmProcessPID", types.YLeaf{"CpmProcessPID", cpmThreadEntry.CpmProcessPID})
+    cpmThreadEntry.EntityData.Leafs.Append("cpmThreadID", types.YLeaf{"CpmThreadID", cpmThreadEntry.CpmThreadID})
+    cpmThreadEntry.EntityData.Leafs.Append("cpmThreadName", types.YLeaf{"CpmThreadName", cpmThreadEntry.CpmThreadName})
+    cpmThreadEntry.EntityData.Leafs.Append("cpmThreadPriority", types.YLeaf{"CpmThreadPriority", cpmThreadEntry.CpmThreadPriority})
+    cpmThreadEntry.EntityData.Leafs.Append("cpmThreadState", types.YLeaf{"CpmThreadState", cpmThreadEntry.CpmThreadState})
+    cpmThreadEntry.EntityData.Leafs.Append("cpmThreadBlockingProcess", types.YLeaf{"CpmThreadBlockingProcess", cpmThreadEntry.CpmThreadBlockingProcess})
+    cpmThreadEntry.EntityData.Leafs.Append("cpmThreadCpuUtilization", types.YLeaf{"CpmThreadCpuUtilization", cpmThreadEntry.CpmThreadCpuUtilization})
+    cpmThreadEntry.EntityData.Leafs.Append("cpmThreadStackSize", types.YLeaf{"CpmThreadStackSize", cpmThreadEntry.CpmThreadStackSize})
+    cpmThreadEntry.EntityData.Leafs.Append("cpmThreadStackSizeOvrflw", types.YLeaf{"CpmThreadStackSizeOvrflw", cpmThreadEntry.CpmThreadStackSizeOvrflw})
+    cpmThreadEntry.EntityData.Leafs.Append("cpmThreadHCStackSize", types.YLeaf{"CpmThreadHCStackSize", cpmThreadEntry.CpmThreadHCStackSize})
+
+    cpmThreadEntry.EntityData.YListKeys = []string {"CpmCPUTotalIndex", "CpmProcessPID", "CpmThreadID"}
+
+    return &(cpmThreadEntry.EntityData)
 }
 
-// CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate represents sem           - Waiting to acquire a semaphore.
-type CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate string
+// CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState represents sem           - Waiting to acquire a semaphore.
+type CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState string
 
 const (
-    CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate_other CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate = "other"
+    CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState_other CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState = "other"
 
-    CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate_dead CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate = "dead"
+    CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState_dead CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState = "dead"
 
-    CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate_running CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate = "running"
+    CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState_running CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState = "running"
 
-    CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate_ready CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate = "ready"
+    CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState_ready CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState = "ready"
 
-    CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate_stopped CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate = "stopped"
+    CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState_stopped CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState = "stopped"
 
-    CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate_send CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate = "send"
+    CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState_send CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState = "send"
 
-    CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate_receive CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate = "receive"
+    CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState_receive CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState = "receive"
 
-    CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate_reply CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate = "reply"
+    CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState_reply CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState = "reply"
 
-    CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate_stack CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate = "stack"
+    CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState_stack CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState = "stack"
 
-    CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate_waitpage CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate = "waitpage"
+    CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState_waitpage CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState = "waitpage"
 
-    CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate_sigsuspend CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate = "sigsuspend"
+    CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState_sigsuspend CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState = "sigsuspend"
 
-    CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate_sigwaitinfo CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate = "sigwaitinfo"
+    CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState_sigwaitinfo CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState = "sigwaitinfo"
 
-    CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate_nanosleep CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate = "nanosleep"
+    CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState_nanosleep CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState = "nanosleep"
 
-    CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate_mutex CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate = "mutex"
+    CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState_mutex CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState = "mutex"
 
-    CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate_condvar CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate = "condvar"
+    CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState_condvar CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState = "condvar"
 
-    CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate_join CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate = "join"
+    CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState_join CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState = "join"
 
-    CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate_intr CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate = "intr"
+    CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState_intr CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState = "intr"
 
-    CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate_sem CISCOPROCESSMIB_Cpmthreadtable_Cpmthreadentry_Cpmthreadstate = "sem"
+    CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState_sem CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry_CpmThreadState = "sem"
 )
 
-// CISCOPROCESSMIB_Cpmvirtualprocesstable
+// CISCOPROCESSMIB_CpmVirtualProcessTable
 // This table contains information about virtual
 // processes in a virtual machine.
-type CISCOPROCESSMIB_Cpmvirtualprocesstable struct {
+type CISCOPROCESSMIB_CpmVirtualProcessTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing the general statistics of a virtual process in a
     // virtual machine. The type is slice of
-    // CISCOPROCESSMIB_Cpmvirtualprocesstable_Cpmvirtualprocessentry.
-    Cpmvirtualprocessentry []CISCOPROCESSMIB_Cpmvirtualprocesstable_Cpmvirtualprocessentry
+    // CISCOPROCESSMIB_CpmVirtualProcessTable_CpmVirtualProcessEntry.
+    CpmVirtualProcessEntry []*CISCOPROCESSMIB_CpmVirtualProcessTable_CpmVirtualProcessEntry
 }
 
-func (cpmvirtualprocesstable *CISCOPROCESSMIB_Cpmvirtualprocesstable) GetEntityData() *types.CommonEntityData {
-    cpmvirtualprocesstable.EntityData.YFilter = cpmvirtualprocesstable.YFilter
-    cpmvirtualprocesstable.EntityData.YangName = "cpmVirtualProcessTable"
-    cpmvirtualprocesstable.EntityData.BundleName = "cisco_ios_xe"
-    cpmvirtualprocesstable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
-    cpmvirtualprocesstable.EntityData.SegmentPath = "cpmVirtualProcessTable"
-    cpmvirtualprocesstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpmvirtualprocesstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpmvirtualprocesstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpmVirtualProcessTable *CISCOPROCESSMIB_CpmVirtualProcessTable) GetEntityData() *types.CommonEntityData {
+    cpmVirtualProcessTable.EntityData.YFilter = cpmVirtualProcessTable.YFilter
+    cpmVirtualProcessTable.EntityData.YangName = "cpmVirtualProcessTable"
+    cpmVirtualProcessTable.EntityData.BundleName = "cisco_ios_xe"
+    cpmVirtualProcessTable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
+    cpmVirtualProcessTable.EntityData.SegmentPath = "cpmVirtualProcessTable"
+    cpmVirtualProcessTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpmVirtualProcessTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpmVirtualProcessTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpmvirtualprocesstable.EntityData.Children = make(map[string]types.YChild)
-    cpmvirtualprocesstable.EntityData.Children["cpmVirtualProcessEntry"] = types.YChild{"Cpmvirtualprocessentry", nil}
-    for i := range cpmvirtualprocesstable.Cpmvirtualprocessentry {
-        cpmvirtualprocesstable.EntityData.Children[types.GetSegmentPath(&cpmvirtualprocesstable.Cpmvirtualprocessentry[i])] = types.YChild{"Cpmvirtualprocessentry", &cpmvirtualprocesstable.Cpmvirtualprocessentry[i]}
+    cpmVirtualProcessTable.EntityData.Children = types.NewOrderedMap()
+    cpmVirtualProcessTable.EntityData.Children.Append("cpmVirtualProcessEntry", types.YChild{"CpmVirtualProcessEntry", nil})
+    for i := range cpmVirtualProcessTable.CpmVirtualProcessEntry {
+        cpmVirtualProcessTable.EntityData.Children.Append(types.GetSegmentPath(cpmVirtualProcessTable.CpmVirtualProcessEntry[i]), types.YChild{"CpmVirtualProcessEntry", cpmVirtualProcessTable.CpmVirtualProcessEntry[i]})
     }
-    cpmvirtualprocesstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpmvirtualprocesstable.EntityData)
+    cpmVirtualProcessTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpmVirtualProcessTable.EntityData.YListKeys = []string {}
+
+    return &(cpmVirtualProcessTable.EntityData)
 }
 
-// CISCOPROCESSMIB_Cpmvirtualprocesstable_Cpmvirtualprocessentry
+// CISCOPROCESSMIB_CpmVirtualProcessTable_CpmVirtualProcessEntry
 // An entry containing the general statistics of a
 // virtual process in a virtual machine.
-type CISCOPROCESSMIB_Cpmvirtualprocesstable_Cpmvirtualprocessentry struct {
+type CISCOPROCESSMIB_CpmVirtualProcessTable_CpmVirtualProcessEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // cisco_process_mib.CISCOPROCESSMIB_Cpmcputotaltable_Cpmcputotalentry_Cpmcputotalindex
-    Cpmcputotalindex interface{}
+    // cisco_process_mib.CISCOPROCESSMIB_CpmCPUTotalTable_CpmCPUTotalEntry_CpmCPUTotalIndex
+    CpmCPUTotalIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // cisco_process_mib.CISCOPROCESSMIB_Cpmprocesstable_Cpmprocessentry_Cpmprocesspid
-    Cpmprocesspid interface{}
+    // cisco_process_mib.CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry_CpmProcessPID
+    CpmProcessPID interface{}
 
     // This attribute is a key. This object indicates the process ID of a virtual
     // process. PID is unique only inside one address space. Virtual process PID
     // should be considered along with  Parent process cpmProcessPID. The type is
     // interface{} with range: 0..4294967295.
-    Cpmvirtualprocessid interface{}
+    CpmVirtualProcessID interface{}
 
     // This object indicates the name of a virtual process. If the name is longer
     // than 32 characters, it will be truncated to the first 31 characters, and a
     // `*' will be appended as the last character to imply this is a truncated
     // process name. The type is string with length: 1..32.
-    Cpmvirtualprocessname interface{}
+    CpmVirtualProcessName interface{}
 
     // This indicates an estimated CPU utilization by a virtual process over the
     // last 5 seconds. The type is interface{} with range: 0..100. Units are
     // percent.
-    Cpmvirtualprocessutil5Sec interface{}
+    CpmVirtualProcessUtil5Sec interface{}
 
     // This indicates an estimated CPU utilization by a virtual process over the
     // last one minute. The type is interface{} with range: 0..100. Units are
     // percent.
-    Cpmvirtualprocessutil1Min interface{}
+    CpmVirtualProcessUtil1Min interface{}
 
     // This indicates an estimated CPU utilization by a virtual process over the
     // last 5 minutes. The type is interface{} with range: 0..100. Units are
     // percent.
-    Cpmvirtualprocessutil5Min interface{}
+    CpmVirtualProcessUtil5Min interface{}
 
     // This object indicates the memory allocated by the virtual process inside
     // the address space of a  process running on Native OS. The type is
     // interface{} with range: 0..4294967295. Units are bytes.
-    Cpmvirtualprocessmemallocated interface{}
+    CpmVirtualProcessMemAllocated interface{}
 
     // This object indicates the memory freed by the virtual process inside the
     // address space of a process running  on Native OS. The type is interface{}
     // with range: 0..4294967295. Units are bytes.
-    Cpmvirtualprocessmemfreed interface{}
+    CpmVirtualProcessMemFreed interface{}
 
     // The number of times a virtual process is invoked. The type is interface{}
     // with range: 0..4294967295.
-    Cpmvirtualprocessinvokecount interface{}
+    CpmVirtualProcessInvokeCount interface{}
 
     // The amount of CPU time a virtual process has used in microseconds. The type
     // is interface{} with range: 0..4294967295. Units are microseconds.
-    Cpmvirtualprocessruntime interface{}
+    CpmVirtualProcessRuntime interface{}
 
     // This object represents the upper 32-bit of cpmVirtualProcessMemAllocated.
     // This object  needs to be supported only when the value of
     // cpmVirtualProcessMemAllocated exceeds 32-bit, otherwise this object value
     // would be set to 0. The type is interface{} with range: 0..4294967295. Units
     // are bytes.
-    Cpmvirtualprocessmemallocatedovrflw interface{}
+    CpmVirtualProcessMemAllocatedOvrflw interface{}
 
     // This object indicates the memory allocated by the virtual process inside
     // the address space of a process running on Native OS. This object is a
     // 64-bit version of cpmVirtualProcessMemAllocated. The type is interface{}
     // with range: 0..18446744073709551615. Units are bytes.
-    Cpmvirtualprocesshcmemallocated interface{}
+    CpmVirtualProcessHCMemAllocated interface{}
 
     // This object represents the upper 32-bit of cpmVirtualProcessMemFreed. This
     // object needs to be supported only when the value of 
     // cpmVirtualProcessMemFreed exceeds 32-bit,  otherwise this object value
     // would be set to 0. The type is interface{} with range: 0..4294967295. Units
     // are bytes.
-    Cpmvirtualprocessmemfreedovrflw interface{}
+    CpmVirtualProcessMemFreedOvrflw interface{}
 
     // This object indicates the memory freed by the virtual process inside the
     // address space of a process running on Native OS.This object is a 64-bit
     // version of cpmVirtualProcessMemAllocated. The type is interface{} with
     // range: 0..18446744073709551615. Units are bytes.
-    Cpmvirtualprocesshcmemfreed interface{}
+    CpmVirtualProcessHCMemFreed interface{}
 }
 
-func (cpmvirtualprocessentry *CISCOPROCESSMIB_Cpmvirtualprocesstable_Cpmvirtualprocessentry) GetEntityData() *types.CommonEntityData {
-    cpmvirtualprocessentry.EntityData.YFilter = cpmvirtualprocessentry.YFilter
-    cpmvirtualprocessentry.EntityData.YangName = "cpmVirtualProcessEntry"
-    cpmvirtualprocessentry.EntityData.BundleName = "cisco_ios_xe"
-    cpmvirtualprocessentry.EntityData.ParentYangName = "cpmVirtualProcessTable"
-    cpmvirtualprocessentry.EntityData.SegmentPath = "cpmVirtualProcessEntry" + "[cpmCPUTotalIndex='" + fmt.Sprintf("%v", cpmvirtualprocessentry.Cpmcputotalindex) + "']" + "[cpmProcessPID='" + fmt.Sprintf("%v", cpmvirtualprocessentry.Cpmprocesspid) + "']" + "[cpmVirtualProcessID='" + fmt.Sprintf("%v", cpmvirtualprocessentry.Cpmvirtualprocessid) + "']"
-    cpmvirtualprocessentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpmvirtualprocessentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpmvirtualprocessentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpmVirtualProcessEntry *CISCOPROCESSMIB_CpmVirtualProcessTable_CpmVirtualProcessEntry) GetEntityData() *types.CommonEntityData {
+    cpmVirtualProcessEntry.EntityData.YFilter = cpmVirtualProcessEntry.YFilter
+    cpmVirtualProcessEntry.EntityData.YangName = "cpmVirtualProcessEntry"
+    cpmVirtualProcessEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpmVirtualProcessEntry.EntityData.ParentYangName = "cpmVirtualProcessTable"
+    cpmVirtualProcessEntry.EntityData.SegmentPath = "cpmVirtualProcessEntry" + types.AddKeyToken(cpmVirtualProcessEntry.CpmCPUTotalIndex, "cpmCPUTotalIndex") + types.AddKeyToken(cpmVirtualProcessEntry.CpmProcessPID, "cpmProcessPID") + types.AddKeyToken(cpmVirtualProcessEntry.CpmVirtualProcessID, "cpmVirtualProcessID")
+    cpmVirtualProcessEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpmVirtualProcessEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpmVirtualProcessEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpmvirtualprocessentry.EntityData.Children = make(map[string]types.YChild)
-    cpmvirtualprocessentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpmvirtualprocessentry.EntityData.Leafs["cpmCPUTotalIndex"] = types.YLeaf{"Cpmcputotalindex", cpmvirtualprocessentry.Cpmcputotalindex}
-    cpmvirtualprocessentry.EntityData.Leafs["cpmProcessPID"] = types.YLeaf{"Cpmprocesspid", cpmvirtualprocessentry.Cpmprocesspid}
-    cpmvirtualprocessentry.EntityData.Leafs["cpmVirtualProcessID"] = types.YLeaf{"Cpmvirtualprocessid", cpmvirtualprocessentry.Cpmvirtualprocessid}
-    cpmvirtualprocessentry.EntityData.Leafs["cpmVirtualProcessName"] = types.YLeaf{"Cpmvirtualprocessname", cpmvirtualprocessentry.Cpmvirtualprocessname}
-    cpmvirtualprocessentry.EntityData.Leafs["cpmVirtualProcessUtil5Sec"] = types.YLeaf{"Cpmvirtualprocessutil5Sec", cpmvirtualprocessentry.Cpmvirtualprocessutil5Sec}
-    cpmvirtualprocessentry.EntityData.Leafs["cpmVirtualProcessUtil1Min"] = types.YLeaf{"Cpmvirtualprocessutil1Min", cpmvirtualprocessentry.Cpmvirtualprocessutil1Min}
-    cpmvirtualprocessentry.EntityData.Leafs["cpmVirtualProcessUtil5Min"] = types.YLeaf{"Cpmvirtualprocessutil5Min", cpmvirtualprocessentry.Cpmvirtualprocessutil5Min}
-    cpmvirtualprocessentry.EntityData.Leafs["cpmVirtualProcessMemAllocated"] = types.YLeaf{"Cpmvirtualprocessmemallocated", cpmvirtualprocessentry.Cpmvirtualprocessmemallocated}
-    cpmvirtualprocessentry.EntityData.Leafs["cpmVirtualProcessMemFreed"] = types.YLeaf{"Cpmvirtualprocessmemfreed", cpmvirtualprocessentry.Cpmvirtualprocessmemfreed}
-    cpmvirtualprocessentry.EntityData.Leafs["cpmVirtualProcessInvokeCount"] = types.YLeaf{"Cpmvirtualprocessinvokecount", cpmvirtualprocessentry.Cpmvirtualprocessinvokecount}
-    cpmvirtualprocessentry.EntityData.Leafs["cpmVirtualProcessRuntime"] = types.YLeaf{"Cpmvirtualprocessruntime", cpmvirtualprocessentry.Cpmvirtualprocessruntime}
-    cpmvirtualprocessentry.EntityData.Leafs["cpmVirtualProcessMemAllocatedOvrflw"] = types.YLeaf{"Cpmvirtualprocessmemallocatedovrflw", cpmvirtualprocessentry.Cpmvirtualprocessmemallocatedovrflw}
-    cpmvirtualprocessentry.EntityData.Leafs["cpmVirtualProcessHCMemAllocated"] = types.YLeaf{"Cpmvirtualprocesshcmemallocated", cpmvirtualprocessentry.Cpmvirtualprocesshcmemallocated}
-    cpmvirtualprocessentry.EntityData.Leafs["cpmVirtualProcessMemFreedOvrflw"] = types.YLeaf{"Cpmvirtualprocessmemfreedovrflw", cpmvirtualprocessentry.Cpmvirtualprocessmemfreedovrflw}
-    cpmvirtualprocessentry.EntityData.Leafs["cpmVirtualProcessHCMemFreed"] = types.YLeaf{"Cpmvirtualprocesshcmemfreed", cpmvirtualprocessentry.Cpmvirtualprocesshcmemfreed}
-    return &(cpmvirtualprocessentry.EntityData)
+    cpmVirtualProcessEntry.EntityData.Children = types.NewOrderedMap()
+    cpmVirtualProcessEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpmVirtualProcessEntry.EntityData.Leafs.Append("cpmCPUTotalIndex", types.YLeaf{"CpmCPUTotalIndex", cpmVirtualProcessEntry.CpmCPUTotalIndex})
+    cpmVirtualProcessEntry.EntityData.Leafs.Append("cpmProcessPID", types.YLeaf{"CpmProcessPID", cpmVirtualProcessEntry.CpmProcessPID})
+    cpmVirtualProcessEntry.EntityData.Leafs.Append("cpmVirtualProcessID", types.YLeaf{"CpmVirtualProcessID", cpmVirtualProcessEntry.CpmVirtualProcessID})
+    cpmVirtualProcessEntry.EntityData.Leafs.Append("cpmVirtualProcessName", types.YLeaf{"CpmVirtualProcessName", cpmVirtualProcessEntry.CpmVirtualProcessName})
+    cpmVirtualProcessEntry.EntityData.Leafs.Append("cpmVirtualProcessUtil5Sec", types.YLeaf{"CpmVirtualProcessUtil5Sec", cpmVirtualProcessEntry.CpmVirtualProcessUtil5Sec})
+    cpmVirtualProcessEntry.EntityData.Leafs.Append("cpmVirtualProcessUtil1Min", types.YLeaf{"CpmVirtualProcessUtil1Min", cpmVirtualProcessEntry.CpmVirtualProcessUtil1Min})
+    cpmVirtualProcessEntry.EntityData.Leafs.Append("cpmVirtualProcessUtil5Min", types.YLeaf{"CpmVirtualProcessUtil5Min", cpmVirtualProcessEntry.CpmVirtualProcessUtil5Min})
+    cpmVirtualProcessEntry.EntityData.Leafs.Append("cpmVirtualProcessMemAllocated", types.YLeaf{"CpmVirtualProcessMemAllocated", cpmVirtualProcessEntry.CpmVirtualProcessMemAllocated})
+    cpmVirtualProcessEntry.EntityData.Leafs.Append("cpmVirtualProcessMemFreed", types.YLeaf{"CpmVirtualProcessMemFreed", cpmVirtualProcessEntry.CpmVirtualProcessMemFreed})
+    cpmVirtualProcessEntry.EntityData.Leafs.Append("cpmVirtualProcessInvokeCount", types.YLeaf{"CpmVirtualProcessInvokeCount", cpmVirtualProcessEntry.CpmVirtualProcessInvokeCount})
+    cpmVirtualProcessEntry.EntityData.Leafs.Append("cpmVirtualProcessRuntime", types.YLeaf{"CpmVirtualProcessRuntime", cpmVirtualProcessEntry.CpmVirtualProcessRuntime})
+    cpmVirtualProcessEntry.EntityData.Leafs.Append("cpmVirtualProcessMemAllocatedOvrflw", types.YLeaf{"CpmVirtualProcessMemAllocatedOvrflw", cpmVirtualProcessEntry.CpmVirtualProcessMemAllocatedOvrflw})
+    cpmVirtualProcessEntry.EntityData.Leafs.Append("cpmVirtualProcessHCMemAllocated", types.YLeaf{"CpmVirtualProcessHCMemAllocated", cpmVirtualProcessEntry.CpmVirtualProcessHCMemAllocated})
+    cpmVirtualProcessEntry.EntityData.Leafs.Append("cpmVirtualProcessMemFreedOvrflw", types.YLeaf{"CpmVirtualProcessMemFreedOvrflw", cpmVirtualProcessEntry.CpmVirtualProcessMemFreedOvrflw})
+    cpmVirtualProcessEntry.EntityData.Leafs.Append("cpmVirtualProcessHCMemFreed", types.YLeaf{"CpmVirtualProcessHCMemFreed", cpmVirtualProcessEntry.CpmVirtualProcessHCMemFreed})
+
+    cpmVirtualProcessEntry.EntityData.YListKeys = []string {"CpmCPUTotalIndex", "CpmProcessPID", "CpmVirtualProcessID"}
+
+    return &(cpmVirtualProcessEntry.EntityData)
 }
 

@@ -44,9 +44,12 @@ func (showUsers *ShowUsers) GetEntityData() *types.CommonEntityData {
     showUsers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     showUsers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    showUsers.EntityData.Children = make(map[string]types.YChild)
-    showUsers.EntityData.Children["sessions"] = types.YChild{"Sessions", &showUsers.Sessions}
-    showUsers.EntityData.Leafs = make(map[string]types.YLeaf)
+    showUsers.EntityData.Children = types.NewOrderedMap()
+    showUsers.EntityData.Children.Append("sessions", types.YChild{"Sessions", &showUsers.Sessions})
+    showUsers.EntityData.Leafs = types.NewOrderedMap()
+
+    showUsers.EntityData.YListKeys = []string {}
+
     return &(showUsers.EntityData)
 }
 
@@ -57,7 +60,7 @@ type ShowUsers_Sessions struct {
     YFilter yfilter.YFilter
 
     // Show users statistics. The type is slice of ShowUsers_Sessions_Session.
-    Session []ShowUsers_Sessions_Session
+    Session []*ShowUsers_Sessions_Session
 }
 
 func (sessions *ShowUsers_Sessions) GetEntityData() *types.CommonEntityData {
@@ -70,12 +73,15 @@ func (sessions *ShowUsers_Sessions) GetEntityData() *types.CommonEntityData {
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessions.EntityData.Children = make(map[string]types.YChild)
-    sessions.EntityData.Children["session"] = types.YChild{"Session", nil}
+    sessions.EntityData.Children = types.NewOrderedMap()
+    sessions.EntityData.Children.Append("session", types.YChild{"Session", nil})
     for i := range sessions.Session {
-        sessions.EntityData.Children[types.GetSegmentPath(&sessions.Session[i])] = types.YChild{"Session", &sessions.Session[i]}
+        sessions.EntityData.Children.Append(types.GetSegmentPath(sessions.Session[i]), types.YChild{"Session", sessions.Session[i]})
     }
-    sessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessions.EntityData.Leafs = types.NewOrderedMap()
+
+    sessions.EntityData.YListKeys = []string {}
+
     return &(sessions.EntityData)
 }
 
@@ -113,20 +119,23 @@ func (session *ShowUsers_Sessions_Session) GetEntityData() *types.CommonEntityDa
     session.EntityData.YangName = "session"
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
-    session.EntityData.SegmentPath = "session" + "[session-id='" + fmt.Sprintf("%v", session.SessionId) + "']"
+    session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.SessionId, "session-id")
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    session.EntityData.Children = make(map[string]types.YChild)
-    session.EntityData.Leafs = make(map[string]types.YLeaf)
-    session.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", session.SessionId}
-    session.EntityData.Leafs["line"] = types.YLeaf{"Line", session.Line}
-    session.EntityData.Leafs["user"] = types.YLeaf{"User", session.User}
-    session.EntityData.Leafs["service"] = types.YLeaf{"Service", session.Service}
-    session.EntityData.Leafs["conns"] = types.YLeaf{"Conns", session.Conns}
-    session.EntityData.Leafs["idle-string"] = types.YLeaf{"IdleString", session.IdleString}
-    session.EntityData.Leafs["location"] = types.YLeaf{"Location", session.Location}
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Leafs = types.NewOrderedMap()
+    session.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", session.SessionId})
+    session.EntityData.Leafs.Append("line", types.YLeaf{"Line", session.Line})
+    session.EntityData.Leafs.Append("user", types.YLeaf{"User", session.User})
+    session.EntityData.Leafs.Append("service", types.YLeaf{"Service", session.Service})
+    session.EntityData.Leafs.Append("conns", types.YLeaf{"Conns", session.Conns})
+    session.EntityData.Leafs.Append("idle-string", types.YLeaf{"IdleString", session.IdleString})
+    session.EntityData.Leafs.Append("location", types.YLeaf{"Location", session.Location})
+
+    session.EntityData.YListKeys = []string {"SessionId"}
+
     return &(session.EntityData)
 }
 

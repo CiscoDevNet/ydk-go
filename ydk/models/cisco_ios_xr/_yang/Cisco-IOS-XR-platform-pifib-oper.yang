@@ -108,7 +108,7 @@ module Cisco-IOS-XR-platform-pifib-oper {
           description
             "Entry options";
           leaf index {
-            type int32;
+            type uint32;
             description
               "Index";
           }

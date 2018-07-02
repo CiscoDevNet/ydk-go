@@ -7,7 +7,7 @@ submodule Cisco-IOS-XR-atm-vcm-oper-sub2 {
     prefix xr;
   }
   include Cisco-IOS-XR-atm-vcm-oper-sub4 {
-    revision-date 2015-11-09;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -29,6 +29,10 @@ submodule Cisco-IOS-XR-atm-vcm-oper-sub2 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";

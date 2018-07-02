@@ -44,9 +44,12 @@ func (hardwareModuleNp *HardwareModuleNp) GetEntityData() *types.CommonEntityDat
     hardwareModuleNp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareModuleNp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareModuleNp.EntityData.Children = make(map[string]types.YChild)
-    hardwareModuleNp.EntityData.Children["nodes"] = types.YChild{"Nodes", &hardwareModuleNp.Nodes}
-    hardwareModuleNp.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareModuleNp.EntityData.Children = types.NewOrderedMap()
+    hardwareModuleNp.EntityData.Children.Append("nodes", types.YChild{"Nodes", &hardwareModuleNp.Nodes})
+    hardwareModuleNp.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareModuleNp.EntityData.YListKeys = []string {}
+
     return &(hardwareModuleNp.EntityData)
 }
 
@@ -57,7 +60,7 @@ type HardwareModuleNp_Nodes struct {
     YFilter yfilter.YFilter
 
     // Number. The type is slice of HardwareModuleNp_Nodes_Node.
-    Node []HardwareModuleNp_Nodes_Node
+    Node []*HardwareModuleNp_Nodes_Node
 }
 
 func (nodes *HardwareModuleNp_Nodes) GetEntityData() *types.CommonEntityData {
@@ -70,12 +73,15 @@ func (nodes *HardwareModuleNp_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -86,7 +92,7 @@ type HardwareModuleNp_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. node number. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // List of all NP.
@@ -98,15 +104,18 @@ func (node *HardwareModuleNp_Nodes_Node) GetEntityData() *types.CommonEntityData
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["nps"] = types.YChild{"Nps", &node.Nps}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("nps", types.YChild{"Nps", &node.Nps})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -117,7 +126,7 @@ type HardwareModuleNp_Nodes_Node_Nps struct {
     YFilter yfilter.YFilter
 
     // np0 to np7. The type is slice of HardwareModuleNp_Nodes_Node_Nps_Np.
-    Np []HardwareModuleNp_Nodes_Node_Nps_Np
+    Np []*HardwareModuleNp_Nodes_Node_Nps_Np
 }
 
 func (nps *HardwareModuleNp_Nodes_Node_Nps) GetEntityData() *types.CommonEntityData {
@@ -130,12 +139,15 @@ func (nps *HardwareModuleNp_Nodes_Node_Nps) GetEntityData() *types.CommonEntityD
     nps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nps.EntityData.Children = make(map[string]types.YChild)
-    nps.EntityData.Children["np"] = types.YChild{"Np", nil}
+    nps.EntityData.Children = types.NewOrderedMap()
+    nps.EntityData.Children.Append("np", types.YChild{"Np", nil})
     for i := range nps.Np {
-        nps.EntityData.Children[types.GetSegmentPath(&nps.Np[i])] = types.YChild{"Np", &nps.Np[i]}
+        nps.EntityData.Children.Append(types.GetSegmentPath(nps.Np[i]), types.YChild{"Np", nps.Np[i]})
     }
-    nps.EntityData.Leafs = make(map[string]types.YLeaf)
+    nps.EntityData.Leafs = types.NewOrderedMap()
+
+    nps.EntityData.YListKeys = []string {}
+
     return &(nps.EntityData)
 }
 
@@ -146,7 +158,7 @@ type HardwareModuleNp_Nodes_Node_Nps_Np struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. NP name. The type is string with pattern:
-    // b'(np0)|(np1)|(np2)|(np3)|(np4)|(np5)|(np6)|(np7)'.
+    // (np0)|(np1)|(np2)|(np3)|(np4)|(np5)|(np6)|(np7).
     NpName interface{}
 
     // prm channel load info.
@@ -167,18 +179,21 @@ func (np *HardwareModuleNp_Nodes_Node_Nps_Np) GetEntityData() *types.CommonEntit
     np.EntityData.YangName = "np"
     np.EntityData.BundleName = "cisco_ios_xr"
     np.EntityData.ParentYangName = "nps"
-    np.EntityData.SegmentPath = "np" + "[np-name='" + fmt.Sprintf("%v", np.NpName) + "']"
+    np.EntityData.SegmentPath = "np" + types.AddKeyToken(np.NpName, "np-name")
     np.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     np.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     np.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    np.EntityData.Children = make(map[string]types.YChild)
-    np.EntityData.Children["chn-load"] = types.YChild{"ChnLoad", &np.ChnLoad}
-    np.EntityData.Children["tcam-summary"] = types.YChild{"TcamSummary", &np.TcamSummary}
-    np.EntityData.Children["counters"] = types.YChild{"Counters", &np.Counters}
-    np.EntityData.Children["fast-drop"] = types.YChild{"FastDrop", &np.FastDrop}
-    np.EntityData.Leafs = make(map[string]types.YLeaf)
-    np.EntityData.Leafs["np-name"] = types.YLeaf{"NpName", np.NpName}
+    np.EntityData.Children = types.NewOrderedMap()
+    np.EntityData.Children.Append("chn-load", types.YChild{"ChnLoad", &np.ChnLoad})
+    np.EntityData.Children.Append("tcam-summary", types.YChild{"TcamSummary", &np.TcamSummary})
+    np.EntityData.Children.Append("counters", types.YChild{"Counters", &np.Counters})
+    np.EntityData.Children.Append("fast-drop", types.YChild{"FastDrop", &np.FastDrop})
+    np.EntityData.Leafs = types.NewOrderedMap()
+    np.EntityData.Leafs.Append("np-name", types.YLeaf{"NpName", np.NpName})
+
+    np.EntityData.YListKeys = []string {"NpName"}
+
     return &(np.EntityData)
 }
 
@@ -190,7 +205,7 @@ type HardwareModuleNp_Nodes_Node_Nps_Np_ChnLoad struct {
 
     // Array of NP Channel load counters. The type is slice of
     // HardwareModuleNp_Nodes_Node_Nps_Np_ChnLoad_NpChnLoad.
-    NpChnLoad []HardwareModuleNp_Nodes_Node_Nps_Np_ChnLoad_NpChnLoad
+    NpChnLoad []*HardwareModuleNp_Nodes_Node_Nps_Np_ChnLoad_NpChnLoad
 }
 
 func (chnLoad *HardwareModuleNp_Nodes_Node_Nps_Np_ChnLoad) GetEntityData() *types.CommonEntityData {
@@ -203,12 +218,15 @@ func (chnLoad *HardwareModuleNp_Nodes_Node_Nps_Np_ChnLoad) GetEntityData() *type
     chnLoad.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chnLoad.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    chnLoad.EntityData.Children = make(map[string]types.YChild)
-    chnLoad.EntityData.Children["np-chn-load"] = types.YChild{"NpChnLoad", nil}
+    chnLoad.EntityData.Children = types.NewOrderedMap()
+    chnLoad.EntityData.Children.Append("np-chn-load", types.YChild{"NpChnLoad", nil})
     for i := range chnLoad.NpChnLoad {
-        chnLoad.EntityData.Children[types.GetSegmentPath(&chnLoad.NpChnLoad[i])] = types.YChild{"NpChnLoad", &chnLoad.NpChnLoad[i]}
+        chnLoad.EntityData.Children.Append(types.GetSegmentPath(chnLoad.NpChnLoad[i]), types.YChild{"NpChnLoad", chnLoad.NpChnLoad[i]})
     }
-    chnLoad.EntityData.Leafs = make(map[string]types.YLeaf)
+    chnLoad.EntityData.Leafs = types.NewOrderedMap()
+
+    chnLoad.EntityData.YListKeys = []string {}
+
     return &(chnLoad.EntityData)
 }
 
@@ -249,14 +267,17 @@ func (npChnLoad *HardwareModuleNp_Nodes_Node_Nps_Np_ChnLoad_NpChnLoad) GetEntity
     npChnLoad.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     npChnLoad.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    npChnLoad.EntityData.Children = make(map[string]types.YChild)
-    npChnLoad.EntityData.Leafs = make(map[string]types.YLeaf)
-    npChnLoad.EntityData.Leafs["flow-ctr-counter"] = types.YLeaf{"FlowCtrCounter", npChnLoad.FlowCtrCounter}
-    npChnLoad.EntityData.Leafs["avg-rfd-usage"] = types.YLeaf{"AvgRfdUsage", npChnLoad.AvgRfdUsage}
-    npChnLoad.EntityData.Leafs["peak-rfd-usage"] = types.YLeaf{"PeakRfdUsage", npChnLoad.PeakRfdUsage}
-    npChnLoad.EntityData.Leafs["avg-guar-rfd-usage"] = types.YLeaf{"AvgGuarRfdUsage", npChnLoad.AvgGuarRfdUsage}
-    npChnLoad.EntityData.Leafs["peak-guar-rfd-usage"] = types.YLeaf{"PeakGuarRfdUsage", npChnLoad.PeakGuarRfdUsage}
-    npChnLoad.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", npChnLoad.InterfaceName}
+    npChnLoad.EntityData.Children = types.NewOrderedMap()
+    npChnLoad.EntityData.Leafs = types.NewOrderedMap()
+    npChnLoad.EntityData.Leafs.Append("flow-ctr-counter", types.YLeaf{"FlowCtrCounter", npChnLoad.FlowCtrCounter})
+    npChnLoad.EntityData.Leafs.Append("avg-rfd-usage", types.YLeaf{"AvgRfdUsage", npChnLoad.AvgRfdUsage})
+    npChnLoad.EntityData.Leafs.Append("peak-rfd-usage", types.YLeaf{"PeakRfdUsage", npChnLoad.PeakRfdUsage})
+    npChnLoad.EntityData.Leafs.Append("avg-guar-rfd-usage", types.YLeaf{"AvgGuarRfdUsage", npChnLoad.AvgGuarRfdUsage})
+    npChnLoad.EntityData.Leafs.Append("peak-guar-rfd-usage", types.YLeaf{"PeakGuarRfdUsage", npChnLoad.PeakGuarRfdUsage})
+    npChnLoad.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", npChnLoad.InterfaceName})
+
+    npChnLoad.EntityData.YListKeys = []string {}
+
     return &(npChnLoad.EntityData)
 }
 
@@ -283,10 +304,13 @@ func (tcamSummary *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary) GetEntityData
     tcamSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcamSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcamSummary.EntityData.Children = make(map[string]types.YChild)
-    tcamSummary.EntityData.Children["internal-tcam-info"] = types.YChild{"InternalTcamInfo", &tcamSummary.InternalTcamInfo}
-    tcamSummary.EntityData.Children["tcam-info"] = types.YChild{"TcamInfo", &tcamSummary.TcamInfo}
-    tcamSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    tcamSummary.EntityData.Children = types.NewOrderedMap()
+    tcamSummary.EntityData.Children.Append("internal-tcam-info", types.YChild{"InternalTcamInfo", &tcamSummary.InternalTcamInfo})
+    tcamSummary.EntityData.Children.Append("tcam-info", types.YChild{"TcamInfo", &tcamSummary.TcamInfo})
+    tcamSummary.EntityData.Leafs = types.NewOrderedMap()
+
+    tcamSummary.EntityData.YListKeys = []string {}
+
     return &(tcamSummary.EntityData)
 }
 
@@ -304,7 +328,7 @@ type HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInfo struct {
 
     // Array of TCAM LT L2 partition summaries. The type is slice of
     // HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInfo_TcamLtL2.
-    TcamLtL2 []HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInfo_TcamLtL2
+    TcamLtL2 []*HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInfo_TcamLtL2
 }
 
 func (internalTcamInfo *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInfo) GetEntityData() *types.CommonEntityData {
@@ -317,14 +341,17 @@ func (internalTcamInfo *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalT
     internalTcamInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalTcamInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    internalTcamInfo.EntityData.Children = make(map[string]types.YChild)
-    internalTcamInfo.EntityData.Children["tcam-lt-ods2"] = types.YChild{"TcamLtOds2", &internalTcamInfo.TcamLtOds2}
-    internalTcamInfo.EntityData.Children["tcam-lt-ods8"] = types.YChild{"TcamLtOds8", &internalTcamInfo.TcamLtOds8}
-    internalTcamInfo.EntityData.Children["tcam-lt-l2"] = types.YChild{"TcamLtL2", nil}
+    internalTcamInfo.EntityData.Children = types.NewOrderedMap()
+    internalTcamInfo.EntityData.Children.Append("tcam-lt-ods2", types.YChild{"TcamLtOds2", &internalTcamInfo.TcamLtOds2})
+    internalTcamInfo.EntityData.Children.Append("tcam-lt-ods8", types.YChild{"TcamLtOds8", &internalTcamInfo.TcamLtOds8})
+    internalTcamInfo.EntityData.Children.Append("tcam-lt-l2", types.YChild{"TcamLtL2", nil})
     for i := range internalTcamInfo.TcamLtL2 {
-        internalTcamInfo.EntityData.Children[types.GetSegmentPath(&internalTcamInfo.TcamLtL2[i])] = types.YChild{"TcamLtL2", &internalTcamInfo.TcamLtL2[i]}
+        internalTcamInfo.EntityData.Children.Append(types.GetSegmentPath(internalTcamInfo.TcamLtL2[i]), types.YChild{"TcamLtL2", internalTcamInfo.TcamLtL2[i]})
     }
-    internalTcamInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    internalTcamInfo.EntityData.Leafs = types.NewOrderedMap()
+
+    internalTcamInfo.EntityData.YListKeys = []string {}
+
     return &(internalTcamInfo.EntityData)
 }
 
@@ -372,17 +399,20 @@ func (tcamLtOds2 *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInf
     tcamLtOds2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcamLtOds2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcamLtOds2.EntityData.Children = make(map[string]types.YChild)
-    tcamLtOds2.EntityData.Children["app-id-ifib"] = types.YChild{"AppIdIfib", &tcamLtOds2.AppIdIfib}
-    tcamLtOds2.EntityData.Children["app-id-qos"] = types.YChild{"AppIdQos", &tcamLtOds2.AppIdQos}
-    tcamLtOds2.EntityData.Children["app-id-acl"] = types.YChild{"AppIdAcl", &tcamLtOds2.AppIdAcl}
-    tcamLtOds2.EntityData.Children["app-id-afmon"] = types.YChild{"AppIdAfmon", &tcamLtOds2.AppIdAfmon}
-    tcamLtOds2.EntityData.Children["app-id-li"] = types.YChild{"AppIdLi", &tcamLtOds2.AppIdLi}
-    tcamLtOds2.EntityData.Children["app-id-pbr"] = types.YChild{"AppIdPbr", &tcamLtOds2.AppIdPbr}
-    tcamLtOds2.EntityData.Children["application-edpl-entry"] = types.YChild{"ApplicationEdplEntry", &tcamLtOds2.ApplicationEdplEntry}
-    tcamLtOds2.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcamLtOds2.EntityData.Leafs["max-entries"] = types.YLeaf{"MaxEntries", tcamLtOds2.MaxEntries}
-    tcamLtOds2.EntityData.Leafs["free-entries"] = types.YLeaf{"FreeEntries", tcamLtOds2.FreeEntries}
+    tcamLtOds2.EntityData.Children = types.NewOrderedMap()
+    tcamLtOds2.EntityData.Children.Append("app-id-ifib", types.YChild{"AppIdIfib", &tcamLtOds2.AppIdIfib})
+    tcamLtOds2.EntityData.Children.Append("app-id-qos", types.YChild{"AppIdQos", &tcamLtOds2.AppIdQos})
+    tcamLtOds2.EntityData.Children.Append("app-id-acl", types.YChild{"AppIdAcl", &tcamLtOds2.AppIdAcl})
+    tcamLtOds2.EntityData.Children.Append("app-id-afmon", types.YChild{"AppIdAfmon", &tcamLtOds2.AppIdAfmon})
+    tcamLtOds2.EntityData.Children.Append("app-id-li", types.YChild{"AppIdLi", &tcamLtOds2.AppIdLi})
+    tcamLtOds2.EntityData.Children.Append("app-id-pbr", types.YChild{"AppIdPbr", &tcamLtOds2.AppIdPbr})
+    tcamLtOds2.EntityData.Children.Append("application-edpl-entry", types.YChild{"ApplicationEdplEntry", &tcamLtOds2.ApplicationEdplEntry})
+    tcamLtOds2.EntityData.Leafs = types.NewOrderedMap()
+    tcamLtOds2.EntityData.Leafs.Append("max-entries", types.YLeaf{"MaxEntries", tcamLtOds2.MaxEntries})
+    tcamLtOds2.EntityData.Leafs.Append("free-entries", types.YLeaf{"FreeEntries", tcamLtOds2.FreeEntries})
+
+    tcamLtOds2.EntityData.YListKeys = []string {}
+
     return &(tcamLtOds2.EntityData)
 }
 
@@ -414,11 +444,14 @@ func (appIdIfib *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInfo
     appIdIfib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdIfib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdIfib.EntityData.Children = make(map[string]types.YChild)
-    appIdIfib.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdIfib.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdIfib.NumVmrIds}
-    appIdIfib.EntityData.Leafs["total-used-entries"] = types.YLeaf{"TotalUsedEntries", appIdIfib.TotalUsedEntries}
-    appIdIfib.EntityData.Leafs["total-allocated-entries"] = types.YLeaf{"TotalAllocatedEntries", appIdIfib.TotalAllocatedEntries}
+    appIdIfib.EntityData.Children = types.NewOrderedMap()
+    appIdIfib.EntityData.Leafs = types.NewOrderedMap()
+    appIdIfib.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdIfib.NumVmrIds})
+    appIdIfib.EntityData.Leafs.Append("total-used-entries", types.YLeaf{"TotalUsedEntries", appIdIfib.TotalUsedEntries})
+    appIdIfib.EntityData.Leafs.Append("total-allocated-entries", types.YLeaf{"TotalAllocatedEntries", appIdIfib.TotalAllocatedEntries})
+
+    appIdIfib.EntityData.YListKeys = []string {}
+
     return &(appIdIfib.EntityData)
 }
 
@@ -450,11 +483,14 @@ func (appIdQos *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInfo_
     appIdQos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdQos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdQos.EntityData.Children = make(map[string]types.YChild)
-    appIdQos.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdQos.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdQos.NumVmrIds}
-    appIdQos.EntityData.Leafs["total-used-entries"] = types.YLeaf{"TotalUsedEntries", appIdQos.TotalUsedEntries}
-    appIdQos.EntityData.Leafs["total-allocated-entries"] = types.YLeaf{"TotalAllocatedEntries", appIdQos.TotalAllocatedEntries}
+    appIdQos.EntityData.Children = types.NewOrderedMap()
+    appIdQos.EntityData.Leafs = types.NewOrderedMap()
+    appIdQos.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdQos.NumVmrIds})
+    appIdQos.EntityData.Leafs.Append("total-used-entries", types.YLeaf{"TotalUsedEntries", appIdQos.TotalUsedEntries})
+    appIdQos.EntityData.Leafs.Append("total-allocated-entries", types.YLeaf{"TotalAllocatedEntries", appIdQos.TotalAllocatedEntries})
+
+    appIdQos.EntityData.YListKeys = []string {}
+
     return &(appIdQos.EntityData)
 }
 
@@ -486,11 +522,14 @@ func (appIdAcl *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInfo_
     appIdAcl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdAcl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdAcl.EntityData.Children = make(map[string]types.YChild)
-    appIdAcl.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdAcl.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdAcl.NumVmrIds}
-    appIdAcl.EntityData.Leafs["total-used-entries"] = types.YLeaf{"TotalUsedEntries", appIdAcl.TotalUsedEntries}
-    appIdAcl.EntityData.Leafs["total-allocated-entries"] = types.YLeaf{"TotalAllocatedEntries", appIdAcl.TotalAllocatedEntries}
+    appIdAcl.EntityData.Children = types.NewOrderedMap()
+    appIdAcl.EntityData.Leafs = types.NewOrderedMap()
+    appIdAcl.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdAcl.NumVmrIds})
+    appIdAcl.EntityData.Leafs.Append("total-used-entries", types.YLeaf{"TotalUsedEntries", appIdAcl.TotalUsedEntries})
+    appIdAcl.EntityData.Leafs.Append("total-allocated-entries", types.YLeaf{"TotalAllocatedEntries", appIdAcl.TotalAllocatedEntries})
+
+    appIdAcl.EntityData.YListKeys = []string {}
+
     return &(appIdAcl.EntityData)
 }
 
@@ -522,11 +561,14 @@ func (appIdAfmon *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInf
     appIdAfmon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdAfmon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdAfmon.EntityData.Children = make(map[string]types.YChild)
-    appIdAfmon.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdAfmon.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdAfmon.NumVmrIds}
-    appIdAfmon.EntityData.Leafs["total-used-entries"] = types.YLeaf{"TotalUsedEntries", appIdAfmon.TotalUsedEntries}
-    appIdAfmon.EntityData.Leafs["total-allocated-entries"] = types.YLeaf{"TotalAllocatedEntries", appIdAfmon.TotalAllocatedEntries}
+    appIdAfmon.EntityData.Children = types.NewOrderedMap()
+    appIdAfmon.EntityData.Leafs = types.NewOrderedMap()
+    appIdAfmon.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdAfmon.NumVmrIds})
+    appIdAfmon.EntityData.Leafs.Append("total-used-entries", types.YLeaf{"TotalUsedEntries", appIdAfmon.TotalUsedEntries})
+    appIdAfmon.EntityData.Leafs.Append("total-allocated-entries", types.YLeaf{"TotalAllocatedEntries", appIdAfmon.TotalAllocatedEntries})
+
+    appIdAfmon.EntityData.YListKeys = []string {}
+
     return &(appIdAfmon.EntityData)
 }
 
@@ -558,11 +600,14 @@ func (appIdLi *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInfo_T
     appIdLi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdLi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdLi.EntityData.Children = make(map[string]types.YChild)
-    appIdLi.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdLi.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdLi.NumVmrIds}
-    appIdLi.EntityData.Leafs["total-used-entries"] = types.YLeaf{"TotalUsedEntries", appIdLi.TotalUsedEntries}
-    appIdLi.EntityData.Leafs["total-allocated-entries"] = types.YLeaf{"TotalAllocatedEntries", appIdLi.TotalAllocatedEntries}
+    appIdLi.EntityData.Children = types.NewOrderedMap()
+    appIdLi.EntityData.Leafs = types.NewOrderedMap()
+    appIdLi.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdLi.NumVmrIds})
+    appIdLi.EntityData.Leafs.Append("total-used-entries", types.YLeaf{"TotalUsedEntries", appIdLi.TotalUsedEntries})
+    appIdLi.EntityData.Leafs.Append("total-allocated-entries", types.YLeaf{"TotalAllocatedEntries", appIdLi.TotalAllocatedEntries})
+
+    appIdLi.EntityData.YListKeys = []string {}
+
     return &(appIdLi.EntityData)
 }
 
@@ -594,11 +639,14 @@ func (appIdPbr *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInfo_
     appIdPbr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdPbr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdPbr.EntityData.Children = make(map[string]types.YChild)
-    appIdPbr.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdPbr.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdPbr.NumVmrIds}
-    appIdPbr.EntityData.Leafs["total-used-entries"] = types.YLeaf{"TotalUsedEntries", appIdPbr.TotalUsedEntries}
-    appIdPbr.EntityData.Leafs["total-allocated-entries"] = types.YLeaf{"TotalAllocatedEntries", appIdPbr.TotalAllocatedEntries}
+    appIdPbr.EntityData.Children = types.NewOrderedMap()
+    appIdPbr.EntityData.Leafs = types.NewOrderedMap()
+    appIdPbr.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdPbr.NumVmrIds})
+    appIdPbr.EntityData.Leafs.Append("total-used-entries", types.YLeaf{"TotalUsedEntries", appIdPbr.TotalUsedEntries})
+    appIdPbr.EntityData.Leafs.Append("total-allocated-entries", types.YLeaf{"TotalAllocatedEntries", appIdPbr.TotalAllocatedEntries})
+
+    appIdPbr.EntityData.YListKeys = []string {}
+
     return &(appIdPbr.EntityData)
 }
 
@@ -630,11 +678,14 @@ func (applicationEdplEntry *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_Inter
     applicationEdplEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applicationEdplEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    applicationEdplEntry.EntityData.Children = make(map[string]types.YChild)
-    applicationEdplEntry.EntityData.Leafs = make(map[string]types.YLeaf)
-    applicationEdplEntry.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", applicationEdplEntry.NumVmrIds}
-    applicationEdplEntry.EntityData.Leafs["total-used-entries"] = types.YLeaf{"TotalUsedEntries", applicationEdplEntry.TotalUsedEntries}
-    applicationEdplEntry.EntityData.Leafs["total-allocated-entries"] = types.YLeaf{"TotalAllocatedEntries", applicationEdplEntry.TotalAllocatedEntries}
+    applicationEdplEntry.EntityData.Children = types.NewOrderedMap()
+    applicationEdplEntry.EntityData.Leafs = types.NewOrderedMap()
+    applicationEdplEntry.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", applicationEdplEntry.NumVmrIds})
+    applicationEdplEntry.EntityData.Leafs.Append("total-used-entries", types.YLeaf{"TotalUsedEntries", applicationEdplEntry.TotalUsedEntries})
+    applicationEdplEntry.EntityData.Leafs.Append("total-allocated-entries", types.YLeaf{"TotalAllocatedEntries", applicationEdplEntry.TotalAllocatedEntries})
+
+    applicationEdplEntry.EntityData.YListKeys = []string {}
+
     return &(applicationEdplEntry.EntityData)
 }
 
@@ -682,17 +733,20 @@ func (tcamLtOds8 *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInf
     tcamLtOds8.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcamLtOds8.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcamLtOds8.EntityData.Children = make(map[string]types.YChild)
-    tcamLtOds8.EntityData.Children["app-id-ifib"] = types.YChild{"AppIdIfib", &tcamLtOds8.AppIdIfib}
-    tcamLtOds8.EntityData.Children["app-id-qos"] = types.YChild{"AppIdQos", &tcamLtOds8.AppIdQos}
-    tcamLtOds8.EntityData.Children["app-id-acl"] = types.YChild{"AppIdAcl", &tcamLtOds8.AppIdAcl}
-    tcamLtOds8.EntityData.Children["app-id-afmon"] = types.YChild{"AppIdAfmon", &tcamLtOds8.AppIdAfmon}
-    tcamLtOds8.EntityData.Children["app-id-li"] = types.YChild{"AppIdLi", &tcamLtOds8.AppIdLi}
-    tcamLtOds8.EntityData.Children["app-id-pbr"] = types.YChild{"AppIdPbr", &tcamLtOds8.AppIdPbr}
-    tcamLtOds8.EntityData.Children["application-edpl-entry"] = types.YChild{"ApplicationEdplEntry", &tcamLtOds8.ApplicationEdplEntry}
-    tcamLtOds8.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcamLtOds8.EntityData.Leafs["max-entries"] = types.YLeaf{"MaxEntries", tcamLtOds8.MaxEntries}
-    tcamLtOds8.EntityData.Leafs["free-entries"] = types.YLeaf{"FreeEntries", tcamLtOds8.FreeEntries}
+    tcamLtOds8.EntityData.Children = types.NewOrderedMap()
+    tcamLtOds8.EntityData.Children.Append("app-id-ifib", types.YChild{"AppIdIfib", &tcamLtOds8.AppIdIfib})
+    tcamLtOds8.EntityData.Children.Append("app-id-qos", types.YChild{"AppIdQos", &tcamLtOds8.AppIdQos})
+    tcamLtOds8.EntityData.Children.Append("app-id-acl", types.YChild{"AppIdAcl", &tcamLtOds8.AppIdAcl})
+    tcamLtOds8.EntityData.Children.Append("app-id-afmon", types.YChild{"AppIdAfmon", &tcamLtOds8.AppIdAfmon})
+    tcamLtOds8.EntityData.Children.Append("app-id-li", types.YChild{"AppIdLi", &tcamLtOds8.AppIdLi})
+    tcamLtOds8.EntityData.Children.Append("app-id-pbr", types.YChild{"AppIdPbr", &tcamLtOds8.AppIdPbr})
+    tcamLtOds8.EntityData.Children.Append("application-edpl-entry", types.YChild{"ApplicationEdplEntry", &tcamLtOds8.ApplicationEdplEntry})
+    tcamLtOds8.EntityData.Leafs = types.NewOrderedMap()
+    tcamLtOds8.EntityData.Leafs.Append("max-entries", types.YLeaf{"MaxEntries", tcamLtOds8.MaxEntries})
+    tcamLtOds8.EntityData.Leafs.Append("free-entries", types.YLeaf{"FreeEntries", tcamLtOds8.FreeEntries})
+
+    tcamLtOds8.EntityData.YListKeys = []string {}
+
     return &(tcamLtOds8.EntityData)
 }
 
@@ -724,11 +778,14 @@ func (appIdIfib *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInfo
     appIdIfib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdIfib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdIfib.EntityData.Children = make(map[string]types.YChild)
-    appIdIfib.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdIfib.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdIfib.NumVmrIds}
-    appIdIfib.EntityData.Leafs["total-used-entries"] = types.YLeaf{"TotalUsedEntries", appIdIfib.TotalUsedEntries}
-    appIdIfib.EntityData.Leafs["total-allocated-entries"] = types.YLeaf{"TotalAllocatedEntries", appIdIfib.TotalAllocatedEntries}
+    appIdIfib.EntityData.Children = types.NewOrderedMap()
+    appIdIfib.EntityData.Leafs = types.NewOrderedMap()
+    appIdIfib.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdIfib.NumVmrIds})
+    appIdIfib.EntityData.Leafs.Append("total-used-entries", types.YLeaf{"TotalUsedEntries", appIdIfib.TotalUsedEntries})
+    appIdIfib.EntityData.Leafs.Append("total-allocated-entries", types.YLeaf{"TotalAllocatedEntries", appIdIfib.TotalAllocatedEntries})
+
+    appIdIfib.EntityData.YListKeys = []string {}
+
     return &(appIdIfib.EntityData)
 }
 
@@ -760,11 +817,14 @@ func (appIdQos *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInfo_
     appIdQos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdQos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdQos.EntityData.Children = make(map[string]types.YChild)
-    appIdQos.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdQos.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdQos.NumVmrIds}
-    appIdQos.EntityData.Leafs["total-used-entries"] = types.YLeaf{"TotalUsedEntries", appIdQos.TotalUsedEntries}
-    appIdQos.EntityData.Leafs["total-allocated-entries"] = types.YLeaf{"TotalAllocatedEntries", appIdQos.TotalAllocatedEntries}
+    appIdQos.EntityData.Children = types.NewOrderedMap()
+    appIdQos.EntityData.Leafs = types.NewOrderedMap()
+    appIdQos.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdQos.NumVmrIds})
+    appIdQos.EntityData.Leafs.Append("total-used-entries", types.YLeaf{"TotalUsedEntries", appIdQos.TotalUsedEntries})
+    appIdQos.EntityData.Leafs.Append("total-allocated-entries", types.YLeaf{"TotalAllocatedEntries", appIdQos.TotalAllocatedEntries})
+
+    appIdQos.EntityData.YListKeys = []string {}
+
     return &(appIdQos.EntityData)
 }
 
@@ -796,11 +856,14 @@ func (appIdAcl *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInfo_
     appIdAcl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdAcl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdAcl.EntityData.Children = make(map[string]types.YChild)
-    appIdAcl.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdAcl.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdAcl.NumVmrIds}
-    appIdAcl.EntityData.Leafs["total-used-entries"] = types.YLeaf{"TotalUsedEntries", appIdAcl.TotalUsedEntries}
-    appIdAcl.EntityData.Leafs["total-allocated-entries"] = types.YLeaf{"TotalAllocatedEntries", appIdAcl.TotalAllocatedEntries}
+    appIdAcl.EntityData.Children = types.NewOrderedMap()
+    appIdAcl.EntityData.Leafs = types.NewOrderedMap()
+    appIdAcl.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdAcl.NumVmrIds})
+    appIdAcl.EntityData.Leafs.Append("total-used-entries", types.YLeaf{"TotalUsedEntries", appIdAcl.TotalUsedEntries})
+    appIdAcl.EntityData.Leafs.Append("total-allocated-entries", types.YLeaf{"TotalAllocatedEntries", appIdAcl.TotalAllocatedEntries})
+
+    appIdAcl.EntityData.YListKeys = []string {}
+
     return &(appIdAcl.EntityData)
 }
 
@@ -832,11 +895,14 @@ func (appIdAfmon *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInf
     appIdAfmon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdAfmon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdAfmon.EntityData.Children = make(map[string]types.YChild)
-    appIdAfmon.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdAfmon.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdAfmon.NumVmrIds}
-    appIdAfmon.EntityData.Leafs["total-used-entries"] = types.YLeaf{"TotalUsedEntries", appIdAfmon.TotalUsedEntries}
-    appIdAfmon.EntityData.Leafs["total-allocated-entries"] = types.YLeaf{"TotalAllocatedEntries", appIdAfmon.TotalAllocatedEntries}
+    appIdAfmon.EntityData.Children = types.NewOrderedMap()
+    appIdAfmon.EntityData.Leafs = types.NewOrderedMap()
+    appIdAfmon.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdAfmon.NumVmrIds})
+    appIdAfmon.EntityData.Leafs.Append("total-used-entries", types.YLeaf{"TotalUsedEntries", appIdAfmon.TotalUsedEntries})
+    appIdAfmon.EntityData.Leafs.Append("total-allocated-entries", types.YLeaf{"TotalAllocatedEntries", appIdAfmon.TotalAllocatedEntries})
+
+    appIdAfmon.EntityData.YListKeys = []string {}
+
     return &(appIdAfmon.EntityData)
 }
 
@@ -868,11 +934,14 @@ func (appIdLi *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInfo_T
     appIdLi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdLi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdLi.EntityData.Children = make(map[string]types.YChild)
-    appIdLi.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdLi.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdLi.NumVmrIds}
-    appIdLi.EntityData.Leafs["total-used-entries"] = types.YLeaf{"TotalUsedEntries", appIdLi.TotalUsedEntries}
-    appIdLi.EntityData.Leafs["total-allocated-entries"] = types.YLeaf{"TotalAllocatedEntries", appIdLi.TotalAllocatedEntries}
+    appIdLi.EntityData.Children = types.NewOrderedMap()
+    appIdLi.EntityData.Leafs = types.NewOrderedMap()
+    appIdLi.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdLi.NumVmrIds})
+    appIdLi.EntityData.Leafs.Append("total-used-entries", types.YLeaf{"TotalUsedEntries", appIdLi.TotalUsedEntries})
+    appIdLi.EntityData.Leafs.Append("total-allocated-entries", types.YLeaf{"TotalAllocatedEntries", appIdLi.TotalAllocatedEntries})
+
+    appIdLi.EntityData.YListKeys = []string {}
+
     return &(appIdLi.EntityData)
 }
 
@@ -904,11 +973,14 @@ func (appIdPbr *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInfo_
     appIdPbr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdPbr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdPbr.EntityData.Children = make(map[string]types.YChild)
-    appIdPbr.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdPbr.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdPbr.NumVmrIds}
-    appIdPbr.EntityData.Leafs["total-used-entries"] = types.YLeaf{"TotalUsedEntries", appIdPbr.TotalUsedEntries}
-    appIdPbr.EntityData.Leafs["total-allocated-entries"] = types.YLeaf{"TotalAllocatedEntries", appIdPbr.TotalAllocatedEntries}
+    appIdPbr.EntityData.Children = types.NewOrderedMap()
+    appIdPbr.EntityData.Leafs = types.NewOrderedMap()
+    appIdPbr.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdPbr.NumVmrIds})
+    appIdPbr.EntityData.Leafs.Append("total-used-entries", types.YLeaf{"TotalUsedEntries", appIdPbr.TotalUsedEntries})
+    appIdPbr.EntityData.Leafs.Append("total-allocated-entries", types.YLeaf{"TotalAllocatedEntries", appIdPbr.TotalAllocatedEntries})
+
+    appIdPbr.EntityData.YListKeys = []string {}
+
     return &(appIdPbr.EntityData)
 }
 
@@ -940,11 +1012,14 @@ func (applicationEdplEntry *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_Inter
     applicationEdplEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applicationEdplEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    applicationEdplEntry.EntityData.Children = make(map[string]types.YChild)
-    applicationEdplEntry.EntityData.Leafs = make(map[string]types.YLeaf)
-    applicationEdplEntry.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", applicationEdplEntry.NumVmrIds}
-    applicationEdplEntry.EntityData.Leafs["total-used-entries"] = types.YLeaf{"TotalUsedEntries", applicationEdplEntry.TotalUsedEntries}
-    applicationEdplEntry.EntityData.Leafs["total-allocated-entries"] = types.YLeaf{"TotalAllocatedEntries", applicationEdplEntry.TotalAllocatedEntries}
+    applicationEdplEntry.EntityData.Children = types.NewOrderedMap()
+    applicationEdplEntry.EntityData.Leafs = types.NewOrderedMap()
+    applicationEdplEntry.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", applicationEdplEntry.NumVmrIds})
+    applicationEdplEntry.EntityData.Leafs.Append("total-used-entries", types.YLeaf{"TotalUsedEntries", applicationEdplEntry.TotalUsedEntries})
+    applicationEdplEntry.EntityData.Leafs.Append("total-allocated-entries", types.YLeaf{"TotalAllocatedEntries", applicationEdplEntry.TotalAllocatedEntries})
+
+    applicationEdplEntry.EntityData.YListKeys = []string {}
+
     return &(applicationEdplEntry.EntityData)
 }
 
@@ -974,11 +1049,14 @@ func (tcamLtL2 *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_InternalTcamInfo_
     tcamLtL2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcamLtL2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcamLtL2.EntityData.Children = make(map[string]types.YChild)
-    tcamLtL2.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcamLtL2.EntityData.Leafs["partition-id"] = types.YLeaf{"PartitionId", tcamLtL2.PartitionId}
-    tcamLtL2.EntityData.Leafs["valid-entries"] = types.YLeaf{"ValidEntries", tcamLtL2.ValidEntries}
-    tcamLtL2.EntityData.Leafs["free-entries"] = types.YLeaf{"FreeEntries", tcamLtL2.FreeEntries}
+    tcamLtL2.EntityData.Children = types.NewOrderedMap()
+    tcamLtL2.EntityData.Leafs = types.NewOrderedMap()
+    tcamLtL2.EntityData.Leafs.Append("partition-id", types.YLeaf{"PartitionId", tcamLtL2.PartitionId})
+    tcamLtL2.EntityData.Leafs.Append("valid-entries", types.YLeaf{"ValidEntries", tcamLtL2.ValidEntries})
+    tcamLtL2.EntityData.Leafs.Append("free-entries", types.YLeaf{"FreeEntries", tcamLtL2.FreeEntries})
+
+    tcamLtL2.EntityData.YListKeys = []string {}
+
     return &(tcamLtL2.EntityData)
 }
 
@@ -996,7 +1074,7 @@ type HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo struct {
 
     // Array of TCAM L2 partition summaries. The type is slice of
     // HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLtL2.
-    TcamLtL2 []HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLtL2
+    TcamLtL2 []*HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLtL2
 }
 
 func (tcamInfo *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo) GetEntityData() *types.CommonEntityData {
@@ -1009,14 +1087,17 @@ func (tcamInfo *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo) GetEnti
     tcamInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcamInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcamInfo.EntityData.Children = make(map[string]types.YChild)
-    tcamInfo.EntityData.Children["tcam-lt-ods2"] = types.YChild{"TcamLtOds2", &tcamInfo.TcamLtOds2}
-    tcamInfo.EntityData.Children["tcam-lt-ods8"] = types.YChild{"TcamLtOds8", &tcamInfo.TcamLtOds8}
-    tcamInfo.EntityData.Children["tcam-lt-l2"] = types.YChild{"TcamLtL2", nil}
+    tcamInfo.EntityData.Children = types.NewOrderedMap()
+    tcamInfo.EntityData.Children.Append("tcam-lt-ods2", types.YChild{"TcamLtOds2", &tcamInfo.TcamLtOds2})
+    tcamInfo.EntityData.Children.Append("tcam-lt-ods8", types.YChild{"TcamLtOds8", &tcamInfo.TcamLtOds8})
+    tcamInfo.EntityData.Children.Append("tcam-lt-l2", types.YChild{"TcamLtL2", nil})
     for i := range tcamInfo.TcamLtL2 {
-        tcamInfo.EntityData.Children[types.GetSegmentPath(&tcamInfo.TcamLtL2[i])] = types.YChild{"TcamLtL2", &tcamInfo.TcamLtL2[i]}
+        tcamInfo.EntityData.Children.Append(types.GetSegmentPath(tcamInfo.TcamLtL2[i]), types.YChild{"TcamLtL2", tcamInfo.TcamLtL2[i]})
     }
-    tcamInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    tcamInfo.EntityData.Leafs = types.NewOrderedMap()
+
+    tcamInfo.EntityData.YListKeys = []string {}
+
     return &(tcamInfo.EntityData)
 }
 
@@ -1069,18 +1150,21 @@ func (tcamLtOds2 *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLt
     tcamLtOds2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcamLtOds2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcamLtOds2.EntityData.Children = make(map[string]types.YChild)
-    tcamLtOds2.EntityData.Children["acl-common"] = types.YChild{"AclCommon", &tcamLtOds2.AclCommon}
-    tcamLtOds2.EntityData.Children["app-id-ifib"] = types.YChild{"AppIdIfib", &tcamLtOds2.AppIdIfib}
-    tcamLtOds2.EntityData.Children["app-id-qos"] = types.YChild{"AppIdQos", &tcamLtOds2.AppIdQos}
-    tcamLtOds2.EntityData.Children["app-id-acl"] = types.YChild{"AppIdAcl", &tcamLtOds2.AppIdAcl}
-    tcamLtOds2.EntityData.Children["app-id-afmon"] = types.YChild{"AppIdAfmon", &tcamLtOds2.AppIdAfmon}
-    tcamLtOds2.EntityData.Children["app-id-li"] = types.YChild{"AppIdLi", &tcamLtOds2.AppIdLi}
-    tcamLtOds2.EntityData.Children["app-id-pbr"] = types.YChild{"AppIdPbr", &tcamLtOds2.AppIdPbr}
-    tcamLtOds2.EntityData.Children["app-id-edpl"] = types.YChild{"AppIdEdpl", &tcamLtOds2.AppIdEdpl}
-    tcamLtOds2.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcamLtOds2.EntityData.Leafs["free-entries"] = types.YLeaf{"FreeEntries", tcamLtOds2.FreeEntries}
-    tcamLtOds2.EntityData.Leafs["reserved-entries"] = types.YLeaf{"ReservedEntries", tcamLtOds2.ReservedEntries}
+    tcamLtOds2.EntityData.Children = types.NewOrderedMap()
+    tcamLtOds2.EntityData.Children.Append("acl-common", types.YChild{"AclCommon", &tcamLtOds2.AclCommon})
+    tcamLtOds2.EntityData.Children.Append("app-id-ifib", types.YChild{"AppIdIfib", &tcamLtOds2.AppIdIfib})
+    tcamLtOds2.EntityData.Children.Append("app-id-qos", types.YChild{"AppIdQos", &tcamLtOds2.AppIdQos})
+    tcamLtOds2.EntityData.Children.Append("app-id-acl", types.YChild{"AppIdAcl", &tcamLtOds2.AppIdAcl})
+    tcamLtOds2.EntityData.Children.Append("app-id-afmon", types.YChild{"AppIdAfmon", &tcamLtOds2.AppIdAfmon})
+    tcamLtOds2.EntityData.Children.Append("app-id-li", types.YChild{"AppIdLi", &tcamLtOds2.AppIdLi})
+    tcamLtOds2.EntityData.Children.Append("app-id-pbr", types.YChild{"AppIdPbr", &tcamLtOds2.AppIdPbr})
+    tcamLtOds2.EntityData.Children.Append("app-id-edpl", types.YChild{"AppIdEdpl", &tcamLtOds2.AppIdEdpl})
+    tcamLtOds2.EntityData.Leafs = types.NewOrderedMap()
+    tcamLtOds2.EntityData.Leafs.Append("free-entries", types.YLeaf{"FreeEntries", tcamLtOds2.FreeEntries})
+    tcamLtOds2.EntityData.Leafs.Append("reserved-entries", types.YLeaf{"ReservedEntries", tcamLtOds2.ReservedEntries})
+
+    tcamLtOds2.EntityData.YListKeys = []string {}
+
     return &(tcamLtOds2.EntityData)
 }
 
@@ -1109,10 +1193,13 @@ func (aclCommon *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLtO
     aclCommon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aclCommon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aclCommon.EntityData.Children = make(map[string]types.YChild)
-    aclCommon.EntityData.Leafs = make(map[string]types.YLeaf)
-    aclCommon.EntityData.Leafs["free-entries"] = types.YLeaf{"FreeEntries", aclCommon.FreeEntries}
-    aclCommon.EntityData.Leafs["allocated-entries"] = types.YLeaf{"AllocatedEntries", aclCommon.AllocatedEntries}
+    aclCommon.EntityData.Children = types.NewOrderedMap()
+    aclCommon.EntityData.Leafs = types.NewOrderedMap()
+    aclCommon.EntityData.Leafs.Append("free-entries", types.YLeaf{"FreeEntries", aclCommon.FreeEntries})
+    aclCommon.EntityData.Leafs.Append("allocated-entries", types.YLeaf{"AllocatedEntries", aclCommon.AllocatedEntries})
+
+    aclCommon.EntityData.YListKeys = []string {}
+
     return &(aclCommon.EntityData)
 }
 
@@ -1144,11 +1231,14 @@ func (appIdIfib *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLtO
     appIdIfib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdIfib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdIfib.EntityData.Children = make(map[string]types.YChild)
-    appIdIfib.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdIfib.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdIfib.NumVmrIds}
-    appIdIfib.EntityData.Leafs["num-active-entries"] = types.YLeaf{"NumActiveEntries", appIdIfib.NumActiveEntries}
-    appIdIfib.EntityData.Leafs["num-allocated-entries"] = types.YLeaf{"NumAllocatedEntries", appIdIfib.NumAllocatedEntries}
+    appIdIfib.EntityData.Children = types.NewOrderedMap()
+    appIdIfib.EntityData.Leafs = types.NewOrderedMap()
+    appIdIfib.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdIfib.NumVmrIds})
+    appIdIfib.EntityData.Leafs.Append("num-active-entries", types.YLeaf{"NumActiveEntries", appIdIfib.NumActiveEntries})
+    appIdIfib.EntityData.Leafs.Append("num-allocated-entries", types.YLeaf{"NumAllocatedEntries", appIdIfib.NumAllocatedEntries})
+
+    appIdIfib.EntityData.YListKeys = []string {}
+
     return &(appIdIfib.EntityData)
 }
 
@@ -1180,11 +1270,14 @@ func (appIdQos *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLtOd
     appIdQos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdQos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdQos.EntityData.Children = make(map[string]types.YChild)
-    appIdQos.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdQos.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdQos.NumVmrIds}
-    appIdQos.EntityData.Leafs["num-active-entries"] = types.YLeaf{"NumActiveEntries", appIdQos.NumActiveEntries}
-    appIdQos.EntityData.Leafs["num-allocated-entries"] = types.YLeaf{"NumAllocatedEntries", appIdQos.NumAllocatedEntries}
+    appIdQos.EntityData.Children = types.NewOrderedMap()
+    appIdQos.EntityData.Leafs = types.NewOrderedMap()
+    appIdQos.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdQos.NumVmrIds})
+    appIdQos.EntityData.Leafs.Append("num-active-entries", types.YLeaf{"NumActiveEntries", appIdQos.NumActiveEntries})
+    appIdQos.EntityData.Leafs.Append("num-allocated-entries", types.YLeaf{"NumAllocatedEntries", appIdQos.NumAllocatedEntries})
+
+    appIdQos.EntityData.YListKeys = []string {}
+
     return &(appIdQos.EntityData)
 }
 
@@ -1216,11 +1309,14 @@ func (appIdAcl *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLtOd
     appIdAcl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdAcl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdAcl.EntityData.Children = make(map[string]types.YChild)
-    appIdAcl.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdAcl.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdAcl.NumVmrIds}
-    appIdAcl.EntityData.Leafs["num-active-entries"] = types.YLeaf{"NumActiveEntries", appIdAcl.NumActiveEntries}
-    appIdAcl.EntityData.Leafs["num-allocated-entries"] = types.YLeaf{"NumAllocatedEntries", appIdAcl.NumAllocatedEntries}
+    appIdAcl.EntityData.Children = types.NewOrderedMap()
+    appIdAcl.EntityData.Leafs = types.NewOrderedMap()
+    appIdAcl.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdAcl.NumVmrIds})
+    appIdAcl.EntityData.Leafs.Append("num-active-entries", types.YLeaf{"NumActiveEntries", appIdAcl.NumActiveEntries})
+    appIdAcl.EntityData.Leafs.Append("num-allocated-entries", types.YLeaf{"NumAllocatedEntries", appIdAcl.NumAllocatedEntries})
+
+    appIdAcl.EntityData.YListKeys = []string {}
+
     return &(appIdAcl.EntityData)
 }
 
@@ -1252,11 +1348,14 @@ func (appIdAfmon *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLt
     appIdAfmon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdAfmon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdAfmon.EntityData.Children = make(map[string]types.YChild)
-    appIdAfmon.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdAfmon.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdAfmon.NumVmrIds}
-    appIdAfmon.EntityData.Leafs["num-active-entries"] = types.YLeaf{"NumActiveEntries", appIdAfmon.NumActiveEntries}
-    appIdAfmon.EntityData.Leafs["num-allocated-entries"] = types.YLeaf{"NumAllocatedEntries", appIdAfmon.NumAllocatedEntries}
+    appIdAfmon.EntityData.Children = types.NewOrderedMap()
+    appIdAfmon.EntityData.Leafs = types.NewOrderedMap()
+    appIdAfmon.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdAfmon.NumVmrIds})
+    appIdAfmon.EntityData.Leafs.Append("num-active-entries", types.YLeaf{"NumActiveEntries", appIdAfmon.NumActiveEntries})
+    appIdAfmon.EntityData.Leafs.Append("num-allocated-entries", types.YLeaf{"NumAllocatedEntries", appIdAfmon.NumAllocatedEntries})
+
+    appIdAfmon.EntityData.YListKeys = []string {}
+
     return &(appIdAfmon.EntityData)
 }
 
@@ -1288,11 +1387,14 @@ func (appIdLi *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLtOds
     appIdLi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdLi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdLi.EntityData.Children = make(map[string]types.YChild)
-    appIdLi.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdLi.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdLi.NumVmrIds}
-    appIdLi.EntityData.Leafs["num-active-entries"] = types.YLeaf{"NumActiveEntries", appIdLi.NumActiveEntries}
-    appIdLi.EntityData.Leafs["num-allocated-entries"] = types.YLeaf{"NumAllocatedEntries", appIdLi.NumAllocatedEntries}
+    appIdLi.EntityData.Children = types.NewOrderedMap()
+    appIdLi.EntityData.Leafs = types.NewOrderedMap()
+    appIdLi.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdLi.NumVmrIds})
+    appIdLi.EntityData.Leafs.Append("num-active-entries", types.YLeaf{"NumActiveEntries", appIdLi.NumActiveEntries})
+    appIdLi.EntityData.Leafs.Append("num-allocated-entries", types.YLeaf{"NumAllocatedEntries", appIdLi.NumAllocatedEntries})
+
+    appIdLi.EntityData.YListKeys = []string {}
+
     return &(appIdLi.EntityData)
 }
 
@@ -1324,11 +1426,14 @@ func (appIdPbr *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLtOd
     appIdPbr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdPbr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdPbr.EntityData.Children = make(map[string]types.YChild)
-    appIdPbr.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdPbr.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdPbr.NumVmrIds}
-    appIdPbr.EntityData.Leafs["num-active-entries"] = types.YLeaf{"NumActiveEntries", appIdPbr.NumActiveEntries}
-    appIdPbr.EntityData.Leafs["num-allocated-entries"] = types.YLeaf{"NumAllocatedEntries", appIdPbr.NumAllocatedEntries}
+    appIdPbr.EntityData.Children = types.NewOrderedMap()
+    appIdPbr.EntityData.Leafs = types.NewOrderedMap()
+    appIdPbr.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdPbr.NumVmrIds})
+    appIdPbr.EntityData.Leafs.Append("num-active-entries", types.YLeaf{"NumActiveEntries", appIdPbr.NumActiveEntries})
+    appIdPbr.EntityData.Leafs.Append("num-allocated-entries", types.YLeaf{"NumAllocatedEntries", appIdPbr.NumAllocatedEntries})
+
+    appIdPbr.EntityData.YListKeys = []string {}
+
     return &(appIdPbr.EntityData)
 }
 
@@ -1360,11 +1465,14 @@ func (appIdEdpl *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLtO
     appIdEdpl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdEdpl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdEdpl.EntityData.Children = make(map[string]types.YChild)
-    appIdEdpl.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdEdpl.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdEdpl.NumVmrIds}
-    appIdEdpl.EntityData.Leafs["num-active-entries"] = types.YLeaf{"NumActiveEntries", appIdEdpl.NumActiveEntries}
-    appIdEdpl.EntityData.Leafs["num-allocated-entries"] = types.YLeaf{"NumAllocatedEntries", appIdEdpl.NumAllocatedEntries}
+    appIdEdpl.EntityData.Children = types.NewOrderedMap()
+    appIdEdpl.EntityData.Leafs = types.NewOrderedMap()
+    appIdEdpl.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdEdpl.NumVmrIds})
+    appIdEdpl.EntityData.Leafs.Append("num-active-entries", types.YLeaf{"NumActiveEntries", appIdEdpl.NumActiveEntries})
+    appIdEdpl.EntityData.Leafs.Append("num-allocated-entries", types.YLeaf{"NumAllocatedEntries", appIdEdpl.NumAllocatedEntries})
+
+    appIdEdpl.EntityData.YListKeys = []string {}
+
     return &(appIdEdpl.EntityData)
 }
 
@@ -1417,18 +1525,21 @@ func (tcamLtOds8 *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLt
     tcamLtOds8.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcamLtOds8.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcamLtOds8.EntityData.Children = make(map[string]types.YChild)
-    tcamLtOds8.EntityData.Children["acl-common"] = types.YChild{"AclCommon", &tcamLtOds8.AclCommon}
-    tcamLtOds8.EntityData.Children["app-id-ifib"] = types.YChild{"AppIdIfib", &tcamLtOds8.AppIdIfib}
-    tcamLtOds8.EntityData.Children["app-id-qos"] = types.YChild{"AppIdQos", &tcamLtOds8.AppIdQos}
-    tcamLtOds8.EntityData.Children["app-id-acl"] = types.YChild{"AppIdAcl", &tcamLtOds8.AppIdAcl}
-    tcamLtOds8.EntityData.Children["app-id-afmon"] = types.YChild{"AppIdAfmon", &tcamLtOds8.AppIdAfmon}
-    tcamLtOds8.EntityData.Children["app-id-li"] = types.YChild{"AppIdLi", &tcamLtOds8.AppIdLi}
-    tcamLtOds8.EntityData.Children["app-id-pbr"] = types.YChild{"AppIdPbr", &tcamLtOds8.AppIdPbr}
-    tcamLtOds8.EntityData.Children["app-id-edpl"] = types.YChild{"AppIdEdpl", &tcamLtOds8.AppIdEdpl}
-    tcamLtOds8.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcamLtOds8.EntityData.Leafs["free-entries"] = types.YLeaf{"FreeEntries", tcamLtOds8.FreeEntries}
-    tcamLtOds8.EntityData.Leafs["reserved-entries"] = types.YLeaf{"ReservedEntries", tcamLtOds8.ReservedEntries}
+    tcamLtOds8.EntityData.Children = types.NewOrderedMap()
+    tcamLtOds8.EntityData.Children.Append("acl-common", types.YChild{"AclCommon", &tcamLtOds8.AclCommon})
+    tcamLtOds8.EntityData.Children.Append("app-id-ifib", types.YChild{"AppIdIfib", &tcamLtOds8.AppIdIfib})
+    tcamLtOds8.EntityData.Children.Append("app-id-qos", types.YChild{"AppIdQos", &tcamLtOds8.AppIdQos})
+    tcamLtOds8.EntityData.Children.Append("app-id-acl", types.YChild{"AppIdAcl", &tcamLtOds8.AppIdAcl})
+    tcamLtOds8.EntityData.Children.Append("app-id-afmon", types.YChild{"AppIdAfmon", &tcamLtOds8.AppIdAfmon})
+    tcamLtOds8.EntityData.Children.Append("app-id-li", types.YChild{"AppIdLi", &tcamLtOds8.AppIdLi})
+    tcamLtOds8.EntityData.Children.Append("app-id-pbr", types.YChild{"AppIdPbr", &tcamLtOds8.AppIdPbr})
+    tcamLtOds8.EntityData.Children.Append("app-id-edpl", types.YChild{"AppIdEdpl", &tcamLtOds8.AppIdEdpl})
+    tcamLtOds8.EntityData.Leafs = types.NewOrderedMap()
+    tcamLtOds8.EntityData.Leafs.Append("free-entries", types.YLeaf{"FreeEntries", tcamLtOds8.FreeEntries})
+    tcamLtOds8.EntityData.Leafs.Append("reserved-entries", types.YLeaf{"ReservedEntries", tcamLtOds8.ReservedEntries})
+
+    tcamLtOds8.EntityData.YListKeys = []string {}
+
     return &(tcamLtOds8.EntityData)
 }
 
@@ -1457,10 +1568,13 @@ func (aclCommon *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLtO
     aclCommon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aclCommon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aclCommon.EntityData.Children = make(map[string]types.YChild)
-    aclCommon.EntityData.Leafs = make(map[string]types.YLeaf)
-    aclCommon.EntityData.Leafs["free-entries"] = types.YLeaf{"FreeEntries", aclCommon.FreeEntries}
-    aclCommon.EntityData.Leafs["allocated-entries"] = types.YLeaf{"AllocatedEntries", aclCommon.AllocatedEntries}
+    aclCommon.EntityData.Children = types.NewOrderedMap()
+    aclCommon.EntityData.Leafs = types.NewOrderedMap()
+    aclCommon.EntityData.Leafs.Append("free-entries", types.YLeaf{"FreeEntries", aclCommon.FreeEntries})
+    aclCommon.EntityData.Leafs.Append("allocated-entries", types.YLeaf{"AllocatedEntries", aclCommon.AllocatedEntries})
+
+    aclCommon.EntityData.YListKeys = []string {}
+
     return &(aclCommon.EntityData)
 }
 
@@ -1492,11 +1606,14 @@ func (appIdIfib *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLtO
     appIdIfib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdIfib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdIfib.EntityData.Children = make(map[string]types.YChild)
-    appIdIfib.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdIfib.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdIfib.NumVmrIds}
-    appIdIfib.EntityData.Leafs["num-active-entries"] = types.YLeaf{"NumActiveEntries", appIdIfib.NumActiveEntries}
-    appIdIfib.EntityData.Leafs["num-allocated-entries"] = types.YLeaf{"NumAllocatedEntries", appIdIfib.NumAllocatedEntries}
+    appIdIfib.EntityData.Children = types.NewOrderedMap()
+    appIdIfib.EntityData.Leafs = types.NewOrderedMap()
+    appIdIfib.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdIfib.NumVmrIds})
+    appIdIfib.EntityData.Leafs.Append("num-active-entries", types.YLeaf{"NumActiveEntries", appIdIfib.NumActiveEntries})
+    appIdIfib.EntityData.Leafs.Append("num-allocated-entries", types.YLeaf{"NumAllocatedEntries", appIdIfib.NumAllocatedEntries})
+
+    appIdIfib.EntityData.YListKeys = []string {}
+
     return &(appIdIfib.EntityData)
 }
 
@@ -1528,11 +1645,14 @@ func (appIdQos *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLtOd
     appIdQos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdQos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdQos.EntityData.Children = make(map[string]types.YChild)
-    appIdQos.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdQos.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdQos.NumVmrIds}
-    appIdQos.EntityData.Leafs["num-active-entries"] = types.YLeaf{"NumActiveEntries", appIdQos.NumActiveEntries}
-    appIdQos.EntityData.Leafs["num-allocated-entries"] = types.YLeaf{"NumAllocatedEntries", appIdQos.NumAllocatedEntries}
+    appIdQos.EntityData.Children = types.NewOrderedMap()
+    appIdQos.EntityData.Leafs = types.NewOrderedMap()
+    appIdQos.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdQos.NumVmrIds})
+    appIdQos.EntityData.Leafs.Append("num-active-entries", types.YLeaf{"NumActiveEntries", appIdQos.NumActiveEntries})
+    appIdQos.EntityData.Leafs.Append("num-allocated-entries", types.YLeaf{"NumAllocatedEntries", appIdQos.NumAllocatedEntries})
+
+    appIdQos.EntityData.YListKeys = []string {}
+
     return &(appIdQos.EntityData)
 }
 
@@ -1564,11 +1684,14 @@ func (appIdAcl *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLtOd
     appIdAcl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdAcl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdAcl.EntityData.Children = make(map[string]types.YChild)
-    appIdAcl.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdAcl.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdAcl.NumVmrIds}
-    appIdAcl.EntityData.Leafs["num-active-entries"] = types.YLeaf{"NumActiveEntries", appIdAcl.NumActiveEntries}
-    appIdAcl.EntityData.Leafs["num-allocated-entries"] = types.YLeaf{"NumAllocatedEntries", appIdAcl.NumAllocatedEntries}
+    appIdAcl.EntityData.Children = types.NewOrderedMap()
+    appIdAcl.EntityData.Leafs = types.NewOrderedMap()
+    appIdAcl.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdAcl.NumVmrIds})
+    appIdAcl.EntityData.Leafs.Append("num-active-entries", types.YLeaf{"NumActiveEntries", appIdAcl.NumActiveEntries})
+    appIdAcl.EntityData.Leafs.Append("num-allocated-entries", types.YLeaf{"NumAllocatedEntries", appIdAcl.NumAllocatedEntries})
+
+    appIdAcl.EntityData.YListKeys = []string {}
+
     return &(appIdAcl.EntityData)
 }
 
@@ -1600,11 +1723,14 @@ func (appIdAfmon *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLt
     appIdAfmon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdAfmon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdAfmon.EntityData.Children = make(map[string]types.YChild)
-    appIdAfmon.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdAfmon.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdAfmon.NumVmrIds}
-    appIdAfmon.EntityData.Leafs["num-active-entries"] = types.YLeaf{"NumActiveEntries", appIdAfmon.NumActiveEntries}
-    appIdAfmon.EntityData.Leafs["num-allocated-entries"] = types.YLeaf{"NumAllocatedEntries", appIdAfmon.NumAllocatedEntries}
+    appIdAfmon.EntityData.Children = types.NewOrderedMap()
+    appIdAfmon.EntityData.Leafs = types.NewOrderedMap()
+    appIdAfmon.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdAfmon.NumVmrIds})
+    appIdAfmon.EntityData.Leafs.Append("num-active-entries", types.YLeaf{"NumActiveEntries", appIdAfmon.NumActiveEntries})
+    appIdAfmon.EntityData.Leafs.Append("num-allocated-entries", types.YLeaf{"NumAllocatedEntries", appIdAfmon.NumAllocatedEntries})
+
+    appIdAfmon.EntityData.YListKeys = []string {}
+
     return &(appIdAfmon.EntityData)
 }
 
@@ -1636,11 +1762,14 @@ func (appIdLi *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLtOds
     appIdLi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdLi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdLi.EntityData.Children = make(map[string]types.YChild)
-    appIdLi.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdLi.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdLi.NumVmrIds}
-    appIdLi.EntityData.Leafs["num-active-entries"] = types.YLeaf{"NumActiveEntries", appIdLi.NumActiveEntries}
-    appIdLi.EntityData.Leafs["num-allocated-entries"] = types.YLeaf{"NumAllocatedEntries", appIdLi.NumAllocatedEntries}
+    appIdLi.EntityData.Children = types.NewOrderedMap()
+    appIdLi.EntityData.Leafs = types.NewOrderedMap()
+    appIdLi.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdLi.NumVmrIds})
+    appIdLi.EntityData.Leafs.Append("num-active-entries", types.YLeaf{"NumActiveEntries", appIdLi.NumActiveEntries})
+    appIdLi.EntityData.Leafs.Append("num-allocated-entries", types.YLeaf{"NumAllocatedEntries", appIdLi.NumAllocatedEntries})
+
+    appIdLi.EntityData.YListKeys = []string {}
+
     return &(appIdLi.EntityData)
 }
 
@@ -1672,11 +1801,14 @@ func (appIdPbr *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLtOd
     appIdPbr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdPbr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdPbr.EntityData.Children = make(map[string]types.YChild)
-    appIdPbr.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdPbr.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdPbr.NumVmrIds}
-    appIdPbr.EntityData.Leafs["num-active-entries"] = types.YLeaf{"NumActiveEntries", appIdPbr.NumActiveEntries}
-    appIdPbr.EntityData.Leafs["num-allocated-entries"] = types.YLeaf{"NumAllocatedEntries", appIdPbr.NumAllocatedEntries}
+    appIdPbr.EntityData.Children = types.NewOrderedMap()
+    appIdPbr.EntityData.Leafs = types.NewOrderedMap()
+    appIdPbr.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdPbr.NumVmrIds})
+    appIdPbr.EntityData.Leafs.Append("num-active-entries", types.YLeaf{"NumActiveEntries", appIdPbr.NumActiveEntries})
+    appIdPbr.EntityData.Leafs.Append("num-allocated-entries", types.YLeaf{"NumAllocatedEntries", appIdPbr.NumAllocatedEntries})
+
+    appIdPbr.EntityData.YListKeys = []string {}
+
     return &(appIdPbr.EntityData)
 }
 
@@ -1708,11 +1840,14 @@ func (appIdEdpl *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLtO
     appIdEdpl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appIdEdpl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appIdEdpl.EntityData.Children = make(map[string]types.YChild)
-    appIdEdpl.EntityData.Leafs = make(map[string]types.YLeaf)
-    appIdEdpl.EntityData.Leafs["num-vmr-ids"] = types.YLeaf{"NumVmrIds", appIdEdpl.NumVmrIds}
-    appIdEdpl.EntityData.Leafs["num-active-entries"] = types.YLeaf{"NumActiveEntries", appIdEdpl.NumActiveEntries}
-    appIdEdpl.EntityData.Leafs["num-allocated-entries"] = types.YLeaf{"NumAllocatedEntries", appIdEdpl.NumAllocatedEntries}
+    appIdEdpl.EntityData.Children = types.NewOrderedMap()
+    appIdEdpl.EntityData.Leafs = types.NewOrderedMap()
+    appIdEdpl.EntityData.Leafs.Append("num-vmr-ids", types.YLeaf{"NumVmrIds", appIdEdpl.NumVmrIds})
+    appIdEdpl.EntityData.Leafs.Append("num-active-entries", types.YLeaf{"NumActiveEntries", appIdEdpl.NumActiveEntries})
+    appIdEdpl.EntityData.Leafs.Append("num-allocated-entries", types.YLeaf{"NumAllocatedEntries", appIdEdpl.NumAllocatedEntries})
+
+    appIdEdpl.EntityData.YListKeys = []string {}
+
     return &(appIdEdpl.EntityData)
 }
 
@@ -1745,12 +1880,15 @@ func (tcamLtL2 *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLtL2
     tcamLtL2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcamLtL2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tcamLtL2.EntityData.Children = make(map[string]types.YChild)
-    tcamLtL2.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcamLtL2.EntityData.Leafs["partition-id"] = types.YLeaf{"PartitionId", tcamLtL2.PartitionId}
-    tcamLtL2.EntityData.Leafs["priority"] = types.YLeaf{"Priority", tcamLtL2.Priority}
-    tcamLtL2.EntityData.Leafs["valid-entries"] = types.YLeaf{"ValidEntries", tcamLtL2.ValidEntries}
-    tcamLtL2.EntityData.Leafs["free-entries"] = types.YLeaf{"FreeEntries", tcamLtL2.FreeEntries}
+    tcamLtL2.EntityData.Children = types.NewOrderedMap()
+    tcamLtL2.EntityData.Leafs = types.NewOrderedMap()
+    tcamLtL2.EntityData.Leafs.Append("partition-id", types.YLeaf{"PartitionId", tcamLtL2.PartitionId})
+    tcamLtL2.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", tcamLtL2.Priority})
+    tcamLtL2.EntityData.Leafs.Append("valid-entries", types.YLeaf{"ValidEntries", tcamLtL2.ValidEntries})
+    tcamLtL2.EntityData.Leafs.Append("free-entries", types.YLeaf{"FreeEntries", tcamLtL2.FreeEntries})
+
+    tcamLtL2.EntityData.YListKeys = []string {}
+
     return &(tcamLtL2.EntityData)
 }
 
@@ -1762,7 +1900,7 @@ type HardwareModuleNp_Nodes_Node_Nps_Np_Counters struct {
 
     // Array of NP Counters. The type is slice of
     // HardwareModuleNp_Nodes_Node_Nps_Np_Counters_NpCounter.
-    NpCounter []HardwareModuleNp_Nodes_Node_Nps_Np_Counters_NpCounter
+    NpCounter []*HardwareModuleNp_Nodes_Node_Nps_Np_Counters_NpCounter
 }
 
 func (counters *HardwareModuleNp_Nodes_Node_Nps_Np_Counters) GetEntityData() *types.CommonEntityData {
@@ -1775,12 +1913,15 @@ func (counters *HardwareModuleNp_Nodes_Node_Nps_Np_Counters) GetEntityData() *ty
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    counters.EntityData.Children = make(map[string]types.YChild)
-    counters.EntityData.Children["np-counter"] = types.YChild{"NpCounter", nil}
+    counters.EntityData.Children = types.NewOrderedMap()
+    counters.EntityData.Children.Append("np-counter", types.YChild{"NpCounter", nil})
     for i := range counters.NpCounter {
-        counters.EntityData.Children[types.GetSegmentPath(&counters.NpCounter[i])] = types.YChild{"NpCounter", &counters.NpCounter[i]}
+        counters.EntityData.Children.Append(types.GetSegmentPath(counters.NpCounter[i]), types.YChild{"NpCounter", counters.NpCounter[i]})
     }
-    counters.EntityData.Leafs = make(map[string]types.YLeaf)
+    counters.EntityData.Leafs = types.NewOrderedMap()
+
+    counters.EntityData.YListKeys = []string {}
+
     return &(counters.EntityData)
 }
 
@@ -1819,13 +1960,16 @@ func (npCounter *HardwareModuleNp_Nodes_Node_Nps_Np_Counters_NpCounter) GetEntit
     npCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     npCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    npCounter.EntityData.Children = make(map[string]types.YChild)
-    npCounter.EntityData.Leafs = make(map[string]types.YLeaf)
-    npCounter.EntityData.Leafs["counter-index"] = types.YLeaf{"CounterIndex", npCounter.CounterIndex}
-    npCounter.EntityData.Leafs["counter-value"] = types.YLeaf{"CounterValue", npCounter.CounterValue}
-    npCounter.EntityData.Leafs["rate"] = types.YLeaf{"Rate", npCounter.Rate}
-    npCounter.EntityData.Leafs["counter-type"] = types.YLeaf{"CounterType", npCounter.CounterType}
-    npCounter.EntityData.Leafs["counter-name"] = types.YLeaf{"CounterName", npCounter.CounterName}
+    npCounter.EntityData.Children = types.NewOrderedMap()
+    npCounter.EntityData.Leafs = types.NewOrderedMap()
+    npCounter.EntityData.Leafs.Append("counter-index", types.YLeaf{"CounterIndex", npCounter.CounterIndex})
+    npCounter.EntityData.Leafs.Append("counter-value", types.YLeaf{"CounterValue", npCounter.CounterValue})
+    npCounter.EntityData.Leafs.Append("rate", types.YLeaf{"Rate", npCounter.Rate})
+    npCounter.EntityData.Leafs.Append("counter-type", types.YLeaf{"CounterType", npCounter.CounterType})
+    npCounter.EntityData.Leafs.Append("counter-name", types.YLeaf{"CounterName", npCounter.CounterName})
+
+    npCounter.EntityData.YListKeys = []string {}
+
     return &(npCounter.EntityData)
 }
 
@@ -1837,7 +1981,7 @@ type HardwareModuleNp_Nodes_Node_Nps_Np_FastDrop struct {
 
     // Array of NP Fast Drop Counters. The type is slice of
     // HardwareModuleNp_Nodes_Node_Nps_Np_FastDrop_NpFastDrop.
-    NpFastDrop []HardwareModuleNp_Nodes_Node_Nps_Np_FastDrop_NpFastDrop
+    NpFastDrop []*HardwareModuleNp_Nodes_Node_Nps_Np_FastDrop_NpFastDrop
 }
 
 func (fastDrop *HardwareModuleNp_Nodes_Node_Nps_Np_FastDrop) GetEntityData() *types.CommonEntityData {
@@ -1850,12 +1994,15 @@ func (fastDrop *HardwareModuleNp_Nodes_Node_Nps_Np_FastDrop) GetEntityData() *ty
     fastDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fastDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fastDrop.EntityData.Children = make(map[string]types.YChild)
-    fastDrop.EntityData.Children["np-fast-drop"] = types.YChild{"NpFastDrop", nil}
+    fastDrop.EntityData.Children = types.NewOrderedMap()
+    fastDrop.EntityData.Children.Append("np-fast-drop", types.YChild{"NpFastDrop", nil})
     for i := range fastDrop.NpFastDrop {
-        fastDrop.EntityData.Children[types.GetSegmentPath(&fastDrop.NpFastDrop[i])] = types.YChild{"NpFastDrop", &fastDrop.NpFastDrop[i]}
+        fastDrop.EntityData.Children.Append(types.GetSegmentPath(fastDrop.NpFastDrop[i]), types.YChild{"NpFastDrop", fastDrop.NpFastDrop[i]})
     }
-    fastDrop.EntityData.Leafs = make(map[string]types.YLeaf)
+    fastDrop.EntityData.Leafs = types.NewOrderedMap()
+
+    fastDrop.EntityData.YListKeys = []string {}
+
     return &(fastDrop.EntityData)
 }
 
@@ -1883,10 +2030,13 @@ func (npFastDrop *HardwareModuleNp_Nodes_Node_Nps_Np_FastDrop_NpFastDrop) GetEnt
     npFastDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     npFastDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    npFastDrop.EntityData.Children = make(map[string]types.YChild)
-    npFastDrop.EntityData.Leafs = make(map[string]types.YLeaf)
-    npFastDrop.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", npFastDrop.InterfaceName}
-    npFastDrop.EntityData.Leafs["counter-value"] = types.YLeaf{"CounterValue", npFastDrop.CounterValue}
+    npFastDrop.EntityData.Children = types.NewOrderedMap()
+    npFastDrop.EntityData.Leafs = types.NewOrderedMap()
+    npFastDrop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", npFastDrop.InterfaceName})
+    npFastDrop.EntityData.Leafs.Append("counter-value", types.YLeaf{"CounterValue", npFastDrop.CounterValue})
+
+    npFastDrop.EntityData.YListKeys = []string {}
+
     return &(npFastDrop.EntityData)
 }
 

@@ -48,10 +48,13 @@ func (ipv6Virtual *Ipv6Virtual) GetEntityData() *types.CommonEntityData {
     ipv6Virtual.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Virtual.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6Virtual.EntityData.Children = make(map[string]types.YChild)
-    ipv6Virtual.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &ipv6Virtual.Vrfs}
-    ipv6Virtual.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6Virtual.EntityData.Leafs["use-as-source-address"] = types.YLeaf{"UseAsSourceAddress", ipv6Virtual.UseAsSourceAddress}
+    ipv6Virtual.EntityData.Children = types.NewOrderedMap()
+    ipv6Virtual.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &ipv6Virtual.Vrfs})
+    ipv6Virtual.EntityData.Leafs = types.NewOrderedMap()
+    ipv6Virtual.EntityData.Leafs.Append("use-as-source-address", types.YLeaf{"UseAsSourceAddress", ipv6Virtual.UseAsSourceAddress})
+
+    ipv6Virtual.EntityData.YListKeys = []string {}
+
     return &(ipv6Virtual.EntityData)
 }
 
@@ -63,7 +66,7 @@ type Ipv6Virtual_Vrfs struct {
 
     // A VRF for a virtual IPv6 address.  Specify 'default' for VRF default. The
     // type is slice of Ipv6Virtual_Vrfs_Vrf.
-    Vrf []Ipv6Virtual_Vrfs_Vrf
+    Vrf []*Ipv6Virtual_Vrfs_Vrf
 }
 
 func (vrfs *Ipv6Virtual_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -76,12 +79,15 @@ func (vrfs *Ipv6Virtual_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -93,7 +99,7 @@ type Ipv6Virtual_Vrfs_Vrf struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of VRF. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // IPv6 address and mask.
@@ -105,15 +111,18 @@ func (vrf *Ipv6Virtual_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["address"] = types.YChild{"Address", &vrf.Address}
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("address", types.YChild{"Address", &vrf.Address})
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -123,9 +132,10 @@ func (vrf *Ipv6Virtual_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
 type Ipv6Virtual_Vrfs_Vrf_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Address interface{}
 
@@ -144,10 +154,13 @@ func (address *Ipv6Virtual_Vrfs_Vrf_Address) GetEntityData() *types.CommonEntity
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["address"] = types.YLeaf{"Address", address.Address}
-    address.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", address.PrefixLength}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("address", types.YLeaf{"Address", address.Address})
+    address.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", address.PrefixLength})
+
+    address.EntityData.YListKeys = []string {}
+
     return &(address.EntityData)
 }
 

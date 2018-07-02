@@ -36,6 +36,10 @@ module Cisco-IOS-XR-ip-udp-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-30 {
+    description
+      "Ensure propagation of MDA mandatory state to YANG model.";
+  }
   revision 2017-07-31 {
     description
       "Fixed missing augmentation from multiple MDA parent.";

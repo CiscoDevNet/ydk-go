@@ -21,92 +21,98 @@ import (
 
 func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package dot1x_cfg"))
-    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-dot1x-cfg dot1x}", reflect.TypeOf(Dot1X{}))
-    ydk.RegisterEntity("Cisco-IOS-XR-dot1x-cfg:dot1x", reflect.TypeOf(Dot1X{}))
+    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-dot1x-cfg dot1x}", reflect.TypeOf(Dot1x{}))
+    ydk.RegisterEntity("Cisco-IOS-XR-dot1x-cfg:dot1x", reflect.TypeOf(Dot1x{}))
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-dot1x-cfg eap}", reflect.TypeOf(Eap{}))
     ydk.RegisterEntity("Cisco-IOS-XR-dot1x-cfg:eap", reflect.TypeOf(Eap{}))
 }
 
-// Dot1X
+// Dot1x
 // Global Dot1x Configuration
-type Dot1X struct {
+type Dot1x struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Global Dot1x Profile Name. The type is slice of Dot1X_Dot1XProfile.
-    Dot1XProfile []Dot1X_Dot1XProfile
+    // Global Dot1x Profile Name. The type is slice of Dot1x_Dot1xProfile.
+    Dot1xProfile []*Dot1x_Dot1xProfile
 }
 
-func (dot1X *Dot1X) GetEntityData() *types.CommonEntityData {
-    dot1X.EntityData.YFilter = dot1X.YFilter
-    dot1X.EntityData.YangName = "dot1x"
-    dot1X.EntityData.BundleName = "cisco_ios_xr"
-    dot1X.EntityData.ParentYangName = "Cisco-IOS-XR-dot1x-cfg"
-    dot1X.EntityData.SegmentPath = "Cisco-IOS-XR-dot1x-cfg:dot1x"
-    dot1X.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    dot1X.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    dot1X.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (dot1x *Dot1x) GetEntityData() *types.CommonEntityData {
+    dot1x.EntityData.YFilter = dot1x.YFilter
+    dot1x.EntityData.YangName = "dot1x"
+    dot1x.EntityData.BundleName = "cisco_ios_xr"
+    dot1x.EntityData.ParentYangName = "Cisco-IOS-XR-dot1x-cfg"
+    dot1x.EntityData.SegmentPath = "Cisco-IOS-XR-dot1x-cfg:dot1x"
+    dot1x.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dot1x.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dot1x.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dot1X.EntityData.Children = make(map[string]types.YChild)
-    dot1X.EntityData.Children["dot1x-profile"] = types.YChild{"Dot1XProfile", nil}
-    for i := range dot1X.Dot1XProfile {
-        dot1X.EntityData.Children[types.GetSegmentPath(&dot1X.Dot1XProfile[i])] = types.YChild{"Dot1XProfile", &dot1X.Dot1XProfile[i]}
+    dot1x.EntityData.Children = types.NewOrderedMap()
+    dot1x.EntityData.Children.Append("dot1x-profile", types.YChild{"Dot1xProfile", nil})
+    for i := range dot1x.Dot1xProfile {
+        dot1x.EntityData.Children.Append(types.GetSegmentPath(dot1x.Dot1xProfile[i]), types.YChild{"Dot1xProfile", dot1x.Dot1xProfile[i]})
     }
-    dot1X.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dot1X.EntityData)
+    dot1x.EntityData.Leafs = types.NewOrderedMap()
+
+    dot1x.EntityData.YListKeys = []string {}
+
+    return &(dot1x.EntityData)
 }
 
-// Dot1X_Dot1XProfile
+// Dot1x_Dot1xProfile
 // Global Dot1x Profile Name
-type Dot1X_Dot1XProfile struct {
+type Dot1x_Dot1xProfile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the Dot1x Profile. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // length: 1..63.
     ProfileName interface{}
 
     // Dot1x PAE (Port Access Entity) Role. The type is string with pattern:
-    // b'(supplicant)|(authenticator)|(both)'.
+    // (supplicant)|(authenticator)|(both).
     Pae interface{}
 
     // Dot1x Supplicant Related Configuration.
-    Supplicant Dot1X_Dot1XProfile_Supplicant
+    Supplicant Dot1x_Dot1xProfile_Supplicant
 
     // Dot1x Authenticator Related Configuration.
-    Authenticator Dot1X_Dot1XProfile_Authenticator
+    Authenticator Dot1x_Dot1xProfile_Authenticator
 }
 
-func (dot1XProfile *Dot1X_Dot1XProfile) GetEntityData() *types.CommonEntityData {
-    dot1XProfile.EntityData.YFilter = dot1XProfile.YFilter
-    dot1XProfile.EntityData.YangName = "dot1x-profile"
-    dot1XProfile.EntityData.BundleName = "cisco_ios_xr"
-    dot1XProfile.EntityData.ParentYangName = "dot1x"
-    dot1XProfile.EntityData.SegmentPath = "dot1x-profile" + "[profile-name='" + fmt.Sprintf("%v", dot1XProfile.ProfileName) + "']"
-    dot1XProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    dot1XProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    dot1XProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (dot1xProfile *Dot1x_Dot1xProfile) GetEntityData() *types.CommonEntityData {
+    dot1xProfile.EntityData.YFilter = dot1xProfile.YFilter
+    dot1xProfile.EntityData.YangName = "dot1x-profile"
+    dot1xProfile.EntityData.BundleName = "cisco_ios_xr"
+    dot1xProfile.EntityData.ParentYangName = "dot1x"
+    dot1xProfile.EntityData.SegmentPath = "dot1x-profile" + types.AddKeyToken(dot1xProfile.ProfileName, "profile-name")
+    dot1xProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dot1xProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dot1xProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dot1XProfile.EntityData.Children = make(map[string]types.YChild)
-    dot1XProfile.EntityData.Children["supplicant"] = types.YChild{"Supplicant", &dot1XProfile.Supplicant}
-    dot1XProfile.EntityData.Children["authenticator"] = types.YChild{"Authenticator", &dot1XProfile.Authenticator}
-    dot1XProfile.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1XProfile.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", dot1XProfile.ProfileName}
-    dot1XProfile.EntityData.Leafs["pae"] = types.YLeaf{"Pae", dot1XProfile.Pae}
-    return &(dot1XProfile.EntityData)
+    dot1xProfile.EntityData.Children = types.NewOrderedMap()
+    dot1xProfile.EntityData.Children.Append("supplicant", types.YChild{"Supplicant", &dot1xProfile.Supplicant})
+    dot1xProfile.EntityData.Children.Append("authenticator", types.YChild{"Authenticator", &dot1xProfile.Authenticator})
+    dot1xProfile.EntityData.Leafs = types.NewOrderedMap()
+    dot1xProfile.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", dot1xProfile.ProfileName})
+    dot1xProfile.EntityData.Leafs.Append("pae", types.YLeaf{"Pae", dot1xProfile.Pae})
+
+    dot1xProfile.EntityData.YListKeys = []string {"ProfileName"}
+
+    return &(dot1xProfile.EntityData)
 }
 
-// Dot1X_Dot1XProfile_Supplicant
+// Dot1x_Dot1xProfile_Supplicant
 // Dot1x Supplicant Related Configuration
-type Dot1X_Dot1XProfile_Supplicant struct {
+type Dot1x_Dot1xProfile_Supplicant struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // EAP Profile for Supplicant. The type is string.
+    // EAP Profile for Supplicant. The type is string with length: 1..63.
     EapProfile interface{}
 }
 
-func (supplicant *Dot1X_Dot1XProfile_Supplicant) GetEntityData() *types.CommonEntityData {
+func (supplicant *Dot1x_Dot1xProfile_Supplicant) GetEntityData() *types.CommonEntityData {
     supplicant.EntityData.YFilter = supplicant.YFilter
     supplicant.EntityData.YangName = "supplicant"
     supplicant.EntityData.BundleName = "cisco_ios_xr"
@@ -116,23 +122,26 @@ func (supplicant *Dot1X_Dot1XProfile_Supplicant) GetEntityData() *types.CommonEn
     supplicant.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     supplicant.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    supplicant.EntityData.Children = make(map[string]types.YChild)
-    supplicant.EntityData.Leafs = make(map[string]types.YLeaf)
-    supplicant.EntityData.Leafs["eap-profile"] = types.YLeaf{"EapProfile", supplicant.EapProfile}
+    supplicant.EntityData.Children = types.NewOrderedMap()
+    supplicant.EntityData.Leafs = types.NewOrderedMap()
+    supplicant.EntityData.Leafs.Append("eap-profile", types.YLeaf{"EapProfile", supplicant.EapProfile})
+
+    supplicant.EntityData.YListKeys = []string {}
+
     return &(supplicant.EntityData)
 }
 
-// Dot1X_Dot1XProfile_Authenticator
+// Dot1x_Dot1xProfile_Authenticator
 // Dot1x Authenticator Related Configuration
-type Dot1X_Dot1XProfile_Authenticator struct {
+type Dot1x_Dot1xProfile_Authenticator struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Timers for Authenticator.
-    Timers Dot1X_Dot1XProfile_Authenticator_Timers
+    Timers Dot1x_Dot1xProfile_Authenticator_Timers
 }
 
-func (authenticator *Dot1X_Dot1XProfile_Authenticator) GetEntityData() *types.CommonEntityData {
+func (authenticator *Dot1x_Dot1xProfile_Authenticator) GetEntityData() *types.CommonEntityData {
     authenticator.EntityData.YFilter = authenticator.YFilter
     authenticator.EntityData.YangName = "authenticator"
     authenticator.EntityData.BundleName = "cisco_ios_xr"
@@ -142,23 +151,26 @@ func (authenticator *Dot1X_Dot1XProfile_Authenticator) GetEntityData() *types.Co
     authenticator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authenticator.EntityData.Children = make(map[string]types.YChild)
-    authenticator.EntityData.Children["timers"] = types.YChild{"Timers", &authenticator.Timers}
-    authenticator.EntityData.Leafs = make(map[string]types.YLeaf)
+    authenticator.EntityData.Children = types.NewOrderedMap()
+    authenticator.EntityData.Children.Append("timers", types.YChild{"Timers", &authenticator.Timers})
+    authenticator.EntityData.Leafs = types.NewOrderedMap()
+
+    authenticator.EntityData.YListKeys = []string {}
+
     return &(authenticator.EntityData)
 }
 
-// Dot1X_Dot1XProfile_Authenticator_Timers
+// Dot1x_Dot1xProfile_Authenticator_Timers
 // Timers for Authenticator
-type Dot1X_Dot1XProfile_Authenticator_Timers struct {
+type Dot1x_Dot1xProfile_Authenticator_Timers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // After this time ReAuthentication will be trigerred.
-    ReauthTime Dot1X_Dot1XProfile_Authenticator_Timers_ReauthTime
+    ReauthTime Dot1x_Dot1xProfile_Authenticator_Timers_ReauthTime
 }
 
-func (timers *Dot1X_Dot1XProfile_Authenticator_Timers) GetEntityData() *types.CommonEntityData {
+func (timers *Dot1x_Dot1xProfile_Authenticator_Timers) GetEntityData() *types.CommonEntityData {
     timers.EntityData.YFilter = timers.YFilter
     timers.EntityData.YangName = "timers"
     timers.EntityData.BundleName = "cisco_ios_xr"
@@ -168,16 +180,19 @@ func (timers *Dot1X_Dot1XProfile_Authenticator_Timers) GetEntityData() *types.Co
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timers.EntityData.Children = make(map[string]types.YChild)
-    timers.EntityData.Children["reauth-time"] = types.YChild{"ReauthTime", &timers.ReauthTime}
-    timers.EntityData.Leafs = make(map[string]types.YLeaf)
+    timers.EntityData.Children = types.NewOrderedMap()
+    timers.EntityData.Children.Append("reauth-time", types.YChild{"ReauthTime", &timers.ReauthTime})
+    timers.EntityData.Leafs = types.NewOrderedMap()
+
+    timers.EntityData.YListKeys = []string {}
+
     return &(timers.EntityData)
 }
 
-// Dot1X_Dot1XProfile_Authenticator_Timers_ReauthTime
+// Dot1x_Dot1xProfile_Authenticator_Timers_ReauthTime
 // After this time ReAuthentication will be
 // trigerred
-type Dot1X_Dot1XProfile_Authenticator_Timers_ReauthTime struct {
+type Dot1x_Dot1xProfile_Authenticator_Timers_ReauthTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -190,7 +205,7 @@ type Dot1X_Dot1XProfile_Authenticator_Timers_ReauthTime struct {
     Local interface{}
 }
 
-func (reauthTime *Dot1X_Dot1XProfile_Authenticator_Timers_ReauthTime) GetEntityData() *types.CommonEntityData {
+func (reauthTime *Dot1x_Dot1xProfile_Authenticator_Timers_ReauthTime) GetEntityData() *types.CommonEntityData {
     reauthTime.EntityData.YFilter = reauthTime.YFilter
     reauthTime.EntityData.YangName = "reauth-time"
     reauthTime.EntityData.BundleName = "cisco_ios_xr"
@@ -200,10 +215,13 @@ func (reauthTime *Dot1X_Dot1XProfile_Authenticator_Timers_ReauthTime) GetEntityD
     reauthTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reauthTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    reauthTime.EntityData.Children = make(map[string]types.YChild)
-    reauthTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    reauthTime.EntityData.Leafs["server"] = types.YLeaf{"Server", reauthTime.Server}
-    reauthTime.EntityData.Leafs["local"] = types.YLeaf{"Local", reauthTime.Local}
+    reauthTime.EntityData.Children = types.NewOrderedMap()
+    reauthTime.EntityData.Leafs = types.NewOrderedMap()
+    reauthTime.EntityData.Leafs.Append("server", types.YLeaf{"Server", reauthTime.Server})
+    reauthTime.EntityData.Leafs.Append("local", types.YLeaf{"Local", reauthTime.Local})
+
+    reauthTime.EntityData.YListKeys = []string {}
+
     return &(reauthTime.EntityData)
 }
 
@@ -214,7 +232,7 @@ type Eap struct {
     YFilter yfilter.YFilter
 
     // Global EAP Profile Configuration. The type is slice of Eap_EapProfile.
-    EapProfile []Eap_EapProfile
+    EapProfile []*Eap_EapProfile
 }
 
 func (eap *Eap) GetEntityData() *types.CommonEntityData {
@@ -227,12 +245,15 @@ func (eap *Eap) GetEntityData() *types.CommonEntityData {
     eap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    eap.EntityData.Children = make(map[string]types.YChild)
-    eap.EntityData.Children["eap-profile"] = types.YChild{"EapProfile", nil}
+    eap.EntityData.Children = types.NewOrderedMap()
+    eap.EntityData.Children.Append("eap-profile", types.YChild{"EapProfile", nil})
     for i := range eap.EapProfile {
-        eap.EntityData.Children[types.GetSegmentPath(&eap.EapProfile[i])] = types.YChild{"EapProfile", &eap.EapProfile[i]}
+        eap.EntityData.Children.Append(types.GetSegmentPath(eap.EapProfile[i]), types.YChild{"EapProfile", eap.EapProfile[i]})
     }
-    eap.EntityData.Leafs = make(map[string]types.YLeaf)
+    eap.EntityData.Leafs = types.NewOrderedMap()
+
+    eap.EntityData.YListKeys = []string {}
+
     return &(eap.EntityData)
 }
 
@@ -243,10 +264,10 @@ type Eap_EapProfile struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the EAP Profile. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // length: 1..63.
     ProfileName interface{}
 
-    // Configure EAP Identity/UserName. The type is string.
+    // Configure EAP Identity/UserName. The type is string with length: 1..63.
     Identity interface{}
 
     // EAP TLS Configuration.
@@ -258,16 +279,19 @@ func (eapProfile *Eap_EapProfile) GetEntityData() *types.CommonEntityData {
     eapProfile.EntityData.YangName = "eap-profile"
     eapProfile.EntityData.BundleName = "cisco_ios_xr"
     eapProfile.EntityData.ParentYangName = "eap"
-    eapProfile.EntityData.SegmentPath = "eap-profile" + "[profile-name='" + fmt.Sprintf("%v", eapProfile.ProfileName) + "']"
+    eapProfile.EntityData.SegmentPath = "eap-profile" + types.AddKeyToken(eapProfile.ProfileName, "profile-name")
     eapProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eapProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eapProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    eapProfile.EntityData.Children = make(map[string]types.YChild)
-    eapProfile.EntityData.Children["eaptls"] = types.YChild{"Eaptls", &eapProfile.Eaptls}
-    eapProfile.EntityData.Leafs = make(map[string]types.YLeaf)
-    eapProfile.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", eapProfile.ProfileName}
-    eapProfile.EntityData.Leafs["identity"] = types.YLeaf{"Identity", eapProfile.Identity}
+    eapProfile.EntityData.Children = types.NewOrderedMap()
+    eapProfile.EntityData.Children.Append("eaptls", types.YChild{"Eaptls", &eapProfile.Eaptls})
+    eapProfile.EntityData.Leafs = types.NewOrderedMap()
+    eapProfile.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", eapProfile.ProfileName})
+    eapProfile.EntityData.Leafs.Append("identity", types.YLeaf{"Identity", eapProfile.Identity})
+
+    eapProfile.EntityData.YListKeys = []string {"ProfileName"}
+
     return &(eapProfile.EntityData)
 }
 
@@ -277,7 +301,7 @@ type Eap_EapProfile_Eaptls struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Configure PKI Trustpoint. The type is string.
+    // Configure PKI Trustpoint. The type is string with length: 1..63.
     PkiTrustpoint interface{}
 }
 
@@ -291,9 +315,12 @@ func (eaptls *Eap_EapProfile_Eaptls) GetEntityData() *types.CommonEntityData {
     eaptls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eaptls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    eaptls.EntityData.Children = make(map[string]types.YChild)
-    eaptls.EntityData.Leafs = make(map[string]types.YLeaf)
-    eaptls.EntityData.Leafs["pki-trustpoint"] = types.YLeaf{"PkiTrustpoint", eaptls.PkiTrustpoint}
+    eaptls.EntityData.Children = types.NewOrderedMap()
+    eaptls.EntityData.Leafs = types.NewOrderedMap()
+    eaptls.EntityData.Leafs.Append("pki-trustpoint", types.YLeaf{"PkiTrustpoint", eaptls.PkiTrustpoint})
+
+    eaptls.EntityData.YListKeys = []string {}
+
     return &(eaptls.EntityData)
 }
 

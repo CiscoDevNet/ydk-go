@@ -32,6 +32,10 @@ module Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -44,6 +48,12 @@ module Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg {
     container dhcpd {
       description
         "Interface dhcpv4 configuration data";
+      leaf dhcpv4-iplease {
+        type string;
+        description
+          "Cisco VSA to configure any dhcp4 ip lease per
+           subscriber";
+      }
       leaf class {
         type string;
         description
@@ -55,7 +65,7 @@ module Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg {
           "The Default Gateway IP address";
       }
       leaf session-limit {
-        type int32;
+        type uint32;
         description
           "The pool to be used for Prefix Delegation";
       }

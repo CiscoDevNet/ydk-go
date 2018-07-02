@@ -77,22 +77,25 @@ func (confdState *ConfdState) GetEntityData() *types.CommonEntityData {
     confdState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     confdState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    confdState.EntityData.Children = make(map[string]types.YChild)
-    confdState.EntityData.Children["smp"] = types.YChild{"Smp", &confdState.Smp}
-    confdState.EntityData.Children["ha"] = types.YChild{"Ha", &confdState.Ha}
-    confdState.EntityData.Children["loaded-data-models"] = types.YChild{"LoadedDataModels", &confdState.LoadedDataModels}
-    confdState.EntityData.Children["netconf"] = types.YChild{"Netconf", &confdState.Netconf}
-    confdState.EntityData.Children["cli"] = types.YChild{"Cli", &confdState.Cli}
-    confdState.EntityData.Children["webui"] = types.YChild{"Webui", &confdState.Webui}
-    confdState.EntityData.Children["rest"] = types.YChild{"Rest", &confdState.Rest}
-    confdState.EntityData.Children["snmp"] = types.YChild{"Snmp", &confdState.Snmp}
-    confdState.EntityData.Children["internal"] = types.YChild{"Internal", &confdState.Internal}
-    confdState.EntityData.Leafs = make(map[string]types.YLeaf)
-    confdState.EntityData.Leafs["version"] = types.YLeaf{"Version", confdState.Version}
-    confdState.EntityData.Leafs["epoll"] = types.YLeaf{"Epoll", confdState.Epoll}
-    confdState.EntityData.Leafs["daemon-status"] = types.YLeaf{"DaemonStatus", confdState.DaemonStatus}
-    confdState.EntityData.Leafs["read-only-mode"] = types.YLeaf{"ReadOnlyMode", confdState.ReadOnlyMode}
-    confdState.EntityData.Leafs["upgrade-mode"] = types.YLeaf{"UpgradeMode", confdState.UpgradeMode}
+    confdState.EntityData.Children = types.NewOrderedMap()
+    confdState.EntityData.Children.Append("smp", types.YChild{"Smp", &confdState.Smp})
+    confdState.EntityData.Children.Append("ha", types.YChild{"Ha", &confdState.Ha})
+    confdState.EntityData.Children.Append("loaded-data-models", types.YChild{"LoadedDataModels", &confdState.LoadedDataModels})
+    confdState.EntityData.Children.Append("netconf", types.YChild{"Netconf", &confdState.Netconf})
+    confdState.EntityData.Children.Append("cli", types.YChild{"Cli", &confdState.Cli})
+    confdState.EntityData.Children.Append("webui", types.YChild{"Webui", &confdState.Webui})
+    confdState.EntityData.Children.Append("rest", types.YChild{"Rest", &confdState.Rest})
+    confdState.EntityData.Children.Append("snmp", types.YChild{"Snmp", &confdState.Snmp})
+    confdState.EntityData.Children.Append("internal", types.YChild{"Internal", &confdState.Internal})
+    confdState.EntityData.Leafs = types.NewOrderedMap()
+    confdState.EntityData.Leafs.Append("version", types.YLeaf{"Version", confdState.Version})
+    confdState.EntityData.Leafs.Append("epoll", types.YLeaf{"Epoll", confdState.Epoll})
+    confdState.EntityData.Leafs.Append("daemon-status", types.YLeaf{"DaemonStatus", confdState.DaemonStatus})
+    confdState.EntityData.Leafs.Append("read-only-mode", types.YLeaf{"ReadOnlyMode", confdState.ReadOnlyMode})
+    confdState.EntityData.Leafs.Append("upgrade-mode", types.YLeaf{"UpgradeMode", confdState.UpgradeMode})
+
+    confdState.EntityData.YListKeys = []string {}
+
     return &(confdState.EntityData)
 }
 
@@ -101,6 +104,7 @@ func (confdState *ConfdState) GetEntityData() *types.CommonEntityData {
 type ConfdState_Smp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Number of threads used by the daemon. The type is interface{} with range:
     // 0..65535.
@@ -117,9 +121,12 @@ func (smp *ConfdState_Smp) GetEntityData() *types.CommonEntityData {
     smp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     smp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    smp.EntityData.Children = make(map[string]types.YChild)
-    smp.EntityData.Leafs = make(map[string]types.YLeaf)
-    smp.EntityData.Leafs["number-of-threads"] = types.YLeaf{"NumberOfThreads", smp.NumberOfThreads}
+    smp.EntityData.Children = types.NewOrderedMap()
+    smp.EntityData.Leafs = types.NewOrderedMap()
+    smp.EntityData.Leafs.Append("number-of-threads", types.YLeaf{"NumberOfThreads", smp.NumberOfThreads})
+
+    smp.EntityData.YListKeys = []string {}
+
     return &(smp.EntityData)
 }
 
@@ -128,6 +135,7 @@ func (smp *ConfdState_Smp) GetEntityData() *types.CommonEntityData {
 type ConfdState_Ha struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // The current HA mode of the node in the HA cluster. The type is Mode.
     Mode interface{}
@@ -158,13 +166,16 @@ func (ha *ConfdState_Ha) GetEntityData() *types.CommonEntityData {
     ha.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ha.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ha.EntityData.Children = make(map[string]types.YChild)
-    ha.EntityData.Leafs = make(map[string]types.YLeaf)
-    ha.EntityData.Leafs["mode"] = types.YLeaf{"Mode", ha.Mode}
-    ha.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", ha.NodeId}
-    ha.EntityData.Leafs["master-node-id"] = types.YLeaf{"MasterNodeId", ha.MasterNodeId}
-    ha.EntityData.Leafs["connected-slave"] = types.YLeaf{"ConnectedSlave", ha.ConnectedSlave}
-    ha.EntityData.Leafs["pending-slave"] = types.YLeaf{"PendingSlave", ha.PendingSlave}
+    ha.EntityData.Children = types.NewOrderedMap()
+    ha.EntityData.Leafs = types.NewOrderedMap()
+    ha.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", ha.Mode})
+    ha.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", ha.NodeId})
+    ha.EntityData.Leafs.Append("master-node-id", types.YLeaf{"MasterNodeId", ha.MasterNodeId})
+    ha.EntityData.Leafs.Append("connected-slave", types.YLeaf{"ConnectedSlave", ha.ConnectedSlave})
+    ha.EntityData.Leafs.Append("pending-slave", types.YLeaf{"PendingSlave", ha.PendingSlave})
+
+    ha.EntityData.YListKeys = []string {}
+
     return &(ha.EntityData)
 }
 
@@ -190,7 +201,7 @@ type ConfdState_LoadedDataModels struct {
     // of the 'schema' list defined in ietf-netconf-monitoring, which only lists
     // modules exported through NETCONF. The type is slice of
     // ConfdState_LoadedDataModels_DataModel.
-    DataModel []ConfdState_LoadedDataModels_DataModel
+    DataModel []*ConfdState_LoadedDataModels_DataModel
 }
 
 func (loadedDataModels *ConfdState_LoadedDataModels) GetEntityData() *types.CommonEntityData {
@@ -203,12 +214,15 @@ func (loadedDataModels *ConfdState_LoadedDataModels) GetEntityData() *types.Comm
     loadedDataModels.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     loadedDataModels.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    loadedDataModels.EntityData.Children = make(map[string]types.YChild)
-    loadedDataModels.EntityData.Children["data-model"] = types.YChild{"DataModel", nil}
+    loadedDataModels.EntityData.Children = types.NewOrderedMap()
+    loadedDataModels.EntityData.Children.Append("data-model", types.YChild{"DataModel", nil})
     for i := range loadedDataModels.DataModel {
-        loadedDataModels.EntityData.Children[types.GetSegmentPath(&loadedDataModels.DataModel[i])] = types.YChild{"DataModel", &loadedDataModels.DataModel[i]}
+        loadedDataModels.EntityData.Children.Append(types.GetSegmentPath(loadedDataModels.DataModel[i]), types.YChild{"DataModel", loadedDataModels.DataModel[i]})
     }
-    loadedDataModels.EntityData.Leafs = make(map[string]types.YLeaf)
+    loadedDataModels.EntityData.Leafs = types.NewOrderedMap()
+
+    loadedDataModels.EntityData.YListKeys = []string {}
+
     return &(loadedDataModels.EntityData)
 }
 
@@ -251,19 +265,22 @@ func (dataModel *ConfdState_LoadedDataModels_DataModel) GetEntityData() *types.C
     dataModel.EntityData.YangName = "data-model"
     dataModel.EntityData.BundleName = "cisco_ios_xe"
     dataModel.EntityData.ParentYangName = "loaded-data-models"
-    dataModel.EntityData.SegmentPath = "data-model" + "[name='" + fmt.Sprintf("%v", dataModel.Name) + "']"
+    dataModel.EntityData.SegmentPath = "data-model" + types.AddKeyToken(dataModel.Name, "name")
     dataModel.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dataModel.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dataModel.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dataModel.EntityData.Children = make(map[string]types.YChild)
-    dataModel.EntityData.Leafs = make(map[string]types.YLeaf)
-    dataModel.EntityData.Leafs["name"] = types.YLeaf{"Name", dataModel.Name}
-    dataModel.EntityData.Leafs["revision"] = types.YLeaf{"Revision", dataModel.Revision}
-    dataModel.EntityData.Leafs["namespace"] = types.YLeaf{"Namespace", dataModel.Namespace}
-    dataModel.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", dataModel.Prefix}
-    dataModel.EntityData.Leafs["exported-to-all"] = types.YLeaf{"ExportedToAll", dataModel.ExportedToAll}
-    dataModel.EntityData.Leafs["exported-to"] = types.YLeaf{"ExportedTo", dataModel.ExportedTo}
+    dataModel.EntityData.Children = types.NewOrderedMap()
+    dataModel.EntityData.Leafs = types.NewOrderedMap()
+    dataModel.EntityData.Leafs.Append("name", types.YLeaf{"Name", dataModel.Name})
+    dataModel.EntityData.Leafs.Append("revision", types.YLeaf{"Revision", dataModel.Revision})
+    dataModel.EntityData.Leafs.Append("namespace", types.YLeaf{"Namespace", dataModel.Namespace})
+    dataModel.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", dataModel.Prefix})
+    dataModel.EntityData.Leafs.Append("exported-to-all", types.YLeaf{"ExportedToAll", dataModel.ExportedToAll})
+    dataModel.EntityData.Leafs.Append("exported-to", types.YLeaf{"ExportedTo", dataModel.ExportedTo})
+
+    dataModel.EntityData.YListKeys = []string {"Name"}
+
     return &(dataModel.EntityData)
 }
 
@@ -287,6 +304,7 @@ const (
 type ConfdState_Netconf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // The transport addresses the NETCONF server is listening on.  Note that
     // other mechanisms can be put in front of the TCP addresses below, e.g., an
@@ -305,9 +323,12 @@ func (netconf *ConfdState_Netconf) GetEntityData() *types.CommonEntityData {
     netconf.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     netconf.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    netconf.EntityData.Children = make(map[string]types.YChild)
-    netconf.EntityData.Children["listen"] = types.YChild{"Listen", &netconf.Listen}
-    netconf.EntityData.Leafs = make(map[string]types.YLeaf)
+    netconf.EntityData.Children = types.NewOrderedMap()
+    netconf.EntityData.Children.Append("listen", types.YChild{"Listen", &netconf.Listen})
+    netconf.EntityData.Leafs = types.NewOrderedMap()
+
+    netconf.EntityData.YListKeys = []string {}
+
     return &(netconf.EntityData)
 }
 
@@ -322,10 +343,10 @@ type ConfdState_Netconf_Listen struct {
     YFilter yfilter.YFilter
 
     // The type is slice of ConfdState_Netconf_Listen_Tcp.
-    Tcp []ConfdState_Netconf_Listen_Tcp
+    Tcp []*ConfdState_Netconf_Listen_Tcp
 
     // The type is slice of ConfdState_Netconf_Listen_Ssh.
-    Ssh []ConfdState_Netconf_Listen_Ssh
+    Ssh []*ConfdState_Netconf_Listen_Ssh
 }
 
 func (listen *ConfdState_Netconf_Listen) GetEntityData() *types.CommonEntityData {
@@ -338,16 +359,19 @@ func (listen *ConfdState_Netconf_Listen) GetEntityData() *types.CommonEntityData
     listen.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     listen.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    listen.EntityData.Children = make(map[string]types.YChild)
-    listen.EntityData.Children["tcp"] = types.YChild{"Tcp", nil}
+    listen.EntityData.Children = types.NewOrderedMap()
+    listen.EntityData.Children.Append("tcp", types.YChild{"Tcp", nil})
     for i := range listen.Tcp {
-        listen.EntityData.Children[types.GetSegmentPath(&listen.Tcp[i])] = types.YChild{"Tcp", &listen.Tcp[i]}
+        listen.EntityData.Children.Append(types.GetSegmentPath(listen.Tcp[i]), types.YChild{"Tcp", listen.Tcp[i]})
     }
-    listen.EntityData.Children["ssh"] = types.YChild{"Ssh", nil}
+    listen.EntityData.Children.Append("ssh", types.YChild{"Ssh", nil})
     for i := range listen.Ssh {
-        listen.EntityData.Children[types.GetSegmentPath(&listen.Ssh[i])] = types.YChild{"Ssh", &listen.Ssh[i]}
+        listen.EntityData.Children.Append(types.GetSegmentPath(listen.Ssh[i]), types.YChild{"Ssh", listen.Ssh[i]})
     }
-    listen.EntityData.Leafs = make(map[string]types.YLeaf)
+    listen.EntityData.Leafs = types.NewOrderedMap()
+
+    listen.EntityData.YListKeys = []string {}
+
     return &(listen.EntityData)
 }
 
@@ -357,9 +381,9 @@ type ConfdState_Netconf_Listen_Tcp struct {
     YFilter yfilter.YFilter
 
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The type is interface{} with range: 0..65535.
@@ -376,10 +400,13 @@ func (tcp *ConfdState_Netconf_Listen_Tcp) GetEntityData() *types.CommonEntityDat
     tcp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tcp.EntityData.Children = make(map[string]types.YChild)
-    tcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcp.EntityData.Leafs["ip"] = types.YLeaf{"Ip", tcp.Ip}
-    tcp.EntityData.Leafs["port"] = types.YLeaf{"Port", tcp.Port}
+    tcp.EntityData.Children = types.NewOrderedMap()
+    tcp.EntityData.Leafs = types.NewOrderedMap()
+    tcp.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", tcp.Ip})
+    tcp.EntityData.Leafs.Append("port", types.YLeaf{"Port", tcp.Port})
+
+    tcp.EntityData.YListKeys = []string {}
+
     return &(tcp.EntityData)
 }
 
@@ -389,9 +416,9 @@ type ConfdState_Netconf_Listen_Ssh struct {
     YFilter yfilter.YFilter
 
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The type is interface{} with range: 0..65535.
@@ -408,10 +435,13 @@ func (ssh *ConfdState_Netconf_Listen_Ssh) GetEntityData() *types.CommonEntityDat
     ssh.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ssh.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ssh.EntityData.Children = make(map[string]types.YChild)
-    ssh.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssh.EntityData.Leafs["ip"] = types.YLeaf{"Ip", ssh.Ip}
-    ssh.EntityData.Leafs["port"] = types.YLeaf{"Port", ssh.Port}
+    ssh.EntityData.Children = types.NewOrderedMap()
+    ssh.EntityData.Leafs = types.NewOrderedMap()
+    ssh.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", ssh.Ip})
+    ssh.EntityData.Leafs.Append("port", types.YLeaf{"Port", ssh.Port})
+
+    ssh.EntityData.YListKeys = []string {}
+
     return &(ssh.EntityData)
 }
 
@@ -420,6 +450,7 @@ func (ssh *ConfdState_Netconf_Listen_Ssh) GetEntityData() *types.CommonEntityDat
 type ConfdState_Cli struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // The transport addresses the CLI server is listening on.  In addition to the
     // SSH addresses listen below, the CLI can always be invoked through the
@@ -439,9 +470,12 @@ func (cli *ConfdState_Cli) GetEntityData() *types.CommonEntityData {
     cli.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cli.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cli.EntityData.Children = make(map[string]types.YChild)
-    cli.EntityData.Children["listen"] = types.YChild{"Listen", &cli.Listen}
-    cli.EntityData.Leafs = make(map[string]types.YLeaf)
+    cli.EntityData.Children = types.NewOrderedMap()
+    cli.EntityData.Children.Append("listen", types.YChild{"Listen", &cli.Listen})
+    cli.EntityData.Leafs = types.NewOrderedMap()
+
+    cli.EntityData.YListKeys = []string {}
+
     return &(cli.EntityData)
 }
 
@@ -459,7 +493,7 @@ type ConfdState_Cli_Listen struct {
     YFilter yfilter.YFilter
 
     // The type is slice of ConfdState_Cli_Listen_Ssh.
-    Ssh []ConfdState_Cli_Listen_Ssh
+    Ssh []*ConfdState_Cli_Listen_Ssh
 }
 
 func (listen *ConfdState_Cli_Listen) GetEntityData() *types.CommonEntityData {
@@ -472,12 +506,15 @@ func (listen *ConfdState_Cli_Listen) GetEntityData() *types.CommonEntityData {
     listen.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     listen.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    listen.EntityData.Children = make(map[string]types.YChild)
-    listen.EntityData.Children["ssh"] = types.YChild{"Ssh", nil}
+    listen.EntityData.Children = types.NewOrderedMap()
+    listen.EntityData.Children.Append("ssh", types.YChild{"Ssh", nil})
     for i := range listen.Ssh {
-        listen.EntityData.Children[types.GetSegmentPath(&listen.Ssh[i])] = types.YChild{"Ssh", &listen.Ssh[i]}
+        listen.EntityData.Children.Append(types.GetSegmentPath(listen.Ssh[i]), types.YChild{"Ssh", listen.Ssh[i]})
     }
-    listen.EntityData.Leafs = make(map[string]types.YLeaf)
+    listen.EntityData.Leafs = types.NewOrderedMap()
+
+    listen.EntityData.YListKeys = []string {}
+
     return &(listen.EntityData)
 }
 
@@ -487,9 +524,9 @@ type ConfdState_Cli_Listen_Ssh struct {
     YFilter yfilter.YFilter
 
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The type is interface{} with range: 0..65535.
@@ -506,10 +543,13 @@ func (ssh *ConfdState_Cli_Listen_Ssh) GetEntityData() *types.CommonEntityData {
     ssh.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ssh.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ssh.EntityData.Children = make(map[string]types.YChild)
-    ssh.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssh.EntityData.Leafs["ip"] = types.YLeaf{"Ip", ssh.Ip}
-    ssh.EntityData.Leafs["port"] = types.YLeaf{"Port", ssh.Port}
+    ssh.EntityData.Children = types.NewOrderedMap()
+    ssh.EntityData.Leafs = types.NewOrderedMap()
+    ssh.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", ssh.Ip})
+    ssh.EntityData.Leafs.Append("port", types.YLeaf{"Port", ssh.Port})
+
+    ssh.EntityData.YListKeys = []string {}
+
     return &(ssh.EntityData)
 }
 
@@ -518,6 +558,7 @@ func (ssh *ConfdState_Cli_Listen_Ssh) GetEntityData() *types.CommonEntityData {
 type ConfdState_Webui struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // The transport addresses the WebUI server is listening on.
     Listen ConfdState_Webui_Listen
@@ -533,9 +574,12 @@ func (webui *ConfdState_Webui) GetEntityData() *types.CommonEntityData {
     webui.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     webui.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    webui.EntityData.Children = make(map[string]types.YChild)
-    webui.EntityData.Children["listen"] = types.YChild{"Listen", &webui.Listen}
-    webui.EntityData.Leafs = make(map[string]types.YLeaf)
+    webui.EntityData.Children = types.NewOrderedMap()
+    webui.EntityData.Children.Append("listen", types.YChild{"Listen", &webui.Listen})
+    webui.EntityData.Leafs = types.NewOrderedMap()
+
+    webui.EntityData.YListKeys = []string {}
+
     return &(webui.EntityData)
 }
 
@@ -546,10 +590,10 @@ type ConfdState_Webui_Listen struct {
     YFilter yfilter.YFilter
 
     // The type is slice of ConfdState_Webui_Listen_Tcp.
-    Tcp []ConfdState_Webui_Listen_Tcp
+    Tcp []*ConfdState_Webui_Listen_Tcp
 
     // The type is slice of ConfdState_Webui_Listen_Ssl.
-    Ssl []ConfdState_Webui_Listen_Ssl
+    Ssl []*ConfdState_Webui_Listen_Ssl
 }
 
 func (listen *ConfdState_Webui_Listen) GetEntityData() *types.CommonEntityData {
@@ -562,16 +606,19 @@ func (listen *ConfdState_Webui_Listen) GetEntityData() *types.CommonEntityData {
     listen.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     listen.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    listen.EntityData.Children = make(map[string]types.YChild)
-    listen.EntityData.Children["tcp"] = types.YChild{"Tcp", nil}
+    listen.EntityData.Children = types.NewOrderedMap()
+    listen.EntityData.Children.Append("tcp", types.YChild{"Tcp", nil})
     for i := range listen.Tcp {
-        listen.EntityData.Children[types.GetSegmentPath(&listen.Tcp[i])] = types.YChild{"Tcp", &listen.Tcp[i]}
+        listen.EntityData.Children.Append(types.GetSegmentPath(listen.Tcp[i]), types.YChild{"Tcp", listen.Tcp[i]})
     }
-    listen.EntityData.Children["ssl"] = types.YChild{"Ssl", nil}
+    listen.EntityData.Children.Append("ssl", types.YChild{"Ssl", nil})
     for i := range listen.Ssl {
-        listen.EntityData.Children[types.GetSegmentPath(&listen.Ssl[i])] = types.YChild{"Ssl", &listen.Ssl[i]}
+        listen.EntityData.Children.Append(types.GetSegmentPath(listen.Ssl[i]), types.YChild{"Ssl", listen.Ssl[i]})
     }
-    listen.EntityData.Leafs = make(map[string]types.YLeaf)
+    listen.EntityData.Leafs = types.NewOrderedMap()
+
+    listen.EntityData.YListKeys = []string {}
+
     return &(listen.EntityData)
 }
 
@@ -581,9 +628,9 @@ type ConfdState_Webui_Listen_Tcp struct {
     YFilter yfilter.YFilter
 
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The type is interface{} with range: 0..65535.
@@ -600,10 +647,13 @@ func (tcp *ConfdState_Webui_Listen_Tcp) GetEntityData() *types.CommonEntityData 
     tcp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tcp.EntityData.Children = make(map[string]types.YChild)
-    tcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcp.EntityData.Leafs["ip"] = types.YLeaf{"Ip", tcp.Ip}
-    tcp.EntityData.Leafs["port"] = types.YLeaf{"Port", tcp.Port}
+    tcp.EntityData.Children = types.NewOrderedMap()
+    tcp.EntityData.Leafs = types.NewOrderedMap()
+    tcp.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", tcp.Ip})
+    tcp.EntityData.Leafs.Append("port", types.YLeaf{"Port", tcp.Port})
+
+    tcp.EntityData.YListKeys = []string {}
+
     return &(tcp.EntityData)
 }
 
@@ -613,9 +663,9 @@ type ConfdState_Webui_Listen_Ssl struct {
     YFilter yfilter.YFilter
 
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The type is interface{} with range: 0..65535.
@@ -632,10 +682,13 @@ func (ssl *ConfdState_Webui_Listen_Ssl) GetEntityData() *types.CommonEntityData 
     ssl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ssl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ssl.EntityData.Children = make(map[string]types.YChild)
-    ssl.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssl.EntityData.Leafs["ip"] = types.YLeaf{"Ip", ssl.Ip}
-    ssl.EntityData.Leafs["port"] = types.YLeaf{"Port", ssl.Port}
+    ssl.EntityData.Children = types.NewOrderedMap()
+    ssl.EntityData.Leafs = types.NewOrderedMap()
+    ssl.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", ssl.Ip})
+    ssl.EntityData.Leafs.Append("port", types.YLeaf{"Port", ssl.Port})
+
+    ssl.EntityData.YListKeys = []string {}
+
     return &(ssl.EntityData)
 }
 
@@ -644,6 +697,7 @@ func (ssl *ConfdState_Webui_Listen_Ssl) GetEntityData() *types.CommonEntityData 
 type ConfdState_Rest struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // The transport addresses the REST server is listening on.
     Listen ConfdState_Rest_Listen
@@ -659,9 +713,12 @@ func (rest *ConfdState_Rest) GetEntityData() *types.CommonEntityData {
     rest.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rest.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rest.EntityData.Children = make(map[string]types.YChild)
-    rest.EntityData.Children["listen"] = types.YChild{"Listen", &rest.Listen}
-    rest.EntityData.Leafs = make(map[string]types.YLeaf)
+    rest.EntityData.Children = types.NewOrderedMap()
+    rest.EntityData.Children.Append("listen", types.YChild{"Listen", &rest.Listen})
+    rest.EntityData.Leafs = types.NewOrderedMap()
+
+    rest.EntityData.YListKeys = []string {}
+
     return &(rest.EntityData)
 }
 
@@ -672,10 +729,10 @@ type ConfdState_Rest_Listen struct {
     YFilter yfilter.YFilter
 
     // The type is slice of ConfdState_Rest_Listen_Tcp.
-    Tcp []ConfdState_Rest_Listen_Tcp
+    Tcp []*ConfdState_Rest_Listen_Tcp
 
     // The type is slice of ConfdState_Rest_Listen_Ssl.
-    Ssl []ConfdState_Rest_Listen_Ssl
+    Ssl []*ConfdState_Rest_Listen_Ssl
 }
 
 func (listen *ConfdState_Rest_Listen) GetEntityData() *types.CommonEntityData {
@@ -688,16 +745,19 @@ func (listen *ConfdState_Rest_Listen) GetEntityData() *types.CommonEntityData {
     listen.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     listen.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    listen.EntityData.Children = make(map[string]types.YChild)
-    listen.EntityData.Children["tcp"] = types.YChild{"Tcp", nil}
+    listen.EntityData.Children = types.NewOrderedMap()
+    listen.EntityData.Children.Append("tcp", types.YChild{"Tcp", nil})
     for i := range listen.Tcp {
-        listen.EntityData.Children[types.GetSegmentPath(&listen.Tcp[i])] = types.YChild{"Tcp", &listen.Tcp[i]}
+        listen.EntityData.Children.Append(types.GetSegmentPath(listen.Tcp[i]), types.YChild{"Tcp", listen.Tcp[i]})
     }
-    listen.EntityData.Children["ssl"] = types.YChild{"Ssl", nil}
+    listen.EntityData.Children.Append("ssl", types.YChild{"Ssl", nil})
     for i := range listen.Ssl {
-        listen.EntityData.Children[types.GetSegmentPath(&listen.Ssl[i])] = types.YChild{"Ssl", &listen.Ssl[i]}
+        listen.EntityData.Children.Append(types.GetSegmentPath(listen.Ssl[i]), types.YChild{"Ssl", listen.Ssl[i]})
     }
-    listen.EntityData.Leafs = make(map[string]types.YLeaf)
+    listen.EntityData.Leafs = types.NewOrderedMap()
+
+    listen.EntityData.YListKeys = []string {}
+
     return &(listen.EntityData)
 }
 
@@ -707,9 +767,9 @@ type ConfdState_Rest_Listen_Tcp struct {
     YFilter yfilter.YFilter
 
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The type is interface{} with range: 0..65535.
@@ -726,10 +786,13 @@ func (tcp *ConfdState_Rest_Listen_Tcp) GetEntityData() *types.CommonEntityData {
     tcp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tcp.EntityData.Children = make(map[string]types.YChild)
-    tcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcp.EntityData.Leafs["ip"] = types.YLeaf{"Ip", tcp.Ip}
-    tcp.EntityData.Leafs["port"] = types.YLeaf{"Port", tcp.Port}
+    tcp.EntityData.Children = types.NewOrderedMap()
+    tcp.EntityData.Leafs = types.NewOrderedMap()
+    tcp.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", tcp.Ip})
+    tcp.EntityData.Leafs.Append("port", types.YLeaf{"Port", tcp.Port})
+
+    tcp.EntityData.YListKeys = []string {}
+
     return &(tcp.EntityData)
 }
 
@@ -739,9 +802,9 @@ type ConfdState_Rest_Listen_Ssl struct {
     YFilter yfilter.YFilter
 
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The type is interface{} with range: 0..65535.
@@ -758,10 +821,13 @@ func (ssl *ConfdState_Rest_Listen_Ssl) GetEntityData() *types.CommonEntityData {
     ssl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ssl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ssl.EntityData.Children = make(map[string]types.YChild)
-    ssl.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssl.EntityData.Leafs["ip"] = types.YLeaf{"Ip", ssl.Ip}
-    ssl.EntityData.Leafs["port"] = types.YLeaf{"Port", ssl.Port}
+    ssl.EntityData.Children = types.NewOrderedMap()
+    ssl.EntityData.Leafs = types.NewOrderedMap()
+    ssl.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", ssl.Ip})
+    ssl.EntityData.Leafs.Append("port", types.YLeaf{"Port", ssl.Port})
+
+    ssl.EntityData.YListKeys = []string {}
+
     return &(ssl.EntityData)
 }
 
@@ -770,13 +836,14 @@ func (ssl *ConfdState_Rest_Listen_Ssl) GetEntityData() *types.CommonEntityData {
 type ConfdState_Snmp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // MIBs loaded by the SNMP agent. The type is slice of string.
     Mib []interface{}
 
     // The local Engine ID specified as a list of colon-specified hexadecimal
     // octets e.g. '4F:4C:41:71'. The type is string with pattern:
-    // b'([0-9a-fA-F]){2}(:([0-9a-fA-F]){2}){4,31}'.
+    // ([0-9a-fA-F]){2}(:([0-9a-fA-F]){2}){4,31}.
     EngineId interface{}
 
     // The transport addresses the SNMP agent is listening on.
@@ -796,12 +863,15 @@ func (snmp *ConfdState_Snmp) GetEntityData() *types.CommonEntityData {
     snmp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     snmp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    snmp.EntityData.Children = make(map[string]types.YChild)
-    snmp.EntityData.Children["listen"] = types.YChild{"Listen", &snmp.Listen}
-    snmp.EntityData.Children["version"] = types.YChild{"Version", &snmp.Version}
-    snmp.EntityData.Leafs = make(map[string]types.YLeaf)
-    snmp.EntityData.Leafs["mib"] = types.YLeaf{"Mib", snmp.Mib}
-    snmp.EntityData.Leafs["engine-id"] = types.YLeaf{"EngineId", snmp.EngineId}
+    snmp.EntityData.Children = types.NewOrderedMap()
+    snmp.EntityData.Children.Append("listen", types.YChild{"Listen", &snmp.Listen})
+    snmp.EntityData.Children.Append("version", types.YChild{"Version", &snmp.Version})
+    snmp.EntityData.Leafs = types.NewOrderedMap()
+    snmp.EntityData.Leafs.Append("mib", types.YLeaf{"Mib", snmp.Mib})
+    snmp.EntityData.Leafs.Append("engine-id", types.YLeaf{"EngineId", snmp.EngineId})
+
+    snmp.EntityData.YListKeys = []string {}
+
     return &(snmp.EntityData)
 }
 
@@ -812,7 +882,7 @@ type ConfdState_Snmp_Listen struct {
     YFilter yfilter.YFilter
 
     // The type is slice of ConfdState_Snmp_Listen_Udp.
-    Udp []ConfdState_Snmp_Listen_Udp
+    Udp []*ConfdState_Snmp_Listen_Udp
 }
 
 func (listen *ConfdState_Snmp_Listen) GetEntityData() *types.CommonEntityData {
@@ -825,12 +895,15 @@ func (listen *ConfdState_Snmp_Listen) GetEntityData() *types.CommonEntityData {
     listen.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     listen.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    listen.EntityData.Children = make(map[string]types.YChild)
-    listen.EntityData.Children["udp"] = types.YChild{"Udp", nil}
+    listen.EntityData.Children = types.NewOrderedMap()
+    listen.EntityData.Children.Append("udp", types.YChild{"Udp", nil})
     for i := range listen.Udp {
-        listen.EntityData.Children[types.GetSegmentPath(&listen.Udp[i])] = types.YChild{"Udp", &listen.Udp[i]}
+        listen.EntityData.Children.Append(types.GetSegmentPath(listen.Udp[i]), types.YChild{"Udp", listen.Udp[i]})
     }
-    listen.EntityData.Leafs = make(map[string]types.YLeaf)
+    listen.EntityData.Leafs = types.NewOrderedMap()
+
+    listen.EntityData.YListKeys = []string {}
+
     return &(listen.EntityData)
 }
 
@@ -840,9 +913,9 @@ type ConfdState_Snmp_Listen_Udp struct {
     YFilter yfilter.YFilter
 
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The type is interface{} with range: 0..65535.
@@ -859,10 +932,13 @@ func (udp *ConfdState_Snmp_Listen_Udp) GetEntityData() *types.CommonEntityData {
     udp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     udp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    udp.EntityData.Children = make(map[string]types.YChild)
-    udp.EntityData.Leafs = make(map[string]types.YLeaf)
-    udp.EntityData.Leafs["ip"] = types.YLeaf{"Ip", udp.Ip}
-    udp.EntityData.Leafs["port"] = types.YLeaf{"Port", udp.Port}
+    udp.EntityData.Children = types.NewOrderedMap()
+    udp.EntityData.Leafs = types.NewOrderedMap()
+    udp.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", udp.Ip})
+    udp.EntityData.Leafs.Append("port", types.YLeaf{"Port", udp.Port})
+
+    udp.EntityData.YListKeys = []string {}
+
     return &(udp.EntityData)
 }
 
@@ -876,7 +952,7 @@ type ConfdState_Snmp_Version struct {
     V1 interface{}
 
     // The type is interface{}.
-    V2C interface{}
+    V2c interface{}
 
     // The type is interface{}.
     V3 interface{}
@@ -892,11 +968,14 @@ func (version *ConfdState_Snmp_Version) GetEntityData() *types.CommonEntityData 
     version.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     version.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    version.EntityData.Children = make(map[string]types.YChild)
-    version.EntityData.Leafs = make(map[string]types.YLeaf)
-    version.EntityData.Leafs["v1"] = types.YLeaf{"V1", version.V1}
-    version.EntityData.Leafs["v2c"] = types.YLeaf{"V2C", version.V2C}
-    version.EntityData.Leafs["v3"] = types.YLeaf{"V3", version.V3}
+    version.EntityData.Children = types.NewOrderedMap()
+    version.EntityData.Leafs = types.NewOrderedMap()
+    version.EntityData.Leafs.Append("v1", types.YLeaf{"V1", version.V1})
+    version.EntityData.Leafs.Append("v2c", types.YLeaf{"V2c", version.V2c})
+    version.EntityData.Leafs.Append("v3", types.YLeaf{"V3", version.V3})
+
+    version.EntityData.YListKeys = []string {}
+
     return &(version.EntityData)
 }
 
@@ -922,10 +1001,13 @@ func (internal *ConfdState_Internal) GetEntityData() *types.CommonEntityData {
     internal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     internal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    internal.EntityData.Children = make(map[string]types.YChild)
-    internal.EntityData.Children["callpoints"] = types.YChild{"Callpoints", &internal.Callpoints}
-    internal.EntityData.Children["cdb"] = types.YChild{"Cdb", &internal.Cdb}
-    internal.EntityData.Leafs = make(map[string]types.YLeaf)
+    internal.EntityData.Children = types.NewOrderedMap()
+    internal.EntityData.Children.Append("callpoints", types.YChild{"Callpoints", &internal.Callpoints})
+    internal.EntityData.Children.Append("cdb", types.YChild{"Cdb", &internal.Cdb})
+    internal.EntityData.Leafs = types.NewOrderedMap()
+
+    internal.EntityData.YListKeys = []string {}
+
     return &(internal.EntityData)
 }
 
@@ -935,31 +1017,31 @@ type ConfdState_Internal_Callpoints struct {
     YFilter yfilter.YFilter
 
     // The type is slice of ConfdState_Internal_Callpoints_Callpoint.
-    Callpoint []ConfdState_Internal_Callpoints_Callpoint
+    Callpoint []*ConfdState_Internal_Callpoints_Callpoint
 
     // The type is slice of ConfdState_Internal_Callpoints_Validationpoint.
-    Validationpoint []ConfdState_Internal_Callpoints_Validationpoint
+    Validationpoint []*ConfdState_Internal_Callpoints_Validationpoint
 
     // The type is slice of ConfdState_Internal_Callpoints_Actionpoint.
-    Actionpoint []ConfdState_Internal_Callpoints_Actionpoint
+    Actionpoint []*ConfdState_Internal_Callpoints_Actionpoint
 
     // The type is slice of ConfdState_Internal_Callpoints_SnmpInformCallback.
-    SnmpInformCallback []ConfdState_Internal_Callpoints_SnmpInformCallback
+    SnmpInformCallback []*ConfdState_Internal_Callpoints_SnmpInformCallback
 
     // The type is slice of
     // ConfdState_Internal_Callpoints_SnmpNotificationSubscription.
-    SnmpNotificationSubscription []ConfdState_Internal_Callpoints_SnmpNotificationSubscription
+    SnmpNotificationSubscription []*ConfdState_Internal_Callpoints_SnmpNotificationSubscription
 
     // The type is slice of
     // ConfdState_Internal_Callpoints_ErrorFormattingCallback.
-    ErrorFormattingCallback []ConfdState_Internal_Callpoints_ErrorFormattingCallback
+    ErrorFormattingCallback []*ConfdState_Internal_Callpoints_ErrorFormattingCallback
 
     // The type is slice of ConfdState_Internal_Callpoints_Typepoint.
-    Typepoint []ConfdState_Internal_Callpoints_Typepoint
+    Typepoint []*ConfdState_Internal_Callpoints_Typepoint
 
     // The type is slice of
     // ConfdState_Internal_Callpoints_NotificationStreamReplay.
-    NotificationStreamReplay []ConfdState_Internal_Callpoints_NotificationStreamReplay
+    NotificationStreamReplay []*ConfdState_Internal_Callpoints_NotificationStreamReplay
 
     
     AuthenticationCallback ConfdState_Internal_Callpoints_AuthenticationCallback
@@ -978,42 +1060,45 @@ func (callpoints *ConfdState_Internal_Callpoints) GetEntityData() *types.CommonE
     callpoints.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     callpoints.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    callpoints.EntityData.Children = make(map[string]types.YChild)
-    callpoints.EntityData.Children["callpoint"] = types.YChild{"Callpoint", nil}
+    callpoints.EntityData.Children = types.NewOrderedMap()
+    callpoints.EntityData.Children.Append("callpoint", types.YChild{"Callpoint", nil})
     for i := range callpoints.Callpoint {
-        callpoints.EntityData.Children[types.GetSegmentPath(&callpoints.Callpoint[i])] = types.YChild{"Callpoint", &callpoints.Callpoint[i]}
+        callpoints.EntityData.Children.Append(types.GetSegmentPath(callpoints.Callpoint[i]), types.YChild{"Callpoint", callpoints.Callpoint[i]})
     }
-    callpoints.EntityData.Children["validationpoint"] = types.YChild{"Validationpoint", nil}
+    callpoints.EntityData.Children.Append("validationpoint", types.YChild{"Validationpoint", nil})
     for i := range callpoints.Validationpoint {
-        callpoints.EntityData.Children[types.GetSegmentPath(&callpoints.Validationpoint[i])] = types.YChild{"Validationpoint", &callpoints.Validationpoint[i]}
+        callpoints.EntityData.Children.Append(types.GetSegmentPath(callpoints.Validationpoint[i]), types.YChild{"Validationpoint", callpoints.Validationpoint[i]})
     }
-    callpoints.EntityData.Children["actionpoint"] = types.YChild{"Actionpoint", nil}
+    callpoints.EntityData.Children.Append("actionpoint", types.YChild{"Actionpoint", nil})
     for i := range callpoints.Actionpoint {
-        callpoints.EntityData.Children[types.GetSegmentPath(&callpoints.Actionpoint[i])] = types.YChild{"Actionpoint", &callpoints.Actionpoint[i]}
+        callpoints.EntityData.Children.Append(types.GetSegmentPath(callpoints.Actionpoint[i]), types.YChild{"Actionpoint", callpoints.Actionpoint[i]})
     }
-    callpoints.EntityData.Children["snmp-inform-callback"] = types.YChild{"SnmpInformCallback", nil}
+    callpoints.EntityData.Children.Append("snmp-inform-callback", types.YChild{"SnmpInformCallback", nil})
     for i := range callpoints.SnmpInformCallback {
-        callpoints.EntityData.Children[types.GetSegmentPath(&callpoints.SnmpInformCallback[i])] = types.YChild{"SnmpInformCallback", &callpoints.SnmpInformCallback[i]}
+        callpoints.EntityData.Children.Append(types.GetSegmentPath(callpoints.SnmpInformCallback[i]), types.YChild{"SnmpInformCallback", callpoints.SnmpInformCallback[i]})
     }
-    callpoints.EntityData.Children["snmp-notification-subscription"] = types.YChild{"SnmpNotificationSubscription", nil}
+    callpoints.EntityData.Children.Append("snmp-notification-subscription", types.YChild{"SnmpNotificationSubscription", nil})
     for i := range callpoints.SnmpNotificationSubscription {
-        callpoints.EntityData.Children[types.GetSegmentPath(&callpoints.SnmpNotificationSubscription[i])] = types.YChild{"SnmpNotificationSubscription", &callpoints.SnmpNotificationSubscription[i]}
+        callpoints.EntityData.Children.Append(types.GetSegmentPath(callpoints.SnmpNotificationSubscription[i]), types.YChild{"SnmpNotificationSubscription", callpoints.SnmpNotificationSubscription[i]})
     }
-    callpoints.EntityData.Children["error-formatting-callback"] = types.YChild{"ErrorFormattingCallback", nil}
+    callpoints.EntityData.Children.Append("error-formatting-callback", types.YChild{"ErrorFormattingCallback", nil})
     for i := range callpoints.ErrorFormattingCallback {
-        callpoints.EntityData.Children[types.GetSegmentPath(&callpoints.ErrorFormattingCallback[i])] = types.YChild{"ErrorFormattingCallback", &callpoints.ErrorFormattingCallback[i]}
+        callpoints.EntityData.Children.Append(types.GetSegmentPath(callpoints.ErrorFormattingCallback[i]), types.YChild{"ErrorFormattingCallback", callpoints.ErrorFormattingCallback[i]})
     }
-    callpoints.EntityData.Children["typepoint"] = types.YChild{"Typepoint", nil}
+    callpoints.EntityData.Children.Append("typepoint", types.YChild{"Typepoint", nil})
     for i := range callpoints.Typepoint {
-        callpoints.EntityData.Children[types.GetSegmentPath(&callpoints.Typepoint[i])] = types.YChild{"Typepoint", &callpoints.Typepoint[i]}
+        callpoints.EntityData.Children.Append(types.GetSegmentPath(callpoints.Typepoint[i]), types.YChild{"Typepoint", callpoints.Typepoint[i]})
     }
-    callpoints.EntityData.Children["notification-stream-replay"] = types.YChild{"NotificationStreamReplay", nil}
+    callpoints.EntityData.Children.Append("notification-stream-replay", types.YChild{"NotificationStreamReplay", nil})
     for i := range callpoints.NotificationStreamReplay {
-        callpoints.EntityData.Children[types.GetSegmentPath(&callpoints.NotificationStreamReplay[i])] = types.YChild{"NotificationStreamReplay", &callpoints.NotificationStreamReplay[i]}
+        callpoints.EntityData.Children.Append(types.GetSegmentPath(callpoints.NotificationStreamReplay[i]), types.YChild{"NotificationStreamReplay", callpoints.NotificationStreamReplay[i]})
     }
-    callpoints.EntityData.Children["authentication-callback"] = types.YChild{"AuthenticationCallback", &callpoints.AuthenticationCallback}
-    callpoints.EntityData.Children["authorization-callbacks"] = types.YChild{"AuthorizationCallbacks", &callpoints.AuthorizationCallbacks}
-    callpoints.EntityData.Leafs = make(map[string]types.YLeaf)
+    callpoints.EntityData.Children.Append("authentication-callback", types.YChild{"AuthenticationCallback", &callpoints.AuthenticationCallback})
+    callpoints.EntityData.Children.Append("authorization-callbacks", types.YChild{"AuthorizationCallbacks", &callpoints.AuthorizationCallbacks})
+    callpoints.EntityData.Leafs = types.NewOrderedMap()
+
+    callpoints.EntityData.YListKeys = []string {}
+
     return &(callpoints.EntityData)
 }
 
@@ -1034,14 +1119,14 @@ type ConfdState_Internal_Callpoints_Callpoint struct {
     File interface{}
 
     // If this leaf exists, there is a problem with the callpoint registration.
-    // The type is Error.
+    // The type is Error_.
     Error interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_Callpoint_Daemon
 
-    // The type is slice of ConfdState_Internal_Callpoints_Callpoint_Range_.
-    Range_ []ConfdState_Internal_Callpoints_Callpoint_Range
+    // The type is slice of ConfdState_Internal_Callpoints_Callpoint_Range.
+    Range []*ConfdState_Internal_Callpoints_Callpoint_Range
 }
 
 func (callpoint *ConfdState_Internal_Callpoints_Callpoint) GetEntityData() *types.CommonEntityData {
@@ -1049,22 +1134,25 @@ func (callpoint *ConfdState_Internal_Callpoints_Callpoint) GetEntityData() *type
     callpoint.EntityData.YangName = "callpoint"
     callpoint.EntityData.BundleName = "cisco_ios_xe"
     callpoint.EntityData.ParentYangName = "callpoints"
-    callpoint.EntityData.SegmentPath = "callpoint" + "[id='" + fmt.Sprintf("%v", callpoint.Id) + "']"
+    callpoint.EntityData.SegmentPath = "callpoint" + types.AddKeyToken(callpoint.Id, "id")
     callpoint.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     callpoint.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     callpoint.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    callpoint.EntityData.Children = make(map[string]types.YChild)
-    callpoint.EntityData.Children["daemon"] = types.YChild{"Daemon", &callpoint.Daemon}
-    callpoint.EntityData.Children["range"] = types.YChild{"Range_", nil}
-    for i := range callpoint.Range_ {
-        callpoint.EntityData.Children[types.GetSegmentPath(&callpoint.Range_[i])] = types.YChild{"Range_", &callpoint.Range_[i]}
+    callpoint.EntityData.Children = types.NewOrderedMap()
+    callpoint.EntityData.Children.Append("daemon", types.YChild{"Daemon", &callpoint.Daemon})
+    callpoint.EntityData.Children.Append("range", types.YChild{"Range", nil})
+    for i := range callpoint.Range {
+        callpoint.EntityData.Children.Append(types.GetSegmentPath(callpoint.Range[i]), types.YChild{"Range", callpoint.Range[i]})
     }
-    callpoint.EntityData.Leafs = make(map[string]types.YLeaf)
-    callpoint.EntityData.Leafs["id"] = types.YLeaf{"Id", callpoint.Id}
-    callpoint.EntityData.Leafs["path"] = types.YLeaf{"Path", callpoint.Path}
-    callpoint.EntityData.Leafs["file"] = types.YLeaf{"File", callpoint.File}
-    callpoint.EntityData.Leafs["error"] = types.YLeaf{"Error", callpoint.Error}
+    callpoint.EntityData.Leafs = types.NewOrderedMap()
+    callpoint.EntityData.Leafs.Append("id", types.YLeaf{"Id", callpoint.Id})
+    callpoint.EntityData.Leafs.Append("path", types.YLeaf{"Path", callpoint.Path})
+    callpoint.EntityData.Leafs.Append("file", types.YLeaf{"File", callpoint.File})
+    callpoint.EntityData.Leafs.Append("error", types.YLeaf{"Error", callpoint.Error})
+
+    callpoint.EntityData.YListKeys = []string {"Id"}
+
     return &(callpoint.EntityData)
 }
 
@@ -1082,7 +1170,7 @@ type ConfdState_Internal_Callpoints_Callpoint_Daemon struct {
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -1096,21 +1184,24 @@ func (daemon *ConfdState_Internal_Callpoints_Callpoint_Daemon) GetEntityData() *
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_Callpoint_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_Callpoint_Daemon_Error string
+// ConfdState_Internal_Callpoints_Callpoint_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_Callpoint_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_Callpoint_Daemon_Error_PENDING ConfdState_Internal_Callpoints_Callpoint_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_Callpoint_Daemon_Error__PENDING ConfdState_Internal_Callpoints_Callpoint_Daemon_Error_ = "PENDING"
 )
 
 // ConfdState_Internal_Callpoints_Callpoint_Range
@@ -1128,7 +1219,7 @@ type ConfdState_Internal_Callpoints_Callpoint_Range struct {
 
     // If this leaf exists, this is a default registration - in this case 'lower'
     // and 'upper' do not exist. The type is interface{}.
-    Default_ interface{}
+    Default interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_Callpoint_Range_Daemon
@@ -1144,12 +1235,15 @@ func (self *ConfdState_Internal_Callpoints_Callpoint_Range) GetEntityData() *typ
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["daemon"] = types.YChild{"Daemon", &self.Daemon}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["lower"] = types.YLeaf{"Lower", self.Lower}
-    self.EntityData.Leafs["upper"] = types.YLeaf{"Upper", self.Upper}
-    self.EntityData.Leafs["default"] = types.YLeaf{"Default_", self.Default_}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("daemon", types.YChild{"Daemon", &self.Daemon})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("lower", types.YLeaf{"Lower", self.Lower})
+    self.EntityData.Leafs.Append("upper", types.YLeaf{"Upper", self.Upper})
+    self.EntityData.Leafs.Append("default", types.YLeaf{"Default", self.Default})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -1167,7 +1261,7 @@ type ConfdState_Internal_Callpoints_Callpoint_Range_Daemon struct {
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -1181,34 +1275,37 @@ func (daemon *ConfdState_Internal_Callpoints_Callpoint_Range_Daemon) GetEntityDa
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_Callpoint_Range_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_Callpoint_Range_Daemon_Error string
+// ConfdState_Internal_Callpoints_Callpoint_Range_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_Callpoint_Range_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_Callpoint_Range_Daemon_Error_PENDING ConfdState_Internal_Callpoints_Callpoint_Range_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_Callpoint_Range_Daemon_Error__PENDING ConfdState_Internal_Callpoints_Callpoint_Range_Daemon_Error_ = "PENDING"
 )
 
-// ConfdState_Internal_Callpoints_Callpoint_Error represents with the callpoint registration.
-type ConfdState_Internal_Callpoints_Callpoint_Error string
+// ConfdState_Internal_Callpoints_Callpoint_Error_ represents with the callpoint registration.
+type ConfdState_Internal_Callpoints_Callpoint_Error_ string
 
 const (
     // This value means that there is no registration
     // for the callpoint.
-    ConfdState_Internal_Callpoints_Callpoint_Error_NOT_REGISTERED ConfdState_Internal_Callpoints_Callpoint_Error = "NOT-REGISTERED"
+    ConfdState_Internal_Callpoints_Callpoint_Error__NOT_REGISTERED ConfdState_Internal_Callpoints_Callpoint_Error_ = "NOT-REGISTERED"
 
     // This value means that the callpoint does not exist,
     // but there is a registration for it.
-    ConfdState_Internal_Callpoints_Callpoint_Error_UNKNOWN ConfdState_Internal_Callpoints_Callpoint_Error = "UNKNOWN"
+    ConfdState_Internal_Callpoints_Callpoint_Error__UNKNOWN ConfdState_Internal_Callpoints_Callpoint_Error_ = "UNKNOWN"
 )
 
 // ConfdState_Internal_Callpoints_Validationpoint
@@ -1228,14 +1325,14 @@ type ConfdState_Internal_Callpoints_Validationpoint struct {
     File interface{}
 
     // If this leaf exists, there is a problem with the callpoint registration.
-    // The type is Error.
+    // The type is Error_.
     Error interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_Validationpoint_Daemon
 
-    // The type is slice of ConfdState_Internal_Callpoints_Validationpoint_Range_.
-    Range_ []ConfdState_Internal_Callpoints_Validationpoint_Range
+    // The type is slice of ConfdState_Internal_Callpoints_Validationpoint_Range.
+    Range []*ConfdState_Internal_Callpoints_Validationpoint_Range
 }
 
 func (validationpoint *ConfdState_Internal_Callpoints_Validationpoint) GetEntityData() *types.CommonEntityData {
@@ -1243,22 +1340,25 @@ func (validationpoint *ConfdState_Internal_Callpoints_Validationpoint) GetEntity
     validationpoint.EntityData.YangName = "validationpoint"
     validationpoint.EntityData.BundleName = "cisco_ios_xe"
     validationpoint.EntityData.ParentYangName = "callpoints"
-    validationpoint.EntityData.SegmentPath = "validationpoint" + "[id='" + fmt.Sprintf("%v", validationpoint.Id) + "']"
+    validationpoint.EntityData.SegmentPath = "validationpoint" + types.AddKeyToken(validationpoint.Id, "id")
     validationpoint.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     validationpoint.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     validationpoint.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    validationpoint.EntityData.Children = make(map[string]types.YChild)
-    validationpoint.EntityData.Children["daemon"] = types.YChild{"Daemon", &validationpoint.Daemon}
-    validationpoint.EntityData.Children["range"] = types.YChild{"Range_", nil}
-    for i := range validationpoint.Range_ {
-        validationpoint.EntityData.Children[types.GetSegmentPath(&validationpoint.Range_[i])] = types.YChild{"Range_", &validationpoint.Range_[i]}
+    validationpoint.EntityData.Children = types.NewOrderedMap()
+    validationpoint.EntityData.Children.Append("daemon", types.YChild{"Daemon", &validationpoint.Daemon})
+    validationpoint.EntityData.Children.Append("range", types.YChild{"Range", nil})
+    for i := range validationpoint.Range {
+        validationpoint.EntityData.Children.Append(types.GetSegmentPath(validationpoint.Range[i]), types.YChild{"Range", validationpoint.Range[i]})
     }
-    validationpoint.EntityData.Leafs = make(map[string]types.YLeaf)
-    validationpoint.EntityData.Leafs["id"] = types.YLeaf{"Id", validationpoint.Id}
-    validationpoint.EntityData.Leafs["path"] = types.YLeaf{"Path", validationpoint.Path}
-    validationpoint.EntityData.Leafs["file"] = types.YLeaf{"File", validationpoint.File}
-    validationpoint.EntityData.Leafs["error"] = types.YLeaf{"Error", validationpoint.Error}
+    validationpoint.EntityData.Leafs = types.NewOrderedMap()
+    validationpoint.EntityData.Leafs.Append("id", types.YLeaf{"Id", validationpoint.Id})
+    validationpoint.EntityData.Leafs.Append("path", types.YLeaf{"Path", validationpoint.Path})
+    validationpoint.EntityData.Leafs.Append("file", types.YLeaf{"File", validationpoint.File})
+    validationpoint.EntityData.Leafs.Append("error", types.YLeaf{"Error", validationpoint.Error})
+
+    validationpoint.EntityData.YListKeys = []string {"Id"}
+
     return &(validationpoint.EntityData)
 }
 
@@ -1276,7 +1376,7 @@ type ConfdState_Internal_Callpoints_Validationpoint_Daemon struct {
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -1290,21 +1390,24 @@ func (daemon *ConfdState_Internal_Callpoints_Validationpoint_Daemon) GetEntityDa
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_Validationpoint_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_Validationpoint_Daemon_Error string
+// ConfdState_Internal_Callpoints_Validationpoint_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_Validationpoint_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_Validationpoint_Daemon_Error_PENDING ConfdState_Internal_Callpoints_Validationpoint_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_Validationpoint_Daemon_Error__PENDING ConfdState_Internal_Callpoints_Validationpoint_Daemon_Error_ = "PENDING"
 )
 
 // ConfdState_Internal_Callpoints_Validationpoint_Range
@@ -1322,7 +1425,7 @@ type ConfdState_Internal_Callpoints_Validationpoint_Range struct {
 
     // If this leaf exists, this is a default registration - in this case 'lower'
     // and 'upper' do not exist. The type is interface{}.
-    Default_ interface{}
+    Default interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_Validationpoint_Range_Daemon
@@ -1338,12 +1441,15 @@ func (self *ConfdState_Internal_Callpoints_Validationpoint_Range) GetEntityData(
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["daemon"] = types.YChild{"Daemon", &self.Daemon}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["lower"] = types.YLeaf{"Lower", self.Lower}
-    self.EntityData.Leafs["upper"] = types.YLeaf{"Upper", self.Upper}
-    self.EntityData.Leafs["default"] = types.YLeaf{"Default_", self.Default_}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("daemon", types.YChild{"Daemon", &self.Daemon})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("lower", types.YLeaf{"Lower", self.Lower})
+    self.EntityData.Leafs.Append("upper", types.YLeaf{"Upper", self.Upper})
+    self.EntityData.Leafs.Append("default", types.YLeaf{"Default", self.Default})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -1361,7 +1467,7 @@ type ConfdState_Internal_Callpoints_Validationpoint_Range_Daemon struct {
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -1375,34 +1481,37 @@ func (daemon *ConfdState_Internal_Callpoints_Validationpoint_Range_Daemon) GetEn
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_Validationpoint_Range_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_Validationpoint_Range_Daemon_Error string
+// ConfdState_Internal_Callpoints_Validationpoint_Range_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_Validationpoint_Range_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_Validationpoint_Range_Daemon_Error_PENDING ConfdState_Internal_Callpoints_Validationpoint_Range_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_Validationpoint_Range_Daemon_Error__PENDING ConfdState_Internal_Callpoints_Validationpoint_Range_Daemon_Error_ = "PENDING"
 )
 
-// ConfdState_Internal_Callpoints_Validationpoint_Error represents with the callpoint registration.
-type ConfdState_Internal_Callpoints_Validationpoint_Error string
+// ConfdState_Internal_Callpoints_Validationpoint_Error_ represents with the callpoint registration.
+type ConfdState_Internal_Callpoints_Validationpoint_Error_ string
 
 const (
     // This value means that there is no registration
     // for the callpoint.
-    ConfdState_Internal_Callpoints_Validationpoint_Error_NOT_REGISTERED ConfdState_Internal_Callpoints_Validationpoint_Error = "NOT-REGISTERED"
+    ConfdState_Internal_Callpoints_Validationpoint_Error__NOT_REGISTERED ConfdState_Internal_Callpoints_Validationpoint_Error_ = "NOT-REGISTERED"
 
     // This value means that the callpoint does not exist,
     // but there is a registration for it.
-    ConfdState_Internal_Callpoints_Validationpoint_Error_UNKNOWN ConfdState_Internal_Callpoints_Validationpoint_Error = "UNKNOWN"
+    ConfdState_Internal_Callpoints_Validationpoint_Error__UNKNOWN ConfdState_Internal_Callpoints_Validationpoint_Error_ = "UNKNOWN"
 )
 
 // ConfdState_Internal_Callpoints_Actionpoint
@@ -1422,14 +1531,14 @@ type ConfdState_Internal_Callpoints_Actionpoint struct {
     File interface{}
 
     // If this leaf exists, there is a problem with the callpoint registration.
-    // The type is Error.
+    // The type is Error_.
     Error interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_Actionpoint_Daemon
 
-    // The type is slice of ConfdState_Internal_Callpoints_Actionpoint_Range_.
-    Range_ []ConfdState_Internal_Callpoints_Actionpoint_Range
+    // The type is slice of ConfdState_Internal_Callpoints_Actionpoint_Range.
+    Range []*ConfdState_Internal_Callpoints_Actionpoint_Range
 }
 
 func (actionpoint *ConfdState_Internal_Callpoints_Actionpoint) GetEntityData() *types.CommonEntityData {
@@ -1437,22 +1546,25 @@ func (actionpoint *ConfdState_Internal_Callpoints_Actionpoint) GetEntityData() *
     actionpoint.EntityData.YangName = "actionpoint"
     actionpoint.EntityData.BundleName = "cisco_ios_xe"
     actionpoint.EntityData.ParentYangName = "callpoints"
-    actionpoint.EntityData.SegmentPath = "actionpoint" + "[id='" + fmt.Sprintf("%v", actionpoint.Id) + "']"
+    actionpoint.EntityData.SegmentPath = "actionpoint" + types.AddKeyToken(actionpoint.Id, "id")
     actionpoint.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     actionpoint.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     actionpoint.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    actionpoint.EntityData.Children = make(map[string]types.YChild)
-    actionpoint.EntityData.Children["daemon"] = types.YChild{"Daemon", &actionpoint.Daemon}
-    actionpoint.EntityData.Children["range"] = types.YChild{"Range_", nil}
-    for i := range actionpoint.Range_ {
-        actionpoint.EntityData.Children[types.GetSegmentPath(&actionpoint.Range_[i])] = types.YChild{"Range_", &actionpoint.Range_[i]}
+    actionpoint.EntityData.Children = types.NewOrderedMap()
+    actionpoint.EntityData.Children.Append("daemon", types.YChild{"Daemon", &actionpoint.Daemon})
+    actionpoint.EntityData.Children.Append("range", types.YChild{"Range", nil})
+    for i := range actionpoint.Range {
+        actionpoint.EntityData.Children.Append(types.GetSegmentPath(actionpoint.Range[i]), types.YChild{"Range", actionpoint.Range[i]})
     }
-    actionpoint.EntityData.Leafs = make(map[string]types.YLeaf)
-    actionpoint.EntityData.Leafs["id"] = types.YLeaf{"Id", actionpoint.Id}
-    actionpoint.EntityData.Leafs["path"] = types.YLeaf{"Path", actionpoint.Path}
-    actionpoint.EntityData.Leafs["file"] = types.YLeaf{"File", actionpoint.File}
-    actionpoint.EntityData.Leafs["error"] = types.YLeaf{"Error", actionpoint.Error}
+    actionpoint.EntityData.Leafs = types.NewOrderedMap()
+    actionpoint.EntityData.Leafs.Append("id", types.YLeaf{"Id", actionpoint.Id})
+    actionpoint.EntityData.Leafs.Append("path", types.YLeaf{"Path", actionpoint.Path})
+    actionpoint.EntityData.Leafs.Append("file", types.YLeaf{"File", actionpoint.File})
+    actionpoint.EntityData.Leafs.Append("error", types.YLeaf{"Error", actionpoint.Error})
+
+    actionpoint.EntityData.YListKeys = []string {"Id"}
+
     return &(actionpoint.EntityData)
 }
 
@@ -1470,7 +1582,7 @@ type ConfdState_Internal_Callpoints_Actionpoint_Daemon struct {
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -1484,21 +1596,24 @@ func (daemon *ConfdState_Internal_Callpoints_Actionpoint_Daemon) GetEntityData()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_Actionpoint_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_Actionpoint_Daemon_Error string
+// ConfdState_Internal_Callpoints_Actionpoint_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_Actionpoint_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_Actionpoint_Daemon_Error_PENDING ConfdState_Internal_Callpoints_Actionpoint_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_Actionpoint_Daemon_Error__PENDING ConfdState_Internal_Callpoints_Actionpoint_Daemon_Error_ = "PENDING"
 )
 
 // ConfdState_Internal_Callpoints_Actionpoint_Range
@@ -1516,7 +1631,7 @@ type ConfdState_Internal_Callpoints_Actionpoint_Range struct {
 
     // If this leaf exists, this is a default registration - in this case 'lower'
     // and 'upper' do not exist. The type is interface{}.
-    Default_ interface{}
+    Default interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_Actionpoint_Range_Daemon
@@ -1532,12 +1647,15 @@ func (self *ConfdState_Internal_Callpoints_Actionpoint_Range) GetEntityData() *t
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["daemon"] = types.YChild{"Daemon", &self.Daemon}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["lower"] = types.YLeaf{"Lower", self.Lower}
-    self.EntityData.Leafs["upper"] = types.YLeaf{"Upper", self.Upper}
-    self.EntityData.Leafs["default"] = types.YLeaf{"Default_", self.Default_}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("daemon", types.YChild{"Daemon", &self.Daemon})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("lower", types.YLeaf{"Lower", self.Lower})
+    self.EntityData.Leafs.Append("upper", types.YLeaf{"Upper", self.Upper})
+    self.EntityData.Leafs.Append("default", types.YLeaf{"Default", self.Default})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -1555,7 +1673,7 @@ type ConfdState_Internal_Callpoints_Actionpoint_Range_Daemon struct {
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -1569,34 +1687,37 @@ func (daemon *ConfdState_Internal_Callpoints_Actionpoint_Range_Daemon) GetEntity
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_Actionpoint_Range_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_Actionpoint_Range_Daemon_Error string
+// ConfdState_Internal_Callpoints_Actionpoint_Range_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_Actionpoint_Range_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_Actionpoint_Range_Daemon_Error_PENDING ConfdState_Internal_Callpoints_Actionpoint_Range_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_Actionpoint_Range_Daemon_Error__PENDING ConfdState_Internal_Callpoints_Actionpoint_Range_Daemon_Error_ = "PENDING"
 )
 
-// ConfdState_Internal_Callpoints_Actionpoint_Error represents with the callpoint registration.
-type ConfdState_Internal_Callpoints_Actionpoint_Error string
+// ConfdState_Internal_Callpoints_Actionpoint_Error_ represents with the callpoint registration.
+type ConfdState_Internal_Callpoints_Actionpoint_Error_ string
 
 const (
     // This value means that there is no registration
     // for the callpoint.
-    ConfdState_Internal_Callpoints_Actionpoint_Error_NOT_REGISTERED ConfdState_Internal_Callpoints_Actionpoint_Error = "NOT-REGISTERED"
+    ConfdState_Internal_Callpoints_Actionpoint_Error__NOT_REGISTERED ConfdState_Internal_Callpoints_Actionpoint_Error_ = "NOT-REGISTERED"
 
     // This value means that the callpoint does not exist,
     // but there is a registration for it.
-    ConfdState_Internal_Callpoints_Actionpoint_Error_UNKNOWN ConfdState_Internal_Callpoints_Actionpoint_Error = "UNKNOWN"
+    ConfdState_Internal_Callpoints_Actionpoint_Error__UNKNOWN ConfdState_Internal_Callpoints_Actionpoint_Error_ = "UNKNOWN"
 )
 
 // ConfdState_Internal_Callpoints_SnmpInformCallback
@@ -1616,15 +1737,15 @@ type ConfdState_Internal_Callpoints_SnmpInformCallback struct {
     File interface{}
 
     // If this leaf exists, there is a problem with the callpoint registration.
-    // The type is Error.
+    // The type is Error_.
     Error interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_SnmpInformCallback_Daemon
 
     // The type is slice of
-    // ConfdState_Internal_Callpoints_SnmpInformCallback_Range_.
-    Range_ []ConfdState_Internal_Callpoints_SnmpInformCallback_Range
+    // ConfdState_Internal_Callpoints_SnmpInformCallback_Range.
+    Range []*ConfdState_Internal_Callpoints_SnmpInformCallback_Range
 }
 
 func (snmpInformCallback *ConfdState_Internal_Callpoints_SnmpInformCallback) GetEntityData() *types.CommonEntityData {
@@ -1632,22 +1753,25 @@ func (snmpInformCallback *ConfdState_Internal_Callpoints_SnmpInformCallback) Get
     snmpInformCallback.EntityData.YangName = "snmp-inform-callback"
     snmpInformCallback.EntityData.BundleName = "cisco_ios_xe"
     snmpInformCallback.EntityData.ParentYangName = "callpoints"
-    snmpInformCallback.EntityData.SegmentPath = "snmp-inform-callback" + "[id='" + fmt.Sprintf("%v", snmpInformCallback.Id) + "']"
+    snmpInformCallback.EntityData.SegmentPath = "snmp-inform-callback" + types.AddKeyToken(snmpInformCallback.Id, "id")
     snmpInformCallback.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     snmpInformCallback.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     snmpInformCallback.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    snmpInformCallback.EntityData.Children = make(map[string]types.YChild)
-    snmpInformCallback.EntityData.Children["daemon"] = types.YChild{"Daemon", &snmpInformCallback.Daemon}
-    snmpInformCallback.EntityData.Children["range"] = types.YChild{"Range_", nil}
-    for i := range snmpInformCallback.Range_ {
-        snmpInformCallback.EntityData.Children[types.GetSegmentPath(&snmpInformCallback.Range_[i])] = types.YChild{"Range_", &snmpInformCallback.Range_[i]}
+    snmpInformCallback.EntityData.Children = types.NewOrderedMap()
+    snmpInformCallback.EntityData.Children.Append("daemon", types.YChild{"Daemon", &snmpInformCallback.Daemon})
+    snmpInformCallback.EntityData.Children.Append("range", types.YChild{"Range", nil})
+    for i := range snmpInformCallback.Range {
+        snmpInformCallback.EntityData.Children.Append(types.GetSegmentPath(snmpInformCallback.Range[i]), types.YChild{"Range", snmpInformCallback.Range[i]})
     }
-    snmpInformCallback.EntityData.Leafs = make(map[string]types.YLeaf)
-    snmpInformCallback.EntityData.Leafs["id"] = types.YLeaf{"Id", snmpInformCallback.Id}
-    snmpInformCallback.EntityData.Leafs["path"] = types.YLeaf{"Path", snmpInformCallback.Path}
-    snmpInformCallback.EntityData.Leafs["file"] = types.YLeaf{"File", snmpInformCallback.File}
-    snmpInformCallback.EntityData.Leafs["error"] = types.YLeaf{"Error", snmpInformCallback.Error}
+    snmpInformCallback.EntityData.Leafs = types.NewOrderedMap()
+    snmpInformCallback.EntityData.Leafs.Append("id", types.YLeaf{"Id", snmpInformCallback.Id})
+    snmpInformCallback.EntityData.Leafs.Append("path", types.YLeaf{"Path", snmpInformCallback.Path})
+    snmpInformCallback.EntityData.Leafs.Append("file", types.YLeaf{"File", snmpInformCallback.File})
+    snmpInformCallback.EntityData.Leafs.Append("error", types.YLeaf{"Error", snmpInformCallback.Error})
+
+    snmpInformCallback.EntityData.YListKeys = []string {"Id"}
+
     return &(snmpInformCallback.EntityData)
 }
 
@@ -1665,7 +1789,7 @@ type ConfdState_Internal_Callpoints_SnmpInformCallback_Daemon struct {
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -1679,21 +1803,24 @@ func (daemon *ConfdState_Internal_Callpoints_SnmpInformCallback_Daemon) GetEntit
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_SnmpInformCallback_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_SnmpInformCallback_Daemon_Error string
+// ConfdState_Internal_Callpoints_SnmpInformCallback_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_SnmpInformCallback_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_SnmpInformCallback_Daemon_Error_PENDING ConfdState_Internal_Callpoints_SnmpInformCallback_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_SnmpInformCallback_Daemon_Error__PENDING ConfdState_Internal_Callpoints_SnmpInformCallback_Daemon_Error_ = "PENDING"
 )
 
 // ConfdState_Internal_Callpoints_SnmpInformCallback_Range
@@ -1711,7 +1838,7 @@ type ConfdState_Internal_Callpoints_SnmpInformCallback_Range struct {
 
     // If this leaf exists, this is a default registration - in this case 'lower'
     // and 'upper' do not exist. The type is interface{}.
-    Default_ interface{}
+    Default interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_SnmpInformCallback_Range_Daemon
@@ -1727,12 +1854,15 @@ func (self *ConfdState_Internal_Callpoints_SnmpInformCallback_Range) GetEntityDa
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["daemon"] = types.YChild{"Daemon", &self.Daemon}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["lower"] = types.YLeaf{"Lower", self.Lower}
-    self.EntityData.Leafs["upper"] = types.YLeaf{"Upper", self.Upper}
-    self.EntityData.Leafs["default"] = types.YLeaf{"Default_", self.Default_}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("daemon", types.YChild{"Daemon", &self.Daemon})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("lower", types.YLeaf{"Lower", self.Lower})
+    self.EntityData.Leafs.Append("upper", types.YLeaf{"Upper", self.Upper})
+    self.EntityData.Leafs.Append("default", types.YLeaf{"Default", self.Default})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -1750,7 +1880,7 @@ type ConfdState_Internal_Callpoints_SnmpInformCallback_Range_Daemon struct {
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -1764,34 +1894,37 @@ func (daemon *ConfdState_Internal_Callpoints_SnmpInformCallback_Range_Daemon) Ge
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_SnmpInformCallback_Range_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_SnmpInformCallback_Range_Daemon_Error string
+// ConfdState_Internal_Callpoints_SnmpInformCallback_Range_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_SnmpInformCallback_Range_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_SnmpInformCallback_Range_Daemon_Error_PENDING ConfdState_Internal_Callpoints_SnmpInformCallback_Range_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_SnmpInformCallback_Range_Daemon_Error__PENDING ConfdState_Internal_Callpoints_SnmpInformCallback_Range_Daemon_Error_ = "PENDING"
 )
 
-// ConfdState_Internal_Callpoints_SnmpInformCallback_Error represents with the callpoint registration.
-type ConfdState_Internal_Callpoints_SnmpInformCallback_Error string
+// ConfdState_Internal_Callpoints_SnmpInformCallback_Error_ represents with the callpoint registration.
+type ConfdState_Internal_Callpoints_SnmpInformCallback_Error_ string
 
 const (
     // This value means that there is no registration
     // for the callpoint.
-    ConfdState_Internal_Callpoints_SnmpInformCallback_Error_NOT_REGISTERED ConfdState_Internal_Callpoints_SnmpInformCallback_Error = "NOT-REGISTERED"
+    ConfdState_Internal_Callpoints_SnmpInformCallback_Error__NOT_REGISTERED ConfdState_Internal_Callpoints_SnmpInformCallback_Error_ = "NOT-REGISTERED"
 
     // This value means that the callpoint does not exist,
     // but there is a registration for it.
-    ConfdState_Internal_Callpoints_SnmpInformCallback_Error_UNKNOWN ConfdState_Internal_Callpoints_SnmpInformCallback_Error = "UNKNOWN"
+    ConfdState_Internal_Callpoints_SnmpInformCallback_Error__UNKNOWN ConfdState_Internal_Callpoints_SnmpInformCallback_Error_ = "UNKNOWN"
 )
 
 // ConfdState_Internal_Callpoints_SnmpNotificationSubscription
@@ -1811,15 +1944,15 @@ type ConfdState_Internal_Callpoints_SnmpNotificationSubscription struct {
     File interface{}
 
     // If this leaf exists, there is a problem with the callpoint registration.
-    // The type is Error.
+    // The type is Error_.
     Error interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Daemon
 
     // The type is slice of
-    // ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range_.
-    Range_ []ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range
+    // ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range.
+    Range []*ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range
 }
 
 func (snmpNotificationSubscription *ConfdState_Internal_Callpoints_SnmpNotificationSubscription) GetEntityData() *types.CommonEntityData {
@@ -1827,22 +1960,25 @@ func (snmpNotificationSubscription *ConfdState_Internal_Callpoints_SnmpNotificat
     snmpNotificationSubscription.EntityData.YangName = "snmp-notification-subscription"
     snmpNotificationSubscription.EntityData.BundleName = "cisco_ios_xe"
     snmpNotificationSubscription.EntityData.ParentYangName = "callpoints"
-    snmpNotificationSubscription.EntityData.SegmentPath = "snmp-notification-subscription" + "[id='" + fmt.Sprintf("%v", snmpNotificationSubscription.Id) + "']"
+    snmpNotificationSubscription.EntityData.SegmentPath = "snmp-notification-subscription" + types.AddKeyToken(snmpNotificationSubscription.Id, "id")
     snmpNotificationSubscription.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     snmpNotificationSubscription.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     snmpNotificationSubscription.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    snmpNotificationSubscription.EntityData.Children = make(map[string]types.YChild)
-    snmpNotificationSubscription.EntityData.Children["daemon"] = types.YChild{"Daemon", &snmpNotificationSubscription.Daemon}
-    snmpNotificationSubscription.EntityData.Children["range"] = types.YChild{"Range_", nil}
-    for i := range snmpNotificationSubscription.Range_ {
-        snmpNotificationSubscription.EntityData.Children[types.GetSegmentPath(&snmpNotificationSubscription.Range_[i])] = types.YChild{"Range_", &snmpNotificationSubscription.Range_[i]}
+    snmpNotificationSubscription.EntityData.Children = types.NewOrderedMap()
+    snmpNotificationSubscription.EntityData.Children.Append("daemon", types.YChild{"Daemon", &snmpNotificationSubscription.Daemon})
+    snmpNotificationSubscription.EntityData.Children.Append("range", types.YChild{"Range", nil})
+    for i := range snmpNotificationSubscription.Range {
+        snmpNotificationSubscription.EntityData.Children.Append(types.GetSegmentPath(snmpNotificationSubscription.Range[i]), types.YChild{"Range", snmpNotificationSubscription.Range[i]})
     }
-    snmpNotificationSubscription.EntityData.Leafs = make(map[string]types.YLeaf)
-    snmpNotificationSubscription.EntityData.Leafs["id"] = types.YLeaf{"Id", snmpNotificationSubscription.Id}
-    snmpNotificationSubscription.EntityData.Leafs["path"] = types.YLeaf{"Path", snmpNotificationSubscription.Path}
-    snmpNotificationSubscription.EntityData.Leafs["file"] = types.YLeaf{"File", snmpNotificationSubscription.File}
-    snmpNotificationSubscription.EntityData.Leafs["error"] = types.YLeaf{"Error", snmpNotificationSubscription.Error}
+    snmpNotificationSubscription.EntityData.Leafs = types.NewOrderedMap()
+    snmpNotificationSubscription.EntityData.Leafs.Append("id", types.YLeaf{"Id", snmpNotificationSubscription.Id})
+    snmpNotificationSubscription.EntityData.Leafs.Append("path", types.YLeaf{"Path", snmpNotificationSubscription.Path})
+    snmpNotificationSubscription.EntityData.Leafs.Append("file", types.YLeaf{"File", snmpNotificationSubscription.File})
+    snmpNotificationSubscription.EntityData.Leafs.Append("error", types.YLeaf{"Error", snmpNotificationSubscription.Error})
+
+    snmpNotificationSubscription.EntityData.YListKeys = []string {"Id"}
+
     return &(snmpNotificationSubscription.EntityData)
 }
 
@@ -1860,7 +1996,7 @@ type ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Daemon struct {
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -1874,21 +2010,24 @@ func (daemon *ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Daemon
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Daemon_Error string
+// ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Daemon_Error_PENDING ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Daemon_Error__PENDING ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Daemon_Error_ = "PENDING"
 )
 
 // ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range
@@ -1906,7 +2045,7 @@ type ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range struct {
 
     // If this leaf exists, this is a default registration - in this case 'lower'
     // and 'upper' do not exist. The type is interface{}.
-    Default_ interface{}
+    Default interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range_Daemon
@@ -1922,12 +2061,15 @@ func (self *ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range) G
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["daemon"] = types.YChild{"Daemon", &self.Daemon}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["lower"] = types.YLeaf{"Lower", self.Lower}
-    self.EntityData.Leafs["upper"] = types.YLeaf{"Upper", self.Upper}
-    self.EntityData.Leafs["default"] = types.YLeaf{"Default_", self.Default_}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("daemon", types.YChild{"Daemon", &self.Daemon})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("lower", types.YLeaf{"Lower", self.Lower})
+    self.EntityData.Leafs.Append("upper", types.YLeaf{"Upper", self.Upper})
+    self.EntityData.Leafs.Append("default", types.YLeaf{"Default", self.Default})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -1945,7 +2087,7 @@ type ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range_Daemon st
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -1959,34 +2101,37 @@ func (daemon *ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range_
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range_Daemon_Error string
+// ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range_Daemon_Error_PENDING ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range_Daemon_Error__PENDING ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range_Daemon_Error_ = "PENDING"
 )
 
-// ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Error represents with the callpoint registration.
-type ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Error string
+// ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Error_ represents with the callpoint registration.
+type ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Error_ string
 
 const (
     // This value means that there is no registration
     // for the callpoint.
-    ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Error_NOT_REGISTERED ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Error = "NOT-REGISTERED"
+    ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Error__NOT_REGISTERED ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Error_ = "NOT-REGISTERED"
 
     // This value means that the callpoint does not exist,
     // but there is a registration for it.
-    ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Error_UNKNOWN ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Error = "UNKNOWN"
+    ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Error__UNKNOWN ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Error_ = "UNKNOWN"
 )
 
 // ConfdState_Internal_Callpoints_ErrorFormattingCallback
@@ -2006,15 +2151,15 @@ type ConfdState_Internal_Callpoints_ErrorFormattingCallback struct {
     File interface{}
 
     // If this leaf exists, there is a problem with the callpoint registration.
-    // The type is Error.
+    // The type is Error_.
     Error interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_ErrorFormattingCallback_Daemon
 
     // The type is slice of
-    // ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range_.
-    Range_ []ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range
+    // ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range.
+    Range []*ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range
 }
 
 func (errorFormattingCallback *ConfdState_Internal_Callpoints_ErrorFormattingCallback) GetEntityData() *types.CommonEntityData {
@@ -2022,22 +2167,25 @@ func (errorFormattingCallback *ConfdState_Internal_Callpoints_ErrorFormattingCal
     errorFormattingCallback.EntityData.YangName = "error-formatting-callback"
     errorFormattingCallback.EntityData.BundleName = "cisco_ios_xe"
     errorFormattingCallback.EntityData.ParentYangName = "callpoints"
-    errorFormattingCallback.EntityData.SegmentPath = "error-formatting-callback" + "[id='" + fmt.Sprintf("%v", errorFormattingCallback.Id) + "']"
+    errorFormattingCallback.EntityData.SegmentPath = "error-formatting-callback" + types.AddKeyToken(errorFormattingCallback.Id, "id")
     errorFormattingCallback.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     errorFormattingCallback.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     errorFormattingCallback.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    errorFormattingCallback.EntityData.Children = make(map[string]types.YChild)
-    errorFormattingCallback.EntityData.Children["daemon"] = types.YChild{"Daemon", &errorFormattingCallback.Daemon}
-    errorFormattingCallback.EntityData.Children["range"] = types.YChild{"Range_", nil}
-    for i := range errorFormattingCallback.Range_ {
-        errorFormattingCallback.EntityData.Children[types.GetSegmentPath(&errorFormattingCallback.Range_[i])] = types.YChild{"Range_", &errorFormattingCallback.Range_[i]}
+    errorFormattingCallback.EntityData.Children = types.NewOrderedMap()
+    errorFormattingCallback.EntityData.Children.Append("daemon", types.YChild{"Daemon", &errorFormattingCallback.Daemon})
+    errorFormattingCallback.EntityData.Children.Append("range", types.YChild{"Range", nil})
+    for i := range errorFormattingCallback.Range {
+        errorFormattingCallback.EntityData.Children.Append(types.GetSegmentPath(errorFormattingCallback.Range[i]), types.YChild{"Range", errorFormattingCallback.Range[i]})
     }
-    errorFormattingCallback.EntityData.Leafs = make(map[string]types.YLeaf)
-    errorFormattingCallback.EntityData.Leafs["id"] = types.YLeaf{"Id", errorFormattingCallback.Id}
-    errorFormattingCallback.EntityData.Leafs["path"] = types.YLeaf{"Path", errorFormattingCallback.Path}
-    errorFormattingCallback.EntityData.Leafs["file"] = types.YLeaf{"File", errorFormattingCallback.File}
-    errorFormattingCallback.EntityData.Leafs["error"] = types.YLeaf{"Error", errorFormattingCallback.Error}
+    errorFormattingCallback.EntityData.Leafs = types.NewOrderedMap()
+    errorFormattingCallback.EntityData.Leafs.Append("id", types.YLeaf{"Id", errorFormattingCallback.Id})
+    errorFormattingCallback.EntityData.Leafs.Append("path", types.YLeaf{"Path", errorFormattingCallback.Path})
+    errorFormattingCallback.EntityData.Leafs.Append("file", types.YLeaf{"File", errorFormattingCallback.File})
+    errorFormattingCallback.EntityData.Leafs.Append("error", types.YLeaf{"Error", errorFormattingCallback.Error})
+
+    errorFormattingCallback.EntityData.YListKeys = []string {"Id"}
+
     return &(errorFormattingCallback.EntityData)
 }
 
@@ -2055,7 +2203,7 @@ type ConfdState_Internal_Callpoints_ErrorFormattingCallback_Daemon struct {
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -2069,21 +2217,24 @@ func (daemon *ConfdState_Internal_Callpoints_ErrorFormattingCallback_Daemon) Get
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_ErrorFormattingCallback_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_ErrorFormattingCallback_Daemon_Error string
+// ConfdState_Internal_Callpoints_ErrorFormattingCallback_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_ErrorFormattingCallback_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_ErrorFormattingCallback_Daemon_Error_PENDING ConfdState_Internal_Callpoints_ErrorFormattingCallback_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_ErrorFormattingCallback_Daemon_Error__PENDING ConfdState_Internal_Callpoints_ErrorFormattingCallback_Daemon_Error_ = "PENDING"
 )
 
 // ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range
@@ -2101,7 +2252,7 @@ type ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range struct {
 
     // If this leaf exists, this is a default registration - in this case 'lower'
     // and 'upper' do not exist. The type is interface{}.
-    Default_ interface{}
+    Default interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range_Daemon
@@ -2117,12 +2268,15 @@ func (self *ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range) GetEnt
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["daemon"] = types.YChild{"Daemon", &self.Daemon}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["lower"] = types.YLeaf{"Lower", self.Lower}
-    self.EntityData.Leafs["upper"] = types.YLeaf{"Upper", self.Upper}
-    self.EntityData.Leafs["default"] = types.YLeaf{"Default_", self.Default_}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("daemon", types.YChild{"Daemon", &self.Daemon})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("lower", types.YLeaf{"Lower", self.Lower})
+    self.EntityData.Leafs.Append("upper", types.YLeaf{"Upper", self.Upper})
+    self.EntityData.Leafs.Append("default", types.YLeaf{"Default", self.Default})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -2140,7 +2294,7 @@ type ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range_Daemon struct 
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -2154,34 +2308,37 @@ func (daemon *ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range_Daemo
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range_Daemon_Error string
+// ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range_Daemon_Error_PENDING ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range_Daemon_Error__PENDING ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range_Daemon_Error_ = "PENDING"
 )
 
-// ConfdState_Internal_Callpoints_ErrorFormattingCallback_Error represents with the callpoint registration.
-type ConfdState_Internal_Callpoints_ErrorFormattingCallback_Error string
+// ConfdState_Internal_Callpoints_ErrorFormattingCallback_Error_ represents with the callpoint registration.
+type ConfdState_Internal_Callpoints_ErrorFormattingCallback_Error_ string
 
 const (
     // This value means that there is no registration
     // for the callpoint.
-    ConfdState_Internal_Callpoints_ErrorFormattingCallback_Error_NOT_REGISTERED ConfdState_Internal_Callpoints_ErrorFormattingCallback_Error = "NOT-REGISTERED"
+    ConfdState_Internal_Callpoints_ErrorFormattingCallback_Error__NOT_REGISTERED ConfdState_Internal_Callpoints_ErrorFormattingCallback_Error_ = "NOT-REGISTERED"
 
     // This value means that the callpoint does not exist,
     // but there is a registration for it.
-    ConfdState_Internal_Callpoints_ErrorFormattingCallback_Error_UNKNOWN ConfdState_Internal_Callpoints_ErrorFormattingCallback_Error = "UNKNOWN"
+    ConfdState_Internal_Callpoints_ErrorFormattingCallback_Error__UNKNOWN ConfdState_Internal_Callpoints_ErrorFormattingCallback_Error_ = "UNKNOWN"
 )
 
 // ConfdState_Internal_Callpoints_Typepoint
@@ -2201,14 +2358,14 @@ type ConfdState_Internal_Callpoints_Typepoint struct {
     File interface{}
 
     // If this leaf exists, there is a problem with the callpoint registration.
-    // The type is Error.
+    // The type is Error_.
     Error interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_Typepoint_Daemon
 
-    // The type is slice of ConfdState_Internal_Callpoints_Typepoint_Range_.
-    Range_ []ConfdState_Internal_Callpoints_Typepoint_Range
+    // The type is slice of ConfdState_Internal_Callpoints_Typepoint_Range.
+    Range []*ConfdState_Internal_Callpoints_Typepoint_Range
 }
 
 func (typepoint *ConfdState_Internal_Callpoints_Typepoint) GetEntityData() *types.CommonEntityData {
@@ -2216,22 +2373,25 @@ func (typepoint *ConfdState_Internal_Callpoints_Typepoint) GetEntityData() *type
     typepoint.EntityData.YangName = "typepoint"
     typepoint.EntityData.BundleName = "cisco_ios_xe"
     typepoint.EntityData.ParentYangName = "callpoints"
-    typepoint.EntityData.SegmentPath = "typepoint" + "[id='" + fmt.Sprintf("%v", typepoint.Id) + "']"
+    typepoint.EntityData.SegmentPath = "typepoint" + types.AddKeyToken(typepoint.Id, "id")
     typepoint.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     typepoint.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     typepoint.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    typepoint.EntityData.Children = make(map[string]types.YChild)
-    typepoint.EntityData.Children["daemon"] = types.YChild{"Daemon", &typepoint.Daemon}
-    typepoint.EntityData.Children["range"] = types.YChild{"Range_", nil}
-    for i := range typepoint.Range_ {
-        typepoint.EntityData.Children[types.GetSegmentPath(&typepoint.Range_[i])] = types.YChild{"Range_", &typepoint.Range_[i]}
+    typepoint.EntityData.Children = types.NewOrderedMap()
+    typepoint.EntityData.Children.Append("daemon", types.YChild{"Daemon", &typepoint.Daemon})
+    typepoint.EntityData.Children.Append("range", types.YChild{"Range", nil})
+    for i := range typepoint.Range {
+        typepoint.EntityData.Children.Append(types.GetSegmentPath(typepoint.Range[i]), types.YChild{"Range", typepoint.Range[i]})
     }
-    typepoint.EntityData.Leafs = make(map[string]types.YLeaf)
-    typepoint.EntityData.Leafs["id"] = types.YLeaf{"Id", typepoint.Id}
-    typepoint.EntityData.Leafs["path"] = types.YLeaf{"Path", typepoint.Path}
-    typepoint.EntityData.Leafs["file"] = types.YLeaf{"File", typepoint.File}
-    typepoint.EntityData.Leafs["error"] = types.YLeaf{"Error", typepoint.Error}
+    typepoint.EntityData.Leafs = types.NewOrderedMap()
+    typepoint.EntityData.Leafs.Append("id", types.YLeaf{"Id", typepoint.Id})
+    typepoint.EntityData.Leafs.Append("path", types.YLeaf{"Path", typepoint.Path})
+    typepoint.EntityData.Leafs.Append("file", types.YLeaf{"File", typepoint.File})
+    typepoint.EntityData.Leafs.Append("error", types.YLeaf{"Error", typepoint.Error})
+
+    typepoint.EntityData.YListKeys = []string {"Id"}
+
     return &(typepoint.EntityData)
 }
 
@@ -2249,7 +2409,7 @@ type ConfdState_Internal_Callpoints_Typepoint_Daemon struct {
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -2263,21 +2423,24 @@ func (daemon *ConfdState_Internal_Callpoints_Typepoint_Daemon) GetEntityData() *
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_Typepoint_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_Typepoint_Daemon_Error string
+// ConfdState_Internal_Callpoints_Typepoint_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_Typepoint_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_Typepoint_Daemon_Error_PENDING ConfdState_Internal_Callpoints_Typepoint_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_Typepoint_Daemon_Error__PENDING ConfdState_Internal_Callpoints_Typepoint_Daemon_Error_ = "PENDING"
 )
 
 // ConfdState_Internal_Callpoints_Typepoint_Range
@@ -2295,7 +2458,7 @@ type ConfdState_Internal_Callpoints_Typepoint_Range struct {
 
     // If this leaf exists, this is a default registration - in this case 'lower'
     // and 'upper' do not exist. The type is interface{}.
-    Default_ interface{}
+    Default interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_Typepoint_Range_Daemon
@@ -2311,12 +2474,15 @@ func (self *ConfdState_Internal_Callpoints_Typepoint_Range) GetEntityData() *typ
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["daemon"] = types.YChild{"Daemon", &self.Daemon}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["lower"] = types.YLeaf{"Lower", self.Lower}
-    self.EntityData.Leafs["upper"] = types.YLeaf{"Upper", self.Upper}
-    self.EntityData.Leafs["default"] = types.YLeaf{"Default_", self.Default_}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("daemon", types.YChild{"Daemon", &self.Daemon})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("lower", types.YLeaf{"Lower", self.Lower})
+    self.EntityData.Leafs.Append("upper", types.YLeaf{"Upper", self.Upper})
+    self.EntityData.Leafs.Append("default", types.YLeaf{"Default", self.Default})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -2334,7 +2500,7 @@ type ConfdState_Internal_Callpoints_Typepoint_Range_Daemon struct {
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -2348,34 +2514,37 @@ func (daemon *ConfdState_Internal_Callpoints_Typepoint_Range_Daemon) GetEntityDa
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_Typepoint_Range_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_Typepoint_Range_Daemon_Error string
+// ConfdState_Internal_Callpoints_Typepoint_Range_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_Typepoint_Range_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_Typepoint_Range_Daemon_Error_PENDING ConfdState_Internal_Callpoints_Typepoint_Range_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_Typepoint_Range_Daemon_Error__PENDING ConfdState_Internal_Callpoints_Typepoint_Range_Daemon_Error_ = "PENDING"
 )
 
-// ConfdState_Internal_Callpoints_Typepoint_Error represents with the callpoint registration.
-type ConfdState_Internal_Callpoints_Typepoint_Error string
+// ConfdState_Internal_Callpoints_Typepoint_Error_ represents with the callpoint registration.
+type ConfdState_Internal_Callpoints_Typepoint_Error_ string
 
 const (
     // This value means that there is no registration
     // for the callpoint.
-    ConfdState_Internal_Callpoints_Typepoint_Error_NOT_REGISTERED ConfdState_Internal_Callpoints_Typepoint_Error = "NOT-REGISTERED"
+    ConfdState_Internal_Callpoints_Typepoint_Error__NOT_REGISTERED ConfdState_Internal_Callpoints_Typepoint_Error_ = "NOT-REGISTERED"
 
     // This value means that the callpoint does not exist,
     // but there is a registration for it.
-    ConfdState_Internal_Callpoints_Typepoint_Error_UNKNOWN ConfdState_Internal_Callpoints_Typepoint_Error = "UNKNOWN"
+    ConfdState_Internal_Callpoints_Typepoint_Error__UNKNOWN ConfdState_Internal_Callpoints_Typepoint_Error_ = "UNKNOWN"
 )
 
 // ConfdState_Internal_Callpoints_NotificationStreamReplay
@@ -2399,15 +2568,15 @@ type ConfdState_Internal_Callpoints_NotificationStreamReplay struct {
     File interface{}
 
     // If this leaf exists, there is a problem with the callpoint registration.
-    // The type is Error.
+    // The type is Error_.
     Error interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_NotificationStreamReplay_Daemon
 
     // The type is slice of
-    // ConfdState_Internal_Callpoints_NotificationStreamReplay_Range_.
-    Range_ []ConfdState_Internal_Callpoints_NotificationStreamReplay_Range
+    // ConfdState_Internal_Callpoints_NotificationStreamReplay_Range.
+    Range []*ConfdState_Internal_Callpoints_NotificationStreamReplay_Range
 }
 
 func (notificationStreamReplay *ConfdState_Internal_Callpoints_NotificationStreamReplay) GetEntityData() *types.CommonEntityData {
@@ -2415,23 +2584,26 @@ func (notificationStreamReplay *ConfdState_Internal_Callpoints_NotificationStrea
     notificationStreamReplay.EntityData.YangName = "notification-stream-replay"
     notificationStreamReplay.EntityData.BundleName = "cisco_ios_xe"
     notificationStreamReplay.EntityData.ParentYangName = "callpoints"
-    notificationStreamReplay.EntityData.SegmentPath = "notification-stream-replay" + "[name='" + fmt.Sprintf("%v", notificationStreamReplay.Name) + "']"
+    notificationStreamReplay.EntityData.SegmentPath = "notification-stream-replay" + types.AddKeyToken(notificationStreamReplay.Name, "name")
     notificationStreamReplay.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     notificationStreamReplay.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     notificationStreamReplay.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    notificationStreamReplay.EntityData.Children = make(map[string]types.YChild)
-    notificationStreamReplay.EntityData.Children["daemon"] = types.YChild{"Daemon", &notificationStreamReplay.Daemon}
-    notificationStreamReplay.EntityData.Children["range"] = types.YChild{"Range_", nil}
-    for i := range notificationStreamReplay.Range_ {
-        notificationStreamReplay.EntityData.Children[types.GetSegmentPath(&notificationStreamReplay.Range_[i])] = types.YChild{"Range_", &notificationStreamReplay.Range_[i]}
+    notificationStreamReplay.EntityData.Children = types.NewOrderedMap()
+    notificationStreamReplay.EntityData.Children.Append("daemon", types.YChild{"Daemon", &notificationStreamReplay.Daemon})
+    notificationStreamReplay.EntityData.Children.Append("range", types.YChild{"Range", nil})
+    for i := range notificationStreamReplay.Range {
+        notificationStreamReplay.EntityData.Children.Append(types.GetSegmentPath(notificationStreamReplay.Range[i]), types.YChild{"Range", notificationStreamReplay.Range[i]})
     }
-    notificationStreamReplay.EntityData.Leafs = make(map[string]types.YLeaf)
-    notificationStreamReplay.EntityData.Leafs["name"] = types.YLeaf{"Name", notificationStreamReplay.Name}
-    notificationStreamReplay.EntityData.Leafs["replay-support"] = types.YLeaf{"ReplaySupport", notificationStreamReplay.ReplaySupport}
-    notificationStreamReplay.EntityData.Leafs["path"] = types.YLeaf{"Path", notificationStreamReplay.Path}
-    notificationStreamReplay.EntityData.Leafs["file"] = types.YLeaf{"File", notificationStreamReplay.File}
-    notificationStreamReplay.EntityData.Leafs["error"] = types.YLeaf{"Error", notificationStreamReplay.Error}
+    notificationStreamReplay.EntityData.Leafs = types.NewOrderedMap()
+    notificationStreamReplay.EntityData.Leafs.Append("name", types.YLeaf{"Name", notificationStreamReplay.Name})
+    notificationStreamReplay.EntityData.Leafs.Append("replay-support", types.YLeaf{"ReplaySupport", notificationStreamReplay.ReplaySupport})
+    notificationStreamReplay.EntityData.Leafs.Append("path", types.YLeaf{"Path", notificationStreamReplay.Path})
+    notificationStreamReplay.EntityData.Leafs.Append("file", types.YLeaf{"File", notificationStreamReplay.File})
+    notificationStreamReplay.EntityData.Leafs.Append("error", types.YLeaf{"Error", notificationStreamReplay.Error})
+
+    notificationStreamReplay.EntityData.YListKeys = []string {"Name"}
+
     return &(notificationStreamReplay.EntityData)
 }
 
@@ -2449,7 +2621,7 @@ type ConfdState_Internal_Callpoints_NotificationStreamReplay_Daemon struct {
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -2463,21 +2635,24 @@ func (daemon *ConfdState_Internal_Callpoints_NotificationStreamReplay_Daemon) Ge
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_NotificationStreamReplay_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_NotificationStreamReplay_Daemon_Error string
+// ConfdState_Internal_Callpoints_NotificationStreamReplay_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_NotificationStreamReplay_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_NotificationStreamReplay_Daemon_Error_PENDING ConfdState_Internal_Callpoints_NotificationStreamReplay_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_NotificationStreamReplay_Daemon_Error__PENDING ConfdState_Internal_Callpoints_NotificationStreamReplay_Daemon_Error_ = "PENDING"
 )
 
 // ConfdState_Internal_Callpoints_NotificationStreamReplay_Range
@@ -2495,7 +2670,7 @@ type ConfdState_Internal_Callpoints_NotificationStreamReplay_Range struct {
 
     // If this leaf exists, this is a default registration - in this case 'lower'
     // and 'upper' do not exist. The type is interface{}.
-    Default_ interface{}
+    Default interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_NotificationStreamReplay_Range_Daemon
@@ -2511,12 +2686,15 @@ func (self *ConfdState_Internal_Callpoints_NotificationStreamReplay_Range) GetEn
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["daemon"] = types.YChild{"Daemon", &self.Daemon}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["lower"] = types.YLeaf{"Lower", self.Lower}
-    self.EntityData.Leafs["upper"] = types.YLeaf{"Upper", self.Upper}
-    self.EntityData.Leafs["default"] = types.YLeaf{"Default_", self.Default_}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("daemon", types.YChild{"Daemon", &self.Daemon})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("lower", types.YLeaf{"Lower", self.Lower})
+    self.EntityData.Leafs.Append("upper", types.YLeaf{"Upper", self.Upper})
+    self.EntityData.Leafs.Append("default", types.YLeaf{"Default", self.Default})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -2534,7 +2712,7 @@ type ConfdState_Internal_Callpoints_NotificationStreamReplay_Range_Daemon struct
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -2548,34 +2726,37 @@ func (daemon *ConfdState_Internal_Callpoints_NotificationStreamReplay_Range_Daem
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_NotificationStreamReplay_Range_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_NotificationStreamReplay_Range_Daemon_Error string
+// ConfdState_Internal_Callpoints_NotificationStreamReplay_Range_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_NotificationStreamReplay_Range_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_NotificationStreamReplay_Range_Daemon_Error_PENDING ConfdState_Internal_Callpoints_NotificationStreamReplay_Range_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_NotificationStreamReplay_Range_Daemon_Error__PENDING ConfdState_Internal_Callpoints_NotificationStreamReplay_Range_Daemon_Error_ = "PENDING"
 )
 
-// ConfdState_Internal_Callpoints_NotificationStreamReplay_Error represents with the callpoint registration.
-type ConfdState_Internal_Callpoints_NotificationStreamReplay_Error string
+// ConfdState_Internal_Callpoints_NotificationStreamReplay_Error_ represents with the callpoint registration.
+type ConfdState_Internal_Callpoints_NotificationStreamReplay_Error_ string
 
 const (
     // This value means that there is no registration
     // for the callpoint.
-    ConfdState_Internal_Callpoints_NotificationStreamReplay_Error_NOT_REGISTERED ConfdState_Internal_Callpoints_NotificationStreamReplay_Error = "NOT-REGISTERED"
+    ConfdState_Internal_Callpoints_NotificationStreamReplay_Error__NOT_REGISTERED ConfdState_Internal_Callpoints_NotificationStreamReplay_Error_ = "NOT-REGISTERED"
 
     // This value means that the callpoint does not exist,
     // but there is a registration for it.
-    ConfdState_Internal_Callpoints_NotificationStreamReplay_Error_UNKNOWN ConfdState_Internal_Callpoints_NotificationStreamReplay_Error = "UNKNOWN"
+    ConfdState_Internal_Callpoints_NotificationStreamReplay_Error__UNKNOWN ConfdState_Internal_Callpoints_NotificationStreamReplay_Error_ = "UNKNOWN"
 )
 
 // ConfdState_Internal_Callpoints_NotificationStreamReplay_ReplaySupport
@@ -2594,6 +2775,7 @@ const (
 type ConfdState_Internal_Callpoints_AuthenticationCallback struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // The type is bool.
     Enabled interface{}
@@ -2607,15 +2789,15 @@ type ConfdState_Internal_Callpoints_AuthenticationCallback struct {
     File interface{}
 
     // If this leaf exists, there is a problem with the callpoint registration.
-    // The type is Error.
+    // The type is Error_.
     Error interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_AuthenticationCallback_Daemon
 
     // The type is slice of
-    // ConfdState_Internal_Callpoints_AuthenticationCallback_Range_.
-    Range_ []ConfdState_Internal_Callpoints_AuthenticationCallback_Range
+    // ConfdState_Internal_Callpoints_AuthenticationCallback_Range.
+    Range []*ConfdState_Internal_Callpoints_AuthenticationCallback_Range
 }
 
 func (authenticationCallback *ConfdState_Internal_Callpoints_AuthenticationCallback) GetEntityData() *types.CommonEntityData {
@@ -2628,17 +2810,20 @@ func (authenticationCallback *ConfdState_Internal_Callpoints_AuthenticationCallb
     authenticationCallback.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authenticationCallback.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    authenticationCallback.EntityData.Children = make(map[string]types.YChild)
-    authenticationCallback.EntityData.Children["daemon"] = types.YChild{"Daemon", &authenticationCallback.Daemon}
-    authenticationCallback.EntityData.Children["range"] = types.YChild{"Range_", nil}
-    for i := range authenticationCallback.Range_ {
-        authenticationCallback.EntityData.Children[types.GetSegmentPath(&authenticationCallback.Range_[i])] = types.YChild{"Range_", &authenticationCallback.Range_[i]}
+    authenticationCallback.EntityData.Children = types.NewOrderedMap()
+    authenticationCallback.EntityData.Children.Append("daemon", types.YChild{"Daemon", &authenticationCallback.Daemon})
+    authenticationCallback.EntityData.Children.Append("range", types.YChild{"Range", nil})
+    for i := range authenticationCallback.Range {
+        authenticationCallback.EntityData.Children.Append(types.GetSegmentPath(authenticationCallback.Range[i]), types.YChild{"Range", authenticationCallback.Range[i]})
     }
-    authenticationCallback.EntityData.Leafs = make(map[string]types.YLeaf)
-    authenticationCallback.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", authenticationCallback.Enabled}
-    authenticationCallback.EntityData.Leafs["path"] = types.YLeaf{"Path", authenticationCallback.Path}
-    authenticationCallback.EntityData.Leafs["file"] = types.YLeaf{"File", authenticationCallback.File}
-    authenticationCallback.EntityData.Leafs["error"] = types.YLeaf{"Error", authenticationCallback.Error}
+    authenticationCallback.EntityData.Leafs = types.NewOrderedMap()
+    authenticationCallback.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", authenticationCallback.Enabled})
+    authenticationCallback.EntityData.Leafs.Append("path", types.YLeaf{"Path", authenticationCallback.Path})
+    authenticationCallback.EntityData.Leafs.Append("file", types.YLeaf{"File", authenticationCallback.File})
+    authenticationCallback.EntityData.Leafs.Append("error", types.YLeaf{"Error", authenticationCallback.Error})
+
+    authenticationCallback.EntityData.YListKeys = []string {}
+
     return &(authenticationCallback.EntityData)
 }
 
@@ -2656,7 +2841,7 @@ type ConfdState_Internal_Callpoints_AuthenticationCallback_Daemon struct {
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -2670,21 +2855,24 @@ func (daemon *ConfdState_Internal_Callpoints_AuthenticationCallback_Daemon) GetE
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_AuthenticationCallback_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_AuthenticationCallback_Daemon_Error string
+// ConfdState_Internal_Callpoints_AuthenticationCallback_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_AuthenticationCallback_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_AuthenticationCallback_Daemon_Error_PENDING ConfdState_Internal_Callpoints_AuthenticationCallback_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_AuthenticationCallback_Daemon_Error__PENDING ConfdState_Internal_Callpoints_AuthenticationCallback_Daemon_Error_ = "PENDING"
 )
 
 // ConfdState_Internal_Callpoints_AuthenticationCallback_Range
@@ -2702,7 +2890,7 @@ type ConfdState_Internal_Callpoints_AuthenticationCallback_Range struct {
 
     // If this leaf exists, this is a default registration - in this case 'lower'
     // and 'upper' do not exist. The type is interface{}.
-    Default_ interface{}
+    Default interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_AuthenticationCallback_Range_Daemon
@@ -2718,12 +2906,15 @@ func (self *ConfdState_Internal_Callpoints_AuthenticationCallback_Range) GetEnti
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["daemon"] = types.YChild{"Daemon", &self.Daemon}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["lower"] = types.YLeaf{"Lower", self.Lower}
-    self.EntityData.Leafs["upper"] = types.YLeaf{"Upper", self.Upper}
-    self.EntityData.Leafs["default"] = types.YLeaf{"Default_", self.Default_}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("daemon", types.YChild{"Daemon", &self.Daemon})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("lower", types.YLeaf{"Lower", self.Lower})
+    self.EntityData.Leafs.Append("upper", types.YLeaf{"Upper", self.Upper})
+    self.EntityData.Leafs.Append("default", types.YLeaf{"Default", self.Default})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -2741,7 +2932,7 @@ type ConfdState_Internal_Callpoints_AuthenticationCallback_Range_Daemon struct {
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -2755,34 +2946,37 @@ func (daemon *ConfdState_Internal_Callpoints_AuthenticationCallback_Range_Daemon
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_AuthenticationCallback_Range_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_AuthenticationCallback_Range_Daemon_Error string
+// ConfdState_Internal_Callpoints_AuthenticationCallback_Range_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_AuthenticationCallback_Range_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_AuthenticationCallback_Range_Daemon_Error_PENDING ConfdState_Internal_Callpoints_AuthenticationCallback_Range_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_AuthenticationCallback_Range_Daemon_Error__PENDING ConfdState_Internal_Callpoints_AuthenticationCallback_Range_Daemon_Error_ = "PENDING"
 )
 
-// ConfdState_Internal_Callpoints_AuthenticationCallback_Error represents with the callpoint registration.
-type ConfdState_Internal_Callpoints_AuthenticationCallback_Error string
+// ConfdState_Internal_Callpoints_AuthenticationCallback_Error_ represents with the callpoint registration.
+type ConfdState_Internal_Callpoints_AuthenticationCallback_Error_ string
 
 const (
     // This value means that there is no registration
     // for the callpoint.
-    ConfdState_Internal_Callpoints_AuthenticationCallback_Error_NOT_REGISTERED ConfdState_Internal_Callpoints_AuthenticationCallback_Error = "NOT-REGISTERED"
+    ConfdState_Internal_Callpoints_AuthenticationCallback_Error__NOT_REGISTERED ConfdState_Internal_Callpoints_AuthenticationCallback_Error_ = "NOT-REGISTERED"
 
     // This value means that the callpoint does not exist,
     // but there is a registration for it.
-    ConfdState_Internal_Callpoints_AuthenticationCallback_Error_UNKNOWN ConfdState_Internal_Callpoints_AuthenticationCallback_Error = "UNKNOWN"
+    ConfdState_Internal_Callpoints_AuthenticationCallback_Error__UNKNOWN ConfdState_Internal_Callpoints_AuthenticationCallback_Error_ = "UNKNOWN"
 )
 
 // ConfdState_Internal_Callpoints_AuthorizationCallbacks
@@ -2790,6 +2984,7 @@ const (
 type ConfdState_Internal_Callpoints_AuthorizationCallbacks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // The type is bool.
     Enabled interface{}
@@ -2803,15 +2998,15 @@ type ConfdState_Internal_Callpoints_AuthorizationCallbacks struct {
     File interface{}
 
     // If this leaf exists, there is a problem with the callpoint registration.
-    // The type is Error.
+    // The type is Error_.
     Error interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_AuthorizationCallbacks_Daemon
 
     // The type is slice of
-    // ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range_.
-    Range_ []ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range
+    // ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range.
+    Range []*ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range
 }
 
 func (authorizationCallbacks *ConfdState_Internal_Callpoints_AuthorizationCallbacks) GetEntityData() *types.CommonEntityData {
@@ -2824,17 +3019,20 @@ func (authorizationCallbacks *ConfdState_Internal_Callpoints_AuthorizationCallba
     authorizationCallbacks.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authorizationCallbacks.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    authorizationCallbacks.EntityData.Children = make(map[string]types.YChild)
-    authorizationCallbacks.EntityData.Children["daemon"] = types.YChild{"Daemon", &authorizationCallbacks.Daemon}
-    authorizationCallbacks.EntityData.Children["range"] = types.YChild{"Range_", nil}
-    for i := range authorizationCallbacks.Range_ {
-        authorizationCallbacks.EntityData.Children[types.GetSegmentPath(&authorizationCallbacks.Range_[i])] = types.YChild{"Range_", &authorizationCallbacks.Range_[i]}
+    authorizationCallbacks.EntityData.Children = types.NewOrderedMap()
+    authorizationCallbacks.EntityData.Children.Append("daemon", types.YChild{"Daemon", &authorizationCallbacks.Daemon})
+    authorizationCallbacks.EntityData.Children.Append("range", types.YChild{"Range", nil})
+    for i := range authorizationCallbacks.Range {
+        authorizationCallbacks.EntityData.Children.Append(types.GetSegmentPath(authorizationCallbacks.Range[i]), types.YChild{"Range", authorizationCallbacks.Range[i]})
     }
-    authorizationCallbacks.EntityData.Leafs = make(map[string]types.YLeaf)
-    authorizationCallbacks.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", authorizationCallbacks.Enabled}
-    authorizationCallbacks.EntityData.Leafs["path"] = types.YLeaf{"Path", authorizationCallbacks.Path}
-    authorizationCallbacks.EntityData.Leafs["file"] = types.YLeaf{"File", authorizationCallbacks.File}
-    authorizationCallbacks.EntityData.Leafs["error"] = types.YLeaf{"Error", authorizationCallbacks.Error}
+    authorizationCallbacks.EntityData.Leafs = types.NewOrderedMap()
+    authorizationCallbacks.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", authorizationCallbacks.Enabled})
+    authorizationCallbacks.EntityData.Leafs.Append("path", types.YLeaf{"Path", authorizationCallbacks.Path})
+    authorizationCallbacks.EntityData.Leafs.Append("file", types.YLeaf{"File", authorizationCallbacks.File})
+    authorizationCallbacks.EntityData.Leafs.Append("error", types.YLeaf{"Error", authorizationCallbacks.Error})
+
+    authorizationCallbacks.EntityData.YListKeys = []string {}
+
     return &(authorizationCallbacks.EntityData)
 }
 
@@ -2852,7 +3050,7 @@ type ConfdState_Internal_Callpoints_AuthorizationCallbacks_Daemon struct {
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -2866,21 +3064,24 @@ func (daemon *ConfdState_Internal_Callpoints_AuthorizationCallbacks_Daemon) GetE
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_AuthorizationCallbacks_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_AuthorizationCallbacks_Daemon_Error string
+// ConfdState_Internal_Callpoints_AuthorizationCallbacks_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_AuthorizationCallbacks_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_AuthorizationCallbacks_Daemon_Error_PENDING ConfdState_Internal_Callpoints_AuthorizationCallbacks_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_AuthorizationCallbacks_Daemon_Error__PENDING ConfdState_Internal_Callpoints_AuthorizationCallbacks_Daemon_Error_ = "PENDING"
 )
 
 // ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range
@@ -2898,7 +3099,7 @@ type ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range struct {
 
     // If this leaf exists, this is a default registration - in this case 'lower'
     // and 'upper' do not exist. The type is interface{}.
-    Default_ interface{}
+    Default interface{}
 
     
     Daemon ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range_Daemon
@@ -2914,12 +3115,15 @@ func (self *ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range) GetEnti
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["daemon"] = types.YChild{"Daemon", &self.Daemon}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["lower"] = types.YLeaf{"Lower", self.Lower}
-    self.EntityData.Leafs["upper"] = types.YLeaf{"Upper", self.Upper}
-    self.EntityData.Leafs["default"] = types.YLeaf{"Default_", self.Default_}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("daemon", types.YChild{"Daemon", &self.Daemon})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("lower", types.YLeaf{"Lower", self.Lower})
+    self.EntityData.Leafs.Append("upper", types.YLeaf{"Upper", self.Upper})
+    self.EntityData.Leafs.Append("default", types.YLeaf{"Default", self.Default})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -2937,7 +3141,7 @@ type ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range_Daemon struct {
     Name interface{}
 
     // If this leaf exists, there is a problem with the daemon registration. The
-    // type is Error.
+    // type is Error_.
     Error interface{}
 }
 
@@ -2951,34 +3155,37 @@ func (daemon *ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range_Daemon
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    daemon.EntityData.Children = make(map[string]types.YChild)
-    daemon.EntityData.Leafs = make(map[string]types.YLeaf)
-    daemon.EntityData.Leafs["id"] = types.YLeaf{"Id", daemon.Id}
-    daemon.EntityData.Leafs["name"] = types.YLeaf{"Name", daemon.Name}
-    daemon.EntityData.Leafs["error"] = types.YLeaf{"Error", daemon.Error}
+    daemon.EntityData.Children = types.NewOrderedMap()
+    daemon.EntityData.Leafs = types.NewOrderedMap()
+    daemon.EntityData.Leafs.Append("id", types.YLeaf{"Id", daemon.Id})
+    daemon.EntityData.Leafs.Append("name", types.YLeaf{"Name", daemon.Name})
+    daemon.EntityData.Leafs.Append("error", types.YLeaf{"Error", daemon.Error})
+
+    daemon.EntityData.YListKeys = []string {}
+
     return &(daemon.EntityData)
 }
 
-// ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range_Daemon_Error represents with the daemon registration.
-type ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range_Daemon_Error string
+// ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range_Daemon_Error_ represents with the daemon registration.
+type ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range_Daemon_Error_ string
 
 const (
     // This value means that the application daemon has not
     // completed the registration (with confd_register_done()).
-    ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range_Daemon_Error_PENDING ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range_Daemon_Error = "PENDING"
+    ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range_Daemon_Error__PENDING ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range_Daemon_Error_ = "PENDING"
 )
 
-// ConfdState_Internal_Callpoints_AuthorizationCallbacks_Error represents with the callpoint registration.
-type ConfdState_Internal_Callpoints_AuthorizationCallbacks_Error string
+// ConfdState_Internal_Callpoints_AuthorizationCallbacks_Error_ represents with the callpoint registration.
+type ConfdState_Internal_Callpoints_AuthorizationCallbacks_Error_ string
 
 const (
     // This value means that there is no registration
     // for the callpoint.
-    ConfdState_Internal_Callpoints_AuthorizationCallbacks_Error_NOT_REGISTERED ConfdState_Internal_Callpoints_AuthorizationCallbacks_Error = "NOT-REGISTERED"
+    ConfdState_Internal_Callpoints_AuthorizationCallbacks_Error__NOT_REGISTERED ConfdState_Internal_Callpoints_AuthorizationCallbacks_Error_ = "NOT-REGISTERED"
 
     // This value means that the callpoint does not exist,
     // but there is a registration for it.
-    ConfdState_Internal_Callpoints_AuthorizationCallbacks_Error_UNKNOWN ConfdState_Internal_Callpoints_AuthorizationCallbacks_Error = "UNKNOWN"
+    ConfdState_Internal_Callpoints_AuthorizationCallbacks_Error__UNKNOWN ConfdState_Internal_Callpoints_AuthorizationCallbacks_Error_ = "UNKNOWN"
 )
 
 // ConfdState_Internal_Cdb
@@ -2987,10 +3194,10 @@ type ConfdState_Internal_Cdb struct {
     YFilter yfilter.YFilter
 
     // The type is slice of ConfdState_Internal_Cdb_Datastore.
-    Datastore []ConfdState_Internal_Cdb_Datastore
+    Datastore []*ConfdState_Internal_Cdb_Datastore
 
     // The type is slice of ConfdState_Internal_Cdb_Client.
-    Client []ConfdState_Internal_Cdb_Client
+    Client []*ConfdState_Internal_Cdb_Client
 }
 
 func (cdb *ConfdState_Internal_Cdb) GetEntityData() *types.CommonEntityData {
@@ -3003,16 +3210,19 @@ func (cdb *ConfdState_Internal_Cdb) GetEntityData() *types.CommonEntityData {
     cdb.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdb.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdb.EntityData.Children = make(map[string]types.YChild)
-    cdb.EntityData.Children["datastore"] = types.YChild{"Datastore", nil}
+    cdb.EntityData.Children = types.NewOrderedMap()
+    cdb.EntityData.Children.Append("datastore", types.YChild{"Datastore", nil})
     for i := range cdb.Datastore {
-        cdb.EntityData.Children[types.GetSegmentPath(&cdb.Datastore[i])] = types.YChild{"Datastore", &cdb.Datastore[i]}
+        cdb.EntityData.Children.Append(types.GetSegmentPath(cdb.Datastore[i]), types.YChild{"Datastore", cdb.Datastore[i]})
     }
-    cdb.EntityData.Children["client"] = types.YChild{"Client", nil}
+    cdb.EntityData.Children.Append("client", types.YChild{"Client", nil})
     for i := range cdb.Client {
-        cdb.EntityData.Children[types.GetSegmentPath(&cdb.Client[i])] = types.YChild{"Client", &cdb.Client[i]}
+        cdb.EntityData.Children.Append(types.GetSegmentPath(cdb.Client[i]), types.YChild{"Client", cdb.Client[i]})
     }
-    cdb.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdb.EntityData.Leafs = types.NewOrderedMap()
+
+    cdb.EntityData.YListKeys = []string {}
+
     return &(cdb.EntityData)
 }
 
@@ -3074,7 +3284,7 @@ type ConfdState_Internal_Cdb_Datastore struct {
     // Queues of notifications that have been generated but not yet delivered to
     // subscribing clients. Not present for the 'startup' datastore. The type is
     // slice of ConfdState_Internal_Cdb_Datastore_PendingNotificationQueue.
-    PendingNotificationQueue []ConfdState_Internal_Cdb_Datastore_PendingNotificationQueue
+    PendingNotificationQueue []*ConfdState_Internal_Cdb_Datastore_PendingNotificationQueue
 }
 
 func (datastore *ConfdState_Internal_Cdb_Datastore) GetEntityData() *types.CommonEntityData {
@@ -3082,28 +3292,31 @@ func (datastore *ConfdState_Internal_Cdb_Datastore) GetEntityData() *types.Commo
     datastore.EntityData.YangName = "datastore"
     datastore.EntityData.BundleName = "cisco_ios_xe"
     datastore.EntityData.ParentYangName = "cdb"
-    datastore.EntityData.SegmentPath = "datastore" + "[name='" + fmt.Sprintf("%v", datastore.Name) + "']"
+    datastore.EntityData.SegmentPath = "datastore" + types.AddKeyToken(datastore.Name, "name")
     datastore.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     datastore.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     datastore.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    datastore.EntityData.Children = make(map[string]types.YChild)
-    datastore.EntityData.Children["pending-subscription-sync"] = types.YChild{"PendingSubscriptionSync", &datastore.PendingSubscriptionSync}
-    datastore.EntityData.Children["pending-notification-queue"] = types.YChild{"PendingNotificationQueue", nil}
+    datastore.EntityData.Children = types.NewOrderedMap()
+    datastore.EntityData.Children.Append("pending-subscription-sync", types.YChild{"PendingSubscriptionSync", &datastore.PendingSubscriptionSync})
+    datastore.EntityData.Children.Append("pending-notification-queue", types.YChild{"PendingNotificationQueue", nil})
     for i := range datastore.PendingNotificationQueue {
-        datastore.EntityData.Children[types.GetSegmentPath(&datastore.PendingNotificationQueue[i])] = types.YChild{"PendingNotificationQueue", &datastore.PendingNotificationQueue[i]}
+        datastore.EntityData.Children.Append(types.GetSegmentPath(datastore.PendingNotificationQueue[i]), types.YChild{"PendingNotificationQueue", datastore.PendingNotificationQueue[i]})
     }
-    datastore.EntityData.Leafs = make(map[string]types.YLeaf)
-    datastore.EntityData.Leafs["name"] = types.YLeaf{"Name", datastore.Name}
-    datastore.EntityData.Leafs["transaction-id"] = types.YLeaf{"TransactionId", datastore.TransactionId}
-    datastore.EntityData.Leafs["write-queue"] = types.YLeaf{"WriteQueue", datastore.WriteQueue}
-    datastore.EntityData.Leafs["filename"] = types.YLeaf{"Filename", datastore.Filename}
-    datastore.EntityData.Leafs["disk-size"] = types.YLeaf{"DiskSize", datastore.DiskSize}
-    datastore.EntityData.Leafs["ram-size"] = types.YLeaf{"RamSize", datastore.RamSize}
-    datastore.EntityData.Leafs["read-locks"] = types.YLeaf{"ReadLocks", datastore.ReadLocks}
-    datastore.EntityData.Leafs["write-lock-set"] = types.YLeaf{"WriteLockSet", datastore.WriteLockSet}
-    datastore.EntityData.Leafs["subscription-lock-set"] = types.YLeaf{"SubscriptionLockSet", datastore.SubscriptionLockSet}
-    datastore.EntityData.Leafs["waiting-for-replication-sync"] = types.YLeaf{"WaitingForReplicationSync", datastore.WaitingForReplicationSync}
+    datastore.EntityData.Leafs = types.NewOrderedMap()
+    datastore.EntityData.Leafs.Append("name", types.YLeaf{"Name", datastore.Name})
+    datastore.EntityData.Leafs.Append("transaction-id", types.YLeaf{"TransactionId", datastore.TransactionId})
+    datastore.EntityData.Leafs.Append("write-queue", types.YLeaf{"WriteQueue", datastore.WriteQueue})
+    datastore.EntityData.Leafs.Append("filename", types.YLeaf{"Filename", datastore.Filename})
+    datastore.EntityData.Leafs.Append("disk-size", types.YLeaf{"DiskSize", datastore.DiskSize})
+    datastore.EntityData.Leafs.Append("ram-size", types.YLeaf{"RamSize", datastore.RamSize})
+    datastore.EntityData.Leafs.Append("read-locks", types.YLeaf{"ReadLocks", datastore.ReadLocks})
+    datastore.EntityData.Leafs.Append("write-lock-set", types.YLeaf{"WriteLockSet", datastore.WriteLockSet})
+    datastore.EntityData.Leafs.Append("subscription-lock-set", types.YLeaf{"SubscriptionLockSet", datastore.SubscriptionLockSet})
+    datastore.EntityData.Leafs.Append("waiting-for-replication-sync", types.YLeaf{"WaitingForReplicationSync", datastore.WaitingForReplicationSync})
+
+    datastore.EntityData.YListKeys = []string {"Name"}
+
     return &(datastore.EntityData)
 }
 
@@ -3115,6 +3328,7 @@ func (datastore *ConfdState_Internal_Cdb_Datastore) GetEntityData() *types.Commo
 type ConfdState_Internal_Cdb_Datastore_PendingSubscriptionSync struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // The priority of the subscriptions that generated the notifications that are
     // waiting for acknowledgement. Not present for the 'operational' datastore.
@@ -3132,7 +3346,7 @@ type ConfdState_Internal_Cdb_Datastore_PendingSubscriptionSync struct {
 
     // The type is slice of
     // ConfdState_Internal_Cdb_Datastore_PendingSubscriptionSync_Notification.
-    Notification []ConfdState_Internal_Cdb_Datastore_PendingSubscriptionSync_Notification
+    Notification []*ConfdState_Internal_Cdb_Datastore_PendingSubscriptionSync_Notification
 }
 
 func (pendingSubscriptionSync *ConfdState_Internal_Cdb_Datastore_PendingSubscriptionSync) GetEntityData() *types.CommonEntityData {
@@ -3145,14 +3359,17 @@ func (pendingSubscriptionSync *ConfdState_Internal_Cdb_Datastore_PendingSubscrip
     pendingSubscriptionSync.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pendingSubscriptionSync.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    pendingSubscriptionSync.EntityData.Children = make(map[string]types.YChild)
-    pendingSubscriptionSync.EntityData.Children["notification"] = types.YChild{"Notification", nil}
+    pendingSubscriptionSync.EntityData.Children = types.NewOrderedMap()
+    pendingSubscriptionSync.EntityData.Children.Append("notification", types.YChild{"Notification", nil})
     for i := range pendingSubscriptionSync.Notification {
-        pendingSubscriptionSync.EntityData.Children[types.GetSegmentPath(&pendingSubscriptionSync.Notification[i])] = types.YChild{"Notification", &pendingSubscriptionSync.Notification[i]}
+        pendingSubscriptionSync.EntityData.Children.Append(types.GetSegmentPath(pendingSubscriptionSync.Notification[i]), types.YChild{"Notification", pendingSubscriptionSync.Notification[i]})
     }
-    pendingSubscriptionSync.EntityData.Leafs = make(map[string]types.YLeaf)
-    pendingSubscriptionSync.EntityData.Leafs["priority"] = types.YLeaf{"Priority", pendingSubscriptionSync.Priority}
-    pendingSubscriptionSync.EntityData.Leafs["time-remaining"] = types.YLeaf{"TimeRemaining", pendingSubscriptionSync.TimeRemaining}
+    pendingSubscriptionSync.EntityData.Leafs = types.NewOrderedMap()
+    pendingSubscriptionSync.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", pendingSubscriptionSync.Priority})
+    pendingSubscriptionSync.EntityData.Leafs.Append("time-remaining", types.YLeaf{"TimeRemaining", pendingSubscriptionSync.TimeRemaining})
+
+    pendingSubscriptionSync.EntityData.YListKeys = []string {}
+
     return &(pendingSubscriptionSync.EntityData)
 }
 
@@ -3180,10 +3397,13 @@ func (notification *ConfdState_Internal_Cdb_Datastore_PendingSubscriptionSync_No
     notification.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     notification.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    notification.EntityData.Children = make(map[string]types.YChild)
-    notification.EntityData.Leafs = make(map[string]types.YLeaf)
-    notification.EntityData.Leafs["client-name"] = types.YLeaf{"ClientName", notification.ClientName}
-    notification.EntityData.Leafs["subscription-ids"] = types.YLeaf{"SubscriptionIds", notification.SubscriptionIds}
+    notification.EntityData.Children = types.NewOrderedMap()
+    notification.EntityData.Leafs = types.NewOrderedMap()
+    notification.EntityData.Leafs.Append("client-name", types.YLeaf{"ClientName", notification.ClientName})
+    notification.EntityData.Leafs.Append("subscription-ids", types.YLeaf{"SubscriptionIds", notification.SubscriptionIds})
+
+    notification.EntityData.YListKeys = []string {}
+
     return &(notification.EntityData)
 }
 
@@ -3204,7 +3424,7 @@ type ConfdState_Internal_Cdb_Datastore_PendingNotificationQueue struct {
 
     // The type is slice of
     // ConfdState_Internal_Cdb_Datastore_PendingNotificationQueue_Notification.
-    Notification []ConfdState_Internal_Cdb_Datastore_PendingNotificationQueue_Notification
+    Notification []*ConfdState_Internal_Cdb_Datastore_PendingNotificationQueue_Notification
 }
 
 func (pendingNotificationQueue *ConfdState_Internal_Cdb_Datastore_PendingNotificationQueue) GetEntityData() *types.CommonEntityData {
@@ -3217,12 +3437,15 @@ func (pendingNotificationQueue *ConfdState_Internal_Cdb_Datastore_PendingNotific
     pendingNotificationQueue.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pendingNotificationQueue.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    pendingNotificationQueue.EntityData.Children = make(map[string]types.YChild)
-    pendingNotificationQueue.EntityData.Children["notification"] = types.YChild{"Notification", nil}
+    pendingNotificationQueue.EntityData.Children = types.NewOrderedMap()
+    pendingNotificationQueue.EntityData.Children.Append("notification", types.YChild{"Notification", nil})
     for i := range pendingNotificationQueue.Notification {
-        pendingNotificationQueue.EntityData.Children[types.GetSegmentPath(&pendingNotificationQueue.Notification[i])] = types.YChild{"Notification", &pendingNotificationQueue.Notification[i]}
+        pendingNotificationQueue.EntityData.Children.Append(types.GetSegmentPath(pendingNotificationQueue.Notification[i]), types.YChild{"Notification", pendingNotificationQueue.Notification[i]})
     }
-    pendingNotificationQueue.EntityData.Leafs = make(map[string]types.YLeaf)
+    pendingNotificationQueue.EntityData.Leafs = types.NewOrderedMap()
+
+    pendingNotificationQueue.EntityData.YListKeys = []string {}
+
     return &(pendingNotificationQueue.EntityData)
 }
 
@@ -3255,11 +3478,14 @@ func (notification *ConfdState_Internal_Cdb_Datastore_PendingNotificationQueue_N
     notification.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     notification.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    notification.EntityData.Children = make(map[string]types.YChild)
-    notification.EntityData.Leafs = make(map[string]types.YLeaf)
-    notification.EntityData.Leafs["priority"] = types.YLeaf{"Priority", notification.Priority}
-    notification.EntityData.Leafs["client-name"] = types.YLeaf{"ClientName", notification.ClientName}
-    notification.EntityData.Leafs["subscription-ids"] = types.YLeaf{"SubscriptionIds", notification.SubscriptionIds}
+    notification.EntityData.Children = types.NewOrderedMap()
+    notification.EntityData.Leafs = types.NewOrderedMap()
+    notification.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", notification.Priority})
+    notification.EntityData.Leafs.Append("client-name", types.YLeaf{"ClientName", notification.ClientName})
+    notification.EntityData.Leafs.Append("subscription-ids", types.YLeaf{"SubscriptionIds", notification.SubscriptionIds})
+
+    notification.EntityData.YListKeys = []string {}
+
     return &(notification.EntityData)
 }
 
@@ -3281,7 +3507,7 @@ type ConfdState_Internal_Cdb_Client struct {
     // datastore. A 'subscriber' has made one or more subscriptions. 'waiting'
     // means that the client is waiting for completion of a call such as
     // cdb_wait_start(). The type is Type_.
-    Type_ interface{}
+    Type interface{}
 
     // The name of the datastore when 'type' = 'client'. The value
     // 'pre_commit_running' is the 'pseudo' datastore representing 'running'
@@ -3299,7 +3525,7 @@ type ConfdState_Internal_Cdb_Client struct {
     Lock interface{}
 
     // The type is slice of ConfdState_Internal_Cdb_Client_Subscription.
-    Subscription []ConfdState_Internal_Cdb_Client_Subscription
+    Subscription []*ConfdState_Internal_Cdb_Client_Subscription
 }
 
 func (client *ConfdState_Internal_Cdb_Client) GetEntityData() *types.CommonEntityData {
@@ -3312,17 +3538,20 @@ func (client *ConfdState_Internal_Cdb_Client) GetEntityData() *types.CommonEntit
     client.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    client.EntityData.Children = make(map[string]types.YChild)
-    client.EntityData.Children["subscription"] = types.YChild{"Subscription", nil}
+    client.EntityData.Children = types.NewOrderedMap()
+    client.EntityData.Children.Append("subscription", types.YChild{"Subscription", nil})
     for i := range client.Subscription {
-        client.EntityData.Children[types.GetSegmentPath(&client.Subscription[i])] = types.YChild{"Subscription", &client.Subscription[i]}
+        client.EntityData.Children.Append(types.GetSegmentPath(client.Subscription[i]), types.YChild{"Subscription", client.Subscription[i]})
     }
-    client.EntityData.Leafs = make(map[string]types.YLeaf)
-    client.EntityData.Leafs["name"] = types.YLeaf{"Name", client.Name}
-    client.EntityData.Leafs["info"] = types.YLeaf{"Info", client.Info}
-    client.EntityData.Leafs["type"] = types.YLeaf{"Type_", client.Type_}
-    client.EntityData.Leafs["datastore"] = types.YLeaf{"Datastore", client.Datastore}
-    client.EntityData.Leafs["lock"] = types.YLeaf{"Lock", client.Lock}
+    client.EntityData.Leafs = types.NewOrderedMap()
+    client.EntityData.Leafs.Append("name", types.YLeaf{"Name", client.Name})
+    client.EntityData.Leafs.Append("info", types.YLeaf{"Info", client.Info})
+    client.EntityData.Leafs.Append("type", types.YLeaf{"Type", client.Type})
+    client.EntityData.Leafs.Append("datastore", types.YLeaf{"Datastore", client.Datastore})
+    client.EntityData.Leafs.Append("lock", types.YLeaf{"Lock", client.Lock})
+
+    client.EntityData.YListKeys = []string {}
+
     return &(client.EntityData)
 }
 
@@ -3352,7 +3581,7 @@ type ConfdState_Internal_Cdb_Client_Subscription struct {
     Path interface{}
 
     // If this leaf exists, there is a problem  with the subscription. The type is
-    // Error.
+    // Error_.
     Error interface{}
 }
 
@@ -3366,24 +3595,27 @@ func (subscription *ConfdState_Internal_Cdb_Client_Subscription) GetEntityData()
     subscription.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     subscription.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    subscription.EntityData.Children = make(map[string]types.YChild)
-    subscription.EntityData.Leafs = make(map[string]types.YLeaf)
-    subscription.EntityData.Leafs["datastore"] = types.YLeaf{"Datastore", subscription.Datastore}
-    subscription.EntityData.Leafs["twophase"] = types.YLeaf{"Twophase", subscription.Twophase}
-    subscription.EntityData.Leafs["priority"] = types.YLeaf{"Priority", subscription.Priority}
-    subscription.EntityData.Leafs["id"] = types.YLeaf{"Id", subscription.Id}
-    subscription.EntityData.Leafs["path"] = types.YLeaf{"Path", subscription.Path}
-    subscription.EntityData.Leafs["error"] = types.YLeaf{"Error", subscription.Error}
+    subscription.EntityData.Children = types.NewOrderedMap()
+    subscription.EntityData.Leafs = types.NewOrderedMap()
+    subscription.EntityData.Leafs.Append("datastore", types.YLeaf{"Datastore", subscription.Datastore})
+    subscription.EntityData.Leafs.Append("twophase", types.YLeaf{"Twophase", subscription.Twophase})
+    subscription.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", subscription.Priority})
+    subscription.EntityData.Leafs.Append("id", types.YLeaf{"Id", subscription.Id})
+    subscription.EntityData.Leafs.Append("path", types.YLeaf{"Path", subscription.Path})
+    subscription.EntityData.Leafs.Append("error", types.YLeaf{"Error", subscription.Error})
+
+    subscription.EntityData.YListKeys = []string {}
+
     return &(subscription.EntityData)
 }
 
-// ConfdState_Internal_Cdb_Client_Subscription_Error represents  with the subscription.
-type ConfdState_Internal_Cdb_Client_Subscription_Error string
+// ConfdState_Internal_Cdb_Client_Subscription_Error_ represents  with the subscription.
+type ConfdState_Internal_Cdb_Client_Subscription_Error_ string
 
 const (
     // This value means that the subscribing client has not
     // completed the subscription (with cdb_subscribe_done()).
-    ConfdState_Internal_Cdb_Client_Subscription_Error_PENDING ConfdState_Internal_Cdb_Client_Subscription_Error = "PENDING"
+    ConfdState_Internal_Cdb_Client_Subscription_Error__PENDING ConfdState_Internal_Cdb_Client_Subscription_Error_ = "PENDING"
 )
 
 // ConfdState_Internal_Cdb_Client_Datastore represents 'running' before a commit.

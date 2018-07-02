@@ -44,9 +44,12 @@ func (sdrInventoryVm *SdrInventoryVm) GetEntityData() *types.CommonEntityData {
     sdrInventoryVm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrInventoryVm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sdrInventoryVm.EntityData.Children = make(map[string]types.YChild)
-    sdrInventoryVm.EntityData.Children["nodes"] = types.YChild{"Nodes", &sdrInventoryVm.Nodes}
-    sdrInventoryVm.EntityData.Leafs = make(map[string]types.YLeaf)
+    sdrInventoryVm.EntityData.Children = types.NewOrderedMap()
+    sdrInventoryVm.EntityData.Children.Append("nodes", types.YChild{"Nodes", &sdrInventoryVm.Nodes})
+    sdrInventoryVm.EntityData.Leafs = types.NewOrderedMap()
+
+    sdrInventoryVm.EntityData.YListKeys = []string {}
+
     return &(sdrInventoryVm.EntityData)
 }
 
@@ -57,7 +60,7 @@ type SdrInventoryVm_Nodes struct {
     YFilter yfilter.YFilter
 
     // Node name. The type is slice of SdrInventoryVm_Nodes_Node.
-    Node []SdrInventoryVm_Nodes_Node
+    Node []*SdrInventoryVm_Nodes_Node
 }
 
 func (nodes *SdrInventoryVm_Nodes) GetEntityData() *types.CommonEntityData {
@@ -70,12 +73,15 @@ func (nodes *SdrInventoryVm_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -86,7 +92,7 @@ type SdrInventoryVm_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // VM Information.
@@ -98,15 +104,18 @@ func (node *SdrInventoryVm_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[name='" + fmt.Sprintf("%v", node.Name) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Name, "name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["node-entries"] = types.YChild{"NodeEntries", &node.NodeEntries}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["name"] = types.YLeaf{"Name", node.Name}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("node-entries", types.YChild{"NodeEntries", &node.NodeEntries})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("name", types.YLeaf{"Name", node.Name})
+
+    node.EntityData.YListKeys = []string {"Name"}
+
     return &(node.EntityData)
 }
 
@@ -118,7 +127,7 @@ type SdrInventoryVm_Nodes_Node_NodeEntries struct {
 
     // VM information for a node. The type is slice of
     // SdrInventoryVm_Nodes_Node_NodeEntries_NodeEntry.
-    NodeEntry []SdrInventoryVm_Nodes_Node_NodeEntries_NodeEntry
+    NodeEntry []*SdrInventoryVm_Nodes_Node_NodeEntries_NodeEntry
 }
 
 func (nodeEntries *SdrInventoryVm_Nodes_Node_NodeEntries) GetEntityData() *types.CommonEntityData {
@@ -131,12 +140,15 @@ func (nodeEntries *SdrInventoryVm_Nodes_Node_NodeEntries) GetEntityData() *types
     nodeEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodeEntries.EntityData.Children = make(map[string]types.YChild)
-    nodeEntries.EntityData.Children["node-entry"] = types.YChild{"NodeEntry", nil}
+    nodeEntries.EntityData.Children = types.NewOrderedMap()
+    nodeEntries.EntityData.Children.Append("node-entry", types.YChild{"NodeEntry", nil})
     for i := range nodeEntries.NodeEntry {
-        nodeEntries.EntityData.Children[types.GetSegmentPath(&nodeEntries.NodeEntry[i])] = types.YChild{"NodeEntry", &nodeEntries.NodeEntry[i]}
+        nodeEntries.EntityData.Children.Append(types.GetSegmentPath(nodeEntries.NodeEntry[i]), types.YChild{"NodeEntry", nodeEntries.NodeEntry[i]})
     }
-    nodeEntries.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodeEntries.EntityData.Leafs = types.NewOrderedMap()
+
+    nodeEntries.EntityData.YListKeys = []string {}
+
     return &(nodeEntries.EntityData)
 }
 
@@ -147,7 +159,7 @@ type SdrInventoryVm_Nodes_Node_NodeEntries_NodeEntry struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // valid flag. The type is interface{} with range: 0..4294967295.
@@ -202,29 +214,32 @@ func (nodeEntry *SdrInventoryVm_Nodes_Node_NodeEntries_NodeEntry) GetEntityData(
     nodeEntry.EntityData.YangName = "node-entry"
     nodeEntry.EntityData.BundleName = "cisco_ios_xr"
     nodeEntry.EntityData.ParentYangName = "node-entries"
-    nodeEntry.EntityData.SegmentPath = "node-entry" + "[name='" + fmt.Sprintf("%v", nodeEntry.Name) + "']"
+    nodeEntry.EntityData.SegmentPath = "node-entry" + types.AddKeyToken(nodeEntry.Name, "name")
     nodeEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodeEntry.EntityData.Children = make(map[string]types.YChild)
-    nodeEntry.EntityData.Leafs = make(map[string]types.YLeaf)
-    nodeEntry.EntityData.Leafs["name"] = types.YLeaf{"Name", nodeEntry.Name}
-    nodeEntry.EntityData.Leafs["valid"] = types.YLeaf{"Valid", nodeEntry.Valid}
-    nodeEntry.EntityData.Leafs["card-type"] = types.YLeaf{"CardType", nodeEntry.CardType}
-    nodeEntry.EntityData.Leafs["card-type-string"] = types.YLeaf{"CardTypeString", nodeEntry.CardTypeString}
-    nodeEntry.EntityData.Leafs["nodeid"] = types.YLeaf{"Nodeid", nodeEntry.Nodeid}
-    nodeEntry.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", nodeEntry.NodeName}
-    nodeEntry.EntityData.Leafs["partner-id"] = types.YLeaf{"PartnerId", nodeEntry.PartnerId}
-    nodeEntry.EntityData.Leafs["partner-name"] = types.YLeaf{"PartnerName", nodeEntry.PartnerName}
-    nodeEntry.EntityData.Leafs["red-state"] = types.YLeaf{"RedState", nodeEntry.RedState}
-    nodeEntry.EntityData.Leafs["red-state-string"] = types.YLeaf{"RedStateString", nodeEntry.RedStateString}
-    nodeEntry.EntityData.Leafs["node-sw-state"] = types.YLeaf{"NodeSwState", nodeEntry.NodeSwState}
-    nodeEntry.EntityData.Leafs["node-sw-state-string"] = types.YLeaf{"NodeSwStateString", nodeEntry.NodeSwStateString}
-    nodeEntry.EntityData.Leafs["prev-sw-state"] = types.YLeaf{"PrevSwState", nodeEntry.PrevSwState}
-    nodeEntry.EntityData.Leafs["prev-sw-state-string"] = types.YLeaf{"PrevSwStateString", nodeEntry.PrevSwStateString}
-    nodeEntry.EntityData.Leafs["node-ip"] = types.YLeaf{"NodeIp", nodeEntry.NodeIp}
-    nodeEntry.EntityData.Leafs["node-ipv4-string"] = types.YLeaf{"NodeIpv4String", nodeEntry.NodeIpv4String}
+    nodeEntry.EntityData.Children = types.NewOrderedMap()
+    nodeEntry.EntityData.Leafs = types.NewOrderedMap()
+    nodeEntry.EntityData.Leafs.Append("name", types.YLeaf{"Name", nodeEntry.Name})
+    nodeEntry.EntityData.Leafs.Append("valid", types.YLeaf{"Valid", nodeEntry.Valid})
+    nodeEntry.EntityData.Leafs.Append("card-type", types.YLeaf{"CardType", nodeEntry.CardType})
+    nodeEntry.EntityData.Leafs.Append("card-type-string", types.YLeaf{"CardTypeString", nodeEntry.CardTypeString})
+    nodeEntry.EntityData.Leafs.Append("nodeid", types.YLeaf{"Nodeid", nodeEntry.Nodeid})
+    nodeEntry.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", nodeEntry.NodeName})
+    nodeEntry.EntityData.Leafs.Append("partner-id", types.YLeaf{"PartnerId", nodeEntry.PartnerId})
+    nodeEntry.EntityData.Leafs.Append("partner-name", types.YLeaf{"PartnerName", nodeEntry.PartnerName})
+    nodeEntry.EntityData.Leafs.Append("red-state", types.YLeaf{"RedState", nodeEntry.RedState})
+    nodeEntry.EntityData.Leafs.Append("red-state-string", types.YLeaf{"RedStateString", nodeEntry.RedStateString})
+    nodeEntry.EntityData.Leafs.Append("node-sw-state", types.YLeaf{"NodeSwState", nodeEntry.NodeSwState})
+    nodeEntry.EntityData.Leafs.Append("node-sw-state-string", types.YLeaf{"NodeSwStateString", nodeEntry.NodeSwStateString})
+    nodeEntry.EntityData.Leafs.Append("prev-sw-state", types.YLeaf{"PrevSwState", nodeEntry.PrevSwState})
+    nodeEntry.EntityData.Leafs.Append("prev-sw-state-string", types.YLeaf{"PrevSwStateString", nodeEntry.PrevSwStateString})
+    nodeEntry.EntityData.Leafs.Append("node-ip", types.YLeaf{"NodeIp", nodeEntry.NodeIp})
+    nodeEntry.EntityData.Leafs.Append("node-ipv4-string", types.YLeaf{"NodeIpv4String", nodeEntry.NodeIpv4String})
+
+    nodeEntry.EntityData.YListKeys = []string {"Name"}
+
     return &(nodeEntry.EntityData)
 }
 

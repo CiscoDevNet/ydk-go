@@ -25,7 +25,7 @@ type MplsForwardingTable struct {
 
     // The list of MPLS forwarding table entries. The type is slice of
     // MplsForwardingTable_LocalLabelEntry.
-    LocalLabelEntry []MplsForwardingTable_LocalLabelEntry
+    LocalLabelEntry []*MplsForwardingTable_LocalLabelEntry
 }
 
 func (mplsForwardingTable *MplsForwardingTable) GetEntityData() *types.CommonEntityData {
@@ -38,12 +38,15 @@ func (mplsForwardingTable *MplsForwardingTable) GetEntityData() *types.CommonEnt
     mplsForwardingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsForwardingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsForwardingTable.EntityData.Children = make(map[string]types.YChild)
-    mplsForwardingTable.EntityData.Children["local-label-entry"] = types.YChild{"LocalLabelEntry", nil}
+    mplsForwardingTable.EntityData.Children = types.NewOrderedMap()
+    mplsForwardingTable.EntityData.Children.Append("local-label-entry", types.YChild{"LocalLabelEntry", nil})
     for i := range mplsForwardingTable.LocalLabelEntry {
-        mplsForwardingTable.EntityData.Children[types.GetSegmentPath(&mplsForwardingTable.LocalLabelEntry[i])] = types.YChild{"LocalLabelEntry", &mplsForwardingTable.LocalLabelEntry[i]}
+        mplsForwardingTable.EntityData.Children.Append(types.GetSegmentPath(mplsForwardingTable.LocalLabelEntry[i]), types.YChild{"LocalLabelEntry", mplsForwardingTable.LocalLabelEntry[i]})
     }
-    mplsForwardingTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsForwardingTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsForwardingTable.EntityData.YListKeys = []string {}
+
     return &(mplsForwardingTable.EntityData)
 }
 
@@ -58,7 +61,7 @@ type MplsForwardingTable_LocalLabelEntry struct {
     LocalLabel interface{}
 
     // The type is slice of MplsForwardingTable_LocalLabelEntry_ForwardingInfo.
-    ForwardingInfo []MplsForwardingTable_LocalLabelEntry_ForwardingInfo
+    ForwardingInfo []*MplsForwardingTable_LocalLabelEntry_ForwardingInfo
 }
 
 func (localLabelEntry *MplsForwardingTable_LocalLabelEntry) GetEntityData() *types.CommonEntityData {
@@ -66,18 +69,21 @@ func (localLabelEntry *MplsForwardingTable_LocalLabelEntry) GetEntityData() *typ
     localLabelEntry.EntityData.YangName = "local-label-entry"
     localLabelEntry.EntityData.BundleName = "cisco_ios_xe"
     localLabelEntry.EntityData.ParentYangName = "mpls-forwarding-table"
-    localLabelEntry.EntityData.SegmentPath = "local-label-entry" + "[local-label='" + fmt.Sprintf("%v", localLabelEntry.LocalLabel) + "']"
+    localLabelEntry.EntityData.SegmentPath = "local-label-entry" + types.AddKeyToken(localLabelEntry.LocalLabel, "local-label")
     localLabelEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     localLabelEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     localLabelEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    localLabelEntry.EntityData.Children = make(map[string]types.YChild)
-    localLabelEntry.EntityData.Children["forwarding-info"] = types.YChild{"ForwardingInfo", nil}
+    localLabelEntry.EntityData.Children = types.NewOrderedMap()
+    localLabelEntry.EntityData.Children.Append("forwarding-info", types.YChild{"ForwardingInfo", nil})
     for i := range localLabelEntry.ForwardingInfo {
-        localLabelEntry.EntityData.Children[types.GetSegmentPath(&localLabelEntry.ForwardingInfo[i])] = types.YChild{"ForwardingInfo", &localLabelEntry.ForwardingInfo[i]}
+        localLabelEntry.EntityData.Children.Append(types.GetSegmentPath(localLabelEntry.ForwardingInfo[i]), types.YChild{"ForwardingInfo", localLabelEntry.ForwardingInfo[i]})
     }
-    localLabelEntry.EntityData.Leafs = make(map[string]types.YLeaf)
-    localLabelEntry.EntityData.Leafs["local-label"] = types.YLeaf{"LocalLabel", localLabelEntry.LocalLabel}
+    localLabelEntry.EntityData.Leafs = types.NewOrderedMap()
+    localLabelEntry.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", localLabelEntry.LocalLabel})
+
+    localLabelEntry.EntityData.YListKeys = []string {"LocalLabel"}
+
     return &(localLabelEntry.EntityData)
 }
 
@@ -108,10 +114,10 @@ type MplsForwardingTable_LocalLabelEntry_ForwardingInfo struct {
     // 2.<ip-address>. The type is one of the following types: enumeration
     // MplsForwardingTable.LocalLabelEntry.ForwardingInfo.NextHop, or string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.,
-    // or string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.,
+    // or string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     NextHop interface{}
 
     // The Prefix or tunnel-id info corresponding to this label. Ex: 1) for l2ckt,
@@ -126,18 +132,21 @@ func (forwardingInfo *MplsForwardingTable_LocalLabelEntry_ForwardingInfo) GetEnt
     forwardingInfo.EntityData.YangName = "forwarding-info"
     forwardingInfo.EntityData.BundleName = "cisco_ios_xe"
     forwardingInfo.EntityData.ParentYangName = "local-label-entry"
-    forwardingInfo.EntityData.SegmentPath = "forwarding-info" + "[outgoing-interface='" + fmt.Sprintf("%v", forwardingInfo.OutgoingInterface) + "']"
+    forwardingInfo.EntityData.SegmentPath = "forwarding-info" + types.AddKeyToken(forwardingInfo.OutgoingInterface, "outgoing-interface")
     forwardingInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     forwardingInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     forwardingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    forwardingInfo.EntityData.Children = make(map[string]types.YChild)
-    forwardingInfo.EntityData.Children["connection-info"] = types.YChild{"ConnectionInfo", &forwardingInfo.ConnectionInfo}
-    forwardingInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    forwardingInfo.EntityData.Leafs["outgoing-interface"] = types.YLeaf{"OutgoingInterface", forwardingInfo.OutgoingInterface}
-    forwardingInfo.EntityData.Leafs["outgoing-label"] = types.YLeaf{"OutgoingLabel", forwardingInfo.OutgoingLabel}
-    forwardingInfo.EntityData.Leafs["label-switched-bytes"] = types.YLeaf{"LabelSwitchedBytes", forwardingInfo.LabelSwitchedBytes}
-    forwardingInfo.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", forwardingInfo.NextHop}
+    forwardingInfo.EntityData.Children = types.NewOrderedMap()
+    forwardingInfo.EntityData.Children.Append("connection-info", types.YChild{"ConnectionInfo", &forwardingInfo.ConnectionInfo})
+    forwardingInfo.EntityData.Leafs = types.NewOrderedMap()
+    forwardingInfo.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", forwardingInfo.OutgoingInterface})
+    forwardingInfo.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", forwardingInfo.OutgoingLabel})
+    forwardingInfo.EntityData.Leafs.Append("label-switched-bytes", types.YLeaf{"LabelSwitchedBytes", forwardingInfo.LabelSwitchedBytes})
+    forwardingInfo.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", forwardingInfo.NextHop})
+
+    forwardingInfo.EntityData.YListKeys = []string {"OutgoingInterface"}
+
     return &(forwardingInfo.EntityData)
 }
 
@@ -151,12 +160,12 @@ type MplsForwardingTable_LocalLabelEntry_ForwardingInfo_ConnectionInfo struct {
     YFilter yfilter.YFilter
 
     // The type of connection represented by this label. The type is Type_.
-    Type_ interface{}
+    Type interface{}
 
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The type is interface{} with range: 0..65535.
@@ -172,7 +181,7 @@ type MplsForwardingTable_LocalLabelEntry_ForwardingInfo_ConnectionInfo struct {
     NhId interface{}
 
     // The type is interface{} with range: 0..4294967295.
-    L2CktId interface{}
+    L2cktId interface{}
 
     
     TunnelTp MplsForwardingTable_LocalLabelEntry_ForwardingInfo_ConnectionInfo_TunnelTp
@@ -188,16 +197,19 @@ func (connectionInfo *MplsForwardingTable_LocalLabelEntry_ForwardingInfo_Connect
     connectionInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     connectionInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    connectionInfo.EntityData.Children = make(map[string]types.YChild)
-    connectionInfo.EntityData.Children["tunnel-tp"] = types.YChild{"TunnelTp", &connectionInfo.TunnelTp}
-    connectionInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    connectionInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", connectionInfo.Type_}
-    connectionInfo.EntityData.Leafs["ip"] = types.YLeaf{"Ip", connectionInfo.Ip}
-    connectionInfo.EntityData.Leafs["mask"] = types.YLeaf{"Mask", connectionInfo.Mask}
-    connectionInfo.EntityData.Leafs["tunnel-id"] = types.YLeaf{"TunnelId", connectionInfo.TunnelId}
-    connectionInfo.EntityData.Leafs["vrf-id"] = types.YLeaf{"VrfId", connectionInfo.VrfId}
-    connectionInfo.EntityData.Leafs["nh-id"] = types.YLeaf{"NhId", connectionInfo.NhId}
-    connectionInfo.EntityData.Leafs["l2ckt-id"] = types.YLeaf{"L2CktId", connectionInfo.L2CktId}
+    connectionInfo.EntityData.Children = types.NewOrderedMap()
+    connectionInfo.EntityData.Children.Append("tunnel-tp", types.YChild{"TunnelTp", &connectionInfo.TunnelTp})
+    connectionInfo.EntityData.Leafs = types.NewOrderedMap()
+    connectionInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", connectionInfo.Type})
+    connectionInfo.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", connectionInfo.Ip})
+    connectionInfo.EntityData.Leafs.Append("mask", types.YLeaf{"Mask", connectionInfo.Mask})
+    connectionInfo.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", connectionInfo.TunnelId})
+    connectionInfo.EntityData.Leafs.Append("vrf-id", types.YLeaf{"VrfId", connectionInfo.VrfId})
+    connectionInfo.EntityData.Leafs.Append("nh-id", types.YLeaf{"NhId", connectionInfo.NhId})
+    connectionInfo.EntityData.Leafs.Append("l2ckt-id", types.YLeaf{"L2cktId", connectionInfo.L2cktId})
+
+    connectionInfo.EntityData.YListKeys = []string {}
+
     return &(connectionInfo.EntityData)
 }
 
@@ -226,11 +238,14 @@ func (tunnelTp *MplsForwardingTable_LocalLabelEntry_ForwardingInfo_ConnectionInf
     tunnelTp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tunnelTp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tunnelTp.EntityData.Children = make(map[string]types.YChild)
-    tunnelTp.EntityData.Children["src-id"] = types.YChild{"SrcId", &tunnelTp.SrcId}
-    tunnelTp.EntityData.Children["dst-id"] = types.YChild{"DstId", &tunnelTp.DstId}
-    tunnelTp.EntityData.Leafs = make(map[string]types.YLeaf)
-    tunnelTp.EntityData.Leafs["tunnel"] = types.YLeaf{"Tunnel", tunnelTp.Tunnel}
+    tunnelTp.EntityData.Children = types.NewOrderedMap()
+    tunnelTp.EntityData.Children.Append("src-id", types.YChild{"SrcId", &tunnelTp.SrcId})
+    tunnelTp.EntityData.Children.Append("dst-id", types.YChild{"DstId", &tunnelTp.DstId})
+    tunnelTp.EntityData.Leafs = types.NewOrderedMap()
+    tunnelTp.EntityData.Leafs.Append("tunnel", types.YLeaf{"Tunnel", tunnelTp.Tunnel})
+
+    tunnelTp.EntityData.YListKeys = []string {}
+
     return &(tunnelTp.EntityData)
 }
 
@@ -243,9 +258,9 @@ type MplsForwardingTable_LocalLabelEntry_ForwardingInfo_ConnectionInfo_TunnelTp_
     Global interface{}
 
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Node interface{}
 }
 
@@ -259,10 +274,13 @@ func (srcId *MplsForwardingTable_LocalLabelEntry_ForwardingInfo_ConnectionInfo_T
     srcId.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     srcId.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    srcId.EntityData.Children = make(map[string]types.YChild)
-    srcId.EntityData.Leafs = make(map[string]types.YLeaf)
-    srcId.EntityData.Leafs["global"] = types.YLeaf{"Global", srcId.Global}
-    srcId.EntityData.Leafs["node"] = types.YLeaf{"Node", srcId.Node}
+    srcId.EntityData.Children = types.NewOrderedMap()
+    srcId.EntityData.Leafs = types.NewOrderedMap()
+    srcId.EntityData.Leafs.Append("global", types.YLeaf{"Global", srcId.Global})
+    srcId.EntityData.Leafs.Append("node", types.YLeaf{"Node", srcId.Node})
+
+    srcId.EntityData.YListKeys = []string {}
+
     return &(srcId.EntityData)
 }
 
@@ -275,9 +293,9 @@ type MplsForwardingTable_LocalLabelEntry_ForwardingInfo_ConnectionInfo_TunnelTp_
     Global interface{}
 
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Node interface{}
 }
 
@@ -291,10 +309,13 @@ func (dstId *MplsForwardingTable_LocalLabelEntry_ForwardingInfo_ConnectionInfo_T
     dstId.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dstId.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dstId.EntityData.Children = make(map[string]types.YChild)
-    dstId.EntityData.Leafs = make(map[string]types.YLeaf)
-    dstId.EntityData.Leafs["global"] = types.YLeaf{"Global", dstId.Global}
-    dstId.EntityData.Leafs["node"] = types.YLeaf{"Node", dstId.Node}
+    dstId.EntityData.Children = types.NewOrderedMap()
+    dstId.EntityData.Leafs = types.NewOrderedMap()
+    dstId.EntityData.Leafs.Append("global", types.YLeaf{"Global", dstId.Global})
+    dstId.EntityData.Leafs.Append("node", types.YLeaf{"Node", dstId.Node})
+
+    dstId.EntityData.YListKeys = []string {}
+
     return &(dstId.EntityData)
 }
 

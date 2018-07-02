@@ -23,7 +23,7 @@ type Wdmon struct {
     YFilter yfilter.YFilter
 
     // show traceable processes. The type is slice of Wdmon_Trace.
-    Trace []Wdmon_Trace
+    Trace []*Wdmon_Trace
 }
 
 func (wdmon *Wdmon) GetEntityData() *types.CommonEntityData {
@@ -36,12 +36,15 @@ func (wdmon *Wdmon) GetEntityData() *types.CommonEntityData {
     wdmon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wdmon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wdmon.EntityData.Children = make(map[string]types.YChild)
-    wdmon.EntityData.Children["trace"] = types.YChild{"Trace", nil}
+    wdmon.EntityData.Children = types.NewOrderedMap()
+    wdmon.EntityData.Children.Append("trace", types.YChild{"Trace", nil})
     for i := range wdmon.Trace {
-        wdmon.EntityData.Children[types.GetSegmentPath(&wdmon.Trace[i])] = types.YChild{"Trace", &wdmon.Trace[i]}
+        wdmon.EntityData.Children.Append(types.GetSegmentPath(wdmon.Trace[i]), types.YChild{"Trace", wdmon.Trace[i]})
     }
-    wdmon.EntityData.Leafs = make(map[string]types.YLeaf)
+    wdmon.EntityData.Leafs = types.NewOrderedMap()
+
+    wdmon.EntityData.YListKeys = []string {}
+
     return &(wdmon.EntityData)
 }
 
@@ -55,7 +58,7 @@ type Wdmon_Trace struct {
     Buffer interface{}
 
     // The type is slice of Wdmon_Trace_Location.
-    Location []Wdmon_Trace_Location
+    Location []*Wdmon_Trace_Location
 }
 
 func (trace *Wdmon_Trace) GetEntityData() *types.CommonEntityData {
@@ -63,18 +66,21 @@ func (trace *Wdmon_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.YangName = "trace"
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "wdmon"
-    trace.EntityData.SegmentPath = "trace" + "[buffer='" + fmt.Sprintf("%v", trace.Buffer) + "']"
+    trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trace.EntityData.Children = make(map[string]types.YChild)
-    trace.EntityData.Children["location"] = types.YChild{"Location", nil}
+    trace.EntityData.Children = types.NewOrderedMap()
+    trace.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range trace.Location {
-        trace.EntityData.Children[types.GetSegmentPath(&trace.Location[i])] = types.YChild{"Location", &trace.Location[i]}
+        trace.EntityData.Children.Append(types.GetSegmentPath(trace.Location[i]), types.YChild{"Location", trace.Location[i]})
     }
-    trace.EntityData.Leafs = make(map[string]types.YLeaf)
-    trace.EntityData.Leafs["buffer"] = types.YLeaf{"Buffer", trace.Buffer}
+    trace.EntityData.Leafs = types.NewOrderedMap()
+    trace.EntityData.Leafs.Append("buffer", types.YLeaf{"Buffer", trace.Buffer})
+
+    trace.EntityData.YListKeys = []string {"Buffer"}
+
     return &(trace.EntityData)
 }
 
@@ -87,7 +93,7 @@ type Wdmon_Trace_Location struct {
     LocationName interface{}
 
     // The type is slice of Wdmon_Trace_Location_AllOptions.
-    AllOptions []Wdmon_Trace_Location_AllOptions
+    AllOptions []*Wdmon_Trace_Location_AllOptions
 }
 
 func (location *Wdmon_Trace_Location) GetEntityData() *types.CommonEntityData {
@@ -95,18 +101,21 @@ func (location *Wdmon_Trace_Location) GetEntityData() *types.CommonEntityData {
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
-    location.EntityData.SegmentPath = "location" + "[location_name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["all-options"] = types.YChild{"AllOptions", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("all-options", types.YChild{"AllOptions", nil})
     for i := range location.AllOptions {
-        location.EntityData.Children[types.GetSegmentPath(&location.AllOptions[i])] = types.YChild{"AllOptions", &location.AllOptions[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.AllOptions[i]), types.YChild{"AllOptions", location.AllOptions[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location_name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location_name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -119,7 +128,7 @@ type Wdmon_Trace_Location_AllOptions struct {
     Option interface{}
 
     // The type is slice of Wdmon_Trace_Location_AllOptions_TraceBlocks.
-    TraceBlocks []Wdmon_Trace_Location_AllOptions_TraceBlocks
+    TraceBlocks []*Wdmon_Trace_Location_AllOptions_TraceBlocks
 }
 
 func (allOptions *Wdmon_Trace_Location_AllOptions) GetEntityData() *types.CommonEntityData {
@@ -127,18 +136,21 @@ func (allOptions *Wdmon_Trace_Location_AllOptions) GetEntityData() *types.Common
     allOptions.EntityData.YangName = "all-options"
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
-    allOptions.EntityData.SegmentPath = "all-options" + "[option='" + fmt.Sprintf("%v", allOptions.Option) + "']"
+    allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allOptions.EntityData.Children = make(map[string]types.YChild)
-    allOptions.EntityData.Children["trace-blocks"] = types.YChild{"TraceBlocks", nil}
+    allOptions.EntityData.Children = types.NewOrderedMap()
+    allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
-        allOptions.EntityData.Children[types.GetSegmentPath(&allOptions.TraceBlocks[i])] = types.YChild{"TraceBlocks", &allOptions.TraceBlocks[i]}
+        allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
-    allOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    allOptions.EntityData.Leafs["option"] = types.YLeaf{"Option", allOptions.Option}
+    allOptions.EntityData.Leafs = types.NewOrderedMap()
+    allOptions.EntityData.Leafs.Append("option", types.YLeaf{"Option", allOptions.Option})
+
+    allOptions.EntityData.YListKeys = []string {"Option"}
+
     return &(allOptions.EntityData)
 }
 
@@ -161,9 +173,12 @@ func (traceBlocks *Wdmon_Trace_Location_AllOptions_TraceBlocks) GetEntityData() 
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    traceBlocks.EntityData.Children = make(map[string]types.YChild)
-    traceBlocks.EntityData.Leafs = make(map[string]types.YLeaf)
-    traceBlocks.EntityData.Leafs["data"] = types.YLeaf{"Data", traceBlocks.Data}
+    traceBlocks.EntityData.Children = types.NewOrderedMap()
+    traceBlocks.EntityData.Leafs = types.NewOrderedMap()
+    traceBlocks.EntityData.Leafs.Append("data", types.YLeaf{"Data", traceBlocks.Data})
+
+    traceBlocks.EntityData.YListKeys = []string {}
+
     return &(traceBlocks.EntityData)
 }
 
@@ -173,7 +188,7 @@ type WdmonInfo struct {
     YFilter yfilter.YFilter
 
     // The type is slice of WdmonInfo_AllLocations.
-    AllLocations []WdmonInfo_AllLocations
+    AllLocations []*WdmonInfo_AllLocations
 }
 
 func (wdmonInfo *WdmonInfo) GetEntityData() *types.CommonEntityData {
@@ -186,12 +201,15 @@ func (wdmonInfo *WdmonInfo) GetEntityData() *types.CommonEntityData {
     wdmonInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wdmonInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wdmonInfo.EntityData.Children = make(map[string]types.YChild)
-    wdmonInfo.EntityData.Children["all-locations"] = types.YChild{"AllLocations", nil}
+    wdmonInfo.EntityData.Children = types.NewOrderedMap()
+    wdmonInfo.EntityData.Children.Append("all-locations", types.YChild{"AllLocations", nil})
     for i := range wdmonInfo.AllLocations {
-        wdmonInfo.EntityData.Children[types.GetSegmentPath(&wdmonInfo.AllLocations[i])] = types.YChild{"AllLocations", &wdmonInfo.AllLocations[i]}
+        wdmonInfo.EntityData.Children.Append(types.GetSegmentPath(wdmonInfo.AllLocations[i]), types.YChild{"AllLocations", wdmonInfo.AllLocations[i]})
     }
-    wdmonInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    wdmonInfo.EntityData.Leafs = types.NewOrderedMap()
+
+    wdmonInfo.EntityData.YListKeys = []string {}
+
     return &(wdmonInfo.EntityData)
 }
 
@@ -286,37 +304,40 @@ func (allLocations *WdmonInfo_AllLocations) GetEntityData() *types.CommonEntityD
     allLocations.EntityData.YangName = "all-locations"
     allLocations.EntityData.BundleName = "cisco_ios_xr"
     allLocations.EntityData.ParentYangName = "wdmon-info"
-    allLocations.EntityData.SegmentPath = "all-locations" + "[location='" + fmt.Sprintf("%v", allLocations.Location) + "']"
+    allLocations.EntityData.SegmentPath = "all-locations" + types.AddKeyToken(allLocations.Location, "location")
     allLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allLocations.EntityData.Children = make(map[string]types.YChild)
-    allLocations.EntityData.Leafs = make(map[string]types.YLeaf)
-    allLocations.EntityData.Leafs["location"] = types.YLeaf{"Location", allLocations.Location}
-    allLocations.EntityData.Leafs["start-timestamp"] = types.YLeaf{"StartTimestamp", allLocations.StartTimestamp}
-    allLocations.EntityData.Leafs["hushd-timeout"] = types.YLeaf{"HushdTimeout", allLocations.HushdTimeout}
-    allLocations.EntityData.Leafs["calv-restart-timeout"] = types.YLeaf{"CalvRestartTimeout", allLocations.CalvRestartTimeout}
-    allLocations.EntityData.Leafs["hushd-wd-action-disable"] = types.YLeaf{"HushdWdActionDisable", allLocations.HushdWdActionDisable}
-    allLocations.EntityData.Leafs["hushd-wd-action-timestamp"] = types.YLeaf{"HushdWdActionTimestamp", allLocations.HushdWdActionTimestamp}
-    allLocations.EntityData.Leafs["hushd-capi-up"] = types.YLeaf{"HushdCapiUp", allLocations.HushdCapiUp}
-    allLocations.EntityData.Leafs["hushd-pending-resp"] = types.YLeaf{"HushdPendingResp", allLocations.HushdPendingResp}
-    allLocations.EntityData.Leafs["hushd-stop-punching"] = types.YLeaf{"HushdStopPunching", allLocations.HushdStopPunching}
-    allLocations.EntityData.Leafs["hushd-capi-up-timestamp"] = types.YLeaf{"HushdCapiUpTimestamp", allLocations.HushdCapiUpTimestamp}
-    allLocations.EntityData.Leafs["hushd-last-hb-resp"] = types.YLeaf{"HushdLastHbResp", allLocations.HushdLastHbResp}
-    allLocations.EntityData.Leafs["hushd-num-capi-connects"] = types.YLeaf{"HushdNumCapiConnects", allLocations.HushdNumCapiConnects}
-    allLocations.EntityData.Leafs["wds-action-disable"] = types.YLeaf{"WdsActionDisable", allLocations.WdsActionDisable}
-    allLocations.EntityData.Leafs["wds-action-timestamp"] = types.YLeaf{"WdsActionTimestamp", allLocations.WdsActionTimestamp}
-    allLocations.EntityData.Leafs["wds-restart-timeout"] = types.YLeaf{"WdsRestartTimeout", allLocations.WdsRestartTimeout}
-    allLocations.EntityData.Leafs["wds-liveness-timeout"] = types.YLeaf{"WdsLivenessTimeout", allLocations.WdsLivenessTimeout}
-    allLocations.EntityData.Leafs["wds-client-up"] = types.YLeaf{"WdsClientUp", allLocations.WdsClientUp}
-    allLocations.EntityData.Leafs["wds-client-pid"] = types.YLeaf{"WdsClientPid", allLocations.WdsClientPid}
-    allLocations.EntityData.Leafs["wds-client-up-timestamp"] = types.YLeaf{"WdsClientUpTimestamp", allLocations.WdsClientUpTimestamp}
-    allLocations.EntityData.Leafs["wds-client-last-hb"] = types.YLeaf{"WdsClientLastHb", allLocations.WdsClientLastHb}
-    allLocations.EntityData.Leafs["wds-client-num-connects"] = types.YLeaf{"WdsClientNumConnects", allLocations.WdsClientNumConnects}
-    allLocations.EntityData.Leafs["wds-num-liveness-timeout"] = types.YLeaf{"WdsNumLivenessTimeout", allLocations.WdsNumLivenessTimeout}
-    allLocations.EntityData.Leafs["wds-num-restart-timeout"] = types.YLeaf{"WdsNumRestartTimeout", allLocations.WdsNumRestartTimeout}
-    allLocations.EntityData.Leafs["wds-client-reported-status"] = types.YLeaf{"WdsClientReportedStatus", allLocations.WdsClientReportedStatus}
+    allLocations.EntityData.Children = types.NewOrderedMap()
+    allLocations.EntityData.Leafs = types.NewOrderedMap()
+    allLocations.EntityData.Leafs.Append("location", types.YLeaf{"Location", allLocations.Location})
+    allLocations.EntityData.Leafs.Append("start-timestamp", types.YLeaf{"StartTimestamp", allLocations.StartTimestamp})
+    allLocations.EntityData.Leafs.Append("hushd-timeout", types.YLeaf{"HushdTimeout", allLocations.HushdTimeout})
+    allLocations.EntityData.Leafs.Append("calv-restart-timeout", types.YLeaf{"CalvRestartTimeout", allLocations.CalvRestartTimeout})
+    allLocations.EntityData.Leafs.Append("hushd-wd-action-disable", types.YLeaf{"HushdWdActionDisable", allLocations.HushdWdActionDisable})
+    allLocations.EntityData.Leafs.Append("hushd-wd-action-timestamp", types.YLeaf{"HushdWdActionTimestamp", allLocations.HushdWdActionTimestamp})
+    allLocations.EntityData.Leafs.Append("hushd-capi-up", types.YLeaf{"HushdCapiUp", allLocations.HushdCapiUp})
+    allLocations.EntityData.Leafs.Append("hushd-pending-resp", types.YLeaf{"HushdPendingResp", allLocations.HushdPendingResp})
+    allLocations.EntityData.Leafs.Append("hushd-stop-punching", types.YLeaf{"HushdStopPunching", allLocations.HushdStopPunching})
+    allLocations.EntityData.Leafs.Append("hushd-capi-up-timestamp", types.YLeaf{"HushdCapiUpTimestamp", allLocations.HushdCapiUpTimestamp})
+    allLocations.EntityData.Leafs.Append("hushd-last-hb-resp", types.YLeaf{"HushdLastHbResp", allLocations.HushdLastHbResp})
+    allLocations.EntityData.Leafs.Append("hushd-num-capi-connects", types.YLeaf{"HushdNumCapiConnects", allLocations.HushdNumCapiConnects})
+    allLocations.EntityData.Leafs.Append("wds-action-disable", types.YLeaf{"WdsActionDisable", allLocations.WdsActionDisable})
+    allLocations.EntityData.Leafs.Append("wds-action-timestamp", types.YLeaf{"WdsActionTimestamp", allLocations.WdsActionTimestamp})
+    allLocations.EntityData.Leafs.Append("wds-restart-timeout", types.YLeaf{"WdsRestartTimeout", allLocations.WdsRestartTimeout})
+    allLocations.EntityData.Leafs.Append("wds-liveness-timeout", types.YLeaf{"WdsLivenessTimeout", allLocations.WdsLivenessTimeout})
+    allLocations.EntityData.Leafs.Append("wds-client-up", types.YLeaf{"WdsClientUp", allLocations.WdsClientUp})
+    allLocations.EntityData.Leafs.Append("wds-client-pid", types.YLeaf{"WdsClientPid", allLocations.WdsClientPid})
+    allLocations.EntityData.Leafs.Append("wds-client-up-timestamp", types.YLeaf{"WdsClientUpTimestamp", allLocations.WdsClientUpTimestamp})
+    allLocations.EntityData.Leafs.Append("wds-client-last-hb", types.YLeaf{"WdsClientLastHb", allLocations.WdsClientLastHb})
+    allLocations.EntityData.Leafs.Append("wds-client-num-connects", types.YLeaf{"WdsClientNumConnects", allLocations.WdsClientNumConnects})
+    allLocations.EntityData.Leafs.Append("wds-num-liveness-timeout", types.YLeaf{"WdsNumLivenessTimeout", allLocations.WdsNumLivenessTimeout})
+    allLocations.EntityData.Leafs.Append("wds-num-restart-timeout", types.YLeaf{"WdsNumRestartTimeout", allLocations.WdsNumRestartTimeout})
+    allLocations.EntityData.Leafs.Append("wds-client-reported-status", types.YLeaf{"WdsClientReportedStatus", allLocations.WdsClientReportedStatus})
+
+    allLocations.EntityData.YListKeys = []string {"Location"}
+
     return &(allLocations.EntityData)
 }
 

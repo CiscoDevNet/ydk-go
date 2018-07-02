@@ -48,6 +48,17 @@ func init() {
     ydk.RegisterEntity("CISCO-IPSEC-MIB:CISCO-IPSEC-MIB", reflect.TypeOf(CISCOIPSECMIB{}))
 }
 
+// IkeHashAlgo represents IKE negotiations.
+type IkeHashAlgo string
+
+const (
+    IkeHashAlgo_none IkeHashAlgo = "none"
+
+    IkeHashAlgo_md5 IkeHashAlgo = "md5"
+
+    IkeHashAlgo_sha IkeHashAlgo = "sha"
+)
+
 // CryptomapType represents is a unit of IOS IPSec policy specification.
 type CryptomapType string
 
@@ -65,26 +76,35 @@ const (
     CryptomapType_cryptomapTypeDYNAMICDISCOVERY CryptomapType = "cryptomapTypeDYNAMICDISCOVERY"
 )
 
-// CryptomapSetBindStatus represents SNMP General Error.
-type CryptomapSetBindStatus string
+// IkeIdentityType represents 	Main Mode of IPSec tunnel setup.
+type IkeIdentityType string
 
 const (
-    CryptomapSetBindStatus_unknown CryptomapSetBindStatus = "unknown"
+    IkeIdentityType_isakmpIdTypeUNKNOWN IkeIdentityType = "isakmpIdTypeUNKNOWN"
 
-    CryptomapSetBindStatus_attached CryptomapSetBindStatus = "attached"
+    IkeIdentityType_isakmpIdTypeADDRESS IkeIdentityType = "isakmpIdTypeADDRESS"
 
-    CryptomapSetBindStatus_detached CryptomapSetBindStatus = "detached"
+    IkeIdentityType_isakmpIdTypeHOSTNAME IkeIdentityType = "isakmpIdTypeHOSTNAME"
 )
 
-// IkeHashAlgo represents IKE negotiations.
-type IkeHashAlgo string
+// TrapStatus represents The administrative status for sending a TRAP.
+type TrapStatus string
 
 const (
-    IkeHashAlgo_none IkeHashAlgo = "none"
+    TrapStatus_enabled TrapStatus = "enabled"
 
-    IkeHashAlgo_md5 IkeHashAlgo = "md5"
+    TrapStatus_disabled TrapStatus = "disabled"
+)
 
-    IkeHashAlgo_sha IkeHashAlgo = "sha"
+// EncryptAlgo represents The encryption algorithm used in negotiations.
+type EncryptAlgo string
+
+const (
+    EncryptAlgo_none EncryptAlgo = "none"
+
+    EncryptAlgo_des EncryptAlgo = "des"
+
+    EncryptAlgo_des3 EncryptAlgo = "des3"
 )
 
 // IkeAuthMethod represents negotiations.
@@ -102,15 +122,15 @@ const (
     IkeAuthMethod_revPublicKey IkeAuthMethod = "revPublicKey"
 )
 
-// IkeIdentityType represents 	Main Mode of IPSec tunnel setup.
-type IkeIdentityType string
+// CryptomapSetBindStatus represents SNMP General Error.
+type CryptomapSetBindStatus string
 
 const (
-    IkeIdentityType_isakmpIdTypeUNKNOWN IkeIdentityType = "isakmpIdTypeUNKNOWN"
+    CryptomapSetBindStatus_unknown CryptomapSetBindStatus = "unknown"
 
-    IkeIdentityType_isakmpIdTypeADDRESS IkeIdentityType = "isakmpIdTypeADDRESS"
+    CryptomapSetBindStatus_attached CryptomapSetBindStatus = "attached"
 
-    IkeIdentityType_isakmpIdTypeHOSTNAME IkeIdentityType = "isakmpIdTypeHOSTNAME"
+    CryptomapSetBindStatus_detached CryptomapSetBindStatus = "detached"
 )
 
 // DiffHellmanGrp represents The Diffie Hellman Group used in negotiations.
@@ -124,66 +144,46 @@ const (
     DiffHellmanGrp_dhGroup2 DiffHellmanGrp = "dhGroup2"
 )
 
-// EncryptAlgo represents The encryption algorithm used in negotiations.
-type EncryptAlgo string
-
-const (
-    EncryptAlgo_none EncryptAlgo = "none"
-
-    EncryptAlgo_des EncryptAlgo = "des"
-
-    EncryptAlgo_des3 EncryptAlgo = "des3"
-)
-
-// TrapStatus represents The administrative status for sending a TRAP.
-type TrapStatus string
-
-const (
-    TrapStatus_enabled TrapStatus = "enabled"
-
-    TrapStatus_disabled TrapStatus = "disabled"
-)
-
 // CISCOIPSECMIB
 type CISCOIPSECMIB struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
-    Cipsisakmpgroup CISCOIPSECMIB_Cipsisakmpgroup
+    CipsIsakmpGroup CISCOIPSECMIB_CipsIsakmpGroup
 
     
-    Cipsipsecglobals CISCOIPSECMIB_Cipsipsecglobals
+    CipsIPsecGlobals CISCOIPSECMIB_CipsIPsecGlobals
 
     
-    Cipsipsecstatistics CISCOIPSECMIB_Cipsipsecstatistics
+    CipsIPsecStatistics CISCOIPSECMIB_CipsIPsecStatistics
 
     
-    Cipssyscapacitygroup CISCOIPSECMIB_Cipssyscapacitygroup
+    CipsSysCapacityGroup CISCOIPSECMIB_CipsSysCapacityGroup
 
     
-    Cipstrapcntlgroup CISCOIPSECMIB_Cipstrapcntlgroup
+    CipsTrapCntlGroup CISCOIPSECMIB_CipsTrapCntlGroup
 
     // The table containing the list of all ISAKMP policy entries configured by
     // the operator.
-    Cipsisakmppolicytable CISCOIPSECMIB_Cipsisakmppolicytable
+    CipsIsakmpPolicyTable CISCOIPSECMIB_CipsIsakmpPolicyTable
 
     // The table containing the list of all cryptomap sets that are fully
     // specified and are not wild-carded.  The operator may include different
     // types of cryptomaps in such a set - manual, CET, ISAKMP or dynamic.
-    Cipsstaticcryptomapsettable CISCOIPSECMIB_Cipsstaticcryptomapsettable
+    CipsStaticCryptomapSetTable CISCOIPSECMIB_CipsStaticCryptomapSetTable
 
     // The table containing the list of all dynamic cryptomaps that use IKE,
     // defined on   the managed entity.
-    Cipsdynamiccryptomapsettable CISCOIPSECMIB_Cipsdynamiccryptomapsettable
+    CipsDynamicCryptomapSetTable CISCOIPSECMIB_CipsDynamicCryptomapSetTable
 
     // The table ilisting the member cryptomaps of the cryptomap sets that are
     // configured on the managed entity.
-    Cipsstaticcryptomaptable CISCOIPSECMIB_Cipsstaticcryptomaptable
+    CipsStaticCryptomapTable CISCOIPSECMIB_CipsStaticCryptomapTable
 
     // The table lists the binding of cryptomap sets to the interfaces of the
     // managed entity.
-    Cipscryptomapsetiftable CISCOIPSECMIB_Cipscryptomapsetiftable
+    CipsCryptomapSetIfTable CISCOIPSECMIB_CipsCryptomapSetIfTable
 }
 
 func (cISCOIPSECMIB *CISCOIPSECMIB) GetEntityData() *types.CommonEntityData {
@@ -196,167 +196,179 @@ func (cISCOIPSECMIB *CISCOIPSECMIB) GetEntityData() *types.CommonEntityData {
     cISCOIPSECMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIPSECMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOIPSECMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOIPSECMIB.EntityData.Children["cipsIsakmpGroup"] = types.YChild{"Cipsisakmpgroup", &cISCOIPSECMIB.Cipsisakmpgroup}
-    cISCOIPSECMIB.EntityData.Children["cipsIPsecGlobals"] = types.YChild{"Cipsipsecglobals", &cISCOIPSECMIB.Cipsipsecglobals}
-    cISCOIPSECMIB.EntityData.Children["cipsIPsecStatistics"] = types.YChild{"Cipsipsecstatistics", &cISCOIPSECMIB.Cipsipsecstatistics}
-    cISCOIPSECMIB.EntityData.Children["cipsSysCapacityGroup"] = types.YChild{"Cipssyscapacitygroup", &cISCOIPSECMIB.Cipssyscapacitygroup}
-    cISCOIPSECMIB.EntityData.Children["cipsTrapCntlGroup"] = types.YChild{"Cipstrapcntlgroup", &cISCOIPSECMIB.Cipstrapcntlgroup}
-    cISCOIPSECMIB.EntityData.Children["cipsIsakmpPolicyTable"] = types.YChild{"Cipsisakmppolicytable", &cISCOIPSECMIB.Cipsisakmppolicytable}
-    cISCOIPSECMIB.EntityData.Children["cipsStaticCryptomapSetTable"] = types.YChild{"Cipsstaticcryptomapsettable", &cISCOIPSECMIB.Cipsstaticcryptomapsettable}
-    cISCOIPSECMIB.EntityData.Children["cipsDynamicCryptomapSetTable"] = types.YChild{"Cipsdynamiccryptomapsettable", &cISCOIPSECMIB.Cipsdynamiccryptomapsettable}
-    cISCOIPSECMIB.EntityData.Children["cipsStaticCryptomapTable"] = types.YChild{"Cipsstaticcryptomaptable", &cISCOIPSECMIB.Cipsstaticcryptomaptable}
-    cISCOIPSECMIB.EntityData.Children["cipsCryptomapSetIfTable"] = types.YChild{"Cipscryptomapsetiftable", &cISCOIPSECMIB.Cipscryptomapsetiftable}
-    cISCOIPSECMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOIPSECMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOIPSECMIB.EntityData.Children.Append("cipsIsakmpGroup", types.YChild{"CipsIsakmpGroup", &cISCOIPSECMIB.CipsIsakmpGroup})
+    cISCOIPSECMIB.EntityData.Children.Append("cipsIPsecGlobals", types.YChild{"CipsIPsecGlobals", &cISCOIPSECMIB.CipsIPsecGlobals})
+    cISCOIPSECMIB.EntityData.Children.Append("cipsIPsecStatistics", types.YChild{"CipsIPsecStatistics", &cISCOIPSECMIB.CipsIPsecStatistics})
+    cISCOIPSECMIB.EntityData.Children.Append("cipsSysCapacityGroup", types.YChild{"CipsSysCapacityGroup", &cISCOIPSECMIB.CipsSysCapacityGroup})
+    cISCOIPSECMIB.EntityData.Children.Append("cipsTrapCntlGroup", types.YChild{"CipsTrapCntlGroup", &cISCOIPSECMIB.CipsTrapCntlGroup})
+    cISCOIPSECMIB.EntityData.Children.Append("cipsIsakmpPolicyTable", types.YChild{"CipsIsakmpPolicyTable", &cISCOIPSECMIB.CipsIsakmpPolicyTable})
+    cISCOIPSECMIB.EntityData.Children.Append("cipsStaticCryptomapSetTable", types.YChild{"CipsStaticCryptomapSetTable", &cISCOIPSECMIB.CipsStaticCryptomapSetTable})
+    cISCOIPSECMIB.EntityData.Children.Append("cipsDynamicCryptomapSetTable", types.YChild{"CipsDynamicCryptomapSetTable", &cISCOIPSECMIB.CipsDynamicCryptomapSetTable})
+    cISCOIPSECMIB.EntityData.Children.Append("cipsStaticCryptomapTable", types.YChild{"CipsStaticCryptomapTable", &cISCOIPSECMIB.CipsStaticCryptomapTable})
+    cISCOIPSECMIB.EntityData.Children.Append("cipsCryptomapSetIfTable", types.YChild{"CipsCryptomapSetIfTable", &cISCOIPSECMIB.CipsCryptomapSetIfTable})
+    cISCOIPSECMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOIPSECMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOIPSECMIB.EntityData)
 }
 
-// CISCOIPSECMIB_Cipsisakmpgroup
-type CISCOIPSECMIB_Cipsisakmpgroup struct {
+// CISCOIPSECMIB_CipsIsakmpGroup
+type CISCOIPSECMIB_CipsIsakmpGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The value of this object is TRUE if ISAKMP has been enabled on the managed
     // entity. Otherise the value of this object is FALSE. The type is bool.
-    Cipsisakmpenabled interface{}
+    CipsIsakmpEnabled interface{}
 
     // The value of this object is shows the type of identity used by the managed
     // entity in ISAKMP negotiations with another peer. The type is
     // IkeIdentityType.
-    Cipsisakmpidentity interface{}
+    CipsIsakmpIdentity interface{}
 
     // The value of this object is time interval in seconds between successive
     // ISAKMP keepalive heartbeats issued to the peers to which IKE tunnels have
     // been setup. The type is interface{} with range: 10..3600. Units are
     // seconds.
-    Cipsisakmpkeepaliveinterval interface{}
+    CipsIsakmpKeepaliveInterval interface{}
 
     // The value of this object is the number of ISAKMP policies that have been
     // configured on the  managed entity. The type is interface{} with range:
     // 0..2147483647.
-    Cipsnumisakmppolicies interface{}
+    CipsNumIsakmpPolicies interface{}
 }
 
-func (cipsisakmpgroup *CISCOIPSECMIB_Cipsisakmpgroup) GetEntityData() *types.CommonEntityData {
-    cipsisakmpgroup.EntityData.YFilter = cipsisakmpgroup.YFilter
-    cipsisakmpgroup.EntityData.YangName = "cipsIsakmpGroup"
-    cipsisakmpgroup.EntityData.BundleName = "cisco_ios_xe"
-    cipsisakmpgroup.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
-    cipsisakmpgroup.EntityData.SegmentPath = "cipsIsakmpGroup"
-    cipsisakmpgroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipsisakmpgroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipsisakmpgroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipsIsakmpGroup *CISCOIPSECMIB_CipsIsakmpGroup) GetEntityData() *types.CommonEntityData {
+    cipsIsakmpGroup.EntityData.YFilter = cipsIsakmpGroup.YFilter
+    cipsIsakmpGroup.EntityData.YangName = "cipsIsakmpGroup"
+    cipsIsakmpGroup.EntityData.BundleName = "cisco_ios_xe"
+    cipsIsakmpGroup.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
+    cipsIsakmpGroup.EntityData.SegmentPath = "cipsIsakmpGroup"
+    cipsIsakmpGroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsIsakmpGroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsIsakmpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipsisakmpgroup.EntityData.Children = make(map[string]types.YChild)
-    cipsisakmpgroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    cipsisakmpgroup.EntityData.Leafs["cipsIsakmpEnabled"] = types.YLeaf{"Cipsisakmpenabled", cipsisakmpgroup.Cipsisakmpenabled}
-    cipsisakmpgroup.EntityData.Leafs["cipsIsakmpIdentity"] = types.YLeaf{"Cipsisakmpidentity", cipsisakmpgroup.Cipsisakmpidentity}
-    cipsisakmpgroup.EntityData.Leafs["cipsIsakmpKeepaliveInterval"] = types.YLeaf{"Cipsisakmpkeepaliveinterval", cipsisakmpgroup.Cipsisakmpkeepaliveinterval}
-    cipsisakmpgroup.EntityData.Leafs["cipsNumIsakmpPolicies"] = types.YLeaf{"Cipsnumisakmppolicies", cipsisakmpgroup.Cipsnumisakmppolicies}
-    return &(cipsisakmpgroup.EntityData)
+    cipsIsakmpGroup.EntityData.Children = types.NewOrderedMap()
+    cipsIsakmpGroup.EntityData.Leafs = types.NewOrderedMap()
+    cipsIsakmpGroup.EntityData.Leafs.Append("cipsIsakmpEnabled", types.YLeaf{"CipsIsakmpEnabled", cipsIsakmpGroup.CipsIsakmpEnabled})
+    cipsIsakmpGroup.EntityData.Leafs.Append("cipsIsakmpIdentity", types.YLeaf{"CipsIsakmpIdentity", cipsIsakmpGroup.CipsIsakmpIdentity})
+    cipsIsakmpGroup.EntityData.Leafs.Append("cipsIsakmpKeepaliveInterval", types.YLeaf{"CipsIsakmpKeepaliveInterval", cipsIsakmpGroup.CipsIsakmpKeepaliveInterval})
+    cipsIsakmpGroup.EntityData.Leafs.Append("cipsNumIsakmpPolicies", types.YLeaf{"CipsNumIsakmpPolicies", cipsIsakmpGroup.CipsNumIsakmpPolicies})
+
+    cipsIsakmpGroup.EntityData.YListKeys = []string {}
+
+    return &(cipsIsakmpGroup.EntityData)
 }
 
-// CISCOIPSECMIB_Cipsipsecglobals
-type CISCOIPSECMIB_Cipsipsecglobals struct {
+// CISCOIPSECMIB_CipsIPsecGlobals
+type CISCOIPSECMIB_CipsIPsecGlobals struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The default lifetime (in seconds) assigned  to an SA as a global policy
     // (maybe overridden  in specific cryptomap definitions). The type is
     // interface{} with range: 120..86400. Units are Seconds.
-    Cipssalifetime interface{}
+    CipsSALifetime interface{}
 
     // The default lifesize in KBytes assigned to an SA  as a global policy
     // (unless overridden in cryptomap  definition). The type is interface{} with
     // range: 2560..536870912. Units are KBytes.
-    Cipssalifesize interface{}
+    CipsSALifesize interface{}
 
     // The number of Cryptomap Sets that are are fully configured. Statically
     // defined cryptomap sets  are ones where the operator has fully specified all
     // the parameters required set up IPSec  Virtual Private Networks (VPNs). The
     // type is interface{} with range: 0..2147483647. Units are Integral Units.
-    Cipsnumstaticcryptomapsets interface{}
+    CipsNumStaticCryptomapSets interface{}
 
     // The number of static Cryptomap Sets that have  at least one CET cryptomap
     // element as a member of the set. The type is interface{} with range:
     // 0..2147483647. Units are Integral Units.
-    Cipsnumcetcryptomapsets interface{}
+    CipsNumCETCryptomapSets interface{}
 
     // The number of dynamic IPSec Policy templates (called 'dynamic cryptomap
     // templates') configured on the managed entity. The type is interface{} with
     // range: 0..2147483647. Units are Integral Units.
-    Cipsnumdynamiccryptomapsets interface{}
+    CipsNumDynamicCryptomapSets interface{}
 
     // The number of static Cryptomap Sets that have  at least one dynamic
     // cryptomap template  bound to them which has the Tunnel Endpoint Discovery
     // (TED) enabled. The type is interface{} with range: 0..2147483647. Units are
     // Integral Units.
-    Cipsnumtedcryptomapsets interface{}
+    CipsNumTEDCryptomapSets interface{}
 }
 
-func (cipsipsecglobals *CISCOIPSECMIB_Cipsipsecglobals) GetEntityData() *types.CommonEntityData {
-    cipsipsecglobals.EntityData.YFilter = cipsipsecglobals.YFilter
-    cipsipsecglobals.EntityData.YangName = "cipsIPsecGlobals"
-    cipsipsecglobals.EntityData.BundleName = "cisco_ios_xe"
-    cipsipsecglobals.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
-    cipsipsecglobals.EntityData.SegmentPath = "cipsIPsecGlobals"
-    cipsipsecglobals.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipsipsecglobals.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipsipsecglobals.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipsIPsecGlobals *CISCOIPSECMIB_CipsIPsecGlobals) GetEntityData() *types.CommonEntityData {
+    cipsIPsecGlobals.EntityData.YFilter = cipsIPsecGlobals.YFilter
+    cipsIPsecGlobals.EntityData.YangName = "cipsIPsecGlobals"
+    cipsIPsecGlobals.EntityData.BundleName = "cisco_ios_xe"
+    cipsIPsecGlobals.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
+    cipsIPsecGlobals.EntityData.SegmentPath = "cipsIPsecGlobals"
+    cipsIPsecGlobals.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsIPsecGlobals.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsIPsecGlobals.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipsipsecglobals.EntityData.Children = make(map[string]types.YChild)
-    cipsipsecglobals.EntityData.Leafs = make(map[string]types.YLeaf)
-    cipsipsecglobals.EntityData.Leafs["cipsSALifetime"] = types.YLeaf{"Cipssalifetime", cipsipsecglobals.Cipssalifetime}
-    cipsipsecglobals.EntityData.Leafs["cipsSALifesize"] = types.YLeaf{"Cipssalifesize", cipsipsecglobals.Cipssalifesize}
-    cipsipsecglobals.EntityData.Leafs["cipsNumStaticCryptomapSets"] = types.YLeaf{"Cipsnumstaticcryptomapsets", cipsipsecglobals.Cipsnumstaticcryptomapsets}
-    cipsipsecglobals.EntityData.Leafs["cipsNumCETCryptomapSets"] = types.YLeaf{"Cipsnumcetcryptomapsets", cipsipsecglobals.Cipsnumcetcryptomapsets}
-    cipsipsecglobals.EntityData.Leafs["cipsNumDynamicCryptomapSets"] = types.YLeaf{"Cipsnumdynamiccryptomapsets", cipsipsecglobals.Cipsnumdynamiccryptomapsets}
-    cipsipsecglobals.EntityData.Leafs["cipsNumTEDCryptomapSets"] = types.YLeaf{"Cipsnumtedcryptomapsets", cipsipsecglobals.Cipsnumtedcryptomapsets}
-    return &(cipsipsecglobals.EntityData)
+    cipsIPsecGlobals.EntityData.Children = types.NewOrderedMap()
+    cipsIPsecGlobals.EntityData.Leafs = types.NewOrderedMap()
+    cipsIPsecGlobals.EntityData.Leafs.Append("cipsSALifetime", types.YLeaf{"CipsSALifetime", cipsIPsecGlobals.CipsSALifetime})
+    cipsIPsecGlobals.EntityData.Leafs.Append("cipsSALifesize", types.YLeaf{"CipsSALifesize", cipsIPsecGlobals.CipsSALifesize})
+    cipsIPsecGlobals.EntityData.Leafs.Append("cipsNumStaticCryptomapSets", types.YLeaf{"CipsNumStaticCryptomapSets", cipsIPsecGlobals.CipsNumStaticCryptomapSets})
+    cipsIPsecGlobals.EntityData.Leafs.Append("cipsNumCETCryptomapSets", types.YLeaf{"CipsNumCETCryptomapSets", cipsIPsecGlobals.CipsNumCETCryptomapSets})
+    cipsIPsecGlobals.EntityData.Leafs.Append("cipsNumDynamicCryptomapSets", types.YLeaf{"CipsNumDynamicCryptomapSets", cipsIPsecGlobals.CipsNumDynamicCryptomapSets})
+    cipsIPsecGlobals.EntityData.Leafs.Append("cipsNumTEDCryptomapSets", types.YLeaf{"CipsNumTEDCryptomapSets", cipsIPsecGlobals.CipsNumTEDCryptomapSets})
+
+    cipsIPsecGlobals.EntityData.YListKeys = []string {}
+
+    return &(cipsIPsecGlobals.EntityData)
 }
 
-// CISCOIPSECMIB_Cipsipsecstatistics
-type CISCOIPSECMIB_Cipsipsecstatistics struct {
+// CISCOIPSECMIB_CipsIPsecStatistics
+type CISCOIPSECMIB_CipsIPsecStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The number of TED probes that were received by this  managed entity since
     // bootup. Not affected by any  CLI operation. The type is interface{} with
     // range: 0..4294967295. Units are Integral Units.
-    Cipsnumtedprobesreceived interface{}
+    CipsNumTEDProbesReceived interface{}
 
     // The number of TED probes that were dispatched by all the dynamic cryptomaps
     // in this managed entity since  bootup. Not affected by any CLI operation.
     // The type is interface{} with range: 0..4294967295. Units are Integral
     // Units.
-    Cipsnumtedprobessent interface{}
+    CipsNumTEDProbesSent interface{}
 
     // The number of TED probes that were dispatched by  the local entity and that
     // failed to locate crypto  endpoint.  Not affected by any CLI operation. The
     // type is interface{} with range: 0..4294967295. Units are Integral Units.
-    Cipsnumtedfailures interface{}
+    CipsNumTEDFailures interface{}
 }
 
-func (cipsipsecstatistics *CISCOIPSECMIB_Cipsipsecstatistics) GetEntityData() *types.CommonEntityData {
-    cipsipsecstatistics.EntityData.YFilter = cipsipsecstatistics.YFilter
-    cipsipsecstatistics.EntityData.YangName = "cipsIPsecStatistics"
-    cipsipsecstatistics.EntityData.BundleName = "cisco_ios_xe"
-    cipsipsecstatistics.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
-    cipsipsecstatistics.EntityData.SegmentPath = "cipsIPsecStatistics"
-    cipsipsecstatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipsipsecstatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipsipsecstatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipsIPsecStatistics *CISCOIPSECMIB_CipsIPsecStatistics) GetEntityData() *types.CommonEntityData {
+    cipsIPsecStatistics.EntityData.YFilter = cipsIPsecStatistics.YFilter
+    cipsIPsecStatistics.EntityData.YangName = "cipsIPsecStatistics"
+    cipsIPsecStatistics.EntityData.BundleName = "cisco_ios_xe"
+    cipsIPsecStatistics.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
+    cipsIPsecStatistics.EntityData.SegmentPath = "cipsIPsecStatistics"
+    cipsIPsecStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsIPsecStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsIPsecStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipsipsecstatistics.EntityData.Children = make(map[string]types.YChild)
-    cipsipsecstatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    cipsipsecstatistics.EntityData.Leafs["cipsNumTEDProbesReceived"] = types.YLeaf{"Cipsnumtedprobesreceived", cipsipsecstatistics.Cipsnumtedprobesreceived}
-    cipsipsecstatistics.EntityData.Leafs["cipsNumTEDProbesSent"] = types.YLeaf{"Cipsnumtedprobessent", cipsipsecstatistics.Cipsnumtedprobessent}
-    cipsipsecstatistics.EntityData.Leafs["cipsNumTEDFailures"] = types.YLeaf{"Cipsnumtedfailures", cipsipsecstatistics.Cipsnumtedfailures}
-    return &(cipsipsecstatistics.EntityData)
+    cipsIPsecStatistics.EntityData.Children = types.NewOrderedMap()
+    cipsIPsecStatistics.EntityData.Leafs = types.NewOrderedMap()
+    cipsIPsecStatistics.EntityData.Leafs.Append("cipsNumTEDProbesReceived", types.YLeaf{"CipsNumTEDProbesReceived", cipsIPsecStatistics.CipsNumTEDProbesReceived})
+    cipsIPsecStatistics.EntityData.Leafs.Append("cipsNumTEDProbesSent", types.YLeaf{"CipsNumTEDProbesSent", cipsIPsecStatistics.CipsNumTEDProbesSent})
+    cipsIPsecStatistics.EntityData.Leafs.Append("cipsNumTEDFailures", types.YLeaf{"CipsNumTEDFailures", cipsIPsecStatistics.CipsNumTEDFailures})
+
+    cipsIPsecStatistics.EntityData.YListKeys = []string {}
+
+    return &(cipsIPsecStatistics.EntityData)
 }
 
-// CISCOIPSECMIB_Cipssyscapacitygroup
-type CISCOIPSECMIB_Cipssyscapacitygroup struct {
+// CISCOIPSECMIB_CipsSysCapacityGroup
+type CISCOIPSECMIB_CipsSysCapacityGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -364,186 +376,198 @@ type CISCOIPSECMIB_Cipssyscapacitygroup struct {
     // on this managed entity. If no theoretical limit exists, this returns value
     // 0.  Not affected by any CLI operation. The type is interface{} with range:
     // 0..65535. Units are Integral Units.
-    Cipsmaxsas interface{}
+    CipsMaxSAs interface{}
 
     // The value of this object is TRUE if the  managed entity has the hardware
     // nad software  features to support 3DES encryption algorithm.  Not affected
     // by any CLI operation. The type is bool.
-    Cips3Descapable interface{}
+    Cips3DesCapable interface{}
 }
 
-func (cipssyscapacitygroup *CISCOIPSECMIB_Cipssyscapacitygroup) GetEntityData() *types.CommonEntityData {
-    cipssyscapacitygroup.EntityData.YFilter = cipssyscapacitygroup.YFilter
-    cipssyscapacitygroup.EntityData.YangName = "cipsSysCapacityGroup"
-    cipssyscapacitygroup.EntityData.BundleName = "cisco_ios_xe"
-    cipssyscapacitygroup.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
-    cipssyscapacitygroup.EntityData.SegmentPath = "cipsSysCapacityGroup"
-    cipssyscapacitygroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipssyscapacitygroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipssyscapacitygroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipsSysCapacityGroup *CISCOIPSECMIB_CipsSysCapacityGroup) GetEntityData() *types.CommonEntityData {
+    cipsSysCapacityGroup.EntityData.YFilter = cipsSysCapacityGroup.YFilter
+    cipsSysCapacityGroup.EntityData.YangName = "cipsSysCapacityGroup"
+    cipsSysCapacityGroup.EntityData.BundleName = "cisco_ios_xe"
+    cipsSysCapacityGroup.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
+    cipsSysCapacityGroup.EntityData.SegmentPath = "cipsSysCapacityGroup"
+    cipsSysCapacityGroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsSysCapacityGroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsSysCapacityGroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipssyscapacitygroup.EntityData.Children = make(map[string]types.YChild)
-    cipssyscapacitygroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    cipssyscapacitygroup.EntityData.Leafs["cipsMaxSAs"] = types.YLeaf{"Cipsmaxsas", cipssyscapacitygroup.Cipsmaxsas}
-    cipssyscapacitygroup.EntityData.Leafs["cips3DesCapable"] = types.YLeaf{"Cips3Descapable", cipssyscapacitygroup.Cips3Descapable}
-    return &(cipssyscapacitygroup.EntityData)
+    cipsSysCapacityGroup.EntityData.Children = types.NewOrderedMap()
+    cipsSysCapacityGroup.EntityData.Leafs = types.NewOrderedMap()
+    cipsSysCapacityGroup.EntityData.Leafs.Append("cipsMaxSAs", types.YLeaf{"CipsMaxSAs", cipsSysCapacityGroup.CipsMaxSAs})
+    cipsSysCapacityGroup.EntityData.Leafs.Append("cips3DesCapable", types.YLeaf{"Cips3DesCapable", cipsSysCapacityGroup.Cips3DesCapable})
+
+    cipsSysCapacityGroup.EntityData.YListKeys = []string {}
+
+    return &(cipsSysCapacityGroup.EntityData)
 }
 
-// CISCOIPSECMIB_Cipstrapcntlgroup
-type CISCOIPSECMIB_Cipstrapcntlgroup struct {
+// CISCOIPSECMIB_CipsTrapCntlGroup
+type CISCOIPSECMIB_CipsTrapCntlGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object defines the administrative state of  sending the IOS IPsec
     // ISAKMP Policy Add trap. The type is TrapStatus.
-    Cipscntlisakmppolicyadded interface{}
+    CipsCntlIsakmpPolicyAdded interface{}
 
     // This object defines the administrative state of  sending the IOS IPsec
     // ISAKMP Policy Delete trap. The type is TrapStatus.
-    Cipscntlisakmppolicydeleted interface{}
+    CipsCntlIsakmpPolicyDeleted interface{}
 
     // This object defines the administrative state of  sending the IOS IPsec
     // Cryptomap Add trap. The type is TrapStatus.
-    Cipscntlcryptomapadded interface{}
+    CipsCntlCryptomapAdded interface{}
 
     // This object defines the administrative state of  sending the IOS IPsec
     // Cryptomap Delete trap. The type is TrapStatus.
-    Cipscntlcryptomapdeleted interface{}
+    CipsCntlCryptomapDeleted interface{}
 
     // This object defines the administrative state of  sending the IOS IPsec trap
     // that is issued when a cryptomap set is attached to an interface. The type
     // is TrapStatus.
-    Cipscntlcryptomapsetattached interface{}
+    CipsCntlCryptomapSetAttached interface{}
 
     // This object defines the administrative state of  sending the IOS IPsec trap
     // that is issued when a cryptomap set is detached from an interface. to which
     // it was earlier bound. The type is TrapStatus.
-    Cipscntlcryptomapsetdetached interface{}
+    CipsCntlCryptomapSetDetached interface{}
 
     // This object defines the administrative state of  sending the IOS IPsec trap
     // that is issued when the number of SAs crosses the maximum number of SAs
     // that may be supported on the managed entity. The type is TrapStatus.
-    Cipscntltoomanysas interface{}
+    CipsCntlTooManySAs interface{}
 }
 
-func (cipstrapcntlgroup *CISCOIPSECMIB_Cipstrapcntlgroup) GetEntityData() *types.CommonEntityData {
-    cipstrapcntlgroup.EntityData.YFilter = cipstrapcntlgroup.YFilter
-    cipstrapcntlgroup.EntityData.YangName = "cipsTrapCntlGroup"
-    cipstrapcntlgroup.EntityData.BundleName = "cisco_ios_xe"
-    cipstrapcntlgroup.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
-    cipstrapcntlgroup.EntityData.SegmentPath = "cipsTrapCntlGroup"
-    cipstrapcntlgroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipstrapcntlgroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipstrapcntlgroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipsTrapCntlGroup *CISCOIPSECMIB_CipsTrapCntlGroup) GetEntityData() *types.CommonEntityData {
+    cipsTrapCntlGroup.EntityData.YFilter = cipsTrapCntlGroup.YFilter
+    cipsTrapCntlGroup.EntityData.YangName = "cipsTrapCntlGroup"
+    cipsTrapCntlGroup.EntityData.BundleName = "cisco_ios_xe"
+    cipsTrapCntlGroup.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
+    cipsTrapCntlGroup.EntityData.SegmentPath = "cipsTrapCntlGroup"
+    cipsTrapCntlGroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsTrapCntlGroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsTrapCntlGroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipstrapcntlgroup.EntityData.Children = make(map[string]types.YChild)
-    cipstrapcntlgroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    cipstrapcntlgroup.EntityData.Leafs["cipsCntlIsakmpPolicyAdded"] = types.YLeaf{"Cipscntlisakmppolicyadded", cipstrapcntlgroup.Cipscntlisakmppolicyadded}
-    cipstrapcntlgroup.EntityData.Leafs["cipsCntlIsakmpPolicyDeleted"] = types.YLeaf{"Cipscntlisakmppolicydeleted", cipstrapcntlgroup.Cipscntlisakmppolicydeleted}
-    cipstrapcntlgroup.EntityData.Leafs["cipsCntlCryptomapAdded"] = types.YLeaf{"Cipscntlcryptomapadded", cipstrapcntlgroup.Cipscntlcryptomapadded}
-    cipstrapcntlgroup.EntityData.Leafs["cipsCntlCryptomapDeleted"] = types.YLeaf{"Cipscntlcryptomapdeleted", cipstrapcntlgroup.Cipscntlcryptomapdeleted}
-    cipstrapcntlgroup.EntityData.Leafs["cipsCntlCryptomapSetAttached"] = types.YLeaf{"Cipscntlcryptomapsetattached", cipstrapcntlgroup.Cipscntlcryptomapsetattached}
-    cipstrapcntlgroup.EntityData.Leafs["cipsCntlCryptomapSetDetached"] = types.YLeaf{"Cipscntlcryptomapsetdetached", cipstrapcntlgroup.Cipscntlcryptomapsetdetached}
-    cipstrapcntlgroup.EntityData.Leafs["cipsCntlTooManySAs"] = types.YLeaf{"Cipscntltoomanysas", cipstrapcntlgroup.Cipscntltoomanysas}
-    return &(cipstrapcntlgroup.EntityData)
+    cipsTrapCntlGroup.EntityData.Children = types.NewOrderedMap()
+    cipsTrapCntlGroup.EntityData.Leafs = types.NewOrderedMap()
+    cipsTrapCntlGroup.EntityData.Leafs.Append("cipsCntlIsakmpPolicyAdded", types.YLeaf{"CipsCntlIsakmpPolicyAdded", cipsTrapCntlGroup.CipsCntlIsakmpPolicyAdded})
+    cipsTrapCntlGroup.EntityData.Leafs.Append("cipsCntlIsakmpPolicyDeleted", types.YLeaf{"CipsCntlIsakmpPolicyDeleted", cipsTrapCntlGroup.CipsCntlIsakmpPolicyDeleted})
+    cipsTrapCntlGroup.EntityData.Leafs.Append("cipsCntlCryptomapAdded", types.YLeaf{"CipsCntlCryptomapAdded", cipsTrapCntlGroup.CipsCntlCryptomapAdded})
+    cipsTrapCntlGroup.EntityData.Leafs.Append("cipsCntlCryptomapDeleted", types.YLeaf{"CipsCntlCryptomapDeleted", cipsTrapCntlGroup.CipsCntlCryptomapDeleted})
+    cipsTrapCntlGroup.EntityData.Leafs.Append("cipsCntlCryptomapSetAttached", types.YLeaf{"CipsCntlCryptomapSetAttached", cipsTrapCntlGroup.CipsCntlCryptomapSetAttached})
+    cipsTrapCntlGroup.EntityData.Leafs.Append("cipsCntlCryptomapSetDetached", types.YLeaf{"CipsCntlCryptomapSetDetached", cipsTrapCntlGroup.CipsCntlCryptomapSetDetached})
+    cipsTrapCntlGroup.EntityData.Leafs.Append("cipsCntlTooManySAs", types.YLeaf{"CipsCntlTooManySAs", cipsTrapCntlGroup.CipsCntlTooManySAs})
+
+    cipsTrapCntlGroup.EntityData.YListKeys = []string {}
+
+    return &(cipsTrapCntlGroup.EntityData)
 }
 
-// CISCOIPSECMIB_Cipsisakmppolicytable
+// CISCOIPSECMIB_CipsIsakmpPolicyTable
 // The table containing the list of all
 // ISAKMP policy entries configured by the operator.
-type CISCOIPSECMIB_Cipsisakmppolicytable struct {
+type CISCOIPSECMIB_CipsIsakmpPolicyTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the attributes  associated with a single ISAKMP Policy
     // entry. The type is slice of
-    // CISCOIPSECMIB_Cipsisakmppolicytable_Cipsisakmppolicyentry.
-    Cipsisakmppolicyentry []CISCOIPSECMIB_Cipsisakmppolicytable_Cipsisakmppolicyentry
+    // CISCOIPSECMIB_CipsIsakmpPolicyTable_CipsIsakmpPolicyEntry.
+    CipsIsakmpPolicyEntry []*CISCOIPSECMIB_CipsIsakmpPolicyTable_CipsIsakmpPolicyEntry
 }
 
-func (cipsisakmppolicytable *CISCOIPSECMIB_Cipsisakmppolicytable) GetEntityData() *types.CommonEntityData {
-    cipsisakmppolicytable.EntityData.YFilter = cipsisakmppolicytable.YFilter
-    cipsisakmppolicytable.EntityData.YangName = "cipsIsakmpPolicyTable"
-    cipsisakmppolicytable.EntityData.BundleName = "cisco_ios_xe"
-    cipsisakmppolicytable.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
-    cipsisakmppolicytable.EntityData.SegmentPath = "cipsIsakmpPolicyTable"
-    cipsisakmppolicytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipsisakmppolicytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipsisakmppolicytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipsIsakmpPolicyTable *CISCOIPSECMIB_CipsIsakmpPolicyTable) GetEntityData() *types.CommonEntityData {
+    cipsIsakmpPolicyTable.EntityData.YFilter = cipsIsakmpPolicyTable.YFilter
+    cipsIsakmpPolicyTable.EntityData.YangName = "cipsIsakmpPolicyTable"
+    cipsIsakmpPolicyTable.EntityData.BundleName = "cisco_ios_xe"
+    cipsIsakmpPolicyTable.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
+    cipsIsakmpPolicyTable.EntityData.SegmentPath = "cipsIsakmpPolicyTable"
+    cipsIsakmpPolicyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsIsakmpPolicyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsIsakmpPolicyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipsisakmppolicytable.EntityData.Children = make(map[string]types.YChild)
-    cipsisakmppolicytable.EntityData.Children["cipsIsakmpPolicyEntry"] = types.YChild{"Cipsisakmppolicyentry", nil}
-    for i := range cipsisakmppolicytable.Cipsisakmppolicyentry {
-        cipsisakmppolicytable.EntityData.Children[types.GetSegmentPath(&cipsisakmppolicytable.Cipsisakmppolicyentry[i])] = types.YChild{"Cipsisakmppolicyentry", &cipsisakmppolicytable.Cipsisakmppolicyentry[i]}
+    cipsIsakmpPolicyTable.EntityData.Children = types.NewOrderedMap()
+    cipsIsakmpPolicyTable.EntityData.Children.Append("cipsIsakmpPolicyEntry", types.YChild{"CipsIsakmpPolicyEntry", nil})
+    for i := range cipsIsakmpPolicyTable.CipsIsakmpPolicyEntry {
+        cipsIsakmpPolicyTable.EntityData.Children.Append(types.GetSegmentPath(cipsIsakmpPolicyTable.CipsIsakmpPolicyEntry[i]), types.YChild{"CipsIsakmpPolicyEntry", cipsIsakmpPolicyTable.CipsIsakmpPolicyEntry[i]})
     }
-    cipsisakmppolicytable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cipsisakmppolicytable.EntityData)
+    cipsIsakmpPolicyTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cipsIsakmpPolicyTable.EntityData.YListKeys = []string {}
+
+    return &(cipsIsakmpPolicyTable.EntityData)
 }
 
-// CISCOIPSECMIB_Cipsisakmppolicytable_Cipsisakmppolicyentry
+// CISCOIPSECMIB_CipsIsakmpPolicyTable_CipsIsakmpPolicyEntry
 // Each entry contains the attributes 
 // associated with a single ISAKMP
 // Policy entry.
-type CISCOIPSECMIB_Cipsisakmppolicytable_Cipsisakmppolicyentry struct {
+type CISCOIPSECMIB_CipsIsakmpPolicyTable_CipsIsakmpPolicyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The priotity of this ISAKMP Policy entry. This is
     // also the index of this table. The type is interface{} with range: 0..65535.
-    Cipsisakmppolpriority interface{}
+    CipsIsakmpPolPriority interface{}
 
     // The encryption transform specified by this  ISAKMP policy specification.
     // The Internet Key Exchange (IKE) tunnels setup using this policy item would
     // use the specified encryption transform to protect the ISAKMP PDUs. The type
     // is EncryptAlgo.
-    Cipsisakmppolencr interface{}
+    CipsIsakmpPolEncr interface{}
 
     // The hash transform specified by this  ISAKMP policy specification. The IKE
     // tunnels setup using this policy item would use the  specified hash
     // transform to protect the ISAKMP PDUs. The type is IkeHashAlgo.
-    Cipsisakmppolhash interface{}
+    CipsIsakmpPolHash interface{}
 
     // The peer authentication mthod specified by this ISAKMP policy
     // specification. If this policy entity is selected for negotiation with a
     // peer, the local entity would authenticate the peer using  the method
     // specified by this object. The type is IkeAuthMethod.
-    Cipsisakmppolauth interface{}
+    CipsIsakmpPolAuth interface{}
 
     // This object specifies the Oakley group used  for Diffie Hellman exchange in
     // the Main Mode.  If this policy item is selected to negotiate Main Mode with
     // an IKE peer, the local entity  chooses the group specified by this object
     // to perform Diffie Hellman exchange with the peer. The type is
     // DiffHellmanGrp.
-    Cipsisakmppolgroup interface{}
+    CipsIsakmpPolGroup interface{}
 
     // This object specifies the lifetime in seconds of the IKE tunnels generated
     // using this  policy specification. The type is interface{} with range:
     // 60..86400. Units are seconds.
-    Cipsisakmppollifetime interface{}
+    CipsIsakmpPolLifetime interface{}
 }
 
-func (cipsisakmppolicyentry *CISCOIPSECMIB_Cipsisakmppolicytable_Cipsisakmppolicyentry) GetEntityData() *types.CommonEntityData {
-    cipsisakmppolicyentry.EntityData.YFilter = cipsisakmppolicyentry.YFilter
-    cipsisakmppolicyentry.EntityData.YangName = "cipsIsakmpPolicyEntry"
-    cipsisakmppolicyentry.EntityData.BundleName = "cisco_ios_xe"
-    cipsisakmppolicyentry.EntityData.ParentYangName = "cipsIsakmpPolicyTable"
-    cipsisakmppolicyentry.EntityData.SegmentPath = "cipsIsakmpPolicyEntry" + "[cipsIsakmpPolPriority='" + fmt.Sprintf("%v", cipsisakmppolicyentry.Cipsisakmppolpriority) + "']"
-    cipsisakmppolicyentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipsisakmppolicyentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipsisakmppolicyentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipsIsakmpPolicyEntry *CISCOIPSECMIB_CipsIsakmpPolicyTable_CipsIsakmpPolicyEntry) GetEntityData() *types.CommonEntityData {
+    cipsIsakmpPolicyEntry.EntityData.YFilter = cipsIsakmpPolicyEntry.YFilter
+    cipsIsakmpPolicyEntry.EntityData.YangName = "cipsIsakmpPolicyEntry"
+    cipsIsakmpPolicyEntry.EntityData.BundleName = "cisco_ios_xe"
+    cipsIsakmpPolicyEntry.EntityData.ParentYangName = "cipsIsakmpPolicyTable"
+    cipsIsakmpPolicyEntry.EntityData.SegmentPath = "cipsIsakmpPolicyEntry" + types.AddKeyToken(cipsIsakmpPolicyEntry.CipsIsakmpPolPriority, "cipsIsakmpPolPriority")
+    cipsIsakmpPolicyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsIsakmpPolicyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsIsakmpPolicyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipsisakmppolicyentry.EntityData.Children = make(map[string]types.YChild)
-    cipsisakmppolicyentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cipsisakmppolicyentry.EntityData.Leafs["cipsIsakmpPolPriority"] = types.YLeaf{"Cipsisakmppolpriority", cipsisakmppolicyentry.Cipsisakmppolpriority}
-    cipsisakmppolicyentry.EntityData.Leafs["cipsIsakmpPolEncr"] = types.YLeaf{"Cipsisakmppolencr", cipsisakmppolicyentry.Cipsisakmppolencr}
-    cipsisakmppolicyentry.EntityData.Leafs["cipsIsakmpPolHash"] = types.YLeaf{"Cipsisakmppolhash", cipsisakmppolicyentry.Cipsisakmppolhash}
-    cipsisakmppolicyentry.EntityData.Leafs["cipsIsakmpPolAuth"] = types.YLeaf{"Cipsisakmppolauth", cipsisakmppolicyentry.Cipsisakmppolauth}
-    cipsisakmppolicyentry.EntityData.Leafs["cipsIsakmpPolGroup"] = types.YLeaf{"Cipsisakmppolgroup", cipsisakmppolicyentry.Cipsisakmppolgroup}
-    cipsisakmppolicyentry.EntityData.Leafs["cipsIsakmpPolLifetime"] = types.YLeaf{"Cipsisakmppollifetime", cipsisakmppolicyentry.Cipsisakmppollifetime}
-    return &(cipsisakmppolicyentry.EntityData)
+    cipsIsakmpPolicyEntry.EntityData.Children = types.NewOrderedMap()
+    cipsIsakmpPolicyEntry.EntityData.Leafs = types.NewOrderedMap()
+    cipsIsakmpPolicyEntry.EntityData.Leafs.Append("cipsIsakmpPolPriority", types.YLeaf{"CipsIsakmpPolPriority", cipsIsakmpPolicyEntry.CipsIsakmpPolPriority})
+    cipsIsakmpPolicyEntry.EntityData.Leafs.Append("cipsIsakmpPolEncr", types.YLeaf{"CipsIsakmpPolEncr", cipsIsakmpPolicyEntry.CipsIsakmpPolEncr})
+    cipsIsakmpPolicyEntry.EntityData.Leafs.Append("cipsIsakmpPolHash", types.YLeaf{"CipsIsakmpPolHash", cipsIsakmpPolicyEntry.CipsIsakmpPolHash})
+    cipsIsakmpPolicyEntry.EntityData.Leafs.Append("cipsIsakmpPolAuth", types.YLeaf{"CipsIsakmpPolAuth", cipsIsakmpPolicyEntry.CipsIsakmpPolAuth})
+    cipsIsakmpPolicyEntry.EntityData.Leafs.Append("cipsIsakmpPolGroup", types.YLeaf{"CipsIsakmpPolGroup", cipsIsakmpPolicyEntry.CipsIsakmpPolGroup})
+    cipsIsakmpPolicyEntry.EntityData.Leafs.Append("cipsIsakmpPolLifetime", types.YLeaf{"CipsIsakmpPolLifetime", cipsIsakmpPolicyEntry.CipsIsakmpPolLifetime})
+
+    cipsIsakmpPolicyEntry.EntityData.YListKeys = []string {"CipsIsakmpPolPriority"}
+
+    return &(cipsIsakmpPolicyEntry.EntityData)
 }
 
-// CISCOIPSECMIB_Cipsstaticcryptomapsettable
+// CISCOIPSECMIB_CipsStaticCryptomapSetTable
 // The table containing the list of all
 // cryptomap sets that are fully specified
 // and are not wild-carded.
@@ -551,183 +575,195 @@ func (cipsisakmppolicyentry *CISCOIPSECMIB_Cipsisakmppolicytable_Cipsisakmppolic
 // The operator may include different types of
 // cryptomaps in such a set - manual, CET,
 // ISAKMP or dynamic.
-type CISCOIPSECMIB_Cipsstaticcryptomapsettable struct {
+type CISCOIPSECMIB_CipsStaticCryptomapSetTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the attributes  associated with a single static 
     // cryptomap set. The type is slice of
-    // CISCOIPSECMIB_Cipsstaticcryptomapsettable_Cipsstaticcryptomapsetentry.
-    Cipsstaticcryptomapsetentry []CISCOIPSECMIB_Cipsstaticcryptomapsettable_Cipsstaticcryptomapsetentry
+    // CISCOIPSECMIB_CipsStaticCryptomapSetTable_CipsStaticCryptomapSetEntry.
+    CipsStaticCryptomapSetEntry []*CISCOIPSECMIB_CipsStaticCryptomapSetTable_CipsStaticCryptomapSetEntry
 }
 
-func (cipsstaticcryptomapsettable *CISCOIPSECMIB_Cipsstaticcryptomapsettable) GetEntityData() *types.CommonEntityData {
-    cipsstaticcryptomapsettable.EntityData.YFilter = cipsstaticcryptomapsettable.YFilter
-    cipsstaticcryptomapsettable.EntityData.YangName = "cipsStaticCryptomapSetTable"
-    cipsstaticcryptomapsettable.EntityData.BundleName = "cisco_ios_xe"
-    cipsstaticcryptomapsettable.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
-    cipsstaticcryptomapsettable.EntityData.SegmentPath = "cipsStaticCryptomapSetTable"
-    cipsstaticcryptomapsettable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipsstaticcryptomapsettable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipsstaticcryptomapsettable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipsStaticCryptomapSetTable *CISCOIPSECMIB_CipsStaticCryptomapSetTable) GetEntityData() *types.CommonEntityData {
+    cipsStaticCryptomapSetTable.EntityData.YFilter = cipsStaticCryptomapSetTable.YFilter
+    cipsStaticCryptomapSetTable.EntityData.YangName = "cipsStaticCryptomapSetTable"
+    cipsStaticCryptomapSetTable.EntityData.BundleName = "cisco_ios_xe"
+    cipsStaticCryptomapSetTable.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
+    cipsStaticCryptomapSetTable.EntityData.SegmentPath = "cipsStaticCryptomapSetTable"
+    cipsStaticCryptomapSetTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsStaticCryptomapSetTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsStaticCryptomapSetTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipsstaticcryptomapsettable.EntityData.Children = make(map[string]types.YChild)
-    cipsstaticcryptomapsettable.EntityData.Children["cipsStaticCryptomapSetEntry"] = types.YChild{"Cipsstaticcryptomapsetentry", nil}
-    for i := range cipsstaticcryptomapsettable.Cipsstaticcryptomapsetentry {
-        cipsstaticcryptomapsettable.EntityData.Children[types.GetSegmentPath(&cipsstaticcryptomapsettable.Cipsstaticcryptomapsetentry[i])] = types.YChild{"Cipsstaticcryptomapsetentry", &cipsstaticcryptomapsettable.Cipsstaticcryptomapsetentry[i]}
+    cipsStaticCryptomapSetTable.EntityData.Children = types.NewOrderedMap()
+    cipsStaticCryptomapSetTable.EntityData.Children.Append("cipsStaticCryptomapSetEntry", types.YChild{"CipsStaticCryptomapSetEntry", nil})
+    for i := range cipsStaticCryptomapSetTable.CipsStaticCryptomapSetEntry {
+        cipsStaticCryptomapSetTable.EntityData.Children.Append(types.GetSegmentPath(cipsStaticCryptomapSetTable.CipsStaticCryptomapSetEntry[i]), types.YChild{"CipsStaticCryptomapSetEntry", cipsStaticCryptomapSetTable.CipsStaticCryptomapSetEntry[i]})
     }
-    cipsstaticcryptomapsettable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cipsstaticcryptomapsettable.EntityData)
+    cipsStaticCryptomapSetTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cipsStaticCryptomapSetTable.EntityData.YListKeys = []string {}
+
+    return &(cipsStaticCryptomapSetTable.EntityData)
 }
 
-// CISCOIPSECMIB_Cipsstaticcryptomapsettable_Cipsstaticcryptomapsetentry
+// CISCOIPSECMIB_CipsStaticCryptomapSetTable_CipsStaticCryptomapSetEntry
 // Each entry contains the attributes 
 // associated with a single static 
 // cryptomap set.
-type CISCOIPSECMIB_Cipsstaticcryptomapsettable_Cipsstaticcryptomapsetentry struct {
+type CISCOIPSECMIB_CipsStaticCryptomapSetTable_CipsStaticCryptomapSetEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index of the static cryptomap table. The value
     // of the string is the name string assigned by the  operator in defining the
     // cryptomap set. The type is string.
-    Cipsstaticcryptomapsetname interface{}
+    CipsStaticCryptomapSetName interface{}
 
     // The total number of cryptomap entries contained in this cryptomap set. .
     // The type is interface{} with range: 0..4294967295.
-    Cipsstaticcryptomapsetsize interface{}
+    CipsStaticCryptomapSetSize interface{}
 
     // The number of cryptomaps associated with this  cryptomap set that use
     // ISAKMP protocol to do key exchange. The type is interface{} with range:
     // 0..4294967295.
-    Cipsstaticcryptomapsetnumisakmp interface{}
+    CipsStaticCryptomapSetNumIsakmp interface{}
 
     // The number of cryptomaps associated with this  cryptomap set that require
     // the operator to manually setup the keys and SPIs. The type is interface{}
     // with range: 0..4294967295.
-    Cipsstaticcryptomapsetnummanual interface{}
+    CipsStaticCryptomapSetNumManual interface{}
 
     // The number of cryptomaps of type 'ipsec-cisco'  associated with this
     // cryptomap set. Such cryptomap elements implement Cisco Encryption
     // Technology based Virtual Private Networks. The type is interface{} with
     // range: 0..4294967295.
-    Cipsstaticcryptomapsetnumcet interface{}
+    CipsStaticCryptomapSetNumCET interface{}
 
     // The number of dynamic cryptomap templates linked to this cryptomap set. The
     // type is interface{} with range: 0..4294967295.
-    Cipsstaticcryptomapsetnumdynamic interface{}
+    CipsStaticCryptomapSetNumDynamic interface{}
 
     // The number of dynamic cryptomap templates linked to this cryptomap set that
     // have Tunnel Endpoint Discovery (TED) enabled. The type is interface{} with
     // range: 0..4294967295.
-    Cipsstaticcryptomapsetnumdisc interface{}
+    CipsStaticCryptomapSetNumDisc interface{}
 
     // The number of and IPsec Security Associations that are active and were
     // setup using this cryptomap.  . The type is interface{} with range:
     // 0..4294967295.
-    Cipsstaticcryptomapsetnumsas interface{}
+    CipsStaticCryptomapSetNumSAs interface{}
 }
 
-func (cipsstaticcryptomapsetentry *CISCOIPSECMIB_Cipsstaticcryptomapsettable_Cipsstaticcryptomapsetentry) GetEntityData() *types.CommonEntityData {
-    cipsstaticcryptomapsetentry.EntityData.YFilter = cipsstaticcryptomapsetentry.YFilter
-    cipsstaticcryptomapsetentry.EntityData.YangName = "cipsStaticCryptomapSetEntry"
-    cipsstaticcryptomapsetentry.EntityData.BundleName = "cisco_ios_xe"
-    cipsstaticcryptomapsetentry.EntityData.ParentYangName = "cipsStaticCryptomapSetTable"
-    cipsstaticcryptomapsetentry.EntityData.SegmentPath = "cipsStaticCryptomapSetEntry" + "[cipsStaticCryptomapSetName='" + fmt.Sprintf("%v", cipsstaticcryptomapsetentry.Cipsstaticcryptomapsetname) + "']"
-    cipsstaticcryptomapsetentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipsstaticcryptomapsetentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipsstaticcryptomapsetentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipsStaticCryptomapSetEntry *CISCOIPSECMIB_CipsStaticCryptomapSetTable_CipsStaticCryptomapSetEntry) GetEntityData() *types.CommonEntityData {
+    cipsStaticCryptomapSetEntry.EntityData.YFilter = cipsStaticCryptomapSetEntry.YFilter
+    cipsStaticCryptomapSetEntry.EntityData.YangName = "cipsStaticCryptomapSetEntry"
+    cipsStaticCryptomapSetEntry.EntityData.BundleName = "cisco_ios_xe"
+    cipsStaticCryptomapSetEntry.EntityData.ParentYangName = "cipsStaticCryptomapSetTable"
+    cipsStaticCryptomapSetEntry.EntityData.SegmentPath = "cipsStaticCryptomapSetEntry" + types.AddKeyToken(cipsStaticCryptomapSetEntry.CipsStaticCryptomapSetName, "cipsStaticCryptomapSetName")
+    cipsStaticCryptomapSetEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsStaticCryptomapSetEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsStaticCryptomapSetEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipsstaticcryptomapsetentry.EntityData.Children = make(map[string]types.YChild)
-    cipsstaticcryptomapsetentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cipsstaticcryptomapsetentry.EntityData.Leafs["cipsStaticCryptomapSetName"] = types.YLeaf{"Cipsstaticcryptomapsetname", cipsstaticcryptomapsetentry.Cipsstaticcryptomapsetname}
-    cipsstaticcryptomapsetentry.EntityData.Leafs["cipsStaticCryptomapSetSize"] = types.YLeaf{"Cipsstaticcryptomapsetsize", cipsstaticcryptomapsetentry.Cipsstaticcryptomapsetsize}
-    cipsstaticcryptomapsetentry.EntityData.Leafs["cipsStaticCryptomapSetNumIsakmp"] = types.YLeaf{"Cipsstaticcryptomapsetnumisakmp", cipsstaticcryptomapsetentry.Cipsstaticcryptomapsetnumisakmp}
-    cipsstaticcryptomapsetentry.EntityData.Leafs["cipsStaticCryptomapSetNumManual"] = types.YLeaf{"Cipsstaticcryptomapsetnummanual", cipsstaticcryptomapsetentry.Cipsstaticcryptomapsetnummanual}
-    cipsstaticcryptomapsetentry.EntityData.Leafs["cipsStaticCryptomapSetNumCET"] = types.YLeaf{"Cipsstaticcryptomapsetnumcet", cipsstaticcryptomapsetentry.Cipsstaticcryptomapsetnumcet}
-    cipsstaticcryptomapsetentry.EntityData.Leafs["cipsStaticCryptomapSetNumDynamic"] = types.YLeaf{"Cipsstaticcryptomapsetnumdynamic", cipsstaticcryptomapsetentry.Cipsstaticcryptomapsetnumdynamic}
-    cipsstaticcryptomapsetentry.EntityData.Leafs["cipsStaticCryptomapSetNumDisc"] = types.YLeaf{"Cipsstaticcryptomapsetnumdisc", cipsstaticcryptomapsetentry.Cipsstaticcryptomapsetnumdisc}
-    cipsstaticcryptomapsetentry.EntityData.Leafs["cipsStaticCryptomapSetNumSAs"] = types.YLeaf{"Cipsstaticcryptomapsetnumsas", cipsstaticcryptomapsetentry.Cipsstaticcryptomapsetnumsas}
-    return &(cipsstaticcryptomapsetentry.EntityData)
+    cipsStaticCryptomapSetEntry.EntityData.Children = types.NewOrderedMap()
+    cipsStaticCryptomapSetEntry.EntityData.Leafs = types.NewOrderedMap()
+    cipsStaticCryptomapSetEntry.EntityData.Leafs.Append("cipsStaticCryptomapSetName", types.YLeaf{"CipsStaticCryptomapSetName", cipsStaticCryptomapSetEntry.CipsStaticCryptomapSetName})
+    cipsStaticCryptomapSetEntry.EntityData.Leafs.Append("cipsStaticCryptomapSetSize", types.YLeaf{"CipsStaticCryptomapSetSize", cipsStaticCryptomapSetEntry.CipsStaticCryptomapSetSize})
+    cipsStaticCryptomapSetEntry.EntityData.Leafs.Append("cipsStaticCryptomapSetNumIsakmp", types.YLeaf{"CipsStaticCryptomapSetNumIsakmp", cipsStaticCryptomapSetEntry.CipsStaticCryptomapSetNumIsakmp})
+    cipsStaticCryptomapSetEntry.EntityData.Leafs.Append("cipsStaticCryptomapSetNumManual", types.YLeaf{"CipsStaticCryptomapSetNumManual", cipsStaticCryptomapSetEntry.CipsStaticCryptomapSetNumManual})
+    cipsStaticCryptomapSetEntry.EntityData.Leafs.Append("cipsStaticCryptomapSetNumCET", types.YLeaf{"CipsStaticCryptomapSetNumCET", cipsStaticCryptomapSetEntry.CipsStaticCryptomapSetNumCET})
+    cipsStaticCryptomapSetEntry.EntityData.Leafs.Append("cipsStaticCryptomapSetNumDynamic", types.YLeaf{"CipsStaticCryptomapSetNumDynamic", cipsStaticCryptomapSetEntry.CipsStaticCryptomapSetNumDynamic})
+    cipsStaticCryptomapSetEntry.EntityData.Leafs.Append("cipsStaticCryptomapSetNumDisc", types.YLeaf{"CipsStaticCryptomapSetNumDisc", cipsStaticCryptomapSetEntry.CipsStaticCryptomapSetNumDisc})
+    cipsStaticCryptomapSetEntry.EntityData.Leafs.Append("cipsStaticCryptomapSetNumSAs", types.YLeaf{"CipsStaticCryptomapSetNumSAs", cipsStaticCryptomapSetEntry.CipsStaticCryptomapSetNumSAs})
+
+    cipsStaticCryptomapSetEntry.EntityData.YListKeys = []string {"CipsStaticCryptomapSetName"}
+
+    return &(cipsStaticCryptomapSetEntry.EntityData)
 }
 
-// CISCOIPSECMIB_Cipsdynamiccryptomapsettable
+// CISCOIPSECMIB_CipsDynamicCryptomapSetTable
 // The table containing the list of all dynamic
 // cryptomaps that use IKE, defined on 
 //  the managed entity.
-type CISCOIPSECMIB_Cipsdynamiccryptomapsettable struct {
+type CISCOIPSECMIB_CipsDynamicCryptomapSetTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the attributes associated with a single dynamic
     // cryptomap template. The type is slice of
-    // CISCOIPSECMIB_Cipsdynamiccryptomapsettable_Cipsdynamiccryptomapsetentry.
-    Cipsdynamiccryptomapsetentry []CISCOIPSECMIB_Cipsdynamiccryptomapsettable_Cipsdynamiccryptomapsetentry
+    // CISCOIPSECMIB_CipsDynamicCryptomapSetTable_CipsDynamicCryptomapSetEntry.
+    CipsDynamicCryptomapSetEntry []*CISCOIPSECMIB_CipsDynamicCryptomapSetTable_CipsDynamicCryptomapSetEntry
 }
 
-func (cipsdynamiccryptomapsettable *CISCOIPSECMIB_Cipsdynamiccryptomapsettable) GetEntityData() *types.CommonEntityData {
-    cipsdynamiccryptomapsettable.EntityData.YFilter = cipsdynamiccryptomapsettable.YFilter
-    cipsdynamiccryptomapsettable.EntityData.YangName = "cipsDynamicCryptomapSetTable"
-    cipsdynamiccryptomapsettable.EntityData.BundleName = "cisco_ios_xe"
-    cipsdynamiccryptomapsettable.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
-    cipsdynamiccryptomapsettable.EntityData.SegmentPath = "cipsDynamicCryptomapSetTable"
-    cipsdynamiccryptomapsettable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipsdynamiccryptomapsettable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipsdynamiccryptomapsettable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipsDynamicCryptomapSetTable *CISCOIPSECMIB_CipsDynamicCryptomapSetTable) GetEntityData() *types.CommonEntityData {
+    cipsDynamicCryptomapSetTable.EntityData.YFilter = cipsDynamicCryptomapSetTable.YFilter
+    cipsDynamicCryptomapSetTable.EntityData.YangName = "cipsDynamicCryptomapSetTable"
+    cipsDynamicCryptomapSetTable.EntityData.BundleName = "cisco_ios_xe"
+    cipsDynamicCryptomapSetTable.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
+    cipsDynamicCryptomapSetTable.EntityData.SegmentPath = "cipsDynamicCryptomapSetTable"
+    cipsDynamicCryptomapSetTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsDynamicCryptomapSetTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsDynamicCryptomapSetTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipsdynamiccryptomapsettable.EntityData.Children = make(map[string]types.YChild)
-    cipsdynamiccryptomapsettable.EntityData.Children["cipsDynamicCryptomapSetEntry"] = types.YChild{"Cipsdynamiccryptomapsetentry", nil}
-    for i := range cipsdynamiccryptomapsettable.Cipsdynamiccryptomapsetentry {
-        cipsdynamiccryptomapsettable.EntityData.Children[types.GetSegmentPath(&cipsdynamiccryptomapsettable.Cipsdynamiccryptomapsetentry[i])] = types.YChild{"Cipsdynamiccryptomapsetentry", &cipsdynamiccryptomapsettable.Cipsdynamiccryptomapsetentry[i]}
+    cipsDynamicCryptomapSetTable.EntityData.Children = types.NewOrderedMap()
+    cipsDynamicCryptomapSetTable.EntityData.Children.Append("cipsDynamicCryptomapSetEntry", types.YChild{"CipsDynamicCryptomapSetEntry", nil})
+    for i := range cipsDynamicCryptomapSetTable.CipsDynamicCryptomapSetEntry {
+        cipsDynamicCryptomapSetTable.EntityData.Children.Append(types.GetSegmentPath(cipsDynamicCryptomapSetTable.CipsDynamicCryptomapSetEntry[i]), types.YChild{"CipsDynamicCryptomapSetEntry", cipsDynamicCryptomapSetTable.CipsDynamicCryptomapSetEntry[i]})
     }
-    cipsdynamiccryptomapsettable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cipsdynamiccryptomapsettable.EntityData)
+    cipsDynamicCryptomapSetTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cipsDynamicCryptomapSetTable.EntityData.YListKeys = []string {}
+
+    return &(cipsDynamicCryptomapSetTable.EntityData)
 }
 
-// CISCOIPSECMIB_Cipsdynamiccryptomapsettable_Cipsdynamiccryptomapsetentry
+// CISCOIPSECMIB_CipsDynamicCryptomapSetTable_CipsDynamicCryptomapSetEntry
 // Each entry contains the attributes associated
 // with a single dynamic cryptomap template.
-type CISCOIPSECMIB_Cipsdynamiccryptomapsettable_Cipsdynamiccryptomapsetentry struct {
+type CISCOIPSECMIB_CipsDynamicCryptomapSetTable_CipsDynamicCryptomapSetEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index of the dynamic cryptomap table.  The
     // value of the string is the one assigned  by the operator in defining the
     // cryptomap set. The type is string.
-    Cipsdynamiccryptomapsetname interface{}
+    CipsDynamicCryptomapSetName interface{}
 
     // The number of cryptomap entries in this cryptomap. The type is interface{}
     // with range: 0..4294967295.
-    Cipsdynamiccryptomapsetsize interface{}
+    CipsDynamicCryptomapSetSize interface{}
 
     // The number of static cryptomap sets with which this dynamic cryptomap is
     // associated.  . The type is interface{} with range: 0..4294967295.
-    Cipsdynamiccryptomapsetnumassoc interface{}
+    CipsDynamicCryptomapSetNumAssoc interface{}
 }
 
-func (cipsdynamiccryptomapsetentry *CISCOIPSECMIB_Cipsdynamiccryptomapsettable_Cipsdynamiccryptomapsetentry) GetEntityData() *types.CommonEntityData {
-    cipsdynamiccryptomapsetentry.EntityData.YFilter = cipsdynamiccryptomapsetentry.YFilter
-    cipsdynamiccryptomapsetentry.EntityData.YangName = "cipsDynamicCryptomapSetEntry"
-    cipsdynamiccryptomapsetentry.EntityData.BundleName = "cisco_ios_xe"
-    cipsdynamiccryptomapsetentry.EntityData.ParentYangName = "cipsDynamicCryptomapSetTable"
-    cipsdynamiccryptomapsetentry.EntityData.SegmentPath = "cipsDynamicCryptomapSetEntry" + "[cipsDynamicCryptomapSetName='" + fmt.Sprintf("%v", cipsdynamiccryptomapsetentry.Cipsdynamiccryptomapsetname) + "']"
-    cipsdynamiccryptomapsetentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipsdynamiccryptomapsetentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipsdynamiccryptomapsetentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipsDynamicCryptomapSetEntry *CISCOIPSECMIB_CipsDynamicCryptomapSetTable_CipsDynamicCryptomapSetEntry) GetEntityData() *types.CommonEntityData {
+    cipsDynamicCryptomapSetEntry.EntityData.YFilter = cipsDynamicCryptomapSetEntry.YFilter
+    cipsDynamicCryptomapSetEntry.EntityData.YangName = "cipsDynamicCryptomapSetEntry"
+    cipsDynamicCryptomapSetEntry.EntityData.BundleName = "cisco_ios_xe"
+    cipsDynamicCryptomapSetEntry.EntityData.ParentYangName = "cipsDynamicCryptomapSetTable"
+    cipsDynamicCryptomapSetEntry.EntityData.SegmentPath = "cipsDynamicCryptomapSetEntry" + types.AddKeyToken(cipsDynamicCryptomapSetEntry.CipsDynamicCryptomapSetName, "cipsDynamicCryptomapSetName")
+    cipsDynamicCryptomapSetEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsDynamicCryptomapSetEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsDynamicCryptomapSetEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipsdynamiccryptomapsetentry.EntityData.Children = make(map[string]types.YChild)
-    cipsdynamiccryptomapsetentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cipsdynamiccryptomapsetentry.EntityData.Leafs["cipsDynamicCryptomapSetName"] = types.YLeaf{"Cipsdynamiccryptomapsetname", cipsdynamiccryptomapsetentry.Cipsdynamiccryptomapsetname}
-    cipsdynamiccryptomapsetentry.EntityData.Leafs["cipsDynamicCryptomapSetSize"] = types.YLeaf{"Cipsdynamiccryptomapsetsize", cipsdynamiccryptomapsetentry.Cipsdynamiccryptomapsetsize}
-    cipsdynamiccryptomapsetentry.EntityData.Leafs["cipsDynamicCryptomapSetNumAssoc"] = types.YLeaf{"Cipsdynamiccryptomapsetnumassoc", cipsdynamiccryptomapsetentry.Cipsdynamiccryptomapsetnumassoc}
-    return &(cipsdynamiccryptomapsetentry.EntityData)
+    cipsDynamicCryptomapSetEntry.EntityData.Children = types.NewOrderedMap()
+    cipsDynamicCryptomapSetEntry.EntityData.Leafs = types.NewOrderedMap()
+    cipsDynamicCryptomapSetEntry.EntityData.Leafs.Append("cipsDynamicCryptomapSetName", types.YLeaf{"CipsDynamicCryptomapSetName", cipsDynamicCryptomapSetEntry.CipsDynamicCryptomapSetName})
+    cipsDynamicCryptomapSetEntry.EntityData.Leafs.Append("cipsDynamicCryptomapSetSize", types.YLeaf{"CipsDynamicCryptomapSetSize", cipsDynamicCryptomapSetEntry.CipsDynamicCryptomapSetSize})
+    cipsDynamicCryptomapSetEntry.EntityData.Leafs.Append("cipsDynamicCryptomapSetNumAssoc", types.YLeaf{"CipsDynamicCryptomapSetNumAssoc", cipsDynamicCryptomapSetEntry.CipsDynamicCryptomapSetNumAssoc})
+
+    cipsDynamicCryptomapSetEntry.EntityData.YListKeys = []string {"CipsDynamicCryptomapSetName"}
+
+    return &(cipsDynamicCryptomapSetEntry.EntityData)
 }
 
-// CISCOIPSECMIB_Cipsstaticcryptomaptable
+// CISCOIPSECMIB_CipsStaticCryptomapTable
 // The table ilisting the member cryptomaps
 // of the cryptomap sets that are configured
 // on the managed entity.
-type CISCOIPSECMIB_Cipsstaticcryptomaptable struct {
+type CISCOIPSECMIB_CipsStaticCryptomapTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -735,124 +771,130 @@ type CISCOIPSECMIB_Cipsstaticcryptomaptable struct {
     // specified) cryptomap entry. This table does not include the members  of
     // dynamic cryptomap sets that may be linked with the parent static cryptomap
     // set. The type is slice of
-    // CISCOIPSECMIB_Cipsstaticcryptomaptable_Cipsstaticcryptomapentry.
-    Cipsstaticcryptomapentry []CISCOIPSECMIB_Cipsstaticcryptomaptable_Cipsstaticcryptomapentry
+    // CISCOIPSECMIB_CipsStaticCryptomapTable_CipsStaticCryptomapEntry.
+    CipsStaticCryptomapEntry []*CISCOIPSECMIB_CipsStaticCryptomapTable_CipsStaticCryptomapEntry
 }
 
-func (cipsstaticcryptomaptable *CISCOIPSECMIB_Cipsstaticcryptomaptable) GetEntityData() *types.CommonEntityData {
-    cipsstaticcryptomaptable.EntityData.YFilter = cipsstaticcryptomaptable.YFilter
-    cipsstaticcryptomaptable.EntityData.YangName = "cipsStaticCryptomapTable"
-    cipsstaticcryptomaptable.EntityData.BundleName = "cisco_ios_xe"
-    cipsstaticcryptomaptable.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
-    cipsstaticcryptomaptable.EntityData.SegmentPath = "cipsStaticCryptomapTable"
-    cipsstaticcryptomaptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipsstaticcryptomaptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipsstaticcryptomaptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipsStaticCryptomapTable *CISCOIPSECMIB_CipsStaticCryptomapTable) GetEntityData() *types.CommonEntityData {
+    cipsStaticCryptomapTable.EntityData.YFilter = cipsStaticCryptomapTable.YFilter
+    cipsStaticCryptomapTable.EntityData.YangName = "cipsStaticCryptomapTable"
+    cipsStaticCryptomapTable.EntityData.BundleName = "cisco_ios_xe"
+    cipsStaticCryptomapTable.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
+    cipsStaticCryptomapTable.EntityData.SegmentPath = "cipsStaticCryptomapTable"
+    cipsStaticCryptomapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsStaticCryptomapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsStaticCryptomapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipsstaticcryptomaptable.EntityData.Children = make(map[string]types.YChild)
-    cipsstaticcryptomaptable.EntityData.Children["cipsStaticCryptomapEntry"] = types.YChild{"Cipsstaticcryptomapentry", nil}
-    for i := range cipsstaticcryptomaptable.Cipsstaticcryptomapentry {
-        cipsstaticcryptomaptable.EntityData.Children[types.GetSegmentPath(&cipsstaticcryptomaptable.Cipsstaticcryptomapentry[i])] = types.YChild{"Cipsstaticcryptomapentry", &cipsstaticcryptomaptable.Cipsstaticcryptomapentry[i]}
+    cipsStaticCryptomapTable.EntityData.Children = types.NewOrderedMap()
+    cipsStaticCryptomapTable.EntityData.Children.Append("cipsStaticCryptomapEntry", types.YChild{"CipsStaticCryptomapEntry", nil})
+    for i := range cipsStaticCryptomapTable.CipsStaticCryptomapEntry {
+        cipsStaticCryptomapTable.EntityData.Children.Append(types.GetSegmentPath(cipsStaticCryptomapTable.CipsStaticCryptomapEntry[i]), types.YChild{"CipsStaticCryptomapEntry", cipsStaticCryptomapTable.CipsStaticCryptomapEntry[i]})
     }
-    cipsstaticcryptomaptable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cipsstaticcryptomaptable.EntityData)
+    cipsStaticCryptomapTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cipsStaticCryptomapTable.EntityData.YListKeys = []string {}
+
+    return &(cipsStaticCryptomapTable.EntityData)
 }
 
-// CISCOIPSECMIB_Cipsstaticcryptomaptable_Cipsstaticcryptomapentry
+// CISCOIPSECMIB_CipsStaticCryptomapTable_CipsStaticCryptomapEntry
 // Each entry contains the attributes 
 // associated with a single static 
 // (fully specified) cryptomap entry.
 // This table does not include the members 
 // of dynamic cryptomap sets that may be
 // linked with the parent static cryptomap set.
-type CISCOIPSECMIB_Cipsstaticcryptomaptable_Cipsstaticcryptomapentry struct {
+type CISCOIPSECMIB_CipsStaticCryptomapTable_CipsStaticCryptomapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string. Refers to
-    // cisco_ipsec_mib.CISCOIPSECMIB_Cipsstaticcryptomapsettable_Cipsstaticcryptomapsetentry_Cipsstaticcryptomapsetname
-    Cipsstaticcryptomapsetname interface{}
+    // cisco_ipsec_mib.CISCOIPSECMIB_CipsStaticCryptomapSetTable_CipsStaticCryptomapSetEntry_CipsStaticCryptomapSetName
+    CipsStaticCryptomapSetName interface{}
 
     // This attribute is a key. The priority of the cryptomap entry in the 
     // cryptomap set. This is the second index component of this table. The type
     // is interface{} with range: 0..65535.
-    Cipsstaticcryptomappriority interface{}
+    CipsStaticCryptomapPriority interface{}
 
     // The type of the cryptomap entry. This can be an ISAKMP cryptomap, CET or
     // manual. Dynamic cryptomaps are not counted in this table. The type is
     // CryptomapType.
-    Cipsstaticcryptomaptype interface{}
+    CipsStaticCryptomapType interface{}
 
     // The description string entered by the operatoir while creating this
     // cryptomap. The string generally identifies a description and the purpose of
     // this policy. The type is string.
-    Cipsstaticcryptomapdescr interface{}
+    CipsStaticCryptomapDescr interface{}
 
     // The IP address of the current peer associated with  this IPSec policy item.
     // Traffic that is protected by this cryptomap is protected by a tunnel that
     // terminates at the device whose IP address is specified by this object. The
     // type is string with length: 4 | 16.
-    Cipsstaticcryptomappeer interface{}
+    CipsStaticCryptomapPeer interface{}
 
     // The number of peers associated with this cryptomap  entry. The peers other
     // than the one identified by  'cipsStaticCryptomapPeer' are backup peers.  
     // Manual cryptomaps may have only one peer. The type is interface{} with
     // range: 0..40.
-    Cipsstaticcryptomapnumpeers interface{}
+    CipsStaticCryptomapNumPeers interface{}
 
     // This object identifies if the tunnels instantiated due to this policy item
     // should use Perfect Forward Secrecy  (PFS) and if so, what group of Oakley
     // they should use. The type is DiffHellmanGrp.
-    Cipsstaticcryptomappfs interface{}
+    CipsStaticCryptomapPfs interface{}
 
     // This object identifies the lifetime of the IPSec Security Associations (SA)
     // created using this IPSec policy entry. If this value is zero, the lifetime
     // assumes the  value specified by the global lifetime parameter. The type is
     // interface{} with range: 0..None | 120..86400.
-    Cipsstaticcryptomaplifetime interface{}
+    CipsStaticCryptomapLifetime interface{}
 
     // This object identifies the lifesize (maximum traffic in bytes that may be
     // carried) of the IPSec SAs created using this IPSec policy entry.  If this
     // value is zero, the lifetime assumes the  value specified by the global
     // lifesize parameter. The type is interface{} with range: 0..None |
     // 2560..536870912.
-    Cipsstaticcryptomaplifesize interface{}
+    CipsStaticCryptomapLifesize interface{}
 
     // This object identifies the granularity of the IPSec SAs created using this
     // IPSec policy entry.  If this value is TRUE, distinct SA bundles are created
     // for distinct hosts at the end of the application traffic. The type is bool.
-    Cipsstaticcryptomaplevelhost interface{}
+    CipsStaticCryptomapLevelHost interface{}
 }
 
-func (cipsstaticcryptomapentry *CISCOIPSECMIB_Cipsstaticcryptomaptable_Cipsstaticcryptomapentry) GetEntityData() *types.CommonEntityData {
-    cipsstaticcryptomapentry.EntityData.YFilter = cipsstaticcryptomapentry.YFilter
-    cipsstaticcryptomapentry.EntityData.YangName = "cipsStaticCryptomapEntry"
-    cipsstaticcryptomapentry.EntityData.BundleName = "cisco_ios_xe"
-    cipsstaticcryptomapentry.EntityData.ParentYangName = "cipsStaticCryptomapTable"
-    cipsstaticcryptomapentry.EntityData.SegmentPath = "cipsStaticCryptomapEntry" + "[cipsStaticCryptomapSetName='" + fmt.Sprintf("%v", cipsstaticcryptomapentry.Cipsstaticcryptomapsetname) + "']" + "[cipsStaticCryptomapPriority='" + fmt.Sprintf("%v", cipsstaticcryptomapentry.Cipsstaticcryptomappriority) + "']"
-    cipsstaticcryptomapentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipsstaticcryptomapentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipsstaticcryptomapentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipsStaticCryptomapEntry *CISCOIPSECMIB_CipsStaticCryptomapTable_CipsStaticCryptomapEntry) GetEntityData() *types.CommonEntityData {
+    cipsStaticCryptomapEntry.EntityData.YFilter = cipsStaticCryptomapEntry.YFilter
+    cipsStaticCryptomapEntry.EntityData.YangName = "cipsStaticCryptomapEntry"
+    cipsStaticCryptomapEntry.EntityData.BundleName = "cisco_ios_xe"
+    cipsStaticCryptomapEntry.EntityData.ParentYangName = "cipsStaticCryptomapTable"
+    cipsStaticCryptomapEntry.EntityData.SegmentPath = "cipsStaticCryptomapEntry" + types.AddKeyToken(cipsStaticCryptomapEntry.CipsStaticCryptomapSetName, "cipsStaticCryptomapSetName") + types.AddKeyToken(cipsStaticCryptomapEntry.CipsStaticCryptomapPriority, "cipsStaticCryptomapPriority")
+    cipsStaticCryptomapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsStaticCryptomapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsStaticCryptomapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipsstaticcryptomapentry.EntityData.Children = make(map[string]types.YChild)
-    cipsstaticcryptomapentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cipsstaticcryptomapentry.EntityData.Leafs["cipsStaticCryptomapSetName"] = types.YLeaf{"Cipsstaticcryptomapsetname", cipsstaticcryptomapentry.Cipsstaticcryptomapsetname}
-    cipsstaticcryptomapentry.EntityData.Leafs["cipsStaticCryptomapPriority"] = types.YLeaf{"Cipsstaticcryptomappriority", cipsstaticcryptomapentry.Cipsstaticcryptomappriority}
-    cipsstaticcryptomapentry.EntityData.Leafs["cipsStaticCryptomapType"] = types.YLeaf{"Cipsstaticcryptomaptype", cipsstaticcryptomapentry.Cipsstaticcryptomaptype}
-    cipsstaticcryptomapentry.EntityData.Leafs["cipsStaticCryptomapDescr"] = types.YLeaf{"Cipsstaticcryptomapdescr", cipsstaticcryptomapentry.Cipsstaticcryptomapdescr}
-    cipsstaticcryptomapentry.EntityData.Leafs["cipsStaticCryptomapPeer"] = types.YLeaf{"Cipsstaticcryptomappeer", cipsstaticcryptomapentry.Cipsstaticcryptomappeer}
-    cipsstaticcryptomapentry.EntityData.Leafs["cipsStaticCryptomapNumPeers"] = types.YLeaf{"Cipsstaticcryptomapnumpeers", cipsstaticcryptomapentry.Cipsstaticcryptomapnumpeers}
-    cipsstaticcryptomapentry.EntityData.Leafs["cipsStaticCryptomapPfs"] = types.YLeaf{"Cipsstaticcryptomappfs", cipsstaticcryptomapentry.Cipsstaticcryptomappfs}
-    cipsstaticcryptomapentry.EntityData.Leafs["cipsStaticCryptomapLifetime"] = types.YLeaf{"Cipsstaticcryptomaplifetime", cipsstaticcryptomapentry.Cipsstaticcryptomaplifetime}
-    cipsstaticcryptomapentry.EntityData.Leafs["cipsStaticCryptomapLifesize"] = types.YLeaf{"Cipsstaticcryptomaplifesize", cipsstaticcryptomapentry.Cipsstaticcryptomaplifesize}
-    cipsstaticcryptomapentry.EntityData.Leafs["cipsStaticCryptomapLevelHost"] = types.YLeaf{"Cipsstaticcryptomaplevelhost", cipsstaticcryptomapentry.Cipsstaticcryptomaplevelhost}
-    return &(cipsstaticcryptomapentry.EntityData)
+    cipsStaticCryptomapEntry.EntityData.Children = types.NewOrderedMap()
+    cipsStaticCryptomapEntry.EntityData.Leafs = types.NewOrderedMap()
+    cipsStaticCryptomapEntry.EntityData.Leafs.Append("cipsStaticCryptomapSetName", types.YLeaf{"CipsStaticCryptomapSetName", cipsStaticCryptomapEntry.CipsStaticCryptomapSetName})
+    cipsStaticCryptomapEntry.EntityData.Leafs.Append("cipsStaticCryptomapPriority", types.YLeaf{"CipsStaticCryptomapPriority", cipsStaticCryptomapEntry.CipsStaticCryptomapPriority})
+    cipsStaticCryptomapEntry.EntityData.Leafs.Append("cipsStaticCryptomapType", types.YLeaf{"CipsStaticCryptomapType", cipsStaticCryptomapEntry.CipsStaticCryptomapType})
+    cipsStaticCryptomapEntry.EntityData.Leafs.Append("cipsStaticCryptomapDescr", types.YLeaf{"CipsStaticCryptomapDescr", cipsStaticCryptomapEntry.CipsStaticCryptomapDescr})
+    cipsStaticCryptomapEntry.EntityData.Leafs.Append("cipsStaticCryptomapPeer", types.YLeaf{"CipsStaticCryptomapPeer", cipsStaticCryptomapEntry.CipsStaticCryptomapPeer})
+    cipsStaticCryptomapEntry.EntityData.Leafs.Append("cipsStaticCryptomapNumPeers", types.YLeaf{"CipsStaticCryptomapNumPeers", cipsStaticCryptomapEntry.CipsStaticCryptomapNumPeers})
+    cipsStaticCryptomapEntry.EntityData.Leafs.Append("cipsStaticCryptomapPfs", types.YLeaf{"CipsStaticCryptomapPfs", cipsStaticCryptomapEntry.CipsStaticCryptomapPfs})
+    cipsStaticCryptomapEntry.EntityData.Leafs.Append("cipsStaticCryptomapLifetime", types.YLeaf{"CipsStaticCryptomapLifetime", cipsStaticCryptomapEntry.CipsStaticCryptomapLifetime})
+    cipsStaticCryptomapEntry.EntityData.Leafs.Append("cipsStaticCryptomapLifesize", types.YLeaf{"CipsStaticCryptomapLifesize", cipsStaticCryptomapEntry.CipsStaticCryptomapLifesize})
+    cipsStaticCryptomapEntry.EntityData.Leafs.Append("cipsStaticCryptomapLevelHost", types.YLeaf{"CipsStaticCryptomapLevelHost", cipsStaticCryptomapEntry.CipsStaticCryptomapLevelHost})
+
+    cipsStaticCryptomapEntry.EntityData.YListKeys = []string {"CipsStaticCryptomapSetName", "CipsStaticCryptomapPriority"}
+
+    return &(cipsStaticCryptomapEntry.EntityData)
 }
 
-// CISCOIPSECMIB_Cipscryptomapsetiftable
+// CISCOIPSECMIB_CipsCryptomapSetIfTable
 // The table lists the binding of cryptomap sets
 // to the interfaces of the managed entity.
-type CISCOIPSECMIB_Cipscryptomapsetiftable struct {
+type CISCOIPSECMIB_CipsCryptomapSetIfTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -860,30 +902,33 @@ type CISCOIPSECMIB_Cipscryptomapsetiftable struct {
     // a cryptomap set (static) that is defined on the managed entity.  Note that
     // the cryptomap set identified in  this binding must static. Dynamic
     // cryptomaps cannot be bound to interfaces. The type is slice of
-    // CISCOIPSECMIB_Cipscryptomapsetiftable_Cipscryptomapsetifentry.
-    Cipscryptomapsetifentry []CISCOIPSECMIB_Cipscryptomapsetiftable_Cipscryptomapsetifentry
+    // CISCOIPSECMIB_CipsCryptomapSetIfTable_CipsCryptomapSetIfEntry.
+    CipsCryptomapSetIfEntry []*CISCOIPSECMIB_CipsCryptomapSetIfTable_CipsCryptomapSetIfEntry
 }
 
-func (cipscryptomapsetiftable *CISCOIPSECMIB_Cipscryptomapsetiftable) GetEntityData() *types.CommonEntityData {
-    cipscryptomapsetiftable.EntityData.YFilter = cipscryptomapsetiftable.YFilter
-    cipscryptomapsetiftable.EntityData.YangName = "cipsCryptomapSetIfTable"
-    cipscryptomapsetiftable.EntityData.BundleName = "cisco_ios_xe"
-    cipscryptomapsetiftable.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
-    cipscryptomapsetiftable.EntityData.SegmentPath = "cipsCryptomapSetIfTable"
-    cipscryptomapsetiftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipscryptomapsetiftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipscryptomapsetiftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipsCryptomapSetIfTable *CISCOIPSECMIB_CipsCryptomapSetIfTable) GetEntityData() *types.CommonEntityData {
+    cipsCryptomapSetIfTable.EntityData.YFilter = cipsCryptomapSetIfTable.YFilter
+    cipsCryptomapSetIfTable.EntityData.YangName = "cipsCryptomapSetIfTable"
+    cipsCryptomapSetIfTable.EntityData.BundleName = "cisco_ios_xe"
+    cipsCryptomapSetIfTable.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
+    cipsCryptomapSetIfTable.EntityData.SegmentPath = "cipsCryptomapSetIfTable"
+    cipsCryptomapSetIfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsCryptomapSetIfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsCryptomapSetIfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipscryptomapsetiftable.EntityData.Children = make(map[string]types.YChild)
-    cipscryptomapsetiftable.EntityData.Children["cipsCryptomapSetIfEntry"] = types.YChild{"Cipscryptomapsetifentry", nil}
-    for i := range cipscryptomapsetiftable.Cipscryptomapsetifentry {
-        cipscryptomapsetiftable.EntityData.Children[types.GetSegmentPath(&cipscryptomapsetiftable.Cipscryptomapsetifentry[i])] = types.YChild{"Cipscryptomapsetifentry", &cipscryptomapsetiftable.Cipscryptomapsetifentry[i]}
+    cipsCryptomapSetIfTable.EntityData.Children = types.NewOrderedMap()
+    cipsCryptomapSetIfTable.EntityData.Children.Append("cipsCryptomapSetIfEntry", types.YChild{"CipsCryptomapSetIfEntry", nil})
+    for i := range cipsCryptomapSetIfTable.CipsCryptomapSetIfEntry {
+        cipsCryptomapSetIfTable.EntityData.Children.Append(types.GetSegmentPath(cipsCryptomapSetIfTable.CipsCryptomapSetIfEntry[i]), types.YChild{"CipsCryptomapSetIfEntry", cipsCryptomapSetIfTable.CipsCryptomapSetIfEntry[i]})
     }
-    cipscryptomapsetiftable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cipscryptomapsetiftable.EntityData)
+    cipsCryptomapSetIfTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cipsCryptomapSetIfTable.EntityData.YListKeys = []string {}
+
+    return &(cipsCryptomapSetIfTable.EntityData)
 }
 
-// CISCOIPSECMIB_Cipscryptomapsetiftable_Cipscryptomapsetifentry
+// CISCOIPSECMIB_CipsCryptomapSetIfTable_CipsCryptomapSetIfEntry
 // Each entry contains the record of
 // the association between an interface
 // and a cryptomap set (static) that is defined
@@ -892,22 +937,22 @@ func (cipscryptomapsetiftable *CISCOIPSECMIB_Cipscryptomapsetiftable) GetEntityD
 // Note that the cryptomap set identified in 
 // this binding must static. Dynamic cryptomaps cannot
 // be bound to interfaces.
-type CISCOIPSECMIB_Cipscryptomapsetiftable_Cipscryptomapsetifentry struct {
+type CISCOIPSECMIB_CipsCryptomapSetIfTable_CipsCryptomapSetIfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string. Refers to
-    // cisco_ipsec_mib.CISCOIPSECMIB_Cipsstaticcryptomapsettable_Cipsstaticcryptomapsetentry_Cipsstaticcryptomapsetname
-    Cipsstaticcryptomapsetname interface{}
+    // cisco_ipsec_mib.CISCOIPSECMIB_CipsStaticCryptomapSetTable_CipsStaticCryptomapSetEntry_CipsStaticCryptomapSetName
+    CipsStaticCryptomapSetName interface{}
 
     // The value of this object identifies if the interface to which the cryptomap
     // set is attached is a tunnel (such as a GRE or PPTP tunnel). The type is
     // bool.
-    Cipscryptomapsetifvirtual interface{}
+    CipsCryptomapSetIfVirtual interface{}
 
     // This object identifies the status of the binding  of the specified
     // cryptomap set with the specified interface. The value when queried is
@@ -916,25 +961,28 @@ type CISCOIPSECMIB_Cipscryptomapsetiftable_Cipscryptomapsetifentry struct {
     // command  	config-if# no crypto map cryptomapSetName  Setting the value to
     // 'attached' will result in  SNMP General Error. The type is
     // CryptomapSetBindStatus.
-    Cipscryptomapsetifstatus interface{}
+    CipsCryptomapSetIfStatus interface{}
 }
 
-func (cipscryptomapsetifentry *CISCOIPSECMIB_Cipscryptomapsetiftable_Cipscryptomapsetifentry) GetEntityData() *types.CommonEntityData {
-    cipscryptomapsetifentry.EntityData.YFilter = cipscryptomapsetifentry.YFilter
-    cipscryptomapsetifentry.EntityData.YangName = "cipsCryptomapSetIfEntry"
-    cipscryptomapsetifentry.EntityData.BundleName = "cisco_ios_xe"
-    cipscryptomapsetifentry.EntityData.ParentYangName = "cipsCryptomapSetIfTable"
-    cipscryptomapsetifentry.EntityData.SegmentPath = "cipsCryptomapSetIfEntry" + "[ifIndex='" + fmt.Sprintf("%v", cipscryptomapsetifentry.Ifindex) + "']" + "[cipsStaticCryptomapSetName='" + fmt.Sprintf("%v", cipscryptomapsetifentry.Cipsstaticcryptomapsetname) + "']"
-    cipscryptomapsetifentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipscryptomapsetifentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipscryptomapsetifentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipsCryptomapSetIfEntry *CISCOIPSECMIB_CipsCryptomapSetIfTable_CipsCryptomapSetIfEntry) GetEntityData() *types.CommonEntityData {
+    cipsCryptomapSetIfEntry.EntityData.YFilter = cipsCryptomapSetIfEntry.YFilter
+    cipsCryptomapSetIfEntry.EntityData.YangName = "cipsCryptomapSetIfEntry"
+    cipsCryptomapSetIfEntry.EntityData.BundleName = "cisco_ios_xe"
+    cipsCryptomapSetIfEntry.EntityData.ParentYangName = "cipsCryptomapSetIfTable"
+    cipsCryptomapSetIfEntry.EntityData.SegmentPath = "cipsCryptomapSetIfEntry" + types.AddKeyToken(cipsCryptomapSetIfEntry.IfIndex, "ifIndex") + types.AddKeyToken(cipsCryptomapSetIfEntry.CipsStaticCryptomapSetName, "cipsStaticCryptomapSetName")
+    cipsCryptomapSetIfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsCryptomapSetIfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsCryptomapSetIfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipscryptomapsetifentry.EntityData.Children = make(map[string]types.YChild)
-    cipscryptomapsetifentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cipscryptomapsetifentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cipscryptomapsetifentry.Ifindex}
-    cipscryptomapsetifentry.EntityData.Leafs["cipsStaticCryptomapSetName"] = types.YLeaf{"Cipsstaticcryptomapsetname", cipscryptomapsetifentry.Cipsstaticcryptomapsetname}
-    cipscryptomapsetifentry.EntityData.Leafs["cipsCryptomapSetIfVirtual"] = types.YLeaf{"Cipscryptomapsetifvirtual", cipscryptomapsetifentry.Cipscryptomapsetifvirtual}
-    cipscryptomapsetifentry.EntityData.Leafs["cipsCryptomapSetIfStatus"] = types.YLeaf{"Cipscryptomapsetifstatus", cipscryptomapsetifentry.Cipscryptomapsetifstatus}
-    return &(cipscryptomapsetifentry.EntityData)
+    cipsCryptomapSetIfEntry.EntityData.Children = types.NewOrderedMap()
+    cipsCryptomapSetIfEntry.EntityData.Leafs = types.NewOrderedMap()
+    cipsCryptomapSetIfEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", cipsCryptomapSetIfEntry.IfIndex})
+    cipsCryptomapSetIfEntry.EntityData.Leafs.Append("cipsStaticCryptomapSetName", types.YLeaf{"CipsStaticCryptomapSetName", cipsCryptomapSetIfEntry.CipsStaticCryptomapSetName})
+    cipsCryptomapSetIfEntry.EntityData.Leafs.Append("cipsCryptomapSetIfVirtual", types.YLeaf{"CipsCryptomapSetIfVirtual", cipsCryptomapSetIfEntry.CipsCryptomapSetIfVirtual})
+    cipsCryptomapSetIfEntry.EntityData.Leafs.Append("cipsCryptomapSetIfStatus", types.YLeaf{"CipsCryptomapSetIfStatus", cipsCryptomapSetIfEntry.CipsCryptomapSetIfStatus})
+
+    cipsCryptomapSetIfEntry.EntityData.YListKeys = []string {"IfIndex", "CipsStaticCryptomapSetName"}
+
+    return &(cipsCryptomapSetIfEntry.EntityData)
 }
 

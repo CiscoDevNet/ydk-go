@@ -34,6 +34,10 @@ module Cisco-IOS-XR-ipv4-igmp-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-10-15 {
+    description
+      "Removed presence statement generated from internal CLI data.";
+  }
   revision 2016-10-10 {
     description
       "Removed invalid configs from VRF container";
@@ -634,7 +638,6 @@ module Cisco-IOS-XR-ipv4-igmp-cfg {
   }
 
   container igmp {
-    presence "Indicates a igmp node is configured.";
     description
       "IGMPconfiguration";
     uses VRF-TABLE;
@@ -751,7 +754,6 @@ module Cisco-IOS-XR-ipv4-igmp-cfg {
     }
   }
   container mld {
-    presence "Indicates a mld node is configured.";
     description
       "mld";
     uses VRF-TABLE;

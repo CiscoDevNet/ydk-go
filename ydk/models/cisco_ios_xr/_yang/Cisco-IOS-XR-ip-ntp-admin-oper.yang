@@ -3,7 +3,7 @@ module Cisco-IOS-XR-ip-ntp-admin-oper {
   prefix ip-ntp-admin-oper;
 
   include Cisco-IOS-XR-ip-ntp-admin-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -30,6 +30,10 @@ module Cisco-IOS-XR-ip-ntp-admin-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -77,21 +81,21 @@ module Cisco-IOS-XR-ip-ntp-admin-oper {
                   uses NTP-EDM-ASSOC-DETAIL-RESULT;
                 }
                 leaf number {
-                  type int32;
+                  type uint32;
                   description
                     "The instance number";
                 }
               }
             }
             leaf number {
-              type int32;
+              type uint32;
               description
                 "The slot number";
             }
           }
         }
         leaf number {
-          type int32;
+          type uint32;
           description
             "The rack number";
         }

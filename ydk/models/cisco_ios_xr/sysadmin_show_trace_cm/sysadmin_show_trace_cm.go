@@ -32,7 +32,7 @@ type Cm struct {
     YFilter yfilter.YFilter
 
     // show traceable processes. The type is slice of Cm_Trace.
-    Trace []Cm_Trace
+    Trace []*Cm_Trace
 
     // System Admin Manager lspdb of a location.
     Lsp Cm_Lsp
@@ -48,13 +48,16 @@ func (cm *Cm) GetEntityData() *types.CommonEntityData {
     cm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cm.EntityData.Children = make(map[string]types.YChild)
-    cm.EntityData.Children["trace"] = types.YChild{"Trace", nil}
+    cm.EntityData.Children = types.NewOrderedMap()
+    cm.EntityData.Children.Append("trace", types.YChild{"Trace", nil})
     for i := range cm.Trace {
-        cm.EntityData.Children[types.GetSegmentPath(&cm.Trace[i])] = types.YChild{"Trace", &cm.Trace[i]}
+        cm.EntityData.Children.Append(types.GetSegmentPath(cm.Trace[i]), types.YChild{"Trace", cm.Trace[i]})
     }
-    cm.EntityData.Children["Cisco-IOS-XR-sysadmin-cm:lsp"] = types.YChild{"Lsp", &cm.Lsp}
-    cm.EntityData.Leafs = make(map[string]types.YLeaf)
+    cm.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-cm:lsp", types.YChild{"Lsp", &cm.Lsp})
+    cm.EntityData.Leafs = types.NewOrderedMap()
+
+    cm.EntityData.YListKeys = []string {}
+
     return &(cm.EntityData)
 }
 
@@ -68,7 +71,7 @@ type Cm_Trace struct {
     Buffer interface{}
 
     // The type is slice of Cm_Trace_Location.
-    Location []Cm_Trace_Location
+    Location []*Cm_Trace_Location
 }
 
 func (trace *Cm_Trace) GetEntityData() *types.CommonEntityData {
@@ -76,18 +79,21 @@ func (trace *Cm_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.YangName = "trace"
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "cm"
-    trace.EntityData.SegmentPath = "trace" + "[buffer='" + fmt.Sprintf("%v", trace.Buffer) + "']"
+    trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trace.EntityData.Children = make(map[string]types.YChild)
-    trace.EntityData.Children["location"] = types.YChild{"Location", nil}
+    trace.EntityData.Children = types.NewOrderedMap()
+    trace.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range trace.Location {
-        trace.EntityData.Children[types.GetSegmentPath(&trace.Location[i])] = types.YChild{"Location", &trace.Location[i]}
+        trace.EntityData.Children.Append(types.GetSegmentPath(trace.Location[i]), types.YChild{"Location", trace.Location[i]})
     }
-    trace.EntityData.Leafs = make(map[string]types.YLeaf)
-    trace.EntityData.Leafs["buffer"] = types.YLeaf{"Buffer", trace.Buffer}
+    trace.EntityData.Leafs = types.NewOrderedMap()
+    trace.EntityData.Leafs.Append("buffer", types.YLeaf{"Buffer", trace.Buffer})
+
+    trace.EntityData.YListKeys = []string {"Buffer"}
+
     return &(trace.EntityData)
 }
 
@@ -100,7 +106,7 @@ type Cm_Trace_Location struct {
     LocationName interface{}
 
     // The type is slice of Cm_Trace_Location_AllOptions.
-    AllOptions []Cm_Trace_Location_AllOptions
+    AllOptions []*Cm_Trace_Location_AllOptions
 }
 
 func (location *Cm_Trace_Location) GetEntityData() *types.CommonEntityData {
@@ -108,18 +114,21 @@ func (location *Cm_Trace_Location) GetEntityData() *types.CommonEntityData {
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
-    location.EntityData.SegmentPath = "location" + "[location_name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["all-options"] = types.YChild{"AllOptions", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("all-options", types.YChild{"AllOptions", nil})
     for i := range location.AllOptions {
-        location.EntityData.Children[types.GetSegmentPath(&location.AllOptions[i])] = types.YChild{"AllOptions", &location.AllOptions[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.AllOptions[i]), types.YChild{"AllOptions", location.AllOptions[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location_name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location_name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -132,7 +141,7 @@ type Cm_Trace_Location_AllOptions struct {
     Option interface{}
 
     // The type is slice of Cm_Trace_Location_AllOptions_TraceBlocks.
-    TraceBlocks []Cm_Trace_Location_AllOptions_TraceBlocks
+    TraceBlocks []*Cm_Trace_Location_AllOptions_TraceBlocks
 }
 
 func (allOptions *Cm_Trace_Location_AllOptions) GetEntityData() *types.CommonEntityData {
@@ -140,18 +149,21 @@ func (allOptions *Cm_Trace_Location_AllOptions) GetEntityData() *types.CommonEnt
     allOptions.EntityData.YangName = "all-options"
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
-    allOptions.EntityData.SegmentPath = "all-options" + "[option='" + fmt.Sprintf("%v", allOptions.Option) + "']"
+    allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allOptions.EntityData.Children = make(map[string]types.YChild)
-    allOptions.EntityData.Children["trace-blocks"] = types.YChild{"TraceBlocks", nil}
+    allOptions.EntityData.Children = types.NewOrderedMap()
+    allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
-        allOptions.EntityData.Children[types.GetSegmentPath(&allOptions.TraceBlocks[i])] = types.YChild{"TraceBlocks", &allOptions.TraceBlocks[i]}
+        allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
-    allOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    allOptions.EntityData.Leafs["option"] = types.YLeaf{"Option", allOptions.Option}
+    allOptions.EntityData.Leafs = types.NewOrderedMap()
+    allOptions.EntityData.Leafs.Append("option", types.YLeaf{"Option", allOptions.Option})
+
+    allOptions.EntityData.YListKeys = []string {"Option"}
+
     return &(allOptions.EntityData)
 }
 
@@ -174,9 +186,12 @@ func (traceBlocks *Cm_Trace_Location_AllOptions_TraceBlocks) GetEntityData() *ty
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    traceBlocks.EntityData.Children = make(map[string]types.YChild)
-    traceBlocks.EntityData.Leafs = make(map[string]types.YLeaf)
-    traceBlocks.EntityData.Leafs["data"] = types.YLeaf{"Data", traceBlocks.Data}
+    traceBlocks.EntityData.Children = types.NewOrderedMap()
+    traceBlocks.EntityData.Leafs = types.NewOrderedMap()
+    traceBlocks.EntityData.Leafs.Append("data", types.YLeaf{"Data", traceBlocks.Data})
+
+    traceBlocks.EntityData.YListKeys = []string {}
+
     return &(traceBlocks.EntityData)
 }
 
@@ -187,7 +202,7 @@ type Cm_Lsp struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Cm_Lsp_LspdbLocations.
-    LspdbLocations []Cm_Lsp_LspdbLocations
+    LspdbLocations []*Cm_Lsp_LspdbLocations
 }
 
 func (lsp *Cm_Lsp) GetEntityData() *types.CommonEntityData {
@@ -200,12 +215,15 @@ func (lsp *Cm_Lsp) GetEntityData() *types.CommonEntityData {
     lsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lsp.EntityData.Children = make(map[string]types.YChild)
-    lsp.EntityData.Children["lspdb_locations"] = types.YChild{"LspdbLocations", nil}
+    lsp.EntityData.Children = types.NewOrderedMap()
+    lsp.EntityData.Children.Append("lspdb_locations", types.YChild{"LspdbLocations", nil})
     for i := range lsp.LspdbLocations {
-        lsp.EntityData.Children[types.GetSegmentPath(&lsp.LspdbLocations[i])] = types.YChild{"LspdbLocations", &lsp.LspdbLocations[i]}
+        lsp.EntityData.Children.Append(types.GetSegmentPath(lsp.LspdbLocations[i]), types.YChild{"LspdbLocations", lsp.LspdbLocations[i]})
     }
-    lsp.EntityData.Leafs = make(map[string]types.YLeaf)
+    lsp.EntityData.Leafs = types.NewOrderedMap()
+
+    lsp.EntityData.YListKeys = []string {}
+
     return &(lsp.EntityData)
 }
 
@@ -215,11 +233,11 @@ type Cm_Lsp_LspdbLocations struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LspdbLocation interface{}
 
     // The type is slice of Cm_Lsp_LspdbLocations_Lspdbi.
-    Lspdbi []Cm_Lsp_LspdbLocations_Lspdbi
+    Lspdbi []*Cm_Lsp_LspdbLocations_Lspdbi
 }
 
 func (lspdbLocations *Cm_Lsp_LspdbLocations) GetEntityData() *types.CommonEntityData {
@@ -227,18 +245,21 @@ func (lspdbLocations *Cm_Lsp_LspdbLocations) GetEntityData() *types.CommonEntity
     lspdbLocations.EntityData.YangName = "lspdb_locations"
     lspdbLocations.EntityData.BundleName = "cisco_ios_xr"
     lspdbLocations.EntityData.ParentYangName = "lsp"
-    lspdbLocations.EntityData.SegmentPath = "lspdb_locations" + "[lspdb_location='" + fmt.Sprintf("%v", lspdbLocations.LspdbLocation) + "']"
+    lspdbLocations.EntityData.SegmentPath = "lspdb_locations" + types.AddKeyToken(lspdbLocations.LspdbLocation, "lspdb_location")
     lspdbLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspdbLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspdbLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspdbLocations.EntityData.Children = make(map[string]types.YChild)
-    lspdbLocations.EntityData.Children["lspdbi"] = types.YChild{"Lspdbi", nil}
+    lspdbLocations.EntityData.Children = types.NewOrderedMap()
+    lspdbLocations.EntityData.Children.Append("lspdbi", types.YChild{"Lspdbi", nil})
     for i := range lspdbLocations.Lspdbi {
-        lspdbLocations.EntityData.Children[types.GetSegmentPath(&lspdbLocations.Lspdbi[i])] = types.YChild{"Lspdbi", &lspdbLocations.Lspdbi[i]}
+        lspdbLocations.EntityData.Children.Append(types.GetSegmentPath(lspdbLocations.Lspdbi[i]), types.YChild{"Lspdbi", lspdbLocations.Lspdbi[i]})
     }
-    lspdbLocations.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspdbLocations.EntityData.Leafs["lspdb_location"] = types.YLeaf{"LspdbLocation", lspdbLocations.LspdbLocation}
+    lspdbLocations.EntityData.Leafs = types.NewOrderedMap()
+    lspdbLocations.EntityData.Leafs.Append("lspdb_location", types.YLeaf{"LspdbLocation", lspdbLocations.LspdbLocation})
+
+    lspdbLocations.EntityData.YListKeys = []string {"LspdbLocation"}
+
     return &(lspdbLocations.EntityData)
 }
 
@@ -268,18 +289,21 @@ func (lspdbi *Cm_Lsp_LspdbLocations_Lspdbi) GetEntityData() *types.CommonEntityD
     lspdbi.EntityData.YangName = "lspdbi"
     lspdbi.EntityData.BundleName = "cisco_ios_xr"
     lspdbi.EntityData.ParentYangName = "lspdb_locations"
-    lspdbi.EntityData.SegmentPath = "lspdbi" + "[lsp_id='" + fmt.Sprintf("%v", lspdbi.LspId) + "']" + "[lsp_area_type='" + fmt.Sprintf("%v", lspdbi.LspAreaType) + "']"
+    lspdbi.EntityData.SegmentPath = "lspdbi" + types.AddKeyToken(lspdbi.LspId, "lsp_id") + types.AddKeyToken(lspdbi.LspAreaType, "lsp_area_type")
     lspdbi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspdbi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspdbi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspdbi.EntityData.Children = make(map[string]types.YChild)
-    lspdbi.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspdbi.EntityData.Leafs["lsp_id"] = types.YLeaf{"LspId", lspdbi.LspId}
-    lspdbi.EntityData.Leafs["lsp_area_type"] = types.YLeaf{"LspAreaType", lspdbi.LspAreaType}
-    lspdbi.EntityData.Leafs["lsp_sequence"] = types.YLeaf{"LspSequence", lspdbi.LspSequence}
-    lspdbi.EntityData.Leafs["lsp_core"] = types.YLeaf{"LspCore", lspdbi.LspCore}
-    lspdbi.EntityData.Leafs["lsp_tlvs"] = types.YLeaf{"LspTlvs", lspdbi.LspTlvs}
+    lspdbi.EntityData.Children = types.NewOrderedMap()
+    lspdbi.EntityData.Leafs = types.NewOrderedMap()
+    lspdbi.EntityData.Leafs.Append("lsp_id", types.YLeaf{"LspId", lspdbi.LspId})
+    lspdbi.EntityData.Leafs.Append("lsp_area_type", types.YLeaf{"LspAreaType", lspdbi.LspAreaType})
+    lspdbi.EntityData.Leafs.Append("lsp_sequence", types.YLeaf{"LspSequence", lspdbi.LspSequence})
+    lspdbi.EntityData.Leafs.Append("lsp_core", types.YLeaf{"LspCore", lspdbi.LspCore})
+    lspdbi.EntityData.Leafs.Append("lsp_tlvs", types.YLeaf{"LspTlvs", lspdbi.LspTlvs})
+
+    lspdbi.EntityData.YListKeys = []string {"LspId", "LspAreaType"}
+
     return &(lspdbi.EntityData)
 }
 

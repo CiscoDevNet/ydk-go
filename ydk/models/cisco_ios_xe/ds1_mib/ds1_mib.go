@@ -23,39 +23,39 @@ type DS1MIB struct {
     YFilter yfilter.YFilter
 
     // The DS1 Configuration table.
-    Dsx1Configtable DS1MIB_Dsx1Configtable
+    Dsx1ConfigTable DS1MIB_Dsx1ConfigTable
 
     // The DS1 current table contains various statistics being collected for the
     // current 15 minute interval.
-    Dsx1Currenttable DS1MIB_Dsx1Currenttable
+    Dsx1CurrentTable DS1MIB_Dsx1CurrentTable
 
     // The DS1 Interval Table contains various statistics collected by each DS1
     // Interface over the previous 24 hours of operation.  The past 24 hours are
     // broken into 96 completed 15 minute intervals.  Each row in this table
     // represents one such interval (identified by dsx1IntervalNumber) for one
     // specific instance (identified by dsx1IntervalIndex).
-    Dsx1Intervaltable DS1MIB_Dsx1Intervaltable
+    Dsx1IntervalTable DS1MIB_Dsx1IntervalTable
 
     // The DS1 Total Table contains the cumulative sum of the various statistics
     // for the 24 hour period preceding the current interval.
-    Dsx1Totaltable DS1MIB_Dsx1Totaltable
+    Dsx1TotalTable DS1MIB_Dsx1TotalTable
 
     // The DS1 Far End Current table contains various statistics being collected
     // for the current 15 minute interval.  The statistics are collected from the
     // far end messages on the Facilities Data Link.  The definitions are the same
     // as described for the near-end information.
-    Dsx1Farendcurrenttable DS1MIB_Dsx1Farendcurrenttable
+    Dsx1FarEndCurrentTable DS1MIB_Dsx1FarEndCurrentTable
 
     // The DS1 Far End Interval Table contains various statistics collected by
     // each DS1 interface over the previous 24 hours of operation.  The past 24
     // hours are broken into 96 completed 15 minute intervals. Each row in this
     // table represents one such interval (identified by dsx1FarEndIntervalNumber)
     // for one specific instance (identified by dsx1FarEndIntervalIndex).
-    Dsx1Farendintervaltable DS1MIB_Dsx1Farendintervaltable
+    Dsx1FarEndIntervalTable DS1MIB_Dsx1FarEndIntervalTable
 
     // The DS1 Far End Total Table contains the cumulative sum of the various
     // statistics for the 24 hour period preceding the current interval.
-    Dsx1Farendtotaltable DS1MIB_Dsx1Farendtotaltable
+    Dsx1FarEndTotalTable DS1MIB_Dsx1FarEndTotalTable
 
     // This table is deprecated in favour of using ifStackTable.  The table was
     // mandatory for systems dividing a DS1 into channels containing different
@@ -87,13 +87,13 @@ type DS1MIB struct {
     // numbered 1 through 24.  For G.704 interfaces, there are 31 legal channels,
     // numbered 1 through 31.  The channels (1..31) correspond directly to the
     // equivalently numbered time-slots.
-    Dsx1Fractable DS1MIB_Dsx1Fractable
+    Dsx1FracTable DS1MIB_Dsx1FracTable
 
     // The DS1 Channel Mapping table.  This table maps a DS1 channel number on a
     // particular DS3 into an ifIndex.  In the presence of DS2s, this table can be
     // used to map a DS2 channel number on a DS3 into an ifIndex, or used to map a
     // DS1 channel number on a DS2 onto an ifIndex.
-    Dsx1Chanmappingtable DS1MIB_Dsx1Chanmappingtable
+    Dsx1ChanMappingTable DS1MIB_Dsx1ChanMappingTable
 }
 
 func (dS1MIB *DS1MIB) GetEntityData() *types.CommonEntityData {
@@ -106,53 +106,59 @@ func (dS1MIB *DS1MIB) GetEntityData() *types.CommonEntityData {
     dS1MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dS1MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dS1MIB.EntityData.Children = make(map[string]types.YChild)
-    dS1MIB.EntityData.Children["dsx1ConfigTable"] = types.YChild{"Dsx1Configtable", &dS1MIB.Dsx1Configtable}
-    dS1MIB.EntityData.Children["dsx1CurrentTable"] = types.YChild{"Dsx1Currenttable", &dS1MIB.Dsx1Currenttable}
-    dS1MIB.EntityData.Children["dsx1IntervalTable"] = types.YChild{"Dsx1Intervaltable", &dS1MIB.Dsx1Intervaltable}
-    dS1MIB.EntityData.Children["dsx1TotalTable"] = types.YChild{"Dsx1Totaltable", &dS1MIB.Dsx1Totaltable}
-    dS1MIB.EntityData.Children["dsx1FarEndCurrentTable"] = types.YChild{"Dsx1Farendcurrenttable", &dS1MIB.Dsx1Farendcurrenttable}
-    dS1MIB.EntityData.Children["dsx1FarEndIntervalTable"] = types.YChild{"Dsx1Farendintervaltable", &dS1MIB.Dsx1Farendintervaltable}
-    dS1MIB.EntityData.Children["dsx1FarEndTotalTable"] = types.YChild{"Dsx1Farendtotaltable", &dS1MIB.Dsx1Farendtotaltable}
-    dS1MIB.EntityData.Children["dsx1FracTable"] = types.YChild{"Dsx1Fractable", &dS1MIB.Dsx1Fractable}
-    dS1MIB.EntityData.Children["dsx1ChanMappingTable"] = types.YChild{"Dsx1Chanmappingtable", &dS1MIB.Dsx1Chanmappingtable}
-    dS1MIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    dS1MIB.EntityData.Children = types.NewOrderedMap()
+    dS1MIB.EntityData.Children.Append("dsx1ConfigTable", types.YChild{"Dsx1ConfigTable", &dS1MIB.Dsx1ConfigTable})
+    dS1MIB.EntityData.Children.Append("dsx1CurrentTable", types.YChild{"Dsx1CurrentTable", &dS1MIB.Dsx1CurrentTable})
+    dS1MIB.EntityData.Children.Append("dsx1IntervalTable", types.YChild{"Dsx1IntervalTable", &dS1MIB.Dsx1IntervalTable})
+    dS1MIB.EntityData.Children.Append("dsx1TotalTable", types.YChild{"Dsx1TotalTable", &dS1MIB.Dsx1TotalTable})
+    dS1MIB.EntityData.Children.Append("dsx1FarEndCurrentTable", types.YChild{"Dsx1FarEndCurrentTable", &dS1MIB.Dsx1FarEndCurrentTable})
+    dS1MIB.EntityData.Children.Append("dsx1FarEndIntervalTable", types.YChild{"Dsx1FarEndIntervalTable", &dS1MIB.Dsx1FarEndIntervalTable})
+    dS1MIB.EntityData.Children.Append("dsx1FarEndTotalTable", types.YChild{"Dsx1FarEndTotalTable", &dS1MIB.Dsx1FarEndTotalTable})
+    dS1MIB.EntityData.Children.Append("dsx1FracTable", types.YChild{"Dsx1FracTable", &dS1MIB.Dsx1FracTable})
+    dS1MIB.EntityData.Children.Append("dsx1ChanMappingTable", types.YChild{"Dsx1ChanMappingTable", &dS1MIB.Dsx1ChanMappingTable})
+    dS1MIB.EntityData.Leafs = types.NewOrderedMap()
+
+    dS1MIB.EntityData.YListKeys = []string {}
+
     return &(dS1MIB.EntityData)
 }
 
-// DS1MIB_Dsx1Configtable
+// DS1MIB_Dsx1ConfigTable
 // The DS1 Configuration table.
-type DS1MIB_Dsx1Configtable struct {
+type DS1MIB_Dsx1ConfigTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the DS1 Configuration table. The type is slice of
-    // DS1MIB_Dsx1Configtable_Dsx1Configentry.
-    Dsx1Configentry []DS1MIB_Dsx1Configtable_Dsx1Configentry
+    // DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry.
+    Dsx1ConfigEntry []*DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry
 }
 
-func (dsx1Configtable *DS1MIB_Dsx1Configtable) GetEntityData() *types.CommonEntityData {
-    dsx1Configtable.EntityData.YFilter = dsx1Configtable.YFilter
-    dsx1Configtable.EntityData.YangName = "dsx1ConfigTable"
-    dsx1Configtable.EntityData.BundleName = "cisco_ios_xe"
-    dsx1Configtable.EntityData.ParentYangName = "DS1-MIB"
-    dsx1Configtable.EntityData.SegmentPath = "dsx1ConfigTable"
-    dsx1Configtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dsx1Configtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dsx1Configtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dsx1ConfigTable *DS1MIB_Dsx1ConfigTable) GetEntityData() *types.CommonEntityData {
+    dsx1ConfigTable.EntityData.YFilter = dsx1ConfigTable.YFilter
+    dsx1ConfigTable.EntityData.YangName = "dsx1ConfigTable"
+    dsx1ConfigTable.EntityData.BundleName = "cisco_ios_xe"
+    dsx1ConfigTable.EntityData.ParentYangName = "DS1-MIB"
+    dsx1ConfigTable.EntityData.SegmentPath = "dsx1ConfigTable"
+    dsx1ConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx1ConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx1ConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dsx1Configtable.EntityData.Children = make(map[string]types.YChild)
-    dsx1Configtable.EntityData.Children["dsx1ConfigEntry"] = types.YChild{"Dsx1Configentry", nil}
-    for i := range dsx1Configtable.Dsx1Configentry {
-        dsx1Configtable.EntityData.Children[types.GetSegmentPath(&dsx1Configtable.Dsx1Configentry[i])] = types.YChild{"Dsx1Configentry", &dsx1Configtable.Dsx1Configentry[i]}
+    dsx1ConfigTable.EntityData.Children = types.NewOrderedMap()
+    dsx1ConfigTable.EntityData.Children.Append("dsx1ConfigEntry", types.YChild{"Dsx1ConfigEntry", nil})
+    for i := range dsx1ConfigTable.Dsx1ConfigEntry {
+        dsx1ConfigTable.EntityData.Children.Append(types.GetSegmentPath(dsx1ConfigTable.Dsx1ConfigEntry[i]), types.YChild{"Dsx1ConfigEntry", dsx1ConfigTable.Dsx1ConfigEntry[i]})
     }
-    dsx1Configtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dsx1Configtable.EntityData)
+    dsx1ConfigTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dsx1ConfigTable.EntityData.YListKeys = []string {}
+
+    return &(dsx1ConfigTable.EntityData)
 }
 
-// DS1MIB_Dsx1Configtable_Dsx1Configentry
+// DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry
 // An entry in the DS1 Configuration table.
-type DS1MIB_Dsx1Configtable_Dsx1Configentry struct {
+type DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -167,19 +173,19 @@ type DS1MIB_Dsx1Configtable_Dsx1Configentry struct {
     // the inside interfaces (e.g., equipment side) with even numbers and outside
     // interfaces (e.g, network side) with odd numbers. The type is interface{}
     // with range: 1..2147483647.
-    Dsx1Lineindex interface{}
+    Dsx1LineIndex interface{}
 
     // This value for this object is equal to the value of ifIndex from the
     // Interfaces table of MIB II (RFC 1213). The type is interface{} with range:
     // 1..2147483647.
-    Dsx1Ifindex interface{}
+    Dsx1IfIndex interface{}
 
     // The number of seconds that have elapsed since the beginning of the near end
     // current error- measurement period.  If, for some reason, such as an
     // adjustment in the system's time-of-day clock, the current interval exceeds
     // the maximum value, the agent will return the maximum value. The type is
     // interface{} with range: 0..899.
-    Dsx1Timeelapsed interface{}
+    Dsx1TimeElapsed interface{}
 
     // The number of previous near end intervals for which data was collected. 
     // The value will be 96 unless the interface was brought online within the
@@ -188,7 +194,7 @@ type DS1MIB_Dsx1Configtable_Dsx1Configentry struct {
     // where the agent is a proxy, it is possible that some intervals are
     // unavailable.  In this case, this interval is the maximum interval number
     // for which data is available. The type is interface{} with range: 0..96.
-    Dsx1Validintervals interface{}
+    Dsx1ValidIntervals interface{}
 
     // This variable indicates  the  variety  of  DS1 Line  implementing  this 
     // circuit.  The type of circuit affects the number of bits  per  second that 
@@ -206,8 +212,8 @@ type DS1MIB_Dsx1Configtable_Dsx1Configentry struct {
     // dsx1E1 or dsx1E1CRC - E1, with framing,    no signalling = 31 x 64k = 1984k
     // dsx1E1MF or dsx1E1CRCMF - E1, with framing,    signalling = 30 x 64k =
     // 1920k  For further information See ITU-T Recomm G.704. The type is
-    // Dsx1Linetype.
-    Dsx1Linetype interface{}
+    // Dsx1LineType.
+    Dsx1LineType interface{}
 
     // This variable describes the variety of Zero Code Suppression used on this
     // interface, which in turn affects a number of its characteristics.  dsx1JBZS
@@ -224,8 +230,8 @@ type DS1MIB_Dsx1Configtable_Dsx1Configentry struct {
     // which meets or exceeds the pulse density requirements, such as inverting
     // HDLC data.  dsx1B6ZS refers to the user of a specifed pattern of normal
     // bits and bipolar violations which are used to replace a sequence of six
-    // zero bits.  Used for DS2. The type is Dsx1Linecoding.
-    Dsx1Linecoding interface{}
+    // zero bits.  Used for DS2. The type is Dsx1LineCoding.
+    Dsx1LineCoding interface{}
 
     // This variable indicates what type of code is being sent across the DS1
     // interface by the device. Setting this variable causes the interface to send
@@ -237,13 +243,13 @@ type DS1MIB_Dsx1Configtable_Dsx1Configentry struct {
     // sending a 511 bit fixed test pattern  dsx1Send3in24Pattern sending a fixed
     // test pattern of 3 bits set in 24  dsx1SendOtherTestPattern sending a test
     // pattern  other  than  those described by this object. The type is
-    // Dsx1Sendcode.
-    Dsx1Sendcode interface{}
+    // Dsx1SendCode.
+    Dsx1SendCode interface{}
 
     // This variable contains the transmission vendor's circuit identifier, for
     // the purpose of facilitating troubleshooting. The type is string with
     // length: 0..255.
-    Dsx1Circuitidentifier interface{}
+    Dsx1CircuitIdentifier interface{}
 
     // This variable represents the desired loopback configuration of the DS1
     // interface.  Agents supporting read/write access should return
@@ -259,8 +265,8 @@ type DS1MIB_Dsx1Configtable_Dsx1Configentry struct {
     // dsx1InwardLoop  The transmitted signal at this interface is looped back and
     // received by the same interface. What is transmitted onto the line is
     // product dependent.  dsx1DualLoop  Both dsx1LineLoop and dsx1InwardLoop will
-    // be active simultaneously. The type is Dsx1Loopbackconfig.
-    Dsx1Loopbackconfig interface{}
+    // be active simultaneously. The type is Dsx1LoopbackConfig.
+    Dsx1LoopbackConfig interface{}
 
     // This variable indicates the Line Status of the interface.  It contains
     // loopback, failure, received 'alarm' and transmitted 'alarms information. 
@@ -284,23 +290,23 @@ type DS1MIB_Dsx1Configtable_Dsx1Configentry struct {
     // dsx1RcvPayloadAIS     DS2 Payload AIS 65536     dsx1Ds2PerfThreshold  DS2
     // Performance Threshold                  Exceeded. The type is interface{}
     // with range: 1..131071.
-    Dsx1Linestatus interface{}
+    Dsx1LineStatus interface{}
 
     // 'none' indicates that no bits are reserved for signaling on this channel. 
     // 'robbedBit' indicates that DS1 Robbed Bit  Sig- naling is in use. 
     // 'bitOriented' indicates that E1 Channel  Asso- ciated Signaling is in use. 
     // 'messageOriented' indicates that Common  Chan- nel Signaling is in use
     // either on channel 16 of an E1 link or channel 24 of a DS1. The type is
-    // Dsx1Signalmode.
-    Dsx1Signalmode interface{}
+    // Dsx1SignalMode.
+    Dsx1SignalMode interface{}
 
     // The source of Transmit Clock. 'loopTiming' indicates that the recovered re-
     // ceive clock is used as the transmit clock.  'localTiming' indicates that a
     // local clock source is used or when an external clock is attached to the box
     // containing the interface.  'throughTiming' indicates that recovered re-
     // ceive clock from another interface is used as the transmit clock. The type
-    // is Dsx1Transmitclocksource.
-    Dsx1Transmitclocksource interface{}
+    // is Dsx1TransmitClockSource.
+    Dsx1TransmitClockSource interface{}
 
     // This bitmap describes the use of  the  facili- ties data link, and is the
     // sum of the capabili- ties.  Set any bits that are appropriate:  other(1),
@@ -315,23 +321,23 @@ type DS1MIB_Dsx1Configtable_Dsx1Configentry struct {
     // no data is available.  This object will typically be zero except in cases
     // where the data for some intervals are not available (e.g., in proxy
     // situations). The type is interface{} with range: 0..96.
-    Dsx1Invalidintervals interface{}
+    Dsx1InvalidIntervals interface{}
 
     // The length of the ds1 line in meters. This objects provides information for
     // line build out circuitry.  This object is only useful if the interface has
     // configurable line build out circuitry. The type is interface{} with range:
     // 0..64000. Units are meters.
-    Dsx1Linelength interface{}
+    Dsx1LineLength interface{}
 
     // The value of MIB II's sysUpTime object at the time this DS1 entered its
     // current line status state.  If the current state was entered prior to the
     // last re-initialization of the proxy-agent, then this object contains a zero
     // value. The type is interface{} with range: 0..4294967295.
-    Dsx1Linestatuslastchange interface{}
+    Dsx1LineStatusLastChange interface{}
 
     // Indicates whether dsx1LineStatusChange traps should be generated for this
-    // interface. The type is Dsx1Linestatuschangetrapenable.
-    Dsx1Linestatuschangetrapenable interface{}
+    // interface. The type is Dsx1LineStatusChangeTrapEnable.
+    Dsx1LineStatusChangeTrapEnable interface{}
 
     // This variable represents the current state of the loopback on the DS1
     // interface.  It contains information about loopbacks established by a
@@ -342,12 +348,12 @@ type DS1MIB_Dsx1Configtable_Dsx1Configentry struct {
     // dsx1NearEndOtherLoopback 16  dsx1NearEndInwardLoopback 32 
     // dsx1FarEndPayloadLoopback 64  dsx1FarEndLineLoopback. The type is
     // interface{} with range: 1..127.
-    Dsx1Loopbackstatus interface{}
+    Dsx1LoopbackStatus interface{}
 
     // This variable represents the channel number of the DS1/E1 on its parent
     // Ds2/E2 or DS3/E3.  A value of 0 indicated this DS1/E1 does not have a
     // parent DS3/E3. The type is interface{} with range: 0..28.
-    Dsx1Ds1Channelnumber interface{}
+    Dsx1Ds1ChannelNumber interface{}
 
     // Indicates whether this ds1/e1 is channelized or unchannelized.  The value
     // of enabledDs0 indicates that this is a DS1 channelized into DS0s.  The
@@ -358,206 +364,212 @@ type DS1MIB_Dsx1Configtable_Dsx1Configentry struct {
     Dsx1Channelization interface{}
 }
 
-func (dsx1Configentry *DS1MIB_Dsx1Configtable_Dsx1Configentry) GetEntityData() *types.CommonEntityData {
-    dsx1Configentry.EntityData.YFilter = dsx1Configentry.YFilter
-    dsx1Configentry.EntityData.YangName = "dsx1ConfigEntry"
-    dsx1Configentry.EntityData.BundleName = "cisco_ios_xe"
-    dsx1Configentry.EntityData.ParentYangName = "dsx1ConfigTable"
-    dsx1Configentry.EntityData.SegmentPath = "dsx1ConfigEntry" + "[dsx1LineIndex='" + fmt.Sprintf("%v", dsx1Configentry.Dsx1Lineindex) + "']"
-    dsx1Configentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dsx1Configentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dsx1Configentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dsx1ConfigEntry *DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry) GetEntityData() *types.CommonEntityData {
+    dsx1ConfigEntry.EntityData.YFilter = dsx1ConfigEntry.YFilter
+    dsx1ConfigEntry.EntityData.YangName = "dsx1ConfigEntry"
+    dsx1ConfigEntry.EntityData.BundleName = "cisco_ios_xe"
+    dsx1ConfigEntry.EntityData.ParentYangName = "dsx1ConfigTable"
+    dsx1ConfigEntry.EntityData.SegmentPath = "dsx1ConfigEntry" + types.AddKeyToken(dsx1ConfigEntry.Dsx1LineIndex, "dsx1LineIndex")
+    dsx1ConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx1ConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx1ConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dsx1Configentry.EntityData.Children = make(map[string]types.YChild)
-    dsx1Configentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dsx1Configentry.EntityData.Leafs["dsx1LineIndex"] = types.YLeaf{"Dsx1Lineindex", dsx1Configentry.Dsx1Lineindex}
-    dsx1Configentry.EntityData.Leafs["dsx1IfIndex"] = types.YLeaf{"Dsx1Ifindex", dsx1Configentry.Dsx1Ifindex}
-    dsx1Configentry.EntityData.Leafs["dsx1TimeElapsed"] = types.YLeaf{"Dsx1Timeelapsed", dsx1Configentry.Dsx1Timeelapsed}
-    dsx1Configentry.EntityData.Leafs["dsx1ValidIntervals"] = types.YLeaf{"Dsx1Validintervals", dsx1Configentry.Dsx1Validintervals}
-    dsx1Configentry.EntityData.Leafs["dsx1LineType"] = types.YLeaf{"Dsx1Linetype", dsx1Configentry.Dsx1Linetype}
-    dsx1Configentry.EntityData.Leafs["dsx1LineCoding"] = types.YLeaf{"Dsx1Linecoding", dsx1Configentry.Dsx1Linecoding}
-    dsx1Configentry.EntityData.Leafs["dsx1SendCode"] = types.YLeaf{"Dsx1Sendcode", dsx1Configentry.Dsx1Sendcode}
-    dsx1Configentry.EntityData.Leafs["dsx1CircuitIdentifier"] = types.YLeaf{"Dsx1Circuitidentifier", dsx1Configentry.Dsx1Circuitidentifier}
-    dsx1Configentry.EntityData.Leafs["dsx1LoopbackConfig"] = types.YLeaf{"Dsx1Loopbackconfig", dsx1Configentry.Dsx1Loopbackconfig}
-    dsx1Configentry.EntityData.Leafs["dsx1LineStatus"] = types.YLeaf{"Dsx1Linestatus", dsx1Configentry.Dsx1Linestatus}
-    dsx1Configentry.EntityData.Leafs["dsx1SignalMode"] = types.YLeaf{"Dsx1Signalmode", dsx1Configentry.Dsx1Signalmode}
-    dsx1Configentry.EntityData.Leafs["dsx1TransmitClockSource"] = types.YLeaf{"Dsx1Transmitclocksource", dsx1Configentry.Dsx1Transmitclocksource}
-    dsx1Configentry.EntityData.Leafs["dsx1Fdl"] = types.YLeaf{"Dsx1Fdl", dsx1Configentry.Dsx1Fdl}
-    dsx1Configentry.EntityData.Leafs["dsx1InvalidIntervals"] = types.YLeaf{"Dsx1Invalidintervals", dsx1Configentry.Dsx1Invalidintervals}
-    dsx1Configentry.EntityData.Leafs["dsx1LineLength"] = types.YLeaf{"Dsx1Linelength", dsx1Configentry.Dsx1Linelength}
-    dsx1Configentry.EntityData.Leafs["dsx1LineStatusLastChange"] = types.YLeaf{"Dsx1Linestatuslastchange", dsx1Configentry.Dsx1Linestatuslastchange}
-    dsx1Configentry.EntityData.Leafs["dsx1LineStatusChangeTrapEnable"] = types.YLeaf{"Dsx1Linestatuschangetrapenable", dsx1Configentry.Dsx1Linestatuschangetrapenable}
-    dsx1Configentry.EntityData.Leafs["dsx1LoopbackStatus"] = types.YLeaf{"Dsx1Loopbackstatus", dsx1Configentry.Dsx1Loopbackstatus}
-    dsx1Configentry.EntityData.Leafs["dsx1Ds1ChannelNumber"] = types.YLeaf{"Dsx1Ds1Channelnumber", dsx1Configentry.Dsx1Ds1Channelnumber}
-    dsx1Configentry.EntityData.Leafs["dsx1Channelization"] = types.YLeaf{"Dsx1Channelization", dsx1Configentry.Dsx1Channelization}
-    return &(dsx1Configentry.EntityData)
+    dsx1ConfigEntry.EntityData.Children = types.NewOrderedMap()
+    dsx1ConfigEntry.EntityData.Leafs = types.NewOrderedMap()
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1LineIndex", types.YLeaf{"Dsx1LineIndex", dsx1ConfigEntry.Dsx1LineIndex})
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1IfIndex", types.YLeaf{"Dsx1IfIndex", dsx1ConfigEntry.Dsx1IfIndex})
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1TimeElapsed", types.YLeaf{"Dsx1TimeElapsed", dsx1ConfigEntry.Dsx1TimeElapsed})
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1ValidIntervals", types.YLeaf{"Dsx1ValidIntervals", dsx1ConfigEntry.Dsx1ValidIntervals})
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1LineType", types.YLeaf{"Dsx1LineType", dsx1ConfigEntry.Dsx1LineType})
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1LineCoding", types.YLeaf{"Dsx1LineCoding", dsx1ConfigEntry.Dsx1LineCoding})
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1SendCode", types.YLeaf{"Dsx1SendCode", dsx1ConfigEntry.Dsx1SendCode})
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1CircuitIdentifier", types.YLeaf{"Dsx1CircuitIdentifier", dsx1ConfigEntry.Dsx1CircuitIdentifier})
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1LoopbackConfig", types.YLeaf{"Dsx1LoopbackConfig", dsx1ConfigEntry.Dsx1LoopbackConfig})
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1LineStatus", types.YLeaf{"Dsx1LineStatus", dsx1ConfigEntry.Dsx1LineStatus})
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1SignalMode", types.YLeaf{"Dsx1SignalMode", dsx1ConfigEntry.Dsx1SignalMode})
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1TransmitClockSource", types.YLeaf{"Dsx1TransmitClockSource", dsx1ConfigEntry.Dsx1TransmitClockSource})
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1Fdl", types.YLeaf{"Dsx1Fdl", dsx1ConfigEntry.Dsx1Fdl})
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1InvalidIntervals", types.YLeaf{"Dsx1InvalidIntervals", dsx1ConfigEntry.Dsx1InvalidIntervals})
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1LineLength", types.YLeaf{"Dsx1LineLength", dsx1ConfigEntry.Dsx1LineLength})
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1LineStatusLastChange", types.YLeaf{"Dsx1LineStatusLastChange", dsx1ConfigEntry.Dsx1LineStatusLastChange})
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1LineStatusChangeTrapEnable", types.YLeaf{"Dsx1LineStatusChangeTrapEnable", dsx1ConfigEntry.Dsx1LineStatusChangeTrapEnable})
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1LoopbackStatus", types.YLeaf{"Dsx1LoopbackStatus", dsx1ConfigEntry.Dsx1LoopbackStatus})
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1Ds1ChannelNumber", types.YLeaf{"Dsx1Ds1ChannelNumber", dsx1ConfigEntry.Dsx1Ds1ChannelNumber})
+    dsx1ConfigEntry.EntityData.Leafs.Append("dsx1Channelization", types.YLeaf{"Dsx1Channelization", dsx1ConfigEntry.Dsx1Channelization})
+
+    dsx1ConfigEntry.EntityData.YListKeys = []string {"Dsx1LineIndex"}
+
+    return &(dsx1ConfigEntry.EntityData)
 }
 
-// DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Channelization represents ifTable for the DS0s that are within the DS1.
-type DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Channelization string
+// DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1Channelization represents ifTable for the DS0s that are within the DS1.
+type DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1Channelization string
 
 const (
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Channelization_disabled DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Channelization = "disabled"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1Channelization_disabled DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1Channelization = "disabled"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Channelization_enabledDs0 DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Channelization = "enabledDs0"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1Channelization_enabledDs0 DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1Channelization = "enabledDs0"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Channelization_enabledDs1 DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Channelization = "enabledDs1"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1Channelization_enabledDs1 DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1Channelization = "enabledDs1"
 )
 
-// DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linecoding represents for DS2.
-type DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linecoding string
+// DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineCoding represents for DS2.
+type DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineCoding string
 
 const (
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linecoding_dsx1JBZS DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linecoding = "dsx1JBZS"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineCoding_dsx1JBZS DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineCoding = "dsx1JBZS"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linecoding_dsx1B8ZS DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linecoding = "dsx1B8ZS"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineCoding_dsx1B8ZS DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineCoding = "dsx1B8ZS"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linecoding_dsx1HDB3 DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linecoding = "dsx1HDB3"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineCoding_dsx1HDB3 DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineCoding = "dsx1HDB3"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linecoding_dsx1ZBTSI DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linecoding = "dsx1ZBTSI"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineCoding_dsx1ZBTSI DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineCoding = "dsx1ZBTSI"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linecoding_dsx1AMI DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linecoding = "dsx1AMI"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineCoding_dsx1AMI DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineCoding = "dsx1AMI"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linecoding_other DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linecoding = "other"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineCoding_other DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineCoding = "other"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linecoding_dsx1B6ZS DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linecoding = "dsx1B6ZS"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineCoding_dsx1B6ZS DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineCoding = "dsx1B6ZS"
 )
 
-// DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linestatuschangetrapenable represents should be generated for this interface.
-type DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linestatuschangetrapenable string
+// DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineStatusChangeTrapEnable represents should be generated for this interface.
+type DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineStatusChangeTrapEnable string
 
 const (
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linestatuschangetrapenable_enabled DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linestatuschangetrapenable = "enabled"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineStatusChangeTrapEnable_enabled DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineStatusChangeTrapEnable = "enabled"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linestatuschangetrapenable_disabled DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linestatuschangetrapenable = "disabled"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineStatusChangeTrapEnable_disabled DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineStatusChangeTrapEnable = "disabled"
 )
 
-// DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype represents For further information See ITU-T Recomm G.704
-type DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype string
+// DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType represents For further information See ITU-T Recomm G.704
+type DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType string
 
 const (
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype_other DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype = "other"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType_other DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType = "other"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype_dsx1ESF DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype = "dsx1ESF"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType_dsx1ESF DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType = "dsx1ESF"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype_dsx1D4 DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype = "dsx1D4"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType_dsx1D4 DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType = "dsx1D4"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype_dsx1E1 DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype = "dsx1E1"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType_dsx1E1 DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType = "dsx1E1"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype_dsx1E1CRC DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype = "dsx1E1CRC"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType_dsx1E1CRC DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType = "dsx1E1CRC"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype_dsx1E1MF DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype = "dsx1E1MF"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType_dsx1E1MF DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType = "dsx1E1MF"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype_dsx1E1CRCMF DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype = "dsx1E1CRCMF"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType_dsx1E1CRCMF DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType = "dsx1E1CRCMF"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype_dsx1Unframed DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype = "dsx1Unframed"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType_dsx1Unframed DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType = "dsx1Unframed"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype_dsx1E1Unframed DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype = "dsx1E1Unframed"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType_dsx1E1Unframed DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType = "dsx1E1Unframed"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype_dsx1DS2M12 DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype = "dsx1DS2M12"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType_dsx1DS2M12 DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType = "dsx1DS2M12"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype_dsx2E2 DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Linetype = "dsx2E2"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType_dsx2E2 DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LineType = "dsx2E2"
 )
 
-// DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Loopbackconfig represents active simultaneously.
-type DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Loopbackconfig string
+// DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LoopbackConfig represents active simultaneously.
+type DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LoopbackConfig string
 
 const (
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Loopbackconfig_dsx1NoLoop DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Loopbackconfig = "dsx1NoLoop"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LoopbackConfig_dsx1NoLoop DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LoopbackConfig = "dsx1NoLoop"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Loopbackconfig_dsx1PayloadLoop DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Loopbackconfig = "dsx1PayloadLoop"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LoopbackConfig_dsx1PayloadLoop DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LoopbackConfig = "dsx1PayloadLoop"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Loopbackconfig_dsx1LineLoop DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Loopbackconfig = "dsx1LineLoop"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LoopbackConfig_dsx1LineLoop DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LoopbackConfig = "dsx1LineLoop"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Loopbackconfig_dsx1OtherLoop DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Loopbackconfig = "dsx1OtherLoop"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LoopbackConfig_dsx1OtherLoop DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LoopbackConfig = "dsx1OtherLoop"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Loopbackconfig_dsx1InwardLoop DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Loopbackconfig = "dsx1InwardLoop"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LoopbackConfig_dsx1InwardLoop DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LoopbackConfig = "dsx1InwardLoop"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Loopbackconfig_dsx1DualLoop DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Loopbackconfig = "dsx1DualLoop"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LoopbackConfig_dsx1DualLoop DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1LoopbackConfig = "dsx1DualLoop"
 )
 
-// DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Sendcode represents described by this object
-type DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Sendcode string
+// DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SendCode represents described by this object
+type DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SendCode string
 
 const (
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Sendcode_dsx1SendNoCode DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Sendcode = "dsx1SendNoCode"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SendCode_dsx1SendNoCode DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SendCode = "dsx1SendNoCode"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Sendcode_dsx1SendLineCode DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Sendcode = "dsx1SendLineCode"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SendCode_dsx1SendLineCode DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SendCode = "dsx1SendLineCode"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Sendcode_dsx1SendPayloadCode DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Sendcode = "dsx1SendPayloadCode"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SendCode_dsx1SendPayloadCode DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SendCode = "dsx1SendPayloadCode"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Sendcode_dsx1SendResetCode DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Sendcode = "dsx1SendResetCode"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SendCode_dsx1SendResetCode DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SendCode = "dsx1SendResetCode"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Sendcode_dsx1SendQRS DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Sendcode = "dsx1SendQRS"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SendCode_dsx1SendQRS DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SendCode = "dsx1SendQRS"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Sendcode_dsx1Send511Pattern DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Sendcode = "dsx1Send511Pattern"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SendCode_dsx1Send511Pattern DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SendCode = "dsx1Send511Pattern"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Sendcode_dsx1Send3in24Pattern DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Sendcode = "dsx1Send3in24Pattern"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SendCode_dsx1Send3in24Pattern DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SendCode = "dsx1Send3in24Pattern"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Sendcode_dsx1SendOtherTestPattern DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Sendcode = "dsx1SendOtherTestPattern"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SendCode_dsx1SendOtherTestPattern DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SendCode = "dsx1SendOtherTestPattern"
 )
 
-// DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Signalmode represents an E1 link or channel 24 of a DS1.
-type DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Signalmode string
+// DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SignalMode represents an E1 link or channel 24 of a DS1.
+type DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SignalMode string
 
 const (
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Signalmode_none DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Signalmode = "none"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SignalMode_none DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SignalMode = "none"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Signalmode_robbedBit DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Signalmode = "robbedBit"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SignalMode_robbedBit DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SignalMode = "robbedBit"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Signalmode_bitOriented DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Signalmode = "bitOriented"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SignalMode_bitOriented DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SignalMode = "bitOriented"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Signalmode_messageOriented DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Signalmode = "messageOriented"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SignalMode_messageOriented DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SignalMode = "messageOriented"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Signalmode_other DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Signalmode = "other"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SignalMode_other DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1SignalMode = "other"
 )
 
-// DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Transmitclocksource represents the transmit clock.
-type DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Transmitclocksource string
+// DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1TransmitClockSource represents the transmit clock.
+type DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1TransmitClockSource string
 
 const (
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Transmitclocksource_loopTiming DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Transmitclocksource = "loopTiming"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1TransmitClockSource_loopTiming DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1TransmitClockSource = "loopTiming"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Transmitclocksource_localTiming DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Transmitclocksource = "localTiming"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1TransmitClockSource_localTiming DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1TransmitClockSource = "localTiming"
 
-    DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Transmitclocksource_throughTiming DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Transmitclocksource = "throughTiming"
+    DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1TransmitClockSource_throughTiming DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1TransmitClockSource = "throughTiming"
 )
 
-// DS1MIB_Dsx1Currenttable
+// DS1MIB_Dsx1CurrentTable
 // The DS1 current table contains various statistics
 // being collected for the current 15 minute
 // interval.
-type DS1MIB_Dsx1Currenttable struct {
+type DS1MIB_Dsx1CurrentTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the DS1 Current table. The type is slice of
-    // DS1MIB_Dsx1Currenttable_Dsx1Currententry.
-    Dsx1Currententry []DS1MIB_Dsx1Currenttable_Dsx1Currententry
+    // DS1MIB_Dsx1CurrentTable_Dsx1CurrentEntry.
+    Dsx1CurrentEntry []*DS1MIB_Dsx1CurrentTable_Dsx1CurrentEntry
 }
 
-func (dsx1Currenttable *DS1MIB_Dsx1Currenttable) GetEntityData() *types.CommonEntityData {
-    dsx1Currenttable.EntityData.YFilter = dsx1Currenttable.YFilter
-    dsx1Currenttable.EntityData.YangName = "dsx1CurrentTable"
-    dsx1Currenttable.EntityData.BundleName = "cisco_ios_xe"
-    dsx1Currenttable.EntityData.ParentYangName = "DS1-MIB"
-    dsx1Currenttable.EntityData.SegmentPath = "dsx1CurrentTable"
-    dsx1Currenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dsx1Currenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dsx1Currenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dsx1CurrentTable *DS1MIB_Dsx1CurrentTable) GetEntityData() *types.CommonEntityData {
+    dsx1CurrentTable.EntityData.YFilter = dsx1CurrentTable.YFilter
+    dsx1CurrentTable.EntityData.YangName = "dsx1CurrentTable"
+    dsx1CurrentTable.EntityData.BundleName = "cisco_ios_xe"
+    dsx1CurrentTable.EntityData.ParentYangName = "DS1-MIB"
+    dsx1CurrentTable.EntityData.SegmentPath = "dsx1CurrentTable"
+    dsx1CurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx1CurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx1CurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dsx1Currenttable.EntityData.Children = make(map[string]types.YChild)
-    dsx1Currenttable.EntityData.Children["dsx1CurrentEntry"] = types.YChild{"Dsx1Currententry", nil}
-    for i := range dsx1Currenttable.Dsx1Currententry {
-        dsx1Currenttable.EntityData.Children[types.GetSegmentPath(&dsx1Currenttable.Dsx1Currententry[i])] = types.YChild{"Dsx1Currententry", &dsx1Currenttable.Dsx1Currententry[i]}
+    dsx1CurrentTable.EntityData.Children = types.NewOrderedMap()
+    dsx1CurrentTable.EntityData.Children.Append("dsx1CurrentEntry", types.YChild{"Dsx1CurrentEntry", nil})
+    for i := range dsx1CurrentTable.Dsx1CurrentEntry {
+        dsx1CurrentTable.EntityData.Children.Append(types.GetSegmentPath(dsx1CurrentTable.Dsx1CurrentEntry[i]), types.YChild{"Dsx1CurrentEntry", dsx1CurrentTable.Dsx1CurrentEntry[i]})
     }
-    dsx1Currenttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dsx1Currenttable.EntityData)
+    dsx1CurrentTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dsx1CurrentTable.EntityData.YListKeys = []string {}
+
+    return &(dsx1CurrentTable.EntityData)
 }
 
-// DS1MIB_Dsx1Currenttable_Dsx1Currententry
+// DS1MIB_Dsx1CurrentTable_Dsx1CurrentEntry
 // An entry in the DS1 Current table.
-type DS1MIB_Dsx1Currenttable_Dsx1Currententry struct {
+type DS1MIB_Dsx1CurrentTable_Dsx1CurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -566,76 +578,79 @@ type DS1MIB_Dsx1Currenttable_Dsx1Currententry struct {
     // particular value of this index is the same interface as identified by the
     // same value as a dsx1LineIndex object instance. The type is interface{} with
     // range: 1..2147483647.
-    Dsx1Currentindex interface{}
+    Dsx1CurrentIndex interface{}
 
     // The number of Errored Seconds. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Currentess interface{}
+    Dsx1CurrentESs interface{}
 
     // The number of Severely Errored Seconds. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Currentsess interface{}
+    Dsx1CurrentSESs interface{}
 
     // The number of Severely Errored Framing Seconds. The type is interface{}
     // with range: 0..4294967295.
-    Dsx1Currentsefss interface{}
+    Dsx1CurrentSEFSs interface{}
 
     // The number of Unavailable Seconds. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Currentuass interface{}
+    Dsx1CurrentUASs interface{}
 
     // The number of Controlled Slip Seconds. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Currentcsss interface{}
+    Dsx1CurrentCSSs interface{}
 
     // The number of Path Coding Violations. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Currentpcvs interface{}
+    Dsx1CurrentPCVs interface{}
 
     // The number of Line Errored Seconds. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Currentless interface{}
+    Dsx1CurrentLESs interface{}
 
     // The number of Bursty Errored Seconds. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Currentbess interface{}
+    Dsx1CurrentBESs interface{}
 
     // The number of Degraded Minutes. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Currentdms interface{}
+    Dsx1CurrentDMs interface{}
 
     // The number of Line Code Violations (LCVs). The type is interface{} with
     // range: 0..4294967295.
-    Dsx1Currentlcvs interface{}
+    Dsx1CurrentLCVs interface{}
 }
 
-func (dsx1Currententry *DS1MIB_Dsx1Currenttable_Dsx1Currententry) GetEntityData() *types.CommonEntityData {
-    dsx1Currententry.EntityData.YFilter = dsx1Currententry.YFilter
-    dsx1Currententry.EntityData.YangName = "dsx1CurrentEntry"
-    dsx1Currententry.EntityData.BundleName = "cisco_ios_xe"
-    dsx1Currententry.EntityData.ParentYangName = "dsx1CurrentTable"
-    dsx1Currententry.EntityData.SegmentPath = "dsx1CurrentEntry" + "[dsx1CurrentIndex='" + fmt.Sprintf("%v", dsx1Currententry.Dsx1Currentindex) + "']"
-    dsx1Currententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dsx1Currententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dsx1Currententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dsx1CurrentEntry *DS1MIB_Dsx1CurrentTable_Dsx1CurrentEntry) GetEntityData() *types.CommonEntityData {
+    dsx1CurrentEntry.EntityData.YFilter = dsx1CurrentEntry.YFilter
+    dsx1CurrentEntry.EntityData.YangName = "dsx1CurrentEntry"
+    dsx1CurrentEntry.EntityData.BundleName = "cisco_ios_xe"
+    dsx1CurrentEntry.EntityData.ParentYangName = "dsx1CurrentTable"
+    dsx1CurrentEntry.EntityData.SegmentPath = "dsx1CurrentEntry" + types.AddKeyToken(dsx1CurrentEntry.Dsx1CurrentIndex, "dsx1CurrentIndex")
+    dsx1CurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx1CurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx1CurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dsx1Currententry.EntityData.Children = make(map[string]types.YChild)
-    dsx1Currententry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dsx1Currententry.EntityData.Leafs["dsx1CurrentIndex"] = types.YLeaf{"Dsx1Currentindex", dsx1Currententry.Dsx1Currentindex}
-    dsx1Currententry.EntityData.Leafs["dsx1CurrentESs"] = types.YLeaf{"Dsx1Currentess", dsx1Currententry.Dsx1Currentess}
-    dsx1Currententry.EntityData.Leafs["dsx1CurrentSESs"] = types.YLeaf{"Dsx1Currentsess", dsx1Currententry.Dsx1Currentsess}
-    dsx1Currententry.EntityData.Leafs["dsx1CurrentSEFSs"] = types.YLeaf{"Dsx1Currentsefss", dsx1Currententry.Dsx1Currentsefss}
-    dsx1Currententry.EntityData.Leafs["dsx1CurrentUASs"] = types.YLeaf{"Dsx1Currentuass", dsx1Currententry.Dsx1Currentuass}
-    dsx1Currententry.EntityData.Leafs["dsx1CurrentCSSs"] = types.YLeaf{"Dsx1Currentcsss", dsx1Currententry.Dsx1Currentcsss}
-    dsx1Currententry.EntityData.Leafs["dsx1CurrentPCVs"] = types.YLeaf{"Dsx1Currentpcvs", dsx1Currententry.Dsx1Currentpcvs}
-    dsx1Currententry.EntityData.Leafs["dsx1CurrentLESs"] = types.YLeaf{"Dsx1Currentless", dsx1Currententry.Dsx1Currentless}
-    dsx1Currententry.EntityData.Leafs["dsx1CurrentBESs"] = types.YLeaf{"Dsx1Currentbess", dsx1Currententry.Dsx1Currentbess}
-    dsx1Currententry.EntityData.Leafs["dsx1CurrentDMs"] = types.YLeaf{"Dsx1Currentdms", dsx1Currententry.Dsx1Currentdms}
-    dsx1Currententry.EntityData.Leafs["dsx1CurrentLCVs"] = types.YLeaf{"Dsx1Currentlcvs", dsx1Currententry.Dsx1Currentlcvs}
-    return &(dsx1Currententry.EntityData)
+    dsx1CurrentEntry.EntityData.Children = types.NewOrderedMap()
+    dsx1CurrentEntry.EntityData.Leafs = types.NewOrderedMap()
+    dsx1CurrentEntry.EntityData.Leafs.Append("dsx1CurrentIndex", types.YLeaf{"Dsx1CurrentIndex", dsx1CurrentEntry.Dsx1CurrentIndex})
+    dsx1CurrentEntry.EntityData.Leafs.Append("dsx1CurrentESs", types.YLeaf{"Dsx1CurrentESs", dsx1CurrentEntry.Dsx1CurrentESs})
+    dsx1CurrentEntry.EntityData.Leafs.Append("dsx1CurrentSESs", types.YLeaf{"Dsx1CurrentSESs", dsx1CurrentEntry.Dsx1CurrentSESs})
+    dsx1CurrentEntry.EntityData.Leafs.Append("dsx1CurrentSEFSs", types.YLeaf{"Dsx1CurrentSEFSs", dsx1CurrentEntry.Dsx1CurrentSEFSs})
+    dsx1CurrentEntry.EntityData.Leafs.Append("dsx1CurrentUASs", types.YLeaf{"Dsx1CurrentUASs", dsx1CurrentEntry.Dsx1CurrentUASs})
+    dsx1CurrentEntry.EntityData.Leafs.Append("dsx1CurrentCSSs", types.YLeaf{"Dsx1CurrentCSSs", dsx1CurrentEntry.Dsx1CurrentCSSs})
+    dsx1CurrentEntry.EntityData.Leafs.Append("dsx1CurrentPCVs", types.YLeaf{"Dsx1CurrentPCVs", dsx1CurrentEntry.Dsx1CurrentPCVs})
+    dsx1CurrentEntry.EntityData.Leafs.Append("dsx1CurrentLESs", types.YLeaf{"Dsx1CurrentLESs", dsx1CurrentEntry.Dsx1CurrentLESs})
+    dsx1CurrentEntry.EntityData.Leafs.Append("dsx1CurrentBESs", types.YLeaf{"Dsx1CurrentBESs", dsx1CurrentEntry.Dsx1CurrentBESs})
+    dsx1CurrentEntry.EntityData.Leafs.Append("dsx1CurrentDMs", types.YLeaf{"Dsx1CurrentDMs", dsx1CurrentEntry.Dsx1CurrentDMs})
+    dsx1CurrentEntry.EntityData.Leafs.Append("dsx1CurrentLCVs", types.YLeaf{"Dsx1CurrentLCVs", dsx1CurrentEntry.Dsx1CurrentLCVs})
+
+    dsx1CurrentEntry.EntityData.YListKeys = []string {"Dsx1CurrentIndex"}
+
+    return &(dsx1CurrentEntry.EntityData)
 }
 
-// DS1MIB_Dsx1Intervaltable
+// DS1MIB_Dsx1IntervalTable
 // The DS1 Interval Table contains various
 // statistics collected by each DS1 Interface over
 // the previous 24 hours of operation.  The past 24
@@ -644,37 +659,40 @@ func (dsx1Currententry *DS1MIB_Dsx1Currenttable_Dsx1Currententry) GetEntityData(
 // such interval (identified by dsx1IntervalNumber)
 // for one specific instance (identified by
 // dsx1IntervalIndex).
-type DS1MIB_Dsx1Intervaltable struct {
+type DS1MIB_Dsx1IntervalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the DS1 Interval table. The type is slice of
-    // DS1MIB_Dsx1Intervaltable_Dsx1Intervalentry.
-    Dsx1Intervalentry []DS1MIB_Dsx1Intervaltable_Dsx1Intervalentry
+    // DS1MIB_Dsx1IntervalTable_Dsx1IntervalEntry.
+    Dsx1IntervalEntry []*DS1MIB_Dsx1IntervalTable_Dsx1IntervalEntry
 }
 
-func (dsx1Intervaltable *DS1MIB_Dsx1Intervaltable) GetEntityData() *types.CommonEntityData {
-    dsx1Intervaltable.EntityData.YFilter = dsx1Intervaltable.YFilter
-    dsx1Intervaltable.EntityData.YangName = "dsx1IntervalTable"
-    dsx1Intervaltable.EntityData.BundleName = "cisco_ios_xe"
-    dsx1Intervaltable.EntityData.ParentYangName = "DS1-MIB"
-    dsx1Intervaltable.EntityData.SegmentPath = "dsx1IntervalTable"
-    dsx1Intervaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dsx1Intervaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dsx1Intervaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dsx1IntervalTable *DS1MIB_Dsx1IntervalTable) GetEntityData() *types.CommonEntityData {
+    dsx1IntervalTable.EntityData.YFilter = dsx1IntervalTable.YFilter
+    dsx1IntervalTable.EntityData.YangName = "dsx1IntervalTable"
+    dsx1IntervalTable.EntityData.BundleName = "cisco_ios_xe"
+    dsx1IntervalTable.EntityData.ParentYangName = "DS1-MIB"
+    dsx1IntervalTable.EntityData.SegmentPath = "dsx1IntervalTable"
+    dsx1IntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx1IntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx1IntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dsx1Intervaltable.EntityData.Children = make(map[string]types.YChild)
-    dsx1Intervaltable.EntityData.Children["dsx1IntervalEntry"] = types.YChild{"Dsx1Intervalentry", nil}
-    for i := range dsx1Intervaltable.Dsx1Intervalentry {
-        dsx1Intervaltable.EntityData.Children[types.GetSegmentPath(&dsx1Intervaltable.Dsx1Intervalentry[i])] = types.YChild{"Dsx1Intervalentry", &dsx1Intervaltable.Dsx1Intervalentry[i]}
+    dsx1IntervalTable.EntityData.Children = types.NewOrderedMap()
+    dsx1IntervalTable.EntityData.Children.Append("dsx1IntervalEntry", types.YChild{"Dsx1IntervalEntry", nil})
+    for i := range dsx1IntervalTable.Dsx1IntervalEntry {
+        dsx1IntervalTable.EntityData.Children.Append(types.GetSegmentPath(dsx1IntervalTable.Dsx1IntervalEntry[i]), types.YChild{"Dsx1IntervalEntry", dsx1IntervalTable.Dsx1IntervalEntry[i]})
     }
-    dsx1Intervaltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dsx1Intervaltable.EntityData)
+    dsx1IntervalTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dsx1IntervalTable.EntityData.YListKeys = []string {}
+
+    return &(dsx1IntervalTable.EntityData)
 }
 
-// DS1MIB_Dsx1Intervaltable_Dsx1Intervalentry
+// DS1MIB_Dsx1IntervalTable_Dsx1IntervalEntry
 // An entry in the DS1 Interval table.
-type DS1MIB_Dsx1Intervaltable_Dsx1Intervalentry struct {
+type DS1MIB_Dsx1IntervalTable_Dsx1IntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -683,123 +701,129 @@ type DS1MIB_Dsx1Intervaltable_Dsx1Intervalentry struct {
     // particular value of this index is the same interface as identified by the
     // same value as a dsx1LineIndex object instance. The type is interface{} with
     // range: 1..2147483647.
-    Dsx1Intervalindex interface{}
+    Dsx1IntervalIndex interface{}
 
     // This attribute is a key. A number between 1 and 96, where 1 is the most
     // recently completed 15 minute interval and 96 is the 15 minutes interval
     // completed 23 hours and 45 minutes prior to interval 1. The type is
     // interface{} with range: 1..96.
-    Dsx1Intervalnumber interface{}
+    Dsx1IntervalNumber interface{}
 
     // The number of Errored Seconds. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Intervaless interface{}
+    Dsx1IntervalESs interface{}
 
     // The number of Severely Errored Seconds. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Intervalsess interface{}
+    Dsx1IntervalSESs interface{}
 
     // The number of Severely Errored Framing Seconds. The type is interface{}
     // with range: 0..4294967295.
-    Dsx1Intervalsefss interface{}
+    Dsx1IntervalSEFSs interface{}
 
     // The number of Unavailable Seconds.  This object may decrease if the
     // occurance of unavailable seconds occurs across an inteval boundary. The
     // type is interface{} with range: 0..4294967295.
-    Dsx1Intervaluass interface{}
+    Dsx1IntervalUASs interface{}
 
     // The number of Controlled Slip Seconds. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Intervalcsss interface{}
+    Dsx1IntervalCSSs interface{}
 
     // The number of Path Coding Violations. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Intervalpcvs interface{}
+    Dsx1IntervalPCVs interface{}
 
     // The number of Line Errored Seconds. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Intervalless interface{}
+    Dsx1IntervalLESs interface{}
 
     // The number of Bursty Errored Seconds. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Intervalbess interface{}
+    Dsx1IntervalBESs interface{}
 
     // The number of Degraded Minutes. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Intervaldms interface{}
+    Dsx1IntervalDMs interface{}
 
     // The number of Line Code Violations. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Intervallcvs interface{}
+    Dsx1IntervalLCVs interface{}
 
     // This variable indicates if the data for this interval is valid. The type is
     // bool.
-    Dsx1Intervalvaliddata interface{}
+    Dsx1IntervalValidData interface{}
 }
 
-func (dsx1Intervalentry *DS1MIB_Dsx1Intervaltable_Dsx1Intervalentry) GetEntityData() *types.CommonEntityData {
-    dsx1Intervalentry.EntityData.YFilter = dsx1Intervalentry.YFilter
-    dsx1Intervalentry.EntityData.YangName = "dsx1IntervalEntry"
-    dsx1Intervalentry.EntityData.BundleName = "cisco_ios_xe"
-    dsx1Intervalentry.EntityData.ParentYangName = "dsx1IntervalTable"
-    dsx1Intervalentry.EntityData.SegmentPath = "dsx1IntervalEntry" + "[dsx1IntervalIndex='" + fmt.Sprintf("%v", dsx1Intervalentry.Dsx1Intervalindex) + "']" + "[dsx1IntervalNumber='" + fmt.Sprintf("%v", dsx1Intervalentry.Dsx1Intervalnumber) + "']"
-    dsx1Intervalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dsx1Intervalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dsx1Intervalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dsx1IntervalEntry *DS1MIB_Dsx1IntervalTable_Dsx1IntervalEntry) GetEntityData() *types.CommonEntityData {
+    dsx1IntervalEntry.EntityData.YFilter = dsx1IntervalEntry.YFilter
+    dsx1IntervalEntry.EntityData.YangName = "dsx1IntervalEntry"
+    dsx1IntervalEntry.EntityData.BundleName = "cisco_ios_xe"
+    dsx1IntervalEntry.EntityData.ParentYangName = "dsx1IntervalTable"
+    dsx1IntervalEntry.EntityData.SegmentPath = "dsx1IntervalEntry" + types.AddKeyToken(dsx1IntervalEntry.Dsx1IntervalIndex, "dsx1IntervalIndex") + types.AddKeyToken(dsx1IntervalEntry.Dsx1IntervalNumber, "dsx1IntervalNumber")
+    dsx1IntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx1IntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx1IntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dsx1Intervalentry.EntityData.Children = make(map[string]types.YChild)
-    dsx1Intervalentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dsx1Intervalentry.EntityData.Leafs["dsx1IntervalIndex"] = types.YLeaf{"Dsx1Intervalindex", dsx1Intervalentry.Dsx1Intervalindex}
-    dsx1Intervalentry.EntityData.Leafs["dsx1IntervalNumber"] = types.YLeaf{"Dsx1Intervalnumber", dsx1Intervalentry.Dsx1Intervalnumber}
-    dsx1Intervalentry.EntityData.Leafs["dsx1IntervalESs"] = types.YLeaf{"Dsx1Intervaless", dsx1Intervalentry.Dsx1Intervaless}
-    dsx1Intervalentry.EntityData.Leafs["dsx1IntervalSESs"] = types.YLeaf{"Dsx1Intervalsess", dsx1Intervalentry.Dsx1Intervalsess}
-    dsx1Intervalentry.EntityData.Leafs["dsx1IntervalSEFSs"] = types.YLeaf{"Dsx1Intervalsefss", dsx1Intervalentry.Dsx1Intervalsefss}
-    dsx1Intervalentry.EntityData.Leafs["dsx1IntervalUASs"] = types.YLeaf{"Dsx1Intervaluass", dsx1Intervalentry.Dsx1Intervaluass}
-    dsx1Intervalentry.EntityData.Leafs["dsx1IntervalCSSs"] = types.YLeaf{"Dsx1Intervalcsss", dsx1Intervalentry.Dsx1Intervalcsss}
-    dsx1Intervalentry.EntityData.Leafs["dsx1IntervalPCVs"] = types.YLeaf{"Dsx1Intervalpcvs", dsx1Intervalentry.Dsx1Intervalpcvs}
-    dsx1Intervalentry.EntityData.Leafs["dsx1IntervalLESs"] = types.YLeaf{"Dsx1Intervalless", dsx1Intervalentry.Dsx1Intervalless}
-    dsx1Intervalentry.EntityData.Leafs["dsx1IntervalBESs"] = types.YLeaf{"Dsx1Intervalbess", dsx1Intervalentry.Dsx1Intervalbess}
-    dsx1Intervalentry.EntityData.Leafs["dsx1IntervalDMs"] = types.YLeaf{"Dsx1Intervaldms", dsx1Intervalentry.Dsx1Intervaldms}
-    dsx1Intervalentry.EntityData.Leafs["dsx1IntervalLCVs"] = types.YLeaf{"Dsx1Intervallcvs", dsx1Intervalentry.Dsx1Intervallcvs}
-    dsx1Intervalentry.EntityData.Leafs["dsx1IntervalValidData"] = types.YLeaf{"Dsx1Intervalvaliddata", dsx1Intervalentry.Dsx1Intervalvaliddata}
-    return &(dsx1Intervalentry.EntityData)
+    dsx1IntervalEntry.EntityData.Children = types.NewOrderedMap()
+    dsx1IntervalEntry.EntityData.Leafs = types.NewOrderedMap()
+    dsx1IntervalEntry.EntityData.Leafs.Append("dsx1IntervalIndex", types.YLeaf{"Dsx1IntervalIndex", dsx1IntervalEntry.Dsx1IntervalIndex})
+    dsx1IntervalEntry.EntityData.Leafs.Append("dsx1IntervalNumber", types.YLeaf{"Dsx1IntervalNumber", dsx1IntervalEntry.Dsx1IntervalNumber})
+    dsx1IntervalEntry.EntityData.Leafs.Append("dsx1IntervalESs", types.YLeaf{"Dsx1IntervalESs", dsx1IntervalEntry.Dsx1IntervalESs})
+    dsx1IntervalEntry.EntityData.Leafs.Append("dsx1IntervalSESs", types.YLeaf{"Dsx1IntervalSESs", dsx1IntervalEntry.Dsx1IntervalSESs})
+    dsx1IntervalEntry.EntityData.Leafs.Append("dsx1IntervalSEFSs", types.YLeaf{"Dsx1IntervalSEFSs", dsx1IntervalEntry.Dsx1IntervalSEFSs})
+    dsx1IntervalEntry.EntityData.Leafs.Append("dsx1IntervalUASs", types.YLeaf{"Dsx1IntervalUASs", dsx1IntervalEntry.Dsx1IntervalUASs})
+    dsx1IntervalEntry.EntityData.Leafs.Append("dsx1IntervalCSSs", types.YLeaf{"Dsx1IntervalCSSs", dsx1IntervalEntry.Dsx1IntervalCSSs})
+    dsx1IntervalEntry.EntityData.Leafs.Append("dsx1IntervalPCVs", types.YLeaf{"Dsx1IntervalPCVs", dsx1IntervalEntry.Dsx1IntervalPCVs})
+    dsx1IntervalEntry.EntityData.Leafs.Append("dsx1IntervalLESs", types.YLeaf{"Dsx1IntervalLESs", dsx1IntervalEntry.Dsx1IntervalLESs})
+    dsx1IntervalEntry.EntityData.Leafs.Append("dsx1IntervalBESs", types.YLeaf{"Dsx1IntervalBESs", dsx1IntervalEntry.Dsx1IntervalBESs})
+    dsx1IntervalEntry.EntityData.Leafs.Append("dsx1IntervalDMs", types.YLeaf{"Dsx1IntervalDMs", dsx1IntervalEntry.Dsx1IntervalDMs})
+    dsx1IntervalEntry.EntityData.Leafs.Append("dsx1IntervalLCVs", types.YLeaf{"Dsx1IntervalLCVs", dsx1IntervalEntry.Dsx1IntervalLCVs})
+    dsx1IntervalEntry.EntityData.Leafs.Append("dsx1IntervalValidData", types.YLeaf{"Dsx1IntervalValidData", dsx1IntervalEntry.Dsx1IntervalValidData})
+
+    dsx1IntervalEntry.EntityData.YListKeys = []string {"Dsx1IntervalIndex", "Dsx1IntervalNumber"}
+
+    return &(dsx1IntervalEntry.EntityData)
 }
 
-// DS1MIB_Dsx1Totaltable
+// DS1MIB_Dsx1TotalTable
 // The DS1 Total Table contains the cumulative sum
 // of the various statistics for the 24 hour period
 // preceding the current interval.
-type DS1MIB_Dsx1Totaltable struct {
+type DS1MIB_Dsx1TotalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the DS1 Total table. The type is slice of
-    // DS1MIB_Dsx1Totaltable_Dsx1Totalentry.
-    Dsx1Totalentry []DS1MIB_Dsx1Totaltable_Dsx1Totalentry
+    // DS1MIB_Dsx1TotalTable_Dsx1TotalEntry.
+    Dsx1TotalEntry []*DS1MIB_Dsx1TotalTable_Dsx1TotalEntry
 }
 
-func (dsx1Totaltable *DS1MIB_Dsx1Totaltable) GetEntityData() *types.CommonEntityData {
-    dsx1Totaltable.EntityData.YFilter = dsx1Totaltable.YFilter
-    dsx1Totaltable.EntityData.YangName = "dsx1TotalTable"
-    dsx1Totaltable.EntityData.BundleName = "cisco_ios_xe"
-    dsx1Totaltable.EntityData.ParentYangName = "DS1-MIB"
-    dsx1Totaltable.EntityData.SegmentPath = "dsx1TotalTable"
-    dsx1Totaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dsx1Totaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dsx1Totaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dsx1TotalTable *DS1MIB_Dsx1TotalTable) GetEntityData() *types.CommonEntityData {
+    dsx1TotalTable.EntityData.YFilter = dsx1TotalTable.YFilter
+    dsx1TotalTable.EntityData.YangName = "dsx1TotalTable"
+    dsx1TotalTable.EntityData.BundleName = "cisco_ios_xe"
+    dsx1TotalTable.EntityData.ParentYangName = "DS1-MIB"
+    dsx1TotalTable.EntityData.SegmentPath = "dsx1TotalTable"
+    dsx1TotalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx1TotalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx1TotalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dsx1Totaltable.EntityData.Children = make(map[string]types.YChild)
-    dsx1Totaltable.EntityData.Children["dsx1TotalEntry"] = types.YChild{"Dsx1Totalentry", nil}
-    for i := range dsx1Totaltable.Dsx1Totalentry {
-        dsx1Totaltable.EntityData.Children[types.GetSegmentPath(&dsx1Totaltable.Dsx1Totalentry[i])] = types.YChild{"Dsx1Totalentry", &dsx1Totaltable.Dsx1Totalentry[i]}
+    dsx1TotalTable.EntityData.Children = types.NewOrderedMap()
+    dsx1TotalTable.EntityData.Children.Append("dsx1TotalEntry", types.YChild{"Dsx1TotalEntry", nil})
+    for i := range dsx1TotalTable.Dsx1TotalEntry {
+        dsx1TotalTable.EntityData.Children.Append(types.GetSegmentPath(dsx1TotalTable.Dsx1TotalEntry[i]), types.YChild{"Dsx1TotalEntry", dsx1TotalTable.Dsx1TotalEntry[i]})
     }
-    dsx1Totaltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dsx1Totaltable.EntityData)
+    dsx1TotalTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dsx1TotalTable.EntityData.YListKeys = []string {}
+
+    return &(dsx1TotalTable.EntityData)
 }
 
-// DS1MIB_Dsx1Totaltable_Dsx1Totalentry
+// DS1MIB_Dsx1TotalTable_Dsx1TotalEntry
 // An entry in the DS1 Total table.
-type DS1MIB_Dsx1Totaltable_Dsx1Totalentry struct {
+type DS1MIB_Dsx1TotalTable_Dsx1TotalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -808,123 +832,129 @@ type DS1MIB_Dsx1Totaltable_Dsx1Totalentry struct {
     // particular value of this index is the same interface as identified by the
     // same value as a dsx1LineIndex object instance. The type is interface{} with
     // range: 1..2147483647.
-    Dsx1Totalindex interface{}
+    Dsx1TotalIndex interface{}
 
     // The sum of Errored Seconds encountered by a DS1 interface in the previous
     // 24 hour interval. Invalid 15 minute intervals count as 0. The type is
     // interface{} with range: 0..4294967295.
-    Dsx1Totaless interface{}
+    Dsx1TotalESs interface{}
 
     // The number of Severely Errored Seconds encountered by a DS1 interface in
     // the previous 24 hour interval.  Invalid 15 minute intervals count as 0. The
     // type is interface{} with range: 0..4294967295.
-    Dsx1Totalsess interface{}
+    Dsx1TotalSESs interface{}
 
     // The number of Severely Errored Framing Seconds encountered by a DS1
     // interface in the previous 24 hour interval.  Invalid 15 minute intervals
     // count as 0. The type is interface{} with range: 0..4294967295.
-    Dsx1Totalsefss interface{}
+    Dsx1TotalSEFSs interface{}
 
     // The number of Unavailable Seconds encountered by a DS1 interface in the
     // previous 24 hour interval. Invalid 15 minute intervals count as 0. The type
     // is interface{} with range: 0..4294967295.
-    Dsx1Totaluass interface{}
+    Dsx1TotalUASs interface{}
 
     // The number of Controlled Slip Seconds encountered by a DS1 interface in the
     // previous 24 hour interval.  Invalid 15 minute intervals count as 0. The
     // type is interface{} with range: 0..4294967295.
-    Dsx1Totalcsss interface{}
+    Dsx1TotalCSSs interface{}
 
     // The number of Path Coding Violations encountered by a DS1 interface in the
     // previous 24 hour interval.  Invalid 15 minute intervals count as 0. The
     // type is interface{} with range: 0..4294967295.
-    Dsx1Totalpcvs interface{}
+    Dsx1TotalPCVs interface{}
 
     // The number of Line Errored Seconds encountered by a DS1 interface in the
     // previous 24 hour interval. Invalid 15 minute intervals count as 0. The type
     // is interface{} with range: 0..4294967295.
-    Dsx1Totalless interface{}
+    Dsx1TotalLESs interface{}
 
     // The number of Bursty Errored Seconds (BESs) encountered by a DS1 interface
     // in the previous 24 hour interval. Invalid 15 minute intervals count as 0.
     // The type is interface{} with range: 0..4294967295.
-    Dsx1Totalbess interface{}
+    Dsx1TotalBESs interface{}
 
     // The number of Degraded Minutes (DMs) encountered by a DS1 interface in the
     // previous 24 hour interval.  Invalid 15 minute intervals count as 0. The
     // type is interface{} with range: 0..4294967295.
-    Dsx1Totaldms interface{}
+    Dsx1TotalDMs interface{}
 
     // The number of Line Code Violations (LCVs) encountered by a DS1 interface in
     // the current 15 minute interval.  Invalid 15 minute intervals count as 0.
     // The type is interface{} with range: 0..4294967295.
-    Dsx1Totallcvs interface{}
+    Dsx1TotalLCVs interface{}
 }
 
-func (dsx1Totalentry *DS1MIB_Dsx1Totaltable_Dsx1Totalentry) GetEntityData() *types.CommonEntityData {
-    dsx1Totalentry.EntityData.YFilter = dsx1Totalentry.YFilter
-    dsx1Totalentry.EntityData.YangName = "dsx1TotalEntry"
-    dsx1Totalentry.EntityData.BundleName = "cisco_ios_xe"
-    dsx1Totalentry.EntityData.ParentYangName = "dsx1TotalTable"
-    dsx1Totalentry.EntityData.SegmentPath = "dsx1TotalEntry" + "[dsx1TotalIndex='" + fmt.Sprintf("%v", dsx1Totalentry.Dsx1Totalindex) + "']"
-    dsx1Totalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dsx1Totalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dsx1Totalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dsx1TotalEntry *DS1MIB_Dsx1TotalTable_Dsx1TotalEntry) GetEntityData() *types.CommonEntityData {
+    dsx1TotalEntry.EntityData.YFilter = dsx1TotalEntry.YFilter
+    dsx1TotalEntry.EntityData.YangName = "dsx1TotalEntry"
+    dsx1TotalEntry.EntityData.BundleName = "cisco_ios_xe"
+    dsx1TotalEntry.EntityData.ParentYangName = "dsx1TotalTable"
+    dsx1TotalEntry.EntityData.SegmentPath = "dsx1TotalEntry" + types.AddKeyToken(dsx1TotalEntry.Dsx1TotalIndex, "dsx1TotalIndex")
+    dsx1TotalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx1TotalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx1TotalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dsx1Totalentry.EntityData.Children = make(map[string]types.YChild)
-    dsx1Totalentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dsx1Totalentry.EntityData.Leafs["dsx1TotalIndex"] = types.YLeaf{"Dsx1Totalindex", dsx1Totalentry.Dsx1Totalindex}
-    dsx1Totalentry.EntityData.Leafs["dsx1TotalESs"] = types.YLeaf{"Dsx1Totaless", dsx1Totalentry.Dsx1Totaless}
-    dsx1Totalentry.EntityData.Leafs["dsx1TotalSESs"] = types.YLeaf{"Dsx1Totalsess", dsx1Totalentry.Dsx1Totalsess}
-    dsx1Totalentry.EntityData.Leafs["dsx1TotalSEFSs"] = types.YLeaf{"Dsx1Totalsefss", dsx1Totalentry.Dsx1Totalsefss}
-    dsx1Totalentry.EntityData.Leafs["dsx1TotalUASs"] = types.YLeaf{"Dsx1Totaluass", dsx1Totalentry.Dsx1Totaluass}
-    dsx1Totalentry.EntityData.Leafs["dsx1TotalCSSs"] = types.YLeaf{"Dsx1Totalcsss", dsx1Totalentry.Dsx1Totalcsss}
-    dsx1Totalentry.EntityData.Leafs["dsx1TotalPCVs"] = types.YLeaf{"Dsx1Totalpcvs", dsx1Totalentry.Dsx1Totalpcvs}
-    dsx1Totalentry.EntityData.Leafs["dsx1TotalLESs"] = types.YLeaf{"Dsx1Totalless", dsx1Totalentry.Dsx1Totalless}
-    dsx1Totalentry.EntityData.Leafs["dsx1TotalBESs"] = types.YLeaf{"Dsx1Totalbess", dsx1Totalentry.Dsx1Totalbess}
-    dsx1Totalentry.EntityData.Leafs["dsx1TotalDMs"] = types.YLeaf{"Dsx1Totaldms", dsx1Totalentry.Dsx1Totaldms}
-    dsx1Totalentry.EntityData.Leafs["dsx1TotalLCVs"] = types.YLeaf{"Dsx1Totallcvs", dsx1Totalentry.Dsx1Totallcvs}
-    return &(dsx1Totalentry.EntityData)
+    dsx1TotalEntry.EntityData.Children = types.NewOrderedMap()
+    dsx1TotalEntry.EntityData.Leafs = types.NewOrderedMap()
+    dsx1TotalEntry.EntityData.Leafs.Append("dsx1TotalIndex", types.YLeaf{"Dsx1TotalIndex", dsx1TotalEntry.Dsx1TotalIndex})
+    dsx1TotalEntry.EntityData.Leafs.Append("dsx1TotalESs", types.YLeaf{"Dsx1TotalESs", dsx1TotalEntry.Dsx1TotalESs})
+    dsx1TotalEntry.EntityData.Leafs.Append("dsx1TotalSESs", types.YLeaf{"Dsx1TotalSESs", dsx1TotalEntry.Dsx1TotalSESs})
+    dsx1TotalEntry.EntityData.Leafs.Append("dsx1TotalSEFSs", types.YLeaf{"Dsx1TotalSEFSs", dsx1TotalEntry.Dsx1TotalSEFSs})
+    dsx1TotalEntry.EntityData.Leafs.Append("dsx1TotalUASs", types.YLeaf{"Dsx1TotalUASs", dsx1TotalEntry.Dsx1TotalUASs})
+    dsx1TotalEntry.EntityData.Leafs.Append("dsx1TotalCSSs", types.YLeaf{"Dsx1TotalCSSs", dsx1TotalEntry.Dsx1TotalCSSs})
+    dsx1TotalEntry.EntityData.Leafs.Append("dsx1TotalPCVs", types.YLeaf{"Dsx1TotalPCVs", dsx1TotalEntry.Dsx1TotalPCVs})
+    dsx1TotalEntry.EntityData.Leafs.Append("dsx1TotalLESs", types.YLeaf{"Dsx1TotalLESs", dsx1TotalEntry.Dsx1TotalLESs})
+    dsx1TotalEntry.EntityData.Leafs.Append("dsx1TotalBESs", types.YLeaf{"Dsx1TotalBESs", dsx1TotalEntry.Dsx1TotalBESs})
+    dsx1TotalEntry.EntityData.Leafs.Append("dsx1TotalDMs", types.YLeaf{"Dsx1TotalDMs", dsx1TotalEntry.Dsx1TotalDMs})
+    dsx1TotalEntry.EntityData.Leafs.Append("dsx1TotalLCVs", types.YLeaf{"Dsx1TotalLCVs", dsx1TotalEntry.Dsx1TotalLCVs})
+
+    dsx1TotalEntry.EntityData.YListKeys = []string {"Dsx1TotalIndex"}
+
+    return &(dsx1TotalEntry.EntityData)
 }
 
-// DS1MIB_Dsx1Farendcurrenttable
+// DS1MIB_Dsx1FarEndCurrentTable
 // The DS1 Far End Current table contains various
 // statistics being collected for the current 15
 // minute interval.  The statistics are collected
 // from the far end messages on the Facilities Data
 // Link.  The definitions are the same as described
 // for the near-end information.
-type DS1MIB_Dsx1Farendcurrenttable struct {
+type DS1MIB_Dsx1FarEndCurrentTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the DS1 Far End Current table. The type is slice of
-    // DS1MIB_Dsx1Farendcurrenttable_Dsx1Farendcurrententry.
-    Dsx1Farendcurrententry []DS1MIB_Dsx1Farendcurrenttable_Dsx1Farendcurrententry
+    // DS1MIB_Dsx1FarEndCurrentTable_Dsx1FarEndCurrentEntry.
+    Dsx1FarEndCurrentEntry []*DS1MIB_Dsx1FarEndCurrentTable_Dsx1FarEndCurrentEntry
 }
 
-func (dsx1Farendcurrenttable *DS1MIB_Dsx1Farendcurrenttable) GetEntityData() *types.CommonEntityData {
-    dsx1Farendcurrenttable.EntityData.YFilter = dsx1Farendcurrenttable.YFilter
-    dsx1Farendcurrenttable.EntityData.YangName = "dsx1FarEndCurrentTable"
-    dsx1Farendcurrenttable.EntityData.BundleName = "cisco_ios_xe"
-    dsx1Farendcurrenttable.EntityData.ParentYangName = "DS1-MIB"
-    dsx1Farendcurrenttable.EntityData.SegmentPath = "dsx1FarEndCurrentTable"
-    dsx1Farendcurrenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dsx1Farendcurrenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dsx1Farendcurrenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dsx1FarEndCurrentTable *DS1MIB_Dsx1FarEndCurrentTable) GetEntityData() *types.CommonEntityData {
+    dsx1FarEndCurrentTable.EntityData.YFilter = dsx1FarEndCurrentTable.YFilter
+    dsx1FarEndCurrentTable.EntityData.YangName = "dsx1FarEndCurrentTable"
+    dsx1FarEndCurrentTable.EntityData.BundleName = "cisco_ios_xe"
+    dsx1FarEndCurrentTable.EntityData.ParentYangName = "DS1-MIB"
+    dsx1FarEndCurrentTable.EntityData.SegmentPath = "dsx1FarEndCurrentTable"
+    dsx1FarEndCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx1FarEndCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx1FarEndCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dsx1Farendcurrenttable.EntityData.Children = make(map[string]types.YChild)
-    dsx1Farendcurrenttable.EntityData.Children["dsx1FarEndCurrentEntry"] = types.YChild{"Dsx1Farendcurrententry", nil}
-    for i := range dsx1Farendcurrenttable.Dsx1Farendcurrententry {
-        dsx1Farendcurrenttable.EntityData.Children[types.GetSegmentPath(&dsx1Farendcurrenttable.Dsx1Farendcurrententry[i])] = types.YChild{"Dsx1Farendcurrententry", &dsx1Farendcurrenttable.Dsx1Farendcurrententry[i]}
+    dsx1FarEndCurrentTable.EntityData.Children = types.NewOrderedMap()
+    dsx1FarEndCurrentTable.EntityData.Children.Append("dsx1FarEndCurrentEntry", types.YChild{"Dsx1FarEndCurrentEntry", nil})
+    for i := range dsx1FarEndCurrentTable.Dsx1FarEndCurrentEntry {
+        dsx1FarEndCurrentTable.EntityData.Children.Append(types.GetSegmentPath(dsx1FarEndCurrentTable.Dsx1FarEndCurrentEntry[i]), types.YChild{"Dsx1FarEndCurrentEntry", dsx1FarEndCurrentTable.Dsx1FarEndCurrentEntry[i]})
     }
-    dsx1Farendcurrenttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dsx1Farendcurrenttable.EntityData)
+    dsx1FarEndCurrentTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dsx1FarEndCurrentTable.EntityData.YListKeys = []string {}
+
+    return &(dsx1FarEndCurrentTable.EntityData)
 }
 
-// DS1MIB_Dsx1Farendcurrenttable_Dsx1Farendcurrententry
+// DS1MIB_Dsx1FarEndCurrentTable_Dsx1FarEndCurrentEntry
 // An entry in the DS1 Far End Current table.
-type DS1MIB_Dsx1Farendcurrenttable_Dsx1Farendcurrententry struct {
+type DS1MIB_Dsx1FarEndCurrentTable_Dsx1FarEndCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -933,94 +963,97 @@ type DS1MIB_Dsx1Farendcurrenttable_Dsx1Farendcurrententry struct {
     // particular value of this index is identical to the interface identified by
     // the same value of dsx1LineIndex. The type is interface{} with range:
     // 1..2147483647.
-    Dsx1Farendcurrentindex interface{}
+    Dsx1FarEndCurrentIndex interface{}
 
     // The number of seconds that have elapsed since the beginning of the far end
     // current error-measurement period.  If, for some reason, such as an
     // adjustment in the system's time-of-day clock, the current interval exceeds
     // the maximum value, the agent will return the maximum value. The type is
     // interface{} with range: 0..899.
-    Dsx1Farendtimeelapsed interface{}
+    Dsx1FarEndTimeElapsed interface{}
 
     // The number of previous far end intervals for which data was collected.  The
     // value will be 96 unless the interface was brought online within the last 24
     // hours, in which case the value will be the number of complete 15 minute far
     // end intervals since the interface has been online. The type is interface{}
     // with range: 0..96.
-    Dsx1Farendvalidintervals interface{}
+    Dsx1FarEndValidIntervals interface{}
 
     // The number of Far End Errored Seconds. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Farendcurrentess interface{}
+    Dsx1FarEndCurrentESs interface{}
 
     // The number of Far End Severely Errored Seconds. The type is interface{}
     // with range: 0..4294967295.
-    Dsx1Farendcurrentsess interface{}
+    Dsx1FarEndCurrentSESs interface{}
 
     // The number of Far End Severely Errored Framing Seconds. The type is
     // interface{} with range: 0..4294967295.
-    Dsx1Farendcurrentsefss interface{}
+    Dsx1FarEndCurrentSEFSs interface{}
 
     // The number of Unavailable Seconds. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Farendcurrentuass interface{}
+    Dsx1FarEndCurrentUASs interface{}
 
     // The number of Far End Controlled Slip Seconds. The type is interface{} with
     // range: 0..4294967295.
-    Dsx1Farendcurrentcsss interface{}
+    Dsx1FarEndCurrentCSSs interface{}
 
     // The number of Far End Line Errored Seconds. The type is interface{} with
     // range: 0..4294967295.
-    Dsx1Farendcurrentless interface{}
+    Dsx1FarEndCurrentLESs interface{}
 
     // The number of Far End Path Coding Violations. The type is interface{} with
     // range: 0..4294967295.
-    Dsx1Farendcurrentpcvs interface{}
+    Dsx1FarEndCurrentPCVs interface{}
 
     // The number of Far End Bursty Errored Seconds. The type is interface{} with
     // range: 0..4294967295.
-    Dsx1Farendcurrentbess interface{}
+    Dsx1FarEndCurrentBESs interface{}
 
     // The number of Far End Degraded Minutes. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Farendcurrentdms interface{}
+    Dsx1FarEndCurrentDMs interface{}
 
     // The number of intervals in the range from 0 to dsx1FarEndValidIntervals for
     // which no data is available.  This object will typically be zero except in
     // cases where the data for some intervals are not available (e.g., in proxy
     // situations). The type is interface{} with range: 0..96.
-    Dsx1Farendinvalidintervals interface{}
+    Dsx1FarEndInvalidIntervals interface{}
 }
 
-func (dsx1Farendcurrententry *DS1MIB_Dsx1Farendcurrenttable_Dsx1Farendcurrententry) GetEntityData() *types.CommonEntityData {
-    dsx1Farendcurrententry.EntityData.YFilter = dsx1Farendcurrententry.YFilter
-    dsx1Farendcurrententry.EntityData.YangName = "dsx1FarEndCurrentEntry"
-    dsx1Farendcurrententry.EntityData.BundleName = "cisco_ios_xe"
-    dsx1Farendcurrententry.EntityData.ParentYangName = "dsx1FarEndCurrentTable"
-    dsx1Farendcurrententry.EntityData.SegmentPath = "dsx1FarEndCurrentEntry" + "[dsx1FarEndCurrentIndex='" + fmt.Sprintf("%v", dsx1Farendcurrententry.Dsx1Farendcurrentindex) + "']"
-    dsx1Farendcurrententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dsx1Farendcurrententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dsx1Farendcurrententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dsx1FarEndCurrentEntry *DS1MIB_Dsx1FarEndCurrentTable_Dsx1FarEndCurrentEntry) GetEntityData() *types.CommonEntityData {
+    dsx1FarEndCurrentEntry.EntityData.YFilter = dsx1FarEndCurrentEntry.YFilter
+    dsx1FarEndCurrentEntry.EntityData.YangName = "dsx1FarEndCurrentEntry"
+    dsx1FarEndCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
+    dsx1FarEndCurrentEntry.EntityData.ParentYangName = "dsx1FarEndCurrentTable"
+    dsx1FarEndCurrentEntry.EntityData.SegmentPath = "dsx1FarEndCurrentEntry" + types.AddKeyToken(dsx1FarEndCurrentEntry.Dsx1FarEndCurrentIndex, "dsx1FarEndCurrentIndex")
+    dsx1FarEndCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx1FarEndCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx1FarEndCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dsx1Farendcurrententry.EntityData.Children = make(map[string]types.YChild)
-    dsx1Farendcurrententry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dsx1Farendcurrententry.EntityData.Leafs["dsx1FarEndCurrentIndex"] = types.YLeaf{"Dsx1Farendcurrentindex", dsx1Farendcurrententry.Dsx1Farendcurrentindex}
-    dsx1Farendcurrententry.EntityData.Leafs["dsx1FarEndTimeElapsed"] = types.YLeaf{"Dsx1Farendtimeelapsed", dsx1Farendcurrententry.Dsx1Farendtimeelapsed}
-    dsx1Farendcurrententry.EntityData.Leafs["dsx1FarEndValidIntervals"] = types.YLeaf{"Dsx1Farendvalidintervals", dsx1Farendcurrententry.Dsx1Farendvalidintervals}
-    dsx1Farendcurrententry.EntityData.Leafs["dsx1FarEndCurrentESs"] = types.YLeaf{"Dsx1Farendcurrentess", dsx1Farendcurrententry.Dsx1Farendcurrentess}
-    dsx1Farendcurrententry.EntityData.Leafs["dsx1FarEndCurrentSESs"] = types.YLeaf{"Dsx1Farendcurrentsess", dsx1Farendcurrententry.Dsx1Farendcurrentsess}
-    dsx1Farendcurrententry.EntityData.Leafs["dsx1FarEndCurrentSEFSs"] = types.YLeaf{"Dsx1Farendcurrentsefss", dsx1Farendcurrententry.Dsx1Farendcurrentsefss}
-    dsx1Farendcurrententry.EntityData.Leafs["dsx1FarEndCurrentUASs"] = types.YLeaf{"Dsx1Farendcurrentuass", dsx1Farendcurrententry.Dsx1Farendcurrentuass}
-    dsx1Farendcurrententry.EntityData.Leafs["dsx1FarEndCurrentCSSs"] = types.YLeaf{"Dsx1Farendcurrentcsss", dsx1Farendcurrententry.Dsx1Farendcurrentcsss}
-    dsx1Farendcurrententry.EntityData.Leafs["dsx1FarEndCurrentLESs"] = types.YLeaf{"Dsx1Farendcurrentless", dsx1Farendcurrententry.Dsx1Farendcurrentless}
-    dsx1Farendcurrententry.EntityData.Leafs["dsx1FarEndCurrentPCVs"] = types.YLeaf{"Dsx1Farendcurrentpcvs", dsx1Farendcurrententry.Dsx1Farendcurrentpcvs}
-    dsx1Farendcurrententry.EntityData.Leafs["dsx1FarEndCurrentBESs"] = types.YLeaf{"Dsx1Farendcurrentbess", dsx1Farendcurrententry.Dsx1Farendcurrentbess}
-    dsx1Farendcurrententry.EntityData.Leafs["dsx1FarEndCurrentDMs"] = types.YLeaf{"Dsx1Farendcurrentdms", dsx1Farendcurrententry.Dsx1Farendcurrentdms}
-    dsx1Farendcurrententry.EntityData.Leafs["dsx1FarEndInvalidIntervals"] = types.YLeaf{"Dsx1Farendinvalidintervals", dsx1Farendcurrententry.Dsx1Farendinvalidintervals}
-    return &(dsx1Farendcurrententry.EntityData)
+    dsx1FarEndCurrentEntry.EntityData.Children = types.NewOrderedMap()
+    dsx1FarEndCurrentEntry.EntityData.Leafs = types.NewOrderedMap()
+    dsx1FarEndCurrentEntry.EntityData.Leafs.Append("dsx1FarEndCurrentIndex", types.YLeaf{"Dsx1FarEndCurrentIndex", dsx1FarEndCurrentEntry.Dsx1FarEndCurrentIndex})
+    dsx1FarEndCurrentEntry.EntityData.Leafs.Append("dsx1FarEndTimeElapsed", types.YLeaf{"Dsx1FarEndTimeElapsed", dsx1FarEndCurrentEntry.Dsx1FarEndTimeElapsed})
+    dsx1FarEndCurrentEntry.EntityData.Leafs.Append("dsx1FarEndValidIntervals", types.YLeaf{"Dsx1FarEndValidIntervals", dsx1FarEndCurrentEntry.Dsx1FarEndValidIntervals})
+    dsx1FarEndCurrentEntry.EntityData.Leafs.Append("dsx1FarEndCurrentESs", types.YLeaf{"Dsx1FarEndCurrentESs", dsx1FarEndCurrentEntry.Dsx1FarEndCurrentESs})
+    dsx1FarEndCurrentEntry.EntityData.Leafs.Append("dsx1FarEndCurrentSESs", types.YLeaf{"Dsx1FarEndCurrentSESs", dsx1FarEndCurrentEntry.Dsx1FarEndCurrentSESs})
+    dsx1FarEndCurrentEntry.EntityData.Leafs.Append("dsx1FarEndCurrentSEFSs", types.YLeaf{"Dsx1FarEndCurrentSEFSs", dsx1FarEndCurrentEntry.Dsx1FarEndCurrentSEFSs})
+    dsx1FarEndCurrentEntry.EntityData.Leafs.Append("dsx1FarEndCurrentUASs", types.YLeaf{"Dsx1FarEndCurrentUASs", dsx1FarEndCurrentEntry.Dsx1FarEndCurrentUASs})
+    dsx1FarEndCurrentEntry.EntityData.Leafs.Append("dsx1FarEndCurrentCSSs", types.YLeaf{"Dsx1FarEndCurrentCSSs", dsx1FarEndCurrentEntry.Dsx1FarEndCurrentCSSs})
+    dsx1FarEndCurrentEntry.EntityData.Leafs.Append("dsx1FarEndCurrentLESs", types.YLeaf{"Dsx1FarEndCurrentLESs", dsx1FarEndCurrentEntry.Dsx1FarEndCurrentLESs})
+    dsx1FarEndCurrentEntry.EntityData.Leafs.Append("dsx1FarEndCurrentPCVs", types.YLeaf{"Dsx1FarEndCurrentPCVs", dsx1FarEndCurrentEntry.Dsx1FarEndCurrentPCVs})
+    dsx1FarEndCurrentEntry.EntityData.Leafs.Append("dsx1FarEndCurrentBESs", types.YLeaf{"Dsx1FarEndCurrentBESs", dsx1FarEndCurrentEntry.Dsx1FarEndCurrentBESs})
+    dsx1FarEndCurrentEntry.EntityData.Leafs.Append("dsx1FarEndCurrentDMs", types.YLeaf{"Dsx1FarEndCurrentDMs", dsx1FarEndCurrentEntry.Dsx1FarEndCurrentDMs})
+    dsx1FarEndCurrentEntry.EntityData.Leafs.Append("dsx1FarEndInvalidIntervals", types.YLeaf{"Dsx1FarEndInvalidIntervals", dsx1FarEndCurrentEntry.Dsx1FarEndInvalidIntervals})
+
+    dsx1FarEndCurrentEntry.EntityData.YListKeys = []string {"Dsx1FarEndCurrentIndex"}
+
+    return &(dsx1FarEndCurrentEntry.EntityData)
 }
 
-// DS1MIB_Dsx1Farendintervaltable
+// DS1MIB_Dsx1FarEndIntervalTable
 // The DS1 Far End Interval Table contains various
 // statistics collected by each DS1 interface over
 // the previous 24 hours of operation.  The past 24
@@ -1029,37 +1062,40 @@ func (dsx1Farendcurrententry *DS1MIB_Dsx1Farendcurrenttable_Dsx1Farendcurrentent
 // such interval (identified by
 // dsx1FarEndIntervalNumber) for one specific
 // instance (identified by dsx1FarEndIntervalIndex).
-type DS1MIB_Dsx1Farendintervaltable struct {
+type DS1MIB_Dsx1FarEndIntervalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the DS1 Far End Interval table. The type is slice of
-    // DS1MIB_Dsx1Farendintervaltable_Dsx1Farendintervalentry.
-    Dsx1Farendintervalentry []DS1MIB_Dsx1Farendintervaltable_Dsx1Farendintervalentry
+    // DS1MIB_Dsx1FarEndIntervalTable_Dsx1FarEndIntervalEntry.
+    Dsx1FarEndIntervalEntry []*DS1MIB_Dsx1FarEndIntervalTable_Dsx1FarEndIntervalEntry
 }
 
-func (dsx1Farendintervaltable *DS1MIB_Dsx1Farendintervaltable) GetEntityData() *types.CommonEntityData {
-    dsx1Farendintervaltable.EntityData.YFilter = dsx1Farendintervaltable.YFilter
-    dsx1Farendintervaltable.EntityData.YangName = "dsx1FarEndIntervalTable"
-    dsx1Farendintervaltable.EntityData.BundleName = "cisco_ios_xe"
-    dsx1Farendintervaltable.EntityData.ParentYangName = "DS1-MIB"
-    dsx1Farendintervaltable.EntityData.SegmentPath = "dsx1FarEndIntervalTable"
-    dsx1Farendintervaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dsx1Farendintervaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dsx1Farendintervaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dsx1FarEndIntervalTable *DS1MIB_Dsx1FarEndIntervalTable) GetEntityData() *types.CommonEntityData {
+    dsx1FarEndIntervalTable.EntityData.YFilter = dsx1FarEndIntervalTable.YFilter
+    dsx1FarEndIntervalTable.EntityData.YangName = "dsx1FarEndIntervalTable"
+    dsx1FarEndIntervalTable.EntityData.BundleName = "cisco_ios_xe"
+    dsx1FarEndIntervalTable.EntityData.ParentYangName = "DS1-MIB"
+    dsx1FarEndIntervalTable.EntityData.SegmentPath = "dsx1FarEndIntervalTable"
+    dsx1FarEndIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx1FarEndIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx1FarEndIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dsx1Farendintervaltable.EntityData.Children = make(map[string]types.YChild)
-    dsx1Farendintervaltable.EntityData.Children["dsx1FarEndIntervalEntry"] = types.YChild{"Dsx1Farendintervalentry", nil}
-    for i := range dsx1Farendintervaltable.Dsx1Farendintervalentry {
-        dsx1Farendintervaltable.EntityData.Children[types.GetSegmentPath(&dsx1Farendintervaltable.Dsx1Farendintervalentry[i])] = types.YChild{"Dsx1Farendintervalentry", &dsx1Farendintervaltable.Dsx1Farendintervalentry[i]}
+    dsx1FarEndIntervalTable.EntityData.Children = types.NewOrderedMap()
+    dsx1FarEndIntervalTable.EntityData.Children.Append("dsx1FarEndIntervalEntry", types.YChild{"Dsx1FarEndIntervalEntry", nil})
+    for i := range dsx1FarEndIntervalTable.Dsx1FarEndIntervalEntry {
+        dsx1FarEndIntervalTable.EntityData.Children.Append(types.GetSegmentPath(dsx1FarEndIntervalTable.Dsx1FarEndIntervalEntry[i]), types.YChild{"Dsx1FarEndIntervalEntry", dsx1FarEndIntervalTable.Dsx1FarEndIntervalEntry[i]})
     }
-    dsx1Farendintervaltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dsx1Farendintervaltable.EntityData)
+    dsx1FarEndIntervalTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dsx1FarEndIntervalTable.EntityData.YListKeys = []string {}
+
+    return &(dsx1FarEndIntervalTable.EntityData)
 }
 
-// DS1MIB_Dsx1Farendintervaltable_Dsx1Farendintervalentry
+// DS1MIB_Dsx1FarEndIntervalTable_Dsx1FarEndIntervalEntry
 // An entry in the DS1 Far End Interval table.
-type DS1MIB_Dsx1Farendintervaltable_Dsx1Farendintervalentry struct {
+type DS1MIB_Dsx1FarEndIntervalTable_Dsx1FarEndIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1068,117 +1104,123 @@ type DS1MIB_Dsx1Farendintervaltable_Dsx1Farendintervalentry struct {
     // particular value of this index is identical to the interface identified by
     // the same value of dsx1LineIndex. The type is interface{} with range:
     // 1..2147483647.
-    Dsx1Farendintervalindex interface{}
+    Dsx1FarEndIntervalIndex interface{}
 
     // This attribute is a key. A number between 1 and 96, where 1 is the most
     // recently completed 15 minute interval and 96 is the 15 minutes interval
     // completed 23 hours and 45 minutes prior to interval 1. The type is
     // interface{} with range: 1..96.
-    Dsx1Farendintervalnumber interface{}
+    Dsx1FarEndIntervalNumber interface{}
 
     // The number of Far End Errored Seconds. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Farendintervaless interface{}
+    Dsx1FarEndIntervalESs interface{}
 
     // The number of Far End Severely Errored Seconds. The type is interface{}
     // with range: 0..4294967295.
-    Dsx1Farendintervalsess interface{}
+    Dsx1FarEndIntervalSESs interface{}
 
     // The number of Far End Severely Errored Framing Seconds. The type is
     // interface{} with range: 0..4294967295.
-    Dsx1Farendintervalsefss interface{}
+    Dsx1FarEndIntervalSEFSs interface{}
 
     // The number of Unavailable Seconds. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Farendintervaluass interface{}
+    Dsx1FarEndIntervalUASs interface{}
 
     // The number of Far End Controlled Slip Seconds. The type is interface{} with
     // range: 0..4294967295.
-    Dsx1Farendintervalcsss interface{}
+    Dsx1FarEndIntervalCSSs interface{}
 
     // The number of Far End Line Errored Seconds. The type is interface{} with
     // range: 0..4294967295.
-    Dsx1Farendintervalless interface{}
+    Dsx1FarEndIntervalLESs interface{}
 
     // The number of Far End Path Coding Violations. The type is interface{} with
     // range: 0..4294967295.
-    Dsx1Farendintervalpcvs interface{}
+    Dsx1FarEndIntervalPCVs interface{}
 
     // The number of Far End Bursty Errored Seconds. The type is interface{} with
     // range: 0..4294967295.
-    Dsx1Farendintervalbess interface{}
+    Dsx1FarEndIntervalBESs interface{}
 
     // The number of Far End Degraded Minutes. The type is interface{} with range:
     // 0..4294967295.
-    Dsx1Farendintervaldms interface{}
+    Dsx1FarEndIntervalDMs interface{}
 
     // This variable indicates if the data for this interval is valid. The type is
     // bool.
-    Dsx1Farendintervalvaliddata interface{}
+    Dsx1FarEndIntervalValidData interface{}
 }
 
-func (dsx1Farendintervalentry *DS1MIB_Dsx1Farendintervaltable_Dsx1Farendintervalentry) GetEntityData() *types.CommonEntityData {
-    dsx1Farendintervalentry.EntityData.YFilter = dsx1Farendintervalentry.YFilter
-    dsx1Farendintervalentry.EntityData.YangName = "dsx1FarEndIntervalEntry"
-    dsx1Farendintervalentry.EntityData.BundleName = "cisco_ios_xe"
-    dsx1Farendintervalentry.EntityData.ParentYangName = "dsx1FarEndIntervalTable"
-    dsx1Farendintervalentry.EntityData.SegmentPath = "dsx1FarEndIntervalEntry" + "[dsx1FarEndIntervalIndex='" + fmt.Sprintf("%v", dsx1Farendintervalentry.Dsx1Farendintervalindex) + "']" + "[dsx1FarEndIntervalNumber='" + fmt.Sprintf("%v", dsx1Farendintervalentry.Dsx1Farendintervalnumber) + "']"
-    dsx1Farendintervalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dsx1Farendintervalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dsx1Farendintervalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dsx1FarEndIntervalEntry *DS1MIB_Dsx1FarEndIntervalTable_Dsx1FarEndIntervalEntry) GetEntityData() *types.CommonEntityData {
+    dsx1FarEndIntervalEntry.EntityData.YFilter = dsx1FarEndIntervalEntry.YFilter
+    dsx1FarEndIntervalEntry.EntityData.YangName = "dsx1FarEndIntervalEntry"
+    dsx1FarEndIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
+    dsx1FarEndIntervalEntry.EntityData.ParentYangName = "dsx1FarEndIntervalTable"
+    dsx1FarEndIntervalEntry.EntityData.SegmentPath = "dsx1FarEndIntervalEntry" + types.AddKeyToken(dsx1FarEndIntervalEntry.Dsx1FarEndIntervalIndex, "dsx1FarEndIntervalIndex") + types.AddKeyToken(dsx1FarEndIntervalEntry.Dsx1FarEndIntervalNumber, "dsx1FarEndIntervalNumber")
+    dsx1FarEndIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx1FarEndIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx1FarEndIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dsx1Farendintervalentry.EntityData.Children = make(map[string]types.YChild)
-    dsx1Farendintervalentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dsx1Farendintervalentry.EntityData.Leafs["dsx1FarEndIntervalIndex"] = types.YLeaf{"Dsx1Farendintervalindex", dsx1Farendintervalentry.Dsx1Farendintervalindex}
-    dsx1Farendintervalentry.EntityData.Leafs["dsx1FarEndIntervalNumber"] = types.YLeaf{"Dsx1Farendintervalnumber", dsx1Farendintervalentry.Dsx1Farendintervalnumber}
-    dsx1Farendintervalentry.EntityData.Leafs["dsx1FarEndIntervalESs"] = types.YLeaf{"Dsx1Farendintervaless", dsx1Farendintervalentry.Dsx1Farendintervaless}
-    dsx1Farendintervalentry.EntityData.Leafs["dsx1FarEndIntervalSESs"] = types.YLeaf{"Dsx1Farendintervalsess", dsx1Farendintervalentry.Dsx1Farendintervalsess}
-    dsx1Farendintervalentry.EntityData.Leafs["dsx1FarEndIntervalSEFSs"] = types.YLeaf{"Dsx1Farendintervalsefss", dsx1Farendintervalentry.Dsx1Farendintervalsefss}
-    dsx1Farendintervalentry.EntityData.Leafs["dsx1FarEndIntervalUASs"] = types.YLeaf{"Dsx1Farendintervaluass", dsx1Farendintervalentry.Dsx1Farendintervaluass}
-    dsx1Farendintervalentry.EntityData.Leafs["dsx1FarEndIntervalCSSs"] = types.YLeaf{"Dsx1Farendintervalcsss", dsx1Farendintervalentry.Dsx1Farendintervalcsss}
-    dsx1Farendintervalentry.EntityData.Leafs["dsx1FarEndIntervalLESs"] = types.YLeaf{"Dsx1Farendintervalless", dsx1Farendintervalentry.Dsx1Farendintervalless}
-    dsx1Farendintervalentry.EntityData.Leafs["dsx1FarEndIntervalPCVs"] = types.YLeaf{"Dsx1Farendintervalpcvs", dsx1Farendintervalentry.Dsx1Farendintervalpcvs}
-    dsx1Farendintervalentry.EntityData.Leafs["dsx1FarEndIntervalBESs"] = types.YLeaf{"Dsx1Farendintervalbess", dsx1Farendintervalentry.Dsx1Farendintervalbess}
-    dsx1Farendintervalentry.EntityData.Leafs["dsx1FarEndIntervalDMs"] = types.YLeaf{"Dsx1Farendintervaldms", dsx1Farendintervalentry.Dsx1Farendintervaldms}
-    dsx1Farendintervalentry.EntityData.Leafs["dsx1FarEndIntervalValidData"] = types.YLeaf{"Dsx1Farendintervalvaliddata", dsx1Farendintervalentry.Dsx1Farendintervalvaliddata}
-    return &(dsx1Farendintervalentry.EntityData)
+    dsx1FarEndIntervalEntry.EntityData.Children = types.NewOrderedMap()
+    dsx1FarEndIntervalEntry.EntityData.Leafs = types.NewOrderedMap()
+    dsx1FarEndIntervalEntry.EntityData.Leafs.Append("dsx1FarEndIntervalIndex", types.YLeaf{"Dsx1FarEndIntervalIndex", dsx1FarEndIntervalEntry.Dsx1FarEndIntervalIndex})
+    dsx1FarEndIntervalEntry.EntityData.Leafs.Append("dsx1FarEndIntervalNumber", types.YLeaf{"Dsx1FarEndIntervalNumber", dsx1FarEndIntervalEntry.Dsx1FarEndIntervalNumber})
+    dsx1FarEndIntervalEntry.EntityData.Leafs.Append("dsx1FarEndIntervalESs", types.YLeaf{"Dsx1FarEndIntervalESs", dsx1FarEndIntervalEntry.Dsx1FarEndIntervalESs})
+    dsx1FarEndIntervalEntry.EntityData.Leafs.Append("dsx1FarEndIntervalSESs", types.YLeaf{"Dsx1FarEndIntervalSESs", dsx1FarEndIntervalEntry.Dsx1FarEndIntervalSESs})
+    dsx1FarEndIntervalEntry.EntityData.Leafs.Append("dsx1FarEndIntervalSEFSs", types.YLeaf{"Dsx1FarEndIntervalSEFSs", dsx1FarEndIntervalEntry.Dsx1FarEndIntervalSEFSs})
+    dsx1FarEndIntervalEntry.EntityData.Leafs.Append("dsx1FarEndIntervalUASs", types.YLeaf{"Dsx1FarEndIntervalUASs", dsx1FarEndIntervalEntry.Dsx1FarEndIntervalUASs})
+    dsx1FarEndIntervalEntry.EntityData.Leafs.Append("dsx1FarEndIntervalCSSs", types.YLeaf{"Dsx1FarEndIntervalCSSs", dsx1FarEndIntervalEntry.Dsx1FarEndIntervalCSSs})
+    dsx1FarEndIntervalEntry.EntityData.Leafs.Append("dsx1FarEndIntervalLESs", types.YLeaf{"Dsx1FarEndIntervalLESs", dsx1FarEndIntervalEntry.Dsx1FarEndIntervalLESs})
+    dsx1FarEndIntervalEntry.EntityData.Leafs.Append("dsx1FarEndIntervalPCVs", types.YLeaf{"Dsx1FarEndIntervalPCVs", dsx1FarEndIntervalEntry.Dsx1FarEndIntervalPCVs})
+    dsx1FarEndIntervalEntry.EntityData.Leafs.Append("dsx1FarEndIntervalBESs", types.YLeaf{"Dsx1FarEndIntervalBESs", dsx1FarEndIntervalEntry.Dsx1FarEndIntervalBESs})
+    dsx1FarEndIntervalEntry.EntityData.Leafs.Append("dsx1FarEndIntervalDMs", types.YLeaf{"Dsx1FarEndIntervalDMs", dsx1FarEndIntervalEntry.Dsx1FarEndIntervalDMs})
+    dsx1FarEndIntervalEntry.EntityData.Leafs.Append("dsx1FarEndIntervalValidData", types.YLeaf{"Dsx1FarEndIntervalValidData", dsx1FarEndIntervalEntry.Dsx1FarEndIntervalValidData})
+
+    dsx1FarEndIntervalEntry.EntityData.YListKeys = []string {"Dsx1FarEndIntervalIndex", "Dsx1FarEndIntervalNumber"}
+
+    return &(dsx1FarEndIntervalEntry.EntityData)
 }
 
-// DS1MIB_Dsx1Farendtotaltable
+// DS1MIB_Dsx1FarEndTotalTable
 // The DS1 Far End Total Table contains the
 // cumulative sum of the various statistics for the
 // 24 hour period preceding the current interval.
-type DS1MIB_Dsx1Farendtotaltable struct {
+type DS1MIB_Dsx1FarEndTotalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the DS1 Far End Total table. The type is slice of
-    // DS1MIB_Dsx1Farendtotaltable_Dsx1Farendtotalentry.
-    Dsx1Farendtotalentry []DS1MIB_Dsx1Farendtotaltable_Dsx1Farendtotalentry
+    // DS1MIB_Dsx1FarEndTotalTable_Dsx1FarEndTotalEntry.
+    Dsx1FarEndTotalEntry []*DS1MIB_Dsx1FarEndTotalTable_Dsx1FarEndTotalEntry
 }
 
-func (dsx1Farendtotaltable *DS1MIB_Dsx1Farendtotaltable) GetEntityData() *types.CommonEntityData {
-    dsx1Farendtotaltable.EntityData.YFilter = dsx1Farendtotaltable.YFilter
-    dsx1Farendtotaltable.EntityData.YangName = "dsx1FarEndTotalTable"
-    dsx1Farendtotaltable.EntityData.BundleName = "cisco_ios_xe"
-    dsx1Farendtotaltable.EntityData.ParentYangName = "DS1-MIB"
-    dsx1Farendtotaltable.EntityData.SegmentPath = "dsx1FarEndTotalTable"
-    dsx1Farendtotaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dsx1Farendtotaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dsx1Farendtotaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dsx1FarEndTotalTable *DS1MIB_Dsx1FarEndTotalTable) GetEntityData() *types.CommonEntityData {
+    dsx1FarEndTotalTable.EntityData.YFilter = dsx1FarEndTotalTable.YFilter
+    dsx1FarEndTotalTable.EntityData.YangName = "dsx1FarEndTotalTable"
+    dsx1FarEndTotalTable.EntityData.BundleName = "cisco_ios_xe"
+    dsx1FarEndTotalTable.EntityData.ParentYangName = "DS1-MIB"
+    dsx1FarEndTotalTable.EntityData.SegmentPath = "dsx1FarEndTotalTable"
+    dsx1FarEndTotalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx1FarEndTotalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx1FarEndTotalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dsx1Farendtotaltable.EntityData.Children = make(map[string]types.YChild)
-    dsx1Farendtotaltable.EntityData.Children["dsx1FarEndTotalEntry"] = types.YChild{"Dsx1Farendtotalentry", nil}
-    for i := range dsx1Farendtotaltable.Dsx1Farendtotalentry {
-        dsx1Farendtotaltable.EntityData.Children[types.GetSegmentPath(&dsx1Farendtotaltable.Dsx1Farendtotalentry[i])] = types.YChild{"Dsx1Farendtotalentry", &dsx1Farendtotaltable.Dsx1Farendtotalentry[i]}
+    dsx1FarEndTotalTable.EntityData.Children = types.NewOrderedMap()
+    dsx1FarEndTotalTable.EntityData.Children.Append("dsx1FarEndTotalEntry", types.YChild{"Dsx1FarEndTotalEntry", nil})
+    for i := range dsx1FarEndTotalTable.Dsx1FarEndTotalEntry {
+        dsx1FarEndTotalTable.EntityData.Children.Append(types.GetSegmentPath(dsx1FarEndTotalTable.Dsx1FarEndTotalEntry[i]), types.YChild{"Dsx1FarEndTotalEntry", dsx1FarEndTotalTable.Dsx1FarEndTotalEntry[i]})
     }
-    dsx1Farendtotaltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dsx1Farendtotaltable.EntityData)
+    dsx1FarEndTotalTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dsx1FarEndTotalTable.EntityData.YListKeys = []string {}
+
+    return &(dsx1FarEndTotalTable.EntityData)
 }
 
-// DS1MIB_Dsx1Farendtotaltable_Dsx1Farendtotalentry
+// DS1MIB_Dsx1FarEndTotalTable_Dsx1FarEndTotalEntry
 // An entry in the DS1 Far End Total table.
-type DS1MIB_Dsx1Farendtotaltable_Dsx1Farendtotalentry struct {
+type DS1MIB_Dsx1FarEndTotalTable_Dsx1FarEndTotalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1187,81 +1229,84 @@ type DS1MIB_Dsx1Farendtotaltable_Dsx1Farendtotalentry struct {
     // particular value of this index is identical to the interface identified by
     // the same value of dsx1LineIndex. The type is interface{} with range:
     // 1..2147483647.
-    Dsx1Farendtotalindex interface{}
+    Dsx1FarEndTotalIndex interface{}
 
     // The number of Far End Errored Seconds encountered by a DS1 interface in the
     // previous 24 hour interval.  Invalid 15 minute intervals count as 0. The
     // type is interface{} with range: 0..4294967295.
-    Dsx1Farendtotaless interface{}
+    Dsx1FarEndTotalESs interface{}
 
     // The number of Far End Severely Errored Seconds encountered by a DS1
     // interface in the previous 24 hour interval.  Invalid 15 minute intervals
     // count as 0. The type is interface{} with range: 0..4294967295.
-    Dsx1Farendtotalsess interface{}
+    Dsx1FarEndTotalSESs interface{}
 
     // The number of Far End Severely Errored Framing Seconds encountered by a DS1
     // interface in the previous 24 hour interval. Invalid 15 minute intervals
     // count as 0. The type is interface{} with range: 0..4294967295.
-    Dsx1Farendtotalsefss interface{}
+    Dsx1FarEndTotalSEFSs interface{}
 
     // The number of Unavailable Seconds encountered by a DS1 interface in the
     // previous 24 hour interval. Invalid 15 minute intervals count as 0. The type
     // is interface{} with range: 0..4294967295.
-    Dsx1Farendtotaluass interface{}
+    Dsx1FarEndTotalUASs interface{}
 
     // The number of Far End Controlled Slip Seconds encountered by a DS1
     // interface in the previous 24 hour interval.  Invalid 15 minute intervals
     // count as 0. The type is interface{} with range: 0..4294967295.
-    Dsx1Farendtotalcsss interface{}
+    Dsx1FarEndTotalCSSs interface{}
 
     // The number of Far End Line Errored Seconds encountered by a DS1 interface
     // in the previous 24 hour interval.  Invalid 15 minute intervals count as 0.
     // The type is interface{} with range: 0..4294967295.
-    Dsx1Farendtotalless interface{}
+    Dsx1FarEndTotalLESs interface{}
 
     // The number of Far End Path Coding Violations reported via the far end block
     // error count encountered by a DS1 interface in the previous 24 hour
     // interval.  Invalid 15 minute intervals count as 0. The type is interface{}
     // with range: 0..4294967295.
-    Dsx1Farendtotalpcvs interface{}
+    Dsx1FarEndTotalPCVs interface{}
 
     // The number of Bursty Errored Seconds (BESs) encountered by a DS1 interface
     // in the previous 24 hour interval. Invalid 15 minute intervals count as 0.
     // The type is interface{} with range: 0..4294967295.
-    Dsx1Farendtotalbess interface{}
+    Dsx1FarEndTotalBESs interface{}
 
     // The number of Degraded Minutes (DMs) encountered by a DS1 interface in the
     // previous 24 hour interval.  Invalid 15 minute intervals count as 0. The
     // type is interface{} with range: 0..4294967295.
-    Dsx1Farendtotaldms interface{}
+    Dsx1FarEndTotalDMs interface{}
 }
 
-func (dsx1Farendtotalentry *DS1MIB_Dsx1Farendtotaltable_Dsx1Farendtotalentry) GetEntityData() *types.CommonEntityData {
-    dsx1Farendtotalentry.EntityData.YFilter = dsx1Farendtotalentry.YFilter
-    dsx1Farendtotalentry.EntityData.YangName = "dsx1FarEndTotalEntry"
-    dsx1Farendtotalentry.EntityData.BundleName = "cisco_ios_xe"
-    dsx1Farendtotalentry.EntityData.ParentYangName = "dsx1FarEndTotalTable"
-    dsx1Farendtotalentry.EntityData.SegmentPath = "dsx1FarEndTotalEntry" + "[dsx1FarEndTotalIndex='" + fmt.Sprintf("%v", dsx1Farendtotalentry.Dsx1Farendtotalindex) + "']"
-    dsx1Farendtotalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dsx1Farendtotalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dsx1Farendtotalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dsx1FarEndTotalEntry *DS1MIB_Dsx1FarEndTotalTable_Dsx1FarEndTotalEntry) GetEntityData() *types.CommonEntityData {
+    dsx1FarEndTotalEntry.EntityData.YFilter = dsx1FarEndTotalEntry.YFilter
+    dsx1FarEndTotalEntry.EntityData.YangName = "dsx1FarEndTotalEntry"
+    dsx1FarEndTotalEntry.EntityData.BundleName = "cisco_ios_xe"
+    dsx1FarEndTotalEntry.EntityData.ParentYangName = "dsx1FarEndTotalTable"
+    dsx1FarEndTotalEntry.EntityData.SegmentPath = "dsx1FarEndTotalEntry" + types.AddKeyToken(dsx1FarEndTotalEntry.Dsx1FarEndTotalIndex, "dsx1FarEndTotalIndex")
+    dsx1FarEndTotalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx1FarEndTotalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx1FarEndTotalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dsx1Farendtotalentry.EntityData.Children = make(map[string]types.YChild)
-    dsx1Farendtotalentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dsx1Farendtotalentry.EntityData.Leafs["dsx1FarEndTotalIndex"] = types.YLeaf{"Dsx1Farendtotalindex", dsx1Farendtotalentry.Dsx1Farendtotalindex}
-    dsx1Farendtotalentry.EntityData.Leafs["dsx1FarEndTotalESs"] = types.YLeaf{"Dsx1Farendtotaless", dsx1Farendtotalentry.Dsx1Farendtotaless}
-    dsx1Farendtotalentry.EntityData.Leafs["dsx1FarEndTotalSESs"] = types.YLeaf{"Dsx1Farendtotalsess", dsx1Farendtotalentry.Dsx1Farendtotalsess}
-    dsx1Farendtotalentry.EntityData.Leafs["dsx1FarEndTotalSEFSs"] = types.YLeaf{"Dsx1Farendtotalsefss", dsx1Farendtotalentry.Dsx1Farendtotalsefss}
-    dsx1Farendtotalentry.EntityData.Leafs["dsx1FarEndTotalUASs"] = types.YLeaf{"Dsx1Farendtotaluass", dsx1Farendtotalentry.Dsx1Farendtotaluass}
-    dsx1Farendtotalentry.EntityData.Leafs["dsx1FarEndTotalCSSs"] = types.YLeaf{"Dsx1Farendtotalcsss", dsx1Farendtotalentry.Dsx1Farendtotalcsss}
-    dsx1Farendtotalentry.EntityData.Leafs["dsx1FarEndTotalLESs"] = types.YLeaf{"Dsx1Farendtotalless", dsx1Farendtotalentry.Dsx1Farendtotalless}
-    dsx1Farendtotalentry.EntityData.Leafs["dsx1FarEndTotalPCVs"] = types.YLeaf{"Dsx1Farendtotalpcvs", dsx1Farendtotalentry.Dsx1Farendtotalpcvs}
-    dsx1Farendtotalentry.EntityData.Leafs["dsx1FarEndTotalBESs"] = types.YLeaf{"Dsx1Farendtotalbess", dsx1Farendtotalentry.Dsx1Farendtotalbess}
-    dsx1Farendtotalentry.EntityData.Leafs["dsx1FarEndTotalDMs"] = types.YLeaf{"Dsx1Farendtotaldms", dsx1Farendtotalentry.Dsx1Farendtotaldms}
-    return &(dsx1Farendtotalentry.EntityData)
+    dsx1FarEndTotalEntry.EntityData.Children = types.NewOrderedMap()
+    dsx1FarEndTotalEntry.EntityData.Leafs = types.NewOrderedMap()
+    dsx1FarEndTotalEntry.EntityData.Leafs.Append("dsx1FarEndTotalIndex", types.YLeaf{"Dsx1FarEndTotalIndex", dsx1FarEndTotalEntry.Dsx1FarEndTotalIndex})
+    dsx1FarEndTotalEntry.EntityData.Leafs.Append("dsx1FarEndTotalESs", types.YLeaf{"Dsx1FarEndTotalESs", dsx1FarEndTotalEntry.Dsx1FarEndTotalESs})
+    dsx1FarEndTotalEntry.EntityData.Leafs.Append("dsx1FarEndTotalSESs", types.YLeaf{"Dsx1FarEndTotalSESs", dsx1FarEndTotalEntry.Dsx1FarEndTotalSESs})
+    dsx1FarEndTotalEntry.EntityData.Leafs.Append("dsx1FarEndTotalSEFSs", types.YLeaf{"Dsx1FarEndTotalSEFSs", dsx1FarEndTotalEntry.Dsx1FarEndTotalSEFSs})
+    dsx1FarEndTotalEntry.EntityData.Leafs.Append("dsx1FarEndTotalUASs", types.YLeaf{"Dsx1FarEndTotalUASs", dsx1FarEndTotalEntry.Dsx1FarEndTotalUASs})
+    dsx1FarEndTotalEntry.EntityData.Leafs.Append("dsx1FarEndTotalCSSs", types.YLeaf{"Dsx1FarEndTotalCSSs", dsx1FarEndTotalEntry.Dsx1FarEndTotalCSSs})
+    dsx1FarEndTotalEntry.EntityData.Leafs.Append("dsx1FarEndTotalLESs", types.YLeaf{"Dsx1FarEndTotalLESs", dsx1FarEndTotalEntry.Dsx1FarEndTotalLESs})
+    dsx1FarEndTotalEntry.EntityData.Leafs.Append("dsx1FarEndTotalPCVs", types.YLeaf{"Dsx1FarEndTotalPCVs", dsx1FarEndTotalEntry.Dsx1FarEndTotalPCVs})
+    dsx1FarEndTotalEntry.EntityData.Leafs.Append("dsx1FarEndTotalBESs", types.YLeaf{"Dsx1FarEndTotalBESs", dsx1FarEndTotalEntry.Dsx1FarEndTotalBESs})
+    dsx1FarEndTotalEntry.EntityData.Leafs.Append("dsx1FarEndTotalDMs", types.YLeaf{"Dsx1FarEndTotalDMs", dsx1FarEndTotalEntry.Dsx1FarEndTotalDMs})
+
+    dsx1FarEndTotalEntry.EntityData.YListKeys = []string {"Dsx1FarEndTotalIndex"}
+
+    return &(dsx1FarEndTotalEntry.EntityData)
 }
 
-// DS1MIB_Dsx1Fractable
+// DS1MIB_Dsx1FracTable
 // This table is deprecated in favour of using
 // ifStackTable.
 // 
@@ -1317,37 +1362,40 @@ func (dsx1Farendtotalentry *DS1MIB_Dsx1Farendtotaltable_Dsx1Farendtotalentry) Ge
 // numbered 1 through 31.  The channels (1..31)
 // correspond directly to the equivalently numbered
 // time-slots.
-type DS1MIB_Dsx1Fractable struct {
+type DS1MIB_Dsx1FracTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the DS1 Fractional table. The type is slice of
-    // DS1MIB_Dsx1Fractable_Dsx1Fracentry.
-    Dsx1Fracentry []DS1MIB_Dsx1Fractable_Dsx1Fracentry
+    // DS1MIB_Dsx1FracTable_Dsx1FracEntry.
+    Dsx1FracEntry []*DS1MIB_Dsx1FracTable_Dsx1FracEntry
 }
 
-func (dsx1Fractable *DS1MIB_Dsx1Fractable) GetEntityData() *types.CommonEntityData {
-    dsx1Fractable.EntityData.YFilter = dsx1Fractable.YFilter
-    dsx1Fractable.EntityData.YangName = "dsx1FracTable"
-    dsx1Fractable.EntityData.BundleName = "cisco_ios_xe"
-    dsx1Fractable.EntityData.ParentYangName = "DS1-MIB"
-    dsx1Fractable.EntityData.SegmentPath = "dsx1FracTable"
-    dsx1Fractable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dsx1Fractable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dsx1Fractable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dsx1FracTable *DS1MIB_Dsx1FracTable) GetEntityData() *types.CommonEntityData {
+    dsx1FracTable.EntityData.YFilter = dsx1FracTable.YFilter
+    dsx1FracTable.EntityData.YangName = "dsx1FracTable"
+    dsx1FracTable.EntityData.BundleName = "cisco_ios_xe"
+    dsx1FracTable.EntityData.ParentYangName = "DS1-MIB"
+    dsx1FracTable.EntityData.SegmentPath = "dsx1FracTable"
+    dsx1FracTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx1FracTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx1FracTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dsx1Fractable.EntityData.Children = make(map[string]types.YChild)
-    dsx1Fractable.EntityData.Children["dsx1FracEntry"] = types.YChild{"Dsx1Fracentry", nil}
-    for i := range dsx1Fractable.Dsx1Fracentry {
-        dsx1Fractable.EntityData.Children[types.GetSegmentPath(&dsx1Fractable.Dsx1Fracentry[i])] = types.YChild{"Dsx1Fracentry", &dsx1Fractable.Dsx1Fracentry[i]}
+    dsx1FracTable.EntityData.Children = types.NewOrderedMap()
+    dsx1FracTable.EntityData.Children.Append("dsx1FracEntry", types.YChild{"Dsx1FracEntry", nil})
+    for i := range dsx1FracTable.Dsx1FracEntry {
+        dsx1FracTable.EntityData.Children.Append(types.GetSegmentPath(dsx1FracTable.Dsx1FracEntry[i]), types.YChild{"Dsx1FracEntry", dsx1FracTable.Dsx1FracEntry[i]})
     }
-    dsx1Fractable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dsx1Fractable.EntityData)
+    dsx1FracTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dsx1FracTable.EntityData.YListKeys = []string {}
+
+    return &(dsx1FracTable.EntityData)
 }
 
-// DS1MIB_Dsx1Fractable_Dsx1Fracentry
+// DS1MIB_Dsx1FracTable_Dsx1FracEntry
 // An entry in the DS1 Fractional table.
-type DS1MIB_Dsx1Fractable_Dsx1Fracentry struct {
+type DS1MIB_Dsx1FracTable_Dsx1FracEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1356,11 +1404,11 @@ type DS1MIB_Dsx1Fractable_Dsx1Fracentry struct {
     // particular value  of  this  index is the same interface as identified by
     // the same value  an  dsx1LineIndex object instance. The type is interface{}
     // with range: 1..2147483647.
-    Dsx1Fracindex interface{}
+    Dsx1FracIndex interface{}
 
     // This attribute is a key. The channel number for this entry. The type is
     // interface{} with range: 1..31.
-    Dsx1Fracnumber interface{}
+    Dsx1FracNumber interface{}
 
     // An index value that uniquely identifies an interface.  The interface
     // identified by a particular value of this index is the same  interface as 
@@ -1368,35 +1416,38 @@ type DS1MIB_Dsx1Fractable_Dsx1Fracentry struct {
     // currently using a channel, the value should be zero.  If a single interface
     // occupies more  than  one  time slot,  that ifIndex value will be found in
     // multiple time slots. The type is interface{} with range: 1..2147483647.
-    Dsx1Fracifindex interface{}
+    Dsx1FracIfIndex interface{}
 }
 
-func (dsx1Fracentry *DS1MIB_Dsx1Fractable_Dsx1Fracentry) GetEntityData() *types.CommonEntityData {
-    dsx1Fracentry.EntityData.YFilter = dsx1Fracentry.YFilter
-    dsx1Fracentry.EntityData.YangName = "dsx1FracEntry"
-    dsx1Fracentry.EntityData.BundleName = "cisco_ios_xe"
-    dsx1Fracentry.EntityData.ParentYangName = "dsx1FracTable"
-    dsx1Fracentry.EntityData.SegmentPath = "dsx1FracEntry" + "[dsx1FracIndex='" + fmt.Sprintf("%v", dsx1Fracentry.Dsx1Fracindex) + "']" + "[dsx1FracNumber='" + fmt.Sprintf("%v", dsx1Fracentry.Dsx1Fracnumber) + "']"
-    dsx1Fracentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dsx1Fracentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dsx1Fracentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dsx1FracEntry *DS1MIB_Dsx1FracTable_Dsx1FracEntry) GetEntityData() *types.CommonEntityData {
+    dsx1FracEntry.EntityData.YFilter = dsx1FracEntry.YFilter
+    dsx1FracEntry.EntityData.YangName = "dsx1FracEntry"
+    dsx1FracEntry.EntityData.BundleName = "cisco_ios_xe"
+    dsx1FracEntry.EntityData.ParentYangName = "dsx1FracTable"
+    dsx1FracEntry.EntityData.SegmentPath = "dsx1FracEntry" + types.AddKeyToken(dsx1FracEntry.Dsx1FracIndex, "dsx1FracIndex") + types.AddKeyToken(dsx1FracEntry.Dsx1FracNumber, "dsx1FracNumber")
+    dsx1FracEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx1FracEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx1FracEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dsx1Fracentry.EntityData.Children = make(map[string]types.YChild)
-    dsx1Fracentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dsx1Fracentry.EntityData.Leafs["dsx1FracIndex"] = types.YLeaf{"Dsx1Fracindex", dsx1Fracentry.Dsx1Fracindex}
-    dsx1Fracentry.EntityData.Leafs["dsx1FracNumber"] = types.YLeaf{"Dsx1Fracnumber", dsx1Fracentry.Dsx1Fracnumber}
-    dsx1Fracentry.EntityData.Leafs["dsx1FracIfIndex"] = types.YLeaf{"Dsx1Fracifindex", dsx1Fracentry.Dsx1Fracifindex}
-    return &(dsx1Fracentry.EntityData)
+    dsx1FracEntry.EntityData.Children = types.NewOrderedMap()
+    dsx1FracEntry.EntityData.Leafs = types.NewOrderedMap()
+    dsx1FracEntry.EntityData.Leafs.Append("dsx1FracIndex", types.YLeaf{"Dsx1FracIndex", dsx1FracEntry.Dsx1FracIndex})
+    dsx1FracEntry.EntityData.Leafs.Append("dsx1FracNumber", types.YLeaf{"Dsx1FracNumber", dsx1FracEntry.Dsx1FracNumber})
+    dsx1FracEntry.EntityData.Leafs.Append("dsx1FracIfIndex", types.YLeaf{"Dsx1FracIfIndex", dsx1FracEntry.Dsx1FracIfIndex})
+
+    dsx1FracEntry.EntityData.YListKeys = []string {"Dsx1FracIndex", "Dsx1FracNumber"}
+
+    return &(dsx1FracEntry.EntityData)
 }
 
-// DS1MIB_Dsx1Chanmappingtable
+// DS1MIB_Dsx1ChanMappingTable
 // The DS1 Channel Mapping table.  This table maps a
 // DS1 channel number on a particular DS3 into an
 // ifIndex.  In the presence of DS2s, this table can
 // be used to map a DS2 channel number on a DS3 into
 // an ifIndex, or used to map a DS1 channel number on
 // a DS2 onto an ifIndex.
-type DS1MIB_Dsx1Chanmappingtable struct {
+type DS1MIB_Dsx1ChanMappingTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1410,30 +1461,33 @@ type DS1MIB_Dsx1Chanmappingtable struct {
     // lookup, rather than by walking the ifStackTable to find the various
     // constituent ds1 ifTable entries, and testing various dsx1ConfigTable
     // entries to check for the entry with the applicable DS1 channel number. The
-    // type is slice of DS1MIB_Dsx1Chanmappingtable_Dsx1Chanmappingentry.
-    Dsx1Chanmappingentry []DS1MIB_Dsx1Chanmappingtable_Dsx1Chanmappingentry
+    // type is slice of DS1MIB_Dsx1ChanMappingTable_Dsx1ChanMappingEntry.
+    Dsx1ChanMappingEntry []*DS1MIB_Dsx1ChanMappingTable_Dsx1ChanMappingEntry
 }
 
-func (dsx1Chanmappingtable *DS1MIB_Dsx1Chanmappingtable) GetEntityData() *types.CommonEntityData {
-    dsx1Chanmappingtable.EntityData.YFilter = dsx1Chanmappingtable.YFilter
-    dsx1Chanmappingtable.EntityData.YangName = "dsx1ChanMappingTable"
-    dsx1Chanmappingtable.EntityData.BundleName = "cisco_ios_xe"
-    dsx1Chanmappingtable.EntityData.ParentYangName = "DS1-MIB"
-    dsx1Chanmappingtable.EntityData.SegmentPath = "dsx1ChanMappingTable"
-    dsx1Chanmappingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dsx1Chanmappingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dsx1Chanmappingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dsx1ChanMappingTable *DS1MIB_Dsx1ChanMappingTable) GetEntityData() *types.CommonEntityData {
+    dsx1ChanMappingTable.EntityData.YFilter = dsx1ChanMappingTable.YFilter
+    dsx1ChanMappingTable.EntityData.YangName = "dsx1ChanMappingTable"
+    dsx1ChanMappingTable.EntityData.BundleName = "cisco_ios_xe"
+    dsx1ChanMappingTable.EntityData.ParentYangName = "DS1-MIB"
+    dsx1ChanMappingTable.EntityData.SegmentPath = "dsx1ChanMappingTable"
+    dsx1ChanMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx1ChanMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx1ChanMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dsx1Chanmappingtable.EntityData.Children = make(map[string]types.YChild)
-    dsx1Chanmappingtable.EntityData.Children["dsx1ChanMappingEntry"] = types.YChild{"Dsx1Chanmappingentry", nil}
-    for i := range dsx1Chanmappingtable.Dsx1Chanmappingentry {
-        dsx1Chanmappingtable.EntityData.Children[types.GetSegmentPath(&dsx1Chanmappingtable.Dsx1Chanmappingentry[i])] = types.YChild{"Dsx1Chanmappingentry", &dsx1Chanmappingtable.Dsx1Chanmappingentry[i]}
+    dsx1ChanMappingTable.EntityData.Children = types.NewOrderedMap()
+    dsx1ChanMappingTable.EntityData.Children.Append("dsx1ChanMappingEntry", types.YChild{"Dsx1ChanMappingEntry", nil})
+    for i := range dsx1ChanMappingTable.Dsx1ChanMappingEntry {
+        dsx1ChanMappingTable.EntityData.Children.Append(types.GetSegmentPath(dsx1ChanMappingTable.Dsx1ChanMappingEntry[i]), types.YChild{"Dsx1ChanMappingEntry", dsx1ChanMappingTable.Dsx1ChanMappingEntry[i]})
     }
-    dsx1Chanmappingtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dsx1Chanmappingtable.EntityData)
+    dsx1ChanMappingTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dsx1ChanMappingTable.EntityData.YListKeys = []string {}
+
+    return &(dsx1ChanMappingTable.EntityData)
 }
 
-// DS1MIB_Dsx1Chanmappingtable_Dsx1Chanmappingentry
+// DS1MIB_Dsx1ChanMappingTable_Dsx1ChanMappingEntry
 // An entry in the DS1 Channel Mapping table.  There
 // is an entry in this table corresponding to each
 // ds1 ifEntry within any interface that is
@@ -1452,41 +1506,44 @@ func (dsx1Chanmappingtable *DS1MIB_Dsx1Chanmappingtable) GetEntityData() *types.
 // ds1 ifTable entries, and testing various
 // dsx1ConfigTable entries to check for the entry
 // with the applicable DS1 channel number.
-type DS1MIB_Dsx1Chanmappingtable_Dsx1Chanmappingentry struct {
+type DS1MIB_Dsx1ChanMappingTable_Dsx1ChanMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..28. Refers to
-    // ds1_mib.DS1MIB_Dsx1Configtable_Dsx1Configentry_Dsx1Ds1Channelnumber
-    Dsx1Ds1Channelnumber interface{}
+    // ds1_mib.DS1MIB_Dsx1ConfigTable_Dsx1ConfigEntry_Dsx1Ds1ChannelNumber
+    Dsx1Ds1ChannelNumber interface{}
 
     // This object indicates the ifIndex value assigned by the agent for the
     // individual ds1 ifEntry that corresponds to the given DS1 channel number
     // (specified by the INDEX element dsx1Ds1ChannelNumber) of the given
     // channelized interface (specified by INDEX element ifIndex). The type is
     // interface{} with range: 1..2147483647.
-    Dsx1Chanmappedifindex interface{}
+    Dsx1ChanMappedIfIndex interface{}
 }
 
-func (dsx1Chanmappingentry *DS1MIB_Dsx1Chanmappingtable_Dsx1Chanmappingentry) GetEntityData() *types.CommonEntityData {
-    dsx1Chanmappingentry.EntityData.YFilter = dsx1Chanmappingentry.YFilter
-    dsx1Chanmappingentry.EntityData.YangName = "dsx1ChanMappingEntry"
-    dsx1Chanmappingentry.EntityData.BundleName = "cisco_ios_xe"
-    dsx1Chanmappingentry.EntityData.ParentYangName = "dsx1ChanMappingTable"
-    dsx1Chanmappingentry.EntityData.SegmentPath = "dsx1ChanMappingEntry" + "[ifIndex='" + fmt.Sprintf("%v", dsx1Chanmappingentry.Ifindex) + "']" + "[dsx1Ds1ChannelNumber='" + fmt.Sprintf("%v", dsx1Chanmappingentry.Dsx1Ds1Channelnumber) + "']"
-    dsx1Chanmappingentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dsx1Chanmappingentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dsx1Chanmappingentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dsx1ChanMappingEntry *DS1MIB_Dsx1ChanMappingTable_Dsx1ChanMappingEntry) GetEntityData() *types.CommonEntityData {
+    dsx1ChanMappingEntry.EntityData.YFilter = dsx1ChanMappingEntry.YFilter
+    dsx1ChanMappingEntry.EntityData.YangName = "dsx1ChanMappingEntry"
+    dsx1ChanMappingEntry.EntityData.BundleName = "cisco_ios_xe"
+    dsx1ChanMappingEntry.EntityData.ParentYangName = "dsx1ChanMappingTable"
+    dsx1ChanMappingEntry.EntityData.SegmentPath = "dsx1ChanMappingEntry" + types.AddKeyToken(dsx1ChanMappingEntry.IfIndex, "ifIndex") + types.AddKeyToken(dsx1ChanMappingEntry.Dsx1Ds1ChannelNumber, "dsx1Ds1ChannelNumber")
+    dsx1ChanMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx1ChanMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx1ChanMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dsx1Chanmappingentry.EntityData.Children = make(map[string]types.YChild)
-    dsx1Chanmappingentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dsx1Chanmappingentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", dsx1Chanmappingentry.Ifindex}
-    dsx1Chanmappingentry.EntityData.Leafs["dsx1Ds1ChannelNumber"] = types.YLeaf{"Dsx1Ds1Channelnumber", dsx1Chanmappingentry.Dsx1Ds1Channelnumber}
-    dsx1Chanmappingentry.EntityData.Leafs["dsx1ChanMappedIfIndex"] = types.YLeaf{"Dsx1Chanmappedifindex", dsx1Chanmappingentry.Dsx1Chanmappedifindex}
-    return &(dsx1Chanmappingentry.EntityData)
+    dsx1ChanMappingEntry.EntityData.Children = types.NewOrderedMap()
+    dsx1ChanMappingEntry.EntityData.Leafs = types.NewOrderedMap()
+    dsx1ChanMappingEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", dsx1ChanMappingEntry.IfIndex})
+    dsx1ChanMappingEntry.EntityData.Leafs.Append("dsx1Ds1ChannelNumber", types.YLeaf{"Dsx1Ds1ChannelNumber", dsx1ChanMappingEntry.Dsx1Ds1ChannelNumber})
+    dsx1ChanMappingEntry.EntityData.Leafs.Append("dsx1ChanMappedIfIndex", types.YLeaf{"Dsx1ChanMappedIfIndex", dsx1ChanMappingEntry.Dsx1ChanMappedIfIndex})
+
+    dsx1ChanMappingEntry.EntityData.YListKeys = []string {"IfIndex", "Dsx1Ds1ChannelNumber"}
+
+    return &(dsx1ChanMappingEntry.EntityData)
 }
 

@@ -65,6 +65,23 @@ const (
     CtsOdmBindingSource_from_cli_hi CtsOdmBindingSource = "from-cli-hi"
 )
 
+// SxpConMode represents SXP Connection mode
+type SxpConMode string
+
+const (
+    // SXP Connection mode is Invalid
+    SxpConMode_con_mode_invalid SxpConMode = "con-mode-invalid"
+
+    // SXP Connection mode is Speaker
+    SxpConMode_con_mode_speaker SxpConMode = "con-mode-speaker"
+
+    // SXP Connection mode is Listener
+    SxpConMode_con_mode_listener SxpConMode = "con-mode-listener"
+
+    // SXP Connection mode is Both (Speaker and Listener)
+    SxpConMode_con_mode_both SxpConMode = "con-mode-both"
+)
+
 // SxpConState represents SXP Connection state
 type SxpConState string
 
@@ -83,23 +100,6 @@ const (
 
     // SXP Connection state is Not-Applicable
     SxpConState_state_not_applicable SxpConState = "state-not-applicable"
-)
-
-// SxpConMode represents SXP Connection mode
-type SxpConMode string
-
-const (
-    // SXP Connection mode is Invalid
-    SxpConMode_con_mode_invalid SxpConMode = "con-mode-invalid"
-
-    // SXP Connection mode is Speaker
-    SxpConMode_con_mode_speaker SxpConMode = "con-mode-speaker"
-
-    // SXP Connection mode is Listener
-    SxpConMode_con_mode_listener SxpConMode = "con-mode-listener"
-
-    // SXP Connection mode is Both (Speaker and Listener)
-    SxpConMode_con_mode_both SxpConMode = "con-mode-both"
 )
 
 // TrustsecState
@@ -140,11 +140,14 @@ func (trustsecState *TrustsecState) GetEntityData() *types.CommonEntityData {
     trustsecState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     trustsecState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    trustsecState.EntityData.Children = make(map[string]types.YChild)
-    trustsecState.EntityData.Children["cts-rolebased-sgtmaps"] = types.YChild{"CtsRolebasedSgtmaps", &trustsecState.CtsRolebasedSgtmaps}
-    trustsecState.EntityData.Children["cts-rolebased-policies"] = types.YChild{"CtsRolebasedPolicies", &trustsecState.CtsRolebasedPolicies}
-    trustsecState.EntityData.Children["cts-sxp-connections"] = types.YChild{"CtsSxpConnections", &trustsecState.CtsSxpConnections}
-    trustsecState.EntityData.Leafs = make(map[string]types.YLeaf)
+    trustsecState.EntityData.Children = types.NewOrderedMap()
+    trustsecState.EntityData.Children.Append("cts-rolebased-sgtmaps", types.YChild{"CtsRolebasedSgtmaps", &trustsecState.CtsRolebasedSgtmaps})
+    trustsecState.EntityData.Children.Append("cts-rolebased-policies", types.YChild{"CtsRolebasedPolicies", &trustsecState.CtsRolebasedPolicies})
+    trustsecState.EntityData.Children.Append("cts-sxp-connections", types.YChild{"CtsSxpConnections", &trustsecState.CtsSxpConnections})
+    trustsecState.EntityData.Leafs = types.NewOrderedMap()
+
+    trustsecState.EntityData.YListKeys = []string {}
+
     return &(trustsecState.EntityData)
 }
 
@@ -159,7 +162,7 @@ type TrustsecState_CtsRolebasedSgtmaps struct {
     // permissions and authorization  level as configured by the network
     // administrator in Identity Service Engine server or in the device locally.
     // The type is slice of TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap.
-    CtsRolebasedSgtmap []TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap
+    CtsRolebasedSgtmap []*TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap
 }
 
 func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) GetEntityData() *types.CommonEntityData {
@@ -172,12 +175,15 @@ func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) GetEntityData() *t
     ctsRolebasedSgtmaps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ctsRolebasedSgtmaps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ctsRolebasedSgtmaps.EntityData.Children = make(map[string]types.YChild)
-    ctsRolebasedSgtmaps.EntityData.Children["cts-rolebased-sgtmap"] = types.YChild{"CtsRolebasedSgtmap", nil}
+    ctsRolebasedSgtmaps.EntityData.Children = types.NewOrderedMap()
+    ctsRolebasedSgtmaps.EntityData.Children.Append("cts-rolebased-sgtmap", types.YChild{"CtsRolebasedSgtmap", nil})
     for i := range ctsRolebasedSgtmaps.CtsRolebasedSgtmap {
-        ctsRolebasedSgtmaps.EntityData.Children[types.GetSegmentPath(&ctsRolebasedSgtmaps.CtsRolebasedSgtmap[i])] = types.YChild{"CtsRolebasedSgtmap", &ctsRolebasedSgtmaps.CtsRolebasedSgtmap[i]}
+        ctsRolebasedSgtmaps.EntityData.Children.Append(types.GetSegmentPath(ctsRolebasedSgtmaps.CtsRolebasedSgtmap[i]), types.YChild{"CtsRolebasedSgtmap", ctsRolebasedSgtmaps.CtsRolebasedSgtmap[i]})
     }
-    ctsRolebasedSgtmaps.EntityData.Leafs = make(map[string]types.YLeaf)
+    ctsRolebasedSgtmaps.EntityData.Leafs = types.NewOrderedMap()
+
+    ctsRolebasedSgtmaps.EntityData.YListKeys = []string {}
+
     return &(ctsRolebasedSgtmaps.EntityData)
 }
 
@@ -194,9 +200,9 @@ type TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap struct {
     // Secure Group Tag. Only IPv4 prefix information is supported currently to
     // get the Security Group Tag binding in this device. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     Ip interface{}
 
     // This attribute is a key. VRF-Name to find the Security Group Tag for the
@@ -219,17 +225,20 @@ func (ctsRolebasedSgtmap *TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap) 
     ctsRolebasedSgtmap.EntityData.YangName = "cts-rolebased-sgtmap"
     ctsRolebasedSgtmap.EntityData.BundleName = "cisco_ios_xe"
     ctsRolebasedSgtmap.EntityData.ParentYangName = "cts-rolebased-sgtmaps"
-    ctsRolebasedSgtmap.EntityData.SegmentPath = "cts-rolebased-sgtmap" + "[ip='" + fmt.Sprintf("%v", ctsRolebasedSgtmap.Ip) + "']" + "[vrf-name='" + fmt.Sprintf("%v", ctsRolebasedSgtmap.VrfName) + "']"
+    ctsRolebasedSgtmap.EntityData.SegmentPath = "cts-rolebased-sgtmap" + types.AddKeyToken(ctsRolebasedSgtmap.Ip, "ip") + types.AddKeyToken(ctsRolebasedSgtmap.VrfName, "vrf-name")
     ctsRolebasedSgtmap.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ctsRolebasedSgtmap.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ctsRolebasedSgtmap.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ctsRolebasedSgtmap.EntityData.Children = make(map[string]types.YChild)
-    ctsRolebasedSgtmap.EntityData.Leafs = make(map[string]types.YLeaf)
-    ctsRolebasedSgtmap.EntityData.Leafs["ip"] = types.YLeaf{"Ip", ctsRolebasedSgtmap.Ip}
-    ctsRolebasedSgtmap.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ctsRolebasedSgtmap.VrfName}
-    ctsRolebasedSgtmap.EntityData.Leafs["sgt"] = types.YLeaf{"Sgt", ctsRolebasedSgtmap.Sgt}
-    ctsRolebasedSgtmap.EntityData.Leafs["source"] = types.YLeaf{"Source", ctsRolebasedSgtmap.Source}
+    ctsRolebasedSgtmap.EntityData.Children = types.NewOrderedMap()
+    ctsRolebasedSgtmap.EntityData.Leafs = types.NewOrderedMap()
+    ctsRolebasedSgtmap.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", ctsRolebasedSgtmap.Ip})
+    ctsRolebasedSgtmap.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ctsRolebasedSgtmap.VrfName})
+    ctsRolebasedSgtmap.EntityData.Leafs.Append("sgt", types.YLeaf{"Sgt", ctsRolebasedSgtmap.Sgt})
+    ctsRolebasedSgtmap.EntityData.Leafs.Append("source", types.YLeaf{"Source", ctsRolebasedSgtmap.Source})
+
+    ctsRolebasedSgtmap.EntityData.YListKeys = []string {"Ip", "VrfName"}
+
     return &(ctsRolebasedSgtmap.EntityData)
 }
 
@@ -245,7 +254,7 @@ type TrustsecState_CtsRolebasedPolicies struct {
     // Security Group can be retrieved from the device using a Security Group Tag
     // and Destination Group Tag value. The type is slice of
     // TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy.
-    CtsRolebasedPolicy []TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy
+    CtsRolebasedPolicy []*TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy
 }
 
 func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) GetEntityData() *types.CommonEntityData {
@@ -258,12 +267,15 @@ func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) GetEntityData() 
     ctsRolebasedPolicies.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ctsRolebasedPolicies.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ctsRolebasedPolicies.EntityData.Children = make(map[string]types.YChild)
-    ctsRolebasedPolicies.EntityData.Children["cts-rolebased-policy"] = types.YChild{"CtsRolebasedPolicy", nil}
+    ctsRolebasedPolicies.EntityData.Children = types.NewOrderedMap()
+    ctsRolebasedPolicies.EntityData.Children.Append("cts-rolebased-policy", types.YChild{"CtsRolebasedPolicy", nil})
     for i := range ctsRolebasedPolicies.CtsRolebasedPolicy {
-        ctsRolebasedPolicies.EntityData.Children[types.GetSegmentPath(&ctsRolebasedPolicies.CtsRolebasedPolicy[i])] = types.YChild{"CtsRolebasedPolicy", &ctsRolebasedPolicies.CtsRolebasedPolicy[i]}
+        ctsRolebasedPolicies.EntityData.Children.Append(types.GetSegmentPath(ctsRolebasedPolicies.CtsRolebasedPolicy[i]), types.YChild{"CtsRolebasedPolicy", ctsRolebasedPolicies.CtsRolebasedPolicy[i]})
     }
-    ctsRolebasedPolicies.EntityData.Leafs = make(map[string]types.YLeaf)
+    ctsRolebasedPolicies.EntityData.Leafs = types.NewOrderedMap()
+
+    ctsRolebasedPolicies.EntityData.YListKeys = []string {}
+
     return &(ctsRolebasedPolicies.EntityData)
 }
 
@@ -313,7 +325,7 @@ type TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy struct {
     // last. The value will be represented as date and time  corresponding to the
     // local time zone of the Identify Services Engine when the Role based 
     // permissions was modified or updated last. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastUpdatedTime interface{}
 
     // Total number of packets that have been denied by the Role based permissions
@@ -372,28 +384,31 @@ func (ctsRolebasedPolicy *TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy)
     ctsRolebasedPolicy.EntityData.YangName = "cts-rolebased-policy"
     ctsRolebasedPolicy.EntityData.BundleName = "cisco_ios_xe"
     ctsRolebasedPolicy.EntityData.ParentYangName = "cts-rolebased-policies"
-    ctsRolebasedPolicy.EntityData.SegmentPath = "cts-rolebased-policy" + "[src-sgt='" + fmt.Sprintf("%v", ctsRolebasedPolicy.SrcSgt) + "']" + "[dst-sgt='" + fmt.Sprintf("%v", ctsRolebasedPolicy.DstSgt) + "']"
+    ctsRolebasedPolicy.EntityData.SegmentPath = "cts-rolebased-policy" + types.AddKeyToken(ctsRolebasedPolicy.SrcSgt, "src-sgt") + types.AddKeyToken(ctsRolebasedPolicy.DstSgt, "dst-sgt")
     ctsRolebasedPolicy.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ctsRolebasedPolicy.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ctsRolebasedPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ctsRolebasedPolicy.EntityData.Children = make(map[string]types.YChild)
-    ctsRolebasedPolicy.EntityData.Leafs = make(map[string]types.YLeaf)
-    ctsRolebasedPolicy.EntityData.Leafs["src-sgt"] = types.YLeaf{"SrcSgt", ctsRolebasedPolicy.SrcSgt}
-    ctsRolebasedPolicy.EntityData.Leafs["dst-sgt"] = types.YLeaf{"DstSgt", ctsRolebasedPolicy.DstSgt}
-    ctsRolebasedPolicy.EntityData.Leafs["sgacl-name"] = types.YLeaf{"SgaclName", ctsRolebasedPolicy.SgaclName}
-    ctsRolebasedPolicy.EntityData.Leafs["num-of-sgacl"] = types.YLeaf{"NumOfSgacl", ctsRolebasedPolicy.NumOfSgacl}
-    ctsRolebasedPolicy.EntityData.Leafs["monitor-mode"] = types.YLeaf{"MonitorMode", ctsRolebasedPolicy.MonitorMode}
-    ctsRolebasedPolicy.EntityData.Leafs["policy-life-time"] = types.YLeaf{"PolicyLifeTime", ctsRolebasedPolicy.PolicyLifeTime}
-    ctsRolebasedPolicy.EntityData.Leafs["last-updated-time"] = types.YLeaf{"LastUpdatedTime", ctsRolebasedPolicy.LastUpdatedTime}
-    ctsRolebasedPolicy.EntityData.Leafs["total-deny-count"] = types.YLeaf{"TotalDenyCount", ctsRolebasedPolicy.TotalDenyCount}
-    ctsRolebasedPolicy.EntityData.Leafs["total-permit-count"] = types.YLeaf{"TotalPermitCount", ctsRolebasedPolicy.TotalPermitCount}
-    ctsRolebasedPolicy.EntityData.Leafs["software-deny-count"] = types.YLeaf{"SoftwareDenyCount", ctsRolebasedPolicy.SoftwareDenyCount}
-    ctsRolebasedPolicy.EntityData.Leafs["software-permit-count"] = types.YLeaf{"SoftwarePermitCount", ctsRolebasedPolicy.SoftwarePermitCount}
-    ctsRolebasedPolicy.EntityData.Leafs["hardware-deny-count"] = types.YLeaf{"HardwareDenyCount", ctsRolebasedPolicy.HardwareDenyCount}
-    ctsRolebasedPolicy.EntityData.Leafs["hardware-permit-count"] = types.YLeaf{"HardwarePermitCount", ctsRolebasedPolicy.HardwarePermitCount}
-    ctsRolebasedPolicy.EntityData.Leafs["software-monitor-count"] = types.YLeaf{"SoftwareMonitorCount", ctsRolebasedPolicy.SoftwareMonitorCount}
-    ctsRolebasedPolicy.EntityData.Leafs["hardware-monitor-count"] = types.YLeaf{"HardwareMonitorCount", ctsRolebasedPolicy.HardwareMonitorCount}
+    ctsRolebasedPolicy.EntityData.Children = types.NewOrderedMap()
+    ctsRolebasedPolicy.EntityData.Leafs = types.NewOrderedMap()
+    ctsRolebasedPolicy.EntityData.Leafs.Append("src-sgt", types.YLeaf{"SrcSgt", ctsRolebasedPolicy.SrcSgt})
+    ctsRolebasedPolicy.EntityData.Leafs.Append("dst-sgt", types.YLeaf{"DstSgt", ctsRolebasedPolicy.DstSgt})
+    ctsRolebasedPolicy.EntityData.Leafs.Append("sgacl-name", types.YLeaf{"SgaclName", ctsRolebasedPolicy.SgaclName})
+    ctsRolebasedPolicy.EntityData.Leafs.Append("num-of-sgacl", types.YLeaf{"NumOfSgacl", ctsRolebasedPolicy.NumOfSgacl})
+    ctsRolebasedPolicy.EntityData.Leafs.Append("monitor-mode", types.YLeaf{"MonitorMode", ctsRolebasedPolicy.MonitorMode})
+    ctsRolebasedPolicy.EntityData.Leafs.Append("policy-life-time", types.YLeaf{"PolicyLifeTime", ctsRolebasedPolicy.PolicyLifeTime})
+    ctsRolebasedPolicy.EntityData.Leafs.Append("last-updated-time", types.YLeaf{"LastUpdatedTime", ctsRolebasedPolicy.LastUpdatedTime})
+    ctsRolebasedPolicy.EntityData.Leafs.Append("total-deny-count", types.YLeaf{"TotalDenyCount", ctsRolebasedPolicy.TotalDenyCount})
+    ctsRolebasedPolicy.EntityData.Leafs.Append("total-permit-count", types.YLeaf{"TotalPermitCount", ctsRolebasedPolicy.TotalPermitCount})
+    ctsRolebasedPolicy.EntityData.Leafs.Append("software-deny-count", types.YLeaf{"SoftwareDenyCount", ctsRolebasedPolicy.SoftwareDenyCount})
+    ctsRolebasedPolicy.EntityData.Leafs.Append("software-permit-count", types.YLeaf{"SoftwarePermitCount", ctsRolebasedPolicy.SoftwarePermitCount})
+    ctsRolebasedPolicy.EntityData.Leafs.Append("hardware-deny-count", types.YLeaf{"HardwareDenyCount", ctsRolebasedPolicy.HardwareDenyCount})
+    ctsRolebasedPolicy.EntityData.Leafs.Append("hardware-permit-count", types.YLeaf{"HardwarePermitCount", ctsRolebasedPolicy.HardwarePermitCount})
+    ctsRolebasedPolicy.EntityData.Leafs.Append("software-monitor-count", types.YLeaf{"SoftwareMonitorCount", ctsRolebasedPolicy.SoftwareMonitorCount})
+    ctsRolebasedPolicy.EntityData.Leafs.Append("hardware-monitor-count", types.YLeaf{"HardwareMonitorCount", ctsRolebasedPolicy.HardwareMonitorCount})
+
+    ctsRolebasedPolicy.EntityData.YListKeys = []string {"SrcSgt", "DstSgt"}
+
     return &(ctsRolebasedPolicy.EntityData)
 }
 
@@ -411,7 +426,7 @@ type TrustsecState_CtsSxpConnections struct {
     // SXP connection peer IP address. Only IPv4 address as Peer IP and default
     // VRF instance in device is supported currently. The type is slice of
     // TrustsecState_CtsSxpConnections_CtsSxpConnection.
-    CtsSxpConnection []TrustsecState_CtsSxpConnections_CtsSxpConnection
+    CtsSxpConnection []*TrustsecState_CtsSxpConnections_CtsSxpConnection
 }
 
 func (ctsSxpConnections *TrustsecState_CtsSxpConnections) GetEntityData() *types.CommonEntityData {
@@ -424,12 +439,15 @@ func (ctsSxpConnections *TrustsecState_CtsSxpConnections) GetEntityData() *types
     ctsSxpConnections.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ctsSxpConnections.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ctsSxpConnections.EntityData.Children = make(map[string]types.YChild)
-    ctsSxpConnections.EntityData.Children["cts-sxp-connection"] = types.YChild{"CtsSxpConnection", nil}
+    ctsSxpConnections.EntityData.Children = types.NewOrderedMap()
+    ctsSxpConnections.EntityData.Children.Append("cts-sxp-connection", types.YChild{"CtsSxpConnection", nil})
     for i := range ctsSxpConnections.CtsSxpConnection {
-        ctsSxpConnections.EntityData.Children[types.GetSegmentPath(&ctsSxpConnections.CtsSxpConnection[i])] = types.YChild{"CtsSxpConnection", &ctsSxpConnections.CtsSxpConnection[i]}
+        ctsSxpConnections.EntityData.Children.Append(types.GetSegmentPath(ctsSxpConnections.CtsSxpConnection[i]), types.YChild{"CtsSxpConnection", ctsSxpConnections.CtsSxpConnection[i]})
     }
-    ctsSxpConnections.EntityData.Leafs = make(map[string]types.YLeaf)
+    ctsSxpConnections.EntityData.Leafs = types.NewOrderedMap()
+
+    ctsSxpConnections.EntityData.YListKeys = []string {}
+
     return &(ctsSxpConnections.EntityData)
 }
 
@@ -445,9 +463,9 @@ type TrustsecState_CtsSxpConnections_CtsSxpConnection struct {
     // This attribute is a key. IP-Address information of the peer of an SXP
     // connection in this device. Only IPv4 address is currently supported. The
     // type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PeerIp interface{}
 
     // This attribute is a key. vrf-name string of the VRF instance in this
@@ -458,9 +476,9 @@ type TrustsecState_CtsSxpConnections_CtsSxpConnection struct {
 
     // Source IP-Address of the SXP connection in this device for the given peer
     // IP-Address. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceIp interface{}
 
     // SXP speaker state information of the SXP connection in this device. This
@@ -493,21 +511,24 @@ func (ctsSxpConnection *TrustsecState_CtsSxpConnections_CtsSxpConnection) GetEnt
     ctsSxpConnection.EntityData.YangName = "cts-sxp-connection"
     ctsSxpConnection.EntityData.BundleName = "cisco_ios_xe"
     ctsSxpConnection.EntityData.ParentYangName = "cts-sxp-connections"
-    ctsSxpConnection.EntityData.SegmentPath = "cts-sxp-connection" + "[peer-ip='" + fmt.Sprintf("%v", ctsSxpConnection.PeerIp) + "']" + "[vrf-name='" + fmt.Sprintf("%v", ctsSxpConnection.VrfName) + "']"
+    ctsSxpConnection.EntityData.SegmentPath = "cts-sxp-connection" + types.AddKeyToken(ctsSxpConnection.PeerIp, "peer-ip") + types.AddKeyToken(ctsSxpConnection.VrfName, "vrf-name")
     ctsSxpConnection.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ctsSxpConnection.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ctsSxpConnection.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ctsSxpConnection.EntityData.Children = make(map[string]types.YChild)
-    ctsSxpConnection.EntityData.Leafs = make(map[string]types.YLeaf)
-    ctsSxpConnection.EntityData.Leafs["peer-ip"] = types.YLeaf{"PeerIp", ctsSxpConnection.PeerIp}
-    ctsSxpConnection.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ctsSxpConnection.VrfName}
-    ctsSxpConnection.EntityData.Leafs["source-ip"] = types.YLeaf{"SourceIp", ctsSxpConnection.SourceIp}
-    ctsSxpConnection.EntityData.Leafs["speaker-state"] = types.YLeaf{"SpeakerState", ctsSxpConnection.SpeakerState}
-    ctsSxpConnection.EntityData.Leafs["speaker-duration"] = types.YLeaf{"SpeakerDuration", ctsSxpConnection.SpeakerDuration}
-    ctsSxpConnection.EntityData.Leafs["listener-state"] = types.YLeaf{"ListenerState", ctsSxpConnection.ListenerState}
-    ctsSxpConnection.EntityData.Leafs["listener-duration"] = types.YLeaf{"ListenerDuration", ctsSxpConnection.ListenerDuration}
-    ctsSxpConnection.EntityData.Leafs["local-mode"] = types.YLeaf{"LocalMode", ctsSxpConnection.LocalMode}
+    ctsSxpConnection.EntityData.Children = types.NewOrderedMap()
+    ctsSxpConnection.EntityData.Leafs = types.NewOrderedMap()
+    ctsSxpConnection.EntityData.Leafs.Append("peer-ip", types.YLeaf{"PeerIp", ctsSxpConnection.PeerIp})
+    ctsSxpConnection.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ctsSxpConnection.VrfName})
+    ctsSxpConnection.EntityData.Leafs.Append("source-ip", types.YLeaf{"SourceIp", ctsSxpConnection.SourceIp})
+    ctsSxpConnection.EntityData.Leafs.Append("speaker-state", types.YLeaf{"SpeakerState", ctsSxpConnection.SpeakerState})
+    ctsSxpConnection.EntityData.Leafs.Append("speaker-duration", types.YLeaf{"SpeakerDuration", ctsSxpConnection.SpeakerDuration})
+    ctsSxpConnection.EntityData.Leafs.Append("listener-state", types.YLeaf{"ListenerState", ctsSxpConnection.ListenerState})
+    ctsSxpConnection.EntityData.Leafs.Append("listener-duration", types.YLeaf{"ListenerDuration", ctsSxpConnection.ListenerDuration})
+    ctsSxpConnection.EntityData.Leafs.Append("local-mode", types.YLeaf{"LocalMode", ctsSxpConnection.LocalMode})
+
+    ctsSxpConnection.EntityData.YListKeys = []string {"PeerIp", "VrfName"}
+
     return &(ctsSxpConnection.EntityData)
 }
 

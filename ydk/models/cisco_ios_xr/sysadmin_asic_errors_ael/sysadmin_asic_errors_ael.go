@@ -24,7 +24,7 @@ type AsicErrors struct {
     DeviceName interface{}
 
     // The type is slice of AsicErrors_Instance.
-    Instance []AsicErrors_Instance
+    Instance []*AsicErrors_Instance
 
     
     ShowAllInstances AsicErrors_ShowAllInstances
@@ -35,19 +35,22 @@ func (asicErrors *AsicErrors) GetEntityData() *types.CommonEntityData {
     asicErrors.EntityData.YangName = "asic-errors"
     asicErrors.EntityData.BundleName = "cisco_ios_xr"
     asicErrors.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-asic-errors-ael"
-    asicErrors.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-asic-errors-ael:asic-errors" + "[device-name='" + fmt.Sprintf("%v", asicErrors.DeviceName) + "']"
+    asicErrors.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-asic-errors-ael:asic-errors" + types.AddKeyToken(asicErrors.DeviceName, "device-name")
     asicErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asicErrors.EntityData.Children = make(map[string]types.YChild)
-    asicErrors.EntityData.Children["instance"] = types.YChild{"Instance", nil}
+    asicErrors.EntityData.Children = types.NewOrderedMap()
+    asicErrors.EntityData.Children.Append("instance", types.YChild{"Instance", nil})
     for i := range asicErrors.Instance {
-        asicErrors.EntityData.Children[types.GetSegmentPath(&asicErrors.Instance[i])] = types.YChild{"Instance", &asicErrors.Instance[i]}
+        asicErrors.EntityData.Children.Append(types.GetSegmentPath(asicErrors.Instance[i]), types.YChild{"Instance", asicErrors.Instance[i]})
     }
-    asicErrors.EntityData.Children["show-all-instances"] = types.YChild{"ShowAllInstances", &asicErrors.ShowAllInstances}
-    asicErrors.EntityData.Leafs = make(map[string]types.YLeaf)
-    asicErrors.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", asicErrors.DeviceName}
+    asicErrors.EntityData.Children.Append("show-all-instances", types.YChild{"ShowAllInstances", &asicErrors.ShowAllInstances})
+    asicErrors.EntityData.Leafs = types.NewOrderedMap()
+    asicErrors.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", asicErrors.DeviceName})
+
+    asicErrors.EntityData.YListKeys = []string {"DeviceName"}
+
     return &(asicErrors.EntityData)
 }
 
@@ -119,32 +122,35 @@ func (instance *AsicErrors_Instance) GetEntityData() *types.CommonEntityData {
     instance.EntityData.YangName = "instance"
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "asic-errors"
-    instance.EntityData.SegmentPath = "instance" + "[instance-num='" + fmt.Sprintf("%v", instance.InstanceNum) + "']"
+    instance.EntityData.SegmentPath = "instance" + types.AddKeyToken(instance.InstanceNum, "instance-num")
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Children["sbe"] = types.YChild{"Sbe", &instance.Sbe}
-    instance.EntityData.Children["mbe"] = types.YChild{"Mbe", &instance.Mbe}
-    instance.EntityData.Children["parity"] = types.YChild{"Parity", &instance.Parity}
-    instance.EntityData.Children["generic"] = types.YChild{"Generic", &instance.Generic}
-    instance.EntityData.Children["crc"] = types.YChild{"Crc", &instance.Crc}
-    instance.EntityData.Children["reset"] = types.YChild{"Reset", &instance.Reset}
-    instance.EntityData.Children["barrier"] = types.YChild{"Barrier", &instance.Barrier}
-    instance.EntityData.Children["unexpected"] = types.YChild{"Unexpected", &instance.Unexpected}
-    instance.EntityData.Children["link"] = types.YChild{"Link", &instance.Link}
-    instance.EntityData.Children["oor-thresh"] = types.YChild{"OorThresh", &instance.OorThresh}
-    instance.EntityData.Children["bp"] = types.YChild{"Bp", &instance.Bp}
-    instance.EntityData.Children["io"] = types.YChild{"Io", &instance.Io}
-    instance.EntityData.Children["ucode"] = types.YChild{"Ucode", &instance.Ucode}
-    instance.EntityData.Children["config"] = types.YChild{"Config", &instance.Config}
-    instance.EntityData.Children["indirect"] = types.YChild{"Indirect", &instance.Indirect}
-    instance.EntityData.Children["nonerr"] = types.YChild{"Nonerr", &instance.Nonerr}
-    instance.EntityData.Children["summary"] = types.YChild{"Summary", &instance.Summary}
-    instance.EntityData.Children["all"] = types.YChild{"All", &instance.All}
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["instance-num"] = types.YLeaf{"InstanceNum", instance.InstanceNum}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Children.Append("sbe", types.YChild{"Sbe", &instance.Sbe})
+    instance.EntityData.Children.Append("mbe", types.YChild{"Mbe", &instance.Mbe})
+    instance.EntityData.Children.Append("parity", types.YChild{"Parity", &instance.Parity})
+    instance.EntityData.Children.Append("generic", types.YChild{"Generic", &instance.Generic})
+    instance.EntityData.Children.Append("crc", types.YChild{"Crc", &instance.Crc})
+    instance.EntityData.Children.Append("reset", types.YChild{"Reset", &instance.Reset})
+    instance.EntityData.Children.Append("barrier", types.YChild{"Barrier", &instance.Barrier})
+    instance.EntityData.Children.Append("unexpected", types.YChild{"Unexpected", &instance.Unexpected})
+    instance.EntityData.Children.Append("link", types.YChild{"Link", &instance.Link})
+    instance.EntityData.Children.Append("oor-thresh", types.YChild{"OorThresh", &instance.OorThresh})
+    instance.EntityData.Children.Append("bp", types.YChild{"Bp", &instance.Bp})
+    instance.EntityData.Children.Append("io", types.YChild{"Io", &instance.Io})
+    instance.EntityData.Children.Append("ucode", types.YChild{"Ucode", &instance.Ucode})
+    instance.EntityData.Children.Append("config", types.YChild{"Config", &instance.Config})
+    instance.EntityData.Children.Append("indirect", types.YChild{"Indirect", &instance.Indirect})
+    instance.EntityData.Children.Append("nonerr", types.YChild{"Nonerr", &instance.Nonerr})
+    instance.EntityData.Children.Append("summary", types.YChild{"Summary", &instance.Summary})
+    instance.EntityData.Children.Append("all", types.YChild{"All", &instance.All})
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("instance-num", types.YLeaf{"InstanceNum", instance.InstanceNum})
+
+    instance.EntityData.YListKeys = []string {"InstanceNum"}
+
     return &(instance.EntityData)
 }
 
@@ -154,7 +160,7 @@ type AsicErrors_Instance_Sbe struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_Instance_Sbe_Location.
-    Location []AsicErrors_Instance_Sbe_Location
+    Location []*AsicErrors_Instance_Sbe_Location
 }
 
 func (sbe *AsicErrors_Instance_Sbe) GetEntityData() *types.CommonEntityData {
@@ -167,12 +173,15 @@ func (sbe *AsicErrors_Instance_Sbe) GetEntityData() *types.CommonEntityData {
     sbe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sbe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sbe.EntityData.Children = make(map[string]types.YChild)
-    sbe.EntityData.Children["location"] = types.YChild{"Location", nil}
+    sbe.EntityData.Children = types.NewOrderedMap()
+    sbe.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range sbe.Location {
-        sbe.EntityData.Children[types.GetSegmentPath(&sbe.Location[i])] = types.YChild{"Location", &sbe.Location[i]}
+        sbe.EntityData.Children.Append(types.GetSegmentPath(sbe.Location[i]), types.YChild{"Location", sbe.Location[i]})
     }
-    sbe.EntityData.Leafs = make(map[string]types.YLeaf)
+    sbe.EntityData.Leafs = types.NewOrderedMap()
+
+    sbe.EntityData.YListKeys = []string {}
+
     return &(sbe.EntityData)
 }
 
@@ -182,11 +191,11 @@ type AsicErrors_Instance_Sbe_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_Instance_Sbe_Location_LogLst.
-    LogLst []AsicErrors_Instance_Sbe_Location_LogLst
+    LogLst []*AsicErrors_Instance_Sbe_Location_LogLst
 }
 
 func (location *AsicErrors_Instance_Sbe_Location) GetEntityData() *types.CommonEntityData {
@@ -194,18 +203,21 @@ func (location *AsicErrors_Instance_Sbe_Location) GetEntityData() *types.CommonE
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "sbe"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -228,9 +240,12 @@ func (logLst *AsicErrors_Instance_Sbe_Location_LogLst) GetEntityData() *types.Co
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -240,7 +255,7 @@ type AsicErrors_Instance_Mbe struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_Instance_Mbe_Location.
-    Location []AsicErrors_Instance_Mbe_Location
+    Location []*AsicErrors_Instance_Mbe_Location
 }
 
 func (mbe *AsicErrors_Instance_Mbe) GetEntityData() *types.CommonEntityData {
@@ -253,12 +268,15 @@ func (mbe *AsicErrors_Instance_Mbe) GetEntityData() *types.CommonEntityData {
     mbe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mbe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mbe.EntityData.Children = make(map[string]types.YChild)
-    mbe.EntityData.Children["location"] = types.YChild{"Location", nil}
+    mbe.EntityData.Children = types.NewOrderedMap()
+    mbe.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range mbe.Location {
-        mbe.EntityData.Children[types.GetSegmentPath(&mbe.Location[i])] = types.YChild{"Location", &mbe.Location[i]}
+        mbe.EntityData.Children.Append(types.GetSegmentPath(mbe.Location[i]), types.YChild{"Location", mbe.Location[i]})
     }
-    mbe.EntityData.Leafs = make(map[string]types.YLeaf)
+    mbe.EntityData.Leafs = types.NewOrderedMap()
+
+    mbe.EntityData.YListKeys = []string {}
+
     return &(mbe.EntityData)
 }
 
@@ -268,11 +286,11 @@ type AsicErrors_Instance_Mbe_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_Instance_Mbe_Location_LogLst.
-    LogLst []AsicErrors_Instance_Mbe_Location_LogLst
+    LogLst []*AsicErrors_Instance_Mbe_Location_LogLst
 }
 
 func (location *AsicErrors_Instance_Mbe_Location) GetEntityData() *types.CommonEntityData {
@@ -280,18 +298,21 @@ func (location *AsicErrors_Instance_Mbe_Location) GetEntityData() *types.CommonE
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "mbe"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -314,9 +335,12 @@ func (logLst *AsicErrors_Instance_Mbe_Location_LogLst) GetEntityData() *types.Co
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -326,7 +350,7 @@ type AsicErrors_Instance_Parity struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_Instance_Parity_Location.
-    Location []AsicErrors_Instance_Parity_Location
+    Location []*AsicErrors_Instance_Parity_Location
 }
 
 func (parity *AsicErrors_Instance_Parity) GetEntityData() *types.CommonEntityData {
@@ -339,12 +363,15 @@ func (parity *AsicErrors_Instance_Parity) GetEntityData() *types.CommonEntityDat
     parity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parity.EntityData.Children = make(map[string]types.YChild)
-    parity.EntityData.Children["location"] = types.YChild{"Location", nil}
+    parity.EntityData.Children = types.NewOrderedMap()
+    parity.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range parity.Location {
-        parity.EntityData.Children[types.GetSegmentPath(&parity.Location[i])] = types.YChild{"Location", &parity.Location[i]}
+        parity.EntityData.Children.Append(types.GetSegmentPath(parity.Location[i]), types.YChild{"Location", parity.Location[i]})
     }
-    parity.EntityData.Leafs = make(map[string]types.YLeaf)
+    parity.EntityData.Leafs = types.NewOrderedMap()
+
+    parity.EntityData.YListKeys = []string {}
+
     return &(parity.EntityData)
 }
 
@@ -354,11 +381,11 @@ type AsicErrors_Instance_Parity_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_Instance_Parity_Location_LogLst.
-    LogLst []AsicErrors_Instance_Parity_Location_LogLst
+    LogLst []*AsicErrors_Instance_Parity_Location_LogLst
 }
 
 func (location *AsicErrors_Instance_Parity_Location) GetEntityData() *types.CommonEntityData {
@@ -366,18 +393,21 @@ func (location *AsicErrors_Instance_Parity_Location) GetEntityData() *types.Comm
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "parity"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -400,9 +430,12 @@ func (logLst *AsicErrors_Instance_Parity_Location_LogLst) GetEntityData() *types
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -412,7 +445,7 @@ type AsicErrors_Instance_Generic struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_Instance_Generic_Location.
-    Location []AsicErrors_Instance_Generic_Location
+    Location []*AsicErrors_Instance_Generic_Location
 }
 
 func (generic *AsicErrors_Instance_Generic) GetEntityData() *types.CommonEntityData {
@@ -425,12 +458,15 @@ func (generic *AsicErrors_Instance_Generic) GetEntityData() *types.CommonEntityD
     generic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    generic.EntityData.Children = make(map[string]types.YChild)
-    generic.EntityData.Children["location"] = types.YChild{"Location", nil}
+    generic.EntityData.Children = types.NewOrderedMap()
+    generic.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range generic.Location {
-        generic.EntityData.Children[types.GetSegmentPath(&generic.Location[i])] = types.YChild{"Location", &generic.Location[i]}
+        generic.EntityData.Children.Append(types.GetSegmentPath(generic.Location[i]), types.YChild{"Location", generic.Location[i]})
     }
-    generic.EntityData.Leafs = make(map[string]types.YLeaf)
+    generic.EntityData.Leafs = types.NewOrderedMap()
+
+    generic.EntityData.YListKeys = []string {}
+
     return &(generic.EntityData)
 }
 
@@ -440,11 +476,11 @@ type AsicErrors_Instance_Generic_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_Instance_Generic_Location_LogLst.
-    LogLst []AsicErrors_Instance_Generic_Location_LogLst
+    LogLst []*AsicErrors_Instance_Generic_Location_LogLst
 }
 
 func (location *AsicErrors_Instance_Generic_Location) GetEntityData() *types.CommonEntityData {
@@ -452,18 +488,21 @@ func (location *AsicErrors_Instance_Generic_Location) GetEntityData() *types.Com
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "generic"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -486,9 +525,12 @@ func (logLst *AsicErrors_Instance_Generic_Location_LogLst) GetEntityData() *type
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -498,7 +540,7 @@ type AsicErrors_Instance_Crc struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_Instance_Crc_Location.
-    Location []AsicErrors_Instance_Crc_Location
+    Location []*AsicErrors_Instance_Crc_Location
 }
 
 func (crc *AsicErrors_Instance_Crc) GetEntityData() *types.CommonEntityData {
@@ -511,12 +553,15 @@ func (crc *AsicErrors_Instance_Crc) GetEntityData() *types.CommonEntityData {
     crc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    crc.EntityData.Children = make(map[string]types.YChild)
-    crc.EntityData.Children["location"] = types.YChild{"Location", nil}
+    crc.EntityData.Children = types.NewOrderedMap()
+    crc.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range crc.Location {
-        crc.EntityData.Children[types.GetSegmentPath(&crc.Location[i])] = types.YChild{"Location", &crc.Location[i]}
+        crc.EntityData.Children.Append(types.GetSegmentPath(crc.Location[i]), types.YChild{"Location", crc.Location[i]})
     }
-    crc.EntityData.Leafs = make(map[string]types.YLeaf)
+    crc.EntityData.Leafs = types.NewOrderedMap()
+
+    crc.EntityData.YListKeys = []string {}
+
     return &(crc.EntityData)
 }
 
@@ -526,11 +571,11 @@ type AsicErrors_Instance_Crc_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_Instance_Crc_Location_LogLst.
-    LogLst []AsicErrors_Instance_Crc_Location_LogLst
+    LogLst []*AsicErrors_Instance_Crc_Location_LogLst
 }
 
 func (location *AsicErrors_Instance_Crc_Location) GetEntityData() *types.CommonEntityData {
@@ -538,18 +583,21 @@ func (location *AsicErrors_Instance_Crc_Location) GetEntityData() *types.CommonE
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "crc"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -572,9 +620,12 @@ func (logLst *AsicErrors_Instance_Crc_Location_LogLst) GetEntityData() *types.Co
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -584,7 +635,7 @@ type AsicErrors_Instance_Reset struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_Instance_Reset_Location.
-    Location []AsicErrors_Instance_Reset_Location
+    Location []*AsicErrors_Instance_Reset_Location
 }
 
 func (reset *AsicErrors_Instance_Reset) GetEntityData() *types.CommonEntityData {
@@ -597,12 +648,15 @@ func (reset *AsicErrors_Instance_Reset) GetEntityData() *types.CommonEntityData 
     reset.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reset.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    reset.EntityData.Children = make(map[string]types.YChild)
-    reset.EntityData.Children["location"] = types.YChild{"Location", nil}
+    reset.EntityData.Children = types.NewOrderedMap()
+    reset.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range reset.Location {
-        reset.EntityData.Children[types.GetSegmentPath(&reset.Location[i])] = types.YChild{"Location", &reset.Location[i]}
+        reset.EntityData.Children.Append(types.GetSegmentPath(reset.Location[i]), types.YChild{"Location", reset.Location[i]})
     }
-    reset.EntityData.Leafs = make(map[string]types.YLeaf)
+    reset.EntityData.Leafs = types.NewOrderedMap()
+
+    reset.EntityData.YListKeys = []string {}
+
     return &(reset.EntityData)
 }
 
@@ -612,11 +666,11 @@ type AsicErrors_Instance_Reset_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_Instance_Reset_Location_LogLst.
-    LogLst []AsicErrors_Instance_Reset_Location_LogLst
+    LogLst []*AsicErrors_Instance_Reset_Location_LogLst
 }
 
 func (location *AsicErrors_Instance_Reset_Location) GetEntityData() *types.CommonEntityData {
@@ -624,18 +678,21 @@ func (location *AsicErrors_Instance_Reset_Location) GetEntityData() *types.Commo
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "reset"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -658,9 +715,12 @@ func (logLst *AsicErrors_Instance_Reset_Location_LogLst) GetEntityData() *types.
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -670,7 +730,7 @@ type AsicErrors_Instance_Barrier struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_Instance_Barrier_Location.
-    Location []AsicErrors_Instance_Barrier_Location
+    Location []*AsicErrors_Instance_Barrier_Location
 }
 
 func (barrier *AsicErrors_Instance_Barrier) GetEntityData() *types.CommonEntityData {
@@ -683,12 +743,15 @@ func (barrier *AsicErrors_Instance_Barrier) GetEntityData() *types.CommonEntityD
     barrier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     barrier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    barrier.EntityData.Children = make(map[string]types.YChild)
-    barrier.EntityData.Children["location"] = types.YChild{"Location", nil}
+    barrier.EntityData.Children = types.NewOrderedMap()
+    barrier.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range barrier.Location {
-        barrier.EntityData.Children[types.GetSegmentPath(&barrier.Location[i])] = types.YChild{"Location", &barrier.Location[i]}
+        barrier.EntityData.Children.Append(types.GetSegmentPath(barrier.Location[i]), types.YChild{"Location", barrier.Location[i]})
     }
-    barrier.EntityData.Leafs = make(map[string]types.YLeaf)
+    barrier.EntityData.Leafs = types.NewOrderedMap()
+
+    barrier.EntityData.YListKeys = []string {}
+
     return &(barrier.EntityData)
 }
 
@@ -698,11 +761,11 @@ type AsicErrors_Instance_Barrier_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_Instance_Barrier_Location_LogLst.
-    LogLst []AsicErrors_Instance_Barrier_Location_LogLst
+    LogLst []*AsicErrors_Instance_Barrier_Location_LogLst
 }
 
 func (location *AsicErrors_Instance_Barrier_Location) GetEntityData() *types.CommonEntityData {
@@ -710,18 +773,21 @@ func (location *AsicErrors_Instance_Barrier_Location) GetEntityData() *types.Com
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "barrier"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -744,9 +810,12 @@ func (logLst *AsicErrors_Instance_Barrier_Location_LogLst) GetEntityData() *type
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -756,7 +825,7 @@ type AsicErrors_Instance_Unexpected struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_Instance_Unexpected_Location.
-    Location []AsicErrors_Instance_Unexpected_Location
+    Location []*AsicErrors_Instance_Unexpected_Location
 }
 
 func (unexpected *AsicErrors_Instance_Unexpected) GetEntityData() *types.CommonEntityData {
@@ -769,12 +838,15 @@ func (unexpected *AsicErrors_Instance_Unexpected) GetEntityData() *types.CommonE
     unexpected.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unexpected.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    unexpected.EntityData.Children = make(map[string]types.YChild)
-    unexpected.EntityData.Children["location"] = types.YChild{"Location", nil}
+    unexpected.EntityData.Children = types.NewOrderedMap()
+    unexpected.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range unexpected.Location {
-        unexpected.EntityData.Children[types.GetSegmentPath(&unexpected.Location[i])] = types.YChild{"Location", &unexpected.Location[i]}
+        unexpected.EntityData.Children.Append(types.GetSegmentPath(unexpected.Location[i]), types.YChild{"Location", unexpected.Location[i]})
     }
-    unexpected.EntityData.Leafs = make(map[string]types.YLeaf)
+    unexpected.EntityData.Leafs = types.NewOrderedMap()
+
+    unexpected.EntityData.YListKeys = []string {}
+
     return &(unexpected.EntityData)
 }
 
@@ -784,11 +856,11 @@ type AsicErrors_Instance_Unexpected_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_Instance_Unexpected_Location_LogLst.
-    LogLst []AsicErrors_Instance_Unexpected_Location_LogLst
+    LogLst []*AsicErrors_Instance_Unexpected_Location_LogLst
 }
 
 func (location *AsicErrors_Instance_Unexpected_Location) GetEntityData() *types.CommonEntityData {
@@ -796,18 +868,21 @@ func (location *AsicErrors_Instance_Unexpected_Location) GetEntityData() *types.
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "unexpected"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -830,9 +905,12 @@ func (logLst *AsicErrors_Instance_Unexpected_Location_LogLst) GetEntityData() *t
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -842,7 +920,7 @@ type AsicErrors_Instance_Link struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_Instance_Link_Location.
-    Location []AsicErrors_Instance_Link_Location
+    Location []*AsicErrors_Instance_Link_Location
 }
 
 func (link *AsicErrors_Instance_Link) GetEntityData() *types.CommonEntityData {
@@ -855,12 +933,15 @@ func (link *AsicErrors_Instance_Link) GetEntityData() *types.CommonEntityData {
     link.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    link.EntityData.Children = make(map[string]types.YChild)
-    link.EntityData.Children["location"] = types.YChild{"Location", nil}
+    link.EntityData.Children = types.NewOrderedMap()
+    link.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range link.Location {
-        link.EntityData.Children[types.GetSegmentPath(&link.Location[i])] = types.YChild{"Location", &link.Location[i]}
+        link.EntityData.Children.Append(types.GetSegmentPath(link.Location[i]), types.YChild{"Location", link.Location[i]})
     }
-    link.EntityData.Leafs = make(map[string]types.YLeaf)
+    link.EntityData.Leafs = types.NewOrderedMap()
+
+    link.EntityData.YListKeys = []string {}
+
     return &(link.EntityData)
 }
 
@@ -870,11 +951,11 @@ type AsicErrors_Instance_Link_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_Instance_Link_Location_LogLst.
-    LogLst []AsicErrors_Instance_Link_Location_LogLst
+    LogLst []*AsicErrors_Instance_Link_Location_LogLst
 }
 
 func (location *AsicErrors_Instance_Link_Location) GetEntityData() *types.CommonEntityData {
@@ -882,18 +963,21 @@ func (location *AsicErrors_Instance_Link_Location) GetEntityData() *types.Common
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "link"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -916,9 +1000,12 @@ func (logLst *AsicErrors_Instance_Link_Location_LogLst) GetEntityData() *types.C
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -928,7 +1015,7 @@ type AsicErrors_Instance_OorThresh struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_Instance_OorThresh_Location.
-    Location []AsicErrors_Instance_OorThresh_Location
+    Location []*AsicErrors_Instance_OorThresh_Location
 }
 
 func (oorThresh *AsicErrors_Instance_OorThresh) GetEntityData() *types.CommonEntityData {
@@ -941,12 +1028,15 @@ func (oorThresh *AsicErrors_Instance_OorThresh) GetEntityData() *types.CommonEnt
     oorThresh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oorThresh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oorThresh.EntityData.Children = make(map[string]types.YChild)
-    oorThresh.EntityData.Children["location"] = types.YChild{"Location", nil}
+    oorThresh.EntityData.Children = types.NewOrderedMap()
+    oorThresh.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range oorThresh.Location {
-        oorThresh.EntityData.Children[types.GetSegmentPath(&oorThresh.Location[i])] = types.YChild{"Location", &oorThresh.Location[i]}
+        oorThresh.EntityData.Children.Append(types.GetSegmentPath(oorThresh.Location[i]), types.YChild{"Location", oorThresh.Location[i]})
     }
-    oorThresh.EntityData.Leafs = make(map[string]types.YLeaf)
+    oorThresh.EntityData.Leafs = types.NewOrderedMap()
+
+    oorThresh.EntityData.YListKeys = []string {}
+
     return &(oorThresh.EntityData)
 }
 
@@ -956,11 +1046,11 @@ type AsicErrors_Instance_OorThresh_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_Instance_OorThresh_Location_LogLst.
-    LogLst []AsicErrors_Instance_OorThresh_Location_LogLst
+    LogLst []*AsicErrors_Instance_OorThresh_Location_LogLst
 }
 
 func (location *AsicErrors_Instance_OorThresh_Location) GetEntityData() *types.CommonEntityData {
@@ -968,18 +1058,21 @@ func (location *AsicErrors_Instance_OorThresh_Location) GetEntityData() *types.C
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "oor-thresh"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1002,9 +1095,12 @@ func (logLst *AsicErrors_Instance_OorThresh_Location_LogLst) GetEntityData() *ty
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -1014,7 +1110,7 @@ type AsicErrors_Instance_Bp struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_Instance_Bp_Location.
-    Location []AsicErrors_Instance_Bp_Location
+    Location []*AsicErrors_Instance_Bp_Location
 }
 
 func (bp *AsicErrors_Instance_Bp) GetEntityData() *types.CommonEntityData {
@@ -1027,12 +1123,15 @@ func (bp *AsicErrors_Instance_Bp) GetEntityData() *types.CommonEntityData {
     bp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bp.EntityData.Children = make(map[string]types.YChild)
-    bp.EntityData.Children["location"] = types.YChild{"Location", nil}
+    bp.EntityData.Children = types.NewOrderedMap()
+    bp.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range bp.Location {
-        bp.EntityData.Children[types.GetSegmentPath(&bp.Location[i])] = types.YChild{"Location", &bp.Location[i]}
+        bp.EntityData.Children.Append(types.GetSegmentPath(bp.Location[i]), types.YChild{"Location", bp.Location[i]})
     }
-    bp.EntityData.Leafs = make(map[string]types.YLeaf)
+    bp.EntityData.Leafs = types.NewOrderedMap()
+
+    bp.EntityData.YListKeys = []string {}
+
     return &(bp.EntityData)
 }
 
@@ -1042,11 +1141,11 @@ type AsicErrors_Instance_Bp_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_Instance_Bp_Location_LogLst.
-    LogLst []AsicErrors_Instance_Bp_Location_LogLst
+    LogLst []*AsicErrors_Instance_Bp_Location_LogLst
 }
 
 func (location *AsicErrors_Instance_Bp_Location) GetEntityData() *types.CommonEntityData {
@@ -1054,18 +1153,21 @@ func (location *AsicErrors_Instance_Bp_Location) GetEntityData() *types.CommonEn
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "bp"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1088,9 +1190,12 @@ func (logLst *AsicErrors_Instance_Bp_Location_LogLst) GetEntityData() *types.Com
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -1100,7 +1205,7 @@ type AsicErrors_Instance_Io struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_Instance_Io_Location.
-    Location []AsicErrors_Instance_Io_Location
+    Location []*AsicErrors_Instance_Io_Location
 }
 
 func (io *AsicErrors_Instance_Io) GetEntityData() *types.CommonEntityData {
@@ -1113,12 +1218,15 @@ func (io *AsicErrors_Instance_Io) GetEntityData() *types.CommonEntityData {
     io.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     io.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    io.EntityData.Children = make(map[string]types.YChild)
-    io.EntityData.Children["location"] = types.YChild{"Location", nil}
+    io.EntityData.Children = types.NewOrderedMap()
+    io.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range io.Location {
-        io.EntityData.Children[types.GetSegmentPath(&io.Location[i])] = types.YChild{"Location", &io.Location[i]}
+        io.EntityData.Children.Append(types.GetSegmentPath(io.Location[i]), types.YChild{"Location", io.Location[i]})
     }
-    io.EntityData.Leafs = make(map[string]types.YLeaf)
+    io.EntityData.Leafs = types.NewOrderedMap()
+
+    io.EntityData.YListKeys = []string {}
+
     return &(io.EntityData)
 }
 
@@ -1128,11 +1236,11 @@ type AsicErrors_Instance_Io_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_Instance_Io_Location_LogLst.
-    LogLst []AsicErrors_Instance_Io_Location_LogLst
+    LogLst []*AsicErrors_Instance_Io_Location_LogLst
 }
 
 func (location *AsicErrors_Instance_Io_Location) GetEntityData() *types.CommonEntityData {
@@ -1140,18 +1248,21 @@ func (location *AsicErrors_Instance_Io_Location) GetEntityData() *types.CommonEn
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "io"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1174,9 +1285,12 @@ func (logLst *AsicErrors_Instance_Io_Location_LogLst) GetEntityData() *types.Com
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -1186,7 +1300,7 @@ type AsicErrors_Instance_Ucode struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_Instance_Ucode_Location.
-    Location []AsicErrors_Instance_Ucode_Location
+    Location []*AsicErrors_Instance_Ucode_Location
 }
 
 func (ucode *AsicErrors_Instance_Ucode) GetEntityData() *types.CommonEntityData {
@@ -1199,12 +1313,15 @@ func (ucode *AsicErrors_Instance_Ucode) GetEntityData() *types.CommonEntityData 
     ucode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ucode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ucode.EntityData.Children = make(map[string]types.YChild)
-    ucode.EntityData.Children["location"] = types.YChild{"Location", nil}
+    ucode.EntityData.Children = types.NewOrderedMap()
+    ucode.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range ucode.Location {
-        ucode.EntityData.Children[types.GetSegmentPath(&ucode.Location[i])] = types.YChild{"Location", &ucode.Location[i]}
+        ucode.EntityData.Children.Append(types.GetSegmentPath(ucode.Location[i]), types.YChild{"Location", ucode.Location[i]})
     }
-    ucode.EntityData.Leafs = make(map[string]types.YLeaf)
+    ucode.EntityData.Leafs = types.NewOrderedMap()
+
+    ucode.EntityData.YListKeys = []string {}
+
     return &(ucode.EntityData)
 }
 
@@ -1214,11 +1331,11 @@ type AsicErrors_Instance_Ucode_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_Instance_Ucode_Location_LogLst.
-    LogLst []AsicErrors_Instance_Ucode_Location_LogLst
+    LogLst []*AsicErrors_Instance_Ucode_Location_LogLst
 }
 
 func (location *AsicErrors_Instance_Ucode_Location) GetEntityData() *types.CommonEntityData {
@@ -1226,18 +1343,21 @@ func (location *AsicErrors_Instance_Ucode_Location) GetEntityData() *types.Commo
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "ucode"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1260,9 +1380,12 @@ func (logLst *AsicErrors_Instance_Ucode_Location_LogLst) GetEntityData() *types.
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -1272,7 +1395,7 @@ type AsicErrors_Instance_Config struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_Instance_Config_Location.
-    Location []AsicErrors_Instance_Config_Location
+    Location []*AsicErrors_Instance_Config_Location
 }
 
 func (config *AsicErrors_Instance_Config) GetEntityData() *types.CommonEntityData {
@@ -1285,12 +1408,15 @@ func (config *AsicErrors_Instance_Config) GetEntityData() *types.CommonEntityDat
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Children["location"] = types.YChild{"Location", nil}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range config.Location {
-        config.EntityData.Children[types.GetSegmentPath(&config.Location[i])] = types.YChild{"Location", &config.Location[i]}
+        config.EntityData.Children.Append(types.GetSegmentPath(config.Location[i]), types.YChild{"Location", config.Location[i]})
     }
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    config.EntityData.Leafs = types.NewOrderedMap()
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1300,11 +1426,11 @@ type AsicErrors_Instance_Config_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_Instance_Config_Location_LogLst.
-    LogLst []AsicErrors_Instance_Config_Location_LogLst
+    LogLst []*AsicErrors_Instance_Config_Location_LogLst
 }
 
 func (location *AsicErrors_Instance_Config_Location) GetEntityData() *types.CommonEntityData {
@@ -1312,18 +1438,21 @@ func (location *AsicErrors_Instance_Config_Location) GetEntityData() *types.Comm
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "config"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1346,9 +1475,12 @@ func (logLst *AsicErrors_Instance_Config_Location_LogLst) GetEntityData() *types
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -1358,7 +1490,7 @@ type AsicErrors_Instance_Indirect struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_Instance_Indirect_Location.
-    Location []AsicErrors_Instance_Indirect_Location
+    Location []*AsicErrors_Instance_Indirect_Location
 }
 
 func (indirect *AsicErrors_Instance_Indirect) GetEntityData() *types.CommonEntityData {
@@ -1371,12 +1503,15 @@ func (indirect *AsicErrors_Instance_Indirect) GetEntityData() *types.CommonEntit
     indirect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     indirect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    indirect.EntityData.Children = make(map[string]types.YChild)
-    indirect.EntityData.Children["location"] = types.YChild{"Location", nil}
+    indirect.EntityData.Children = types.NewOrderedMap()
+    indirect.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range indirect.Location {
-        indirect.EntityData.Children[types.GetSegmentPath(&indirect.Location[i])] = types.YChild{"Location", &indirect.Location[i]}
+        indirect.EntityData.Children.Append(types.GetSegmentPath(indirect.Location[i]), types.YChild{"Location", indirect.Location[i]})
     }
-    indirect.EntityData.Leafs = make(map[string]types.YLeaf)
+    indirect.EntityData.Leafs = types.NewOrderedMap()
+
+    indirect.EntityData.YListKeys = []string {}
+
     return &(indirect.EntityData)
 }
 
@@ -1386,11 +1521,11 @@ type AsicErrors_Instance_Indirect_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_Instance_Indirect_Location_LogLst.
-    LogLst []AsicErrors_Instance_Indirect_Location_LogLst
+    LogLst []*AsicErrors_Instance_Indirect_Location_LogLst
 }
 
 func (location *AsicErrors_Instance_Indirect_Location) GetEntityData() *types.CommonEntityData {
@@ -1398,18 +1533,21 @@ func (location *AsicErrors_Instance_Indirect_Location) GetEntityData() *types.Co
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "indirect"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1432,9 +1570,12 @@ func (logLst *AsicErrors_Instance_Indirect_Location_LogLst) GetEntityData() *typ
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -1444,7 +1585,7 @@ type AsicErrors_Instance_Nonerr struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_Instance_Nonerr_Location.
-    Location []AsicErrors_Instance_Nonerr_Location
+    Location []*AsicErrors_Instance_Nonerr_Location
 }
 
 func (nonerr *AsicErrors_Instance_Nonerr) GetEntityData() *types.CommonEntityData {
@@ -1457,12 +1598,15 @@ func (nonerr *AsicErrors_Instance_Nonerr) GetEntityData() *types.CommonEntityDat
     nonerr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonerr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nonerr.EntityData.Children = make(map[string]types.YChild)
-    nonerr.EntityData.Children["location"] = types.YChild{"Location", nil}
+    nonerr.EntityData.Children = types.NewOrderedMap()
+    nonerr.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range nonerr.Location {
-        nonerr.EntityData.Children[types.GetSegmentPath(&nonerr.Location[i])] = types.YChild{"Location", &nonerr.Location[i]}
+        nonerr.EntityData.Children.Append(types.GetSegmentPath(nonerr.Location[i]), types.YChild{"Location", nonerr.Location[i]})
     }
-    nonerr.EntityData.Leafs = make(map[string]types.YLeaf)
+    nonerr.EntityData.Leafs = types.NewOrderedMap()
+
+    nonerr.EntityData.YListKeys = []string {}
+
     return &(nonerr.EntityData)
 }
 
@@ -1472,11 +1616,11 @@ type AsicErrors_Instance_Nonerr_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_Instance_Nonerr_Location_LogLst.
-    LogLst []AsicErrors_Instance_Nonerr_Location_LogLst
+    LogLst []*AsicErrors_Instance_Nonerr_Location_LogLst
 }
 
 func (location *AsicErrors_Instance_Nonerr_Location) GetEntityData() *types.CommonEntityData {
@@ -1484,18 +1628,21 @@ func (location *AsicErrors_Instance_Nonerr_Location) GetEntityData() *types.Comm
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "nonerr"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1518,9 +1665,12 @@ func (logLst *AsicErrors_Instance_Nonerr_Location_LogLst) GetEntityData() *types
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -1530,7 +1680,7 @@ type AsicErrors_Instance_Summary struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_Instance_Summary_Location.
-    Location []AsicErrors_Instance_Summary_Location
+    Location []*AsicErrors_Instance_Summary_Location
 }
 
 func (summary *AsicErrors_Instance_Summary) GetEntityData() *types.CommonEntityData {
@@ -1543,12 +1693,15 @@ func (summary *AsicErrors_Instance_Summary) GetEntityData() *types.CommonEntityD
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Children["location"] = types.YChild{"Location", nil}
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range summary.Location {
-        summary.EntityData.Children[types.GetSegmentPath(&summary.Location[i])] = types.YChild{"Location", &summary.Location[i]}
+        summary.EntityData.Children.Append(types.GetSegmentPath(summary.Location[i]), types.YChild{"Location", summary.Location[i]})
     }
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Leafs = types.NewOrderedMap()
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -1558,11 +1711,11 @@ type AsicErrors_Instance_Summary_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_Instance_Summary_Location_LogLst.
-    LogLst []AsicErrors_Instance_Summary_Location_LogLst
+    LogLst []*AsicErrors_Instance_Summary_Location_LogLst
 }
 
 func (location *AsicErrors_Instance_Summary_Location) GetEntityData() *types.CommonEntityData {
@@ -1570,18 +1723,21 @@ func (location *AsicErrors_Instance_Summary_Location) GetEntityData() *types.Com
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "summary"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1604,9 +1760,12 @@ func (logLst *AsicErrors_Instance_Summary_Location_LogLst) GetEntityData() *type
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -1619,7 +1778,7 @@ type AsicErrors_Instance_All struct {
     History AsicErrors_Instance_All_History
 
     // The type is slice of AsicErrors_Instance_All_Location.
-    Location []AsicErrors_Instance_All_Location
+    Location []*AsicErrors_Instance_All_Location
 }
 
 func (all *AsicErrors_Instance_All) GetEntityData() *types.CommonEntityData {
@@ -1632,13 +1791,16 @@ func (all *AsicErrors_Instance_All) GetEntityData() *types.CommonEntityData {
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    all.EntityData.Children = make(map[string]types.YChild)
-    all.EntityData.Children["history"] = types.YChild{"History", &all.History}
-    all.EntityData.Children["location"] = types.YChild{"Location", nil}
+    all.EntityData.Children = types.NewOrderedMap()
+    all.EntityData.Children.Append("history", types.YChild{"History", &all.History})
+    all.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range all.Location {
-        all.EntityData.Children[types.GetSegmentPath(&all.Location[i])] = types.YChild{"Location", &all.Location[i]}
+        all.EntityData.Children.Append(types.GetSegmentPath(all.Location[i]), types.YChild{"Location", all.Location[i]})
     }
-    all.EntityData.Leafs = make(map[string]types.YLeaf)
+    all.EntityData.Leafs = types.NewOrderedMap()
+
+    all.EntityData.YListKeys = []string {}
+
     return &(all.EntityData)
 }
 
@@ -1648,7 +1810,7 @@ type AsicErrors_Instance_All_History struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_Instance_All_History_Location.
-    Location []AsicErrors_Instance_All_History_Location
+    Location []*AsicErrors_Instance_All_History_Location
 }
 
 func (history *AsicErrors_Instance_All_History) GetEntityData() *types.CommonEntityData {
@@ -1661,12 +1823,15 @@ func (history *AsicErrors_Instance_All_History) GetEntityData() *types.CommonEnt
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    history.EntityData.Children = make(map[string]types.YChild)
-    history.EntityData.Children["location"] = types.YChild{"Location", nil}
+    history.EntityData.Children = types.NewOrderedMap()
+    history.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range history.Location {
-        history.EntityData.Children[types.GetSegmentPath(&history.Location[i])] = types.YChild{"Location", &history.Location[i]}
+        history.EntityData.Children.Append(types.GetSegmentPath(history.Location[i]), types.YChild{"Location", history.Location[i]})
     }
-    history.EntityData.Leafs = make(map[string]types.YLeaf)
+    history.EntityData.Leafs = types.NewOrderedMap()
+
+    history.EntityData.YListKeys = []string {}
+
     return &(history.EntityData)
 }
 
@@ -1676,11 +1841,11 @@ type AsicErrors_Instance_All_History_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_Instance_All_History_Location_LogLst.
-    LogLst []AsicErrors_Instance_All_History_Location_LogLst
+    LogLst []*AsicErrors_Instance_All_History_Location_LogLst
 }
 
 func (location *AsicErrors_Instance_All_History_Location) GetEntityData() *types.CommonEntityData {
@@ -1688,18 +1853,21 @@ func (location *AsicErrors_Instance_All_History_Location) GetEntityData() *types
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "history"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1722,9 +1890,12 @@ func (logLst *AsicErrors_Instance_All_History_Location_LogLst) GetEntityData() *
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -1734,11 +1905,11 @@ type AsicErrors_Instance_All_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_Instance_All_Location_LogLst.
-    LogLst []AsicErrors_Instance_All_Location_LogLst
+    LogLst []*AsicErrors_Instance_All_Location_LogLst
 }
 
 func (location *AsicErrors_Instance_All_Location) GetEntityData() *types.CommonEntityData {
@@ -1746,18 +1917,21 @@ func (location *AsicErrors_Instance_All_Location) GetEntityData() *types.CommonE
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "all"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1780,9 +1954,12 @@ func (logLst *AsicErrors_Instance_All_Location_LogLst) GetEntityData() *types.Co
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -1856,26 +2033,29 @@ func (showAllInstances *AsicErrors_ShowAllInstances) GetEntityData() *types.Comm
     showAllInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     showAllInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    showAllInstances.EntityData.Children = make(map[string]types.YChild)
-    showAllInstances.EntityData.Children["sbe"] = types.YChild{"Sbe", &showAllInstances.Sbe}
-    showAllInstances.EntityData.Children["mbe"] = types.YChild{"Mbe", &showAllInstances.Mbe}
-    showAllInstances.EntityData.Children["parity"] = types.YChild{"Parity", &showAllInstances.Parity}
-    showAllInstances.EntityData.Children["generic"] = types.YChild{"Generic", &showAllInstances.Generic}
-    showAllInstances.EntityData.Children["crc"] = types.YChild{"Crc", &showAllInstances.Crc}
-    showAllInstances.EntityData.Children["reset"] = types.YChild{"Reset", &showAllInstances.Reset}
-    showAllInstances.EntityData.Children["barrier"] = types.YChild{"Barrier", &showAllInstances.Barrier}
-    showAllInstances.EntityData.Children["unexpected"] = types.YChild{"Unexpected", &showAllInstances.Unexpected}
-    showAllInstances.EntityData.Children["link"] = types.YChild{"Link", &showAllInstances.Link}
-    showAllInstances.EntityData.Children["oor-thresh"] = types.YChild{"OorThresh", &showAllInstances.OorThresh}
-    showAllInstances.EntityData.Children["bp"] = types.YChild{"Bp", &showAllInstances.Bp}
-    showAllInstances.EntityData.Children["io"] = types.YChild{"Io", &showAllInstances.Io}
-    showAllInstances.EntityData.Children["ucode"] = types.YChild{"Ucode", &showAllInstances.Ucode}
-    showAllInstances.EntityData.Children["config"] = types.YChild{"Config", &showAllInstances.Config}
-    showAllInstances.EntityData.Children["indirect"] = types.YChild{"Indirect", &showAllInstances.Indirect}
-    showAllInstances.EntityData.Children["nonerr"] = types.YChild{"Nonerr", &showAllInstances.Nonerr}
-    showAllInstances.EntityData.Children["summary"] = types.YChild{"Summary", &showAllInstances.Summary}
-    showAllInstances.EntityData.Children["all"] = types.YChild{"All", &showAllInstances.All}
-    showAllInstances.EntityData.Leafs = make(map[string]types.YLeaf)
+    showAllInstances.EntityData.Children = types.NewOrderedMap()
+    showAllInstances.EntityData.Children.Append("sbe", types.YChild{"Sbe", &showAllInstances.Sbe})
+    showAllInstances.EntityData.Children.Append("mbe", types.YChild{"Mbe", &showAllInstances.Mbe})
+    showAllInstances.EntityData.Children.Append("parity", types.YChild{"Parity", &showAllInstances.Parity})
+    showAllInstances.EntityData.Children.Append("generic", types.YChild{"Generic", &showAllInstances.Generic})
+    showAllInstances.EntityData.Children.Append("crc", types.YChild{"Crc", &showAllInstances.Crc})
+    showAllInstances.EntityData.Children.Append("reset", types.YChild{"Reset", &showAllInstances.Reset})
+    showAllInstances.EntityData.Children.Append("barrier", types.YChild{"Barrier", &showAllInstances.Barrier})
+    showAllInstances.EntityData.Children.Append("unexpected", types.YChild{"Unexpected", &showAllInstances.Unexpected})
+    showAllInstances.EntityData.Children.Append("link", types.YChild{"Link", &showAllInstances.Link})
+    showAllInstances.EntityData.Children.Append("oor-thresh", types.YChild{"OorThresh", &showAllInstances.OorThresh})
+    showAllInstances.EntityData.Children.Append("bp", types.YChild{"Bp", &showAllInstances.Bp})
+    showAllInstances.EntityData.Children.Append("io", types.YChild{"Io", &showAllInstances.Io})
+    showAllInstances.EntityData.Children.Append("ucode", types.YChild{"Ucode", &showAllInstances.Ucode})
+    showAllInstances.EntityData.Children.Append("config", types.YChild{"Config", &showAllInstances.Config})
+    showAllInstances.EntityData.Children.Append("indirect", types.YChild{"Indirect", &showAllInstances.Indirect})
+    showAllInstances.EntityData.Children.Append("nonerr", types.YChild{"Nonerr", &showAllInstances.Nonerr})
+    showAllInstances.EntityData.Children.Append("summary", types.YChild{"Summary", &showAllInstances.Summary})
+    showAllInstances.EntityData.Children.Append("all", types.YChild{"All", &showAllInstances.All})
+    showAllInstances.EntityData.Leafs = types.NewOrderedMap()
+
+    showAllInstances.EntityData.YListKeys = []string {}
+
     return &(showAllInstances.EntityData)
 }
 
@@ -1885,7 +2065,7 @@ type AsicErrors_ShowAllInstances_Sbe struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_ShowAllInstances_Sbe_Location.
-    Location []AsicErrors_ShowAllInstances_Sbe_Location
+    Location []*AsicErrors_ShowAllInstances_Sbe_Location
 }
 
 func (sbe *AsicErrors_ShowAllInstances_Sbe) GetEntityData() *types.CommonEntityData {
@@ -1898,12 +2078,15 @@ func (sbe *AsicErrors_ShowAllInstances_Sbe) GetEntityData() *types.CommonEntityD
     sbe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sbe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sbe.EntityData.Children = make(map[string]types.YChild)
-    sbe.EntityData.Children["location"] = types.YChild{"Location", nil}
+    sbe.EntityData.Children = types.NewOrderedMap()
+    sbe.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range sbe.Location {
-        sbe.EntityData.Children[types.GetSegmentPath(&sbe.Location[i])] = types.YChild{"Location", &sbe.Location[i]}
+        sbe.EntityData.Children.Append(types.GetSegmentPath(sbe.Location[i]), types.YChild{"Location", sbe.Location[i]})
     }
-    sbe.EntityData.Leafs = make(map[string]types.YLeaf)
+    sbe.EntityData.Leafs = types.NewOrderedMap()
+
+    sbe.EntityData.YListKeys = []string {}
+
     return &(sbe.EntityData)
 }
 
@@ -1913,11 +2096,11 @@ type AsicErrors_ShowAllInstances_Sbe_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_ShowAllInstances_Sbe_Location_LogLst.
-    LogLst []AsicErrors_ShowAllInstances_Sbe_Location_LogLst
+    LogLst []*AsicErrors_ShowAllInstances_Sbe_Location_LogLst
 }
 
 func (location *AsicErrors_ShowAllInstances_Sbe_Location) GetEntityData() *types.CommonEntityData {
@@ -1925,18 +2108,21 @@ func (location *AsicErrors_ShowAllInstances_Sbe_Location) GetEntityData() *types
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "sbe"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1959,9 +2145,12 @@ func (logLst *AsicErrors_ShowAllInstances_Sbe_Location_LogLst) GetEntityData() *
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -1971,7 +2160,7 @@ type AsicErrors_ShowAllInstances_Mbe struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_ShowAllInstances_Mbe_Location.
-    Location []AsicErrors_ShowAllInstances_Mbe_Location
+    Location []*AsicErrors_ShowAllInstances_Mbe_Location
 }
 
 func (mbe *AsicErrors_ShowAllInstances_Mbe) GetEntityData() *types.CommonEntityData {
@@ -1984,12 +2173,15 @@ func (mbe *AsicErrors_ShowAllInstances_Mbe) GetEntityData() *types.CommonEntityD
     mbe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mbe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mbe.EntityData.Children = make(map[string]types.YChild)
-    mbe.EntityData.Children["location"] = types.YChild{"Location", nil}
+    mbe.EntityData.Children = types.NewOrderedMap()
+    mbe.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range mbe.Location {
-        mbe.EntityData.Children[types.GetSegmentPath(&mbe.Location[i])] = types.YChild{"Location", &mbe.Location[i]}
+        mbe.EntityData.Children.Append(types.GetSegmentPath(mbe.Location[i]), types.YChild{"Location", mbe.Location[i]})
     }
-    mbe.EntityData.Leafs = make(map[string]types.YLeaf)
+    mbe.EntityData.Leafs = types.NewOrderedMap()
+
+    mbe.EntityData.YListKeys = []string {}
+
     return &(mbe.EntityData)
 }
 
@@ -1999,11 +2191,11 @@ type AsicErrors_ShowAllInstances_Mbe_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_ShowAllInstances_Mbe_Location_LogLst.
-    LogLst []AsicErrors_ShowAllInstances_Mbe_Location_LogLst
+    LogLst []*AsicErrors_ShowAllInstances_Mbe_Location_LogLst
 }
 
 func (location *AsicErrors_ShowAllInstances_Mbe_Location) GetEntityData() *types.CommonEntityData {
@@ -2011,18 +2203,21 @@ func (location *AsicErrors_ShowAllInstances_Mbe_Location) GetEntityData() *types
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "mbe"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -2045,9 +2240,12 @@ func (logLst *AsicErrors_ShowAllInstances_Mbe_Location_LogLst) GetEntityData() *
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -2057,7 +2255,7 @@ type AsicErrors_ShowAllInstances_Parity struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_ShowAllInstances_Parity_Location.
-    Location []AsicErrors_ShowAllInstances_Parity_Location
+    Location []*AsicErrors_ShowAllInstances_Parity_Location
 }
 
 func (parity *AsicErrors_ShowAllInstances_Parity) GetEntityData() *types.CommonEntityData {
@@ -2070,12 +2268,15 @@ func (parity *AsicErrors_ShowAllInstances_Parity) GetEntityData() *types.CommonE
     parity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parity.EntityData.Children = make(map[string]types.YChild)
-    parity.EntityData.Children["location"] = types.YChild{"Location", nil}
+    parity.EntityData.Children = types.NewOrderedMap()
+    parity.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range parity.Location {
-        parity.EntityData.Children[types.GetSegmentPath(&parity.Location[i])] = types.YChild{"Location", &parity.Location[i]}
+        parity.EntityData.Children.Append(types.GetSegmentPath(parity.Location[i]), types.YChild{"Location", parity.Location[i]})
     }
-    parity.EntityData.Leafs = make(map[string]types.YLeaf)
+    parity.EntityData.Leafs = types.NewOrderedMap()
+
+    parity.EntityData.YListKeys = []string {}
+
     return &(parity.EntityData)
 }
 
@@ -2085,11 +2286,11 @@ type AsicErrors_ShowAllInstances_Parity_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_ShowAllInstances_Parity_Location_LogLst.
-    LogLst []AsicErrors_ShowAllInstances_Parity_Location_LogLst
+    LogLst []*AsicErrors_ShowAllInstances_Parity_Location_LogLst
 }
 
 func (location *AsicErrors_ShowAllInstances_Parity_Location) GetEntityData() *types.CommonEntityData {
@@ -2097,18 +2298,21 @@ func (location *AsicErrors_ShowAllInstances_Parity_Location) GetEntityData() *ty
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "parity"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -2131,9 +2335,12 @@ func (logLst *AsicErrors_ShowAllInstances_Parity_Location_LogLst) GetEntityData(
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -2143,7 +2350,7 @@ type AsicErrors_ShowAllInstances_Generic struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_ShowAllInstances_Generic_Location.
-    Location []AsicErrors_ShowAllInstances_Generic_Location
+    Location []*AsicErrors_ShowAllInstances_Generic_Location
 }
 
 func (generic *AsicErrors_ShowAllInstances_Generic) GetEntityData() *types.CommonEntityData {
@@ -2156,12 +2363,15 @@ func (generic *AsicErrors_ShowAllInstances_Generic) GetEntityData() *types.Commo
     generic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    generic.EntityData.Children = make(map[string]types.YChild)
-    generic.EntityData.Children["location"] = types.YChild{"Location", nil}
+    generic.EntityData.Children = types.NewOrderedMap()
+    generic.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range generic.Location {
-        generic.EntityData.Children[types.GetSegmentPath(&generic.Location[i])] = types.YChild{"Location", &generic.Location[i]}
+        generic.EntityData.Children.Append(types.GetSegmentPath(generic.Location[i]), types.YChild{"Location", generic.Location[i]})
     }
-    generic.EntityData.Leafs = make(map[string]types.YLeaf)
+    generic.EntityData.Leafs = types.NewOrderedMap()
+
+    generic.EntityData.YListKeys = []string {}
+
     return &(generic.EntityData)
 }
 
@@ -2171,11 +2381,11 @@ type AsicErrors_ShowAllInstances_Generic_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_ShowAllInstances_Generic_Location_LogLst.
-    LogLst []AsicErrors_ShowAllInstances_Generic_Location_LogLst
+    LogLst []*AsicErrors_ShowAllInstances_Generic_Location_LogLst
 }
 
 func (location *AsicErrors_ShowAllInstances_Generic_Location) GetEntityData() *types.CommonEntityData {
@@ -2183,18 +2393,21 @@ func (location *AsicErrors_ShowAllInstances_Generic_Location) GetEntityData() *t
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "generic"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -2217,9 +2430,12 @@ func (logLst *AsicErrors_ShowAllInstances_Generic_Location_LogLst) GetEntityData
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -2229,7 +2445,7 @@ type AsicErrors_ShowAllInstances_Crc struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_ShowAllInstances_Crc_Location.
-    Location []AsicErrors_ShowAllInstances_Crc_Location
+    Location []*AsicErrors_ShowAllInstances_Crc_Location
 }
 
 func (crc *AsicErrors_ShowAllInstances_Crc) GetEntityData() *types.CommonEntityData {
@@ -2242,12 +2458,15 @@ func (crc *AsicErrors_ShowAllInstances_Crc) GetEntityData() *types.CommonEntityD
     crc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    crc.EntityData.Children = make(map[string]types.YChild)
-    crc.EntityData.Children["location"] = types.YChild{"Location", nil}
+    crc.EntityData.Children = types.NewOrderedMap()
+    crc.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range crc.Location {
-        crc.EntityData.Children[types.GetSegmentPath(&crc.Location[i])] = types.YChild{"Location", &crc.Location[i]}
+        crc.EntityData.Children.Append(types.GetSegmentPath(crc.Location[i]), types.YChild{"Location", crc.Location[i]})
     }
-    crc.EntityData.Leafs = make(map[string]types.YLeaf)
+    crc.EntityData.Leafs = types.NewOrderedMap()
+
+    crc.EntityData.YListKeys = []string {}
+
     return &(crc.EntityData)
 }
 
@@ -2257,11 +2476,11 @@ type AsicErrors_ShowAllInstances_Crc_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_ShowAllInstances_Crc_Location_LogLst.
-    LogLst []AsicErrors_ShowAllInstances_Crc_Location_LogLst
+    LogLst []*AsicErrors_ShowAllInstances_Crc_Location_LogLst
 }
 
 func (location *AsicErrors_ShowAllInstances_Crc_Location) GetEntityData() *types.CommonEntityData {
@@ -2269,18 +2488,21 @@ func (location *AsicErrors_ShowAllInstances_Crc_Location) GetEntityData() *types
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "crc"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -2303,9 +2525,12 @@ func (logLst *AsicErrors_ShowAllInstances_Crc_Location_LogLst) GetEntityData() *
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -2315,7 +2540,7 @@ type AsicErrors_ShowAllInstances_Reset struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_ShowAllInstances_Reset_Location.
-    Location []AsicErrors_ShowAllInstances_Reset_Location
+    Location []*AsicErrors_ShowAllInstances_Reset_Location
 }
 
 func (reset *AsicErrors_ShowAllInstances_Reset) GetEntityData() *types.CommonEntityData {
@@ -2328,12 +2553,15 @@ func (reset *AsicErrors_ShowAllInstances_Reset) GetEntityData() *types.CommonEnt
     reset.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reset.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    reset.EntityData.Children = make(map[string]types.YChild)
-    reset.EntityData.Children["location"] = types.YChild{"Location", nil}
+    reset.EntityData.Children = types.NewOrderedMap()
+    reset.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range reset.Location {
-        reset.EntityData.Children[types.GetSegmentPath(&reset.Location[i])] = types.YChild{"Location", &reset.Location[i]}
+        reset.EntityData.Children.Append(types.GetSegmentPath(reset.Location[i]), types.YChild{"Location", reset.Location[i]})
     }
-    reset.EntityData.Leafs = make(map[string]types.YLeaf)
+    reset.EntityData.Leafs = types.NewOrderedMap()
+
+    reset.EntityData.YListKeys = []string {}
+
     return &(reset.EntityData)
 }
 
@@ -2343,11 +2571,11 @@ type AsicErrors_ShowAllInstances_Reset_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_ShowAllInstances_Reset_Location_LogLst.
-    LogLst []AsicErrors_ShowAllInstances_Reset_Location_LogLst
+    LogLst []*AsicErrors_ShowAllInstances_Reset_Location_LogLst
 }
 
 func (location *AsicErrors_ShowAllInstances_Reset_Location) GetEntityData() *types.CommonEntityData {
@@ -2355,18 +2583,21 @@ func (location *AsicErrors_ShowAllInstances_Reset_Location) GetEntityData() *typ
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "reset"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -2389,9 +2620,12 @@ func (logLst *AsicErrors_ShowAllInstances_Reset_Location_LogLst) GetEntityData()
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -2401,7 +2635,7 @@ type AsicErrors_ShowAllInstances_Barrier struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_ShowAllInstances_Barrier_Location.
-    Location []AsicErrors_ShowAllInstances_Barrier_Location
+    Location []*AsicErrors_ShowAllInstances_Barrier_Location
 }
 
 func (barrier *AsicErrors_ShowAllInstances_Barrier) GetEntityData() *types.CommonEntityData {
@@ -2414,12 +2648,15 @@ func (barrier *AsicErrors_ShowAllInstances_Barrier) GetEntityData() *types.Commo
     barrier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     barrier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    barrier.EntityData.Children = make(map[string]types.YChild)
-    barrier.EntityData.Children["location"] = types.YChild{"Location", nil}
+    barrier.EntityData.Children = types.NewOrderedMap()
+    barrier.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range barrier.Location {
-        barrier.EntityData.Children[types.GetSegmentPath(&barrier.Location[i])] = types.YChild{"Location", &barrier.Location[i]}
+        barrier.EntityData.Children.Append(types.GetSegmentPath(barrier.Location[i]), types.YChild{"Location", barrier.Location[i]})
     }
-    barrier.EntityData.Leafs = make(map[string]types.YLeaf)
+    barrier.EntityData.Leafs = types.NewOrderedMap()
+
+    barrier.EntityData.YListKeys = []string {}
+
     return &(barrier.EntityData)
 }
 
@@ -2429,11 +2666,11 @@ type AsicErrors_ShowAllInstances_Barrier_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_ShowAllInstances_Barrier_Location_LogLst.
-    LogLst []AsicErrors_ShowAllInstances_Barrier_Location_LogLst
+    LogLst []*AsicErrors_ShowAllInstances_Barrier_Location_LogLst
 }
 
 func (location *AsicErrors_ShowAllInstances_Barrier_Location) GetEntityData() *types.CommonEntityData {
@@ -2441,18 +2678,21 @@ func (location *AsicErrors_ShowAllInstances_Barrier_Location) GetEntityData() *t
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "barrier"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -2475,9 +2715,12 @@ func (logLst *AsicErrors_ShowAllInstances_Barrier_Location_LogLst) GetEntityData
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -2487,7 +2730,7 @@ type AsicErrors_ShowAllInstances_Unexpected struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_ShowAllInstances_Unexpected_Location.
-    Location []AsicErrors_ShowAllInstances_Unexpected_Location
+    Location []*AsicErrors_ShowAllInstances_Unexpected_Location
 }
 
 func (unexpected *AsicErrors_ShowAllInstances_Unexpected) GetEntityData() *types.CommonEntityData {
@@ -2500,12 +2743,15 @@ func (unexpected *AsicErrors_ShowAllInstances_Unexpected) GetEntityData() *types
     unexpected.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unexpected.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    unexpected.EntityData.Children = make(map[string]types.YChild)
-    unexpected.EntityData.Children["location"] = types.YChild{"Location", nil}
+    unexpected.EntityData.Children = types.NewOrderedMap()
+    unexpected.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range unexpected.Location {
-        unexpected.EntityData.Children[types.GetSegmentPath(&unexpected.Location[i])] = types.YChild{"Location", &unexpected.Location[i]}
+        unexpected.EntityData.Children.Append(types.GetSegmentPath(unexpected.Location[i]), types.YChild{"Location", unexpected.Location[i]})
     }
-    unexpected.EntityData.Leafs = make(map[string]types.YLeaf)
+    unexpected.EntityData.Leafs = types.NewOrderedMap()
+
+    unexpected.EntityData.YListKeys = []string {}
+
     return &(unexpected.EntityData)
 }
 
@@ -2515,12 +2761,12 @@ type AsicErrors_ShowAllInstances_Unexpected_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of
     // AsicErrors_ShowAllInstances_Unexpected_Location_LogLst.
-    LogLst []AsicErrors_ShowAllInstances_Unexpected_Location_LogLst
+    LogLst []*AsicErrors_ShowAllInstances_Unexpected_Location_LogLst
 }
 
 func (location *AsicErrors_ShowAllInstances_Unexpected_Location) GetEntityData() *types.CommonEntityData {
@@ -2528,18 +2774,21 @@ func (location *AsicErrors_ShowAllInstances_Unexpected_Location) GetEntityData()
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "unexpected"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -2562,9 +2811,12 @@ func (logLst *AsicErrors_ShowAllInstances_Unexpected_Location_LogLst) GetEntityD
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -2574,7 +2826,7 @@ type AsicErrors_ShowAllInstances_Link struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_ShowAllInstances_Link_Location.
-    Location []AsicErrors_ShowAllInstances_Link_Location
+    Location []*AsicErrors_ShowAllInstances_Link_Location
 }
 
 func (link *AsicErrors_ShowAllInstances_Link) GetEntityData() *types.CommonEntityData {
@@ -2587,12 +2839,15 @@ func (link *AsicErrors_ShowAllInstances_Link) GetEntityData() *types.CommonEntit
     link.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    link.EntityData.Children = make(map[string]types.YChild)
-    link.EntityData.Children["location"] = types.YChild{"Location", nil}
+    link.EntityData.Children = types.NewOrderedMap()
+    link.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range link.Location {
-        link.EntityData.Children[types.GetSegmentPath(&link.Location[i])] = types.YChild{"Location", &link.Location[i]}
+        link.EntityData.Children.Append(types.GetSegmentPath(link.Location[i]), types.YChild{"Location", link.Location[i]})
     }
-    link.EntityData.Leafs = make(map[string]types.YLeaf)
+    link.EntityData.Leafs = types.NewOrderedMap()
+
+    link.EntityData.YListKeys = []string {}
+
     return &(link.EntityData)
 }
 
@@ -2602,11 +2857,11 @@ type AsicErrors_ShowAllInstances_Link_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_ShowAllInstances_Link_Location_LogLst.
-    LogLst []AsicErrors_ShowAllInstances_Link_Location_LogLst
+    LogLst []*AsicErrors_ShowAllInstances_Link_Location_LogLst
 }
 
 func (location *AsicErrors_ShowAllInstances_Link_Location) GetEntityData() *types.CommonEntityData {
@@ -2614,18 +2869,21 @@ func (location *AsicErrors_ShowAllInstances_Link_Location) GetEntityData() *type
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "link"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -2648,9 +2906,12 @@ func (logLst *AsicErrors_ShowAllInstances_Link_Location_LogLst) GetEntityData() 
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -2660,7 +2921,7 @@ type AsicErrors_ShowAllInstances_OorThresh struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_ShowAllInstances_OorThresh_Location.
-    Location []AsicErrors_ShowAllInstances_OorThresh_Location
+    Location []*AsicErrors_ShowAllInstances_OorThresh_Location
 }
 
 func (oorThresh *AsicErrors_ShowAllInstances_OorThresh) GetEntityData() *types.CommonEntityData {
@@ -2673,12 +2934,15 @@ func (oorThresh *AsicErrors_ShowAllInstances_OorThresh) GetEntityData() *types.C
     oorThresh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oorThresh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oorThresh.EntityData.Children = make(map[string]types.YChild)
-    oorThresh.EntityData.Children["location"] = types.YChild{"Location", nil}
+    oorThresh.EntityData.Children = types.NewOrderedMap()
+    oorThresh.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range oorThresh.Location {
-        oorThresh.EntityData.Children[types.GetSegmentPath(&oorThresh.Location[i])] = types.YChild{"Location", &oorThresh.Location[i]}
+        oorThresh.EntityData.Children.Append(types.GetSegmentPath(oorThresh.Location[i]), types.YChild{"Location", oorThresh.Location[i]})
     }
-    oorThresh.EntityData.Leafs = make(map[string]types.YLeaf)
+    oorThresh.EntityData.Leafs = types.NewOrderedMap()
+
+    oorThresh.EntityData.YListKeys = []string {}
+
     return &(oorThresh.EntityData)
 }
 
@@ -2688,11 +2952,11 @@ type AsicErrors_ShowAllInstances_OorThresh_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_ShowAllInstances_OorThresh_Location_LogLst.
-    LogLst []AsicErrors_ShowAllInstances_OorThresh_Location_LogLst
+    LogLst []*AsicErrors_ShowAllInstances_OorThresh_Location_LogLst
 }
 
 func (location *AsicErrors_ShowAllInstances_OorThresh_Location) GetEntityData() *types.CommonEntityData {
@@ -2700,18 +2964,21 @@ func (location *AsicErrors_ShowAllInstances_OorThresh_Location) GetEntityData() 
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "oor-thresh"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -2734,9 +3001,12 @@ func (logLst *AsicErrors_ShowAllInstances_OorThresh_Location_LogLst) GetEntityDa
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -2746,7 +3016,7 @@ type AsicErrors_ShowAllInstances_Bp struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_ShowAllInstances_Bp_Location.
-    Location []AsicErrors_ShowAllInstances_Bp_Location
+    Location []*AsicErrors_ShowAllInstances_Bp_Location
 }
 
 func (bp *AsicErrors_ShowAllInstances_Bp) GetEntityData() *types.CommonEntityData {
@@ -2759,12 +3029,15 @@ func (bp *AsicErrors_ShowAllInstances_Bp) GetEntityData() *types.CommonEntityDat
     bp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bp.EntityData.Children = make(map[string]types.YChild)
-    bp.EntityData.Children["location"] = types.YChild{"Location", nil}
+    bp.EntityData.Children = types.NewOrderedMap()
+    bp.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range bp.Location {
-        bp.EntityData.Children[types.GetSegmentPath(&bp.Location[i])] = types.YChild{"Location", &bp.Location[i]}
+        bp.EntityData.Children.Append(types.GetSegmentPath(bp.Location[i]), types.YChild{"Location", bp.Location[i]})
     }
-    bp.EntityData.Leafs = make(map[string]types.YLeaf)
+    bp.EntityData.Leafs = types.NewOrderedMap()
+
+    bp.EntityData.YListKeys = []string {}
+
     return &(bp.EntityData)
 }
 
@@ -2774,11 +3047,11 @@ type AsicErrors_ShowAllInstances_Bp_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_ShowAllInstances_Bp_Location_LogLst.
-    LogLst []AsicErrors_ShowAllInstances_Bp_Location_LogLst
+    LogLst []*AsicErrors_ShowAllInstances_Bp_Location_LogLst
 }
 
 func (location *AsicErrors_ShowAllInstances_Bp_Location) GetEntityData() *types.CommonEntityData {
@@ -2786,18 +3059,21 @@ func (location *AsicErrors_ShowAllInstances_Bp_Location) GetEntityData() *types.
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "bp"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -2820,9 +3096,12 @@ func (logLst *AsicErrors_ShowAllInstances_Bp_Location_LogLst) GetEntityData() *t
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -2832,7 +3111,7 @@ type AsicErrors_ShowAllInstances_Io struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_ShowAllInstances_Io_Location.
-    Location []AsicErrors_ShowAllInstances_Io_Location
+    Location []*AsicErrors_ShowAllInstances_Io_Location
 }
 
 func (io *AsicErrors_ShowAllInstances_Io) GetEntityData() *types.CommonEntityData {
@@ -2845,12 +3124,15 @@ func (io *AsicErrors_ShowAllInstances_Io) GetEntityData() *types.CommonEntityDat
     io.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     io.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    io.EntityData.Children = make(map[string]types.YChild)
-    io.EntityData.Children["location"] = types.YChild{"Location", nil}
+    io.EntityData.Children = types.NewOrderedMap()
+    io.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range io.Location {
-        io.EntityData.Children[types.GetSegmentPath(&io.Location[i])] = types.YChild{"Location", &io.Location[i]}
+        io.EntityData.Children.Append(types.GetSegmentPath(io.Location[i]), types.YChild{"Location", io.Location[i]})
     }
-    io.EntityData.Leafs = make(map[string]types.YLeaf)
+    io.EntityData.Leafs = types.NewOrderedMap()
+
+    io.EntityData.YListKeys = []string {}
+
     return &(io.EntityData)
 }
 
@@ -2860,11 +3142,11 @@ type AsicErrors_ShowAllInstances_Io_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_ShowAllInstances_Io_Location_LogLst.
-    LogLst []AsicErrors_ShowAllInstances_Io_Location_LogLst
+    LogLst []*AsicErrors_ShowAllInstances_Io_Location_LogLst
 }
 
 func (location *AsicErrors_ShowAllInstances_Io_Location) GetEntityData() *types.CommonEntityData {
@@ -2872,18 +3154,21 @@ func (location *AsicErrors_ShowAllInstances_Io_Location) GetEntityData() *types.
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "io"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -2906,9 +3191,12 @@ func (logLst *AsicErrors_ShowAllInstances_Io_Location_LogLst) GetEntityData() *t
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -2918,7 +3206,7 @@ type AsicErrors_ShowAllInstances_Ucode struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_ShowAllInstances_Ucode_Location.
-    Location []AsicErrors_ShowAllInstances_Ucode_Location
+    Location []*AsicErrors_ShowAllInstances_Ucode_Location
 }
 
 func (ucode *AsicErrors_ShowAllInstances_Ucode) GetEntityData() *types.CommonEntityData {
@@ -2931,12 +3219,15 @@ func (ucode *AsicErrors_ShowAllInstances_Ucode) GetEntityData() *types.CommonEnt
     ucode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ucode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ucode.EntityData.Children = make(map[string]types.YChild)
-    ucode.EntityData.Children["location"] = types.YChild{"Location", nil}
+    ucode.EntityData.Children = types.NewOrderedMap()
+    ucode.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range ucode.Location {
-        ucode.EntityData.Children[types.GetSegmentPath(&ucode.Location[i])] = types.YChild{"Location", &ucode.Location[i]}
+        ucode.EntityData.Children.Append(types.GetSegmentPath(ucode.Location[i]), types.YChild{"Location", ucode.Location[i]})
     }
-    ucode.EntityData.Leafs = make(map[string]types.YLeaf)
+    ucode.EntityData.Leafs = types.NewOrderedMap()
+
+    ucode.EntityData.YListKeys = []string {}
+
     return &(ucode.EntityData)
 }
 
@@ -2946,11 +3237,11 @@ type AsicErrors_ShowAllInstances_Ucode_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_ShowAllInstances_Ucode_Location_LogLst.
-    LogLst []AsicErrors_ShowAllInstances_Ucode_Location_LogLst
+    LogLst []*AsicErrors_ShowAllInstances_Ucode_Location_LogLst
 }
 
 func (location *AsicErrors_ShowAllInstances_Ucode_Location) GetEntityData() *types.CommonEntityData {
@@ -2958,18 +3249,21 @@ func (location *AsicErrors_ShowAllInstances_Ucode_Location) GetEntityData() *typ
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "ucode"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -2992,9 +3286,12 @@ func (logLst *AsicErrors_ShowAllInstances_Ucode_Location_LogLst) GetEntityData()
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -3004,7 +3301,7 @@ type AsicErrors_ShowAllInstances_Config struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_ShowAllInstances_Config_Location.
-    Location []AsicErrors_ShowAllInstances_Config_Location
+    Location []*AsicErrors_ShowAllInstances_Config_Location
 }
 
 func (config *AsicErrors_ShowAllInstances_Config) GetEntityData() *types.CommonEntityData {
@@ -3017,12 +3314,15 @@ func (config *AsicErrors_ShowAllInstances_Config) GetEntityData() *types.CommonE
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Children["location"] = types.YChild{"Location", nil}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range config.Location {
-        config.EntityData.Children[types.GetSegmentPath(&config.Location[i])] = types.YChild{"Location", &config.Location[i]}
+        config.EntityData.Children.Append(types.GetSegmentPath(config.Location[i]), types.YChild{"Location", config.Location[i]})
     }
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    config.EntityData.Leafs = types.NewOrderedMap()
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3032,11 +3332,11 @@ type AsicErrors_ShowAllInstances_Config_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_ShowAllInstances_Config_Location_LogLst.
-    LogLst []AsicErrors_ShowAllInstances_Config_Location_LogLst
+    LogLst []*AsicErrors_ShowAllInstances_Config_Location_LogLst
 }
 
 func (location *AsicErrors_ShowAllInstances_Config_Location) GetEntityData() *types.CommonEntityData {
@@ -3044,18 +3344,21 @@ func (location *AsicErrors_ShowAllInstances_Config_Location) GetEntityData() *ty
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "config"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -3078,9 +3381,12 @@ func (logLst *AsicErrors_ShowAllInstances_Config_Location_LogLst) GetEntityData(
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -3090,7 +3396,7 @@ type AsicErrors_ShowAllInstances_Indirect struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_ShowAllInstances_Indirect_Location.
-    Location []AsicErrors_ShowAllInstances_Indirect_Location
+    Location []*AsicErrors_ShowAllInstances_Indirect_Location
 }
 
 func (indirect *AsicErrors_ShowAllInstances_Indirect) GetEntityData() *types.CommonEntityData {
@@ -3103,12 +3409,15 @@ func (indirect *AsicErrors_ShowAllInstances_Indirect) GetEntityData() *types.Com
     indirect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     indirect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    indirect.EntityData.Children = make(map[string]types.YChild)
-    indirect.EntityData.Children["location"] = types.YChild{"Location", nil}
+    indirect.EntityData.Children = types.NewOrderedMap()
+    indirect.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range indirect.Location {
-        indirect.EntityData.Children[types.GetSegmentPath(&indirect.Location[i])] = types.YChild{"Location", &indirect.Location[i]}
+        indirect.EntityData.Children.Append(types.GetSegmentPath(indirect.Location[i]), types.YChild{"Location", indirect.Location[i]})
     }
-    indirect.EntityData.Leafs = make(map[string]types.YLeaf)
+    indirect.EntityData.Leafs = types.NewOrderedMap()
+
+    indirect.EntityData.YListKeys = []string {}
+
     return &(indirect.EntityData)
 }
 
@@ -3118,11 +3427,11 @@ type AsicErrors_ShowAllInstances_Indirect_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_ShowAllInstances_Indirect_Location_LogLst.
-    LogLst []AsicErrors_ShowAllInstances_Indirect_Location_LogLst
+    LogLst []*AsicErrors_ShowAllInstances_Indirect_Location_LogLst
 }
 
 func (location *AsicErrors_ShowAllInstances_Indirect_Location) GetEntityData() *types.CommonEntityData {
@@ -3130,18 +3439,21 @@ func (location *AsicErrors_ShowAllInstances_Indirect_Location) GetEntityData() *
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "indirect"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -3164,9 +3476,12 @@ func (logLst *AsicErrors_ShowAllInstances_Indirect_Location_LogLst) GetEntityDat
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -3176,7 +3491,7 @@ type AsicErrors_ShowAllInstances_Nonerr struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_ShowAllInstances_Nonerr_Location.
-    Location []AsicErrors_ShowAllInstances_Nonerr_Location
+    Location []*AsicErrors_ShowAllInstances_Nonerr_Location
 }
 
 func (nonerr *AsicErrors_ShowAllInstances_Nonerr) GetEntityData() *types.CommonEntityData {
@@ -3189,12 +3504,15 @@ func (nonerr *AsicErrors_ShowAllInstances_Nonerr) GetEntityData() *types.CommonE
     nonerr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonerr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nonerr.EntityData.Children = make(map[string]types.YChild)
-    nonerr.EntityData.Children["location"] = types.YChild{"Location", nil}
+    nonerr.EntityData.Children = types.NewOrderedMap()
+    nonerr.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range nonerr.Location {
-        nonerr.EntityData.Children[types.GetSegmentPath(&nonerr.Location[i])] = types.YChild{"Location", &nonerr.Location[i]}
+        nonerr.EntityData.Children.Append(types.GetSegmentPath(nonerr.Location[i]), types.YChild{"Location", nonerr.Location[i]})
     }
-    nonerr.EntityData.Leafs = make(map[string]types.YLeaf)
+    nonerr.EntityData.Leafs = types.NewOrderedMap()
+
+    nonerr.EntityData.YListKeys = []string {}
+
     return &(nonerr.EntityData)
 }
 
@@ -3204,11 +3522,11 @@ type AsicErrors_ShowAllInstances_Nonerr_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_ShowAllInstances_Nonerr_Location_LogLst.
-    LogLst []AsicErrors_ShowAllInstances_Nonerr_Location_LogLst
+    LogLst []*AsicErrors_ShowAllInstances_Nonerr_Location_LogLst
 }
 
 func (location *AsicErrors_ShowAllInstances_Nonerr_Location) GetEntityData() *types.CommonEntityData {
@@ -3216,18 +3534,21 @@ func (location *AsicErrors_ShowAllInstances_Nonerr_Location) GetEntityData() *ty
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "nonerr"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -3250,9 +3571,12 @@ func (logLst *AsicErrors_ShowAllInstances_Nonerr_Location_LogLst) GetEntityData(
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -3262,7 +3586,7 @@ type AsicErrors_ShowAllInstances_Summary struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_ShowAllInstances_Summary_Location.
-    Location []AsicErrors_ShowAllInstances_Summary_Location
+    Location []*AsicErrors_ShowAllInstances_Summary_Location
 }
 
 func (summary *AsicErrors_ShowAllInstances_Summary) GetEntityData() *types.CommonEntityData {
@@ -3275,12 +3599,15 @@ func (summary *AsicErrors_ShowAllInstances_Summary) GetEntityData() *types.Commo
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Children["location"] = types.YChild{"Location", nil}
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range summary.Location {
-        summary.EntityData.Children[types.GetSegmentPath(&summary.Location[i])] = types.YChild{"Location", &summary.Location[i]}
+        summary.EntityData.Children.Append(types.GetSegmentPath(summary.Location[i]), types.YChild{"Location", summary.Location[i]})
     }
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Leafs = types.NewOrderedMap()
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -3290,11 +3617,11 @@ type AsicErrors_ShowAllInstances_Summary_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_ShowAllInstances_Summary_Location_LogLst.
-    LogLst []AsicErrors_ShowAllInstances_Summary_Location_LogLst
+    LogLst []*AsicErrors_ShowAllInstances_Summary_Location_LogLst
 }
 
 func (location *AsicErrors_ShowAllInstances_Summary_Location) GetEntityData() *types.CommonEntityData {
@@ -3302,18 +3629,21 @@ func (location *AsicErrors_ShowAllInstances_Summary_Location) GetEntityData() *t
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "summary"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -3336,9 +3666,12 @@ func (logLst *AsicErrors_ShowAllInstances_Summary_Location_LogLst) GetEntityData
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 
@@ -3348,7 +3681,7 @@ type AsicErrors_ShowAllInstances_All struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AsicErrors_ShowAllInstances_All_Location.
-    Location []AsicErrors_ShowAllInstances_All_Location
+    Location []*AsicErrors_ShowAllInstances_All_Location
 }
 
 func (all *AsicErrors_ShowAllInstances_All) GetEntityData() *types.CommonEntityData {
@@ -3361,12 +3694,15 @@ func (all *AsicErrors_ShowAllInstances_All) GetEntityData() *types.CommonEntityD
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    all.EntityData.Children = make(map[string]types.YChild)
-    all.EntityData.Children["location"] = types.YChild{"Location", nil}
+    all.EntityData.Children = types.NewOrderedMap()
+    all.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range all.Location {
-        all.EntityData.Children[types.GetSegmentPath(&all.Location[i])] = types.YChild{"Location", &all.Location[i]}
+        all.EntityData.Children.Append(types.GetSegmentPath(all.Location[i]), types.YChild{"Location", all.Location[i]})
     }
-    all.EntityData.Leafs = make(map[string]types.YLeaf)
+    all.EntityData.Leafs = types.NewOrderedMap()
+
+    all.EntityData.YListKeys = []string {}
+
     return &(all.EntityData)
 }
 
@@ -3376,11 +3712,11 @@ type AsicErrors_ShowAllInstances_All_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LocationName interface{}
 
     // The type is slice of AsicErrors_ShowAllInstances_All_Location_LogLst.
-    LogLst []AsicErrors_ShowAllInstances_All_Location_LogLst
+    LogLst []*AsicErrors_ShowAllInstances_All_Location_LogLst
 }
 
 func (location *AsicErrors_ShowAllInstances_All_Location) GetEntityData() *types.CommonEntityData {
@@ -3388,18 +3724,21 @@ func (location *AsicErrors_ShowAllInstances_All_Location) GetEntityData() *types
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "all"
-    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["log-lst"] = types.YChild{"LogLst", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("log-lst", types.YChild{"LogLst", nil})
     for i := range location.LogLst {
-        location.EntityData.Children[types.GetSegmentPath(&location.LogLst[i])] = types.YChild{"LogLst", &location.LogLst[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.LogLst[i]), types.YChild{"LogLst", location.LogLst[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -3422,9 +3761,12 @@ func (logLst *AsicErrors_ShowAllInstances_All_Location_LogLst) GetEntityData() *
     logLst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logLst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logLst.EntityData.Children = make(map[string]types.YChild)
-    logLst.EntityData.Leafs = make(map[string]types.YLeaf)
-    logLst.EntityData.Leafs["log-line"] = types.YLeaf{"LogLine", logLst.LogLine}
+    logLst.EntityData.Children = types.NewOrderedMap()
+    logLst.EntityData.Leafs = types.NewOrderedMap()
+    logLst.EntityData.Leafs.Append("log-line", types.YLeaf{"LogLine", logLst.LogLine})
+
+    logLst.EntityData.YListKeys = []string {}
+
     return &(logLst.EntityData)
 }
 

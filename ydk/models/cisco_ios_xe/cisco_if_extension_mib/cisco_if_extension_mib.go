@@ -57,7 +57,7 @@ type CISCOIFEXTENSIONMIB struct {
     YFilter yfilter.YFilter
 
     
-    Ciscoifextsystemconfig CISCOIFEXTENSIONMIB_Ciscoifextsystemconfig
+    CiscoIfExtSystemConfig CISCOIFEXTENSIONMIB_CiscoIfExtSystemConfig
 
     // This  table contains interface packet statistics which are not available in
     // IF-MIB(RFC2863).   As an example, some interfaces to which objects in this
@@ -66,13 +66,13 @@ type CISCOIFEXTENSIONMIB struct {
     // GigabitEthernet  Some objects defined in this table may be  applicable to
     // physical interfaces only. As a result, this table may be sparse for some
     // logical interfaces.
-    Cieifpacketstatstable CISCOIFEXTENSIONMIB_Cieifpacketstatstable
+    CieIfPacketStatsTable CISCOIFEXTENSIONMIB_CieIfPacketStatsTable
 
     // This  table contains objects which provide more information about interface
     // properties not available in IF-MIB (RFC 2863).  Some objects defined in
     // this table may be applicable to physical interfaces only. As a result, this
     // table may be sparse for logical interfaces.
-    Cieifinterfacetable CISCOIFEXTENSIONMIB_Cieifinterfacetable
+    CieIfInterfaceTable CISCOIFEXTENSIONMIB_CieIfInterfaceTable
 
     // This table contains objects for providing the 'ifIndex', interface
     // operational mode and  interface operational cause for all the  interfaces
@@ -81,36 +81,36 @@ type CISCOIFEXTENSIONMIB struct {
     // interface operational mode and interface operational cause, from the point 
     // of retrieval, by combining the values a set  of 64 interfaces in a single
     // MIB object.
-    Cieifstatuslisttable CISCOIFEXTENSIONMIB_Cieifstatuslisttable
+    CieIfStatusListTable CISCOIFEXTENSIONMIB_CieIfStatusListTable
 
     // This table contains VL (Virtual Link) statistics for a capable interface. 
     // Objects defined in this table may be  applicable to physical interfaces
     // only.
-    Cieifvlstatstable CISCOIFEXTENSIONMIB_Cieifvlstatstable
+    CieIfVlStatsTable CISCOIFEXTENSIONMIB_CieIfVlStatsTable
 
     // This table lists configuration data relating to ifIndex persistence.  This
     // table has a sparse dependent relationship on the ifTable, containing a row
     // for each ifEntry corresponding to an interface for which ifIndex
     // persistence is supported.
-    Cieifindexpersistencetable CISCOIFEXTENSIONMIB_Cieifindexpersistencetable
+    CieIfIndexPersistenceTable CISCOIFEXTENSIONMIB_CieIfIndexPersistenceTable
 
     // A list of the interfaces that support the 802.1q custom Ethertype feature.
-    Cieifdot1Qcustomethertypetable CISCOIFEXTENSIONMIB_Cieifdot1Qcustomethertypetable
+    CieIfDot1qCustomEtherTypeTable CISCOIFEXTENSIONMIB_CieIfDot1qCustomEtherTypeTable
 
     // This table contains the interface utilization rates for inbound and
     // outbound traffic on an interface.
-    Cieifutiltable CISCOIFEXTENSIONMIB_Cieifutiltable
+    CieIfUtilTable CISCOIFEXTENSIONMIB_CieIfUtilTable
 
     // This table contains the mappings of the ifIndex of an interface to its
     // corresponding dot1dBasePort value.
-    Cieifdot1Dbasemappingtable CISCOIFEXTENSIONMIB_Cieifdot1Dbasemappingtable
+    CieIfDot1dBaseMappingTable CISCOIFEXTENSIONMIB_CieIfDot1dBaseMappingTable
 
     // This table contains objects for providing the 'ifName' to 'ifIndex'
     // mapping. This table contains one entry for each valid 'ifName' available in
     // the system. Upon the first request, the implementation of this table will
     // get all the available ifNames, and it will populate the entries in this
     // table, it maintains this ifNames in a cache for ~30 seconds.
-    Cieifnamemappingtable CISCOIFEXTENSIONMIB_Cieifnamemappingtable
+    CieIfNameMappingTable CISCOIFEXTENSIONMIB_CieIfNameMappingTable
 }
 
 func (cISCOIFEXTENSIONMIB *CISCOIFEXTENSIONMIB) GetEntityData() *types.CommonEntityData {
@@ -123,23 +123,26 @@ func (cISCOIFEXTENSIONMIB *CISCOIFEXTENSIONMIB) GetEntityData() *types.CommonEnt
     cISCOIFEXTENSIONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIFEXTENSIONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOIFEXTENSIONMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOIFEXTENSIONMIB.EntityData.Children["ciscoIfExtSystemConfig"] = types.YChild{"Ciscoifextsystemconfig", &cISCOIFEXTENSIONMIB.Ciscoifextsystemconfig}
-    cISCOIFEXTENSIONMIB.EntityData.Children["cieIfPacketStatsTable"] = types.YChild{"Cieifpacketstatstable", &cISCOIFEXTENSIONMIB.Cieifpacketstatstable}
-    cISCOIFEXTENSIONMIB.EntityData.Children["cieIfInterfaceTable"] = types.YChild{"Cieifinterfacetable", &cISCOIFEXTENSIONMIB.Cieifinterfacetable}
-    cISCOIFEXTENSIONMIB.EntityData.Children["cieIfStatusListTable"] = types.YChild{"Cieifstatuslisttable", &cISCOIFEXTENSIONMIB.Cieifstatuslisttable}
-    cISCOIFEXTENSIONMIB.EntityData.Children["cieIfVlStatsTable"] = types.YChild{"Cieifvlstatstable", &cISCOIFEXTENSIONMIB.Cieifvlstatstable}
-    cISCOIFEXTENSIONMIB.EntityData.Children["cieIfIndexPersistenceTable"] = types.YChild{"Cieifindexpersistencetable", &cISCOIFEXTENSIONMIB.Cieifindexpersistencetable}
-    cISCOIFEXTENSIONMIB.EntityData.Children["cieIfDot1qCustomEtherTypeTable"] = types.YChild{"Cieifdot1Qcustomethertypetable", &cISCOIFEXTENSIONMIB.Cieifdot1Qcustomethertypetable}
-    cISCOIFEXTENSIONMIB.EntityData.Children["cieIfUtilTable"] = types.YChild{"Cieifutiltable", &cISCOIFEXTENSIONMIB.Cieifutiltable}
-    cISCOIFEXTENSIONMIB.EntityData.Children["cieIfDot1dBaseMappingTable"] = types.YChild{"Cieifdot1Dbasemappingtable", &cISCOIFEXTENSIONMIB.Cieifdot1Dbasemappingtable}
-    cISCOIFEXTENSIONMIB.EntityData.Children["cieIfNameMappingTable"] = types.YChild{"Cieifnamemappingtable", &cISCOIFEXTENSIONMIB.Cieifnamemappingtable}
-    cISCOIFEXTENSIONMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOIFEXTENSIONMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOIFEXTENSIONMIB.EntityData.Children.Append("ciscoIfExtSystemConfig", types.YChild{"CiscoIfExtSystemConfig", &cISCOIFEXTENSIONMIB.CiscoIfExtSystemConfig})
+    cISCOIFEXTENSIONMIB.EntityData.Children.Append("cieIfPacketStatsTable", types.YChild{"CieIfPacketStatsTable", &cISCOIFEXTENSIONMIB.CieIfPacketStatsTable})
+    cISCOIFEXTENSIONMIB.EntityData.Children.Append("cieIfInterfaceTable", types.YChild{"CieIfInterfaceTable", &cISCOIFEXTENSIONMIB.CieIfInterfaceTable})
+    cISCOIFEXTENSIONMIB.EntityData.Children.Append("cieIfStatusListTable", types.YChild{"CieIfStatusListTable", &cISCOIFEXTENSIONMIB.CieIfStatusListTable})
+    cISCOIFEXTENSIONMIB.EntityData.Children.Append("cieIfVlStatsTable", types.YChild{"CieIfVlStatsTable", &cISCOIFEXTENSIONMIB.CieIfVlStatsTable})
+    cISCOIFEXTENSIONMIB.EntityData.Children.Append("cieIfIndexPersistenceTable", types.YChild{"CieIfIndexPersistenceTable", &cISCOIFEXTENSIONMIB.CieIfIndexPersistenceTable})
+    cISCOIFEXTENSIONMIB.EntityData.Children.Append("cieIfDot1qCustomEtherTypeTable", types.YChild{"CieIfDot1qCustomEtherTypeTable", &cISCOIFEXTENSIONMIB.CieIfDot1qCustomEtherTypeTable})
+    cISCOIFEXTENSIONMIB.EntityData.Children.Append("cieIfUtilTable", types.YChild{"CieIfUtilTable", &cISCOIFEXTENSIONMIB.CieIfUtilTable})
+    cISCOIFEXTENSIONMIB.EntityData.Children.Append("cieIfDot1dBaseMappingTable", types.YChild{"CieIfDot1dBaseMappingTable", &cISCOIFEXTENSIONMIB.CieIfDot1dBaseMappingTable})
+    cISCOIFEXTENSIONMIB.EntityData.Children.Append("cieIfNameMappingTable", types.YChild{"CieIfNameMappingTable", &cISCOIFEXTENSIONMIB.CieIfNameMappingTable})
+    cISCOIFEXTENSIONMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOIFEXTENSIONMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOIFEXTENSIONMIB.EntityData)
 }
 
-// CISCOIFEXTENSIONMIB_Ciscoifextsystemconfig
-type CISCOIFEXTENSIONMIB_Ciscoifextsystemconfig struct {
+// CISCOIFEXTENSIONMIB_CiscoIfExtSystemConfig
+type CISCOIFEXTENSIONMIB_CiscoIfExtSystemConfig struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -148,7 +151,7 @@ type CISCOIFEXTENSIONMIB_Ciscoifextsystemconfig struct {
     // an interface, which means that the interface's MTU uses the value specified
     // by cieIfMtu, if it is configured. The type is interface{} with range:
     // -2147483648..2147483647.
-    Ciesystemmtu interface{}
+    CieSystemMtu interface{}
 
     // Indicates whether cieLinkUp/cieLinkDown or standard mib-II defined
     // linkUp/Down or both, notifications should be generated for the interfaces
@@ -161,7 +164,7 @@ type CISCOIFEXTENSIONMIB_Ciscoifextsystemconfig struct {
     // both bits are selected then linkUp/linkDown and cieLinkUp/cieLinkDown are
     // both generated for an  interface if the 'ifLinkUpDownTrapEnable' for the
     // interface is 'enabled'. The type is map[string]bool.
-    Cielinkupdownenable interface{}
+    CieLinkUpDownEnable interface{}
 
     // Indicates whether to send the extra varbinds in addition to the varbinds
     // defined  in linkUp/linkDown notifications.  'standard'   - only send the
@@ -169,8 +172,8 @@ type CISCOIFEXTENSIONMIB_Ciscoifextsystemconfig struct {
     // notification.   'additional' - send the extra varbinds in addition         
     // to the defined ones. 'other'      - any other config not covered by the
     // above.                This value is read-only. The type is
-    // Ciestandardlinkupdownvarbinds.
-    Ciestandardlinkupdownvarbinds interface{}
+    // CieStandardLinkUpDownVarbinds.
+    CieStandardLinkUpDownVarbinds interface{}
 
     // This object specifies whether ifIndex values persist across
     // reinitialization of the device.  ifIndex persistence means that the mapping
@@ -185,17 +188,17 @@ type CISCOIFEXTENSIONMIB_Ciscoifextsystemconfig struct {
     // avoid the workarounds required for consistent interface identification
     // across reinitialization.  Due to change in syntax, this object is
     // deprecated by cieIfIndexGlobalPersistence. The type is bool.
-    Cieifindexpersistence interface{}
+    CieIfIndexPersistence interface{}
 
     // This object specifies whether the system generates a
     // cieDelayedLinkUpDownNotif notification. The type is bool.
-    Ciedelayedlinkupdownnotifenable interface{}
+    CieDelayedLinkUpDownNotifEnable interface{}
 
     // This object specifies the interval of time an interface's operational
     // status must remain stable following a transition before the system will
     // generate a cieDelayedLinkUpDownNotif. The type is interface{} with range:
     // 1..60. Units are minutes.
-    Ciedelayedlinkupdownnotifdelay interface{}
+    CieDelayedLinkUpDownNotifDelay interface{}
 
     // This object specifies whether ifIndex values persist across
     // reinitialization of the device.  ifIndex persistence means that the mapping
@@ -211,7 +214,7 @@ type CISCOIFEXTENSIONMIB_Ciscoifextsystemconfig struct {
     // across reinitialization.  The allowed values for this object are either
     // enable or disable. global value is not allowed. The type is
     // IfIndexPersistenceState.
-    Cieifindexglobalpersistence interface{}
+    CieIfIndexGlobalPersistence interface{}
 
     // This object specifies whether standard mib-II defined linkUp/ linkDown,
     // extended linkUp/linkDown (with extra varbinds in addition to the varbinds
@@ -235,44 +238,47 @@ type CISCOIFEXTENSIONMIB_Ciscoifextsystemconfig struct {
     // notifications will be generated for an interface if the
     // 'ifLinkUpDownTrapEnable'  for the interface is 'enabled'. The type is
     // map[string]bool.
-    Cielinkupdownconfig interface{}
+    CieLinkUpDownConfig interface{}
 }
 
-func (ciscoifextsystemconfig *CISCOIFEXTENSIONMIB_Ciscoifextsystemconfig) GetEntityData() *types.CommonEntityData {
-    ciscoifextsystemconfig.EntityData.YFilter = ciscoifextsystemconfig.YFilter
-    ciscoifextsystemconfig.EntityData.YangName = "ciscoIfExtSystemConfig"
-    ciscoifextsystemconfig.EntityData.BundleName = "cisco_ios_xe"
-    ciscoifextsystemconfig.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
-    ciscoifextsystemconfig.EntityData.SegmentPath = "ciscoIfExtSystemConfig"
-    ciscoifextsystemconfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoifextsystemconfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoifextsystemconfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoIfExtSystemConfig *CISCOIFEXTENSIONMIB_CiscoIfExtSystemConfig) GetEntityData() *types.CommonEntityData {
+    ciscoIfExtSystemConfig.EntityData.YFilter = ciscoIfExtSystemConfig.YFilter
+    ciscoIfExtSystemConfig.EntityData.YangName = "ciscoIfExtSystemConfig"
+    ciscoIfExtSystemConfig.EntityData.BundleName = "cisco_ios_xe"
+    ciscoIfExtSystemConfig.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
+    ciscoIfExtSystemConfig.EntityData.SegmentPath = "ciscoIfExtSystemConfig"
+    ciscoIfExtSystemConfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoIfExtSystemConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoIfExtSystemConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoifextsystemconfig.EntityData.Children = make(map[string]types.YChild)
-    ciscoifextsystemconfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    ciscoifextsystemconfig.EntityData.Leafs["cieSystemMtu"] = types.YLeaf{"Ciesystemmtu", ciscoifextsystemconfig.Ciesystemmtu}
-    ciscoifextsystemconfig.EntityData.Leafs["cieLinkUpDownEnable"] = types.YLeaf{"Cielinkupdownenable", ciscoifextsystemconfig.Cielinkupdownenable}
-    ciscoifextsystemconfig.EntityData.Leafs["cieStandardLinkUpDownVarbinds"] = types.YLeaf{"Ciestandardlinkupdownvarbinds", ciscoifextsystemconfig.Ciestandardlinkupdownvarbinds}
-    ciscoifextsystemconfig.EntityData.Leafs["cieIfIndexPersistence"] = types.YLeaf{"Cieifindexpersistence", ciscoifextsystemconfig.Cieifindexpersistence}
-    ciscoifextsystemconfig.EntityData.Leafs["cieDelayedLinkUpDownNotifEnable"] = types.YLeaf{"Ciedelayedlinkupdownnotifenable", ciscoifextsystemconfig.Ciedelayedlinkupdownnotifenable}
-    ciscoifextsystemconfig.EntityData.Leafs["cieDelayedLinkUpDownNotifDelay"] = types.YLeaf{"Ciedelayedlinkupdownnotifdelay", ciscoifextsystemconfig.Ciedelayedlinkupdownnotifdelay}
-    ciscoifextsystemconfig.EntityData.Leafs["cieIfIndexGlobalPersistence"] = types.YLeaf{"Cieifindexglobalpersistence", ciscoifextsystemconfig.Cieifindexglobalpersistence}
-    ciscoifextsystemconfig.EntityData.Leafs["cieLinkUpDownConfig"] = types.YLeaf{"Cielinkupdownconfig", ciscoifextsystemconfig.Cielinkupdownconfig}
-    return &(ciscoifextsystemconfig.EntityData)
+    ciscoIfExtSystemConfig.EntityData.Children = types.NewOrderedMap()
+    ciscoIfExtSystemConfig.EntityData.Leafs = types.NewOrderedMap()
+    ciscoIfExtSystemConfig.EntityData.Leafs.Append("cieSystemMtu", types.YLeaf{"CieSystemMtu", ciscoIfExtSystemConfig.CieSystemMtu})
+    ciscoIfExtSystemConfig.EntityData.Leafs.Append("cieLinkUpDownEnable", types.YLeaf{"CieLinkUpDownEnable", ciscoIfExtSystemConfig.CieLinkUpDownEnable})
+    ciscoIfExtSystemConfig.EntityData.Leafs.Append("cieStandardLinkUpDownVarbinds", types.YLeaf{"CieStandardLinkUpDownVarbinds", ciscoIfExtSystemConfig.CieStandardLinkUpDownVarbinds})
+    ciscoIfExtSystemConfig.EntityData.Leafs.Append("cieIfIndexPersistence", types.YLeaf{"CieIfIndexPersistence", ciscoIfExtSystemConfig.CieIfIndexPersistence})
+    ciscoIfExtSystemConfig.EntityData.Leafs.Append("cieDelayedLinkUpDownNotifEnable", types.YLeaf{"CieDelayedLinkUpDownNotifEnable", ciscoIfExtSystemConfig.CieDelayedLinkUpDownNotifEnable})
+    ciscoIfExtSystemConfig.EntityData.Leafs.Append("cieDelayedLinkUpDownNotifDelay", types.YLeaf{"CieDelayedLinkUpDownNotifDelay", ciscoIfExtSystemConfig.CieDelayedLinkUpDownNotifDelay})
+    ciscoIfExtSystemConfig.EntityData.Leafs.Append("cieIfIndexGlobalPersistence", types.YLeaf{"CieIfIndexGlobalPersistence", ciscoIfExtSystemConfig.CieIfIndexGlobalPersistence})
+    ciscoIfExtSystemConfig.EntityData.Leafs.Append("cieLinkUpDownConfig", types.YLeaf{"CieLinkUpDownConfig", ciscoIfExtSystemConfig.CieLinkUpDownConfig})
+
+    ciscoIfExtSystemConfig.EntityData.YListKeys = []string {}
+
+    return &(ciscoIfExtSystemConfig.EntityData)
 }
 
-// CISCOIFEXTENSIONMIB_Ciscoifextsystemconfig_Ciestandardlinkupdownvarbinds represents                This value is read-only.
-type CISCOIFEXTENSIONMIB_Ciscoifextsystemconfig_Ciestandardlinkupdownvarbinds string
+// CISCOIFEXTENSIONMIB_CiscoIfExtSystemConfig_CieStandardLinkUpDownVarbinds represents                This value is read-only.
+type CISCOIFEXTENSIONMIB_CiscoIfExtSystemConfig_CieStandardLinkUpDownVarbinds string
 
 const (
-    CISCOIFEXTENSIONMIB_Ciscoifextsystemconfig_Ciestandardlinkupdownvarbinds_standard CISCOIFEXTENSIONMIB_Ciscoifextsystemconfig_Ciestandardlinkupdownvarbinds = "standard"
+    CISCOIFEXTENSIONMIB_CiscoIfExtSystemConfig_CieStandardLinkUpDownVarbinds_standard CISCOIFEXTENSIONMIB_CiscoIfExtSystemConfig_CieStandardLinkUpDownVarbinds = "standard"
 
-    CISCOIFEXTENSIONMIB_Ciscoifextsystemconfig_Ciestandardlinkupdownvarbinds_additional CISCOIFEXTENSIONMIB_Ciscoifextsystemconfig_Ciestandardlinkupdownvarbinds = "additional"
+    CISCOIFEXTENSIONMIB_CiscoIfExtSystemConfig_CieStandardLinkUpDownVarbinds_additional CISCOIFEXTENSIONMIB_CiscoIfExtSystemConfig_CieStandardLinkUpDownVarbinds = "additional"
 
-    CISCOIFEXTENSIONMIB_Ciscoifextsystemconfig_Ciestandardlinkupdownvarbinds_other CISCOIFEXTENSIONMIB_Ciscoifextsystemconfig_Ciestandardlinkupdownvarbinds = "other"
+    CISCOIFEXTENSIONMIB_CiscoIfExtSystemConfig_CieStandardLinkUpDownVarbinds_other CISCOIFEXTENSIONMIB_CiscoIfExtSystemConfig_CieStandardLinkUpDownVarbinds = "other"
 )
 
-// CISCOIFEXTENSIONMIB_Cieifpacketstatstable
+// CISCOIFEXTENSIONMIB_CieIfPacketStatsTable
 // This  table contains interface packet
 // statistics which are not available in 
 // IF-MIB(RFC2863). 
@@ -292,57 +298,60 @@ const (
 // applicable to physical interfaces only.
 // As a result, this table may be sparse for
 // some logical interfaces.
-type CISCOIFEXTENSIONMIB_Cieifpacketstatstable struct {
+type CISCOIFEXTENSIONMIB_CieIfPacketStatsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry into the cieIfPacketStatsTable. The type is slice of
-    // CISCOIFEXTENSIONMIB_Cieifpacketstatstable_Cieifpacketstatsentry.
-    Cieifpacketstatsentry []CISCOIFEXTENSIONMIB_Cieifpacketstatstable_Cieifpacketstatsentry
+    // CISCOIFEXTENSIONMIB_CieIfPacketStatsTable_CieIfPacketStatsEntry.
+    CieIfPacketStatsEntry []*CISCOIFEXTENSIONMIB_CieIfPacketStatsTable_CieIfPacketStatsEntry
 }
 
-func (cieifpacketstatstable *CISCOIFEXTENSIONMIB_Cieifpacketstatstable) GetEntityData() *types.CommonEntityData {
-    cieifpacketstatstable.EntityData.YFilter = cieifpacketstatstable.YFilter
-    cieifpacketstatstable.EntityData.YangName = "cieIfPacketStatsTable"
-    cieifpacketstatstable.EntityData.BundleName = "cisco_ios_xe"
-    cieifpacketstatstable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
-    cieifpacketstatstable.EntityData.SegmentPath = "cieIfPacketStatsTable"
-    cieifpacketstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cieifpacketstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cieifpacketstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cieIfPacketStatsTable *CISCOIFEXTENSIONMIB_CieIfPacketStatsTable) GetEntityData() *types.CommonEntityData {
+    cieIfPacketStatsTable.EntityData.YFilter = cieIfPacketStatsTable.YFilter
+    cieIfPacketStatsTable.EntityData.YangName = "cieIfPacketStatsTable"
+    cieIfPacketStatsTable.EntityData.BundleName = "cisco_ios_xe"
+    cieIfPacketStatsTable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
+    cieIfPacketStatsTable.EntityData.SegmentPath = "cieIfPacketStatsTable"
+    cieIfPacketStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cieIfPacketStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cieIfPacketStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cieifpacketstatstable.EntityData.Children = make(map[string]types.YChild)
-    cieifpacketstatstable.EntityData.Children["cieIfPacketStatsEntry"] = types.YChild{"Cieifpacketstatsentry", nil}
-    for i := range cieifpacketstatstable.Cieifpacketstatsentry {
-        cieifpacketstatstable.EntityData.Children[types.GetSegmentPath(&cieifpacketstatstable.Cieifpacketstatsentry[i])] = types.YChild{"Cieifpacketstatsentry", &cieifpacketstatstable.Cieifpacketstatsentry[i]}
+    cieIfPacketStatsTable.EntityData.Children = types.NewOrderedMap()
+    cieIfPacketStatsTable.EntityData.Children.Append("cieIfPacketStatsEntry", types.YChild{"CieIfPacketStatsEntry", nil})
+    for i := range cieIfPacketStatsTable.CieIfPacketStatsEntry {
+        cieIfPacketStatsTable.EntityData.Children.Append(types.GetSegmentPath(cieIfPacketStatsTable.CieIfPacketStatsEntry[i]), types.YChild{"CieIfPacketStatsEntry", cieIfPacketStatsTable.CieIfPacketStatsEntry[i]})
     }
-    cieifpacketstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cieifpacketstatstable.EntityData)
+    cieIfPacketStatsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cieIfPacketStatsTable.EntityData.YListKeys = []string {}
+
+    return &(cieIfPacketStatsTable.EntityData)
 }
 
-// CISCOIFEXTENSIONMIB_Cieifpacketstatstable_Cieifpacketstatsentry
+// CISCOIFEXTENSIONMIB_CieIfPacketStatsTable_CieIfPacketStatsEntry
 // An entry into the cieIfPacketStatsTable.
-type CISCOIFEXTENSIONMIB_Cieifpacketstatstable_Cieifpacketstatsentry struct {
+type CISCOIFEXTENSIONMIB_CieIfPacketStatsTable_CieIfPacketStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This object represents the elapsed time in milliseconds since last protocol
     // input  packet was received.  Discontinuities in the value of this variable
     // can occur at re-initialization of the management system, and at other times
     // as  indicated by the values of  cieIfPacketDiscontinuityTime. The type is
     // interface{} with range: 0..4294967295. Units are milliseconds.
-    Cieiflastintime interface{}
+    CieIfLastInTime interface{}
 
     // This object represents the elapsed time in milliseconds since last protocol
     // output  packet was transmitted.  Discontinuities in the value of this
     // variable can occur at re-initialization of the management system, and at
     // other times as  indicated by the values of  cieIfPacketDiscontinuityTime.
     // The type is interface{} with range: 0..4294967295. Units are milliseconds.
-    Cieiflastouttime interface{}
+    CieIfLastOutTime interface{}
 
     // This object represents the elapsed time in milliseconds since last protocol
     // output packet could not be successfully transmitted.  Discontinuities in
@@ -350,7 +359,7 @@ type CISCOIFEXTENSIONMIB_Cieifpacketstatstable_Cieifpacketstatsentry struct {
     // system, and at other times as  indicated by the values of 
     // cieIfPacketDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295. Units are milliseconds.
-    Cieiflastouthangtime interface{}
+    CieIfLastOutHangTime interface{}
 
     // The number of packets input on a particular physical interface which were
     // dropped as they were smaller than the minimum allowable  physical media
@@ -358,7 +367,7 @@ type CISCOIFEXTENSIONMIB_Cieifpacketstatstable_Cieifpacketstatsentry struct {
     // re-initialization of the management system, and at other times as 
     // indicated by the values of  cieIfPacketDiscontinuityTime. The type is
     // interface{} with range: 0..4294967295.
-    Cieifinruntserrs interface{}
+    CieIfInRuntsErrs interface{}
 
     // The number of input packets on a particular physical interface which were
     // dropped as  they were larger than the ifMtu (largest  permitted  size of a
@@ -367,7 +376,7 @@ type CISCOIFEXTENSIONMIB_Cieifpacketstatstable_Cieifpacketstatsentry struct {
     // system, and at other times as  indicated by the values of 
     // cieIfPacketDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Cieifingiantserrs interface{}
+    CieIfInGiantsErrs interface{}
 
     // The number of input packets on a physical interface which were misaligned
     // or had framing errors. This happens when the  format of the incoming packet
@@ -375,7 +384,7 @@ type CISCOIFEXTENSIONMIB_Cieifpacketstatstable_Cieifpacketstatsentry struct {
     // variable can occur at re-initialization of the management system, and at
     // other times as  indicated by the values of  cieIfPacketDiscontinuityTime.
     // The type is interface{} with range: 0..4294967295.
-    Cieifinframingerrs interface{}
+    CieIfInFramingErrs interface{}
 
     // The number of input packets which arrived on a particular physical
     // interface which  were too quick for the hardware to receive and hence the
@@ -383,7 +392,7 @@ type CISCOIFEXTENSIONMIB_Cieifpacketstatstable_Cieifpacketstatsentry struct {
     // can occur at re-initialization of the management system, and at other times
     // as  indicated by the values of  cieIfPacketDiscontinuityTime. The type is
     // interface{} with range: 0..4294967295.
-    Cieifinoverrunerrs interface{}
+    CieIfInOverrunErrs interface{}
 
     // The number of input packets which were simply ignored by this physical
     // interface due to  insufficient resources to handle the incoming packets. 
@@ -393,7 +402,7 @@ type CISCOIFEXTENSIONMIB_Cieifpacketstatstable_Cieifpacketstatsentry struct {
     // and at other times as  indicated by the values of 
     // cieIfPacketDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Cieifinignored interface{}
+    CieIfInIgnored interface{}
 
     // Number of input packets which were dropped because the receiver aborted. 
     // Examples of this could be when an abort sequence aborted the input frame or
@@ -402,7 +411,7 @@ type CISCOIFEXTENSIONMIB_Cieifpacketstatstable_Cieifpacketstatsentry struct {
     // system, and at other times as  indicated by the values of 
     // cieIfPacketDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Cieifinaborterrs interface{}
+    CieIfInAbortErrs interface{}
 
     // The number of input packets which were dropped.  Some reasons why this
     // object could be  incremented are:  o  Input queue is full. o  Errors at the
@@ -411,7 +420,7 @@ type CISCOIFEXTENSIONMIB_Cieifpacketstatstable_Cieifpacketstatsentry struct {
     // system, and at other times as  indicated by the values of 
     // cieIfPacketDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Cieifinputqueuedrops interface{}
+    CieIfInputQueueDrops interface{}
 
     // This object indicates the  number of output packets dropped by the
     // interface even though no error had been detected to prevent them being
@@ -421,45 +430,48 @@ type CISCOIFEXTENSIONMIB_Cieifpacketstatstable_Cieifpacketstatsentry struct {
     // re-initialization of the management system, and at other times as 
     // indicated by the values of  cieIfPacketDiscontinuityTime. The type is
     // interface{} with range: 0..4294967295.
-    Cieifoutputqueuedrops interface{}
+    CieIfOutputQueueDrops interface{}
 
     // The value of sysUpTime on the most recent occasion at which this
     // interface's  counters suffered a discontinuity.   If no such
     // discontinuities have occurred  since the last re-initialization of the 
     // local management subsystem, then this  object contains a value of zero. The
     // type is interface{} with range: 0..4294967295.
-    Cieifpacketdiscontinuitytime interface{}
+    CieIfPacketDiscontinuityTime interface{}
 }
 
-func (cieifpacketstatsentry *CISCOIFEXTENSIONMIB_Cieifpacketstatstable_Cieifpacketstatsentry) GetEntityData() *types.CommonEntityData {
-    cieifpacketstatsentry.EntityData.YFilter = cieifpacketstatsentry.YFilter
-    cieifpacketstatsentry.EntityData.YangName = "cieIfPacketStatsEntry"
-    cieifpacketstatsentry.EntityData.BundleName = "cisco_ios_xe"
-    cieifpacketstatsentry.EntityData.ParentYangName = "cieIfPacketStatsTable"
-    cieifpacketstatsentry.EntityData.SegmentPath = "cieIfPacketStatsEntry" + "[ifIndex='" + fmt.Sprintf("%v", cieifpacketstatsentry.Ifindex) + "']"
-    cieifpacketstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cieifpacketstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cieifpacketstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cieIfPacketStatsEntry *CISCOIFEXTENSIONMIB_CieIfPacketStatsTable_CieIfPacketStatsEntry) GetEntityData() *types.CommonEntityData {
+    cieIfPacketStatsEntry.EntityData.YFilter = cieIfPacketStatsEntry.YFilter
+    cieIfPacketStatsEntry.EntityData.YangName = "cieIfPacketStatsEntry"
+    cieIfPacketStatsEntry.EntityData.BundleName = "cisco_ios_xe"
+    cieIfPacketStatsEntry.EntityData.ParentYangName = "cieIfPacketStatsTable"
+    cieIfPacketStatsEntry.EntityData.SegmentPath = "cieIfPacketStatsEntry" + types.AddKeyToken(cieIfPacketStatsEntry.IfIndex, "ifIndex")
+    cieIfPacketStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cieIfPacketStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cieIfPacketStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cieifpacketstatsentry.EntityData.Children = make(map[string]types.YChild)
-    cieifpacketstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cieifpacketstatsentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cieifpacketstatsentry.Ifindex}
-    cieifpacketstatsentry.EntityData.Leafs["cieIfLastInTime"] = types.YLeaf{"Cieiflastintime", cieifpacketstatsentry.Cieiflastintime}
-    cieifpacketstatsentry.EntityData.Leafs["cieIfLastOutTime"] = types.YLeaf{"Cieiflastouttime", cieifpacketstatsentry.Cieiflastouttime}
-    cieifpacketstatsentry.EntityData.Leafs["cieIfLastOutHangTime"] = types.YLeaf{"Cieiflastouthangtime", cieifpacketstatsentry.Cieiflastouthangtime}
-    cieifpacketstatsentry.EntityData.Leafs["cieIfInRuntsErrs"] = types.YLeaf{"Cieifinruntserrs", cieifpacketstatsentry.Cieifinruntserrs}
-    cieifpacketstatsentry.EntityData.Leafs["cieIfInGiantsErrs"] = types.YLeaf{"Cieifingiantserrs", cieifpacketstatsentry.Cieifingiantserrs}
-    cieifpacketstatsentry.EntityData.Leafs["cieIfInFramingErrs"] = types.YLeaf{"Cieifinframingerrs", cieifpacketstatsentry.Cieifinframingerrs}
-    cieifpacketstatsentry.EntityData.Leafs["cieIfInOverrunErrs"] = types.YLeaf{"Cieifinoverrunerrs", cieifpacketstatsentry.Cieifinoverrunerrs}
-    cieifpacketstatsentry.EntityData.Leafs["cieIfInIgnored"] = types.YLeaf{"Cieifinignored", cieifpacketstatsentry.Cieifinignored}
-    cieifpacketstatsentry.EntityData.Leafs["cieIfInAbortErrs"] = types.YLeaf{"Cieifinaborterrs", cieifpacketstatsentry.Cieifinaborterrs}
-    cieifpacketstatsentry.EntityData.Leafs["cieIfInputQueueDrops"] = types.YLeaf{"Cieifinputqueuedrops", cieifpacketstatsentry.Cieifinputqueuedrops}
-    cieifpacketstatsentry.EntityData.Leafs["cieIfOutputQueueDrops"] = types.YLeaf{"Cieifoutputqueuedrops", cieifpacketstatsentry.Cieifoutputqueuedrops}
-    cieifpacketstatsentry.EntityData.Leafs["cieIfPacketDiscontinuityTime"] = types.YLeaf{"Cieifpacketdiscontinuitytime", cieifpacketstatsentry.Cieifpacketdiscontinuitytime}
-    return &(cieifpacketstatsentry.EntityData)
+    cieIfPacketStatsEntry.EntityData.Children = types.NewOrderedMap()
+    cieIfPacketStatsEntry.EntityData.Leafs = types.NewOrderedMap()
+    cieIfPacketStatsEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", cieIfPacketStatsEntry.IfIndex})
+    cieIfPacketStatsEntry.EntityData.Leafs.Append("cieIfLastInTime", types.YLeaf{"CieIfLastInTime", cieIfPacketStatsEntry.CieIfLastInTime})
+    cieIfPacketStatsEntry.EntityData.Leafs.Append("cieIfLastOutTime", types.YLeaf{"CieIfLastOutTime", cieIfPacketStatsEntry.CieIfLastOutTime})
+    cieIfPacketStatsEntry.EntityData.Leafs.Append("cieIfLastOutHangTime", types.YLeaf{"CieIfLastOutHangTime", cieIfPacketStatsEntry.CieIfLastOutHangTime})
+    cieIfPacketStatsEntry.EntityData.Leafs.Append("cieIfInRuntsErrs", types.YLeaf{"CieIfInRuntsErrs", cieIfPacketStatsEntry.CieIfInRuntsErrs})
+    cieIfPacketStatsEntry.EntityData.Leafs.Append("cieIfInGiantsErrs", types.YLeaf{"CieIfInGiantsErrs", cieIfPacketStatsEntry.CieIfInGiantsErrs})
+    cieIfPacketStatsEntry.EntityData.Leafs.Append("cieIfInFramingErrs", types.YLeaf{"CieIfInFramingErrs", cieIfPacketStatsEntry.CieIfInFramingErrs})
+    cieIfPacketStatsEntry.EntityData.Leafs.Append("cieIfInOverrunErrs", types.YLeaf{"CieIfInOverrunErrs", cieIfPacketStatsEntry.CieIfInOverrunErrs})
+    cieIfPacketStatsEntry.EntityData.Leafs.Append("cieIfInIgnored", types.YLeaf{"CieIfInIgnored", cieIfPacketStatsEntry.CieIfInIgnored})
+    cieIfPacketStatsEntry.EntityData.Leafs.Append("cieIfInAbortErrs", types.YLeaf{"CieIfInAbortErrs", cieIfPacketStatsEntry.CieIfInAbortErrs})
+    cieIfPacketStatsEntry.EntityData.Leafs.Append("cieIfInputQueueDrops", types.YLeaf{"CieIfInputQueueDrops", cieIfPacketStatsEntry.CieIfInputQueueDrops})
+    cieIfPacketStatsEntry.EntityData.Leafs.Append("cieIfOutputQueueDrops", types.YLeaf{"CieIfOutputQueueDrops", cieIfPacketStatsEntry.CieIfOutputQueueDrops})
+    cieIfPacketStatsEntry.EntityData.Leafs.Append("cieIfPacketDiscontinuityTime", types.YLeaf{"CieIfPacketDiscontinuityTime", cieIfPacketStatsEntry.CieIfPacketDiscontinuityTime})
+
+    cieIfPacketStatsEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(cieIfPacketStatsEntry.EntityData)
 }
 
-// CISCOIFEXTENSIONMIB_Cieifinterfacetable
+// CISCOIFEXTENSIONMIB_CieIfInterfaceTable
 // This  table contains objects which provide
 // more information about interface  
 // properties not available in IF-MIB
@@ -469,43 +481,46 @@ func (cieifpacketstatsentry *CISCOIFEXTENSIONMIB_Cieifpacketstatstable_Cieifpack
 // applicable to physical interfaces only.
 // As a result, this table may be sparse for
 // logical interfaces.
-type CISCOIFEXTENSIONMIB_Cieifinterfacetable struct {
+type CISCOIFEXTENSIONMIB_CieIfInterfaceTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry into the cieIfInterfaceTable. The type is slice of
-    // CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry.
-    Cieifinterfaceentry []CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry
+    // CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry.
+    CieIfInterfaceEntry []*CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry
 }
 
-func (cieifinterfacetable *CISCOIFEXTENSIONMIB_Cieifinterfacetable) GetEntityData() *types.CommonEntityData {
-    cieifinterfacetable.EntityData.YFilter = cieifinterfacetable.YFilter
-    cieifinterfacetable.EntityData.YangName = "cieIfInterfaceTable"
-    cieifinterfacetable.EntityData.BundleName = "cisco_ios_xe"
-    cieifinterfacetable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
-    cieifinterfacetable.EntityData.SegmentPath = "cieIfInterfaceTable"
-    cieifinterfacetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cieifinterfacetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cieifinterfacetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cieIfInterfaceTable *CISCOIFEXTENSIONMIB_CieIfInterfaceTable) GetEntityData() *types.CommonEntityData {
+    cieIfInterfaceTable.EntityData.YFilter = cieIfInterfaceTable.YFilter
+    cieIfInterfaceTable.EntityData.YangName = "cieIfInterfaceTable"
+    cieIfInterfaceTable.EntityData.BundleName = "cisco_ios_xe"
+    cieIfInterfaceTable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
+    cieIfInterfaceTable.EntityData.SegmentPath = "cieIfInterfaceTable"
+    cieIfInterfaceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cieIfInterfaceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cieIfInterfaceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cieifinterfacetable.EntityData.Children = make(map[string]types.YChild)
-    cieifinterfacetable.EntityData.Children["cieIfInterfaceEntry"] = types.YChild{"Cieifinterfaceentry", nil}
-    for i := range cieifinterfacetable.Cieifinterfaceentry {
-        cieifinterfacetable.EntityData.Children[types.GetSegmentPath(&cieifinterfacetable.Cieifinterfaceentry[i])] = types.YChild{"Cieifinterfaceentry", &cieifinterfacetable.Cieifinterfaceentry[i]}
+    cieIfInterfaceTable.EntityData.Children = types.NewOrderedMap()
+    cieIfInterfaceTable.EntityData.Children.Append("cieIfInterfaceEntry", types.YChild{"CieIfInterfaceEntry", nil})
+    for i := range cieIfInterfaceTable.CieIfInterfaceEntry {
+        cieIfInterfaceTable.EntityData.Children.Append(types.GetSegmentPath(cieIfInterfaceTable.CieIfInterfaceEntry[i]), types.YChild{"CieIfInterfaceEntry", cieIfInterfaceTable.CieIfInterfaceEntry[i]})
     }
-    cieifinterfacetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cieifinterfacetable.EntityData)
+    cieIfInterfaceTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cieIfInterfaceTable.EntityData.YListKeys = []string {}
+
+    return &(cieIfInterfaceTable.EntityData)
 }
 
-// CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry
+// CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry
 // An entry into the cieIfInterfaceTable.
-type CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry struct {
+type CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // The number of times the interface was internally reset and brought up. 
     // Some of the actions which can cause this counter to increment are :  o 
@@ -515,7 +530,7 @@ type CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry struct {
     // re-initialization of the management system, and at other times as 
     // indicated by the values of  cieIfInterfaceDiscontinuityTime. The type is
     // interface{} with range: 0..4294967295.
-    Cieifresetcount interface{}
+    CieIfResetCount interface{}
 
     // A keepalive is a small, layer-2 message that is transmitted by a network
     // device  to let directly-connected network devices know of its presence. 
@@ -523,13 +538,13 @@ type CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry struct {
     // keepalives are not enabled, 'false' is returned.  Setting this object to
     // TRUE or FALSE enables or disables (respectively) keepalive on this 
     // interface. The type is bool.
-    Cieifkeepaliveenabled interface{}
+    CieIfKeepAliveEnabled interface{}
 
     // This object displays a human-readable textual string which describes the 
     // cause of the last state change of the  interface.  Examples of the values
     // this object can take are:  o  'Lost Carrier' o  'administratively down' o 
     // 'up' o  'down'. The type is string.
-    Cieifstatechangereason interface{}
+    CieIfStateChangeReason interface{}
 
     // Number of times interface saw the carrier signal transition.  For example,
     // if a T1 line is unplugged,  then framer will detect the loss of signal 
@@ -538,14 +553,14 @@ type CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry struct {
     // system, and at other times as  indicated by the values of 
     // cieIfInterfaceDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Cieifcarriertransitioncount interface{}
+    CieIfCarrierTransitionCount interface{}
 
     // The value of sysUpTime on the most recent occasion at which this
     // interface's  counters  suffered  a discontinuity.   If no such
     // discontinuities have occurred  since the last re-initialization of the 
     // local management subsystem, then this  object contains a value of zero. The
     // type is interface{} with range: 0..4294967295.
-    Cieifinterfacediscontinuitytime interface{}
+    CieIfInterfaceDiscontinuityTime interface{}
 
     // The DHCP mode configured by the administrator. If 'true' the DHCP is
     // enabled. In which case an IP address is requested in DHCP. This is in
@@ -555,14 +570,14 @@ type CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry struct {
     // administrator in 'ciiIPAddressTable' or  'ciiIPIfAddressTable'. For
     // interfaces, for which DHCP cannot be or is not supported, then this object
     // has the value 'false'. The type is bool.
-    Cieifdhcpmode interface{}
+    CieIfDhcpMode interface{}
 
     // The MTU configured by the administrator. This object is exactly same as
     // 'ifMtu' in  ifTable from IF-MIB for the same ifIndex value , except that it
     // is configurable by the administrator. For more description of this object
     // refer to 'ifMtu' in IF-MIB. The type is interface{} with range:
     // 40..2147483647.
-    Cieifmtu interface{}
+    CieIfMtu interface{}
 
     // The ContextName denotes the interface 'context' and is used to logically
     // separate the MIB management. RFC 2571 and RFC 2737 describe this approach.
@@ -570,7 +585,7 @@ type CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry struct {
     // and  RFC 2737, for different interfaces, then the value of this object
     // specifies the context name used for this interface. The type is string with
     // length: 0..32.
-    Cieifcontextname interface{}
+    CieIfContextName interface{}
 
     // This object represents the detailed operational cause reason for the
     // current  operational state of the interface.  The current operational state
@@ -586,13 +601,13 @@ type CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry struct {
     // 'ifOperStatus' is 'down'.   The value of this object will be 'other'  if
     // the operational status cause is not one  defined in 'IfOperStatusReason'.
     // The type is IfOperStatusReason.
-    Cieifoperstatuscause interface{}
+    CieIfOperStatusCause interface{}
 
     // The description for the cause of current operational state of the
     // interface, given  by the object 'cieIfOperStatusCause'.  For an interface
     // whose 'ifOperStatus' is not 'down' the value of this object will be 
     // 'none'. The type is string.
-    Cieifoperstatuscausedescr interface{}
+    CieIfOperStatusCauseDescr interface{}
 
     // An estimate of the interface's current receive bandwidth in bits per
     // second.  This object is provided for interface with asymmetric interface
@@ -604,7 +619,7 @@ type CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry struct {
     // value (4,294,967,295) and ifHighSpeed must be used to report the interace's
     // speed.  For a sub-layer which has no concept of bandwidth, this object
     // should be zero. The type is interface{} with range: 0..4294967295.
-    Cieifspeedreceive interface{}
+    CieIfSpeedReceive interface{}
 
     // An estimate of the interface's current receive bandwidth in units of
     // 1,000,000 bits per second.  If this object reports a value of `n' then the
@@ -613,7 +628,7 @@ type CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry struct {
     // where no accurate estimation can be made, this object should contain the
     // nominal bandwidth.  For a sub-layer which has no concept of bandwidth, this
     // object should be zero. The type is interface{} with range: 0..4294967295.
-    Cieifhighspeedreceive interface{}
+    CieIfHighSpeedReceive interface{}
 
     // This data type is used to model an administratively assigned name of the
     // current owner of the interface resource. This  information is taken from
@@ -627,7 +642,7 @@ type CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry struct {
     // resource contention  only among cooperating managers; this object realizes
     // no access control function with respect to uncooperative parties. The type
     // is string with length: 0..80.
-    Cieifowner interface{}
+    CieIfOwner interface{}
 
     // This object indicates the current configuration of interface sharing on the
     // given interface.  'notApplicable' - the interface sharing configuration on 
@@ -636,8 +651,8 @@ type CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry struct {
     // 'ownerShared' - the interface is shared amongst virtual switches         
     // and this interface physically belongs to a its           virtual switch.  
     // 'sharedOnly' - the interface is in purely shared mode. The type is
-    // Cieifsharedconfig.
-    Cieifsharedconfig interface{}
+    // CieIfSharedConfig.
+    CieIfSharedConfig interface{}
 
     // This object specifies the current speed group configuration on the given
     // interface.  'notApplicable' - the interface speed group configuration on   
@@ -646,8 +661,8 @@ type CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry struct {
     // interface as 10G. '1G-2G-4G-8G' - the interface speed group configuration  
     // on this interface as 1G-2G-4G-8G. '2G-4G-8G-16G' - the interface speed
     // group configuration              on this interface as 2G-4G-8G-16G. The
-    // type is Cieifspeedgroupconfig.
-    Cieifspeedgroupconfig interface{}
+    // type is CieIfSpeedGroupConfig.
+    CieIfSpeedGroupConfig interface{}
 
     // This object specifies the current transceiver frequency configuration on
     // the given interface.  'notApplicable' - the interface transceiver frequency
@@ -655,14 +670,14 @@ type CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry struct {
     // read-only value. 'FibreChannel' - the interface transceiver frequency 				
     // configuration on this interface as                   Fibre Channel.
     // 'Ethernet'	  -  the interface transceiver frequency on 				 this interface
-    // as Ethernet. The type is Cieiftransceiverfrequencyconfig.
-    Cieiftransceiverfrequencyconfig interface{}
+    // as Ethernet. The type is CieIfTransceiverFrequencyConfig.
+    CieIfTransceiverFrequencyConfig interface{}
 
     // This object specifies the current switchport fill pattern configuration on
     // the given interface.  'arbff8G' - the inter frame gap fill pattern is
     // 			ARBFF for 8G speed. 'idle8G' - the inter frame gap fill pattern is 		  
-    // IDLE for 8G speed. The type is Cieiffillpatternconfig.
-    Cieiffillpatternconfig interface{}
+    // IDLE for 8G speed. The type is CieIfFillPatternConfig.
+    CieIfFillPatternConfig interface{}
 
     // This object specifies the current switchport biterrors configuration on the
     // given interface.  If 'true(1)' the ignore bit errors is enabled.In which
@@ -670,7 +685,7 @@ type CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry struct {
     // is disabled. In which  case the interface acts on the bit errors.  For
     // interfaces, for which bit errors  is not supported, then this object has
     // the value 'true(1)'. The type is bool.
-    Cieifignorebiterrorsconfig interface{}
+    CieIfIgnoreBitErrorsConfig interface{}
 
     // This object specifies the current interrupt threshold configuration on the
     // given interface.  'If 'true(1)' the ignore interrupt thresholds is enabled.
@@ -679,91 +694,94 @@ type CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry struct {
     // on the interrupt  thresholds.  For interfaces, for which interrupt
     // thresholds  is not supported, then this object has the  value 'true(1)'.
     // The type is bool.
-    Cieifignoreinterruptthresholdconfig interface{}
+    CieIfIgnoreInterruptThresholdConfig interface{}
 }
 
-func (cieifinterfaceentry *CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry) GetEntityData() *types.CommonEntityData {
-    cieifinterfaceentry.EntityData.YFilter = cieifinterfaceentry.YFilter
-    cieifinterfaceentry.EntityData.YangName = "cieIfInterfaceEntry"
-    cieifinterfaceentry.EntityData.BundleName = "cisco_ios_xe"
-    cieifinterfaceentry.EntityData.ParentYangName = "cieIfInterfaceTable"
-    cieifinterfaceentry.EntityData.SegmentPath = "cieIfInterfaceEntry" + "[ifIndex='" + fmt.Sprintf("%v", cieifinterfaceentry.Ifindex) + "']"
-    cieifinterfaceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cieifinterfaceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cieifinterfaceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cieIfInterfaceEntry *CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry) GetEntityData() *types.CommonEntityData {
+    cieIfInterfaceEntry.EntityData.YFilter = cieIfInterfaceEntry.YFilter
+    cieIfInterfaceEntry.EntityData.YangName = "cieIfInterfaceEntry"
+    cieIfInterfaceEntry.EntityData.BundleName = "cisco_ios_xe"
+    cieIfInterfaceEntry.EntityData.ParentYangName = "cieIfInterfaceTable"
+    cieIfInterfaceEntry.EntityData.SegmentPath = "cieIfInterfaceEntry" + types.AddKeyToken(cieIfInterfaceEntry.IfIndex, "ifIndex")
+    cieIfInterfaceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cieIfInterfaceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cieIfInterfaceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cieifinterfaceentry.EntityData.Children = make(map[string]types.YChild)
-    cieifinterfaceentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cieifinterfaceentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cieifinterfaceentry.Ifindex}
-    cieifinterfaceentry.EntityData.Leafs["cieIfResetCount"] = types.YLeaf{"Cieifresetcount", cieifinterfaceentry.Cieifresetcount}
-    cieifinterfaceentry.EntityData.Leafs["cieIfKeepAliveEnabled"] = types.YLeaf{"Cieifkeepaliveenabled", cieifinterfaceentry.Cieifkeepaliveenabled}
-    cieifinterfaceentry.EntityData.Leafs["cieIfStateChangeReason"] = types.YLeaf{"Cieifstatechangereason", cieifinterfaceentry.Cieifstatechangereason}
-    cieifinterfaceentry.EntityData.Leafs["cieIfCarrierTransitionCount"] = types.YLeaf{"Cieifcarriertransitioncount", cieifinterfaceentry.Cieifcarriertransitioncount}
-    cieifinterfaceentry.EntityData.Leafs["cieIfInterfaceDiscontinuityTime"] = types.YLeaf{"Cieifinterfacediscontinuitytime", cieifinterfaceentry.Cieifinterfacediscontinuitytime}
-    cieifinterfaceentry.EntityData.Leafs["cieIfDhcpMode"] = types.YLeaf{"Cieifdhcpmode", cieifinterfaceentry.Cieifdhcpmode}
-    cieifinterfaceentry.EntityData.Leafs["cieIfMtu"] = types.YLeaf{"Cieifmtu", cieifinterfaceentry.Cieifmtu}
-    cieifinterfaceentry.EntityData.Leafs["cieIfContextName"] = types.YLeaf{"Cieifcontextname", cieifinterfaceentry.Cieifcontextname}
-    cieifinterfaceentry.EntityData.Leafs["cieIfOperStatusCause"] = types.YLeaf{"Cieifoperstatuscause", cieifinterfaceentry.Cieifoperstatuscause}
-    cieifinterfaceentry.EntityData.Leafs["cieIfOperStatusCauseDescr"] = types.YLeaf{"Cieifoperstatuscausedescr", cieifinterfaceentry.Cieifoperstatuscausedescr}
-    cieifinterfaceentry.EntityData.Leafs["cieIfSpeedReceive"] = types.YLeaf{"Cieifspeedreceive", cieifinterfaceentry.Cieifspeedreceive}
-    cieifinterfaceentry.EntityData.Leafs["cieIfHighSpeedReceive"] = types.YLeaf{"Cieifhighspeedreceive", cieifinterfaceentry.Cieifhighspeedreceive}
-    cieifinterfaceentry.EntityData.Leafs["cieIfOwner"] = types.YLeaf{"Cieifowner", cieifinterfaceentry.Cieifowner}
-    cieifinterfaceentry.EntityData.Leafs["cieIfSharedConfig"] = types.YLeaf{"Cieifsharedconfig", cieifinterfaceentry.Cieifsharedconfig}
-    cieifinterfaceentry.EntityData.Leafs["cieIfSpeedGroupConfig"] = types.YLeaf{"Cieifspeedgroupconfig", cieifinterfaceentry.Cieifspeedgroupconfig}
-    cieifinterfaceentry.EntityData.Leafs["cieIfTransceiverFrequencyConfig"] = types.YLeaf{"Cieiftransceiverfrequencyconfig", cieifinterfaceentry.Cieiftransceiverfrequencyconfig}
-    cieifinterfaceentry.EntityData.Leafs["cieIfFillPatternConfig"] = types.YLeaf{"Cieiffillpatternconfig", cieifinterfaceentry.Cieiffillpatternconfig}
-    cieifinterfaceentry.EntityData.Leafs["cieIfIgnoreBitErrorsConfig"] = types.YLeaf{"Cieifignorebiterrorsconfig", cieifinterfaceentry.Cieifignorebiterrorsconfig}
-    cieifinterfaceentry.EntityData.Leafs["cieIfIgnoreInterruptThresholdConfig"] = types.YLeaf{"Cieifignoreinterruptthresholdconfig", cieifinterfaceentry.Cieifignoreinterruptthresholdconfig}
-    return &(cieifinterfaceentry.EntityData)
+    cieIfInterfaceEntry.EntityData.Children = types.NewOrderedMap()
+    cieIfInterfaceEntry.EntityData.Leafs = types.NewOrderedMap()
+    cieIfInterfaceEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", cieIfInterfaceEntry.IfIndex})
+    cieIfInterfaceEntry.EntityData.Leafs.Append("cieIfResetCount", types.YLeaf{"CieIfResetCount", cieIfInterfaceEntry.CieIfResetCount})
+    cieIfInterfaceEntry.EntityData.Leafs.Append("cieIfKeepAliveEnabled", types.YLeaf{"CieIfKeepAliveEnabled", cieIfInterfaceEntry.CieIfKeepAliveEnabled})
+    cieIfInterfaceEntry.EntityData.Leafs.Append("cieIfStateChangeReason", types.YLeaf{"CieIfStateChangeReason", cieIfInterfaceEntry.CieIfStateChangeReason})
+    cieIfInterfaceEntry.EntityData.Leafs.Append("cieIfCarrierTransitionCount", types.YLeaf{"CieIfCarrierTransitionCount", cieIfInterfaceEntry.CieIfCarrierTransitionCount})
+    cieIfInterfaceEntry.EntityData.Leafs.Append("cieIfInterfaceDiscontinuityTime", types.YLeaf{"CieIfInterfaceDiscontinuityTime", cieIfInterfaceEntry.CieIfInterfaceDiscontinuityTime})
+    cieIfInterfaceEntry.EntityData.Leafs.Append("cieIfDhcpMode", types.YLeaf{"CieIfDhcpMode", cieIfInterfaceEntry.CieIfDhcpMode})
+    cieIfInterfaceEntry.EntityData.Leafs.Append("cieIfMtu", types.YLeaf{"CieIfMtu", cieIfInterfaceEntry.CieIfMtu})
+    cieIfInterfaceEntry.EntityData.Leafs.Append("cieIfContextName", types.YLeaf{"CieIfContextName", cieIfInterfaceEntry.CieIfContextName})
+    cieIfInterfaceEntry.EntityData.Leafs.Append("cieIfOperStatusCause", types.YLeaf{"CieIfOperStatusCause", cieIfInterfaceEntry.CieIfOperStatusCause})
+    cieIfInterfaceEntry.EntityData.Leafs.Append("cieIfOperStatusCauseDescr", types.YLeaf{"CieIfOperStatusCauseDescr", cieIfInterfaceEntry.CieIfOperStatusCauseDescr})
+    cieIfInterfaceEntry.EntityData.Leafs.Append("cieIfSpeedReceive", types.YLeaf{"CieIfSpeedReceive", cieIfInterfaceEntry.CieIfSpeedReceive})
+    cieIfInterfaceEntry.EntityData.Leafs.Append("cieIfHighSpeedReceive", types.YLeaf{"CieIfHighSpeedReceive", cieIfInterfaceEntry.CieIfHighSpeedReceive})
+    cieIfInterfaceEntry.EntityData.Leafs.Append("cieIfOwner", types.YLeaf{"CieIfOwner", cieIfInterfaceEntry.CieIfOwner})
+    cieIfInterfaceEntry.EntityData.Leafs.Append("cieIfSharedConfig", types.YLeaf{"CieIfSharedConfig", cieIfInterfaceEntry.CieIfSharedConfig})
+    cieIfInterfaceEntry.EntityData.Leafs.Append("cieIfSpeedGroupConfig", types.YLeaf{"CieIfSpeedGroupConfig", cieIfInterfaceEntry.CieIfSpeedGroupConfig})
+    cieIfInterfaceEntry.EntityData.Leafs.Append("cieIfTransceiverFrequencyConfig", types.YLeaf{"CieIfTransceiverFrequencyConfig", cieIfInterfaceEntry.CieIfTransceiverFrequencyConfig})
+    cieIfInterfaceEntry.EntityData.Leafs.Append("cieIfFillPatternConfig", types.YLeaf{"CieIfFillPatternConfig", cieIfInterfaceEntry.CieIfFillPatternConfig})
+    cieIfInterfaceEntry.EntityData.Leafs.Append("cieIfIgnoreBitErrorsConfig", types.YLeaf{"CieIfIgnoreBitErrorsConfig", cieIfInterfaceEntry.CieIfIgnoreBitErrorsConfig})
+    cieIfInterfaceEntry.EntityData.Leafs.Append("cieIfIgnoreInterruptThresholdConfig", types.YLeaf{"CieIfIgnoreInterruptThresholdConfig", cieIfInterfaceEntry.CieIfIgnoreInterruptThresholdConfig})
+
+    cieIfInterfaceEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(cieIfInterfaceEntry.EntityData)
 }
 
-// CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieiffillpatternconfig represents 		   IDLE for 8G speed.
-type CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieiffillpatternconfig string
+// CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfFillPatternConfig represents 		   IDLE for 8G speed.
+type CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfFillPatternConfig string
 
 const (
-    CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieiffillpatternconfig_arbff8G CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieiffillpatternconfig = "arbff8G"
+    CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfFillPatternConfig_arbff8G CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfFillPatternConfig = "arbff8G"
 
-    CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieiffillpatternconfig_idle8G CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieiffillpatternconfig = "idle8G"
+    CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfFillPatternConfig_idle8G CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfFillPatternConfig = "idle8G"
 )
 
-// CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifsharedconfig represents 'sharedOnly' - the interface is in purely shared mode.
-type CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifsharedconfig string
+// CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSharedConfig represents 'sharedOnly' - the interface is in purely shared mode.
+type CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSharedConfig string
 
 const (
-    CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifsharedconfig_notApplicable CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifsharedconfig = "notApplicable"
+    CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSharedConfig_notApplicable CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSharedConfig = "notApplicable"
 
-    CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifsharedconfig_ownerDedicated CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifsharedconfig = "ownerDedicated"
+    CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSharedConfig_ownerDedicated CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSharedConfig = "ownerDedicated"
 
-    CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifsharedconfig_ownerShared CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifsharedconfig = "ownerShared"
+    CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSharedConfig_ownerShared CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSharedConfig = "ownerShared"
 
-    CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifsharedconfig_sharedOnly CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifsharedconfig = "sharedOnly"
+    CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSharedConfig_sharedOnly CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSharedConfig = "sharedOnly"
 )
 
-// CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifspeedgroupconfig represents             on this interface as 2G-4G-8G-16G.
-type CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifspeedgroupconfig string
+// CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSpeedGroupConfig represents             on this interface as 2G-4G-8G-16G.
+type CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSpeedGroupConfig string
 
 const (
-    CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifspeedgroupconfig_notApplicable CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifspeedgroupconfig = "notApplicable"
+    CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSpeedGroupConfig_notApplicable CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSpeedGroupConfig = "notApplicable"
 
-    CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifspeedgroupconfig_tenG CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifspeedgroupconfig = "tenG"
+    CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSpeedGroupConfig_tenG CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSpeedGroupConfig = "tenG"
 
-    CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifspeedgroupconfig_oneTwoFourEightG CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifspeedgroupconfig = "oneTwoFourEightG"
+    CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSpeedGroupConfig_oneTwoFourEightG CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSpeedGroupConfig = "oneTwoFourEightG"
 
-    CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifspeedgroupconfig_twoFourEightSixteenG CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieifspeedgroupconfig = "twoFourEightSixteenG"
+    CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSpeedGroupConfig_twoFourEightSixteenG CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfSpeedGroupConfig = "twoFourEightSixteenG"
 )
 
-// CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieiftransceiverfrequencyconfig represents 				 this interface as Ethernet.
-type CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieiftransceiverfrequencyconfig string
+// CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfTransceiverFrequencyConfig represents 				 this interface as Ethernet.
+type CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfTransceiverFrequencyConfig string
 
 const (
-    CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieiftransceiverfrequencyconfig_notApplicable CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieiftransceiverfrequencyconfig = "notApplicable"
+    CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfTransceiverFrequencyConfig_notApplicable CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfTransceiverFrequencyConfig = "notApplicable"
 
-    CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieiftransceiverfrequencyconfig_fibreChannel CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieiftransceiverfrequencyconfig = "fibreChannel"
+    CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfTransceiverFrequencyConfig_fibreChannel CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfTransceiverFrequencyConfig = "fibreChannel"
 
-    CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieiftransceiverfrequencyconfig_ethernet CISCOIFEXTENSIONMIB_Cieifinterfacetable_Cieifinterfaceentry_Cieiftransceiverfrequencyconfig = "ethernet"
+    CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfTransceiverFrequencyConfig_ethernet CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry_CieIfTransceiverFrequencyConfig = "ethernet"
 )
 
-// CISCOIFEXTENSIONMIB_Cieifstatuslisttable
+// CISCOIFEXTENSIONMIB_CieIfStatusListTable
 // This table contains objects for providing
 // the 'ifIndex', interface operational mode and 
 // interface operational cause for all the 
@@ -777,215 +795,227 @@ const (
 // interface operational cause, from the point 
 // of retrieval, by combining the values a set 
 // of 64 interfaces in a single MIB object.
-type CISCOIFEXTENSIONMIB_Cieifstatuslisttable struct {
+type CISCOIFEXTENSIONMIB_CieIfStatusListTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry represents the 'ifIndex', interface operational mode and
     // interface  operational cause for a set of 64 interfaces  in a module. The
     // type is slice of
-    // CISCOIFEXTENSIONMIB_Cieifstatuslisttable_Cieifstatuslistentry.
-    Cieifstatuslistentry []CISCOIFEXTENSIONMIB_Cieifstatuslisttable_Cieifstatuslistentry
+    // CISCOIFEXTENSIONMIB_CieIfStatusListTable_CieIfStatusListEntry.
+    CieIfStatusListEntry []*CISCOIFEXTENSIONMIB_CieIfStatusListTable_CieIfStatusListEntry
 }
 
-func (cieifstatuslisttable *CISCOIFEXTENSIONMIB_Cieifstatuslisttable) GetEntityData() *types.CommonEntityData {
-    cieifstatuslisttable.EntityData.YFilter = cieifstatuslisttable.YFilter
-    cieifstatuslisttable.EntityData.YangName = "cieIfStatusListTable"
-    cieifstatuslisttable.EntityData.BundleName = "cisco_ios_xe"
-    cieifstatuslisttable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
-    cieifstatuslisttable.EntityData.SegmentPath = "cieIfStatusListTable"
-    cieifstatuslisttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cieifstatuslisttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cieifstatuslisttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cieIfStatusListTable *CISCOIFEXTENSIONMIB_CieIfStatusListTable) GetEntityData() *types.CommonEntityData {
+    cieIfStatusListTable.EntityData.YFilter = cieIfStatusListTable.YFilter
+    cieIfStatusListTable.EntityData.YangName = "cieIfStatusListTable"
+    cieIfStatusListTable.EntityData.BundleName = "cisco_ios_xe"
+    cieIfStatusListTable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
+    cieIfStatusListTable.EntityData.SegmentPath = "cieIfStatusListTable"
+    cieIfStatusListTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cieIfStatusListTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cieIfStatusListTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cieifstatuslisttable.EntityData.Children = make(map[string]types.YChild)
-    cieifstatuslisttable.EntityData.Children["cieIfStatusListEntry"] = types.YChild{"Cieifstatuslistentry", nil}
-    for i := range cieifstatuslisttable.Cieifstatuslistentry {
-        cieifstatuslisttable.EntityData.Children[types.GetSegmentPath(&cieifstatuslisttable.Cieifstatuslistentry[i])] = types.YChild{"Cieifstatuslistentry", &cieifstatuslisttable.Cieifstatuslistentry[i]}
+    cieIfStatusListTable.EntityData.Children = types.NewOrderedMap()
+    cieIfStatusListTable.EntityData.Children.Append("cieIfStatusListEntry", types.YChild{"CieIfStatusListEntry", nil})
+    for i := range cieIfStatusListTable.CieIfStatusListEntry {
+        cieIfStatusListTable.EntityData.Children.Append(types.GetSegmentPath(cieIfStatusListTable.CieIfStatusListEntry[i]), types.YChild{"CieIfStatusListEntry", cieIfStatusListTable.CieIfStatusListEntry[i]})
     }
-    cieifstatuslisttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cieifstatuslisttable.EntityData)
+    cieIfStatusListTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cieIfStatusListTable.EntityData.YListKeys = []string {}
+
+    return &(cieIfStatusListTable.EntityData)
 }
 
-// CISCOIFEXTENSIONMIB_Cieifstatuslisttable_Cieifstatuslistentry
+// CISCOIFEXTENSIONMIB_CieIfStatusListTable_CieIfStatusListEntry
 // Each entry represents the 'ifIndex',
 // interface operational mode and interface 
 // operational cause for a set of 64 interfaces 
 // in a module.
-type CISCOIFEXTENSIONMIB_Cieifstatuslisttable_Cieifstatuslistentry struct {
+type CISCOIFEXTENSIONMIB_CieIfStatusListTable_CieIfStatusListEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // entity_mib.ENTITYMIB_Entphysicaltable_Entphysicalentry_Entphysicalindex
-    Entphysicalindex interface{}
+    // entity_mib.ENTITYMIB_EntPhysicalTable_EntPhysicalEntry_EntPhysicalIndex
+    EntPhysicalIndex interface{}
 
     // This attribute is a key. An arbitrary integer value, greater than zero,
     // which identifies a list of 64 interfaces within a module. The type is
     // interface{} with range: 1..33554432.
-    Cieifstatuslistindex interface{}
+    CieIfStatusListIndex interface{}
 
     // This object represents the 'ifIndex' for a set of 64 interfaces in the
     // module. The type is string with length: 0..256.
-    Cieinterfacesindex interface{}
+    CieInterfacesIndex interface{}
 
     // This object represents the operational mode for a set of 64 interfaces in
     // the module. The type is string with length: 0..64.
-    Cieinterfacesopermode interface{}
+    CieInterfacesOperMode interface{}
 
     // This object represents the operational status cause for a set of 64
     // interfaces in the  module. The type is string with length: 0..128.
-    Cieinterfacesopercause interface{}
+    CieInterfacesOperCause interface{}
 
     // This object indicates the status for a set of 64 interfaces in a module
     // regarding whether or not each interface is  administratively assigned a
     // name of the current owner of the  interface resource as per cieIfOwner. The
     // type is string with length: 0..8.
-    Cieinterfaceownershipbitmap interface{}
+    CieInterfaceOwnershipBitmap interface{}
 }
 
-func (cieifstatuslistentry *CISCOIFEXTENSIONMIB_Cieifstatuslisttable_Cieifstatuslistentry) GetEntityData() *types.CommonEntityData {
-    cieifstatuslistentry.EntityData.YFilter = cieifstatuslistentry.YFilter
-    cieifstatuslistentry.EntityData.YangName = "cieIfStatusListEntry"
-    cieifstatuslistentry.EntityData.BundleName = "cisco_ios_xe"
-    cieifstatuslistentry.EntityData.ParentYangName = "cieIfStatusListTable"
-    cieifstatuslistentry.EntityData.SegmentPath = "cieIfStatusListEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cieifstatuslistentry.Entphysicalindex) + "']" + "[cieIfStatusListIndex='" + fmt.Sprintf("%v", cieifstatuslistentry.Cieifstatuslistindex) + "']"
-    cieifstatuslistentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cieifstatuslistentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cieifstatuslistentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cieIfStatusListEntry *CISCOIFEXTENSIONMIB_CieIfStatusListTable_CieIfStatusListEntry) GetEntityData() *types.CommonEntityData {
+    cieIfStatusListEntry.EntityData.YFilter = cieIfStatusListEntry.YFilter
+    cieIfStatusListEntry.EntityData.YangName = "cieIfStatusListEntry"
+    cieIfStatusListEntry.EntityData.BundleName = "cisco_ios_xe"
+    cieIfStatusListEntry.EntityData.ParentYangName = "cieIfStatusListTable"
+    cieIfStatusListEntry.EntityData.SegmentPath = "cieIfStatusListEntry" + types.AddKeyToken(cieIfStatusListEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cieIfStatusListEntry.CieIfStatusListIndex, "cieIfStatusListIndex")
+    cieIfStatusListEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cieIfStatusListEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cieIfStatusListEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cieifstatuslistentry.EntityData.Children = make(map[string]types.YChild)
-    cieifstatuslistentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cieifstatuslistentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cieifstatuslistentry.Entphysicalindex}
-    cieifstatuslistentry.EntityData.Leafs["cieIfStatusListIndex"] = types.YLeaf{"Cieifstatuslistindex", cieifstatuslistentry.Cieifstatuslistindex}
-    cieifstatuslistentry.EntityData.Leafs["cieInterfacesIndex"] = types.YLeaf{"Cieinterfacesindex", cieifstatuslistentry.Cieinterfacesindex}
-    cieifstatuslistentry.EntityData.Leafs["cieInterfacesOperMode"] = types.YLeaf{"Cieinterfacesopermode", cieifstatuslistentry.Cieinterfacesopermode}
-    cieifstatuslistentry.EntityData.Leafs["cieInterfacesOperCause"] = types.YLeaf{"Cieinterfacesopercause", cieifstatuslistentry.Cieinterfacesopercause}
-    cieifstatuslistentry.EntityData.Leafs["cieInterfaceOwnershipBitmap"] = types.YLeaf{"Cieinterfaceownershipbitmap", cieifstatuslistentry.Cieinterfaceownershipbitmap}
-    return &(cieifstatuslistentry.EntityData)
+    cieIfStatusListEntry.EntityData.Children = types.NewOrderedMap()
+    cieIfStatusListEntry.EntityData.Leafs = types.NewOrderedMap()
+    cieIfStatusListEntry.EntityData.Leafs.Append("entPhysicalIndex", types.YLeaf{"EntPhysicalIndex", cieIfStatusListEntry.EntPhysicalIndex})
+    cieIfStatusListEntry.EntityData.Leafs.Append("cieIfStatusListIndex", types.YLeaf{"CieIfStatusListIndex", cieIfStatusListEntry.CieIfStatusListIndex})
+    cieIfStatusListEntry.EntityData.Leafs.Append("cieInterfacesIndex", types.YLeaf{"CieInterfacesIndex", cieIfStatusListEntry.CieInterfacesIndex})
+    cieIfStatusListEntry.EntityData.Leafs.Append("cieInterfacesOperMode", types.YLeaf{"CieInterfacesOperMode", cieIfStatusListEntry.CieInterfacesOperMode})
+    cieIfStatusListEntry.EntityData.Leafs.Append("cieInterfacesOperCause", types.YLeaf{"CieInterfacesOperCause", cieIfStatusListEntry.CieInterfacesOperCause})
+    cieIfStatusListEntry.EntityData.Leafs.Append("cieInterfaceOwnershipBitmap", types.YLeaf{"CieInterfaceOwnershipBitmap", cieIfStatusListEntry.CieInterfaceOwnershipBitmap})
+
+    cieIfStatusListEntry.EntityData.YListKeys = []string {"EntPhysicalIndex", "CieIfStatusListIndex"}
+
+    return &(cieIfStatusListEntry.EntityData)
 }
 
-// CISCOIFEXTENSIONMIB_Cieifvlstatstable
+// CISCOIFEXTENSIONMIB_CieIfVlStatsTable
 // This table contains VL (Virtual Link) statistics
 // for a capable interface.
 // 
 // Objects defined in this table may be 
 // applicable to physical interfaces only.
-type CISCOIFEXTENSIONMIB_Cieifvlstatstable struct {
+type CISCOIFEXTENSIONMIB_CieIfVlStatsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each row contains managed objects for Virtual Link statistics on interface
     // capable of  providing this information. The type is slice of
-    // CISCOIFEXTENSIONMIB_Cieifvlstatstable_Cieifvlstatsentry.
-    Cieifvlstatsentry []CISCOIFEXTENSIONMIB_Cieifvlstatstable_Cieifvlstatsentry
+    // CISCOIFEXTENSIONMIB_CieIfVlStatsTable_CieIfVlStatsEntry.
+    CieIfVlStatsEntry []*CISCOIFEXTENSIONMIB_CieIfVlStatsTable_CieIfVlStatsEntry
 }
 
-func (cieifvlstatstable *CISCOIFEXTENSIONMIB_Cieifvlstatstable) GetEntityData() *types.CommonEntityData {
-    cieifvlstatstable.EntityData.YFilter = cieifvlstatstable.YFilter
-    cieifvlstatstable.EntityData.YangName = "cieIfVlStatsTable"
-    cieifvlstatstable.EntityData.BundleName = "cisco_ios_xe"
-    cieifvlstatstable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
-    cieifvlstatstable.EntityData.SegmentPath = "cieIfVlStatsTable"
-    cieifvlstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cieifvlstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cieifvlstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cieIfVlStatsTable *CISCOIFEXTENSIONMIB_CieIfVlStatsTable) GetEntityData() *types.CommonEntityData {
+    cieIfVlStatsTable.EntityData.YFilter = cieIfVlStatsTable.YFilter
+    cieIfVlStatsTable.EntityData.YangName = "cieIfVlStatsTable"
+    cieIfVlStatsTable.EntityData.BundleName = "cisco_ios_xe"
+    cieIfVlStatsTable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
+    cieIfVlStatsTable.EntityData.SegmentPath = "cieIfVlStatsTable"
+    cieIfVlStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cieIfVlStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cieIfVlStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cieifvlstatstable.EntityData.Children = make(map[string]types.YChild)
-    cieifvlstatstable.EntityData.Children["cieIfVlStatsEntry"] = types.YChild{"Cieifvlstatsentry", nil}
-    for i := range cieifvlstatstable.Cieifvlstatsentry {
-        cieifvlstatstable.EntityData.Children[types.GetSegmentPath(&cieifvlstatstable.Cieifvlstatsentry[i])] = types.YChild{"Cieifvlstatsentry", &cieifvlstatstable.Cieifvlstatsentry[i]}
+    cieIfVlStatsTable.EntityData.Children = types.NewOrderedMap()
+    cieIfVlStatsTable.EntityData.Children.Append("cieIfVlStatsEntry", types.YChild{"CieIfVlStatsEntry", nil})
+    for i := range cieIfVlStatsTable.CieIfVlStatsEntry {
+        cieIfVlStatsTable.EntityData.Children.Append(types.GetSegmentPath(cieIfVlStatsTable.CieIfVlStatsEntry[i]), types.YChild{"CieIfVlStatsEntry", cieIfVlStatsTable.CieIfVlStatsEntry[i]})
     }
-    cieifvlstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cieifvlstatstable.EntityData)
+    cieIfVlStatsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cieIfVlStatsTable.EntityData.YListKeys = []string {}
+
+    return &(cieIfVlStatsTable.EntityData)
 }
 
-// CISCOIFEXTENSIONMIB_Cieifvlstatstable_Cieifvlstatsentry
+// CISCOIFEXTENSIONMIB_CieIfVlStatsTable_CieIfVlStatsEntry
 // Each row contains managed objects for
 // Virtual Link statistics on interface capable of 
 // providing this information.
-type CISCOIFEXTENSIONMIB_Cieifvlstatstable_Cieifvlstatsentry struct {
+type CISCOIFEXTENSIONMIB_CieIfVlStatsTable_CieIfVlStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This object indicates the number of input packets on all No-Drop Virtual
     // Links belonged  to this interface. The type is interface{} with range:
     // 0..18446744073709551615.
-    Cieifnodropvlinpkts interface{}
+    CieIfNoDropVlInPkts interface{}
 
     // This object indicates the number of input octets on all No-Drop Virtual
     // Links belonged  to this interface. The type is interface{} with range:
     // 0..18446744073709551615.
-    Cieifnodropvlinoctets interface{}
+    CieIfNoDropVlInOctets interface{}
 
     // This object indicates the number of output packets on all No-Drop Virtual
     // Links belonged  to this interface. The type is interface{} with range:
     // 0..18446744073709551615.
-    Cieifnodropvloutpkts interface{}
+    CieIfNoDropVlOutPkts interface{}
 
     // This object indicates the number of output octets on all No-Drop Virtual
     // Links belonged  to this interface. The type is interface{} with range:
     // 0..18446744073709551615.
-    Cieifnodropvloutoctets interface{}
+    CieIfNoDropVlOutOctets interface{}
 
     // This object indicates the number of input packets on all Drop Virtual Links
     // belonged  to this interface. The type is interface{} with range:
     // 0..18446744073709551615.
-    Cieifdropvlinpkts interface{}
+    CieIfDropVlInPkts interface{}
 
     // This object indicates the number of input octets on all Drop Virtual Links
     // belonged  to this interface. The type is interface{} with range:
     // 0..18446744073709551615.
-    Cieifdropvlinoctets interface{}
+    CieIfDropVlInOctets interface{}
 
     // This object indicates the number of output packets on all Drop Virtual
     // Links belonged  to this interface. The type is interface{} with range:
     // 0..18446744073709551615.
-    Cieifdropvloutpkts interface{}
+    CieIfDropVlOutPkts interface{}
 
     // This object indicates the number of output octets on all Drop Virtual Links
     // belonged  to this interface. The type is interface{} with range:
     // 0..18446744073709551615.
-    Cieifdropvloutoctets interface{}
+    CieIfDropVlOutOctets interface{}
 }
 
-func (cieifvlstatsentry *CISCOIFEXTENSIONMIB_Cieifvlstatstable_Cieifvlstatsentry) GetEntityData() *types.CommonEntityData {
-    cieifvlstatsentry.EntityData.YFilter = cieifvlstatsentry.YFilter
-    cieifvlstatsentry.EntityData.YangName = "cieIfVlStatsEntry"
-    cieifvlstatsentry.EntityData.BundleName = "cisco_ios_xe"
-    cieifvlstatsentry.EntityData.ParentYangName = "cieIfVlStatsTable"
-    cieifvlstatsentry.EntityData.SegmentPath = "cieIfVlStatsEntry" + "[ifIndex='" + fmt.Sprintf("%v", cieifvlstatsentry.Ifindex) + "']"
-    cieifvlstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cieifvlstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cieifvlstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cieIfVlStatsEntry *CISCOIFEXTENSIONMIB_CieIfVlStatsTable_CieIfVlStatsEntry) GetEntityData() *types.CommonEntityData {
+    cieIfVlStatsEntry.EntityData.YFilter = cieIfVlStatsEntry.YFilter
+    cieIfVlStatsEntry.EntityData.YangName = "cieIfVlStatsEntry"
+    cieIfVlStatsEntry.EntityData.BundleName = "cisco_ios_xe"
+    cieIfVlStatsEntry.EntityData.ParentYangName = "cieIfVlStatsTable"
+    cieIfVlStatsEntry.EntityData.SegmentPath = "cieIfVlStatsEntry" + types.AddKeyToken(cieIfVlStatsEntry.IfIndex, "ifIndex")
+    cieIfVlStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cieIfVlStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cieIfVlStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cieifvlstatsentry.EntityData.Children = make(map[string]types.YChild)
-    cieifvlstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cieifvlstatsentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cieifvlstatsentry.Ifindex}
-    cieifvlstatsentry.EntityData.Leafs["cieIfNoDropVlInPkts"] = types.YLeaf{"Cieifnodropvlinpkts", cieifvlstatsentry.Cieifnodropvlinpkts}
-    cieifvlstatsentry.EntityData.Leafs["cieIfNoDropVlInOctets"] = types.YLeaf{"Cieifnodropvlinoctets", cieifvlstatsentry.Cieifnodropvlinoctets}
-    cieifvlstatsentry.EntityData.Leafs["cieIfNoDropVlOutPkts"] = types.YLeaf{"Cieifnodropvloutpkts", cieifvlstatsentry.Cieifnodropvloutpkts}
-    cieifvlstatsentry.EntityData.Leafs["cieIfNoDropVlOutOctets"] = types.YLeaf{"Cieifnodropvloutoctets", cieifvlstatsentry.Cieifnodropvloutoctets}
-    cieifvlstatsentry.EntityData.Leafs["cieIfDropVlInPkts"] = types.YLeaf{"Cieifdropvlinpkts", cieifvlstatsentry.Cieifdropvlinpkts}
-    cieifvlstatsentry.EntityData.Leafs["cieIfDropVlInOctets"] = types.YLeaf{"Cieifdropvlinoctets", cieifvlstatsentry.Cieifdropvlinoctets}
-    cieifvlstatsentry.EntityData.Leafs["cieIfDropVlOutPkts"] = types.YLeaf{"Cieifdropvloutpkts", cieifvlstatsentry.Cieifdropvloutpkts}
-    cieifvlstatsentry.EntityData.Leafs["cieIfDropVlOutOctets"] = types.YLeaf{"Cieifdropvloutoctets", cieifvlstatsentry.Cieifdropvloutoctets}
-    return &(cieifvlstatsentry.EntityData)
+    cieIfVlStatsEntry.EntityData.Children = types.NewOrderedMap()
+    cieIfVlStatsEntry.EntityData.Leafs = types.NewOrderedMap()
+    cieIfVlStatsEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", cieIfVlStatsEntry.IfIndex})
+    cieIfVlStatsEntry.EntityData.Leafs.Append("cieIfNoDropVlInPkts", types.YLeaf{"CieIfNoDropVlInPkts", cieIfVlStatsEntry.CieIfNoDropVlInPkts})
+    cieIfVlStatsEntry.EntityData.Leafs.Append("cieIfNoDropVlInOctets", types.YLeaf{"CieIfNoDropVlInOctets", cieIfVlStatsEntry.CieIfNoDropVlInOctets})
+    cieIfVlStatsEntry.EntityData.Leafs.Append("cieIfNoDropVlOutPkts", types.YLeaf{"CieIfNoDropVlOutPkts", cieIfVlStatsEntry.CieIfNoDropVlOutPkts})
+    cieIfVlStatsEntry.EntityData.Leafs.Append("cieIfNoDropVlOutOctets", types.YLeaf{"CieIfNoDropVlOutOctets", cieIfVlStatsEntry.CieIfNoDropVlOutOctets})
+    cieIfVlStatsEntry.EntityData.Leafs.Append("cieIfDropVlInPkts", types.YLeaf{"CieIfDropVlInPkts", cieIfVlStatsEntry.CieIfDropVlInPkts})
+    cieIfVlStatsEntry.EntityData.Leafs.Append("cieIfDropVlInOctets", types.YLeaf{"CieIfDropVlInOctets", cieIfVlStatsEntry.CieIfDropVlInOctets})
+    cieIfVlStatsEntry.EntityData.Leafs.Append("cieIfDropVlOutPkts", types.YLeaf{"CieIfDropVlOutPkts", cieIfVlStatsEntry.CieIfDropVlOutPkts})
+    cieIfVlStatsEntry.EntityData.Leafs.Append("cieIfDropVlOutOctets", types.YLeaf{"CieIfDropVlOutOctets", cieIfVlStatsEntry.CieIfDropVlOutOctets})
+
+    cieIfVlStatsEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(cieIfVlStatsEntry.EntityData)
 }
 
-// CISCOIFEXTENSIONMIB_Cieifindexpersistencetable
+// CISCOIFEXTENSIONMIB_CieIfIndexPersistenceTable
 // This table lists configuration data relating to ifIndex
 // persistence.
 // 
 // This table has a sparse dependent relationship on the ifTable,
 // containing a row for each ifEntry corresponding to an interface
 // for which ifIndex persistence is supported.
-type CISCOIFEXTENSIONMIB_Cieifindexpersistencetable struct {
+type CISCOIFEXTENSIONMIB_CieIfIndexPersistenceTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -995,30 +1025,33 @@ type CISCOIFEXTENSIONMIB_Cieifindexpersistencetable struct {
     // persistence entry is created/destroyed respectively. Some of the interfaces
     // may not support ifindex persistence, for example, a dynamic interface, such
     // as a PPP connection or a IP subscriber interface. The type is slice of
-    // CISCOIFEXTENSIONMIB_Cieifindexpersistencetable_Cieifindexpersistenceentry.
-    Cieifindexpersistenceentry []CISCOIFEXTENSIONMIB_Cieifindexpersistencetable_Cieifindexpersistenceentry
+    // CISCOIFEXTENSIONMIB_CieIfIndexPersistenceTable_CieIfIndexPersistenceEntry.
+    CieIfIndexPersistenceEntry []*CISCOIFEXTENSIONMIB_CieIfIndexPersistenceTable_CieIfIndexPersistenceEntry
 }
 
-func (cieifindexpersistencetable *CISCOIFEXTENSIONMIB_Cieifindexpersistencetable) GetEntityData() *types.CommonEntityData {
-    cieifindexpersistencetable.EntityData.YFilter = cieifindexpersistencetable.YFilter
-    cieifindexpersistencetable.EntityData.YangName = "cieIfIndexPersistenceTable"
-    cieifindexpersistencetable.EntityData.BundleName = "cisco_ios_xe"
-    cieifindexpersistencetable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
-    cieifindexpersistencetable.EntityData.SegmentPath = "cieIfIndexPersistenceTable"
-    cieifindexpersistencetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cieifindexpersistencetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cieifindexpersistencetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cieIfIndexPersistenceTable *CISCOIFEXTENSIONMIB_CieIfIndexPersistenceTable) GetEntityData() *types.CommonEntityData {
+    cieIfIndexPersistenceTable.EntityData.YFilter = cieIfIndexPersistenceTable.YFilter
+    cieIfIndexPersistenceTable.EntityData.YangName = "cieIfIndexPersistenceTable"
+    cieIfIndexPersistenceTable.EntityData.BundleName = "cisco_ios_xe"
+    cieIfIndexPersistenceTable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
+    cieIfIndexPersistenceTable.EntityData.SegmentPath = "cieIfIndexPersistenceTable"
+    cieIfIndexPersistenceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cieIfIndexPersistenceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cieIfIndexPersistenceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cieifindexpersistencetable.EntityData.Children = make(map[string]types.YChild)
-    cieifindexpersistencetable.EntityData.Children["cieIfIndexPersistenceEntry"] = types.YChild{"Cieifindexpersistenceentry", nil}
-    for i := range cieifindexpersistencetable.Cieifindexpersistenceentry {
-        cieifindexpersistencetable.EntityData.Children[types.GetSegmentPath(&cieifindexpersistencetable.Cieifindexpersistenceentry[i])] = types.YChild{"Cieifindexpersistenceentry", &cieifindexpersistencetable.Cieifindexpersistenceentry[i]}
+    cieIfIndexPersistenceTable.EntityData.Children = types.NewOrderedMap()
+    cieIfIndexPersistenceTable.EntityData.Children.Append("cieIfIndexPersistenceEntry", types.YChild{"CieIfIndexPersistenceEntry", nil})
+    for i := range cieIfIndexPersistenceTable.CieIfIndexPersistenceEntry {
+        cieIfIndexPersistenceTable.EntityData.Children.Append(types.GetSegmentPath(cieIfIndexPersistenceTable.CieIfIndexPersistenceEntry[i]), types.YChild{"CieIfIndexPersistenceEntry", cieIfIndexPersistenceTable.CieIfIndexPersistenceEntry[i]})
     }
-    cieifindexpersistencetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cieifindexpersistencetable.EntityData)
+    cieIfIndexPersistenceTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cieIfIndexPersistenceTable.EntityData.YListKeys = []string {}
+
+    return &(cieIfIndexPersistenceTable.EntityData)
 }
 
-// CISCOIFEXTENSIONMIB_Cieifindexpersistencetable_Cieifindexpersistenceentry
+// CISCOIFEXTENSIONMIB_CieIfIndexPersistenceTable_CieIfIndexPersistenceEntry
 // Each entry represents ifindex persistence configuration for an
 // interface specified by ifIndex. Whenever an interface which
 // supports ifindex persistence is created/destroyed in the
@@ -1026,91 +1059,97 @@ func (cieifindexpersistencetable *CISCOIFEXTENSIONMIB_Cieifindexpersistencetable
 // created/destroyed respectively. Some of the interfaces may not
 // support ifindex persistence, for example, a dynamic interface,
 // such as a PPP connection or a IP subscriber interface.
-type CISCOIFEXTENSIONMIB_Cieifindexpersistencetable_Cieifindexpersistenceentry struct {
+type CISCOIFEXTENSIONMIB_CieIfIndexPersistenceTable_CieIfIndexPersistenceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This object specifies whether the interface's ifIndex value persist across
     // reinitialization.  Due to change in syntax, this object is deprecated by
     // cieIfIndexPersistenceControl. The type is bool.
-    Cieifindexpersistenceenabled interface{}
+    CieIfIndexPersistenceEnabled interface{}
 
     // This object specifies whether the interface's ifIndex value persist across
     // reinitialization. In global state, the interface uses the global setting
     // data for persistence i.e. cieIfIndexGlobalPersistence. The type is
     // IfIndexPersistenceState.
-    Cieifindexpersistencecontrol interface{}
+    CieIfIndexPersistenceControl interface{}
 }
 
-func (cieifindexpersistenceentry *CISCOIFEXTENSIONMIB_Cieifindexpersistencetable_Cieifindexpersistenceentry) GetEntityData() *types.CommonEntityData {
-    cieifindexpersistenceentry.EntityData.YFilter = cieifindexpersistenceentry.YFilter
-    cieifindexpersistenceentry.EntityData.YangName = "cieIfIndexPersistenceEntry"
-    cieifindexpersistenceentry.EntityData.BundleName = "cisco_ios_xe"
-    cieifindexpersistenceentry.EntityData.ParentYangName = "cieIfIndexPersistenceTable"
-    cieifindexpersistenceentry.EntityData.SegmentPath = "cieIfIndexPersistenceEntry" + "[ifIndex='" + fmt.Sprintf("%v", cieifindexpersistenceentry.Ifindex) + "']"
-    cieifindexpersistenceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cieifindexpersistenceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cieifindexpersistenceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cieIfIndexPersistenceEntry *CISCOIFEXTENSIONMIB_CieIfIndexPersistenceTable_CieIfIndexPersistenceEntry) GetEntityData() *types.CommonEntityData {
+    cieIfIndexPersistenceEntry.EntityData.YFilter = cieIfIndexPersistenceEntry.YFilter
+    cieIfIndexPersistenceEntry.EntityData.YangName = "cieIfIndexPersistenceEntry"
+    cieIfIndexPersistenceEntry.EntityData.BundleName = "cisco_ios_xe"
+    cieIfIndexPersistenceEntry.EntityData.ParentYangName = "cieIfIndexPersistenceTable"
+    cieIfIndexPersistenceEntry.EntityData.SegmentPath = "cieIfIndexPersistenceEntry" + types.AddKeyToken(cieIfIndexPersistenceEntry.IfIndex, "ifIndex")
+    cieIfIndexPersistenceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cieIfIndexPersistenceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cieIfIndexPersistenceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cieifindexpersistenceentry.EntityData.Children = make(map[string]types.YChild)
-    cieifindexpersistenceentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cieifindexpersistenceentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cieifindexpersistenceentry.Ifindex}
-    cieifindexpersistenceentry.EntityData.Leafs["cieIfIndexPersistenceEnabled"] = types.YLeaf{"Cieifindexpersistenceenabled", cieifindexpersistenceentry.Cieifindexpersistenceenabled}
-    cieifindexpersistenceentry.EntityData.Leafs["cieIfIndexPersistenceControl"] = types.YLeaf{"Cieifindexpersistencecontrol", cieifindexpersistenceentry.Cieifindexpersistencecontrol}
-    return &(cieifindexpersistenceentry.EntityData)
+    cieIfIndexPersistenceEntry.EntityData.Children = types.NewOrderedMap()
+    cieIfIndexPersistenceEntry.EntityData.Leafs = types.NewOrderedMap()
+    cieIfIndexPersistenceEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", cieIfIndexPersistenceEntry.IfIndex})
+    cieIfIndexPersistenceEntry.EntityData.Leafs.Append("cieIfIndexPersistenceEnabled", types.YLeaf{"CieIfIndexPersistenceEnabled", cieIfIndexPersistenceEntry.CieIfIndexPersistenceEnabled})
+    cieIfIndexPersistenceEntry.EntityData.Leafs.Append("cieIfIndexPersistenceControl", types.YLeaf{"CieIfIndexPersistenceControl", cieIfIndexPersistenceEntry.CieIfIndexPersistenceControl})
+
+    cieIfIndexPersistenceEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(cieIfIndexPersistenceEntry.EntityData)
 }
 
-// CISCOIFEXTENSIONMIB_Cieifdot1Qcustomethertypetable
+// CISCOIFEXTENSIONMIB_CieIfDot1qCustomEtherTypeTable
 // A list of the interfaces that support
 // the 802.1q custom Ethertype feature.
-type CISCOIFEXTENSIONMIB_Cieifdot1Qcustomethertypetable struct {
+type CISCOIFEXTENSIONMIB_CieIfDot1qCustomEtherTypeTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing the custom EtherType information for the interface. 
     // Only interfaces with custom 802.1q ethertype control are listed in the 
     // table. The type is slice of
-    // CISCOIFEXTENSIONMIB_Cieifdot1Qcustomethertypetable_Cieifdot1Qcustomethertypeentry.
-    Cieifdot1Qcustomethertypeentry []CISCOIFEXTENSIONMIB_Cieifdot1Qcustomethertypetable_Cieifdot1Qcustomethertypeentry
+    // CISCOIFEXTENSIONMIB_CieIfDot1qCustomEtherTypeTable_CieIfDot1qCustomEtherTypeEntry.
+    CieIfDot1qCustomEtherTypeEntry []*CISCOIFEXTENSIONMIB_CieIfDot1qCustomEtherTypeTable_CieIfDot1qCustomEtherTypeEntry
 }
 
-func (cieifdot1Qcustomethertypetable *CISCOIFEXTENSIONMIB_Cieifdot1Qcustomethertypetable) GetEntityData() *types.CommonEntityData {
-    cieifdot1Qcustomethertypetable.EntityData.YFilter = cieifdot1Qcustomethertypetable.YFilter
-    cieifdot1Qcustomethertypetable.EntityData.YangName = "cieIfDot1qCustomEtherTypeTable"
-    cieifdot1Qcustomethertypetable.EntityData.BundleName = "cisco_ios_xe"
-    cieifdot1Qcustomethertypetable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
-    cieifdot1Qcustomethertypetable.EntityData.SegmentPath = "cieIfDot1qCustomEtherTypeTable"
-    cieifdot1Qcustomethertypetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cieifdot1Qcustomethertypetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cieifdot1Qcustomethertypetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cieIfDot1qCustomEtherTypeTable *CISCOIFEXTENSIONMIB_CieIfDot1qCustomEtherTypeTable) GetEntityData() *types.CommonEntityData {
+    cieIfDot1qCustomEtherTypeTable.EntityData.YFilter = cieIfDot1qCustomEtherTypeTable.YFilter
+    cieIfDot1qCustomEtherTypeTable.EntityData.YangName = "cieIfDot1qCustomEtherTypeTable"
+    cieIfDot1qCustomEtherTypeTable.EntityData.BundleName = "cisco_ios_xe"
+    cieIfDot1qCustomEtherTypeTable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
+    cieIfDot1qCustomEtherTypeTable.EntityData.SegmentPath = "cieIfDot1qCustomEtherTypeTable"
+    cieIfDot1qCustomEtherTypeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cieIfDot1qCustomEtherTypeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cieIfDot1qCustomEtherTypeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cieifdot1Qcustomethertypetable.EntityData.Children = make(map[string]types.YChild)
-    cieifdot1Qcustomethertypetable.EntityData.Children["cieIfDot1qCustomEtherTypeEntry"] = types.YChild{"Cieifdot1Qcustomethertypeentry", nil}
-    for i := range cieifdot1Qcustomethertypetable.Cieifdot1Qcustomethertypeentry {
-        cieifdot1Qcustomethertypetable.EntityData.Children[types.GetSegmentPath(&cieifdot1Qcustomethertypetable.Cieifdot1Qcustomethertypeentry[i])] = types.YChild{"Cieifdot1Qcustomethertypeentry", &cieifdot1Qcustomethertypetable.Cieifdot1Qcustomethertypeentry[i]}
+    cieIfDot1qCustomEtherTypeTable.EntityData.Children = types.NewOrderedMap()
+    cieIfDot1qCustomEtherTypeTable.EntityData.Children.Append("cieIfDot1qCustomEtherTypeEntry", types.YChild{"CieIfDot1qCustomEtherTypeEntry", nil})
+    for i := range cieIfDot1qCustomEtherTypeTable.CieIfDot1qCustomEtherTypeEntry {
+        cieIfDot1qCustomEtherTypeTable.EntityData.Children.Append(types.GetSegmentPath(cieIfDot1qCustomEtherTypeTable.CieIfDot1qCustomEtherTypeEntry[i]), types.YChild{"CieIfDot1qCustomEtherTypeEntry", cieIfDot1qCustomEtherTypeTable.CieIfDot1qCustomEtherTypeEntry[i]})
     }
-    cieifdot1Qcustomethertypetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cieifdot1Qcustomethertypetable.EntityData)
+    cieIfDot1qCustomEtherTypeTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cieIfDot1qCustomEtherTypeTable.EntityData.YListKeys = []string {}
+
+    return &(cieIfDot1qCustomEtherTypeTable.EntityData)
 }
 
-// CISCOIFEXTENSIONMIB_Cieifdot1Qcustomethertypetable_Cieifdot1Qcustomethertypeentry
+// CISCOIFEXTENSIONMIB_CieIfDot1qCustomEtherTypeTable_CieIfDot1qCustomEtherTypeEntry
 // An entry containing the custom EtherType
 // information for the interface.
 // 
 // Only interfaces with custom 802.1q
 // ethertype control are listed in the 
 // table.
-type CISCOIFEXTENSIONMIB_Cieifdot1Qcustomethertypetable_Cieifdot1Qcustomethertypeentry struct {
+type CISCOIFEXTENSIONMIB_CieIfDot1qCustomEtherTypeTable_CieIfDot1qCustomEtherTypeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // The Dot1qEtherType allow administrator to select a non-standard (other than
     // 0x8100) 2-byte ethertype for the interface to  interoperate with third
@@ -1127,79 +1166,85 @@ type CISCOIFEXTENSIONMIB_Cieifdot1Qcustomethertypetable_Cieifdot1Qcustomethertyp
     // Cisco device with the same custom ethertype  value if the third party
     // device are separated  by number of Cisco device in the middle. The type is
     // interface{} with range: 0..65535.
-    Cieifdot1Qcustomadminethertype interface{}
+    CieIfDot1qCustomAdminEtherType interface{}
 
     // The current operational value of the 802.1q ethertype for the interface.
     // The type is interface{} with range: 0..65535.
-    Cieifdot1Qcustomoperethertype interface{}
+    CieIfDot1qCustomOperEtherType interface{}
 }
 
-func (cieifdot1Qcustomethertypeentry *CISCOIFEXTENSIONMIB_Cieifdot1Qcustomethertypetable_Cieifdot1Qcustomethertypeentry) GetEntityData() *types.CommonEntityData {
-    cieifdot1Qcustomethertypeentry.EntityData.YFilter = cieifdot1Qcustomethertypeentry.YFilter
-    cieifdot1Qcustomethertypeentry.EntityData.YangName = "cieIfDot1qCustomEtherTypeEntry"
-    cieifdot1Qcustomethertypeentry.EntityData.BundleName = "cisco_ios_xe"
-    cieifdot1Qcustomethertypeentry.EntityData.ParentYangName = "cieIfDot1qCustomEtherTypeTable"
-    cieifdot1Qcustomethertypeentry.EntityData.SegmentPath = "cieIfDot1qCustomEtherTypeEntry" + "[ifIndex='" + fmt.Sprintf("%v", cieifdot1Qcustomethertypeentry.Ifindex) + "']"
-    cieifdot1Qcustomethertypeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cieifdot1Qcustomethertypeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cieifdot1Qcustomethertypeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cieIfDot1qCustomEtherTypeEntry *CISCOIFEXTENSIONMIB_CieIfDot1qCustomEtherTypeTable_CieIfDot1qCustomEtherTypeEntry) GetEntityData() *types.CommonEntityData {
+    cieIfDot1qCustomEtherTypeEntry.EntityData.YFilter = cieIfDot1qCustomEtherTypeEntry.YFilter
+    cieIfDot1qCustomEtherTypeEntry.EntityData.YangName = "cieIfDot1qCustomEtherTypeEntry"
+    cieIfDot1qCustomEtherTypeEntry.EntityData.BundleName = "cisco_ios_xe"
+    cieIfDot1qCustomEtherTypeEntry.EntityData.ParentYangName = "cieIfDot1qCustomEtherTypeTable"
+    cieIfDot1qCustomEtherTypeEntry.EntityData.SegmentPath = "cieIfDot1qCustomEtherTypeEntry" + types.AddKeyToken(cieIfDot1qCustomEtherTypeEntry.IfIndex, "ifIndex")
+    cieIfDot1qCustomEtherTypeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cieIfDot1qCustomEtherTypeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cieIfDot1qCustomEtherTypeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cieifdot1Qcustomethertypeentry.EntityData.Children = make(map[string]types.YChild)
-    cieifdot1Qcustomethertypeentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cieifdot1Qcustomethertypeentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cieifdot1Qcustomethertypeentry.Ifindex}
-    cieifdot1Qcustomethertypeentry.EntityData.Leafs["cieIfDot1qCustomAdminEtherType"] = types.YLeaf{"Cieifdot1Qcustomadminethertype", cieifdot1Qcustomethertypeentry.Cieifdot1Qcustomadminethertype}
-    cieifdot1Qcustomethertypeentry.EntityData.Leafs["cieIfDot1qCustomOperEtherType"] = types.YLeaf{"Cieifdot1Qcustomoperethertype", cieifdot1Qcustomethertypeentry.Cieifdot1Qcustomoperethertype}
-    return &(cieifdot1Qcustomethertypeentry.EntityData)
+    cieIfDot1qCustomEtherTypeEntry.EntityData.Children = types.NewOrderedMap()
+    cieIfDot1qCustomEtherTypeEntry.EntityData.Leafs = types.NewOrderedMap()
+    cieIfDot1qCustomEtherTypeEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", cieIfDot1qCustomEtherTypeEntry.IfIndex})
+    cieIfDot1qCustomEtherTypeEntry.EntityData.Leafs.Append("cieIfDot1qCustomAdminEtherType", types.YLeaf{"CieIfDot1qCustomAdminEtherType", cieIfDot1qCustomEtherTypeEntry.CieIfDot1qCustomAdminEtherType})
+    cieIfDot1qCustomEtherTypeEntry.EntityData.Leafs.Append("cieIfDot1qCustomOperEtherType", types.YLeaf{"CieIfDot1qCustomOperEtherType", cieIfDot1qCustomEtherTypeEntry.CieIfDot1qCustomOperEtherType})
+
+    cieIfDot1qCustomEtherTypeEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(cieIfDot1qCustomEtherTypeEntry.EntityData)
 }
 
-// CISCOIFEXTENSIONMIB_Cieifutiltable
+// CISCOIFEXTENSIONMIB_CieIfUtilTable
 // This table contains the interface utilization
 // rates for inbound and outbound traffic on an
 // interface.
-type CISCOIFEXTENSIONMIB_Cieifutiltable struct {
+type CISCOIFEXTENSIONMIB_CieIfUtilTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing utilization rates for the interface.  Every interface
     // for which the  inbound and  outbound traffic information is available has a
     // corresponding entry in this table. The type is slice of
-    // CISCOIFEXTENSIONMIB_Cieifutiltable_Cieifutilentry.
-    Cieifutilentry []CISCOIFEXTENSIONMIB_Cieifutiltable_Cieifutilentry
+    // CISCOIFEXTENSIONMIB_CieIfUtilTable_CieIfUtilEntry.
+    CieIfUtilEntry []*CISCOIFEXTENSIONMIB_CieIfUtilTable_CieIfUtilEntry
 }
 
-func (cieifutiltable *CISCOIFEXTENSIONMIB_Cieifutiltable) GetEntityData() *types.CommonEntityData {
-    cieifutiltable.EntityData.YFilter = cieifutiltable.YFilter
-    cieifutiltable.EntityData.YangName = "cieIfUtilTable"
-    cieifutiltable.EntityData.BundleName = "cisco_ios_xe"
-    cieifutiltable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
-    cieifutiltable.EntityData.SegmentPath = "cieIfUtilTable"
-    cieifutiltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cieifutiltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cieifutiltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cieIfUtilTable *CISCOIFEXTENSIONMIB_CieIfUtilTable) GetEntityData() *types.CommonEntityData {
+    cieIfUtilTable.EntityData.YFilter = cieIfUtilTable.YFilter
+    cieIfUtilTable.EntityData.YangName = "cieIfUtilTable"
+    cieIfUtilTable.EntityData.BundleName = "cisco_ios_xe"
+    cieIfUtilTable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
+    cieIfUtilTable.EntityData.SegmentPath = "cieIfUtilTable"
+    cieIfUtilTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cieIfUtilTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cieIfUtilTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cieifutiltable.EntityData.Children = make(map[string]types.YChild)
-    cieifutiltable.EntityData.Children["cieIfUtilEntry"] = types.YChild{"Cieifutilentry", nil}
-    for i := range cieifutiltable.Cieifutilentry {
-        cieifutiltable.EntityData.Children[types.GetSegmentPath(&cieifutiltable.Cieifutilentry[i])] = types.YChild{"Cieifutilentry", &cieifutiltable.Cieifutilentry[i]}
+    cieIfUtilTable.EntityData.Children = types.NewOrderedMap()
+    cieIfUtilTable.EntityData.Children.Append("cieIfUtilEntry", types.YChild{"CieIfUtilEntry", nil})
+    for i := range cieIfUtilTable.CieIfUtilEntry {
+        cieIfUtilTable.EntityData.Children.Append(types.GetSegmentPath(cieIfUtilTable.CieIfUtilEntry[i]), types.YChild{"CieIfUtilEntry", cieIfUtilTable.CieIfUtilEntry[i]})
     }
-    cieifutiltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cieifutiltable.EntityData)
+    cieIfUtilTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cieIfUtilTable.EntityData.YListKeys = []string {}
+
+    return &(cieIfUtilTable.EntityData)
 }
 
-// CISCOIFEXTENSIONMIB_Cieifutiltable_Cieifutilentry
+// CISCOIFEXTENSIONMIB_CieIfUtilTable_CieIfUtilEntry
 // An entry containing utilization rates for the
 // interface.
 // 
 // Every interface for which the  inbound and 
 // outbound traffic information is available
 // has a corresponding entry in this table.
-type CISCOIFEXTENSIONMIB_Cieifutiltable_Cieifutilentry struct {
+type CISCOIFEXTENSIONMIB_CieIfUtilTable_CieIfUtilEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // By default, this is the five minute exponentially-decayed moving average of
     // the inbound packet rate for this interface. However, if the corresponding
@@ -1208,7 +1253,7 @@ type CISCOIFEXTENSIONMIB_Cieifutiltable_Cieifutilentry struct {
     // exponentially-decayed moving average of inbound packet rate over this
     // different time interval. The type is interface{} with range:
     // 0..18446744073709551615. Units are packets per second.
-    Cieifinpktrate interface{}
+    CieIfInPktRate interface{}
 
     // By default, this is the five minute exponentially-decayed moving average of
     // the inbound octet rate for this interface. However, if the corresponding
@@ -1217,7 +1262,7 @@ type CISCOIFEXTENSIONMIB_Cieifutiltable_Cieifutilentry struct {
     // exponentially-decayed moving average of inbound octet rate over this
     // different time interval. The type is interface{} with range:
     // 0..18446744073709551615. Units are octets per second.
-    Cieifinoctetrate interface{}
+    CieIfInOctetRate interface{}
 
     // By default, this is the five minute exponentially-decayed moving average of
     // the outbound packet rate for this interface. However, if the corresponding
@@ -1226,7 +1271,7 @@ type CISCOIFEXTENSIONMIB_Cieifutiltable_Cieifutilentry struct {
     // exponentially-decayed moving average of outbound packet rate over this
     // different time interval. The type is interface{} with range:
     // 0..18446744073709551615. Units are packets per second.
-    Cieifoutpktrate interface{}
+    CieIfOutPktRate interface{}
 
     // By default, this is the five minute exponentially-decayed moving average of
     // the outbound octet rate for this interface. However, if the corresponding
@@ -1235,40 +1280,43 @@ type CISCOIFEXTENSIONMIB_Cieifutiltable_Cieifutilentry struct {
     // exponentially-decayed moving average of outbound octet rate over this
     // different time interval. The type is interface{} with range:
     // 0..18446744073709551615. Units are octets per second.
-    Cieifoutoctetrate interface{}
+    CieIfOutOctetRate interface{}
 
     // This object specifies the time interval over which the inbound and outbound
     // traffic rates are calculated for this interface. The type is interface{}
     // with range: 1..4294967295. Units are seconds.
-    Cieifinterval interface{}
+    CieIfInterval interface{}
 }
 
-func (cieifutilentry *CISCOIFEXTENSIONMIB_Cieifutiltable_Cieifutilentry) GetEntityData() *types.CommonEntityData {
-    cieifutilentry.EntityData.YFilter = cieifutilentry.YFilter
-    cieifutilentry.EntityData.YangName = "cieIfUtilEntry"
-    cieifutilentry.EntityData.BundleName = "cisco_ios_xe"
-    cieifutilentry.EntityData.ParentYangName = "cieIfUtilTable"
-    cieifutilentry.EntityData.SegmentPath = "cieIfUtilEntry" + "[ifIndex='" + fmt.Sprintf("%v", cieifutilentry.Ifindex) + "']"
-    cieifutilentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cieifutilentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cieifutilentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cieIfUtilEntry *CISCOIFEXTENSIONMIB_CieIfUtilTable_CieIfUtilEntry) GetEntityData() *types.CommonEntityData {
+    cieIfUtilEntry.EntityData.YFilter = cieIfUtilEntry.YFilter
+    cieIfUtilEntry.EntityData.YangName = "cieIfUtilEntry"
+    cieIfUtilEntry.EntityData.BundleName = "cisco_ios_xe"
+    cieIfUtilEntry.EntityData.ParentYangName = "cieIfUtilTable"
+    cieIfUtilEntry.EntityData.SegmentPath = "cieIfUtilEntry" + types.AddKeyToken(cieIfUtilEntry.IfIndex, "ifIndex")
+    cieIfUtilEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cieIfUtilEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cieIfUtilEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cieifutilentry.EntityData.Children = make(map[string]types.YChild)
-    cieifutilentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cieifutilentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cieifutilentry.Ifindex}
-    cieifutilentry.EntityData.Leafs["cieIfInPktRate"] = types.YLeaf{"Cieifinpktrate", cieifutilentry.Cieifinpktrate}
-    cieifutilentry.EntityData.Leafs["cieIfInOctetRate"] = types.YLeaf{"Cieifinoctetrate", cieifutilentry.Cieifinoctetrate}
-    cieifutilentry.EntityData.Leafs["cieIfOutPktRate"] = types.YLeaf{"Cieifoutpktrate", cieifutilentry.Cieifoutpktrate}
-    cieifutilentry.EntityData.Leafs["cieIfOutOctetRate"] = types.YLeaf{"Cieifoutoctetrate", cieifutilentry.Cieifoutoctetrate}
-    cieifutilentry.EntityData.Leafs["cieIfInterval"] = types.YLeaf{"Cieifinterval", cieifutilentry.Cieifinterval}
-    return &(cieifutilentry.EntityData)
+    cieIfUtilEntry.EntityData.Children = types.NewOrderedMap()
+    cieIfUtilEntry.EntityData.Leafs = types.NewOrderedMap()
+    cieIfUtilEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", cieIfUtilEntry.IfIndex})
+    cieIfUtilEntry.EntityData.Leafs.Append("cieIfInPktRate", types.YLeaf{"CieIfInPktRate", cieIfUtilEntry.CieIfInPktRate})
+    cieIfUtilEntry.EntityData.Leafs.Append("cieIfInOctetRate", types.YLeaf{"CieIfInOctetRate", cieIfUtilEntry.CieIfInOctetRate})
+    cieIfUtilEntry.EntityData.Leafs.Append("cieIfOutPktRate", types.YLeaf{"CieIfOutPktRate", cieIfUtilEntry.CieIfOutPktRate})
+    cieIfUtilEntry.EntityData.Leafs.Append("cieIfOutOctetRate", types.YLeaf{"CieIfOutOctetRate", cieIfUtilEntry.CieIfOutOctetRate})
+    cieIfUtilEntry.EntityData.Leafs.Append("cieIfInterval", types.YLeaf{"CieIfInterval", cieIfUtilEntry.CieIfInterval})
+
+    cieIfUtilEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(cieIfUtilEntry.EntityData)
 }
 
-// CISCOIFEXTENSIONMIB_Cieifdot1Dbasemappingtable
+// CISCOIFEXTENSIONMIB_CieIfDot1dBaseMappingTable
 // This table contains the mappings of the
 // ifIndex of an interface to its
 // corresponding dot1dBasePort value.
-type CISCOIFEXTENSIONMIB_Cieifdot1Dbasemappingtable struct {
+type CISCOIFEXTENSIONMIB_CieIfDot1dBaseMappingTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1276,30 +1324,33 @@ type CISCOIFEXTENSIONMIB_Cieifdot1Dbasemappingtable struct {
     // and its corresponding dot1dBasePort value.  Every interface which has been
     // assigned a dot1dBasePort value by the system has a corresponding entry in
     // this table. The type is slice of
-    // CISCOIFEXTENSIONMIB_Cieifdot1Dbasemappingtable_Cieifdot1Dbasemappingentry.
-    Cieifdot1Dbasemappingentry []CISCOIFEXTENSIONMIB_Cieifdot1Dbasemappingtable_Cieifdot1Dbasemappingentry
+    // CISCOIFEXTENSIONMIB_CieIfDot1dBaseMappingTable_CieIfDot1dBaseMappingEntry.
+    CieIfDot1dBaseMappingEntry []*CISCOIFEXTENSIONMIB_CieIfDot1dBaseMappingTable_CieIfDot1dBaseMappingEntry
 }
 
-func (cieifdot1Dbasemappingtable *CISCOIFEXTENSIONMIB_Cieifdot1Dbasemappingtable) GetEntityData() *types.CommonEntityData {
-    cieifdot1Dbasemappingtable.EntityData.YFilter = cieifdot1Dbasemappingtable.YFilter
-    cieifdot1Dbasemappingtable.EntityData.YangName = "cieIfDot1dBaseMappingTable"
-    cieifdot1Dbasemappingtable.EntityData.BundleName = "cisco_ios_xe"
-    cieifdot1Dbasemappingtable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
-    cieifdot1Dbasemappingtable.EntityData.SegmentPath = "cieIfDot1dBaseMappingTable"
-    cieifdot1Dbasemappingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cieifdot1Dbasemappingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cieifdot1Dbasemappingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cieIfDot1dBaseMappingTable *CISCOIFEXTENSIONMIB_CieIfDot1dBaseMappingTable) GetEntityData() *types.CommonEntityData {
+    cieIfDot1dBaseMappingTable.EntityData.YFilter = cieIfDot1dBaseMappingTable.YFilter
+    cieIfDot1dBaseMappingTable.EntityData.YangName = "cieIfDot1dBaseMappingTable"
+    cieIfDot1dBaseMappingTable.EntityData.BundleName = "cisco_ios_xe"
+    cieIfDot1dBaseMappingTable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
+    cieIfDot1dBaseMappingTable.EntityData.SegmentPath = "cieIfDot1dBaseMappingTable"
+    cieIfDot1dBaseMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cieIfDot1dBaseMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cieIfDot1dBaseMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cieifdot1Dbasemappingtable.EntityData.Children = make(map[string]types.YChild)
-    cieifdot1Dbasemappingtable.EntityData.Children["cieIfDot1dBaseMappingEntry"] = types.YChild{"Cieifdot1Dbasemappingentry", nil}
-    for i := range cieifdot1Dbasemappingtable.Cieifdot1Dbasemappingentry {
-        cieifdot1Dbasemappingtable.EntityData.Children[types.GetSegmentPath(&cieifdot1Dbasemappingtable.Cieifdot1Dbasemappingentry[i])] = types.YChild{"Cieifdot1Dbasemappingentry", &cieifdot1Dbasemappingtable.Cieifdot1Dbasemappingentry[i]}
+    cieIfDot1dBaseMappingTable.EntityData.Children = types.NewOrderedMap()
+    cieIfDot1dBaseMappingTable.EntityData.Children.Append("cieIfDot1dBaseMappingEntry", types.YChild{"CieIfDot1dBaseMappingEntry", nil})
+    for i := range cieIfDot1dBaseMappingTable.CieIfDot1dBaseMappingEntry {
+        cieIfDot1dBaseMappingTable.EntityData.Children.Append(types.GetSegmentPath(cieIfDot1dBaseMappingTable.CieIfDot1dBaseMappingEntry[i]), types.YChild{"CieIfDot1dBaseMappingEntry", cieIfDot1dBaseMappingTable.CieIfDot1dBaseMappingEntry[i]})
     }
-    cieifdot1Dbasemappingtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cieifdot1Dbasemappingtable.EntityData)
+    cieIfDot1dBaseMappingTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cieIfDot1dBaseMappingTable.EntityData.YListKeys = []string {}
+
+    return &(cieIfDot1dBaseMappingTable.EntityData)
 }
 
-// CISCOIFEXTENSIONMIB_Cieifdot1Dbasemappingtable_Cieifdot1Dbasemappingentry
+// CISCOIFEXTENSIONMIB_CieIfDot1dBaseMappingTable_CieIfDot1dBaseMappingEntry
 // An entry containing the mapping between
 // the ifIndex value of an interface and its
 // corresponding dot1dBasePort value.
@@ -1307,37 +1358,40 @@ func (cieifdot1Dbasemappingtable *CISCOIFEXTENSIONMIB_Cieifdot1Dbasemappingtable
 // Every interface which has been assigned
 // a dot1dBasePort value by the system
 // has a corresponding entry in this table.
-type CISCOIFEXTENSIONMIB_Cieifdot1Dbasemappingtable_Cieifdot1Dbasemappingentry struct {
+type CISCOIFEXTENSIONMIB_CieIfDot1dBaseMappingTable_CieIfDot1dBaseMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // The dot1dBasePort value for this interface. The type is interface{} with
     // range: 1..65535.
-    Cieifdot1Dbasemappingport interface{}
+    CieIfDot1dBaseMappingPort interface{}
 }
 
-func (cieifdot1Dbasemappingentry *CISCOIFEXTENSIONMIB_Cieifdot1Dbasemappingtable_Cieifdot1Dbasemappingentry) GetEntityData() *types.CommonEntityData {
-    cieifdot1Dbasemappingentry.EntityData.YFilter = cieifdot1Dbasemappingentry.YFilter
-    cieifdot1Dbasemappingentry.EntityData.YangName = "cieIfDot1dBaseMappingEntry"
-    cieifdot1Dbasemappingentry.EntityData.BundleName = "cisco_ios_xe"
-    cieifdot1Dbasemappingentry.EntityData.ParentYangName = "cieIfDot1dBaseMappingTable"
-    cieifdot1Dbasemappingentry.EntityData.SegmentPath = "cieIfDot1dBaseMappingEntry" + "[ifIndex='" + fmt.Sprintf("%v", cieifdot1Dbasemappingentry.Ifindex) + "']"
-    cieifdot1Dbasemappingentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cieifdot1Dbasemappingentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cieifdot1Dbasemappingentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cieIfDot1dBaseMappingEntry *CISCOIFEXTENSIONMIB_CieIfDot1dBaseMappingTable_CieIfDot1dBaseMappingEntry) GetEntityData() *types.CommonEntityData {
+    cieIfDot1dBaseMappingEntry.EntityData.YFilter = cieIfDot1dBaseMappingEntry.YFilter
+    cieIfDot1dBaseMappingEntry.EntityData.YangName = "cieIfDot1dBaseMappingEntry"
+    cieIfDot1dBaseMappingEntry.EntityData.BundleName = "cisco_ios_xe"
+    cieIfDot1dBaseMappingEntry.EntityData.ParentYangName = "cieIfDot1dBaseMappingTable"
+    cieIfDot1dBaseMappingEntry.EntityData.SegmentPath = "cieIfDot1dBaseMappingEntry" + types.AddKeyToken(cieIfDot1dBaseMappingEntry.IfIndex, "ifIndex")
+    cieIfDot1dBaseMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cieIfDot1dBaseMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cieIfDot1dBaseMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cieifdot1Dbasemappingentry.EntityData.Children = make(map[string]types.YChild)
-    cieifdot1Dbasemappingentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cieifdot1Dbasemappingentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cieifdot1Dbasemappingentry.Ifindex}
-    cieifdot1Dbasemappingentry.EntityData.Leafs["cieIfDot1dBaseMappingPort"] = types.YLeaf{"Cieifdot1Dbasemappingport", cieifdot1Dbasemappingentry.Cieifdot1Dbasemappingport}
-    return &(cieifdot1Dbasemappingentry.EntityData)
+    cieIfDot1dBaseMappingEntry.EntityData.Children = types.NewOrderedMap()
+    cieIfDot1dBaseMappingEntry.EntityData.Leafs = types.NewOrderedMap()
+    cieIfDot1dBaseMappingEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", cieIfDot1dBaseMappingEntry.IfIndex})
+    cieIfDot1dBaseMappingEntry.EntityData.Leafs.Append("cieIfDot1dBaseMappingPort", types.YLeaf{"CieIfDot1dBaseMappingPort", cieIfDot1dBaseMappingEntry.CieIfDot1dBaseMappingPort})
+
+    cieIfDot1dBaseMappingEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(cieIfDot1dBaseMappingEntry.EntityData)
 }
 
-// CISCOIFEXTENSIONMIB_Cieifnamemappingtable
+// CISCOIFEXTENSIONMIB_CieIfNameMappingTable
 // This table contains objects for providing
 // the 'ifName' to 'ifIndex' mapping.
 // This table contains one entry for each
@@ -1347,43 +1401,46 @@ func (cieifdot1Dbasemappingentry *CISCOIFEXTENSIONMIB_Cieifdot1Dbasemappingtable
 // ifNames, and it will populate the entries
 // in this table, it maintains this ifNames
 // in a cache for ~30 seconds.
-type CISCOIFEXTENSIONMIB_Cieifnamemappingtable struct {
+type CISCOIFEXTENSIONMIB_CieIfNameMappingTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry into the cieIfNameMappingTable. The type is slice of
-    // CISCOIFEXTENSIONMIB_Cieifnamemappingtable_Cieifnamemappingentry.
-    Cieifnamemappingentry []CISCOIFEXTENSIONMIB_Cieifnamemappingtable_Cieifnamemappingentry
+    // CISCOIFEXTENSIONMIB_CieIfNameMappingTable_CieIfNameMappingEntry.
+    CieIfNameMappingEntry []*CISCOIFEXTENSIONMIB_CieIfNameMappingTable_CieIfNameMappingEntry
 }
 
-func (cieifnamemappingtable *CISCOIFEXTENSIONMIB_Cieifnamemappingtable) GetEntityData() *types.CommonEntityData {
-    cieifnamemappingtable.EntityData.YFilter = cieifnamemappingtable.YFilter
-    cieifnamemappingtable.EntityData.YangName = "cieIfNameMappingTable"
-    cieifnamemappingtable.EntityData.BundleName = "cisco_ios_xe"
-    cieifnamemappingtable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
-    cieifnamemappingtable.EntityData.SegmentPath = "cieIfNameMappingTable"
-    cieifnamemappingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cieifnamemappingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cieifnamemappingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cieIfNameMappingTable *CISCOIFEXTENSIONMIB_CieIfNameMappingTable) GetEntityData() *types.CommonEntityData {
+    cieIfNameMappingTable.EntityData.YFilter = cieIfNameMappingTable.YFilter
+    cieIfNameMappingTable.EntityData.YangName = "cieIfNameMappingTable"
+    cieIfNameMappingTable.EntityData.BundleName = "cisco_ios_xe"
+    cieIfNameMappingTable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
+    cieIfNameMappingTable.EntityData.SegmentPath = "cieIfNameMappingTable"
+    cieIfNameMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cieIfNameMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cieIfNameMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cieifnamemappingtable.EntityData.Children = make(map[string]types.YChild)
-    cieifnamemappingtable.EntityData.Children["cieIfNameMappingEntry"] = types.YChild{"Cieifnamemappingentry", nil}
-    for i := range cieifnamemappingtable.Cieifnamemappingentry {
-        cieifnamemappingtable.EntityData.Children[types.GetSegmentPath(&cieifnamemappingtable.Cieifnamemappingentry[i])] = types.YChild{"Cieifnamemappingentry", &cieifnamemappingtable.Cieifnamemappingentry[i]}
+    cieIfNameMappingTable.EntityData.Children = types.NewOrderedMap()
+    cieIfNameMappingTable.EntityData.Children.Append("cieIfNameMappingEntry", types.YChild{"CieIfNameMappingEntry", nil})
+    for i := range cieIfNameMappingTable.CieIfNameMappingEntry {
+        cieIfNameMappingTable.EntityData.Children.Append(types.GetSegmentPath(cieIfNameMappingTable.CieIfNameMappingEntry[i]), types.YChild{"CieIfNameMappingEntry", cieIfNameMappingTable.CieIfNameMappingEntry[i]})
     }
-    cieifnamemappingtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cieifnamemappingtable.EntityData)
+    cieIfNameMappingTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cieIfNameMappingTable.EntityData.YListKeys = []string {}
+
+    return &(cieIfNameMappingTable.EntityData)
 }
 
-// CISCOIFEXTENSIONMIB_Cieifnamemappingtable_Cieifnamemappingentry
+// CISCOIFEXTENSIONMIB_CieIfNameMappingTable_CieIfNameMappingEntry
 // An entry into the cieIfNameMappingTable.
-type CISCOIFEXTENSIONMIB_Cieifnamemappingtable_Cieifnamemappingentry struct {
+type CISCOIFEXTENSIONMIB_CieIfNameMappingTable_CieIfNameMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Represents an interface name mentioned in the
     // 'ifName' object of this system. The type is string with length: 1..112.
-    Cieifname interface{}
+    CieIfName interface{}
 
     // This object represents the 'ifIndex' corresponding to the interface name
     // mentioned in the 'cieIfName' object of this instance. If the 'ifName'
@@ -1391,23 +1448,26 @@ type CISCOIFEXTENSIONMIB_Cieifnamemappingtable_Cieifnamemappingentry struct {
     // multiple 'ifIndex' values, then the value of this object is the numerically
     // smallest of those multiple  'ifIndex' values. The type is interface{} with
     // range: 0..2147483647.
-    Cieifindex interface{}
+    CieIfIndex interface{}
 }
 
-func (cieifnamemappingentry *CISCOIFEXTENSIONMIB_Cieifnamemappingtable_Cieifnamemappingentry) GetEntityData() *types.CommonEntityData {
-    cieifnamemappingentry.EntityData.YFilter = cieifnamemappingentry.YFilter
-    cieifnamemappingentry.EntityData.YangName = "cieIfNameMappingEntry"
-    cieifnamemappingentry.EntityData.BundleName = "cisco_ios_xe"
-    cieifnamemappingentry.EntityData.ParentYangName = "cieIfNameMappingTable"
-    cieifnamemappingentry.EntityData.SegmentPath = "cieIfNameMappingEntry" + "[cieIfName='" + fmt.Sprintf("%v", cieifnamemappingentry.Cieifname) + "']"
-    cieifnamemappingentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cieifnamemappingentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cieifnamemappingentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cieIfNameMappingEntry *CISCOIFEXTENSIONMIB_CieIfNameMappingTable_CieIfNameMappingEntry) GetEntityData() *types.CommonEntityData {
+    cieIfNameMappingEntry.EntityData.YFilter = cieIfNameMappingEntry.YFilter
+    cieIfNameMappingEntry.EntityData.YangName = "cieIfNameMappingEntry"
+    cieIfNameMappingEntry.EntityData.BundleName = "cisco_ios_xe"
+    cieIfNameMappingEntry.EntityData.ParentYangName = "cieIfNameMappingTable"
+    cieIfNameMappingEntry.EntityData.SegmentPath = "cieIfNameMappingEntry" + types.AddKeyToken(cieIfNameMappingEntry.CieIfName, "cieIfName")
+    cieIfNameMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cieIfNameMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cieIfNameMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cieifnamemappingentry.EntityData.Children = make(map[string]types.YChild)
-    cieifnamemappingentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cieifnamemappingentry.EntityData.Leafs["cieIfName"] = types.YLeaf{"Cieifname", cieifnamemappingentry.Cieifname}
-    cieifnamemappingentry.EntityData.Leafs["cieIfIndex"] = types.YLeaf{"Cieifindex", cieifnamemappingentry.Cieifindex}
-    return &(cieifnamemappingentry.EntityData)
+    cieIfNameMappingEntry.EntityData.Children = types.NewOrderedMap()
+    cieIfNameMappingEntry.EntityData.Leafs = types.NewOrderedMap()
+    cieIfNameMappingEntry.EntityData.Leafs.Append("cieIfName", types.YLeaf{"CieIfName", cieIfNameMappingEntry.CieIfName})
+    cieIfNameMappingEntry.EntityData.Leafs.Append("cieIfIndex", types.YLeaf{"CieIfIndex", cieIfNameMappingEntry.CieIfIndex})
+
+    cieIfNameMappingEntry.EntityData.YListKeys = []string {"CieIfName"}
+
+    return &(cieIfNameMappingEntry.EntityData)
 }
 

@@ -23,33 +23,33 @@ type NHRPMIB struct {
     YFilter yfilter.YFilter
 
     
-    Nhrpgeneralobjects NHRPMIB_Nhrpgeneralobjects
+    NhrpGeneralObjects NHRPMIB_NhrpGeneralObjects
 
     // This table contains mappings between internetwork layer addresses and NBMA
     // subnetwork layer addresses.
-    Nhrpcachetable NHRPMIB_Nhrpcachetable
+    NhrpCacheTable NHRPMIB_NhrpCacheTable
 
     // This table will track Purge Request Information.
-    Nhrppurgereqtable NHRPMIB_Nhrppurgereqtable
+    NhrpPurgeReqTable NHRPMIB_NhrpPurgeReqTable
 
     // Information about NHRP clients (NHCs) managed by this agent.
-    Nhrpclienttable NHRPMIB_Nhrpclienttable
+    NhrpClientTable NHRPMIB_NhrpClientTable
 
     // A table of Registration Request Information that needs to be maintained by
     // the NHCs (clients).
-    Nhrpclientregistrationtable NHRPMIB_Nhrpclientregistrationtable
+    NhrpClientRegistrationTable NHRPMIB_NhrpClientRegistrationTable
 
     // A table of NHSes that are available for use by this NHC (client). By
     // default, the agent will add an entry to this table that corresponds to the
     // client's default router.
-    Nhrpclientnhstable NHRPMIB_Nhrpclientnhstable
+    NhrpClientNhsTable NHRPMIB_NhrpClientNhsTable
 
     // This table contains statistics collected by NHRP clients.
-    Nhrpclientstattable NHRPMIB_Nhrpclientstattable
+    NhrpClientStatTable NHRPMIB_NhrpClientStatTable
 
     // This table contains information for a set of NHSes associated with this
     // agent.
-    Nhrpservertable NHRPMIB_Nhrpservertable
+    NhrpServerTable NHRPMIB_NhrpServerTable
 
     // This table extends the nhrpCacheTable for NHSes.  If the nhrpCacheTable has
     // a row added due to an NHS or based on information regarding an NHS then a
@@ -59,13 +59,13 @@ type NHRPMIB struct {
     // table.  For example, if the nhrpCacheTable has a row added due to a Next
     // Hop Client which is co-resident on the same device as the NHS, a row will
     // not be added to this table.
-    Nhrpservercachetable NHRPMIB_Nhrpservercachetable
+    NhrpServerCacheTable NHRPMIB_NhrpServerCacheTable
 
     // A table of NHCs that are available for use by this NHS (Server).
-    Nhrpservernhctable NHRPMIB_Nhrpservernhctable
+    NhrpServerNhcTable NHRPMIB_NhrpServerNhcTable
 
     // Statistics collected by Next Hop Servers.
-    Nhrpserverstattable NHRPMIB_Nhrpserverstattable
+    NhrpServerStatTable NHRPMIB_NhrpServerStatTable
 }
 
 func (nHRPMIB *NHRPMIB) GetEntityData() *types.CommonEntityData {
@@ -78,24 +78,27 @@ func (nHRPMIB *NHRPMIB) GetEntityData() *types.CommonEntityData {
     nHRPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nHRPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nHRPMIB.EntityData.Children = make(map[string]types.YChild)
-    nHRPMIB.EntityData.Children["nhrpGeneralObjects"] = types.YChild{"Nhrpgeneralobjects", &nHRPMIB.Nhrpgeneralobjects}
-    nHRPMIB.EntityData.Children["nhrpCacheTable"] = types.YChild{"Nhrpcachetable", &nHRPMIB.Nhrpcachetable}
-    nHRPMIB.EntityData.Children["nhrpPurgeReqTable"] = types.YChild{"Nhrppurgereqtable", &nHRPMIB.Nhrppurgereqtable}
-    nHRPMIB.EntityData.Children["nhrpClientTable"] = types.YChild{"Nhrpclienttable", &nHRPMIB.Nhrpclienttable}
-    nHRPMIB.EntityData.Children["nhrpClientRegistrationTable"] = types.YChild{"Nhrpclientregistrationtable", &nHRPMIB.Nhrpclientregistrationtable}
-    nHRPMIB.EntityData.Children["nhrpClientNhsTable"] = types.YChild{"Nhrpclientnhstable", &nHRPMIB.Nhrpclientnhstable}
-    nHRPMIB.EntityData.Children["nhrpClientStatTable"] = types.YChild{"Nhrpclientstattable", &nHRPMIB.Nhrpclientstattable}
-    nHRPMIB.EntityData.Children["nhrpServerTable"] = types.YChild{"Nhrpservertable", &nHRPMIB.Nhrpservertable}
-    nHRPMIB.EntityData.Children["nhrpServerCacheTable"] = types.YChild{"Nhrpservercachetable", &nHRPMIB.Nhrpservercachetable}
-    nHRPMIB.EntityData.Children["nhrpServerNhcTable"] = types.YChild{"Nhrpservernhctable", &nHRPMIB.Nhrpservernhctable}
-    nHRPMIB.EntityData.Children["nhrpServerStatTable"] = types.YChild{"Nhrpserverstattable", &nHRPMIB.Nhrpserverstattable}
-    nHRPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    nHRPMIB.EntityData.Children = types.NewOrderedMap()
+    nHRPMIB.EntityData.Children.Append("nhrpGeneralObjects", types.YChild{"NhrpGeneralObjects", &nHRPMIB.NhrpGeneralObjects})
+    nHRPMIB.EntityData.Children.Append("nhrpCacheTable", types.YChild{"NhrpCacheTable", &nHRPMIB.NhrpCacheTable})
+    nHRPMIB.EntityData.Children.Append("nhrpPurgeReqTable", types.YChild{"NhrpPurgeReqTable", &nHRPMIB.NhrpPurgeReqTable})
+    nHRPMIB.EntityData.Children.Append("nhrpClientTable", types.YChild{"NhrpClientTable", &nHRPMIB.NhrpClientTable})
+    nHRPMIB.EntityData.Children.Append("nhrpClientRegistrationTable", types.YChild{"NhrpClientRegistrationTable", &nHRPMIB.NhrpClientRegistrationTable})
+    nHRPMIB.EntityData.Children.Append("nhrpClientNhsTable", types.YChild{"NhrpClientNhsTable", &nHRPMIB.NhrpClientNhsTable})
+    nHRPMIB.EntityData.Children.Append("nhrpClientStatTable", types.YChild{"NhrpClientStatTable", &nHRPMIB.NhrpClientStatTable})
+    nHRPMIB.EntityData.Children.Append("nhrpServerTable", types.YChild{"NhrpServerTable", &nHRPMIB.NhrpServerTable})
+    nHRPMIB.EntityData.Children.Append("nhrpServerCacheTable", types.YChild{"NhrpServerCacheTable", &nHRPMIB.NhrpServerCacheTable})
+    nHRPMIB.EntityData.Children.Append("nhrpServerNhcTable", types.YChild{"NhrpServerNhcTable", &nHRPMIB.NhrpServerNhcTable})
+    nHRPMIB.EntityData.Children.Append("nhrpServerStatTable", types.YChild{"NhrpServerStatTable", &nHRPMIB.NhrpServerStatTable})
+    nHRPMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    nHRPMIB.EntityData.YListKeys = []string {}
+
     return &(nHRPMIB.EntityData)
 }
 
-// NHRPMIB_Nhrpgeneralobjects
-type NHRPMIB_Nhrpgeneralobjects struct {
+// NHRPMIB_NhrpGeneralObjects
+type NHRPMIB_NhrpGeneralObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -112,29 +115,32 @@ type NHRPMIB_Nhrpgeneralobjects struct {
     // saved in non-volatile storage.  This variable will return the special value
     // 0 if no new rows can be created. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpnextindex interface{}
+    NhrpNextIndex interface{}
 }
 
-func (nhrpgeneralobjects *NHRPMIB_Nhrpgeneralobjects) GetEntityData() *types.CommonEntityData {
-    nhrpgeneralobjects.EntityData.YFilter = nhrpgeneralobjects.YFilter
-    nhrpgeneralobjects.EntityData.YangName = "nhrpGeneralObjects"
-    nhrpgeneralobjects.EntityData.BundleName = "cisco_ios_xe"
-    nhrpgeneralobjects.EntityData.ParentYangName = "NHRP-MIB"
-    nhrpgeneralobjects.EntityData.SegmentPath = "nhrpGeneralObjects"
-    nhrpgeneralobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrpgeneralobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrpgeneralobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpGeneralObjects *NHRPMIB_NhrpGeneralObjects) GetEntityData() *types.CommonEntityData {
+    nhrpGeneralObjects.EntityData.YFilter = nhrpGeneralObjects.YFilter
+    nhrpGeneralObjects.EntityData.YangName = "nhrpGeneralObjects"
+    nhrpGeneralObjects.EntityData.BundleName = "cisco_ios_xe"
+    nhrpGeneralObjects.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpGeneralObjects.EntityData.SegmentPath = "nhrpGeneralObjects"
+    nhrpGeneralObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpGeneralObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpGeneralObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrpgeneralobjects.EntityData.Children = make(map[string]types.YChild)
-    nhrpgeneralobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    nhrpgeneralobjects.EntityData.Leafs["nhrpNextIndex"] = types.YLeaf{"Nhrpnextindex", nhrpgeneralobjects.Nhrpnextindex}
-    return &(nhrpgeneralobjects.EntityData)
+    nhrpGeneralObjects.EntityData.Children = types.NewOrderedMap()
+    nhrpGeneralObjects.EntityData.Leafs = types.NewOrderedMap()
+    nhrpGeneralObjects.EntityData.Leafs.Append("nhrpNextIndex", types.YLeaf{"NhrpNextIndex", nhrpGeneralObjects.NhrpNextIndex})
+
+    nhrpGeneralObjects.EntityData.YListKeys = []string {}
+
+    return &(nhrpGeneralObjects.EntityData)
 }
 
-// NHRPMIB_Nhrpcachetable
+// NHRPMIB_NhrpCacheTable
 // This table contains mappings between internetwork layer
 // addresses and NBMA subnetwork layer addresses.
-type NHRPMIB_Nhrpcachetable struct {
+type NHRPMIB_NhrpCacheTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -146,30 +152,33 @@ type NHRPMIB_Nhrpcachetable struct {
     // on contents contained in the Client Information Entry (CIE).  Zero or more
     // Client Information Entries (CIEs) may be included in the NHRP Packet. For a
     // complete description of the CIE, refer to Section 5.2.0.1 of RFC 2332 [17].
-    // The type is slice of NHRPMIB_Nhrpcachetable_Nhrpcacheentry.
-    Nhrpcacheentry []NHRPMIB_Nhrpcachetable_Nhrpcacheentry
+    // The type is slice of NHRPMIB_NhrpCacheTable_NhrpCacheEntry.
+    NhrpCacheEntry []*NHRPMIB_NhrpCacheTable_NhrpCacheEntry
 }
 
-func (nhrpcachetable *NHRPMIB_Nhrpcachetable) GetEntityData() *types.CommonEntityData {
-    nhrpcachetable.EntityData.YFilter = nhrpcachetable.YFilter
-    nhrpcachetable.EntityData.YangName = "nhrpCacheTable"
-    nhrpcachetable.EntityData.BundleName = "cisco_ios_xe"
-    nhrpcachetable.EntityData.ParentYangName = "NHRP-MIB"
-    nhrpcachetable.EntityData.SegmentPath = "nhrpCacheTable"
-    nhrpcachetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrpcachetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrpcachetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpCacheTable *NHRPMIB_NhrpCacheTable) GetEntityData() *types.CommonEntityData {
+    nhrpCacheTable.EntityData.YFilter = nhrpCacheTable.YFilter
+    nhrpCacheTable.EntityData.YangName = "nhrpCacheTable"
+    nhrpCacheTable.EntityData.BundleName = "cisco_ios_xe"
+    nhrpCacheTable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpCacheTable.EntityData.SegmentPath = "nhrpCacheTable"
+    nhrpCacheTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpCacheTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpCacheTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrpcachetable.EntityData.Children = make(map[string]types.YChild)
-    nhrpcachetable.EntityData.Children["nhrpCacheEntry"] = types.YChild{"Nhrpcacheentry", nil}
-    for i := range nhrpcachetable.Nhrpcacheentry {
-        nhrpcachetable.EntityData.Children[types.GetSegmentPath(&nhrpcachetable.Nhrpcacheentry[i])] = types.YChild{"Nhrpcacheentry", &nhrpcachetable.Nhrpcacheentry[i]}
+    nhrpCacheTable.EntityData.Children = types.NewOrderedMap()
+    nhrpCacheTable.EntityData.Children.Append("nhrpCacheEntry", types.YChild{"NhrpCacheEntry", nil})
+    for i := range nhrpCacheTable.NhrpCacheEntry {
+        nhrpCacheTable.EntityData.Children.Append(types.GetSegmentPath(nhrpCacheTable.NhrpCacheEntry[i]), types.YChild{"NhrpCacheEntry", nhrpCacheTable.NhrpCacheEntry[i]})
     }
-    nhrpcachetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(nhrpcachetable.EntityData)
+    nhrpCacheTable.EntityData.Leafs = types.NewOrderedMap()
+
+    nhrpCacheTable.EntityData.YListKeys = []string {}
+
+    return &(nhrpCacheTable.EntityData)
 }
 
-// NHRPMIB_Nhrpcachetable_Nhrpcacheentry
+// NHRPMIB_NhrpCacheTable_NhrpCacheEntry
 // A cached mapping between an internetwork layer address
 // and an NBMA address. Entries can be created by the
 // network administrator using the nhrpCacheRowStatus
@@ -185,7 +194,7 @@ func (nhrpcachetable *NHRPMIB_Nhrpcachetable) GetEntityData() *types.CommonEntit
 // included in the NHRP Packet. For a complete description
 // of the CIE, refer to Section 5.2.0.1 of
 // RFC 2332 [17].
-type NHRPMIB_Nhrpcachetable_Nhrpcacheentry struct {
+type NHRPMIB_NhrpCacheTable_NhrpCacheEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -193,45 +202,45 @@ type NHRPMIB_Nhrpcachetable_Nhrpcacheentry struct {
     // Hop Resolution Cache entry. The value of this object indicates how to
     // interpret the values of nhrpCacheInternetworkAddr and
     // nhrpCacheNextHopInternetworkAddr. The type is AddressFamilyNumbers.
-    Nhrpcacheinternetworkaddrtype interface{}
+    NhrpCacheInternetworkAddrType interface{}
 
     // This attribute is a key. The value of the internetwork address of the
     // destination. The type is string with length: 0..64.
-    Nhrpcacheinternetworkaddr interface{}
+    NhrpCacheInternetworkAddr interface{}
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. An identifier for this entry that has local
     // significance within the scope of the General Group.  This identifier is
     // used here to uniquely identify this row, and also used in the
     // 'nhrpPurgeTable' for the value of the 'nhrpPurgeCacheIdentifier'. The type
     // is interface{} with range: 1..4294967295.
-    Nhrpcacheindex interface{}
+    NhrpCacheIndex interface{}
 
     // The number of bits that define the internetwork layer prefix associated
     // with the nhrpCacheInternetworkAddr. The type is interface{} with range:
     // 0..255.
-    Nhrpcacheprefixlength interface{}
+    NhrpCachePrefixLength interface{}
 
     // The value of the internetwork address of the next hop. The type is string
     // with length: 0..64.
-    Nhrpcachenexthopinternetworkaddr interface{}
+    NhrpCacheNextHopInternetworkAddr interface{}
 
     // The NBMA address type. The value of this object indicates how to interpret
     // the values of nhrpCacheNbmaAddr and nhrpCacheNbmaSubaddr. The type is
     // AddressFamilyNumbers.
-    Nhrpcachenbmaaddrtype interface{}
+    NhrpCacheNbmaAddrType interface{}
 
     // The value of the NBMA subnetwork address of the next hop. The type is
     // string with length: 0..64.
-    Nhrpcachenbmaaddr interface{}
+    NhrpCacheNbmaAddr interface{}
 
     // The value of the NBMA subaddress of the next hop. If there is no subaddress
     // concept for the NBMA address family, this value will be a zero-length OCTET
     // STRING. The type is string with length: 0..64.
-    Nhrpcachenbmasubaddr interface{}
+    NhrpCacheNbmaSubaddr interface{}
 
     // An indication of how this cache entry was created. The values are: 
     // 'other(1)'                   The entry was added by some                   
@@ -252,16 +261,16 @@ type NHRPMIB_Nhrpcachetable_Nhrpcacheentry struct {
     // that can be specified by the administrator is 'administrativelyAdded'.
     // Attempting to set any other value will cause an 'inconsistentValue' error. 
     // The value cannot be modified once the entry is active. The type is
-    // Nhrpcachetype.
-    Nhrpcachetype interface{}
+    // NhrpCacheType.
+    NhrpCacheType interface{}
 
     // An indication of the state of this entry. The values are:  'incomplete(1)'
     // The client has sent a NHRP Resolution                 Request but has not
     // yet received the                 NHRP Resolution Reply.   'ackReply(2)'  
     // For a client or server, this is a                 cached valid mapping. 
     // 'nakReply(3)'   For a client or server, this is a                 cached
-    // NAK mapping. The type is Nhrpcachestate.
-    Nhrpcachestate interface{}
+    // NAK mapping. The type is NhrpCacheState.
+    NhrpCacheState interface{}
 
     // True(1) is returned if the value of 'nhrpCacheType' is not
     // 'administrativelyAdded'.  Since the value of 'nhrpCacheType' was not
@@ -272,26 +281,26 @@ type NHRPMIB_Nhrpcachetable_Nhrpcacheentry struct {
     // false(2) will be returned. This indicates that the value of
     // 'nhrpCacheHoldingTime' is undefined because this row could possibly be
     // backed up in nonvolatile storage. The type is bool.
-    Nhrpcacheholdingtimevalid interface{}
+    NhrpCacheHoldingTimeValid interface{}
 
     // If the value of 'nhrpCacheHoldingTimeValid is true(1) then this object
     // represents the number of seconds that the cache entry will remain in this
     // table.  When this value reaches 0 (zero) the row should be deleted.  If the
     // value of 'nhrpCacheHoldingTimeValid is false(2) then this object is
     // undefined. The type is interface{} with range: 0..65535. Units are seconds.
-    Nhrpcacheholdingtime interface{}
+    NhrpCacheHoldingTime interface{}
 
     // The maximum transmission unit (MTU) that was negotiated or registered for
     // this entity. In other words, this is the actual MTU being used. The type is
     // interface{} with range: 0..65535.
-    Nhrpcachenegotiatedmtu interface{}
+    NhrpCacheNegotiatedMtu interface{}
 
     // An object which reflects the Preference value of the Client Information
     // Entry (CIE).  Zero or more Client Information Entries (CIEs) may be
     // included in the NHRP Packet.  One of the fields in the CIE is the
     // Preference.  For a complete description of the CIE, refer to Section
     // 5.2.0.1 of  RFC 2332 [17]. The type is interface{} with range: 0..255.
-    Nhrpcachepreference interface{}
+    NhrpCachePreference interface{}
 
     // This value only has meaning when the 'nhrpCacheType' has the value of
     // 'administrativelyAdded'.  When the row is created due to being
@@ -300,197 +309,209 @@ type NHRPMIB_Nhrpcachetable_Nhrpcacheentry struct {
     // non-volatile or permanent storage.  If the value of 'nhrpCacheType' has a
     // value which is not 'administrativelyAdded, then the value of this object is
     // 'other(1)'. The type is StorageType.
-    Nhrpcachestoragetype interface{}
+    NhrpCacheStorageType interface{}
 
     // An object that allows entries in this table to be created and deleted using
     // the RowStatus convention. The type is RowStatus.
-    Nhrpcacherowstatus interface{}
+    NhrpCacheRowStatus interface{}
 }
 
-func (nhrpcacheentry *NHRPMIB_Nhrpcachetable_Nhrpcacheentry) GetEntityData() *types.CommonEntityData {
-    nhrpcacheentry.EntityData.YFilter = nhrpcacheentry.YFilter
-    nhrpcacheentry.EntityData.YangName = "nhrpCacheEntry"
-    nhrpcacheentry.EntityData.BundleName = "cisco_ios_xe"
-    nhrpcacheentry.EntityData.ParentYangName = "nhrpCacheTable"
-    nhrpcacheentry.EntityData.SegmentPath = "nhrpCacheEntry" + "[nhrpCacheInternetworkAddrType='" + fmt.Sprintf("%v", nhrpcacheentry.Nhrpcacheinternetworkaddrtype) + "']" + "[nhrpCacheInternetworkAddr='" + fmt.Sprintf("%v", nhrpcacheentry.Nhrpcacheinternetworkaddr) + "']" + "[ifIndex='" + fmt.Sprintf("%v", nhrpcacheentry.Ifindex) + "']" + "[nhrpCacheIndex='" + fmt.Sprintf("%v", nhrpcacheentry.Nhrpcacheindex) + "']"
-    nhrpcacheentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrpcacheentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrpcacheentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpCacheEntry *NHRPMIB_NhrpCacheTable_NhrpCacheEntry) GetEntityData() *types.CommonEntityData {
+    nhrpCacheEntry.EntityData.YFilter = nhrpCacheEntry.YFilter
+    nhrpCacheEntry.EntityData.YangName = "nhrpCacheEntry"
+    nhrpCacheEntry.EntityData.BundleName = "cisco_ios_xe"
+    nhrpCacheEntry.EntityData.ParentYangName = "nhrpCacheTable"
+    nhrpCacheEntry.EntityData.SegmentPath = "nhrpCacheEntry" + types.AddKeyToken(nhrpCacheEntry.NhrpCacheInternetworkAddrType, "nhrpCacheInternetworkAddrType") + types.AddKeyToken(nhrpCacheEntry.NhrpCacheInternetworkAddr, "nhrpCacheInternetworkAddr") + types.AddKeyToken(nhrpCacheEntry.IfIndex, "ifIndex") + types.AddKeyToken(nhrpCacheEntry.NhrpCacheIndex, "nhrpCacheIndex")
+    nhrpCacheEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpCacheEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpCacheEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrpcacheentry.EntityData.Children = make(map[string]types.YChild)
-    nhrpcacheentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    nhrpcacheentry.EntityData.Leafs["nhrpCacheInternetworkAddrType"] = types.YLeaf{"Nhrpcacheinternetworkaddrtype", nhrpcacheentry.Nhrpcacheinternetworkaddrtype}
-    nhrpcacheentry.EntityData.Leafs["nhrpCacheInternetworkAddr"] = types.YLeaf{"Nhrpcacheinternetworkaddr", nhrpcacheentry.Nhrpcacheinternetworkaddr}
-    nhrpcacheentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", nhrpcacheentry.Ifindex}
-    nhrpcacheentry.EntityData.Leafs["nhrpCacheIndex"] = types.YLeaf{"Nhrpcacheindex", nhrpcacheentry.Nhrpcacheindex}
-    nhrpcacheentry.EntityData.Leafs["nhrpCachePrefixLength"] = types.YLeaf{"Nhrpcacheprefixlength", nhrpcacheentry.Nhrpcacheprefixlength}
-    nhrpcacheentry.EntityData.Leafs["nhrpCacheNextHopInternetworkAddr"] = types.YLeaf{"Nhrpcachenexthopinternetworkaddr", nhrpcacheentry.Nhrpcachenexthopinternetworkaddr}
-    nhrpcacheentry.EntityData.Leafs["nhrpCacheNbmaAddrType"] = types.YLeaf{"Nhrpcachenbmaaddrtype", nhrpcacheentry.Nhrpcachenbmaaddrtype}
-    nhrpcacheentry.EntityData.Leafs["nhrpCacheNbmaAddr"] = types.YLeaf{"Nhrpcachenbmaaddr", nhrpcacheentry.Nhrpcachenbmaaddr}
-    nhrpcacheentry.EntityData.Leafs["nhrpCacheNbmaSubaddr"] = types.YLeaf{"Nhrpcachenbmasubaddr", nhrpcacheentry.Nhrpcachenbmasubaddr}
-    nhrpcacheentry.EntityData.Leafs["nhrpCacheType"] = types.YLeaf{"Nhrpcachetype", nhrpcacheentry.Nhrpcachetype}
-    nhrpcacheentry.EntityData.Leafs["nhrpCacheState"] = types.YLeaf{"Nhrpcachestate", nhrpcacheentry.Nhrpcachestate}
-    nhrpcacheentry.EntityData.Leafs["nhrpCacheHoldingTimeValid"] = types.YLeaf{"Nhrpcacheholdingtimevalid", nhrpcacheentry.Nhrpcacheholdingtimevalid}
-    nhrpcacheentry.EntityData.Leafs["nhrpCacheHoldingTime"] = types.YLeaf{"Nhrpcacheholdingtime", nhrpcacheentry.Nhrpcacheholdingtime}
-    nhrpcacheentry.EntityData.Leafs["nhrpCacheNegotiatedMtu"] = types.YLeaf{"Nhrpcachenegotiatedmtu", nhrpcacheentry.Nhrpcachenegotiatedmtu}
-    nhrpcacheentry.EntityData.Leafs["nhrpCachePreference"] = types.YLeaf{"Nhrpcachepreference", nhrpcacheentry.Nhrpcachepreference}
-    nhrpcacheentry.EntityData.Leafs["nhrpCacheStorageType"] = types.YLeaf{"Nhrpcachestoragetype", nhrpcacheentry.Nhrpcachestoragetype}
-    nhrpcacheentry.EntityData.Leafs["nhrpCacheRowStatus"] = types.YLeaf{"Nhrpcacherowstatus", nhrpcacheentry.Nhrpcacherowstatus}
-    return &(nhrpcacheentry.EntityData)
+    nhrpCacheEntry.EntityData.Children = types.NewOrderedMap()
+    nhrpCacheEntry.EntityData.Leafs = types.NewOrderedMap()
+    nhrpCacheEntry.EntityData.Leafs.Append("nhrpCacheInternetworkAddrType", types.YLeaf{"NhrpCacheInternetworkAddrType", nhrpCacheEntry.NhrpCacheInternetworkAddrType})
+    nhrpCacheEntry.EntityData.Leafs.Append("nhrpCacheInternetworkAddr", types.YLeaf{"NhrpCacheInternetworkAddr", nhrpCacheEntry.NhrpCacheInternetworkAddr})
+    nhrpCacheEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", nhrpCacheEntry.IfIndex})
+    nhrpCacheEntry.EntityData.Leafs.Append("nhrpCacheIndex", types.YLeaf{"NhrpCacheIndex", nhrpCacheEntry.NhrpCacheIndex})
+    nhrpCacheEntry.EntityData.Leafs.Append("nhrpCachePrefixLength", types.YLeaf{"NhrpCachePrefixLength", nhrpCacheEntry.NhrpCachePrefixLength})
+    nhrpCacheEntry.EntityData.Leafs.Append("nhrpCacheNextHopInternetworkAddr", types.YLeaf{"NhrpCacheNextHopInternetworkAddr", nhrpCacheEntry.NhrpCacheNextHopInternetworkAddr})
+    nhrpCacheEntry.EntityData.Leafs.Append("nhrpCacheNbmaAddrType", types.YLeaf{"NhrpCacheNbmaAddrType", nhrpCacheEntry.NhrpCacheNbmaAddrType})
+    nhrpCacheEntry.EntityData.Leafs.Append("nhrpCacheNbmaAddr", types.YLeaf{"NhrpCacheNbmaAddr", nhrpCacheEntry.NhrpCacheNbmaAddr})
+    nhrpCacheEntry.EntityData.Leafs.Append("nhrpCacheNbmaSubaddr", types.YLeaf{"NhrpCacheNbmaSubaddr", nhrpCacheEntry.NhrpCacheNbmaSubaddr})
+    nhrpCacheEntry.EntityData.Leafs.Append("nhrpCacheType", types.YLeaf{"NhrpCacheType", nhrpCacheEntry.NhrpCacheType})
+    nhrpCacheEntry.EntityData.Leafs.Append("nhrpCacheState", types.YLeaf{"NhrpCacheState", nhrpCacheEntry.NhrpCacheState})
+    nhrpCacheEntry.EntityData.Leafs.Append("nhrpCacheHoldingTimeValid", types.YLeaf{"NhrpCacheHoldingTimeValid", nhrpCacheEntry.NhrpCacheHoldingTimeValid})
+    nhrpCacheEntry.EntityData.Leafs.Append("nhrpCacheHoldingTime", types.YLeaf{"NhrpCacheHoldingTime", nhrpCacheEntry.NhrpCacheHoldingTime})
+    nhrpCacheEntry.EntityData.Leafs.Append("nhrpCacheNegotiatedMtu", types.YLeaf{"NhrpCacheNegotiatedMtu", nhrpCacheEntry.NhrpCacheNegotiatedMtu})
+    nhrpCacheEntry.EntityData.Leafs.Append("nhrpCachePreference", types.YLeaf{"NhrpCachePreference", nhrpCacheEntry.NhrpCachePreference})
+    nhrpCacheEntry.EntityData.Leafs.Append("nhrpCacheStorageType", types.YLeaf{"NhrpCacheStorageType", nhrpCacheEntry.NhrpCacheStorageType})
+    nhrpCacheEntry.EntityData.Leafs.Append("nhrpCacheRowStatus", types.YLeaf{"NhrpCacheRowStatus", nhrpCacheEntry.NhrpCacheRowStatus})
+
+    nhrpCacheEntry.EntityData.YListKeys = []string {"NhrpCacheInternetworkAddrType", "NhrpCacheInternetworkAddr", "IfIndex", "NhrpCacheIndex"}
+
+    return &(nhrpCacheEntry.EntityData)
 }
 
-// NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachestate represents                 cached NAK mapping.
-type NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachestate string
+// NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheState represents                 cached NAK mapping.
+type NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheState string
 
 const (
-    NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachestate_incomplete NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachestate = "incomplete"
+    NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheState_incomplete NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheState = "incomplete"
 
-    NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachestate_ackReply NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachestate = "ackReply"
+    NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheState_ackReply NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheState = "ackReply"
 
-    NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachestate_nakReply NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachestate = "nakReply"
+    NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheState_nakReply NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheState = "nakReply"
 )
 
-// NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachetype represents The value cannot be modified once the entry is active.
-type NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachetype string
+// NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheType represents The value cannot be modified once the entry is active.
+type NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheType string
 
 const (
-    NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachetype_other NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachetype = "other"
+    NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheType_other NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheType = "other"
 
-    NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachetype_register NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachetype = "register"
+    NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheType_register NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheType = "register"
 
-    NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachetype_resolveAuthoritative NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachetype = "resolveAuthoritative"
+    NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheType_resolveAuthoritative NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheType = "resolveAuthoritative"
 
-    NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachetype_resoveNonauthoritative NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachetype = "resoveNonauthoritative"
+    NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheType_resoveNonauthoritative NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheType = "resoveNonauthoritative"
 
-    NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachetype_transit NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachetype = "transit"
+    NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheType_transit NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheType = "transit"
 
-    NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachetype_administrativelyAdded NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachetype = "administrativelyAdded"
+    NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheType_administrativelyAdded NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheType = "administrativelyAdded"
 
-    NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachetype_atmarp NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachetype = "atmarp"
+    NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheType_atmarp NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheType = "atmarp"
 
-    NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachetype_scsp NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachetype = "scsp"
+    NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheType_scsp NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheType = "scsp"
 )
 
-// NHRPMIB_Nhrppurgereqtable
+// NHRPMIB_NhrpPurgeReqTable
 // This table will track Purge Request Information.
-type NHRPMIB_Nhrppurgereqtable struct {
+type NHRPMIB_NhrpPurgeReqTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information regarding a Purge Request. The type is slice of
-    // NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry.
-    Nhrppurgereqentry []NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry
+    // NHRPMIB_NhrpPurgeReqTable_NhrpPurgeReqEntry.
+    NhrpPurgeReqEntry []*NHRPMIB_NhrpPurgeReqTable_NhrpPurgeReqEntry
 }
 
-func (nhrppurgereqtable *NHRPMIB_Nhrppurgereqtable) GetEntityData() *types.CommonEntityData {
-    nhrppurgereqtable.EntityData.YFilter = nhrppurgereqtable.YFilter
-    nhrppurgereqtable.EntityData.YangName = "nhrpPurgeReqTable"
-    nhrppurgereqtable.EntityData.BundleName = "cisco_ios_xe"
-    nhrppurgereqtable.EntityData.ParentYangName = "NHRP-MIB"
-    nhrppurgereqtable.EntityData.SegmentPath = "nhrpPurgeReqTable"
-    nhrppurgereqtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrppurgereqtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrppurgereqtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpPurgeReqTable *NHRPMIB_NhrpPurgeReqTable) GetEntityData() *types.CommonEntityData {
+    nhrpPurgeReqTable.EntityData.YFilter = nhrpPurgeReqTable.YFilter
+    nhrpPurgeReqTable.EntityData.YangName = "nhrpPurgeReqTable"
+    nhrpPurgeReqTable.EntityData.BundleName = "cisco_ios_xe"
+    nhrpPurgeReqTable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpPurgeReqTable.EntityData.SegmentPath = "nhrpPurgeReqTable"
+    nhrpPurgeReqTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpPurgeReqTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpPurgeReqTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrppurgereqtable.EntityData.Children = make(map[string]types.YChild)
-    nhrppurgereqtable.EntityData.Children["nhrpPurgeReqEntry"] = types.YChild{"Nhrppurgereqentry", nil}
-    for i := range nhrppurgereqtable.Nhrppurgereqentry {
-        nhrppurgereqtable.EntityData.Children[types.GetSegmentPath(&nhrppurgereqtable.Nhrppurgereqentry[i])] = types.YChild{"Nhrppurgereqentry", &nhrppurgereqtable.Nhrppurgereqentry[i]}
+    nhrpPurgeReqTable.EntityData.Children = types.NewOrderedMap()
+    nhrpPurgeReqTable.EntityData.Children.Append("nhrpPurgeReqEntry", types.YChild{"NhrpPurgeReqEntry", nil})
+    for i := range nhrpPurgeReqTable.NhrpPurgeReqEntry {
+        nhrpPurgeReqTable.EntityData.Children.Append(types.GetSegmentPath(nhrpPurgeReqTable.NhrpPurgeReqEntry[i]), types.YChild{"NhrpPurgeReqEntry", nhrpPurgeReqTable.NhrpPurgeReqEntry[i]})
     }
-    nhrppurgereqtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(nhrppurgereqtable.EntityData)
+    nhrpPurgeReqTable.EntityData.Leafs = types.NewOrderedMap()
+
+    nhrpPurgeReqTable.EntityData.YListKeys = []string {}
+
+    return &(nhrpPurgeReqTable.EntityData)
 }
 
-// NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry
+// NHRPMIB_NhrpPurgeReqTable_NhrpPurgeReqEntry
 // Information regarding a Purge Request.
-type NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry struct {
+type NHRPMIB_NhrpPurgeReqTable_NhrpPurgeReqEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An index for this entry that has local
     // significance within the scope of this table. The type is interface{} with
     // range: 1..4294967295.
-    Nhrppurgeindex interface{}
+    NhrpPurgeIndex interface{}
 
     // This object identifies which row in 'nhrpCacheTable' is being purged.  This
     // object should have the same value as the 'nhrpCacheIndex' in the
     // 'nhrpCacheTable'. The type is interface{} with range: 1..4294967295.
-    Nhrppurgecacheidentifier interface{}
+    NhrpPurgeCacheIdentifier interface{}
 
     // In the case of NHRP Purge Requests, this specifies the equivalence class of
     // addresses which match the first 'Prefix Length' bit positions of the Client
     // Protocol Address specified in the Client Information Entry (CIE). The type
     // is interface{} with range: 0..255.
-    Nhrppurgeprefixlength interface{}
+    NhrpPurgePrefixLength interface{}
 
     // The Request ID used in the purge request. The type is interface{} with
     // range: 0..4294967295.
-    Nhrppurgerequestid interface{}
+    NhrpPurgeRequestID interface{}
 
     // An indication of whether this Purge Request has the 'N' Bit cleared (off).
     // The type is bool.
-    Nhrppurgereplyexpected interface{}
+    NhrpPurgeReplyExpected interface{}
 
     // An object that allows entries in this table to be created and deleted using
     // the RowStatus convention. The type is RowStatus.
-    Nhrppurgerowstatus interface{}
+    NhrpPurgeRowStatus interface{}
 }
 
-func (nhrppurgereqentry *NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry) GetEntityData() *types.CommonEntityData {
-    nhrppurgereqentry.EntityData.YFilter = nhrppurgereqentry.YFilter
-    nhrppurgereqentry.EntityData.YangName = "nhrpPurgeReqEntry"
-    nhrppurgereqentry.EntityData.BundleName = "cisco_ios_xe"
-    nhrppurgereqentry.EntityData.ParentYangName = "nhrpPurgeReqTable"
-    nhrppurgereqentry.EntityData.SegmentPath = "nhrpPurgeReqEntry" + "[nhrpPurgeIndex='" + fmt.Sprintf("%v", nhrppurgereqentry.Nhrppurgeindex) + "']"
-    nhrppurgereqentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrppurgereqentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrppurgereqentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpPurgeReqEntry *NHRPMIB_NhrpPurgeReqTable_NhrpPurgeReqEntry) GetEntityData() *types.CommonEntityData {
+    nhrpPurgeReqEntry.EntityData.YFilter = nhrpPurgeReqEntry.YFilter
+    nhrpPurgeReqEntry.EntityData.YangName = "nhrpPurgeReqEntry"
+    nhrpPurgeReqEntry.EntityData.BundleName = "cisco_ios_xe"
+    nhrpPurgeReqEntry.EntityData.ParentYangName = "nhrpPurgeReqTable"
+    nhrpPurgeReqEntry.EntityData.SegmentPath = "nhrpPurgeReqEntry" + types.AddKeyToken(nhrpPurgeReqEntry.NhrpPurgeIndex, "nhrpPurgeIndex")
+    nhrpPurgeReqEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpPurgeReqEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpPurgeReqEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrppurgereqentry.EntityData.Children = make(map[string]types.YChild)
-    nhrppurgereqentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    nhrppurgereqentry.EntityData.Leafs["nhrpPurgeIndex"] = types.YLeaf{"Nhrppurgeindex", nhrppurgereqentry.Nhrppurgeindex}
-    nhrppurgereqentry.EntityData.Leafs["nhrpPurgeCacheIdentifier"] = types.YLeaf{"Nhrppurgecacheidentifier", nhrppurgereqentry.Nhrppurgecacheidentifier}
-    nhrppurgereqentry.EntityData.Leafs["nhrpPurgePrefixLength"] = types.YLeaf{"Nhrppurgeprefixlength", nhrppurgereqentry.Nhrppurgeprefixlength}
-    nhrppurgereqentry.EntityData.Leafs["nhrpPurgeRequestID"] = types.YLeaf{"Nhrppurgerequestid", nhrppurgereqentry.Nhrppurgerequestid}
-    nhrppurgereqentry.EntityData.Leafs["nhrpPurgeReplyExpected"] = types.YLeaf{"Nhrppurgereplyexpected", nhrppurgereqentry.Nhrppurgereplyexpected}
-    nhrppurgereqentry.EntityData.Leafs["nhrpPurgeRowStatus"] = types.YLeaf{"Nhrppurgerowstatus", nhrppurgereqentry.Nhrppurgerowstatus}
-    return &(nhrppurgereqentry.EntityData)
+    nhrpPurgeReqEntry.EntityData.Children = types.NewOrderedMap()
+    nhrpPurgeReqEntry.EntityData.Leafs = types.NewOrderedMap()
+    nhrpPurgeReqEntry.EntityData.Leafs.Append("nhrpPurgeIndex", types.YLeaf{"NhrpPurgeIndex", nhrpPurgeReqEntry.NhrpPurgeIndex})
+    nhrpPurgeReqEntry.EntityData.Leafs.Append("nhrpPurgeCacheIdentifier", types.YLeaf{"NhrpPurgeCacheIdentifier", nhrpPurgeReqEntry.NhrpPurgeCacheIdentifier})
+    nhrpPurgeReqEntry.EntityData.Leafs.Append("nhrpPurgePrefixLength", types.YLeaf{"NhrpPurgePrefixLength", nhrpPurgeReqEntry.NhrpPurgePrefixLength})
+    nhrpPurgeReqEntry.EntityData.Leafs.Append("nhrpPurgeRequestID", types.YLeaf{"NhrpPurgeRequestID", nhrpPurgeReqEntry.NhrpPurgeRequestID})
+    nhrpPurgeReqEntry.EntityData.Leafs.Append("nhrpPurgeReplyExpected", types.YLeaf{"NhrpPurgeReplyExpected", nhrpPurgeReqEntry.NhrpPurgeReplyExpected})
+    nhrpPurgeReqEntry.EntityData.Leafs.Append("nhrpPurgeRowStatus", types.YLeaf{"NhrpPurgeRowStatus", nhrpPurgeReqEntry.NhrpPurgeRowStatus})
+
+    nhrpPurgeReqEntry.EntityData.YListKeys = []string {"NhrpPurgeIndex"}
+
+    return &(nhrpPurgeReqEntry.EntityData)
 }
 
-// NHRPMIB_Nhrpclienttable
+// NHRPMIB_NhrpClientTable
 // Information about NHRP clients (NHCs) managed by this
 // agent.
-type NHRPMIB_Nhrpclienttable struct {
+type NHRPMIB_NhrpClientTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a single NHC. The type is slice of
-    // NHRPMIB_Nhrpclienttable_Nhrpcliententry.
-    Nhrpcliententry []NHRPMIB_Nhrpclienttable_Nhrpcliententry
+    // NHRPMIB_NhrpClientTable_NhrpClientEntry.
+    NhrpClientEntry []*NHRPMIB_NhrpClientTable_NhrpClientEntry
 }
 
-func (nhrpclienttable *NHRPMIB_Nhrpclienttable) GetEntityData() *types.CommonEntityData {
-    nhrpclienttable.EntityData.YFilter = nhrpclienttable.YFilter
-    nhrpclienttable.EntityData.YangName = "nhrpClientTable"
-    nhrpclienttable.EntityData.BundleName = "cisco_ios_xe"
-    nhrpclienttable.EntityData.ParentYangName = "NHRP-MIB"
-    nhrpclienttable.EntityData.SegmentPath = "nhrpClientTable"
-    nhrpclienttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrpclienttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrpclienttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpClientTable *NHRPMIB_NhrpClientTable) GetEntityData() *types.CommonEntityData {
+    nhrpClientTable.EntityData.YFilter = nhrpClientTable.YFilter
+    nhrpClientTable.EntityData.YangName = "nhrpClientTable"
+    nhrpClientTable.EntityData.BundleName = "cisco_ios_xe"
+    nhrpClientTable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpClientTable.EntityData.SegmentPath = "nhrpClientTable"
+    nhrpClientTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpClientTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpClientTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrpclienttable.EntityData.Children = make(map[string]types.YChild)
-    nhrpclienttable.EntityData.Children["nhrpClientEntry"] = types.YChild{"Nhrpcliententry", nil}
-    for i := range nhrpclienttable.Nhrpcliententry {
-        nhrpclienttable.EntityData.Children[types.GetSegmentPath(&nhrpclienttable.Nhrpcliententry[i])] = types.YChild{"Nhrpcliententry", &nhrpclienttable.Nhrpcliententry[i]}
+    nhrpClientTable.EntityData.Children = types.NewOrderedMap()
+    nhrpClientTable.EntityData.Children.Append("nhrpClientEntry", types.YChild{"NhrpClientEntry", nil})
+    for i := range nhrpClientTable.NhrpClientEntry {
+        nhrpClientTable.EntityData.Children.Append(types.GetSegmentPath(nhrpClientTable.NhrpClientEntry[i]), types.YChild{"NhrpClientEntry", nhrpClientTable.NhrpClientEntry[i]})
     }
-    nhrpclienttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(nhrpclienttable.EntityData)
+    nhrpClientTable.EntityData.Leafs = types.NewOrderedMap()
+
+    nhrpClientTable.EntityData.YListKeys = []string {}
+
+    return &(nhrpClientTable.EntityData)
 }
 
-// NHRPMIB_Nhrpclienttable_Nhrpcliententry
+// NHRPMIB_NhrpClientTable_NhrpClientEntry
 // Information about a single NHC.
-type NHRPMIB_Nhrpclienttable_Nhrpcliententry struct {
+type NHRPMIB_NhrpClientTable_NhrpClientEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -499,61 +520,61 @@ type NHRPMIB_Nhrpclienttable_Nhrpcliententry struct {
     // consulted (read), prior to creating a row in this table, and the value
     // returned from reading 'nhrpNextIndex' should be used as this object's
     // value. The type is interface{} with range: 1..4294967295.
-    Nhrpclientindex interface{}
+    NhrpClientIndex interface{}
 
     // The type of the internetwork layer address of this client. This object
     // indicates how the value of nhrpClientInternetworkAddr is to be interpreted.
     // The type is AddressFamilyNumbers.
-    Nhrpclientinternetworkaddrtype interface{}
+    NhrpClientInternetworkAddrType interface{}
 
     // The value of the internetwork layer address of this client. The type is
     // string with length: 0..64.
-    Nhrpclientinternetworkaddr interface{}
+    NhrpClientInternetworkAddr interface{}
 
     // The type of the NBMA subnetwork address of this client. This object
     // indicates how the values of nhrpClientNbmaAddr and nhrpClientNbmaSubaddr
     // are to be interpreted. The type is AddressFamilyNumbers.
-    Nhrpclientnbmaaddrtype interface{}
+    NhrpClientNbmaAddrType interface{}
 
     // The NBMA subnetwork address of this client. The type is string with length:
     // 0..64.
-    Nhrpclientnbmaaddr interface{}
+    NhrpClientNbmaAddr interface{}
 
     // The NBMA subaddress of this client. For NBMA address families without a
     // subaddress concept, this will be a zero-length OCTET STRING. The type is
     // string with length: 0..64.
-    Nhrpclientnbmasubaddr interface{}
+    NhrpClientNbmaSubaddr interface{}
 
     // The number of seconds that the client will wait before timing out an NHRP
     // initial request.  This object only has meaning for the initial timeout
     // period. The type is interface{} with range: 1..900. Units are seconds.
-    Nhrpclientinitialrequesttimeout interface{}
+    NhrpClientInitialRequestTimeout interface{}
 
     // The number of times the client will retry the registration request before
     // failure. A value of 0 means don't retry. A value of 65535 means retry
     // forever. The type is interface{} with range: 0..65535.
-    Nhrpclientregistrationrequestretries interface{}
+    NhrpClientRegistrationRequestRetries interface{}
 
     // The number of times the client will retry the resolution request before
     // failure. A value of 0 means don't retry. A value of 65535 means retry
     // forever. The type is interface{} with range: 0..65535.
-    Nhrpclientresolutionrequestretries interface{}
+    NhrpClientResolutionRequestRetries interface{}
 
     // The number of times the client will retry a purge request before failure. A
     // value of 0 means don't retry. A value of 65535 means retry forever. The
     // type is interface{} with range: 0..65535.
-    Nhrpclientpurgerequestretries interface{}
+    NhrpClientPurgeRequestRetries interface{}
 
     // The default maximum transmission unit (MTU) of the LIS/LAG which this
     // client should use. This object will be initialized by the agent to the
     // default MTU of the LIS/LAG (which is 9180) unless a different MTU value is
     // specified during creation of this Client. The type is interface{} with
     // range: 0..65535.
-    Nhrpclientdefaultmtu interface{}
+    NhrpClientDefaultMtu interface{}
 
     // The hold time the client will register. The type is interface{} with range:
     // 0..65535. Units are seconds.
-    Nhrpclientholdtime interface{}
+    NhrpClientHoldTime interface{}
 
     // The Request ID used to register this client with its server. According to
     // Section 5.2.3 of the NHRP Specification, RFC 2332 [17], the Request ID must
@@ -561,103 +582,109 @@ type NHRPMIB_Nhrpclienttable_Nhrpcliententry struct {
     // re-initializes, it will use a different  Request ID during the registration
     // process when reregistering with the same NHS. The type is interface{} with
     // range: 0..4294967295.
-    Nhrpclientrequestid interface{}
+    NhrpClientRequestID interface{}
 
     // This object defines whether this row is kept in volatile storage and lost
     // upon a Client crash or reboot situation, or if this row is backed up by
     // nonvolatile or permanent storage. The type is StorageType.
-    Nhrpclientstoragetype interface{}
+    NhrpClientStorageType interface{}
 
     // An object that allows entries in this table to be created and deleted using
     // the RowStatus convention. The type is RowStatus.
-    Nhrpclientrowstatus interface{}
+    NhrpClientRowStatus interface{}
 }
 
-func (nhrpcliententry *NHRPMIB_Nhrpclienttable_Nhrpcliententry) GetEntityData() *types.CommonEntityData {
-    nhrpcliententry.EntityData.YFilter = nhrpcliententry.YFilter
-    nhrpcliententry.EntityData.YangName = "nhrpClientEntry"
-    nhrpcliententry.EntityData.BundleName = "cisco_ios_xe"
-    nhrpcliententry.EntityData.ParentYangName = "nhrpClientTable"
-    nhrpcliententry.EntityData.SegmentPath = "nhrpClientEntry" + "[nhrpClientIndex='" + fmt.Sprintf("%v", nhrpcliententry.Nhrpclientindex) + "']"
-    nhrpcliententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrpcliententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrpcliententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpClientEntry *NHRPMIB_NhrpClientTable_NhrpClientEntry) GetEntityData() *types.CommonEntityData {
+    nhrpClientEntry.EntityData.YFilter = nhrpClientEntry.YFilter
+    nhrpClientEntry.EntityData.YangName = "nhrpClientEntry"
+    nhrpClientEntry.EntityData.BundleName = "cisco_ios_xe"
+    nhrpClientEntry.EntityData.ParentYangName = "nhrpClientTable"
+    nhrpClientEntry.EntityData.SegmentPath = "nhrpClientEntry" + types.AddKeyToken(nhrpClientEntry.NhrpClientIndex, "nhrpClientIndex")
+    nhrpClientEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpClientEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpClientEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrpcliententry.EntityData.Children = make(map[string]types.YChild)
-    nhrpcliententry.EntityData.Leafs = make(map[string]types.YLeaf)
-    nhrpcliententry.EntityData.Leafs["nhrpClientIndex"] = types.YLeaf{"Nhrpclientindex", nhrpcliententry.Nhrpclientindex}
-    nhrpcliententry.EntityData.Leafs["nhrpClientInternetworkAddrType"] = types.YLeaf{"Nhrpclientinternetworkaddrtype", nhrpcliententry.Nhrpclientinternetworkaddrtype}
-    nhrpcliententry.EntityData.Leafs["nhrpClientInternetworkAddr"] = types.YLeaf{"Nhrpclientinternetworkaddr", nhrpcliententry.Nhrpclientinternetworkaddr}
-    nhrpcliententry.EntityData.Leafs["nhrpClientNbmaAddrType"] = types.YLeaf{"Nhrpclientnbmaaddrtype", nhrpcliententry.Nhrpclientnbmaaddrtype}
-    nhrpcliententry.EntityData.Leafs["nhrpClientNbmaAddr"] = types.YLeaf{"Nhrpclientnbmaaddr", nhrpcliententry.Nhrpclientnbmaaddr}
-    nhrpcliententry.EntityData.Leafs["nhrpClientNbmaSubaddr"] = types.YLeaf{"Nhrpclientnbmasubaddr", nhrpcliententry.Nhrpclientnbmasubaddr}
-    nhrpcliententry.EntityData.Leafs["nhrpClientInitialRequestTimeout"] = types.YLeaf{"Nhrpclientinitialrequesttimeout", nhrpcliententry.Nhrpclientinitialrequesttimeout}
-    nhrpcliententry.EntityData.Leafs["nhrpClientRegistrationRequestRetries"] = types.YLeaf{"Nhrpclientregistrationrequestretries", nhrpcliententry.Nhrpclientregistrationrequestretries}
-    nhrpcliententry.EntityData.Leafs["nhrpClientResolutionRequestRetries"] = types.YLeaf{"Nhrpclientresolutionrequestretries", nhrpcliententry.Nhrpclientresolutionrequestretries}
-    nhrpcliententry.EntityData.Leafs["nhrpClientPurgeRequestRetries"] = types.YLeaf{"Nhrpclientpurgerequestretries", nhrpcliententry.Nhrpclientpurgerequestretries}
-    nhrpcliententry.EntityData.Leafs["nhrpClientDefaultMtu"] = types.YLeaf{"Nhrpclientdefaultmtu", nhrpcliententry.Nhrpclientdefaultmtu}
-    nhrpcliententry.EntityData.Leafs["nhrpClientHoldTime"] = types.YLeaf{"Nhrpclientholdtime", nhrpcliententry.Nhrpclientholdtime}
-    nhrpcliententry.EntityData.Leafs["nhrpClientRequestID"] = types.YLeaf{"Nhrpclientrequestid", nhrpcliententry.Nhrpclientrequestid}
-    nhrpcliententry.EntityData.Leafs["nhrpClientStorageType"] = types.YLeaf{"Nhrpclientstoragetype", nhrpcliententry.Nhrpclientstoragetype}
-    nhrpcliententry.EntityData.Leafs["nhrpClientRowStatus"] = types.YLeaf{"Nhrpclientrowstatus", nhrpcliententry.Nhrpclientrowstatus}
-    return &(nhrpcliententry.EntityData)
+    nhrpClientEntry.EntityData.Children = types.NewOrderedMap()
+    nhrpClientEntry.EntityData.Leafs = types.NewOrderedMap()
+    nhrpClientEntry.EntityData.Leafs.Append("nhrpClientIndex", types.YLeaf{"NhrpClientIndex", nhrpClientEntry.NhrpClientIndex})
+    nhrpClientEntry.EntityData.Leafs.Append("nhrpClientInternetworkAddrType", types.YLeaf{"NhrpClientInternetworkAddrType", nhrpClientEntry.NhrpClientInternetworkAddrType})
+    nhrpClientEntry.EntityData.Leafs.Append("nhrpClientInternetworkAddr", types.YLeaf{"NhrpClientInternetworkAddr", nhrpClientEntry.NhrpClientInternetworkAddr})
+    nhrpClientEntry.EntityData.Leafs.Append("nhrpClientNbmaAddrType", types.YLeaf{"NhrpClientNbmaAddrType", nhrpClientEntry.NhrpClientNbmaAddrType})
+    nhrpClientEntry.EntityData.Leafs.Append("nhrpClientNbmaAddr", types.YLeaf{"NhrpClientNbmaAddr", nhrpClientEntry.NhrpClientNbmaAddr})
+    nhrpClientEntry.EntityData.Leafs.Append("nhrpClientNbmaSubaddr", types.YLeaf{"NhrpClientNbmaSubaddr", nhrpClientEntry.NhrpClientNbmaSubaddr})
+    nhrpClientEntry.EntityData.Leafs.Append("nhrpClientInitialRequestTimeout", types.YLeaf{"NhrpClientInitialRequestTimeout", nhrpClientEntry.NhrpClientInitialRequestTimeout})
+    nhrpClientEntry.EntityData.Leafs.Append("nhrpClientRegistrationRequestRetries", types.YLeaf{"NhrpClientRegistrationRequestRetries", nhrpClientEntry.NhrpClientRegistrationRequestRetries})
+    nhrpClientEntry.EntityData.Leafs.Append("nhrpClientResolutionRequestRetries", types.YLeaf{"NhrpClientResolutionRequestRetries", nhrpClientEntry.NhrpClientResolutionRequestRetries})
+    nhrpClientEntry.EntityData.Leafs.Append("nhrpClientPurgeRequestRetries", types.YLeaf{"NhrpClientPurgeRequestRetries", nhrpClientEntry.NhrpClientPurgeRequestRetries})
+    nhrpClientEntry.EntityData.Leafs.Append("nhrpClientDefaultMtu", types.YLeaf{"NhrpClientDefaultMtu", nhrpClientEntry.NhrpClientDefaultMtu})
+    nhrpClientEntry.EntityData.Leafs.Append("nhrpClientHoldTime", types.YLeaf{"NhrpClientHoldTime", nhrpClientEntry.NhrpClientHoldTime})
+    nhrpClientEntry.EntityData.Leafs.Append("nhrpClientRequestID", types.YLeaf{"NhrpClientRequestID", nhrpClientEntry.NhrpClientRequestID})
+    nhrpClientEntry.EntityData.Leafs.Append("nhrpClientStorageType", types.YLeaf{"NhrpClientStorageType", nhrpClientEntry.NhrpClientStorageType})
+    nhrpClientEntry.EntityData.Leafs.Append("nhrpClientRowStatus", types.YLeaf{"NhrpClientRowStatus", nhrpClientEntry.NhrpClientRowStatus})
+
+    nhrpClientEntry.EntityData.YListKeys = []string {"NhrpClientIndex"}
+
+    return &(nhrpClientEntry.EntityData)
 }
 
-// NHRPMIB_Nhrpclientregistrationtable
+// NHRPMIB_NhrpClientRegistrationTable
 // A table of Registration Request Information that
 // needs to be maintained by the NHCs (clients).
-type NHRPMIB_Nhrpclientregistrationtable struct {
+type NHRPMIB_NhrpClientRegistrationTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An NHC needs to maintain registration request information between the NHC
     // and the NHS.  An entry in this table represents information for a single
     // registration request. The type is slice of
-    // NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry.
-    Nhrpclientregistrationentry []NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry
+    // NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry.
+    NhrpClientRegistrationEntry []*NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry
 }
 
-func (nhrpclientregistrationtable *NHRPMIB_Nhrpclientregistrationtable) GetEntityData() *types.CommonEntityData {
-    nhrpclientregistrationtable.EntityData.YFilter = nhrpclientregistrationtable.YFilter
-    nhrpclientregistrationtable.EntityData.YangName = "nhrpClientRegistrationTable"
-    nhrpclientregistrationtable.EntityData.BundleName = "cisco_ios_xe"
-    nhrpclientregistrationtable.EntityData.ParentYangName = "NHRP-MIB"
-    nhrpclientregistrationtable.EntityData.SegmentPath = "nhrpClientRegistrationTable"
-    nhrpclientregistrationtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrpclientregistrationtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrpclientregistrationtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpClientRegistrationTable *NHRPMIB_NhrpClientRegistrationTable) GetEntityData() *types.CommonEntityData {
+    nhrpClientRegistrationTable.EntityData.YFilter = nhrpClientRegistrationTable.YFilter
+    nhrpClientRegistrationTable.EntityData.YangName = "nhrpClientRegistrationTable"
+    nhrpClientRegistrationTable.EntityData.BundleName = "cisco_ios_xe"
+    nhrpClientRegistrationTable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpClientRegistrationTable.EntityData.SegmentPath = "nhrpClientRegistrationTable"
+    nhrpClientRegistrationTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpClientRegistrationTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpClientRegistrationTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrpclientregistrationtable.EntityData.Children = make(map[string]types.YChild)
-    nhrpclientregistrationtable.EntityData.Children["nhrpClientRegistrationEntry"] = types.YChild{"Nhrpclientregistrationentry", nil}
-    for i := range nhrpclientregistrationtable.Nhrpclientregistrationentry {
-        nhrpclientregistrationtable.EntityData.Children[types.GetSegmentPath(&nhrpclientregistrationtable.Nhrpclientregistrationentry[i])] = types.YChild{"Nhrpclientregistrationentry", &nhrpclientregistrationtable.Nhrpclientregistrationentry[i]}
+    nhrpClientRegistrationTable.EntityData.Children = types.NewOrderedMap()
+    nhrpClientRegistrationTable.EntityData.Children.Append("nhrpClientRegistrationEntry", types.YChild{"NhrpClientRegistrationEntry", nil})
+    for i := range nhrpClientRegistrationTable.NhrpClientRegistrationEntry {
+        nhrpClientRegistrationTable.EntityData.Children.Append(types.GetSegmentPath(nhrpClientRegistrationTable.NhrpClientRegistrationEntry[i]), types.YChild{"NhrpClientRegistrationEntry", nhrpClientRegistrationTable.NhrpClientRegistrationEntry[i]})
     }
-    nhrpclientregistrationtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(nhrpclientregistrationtable.EntityData)
+    nhrpClientRegistrationTable.EntityData.Leafs = types.NewOrderedMap()
+
+    nhrpClientRegistrationTable.EntityData.YListKeys = []string {}
+
+    return &(nhrpClientRegistrationTable.EntityData)
 }
 
-// NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry
+// NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry
 // An NHC needs to maintain registration request information
 // between the NHC and the NHS.  An entry in this table
 // represents information for a single registration request.
-type NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry struct {
+type NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
-    // Refers to nhrp_mib.NHRPMIB_Nhrpclienttable_Nhrpcliententry_Nhrpclientindex
-    Nhrpclientindex interface{}
+    // Refers to nhrp_mib.NHRPMIB_NhrpClientTable_NhrpClientEntry_NhrpClientIndex
+    NhrpClientIndex interface{}
 
     // This attribute is a key. An identifier for this entry such that it
     // identifies a specific Registration Request from the NHC represented by the
     // nhrpClientIndex. The type is interface{} with range: 1..4294967295.
-    Nhrpclientregindex interface{}
+    NhrpClientRegIndex interface{}
 
     // The Uniqueness indicator for this Registration Request. If this object has
     // the value of requestUnique(1), then the Uniqueness bit is set in the the
     // NHRP Registration Request represented by this row.  The value cannot be
-    // changed once the row is created. The type is Nhrpclientreguniqueness.
-    Nhrpclientreguniqueness interface{}
+    // changed once the row is created. The type is NhrpClientRegUniqueness.
+    NhrpClientRegUniqueness interface{}
 
     // The registration state of this client. The values are: 'other(1)'          
     // The state of the registration                        request is not one of 
@@ -667,208 +694,220 @@ type NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry struct {
     // 'ackRegisterReply(3)'   A positive registration reply                      
     // has been received.  'nakRegisterReply(4)'   The client has received a      
     // negative registration                         reply (NAK). The type is
-    // Nhrpclientregstate.
-    Nhrpclientregstate interface{}
+    // NhrpClientRegState.
+    NhrpClientRegState interface{}
 
     // An object that allows entries in this table to be created and deleted using
     // the RowStatus convention. The type is RowStatus.
-    Nhrpclientregrowstatus interface{}
+    NhrpClientRegRowStatus interface{}
 }
 
-func (nhrpclientregistrationentry *NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry) GetEntityData() *types.CommonEntityData {
-    nhrpclientregistrationentry.EntityData.YFilter = nhrpclientregistrationentry.YFilter
-    nhrpclientregistrationentry.EntityData.YangName = "nhrpClientRegistrationEntry"
-    nhrpclientregistrationentry.EntityData.BundleName = "cisco_ios_xe"
-    nhrpclientregistrationentry.EntityData.ParentYangName = "nhrpClientRegistrationTable"
-    nhrpclientregistrationentry.EntityData.SegmentPath = "nhrpClientRegistrationEntry" + "[nhrpClientIndex='" + fmt.Sprintf("%v", nhrpclientregistrationentry.Nhrpclientindex) + "']" + "[nhrpClientRegIndex='" + fmt.Sprintf("%v", nhrpclientregistrationentry.Nhrpclientregindex) + "']"
-    nhrpclientregistrationentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrpclientregistrationentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrpclientregistrationentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpClientRegistrationEntry *NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry) GetEntityData() *types.CommonEntityData {
+    nhrpClientRegistrationEntry.EntityData.YFilter = nhrpClientRegistrationEntry.YFilter
+    nhrpClientRegistrationEntry.EntityData.YangName = "nhrpClientRegistrationEntry"
+    nhrpClientRegistrationEntry.EntityData.BundleName = "cisco_ios_xe"
+    nhrpClientRegistrationEntry.EntityData.ParentYangName = "nhrpClientRegistrationTable"
+    nhrpClientRegistrationEntry.EntityData.SegmentPath = "nhrpClientRegistrationEntry" + types.AddKeyToken(nhrpClientRegistrationEntry.NhrpClientIndex, "nhrpClientIndex") + types.AddKeyToken(nhrpClientRegistrationEntry.NhrpClientRegIndex, "nhrpClientRegIndex")
+    nhrpClientRegistrationEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpClientRegistrationEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpClientRegistrationEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrpclientregistrationentry.EntityData.Children = make(map[string]types.YChild)
-    nhrpclientregistrationentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    nhrpclientregistrationentry.EntityData.Leafs["nhrpClientIndex"] = types.YLeaf{"Nhrpclientindex", nhrpclientregistrationentry.Nhrpclientindex}
-    nhrpclientregistrationentry.EntityData.Leafs["nhrpClientRegIndex"] = types.YLeaf{"Nhrpclientregindex", nhrpclientregistrationentry.Nhrpclientregindex}
-    nhrpclientregistrationentry.EntityData.Leafs["nhrpClientRegUniqueness"] = types.YLeaf{"Nhrpclientreguniqueness", nhrpclientregistrationentry.Nhrpclientreguniqueness}
-    nhrpclientregistrationentry.EntityData.Leafs["nhrpClientRegState"] = types.YLeaf{"Nhrpclientregstate", nhrpclientregistrationentry.Nhrpclientregstate}
-    nhrpclientregistrationentry.EntityData.Leafs["nhrpClientRegRowStatus"] = types.YLeaf{"Nhrpclientregrowstatus", nhrpclientregistrationentry.Nhrpclientregrowstatus}
-    return &(nhrpclientregistrationentry.EntityData)
+    nhrpClientRegistrationEntry.EntityData.Children = types.NewOrderedMap()
+    nhrpClientRegistrationEntry.EntityData.Leafs = types.NewOrderedMap()
+    nhrpClientRegistrationEntry.EntityData.Leafs.Append("nhrpClientIndex", types.YLeaf{"NhrpClientIndex", nhrpClientRegistrationEntry.NhrpClientIndex})
+    nhrpClientRegistrationEntry.EntityData.Leafs.Append("nhrpClientRegIndex", types.YLeaf{"NhrpClientRegIndex", nhrpClientRegistrationEntry.NhrpClientRegIndex})
+    nhrpClientRegistrationEntry.EntityData.Leafs.Append("nhrpClientRegUniqueness", types.YLeaf{"NhrpClientRegUniqueness", nhrpClientRegistrationEntry.NhrpClientRegUniqueness})
+    nhrpClientRegistrationEntry.EntityData.Leafs.Append("nhrpClientRegState", types.YLeaf{"NhrpClientRegState", nhrpClientRegistrationEntry.NhrpClientRegState})
+    nhrpClientRegistrationEntry.EntityData.Leafs.Append("nhrpClientRegRowStatus", types.YLeaf{"NhrpClientRegRowStatus", nhrpClientRegistrationEntry.NhrpClientRegRowStatus})
+
+    nhrpClientRegistrationEntry.EntityData.YListKeys = []string {"NhrpClientIndex", "NhrpClientRegIndex"}
+
+    return &(nhrpClientRegistrationEntry.EntityData)
 }
 
-// NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry_Nhrpclientregstate represents                         reply (NAK).
-type NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry_Nhrpclientregstate string
+// NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry_NhrpClientRegState represents                         reply (NAK).
+type NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry_NhrpClientRegState string
 
 const (
-    NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry_Nhrpclientregstate_other NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry_Nhrpclientregstate = "other"
+    NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry_NhrpClientRegState_other NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry_NhrpClientRegState = "other"
 
-    NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry_Nhrpclientregstate_registering NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry_Nhrpclientregstate = "registering"
+    NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry_NhrpClientRegState_registering NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry_NhrpClientRegState = "registering"
 
-    NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry_Nhrpclientregstate_ackRegisterReply NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry_Nhrpclientregstate = "ackRegisterReply"
+    NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry_NhrpClientRegState_ackRegisterReply NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry_NhrpClientRegState = "ackRegisterReply"
 
-    NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry_Nhrpclientregstate_nakRegisterReply NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry_Nhrpclientregstate = "nakRegisterReply"
+    NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry_NhrpClientRegState_nakRegisterReply NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry_NhrpClientRegState = "nakRegisterReply"
 )
 
-// NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry_Nhrpclientreguniqueness represents be changed once the row is created.
-type NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry_Nhrpclientreguniqueness string
+// NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry_NhrpClientRegUniqueness represents be changed once the row is created.
+type NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry_NhrpClientRegUniqueness string
 
 const (
-    NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry_Nhrpclientreguniqueness_requestUnique NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry_Nhrpclientreguniqueness = "requestUnique"
+    NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry_NhrpClientRegUniqueness_requestUnique NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry_NhrpClientRegUniqueness = "requestUnique"
 
-    NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry_Nhrpclientreguniqueness_requestNotUnique NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry_Nhrpclientreguniqueness = "requestNotUnique"
+    NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry_NhrpClientRegUniqueness_requestNotUnique NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry_NhrpClientRegUniqueness = "requestNotUnique"
 )
 
-// NHRPMIB_Nhrpclientnhstable
+// NHRPMIB_NhrpClientNhsTable
 // A table of NHSes that are available for use by this NHC
 // (client). By default, the agent will add an entry to this
 // table that corresponds to the client's default router.
-type NHRPMIB_Nhrpclientnhstable struct {
+type NHRPMIB_NhrpClientNhsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An NHS that may be used by an NHC. The type is slice of
-    // NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry.
-    Nhrpclientnhsentry []NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry
+    // NHRPMIB_NhrpClientNhsTable_NhrpClientNhsEntry.
+    NhrpClientNhsEntry []*NHRPMIB_NhrpClientNhsTable_NhrpClientNhsEntry
 }
 
-func (nhrpclientnhstable *NHRPMIB_Nhrpclientnhstable) GetEntityData() *types.CommonEntityData {
-    nhrpclientnhstable.EntityData.YFilter = nhrpclientnhstable.YFilter
-    nhrpclientnhstable.EntityData.YangName = "nhrpClientNhsTable"
-    nhrpclientnhstable.EntityData.BundleName = "cisco_ios_xe"
-    nhrpclientnhstable.EntityData.ParentYangName = "NHRP-MIB"
-    nhrpclientnhstable.EntityData.SegmentPath = "nhrpClientNhsTable"
-    nhrpclientnhstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrpclientnhstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrpclientnhstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpClientNhsTable *NHRPMIB_NhrpClientNhsTable) GetEntityData() *types.CommonEntityData {
+    nhrpClientNhsTable.EntityData.YFilter = nhrpClientNhsTable.YFilter
+    nhrpClientNhsTable.EntityData.YangName = "nhrpClientNhsTable"
+    nhrpClientNhsTable.EntityData.BundleName = "cisco_ios_xe"
+    nhrpClientNhsTable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpClientNhsTable.EntityData.SegmentPath = "nhrpClientNhsTable"
+    nhrpClientNhsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpClientNhsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpClientNhsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrpclientnhstable.EntityData.Children = make(map[string]types.YChild)
-    nhrpclientnhstable.EntityData.Children["nhrpClientNhsEntry"] = types.YChild{"Nhrpclientnhsentry", nil}
-    for i := range nhrpclientnhstable.Nhrpclientnhsentry {
-        nhrpclientnhstable.EntityData.Children[types.GetSegmentPath(&nhrpclientnhstable.Nhrpclientnhsentry[i])] = types.YChild{"Nhrpclientnhsentry", &nhrpclientnhstable.Nhrpclientnhsentry[i]}
+    nhrpClientNhsTable.EntityData.Children = types.NewOrderedMap()
+    nhrpClientNhsTable.EntityData.Children.Append("nhrpClientNhsEntry", types.YChild{"NhrpClientNhsEntry", nil})
+    for i := range nhrpClientNhsTable.NhrpClientNhsEntry {
+        nhrpClientNhsTable.EntityData.Children.Append(types.GetSegmentPath(nhrpClientNhsTable.NhrpClientNhsEntry[i]), types.YChild{"NhrpClientNhsEntry", nhrpClientNhsTable.NhrpClientNhsEntry[i]})
     }
-    nhrpclientnhstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(nhrpclientnhstable.EntityData)
+    nhrpClientNhsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    nhrpClientNhsTable.EntityData.YListKeys = []string {}
+
+    return &(nhrpClientNhsTable.EntityData)
 }
 
-// NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry
+// NHRPMIB_NhrpClientNhsTable_NhrpClientNhsEntry
 // An NHS that may be used by an NHC.
-type NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry struct {
+type NHRPMIB_NhrpClientNhsTable_NhrpClientNhsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
-    // Refers to nhrp_mib.NHRPMIB_Nhrpclienttable_Nhrpcliententry_Nhrpclientindex
-    Nhrpclientindex interface{}
+    // Refers to nhrp_mib.NHRPMIB_NhrpClientTable_NhrpClientEntry_NhrpClientIndex
+    NhrpClientIndex interface{}
 
     // This attribute is a key. An identifier for an NHS available to an NHC. The
     // type is interface{} with range: 1..4294967295.
-    Nhrpclientnhsindex interface{}
+    NhrpClientNhsIndex interface{}
 
     // The type of the internetwork layer address of the NHRP server represented
     // in this entry. This object indicates how the value of
     // nhrpClientNhsInternetworkAddr is to be interpreted. The type is
     // AddressFamilyNumbers.
-    Nhrpclientnhsinternetworkaddrtype interface{}
+    NhrpClientNhsInternetworkAddrType interface{}
 
     // The value of the destination internetwork layer address of the NHRP server
     // represented by this    entry.  If this value is not known, this will be a
     // zero-length OCTET STRING. The type is string with length: 0..64.
-    Nhrpclientnhsinternetworkaddr interface{}
+    NhrpClientNhsInternetworkAddr interface{}
 
     // The type of the NBMA subnetwork address of the NHRP Server represented by
     // this entry. This object indicates how the values of nhrpClientNhsNbmaAddr
     // and nhrpClientNhsNbmaSubaddr are to be interpreted. The type is
     // AddressFamilyNumbers.
-    Nhrpclientnhsnbmaaddrtype interface{}
+    NhrpClientNhsNbmaAddrType interface{}
 
     // The NBMA subnetwork address of the NHS. The type of the address is
     // indicated by the corresponding value of nhrpClientNhsNbmaAddrType. The type
     // is string with length: 0..64.
-    Nhrpclientnhsnbmaaddr interface{}
+    NhrpClientNhsNbmaAddr interface{}
 
     // The NBMA subaddress of the NHS. For NMBA address families that do not have
     // the concept of subaddress,      this will be a zero-length OCTET STRING.
     // The type is string with length: 0..64.
-    Nhrpclientnhsnbmasubaddr interface{}
+    NhrpClientNhsNbmaSubaddr interface{}
 
     // An indication of whether this NHS is in use by the NHC. The type is bool.
-    Nhrpclientnhsinuse interface{}
+    NhrpClientNhsInUse interface{}
 
     // An object that allows entries in this table to be created and deleted using
     // the RowStatus convention. The type is RowStatus.
-    Nhrpclientnhsrowstatus interface{}
+    NhrpClientNhsRowStatus interface{}
 }
 
-func (nhrpclientnhsentry *NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry) GetEntityData() *types.CommonEntityData {
-    nhrpclientnhsentry.EntityData.YFilter = nhrpclientnhsentry.YFilter
-    nhrpclientnhsentry.EntityData.YangName = "nhrpClientNhsEntry"
-    nhrpclientnhsentry.EntityData.BundleName = "cisco_ios_xe"
-    nhrpclientnhsentry.EntityData.ParentYangName = "nhrpClientNhsTable"
-    nhrpclientnhsentry.EntityData.SegmentPath = "nhrpClientNhsEntry" + "[nhrpClientIndex='" + fmt.Sprintf("%v", nhrpclientnhsentry.Nhrpclientindex) + "']" + "[nhrpClientNhsIndex='" + fmt.Sprintf("%v", nhrpclientnhsentry.Nhrpclientnhsindex) + "']"
-    nhrpclientnhsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrpclientnhsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrpclientnhsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpClientNhsEntry *NHRPMIB_NhrpClientNhsTable_NhrpClientNhsEntry) GetEntityData() *types.CommonEntityData {
+    nhrpClientNhsEntry.EntityData.YFilter = nhrpClientNhsEntry.YFilter
+    nhrpClientNhsEntry.EntityData.YangName = "nhrpClientNhsEntry"
+    nhrpClientNhsEntry.EntityData.BundleName = "cisco_ios_xe"
+    nhrpClientNhsEntry.EntityData.ParentYangName = "nhrpClientNhsTable"
+    nhrpClientNhsEntry.EntityData.SegmentPath = "nhrpClientNhsEntry" + types.AddKeyToken(nhrpClientNhsEntry.NhrpClientIndex, "nhrpClientIndex") + types.AddKeyToken(nhrpClientNhsEntry.NhrpClientNhsIndex, "nhrpClientNhsIndex")
+    nhrpClientNhsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpClientNhsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpClientNhsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrpclientnhsentry.EntityData.Children = make(map[string]types.YChild)
-    nhrpclientnhsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    nhrpclientnhsentry.EntityData.Leafs["nhrpClientIndex"] = types.YLeaf{"Nhrpclientindex", nhrpclientnhsentry.Nhrpclientindex}
-    nhrpclientnhsentry.EntityData.Leafs["nhrpClientNhsIndex"] = types.YLeaf{"Nhrpclientnhsindex", nhrpclientnhsentry.Nhrpclientnhsindex}
-    nhrpclientnhsentry.EntityData.Leafs["nhrpClientNhsInternetworkAddrType"] = types.YLeaf{"Nhrpclientnhsinternetworkaddrtype", nhrpclientnhsentry.Nhrpclientnhsinternetworkaddrtype}
-    nhrpclientnhsentry.EntityData.Leafs["nhrpClientNhsInternetworkAddr"] = types.YLeaf{"Nhrpclientnhsinternetworkaddr", nhrpclientnhsentry.Nhrpclientnhsinternetworkaddr}
-    nhrpclientnhsentry.EntityData.Leafs["nhrpClientNhsNbmaAddrType"] = types.YLeaf{"Nhrpclientnhsnbmaaddrtype", nhrpclientnhsentry.Nhrpclientnhsnbmaaddrtype}
-    nhrpclientnhsentry.EntityData.Leafs["nhrpClientNhsNbmaAddr"] = types.YLeaf{"Nhrpclientnhsnbmaaddr", nhrpclientnhsentry.Nhrpclientnhsnbmaaddr}
-    nhrpclientnhsentry.EntityData.Leafs["nhrpClientNhsNbmaSubaddr"] = types.YLeaf{"Nhrpclientnhsnbmasubaddr", nhrpclientnhsentry.Nhrpclientnhsnbmasubaddr}
-    nhrpclientnhsentry.EntityData.Leafs["nhrpClientNhsInUse"] = types.YLeaf{"Nhrpclientnhsinuse", nhrpclientnhsentry.Nhrpclientnhsinuse}
-    nhrpclientnhsentry.EntityData.Leafs["nhrpClientNhsRowStatus"] = types.YLeaf{"Nhrpclientnhsrowstatus", nhrpclientnhsentry.Nhrpclientnhsrowstatus}
-    return &(nhrpclientnhsentry.EntityData)
+    nhrpClientNhsEntry.EntityData.Children = types.NewOrderedMap()
+    nhrpClientNhsEntry.EntityData.Leafs = types.NewOrderedMap()
+    nhrpClientNhsEntry.EntityData.Leafs.Append("nhrpClientIndex", types.YLeaf{"NhrpClientIndex", nhrpClientNhsEntry.NhrpClientIndex})
+    nhrpClientNhsEntry.EntityData.Leafs.Append("nhrpClientNhsIndex", types.YLeaf{"NhrpClientNhsIndex", nhrpClientNhsEntry.NhrpClientNhsIndex})
+    nhrpClientNhsEntry.EntityData.Leafs.Append("nhrpClientNhsInternetworkAddrType", types.YLeaf{"NhrpClientNhsInternetworkAddrType", nhrpClientNhsEntry.NhrpClientNhsInternetworkAddrType})
+    nhrpClientNhsEntry.EntityData.Leafs.Append("nhrpClientNhsInternetworkAddr", types.YLeaf{"NhrpClientNhsInternetworkAddr", nhrpClientNhsEntry.NhrpClientNhsInternetworkAddr})
+    nhrpClientNhsEntry.EntityData.Leafs.Append("nhrpClientNhsNbmaAddrType", types.YLeaf{"NhrpClientNhsNbmaAddrType", nhrpClientNhsEntry.NhrpClientNhsNbmaAddrType})
+    nhrpClientNhsEntry.EntityData.Leafs.Append("nhrpClientNhsNbmaAddr", types.YLeaf{"NhrpClientNhsNbmaAddr", nhrpClientNhsEntry.NhrpClientNhsNbmaAddr})
+    nhrpClientNhsEntry.EntityData.Leafs.Append("nhrpClientNhsNbmaSubaddr", types.YLeaf{"NhrpClientNhsNbmaSubaddr", nhrpClientNhsEntry.NhrpClientNhsNbmaSubaddr})
+    nhrpClientNhsEntry.EntityData.Leafs.Append("nhrpClientNhsInUse", types.YLeaf{"NhrpClientNhsInUse", nhrpClientNhsEntry.NhrpClientNhsInUse})
+    nhrpClientNhsEntry.EntityData.Leafs.Append("nhrpClientNhsRowStatus", types.YLeaf{"NhrpClientNhsRowStatus", nhrpClientNhsEntry.NhrpClientNhsRowStatus})
+
+    nhrpClientNhsEntry.EntityData.YListKeys = []string {"NhrpClientIndex", "NhrpClientNhsIndex"}
+
+    return &(nhrpClientNhsEntry.EntityData)
 }
 
-// NHRPMIB_Nhrpclientstattable
+// NHRPMIB_NhrpClientStatTable
 // This table contains statistics collected by NHRP
 // clients.
-type NHRPMIB_Nhrpclientstattable struct {
+type NHRPMIB_NhrpClientStatTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Statistics collected by a NHRP client. The type is slice of
-    // NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry.
-    Nhrpclientstatentry []NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry
+    // NHRPMIB_NhrpClientStatTable_NhrpClientStatEntry.
+    NhrpClientStatEntry []*NHRPMIB_NhrpClientStatTable_NhrpClientStatEntry
 }
 
-func (nhrpclientstattable *NHRPMIB_Nhrpclientstattable) GetEntityData() *types.CommonEntityData {
-    nhrpclientstattable.EntityData.YFilter = nhrpclientstattable.YFilter
-    nhrpclientstattable.EntityData.YangName = "nhrpClientStatTable"
-    nhrpclientstattable.EntityData.BundleName = "cisco_ios_xe"
-    nhrpclientstattable.EntityData.ParentYangName = "NHRP-MIB"
-    nhrpclientstattable.EntityData.SegmentPath = "nhrpClientStatTable"
-    nhrpclientstattable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrpclientstattable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrpclientstattable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpClientStatTable *NHRPMIB_NhrpClientStatTable) GetEntityData() *types.CommonEntityData {
+    nhrpClientStatTable.EntityData.YFilter = nhrpClientStatTable.YFilter
+    nhrpClientStatTable.EntityData.YangName = "nhrpClientStatTable"
+    nhrpClientStatTable.EntityData.BundleName = "cisco_ios_xe"
+    nhrpClientStatTable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpClientStatTable.EntityData.SegmentPath = "nhrpClientStatTable"
+    nhrpClientStatTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpClientStatTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpClientStatTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrpclientstattable.EntityData.Children = make(map[string]types.YChild)
-    nhrpclientstattable.EntityData.Children["nhrpClientStatEntry"] = types.YChild{"Nhrpclientstatentry", nil}
-    for i := range nhrpclientstattable.Nhrpclientstatentry {
-        nhrpclientstattable.EntityData.Children[types.GetSegmentPath(&nhrpclientstattable.Nhrpclientstatentry[i])] = types.YChild{"Nhrpclientstatentry", &nhrpclientstattable.Nhrpclientstatentry[i]}
+    nhrpClientStatTable.EntityData.Children = types.NewOrderedMap()
+    nhrpClientStatTable.EntityData.Children.Append("nhrpClientStatEntry", types.YChild{"NhrpClientStatEntry", nil})
+    for i := range nhrpClientStatTable.NhrpClientStatEntry {
+        nhrpClientStatTable.EntityData.Children.Append(types.GetSegmentPath(nhrpClientStatTable.NhrpClientStatEntry[i]), types.YChild{"NhrpClientStatEntry", nhrpClientStatTable.NhrpClientStatEntry[i]})
     }
-    nhrpclientstattable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(nhrpclientstattable.EntityData)
+    nhrpClientStatTable.EntityData.Leafs = types.NewOrderedMap()
+
+    nhrpClientStatTable.EntityData.YListKeys = []string {}
+
+    return &(nhrpClientStatTable.EntityData)
 }
 
-// NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry
+// NHRPMIB_NhrpClientStatTable_NhrpClientStatEntry
 // Statistics collected by a NHRP client.
-type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
+type NHRPMIB_NhrpClientStatTable_NhrpClientStatEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
-    // Refers to nhrp_mib.NHRPMIB_Nhrpclienttable_Nhrpcliententry_Nhrpclientindex
-    Nhrpclientindex interface{}
+    // Refers to nhrp_mib.NHRPMIB_NhrpClientTable_NhrpClientEntry_NhrpClientIndex
+    NhrpClientIndex interface{}
 
     // The number of NHRP Resolution Requests transmitted by this client. 
     // Discontinuities in the value of this counter can occur at re-initialization
     // of the management system, at NHRP Client re-initialization and at other
     // times as indicated by the value of nhrpClientStatDiscontinuityTime. The
     // type is interface{} with range: 0..4294967295.
-    Nhrpclientstattxresolvereq interface{}
+    NhrpClientStatTxResolveReq interface{}
 
     // The number of positively acknowledged NHRP Resolution Replies received by
     // this client.  Discontinuities in the value of this counter can occur at
@@ -876,7 +915,7 @@ type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
     // re-initialization and at other times as indicated by the value of
     // nhrpClientStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpclientstatrxresolvereplyack interface{}
+    NhrpClientStatRxResolveReplyAck interface{}
 
     // The number of NAKed NHRP Resolution Replies received by this client that
     // contained the code indicating 'Administratively Prohibited'.  
@@ -884,7 +923,7 @@ type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
     // of the management system, at NHRP Client re-initialization and at other
     // times as indicated by the value of nhrpClientStatDiscontinuityTime. The
     // type is interface{} with range: 0..4294967295.
-    Nhrpclientstatrxresolvereplynakprohibited interface{}
+    NhrpClientStatRxResolveReplyNakProhibited interface{}
 
     // The number of NAKed NHRP Resolution Replies received by this client that
     // contained the code indicating 'Insufficient Resources'.  Discontinuities in
@@ -892,7 +931,7 @@ type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
     // system, at NHRP Client re-initialization and at other times as indicated by
     // the value of nhrpClientStatDiscontinuityTime. The type is interface{} with
     // range: 0..4294967295.
-    Nhrpclientstatrxresolvereplynakinsufresources interface{}
+    NhrpClientStatRxResolveReplyNakInsufResources interface{}
 
     // The number of NAKed NHRP Resolution Replies received by this client that
     // contained the code indicating 'No Internetworking Layer Address to NBMA
@@ -901,7 +940,7 @@ type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
     // re-initialization and at other times as indicated by the value of
     // nhrpClientStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpclientstatrxresolvereplynaknobinding interface{}
+    NhrpClientStatRxResolveReplyNakNoBinding interface{}
 
     // The number of NAKed NHRP Resolution Replies received by this client that
     // contained the code indicating 'Binding Exists But Is Not Unique'. 
@@ -909,14 +948,14 @@ type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
     // of the management system, at NHRP Client re-initialization and at other
     // times as indicated by the value of nhrpClientStatDiscontinuityTime. The
     // type is interface{} with range: 0..4294967295.
-    Nhrpclientstatrxresolvereplynaknotunique interface{}
+    NhrpClientStatRxResolveReplyNakNotUnique interface{}
 
     // The number of NHRP Registration Requests transmitted by this client. 
     // Discontinuities in the value of this counter can occur at re-initialization
     // of the management system, at NHRP Client re-initialization and at other
     // times as indicated by the value of nhrpClientStatDiscontinuityTime. The
     // type is interface{} with range: 0..4294967295.
-    Nhrpclientstattxregisterreq interface{}
+    NhrpClientStatTxRegisterReq interface{}
 
     // The number of positively acknowledged NHRP Registration Replies received by
     // this client.  Discontinuities in the value of this counter can occur at
@@ -924,7 +963,7 @@ type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
     // re-initialization and at other times as indicated by the value of
     // nhrpClientStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpclientstatrxregisterack interface{}
+    NhrpClientStatRxRegisterAck interface{}
 
     // The number of NAKed NHRP Registration Replies received by this client that
     // contained the code indicating 'Administratively Prohibited'. 
@@ -932,7 +971,7 @@ type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
     // of the management system, at NHRP Client re-initialization and at other
     // times as indicated by the value of nhrpClientStatDiscontinuityTime. The
     // type is interface{} with range: 0..4294967295.
-    Nhrpclientstatrxregisternakprohibited interface{}
+    NhrpClientStatRxRegisterNakProhibited interface{}
 
     // The number of NAKed NHRP Registration Replies received by this client that
     // contained the code indicating 'Insufficient Resources'.  Discontinuities in
@@ -940,7 +979,7 @@ type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
     // system, at NHRP Client re-initialization and at other times as indicated by
     // the value of nhrpClientStatDiscontinuityTime. The type is interface{} with
     // range: 0..4294967295.
-    Nhrpclientstatrxregisternakinsufresources interface{}
+    NhrpClientStatRxRegisterNakInsufResources interface{}
 
     // The number of NAKed NHRP Registration Replies received by this client that
     // contained the code indicating 'Unique Internetworking Layer Address Already
@@ -949,42 +988,42 @@ type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
     // re-initialization and at other times as indicated by the value of
     // nhrpClientStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpclientstatrxregisternakalreadyreg interface{}
+    NhrpClientStatRxRegisterNakAlreadyReg interface{}
 
     // The number of NHRP Purge Requests received by this client.  Discontinuities
     // in the value of this counter can occur at re-initialization of the
     // management system, at NHRP Client re-initialization and at other times as
     // indicated by the value of nhrpClientStatDiscontinuityTime. The type is
     // interface{} with range: 0..4294967295.
-    Nhrpclientstatrxpurgereq interface{}
+    NhrpClientStatRxPurgeReq interface{}
 
     // The number of NHRP Purge Requests transmitted by this client. 
     // Discontinuities in the value of this counter can occur at re-initialization
     // of the management system, at NHRP Client re-initialization and at other
     // times as indicated by the value of nhrpClientStatDiscontinuityTime. The
     // type is interface{} with range: 0..4294967295.
-    Nhrpclientstattxpurgereq interface{}
+    NhrpClientStatTxPurgeReq interface{}
 
     // The number of NHRP Purge Replies received by this client.  Discontinuities
     // in the value of this counter can occur at re-initialization of the
     // management system, at NHRP Client re-initialization and at other times as
     // indicated by the value of nhrpClientStatDiscontinuityTime. The type is
     // interface{} with range: 0..4294967295.
-    Nhrpclientstatrxpurgereply interface{}
+    NhrpClientStatRxPurgeReply interface{}
 
     // The number of NHRP Purge Replies transmitted by this client. 
     // Discontinuities in the value of this counter can occur at re-initialization
     // of the management system, at NHRP Client re-initialization and at other
     // times as indicated by the value of nhrpClientStatDiscontinuityTime. The
     // type is interface{} with range: 0..4294967295.
-    Nhrpclientstattxpurgereply interface{}
+    NhrpClientStatTxPurgeReply interface{}
 
     // The number of NHRP Error Indication packets transmitted by this client. 
     // Discontinuities in the value of this counter can occur at re-initialization
     // of the management system, at NHRP Client re-initialization and at other
     // times as indicated by the value of nhrpClientStatDiscontinuityTime. The
     // type is interface{} with range: 0..4294967295.
-    Nhrpclientstattxerrorindication interface{}
+    NhrpClientStatTxErrorIndication interface{}
 
     // The number of NHRP Error Indication packets received by this client with
     // the error code 'Unrecognized Extension'.  Discontinuities in the value of
@@ -992,7 +1031,7 @@ type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
     // NHRP Client re-initialization and at other times as indicated by the value
     // of nhrpClientStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpclientstatrxerrunrecognizedextension interface{}
+    NhrpClientStatRxErrUnrecognizedExtension interface{}
 
     // The number of NHRP Error Indication packets received by this client with
     // the error code 'NHRP Loop Detected'.  Discontinuities in the value of this
@@ -1000,7 +1039,7 @@ type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
     // Client re-initialization and at other times as indicated by the value of
     // nhrpClientStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpclientstatrxerrloopdetected interface{}
+    NhrpClientStatRxErrLoopDetected interface{}
 
     // The number of NHRP Error Indication packets received by this client with
     // the error code 'Protocol Address Unreachable'.  Discontinuities in the
@@ -1008,7 +1047,7 @@ type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
     // system, at NHRP Client re-initialization and at other times as indicated by
     // the value of nhrpClientStatDiscontinuityTime. The type is interface{} with
     // range: 0..4294967295.
-    Nhrpclientstatrxerrprotoaddrunreachable interface{}
+    NhrpClientStatRxErrProtoAddrUnreachable interface{}
 
     // The number of NHRP Error Indication packets received by this client with
     // the error code 'Protocol Error'.  Discontinuities in the value of this
@@ -1016,7 +1055,7 @@ type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
     // Client re-initialization and at other times as indicated by the value of
     // nhrpClientStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpclientstatrxerrprotoerror interface{}
+    NhrpClientStatRxErrProtoError interface{}
 
     // The number of NHRP Error Indication packets received by this client with
     // the error code 'NHRP SDU Size  Exceeded'.  Discontinuities in the value of
@@ -1024,7 +1063,7 @@ type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
     // NHRP Client re-initialization and at other times as indicated by the value
     // of nhrpClientStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpclientstatrxerrsdusizeexceeded interface{}
+    NhrpClientStatRxErrSduSizeExceeded interface{}
 
     // The number of NHRP Error Indication packets received by this client with
     // the error code 'Invalid Extension'.  Discontinuities in the value of this
@@ -1032,7 +1071,7 @@ type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
     // Client re-initialization and at other times as indicated by the value of
     // nhrpClientStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpclientstatrxerrinvalidextension interface{}
+    NhrpClientStatRxErrInvalidExtension interface{}
 
     // The number of NHRP Error Indication packets received by this client with
     // the error code 'Authentication Failure'.      Discontinuities in the value
@@ -1040,7 +1079,7 @@ type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
     // NHRP Client re-initialization and at other times as indicated by the value
     // of nhrpClientStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpclientstatrxerrauthenticationfailure interface{}
+    NhrpClientStatRxErrAuthenticationFailure interface{}
 
     // The number of NHRP Error Indication packets received by this client with
     // the error code 'Hop Count Exceeded'.  Discontinuities in the value of this
@@ -1048,7 +1087,7 @@ type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
     // Client re-initialization and at other times as indicated by the value of
     // nhrpClientStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpclientstatrxerrhopcountexceeded interface{}
+    NhrpClientStatRxErrHopCountExceeded interface{}
 
     // The value of sysUpTime on the most recent occasion at which any one or more
     // of this Client's counters suffered a discontinuity.  If no such
@@ -1056,148 +1095,157 @@ type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
     // management subsystem or the NHRP Client re-initialization associated with
     // this entry, then this object contains a zero value. The type is interface{}
     // with range: 0..4294967295.
-    Nhrpclientstatdiscontinuitytime interface{}
+    NhrpClientStatDiscontinuityTime interface{}
 }
 
-func (nhrpclientstatentry *NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry) GetEntityData() *types.CommonEntityData {
-    nhrpclientstatentry.EntityData.YFilter = nhrpclientstatentry.YFilter
-    nhrpclientstatentry.EntityData.YangName = "nhrpClientStatEntry"
-    nhrpclientstatentry.EntityData.BundleName = "cisco_ios_xe"
-    nhrpclientstatentry.EntityData.ParentYangName = "nhrpClientStatTable"
-    nhrpclientstatentry.EntityData.SegmentPath = "nhrpClientStatEntry" + "[nhrpClientIndex='" + fmt.Sprintf("%v", nhrpclientstatentry.Nhrpclientindex) + "']"
-    nhrpclientstatentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrpclientstatentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrpclientstatentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpClientStatEntry *NHRPMIB_NhrpClientStatTable_NhrpClientStatEntry) GetEntityData() *types.CommonEntityData {
+    nhrpClientStatEntry.EntityData.YFilter = nhrpClientStatEntry.YFilter
+    nhrpClientStatEntry.EntityData.YangName = "nhrpClientStatEntry"
+    nhrpClientStatEntry.EntityData.BundleName = "cisco_ios_xe"
+    nhrpClientStatEntry.EntityData.ParentYangName = "nhrpClientStatTable"
+    nhrpClientStatEntry.EntityData.SegmentPath = "nhrpClientStatEntry" + types.AddKeyToken(nhrpClientStatEntry.NhrpClientIndex, "nhrpClientIndex")
+    nhrpClientStatEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpClientStatEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpClientStatEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrpclientstatentry.EntityData.Children = make(map[string]types.YChild)
-    nhrpclientstatentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientIndex"] = types.YLeaf{"Nhrpclientindex", nhrpclientstatentry.Nhrpclientindex}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatTxResolveReq"] = types.YLeaf{"Nhrpclientstattxresolvereq", nhrpclientstatentry.Nhrpclientstattxresolvereq}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxResolveReplyAck"] = types.YLeaf{"Nhrpclientstatrxresolvereplyack", nhrpclientstatentry.Nhrpclientstatrxresolvereplyack}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxResolveReplyNakProhibited"] = types.YLeaf{"Nhrpclientstatrxresolvereplynakprohibited", nhrpclientstatentry.Nhrpclientstatrxresolvereplynakprohibited}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxResolveReplyNakInsufResources"] = types.YLeaf{"Nhrpclientstatrxresolvereplynakinsufresources", nhrpclientstatentry.Nhrpclientstatrxresolvereplynakinsufresources}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxResolveReplyNakNoBinding"] = types.YLeaf{"Nhrpclientstatrxresolvereplynaknobinding", nhrpclientstatentry.Nhrpclientstatrxresolvereplynaknobinding}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxResolveReplyNakNotUnique"] = types.YLeaf{"Nhrpclientstatrxresolvereplynaknotunique", nhrpclientstatentry.Nhrpclientstatrxresolvereplynaknotunique}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatTxRegisterReq"] = types.YLeaf{"Nhrpclientstattxregisterreq", nhrpclientstatentry.Nhrpclientstattxregisterreq}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxRegisterAck"] = types.YLeaf{"Nhrpclientstatrxregisterack", nhrpclientstatentry.Nhrpclientstatrxregisterack}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxRegisterNakProhibited"] = types.YLeaf{"Nhrpclientstatrxregisternakprohibited", nhrpclientstatentry.Nhrpclientstatrxregisternakprohibited}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxRegisterNakInsufResources"] = types.YLeaf{"Nhrpclientstatrxregisternakinsufresources", nhrpclientstatentry.Nhrpclientstatrxregisternakinsufresources}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxRegisterNakAlreadyReg"] = types.YLeaf{"Nhrpclientstatrxregisternakalreadyreg", nhrpclientstatentry.Nhrpclientstatrxregisternakalreadyreg}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxPurgeReq"] = types.YLeaf{"Nhrpclientstatrxpurgereq", nhrpclientstatentry.Nhrpclientstatrxpurgereq}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatTxPurgeReq"] = types.YLeaf{"Nhrpclientstattxpurgereq", nhrpclientstatentry.Nhrpclientstattxpurgereq}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxPurgeReply"] = types.YLeaf{"Nhrpclientstatrxpurgereply", nhrpclientstatentry.Nhrpclientstatrxpurgereply}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatTxPurgeReply"] = types.YLeaf{"Nhrpclientstattxpurgereply", nhrpclientstatentry.Nhrpclientstattxpurgereply}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatTxErrorIndication"] = types.YLeaf{"Nhrpclientstattxerrorindication", nhrpclientstatentry.Nhrpclientstattxerrorindication}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxErrUnrecognizedExtension"] = types.YLeaf{"Nhrpclientstatrxerrunrecognizedextension", nhrpclientstatentry.Nhrpclientstatrxerrunrecognizedextension}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxErrLoopDetected"] = types.YLeaf{"Nhrpclientstatrxerrloopdetected", nhrpclientstatentry.Nhrpclientstatrxerrloopdetected}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxErrProtoAddrUnreachable"] = types.YLeaf{"Nhrpclientstatrxerrprotoaddrunreachable", nhrpclientstatentry.Nhrpclientstatrxerrprotoaddrunreachable}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxErrProtoError"] = types.YLeaf{"Nhrpclientstatrxerrprotoerror", nhrpclientstatentry.Nhrpclientstatrxerrprotoerror}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxErrSduSizeExceeded"] = types.YLeaf{"Nhrpclientstatrxerrsdusizeexceeded", nhrpclientstatentry.Nhrpclientstatrxerrsdusizeexceeded}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxErrInvalidExtension"] = types.YLeaf{"Nhrpclientstatrxerrinvalidextension", nhrpclientstatentry.Nhrpclientstatrxerrinvalidextension}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxErrAuthenticationFailure"] = types.YLeaf{"Nhrpclientstatrxerrauthenticationfailure", nhrpclientstatentry.Nhrpclientstatrxerrauthenticationfailure}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxErrHopCountExceeded"] = types.YLeaf{"Nhrpclientstatrxerrhopcountexceeded", nhrpclientstatentry.Nhrpclientstatrxerrhopcountexceeded}
-    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatDiscontinuityTime"] = types.YLeaf{"Nhrpclientstatdiscontinuitytime", nhrpclientstatentry.Nhrpclientstatdiscontinuitytime}
-    return &(nhrpclientstatentry.EntityData)
+    nhrpClientStatEntry.EntityData.Children = types.NewOrderedMap()
+    nhrpClientStatEntry.EntityData.Leafs = types.NewOrderedMap()
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientIndex", types.YLeaf{"NhrpClientIndex", nhrpClientStatEntry.NhrpClientIndex})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatTxResolveReq", types.YLeaf{"NhrpClientStatTxResolveReq", nhrpClientStatEntry.NhrpClientStatTxResolveReq})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatRxResolveReplyAck", types.YLeaf{"NhrpClientStatRxResolveReplyAck", nhrpClientStatEntry.NhrpClientStatRxResolveReplyAck})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatRxResolveReplyNakProhibited", types.YLeaf{"NhrpClientStatRxResolveReplyNakProhibited", nhrpClientStatEntry.NhrpClientStatRxResolveReplyNakProhibited})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatRxResolveReplyNakInsufResources", types.YLeaf{"NhrpClientStatRxResolveReplyNakInsufResources", nhrpClientStatEntry.NhrpClientStatRxResolveReplyNakInsufResources})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatRxResolveReplyNakNoBinding", types.YLeaf{"NhrpClientStatRxResolveReplyNakNoBinding", nhrpClientStatEntry.NhrpClientStatRxResolveReplyNakNoBinding})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatRxResolveReplyNakNotUnique", types.YLeaf{"NhrpClientStatRxResolveReplyNakNotUnique", nhrpClientStatEntry.NhrpClientStatRxResolveReplyNakNotUnique})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatTxRegisterReq", types.YLeaf{"NhrpClientStatTxRegisterReq", nhrpClientStatEntry.NhrpClientStatTxRegisterReq})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatRxRegisterAck", types.YLeaf{"NhrpClientStatRxRegisterAck", nhrpClientStatEntry.NhrpClientStatRxRegisterAck})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatRxRegisterNakProhibited", types.YLeaf{"NhrpClientStatRxRegisterNakProhibited", nhrpClientStatEntry.NhrpClientStatRxRegisterNakProhibited})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatRxRegisterNakInsufResources", types.YLeaf{"NhrpClientStatRxRegisterNakInsufResources", nhrpClientStatEntry.NhrpClientStatRxRegisterNakInsufResources})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatRxRegisterNakAlreadyReg", types.YLeaf{"NhrpClientStatRxRegisterNakAlreadyReg", nhrpClientStatEntry.NhrpClientStatRxRegisterNakAlreadyReg})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatRxPurgeReq", types.YLeaf{"NhrpClientStatRxPurgeReq", nhrpClientStatEntry.NhrpClientStatRxPurgeReq})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatTxPurgeReq", types.YLeaf{"NhrpClientStatTxPurgeReq", nhrpClientStatEntry.NhrpClientStatTxPurgeReq})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatRxPurgeReply", types.YLeaf{"NhrpClientStatRxPurgeReply", nhrpClientStatEntry.NhrpClientStatRxPurgeReply})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatTxPurgeReply", types.YLeaf{"NhrpClientStatTxPurgeReply", nhrpClientStatEntry.NhrpClientStatTxPurgeReply})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatTxErrorIndication", types.YLeaf{"NhrpClientStatTxErrorIndication", nhrpClientStatEntry.NhrpClientStatTxErrorIndication})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatRxErrUnrecognizedExtension", types.YLeaf{"NhrpClientStatRxErrUnrecognizedExtension", nhrpClientStatEntry.NhrpClientStatRxErrUnrecognizedExtension})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatRxErrLoopDetected", types.YLeaf{"NhrpClientStatRxErrLoopDetected", nhrpClientStatEntry.NhrpClientStatRxErrLoopDetected})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatRxErrProtoAddrUnreachable", types.YLeaf{"NhrpClientStatRxErrProtoAddrUnreachable", nhrpClientStatEntry.NhrpClientStatRxErrProtoAddrUnreachable})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatRxErrProtoError", types.YLeaf{"NhrpClientStatRxErrProtoError", nhrpClientStatEntry.NhrpClientStatRxErrProtoError})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatRxErrSduSizeExceeded", types.YLeaf{"NhrpClientStatRxErrSduSizeExceeded", nhrpClientStatEntry.NhrpClientStatRxErrSduSizeExceeded})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatRxErrInvalidExtension", types.YLeaf{"NhrpClientStatRxErrInvalidExtension", nhrpClientStatEntry.NhrpClientStatRxErrInvalidExtension})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatRxErrAuthenticationFailure", types.YLeaf{"NhrpClientStatRxErrAuthenticationFailure", nhrpClientStatEntry.NhrpClientStatRxErrAuthenticationFailure})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatRxErrHopCountExceeded", types.YLeaf{"NhrpClientStatRxErrHopCountExceeded", nhrpClientStatEntry.NhrpClientStatRxErrHopCountExceeded})
+    nhrpClientStatEntry.EntityData.Leafs.Append("nhrpClientStatDiscontinuityTime", types.YLeaf{"NhrpClientStatDiscontinuityTime", nhrpClientStatEntry.NhrpClientStatDiscontinuityTime})
+
+    nhrpClientStatEntry.EntityData.YListKeys = []string {"NhrpClientIndex"}
+
+    return &(nhrpClientStatEntry.EntityData)
 }
 
-// NHRPMIB_Nhrpservertable
+// NHRPMIB_NhrpServerTable
 // This table contains information for a set of NHSes
 // associated with this agent.
-type NHRPMIB_Nhrpservertable struct {
+type NHRPMIB_NhrpServerTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a single NHS. The type is slice of
-    // NHRPMIB_Nhrpservertable_Nhrpserverentry.
-    Nhrpserverentry []NHRPMIB_Nhrpservertable_Nhrpserverentry
+    // NHRPMIB_NhrpServerTable_NhrpServerEntry.
+    NhrpServerEntry []*NHRPMIB_NhrpServerTable_NhrpServerEntry
 }
 
-func (nhrpservertable *NHRPMIB_Nhrpservertable) GetEntityData() *types.CommonEntityData {
-    nhrpservertable.EntityData.YFilter = nhrpservertable.YFilter
-    nhrpservertable.EntityData.YangName = "nhrpServerTable"
-    nhrpservertable.EntityData.BundleName = "cisco_ios_xe"
-    nhrpservertable.EntityData.ParentYangName = "NHRP-MIB"
-    nhrpservertable.EntityData.SegmentPath = "nhrpServerTable"
-    nhrpservertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrpservertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrpservertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpServerTable *NHRPMIB_NhrpServerTable) GetEntityData() *types.CommonEntityData {
+    nhrpServerTable.EntityData.YFilter = nhrpServerTable.YFilter
+    nhrpServerTable.EntityData.YangName = "nhrpServerTable"
+    nhrpServerTable.EntityData.BundleName = "cisco_ios_xe"
+    nhrpServerTable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpServerTable.EntityData.SegmentPath = "nhrpServerTable"
+    nhrpServerTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpServerTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpServerTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrpservertable.EntityData.Children = make(map[string]types.YChild)
-    nhrpservertable.EntityData.Children["nhrpServerEntry"] = types.YChild{"Nhrpserverentry", nil}
-    for i := range nhrpservertable.Nhrpserverentry {
-        nhrpservertable.EntityData.Children[types.GetSegmentPath(&nhrpservertable.Nhrpserverentry[i])] = types.YChild{"Nhrpserverentry", &nhrpservertable.Nhrpserverentry[i]}
+    nhrpServerTable.EntityData.Children = types.NewOrderedMap()
+    nhrpServerTable.EntityData.Children.Append("nhrpServerEntry", types.YChild{"NhrpServerEntry", nil})
+    for i := range nhrpServerTable.NhrpServerEntry {
+        nhrpServerTable.EntityData.Children.Append(types.GetSegmentPath(nhrpServerTable.NhrpServerEntry[i]), types.YChild{"NhrpServerEntry", nhrpServerTable.NhrpServerEntry[i]})
     }
-    nhrpservertable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(nhrpservertable.EntityData)
+    nhrpServerTable.EntityData.Leafs = types.NewOrderedMap()
+
+    nhrpServerTable.EntityData.YListKeys = []string {}
+
+    return &(nhrpServerTable.EntityData)
 }
 
-// NHRPMIB_Nhrpservertable_Nhrpserverentry
+// NHRPMIB_NhrpServerTable_NhrpServerEntry
 // Information about a single NHS.
-type NHRPMIB_Nhrpservertable_Nhrpserverentry struct {
+type NHRPMIB_NhrpServerTable_NhrpServerEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An identifier for the server that is unique within
     // the scope of this agent. The type is interface{} with range: 1..4294967295.
-    Nhrpserverindex interface{}
+    NhrpServerIndex interface{}
 
     // The type of the internetwork layer address of this server. This object is
     // used to interpret the value of nhrpServerInternetworkAddr. The type is
     // AddressFamilyNumbers.
-    Nhrpserverinternetworkaddrtype interface{}
+    NhrpServerInternetworkAddrType interface{}
 
     // The value of the internetwork layer address of this server. The type is
     // string with length: 0..64.
-    Nhrpserverinternetworkaddr interface{}
+    NhrpServerInternetworkAddr interface{}
 
     // The type of the NBMA subnetwork address of this server. This object is used
     // to interpret the value of nhrpServerNbmaAddr. The type is
     // AddressFamilyNumbers.
-    Nhrpservernbmaaddrtype interface{}
+    NhrpServerNbmaAddrType interface{}
 
     // The value of the NBMA subnetwork address of this server. The type is string
     // with length: 0..64.
-    Nhrpservernbmaaddr interface{}
+    NhrpServerNbmaAddr interface{}
 
     // The value of the NBMA subaddress of this server. For NBMA address families
     // without a subaddress concept, this will be a zero-length OCTET STRING. The
     // type is string with length: 0..64.
-    Nhrpservernbmasubaddr interface{}
+    NhrpServerNbmaSubaddr interface{}
 
     // This object defines whether this row is kept in volatile storage and lost
     // upon a Server crash or reboot situation, or if this row is backed up by
     // nonvolatile or permanent storage. The type is StorageType.
-    Nhrpserverstoragetype interface{}
+    NhrpServerStorageType interface{}
 
     // An object that allows entries in this table to be created and deleted using
     // the RowStatus convention. The type is RowStatus.
-    Nhrpserverrowstatus interface{}
+    NhrpServerRowStatus interface{}
 }
 
-func (nhrpserverentry *NHRPMIB_Nhrpservertable_Nhrpserverentry) GetEntityData() *types.CommonEntityData {
-    nhrpserverentry.EntityData.YFilter = nhrpserverentry.YFilter
-    nhrpserverentry.EntityData.YangName = "nhrpServerEntry"
-    nhrpserverentry.EntityData.BundleName = "cisco_ios_xe"
-    nhrpserverentry.EntityData.ParentYangName = "nhrpServerTable"
-    nhrpserverentry.EntityData.SegmentPath = "nhrpServerEntry" + "[nhrpServerIndex='" + fmt.Sprintf("%v", nhrpserverentry.Nhrpserverindex) + "']"
-    nhrpserverentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrpserverentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrpserverentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpServerEntry *NHRPMIB_NhrpServerTable_NhrpServerEntry) GetEntityData() *types.CommonEntityData {
+    nhrpServerEntry.EntityData.YFilter = nhrpServerEntry.YFilter
+    nhrpServerEntry.EntityData.YangName = "nhrpServerEntry"
+    nhrpServerEntry.EntityData.BundleName = "cisco_ios_xe"
+    nhrpServerEntry.EntityData.ParentYangName = "nhrpServerTable"
+    nhrpServerEntry.EntityData.SegmentPath = "nhrpServerEntry" + types.AddKeyToken(nhrpServerEntry.NhrpServerIndex, "nhrpServerIndex")
+    nhrpServerEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpServerEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpServerEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrpserverentry.EntityData.Children = make(map[string]types.YChild)
-    nhrpserverentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    nhrpserverentry.EntityData.Leafs["nhrpServerIndex"] = types.YLeaf{"Nhrpserverindex", nhrpserverentry.Nhrpserverindex}
-    nhrpserverentry.EntityData.Leafs["nhrpServerInternetworkAddrType"] = types.YLeaf{"Nhrpserverinternetworkaddrtype", nhrpserverentry.Nhrpserverinternetworkaddrtype}
-    nhrpserverentry.EntityData.Leafs["nhrpServerInternetworkAddr"] = types.YLeaf{"Nhrpserverinternetworkaddr", nhrpserverentry.Nhrpserverinternetworkaddr}
-    nhrpserverentry.EntityData.Leafs["nhrpServerNbmaAddrType"] = types.YLeaf{"Nhrpservernbmaaddrtype", nhrpserverentry.Nhrpservernbmaaddrtype}
-    nhrpserverentry.EntityData.Leafs["nhrpServerNbmaAddr"] = types.YLeaf{"Nhrpservernbmaaddr", nhrpserverentry.Nhrpservernbmaaddr}
-    nhrpserverentry.EntityData.Leafs["nhrpServerNbmaSubaddr"] = types.YLeaf{"Nhrpservernbmasubaddr", nhrpserverentry.Nhrpservernbmasubaddr}
-    nhrpserverentry.EntityData.Leafs["nhrpServerStorageType"] = types.YLeaf{"Nhrpserverstoragetype", nhrpserverentry.Nhrpserverstoragetype}
-    nhrpserverentry.EntityData.Leafs["nhrpServerRowStatus"] = types.YLeaf{"Nhrpserverrowstatus", nhrpserverentry.Nhrpserverrowstatus}
-    return &(nhrpserverentry.EntityData)
+    nhrpServerEntry.EntityData.Children = types.NewOrderedMap()
+    nhrpServerEntry.EntityData.Leafs = types.NewOrderedMap()
+    nhrpServerEntry.EntityData.Leafs.Append("nhrpServerIndex", types.YLeaf{"NhrpServerIndex", nhrpServerEntry.NhrpServerIndex})
+    nhrpServerEntry.EntityData.Leafs.Append("nhrpServerInternetworkAddrType", types.YLeaf{"NhrpServerInternetworkAddrType", nhrpServerEntry.NhrpServerInternetworkAddrType})
+    nhrpServerEntry.EntityData.Leafs.Append("nhrpServerInternetworkAddr", types.YLeaf{"NhrpServerInternetworkAddr", nhrpServerEntry.NhrpServerInternetworkAddr})
+    nhrpServerEntry.EntityData.Leafs.Append("nhrpServerNbmaAddrType", types.YLeaf{"NhrpServerNbmaAddrType", nhrpServerEntry.NhrpServerNbmaAddrType})
+    nhrpServerEntry.EntityData.Leafs.Append("nhrpServerNbmaAddr", types.YLeaf{"NhrpServerNbmaAddr", nhrpServerEntry.NhrpServerNbmaAddr})
+    nhrpServerEntry.EntityData.Leafs.Append("nhrpServerNbmaSubaddr", types.YLeaf{"NhrpServerNbmaSubaddr", nhrpServerEntry.NhrpServerNbmaSubaddr})
+    nhrpServerEntry.EntityData.Leafs.Append("nhrpServerStorageType", types.YLeaf{"NhrpServerStorageType", nhrpServerEntry.NhrpServerStorageType})
+    nhrpServerEntry.EntityData.Leafs.Append("nhrpServerRowStatus", types.YLeaf{"NhrpServerRowStatus", nhrpServerEntry.NhrpServerRowStatus})
+
+    nhrpServerEntry.EntityData.YListKeys = []string {"NhrpServerIndex"}
+
+    return &(nhrpServerEntry.EntityData)
 }
 
-// NHRPMIB_Nhrpservercachetable
+// NHRPMIB_NhrpServerCacheTable
 // This table extends the nhrpCacheTable for
 // NHSes.  If the nhrpCacheTable has a row added due to
 // an NHS or based on information regarding an NHS then
@@ -1210,252 +1258,267 @@ func (nhrpserverentry *NHRPMIB_Nhrpservertable_Nhrpserverentry) GetEntityData() 
 // if the nhrpCacheTable has a row added due to a Next
 // Hop Client which is co-resident on the same device
 // as the NHS, a row will not be added to this table.
-type NHRPMIB_Nhrpservercachetable struct {
+type NHRPMIB_NhrpServerCacheTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Additional information kept by a NHS for a relevant Next Hop Resolution
     // Cache entry. The type is slice of
-    // NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry.
-    Nhrpservercacheentry []NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry
+    // NHRPMIB_NhrpServerCacheTable_NhrpServerCacheEntry.
+    NhrpServerCacheEntry []*NHRPMIB_NhrpServerCacheTable_NhrpServerCacheEntry
 }
 
-func (nhrpservercachetable *NHRPMIB_Nhrpservercachetable) GetEntityData() *types.CommonEntityData {
-    nhrpservercachetable.EntityData.YFilter = nhrpservercachetable.YFilter
-    nhrpservercachetable.EntityData.YangName = "nhrpServerCacheTable"
-    nhrpservercachetable.EntityData.BundleName = "cisco_ios_xe"
-    nhrpservercachetable.EntityData.ParentYangName = "NHRP-MIB"
-    nhrpservercachetable.EntityData.SegmentPath = "nhrpServerCacheTable"
-    nhrpservercachetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrpservercachetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrpservercachetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpServerCacheTable *NHRPMIB_NhrpServerCacheTable) GetEntityData() *types.CommonEntityData {
+    nhrpServerCacheTable.EntityData.YFilter = nhrpServerCacheTable.YFilter
+    nhrpServerCacheTable.EntityData.YangName = "nhrpServerCacheTable"
+    nhrpServerCacheTable.EntityData.BundleName = "cisco_ios_xe"
+    nhrpServerCacheTable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpServerCacheTable.EntityData.SegmentPath = "nhrpServerCacheTable"
+    nhrpServerCacheTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpServerCacheTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpServerCacheTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrpservercachetable.EntityData.Children = make(map[string]types.YChild)
-    nhrpservercachetable.EntityData.Children["nhrpServerCacheEntry"] = types.YChild{"Nhrpservercacheentry", nil}
-    for i := range nhrpservercachetable.Nhrpservercacheentry {
-        nhrpservercachetable.EntityData.Children[types.GetSegmentPath(&nhrpservercachetable.Nhrpservercacheentry[i])] = types.YChild{"Nhrpservercacheentry", &nhrpservercachetable.Nhrpservercacheentry[i]}
+    nhrpServerCacheTable.EntityData.Children = types.NewOrderedMap()
+    nhrpServerCacheTable.EntityData.Children.Append("nhrpServerCacheEntry", types.YChild{"NhrpServerCacheEntry", nil})
+    for i := range nhrpServerCacheTable.NhrpServerCacheEntry {
+        nhrpServerCacheTable.EntityData.Children.Append(types.GetSegmentPath(nhrpServerCacheTable.NhrpServerCacheEntry[i]), types.YChild{"NhrpServerCacheEntry", nhrpServerCacheTable.NhrpServerCacheEntry[i]})
     }
-    nhrpservercachetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(nhrpservercachetable.EntityData)
+    nhrpServerCacheTable.EntityData.Leafs = types.NewOrderedMap()
+
+    nhrpServerCacheTable.EntityData.YListKeys = []string {}
+
+    return &(nhrpServerCacheTable.EntityData)
 }
 
-// NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry
+// NHRPMIB_NhrpServerCacheTable_NhrpServerCacheEntry
 // Additional information kept by a NHS for a relevant
 // Next Hop Resolution Cache entry.
-type NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry struct {
+type NHRPMIB_NhrpServerCacheTable_NhrpServerCacheEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is AddressFamilyNumbers. Refers to
-    // nhrp_mib.NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcacheinternetworkaddrtype
-    Nhrpcacheinternetworkaddrtype interface{}
+    // nhrp_mib.NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheInternetworkAddrType
+    NhrpCacheInternetworkAddrType interface{}
 
     // This attribute is a key. The type is string with length: 0..64. Refers to
-    // nhrp_mib.NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcacheinternetworkaddr
-    Nhrpcacheinternetworkaddr interface{}
+    // nhrp_mib.NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheInternetworkAddr
+    NhrpCacheInternetworkAddr interface{}
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 1..4294967295.
-    // Refers to nhrp_mib.NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcacheindex
-    Nhrpcacheindex interface{}
+    // Refers to nhrp_mib.NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheIndex
+    NhrpCacheIndex interface{}
 
     // An indication of whether this cache entry is authoritative, which means the
     // entry was added because of a direct registration request with this server
     // or by Server Cache Synchronization Protocol (SCSP) from an authoritative
     // source. The type is bool.
-    Nhrpservercacheauthoritative interface{}
+    NhrpServerCacheAuthoritative interface{}
 
     // The Uniqueness indicator for this cache entry used in duplicate address
     // detection. This value cannot be changed after the entry is active. The type
     // is bool.
-    Nhrpservercacheuniqueness interface{}
+    NhrpServerCacheUniqueness interface{}
 }
 
-func (nhrpservercacheentry *NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry) GetEntityData() *types.CommonEntityData {
-    nhrpservercacheentry.EntityData.YFilter = nhrpservercacheentry.YFilter
-    nhrpservercacheentry.EntityData.YangName = "nhrpServerCacheEntry"
-    nhrpservercacheentry.EntityData.BundleName = "cisco_ios_xe"
-    nhrpservercacheentry.EntityData.ParentYangName = "nhrpServerCacheTable"
-    nhrpservercacheentry.EntityData.SegmentPath = "nhrpServerCacheEntry" + "[nhrpCacheInternetworkAddrType='" + fmt.Sprintf("%v", nhrpservercacheentry.Nhrpcacheinternetworkaddrtype) + "']" + "[nhrpCacheInternetworkAddr='" + fmt.Sprintf("%v", nhrpservercacheentry.Nhrpcacheinternetworkaddr) + "']" + "[ifIndex='" + fmt.Sprintf("%v", nhrpservercacheentry.Ifindex) + "']" + "[nhrpCacheIndex='" + fmt.Sprintf("%v", nhrpservercacheentry.Nhrpcacheindex) + "']"
-    nhrpservercacheentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrpservercacheentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrpservercacheentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpServerCacheEntry *NHRPMIB_NhrpServerCacheTable_NhrpServerCacheEntry) GetEntityData() *types.CommonEntityData {
+    nhrpServerCacheEntry.EntityData.YFilter = nhrpServerCacheEntry.YFilter
+    nhrpServerCacheEntry.EntityData.YangName = "nhrpServerCacheEntry"
+    nhrpServerCacheEntry.EntityData.BundleName = "cisco_ios_xe"
+    nhrpServerCacheEntry.EntityData.ParentYangName = "nhrpServerCacheTable"
+    nhrpServerCacheEntry.EntityData.SegmentPath = "nhrpServerCacheEntry" + types.AddKeyToken(nhrpServerCacheEntry.NhrpCacheInternetworkAddrType, "nhrpCacheInternetworkAddrType") + types.AddKeyToken(nhrpServerCacheEntry.NhrpCacheInternetworkAddr, "nhrpCacheInternetworkAddr") + types.AddKeyToken(nhrpServerCacheEntry.IfIndex, "ifIndex") + types.AddKeyToken(nhrpServerCacheEntry.NhrpCacheIndex, "nhrpCacheIndex")
+    nhrpServerCacheEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpServerCacheEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpServerCacheEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrpservercacheentry.EntityData.Children = make(map[string]types.YChild)
-    nhrpservercacheentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    nhrpservercacheentry.EntityData.Leafs["nhrpCacheInternetworkAddrType"] = types.YLeaf{"Nhrpcacheinternetworkaddrtype", nhrpservercacheentry.Nhrpcacheinternetworkaddrtype}
-    nhrpservercacheentry.EntityData.Leafs["nhrpCacheInternetworkAddr"] = types.YLeaf{"Nhrpcacheinternetworkaddr", nhrpservercacheentry.Nhrpcacheinternetworkaddr}
-    nhrpservercacheentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", nhrpservercacheentry.Ifindex}
-    nhrpservercacheentry.EntityData.Leafs["nhrpCacheIndex"] = types.YLeaf{"Nhrpcacheindex", nhrpservercacheentry.Nhrpcacheindex}
-    nhrpservercacheentry.EntityData.Leafs["nhrpServerCacheAuthoritative"] = types.YLeaf{"Nhrpservercacheauthoritative", nhrpservercacheentry.Nhrpservercacheauthoritative}
-    nhrpservercacheentry.EntityData.Leafs["nhrpServerCacheUniqueness"] = types.YLeaf{"Nhrpservercacheuniqueness", nhrpservercacheentry.Nhrpservercacheuniqueness}
-    return &(nhrpservercacheentry.EntityData)
+    nhrpServerCacheEntry.EntityData.Children = types.NewOrderedMap()
+    nhrpServerCacheEntry.EntityData.Leafs = types.NewOrderedMap()
+    nhrpServerCacheEntry.EntityData.Leafs.Append("nhrpCacheInternetworkAddrType", types.YLeaf{"NhrpCacheInternetworkAddrType", nhrpServerCacheEntry.NhrpCacheInternetworkAddrType})
+    nhrpServerCacheEntry.EntityData.Leafs.Append("nhrpCacheInternetworkAddr", types.YLeaf{"NhrpCacheInternetworkAddr", nhrpServerCacheEntry.NhrpCacheInternetworkAddr})
+    nhrpServerCacheEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", nhrpServerCacheEntry.IfIndex})
+    nhrpServerCacheEntry.EntityData.Leafs.Append("nhrpCacheIndex", types.YLeaf{"NhrpCacheIndex", nhrpServerCacheEntry.NhrpCacheIndex})
+    nhrpServerCacheEntry.EntityData.Leafs.Append("nhrpServerCacheAuthoritative", types.YLeaf{"NhrpServerCacheAuthoritative", nhrpServerCacheEntry.NhrpServerCacheAuthoritative})
+    nhrpServerCacheEntry.EntityData.Leafs.Append("nhrpServerCacheUniqueness", types.YLeaf{"NhrpServerCacheUniqueness", nhrpServerCacheEntry.NhrpServerCacheUniqueness})
+
+    nhrpServerCacheEntry.EntityData.YListKeys = []string {"NhrpCacheInternetworkAddrType", "NhrpCacheInternetworkAddr", "IfIndex", "NhrpCacheIndex"}
+
+    return &(nhrpServerCacheEntry.EntityData)
 }
 
-// NHRPMIB_Nhrpservernhctable
+// NHRPMIB_NhrpServerNhcTable
 // A table of NHCs that are available for use by this NHS
 // (Server).
-type NHRPMIB_Nhrpservernhctable struct {
+type NHRPMIB_NhrpServerNhcTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An NHC that may be used by an NHS. The type is slice of
-    // NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry.
-    Nhrpservernhcentry []NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry
+    // NHRPMIB_NhrpServerNhcTable_NhrpServerNhcEntry.
+    NhrpServerNhcEntry []*NHRPMIB_NhrpServerNhcTable_NhrpServerNhcEntry
 }
 
-func (nhrpservernhctable *NHRPMIB_Nhrpservernhctable) GetEntityData() *types.CommonEntityData {
-    nhrpservernhctable.EntityData.YFilter = nhrpservernhctable.YFilter
-    nhrpservernhctable.EntityData.YangName = "nhrpServerNhcTable"
-    nhrpservernhctable.EntityData.BundleName = "cisco_ios_xe"
-    nhrpservernhctable.EntityData.ParentYangName = "NHRP-MIB"
-    nhrpservernhctable.EntityData.SegmentPath = "nhrpServerNhcTable"
-    nhrpservernhctable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrpservernhctable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrpservernhctable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpServerNhcTable *NHRPMIB_NhrpServerNhcTable) GetEntityData() *types.CommonEntityData {
+    nhrpServerNhcTable.EntityData.YFilter = nhrpServerNhcTable.YFilter
+    nhrpServerNhcTable.EntityData.YangName = "nhrpServerNhcTable"
+    nhrpServerNhcTable.EntityData.BundleName = "cisco_ios_xe"
+    nhrpServerNhcTable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpServerNhcTable.EntityData.SegmentPath = "nhrpServerNhcTable"
+    nhrpServerNhcTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpServerNhcTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpServerNhcTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrpservernhctable.EntityData.Children = make(map[string]types.YChild)
-    nhrpservernhctable.EntityData.Children["nhrpServerNhcEntry"] = types.YChild{"Nhrpservernhcentry", nil}
-    for i := range nhrpservernhctable.Nhrpservernhcentry {
-        nhrpservernhctable.EntityData.Children[types.GetSegmentPath(&nhrpservernhctable.Nhrpservernhcentry[i])] = types.YChild{"Nhrpservernhcentry", &nhrpservernhctable.Nhrpservernhcentry[i]}
+    nhrpServerNhcTable.EntityData.Children = types.NewOrderedMap()
+    nhrpServerNhcTable.EntityData.Children.Append("nhrpServerNhcEntry", types.YChild{"NhrpServerNhcEntry", nil})
+    for i := range nhrpServerNhcTable.NhrpServerNhcEntry {
+        nhrpServerNhcTable.EntityData.Children.Append(types.GetSegmentPath(nhrpServerNhcTable.NhrpServerNhcEntry[i]), types.YChild{"NhrpServerNhcEntry", nhrpServerNhcTable.NhrpServerNhcEntry[i]})
     }
-    nhrpservernhctable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(nhrpservernhctable.EntityData)
+    nhrpServerNhcTable.EntityData.Leafs = types.NewOrderedMap()
+
+    nhrpServerNhcTable.EntityData.YListKeys = []string {}
+
+    return &(nhrpServerNhcTable.EntityData)
 }
 
-// NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry
+// NHRPMIB_NhrpServerNhcTable_NhrpServerNhcEntry
 // An NHC that may be used by an NHS.
-type NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry struct {
+type NHRPMIB_NhrpServerNhcTable_NhrpServerNhcEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
-    // Refers to nhrp_mib.NHRPMIB_Nhrpservertable_Nhrpserverentry_Nhrpserverindex
-    Nhrpserverindex interface{}
+    // Refers to nhrp_mib.NHRPMIB_NhrpServerTable_NhrpServerEntry_NhrpServerIndex
+    NhrpServerIndex interface{}
 
     // This attribute is a key. An identifier for an NHC available to an NHS. The
     // type is interface{} with range: 1..4294967295.
-    Nhrpservernhcindex interface{}
+    NhrpServerNhcIndex interface{}
 
     // The number of bits that define the internetwork layer prefix associated
     // with the nhrpServerNhcInternetworkAddr. The type is interface{} with range:
     // 0..255.
-    Nhrpservernhcprefixlength interface{}
+    NhrpServerNhcPrefixLength interface{}
 
     // The type of the internetwork layer address of the NHRP Client represented
     // in this entry. This object indicates how the value of
     // nhrpServerNhcInternetworkAddr is to be interpreted. The type is
     // AddressFamilyNumbers.
-    Nhrpservernhcinternetworkaddrtype interface{}
+    NhrpServerNhcInternetworkAddrType interface{}
 
     // The value of the internetwork layer address of the NHRP Client represented
     // by this entry.  If this value is not known, this will be a zero-length
     // OCTET STRING. The type is string with length: 0..64.
-    Nhrpservernhcinternetworkaddr interface{}
+    NhrpServerNhcInternetworkAddr interface{}
 
     // The type of the NBMA subnetwork address of the NHRP Client represented by
     // this entry. This object indicates how the values of nhrpServerNhcNbmaAddr
     // and nhrpServerNhcNbmaSubaddr are to be interpreted. The type is
     // AddressFamilyNumbers.
-    Nhrpservernhcnbmaaddrtype interface{}
+    NhrpServerNhcNbmaAddrType interface{}
 
     // The NBMA subnetwork address of the NHC. The type of the address is
     // indicated by the corresponding value of nhrpServerNbmaAddrType. The type is
     // string with length: 0..64.
-    Nhrpservernhcnbmaaddr interface{}
+    NhrpServerNhcNbmaAddr interface{}
 
     // The NBMA subaddress of the NHC. For NMBA address familes that do not have
     // the concept of subaddress, this will be a zero-length OCTET STRING. The
     // type is string with length: 0..64.
-    Nhrpservernhcnbmasubaddr interface{}
+    NhrpServerNhcNbmaSubaddr interface{}
 
     // An indication of whether this NHC is in use by the NHS. The type is bool.
-    Nhrpservernhcinuse interface{}
+    NhrpServerNhcInUse interface{}
 
     // An object that allows entries in this table to be created and deleted using
     // the RowStatus convention. The type is RowStatus.
-    Nhrpservernhcrowstatus interface{}
+    NhrpServerNhcRowStatus interface{}
 }
 
-func (nhrpservernhcentry *NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry) GetEntityData() *types.CommonEntityData {
-    nhrpservernhcentry.EntityData.YFilter = nhrpservernhcentry.YFilter
-    nhrpservernhcentry.EntityData.YangName = "nhrpServerNhcEntry"
-    nhrpservernhcentry.EntityData.BundleName = "cisco_ios_xe"
-    nhrpservernhcentry.EntityData.ParentYangName = "nhrpServerNhcTable"
-    nhrpservernhcentry.EntityData.SegmentPath = "nhrpServerNhcEntry" + "[nhrpServerIndex='" + fmt.Sprintf("%v", nhrpservernhcentry.Nhrpserverindex) + "']" + "[nhrpServerNhcIndex='" + fmt.Sprintf("%v", nhrpservernhcentry.Nhrpservernhcindex) + "']"
-    nhrpservernhcentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrpservernhcentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrpservernhcentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpServerNhcEntry *NHRPMIB_NhrpServerNhcTable_NhrpServerNhcEntry) GetEntityData() *types.CommonEntityData {
+    nhrpServerNhcEntry.EntityData.YFilter = nhrpServerNhcEntry.YFilter
+    nhrpServerNhcEntry.EntityData.YangName = "nhrpServerNhcEntry"
+    nhrpServerNhcEntry.EntityData.BundleName = "cisco_ios_xe"
+    nhrpServerNhcEntry.EntityData.ParentYangName = "nhrpServerNhcTable"
+    nhrpServerNhcEntry.EntityData.SegmentPath = "nhrpServerNhcEntry" + types.AddKeyToken(nhrpServerNhcEntry.NhrpServerIndex, "nhrpServerIndex") + types.AddKeyToken(nhrpServerNhcEntry.NhrpServerNhcIndex, "nhrpServerNhcIndex")
+    nhrpServerNhcEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpServerNhcEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpServerNhcEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrpservernhcentry.EntityData.Children = make(map[string]types.YChild)
-    nhrpservernhcentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    nhrpservernhcentry.EntityData.Leafs["nhrpServerIndex"] = types.YLeaf{"Nhrpserverindex", nhrpservernhcentry.Nhrpserverindex}
-    nhrpservernhcentry.EntityData.Leafs["nhrpServerNhcIndex"] = types.YLeaf{"Nhrpservernhcindex", nhrpservernhcentry.Nhrpservernhcindex}
-    nhrpservernhcentry.EntityData.Leafs["nhrpServerNhcPrefixLength"] = types.YLeaf{"Nhrpservernhcprefixlength", nhrpservernhcentry.Nhrpservernhcprefixlength}
-    nhrpservernhcentry.EntityData.Leafs["nhrpServerNhcInternetworkAddrType"] = types.YLeaf{"Nhrpservernhcinternetworkaddrtype", nhrpservernhcentry.Nhrpservernhcinternetworkaddrtype}
-    nhrpservernhcentry.EntityData.Leafs["nhrpServerNhcInternetworkAddr"] = types.YLeaf{"Nhrpservernhcinternetworkaddr", nhrpservernhcentry.Nhrpservernhcinternetworkaddr}
-    nhrpservernhcentry.EntityData.Leafs["nhrpServerNhcNbmaAddrType"] = types.YLeaf{"Nhrpservernhcnbmaaddrtype", nhrpservernhcentry.Nhrpservernhcnbmaaddrtype}
-    nhrpservernhcentry.EntityData.Leafs["nhrpServerNhcNbmaAddr"] = types.YLeaf{"Nhrpservernhcnbmaaddr", nhrpservernhcentry.Nhrpservernhcnbmaaddr}
-    nhrpservernhcentry.EntityData.Leafs["nhrpServerNhcNbmaSubaddr"] = types.YLeaf{"Nhrpservernhcnbmasubaddr", nhrpservernhcentry.Nhrpservernhcnbmasubaddr}
-    nhrpservernhcentry.EntityData.Leafs["nhrpServerNhcInUse"] = types.YLeaf{"Nhrpservernhcinuse", nhrpservernhcentry.Nhrpservernhcinuse}
-    nhrpservernhcentry.EntityData.Leafs["nhrpServerNhcRowStatus"] = types.YLeaf{"Nhrpservernhcrowstatus", nhrpservernhcentry.Nhrpservernhcrowstatus}
-    return &(nhrpservernhcentry.EntityData)
+    nhrpServerNhcEntry.EntityData.Children = types.NewOrderedMap()
+    nhrpServerNhcEntry.EntityData.Leafs = types.NewOrderedMap()
+    nhrpServerNhcEntry.EntityData.Leafs.Append("nhrpServerIndex", types.YLeaf{"NhrpServerIndex", nhrpServerNhcEntry.NhrpServerIndex})
+    nhrpServerNhcEntry.EntityData.Leafs.Append("nhrpServerNhcIndex", types.YLeaf{"NhrpServerNhcIndex", nhrpServerNhcEntry.NhrpServerNhcIndex})
+    nhrpServerNhcEntry.EntityData.Leafs.Append("nhrpServerNhcPrefixLength", types.YLeaf{"NhrpServerNhcPrefixLength", nhrpServerNhcEntry.NhrpServerNhcPrefixLength})
+    nhrpServerNhcEntry.EntityData.Leafs.Append("nhrpServerNhcInternetworkAddrType", types.YLeaf{"NhrpServerNhcInternetworkAddrType", nhrpServerNhcEntry.NhrpServerNhcInternetworkAddrType})
+    nhrpServerNhcEntry.EntityData.Leafs.Append("nhrpServerNhcInternetworkAddr", types.YLeaf{"NhrpServerNhcInternetworkAddr", nhrpServerNhcEntry.NhrpServerNhcInternetworkAddr})
+    nhrpServerNhcEntry.EntityData.Leafs.Append("nhrpServerNhcNbmaAddrType", types.YLeaf{"NhrpServerNhcNbmaAddrType", nhrpServerNhcEntry.NhrpServerNhcNbmaAddrType})
+    nhrpServerNhcEntry.EntityData.Leafs.Append("nhrpServerNhcNbmaAddr", types.YLeaf{"NhrpServerNhcNbmaAddr", nhrpServerNhcEntry.NhrpServerNhcNbmaAddr})
+    nhrpServerNhcEntry.EntityData.Leafs.Append("nhrpServerNhcNbmaSubaddr", types.YLeaf{"NhrpServerNhcNbmaSubaddr", nhrpServerNhcEntry.NhrpServerNhcNbmaSubaddr})
+    nhrpServerNhcEntry.EntityData.Leafs.Append("nhrpServerNhcInUse", types.YLeaf{"NhrpServerNhcInUse", nhrpServerNhcEntry.NhrpServerNhcInUse})
+    nhrpServerNhcEntry.EntityData.Leafs.Append("nhrpServerNhcRowStatus", types.YLeaf{"NhrpServerNhcRowStatus", nhrpServerNhcEntry.NhrpServerNhcRowStatus})
+
+    nhrpServerNhcEntry.EntityData.YListKeys = []string {"NhrpServerIndex", "NhrpServerNhcIndex"}
+
+    return &(nhrpServerNhcEntry.EntityData)
 }
 
-// NHRPMIB_Nhrpserverstattable
+// NHRPMIB_NhrpServerStatTable
 // Statistics collected by Next Hop Servers.
-type NHRPMIB_Nhrpserverstattable struct {
+type NHRPMIB_NhrpServerStatTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Statistics for a particular NHS. The statistics are broken into received
     // (Rx), transmitted (Tx) and forwarded (Fw).  Forwarded (Fw) would be done by
     // a transit NHS. The type is slice of
-    // NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry.
-    Nhrpserverstatentry []NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry
+    // NHRPMIB_NhrpServerStatTable_NhrpServerStatEntry.
+    NhrpServerStatEntry []*NHRPMIB_NhrpServerStatTable_NhrpServerStatEntry
 }
 
-func (nhrpserverstattable *NHRPMIB_Nhrpserverstattable) GetEntityData() *types.CommonEntityData {
-    nhrpserverstattable.EntityData.YFilter = nhrpserverstattable.YFilter
-    nhrpserverstattable.EntityData.YangName = "nhrpServerStatTable"
-    nhrpserverstattable.EntityData.BundleName = "cisco_ios_xe"
-    nhrpserverstattable.EntityData.ParentYangName = "NHRP-MIB"
-    nhrpserverstattable.EntityData.SegmentPath = "nhrpServerStatTable"
-    nhrpserverstattable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrpserverstattable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrpserverstattable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpServerStatTable *NHRPMIB_NhrpServerStatTable) GetEntityData() *types.CommonEntityData {
+    nhrpServerStatTable.EntityData.YFilter = nhrpServerStatTable.YFilter
+    nhrpServerStatTable.EntityData.YangName = "nhrpServerStatTable"
+    nhrpServerStatTable.EntityData.BundleName = "cisco_ios_xe"
+    nhrpServerStatTable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpServerStatTable.EntityData.SegmentPath = "nhrpServerStatTable"
+    nhrpServerStatTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpServerStatTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpServerStatTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrpserverstattable.EntityData.Children = make(map[string]types.YChild)
-    nhrpserverstattable.EntityData.Children["nhrpServerStatEntry"] = types.YChild{"Nhrpserverstatentry", nil}
-    for i := range nhrpserverstattable.Nhrpserverstatentry {
-        nhrpserverstattable.EntityData.Children[types.GetSegmentPath(&nhrpserverstattable.Nhrpserverstatentry[i])] = types.YChild{"Nhrpserverstatentry", &nhrpserverstattable.Nhrpserverstatentry[i]}
+    nhrpServerStatTable.EntityData.Children = types.NewOrderedMap()
+    nhrpServerStatTable.EntityData.Children.Append("nhrpServerStatEntry", types.YChild{"NhrpServerStatEntry", nil})
+    for i := range nhrpServerStatTable.NhrpServerStatEntry {
+        nhrpServerStatTable.EntityData.Children.Append(types.GetSegmentPath(nhrpServerStatTable.NhrpServerStatEntry[i]), types.YChild{"NhrpServerStatEntry", nhrpServerStatTable.NhrpServerStatEntry[i]})
     }
-    nhrpserverstattable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(nhrpserverstattable.EntityData)
+    nhrpServerStatTable.EntityData.Leafs = types.NewOrderedMap()
+
+    nhrpServerStatTable.EntityData.YListKeys = []string {}
+
+    return &(nhrpServerStatTable.EntityData)
 }
 
-// NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry
+// NHRPMIB_NhrpServerStatTable_NhrpServerStatEntry
 // Statistics for a particular NHS. The statistics are
 // broken into received (Rx), transmitted (Tx)
 // and forwarded (Fw).  Forwarded (Fw) would be done
 // by a transit NHS.
-type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
+type NHRPMIB_NhrpServerStatTable_NhrpServerStatEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
-    // Refers to nhrp_mib.NHRPMIB_Nhrpservertable_Nhrpserverentry_Nhrpserverindex
-    Nhrpserverindex interface{}
+    // Refers to nhrp_mib.NHRPMIB_NhrpServerTable_NhrpServerEntry_NhrpServerIndex
+    NhrpServerIndex interface{}
 
     // The number of NHRP Resolution Requests received by this server. 
     // Discontinuities in the value of this counter can occur at re-initialization
     // of the management system, at NHRP Server re-initialization and at other
     // times as indicated by the value of nhrpServerStatDiscontinuityTime. The
     // type is interface{} with range: 0..4294967295.
-    Nhrpserverstatrxresolvereq interface{}
+    NhrpServerStatRxResolveReq interface{}
 
     // The number of positively acknowledged NHRP Resolution Replies transmitted
     // by this server.  Discontinuities in the value of this counter can occur at
@@ -1463,7 +1526,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // re-initialization and at other times as indicated by the value of
     // nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstattxresolvereplyack interface{}
+    NhrpServerStatTxResolveReplyAck interface{}
 
     // The number of NAKed NHRP Resolution Replies transmitted by this server with
     // the code 'Administratively Prohibited'.  Discontinuities in the value of
@@ -1471,7 +1534,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // NHRP Server re-initialization and at other times as indicated by the value
     // of nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstattxresolvereplynakprohibited interface{}
+    NhrpServerStatTxResolveReplyNakProhibited interface{}
 
     // The number of NAKed NHRP Resolution Replies transmitted by this server with
     // the code 'Insufficient Resources'.  Discontinuities in the value of this
@@ -1479,7 +1542,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // Server re-initialization and at other times as indicated by the value of
     // nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstattxresolvereplynakinsufresources interface{}
+    NhrpServerStatTxResolveReplyNakInsufResources interface{}
 
     // The number of NAKed NHRP Resolution Replies transmitted by this server with
     // the code 'No Internetworking Layer Address to NBMA Address Binding Exists'.
@@ -1487,7 +1550,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // of the management system, at NHRP Server re-initialization and at other
     // times as indicated by the value of nhrpServerStatDiscontinuityTime. The
     // type is interface{} with range: 0..4294967295.
-    Nhrpserverstattxresolvereplynaknobinding interface{}
+    NhrpServerStatTxResolveReplyNakNoBinding interface{}
 
     // The number of NAKed NHRP Resolution Replies transmitted by this server with
     // the code 'Binding Exists But Is Not Unique'.  Discontinuities in the value
@@ -1495,14 +1558,14 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // NHRP Server re-initialization and at other times as indicated by the value
     // of nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstattxresolvereplynaknotunique interface{}
+    NhrpServerStatTxResolveReplyNakNotUnique interface{}
 
     // The number of NHRP Registration Requests received by this server. 
     // Discontinuities in the value of this counter can occur at re-initialization
     // of the management system, at NHRP Server re-initialization and at other
     // times as indicated by the value of nhrpServerStatDiscontinuityTime. The
     // type is interface{} with range: 0..4294967295.
-    Nhrpserverstatrxregisterreq interface{}
+    NhrpServerStatRxRegisterReq interface{}
 
     // The number of positively acknowledged NHRP Registration Replies transmitted
     // by this server.  Discontinuities in the value of this counter can occur at
@@ -1510,7 +1573,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // re-initialization and at other times as indicated by the value of
     // nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstattxregisterack interface{}
+    NhrpServerStatTxRegisterAck interface{}
 
     // The number of NAKed NHRP Registration Replies transmitted by this server
     // with the code 'Administratively Prohibited'.  Discontinuities in the value
@@ -1518,7 +1581,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // NHRP Server re-initialization and at other times as indicated by the value
     // of nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstattxregisternakprohibited interface{}
+    NhrpServerStatTxRegisterNakProhibited interface{}
 
     // The number of NAKed NHRP Registration Replies transmitted by this server
     // with the code 'Insufficient Resources'.  Discontinuities in the value of
@@ -1526,7 +1589,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // NHRP Server re-initialization and at other times as indicated by the value
     // of nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstattxregisternakinsufresources interface{}
+    NhrpServerStatTxRegisterNakInsufResources interface{}
 
     // The number of NAKed NHRP Registration Replies transmitted by this server
     // with the code 'Unique Internetworking Layer Address Already Registered'. 
@@ -1534,35 +1597,35 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // of the management system, at NHRP Server re-initialization and at other
     // times as indicated by the value of nhrpServerStatDiscontinuityTime. The
     // type is interface{} with range: 0..4294967295.
-    Nhrpserverstattxregisternakalreadyreg interface{}
+    NhrpServerStatTxRegisterNakAlreadyReg interface{}
 
     // The number of NHRP Purge Requests received by this server.  Discontinuities
     // in the value of this counter can occur at re-initialization of the
     // management system, at NHRP Server re-initialization and at other times as
     // indicated by the value of nhrpServerStatDiscontinuityTime. The type is
     // interface{} with range: 0..4294967295.
-    Nhrpserverstatrxpurgereq interface{}
+    NhrpServerStatRxPurgeReq interface{}
 
     // The number of NHRP Purge Requests transmitted by this server. 
     // Discontinuities in the value of this counter can occur at re-initialization
     // of the management system, at NHRP Server re-initialization and at other
     // times as indicated by the value of nhrpServerStatDiscontinuityTime. The
     // type is interface{} with range: 0..4294967295.
-    Nhrpserverstattxpurgereq interface{}
+    NhrpServerStatTxPurgeReq interface{}
 
     // The number of NHRP Purge Replies received by this server.  Discontinuities
     // in the value of this counter can occur at re-initialization of the
     // management system, at NHRP Server re-initialization and at other times as
     // indicated by the value of nhrpServerStatDiscontinuityTime. The type is
     // interface{} with range: 0..4294967295.
-    Nhrpserverstatrxpurgereply interface{}
+    NhrpServerStatRxPurgeReply interface{}
 
     // The number of NHRP Purge Replies transmitted by this server. 
     // Discontinuities in the value of this counter can occur at re-initialization
     // of the management system, at NHRP Server re-initialization and at other
     // times as indicated by the value of nhrpServerStatDiscontinuityTime. The
     // type is interface{} with range: 0..4294967295.
-    Nhrpserverstattxpurgereply interface{}
+    NhrpServerStatTxPurgeReply interface{}
 
     // The number of NHRP Error Indication packets received by this server with
     // the error code  'Unrecognized Extension'.  Discontinuities in the value of
@@ -1570,7 +1633,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // NHRP Server re-initialization and at other times as indicated by the value
     // of nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstatrxerrunrecognizedextension interface{}
+    NhrpServerStatRxErrUnrecognizedExtension interface{}
 
     // The number of NHRP Error Indication packets received by this server with
     // the error code 'NHRP Loop Detected'.  Discontinuities in the value of this
@@ -1578,7 +1641,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // Server re-initialization and at other times as indicated by the value of
     // nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstatrxerrloopdetected interface{}
+    NhrpServerStatRxErrLoopDetected interface{}
 
     // The number of NHRP Error Indication packets received by this server with
     // the error code 'Protocol Address Unreachable'.  Discontinuities in the
@@ -1586,7 +1649,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // system, at NHRP Server re-initialization and at other times as indicated by
     // the value of nhrpServerStatDiscontinuityTime. The type is interface{} with
     // range: 0..4294967295.
-    Nhrpserverstatrxerrprotoaddrunreachable interface{}
+    NhrpServerStatRxErrProtoAddrUnreachable interface{}
 
     // The number of NHRP Error Indication packets received by this server with
     // the error code 'Protocol Error'.  Discontinuities in the value of this
@@ -1594,7 +1657,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // Server re-initialization and at other times as indicated by the value of
     // nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstatrxerrprotoerror interface{}
+    NhrpServerStatRxErrProtoError interface{}
 
     // The number of NHRP Error Indication packets received by this server with
     // the error code 'NHRP SDU Size Exceeded'.  Discontinuities in the value of
@@ -1602,7 +1665,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // NHRP Server re-initialization and at other times as indicated by the value
     // of nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstatrxerrsdusizeexceeded interface{}
+    NhrpServerStatRxErrSduSizeExceeded interface{}
 
     // The number of NHRP Error Indication packets received by this server with
     // the error code 'Invalid Extension'.  Discontinuities in the value of this
@@ -1610,7 +1673,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // Server re-initialization and at other times as indicated by the value of
     // nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstatrxerrinvalidextension interface{}
+    NhrpServerStatRxErrInvalidExtension interface{}
 
     // The number of NHRP Error Indication packets received by this server with
     // the error code 'Invalid Resolution Reply Received'.  Discontinuities in the
@@ -1618,7 +1681,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // system, at NHRP Server re-initialization and at other times as indicated by
     // the value of nhrpServerStatDiscontinuityTime. The type is interface{} with
     // range: 0..4294967295.
-    Nhrpserverstatrxerrinvalidresreplyreceived interface{}
+    NhrpServerStatRxErrInvalidResReplyReceived interface{}
 
     // The number of NHRP Error Indication packets received by this server with
     // the error code 'Authentication Failure'.  Discontinuities in the value of
@@ -1626,7 +1689,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // NHRP Server re-initialization and at other times as indicated by the value
     // of nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstatrxerrauthenticationfailure interface{}
+    NhrpServerStatRxErrAuthenticationFailure interface{}
 
     // The number of NHRP Error Indication packets received by this server with
     // the error code 'Hop Count Exceeded'.  Discontinuities in the value of this
@@ -1634,7 +1697,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // Server re-initialization and at other times as indicated by the value of
     // nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstatrxerrhopcountexceeded interface{}
+    NhrpServerStatRxErrHopCountExceeded interface{}
 
     // The number of NHRP Error Indication packets transmitted by this server with
     // the error code 'Unrecognized Extension'.  Discontinuities in the value of
@@ -1642,7 +1705,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // NHRP Server re-initialization and at other times as indicated by the value
     // of nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstattxerrunrecognizedextension interface{}
+    NhrpServerStatTxErrUnrecognizedExtension interface{}
 
     // The number of NHRP Error Indication packets transmitted by this server with
     // the error code 'NHRP Loop Detected'.     Discontinuities in the value of
@@ -1650,7 +1713,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // NHRP Server re-initialization and at other times as indicated by the value
     // of nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstattxerrloopdetected interface{}
+    NhrpServerStatTxErrLoopDetected interface{}
 
     // The number of NHRP Error Indication packets transmitted by this server with
     // the error code 'Protocol Address Unreachable'.  Discontinuities in the
@@ -1658,7 +1721,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // system, at NHRP Server re-initialization and at other times as indicated by
     // the value of nhrpServerStatDiscontinuityTime. The type is interface{} with
     // range: 0..4294967295.
-    Nhrpserverstattxerrprotoaddrunreachable interface{}
+    NhrpServerStatTxErrProtoAddrUnreachable interface{}
 
     // The number of NHRP Error Indication packets transmitted by this server with
     // the error code 'Protocol Error'.  Discontinuities in the value of this
@@ -1666,7 +1729,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // Server re-initialization and at other times as indicated by the value of
     // nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstattxerrprotoerror interface{}
+    NhrpServerStatTxErrProtoError interface{}
 
     // The number of NHRP Error Indication packets transmitted by this server with
     // the error code 'NHRP SDU Size Exceeded'.  Discontinuities in the value of
@@ -1674,7 +1737,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // NHRP Server re-initialization and at other times as indicated by the value
     // of nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstattxerrsdusizeexceeded interface{}
+    NhrpServerStatTxErrSduSizeExceeded interface{}
 
     // The number of NHRP Error Indication packets transmitted by this server with
     // the error code  'Invalid Extension'.  Discontinuities in the value of this
@@ -1682,7 +1745,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // Server re-initialization and at other times as indicated by the value of
     // nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstattxerrinvalidextension interface{}
+    NhrpServerStatTxErrInvalidExtension interface{}
 
     // The number of NHRP Error Indication packets transmitted by this server with
     // the error code 'Authentication Failure'.     Discontinuities in the value
@@ -1690,7 +1753,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // NHRP Server re-initialization and at other times as indicated by the value
     // of nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstattxerrauthenticationfailure interface{}
+    NhrpServerStatTxErrAuthenticationFailure interface{}
 
     // The number of NHRP Error Indication packets transmitted by this server with
     // the error code 'Hop Count Exceeded'.  Discontinuities in the value of this
@@ -1698,7 +1761,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // Server re-initialization and at other times as indicated by the value of
     // nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstattxerrhopcountexceeded interface{}
+    NhrpServerStatTxErrHopCountExceeded interface{}
 
     // The number of NHRP Resolution Requests forwarded by this server acting as a
     // transit NHS.  Discontinuities in the value of this counter can occur at
@@ -1706,7 +1769,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // re-initialization and at other times as indicated by the value of
     // nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstatfwresolvereq interface{}
+    NhrpServerStatFwResolveReq interface{}
 
     // The number of NHRP Resolution Replies forwarded by this server acting as a
     // transit NHS.  Discontinuities in the value of this counter can occur at
@@ -1714,7 +1777,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // re-initialization and at other times as indicated by the value of
     // nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstatfwresolvereply interface{}
+    NhrpServerStatFwResolveReply interface{}
 
     // The number of NHRP Registration Requests forwarded by this server acting as
     // a transit NHS.  Discontinuities in the value of this counter can occur at
@@ -1722,7 +1785,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // re-initialization and at other times as indicated by the value of
     // nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstatfwregisterreq interface{}
+    NhrpServerStatFwRegisterReq interface{}
 
     // The number of NHRP Registration Replies forwarded by this server acting as
     // a transit NHS. Discontinuities in the value of this counter can occur at
@@ -1730,7 +1793,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // re-initialization and at other times as indicated by the value of
     // nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstatfwregisterreply interface{}
+    NhrpServerStatFwRegisterReply interface{}
 
     // The number of NHRP Purge Requests forwarded by this server acting as a
     // transit NHS.   Discontinuities in the value of this counter can occur at
@@ -1738,7 +1801,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // re-initialization and at other times as indicated by the value of
     // nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstatfwpurgereq interface{}
+    NhrpServerStatFwPurgeReq interface{}
 
     // The number of NHRP Purge Replies forwarded by this server acting as a
     // transit NHS.  Discontinuities in the value of this counter can occur at
@@ -1746,7 +1809,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // re-initialization and at other times as indicated by the value of
     // nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstatfwpurgereply interface{}
+    NhrpServerStatFwPurgeReply interface{}
 
     // The number of NHRP Error Indication packets forwarded by this server acting
     // as a transit NHS.  Discontinuities in the value of this counter can occur
@@ -1754,7 +1817,7 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // re-initialization and at other times as indicated by the value of
     // nhrpServerStatDiscontinuityTime. The type is interface{} with range:
     // 0..4294967295.
-    Nhrpserverstatfwerrorindication interface{}
+    NhrpServerStatFwErrorIndication interface{}
 
     // The value of sysUpTime on the most recent occasion at which any one or more
     // of this Server's counters suffered a discontinuity.  If no such
@@ -1762,62 +1825,65 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     // local management subsystem or the NHRP Server re-initialization associated
     // with this entry, then this object contains a zero value. The type is
     // interface{} with range: 0..4294967295.
-    Nhrpserverstatdiscontinuitytime interface{}
+    NhrpServerStatDiscontinuityTime interface{}
 }
 
-func (nhrpserverstatentry *NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry) GetEntityData() *types.CommonEntityData {
-    nhrpserverstatentry.EntityData.YFilter = nhrpserverstatentry.YFilter
-    nhrpserverstatentry.EntityData.YangName = "nhrpServerStatEntry"
-    nhrpserverstatentry.EntityData.BundleName = "cisco_ios_xe"
-    nhrpserverstatentry.EntityData.ParentYangName = "nhrpServerStatTable"
-    nhrpserverstatentry.EntityData.SegmentPath = "nhrpServerStatEntry" + "[nhrpServerIndex='" + fmt.Sprintf("%v", nhrpserverstatentry.Nhrpserverindex) + "']"
-    nhrpserverstatentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nhrpserverstatentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nhrpserverstatentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (nhrpServerStatEntry *NHRPMIB_NhrpServerStatTable_NhrpServerStatEntry) GetEntityData() *types.CommonEntityData {
+    nhrpServerStatEntry.EntityData.YFilter = nhrpServerStatEntry.YFilter
+    nhrpServerStatEntry.EntityData.YangName = "nhrpServerStatEntry"
+    nhrpServerStatEntry.EntityData.BundleName = "cisco_ios_xe"
+    nhrpServerStatEntry.EntityData.ParentYangName = "nhrpServerStatTable"
+    nhrpServerStatEntry.EntityData.SegmentPath = "nhrpServerStatEntry" + types.AddKeyToken(nhrpServerStatEntry.NhrpServerIndex, "nhrpServerIndex")
+    nhrpServerStatEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpServerStatEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpServerStatEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nhrpserverstatentry.EntityData.Children = make(map[string]types.YChild)
-    nhrpserverstatentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerIndex"] = types.YLeaf{"Nhrpserverindex", nhrpserverstatentry.Nhrpserverindex}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxResolveReq"] = types.YLeaf{"Nhrpserverstatrxresolvereq", nhrpserverstatentry.Nhrpserverstatrxresolvereq}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxResolveReplyAck"] = types.YLeaf{"Nhrpserverstattxresolvereplyack", nhrpserverstatentry.Nhrpserverstattxresolvereplyack}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxResolveReplyNakProhibited"] = types.YLeaf{"Nhrpserverstattxresolvereplynakprohibited", nhrpserverstatentry.Nhrpserverstattxresolvereplynakprohibited}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxResolveReplyNakInsufResources"] = types.YLeaf{"Nhrpserverstattxresolvereplynakinsufresources", nhrpserverstatentry.Nhrpserverstattxresolvereplynakinsufresources}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxResolveReplyNakNoBinding"] = types.YLeaf{"Nhrpserverstattxresolvereplynaknobinding", nhrpserverstatentry.Nhrpserverstattxresolvereplynaknobinding}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxResolveReplyNakNotUnique"] = types.YLeaf{"Nhrpserverstattxresolvereplynaknotunique", nhrpserverstatentry.Nhrpserverstattxresolvereplynaknotunique}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxRegisterReq"] = types.YLeaf{"Nhrpserverstatrxregisterreq", nhrpserverstatentry.Nhrpserverstatrxregisterreq}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxRegisterAck"] = types.YLeaf{"Nhrpserverstattxregisterack", nhrpserverstatentry.Nhrpserverstattxregisterack}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxRegisterNakProhibited"] = types.YLeaf{"Nhrpserverstattxregisternakprohibited", nhrpserverstatentry.Nhrpserverstattxregisternakprohibited}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxRegisterNakInsufResources"] = types.YLeaf{"Nhrpserverstattxregisternakinsufresources", nhrpserverstatentry.Nhrpserverstattxregisternakinsufresources}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxRegisterNakAlreadyReg"] = types.YLeaf{"Nhrpserverstattxregisternakalreadyreg", nhrpserverstatentry.Nhrpserverstattxregisternakalreadyreg}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxPurgeReq"] = types.YLeaf{"Nhrpserverstatrxpurgereq", nhrpserverstatentry.Nhrpserverstatrxpurgereq}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxPurgeReq"] = types.YLeaf{"Nhrpserverstattxpurgereq", nhrpserverstatentry.Nhrpserverstattxpurgereq}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxPurgeReply"] = types.YLeaf{"Nhrpserverstatrxpurgereply", nhrpserverstatentry.Nhrpserverstatrxpurgereply}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxPurgeReply"] = types.YLeaf{"Nhrpserverstattxpurgereply", nhrpserverstatentry.Nhrpserverstattxpurgereply}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxErrUnrecognizedExtension"] = types.YLeaf{"Nhrpserverstatrxerrunrecognizedextension", nhrpserverstatentry.Nhrpserverstatrxerrunrecognizedextension}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxErrLoopDetected"] = types.YLeaf{"Nhrpserverstatrxerrloopdetected", nhrpserverstatentry.Nhrpserverstatrxerrloopdetected}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxErrProtoAddrUnreachable"] = types.YLeaf{"Nhrpserverstatrxerrprotoaddrunreachable", nhrpserverstatentry.Nhrpserverstatrxerrprotoaddrunreachable}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxErrProtoError"] = types.YLeaf{"Nhrpserverstatrxerrprotoerror", nhrpserverstatentry.Nhrpserverstatrxerrprotoerror}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxErrSduSizeExceeded"] = types.YLeaf{"Nhrpserverstatrxerrsdusizeexceeded", nhrpserverstatentry.Nhrpserverstatrxerrsdusizeexceeded}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxErrInvalidExtension"] = types.YLeaf{"Nhrpserverstatrxerrinvalidextension", nhrpserverstatentry.Nhrpserverstatrxerrinvalidextension}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxErrInvalidResReplyReceived"] = types.YLeaf{"Nhrpserverstatrxerrinvalidresreplyreceived", nhrpserverstatentry.Nhrpserverstatrxerrinvalidresreplyreceived}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxErrAuthenticationFailure"] = types.YLeaf{"Nhrpserverstatrxerrauthenticationfailure", nhrpserverstatentry.Nhrpserverstatrxerrauthenticationfailure}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxErrHopCountExceeded"] = types.YLeaf{"Nhrpserverstatrxerrhopcountexceeded", nhrpserverstatentry.Nhrpserverstatrxerrhopcountexceeded}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxErrUnrecognizedExtension"] = types.YLeaf{"Nhrpserverstattxerrunrecognizedextension", nhrpserverstatentry.Nhrpserverstattxerrunrecognizedextension}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxErrLoopDetected"] = types.YLeaf{"Nhrpserverstattxerrloopdetected", nhrpserverstatentry.Nhrpserverstattxerrloopdetected}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxErrProtoAddrUnreachable"] = types.YLeaf{"Nhrpserverstattxerrprotoaddrunreachable", nhrpserverstatentry.Nhrpserverstattxerrprotoaddrunreachable}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxErrProtoError"] = types.YLeaf{"Nhrpserverstattxerrprotoerror", nhrpserverstatentry.Nhrpserverstattxerrprotoerror}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxErrSduSizeExceeded"] = types.YLeaf{"Nhrpserverstattxerrsdusizeexceeded", nhrpserverstatentry.Nhrpserverstattxerrsdusizeexceeded}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxErrInvalidExtension"] = types.YLeaf{"Nhrpserverstattxerrinvalidextension", nhrpserverstatentry.Nhrpserverstattxerrinvalidextension}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxErrAuthenticationFailure"] = types.YLeaf{"Nhrpserverstattxerrauthenticationfailure", nhrpserverstatentry.Nhrpserverstattxerrauthenticationfailure}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxErrHopCountExceeded"] = types.YLeaf{"Nhrpserverstattxerrhopcountexceeded", nhrpserverstatentry.Nhrpserverstattxerrhopcountexceeded}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatFwResolveReq"] = types.YLeaf{"Nhrpserverstatfwresolvereq", nhrpserverstatentry.Nhrpserverstatfwresolvereq}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatFwResolveReply"] = types.YLeaf{"Nhrpserverstatfwresolvereply", nhrpserverstatentry.Nhrpserverstatfwresolvereply}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatFwRegisterReq"] = types.YLeaf{"Nhrpserverstatfwregisterreq", nhrpserverstatentry.Nhrpserverstatfwregisterreq}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatFwRegisterReply"] = types.YLeaf{"Nhrpserverstatfwregisterreply", nhrpserverstatentry.Nhrpserverstatfwregisterreply}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatFwPurgeReq"] = types.YLeaf{"Nhrpserverstatfwpurgereq", nhrpserverstatentry.Nhrpserverstatfwpurgereq}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatFwPurgeReply"] = types.YLeaf{"Nhrpserverstatfwpurgereply", nhrpserverstatentry.Nhrpserverstatfwpurgereply}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatFwErrorIndication"] = types.YLeaf{"Nhrpserverstatfwerrorindication", nhrpserverstatentry.Nhrpserverstatfwerrorindication}
-    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatDiscontinuityTime"] = types.YLeaf{"Nhrpserverstatdiscontinuitytime", nhrpserverstatentry.Nhrpserverstatdiscontinuitytime}
-    return &(nhrpserverstatentry.EntityData)
+    nhrpServerStatEntry.EntityData.Children = types.NewOrderedMap()
+    nhrpServerStatEntry.EntityData.Leafs = types.NewOrderedMap()
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerIndex", types.YLeaf{"NhrpServerIndex", nhrpServerStatEntry.NhrpServerIndex})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatRxResolveReq", types.YLeaf{"NhrpServerStatRxResolveReq", nhrpServerStatEntry.NhrpServerStatRxResolveReq})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatTxResolveReplyAck", types.YLeaf{"NhrpServerStatTxResolveReplyAck", nhrpServerStatEntry.NhrpServerStatTxResolveReplyAck})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatTxResolveReplyNakProhibited", types.YLeaf{"NhrpServerStatTxResolveReplyNakProhibited", nhrpServerStatEntry.NhrpServerStatTxResolveReplyNakProhibited})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatTxResolveReplyNakInsufResources", types.YLeaf{"NhrpServerStatTxResolveReplyNakInsufResources", nhrpServerStatEntry.NhrpServerStatTxResolveReplyNakInsufResources})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatTxResolveReplyNakNoBinding", types.YLeaf{"NhrpServerStatTxResolveReplyNakNoBinding", nhrpServerStatEntry.NhrpServerStatTxResolveReplyNakNoBinding})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatTxResolveReplyNakNotUnique", types.YLeaf{"NhrpServerStatTxResolveReplyNakNotUnique", nhrpServerStatEntry.NhrpServerStatTxResolveReplyNakNotUnique})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatRxRegisterReq", types.YLeaf{"NhrpServerStatRxRegisterReq", nhrpServerStatEntry.NhrpServerStatRxRegisterReq})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatTxRegisterAck", types.YLeaf{"NhrpServerStatTxRegisterAck", nhrpServerStatEntry.NhrpServerStatTxRegisterAck})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatTxRegisterNakProhibited", types.YLeaf{"NhrpServerStatTxRegisterNakProhibited", nhrpServerStatEntry.NhrpServerStatTxRegisterNakProhibited})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatTxRegisterNakInsufResources", types.YLeaf{"NhrpServerStatTxRegisterNakInsufResources", nhrpServerStatEntry.NhrpServerStatTxRegisterNakInsufResources})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatTxRegisterNakAlreadyReg", types.YLeaf{"NhrpServerStatTxRegisterNakAlreadyReg", nhrpServerStatEntry.NhrpServerStatTxRegisterNakAlreadyReg})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatRxPurgeReq", types.YLeaf{"NhrpServerStatRxPurgeReq", nhrpServerStatEntry.NhrpServerStatRxPurgeReq})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatTxPurgeReq", types.YLeaf{"NhrpServerStatTxPurgeReq", nhrpServerStatEntry.NhrpServerStatTxPurgeReq})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatRxPurgeReply", types.YLeaf{"NhrpServerStatRxPurgeReply", nhrpServerStatEntry.NhrpServerStatRxPurgeReply})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatTxPurgeReply", types.YLeaf{"NhrpServerStatTxPurgeReply", nhrpServerStatEntry.NhrpServerStatTxPurgeReply})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatRxErrUnrecognizedExtension", types.YLeaf{"NhrpServerStatRxErrUnrecognizedExtension", nhrpServerStatEntry.NhrpServerStatRxErrUnrecognizedExtension})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatRxErrLoopDetected", types.YLeaf{"NhrpServerStatRxErrLoopDetected", nhrpServerStatEntry.NhrpServerStatRxErrLoopDetected})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatRxErrProtoAddrUnreachable", types.YLeaf{"NhrpServerStatRxErrProtoAddrUnreachable", nhrpServerStatEntry.NhrpServerStatRxErrProtoAddrUnreachable})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatRxErrProtoError", types.YLeaf{"NhrpServerStatRxErrProtoError", nhrpServerStatEntry.NhrpServerStatRxErrProtoError})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatRxErrSduSizeExceeded", types.YLeaf{"NhrpServerStatRxErrSduSizeExceeded", nhrpServerStatEntry.NhrpServerStatRxErrSduSizeExceeded})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatRxErrInvalidExtension", types.YLeaf{"NhrpServerStatRxErrInvalidExtension", nhrpServerStatEntry.NhrpServerStatRxErrInvalidExtension})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatRxErrInvalidResReplyReceived", types.YLeaf{"NhrpServerStatRxErrInvalidResReplyReceived", nhrpServerStatEntry.NhrpServerStatRxErrInvalidResReplyReceived})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatRxErrAuthenticationFailure", types.YLeaf{"NhrpServerStatRxErrAuthenticationFailure", nhrpServerStatEntry.NhrpServerStatRxErrAuthenticationFailure})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatRxErrHopCountExceeded", types.YLeaf{"NhrpServerStatRxErrHopCountExceeded", nhrpServerStatEntry.NhrpServerStatRxErrHopCountExceeded})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatTxErrUnrecognizedExtension", types.YLeaf{"NhrpServerStatTxErrUnrecognizedExtension", nhrpServerStatEntry.NhrpServerStatTxErrUnrecognizedExtension})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatTxErrLoopDetected", types.YLeaf{"NhrpServerStatTxErrLoopDetected", nhrpServerStatEntry.NhrpServerStatTxErrLoopDetected})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatTxErrProtoAddrUnreachable", types.YLeaf{"NhrpServerStatTxErrProtoAddrUnreachable", nhrpServerStatEntry.NhrpServerStatTxErrProtoAddrUnreachable})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatTxErrProtoError", types.YLeaf{"NhrpServerStatTxErrProtoError", nhrpServerStatEntry.NhrpServerStatTxErrProtoError})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatTxErrSduSizeExceeded", types.YLeaf{"NhrpServerStatTxErrSduSizeExceeded", nhrpServerStatEntry.NhrpServerStatTxErrSduSizeExceeded})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatTxErrInvalidExtension", types.YLeaf{"NhrpServerStatTxErrInvalidExtension", nhrpServerStatEntry.NhrpServerStatTxErrInvalidExtension})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatTxErrAuthenticationFailure", types.YLeaf{"NhrpServerStatTxErrAuthenticationFailure", nhrpServerStatEntry.NhrpServerStatTxErrAuthenticationFailure})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatTxErrHopCountExceeded", types.YLeaf{"NhrpServerStatTxErrHopCountExceeded", nhrpServerStatEntry.NhrpServerStatTxErrHopCountExceeded})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatFwResolveReq", types.YLeaf{"NhrpServerStatFwResolveReq", nhrpServerStatEntry.NhrpServerStatFwResolveReq})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatFwResolveReply", types.YLeaf{"NhrpServerStatFwResolveReply", nhrpServerStatEntry.NhrpServerStatFwResolveReply})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatFwRegisterReq", types.YLeaf{"NhrpServerStatFwRegisterReq", nhrpServerStatEntry.NhrpServerStatFwRegisterReq})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatFwRegisterReply", types.YLeaf{"NhrpServerStatFwRegisterReply", nhrpServerStatEntry.NhrpServerStatFwRegisterReply})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatFwPurgeReq", types.YLeaf{"NhrpServerStatFwPurgeReq", nhrpServerStatEntry.NhrpServerStatFwPurgeReq})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatFwPurgeReply", types.YLeaf{"NhrpServerStatFwPurgeReply", nhrpServerStatEntry.NhrpServerStatFwPurgeReply})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatFwErrorIndication", types.YLeaf{"NhrpServerStatFwErrorIndication", nhrpServerStatEntry.NhrpServerStatFwErrorIndication})
+    nhrpServerStatEntry.EntityData.Leafs.Append("nhrpServerStatDiscontinuityTime", types.YLeaf{"NhrpServerStatDiscontinuityTime", nhrpServerStatEntry.NhrpServerStatDiscontinuityTime})
+
+    nhrpServerStatEntry.EntityData.YListKeys = []string {"NhrpServerIndex"}
+
+    return &(nhrpServerStatEntry.EntityData)
 }
 

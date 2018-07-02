@@ -10,7 +10,7 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
     prefix xr;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub6 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -32,6 +32,10 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -1604,6 +1608,10 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         description
           "Cost limit path verification failure trigger";
       }
+      enum "delay-limit-path-verification-fail-trigger" {
+        description
+          "Delay limit path verification failure trigger";
+      }
       enum "soft-preemption-trigger" {
         description
           "Soft preemption trigger";
@@ -1939,14 +1947,20 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
           "Reopt LSP is signalled because it uses strict
            SPF while current doesn't";
       }
-      enum "intra-area" {
+      enum "delay-limit" {
         value 41;
+        description
+          "Reopt LSP is signalled  because the path delay
+           limit is crossed";
+      }
+      enum "intra-area" {
+        value 42;
         description
           "Reopt LSP is signalled because it has better
            intra-areaness";
       }
       enum "not-used" {
-        value 42;
+        value 43;
         description
           "Not used, must be last entry";
       }
@@ -3324,6 +3338,16 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       description
         "This value indicates the number of seconds until
          the next application";
+    }
+    leaf links-count {
+      type uint32;
+      description
+        "Total number of links";
+    }
+    leaf maximum-links {
+      type uint32;
+      description
+        "Maximum number of links supported";
     }
   }
 
@@ -5376,6 +5400,11 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       type inet:ipv4-address;
       description
         "Previous hop address";
+    }
+    leaf next-next-hop-address {
+      type inet:ipv4-address;
+      description
+        "Next Next hop address";
     }
   }
 
@@ -8998,6 +9027,41 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
     }
   }
 
+  grouping MPLS-TE-TOPOLOGY-LINK-LOSS {
+    description
+      "MPLS TE Link Loss Attribute";
+    leaf anomalous-bit {
+      type boolean;
+      description
+        "Anomalous (A) Bit";
+    }
+    leaf loss-value {
+      type uint32;
+      description
+        "Loss Value";
+    }
+  }
+
+  grouping MPLS-TE-TOPOLOGY-LINK-MIN-MAX-DELAY {
+    description
+      "MPLS TE Link Loss Attribute";
+    leaf anomalous-bit {
+      type boolean;
+      description
+        "Anomalous (A) Bit";
+    }
+    leaf minimum-delay {
+      type uint32;
+      description
+        "Mimimum measured link delay value in usec";
+    }
+    leaf maximum-delay {
+      type uint32;
+      description
+        "Maximum measured link delay value in usec";
+    }
+  }
+
   grouping MPLS-TE-TOPOLOGY-LINK-BW-STD-DETAIL {
     description
       "Detailed DSTE bandwidth information for a link";
@@ -9157,6 +9221,16 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "ODU Link Capabilities";
       uses ODU-LINK-CAPABILITIES;
     }
+    container min-max-delay {
+      description
+        "Minimum and maximum measured link delay";
+      uses MPLS-TE-TOPOLOGY-LINK-MIN-MAX-DELAY;
+    }
+    container loss {
+      description
+        "Link Loss";
+      uses MPLS-TE-TOPOLOGY-LINK-LOSS;
+    }
     leaf topology-link-type {
       type Igp-subnet;
       description
@@ -9236,6 +9310,28 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       type Igpte-lib-bw-model;
       description
         "The link's topology bandwidth model";
+    }
+    leaf delay-variation {
+      type uint32;
+      description
+        "Delay Variation";
+    }
+    leaf residual-bandwidth {
+      type uint32;
+      description
+        "Residual Bandwidth (kbytes per seconds)";
+    }
+    leaf available-bandwidth {
+      type uint32;
+      units "byte/s";
+      description
+        "Available Bandwidth (kbytes per second)";
+    }
+    leaf utilized-bandwidth {
+      type uint32;
+      units "byte/s";
+      description
+        "Utilized Bandwidth (kbytes per second)";
     }
     list topology-link-extended-affinity-bit {
       description
@@ -11665,8 +11761,7 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
     leaf association-type {
       type uint16;
       description
-        "Association Type
-         (draft-ietf-ccamp-mpls-tp-rsvpte-ext-associated-lsp)";
+        "Association Type (RFC 7751)";
     }
     leaf association-id {
       type uint16;
@@ -11763,6 +11858,11 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       description
         "Forward class";
     }
+    leaf is-forward-class-configured {
+      type boolean;
+      description
+        "True if Forward class is configured";
+    }
     leaf backup-bandwidth {
       type uint32;
       description
@@ -11832,6 +11932,16 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       type uint32;
       description
         "Global Cost Limit";
+    }
+    leaf delay-limit {
+      type uint32;
+      description
+        "Delay limit on the tunnel path (usec)";
+    }
+    leaf delay-limit-global {
+      type uint32;
+      description
+        "Global Delay Limit (usec)";
     }
     leaf path-invalidation-timeout-source {
       type uint32;
@@ -14104,6 +14214,11 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       description
         "Forward class";
     }
+    leaf is-forward-class-configured {
+      type boolean;
+      description
+        "True if forward-class is configured";
+    }
     leaf is-affinity-configured {
       type boolean;
       description
@@ -14527,6 +14642,17 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       type boolean;
       description
         "Is BFD reverse path configured";
+    }
+    leaf is-delay-limit-configured {
+      type boolean;
+      description
+        "Is Delay Limit configured";
+    }
+    leaf delay-limit {
+      type uint32;
+      description
+        "Delay limit on the tunnel path (usec) When delay
+         limit is configured";
     }
     list tunnel-id {
       description
@@ -15091,6 +15217,11 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       type inet:ipv4-address;
       description
         "Next hop address";
+    }
+    leaf next-next-hop-address {
+      type inet:ipv4-address;
+      description
+        "Next next hop address";
     }
     leaf previous-hop-address {
       type inet:ipv4-address;

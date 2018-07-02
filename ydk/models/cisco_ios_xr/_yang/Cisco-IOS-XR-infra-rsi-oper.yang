@@ -6,10 +6,10 @@ module Cisco-IOS-XR-infra-rsi-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-infra-rsi-oper-sub2 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-infra-rsi-oper-sub1 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -37,6 +37,10 @@ module Cisco-IOS-XR-infra-rsi-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -86,6 +90,51 @@ module Cisco-IOS-XR-infra-rsi-oper {
     config false;
     description
       "srlg";
+    container groups {
+      description
+        "Set of Groups configured for SRLG";
+      list group {
+        key "group-name";
+        description
+          "SRLG group details";
+        leaf group-name {
+          type xr:Cisco-ios-xr-string;
+          description
+            "Group name";
+        }
+        uses RSI-SRLG-GROUP-SHOW;
+      }
+    }
+    container interfaces {
+      description
+        "Set of interfaces configured for SRLG";
+      list interface {
+        key "interface-name";
+        description
+          "SRLG interface summary";
+        leaf interface-name {
+          type xr:Interface-name;
+          description
+            "Interface name";
+        }
+        uses RSI-SRLG-INTF-BRIEF-SHOW;
+      }
+    }
+    container rsips {
+      description
+        "Set of rsip configured for SRLG";
+      list rsip {
+        key "rsip-name";
+        description
+          "SRLG rsip details";
+        leaf rsip-name {
+          type xr:Interface-name;
+          description
+            "Interface name";
+        }
+        uses RSI-SRLG-RSIP-SHOW;
+      }
+    }
     container srlg-maps {
       description
         "Set of SRLG name, value maps configured";
@@ -195,7 +244,7 @@ module Cisco-IOS-XR-infra-rsi-oper {
             description
               "Configured SRLG value details ";
             leaf value {
-              type int32;
+              type uint32;
               description
                 "SRLG value";
             }
@@ -241,6 +290,51 @@ module Cisco-IOS-XR-infra-rsi-oper {
             "SRLG name";
         }
         uses RSI-SRLG-NAME-INTF-SHOW;
+      }
+    }
+    container inherit-nodes {
+      description
+        "Set of inherit locations configured for SRLG";
+      list inherit-node {
+        key "inherit-node-name";
+        description
+          "SRLG inherit location details";
+        leaf inherit-node-name {
+          type xr:Pq-node-id;
+          description
+            "Inherit Locatio";
+        }
+        uses RSI-SRLG-INHLOC-SHOW;
+      }
+    }
+    container srlg-values {
+      description
+        "Set of SRLG values configured";
+      list srlg-value {
+        key "value";
+        description
+          "Configured SRLG value details ";
+        leaf value {
+          type uint32;
+          description
+            "SRLG value";
+        }
+        uses RSI-SRLG-INTF-SHOW;
+      }
+    }
+    container interface-details {
+      description
+        "Set of interfaces configured for SRLG";
+      list interface-detail {
+        key "interface-name";
+        description
+          "SRLG interface details";
+        leaf interface-name {
+          type xr:Interface-name;
+          description
+            "Interface name";
+        }
+        uses RSI-SRLG-INTF-DETAIL-SHOW;
       }
     }
   }

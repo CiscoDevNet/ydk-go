@@ -42,6 +42,9 @@ type Parser struct {
     // interactive mode.
     Interactive Parser_Interactive
 
+    // Enable optimization for regular commit.
+    CommitOptimized Parser_CommitOptimized
+
     // Configuration to disable sysadmin login banner.
     SysadminLoginBanner Parser_SysadminLoginBanner
 
@@ -68,17 +71,21 @@ func (parser *Parser) GetEntityData() *types.CommonEntityData {
     parser.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parser.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    parser.EntityData.Children = make(map[string]types.YChild)
-    parser.EntityData.Children["indentation"] = types.YChild{"Indentation", &parser.Indentation}
-    parser.EntityData.Children["alias"] = types.YChild{"Alias", &parser.Alias}
-    parser.EntityData.Children["history"] = types.YChild{"History", &parser.History}
-    parser.EntityData.Children["interactive"] = types.YChild{"Interactive", &parser.Interactive}
-    parser.EntityData.Children["sysadmin-login-banner"] = types.YChild{"SysadminLoginBanner", &parser.SysadminLoginBanner}
-    parser.EntityData.Children["interface-display"] = types.YChild{"InterfaceDisplay", &parser.InterfaceDisplay}
-    parser.EntityData.Children["netmask-format"] = types.YChild{"NetmaskFormat", &parser.NetmaskFormat}
-    parser.EntityData.Children["configuration"] = types.YChild{"Configuration", &parser.Configuration}
-    parser.EntityData.Children["submode-exit"] = types.YChild{"SubmodeExit", &parser.SubmodeExit}
-    parser.EntityData.Leafs = make(map[string]types.YLeaf)
+    parser.EntityData.Children = types.NewOrderedMap()
+    parser.EntityData.Children.Append("indentation", types.YChild{"Indentation", &parser.Indentation})
+    parser.EntityData.Children.Append("alias", types.YChild{"Alias", &parser.Alias})
+    parser.EntityData.Children.Append("history", types.YChild{"History", &parser.History})
+    parser.EntityData.Children.Append("interactive", types.YChild{"Interactive", &parser.Interactive})
+    parser.EntityData.Children.Append("commit-optimized", types.YChild{"CommitOptimized", &parser.CommitOptimized})
+    parser.EntityData.Children.Append("sysadmin-login-banner", types.YChild{"SysadminLoginBanner", &parser.SysadminLoginBanner})
+    parser.EntityData.Children.Append("interface-display", types.YChild{"InterfaceDisplay", &parser.InterfaceDisplay})
+    parser.EntityData.Children.Append("netmask-format", types.YChild{"NetmaskFormat", &parser.NetmaskFormat})
+    parser.EntityData.Children.Append("configuration", types.YChild{"Configuration", &parser.Configuration})
+    parser.EntityData.Children.Append("submode-exit", types.YChild{"SubmodeExit", &parser.SubmodeExit})
+    parser.EntityData.Leafs = types.NewOrderedMap()
+
+    parser.EntityData.YListKeys = []string {}
+
     return &(parser.EntityData)
 }
 
@@ -102,9 +109,12 @@ func (indentation *Parser_Indentation) GetEntityData() *types.CommonEntityData {
     indentation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     indentation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    indentation.EntityData.Children = make(map[string]types.YChild)
-    indentation.EntityData.Leafs = make(map[string]types.YLeaf)
-    indentation.EntityData.Leafs["indentation-disable"] = types.YLeaf{"IndentationDisable", indentation.IndentationDisable}
+    indentation.EntityData.Children = types.NewOrderedMap()
+    indentation.EntityData.Leafs = types.NewOrderedMap()
+    indentation.EntityData.Leafs.Append("indentation-disable", types.YLeaf{"IndentationDisable", indentation.IndentationDisable})
+
+    indentation.EntityData.YListKeys = []string {}
+
     return &(indentation.EntityData)
 }
 
@@ -134,11 +144,14 @@ func (alias *Parser_Alias) GetEntityData() *types.CommonEntityData {
     alias.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alias.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alias.EntityData.Children = make(map[string]types.YChild)
-    alias.EntityData.Children["execs"] = types.YChild{"Execs", &alias.Execs}
-    alias.EntityData.Children["configurations"] = types.YChild{"Configurations", &alias.Configurations}
-    alias.EntityData.Children["alls"] = types.YChild{"Alls", &alias.Alls}
-    alias.EntityData.Leafs = make(map[string]types.YLeaf)
+    alias.EntityData.Children = types.NewOrderedMap()
+    alias.EntityData.Children.Append("execs", types.YChild{"Execs", &alias.Execs})
+    alias.EntityData.Children.Append("configurations", types.YChild{"Configurations", &alias.Configurations})
+    alias.EntityData.Children.Append("alls", types.YChild{"Alls", &alias.Alls})
+    alias.EntityData.Leafs = types.NewOrderedMap()
+
+    alias.EntityData.YListKeys = []string {}
+
     return &(alias.EntityData)
 }
 
@@ -149,7 +162,7 @@ type Parser_Alias_Execs struct {
     YFilter yfilter.YFilter
 
     // Exec alias name. The type is slice of Parser_Alias_Execs_Exec.
-    Exec []Parser_Alias_Execs_Exec
+    Exec []*Parser_Alias_Execs_Exec
 }
 
 func (execs *Parser_Alias_Execs) GetEntityData() *types.CommonEntityData {
@@ -162,12 +175,15 @@ func (execs *Parser_Alias_Execs) GetEntityData() *types.CommonEntityData {
     execs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     execs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    execs.EntityData.Children = make(map[string]types.YChild)
-    execs.EntityData.Children["exec"] = types.YChild{"Exec", nil}
+    execs.EntityData.Children = types.NewOrderedMap()
+    execs.EntityData.Children.Append("exec", types.YChild{"Exec", nil})
     for i := range execs.Exec {
-        execs.EntityData.Children[types.GetSegmentPath(&execs.Exec[i])] = types.YChild{"Exec", &execs.Exec[i]}
+        execs.EntityData.Children.Append(types.GetSegmentPath(execs.Exec[i]), types.YChild{"Exec", execs.Exec[i]})
     }
-    execs.EntityData.Leafs = make(map[string]types.YLeaf)
+    execs.EntityData.Leafs = types.NewOrderedMap()
+
+    execs.EntityData.YListKeys = []string {}
+
     return &(execs.EntityData)
 }
 
@@ -190,15 +206,18 @@ func (exec *Parser_Alias_Execs_Exec) GetEntityData() *types.CommonEntityData {
     exec.EntityData.YangName = "exec"
     exec.EntityData.BundleName = "cisco_ios_xr"
     exec.EntityData.ParentYangName = "execs"
-    exec.EntityData.SegmentPath = "exec" + "[identifier='" + fmt.Sprintf("%v", exec.Identifier) + "']"
+    exec.EntityData.SegmentPath = "exec" + types.AddKeyToken(exec.Identifier, "identifier")
     exec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exec.EntityData.Children = make(map[string]types.YChild)
-    exec.EntityData.Leafs = make(map[string]types.YLeaf)
-    exec.EntityData.Leafs["identifier"] = types.YLeaf{"Identifier", exec.Identifier}
-    exec.EntityData.Leafs["identifier-xr"] = types.YLeaf{"IdentifierXr", exec.IdentifierXr}
+    exec.EntityData.Children = types.NewOrderedMap()
+    exec.EntityData.Leafs = types.NewOrderedMap()
+    exec.EntityData.Leafs.Append("identifier", types.YLeaf{"Identifier", exec.Identifier})
+    exec.EntityData.Leafs.Append("identifier-xr", types.YLeaf{"IdentifierXr", exec.IdentifierXr})
+
+    exec.EntityData.YListKeys = []string {"Identifier"}
+
     return &(exec.EntityData)
 }
 
@@ -210,7 +229,7 @@ type Parser_Alias_Configurations struct {
 
     // Configuration Alias name. The type is slice of
     // Parser_Alias_Configurations_Configuration.
-    Configuration []Parser_Alias_Configurations_Configuration
+    Configuration []*Parser_Alias_Configurations_Configuration
 }
 
 func (configurations *Parser_Alias_Configurations) GetEntityData() *types.CommonEntityData {
@@ -223,12 +242,15 @@ func (configurations *Parser_Alias_Configurations) GetEntityData() *types.Common
     configurations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configurations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configurations.EntityData.Children = make(map[string]types.YChild)
-    configurations.EntityData.Children["configuration"] = types.YChild{"Configuration", nil}
+    configurations.EntityData.Children = types.NewOrderedMap()
+    configurations.EntityData.Children.Append("configuration", types.YChild{"Configuration", nil})
     for i := range configurations.Configuration {
-        configurations.EntityData.Children[types.GetSegmentPath(&configurations.Configuration[i])] = types.YChild{"Configuration", &configurations.Configuration[i]}
+        configurations.EntityData.Children.Append(types.GetSegmentPath(configurations.Configuration[i]), types.YChild{"Configuration", configurations.Configuration[i]})
     }
-    configurations.EntityData.Leafs = make(map[string]types.YLeaf)
+    configurations.EntityData.Leafs = types.NewOrderedMap()
+
+    configurations.EntityData.YListKeys = []string {}
+
     return &(configurations.EntityData)
 }
 
@@ -251,15 +273,18 @@ func (configuration *Parser_Alias_Configurations_Configuration) GetEntityData() 
     configuration.EntityData.YangName = "configuration"
     configuration.EntityData.BundleName = "cisco_ios_xr"
     configuration.EntityData.ParentYangName = "configurations"
-    configuration.EntityData.SegmentPath = "configuration" + "[identifier='" + fmt.Sprintf("%v", configuration.Identifier) + "']"
+    configuration.EntityData.SegmentPath = "configuration" + types.AddKeyToken(configuration.Identifier, "identifier")
     configuration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configuration.EntityData.Children = make(map[string]types.YChild)
-    configuration.EntityData.Leafs = make(map[string]types.YLeaf)
-    configuration.EntityData.Leafs["identifier"] = types.YLeaf{"Identifier", configuration.Identifier}
-    configuration.EntityData.Leafs["identifier-xr"] = types.YLeaf{"IdentifierXr", configuration.IdentifierXr}
+    configuration.EntityData.Children = types.NewOrderedMap()
+    configuration.EntityData.Leafs = types.NewOrderedMap()
+    configuration.EntityData.Leafs.Append("identifier", types.YLeaf{"Identifier", configuration.Identifier})
+    configuration.EntityData.Leafs.Append("identifier-xr", types.YLeaf{"IdentifierXr", configuration.IdentifierXr})
+
+    configuration.EntityData.YListKeys = []string {"Identifier"}
+
     return &(configuration.EntityData)
 }
 
@@ -270,7 +295,7 @@ type Parser_Alias_Alls struct {
     YFilter yfilter.YFilter
 
     // Alias name to command mapping. The type is slice of Parser_Alias_Alls_All.
-    All []Parser_Alias_Alls_All
+    All []*Parser_Alias_Alls_All
 }
 
 func (alls *Parser_Alias_Alls) GetEntityData() *types.CommonEntityData {
@@ -283,12 +308,15 @@ func (alls *Parser_Alias_Alls) GetEntityData() *types.CommonEntityData {
     alls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alls.EntityData.Children = make(map[string]types.YChild)
-    alls.EntityData.Children["all"] = types.YChild{"All", nil}
+    alls.EntityData.Children = types.NewOrderedMap()
+    alls.EntityData.Children.Append("all", types.YChild{"All", nil})
     for i := range alls.All {
-        alls.EntityData.Children[types.GetSegmentPath(&alls.All[i])] = types.YChild{"All", &alls.All[i]}
+        alls.EntityData.Children.Append(types.GetSegmentPath(alls.All[i]), types.YChild{"All", alls.All[i]})
     }
-    alls.EntityData.Leafs = make(map[string]types.YLeaf)
+    alls.EntityData.Leafs = types.NewOrderedMap()
+
+    alls.EntityData.YListKeys = []string {}
+
     return &(alls.EntityData)
 }
 
@@ -310,15 +338,18 @@ func (all *Parser_Alias_Alls_All) GetEntityData() *types.CommonEntityData {
     all.EntityData.YangName = "all"
     all.EntityData.BundleName = "cisco_ios_xr"
     all.EntityData.ParentYangName = "alls"
-    all.EntityData.SegmentPath = "all" + "[identifier='" + fmt.Sprintf("%v", all.Identifier) + "']"
+    all.EntityData.SegmentPath = "all" + types.AddKeyToken(all.Identifier, "identifier")
     all.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    all.EntityData.Children = make(map[string]types.YChild)
-    all.EntityData.Leafs = make(map[string]types.YLeaf)
-    all.EntityData.Leafs["identifier"] = types.YLeaf{"Identifier", all.Identifier}
-    all.EntityData.Leafs["identifier-xr"] = types.YLeaf{"IdentifierXr", all.IdentifierXr}
+    all.EntityData.Children = types.NewOrderedMap()
+    all.EntityData.Leafs = types.NewOrderedMap()
+    all.EntityData.Leafs.Append("identifier", types.YLeaf{"Identifier", all.Identifier})
+    all.EntityData.Leafs.Append("identifier-xr", types.YLeaf{"IdentifierXr", all.IdentifierXr})
+
+    all.EntityData.YListKeys = []string {"Identifier"}
+
     return &(all.EntityData)
 }
 
@@ -343,9 +374,12 @@ func (history *Parser_History) GetEntityData() *types.CommonEntityData {
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    history.EntityData.Children = make(map[string]types.YChild)
-    history.EntityData.Leafs = make(map[string]types.YLeaf)
-    history.EntityData.Leafs["size"] = types.YLeaf{"Size", history.Size}
+    history.EntityData.Children = types.NewOrderedMap()
+    history.EntityData.Leafs = types.NewOrderedMap()
+    history.EntityData.Leafs.Append("size", types.YLeaf{"Size", history.Size})
+
+    history.EntityData.YListKeys = []string {}
+
     return &(history.EntityData)
 }
 
@@ -369,10 +403,42 @@ func (interactive *Parser_Interactive) GetEntityData() *types.CommonEntityData {
     interactive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interactive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interactive.EntityData.Children = make(map[string]types.YChild)
-    interactive.EntityData.Leafs = make(map[string]types.YLeaf)
-    interactive.EntityData.Leafs["interactive-disable"] = types.YLeaf{"InteractiveDisable", interactive.InteractiveDisable}
+    interactive.EntityData.Children = types.NewOrderedMap()
+    interactive.EntityData.Leafs = types.NewOrderedMap()
+    interactive.EntityData.Leafs.Append("interactive-disable", types.YLeaf{"InteractiveDisable", interactive.InteractiveDisable})
+
+    interactive.EntityData.YListKeys = []string {}
+
     return &(interactive.EntityData)
+}
+
+// Parser_CommitOptimized
+// Enable optimization for regular commit
+type Parser_CommitOptimized struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable the feature. The type is bool.
+    CommitOptimizedEnable interface{}
+}
+
+func (commitOptimized *Parser_CommitOptimized) GetEntityData() *types.CommonEntityData {
+    commitOptimized.EntityData.YFilter = commitOptimized.YFilter
+    commitOptimized.EntityData.YangName = "commit-optimized"
+    commitOptimized.EntityData.BundleName = "cisco_ios_xr"
+    commitOptimized.EntityData.ParentYangName = "parser"
+    commitOptimized.EntityData.SegmentPath = "commit-optimized"
+    commitOptimized.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    commitOptimized.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    commitOptimized.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    commitOptimized.EntityData.Children = types.NewOrderedMap()
+    commitOptimized.EntityData.Leafs = types.NewOrderedMap()
+    commitOptimized.EntityData.Leafs.Append("commit-optimized-enable", types.YLeaf{"CommitOptimizedEnable", commitOptimized.CommitOptimizedEnable})
+
+    commitOptimized.EntityData.YListKeys = []string {}
+
+    return &(commitOptimized.EntityData)
 }
 
 // Parser_SysadminLoginBanner
@@ -395,9 +461,12 @@ func (sysadminLoginBanner *Parser_SysadminLoginBanner) GetEntityData() *types.Co
     sysadminLoginBanner.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sysadminLoginBanner.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sysadminLoginBanner.EntityData.Children = make(map[string]types.YChild)
-    sysadminLoginBanner.EntityData.Leafs = make(map[string]types.YLeaf)
-    sysadminLoginBanner.EntityData.Leafs["sysadmin-login-banner-disable"] = types.YLeaf{"SysadminLoginBannerDisable", sysadminLoginBanner.SysadminLoginBannerDisable}
+    sysadminLoginBanner.EntityData.Children = types.NewOrderedMap()
+    sysadminLoginBanner.EntityData.Leafs = types.NewOrderedMap()
+    sysadminLoginBanner.EntityData.Leafs.Append("sysadmin-login-banner-disable", types.YLeaf{"SysadminLoginBannerDisable", sysadminLoginBanner.SysadminLoginBannerDisable})
+
+    sysadminLoginBanner.EntityData.YListKeys = []string {}
+
     return &(sysadminLoginBanner.EntityData)
 }
 
@@ -421,9 +490,12 @@ func (interfaceDisplay *Parser_InterfaceDisplay) GetEntityData() *types.CommonEn
     interfaceDisplay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDisplay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceDisplay.EntityData.Children = make(map[string]types.YChild)
-    interfaceDisplay.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceDisplay.EntityData.Leafs["slot-order"] = types.YLeaf{"SlotOrder", interfaceDisplay.SlotOrder}
+    interfaceDisplay.EntityData.Children = types.NewOrderedMap()
+    interfaceDisplay.EntityData.Leafs = types.NewOrderedMap()
+    interfaceDisplay.EntityData.Leafs.Append("slot-order", types.YLeaf{"SlotOrder", interfaceDisplay.SlotOrder})
+
+    interfaceDisplay.EntityData.YListKeys = []string {}
+
     return &(interfaceDisplay.EntityData)
 }
 
@@ -447,9 +519,12 @@ func (netmaskFormat *Parser_NetmaskFormat) GetEntityData() *types.CommonEntityDa
     netmaskFormat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netmaskFormat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    netmaskFormat.EntityData.Children = make(map[string]types.YChild)
-    netmaskFormat.EntityData.Leafs = make(map[string]types.YLeaf)
-    netmaskFormat.EntityData.Leafs["bit-count"] = types.YLeaf{"BitCount", netmaskFormat.BitCount}
+    netmaskFormat.EntityData.Children = types.NewOrderedMap()
+    netmaskFormat.EntityData.Leafs = types.NewOrderedMap()
+    netmaskFormat.EntityData.Leafs.Append("bit-count", types.YLeaf{"BitCount", netmaskFormat.BitCount})
+
+    netmaskFormat.EntityData.YListKeys = []string {}
+
     return &(netmaskFormat.EntityData)
 }
 
@@ -473,9 +548,12 @@ func (configuration *Parser_Configuration) GetEntityData() *types.CommonEntityDa
     configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configuration.EntityData.Children = make(map[string]types.YChild)
-    configuration.EntityData.Children["disable"] = types.YChild{"Disable", &configuration.Disable}
-    configuration.EntityData.Leafs = make(map[string]types.YLeaf)
+    configuration.EntityData.Children = types.NewOrderedMap()
+    configuration.EntityData.Children.Append("disable", types.YChild{"Disable", &configuration.Disable})
+    configuration.EntityData.Leafs = types.NewOrderedMap()
+
+    configuration.EntityData.YListKeys = []string {}
+
     return &(configuration.EntityData)
 }
 
@@ -499,9 +577,12 @@ func (disable *Parser_Configuration_Disable) GetEntityData() *types.CommonEntity
     disable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    disable.EntityData.Children = make(map[string]types.YChild)
-    disable.EntityData.Leafs = make(map[string]types.YLeaf)
-    disable.EntityData.Leafs["usergroup"] = types.YLeaf{"Usergroup", disable.Usergroup}
+    disable.EntityData.Children = types.NewOrderedMap()
+    disable.EntityData.Leafs = types.NewOrderedMap()
+    disable.EntityData.Leafs.Append("usergroup", types.YLeaf{"Usergroup", disable.Usergroup})
+
+    disable.EntityData.YListKeys = []string {}
+
     return &(disable.EntityData)
 }
 
@@ -526,9 +607,12 @@ func (submodeExit *Parser_SubmodeExit) GetEntityData() *types.CommonEntityData {
     submodeExit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     submodeExit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    submodeExit.EntityData.Children = make(map[string]types.YChild)
-    submodeExit.EntityData.Leafs = make(map[string]types.YLeaf)
-    submodeExit.EntityData.Leafs["enable"] = types.YLeaf{"Enable", submodeExit.Enable}
+    submodeExit.EntityData.Children = types.NewOrderedMap()
+    submodeExit.EntityData.Leafs = types.NewOrderedMap()
+    submodeExit.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", submodeExit.Enable})
+
+    submodeExit.EntityData.YListKeys = []string {}
+
     return &(submodeExit.EntityData)
 }
 

@@ -29,10 +29,6 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-statistics {
      Copyright(c) 2011-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2018-02-23 {
-    description
-      "Added a missing : for uniform output format";
-  }
   revision 2017-05-01 {
     description
       "Namespace change to comply with Cisco guidelines on namespace";
@@ -281,7 +277,7 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-statistics {
                 type uint64;
                 tailf:cli-suppress-show-path;
                 tailf:cli-suppress-show-match;
-                tailf:alt-name "Rx Jabber:";
+                tailf:alt-name "Rx Jabber: ";
               }
               leaf sw-det-rx-errors {
                 type uint64;
@@ -401,13 +397,13 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-statistics {
                 type uint64;
                 tailf:cli-suppress-show-path;
                 tailf:cli-suppress-show-match;
-                tailf:alt-name "RxTx Packets 256-511:";
+                tailf:alt-name "RxTx Packets 256-511: ";
               }
               leaf sw-det-rxtx-packets-512-1023 {
                 type uint64;
                 tailf:cli-suppress-show-path;
                 tailf:cli-suppress-show-match;
-                tailf:alt-name "RxTx Packets 512-1023:";
+                tailf:alt-name "RxTx Packets 512-1023";
               }
               leaf sw-det-rxtx-packets-1024-max {
                 type uint64;

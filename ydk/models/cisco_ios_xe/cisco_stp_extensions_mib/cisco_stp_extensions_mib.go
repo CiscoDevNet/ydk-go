@@ -23,81 +23,81 @@ type CISCOSTPEXTENSIONSMIB struct {
     YFilter yfilter.YFilter
 
     
-    Stpxuplinkfastobjects CISCOSTPEXTENSIONSMIB_Stpxuplinkfastobjects
+    StpxUplinkFastObjects CISCOSTPEXTENSIONSMIB_StpxUplinkFastObjects
 
     
-    Stpxbackbonefastobjects CISCOSTPEXTENSIONSMIB_Stpxbackbonefastobjects
+    StpxBackboneFastObjects CISCOSTPEXTENSIONSMIB_StpxBackboneFastObjects
 
     
-    Stpxspanningtreeobjects CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects
+    StpxSpanningTreeObjects CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects
 
     
-    Stpxmistpobjects CISCOSTPEXTENSIONSMIB_Stpxmistpobjects
+    StpxMISTPObjects CISCOSTPEXTENSIONSMIB_StpxMISTPObjects
 
     
-    Stpxloopguardobjects CISCOSTPEXTENSIONSMIB_Stpxloopguardobjects
+    StpxLoopGuardObjects CISCOSTPEXTENSIONSMIB_StpxLoopGuardObjects
 
     
-    Stpxfaststartobjects CISCOSTPEXTENSIONSMIB_Stpxfaststartobjects
+    StpxFastStartObjects CISCOSTPEXTENSIONSMIB_StpxFastStartObjects
 
     
-    Stpxbpduskewingobjects CISCOSTPEXTENSIONSMIB_Stpxbpduskewingobjects
+    StpxBpduSkewingObjects CISCOSTPEXTENSIONSMIB_StpxBpduSkewingObjects
 
     
-    Stpxmstobjects CISCOSTPEXTENSIONSMIB_Stpxmstobjects
+    StpxMSTObjects CISCOSTPEXTENSIONSMIB_StpxMSTObjects
 
     
-    Stpxrstpobjects CISCOSTPEXTENSIONSMIB_Stpxrstpobjects
+    StpxRSTPObjects CISCOSTPEXTENSIONSMIB_StpxRSTPObjects
 
     
-    Stpxsmstobjects CISCOSTPEXTENSIONSMIB_Stpxsmstobjects
+    StpxSMSTObjects CISCOSTPEXTENSIONSMIB_StpxSMSTObjects
 
     // A list of Virtual LAN entries containing information for Spanning Tree
     // PVST+ protocol.  An entry will exist for each VLAN existing on  the device.
-    Stpxpvstvlantable CISCOSTPEXTENSIONSMIB_Stpxpvstvlantable
+    StpxPVSTVlanTable CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable
 
     // A table containing a list of the ports for which a particular VLAN's
     // Spanning Tree has been found to have an inconsistency.  Two types of
     // inconsistency are discovered: 1) an inconsistency where two different port
     // types have been plugged together; and 2) an inconsistency where different
     // switches have different PVIDs for the same link.
-    Stpxinconsistencytable CISCOSTPEXTENSIONSMIB_Stpxinconsistencytable
+    StpxInconsistencyTable CISCOSTPEXTENSIONSMIB_StpxInconsistencyTable
 
     // A table containing a list of the bridge ports for which Spanning Tree
     // RootGuard capability can be configured.
-    Stpxrootguardconfigtable CISCOSTPEXTENSIONSMIB_Stpxrootguardconfigtable
+    StpxRootGuardConfigTable CISCOSTPEXTENSIONSMIB_StpxRootGuardConfigTable
 
     // A table containing a list of the bridge ports for which a particular
     // Spanning Tree instance has been found  to have an root-inconsistency. The
     // agent creates a new  entry in this table whenever it detects a new 
     // root-inconsistency, and deletes entries  when/soon after the inconsistency
     // is no longer present.
-    Stpxrootinconsistencytable CISCOSTPEXTENSIONSMIB_Stpxrootinconsistencytable
+    StpxRootInconsistencyTable CISCOSTPEXTENSIONSMIB_StpxRootInconsistencyTable
 
     // This table contains one entry for each instance of MISTP and  it contains
     // stpxMISTPInstanceNumber entries, numbered from 1 to
     // stpxMISTPInstanceNumber.  This table is only instantiated when the value of
     // stpxSpanningTreeType is mistp(2) or mistpPvstPlus(3).
-    Stpxmistpinstancetable CISCOSTPEXTENSIONSMIB_Stpxmistpinstancetable
+    StpxMISTPInstanceTable CISCOSTPEXTENSIONSMIB_StpxMISTPInstanceTable
 
     // A table containing a list of the bridge ports for which Spanning Tree
     // LoopGuard capability can be configured.
-    Stpxloopguardconfigtable CISCOSTPEXTENSIONSMIB_Stpxloopguardconfigtable
+    StpxLoopGuardConfigTable CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable
 
     // A table containing a list of the bridge ports for which a particular
     // Spanning Tree instance has been found to have a loop-inconsistency. The
     // agent creates a new entry in this table whenever it detects a new
     // loop-inconsistency, and deletes entries when/soon after the inconsistency
     // is no longer present.
-    Stpxloopinconsistencytable CISCOSTPEXTENSIONSMIB_Stpxloopinconsistencytable
+    StpxLoopInconsistencyTable CISCOSTPEXTENSIONSMIB_StpxLoopInconsistencyTable
 
     // A table containing a list of the bridge ports for which Spanning Tree Port
     // Fast Start can be configured.
-    Stpxfaststartporttable CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable
+    StpxFastStartPortTable CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable
 
     // A table containing a list of the bridge ports  for a particular Spanning
     // Tree Instance.
-    Stpxfaststartopermodetable CISCOSTPEXTENSIONSMIB_Stpxfaststartopermodetable
+    StpxFastStartOperModeTable CISCOSTPEXTENSIONSMIB_StpxFastStartOperModeTable
 
     // A table containing a list of the bridge ports for  which a particular
     // Spanning Tree instance has been  detected to have BPDU skewing occurred
@@ -108,57 +108,57 @@ type CISCOSTPEXTENSIONSMIB struct {
     // true(1). The agent deletes all the entries in this  table when the object
     // value of  stpxBpduSkewingDetectionEnable is changed to false(2) or the
     // object value of stpxSpanningTreeType is  changed.
-    Stpxbpduskewingtable CISCOSTPEXTENSIONSMIB_Stpxbpduskewingtable
+    StpxBpduSkewingTable CISCOSTPEXTENSIONSMIB_StpxBpduSkewingTable
 
     // This table contains MST instance information with one entry for an MST
     // instance within the range of  0 to the object value of
     // stpxMSTMaxInstanceNumber.   This table is deprecated and replaced by 
     // stpxSMSTInstanceTable.
-    Stpxmstinstancetable CISCOSTPEXTENSIONSMIB_Stpxmstinstancetable
+    StpxMSTInstanceTable CISCOSTPEXTENSIONSMIB_StpxMSTInstanceTable
 
     // This table contains MST instance information in the  Edit Buffer with one
     // entry for each MST instance numbered from 0 to stpxMSTMaxInstanceNumber.  
     // This table is only instantiated when the  stpxMSTRegionEditBufferStatus has
     // the value of acquiredBySnmp(2).  This table is deprecated and replaced by 
     // stpxSMSTInstanceEditTable.
-    Stpxmstinstanceedittable CISCOSTPEXTENSIONSMIB_Stpxmstinstanceedittable
+    StpxMSTInstanceEditTable CISCOSTPEXTENSIONSMIB_StpxMSTInstanceEditTable
 
     // A table containing port information for the MST  Protocol on all the bridge
     // ports existing on the  system.
-    Stpxmstporttable CISCOSTPEXTENSIONSMIB_Stpxmstporttable
+    StpxMSTPortTable CISCOSTPEXTENSIONSMIB_StpxMSTPortTable
 
     // A table containing a list of the bridge ports for a  particular MST
     // instance.  This table is only instantiated  when the stpxSpanningTreeType
     // is mst(4).   This table is deprecated and replaced with 
     // stpxRSTPPortRoleTable.
-    Stpxmstportroletable CISCOSTPEXTENSIONSMIB_Stpxmstportroletable
+    StpxMSTPortRoleTable CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable
 
     // A table containing port information for the RSTP  Protocol on all the
     // bridge ports existing in the  system.
-    Stpxrstpporttable CISCOSTPEXTENSIONSMIB_Stpxrstpporttable
+    StpxRSTPPortTable CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable
 
     // A table containing a list of the bridge ports for a  particular Spanning
     // Tree instance.  This table is  only instantiated when the
     // stpxSpanningTreeType is mst(4)  or rapidPvstPlus(5).
-    Stpxrstpportroletable CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable
+    StpxRSTPPortRoleTable CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable
 
     // A table containing a list of the bridge ports  for a particular Spanning
     // Tree Instance. This table is only instantiated when the object value of
     // stpxSpanningTreeType is rapidPvstPlus(5).
-    Stpxrpvstporttable CISCOSTPEXTENSIONSMIB_Stpxrpvstporttable
+    StpxRPVSTPortTable CISCOSTPEXTENSIONSMIB_StpxRPVSTPortTable
 
     // This table contains MST instance information for IEEE MST.
-    Stpxsmstinstancetable CISCOSTPEXTENSIONSMIB_Stpxsmstinstancetable
+    StpxSMSTInstanceTable CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceTable
 
     // This table contains MST instance information in the  Edit Buffer.   This
     // table is only instantiated when the object value of 
     // stpxMSTRegionEditBufferStatus has the value of acquiredBySnmp(2).
-    Stpxsmstinstanceedittable CISCOSTPEXTENSIONSMIB_Stpxsmstinstanceedittable
+    StpxSMSTInstanceEditTable CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceEditTable
 
     // A table containing port information for the MST  Protocol on all the bridge
     // ports existing on the  system.  This table is only instantiated when the
     // object  value of stpxSpanningTreeType is mst(4).
-    Stpxsmstporttable CISCOSTPEXTENSIONSMIB_Stpxsmstporttable
+    StpxSMSTPortTable CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable
 }
 
 func (cISCOSTPEXTENSIONSMIB *CISCOSTPEXTENSIONSMIB) GetEntityData() *types.CommonEntityData {
@@ -171,43 +171,46 @@ func (cISCOSTPEXTENSIONSMIB *CISCOSTPEXTENSIONSMIB) GetEntityData() *types.Commo
     cISCOSTPEXTENSIONSMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOSTPEXTENSIONSMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOSTPEXTENSIONSMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxUplinkFastObjects"] = types.YChild{"Stpxuplinkfastobjects", &cISCOSTPEXTENSIONSMIB.Stpxuplinkfastobjects}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxBackboneFastObjects"] = types.YChild{"Stpxbackbonefastobjects", &cISCOSTPEXTENSIONSMIB.Stpxbackbonefastobjects}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxSpanningTreeObjects"] = types.YChild{"Stpxspanningtreeobjects", &cISCOSTPEXTENSIONSMIB.Stpxspanningtreeobjects}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxMISTPObjects"] = types.YChild{"Stpxmistpobjects", &cISCOSTPEXTENSIONSMIB.Stpxmistpobjects}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxLoopGuardObjects"] = types.YChild{"Stpxloopguardobjects", &cISCOSTPEXTENSIONSMIB.Stpxloopguardobjects}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxFastStartObjects"] = types.YChild{"Stpxfaststartobjects", &cISCOSTPEXTENSIONSMIB.Stpxfaststartobjects}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxBpduSkewingObjects"] = types.YChild{"Stpxbpduskewingobjects", &cISCOSTPEXTENSIONSMIB.Stpxbpduskewingobjects}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxMSTObjects"] = types.YChild{"Stpxmstobjects", &cISCOSTPEXTENSIONSMIB.Stpxmstobjects}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxRSTPObjects"] = types.YChild{"Stpxrstpobjects", &cISCOSTPEXTENSIONSMIB.Stpxrstpobjects}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxSMSTObjects"] = types.YChild{"Stpxsmstobjects", &cISCOSTPEXTENSIONSMIB.Stpxsmstobjects}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxPVSTVlanTable"] = types.YChild{"Stpxpvstvlantable", &cISCOSTPEXTENSIONSMIB.Stpxpvstvlantable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxInconsistencyTable"] = types.YChild{"Stpxinconsistencytable", &cISCOSTPEXTENSIONSMIB.Stpxinconsistencytable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxRootGuardConfigTable"] = types.YChild{"Stpxrootguardconfigtable", &cISCOSTPEXTENSIONSMIB.Stpxrootguardconfigtable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxRootInconsistencyTable"] = types.YChild{"Stpxrootinconsistencytable", &cISCOSTPEXTENSIONSMIB.Stpxrootinconsistencytable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxMISTPInstanceTable"] = types.YChild{"Stpxmistpinstancetable", &cISCOSTPEXTENSIONSMIB.Stpxmistpinstancetable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxLoopGuardConfigTable"] = types.YChild{"Stpxloopguardconfigtable", &cISCOSTPEXTENSIONSMIB.Stpxloopguardconfigtable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxLoopInconsistencyTable"] = types.YChild{"Stpxloopinconsistencytable", &cISCOSTPEXTENSIONSMIB.Stpxloopinconsistencytable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxFastStartPortTable"] = types.YChild{"Stpxfaststartporttable", &cISCOSTPEXTENSIONSMIB.Stpxfaststartporttable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxFastStartOperModeTable"] = types.YChild{"Stpxfaststartopermodetable", &cISCOSTPEXTENSIONSMIB.Stpxfaststartopermodetable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxBpduSkewingTable"] = types.YChild{"Stpxbpduskewingtable", &cISCOSTPEXTENSIONSMIB.Stpxbpduskewingtable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxMSTInstanceTable"] = types.YChild{"Stpxmstinstancetable", &cISCOSTPEXTENSIONSMIB.Stpxmstinstancetable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxMSTInstanceEditTable"] = types.YChild{"Stpxmstinstanceedittable", &cISCOSTPEXTENSIONSMIB.Stpxmstinstanceedittable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxMSTPortTable"] = types.YChild{"Stpxmstporttable", &cISCOSTPEXTENSIONSMIB.Stpxmstporttable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxMSTPortRoleTable"] = types.YChild{"Stpxmstportroletable", &cISCOSTPEXTENSIONSMIB.Stpxmstportroletable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxRSTPPortTable"] = types.YChild{"Stpxrstpporttable", &cISCOSTPEXTENSIONSMIB.Stpxrstpporttable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxRSTPPortRoleTable"] = types.YChild{"Stpxrstpportroletable", &cISCOSTPEXTENSIONSMIB.Stpxrstpportroletable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxRPVSTPortTable"] = types.YChild{"Stpxrpvstporttable", &cISCOSTPEXTENSIONSMIB.Stpxrpvstporttable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxSMSTInstanceTable"] = types.YChild{"Stpxsmstinstancetable", &cISCOSTPEXTENSIONSMIB.Stpxsmstinstancetable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxSMSTInstanceEditTable"] = types.YChild{"Stpxsmstinstanceedittable", &cISCOSTPEXTENSIONSMIB.Stpxsmstinstanceedittable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Children["stpxSMSTPortTable"] = types.YChild{"Stpxsmstporttable", &cISCOSTPEXTENSIONSMIB.Stpxsmstporttable}
-    cISCOSTPEXTENSIONSMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOSTPEXTENSIONSMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxUplinkFastObjects", types.YChild{"StpxUplinkFastObjects", &cISCOSTPEXTENSIONSMIB.StpxUplinkFastObjects})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxBackboneFastObjects", types.YChild{"StpxBackboneFastObjects", &cISCOSTPEXTENSIONSMIB.StpxBackboneFastObjects})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxSpanningTreeObjects", types.YChild{"StpxSpanningTreeObjects", &cISCOSTPEXTENSIONSMIB.StpxSpanningTreeObjects})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxMISTPObjects", types.YChild{"StpxMISTPObjects", &cISCOSTPEXTENSIONSMIB.StpxMISTPObjects})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxLoopGuardObjects", types.YChild{"StpxLoopGuardObjects", &cISCOSTPEXTENSIONSMIB.StpxLoopGuardObjects})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxFastStartObjects", types.YChild{"StpxFastStartObjects", &cISCOSTPEXTENSIONSMIB.StpxFastStartObjects})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxBpduSkewingObjects", types.YChild{"StpxBpduSkewingObjects", &cISCOSTPEXTENSIONSMIB.StpxBpduSkewingObjects})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxMSTObjects", types.YChild{"StpxMSTObjects", &cISCOSTPEXTENSIONSMIB.StpxMSTObjects})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxRSTPObjects", types.YChild{"StpxRSTPObjects", &cISCOSTPEXTENSIONSMIB.StpxRSTPObjects})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxSMSTObjects", types.YChild{"StpxSMSTObjects", &cISCOSTPEXTENSIONSMIB.StpxSMSTObjects})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxPVSTVlanTable", types.YChild{"StpxPVSTVlanTable", &cISCOSTPEXTENSIONSMIB.StpxPVSTVlanTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxInconsistencyTable", types.YChild{"StpxInconsistencyTable", &cISCOSTPEXTENSIONSMIB.StpxInconsistencyTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxRootGuardConfigTable", types.YChild{"StpxRootGuardConfigTable", &cISCOSTPEXTENSIONSMIB.StpxRootGuardConfigTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxRootInconsistencyTable", types.YChild{"StpxRootInconsistencyTable", &cISCOSTPEXTENSIONSMIB.StpxRootInconsistencyTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxMISTPInstanceTable", types.YChild{"StpxMISTPInstanceTable", &cISCOSTPEXTENSIONSMIB.StpxMISTPInstanceTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxLoopGuardConfigTable", types.YChild{"StpxLoopGuardConfigTable", &cISCOSTPEXTENSIONSMIB.StpxLoopGuardConfigTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxLoopInconsistencyTable", types.YChild{"StpxLoopInconsistencyTable", &cISCOSTPEXTENSIONSMIB.StpxLoopInconsistencyTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxFastStartPortTable", types.YChild{"StpxFastStartPortTable", &cISCOSTPEXTENSIONSMIB.StpxFastStartPortTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxFastStartOperModeTable", types.YChild{"StpxFastStartOperModeTable", &cISCOSTPEXTENSIONSMIB.StpxFastStartOperModeTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxBpduSkewingTable", types.YChild{"StpxBpduSkewingTable", &cISCOSTPEXTENSIONSMIB.StpxBpduSkewingTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxMSTInstanceTable", types.YChild{"StpxMSTInstanceTable", &cISCOSTPEXTENSIONSMIB.StpxMSTInstanceTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxMSTInstanceEditTable", types.YChild{"StpxMSTInstanceEditTable", &cISCOSTPEXTENSIONSMIB.StpxMSTInstanceEditTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxMSTPortTable", types.YChild{"StpxMSTPortTable", &cISCOSTPEXTENSIONSMIB.StpxMSTPortTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxMSTPortRoleTable", types.YChild{"StpxMSTPortRoleTable", &cISCOSTPEXTENSIONSMIB.StpxMSTPortRoleTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxRSTPPortTable", types.YChild{"StpxRSTPPortTable", &cISCOSTPEXTENSIONSMIB.StpxRSTPPortTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxRSTPPortRoleTable", types.YChild{"StpxRSTPPortRoleTable", &cISCOSTPEXTENSIONSMIB.StpxRSTPPortRoleTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxRPVSTPortTable", types.YChild{"StpxRPVSTPortTable", &cISCOSTPEXTENSIONSMIB.StpxRPVSTPortTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxSMSTInstanceTable", types.YChild{"StpxSMSTInstanceTable", &cISCOSTPEXTENSIONSMIB.StpxSMSTInstanceTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxSMSTInstanceEditTable", types.YChild{"StpxSMSTInstanceEditTable", &cISCOSTPEXTENSIONSMIB.StpxSMSTInstanceEditTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Children.Append("stpxSMSTPortTable", types.YChild{"StpxSMSTPortTable", &cISCOSTPEXTENSIONSMIB.StpxSMSTPortTable})
+    cISCOSTPEXTENSIONSMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOSTPEXTENSIONSMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOSTPEXTENSIONSMIB.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxuplinkfastobjects
-type CISCOSTPEXTENSIONSMIB_Stpxuplinkfastobjects struct {
+// CISCOSTPEXTENSIONSMIB_StpxUplinkFastObjects
+type CISCOSTPEXTENSIONSMIB_StpxUplinkFastObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -215,7 +218,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxuplinkfastobjects struct {
     // enabled on the device.  If the platform does not support configuration of
     // this object when the object value of stpxSpanningTreeType is  mst(4), then
     // this object is not instantiated. The type is bool.
-    Stpxuplinkfastenabled interface{}
+    StpxUplinkFastEnabled interface{}
 
     // The cumulative number of UplinkFast transitions (from the STP 'Blocking'
     // state directly to the STP 'Forwarding' state).  All transitions are
@@ -227,7 +230,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxuplinkfastobjects struct {
     // object is  not instantiated when the object value of  stpxSpanningTreeType
     // is mst(4). The type is interface{} with range: 0..4294967295. Units are
     // transitions.
-    Stpxuplinkfasttransitions interface{}
+    StpxUplinkFastTransitions interface{}
 
     // The maximum number of station-learning frames that this device will
     // generate in each 100 milli-second period after a UplinkFast transition.  By
@@ -236,7 +239,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxuplinkfastobjects struct {
     // support configuration of this object when the object value of
     // stpxSpanningTreeType is mst(4), then this object is not instantiated. The
     // type is interface{} with range: 0..32000. Units are frames.
-    Stpxuplinkstationlearninggenrate interface{}
+    StpxUplinkStationLearningGenRate interface{}
 
     // The cumulative number of station-learning frames generated due to
     // UplinkFast transitions.  All generated station-learning frames are included
@@ -248,101 +251,107 @@ type CISCOSTPEXTENSIONSMIB_Stpxuplinkfastobjects struct {
     // object is  not instantiated when the object value of  stpxSpanningTreeType
     // is mst(4). The type is interface{} with range: 0..4294967295. Units are
     // frames.
-    Stpxuplinkstationlearningframes interface{}
+    StpxUplinkStationLearningFrames interface{}
 
     // An indication of whether the UplinkFast capability is  operationally
     // enabled on the device. The type is bool.
-    Stpxuplinkfastoperenabled interface{}
+    StpxUplinkFastOperEnabled interface{}
 }
 
-func (stpxuplinkfastobjects *CISCOSTPEXTENSIONSMIB_Stpxuplinkfastobjects) GetEntityData() *types.CommonEntityData {
-    stpxuplinkfastobjects.EntityData.YFilter = stpxuplinkfastobjects.YFilter
-    stpxuplinkfastobjects.EntityData.YangName = "stpxUplinkFastObjects"
-    stpxuplinkfastobjects.EntityData.BundleName = "cisco_ios_xe"
-    stpxuplinkfastobjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxuplinkfastobjects.EntityData.SegmentPath = "stpxUplinkFastObjects"
-    stpxuplinkfastobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxuplinkfastobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxuplinkfastobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxUplinkFastObjects *CISCOSTPEXTENSIONSMIB_StpxUplinkFastObjects) GetEntityData() *types.CommonEntityData {
+    stpxUplinkFastObjects.EntityData.YFilter = stpxUplinkFastObjects.YFilter
+    stpxUplinkFastObjects.EntityData.YangName = "stpxUplinkFastObjects"
+    stpxUplinkFastObjects.EntityData.BundleName = "cisco_ios_xe"
+    stpxUplinkFastObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxUplinkFastObjects.EntityData.SegmentPath = "stpxUplinkFastObjects"
+    stpxUplinkFastObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxUplinkFastObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxUplinkFastObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxuplinkfastobjects.EntityData.Children = make(map[string]types.YChild)
-    stpxuplinkfastobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxuplinkfastobjects.EntityData.Leafs["stpxUplinkFastEnabled"] = types.YLeaf{"Stpxuplinkfastenabled", stpxuplinkfastobjects.Stpxuplinkfastenabled}
-    stpxuplinkfastobjects.EntityData.Leafs["stpxUplinkFastTransitions"] = types.YLeaf{"Stpxuplinkfasttransitions", stpxuplinkfastobjects.Stpxuplinkfasttransitions}
-    stpxuplinkfastobjects.EntityData.Leafs["stpxUplinkStationLearningGenRate"] = types.YLeaf{"Stpxuplinkstationlearninggenrate", stpxuplinkfastobjects.Stpxuplinkstationlearninggenrate}
-    stpxuplinkfastobjects.EntityData.Leafs["stpxUplinkStationLearningFrames"] = types.YLeaf{"Stpxuplinkstationlearningframes", stpxuplinkfastobjects.Stpxuplinkstationlearningframes}
-    stpxuplinkfastobjects.EntityData.Leafs["stpxUplinkFastOperEnabled"] = types.YLeaf{"Stpxuplinkfastoperenabled", stpxuplinkfastobjects.Stpxuplinkfastoperenabled}
-    return &(stpxuplinkfastobjects.EntityData)
+    stpxUplinkFastObjects.EntityData.Children = types.NewOrderedMap()
+    stpxUplinkFastObjects.EntityData.Leafs = types.NewOrderedMap()
+    stpxUplinkFastObjects.EntityData.Leafs.Append("stpxUplinkFastEnabled", types.YLeaf{"StpxUplinkFastEnabled", stpxUplinkFastObjects.StpxUplinkFastEnabled})
+    stpxUplinkFastObjects.EntityData.Leafs.Append("stpxUplinkFastTransitions", types.YLeaf{"StpxUplinkFastTransitions", stpxUplinkFastObjects.StpxUplinkFastTransitions})
+    stpxUplinkFastObjects.EntityData.Leafs.Append("stpxUplinkStationLearningGenRate", types.YLeaf{"StpxUplinkStationLearningGenRate", stpxUplinkFastObjects.StpxUplinkStationLearningGenRate})
+    stpxUplinkFastObjects.EntityData.Leafs.Append("stpxUplinkStationLearningFrames", types.YLeaf{"StpxUplinkStationLearningFrames", stpxUplinkFastObjects.StpxUplinkStationLearningFrames})
+    stpxUplinkFastObjects.EntityData.Leafs.Append("stpxUplinkFastOperEnabled", types.YLeaf{"StpxUplinkFastOperEnabled", stpxUplinkFastObjects.StpxUplinkFastOperEnabled})
+
+    stpxUplinkFastObjects.EntityData.YListKeys = []string {}
+
+    return &(stpxUplinkFastObjects.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxbackbonefastobjects
-type CISCOSTPEXTENSIONSMIB_Stpxbackbonefastobjects struct {
+// CISCOSTPEXTENSIONSMIB_StpxBackboneFastObjects
+type CISCOSTPEXTENSIONSMIB_StpxBackboneFastObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An indication of whether the BackboneFast capability is administratively
     // enabled on the device. The type is bool.
-    Stpxbackbonefastenabled interface{}
+    StpxBackboneFastEnabled interface{}
 
     // The number of inferior BPDUs received by the switch  since the
     // stpxBackboneFastOperEnabled has become true(1). If the value of 
     // stpxBackboneFastOperEnabled is false(2), then this  mib object will have a
     // value of 0. The type is interface{} with range: 0..4294967295.
-    Stpxbackbonefastininferiorbpdus interface{}
+    StpxBackboneFastInInferiorBPDUs interface{}
 
     // The number of Root Link Query request PDUs received by the switch since the
     // stpxBackboneFastOperEnabled has become true(1). If the value of
     // stpxBackboneFastOperEnabled is false(2), then this mib object will have a
     // value of 0. The type is interface{} with range: 0..4294967295.
-    Stpxbackbonefastinrlqrequestpdus interface{}
+    StpxBackboneFastInRLQRequestPDUs interface{}
 
     // The number of Root Link Query response PDUs received by the switch since
     // the stpxBackboneFastOperEnabled has become true(1). If the value of
     // stpxBackboneFastOperEnabled is false(2), then this mib object will have a
     // value of 0. The type is interface{} with range: 0..4294967295.
-    Stpxbackbonefastinrlqresponsepdus interface{}
+    StpxBackboneFastInRLQResponsePDUs interface{}
 
     // The number of Root Link Query request PDUs transmitted by the switch since
     // the stpxBackboneFastOperEnabled has become true(1). If the value of
     // stpxBackboneFastOperEnabled is false(2), then this mib object will have a
     // value of 0. The type is interface{} with range: 0..4294967295.
-    Stpxbackbonefastoutrlqrequestpdus interface{}
+    StpxBackboneFastOutRLQRequestPDUs interface{}
 
     // The number of Root Link Query response PDUs transmitted by the switch since
     // the stpxBackboneFastOperEnabled has become true(1). If the value of
     // stpxBackboneFastOperEnabled is false(2), then this mib object will have a
     // value of 0. The type is interface{} with range: 0..4294967295.
-    Stpxbackbonefastoutrlqresponsepdus interface{}
+    StpxBackboneFastOutRLQResponsePDUs interface{}
 
     // An indication of whether the BackboneFast capability is operationally
     // enabled on the device. The type is bool.
-    Stpxbackbonefastoperenabled interface{}
+    StpxBackboneFastOperEnabled interface{}
 }
 
-func (stpxbackbonefastobjects *CISCOSTPEXTENSIONSMIB_Stpxbackbonefastobjects) GetEntityData() *types.CommonEntityData {
-    stpxbackbonefastobjects.EntityData.YFilter = stpxbackbonefastobjects.YFilter
-    stpxbackbonefastobjects.EntityData.YangName = "stpxBackboneFastObjects"
-    stpxbackbonefastobjects.EntityData.BundleName = "cisco_ios_xe"
-    stpxbackbonefastobjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxbackbonefastobjects.EntityData.SegmentPath = "stpxBackboneFastObjects"
-    stpxbackbonefastobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxbackbonefastobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxbackbonefastobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxBackboneFastObjects *CISCOSTPEXTENSIONSMIB_StpxBackboneFastObjects) GetEntityData() *types.CommonEntityData {
+    stpxBackboneFastObjects.EntityData.YFilter = stpxBackboneFastObjects.YFilter
+    stpxBackboneFastObjects.EntityData.YangName = "stpxBackboneFastObjects"
+    stpxBackboneFastObjects.EntityData.BundleName = "cisco_ios_xe"
+    stpxBackboneFastObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxBackboneFastObjects.EntityData.SegmentPath = "stpxBackboneFastObjects"
+    stpxBackboneFastObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxBackboneFastObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxBackboneFastObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxbackbonefastobjects.EntityData.Children = make(map[string]types.YChild)
-    stpxbackbonefastobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxbackbonefastobjects.EntityData.Leafs["stpxBackboneFastEnabled"] = types.YLeaf{"Stpxbackbonefastenabled", stpxbackbonefastobjects.Stpxbackbonefastenabled}
-    stpxbackbonefastobjects.EntityData.Leafs["stpxBackboneFastInInferiorBPDUs"] = types.YLeaf{"Stpxbackbonefastininferiorbpdus", stpxbackbonefastobjects.Stpxbackbonefastininferiorbpdus}
-    stpxbackbonefastobjects.EntityData.Leafs["stpxBackboneFastInRLQRequestPDUs"] = types.YLeaf{"Stpxbackbonefastinrlqrequestpdus", stpxbackbonefastobjects.Stpxbackbonefastinrlqrequestpdus}
-    stpxbackbonefastobjects.EntityData.Leafs["stpxBackboneFastInRLQResponsePDUs"] = types.YLeaf{"Stpxbackbonefastinrlqresponsepdus", stpxbackbonefastobjects.Stpxbackbonefastinrlqresponsepdus}
-    stpxbackbonefastobjects.EntityData.Leafs["stpxBackboneFastOutRLQRequestPDUs"] = types.YLeaf{"Stpxbackbonefastoutrlqrequestpdus", stpxbackbonefastobjects.Stpxbackbonefastoutrlqrequestpdus}
-    stpxbackbonefastobjects.EntityData.Leafs["stpxBackboneFastOutRLQResponsePDUs"] = types.YLeaf{"Stpxbackbonefastoutrlqresponsepdus", stpxbackbonefastobjects.Stpxbackbonefastoutrlqresponsepdus}
-    stpxbackbonefastobjects.EntityData.Leafs["stpxBackboneFastOperEnabled"] = types.YLeaf{"Stpxbackbonefastoperenabled", stpxbackbonefastobjects.Stpxbackbonefastoperenabled}
-    return &(stpxbackbonefastobjects.EntityData)
+    stpxBackboneFastObjects.EntityData.Children = types.NewOrderedMap()
+    stpxBackboneFastObjects.EntityData.Leafs = types.NewOrderedMap()
+    stpxBackboneFastObjects.EntityData.Leafs.Append("stpxBackboneFastEnabled", types.YLeaf{"StpxBackboneFastEnabled", stpxBackboneFastObjects.StpxBackboneFastEnabled})
+    stpxBackboneFastObjects.EntityData.Leafs.Append("stpxBackboneFastInInferiorBPDUs", types.YLeaf{"StpxBackboneFastInInferiorBPDUs", stpxBackboneFastObjects.StpxBackboneFastInInferiorBPDUs})
+    stpxBackboneFastObjects.EntityData.Leafs.Append("stpxBackboneFastInRLQRequestPDUs", types.YLeaf{"StpxBackboneFastInRLQRequestPDUs", stpxBackboneFastObjects.StpxBackboneFastInRLQRequestPDUs})
+    stpxBackboneFastObjects.EntityData.Leafs.Append("stpxBackboneFastInRLQResponsePDUs", types.YLeaf{"StpxBackboneFastInRLQResponsePDUs", stpxBackboneFastObjects.StpxBackboneFastInRLQResponsePDUs})
+    stpxBackboneFastObjects.EntityData.Leafs.Append("stpxBackboneFastOutRLQRequestPDUs", types.YLeaf{"StpxBackboneFastOutRLQRequestPDUs", stpxBackboneFastObjects.StpxBackboneFastOutRLQRequestPDUs})
+    stpxBackboneFastObjects.EntityData.Leafs.Append("stpxBackboneFastOutRLQResponsePDUs", types.YLeaf{"StpxBackboneFastOutRLQResponsePDUs", stpxBackboneFastObjects.StpxBackboneFastOutRLQResponsePDUs})
+    stpxBackboneFastObjects.EntityData.Leafs.Append("stpxBackboneFastOperEnabled", types.YLeaf{"StpxBackboneFastOperEnabled", stpxBackboneFastObjects.StpxBackboneFastOperEnabled})
+
+    stpxBackboneFastObjects.EntityData.YListKeys = []string {}
+
+    return &(stpxBackboneFastObjects.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects
-type CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects struct {
+// CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects
+type CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -355,16 +364,16 @@ type CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects struct {
     // -- IEEE 802.1w Rapid Spanning Tree          Protocol (RSTP) for all vlans
     // in PVST+.  When the value of this MIB object gets changed, the  network
     // connectivity would be affected and the  connectivity to this device would
-    // also be lost  temporarily. The type is Stpxspanningtreetype.
-    Stpxspanningtreetype interface{}
+    // also be lost  temporarily. The type is StpxSpanningTreeType.
+    StpxSpanningTreeType interface{}
 
     // Indicates the administrative  spanning tree path cost mode  configured on
-    // device. The type is Stpxspanningtreepathcostmode.
-    Stpxspanningtreepathcostmode interface{}
+    // device. The type is StpxSpanningTreePathCostMode.
+    StpxSpanningTreePathCostMode interface{}
 
     // Indicates whether Extended System ID feature  is administratively enabled
     // on the device or not. The type is bool.
-    Stpxextendedsysidadminenabled interface{}
+    StpxExtendedSysIDAdminEnabled interface{}
 
     // Indicates whether Extended System ID feature  is operationaly enabled on
     // the device or not.  If the value of this object is true(1), then the
@@ -372,7 +381,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects struct {
     // 4096 plus bridge instance ID, such as VlanIndex. Changing this object value
     // might cause the values of dot1dBaseBridgeAddress and dot1dStpPriority in
     // BRIDGE-MIB to be changed also. The type is bool.
-    Stpxextendedsysidoperenabled interface{}
+    StpxExtendedSysIDOperEnabled interface{}
 
     // Indicates whether a specified notification is enabled or not. If a bit
     // corresponding to a notification is set to 1, then  the specified
@@ -383,7 +392,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects struct {
     // stpxRootInconsistencyUpdate                       notification. 
     // loopInconsistency -- the stpxLoopInconsistencyUpdate                      
     // notification. The type is map[string]bool.
-    Stpxnotificationenable interface{}
+    StpxNotificationEnable interface{}
 
     // Indicate the operational spanning tree path cost mode on device. This mode
     // applies to all instances of the Spanning Tree protocol running on the
@@ -397,128 +406,137 @@ type CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects struct {
     // maximum value of 65535 will be returned if the value of
     // stpxLongStpPortPathCost for the same instance exceeds 65535.  When the
     // value of this MIB object is short(1), the dot1dStpPortPathCost in
-    // BRIDGE-MIB must be used. The type is Stpxspanningtreepathcostopermode.
-    Stpxspanningtreepathcostopermode interface{}
+    // BRIDGE-MIB must be used. The type is StpxSpanningTreePathCostOperMode.
+    StpxSpanningTreePathCostOperMode interface{}
 }
 
-func (stpxspanningtreeobjects *CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects) GetEntityData() *types.CommonEntityData {
-    stpxspanningtreeobjects.EntityData.YFilter = stpxspanningtreeobjects.YFilter
-    stpxspanningtreeobjects.EntityData.YangName = "stpxSpanningTreeObjects"
-    stpxspanningtreeobjects.EntityData.BundleName = "cisco_ios_xe"
-    stpxspanningtreeobjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxspanningtreeobjects.EntityData.SegmentPath = "stpxSpanningTreeObjects"
-    stpxspanningtreeobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxspanningtreeobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxspanningtreeobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxSpanningTreeObjects *CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects) GetEntityData() *types.CommonEntityData {
+    stpxSpanningTreeObjects.EntityData.YFilter = stpxSpanningTreeObjects.YFilter
+    stpxSpanningTreeObjects.EntityData.YangName = "stpxSpanningTreeObjects"
+    stpxSpanningTreeObjects.EntityData.BundleName = "cisco_ios_xe"
+    stpxSpanningTreeObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxSpanningTreeObjects.EntityData.SegmentPath = "stpxSpanningTreeObjects"
+    stpxSpanningTreeObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxSpanningTreeObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxSpanningTreeObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxspanningtreeobjects.EntityData.Children = make(map[string]types.YChild)
-    stpxspanningtreeobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxspanningtreeobjects.EntityData.Leafs["stpxSpanningTreeType"] = types.YLeaf{"Stpxspanningtreetype", stpxspanningtreeobjects.Stpxspanningtreetype}
-    stpxspanningtreeobjects.EntityData.Leafs["stpxSpanningTreePathCostMode"] = types.YLeaf{"Stpxspanningtreepathcostmode", stpxspanningtreeobjects.Stpxspanningtreepathcostmode}
-    stpxspanningtreeobjects.EntityData.Leafs["stpxExtendedSysIDAdminEnabled"] = types.YLeaf{"Stpxextendedsysidadminenabled", stpxspanningtreeobjects.Stpxextendedsysidadminenabled}
-    stpxspanningtreeobjects.EntityData.Leafs["stpxExtendedSysIDOperEnabled"] = types.YLeaf{"Stpxextendedsysidoperenabled", stpxspanningtreeobjects.Stpxextendedsysidoperenabled}
-    stpxspanningtreeobjects.EntityData.Leafs["stpxNotificationEnable"] = types.YLeaf{"Stpxnotificationenable", stpxspanningtreeobjects.Stpxnotificationenable}
-    stpxspanningtreeobjects.EntityData.Leafs["stpxSpanningTreePathCostOperMode"] = types.YLeaf{"Stpxspanningtreepathcostopermode", stpxspanningtreeobjects.Stpxspanningtreepathcostopermode}
-    return &(stpxspanningtreeobjects.EntityData)
+    stpxSpanningTreeObjects.EntityData.Children = types.NewOrderedMap()
+    stpxSpanningTreeObjects.EntityData.Leafs = types.NewOrderedMap()
+    stpxSpanningTreeObjects.EntityData.Leafs.Append("stpxSpanningTreeType", types.YLeaf{"StpxSpanningTreeType", stpxSpanningTreeObjects.StpxSpanningTreeType})
+    stpxSpanningTreeObjects.EntityData.Leafs.Append("stpxSpanningTreePathCostMode", types.YLeaf{"StpxSpanningTreePathCostMode", stpxSpanningTreeObjects.StpxSpanningTreePathCostMode})
+    stpxSpanningTreeObjects.EntityData.Leafs.Append("stpxExtendedSysIDAdminEnabled", types.YLeaf{"StpxExtendedSysIDAdminEnabled", stpxSpanningTreeObjects.StpxExtendedSysIDAdminEnabled})
+    stpxSpanningTreeObjects.EntityData.Leafs.Append("stpxExtendedSysIDOperEnabled", types.YLeaf{"StpxExtendedSysIDOperEnabled", stpxSpanningTreeObjects.StpxExtendedSysIDOperEnabled})
+    stpxSpanningTreeObjects.EntityData.Leafs.Append("stpxNotificationEnable", types.YLeaf{"StpxNotificationEnable", stpxSpanningTreeObjects.StpxNotificationEnable})
+    stpxSpanningTreeObjects.EntityData.Leafs.Append("stpxSpanningTreePathCostOperMode", types.YLeaf{"StpxSpanningTreePathCostOperMode", stpxSpanningTreeObjects.StpxSpanningTreePathCostOperMode})
+
+    stpxSpanningTreeObjects.EntityData.YListKeys = []string {}
+
+    return &(stpxSpanningTreeObjects.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreepathcostmode represents configured on device.
-type CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreepathcostmode string
+// CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreePathCostMode represents configured on device.
+type CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreePathCostMode string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreepathcostmode_short CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreepathcostmode = "short"
+    CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreePathCostMode_short CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreePathCostMode = "short"
 
-    CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreepathcostmode_long CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreepathcostmode = "long"
+    CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreePathCostMode_long CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreePathCostMode = "long"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreepathcostopermode represents the dot1dStpPortPathCost in BRIDGE-MIB must be used.
-type CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreepathcostopermode string
+// CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreePathCostOperMode represents the dot1dStpPortPathCost in BRIDGE-MIB must be used.
+type CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreePathCostOperMode string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreepathcostopermode_short CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreepathcostopermode = "short"
+    CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreePathCostOperMode_short CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreePathCostOperMode = "short"
 
-    CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreepathcostopermode_long CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreepathcostopermode = "long"
+    CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreePathCostOperMode_long CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreePathCostOperMode = "long"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreetype represents temporarily.
-type CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreetype string
+// CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreeType represents temporarily.
+type CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreeType string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreetype_pvstPlus CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreetype = "pvstPlus"
+    CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreeType_pvstPlus CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreeType = "pvstPlus"
 
-    CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreetype_mistp CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreetype = "mistp"
+    CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreeType_mistp CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreeType = "mistp"
 
-    CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreetype_mistpPvstPlus CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreetype = "mistpPvstPlus"
+    CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreeType_mistpPvstPlus CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreeType = "mistpPvstPlus"
 
-    CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreetype_mst CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreetype = "mst"
+    CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreeType_mst CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreeType = "mst"
 
-    CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreetype_rapidPvstPlus CISCOSTPEXTENSIONSMIB_Stpxspanningtreeobjects_Stpxspanningtreetype = "rapidPvstPlus"
+    CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreeType_rapidPvstPlus CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects_StpxSpanningTreeType = "rapidPvstPlus"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxmistpobjects
-type CISCOSTPEXTENSIONSMIB_Stpxmistpobjects struct {
+// CISCOSTPEXTENSIONSMIB_StpxMISTPObjects
+type CISCOSTPEXTENSIONSMIB_StpxMISTPObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The number of MISTP instances, that are supported by the device  when the
     // value of stpxSpanningTreeType is either mistp(2) or mistpPvstPlus(3). The
     // type is interface{} with range: 1..256.
-    Stpxmistpinstancenumber interface{}
+    StpxMISTPInstanceNumber interface{}
 }
 
-func (stpxmistpobjects *CISCOSTPEXTENSIONSMIB_Stpxmistpobjects) GetEntityData() *types.CommonEntityData {
-    stpxmistpobjects.EntityData.YFilter = stpxmistpobjects.YFilter
-    stpxmistpobjects.EntityData.YangName = "stpxMISTPObjects"
-    stpxmistpobjects.EntityData.BundleName = "cisco_ios_xe"
-    stpxmistpobjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxmistpobjects.EntityData.SegmentPath = "stpxMISTPObjects"
-    stpxmistpobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxmistpobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxmistpobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxMISTPObjects *CISCOSTPEXTENSIONSMIB_StpxMISTPObjects) GetEntityData() *types.CommonEntityData {
+    stpxMISTPObjects.EntityData.YFilter = stpxMISTPObjects.YFilter
+    stpxMISTPObjects.EntityData.YangName = "stpxMISTPObjects"
+    stpxMISTPObjects.EntityData.BundleName = "cisco_ios_xe"
+    stpxMISTPObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxMISTPObjects.EntityData.SegmentPath = "stpxMISTPObjects"
+    stpxMISTPObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxMISTPObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxMISTPObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxmistpobjects.EntityData.Children = make(map[string]types.YChild)
-    stpxmistpobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxmistpobjects.EntityData.Leafs["stpxMISTPInstanceNumber"] = types.YLeaf{"Stpxmistpinstancenumber", stpxmistpobjects.Stpxmistpinstancenumber}
-    return &(stpxmistpobjects.EntityData)
+    stpxMISTPObjects.EntityData.Children = types.NewOrderedMap()
+    stpxMISTPObjects.EntityData.Leafs = types.NewOrderedMap()
+    stpxMISTPObjects.EntityData.Leafs.Append("stpxMISTPInstanceNumber", types.YLeaf{"StpxMISTPInstanceNumber", stpxMISTPObjects.StpxMISTPInstanceNumber})
+
+    stpxMISTPObjects.EntityData.YListKeys = []string {}
+
+    return &(stpxMISTPObjects.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxloopguardobjects
-type CISCOSTPEXTENSIONSMIB_Stpxloopguardobjects struct {
+// CISCOSTPEXTENSIONSMIB_StpxLoopGuardObjects
+type CISCOSTPEXTENSIONSMIB_StpxLoopGuardObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Indicates the global default config mode of LoopGuard  feature on the
-    // device. The type is Stpxloopguardglobaldefaultmode.
-    Stpxloopguardglobaldefaultmode interface{}
+    // device. The type is StpxLoopGuardGlobalDefaultMode.
+    StpxLoopGuardGlobalDefaultMode interface{}
 }
 
-func (stpxloopguardobjects *CISCOSTPEXTENSIONSMIB_Stpxloopguardobjects) GetEntityData() *types.CommonEntityData {
-    stpxloopguardobjects.EntityData.YFilter = stpxloopguardobjects.YFilter
-    stpxloopguardobjects.EntityData.YangName = "stpxLoopGuardObjects"
-    stpxloopguardobjects.EntityData.BundleName = "cisco_ios_xe"
-    stpxloopguardobjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxloopguardobjects.EntityData.SegmentPath = "stpxLoopGuardObjects"
-    stpxloopguardobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxloopguardobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxloopguardobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxLoopGuardObjects *CISCOSTPEXTENSIONSMIB_StpxLoopGuardObjects) GetEntityData() *types.CommonEntityData {
+    stpxLoopGuardObjects.EntityData.YFilter = stpxLoopGuardObjects.YFilter
+    stpxLoopGuardObjects.EntityData.YangName = "stpxLoopGuardObjects"
+    stpxLoopGuardObjects.EntityData.BundleName = "cisco_ios_xe"
+    stpxLoopGuardObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxLoopGuardObjects.EntityData.SegmentPath = "stpxLoopGuardObjects"
+    stpxLoopGuardObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxLoopGuardObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxLoopGuardObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxloopguardobjects.EntityData.Children = make(map[string]types.YChild)
-    stpxloopguardobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxloopguardobjects.EntityData.Leafs["stpxLoopGuardGlobalDefaultMode"] = types.YLeaf{"Stpxloopguardglobaldefaultmode", stpxloopguardobjects.Stpxloopguardglobaldefaultmode}
-    return &(stpxloopguardobjects.EntityData)
+    stpxLoopGuardObjects.EntityData.Children = types.NewOrderedMap()
+    stpxLoopGuardObjects.EntityData.Leafs = types.NewOrderedMap()
+    stpxLoopGuardObjects.EntityData.Leafs.Append("stpxLoopGuardGlobalDefaultMode", types.YLeaf{"StpxLoopGuardGlobalDefaultMode", stpxLoopGuardObjects.StpxLoopGuardGlobalDefaultMode})
+
+    stpxLoopGuardObjects.EntityData.YListKeys = []string {}
+
+    return &(stpxLoopGuardObjects.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxloopguardobjects_Stpxloopguardglobaldefaultmode represents feature on the device.
-type CISCOSTPEXTENSIONSMIB_Stpxloopguardobjects_Stpxloopguardglobaldefaultmode string
+// CISCOSTPEXTENSIONSMIB_StpxLoopGuardObjects_StpxLoopGuardGlobalDefaultMode represents feature on the device.
+type CISCOSTPEXTENSIONSMIB_StpxLoopGuardObjects_StpxLoopGuardGlobalDefaultMode string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxloopguardobjects_Stpxloopguardglobaldefaultmode_enable CISCOSTPEXTENSIONSMIB_Stpxloopguardobjects_Stpxloopguardglobaldefaultmode = "enable"
+    CISCOSTPEXTENSIONSMIB_StpxLoopGuardObjects_StpxLoopGuardGlobalDefaultMode_enable CISCOSTPEXTENSIONSMIB_StpxLoopGuardObjects_StpxLoopGuardGlobalDefaultMode = "enable"
 
-    CISCOSTPEXTENSIONSMIB_Stpxloopguardobjects_Stpxloopguardglobaldefaultmode_disable CISCOSTPEXTENSIONSMIB_Stpxloopguardobjects_Stpxloopguardglobaldefaultmode = "disable"
+    CISCOSTPEXTENSIONSMIB_StpxLoopGuardObjects_StpxLoopGuardGlobalDefaultMode_disable CISCOSTPEXTENSIONSMIB_StpxLoopGuardObjects_StpxLoopGuardGlobalDefaultMode = "disable"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxfaststartobjects
-type CISCOSTPEXTENSIONSMIB_Stpxfaststartobjects struct {
+// CISCOSTPEXTENSIONSMIB_StpxFastStartObjects
+type CISCOSTPEXTENSIONSMIB_StpxFastStartObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -528,7 +546,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxfaststartobjects struct {
     // this object is set to true(1),  and the Fast Start Feature is operationally
     // enabled on a port, then that port will be  immediately disabled when the
     // system receives a BPDU from that port. The type is bool.
-    Stpxfaststartbpduguardenable interface{}
+    StpxFastStartBpduGuardEnable interface{}
 
     // Indicates the global default mode of the Bpdu  Filter feature on the
     // device.  On platforms that does not support per port  Bpdu Filter
@@ -536,42 +554,45 @@ type CISCOSTPEXTENSIONSMIB_Stpxfaststartobjects struct {
     // if  the value of this object is set to true(1),  and the Fast Start Feature
     // is operationally  enabled on a port, then no BPDUs will be  transmitted on
     // this port. The type is bool.
-    Stpxfaststartbpdufilterenable interface{}
+    StpxFastStartBpduFilterEnable interface{}
 
     // Indicates the global default mode of the Fast  Start feature on the device.
-    // The type is Stpxfaststartglobaldefaultmode.
-    Stpxfaststartglobaldefaultmode interface{}
+    // The type is StpxFastStartGlobalDefaultMode.
+    StpxFastStartGlobalDefaultMode interface{}
 }
 
-func (stpxfaststartobjects *CISCOSTPEXTENSIONSMIB_Stpxfaststartobjects) GetEntityData() *types.CommonEntityData {
-    stpxfaststartobjects.EntityData.YFilter = stpxfaststartobjects.YFilter
-    stpxfaststartobjects.EntityData.YangName = "stpxFastStartObjects"
-    stpxfaststartobjects.EntityData.BundleName = "cisco_ios_xe"
-    stpxfaststartobjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxfaststartobjects.EntityData.SegmentPath = "stpxFastStartObjects"
-    stpxfaststartobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxfaststartobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxfaststartobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxFastStartObjects *CISCOSTPEXTENSIONSMIB_StpxFastStartObjects) GetEntityData() *types.CommonEntityData {
+    stpxFastStartObjects.EntityData.YFilter = stpxFastStartObjects.YFilter
+    stpxFastStartObjects.EntityData.YangName = "stpxFastStartObjects"
+    stpxFastStartObjects.EntityData.BundleName = "cisco_ios_xe"
+    stpxFastStartObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxFastStartObjects.EntityData.SegmentPath = "stpxFastStartObjects"
+    stpxFastStartObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxFastStartObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxFastStartObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxfaststartobjects.EntityData.Children = make(map[string]types.YChild)
-    stpxfaststartobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxfaststartobjects.EntityData.Leafs["stpxFastStartBpduGuardEnable"] = types.YLeaf{"Stpxfaststartbpduguardenable", stpxfaststartobjects.Stpxfaststartbpduguardenable}
-    stpxfaststartobjects.EntityData.Leafs["stpxFastStartBpduFilterEnable"] = types.YLeaf{"Stpxfaststartbpdufilterenable", stpxfaststartobjects.Stpxfaststartbpdufilterenable}
-    stpxfaststartobjects.EntityData.Leafs["stpxFastStartGlobalDefaultMode"] = types.YLeaf{"Stpxfaststartglobaldefaultmode", stpxfaststartobjects.Stpxfaststartglobaldefaultmode}
-    return &(stpxfaststartobjects.EntityData)
+    stpxFastStartObjects.EntityData.Children = types.NewOrderedMap()
+    stpxFastStartObjects.EntityData.Leafs = types.NewOrderedMap()
+    stpxFastStartObjects.EntityData.Leafs.Append("stpxFastStartBpduGuardEnable", types.YLeaf{"StpxFastStartBpduGuardEnable", stpxFastStartObjects.StpxFastStartBpduGuardEnable})
+    stpxFastStartObjects.EntityData.Leafs.Append("stpxFastStartBpduFilterEnable", types.YLeaf{"StpxFastStartBpduFilterEnable", stpxFastStartObjects.StpxFastStartBpduFilterEnable})
+    stpxFastStartObjects.EntityData.Leafs.Append("stpxFastStartGlobalDefaultMode", types.YLeaf{"StpxFastStartGlobalDefaultMode", stpxFastStartObjects.StpxFastStartGlobalDefaultMode})
+
+    stpxFastStartObjects.EntityData.YListKeys = []string {}
+
+    return &(stpxFastStartObjects.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxfaststartobjects_Stpxfaststartglobaldefaultmode represents Start feature on the device.
-type CISCOSTPEXTENSIONSMIB_Stpxfaststartobjects_Stpxfaststartglobaldefaultmode string
+// CISCOSTPEXTENSIONSMIB_StpxFastStartObjects_StpxFastStartGlobalDefaultMode represents Start feature on the device.
+type CISCOSTPEXTENSIONSMIB_StpxFastStartObjects_StpxFastStartGlobalDefaultMode string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxfaststartobjects_Stpxfaststartglobaldefaultmode_enable CISCOSTPEXTENSIONSMIB_Stpxfaststartobjects_Stpxfaststartglobaldefaultmode = "enable"
+    CISCOSTPEXTENSIONSMIB_StpxFastStartObjects_StpxFastStartGlobalDefaultMode_enable CISCOSTPEXTENSIONSMIB_StpxFastStartObjects_StpxFastStartGlobalDefaultMode = "enable"
 
-    CISCOSTPEXTENSIONSMIB_Stpxfaststartobjects_Stpxfaststartglobaldefaultmode_disable CISCOSTPEXTENSIONSMIB_Stpxfaststartobjects_Stpxfaststartglobaldefaultmode = "disable"
+    CISCOSTPEXTENSIONSMIB_StpxFastStartObjects_StpxFastStartGlobalDefaultMode_disable CISCOSTPEXTENSIONSMIB_StpxFastStartObjects_StpxFastStartGlobalDefaultMode = "disable"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxbpduskewingobjects
-type CISCOSTPEXTENSIONSMIB_Stpxbpduskewingobjects struct {
+// CISCOSTPEXTENSIONSMIB_StpxBpduSkewingObjects
+type CISCOSTPEXTENSIONSMIB_StpxBpduSkewingObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -581,27 +602,30 @@ type CISCOSTPEXTENSIONSMIB_Stpxbpduskewingobjects struct {
     // are processed at an interval longer than the object value of
     // dot1dStpHelloTime in the BIRDGE-MIB of the Spanning Tree instance. The type
     // is bool.
-    Stpxbpduskewingdetectionenable interface{}
+    StpxBpduSkewingDetectionEnable interface{}
 }
 
-func (stpxbpduskewingobjects *CISCOSTPEXTENSIONSMIB_Stpxbpduskewingobjects) GetEntityData() *types.CommonEntityData {
-    stpxbpduskewingobjects.EntityData.YFilter = stpxbpduskewingobjects.YFilter
-    stpxbpduskewingobjects.EntityData.YangName = "stpxBpduSkewingObjects"
-    stpxbpduskewingobjects.EntityData.BundleName = "cisco_ios_xe"
-    stpxbpduskewingobjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxbpduskewingobjects.EntityData.SegmentPath = "stpxBpduSkewingObjects"
-    stpxbpduskewingobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxbpduskewingobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxbpduskewingobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxBpduSkewingObjects *CISCOSTPEXTENSIONSMIB_StpxBpduSkewingObjects) GetEntityData() *types.CommonEntityData {
+    stpxBpduSkewingObjects.EntityData.YFilter = stpxBpduSkewingObjects.YFilter
+    stpxBpduSkewingObjects.EntityData.YangName = "stpxBpduSkewingObjects"
+    stpxBpduSkewingObjects.EntityData.BundleName = "cisco_ios_xe"
+    stpxBpduSkewingObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxBpduSkewingObjects.EntityData.SegmentPath = "stpxBpduSkewingObjects"
+    stpxBpduSkewingObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxBpduSkewingObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxBpduSkewingObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxbpduskewingobjects.EntityData.Children = make(map[string]types.YChild)
-    stpxbpduskewingobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxbpduskewingobjects.EntityData.Leafs["stpxBpduSkewingDetectionEnable"] = types.YLeaf{"Stpxbpduskewingdetectionenable", stpxbpduskewingobjects.Stpxbpduskewingdetectionenable}
-    return &(stpxbpduskewingobjects.EntityData)
+    stpxBpduSkewingObjects.EntityData.Children = types.NewOrderedMap()
+    stpxBpduSkewingObjects.EntityData.Leafs = types.NewOrderedMap()
+    stpxBpduSkewingObjects.EntityData.Leafs.Append("stpxBpduSkewingDetectionEnable", types.YLeaf{"StpxBpduSkewingDetectionEnable", stpxBpduSkewingObjects.StpxBpduSkewingDetectionEnable})
+
+    stpxBpduSkewingObjects.EntityData.YListKeys = []string {}
+
+    return &(stpxBpduSkewingObjects.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxmstobjects
-type CISCOSTPEXTENSIONSMIB_Stpxmstobjects struct {
+// CISCOSTPEXTENSIONSMIB_StpxMSTObjects
+type CISCOSTPEXTENSIONSMIB_StpxMSTObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -609,14 +633,14 @@ type CISCOSTPEXTENSIONSMIB_Stpxmstobjects struct {
     // supported by the device for Cisco proprietary implementation of the MST
     // Protocol.  This object is deprecated and replaced by 
     // stpxSMSTMaxInstanceID. The type is interface{} with range: 1..256.
-    Stpxmstmaxinstancenumber interface{}
+    StpxMSTMaxInstanceNumber interface{}
 
     // The operational MST region name. The type is string with length: 0..32.
-    Stpxmstregionname interface{}
+    StpxMSTRegionName interface{}
 
     // The operational MST region version.  This object is deprecated and replaced
     // by  stpxSMSTRegionRevision. The type is interface{} with range: 0..65535.
-    Stpxmstregionrevision interface{}
+    StpxMSTRegionRevision interface{}
 
     // Indicates the current ownership status of the unique  Region Config Edit
     // Buffer.   released -- the Edit Buffer can be acquired by any of            
@@ -624,8 +648,8 @@ type CISCOSTPEXTENSIONSMIB_Stpxmstobjects struct {
     // acquired by             any of the SNMP management stations.  
     // acquiredByNonSnmp -- the Edit Buffer is acquired by the             
     // non-SNMP users managing the device. The type is
-    // Stpxmstregioneditbufferstatus.
-    Stpxmstregioneditbufferstatus interface{}
+    // StpxMSTRegionEditBufferStatus.
+    StpxMSTRegionEditBufferStatus interface{}
 
     // Indicates the operation that is performed on the Region  Config Edit
     // Buffer.  other --   none of the following operations.    acquire -- acquire
@@ -646,201 +670,213 @@ type CISCOSTPEXTENSIONSMIB_Stpxmstobjects struct {
     // Buffer            and release the Edit Buffer. This operation can          
     // only be performed when the object             stpxMSTRegionEditBufferStatus
     // has the value             of acquiredBySnmp(3).  This object always returns
-    // other(1) when it is read. The type is Stpxmstregioneditbufferoperation.
-    Stpxmstregioneditbufferoperation interface{}
+    // other(1) when it is read. The type is StpxMSTRegionEditBufferOperation.
+    StpxMSTRegionEditBufferOperation interface{}
 
     // The MST region name in the Edit Buffer.   This object is only instantiated
     // when the  stpxMSTRegionEditBufferStatus has the value of 
     // acquiredBySnmp(2). The type is string with length: 0..32.
-    Stpxmstregioneditname interface{}
+    StpxMSTRegionEditName interface{}
 
     // The MST region version in the Edit Buffer. This object is only instantiated
     // when the stpxMSTRegionEditBufferStatus  has the value of acquiredBySnmp(2).
     // This object is deprecated and replaced by stpxSMSTRegionEditRevision. The
     // type is interface{} with range: 1..65535.
-    Stpxmstregioneditrevision interface{}
+    StpxMSTRegionEditRevision interface{}
 
     // The maximum number of hops for the MST region.   This object will take on
     // value of 40 if the object value of stpxSMSTMaxHopCount is greater than 40. 
     // This object is deprecated and replaced by stpxSMSTMaxHopCount. The type is
     // interface{} with range: 1..40.
-    Stpxmstmaxhopcount interface{}
+    StpxMSTMaxHopCount interface{}
 }
 
-func (stpxmstobjects *CISCOSTPEXTENSIONSMIB_Stpxmstobjects) GetEntityData() *types.CommonEntityData {
-    stpxmstobjects.EntityData.YFilter = stpxmstobjects.YFilter
-    stpxmstobjects.EntityData.YangName = "stpxMSTObjects"
-    stpxmstobjects.EntityData.BundleName = "cisco_ios_xe"
-    stpxmstobjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxmstobjects.EntityData.SegmentPath = "stpxMSTObjects"
-    stpxmstobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxmstobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxmstobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxMSTObjects *CISCOSTPEXTENSIONSMIB_StpxMSTObjects) GetEntityData() *types.CommonEntityData {
+    stpxMSTObjects.EntityData.YFilter = stpxMSTObjects.YFilter
+    stpxMSTObjects.EntityData.YangName = "stpxMSTObjects"
+    stpxMSTObjects.EntityData.BundleName = "cisco_ios_xe"
+    stpxMSTObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxMSTObjects.EntityData.SegmentPath = "stpxMSTObjects"
+    stpxMSTObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxMSTObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxMSTObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxmstobjects.EntityData.Children = make(map[string]types.YChild)
-    stpxmstobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxmstobjects.EntityData.Leafs["stpxMSTMaxInstanceNumber"] = types.YLeaf{"Stpxmstmaxinstancenumber", stpxmstobjects.Stpxmstmaxinstancenumber}
-    stpxmstobjects.EntityData.Leafs["stpxMSTRegionName"] = types.YLeaf{"Stpxmstregionname", stpxmstobjects.Stpxmstregionname}
-    stpxmstobjects.EntityData.Leafs["stpxMSTRegionRevision"] = types.YLeaf{"Stpxmstregionrevision", stpxmstobjects.Stpxmstregionrevision}
-    stpxmstobjects.EntityData.Leafs["stpxMSTRegionEditBufferStatus"] = types.YLeaf{"Stpxmstregioneditbufferstatus", stpxmstobjects.Stpxmstregioneditbufferstatus}
-    stpxmstobjects.EntityData.Leafs["stpxMSTRegionEditBufferOperation"] = types.YLeaf{"Stpxmstregioneditbufferoperation", stpxmstobjects.Stpxmstregioneditbufferoperation}
-    stpxmstobjects.EntityData.Leafs["stpxMSTRegionEditName"] = types.YLeaf{"Stpxmstregioneditname", stpxmstobjects.Stpxmstregioneditname}
-    stpxmstobjects.EntityData.Leafs["stpxMSTRegionEditRevision"] = types.YLeaf{"Stpxmstregioneditrevision", stpxmstobjects.Stpxmstregioneditrevision}
-    stpxmstobjects.EntityData.Leafs["stpxMSTMaxHopCount"] = types.YLeaf{"Stpxmstmaxhopcount", stpxmstobjects.Stpxmstmaxhopcount}
-    return &(stpxmstobjects.EntityData)
+    stpxMSTObjects.EntityData.Children = types.NewOrderedMap()
+    stpxMSTObjects.EntityData.Leafs = types.NewOrderedMap()
+    stpxMSTObjects.EntityData.Leafs.Append("stpxMSTMaxInstanceNumber", types.YLeaf{"StpxMSTMaxInstanceNumber", stpxMSTObjects.StpxMSTMaxInstanceNumber})
+    stpxMSTObjects.EntityData.Leafs.Append("stpxMSTRegionName", types.YLeaf{"StpxMSTRegionName", stpxMSTObjects.StpxMSTRegionName})
+    stpxMSTObjects.EntityData.Leafs.Append("stpxMSTRegionRevision", types.YLeaf{"StpxMSTRegionRevision", stpxMSTObjects.StpxMSTRegionRevision})
+    stpxMSTObjects.EntityData.Leafs.Append("stpxMSTRegionEditBufferStatus", types.YLeaf{"StpxMSTRegionEditBufferStatus", stpxMSTObjects.StpxMSTRegionEditBufferStatus})
+    stpxMSTObjects.EntityData.Leafs.Append("stpxMSTRegionEditBufferOperation", types.YLeaf{"StpxMSTRegionEditBufferOperation", stpxMSTObjects.StpxMSTRegionEditBufferOperation})
+    stpxMSTObjects.EntityData.Leafs.Append("stpxMSTRegionEditName", types.YLeaf{"StpxMSTRegionEditName", stpxMSTObjects.StpxMSTRegionEditName})
+    stpxMSTObjects.EntityData.Leafs.Append("stpxMSTRegionEditRevision", types.YLeaf{"StpxMSTRegionEditRevision", stpxMSTObjects.StpxMSTRegionEditRevision})
+    stpxMSTObjects.EntityData.Leafs.Append("stpxMSTMaxHopCount", types.YLeaf{"StpxMSTMaxHopCount", stpxMSTObjects.StpxMSTMaxHopCount})
+
+    stpxMSTObjects.EntityData.YListKeys = []string {}
+
+    return &(stpxMSTObjects.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferoperation represents This object always returns other(1) when it is read.
-type CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferoperation string
+// CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferOperation represents This object always returns other(1) when it is read.
+type CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferOperation string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferoperation_other CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferoperation = "other"
+    CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferOperation_other CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferOperation = "other"
 
-    CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferoperation_acquire CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferoperation = "acquire"
+    CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferOperation_acquire CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferOperation = "acquire"
 
-    CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferoperation_releaseWithForce CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferoperation = "releaseWithForce"
+    CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferOperation_releaseWithForce CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferOperation = "releaseWithForce"
 
-    CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferoperation_commit CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferoperation = "commit"
+    CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferOperation_commit CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferOperation = "commit"
 
-    CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferoperation_rollBack CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferoperation = "rollBack"
+    CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferOperation_rollBack CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferOperation = "rollBack"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferstatus represents             non-SNMP users managing the device.
-type CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferstatus string
+// CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferStatus represents             non-SNMP users managing the device.
+type CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferStatus string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferstatus_released CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferstatus = "released"
+    CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferStatus_released CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferStatus = "released"
 
-    CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferstatus_acquiredBySnmp CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferstatus = "acquiredBySnmp"
+    CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferStatus_acquiredBySnmp CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferStatus = "acquiredBySnmp"
 
-    CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferstatus_acquiredByNonSnmp CISCOSTPEXTENSIONSMIB_Stpxmstobjects_Stpxmstregioneditbufferstatus = "acquiredByNonSnmp"
+    CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferStatus_acquiredByNonSnmp CISCOSTPEXTENSIONSMIB_StpxMSTObjects_StpxMSTRegionEditBufferStatus = "acquiredByNonSnmp"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxrstpobjects
-type CISCOSTPEXTENSIONSMIB_Stpxrstpobjects struct {
+// CISCOSTPEXTENSIONSMIB_StpxRSTPObjects
+type CISCOSTPEXTENSIONSMIB_StpxRSTPObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The Transmit Hold Count. The type is interface{} with range: 0..4294967295.
-    Stpxrstptransmitholdcount interface{}
+    StpxRSTPTransmitHoldCount interface{}
 }
 
-func (stpxrstpobjects *CISCOSTPEXTENSIONSMIB_Stpxrstpobjects) GetEntityData() *types.CommonEntityData {
-    stpxrstpobjects.EntityData.YFilter = stpxrstpobjects.YFilter
-    stpxrstpobjects.EntityData.YangName = "stpxRSTPObjects"
-    stpxrstpobjects.EntityData.BundleName = "cisco_ios_xe"
-    stpxrstpobjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxrstpobjects.EntityData.SegmentPath = "stpxRSTPObjects"
-    stpxrstpobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxrstpobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxrstpobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxRSTPObjects *CISCOSTPEXTENSIONSMIB_StpxRSTPObjects) GetEntityData() *types.CommonEntityData {
+    stpxRSTPObjects.EntityData.YFilter = stpxRSTPObjects.YFilter
+    stpxRSTPObjects.EntityData.YangName = "stpxRSTPObjects"
+    stpxRSTPObjects.EntityData.BundleName = "cisco_ios_xe"
+    stpxRSTPObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxRSTPObjects.EntityData.SegmentPath = "stpxRSTPObjects"
+    stpxRSTPObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxRSTPObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxRSTPObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxrstpobjects.EntityData.Children = make(map[string]types.YChild)
-    stpxrstpobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxrstpobjects.EntityData.Leafs["stpxRSTPTransmitHoldCount"] = types.YLeaf{"Stpxrstptransmitholdcount", stpxrstpobjects.Stpxrstptransmitholdcount}
-    return &(stpxrstpobjects.EntityData)
+    stpxRSTPObjects.EntityData.Children = types.NewOrderedMap()
+    stpxRSTPObjects.EntityData.Leafs = types.NewOrderedMap()
+    stpxRSTPObjects.EntityData.Leafs.Append("stpxRSTPTransmitHoldCount", types.YLeaf{"StpxRSTPTransmitHoldCount", stpxRSTPObjects.StpxRSTPTransmitHoldCount})
+
+    stpxRSTPObjects.EntityData.YListKeys = []string {}
+
+    return &(stpxRSTPObjects.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxsmstobjects
-type CISCOSTPEXTENSIONSMIB_Stpxsmstobjects struct {
+// CISCOSTPEXTENSIONSMIB_StpxSMSTObjects
+type CISCOSTPEXTENSIONSMIB_StpxSMSTObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The maximum number of MST instances that can be  supported by the device
     // for IEEE MST. The type is interface{} with range: 0..4294967295.
-    Stpxsmstmaxinstances interface{}
+    StpxSMSTMaxInstances interface{}
 
     // The maximum MST instance ID that can be supported  by the device for IEEE
     // MST. The type is interface{} with range: 0..4294967295.
-    Stpxsmstmaxinstanceid interface{}
+    StpxSMSTMaxInstanceID interface{}
 
     // The operational region version for IEEE MST. The type is interface{} with
     // range: 0..4294967295.
-    Stpxsmstregionrevision interface{}
+    StpxSMSTRegionRevision interface{}
 
     // The MST region version in the Edit Buffer for IEEE  MST.  This object is
     // only instantiated when the  stpxMSTRegionEditBufferStatus has the value of 
     // acquiredBySnmp(2). The type is interface{} with range: 0..4294967295.
-    Stpxsmstregioneditrevision interface{}
+    StpxSMSTRegionEditRevision interface{}
 
     // The maximum number of hops for the IEEE MST region. The type is interface{}
     // with range: 0..4294967295.
-    Stpxsmstmaxhopcount interface{}
+    StpxSMSTMaxHopCount interface{}
 
     // The IEEE MST region configuration digest. The type is string.
-    Stpxsmstconfigdigest interface{}
+    StpxSMSTConfigDigest interface{}
 
     // The pre-standard MST region configuration digest. The type is string.
-    Stpxsmstconfigprestandarddigest interface{}
+    StpxSMSTConfigPreStandardDigest interface{}
 }
 
-func (stpxsmstobjects *CISCOSTPEXTENSIONSMIB_Stpxsmstobjects) GetEntityData() *types.CommonEntityData {
-    stpxsmstobjects.EntityData.YFilter = stpxsmstobjects.YFilter
-    stpxsmstobjects.EntityData.YangName = "stpxSMSTObjects"
-    stpxsmstobjects.EntityData.BundleName = "cisco_ios_xe"
-    stpxsmstobjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxsmstobjects.EntityData.SegmentPath = "stpxSMSTObjects"
-    stpxsmstobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxsmstobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxsmstobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxSMSTObjects *CISCOSTPEXTENSIONSMIB_StpxSMSTObjects) GetEntityData() *types.CommonEntityData {
+    stpxSMSTObjects.EntityData.YFilter = stpxSMSTObjects.YFilter
+    stpxSMSTObjects.EntityData.YangName = "stpxSMSTObjects"
+    stpxSMSTObjects.EntityData.BundleName = "cisco_ios_xe"
+    stpxSMSTObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxSMSTObjects.EntityData.SegmentPath = "stpxSMSTObjects"
+    stpxSMSTObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxSMSTObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxSMSTObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxsmstobjects.EntityData.Children = make(map[string]types.YChild)
-    stpxsmstobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxsmstobjects.EntityData.Leafs["stpxSMSTMaxInstances"] = types.YLeaf{"Stpxsmstmaxinstances", stpxsmstobjects.Stpxsmstmaxinstances}
-    stpxsmstobjects.EntityData.Leafs["stpxSMSTMaxInstanceID"] = types.YLeaf{"Stpxsmstmaxinstanceid", stpxsmstobjects.Stpxsmstmaxinstanceid}
-    stpxsmstobjects.EntityData.Leafs["stpxSMSTRegionRevision"] = types.YLeaf{"Stpxsmstregionrevision", stpxsmstobjects.Stpxsmstregionrevision}
-    stpxsmstobjects.EntityData.Leafs["stpxSMSTRegionEditRevision"] = types.YLeaf{"Stpxsmstregioneditrevision", stpxsmstobjects.Stpxsmstregioneditrevision}
-    stpxsmstobjects.EntityData.Leafs["stpxSMSTMaxHopCount"] = types.YLeaf{"Stpxsmstmaxhopcount", stpxsmstobjects.Stpxsmstmaxhopcount}
-    stpxsmstobjects.EntityData.Leafs["stpxSMSTConfigDigest"] = types.YLeaf{"Stpxsmstconfigdigest", stpxsmstobjects.Stpxsmstconfigdigest}
-    stpxsmstobjects.EntityData.Leafs["stpxSMSTConfigPreStandardDigest"] = types.YLeaf{"Stpxsmstconfigprestandarddigest", stpxsmstobjects.Stpxsmstconfigprestandarddigest}
-    return &(stpxsmstobjects.EntityData)
+    stpxSMSTObjects.EntityData.Children = types.NewOrderedMap()
+    stpxSMSTObjects.EntityData.Leafs = types.NewOrderedMap()
+    stpxSMSTObjects.EntityData.Leafs.Append("stpxSMSTMaxInstances", types.YLeaf{"StpxSMSTMaxInstances", stpxSMSTObjects.StpxSMSTMaxInstances})
+    stpxSMSTObjects.EntityData.Leafs.Append("stpxSMSTMaxInstanceID", types.YLeaf{"StpxSMSTMaxInstanceID", stpxSMSTObjects.StpxSMSTMaxInstanceID})
+    stpxSMSTObjects.EntityData.Leafs.Append("stpxSMSTRegionRevision", types.YLeaf{"StpxSMSTRegionRevision", stpxSMSTObjects.StpxSMSTRegionRevision})
+    stpxSMSTObjects.EntityData.Leafs.Append("stpxSMSTRegionEditRevision", types.YLeaf{"StpxSMSTRegionEditRevision", stpxSMSTObjects.StpxSMSTRegionEditRevision})
+    stpxSMSTObjects.EntityData.Leafs.Append("stpxSMSTMaxHopCount", types.YLeaf{"StpxSMSTMaxHopCount", stpxSMSTObjects.StpxSMSTMaxHopCount})
+    stpxSMSTObjects.EntityData.Leafs.Append("stpxSMSTConfigDigest", types.YLeaf{"StpxSMSTConfigDigest", stpxSMSTObjects.StpxSMSTConfigDigest})
+    stpxSMSTObjects.EntityData.Leafs.Append("stpxSMSTConfigPreStandardDigest", types.YLeaf{"StpxSMSTConfigPreStandardDigest", stpxSMSTObjects.StpxSMSTConfigPreStandardDigest})
+
+    stpxSMSTObjects.EntityData.YListKeys = []string {}
+
+    return &(stpxSMSTObjects.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxpvstvlantable
+// CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable
 // A list of Virtual LAN entries containing
 // information for Spanning Tree PVST+ protocol. 
 // An entry will exist for each VLAN existing on 
 // the device.
-type CISCOSTPEXTENSIONSMIB_Stpxpvstvlantable struct {
+type CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing Spanning Tree PVST+ Protocol  information for a
     // particular Virtual LAN. The type is slice of
-    // CISCOSTPEXTENSIONSMIB_Stpxpvstvlantable_Stpxpvstvlanentry.
-    Stpxpvstvlanentry []CISCOSTPEXTENSIONSMIB_Stpxpvstvlantable_Stpxpvstvlanentry
+    // CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable_StpxPVSTVlanEntry.
+    StpxPVSTVlanEntry []*CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable_StpxPVSTVlanEntry
 }
 
-func (stpxpvstvlantable *CISCOSTPEXTENSIONSMIB_Stpxpvstvlantable) GetEntityData() *types.CommonEntityData {
-    stpxpvstvlantable.EntityData.YFilter = stpxpvstvlantable.YFilter
-    stpxpvstvlantable.EntityData.YangName = "stpxPVSTVlanTable"
-    stpxpvstvlantable.EntityData.BundleName = "cisco_ios_xe"
-    stpxpvstvlantable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxpvstvlantable.EntityData.SegmentPath = "stpxPVSTVlanTable"
-    stpxpvstvlantable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxpvstvlantable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxpvstvlantable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxPVSTVlanTable *CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable) GetEntityData() *types.CommonEntityData {
+    stpxPVSTVlanTable.EntityData.YFilter = stpxPVSTVlanTable.YFilter
+    stpxPVSTVlanTable.EntityData.YangName = "stpxPVSTVlanTable"
+    stpxPVSTVlanTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxPVSTVlanTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxPVSTVlanTable.EntityData.SegmentPath = "stpxPVSTVlanTable"
+    stpxPVSTVlanTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxPVSTVlanTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxPVSTVlanTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxpvstvlantable.EntityData.Children = make(map[string]types.YChild)
-    stpxpvstvlantable.EntityData.Children["stpxPVSTVlanEntry"] = types.YChild{"Stpxpvstvlanentry", nil}
-    for i := range stpxpvstvlantable.Stpxpvstvlanentry {
-        stpxpvstvlantable.EntityData.Children[types.GetSegmentPath(&stpxpvstvlantable.Stpxpvstvlanentry[i])] = types.YChild{"Stpxpvstvlanentry", &stpxpvstvlantable.Stpxpvstvlanentry[i]}
+    stpxPVSTVlanTable.EntityData.Children = types.NewOrderedMap()
+    stpxPVSTVlanTable.EntityData.Children.Append("stpxPVSTVlanEntry", types.YChild{"StpxPVSTVlanEntry", nil})
+    for i := range stpxPVSTVlanTable.StpxPVSTVlanEntry {
+        stpxPVSTVlanTable.EntityData.Children.Append(types.GetSegmentPath(stpxPVSTVlanTable.StpxPVSTVlanEntry[i]), types.YChild{"StpxPVSTVlanEntry", stpxPVSTVlanTable.StpxPVSTVlanEntry[i]})
     }
-    stpxpvstvlantable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxpvstvlantable.EntityData)
+    stpxPVSTVlanTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxPVSTVlanTable.EntityData.YListKeys = []string {}
+
+    return &(stpxPVSTVlanTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxpvstvlantable_Stpxpvstvlanentry
+// CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable_StpxPVSTVlanEntry
 // An entry containing Spanning Tree PVST+ Protocol 
 // information for a particular Virtual LAN.
-type CISCOSTPEXTENSIONSMIB_Stpxpvstvlantable_Stpxpvstvlanentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable_StpxPVSTVlanEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An index value that uniquely identifies the
     // Virtual LAN associated with this information. The type is interface{} with
     // range: 0..4095.
-    Stpxpvstvlanindex interface{}
+    StpxPVSTVlanIndex interface{}
 
     // Indicates whether Spanning Tree PVST+   Protocol is enabled for this
     // Virtual LAN. If  Spanning Tree PVST+ Protocol is not supported  on this
@@ -851,39 +887,42 @@ type CISCOSTPEXTENSIONSMIB_Stpxpvstvlantable_Stpxpvstvlanentry struct {
     // all the instances in this table which do not have the value of
     // notApplicable(3).  If the value of stpxSpanningTreeType is neither 
     // pvstPlus(1) nor rapidPvstPlus(5), then the value  of stpxPVSTVlanEnable for
-    // this VLAN can not be  changed. The type is Stpxpvstvlanenable.
-    Stpxpvstvlanenable interface{}
+    // this VLAN can not be  changed. The type is StpxPVSTVlanEnable.
+    StpxPVSTVlanEnable interface{}
 }
 
-func (stpxpvstvlanentry *CISCOSTPEXTENSIONSMIB_Stpxpvstvlantable_Stpxpvstvlanentry) GetEntityData() *types.CommonEntityData {
-    stpxpvstvlanentry.EntityData.YFilter = stpxpvstvlanentry.YFilter
-    stpxpvstvlanentry.EntityData.YangName = "stpxPVSTVlanEntry"
-    stpxpvstvlanentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxpvstvlanentry.EntityData.ParentYangName = "stpxPVSTVlanTable"
-    stpxpvstvlanentry.EntityData.SegmentPath = "stpxPVSTVlanEntry" + "[stpxPVSTVlanIndex='" + fmt.Sprintf("%v", stpxpvstvlanentry.Stpxpvstvlanindex) + "']"
-    stpxpvstvlanentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxpvstvlanentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxpvstvlanentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxPVSTVlanEntry *CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable_StpxPVSTVlanEntry) GetEntityData() *types.CommonEntityData {
+    stpxPVSTVlanEntry.EntityData.YFilter = stpxPVSTVlanEntry.YFilter
+    stpxPVSTVlanEntry.EntityData.YangName = "stpxPVSTVlanEntry"
+    stpxPVSTVlanEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxPVSTVlanEntry.EntityData.ParentYangName = "stpxPVSTVlanTable"
+    stpxPVSTVlanEntry.EntityData.SegmentPath = "stpxPVSTVlanEntry" + types.AddKeyToken(stpxPVSTVlanEntry.StpxPVSTVlanIndex, "stpxPVSTVlanIndex")
+    stpxPVSTVlanEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxPVSTVlanEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxPVSTVlanEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxpvstvlanentry.EntityData.Children = make(map[string]types.YChild)
-    stpxpvstvlanentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxpvstvlanentry.EntityData.Leafs["stpxPVSTVlanIndex"] = types.YLeaf{"Stpxpvstvlanindex", stpxpvstvlanentry.Stpxpvstvlanindex}
-    stpxpvstvlanentry.EntityData.Leafs["stpxPVSTVlanEnable"] = types.YLeaf{"Stpxpvstvlanenable", stpxpvstvlanentry.Stpxpvstvlanenable}
-    return &(stpxpvstvlanentry.EntityData)
+    stpxPVSTVlanEntry.EntityData.Children = types.NewOrderedMap()
+    stpxPVSTVlanEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxPVSTVlanEntry.EntityData.Leafs.Append("stpxPVSTVlanIndex", types.YLeaf{"StpxPVSTVlanIndex", stpxPVSTVlanEntry.StpxPVSTVlanIndex})
+    stpxPVSTVlanEntry.EntityData.Leafs.Append("stpxPVSTVlanEnable", types.YLeaf{"StpxPVSTVlanEnable", stpxPVSTVlanEntry.StpxPVSTVlanEnable})
+
+    stpxPVSTVlanEntry.EntityData.YListKeys = []string {"StpxPVSTVlanIndex"}
+
+    return &(stpxPVSTVlanEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxpvstvlantable_Stpxpvstvlanentry_Stpxpvstvlanenable represents changed.
-type CISCOSTPEXTENSIONSMIB_Stpxpvstvlantable_Stpxpvstvlanentry_Stpxpvstvlanenable string
+// CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable_StpxPVSTVlanEntry_StpxPVSTVlanEnable represents changed.
+type CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable_StpxPVSTVlanEntry_StpxPVSTVlanEnable string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxpvstvlantable_Stpxpvstvlanentry_Stpxpvstvlanenable_enabled CISCOSTPEXTENSIONSMIB_Stpxpvstvlantable_Stpxpvstvlanentry_Stpxpvstvlanenable = "enabled"
+    CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable_StpxPVSTVlanEntry_StpxPVSTVlanEnable_enabled CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable_StpxPVSTVlanEntry_StpxPVSTVlanEnable = "enabled"
 
-    CISCOSTPEXTENSIONSMIB_Stpxpvstvlantable_Stpxpvstvlanentry_Stpxpvstvlanenable_disabled CISCOSTPEXTENSIONSMIB_Stpxpvstvlantable_Stpxpvstvlanentry_Stpxpvstvlanenable = "disabled"
+    CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable_StpxPVSTVlanEntry_StpxPVSTVlanEnable_disabled CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable_StpxPVSTVlanEntry_StpxPVSTVlanEnable = "disabled"
 
-    CISCOSTPEXTENSIONSMIB_Stpxpvstvlantable_Stpxpvstvlanentry_Stpxpvstvlanenable_notApplicable CISCOSTPEXTENSIONSMIB_Stpxpvstvlantable_Stpxpvstvlanentry_Stpxpvstvlanenable = "notApplicable"
+    CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable_StpxPVSTVlanEntry_StpxPVSTVlanEnable_notApplicable CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable_StpxPVSTVlanEntry_StpxPVSTVlanEnable = "notApplicable"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxinconsistencytable
+// CISCOSTPEXTENSIONSMIB_StpxInconsistencyTable
 // A table containing a list of the ports for which
 // a particular VLAN's Spanning Tree has been found to
 // have an inconsistency.  Two types of inconsistency
@@ -891,271 +930,292 @@ const (
 // port types have been plugged together; and 2) an
 // inconsistency where different switches have different
 // PVIDs for the same link.
-type CISCOSTPEXTENSIONSMIB_Stpxinconsistencytable struct {
+type CISCOSTPEXTENSIONSMIB_StpxInconsistencyTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A VLAN on a particular port for which a Spanning Tree inconsistency is
     // currently in effect. The type is slice of
-    // CISCOSTPEXTENSIONSMIB_Stpxinconsistencytable_Stpxinconsistencyentry.
-    Stpxinconsistencyentry []CISCOSTPEXTENSIONSMIB_Stpxinconsistencytable_Stpxinconsistencyentry
+    // CISCOSTPEXTENSIONSMIB_StpxInconsistencyTable_StpxInconsistencyEntry.
+    StpxInconsistencyEntry []*CISCOSTPEXTENSIONSMIB_StpxInconsistencyTable_StpxInconsistencyEntry
 }
 
-func (stpxinconsistencytable *CISCOSTPEXTENSIONSMIB_Stpxinconsistencytable) GetEntityData() *types.CommonEntityData {
-    stpxinconsistencytable.EntityData.YFilter = stpxinconsistencytable.YFilter
-    stpxinconsistencytable.EntityData.YangName = "stpxInconsistencyTable"
-    stpxinconsistencytable.EntityData.BundleName = "cisco_ios_xe"
-    stpxinconsistencytable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxinconsistencytable.EntityData.SegmentPath = "stpxInconsistencyTable"
-    stpxinconsistencytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxinconsistencytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxinconsistencytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxInconsistencyTable *CISCOSTPEXTENSIONSMIB_StpxInconsistencyTable) GetEntityData() *types.CommonEntityData {
+    stpxInconsistencyTable.EntityData.YFilter = stpxInconsistencyTable.YFilter
+    stpxInconsistencyTable.EntityData.YangName = "stpxInconsistencyTable"
+    stpxInconsistencyTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxInconsistencyTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxInconsistencyTable.EntityData.SegmentPath = "stpxInconsistencyTable"
+    stpxInconsistencyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxInconsistencyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxInconsistencyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxinconsistencytable.EntityData.Children = make(map[string]types.YChild)
-    stpxinconsistencytable.EntityData.Children["stpxInconsistencyEntry"] = types.YChild{"Stpxinconsistencyentry", nil}
-    for i := range stpxinconsistencytable.Stpxinconsistencyentry {
-        stpxinconsistencytable.EntityData.Children[types.GetSegmentPath(&stpxinconsistencytable.Stpxinconsistencyentry[i])] = types.YChild{"Stpxinconsistencyentry", &stpxinconsistencytable.Stpxinconsistencyentry[i]}
+    stpxInconsistencyTable.EntityData.Children = types.NewOrderedMap()
+    stpxInconsistencyTable.EntityData.Children.Append("stpxInconsistencyEntry", types.YChild{"StpxInconsistencyEntry", nil})
+    for i := range stpxInconsistencyTable.StpxInconsistencyEntry {
+        stpxInconsistencyTable.EntityData.Children.Append(types.GetSegmentPath(stpxInconsistencyTable.StpxInconsistencyEntry[i]), types.YChild{"StpxInconsistencyEntry", stpxInconsistencyTable.StpxInconsistencyEntry[i]})
     }
-    stpxinconsistencytable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxinconsistencytable.EntityData)
+    stpxInconsistencyTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxInconsistencyTable.EntityData.YListKeys = []string {}
+
+    return &(stpxInconsistencyTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxinconsistencytable_Stpxinconsistencyentry
+// CISCOSTPEXTENSIONSMIB_StpxInconsistencyTable_StpxInconsistencyEntry
 // A VLAN on a particular port for which a Spanning Tree
 // inconsistency is currently in effect.
-type CISCOSTPEXTENSIONSMIB_Stpxinconsistencytable_Stpxinconsistencyentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxInconsistencyTable_StpxInconsistencyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The VLAN id of the VLAN. The type is interface{}
     // with range: 0..4095.
-    Stpxvlanindex interface{}
+    StpxVlanIndex interface{}
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
-    Stpxportindex interface{}
+    StpxPortIndex interface{}
 
     // The types of inconsistency which have been discovered on this port for this
     // VLAN's Spanning Tree.  When this object exists, the value of the
     // corresponding instance of the Bridge MIB's dot1dStpPortState object will be
     // 'broken(6)'. The type is map[string]bool.
-    Stpxinconsistentstate interface{}
+    StpxInconsistentState interface{}
 }
 
-func (stpxinconsistencyentry *CISCOSTPEXTENSIONSMIB_Stpxinconsistencytable_Stpxinconsistencyentry) GetEntityData() *types.CommonEntityData {
-    stpxinconsistencyentry.EntityData.YFilter = stpxinconsistencyentry.YFilter
-    stpxinconsistencyentry.EntityData.YangName = "stpxInconsistencyEntry"
-    stpxinconsistencyentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxinconsistencyentry.EntityData.ParentYangName = "stpxInconsistencyTable"
-    stpxinconsistencyentry.EntityData.SegmentPath = "stpxInconsistencyEntry" + "[stpxVlanIndex='" + fmt.Sprintf("%v", stpxinconsistencyentry.Stpxvlanindex) + "']" + "[stpxPortIndex='" + fmt.Sprintf("%v", stpxinconsistencyentry.Stpxportindex) + "']"
-    stpxinconsistencyentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxinconsistencyentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxinconsistencyentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxInconsistencyEntry *CISCOSTPEXTENSIONSMIB_StpxInconsistencyTable_StpxInconsistencyEntry) GetEntityData() *types.CommonEntityData {
+    stpxInconsistencyEntry.EntityData.YFilter = stpxInconsistencyEntry.YFilter
+    stpxInconsistencyEntry.EntityData.YangName = "stpxInconsistencyEntry"
+    stpxInconsistencyEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxInconsistencyEntry.EntityData.ParentYangName = "stpxInconsistencyTable"
+    stpxInconsistencyEntry.EntityData.SegmentPath = "stpxInconsistencyEntry" + types.AddKeyToken(stpxInconsistencyEntry.StpxVlanIndex, "stpxVlanIndex") + types.AddKeyToken(stpxInconsistencyEntry.StpxPortIndex, "stpxPortIndex")
+    stpxInconsistencyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxInconsistencyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxInconsistencyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxinconsistencyentry.EntityData.Children = make(map[string]types.YChild)
-    stpxinconsistencyentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxinconsistencyentry.EntityData.Leafs["stpxVlanIndex"] = types.YLeaf{"Stpxvlanindex", stpxinconsistencyentry.Stpxvlanindex}
-    stpxinconsistencyentry.EntityData.Leafs["stpxPortIndex"] = types.YLeaf{"Stpxportindex", stpxinconsistencyentry.Stpxportindex}
-    stpxinconsistencyentry.EntityData.Leafs["stpxInconsistentState"] = types.YLeaf{"Stpxinconsistentstate", stpxinconsistencyentry.Stpxinconsistentstate}
-    return &(stpxinconsistencyentry.EntityData)
+    stpxInconsistencyEntry.EntityData.Children = types.NewOrderedMap()
+    stpxInconsistencyEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxInconsistencyEntry.EntityData.Leafs.Append("stpxVlanIndex", types.YLeaf{"StpxVlanIndex", stpxInconsistencyEntry.StpxVlanIndex})
+    stpxInconsistencyEntry.EntityData.Leafs.Append("stpxPortIndex", types.YLeaf{"StpxPortIndex", stpxInconsistencyEntry.StpxPortIndex})
+    stpxInconsistencyEntry.EntityData.Leafs.Append("stpxInconsistentState", types.YLeaf{"StpxInconsistentState", stpxInconsistencyEntry.StpxInconsistentState})
+
+    stpxInconsistencyEntry.EntityData.YListKeys = []string {"StpxVlanIndex", "StpxPortIndex"}
+
+    return &(stpxInconsistencyEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxrootguardconfigtable
+// CISCOSTPEXTENSIONSMIB_StpxRootGuardConfigTable
 // A table containing a list of the bridge ports for which
 // Spanning Tree RootGuard capability can be configured.
-type CISCOSTPEXTENSIONSMIB_Stpxrootguardconfigtable struct {
+type CISCOSTPEXTENSIONSMIB_StpxRootGuardConfigTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A bridge port for which Spanning Tree RootGuard capability can be
     // configured. The type is slice of
-    // CISCOSTPEXTENSIONSMIB_Stpxrootguardconfigtable_Stpxrootguardconfigentry.
-    Stpxrootguardconfigentry []CISCOSTPEXTENSIONSMIB_Stpxrootguardconfigtable_Stpxrootguardconfigentry
+    // CISCOSTPEXTENSIONSMIB_StpxRootGuardConfigTable_StpxRootGuardConfigEntry.
+    StpxRootGuardConfigEntry []*CISCOSTPEXTENSIONSMIB_StpxRootGuardConfigTable_StpxRootGuardConfigEntry
 }
 
-func (stpxrootguardconfigtable *CISCOSTPEXTENSIONSMIB_Stpxrootguardconfigtable) GetEntityData() *types.CommonEntityData {
-    stpxrootguardconfigtable.EntityData.YFilter = stpxrootguardconfigtable.YFilter
-    stpxrootguardconfigtable.EntityData.YangName = "stpxRootGuardConfigTable"
-    stpxrootguardconfigtable.EntityData.BundleName = "cisco_ios_xe"
-    stpxrootguardconfigtable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxrootguardconfigtable.EntityData.SegmentPath = "stpxRootGuardConfigTable"
-    stpxrootguardconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxrootguardconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxrootguardconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxRootGuardConfigTable *CISCOSTPEXTENSIONSMIB_StpxRootGuardConfigTable) GetEntityData() *types.CommonEntityData {
+    stpxRootGuardConfigTable.EntityData.YFilter = stpxRootGuardConfigTable.YFilter
+    stpxRootGuardConfigTable.EntityData.YangName = "stpxRootGuardConfigTable"
+    stpxRootGuardConfigTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxRootGuardConfigTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxRootGuardConfigTable.EntityData.SegmentPath = "stpxRootGuardConfigTable"
+    stpxRootGuardConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxRootGuardConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxRootGuardConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxrootguardconfigtable.EntityData.Children = make(map[string]types.YChild)
-    stpxrootguardconfigtable.EntityData.Children["stpxRootGuardConfigEntry"] = types.YChild{"Stpxrootguardconfigentry", nil}
-    for i := range stpxrootguardconfigtable.Stpxrootguardconfigentry {
-        stpxrootguardconfigtable.EntityData.Children[types.GetSegmentPath(&stpxrootguardconfigtable.Stpxrootguardconfigentry[i])] = types.YChild{"Stpxrootguardconfigentry", &stpxrootguardconfigtable.Stpxrootguardconfigentry[i]}
+    stpxRootGuardConfigTable.EntityData.Children = types.NewOrderedMap()
+    stpxRootGuardConfigTable.EntityData.Children.Append("stpxRootGuardConfigEntry", types.YChild{"StpxRootGuardConfigEntry", nil})
+    for i := range stpxRootGuardConfigTable.StpxRootGuardConfigEntry {
+        stpxRootGuardConfigTable.EntityData.Children.Append(types.GetSegmentPath(stpxRootGuardConfigTable.StpxRootGuardConfigEntry[i]), types.YChild{"StpxRootGuardConfigEntry", stpxRootGuardConfigTable.StpxRootGuardConfigEntry[i]})
     }
-    stpxrootguardconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxrootguardconfigtable.EntityData)
+    stpxRootGuardConfigTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxRootGuardConfigTable.EntityData.YListKeys = []string {}
+
+    return &(stpxRootGuardConfigTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxrootguardconfigtable_Stpxrootguardconfigentry
+// CISCOSTPEXTENSIONSMIB_StpxRootGuardConfigTable_StpxRootGuardConfigEntry
 // A bridge port for which Spanning Tree RootGuard
 // capability can be configured.
-type CISCOSTPEXTENSIONSMIB_Stpxrootguardconfigtable_Stpxrootguardconfigentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxRootGuardConfigTable_StpxRootGuardConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
-    Stpxrootguardconfigportindex interface{}
+    StpxRootGuardConfigPortIndex interface{}
 
     // An indication of whether the RootGuard capability is  enabled on this port
     // or not. This configuration will be applied to all Spanning Tree instances
     // in which this port  exists. The type is bool.
-    Stpxrootguardconfigenabled interface{}
+    StpxRootGuardConfigEnabled interface{}
 }
 
-func (stpxrootguardconfigentry *CISCOSTPEXTENSIONSMIB_Stpxrootguardconfigtable_Stpxrootguardconfigentry) GetEntityData() *types.CommonEntityData {
-    stpxrootguardconfigentry.EntityData.YFilter = stpxrootguardconfigentry.YFilter
-    stpxrootguardconfigentry.EntityData.YangName = "stpxRootGuardConfigEntry"
-    stpxrootguardconfigentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxrootguardconfigentry.EntityData.ParentYangName = "stpxRootGuardConfigTable"
-    stpxrootguardconfigentry.EntityData.SegmentPath = "stpxRootGuardConfigEntry" + "[stpxRootGuardConfigPortIndex='" + fmt.Sprintf("%v", stpxrootguardconfigentry.Stpxrootguardconfigportindex) + "']"
-    stpxrootguardconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxrootguardconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxrootguardconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxRootGuardConfigEntry *CISCOSTPEXTENSIONSMIB_StpxRootGuardConfigTable_StpxRootGuardConfigEntry) GetEntityData() *types.CommonEntityData {
+    stpxRootGuardConfigEntry.EntityData.YFilter = stpxRootGuardConfigEntry.YFilter
+    stpxRootGuardConfigEntry.EntityData.YangName = "stpxRootGuardConfigEntry"
+    stpxRootGuardConfigEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxRootGuardConfigEntry.EntityData.ParentYangName = "stpxRootGuardConfigTable"
+    stpxRootGuardConfigEntry.EntityData.SegmentPath = "stpxRootGuardConfigEntry" + types.AddKeyToken(stpxRootGuardConfigEntry.StpxRootGuardConfigPortIndex, "stpxRootGuardConfigPortIndex")
+    stpxRootGuardConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxRootGuardConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxRootGuardConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxrootguardconfigentry.EntityData.Children = make(map[string]types.YChild)
-    stpxrootguardconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxrootguardconfigentry.EntityData.Leafs["stpxRootGuardConfigPortIndex"] = types.YLeaf{"Stpxrootguardconfigportindex", stpxrootguardconfigentry.Stpxrootguardconfigportindex}
-    stpxrootguardconfigentry.EntityData.Leafs["stpxRootGuardConfigEnabled"] = types.YLeaf{"Stpxrootguardconfigenabled", stpxrootguardconfigentry.Stpxrootguardconfigenabled}
-    return &(stpxrootguardconfigentry.EntityData)
+    stpxRootGuardConfigEntry.EntityData.Children = types.NewOrderedMap()
+    stpxRootGuardConfigEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxRootGuardConfigEntry.EntityData.Leafs.Append("stpxRootGuardConfigPortIndex", types.YLeaf{"StpxRootGuardConfigPortIndex", stpxRootGuardConfigEntry.StpxRootGuardConfigPortIndex})
+    stpxRootGuardConfigEntry.EntityData.Leafs.Append("stpxRootGuardConfigEnabled", types.YLeaf{"StpxRootGuardConfigEnabled", stpxRootGuardConfigEntry.StpxRootGuardConfigEnabled})
+
+    stpxRootGuardConfigEntry.EntityData.YListKeys = []string {"StpxRootGuardConfigPortIndex"}
+
+    return &(stpxRootGuardConfigEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxrootinconsistencytable
+// CISCOSTPEXTENSIONSMIB_StpxRootInconsistencyTable
 // A table containing a list of the bridge ports for which
 // a particular Spanning Tree instance has been found 
 // to have an root-inconsistency. The agent creates a new 
 // entry in this table whenever it detects a new 
 // root-inconsistency, and deletes entries 
 // when/soon after the inconsistency is no longer present.
-type CISCOSTPEXTENSIONSMIB_Stpxrootinconsistencytable struct {
+type CISCOSTPEXTENSIONSMIB_StpxRootInconsistencyTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A Spanning Tree instance on a particular port for  which a Spanning Tree
     // root-inconsistency is currently  in effect. The type is slice of
-    // CISCOSTPEXTENSIONSMIB_Stpxrootinconsistencytable_Stpxrootinconsistencyentry.
-    Stpxrootinconsistencyentry []CISCOSTPEXTENSIONSMIB_Stpxrootinconsistencytable_Stpxrootinconsistencyentry
+    // CISCOSTPEXTENSIONSMIB_StpxRootInconsistencyTable_StpxRootInconsistencyEntry.
+    StpxRootInconsistencyEntry []*CISCOSTPEXTENSIONSMIB_StpxRootInconsistencyTable_StpxRootInconsistencyEntry
 }
 
-func (stpxrootinconsistencytable *CISCOSTPEXTENSIONSMIB_Stpxrootinconsistencytable) GetEntityData() *types.CommonEntityData {
-    stpxrootinconsistencytable.EntityData.YFilter = stpxrootinconsistencytable.YFilter
-    stpxrootinconsistencytable.EntityData.YangName = "stpxRootInconsistencyTable"
-    stpxrootinconsistencytable.EntityData.BundleName = "cisco_ios_xe"
-    stpxrootinconsistencytable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxrootinconsistencytable.EntityData.SegmentPath = "stpxRootInconsistencyTable"
-    stpxrootinconsistencytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxrootinconsistencytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxrootinconsistencytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxRootInconsistencyTable *CISCOSTPEXTENSIONSMIB_StpxRootInconsistencyTable) GetEntityData() *types.CommonEntityData {
+    stpxRootInconsistencyTable.EntityData.YFilter = stpxRootInconsistencyTable.YFilter
+    stpxRootInconsistencyTable.EntityData.YangName = "stpxRootInconsistencyTable"
+    stpxRootInconsistencyTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxRootInconsistencyTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxRootInconsistencyTable.EntityData.SegmentPath = "stpxRootInconsistencyTable"
+    stpxRootInconsistencyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxRootInconsistencyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxRootInconsistencyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxrootinconsistencytable.EntityData.Children = make(map[string]types.YChild)
-    stpxrootinconsistencytable.EntityData.Children["stpxRootInconsistencyEntry"] = types.YChild{"Stpxrootinconsistencyentry", nil}
-    for i := range stpxrootinconsistencytable.Stpxrootinconsistencyentry {
-        stpxrootinconsistencytable.EntityData.Children[types.GetSegmentPath(&stpxrootinconsistencytable.Stpxrootinconsistencyentry[i])] = types.YChild{"Stpxrootinconsistencyentry", &stpxrootinconsistencytable.Stpxrootinconsistencyentry[i]}
+    stpxRootInconsistencyTable.EntityData.Children = types.NewOrderedMap()
+    stpxRootInconsistencyTable.EntityData.Children.Append("stpxRootInconsistencyEntry", types.YChild{"StpxRootInconsistencyEntry", nil})
+    for i := range stpxRootInconsistencyTable.StpxRootInconsistencyEntry {
+        stpxRootInconsistencyTable.EntityData.Children.Append(types.GetSegmentPath(stpxRootInconsistencyTable.StpxRootInconsistencyEntry[i]), types.YChild{"StpxRootInconsistencyEntry", stpxRootInconsistencyTable.StpxRootInconsistencyEntry[i]})
     }
-    stpxrootinconsistencytable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxrootinconsistencytable.EntityData)
+    stpxRootInconsistencyTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxRootInconsistencyTable.EntityData.YListKeys = []string {}
+
+    return &(stpxRootInconsistencyTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxrootinconsistencytable_Stpxrootinconsistencyentry
+// CISCOSTPEXTENSIONSMIB_StpxRootInconsistencyTable_StpxRootInconsistencyEntry
 // A Spanning Tree instance on a particular port for 
 // which a Spanning Tree root-inconsistency is currently 
 // in effect.
-type CISCOSTPEXTENSIONSMIB_Stpxrootinconsistencytable_Stpxrootinconsistencyentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxRootInconsistencyTable_StpxRootInconsistencyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Spanning Tree instance id, such as the VLAN id
     // of the VLAN if the object value of stpxSpanningTreeType is pvstPlus(1) or
     // rapidPvstPlus(5). The type is interface{} with range: 0..65535.
-    Stpxrootinconsistencyindex interface{}
+    StpxRootInconsistencyIndex interface{}
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
-    Stpxrootinconsistencyportindex interface{}
+    StpxRootInconsistencyPortIndex interface{}
 
     // Indicates whether the port on a particular Spanning  Tree instance is
     // currently in root-inconsistent  state or not. The type is bool.
-    Stpxrootinconsistencystate interface{}
+    StpxRootInconsistencyState interface{}
 }
 
-func (stpxrootinconsistencyentry *CISCOSTPEXTENSIONSMIB_Stpxrootinconsistencytable_Stpxrootinconsistencyentry) GetEntityData() *types.CommonEntityData {
-    stpxrootinconsistencyentry.EntityData.YFilter = stpxrootinconsistencyentry.YFilter
-    stpxrootinconsistencyentry.EntityData.YangName = "stpxRootInconsistencyEntry"
-    stpxrootinconsistencyentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxrootinconsistencyentry.EntityData.ParentYangName = "stpxRootInconsistencyTable"
-    stpxrootinconsistencyentry.EntityData.SegmentPath = "stpxRootInconsistencyEntry" + "[stpxRootInconsistencyIndex='" + fmt.Sprintf("%v", stpxrootinconsistencyentry.Stpxrootinconsistencyindex) + "']" + "[stpxRootInconsistencyPortIndex='" + fmt.Sprintf("%v", stpxrootinconsistencyentry.Stpxrootinconsistencyportindex) + "']"
-    stpxrootinconsistencyentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxrootinconsistencyentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxrootinconsistencyentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxRootInconsistencyEntry *CISCOSTPEXTENSIONSMIB_StpxRootInconsistencyTable_StpxRootInconsistencyEntry) GetEntityData() *types.CommonEntityData {
+    stpxRootInconsistencyEntry.EntityData.YFilter = stpxRootInconsistencyEntry.YFilter
+    stpxRootInconsistencyEntry.EntityData.YangName = "stpxRootInconsistencyEntry"
+    stpxRootInconsistencyEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxRootInconsistencyEntry.EntityData.ParentYangName = "stpxRootInconsistencyTable"
+    stpxRootInconsistencyEntry.EntityData.SegmentPath = "stpxRootInconsistencyEntry" + types.AddKeyToken(stpxRootInconsistencyEntry.StpxRootInconsistencyIndex, "stpxRootInconsistencyIndex") + types.AddKeyToken(stpxRootInconsistencyEntry.StpxRootInconsistencyPortIndex, "stpxRootInconsistencyPortIndex")
+    stpxRootInconsistencyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxRootInconsistencyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxRootInconsistencyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxrootinconsistencyentry.EntityData.Children = make(map[string]types.YChild)
-    stpxrootinconsistencyentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxrootinconsistencyentry.EntityData.Leafs["stpxRootInconsistencyIndex"] = types.YLeaf{"Stpxrootinconsistencyindex", stpxrootinconsistencyentry.Stpxrootinconsistencyindex}
-    stpxrootinconsistencyentry.EntityData.Leafs["stpxRootInconsistencyPortIndex"] = types.YLeaf{"Stpxrootinconsistencyportindex", stpxrootinconsistencyentry.Stpxrootinconsistencyportindex}
-    stpxrootinconsistencyentry.EntityData.Leafs["stpxRootInconsistencyState"] = types.YLeaf{"Stpxrootinconsistencystate", stpxrootinconsistencyentry.Stpxrootinconsistencystate}
-    return &(stpxrootinconsistencyentry.EntityData)
+    stpxRootInconsistencyEntry.EntityData.Children = types.NewOrderedMap()
+    stpxRootInconsistencyEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxRootInconsistencyEntry.EntityData.Leafs.Append("stpxRootInconsistencyIndex", types.YLeaf{"StpxRootInconsistencyIndex", stpxRootInconsistencyEntry.StpxRootInconsistencyIndex})
+    stpxRootInconsistencyEntry.EntityData.Leafs.Append("stpxRootInconsistencyPortIndex", types.YLeaf{"StpxRootInconsistencyPortIndex", stpxRootInconsistencyEntry.StpxRootInconsistencyPortIndex})
+    stpxRootInconsistencyEntry.EntityData.Leafs.Append("stpxRootInconsistencyState", types.YLeaf{"StpxRootInconsistencyState", stpxRootInconsistencyEntry.StpxRootInconsistencyState})
+
+    stpxRootInconsistencyEntry.EntityData.YListKeys = []string {"StpxRootInconsistencyIndex", "StpxRootInconsistencyPortIndex"}
+
+    return &(stpxRootInconsistencyEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxmistpinstancetable
+// CISCOSTPEXTENSIONSMIB_StpxMISTPInstanceTable
 // This table contains one entry for each instance of MISTP and 
 // it contains stpxMISTPInstanceNumber entries, numbered from 1
 // to stpxMISTPInstanceNumber.
 // 
 // This table is only instantiated when the value of 
 // stpxSpanningTreeType is mistp(2) or mistpPvstPlus(3).
-type CISCOSTPEXTENSIONSMIB_Stpxmistpinstancetable struct {
+type CISCOSTPEXTENSIONSMIB_StpxMISTPInstanceTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row containing the status of the MISTP  instance. The type is
     // slice of
-    // CISCOSTPEXTENSIONSMIB_Stpxmistpinstancetable_Stpxmistpinstanceentry.
-    Stpxmistpinstanceentry []CISCOSTPEXTENSIONSMIB_Stpxmistpinstancetable_Stpxmistpinstanceentry
+    // CISCOSTPEXTENSIONSMIB_StpxMISTPInstanceTable_StpxMISTPInstanceEntry.
+    StpxMISTPInstanceEntry []*CISCOSTPEXTENSIONSMIB_StpxMISTPInstanceTable_StpxMISTPInstanceEntry
 }
 
-func (stpxmistpinstancetable *CISCOSTPEXTENSIONSMIB_Stpxmistpinstancetable) GetEntityData() *types.CommonEntityData {
-    stpxmistpinstancetable.EntityData.YFilter = stpxmistpinstancetable.YFilter
-    stpxmistpinstancetable.EntityData.YangName = "stpxMISTPInstanceTable"
-    stpxmistpinstancetable.EntityData.BundleName = "cisco_ios_xe"
-    stpxmistpinstancetable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxmistpinstancetable.EntityData.SegmentPath = "stpxMISTPInstanceTable"
-    stpxmistpinstancetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxmistpinstancetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxmistpinstancetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxMISTPInstanceTable *CISCOSTPEXTENSIONSMIB_StpxMISTPInstanceTable) GetEntityData() *types.CommonEntityData {
+    stpxMISTPInstanceTable.EntityData.YFilter = stpxMISTPInstanceTable.YFilter
+    stpxMISTPInstanceTable.EntityData.YangName = "stpxMISTPInstanceTable"
+    stpxMISTPInstanceTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxMISTPInstanceTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxMISTPInstanceTable.EntityData.SegmentPath = "stpxMISTPInstanceTable"
+    stpxMISTPInstanceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxMISTPInstanceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxMISTPInstanceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxmistpinstancetable.EntityData.Children = make(map[string]types.YChild)
-    stpxmistpinstancetable.EntityData.Children["stpxMISTPInstanceEntry"] = types.YChild{"Stpxmistpinstanceentry", nil}
-    for i := range stpxmistpinstancetable.Stpxmistpinstanceentry {
-        stpxmistpinstancetable.EntityData.Children[types.GetSegmentPath(&stpxmistpinstancetable.Stpxmistpinstanceentry[i])] = types.YChild{"Stpxmistpinstanceentry", &stpxmistpinstancetable.Stpxmistpinstanceentry[i]}
+    stpxMISTPInstanceTable.EntityData.Children = types.NewOrderedMap()
+    stpxMISTPInstanceTable.EntityData.Children.Append("stpxMISTPInstanceEntry", types.YChild{"StpxMISTPInstanceEntry", nil})
+    for i := range stpxMISTPInstanceTable.StpxMISTPInstanceEntry {
+        stpxMISTPInstanceTable.EntityData.Children.Append(types.GetSegmentPath(stpxMISTPInstanceTable.StpxMISTPInstanceEntry[i]), types.YChild{"StpxMISTPInstanceEntry", stpxMISTPInstanceTable.StpxMISTPInstanceEntry[i]})
     }
-    stpxmistpinstancetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxmistpinstancetable.EntityData)
+    stpxMISTPInstanceTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxMISTPInstanceTable.EntityData.YListKeys = []string {}
+
+    return &(stpxMISTPInstanceTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxmistpinstancetable_Stpxmistpinstanceentry
+// CISCOSTPEXTENSIONSMIB_StpxMISTPInstanceTable_StpxMISTPInstanceEntry
 // A conceptual row containing the status of the MISTP 
 // instance.
-type CISCOSTPEXTENSIONSMIB_Stpxmistpinstancetable_Stpxmistpinstanceentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxMISTPInstanceTable_StpxMISTPInstanceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An arbitrary integer within the range from 1 to
     // the value of stpxMISTPInstanceNumber that uniquely identifies an instance.
     // The type is interface{} with range: 1..256.
-    Stpxmistpinstanceindex interface{}
+    StpxMISTPInstanceIndex interface{}
 
     // This object indicates whether the MISTP protocol is currently enabled on
     // the MISTP instance.  If this object is set to    'true'    - the MISTP
     // protocol will run on this instance.                   'false'   - the MISTP
     // protocol will stop running on this                 instance. The type is
     // bool.
-    Stpxmistpinstanceenable interface{}
+    StpxMISTPInstanceEnable interface{}
 
     // A string of octets containing one bit per VLAN. The first octet corresponds
     // to VLANs with VlanIndex values of 0 through 7; the second octet to VLANs 8
@@ -1163,7 +1223,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxmistpinstancetable_Stpxmistpinstanceentry struct 
     // lowest value VlanIndex in that octet.  For each VLAN, if it is mapped to
     // this MISTP instance, then the bit corresponding to that VLAN is set to '1'.
     // The type is string with length: 0..128.
-    Stpxmistpinstancevlansmapped interface{}
+    StpxMISTPInstanceVlansMapped interface{}
 
     // A string of octets containing one bit per VLAN for VLANS with VlanIndex
     // values of 1024 through 2047. The first octet corresponds to VLANs with
@@ -1173,7 +1233,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxmistpinstancetable_Stpxmistpinstanceentry struct 
     // to this MISTP instance, then the bit corresponding to that VLAN is set to
     // '1'.  This object is only instantiated on devices with  support for
     // VlanIndex up to 4095. The type is string with length: 0..128.
-    Stpxmistpinstancevlansmapped2K interface{}
+    StpxMISTPInstanceVlansMapped2k interface{}
 
     // A string of octets containing one bit per VLAN for VLANS with VlanIndex
     // values of 2048 through 3071. The first octet corresponds to VLANs with
@@ -1183,7 +1243,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxmistpinstancetable_Stpxmistpinstanceentry struct 
     // to this MISTP instance, then the bit corresponding to that VLAN is set to
     // '1'.  This object is only instantiated on devices with  support for
     // VlanIndex up to 4095. The type is string with length: 0..128.
-    Stpxmistpinstancevlansmapped3K interface{}
+    StpxMISTPInstanceVlansMapped3k interface{}
 
     // A string of octets containing one bit per VLAN for VLANS with VlanIndex
     // values of 3072 through 4095. The first octet corresponds to VLANs with
@@ -1193,72 +1253,78 @@ type CISCOSTPEXTENSIONSMIB_Stpxmistpinstancetable_Stpxmistpinstanceentry struct 
     // to this MISTP instance, then the bit corresponding to that VLAN is set to
     // '1'.  This object is only instantiated on devices with  support for
     // VlanIndex up to 4095. The type is string with length: 0..128.
-    Stpxmistpinstancevlansmapped4K interface{}
+    StpxMISTPInstanceVlansMapped4k interface{}
 }
 
-func (stpxmistpinstanceentry *CISCOSTPEXTENSIONSMIB_Stpxmistpinstancetable_Stpxmistpinstanceentry) GetEntityData() *types.CommonEntityData {
-    stpxmistpinstanceentry.EntityData.YFilter = stpxmistpinstanceentry.YFilter
-    stpxmistpinstanceentry.EntityData.YangName = "stpxMISTPInstanceEntry"
-    stpxmistpinstanceentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxmistpinstanceentry.EntityData.ParentYangName = "stpxMISTPInstanceTable"
-    stpxmistpinstanceentry.EntityData.SegmentPath = "stpxMISTPInstanceEntry" + "[stpxMISTPInstanceIndex='" + fmt.Sprintf("%v", stpxmistpinstanceentry.Stpxmistpinstanceindex) + "']"
-    stpxmistpinstanceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxmistpinstanceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxmistpinstanceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxMISTPInstanceEntry *CISCOSTPEXTENSIONSMIB_StpxMISTPInstanceTable_StpxMISTPInstanceEntry) GetEntityData() *types.CommonEntityData {
+    stpxMISTPInstanceEntry.EntityData.YFilter = stpxMISTPInstanceEntry.YFilter
+    stpxMISTPInstanceEntry.EntityData.YangName = "stpxMISTPInstanceEntry"
+    stpxMISTPInstanceEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxMISTPInstanceEntry.EntityData.ParentYangName = "stpxMISTPInstanceTable"
+    stpxMISTPInstanceEntry.EntityData.SegmentPath = "stpxMISTPInstanceEntry" + types.AddKeyToken(stpxMISTPInstanceEntry.StpxMISTPInstanceIndex, "stpxMISTPInstanceIndex")
+    stpxMISTPInstanceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxMISTPInstanceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxMISTPInstanceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxmistpinstanceentry.EntityData.Children = make(map[string]types.YChild)
-    stpxmistpinstanceentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxmistpinstanceentry.EntityData.Leafs["stpxMISTPInstanceIndex"] = types.YLeaf{"Stpxmistpinstanceindex", stpxmistpinstanceentry.Stpxmistpinstanceindex}
-    stpxmistpinstanceentry.EntityData.Leafs["stpxMISTPInstanceEnable"] = types.YLeaf{"Stpxmistpinstanceenable", stpxmistpinstanceentry.Stpxmistpinstanceenable}
-    stpxmistpinstanceentry.EntityData.Leafs["stpxMISTPInstanceVlansMapped"] = types.YLeaf{"Stpxmistpinstancevlansmapped", stpxmistpinstanceentry.Stpxmistpinstancevlansmapped}
-    stpxmistpinstanceentry.EntityData.Leafs["stpxMISTPInstanceVlansMapped2k"] = types.YLeaf{"Stpxmistpinstancevlansmapped2K", stpxmistpinstanceentry.Stpxmistpinstancevlansmapped2K}
-    stpxmistpinstanceentry.EntityData.Leafs["stpxMISTPInstanceVlansMapped3k"] = types.YLeaf{"Stpxmistpinstancevlansmapped3K", stpxmistpinstanceentry.Stpxmistpinstancevlansmapped3K}
-    stpxmistpinstanceentry.EntityData.Leafs["stpxMISTPInstanceVlansMapped4k"] = types.YLeaf{"Stpxmistpinstancevlansmapped4K", stpxmistpinstanceentry.Stpxmistpinstancevlansmapped4K}
-    return &(stpxmistpinstanceentry.EntityData)
+    stpxMISTPInstanceEntry.EntityData.Children = types.NewOrderedMap()
+    stpxMISTPInstanceEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxMISTPInstanceEntry.EntityData.Leafs.Append("stpxMISTPInstanceIndex", types.YLeaf{"StpxMISTPInstanceIndex", stpxMISTPInstanceEntry.StpxMISTPInstanceIndex})
+    stpxMISTPInstanceEntry.EntityData.Leafs.Append("stpxMISTPInstanceEnable", types.YLeaf{"StpxMISTPInstanceEnable", stpxMISTPInstanceEntry.StpxMISTPInstanceEnable})
+    stpxMISTPInstanceEntry.EntityData.Leafs.Append("stpxMISTPInstanceVlansMapped", types.YLeaf{"StpxMISTPInstanceVlansMapped", stpxMISTPInstanceEntry.StpxMISTPInstanceVlansMapped})
+    stpxMISTPInstanceEntry.EntityData.Leafs.Append("stpxMISTPInstanceVlansMapped2k", types.YLeaf{"StpxMISTPInstanceVlansMapped2k", stpxMISTPInstanceEntry.StpxMISTPInstanceVlansMapped2k})
+    stpxMISTPInstanceEntry.EntityData.Leafs.Append("stpxMISTPInstanceVlansMapped3k", types.YLeaf{"StpxMISTPInstanceVlansMapped3k", stpxMISTPInstanceEntry.StpxMISTPInstanceVlansMapped3k})
+    stpxMISTPInstanceEntry.EntityData.Leafs.Append("stpxMISTPInstanceVlansMapped4k", types.YLeaf{"StpxMISTPInstanceVlansMapped4k", stpxMISTPInstanceEntry.StpxMISTPInstanceVlansMapped4k})
+
+    stpxMISTPInstanceEntry.EntityData.YListKeys = []string {"StpxMISTPInstanceIndex"}
+
+    return &(stpxMISTPInstanceEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxloopguardconfigtable
+// CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable
 // A table containing a list of the bridge ports for which
 // Spanning Tree LoopGuard capability can be configured.
-type CISCOSTPEXTENSIONSMIB_Stpxloopguardconfigtable struct {
+type CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A bridge port for which Spanning Tree LoopGuard  capability can be
     // configured. The type is slice of
-    // CISCOSTPEXTENSIONSMIB_Stpxloopguardconfigtable_Stpxloopguardconfigentry.
-    Stpxloopguardconfigentry []CISCOSTPEXTENSIONSMIB_Stpxloopguardconfigtable_Stpxloopguardconfigentry
+    // CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable_StpxLoopGuardConfigEntry.
+    StpxLoopGuardConfigEntry []*CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable_StpxLoopGuardConfigEntry
 }
 
-func (stpxloopguardconfigtable *CISCOSTPEXTENSIONSMIB_Stpxloopguardconfigtable) GetEntityData() *types.CommonEntityData {
-    stpxloopguardconfigtable.EntityData.YFilter = stpxloopguardconfigtable.YFilter
-    stpxloopguardconfigtable.EntityData.YangName = "stpxLoopGuardConfigTable"
-    stpxloopguardconfigtable.EntityData.BundleName = "cisco_ios_xe"
-    stpxloopguardconfigtable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxloopguardconfigtable.EntityData.SegmentPath = "stpxLoopGuardConfigTable"
-    stpxloopguardconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxloopguardconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxloopguardconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxLoopGuardConfigTable *CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable) GetEntityData() *types.CommonEntityData {
+    stpxLoopGuardConfigTable.EntityData.YFilter = stpxLoopGuardConfigTable.YFilter
+    stpxLoopGuardConfigTable.EntityData.YangName = "stpxLoopGuardConfigTable"
+    stpxLoopGuardConfigTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxLoopGuardConfigTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxLoopGuardConfigTable.EntityData.SegmentPath = "stpxLoopGuardConfigTable"
+    stpxLoopGuardConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxLoopGuardConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxLoopGuardConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxloopguardconfigtable.EntityData.Children = make(map[string]types.YChild)
-    stpxloopguardconfigtable.EntityData.Children["stpxLoopGuardConfigEntry"] = types.YChild{"Stpxloopguardconfigentry", nil}
-    for i := range stpxloopguardconfigtable.Stpxloopguardconfigentry {
-        stpxloopguardconfigtable.EntityData.Children[types.GetSegmentPath(&stpxloopguardconfigtable.Stpxloopguardconfigentry[i])] = types.YChild{"Stpxloopguardconfigentry", &stpxloopguardconfigtable.Stpxloopguardconfigentry[i]}
+    stpxLoopGuardConfigTable.EntityData.Children = types.NewOrderedMap()
+    stpxLoopGuardConfigTable.EntityData.Children.Append("stpxLoopGuardConfigEntry", types.YChild{"StpxLoopGuardConfigEntry", nil})
+    for i := range stpxLoopGuardConfigTable.StpxLoopGuardConfigEntry {
+        stpxLoopGuardConfigTable.EntityData.Children.Append(types.GetSegmentPath(stpxLoopGuardConfigTable.StpxLoopGuardConfigEntry[i]), types.YChild{"StpxLoopGuardConfigEntry", stpxLoopGuardConfigTable.StpxLoopGuardConfigEntry[i]})
     }
-    stpxloopguardconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxloopguardconfigtable.EntityData)
+    stpxLoopGuardConfigTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxLoopGuardConfigTable.EntityData.YListKeys = []string {}
+
+    return &(stpxLoopGuardConfigTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxloopguardconfigtable_Stpxloopguardconfigentry
+// CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable_StpxLoopGuardConfigEntry
 // A bridge port for which Spanning Tree LoopGuard 
 // capability can be configured.
-type CISCOSTPEXTENSIONSMIB_Stpxloopguardconfigtable_Stpxloopguardconfigentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable_StpxLoopGuardConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
-    Stpxloopguardconfigportindex interface{}
+    StpxLoopGuardConfigPortIndex interface{}
 
     // An indication of whether the LoopGuard capability is  enabled on this port
     // or not. This configuration will be applied to all the Spanning Tree
@@ -1273,7 +1339,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxloopguardconfigtable_Stpxloopguardconfigentry str
     // the stpxLoopGuardConfigMode  object has the value of default(3), the value
     // of  stpxLoopGuardConfigEnabled for the same instance will  depend on the
     // object value of  stpxLoopGuardGlobalDefaultMode. The type is bool.
-    Stpxloopguardconfigenabled interface{}
+    StpxLoopGuardConfigEnabled interface{}
 
     // Indicates the mode of Loop Guard Feature on this  port. This configuration
     // will be applied to all  the Spanning Tree instances in which this port 
@@ -1281,158 +1347,170 @@ type CISCOSTPEXTENSIONSMIB_Stpxloopguardconfigtable_Stpxloopguardconfigentry str
     // port.   disable -- the Loop Guard feature is disabled on this           
     // port.    default -- whether the Loop Guard feature is enabled            or
     // not on this port depends on the object             value of
-    // stpxLoopGuardGlobalDefaultMode. The type is Stpxloopguardconfigmode.
-    Stpxloopguardconfigmode interface{}
+    // stpxLoopGuardGlobalDefaultMode. The type is StpxLoopGuardConfigMode.
+    StpxLoopGuardConfigMode interface{}
 }
 
-func (stpxloopguardconfigentry *CISCOSTPEXTENSIONSMIB_Stpxloopguardconfigtable_Stpxloopguardconfigentry) GetEntityData() *types.CommonEntityData {
-    stpxloopguardconfigentry.EntityData.YFilter = stpxloopguardconfigentry.YFilter
-    stpxloopguardconfigentry.EntityData.YangName = "stpxLoopGuardConfigEntry"
-    stpxloopguardconfigentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxloopguardconfigentry.EntityData.ParentYangName = "stpxLoopGuardConfigTable"
-    stpxloopguardconfigentry.EntityData.SegmentPath = "stpxLoopGuardConfigEntry" + "[stpxLoopGuardConfigPortIndex='" + fmt.Sprintf("%v", stpxloopguardconfigentry.Stpxloopguardconfigportindex) + "']"
-    stpxloopguardconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxloopguardconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxloopguardconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxLoopGuardConfigEntry *CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable_StpxLoopGuardConfigEntry) GetEntityData() *types.CommonEntityData {
+    stpxLoopGuardConfigEntry.EntityData.YFilter = stpxLoopGuardConfigEntry.YFilter
+    stpxLoopGuardConfigEntry.EntityData.YangName = "stpxLoopGuardConfigEntry"
+    stpxLoopGuardConfigEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxLoopGuardConfigEntry.EntityData.ParentYangName = "stpxLoopGuardConfigTable"
+    stpxLoopGuardConfigEntry.EntityData.SegmentPath = "stpxLoopGuardConfigEntry" + types.AddKeyToken(stpxLoopGuardConfigEntry.StpxLoopGuardConfigPortIndex, "stpxLoopGuardConfigPortIndex")
+    stpxLoopGuardConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxLoopGuardConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxLoopGuardConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxloopguardconfigentry.EntityData.Children = make(map[string]types.YChild)
-    stpxloopguardconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxloopguardconfigentry.EntityData.Leafs["stpxLoopGuardConfigPortIndex"] = types.YLeaf{"Stpxloopguardconfigportindex", stpxloopguardconfigentry.Stpxloopguardconfigportindex}
-    stpxloopguardconfigentry.EntityData.Leafs["stpxLoopGuardConfigEnabled"] = types.YLeaf{"Stpxloopguardconfigenabled", stpxloopguardconfigentry.Stpxloopguardconfigenabled}
-    stpxloopguardconfigentry.EntityData.Leafs["stpxLoopGuardConfigMode"] = types.YLeaf{"Stpxloopguardconfigmode", stpxloopguardconfigentry.Stpxloopguardconfigmode}
-    return &(stpxloopguardconfigentry.EntityData)
+    stpxLoopGuardConfigEntry.EntityData.Children = types.NewOrderedMap()
+    stpxLoopGuardConfigEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxLoopGuardConfigEntry.EntityData.Leafs.Append("stpxLoopGuardConfigPortIndex", types.YLeaf{"StpxLoopGuardConfigPortIndex", stpxLoopGuardConfigEntry.StpxLoopGuardConfigPortIndex})
+    stpxLoopGuardConfigEntry.EntityData.Leafs.Append("stpxLoopGuardConfigEnabled", types.YLeaf{"StpxLoopGuardConfigEnabled", stpxLoopGuardConfigEntry.StpxLoopGuardConfigEnabled})
+    stpxLoopGuardConfigEntry.EntityData.Leafs.Append("stpxLoopGuardConfigMode", types.YLeaf{"StpxLoopGuardConfigMode", stpxLoopGuardConfigEntry.StpxLoopGuardConfigMode})
+
+    stpxLoopGuardConfigEntry.EntityData.YListKeys = []string {"StpxLoopGuardConfigPortIndex"}
+
+    return &(stpxLoopGuardConfigEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxloopguardconfigtable_Stpxloopguardconfigentry_Stpxloopguardconfigmode represents            value of stpxLoopGuardGlobalDefaultMode.
-type CISCOSTPEXTENSIONSMIB_Stpxloopguardconfigtable_Stpxloopguardconfigentry_Stpxloopguardconfigmode string
+// CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable_StpxLoopGuardConfigEntry_StpxLoopGuardConfigMode represents            value of stpxLoopGuardGlobalDefaultMode.
+type CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable_StpxLoopGuardConfigEntry_StpxLoopGuardConfigMode string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxloopguardconfigtable_Stpxloopguardconfigentry_Stpxloopguardconfigmode_enable CISCOSTPEXTENSIONSMIB_Stpxloopguardconfigtable_Stpxloopguardconfigentry_Stpxloopguardconfigmode = "enable"
+    CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable_StpxLoopGuardConfigEntry_StpxLoopGuardConfigMode_enable CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable_StpxLoopGuardConfigEntry_StpxLoopGuardConfigMode = "enable"
 
-    CISCOSTPEXTENSIONSMIB_Stpxloopguardconfigtable_Stpxloopguardconfigentry_Stpxloopguardconfigmode_disable CISCOSTPEXTENSIONSMIB_Stpxloopguardconfigtable_Stpxloopguardconfigentry_Stpxloopguardconfigmode = "disable"
+    CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable_StpxLoopGuardConfigEntry_StpxLoopGuardConfigMode_disable CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable_StpxLoopGuardConfigEntry_StpxLoopGuardConfigMode = "disable"
 
-    CISCOSTPEXTENSIONSMIB_Stpxloopguardconfigtable_Stpxloopguardconfigentry_Stpxloopguardconfigmode_default_ CISCOSTPEXTENSIONSMIB_Stpxloopguardconfigtable_Stpxloopguardconfigentry_Stpxloopguardconfigmode = "default"
+    CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable_StpxLoopGuardConfigEntry_StpxLoopGuardConfigMode_default_ CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable_StpxLoopGuardConfigEntry_StpxLoopGuardConfigMode = "default"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxloopinconsistencytable
+// CISCOSTPEXTENSIONSMIB_StpxLoopInconsistencyTable
 // A table containing a list of the bridge ports for which
 // a particular Spanning Tree instance has been found
 // to have a loop-inconsistency. The agent creates a new
 // entry in this table whenever it detects a new
 // loop-inconsistency, and deletes entries
 // when/soon after the inconsistency is no longer present.
-type CISCOSTPEXTENSIONSMIB_Stpxloopinconsistencytable struct {
+type CISCOSTPEXTENSIONSMIB_StpxLoopInconsistencyTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A Spanning Tree instance on a particular port for which a Spanning Tree
     // loop-inconsistency is currently in effect. The type is slice of
-    // CISCOSTPEXTENSIONSMIB_Stpxloopinconsistencytable_Stpxloopinconsistencyentry.
-    Stpxloopinconsistencyentry []CISCOSTPEXTENSIONSMIB_Stpxloopinconsistencytable_Stpxloopinconsistencyentry
+    // CISCOSTPEXTENSIONSMIB_StpxLoopInconsistencyTable_StpxLoopInconsistencyEntry.
+    StpxLoopInconsistencyEntry []*CISCOSTPEXTENSIONSMIB_StpxLoopInconsistencyTable_StpxLoopInconsistencyEntry
 }
 
-func (stpxloopinconsistencytable *CISCOSTPEXTENSIONSMIB_Stpxloopinconsistencytable) GetEntityData() *types.CommonEntityData {
-    stpxloopinconsistencytable.EntityData.YFilter = stpxloopinconsistencytable.YFilter
-    stpxloopinconsistencytable.EntityData.YangName = "stpxLoopInconsistencyTable"
-    stpxloopinconsistencytable.EntityData.BundleName = "cisco_ios_xe"
-    stpxloopinconsistencytable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxloopinconsistencytable.EntityData.SegmentPath = "stpxLoopInconsistencyTable"
-    stpxloopinconsistencytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxloopinconsistencytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxloopinconsistencytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxLoopInconsistencyTable *CISCOSTPEXTENSIONSMIB_StpxLoopInconsistencyTable) GetEntityData() *types.CommonEntityData {
+    stpxLoopInconsistencyTable.EntityData.YFilter = stpxLoopInconsistencyTable.YFilter
+    stpxLoopInconsistencyTable.EntityData.YangName = "stpxLoopInconsistencyTable"
+    stpxLoopInconsistencyTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxLoopInconsistencyTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxLoopInconsistencyTable.EntityData.SegmentPath = "stpxLoopInconsistencyTable"
+    stpxLoopInconsistencyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxLoopInconsistencyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxLoopInconsistencyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxloopinconsistencytable.EntityData.Children = make(map[string]types.YChild)
-    stpxloopinconsistencytable.EntityData.Children["stpxLoopInconsistencyEntry"] = types.YChild{"Stpxloopinconsistencyentry", nil}
-    for i := range stpxloopinconsistencytable.Stpxloopinconsistencyentry {
-        stpxloopinconsistencytable.EntityData.Children[types.GetSegmentPath(&stpxloopinconsistencytable.Stpxloopinconsistencyentry[i])] = types.YChild{"Stpxloopinconsistencyentry", &stpxloopinconsistencytable.Stpxloopinconsistencyentry[i]}
+    stpxLoopInconsistencyTable.EntityData.Children = types.NewOrderedMap()
+    stpxLoopInconsistencyTable.EntityData.Children.Append("stpxLoopInconsistencyEntry", types.YChild{"StpxLoopInconsistencyEntry", nil})
+    for i := range stpxLoopInconsistencyTable.StpxLoopInconsistencyEntry {
+        stpxLoopInconsistencyTable.EntityData.Children.Append(types.GetSegmentPath(stpxLoopInconsistencyTable.StpxLoopInconsistencyEntry[i]), types.YChild{"StpxLoopInconsistencyEntry", stpxLoopInconsistencyTable.StpxLoopInconsistencyEntry[i]})
     }
-    stpxloopinconsistencytable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxloopinconsistencytable.EntityData)
+    stpxLoopInconsistencyTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxLoopInconsistencyTable.EntityData.YListKeys = []string {}
+
+    return &(stpxLoopInconsistencyTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxloopinconsistencytable_Stpxloopinconsistencyentry
+// CISCOSTPEXTENSIONSMIB_StpxLoopInconsistencyTable_StpxLoopInconsistencyEntry
 // A Spanning Tree instance on a particular port for
 // which a Spanning Tree loop-inconsistency is currently
 // in effect.
-type CISCOSTPEXTENSIONSMIB_Stpxloopinconsistencytable_Stpxloopinconsistencyentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxLoopInconsistencyTable_StpxLoopInconsistencyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Spanning Tree instance id, such as the VLAN id
     // of the VLAN if the object value of stpxSpanningTreeType is pvstPlus(1) or
     // rapidPvstPlus(5). The type is interface{} with range: 0..65535.
-    Stpxloopinconsistencyindex interface{}
+    StpxLoopInconsistencyIndex interface{}
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
-    Stpxloopinconsistencyportindex interface{}
+    StpxLoopInconsistencyPortIndex interface{}
 
     // Indicates whether the port on a particular Spanning  Tree instance is
     // currently in loop-inconsistent  state or not. The type is bool.
-    Stpxloopinconsistencystate interface{}
+    StpxLoopInconsistencyState interface{}
 }
 
-func (stpxloopinconsistencyentry *CISCOSTPEXTENSIONSMIB_Stpxloopinconsistencytable_Stpxloopinconsistencyentry) GetEntityData() *types.CommonEntityData {
-    stpxloopinconsistencyentry.EntityData.YFilter = stpxloopinconsistencyentry.YFilter
-    stpxloopinconsistencyentry.EntityData.YangName = "stpxLoopInconsistencyEntry"
-    stpxloopinconsistencyentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxloopinconsistencyentry.EntityData.ParentYangName = "stpxLoopInconsistencyTable"
-    stpxloopinconsistencyentry.EntityData.SegmentPath = "stpxLoopInconsistencyEntry" + "[stpxLoopInconsistencyIndex='" + fmt.Sprintf("%v", stpxloopinconsistencyentry.Stpxloopinconsistencyindex) + "']" + "[stpxLoopInconsistencyPortIndex='" + fmt.Sprintf("%v", stpxloopinconsistencyentry.Stpxloopinconsistencyportindex) + "']"
-    stpxloopinconsistencyentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxloopinconsistencyentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxloopinconsistencyentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxLoopInconsistencyEntry *CISCOSTPEXTENSIONSMIB_StpxLoopInconsistencyTable_StpxLoopInconsistencyEntry) GetEntityData() *types.CommonEntityData {
+    stpxLoopInconsistencyEntry.EntityData.YFilter = stpxLoopInconsistencyEntry.YFilter
+    stpxLoopInconsistencyEntry.EntityData.YangName = "stpxLoopInconsistencyEntry"
+    stpxLoopInconsistencyEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxLoopInconsistencyEntry.EntityData.ParentYangName = "stpxLoopInconsistencyTable"
+    stpxLoopInconsistencyEntry.EntityData.SegmentPath = "stpxLoopInconsistencyEntry" + types.AddKeyToken(stpxLoopInconsistencyEntry.StpxLoopInconsistencyIndex, "stpxLoopInconsistencyIndex") + types.AddKeyToken(stpxLoopInconsistencyEntry.StpxLoopInconsistencyPortIndex, "stpxLoopInconsistencyPortIndex")
+    stpxLoopInconsistencyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxLoopInconsistencyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxLoopInconsistencyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxloopinconsistencyentry.EntityData.Children = make(map[string]types.YChild)
-    stpxloopinconsistencyentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxloopinconsistencyentry.EntityData.Leafs["stpxLoopInconsistencyIndex"] = types.YLeaf{"Stpxloopinconsistencyindex", stpxloopinconsistencyentry.Stpxloopinconsistencyindex}
-    stpxloopinconsistencyentry.EntityData.Leafs["stpxLoopInconsistencyPortIndex"] = types.YLeaf{"Stpxloopinconsistencyportindex", stpxloopinconsistencyentry.Stpxloopinconsistencyportindex}
-    stpxloopinconsistencyentry.EntityData.Leafs["stpxLoopInconsistencyState"] = types.YLeaf{"Stpxloopinconsistencystate", stpxloopinconsistencyentry.Stpxloopinconsistencystate}
-    return &(stpxloopinconsistencyentry.EntityData)
+    stpxLoopInconsistencyEntry.EntityData.Children = types.NewOrderedMap()
+    stpxLoopInconsistencyEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxLoopInconsistencyEntry.EntityData.Leafs.Append("stpxLoopInconsistencyIndex", types.YLeaf{"StpxLoopInconsistencyIndex", stpxLoopInconsistencyEntry.StpxLoopInconsistencyIndex})
+    stpxLoopInconsistencyEntry.EntityData.Leafs.Append("stpxLoopInconsistencyPortIndex", types.YLeaf{"StpxLoopInconsistencyPortIndex", stpxLoopInconsistencyEntry.StpxLoopInconsistencyPortIndex})
+    stpxLoopInconsistencyEntry.EntityData.Leafs.Append("stpxLoopInconsistencyState", types.YLeaf{"StpxLoopInconsistencyState", stpxLoopInconsistencyEntry.StpxLoopInconsistencyState})
+
+    stpxLoopInconsistencyEntry.EntityData.YListKeys = []string {"StpxLoopInconsistencyIndex", "StpxLoopInconsistencyPortIndex"}
+
+    return &(stpxLoopInconsistencyEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable
+// CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable
 // A table containing a list of the bridge ports for
 // which Spanning Tree Port Fast Start can be
 // configured.
-type CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable struct {
+type CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A bridge port for which Spanning Tree Port Fast Start can be configured.
     // The type is slice of
-    // CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry.
-    Stpxfaststartportentry []CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry
+    // CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry.
+    StpxFastStartPortEntry []*CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry
 }
 
-func (stpxfaststartporttable *CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable) GetEntityData() *types.CommonEntityData {
-    stpxfaststartporttable.EntityData.YFilter = stpxfaststartporttable.YFilter
-    stpxfaststartporttable.EntityData.YangName = "stpxFastStartPortTable"
-    stpxfaststartporttable.EntityData.BundleName = "cisco_ios_xe"
-    stpxfaststartporttable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxfaststartporttable.EntityData.SegmentPath = "stpxFastStartPortTable"
-    stpxfaststartporttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxfaststartporttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxfaststartporttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxFastStartPortTable *CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable) GetEntityData() *types.CommonEntityData {
+    stpxFastStartPortTable.EntityData.YFilter = stpxFastStartPortTable.YFilter
+    stpxFastStartPortTable.EntityData.YangName = "stpxFastStartPortTable"
+    stpxFastStartPortTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxFastStartPortTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxFastStartPortTable.EntityData.SegmentPath = "stpxFastStartPortTable"
+    stpxFastStartPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxFastStartPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxFastStartPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxfaststartporttable.EntityData.Children = make(map[string]types.YChild)
-    stpxfaststartporttable.EntityData.Children["stpxFastStartPortEntry"] = types.YChild{"Stpxfaststartportentry", nil}
-    for i := range stpxfaststartporttable.Stpxfaststartportentry {
-        stpxfaststartporttable.EntityData.Children[types.GetSegmentPath(&stpxfaststartporttable.Stpxfaststartportentry[i])] = types.YChild{"Stpxfaststartportentry", &stpxfaststartporttable.Stpxfaststartportentry[i]}
+    stpxFastStartPortTable.EntityData.Children = types.NewOrderedMap()
+    stpxFastStartPortTable.EntityData.Children.Append("stpxFastStartPortEntry", types.YChild{"StpxFastStartPortEntry", nil})
+    for i := range stpxFastStartPortTable.StpxFastStartPortEntry {
+        stpxFastStartPortTable.EntityData.Children.Append(types.GetSegmentPath(stpxFastStartPortTable.StpxFastStartPortEntry[i]), types.YChild{"StpxFastStartPortEntry", stpxFastStartPortTable.StpxFastStartPortEntry[i]})
     }
-    stpxfaststartporttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxfaststartporttable.EntityData)
+    stpxFastStartPortTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxFastStartPortTable.EntityData.YListKeys = []string {}
+
+    return &(stpxFastStartPortTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry
+// CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry
 // A bridge port for which Spanning Tree Port Fast
 // Start can be configured.
-type CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
-    Stpxfaststartportindex interface{}
+    StpxFastStartPortIndex interface{}
 
     // Indicates whether the port is operating in spantree fast start mode.  A
     // port with fast start enabled is immediately put in spanning tree forwarding
@@ -1449,7 +1527,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry struct 
     // default(4), the value of stpxFastStartPortEnable for  the same instance
     // depends on the object value of  stpxFastStartGlobalDefaultMode. The type is
     // bool.
-    Stpxfaststartportenable interface{}
+    StpxFastStartPortEnable interface{}
 
     // Indicates the mode of Fast Start Feature on the  port. A port with fast
     // start enabled is immediately  put in spanning tree forwarding state when
@@ -1465,8 +1543,8 @@ type CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry struct 
     // enabled            or not on this port depends on the object            
     // value of stpxFastStartGlobalDefaultMode.  network -- the fast start network
     // mode is enabled on             this port. The type is
-    // Stpxfaststartportmode.
-    Stpxfaststartportmode interface{}
+    // StpxFastStartPortMode.
+    StpxFastStartPortMode interface{}
 
     // Indicates the mode of Bpdu Guard Feature on the port. A port with Bpdu
     // Guard enabled is  immediately disabled when the system  receives a BPDU
@@ -1478,8 +1556,8 @@ type CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry struct 
     // stpxFastStartBpduGuardEnable            is true(1) and Fast Start feature
     // is also             enabled operationally on this port, then           
     // this port is immediately disabled when             the system receives a
-    // BPDU from this port. The type is Stpxfaststartportbpduguardmode.
-    Stpxfaststartportbpduguardmode interface{}
+    // BPDU from this port. The type is StpxFastStartPortBpduGuardMode.
+    StpxFastStartPortBpduGuardMode interface{}
 
     // Indicates the mode of Bpdu Filter Feature on the port. The system will not
     // transmit BPDUs on a port  with Bpdu Filter feature enabled.  enable -- the
@@ -1490,149 +1568,158 @@ type CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry struct 
     // the value of stpxFastStartBpduFilterEnable            is true(1) and Fast
     // Start feature is also            enabled operationally on this port, then  
     // no BPDUs will be transmitted on this port. The type is
-    // Stpxfaststartportbpdufiltermode.
-    Stpxfaststartportbpdufiltermode interface{}
+    // StpxFastStartPortBpduFilterMode.
+    StpxFastStartPortBpduFilterMode interface{}
 }
 
-func (stpxfaststartportentry *CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry) GetEntityData() *types.CommonEntityData {
-    stpxfaststartportentry.EntityData.YFilter = stpxfaststartportentry.YFilter
-    stpxfaststartportentry.EntityData.YangName = "stpxFastStartPortEntry"
-    stpxfaststartportentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxfaststartportentry.EntityData.ParentYangName = "stpxFastStartPortTable"
-    stpxfaststartportentry.EntityData.SegmentPath = "stpxFastStartPortEntry" + "[stpxFastStartPortIndex='" + fmt.Sprintf("%v", stpxfaststartportentry.Stpxfaststartportindex) + "']"
-    stpxfaststartportentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxfaststartportentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxfaststartportentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxFastStartPortEntry *CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry) GetEntityData() *types.CommonEntityData {
+    stpxFastStartPortEntry.EntityData.YFilter = stpxFastStartPortEntry.YFilter
+    stpxFastStartPortEntry.EntityData.YangName = "stpxFastStartPortEntry"
+    stpxFastStartPortEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxFastStartPortEntry.EntityData.ParentYangName = "stpxFastStartPortTable"
+    stpxFastStartPortEntry.EntityData.SegmentPath = "stpxFastStartPortEntry" + types.AddKeyToken(stpxFastStartPortEntry.StpxFastStartPortIndex, "stpxFastStartPortIndex")
+    stpxFastStartPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxFastStartPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxFastStartPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxfaststartportentry.EntityData.Children = make(map[string]types.YChild)
-    stpxfaststartportentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxfaststartportentry.EntityData.Leafs["stpxFastStartPortIndex"] = types.YLeaf{"Stpxfaststartportindex", stpxfaststartportentry.Stpxfaststartportindex}
-    stpxfaststartportentry.EntityData.Leafs["stpxFastStartPortEnable"] = types.YLeaf{"Stpxfaststartportenable", stpxfaststartportentry.Stpxfaststartportenable}
-    stpxfaststartportentry.EntityData.Leafs["stpxFastStartPortMode"] = types.YLeaf{"Stpxfaststartportmode", stpxfaststartportentry.Stpxfaststartportmode}
-    stpxfaststartportentry.EntityData.Leafs["stpxFastStartPortBpduGuardMode"] = types.YLeaf{"Stpxfaststartportbpduguardmode", stpxfaststartportentry.Stpxfaststartportbpduguardmode}
-    stpxfaststartportentry.EntityData.Leafs["stpxFastStartPortBpduFilterMode"] = types.YLeaf{"Stpxfaststartportbpdufiltermode", stpxfaststartportentry.Stpxfaststartportbpdufiltermode}
-    return &(stpxfaststartportentry.EntityData)
+    stpxFastStartPortEntry.EntityData.Children = types.NewOrderedMap()
+    stpxFastStartPortEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxFastStartPortEntry.EntityData.Leafs.Append("stpxFastStartPortIndex", types.YLeaf{"StpxFastStartPortIndex", stpxFastStartPortEntry.StpxFastStartPortIndex})
+    stpxFastStartPortEntry.EntityData.Leafs.Append("stpxFastStartPortEnable", types.YLeaf{"StpxFastStartPortEnable", stpxFastStartPortEntry.StpxFastStartPortEnable})
+    stpxFastStartPortEntry.EntityData.Leafs.Append("stpxFastStartPortMode", types.YLeaf{"StpxFastStartPortMode", stpxFastStartPortEntry.StpxFastStartPortMode})
+    stpxFastStartPortEntry.EntityData.Leafs.Append("stpxFastStartPortBpduGuardMode", types.YLeaf{"StpxFastStartPortBpduGuardMode", stpxFastStartPortEntry.StpxFastStartPortBpduGuardMode})
+    stpxFastStartPortEntry.EntityData.Leafs.Append("stpxFastStartPortBpduFilterMode", types.YLeaf{"StpxFastStartPortBpduFilterMode", stpxFastStartPortEntry.StpxFastStartPortBpduFilterMode})
+
+    stpxFastStartPortEntry.EntityData.YListKeys = []string {"StpxFastStartPortIndex"}
+
+    return &(stpxFastStartPortEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportbpdufiltermode represents            no BPDUs will be transmitted on this port.
-type CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportbpdufiltermode string
+// CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortBpduFilterMode represents            no BPDUs will be transmitted on this port.
+type CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortBpduFilterMode string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportbpdufiltermode_enable CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportbpdufiltermode = "enable"
+    CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortBpduFilterMode_enable CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortBpduFilterMode = "enable"
 
-    CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportbpdufiltermode_disable CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportbpdufiltermode = "disable"
+    CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortBpduFilterMode_disable CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortBpduFilterMode = "disable"
 
-    CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportbpdufiltermode_default_ CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportbpdufiltermode = "default"
+    CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortBpduFilterMode_default_ CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortBpduFilterMode = "default"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportbpduguardmode represents            the system receives a BPDU from this port.
-type CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportbpduguardmode string
+// CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortBpduGuardMode represents            the system receives a BPDU from this port.
+type CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortBpduGuardMode string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportbpduguardmode_enable CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportbpduguardmode = "enable"
+    CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortBpduGuardMode_enable CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortBpduGuardMode = "enable"
 
-    CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportbpduguardmode_disable CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportbpduguardmode = "disable"
+    CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortBpduGuardMode_disable CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortBpduGuardMode = "disable"
 
-    CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportbpduguardmode_default_ CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportbpduguardmode = "default"
+    CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortBpduGuardMode_default_ CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortBpduGuardMode = "default"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportmode represents            this port.
-type CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportmode string
+// CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortMode represents            this port.
+type CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortMode string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportmode_enable CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportmode = "enable"
+    CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortMode_enable CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortMode = "enable"
 
-    CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportmode_disable CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportmode = "disable"
+    CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortMode_disable CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortMode = "disable"
 
-    CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportmode_enableForTrunk CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportmode = "enableForTrunk"
+    CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortMode_enableForTrunk CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortMode = "enableForTrunk"
 
-    CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportmode_default_ CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportmode = "default"
+    CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortMode_default_ CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortMode = "default"
 
-    CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportmode_network CISCOSTPEXTENSIONSMIB_Stpxfaststartporttable_Stpxfaststartportentry_Stpxfaststartportmode = "network"
+    CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortMode_network CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry_StpxFastStartPortMode = "network"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxfaststartopermodetable
+// CISCOSTPEXTENSIONSMIB_StpxFastStartOperModeTable
 // A table containing a list of the bridge ports 
 // for a particular Spanning Tree Instance.
-type CISCOSTPEXTENSIONSMIB_Stpxfaststartopermodetable struct {
+type CISCOSTPEXTENSIONSMIB_StpxFastStartOperModeTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry with port fast start oper mode  information on a bridge port for a
     // particular  Spanning Tree Instance. The type is slice of
-    // CISCOSTPEXTENSIONSMIB_Stpxfaststartopermodetable_Stpxfaststartopermodeentry.
-    Stpxfaststartopermodeentry []CISCOSTPEXTENSIONSMIB_Stpxfaststartopermodetable_Stpxfaststartopermodeentry
+    // CISCOSTPEXTENSIONSMIB_StpxFastStartOperModeTable_StpxFastStartOperModeEntry.
+    StpxFastStartOperModeEntry []*CISCOSTPEXTENSIONSMIB_StpxFastStartOperModeTable_StpxFastStartOperModeEntry
 }
 
-func (stpxfaststartopermodetable *CISCOSTPEXTENSIONSMIB_Stpxfaststartopermodetable) GetEntityData() *types.CommonEntityData {
-    stpxfaststartopermodetable.EntityData.YFilter = stpxfaststartopermodetable.YFilter
-    stpxfaststartopermodetable.EntityData.YangName = "stpxFastStartOperModeTable"
-    stpxfaststartopermodetable.EntityData.BundleName = "cisco_ios_xe"
-    stpxfaststartopermodetable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxfaststartopermodetable.EntityData.SegmentPath = "stpxFastStartOperModeTable"
-    stpxfaststartopermodetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxfaststartopermodetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxfaststartopermodetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxFastStartOperModeTable *CISCOSTPEXTENSIONSMIB_StpxFastStartOperModeTable) GetEntityData() *types.CommonEntityData {
+    stpxFastStartOperModeTable.EntityData.YFilter = stpxFastStartOperModeTable.YFilter
+    stpxFastStartOperModeTable.EntityData.YangName = "stpxFastStartOperModeTable"
+    stpxFastStartOperModeTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxFastStartOperModeTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxFastStartOperModeTable.EntityData.SegmentPath = "stpxFastStartOperModeTable"
+    stpxFastStartOperModeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxFastStartOperModeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxFastStartOperModeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxfaststartopermodetable.EntityData.Children = make(map[string]types.YChild)
-    stpxfaststartopermodetable.EntityData.Children["stpxFastStartOperModeEntry"] = types.YChild{"Stpxfaststartopermodeentry", nil}
-    for i := range stpxfaststartopermodetable.Stpxfaststartopermodeentry {
-        stpxfaststartopermodetable.EntityData.Children[types.GetSegmentPath(&stpxfaststartopermodetable.Stpxfaststartopermodeentry[i])] = types.YChild{"Stpxfaststartopermodeentry", &stpxfaststartopermodetable.Stpxfaststartopermodeentry[i]}
+    stpxFastStartOperModeTable.EntityData.Children = types.NewOrderedMap()
+    stpxFastStartOperModeTable.EntityData.Children.Append("stpxFastStartOperModeEntry", types.YChild{"StpxFastStartOperModeEntry", nil})
+    for i := range stpxFastStartOperModeTable.StpxFastStartOperModeEntry {
+        stpxFastStartOperModeTable.EntityData.Children.Append(types.GetSegmentPath(stpxFastStartOperModeTable.StpxFastStartOperModeEntry[i]), types.YChild{"StpxFastStartOperModeEntry", stpxFastStartOperModeTable.StpxFastStartOperModeEntry[i]})
     }
-    stpxfaststartopermodetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxfaststartopermodetable.EntityData)
+    stpxFastStartOperModeTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxFastStartOperModeTable.EntityData.YListKeys = []string {}
+
+    return &(stpxFastStartOperModeTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxfaststartopermodetable_Stpxfaststartopermodeentry
+// CISCOSTPEXTENSIONSMIB_StpxFastStartOperModeTable_StpxFastStartOperModeEntry
 // An entry with port fast start oper mode 
 // information on a bridge port for a particular 
 // Spanning Tree Instance.
-type CISCOSTPEXTENSIONSMIB_Stpxfaststartopermodetable_Stpxfaststartopermodeentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxFastStartOperModeTable_StpxFastStartOperModeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Spanning Tree instance id, such as the VLAN id
     // of the VLAN if the object value of stpxSpanningTreeType is pvstPlus(1). The
     // type is interface{} with range: 0..65535.
-    Stpxfaststartopermodeinstindex interface{}
+    StpxFastStartOperModeInstIndex interface{}
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
-    Stpxfaststartopermodeportindex interface{}
+    StpxFastStartOperModePortIndex interface{}
 
     // Indicates the fast start operational status of the  port on a particular
-    // Spanning Tree Instance. The type is Stpxfaststartopermode.
-    Stpxfaststartopermode interface{}
+    // Spanning Tree Instance. The type is StpxFastStartOperMode.
+    StpxFastStartOperMode interface{}
 }
 
-func (stpxfaststartopermodeentry *CISCOSTPEXTENSIONSMIB_Stpxfaststartopermodetable_Stpxfaststartopermodeentry) GetEntityData() *types.CommonEntityData {
-    stpxfaststartopermodeentry.EntityData.YFilter = stpxfaststartopermodeentry.YFilter
-    stpxfaststartopermodeentry.EntityData.YangName = "stpxFastStartOperModeEntry"
-    stpxfaststartopermodeentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxfaststartopermodeentry.EntityData.ParentYangName = "stpxFastStartOperModeTable"
-    stpxfaststartopermodeentry.EntityData.SegmentPath = "stpxFastStartOperModeEntry" + "[stpxFastStartOperModeInstIndex='" + fmt.Sprintf("%v", stpxfaststartopermodeentry.Stpxfaststartopermodeinstindex) + "']" + "[stpxFastStartOperModePortIndex='" + fmt.Sprintf("%v", stpxfaststartopermodeentry.Stpxfaststartopermodeportindex) + "']"
-    stpxfaststartopermodeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxfaststartopermodeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxfaststartopermodeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxFastStartOperModeEntry *CISCOSTPEXTENSIONSMIB_StpxFastStartOperModeTable_StpxFastStartOperModeEntry) GetEntityData() *types.CommonEntityData {
+    stpxFastStartOperModeEntry.EntityData.YFilter = stpxFastStartOperModeEntry.YFilter
+    stpxFastStartOperModeEntry.EntityData.YangName = "stpxFastStartOperModeEntry"
+    stpxFastStartOperModeEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxFastStartOperModeEntry.EntityData.ParentYangName = "stpxFastStartOperModeTable"
+    stpxFastStartOperModeEntry.EntityData.SegmentPath = "stpxFastStartOperModeEntry" + types.AddKeyToken(stpxFastStartOperModeEntry.StpxFastStartOperModeInstIndex, "stpxFastStartOperModeInstIndex") + types.AddKeyToken(stpxFastStartOperModeEntry.StpxFastStartOperModePortIndex, "stpxFastStartOperModePortIndex")
+    stpxFastStartOperModeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxFastStartOperModeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxFastStartOperModeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxfaststartopermodeentry.EntityData.Children = make(map[string]types.YChild)
-    stpxfaststartopermodeentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxfaststartopermodeentry.EntityData.Leafs["stpxFastStartOperModeInstIndex"] = types.YLeaf{"Stpxfaststartopermodeinstindex", stpxfaststartopermodeentry.Stpxfaststartopermodeinstindex}
-    stpxfaststartopermodeentry.EntityData.Leafs["stpxFastStartOperModePortIndex"] = types.YLeaf{"Stpxfaststartopermodeportindex", stpxfaststartopermodeentry.Stpxfaststartopermodeportindex}
-    stpxfaststartopermodeentry.EntityData.Leafs["stpxFastStartOperMode"] = types.YLeaf{"Stpxfaststartopermode", stpxfaststartopermodeentry.Stpxfaststartopermode}
-    return &(stpxfaststartopermodeentry.EntityData)
+    stpxFastStartOperModeEntry.EntityData.Children = types.NewOrderedMap()
+    stpxFastStartOperModeEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxFastStartOperModeEntry.EntityData.Leafs.Append("stpxFastStartOperModeInstIndex", types.YLeaf{"StpxFastStartOperModeInstIndex", stpxFastStartOperModeEntry.StpxFastStartOperModeInstIndex})
+    stpxFastStartOperModeEntry.EntityData.Leafs.Append("stpxFastStartOperModePortIndex", types.YLeaf{"StpxFastStartOperModePortIndex", stpxFastStartOperModeEntry.StpxFastStartOperModePortIndex})
+    stpxFastStartOperModeEntry.EntityData.Leafs.Append("stpxFastStartOperMode", types.YLeaf{"StpxFastStartOperMode", stpxFastStartOperModeEntry.StpxFastStartOperMode})
+
+    stpxFastStartOperModeEntry.EntityData.YListKeys = []string {"StpxFastStartOperModeInstIndex", "StpxFastStartOperModePortIndex"}
+
+    return &(stpxFastStartOperModeEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxfaststartopermodetable_Stpxfaststartopermodeentry_Stpxfaststartopermode represents port on a particular Spanning Tree Instance.
-type CISCOSTPEXTENSIONSMIB_Stpxfaststartopermodetable_Stpxfaststartopermodeentry_Stpxfaststartopermode string
+// CISCOSTPEXTENSIONSMIB_StpxFastStartOperModeTable_StpxFastStartOperModeEntry_StpxFastStartOperMode represents port on a particular Spanning Tree Instance.
+type CISCOSTPEXTENSIONSMIB_StpxFastStartOperModeTable_StpxFastStartOperModeEntry_StpxFastStartOperMode string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxfaststartopermodetable_Stpxfaststartopermodeentry_Stpxfaststartopermode_enabled CISCOSTPEXTENSIONSMIB_Stpxfaststartopermodetable_Stpxfaststartopermodeentry_Stpxfaststartopermode = "enabled"
+    CISCOSTPEXTENSIONSMIB_StpxFastStartOperModeTable_StpxFastStartOperModeEntry_StpxFastStartOperMode_enabled CISCOSTPEXTENSIONSMIB_StpxFastStartOperModeTable_StpxFastStartOperModeEntry_StpxFastStartOperMode = "enabled"
 
-    CISCOSTPEXTENSIONSMIB_Stpxfaststartopermodetable_Stpxfaststartopermodeentry_Stpxfaststartopermode_disabled CISCOSTPEXTENSIONSMIB_Stpxfaststartopermodetable_Stpxfaststartopermodeentry_Stpxfaststartopermode = "disabled"
+    CISCOSTPEXTENSIONSMIB_StpxFastStartOperModeTable_StpxFastStartOperModeEntry_StpxFastStartOperMode_disabled CISCOSTPEXTENSIONSMIB_StpxFastStartOperModeTable_StpxFastStartOperModeEntry_StpxFastStartOperMode = "disabled"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxbpduskewingtable
+// CISCOSTPEXTENSIONSMIB_StpxBpduSkewingTable
 // A table containing a list of the bridge ports for 
 // which a particular Spanning Tree instance has been 
 // detected to have BPDU skewing occurred since the 
@@ -1648,125 +1735,134 @@ const (
 // stpxBpduSkewingDetectionEnable is changed to false(2)
 // or the object value of stpxSpanningTreeType is 
 // changed.
-type CISCOSTPEXTENSIONSMIB_Stpxbpduskewingtable struct {
+type CISCOSTPEXTENSIONSMIB_StpxBpduSkewingTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A Spanning Tree instance on a particular port for which BPDU skewing has
     // been detected. The type is slice of
-    // CISCOSTPEXTENSIONSMIB_Stpxbpduskewingtable_Stpxbpduskewingentry.
-    Stpxbpduskewingentry []CISCOSTPEXTENSIONSMIB_Stpxbpduskewingtable_Stpxbpduskewingentry
+    // CISCOSTPEXTENSIONSMIB_StpxBpduSkewingTable_StpxBpduSkewingEntry.
+    StpxBpduSkewingEntry []*CISCOSTPEXTENSIONSMIB_StpxBpduSkewingTable_StpxBpduSkewingEntry
 }
 
-func (stpxbpduskewingtable *CISCOSTPEXTENSIONSMIB_Stpxbpduskewingtable) GetEntityData() *types.CommonEntityData {
-    stpxbpduskewingtable.EntityData.YFilter = stpxbpduskewingtable.YFilter
-    stpxbpduskewingtable.EntityData.YangName = "stpxBpduSkewingTable"
-    stpxbpduskewingtable.EntityData.BundleName = "cisco_ios_xe"
-    stpxbpduskewingtable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxbpduskewingtable.EntityData.SegmentPath = "stpxBpduSkewingTable"
-    stpxbpduskewingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxbpduskewingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxbpduskewingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxBpduSkewingTable *CISCOSTPEXTENSIONSMIB_StpxBpduSkewingTable) GetEntityData() *types.CommonEntityData {
+    stpxBpduSkewingTable.EntityData.YFilter = stpxBpduSkewingTable.YFilter
+    stpxBpduSkewingTable.EntityData.YangName = "stpxBpduSkewingTable"
+    stpxBpduSkewingTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxBpduSkewingTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxBpduSkewingTable.EntityData.SegmentPath = "stpxBpduSkewingTable"
+    stpxBpduSkewingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxBpduSkewingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxBpduSkewingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxbpduskewingtable.EntityData.Children = make(map[string]types.YChild)
-    stpxbpduskewingtable.EntityData.Children["stpxBpduSkewingEntry"] = types.YChild{"Stpxbpduskewingentry", nil}
-    for i := range stpxbpduskewingtable.Stpxbpduskewingentry {
-        stpxbpduskewingtable.EntityData.Children[types.GetSegmentPath(&stpxbpduskewingtable.Stpxbpduskewingentry[i])] = types.YChild{"Stpxbpduskewingentry", &stpxbpduskewingtable.Stpxbpduskewingentry[i]}
+    stpxBpduSkewingTable.EntityData.Children = types.NewOrderedMap()
+    stpxBpduSkewingTable.EntityData.Children.Append("stpxBpduSkewingEntry", types.YChild{"StpxBpduSkewingEntry", nil})
+    for i := range stpxBpduSkewingTable.StpxBpduSkewingEntry {
+        stpxBpduSkewingTable.EntityData.Children.Append(types.GetSegmentPath(stpxBpduSkewingTable.StpxBpduSkewingEntry[i]), types.YChild{"StpxBpduSkewingEntry", stpxBpduSkewingTable.StpxBpduSkewingEntry[i]})
     }
-    stpxbpduskewingtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxbpduskewingtable.EntityData)
+    stpxBpduSkewingTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxBpduSkewingTable.EntityData.YListKeys = []string {}
+
+    return &(stpxBpduSkewingTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxbpduskewingtable_Stpxbpduskewingentry
+// CISCOSTPEXTENSIONSMIB_StpxBpduSkewingTable_StpxBpduSkewingEntry
 // A Spanning Tree instance on a particular port for
 // which BPDU skewing has been detected.
-type CISCOSTPEXTENSIONSMIB_Stpxbpduskewingtable_Stpxbpduskewingentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxBpduSkewingTable_StpxBpduSkewingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Spanning Tree instance id, such as the VLAN id
     // of the VLAN if the object value of stpxSpanningTreeType  is pvstPlus(1).
     // The type is interface{} with range: 0..65535.
-    Stpxbpduskewinginstanceindex interface{}
+    StpxBpduSkewingInstanceIndex interface{}
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
-    Stpxbpduskewingportindex interface{}
+    StpxBpduSkewingPortIndex interface{}
 
     // Indicates the skew duration in milliseconds of the last BPDU skewing
     // detected. The type is interface{} with range: 0..4294967295. Units are
     // milliseconds.
-    Stpxbpduskewinglastskewduration interface{}
+    StpxBpduSkewingLastSkewDuration interface{}
 
     // Indicates the skew duration in milliseconds of the worst BPDU skewing
     // detected. The type is interface{} with range: 0..4294967295. Units are
     // milliseconds.
-    Stpxbpduskewingworstskewduration interface{}
+    StpxBpduSkewingWorstSkewDuration interface{}
 
     // Indicates the value of sysUpTime when the worst BPDU skewing was detected.
     // The type is interface{} with range: 0..4294967295.
-    Stpxbpduskewingworstskewtime interface{}
+    StpxBpduSkewingWorstSkewTime interface{}
 }
 
-func (stpxbpduskewingentry *CISCOSTPEXTENSIONSMIB_Stpxbpduskewingtable_Stpxbpduskewingentry) GetEntityData() *types.CommonEntityData {
-    stpxbpduskewingentry.EntityData.YFilter = stpxbpduskewingentry.YFilter
-    stpxbpduskewingentry.EntityData.YangName = "stpxBpduSkewingEntry"
-    stpxbpduskewingentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxbpduskewingentry.EntityData.ParentYangName = "stpxBpduSkewingTable"
-    stpxbpduskewingentry.EntityData.SegmentPath = "stpxBpduSkewingEntry" + "[stpxBpduSkewingInstanceIndex='" + fmt.Sprintf("%v", stpxbpduskewingentry.Stpxbpduskewinginstanceindex) + "']" + "[stpxBpduSkewingPortIndex='" + fmt.Sprintf("%v", stpxbpduskewingentry.Stpxbpduskewingportindex) + "']"
-    stpxbpduskewingentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxbpduskewingentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxbpduskewingentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxBpduSkewingEntry *CISCOSTPEXTENSIONSMIB_StpxBpduSkewingTable_StpxBpduSkewingEntry) GetEntityData() *types.CommonEntityData {
+    stpxBpduSkewingEntry.EntityData.YFilter = stpxBpduSkewingEntry.YFilter
+    stpxBpduSkewingEntry.EntityData.YangName = "stpxBpduSkewingEntry"
+    stpxBpduSkewingEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxBpduSkewingEntry.EntityData.ParentYangName = "stpxBpduSkewingTable"
+    stpxBpduSkewingEntry.EntityData.SegmentPath = "stpxBpduSkewingEntry" + types.AddKeyToken(stpxBpduSkewingEntry.StpxBpduSkewingInstanceIndex, "stpxBpduSkewingInstanceIndex") + types.AddKeyToken(stpxBpduSkewingEntry.StpxBpduSkewingPortIndex, "stpxBpduSkewingPortIndex")
+    stpxBpduSkewingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxBpduSkewingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxBpduSkewingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxbpduskewingentry.EntityData.Children = make(map[string]types.YChild)
-    stpxbpduskewingentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxbpduskewingentry.EntityData.Leafs["stpxBpduSkewingInstanceIndex"] = types.YLeaf{"Stpxbpduskewinginstanceindex", stpxbpduskewingentry.Stpxbpduskewinginstanceindex}
-    stpxbpduskewingentry.EntityData.Leafs["stpxBpduSkewingPortIndex"] = types.YLeaf{"Stpxbpduskewingportindex", stpxbpduskewingentry.Stpxbpduskewingportindex}
-    stpxbpduskewingentry.EntityData.Leafs["stpxBpduSkewingLastSkewDuration"] = types.YLeaf{"Stpxbpduskewinglastskewduration", stpxbpduskewingentry.Stpxbpduskewinglastskewduration}
-    stpxbpduskewingentry.EntityData.Leafs["stpxBpduSkewingWorstSkewDuration"] = types.YLeaf{"Stpxbpduskewingworstskewduration", stpxbpduskewingentry.Stpxbpduskewingworstskewduration}
-    stpxbpduskewingentry.EntityData.Leafs["stpxBpduSkewingWorstSkewTime"] = types.YLeaf{"Stpxbpduskewingworstskewtime", stpxbpduskewingentry.Stpxbpduskewingworstskewtime}
-    return &(stpxbpduskewingentry.EntityData)
+    stpxBpduSkewingEntry.EntityData.Children = types.NewOrderedMap()
+    stpxBpduSkewingEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxBpduSkewingEntry.EntityData.Leafs.Append("stpxBpduSkewingInstanceIndex", types.YLeaf{"StpxBpduSkewingInstanceIndex", stpxBpduSkewingEntry.StpxBpduSkewingInstanceIndex})
+    stpxBpduSkewingEntry.EntityData.Leafs.Append("stpxBpduSkewingPortIndex", types.YLeaf{"StpxBpduSkewingPortIndex", stpxBpduSkewingEntry.StpxBpduSkewingPortIndex})
+    stpxBpduSkewingEntry.EntityData.Leafs.Append("stpxBpduSkewingLastSkewDuration", types.YLeaf{"StpxBpduSkewingLastSkewDuration", stpxBpduSkewingEntry.StpxBpduSkewingLastSkewDuration})
+    stpxBpduSkewingEntry.EntityData.Leafs.Append("stpxBpduSkewingWorstSkewDuration", types.YLeaf{"StpxBpduSkewingWorstSkewDuration", stpxBpduSkewingEntry.StpxBpduSkewingWorstSkewDuration})
+    stpxBpduSkewingEntry.EntityData.Leafs.Append("stpxBpduSkewingWorstSkewTime", types.YLeaf{"StpxBpduSkewingWorstSkewTime", stpxBpduSkewingEntry.StpxBpduSkewingWorstSkewTime})
+
+    stpxBpduSkewingEntry.EntityData.YListKeys = []string {"StpxBpduSkewingInstanceIndex", "StpxBpduSkewingPortIndex"}
+
+    return &(stpxBpduSkewingEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxmstinstancetable
+// CISCOSTPEXTENSIONSMIB_StpxMSTInstanceTable
 // This table contains MST instance information with
 // one entry for an MST instance within the range of 
 // 0 to the object value of stpxMSTMaxInstanceNumber. 
 // 
 // This table is deprecated and replaced by 
 // stpxSMSTInstanceTable.
-type CISCOSTPEXTENSIONSMIB_Stpxmstinstancetable struct {
+type CISCOSTPEXTENSIONSMIB_StpxMSTInstanceTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row containing the MST instance  information. The type is
-    // slice of CISCOSTPEXTENSIONSMIB_Stpxmstinstancetable_Stpxmstinstanceentry.
-    Stpxmstinstanceentry []CISCOSTPEXTENSIONSMIB_Stpxmstinstancetable_Stpxmstinstanceentry
+    // slice of CISCOSTPEXTENSIONSMIB_StpxMSTInstanceTable_StpxMSTInstanceEntry.
+    StpxMSTInstanceEntry []*CISCOSTPEXTENSIONSMIB_StpxMSTInstanceTable_StpxMSTInstanceEntry
 }
 
-func (stpxmstinstancetable *CISCOSTPEXTENSIONSMIB_Stpxmstinstancetable) GetEntityData() *types.CommonEntityData {
-    stpxmstinstancetable.EntityData.YFilter = stpxmstinstancetable.YFilter
-    stpxmstinstancetable.EntityData.YangName = "stpxMSTInstanceTable"
-    stpxmstinstancetable.EntityData.BundleName = "cisco_ios_xe"
-    stpxmstinstancetable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxmstinstancetable.EntityData.SegmentPath = "stpxMSTInstanceTable"
-    stpxmstinstancetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxmstinstancetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxmstinstancetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxMSTInstanceTable *CISCOSTPEXTENSIONSMIB_StpxMSTInstanceTable) GetEntityData() *types.CommonEntityData {
+    stpxMSTInstanceTable.EntityData.YFilter = stpxMSTInstanceTable.YFilter
+    stpxMSTInstanceTable.EntityData.YangName = "stpxMSTInstanceTable"
+    stpxMSTInstanceTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxMSTInstanceTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxMSTInstanceTable.EntityData.SegmentPath = "stpxMSTInstanceTable"
+    stpxMSTInstanceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxMSTInstanceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxMSTInstanceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxmstinstancetable.EntityData.Children = make(map[string]types.YChild)
-    stpxmstinstancetable.EntityData.Children["stpxMSTInstanceEntry"] = types.YChild{"Stpxmstinstanceentry", nil}
-    for i := range stpxmstinstancetable.Stpxmstinstanceentry {
-        stpxmstinstancetable.EntityData.Children[types.GetSegmentPath(&stpxmstinstancetable.Stpxmstinstanceentry[i])] = types.YChild{"Stpxmstinstanceentry", &stpxmstinstancetable.Stpxmstinstanceentry[i]}
+    stpxMSTInstanceTable.EntityData.Children = types.NewOrderedMap()
+    stpxMSTInstanceTable.EntityData.Children.Append("stpxMSTInstanceEntry", types.YChild{"StpxMSTInstanceEntry", nil})
+    for i := range stpxMSTInstanceTable.StpxMSTInstanceEntry {
+        stpxMSTInstanceTable.EntityData.Children.Append(types.GetSegmentPath(stpxMSTInstanceTable.StpxMSTInstanceEntry[i]), types.YChild{"StpxMSTInstanceEntry", stpxMSTInstanceTable.StpxMSTInstanceEntry[i]})
     }
-    stpxmstinstancetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxmstinstancetable.EntityData)
+    stpxMSTInstanceTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxMSTInstanceTable.EntityData.YListKeys = []string {}
+
+    return &(stpxMSTInstanceTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxmstinstancetable_Stpxmstinstanceentry
+// CISCOSTPEXTENSIONSMIB_StpxMSTInstanceTable_StpxMSTInstanceEntry
 // A conceptual row containing the MST instance 
 // information.
-type CISCOSTPEXTENSIONSMIB_Stpxmstinstancetable_Stpxmstinstanceentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxMSTInstanceTable_StpxMSTInstanceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1774,7 +1870,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxmstinstancetable_Stpxmstinstanceentry struct {
     // instance  within the range of 0 to the object value of
     // stpxMSTMaxInstanceNumber.  This object is deprecated and replaced by 
     // stpxSMSTInstanceIndex. The type is interface{} with range: 0..256.
-    Stpxmstinstanceindex interface{}
+    StpxMSTInstanceIndex interface{}
 
     // A string of octets containing one bit per VLAN. The first octet corresponds
     // to VLANs with VlanIndex values of 0 through 7; the second octet to VLANs 8
@@ -1783,7 +1879,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxmstinstancetable_Stpxmstinstanceentry struct {
     // this MST instance,  then the bit corresponding to that VLAN is set to '1'. 
     // This object is deprecated and replaced by  stpxSMSTInstanceVlansMapped1k2k.
     // The type is string with length: 0..128.
-    Stpxmstinstancevlansmapped interface{}
+    StpxMSTInstanceVlansMapped interface{}
 
     // A string of octets containing one bit per VLAN for VLANS with VlanIndex
     // values of 1024 through 2047. The first octet corresponds to VLANs with
@@ -1793,7 +1889,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxmstinstancetable_Stpxmstinstanceentry struct {
     // to this MST instance,  then the bit corresponding to that VLAN is set to
     // '1'.  This object is deprecated and replaced by 
     // stpxSMSTInstanceVlansMapped1k2k. The type is string with length: 0..128.
-    Stpxmstinstancevlansmapped2K interface{}
+    StpxMSTInstanceVlansMapped2k interface{}
 
     // A string of octets containing one bit per VLAN for VLANS with VlanIndex
     // values of 2048 through 3071. The first octet corresponds to VLANs with
@@ -1803,7 +1899,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxmstinstancetable_Stpxmstinstanceentry struct {
     // to this MST instance,  then the bit corresponding to that VLAN is set to
     // '1'.  This object is deprecated and replaced by 
     // stpxSMSTInstanceVlansMapped3k4k. The type is string with length: 0..128.
-    Stpxmstinstancevlansmapped3K interface{}
+    StpxMSTInstanceVlansMapped3k interface{}
 
     // A string of octets containing one bit per VLAN for VLANS with VlanIndex
     // values of 3072 through 4095. The first octet corresponds to VLANs with
@@ -1813,7 +1909,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxmstinstancetable_Stpxmstinstanceentry struct {
     // to this MST instance,  then the bit corresponding to that VLAN is set to
     // '1'.  This object is deprecated and replaced by
     // stpxSMSTInstanceVlansMapped3k4k. The type is string with length: 0..128.
-    Stpxmstinstancevlansmapped4K interface{}
+    StpxMSTInstanceVlansMapped4k interface{}
 
     // The remaining hop count for this MST instance.  This object will take on
     // value of 40 if the object value of stpxSMSTInstanceRemainingHopCount is
@@ -1821,31 +1917,34 @@ type CISCOSTPEXTENSIONSMIB_Stpxmstinstancetable_Stpxmstinstanceentry struct {
     // stpxSpanningTreeType is mst(4).  This object is deprecated and replaced by 
     // stpxSMSTInstanceRemainingHopCount. The type is interface{} with range:
     // 0..40.
-    Stpxmstinstanceremaininghopcount interface{}
+    StpxMSTInstanceRemainingHopCount interface{}
 }
 
-func (stpxmstinstanceentry *CISCOSTPEXTENSIONSMIB_Stpxmstinstancetable_Stpxmstinstanceentry) GetEntityData() *types.CommonEntityData {
-    stpxmstinstanceentry.EntityData.YFilter = stpxmstinstanceentry.YFilter
-    stpxmstinstanceentry.EntityData.YangName = "stpxMSTInstanceEntry"
-    stpxmstinstanceentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxmstinstanceentry.EntityData.ParentYangName = "stpxMSTInstanceTable"
-    stpxmstinstanceentry.EntityData.SegmentPath = "stpxMSTInstanceEntry" + "[stpxMSTInstanceIndex='" + fmt.Sprintf("%v", stpxmstinstanceentry.Stpxmstinstanceindex) + "']"
-    stpxmstinstanceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxmstinstanceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxmstinstanceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxMSTInstanceEntry *CISCOSTPEXTENSIONSMIB_StpxMSTInstanceTable_StpxMSTInstanceEntry) GetEntityData() *types.CommonEntityData {
+    stpxMSTInstanceEntry.EntityData.YFilter = stpxMSTInstanceEntry.YFilter
+    stpxMSTInstanceEntry.EntityData.YangName = "stpxMSTInstanceEntry"
+    stpxMSTInstanceEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxMSTInstanceEntry.EntityData.ParentYangName = "stpxMSTInstanceTable"
+    stpxMSTInstanceEntry.EntityData.SegmentPath = "stpxMSTInstanceEntry" + types.AddKeyToken(stpxMSTInstanceEntry.StpxMSTInstanceIndex, "stpxMSTInstanceIndex")
+    stpxMSTInstanceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxMSTInstanceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxMSTInstanceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxmstinstanceentry.EntityData.Children = make(map[string]types.YChild)
-    stpxmstinstanceentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxmstinstanceentry.EntityData.Leafs["stpxMSTInstanceIndex"] = types.YLeaf{"Stpxmstinstanceindex", stpxmstinstanceentry.Stpxmstinstanceindex}
-    stpxmstinstanceentry.EntityData.Leafs["stpxMSTInstanceVlansMapped"] = types.YLeaf{"Stpxmstinstancevlansmapped", stpxmstinstanceentry.Stpxmstinstancevlansmapped}
-    stpxmstinstanceentry.EntityData.Leafs["stpxMSTInstanceVlansMapped2k"] = types.YLeaf{"Stpxmstinstancevlansmapped2K", stpxmstinstanceentry.Stpxmstinstancevlansmapped2K}
-    stpxmstinstanceentry.EntityData.Leafs["stpxMSTInstanceVlansMapped3k"] = types.YLeaf{"Stpxmstinstancevlansmapped3K", stpxmstinstanceentry.Stpxmstinstancevlansmapped3K}
-    stpxmstinstanceentry.EntityData.Leafs["stpxMSTInstanceVlansMapped4k"] = types.YLeaf{"Stpxmstinstancevlansmapped4K", stpxmstinstanceentry.Stpxmstinstancevlansmapped4K}
-    stpxmstinstanceentry.EntityData.Leafs["stpxMSTInstanceRemainingHopCount"] = types.YLeaf{"Stpxmstinstanceremaininghopcount", stpxmstinstanceentry.Stpxmstinstanceremaininghopcount}
-    return &(stpxmstinstanceentry.EntityData)
+    stpxMSTInstanceEntry.EntityData.Children = types.NewOrderedMap()
+    stpxMSTInstanceEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxMSTInstanceEntry.EntityData.Leafs.Append("stpxMSTInstanceIndex", types.YLeaf{"StpxMSTInstanceIndex", stpxMSTInstanceEntry.StpxMSTInstanceIndex})
+    stpxMSTInstanceEntry.EntityData.Leafs.Append("stpxMSTInstanceVlansMapped", types.YLeaf{"StpxMSTInstanceVlansMapped", stpxMSTInstanceEntry.StpxMSTInstanceVlansMapped})
+    stpxMSTInstanceEntry.EntityData.Leafs.Append("stpxMSTInstanceVlansMapped2k", types.YLeaf{"StpxMSTInstanceVlansMapped2k", stpxMSTInstanceEntry.StpxMSTInstanceVlansMapped2k})
+    stpxMSTInstanceEntry.EntityData.Leafs.Append("stpxMSTInstanceVlansMapped3k", types.YLeaf{"StpxMSTInstanceVlansMapped3k", stpxMSTInstanceEntry.StpxMSTInstanceVlansMapped3k})
+    stpxMSTInstanceEntry.EntityData.Leafs.Append("stpxMSTInstanceVlansMapped4k", types.YLeaf{"StpxMSTInstanceVlansMapped4k", stpxMSTInstanceEntry.StpxMSTInstanceVlansMapped4k})
+    stpxMSTInstanceEntry.EntityData.Leafs.Append("stpxMSTInstanceRemainingHopCount", types.YLeaf{"StpxMSTInstanceRemainingHopCount", stpxMSTInstanceEntry.StpxMSTInstanceRemainingHopCount})
+
+    stpxMSTInstanceEntry.EntityData.YListKeys = []string {"StpxMSTInstanceIndex"}
+
+    return &(stpxMSTInstanceEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxmstinstanceedittable
+// CISCOSTPEXTENSIONSMIB_StpxMSTInstanceEditTable
 // This table contains MST instance information in the 
 // Edit Buffer with one entry for each MST
 // instance numbered from 0 to stpxMSTMaxInstanceNumber. 
@@ -1856,39 +1955,42 @@ func (stpxmstinstanceentry *CISCOSTPEXTENSIONSMIB_Stpxmstinstancetable_Stpxmstin
 // 
 // This table is deprecated and replaced by 
 // stpxSMSTInstanceEditTable.
-type CISCOSTPEXTENSIONSMIB_Stpxmstinstanceedittable struct {
+type CISCOSTPEXTENSIONSMIB_StpxMSTInstanceEditTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row containing MST instance information  in the Edit Buffer.
     // The type is slice of
-    // CISCOSTPEXTENSIONSMIB_Stpxmstinstanceedittable_Stpxmstinstanceeditentry.
-    Stpxmstinstanceeditentry []CISCOSTPEXTENSIONSMIB_Stpxmstinstanceedittable_Stpxmstinstanceeditentry
+    // CISCOSTPEXTENSIONSMIB_StpxMSTInstanceEditTable_StpxMSTInstanceEditEntry.
+    StpxMSTInstanceEditEntry []*CISCOSTPEXTENSIONSMIB_StpxMSTInstanceEditTable_StpxMSTInstanceEditEntry
 }
 
-func (stpxmstinstanceedittable *CISCOSTPEXTENSIONSMIB_Stpxmstinstanceedittable) GetEntityData() *types.CommonEntityData {
-    stpxmstinstanceedittable.EntityData.YFilter = stpxmstinstanceedittable.YFilter
-    stpxmstinstanceedittable.EntityData.YangName = "stpxMSTInstanceEditTable"
-    stpxmstinstanceedittable.EntityData.BundleName = "cisco_ios_xe"
-    stpxmstinstanceedittable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxmstinstanceedittable.EntityData.SegmentPath = "stpxMSTInstanceEditTable"
-    stpxmstinstanceedittable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxmstinstanceedittable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxmstinstanceedittable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxMSTInstanceEditTable *CISCOSTPEXTENSIONSMIB_StpxMSTInstanceEditTable) GetEntityData() *types.CommonEntityData {
+    stpxMSTInstanceEditTable.EntityData.YFilter = stpxMSTInstanceEditTable.YFilter
+    stpxMSTInstanceEditTable.EntityData.YangName = "stpxMSTInstanceEditTable"
+    stpxMSTInstanceEditTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxMSTInstanceEditTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxMSTInstanceEditTable.EntityData.SegmentPath = "stpxMSTInstanceEditTable"
+    stpxMSTInstanceEditTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxMSTInstanceEditTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxMSTInstanceEditTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxmstinstanceedittable.EntityData.Children = make(map[string]types.YChild)
-    stpxmstinstanceedittable.EntityData.Children["stpxMSTInstanceEditEntry"] = types.YChild{"Stpxmstinstanceeditentry", nil}
-    for i := range stpxmstinstanceedittable.Stpxmstinstanceeditentry {
-        stpxmstinstanceedittable.EntityData.Children[types.GetSegmentPath(&stpxmstinstanceedittable.Stpxmstinstanceeditentry[i])] = types.YChild{"Stpxmstinstanceeditentry", &stpxmstinstanceedittable.Stpxmstinstanceeditentry[i]}
+    stpxMSTInstanceEditTable.EntityData.Children = types.NewOrderedMap()
+    stpxMSTInstanceEditTable.EntityData.Children.Append("stpxMSTInstanceEditEntry", types.YChild{"StpxMSTInstanceEditEntry", nil})
+    for i := range stpxMSTInstanceEditTable.StpxMSTInstanceEditEntry {
+        stpxMSTInstanceEditTable.EntityData.Children.Append(types.GetSegmentPath(stpxMSTInstanceEditTable.StpxMSTInstanceEditEntry[i]), types.YChild{"StpxMSTInstanceEditEntry", stpxMSTInstanceEditTable.StpxMSTInstanceEditEntry[i]})
     }
-    stpxmstinstanceedittable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxmstinstanceedittable.EntityData)
+    stpxMSTInstanceEditTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxMSTInstanceEditTable.EntityData.YListKeys = []string {}
+
+    return &(stpxMSTInstanceEditTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxmstinstanceedittable_Stpxmstinstanceeditentry
+// CISCOSTPEXTENSIONSMIB_StpxMSTInstanceEditTable_StpxMSTInstanceEditEntry
 // A conceptual row containing MST instance information 
 // in the Edit Buffer.
-type CISCOSTPEXTENSIONSMIB_Stpxmstinstanceedittable_Stpxmstinstanceeditentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxMSTInstanceEditTable_StpxMSTInstanceEditEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1897,7 +1999,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxmstinstanceedittable_Stpxmstinstanceeditentry str
     // instances of this table entry with  stpxMSTInstanceEditIndex of zero can
     // not be  modified.  This object is deprecated and replaced by 
     // stpxSMSTInstanceEditIndex. The type is interface{} with range: 0..256.
-    Stpxmstinstanceeditindex interface{}
+    StpxMSTInstanceEditIndex interface{}
 
     // A string of octets containing one bit per VLAN. The first octet corresponds
     // to VLANs with VlanIndex values of 0 through 7; the second octet to VLANs 8
@@ -1909,7 +2011,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxmstinstanceedittable_Stpxmstinstanceeditentry str
     // changed from '1'  to '0', then that VLAN will be automatically mapped to 
     // MST instance 0 by the device.  This object is deprecated and replaced by 
     // stpxSMSTInstanceEditVlansMap1k2k. The type is string with length: 0..128.
-    Stpxmstinstanceeditvlansmap interface{}
+    StpxMSTInstanceEditVlansMap interface{}
 
     // A string of octets containing one bit per VLAN for VLANS with VlanIndex
     // values of 1024 through 2047. The first octet corresponds to VLANs with
@@ -1922,7 +2024,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxmstinstanceedittable_Stpxmstinstanceeditentry str
     // changed from '1'  to '0', then that VLAN will be automatically mapped to 
     // MST instance 0 by the device.  This object is deprecated and replaced by 
     // stpxSMSTInstanceEditVlansMap1k2k. The type is string with length: 0..128.
-    Stpxmstinstanceeditvlansmap2K interface{}
+    StpxMSTInstanceEditVlansMap2k interface{}
 
     // A string of octets containing one bit per VLAN for VLANS with VlanIndex
     // values of 2048 through 3071. The first octet corresponds to VLANs with
@@ -1935,7 +2037,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxmstinstanceedittable_Stpxmstinstanceeditentry str
     // changed from '1'  to '0', then that VLAN will be automatically mapped to 
     // MST instance 0 by the device.  This object is deprecated and replaced by 
     // stpxSMSTInstanceEditVlansMap3k4k. The type is string with length: 0..128.
-    Stpxmstinstanceeditvlansmap3K interface{}
+    StpxMSTInstanceEditVlansMap3k interface{}
 
     // A string of octets containing one bit per VLAN for VLANS with VlanIndex
     // values of 3072 through 4095. The first octet corresponds to VLANs with
@@ -1948,71 +2050,77 @@ type CISCOSTPEXTENSIONSMIB_Stpxmstinstanceedittable_Stpxmstinstanceeditentry str
     // changed from '1'  to '0', then that VLAN will be automatically mapped to 
     // MST instance 0 by the device.  This object is deprecated and replaced by
     // stpxSMSTInstanceEditVlansMap3k4k. The type is string with length: 0..128.
-    Stpxmstinstanceeditvlansmap4K interface{}
+    StpxMSTInstanceEditVlansMap4k interface{}
 }
 
-func (stpxmstinstanceeditentry *CISCOSTPEXTENSIONSMIB_Stpxmstinstanceedittable_Stpxmstinstanceeditentry) GetEntityData() *types.CommonEntityData {
-    stpxmstinstanceeditentry.EntityData.YFilter = stpxmstinstanceeditentry.YFilter
-    stpxmstinstanceeditentry.EntityData.YangName = "stpxMSTInstanceEditEntry"
-    stpxmstinstanceeditentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxmstinstanceeditentry.EntityData.ParentYangName = "stpxMSTInstanceEditTable"
-    stpxmstinstanceeditentry.EntityData.SegmentPath = "stpxMSTInstanceEditEntry" + "[stpxMSTInstanceEditIndex='" + fmt.Sprintf("%v", stpxmstinstanceeditentry.Stpxmstinstanceeditindex) + "']"
-    stpxmstinstanceeditentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxmstinstanceeditentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxmstinstanceeditentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxMSTInstanceEditEntry *CISCOSTPEXTENSIONSMIB_StpxMSTInstanceEditTable_StpxMSTInstanceEditEntry) GetEntityData() *types.CommonEntityData {
+    stpxMSTInstanceEditEntry.EntityData.YFilter = stpxMSTInstanceEditEntry.YFilter
+    stpxMSTInstanceEditEntry.EntityData.YangName = "stpxMSTInstanceEditEntry"
+    stpxMSTInstanceEditEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxMSTInstanceEditEntry.EntityData.ParentYangName = "stpxMSTInstanceEditTable"
+    stpxMSTInstanceEditEntry.EntityData.SegmentPath = "stpxMSTInstanceEditEntry" + types.AddKeyToken(stpxMSTInstanceEditEntry.StpxMSTInstanceEditIndex, "stpxMSTInstanceEditIndex")
+    stpxMSTInstanceEditEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxMSTInstanceEditEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxMSTInstanceEditEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxmstinstanceeditentry.EntityData.Children = make(map[string]types.YChild)
-    stpxmstinstanceeditentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxmstinstanceeditentry.EntityData.Leafs["stpxMSTInstanceEditIndex"] = types.YLeaf{"Stpxmstinstanceeditindex", stpxmstinstanceeditentry.Stpxmstinstanceeditindex}
-    stpxmstinstanceeditentry.EntityData.Leafs["stpxMSTInstanceEditVlansMap"] = types.YLeaf{"Stpxmstinstanceeditvlansmap", stpxmstinstanceeditentry.Stpxmstinstanceeditvlansmap}
-    stpxmstinstanceeditentry.EntityData.Leafs["stpxMSTInstanceEditVlansMap2k"] = types.YLeaf{"Stpxmstinstanceeditvlansmap2K", stpxmstinstanceeditentry.Stpxmstinstanceeditvlansmap2K}
-    stpxmstinstanceeditentry.EntityData.Leafs["stpxMSTInstanceEditVlansMap3k"] = types.YLeaf{"Stpxmstinstanceeditvlansmap3K", stpxmstinstanceeditentry.Stpxmstinstanceeditvlansmap3K}
-    stpxmstinstanceeditentry.EntityData.Leafs["stpxMSTInstanceEditVlansMap4k"] = types.YLeaf{"Stpxmstinstanceeditvlansmap4K", stpxmstinstanceeditentry.Stpxmstinstanceeditvlansmap4K}
-    return &(stpxmstinstanceeditentry.EntityData)
+    stpxMSTInstanceEditEntry.EntityData.Children = types.NewOrderedMap()
+    stpxMSTInstanceEditEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxMSTInstanceEditEntry.EntityData.Leafs.Append("stpxMSTInstanceEditIndex", types.YLeaf{"StpxMSTInstanceEditIndex", stpxMSTInstanceEditEntry.StpxMSTInstanceEditIndex})
+    stpxMSTInstanceEditEntry.EntityData.Leafs.Append("stpxMSTInstanceEditVlansMap", types.YLeaf{"StpxMSTInstanceEditVlansMap", stpxMSTInstanceEditEntry.StpxMSTInstanceEditVlansMap})
+    stpxMSTInstanceEditEntry.EntityData.Leafs.Append("stpxMSTInstanceEditVlansMap2k", types.YLeaf{"StpxMSTInstanceEditVlansMap2k", stpxMSTInstanceEditEntry.StpxMSTInstanceEditVlansMap2k})
+    stpxMSTInstanceEditEntry.EntityData.Leafs.Append("stpxMSTInstanceEditVlansMap3k", types.YLeaf{"StpxMSTInstanceEditVlansMap3k", stpxMSTInstanceEditEntry.StpxMSTInstanceEditVlansMap3k})
+    stpxMSTInstanceEditEntry.EntityData.Leafs.Append("stpxMSTInstanceEditVlansMap4k", types.YLeaf{"StpxMSTInstanceEditVlansMap4k", stpxMSTInstanceEditEntry.StpxMSTInstanceEditVlansMap4k})
+
+    stpxMSTInstanceEditEntry.EntityData.YListKeys = []string {"StpxMSTInstanceEditIndex"}
+
+    return &(stpxMSTInstanceEditEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxmstporttable
+// CISCOSTPEXTENSIONSMIB_StpxMSTPortTable
 // A table containing port information for the MST 
 // Protocol on all the bridge ports existing on the 
 // system.
-type CISCOSTPEXTENSIONSMIB_Stpxmstporttable struct {
+type CISCOSTPEXTENSIONSMIB_StpxMSTPortTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry with port information for the MST Protocol on a bridge port. The
-    // type is slice of CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry.
-    Stpxmstportentry []CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry
+    // type is slice of CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry.
+    StpxMSTPortEntry []*CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry
 }
 
-func (stpxmstporttable *CISCOSTPEXTENSIONSMIB_Stpxmstporttable) GetEntityData() *types.CommonEntityData {
-    stpxmstporttable.EntityData.YFilter = stpxmstporttable.YFilter
-    stpxmstporttable.EntityData.YangName = "stpxMSTPortTable"
-    stpxmstporttable.EntityData.BundleName = "cisco_ios_xe"
-    stpxmstporttable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxmstporttable.EntityData.SegmentPath = "stpxMSTPortTable"
-    stpxmstporttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxmstporttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxmstporttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxMSTPortTable *CISCOSTPEXTENSIONSMIB_StpxMSTPortTable) GetEntityData() *types.CommonEntityData {
+    stpxMSTPortTable.EntityData.YFilter = stpxMSTPortTable.YFilter
+    stpxMSTPortTable.EntityData.YangName = "stpxMSTPortTable"
+    stpxMSTPortTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxMSTPortTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxMSTPortTable.EntityData.SegmentPath = "stpxMSTPortTable"
+    stpxMSTPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxMSTPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxMSTPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxmstporttable.EntityData.Children = make(map[string]types.YChild)
-    stpxmstporttable.EntityData.Children["stpxMSTPortEntry"] = types.YChild{"Stpxmstportentry", nil}
-    for i := range stpxmstporttable.Stpxmstportentry {
-        stpxmstporttable.EntityData.Children[types.GetSegmentPath(&stpxmstporttable.Stpxmstportentry[i])] = types.YChild{"Stpxmstportentry", &stpxmstporttable.Stpxmstportentry[i]}
+    stpxMSTPortTable.EntityData.Children = types.NewOrderedMap()
+    stpxMSTPortTable.EntityData.Children.Append("stpxMSTPortEntry", types.YChild{"StpxMSTPortEntry", nil})
+    for i := range stpxMSTPortTable.StpxMSTPortEntry {
+        stpxMSTPortTable.EntityData.Children.Append(types.GetSegmentPath(stpxMSTPortTable.StpxMSTPortEntry[i]), types.YChild{"StpxMSTPortEntry", stpxMSTPortTable.StpxMSTPortEntry[i]})
     }
-    stpxmstporttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxmstporttable.EntityData)
+    stpxMSTPortTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxMSTPortTable.EntityData.YListKeys = []string {}
+
+    return &(stpxMSTPortTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry
+// CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry
 // An entry with port information for the MST Protocol
 // on a bridge port.
-type CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
-    Stpxmstportindex interface{}
+    StpxMSTPortIndex interface{}
 
     // Indicates the administrative link type configuration of  a bridge port for
     // the MST protocol.   pointToPoint -- the port is administratively configured
@@ -2026,8 +2134,8 @@ type CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry struct {
     // port will be taken as shared(2).  This configuration of this object only
     // takes effect when the stpxSpanningTreeType is mst(4) or rapidPvstPlus(5).
     // stpxMSTPortAdminLinkType is deprecated and replaced  with
-    // stpxRSTPPortAdminLinkType. The type is Stpxmstportadminlinktype.
-    Stpxmstportadminlinktype interface{}
+    // stpxRSTPPortAdminLinkType. The type is StpxMSTPortAdminLinkType.
+    StpxMSTPortAdminLinkType interface{}
 
     // Indicates the operational link type of a bridge port for the MST protocol. 
     // pointToPoint -- the port is operationally connected to         a
@@ -2035,8 +2143,8 @@ type CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry struct {
     // a shared medium.  other -- none of the above.  This object is only
     // instantiated when the object value of stpxSpanningTreeType is mst(4). 
     // stpxMSTPortOperLinkType  is deprecated and replaced with
-    // stpxRSTPPortOperLinkType. The type is Stpxmstportoperlinktype.
-    Stpxmstportoperlinktype interface{}
+    // stpxRSTPPortOperLinkType. The type is StpxMSTPortOperLinkType.
+    StpxMSTPortOperLinkType interface{}
 
     // The protocol migration control on this port. When the  object value of 
     // stpxSpanningTreeType is mst(4) or  rapidPvstPlus(5), setting true(1) to
@@ -2046,7 +2154,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry struct {
     // false(2) to this object has  no effect. This object always returns false(2)
     // when read. stpxMSTPortProtocolMigration is deprecated and  replaced with
     // stpxRSTPPortProtocolMigration. The type is bool.
-    Stpxmstportprotocolmigration interface{}
+    StpxMSTPortProtocolMigration interface{}
 
     // Indicates the operational status of the port for the  MST protocol.   edge
     // -- this port is an edge port for the MST region.  boundary -- this port is
@@ -2056,102 +2164,108 @@ type CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry struct {
     // when the object value of stpxSpanningTreeType is mst(4).  This object is
     // deprecated and replaced by  stpxSMSTPortStatus. The type is
     // map[string]bool.
-    Stpxmstportstatus interface{}
+    StpxMSTPortStatus interface{}
 }
 
-func (stpxmstportentry *CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry) GetEntityData() *types.CommonEntityData {
-    stpxmstportentry.EntityData.YFilter = stpxmstportentry.YFilter
-    stpxmstportentry.EntityData.YangName = "stpxMSTPortEntry"
-    stpxmstportentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxmstportentry.EntityData.ParentYangName = "stpxMSTPortTable"
-    stpxmstportentry.EntityData.SegmentPath = "stpxMSTPortEntry" + "[stpxMSTPortIndex='" + fmt.Sprintf("%v", stpxmstportentry.Stpxmstportindex) + "']"
-    stpxmstportentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxmstportentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxmstportentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxMSTPortEntry *CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry) GetEntityData() *types.CommonEntityData {
+    stpxMSTPortEntry.EntityData.YFilter = stpxMSTPortEntry.YFilter
+    stpxMSTPortEntry.EntityData.YangName = "stpxMSTPortEntry"
+    stpxMSTPortEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxMSTPortEntry.EntityData.ParentYangName = "stpxMSTPortTable"
+    stpxMSTPortEntry.EntityData.SegmentPath = "stpxMSTPortEntry" + types.AddKeyToken(stpxMSTPortEntry.StpxMSTPortIndex, "stpxMSTPortIndex")
+    stpxMSTPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxMSTPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxMSTPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxmstportentry.EntityData.Children = make(map[string]types.YChild)
-    stpxmstportentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxmstportentry.EntityData.Leafs["stpxMSTPortIndex"] = types.YLeaf{"Stpxmstportindex", stpxmstportentry.Stpxmstportindex}
-    stpxmstportentry.EntityData.Leafs["stpxMSTPortAdminLinkType"] = types.YLeaf{"Stpxmstportadminlinktype", stpxmstportentry.Stpxmstportadminlinktype}
-    stpxmstportentry.EntityData.Leafs["stpxMSTPortOperLinkType"] = types.YLeaf{"Stpxmstportoperlinktype", stpxmstportentry.Stpxmstportoperlinktype}
-    stpxmstportentry.EntityData.Leafs["stpxMSTPortProtocolMigration"] = types.YLeaf{"Stpxmstportprotocolmigration", stpxmstportentry.Stpxmstportprotocolmigration}
-    stpxmstportentry.EntityData.Leafs["stpxMSTPortStatus"] = types.YLeaf{"Stpxmstportstatus", stpxmstportentry.Stpxmstportstatus}
-    return &(stpxmstportentry.EntityData)
+    stpxMSTPortEntry.EntityData.Children = types.NewOrderedMap()
+    stpxMSTPortEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxMSTPortEntry.EntityData.Leafs.Append("stpxMSTPortIndex", types.YLeaf{"StpxMSTPortIndex", stpxMSTPortEntry.StpxMSTPortIndex})
+    stpxMSTPortEntry.EntityData.Leafs.Append("stpxMSTPortAdminLinkType", types.YLeaf{"StpxMSTPortAdminLinkType", stpxMSTPortEntry.StpxMSTPortAdminLinkType})
+    stpxMSTPortEntry.EntityData.Leafs.Append("stpxMSTPortOperLinkType", types.YLeaf{"StpxMSTPortOperLinkType", stpxMSTPortEntry.StpxMSTPortOperLinkType})
+    stpxMSTPortEntry.EntityData.Leafs.Append("stpxMSTPortProtocolMigration", types.YLeaf{"StpxMSTPortProtocolMigration", stpxMSTPortEntry.StpxMSTPortProtocolMigration})
+    stpxMSTPortEntry.EntityData.Leafs.Append("stpxMSTPortStatus", types.YLeaf{"StpxMSTPortStatus", stpxMSTPortEntry.StpxMSTPortStatus})
+
+    stpxMSTPortEntry.EntityData.YListKeys = []string {"StpxMSTPortIndex"}
+
+    return &(stpxMSTPortEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry_Stpxmstportadminlinktype represents with stpxRSTPPortAdminLinkType.
-type CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry_Stpxmstportadminlinktype string
+// CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry_StpxMSTPortAdminLinkType represents with stpxRSTPPortAdminLinkType.
+type CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry_StpxMSTPortAdminLinkType string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry_Stpxmstportadminlinktype_pointToPoint CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry_Stpxmstportadminlinktype = "pointToPoint"
+    CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry_StpxMSTPortAdminLinkType_pointToPoint CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry_StpxMSTPortAdminLinkType = "pointToPoint"
 
-    CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry_Stpxmstportadminlinktype_shared CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry_Stpxmstportadminlinktype = "shared"
+    CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry_StpxMSTPortAdminLinkType_shared CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry_StpxMSTPortAdminLinkType = "shared"
 
-    CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry_Stpxmstportadminlinktype_auto CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry_Stpxmstportadminlinktype = "auto"
+    CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry_StpxMSTPortAdminLinkType_auto CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry_StpxMSTPortAdminLinkType = "auto"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry_Stpxmstportoperlinktype represents is deprecated and replaced with stpxRSTPPortOperLinkType.
-type CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry_Stpxmstportoperlinktype string
+// CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry_StpxMSTPortOperLinkType represents is deprecated and replaced with stpxRSTPPortOperLinkType.
+type CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry_StpxMSTPortOperLinkType string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry_Stpxmstportoperlinktype_pointToPoint CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry_Stpxmstportoperlinktype = "pointToPoint"
+    CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry_StpxMSTPortOperLinkType_pointToPoint CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry_StpxMSTPortOperLinkType = "pointToPoint"
 
-    CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry_Stpxmstportoperlinktype_shared CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry_Stpxmstportoperlinktype = "shared"
+    CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry_StpxMSTPortOperLinkType_shared CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry_StpxMSTPortOperLinkType = "shared"
 
-    CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry_Stpxmstportoperlinktype_other CISCOSTPEXTENSIONSMIB_Stpxmstporttable_Stpxmstportentry_Stpxmstportoperlinktype = "other"
+    CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry_StpxMSTPortOperLinkType_other CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry_StpxMSTPortOperLinkType = "other"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxmstportroletable
+// CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable
 // A table containing a list of the bridge ports for a 
 // particular MST instance.  This table is only instantiated 
 // when the stpxSpanningTreeType is mst(4). 
 // 
 // This table is deprecated and replaced with 
 // stpxRSTPPortRoleTable.
-type CISCOSTPEXTENSIONSMIB_Stpxmstportroletable struct {
+type CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing the port role information for the MST protocol on a
     // port for a particular MST instance existing on the system. The type is
-    // slice of CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry.
-    Stpxmstportroleentry []CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry
+    // slice of CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry.
+    StpxMSTPortRoleEntry []*CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry
 }
 
-func (stpxmstportroletable *CISCOSTPEXTENSIONSMIB_Stpxmstportroletable) GetEntityData() *types.CommonEntityData {
-    stpxmstportroletable.EntityData.YFilter = stpxmstportroletable.YFilter
-    stpxmstportroletable.EntityData.YangName = "stpxMSTPortRoleTable"
-    stpxmstportroletable.EntityData.BundleName = "cisco_ios_xe"
-    stpxmstportroletable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxmstportroletable.EntityData.SegmentPath = "stpxMSTPortRoleTable"
-    stpxmstportroletable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxmstportroletable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxmstportroletable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxMSTPortRoleTable *CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable) GetEntityData() *types.CommonEntityData {
+    stpxMSTPortRoleTable.EntityData.YFilter = stpxMSTPortRoleTable.YFilter
+    stpxMSTPortRoleTable.EntityData.YangName = "stpxMSTPortRoleTable"
+    stpxMSTPortRoleTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxMSTPortRoleTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxMSTPortRoleTable.EntityData.SegmentPath = "stpxMSTPortRoleTable"
+    stpxMSTPortRoleTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxMSTPortRoleTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxMSTPortRoleTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxmstportroletable.EntityData.Children = make(map[string]types.YChild)
-    stpxmstportroletable.EntityData.Children["stpxMSTPortRoleEntry"] = types.YChild{"Stpxmstportroleentry", nil}
-    for i := range stpxmstportroletable.Stpxmstportroleentry {
-        stpxmstportroletable.EntityData.Children[types.GetSegmentPath(&stpxmstportroletable.Stpxmstportroleentry[i])] = types.YChild{"Stpxmstportroleentry", &stpxmstportroletable.Stpxmstportroleentry[i]}
+    stpxMSTPortRoleTable.EntityData.Children = types.NewOrderedMap()
+    stpxMSTPortRoleTable.EntityData.Children.Append("stpxMSTPortRoleEntry", types.YChild{"StpxMSTPortRoleEntry", nil})
+    for i := range stpxMSTPortRoleTable.StpxMSTPortRoleEntry {
+        stpxMSTPortRoleTable.EntityData.Children.Append(types.GetSegmentPath(stpxMSTPortRoleTable.StpxMSTPortRoleEntry[i]), types.YChild{"StpxMSTPortRoleEntry", stpxMSTPortRoleTable.StpxMSTPortRoleEntry[i]})
     }
-    stpxmstportroletable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxmstportroletable.EntityData)
+    stpxMSTPortRoleTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxMSTPortRoleTable.EntityData.YListKeys = []string {}
+
+    return &(stpxMSTPortRoleTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry
+// CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry
 // An entry containing the port role information for the MST
 // protocol on a port for a particular MST instance existing
 // on the system.
-type CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The MST instance id within the range of 0 to
     // stpxMSTMaxInstanceNumber. The type is interface{} with range: 0..256.
-    Stpxmstportroleinstanceindex interface{}
+    StpxMSTPortRoleInstanceIndex interface{}
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
-    Stpxmstportroleportindex interface{}
+    StpxMSTPortRolePortIndex interface{}
 
     // Indicates the port role on a particular MST instance for the MST protocol. 
     // disabled --  this port has no role on this MST instance.   root -- this
@@ -2162,89 +2276,95 @@ type CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry struct {
     // this               MST instance.  boundary -- this port has the role of
     // boundary port on              this MST instance.  master -- this port has
     // the role of master port on           this MST instance. The type is
-    // Stpxmstportrolevalue.
-    Stpxmstportrolevalue interface{}
+    // StpxMSTPortRoleValue.
+    StpxMSTPortRoleValue interface{}
 }
 
-func (stpxmstportroleentry *CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry) GetEntityData() *types.CommonEntityData {
-    stpxmstportroleentry.EntityData.YFilter = stpxmstportroleentry.YFilter
-    stpxmstportroleentry.EntityData.YangName = "stpxMSTPortRoleEntry"
-    stpxmstportroleentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxmstportroleentry.EntityData.ParentYangName = "stpxMSTPortRoleTable"
-    stpxmstportroleentry.EntityData.SegmentPath = "stpxMSTPortRoleEntry" + "[stpxMSTPortRoleInstanceIndex='" + fmt.Sprintf("%v", stpxmstportroleentry.Stpxmstportroleinstanceindex) + "']" + "[stpxMSTPortRolePortIndex='" + fmt.Sprintf("%v", stpxmstportroleentry.Stpxmstportroleportindex) + "']"
-    stpxmstportroleentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxmstportroleentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxmstportroleentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxMSTPortRoleEntry *CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry) GetEntityData() *types.CommonEntityData {
+    stpxMSTPortRoleEntry.EntityData.YFilter = stpxMSTPortRoleEntry.YFilter
+    stpxMSTPortRoleEntry.EntityData.YangName = "stpxMSTPortRoleEntry"
+    stpxMSTPortRoleEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxMSTPortRoleEntry.EntityData.ParentYangName = "stpxMSTPortRoleTable"
+    stpxMSTPortRoleEntry.EntityData.SegmentPath = "stpxMSTPortRoleEntry" + types.AddKeyToken(stpxMSTPortRoleEntry.StpxMSTPortRoleInstanceIndex, "stpxMSTPortRoleInstanceIndex") + types.AddKeyToken(stpxMSTPortRoleEntry.StpxMSTPortRolePortIndex, "stpxMSTPortRolePortIndex")
+    stpxMSTPortRoleEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxMSTPortRoleEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxMSTPortRoleEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxmstportroleentry.EntityData.Children = make(map[string]types.YChild)
-    stpxmstportroleentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxmstportroleentry.EntityData.Leafs["stpxMSTPortRoleInstanceIndex"] = types.YLeaf{"Stpxmstportroleinstanceindex", stpxmstportroleentry.Stpxmstportroleinstanceindex}
-    stpxmstportroleentry.EntityData.Leafs["stpxMSTPortRolePortIndex"] = types.YLeaf{"Stpxmstportroleportindex", stpxmstportroleentry.Stpxmstportroleportindex}
-    stpxmstportroleentry.EntityData.Leafs["stpxMSTPortRoleValue"] = types.YLeaf{"Stpxmstportrolevalue", stpxmstportroleentry.Stpxmstportrolevalue}
-    return &(stpxmstportroleentry.EntityData)
+    stpxMSTPortRoleEntry.EntityData.Children = types.NewOrderedMap()
+    stpxMSTPortRoleEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxMSTPortRoleEntry.EntityData.Leafs.Append("stpxMSTPortRoleInstanceIndex", types.YLeaf{"StpxMSTPortRoleInstanceIndex", stpxMSTPortRoleEntry.StpxMSTPortRoleInstanceIndex})
+    stpxMSTPortRoleEntry.EntityData.Leafs.Append("stpxMSTPortRolePortIndex", types.YLeaf{"StpxMSTPortRolePortIndex", stpxMSTPortRoleEntry.StpxMSTPortRolePortIndex})
+    stpxMSTPortRoleEntry.EntityData.Leafs.Append("stpxMSTPortRoleValue", types.YLeaf{"StpxMSTPortRoleValue", stpxMSTPortRoleEntry.StpxMSTPortRoleValue})
+
+    stpxMSTPortRoleEntry.EntityData.YListKeys = []string {"StpxMSTPortRoleInstanceIndex", "StpxMSTPortRolePortIndex"}
+
+    return &(stpxMSTPortRoleEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry_Stpxmstportrolevalue represents           this MST instance.
-type CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry_Stpxmstportrolevalue string
+// CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry_StpxMSTPortRoleValue represents           this MST instance.
+type CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry_StpxMSTPortRoleValue string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry_Stpxmstportrolevalue_disabled CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry_Stpxmstportrolevalue = "disabled"
+    CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry_StpxMSTPortRoleValue_disabled CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry_StpxMSTPortRoleValue = "disabled"
 
-    CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry_Stpxmstportrolevalue_root CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry_Stpxmstportrolevalue = "root"
+    CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry_StpxMSTPortRoleValue_root CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry_StpxMSTPortRoleValue = "root"
 
-    CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry_Stpxmstportrolevalue_designated CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry_Stpxmstportrolevalue = "designated"
+    CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry_StpxMSTPortRoleValue_designated CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry_StpxMSTPortRoleValue = "designated"
 
-    CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry_Stpxmstportrolevalue_alternate CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry_Stpxmstportrolevalue = "alternate"
+    CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry_StpxMSTPortRoleValue_alternate CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry_StpxMSTPortRoleValue = "alternate"
 
-    CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry_Stpxmstportrolevalue_backUp CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry_Stpxmstportrolevalue = "backUp"
+    CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry_StpxMSTPortRoleValue_backUp CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry_StpxMSTPortRoleValue = "backUp"
 
-    CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry_Stpxmstportrolevalue_boundary CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry_Stpxmstportrolevalue = "boundary"
+    CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry_StpxMSTPortRoleValue_boundary CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry_StpxMSTPortRoleValue = "boundary"
 
-    CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry_Stpxmstportrolevalue_master CISCOSTPEXTENSIONSMIB_Stpxmstportroletable_Stpxmstportroleentry_Stpxmstportrolevalue = "master"
+    CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry_StpxMSTPortRoleValue_master CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry_StpxMSTPortRoleValue = "master"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxrstpporttable
+// CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable
 // A table containing port information for the RSTP 
 // Protocol on all the bridge ports existing in the 
 // system.
-type CISCOSTPEXTENSIONSMIB_Stpxrstpporttable struct {
+type CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry with port information for the RSTP Protocol on a bridge port. The
-    // type is slice of CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry.
-    Stpxrstpportentry []CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry
+    // type is slice of CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry.
+    StpxRSTPPortEntry []*CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry
 }
 
-func (stpxrstpporttable *CISCOSTPEXTENSIONSMIB_Stpxrstpporttable) GetEntityData() *types.CommonEntityData {
-    stpxrstpporttable.EntityData.YFilter = stpxrstpporttable.YFilter
-    stpxrstpporttable.EntityData.YangName = "stpxRSTPPortTable"
-    stpxrstpporttable.EntityData.BundleName = "cisco_ios_xe"
-    stpxrstpporttable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxrstpporttable.EntityData.SegmentPath = "stpxRSTPPortTable"
-    stpxrstpporttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxrstpporttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxrstpporttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxRSTPPortTable *CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable) GetEntityData() *types.CommonEntityData {
+    stpxRSTPPortTable.EntityData.YFilter = stpxRSTPPortTable.YFilter
+    stpxRSTPPortTable.EntityData.YangName = "stpxRSTPPortTable"
+    stpxRSTPPortTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxRSTPPortTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxRSTPPortTable.EntityData.SegmentPath = "stpxRSTPPortTable"
+    stpxRSTPPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxRSTPPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxRSTPPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxrstpporttable.EntityData.Children = make(map[string]types.YChild)
-    stpxrstpporttable.EntityData.Children["stpxRSTPPortEntry"] = types.YChild{"Stpxrstpportentry", nil}
-    for i := range stpxrstpporttable.Stpxrstpportentry {
-        stpxrstpporttable.EntityData.Children[types.GetSegmentPath(&stpxrstpporttable.Stpxrstpportentry[i])] = types.YChild{"Stpxrstpportentry", &stpxrstpporttable.Stpxrstpportentry[i]}
+    stpxRSTPPortTable.EntityData.Children = types.NewOrderedMap()
+    stpxRSTPPortTable.EntityData.Children.Append("stpxRSTPPortEntry", types.YChild{"StpxRSTPPortEntry", nil})
+    for i := range stpxRSTPPortTable.StpxRSTPPortEntry {
+        stpxRSTPPortTable.EntityData.Children.Append(types.GetSegmentPath(stpxRSTPPortTable.StpxRSTPPortEntry[i]), types.YChild{"StpxRSTPPortEntry", stpxRSTPPortTable.StpxRSTPPortEntry[i]})
     }
-    stpxrstpporttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxrstpporttable.EntityData)
+    stpxRSTPPortTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxRSTPPortTable.EntityData.YListKeys = []string {}
+
+    return &(stpxRSTPPortTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry
+// CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry
 // An entry with port information for the RSTP Protocol
 // on a bridge port.
-type CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
-    Stpxrstpportindex interface{}
+    StpxRSTPPortIndex interface{}
 
     // Indicates the administrative link type configuration of  a bridge port for
     // the RSTP protocol.   pointToPoint -- the port is administratively
@@ -2257,16 +2377,16 @@ type CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry struct {
     // half-duplex,          the administrative link type configuration on this   
     // port will be taken as shared(2).  This configuration of this object only
     // takes effect when the stpxSpanningTreeType is mst(4) or rapidPvstPlus(5).
-    // The type is Stpxrstpportadminlinktype.
-    Stpxrstpportadminlinktype interface{}
+    // The type is StpxRSTPPortAdminLinkType.
+    StpxRSTPPortAdminLinkType interface{}
 
     // Indicates the operational link type of a bridge port for the RSTP protocol.
     // pointToPoint -- the port is operationally connected to         a
     // point-to-point link.  shared -- the port is operationally connected to     
     // a shared medium.  other -- none of the above.  This object is only
     // instantiated when the object value of stpxSpanningTreeType is mst(4) or
-    // rapidPvstPlus(5). The type is Stpxrstpportoperlinktype.
-    Stpxrstpportoperlinktype interface{}
+    // rapidPvstPlus(5). The type is StpxRSTPPortOperLinkType.
+    StpxRSTPPortOperLinkType interface{}
 
     // The protocol migration control on this port. When the  object value of 
     // stpxSpanningTreeType is mst(4) or  rapidPvstPlus(5), setting true(1) to
@@ -2275,88 +2395,94 @@ type CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry struct {
     // rapidPvstPlus(5), setting true(1) to  this object has no effect. Setting
     // false(2) to this  object has no effect. This object always returns 
     // false(2) when read. The type is bool.
-    Stpxrstpportprotocolmigration interface{}
+    StpxRSTPPortProtocolMigration interface{}
 }
 
-func (stpxrstpportentry *CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry) GetEntityData() *types.CommonEntityData {
-    stpxrstpportentry.EntityData.YFilter = stpxrstpportentry.YFilter
-    stpxrstpportentry.EntityData.YangName = "stpxRSTPPortEntry"
-    stpxrstpportentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxrstpportentry.EntityData.ParentYangName = "stpxRSTPPortTable"
-    stpxrstpportentry.EntityData.SegmentPath = "stpxRSTPPortEntry" + "[stpxRSTPPortIndex='" + fmt.Sprintf("%v", stpxrstpportentry.Stpxrstpportindex) + "']"
-    stpxrstpportentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxrstpportentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxrstpportentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxRSTPPortEntry *CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry) GetEntityData() *types.CommonEntityData {
+    stpxRSTPPortEntry.EntityData.YFilter = stpxRSTPPortEntry.YFilter
+    stpxRSTPPortEntry.EntityData.YangName = "stpxRSTPPortEntry"
+    stpxRSTPPortEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxRSTPPortEntry.EntityData.ParentYangName = "stpxRSTPPortTable"
+    stpxRSTPPortEntry.EntityData.SegmentPath = "stpxRSTPPortEntry" + types.AddKeyToken(stpxRSTPPortEntry.StpxRSTPPortIndex, "stpxRSTPPortIndex")
+    stpxRSTPPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxRSTPPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxRSTPPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxrstpportentry.EntityData.Children = make(map[string]types.YChild)
-    stpxrstpportentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxrstpportentry.EntityData.Leafs["stpxRSTPPortIndex"] = types.YLeaf{"Stpxrstpportindex", stpxrstpportentry.Stpxrstpportindex}
-    stpxrstpportentry.EntityData.Leafs["stpxRSTPPortAdminLinkType"] = types.YLeaf{"Stpxrstpportadminlinktype", stpxrstpportentry.Stpxrstpportadminlinktype}
-    stpxrstpportentry.EntityData.Leafs["stpxRSTPPortOperLinkType"] = types.YLeaf{"Stpxrstpportoperlinktype", stpxrstpportentry.Stpxrstpportoperlinktype}
-    stpxrstpportentry.EntityData.Leafs["stpxRSTPPortProtocolMigration"] = types.YLeaf{"Stpxrstpportprotocolmigration", stpxrstpportentry.Stpxrstpportprotocolmigration}
-    return &(stpxrstpportentry.EntityData)
+    stpxRSTPPortEntry.EntityData.Children = types.NewOrderedMap()
+    stpxRSTPPortEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxRSTPPortEntry.EntityData.Leafs.Append("stpxRSTPPortIndex", types.YLeaf{"StpxRSTPPortIndex", stpxRSTPPortEntry.StpxRSTPPortIndex})
+    stpxRSTPPortEntry.EntityData.Leafs.Append("stpxRSTPPortAdminLinkType", types.YLeaf{"StpxRSTPPortAdminLinkType", stpxRSTPPortEntry.StpxRSTPPortAdminLinkType})
+    stpxRSTPPortEntry.EntityData.Leafs.Append("stpxRSTPPortOperLinkType", types.YLeaf{"StpxRSTPPortOperLinkType", stpxRSTPPortEntry.StpxRSTPPortOperLinkType})
+    stpxRSTPPortEntry.EntityData.Leafs.Append("stpxRSTPPortProtocolMigration", types.YLeaf{"StpxRSTPPortProtocolMigration", stpxRSTPPortEntry.StpxRSTPPortProtocolMigration})
+
+    stpxRSTPPortEntry.EntityData.YListKeys = []string {"StpxRSTPPortIndex"}
+
+    return &(stpxRSTPPortEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry_Stpxrstpportadminlinktype represents stpxSpanningTreeType is mst(4) or rapidPvstPlus(5).
-type CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry_Stpxrstpportadminlinktype string
+// CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry_StpxRSTPPortAdminLinkType represents stpxSpanningTreeType is mst(4) or rapidPvstPlus(5).
+type CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry_StpxRSTPPortAdminLinkType string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry_Stpxrstpportadminlinktype_pointToPoint CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry_Stpxrstpportadminlinktype = "pointToPoint"
+    CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry_StpxRSTPPortAdminLinkType_pointToPoint CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry_StpxRSTPPortAdminLinkType = "pointToPoint"
 
-    CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry_Stpxrstpportadminlinktype_shared CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry_Stpxrstpportadminlinktype = "shared"
+    CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry_StpxRSTPPortAdminLinkType_shared CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry_StpxRSTPPortAdminLinkType = "shared"
 
-    CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry_Stpxrstpportadminlinktype_auto CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry_Stpxrstpportadminlinktype = "auto"
+    CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry_StpxRSTPPortAdminLinkType_auto CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry_StpxRSTPPortAdminLinkType = "auto"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry_Stpxrstpportoperlinktype represents stpxSpanningTreeType is mst(4) or rapidPvstPlus(5).
-type CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry_Stpxrstpportoperlinktype string
+// CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry_StpxRSTPPortOperLinkType represents stpxSpanningTreeType is mst(4) or rapidPvstPlus(5).
+type CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry_StpxRSTPPortOperLinkType string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry_Stpxrstpportoperlinktype_pointToPoint CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry_Stpxrstpportoperlinktype = "pointToPoint"
+    CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry_StpxRSTPPortOperLinkType_pointToPoint CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry_StpxRSTPPortOperLinkType = "pointToPoint"
 
-    CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry_Stpxrstpportoperlinktype_shared CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry_Stpxrstpportoperlinktype = "shared"
+    CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry_StpxRSTPPortOperLinkType_shared CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry_StpxRSTPPortOperLinkType = "shared"
 
-    CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry_Stpxrstpportoperlinktype_other CISCOSTPEXTENSIONSMIB_Stpxrstpporttable_Stpxrstpportentry_Stpxrstpportoperlinktype = "other"
+    CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry_StpxRSTPPortOperLinkType_other CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry_StpxRSTPPortOperLinkType = "other"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable
+// CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable
 // A table containing a list of the bridge ports for a 
 // particular Spanning Tree instance.  This table is 
 // only instantiated when the stpxSpanningTreeType is mst(4) 
 // or rapidPvstPlus(5).
-type CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable struct {
+type CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing the port role information for the RSTP protocol on a
     // port for a particular Spanning Tree instance. The type is slice of
-    // CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry.
-    Stpxrstpportroleentry []CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry
+    // CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry.
+    StpxRSTPPortRoleEntry []*CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry
 }
 
-func (stpxrstpportroletable *CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable) GetEntityData() *types.CommonEntityData {
-    stpxrstpportroletable.EntityData.YFilter = stpxrstpportroletable.YFilter
-    stpxrstpportroletable.EntityData.YangName = "stpxRSTPPortRoleTable"
-    stpxrstpportroletable.EntityData.BundleName = "cisco_ios_xe"
-    stpxrstpportroletable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxrstpportroletable.EntityData.SegmentPath = "stpxRSTPPortRoleTable"
-    stpxrstpportroletable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxrstpportroletable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxrstpportroletable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxRSTPPortRoleTable *CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable) GetEntityData() *types.CommonEntityData {
+    stpxRSTPPortRoleTable.EntityData.YFilter = stpxRSTPPortRoleTable.YFilter
+    stpxRSTPPortRoleTable.EntityData.YangName = "stpxRSTPPortRoleTable"
+    stpxRSTPPortRoleTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxRSTPPortRoleTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxRSTPPortRoleTable.EntityData.SegmentPath = "stpxRSTPPortRoleTable"
+    stpxRSTPPortRoleTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxRSTPPortRoleTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxRSTPPortRoleTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxrstpportroletable.EntityData.Children = make(map[string]types.YChild)
-    stpxrstpportroletable.EntityData.Children["stpxRSTPPortRoleEntry"] = types.YChild{"Stpxrstpportroleentry", nil}
-    for i := range stpxrstpportroletable.Stpxrstpportroleentry {
-        stpxrstpportroletable.EntityData.Children[types.GetSegmentPath(&stpxrstpportroletable.Stpxrstpportroleentry[i])] = types.YChild{"Stpxrstpportroleentry", &stpxrstpportroletable.Stpxrstpportroleentry[i]}
+    stpxRSTPPortRoleTable.EntityData.Children = types.NewOrderedMap()
+    stpxRSTPPortRoleTable.EntityData.Children.Append("stpxRSTPPortRoleEntry", types.YChild{"StpxRSTPPortRoleEntry", nil})
+    for i := range stpxRSTPPortRoleTable.StpxRSTPPortRoleEntry {
+        stpxRSTPPortRoleTable.EntityData.Children.Append(types.GetSegmentPath(stpxRSTPPortRoleTable.StpxRSTPPortRoleEntry[i]), types.YChild{"StpxRSTPPortRoleEntry", stpxRSTPPortRoleTable.StpxRSTPPortRoleEntry[i]})
     }
-    stpxrstpportroletable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxrstpportroletable.EntityData)
+    stpxRSTPPortRoleTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxRSTPPortRoleTable.EntityData.YListKeys = []string {}
+
+    return &(stpxRSTPPortRoleTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry
+// CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry
 // An entry containing the port role information for the RSTP
 // protocol on a port for a particular Spanning Tree instance.
-type CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2364,11 +2490,11 @@ type CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry struct {
     // VLAN number if the stpxSpanningTreeType is rapidPvstPlus(5)  or an MST
     // instance id if the stpxSpanningTreeType is mst(4). The type is interface{}
     // with range: 0..4095.
-    Stpxrstpportroleinstanceindex interface{}
+    StpxRSTPPortRoleInstanceIndex interface{}
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
-    Stpxrstpportroleportindex interface{}
+    StpxRSTPPortRolePortIndex interface{}
 
     // Indicates the port role on a particular Spanning Tree  instance for the
     // RSTP protocol.   disabled --  this port has no role in this Spanning       
@@ -2381,96 +2507,102 @@ type CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry struct {
     // port in              this Spanning Tree instance.  master -- this port has
     // the role of master port in             this Spanning Tree instance.  This
     // object could have a value of 'boundary' or 'master' only when the object
-    // value of stpxSpanningTreeType is mst(4). The type is Stpxrstpportrolevalue.
-    Stpxrstpportrolevalue interface{}
+    // value of stpxSpanningTreeType is mst(4). The type is StpxRSTPPortRoleValue.
+    StpxRSTPPortRoleValue interface{}
 }
 
-func (stpxrstpportroleentry *CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry) GetEntityData() *types.CommonEntityData {
-    stpxrstpportroleentry.EntityData.YFilter = stpxrstpportroleentry.YFilter
-    stpxrstpportroleentry.EntityData.YangName = "stpxRSTPPortRoleEntry"
-    stpxrstpportroleentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxrstpportroleentry.EntityData.ParentYangName = "stpxRSTPPortRoleTable"
-    stpxrstpportroleentry.EntityData.SegmentPath = "stpxRSTPPortRoleEntry" + "[stpxRSTPPortRoleInstanceIndex='" + fmt.Sprintf("%v", stpxrstpportroleentry.Stpxrstpportroleinstanceindex) + "']" + "[stpxRSTPPortRolePortIndex='" + fmt.Sprintf("%v", stpxrstpportroleentry.Stpxrstpportroleportindex) + "']"
-    stpxrstpportroleentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxrstpportroleentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxrstpportroleentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxRSTPPortRoleEntry *CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry) GetEntityData() *types.CommonEntityData {
+    stpxRSTPPortRoleEntry.EntityData.YFilter = stpxRSTPPortRoleEntry.YFilter
+    stpxRSTPPortRoleEntry.EntityData.YangName = "stpxRSTPPortRoleEntry"
+    stpxRSTPPortRoleEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxRSTPPortRoleEntry.EntityData.ParentYangName = "stpxRSTPPortRoleTable"
+    stpxRSTPPortRoleEntry.EntityData.SegmentPath = "stpxRSTPPortRoleEntry" + types.AddKeyToken(stpxRSTPPortRoleEntry.StpxRSTPPortRoleInstanceIndex, "stpxRSTPPortRoleInstanceIndex") + types.AddKeyToken(stpxRSTPPortRoleEntry.StpxRSTPPortRolePortIndex, "stpxRSTPPortRolePortIndex")
+    stpxRSTPPortRoleEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxRSTPPortRoleEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxRSTPPortRoleEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxrstpportroleentry.EntityData.Children = make(map[string]types.YChild)
-    stpxrstpportroleentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxrstpportroleentry.EntityData.Leafs["stpxRSTPPortRoleInstanceIndex"] = types.YLeaf{"Stpxrstpportroleinstanceindex", stpxrstpportroleentry.Stpxrstpportroleinstanceindex}
-    stpxrstpportroleentry.EntityData.Leafs["stpxRSTPPortRolePortIndex"] = types.YLeaf{"Stpxrstpportroleportindex", stpxrstpportroleentry.Stpxrstpportroleportindex}
-    stpxrstpportroleentry.EntityData.Leafs["stpxRSTPPortRoleValue"] = types.YLeaf{"Stpxrstpportrolevalue", stpxrstpportroleentry.Stpxrstpportrolevalue}
-    return &(stpxrstpportroleentry.EntityData)
+    stpxRSTPPortRoleEntry.EntityData.Children = types.NewOrderedMap()
+    stpxRSTPPortRoleEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxRSTPPortRoleEntry.EntityData.Leafs.Append("stpxRSTPPortRoleInstanceIndex", types.YLeaf{"StpxRSTPPortRoleInstanceIndex", stpxRSTPPortRoleEntry.StpxRSTPPortRoleInstanceIndex})
+    stpxRSTPPortRoleEntry.EntityData.Leafs.Append("stpxRSTPPortRolePortIndex", types.YLeaf{"StpxRSTPPortRolePortIndex", stpxRSTPPortRoleEntry.StpxRSTPPortRolePortIndex})
+    stpxRSTPPortRoleEntry.EntityData.Leafs.Append("stpxRSTPPortRoleValue", types.YLeaf{"StpxRSTPPortRoleValue", stpxRSTPPortRoleEntry.StpxRSTPPortRoleValue})
+
+    stpxRSTPPortRoleEntry.EntityData.YListKeys = []string {"StpxRSTPPortRoleInstanceIndex", "StpxRSTPPortRolePortIndex"}
+
+    return &(stpxRSTPPortRoleEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry_Stpxrstpportrolevalue represents only when the object value of stpxSpanningTreeType is mst(4).
-type CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry_Stpxrstpportrolevalue string
+// CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry_StpxRSTPPortRoleValue represents only when the object value of stpxSpanningTreeType is mst(4).
+type CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry_StpxRSTPPortRoleValue string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry_Stpxrstpportrolevalue_disabled CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry_Stpxrstpportrolevalue = "disabled"
+    CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry_StpxRSTPPortRoleValue_disabled CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry_StpxRSTPPortRoleValue = "disabled"
 
-    CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry_Stpxrstpportrolevalue_root CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry_Stpxrstpportrolevalue = "root"
+    CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry_StpxRSTPPortRoleValue_root CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry_StpxRSTPPortRoleValue = "root"
 
-    CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry_Stpxrstpportrolevalue_designated CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry_Stpxrstpportrolevalue = "designated"
+    CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry_StpxRSTPPortRoleValue_designated CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry_StpxRSTPPortRoleValue = "designated"
 
-    CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry_Stpxrstpportrolevalue_alternate CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry_Stpxrstpportrolevalue = "alternate"
+    CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry_StpxRSTPPortRoleValue_alternate CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry_StpxRSTPPortRoleValue = "alternate"
 
-    CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry_Stpxrstpportrolevalue_backUp CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry_Stpxrstpportrolevalue = "backUp"
+    CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry_StpxRSTPPortRoleValue_backUp CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry_StpxRSTPPortRoleValue = "backUp"
 
-    CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry_Stpxrstpportrolevalue_boundary CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry_Stpxrstpportrolevalue = "boundary"
+    CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry_StpxRSTPPortRoleValue_boundary CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry_StpxRSTPPortRoleValue = "boundary"
 
-    CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry_Stpxrstpportrolevalue_master CISCOSTPEXTENSIONSMIB_Stpxrstpportroletable_Stpxrstpportroleentry_Stpxrstpportrolevalue = "master"
+    CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry_StpxRSTPPortRoleValue_master CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry_StpxRSTPPortRoleValue = "master"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxrpvstporttable
+// CISCOSTPEXTENSIONSMIB_StpxRPVSTPortTable
 // A table containing a list of the bridge ports 
 // for a particular Spanning Tree Instance.
 // This table is only instantiated when the object value
 // of stpxSpanningTreeType is rapidPvstPlus(5).
-type CISCOSTPEXTENSIONSMIB_Stpxrpvstporttable struct {
+type CISCOSTPEXTENSIONSMIB_StpxRPVSTPortTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry with port status information on a  bridge port for a particular
     // Spanning Tree  Instance. The type is slice of
-    // CISCOSTPEXTENSIONSMIB_Stpxrpvstporttable_Stpxrpvstportentry.
-    Stpxrpvstportentry []CISCOSTPEXTENSIONSMIB_Stpxrpvstporttable_Stpxrpvstportentry
+    // CISCOSTPEXTENSIONSMIB_StpxRPVSTPortTable_StpxRPVSTPortEntry.
+    StpxRPVSTPortEntry []*CISCOSTPEXTENSIONSMIB_StpxRPVSTPortTable_StpxRPVSTPortEntry
 }
 
-func (stpxrpvstporttable *CISCOSTPEXTENSIONSMIB_Stpxrpvstporttable) GetEntityData() *types.CommonEntityData {
-    stpxrpvstporttable.EntityData.YFilter = stpxrpvstporttable.YFilter
-    stpxrpvstporttable.EntityData.YangName = "stpxRPVSTPortTable"
-    stpxrpvstporttable.EntityData.BundleName = "cisco_ios_xe"
-    stpxrpvstporttable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxrpvstporttable.EntityData.SegmentPath = "stpxRPVSTPortTable"
-    stpxrpvstporttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxrpvstporttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxrpvstporttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxRPVSTPortTable *CISCOSTPEXTENSIONSMIB_StpxRPVSTPortTable) GetEntityData() *types.CommonEntityData {
+    stpxRPVSTPortTable.EntityData.YFilter = stpxRPVSTPortTable.YFilter
+    stpxRPVSTPortTable.EntityData.YangName = "stpxRPVSTPortTable"
+    stpxRPVSTPortTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxRPVSTPortTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxRPVSTPortTable.EntityData.SegmentPath = "stpxRPVSTPortTable"
+    stpxRPVSTPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxRPVSTPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxRPVSTPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxrpvstporttable.EntityData.Children = make(map[string]types.YChild)
-    stpxrpvstporttable.EntityData.Children["stpxRPVSTPortEntry"] = types.YChild{"Stpxrpvstportentry", nil}
-    for i := range stpxrpvstporttable.Stpxrpvstportentry {
-        stpxrpvstporttable.EntityData.Children[types.GetSegmentPath(&stpxrpvstporttable.Stpxrpvstportentry[i])] = types.YChild{"Stpxrpvstportentry", &stpxrpvstporttable.Stpxrpvstportentry[i]}
+    stpxRPVSTPortTable.EntityData.Children = types.NewOrderedMap()
+    stpxRPVSTPortTable.EntityData.Children.Append("stpxRPVSTPortEntry", types.YChild{"StpxRPVSTPortEntry", nil})
+    for i := range stpxRPVSTPortTable.StpxRPVSTPortEntry {
+        stpxRPVSTPortTable.EntityData.Children.Append(types.GetSegmentPath(stpxRPVSTPortTable.StpxRPVSTPortEntry[i]), types.YChild{"StpxRPVSTPortEntry", stpxRPVSTPortTable.StpxRPVSTPortEntry[i]})
     }
-    stpxrpvstporttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxrpvstporttable.EntityData)
+    stpxRPVSTPortTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxRPVSTPortTable.EntityData.YListKeys = []string {}
+
+    return &(stpxRPVSTPortTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxrpvstporttable_Stpxrpvstportentry
+// CISCOSTPEXTENSIONSMIB_StpxRPVSTPortTable_StpxRPVSTPortEntry
 // An entry with port status information on a 
 // bridge port for a particular Spanning Tree 
 // Instance.
-type CISCOSTPEXTENSIONSMIB_Stpxrpvstporttable_Stpxrpvstportentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxRPVSTPortTable_StpxRPVSTPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The VLAN id of the VLAN. The type is interface{}
     // with range: 0..4095.
-    Stpxrpvstportvlanindex interface{}
+    StpxRPVSTPortVlanIndex interface{}
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
-    Stpxrpvstportindex interface{}
+    StpxRPVSTPortIndex interface{}
 
     // Indicates the operational status of the port for the  Rapid PVST+ protocol.
     // edge -- this port is an edge port for the RST region.  unused1 -- unused
@@ -2478,70 +2610,76 @@ type CISCOSTPEXTENSIONSMIB_Stpxrpvstporttable_Stpxrpvstportentry struct {
     // Spanning        Tree/PVST+ bridge.  dispute -- this port, as a designated
     // port, received an        inferior BPDU with a designated role and the      
     // learning bit being set. The type is map[string]bool.
-    Stpxrpvstportstatus interface{}
+    StpxRPVSTPortStatus interface{}
 }
 
-func (stpxrpvstportentry *CISCOSTPEXTENSIONSMIB_Stpxrpvstporttable_Stpxrpvstportentry) GetEntityData() *types.CommonEntityData {
-    stpxrpvstportentry.EntityData.YFilter = stpxrpvstportentry.YFilter
-    stpxrpvstportentry.EntityData.YangName = "stpxRPVSTPortEntry"
-    stpxrpvstportentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxrpvstportentry.EntityData.ParentYangName = "stpxRPVSTPortTable"
-    stpxrpvstportentry.EntityData.SegmentPath = "stpxRPVSTPortEntry" + "[stpxRPVSTPortVlanIndex='" + fmt.Sprintf("%v", stpxrpvstportentry.Stpxrpvstportvlanindex) + "']" + "[stpxRPVSTPortIndex='" + fmt.Sprintf("%v", stpxrpvstportentry.Stpxrpvstportindex) + "']"
-    stpxrpvstportentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxrpvstportentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxrpvstportentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxRPVSTPortEntry *CISCOSTPEXTENSIONSMIB_StpxRPVSTPortTable_StpxRPVSTPortEntry) GetEntityData() *types.CommonEntityData {
+    stpxRPVSTPortEntry.EntityData.YFilter = stpxRPVSTPortEntry.YFilter
+    stpxRPVSTPortEntry.EntityData.YangName = "stpxRPVSTPortEntry"
+    stpxRPVSTPortEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxRPVSTPortEntry.EntityData.ParentYangName = "stpxRPVSTPortTable"
+    stpxRPVSTPortEntry.EntityData.SegmentPath = "stpxRPVSTPortEntry" + types.AddKeyToken(stpxRPVSTPortEntry.StpxRPVSTPortVlanIndex, "stpxRPVSTPortVlanIndex") + types.AddKeyToken(stpxRPVSTPortEntry.StpxRPVSTPortIndex, "stpxRPVSTPortIndex")
+    stpxRPVSTPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxRPVSTPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxRPVSTPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxrpvstportentry.EntityData.Children = make(map[string]types.YChild)
-    stpxrpvstportentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxrpvstportentry.EntityData.Leafs["stpxRPVSTPortVlanIndex"] = types.YLeaf{"Stpxrpvstportvlanindex", stpxrpvstportentry.Stpxrpvstportvlanindex}
-    stpxrpvstportentry.EntityData.Leafs["stpxRPVSTPortIndex"] = types.YLeaf{"Stpxrpvstportindex", stpxrpvstportentry.Stpxrpvstportindex}
-    stpxrpvstportentry.EntityData.Leafs["stpxRPVSTPortStatus"] = types.YLeaf{"Stpxrpvstportstatus", stpxrpvstportentry.Stpxrpvstportstatus}
-    return &(stpxrpvstportentry.EntityData)
+    stpxRPVSTPortEntry.EntityData.Children = types.NewOrderedMap()
+    stpxRPVSTPortEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxRPVSTPortEntry.EntityData.Leafs.Append("stpxRPVSTPortVlanIndex", types.YLeaf{"StpxRPVSTPortVlanIndex", stpxRPVSTPortEntry.StpxRPVSTPortVlanIndex})
+    stpxRPVSTPortEntry.EntityData.Leafs.Append("stpxRPVSTPortIndex", types.YLeaf{"StpxRPVSTPortIndex", stpxRPVSTPortEntry.StpxRPVSTPortIndex})
+    stpxRPVSTPortEntry.EntityData.Leafs.Append("stpxRPVSTPortStatus", types.YLeaf{"StpxRPVSTPortStatus", stpxRPVSTPortEntry.StpxRPVSTPortStatus})
+
+    stpxRPVSTPortEntry.EntityData.YListKeys = []string {"StpxRPVSTPortVlanIndex", "StpxRPVSTPortIndex"}
+
+    return &(stpxRPVSTPortEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxsmstinstancetable
+// CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceTable
 // This table contains MST instance information
 // for IEEE MST.
-type CISCOSTPEXTENSIONSMIB_Stpxsmstinstancetable struct {
+type CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row containing the MST instance  information for IEEE MST. The
     // type is slice of
-    // CISCOSTPEXTENSIONSMIB_Stpxsmstinstancetable_Stpxsmstinstanceentry.
-    Stpxsmstinstanceentry []CISCOSTPEXTENSIONSMIB_Stpxsmstinstancetable_Stpxsmstinstanceentry
+    // CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceTable_StpxSMSTInstanceEntry.
+    StpxSMSTInstanceEntry []*CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceTable_StpxSMSTInstanceEntry
 }
 
-func (stpxsmstinstancetable *CISCOSTPEXTENSIONSMIB_Stpxsmstinstancetable) GetEntityData() *types.CommonEntityData {
-    stpxsmstinstancetable.EntityData.YFilter = stpxsmstinstancetable.YFilter
-    stpxsmstinstancetable.EntityData.YangName = "stpxSMSTInstanceTable"
-    stpxsmstinstancetable.EntityData.BundleName = "cisco_ios_xe"
-    stpxsmstinstancetable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxsmstinstancetable.EntityData.SegmentPath = "stpxSMSTInstanceTable"
-    stpxsmstinstancetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxsmstinstancetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxsmstinstancetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxSMSTInstanceTable *CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceTable) GetEntityData() *types.CommonEntityData {
+    stpxSMSTInstanceTable.EntityData.YFilter = stpxSMSTInstanceTable.YFilter
+    stpxSMSTInstanceTable.EntityData.YangName = "stpxSMSTInstanceTable"
+    stpxSMSTInstanceTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxSMSTInstanceTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxSMSTInstanceTable.EntityData.SegmentPath = "stpxSMSTInstanceTable"
+    stpxSMSTInstanceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxSMSTInstanceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxSMSTInstanceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxsmstinstancetable.EntityData.Children = make(map[string]types.YChild)
-    stpxsmstinstancetable.EntityData.Children["stpxSMSTInstanceEntry"] = types.YChild{"Stpxsmstinstanceentry", nil}
-    for i := range stpxsmstinstancetable.Stpxsmstinstanceentry {
-        stpxsmstinstancetable.EntityData.Children[types.GetSegmentPath(&stpxsmstinstancetable.Stpxsmstinstanceentry[i])] = types.YChild{"Stpxsmstinstanceentry", &stpxsmstinstancetable.Stpxsmstinstanceentry[i]}
+    stpxSMSTInstanceTable.EntityData.Children = types.NewOrderedMap()
+    stpxSMSTInstanceTable.EntityData.Children.Append("stpxSMSTInstanceEntry", types.YChild{"StpxSMSTInstanceEntry", nil})
+    for i := range stpxSMSTInstanceTable.StpxSMSTInstanceEntry {
+        stpxSMSTInstanceTable.EntityData.Children.Append(types.GetSegmentPath(stpxSMSTInstanceTable.StpxSMSTInstanceEntry[i]), types.YChild{"StpxSMSTInstanceEntry", stpxSMSTInstanceTable.StpxSMSTInstanceEntry[i]})
     }
-    stpxsmstinstancetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxsmstinstancetable.EntityData)
+    stpxSMSTInstanceTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxSMSTInstanceTable.EntityData.YListKeys = []string {}
+
+    return &(stpxSMSTInstanceTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxsmstinstancetable_Stpxsmstinstanceentry
+// CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceTable_StpxSMSTInstanceEntry
 // A conceptual row containing the MST instance 
 // information for IEEE MST.
-type CISCOSTPEXTENSIONSMIB_Stpxsmstinstancetable_Stpxsmstinstanceentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceTable_StpxSMSTInstanceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The MST instance ID, the value of which is in the
     // range  from 0 to stpxSMSTMaxInstanceID. The type is interface{} with range:
     // 0..4294967295.
-    Stpxsmstinstanceindex interface{}
+    StpxSMSTInstanceIndex interface{}
 
     // A string of octets containing one bit per VLAN for VLANS with VlanIndex
     // values of 0 through 2047. The first octet corresponds to VLANs with
@@ -2552,7 +2690,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxsmstinstancetable_Stpxsmstinstanceentry struct {
     // length of this string is less than 256 octets, any 'missing' octets are
     // assumed to contain the value  of zero. The type is string with length:
     // 0..256.
-    Stpxsmstinstancevlansmapped1K2K interface{}
+    StpxSMSTInstanceVlansMapped1k2k interface{}
 
     // A string of octets containing one bit per VLAN for VLANS with VlanIndex
     // values of 2048 through 4095. The first octet corresponds to VLANs with
@@ -2563,21 +2701,21 @@ type CISCOSTPEXTENSIONSMIB_Stpxsmstinstancetable_Stpxsmstinstanceentry struct {
     // '1'. If the length of this string is less than 256 octets, any 'missing'
     // octets are assumed to contain the value  of zero. The type is string with
     // length: 0..256.
-    Stpxsmstinstancevlansmapped3K4K interface{}
+    StpxSMSTInstanceVlansMapped3k4k interface{}
 
     // The remaining hop count for this MST instance. If this object value is not
     // applicable on an MST instance, then the value retrieved for this object for
     // that MST instance will be -1.   This object is only instantiated when the
     // object value of stpxSpanningTreeType is mst(4). The type is interface{}
     // with range: -1..2147483647.
-    Stpxsmstinstanceremaininghopcount interface{}
+    StpxSMSTInstanceRemainingHopCount interface{}
 
     // Indicates the Bridge Identifier (refer to BridgeId  defined in BRIDGE-MIB)
     // of CIST (Common and Internal  Spanning Tree) Regional Root for the MST
     // region.  This object is only instantiated when the object value of
     // stpxSpanningTreeType is mst(4) and stpxSMSTInstanceIndex is 0. The type is
     // string with length: 8.
-    Stpxsmstinstancecistregionalroot interface{}
+    StpxSMSTInstanceCISTRegionalRoot interface{}
 
     // Indicates the CIST Internal Root Path Cost, i.e., the path cost to the CIST
     // Regional Root as specified by the corresponding
@@ -2585,74 +2723,80 @@ type CISCOSTPEXTENSIONSMIB_Stpxsmstinstancetable_Stpxsmstinstanceentry struct {
     // instantiated when the object value of stpxSpanningTreeType is mst(4) and
     // stpxSMSTInstanceIndex is 0. The type is interface{} with range:
     // 0..4294967295.
-    Stpxsmstinstancecistintrootcost interface{}
+    StpxSMSTInstanceCISTIntRootCost interface{}
 }
 
-func (stpxsmstinstanceentry *CISCOSTPEXTENSIONSMIB_Stpxsmstinstancetable_Stpxsmstinstanceentry) GetEntityData() *types.CommonEntityData {
-    stpxsmstinstanceentry.EntityData.YFilter = stpxsmstinstanceentry.YFilter
-    stpxsmstinstanceentry.EntityData.YangName = "stpxSMSTInstanceEntry"
-    stpxsmstinstanceentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxsmstinstanceentry.EntityData.ParentYangName = "stpxSMSTInstanceTable"
-    stpxsmstinstanceentry.EntityData.SegmentPath = "stpxSMSTInstanceEntry" + "[stpxSMSTInstanceIndex='" + fmt.Sprintf("%v", stpxsmstinstanceentry.Stpxsmstinstanceindex) + "']"
-    stpxsmstinstanceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxsmstinstanceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxsmstinstanceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxSMSTInstanceEntry *CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceTable_StpxSMSTInstanceEntry) GetEntityData() *types.CommonEntityData {
+    stpxSMSTInstanceEntry.EntityData.YFilter = stpxSMSTInstanceEntry.YFilter
+    stpxSMSTInstanceEntry.EntityData.YangName = "stpxSMSTInstanceEntry"
+    stpxSMSTInstanceEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxSMSTInstanceEntry.EntityData.ParentYangName = "stpxSMSTInstanceTable"
+    stpxSMSTInstanceEntry.EntityData.SegmentPath = "stpxSMSTInstanceEntry" + types.AddKeyToken(stpxSMSTInstanceEntry.StpxSMSTInstanceIndex, "stpxSMSTInstanceIndex")
+    stpxSMSTInstanceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxSMSTInstanceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxSMSTInstanceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxsmstinstanceentry.EntityData.Children = make(map[string]types.YChild)
-    stpxsmstinstanceentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxsmstinstanceentry.EntityData.Leafs["stpxSMSTInstanceIndex"] = types.YLeaf{"Stpxsmstinstanceindex", stpxsmstinstanceentry.Stpxsmstinstanceindex}
-    stpxsmstinstanceentry.EntityData.Leafs["stpxSMSTInstanceVlansMapped1k2k"] = types.YLeaf{"Stpxsmstinstancevlansmapped1K2K", stpxsmstinstanceentry.Stpxsmstinstancevlansmapped1K2K}
-    stpxsmstinstanceentry.EntityData.Leafs["stpxSMSTInstanceVlansMapped3k4k"] = types.YLeaf{"Stpxsmstinstancevlansmapped3K4K", stpxsmstinstanceentry.Stpxsmstinstancevlansmapped3K4K}
-    stpxsmstinstanceentry.EntityData.Leafs["stpxSMSTInstanceRemainingHopCount"] = types.YLeaf{"Stpxsmstinstanceremaininghopcount", stpxsmstinstanceentry.Stpxsmstinstanceremaininghopcount}
-    stpxsmstinstanceentry.EntityData.Leafs["stpxSMSTInstanceCISTRegionalRoot"] = types.YLeaf{"Stpxsmstinstancecistregionalroot", stpxsmstinstanceentry.Stpxsmstinstancecistregionalroot}
-    stpxsmstinstanceentry.EntityData.Leafs["stpxSMSTInstanceCISTIntRootCost"] = types.YLeaf{"Stpxsmstinstancecistintrootcost", stpxsmstinstanceentry.Stpxsmstinstancecistintrootcost}
-    return &(stpxsmstinstanceentry.EntityData)
+    stpxSMSTInstanceEntry.EntityData.Children = types.NewOrderedMap()
+    stpxSMSTInstanceEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxSMSTInstanceEntry.EntityData.Leafs.Append("stpxSMSTInstanceIndex", types.YLeaf{"StpxSMSTInstanceIndex", stpxSMSTInstanceEntry.StpxSMSTInstanceIndex})
+    stpxSMSTInstanceEntry.EntityData.Leafs.Append("stpxSMSTInstanceVlansMapped1k2k", types.YLeaf{"StpxSMSTInstanceVlansMapped1k2k", stpxSMSTInstanceEntry.StpxSMSTInstanceVlansMapped1k2k})
+    stpxSMSTInstanceEntry.EntityData.Leafs.Append("stpxSMSTInstanceVlansMapped3k4k", types.YLeaf{"StpxSMSTInstanceVlansMapped3k4k", stpxSMSTInstanceEntry.StpxSMSTInstanceVlansMapped3k4k})
+    stpxSMSTInstanceEntry.EntityData.Leafs.Append("stpxSMSTInstanceRemainingHopCount", types.YLeaf{"StpxSMSTInstanceRemainingHopCount", stpxSMSTInstanceEntry.StpxSMSTInstanceRemainingHopCount})
+    stpxSMSTInstanceEntry.EntityData.Leafs.Append("stpxSMSTInstanceCISTRegionalRoot", types.YLeaf{"StpxSMSTInstanceCISTRegionalRoot", stpxSMSTInstanceEntry.StpxSMSTInstanceCISTRegionalRoot})
+    stpxSMSTInstanceEntry.EntityData.Leafs.Append("stpxSMSTInstanceCISTIntRootCost", types.YLeaf{"StpxSMSTInstanceCISTIntRootCost", stpxSMSTInstanceEntry.StpxSMSTInstanceCISTIntRootCost})
+
+    stpxSMSTInstanceEntry.EntityData.YListKeys = []string {"StpxSMSTInstanceIndex"}
+
+    return &(stpxSMSTInstanceEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxsmstinstanceedittable
+// CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceEditTable
 // This table contains MST instance information in the 
 // Edit Buffer. 
 // 
 // This table is only instantiated when the object value
 // of  stpxMSTRegionEditBufferStatus has the value of
 // acquiredBySnmp(2).
-type CISCOSTPEXTENSIONSMIB_Stpxsmstinstanceedittable struct {
+type CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceEditTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row containing MST instance information  in the Edit Buffer. 
     // The total number of entries in this table has to be  less than or equal to
     // the object value of stpxSMSTMaxInstances. The type is slice of
-    // CISCOSTPEXTENSIONSMIB_Stpxsmstinstanceedittable_Stpxsmstinstanceeditentry.
-    Stpxsmstinstanceeditentry []CISCOSTPEXTENSIONSMIB_Stpxsmstinstanceedittable_Stpxsmstinstanceeditentry
+    // CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceEditTable_StpxSMSTInstanceEditEntry.
+    StpxSMSTInstanceEditEntry []*CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceEditTable_StpxSMSTInstanceEditEntry
 }
 
-func (stpxsmstinstanceedittable *CISCOSTPEXTENSIONSMIB_Stpxsmstinstanceedittable) GetEntityData() *types.CommonEntityData {
-    stpxsmstinstanceedittable.EntityData.YFilter = stpxsmstinstanceedittable.YFilter
-    stpxsmstinstanceedittable.EntityData.YangName = "stpxSMSTInstanceEditTable"
-    stpxsmstinstanceedittable.EntityData.BundleName = "cisco_ios_xe"
-    stpxsmstinstanceedittable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxsmstinstanceedittable.EntityData.SegmentPath = "stpxSMSTInstanceEditTable"
-    stpxsmstinstanceedittable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxsmstinstanceedittable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxsmstinstanceedittable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxSMSTInstanceEditTable *CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceEditTable) GetEntityData() *types.CommonEntityData {
+    stpxSMSTInstanceEditTable.EntityData.YFilter = stpxSMSTInstanceEditTable.YFilter
+    stpxSMSTInstanceEditTable.EntityData.YangName = "stpxSMSTInstanceEditTable"
+    stpxSMSTInstanceEditTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxSMSTInstanceEditTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxSMSTInstanceEditTable.EntityData.SegmentPath = "stpxSMSTInstanceEditTable"
+    stpxSMSTInstanceEditTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxSMSTInstanceEditTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxSMSTInstanceEditTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxsmstinstanceedittable.EntityData.Children = make(map[string]types.YChild)
-    stpxsmstinstanceedittable.EntityData.Children["stpxSMSTInstanceEditEntry"] = types.YChild{"Stpxsmstinstanceeditentry", nil}
-    for i := range stpxsmstinstanceedittable.Stpxsmstinstanceeditentry {
-        stpxsmstinstanceedittable.EntityData.Children[types.GetSegmentPath(&stpxsmstinstanceedittable.Stpxsmstinstanceeditentry[i])] = types.YChild{"Stpxsmstinstanceeditentry", &stpxsmstinstanceedittable.Stpxsmstinstanceeditentry[i]}
+    stpxSMSTInstanceEditTable.EntityData.Children = types.NewOrderedMap()
+    stpxSMSTInstanceEditTable.EntityData.Children.Append("stpxSMSTInstanceEditEntry", types.YChild{"StpxSMSTInstanceEditEntry", nil})
+    for i := range stpxSMSTInstanceEditTable.StpxSMSTInstanceEditEntry {
+        stpxSMSTInstanceEditTable.EntityData.Children.Append(types.GetSegmentPath(stpxSMSTInstanceEditTable.StpxSMSTInstanceEditEntry[i]), types.YChild{"StpxSMSTInstanceEditEntry", stpxSMSTInstanceEditTable.StpxSMSTInstanceEditEntry[i]})
     }
-    stpxsmstinstanceedittable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxsmstinstanceedittable.EntityData)
+    stpxSMSTInstanceEditTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxSMSTInstanceEditTable.EntityData.YListKeys = []string {}
+
+    return &(stpxSMSTInstanceEditTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxsmstinstanceedittable_Stpxsmstinstanceeditentry
+// CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceEditTable_StpxSMSTInstanceEditEntry
 // A conceptual row containing MST instance information 
 // in the Edit Buffer.
 // 
 // The total number of entries in this table has to be 
 // less than or equal to the object value of stpxSMSTMaxInstances.
-type CISCOSTPEXTENSIONSMIB_Stpxsmstinstanceedittable_Stpxsmstinstanceeditentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceEditTable_StpxSMSTInstanceEditEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2661,7 +2805,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxsmstinstanceedittable_Stpxsmstinstanceeditentry s
     // with  stpxSMSTInstanceEditIndex of zero is automatically created by the
     // device and can not modified. The type is interface{} with range:
     // 0..4294967295.
-    Stpxsmstinstanceeditindex interface{}
+    StpxSMSTInstanceEditIndex interface{}
 
     // A string of octets containing one bit per VLAN for VLANS with VlanIndex
     // values of 0 through 2047. The first octet corresponds to VLANs with
@@ -2677,7 +2821,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxsmstinstanceedittable_Stpxsmstinstanceeditentry s
     // instance this VLAN was  previously mapped to. If the length of this string
     // is  less than 256 octets, any 'missing' octets are assumed to  contain the
     // value of zero. The type is string with length: 0..256.
-    Stpxsmstinstanceeditvlansmap1K2K interface{}
+    StpxSMSTInstanceEditVlansMap1k2k interface{}
 
     // A string of octets containing one bit per VLAN for VLANS with VlanIndex
     // values of 2048 through 4095. The first octet corresponds to VLANs with
@@ -2693,7 +2837,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxsmstinstanceedittable_Stpxsmstinstanceeditentry s
     // the MST instance this VLAN was previously mapped to. If the length of this
     // string is  less than 256 octets, any 'missing' octets are assumed to 
     // contain the value of zero. The type is string with length: 0..256.
-    Stpxsmstinstanceeditvlansmap3K4K interface{}
+    StpxSMSTInstanceEditVlansMap3k4k interface{}
 
     // This object controls the creation and deletion of a row  in
     // stpxSMSTInstanceEditTable.  When creating an entry in this table,
@@ -2704,73 +2848,79 @@ type CISCOSTPEXTENSIONSMIB_Stpxsmstinstanceedittable_Stpxsmstinstanceeditentry s
     // a row is active,  setting the instance of stpxSMSTInstanceEditVlansMap1k2k
     // stpxSMSTInstanceEditVlansMap3k4k for the same MST instance both to the
     // value of zero length can not be allowed. The type is RowStatus.
-    Stpxsmstinstanceeditrowstatus interface{}
+    StpxSMSTInstanceEditRowStatus interface{}
 }
 
-func (stpxsmstinstanceeditentry *CISCOSTPEXTENSIONSMIB_Stpxsmstinstanceedittable_Stpxsmstinstanceeditentry) GetEntityData() *types.CommonEntityData {
-    stpxsmstinstanceeditentry.EntityData.YFilter = stpxsmstinstanceeditentry.YFilter
-    stpxsmstinstanceeditentry.EntityData.YangName = "stpxSMSTInstanceEditEntry"
-    stpxsmstinstanceeditentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxsmstinstanceeditentry.EntityData.ParentYangName = "stpxSMSTInstanceEditTable"
-    stpxsmstinstanceeditentry.EntityData.SegmentPath = "stpxSMSTInstanceEditEntry" + "[stpxSMSTInstanceEditIndex='" + fmt.Sprintf("%v", stpxsmstinstanceeditentry.Stpxsmstinstanceeditindex) + "']"
-    stpxsmstinstanceeditentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxsmstinstanceeditentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxsmstinstanceeditentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxSMSTInstanceEditEntry *CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceEditTable_StpxSMSTInstanceEditEntry) GetEntityData() *types.CommonEntityData {
+    stpxSMSTInstanceEditEntry.EntityData.YFilter = stpxSMSTInstanceEditEntry.YFilter
+    stpxSMSTInstanceEditEntry.EntityData.YangName = "stpxSMSTInstanceEditEntry"
+    stpxSMSTInstanceEditEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxSMSTInstanceEditEntry.EntityData.ParentYangName = "stpxSMSTInstanceEditTable"
+    stpxSMSTInstanceEditEntry.EntityData.SegmentPath = "stpxSMSTInstanceEditEntry" + types.AddKeyToken(stpxSMSTInstanceEditEntry.StpxSMSTInstanceEditIndex, "stpxSMSTInstanceEditIndex")
+    stpxSMSTInstanceEditEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxSMSTInstanceEditEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxSMSTInstanceEditEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxsmstinstanceeditentry.EntityData.Children = make(map[string]types.YChild)
-    stpxsmstinstanceeditentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxsmstinstanceeditentry.EntityData.Leafs["stpxSMSTInstanceEditIndex"] = types.YLeaf{"Stpxsmstinstanceeditindex", stpxsmstinstanceeditentry.Stpxsmstinstanceeditindex}
-    stpxsmstinstanceeditentry.EntityData.Leafs["stpxSMSTInstanceEditVlansMap1k2k"] = types.YLeaf{"Stpxsmstinstanceeditvlansmap1K2K", stpxsmstinstanceeditentry.Stpxsmstinstanceeditvlansmap1K2K}
-    stpxsmstinstanceeditentry.EntityData.Leafs["stpxSMSTInstanceEditVlansMap3k4k"] = types.YLeaf{"Stpxsmstinstanceeditvlansmap3K4K", stpxsmstinstanceeditentry.Stpxsmstinstanceeditvlansmap3K4K}
-    stpxsmstinstanceeditentry.EntityData.Leafs["stpxSMSTInstanceEditRowStatus"] = types.YLeaf{"Stpxsmstinstanceeditrowstatus", stpxsmstinstanceeditentry.Stpxsmstinstanceeditrowstatus}
-    return &(stpxsmstinstanceeditentry.EntityData)
+    stpxSMSTInstanceEditEntry.EntityData.Children = types.NewOrderedMap()
+    stpxSMSTInstanceEditEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxSMSTInstanceEditEntry.EntityData.Leafs.Append("stpxSMSTInstanceEditIndex", types.YLeaf{"StpxSMSTInstanceEditIndex", stpxSMSTInstanceEditEntry.StpxSMSTInstanceEditIndex})
+    stpxSMSTInstanceEditEntry.EntityData.Leafs.Append("stpxSMSTInstanceEditVlansMap1k2k", types.YLeaf{"StpxSMSTInstanceEditVlansMap1k2k", stpxSMSTInstanceEditEntry.StpxSMSTInstanceEditVlansMap1k2k})
+    stpxSMSTInstanceEditEntry.EntityData.Leafs.Append("stpxSMSTInstanceEditVlansMap3k4k", types.YLeaf{"StpxSMSTInstanceEditVlansMap3k4k", stpxSMSTInstanceEditEntry.StpxSMSTInstanceEditVlansMap3k4k})
+    stpxSMSTInstanceEditEntry.EntityData.Leafs.Append("stpxSMSTInstanceEditRowStatus", types.YLeaf{"StpxSMSTInstanceEditRowStatus", stpxSMSTInstanceEditEntry.StpxSMSTInstanceEditRowStatus})
+
+    stpxSMSTInstanceEditEntry.EntityData.YListKeys = []string {"StpxSMSTInstanceEditIndex"}
+
+    return &(stpxSMSTInstanceEditEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxsmstporttable
+// CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable
 // A table containing port information for the MST 
 // Protocol on all the bridge ports existing on the 
 // system.
 // 
 // This table is only instantiated when the object 
 // value of stpxSpanningTreeType is mst(4)
-type CISCOSTPEXTENSIONSMIB_Stpxsmstporttable struct {
+type CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry with port information for the MST protocol on a bridge port. The
-    // type is slice of CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry.
-    Stpxsmstportentry []CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry
+    // type is slice of CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry.
+    StpxSMSTPortEntry []*CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry
 }
 
-func (stpxsmstporttable *CISCOSTPEXTENSIONSMIB_Stpxsmstporttable) GetEntityData() *types.CommonEntityData {
-    stpxsmstporttable.EntityData.YFilter = stpxsmstporttable.YFilter
-    stpxsmstporttable.EntityData.YangName = "stpxSMSTPortTable"
-    stpxsmstporttable.EntityData.BundleName = "cisco_ios_xe"
-    stpxsmstporttable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
-    stpxsmstporttable.EntityData.SegmentPath = "stpxSMSTPortTable"
-    stpxsmstporttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxsmstporttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxsmstporttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxSMSTPortTable *CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable) GetEntityData() *types.CommonEntityData {
+    stpxSMSTPortTable.EntityData.YFilter = stpxSMSTPortTable.YFilter
+    stpxSMSTPortTable.EntityData.YangName = "stpxSMSTPortTable"
+    stpxSMSTPortTable.EntityData.BundleName = "cisco_ios_xe"
+    stpxSMSTPortTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
+    stpxSMSTPortTable.EntityData.SegmentPath = "stpxSMSTPortTable"
+    stpxSMSTPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxSMSTPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxSMSTPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxsmstporttable.EntityData.Children = make(map[string]types.YChild)
-    stpxsmstporttable.EntityData.Children["stpxSMSTPortEntry"] = types.YChild{"Stpxsmstportentry", nil}
-    for i := range stpxsmstporttable.Stpxsmstportentry {
-        stpxsmstporttable.EntityData.Children[types.GetSegmentPath(&stpxsmstporttable.Stpxsmstportentry[i])] = types.YChild{"Stpxsmstportentry", &stpxsmstporttable.Stpxsmstportentry[i]}
+    stpxSMSTPortTable.EntityData.Children = types.NewOrderedMap()
+    stpxSMSTPortTable.EntityData.Children.Append("stpxSMSTPortEntry", types.YChild{"StpxSMSTPortEntry", nil})
+    for i := range stpxSMSTPortTable.StpxSMSTPortEntry {
+        stpxSMSTPortTable.EntityData.Children.Append(types.GetSegmentPath(stpxSMSTPortTable.StpxSMSTPortEntry[i]), types.YChild{"StpxSMSTPortEntry", stpxSMSTPortTable.StpxSMSTPortEntry[i]})
     }
-    stpxsmstporttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(stpxsmstporttable.EntityData)
+    stpxSMSTPortTable.EntityData.Leafs = types.NewOrderedMap()
+
+    stpxSMSTPortTable.EntityData.YListKeys = []string {}
+
+    return &(stpxSMSTPortTable.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry
+// CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry
 // An entry with port information for the MST protocol
 // on a bridge port.
-type CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry struct {
+type CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
-    Stpxsmstportindex interface{}
+    StpxSMSTPortIndex interface{}
 
     // Indicates the operational status of the port for the  MST protocol.   edge
     // -- this port is an edge port for the MST region.  boundary -- this port is
@@ -2781,7 +2931,7 @@ type CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry struct {
     // learning bit being set.  rstp -- this port is connected to a RSTP bridge or
     // an          MST bridge in a different MST region. The type is
     // map[string]bool.
-    Stpxsmstportstatus interface{}
+    StpxSMSTPortStatus interface{}
 
     // The adminitratively configured hello time in hundredth  of seconds on a
     // port for IEEE MST. The granularity  of this timer is 1 second. An agent may
@@ -2791,73 +2941,76 @@ type CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry struct {
     // stpxSMSTPortConfigedHelloTime retrieved for this port will take on the
     // value of  dot1dStpBridgeHelloTime defined in BRIDGE-MIB. The type is
     // interface{} with range: 0..4294967295. Units are hundredth of seconds.
-    Stpxsmstportadminhellotime interface{}
+    StpxSMSTPortAdminHelloTime interface{}
 
     // Indicates the effective configuration of the hello time on  a port. The
     // type is interface{} with range: 0..4294967295. Units are hundredth of
     // seconds.
-    Stpxsmstportconfigedhellotime interface{}
+    StpxSMSTPortConfigedHelloTime interface{}
 
     // The operational hello time in hundredth of seconds on a  port for IEEE MST.
     // If this object value is not applicable on a port, then the value retrieved
     // on that port will be -1. The type is interface{} with range:
     // -1..2147483647. Units are hundredth of seconds.
-    Stpxsmstportoperhellotime interface{}
+    StpxSMSTPortOperHelloTime interface{}
 
     // The desired MST mode of this port.  preStandard -- this port is
     // administratively configured to     transmit pre-standard, i.e. pre IEEE
     // MST, BPDUs.  auto -- the BPDU transmission mode of this port is based     
     // on automatic detection of neighbor ports. The type is
-    // Stpxsmstportadminmstmode.
-    Stpxsmstportadminmstmode interface{}
+    // StpxSMSTPortAdminMSTMode.
+    StpxSMSTPortAdminMSTMode interface{}
 
     // Indicates the current operational MST mode of this port.  unknown -- the
     // operational mode is currently unknown.  preStandard -- this port is
     // currently operating in      pre-standard MSTP BPDU transmission mode. 
     // standard -- this port is currently operating in IEEE MST      BPDU
-    // transmission mode. The type is Stpxsmstportopermstmode.
-    Stpxsmstportopermstmode interface{}
+    // transmission mode. The type is StpxSMSTPortOperMSTMode.
+    StpxSMSTPortOperMSTMode interface{}
 }
 
-func (stpxsmstportentry *CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry) GetEntityData() *types.CommonEntityData {
-    stpxsmstportentry.EntityData.YFilter = stpxsmstportentry.YFilter
-    stpxsmstportentry.EntityData.YangName = "stpxSMSTPortEntry"
-    stpxsmstportentry.EntityData.BundleName = "cisco_ios_xe"
-    stpxsmstportentry.EntityData.ParentYangName = "stpxSMSTPortTable"
-    stpxsmstportentry.EntityData.SegmentPath = "stpxSMSTPortEntry" + "[stpxSMSTPortIndex='" + fmt.Sprintf("%v", stpxsmstportentry.Stpxsmstportindex) + "']"
-    stpxsmstportentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stpxsmstportentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stpxsmstportentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stpxSMSTPortEntry *CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry) GetEntityData() *types.CommonEntityData {
+    stpxSMSTPortEntry.EntityData.YFilter = stpxSMSTPortEntry.YFilter
+    stpxSMSTPortEntry.EntityData.YangName = "stpxSMSTPortEntry"
+    stpxSMSTPortEntry.EntityData.BundleName = "cisco_ios_xe"
+    stpxSMSTPortEntry.EntityData.ParentYangName = "stpxSMSTPortTable"
+    stpxSMSTPortEntry.EntityData.SegmentPath = "stpxSMSTPortEntry" + types.AddKeyToken(stpxSMSTPortEntry.StpxSMSTPortIndex, "stpxSMSTPortIndex")
+    stpxSMSTPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stpxSMSTPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stpxSMSTPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stpxsmstportentry.EntityData.Children = make(map[string]types.YChild)
-    stpxsmstportentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    stpxsmstportentry.EntityData.Leafs["stpxSMSTPortIndex"] = types.YLeaf{"Stpxsmstportindex", stpxsmstportentry.Stpxsmstportindex}
-    stpxsmstportentry.EntityData.Leafs["stpxSMSTPortStatus"] = types.YLeaf{"Stpxsmstportstatus", stpxsmstportentry.Stpxsmstportstatus}
-    stpxsmstportentry.EntityData.Leafs["stpxSMSTPortAdminHelloTime"] = types.YLeaf{"Stpxsmstportadminhellotime", stpxsmstportentry.Stpxsmstportadminhellotime}
-    stpxsmstportentry.EntityData.Leafs["stpxSMSTPortConfigedHelloTime"] = types.YLeaf{"Stpxsmstportconfigedhellotime", stpxsmstportentry.Stpxsmstportconfigedhellotime}
-    stpxsmstportentry.EntityData.Leafs["stpxSMSTPortOperHelloTime"] = types.YLeaf{"Stpxsmstportoperhellotime", stpxsmstportentry.Stpxsmstportoperhellotime}
-    stpxsmstportentry.EntityData.Leafs["stpxSMSTPortAdminMSTMode"] = types.YLeaf{"Stpxsmstportadminmstmode", stpxsmstportentry.Stpxsmstportadminmstmode}
-    stpxsmstportentry.EntityData.Leafs["stpxSMSTPortOperMSTMode"] = types.YLeaf{"Stpxsmstportopermstmode", stpxsmstportentry.Stpxsmstportopermstmode}
-    return &(stpxsmstportentry.EntityData)
+    stpxSMSTPortEntry.EntityData.Children = types.NewOrderedMap()
+    stpxSMSTPortEntry.EntityData.Leafs = types.NewOrderedMap()
+    stpxSMSTPortEntry.EntityData.Leafs.Append("stpxSMSTPortIndex", types.YLeaf{"StpxSMSTPortIndex", stpxSMSTPortEntry.StpxSMSTPortIndex})
+    stpxSMSTPortEntry.EntityData.Leafs.Append("stpxSMSTPortStatus", types.YLeaf{"StpxSMSTPortStatus", stpxSMSTPortEntry.StpxSMSTPortStatus})
+    stpxSMSTPortEntry.EntityData.Leafs.Append("stpxSMSTPortAdminHelloTime", types.YLeaf{"StpxSMSTPortAdminHelloTime", stpxSMSTPortEntry.StpxSMSTPortAdminHelloTime})
+    stpxSMSTPortEntry.EntityData.Leafs.Append("stpxSMSTPortConfigedHelloTime", types.YLeaf{"StpxSMSTPortConfigedHelloTime", stpxSMSTPortEntry.StpxSMSTPortConfigedHelloTime})
+    stpxSMSTPortEntry.EntityData.Leafs.Append("stpxSMSTPortOperHelloTime", types.YLeaf{"StpxSMSTPortOperHelloTime", stpxSMSTPortEntry.StpxSMSTPortOperHelloTime})
+    stpxSMSTPortEntry.EntityData.Leafs.Append("stpxSMSTPortAdminMSTMode", types.YLeaf{"StpxSMSTPortAdminMSTMode", stpxSMSTPortEntry.StpxSMSTPortAdminMSTMode})
+    stpxSMSTPortEntry.EntityData.Leafs.Append("stpxSMSTPortOperMSTMode", types.YLeaf{"StpxSMSTPortOperMSTMode", stpxSMSTPortEntry.StpxSMSTPortOperMSTMode})
+
+    stpxSMSTPortEntry.EntityData.YListKeys = []string {"StpxSMSTPortIndex"}
+
+    return &(stpxSMSTPortEntry.EntityData)
 }
 
-// CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry_Stpxsmstportadminmstmode represents     on automatic detection of neighbor ports.
-type CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry_Stpxsmstportadminmstmode string
+// CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry_StpxSMSTPortAdminMSTMode represents     on automatic detection of neighbor ports.
+type CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry_StpxSMSTPortAdminMSTMode string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry_Stpxsmstportadminmstmode_preStandard CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry_Stpxsmstportadminmstmode = "preStandard"
+    CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry_StpxSMSTPortAdminMSTMode_preStandard CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry_StpxSMSTPortAdminMSTMode = "preStandard"
 
-    CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry_Stpxsmstportadminmstmode_auto CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry_Stpxsmstportadminmstmode = "auto"
+    CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry_StpxSMSTPortAdminMSTMode_auto CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry_StpxSMSTPortAdminMSTMode = "auto"
 )
 
-// CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry_Stpxsmstportopermstmode represents     BPDU transmission mode.
-type CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry_Stpxsmstportopermstmode string
+// CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry_StpxSMSTPortOperMSTMode represents     BPDU transmission mode.
+type CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry_StpxSMSTPortOperMSTMode string
 
 const (
-    CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry_Stpxsmstportopermstmode_unknown CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry_Stpxsmstportopermstmode = "unknown"
+    CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry_StpxSMSTPortOperMSTMode_unknown CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry_StpxSMSTPortOperMSTMode = "unknown"
 
-    CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry_Stpxsmstportopermstmode_preStandard CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry_Stpxsmstportopermstmode = "preStandard"
+    CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry_StpxSMSTPortOperMSTMode_preStandard CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry_StpxSMSTPortOperMSTMode = "preStandard"
 
-    CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry_Stpxsmstportopermstmode_standard CISCOSTPEXTENSIONSMIB_Stpxsmstporttable_Stpxsmstportentry_Stpxsmstportopermstmode = "standard"
+    CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry_StpxSMSTPortOperMSTMode_standard CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry_StpxSMSTPortOperMSTMode = "standard"
 )
 

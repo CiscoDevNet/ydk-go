@@ -27,93 +27,6 @@ func init() {
     ydk.RegisterEntity("cisco-smart-license:licensing", reflect.TypeOf(Licensing{}))
 }
 
-// NotifRegisterFailureEnum represents detailed failure message.
-type NotifRegisterFailureEnum string
-
-const (
-    // General failure.
-    NotifRegisterFailureEnum_general_failure NotifRegisterFailureEnum = "general-failure"
-
-    // This smart licensing instance is already registered.
-    NotifRegisterFailureEnum_already_registered_failure NotifRegisterFailureEnum = "already-registered-failure"
-
-    // The de-register failed because this instance is not registered.
-    NotifRegisterFailureEnum_de_register_failure NotifRegisterFailureEnum = "de-register-failure"
-)
-
-// RegistrationStateEnum represents The smart licensing registration state.
-type RegistrationStateEnum string
-
-const (
-    // This smart licensing instance is not registered.
-    RegistrationStateEnum_reg_state_not_registered RegistrationStateEnum = "reg-state-not-registered"
-
-    // Registration was successful and this smart licensing 
-    // instance is registered.
-    RegistrationStateEnum_reg_state_complete RegistrationStateEnum = "reg-state-complete"
-
-    // Registration is in progress.
-    RegistrationStateEnum_reg_state_in_progress RegistrationStateEnum = "reg-state-in-progress"
-
-    // The initial registration attempt failed but
-    // a retry is in progress.
-    RegistrationStateEnum_reg_state_retry RegistrationStateEnum = "reg-state-retry"
-
-    // Registration failed.
-    RegistrationStateEnum_reg_state_failed RegistrationStateEnum = "reg-state-failed"
-)
-
-// AuthorizationStateEnum represents The smart licensing authorization state.
-type AuthorizationStateEnum string
-
-const (
-    // No licenses are in use so there is no authorization 
-    // state to report.
-    AuthorizationStateEnum_auth_state_none AuthorizationStateEnum = "auth-state-none"
-
-    // Evaluation period is in use and is counting down.
-    AuthorizationStateEnum_auth_state_eval AuthorizationStateEnum = "auth-state-eval"
-
-    // Evaluation period in use but it has expired.
-    AuthorizationStateEnum_auth_state_eval_expired AuthorizationStateEnum = "auth-state-eval-expired"
-
-    // All license usage is authorized and within terms 
-    // of the customer's contract.
-    AuthorizationStateEnum_auth_state_authorized AuthorizationStateEnum = "auth-state-authorized"
-
-    // All license usage is authorized because a  
-    // reservation authorization code is installed.
-    AuthorizationStateEnum_auth_state_authorized_reservation AuthorizationStateEnum = "auth-state-authorized-reservation"
-
-    // License usage is out of compliance with the 
-    // terms of the contract. Either too many licenses are in
-    // use or licenses that were not purchased are in use.
-    AuthorizationStateEnum_auth_state_out_of_compliance AuthorizationStateEnum = "auth-state-out-of-compliance"
-
-    // The authorization period has expired because this
-    // product instance has not communicated with the
-    // SSM or satellite in over 90 days.
-    AuthorizationStateEnum_auth_state_authorization_expired AuthorizationStateEnum = "auth-state-authorization-expired"
-)
-
-// UtilityReportingTypeEnum represents What has triggered the system to start reporting utility usage.
-type UtilityReportingTypeEnum string
-
-const (
-    // The system is not reporting utility usage data.
-    UtilityReportingTypeEnum_utility_reporting_type_none UtilityReportingTypeEnum = "utility-reporting-type-none"
-
-    // The system is reporting utility usage data because it has 
-    // received subscription information from either the SSM or 
-    // satellite.
-    UtilityReportingTypeEnum_utility_reporting_type_subscription UtilityReportingTypeEnum = "utility-reporting-type-subscription"
-
-    // The system is reporting utility usage data because it has 
-    // received a utility certificate from a Third Party 
-    // Billing Platform.
-    UtilityReportingTypeEnum_utility_reporting_type_certificate UtilityReportingTypeEnum = "utility-reporting-type-certificate"
-)
-
 // TransportTypeEnum represents The type of transport in use by smart licensing.
 type TransportTypeEnum string
 
@@ -124,62 +37,6 @@ const (
     // Smart licensing is using the smart transport for 
     // communications.
     TransportTypeEnum_transport_type_smart TransportTypeEnum = "transport-type-smart"
-)
-
-// EnforcementModeEnum represents  tells us how the license is being enforced.
-type EnforcementModeEnum string
-
-const (
-    // The initial state after an entitlement request while we are waiting 
-    // the Authorization request response. In this mode the device will 
-    // have established communications with Cisco and successfully 
-    // registered with the Cisco Licensing cloud.
-    EnforcementModeEnum_enforcement_waiting EnforcementModeEnum = "enforcement-waiting"
-
-    // Cisco Smart Software Manager (CSSM) has responded that
-    // the entitlement requested is in compliance.
-    EnforcementModeEnum_enforcement_in_compliance EnforcementModeEnum = "enforcement-in-compliance"
-
-    // Cisco Smart Software Manager (CSSM) has responded that
-    // the entitlement requested is out of compliance. 
-    // either too many licenses /entitlements are in use or the license 
-    // has not been purchased
-    EnforcementModeEnum_enforcement_out_of_compliance EnforcementModeEnum = "enforcement-out-of-compliance"
-
-    // more licenses are in use than were purchased but the customer
-    //  is still within the terms of their contract
-    EnforcementModeEnum_enforcement_overage EnforcementModeEnum = "enforcement-overage"
-
-    // The evaluation period is in use.
-    // It will remain in use until the following
-    // two messages have been received by the product from the 
-    // Cisco Smart Software Manager (CSSM):
-    //  Successful response to a registration request,
-    //  successful response to an entitlement authorization request
-    EnforcementModeEnum_enforcement_evaluation EnforcementModeEnum = "enforcement-evaluation"
-
-    // The evaluation period has expired
-    EnforcementModeEnum_enforcement_evaluation_expired EnforcementModeEnum = "enforcement-evaluation-expired"
-
-    // Authorization period has expired. This will occur if the product
-    // has not been able to communicate with Cisco or a satellite 
-    // for an extended period of time, usually 90 days.
-    EnforcementModeEnum_enforcement_authorization_expired EnforcementModeEnum = "enforcement-authorization-expired"
-
-    // The entitlement requested is in compliance because 
-    // a reservation authorization code is installed and the product
-    // is in Permanent License Reservation mode.
-    EnforcementModeEnum_enforcement_reservation_in_compliance EnforcementModeEnum = "enforcement-reservation-in-compliance"
-
-    // The entitlement tag is invalid.
-    // The CSSM does not recognize the entitlement tag
-    // because it is not in the database. This usually only occurs
-    // during testing.
-    EnforcementModeEnum_enforcement_invalid_tag EnforcementModeEnum = "enforcement-invalid-tag"
-
-    // Smart licensing has been disabled. The feature using this license
-    // should be disabled.
-    EnforcementModeEnum_enforcement_disabled EnforcementModeEnum = "enforcement-disabled"
 )
 
 // ErrorEnum represents Smart Licensing RPC calls
@@ -654,6 +511,149 @@ const (
     ErrorEnum_max ErrorEnum = "max"
 )
 
+// UtilityReportingTypeEnum represents What has triggered the system to start reporting utility usage.
+type UtilityReportingTypeEnum string
+
+const (
+    // The system is not reporting utility usage data.
+    UtilityReportingTypeEnum_utility_reporting_type_none UtilityReportingTypeEnum = "utility-reporting-type-none"
+
+    // The system is reporting utility usage data because it has 
+    // received subscription information from either the SSM or 
+    // satellite.
+    UtilityReportingTypeEnum_utility_reporting_type_subscription UtilityReportingTypeEnum = "utility-reporting-type-subscription"
+
+    // The system is reporting utility usage data because it has 
+    // received a utility certificate from a Third Party 
+    // Billing Platform.
+    UtilityReportingTypeEnum_utility_reporting_type_certificate UtilityReportingTypeEnum = "utility-reporting-type-certificate"
+)
+
+// EnforcementModeEnum represents  tells us how the license is being enforced.
+type EnforcementModeEnum string
+
+const (
+    // The initial state after an entitlement request while we are waiting 
+    // the Authorization request response. In this mode the device will 
+    // have established communications with Cisco and successfully 
+    // registered with the Cisco Licensing cloud.
+    EnforcementModeEnum_enforcement_waiting EnforcementModeEnum = "enforcement-waiting"
+
+    // Cisco Smart Software Manager (CSSM) has responded that
+    // the entitlement requested is in compliance.
+    EnforcementModeEnum_enforcement_in_compliance EnforcementModeEnum = "enforcement-in-compliance"
+
+    // Cisco Smart Software Manager (CSSM) has responded that
+    // the entitlement requested is out of compliance. 
+    // either too many licenses /entitlements are in use or the license 
+    // has not been purchased
+    EnforcementModeEnum_enforcement_out_of_compliance EnforcementModeEnum = "enforcement-out-of-compliance"
+
+    // more licenses are in use than were purchased but the customer
+    //  is still within the terms of their contract
+    EnforcementModeEnum_enforcement_overage EnforcementModeEnum = "enforcement-overage"
+
+    // The evaluation period is in use.
+    // It will remain in use until the following
+    // two messages have been received by the product from the 
+    // Cisco Smart Software Manager (CSSM):
+    //  Successful response to a registration request,
+    //  successful response to an entitlement authorization request
+    EnforcementModeEnum_enforcement_evaluation EnforcementModeEnum = "enforcement-evaluation"
+
+    // The evaluation period has expired
+    EnforcementModeEnum_enforcement_evaluation_expired EnforcementModeEnum = "enforcement-evaluation-expired"
+
+    // Authorization period has expired. This will occur if the product
+    // has not been able to communicate with Cisco or a satellite 
+    // for an extended period of time, usually 90 days.
+    EnforcementModeEnum_enforcement_authorization_expired EnforcementModeEnum = "enforcement-authorization-expired"
+
+    // The entitlement requested is in compliance because 
+    // a reservation authorization code is installed and the product
+    // is in Permanent License Reservation mode.
+    EnforcementModeEnum_enforcement_reservation_in_compliance EnforcementModeEnum = "enforcement-reservation-in-compliance"
+
+    // The entitlement tag is invalid.
+    // The CSSM does not recognize the entitlement tag
+    // because it is not in the database. This usually only occurs
+    // during testing.
+    EnforcementModeEnum_enforcement_invalid_tag EnforcementModeEnum = "enforcement-invalid-tag"
+
+    // Smart licensing has been disabled. The feature using this license
+    // should be disabled.
+    EnforcementModeEnum_enforcement_disabled EnforcementModeEnum = "enforcement-disabled"
+)
+
+// AuthorizationStateEnum represents The smart licensing authorization state.
+type AuthorizationStateEnum string
+
+const (
+    // No licenses are in use so there is no authorization 
+    // state to report.
+    AuthorizationStateEnum_auth_state_none AuthorizationStateEnum = "auth-state-none"
+
+    // Evaluation period is in use and is counting down.
+    AuthorizationStateEnum_auth_state_eval AuthorizationStateEnum = "auth-state-eval"
+
+    // Evaluation period in use but it has expired.
+    AuthorizationStateEnum_auth_state_eval_expired AuthorizationStateEnum = "auth-state-eval-expired"
+
+    // All license usage is authorized and within terms 
+    // of the customer's contract.
+    AuthorizationStateEnum_auth_state_authorized AuthorizationStateEnum = "auth-state-authorized"
+
+    // All license usage is authorized because a  
+    // reservation authorization code is installed.
+    AuthorizationStateEnum_auth_state_authorized_reservation AuthorizationStateEnum = "auth-state-authorized-reservation"
+
+    // License usage is out of compliance with the 
+    // terms of the contract. Either too many licenses are in
+    // use or licenses that were not purchased are in use.
+    AuthorizationStateEnum_auth_state_out_of_compliance AuthorizationStateEnum = "auth-state-out-of-compliance"
+
+    // The authorization period has expired because this
+    // product instance has not communicated with the
+    // SSM or satellite in over 90 days.
+    AuthorizationStateEnum_auth_state_authorization_expired AuthorizationStateEnum = "auth-state-authorization-expired"
+)
+
+// RegistrationStateEnum represents The smart licensing registration state.
+type RegistrationStateEnum string
+
+const (
+    // This smart licensing instance is not registered.
+    RegistrationStateEnum_reg_state_not_registered RegistrationStateEnum = "reg-state-not-registered"
+
+    // Registration was successful and this smart licensing 
+    // instance is registered.
+    RegistrationStateEnum_reg_state_complete RegistrationStateEnum = "reg-state-complete"
+
+    // Registration is in progress.
+    RegistrationStateEnum_reg_state_in_progress RegistrationStateEnum = "reg-state-in-progress"
+
+    // The initial registration attempt failed but
+    // a retry is in progress.
+    RegistrationStateEnum_reg_state_retry RegistrationStateEnum = "reg-state-retry"
+
+    // Registration failed.
+    RegistrationStateEnum_reg_state_failed RegistrationStateEnum = "reg-state-failed"
+)
+
+// NotifRegisterFailureEnum represents detailed failure message.
+type NotifRegisterFailureEnum string
+
+const (
+    // General failure.
+    NotifRegisterFailureEnum_general_failure NotifRegisterFailureEnum = "general-failure"
+
+    // This smart licensing instance is already registered.
+    NotifRegisterFailureEnum_already_registered_failure NotifRegisterFailureEnum = "already-registered-failure"
+
+    // The de-register failed because this instance is not registered.
+    NotifRegisterFailureEnum_de_register_failure NotifRegisterFailureEnum = "de-register-failure"
+)
+
 // RegisterIdToken
 // Register with an ID token.
 // This will begin the registration process. Since the registration 
@@ -682,10 +682,13 @@ func (registerIdToken *RegisterIdToken) GetEntityData() *types.CommonEntityData 
     registerIdToken.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     registerIdToken.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    registerIdToken.EntityData.Children = make(map[string]types.YChild)
-    registerIdToken.EntityData.Children["input"] = types.YChild{"Input", &registerIdToken.Input}
-    registerIdToken.EntityData.Children["output"] = types.YChild{"Output", &registerIdToken.Output}
-    registerIdToken.EntityData.Leafs = make(map[string]types.YLeaf)
+    registerIdToken.EntityData.Children = types.NewOrderedMap()
+    registerIdToken.EntityData.Children.Append("input", types.YChild{"Input", &registerIdToken.Input})
+    registerIdToken.EntityData.Children.Append("output", types.YChild{"Output", &registerIdToken.Output})
+    registerIdToken.EntityData.Leafs = types.NewOrderedMap()
+
+    registerIdToken.EntityData.YListKeys = []string {}
+
     return &(registerIdToken.EntityData)
 }
 
@@ -712,10 +715,13 @@ func (input *RegisterIdToken_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["id-token"] = types.YLeaf{"IdToken", input.IdToken}
-    input.EntityData.Leafs["force"] = types.YLeaf{"Force", input.Force}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("id-token", types.YLeaf{"IdToken", input.IdToken})
+    input.EntityData.Leafs.Append("force", types.YLeaf{"Force", input.Force})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -740,9 +746,12 @@ func (output *RegisterIdToken_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["return-code"] = types.YLeaf{"ReturnCode", output.ReturnCode}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", output.ReturnCode})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -766,9 +775,12 @@ func (deRegister *DeRegister) GetEntityData() *types.CommonEntityData {
     deRegister.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     deRegister.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    deRegister.EntityData.Children = make(map[string]types.YChild)
-    deRegister.EntityData.Children["output"] = types.YChild{"Output", &deRegister.Output}
-    deRegister.EntityData.Leafs = make(map[string]types.YLeaf)
+    deRegister.EntityData.Children = types.NewOrderedMap()
+    deRegister.EntityData.Children.Append("output", types.YChild{"Output", &deRegister.Output})
+    deRegister.EntityData.Leafs = types.NewOrderedMap()
+
+    deRegister.EntityData.YListKeys = []string {}
+
     return &(deRegister.EntityData)
 }
 
@@ -791,9 +803,12 @@ func (output *DeRegister_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["return-code"] = types.YLeaf{"ReturnCode", output.ReturnCode}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", output.ReturnCode})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -820,9 +835,12 @@ func (renewId *RenewId) GetEntityData() *types.CommonEntityData {
     renewId.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     renewId.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    renewId.EntityData.Children = make(map[string]types.YChild)
-    renewId.EntityData.Children["output"] = types.YChild{"Output", &renewId.Output}
-    renewId.EntityData.Leafs = make(map[string]types.YLeaf)
+    renewId.EntityData.Children = types.NewOrderedMap()
+    renewId.EntityData.Children.Append("output", types.YChild{"Output", &renewId.Output})
+    renewId.EntityData.Leafs = types.NewOrderedMap()
+
+    renewId.EntityData.YListKeys = []string {}
+
     return &(renewId.EntityData)
 }
 
@@ -845,9 +863,12 @@ func (output *RenewId_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["return-code"] = types.YLeaf{"ReturnCode", output.ReturnCode}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", output.ReturnCode})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -874,9 +895,12 @@ func (renewAuth *RenewAuth) GetEntityData() *types.CommonEntityData {
     renewAuth.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     renewAuth.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    renewAuth.EntityData.Children = make(map[string]types.YChild)
-    renewAuth.EntityData.Children["output"] = types.YChild{"Output", &renewAuth.Output}
-    renewAuth.EntityData.Leafs = make(map[string]types.YLeaf)
+    renewAuth.EntityData.Children = types.NewOrderedMap()
+    renewAuth.EntityData.Children.Append("output", types.YChild{"Output", &renewAuth.Output})
+    renewAuth.EntityData.Leafs = types.NewOrderedMap()
+
+    renewAuth.EntityData.YListKeys = []string {}
+
     return &(renewAuth.EntityData)
 }
 
@@ -899,9 +923,12 @@ func (output *RenewAuth_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["return-code"] = types.YLeaf{"ReturnCode", output.ReturnCode}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", output.ReturnCode})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 
@@ -928,10 +955,13 @@ func (licensing *Licensing) GetEntityData() *types.CommonEntityData {
     licensing.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     licensing.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    licensing.EntityData.Children = make(map[string]types.YChild)
-    licensing.EntityData.Children["config"] = types.YChild{"Config", &licensing.Config}
-    licensing.EntityData.Children["state"] = types.YChild{"State", &licensing.State}
-    licensing.EntityData.Leafs = make(map[string]types.YLeaf)
+    licensing.EntityData.Children = types.NewOrderedMap()
+    licensing.EntityData.Children.Append("config", types.YChild{"Config", &licensing.Config})
+    licensing.EntityData.Children.Append("state", types.YChild{"State", &licensing.State})
+    licensing.EntityData.Leafs = types.NewOrderedMap()
+
+    licensing.EntityData.YListKeys = []string {}
+
     return &(licensing.EntityData)
 }
 
@@ -971,13 +1001,16 @@ func (config *Licensing_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Children["privacy"] = types.YChild{"Privacy", &config.Privacy}
-    config.EntityData.Children["utility"] = types.YChild{"Utility", &config.Utility}
-    config.EntityData.Children["transport"] = types.YChild{"Transport", &config.Transport}
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enable"] = types.YLeaf{"Enable", config.Enable}
-    config.EntityData.Leafs["custom-id"] = types.YLeaf{"CustomId", config.CustomId}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Children.Append("privacy", types.YChild{"Privacy", &config.Privacy})
+    config.EntityData.Children.Append("utility", types.YChild{"Utility", &config.Utility})
+    config.EntityData.Children.Append("transport", types.YChild{"Transport", &config.Transport})
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", config.Enable})
+    config.EntityData.Leafs.Append("custom-id", types.YLeaf{"CustomId", config.CustomId})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1007,10 +1040,13 @@ func (privacy *Licensing_Config_Privacy) GetEntityData() *types.CommonEntityData
     privacy.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     privacy.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    privacy.EntityData.Children = make(map[string]types.YChild)
-    privacy.EntityData.Leafs = make(map[string]types.YLeaf)
-    privacy.EntityData.Leafs["hostname"] = types.YLeaf{"Hostname", privacy.Hostname}
-    privacy.EntityData.Leafs["version"] = types.YLeaf{"Version", privacy.Version}
+    privacy.EntityData.Children = types.NewOrderedMap()
+    privacy.EntityData.Leafs = types.NewOrderedMap()
+    privacy.EntityData.Leafs.Append("hostname", types.YLeaf{"Hostname", privacy.Hostname})
+    privacy.EntityData.Leafs.Append("version", types.YLeaf{"Version", privacy.Version})
+
+    privacy.EntityData.YListKeys = []string {}
+
     return &(privacy.EntityData)
 }
 
@@ -1042,10 +1078,13 @@ func (utility *Licensing_Config_Utility) GetEntityData() *types.CommonEntityData
     utility.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     utility.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    utility.EntityData.Children = make(map[string]types.YChild)
-    utility.EntityData.Children["customer-info"] = types.YChild{"CustomerInfo", &utility.CustomerInfo}
-    utility.EntityData.Leafs = make(map[string]types.YLeaf)
-    utility.EntityData.Leafs["utility-enable"] = types.YLeaf{"UtilityEnable", utility.UtilityEnable}
+    utility.EntityData.Children = types.NewOrderedMap()
+    utility.EntityData.Children.Append("customer-info", types.YChild{"CustomerInfo", &utility.CustomerInfo})
+    utility.EntityData.Leafs = types.NewOrderedMap()
+    utility.EntityData.Leafs.Append("utility-enable", types.YLeaf{"UtilityEnable", utility.UtilityEnable})
+
+    utility.EntityData.YListKeys = []string {}
+
     return &(utility.EntityData)
 }
 
@@ -1095,15 +1134,18 @@ func (customerInfo *Licensing_Config_Utility_CustomerInfo) GetEntityData() *type
     customerInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     customerInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    customerInfo.EntityData.Children = make(map[string]types.YChild)
-    customerInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    customerInfo.EntityData.Leafs["id"] = types.YLeaf{"Id", customerInfo.Id}
-    customerInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", customerInfo.Name}
-    customerInfo.EntityData.Leafs["street"] = types.YLeaf{"Street", customerInfo.Street}
-    customerInfo.EntityData.Leafs["city"] = types.YLeaf{"City", customerInfo.City}
-    customerInfo.EntityData.Leafs["state"] = types.YLeaf{"State", customerInfo.State}
-    customerInfo.EntityData.Leafs["country"] = types.YLeaf{"Country", customerInfo.Country}
-    customerInfo.EntityData.Leafs["postal-code"] = types.YLeaf{"PostalCode", customerInfo.PostalCode}
+    customerInfo.EntityData.Children = types.NewOrderedMap()
+    customerInfo.EntityData.Leafs = types.NewOrderedMap()
+    customerInfo.EntityData.Leafs.Append("id", types.YLeaf{"Id", customerInfo.Id})
+    customerInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", customerInfo.Name})
+    customerInfo.EntityData.Leafs.Append("street", types.YLeaf{"Street", customerInfo.Street})
+    customerInfo.EntityData.Leafs.Append("city", types.YLeaf{"City", customerInfo.City})
+    customerInfo.EntityData.Leafs.Append("state", types.YLeaf{"State", customerInfo.State})
+    customerInfo.EntityData.Leafs.Append("country", types.YLeaf{"Country", customerInfo.Country})
+    customerInfo.EntityData.Leafs.Append("postal-code", types.YLeaf{"PostalCode", customerInfo.PostalCode})
+
+    customerInfo.EntityData.YListKeys = []string {}
+
     return &(customerInfo.EntityData)
 }
 
@@ -1133,10 +1175,13 @@ func (transport *Licensing_Config_Transport) GetEntityData() *types.CommonEntity
     transport.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     transport.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    transport.EntityData.Children = make(map[string]types.YChild)
-    transport.EntityData.Children["transport-smart"] = types.YChild{"TransportSmart", &transport.TransportSmart}
-    transport.EntityData.Leafs = make(map[string]types.YLeaf)
-    transport.EntityData.Leafs["transport-type"] = types.YLeaf{"TransportType", transport.TransportType}
+    transport.EntityData.Children = types.NewOrderedMap()
+    transport.EntityData.Children.Append("transport-smart", types.YChild{"TransportSmart", &transport.TransportSmart})
+    transport.EntityData.Leafs = types.NewOrderedMap()
+    transport.EntityData.Leafs.Append("transport-type", types.YLeaf{"TransportType", transport.TransportType})
+
+    transport.EntityData.YListKeys = []string {}
+
     return &(transport.EntityData)
 }
 
@@ -1166,10 +1211,13 @@ func (transportSmart *Licensing_Config_Transport_TransportSmart) GetEntityData()
     transportSmart.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     transportSmart.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    transportSmart.EntityData.Children = make(map[string]types.YChild)
-    transportSmart.EntityData.Children["urls"] = types.YChild{"Urls", &transportSmart.Urls}
-    transportSmart.EntityData.Leafs = make(map[string]types.YLeaf)
-    transportSmart.EntityData.Leafs["url-default"] = types.YLeaf{"UrlDefault", transportSmart.UrlDefault}
+    transportSmart.EntityData.Children = types.NewOrderedMap()
+    transportSmart.EntityData.Children.Append("urls", types.YChild{"Urls", &transportSmart.Urls})
+    transportSmart.EntityData.Leafs = types.NewOrderedMap()
+    transportSmart.EntityData.Leafs.Append("url-default", types.YLeaf{"UrlDefault", transportSmart.UrlDefault})
+
+    transportSmart.EntityData.YListKeys = []string {}
+
     return &(transportSmart.EntityData)
 }
 
@@ -1202,10 +1250,13 @@ func (urls *Licensing_Config_Transport_TransportSmart_Urls) GetEntityData() *typ
     urls.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     urls.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    urls.EntityData.Children = make(map[string]types.YChild)
-    urls.EntityData.Leafs = make(map[string]types.YLeaf)
-    urls.EntityData.Leafs["url-registration"] = types.YLeaf{"UrlRegistration", urls.UrlRegistration}
-    urls.EntityData.Leafs["url-utility"] = types.YLeaf{"UrlUtility", urls.UrlUtility}
+    urls.EntityData.Children = types.NewOrderedMap()
+    urls.EntityData.Leafs = types.NewOrderedMap()
+    urls.EntityData.Leafs.Append("url-registration", types.YLeaf{"UrlRegistration", urls.UrlRegistration})
+    urls.EntityData.Leafs.Append("url-utility", types.YLeaf{"UrlUtility", urls.UrlUtility})
+
+    urls.EntityData.YListKeys = []string {}
+
     return &(urls.EntityData)
 }
 
@@ -1242,12 +1293,15 @@ func (state *Licensing_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["state-info"] = types.YChild{"StateInfo", &state.StateInfo}
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["always-enabled"] = types.YLeaf{"AlwaysEnabled", state.AlwaysEnabled}
-    state.EntityData.Leafs["smart-enabled"] = types.YLeaf{"SmartEnabled", state.SmartEnabled}
-    state.EntityData.Leafs["version"] = types.YLeaf{"Version", state.Version}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("state-info", types.YChild{"StateInfo", &state.StateInfo})
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("always-enabled", types.YLeaf{"AlwaysEnabled", state.AlwaysEnabled})
+    state.EntityData.Leafs.Append("smart-enabled", types.YLeaf{"SmartEnabled", state.SmartEnabled})
+    state.EntityData.Leafs.Append("version", types.YLeaf{"Version", state.Version})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1286,7 +1340,7 @@ type Licensing_State_StateInfo struct {
     // List of license (entitlement tag) usage information.  This only contains
     // the information for licenses that are in use. The type is slice of
     // Licensing_State_StateInfo_Usage.
-    Usage []Licensing_State_StateInfo_Usage
+    Usage []*Licensing_State_StateInfo_Usage
 }
 
 func (stateInfo *Licensing_State_StateInfo) GetEntityData() *types.CommonEntityData {
@@ -1299,20 +1353,23 @@ func (stateInfo *Licensing_State_StateInfo) GetEntityData() *types.CommonEntityD
     stateInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stateInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    stateInfo.EntityData.Children = make(map[string]types.YChild)
-    stateInfo.EntityData.Children["registration"] = types.YChild{"Registration", &stateInfo.Registration}
-    stateInfo.EntityData.Children["authorization"] = types.YChild{"Authorization", &stateInfo.Authorization}
-    stateInfo.EntityData.Children["utility"] = types.YChild{"Utility", &stateInfo.Utility}
-    stateInfo.EntityData.Children["transport"] = types.YChild{"Transport", &stateInfo.Transport}
-    stateInfo.EntityData.Children["privacy"] = types.YChild{"Privacy", &stateInfo.Privacy}
-    stateInfo.EntityData.Children["evaluation"] = types.YChild{"Evaluation", &stateInfo.Evaluation}
-    stateInfo.EntityData.Children["udi"] = types.YChild{"Udi", &stateInfo.Udi}
-    stateInfo.EntityData.Children["usage"] = types.YChild{"Usage", nil}
+    stateInfo.EntityData.Children = types.NewOrderedMap()
+    stateInfo.EntityData.Children.Append("registration", types.YChild{"Registration", &stateInfo.Registration})
+    stateInfo.EntityData.Children.Append("authorization", types.YChild{"Authorization", &stateInfo.Authorization})
+    stateInfo.EntityData.Children.Append("utility", types.YChild{"Utility", &stateInfo.Utility})
+    stateInfo.EntityData.Children.Append("transport", types.YChild{"Transport", &stateInfo.Transport})
+    stateInfo.EntityData.Children.Append("privacy", types.YChild{"Privacy", &stateInfo.Privacy})
+    stateInfo.EntityData.Children.Append("evaluation", types.YChild{"Evaluation", &stateInfo.Evaluation})
+    stateInfo.EntityData.Children.Append("udi", types.YChild{"Udi", &stateInfo.Udi})
+    stateInfo.EntityData.Children.Append("usage", types.YChild{"Usage", nil})
     for i := range stateInfo.Usage {
-        stateInfo.EntityData.Children[types.GetSegmentPath(&stateInfo.Usage[i])] = types.YChild{"Usage", &stateInfo.Usage[i]}
+        stateInfo.EntityData.Children.Append(types.GetSegmentPath(stateInfo.Usage[i]), types.YChild{"Usage", stateInfo.Usage[i]})
     }
-    stateInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    stateInfo.EntityData.Leafs["custom-id"] = types.YLeaf{"CustomId", stateInfo.CustomId}
+    stateInfo.EntityData.Leafs = types.NewOrderedMap()
+    stateInfo.EntityData.Leafs.Append("custom-id", types.YLeaf{"CustomId", stateInfo.CustomId})
+
+    stateInfo.EntityData.YListKeys = []string {}
+
     return &(stateInfo.EntityData)
 }
 
@@ -1352,14 +1409,17 @@ func (registration *Licensing_State_StateInfo_Registration) GetEntityData() *typ
     registration.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     registration.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    registration.EntityData.Children = make(map[string]types.YChild)
-    registration.EntityData.Children["registration-in-progress"] = types.YChild{"RegistrationInProgress", &registration.RegistrationInProgress}
-    registration.EntityData.Children["registration-failed"] = types.YChild{"RegistrationFailed", &registration.RegistrationFailed}
-    registration.EntityData.Children["registration-retry"] = types.YChild{"RegistrationRetry", &registration.RegistrationRetry}
-    registration.EntityData.Children["registration-complete"] = types.YChild{"RegistrationComplete", &registration.RegistrationComplete}
-    registration.EntityData.Leafs = make(map[string]types.YLeaf)
-    registration.EntityData.Leafs["registration-state"] = types.YLeaf{"RegistrationState", registration.RegistrationState}
-    registration.EntityData.Leafs["export-control-allowed"] = types.YLeaf{"ExportControlAllowed", registration.ExportControlAllowed}
+    registration.EntityData.Children = types.NewOrderedMap()
+    registration.EntityData.Children.Append("registration-in-progress", types.YChild{"RegistrationInProgress", &registration.RegistrationInProgress})
+    registration.EntityData.Children.Append("registration-failed", types.YChild{"RegistrationFailed", &registration.RegistrationFailed})
+    registration.EntityData.Children.Append("registration-retry", types.YChild{"RegistrationRetry", &registration.RegistrationRetry})
+    registration.EntityData.Children.Append("registration-complete", types.YChild{"RegistrationComplete", &registration.RegistrationComplete})
+    registration.EntityData.Leafs = types.NewOrderedMap()
+    registration.EntityData.Leafs.Append("registration-state", types.YLeaf{"RegistrationState", registration.RegistrationState})
+    registration.EntityData.Leafs.Append("export-control-allowed", types.YLeaf{"ExportControlAllowed", registration.ExportControlAllowed})
+
+    registration.EntityData.YListKeys = []string {}
+
     return &(registration.EntityData)
 }
 
@@ -1370,7 +1430,7 @@ type Licensing_State_StateInfo_Registration_RegistrationInProgress struct {
     YFilter yfilter.YFilter
 
     // Time the registration started. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartTime interface{}
 }
 
@@ -1384,9 +1444,12 @@ func (registrationInProgress *Licensing_State_StateInfo_Registration_Registratio
     registrationInProgress.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     registrationInProgress.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    registrationInProgress.EntityData.Children = make(map[string]types.YChild)
-    registrationInProgress.EntityData.Leafs = make(map[string]types.YLeaf)
-    registrationInProgress.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", registrationInProgress.StartTime}
+    registrationInProgress.EntityData.Children = types.NewOrderedMap()
+    registrationInProgress.EntityData.Leafs = types.NewOrderedMap()
+    registrationInProgress.EntityData.Leafs.Append("start-time", types.YLeaf{"StartTime", registrationInProgress.StartTime})
+
+    registrationInProgress.EntityData.YListKeys = []string {}
+
     return &(registrationInProgress.EntityData)
 }
 
@@ -1397,7 +1460,7 @@ type Licensing_State_StateInfo_Registration_RegistrationFailed struct {
     YFilter yfilter.YFilter
 
     // Time the registration failed. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     FailTime interface{}
 
     // Failure message that can be displayed for the user.  This is not a parsable
@@ -1415,10 +1478,13 @@ func (registrationFailed *Licensing_State_StateInfo_Registration_RegistrationFai
     registrationFailed.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     registrationFailed.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    registrationFailed.EntityData.Children = make(map[string]types.YChild)
-    registrationFailed.EntityData.Leafs = make(map[string]types.YLeaf)
-    registrationFailed.EntityData.Leafs["fail-time"] = types.YLeaf{"FailTime", registrationFailed.FailTime}
-    registrationFailed.EntityData.Leafs["fail-message"] = types.YLeaf{"FailMessage", registrationFailed.FailMessage}
+    registrationFailed.EntityData.Children = types.NewOrderedMap()
+    registrationFailed.EntityData.Leafs = types.NewOrderedMap()
+    registrationFailed.EntityData.Leafs.Append("fail-time", types.YLeaf{"FailTime", registrationFailed.FailTime})
+    registrationFailed.EntityData.Leafs.Append("fail-message", types.YLeaf{"FailMessage", registrationFailed.FailMessage})
+
+    registrationFailed.EntityData.YListKeys = []string {}
+
     return &(registrationFailed.EntityData)
 }
 
@@ -1429,11 +1495,11 @@ type Licensing_State_StateInfo_Registration_RegistrationRetry struct {
     YFilter yfilter.YFilter
 
     // Time the registration will be retried. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     RetryNextTime interface{}
 
     // Time the registration failed. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     FailTime interface{}
 
     // Failure message that can be displayed for the user.  This is not a parsable
@@ -1451,11 +1517,14 @@ func (registrationRetry *Licensing_State_StateInfo_Registration_RegistrationRetr
     registrationRetry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     registrationRetry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    registrationRetry.EntityData.Children = make(map[string]types.YChild)
-    registrationRetry.EntityData.Leafs = make(map[string]types.YLeaf)
-    registrationRetry.EntityData.Leafs["retry-next-time"] = types.YLeaf{"RetryNextTime", registrationRetry.RetryNextTime}
-    registrationRetry.EntityData.Leafs["fail-time"] = types.YLeaf{"FailTime", registrationRetry.FailTime}
-    registrationRetry.EntityData.Leafs["fail-message"] = types.YLeaf{"FailMessage", registrationRetry.FailMessage}
+    registrationRetry.EntityData.Children = types.NewOrderedMap()
+    registrationRetry.EntityData.Leafs = types.NewOrderedMap()
+    registrationRetry.EntityData.Leafs.Append("retry-next-time", types.YLeaf{"RetryNextTime", registrationRetry.RetryNextTime})
+    registrationRetry.EntityData.Leafs.Append("fail-time", types.YLeaf{"FailTime", registrationRetry.FailTime})
+    registrationRetry.EntityData.Leafs.Append("fail-message", types.YLeaf{"FailMessage", registrationRetry.FailMessage})
+
+    registrationRetry.EntityData.YListKeys = []string {}
+
     return &(registrationRetry.EntityData)
 }
 
@@ -1466,22 +1535,22 @@ type Licensing_State_StateInfo_Registration_RegistrationComplete struct {
     YFilter yfilter.YFilter
 
     // Time the registration was successful. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     CompleteTime interface{}
 
     // Time the last registration renewal occurred.  If empty then no renewal has
     // occurred. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastRenewTime interface{}
 
     // Time the registration will be automatically renewed. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     NextRenewTime interface{}
 
     // Time the registration will expire if it is not renewed. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     ExpireTime interface{}
 
     // Was the last renewal attempt successful. The type is bool.
@@ -1511,16 +1580,19 @@ func (registrationComplete *Licensing_State_StateInfo_Registration_RegistrationC
     registrationComplete.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     registrationComplete.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    registrationComplete.EntityData.Children = make(map[string]types.YChild)
-    registrationComplete.EntityData.Leafs = make(map[string]types.YLeaf)
-    registrationComplete.EntityData.Leafs["complete-time"] = types.YLeaf{"CompleteTime", registrationComplete.CompleteTime}
-    registrationComplete.EntityData.Leafs["last-renew-time"] = types.YLeaf{"LastRenewTime", registrationComplete.LastRenewTime}
-    registrationComplete.EntityData.Leafs["next-renew-time"] = types.YLeaf{"NextRenewTime", registrationComplete.NextRenewTime}
-    registrationComplete.EntityData.Leafs["expire-time"] = types.YLeaf{"ExpireTime", registrationComplete.ExpireTime}
-    registrationComplete.EntityData.Leafs["last-renew-success"] = types.YLeaf{"LastRenewSuccess", registrationComplete.LastRenewSuccess}
-    registrationComplete.EntityData.Leafs["fail-message"] = types.YLeaf{"FailMessage", registrationComplete.FailMessage}
-    registrationComplete.EntityData.Leafs["smart-account"] = types.YLeaf{"SmartAccount", registrationComplete.SmartAccount}
-    registrationComplete.EntityData.Leafs["virtual-account"] = types.YLeaf{"VirtualAccount", registrationComplete.VirtualAccount}
+    registrationComplete.EntityData.Children = types.NewOrderedMap()
+    registrationComplete.EntityData.Leafs = types.NewOrderedMap()
+    registrationComplete.EntityData.Leafs.Append("complete-time", types.YLeaf{"CompleteTime", registrationComplete.CompleteTime})
+    registrationComplete.EntityData.Leafs.Append("last-renew-time", types.YLeaf{"LastRenewTime", registrationComplete.LastRenewTime})
+    registrationComplete.EntityData.Leafs.Append("next-renew-time", types.YLeaf{"NextRenewTime", registrationComplete.NextRenewTime})
+    registrationComplete.EntityData.Leafs.Append("expire-time", types.YLeaf{"ExpireTime", registrationComplete.ExpireTime})
+    registrationComplete.EntityData.Leafs.Append("last-renew-success", types.YLeaf{"LastRenewSuccess", registrationComplete.LastRenewSuccess})
+    registrationComplete.EntityData.Leafs.Append("fail-message", types.YLeaf{"FailMessage", registrationComplete.FailMessage})
+    registrationComplete.EntityData.Leafs.Append("smart-account", types.YLeaf{"SmartAccount", registrationComplete.SmartAccount})
+    registrationComplete.EntityData.Leafs.Append("virtual-account", types.YLeaf{"VirtualAccount", registrationComplete.VirtualAccount})
+
+    registrationComplete.EntityData.YListKeys = []string {}
+
     return &(registrationComplete.EntityData)
 }
 
@@ -1570,16 +1642,19 @@ func (authorization *Licensing_State_StateInfo_Authorization) GetEntityData() *t
     authorization.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authorization.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    authorization.EntityData.Children = make(map[string]types.YChild)
-    authorization.EntityData.Children["authorization-none"] = types.YChild{"AuthorizationNone", &authorization.AuthorizationNone}
-    authorization.EntityData.Children["authorization-eval"] = types.YChild{"AuthorizationEval", &authorization.AuthorizationEval}
-    authorization.EntityData.Children["authorization-eval-expired"] = types.YChild{"AuthorizationEvalExpired", &authorization.AuthorizationEvalExpired}
-    authorization.EntityData.Children["authorization-authorized"] = types.YChild{"AuthorizationAuthorized", &authorization.AuthorizationAuthorized}
-    authorization.EntityData.Children["authorization-authorized-reservation"] = types.YChild{"AuthorizationAuthorizedReservation", &authorization.AuthorizationAuthorizedReservation}
-    authorization.EntityData.Children["authorization-out-of-compliance"] = types.YChild{"AuthorizationOutOfCompliance", &authorization.AuthorizationOutOfCompliance}
-    authorization.EntityData.Children["authorization-authorization-expired"] = types.YChild{"AuthorizationAuthorizationExpired", &authorization.AuthorizationAuthorizationExpired}
-    authorization.EntityData.Leafs = make(map[string]types.YLeaf)
-    authorization.EntityData.Leafs["authorization-state"] = types.YLeaf{"AuthorizationState", authorization.AuthorizationState}
+    authorization.EntityData.Children = types.NewOrderedMap()
+    authorization.EntityData.Children.Append("authorization-none", types.YChild{"AuthorizationNone", &authorization.AuthorizationNone})
+    authorization.EntityData.Children.Append("authorization-eval", types.YChild{"AuthorizationEval", &authorization.AuthorizationEval})
+    authorization.EntityData.Children.Append("authorization-eval-expired", types.YChild{"AuthorizationEvalExpired", &authorization.AuthorizationEvalExpired})
+    authorization.EntityData.Children.Append("authorization-authorized", types.YChild{"AuthorizationAuthorized", &authorization.AuthorizationAuthorized})
+    authorization.EntityData.Children.Append("authorization-authorized-reservation", types.YChild{"AuthorizationAuthorizedReservation", &authorization.AuthorizationAuthorizedReservation})
+    authorization.EntityData.Children.Append("authorization-out-of-compliance", types.YChild{"AuthorizationOutOfCompliance", &authorization.AuthorizationOutOfCompliance})
+    authorization.EntityData.Children.Append("authorization-authorization-expired", types.YChild{"AuthorizationAuthorizationExpired", &authorization.AuthorizationAuthorizationExpired})
+    authorization.EntityData.Leafs = types.NewOrderedMap()
+    authorization.EntityData.Leafs.Append("authorization-state", types.YLeaf{"AuthorizationState", authorization.AuthorizationState})
+
+    authorization.EntityData.YListKeys = []string {}
+
     return &(authorization.EntityData)
 }
 
@@ -1601,8 +1676,11 @@ func (authorizationNone *Licensing_State_StateInfo_Authorization_AuthorizationNo
     authorizationNone.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authorizationNone.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    authorizationNone.EntityData.Children = make(map[string]types.YChild)
-    authorizationNone.EntityData.Leafs = make(map[string]types.YLeaf)
+    authorizationNone.EntityData.Children = types.NewOrderedMap()
+    authorizationNone.EntityData.Leafs = types.NewOrderedMap()
+
+    authorizationNone.EntityData.YListKeys = []string {}
+
     return &(authorizationNone.EntityData)
 }
 
@@ -1631,9 +1709,12 @@ func (authorizationEval *Licensing_State_StateInfo_Authorization_AuthorizationEv
     authorizationEval.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authorizationEval.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    authorizationEval.EntityData.Children = make(map[string]types.YChild)
-    authorizationEval.EntityData.Leafs = make(map[string]types.YLeaf)
-    authorizationEval.EntityData.Leafs["seconds-left"] = types.YLeaf{"SecondsLeft", authorizationEval.SecondsLeft}
+    authorizationEval.EntityData.Children = types.NewOrderedMap()
+    authorizationEval.EntityData.Leafs = types.NewOrderedMap()
+    authorizationEval.EntityData.Leafs.Append("seconds-left", types.YLeaf{"SecondsLeft", authorizationEval.SecondsLeft})
+
+    authorizationEval.EntityData.YListKeys = []string {}
+
     return &(authorizationEval.EntityData)
 }
 
@@ -1644,7 +1725,7 @@ type Licensing_State_StateInfo_Authorization_AuthorizationEvalExpired struct {
     YFilter yfilter.YFilter
 
     // Time the evaluation period expired. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     ExpireTime interface{}
 }
 
@@ -1658,9 +1739,12 @@ func (authorizationEvalExpired *Licensing_State_StateInfo_Authorization_Authoriz
     authorizationEvalExpired.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authorizationEvalExpired.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    authorizationEvalExpired.EntityData.Children = make(map[string]types.YChild)
-    authorizationEvalExpired.EntityData.Leafs = make(map[string]types.YLeaf)
-    authorizationEvalExpired.EntityData.Leafs["expire-time"] = types.YLeaf{"ExpireTime", authorizationEvalExpired.ExpireTime}
+    authorizationEvalExpired.EntityData.Children = types.NewOrderedMap()
+    authorizationEvalExpired.EntityData.Leafs = types.NewOrderedMap()
+    authorizationEvalExpired.EntityData.Leafs.Append("expire-time", types.YLeaf{"ExpireTime", authorizationEvalExpired.ExpireTime})
+
+    authorizationEvalExpired.EntityData.YListKeys = []string {}
+
     return &(authorizationEvalExpired.EntityData)
 }
 
@@ -1679,20 +1763,19 @@ type Licensing_State_StateInfo_Authorization_AuthorizationAuthorized struct {
     FailMessage interface{}
 
     // Time the last communication attempt happened. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastCommTime interface{}
 
     // The next time communications will be attempted to the back end. This will
     // be zero if the initial communication has not completed. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     NextCommTime interface{}
 
     // If there are no communications between now and this time smart licensing
     // will enter the authorization expired state.  This may be zero indicating
     // there is no deadline. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     CommDeadlineTime interface{}
 }
 
@@ -1706,13 +1789,16 @@ func (authorizationAuthorized *Licensing_State_StateInfo_Authorization_Authoriza
     authorizationAuthorized.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authorizationAuthorized.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    authorizationAuthorized.EntityData.Children = make(map[string]types.YChild)
-    authorizationAuthorized.EntityData.Leafs = make(map[string]types.YLeaf)
-    authorizationAuthorized.EntityData.Leafs["last-comm-status-success"] = types.YLeaf{"LastCommStatusSuccess", authorizationAuthorized.LastCommStatusSuccess}
-    authorizationAuthorized.EntityData.Leafs["fail-message"] = types.YLeaf{"FailMessage", authorizationAuthorized.FailMessage}
-    authorizationAuthorized.EntityData.Leafs["last-comm-time"] = types.YLeaf{"LastCommTime", authorizationAuthorized.LastCommTime}
-    authorizationAuthorized.EntityData.Leafs["next-comm-time"] = types.YLeaf{"NextCommTime", authorizationAuthorized.NextCommTime}
-    authorizationAuthorized.EntityData.Leafs["comm-deadline-time"] = types.YLeaf{"CommDeadlineTime", authorizationAuthorized.CommDeadlineTime}
+    authorizationAuthorized.EntityData.Children = types.NewOrderedMap()
+    authorizationAuthorized.EntityData.Leafs = types.NewOrderedMap()
+    authorizationAuthorized.EntityData.Leafs.Append("last-comm-status-success", types.YLeaf{"LastCommStatusSuccess", authorizationAuthorized.LastCommStatusSuccess})
+    authorizationAuthorized.EntityData.Leafs.Append("fail-message", types.YLeaf{"FailMessage", authorizationAuthorized.FailMessage})
+    authorizationAuthorized.EntityData.Leafs.Append("last-comm-time", types.YLeaf{"LastCommTime", authorizationAuthorized.LastCommTime})
+    authorizationAuthorized.EntityData.Leafs.Append("next-comm-time", types.YLeaf{"NextCommTime", authorizationAuthorized.NextCommTime})
+    authorizationAuthorized.EntityData.Leafs.Append("comm-deadline-time", types.YLeaf{"CommDeadlineTime", authorizationAuthorized.CommDeadlineTime})
+
+    authorizationAuthorized.EntityData.YListKeys = []string {}
+
     return &(authorizationAuthorized.EntityData)
 }
 
@@ -1724,7 +1810,7 @@ type Licensing_State_StateInfo_Authorization_AuthorizationAuthorizedReservation 
     YFilter yfilter.YFilter
 
     // Time the reservation occurred. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     ReservationTime interface{}
 }
 
@@ -1738,9 +1824,12 @@ func (authorizationAuthorizedReservation *Licensing_State_StateInfo_Authorizatio
     authorizationAuthorizedReservation.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authorizationAuthorizedReservation.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    authorizationAuthorizedReservation.EntityData.Children = make(map[string]types.YChild)
-    authorizationAuthorizedReservation.EntityData.Leafs = make(map[string]types.YLeaf)
-    authorizationAuthorizedReservation.EntityData.Leafs["reservation-time"] = types.YLeaf{"ReservationTime", authorizationAuthorizedReservation.ReservationTime}
+    authorizationAuthorizedReservation.EntityData.Children = types.NewOrderedMap()
+    authorizationAuthorizedReservation.EntityData.Leafs = types.NewOrderedMap()
+    authorizationAuthorizedReservation.EntityData.Leafs.Append("reservation-time", types.YLeaf{"ReservationTime", authorizationAuthorizedReservation.ReservationTime})
+
+    authorizationAuthorizedReservation.EntityData.YListKeys = []string {}
+
     return &(authorizationAuthorizedReservation.EntityData)
 }
 
@@ -1760,25 +1849,24 @@ type Licensing_State_StateInfo_Authorization_AuthorizationOutOfCompliance struct
     FailMessage interface{}
 
     // Time the last communication attempt happened. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastCommTime interface{}
 
     // The next time communications will be attempted to the back end. This will
     // be zero if the initial communication has not completed. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     NextCommTime interface{}
 
     // If there are no communications between now and this time smart licensing
     // will enter the authorization expired state.  This may be zero indicating
     // there is no deadline. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     CommDeadlineTime interface{}
 
     // Time the product instance entered the out of compliance state. The type is
     // string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     OocTime interface{}
 }
 
@@ -1792,14 +1880,17 @@ func (authorizationOutOfCompliance *Licensing_State_StateInfo_Authorization_Auth
     authorizationOutOfCompliance.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authorizationOutOfCompliance.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    authorizationOutOfCompliance.EntityData.Children = make(map[string]types.YChild)
-    authorizationOutOfCompliance.EntityData.Leafs = make(map[string]types.YLeaf)
-    authorizationOutOfCompliance.EntityData.Leafs["last-comm-status-success"] = types.YLeaf{"LastCommStatusSuccess", authorizationOutOfCompliance.LastCommStatusSuccess}
-    authorizationOutOfCompliance.EntityData.Leafs["fail-message"] = types.YLeaf{"FailMessage", authorizationOutOfCompliance.FailMessage}
-    authorizationOutOfCompliance.EntityData.Leafs["last-comm-time"] = types.YLeaf{"LastCommTime", authorizationOutOfCompliance.LastCommTime}
-    authorizationOutOfCompliance.EntityData.Leafs["next-comm-time"] = types.YLeaf{"NextCommTime", authorizationOutOfCompliance.NextCommTime}
-    authorizationOutOfCompliance.EntityData.Leafs["comm-deadline-time"] = types.YLeaf{"CommDeadlineTime", authorizationOutOfCompliance.CommDeadlineTime}
-    authorizationOutOfCompliance.EntityData.Leafs["ooc-time"] = types.YLeaf{"OocTime", authorizationOutOfCompliance.OocTime}
+    authorizationOutOfCompliance.EntityData.Children = types.NewOrderedMap()
+    authorizationOutOfCompliance.EntityData.Leafs = types.NewOrderedMap()
+    authorizationOutOfCompliance.EntityData.Leafs.Append("last-comm-status-success", types.YLeaf{"LastCommStatusSuccess", authorizationOutOfCompliance.LastCommStatusSuccess})
+    authorizationOutOfCompliance.EntityData.Leafs.Append("fail-message", types.YLeaf{"FailMessage", authorizationOutOfCompliance.FailMessage})
+    authorizationOutOfCompliance.EntityData.Leafs.Append("last-comm-time", types.YLeaf{"LastCommTime", authorizationOutOfCompliance.LastCommTime})
+    authorizationOutOfCompliance.EntityData.Leafs.Append("next-comm-time", types.YLeaf{"NextCommTime", authorizationOutOfCompliance.NextCommTime})
+    authorizationOutOfCompliance.EntityData.Leafs.Append("comm-deadline-time", types.YLeaf{"CommDeadlineTime", authorizationOutOfCompliance.CommDeadlineTime})
+    authorizationOutOfCompliance.EntityData.Leafs.Append("ooc-time", types.YLeaf{"OocTime", authorizationOutOfCompliance.OocTime})
+
+    authorizationOutOfCompliance.EntityData.YListKeys = []string {}
+
     return &(authorizationOutOfCompliance.EntityData)
 }
 
@@ -1820,20 +1911,19 @@ type Licensing_State_StateInfo_Authorization_AuthorizationAuthorizationExpired s
     FailMessage interface{}
 
     // Time the last communication attempt happened. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastCommTime interface{}
 
     // The next time communications will be attempted to the back end. This will
     // be zero if the initial communication has not completed. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     NextCommTime interface{}
 
     // If there are no communications between now and this time smart licensing
     // will enter the authorization expired state.  This may be zero indicating
     // there is no deadline. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     CommDeadlineTime interface{}
 }
 
@@ -1847,13 +1937,16 @@ func (authorizationAuthorizationExpired *Licensing_State_StateInfo_Authorization
     authorizationAuthorizationExpired.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authorizationAuthorizationExpired.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    authorizationAuthorizationExpired.EntityData.Children = make(map[string]types.YChild)
-    authorizationAuthorizationExpired.EntityData.Leafs = make(map[string]types.YLeaf)
-    authorizationAuthorizationExpired.EntityData.Leafs["last-comm-status-success"] = types.YLeaf{"LastCommStatusSuccess", authorizationAuthorizationExpired.LastCommStatusSuccess}
-    authorizationAuthorizationExpired.EntityData.Leafs["fail-message"] = types.YLeaf{"FailMessage", authorizationAuthorizationExpired.FailMessage}
-    authorizationAuthorizationExpired.EntityData.Leafs["last-comm-time"] = types.YLeaf{"LastCommTime", authorizationAuthorizationExpired.LastCommTime}
-    authorizationAuthorizationExpired.EntityData.Leafs["next-comm-time"] = types.YLeaf{"NextCommTime", authorizationAuthorizationExpired.NextCommTime}
-    authorizationAuthorizationExpired.EntityData.Leafs["comm-deadline-time"] = types.YLeaf{"CommDeadlineTime", authorizationAuthorizationExpired.CommDeadlineTime}
+    authorizationAuthorizationExpired.EntityData.Children = types.NewOrderedMap()
+    authorizationAuthorizationExpired.EntityData.Leafs = types.NewOrderedMap()
+    authorizationAuthorizationExpired.EntityData.Leafs.Append("last-comm-status-success", types.YLeaf{"LastCommStatusSuccess", authorizationAuthorizationExpired.LastCommStatusSuccess})
+    authorizationAuthorizationExpired.EntityData.Leafs.Append("fail-message", types.YLeaf{"FailMessage", authorizationAuthorizationExpired.FailMessage})
+    authorizationAuthorizationExpired.EntityData.Leafs.Append("last-comm-time", types.YLeaf{"LastCommTime", authorizationAuthorizationExpired.LastCommTime})
+    authorizationAuthorizationExpired.EntityData.Leafs.Append("next-comm-time", types.YLeaf{"NextCommTime", authorizationAuthorizationExpired.NextCommTime})
+    authorizationAuthorizationExpired.EntityData.Leafs.Append("comm-deadline-time", types.YLeaf{"CommDeadlineTime", authorizationAuthorizationExpired.CommDeadlineTime})
+
+    authorizationAuthorizationExpired.EntityData.YListKeys = []string {}
+
     return &(authorizationAuthorizationExpired.EntityData)
 }
 
@@ -1892,12 +1985,15 @@ func (utility *Licensing_State_StateInfo_Utility) GetEntityData() *types.CommonE
     utility.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     utility.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    utility.EntityData.Children = make(map[string]types.YChild)
-    utility.EntityData.Children["reporting-times"] = types.YChild{"ReportingTimes", &utility.ReportingTimes}
-    utility.EntityData.Children["customer-info"] = types.YChild{"CustomerInfo", &utility.CustomerInfo}
-    utility.EntityData.Leafs = make(map[string]types.YLeaf)
-    utility.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", utility.Enabled}
-    utility.EntityData.Leafs["reporting"] = types.YLeaf{"Reporting", utility.Reporting}
+    utility.EntityData.Children = types.NewOrderedMap()
+    utility.EntityData.Children.Append("reporting-times", types.YChild{"ReportingTimes", &utility.ReportingTimes})
+    utility.EntityData.Children.Append("customer-info", types.YChild{"CustomerInfo", &utility.CustomerInfo})
+    utility.EntityData.Leafs = types.NewOrderedMap()
+    utility.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", utility.Enabled})
+    utility.EntityData.Leafs.Append("reporting", types.YLeaf{"Reporting", utility.Reporting})
+
+    utility.EntityData.YListKeys = []string {}
+
     return &(utility.EntityData)
 }
 
@@ -1909,7 +2005,7 @@ type Licensing_State_StateInfo_Utility_ReportingTimes struct {
     YFilter yfilter.YFilter
 
     // Time the last report was sent. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastReportTime interface{}
 
     // Was the last report successfully sent?. The type is bool.
@@ -1920,8 +2016,7 @@ type Licensing_State_StateInfo_Utility_ReportingTimes struct {
     FailMessage interface{}
 
     // Time the next report is scheduled to be sent. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     NextReportTime interface{}
 }
 
@@ -1935,12 +2030,15 @@ func (reportingTimes *Licensing_State_StateInfo_Utility_ReportingTimes) GetEntit
     reportingTimes.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     reportingTimes.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    reportingTimes.EntityData.Children = make(map[string]types.YChild)
-    reportingTimes.EntityData.Leafs = make(map[string]types.YLeaf)
-    reportingTimes.EntityData.Leafs["last-report-time"] = types.YLeaf{"LastReportTime", reportingTimes.LastReportTime}
-    reportingTimes.EntityData.Leafs["last-report-success"] = types.YLeaf{"LastReportSuccess", reportingTimes.LastReportSuccess}
-    reportingTimes.EntityData.Leafs["fail-message"] = types.YLeaf{"FailMessage", reportingTimes.FailMessage}
-    reportingTimes.EntityData.Leafs["next-report-time"] = types.YLeaf{"NextReportTime", reportingTimes.NextReportTime}
+    reportingTimes.EntityData.Children = types.NewOrderedMap()
+    reportingTimes.EntityData.Leafs = types.NewOrderedMap()
+    reportingTimes.EntityData.Leafs.Append("last-report-time", types.YLeaf{"LastReportTime", reportingTimes.LastReportTime})
+    reportingTimes.EntityData.Leafs.Append("last-report-success", types.YLeaf{"LastReportSuccess", reportingTimes.LastReportSuccess})
+    reportingTimes.EntityData.Leafs.Append("fail-message", types.YLeaf{"FailMessage", reportingTimes.FailMessage})
+    reportingTimes.EntityData.Leafs.Append("next-report-time", types.YLeaf{"NextReportTime", reportingTimes.NextReportTime})
+
+    reportingTimes.EntityData.YListKeys = []string {}
+
     return &(reportingTimes.EntityData)
 }
 
@@ -1990,15 +2088,18 @@ func (customerInfo *Licensing_State_StateInfo_Utility_CustomerInfo) GetEntityDat
     customerInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     customerInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    customerInfo.EntityData.Children = make(map[string]types.YChild)
-    customerInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    customerInfo.EntityData.Leafs["id"] = types.YLeaf{"Id", customerInfo.Id}
-    customerInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", customerInfo.Name}
-    customerInfo.EntityData.Leafs["street"] = types.YLeaf{"Street", customerInfo.Street}
-    customerInfo.EntityData.Leafs["city"] = types.YLeaf{"City", customerInfo.City}
-    customerInfo.EntityData.Leafs["state"] = types.YLeaf{"State", customerInfo.State}
-    customerInfo.EntityData.Leafs["country"] = types.YLeaf{"Country", customerInfo.Country}
-    customerInfo.EntityData.Leafs["postal-code"] = types.YLeaf{"PostalCode", customerInfo.PostalCode}
+    customerInfo.EntityData.Children = types.NewOrderedMap()
+    customerInfo.EntityData.Leafs = types.NewOrderedMap()
+    customerInfo.EntityData.Leafs.Append("id", types.YLeaf{"Id", customerInfo.Id})
+    customerInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", customerInfo.Name})
+    customerInfo.EntityData.Leafs.Append("street", types.YLeaf{"Street", customerInfo.Street})
+    customerInfo.EntityData.Leafs.Append("city", types.YLeaf{"City", customerInfo.City})
+    customerInfo.EntityData.Leafs.Append("state", types.YLeaf{"State", customerInfo.State})
+    customerInfo.EntityData.Leafs.Append("country", types.YLeaf{"Country", customerInfo.Country})
+    customerInfo.EntityData.Leafs.Append("postal-code", types.YLeaf{"PostalCode", customerInfo.PostalCode})
+
+    customerInfo.EntityData.YListKeys = []string {}
+
     return &(customerInfo.EntityData)
 }
 
@@ -2026,10 +2127,13 @@ func (transport *Licensing_State_StateInfo_Transport) GetEntityData() *types.Com
     transport.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     transport.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    transport.EntityData.Children = make(map[string]types.YChild)
-    transport.EntityData.Children["url-settings"] = types.YChild{"UrlSettings", &transport.UrlSettings}
-    transport.EntityData.Leafs = make(map[string]types.YLeaf)
-    transport.EntityData.Leafs["transport-type"] = types.YLeaf{"TransportType", transport.TransportType}
+    transport.EntityData.Children = types.NewOrderedMap()
+    transport.EntityData.Children.Append("url-settings", types.YChild{"UrlSettings", &transport.UrlSettings})
+    transport.EntityData.Leafs = types.NewOrderedMap()
+    transport.EntityData.Leafs.Append("transport-type", types.YLeaf{"TransportType", transport.TransportType})
+
+    transport.EntityData.YListKeys = []string {}
+
     return &(transport.EntityData)
 }
 
@@ -2059,10 +2163,13 @@ func (urlSettings *Licensing_State_StateInfo_Transport_UrlSettings) GetEntityDat
     urlSettings.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     urlSettings.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    urlSettings.EntityData.Children = make(map[string]types.YChild)
-    urlSettings.EntityData.Leafs = make(map[string]types.YLeaf)
-    urlSettings.EntityData.Leafs["url-registration"] = types.YLeaf{"UrlRegistration", urlSettings.UrlRegistration}
-    urlSettings.EntityData.Leafs["url-utility"] = types.YLeaf{"UrlUtility", urlSettings.UrlUtility}
+    urlSettings.EntityData.Children = types.NewOrderedMap()
+    urlSettings.EntityData.Leafs = types.NewOrderedMap()
+    urlSettings.EntityData.Leafs.Append("url-registration", types.YLeaf{"UrlRegistration", urlSettings.UrlRegistration})
+    urlSettings.EntityData.Leafs.Append("url-utility", types.YLeaf{"UrlUtility", urlSettings.UrlUtility})
+
+    urlSettings.EntityData.YListKeys = []string {}
+
     return &(urlSettings.EntityData)
 }
 
@@ -2091,10 +2198,13 @@ func (privacy *Licensing_State_StateInfo_Privacy) GetEntityData() *types.CommonE
     privacy.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     privacy.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    privacy.EntityData.Children = make(map[string]types.YChild)
-    privacy.EntityData.Leafs = make(map[string]types.YLeaf)
-    privacy.EntityData.Leafs["hostname"] = types.YLeaf{"Hostname", privacy.Hostname}
-    privacy.EntityData.Leafs["version"] = types.YLeaf{"Version", privacy.Version}
+    privacy.EntityData.Children = types.NewOrderedMap()
+    privacy.EntityData.Leafs = types.NewOrderedMap()
+    privacy.EntityData.Leafs.Append("hostname", types.YLeaf{"Hostname", privacy.Hostname})
+    privacy.EntityData.Leafs.Append("version", types.YLeaf{"Version", privacy.Version})
+
+    privacy.EntityData.YListKeys = []string {}
+
     return &(privacy.EntityData)
 }
 
@@ -2130,12 +2240,15 @@ func (evaluation *Licensing_State_StateInfo_Evaluation) GetEntityData() *types.C
     evaluation.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     evaluation.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    evaluation.EntityData.Children = make(map[string]types.YChild)
-    evaluation.EntityData.Children["eval-period-left"] = types.YChild{"EvalPeriodLeft", &evaluation.EvalPeriodLeft}
-    evaluation.EntityData.Children["eval-expire-time"] = types.YChild{"EvalExpireTime", &evaluation.EvalExpireTime}
-    evaluation.EntityData.Leafs = make(map[string]types.YLeaf)
-    evaluation.EntityData.Leafs["eval-in-use"] = types.YLeaf{"EvalInUse", evaluation.EvalInUse}
-    evaluation.EntityData.Leafs["eval-expired"] = types.YLeaf{"EvalExpired", evaluation.EvalExpired}
+    evaluation.EntityData.Children = types.NewOrderedMap()
+    evaluation.EntityData.Children.Append("eval-period-left", types.YChild{"EvalPeriodLeft", &evaluation.EvalPeriodLeft})
+    evaluation.EntityData.Children.Append("eval-expire-time", types.YChild{"EvalExpireTime", &evaluation.EvalExpireTime})
+    evaluation.EntityData.Leafs = types.NewOrderedMap()
+    evaluation.EntityData.Leafs.Append("eval-in-use", types.YLeaf{"EvalInUse", evaluation.EvalInUse})
+    evaluation.EntityData.Leafs.Append("eval-expired", types.YLeaf{"EvalExpired", evaluation.EvalExpired})
+
+    evaluation.EntityData.YListKeys = []string {}
+
     return &(evaluation.EntityData)
 }
 
@@ -2161,9 +2274,12 @@ func (evalPeriodLeft *Licensing_State_StateInfo_Evaluation_EvalPeriodLeft) GetEn
     evalPeriodLeft.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     evalPeriodLeft.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    evalPeriodLeft.EntityData.Children = make(map[string]types.YChild)
-    evalPeriodLeft.EntityData.Leafs = make(map[string]types.YLeaf)
-    evalPeriodLeft.EntityData.Leafs["time-left"] = types.YLeaf{"TimeLeft", evalPeriodLeft.TimeLeft}
+    evalPeriodLeft.EntityData.Children = types.NewOrderedMap()
+    evalPeriodLeft.EntityData.Leafs = types.NewOrderedMap()
+    evalPeriodLeft.EntityData.Leafs.Append("time-left", types.YLeaf{"TimeLeft", evalPeriodLeft.TimeLeft})
+
+    evalPeriodLeft.EntityData.YListKeys = []string {}
+
     return &(evalPeriodLeft.EntityData)
 }
 
@@ -2175,8 +2291,7 @@ type Licensing_State_StateInfo_Evaluation_EvalExpireTime struct {
     YFilter yfilter.YFilter
 
     // Date and time the evaluation period expired. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     ExpireTime interface{}
 }
 
@@ -2190,9 +2305,12 @@ func (evalExpireTime *Licensing_State_StateInfo_Evaluation_EvalExpireTime) GetEn
     evalExpireTime.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     evalExpireTime.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    evalExpireTime.EntityData.Children = make(map[string]types.YChild)
-    evalExpireTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    evalExpireTime.EntityData.Leafs["expire-time"] = types.YLeaf{"ExpireTime", evalExpireTime.ExpireTime}
+    evalExpireTime.EntityData.Children = types.NewOrderedMap()
+    evalExpireTime.EntityData.Leafs = types.NewOrderedMap()
+    evalExpireTime.EntityData.Leafs.Append("expire-time", types.YLeaf{"ExpireTime", evalExpireTime.ExpireTime})
+
+    evalExpireTime.EntityData.YListKeys = []string {}
+
     return &(evalExpireTime.EntityData)
 }
 
@@ -2217,7 +2335,7 @@ type Licensing_State_StateInfo_Udi struct {
     // A 32 byte hex value generated by the system.  This will be in proper UUID
     // format 8-4-4-4-12. Often used by VMs or other systems that do not have a
     // hardware identifier. The type is string with pattern:
-    // b'[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'.
+    // [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}.
     Uuid interface{}
 
     // Free form virtual identifier often used by software  only devices like
@@ -2230,7 +2348,7 @@ type Licensing_State_StateInfo_Udi struct {
 
     // The MAC address of the system. This is usually only used if there  is
     // nothing else available to be used as an identifier. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 }
 
@@ -2244,15 +2362,18 @@ func (udi *Licensing_State_StateInfo_Udi) GetEntityData() *types.CommonEntityDat
     udi.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     udi.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    udi.EntityData.Children = make(map[string]types.YChild)
-    udi.EntityData.Leafs = make(map[string]types.YLeaf)
-    udi.EntityData.Leafs["pid"] = types.YLeaf{"Pid", udi.Pid}
-    udi.EntityData.Leafs["sn"] = types.YLeaf{"Sn", udi.Sn}
-    udi.EntityData.Leafs["vid"] = types.YLeaf{"Vid", udi.Vid}
-    udi.EntityData.Leafs["uuid"] = types.YLeaf{"Uuid", udi.Uuid}
-    udi.EntityData.Leafs["suvi"] = types.YLeaf{"Suvi", udi.Suvi}
-    udi.EntityData.Leafs["host-identifier"] = types.YLeaf{"HostIdentifier", udi.HostIdentifier}
-    udi.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", udi.MacAddress}
+    udi.EntityData.Children = types.NewOrderedMap()
+    udi.EntityData.Leafs = types.NewOrderedMap()
+    udi.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", udi.Pid})
+    udi.EntityData.Leafs.Append("sn", types.YLeaf{"Sn", udi.Sn})
+    udi.EntityData.Leafs.Append("vid", types.YLeaf{"Vid", udi.Vid})
+    udi.EntityData.Leafs.Append("uuid", types.YLeaf{"Uuid", udi.Uuid})
+    udi.EntityData.Leafs.Append("suvi", types.YLeaf{"Suvi", udi.Suvi})
+    udi.EntityData.Leafs.Append("host-identifier", types.YLeaf{"HostIdentifier", udi.HostIdentifier})
+    udi.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", udi.MacAddress})
+
+    udi.EntityData.YListKeys = []string {}
+
     return &(udi.EntityData)
 }
 
@@ -2305,21 +2426,24 @@ func (usage *Licensing_State_StateInfo_Usage) GetEntityData() *types.CommonEntit
     usage.EntityData.YangName = "usage"
     usage.EntityData.BundleName = "cisco_ios_xe"
     usage.EntityData.ParentYangName = "state-info"
-    usage.EntityData.SegmentPath = "usage" + "[entitlement-tag='" + fmt.Sprintf("%v", usage.EntitlementTag) + "']"
+    usage.EntityData.SegmentPath = "usage" + types.AddKeyToken(usage.EntitlementTag, "entitlement-tag")
     usage.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     usage.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     usage.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    usage.EntityData.Children = make(map[string]types.YChild)
-    usage.EntityData.Leafs = make(map[string]types.YLeaf)
-    usage.EntityData.Leafs["entitlement-tag"] = types.YLeaf{"EntitlementTag", usage.EntitlementTag}
-    usage.EntityData.Leafs["short-name"] = types.YLeaf{"ShortName", usage.ShortName}
-    usage.EntityData.Leafs["license-name"] = types.YLeaf{"LicenseName", usage.LicenseName}
-    usage.EntityData.Leafs["description"] = types.YLeaf{"Description", usage.Description}
-    usage.EntityData.Leafs["count"] = types.YLeaf{"Count", usage.Count}
-    usage.EntityData.Leafs["enforcement-mode"] = types.YLeaf{"EnforcementMode", usage.EnforcementMode}
-    usage.EntityData.Leafs["post-paid"] = types.YLeaf{"PostPaid", usage.PostPaid}
-    usage.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", usage.SubscriptionId}
+    usage.EntityData.Children = types.NewOrderedMap()
+    usage.EntityData.Leafs = types.NewOrderedMap()
+    usage.EntityData.Leafs.Append("entitlement-tag", types.YLeaf{"EntitlementTag", usage.EntitlementTag})
+    usage.EntityData.Leafs.Append("short-name", types.YLeaf{"ShortName", usage.ShortName})
+    usage.EntityData.Leafs.Append("license-name", types.YLeaf{"LicenseName", usage.LicenseName})
+    usage.EntityData.Leafs.Append("description", types.YLeaf{"Description", usage.Description})
+    usage.EntityData.Leafs.Append("count", types.YLeaf{"Count", usage.Count})
+    usage.EntityData.Leafs.Append("enforcement-mode", types.YLeaf{"EnforcementMode", usage.EnforcementMode})
+    usage.EntityData.Leafs.Append("post-paid", types.YLeaf{"PostPaid", usage.PostPaid})
+    usage.EntityData.Leafs.Append("subscription-id", types.YLeaf{"SubscriptionId", usage.SubscriptionId})
+
+    usage.EntityData.YListKeys = []string {"EntitlementTag"}
+
     return &(usage.EntityData)
 }
 

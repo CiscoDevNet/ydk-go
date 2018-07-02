@@ -30,77 +30,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-l2-eth-infra-oper:ethernet-encapsulation", reflect.TypeOf(EthernetEncapsulation{}))
 }
 
-// VlanService represents Layer 2 vs. Layer 3 Terminated Service
-type VlanService string
-
-const (
-    // Layer 2 Transport Service
-    VlanService_vlan_service_l2 VlanService = "vlan-service-l2"
-
-    // Layer 3 Terminated Service
-    VlanService_vlan_service_l3 VlanService = "vlan-service-l3"
-)
-
-// EfpPayloadEtype represents Payload ethertype match
-type EfpPayloadEtype string
-
-const (
-    // Any
-    EfpPayloadEtype_payload_ethertype_any EfpPayloadEtype = "payload-ethertype-any"
-
-    // IP
-    EfpPayloadEtype_payload_ethertype_ip EfpPayloadEtype = "payload-ethertype-ip"
-
-    // PPPoE
-    EfpPayloadEtype_payload_ethertype_pppoe EfpPayloadEtype = "payload-ethertype-pppoe"
-)
-
-// EfpTagPriority represents Priority
-type EfpTagPriority string
-
-const (
-    // Priority 0
-    EfpTagPriority_priority0 EfpTagPriority = "priority0"
-
-    // Priority 1
-    EfpTagPriority_priority1 EfpTagPriority = "priority1"
-
-    // Priority 2
-    EfpTagPriority_priority2 EfpTagPriority = "priority2"
-
-    // Priority 3
-    EfpTagPriority_priority3 EfpTagPriority = "priority3"
-
-    // Priority 4
-    EfpTagPriority_priority4 EfpTagPriority = "priority4"
-
-    // Priority 5
-    EfpTagPriority_priority5 EfpTagPriority = "priority5"
-
-    // Priority 6
-    EfpTagPriority_priority6 EfpTagPriority = "priority6"
-
-    // Priority 7
-    EfpTagPriority_priority7 EfpTagPriority = "priority7"
-
-    // Any priority
-    EfpTagPriority_priority_any EfpTagPriority = "priority-any"
-)
-
-// EfpTagEtype represents Tag ethertype
-type EfpTagEtype string
-
-const (
-    // Untagged
-    EfpTagEtype_untagged EfpTagEtype = "untagged"
-
-    // Dot1Q
-    EfpTagEtype_dot1q EfpTagEtype = "dot1q"
-
-    // Dot1ad
-    EfpTagEtype_dot1ad EfpTagEtype = "dot1ad"
-)
-
 // VlanEncaps represents VLAN encapsulation
 type VlanEncaps string
 
@@ -136,36 +65,15 @@ const (
     VlanEncaps_dot1ad_any VlanEncaps = "dot1ad-any"
 )
 
-// EthFiltering represents Ethernet frame filtering
-type EthFiltering string
+// EthCapsUcastMacMode represents Eth caps ucast mac mode
+type EthCapsUcastMacMode string
 
 const (
-    // No IEEE 802.1Q/802.1ad/MAC relay multicast MAC
-    // address filtering
-    EthFiltering_no_filtering EthFiltering = "no-filtering"
+    // Reserved
+    EthCapsUcastMacMode_reserved EthCapsUcastMacMode = "reserved"
 
-    // IEEE 802.1q C-VLAN filtering
-    EthFiltering_dot1q_filtering EthFiltering = "dot1q-filtering"
-
-    // IEEE 802.1ad S-VLAN filtering
-    EthFiltering_dot1ad_filtering EthFiltering = "dot1ad-filtering"
-
-    // IEEE 802.1aj 2-Port MAC relay filtering
-    EthFiltering_two_port_mac_relay_filtering EthFiltering = "two-port-mac-relay-filtering"
-)
-
-// VlanQinqOuterEtype represents QinQ Outer Tag Ethertype
-type VlanQinqOuterEtype string
-
-const (
-    // Dot1Q (0x8100)
-    VlanQinqOuterEtype_ether_type8100 VlanQinqOuterEtype = "ether-type8100"
-
-    // 0x9100
-    VlanQinqOuterEtype_ether_type9100 VlanQinqOuterEtype = "ether-type9100"
-
-    // 0x9200
-    VlanQinqOuterEtype_ether_type9200 VlanQinqOuterEtype = "ether-type9200"
+    // Permit
+    EthCapsUcastMacMode_permit EthCapsUcastMacMode = "permit"
 )
 
 // ImStateEnum represents Im state enum
@@ -230,15 +138,107 @@ const (
     ImStateEnum_im_state_last ImStateEnum = "im-state-last"
 )
 
-// EthCapsUcastMacMode represents Eth caps ucast mac mode
-type EthCapsUcastMacMode string
+// EfpTagPriority represents Priority
+type EfpTagPriority string
 
 const (
-    // Reserved
-    EthCapsUcastMacMode_reserved EthCapsUcastMacMode = "reserved"
+    // Priority 0
+    EfpTagPriority_priority0 EfpTagPriority = "priority0"
 
-    // Permit
-    EthCapsUcastMacMode_permit EthCapsUcastMacMode = "permit"
+    // Priority 1
+    EfpTagPriority_priority1 EfpTagPriority = "priority1"
+
+    // Priority 2
+    EfpTagPriority_priority2 EfpTagPriority = "priority2"
+
+    // Priority 3
+    EfpTagPriority_priority3 EfpTagPriority = "priority3"
+
+    // Priority 4
+    EfpTagPriority_priority4 EfpTagPriority = "priority4"
+
+    // Priority 5
+    EfpTagPriority_priority5 EfpTagPriority = "priority5"
+
+    // Priority 6
+    EfpTagPriority_priority6 EfpTagPriority = "priority6"
+
+    // Priority 7
+    EfpTagPriority_priority7 EfpTagPriority = "priority7"
+
+    // Any priority
+    EfpTagPriority_priority_any EfpTagPriority = "priority-any"
+)
+
+// EfpTagEtype represents Tag ethertype
+type EfpTagEtype string
+
+const (
+    // Untagged
+    EfpTagEtype_untagged EfpTagEtype = "untagged"
+
+    // Dot1Q
+    EfpTagEtype_dot1q EfpTagEtype = "dot1q"
+
+    // Dot1ad
+    EfpTagEtype_dot1ad EfpTagEtype = "dot1ad"
+)
+
+// VlanService represents Layer 2 vs. Layer 3 Terminated Service
+type VlanService string
+
+const (
+    // Layer 2 Transport Service
+    VlanService_vlan_service_l2 VlanService = "vlan-service-l2"
+
+    // Layer 3 Terminated Service
+    VlanService_vlan_service_l3 VlanService = "vlan-service-l3"
+)
+
+// EfpPayloadEtype represents Payload ethertype match
+type EfpPayloadEtype string
+
+const (
+    // Any
+    EfpPayloadEtype_payload_ethertype_any EfpPayloadEtype = "payload-ethertype-any"
+
+    // IP
+    EfpPayloadEtype_payload_ethertype_ip EfpPayloadEtype = "payload-ethertype-ip"
+
+    // PPPoE
+    EfpPayloadEtype_payload_ethertype_pppoe EfpPayloadEtype = "payload-ethertype-pppoe"
+)
+
+// VlanQinqOuterEtype represents QinQ Outer Tag Ethertype
+type VlanQinqOuterEtype string
+
+const (
+    // Dot1Q (0x8100)
+    VlanQinqOuterEtype_ether_type8100 VlanQinqOuterEtype = "ether-type8100"
+
+    // 0x9100
+    VlanQinqOuterEtype_ether_type9100 VlanQinqOuterEtype = "ether-type9100"
+
+    // 0x9200
+    VlanQinqOuterEtype_ether_type9200 VlanQinqOuterEtype = "ether-type9200"
+)
+
+// EthFiltering represents Ethernet frame filtering
+type EthFiltering string
+
+const (
+    // No IEEE 802.1Q/802.1ad/MAC relay multicast MAC
+    // address filtering
+    EthFiltering_no_filtering EthFiltering = "no-filtering"
+
+    // IEEE 802.1q C-VLAN filtering
+    EthFiltering_dot1q_filtering EthFiltering = "dot1q-filtering"
+
+    // IEEE 802.1ad S-VLAN filtering
+    EthFiltering_dot1ad_filtering EthFiltering = "dot1ad-filtering"
+
+    // IEEE 802.1aj 2-Port MAC relay filtering
+    EthFiltering_two_port_mac_relay_filtering EthFiltering = "two-port-mac-relay-filtering"
 )
 
 // MacAccounting
@@ -261,9 +261,12 @@ func (macAccounting *MacAccounting) GetEntityData() *types.CommonEntityData {
     macAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    macAccounting.EntityData.Children = make(map[string]types.YChild)
-    macAccounting.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &macAccounting.Interfaces}
-    macAccounting.EntityData.Leafs = make(map[string]types.YLeaf)
+    macAccounting.EntityData.Children = types.NewOrderedMap()
+    macAccounting.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &macAccounting.Interfaces})
+    macAccounting.EntityData.Leafs = types.NewOrderedMap()
+
+    macAccounting.EntityData.YListKeys = []string {}
+
     return &(macAccounting.EntityData)
 }
 
@@ -276,8 +279,8 @@ type MacAccounting_Interfaces struct {
 
     // Operational data and statistics for an interface configured with MAC
     // accounting enabled. The type is slice of
-    // MacAccounting_Interfaces_Interface_.
-    Interface_ []MacAccounting_Interfaces_Interface
+    // MacAccounting_Interfaces_Interface.
+    Interface []*MacAccounting_Interfaces_Interface
 }
 
 func (interfaces *MacAccounting_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -290,12 +293,15 @@ func (interfaces *MacAccounting_Interfaces) GetEntityData() *types.CommonEntityD
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -308,7 +314,7 @@ type MacAccounting_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // MAC accounting state for the interface.
@@ -316,11 +322,11 @@ type MacAccounting_Interfaces_Interface struct {
 
     // Ingress MAC accounting statistics. The type is slice of
     // MacAccounting_Interfaces_Interface_IngressStatistic.
-    IngressStatistic []MacAccounting_Interfaces_Interface_IngressStatistic
+    IngressStatistic []*MacAccounting_Interfaces_Interface_IngressStatistic
 
     // Egress MAC accounting statistics. The type is slice of
     // MacAccounting_Interfaces_Interface_EgressStatistic.
-    EgressStatistic []MacAccounting_Interfaces_Interface_EgressStatistic
+    EgressStatistic []*MacAccounting_Interfaces_Interface_EgressStatistic
 }
 
 func (self *MacAccounting_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
@@ -328,23 +334,26 @@ func (self *MacAccounting_Interfaces_Interface) GetEntityData() *types.CommonEnt
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["state"] = types.YChild{"State", &self.State}
-    self.EntityData.Children["ingress-statistic"] = types.YChild{"IngressStatistic", nil}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("state", types.YChild{"State", &self.State})
+    self.EntityData.Children.Append("ingress-statistic", types.YChild{"IngressStatistic", nil})
     for i := range self.IngressStatistic {
-        self.EntityData.Children[types.GetSegmentPath(&self.IngressStatistic[i])] = types.YChild{"IngressStatistic", &self.IngressStatistic[i]}
+        self.EntityData.Children.Append(types.GetSegmentPath(self.IngressStatistic[i]), types.YChild{"IngressStatistic", self.IngressStatistic[i]})
     }
-    self.EntityData.Children["egress-statistic"] = types.YChild{"EgressStatistic", nil}
+    self.EntityData.Children.Append("egress-statistic", types.YChild{"EgressStatistic", nil})
     for i := range self.EgressStatistic {
-        self.EntityData.Children[types.GetSegmentPath(&self.EgressStatistic[i])] = types.YChild{"EgressStatistic", &self.EgressStatistic[i]}
+        self.EntityData.Children.Append(types.GetSegmentPath(self.EgressStatistic[i]), types.YChild{"EgressStatistic", self.EgressStatistic[i]})
     }
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -383,13 +392,16 @@ func (state *MacAccounting_Interfaces_Interface_State) GetEntityData() *types.Co
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["is-ingress-enabled"] = types.YLeaf{"IsIngressEnabled", state.IsIngressEnabled}
-    state.EntityData.Leafs["is-egress-enabled"] = types.YLeaf{"IsEgressEnabled", state.IsEgressEnabled}
-    state.EntityData.Leafs["number-available-ingress"] = types.YLeaf{"NumberAvailableIngress", state.NumberAvailableIngress}
-    state.EntityData.Leafs["number-available-egress"] = types.YLeaf{"NumberAvailableEgress", state.NumberAvailableEgress}
-    state.EntityData.Leafs["number-available-on-node"] = types.YLeaf{"NumberAvailableOnNode", state.NumberAvailableOnNode}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("is-ingress-enabled", types.YLeaf{"IsIngressEnabled", state.IsIngressEnabled})
+    state.EntityData.Leafs.Append("is-egress-enabled", types.YLeaf{"IsEgressEnabled", state.IsEgressEnabled})
+    state.EntityData.Leafs.Append("number-available-ingress", types.YLeaf{"NumberAvailableIngress", state.NumberAvailableIngress})
+    state.EntityData.Leafs.Append("number-available-egress", types.YLeaf{"NumberAvailableEgress", state.NumberAvailableEgress})
+    state.EntityData.Leafs.Append("number-available-on-node", types.YLeaf{"NumberAvailableOnNode", state.NumberAvailableOnNode})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -400,7 +412,7 @@ type MacAccounting_Interfaces_Interface_IngressStatistic struct {
     YFilter yfilter.YFilter
 
     // 48bit MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Number of packets counted. The type is interface{} with range:
@@ -422,11 +434,14 @@ func (ingressStatistic *MacAccounting_Interfaces_Interface_IngressStatistic) Get
     ingressStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ingressStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ingressStatistic.EntityData.Children = make(map[string]types.YChild)
-    ingressStatistic.EntityData.Leafs = make(map[string]types.YLeaf)
-    ingressStatistic.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", ingressStatistic.MacAddress}
-    ingressStatistic.EntityData.Leafs["packets"] = types.YLeaf{"Packets", ingressStatistic.Packets}
-    ingressStatistic.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", ingressStatistic.Bytes}
+    ingressStatistic.EntityData.Children = types.NewOrderedMap()
+    ingressStatistic.EntityData.Leafs = types.NewOrderedMap()
+    ingressStatistic.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", ingressStatistic.MacAddress})
+    ingressStatistic.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", ingressStatistic.Packets})
+    ingressStatistic.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", ingressStatistic.Bytes})
+
+    ingressStatistic.EntityData.YListKeys = []string {}
+
     return &(ingressStatistic.EntityData)
 }
 
@@ -437,7 +452,7 @@ type MacAccounting_Interfaces_Interface_EgressStatistic struct {
     YFilter yfilter.YFilter
 
     // 48bit MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Number of packets counted. The type is interface{} with range:
@@ -459,11 +474,14 @@ func (egressStatistic *MacAccounting_Interfaces_Interface_EgressStatistic) GetEn
     egressStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     egressStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    egressStatistic.EntityData.Children = make(map[string]types.YChild)
-    egressStatistic.EntityData.Leafs = make(map[string]types.YLeaf)
-    egressStatistic.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", egressStatistic.MacAddress}
-    egressStatistic.EntityData.Leafs["packets"] = types.YLeaf{"Packets", egressStatistic.Packets}
-    egressStatistic.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", egressStatistic.Bytes}
+    egressStatistic.EntityData.Children = types.NewOrderedMap()
+    egressStatistic.EntityData.Leafs = types.NewOrderedMap()
+    egressStatistic.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", egressStatistic.MacAddress})
+    egressStatistic.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", egressStatistic.Packets})
+    egressStatistic.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", egressStatistic.Bytes})
+
+    egressStatistic.EntityData.YListKeys = []string {}
+
     return &(egressStatistic.EntityData)
 }
 
@@ -487,9 +505,12 @@ func (vlan *Vlan) GetEntityData() *types.CommonEntityData {
     vlan.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlan.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vlan.EntityData.Children = make(map[string]types.YChild)
-    vlan.EntityData.Children["nodes"] = types.YChild{"Nodes", &vlan.Nodes}
-    vlan.EntityData.Leafs = make(map[string]types.YLeaf)
+    vlan.EntityData.Children = types.NewOrderedMap()
+    vlan.EntityData.Children.Append("nodes", types.YChild{"Nodes", &vlan.Nodes})
+    vlan.EntityData.Leafs = types.NewOrderedMap()
+
+    vlan.EntityData.YListKeys = []string {}
+
     return &(vlan.EntityData)
 }
 
@@ -501,7 +522,7 @@ type Vlan_Nodes struct {
 
     // The VLAN operational data for a particular node. The type is slice of
     // Vlan_Nodes_Node.
-    Node []Vlan_Nodes_Node
+    Node []*Vlan_Nodes_Node
 }
 
 func (nodes *Vlan_Nodes) GetEntityData() *types.CommonEntityData {
@@ -514,12 +535,15 @@ func (nodes *Vlan_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -530,7 +554,7 @@ type Vlan_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The identifier for the node. The type is string
-    // with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // VLAN trunk table (specific to this node).
@@ -548,17 +572,20 @@ func (node *Vlan_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-id='" + fmt.Sprintf("%v", node.NodeId) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["trunks"] = types.YChild{"Trunks", &node.Trunks}
-    node.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &node.Interfaces}
-    node.EntityData.Children["tag-allocations"] = types.YChild{"TagAllocations", &node.TagAllocations}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", node.NodeId}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("trunks", types.YChild{"Trunks", &node.Trunks})
+    node.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &node.Interfaces})
+    node.EntityData.Children.Append("tag-allocations", types.YChild{"TagAllocations", &node.TagAllocations})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", node.NodeId})
+
+    node.EntityData.YListKeys = []string {"NodeId"}
+
     return &(node.EntityData)
 }
 
@@ -570,7 +597,7 @@ type Vlan_Nodes_Node_Trunks struct {
 
     // Operational data for trunk interfaces configured with VLANs. The type is
     // slice of Vlan_Nodes_Node_Trunks_Trunk.
-    Trunk []Vlan_Nodes_Node_Trunks_Trunk
+    Trunk []*Vlan_Nodes_Node_Trunks_Trunk
 }
 
 func (trunks *Vlan_Nodes_Node_Trunks) GetEntityData() *types.CommonEntityData {
@@ -583,12 +610,15 @@ func (trunks *Vlan_Nodes_Node_Trunks) GetEntityData() *types.CommonEntityData {
     trunks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trunks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trunks.EntityData.Children = make(map[string]types.YChild)
-    trunks.EntityData.Children["trunk"] = types.YChild{"Trunk", nil}
+    trunks.EntityData.Children = types.NewOrderedMap()
+    trunks.EntityData.Children.Append("trunk", types.YChild{"Trunk", nil})
     for i := range trunks.Trunk {
-        trunks.EntityData.Children[types.GetSegmentPath(&trunks.Trunk[i])] = types.YChild{"Trunk", &trunks.Trunk[i]}
+        trunks.EntityData.Children.Append(types.GetSegmentPath(trunks.Trunk[i]), types.YChild{"Trunk", trunks.Trunk[i]})
     }
-    trunks.EntityData.Leafs = make(map[string]types.YLeaf)
+    trunks.EntityData.Leafs = types.NewOrderedMap()
+
+    trunks.EntityData.YListKeys = []string {}
+
     return &(trunks.EntityData)
 }
 
@@ -600,10 +630,10 @@ type Vlan_Nodes_Node_Trunks_Trunk struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // pattern: [a-zA-Z0-9./-]+.
+    Interface interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceXr interface{}
 
     // Interface state. The type is ImStateEnum.
@@ -617,10 +647,10 @@ type Vlan_Nodes_Node_Trunks_Trunk struct {
 
     // Number of subinterfaces with 802.1ad outer tag. The type is interface{}
     // with range: 0..4294967295.
-    Dot1AdCount interface{}
+    Dot1adCount interface{}
 
     // Interface/Sub-interface handling untagged frames. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     UntaggedInterface interface{}
 
     // IEEE 802.1Q/802.1ad multicast MAC address filtering. The type is
@@ -639,23 +669,26 @@ func (trunk *Vlan_Nodes_Node_Trunks_Trunk) GetEntityData() *types.CommonEntityDa
     trunk.EntityData.YangName = "trunk"
     trunk.EntityData.BundleName = "cisco_ios_xr"
     trunk.EntityData.ParentYangName = "trunks"
-    trunk.EntityData.SegmentPath = "trunk" + "[interface='" + fmt.Sprintf("%v", trunk.Interface_) + "']"
+    trunk.EntityData.SegmentPath = "trunk" + types.AddKeyToken(trunk.Interface, "interface")
     trunk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trunk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trunk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trunk.EntityData.Children = make(map[string]types.YChild)
-    trunk.EntityData.Children["layer2-sub-interfaces"] = types.YChild{"Layer2SubInterfaces", &trunk.Layer2SubInterfaces}
-    trunk.EntityData.Children["layer3-sub-interfaces"] = types.YChild{"Layer3SubInterfaces", &trunk.Layer3SubInterfaces}
-    trunk.EntityData.Leafs = make(map[string]types.YLeaf)
-    trunk.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", trunk.Interface_}
-    trunk.EntityData.Leafs["interface-xr"] = types.YLeaf{"InterfaceXr", trunk.InterfaceXr}
-    trunk.EntityData.Leafs["state"] = types.YLeaf{"State", trunk.State}
-    trunk.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", trunk.Mtu}
-    trunk.EntityData.Leafs["qinq-outer-ether-type"] = types.YLeaf{"QinqOuterEtherType", trunk.QinqOuterEtherType}
-    trunk.EntityData.Leafs["dot1ad-count"] = types.YLeaf{"Dot1AdCount", trunk.Dot1AdCount}
-    trunk.EntityData.Leafs["untagged-interface"] = types.YLeaf{"UntaggedInterface", trunk.UntaggedInterface}
-    trunk.EntityData.Leafs["mac-filtering"] = types.YLeaf{"MacFiltering", trunk.MacFiltering}
+    trunk.EntityData.Children = types.NewOrderedMap()
+    trunk.EntityData.Children.Append("layer2-sub-interfaces", types.YChild{"Layer2SubInterfaces", &trunk.Layer2SubInterfaces})
+    trunk.EntityData.Children.Append("layer3-sub-interfaces", types.YChild{"Layer3SubInterfaces", &trunk.Layer3SubInterfaces})
+    trunk.EntityData.Leafs = types.NewOrderedMap()
+    trunk.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", trunk.Interface})
+    trunk.EntityData.Leafs.Append("interface-xr", types.YLeaf{"InterfaceXr", trunk.InterfaceXr})
+    trunk.EntityData.Leafs.Append("state", types.YLeaf{"State", trunk.State})
+    trunk.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", trunk.Mtu})
+    trunk.EntityData.Leafs.Append("qinq-outer-ether-type", types.YLeaf{"QinqOuterEtherType", trunk.QinqOuterEtherType})
+    trunk.EntityData.Leafs.Append("dot1ad-count", types.YLeaf{"Dot1adCount", trunk.Dot1adCount})
+    trunk.EntityData.Leafs.Append("untagged-interface", types.YLeaf{"UntaggedInterface", trunk.UntaggedInterface})
+    trunk.EntityData.Leafs.Append("mac-filtering", types.YLeaf{"MacFiltering", trunk.MacFiltering})
+
+    trunk.EntityData.YListKeys = []string {"Interface"}
+
     return &(trunk.EntityData)
 }
 
@@ -671,7 +704,7 @@ type Vlan_Nodes_Node_Trunks_Trunk_Layer2SubInterfaces struct {
 
     // Number of single tagged subinterfaces. The type is interface{} with range:
     // 0..4294967295.
-    Dot1QCount interface{}
+    Dot1qCount interface{}
 
     // Number of double tagged subinterfaces with explicit inner tag. The type is
     // interface{} with range: 0..4294967295.
@@ -699,14 +732,17 @@ func (layer2SubInterfaces *Vlan_Nodes_Node_Trunks_Trunk_Layer2SubInterfaces) Get
     layer2SubInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     layer2SubInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    layer2SubInterfaces.EntityData.Children = make(map[string]types.YChild)
-    layer2SubInterfaces.EntityData.Children["state-counters"] = types.YChild{"StateCounters", &layer2SubInterfaces.StateCounters}
-    layer2SubInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
-    layer2SubInterfaces.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", layer2SubInterfaces.TotalCount}
-    layer2SubInterfaces.EntityData.Leafs["dot1q-count"] = types.YLeaf{"Dot1QCount", layer2SubInterfaces.Dot1QCount}
-    layer2SubInterfaces.EntityData.Leafs["qin-q-count"] = types.YLeaf{"QinQCount", layer2SubInterfaces.QinQCount}
-    layer2SubInterfaces.EntityData.Leafs["qin-any-count"] = types.YLeaf{"QinAnyCount", layer2SubInterfaces.QinAnyCount}
-    layer2SubInterfaces.EntityData.Leafs["untagged-count"] = types.YLeaf{"UntaggedCount", layer2SubInterfaces.UntaggedCount}
+    layer2SubInterfaces.EntityData.Children = types.NewOrderedMap()
+    layer2SubInterfaces.EntityData.Children.Append("state-counters", types.YChild{"StateCounters", &layer2SubInterfaces.StateCounters})
+    layer2SubInterfaces.EntityData.Leafs = types.NewOrderedMap()
+    layer2SubInterfaces.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", layer2SubInterfaces.TotalCount})
+    layer2SubInterfaces.EntityData.Leafs.Append("dot1q-count", types.YLeaf{"Dot1qCount", layer2SubInterfaces.Dot1qCount})
+    layer2SubInterfaces.EntityData.Leafs.Append("qin-q-count", types.YLeaf{"QinQCount", layer2SubInterfaces.QinQCount})
+    layer2SubInterfaces.EntityData.Leafs.Append("qin-any-count", types.YLeaf{"QinAnyCount", layer2SubInterfaces.QinAnyCount})
+    layer2SubInterfaces.EntityData.Leafs.Append("untagged-count", types.YLeaf{"UntaggedCount", layer2SubInterfaces.UntaggedCount})
+
+    layer2SubInterfaces.EntityData.YListKeys = []string {}
+
     return &(layer2SubInterfaces.EntityData)
 }
 
@@ -740,11 +776,14 @@ func (stateCounters *Vlan_Nodes_Node_Trunks_Trunk_Layer2SubInterfaces_StateCount
     stateCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateCounters.EntityData.Children = make(map[string]types.YChild)
-    stateCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    stateCounters.EntityData.Leafs["up"] = types.YLeaf{"Up", stateCounters.Up}
-    stateCounters.EntityData.Leafs["down"] = types.YLeaf{"Down", stateCounters.Down}
-    stateCounters.EntityData.Leafs["admin-down"] = types.YLeaf{"AdminDown", stateCounters.AdminDown}
+    stateCounters.EntityData.Children = types.NewOrderedMap()
+    stateCounters.EntityData.Leafs = types.NewOrderedMap()
+    stateCounters.EntityData.Leafs.Append("up", types.YLeaf{"Up", stateCounters.Up})
+    stateCounters.EntityData.Leafs.Append("down", types.YLeaf{"Down", stateCounters.Down})
+    stateCounters.EntityData.Leafs.Append("admin-down", types.YLeaf{"AdminDown", stateCounters.AdminDown})
+
+    stateCounters.EntityData.YListKeys = []string {}
+
     return &(stateCounters.EntityData)
 }
 
@@ -760,7 +799,7 @@ type Vlan_Nodes_Node_Trunks_Trunk_Layer3SubInterfaces struct {
 
     // Number of single tagged subinterfaces. The type is interface{} with range:
     // 0..4294967295.
-    Dot1QCount interface{}
+    Dot1qCount interface{}
 
     // Number of double tagged subinterfaces. The type is interface{} with range:
     // 0..4294967295.
@@ -788,14 +827,17 @@ func (layer3SubInterfaces *Vlan_Nodes_Node_Trunks_Trunk_Layer3SubInterfaces) Get
     layer3SubInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     layer3SubInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    layer3SubInterfaces.EntityData.Children = make(map[string]types.YChild)
-    layer3SubInterfaces.EntityData.Children["state-counters"] = types.YChild{"StateCounters", &layer3SubInterfaces.StateCounters}
-    layer3SubInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
-    layer3SubInterfaces.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", layer3SubInterfaces.TotalCount}
-    layer3SubInterfaces.EntityData.Leafs["dot1q-count"] = types.YLeaf{"Dot1QCount", layer3SubInterfaces.Dot1QCount}
-    layer3SubInterfaces.EntityData.Leafs["qin-q-count"] = types.YLeaf{"QinQCount", layer3SubInterfaces.QinQCount}
-    layer3SubInterfaces.EntityData.Leafs["untagged-count"] = types.YLeaf{"UntaggedCount", layer3SubInterfaces.UntaggedCount}
-    layer3SubInterfaces.EntityData.Leafs["native-vlan"] = types.YLeaf{"NativeVlan", layer3SubInterfaces.NativeVlan}
+    layer3SubInterfaces.EntityData.Children = types.NewOrderedMap()
+    layer3SubInterfaces.EntityData.Children.Append("state-counters", types.YChild{"StateCounters", &layer3SubInterfaces.StateCounters})
+    layer3SubInterfaces.EntityData.Leafs = types.NewOrderedMap()
+    layer3SubInterfaces.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", layer3SubInterfaces.TotalCount})
+    layer3SubInterfaces.EntityData.Leafs.Append("dot1q-count", types.YLeaf{"Dot1qCount", layer3SubInterfaces.Dot1qCount})
+    layer3SubInterfaces.EntityData.Leafs.Append("qin-q-count", types.YLeaf{"QinQCount", layer3SubInterfaces.QinQCount})
+    layer3SubInterfaces.EntityData.Leafs.Append("untagged-count", types.YLeaf{"UntaggedCount", layer3SubInterfaces.UntaggedCount})
+    layer3SubInterfaces.EntityData.Leafs.Append("native-vlan", types.YLeaf{"NativeVlan", layer3SubInterfaces.NativeVlan})
+
+    layer3SubInterfaces.EntityData.YListKeys = []string {}
+
     return &(layer3SubInterfaces.EntityData)
 }
 
@@ -829,11 +871,14 @@ func (stateCounters *Vlan_Nodes_Node_Trunks_Trunk_Layer3SubInterfaces_StateCount
     stateCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateCounters.EntityData.Children = make(map[string]types.YChild)
-    stateCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    stateCounters.EntityData.Leafs["up"] = types.YLeaf{"Up", stateCounters.Up}
-    stateCounters.EntityData.Leafs["down"] = types.YLeaf{"Down", stateCounters.Down}
-    stateCounters.EntityData.Leafs["admin-down"] = types.YLeaf{"AdminDown", stateCounters.AdminDown}
+    stateCounters.EntityData.Children = types.NewOrderedMap()
+    stateCounters.EntityData.Leafs = types.NewOrderedMap()
+    stateCounters.EntityData.Leafs.Append("up", types.YLeaf{"Up", stateCounters.Up})
+    stateCounters.EntityData.Leafs.Append("down", types.YLeaf{"Down", stateCounters.Down})
+    stateCounters.EntityData.Leafs.Append("admin-down", types.YLeaf{"AdminDown", stateCounters.AdminDown})
+
+    stateCounters.EntityData.YListKeys = []string {}
+
     return &(stateCounters.EntityData)
 }
 
@@ -844,8 +889,8 @@ type Vlan_Nodes_Node_Interfaces struct {
     YFilter yfilter.YFilter
 
     // Operational data for a sub-interface configured with VLANs. The type is
-    // slice of Vlan_Nodes_Node_Interfaces_Interface_.
-    Interface_ []Vlan_Nodes_Node_Interfaces_Interface
+    // slice of Vlan_Nodes_Node_Interfaces_Interface.
+    Interface []*Vlan_Nodes_Node_Interfaces_Interface
 }
 
 func (interfaces *Vlan_Nodes_Node_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -858,12 +903,15 @@ func (interfaces *Vlan_Nodes_Node_Interfaces) GetEntityData() *types.CommonEntit
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -875,13 +923,13 @@ type Vlan_Nodes_Node_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // pattern: [a-zA-Z0-9./-]+.
+    Interface interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceXr interface{}
 
-    // Parent interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9./-]+.
     ParentInterface interface{}
 
     // Service type. The type is VlanService.
@@ -905,21 +953,24 @@ func (self *Vlan_Nodes_Node_Interfaces_Interface) GetEntityData() *types.CommonE
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface='" + fmt.Sprintf("%v", self.Interface_) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Interface, "interface")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["encapsulation-details"] = types.YChild{"EncapsulationDetails", &self.EncapsulationDetails}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", self.Interface_}
-    self.EntityData.Leafs["interface-xr"] = types.YLeaf{"InterfaceXr", self.InterfaceXr}
-    self.EntityData.Leafs["parent-interface"] = types.YLeaf{"ParentInterface", self.ParentInterface}
-    self.EntityData.Leafs["service"] = types.YLeaf{"Service", self.Service}
-    self.EntityData.Leafs["state"] = types.YLeaf{"State", self.State}
-    self.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", self.Mtu}
-    self.EntityData.Leafs["switched-mtu"] = types.YLeaf{"SwitchedMtu", self.SwitchedMtu}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("encapsulation-details", types.YChild{"EncapsulationDetails", &self.EncapsulationDetails})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", self.Interface})
+    self.EntityData.Leafs.Append("interface-xr", types.YLeaf{"InterfaceXr", self.InterfaceXr})
+    self.EntityData.Leafs.Append("parent-interface", types.YLeaf{"ParentInterface", self.ParentInterface})
+    self.EntityData.Leafs.Append("service", types.YLeaf{"Service", self.Service})
+    self.EntityData.Leafs.Append("state", types.YLeaf{"State", self.State})
+    self.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", self.Mtu})
+    self.EntityData.Leafs.Append("switched-mtu", types.YLeaf{"SwitchedMtu", self.SwitchedMtu})
+
+    self.EntityData.YListKeys = []string {"Interface"}
+
     return &(self.EntityData)
 }
 
@@ -942,13 +993,13 @@ type Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails struct {
     NativeTag interface{}
 
     // 802.1ad tag value. The type is interface{} with range: 0..65535.
-    Dot1AdTag interface{}
+    Dot1adTag interface{}
 
     // 802.1ad native tag value. The type is interface{} with range: 0..65535.
-    Dot1AdNativeTag interface{}
+    Dot1adNativeTag interface{}
 
     // 802.1ad Outer tag value. The type is interface{} with range: 0..65535.
-    Dot1AdOuterTag interface{}
+    Dot1adOuterTag interface{}
 
     // Stack value.
     Stack Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_Stack
@@ -957,7 +1008,7 @@ type Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails struct {
     ServiceInstanceDetails Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails
 
     // 802.1ad 802.1Q stack value.
-    Dot1AdDot1QStack Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_Dot1AdDot1QStack
+    Dot1adDot1qStack Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_Dot1adDot1qStack
 }
 
 func (encapsulationDetails *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails) GetEntityData() *types.CommonEntityData {
@@ -970,18 +1021,21 @@ func (encapsulationDetails *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDe
     encapsulationDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     encapsulationDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    encapsulationDetails.EntityData.Children = make(map[string]types.YChild)
-    encapsulationDetails.EntityData.Children["stack"] = types.YChild{"Stack", &encapsulationDetails.Stack}
-    encapsulationDetails.EntityData.Children["service-instance-details"] = types.YChild{"ServiceInstanceDetails", &encapsulationDetails.ServiceInstanceDetails}
-    encapsulationDetails.EntityData.Children["dot1ad-dot1q-stack"] = types.YChild{"Dot1AdDot1QStack", &encapsulationDetails.Dot1AdDot1QStack}
-    encapsulationDetails.EntityData.Leafs = make(map[string]types.YLeaf)
-    encapsulationDetails.EntityData.Leafs["vlan-encapsulation"] = types.YLeaf{"VlanEncapsulation", encapsulationDetails.VlanEncapsulation}
-    encapsulationDetails.EntityData.Leafs["tag"] = types.YLeaf{"Tag", encapsulationDetails.Tag}
-    encapsulationDetails.EntityData.Leafs["outer-tag"] = types.YLeaf{"OuterTag", encapsulationDetails.OuterTag}
-    encapsulationDetails.EntityData.Leafs["native-tag"] = types.YLeaf{"NativeTag", encapsulationDetails.NativeTag}
-    encapsulationDetails.EntityData.Leafs["dot1ad-tag"] = types.YLeaf{"Dot1AdTag", encapsulationDetails.Dot1AdTag}
-    encapsulationDetails.EntityData.Leafs["dot1ad-native-tag"] = types.YLeaf{"Dot1AdNativeTag", encapsulationDetails.Dot1AdNativeTag}
-    encapsulationDetails.EntityData.Leafs["dot1ad-outer-tag"] = types.YLeaf{"Dot1AdOuterTag", encapsulationDetails.Dot1AdOuterTag}
+    encapsulationDetails.EntityData.Children = types.NewOrderedMap()
+    encapsulationDetails.EntityData.Children.Append("stack", types.YChild{"Stack", &encapsulationDetails.Stack})
+    encapsulationDetails.EntityData.Children.Append("service-instance-details", types.YChild{"ServiceInstanceDetails", &encapsulationDetails.ServiceInstanceDetails})
+    encapsulationDetails.EntityData.Children.Append("dot1ad-dot1q-stack", types.YChild{"Dot1adDot1qStack", &encapsulationDetails.Dot1adDot1qStack})
+    encapsulationDetails.EntityData.Leafs = types.NewOrderedMap()
+    encapsulationDetails.EntityData.Leafs.Append("vlan-encapsulation", types.YLeaf{"VlanEncapsulation", encapsulationDetails.VlanEncapsulation})
+    encapsulationDetails.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", encapsulationDetails.Tag})
+    encapsulationDetails.EntityData.Leafs.Append("outer-tag", types.YLeaf{"OuterTag", encapsulationDetails.OuterTag})
+    encapsulationDetails.EntityData.Leafs.Append("native-tag", types.YLeaf{"NativeTag", encapsulationDetails.NativeTag})
+    encapsulationDetails.EntityData.Leafs.Append("dot1ad-tag", types.YLeaf{"Dot1adTag", encapsulationDetails.Dot1adTag})
+    encapsulationDetails.EntityData.Leafs.Append("dot1ad-native-tag", types.YLeaf{"Dot1adNativeTag", encapsulationDetails.Dot1adNativeTag})
+    encapsulationDetails.EntityData.Leafs.Append("dot1ad-outer-tag", types.YLeaf{"Dot1adOuterTag", encapsulationDetails.Dot1adOuterTag})
+
+    encapsulationDetails.EntityData.YListKeys = []string {}
+
     return &(encapsulationDetails.EntityData)
 }
 
@@ -1008,10 +1062,13 @@ func (stack *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_Stack) Ge
     stack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stack.EntityData.Children = make(map[string]types.YChild)
-    stack.EntityData.Leafs = make(map[string]types.YLeaf)
-    stack.EntityData.Leafs["outer-tag"] = types.YLeaf{"OuterTag", stack.OuterTag}
-    stack.EntityData.Leafs["second-tag"] = types.YLeaf{"SecondTag", stack.SecondTag}
+    stack.EntityData.Children = types.NewOrderedMap()
+    stack.EntityData.Leafs = types.NewOrderedMap()
+    stack.EntityData.Leafs.Append("outer-tag", types.YLeaf{"OuterTag", stack.OuterTag})
+    stack.EntityData.Leafs.Append("second-tag", types.YLeaf{"SecondTag", stack.SecondTag})
+
+    stack.EntityData.YListKeys = []string {}
+
     return &(stack.EntityData)
 }
 
@@ -1039,11 +1096,11 @@ type Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDe
     IsNativePreserving interface{}
 
     // The source MAC address to match on ingress. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SourceMacMatch interface{}
 
     // The destination MAC address to match on ingress. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DestinationMacMatch interface{}
 
     // VLAN tags for locally-sourced traffic.
@@ -1051,11 +1108,11 @@ type Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDe
 
     // Tags to match on ingress packets. The type is slice of
     // Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch.
-    TagsToMatch []Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch
+    TagsToMatch []*Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch
 
     // VLAN tags pushed on egress. The type is slice of
     // Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails_Pushe.
-    Pushe []Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails_Pushe
+    Pushe []*Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails_Pushe
 }
 
 func (serviceInstanceDetails *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails) GetEntityData() *types.CommonEntityData {
@@ -1068,24 +1125,27 @@ func (serviceInstanceDetails *Vlan_Nodes_Node_Interfaces_Interface_Encapsulation
     serviceInstanceDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceInstanceDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceInstanceDetails.EntityData.Children = make(map[string]types.YChild)
-    serviceInstanceDetails.EntityData.Children["local-traffic-stack"] = types.YChild{"LocalTrafficStack", &serviceInstanceDetails.LocalTrafficStack}
-    serviceInstanceDetails.EntityData.Children["tags-to-match"] = types.YChild{"TagsToMatch", nil}
+    serviceInstanceDetails.EntityData.Children = types.NewOrderedMap()
+    serviceInstanceDetails.EntityData.Children.Append("local-traffic-stack", types.YChild{"LocalTrafficStack", &serviceInstanceDetails.LocalTrafficStack})
+    serviceInstanceDetails.EntityData.Children.Append("tags-to-match", types.YChild{"TagsToMatch", nil})
     for i := range serviceInstanceDetails.TagsToMatch {
-        serviceInstanceDetails.EntityData.Children[types.GetSegmentPath(&serviceInstanceDetails.TagsToMatch[i])] = types.YChild{"TagsToMatch", &serviceInstanceDetails.TagsToMatch[i]}
+        serviceInstanceDetails.EntityData.Children.Append(types.GetSegmentPath(serviceInstanceDetails.TagsToMatch[i]), types.YChild{"TagsToMatch", serviceInstanceDetails.TagsToMatch[i]})
     }
-    serviceInstanceDetails.EntityData.Children["pushe"] = types.YChild{"Pushe", nil}
+    serviceInstanceDetails.EntityData.Children.Append("pushe", types.YChild{"Pushe", nil})
     for i := range serviceInstanceDetails.Pushe {
-        serviceInstanceDetails.EntityData.Children[types.GetSegmentPath(&serviceInstanceDetails.Pushe[i])] = types.YChild{"Pushe", &serviceInstanceDetails.Pushe[i]}
+        serviceInstanceDetails.EntityData.Children.Append(types.GetSegmentPath(serviceInstanceDetails.Pushe[i]), types.YChild{"Pushe", serviceInstanceDetails.Pushe[i]})
     }
-    serviceInstanceDetails.EntityData.Leafs = make(map[string]types.YLeaf)
-    serviceInstanceDetails.EntityData.Leafs["payload-ethertype"] = types.YLeaf{"PayloadEthertype", serviceInstanceDetails.PayloadEthertype}
-    serviceInstanceDetails.EntityData.Leafs["tags-popped"] = types.YLeaf{"TagsPopped", serviceInstanceDetails.TagsPopped}
-    serviceInstanceDetails.EntityData.Leafs["is-exact-match"] = types.YLeaf{"IsExactMatch", serviceInstanceDetails.IsExactMatch}
-    serviceInstanceDetails.EntityData.Leafs["is-native-vlan"] = types.YLeaf{"IsNativeVlan", serviceInstanceDetails.IsNativeVlan}
-    serviceInstanceDetails.EntityData.Leafs["is-native-preserving"] = types.YLeaf{"IsNativePreserving", serviceInstanceDetails.IsNativePreserving}
-    serviceInstanceDetails.EntityData.Leafs["source-mac-match"] = types.YLeaf{"SourceMacMatch", serviceInstanceDetails.SourceMacMatch}
-    serviceInstanceDetails.EntityData.Leafs["destination-mac-match"] = types.YLeaf{"DestinationMacMatch", serviceInstanceDetails.DestinationMacMatch}
+    serviceInstanceDetails.EntityData.Leafs = types.NewOrderedMap()
+    serviceInstanceDetails.EntityData.Leafs.Append("payload-ethertype", types.YLeaf{"PayloadEthertype", serviceInstanceDetails.PayloadEthertype})
+    serviceInstanceDetails.EntityData.Leafs.Append("tags-popped", types.YLeaf{"TagsPopped", serviceInstanceDetails.TagsPopped})
+    serviceInstanceDetails.EntityData.Leafs.Append("is-exact-match", types.YLeaf{"IsExactMatch", serviceInstanceDetails.IsExactMatch})
+    serviceInstanceDetails.EntityData.Leafs.Append("is-native-vlan", types.YLeaf{"IsNativeVlan", serviceInstanceDetails.IsNativeVlan})
+    serviceInstanceDetails.EntityData.Leafs.Append("is-native-preserving", types.YLeaf{"IsNativePreserving", serviceInstanceDetails.IsNativePreserving})
+    serviceInstanceDetails.EntityData.Leafs.Append("source-mac-match", types.YLeaf{"SourceMacMatch", serviceInstanceDetails.SourceMacMatch})
+    serviceInstanceDetails.EntityData.Leafs.Append("destination-mac-match", types.YLeaf{"DestinationMacMatch", serviceInstanceDetails.DestinationMacMatch})
+
+    serviceInstanceDetails.EntityData.YListKeys = []string {}
+
     return &(serviceInstanceDetails.EntityData)
 }
 
@@ -1097,7 +1157,7 @@ type Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDe
 
     // VLAN tags for locally-sourced traffic. The type is slice of
     // Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails_LocalTrafficStack_LocalTrafficTag.
-    LocalTrafficTag []Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails_LocalTrafficStack_LocalTrafficTag
+    LocalTrafficTag []*Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails_LocalTrafficStack_LocalTrafficTag
 }
 
 func (localTrafficStack *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails_LocalTrafficStack) GetEntityData() *types.CommonEntityData {
@@ -1110,12 +1170,15 @@ func (localTrafficStack *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetai
     localTrafficStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localTrafficStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localTrafficStack.EntityData.Children = make(map[string]types.YChild)
-    localTrafficStack.EntityData.Children["local-traffic-tag"] = types.YChild{"LocalTrafficTag", nil}
+    localTrafficStack.EntityData.Children = types.NewOrderedMap()
+    localTrafficStack.EntityData.Children.Append("local-traffic-tag", types.YChild{"LocalTrafficTag", nil})
     for i := range localTrafficStack.LocalTrafficTag {
-        localTrafficStack.EntityData.Children[types.GetSegmentPath(&localTrafficStack.LocalTrafficTag[i])] = types.YChild{"LocalTrafficTag", &localTrafficStack.LocalTrafficTag[i]}
+        localTrafficStack.EntityData.Children.Append(types.GetSegmentPath(localTrafficStack.LocalTrafficTag[i]), types.YChild{"LocalTrafficTag", localTrafficStack.LocalTrafficTag[i]})
     }
-    localTrafficStack.EntityData.Leafs = make(map[string]types.YLeaf)
+    localTrafficStack.EntityData.Leafs = types.NewOrderedMap()
+
+    localTrafficStack.EntityData.YListKeys = []string {}
+
     return &(localTrafficStack.EntityData)
 }
 
@@ -1142,10 +1205,13 @@ func (localTrafficTag *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails
     localTrafficTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localTrafficTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localTrafficTag.EntityData.Children = make(map[string]types.YChild)
-    localTrafficTag.EntityData.Leafs = make(map[string]types.YLeaf)
-    localTrafficTag.EntityData.Leafs["ethertype"] = types.YLeaf{"Ethertype", localTrafficTag.Ethertype}
-    localTrafficTag.EntityData.Leafs["vlan-id"] = types.YLeaf{"VlanId", localTrafficTag.VlanId}
+    localTrafficTag.EntityData.Children = types.NewOrderedMap()
+    localTrafficTag.EntityData.Leafs = types.NewOrderedMap()
+    localTrafficTag.EntityData.Leafs.Append("ethertype", types.YLeaf{"Ethertype", localTrafficTag.Ethertype})
+    localTrafficTag.EntityData.Leafs.Append("vlan-id", types.YLeaf{"VlanId", localTrafficTag.VlanId})
+
+    localTrafficTag.EntityData.YListKeys = []string {}
+
     return &(localTrafficTag.EntityData)
 }
 
@@ -1163,7 +1229,7 @@ type Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDe
 
     // VLAN Ids to match. The type is slice of
     // Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch_VlanRange.
-    VlanRange []Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch_VlanRange
+    VlanRange []*Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch_VlanRange
 }
 
 func (tagsToMatch *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch) GetEntityData() *types.CommonEntityData {
@@ -1176,14 +1242,17 @@ func (tagsToMatch *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_Ser
     tagsToMatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tagsToMatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tagsToMatch.EntityData.Children = make(map[string]types.YChild)
-    tagsToMatch.EntityData.Children["vlan-range"] = types.YChild{"VlanRange", nil}
+    tagsToMatch.EntityData.Children = types.NewOrderedMap()
+    tagsToMatch.EntityData.Children.Append("vlan-range", types.YChild{"VlanRange", nil})
     for i := range tagsToMatch.VlanRange {
-        tagsToMatch.EntityData.Children[types.GetSegmentPath(&tagsToMatch.VlanRange[i])] = types.YChild{"VlanRange", &tagsToMatch.VlanRange[i]}
+        tagsToMatch.EntityData.Children.Append(types.GetSegmentPath(tagsToMatch.VlanRange[i]), types.YChild{"VlanRange", tagsToMatch.VlanRange[i]})
     }
-    tagsToMatch.EntityData.Leafs = make(map[string]types.YLeaf)
-    tagsToMatch.EntityData.Leafs["ethertype"] = types.YLeaf{"Ethertype", tagsToMatch.Ethertype}
-    tagsToMatch.EntityData.Leafs["priority"] = types.YLeaf{"Priority", tagsToMatch.Priority}
+    tagsToMatch.EntityData.Leafs = types.NewOrderedMap()
+    tagsToMatch.EntityData.Leafs.Append("ethertype", types.YLeaf{"Ethertype", tagsToMatch.Ethertype})
+    tagsToMatch.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", tagsToMatch.Priority})
+
+    tagsToMatch.EntityData.YListKeys = []string {}
+
     return &(tagsToMatch.EntityData)
 }
 
@@ -1210,10 +1279,13 @@ func (vlanRange *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_Servi
     vlanRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vlanRange.EntityData.Children = make(map[string]types.YChild)
-    vlanRange.EntityData.Leafs = make(map[string]types.YLeaf)
-    vlanRange.EntityData.Leafs["vlan-id-low"] = types.YLeaf{"VlanIdLow", vlanRange.VlanIdLow}
-    vlanRange.EntityData.Leafs["vlan-id-high"] = types.YLeaf{"VlanIdHigh", vlanRange.VlanIdHigh}
+    vlanRange.EntityData.Children = types.NewOrderedMap()
+    vlanRange.EntityData.Leafs = types.NewOrderedMap()
+    vlanRange.EntityData.Leafs.Append("vlan-id-low", types.YLeaf{"VlanIdLow", vlanRange.VlanIdLow})
+    vlanRange.EntityData.Leafs.Append("vlan-id-high", types.YLeaf{"VlanIdHigh", vlanRange.VlanIdHigh})
+
+    vlanRange.EntityData.YListKeys = []string {}
+
     return &(vlanRange.EntityData)
 }
 
@@ -1240,16 +1312,19 @@ func (pushe *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceIn
     pushe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pushe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pushe.EntityData.Children = make(map[string]types.YChild)
-    pushe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pushe.EntityData.Leafs["ethertype"] = types.YLeaf{"Ethertype", pushe.Ethertype}
-    pushe.EntityData.Leafs["vlan-id"] = types.YLeaf{"VlanId", pushe.VlanId}
+    pushe.EntityData.Children = types.NewOrderedMap()
+    pushe.EntityData.Leafs = types.NewOrderedMap()
+    pushe.EntityData.Leafs.Append("ethertype", types.YLeaf{"Ethertype", pushe.Ethertype})
+    pushe.EntityData.Leafs.Append("vlan-id", types.YLeaf{"VlanId", pushe.VlanId})
+
+    pushe.EntityData.YListKeys = []string {}
+
     return &(pushe.EntityData)
 }
 
-// Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_Dot1AdDot1QStack
+// Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_Dot1adDot1qStack
 // 802.1ad 802.1Q stack value
-type Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_Dot1AdDot1QStack struct {
+type Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_Dot1adDot1qStack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1260,21 +1335,24 @@ type Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_Dot1AdDot1QStack 
     SecondTag interface{}
 }
 
-func (dot1AdDot1QStack *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_Dot1AdDot1QStack) GetEntityData() *types.CommonEntityData {
-    dot1AdDot1QStack.EntityData.YFilter = dot1AdDot1QStack.YFilter
-    dot1AdDot1QStack.EntityData.YangName = "dot1ad-dot1q-stack"
-    dot1AdDot1QStack.EntityData.BundleName = "cisco_ios_xr"
-    dot1AdDot1QStack.EntityData.ParentYangName = "encapsulation-details"
-    dot1AdDot1QStack.EntityData.SegmentPath = "dot1ad-dot1q-stack"
-    dot1AdDot1QStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    dot1AdDot1QStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    dot1AdDot1QStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (dot1adDot1qStack *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_Dot1adDot1qStack) GetEntityData() *types.CommonEntityData {
+    dot1adDot1qStack.EntityData.YFilter = dot1adDot1qStack.YFilter
+    dot1adDot1qStack.EntityData.YangName = "dot1ad-dot1q-stack"
+    dot1adDot1qStack.EntityData.BundleName = "cisco_ios_xr"
+    dot1adDot1qStack.EntityData.ParentYangName = "encapsulation-details"
+    dot1adDot1qStack.EntityData.SegmentPath = "dot1ad-dot1q-stack"
+    dot1adDot1qStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dot1adDot1qStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dot1adDot1qStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dot1AdDot1QStack.EntityData.Children = make(map[string]types.YChild)
-    dot1AdDot1QStack.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1AdDot1QStack.EntityData.Leafs["outer-tag"] = types.YLeaf{"OuterTag", dot1AdDot1QStack.OuterTag}
-    dot1AdDot1QStack.EntityData.Leafs["second-tag"] = types.YLeaf{"SecondTag", dot1AdDot1QStack.SecondTag}
-    return &(dot1AdDot1QStack.EntityData)
+    dot1adDot1qStack.EntityData.Children = types.NewOrderedMap()
+    dot1adDot1qStack.EntityData.Leafs = types.NewOrderedMap()
+    dot1adDot1qStack.EntityData.Leafs.Append("outer-tag", types.YLeaf{"OuterTag", dot1adDot1qStack.OuterTag})
+    dot1adDot1qStack.EntityData.Leafs.Append("second-tag", types.YLeaf{"SecondTag", dot1adDot1qStack.SecondTag})
+
+    dot1adDot1qStack.EntityData.YListKeys = []string {}
+
+    return &(dot1adDot1qStack.EntityData)
 }
 
 // Vlan_Nodes_Node_TagAllocations
@@ -1286,7 +1364,7 @@ type Vlan_Nodes_Node_TagAllocations struct {
 
     // Operational data for a sub-interface configured with VLANs. The type is
     // slice of Vlan_Nodes_Node_TagAllocations_TagAllocation.
-    TagAllocation []Vlan_Nodes_Node_TagAllocations_TagAllocation
+    TagAllocation []*Vlan_Nodes_Node_TagAllocations_TagAllocation
 }
 
 func (tagAllocations *Vlan_Nodes_Node_TagAllocations) GetEntityData() *types.CommonEntityData {
@@ -1299,12 +1377,15 @@ func (tagAllocations *Vlan_Nodes_Node_TagAllocations) GetEntityData() *types.Com
     tagAllocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tagAllocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tagAllocations.EntityData.Children = make(map[string]types.YChild)
-    tagAllocations.EntityData.Children["tag-allocation"] = types.YChild{"TagAllocation", nil}
+    tagAllocations.EntityData.Children = types.NewOrderedMap()
+    tagAllocations.EntityData.Children.Append("tag-allocation", types.YChild{"TagAllocation", nil})
     for i := range tagAllocations.TagAllocation {
-        tagAllocations.EntityData.Children[types.GetSegmentPath(&tagAllocations.TagAllocation[i])] = types.YChild{"TagAllocation", &tagAllocations.TagAllocation[i]}
+        tagAllocations.EntityData.Children.Append(types.GetSegmentPath(tagAllocations.TagAllocation[i]), types.YChild{"TagAllocation", tagAllocations.TagAllocation[i]})
     }
-    tagAllocations.EntityData.Leafs = make(map[string]types.YLeaf)
+    tagAllocations.EntityData.Leafs = types.NewOrderedMap()
+
+    tagAllocations.EntityData.YListKeys = []string {}
+
     return &(tagAllocations.EntityData)
 }
 
@@ -1315,8 +1396,8 @@ type Vlan_Nodes_Node_TagAllocations_TagAllocation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // The interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    Interface interface{}
 
     // The first (outermost) tag. The type is interface{} with range: 1..4094.
     FirstTag interface{}
@@ -1325,10 +1406,10 @@ type Vlan_Nodes_Node_TagAllocations_TagAllocation struct {
     // VlanTagOrAny, or int with range: 1..4096.
     SecondTag interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceXr interface{}
 
-    // Parent interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9./-]+.
     ParentInterface interface{}
 
     // Service type. The type is VlanService.
@@ -1357,18 +1438,21 @@ func (tagAllocation *Vlan_Nodes_Node_TagAllocations_TagAllocation) GetEntityData
     tagAllocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tagAllocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tagAllocation.EntityData.Children = make(map[string]types.YChild)
-    tagAllocation.EntityData.Children["encapsulation-details"] = types.YChild{"EncapsulationDetails", &tagAllocation.EncapsulationDetails}
-    tagAllocation.EntityData.Leafs = make(map[string]types.YLeaf)
-    tagAllocation.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", tagAllocation.Interface_}
-    tagAllocation.EntityData.Leafs["first-tag"] = types.YLeaf{"FirstTag", tagAllocation.FirstTag}
-    tagAllocation.EntityData.Leafs["second-tag"] = types.YLeaf{"SecondTag", tagAllocation.SecondTag}
-    tagAllocation.EntityData.Leafs["interface-xr"] = types.YLeaf{"InterfaceXr", tagAllocation.InterfaceXr}
-    tagAllocation.EntityData.Leafs["parent-interface"] = types.YLeaf{"ParentInterface", tagAllocation.ParentInterface}
-    tagAllocation.EntityData.Leafs["service"] = types.YLeaf{"Service", tagAllocation.Service}
-    tagAllocation.EntityData.Leafs["state"] = types.YLeaf{"State", tagAllocation.State}
-    tagAllocation.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", tagAllocation.Mtu}
-    tagAllocation.EntityData.Leafs["switched-mtu"] = types.YLeaf{"SwitchedMtu", tagAllocation.SwitchedMtu}
+    tagAllocation.EntityData.Children = types.NewOrderedMap()
+    tagAllocation.EntityData.Children.Append("encapsulation-details", types.YChild{"EncapsulationDetails", &tagAllocation.EncapsulationDetails})
+    tagAllocation.EntityData.Leafs = types.NewOrderedMap()
+    tagAllocation.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", tagAllocation.Interface})
+    tagAllocation.EntityData.Leafs.Append("first-tag", types.YLeaf{"FirstTag", tagAllocation.FirstTag})
+    tagAllocation.EntityData.Leafs.Append("second-tag", types.YLeaf{"SecondTag", tagAllocation.SecondTag})
+    tagAllocation.EntityData.Leafs.Append("interface-xr", types.YLeaf{"InterfaceXr", tagAllocation.InterfaceXr})
+    tagAllocation.EntityData.Leafs.Append("parent-interface", types.YLeaf{"ParentInterface", tagAllocation.ParentInterface})
+    tagAllocation.EntityData.Leafs.Append("service", types.YLeaf{"Service", tagAllocation.Service})
+    tagAllocation.EntityData.Leafs.Append("state", types.YLeaf{"State", tagAllocation.State})
+    tagAllocation.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", tagAllocation.Mtu})
+    tagAllocation.EntityData.Leafs.Append("switched-mtu", types.YLeaf{"SwitchedMtu", tagAllocation.SwitchedMtu})
+
+    tagAllocation.EntityData.YListKeys = []string {}
+
     return &(tagAllocation.EntityData)
 }
 
@@ -1391,13 +1475,13 @@ type Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails struct {
     NativeTag interface{}
 
     // 802.1ad tag value. The type is interface{} with range: 0..65535.
-    Dot1AdTag interface{}
+    Dot1adTag interface{}
 
     // 802.1ad native tag value. The type is interface{} with range: 0..65535.
-    Dot1AdNativeTag interface{}
+    Dot1adNativeTag interface{}
 
     // 802.1ad Outer tag value. The type is interface{} with range: 0..65535.
-    Dot1AdOuterTag interface{}
+    Dot1adOuterTag interface{}
 
     // Stack value.
     Stack Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_Stack
@@ -1406,7 +1490,7 @@ type Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails struct {
     ServiceInstanceDetails Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails
 
     // 802.1ad 802.1Q stack value.
-    Dot1AdDot1QStack Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_Dot1AdDot1QStack
+    Dot1adDot1qStack Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_Dot1adDot1qStack
 }
 
 func (encapsulationDetails *Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails) GetEntityData() *types.CommonEntityData {
@@ -1419,18 +1503,21 @@ func (encapsulationDetails *Vlan_Nodes_Node_TagAllocations_TagAllocation_Encapsu
     encapsulationDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     encapsulationDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    encapsulationDetails.EntityData.Children = make(map[string]types.YChild)
-    encapsulationDetails.EntityData.Children["stack"] = types.YChild{"Stack", &encapsulationDetails.Stack}
-    encapsulationDetails.EntityData.Children["service-instance-details"] = types.YChild{"ServiceInstanceDetails", &encapsulationDetails.ServiceInstanceDetails}
-    encapsulationDetails.EntityData.Children["dot1ad-dot1q-stack"] = types.YChild{"Dot1AdDot1QStack", &encapsulationDetails.Dot1AdDot1QStack}
-    encapsulationDetails.EntityData.Leafs = make(map[string]types.YLeaf)
-    encapsulationDetails.EntityData.Leafs["vlan-encapsulation"] = types.YLeaf{"VlanEncapsulation", encapsulationDetails.VlanEncapsulation}
-    encapsulationDetails.EntityData.Leafs["tag"] = types.YLeaf{"Tag", encapsulationDetails.Tag}
-    encapsulationDetails.EntityData.Leafs["outer-tag"] = types.YLeaf{"OuterTag", encapsulationDetails.OuterTag}
-    encapsulationDetails.EntityData.Leafs["native-tag"] = types.YLeaf{"NativeTag", encapsulationDetails.NativeTag}
-    encapsulationDetails.EntityData.Leafs["dot1ad-tag"] = types.YLeaf{"Dot1AdTag", encapsulationDetails.Dot1AdTag}
-    encapsulationDetails.EntityData.Leafs["dot1ad-native-tag"] = types.YLeaf{"Dot1AdNativeTag", encapsulationDetails.Dot1AdNativeTag}
-    encapsulationDetails.EntityData.Leafs["dot1ad-outer-tag"] = types.YLeaf{"Dot1AdOuterTag", encapsulationDetails.Dot1AdOuterTag}
+    encapsulationDetails.EntityData.Children = types.NewOrderedMap()
+    encapsulationDetails.EntityData.Children.Append("stack", types.YChild{"Stack", &encapsulationDetails.Stack})
+    encapsulationDetails.EntityData.Children.Append("service-instance-details", types.YChild{"ServiceInstanceDetails", &encapsulationDetails.ServiceInstanceDetails})
+    encapsulationDetails.EntityData.Children.Append("dot1ad-dot1q-stack", types.YChild{"Dot1adDot1qStack", &encapsulationDetails.Dot1adDot1qStack})
+    encapsulationDetails.EntityData.Leafs = types.NewOrderedMap()
+    encapsulationDetails.EntityData.Leafs.Append("vlan-encapsulation", types.YLeaf{"VlanEncapsulation", encapsulationDetails.VlanEncapsulation})
+    encapsulationDetails.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", encapsulationDetails.Tag})
+    encapsulationDetails.EntityData.Leafs.Append("outer-tag", types.YLeaf{"OuterTag", encapsulationDetails.OuterTag})
+    encapsulationDetails.EntityData.Leafs.Append("native-tag", types.YLeaf{"NativeTag", encapsulationDetails.NativeTag})
+    encapsulationDetails.EntityData.Leafs.Append("dot1ad-tag", types.YLeaf{"Dot1adTag", encapsulationDetails.Dot1adTag})
+    encapsulationDetails.EntityData.Leafs.Append("dot1ad-native-tag", types.YLeaf{"Dot1adNativeTag", encapsulationDetails.Dot1adNativeTag})
+    encapsulationDetails.EntityData.Leafs.Append("dot1ad-outer-tag", types.YLeaf{"Dot1adOuterTag", encapsulationDetails.Dot1adOuterTag})
+
+    encapsulationDetails.EntityData.YListKeys = []string {}
+
     return &(encapsulationDetails.EntityData)
 }
 
@@ -1457,10 +1544,13 @@ func (stack *Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_S
     stack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stack.EntityData.Children = make(map[string]types.YChild)
-    stack.EntityData.Leafs = make(map[string]types.YLeaf)
-    stack.EntityData.Leafs["outer-tag"] = types.YLeaf{"OuterTag", stack.OuterTag}
-    stack.EntityData.Leafs["second-tag"] = types.YLeaf{"SecondTag", stack.SecondTag}
+    stack.EntityData.Children = types.NewOrderedMap()
+    stack.EntityData.Leafs = types.NewOrderedMap()
+    stack.EntityData.Leafs.Append("outer-tag", types.YLeaf{"OuterTag", stack.OuterTag})
+    stack.EntityData.Leafs.Append("second-tag", types.YLeaf{"SecondTag", stack.SecondTag})
+
+    stack.EntityData.YListKeys = []string {}
+
     return &(stack.EntityData)
 }
 
@@ -1488,11 +1578,11 @@ type Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceIn
     IsNativePreserving interface{}
 
     // The source MAC address to match on ingress. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SourceMacMatch interface{}
 
     // The destination MAC address to match on ingress. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DestinationMacMatch interface{}
 
     // VLAN tags for locally-sourced traffic.
@@ -1500,11 +1590,11 @@ type Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceIn
 
     // Tags to match on ingress packets. The type is slice of
     // Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch.
-    TagsToMatch []Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch
+    TagsToMatch []*Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch
 
     // VLAN tags pushed on egress. The type is slice of
     // Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails_Pushe.
-    Pushe []Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails_Pushe
+    Pushe []*Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails_Pushe
 }
 
 func (serviceInstanceDetails *Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails) GetEntityData() *types.CommonEntityData {
@@ -1517,24 +1607,27 @@ func (serviceInstanceDetails *Vlan_Nodes_Node_TagAllocations_TagAllocation_Encap
     serviceInstanceDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceInstanceDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceInstanceDetails.EntityData.Children = make(map[string]types.YChild)
-    serviceInstanceDetails.EntityData.Children["local-traffic-stack"] = types.YChild{"LocalTrafficStack", &serviceInstanceDetails.LocalTrafficStack}
-    serviceInstanceDetails.EntityData.Children["tags-to-match"] = types.YChild{"TagsToMatch", nil}
+    serviceInstanceDetails.EntityData.Children = types.NewOrderedMap()
+    serviceInstanceDetails.EntityData.Children.Append("local-traffic-stack", types.YChild{"LocalTrafficStack", &serviceInstanceDetails.LocalTrafficStack})
+    serviceInstanceDetails.EntityData.Children.Append("tags-to-match", types.YChild{"TagsToMatch", nil})
     for i := range serviceInstanceDetails.TagsToMatch {
-        serviceInstanceDetails.EntityData.Children[types.GetSegmentPath(&serviceInstanceDetails.TagsToMatch[i])] = types.YChild{"TagsToMatch", &serviceInstanceDetails.TagsToMatch[i]}
+        serviceInstanceDetails.EntityData.Children.Append(types.GetSegmentPath(serviceInstanceDetails.TagsToMatch[i]), types.YChild{"TagsToMatch", serviceInstanceDetails.TagsToMatch[i]})
     }
-    serviceInstanceDetails.EntityData.Children["pushe"] = types.YChild{"Pushe", nil}
+    serviceInstanceDetails.EntityData.Children.Append("pushe", types.YChild{"Pushe", nil})
     for i := range serviceInstanceDetails.Pushe {
-        serviceInstanceDetails.EntityData.Children[types.GetSegmentPath(&serviceInstanceDetails.Pushe[i])] = types.YChild{"Pushe", &serviceInstanceDetails.Pushe[i]}
+        serviceInstanceDetails.EntityData.Children.Append(types.GetSegmentPath(serviceInstanceDetails.Pushe[i]), types.YChild{"Pushe", serviceInstanceDetails.Pushe[i]})
     }
-    serviceInstanceDetails.EntityData.Leafs = make(map[string]types.YLeaf)
-    serviceInstanceDetails.EntityData.Leafs["payload-ethertype"] = types.YLeaf{"PayloadEthertype", serviceInstanceDetails.PayloadEthertype}
-    serviceInstanceDetails.EntityData.Leafs["tags-popped"] = types.YLeaf{"TagsPopped", serviceInstanceDetails.TagsPopped}
-    serviceInstanceDetails.EntityData.Leafs["is-exact-match"] = types.YLeaf{"IsExactMatch", serviceInstanceDetails.IsExactMatch}
-    serviceInstanceDetails.EntityData.Leafs["is-native-vlan"] = types.YLeaf{"IsNativeVlan", serviceInstanceDetails.IsNativeVlan}
-    serviceInstanceDetails.EntityData.Leafs["is-native-preserving"] = types.YLeaf{"IsNativePreserving", serviceInstanceDetails.IsNativePreserving}
-    serviceInstanceDetails.EntityData.Leafs["source-mac-match"] = types.YLeaf{"SourceMacMatch", serviceInstanceDetails.SourceMacMatch}
-    serviceInstanceDetails.EntityData.Leafs["destination-mac-match"] = types.YLeaf{"DestinationMacMatch", serviceInstanceDetails.DestinationMacMatch}
+    serviceInstanceDetails.EntityData.Leafs = types.NewOrderedMap()
+    serviceInstanceDetails.EntityData.Leafs.Append("payload-ethertype", types.YLeaf{"PayloadEthertype", serviceInstanceDetails.PayloadEthertype})
+    serviceInstanceDetails.EntityData.Leafs.Append("tags-popped", types.YLeaf{"TagsPopped", serviceInstanceDetails.TagsPopped})
+    serviceInstanceDetails.EntityData.Leafs.Append("is-exact-match", types.YLeaf{"IsExactMatch", serviceInstanceDetails.IsExactMatch})
+    serviceInstanceDetails.EntityData.Leafs.Append("is-native-vlan", types.YLeaf{"IsNativeVlan", serviceInstanceDetails.IsNativeVlan})
+    serviceInstanceDetails.EntityData.Leafs.Append("is-native-preserving", types.YLeaf{"IsNativePreserving", serviceInstanceDetails.IsNativePreserving})
+    serviceInstanceDetails.EntityData.Leafs.Append("source-mac-match", types.YLeaf{"SourceMacMatch", serviceInstanceDetails.SourceMacMatch})
+    serviceInstanceDetails.EntityData.Leafs.Append("destination-mac-match", types.YLeaf{"DestinationMacMatch", serviceInstanceDetails.DestinationMacMatch})
+
+    serviceInstanceDetails.EntityData.YListKeys = []string {}
+
     return &(serviceInstanceDetails.EntityData)
 }
 
@@ -1546,7 +1639,7 @@ type Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceIn
 
     // VLAN tags for locally-sourced traffic. The type is slice of
     // Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails_LocalTrafficStack_LocalTrafficTag.
-    LocalTrafficTag []Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails_LocalTrafficStack_LocalTrafficTag
+    LocalTrafficTag []*Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails_LocalTrafficStack_LocalTrafficTag
 }
 
 func (localTrafficStack *Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails_LocalTrafficStack) GetEntityData() *types.CommonEntityData {
@@ -1559,12 +1652,15 @@ func (localTrafficStack *Vlan_Nodes_Node_TagAllocations_TagAllocation_Encapsulat
     localTrafficStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localTrafficStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localTrafficStack.EntityData.Children = make(map[string]types.YChild)
-    localTrafficStack.EntityData.Children["local-traffic-tag"] = types.YChild{"LocalTrafficTag", nil}
+    localTrafficStack.EntityData.Children = types.NewOrderedMap()
+    localTrafficStack.EntityData.Children.Append("local-traffic-tag", types.YChild{"LocalTrafficTag", nil})
     for i := range localTrafficStack.LocalTrafficTag {
-        localTrafficStack.EntityData.Children[types.GetSegmentPath(&localTrafficStack.LocalTrafficTag[i])] = types.YChild{"LocalTrafficTag", &localTrafficStack.LocalTrafficTag[i]}
+        localTrafficStack.EntityData.Children.Append(types.GetSegmentPath(localTrafficStack.LocalTrafficTag[i]), types.YChild{"LocalTrafficTag", localTrafficStack.LocalTrafficTag[i]})
     }
-    localTrafficStack.EntityData.Leafs = make(map[string]types.YLeaf)
+    localTrafficStack.EntityData.Leafs = types.NewOrderedMap()
+
+    localTrafficStack.EntityData.YListKeys = []string {}
+
     return &(localTrafficStack.EntityData)
 }
 
@@ -1591,10 +1687,13 @@ func (localTrafficTag *Vlan_Nodes_Node_TagAllocations_TagAllocation_Encapsulatio
     localTrafficTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localTrafficTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localTrafficTag.EntityData.Children = make(map[string]types.YChild)
-    localTrafficTag.EntityData.Leafs = make(map[string]types.YLeaf)
-    localTrafficTag.EntityData.Leafs["ethertype"] = types.YLeaf{"Ethertype", localTrafficTag.Ethertype}
-    localTrafficTag.EntityData.Leafs["vlan-id"] = types.YLeaf{"VlanId", localTrafficTag.VlanId}
+    localTrafficTag.EntityData.Children = types.NewOrderedMap()
+    localTrafficTag.EntityData.Leafs = types.NewOrderedMap()
+    localTrafficTag.EntityData.Leafs.Append("ethertype", types.YLeaf{"Ethertype", localTrafficTag.Ethertype})
+    localTrafficTag.EntityData.Leafs.Append("vlan-id", types.YLeaf{"VlanId", localTrafficTag.VlanId})
+
+    localTrafficTag.EntityData.YListKeys = []string {}
+
     return &(localTrafficTag.EntityData)
 }
 
@@ -1612,7 +1711,7 @@ type Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceIn
 
     // VLAN Ids to match. The type is slice of
     // Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch_VlanRange.
-    VlanRange []Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch_VlanRange
+    VlanRange []*Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch_VlanRange
 }
 
 func (tagsToMatch *Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch) GetEntityData() *types.CommonEntityData {
@@ -1625,14 +1724,17 @@ func (tagsToMatch *Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDet
     tagsToMatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tagsToMatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tagsToMatch.EntityData.Children = make(map[string]types.YChild)
-    tagsToMatch.EntityData.Children["vlan-range"] = types.YChild{"VlanRange", nil}
+    tagsToMatch.EntityData.Children = types.NewOrderedMap()
+    tagsToMatch.EntityData.Children.Append("vlan-range", types.YChild{"VlanRange", nil})
     for i := range tagsToMatch.VlanRange {
-        tagsToMatch.EntityData.Children[types.GetSegmentPath(&tagsToMatch.VlanRange[i])] = types.YChild{"VlanRange", &tagsToMatch.VlanRange[i]}
+        tagsToMatch.EntityData.Children.Append(types.GetSegmentPath(tagsToMatch.VlanRange[i]), types.YChild{"VlanRange", tagsToMatch.VlanRange[i]})
     }
-    tagsToMatch.EntityData.Leafs = make(map[string]types.YLeaf)
-    tagsToMatch.EntityData.Leafs["ethertype"] = types.YLeaf{"Ethertype", tagsToMatch.Ethertype}
-    tagsToMatch.EntityData.Leafs["priority"] = types.YLeaf{"Priority", tagsToMatch.Priority}
+    tagsToMatch.EntityData.Leafs = types.NewOrderedMap()
+    tagsToMatch.EntityData.Leafs.Append("ethertype", types.YLeaf{"Ethertype", tagsToMatch.Ethertype})
+    tagsToMatch.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", tagsToMatch.Priority})
+
+    tagsToMatch.EntityData.YListKeys = []string {}
+
     return &(tagsToMatch.EntityData)
 }
 
@@ -1659,10 +1761,13 @@ func (vlanRange *Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetai
     vlanRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vlanRange.EntityData.Children = make(map[string]types.YChild)
-    vlanRange.EntityData.Leafs = make(map[string]types.YLeaf)
-    vlanRange.EntityData.Leafs["vlan-id-low"] = types.YLeaf{"VlanIdLow", vlanRange.VlanIdLow}
-    vlanRange.EntityData.Leafs["vlan-id-high"] = types.YLeaf{"VlanIdHigh", vlanRange.VlanIdHigh}
+    vlanRange.EntityData.Children = types.NewOrderedMap()
+    vlanRange.EntityData.Leafs = types.NewOrderedMap()
+    vlanRange.EntityData.Leafs.Append("vlan-id-low", types.YLeaf{"VlanIdLow", vlanRange.VlanIdLow})
+    vlanRange.EntityData.Leafs.Append("vlan-id-high", types.YLeaf{"VlanIdHigh", vlanRange.VlanIdHigh})
+
+    vlanRange.EntityData.YListKeys = []string {}
+
     return &(vlanRange.EntityData)
 }
 
@@ -1689,16 +1794,19 @@ func (pushe *Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_S
     pushe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pushe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pushe.EntityData.Children = make(map[string]types.YChild)
-    pushe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pushe.EntityData.Leafs["ethertype"] = types.YLeaf{"Ethertype", pushe.Ethertype}
-    pushe.EntityData.Leafs["vlan-id"] = types.YLeaf{"VlanId", pushe.VlanId}
+    pushe.EntityData.Children = types.NewOrderedMap()
+    pushe.EntityData.Leafs = types.NewOrderedMap()
+    pushe.EntityData.Leafs.Append("ethertype", types.YLeaf{"Ethertype", pushe.Ethertype})
+    pushe.EntityData.Leafs.Append("vlan-id", types.YLeaf{"VlanId", pushe.VlanId})
+
+    pushe.EntityData.YListKeys = []string {}
+
     return &(pushe.EntityData)
 }
 
-// Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_Dot1AdDot1QStack
+// Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_Dot1adDot1qStack
 // 802.1ad 802.1Q stack value
-type Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_Dot1AdDot1QStack struct {
+type Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_Dot1adDot1qStack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1709,21 +1817,24 @@ type Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_Dot1AdDot
     SecondTag interface{}
 }
 
-func (dot1AdDot1QStack *Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_Dot1AdDot1QStack) GetEntityData() *types.CommonEntityData {
-    dot1AdDot1QStack.EntityData.YFilter = dot1AdDot1QStack.YFilter
-    dot1AdDot1QStack.EntityData.YangName = "dot1ad-dot1q-stack"
-    dot1AdDot1QStack.EntityData.BundleName = "cisco_ios_xr"
-    dot1AdDot1QStack.EntityData.ParentYangName = "encapsulation-details"
-    dot1AdDot1QStack.EntityData.SegmentPath = "dot1ad-dot1q-stack"
-    dot1AdDot1QStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    dot1AdDot1QStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    dot1AdDot1QStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (dot1adDot1qStack *Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_Dot1adDot1qStack) GetEntityData() *types.CommonEntityData {
+    dot1adDot1qStack.EntityData.YFilter = dot1adDot1qStack.YFilter
+    dot1adDot1qStack.EntityData.YangName = "dot1ad-dot1q-stack"
+    dot1adDot1qStack.EntityData.BundleName = "cisco_ios_xr"
+    dot1adDot1qStack.EntityData.ParentYangName = "encapsulation-details"
+    dot1adDot1qStack.EntityData.SegmentPath = "dot1ad-dot1q-stack"
+    dot1adDot1qStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dot1adDot1qStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dot1adDot1qStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dot1AdDot1QStack.EntityData.Children = make(map[string]types.YChild)
-    dot1AdDot1QStack.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1AdDot1QStack.EntityData.Leafs["outer-tag"] = types.YLeaf{"OuterTag", dot1AdDot1QStack.OuterTag}
-    dot1AdDot1QStack.EntityData.Leafs["second-tag"] = types.YLeaf{"SecondTag", dot1AdDot1QStack.SecondTag}
-    return &(dot1AdDot1QStack.EntityData)
+    dot1adDot1qStack.EntityData.Children = types.NewOrderedMap()
+    dot1adDot1qStack.EntityData.Leafs = types.NewOrderedMap()
+    dot1adDot1qStack.EntityData.Leafs.Append("outer-tag", types.YLeaf{"OuterTag", dot1adDot1qStack.OuterTag})
+    dot1adDot1qStack.EntityData.Leafs.Append("second-tag", types.YLeaf{"SecondTag", dot1adDot1qStack.SecondTag})
+
+    dot1adDot1qStack.EntityData.YListKeys = []string {}
+
+    return &(dot1adDot1qStack.EntityData)
 }
 
 // EthernetEncapsulation
@@ -1746,9 +1857,12 @@ func (ethernetEncapsulation *EthernetEncapsulation) GetEntityData() *types.Commo
     ethernetEncapsulation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetEncapsulation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ethernetEncapsulation.EntityData.Children = make(map[string]types.YChild)
-    ethernetEncapsulation.EntityData.Children["nodes"] = types.YChild{"Nodes", &ethernetEncapsulation.Nodes}
-    ethernetEncapsulation.EntityData.Leafs = make(map[string]types.YLeaf)
+    ethernetEncapsulation.EntityData.Children = types.NewOrderedMap()
+    ethernetEncapsulation.EntityData.Children.Append("nodes", types.YChild{"Nodes", &ethernetEncapsulation.Nodes})
+    ethernetEncapsulation.EntityData.Leafs = types.NewOrderedMap()
+
+    ethernetEncapsulation.EntityData.YListKeys = []string {}
+
     return &(ethernetEncapsulation.EntityData)
 }
 
@@ -1760,7 +1874,7 @@ type EthernetEncapsulation_Nodes struct {
 
     // The Ethernet encaps operational data for a particular node. The type is
     // slice of EthernetEncapsulation_Nodes_Node.
-    Node []EthernetEncapsulation_Nodes_Node
+    Node []*EthernetEncapsulation_Nodes_Node
 }
 
 func (nodes *EthernetEncapsulation_Nodes) GetEntityData() *types.CommonEntityData {
@@ -1773,12 +1887,15 @@ func (nodes *EthernetEncapsulation_Nodes) GetEntityData() *types.CommonEntityDat
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -1790,7 +1907,7 @@ type EthernetEncapsulation_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The identifier for the node. The type is string
-    // with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Unicast MAC filter table (specific to this node).
@@ -1802,15 +1919,18 @@ func (node *EthernetEncapsulation_Nodes_Node) GetEntityData() *types.CommonEntit
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["unicast-mac-filters"] = types.YChild{"UnicastMacFilters", &node.UnicastMacFilters}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("unicast-mac-filters", types.YChild{"UnicastMacFilters", &node.UnicastMacFilters})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -1824,7 +1944,7 @@ type EthernetEncapsulation_Nodes_Node_UnicastMacFilters struct {
     // Operational data for interface with MAC filters configured. The type is
     // slice of
     // EthernetEncapsulation_Nodes_Node_UnicastMacFilters_UnicastMacFilter.
-    UnicastMacFilter []EthernetEncapsulation_Nodes_Node_UnicastMacFilters_UnicastMacFilter
+    UnicastMacFilter []*EthernetEncapsulation_Nodes_Node_UnicastMacFilters_UnicastMacFilter
 }
 
 func (unicastMacFilters *EthernetEncapsulation_Nodes_Node_UnicastMacFilters) GetEntityData() *types.CommonEntityData {
@@ -1837,12 +1957,15 @@ func (unicastMacFilters *EthernetEncapsulation_Nodes_Node_UnicastMacFilters) Get
     unicastMacFilters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unicastMacFilters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    unicastMacFilters.EntityData.Children = make(map[string]types.YChild)
-    unicastMacFilters.EntityData.Children["unicast-mac-filter"] = types.YChild{"UnicastMacFilter", nil}
+    unicastMacFilters.EntityData.Children = types.NewOrderedMap()
+    unicastMacFilters.EntityData.Children.Append("unicast-mac-filter", types.YChild{"UnicastMacFilter", nil})
     for i := range unicastMacFilters.UnicastMacFilter {
-        unicastMacFilters.EntityData.Children[types.GetSegmentPath(&unicastMacFilters.UnicastMacFilter[i])] = types.YChild{"UnicastMacFilter", &unicastMacFilters.UnicastMacFilter[i]}
+        unicastMacFilters.EntityData.Children.Append(types.GetSegmentPath(unicastMacFilters.UnicastMacFilter[i]), types.YChild{"UnicastMacFilter", unicastMacFilters.UnicastMacFilter[i]})
     }
-    unicastMacFilters.EntityData.Leafs = make(map[string]types.YLeaf)
+    unicastMacFilters.EntityData.Leafs = types.NewOrderedMap()
+
+    unicastMacFilters.EntityData.YListKeys = []string {}
+
     return &(unicastMacFilters.EntityData)
 }
 
@@ -1854,12 +1977,12 @@ type EthernetEncapsulation_Nodes_Node_UnicastMacFilters_UnicastMacFilter struct 
     YFilter yfilter.YFilter
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Unicast MAC filter information. The type is slice of
     // EthernetEncapsulation_Nodes_Node_UnicastMacFilters_UnicastMacFilter_UnicastFilter.
-    UnicastFilter []EthernetEncapsulation_Nodes_Node_UnicastMacFilters_UnicastMacFilter_UnicastFilter
+    UnicastFilter []*EthernetEncapsulation_Nodes_Node_UnicastMacFilters_UnicastMacFilter_UnicastFilter
 }
 
 func (unicastMacFilter *EthernetEncapsulation_Nodes_Node_UnicastMacFilters_UnicastMacFilter) GetEntityData() *types.CommonEntityData {
@@ -1867,18 +1990,21 @@ func (unicastMacFilter *EthernetEncapsulation_Nodes_Node_UnicastMacFilters_Unica
     unicastMacFilter.EntityData.YangName = "unicast-mac-filter"
     unicastMacFilter.EntityData.BundleName = "cisco_ios_xr"
     unicastMacFilter.EntityData.ParentYangName = "unicast-mac-filters"
-    unicastMacFilter.EntityData.SegmentPath = "unicast-mac-filter" + "[interface-name='" + fmt.Sprintf("%v", unicastMacFilter.InterfaceName) + "']"
+    unicastMacFilter.EntityData.SegmentPath = "unicast-mac-filter" + types.AddKeyToken(unicastMacFilter.InterfaceName, "interface-name")
     unicastMacFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unicastMacFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unicastMacFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    unicastMacFilter.EntityData.Children = make(map[string]types.YChild)
-    unicastMacFilter.EntityData.Children["unicast-filter"] = types.YChild{"UnicastFilter", nil}
+    unicastMacFilter.EntityData.Children = types.NewOrderedMap()
+    unicastMacFilter.EntityData.Children.Append("unicast-filter", types.YChild{"UnicastFilter", nil})
     for i := range unicastMacFilter.UnicastFilter {
-        unicastMacFilter.EntityData.Children[types.GetSegmentPath(&unicastMacFilter.UnicastFilter[i])] = types.YChild{"UnicastFilter", &unicastMacFilter.UnicastFilter[i]}
+        unicastMacFilter.EntityData.Children.Append(types.GetSegmentPath(unicastMacFilter.UnicastFilter[i]), types.YChild{"UnicastFilter", unicastMacFilter.UnicastFilter[i]})
     }
-    unicastMacFilter.EntityData.Leafs = make(map[string]types.YLeaf)
-    unicastMacFilter.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", unicastMacFilter.InterfaceName}
+    unicastMacFilter.EntityData.Leafs = types.NewOrderedMap()
+    unicastMacFilter.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", unicastMacFilter.InterfaceName})
+
+    unicastMacFilter.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(unicastMacFilter.EntityData)
 }
 
@@ -1889,7 +2015,7 @@ type EthernetEncapsulation_Nodes_Node_UnicastMacFilters_UnicastMacFilter_Unicast
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Unicast MAC mode. The type is EthCapsUcastMacMode.
@@ -1906,10 +2032,13 @@ func (unicastFilter *EthernetEncapsulation_Nodes_Node_UnicastMacFilters_UnicastM
     unicastFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unicastFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    unicastFilter.EntityData.Children = make(map[string]types.YChild)
-    unicastFilter.EntityData.Leafs = make(map[string]types.YLeaf)
-    unicastFilter.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", unicastFilter.MacAddress}
-    unicastFilter.EntityData.Leafs["mode"] = types.YLeaf{"Mode", unicastFilter.Mode}
+    unicastFilter.EntityData.Children = types.NewOrderedMap()
+    unicastFilter.EntityData.Leafs = types.NewOrderedMap()
+    unicastFilter.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", unicastFilter.MacAddress})
+    unicastFilter.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", unicastFilter.Mode})
+
+    unicastFilter.EntityData.YListKeys = []string {}
+
     return &(unicastFilter.EntityData)
 }
 

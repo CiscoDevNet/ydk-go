@@ -47,9 +47,12 @@ func (xrXml *XrXml) GetEntityData() *types.CommonEntityData {
     xrXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xrXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    xrXml.EntityData.Children = make(map[string]types.YChild)
-    xrXml.EntityData.Children["agent"] = types.YChild{"Agent", &xrXml.Agent}
-    xrXml.EntityData.Leafs = make(map[string]types.YLeaf)
+    xrXml.EntityData.Children = types.NewOrderedMap()
+    xrXml.EntityData.Children.Append("agent", types.YChild{"Agent", &xrXml.Agent})
+    xrXml.EntityData.Leafs = types.NewOrderedMap()
+
+    xrXml.EntityData.YListKeys = []string {}
+
     return &(xrXml.EntityData)
 }
 
@@ -60,7 +63,7 @@ type XrXml_Agent struct {
     YFilter yfilter.YFilter
 
     // XML default dedicated agent.
-    Default_ XrXml_Agent_Default
+    Default XrXml_Agent_Default
 
     // XML TTY agent.
     Tty XrXml_Agent_Tty
@@ -79,11 +82,14 @@ func (agent *XrXml_Agent) GetEntityData() *types.CommonEntityData {
     agent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     agent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    agent.EntityData.Children = make(map[string]types.YChild)
-    agent.EntityData.Children["default"] = types.YChild{"Default_", &agent.Default_}
-    agent.EntityData.Children["tty"] = types.YChild{"Tty", &agent.Tty}
-    agent.EntityData.Children["ssl"] = types.YChild{"Ssl", &agent.Ssl}
-    agent.EntityData.Leafs = make(map[string]types.YLeaf)
+    agent.EntityData.Children = types.NewOrderedMap()
+    agent.EntityData.Children.Append("default", types.YChild{"Default", &agent.Default})
+    agent.EntityData.Children.Append("tty", types.YChild{"Tty", &agent.Tty})
+    agent.EntityData.Children.Append("ssl", types.YChild{"Ssl", &agent.Ssl})
+    agent.EntityData.Leafs = types.NewOrderedMap()
+
+    agent.EntityData.YListKeys = []string {}
+
     return &(agent.EntityData)
 }
 
@@ -131,16 +137,19 @@ func (self *XrXml_Agent_Default) GetEntityData() *types.CommonEntityData {
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["session"] = types.YChild{"Session", &self.Session}
-    self.EntityData.Children["throttle"] = types.YChild{"Throttle", &self.Throttle}
-    self.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &self.Vrfs}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["ipv6-enable"] = types.YLeaf{"Ipv6Enable", self.Ipv6Enable}
-    self.EntityData.Leafs["ipv4-disable"] = types.YLeaf{"Ipv4Disable", self.Ipv4Disable}
-    self.EntityData.Leafs["iteration-size"] = types.YLeaf{"IterationSize", self.IterationSize}
-    self.EntityData.Leafs["enable"] = types.YLeaf{"Enable", self.Enable}
-    self.EntityData.Leafs["streaming-size"] = types.YLeaf{"StreamingSize", self.StreamingSize}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("session", types.YChild{"Session", &self.Session})
+    self.EntityData.Children.Append("throttle", types.YChild{"Throttle", &self.Throttle})
+    self.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &self.Vrfs})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("ipv6-enable", types.YLeaf{"Ipv6Enable", self.Ipv6Enable})
+    self.EntityData.Leafs.Append("ipv4-disable", types.YLeaf{"Ipv4Disable", self.Ipv4Disable})
+    self.EntityData.Leafs.Append("iteration-size", types.YLeaf{"IterationSize", self.IterationSize})
+    self.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", self.Enable})
+    self.EntityData.Leafs.Append("streaming-size", types.YLeaf{"StreamingSize", self.StreamingSize})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -165,9 +174,12 @@ func (session *XrXml_Agent_Default_Session) GetEntityData() *types.CommonEntityD
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    session.EntityData.Children = make(map[string]types.YChild)
-    session.EntityData.Leafs = make(map[string]types.YLeaf)
-    session.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", session.Timeout}
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Leafs = types.NewOrderedMap()
+    session.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", session.Timeout})
+
+    session.EntityData.YListKeys = []string {}
+
     return &(session.EntityData)
 }
 
@@ -182,7 +194,7 @@ type XrXml_Agent_Default_Throttle struct {
     ProcessRate interface{}
 
     // Size of memory usage, in MBytes, per session. The type is interface{} with
-    // range: 100..1024. Units are megabyte. The default value is 300.
+    // range: 100..600. Units are megabyte. The default value is 300.
     Memory interface{}
 }
 
@@ -196,10 +208,13 @@ func (throttle *XrXml_Agent_Default_Throttle) GetEntityData() *types.CommonEntit
     throttle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     throttle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    throttle.EntityData.Children = make(map[string]types.YChild)
-    throttle.EntityData.Leafs = make(map[string]types.YLeaf)
-    throttle.EntityData.Leafs["process-rate"] = types.YLeaf{"ProcessRate", throttle.ProcessRate}
-    throttle.EntityData.Leafs["memory"] = types.YLeaf{"Memory", throttle.Memory}
+    throttle.EntityData.Children = types.NewOrderedMap()
+    throttle.EntityData.Leafs = types.NewOrderedMap()
+    throttle.EntityData.Leafs.Append("process-rate", types.YLeaf{"ProcessRate", throttle.ProcessRate})
+    throttle.EntityData.Leafs.Append("memory", types.YLeaf{"Memory", throttle.Memory})
+
+    throttle.EntityData.YListKeys = []string {}
+
     return &(throttle.EntityData)
 }
 
@@ -210,7 +225,7 @@ type XrXml_Agent_Default_Vrfs struct {
     YFilter yfilter.YFilter
 
     // A specific VRF. The type is slice of XrXml_Agent_Default_Vrfs_Vrf.
-    Vrf []XrXml_Agent_Default_Vrfs_Vrf
+    Vrf []*XrXml_Agent_Default_Vrfs_Vrf
 }
 
 func (vrfs *XrXml_Agent_Default_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -223,12 +238,15 @@ func (vrfs *XrXml_Agent_Default_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -260,18 +278,21 @@ func (vrf *XrXml_Agent_Default_Vrfs_Vrf) GetEntityData() *types.CommonEntityData
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
-    vrf.EntityData.Leafs["ipv6-access-list"] = types.YLeaf{"Ipv6AccessList", vrf.Ipv6AccessList}
-    vrf.EntityData.Leafs["ipv4-access-list"] = types.YLeaf{"Ipv4AccessList", vrf.Ipv4AccessList}
-    vrf.EntityData.Leafs["access-list"] = types.YLeaf{"AccessList", vrf.AccessList}
-    vrf.EntityData.Leafs["shutdown"] = types.YLeaf{"Shutdown", vrf.Shutdown}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+    vrf.EntityData.Leafs.Append("ipv6-access-list", types.YLeaf{"Ipv6AccessList", vrf.Ipv6AccessList})
+    vrf.EntityData.Leafs.Append("ipv4-access-list", types.YLeaf{"Ipv4AccessList", vrf.Ipv4AccessList})
+    vrf.EntityData.Leafs.Append("access-list", types.YLeaf{"AccessList", vrf.AccessList})
+    vrf.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", vrf.Shutdown})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -310,13 +331,16 @@ func (tty *XrXml_Agent_Tty) GetEntityData() *types.CommonEntityData {
     tty.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tty.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tty.EntityData.Children = make(map[string]types.YChild)
-    tty.EntityData.Children["session"] = types.YChild{"Session", &tty.Session}
-    tty.EntityData.Children["throttle"] = types.YChild{"Throttle", &tty.Throttle}
-    tty.EntityData.Leafs = make(map[string]types.YLeaf)
-    tty.EntityData.Leafs["iteration-size"] = types.YLeaf{"IterationSize", tty.IterationSize}
-    tty.EntityData.Leafs["enable"] = types.YLeaf{"Enable", tty.Enable}
-    tty.EntityData.Leafs["streaming-size"] = types.YLeaf{"StreamingSize", tty.StreamingSize}
+    tty.EntityData.Children = types.NewOrderedMap()
+    tty.EntityData.Children.Append("session", types.YChild{"Session", &tty.Session})
+    tty.EntityData.Children.Append("throttle", types.YChild{"Throttle", &tty.Throttle})
+    tty.EntityData.Leafs = types.NewOrderedMap()
+    tty.EntityData.Leafs.Append("iteration-size", types.YLeaf{"IterationSize", tty.IterationSize})
+    tty.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", tty.Enable})
+    tty.EntityData.Leafs.Append("streaming-size", types.YLeaf{"StreamingSize", tty.StreamingSize})
+
+    tty.EntityData.YListKeys = []string {}
+
     return &(tty.EntityData)
 }
 
@@ -341,9 +365,12 @@ func (session *XrXml_Agent_Tty_Session) GetEntityData() *types.CommonEntityData 
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    session.EntityData.Children = make(map[string]types.YChild)
-    session.EntityData.Leafs = make(map[string]types.YLeaf)
-    session.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", session.Timeout}
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Leafs = types.NewOrderedMap()
+    session.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", session.Timeout})
+
+    session.EntityData.YListKeys = []string {}
+
     return &(session.EntityData)
 }
 
@@ -358,7 +385,7 @@ type XrXml_Agent_Tty_Throttle struct {
     ProcessRate interface{}
 
     // Size of memory usage, in MBytes, per session. The type is interface{} with
-    // range: 100..1024. Units are megabyte. The default value is 300.
+    // range: 100..600. Units are megabyte. The default value is 300.
     Memory interface{}
 }
 
@@ -372,10 +399,13 @@ func (throttle *XrXml_Agent_Tty_Throttle) GetEntityData() *types.CommonEntityDat
     throttle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     throttle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    throttle.EntityData.Children = make(map[string]types.YChild)
-    throttle.EntityData.Leafs = make(map[string]types.YLeaf)
-    throttle.EntityData.Leafs["process-rate"] = types.YLeaf{"ProcessRate", throttle.ProcessRate}
-    throttle.EntityData.Leafs["memory"] = types.YLeaf{"Memory", throttle.Memory}
+    throttle.EntityData.Children = types.NewOrderedMap()
+    throttle.EntityData.Leafs = types.NewOrderedMap()
+    throttle.EntityData.Leafs.Append("process-rate", types.YLeaf{"ProcessRate", throttle.ProcessRate})
+    throttle.EntityData.Leafs.Append("memory", types.YLeaf{"Memory", throttle.Memory})
+
+    throttle.EntityData.YListKeys = []string {}
+
     return &(throttle.EntityData)
 }
 
@@ -417,14 +447,17 @@ func (ssl *XrXml_Agent_Ssl) GetEntityData() *types.CommonEntityData {
     ssl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssl.EntityData.Children = make(map[string]types.YChild)
-    ssl.EntityData.Children["session"] = types.YChild{"Session", &ssl.Session}
-    ssl.EntityData.Children["throttle"] = types.YChild{"Throttle", &ssl.Throttle}
-    ssl.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &ssl.Vrfs}
-    ssl.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssl.EntityData.Leafs["iteration-size"] = types.YLeaf{"IterationSize", ssl.IterationSize}
-    ssl.EntityData.Leafs["enable"] = types.YLeaf{"Enable", ssl.Enable}
-    ssl.EntityData.Leafs["streaming-size"] = types.YLeaf{"StreamingSize", ssl.StreamingSize}
+    ssl.EntityData.Children = types.NewOrderedMap()
+    ssl.EntityData.Children.Append("session", types.YChild{"Session", &ssl.Session})
+    ssl.EntityData.Children.Append("throttle", types.YChild{"Throttle", &ssl.Throttle})
+    ssl.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &ssl.Vrfs})
+    ssl.EntityData.Leafs = types.NewOrderedMap()
+    ssl.EntityData.Leafs.Append("iteration-size", types.YLeaf{"IterationSize", ssl.IterationSize})
+    ssl.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ssl.Enable})
+    ssl.EntityData.Leafs.Append("streaming-size", types.YLeaf{"StreamingSize", ssl.StreamingSize})
+
+    ssl.EntityData.YListKeys = []string {}
+
     return &(ssl.EntityData)
 }
 
@@ -449,9 +482,12 @@ func (session *XrXml_Agent_Ssl_Session) GetEntityData() *types.CommonEntityData 
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    session.EntityData.Children = make(map[string]types.YChild)
-    session.EntityData.Leafs = make(map[string]types.YLeaf)
-    session.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", session.Timeout}
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Leafs = types.NewOrderedMap()
+    session.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", session.Timeout})
+
+    session.EntityData.YListKeys = []string {}
+
     return &(session.EntityData)
 }
 
@@ -466,7 +502,7 @@ type XrXml_Agent_Ssl_Throttle struct {
     ProcessRate interface{}
 
     // Size of memory usage, in MBytes, per session. The type is interface{} with
-    // range: 100..1024. Units are megabyte. The default value is 300.
+    // range: 100..600. Units are megabyte. The default value is 300.
     Memory interface{}
 }
 
@@ -480,10 +516,13 @@ func (throttle *XrXml_Agent_Ssl_Throttle) GetEntityData() *types.CommonEntityDat
     throttle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     throttle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    throttle.EntityData.Children = make(map[string]types.YChild)
-    throttle.EntityData.Leafs = make(map[string]types.YLeaf)
-    throttle.EntityData.Leafs["process-rate"] = types.YLeaf{"ProcessRate", throttle.ProcessRate}
-    throttle.EntityData.Leafs["memory"] = types.YLeaf{"Memory", throttle.Memory}
+    throttle.EntityData.Children = types.NewOrderedMap()
+    throttle.EntityData.Leafs = types.NewOrderedMap()
+    throttle.EntityData.Leafs.Append("process-rate", types.YLeaf{"ProcessRate", throttle.ProcessRate})
+    throttle.EntityData.Leafs.Append("memory", types.YLeaf{"Memory", throttle.Memory})
+
+    throttle.EntityData.YListKeys = []string {}
+
     return &(throttle.EntityData)
 }
 
@@ -494,7 +533,7 @@ type XrXml_Agent_Ssl_Vrfs struct {
     YFilter yfilter.YFilter
 
     // A specific VRF. The type is slice of XrXml_Agent_Ssl_Vrfs_Vrf.
-    Vrf []XrXml_Agent_Ssl_Vrfs_Vrf
+    Vrf []*XrXml_Agent_Ssl_Vrfs_Vrf
 }
 
 func (vrfs *XrXml_Agent_Ssl_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -507,12 +546,15 @@ func (vrfs *XrXml_Agent_Ssl_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -544,18 +586,21 @@ func (vrf *XrXml_Agent_Ssl_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
-    vrf.EntityData.Leafs["ipv6-access-list"] = types.YLeaf{"Ipv6AccessList", vrf.Ipv6AccessList}
-    vrf.EntityData.Leafs["ipv4-access-list"] = types.YLeaf{"Ipv4AccessList", vrf.Ipv4AccessList}
-    vrf.EntityData.Leafs["access-list"] = types.YLeaf{"AccessList", vrf.AccessList}
-    vrf.EntityData.Leafs["shutdown"] = types.YLeaf{"Shutdown", vrf.Shutdown}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+    vrf.EntityData.Leafs.Append("ipv6-access-list", types.YLeaf{"Ipv6AccessList", vrf.Ipv6AccessList})
+    vrf.EntityData.Leafs.Append("ipv4-access-list", types.YLeaf{"Ipv4AccessList", vrf.Ipv4AccessList})
+    vrf.EntityData.Leafs.Append("access-list", types.YLeaf{"AccessList", vrf.AccessList})
+    vrf.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", vrf.Shutdown})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -579,9 +624,12 @@ func (netconf *Netconf) GetEntityData() *types.CommonEntityData {
     netconf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    netconf.EntityData.Children = make(map[string]types.YChild)
-    netconf.EntityData.Children["agent"] = types.YChild{"Agent", &netconf.Agent}
-    netconf.EntityData.Leafs = make(map[string]types.YLeaf)
+    netconf.EntityData.Children = types.NewOrderedMap()
+    netconf.EntityData.Children.Append("agent", types.YChild{"Agent", &netconf.Agent})
+    netconf.EntityData.Leafs = types.NewOrderedMap()
+
+    netconf.EntityData.YListKeys = []string {}
+
     return &(netconf.EntityData)
 }
 
@@ -605,9 +653,12 @@ func (agent *Netconf_Agent) GetEntityData() *types.CommonEntityData {
     agent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     agent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    agent.EntityData.Children = make(map[string]types.YChild)
-    agent.EntityData.Children["tty"] = types.YChild{"Tty", &agent.Tty}
-    agent.EntityData.Leafs = make(map[string]types.YLeaf)
+    agent.EntityData.Children = types.NewOrderedMap()
+    agent.EntityData.Children.Append("tty", types.YChild{"Tty", &agent.Tty})
+    agent.EntityData.Leafs = types.NewOrderedMap()
+
+    agent.EntityData.YListKeys = []string {}
+
     return &(agent.EntityData)
 }
 
@@ -637,11 +688,14 @@ func (tty *Netconf_Agent_Tty) GetEntityData() *types.CommonEntityData {
     tty.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tty.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tty.EntityData.Children = make(map[string]types.YChild)
-    tty.EntityData.Children["throttle"] = types.YChild{"Throttle", &tty.Throttle}
-    tty.EntityData.Children["session"] = types.YChild{"Session", &tty.Session}
-    tty.EntityData.Leafs = make(map[string]types.YLeaf)
-    tty.EntityData.Leafs["enable"] = types.YLeaf{"Enable", tty.Enable}
+    tty.EntityData.Children = types.NewOrderedMap()
+    tty.EntityData.Children.Append("throttle", types.YChild{"Throttle", &tty.Throttle})
+    tty.EntityData.Children.Append("session", types.YChild{"Session", &tty.Session})
+    tty.EntityData.Leafs = types.NewOrderedMap()
+    tty.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", tty.Enable})
+
+    tty.EntityData.YListKeys = []string {}
+
     return &(tty.EntityData)
 }
 
@@ -652,7 +706,7 @@ type Netconf_Agent_Tty_Throttle struct {
     YFilter yfilter.YFilter
 
     // Size of memory usage, in MBytes, per session. The type is interface{} with
-    // range: 100..1024. Units are megabyte. The default value is 300.
+    // range: 100..600. Units are megabyte. The default value is 300.
     Memory interface{}
 
     // Size of memory usage, in MBytes, per session. The type is interface{} with
@@ -674,11 +728,14 @@ func (throttle *Netconf_Agent_Tty_Throttle) GetEntityData() *types.CommonEntityD
     throttle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     throttle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    throttle.EntityData.Children = make(map[string]types.YChild)
-    throttle.EntityData.Leafs = make(map[string]types.YLeaf)
-    throttle.EntityData.Leafs["memory"] = types.YLeaf{"Memory", throttle.Memory}
-    throttle.EntityData.Leafs["offload-memory"] = types.YLeaf{"OffloadMemory", throttle.OffloadMemory}
-    throttle.EntityData.Leafs["process-rate"] = types.YLeaf{"ProcessRate", throttle.ProcessRate}
+    throttle.EntityData.Children = types.NewOrderedMap()
+    throttle.EntityData.Leafs = types.NewOrderedMap()
+    throttle.EntityData.Leafs.Append("memory", types.YLeaf{"Memory", throttle.Memory})
+    throttle.EntityData.Leafs.Append("offload-memory", types.YLeaf{"OffloadMemory", throttle.OffloadMemory})
+    throttle.EntityData.Leafs.Append("process-rate", types.YLeaf{"ProcessRate", throttle.ProcessRate})
+
+    throttle.EntityData.YListKeys = []string {}
+
     return &(throttle.EntityData)
 }
 
@@ -703,9 +760,12 @@ func (session *Netconf_Agent_Tty_Session) GetEntityData() *types.CommonEntityDat
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    session.EntityData.Children = make(map[string]types.YChild)
-    session.EntityData.Leafs = make(map[string]types.YLeaf)
-    session.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", session.Timeout}
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Leafs = types.NewOrderedMap()
+    session.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", session.Timeout})
+
+    session.EntityData.YListKeys = []string {}
+
     return &(session.EntityData)
 }
 

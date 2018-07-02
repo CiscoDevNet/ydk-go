@@ -43,6 +43,10 @@ module Cisco-IOS-XR-mpls-te-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -633,11 +637,6 @@ module Cisco-IOS-XR-mpls-te-cfg {
         description
           "TE Metric";
       }
-      enum "delay" {
-        value 4;
-        description
-          "DELAY Metric";
-      }
     }
     description
       "Mpls te path selection metric";
@@ -835,6 +834,14 @@ module Cisco-IOS-XR-mpls-te-cfg {
     }
     description
       "Mpls te path selection invalidation timer expire";
+  }
+
+  typedef Attribute-set-affinity-name-length {
+    type xr:Cisco-ios-xr-string {
+      length "1..64";
+    }
+    description
+      "Attribute set affinity name length";
   }
 
   typedef Mpls-te-path-diversity-conformance {
@@ -1241,7 +1248,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
       "Common node of lsp-oor-yellow-state,
        lsp-oor-red-state";
     leaf unprotected-transit-lsp-threshold {
-      type int32;
+      type uint32;
       description
         "Threshold for unprotected transit LSPs";
     }
@@ -1250,9 +1257,9 @@ module Cisco-IOS-XR-mpls-te-cfg {
   grouping AFFINITY-MASK {
     description
       "Common node of tunnel-te-attributes,
-       auto-mesh-attribute, auto-backup-attribute,
-       path-option-attribute, p2mpte-attribute,
-       p2p-te-attribute";
+       tunnel-attributes, auto-mesh-attribute,
+       auto-backup-attribute, path-option-attribute,
+       p2mpte-attribute, p2p-te-attribute";
     container affinity-mask {
       presence "Indicates a affinity-mask node is configured.";
       description
@@ -1599,7 +1606,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
       "Common node of oor-green-state, oor-yellow-state,
        oor-red-state";
     leaf oor-accept-lsp-min-bandwidth {
-      type int32;
+      type uint32;
       units "kbit/s";
       default "0";
       description
@@ -2538,7 +2545,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
        tunnel-te-attributes, auto-mesh-attribute";
     leaf forward-class {
       type uint32 {
-        range "1..7";
+        range "0..7";
       }
       description
         "Forward class value";
@@ -2560,7 +2567,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
       "Common node of oor-green-state, oor-yellow-state,
        oor-red-state";
     leaf oor-metric-te-penalty {
-      type int32;
+      type uint32;
       default "0";
       description
         "Penalty applied to the TE metric of a link in
@@ -2585,7 +2592,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
       "Common node of lsp-oor-yellow-state,
        lsp-oor-red-state";
     leaf all-transit-lsp-threshold {
-      type int32;
+      type uint32;
       description
         "Threshold for all transit LSPs";
     }
@@ -2816,7 +2823,6 @@ module Cisco-IOS-XR-mpls-te-cfg {
                 type uint32 {
                   range "1..65535";
                 }
-                default "1";
                 description
                   "The ID of the IP explicit path associated
                    with this option";
@@ -2828,7 +2834,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
                    with this option";
               }
               leaf path-property {
-                type int32;
+                type uint32;
                 default "0";
                 description
                   "Deprecated";
@@ -2839,7 +2845,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
                   "Deprecated";
               }
               leaf output-label {
-                type int32;
+                type uint32;
                 default "0";
                 description
                   "Deprecated";
@@ -2888,7 +2894,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
                   "IGP instance name";
               }
               leaf igp-area {
-                type int32;
+                type uint32;
                 default "0";
                 description
                   "IGP area ID in integer format";
@@ -3765,9 +3771,9 @@ module Cisco-IOS-XR-mpls-te-cfg {
               "DS-TE class number";
           }
           leaf class-type {
-            when "../unused = 0" {
+            when "../unused = 'false'" {
               description
-                "../Unused = <expr>";
+                "../Unused = 'false'";
             }
             type uint32 {
               range "0..1";
@@ -3777,9 +3783,9 @@ module Cisco-IOS-XR-mpls-te-cfg {
               "Class type number";
           }
           leaf class-priority {
-            when "../unused = 0" {
+            when "../unused = 'false'" {
               description
-                "../Unused = <expr>";
+                "../Unused = 'false'";
             }
             type uint32 {
               range "0..7";
@@ -3851,7 +3857,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
                   }
                 }
                 leaf preference {
-                  type int32;
+                  type uint32;
                   description
                     "Path preference level";
                 }
@@ -3878,6 +3884,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
             uses PRIORITY;
             uses DESTINATION;
             uses RECORD-ROUTE;
+            uses AFFINITY-MASK;
             uses LOGGING;
             uses BANDWIDTH;
             uses AUTOROUTE;
@@ -4290,7 +4297,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
               }
             }
             leaf admin-weight {
-              type int32;
+              type uint32;
               description
                 "Administrative weight for the SRLG value";
             }
@@ -4304,7 +4311,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
           }
         }
         leaf default-admin-weight {
-          type int32;
+          type uint32;
           default "1";
           description
             "Default Admin weight any SRLG value that does
@@ -4462,7 +4469,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
                         "Prepend type";
                     }
                     leaf mpls-label {
-                      type int32;
+                      type uint32;
                       default "1048577";
                       description
                         "MPLS Label";
@@ -4937,7 +4944,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
           }
           leaf application-interval {
             type uint32 {
-              range "90..1800";
+              range "30..1800";
             }
             units "second";
             default "180";
@@ -4971,7 +4978,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
         }
         leaf sampling-interval {
           type uint32 {
-            range "30..600";
+            range "10..600";
           }
           units "second";
           default "60";
@@ -5987,7 +5994,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
                 "Process name";
             }
             leaf area-id {
-              type int32;
+              type uint32;
               description
                 "Area ID";
             }
@@ -6088,7 +6095,9 @@ module Cisco-IOS-XR-mpls-te-cfg {
               "Enable MPLS-TE on the link";
           }
           leaf admin-weight {
-            type int32;
+            type uint32 {
+              range "0..4294967295";
+            }
             description
               "Set administrative weight for the interface";
           }
@@ -6220,6 +6229,16 @@ module Cisco-IOS-XR-mpls-te-cfg {
                        interface";
                   }
                 }
+                container affinity-names {
+                  description
+                    "Set the interface affinity names";
+                  leaf-list affinity-name {
+                    type string;
+                    max-elements "32";
+                    description
+                      "Array of Attribute Names";
+                  }
+                }
                 leaf admin-weight {
                   type uint32 {
                     range "0..65535";
@@ -6274,7 +6293,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
             description
               "ospf int";
             leaf igp-area {
-              type int32;
+              type uint32;
               description
                 "IGP area";
             }
@@ -6324,7 +6343,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
                    ./SignalledBandwidthType =
                    ODUflexGFPNotResize";
               }
-              type int32;
+              type uint32;
               units "kbit/s";
               description
                 "Bitrate value in Kbps for ODUflex framing
@@ -6360,7 +6379,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
                  unnumbered";
             }
             leaf interface-if-index {
-              type int32;
+              type uint32;
               description
                 "Interface index of port";
             }
@@ -6483,6 +6502,12 @@ module Cisco-IOS-XR-mpls-te-cfg {
                   "The name of the XRO attribute set to be
                    used for this path-option";
               }
+              leaf affinity-attribute-set-name {
+                type Attribute-set-affinity-name-length;
+                description
+                  "The name of the affinity attribute set to
+                   be used for this path-option";
+              }
               leaf lockdown {
                 type Mpls-te-path-option-property;
                 description
@@ -6503,7 +6528,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
                 "Name of  ingress controller";
             }
             leaf egress-controller-if-index {
-              type int32;
+              type uint32;
               description
                 "Interface index of Egress controller";
             }

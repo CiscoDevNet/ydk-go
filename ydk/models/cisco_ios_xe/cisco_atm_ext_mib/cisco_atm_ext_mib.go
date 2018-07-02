@@ -34,6 +34,17 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package cisco_atm_ext_mib"))
 }
 
+// OamCCVcState represents notManaged(3)          -- VC is not managed by CC.
+type OamCCVcState string
+
+const (
+    OamCCVcState_verified OamCCVcState = "verified"
+
+    OamCCVcState_aisrdi OamCCVcState = "aisrdi"
+
+    OamCCVcState_notManaged OamCCVcState = "notManaged"
+)
+
 // OamCCStatus represents                           confirm.
 type OamCCStatus string
 
@@ -47,16 +58,5 @@ const (
     OamCCStatus_active OamCCStatus = "active"
 
     OamCCStatus_waitDeactiveConfirm OamCCStatus = "waitDeactiveConfirm"
-)
-
-// OamCCVcState represents notManaged(3)          -- VC is not managed by CC.
-type OamCCVcState string
-
-const (
-    OamCCVcState_verified OamCCVcState = "verified"
-
-    OamCCVcState_aisrdi OamCCVcState = "aisrdi"
-
-    OamCCVcState_notManaged OamCCVcState = "notManaged"
 )
 

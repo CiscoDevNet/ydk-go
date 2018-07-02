@@ -63,6 +63,20 @@ const (
     FlowExporterIpwriteStatsType_flow_exporter_ipwrite_stats_no_destination FlowExporterIpwriteStatsType = "flow-exporter-ipwrite-stats-no-destination"
 )
 
+// FlowMonitorCacheState represents Flow monitor cache state
+type FlowMonitorCacheState string
+
+const (
+    // Flow monitor cache is being deleted
+    FlowMonitorCacheState_flow_monitor_cache_state_being_deleted FlowMonitorCacheState = "flow-monitor-cache-state-being-deleted"
+
+    // Flow monitor cache is being allocated
+    FlowMonitorCacheState_flow_monitor_cache_state_being_allocated FlowMonitorCacheState = "flow-monitor-cache-state-being-allocated"
+
+    // Flow monitor cache is not allocated
+    FlowMonitorCacheState_flow_monitor_cache_state_not_allocated FlowMonitorCacheState = "flow-monitor-cache-state-not-allocated"
+)
+
 // FlowMonitorCacheType represents The flow monitor cache type
 type FlowMonitorCacheType string
 
@@ -80,20 +94,6 @@ const (
     FlowMonitorCacheType_flow_monitor_cache_type_immediate FlowMonitorCacheType = "flow-monitor-cache-type-immediate"
 )
 
-// FlowMonitorCacheState represents Flow monitor cache state
-type FlowMonitorCacheState string
-
-const (
-    // Flow monitor cache is being deleted
-    FlowMonitorCacheState_flow_monitor_cache_state_being_deleted FlowMonitorCacheState = "flow-monitor-cache-state-being-deleted"
-
-    // Flow monitor cache is being allocated
-    FlowMonitorCacheState_flow_monitor_cache_state_being_allocated FlowMonitorCacheState = "flow-monitor-cache-state-being-allocated"
-
-    // Flow monitor cache is not allocated
-    FlowMonitorCacheState_flow_monitor_cache_state_not_allocated FlowMonitorCacheState = "flow-monitor-cache-state-not-allocated"
-)
-
 // FlowMonitors
 // All of the flow monitors
 type FlowMonitors struct {
@@ -101,19 +101,19 @@ type FlowMonitors struct {
     YFilter yfilter.YFilter
 
     // List of Flow monitors. The type is slice of FlowMonitors_FlowMonitor.
-    FlowMonitor []FlowMonitors_FlowMonitor
+    FlowMonitor []*FlowMonitors_FlowMonitor
 
     // List of statistics per exporter. The type is slice of
     // FlowMonitors_FlowExportStatistics.
-    FlowExportStatistics []FlowMonitors_FlowExportStatistics
+    FlowExportStatistics []*FlowMonitors_FlowExportStatistics
 
     // List of statistics per flow cache. The type is slice of
     // FlowMonitors_FlowCacheStatistics.
-    FlowCacheStatistics []FlowMonitors_FlowCacheStatistics
+    FlowCacheStatistics []*FlowMonitors_FlowCacheStatistics
 
     // List of statistics per flow monitor. The type is slice of
     // FlowMonitors_FlowMonitorStatistics.
-    FlowMonitorStatistics []FlowMonitors_FlowMonitorStatistics
+    FlowMonitorStatistics []*FlowMonitors_FlowMonitorStatistics
 }
 
 func (flowMonitors *FlowMonitors) GetEntityData() *types.CommonEntityData {
@@ -126,24 +126,27 @@ func (flowMonitors *FlowMonitors) GetEntityData() *types.CommonEntityData {
     flowMonitors.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flowMonitors.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    flowMonitors.EntityData.Children = make(map[string]types.YChild)
-    flowMonitors.EntityData.Children["flow-monitor"] = types.YChild{"FlowMonitor", nil}
+    flowMonitors.EntityData.Children = types.NewOrderedMap()
+    flowMonitors.EntityData.Children.Append("flow-monitor", types.YChild{"FlowMonitor", nil})
     for i := range flowMonitors.FlowMonitor {
-        flowMonitors.EntityData.Children[types.GetSegmentPath(&flowMonitors.FlowMonitor[i])] = types.YChild{"FlowMonitor", &flowMonitors.FlowMonitor[i]}
+        flowMonitors.EntityData.Children.Append(types.GetSegmentPath(flowMonitors.FlowMonitor[i]), types.YChild{"FlowMonitor", flowMonitors.FlowMonitor[i]})
     }
-    flowMonitors.EntityData.Children["flow-export-statistics"] = types.YChild{"FlowExportStatistics", nil}
+    flowMonitors.EntityData.Children.Append("flow-export-statistics", types.YChild{"FlowExportStatistics", nil})
     for i := range flowMonitors.FlowExportStatistics {
-        flowMonitors.EntityData.Children[types.GetSegmentPath(&flowMonitors.FlowExportStatistics[i])] = types.YChild{"FlowExportStatistics", &flowMonitors.FlowExportStatistics[i]}
+        flowMonitors.EntityData.Children.Append(types.GetSegmentPath(flowMonitors.FlowExportStatistics[i]), types.YChild{"FlowExportStatistics", flowMonitors.FlowExportStatistics[i]})
     }
-    flowMonitors.EntityData.Children["flow-cache-statistics"] = types.YChild{"FlowCacheStatistics", nil}
+    flowMonitors.EntityData.Children.Append("flow-cache-statistics", types.YChild{"FlowCacheStatistics", nil})
     for i := range flowMonitors.FlowCacheStatistics {
-        flowMonitors.EntityData.Children[types.GetSegmentPath(&flowMonitors.FlowCacheStatistics[i])] = types.YChild{"FlowCacheStatistics", &flowMonitors.FlowCacheStatistics[i]}
+        flowMonitors.EntityData.Children.Append(types.GetSegmentPath(flowMonitors.FlowCacheStatistics[i]), types.YChild{"FlowCacheStatistics", flowMonitors.FlowCacheStatistics[i]})
     }
-    flowMonitors.EntityData.Children["flow-monitor-statistics"] = types.YChild{"FlowMonitorStatistics", nil}
+    flowMonitors.EntityData.Children.Append("flow-monitor-statistics", types.YChild{"FlowMonitorStatistics", nil})
     for i := range flowMonitors.FlowMonitorStatistics {
-        flowMonitors.EntityData.Children[types.GetSegmentPath(&flowMonitors.FlowMonitorStatistics[i])] = types.YChild{"FlowMonitorStatistics", &flowMonitors.FlowMonitorStatistics[i]}
+        flowMonitors.EntityData.Children.Append(types.GetSegmentPath(flowMonitors.FlowMonitorStatistics[i]), types.YChild{"FlowMonitorStatistics", flowMonitors.FlowMonitorStatistics[i]})
     }
-    flowMonitors.EntityData.Leafs = make(map[string]types.YLeaf)
+    flowMonitors.EntityData.Leafs = types.NewOrderedMap()
+
+    flowMonitors.EntityData.YListKeys = []string {}
+
     return &(flowMonitors.EntityData)
 }
 
@@ -169,16 +172,19 @@ func (flowMonitor *FlowMonitors_FlowMonitor) GetEntityData() *types.CommonEntity
     flowMonitor.EntityData.YangName = "flow-monitor"
     flowMonitor.EntityData.BundleName = "cisco_ios_xe"
     flowMonitor.EntityData.ParentYangName = "flow-monitors"
-    flowMonitor.EntityData.SegmentPath = "flow-monitor" + "[name='" + fmt.Sprintf("%v", flowMonitor.Name) + "']"
+    flowMonitor.EntityData.SegmentPath = "flow-monitor" + types.AddKeyToken(flowMonitor.Name, "name")
     flowMonitor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flowMonitor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flowMonitor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    flowMonitor.EntityData.Children = make(map[string]types.YChild)
-    flowMonitor.EntityData.Children["flows"] = types.YChild{"Flows", &flowMonitor.Flows}
-    flowMonitor.EntityData.Leafs = make(map[string]types.YLeaf)
-    flowMonitor.EntityData.Leafs["name"] = types.YLeaf{"Name", flowMonitor.Name}
-    flowMonitor.EntityData.Leafs["time-collected"] = types.YLeaf{"TimeCollected", flowMonitor.TimeCollected}
+    flowMonitor.EntityData.Children = types.NewOrderedMap()
+    flowMonitor.EntityData.Children.Append("flows", types.YChild{"Flows", &flowMonitor.Flows})
+    flowMonitor.EntityData.Leafs = types.NewOrderedMap()
+    flowMonitor.EntityData.Leafs.Append("name", types.YLeaf{"Name", flowMonitor.Name})
+    flowMonitor.EntityData.Leafs.Append("time-collected", types.YLeaf{"TimeCollected", flowMonitor.TimeCollected})
+
+    flowMonitor.EntityData.YListKeys = []string {"Name"}
+
     return &(flowMonitor.EntityData)
 }
 
@@ -189,7 +195,7 @@ type FlowMonitors_FlowMonitor_Flows struct {
     YFilter yfilter.YFilter
 
     // List of flows. The type is slice of FlowMonitors_FlowMonitor_Flows_Flow.
-    Flow []FlowMonitors_FlowMonitor_Flows_Flow
+    Flow []*FlowMonitors_FlowMonitor_Flows_Flow
 }
 
 func (flows *FlowMonitors_FlowMonitor_Flows) GetEntityData() *types.CommonEntityData {
@@ -202,12 +208,15 @@ func (flows *FlowMonitors_FlowMonitor_Flows) GetEntityData() *types.CommonEntity
     flows.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flows.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    flows.EntityData.Children = make(map[string]types.YChild)
-    flows.EntityData.Children["flow"] = types.YChild{"Flow", nil}
+    flows.EntityData.Children = types.NewOrderedMap()
+    flows.EntityData.Children.Append("flow", types.YChild{"Flow", nil})
     for i := range flows.Flow {
-        flows.EntityData.Children[types.GetSegmentPath(&flows.Flow[i])] = types.YChild{"Flow", &flows.Flow[i]}
+        flows.EntityData.Children.Append(types.GetSegmentPath(flows.Flow[i]), types.YChild{"Flow", flows.Flow[i]})
     }
-    flows.EntityData.Leafs = make(map[string]types.YLeaf)
+    flows.EntityData.Leafs = types.NewOrderedMap()
+
+    flows.EntityData.YListKeys = []string {}
+
     return &(flows.EntityData)
 }
 
@@ -266,25 +275,28 @@ func (flow *FlowMonitors_FlowMonitor_Flows_Flow) GetEntityData() *types.CommonEn
     flow.EntityData.YangName = "flow"
     flow.EntityData.BundleName = "cisco_ios_xe"
     flow.EntityData.ParentYangName = "flows"
-    flow.EntityData.SegmentPath = "flow" + "[source-address='" + fmt.Sprintf("%v", flow.SourceAddress) + "']" + "[destination-address='" + fmt.Sprintf("%v", flow.DestinationAddress) + "']" + "[interface-input='" + fmt.Sprintf("%v", flow.InterfaceInput) + "']" + "[is-multicast='" + fmt.Sprintf("%v", flow.IsMulticast) + "']" + "[vrf-id-input='" + fmt.Sprintf("%v", flow.VrfIdInput) + "']" + "[source-port='" + fmt.Sprintf("%v", flow.SourcePort) + "']" + "[destination-port='" + fmt.Sprintf("%v", flow.DestinationPort) + "']" + "[ip-tos='" + fmt.Sprintf("%v", flow.IpTos) + "']" + "[ip-protocol='" + fmt.Sprintf("%v", flow.IpProtocol) + "']"
+    flow.EntityData.SegmentPath = "flow" + types.AddKeyToken(flow.SourceAddress, "source-address") + types.AddKeyToken(flow.DestinationAddress, "destination-address") + types.AddKeyToken(flow.InterfaceInput, "interface-input") + types.AddKeyToken(flow.IsMulticast, "is-multicast") + types.AddKeyToken(flow.VrfIdInput, "vrf-id-input") + types.AddKeyToken(flow.SourcePort, "source-port") + types.AddKeyToken(flow.DestinationPort, "destination-port") + types.AddKeyToken(flow.IpTos, "ip-tos") + types.AddKeyToken(flow.IpProtocol, "ip-protocol")
     flow.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flow.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flow.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    flow.EntityData.Children = make(map[string]types.YChild)
-    flow.EntityData.Leafs = make(map[string]types.YLeaf)
-    flow.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", flow.SourceAddress}
-    flow.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", flow.DestinationAddress}
-    flow.EntityData.Leafs["interface-input"] = types.YLeaf{"InterfaceInput", flow.InterfaceInput}
-    flow.EntityData.Leafs["is-multicast"] = types.YLeaf{"IsMulticast", flow.IsMulticast}
-    flow.EntityData.Leafs["vrf-id-input"] = types.YLeaf{"VrfIdInput", flow.VrfIdInput}
-    flow.EntityData.Leafs["source-port"] = types.YLeaf{"SourcePort", flow.SourcePort}
-    flow.EntityData.Leafs["destination-port"] = types.YLeaf{"DestinationPort", flow.DestinationPort}
-    flow.EntityData.Leafs["ip-tos"] = types.YLeaf{"IpTos", flow.IpTos}
-    flow.EntityData.Leafs["ip-protocol"] = types.YLeaf{"IpProtocol", flow.IpProtocol}
-    flow.EntityData.Leafs["interface-output"] = types.YLeaf{"InterfaceOutput", flow.InterfaceOutput}
-    flow.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", flow.Bytes}
-    flow.EntityData.Leafs["packets"] = types.YLeaf{"Packets", flow.Packets}
+    flow.EntityData.Children = types.NewOrderedMap()
+    flow.EntityData.Leafs = types.NewOrderedMap()
+    flow.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", flow.SourceAddress})
+    flow.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", flow.DestinationAddress})
+    flow.EntityData.Leafs.Append("interface-input", types.YLeaf{"InterfaceInput", flow.InterfaceInput})
+    flow.EntityData.Leafs.Append("is-multicast", types.YLeaf{"IsMulticast", flow.IsMulticast})
+    flow.EntityData.Leafs.Append("vrf-id-input", types.YLeaf{"VrfIdInput", flow.VrfIdInput})
+    flow.EntityData.Leafs.Append("source-port", types.YLeaf{"SourcePort", flow.SourcePort})
+    flow.EntityData.Leafs.Append("destination-port", types.YLeaf{"DestinationPort", flow.DestinationPort})
+    flow.EntityData.Leafs.Append("ip-tos", types.YLeaf{"IpTos", flow.IpTos})
+    flow.EntityData.Leafs.Append("ip-protocol", types.YLeaf{"IpProtocol", flow.IpProtocol})
+    flow.EntityData.Leafs.Append("interface-output", types.YLeaf{"InterfaceOutput", flow.InterfaceOutput})
+    flow.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", flow.Bytes})
+    flow.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", flow.Packets})
+
+    flow.EntityData.YListKeys = []string {"SourceAddress", "DestinationAddress", "InterfaceInput", "IsMulticast", "VrfIdInput", "SourcePort", "DestinationPort", "IpTos", "IpProtocol"}
+
     return &(flow.EntityData)
 }
 
@@ -302,7 +314,7 @@ type FlowMonitors_FlowExportStatistics struct {
 
     // The container for the export client information. The type is slice of
     // FlowMonitors_FlowExportStatistics_ExportClient.
-    ExportClient []FlowMonitors_FlowExportStatistics_ExportClient
+    ExportClient []*FlowMonitors_FlowExportStatistics_ExportClient
 }
 
 func (flowExportStatistics *FlowMonitors_FlowExportStatistics) GetEntityData() *types.CommonEntityData {
@@ -310,19 +322,22 @@ func (flowExportStatistics *FlowMonitors_FlowExportStatistics) GetEntityData() *
     flowExportStatistics.EntityData.YangName = "flow-export-statistics"
     flowExportStatistics.EntityData.BundleName = "cisco_ios_xe"
     flowExportStatistics.EntityData.ParentYangName = "flow-monitors"
-    flowExportStatistics.EntityData.SegmentPath = "flow-export-statistics" + "[name='" + fmt.Sprintf("%v", flowExportStatistics.Name) + "']"
+    flowExportStatistics.EntityData.SegmentPath = "flow-export-statistics" + types.AddKeyToken(flowExportStatistics.Name, "name")
     flowExportStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flowExportStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flowExportStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    flowExportStatistics.EntityData.Children = make(map[string]types.YChild)
-    flowExportStatistics.EntityData.Children["transport-stats"] = types.YChild{"TransportStats", &flowExportStatistics.TransportStats}
-    flowExportStatistics.EntityData.Children["export-client"] = types.YChild{"ExportClient", nil}
+    flowExportStatistics.EntityData.Children = types.NewOrderedMap()
+    flowExportStatistics.EntityData.Children.Append("transport-stats", types.YChild{"TransportStats", &flowExportStatistics.TransportStats})
+    flowExportStatistics.EntityData.Children.Append("export-client", types.YChild{"ExportClient", nil})
     for i := range flowExportStatistics.ExportClient {
-        flowExportStatistics.EntityData.Children[types.GetSegmentPath(&flowExportStatistics.ExportClient[i])] = types.YChild{"ExportClient", &flowExportStatistics.ExportClient[i]}
+        flowExportStatistics.EntityData.Children.Append(types.GetSegmentPath(flowExportStatistics.ExportClient[i]), types.YChild{"ExportClient", flowExportStatistics.ExportClient[i]})
     }
-    flowExportStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    flowExportStatistics.EntityData.Leafs["name"] = types.YLeaf{"Name", flowExportStatistics.Name}
+    flowExportStatistics.EntityData.Leafs = types.NewOrderedMap()
+    flowExportStatistics.EntityData.Leafs.Append("name", types.YLeaf{"Name", flowExportStatistics.Name})
+
+    flowExportStatistics.EntityData.YListKeys = []string {"Name"}
+
     return &(flowExportStatistics.EntityData)
 }
 
@@ -333,13 +348,12 @@ type FlowMonitors_FlowExportStatistics_TransportStats struct {
     YFilter yfilter.YFilter
 
     // Time when the statistics were last cleared. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastCleared interface{}
 
     // Container of the exporter statistics. The type is slice of
     // FlowMonitors_FlowExportStatistics_TransportStats_FlowExporterStats.
-    FlowExporterStats []FlowMonitors_FlowExportStatistics_TransportStats_FlowExporterStats
+    FlowExporterStats []*FlowMonitors_FlowExportStatistics_TransportStats_FlowExporterStats
 }
 
 func (transportStats *FlowMonitors_FlowExportStatistics_TransportStats) GetEntityData() *types.CommonEntityData {
@@ -352,13 +366,16 @@ func (transportStats *FlowMonitors_FlowExportStatistics_TransportStats) GetEntit
     transportStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     transportStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    transportStats.EntityData.Children = make(map[string]types.YChild)
-    transportStats.EntityData.Children["flow-exporter-stats"] = types.YChild{"FlowExporterStats", nil}
+    transportStats.EntityData.Children = types.NewOrderedMap()
+    transportStats.EntityData.Children.Append("flow-exporter-stats", types.YChild{"FlowExporterStats", nil})
     for i := range transportStats.FlowExporterStats {
-        transportStats.EntityData.Children[types.GetSegmentPath(&transportStats.FlowExporterStats[i])] = types.YChild{"FlowExporterStats", &transportStats.FlowExporterStats[i]}
+        transportStats.EntityData.Children.Append(types.GetSegmentPath(transportStats.FlowExporterStats[i]), types.YChild{"FlowExporterStats", transportStats.FlowExporterStats[i]})
     }
-    transportStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    transportStats.EntityData.Leafs["last-cleared"] = types.YLeaf{"LastCleared", transportStats.LastCleared}
+    transportStats.EntityData.Leafs = types.NewOrderedMap()
+    transportStats.EntityData.Leafs.Append("last-cleared", types.YLeaf{"LastCleared", transportStats.LastCleared})
+
+    transportStats.EntityData.YListKeys = []string {}
+
     return &(transportStats.EntityData)
 }
 
@@ -370,7 +387,7 @@ type FlowMonitors_FlowExportStatistics_TransportStats_FlowExporterStats struct {
 
     // The type of the export statistics. The type is
     // FlowExporterIpwriteStatsType.
-    Type_ interface{}
+    Type interface{}
 
     // The packet counts that have been exported. The type is interface{} with
     // range: 0..18446744073709551615.
@@ -391,11 +408,14 @@ func (flowExporterStats *FlowMonitors_FlowExportStatistics_TransportStats_FlowEx
     flowExporterStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flowExporterStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    flowExporterStats.EntityData.Children = make(map[string]types.YChild)
-    flowExporterStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    flowExporterStats.EntityData.Leafs["type"] = types.YLeaf{"Type_", flowExporterStats.Type_}
-    flowExporterStats.EntityData.Leafs["pkt-counts"] = types.YLeaf{"PktCounts", flowExporterStats.PktCounts}
-    flowExporterStats.EntityData.Leafs["byte-counts"] = types.YLeaf{"ByteCounts", flowExporterStats.ByteCounts}
+    flowExporterStats.EntityData.Children = types.NewOrderedMap()
+    flowExporterStats.EntityData.Leafs = types.NewOrderedMap()
+    flowExporterStats.EntityData.Leafs.Append("type", types.YLeaf{"Type", flowExporterStats.Type})
+    flowExporterStats.EntityData.Leafs.Append("pkt-counts", types.YLeaf{"PktCounts", flowExporterStats.PktCounts})
+    flowExporterStats.EntityData.Leafs.Append("byte-counts", types.YLeaf{"ByteCounts", flowExporterStats.ByteCounts})
+
+    flowExporterStats.EntityData.YListKeys = []string {}
+
     return &(flowExporterStats.EntityData)
 }
 
@@ -425,11 +445,14 @@ func (exportClient *FlowMonitors_FlowExportStatistics_ExportClient) GetEntityDat
     exportClient.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     exportClient.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    exportClient.EntityData.Children = make(map[string]types.YChild)
-    exportClient.EntityData.Children["protocol-stats"] = types.YChild{"ProtocolStats", &exportClient.ProtocolStats}
-    exportClient.EntityData.Leafs = make(map[string]types.YLeaf)
-    exportClient.EntityData.Leafs["name"] = types.YLeaf{"Name", exportClient.Name}
-    exportClient.EntityData.Leafs["group"] = types.YLeaf{"Group", exportClient.Group}
+    exportClient.EntityData.Children = types.NewOrderedMap()
+    exportClient.EntityData.Children.Append("protocol-stats", types.YChild{"ProtocolStats", &exportClient.ProtocolStats})
+    exportClient.EntityData.Leafs = types.NewOrderedMap()
+    exportClient.EntityData.Leafs.Append("name", types.YLeaf{"Name", exportClient.Name})
+    exportClient.EntityData.Leafs.Append("group", types.YLeaf{"Group", exportClient.Group})
+
+    exportClient.EntityData.YListKeys = []string {}
+
     return &(exportClient.EntityData)
 }
 
@@ -474,14 +497,17 @@ func (protocolStats *FlowMonitors_FlowExportStatistics_ExportClient_ProtocolStat
     protocolStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     protocolStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    protocolStats.EntityData.Children = make(map[string]types.YChild)
-    protocolStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    protocolStats.EntityData.Leafs["bytes-added"] = types.YLeaf{"BytesAdded", protocolStats.BytesAdded}
-    protocolStats.EntityData.Leafs["bytes-sent"] = types.YLeaf{"BytesSent", protocolStats.BytesSent}
-    protocolStats.EntityData.Leafs["bytes-dropped"] = types.YLeaf{"BytesDropped", protocolStats.BytesDropped}
-    protocolStats.EntityData.Leafs["records-added"] = types.YLeaf{"RecordsAdded", protocolStats.RecordsAdded}
-    protocolStats.EntityData.Leafs["records-sent"] = types.YLeaf{"RecordsSent", protocolStats.RecordsSent}
-    protocolStats.EntityData.Leafs["records-dropped"] = types.YLeaf{"RecordsDropped", protocolStats.RecordsDropped}
+    protocolStats.EntityData.Children = types.NewOrderedMap()
+    protocolStats.EntityData.Leafs = types.NewOrderedMap()
+    protocolStats.EntityData.Leafs.Append("bytes-added", types.YLeaf{"BytesAdded", protocolStats.BytesAdded})
+    protocolStats.EntityData.Leafs.Append("bytes-sent", types.YLeaf{"BytesSent", protocolStats.BytesSent})
+    protocolStats.EntityData.Leafs.Append("bytes-dropped", types.YLeaf{"BytesDropped", protocolStats.BytesDropped})
+    protocolStats.EntityData.Leafs.Append("records-added", types.YLeaf{"RecordsAdded", protocolStats.RecordsAdded})
+    protocolStats.EntityData.Leafs.Append("records-sent", types.YLeaf{"RecordsSent", protocolStats.RecordsSent})
+    protocolStats.EntityData.Leafs.Append("records-dropped", types.YLeaf{"RecordsDropped", protocolStats.RecordsDropped})
+
+    protocolStats.EntityData.YListKeys = []string {}
+
     return &(protocolStats.EntityData)
 }
 
@@ -528,21 +554,24 @@ func (flowCacheStatistics *FlowMonitors_FlowCacheStatistics) GetEntityData() *ty
     flowCacheStatistics.EntityData.YangName = "flow-cache-statistics"
     flowCacheStatistics.EntityData.BundleName = "cisco_ios_xe"
     flowCacheStatistics.EntityData.ParentYangName = "flow-monitors"
-    flowCacheStatistics.EntityData.SegmentPath = "flow-cache-statistics" + "[name='" + fmt.Sprintf("%v", flowCacheStatistics.Name) + "']"
+    flowCacheStatistics.EntityData.SegmentPath = "flow-cache-statistics" + types.AddKeyToken(flowCacheStatistics.Name, "name")
     flowCacheStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flowCacheStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flowCacheStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    flowCacheStatistics.EntityData.Children = make(map[string]types.YChild)
-    flowCacheStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    flowCacheStatistics.EntityData.Leafs["name"] = types.YLeaf{"Name", flowCacheStatistics.Name}
-    flowCacheStatistics.EntityData.Leafs["cache-size"] = types.YLeaf{"CacheSize", flowCacheStatistics.CacheSize}
-    flowCacheStatistics.EntityData.Leafs["current-entries"] = types.YLeaf{"CurrentEntries", flowCacheStatistics.CurrentEntries}
-    flowCacheStatistics.EntityData.Leafs["high-watermark"] = types.YLeaf{"HighWatermark", flowCacheStatistics.HighWatermark}
-    flowCacheStatistics.EntityData.Leafs["flows-added"] = types.YLeaf{"FlowsAdded", flowCacheStatistics.FlowsAdded}
-    flowCacheStatistics.EntityData.Leafs["flows-aged"] = types.YLeaf{"FlowsAged", flowCacheStatistics.FlowsAged}
-    flowCacheStatistics.EntityData.Leafs["active-flows-timed-out"] = types.YLeaf{"ActiveFlowsTimedOut", flowCacheStatistics.ActiveFlowsTimedOut}
-    flowCacheStatistics.EntityData.Leafs["inactive-flows-timed-out"] = types.YLeaf{"InactiveFlowsTimedOut", flowCacheStatistics.InactiveFlowsTimedOut}
+    flowCacheStatistics.EntityData.Children = types.NewOrderedMap()
+    flowCacheStatistics.EntityData.Leafs = types.NewOrderedMap()
+    flowCacheStatistics.EntityData.Leafs.Append("name", types.YLeaf{"Name", flowCacheStatistics.Name})
+    flowCacheStatistics.EntityData.Leafs.Append("cache-size", types.YLeaf{"CacheSize", flowCacheStatistics.CacheSize})
+    flowCacheStatistics.EntityData.Leafs.Append("current-entries", types.YLeaf{"CurrentEntries", flowCacheStatistics.CurrentEntries})
+    flowCacheStatistics.EntityData.Leafs.Append("high-watermark", types.YLeaf{"HighWatermark", flowCacheStatistics.HighWatermark})
+    flowCacheStatistics.EntityData.Leafs.Append("flows-added", types.YLeaf{"FlowsAdded", flowCacheStatistics.FlowsAdded})
+    flowCacheStatistics.EntityData.Leafs.Append("flows-aged", types.YLeaf{"FlowsAged", flowCacheStatistics.FlowsAged})
+    flowCacheStatistics.EntityData.Leafs.Append("active-flows-timed-out", types.YLeaf{"ActiveFlowsTimedOut", flowCacheStatistics.ActiveFlowsTimedOut})
+    flowCacheStatistics.EntityData.Leafs.Append("inactive-flows-timed-out", types.YLeaf{"InactiveFlowsTimedOut", flowCacheStatistics.InactiveFlowsTimedOut})
+
+    flowCacheStatistics.EntityData.YListKeys = []string {"Name"}
+
     return &(flowCacheStatistics.EntityData)
 }
 
@@ -613,29 +642,32 @@ func (flowMonitorStatistics *FlowMonitors_FlowMonitorStatistics) GetEntityData()
     flowMonitorStatistics.EntityData.YangName = "flow-monitor-statistics"
     flowMonitorStatistics.EntityData.BundleName = "cisco_ios_xe"
     flowMonitorStatistics.EntityData.ParentYangName = "flow-monitors"
-    flowMonitorStatistics.EntityData.SegmentPath = "flow-monitor-statistics" + "[monitor-name='" + fmt.Sprintf("%v", flowMonitorStatistics.MonitorName) + "']"
+    flowMonitorStatistics.EntityData.SegmentPath = "flow-monitor-statistics" + types.AddKeyToken(flowMonitorStatistics.MonitorName, "monitor-name")
     flowMonitorStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flowMonitorStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flowMonitorStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    flowMonitorStatistics.EntityData.Children = make(map[string]types.YChild)
-    flowMonitorStatistics.EntityData.Children["cache-data"] = types.YChild{"CacheData", &flowMonitorStatistics.CacheData}
-    flowMonitorStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    flowMonitorStatistics.EntityData.Leafs["monitor-name"] = types.YLeaf{"MonitorName", flowMonitorStatistics.MonitorName}
-    flowMonitorStatistics.EntityData.Leafs["description"] = types.YLeaf{"Description", flowMonitorStatistics.Description}
-    flowMonitorStatistics.EntityData.Leafs["record-name"] = types.YLeaf{"RecordName", flowMonitorStatistics.RecordName}
-    flowMonitorStatistics.EntityData.Leafs["active-flow-exporter"] = types.YLeaf{"ActiveFlowExporter", flowMonitorStatistics.ActiveFlowExporter}
-    flowMonitorStatistics.EntityData.Leafs["inactive-flow-exporter"] = types.YLeaf{"InactiveFlowExporter", flowMonitorStatistics.InactiveFlowExporter}
-    flowMonitorStatistics.EntityData.Leafs["invalid-packet-counts"] = types.YLeaf{"InvalidPacketCounts", flowMonitorStatistics.InvalidPacketCounts}
-    flowMonitorStatistics.EntityData.Leafs["transaction-end-ager-enabled"] = types.YLeaf{"TransactionEndAgerEnabled", flowMonitorStatistics.TransactionEndAgerEnabled}
-    flowMonitorStatistics.EntityData.Leafs["protocol-dist-configured"] = types.YLeaf{"ProtocolDistConfigured", flowMonitorStatistics.ProtocolDistConfigured}
-    flowMonitorStatistics.EntityData.Leafs["size-dist-configured"] = types.YLeaf{"SizeDistConfigured", flowMonitorStatistics.SizeDistConfigured}
-    flowMonitorStatistics.EntityData.Leafs["inactive-timer"] = types.YLeaf{"InactiveTimer", flowMonitorStatistics.InactiveTimer}
-    flowMonitorStatistics.EntityData.Leafs["active-timer"] = types.YLeaf{"ActiveTimer", flowMonitorStatistics.ActiveTimer}
-    flowMonitorStatistics.EntityData.Leafs["update-timeout"] = types.YLeaf{"UpdateTimeout", flowMonitorStatistics.UpdateTimeout}
-    flowMonitorStatistics.EntityData.Leafs["synchronized-timeout"] = types.YLeaf{"SynchronizedTimeout", flowMonitorStatistics.SynchronizedTimeout}
-    flowMonitorStatistics.EntityData.Leafs["export-spread-interval"] = types.YLeaf{"ExportSpreadInterval", flowMonitorStatistics.ExportSpreadInterval}
-    flowMonitorStatistics.EntityData.Leafs["immediate-timeout"] = types.YLeaf{"ImmediateTimeout", flowMonitorStatistics.ImmediateTimeout}
+    flowMonitorStatistics.EntityData.Children = types.NewOrderedMap()
+    flowMonitorStatistics.EntityData.Children.Append("cache-data", types.YChild{"CacheData", &flowMonitorStatistics.CacheData})
+    flowMonitorStatistics.EntityData.Leafs = types.NewOrderedMap()
+    flowMonitorStatistics.EntityData.Leafs.Append("monitor-name", types.YLeaf{"MonitorName", flowMonitorStatistics.MonitorName})
+    flowMonitorStatistics.EntityData.Leafs.Append("description", types.YLeaf{"Description", flowMonitorStatistics.Description})
+    flowMonitorStatistics.EntityData.Leafs.Append("record-name", types.YLeaf{"RecordName", flowMonitorStatistics.RecordName})
+    flowMonitorStatistics.EntityData.Leafs.Append("active-flow-exporter", types.YLeaf{"ActiveFlowExporter", flowMonitorStatistics.ActiveFlowExporter})
+    flowMonitorStatistics.EntityData.Leafs.Append("inactive-flow-exporter", types.YLeaf{"InactiveFlowExporter", flowMonitorStatistics.InactiveFlowExporter})
+    flowMonitorStatistics.EntityData.Leafs.Append("invalid-packet-counts", types.YLeaf{"InvalidPacketCounts", flowMonitorStatistics.InvalidPacketCounts})
+    flowMonitorStatistics.EntityData.Leafs.Append("transaction-end-ager-enabled", types.YLeaf{"TransactionEndAgerEnabled", flowMonitorStatistics.TransactionEndAgerEnabled})
+    flowMonitorStatistics.EntityData.Leafs.Append("protocol-dist-configured", types.YLeaf{"ProtocolDistConfigured", flowMonitorStatistics.ProtocolDistConfigured})
+    flowMonitorStatistics.EntityData.Leafs.Append("size-dist-configured", types.YLeaf{"SizeDistConfigured", flowMonitorStatistics.SizeDistConfigured})
+    flowMonitorStatistics.EntityData.Leafs.Append("inactive-timer", types.YLeaf{"InactiveTimer", flowMonitorStatistics.InactiveTimer})
+    flowMonitorStatistics.EntityData.Leafs.Append("active-timer", types.YLeaf{"ActiveTimer", flowMonitorStatistics.ActiveTimer})
+    flowMonitorStatistics.EntityData.Leafs.Append("update-timeout", types.YLeaf{"UpdateTimeout", flowMonitorStatistics.UpdateTimeout})
+    flowMonitorStatistics.EntityData.Leafs.Append("synchronized-timeout", types.YLeaf{"SynchronizedTimeout", flowMonitorStatistics.SynchronizedTimeout})
+    flowMonitorStatistics.EntityData.Leafs.Append("export-spread-interval", types.YLeaf{"ExportSpreadInterval", flowMonitorStatistics.ExportSpreadInterval})
+    flowMonitorStatistics.EntityData.Leafs.Append("immediate-timeout", types.YLeaf{"ImmediateTimeout", flowMonitorStatistics.ImmediateTimeout})
+
+    flowMonitorStatistics.EntityData.YListKeys = []string {"MonitorName"}
+
     return &(flowMonitorStatistics.EntityData)
 }
 
@@ -649,7 +681,7 @@ type FlowMonitors_FlowMonitorStatistics_CacheData struct {
     State interface{}
 
     // The type of the flow cache. The type is string.
-    Type_ interface{}
+    Type interface{}
 
     // The name of the cache. The type is string.
     CacheName interface{}
@@ -676,14 +708,17 @@ func (cacheData *FlowMonitors_FlowMonitorStatistics_CacheData) GetEntityData() *
     cacheData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cacheData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cacheData.EntityData.Children = make(map[string]types.YChild)
-    cacheData.EntityData.Leafs = make(map[string]types.YLeaf)
-    cacheData.EntityData.Leafs["state"] = types.YLeaf{"State", cacheData.State}
-    cacheData.EntityData.Leafs["type"] = types.YLeaf{"Type_", cacheData.Type_}
-    cacheData.EntityData.Leafs["cache-name"] = types.YLeaf{"CacheName", cacheData.CacheName}
-    cacheData.EntityData.Leafs["status"] = types.YLeaf{"Status", cacheData.Status}
-    cacheData.EntityData.Leafs["num-entries"] = types.YLeaf{"NumEntries", cacheData.NumEntries}
-    cacheData.EntityData.Leafs["num-bytes"] = types.YLeaf{"NumBytes", cacheData.NumBytes}
+    cacheData.EntityData.Children = types.NewOrderedMap()
+    cacheData.EntityData.Leafs = types.NewOrderedMap()
+    cacheData.EntityData.Leafs.Append("state", types.YLeaf{"State", cacheData.State})
+    cacheData.EntityData.Leafs.Append("type", types.YLeaf{"Type", cacheData.Type})
+    cacheData.EntityData.Leafs.Append("cache-name", types.YLeaf{"CacheName", cacheData.CacheName})
+    cacheData.EntityData.Leafs.Append("status", types.YLeaf{"Status", cacheData.Status})
+    cacheData.EntityData.Leafs.Append("num-entries", types.YLeaf{"NumEntries", cacheData.NumEntries})
+    cacheData.EntityData.Leafs.Append("num-bytes", types.YLeaf{"NumBytes", cacheData.NumBytes})
+
+    cacheData.EntityData.YListKeys = []string {}
+
     return &(cacheData.EntityData)
 }
 

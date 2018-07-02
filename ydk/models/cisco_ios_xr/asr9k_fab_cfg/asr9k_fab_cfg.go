@@ -52,9 +52,12 @@ func (fabVqiConfig *FabVqiConfig) GetEntityData() *types.CommonEntityData {
     fabVqiConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fabVqiConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fabVqiConfig.EntityData.Children = make(map[string]types.YChild)
-    fabVqiConfig.EntityData.Children["mode"] = types.YChild{"Mode", &fabVqiConfig.Mode}
-    fabVqiConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    fabVqiConfig.EntityData.Children = types.NewOrderedMap()
+    fabVqiConfig.EntityData.Children.Append("mode", types.YChild{"Mode", &fabVqiConfig.Mode})
+    fabVqiConfig.EntityData.Leafs = types.NewOrderedMap()
+
+    fabVqiConfig.EntityData.YListKeys = []string {}
+
     return &(fabVqiConfig.EntityData)
 }
 
@@ -81,10 +84,13 @@ func (mode *FabVqiConfig_Mode) GetEntityData() *types.CommonEntityData {
     mode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mode.EntityData.Children = make(map[string]types.YChild)
-    mode.EntityData.Leafs = make(map[string]types.YLeaf)
-    mode.EntityData.Leafs["fab-mode-type-xr"] = types.YLeaf{"FabModeTypeXr", mode.FabModeTypeXr}
-    mode.EntityData.Leafs["fab-mode-type"] = types.YLeaf{"FabModeType", mode.FabModeType}
+    mode.EntityData.Children = types.NewOrderedMap()
+    mode.EntityData.Leafs = types.NewOrderedMap()
+    mode.EntityData.Leafs.Append("fab-mode-type-xr", types.YLeaf{"FabModeTypeXr", mode.FabModeTypeXr})
+    mode.EntityData.Leafs.Append("fab-mode-type", types.YLeaf{"FabModeType", mode.FabModeType})
+
+    mode.EntityData.YListKeys = []string {}
+
     return &(mode.EntityData)
 }
 

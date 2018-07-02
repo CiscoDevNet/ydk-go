@@ -29,6 +29,10 @@ module Cisco-IOS-XR-lib-keychain-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-10-15 {
+    description
+      "Removed presence statement generated from internal CLI data.";
+  }
   revision 2017-07-19 {
     description
       "Fixing macsec and non macsec keychain error";
@@ -65,6 +69,11 @@ module Cisco-IOS-XR-lib-keychain-cfg {
 
   typedef Crypto-alg {
     type enumeration {
+      enum "alg-aes-128-cmac-96" {
+        value 1;
+        description
+          "AES 128 CMAC 96";
+      }
       enum "alg-hmac-sha1-12" {
         value 2;
         description
@@ -89,6 +98,16 @@ module Cisco-IOS-XR-lib-keychain-cfg {
         value 6;
         description
           "HMAC SHA 1 20";
+      }
+      enum "alg-hmac-sha1-96" {
+        value 9;
+        description
+          "HMAC SHA 1 96";
+      }
+      enum "alg-hmac-sha-256" {
+        value 10;
+        description
+          "HMAC SHA 256";
       }
     }
     description
@@ -206,7 +225,6 @@ module Cisco-IOS-XR-lib-keychain-cfg {
         }
       }
       container macsec-keychain {
-        presence "Indicates a macsec-keychain node is configured.";
         description
           "Name of the key chain for MACSec";
         container macsec-keies {

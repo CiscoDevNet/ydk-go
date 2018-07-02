@@ -24,15 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip", reflect.TypeOf(MobileIp{}))
 }
 
-// GreKeyType represents Gre key type
-type GreKeyType string
-
-const (
-    // Symmetric GRE Key (same Uplink and Downlink
-    // key)
-    GreKeyType_symmetric GreKeyType = "symmetric"
-)
-
 // ServiceType represents Service type
 type ServiceType string
 
@@ -55,12 +46,21 @@ const (
     LmaService_service_mll LmaService = "service-mll"
 )
 
-// RedistType represents Redist type
-type RedistType string
+// EncapOpt represents Encap opt
+type EncapOpt string
 
 const (
-    // Redistribute HoA/HNP routes
-    RedistType_home_address RedistType = "home-address"
+    // GRE IPv4 tunnel encap
+    EncapOpt_greipv4 EncapOpt = "greipv4"
+
+    // GRE IPv6 tunnel encap
+    EncapOpt_greipv6 EncapOpt = "greipv6"
+
+    // mGRE IPv4 tunnel encap
+    EncapOpt_mgreipv4 EncapOpt = "mgreipv4"
+
+    // mGRE IPv6 tunnel encap
+    EncapOpt_mgreipv6 EncapOpt = "mgreipv6"
 )
 
 // RedistSubType represents Redist sub type
@@ -81,6 +81,23 @@ type LmaRole string
 const (
     // 3GMA mode
     LmaRole_Y_3gma LmaRole = "3gma"
+)
+
+// RedistType represents Redist type
+type RedistType string
+
+const (
+    // Redistribute HoA/HNP routes
+    RedistType_home_address RedistType = "home-address"
+)
+
+// GreKeyType represents Gre key type
+type GreKeyType string
+
+const (
+    // Symmetric GRE Key (same Uplink and Downlink
+    // key)
+    GreKeyType_symmetric GreKeyType = "symmetric"
 )
 
 // LmaRat represents Lma rat
@@ -124,23 +141,6 @@ const (
     LmaRat_Y_3gpp2umb LmaRat = "3gpp2umb"
 )
 
-// EncapOpt represents Encap opt
-type EncapOpt string
-
-const (
-    // GRE IPv4 tunnel encap
-    EncapOpt_greipv4 EncapOpt = "greipv4"
-
-    // GRE IPv6 tunnel encap
-    EncapOpt_greipv6 EncapOpt = "greipv6"
-
-    // mGRE IPv4 tunnel encap
-    EncapOpt_mgreipv4 EncapOpt = "mgreipv4"
-
-    // mGRE IPv6 tunnel encap
-    EncapOpt_mgreipv6 EncapOpt = "mgreipv6"
-)
-
 // MobileIp
 // MobileIP configuration
 type MobileIp struct {
@@ -164,10 +164,13 @@ func (mobileIp *MobileIp) GetEntityData() *types.CommonEntityData {
     mobileIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobileIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mobileIp.EntityData.Children = make(map[string]types.YChild)
-    mobileIp.EntityData.Children["domains"] = types.YChild{"Domains", &mobileIp.Domains}
-    mobileIp.EntityData.Children["lmas"] = types.YChild{"Lmas", &mobileIp.Lmas}
-    mobileIp.EntityData.Leafs = make(map[string]types.YLeaf)
+    mobileIp.EntityData.Children = types.NewOrderedMap()
+    mobileIp.EntityData.Children.Append("domains", types.YChild{"Domains", &mobileIp.Domains})
+    mobileIp.EntityData.Children.Append("lmas", types.YChild{"Lmas", &mobileIp.Lmas})
+    mobileIp.EntityData.Leafs = types.NewOrderedMap()
+
+    mobileIp.EntityData.YListKeys = []string {}
+
     return &(mobileIp.EntityData)
 }
 
@@ -178,7 +181,7 @@ type MobileIp_Domains struct {
     YFilter yfilter.YFilter
 
     // PMIPv6 domain configuration. The type is slice of MobileIp_Domains_Domain.
-    Domain []MobileIp_Domains_Domain
+    Domain []*MobileIp_Domains_Domain
 }
 
 func (domains *MobileIp_Domains) GetEntityData() *types.CommonEntityData {
@@ -191,12 +194,15 @@ func (domains *MobileIp_Domains) GetEntityData() *types.CommonEntityData {
     domains.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     domains.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    domains.EntityData.Children = make(map[string]types.YChild)
-    domains.EntityData.Children["domain"] = types.YChild{"Domain", nil}
+    domains.EntityData.Children = types.NewOrderedMap()
+    domains.EntityData.Children.Append("domain", types.YChild{"Domain", nil})
     for i := range domains.Domain {
-        domains.EntityData.Children[types.GetSegmentPath(&domains.Domain[i])] = types.YChild{"Domain", &domains.Domain[i]}
+        domains.EntityData.Children.Append(types.GetSegmentPath(domains.Domain[i]), types.YChild{"Domain", domains.Domain[i]})
     }
-    domains.EntityData.Leafs = make(map[string]types.YLeaf)
+    domains.EntityData.Leafs = types.NewOrderedMap()
+
+    domains.EntityData.YListKeys = []string {}
+
     return &(domains.EntityData)
 }
 
@@ -232,19 +238,22 @@ func (domain *MobileIp_Domains_Domain) GetEntityData() *types.CommonEntityData {
     domain.EntityData.YangName = "domain"
     domain.EntityData.BundleName = "cisco_ios_xr"
     domain.EntityData.ParentYangName = "domains"
-    domain.EntityData.SegmentPath = "domain" + "[domain-name='" + fmt.Sprintf("%v", domain.DomainName) + "']"
+    domain.EntityData.SegmentPath = "domain" + types.AddKeyToken(domain.DomainName, "domain-name")
     domain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     domain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     domain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    domain.EntityData.Children = make(map[string]types.YChild)
-    domain.EntityData.Children["mags"] = types.YChild{"Mags", &domain.Mags}
-    domain.EntityData.Children["nais"] = types.YChild{"Nais", &domain.Nais}
-    domain.EntityData.Children["authenticate-option"] = types.YChild{"AuthenticateOption", &domain.AuthenticateOption}
-    domain.EntityData.Children["lmas"] = types.YChild{"Lmas", &domain.Lmas}
-    domain.EntityData.Leafs = make(map[string]types.YLeaf)
-    domain.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", domain.DomainName}
-    domain.EntityData.Leafs["enable"] = types.YLeaf{"Enable", domain.Enable}
+    domain.EntityData.Children = types.NewOrderedMap()
+    domain.EntityData.Children.Append("mags", types.YChild{"Mags", &domain.Mags})
+    domain.EntityData.Children.Append("nais", types.YChild{"Nais", &domain.Nais})
+    domain.EntityData.Children.Append("authenticate-option", types.YChild{"AuthenticateOption", &domain.AuthenticateOption})
+    domain.EntityData.Children.Append("lmas", types.YChild{"Lmas", &domain.Lmas})
+    domain.EntityData.Leafs = types.NewOrderedMap()
+    domain.EntityData.Leafs.Append("domain-name", types.YLeaf{"DomainName", domain.DomainName})
+    domain.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", domain.Enable})
+
+    domain.EntityData.YListKeys = []string {"DomainName"}
+
     return &(domain.EntityData)
 }
 
@@ -255,7 +264,7 @@ type MobileIp_Domains_Domain_Mags struct {
     YFilter yfilter.YFilter
 
     // MAG within domain. The type is slice of MobileIp_Domains_Domain_Mags_Mag.
-    Mag []MobileIp_Domains_Domain_Mags_Mag
+    Mag []*MobileIp_Domains_Domain_Mags_Mag
 }
 
 func (mags *MobileIp_Domains_Domain_Mags) GetEntityData() *types.CommonEntityData {
@@ -268,12 +277,15 @@ func (mags *MobileIp_Domains_Domain_Mags) GetEntityData() *types.CommonEntityDat
     mags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mags.EntityData.Children = make(map[string]types.YChild)
-    mags.EntityData.Children["mag"] = types.YChild{"Mag", nil}
+    mags.EntityData.Children = types.NewOrderedMap()
+    mags.EntityData.Children.Append("mag", types.YChild{"Mag", nil})
     for i := range mags.Mag {
-        mags.EntityData.Children[types.GetSegmentPath(&mags.Mag[i])] = types.YChild{"Mag", &mags.Mag[i]}
+        mags.EntityData.Children.Append(types.GetSegmentPath(mags.Mag[i]), types.YChild{"Mag", mags.Mag[i]})
     }
-    mags.EntityData.Leafs = make(map[string]types.YLeaf)
+    mags.EntityData.Leafs = types.NewOrderedMap()
+
+    mags.EntityData.YListKeys = []string {}
+
     return &(mags.EntityData)
 }
 
@@ -293,14 +305,17 @@ func (mag *MobileIp_Domains_Domain_Mags_Mag) GetEntityData() *types.CommonEntity
     mag.EntityData.YangName = "mag"
     mag.EntityData.BundleName = "cisco_ios_xr"
     mag.EntityData.ParentYangName = "mags"
-    mag.EntityData.SegmentPath = "mag" + "[mag-name='" + fmt.Sprintf("%v", mag.MagName) + "']"
+    mag.EntityData.SegmentPath = "mag" + types.AddKeyToken(mag.MagName, "mag-name")
     mag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mag.EntityData.Children = make(map[string]types.YChild)
-    mag.EntityData.Leafs = make(map[string]types.YLeaf)
-    mag.EntityData.Leafs["mag-name"] = types.YLeaf{"MagName", mag.MagName}
+    mag.EntityData.Children = types.NewOrderedMap()
+    mag.EntityData.Leafs = types.NewOrderedMap()
+    mag.EntityData.Leafs.Append("mag-name", types.YLeaf{"MagName", mag.MagName})
+
+    mag.EntityData.YListKeys = []string {"MagName"}
+
     return &(mag.EntityData)
 }
 
@@ -312,7 +327,7 @@ type MobileIp_Domains_Domain_Nais struct {
 
     // Network access identifier or Realm. The type is slice of
     // MobileIp_Domains_Domain_Nais_Nai.
-    Nai []MobileIp_Domains_Domain_Nais_Nai
+    Nai []*MobileIp_Domains_Domain_Nais_Nai
 }
 
 func (nais *MobileIp_Domains_Domain_Nais) GetEntityData() *types.CommonEntityData {
@@ -325,12 +340,15 @@ func (nais *MobileIp_Domains_Domain_Nais) GetEntityData() *types.CommonEntityDat
     nais.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nais.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nais.EntityData.Children = make(map[string]types.YChild)
-    nais.EntityData.Children["nai"] = types.YChild{"Nai", nil}
+    nais.EntityData.Children = types.NewOrderedMap()
+    nais.EntityData.Children.Append("nai", types.YChild{"Nai", nil})
     for i := range nais.Nai {
-        nais.EntityData.Children[types.GetSegmentPath(&nais.Nai[i])] = types.YChild{"Nai", &nais.Nai[i]}
+        nais.EntityData.Children.Append(types.GetSegmentPath(nais.Nai[i]), types.YChild{"Nai", nais.Nai[i]})
     }
-    nais.EntityData.Leafs = make(map[string]types.YLeaf)
+    nais.EntityData.Leafs = types.NewOrderedMap()
+
+    nais.EntityData.YListKeys = []string {}
+
     return &(nais.EntityData)
 }
 
@@ -366,19 +384,22 @@ func (nai *MobileIp_Domains_Domain_Nais_Nai) GetEntityData() *types.CommonEntity
     nai.EntityData.YangName = "nai"
     nai.EntityData.BundleName = "cisco_ios_xr"
     nai.EntityData.ParentYangName = "nais"
-    nai.EntityData.SegmentPath = "nai" + "[nai-name='" + fmt.Sprintf("%v", nai.NaiName) + "']"
+    nai.EntityData.SegmentPath = "nai" + types.AddKeyToken(nai.NaiName, "nai-name")
     nai.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nai.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nai.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nai.EntityData.Children = make(map[string]types.YChild)
-    nai.EntityData.Leafs = make(map[string]types.YLeaf)
-    nai.EntityData.Leafs["nai-name"] = types.YLeaf{"NaiName", nai.NaiName}
-    nai.EntityData.Leafs["lma"] = types.YLeaf{"Lma", nai.Lma}
-    nai.EntityData.Leafs["apn"] = types.YLeaf{"Apn", nai.Apn}
-    nai.EntityData.Leafs["customer"] = types.YLeaf{"Customer", nai.Customer}
-    nai.EntityData.Leafs["service"] = types.YLeaf{"Service", nai.Service}
-    nai.EntityData.Leafs["network"] = types.YLeaf{"Network", nai.Network}
+    nai.EntityData.Children = types.NewOrderedMap()
+    nai.EntityData.Leafs = types.NewOrderedMap()
+    nai.EntityData.Leafs.Append("nai-name", types.YLeaf{"NaiName", nai.NaiName})
+    nai.EntityData.Leafs.Append("lma", types.YLeaf{"Lma", nai.Lma})
+    nai.EntityData.Leafs.Append("apn", types.YLeaf{"Apn", nai.Apn})
+    nai.EntityData.Leafs.Append("customer", types.YLeaf{"Customer", nai.Customer})
+    nai.EntityData.Leafs.Append("service", types.YLeaf{"Service", nai.Service})
+    nai.EntityData.Leafs.Append("network", types.YLeaf{"Network", nai.Network})
+
+    nai.EntityData.YListKeys = []string {"NaiName"}
+
     return &(nai.EntityData)
 }
 
@@ -388,7 +409,7 @@ type MobileIp_Domains_Domain_AuthenticateOption struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // SPI in hex value. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // SPI in hex value. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Spi interface{}
 
     // ASCII string. The type is string with length: 1..125.
@@ -405,10 +426,13 @@ func (authenticateOption *MobileIp_Domains_Domain_AuthenticateOption) GetEntityD
     authenticateOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticateOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authenticateOption.EntityData.Children = make(map[string]types.YChild)
-    authenticateOption.EntityData.Leafs = make(map[string]types.YLeaf)
-    authenticateOption.EntityData.Leafs["spi"] = types.YLeaf{"Spi", authenticateOption.Spi}
-    authenticateOption.EntityData.Leafs["key"] = types.YLeaf{"Key", authenticateOption.Key}
+    authenticateOption.EntityData.Children = types.NewOrderedMap()
+    authenticateOption.EntityData.Leafs = types.NewOrderedMap()
+    authenticateOption.EntityData.Leafs.Append("spi", types.YLeaf{"Spi", authenticateOption.Spi})
+    authenticateOption.EntityData.Leafs.Append("key", types.YLeaf{"Key", authenticateOption.Key})
+
+    authenticateOption.EntityData.YListKeys = []string {}
+
     return &(authenticateOption.EntityData)
 }
 
@@ -419,7 +443,7 @@ type MobileIp_Domains_Domain_Lmas struct {
     YFilter yfilter.YFilter
 
     // LMA within domain. The type is slice of MobileIp_Domains_Domain_Lmas_Lma.
-    Lma []MobileIp_Domains_Domain_Lmas_Lma
+    Lma []*MobileIp_Domains_Domain_Lmas_Lma
 }
 
 func (lmas *MobileIp_Domains_Domain_Lmas) GetEntityData() *types.CommonEntityData {
@@ -432,12 +456,15 @@ func (lmas *MobileIp_Domains_Domain_Lmas) GetEntityData() *types.CommonEntityDat
     lmas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lmas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lmas.EntityData.Children = make(map[string]types.YChild)
-    lmas.EntityData.Children["lma"] = types.YChild{"Lma", nil}
+    lmas.EntityData.Children = types.NewOrderedMap()
+    lmas.EntityData.Children.Append("lma", types.YChild{"Lma", nil})
     for i := range lmas.Lma {
-        lmas.EntityData.Children[types.GetSegmentPath(&lmas.Lma[i])] = types.YChild{"Lma", &lmas.Lma[i]}
+        lmas.EntityData.Children.Append(types.GetSegmentPath(lmas.Lma[i]), types.YChild{"Lma", lmas.Lma[i]})
     }
-    lmas.EntityData.Leafs = make(map[string]types.YLeaf)
+    lmas.EntityData.Leafs = types.NewOrderedMap()
+
+    lmas.EntityData.YListKeys = []string {}
+
     return &(lmas.EntityData)
 }
 
@@ -457,14 +484,17 @@ func (lma *MobileIp_Domains_Domain_Lmas_Lma) GetEntityData() *types.CommonEntity
     lma.EntityData.YangName = "lma"
     lma.EntityData.BundleName = "cisco_ios_xr"
     lma.EntityData.ParentYangName = "lmas"
-    lma.EntityData.SegmentPath = "lma" + "[lma-name='" + fmt.Sprintf("%v", lma.LmaName) + "']"
+    lma.EntityData.SegmentPath = "lma" + types.AddKeyToken(lma.LmaName, "lma-name")
     lma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lma.EntityData.Children = make(map[string]types.YChild)
-    lma.EntityData.Leafs = make(map[string]types.YLeaf)
-    lma.EntityData.Leafs["lma-name"] = types.YLeaf{"LmaName", lma.LmaName}
+    lma.EntityData.Children = types.NewOrderedMap()
+    lma.EntityData.Leafs = types.NewOrderedMap()
+    lma.EntityData.Leafs.Append("lma-name", types.YLeaf{"LmaName", lma.LmaName})
+
+    lma.EntityData.YListKeys = []string {"LmaName"}
+
     return &(lma.EntityData)
 }
 
@@ -475,7 +505,7 @@ type MobileIp_Lmas struct {
     YFilter yfilter.YFilter
 
     // PMIPv6 LMA configuration. The type is slice of MobileIp_Lmas_Lma.
-    Lma []MobileIp_Lmas_Lma
+    Lma []*MobileIp_Lmas_Lma
 }
 
 func (lmas *MobileIp_Lmas) GetEntityData() *types.CommonEntityData {
@@ -488,12 +518,15 @@ func (lmas *MobileIp_Lmas) GetEntityData() *types.CommonEntityData {
     lmas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lmas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lmas.EntityData.Children = make(map[string]types.YChild)
-    lmas.EntityData.Children["lma"] = types.YChild{"Lma", nil}
+    lmas.EntityData.Children = types.NewOrderedMap()
+    lmas.EntityData.Children.Append("lma", types.YChild{"Lma", nil})
     for i := range lmas.Lma {
-        lmas.EntityData.Children[types.GetSegmentPath(&lmas.Lma[i])] = types.YChild{"Lma", &lmas.Lma[i]}
+        lmas.EntityData.Children.Append(types.GetSegmentPath(lmas.Lma[i]), types.YChild{"Lma", lmas.Lma[i]})
     }
-    lmas.EntityData.Leafs = make(map[string]types.YLeaf)
+    lmas.EntityData.Leafs = types.NewOrderedMap()
+
+    lmas.EntityData.YListKeys = []string {}
+
     return &(lmas.EntityData)
 }
 
@@ -532,9 +565,8 @@ type MobileIp_Lmas_Lma struct {
     // Default MN profile for LMA. The type is string with length: 1..125.
     DefaultProfile interface{}
 
-    // CN facing interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // CN facing interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    Interface interface{}
 
     // Mobile Map for this LMA. The type is string with length: 1..125.
     MobileMap interface{}
@@ -596,41 +628,44 @@ func (lma *MobileIp_Lmas_Lma) GetEntityData() *types.CommonEntityData {
     lma.EntityData.YangName = "lma"
     lma.EntityData.BundleName = "cisco_ios_xr"
     lma.EntityData.ParentYangName = "lmas"
-    lma.EntityData.SegmentPath = "lma" + "[lma-name='" + fmt.Sprintf("%v", lma.LmaName) + "']" + "[domain-name='" + fmt.Sprintf("%v", lma.DomainName) + "']"
+    lma.EntityData.SegmentPath = "lma" + types.AddKeyToken(lma.LmaName, "lma-name") + types.AddKeyToken(lma.DomainName, "domain-name")
     lma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lma.EntityData.Children = make(map[string]types.YChild)
-    lma.EntityData.Children["binding-revocation-attributes"] = types.YChild{"BindingRevocationAttributes", &lma.BindingRevocationAttributes}
-    lma.EntityData.Children["rat-attributes"] = types.YChild{"RatAttributes", &lma.RatAttributes}
-    lma.EntityData.Children["heart-beat-attributes"] = types.YChild{"HeartBeatAttributes", &lma.HeartBeatAttributes}
-    lma.EntityData.Children["lmaipv6-addresses"] = types.YChild{"Lmaipv6Addresses", &lma.Lmaipv6Addresses}
-    lma.EntityData.Children["hnp"] = types.YChild{"Hnp", &lma.Hnp}
-    lma.EntityData.Children["redistribute"] = types.YChild{"Redistribute", &lma.Redistribute}
-    lma.EntityData.Children["aaa"] = types.YChild{"Aaa", &lma.Aaa}
-    lma.EntityData.Children["dscp"] = types.YChild{"Dscp", &lma.Dscp}
-    lma.EntityData.Children["lmaipv4-addresses"] = types.YChild{"Lmaipv4Addresses", &lma.Lmaipv4Addresses}
-    lma.EntityData.Children["roles"] = types.YChild{"Roles", &lma.Roles}
-    lma.EntityData.Children["binding-attributes"] = types.YChild{"BindingAttributes", &lma.BindingAttributes}
-    lma.EntityData.Children["mags"] = types.YChild{"Mags", &lma.Mags}
-    lma.EntityData.Children["tunnel-attributes"] = types.YChild{"TunnelAttributes", &lma.TunnelAttributes}
-    lma.EntityData.Children["services"] = types.YChild{"Services", &lma.Services}
-    lma.EntityData.Children["networks"] = types.YChild{"Networks", &lma.Networks}
-    lma.EntityData.Children["replay-protection"] = types.YChild{"ReplayProtection", &lma.ReplayProtection}
-    lma.EntityData.Leafs = make(map[string]types.YLeaf)
-    lma.EntityData.Leafs["lma-name"] = types.YLeaf{"LmaName", lma.LmaName}
-    lma.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", lma.DomainName}
-    lma.EntityData.Leafs["generate"] = types.YLeaf{"Generate", lma.Generate}
-    lma.EntityData.Leafs["mobile-route-ad"] = types.YLeaf{"MobileRouteAd", lma.MobileRouteAd}
-    lma.EntityData.Leafs["ani"] = types.YLeaf{"Ani", lma.Ani}
-    lma.EntityData.Leafs["multipath"] = types.YLeaf{"Multipath", lma.Multipath}
-    lma.EntityData.Leafs["dynamic"] = types.YLeaf{"Dynamic", lma.Dynamic}
-    lma.EntityData.Leafs["enforce"] = types.YLeaf{"Enforce", lma.Enforce}
-    lma.EntityData.Leafs["default-profile"] = types.YLeaf{"DefaultProfile", lma.DefaultProfile}
-    lma.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", lma.Interface_}
-    lma.EntityData.Leafs["mobile-map"] = types.YLeaf{"MobileMap", lma.MobileMap}
-    lma.EntityData.Leafs["pgw-subs-cont"] = types.YLeaf{"PgwSubsCont", lma.PgwSubsCont}
+    lma.EntityData.Children = types.NewOrderedMap()
+    lma.EntityData.Children.Append("binding-revocation-attributes", types.YChild{"BindingRevocationAttributes", &lma.BindingRevocationAttributes})
+    lma.EntityData.Children.Append("rat-attributes", types.YChild{"RatAttributes", &lma.RatAttributes})
+    lma.EntityData.Children.Append("heart-beat-attributes", types.YChild{"HeartBeatAttributes", &lma.HeartBeatAttributes})
+    lma.EntityData.Children.Append("lmaipv6-addresses", types.YChild{"Lmaipv6Addresses", &lma.Lmaipv6Addresses})
+    lma.EntityData.Children.Append("hnp", types.YChild{"Hnp", &lma.Hnp})
+    lma.EntityData.Children.Append("redistribute", types.YChild{"Redistribute", &lma.Redistribute})
+    lma.EntityData.Children.Append("aaa", types.YChild{"Aaa", &lma.Aaa})
+    lma.EntityData.Children.Append("dscp", types.YChild{"Dscp", &lma.Dscp})
+    lma.EntityData.Children.Append("lmaipv4-addresses", types.YChild{"Lmaipv4Addresses", &lma.Lmaipv4Addresses})
+    lma.EntityData.Children.Append("roles", types.YChild{"Roles", &lma.Roles})
+    lma.EntityData.Children.Append("binding-attributes", types.YChild{"BindingAttributes", &lma.BindingAttributes})
+    lma.EntityData.Children.Append("mags", types.YChild{"Mags", &lma.Mags})
+    lma.EntityData.Children.Append("tunnel-attributes", types.YChild{"TunnelAttributes", &lma.TunnelAttributes})
+    lma.EntityData.Children.Append("services", types.YChild{"Services", &lma.Services})
+    lma.EntityData.Children.Append("networks", types.YChild{"Networks", &lma.Networks})
+    lma.EntityData.Children.Append("replay-protection", types.YChild{"ReplayProtection", &lma.ReplayProtection})
+    lma.EntityData.Leafs = types.NewOrderedMap()
+    lma.EntityData.Leafs.Append("lma-name", types.YLeaf{"LmaName", lma.LmaName})
+    lma.EntityData.Leafs.Append("domain-name", types.YLeaf{"DomainName", lma.DomainName})
+    lma.EntityData.Leafs.Append("generate", types.YLeaf{"Generate", lma.Generate})
+    lma.EntityData.Leafs.Append("mobile-route-ad", types.YLeaf{"MobileRouteAd", lma.MobileRouteAd})
+    lma.EntityData.Leafs.Append("ani", types.YLeaf{"Ani", lma.Ani})
+    lma.EntityData.Leafs.Append("multipath", types.YLeaf{"Multipath", lma.Multipath})
+    lma.EntityData.Leafs.Append("dynamic", types.YLeaf{"Dynamic", lma.Dynamic})
+    lma.EntityData.Leafs.Append("enforce", types.YLeaf{"Enforce", lma.Enforce})
+    lma.EntityData.Leafs.Append("default-profile", types.YLeaf{"DefaultProfile", lma.DefaultProfile})
+    lma.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", lma.Interface})
+    lma.EntityData.Leafs.Append("mobile-map", types.YLeaf{"MobileMap", lma.MobileMap})
+    lma.EntityData.Leafs.Append("pgw-subs-cont", types.YLeaf{"PgwSubsCont", lma.PgwSubsCont})
+
+    lma.EntityData.YListKeys = []string {"LmaName", "DomainName"}
+
     return &(lma.EntityData)
 }
 
@@ -658,10 +693,13 @@ func (bindingRevocationAttributes *MobileIp_Lmas_Lma_BindingRevocationAttributes
     bindingRevocationAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bindingRevocationAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bindingRevocationAttributes.EntityData.Children = make(map[string]types.YChild)
-    bindingRevocationAttributes.EntityData.Children["delay"] = types.YChild{"Delay", &bindingRevocationAttributes.Delay}
-    bindingRevocationAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    bindingRevocationAttributes.EntityData.Leafs["retry"] = types.YLeaf{"Retry", bindingRevocationAttributes.Retry}
+    bindingRevocationAttributes.EntityData.Children = types.NewOrderedMap()
+    bindingRevocationAttributes.EntityData.Children.Append("delay", types.YChild{"Delay", &bindingRevocationAttributes.Delay})
+    bindingRevocationAttributes.EntityData.Leafs = types.NewOrderedMap()
+    bindingRevocationAttributes.EntityData.Leafs.Append("retry", types.YLeaf{"Retry", bindingRevocationAttributes.Retry})
+
+    bindingRevocationAttributes.EntityData.YListKeys = []string {}
+
     return &(bindingRevocationAttributes.EntityData)
 }
 
@@ -689,10 +727,13 @@ func (delay *MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay) GetEntityData(
     delay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    delay.EntityData.Children = make(map[string]types.YChild)
-    delay.EntityData.Leafs = make(map[string]types.YLeaf)
-    delay.EntityData.Leafs["br-min"] = types.YLeaf{"BrMin", delay.BrMin}
-    delay.EntityData.Leafs["br-max"] = types.YLeaf{"BrMax", delay.BrMax}
+    delay.EntityData.Children = types.NewOrderedMap()
+    delay.EntityData.Leafs = types.NewOrderedMap()
+    delay.EntityData.Leafs.Append("br-min", types.YLeaf{"BrMin", delay.BrMin})
+    delay.EntityData.Leafs.Append("br-max", types.YLeaf{"BrMax", delay.BrMax})
+
+    delay.EntityData.YListKeys = []string {}
+
     return &(delay.EntityData)
 }
 
@@ -719,10 +760,13 @@ func (ratAttributes *MobileIp_Lmas_Lma_RatAttributes) GetEntityData() *types.Com
     ratAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ratAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ratAttributes.EntityData.Children = make(map[string]types.YChild)
-    ratAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    ratAttributes.EntityData.Leafs["lma-rat"] = types.YLeaf{"LmaRat", ratAttributes.LmaRat}
-    ratAttributes.EntityData.Leafs["priority-value"] = types.YLeaf{"PriorityValue", ratAttributes.PriorityValue}
+    ratAttributes.EntityData.Children = types.NewOrderedMap()
+    ratAttributes.EntityData.Leafs = types.NewOrderedMap()
+    ratAttributes.EntityData.Leafs.Append("lma-rat", types.YLeaf{"LmaRat", ratAttributes.LmaRat})
+    ratAttributes.EntityData.Leafs.Append("priority-value", types.YLeaf{"PriorityValue", ratAttributes.PriorityValue})
+
+    ratAttributes.EntityData.YListKeys = []string {}
+
     return &(ratAttributes.EntityData)
 }
 
@@ -753,11 +797,14 @@ func (heartBeatAttributes *MobileIp_Lmas_Lma_HeartBeatAttributes) GetEntityData(
     heartBeatAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     heartBeatAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    heartBeatAttributes.EntityData.Children = make(map[string]types.YChild)
-    heartBeatAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    heartBeatAttributes.EntityData.Leafs["interval"] = types.YLeaf{"Interval", heartBeatAttributes.Interval}
-    heartBeatAttributes.EntityData.Leafs["retries"] = types.YLeaf{"Retries", heartBeatAttributes.Retries}
-    heartBeatAttributes.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", heartBeatAttributes.Timeout}
+    heartBeatAttributes.EntityData.Children = types.NewOrderedMap()
+    heartBeatAttributes.EntityData.Leafs = types.NewOrderedMap()
+    heartBeatAttributes.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", heartBeatAttributes.Interval})
+    heartBeatAttributes.EntityData.Leafs.Append("retries", types.YLeaf{"Retries", heartBeatAttributes.Retries})
+    heartBeatAttributes.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", heartBeatAttributes.Timeout})
+
+    heartBeatAttributes.EntityData.YListKeys = []string {}
+
     return &(heartBeatAttributes.EntityData)
 }
 
@@ -769,7 +816,7 @@ type MobileIp_Lmas_Lma_Lmaipv6Addresses struct {
 
     // Configure IPv6 address for this LMA. The type is slice of
     // MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address.
-    Lmaipv6Address []MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address
+    Lmaipv6Address []*MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address
 }
 
 func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) GetEntityData() *types.CommonEntityData {
@@ -782,12 +829,15 @@ func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) GetEntityData() *typ
     lmaipv6Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lmaipv6Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lmaipv6Addresses.EntityData.Children = make(map[string]types.YChild)
-    lmaipv6Addresses.EntityData.Children["lmaipv6-address"] = types.YChild{"Lmaipv6Address", nil}
+    lmaipv6Addresses.EntityData.Children = types.NewOrderedMap()
+    lmaipv6Addresses.EntityData.Children.Append("lmaipv6-address", types.YChild{"Lmaipv6Address", nil})
     for i := range lmaipv6Addresses.Lmaipv6Address {
-        lmaipv6Addresses.EntityData.Children[types.GetSegmentPath(&lmaipv6Addresses.Lmaipv6Address[i])] = types.YChild{"Lmaipv6Address", &lmaipv6Addresses.Lmaipv6Address[i]}
+        lmaipv6Addresses.EntityData.Children.Append(types.GetSegmentPath(lmaipv6Addresses.Lmaipv6Address[i]), types.YChild{"Lmaipv6Address", lmaipv6Addresses.Lmaipv6Address[i]})
     }
-    lmaipv6Addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    lmaipv6Addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    lmaipv6Addresses.EntityData.YListKeys = []string {}
+
     return &(lmaipv6Addresses.EntityData)
 }
 
@@ -798,7 +848,7 @@ type MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. LMA IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -807,14 +857,17 @@ func (lmaipv6Address *MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address) GetEnti
     lmaipv6Address.EntityData.YangName = "lmaipv6-address"
     lmaipv6Address.EntityData.BundleName = "cisco_ios_xr"
     lmaipv6Address.EntityData.ParentYangName = "lmaipv6-addresses"
-    lmaipv6Address.EntityData.SegmentPath = "lmaipv6-address" + "[address='" + fmt.Sprintf("%v", lmaipv6Address.Address) + "']"
+    lmaipv6Address.EntityData.SegmentPath = "lmaipv6-address" + types.AddKeyToken(lmaipv6Address.Address, "address")
     lmaipv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lmaipv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lmaipv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lmaipv6Address.EntityData.Children = make(map[string]types.YChild)
-    lmaipv6Address.EntityData.Leafs = make(map[string]types.YLeaf)
-    lmaipv6Address.EntityData.Leafs["address"] = types.YLeaf{"Address", lmaipv6Address.Address}
+    lmaipv6Address.EntityData.Children = types.NewOrderedMap()
+    lmaipv6Address.EntityData.Leafs = types.NewOrderedMap()
+    lmaipv6Address.EntityData.Leafs.Append("address", types.YLeaf{"Address", lmaipv6Address.Address})
+
+    lmaipv6Address.EntityData.YListKeys = []string {"Address"}
+
     return &(lmaipv6Address.EntityData)
 }
 
@@ -839,9 +892,12 @@ func (hnp *MobileIp_Lmas_Lma_Hnp) GetEntityData() *types.CommonEntityData {
     hnp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hnp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hnp.EntityData.Children = make(map[string]types.YChild)
-    hnp.EntityData.Leafs = make(map[string]types.YLeaf)
-    hnp.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", hnp.Maximum}
+    hnp.EntityData.Children = types.NewOrderedMap()
+    hnp.EntityData.Leafs = types.NewOrderedMap()
+    hnp.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", hnp.Maximum})
+
+    hnp.EntityData.YListKeys = []string {}
+
     return &(hnp.EntityData)
 }
 
@@ -868,10 +924,13 @@ func (redistribute *MobileIp_Lmas_Lma_Redistribute) GetEntityData() *types.Commo
     redistribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redistribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    redistribute.EntityData.Children = make(map[string]types.YChild)
-    redistribute.EntityData.Leafs = make(map[string]types.YLeaf)
-    redistribute.EntityData.Leafs["redist-type"] = types.YLeaf{"RedistType", redistribute.RedistType}
-    redistribute.EntityData.Leafs["redist-sub-type"] = types.YLeaf{"RedistSubType", redistribute.RedistSubType}
+    redistribute.EntityData.Children = types.NewOrderedMap()
+    redistribute.EntityData.Leafs = types.NewOrderedMap()
+    redistribute.EntityData.Leafs.Append("redist-type", types.YLeaf{"RedistType", redistribute.RedistType})
+    redistribute.EntityData.Leafs.Append("redist-sub-type", types.YLeaf{"RedistSubType", redistribute.RedistSubType})
+
+    redistribute.EntityData.YListKeys = []string {}
+
     return &(redistribute.EntityData)
 }
 
@@ -895,9 +954,12 @@ func (aaa *MobileIp_Lmas_Lma_Aaa) GetEntityData() *types.CommonEntityData {
     aaa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aaa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aaa.EntityData.Children = make(map[string]types.YChild)
-    aaa.EntityData.Children["accounting"] = types.YChild{"Accounting", &aaa.Accounting}
-    aaa.EntityData.Leafs = make(map[string]types.YLeaf)
+    aaa.EntityData.Children = types.NewOrderedMap()
+    aaa.EntityData.Children.Append("accounting", types.YChild{"Accounting", &aaa.Accounting})
+    aaa.EntityData.Leafs = types.NewOrderedMap()
+
+    aaa.EntityData.YListKeys = []string {}
+
     return &(aaa.EntityData)
 }
 
@@ -925,10 +987,13 @@ func (accounting *MobileIp_Lmas_Lma_Aaa_Accounting) GetEntityData() *types.Commo
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accounting.EntityData.Children = make(map[string]types.YChild)
-    accounting.EntityData.Leafs = make(map[string]types.YLeaf)
-    accounting.EntityData.Leafs["enable"] = types.YLeaf{"Enable", accounting.Enable}
-    accounting.EntityData.Leafs["interim-interval"] = types.YLeaf{"InterimInterval", accounting.InterimInterval}
+    accounting.EntityData.Children = types.NewOrderedMap()
+    accounting.EntityData.Leafs = types.NewOrderedMap()
+    accounting.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", accounting.Enable})
+    accounting.EntityData.Leafs.Append("interim-interval", types.YLeaf{"InterimInterval", accounting.InterimInterval})
+
+    accounting.EntityData.YListKeys = []string {}
+
     return &(accounting.EntityData)
 }
 
@@ -955,10 +1020,13 @@ func (dscp *MobileIp_Lmas_Lma_Dscp) GetEntityData() *types.CommonEntityData {
     dscp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dscp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dscp.EntityData.Children = make(map[string]types.YChild)
-    dscp.EntityData.Leafs = make(map[string]types.YLeaf)
-    dscp.EntityData.Leafs["value"] = types.YLeaf{"Value", dscp.Value}
-    dscp.EntityData.Leafs["force"] = types.YLeaf{"Force", dscp.Force}
+    dscp.EntityData.Children = types.NewOrderedMap()
+    dscp.EntityData.Leafs = types.NewOrderedMap()
+    dscp.EntityData.Leafs.Append("value", types.YLeaf{"Value", dscp.Value})
+    dscp.EntityData.Leafs.Append("force", types.YLeaf{"Force", dscp.Force})
+
+    dscp.EntityData.YListKeys = []string {}
+
     return &(dscp.EntityData)
 }
 
@@ -970,7 +1038,7 @@ type MobileIp_Lmas_Lma_Lmaipv4Addresses struct {
 
     // Configure IPv4 address for this LMA. The type is slice of
     // MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address.
-    Lmaipv4Address []MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address
+    Lmaipv4Address []*MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address
 }
 
 func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) GetEntityData() *types.CommonEntityData {
@@ -983,12 +1051,15 @@ func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) GetEntityData() *typ
     lmaipv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lmaipv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lmaipv4Addresses.EntityData.Children = make(map[string]types.YChild)
-    lmaipv4Addresses.EntityData.Children["lmaipv4-address"] = types.YChild{"Lmaipv4Address", nil}
+    lmaipv4Addresses.EntityData.Children = types.NewOrderedMap()
+    lmaipv4Addresses.EntityData.Children.Append("lmaipv4-address", types.YChild{"Lmaipv4Address", nil})
     for i := range lmaipv4Addresses.Lmaipv4Address {
-        lmaipv4Addresses.EntityData.Children[types.GetSegmentPath(&lmaipv4Addresses.Lmaipv4Address[i])] = types.YChild{"Lmaipv4Address", &lmaipv4Addresses.Lmaipv4Address[i]}
+        lmaipv4Addresses.EntityData.Children.Append(types.GetSegmentPath(lmaipv4Addresses.Lmaipv4Address[i]), types.YChild{"Lmaipv4Address", lmaipv4Addresses.Lmaipv4Address[i]})
     }
-    lmaipv4Addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    lmaipv4Addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    lmaipv4Addresses.EntityData.YListKeys = []string {}
+
     return &(lmaipv4Addresses.EntityData)
 }
 
@@ -999,7 +1070,7 @@ type MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. LMA IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1008,14 +1079,17 @@ func (lmaipv4Address *MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address) GetEnti
     lmaipv4Address.EntityData.YangName = "lmaipv4-address"
     lmaipv4Address.EntityData.BundleName = "cisco_ios_xr"
     lmaipv4Address.EntityData.ParentYangName = "lmaipv4-addresses"
-    lmaipv4Address.EntityData.SegmentPath = "lmaipv4-address" + "[address='" + fmt.Sprintf("%v", lmaipv4Address.Address) + "']"
+    lmaipv4Address.EntityData.SegmentPath = "lmaipv4-address" + types.AddKeyToken(lmaipv4Address.Address, "address")
     lmaipv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lmaipv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lmaipv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lmaipv4Address.EntityData.Children = make(map[string]types.YChild)
-    lmaipv4Address.EntityData.Leafs = make(map[string]types.YLeaf)
-    lmaipv4Address.EntityData.Leafs["address"] = types.YLeaf{"Address", lmaipv4Address.Address}
+    lmaipv4Address.EntityData.Children = types.NewOrderedMap()
+    lmaipv4Address.EntityData.Leafs = types.NewOrderedMap()
+    lmaipv4Address.EntityData.Leafs.Append("address", types.YLeaf{"Address", lmaipv4Address.Address})
+
+    lmaipv4Address.EntityData.YListKeys = []string {"Address"}
+
     return &(lmaipv4Address.EntityData)
 }
 
@@ -1026,7 +1100,7 @@ type MobileIp_Lmas_Lma_Roles struct {
     YFilter yfilter.YFilter
 
     // Role of this LMA. The type is slice of MobileIp_Lmas_Lma_Roles_Role.
-    Role []MobileIp_Lmas_Lma_Roles_Role
+    Role []*MobileIp_Lmas_Lma_Roles_Role
 }
 
 func (roles *MobileIp_Lmas_Lma_Roles) GetEntityData() *types.CommonEntityData {
@@ -1039,12 +1113,15 @@ func (roles *MobileIp_Lmas_Lma_Roles) GetEntityData() *types.CommonEntityData {
     roles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     roles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    roles.EntityData.Children = make(map[string]types.YChild)
-    roles.EntityData.Children["role"] = types.YChild{"Role", nil}
+    roles.EntityData.Children = types.NewOrderedMap()
+    roles.EntityData.Children.Append("role", types.YChild{"Role", nil})
     for i := range roles.Role {
-        roles.EntityData.Children[types.GetSegmentPath(&roles.Role[i])] = types.YChild{"Role", &roles.Role[i]}
+        roles.EntityData.Children.Append(types.GetSegmentPath(roles.Role[i]), types.YChild{"Role", roles.Role[i]})
     }
-    roles.EntityData.Leafs = make(map[string]types.YLeaf)
+    roles.EntityData.Leafs = types.NewOrderedMap()
+
+    roles.EntityData.YListKeys = []string {}
+
     return &(roles.EntityData)
 }
 
@@ -1063,14 +1140,17 @@ func (role *MobileIp_Lmas_Lma_Roles_Role) GetEntityData() *types.CommonEntityDat
     role.EntityData.YangName = "role"
     role.EntityData.BundleName = "cisco_ios_xr"
     role.EntityData.ParentYangName = "roles"
-    role.EntityData.SegmentPath = "role" + "[lma-role='" + fmt.Sprintf("%v", role.LmaRole) + "']"
+    role.EntityData.SegmentPath = "role" + types.AddKeyToken(role.LmaRole, "lma-role")
     role.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     role.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     role.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    role.EntityData.Children = make(map[string]types.YChild)
-    role.EntityData.Leafs = make(map[string]types.YLeaf)
-    role.EntityData.Leafs["lma-role"] = types.YLeaf{"LmaRole", role.LmaRole}
+    role.EntityData.Children = types.NewOrderedMap()
+    role.EntityData.Leafs = types.NewOrderedMap()
+    role.EntityData.Leafs.Append("lma-role", types.YLeaf{"LmaRole", role.LmaRole})
+
+    role.EntityData.YListKeys = []string {"LmaRole"}
+
     return &(role.EntityData)
 }
 
@@ -1111,13 +1191,16 @@ func (bindingAttributes *MobileIp_Lmas_Lma_BindingAttributes) GetEntityData() *t
     bindingAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bindingAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bindingAttributes.EntityData.Children = make(map[string]types.YChild)
-    bindingAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    bindingAttributes.EntityData.Leafs["refresh-time"] = types.YLeaf{"RefreshTime", bindingAttributes.RefreshTime}
-    bindingAttributes.EntityData.Leafs["delete-wait-interval"] = types.YLeaf{"DeleteWaitInterval", bindingAttributes.DeleteWaitInterval}
-    bindingAttributes.EntityData.Leafs["create-wait-interval"] = types.YLeaf{"CreateWaitInterval", bindingAttributes.CreateWaitInterval}
-    bindingAttributes.EntityData.Leafs["max-life-time"] = types.YLeaf{"MaxLifeTime", bindingAttributes.MaxLifeTime}
-    bindingAttributes.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", bindingAttributes.Maximum}
+    bindingAttributes.EntityData.Children = types.NewOrderedMap()
+    bindingAttributes.EntityData.Leafs = types.NewOrderedMap()
+    bindingAttributes.EntityData.Leafs.Append("refresh-time", types.YLeaf{"RefreshTime", bindingAttributes.RefreshTime})
+    bindingAttributes.EntityData.Leafs.Append("delete-wait-interval", types.YLeaf{"DeleteWaitInterval", bindingAttributes.DeleteWaitInterval})
+    bindingAttributes.EntityData.Leafs.Append("create-wait-interval", types.YLeaf{"CreateWaitInterval", bindingAttributes.CreateWaitInterval})
+    bindingAttributes.EntityData.Leafs.Append("max-life-time", types.YLeaf{"MaxLifeTime", bindingAttributes.MaxLifeTime})
+    bindingAttributes.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", bindingAttributes.Maximum})
+
+    bindingAttributes.EntityData.YListKeys = []string {}
+
     return &(bindingAttributes.EntityData)
 }
 
@@ -1128,7 +1211,7 @@ type MobileIp_Lmas_Lma_Mags struct {
     YFilter yfilter.YFilter
 
     // MAG within LMA. The type is slice of MobileIp_Lmas_Lma_Mags_Mag.
-    Mag []MobileIp_Lmas_Lma_Mags_Mag
+    Mag []*MobileIp_Lmas_Lma_Mags_Mag
 }
 
 func (mags *MobileIp_Lmas_Lma_Mags) GetEntityData() *types.CommonEntityData {
@@ -1141,12 +1224,15 @@ func (mags *MobileIp_Lmas_Lma_Mags) GetEntityData() *types.CommonEntityData {
     mags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mags.EntityData.Children = make(map[string]types.YChild)
-    mags.EntityData.Children["mag"] = types.YChild{"Mag", nil}
+    mags.EntityData.Children = types.NewOrderedMap()
+    mags.EntityData.Children.Append("mag", types.YChild{"Mag", nil})
     for i := range mags.Mag {
-        mags.EntityData.Children[types.GetSegmentPath(&mags.Mag[i])] = types.YChild{"Mag", &mags.Mag[i]}
+        mags.EntityData.Children.Append(types.GetSegmentPath(mags.Mag[i]), types.YChild{"Mag", mags.Mag[i]})
     }
-    mags.EntityData.Leafs = make(map[string]types.YLeaf)
+    mags.EntityData.Leafs = types.NewOrderedMap()
+
+    mags.EntityData.YListKeys = []string {}
+
     return &(mags.EntityData)
 }
 
@@ -1168,15 +1254,15 @@ type MobileIp_Lmas_Lma_Mags_Mag struct {
     EncapOption interface{}
 
     // Configure IPv4 address for this MAG. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // Configure IPv6 address for this MAG. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 
     // static tunnel for this peer MAG. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     Tunnel interface{}
 
     // Authentication option between PMIPV6 entities.
@@ -1191,21 +1277,24 @@ func (mag *MobileIp_Lmas_Lma_Mags_Mag) GetEntityData() *types.CommonEntityData {
     mag.EntityData.YangName = "mag"
     mag.EntityData.BundleName = "cisco_ios_xr"
     mag.EntityData.ParentYangName = "mags"
-    mag.EntityData.SegmentPath = "mag" + "[mag-name='" + fmt.Sprintf("%v", mag.MagName) + "']" + "[domain-name='" + fmt.Sprintf("%v", mag.DomainName) + "']"
+    mag.EntityData.SegmentPath = "mag" + types.AddKeyToken(mag.MagName, "mag-name") + types.AddKeyToken(mag.DomainName, "domain-name")
     mag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mag.EntityData.Children = make(map[string]types.YChild)
-    mag.EntityData.Children["authenticate-option"] = types.YChild{"AuthenticateOption", &mag.AuthenticateOption}
-    mag.EntityData.Children["dscp"] = types.YChild{"Dscp", &mag.Dscp}
-    mag.EntityData.Leafs = make(map[string]types.YLeaf)
-    mag.EntityData.Leafs["mag-name"] = types.YLeaf{"MagName", mag.MagName}
-    mag.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", mag.DomainName}
-    mag.EntityData.Leafs["encap-option"] = types.YLeaf{"EncapOption", mag.EncapOption}
-    mag.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", mag.Ipv4Address}
-    mag.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", mag.Ipv6Address}
-    mag.EntityData.Leafs["tunnel"] = types.YLeaf{"Tunnel", mag.Tunnel}
+    mag.EntityData.Children = types.NewOrderedMap()
+    mag.EntityData.Children.Append("authenticate-option", types.YChild{"AuthenticateOption", &mag.AuthenticateOption})
+    mag.EntityData.Children.Append("dscp", types.YChild{"Dscp", &mag.Dscp})
+    mag.EntityData.Leafs = types.NewOrderedMap()
+    mag.EntityData.Leafs.Append("mag-name", types.YLeaf{"MagName", mag.MagName})
+    mag.EntityData.Leafs.Append("domain-name", types.YLeaf{"DomainName", mag.DomainName})
+    mag.EntityData.Leafs.Append("encap-option", types.YLeaf{"EncapOption", mag.EncapOption})
+    mag.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", mag.Ipv4Address})
+    mag.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", mag.Ipv6Address})
+    mag.EntityData.Leafs.Append("tunnel", types.YLeaf{"Tunnel", mag.Tunnel})
+
+    mag.EntityData.YListKeys = []string {"MagName", "DomainName"}
+
     return &(mag.EntityData)
 }
 
@@ -1216,7 +1305,7 @@ type MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // SPI in hex value. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // SPI in hex value. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Spi interface{}
 
     // ASCII string. The type is string with length: 1..125.
@@ -1233,10 +1322,13 @@ func (authenticateOption *MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption) GetEnti
     authenticateOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticateOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authenticateOption.EntityData.Children = make(map[string]types.YChild)
-    authenticateOption.EntityData.Leafs = make(map[string]types.YLeaf)
-    authenticateOption.EntityData.Leafs["spi"] = types.YLeaf{"Spi", authenticateOption.Spi}
-    authenticateOption.EntityData.Leafs["key"] = types.YLeaf{"Key", authenticateOption.Key}
+    authenticateOption.EntityData.Children = types.NewOrderedMap()
+    authenticateOption.EntityData.Leafs = types.NewOrderedMap()
+    authenticateOption.EntityData.Leafs.Append("spi", types.YLeaf{"Spi", authenticateOption.Spi})
+    authenticateOption.EntityData.Leafs.Append("key", types.YLeaf{"Key", authenticateOption.Key})
+
+    authenticateOption.EntityData.YListKeys = []string {}
+
     return &(authenticateOption.EntityData)
 }
 
@@ -1263,10 +1355,13 @@ func (dscp *MobileIp_Lmas_Lma_Mags_Mag_Dscp) GetEntityData() *types.CommonEntity
     dscp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dscp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dscp.EntityData.Children = make(map[string]types.YChild)
-    dscp.EntityData.Leafs = make(map[string]types.YLeaf)
-    dscp.EntityData.Leafs["value"] = types.YLeaf{"Value", dscp.Value}
-    dscp.EntityData.Leafs["force"] = types.YLeaf{"Force", dscp.Force}
+    dscp.EntityData.Children = types.NewOrderedMap()
+    dscp.EntityData.Leafs = types.NewOrderedMap()
+    dscp.EntityData.Leafs.Append("value", types.YLeaf{"Value", dscp.Value})
+    dscp.EntityData.Leafs.Append("force", types.YLeaf{"Force", dscp.Force})
+
+    dscp.EntityData.YListKeys = []string {}
+
     return &(dscp.EntityData)
 }
 
@@ -1294,10 +1389,13 @@ func (tunnelAttributes *MobileIp_Lmas_Lma_TunnelAttributes) GetEntityData() *typ
     tunnelAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tunnelAttributes.EntityData.Children = make(map[string]types.YChild)
-    tunnelAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    tunnelAttributes.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", tunnelAttributes.Mtu}
-    tunnelAttributes.EntityData.Leafs["acl"] = types.YLeaf{"Acl", tunnelAttributes.Acl}
+    tunnelAttributes.EntityData.Children = types.NewOrderedMap()
+    tunnelAttributes.EntityData.Leafs = types.NewOrderedMap()
+    tunnelAttributes.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", tunnelAttributes.Mtu})
+    tunnelAttributes.EntityData.Leafs.Append("acl", types.YLeaf{"Acl", tunnelAttributes.Acl})
+
+    tunnelAttributes.EntityData.YListKeys = []string {}
+
     return &(tunnelAttributes.EntityData)
 }
 
@@ -1309,7 +1407,7 @@ type MobileIp_Lmas_Lma_Services struct {
 
     // Service of this LMA. The type is slice of
     // MobileIp_Lmas_Lma_Services_Service.
-    Service []MobileIp_Lmas_Lma_Services_Service
+    Service []*MobileIp_Lmas_Lma_Services_Service
 }
 
 func (services *MobileIp_Lmas_Lma_Services) GetEntityData() *types.CommonEntityData {
@@ -1322,12 +1420,15 @@ func (services *MobileIp_Lmas_Lma_Services) GetEntityData() *types.CommonEntityD
     services.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     services.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    services.EntityData.Children = make(map[string]types.YChild)
-    services.EntityData.Children["service"] = types.YChild{"Service", nil}
+    services.EntityData.Children = types.NewOrderedMap()
+    services.EntityData.Children.Append("service", types.YChild{"Service", nil})
     for i := range services.Service {
-        services.EntityData.Children[types.GetSegmentPath(&services.Service[i])] = types.YChild{"Service", &services.Service[i]}
+        services.EntityData.Children.Append(types.GetSegmentPath(services.Service[i]), types.YChild{"Service", services.Service[i]})
     }
-    services.EntityData.Leafs = make(map[string]types.YLeaf)
+    services.EntityData.Leafs = types.NewOrderedMap()
+
+    services.EntityData.YListKeys = []string {}
+
     return &(services.EntityData)
 }
 
@@ -1376,22 +1477,25 @@ func (service *MobileIp_Lmas_Lma_Services_Service) GetEntityData() *types.Common
     service.EntityData.YangName = "service"
     service.EntityData.BundleName = "cisco_ios_xr"
     service.EntityData.ParentYangName = "services"
-    service.EntityData.SegmentPath = "service" + "[lma-service='" + fmt.Sprintf("%v", service.LmaService) + "']"
+    service.EntityData.SegmentPath = "service" + types.AddKeyToken(service.LmaService, "lma-service")
     service.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     service.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     service.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    service.EntityData.Children = make(map[string]types.YChild)
-    service.EntityData.Children["customers"] = types.YChild{"Customers", &service.Customers}
-    service.EntityData.Leafs = make(map[string]types.YLeaf)
-    service.EntityData.Leafs["lma-service"] = types.YLeaf{"LmaService", service.LmaService}
-    service.EntityData.Leafs["mnp-customer"] = types.YLeaf{"MnpCustomer", service.MnpCustomer}
-    service.EntityData.Leafs["mnp-ipv4-lmn"] = types.YLeaf{"MnpIpv4Lmn", service.MnpIpv4Lmn}
-    service.EntityData.Leafs["mnp-ipv6-lmn"] = types.YLeaf{"MnpIpv6Lmn", service.MnpIpv6Lmn}
-    service.EntityData.Leafs["mnp-lmn"] = types.YLeaf{"MnpLmn", service.MnpLmn}
-    service.EntityData.Leafs["ignore-home-address"] = types.YLeaf{"IgnoreHomeAddress", service.IgnoreHomeAddress}
-    service.EntityData.Leafs["mnp-ipv4-customer"] = types.YLeaf{"MnpIpv4Customer", service.MnpIpv4Customer}
-    service.EntityData.Leafs["mnp-ipv6-customer"] = types.YLeaf{"MnpIpv6Customer", service.MnpIpv6Customer}
+    service.EntityData.Children = types.NewOrderedMap()
+    service.EntityData.Children.Append("customers", types.YChild{"Customers", &service.Customers})
+    service.EntityData.Leafs = types.NewOrderedMap()
+    service.EntityData.Leafs.Append("lma-service", types.YLeaf{"LmaService", service.LmaService})
+    service.EntityData.Leafs.Append("mnp-customer", types.YLeaf{"MnpCustomer", service.MnpCustomer})
+    service.EntityData.Leafs.Append("mnp-ipv4-lmn", types.YLeaf{"MnpIpv4Lmn", service.MnpIpv4Lmn})
+    service.EntityData.Leafs.Append("mnp-ipv6-lmn", types.YLeaf{"MnpIpv6Lmn", service.MnpIpv6Lmn})
+    service.EntityData.Leafs.Append("mnp-lmn", types.YLeaf{"MnpLmn", service.MnpLmn})
+    service.EntityData.Leafs.Append("ignore-home-address", types.YLeaf{"IgnoreHomeAddress", service.IgnoreHomeAddress})
+    service.EntityData.Leafs.Append("mnp-ipv4-customer", types.YLeaf{"MnpIpv4Customer", service.MnpIpv4Customer})
+    service.EntityData.Leafs.Append("mnp-ipv6-customer", types.YLeaf{"MnpIpv6Customer", service.MnpIpv6Customer})
+
+    service.EntityData.YListKeys = []string {"LmaService"}
+
     return &(service.EntityData)
 }
 
@@ -1403,7 +1507,7 @@ type MobileIp_Lmas_Lma_Services_Service_Customers struct {
 
     // customer configuration on this mobile local loop service. The type is slice
     // of MobileIp_Lmas_Lma_Services_Service_Customers_Customer.
-    Customer []MobileIp_Lmas_Lma_Services_Service_Customers_Customer
+    Customer []*MobileIp_Lmas_Lma_Services_Service_Customers_Customer
 }
 
 func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) GetEntityData() *types.CommonEntityData {
@@ -1416,12 +1520,15 @@ func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) GetEntityData() *
     customers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     customers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    customers.EntityData.Children = make(map[string]types.YChild)
-    customers.EntityData.Children["customer"] = types.YChild{"Customer", nil}
+    customers.EntityData.Children = types.NewOrderedMap()
+    customers.EntityData.Children.Append("customer", types.YChild{"Customer", nil})
     for i := range customers.Customer {
-        customers.EntityData.Children[types.GetSegmentPath(&customers.Customer[i])] = types.YChild{"Customer", &customers.Customer[i]}
+        customers.EntityData.Children.Append(types.GetSegmentPath(customers.Customer[i]), types.YChild{"Customer", customers.Customer[i]})
     }
-    customers.EntityData.Leafs = make(map[string]types.YLeaf)
+    customers.EntityData.Leafs = types.NewOrderedMap()
+
+    customers.EntityData.YListKeys = []string {}
+
     return &(customers.EntityData)
 }
 
@@ -1495,29 +1602,32 @@ func (customer *MobileIp_Lmas_Lma_Services_Service_Customers_Customer) GetEntity
     customer.EntityData.YangName = "customer"
     customer.EntityData.BundleName = "cisco_ios_xr"
     customer.EntityData.ParentYangName = "customers"
-    customer.EntityData.SegmentPath = "customer" + "[customer-name='" + fmt.Sprintf("%v", customer.CustomerName) + "']" + "[vrf-name='" + fmt.Sprintf("%v", customer.VrfName) + "']"
+    customer.EntityData.SegmentPath = "customer" + types.AddKeyToken(customer.CustomerName, "customer-name") + types.AddKeyToken(customer.VrfName, "vrf-name")
     customer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     customer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     customer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    customer.EntityData.Children = make(map[string]types.YChild)
-    customer.EntityData.Children["authenticate-option"] = types.YChild{"AuthenticateOption", &customer.AuthenticateOption}
-    customer.EntityData.Children["heart-beat-attributes"] = types.YChild{"HeartBeatAttributes", &customer.HeartBeatAttributes}
-    customer.EntityData.Children["transports"] = types.YChild{"Transports", &customer.Transports}
-    customer.EntityData.Children["network-attributes"] = types.YChild{"NetworkAttributes", &customer.NetworkAttributes}
-    customer.EntityData.Children["gre-key"] = types.YChild{"GreKey", &customer.GreKey}
-    customer.EntityData.Children["binding-attributes"] = types.YChild{"BindingAttributes", &customer.BindingAttributes}
-    customer.EntityData.Leafs = make(map[string]types.YLeaf)
-    customer.EntityData.Leafs["customer-name"] = types.YLeaf{"CustomerName", customer.CustomerName}
-    customer.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", customer.VrfName}
-    customer.EntityData.Leafs["mnp-customer"] = types.YLeaf{"MnpCustomer", customer.MnpCustomer}
-    customer.EntityData.Leafs["mnp-ipv4-lmn"] = types.YLeaf{"MnpIpv4Lmn", customer.MnpIpv4Lmn}
-    customer.EntityData.Leafs["mnp-ipv6-lmn"] = types.YLeaf{"MnpIpv6Lmn", customer.MnpIpv6Lmn}
-    customer.EntityData.Leafs["mnp-lmn"] = types.YLeaf{"MnpLmn", customer.MnpLmn}
-    customer.EntityData.Leafs["mnp-ipv4-customer"] = types.YLeaf{"MnpIpv4Customer", customer.MnpIpv4Customer}
-    customer.EntityData.Leafs["mnp-ipv6-customer"] = types.YLeaf{"MnpIpv6Customer", customer.MnpIpv6Customer}
-    customer.EntityData.Leafs["mobile-route-ad"] = types.YLeaf{"MobileRouteAd", customer.MobileRouteAd}
-    customer.EntityData.Leafs["bandwidth-aggregate"] = types.YLeaf{"BandwidthAggregate", customer.BandwidthAggregate}
+    customer.EntityData.Children = types.NewOrderedMap()
+    customer.EntityData.Children.Append("authenticate-option", types.YChild{"AuthenticateOption", &customer.AuthenticateOption})
+    customer.EntityData.Children.Append("heart-beat-attributes", types.YChild{"HeartBeatAttributes", &customer.HeartBeatAttributes})
+    customer.EntityData.Children.Append("transports", types.YChild{"Transports", &customer.Transports})
+    customer.EntityData.Children.Append("network-attributes", types.YChild{"NetworkAttributes", &customer.NetworkAttributes})
+    customer.EntityData.Children.Append("gre-key", types.YChild{"GreKey", &customer.GreKey})
+    customer.EntityData.Children.Append("binding-attributes", types.YChild{"BindingAttributes", &customer.BindingAttributes})
+    customer.EntityData.Leafs = types.NewOrderedMap()
+    customer.EntityData.Leafs.Append("customer-name", types.YLeaf{"CustomerName", customer.CustomerName})
+    customer.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", customer.VrfName})
+    customer.EntityData.Leafs.Append("mnp-customer", types.YLeaf{"MnpCustomer", customer.MnpCustomer})
+    customer.EntityData.Leafs.Append("mnp-ipv4-lmn", types.YLeaf{"MnpIpv4Lmn", customer.MnpIpv4Lmn})
+    customer.EntityData.Leafs.Append("mnp-ipv6-lmn", types.YLeaf{"MnpIpv6Lmn", customer.MnpIpv6Lmn})
+    customer.EntityData.Leafs.Append("mnp-lmn", types.YLeaf{"MnpLmn", customer.MnpLmn})
+    customer.EntityData.Leafs.Append("mnp-ipv4-customer", types.YLeaf{"MnpIpv4Customer", customer.MnpIpv4Customer})
+    customer.EntityData.Leafs.Append("mnp-ipv6-customer", types.YLeaf{"MnpIpv6Customer", customer.MnpIpv6Customer})
+    customer.EntityData.Leafs.Append("mobile-route-ad", types.YLeaf{"MobileRouteAd", customer.MobileRouteAd})
+    customer.EntityData.Leafs.Append("bandwidth-aggregate", types.YLeaf{"BandwidthAggregate", customer.BandwidthAggregate})
+
+    customer.EntityData.YListKeys = []string {"CustomerName", "VrfName"}
+
     return &(customer.EntityData)
 }
 
@@ -1528,7 +1638,7 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption st
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // SPI in hex value. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // SPI in hex value. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Spi interface{}
 
     // ASCII string. The type is string with length: 1..125.
@@ -1545,10 +1655,13 @@ func (authenticateOption *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_
     authenticateOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticateOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authenticateOption.EntityData.Children = make(map[string]types.YChild)
-    authenticateOption.EntityData.Leafs = make(map[string]types.YLeaf)
-    authenticateOption.EntityData.Leafs["spi"] = types.YLeaf{"Spi", authenticateOption.Spi}
-    authenticateOption.EntityData.Leafs["key"] = types.YLeaf{"Key", authenticateOption.Key}
+    authenticateOption.EntityData.Children = types.NewOrderedMap()
+    authenticateOption.EntityData.Leafs = types.NewOrderedMap()
+    authenticateOption.EntityData.Leafs.Append("spi", types.YLeaf{"Spi", authenticateOption.Spi})
+    authenticateOption.EntityData.Leafs.Append("key", types.YLeaf{"Key", authenticateOption.Key})
+
+    authenticateOption.EntityData.YListKeys = []string {}
+
     return &(authenticateOption.EntityData)
 }
 
@@ -1579,11 +1692,14 @@ func (heartBeatAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer
     heartBeatAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     heartBeatAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    heartBeatAttributes.EntityData.Children = make(map[string]types.YChild)
-    heartBeatAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    heartBeatAttributes.EntityData.Leafs["interval"] = types.YLeaf{"Interval", heartBeatAttributes.Interval}
-    heartBeatAttributes.EntityData.Leafs["retries"] = types.YLeaf{"Retries", heartBeatAttributes.Retries}
-    heartBeatAttributes.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", heartBeatAttributes.Timeout}
+    heartBeatAttributes.EntityData.Children = types.NewOrderedMap()
+    heartBeatAttributes.EntityData.Leafs = types.NewOrderedMap()
+    heartBeatAttributes.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", heartBeatAttributes.Interval})
+    heartBeatAttributes.EntityData.Leafs.Append("retries", types.YLeaf{"Retries", heartBeatAttributes.Retries})
+    heartBeatAttributes.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", heartBeatAttributes.Timeout})
+
+    heartBeatAttributes.EntityData.YListKeys = []string {}
+
     return &(heartBeatAttributes.EntityData)
 }
 
@@ -1595,7 +1711,7 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports struct {
 
     // Customer transport attributes. The type is slice of
     // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport.
-    Transport []MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport
+    Transport []*MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport
 }
 
 func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports) GetEntityData() *types.CommonEntityData {
@@ -1608,12 +1724,15 @@ func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transpor
     transports.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transports.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transports.EntityData.Children = make(map[string]types.YChild)
-    transports.EntityData.Children["transport"] = types.YChild{"Transport", nil}
+    transports.EntityData.Children = types.NewOrderedMap()
+    transports.EntityData.Children.Append("transport", types.YChild{"Transport", nil})
     for i := range transports.Transport {
-        transports.EntityData.Children[types.GetSegmentPath(&transports.Transport[i])] = types.YChild{"Transport", &transports.Transport[i]}
+        transports.EntityData.Children.Append(types.GetSegmentPath(transports.Transport[i]), types.YChild{"Transport", transports.Transport[i]})
     }
-    transports.EntityData.Leafs = make(map[string]types.YLeaf)
+    transports.EntityData.Leafs = types.NewOrderedMap()
+
+    transports.EntityData.YListKeys = []string {}
+
     return &(transports.EntityData)
 }
 
@@ -1627,11 +1746,11 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport 
     VrfName interface{}
 
     // Configure IPv4 address for this LMA. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // Configure IPv6 address for this LMA. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -1640,16 +1759,19 @@ func (transport *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transport
     transport.EntityData.YangName = "transport"
     transport.EntityData.BundleName = "cisco_ios_xr"
     transport.EntityData.ParentYangName = "transports"
-    transport.EntityData.SegmentPath = "transport" + "[vrf-name='" + fmt.Sprintf("%v", transport.VrfName) + "']"
+    transport.EntityData.SegmentPath = "transport" + types.AddKeyToken(transport.VrfName, "vrf-name")
     transport.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transport.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transport.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transport.EntityData.Children = make(map[string]types.YChild)
-    transport.EntityData.Leafs = make(map[string]types.YLeaf)
-    transport.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", transport.VrfName}
-    transport.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", transport.Ipv4Address}
-    transport.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", transport.Ipv6Address}
+    transport.EntityData.Children = types.NewOrderedMap()
+    transport.EntityData.Leafs = types.NewOrderedMap()
+    transport.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", transport.VrfName})
+    transport.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", transport.Ipv4Address})
+    transport.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", transport.Ipv6Address})
+
+    transport.EntityData.YListKeys = []string {"VrfName"}
+
     return &(transport.EntityData)
 }
 
@@ -1676,10 +1798,13 @@ func (networkAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_N
     networkAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    networkAttributes.EntityData.Children = make(map[string]types.YChild)
-    networkAttributes.EntityData.Children["authorizes"] = types.YChild{"Authorizes", &networkAttributes.Authorizes}
-    networkAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    networkAttributes.EntityData.Leafs["unauthorize"] = types.YLeaf{"Unauthorize", networkAttributes.Unauthorize}
+    networkAttributes.EntityData.Children = types.NewOrderedMap()
+    networkAttributes.EntityData.Children.Append("authorizes", types.YChild{"Authorizes", &networkAttributes.Authorizes})
+    networkAttributes.EntityData.Leafs = types.NewOrderedMap()
+    networkAttributes.EntityData.Leafs.Append("unauthorize", types.YLeaf{"Unauthorize", networkAttributes.Unauthorize})
+
+    networkAttributes.EntityData.YListKeys = []string {}
+
     return &(networkAttributes.EntityData)
 }
 
@@ -1691,7 +1816,7 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
 
     // not authorize the network prefixes. The type is slice of
     // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize.
-    Authorize []MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize
+    Authorize []*MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize
 }
 
 func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes) GetEntityData() *types.CommonEntityData {
@@ -1704,12 +1829,15 @@ func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkA
     authorizes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorizes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authorizes.EntityData.Children = make(map[string]types.YChild)
-    authorizes.EntityData.Children["authorize"] = types.YChild{"Authorize", nil}
+    authorizes.EntityData.Children = types.NewOrderedMap()
+    authorizes.EntityData.Children.Append("authorize", types.YChild{"Authorize", nil})
     for i := range authorizes.Authorize {
-        authorizes.EntityData.Children[types.GetSegmentPath(&authorizes.Authorize[i])] = types.YChild{"Authorize", &authorizes.Authorize[i]}
+        authorizes.EntityData.Children.Append(types.GetSegmentPath(authorizes.Authorize[i]), types.YChild{"Authorize", authorizes.Authorize[i]})
     }
-    authorizes.EntityData.Leafs = make(map[string]types.YLeaf)
+    authorizes.EntityData.Leafs = types.NewOrderedMap()
+
+    authorizes.EntityData.YListKeys = []string {}
+
     return &(authorizes.EntityData)
 }
 
@@ -1732,15 +1860,18 @@ func (authorize *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAt
     authorize.EntityData.YangName = "authorize"
     authorize.EntityData.BundleName = "cisco_ios_xr"
     authorize.EntityData.ParentYangName = "authorizes"
-    authorize.EntityData.SegmentPath = "authorize" + "[name='" + fmt.Sprintf("%v", authorize.Name) + "']"
+    authorize.EntityData.SegmentPath = "authorize" + types.AddKeyToken(authorize.Name, "name")
     authorize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authorize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authorize.EntityData.Children = make(map[string]types.YChild)
-    authorize.EntityData.Children["pool-attributes"] = types.YChild{"PoolAttributes", &authorize.PoolAttributes}
-    authorize.EntityData.Leafs = make(map[string]types.YLeaf)
-    authorize.EntityData.Leafs["name"] = types.YLeaf{"Name", authorize.Name}
+    authorize.EntityData.Children = types.NewOrderedMap()
+    authorize.EntityData.Children.Append("pool-attributes", types.YChild{"PoolAttributes", &authorize.PoolAttributes})
+    authorize.EntityData.Leafs = types.NewOrderedMap()
+    authorize.EntityData.Leafs.Append("name", types.YLeaf{"Name", authorize.Name})
+
+    authorize.EntityData.YListKeys = []string {"Name"}
+
     return &(authorize.EntityData)
 }
 
@@ -1767,10 +1898,13 @@ func (poolAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Netw
     poolAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     poolAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    poolAttributes.EntityData.Children = make(map[string]types.YChild)
-    poolAttributes.EntityData.Children["mobile-node"] = types.YChild{"MobileNode", &poolAttributes.MobileNode}
-    poolAttributes.EntityData.Children["mobile-network"] = types.YChild{"MobileNetwork", &poolAttributes.MobileNetwork}
-    poolAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    poolAttributes.EntityData.Children = types.NewOrderedMap()
+    poolAttributes.EntityData.Children.Append("mobile-node", types.YChild{"MobileNode", &poolAttributes.MobileNode})
+    poolAttributes.EntityData.Children.Append("mobile-network", types.YChild{"MobileNetwork", &poolAttributes.MobileNetwork})
+    poolAttributes.EntityData.Leafs = types.NewOrderedMap()
+
+    poolAttributes.EntityData.YListKeys = []string {}
+
     return &(poolAttributes.EntityData)
 }
 
@@ -1797,10 +1931,13 @@ func (mobileNode *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkA
     mobileNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobileNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mobileNode.EntityData.Children = make(map[string]types.YChild)
-    mobileNode.EntityData.Children["ipv4-pool"] = types.YChild{"Ipv4Pool", &mobileNode.Ipv4Pool}
-    mobileNode.EntityData.Children["ipv6-pool"] = types.YChild{"Ipv6Pool", &mobileNode.Ipv6Pool}
-    mobileNode.EntityData.Leafs = make(map[string]types.YLeaf)
+    mobileNode.EntityData.Children = types.NewOrderedMap()
+    mobileNode.EntityData.Children.Append("ipv4-pool", types.YChild{"Ipv4Pool", &mobileNode.Ipv4Pool})
+    mobileNode.EntityData.Children.Append("ipv6-pool", types.YChild{"Ipv6Pool", &mobileNode.Ipv6Pool})
+    mobileNode.EntityData.Leafs = types.NewOrderedMap()
+
+    mobileNode.EntityData.YListKeys = []string {}
+
     return &(mobileNode.EntityData)
 }
 
@@ -1811,7 +1948,7 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
     YFilter yfilter.YFilter
 
     // Pool IPv4 start address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // IPv4 Pool Prefix value. The type is interface{} with range: 8..30.
@@ -1828,10 +1965,13 @@ func (ipv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAtt
     ipv4Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4Pool.EntityData.Children = make(map[string]types.YChild)
-    ipv4Pool.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4Pool.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", ipv4Pool.StartAddress}
-    ipv4Pool.EntityData.Leafs["pool-prefix"] = types.YLeaf{"PoolPrefix", ipv4Pool.PoolPrefix}
+    ipv4Pool.EntityData.Children = types.NewOrderedMap()
+    ipv4Pool.EntityData.Leafs = types.NewOrderedMap()
+    ipv4Pool.EntityData.Leafs.Append("start-address", types.YLeaf{"StartAddress", ipv4Pool.StartAddress})
+    ipv4Pool.EntityData.Leafs.Append("pool-prefix", types.YLeaf{"PoolPrefix", ipv4Pool.PoolPrefix})
+
+    ipv4Pool.EntityData.YListKeys = []string {}
+
     return &(ipv4Pool.EntityData)
 }
 
@@ -1842,7 +1982,7 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
     YFilter yfilter.YFilter
 
     // Pool IPv6 start address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // IPv6 Pool Prefix value. The type is interface{} with range: 8..62.
@@ -1859,10 +1999,13 @@ func (ipv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAtt
     ipv6Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6Pool.EntityData.Children = make(map[string]types.YChild)
-    ipv6Pool.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6Pool.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", ipv6Pool.StartAddress}
-    ipv6Pool.EntityData.Leafs["pool-prefix"] = types.YLeaf{"PoolPrefix", ipv6Pool.PoolPrefix}
+    ipv6Pool.EntityData.Children = types.NewOrderedMap()
+    ipv6Pool.EntityData.Leafs = types.NewOrderedMap()
+    ipv6Pool.EntityData.Leafs.Append("start-address", types.YLeaf{"StartAddress", ipv6Pool.StartAddress})
+    ipv6Pool.EntityData.Leafs.Append("pool-prefix", types.YLeaf{"PoolPrefix", ipv6Pool.PoolPrefix})
+
+    ipv6Pool.EntityData.YListKeys = []string {}
+
     return &(ipv6Pool.EntityData)
 }
 
@@ -1889,10 +2032,13 @@ func (mobileNetwork *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Netwo
     mobileNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobileNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mobileNetwork.EntityData.Children = make(map[string]types.YChild)
-    mobileNetwork.EntityData.Children["mripv6-pools"] = types.YChild{"Mripv6Pools", &mobileNetwork.Mripv6Pools}
-    mobileNetwork.EntityData.Children["mripv4-pools"] = types.YChild{"Mripv4Pools", &mobileNetwork.Mripv4Pools}
-    mobileNetwork.EntityData.Leafs = make(map[string]types.YLeaf)
+    mobileNetwork.EntityData.Children = types.NewOrderedMap()
+    mobileNetwork.EntityData.Children.Append("mripv6-pools", types.YChild{"Mripv6Pools", &mobileNetwork.Mripv6Pools})
+    mobileNetwork.EntityData.Children.Append("mripv4-pools", types.YChild{"Mripv4Pools", &mobileNetwork.Mripv4Pools})
+    mobileNetwork.EntityData.Leafs = types.NewOrderedMap()
+
+    mobileNetwork.EntityData.YListKeys = []string {}
+
     return &(mobileNetwork.EntityData)
 }
 
@@ -1904,7 +2050,7 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
 
     // ipv6 pool. The type is slice of
     // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool.
-    Mripv6Pool []MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool
+    Mripv6Pool []*MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool
 }
 
 func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools) GetEntityData() *types.CommonEntityData {
@@ -1917,12 +2063,15 @@ func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Network
     mripv6Pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mripv6Pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mripv6Pools.EntityData.Children = make(map[string]types.YChild)
-    mripv6Pools.EntityData.Children["mripv6-pool"] = types.YChild{"Mripv6Pool", nil}
+    mripv6Pools.EntityData.Children = types.NewOrderedMap()
+    mripv6Pools.EntityData.Children.Append("mripv6-pool", types.YChild{"Mripv6Pool", nil})
     for i := range mripv6Pools.Mripv6Pool {
-        mripv6Pools.EntityData.Children[types.GetSegmentPath(&mripv6Pools.Mripv6Pool[i])] = types.YChild{"Mripv6Pool", &mripv6Pools.Mripv6Pool[i]}
+        mripv6Pools.EntityData.Children.Append(types.GetSegmentPath(mripv6Pools.Mripv6Pool[i]), types.YChild{"Mripv6Pool", mripv6Pools.Mripv6Pool[i]})
     }
-    mripv6Pools.EntityData.Leafs = make(map[string]types.YLeaf)
+    mripv6Pools.EntityData.Leafs = types.NewOrderedMap()
+
+    mripv6Pools.EntityData.YListKeys = []string {}
+
     return &(mripv6Pools.EntityData)
 }
 
@@ -1934,7 +2083,7 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
 
     // This attribute is a key. Pool IPv6 start address. The type is string with
     // pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // IPv6 Pool Prefix value. The type is interface{} with range: 8..64.
@@ -1949,16 +2098,19 @@ func (mripv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkA
     mripv6Pool.EntityData.YangName = "mripv6-pool"
     mripv6Pool.EntityData.BundleName = "cisco_ios_xr"
     mripv6Pool.EntityData.ParentYangName = "mripv6-pools"
-    mripv6Pool.EntityData.SegmentPath = "mripv6-pool" + "[start-address='" + fmt.Sprintf("%v", mripv6Pool.StartAddress) + "']"
+    mripv6Pool.EntityData.SegmentPath = "mripv6-pool" + types.AddKeyToken(mripv6Pool.StartAddress, "start-address")
     mripv6Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mripv6Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mripv6Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mripv6Pool.EntityData.Children = make(map[string]types.YChild)
-    mripv6Pool.EntityData.Leafs = make(map[string]types.YLeaf)
-    mripv6Pool.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", mripv6Pool.StartAddress}
-    mripv6Pool.EntityData.Leafs["pool-prefix"] = types.YLeaf{"PoolPrefix", mripv6Pool.PoolPrefix}
-    mripv6Pool.EntityData.Leafs["network-prefix"] = types.YLeaf{"NetworkPrefix", mripv6Pool.NetworkPrefix}
+    mripv6Pool.EntityData.Children = types.NewOrderedMap()
+    mripv6Pool.EntityData.Leafs = types.NewOrderedMap()
+    mripv6Pool.EntityData.Leafs.Append("start-address", types.YLeaf{"StartAddress", mripv6Pool.StartAddress})
+    mripv6Pool.EntityData.Leafs.Append("pool-prefix", types.YLeaf{"PoolPrefix", mripv6Pool.PoolPrefix})
+    mripv6Pool.EntityData.Leafs.Append("network-prefix", types.YLeaf{"NetworkPrefix", mripv6Pool.NetworkPrefix})
+
+    mripv6Pool.EntityData.YListKeys = []string {"StartAddress"}
+
     return &(mripv6Pool.EntityData)
 }
 
@@ -1970,7 +2122,7 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
 
     // ipv4 pool. The type is slice of
     // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool.
-    Mripv4Pool []MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool
+    Mripv4Pool []*MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool
 }
 
 func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools) GetEntityData() *types.CommonEntityData {
@@ -1983,12 +2135,15 @@ func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Network
     mripv4Pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mripv4Pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mripv4Pools.EntityData.Children = make(map[string]types.YChild)
-    mripv4Pools.EntityData.Children["mripv4-pool"] = types.YChild{"Mripv4Pool", nil}
+    mripv4Pools.EntityData.Children = types.NewOrderedMap()
+    mripv4Pools.EntityData.Children.Append("mripv4-pool", types.YChild{"Mripv4Pool", nil})
     for i := range mripv4Pools.Mripv4Pool {
-        mripv4Pools.EntityData.Children[types.GetSegmentPath(&mripv4Pools.Mripv4Pool[i])] = types.YChild{"Mripv4Pool", &mripv4Pools.Mripv4Pool[i]}
+        mripv4Pools.EntityData.Children.Append(types.GetSegmentPath(mripv4Pools.Mripv4Pool[i]), types.YChild{"Mripv4Pool", mripv4Pools.Mripv4Pool[i]})
     }
-    mripv4Pools.EntityData.Leafs = make(map[string]types.YLeaf)
+    mripv4Pools.EntityData.Leafs = types.NewOrderedMap()
+
+    mripv4Pools.EntityData.YListKeys = []string {}
+
     return &(mripv4Pools.EntityData)
 }
 
@@ -2000,7 +2155,7 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
 
     // This attribute is a key. Pool IPv4 start address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // IPv4 Pool Prefix value. The type is interface{} with range: 8..30.
@@ -2015,16 +2170,19 @@ func (mripv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkA
     mripv4Pool.EntityData.YangName = "mripv4-pool"
     mripv4Pool.EntityData.BundleName = "cisco_ios_xr"
     mripv4Pool.EntityData.ParentYangName = "mripv4-pools"
-    mripv4Pool.EntityData.SegmentPath = "mripv4-pool" + "[start-address='" + fmt.Sprintf("%v", mripv4Pool.StartAddress) + "']"
+    mripv4Pool.EntityData.SegmentPath = "mripv4-pool" + types.AddKeyToken(mripv4Pool.StartAddress, "start-address")
     mripv4Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mripv4Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mripv4Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mripv4Pool.EntityData.Children = make(map[string]types.YChild)
-    mripv4Pool.EntityData.Leafs = make(map[string]types.YLeaf)
-    mripv4Pool.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", mripv4Pool.StartAddress}
-    mripv4Pool.EntityData.Leafs["pool-prefix"] = types.YLeaf{"PoolPrefix", mripv4Pool.PoolPrefix}
-    mripv4Pool.EntityData.Leafs["network-prefix"] = types.YLeaf{"NetworkPrefix", mripv4Pool.NetworkPrefix}
+    mripv4Pool.EntityData.Children = types.NewOrderedMap()
+    mripv4Pool.EntityData.Leafs = types.NewOrderedMap()
+    mripv4Pool.EntityData.Leafs.Append("start-address", types.YLeaf{"StartAddress", mripv4Pool.StartAddress})
+    mripv4Pool.EntityData.Leafs.Append("pool-prefix", types.YLeaf{"PoolPrefix", mripv4Pool.PoolPrefix})
+    mripv4Pool.EntityData.Leafs.Append("network-prefix", types.YLeaf{"NetworkPrefix", mripv4Pool.NetworkPrefix})
+
+    mripv4Pool.EntityData.YListKeys = []string {"StartAddress"}
+
     return &(mripv4Pool.EntityData)
 }
 
@@ -2051,10 +2209,13 @@ func (greKey *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey) GetE
     greKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     greKey.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    greKey.EntityData.Children = make(map[string]types.YChild)
-    greKey.EntityData.Leafs = make(map[string]types.YLeaf)
-    greKey.EntityData.Leafs["gre-key-type"] = types.YLeaf{"GreKeyType", greKey.GreKeyType}
-    greKey.EntityData.Leafs["gre-key-value"] = types.YLeaf{"GreKeyValue", greKey.GreKeyValue}
+    greKey.EntityData.Children = types.NewOrderedMap()
+    greKey.EntityData.Leafs = types.NewOrderedMap()
+    greKey.EntityData.Leafs.Append("gre-key-type", types.YLeaf{"GreKeyType", greKey.GreKeyType})
+    greKey.EntityData.Leafs.Append("gre-key-value", types.YLeaf{"GreKeyValue", greKey.GreKeyValue})
+
+    greKey.EntityData.YListKeys = []string {}
+
     return &(greKey.EntityData)
 }
 
@@ -2079,9 +2240,12 @@ func (bindingAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_B
     bindingAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bindingAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bindingAttributes.EntityData.Children = make(map[string]types.YChild)
-    bindingAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    bindingAttributes.EntityData.Leafs["max-life-time"] = types.YLeaf{"MaxLifeTime", bindingAttributes.MaxLifeTime}
+    bindingAttributes.EntityData.Children = types.NewOrderedMap()
+    bindingAttributes.EntityData.Leafs = types.NewOrderedMap()
+    bindingAttributes.EntityData.Leafs.Append("max-life-time", types.YLeaf{"MaxLifeTime", bindingAttributes.MaxLifeTime})
+
+    bindingAttributes.EntityData.YListKeys = []string {}
+
     return &(bindingAttributes.EntityData)
 }
 
@@ -2093,7 +2257,7 @@ type MobileIp_Lmas_Lma_Networks struct {
 
     // network for this LMA. The type is slice of
     // MobileIp_Lmas_Lma_Networks_Network.
-    Network []MobileIp_Lmas_Lma_Networks_Network
+    Network []*MobileIp_Lmas_Lma_Networks_Network
 }
 
 func (networks *MobileIp_Lmas_Lma_Networks) GetEntityData() *types.CommonEntityData {
@@ -2106,12 +2270,15 @@ func (networks *MobileIp_Lmas_Lma_Networks) GetEntityData() *types.CommonEntityD
     networks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    networks.EntityData.Children = make(map[string]types.YChild)
-    networks.EntityData.Children["network"] = types.YChild{"Network", nil}
+    networks.EntityData.Children = types.NewOrderedMap()
+    networks.EntityData.Children.Append("network", types.YChild{"Network", nil})
     for i := range networks.Network {
-        networks.EntityData.Children[types.GetSegmentPath(&networks.Network[i])] = types.YChild{"Network", &networks.Network[i]}
+        networks.EntityData.Children.Append(types.GetSegmentPath(networks.Network[i]), types.YChild{"Network", networks.Network[i]})
     }
-    networks.EntityData.Leafs = make(map[string]types.YLeaf)
+    networks.EntityData.Leafs = types.NewOrderedMap()
+
+    networks.EntityData.YListKeys = []string {}
+
     return &(networks.EntityData)
 }
 
@@ -2134,15 +2301,18 @@ func (network *MobileIp_Lmas_Lma_Networks_Network) GetEntityData() *types.Common
     network.EntityData.YangName = "network"
     network.EntityData.BundleName = "cisco_ios_xr"
     network.EntityData.ParentYangName = "networks"
-    network.EntityData.SegmentPath = "network" + "[lma-network='" + fmt.Sprintf("%v", network.LmaNetwork) + "']"
+    network.EntityData.SegmentPath = "network" + types.AddKeyToken(network.LmaNetwork, "lma-network")
     network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    network.EntityData.Children = make(map[string]types.YChild)
-    network.EntityData.Children["pool-attributes"] = types.YChild{"PoolAttributes", &network.PoolAttributes}
-    network.EntityData.Leafs = make(map[string]types.YLeaf)
-    network.EntityData.Leafs["lma-network"] = types.YLeaf{"LmaNetwork", network.LmaNetwork}
+    network.EntityData.Children = types.NewOrderedMap()
+    network.EntityData.Children.Append("pool-attributes", types.YChild{"PoolAttributes", &network.PoolAttributes})
+    network.EntityData.Leafs = types.NewOrderedMap()
+    network.EntityData.Leafs.Append("lma-network", types.YLeaf{"LmaNetwork", network.LmaNetwork})
+
+    network.EntityData.YListKeys = []string {"LmaNetwork"}
+
     return &(network.EntityData)
 }
 
@@ -2169,10 +2339,13 @@ func (poolAttributes *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes) GetEnti
     poolAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     poolAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    poolAttributes.EntityData.Children = make(map[string]types.YChild)
-    poolAttributes.EntityData.Children["mobile-node"] = types.YChild{"MobileNode", &poolAttributes.MobileNode}
-    poolAttributes.EntityData.Children["mobile-network"] = types.YChild{"MobileNetwork", &poolAttributes.MobileNetwork}
-    poolAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    poolAttributes.EntityData.Children = types.NewOrderedMap()
+    poolAttributes.EntityData.Children.Append("mobile-node", types.YChild{"MobileNode", &poolAttributes.MobileNode})
+    poolAttributes.EntityData.Children.Append("mobile-network", types.YChild{"MobileNetwork", &poolAttributes.MobileNetwork})
+    poolAttributes.EntityData.Leafs = types.NewOrderedMap()
+
+    poolAttributes.EntityData.YListKeys = []string {}
+
     return &(poolAttributes.EntityData)
 }
 
@@ -2199,10 +2372,13 @@ func (mobileNode *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode) 
     mobileNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobileNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mobileNode.EntityData.Children = make(map[string]types.YChild)
-    mobileNode.EntityData.Children["ipv4-pool"] = types.YChild{"Ipv4Pool", &mobileNode.Ipv4Pool}
-    mobileNode.EntityData.Children["ipv6-pool"] = types.YChild{"Ipv6Pool", &mobileNode.Ipv6Pool}
-    mobileNode.EntityData.Leafs = make(map[string]types.YLeaf)
+    mobileNode.EntityData.Children = types.NewOrderedMap()
+    mobileNode.EntityData.Children.Append("ipv4-pool", types.YChild{"Ipv4Pool", &mobileNode.Ipv4Pool})
+    mobileNode.EntityData.Children.Append("ipv6-pool", types.YChild{"Ipv6Pool", &mobileNode.Ipv6Pool})
+    mobileNode.EntityData.Leafs = types.NewOrderedMap()
+
+    mobileNode.EntityData.YListKeys = []string {}
+
     return &(mobileNode.EntityData)
 }
 
@@ -2213,7 +2389,7 @@ type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool struc
     YFilter yfilter.YFilter
 
     // Pool IPv4 start address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // IPv4 Pool Prefix value. The type is interface{} with range: 8..30.
@@ -2230,10 +2406,13 @@ func (ipv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv
     ipv4Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4Pool.EntityData.Children = make(map[string]types.YChild)
-    ipv4Pool.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4Pool.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", ipv4Pool.StartAddress}
-    ipv4Pool.EntityData.Leafs["pool-prefix"] = types.YLeaf{"PoolPrefix", ipv4Pool.PoolPrefix}
+    ipv4Pool.EntityData.Children = types.NewOrderedMap()
+    ipv4Pool.EntityData.Leafs = types.NewOrderedMap()
+    ipv4Pool.EntityData.Leafs.Append("start-address", types.YLeaf{"StartAddress", ipv4Pool.StartAddress})
+    ipv4Pool.EntityData.Leafs.Append("pool-prefix", types.YLeaf{"PoolPrefix", ipv4Pool.PoolPrefix})
+
+    ipv4Pool.EntityData.YListKeys = []string {}
+
     return &(ipv4Pool.EntityData)
 }
 
@@ -2244,7 +2423,7 @@ type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool struc
     YFilter yfilter.YFilter
 
     // Pool IPv6 start address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // IPv6 Pool Prefix value. The type is interface{} with range: 8..62.
@@ -2261,10 +2440,13 @@ func (ipv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv
     ipv6Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6Pool.EntityData.Children = make(map[string]types.YChild)
-    ipv6Pool.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6Pool.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", ipv6Pool.StartAddress}
-    ipv6Pool.EntityData.Leafs["pool-prefix"] = types.YLeaf{"PoolPrefix", ipv6Pool.PoolPrefix}
+    ipv6Pool.EntityData.Children = types.NewOrderedMap()
+    ipv6Pool.EntityData.Leafs = types.NewOrderedMap()
+    ipv6Pool.EntityData.Leafs.Append("start-address", types.YLeaf{"StartAddress", ipv6Pool.StartAddress})
+    ipv6Pool.EntityData.Leafs.Append("pool-prefix", types.YLeaf{"PoolPrefix", ipv6Pool.PoolPrefix})
+
+    ipv6Pool.EntityData.YListKeys = []string {}
+
     return &(ipv6Pool.EntityData)
 }
 
@@ -2291,10 +2473,13 @@ func (mobileNetwork *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNet
     mobileNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobileNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mobileNetwork.EntityData.Children = make(map[string]types.YChild)
-    mobileNetwork.EntityData.Children["mripv6-pools"] = types.YChild{"Mripv6Pools", &mobileNetwork.Mripv6Pools}
-    mobileNetwork.EntityData.Children["mripv4-pools"] = types.YChild{"Mripv4Pools", &mobileNetwork.Mripv4Pools}
-    mobileNetwork.EntityData.Leafs = make(map[string]types.YLeaf)
+    mobileNetwork.EntityData.Children = types.NewOrderedMap()
+    mobileNetwork.EntityData.Children.Append("mripv6-pools", types.YChild{"Mripv6Pools", &mobileNetwork.Mripv6Pools})
+    mobileNetwork.EntityData.Children.Append("mripv4-pools", types.YChild{"Mripv4Pools", &mobileNetwork.Mripv4Pools})
+    mobileNetwork.EntityData.Leafs = types.NewOrderedMap()
+
+    mobileNetwork.EntityData.YListKeys = []string {}
+
     return &(mobileNetwork.EntityData)
 }
 
@@ -2306,7 +2491,7 @@ type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools
 
     // ipv6 pool. The type is slice of
     // MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool.
-    Mripv6Pool []MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool
+    Mripv6Pool []*MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool
 }
 
 func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools) GetEntityData() *types.CommonEntityData {
@@ -2319,12 +2504,15 @@ func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwo
     mripv6Pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mripv6Pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mripv6Pools.EntityData.Children = make(map[string]types.YChild)
-    mripv6Pools.EntityData.Children["mripv6-pool"] = types.YChild{"Mripv6Pool", nil}
+    mripv6Pools.EntityData.Children = types.NewOrderedMap()
+    mripv6Pools.EntityData.Children.Append("mripv6-pool", types.YChild{"Mripv6Pool", nil})
     for i := range mripv6Pools.Mripv6Pool {
-        mripv6Pools.EntityData.Children[types.GetSegmentPath(&mripv6Pools.Mripv6Pool[i])] = types.YChild{"Mripv6Pool", &mripv6Pools.Mripv6Pool[i]}
+        mripv6Pools.EntityData.Children.Append(types.GetSegmentPath(mripv6Pools.Mripv6Pool[i]), types.YChild{"Mripv6Pool", mripv6Pools.Mripv6Pool[i]})
     }
-    mripv6Pools.EntityData.Leafs = make(map[string]types.YLeaf)
+    mripv6Pools.EntityData.Leafs = types.NewOrderedMap()
+
+    mripv6Pools.EntityData.YListKeys = []string {}
+
     return &(mripv6Pools.EntityData)
 }
 
@@ -2336,7 +2524,7 @@ type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools
 
     // This attribute is a key. Pool IPv6 start address. The type is string with
     // pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // IPv6 Pool Prefix value. The type is interface{} with range: 8..64.
@@ -2351,16 +2539,19 @@ func (mripv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwor
     mripv6Pool.EntityData.YangName = "mripv6-pool"
     mripv6Pool.EntityData.BundleName = "cisco_ios_xr"
     mripv6Pool.EntityData.ParentYangName = "mripv6-pools"
-    mripv6Pool.EntityData.SegmentPath = "mripv6-pool" + "[start-address='" + fmt.Sprintf("%v", mripv6Pool.StartAddress) + "']"
+    mripv6Pool.EntityData.SegmentPath = "mripv6-pool" + types.AddKeyToken(mripv6Pool.StartAddress, "start-address")
     mripv6Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mripv6Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mripv6Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mripv6Pool.EntityData.Children = make(map[string]types.YChild)
-    mripv6Pool.EntityData.Leafs = make(map[string]types.YLeaf)
-    mripv6Pool.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", mripv6Pool.StartAddress}
-    mripv6Pool.EntityData.Leafs["pool-prefix"] = types.YLeaf{"PoolPrefix", mripv6Pool.PoolPrefix}
-    mripv6Pool.EntityData.Leafs["network-prefix"] = types.YLeaf{"NetworkPrefix", mripv6Pool.NetworkPrefix}
+    mripv6Pool.EntityData.Children = types.NewOrderedMap()
+    mripv6Pool.EntityData.Leafs = types.NewOrderedMap()
+    mripv6Pool.EntityData.Leafs.Append("start-address", types.YLeaf{"StartAddress", mripv6Pool.StartAddress})
+    mripv6Pool.EntityData.Leafs.Append("pool-prefix", types.YLeaf{"PoolPrefix", mripv6Pool.PoolPrefix})
+    mripv6Pool.EntityData.Leafs.Append("network-prefix", types.YLeaf{"NetworkPrefix", mripv6Pool.NetworkPrefix})
+
+    mripv6Pool.EntityData.YListKeys = []string {"StartAddress"}
+
     return &(mripv6Pool.EntityData)
 }
 
@@ -2372,7 +2563,7 @@ type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools
 
     // ipv4 pool. The type is slice of
     // MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool.
-    Mripv4Pool []MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool
+    Mripv4Pool []*MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool
 }
 
 func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools) GetEntityData() *types.CommonEntityData {
@@ -2385,12 +2576,15 @@ func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwo
     mripv4Pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mripv4Pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mripv4Pools.EntityData.Children = make(map[string]types.YChild)
-    mripv4Pools.EntityData.Children["mripv4-pool"] = types.YChild{"Mripv4Pool", nil}
+    mripv4Pools.EntityData.Children = types.NewOrderedMap()
+    mripv4Pools.EntityData.Children.Append("mripv4-pool", types.YChild{"Mripv4Pool", nil})
     for i := range mripv4Pools.Mripv4Pool {
-        mripv4Pools.EntityData.Children[types.GetSegmentPath(&mripv4Pools.Mripv4Pool[i])] = types.YChild{"Mripv4Pool", &mripv4Pools.Mripv4Pool[i]}
+        mripv4Pools.EntityData.Children.Append(types.GetSegmentPath(mripv4Pools.Mripv4Pool[i]), types.YChild{"Mripv4Pool", mripv4Pools.Mripv4Pool[i]})
     }
-    mripv4Pools.EntityData.Leafs = make(map[string]types.YLeaf)
+    mripv4Pools.EntityData.Leafs = types.NewOrderedMap()
+
+    mripv4Pools.EntityData.YListKeys = []string {}
+
     return &(mripv4Pools.EntityData)
 }
 
@@ -2402,7 +2596,7 @@ type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools
 
     // This attribute is a key. Pool IPv4 start address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // IPv4 Pool Prefix value. The type is interface{} with range: 8..30.
@@ -2417,16 +2611,19 @@ func (mripv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwor
     mripv4Pool.EntityData.YangName = "mripv4-pool"
     mripv4Pool.EntityData.BundleName = "cisco_ios_xr"
     mripv4Pool.EntityData.ParentYangName = "mripv4-pools"
-    mripv4Pool.EntityData.SegmentPath = "mripv4-pool" + "[start-address='" + fmt.Sprintf("%v", mripv4Pool.StartAddress) + "']"
+    mripv4Pool.EntityData.SegmentPath = "mripv4-pool" + types.AddKeyToken(mripv4Pool.StartAddress, "start-address")
     mripv4Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mripv4Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mripv4Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mripv4Pool.EntityData.Children = make(map[string]types.YChild)
-    mripv4Pool.EntityData.Leafs = make(map[string]types.YLeaf)
-    mripv4Pool.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", mripv4Pool.StartAddress}
-    mripv4Pool.EntityData.Leafs["pool-prefix"] = types.YLeaf{"PoolPrefix", mripv4Pool.PoolPrefix}
-    mripv4Pool.EntityData.Leafs["network-prefix"] = types.YLeaf{"NetworkPrefix", mripv4Pool.NetworkPrefix}
+    mripv4Pool.EntityData.Children = types.NewOrderedMap()
+    mripv4Pool.EntityData.Leafs = types.NewOrderedMap()
+    mripv4Pool.EntityData.Leafs.Append("start-address", types.YLeaf{"StartAddress", mripv4Pool.StartAddress})
+    mripv4Pool.EntityData.Leafs.Append("pool-prefix", types.YLeaf{"PoolPrefix", mripv4Pool.PoolPrefix})
+    mripv4Pool.EntityData.Leafs.Append("network-prefix", types.YLeaf{"NetworkPrefix", mripv4Pool.NetworkPrefix})
+
+    mripv4Pool.EntityData.YListKeys = []string {"StartAddress"}
+
     return &(mripv4Pool.EntityData)
 }
 
@@ -2451,9 +2648,12 @@ func (replayProtection *MobileIp_Lmas_Lma_ReplayProtection) GetEntityData() *typ
     replayProtection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     replayProtection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    replayProtection.EntityData.Children = make(map[string]types.YChild)
-    replayProtection.EntityData.Leafs = make(map[string]types.YLeaf)
-    replayProtection.EntityData.Leafs["timestamp-window"] = types.YLeaf{"TimestampWindow", replayProtection.TimestampWindow}
+    replayProtection.EntityData.Children = types.NewOrderedMap()
+    replayProtection.EntityData.Leafs = types.NewOrderedMap()
+    replayProtection.EntityData.Leafs.Append("timestamp-window", types.YLeaf{"TimestampWindow", replayProtection.TimestampWindow})
+
+    replayProtection.EntityData.YListKeys = []string {}
+
     return &(replayProtection.EntityData)
 }
 

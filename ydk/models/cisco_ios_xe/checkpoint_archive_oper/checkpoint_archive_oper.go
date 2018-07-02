@@ -48,12 +48,15 @@ func (checkpointArchives *CheckpointArchives) GetEntityData() *types.CommonEntit
     checkpointArchives.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     checkpointArchives.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    checkpointArchives.EntityData.Children = make(map[string]types.YChild)
-    checkpointArchives.EntityData.Children["archives"] = types.YChild{"Archives", &checkpointArchives.Archives}
-    checkpointArchives.EntityData.Leafs = make(map[string]types.YLeaf)
-    checkpointArchives.EntityData.Leafs["max"] = types.YLeaf{"Max", checkpointArchives.Max}
-    checkpointArchives.EntityData.Leafs["current"] = types.YLeaf{"Current", checkpointArchives.Current}
-    checkpointArchives.EntityData.Leafs["recent"] = types.YLeaf{"Recent", checkpointArchives.Recent}
+    checkpointArchives.EntityData.Children = types.NewOrderedMap()
+    checkpointArchives.EntityData.Children.Append("archives", types.YChild{"Archives", &checkpointArchives.Archives})
+    checkpointArchives.EntityData.Leafs = types.NewOrderedMap()
+    checkpointArchives.EntityData.Leafs.Append("max", types.YLeaf{"Max", checkpointArchives.Max})
+    checkpointArchives.EntityData.Leafs.Append("current", types.YLeaf{"Current", checkpointArchives.Current})
+    checkpointArchives.EntityData.Leafs.Append("recent", types.YLeaf{"Recent", checkpointArchives.Recent})
+
+    checkpointArchives.EntityData.YListKeys = []string {}
+
     return &(checkpointArchives.EntityData)
 }
 
@@ -64,7 +67,7 @@ type CheckpointArchives_Archives struct {
     YFilter yfilter.YFilter
 
     // List of archives. The type is slice of CheckpointArchives_Archives_Archive.
-    Archive []CheckpointArchives_Archives_Archive
+    Archive []*CheckpointArchives_Archives_Archive
 }
 
 func (archives *CheckpointArchives_Archives) GetEntityData() *types.CommonEntityData {
@@ -77,12 +80,15 @@ func (archives *CheckpointArchives_Archives) GetEntityData() *types.CommonEntity
     archives.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     archives.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    archives.EntityData.Children = make(map[string]types.YChild)
-    archives.EntityData.Children["archive"] = types.YChild{"Archive", nil}
+    archives.EntityData.Children = types.NewOrderedMap()
+    archives.EntityData.Children.Append("archive", types.YChild{"Archive", nil})
     for i := range archives.Archive {
-        archives.EntityData.Children[types.GetSegmentPath(&archives.Archive[i])] = types.YChild{"Archive", &archives.Archive[i]}
+        archives.EntityData.Children.Append(types.GetSegmentPath(archives.Archive[i]), types.YChild{"Archive", archives.Archive[i]})
     }
-    archives.EntityData.Leafs = make(map[string]types.YLeaf)
+    archives.EntityData.Leafs = types.NewOrderedMap()
+
+    archives.EntityData.YListKeys = []string {}
+
     return &(archives.EntityData)
 }
 
@@ -105,15 +111,18 @@ func (archive *CheckpointArchives_Archives_Archive) GetEntityData() *types.Commo
     archive.EntityData.YangName = "archive"
     archive.EntityData.BundleName = "cisco_ios_xe"
     archive.EntityData.ParentYangName = "archives"
-    archive.EntityData.SegmentPath = "archive" + "[number='" + fmt.Sprintf("%v", archive.Number) + "']"
+    archive.EntityData.SegmentPath = "archive" + types.AddKeyToken(archive.Number, "number")
     archive.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     archive.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     archive.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    archive.EntityData.Children = make(map[string]types.YChild)
-    archive.EntityData.Leafs = make(map[string]types.YLeaf)
-    archive.EntityData.Leafs["number"] = types.YLeaf{"Number", archive.Number}
-    archive.EntityData.Leafs["name"] = types.YLeaf{"Name", archive.Name}
+    archive.EntityData.Children = types.NewOrderedMap()
+    archive.EntityData.Leafs = types.NewOrderedMap()
+    archive.EntityData.Leafs.Append("number", types.YLeaf{"Number", archive.Number})
+    archive.EntityData.Leafs.Append("name", types.YLeaf{"Name", archive.Name})
+
+    archive.EntityData.YListKeys = []string {"Number"}
+
     return &(archive.EntityData)
 }
 

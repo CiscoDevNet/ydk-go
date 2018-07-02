@@ -100,9 +100,12 @@ func (spanMonitorSession *SpanMonitorSession) GetEntityData() *types.CommonEntit
     spanMonitorSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spanMonitorSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spanMonitorSession.EntityData.Children = make(map[string]types.YChild)
-    spanMonitorSession.EntityData.Children["sessions"] = types.YChild{"Sessions", &spanMonitorSession.Sessions}
-    spanMonitorSession.EntityData.Leafs = make(map[string]types.YLeaf)
+    spanMonitorSession.EntityData.Children = types.NewOrderedMap()
+    spanMonitorSession.EntityData.Children.Append("sessions", types.YChild{"Sessions", &spanMonitorSession.Sessions})
+    spanMonitorSession.EntityData.Leafs = types.NewOrderedMap()
+
+    spanMonitorSession.EntityData.YListKeys = []string {}
+
     return &(spanMonitorSession.EntityData)
 }
 
@@ -114,7 +117,7 @@ type SpanMonitorSession_Sessions struct {
 
     // Configuration for a particular Monitor Session. The type is slice of
     // SpanMonitorSession_Sessions_Session.
-    Session []SpanMonitorSession_Sessions_Session
+    Session []*SpanMonitorSession_Sessions_Session
 }
 
 func (sessions *SpanMonitorSession_Sessions) GetEntityData() *types.CommonEntityData {
@@ -127,12 +130,15 @@ func (sessions *SpanMonitorSession_Sessions) GetEntityData() *types.CommonEntity
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessions.EntityData.Children = make(map[string]types.YChild)
-    sessions.EntityData.Children["session"] = types.YChild{"Session", nil}
+    sessions.EntityData.Children = types.NewOrderedMap()
+    sessions.EntityData.Children.Append("session", types.YChild{"Session", nil})
     for i := range sessions.Session {
-        sessions.EntityData.Children[types.GetSegmentPath(&sessions.Session[i])] = types.YChild{"Session", &sessions.Session[i]}
+        sessions.EntityData.Children.Append(types.GetSegmentPath(sessions.Session[i]), types.YChild{"Session", sessions.Session[i]})
     }
-    sessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessions.EntityData.Leafs = types.NewOrderedMap()
+
+    sessions.EntityData.YListKeys = []string {}
+
     return &(sessions.EntityData)
 }
 
@@ -150,6 +156,10 @@ type SpanMonitorSession_Sessions_Session struct {
     // be created. The type is SpanSessionClass. The default value is ethernet.
     Class interface{}
 
+    // Specify the inject interface name. The type is string with pattern:
+    // [a-zA-Z0-9./-]+.
+    InjectInterface interface{}
+
     // Specify a destination.
     Destination SpanMonitorSession_Sessions_Session_Destination
 }
@@ -159,16 +169,20 @@ func (session *SpanMonitorSession_Sessions_Session) GetEntityData() *types.Commo
     session.EntityData.YangName = "session"
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
-    session.EntityData.SegmentPath = "session" + "[session='" + fmt.Sprintf("%v", session.Session) + "']"
+    session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.Session, "session")
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    session.EntityData.Children = make(map[string]types.YChild)
-    session.EntityData.Children["destination"] = types.YChild{"Destination", &session.Destination}
-    session.EntityData.Leafs = make(map[string]types.YLeaf)
-    session.EntityData.Leafs["session"] = types.YLeaf{"Session", session.Session}
-    session.EntityData.Leafs["class"] = types.YLeaf{"Class", session.Class}
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Children.Append("destination", types.YChild{"Destination", &session.Destination})
+    session.EntityData.Leafs = types.NewOrderedMap()
+    session.EntityData.Leafs.Append("session", types.YLeaf{"Session", session.Session})
+    session.EntityData.Leafs.Append("class", types.YLeaf{"Class", session.Class})
+    session.EntityData.Leafs.Append("inject-interface", types.YLeaf{"InjectInterface", session.InjectInterface})
+
+    session.EntityData.YListKeys = []string {"Session"}
+
     return &(session.EntityData)
 }
 
@@ -182,17 +196,17 @@ type SpanMonitorSession_Sessions_Session_Destination struct {
     DestinationType interface{}
 
     // Specify the destination interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     DestinationInterfaceName interface{}
 
     // Specify the destination next-hop IPv4 address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationIpv4Address interface{}
 
     // Specify the destination next-hop IPv6 address. The type is string with
     // pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationIpv6Address interface{}
 }
 
@@ -206,12 +220,15 @@ func (destination *SpanMonitorSession_Sessions_Session_Destination) GetEntityDat
     destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    destination.EntityData.Children = make(map[string]types.YChild)
-    destination.EntityData.Leafs = make(map[string]types.YLeaf)
-    destination.EntityData.Leafs["destination-type"] = types.YLeaf{"DestinationType", destination.DestinationType}
-    destination.EntityData.Leafs["destination-interface-name"] = types.YLeaf{"DestinationInterfaceName", destination.DestinationInterfaceName}
-    destination.EntityData.Leafs["destination-ipv4-address"] = types.YLeaf{"DestinationIpv4Address", destination.DestinationIpv4Address}
-    destination.EntityData.Leafs["destination-ipv6-address"] = types.YLeaf{"DestinationIpv6Address", destination.DestinationIpv6Address}
+    destination.EntityData.Children = types.NewOrderedMap()
+    destination.EntityData.Leafs = types.NewOrderedMap()
+    destination.EntityData.Leafs.Append("destination-type", types.YLeaf{"DestinationType", destination.DestinationType})
+    destination.EntityData.Leafs.Append("destination-interface-name", types.YLeaf{"DestinationInterfaceName", destination.DestinationInterfaceName})
+    destination.EntityData.Leafs.Append("destination-ipv4-address", types.YLeaf{"DestinationIpv4Address", destination.DestinationIpv4Address})
+    destination.EntityData.Leafs.Append("destination-ipv6-address", types.YLeaf{"DestinationIpv6Address", destination.DestinationIpv6Address})
+
+    destination.EntityData.YListKeys = []string {}
+
     return &(destination.EntityData)
 }
 

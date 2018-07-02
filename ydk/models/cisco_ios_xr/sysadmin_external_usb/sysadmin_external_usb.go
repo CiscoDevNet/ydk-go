@@ -42,9 +42,12 @@ func (externalUsb *ExternalUsb) GetEntityData() *types.CommonEntityData {
     externalUsb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalUsb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    externalUsb.EntityData.Children = make(map[string]types.YChild)
-    externalUsb.EntityData.Children["config"] = types.YChild{"Config", &externalUsb.Config}
-    externalUsb.EntityData.Leafs = make(map[string]types.YLeaf)
+    externalUsb.EntityData.Children = types.NewOrderedMap()
+    externalUsb.EntityData.Children.Append("config", types.YChild{"Config", &externalUsb.Config})
+    externalUsb.EntityData.Leafs = types.NewOrderedMap()
+
+    externalUsb.EntityData.YListKeys = []string {}
+
     return &(externalUsb.EntityData)
 }
 
@@ -67,9 +70,12 @@ func (config *ExternalUsb_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["disable"] = types.YLeaf{"Disable", config.Disable}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", config.Disable})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 

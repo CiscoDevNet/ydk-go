@@ -92,7 +92,7 @@ type Nacm struct {
 
     // An ordered collection of access control rules. The type is slice of
     // Nacm_RuleList.
-    RuleList []Nacm_RuleList
+    RuleList []*Nacm_RuleList
 }
 
 func (nacm *Nacm) GetEntityData() *types.CommonEntityData {
@@ -105,21 +105,24 @@ func (nacm *Nacm) GetEntityData() *types.CommonEntityData {
     nacm.EntityData.NamespaceTable = ietf.GetNamespaces()
     nacm.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    nacm.EntityData.Children = make(map[string]types.YChild)
-    nacm.EntityData.Children["groups"] = types.YChild{"Groups", &nacm.Groups}
-    nacm.EntityData.Children["rule-list"] = types.YChild{"RuleList", nil}
+    nacm.EntityData.Children = types.NewOrderedMap()
+    nacm.EntityData.Children.Append("groups", types.YChild{"Groups", &nacm.Groups})
+    nacm.EntityData.Children.Append("rule-list", types.YChild{"RuleList", nil})
     for i := range nacm.RuleList {
-        nacm.EntityData.Children[types.GetSegmentPath(&nacm.RuleList[i])] = types.YChild{"RuleList", &nacm.RuleList[i]}
+        nacm.EntityData.Children.Append(types.GetSegmentPath(nacm.RuleList[i]), types.YChild{"RuleList", nacm.RuleList[i]})
     }
-    nacm.EntityData.Leafs = make(map[string]types.YLeaf)
-    nacm.EntityData.Leafs["enable-nacm"] = types.YLeaf{"EnableNacm", nacm.EnableNacm}
-    nacm.EntityData.Leafs["read-default"] = types.YLeaf{"ReadDefault", nacm.ReadDefault}
-    nacm.EntityData.Leafs["write-default"] = types.YLeaf{"WriteDefault", nacm.WriteDefault}
-    nacm.EntityData.Leafs["exec-default"] = types.YLeaf{"ExecDefault", nacm.ExecDefault}
-    nacm.EntityData.Leafs["enable-external-groups"] = types.YLeaf{"EnableExternalGroups", nacm.EnableExternalGroups}
-    nacm.EntityData.Leafs["denied-operations"] = types.YLeaf{"DeniedOperations", nacm.DeniedOperations}
-    nacm.EntityData.Leafs["denied-data-writes"] = types.YLeaf{"DeniedDataWrites", nacm.DeniedDataWrites}
-    nacm.EntityData.Leafs["denied-notifications"] = types.YLeaf{"DeniedNotifications", nacm.DeniedNotifications}
+    nacm.EntityData.Leafs = types.NewOrderedMap()
+    nacm.EntityData.Leafs.Append("enable-nacm", types.YLeaf{"EnableNacm", nacm.EnableNacm})
+    nacm.EntityData.Leafs.Append("read-default", types.YLeaf{"ReadDefault", nacm.ReadDefault})
+    nacm.EntityData.Leafs.Append("write-default", types.YLeaf{"WriteDefault", nacm.WriteDefault})
+    nacm.EntityData.Leafs.Append("exec-default", types.YLeaf{"ExecDefault", nacm.ExecDefault})
+    nacm.EntityData.Leafs.Append("enable-external-groups", types.YLeaf{"EnableExternalGroups", nacm.EnableExternalGroups})
+    nacm.EntityData.Leafs.Append("denied-operations", types.YLeaf{"DeniedOperations", nacm.DeniedOperations})
+    nacm.EntityData.Leafs.Append("denied-data-writes", types.YLeaf{"DeniedDataWrites", nacm.DeniedDataWrites})
+    nacm.EntityData.Leafs.Append("denied-notifications", types.YLeaf{"DeniedNotifications", nacm.DeniedNotifications})
+
+    nacm.EntityData.YListKeys = []string {}
+
     return &(nacm.EntityData)
 }
 
@@ -132,7 +135,7 @@ type Nacm_Groups struct {
     // One NACM Group Entry.  This list will only contain configured entries, not
     // any entries learned from any transport protocols. The type is slice of
     // Nacm_Groups_Group.
-    Group []Nacm_Groups_Group
+    Group []*Nacm_Groups_Group
 }
 
 func (groups *Nacm_Groups) GetEntityData() *types.CommonEntityData {
@@ -145,12 +148,15 @@ func (groups *Nacm_Groups) GetEntityData() *types.CommonEntityData {
     groups.EntityData.NamespaceTable = ietf.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    groups.EntityData.Children = make(map[string]types.YChild)
-    groups.EntityData.Children["group"] = types.YChild{"Group", nil}
+    groups.EntityData.Children = types.NewOrderedMap()
+    groups.EntityData.Children.Append("group", types.YChild{"Group", nil})
     for i := range groups.Group {
-        groups.EntityData.Children[types.GetSegmentPath(&groups.Group[i])] = types.YChild{"Group", &groups.Group[i]}
+        groups.EntityData.Children.Append(types.GetSegmentPath(groups.Group[i]), types.YChild{"Group", groups.Group[i]})
     }
-    groups.EntityData.Leafs = make(map[string]types.YLeaf)
+    groups.EntityData.Leafs = types.NewOrderedMap()
+
+    groups.EntityData.YListKeys = []string {}
+
     return &(groups.EntityData)
 }
 
@@ -163,7 +169,7 @@ type Nacm_Groups_Group struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Group name associated with this entry. The type is
-    // string with pattern: b'[^\\*].*'.
+    // string with pattern: [^\*].*.
     Name interface{}
 
     // Each entry identifies the username of a member of the group associated with
@@ -177,15 +183,18 @@ func (group *Nacm_Groups_Group) GetEntityData() *types.CommonEntityData {
     group.EntityData.YangName = "group"
     group.EntityData.BundleName = "ietf"
     group.EntityData.ParentYangName = "groups"
-    group.EntityData.SegmentPath = "group" + "[name='" + fmt.Sprintf("%v", group.Name) + "']"
+    group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.Name, "name")
     group.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     group.EntityData.NamespaceTable = ietf.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    group.EntityData.Children = make(map[string]types.YChild)
-    group.EntityData.Leafs = make(map[string]types.YLeaf)
-    group.EntityData.Leafs["name"] = types.YLeaf{"Name", group.Name}
-    group.EntityData.Leafs["user-name"] = types.YLeaf{"UserName", group.UserName}
+    group.EntityData.Children = types.NewOrderedMap()
+    group.EntityData.Leafs = types.NewOrderedMap()
+    group.EntityData.Leafs.Append("name", types.YLeaf{"Name", group.Name})
+    group.EntityData.Leafs.Append("user-name", types.YLeaf{"UserName", group.UserName})
+
+    group.EntityData.YListKeys = []string {"Name"}
+
     return &(group.EntityData)
 }
 
@@ -202,7 +211,7 @@ type Nacm_RuleList struct {
     // List of administrative groups that will be assigned the associated access
     // rights defined by the 'rule' list.  The string '*' indicates that all
     // groups apply to the entry. The type is one of the following types: slice of
-    // string with pattern: b'\\*', or slice of string with pattern: b'[^\\*].*'.
+    // string with pattern: \*, or slice of string with pattern: [^\*].*.
     Group []interface{}
 
     // One access control rule.  Rules are processed in user-defined order until a
@@ -210,7 +219,7 @@ type Nacm_RuleList struct {
     // 'access-operations' match the request.  If a rule matches, the 'action'
     // leaf determines if access is granted or not. The type is slice of
     // Nacm_RuleList_Rule.
-    Rule []Nacm_RuleList_Rule
+    Rule []*Nacm_RuleList_Rule
 }
 
 func (ruleList *Nacm_RuleList) GetEntityData() *types.CommonEntityData {
@@ -218,19 +227,22 @@ func (ruleList *Nacm_RuleList) GetEntityData() *types.CommonEntityData {
     ruleList.EntityData.YangName = "rule-list"
     ruleList.EntityData.BundleName = "ietf"
     ruleList.EntityData.ParentYangName = "nacm"
-    ruleList.EntityData.SegmentPath = "rule-list" + "[name='" + fmt.Sprintf("%v", ruleList.Name) + "']"
+    ruleList.EntityData.SegmentPath = "rule-list" + types.AddKeyToken(ruleList.Name, "name")
     ruleList.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ruleList.EntityData.NamespaceTable = ietf.GetNamespaces()
     ruleList.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ruleList.EntityData.Children = make(map[string]types.YChild)
-    ruleList.EntityData.Children["rule"] = types.YChild{"Rule", nil}
+    ruleList.EntityData.Children = types.NewOrderedMap()
+    ruleList.EntityData.Children.Append("rule", types.YChild{"Rule", nil})
     for i := range ruleList.Rule {
-        ruleList.EntityData.Children[types.GetSegmentPath(&ruleList.Rule[i])] = types.YChild{"Rule", &ruleList.Rule[i]}
+        ruleList.EntityData.Children.Append(types.GetSegmentPath(ruleList.Rule[i]), types.YChild{"Rule", ruleList.Rule[i]})
     }
-    ruleList.EntityData.Leafs = make(map[string]types.YLeaf)
-    ruleList.EntityData.Leafs["name"] = types.YLeaf{"Name", ruleList.Name}
-    ruleList.EntityData.Leafs["group"] = types.YLeaf{"Group", ruleList.Group}
+    ruleList.EntityData.Leafs = types.NewOrderedMap()
+    ruleList.EntityData.Leafs.Append("name", types.YLeaf{"Name", ruleList.Name})
+    ruleList.EntityData.Leafs.Append("group", types.YLeaf{"Group", ruleList.Group})
+
+    ruleList.EntityData.YListKeys = []string {"Name"}
+
     return &(ruleList.EntityData)
 }
 
@@ -253,18 +265,18 @@ type Nacm_RuleList_Rule struct {
     // Name of the module associated with this rule.  This leaf matches if it has
     // the value '*' or if the object being accessed is defined in the module with
     // the specified module name. The type is one of the following types: string
-    // with pattern: b'\\*' The default value is *., or string The default value
-    // is *..
+    // with pattern: \* The default value is *., or string The default value is
+    // *..
     ModuleName interface{}
 
     // This leaf matches if it has the value '*' or if its value equals the
     // requested protocol operation name. The type is one of the following types:
-    // string with pattern: b'\\*', or string.
+    // string with pattern: \*, or string.
     RpcName interface{}
 
     // This leaf matches if it has the value '*' or if its value equals the
     // requested notification name. The type is one of the following types: string
-    // with pattern: b'\\*', or string.
+    // with pattern: \*, or string.
     NotificationName interface{}
 
     // Data Node Instance Identifier associated with the data node controlled by
@@ -276,9 +288,9 @@ type Nacm_RuleList_Rule struct {
 
     // Access operations associated with this rule.  This leaf matches if it has
     // the value '*' or if the bit corresponding to the requested operation is
-    // set. The type is one of the following types: string with pattern: b'\\*'
-    // The default value is *., or :go:struct:`AccessOperationsType
-    // <ydk/models/netconf_acm/AccessOperationsType>` The default value is *..
+    // set. The type is one of the following types: string with pattern: \* The
+    // default value is *., or :go:struct:`Bits <ydk/models/netconf_acm/Bits>` The
+    // default value is *..
     AccessOperations interface{}
 
     // The access control action associated with the rule.  If a rule is
@@ -296,21 +308,24 @@ func (rule *Nacm_RuleList_Rule) GetEntityData() *types.CommonEntityData {
     rule.EntityData.YangName = "rule"
     rule.EntityData.BundleName = "ietf"
     rule.EntityData.ParentYangName = "rule-list"
-    rule.EntityData.SegmentPath = "rule" + "[name='" + fmt.Sprintf("%v", rule.Name) + "']"
+    rule.EntityData.SegmentPath = "rule" + types.AddKeyToken(rule.Name, "name")
     rule.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     rule.EntityData.NamespaceTable = ietf.GetNamespaces()
     rule.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    rule.EntityData.Children = make(map[string]types.YChild)
-    rule.EntityData.Leafs = make(map[string]types.YLeaf)
-    rule.EntityData.Leafs["name"] = types.YLeaf{"Name", rule.Name}
-    rule.EntityData.Leafs["module-name"] = types.YLeaf{"ModuleName", rule.ModuleName}
-    rule.EntityData.Leafs["rpc-name"] = types.YLeaf{"RpcName", rule.RpcName}
-    rule.EntityData.Leafs["notification-name"] = types.YLeaf{"NotificationName", rule.NotificationName}
-    rule.EntityData.Leafs["path"] = types.YLeaf{"Path", rule.Path}
-    rule.EntityData.Leafs["access-operations"] = types.YLeaf{"AccessOperations", rule.AccessOperations}
-    rule.EntityData.Leafs["action"] = types.YLeaf{"Action", rule.Action}
-    rule.EntityData.Leafs["comment"] = types.YLeaf{"Comment", rule.Comment}
+    rule.EntityData.Children = types.NewOrderedMap()
+    rule.EntityData.Leafs = types.NewOrderedMap()
+    rule.EntityData.Leafs.Append("name", types.YLeaf{"Name", rule.Name})
+    rule.EntityData.Leafs.Append("module-name", types.YLeaf{"ModuleName", rule.ModuleName})
+    rule.EntityData.Leafs.Append("rpc-name", types.YLeaf{"RpcName", rule.RpcName})
+    rule.EntityData.Leafs.Append("notification-name", types.YLeaf{"NotificationName", rule.NotificationName})
+    rule.EntityData.Leafs.Append("path", types.YLeaf{"Path", rule.Path})
+    rule.EntityData.Leafs.Append("access-operations", types.YLeaf{"AccessOperations", rule.AccessOperations})
+    rule.EntityData.Leafs.Append("action", types.YLeaf{"Action", rule.Action})
+    rule.EntityData.Leafs.Append("comment", types.YLeaf{"Comment", rule.Comment})
+
+    rule.EntityData.YListKeys = []string {"Name"}
+
     return &(rule.EntityData)
 }
 

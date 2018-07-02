@@ -28,36 +28,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr", reflect.TypeOf(AlarmMgr{}))
 }
 
-// SeverityTd represents The severity enumeration type of an alarm 
-type SeverityTd string
-
-const (
-    SeverityTd_unknown SeverityTd = "unknown"
-
-    SeverityTd_not_reported SeverityTd = "not_reported"
-
-    SeverityTd_not_alarmed SeverityTd = "not_alarmed"
-
-    SeverityTd_minor SeverityTd = "minor"
-
-    SeverityTd_major SeverityTd = "major"
-
-    SeverityTd_critical SeverityTd = "critical"
-)
-
-// StatusTd represents The status enumeration type of an alarm 
-type StatusTd string
-
-const (
-    StatusTd_unknown StatusTd = "unknown"
-
-    StatusTd_set StatusTd = "set"
-
-    StatusTd_clear StatusTd = "clear"
-
-    StatusTd_suppress StatusTd = "suppress"
-)
-
 // GroupTd represents The group enumeration type of an alarm 
 type GroupTd string
 
@@ -101,6 +71,19 @@ const (
     GroupTd_last GroupTd = "last"
 )
 
+// StatusTd represents The status enumeration type of an alarm 
+type StatusTd string
+
+const (
+    StatusTd_unknown StatusTd = "unknown"
+
+    StatusTd_set StatusTd = "set"
+
+    StatusTd_clear StatusTd = "clear"
+
+    StatusTd_suppress StatusTd = "suppress"
+)
+
 // AgentStateTd
 type AgentStateTd string
 
@@ -131,6 +114,23 @@ const (
     AgentTypeTd_subscriber AgentTypeTd = "subscriber"
 )
 
+// SeverityTd represents The severity enumeration type of an alarm 
+type SeverityTd string
+
+const (
+    SeverityTd_unknown SeverityTd = "unknown"
+
+    SeverityTd_not_reported SeverityTd = "not_reported"
+
+    SeverityTd_not_alarmed SeverityTd = "not_alarmed"
+
+    SeverityTd_minor SeverityTd = "minor"
+
+    SeverityTd_major SeverityTd = "major"
+
+    SeverityTd_critical SeverityTd = "critical"
+)
+
 // AlarmMgr
 // Calvados alarms operational data model
 type AlarmMgr struct {
@@ -138,7 +138,7 @@ type AlarmMgr struct {
     YFilter yfilter.YFilter
 
     // show traceable processes. The type is slice of AlarmMgr_Trace.
-    Trace []AlarmMgr_Trace
+    Trace []*AlarmMgr_Trace
 
     // A set of brief alarm commands.
     Brief AlarmMgr_Brief
@@ -157,14 +157,17 @@ func (alarmMgr *AlarmMgr) GetEntityData() *types.CommonEntityData {
     alarmMgr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmMgr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarmMgr.EntityData.Children = make(map[string]types.YChild)
-    alarmMgr.EntityData.Children["trace"] = types.YChild{"Trace", nil}
+    alarmMgr.EntityData.Children = types.NewOrderedMap()
+    alarmMgr.EntityData.Children.Append("trace", types.YChild{"Trace", nil})
     for i := range alarmMgr.Trace {
-        alarmMgr.EntityData.Children[types.GetSegmentPath(&alarmMgr.Trace[i])] = types.YChild{"Trace", &alarmMgr.Trace[i]}
+        alarmMgr.EntityData.Children.Append(types.GetSegmentPath(alarmMgr.Trace[i]), types.YChild{"Trace", alarmMgr.Trace[i]})
     }
-    alarmMgr.EntityData.Children["brief"] = types.YChild{"Brief", &alarmMgr.Brief}
-    alarmMgr.EntityData.Children["detail"] = types.YChild{"Detail", &alarmMgr.Detail}
-    alarmMgr.EntityData.Leafs = make(map[string]types.YLeaf)
+    alarmMgr.EntityData.Children.Append("brief", types.YChild{"Brief", &alarmMgr.Brief})
+    alarmMgr.EntityData.Children.Append("detail", types.YChild{"Detail", &alarmMgr.Detail})
+    alarmMgr.EntityData.Leafs = types.NewOrderedMap()
+
+    alarmMgr.EntityData.YListKeys = []string {}
+
     return &(alarmMgr.EntityData)
 }
 
@@ -178,7 +181,7 @@ type AlarmMgr_Trace struct {
     Buffer interface{}
 
     // The type is slice of AlarmMgr_Trace_Location.
-    Location []AlarmMgr_Trace_Location
+    Location []*AlarmMgr_Trace_Location
 }
 
 func (trace *AlarmMgr_Trace) GetEntityData() *types.CommonEntityData {
@@ -186,18 +189,21 @@ func (trace *AlarmMgr_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.YangName = "trace"
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "alarm_mgr"
-    trace.EntityData.SegmentPath = "trace" + "[buffer='" + fmt.Sprintf("%v", trace.Buffer) + "']"
+    trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trace.EntityData.Children = make(map[string]types.YChild)
-    trace.EntityData.Children["location"] = types.YChild{"Location", nil}
+    trace.EntityData.Children = types.NewOrderedMap()
+    trace.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range trace.Location {
-        trace.EntityData.Children[types.GetSegmentPath(&trace.Location[i])] = types.YChild{"Location", &trace.Location[i]}
+        trace.EntityData.Children.Append(types.GetSegmentPath(trace.Location[i]), types.YChild{"Location", trace.Location[i]})
     }
-    trace.EntityData.Leafs = make(map[string]types.YLeaf)
-    trace.EntityData.Leafs["buffer"] = types.YLeaf{"Buffer", trace.Buffer}
+    trace.EntityData.Leafs = types.NewOrderedMap()
+    trace.EntityData.Leafs.Append("buffer", types.YLeaf{"Buffer", trace.Buffer})
+
+    trace.EntityData.YListKeys = []string {"Buffer"}
+
     return &(trace.EntityData)
 }
 
@@ -210,7 +216,7 @@ type AlarmMgr_Trace_Location struct {
     LocationName interface{}
 
     // The type is slice of AlarmMgr_Trace_Location_AllOptions.
-    AllOptions []AlarmMgr_Trace_Location_AllOptions
+    AllOptions []*AlarmMgr_Trace_Location_AllOptions
 }
 
 func (location *AlarmMgr_Trace_Location) GetEntityData() *types.CommonEntityData {
@@ -218,18 +224,21 @@ func (location *AlarmMgr_Trace_Location) GetEntityData() *types.CommonEntityData
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
-    location.EntityData.SegmentPath = "location" + "[location_name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["all-options"] = types.YChild{"AllOptions", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("all-options", types.YChild{"AllOptions", nil})
     for i := range location.AllOptions {
-        location.EntityData.Children[types.GetSegmentPath(&location.AllOptions[i])] = types.YChild{"AllOptions", &location.AllOptions[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.AllOptions[i]), types.YChild{"AllOptions", location.AllOptions[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location_name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location_name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -242,7 +251,7 @@ type AlarmMgr_Trace_Location_AllOptions struct {
     Option interface{}
 
     // The type is slice of AlarmMgr_Trace_Location_AllOptions_TraceBlocks.
-    TraceBlocks []AlarmMgr_Trace_Location_AllOptions_TraceBlocks
+    TraceBlocks []*AlarmMgr_Trace_Location_AllOptions_TraceBlocks
 }
 
 func (allOptions *AlarmMgr_Trace_Location_AllOptions) GetEntityData() *types.CommonEntityData {
@@ -250,18 +259,21 @@ func (allOptions *AlarmMgr_Trace_Location_AllOptions) GetEntityData() *types.Com
     allOptions.EntityData.YangName = "all-options"
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
-    allOptions.EntityData.SegmentPath = "all-options" + "[option='" + fmt.Sprintf("%v", allOptions.Option) + "']"
+    allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allOptions.EntityData.Children = make(map[string]types.YChild)
-    allOptions.EntityData.Children["trace-blocks"] = types.YChild{"TraceBlocks", nil}
+    allOptions.EntityData.Children = types.NewOrderedMap()
+    allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
-        allOptions.EntityData.Children[types.GetSegmentPath(&allOptions.TraceBlocks[i])] = types.YChild{"TraceBlocks", &allOptions.TraceBlocks[i]}
+        allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
-    allOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    allOptions.EntityData.Leafs["option"] = types.YLeaf{"Option", allOptions.Option}
+    allOptions.EntityData.Leafs = types.NewOrderedMap()
+    allOptions.EntityData.Leafs.Append("option", types.YLeaf{"Option", allOptions.Option})
+
+    allOptions.EntityData.YListKeys = []string {"Option"}
+
     return &(allOptions.EntityData)
 }
 
@@ -284,9 +296,12 @@ func (traceBlocks *AlarmMgr_Trace_Location_AllOptions_TraceBlocks) GetEntityData
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    traceBlocks.EntityData.Children = make(map[string]types.YChild)
-    traceBlocks.EntityData.Leafs = make(map[string]types.YLeaf)
-    traceBlocks.EntityData.Leafs["data"] = types.YLeaf{"Data", traceBlocks.Data}
+    traceBlocks.EntityData.Children = types.NewOrderedMap()
+    traceBlocks.EntityData.Leafs = types.NewOrderedMap()
+    traceBlocks.EntityData.Leafs.Append("data", types.YLeaf{"Data", traceBlocks.Data})
+
+    traceBlocks.EntityData.YListKeys = []string {}
+
     return &(traceBlocks.EntityData)
 }
 
@@ -316,11 +331,14 @@ func (brief *AlarmMgr_Brief) GetEntityData() *types.CommonEntityData {
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    brief.EntityData.Children = make(map[string]types.YChild)
-    brief.EntityData.Children["card"] = types.YChild{"Card", &brief.Card}
-    brief.EntityData.Children["rack"] = types.YChild{"Rack", &brief.Rack}
-    brief.EntityData.Children["system"] = types.YChild{"System", &brief.System}
-    brief.EntityData.Leafs = make(map[string]types.YLeaf)
+    brief.EntityData.Children = types.NewOrderedMap()
+    brief.EntityData.Children.Append("card", types.YChild{"Card", &brief.Card})
+    brief.EntityData.Children.Append("rack", types.YChild{"Rack", &brief.Rack})
+    brief.EntityData.Children.Append("system", types.YChild{"System", &brief.System})
+    brief.EntityData.Leafs = types.NewOrderedMap()
+
+    brief.EntityData.YListKeys = []string {}
+
     return &(brief.EntityData)
 }
 
@@ -332,7 +350,7 @@ type AlarmMgr_Brief_Card struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AlarmMgr_Brief_Card_Location.
-    Location []AlarmMgr_Brief_Card_Location
+    Location []*AlarmMgr_Brief_Card_Location
 }
 
 func (card *AlarmMgr_Brief_Card) GetEntityData() *types.CommonEntityData {
@@ -345,12 +363,15 @@ func (card *AlarmMgr_Brief_Card) GetEntityData() *types.CommonEntityData {
     card.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     card.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    card.EntityData.Children = make(map[string]types.YChild)
-    card.EntityData.Children["location"] = types.YChild{"Location", nil}
+    card.EntityData.Children = types.NewOrderedMap()
+    card.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range card.Location {
-        card.EntityData.Children[types.GetSegmentPath(&card.Location[i])] = types.YChild{"Location", &card.Location[i]}
+        card.EntityData.Children.Append(types.GetSegmentPath(card.Location[i]), types.YChild{"Location", card.Location[i]})
     }
-    card.EntityData.Leafs = make(map[string]types.YLeaf)
+    card.EntityData.Leafs = types.NewOrderedMap()
+
+    card.EntityData.YListKeys = []string {}
+
     return &(card.EntityData)
 }
 
@@ -360,17 +381,17 @@ type AlarmMgr_Brief_Card_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     Locations interface{}
 
     // The type is slice of AlarmMgr_Brief_Card_Location_Active.
-    Active []AlarmMgr_Brief_Card_Location_Active
+    Active []*AlarmMgr_Brief_Card_Location_Active
 
     // The type is slice of AlarmMgr_Brief_Card_Location_History.
-    History []AlarmMgr_Brief_Card_Location_History
+    History []*AlarmMgr_Brief_Card_Location_History
 
     // The type is slice of AlarmMgr_Brief_Card_Location_Suppressed.
-    Suppressed []AlarmMgr_Brief_Card_Location_Suppressed
+    Suppressed []*AlarmMgr_Brief_Card_Location_Suppressed
 }
 
 func (location *AlarmMgr_Brief_Card_Location) GetEntityData() *types.CommonEntityData {
@@ -378,26 +399,29 @@ func (location *AlarmMgr_Brief_Card_Location) GetEntityData() *types.CommonEntit
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "card"
-    location.EntityData.SegmentPath = "location" + "[locations='" + fmt.Sprintf("%v", location.Locations) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Locations, "locations")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["active"] = types.YChild{"Active", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("active", types.YChild{"Active", nil})
     for i := range location.Active {
-        location.EntityData.Children[types.GetSegmentPath(&location.Active[i])] = types.YChild{"Active", &location.Active[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.Active[i]), types.YChild{"Active", location.Active[i]})
     }
-    location.EntityData.Children["history"] = types.YChild{"History", nil}
+    location.EntityData.Children.Append("history", types.YChild{"History", nil})
     for i := range location.History {
-        location.EntityData.Children[types.GetSegmentPath(&location.History[i])] = types.YChild{"History", &location.History[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.History[i]), types.YChild{"History", location.History[i]})
     }
-    location.EntityData.Children["suppressed"] = types.YChild{"Suppressed", nil}
+    location.EntityData.Children.Append("suppressed", types.YChild{"Suppressed", nil})
     for i := range location.Suppressed {
-        location.EntityData.Children[types.GetSegmentPath(&location.Suppressed[i])] = types.YChild{"Suppressed", &location.Suppressed[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.Suppressed[i]), types.YChild{"Suppressed", location.Suppressed[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["locations"] = types.YLeaf{"Locations", location.Locations}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("locations", types.YLeaf{"Locations", location.Locations})
+
+    location.EntityData.YListKeys = []string {"Locations"}
+
     return &(location.EntityData)
 }
 
@@ -440,22 +464,25 @@ func (active *AlarmMgr_Brief_Card_Location_Active) GetEntityData() *types.Common
     active.EntityData.YangName = "active"
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "location"
-    active.EntityData.SegmentPath = "active" + "[aid='" + fmt.Sprintf("%v", active.Aid) + "']" + "[eid='" + fmt.Sprintf("%v", active.Eid) + "']"
+    active.EntityData.SegmentPath = "active" + types.AddKeyToken(active.Aid, "aid") + types.AddKeyToken(active.Eid, "eid")
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    active.EntityData.Children = make(map[string]types.YChild)
-    active.EntityData.Leafs = make(map[string]types.YLeaf)
-    active.EntityData.Leafs["aid"] = types.YLeaf{"Aid", active.Aid}
-    active.EntityData.Leafs["eid"] = types.YLeaf{"Eid", active.Eid}
-    active.EntityData.Leafs["tag"] = types.YLeaf{"Tag", active.Tag}
-    active.EntityData.Leafs["module"] = types.YLeaf{"Module", active.Module}
-    active.EntityData.Leafs["gen_location"] = types.YLeaf{"GenLocation", active.GenLocation}
-    active.EntityData.Leafs["severity"] = types.YLeaf{"Severity", active.Severity}
-    active.EntityData.Leafs["group"] = types.YLeaf{"Group", active.Group}
-    active.EntityData.Leafs["description"] = types.YLeaf{"Description", active.Description}
-    active.EntityData.Leafs["set_time"] = types.YLeaf{"SetTime", active.SetTime}
+    active.EntityData.Children = types.NewOrderedMap()
+    active.EntityData.Leafs = types.NewOrderedMap()
+    active.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", active.Aid})
+    active.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", active.Eid})
+    active.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", active.Tag})
+    active.EntityData.Leafs.Append("module", types.YLeaf{"Module", active.Module})
+    active.EntityData.Leafs.Append("gen_location", types.YLeaf{"GenLocation", active.GenLocation})
+    active.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", active.Severity})
+    active.EntityData.Leafs.Append("group", types.YLeaf{"Group", active.Group})
+    active.EntityData.Leafs.Append("description", types.YLeaf{"Description", active.Description})
+    active.EntityData.Leafs.Append("set_time", types.YLeaf{"SetTime", active.SetTime})
+
+    active.EntityData.YListKeys = []string {"Aid", "Eid"}
+
     return &(active.EntityData)
 }
 
@@ -501,23 +528,26 @@ func (history *AlarmMgr_Brief_Card_Location_History) GetEntityData() *types.Comm
     history.EntityData.YangName = "history"
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "location"
-    history.EntityData.SegmentPath = "history" + "[aid='" + fmt.Sprintf("%v", history.Aid) + "']" + "[eid='" + fmt.Sprintf("%v", history.Eid) + "']"
+    history.EntityData.SegmentPath = "history" + types.AddKeyToken(history.Aid, "aid") + types.AddKeyToken(history.Eid, "eid")
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    history.EntityData.Children = make(map[string]types.YChild)
-    history.EntityData.Leafs = make(map[string]types.YLeaf)
-    history.EntityData.Leafs["aid"] = types.YLeaf{"Aid", history.Aid}
-    history.EntityData.Leafs["eid"] = types.YLeaf{"Eid", history.Eid}
-    history.EntityData.Leafs["tag"] = types.YLeaf{"Tag", history.Tag}
-    history.EntityData.Leafs["module"] = types.YLeaf{"Module", history.Module}
-    history.EntityData.Leafs["gen_location"] = types.YLeaf{"GenLocation", history.GenLocation}
-    history.EntityData.Leafs["severity"] = types.YLeaf{"Severity", history.Severity}
-    history.EntityData.Leafs["group"] = types.YLeaf{"Group", history.Group}
-    history.EntityData.Leafs["description"] = types.YLeaf{"Description", history.Description}
-    history.EntityData.Leafs["set_time"] = types.YLeaf{"SetTime", history.SetTime}
-    history.EntityData.Leafs["clear_time"] = types.YLeaf{"ClearTime", history.ClearTime}
+    history.EntityData.Children = types.NewOrderedMap()
+    history.EntityData.Leafs = types.NewOrderedMap()
+    history.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", history.Aid})
+    history.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", history.Eid})
+    history.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", history.Tag})
+    history.EntityData.Leafs.Append("module", types.YLeaf{"Module", history.Module})
+    history.EntityData.Leafs.Append("gen_location", types.YLeaf{"GenLocation", history.GenLocation})
+    history.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", history.Severity})
+    history.EntityData.Leafs.Append("group", types.YLeaf{"Group", history.Group})
+    history.EntityData.Leafs.Append("description", types.YLeaf{"Description", history.Description})
+    history.EntityData.Leafs.Append("set_time", types.YLeaf{"SetTime", history.SetTime})
+    history.EntityData.Leafs.Append("clear_time", types.YLeaf{"ClearTime", history.ClearTime})
+
+    history.EntityData.YListKeys = []string {"Aid", "Eid"}
+
     return &(history.EntityData)
 }
 
@@ -563,23 +593,26 @@ func (suppressed *AlarmMgr_Brief_Card_Location_Suppressed) GetEntityData() *type
     suppressed.EntityData.YangName = "suppressed"
     suppressed.EntityData.BundleName = "cisco_ios_xr"
     suppressed.EntityData.ParentYangName = "location"
-    suppressed.EntityData.SegmentPath = "suppressed" + "[aid='" + fmt.Sprintf("%v", suppressed.Aid) + "']" + "[eid='" + fmt.Sprintf("%v", suppressed.Eid) + "']"
+    suppressed.EntityData.SegmentPath = "suppressed" + types.AddKeyToken(suppressed.Aid, "aid") + types.AddKeyToken(suppressed.Eid, "eid")
     suppressed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    suppressed.EntityData.Children = make(map[string]types.YChild)
-    suppressed.EntityData.Leafs = make(map[string]types.YLeaf)
-    suppressed.EntityData.Leafs["aid"] = types.YLeaf{"Aid", suppressed.Aid}
-    suppressed.EntityData.Leafs["eid"] = types.YLeaf{"Eid", suppressed.Eid}
-    suppressed.EntityData.Leafs["tag"] = types.YLeaf{"Tag", suppressed.Tag}
-    suppressed.EntityData.Leafs["module"] = types.YLeaf{"Module", suppressed.Module}
-    suppressed.EntityData.Leafs["gen_location"] = types.YLeaf{"GenLocation", suppressed.GenLocation}
-    suppressed.EntityData.Leafs["severity"] = types.YLeaf{"Severity", suppressed.Severity}
-    suppressed.EntityData.Leafs["group"] = types.YLeaf{"Group", suppressed.Group}
-    suppressed.EntityData.Leafs["description"] = types.YLeaf{"Description", suppressed.Description}
-    suppressed.EntityData.Leafs["set_time"] = types.YLeaf{"SetTime", suppressed.SetTime}
-    suppressed.EntityData.Leafs["suppressed_time"] = types.YLeaf{"SuppressedTime", suppressed.SuppressedTime}
+    suppressed.EntityData.Children = types.NewOrderedMap()
+    suppressed.EntityData.Leafs = types.NewOrderedMap()
+    suppressed.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", suppressed.Aid})
+    suppressed.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", suppressed.Eid})
+    suppressed.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", suppressed.Tag})
+    suppressed.EntityData.Leafs.Append("module", types.YLeaf{"Module", suppressed.Module})
+    suppressed.EntityData.Leafs.Append("gen_location", types.YLeaf{"GenLocation", suppressed.GenLocation})
+    suppressed.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", suppressed.Severity})
+    suppressed.EntityData.Leafs.Append("group", types.YLeaf{"Group", suppressed.Group})
+    suppressed.EntityData.Leafs.Append("description", types.YLeaf{"Description", suppressed.Description})
+    suppressed.EntityData.Leafs.Append("set_time", types.YLeaf{"SetTime", suppressed.SetTime})
+    suppressed.EntityData.Leafs.Append("suppressed_time", types.YLeaf{"SuppressedTime", suppressed.SuppressedTime})
+
+    suppressed.EntityData.YListKeys = []string {"Aid", "Eid"}
+
     return &(suppressed.EntityData)
 }
 
@@ -591,7 +624,7 @@ type AlarmMgr_Brief_Rack struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AlarmMgr_Brief_Rack_RackLocations.
-    RackLocations []AlarmMgr_Brief_Rack_RackLocations
+    RackLocations []*AlarmMgr_Brief_Rack_RackLocations
 }
 
 func (rack *AlarmMgr_Brief_Rack) GetEntityData() *types.CommonEntityData {
@@ -604,12 +637,15 @@ func (rack *AlarmMgr_Brief_Rack) GetEntityData() *types.CommonEntityData {
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rack.EntityData.Children = make(map[string]types.YChild)
-    rack.EntityData.Children["rack_locations"] = types.YChild{"RackLocations", nil}
+    rack.EntityData.Children = types.NewOrderedMap()
+    rack.EntityData.Children.Append("rack_locations", types.YChild{"RackLocations", nil})
     for i := range rack.RackLocations {
-        rack.EntityData.Children[types.GetSegmentPath(&rack.RackLocations[i])] = types.YChild{"RackLocations", &rack.RackLocations[i]}
+        rack.EntityData.Children.Append(types.GetSegmentPath(rack.RackLocations[i]), types.YChild{"RackLocations", rack.RackLocations[i]})
     }
-    rack.EntityData.Leafs = make(map[string]types.YLeaf)
+    rack.EntityData.Leafs = types.NewOrderedMap()
+
+    rack.EntityData.YListKeys = []string {}
+
     return &(rack.EntityData)
 }
 
@@ -622,13 +658,13 @@ type AlarmMgr_Brief_Rack_RackLocations struct {
     Rackid interface{}
 
     // The type is slice of AlarmMgr_Brief_Rack_RackLocations_Active.
-    Active []AlarmMgr_Brief_Rack_RackLocations_Active
+    Active []*AlarmMgr_Brief_Rack_RackLocations_Active
 
     // The type is slice of AlarmMgr_Brief_Rack_RackLocations_History.
-    History []AlarmMgr_Brief_Rack_RackLocations_History
+    History []*AlarmMgr_Brief_Rack_RackLocations_History
 
     // The type is slice of AlarmMgr_Brief_Rack_RackLocations_Suppressed.
-    Suppressed []AlarmMgr_Brief_Rack_RackLocations_Suppressed
+    Suppressed []*AlarmMgr_Brief_Rack_RackLocations_Suppressed
 }
 
 func (rackLocations *AlarmMgr_Brief_Rack_RackLocations) GetEntityData() *types.CommonEntityData {
@@ -636,26 +672,29 @@ func (rackLocations *AlarmMgr_Brief_Rack_RackLocations) GetEntityData() *types.C
     rackLocations.EntityData.YangName = "rack_locations"
     rackLocations.EntityData.BundleName = "cisco_ios_xr"
     rackLocations.EntityData.ParentYangName = "rack"
-    rackLocations.EntityData.SegmentPath = "rack_locations" + "[rackid='" + fmt.Sprintf("%v", rackLocations.Rackid) + "']"
+    rackLocations.EntityData.SegmentPath = "rack_locations" + types.AddKeyToken(rackLocations.Rackid, "rackid")
     rackLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rackLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rackLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rackLocations.EntityData.Children = make(map[string]types.YChild)
-    rackLocations.EntityData.Children["active"] = types.YChild{"Active", nil}
+    rackLocations.EntityData.Children = types.NewOrderedMap()
+    rackLocations.EntityData.Children.Append("active", types.YChild{"Active", nil})
     for i := range rackLocations.Active {
-        rackLocations.EntityData.Children[types.GetSegmentPath(&rackLocations.Active[i])] = types.YChild{"Active", &rackLocations.Active[i]}
+        rackLocations.EntityData.Children.Append(types.GetSegmentPath(rackLocations.Active[i]), types.YChild{"Active", rackLocations.Active[i]})
     }
-    rackLocations.EntityData.Children["history"] = types.YChild{"History", nil}
+    rackLocations.EntityData.Children.Append("history", types.YChild{"History", nil})
     for i := range rackLocations.History {
-        rackLocations.EntityData.Children[types.GetSegmentPath(&rackLocations.History[i])] = types.YChild{"History", &rackLocations.History[i]}
+        rackLocations.EntityData.Children.Append(types.GetSegmentPath(rackLocations.History[i]), types.YChild{"History", rackLocations.History[i]})
     }
-    rackLocations.EntityData.Children["suppressed"] = types.YChild{"Suppressed", nil}
+    rackLocations.EntityData.Children.Append("suppressed", types.YChild{"Suppressed", nil})
     for i := range rackLocations.Suppressed {
-        rackLocations.EntityData.Children[types.GetSegmentPath(&rackLocations.Suppressed[i])] = types.YChild{"Suppressed", &rackLocations.Suppressed[i]}
+        rackLocations.EntityData.Children.Append(types.GetSegmentPath(rackLocations.Suppressed[i]), types.YChild{"Suppressed", rackLocations.Suppressed[i]})
     }
-    rackLocations.EntityData.Leafs = make(map[string]types.YLeaf)
-    rackLocations.EntityData.Leafs["rackid"] = types.YLeaf{"Rackid", rackLocations.Rackid}
+    rackLocations.EntityData.Leafs = types.NewOrderedMap()
+    rackLocations.EntityData.Leafs.Append("rackid", types.YLeaf{"Rackid", rackLocations.Rackid})
+
+    rackLocations.EntityData.YListKeys = []string {"Rackid"}
+
     return &(rackLocations.EntityData)
 }
 
@@ -698,22 +737,25 @@ func (active *AlarmMgr_Brief_Rack_RackLocations_Active) GetEntityData() *types.C
     active.EntityData.YangName = "active"
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "rack_locations"
-    active.EntityData.SegmentPath = "active" + "[aid='" + fmt.Sprintf("%v", active.Aid) + "']" + "[eid='" + fmt.Sprintf("%v", active.Eid) + "']"
+    active.EntityData.SegmentPath = "active" + types.AddKeyToken(active.Aid, "aid") + types.AddKeyToken(active.Eid, "eid")
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    active.EntityData.Children = make(map[string]types.YChild)
-    active.EntityData.Leafs = make(map[string]types.YLeaf)
-    active.EntityData.Leafs["aid"] = types.YLeaf{"Aid", active.Aid}
-    active.EntityData.Leafs["eid"] = types.YLeaf{"Eid", active.Eid}
-    active.EntityData.Leafs["tag"] = types.YLeaf{"Tag", active.Tag}
-    active.EntityData.Leafs["module"] = types.YLeaf{"Module", active.Module}
-    active.EntityData.Leafs["gen_location"] = types.YLeaf{"GenLocation", active.GenLocation}
-    active.EntityData.Leafs["severity"] = types.YLeaf{"Severity", active.Severity}
-    active.EntityData.Leafs["group"] = types.YLeaf{"Group", active.Group}
-    active.EntityData.Leafs["description"] = types.YLeaf{"Description", active.Description}
-    active.EntityData.Leafs["set_time"] = types.YLeaf{"SetTime", active.SetTime}
+    active.EntityData.Children = types.NewOrderedMap()
+    active.EntityData.Leafs = types.NewOrderedMap()
+    active.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", active.Aid})
+    active.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", active.Eid})
+    active.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", active.Tag})
+    active.EntityData.Leafs.Append("module", types.YLeaf{"Module", active.Module})
+    active.EntityData.Leafs.Append("gen_location", types.YLeaf{"GenLocation", active.GenLocation})
+    active.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", active.Severity})
+    active.EntityData.Leafs.Append("group", types.YLeaf{"Group", active.Group})
+    active.EntityData.Leafs.Append("description", types.YLeaf{"Description", active.Description})
+    active.EntityData.Leafs.Append("set_time", types.YLeaf{"SetTime", active.SetTime})
+
+    active.EntityData.YListKeys = []string {"Aid", "Eid"}
+
     return &(active.EntityData)
 }
 
@@ -759,23 +801,26 @@ func (history *AlarmMgr_Brief_Rack_RackLocations_History) GetEntityData() *types
     history.EntityData.YangName = "history"
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "rack_locations"
-    history.EntityData.SegmentPath = "history" + "[aid='" + fmt.Sprintf("%v", history.Aid) + "']" + "[eid='" + fmt.Sprintf("%v", history.Eid) + "']"
+    history.EntityData.SegmentPath = "history" + types.AddKeyToken(history.Aid, "aid") + types.AddKeyToken(history.Eid, "eid")
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    history.EntityData.Children = make(map[string]types.YChild)
-    history.EntityData.Leafs = make(map[string]types.YLeaf)
-    history.EntityData.Leafs["aid"] = types.YLeaf{"Aid", history.Aid}
-    history.EntityData.Leafs["eid"] = types.YLeaf{"Eid", history.Eid}
-    history.EntityData.Leafs["tag"] = types.YLeaf{"Tag", history.Tag}
-    history.EntityData.Leafs["module"] = types.YLeaf{"Module", history.Module}
-    history.EntityData.Leafs["gen_location"] = types.YLeaf{"GenLocation", history.GenLocation}
-    history.EntityData.Leafs["severity"] = types.YLeaf{"Severity", history.Severity}
-    history.EntityData.Leafs["group"] = types.YLeaf{"Group", history.Group}
-    history.EntityData.Leafs["description"] = types.YLeaf{"Description", history.Description}
-    history.EntityData.Leafs["set_time"] = types.YLeaf{"SetTime", history.SetTime}
-    history.EntityData.Leafs["clear_time"] = types.YLeaf{"ClearTime", history.ClearTime}
+    history.EntityData.Children = types.NewOrderedMap()
+    history.EntityData.Leafs = types.NewOrderedMap()
+    history.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", history.Aid})
+    history.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", history.Eid})
+    history.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", history.Tag})
+    history.EntityData.Leafs.Append("module", types.YLeaf{"Module", history.Module})
+    history.EntityData.Leafs.Append("gen_location", types.YLeaf{"GenLocation", history.GenLocation})
+    history.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", history.Severity})
+    history.EntityData.Leafs.Append("group", types.YLeaf{"Group", history.Group})
+    history.EntityData.Leafs.Append("description", types.YLeaf{"Description", history.Description})
+    history.EntityData.Leafs.Append("set_time", types.YLeaf{"SetTime", history.SetTime})
+    history.EntityData.Leafs.Append("clear_time", types.YLeaf{"ClearTime", history.ClearTime})
+
+    history.EntityData.YListKeys = []string {"Aid", "Eid"}
+
     return &(history.EntityData)
 }
 
@@ -821,23 +866,26 @@ func (suppressed *AlarmMgr_Brief_Rack_RackLocations_Suppressed) GetEntityData() 
     suppressed.EntityData.YangName = "suppressed"
     suppressed.EntityData.BundleName = "cisco_ios_xr"
     suppressed.EntityData.ParentYangName = "rack_locations"
-    suppressed.EntityData.SegmentPath = "suppressed" + "[aid='" + fmt.Sprintf("%v", suppressed.Aid) + "']" + "[eid='" + fmt.Sprintf("%v", suppressed.Eid) + "']"
+    suppressed.EntityData.SegmentPath = "suppressed" + types.AddKeyToken(suppressed.Aid, "aid") + types.AddKeyToken(suppressed.Eid, "eid")
     suppressed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    suppressed.EntityData.Children = make(map[string]types.YChild)
-    suppressed.EntityData.Leafs = make(map[string]types.YLeaf)
-    suppressed.EntityData.Leafs["aid"] = types.YLeaf{"Aid", suppressed.Aid}
-    suppressed.EntityData.Leafs["eid"] = types.YLeaf{"Eid", suppressed.Eid}
-    suppressed.EntityData.Leafs["tag"] = types.YLeaf{"Tag", suppressed.Tag}
-    suppressed.EntityData.Leafs["module"] = types.YLeaf{"Module", suppressed.Module}
-    suppressed.EntityData.Leafs["gen_location"] = types.YLeaf{"GenLocation", suppressed.GenLocation}
-    suppressed.EntityData.Leafs["severity"] = types.YLeaf{"Severity", suppressed.Severity}
-    suppressed.EntityData.Leafs["group"] = types.YLeaf{"Group", suppressed.Group}
-    suppressed.EntityData.Leafs["description"] = types.YLeaf{"Description", suppressed.Description}
-    suppressed.EntityData.Leafs["set_time"] = types.YLeaf{"SetTime", suppressed.SetTime}
-    suppressed.EntityData.Leafs["suppressed_time"] = types.YLeaf{"SuppressedTime", suppressed.SuppressedTime}
+    suppressed.EntityData.Children = types.NewOrderedMap()
+    suppressed.EntityData.Leafs = types.NewOrderedMap()
+    suppressed.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", suppressed.Aid})
+    suppressed.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", suppressed.Eid})
+    suppressed.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", suppressed.Tag})
+    suppressed.EntityData.Leafs.Append("module", types.YLeaf{"Module", suppressed.Module})
+    suppressed.EntityData.Leafs.Append("gen_location", types.YLeaf{"GenLocation", suppressed.GenLocation})
+    suppressed.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", suppressed.Severity})
+    suppressed.EntityData.Leafs.Append("group", types.YLeaf{"Group", suppressed.Group})
+    suppressed.EntityData.Leafs.Append("description", types.YLeaf{"Description", suppressed.Description})
+    suppressed.EntityData.Leafs.Append("set_time", types.YLeaf{"SetTime", suppressed.SetTime})
+    suppressed.EntityData.Leafs.Append("suppressed_time", types.YLeaf{"SuppressedTime", suppressed.SuppressedTime})
+
+    suppressed.EntityData.YListKeys = []string {"Aid", "Eid"}
+
     return &(suppressed.EntityData)
 }
 
@@ -848,13 +896,13 @@ type AlarmMgr_Brief_System struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AlarmMgr_Brief_System_Active.
-    Active []AlarmMgr_Brief_System_Active
+    Active []*AlarmMgr_Brief_System_Active
 
     // The type is slice of AlarmMgr_Brief_System_History.
-    History []AlarmMgr_Brief_System_History
+    History []*AlarmMgr_Brief_System_History
 
     // The type is slice of AlarmMgr_Brief_System_Suppressed.
-    Suppressed []AlarmMgr_Brief_System_Suppressed
+    Suppressed []*AlarmMgr_Brief_System_Suppressed
 }
 
 func (system *AlarmMgr_Brief_System) GetEntityData() *types.CommonEntityData {
@@ -867,20 +915,23 @@ func (system *AlarmMgr_Brief_System) GetEntityData() *types.CommonEntityData {
     system.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     system.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    system.EntityData.Children = make(map[string]types.YChild)
-    system.EntityData.Children["active"] = types.YChild{"Active", nil}
+    system.EntityData.Children = types.NewOrderedMap()
+    system.EntityData.Children.Append("active", types.YChild{"Active", nil})
     for i := range system.Active {
-        system.EntityData.Children[types.GetSegmentPath(&system.Active[i])] = types.YChild{"Active", &system.Active[i]}
+        system.EntityData.Children.Append(types.GetSegmentPath(system.Active[i]), types.YChild{"Active", system.Active[i]})
     }
-    system.EntityData.Children["history"] = types.YChild{"History", nil}
+    system.EntityData.Children.Append("history", types.YChild{"History", nil})
     for i := range system.History {
-        system.EntityData.Children[types.GetSegmentPath(&system.History[i])] = types.YChild{"History", &system.History[i]}
+        system.EntityData.Children.Append(types.GetSegmentPath(system.History[i]), types.YChild{"History", system.History[i]})
     }
-    system.EntityData.Children["suppressed"] = types.YChild{"Suppressed", nil}
+    system.EntityData.Children.Append("suppressed", types.YChild{"Suppressed", nil})
     for i := range system.Suppressed {
-        system.EntityData.Children[types.GetSegmentPath(&system.Suppressed[i])] = types.YChild{"Suppressed", &system.Suppressed[i]}
+        system.EntityData.Children.Append(types.GetSegmentPath(system.Suppressed[i]), types.YChild{"Suppressed", system.Suppressed[i]})
     }
-    system.EntityData.Leafs = make(map[string]types.YLeaf)
+    system.EntityData.Leafs = types.NewOrderedMap()
+
+    system.EntityData.YListKeys = []string {}
+
     return &(system.EntityData)
 }
 
@@ -923,22 +974,25 @@ func (active *AlarmMgr_Brief_System_Active) GetEntityData() *types.CommonEntityD
     active.EntityData.YangName = "active"
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "system"
-    active.EntityData.SegmentPath = "active" + "[aid='" + fmt.Sprintf("%v", active.Aid) + "']" + "[eid='" + fmt.Sprintf("%v", active.Eid) + "']"
+    active.EntityData.SegmentPath = "active" + types.AddKeyToken(active.Aid, "aid") + types.AddKeyToken(active.Eid, "eid")
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    active.EntityData.Children = make(map[string]types.YChild)
-    active.EntityData.Leafs = make(map[string]types.YLeaf)
-    active.EntityData.Leafs["aid"] = types.YLeaf{"Aid", active.Aid}
-    active.EntityData.Leafs["eid"] = types.YLeaf{"Eid", active.Eid}
-    active.EntityData.Leafs["tag"] = types.YLeaf{"Tag", active.Tag}
-    active.EntityData.Leafs["module"] = types.YLeaf{"Module", active.Module}
-    active.EntityData.Leafs["gen_location"] = types.YLeaf{"GenLocation", active.GenLocation}
-    active.EntityData.Leafs["severity"] = types.YLeaf{"Severity", active.Severity}
-    active.EntityData.Leafs["group"] = types.YLeaf{"Group", active.Group}
-    active.EntityData.Leafs["description"] = types.YLeaf{"Description", active.Description}
-    active.EntityData.Leafs["set_time"] = types.YLeaf{"SetTime", active.SetTime}
+    active.EntityData.Children = types.NewOrderedMap()
+    active.EntityData.Leafs = types.NewOrderedMap()
+    active.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", active.Aid})
+    active.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", active.Eid})
+    active.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", active.Tag})
+    active.EntityData.Leafs.Append("module", types.YLeaf{"Module", active.Module})
+    active.EntityData.Leafs.Append("gen_location", types.YLeaf{"GenLocation", active.GenLocation})
+    active.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", active.Severity})
+    active.EntityData.Leafs.Append("group", types.YLeaf{"Group", active.Group})
+    active.EntityData.Leafs.Append("description", types.YLeaf{"Description", active.Description})
+    active.EntityData.Leafs.Append("set_time", types.YLeaf{"SetTime", active.SetTime})
+
+    active.EntityData.YListKeys = []string {"Aid", "Eid"}
+
     return &(active.EntityData)
 }
 
@@ -984,23 +1038,26 @@ func (history *AlarmMgr_Brief_System_History) GetEntityData() *types.CommonEntit
     history.EntityData.YangName = "history"
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "system"
-    history.EntityData.SegmentPath = "history" + "[aid='" + fmt.Sprintf("%v", history.Aid) + "']" + "[eid='" + fmt.Sprintf("%v", history.Eid) + "']"
+    history.EntityData.SegmentPath = "history" + types.AddKeyToken(history.Aid, "aid") + types.AddKeyToken(history.Eid, "eid")
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    history.EntityData.Children = make(map[string]types.YChild)
-    history.EntityData.Leafs = make(map[string]types.YLeaf)
-    history.EntityData.Leafs["aid"] = types.YLeaf{"Aid", history.Aid}
-    history.EntityData.Leafs["eid"] = types.YLeaf{"Eid", history.Eid}
-    history.EntityData.Leafs["tag"] = types.YLeaf{"Tag", history.Tag}
-    history.EntityData.Leafs["module"] = types.YLeaf{"Module", history.Module}
-    history.EntityData.Leafs["gen_location"] = types.YLeaf{"GenLocation", history.GenLocation}
-    history.EntityData.Leafs["severity"] = types.YLeaf{"Severity", history.Severity}
-    history.EntityData.Leafs["group"] = types.YLeaf{"Group", history.Group}
-    history.EntityData.Leafs["description"] = types.YLeaf{"Description", history.Description}
-    history.EntityData.Leafs["set_time"] = types.YLeaf{"SetTime", history.SetTime}
-    history.EntityData.Leafs["clear_time"] = types.YLeaf{"ClearTime", history.ClearTime}
+    history.EntityData.Children = types.NewOrderedMap()
+    history.EntityData.Leafs = types.NewOrderedMap()
+    history.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", history.Aid})
+    history.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", history.Eid})
+    history.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", history.Tag})
+    history.EntityData.Leafs.Append("module", types.YLeaf{"Module", history.Module})
+    history.EntityData.Leafs.Append("gen_location", types.YLeaf{"GenLocation", history.GenLocation})
+    history.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", history.Severity})
+    history.EntityData.Leafs.Append("group", types.YLeaf{"Group", history.Group})
+    history.EntityData.Leafs.Append("description", types.YLeaf{"Description", history.Description})
+    history.EntityData.Leafs.Append("set_time", types.YLeaf{"SetTime", history.SetTime})
+    history.EntityData.Leafs.Append("clear_time", types.YLeaf{"ClearTime", history.ClearTime})
+
+    history.EntityData.YListKeys = []string {"Aid", "Eid"}
+
     return &(history.EntityData)
 }
 
@@ -1046,23 +1103,26 @@ func (suppressed *AlarmMgr_Brief_System_Suppressed) GetEntityData() *types.Commo
     suppressed.EntityData.YangName = "suppressed"
     suppressed.EntityData.BundleName = "cisco_ios_xr"
     suppressed.EntityData.ParentYangName = "system"
-    suppressed.EntityData.SegmentPath = "suppressed" + "[aid='" + fmt.Sprintf("%v", suppressed.Aid) + "']" + "[eid='" + fmt.Sprintf("%v", suppressed.Eid) + "']"
+    suppressed.EntityData.SegmentPath = "suppressed" + types.AddKeyToken(suppressed.Aid, "aid") + types.AddKeyToken(suppressed.Eid, "eid")
     suppressed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    suppressed.EntityData.Children = make(map[string]types.YChild)
-    suppressed.EntityData.Leafs = make(map[string]types.YLeaf)
-    suppressed.EntityData.Leafs["aid"] = types.YLeaf{"Aid", suppressed.Aid}
-    suppressed.EntityData.Leafs["eid"] = types.YLeaf{"Eid", suppressed.Eid}
-    suppressed.EntityData.Leafs["tag"] = types.YLeaf{"Tag", suppressed.Tag}
-    suppressed.EntityData.Leafs["module"] = types.YLeaf{"Module", suppressed.Module}
-    suppressed.EntityData.Leafs["gen_location"] = types.YLeaf{"GenLocation", suppressed.GenLocation}
-    suppressed.EntityData.Leafs["severity"] = types.YLeaf{"Severity", suppressed.Severity}
-    suppressed.EntityData.Leafs["group"] = types.YLeaf{"Group", suppressed.Group}
-    suppressed.EntityData.Leafs["description"] = types.YLeaf{"Description", suppressed.Description}
-    suppressed.EntityData.Leafs["set_time"] = types.YLeaf{"SetTime", suppressed.SetTime}
-    suppressed.EntityData.Leafs["suppressed_time"] = types.YLeaf{"SuppressedTime", suppressed.SuppressedTime}
+    suppressed.EntityData.Children = types.NewOrderedMap()
+    suppressed.EntityData.Leafs = types.NewOrderedMap()
+    suppressed.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", suppressed.Aid})
+    suppressed.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", suppressed.Eid})
+    suppressed.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", suppressed.Tag})
+    suppressed.EntityData.Leafs.Append("module", types.YLeaf{"Module", suppressed.Module})
+    suppressed.EntityData.Leafs.Append("gen_location", types.YLeaf{"GenLocation", suppressed.GenLocation})
+    suppressed.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", suppressed.Severity})
+    suppressed.EntityData.Leafs.Append("group", types.YLeaf{"Group", suppressed.Group})
+    suppressed.EntityData.Leafs.Append("description", types.YLeaf{"Description", suppressed.Description})
+    suppressed.EntityData.Leafs.Append("set_time", types.YLeaf{"SetTime", suppressed.SetTime})
+    suppressed.EntityData.Leafs.Append("suppressed_time", types.YLeaf{"SuppressedTime", suppressed.SuppressedTime})
+
+    suppressed.EntityData.YListKeys = []string {"Aid", "Eid"}
+
     return &(suppressed.EntityData)
 }
 
@@ -1092,11 +1152,14 @@ func (detail *AlarmMgr_Detail) GetEntityData() *types.CommonEntityData {
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detail.EntityData.Children = make(map[string]types.YChild)
-    detail.EntityData.Children["card"] = types.YChild{"Card", &detail.Card}
-    detail.EntityData.Children["rack"] = types.YChild{"Rack", &detail.Rack}
-    detail.EntityData.Children["system"] = types.YChild{"System", &detail.System}
-    detail.EntityData.Leafs = make(map[string]types.YLeaf)
+    detail.EntityData.Children = types.NewOrderedMap()
+    detail.EntityData.Children.Append("card", types.YChild{"Card", &detail.Card})
+    detail.EntityData.Children.Append("rack", types.YChild{"Rack", &detail.Rack})
+    detail.EntityData.Children.Append("system", types.YChild{"System", &detail.System})
+    detail.EntityData.Leafs = types.NewOrderedMap()
+
+    detail.EntityData.YListKeys = []string {}
+
     return &(detail.EntityData)
 }
 
@@ -1108,7 +1171,7 @@ type AlarmMgr_Detail_Card struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AlarmMgr_Detail_Card_Location.
-    Location []AlarmMgr_Detail_Card_Location
+    Location []*AlarmMgr_Detail_Card_Location
 }
 
 func (card *AlarmMgr_Detail_Card) GetEntityData() *types.CommonEntityData {
@@ -1121,12 +1184,15 @@ func (card *AlarmMgr_Detail_Card) GetEntityData() *types.CommonEntityData {
     card.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     card.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    card.EntityData.Children = make(map[string]types.YChild)
-    card.EntityData.Children["location"] = types.YChild{"Location", nil}
+    card.EntityData.Children = types.NewOrderedMap()
+    card.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range card.Location {
-        card.EntityData.Children[types.GetSegmentPath(&card.Location[i])] = types.YChild{"Location", &card.Location[i]}
+        card.EntityData.Children.Append(types.GetSegmentPath(card.Location[i]), types.YChild{"Location", card.Location[i]})
     }
-    card.EntityData.Leafs = make(map[string]types.YLeaf)
+    card.EntityData.Leafs = types.NewOrderedMap()
+
+    card.EntityData.YListKeys = []string {}
+
     return &(card.EntityData)
 }
 
@@ -1136,23 +1202,23 @@ type AlarmMgr_Detail_Card_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     Locations interface{}
 
     // The type is slice of AlarmMgr_Detail_Card_Location_Active.
-    Active []AlarmMgr_Detail_Card_Location_Active
+    Active []*AlarmMgr_Detail_Card_Location_Active
 
     // The type is slice of AlarmMgr_Detail_Card_Location_History.
-    History []AlarmMgr_Detail_Card_Location_History
+    History []*AlarmMgr_Detail_Card_Location_History
 
     // The type is slice of AlarmMgr_Detail_Card_Location_Stats.
-    Stats []AlarmMgr_Detail_Card_Location_Stats
+    Stats []*AlarmMgr_Detail_Card_Location_Stats
 
     // The type is slice of AlarmMgr_Detail_Card_Location_Clients.
-    Clients []AlarmMgr_Detail_Card_Location_Clients
+    Clients []*AlarmMgr_Detail_Card_Location_Clients
 
     // The type is slice of AlarmMgr_Detail_Card_Location_Suppressed.
-    Suppressed []AlarmMgr_Detail_Card_Location_Suppressed
+    Suppressed []*AlarmMgr_Detail_Card_Location_Suppressed
 }
 
 func (location *AlarmMgr_Detail_Card_Location) GetEntityData() *types.CommonEntityData {
@@ -1160,34 +1226,37 @@ func (location *AlarmMgr_Detail_Card_Location) GetEntityData() *types.CommonEnti
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "card"
-    location.EntityData.SegmentPath = "location" + "[locations='" + fmt.Sprintf("%v", location.Locations) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Locations, "locations")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["active"] = types.YChild{"Active", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("active", types.YChild{"Active", nil})
     for i := range location.Active {
-        location.EntityData.Children[types.GetSegmentPath(&location.Active[i])] = types.YChild{"Active", &location.Active[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.Active[i]), types.YChild{"Active", location.Active[i]})
     }
-    location.EntityData.Children["history"] = types.YChild{"History", nil}
+    location.EntityData.Children.Append("history", types.YChild{"History", nil})
     for i := range location.History {
-        location.EntityData.Children[types.GetSegmentPath(&location.History[i])] = types.YChild{"History", &location.History[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.History[i]), types.YChild{"History", location.History[i]})
     }
-    location.EntityData.Children["stats"] = types.YChild{"Stats", nil}
+    location.EntityData.Children.Append("stats", types.YChild{"Stats", nil})
     for i := range location.Stats {
-        location.EntityData.Children[types.GetSegmentPath(&location.Stats[i])] = types.YChild{"Stats", &location.Stats[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.Stats[i]), types.YChild{"Stats", location.Stats[i]})
     }
-    location.EntityData.Children["clients"] = types.YChild{"Clients", nil}
+    location.EntityData.Children.Append("clients", types.YChild{"Clients", nil})
     for i := range location.Clients {
-        location.EntityData.Children[types.GetSegmentPath(&location.Clients[i])] = types.YChild{"Clients", &location.Clients[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.Clients[i]), types.YChild{"Clients", location.Clients[i]})
     }
-    location.EntityData.Children["suppressed"] = types.YChild{"Suppressed", nil}
+    location.EntityData.Children.Append("suppressed", types.YChild{"Suppressed", nil})
     for i := range location.Suppressed {
-        location.EntityData.Children[types.GetSegmentPath(&location.Suppressed[i])] = types.YChild{"Suppressed", &location.Suppressed[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.Suppressed[i]), types.YChild{"Suppressed", location.Suppressed[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["locations"] = types.YLeaf{"Locations", location.Locations}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("locations", types.YLeaf{"Locations", location.Locations})
+
+    location.EntityData.YListKeys = []string {"Locations"}
+
     return &(location.EntityData)
 }
 
@@ -1246,27 +1315,30 @@ func (active *AlarmMgr_Detail_Card_Location_Active) GetEntityData() *types.Commo
     active.EntityData.YangName = "active"
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "location"
-    active.EntityData.SegmentPath = "active" + "[aid='" + fmt.Sprintf("%v", active.Aid) + "']" + "[eid='" + fmt.Sprintf("%v", active.Eid) + "']"
+    active.EntityData.SegmentPath = "active" + types.AddKeyToken(active.Aid, "aid") + types.AddKeyToken(active.Eid, "eid")
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    active.EntityData.Children = make(map[string]types.YChild)
-    active.EntityData.Leafs = make(map[string]types.YLeaf)
-    active.EntityData.Leafs["aid"] = types.YLeaf{"Aid", active.Aid}
-    active.EntityData.Leafs["eid"] = types.YLeaf{"Eid", active.Eid}
-    active.EntityData.Leafs["tag"] = types.YLeaf{"Tag", active.Tag}
-    active.EntityData.Leafs["module"] = types.YLeaf{"Module", active.Module}
-    active.EntityData.Leafs["gen_location"] = types.YLeaf{"GenLocation", active.GenLocation}
-    active.EntityData.Leafs["severity"] = types.YLeaf{"Severity", active.Severity}
-    active.EntityData.Leafs["group"] = types.YLeaf{"Group", active.Group}
-    active.EntityData.Leafs["description"] = types.YLeaf{"Description", active.Description}
-    active.EntityData.Leafs["set_time"] = types.YLeaf{"SetTime", active.SetTime}
-    active.EntityData.Leafs["state"] = types.YLeaf{"State", active.State}
-    active.EntityData.Leafs["reporting_agent_id"] = types.YLeaf{"ReportingAgentId", active.ReportingAgentId}
-    active.EntityData.Leafs["resynced"] = types.YLeaf{"Resynced", active.Resynced}
-    active.EntityData.Leafs["detail_desc"] = types.YLeaf{"DetailDesc", active.DetailDesc}
-    active.EntityData.Leafs["clear_time"] = types.YLeaf{"ClearTime", active.ClearTime}
+    active.EntityData.Children = types.NewOrderedMap()
+    active.EntityData.Leafs = types.NewOrderedMap()
+    active.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", active.Aid})
+    active.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", active.Eid})
+    active.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", active.Tag})
+    active.EntityData.Leafs.Append("module", types.YLeaf{"Module", active.Module})
+    active.EntityData.Leafs.Append("gen_location", types.YLeaf{"GenLocation", active.GenLocation})
+    active.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", active.Severity})
+    active.EntityData.Leafs.Append("group", types.YLeaf{"Group", active.Group})
+    active.EntityData.Leafs.Append("description", types.YLeaf{"Description", active.Description})
+    active.EntityData.Leafs.Append("set_time", types.YLeaf{"SetTime", active.SetTime})
+    active.EntityData.Leafs.Append("state", types.YLeaf{"State", active.State})
+    active.EntityData.Leafs.Append("reporting_agent_id", types.YLeaf{"ReportingAgentId", active.ReportingAgentId})
+    active.EntityData.Leafs.Append("resynced", types.YLeaf{"Resynced", active.Resynced})
+    active.EntityData.Leafs.Append("detail_desc", types.YLeaf{"DetailDesc", active.DetailDesc})
+    active.EntityData.Leafs.Append("clear_time", types.YLeaf{"ClearTime", active.ClearTime})
+
+    active.EntityData.YListKeys = []string {"Aid", "Eid"}
+
     return &(active.EntityData)
 }
 
@@ -1325,27 +1397,30 @@ func (history *AlarmMgr_Detail_Card_Location_History) GetEntityData() *types.Com
     history.EntityData.YangName = "history"
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "location"
-    history.EntityData.SegmentPath = "history" + "[aid='" + fmt.Sprintf("%v", history.Aid) + "']" + "[eid='" + fmt.Sprintf("%v", history.Eid) + "']"
+    history.EntityData.SegmentPath = "history" + types.AddKeyToken(history.Aid, "aid") + types.AddKeyToken(history.Eid, "eid")
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    history.EntityData.Children = make(map[string]types.YChild)
-    history.EntityData.Leafs = make(map[string]types.YLeaf)
-    history.EntityData.Leafs["aid"] = types.YLeaf{"Aid", history.Aid}
-    history.EntityData.Leafs["eid"] = types.YLeaf{"Eid", history.Eid}
-    history.EntityData.Leafs["tag"] = types.YLeaf{"Tag", history.Tag}
-    history.EntityData.Leafs["module"] = types.YLeaf{"Module", history.Module}
-    history.EntityData.Leafs["gen_location"] = types.YLeaf{"GenLocation", history.GenLocation}
-    history.EntityData.Leafs["severity"] = types.YLeaf{"Severity", history.Severity}
-    history.EntityData.Leafs["group"] = types.YLeaf{"Group", history.Group}
-    history.EntityData.Leafs["description"] = types.YLeaf{"Description", history.Description}
-    history.EntityData.Leafs["set_time"] = types.YLeaf{"SetTime", history.SetTime}
-    history.EntityData.Leafs["state"] = types.YLeaf{"State", history.State}
-    history.EntityData.Leafs["reporting_agent_id"] = types.YLeaf{"ReportingAgentId", history.ReportingAgentId}
-    history.EntityData.Leafs["resynced"] = types.YLeaf{"Resynced", history.Resynced}
-    history.EntityData.Leafs["detail_desc"] = types.YLeaf{"DetailDesc", history.DetailDesc}
-    history.EntityData.Leafs["clear_time"] = types.YLeaf{"ClearTime", history.ClearTime}
+    history.EntityData.Children = types.NewOrderedMap()
+    history.EntityData.Leafs = types.NewOrderedMap()
+    history.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", history.Aid})
+    history.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", history.Eid})
+    history.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", history.Tag})
+    history.EntityData.Leafs.Append("module", types.YLeaf{"Module", history.Module})
+    history.EntityData.Leafs.Append("gen_location", types.YLeaf{"GenLocation", history.GenLocation})
+    history.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", history.Severity})
+    history.EntityData.Leafs.Append("group", types.YLeaf{"Group", history.Group})
+    history.EntityData.Leafs.Append("description", types.YLeaf{"Description", history.Description})
+    history.EntityData.Leafs.Append("set_time", types.YLeaf{"SetTime", history.SetTime})
+    history.EntityData.Leafs.Append("state", types.YLeaf{"State", history.State})
+    history.EntityData.Leafs.Append("reporting_agent_id", types.YLeaf{"ReportingAgentId", history.ReportingAgentId})
+    history.EntityData.Leafs.Append("resynced", types.YLeaf{"Resynced", history.Resynced})
+    history.EntityData.Leafs.Append("detail_desc", types.YLeaf{"DetailDesc", history.DetailDesc})
+    history.EntityData.Leafs.Append("clear_time", types.YLeaf{"ClearTime", history.ClearTime})
+
+    history.EntityData.YListKeys = []string {"Aid", "Eid"}
+
     return &(history.EntityData)
 }
 
@@ -1412,26 +1487,29 @@ func (stats *AlarmMgr_Detail_Card_Location_Stats) GetEntityData() *types.CommonE
     stats.EntityData.YangName = "stats"
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "location"
-    stats.EntityData.SegmentPath = "stats" + "[attime='" + fmt.Sprintf("%v", stats.Attime) + "']"
+    stats.EntityData.SegmentPath = "stats" + types.AddKeyToken(stats.Attime, "attime")
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stats.EntityData.Children = make(map[string]types.YChild)
-    stats.EntityData.Leafs = make(map[string]types.YLeaf)
-    stats.EntityData.Leafs["attime"] = types.YLeaf{"Attime", stats.Attime}
-    stats.EntityData.Leafs["reported"] = types.YLeaf{"Reported", stats.Reported}
-    stats.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", stats.Dropped}
-    stats.EntityData.Leafs["bi_set"] = types.YLeaf{"BiSet", stats.BiSet}
-    stats.EntityData.Leafs["bi_clear"] = types.YLeaf{"BiClear", stats.BiClear}
-    stats.EntityData.Leafs["suppressed"] = types.YLeaf{"Suppressed", stats.Suppressed}
-    stats.EntityData.Leafs["drop_inv_aid"] = types.YLeaf{"DropInvAid", stats.DropInvAid}
-    stats.EntityData.Leafs["drop_no_mem"] = types.YLeaf{"DropNoMem", stats.DropNoMem}
-    stats.EntityData.Leafs["drop_db_error"] = types.YLeaf{"DropDbError", stats.DropDbError}
-    stats.EntityData.Leafs["drop_clear_no_set"] = types.YLeaf{"DropClearNoSet", stats.DropClearNoSet}
-    stats.EntityData.Leafs["drop_dup"] = types.YLeaf{"DropDup", stats.DropDup}
-    stats.EntityData.Leafs["cache_hit"] = types.YLeaf{"CacheHit", stats.CacheHit}
-    stats.EntityData.Leafs["cache_miss"] = types.YLeaf{"CacheMiss", stats.CacheMiss}
+    stats.EntityData.Children = types.NewOrderedMap()
+    stats.EntityData.Leafs = types.NewOrderedMap()
+    stats.EntityData.Leafs.Append("attime", types.YLeaf{"Attime", stats.Attime})
+    stats.EntityData.Leafs.Append("reported", types.YLeaf{"Reported", stats.Reported})
+    stats.EntityData.Leafs.Append("dropped", types.YLeaf{"Dropped", stats.Dropped})
+    stats.EntityData.Leafs.Append("bi_set", types.YLeaf{"BiSet", stats.BiSet})
+    stats.EntityData.Leafs.Append("bi_clear", types.YLeaf{"BiClear", stats.BiClear})
+    stats.EntityData.Leafs.Append("suppressed", types.YLeaf{"Suppressed", stats.Suppressed})
+    stats.EntityData.Leafs.Append("drop_inv_aid", types.YLeaf{"DropInvAid", stats.DropInvAid})
+    stats.EntityData.Leafs.Append("drop_no_mem", types.YLeaf{"DropNoMem", stats.DropNoMem})
+    stats.EntityData.Leafs.Append("drop_db_error", types.YLeaf{"DropDbError", stats.DropDbError})
+    stats.EntityData.Leafs.Append("drop_clear_no_set", types.YLeaf{"DropClearNoSet", stats.DropClearNoSet})
+    stats.EntityData.Leafs.Append("drop_dup", types.YLeaf{"DropDup", stats.DropDup})
+    stats.EntityData.Leafs.Append("cache_hit", types.YLeaf{"CacheHit", stats.CacheHit})
+    stats.EntityData.Leafs.Append("cache_miss", types.YLeaf{"CacheMiss", stats.CacheMiss})
+
+    stats.EntityData.YListKeys = []string {"Attime"}
+
     return &(stats.EntityData)
 }
 
@@ -1451,8 +1529,7 @@ type AlarmMgr_Detail_Card_Location_Clients struct {
     // 0..4294967295.
     AgentId interface{}
 
-    // The location of this client. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // The location of this client. The type is string.
     AgentLocation interface{}
 
     // The current state of the client. The type is AgentStateTd.
@@ -1506,30 +1583,33 @@ func (clients *AlarmMgr_Detail_Card_Location_Clients) GetEntityData() *types.Com
     clients.EntityData.YangName = "clients"
     clients.EntityData.BundleName = "cisco_ios_xr"
     clients.EntityData.ParentYangName = "location"
-    clients.EntityData.SegmentPath = "clients" + "[agent_handle='" + fmt.Sprintf("%v", clients.AgentHandle) + "']"
+    clients.EntityData.SegmentPath = "clients" + types.AddKeyToken(clients.AgentHandle, "agent_handle")
     clients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clients.EntityData.Children = make(map[string]types.YChild)
-    clients.EntityData.Leafs = make(map[string]types.YLeaf)
-    clients.EntityData.Leafs["agent_handle"] = types.YLeaf{"AgentHandle", clients.AgentHandle}
-    clients.EntityData.Leafs["agent_name"] = types.YLeaf{"AgentName", clients.AgentName}
-    clients.EntityData.Leafs["agent_id"] = types.YLeaf{"AgentId", clients.AgentId}
-    clients.EntityData.Leafs["agent_location"] = types.YLeaf{"AgentLocation", clients.AgentLocation}
-    clients.EntityData.Leafs["agent_state"] = types.YLeaf{"AgentState", clients.AgentState}
-    clients.EntityData.Leafs["agent_type"] = types.YLeaf{"AgentType", clients.AgentType}
-    clients.EntityData.Leafs["agent_filter_disp"] = types.YLeaf{"AgentFilterDisp", clients.AgentFilterDisp}
-    clients.EntityData.Leafs["agent_subs_id"] = types.YLeaf{"AgentSubsId", clients.AgentSubsId}
-    clients.EntityData.Leafs["agent_filter_state"] = types.YLeaf{"AgentFilterState", clients.AgentFilterState}
-    clients.EntityData.Leafs["agent_filter_severity"] = types.YLeaf{"AgentFilterSeverity", clients.AgentFilterSeverity}
-    clients.EntityData.Leafs["agent_filter_group"] = types.YLeaf{"AgentFilterGroup", clients.AgentFilterGroup}
-    clients.EntityData.Leafs["agent_sdr_id"] = types.YLeaf{"AgentSdrId", clients.AgentSdrId}
-    clients.EntityData.Leafs["agent_connect_count"] = types.YLeaf{"AgentConnectCount", clients.AgentConnectCount}
-    clients.EntityData.Leafs["agent_connect_time"] = types.YLeaf{"AgentConnectTime", clients.AgentConnectTime}
-    clients.EntityData.Leafs["agent_get_count"] = types.YLeaf{"AgentGetCount", clients.AgentGetCount}
-    clients.EntityData.Leafs["agent_subscribe_count"] = types.YLeaf{"AgentSubscribeCount", clients.AgentSubscribeCount}
-    clients.EntityData.Leafs["agent_report_count"] = types.YLeaf{"AgentReportCount", clients.AgentReportCount}
+    clients.EntityData.Children = types.NewOrderedMap()
+    clients.EntityData.Leafs = types.NewOrderedMap()
+    clients.EntityData.Leafs.Append("agent_handle", types.YLeaf{"AgentHandle", clients.AgentHandle})
+    clients.EntityData.Leafs.Append("agent_name", types.YLeaf{"AgentName", clients.AgentName})
+    clients.EntityData.Leafs.Append("agent_id", types.YLeaf{"AgentId", clients.AgentId})
+    clients.EntityData.Leafs.Append("agent_location", types.YLeaf{"AgentLocation", clients.AgentLocation})
+    clients.EntityData.Leafs.Append("agent_state", types.YLeaf{"AgentState", clients.AgentState})
+    clients.EntityData.Leafs.Append("agent_type", types.YLeaf{"AgentType", clients.AgentType})
+    clients.EntityData.Leafs.Append("agent_filter_disp", types.YLeaf{"AgentFilterDisp", clients.AgentFilterDisp})
+    clients.EntityData.Leafs.Append("agent_subs_id", types.YLeaf{"AgentSubsId", clients.AgentSubsId})
+    clients.EntityData.Leafs.Append("agent_filter_state", types.YLeaf{"AgentFilterState", clients.AgentFilterState})
+    clients.EntityData.Leafs.Append("agent_filter_severity", types.YLeaf{"AgentFilterSeverity", clients.AgentFilterSeverity})
+    clients.EntityData.Leafs.Append("agent_filter_group", types.YLeaf{"AgentFilterGroup", clients.AgentFilterGroup})
+    clients.EntityData.Leafs.Append("agent_sdr_id", types.YLeaf{"AgentSdrId", clients.AgentSdrId})
+    clients.EntityData.Leafs.Append("agent_connect_count", types.YLeaf{"AgentConnectCount", clients.AgentConnectCount})
+    clients.EntityData.Leafs.Append("agent_connect_time", types.YLeaf{"AgentConnectTime", clients.AgentConnectTime})
+    clients.EntityData.Leafs.Append("agent_get_count", types.YLeaf{"AgentGetCount", clients.AgentGetCount})
+    clients.EntityData.Leafs.Append("agent_subscribe_count", types.YLeaf{"AgentSubscribeCount", clients.AgentSubscribeCount})
+    clients.EntityData.Leafs.Append("agent_report_count", types.YLeaf{"AgentReportCount", clients.AgentReportCount})
+
+    clients.EntityData.YListKeys = []string {"AgentHandle"}
+
     return &(clients.EntityData)
 }
 
@@ -1588,27 +1668,30 @@ func (suppressed *AlarmMgr_Detail_Card_Location_Suppressed) GetEntityData() *typ
     suppressed.EntityData.YangName = "suppressed"
     suppressed.EntityData.BundleName = "cisco_ios_xr"
     suppressed.EntityData.ParentYangName = "location"
-    suppressed.EntityData.SegmentPath = "suppressed" + "[aid='" + fmt.Sprintf("%v", suppressed.Aid) + "']" + "[eid='" + fmt.Sprintf("%v", suppressed.Eid) + "']"
+    suppressed.EntityData.SegmentPath = "suppressed" + types.AddKeyToken(suppressed.Aid, "aid") + types.AddKeyToken(suppressed.Eid, "eid")
     suppressed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    suppressed.EntityData.Children = make(map[string]types.YChild)
-    suppressed.EntityData.Leafs = make(map[string]types.YLeaf)
-    suppressed.EntityData.Leafs["aid"] = types.YLeaf{"Aid", suppressed.Aid}
-    suppressed.EntityData.Leafs["eid"] = types.YLeaf{"Eid", suppressed.Eid}
-    suppressed.EntityData.Leafs["tag"] = types.YLeaf{"Tag", suppressed.Tag}
-    suppressed.EntityData.Leafs["module"] = types.YLeaf{"Module", suppressed.Module}
-    suppressed.EntityData.Leafs["gen_location"] = types.YLeaf{"GenLocation", suppressed.GenLocation}
-    suppressed.EntityData.Leafs["severity"] = types.YLeaf{"Severity", suppressed.Severity}
-    suppressed.EntityData.Leafs["group"] = types.YLeaf{"Group", suppressed.Group}
-    suppressed.EntityData.Leafs["description"] = types.YLeaf{"Description", suppressed.Description}
-    suppressed.EntityData.Leafs["set_time"] = types.YLeaf{"SetTime", suppressed.SetTime}
-    suppressed.EntityData.Leafs["state"] = types.YLeaf{"State", suppressed.State}
-    suppressed.EntityData.Leafs["reporting_agent_id"] = types.YLeaf{"ReportingAgentId", suppressed.ReportingAgentId}
-    suppressed.EntityData.Leafs["resynced"] = types.YLeaf{"Resynced", suppressed.Resynced}
-    suppressed.EntityData.Leafs["detail_desc"] = types.YLeaf{"DetailDesc", suppressed.DetailDesc}
-    suppressed.EntityData.Leafs["suppressed_time"] = types.YLeaf{"SuppressedTime", suppressed.SuppressedTime}
+    suppressed.EntityData.Children = types.NewOrderedMap()
+    suppressed.EntityData.Leafs = types.NewOrderedMap()
+    suppressed.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", suppressed.Aid})
+    suppressed.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", suppressed.Eid})
+    suppressed.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", suppressed.Tag})
+    suppressed.EntityData.Leafs.Append("module", types.YLeaf{"Module", suppressed.Module})
+    suppressed.EntityData.Leafs.Append("gen_location", types.YLeaf{"GenLocation", suppressed.GenLocation})
+    suppressed.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", suppressed.Severity})
+    suppressed.EntityData.Leafs.Append("group", types.YLeaf{"Group", suppressed.Group})
+    suppressed.EntityData.Leafs.Append("description", types.YLeaf{"Description", suppressed.Description})
+    suppressed.EntityData.Leafs.Append("set_time", types.YLeaf{"SetTime", suppressed.SetTime})
+    suppressed.EntityData.Leafs.Append("state", types.YLeaf{"State", suppressed.State})
+    suppressed.EntityData.Leafs.Append("reporting_agent_id", types.YLeaf{"ReportingAgentId", suppressed.ReportingAgentId})
+    suppressed.EntityData.Leafs.Append("resynced", types.YLeaf{"Resynced", suppressed.Resynced})
+    suppressed.EntityData.Leafs.Append("detail_desc", types.YLeaf{"DetailDesc", suppressed.DetailDesc})
+    suppressed.EntityData.Leafs.Append("suppressed_time", types.YLeaf{"SuppressedTime", suppressed.SuppressedTime})
+
+    suppressed.EntityData.YListKeys = []string {"Aid", "Eid"}
+
     return &(suppressed.EntityData)
 }
 
@@ -1620,7 +1703,7 @@ type AlarmMgr_Detail_Rack struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AlarmMgr_Detail_Rack_RackLocations.
-    RackLocations []AlarmMgr_Detail_Rack_RackLocations
+    RackLocations []*AlarmMgr_Detail_Rack_RackLocations
 }
 
 func (rack *AlarmMgr_Detail_Rack) GetEntityData() *types.CommonEntityData {
@@ -1633,12 +1716,15 @@ func (rack *AlarmMgr_Detail_Rack) GetEntityData() *types.CommonEntityData {
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rack.EntityData.Children = make(map[string]types.YChild)
-    rack.EntityData.Children["rack_locations"] = types.YChild{"RackLocations", nil}
+    rack.EntityData.Children = types.NewOrderedMap()
+    rack.EntityData.Children.Append("rack_locations", types.YChild{"RackLocations", nil})
     for i := range rack.RackLocations {
-        rack.EntityData.Children[types.GetSegmentPath(&rack.RackLocations[i])] = types.YChild{"RackLocations", &rack.RackLocations[i]}
+        rack.EntityData.Children.Append(types.GetSegmentPath(rack.RackLocations[i]), types.YChild{"RackLocations", rack.RackLocations[i]})
     }
-    rack.EntityData.Leafs = make(map[string]types.YLeaf)
+    rack.EntityData.Leafs = types.NewOrderedMap()
+
+    rack.EntityData.YListKeys = []string {}
+
     return &(rack.EntityData)
 }
 
@@ -1651,19 +1737,19 @@ type AlarmMgr_Detail_Rack_RackLocations struct {
     Rackid interface{}
 
     // The type is slice of AlarmMgr_Detail_Rack_RackLocations_Active.
-    Active []AlarmMgr_Detail_Rack_RackLocations_Active
+    Active []*AlarmMgr_Detail_Rack_RackLocations_Active
 
     // The type is slice of AlarmMgr_Detail_Rack_RackLocations_History.
-    History []AlarmMgr_Detail_Rack_RackLocations_History
+    History []*AlarmMgr_Detail_Rack_RackLocations_History
 
     // The type is slice of AlarmMgr_Detail_Rack_RackLocations_Stats.
-    Stats []AlarmMgr_Detail_Rack_RackLocations_Stats
+    Stats []*AlarmMgr_Detail_Rack_RackLocations_Stats
 
     // The type is slice of AlarmMgr_Detail_Rack_RackLocations_Clients.
-    Clients []AlarmMgr_Detail_Rack_RackLocations_Clients
+    Clients []*AlarmMgr_Detail_Rack_RackLocations_Clients
 
     // The type is slice of AlarmMgr_Detail_Rack_RackLocations_Suppressed.
-    Suppressed []AlarmMgr_Detail_Rack_RackLocations_Suppressed
+    Suppressed []*AlarmMgr_Detail_Rack_RackLocations_Suppressed
 }
 
 func (rackLocations *AlarmMgr_Detail_Rack_RackLocations) GetEntityData() *types.CommonEntityData {
@@ -1671,34 +1757,37 @@ func (rackLocations *AlarmMgr_Detail_Rack_RackLocations) GetEntityData() *types.
     rackLocations.EntityData.YangName = "rack_locations"
     rackLocations.EntityData.BundleName = "cisco_ios_xr"
     rackLocations.EntityData.ParentYangName = "rack"
-    rackLocations.EntityData.SegmentPath = "rack_locations" + "[rackid='" + fmt.Sprintf("%v", rackLocations.Rackid) + "']"
+    rackLocations.EntityData.SegmentPath = "rack_locations" + types.AddKeyToken(rackLocations.Rackid, "rackid")
     rackLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rackLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rackLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rackLocations.EntityData.Children = make(map[string]types.YChild)
-    rackLocations.EntityData.Children["active"] = types.YChild{"Active", nil}
+    rackLocations.EntityData.Children = types.NewOrderedMap()
+    rackLocations.EntityData.Children.Append("active", types.YChild{"Active", nil})
     for i := range rackLocations.Active {
-        rackLocations.EntityData.Children[types.GetSegmentPath(&rackLocations.Active[i])] = types.YChild{"Active", &rackLocations.Active[i]}
+        rackLocations.EntityData.Children.Append(types.GetSegmentPath(rackLocations.Active[i]), types.YChild{"Active", rackLocations.Active[i]})
     }
-    rackLocations.EntityData.Children["history"] = types.YChild{"History", nil}
+    rackLocations.EntityData.Children.Append("history", types.YChild{"History", nil})
     for i := range rackLocations.History {
-        rackLocations.EntityData.Children[types.GetSegmentPath(&rackLocations.History[i])] = types.YChild{"History", &rackLocations.History[i]}
+        rackLocations.EntityData.Children.Append(types.GetSegmentPath(rackLocations.History[i]), types.YChild{"History", rackLocations.History[i]})
     }
-    rackLocations.EntityData.Children["stats"] = types.YChild{"Stats", nil}
+    rackLocations.EntityData.Children.Append("stats", types.YChild{"Stats", nil})
     for i := range rackLocations.Stats {
-        rackLocations.EntityData.Children[types.GetSegmentPath(&rackLocations.Stats[i])] = types.YChild{"Stats", &rackLocations.Stats[i]}
+        rackLocations.EntityData.Children.Append(types.GetSegmentPath(rackLocations.Stats[i]), types.YChild{"Stats", rackLocations.Stats[i]})
     }
-    rackLocations.EntityData.Children["clients"] = types.YChild{"Clients", nil}
+    rackLocations.EntityData.Children.Append("clients", types.YChild{"Clients", nil})
     for i := range rackLocations.Clients {
-        rackLocations.EntityData.Children[types.GetSegmentPath(&rackLocations.Clients[i])] = types.YChild{"Clients", &rackLocations.Clients[i]}
+        rackLocations.EntityData.Children.Append(types.GetSegmentPath(rackLocations.Clients[i]), types.YChild{"Clients", rackLocations.Clients[i]})
     }
-    rackLocations.EntityData.Children["suppressed"] = types.YChild{"Suppressed", nil}
+    rackLocations.EntityData.Children.Append("suppressed", types.YChild{"Suppressed", nil})
     for i := range rackLocations.Suppressed {
-        rackLocations.EntityData.Children[types.GetSegmentPath(&rackLocations.Suppressed[i])] = types.YChild{"Suppressed", &rackLocations.Suppressed[i]}
+        rackLocations.EntityData.Children.Append(types.GetSegmentPath(rackLocations.Suppressed[i]), types.YChild{"Suppressed", rackLocations.Suppressed[i]})
     }
-    rackLocations.EntityData.Leafs = make(map[string]types.YLeaf)
-    rackLocations.EntityData.Leafs["rackid"] = types.YLeaf{"Rackid", rackLocations.Rackid}
+    rackLocations.EntityData.Leafs = types.NewOrderedMap()
+    rackLocations.EntityData.Leafs.Append("rackid", types.YLeaf{"Rackid", rackLocations.Rackid})
+
+    rackLocations.EntityData.YListKeys = []string {"Rackid"}
+
     return &(rackLocations.EntityData)
 }
 
@@ -1757,27 +1846,30 @@ func (active *AlarmMgr_Detail_Rack_RackLocations_Active) GetEntityData() *types.
     active.EntityData.YangName = "active"
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "rack_locations"
-    active.EntityData.SegmentPath = "active" + "[aid='" + fmt.Sprintf("%v", active.Aid) + "']" + "[eid='" + fmt.Sprintf("%v", active.Eid) + "']"
+    active.EntityData.SegmentPath = "active" + types.AddKeyToken(active.Aid, "aid") + types.AddKeyToken(active.Eid, "eid")
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    active.EntityData.Children = make(map[string]types.YChild)
-    active.EntityData.Leafs = make(map[string]types.YLeaf)
-    active.EntityData.Leafs["aid"] = types.YLeaf{"Aid", active.Aid}
-    active.EntityData.Leafs["eid"] = types.YLeaf{"Eid", active.Eid}
-    active.EntityData.Leafs["tag"] = types.YLeaf{"Tag", active.Tag}
-    active.EntityData.Leafs["module"] = types.YLeaf{"Module", active.Module}
-    active.EntityData.Leafs["gen_location"] = types.YLeaf{"GenLocation", active.GenLocation}
-    active.EntityData.Leafs["severity"] = types.YLeaf{"Severity", active.Severity}
-    active.EntityData.Leafs["group"] = types.YLeaf{"Group", active.Group}
-    active.EntityData.Leafs["description"] = types.YLeaf{"Description", active.Description}
-    active.EntityData.Leafs["set_time"] = types.YLeaf{"SetTime", active.SetTime}
-    active.EntityData.Leafs["state"] = types.YLeaf{"State", active.State}
-    active.EntityData.Leafs["reporting_agent_id"] = types.YLeaf{"ReportingAgentId", active.ReportingAgentId}
-    active.EntityData.Leafs["resynced"] = types.YLeaf{"Resynced", active.Resynced}
-    active.EntityData.Leafs["detail_desc"] = types.YLeaf{"DetailDesc", active.DetailDesc}
-    active.EntityData.Leafs["clear_time"] = types.YLeaf{"ClearTime", active.ClearTime}
+    active.EntityData.Children = types.NewOrderedMap()
+    active.EntityData.Leafs = types.NewOrderedMap()
+    active.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", active.Aid})
+    active.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", active.Eid})
+    active.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", active.Tag})
+    active.EntityData.Leafs.Append("module", types.YLeaf{"Module", active.Module})
+    active.EntityData.Leafs.Append("gen_location", types.YLeaf{"GenLocation", active.GenLocation})
+    active.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", active.Severity})
+    active.EntityData.Leafs.Append("group", types.YLeaf{"Group", active.Group})
+    active.EntityData.Leafs.Append("description", types.YLeaf{"Description", active.Description})
+    active.EntityData.Leafs.Append("set_time", types.YLeaf{"SetTime", active.SetTime})
+    active.EntityData.Leafs.Append("state", types.YLeaf{"State", active.State})
+    active.EntityData.Leafs.Append("reporting_agent_id", types.YLeaf{"ReportingAgentId", active.ReportingAgentId})
+    active.EntityData.Leafs.Append("resynced", types.YLeaf{"Resynced", active.Resynced})
+    active.EntityData.Leafs.Append("detail_desc", types.YLeaf{"DetailDesc", active.DetailDesc})
+    active.EntityData.Leafs.Append("clear_time", types.YLeaf{"ClearTime", active.ClearTime})
+
+    active.EntityData.YListKeys = []string {"Aid", "Eid"}
+
     return &(active.EntityData)
 }
 
@@ -1836,27 +1928,30 @@ func (history *AlarmMgr_Detail_Rack_RackLocations_History) GetEntityData() *type
     history.EntityData.YangName = "history"
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "rack_locations"
-    history.EntityData.SegmentPath = "history" + "[aid='" + fmt.Sprintf("%v", history.Aid) + "']" + "[eid='" + fmt.Sprintf("%v", history.Eid) + "']"
+    history.EntityData.SegmentPath = "history" + types.AddKeyToken(history.Aid, "aid") + types.AddKeyToken(history.Eid, "eid")
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    history.EntityData.Children = make(map[string]types.YChild)
-    history.EntityData.Leafs = make(map[string]types.YLeaf)
-    history.EntityData.Leafs["aid"] = types.YLeaf{"Aid", history.Aid}
-    history.EntityData.Leafs["eid"] = types.YLeaf{"Eid", history.Eid}
-    history.EntityData.Leafs["tag"] = types.YLeaf{"Tag", history.Tag}
-    history.EntityData.Leafs["module"] = types.YLeaf{"Module", history.Module}
-    history.EntityData.Leafs["gen_location"] = types.YLeaf{"GenLocation", history.GenLocation}
-    history.EntityData.Leafs["severity"] = types.YLeaf{"Severity", history.Severity}
-    history.EntityData.Leafs["group"] = types.YLeaf{"Group", history.Group}
-    history.EntityData.Leafs["description"] = types.YLeaf{"Description", history.Description}
-    history.EntityData.Leafs["set_time"] = types.YLeaf{"SetTime", history.SetTime}
-    history.EntityData.Leafs["state"] = types.YLeaf{"State", history.State}
-    history.EntityData.Leafs["reporting_agent_id"] = types.YLeaf{"ReportingAgentId", history.ReportingAgentId}
-    history.EntityData.Leafs["resynced"] = types.YLeaf{"Resynced", history.Resynced}
-    history.EntityData.Leafs["detail_desc"] = types.YLeaf{"DetailDesc", history.DetailDesc}
-    history.EntityData.Leafs["clear_time"] = types.YLeaf{"ClearTime", history.ClearTime}
+    history.EntityData.Children = types.NewOrderedMap()
+    history.EntityData.Leafs = types.NewOrderedMap()
+    history.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", history.Aid})
+    history.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", history.Eid})
+    history.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", history.Tag})
+    history.EntityData.Leafs.Append("module", types.YLeaf{"Module", history.Module})
+    history.EntityData.Leafs.Append("gen_location", types.YLeaf{"GenLocation", history.GenLocation})
+    history.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", history.Severity})
+    history.EntityData.Leafs.Append("group", types.YLeaf{"Group", history.Group})
+    history.EntityData.Leafs.Append("description", types.YLeaf{"Description", history.Description})
+    history.EntityData.Leafs.Append("set_time", types.YLeaf{"SetTime", history.SetTime})
+    history.EntityData.Leafs.Append("state", types.YLeaf{"State", history.State})
+    history.EntityData.Leafs.Append("reporting_agent_id", types.YLeaf{"ReportingAgentId", history.ReportingAgentId})
+    history.EntityData.Leafs.Append("resynced", types.YLeaf{"Resynced", history.Resynced})
+    history.EntityData.Leafs.Append("detail_desc", types.YLeaf{"DetailDesc", history.DetailDesc})
+    history.EntityData.Leafs.Append("clear_time", types.YLeaf{"ClearTime", history.ClearTime})
+
+    history.EntityData.YListKeys = []string {"Aid", "Eid"}
+
     return &(history.EntityData)
 }
 
@@ -1923,26 +2018,29 @@ func (stats *AlarmMgr_Detail_Rack_RackLocations_Stats) GetEntityData() *types.Co
     stats.EntityData.YangName = "stats"
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "rack_locations"
-    stats.EntityData.SegmentPath = "stats" + "[attime='" + fmt.Sprintf("%v", stats.Attime) + "']"
+    stats.EntityData.SegmentPath = "stats" + types.AddKeyToken(stats.Attime, "attime")
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stats.EntityData.Children = make(map[string]types.YChild)
-    stats.EntityData.Leafs = make(map[string]types.YLeaf)
-    stats.EntityData.Leafs["attime"] = types.YLeaf{"Attime", stats.Attime}
-    stats.EntityData.Leafs["reported"] = types.YLeaf{"Reported", stats.Reported}
-    stats.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", stats.Dropped}
-    stats.EntityData.Leafs["bi_set"] = types.YLeaf{"BiSet", stats.BiSet}
-    stats.EntityData.Leafs["bi_clear"] = types.YLeaf{"BiClear", stats.BiClear}
-    stats.EntityData.Leafs["suppressed"] = types.YLeaf{"Suppressed", stats.Suppressed}
-    stats.EntityData.Leafs["drop_inv_aid"] = types.YLeaf{"DropInvAid", stats.DropInvAid}
-    stats.EntityData.Leafs["drop_no_mem"] = types.YLeaf{"DropNoMem", stats.DropNoMem}
-    stats.EntityData.Leafs["drop_db_error"] = types.YLeaf{"DropDbError", stats.DropDbError}
-    stats.EntityData.Leafs["drop_clear_no_set"] = types.YLeaf{"DropClearNoSet", stats.DropClearNoSet}
-    stats.EntityData.Leafs["drop_dup"] = types.YLeaf{"DropDup", stats.DropDup}
-    stats.EntityData.Leafs["cache_hit"] = types.YLeaf{"CacheHit", stats.CacheHit}
-    stats.EntityData.Leafs["cache_miss"] = types.YLeaf{"CacheMiss", stats.CacheMiss}
+    stats.EntityData.Children = types.NewOrderedMap()
+    stats.EntityData.Leafs = types.NewOrderedMap()
+    stats.EntityData.Leafs.Append("attime", types.YLeaf{"Attime", stats.Attime})
+    stats.EntityData.Leafs.Append("reported", types.YLeaf{"Reported", stats.Reported})
+    stats.EntityData.Leafs.Append("dropped", types.YLeaf{"Dropped", stats.Dropped})
+    stats.EntityData.Leafs.Append("bi_set", types.YLeaf{"BiSet", stats.BiSet})
+    stats.EntityData.Leafs.Append("bi_clear", types.YLeaf{"BiClear", stats.BiClear})
+    stats.EntityData.Leafs.Append("suppressed", types.YLeaf{"Suppressed", stats.Suppressed})
+    stats.EntityData.Leafs.Append("drop_inv_aid", types.YLeaf{"DropInvAid", stats.DropInvAid})
+    stats.EntityData.Leafs.Append("drop_no_mem", types.YLeaf{"DropNoMem", stats.DropNoMem})
+    stats.EntityData.Leafs.Append("drop_db_error", types.YLeaf{"DropDbError", stats.DropDbError})
+    stats.EntityData.Leafs.Append("drop_clear_no_set", types.YLeaf{"DropClearNoSet", stats.DropClearNoSet})
+    stats.EntityData.Leafs.Append("drop_dup", types.YLeaf{"DropDup", stats.DropDup})
+    stats.EntityData.Leafs.Append("cache_hit", types.YLeaf{"CacheHit", stats.CacheHit})
+    stats.EntityData.Leafs.Append("cache_miss", types.YLeaf{"CacheMiss", stats.CacheMiss})
+
+    stats.EntityData.YListKeys = []string {"Attime"}
+
     return &(stats.EntityData)
 }
 
@@ -1962,8 +2060,7 @@ type AlarmMgr_Detail_Rack_RackLocations_Clients struct {
     // 0..4294967295.
     AgentId interface{}
 
-    // The location of this client. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // The location of this client. The type is string.
     AgentLocation interface{}
 
     // The current state of the client. The type is AgentStateTd.
@@ -2017,30 +2114,33 @@ func (clients *AlarmMgr_Detail_Rack_RackLocations_Clients) GetEntityData() *type
     clients.EntityData.YangName = "clients"
     clients.EntityData.BundleName = "cisco_ios_xr"
     clients.EntityData.ParentYangName = "rack_locations"
-    clients.EntityData.SegmentPath = "clients" + "[agent_handle='" + fmt.Sprintf("%v", clients.AgentHandle) + "']"
+    clients.EntityData.SegmentPath = "clients" + types.AddKeyToken(clients.AgentHandle, "agent_handle")
     clients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clients.EntityData.Children = make(map[string]types.YChild)
-    clients.EntityData.Leafs = make(map[string]types.YLeaf)
-    clients.EntityData.Leafs["agent_handle"] = types.YLeaf{"AgentHandle", clients.AgentHandle}
-    clients.EntityData.Leafs["agent_name"] = types.YLeaf{"AgentName", clients.AgentName}
-    clients.EntityData.Leafs["agent_id"] = types.YLeaf{"AgentId", clients.AgentId}
-    clients.EntityData.Leafs["agent_location"] = types.YLeaf{"AgentLocation", clients.AgentLocation}
-    clients.EntityData.Leafs["agent_state"] = types.YLeaf{"AgentState", clients.AgentState}
-    clients.EntityData.Leafs["agent_type"] = types.YLeaf{"AgentType", clients.AgentType}
-    clients.EntityData.Leafs["agent_filter_disp"] = types.YLeaf{"AgentFilterDisp", clients.AgentFilterDisp}
-    clients.EntityData.Leafs["agent_subs_id"] = types.YLeaf{"AgentSubsId", clients.AgentSubsId}
-    clients.EntityData.Leafs["agent_filter_state"] = types.YLeaf{"AgentFilterState", clients.AgentFilterState}
-    clients.EntityData.Leafs["agent_filter_severity"] = types.YLeaf{"AgentFilterSeverity", clients.AgentFilterSeverity}
-    clients.EntityData.Leafs["agent_filter_group"] = types.YLeaf{"AgentFilterGroup", clients.AgentFilterGroup}
-    clients.EntityData.Leafs["agent_sdr_id"] = types.YLeaf{"AgentSdrId", clients.AgentSdrId}
-    clients.EntityData.Leafs["agent_connect_count"] = types.YLeaf{"AgentConnectCount", clients.AgentConnectCount}
-    clients.EntityData.Leafs["agent_connect_time"] = types.YLeaf{"AgentConnectTime", clients.AgentConnectTime}
-    clients.EntityData.Leafs["agent_get_count"] = types.YLeaf{"AgentGetCount", clients.AgentGetCount}
-    clients.EntityData.Leafs["agent_subscribe_count"] = types.YLeaf{"AgentSubscribeCount", clients.AgentSubscribeCount}
-    clients.EntityData.Leafs["agent_report_count"] = types.YLeaf{"AgentReportCount", clients.AgentReportCount}
+    clients.EntityData.Children = types.NewOrderedMap()
+    clients.EntityData.Leafs = types.NewOrderedMap()
+    clients.EntityData.Leafs.Append("agent_handle", types.YLeaf{"AgentHandle", clients.AgentHandle})
+    clients.EntityData.Leafs.Append("agent_name", types.YLeaf{"AgentName", clients.AgentName})
+    clients.EntityData.Leafs.Append("agent_id", types.YLeaf{"AgentId", clients.AgentId})
+    clients.EntityData.Leafs.Append("agent_location", types.YLeaf{"AgentLocation", clients.AgentLocation})
+    clients.EntityData.Leafs.Append("agent_state", types.YLeaf{"AgentState", clients.AgentState})
+    clients.EntityData.Leafs.Append("agent_type", types.YLeaf{"AgentType", clients.AgentType})
+    clients.EntityData.Leafs.Append("agent_filter_disp", types.YLeaf{"AgentFilterDisp", clients.AgentFilterDisp})
+    clients.EntityData.Leafs.Append("agent_subs_id", types.YLeaf{"AgentSubsId", clients.AgentSubsId})
+    clients.EntityData.Leafs.Append("agent_filter_state", types.YLeaf{"AgentFilterState", clients.AgentFilterState})
+    clients.EntityData.Leafs.Append("agent_filter_severity", types.YLeaf{"AgentFilterSeverity", clients.AgentFilterSeverity})
+    clients.EntityData.Leafs.Append("agent_filter_group", types.YLeaf{"AgentFilterGroup", clients.AgentFilterGroup})
+    clients.EntityData.Leafs.Append("agent_sdr_id", types.YLeaf{"AgentSdrId", clients.AgentSdrId})
+    clients.EntityData.Leafs.Append("agent_connect_count", types.YLeaf{"AgentConnectCount", clients.AgentConnectCount})
+    clients.EntityData.Leafs.Append("agent_connect_time", types.YLeaf{"AgentConnectTime", clients.AgentConnectTime})
+    clients.EntityData.Leafs.Append("agent_get_count", types.YLeaf{"AgentGetCount", clients.AgentGetCount})
+    clients.EntityData.Leafs.Append("agent_subscribe_count", types.YLeaf{"AgentSubscribeCount", clients.AgentSubscribeCount})
+    clients.EntityData.Leafs.Append("agent_report_count", types.YLeaf{"AgentReportCount", clients.AgentReportCount})
+
+    clients.EntityData.YListKeys = []string {"AgentHandle"}
+
     return &(clients.EntityData)
 }
 
@@ -2099,27 +2199,30 @@ func (suppressed *AlarmMgr_Detail_Rack_RackLocations_Suppressed) GetEntityData()
     suppressed.EntityData.YangName = "suppressed"
     suppressed.EntityData.BundleName = "cisco_ios_xr"
     suppressed.EntityData.ParentYangName = "rack_locations"
-    suppressed.EntityData.SegmentPath = "suppressed" + "[aid='" + fmt.Sprintf("%v", suppressed.Aid) + "']" + "[eid='" + fmt.Sprintf("%v", suppressed.Eid) + "']"
+    suppressed.EntityData.SegmentPath = "suppressed" + types.AddKeyToken(suppressed.Aid, "aid") + types.AddKeyToken(suppressed.Eid, "eid")
     suppressed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    suppressed.EntityData.Children = make(map[string]types.YChild)
-    suppressed.EntityData.Leafs = make(map[string]types.YLeaf)
-    suppressed.EntityData.Leafs["aid"] = types.YLeaf{"Aid", suppressed.Aid}
-    suppressed.EntityData.Leafs["eid"] = types.YLeaf{"Eid", suppressed.Eid}
-    suppressed.EntityData.Leafs["tag"] = types.YLeaf{"Tag", suppressed.Tag}
-    suppressed.EntityData.Leafs["module"] = types.YLeaf{"Module", suppressed.Module}
-    suppressed.EntityData.Leafs["gen_location"] = types.YLeaf{"GenLocation", suppressed.GenLocation}
-    suppressed.EntityData.Leafs["severity"] = types.YLeaf{"Severity", suppressed.Severity}
-    suppressed.EntityData.Leafs["group"] = types.YLeaf{"Group", suppressed.Group}
-    suppressed.EntityData.Leafs["description"] = types.YLeaf{"Description", suppressed.Description}
-    suppressed.EntityData.Leafs["set_time"] = types.YLeaf{"SetTime", suppressed.SetTime}
-    suppressed.EntityData.Leafs["state"] = types.YLeaf{"State", suppressed.State}
-    suppressed.EntityData.Leafs["reporting_agent_id"] = types.YLeaf{"ReportingAgentId", suppressed.ReportingAgentId}
-    suppressed.EntityData.Leafs["resynced"] = types.YLeaf{"Resynced", suppressed.Resynced}
-    suppressed.EntityData.Leafs["detail_desc"] = types.YLeaf{"DetailDesc", suppressed.DetailDesc}
-    suppressed.EntityData.Leafs["suppressed_time"] = types.YLeaf{"SuppressedTime", suppressed.SuppressedTime}
+    suppressed.EntityData.Children = types.NewOrderedMap()
+    suppressed.EntityData.Leafs = types.NewOrderedMap()
+    suppressed.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", suppressed.Aid})
+    suppressed.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", suppressed.Eid})
+    suppressed.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", suppressed.Tag})
+    suppressed.EntityData.Leafs.Append("module", types.YLeaf{"Module", suppressed.Module})
+    suppressed.EntityData.Leafs.Append("gen_location", types.YLeaf{"GenLocation", suppressed.GenLocation})
+    suppressed.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", suppressed.Severity})
+    suppressed.EntityData.Leafs.Append("group", types.YLeaf{"Group", suppressed.Group})
+    suppressed.EntityData.Leafs.Append("description", types.YLeaf{"Description", suppressed.Description})
+    suppressed.EntityData.Leafs.Append("set_time", types.YLeaf{"SetTime", suppressed.SetTime})
+    suppressed.EntityData.Leafs.Append("state", types.YLeaf{"State", suppressed.State})
+    suppressed.EntityData.Leafs.Append("reporting_agent_id", types.YLeaf{"ReportingAgentId", suppressed.ReportingAgentId})
+    suppressed.EntityData.Leafs.Append("resynced", types.YLeaf{"Resynced", suppressed.Resynced})
+    suppressed.EntityData.Leafs.Append("detail_desc", types.YLeaf{"DetailDesc", suppressed.DetailDesc})
+    suppressed.EntityData.Leafs.Append("suppressed_time", types.YLeaf{"SuppressedTime", suppressed.SuppressedTime})
+
+    suppressed.EntityData.YListKeys = []string {"Aid", "Eid"}
+
     return &(suppressed.EntityData)
 }
 
@@ -2131,19 +2234,19 @@ type AlarmMgr_Detail_System struct {
     YFilter yfilter.YFilter
 
     // The type is slice of AlarmMgr_Detail_System_Active.
-    Active []AlarmMgr_Detail_System_Active
+    Active []*AlarmMgr_Detail_System_Active
 
     // The type is slice of AlarmMgr_Detail_System_History.
-    History []AlarmMgr_Detail_System_History
+    History []*AlarmMgr_Detail_System_History
 
     // The type is slice of AlarmMgr_Detail_System_Stats.
-    Stats []AlarmMgr_Detail_System_Stats
+    Stats []*AlarmMgr_Detail_System_Stats
 
     // The type is slice of AlarmMgr_Detail_System_Clients.
-    Clients []AlarmMgr_Detail_System_Clients
+    Clients []*AlarmMgr_Detail_System_Clients
 
     // The type is slice of AlarmMgr_Detail_System_Suppressed.
-    Suppressed []AlarmMgr_Detail_System_Suppressed
+    Suppressed []*AlarmMgr_Detail_System_Suppressed
 }
 
 func (system *AlarmMgr_Detail_System) GetEntityData() *types.CommonEntityData {
@@ -2156,28 +2259,31 @@ func (system *AlarmMgr_Detail_System) GetEntityData() *types.CommonEntityData {
     system.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     system.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    system.EntityData.Children = make(map[string]types.YChild)
-    system.EntityData.Children["active"] = types.YChild{"Active", nil}
+    system.EntityData.Children = types.NewOrderedMap()
+    system.EntityData.Children.Append("active", types.YChild{"Active", nil})
     for i := range system.Active {
-        system.EntityData.Children[types.GetSegmentPath(&system.Active[i])] = types.YChild{"Active", &system.Active[i]}
+        system.EntityData.Children.Append(types.GetSegmentPath(system.Active[i]), types.YChild{"Active", system.Active[i]})
     }
-    system.EntityData.Children["history"] = types.YChild{"History", nil}
+    system.EntityData.Children.Append("history", types.YChild{"History", nil})
     for i := range system.History {
-        system.EntityData.Children[types.GetSegmentPath(&system.History[i])] = types.YChild{"History", &system.History[i]}
+        system.EntityData.Children.Append(types.GetSegmentPath(system.History[i]), types.YChild{"History", system.History[i]})
     }
-    system.EntityData.Children["stats"] = types.YChild{"Stats", nil}
+    system.EntityData.Children.Append("stats", types.YChild{"Stats", nil})
     for i := range system.Stats {
-        system.EntityData.Children[types.GetSegmentPath(&system.Stats[i])] = types.YChild{"Stats", &system.Stats[i]}
+        system.EntityData.Children.Append(types.GetSegmentPath(system.Stats[i]), types.YChild{"Stats", system.Stats[i]})
     }
-    system.EntityData.Children["clients"] = types.YChild{"Clients", nil}
+    system.EntityData.Children.Append("clients", types.YChild{"Clients", nil})
     for i := range system.Clients {
-        system.EntityData.Children[types.GetSegmentPath(&system.Clients[i])] = types.YChild{"Clients", &system.Clients[i]}
+        system.EntityData.Children.Append(types.GetSegmentPath(system.Clients[i]), types.YChild{"Clients", system.Clients[i]})
     }
-    system.EntityData.Children["suppressed"] = types.YChild{"Suppressed", nil}
+    system.EntityData.Children.Append("suppressed", types.YChild{"Suppressed", nil})
     for i := range system.Suppressed {
-        system.EntityData.Children[types.GetSegmentPath(&system.Suppressed[i])] = types.YChild{"Suppressed", &system.Suppressed[i]}
+        system.EntityData.Children.Append(types.GetSegmentPath(system.Suppressed[i]), types.YChild{"Suppressed", system.Suppressed[i]})
     }
-    system.EntityData.Leafs = make(map[string]types.YLeaf)
+    system.EntityData.Leafs = types.NewOrderedMap()
+
+    system.EntityData.YListKeys = []string {}
+
     return &(system.EntityData)
 }
 
@@ -2236,27 +2342,30 @@ func (active *AlarmMgr_Detail_System_Active) GetEntityData() *types.CommonEntity
     active.EntityData.YangName = "active"
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "system"
-    active.EntityData.SegmentPath = "active" + "[aid='" + fmt.Sprintf("%v", active.Aid) + "']" + "[eid='" + fmt.Sprintf("%v", active.Eid) + "']"
+    active.EntityData.SegmentPath = "active" + types.AddKeyToken(active.Aid, "aid") + types.AddKeyToken(active.Eid, "eid")
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    active.EntityData.Children = make(map[string]types.YChild)
-    active.EntityData.Leafs = make(map[string]types.YLeaf)
-    active.EntityData.Leafs["aid"] = types.YLeaf{"Aid", active.Aid}
-    active.EntityData.Leafs["eid"] = types.YLeaf{"Eid", active.Eid}
-    active.EntityData.Leafs["tag"] = types.YLeaf{"Tag", active.Tag}
-    active.EntityData.Leafs["module"] = types.YLeaf{"Module", active.Module}
-    active.EntityData.Leafs["gen_location"] = types.YLeaf{"GenLocation", active.GenLocation}
-    active.EntityData.Leafs["severity"] = types.YLeaf{"Severity", active.Severity}
-    active.EntityData.Leafs["group"] = types.YLeaf{"Group", active.Group}
-    active.EntityData.Leafs["description"] = types.YLeaf{"Description", active.Description}
-    active.EntityData.Leafs["set_time"] = types.YLeaf{"SetTime", active.SetTime}
-    active.EntityData.Leafs["state"] = types.YLeaf{"State", active.State}
-    active.EntityData.Leafs["reporting_agent_id"] = types.YLeaf{"ReportingAgentId", active.ReportingAgentId}
-    active.EntityData.Leafs["resynced"] = types.YLeaf{"Resynced", active.Resynced}
-    active.EntityData.Leafs["detail_desc"] = types.YLeaf{"DetailDesc", active.DetailDesc}
-    active.EntityData.Leafs["clear_time"] = types.YLeaf{"ClearTime", active.ClearTime}
+    active.EntityData.Children = types.NewOrderedMap()
+    active.EntityData.Leafs = types.NewOrderedMap()
+    active.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", active.Aid})
+    active.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", active.Eid})
+    active.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", active.Tag})
+    active.EntityData.Leafs.Append("module", types.YLeaf{"Module", active.Module})
+    active.EntityData.Leafs.Append("gen_location", types.YLeaf{"GenLocation", active.GenLocation})
+    active.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", active.Severity})
+    active.EntityData.Leafs.Append("group", types.YLeaf{"Group", active.Group})
+    active.EntityData.Leafs.Append("description", types.YLeaf{"Description", active.Description})
+    active.EntityData.Leafs.Append("set_time", types.YLeaf{"SetTime", active.SetTime})
+    active.EntityData.Leafs.Append("state", types.YLeaf{"State", active.State})
+    active.EntityData.Leafs.Append("reporting_agent_id", types.YLeaf{"ReportingAgentId", active.ReportingAgentId})
+    active.EntityData.Leafs.Append("resynced", types.YLeaf{"Resynced", active.Resynced})
+    active.EntityData.Leafs.Append("detail_desc", types.YLeaf{"DetailDesc", active.DetailDesc})
+    active.EntityData.Leafs.Append("clear_time", types.YLeaf{"ClearTime", active.ClearTime})
+
+    active.EntityData.YListKeys = []string {"Aid", "Eid"}
+
     return &(active.EntityData)
 }
 
@@ -2315,27 +2424,30 @@ func (history *AlarmMgr_Detail_System_History) GetEntityData() *types.CommonEnti
     history.EntityData.YangName = "history"
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "system"
-    history.EntityData.SegmentPath = "history" + "[aid='" + fmt.Sprintf("%v", history.Aid) + "']" + "[eid='" + fmt.Sprintf("%v", history.Eid) + "']"
+    history.EntityData.SegmentPath = "history" + types.AddKeyToken(history.Aid, "aid") + types.AddKeyToken(history.Eid, "eid")
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    history.EntityData.Children = make(map[string]types.YChild)
-    history.EntityData.Leafs = make(map[string]types.YLeaf)
-    history.EntityData.Leafs["aid"] = types.YLeaf{"Aid", history.Aid}
-    history.EntityData.Leafs["eid"] = types.YLeaf{"Eid", history.Eid}
-    history.EntityData.Leafs["tag"] = types.YLeaf{"Tag", history.Tag}
-    history.EntityData.Leafs["module"] = types.YLeaf{"Module", history.Module}
-    history.EntityData.Leafs["gen_location"] = types.YLeaf{"GenLocation", history.GenLocation}
-    history.EntityData.Leafs["severity"] = types.YLeaf{"Severity", history.Severity}
-    history.EntityData.Leafs["group"] = types.YLeaf{"Group", history.Group}
-    history.EntityData.Leafs["description"] = types.YLeaf{"Description", history.Description}
-    history.EntityData.Leafs["set_time"] = types.YLeaf{"SetTime", history.SetTime}
-    history.EntityData.Leafs["state"] = types.YLeaf{"State", history.State}
-    history.EntityData.Leafs["reporting_agent_id"] = types.YLeaf{"ReportingAgentId", history.ReportingAgentId}
-    history.EntityData.Leafs["resynced"] = types.YLeaf{"Resynced", history.Resynced}
-    history.EntityData.Leafs["detail_desc"] = types.YLeaf{"DetailDesc", history.DetailDesc}
-    history.EntityData.Leafs["clear_time"] = types.YLeaf{"ClearTime", history.ClearTime}
+    history.EntityData.Children = types.NewOrderedMap()
+    history.EntityData.Leafs = types.NewOrderedMap()
+    history.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", history.Aid})
+    history.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", history.Eid})
+    history.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", history.Tag})
+    history.EntityData.Leafs.Append("module", types.YLeaf{"Module", history.Module})
+    history.EntityData.Leafs.Append("gen_location", types.YLeaf{"GenLocation", history.GenLocation})
+    history.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", history.Severity})
+    history.EntityData.Leafs.Append("group", types.YLeaf{"Group", history.Group})
+    history.EntityData.Leafs.Append("description", types.YLeaf{"Description", history.Description})
+    history.EntityData.Leafs.Append("set_time", types.YLeaf{"SetTime", history.SetTime})
+    history.EntityData.Leafs.Append("state", types.YLeaf{"State", history.State})
+    history.EntityData.Leafs.Append("reporting_agent_id", types.YLeaf{"ReportingAgentId", history.ReportingAgentId})
+    history.EntityData.Leafs.Append("resynced", types.YLeaf{"Resynced", history.Resynced})
+    history.EntityData.Leafs.Append("detail_desc", types.YLeaf{"DetailDesc", history.DetailDesc})
+    history.EntityData.Leafs.Append("clear_time", types.YLeaf{"ClearTime", history.ClearTime})
+
+    history.EntityData.YListKeys = []string {"Aid", "Eid"}
+
     return &(history.EntityData)
 }
 
@@ -2402,26 +2514,29 @@ func (stats *AlarmMgr_Detail_System_Stats) GetEntityData() *types.CommonEntityDa
     stats.EntityData.YangName = "stats"
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "system"
-    stats.EntityData.SegmentPath = "stats" + "[attime='" + fmt.Sprintf("%v", stats.Attime) + "']"
+    stats.EntityData.SegmentPath = "stats" + types.AddKeyToken(stats.Attime, "attime")
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stats.EntityData.Children = make(map[string]types.YChild)
-    stats.EntityData.Leafs = make(map[string]types.YLeaf)
-    stats.EntityData.Leafs["attime"] = types.YLeaf{"Attime", stats.Attime}
-    stats.EntityData.Leafs["reported"] = types.YLeaf{"Reported", stats.Reported}
-    stats.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", stats.Dropped}
-    stats.EntityData.Leafs["bi_set"] = types.YLeaf{"BiSet", stats.BiSet}
-    stats.EntityData.Leafs["bi_clear"] = types.YLeaf{"BiClear", stats.BiClear}
-    stats.EntityData.Leafs["suppressed"] = types.YLeaf{"Suppressed", stats.Suppressed}
-    stats.EntityData.Leafs["drop_inv_aid"] = types.YLeaf{"DropInvAid", stats.DropInvAid}
-    stats.EntityData.Leafs["drop_no_mem"] = types.YLeaf{"DropNoMem", stats.DropNoMem}
-    stats.EntityData.Leafs["drop_db_error"] = types.YLeaf{"DropDbError", stats.DropDbError}
-    stats.EntityData.Leafs["drop_clear_no_set"] = types.YLeaf{"DropClearNoSet", stats.DropClearNoSet}
-    stats.EntityData.Leafs["drop_dup"] = types.YLeaf{"DropDup", stats.DropDup}
-    stats.EntityData.Leafs["cache_hit"] = types.YLeaf{"CacheHit", stats.CacheHit}
-    stats.EntityData.Leafs["cache_miss"] = types.YLeaf{"CacheMiss", stats.CacheMiss}
+    stats.EntityData.Children = types.NewOrderedMap()
+    stats.EntityData.Leafs = types.NewOrderedMap()
+    stats.EntityData.Leafs.Append("attime", types.YLeaf{"Attime", stats.Attime})
+    stats.EntityData.Leafs.Append("reported", types.YLeaf{"Reported", stats.Reported})
+    stats.EntityData.Leafs.Append("dropped", types.YLeaf{"Dropped", stats.Dropped})
+    stats.EntityData.Leafs.Append("bi_set", types.YLeaf{"BiSet", stats.BiSet})
+    stats.EntityData.Leafs.Append("bi_clear", types.YLeaf{"BiClear", stats.BiClear})
+    stats.EntityData.Leafs.Append("suppressed", types.YLeaf{"Suppressed", stats.Suppressed})
+    stats.EntityData.Leafs.Append("drop_inv_aid", types.YLeaf{"DropInvAid", stats.DropInvAid})
+    stats.EntityData.Leafs.Append("drop_no_mem", types.YLeaf{"DropNoMem", stats.DropNoMem})
+    stats.EntityData.Leafs.Append("drop_db_error", types.YLeaf{"DropDbError", stats.DropDbError})
+    stats.EntityData.Leafs.Append("drop_clear_no_set", types.YLeaf{"DropClearNoSet", stats.DropClearNoSet})
+    stats.EntityData.Leafs.Append("drop_dup", types.YLeaf{"DropDup", stats.DropDup})
+    stats.EntityData.Leafs.Append("cache_hit", types.YLeaf{"CacheHit", stats.CacheHit})
+    stats.EntityData.Leafs.Append("cache_miss", types.YLeaf{"CacheMiss", stats.CacheMiss})
+
+    stats.EntityData.YListKeys = []string {"Attime"}
+
     return &(stats.EntityData)
 }
 
@@ -2441,8 +2556,7 @@ type AlarmMgr_Detail_System_Clients struct {
     // 0..4294967295.
     AgentId interface{}
 
-    // The location of this client. The type is string with pattern:
-    // b'((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // The location of this client. The type is string.
     AgentLocation interface{}
 
     // The current state of the client. The type is AgentStateTd.
@@ -2496,30 +2610,33 @@ func (clients *AlarmMgr_Detail_System_Clients) GetEntityData() *types.CommonEnti
     clients.EntityData.YangName = "clients"
     clients.EntityData.BundleName = "cisco_ios_xr"
     clients.EntityData.ParentYangName = "system"
-    clients.EntityData.SegmentPath = "clients" + "[agent_handle='" + fmt.Sprintf("%v", clients.AgentHandle) + "']"
+    clients.EntityData.SegmentPath = "clients" + types.AddKeyToken(clients.AgentHandle, "agent_handle")
     clients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clients.EntityData.Children = make(map[string]types.YChild)
-    clients.EntityData.Leafs = make(map[string]types.YLeaf)
-    clients.EntityData.Leafs["agent_handle"] = types.YLeaf{"AgentHandle", clients.AgentHandle}
-    clients.EntityData.Leafs["agent_name"] = types.YLeaf{"AgentName", clients.AgentName}
-    clients.EntityData.Leafs["agent_id"] = types.YLeaf{"AgentId", clients.AgentId}
-    clients.EntityData.Leafs["agent_location"] = types.YLeaf{"AgentLocation", clients.AgentLocation}
-    clients.EntityData.Leafs["agent_state"] = types.YLeaf{"AgentState", clients.AgentState}
-    clients.EntityData.Leafs["agent_type"] = types.YLeaf{"AgentType", clients.AgentType}
-    clients.EntityData.Leafs["agent_filter_disp"] = types.YLeaf{"AgentFilterDisp", clients.AgentFilterDisp}
-    clients.EntityData.Leafs["agent_subs_id"] = types.YLeaf{"AgentSubsId", clients.AgentSubsId}
-    clients.EntityData.Leafs["agent_filter_state"] = types.YLeaf{"AgentFilterState", clients.AgentFilterState}
-    clients.EntityData.Leafs["agent_filter_severity"] = types.YLeaf{"AgentFilterSeverity", clients.AgentFilterSeverity}
-    clients.EntityData.Leafs["agent_filter_group"] = types.YLeaf{"AgentFilterGroup", clients.AgentFilterGroup}
-    clients.EntityData.Leafs["agent_sdr_id"] = types.YLeaf{"AgentSdrId", clients.AgentSdrId}
-    clients.EntityData.Leafs["agent_connect_count"] = types.YLeaf{"AgentConnectCount", clients.AgentConnectCount}
-    clients.EntityData.Leafs["agent_connect_time"] = types.YLeaf{"AgentConnectTime", clients.AgentConnectTime}
-    clients.EntityData.Leafs["agent_get_count"] = types.YLeaf{"AgentGetCount", clients.AgentGetCount}
-    clients.EntityData.Leafs["agent_subscribe_count"] = types.YLeaf{"AgentSubscribeCount", clients.AgentSubscribeCount}
-    clients.EntityData.Leafs["agent_report_count"] = types.YLeaf{"AgentReportCount", clients.AgentReportCount}
+    clients.EntityData.Children = types.NewOrderedMap()
+    clients.EntityData.Leafs = types.NewOrderedMap()
+    clients.EntityData.Leafs.Append("agent_handle", types.YLeaf{"AgentHandle", clients.AgentHandle})
+    clients.EntityData.Leafs.Append("agent_name", types.YLeaf{"AgentName", clients.AgentName})
+    clients.EntityData.Leafs.Append("agent_id", types.YLeaf{"AgentId", clients.AgentId})
+    clients.EntityData.Leafs.Append("agent_location", types.YLeaf{"AgentLocation", clients.AgentLocation})
+    clients.EntityData.Leafs.Append("agent_state", types.YLeaf{"AgentState", clients.AgentState})
+    clients.EntityData.Leafs.Append("agent_type", types.YLeaf{"AgentType", clients.AgentType})
+    clients.EntityData.Leafs.Append("agent_filter_disp", types.YLeaf{"AgentFilterDisp", clients.AgentFilterDisp})
+    clients.EntityData.Leafs.Append("agent_subs_id", types.YLeaf{"AgentSubsId", clients.AgentSubsId})
+    clients.EntityData.Leafs.Append("agent_filter_state", types.YLeaf{"AgentFilterState", clients.AgentFilterState})
+    clients.EntityData.Leafs.Append("agent_filter_severity", types.YLeaf{"AgentFilterSeverity", clients.AgentFilterSeverity})
+    clients.EntityData.Leafs.Append("agent_filter_group", types.YLeaf{"AgentFilterGroup", clients.AgentFilterGroup})
+    clients.EntityData.Leafs.Append("agent_sdr_id", types.YLeaf{"AgentSdrId", clients.AgentSdrId})
+    clients.EntityData.Leafs.Append("agent_connect_count", types.YLeaf{"AgentConnectCount", clients.AgentConnectCount})
+    clients.EntityData.Leafs.Append("agent_connect_time", types.YLeaf{"AgentConnectTime", clients.AgentConnectTime})
+    clients.EntityData.Leafs.Append("agent_get_count", types.YLeaf{"AgentGetCount", clients.AgentGetCount})
+    clients.EntityData.Leafs.Append("agent_subscribe_count", types.YLeaf{"AgentSubscribeCount", clients.AgentSubscribeCount})
+    clients.EntityData.Leafs.Append("agent_report_count", types.YLeaf{"AgentReportCount", clients.AgentReportCount})
+
+    clients.EntityData.YListKeys = []string {"AgentHandle"}
+
     return &(clients.EntityData)
 }
 
@@ -2578,27 +2695,30 @@ func (suppressed *AlarmMgr_Detail_System_Suppressed) GetEntityData() *types.Comm
     suppressed.EntityData.YangName = "suppressed"
     suppressed.EntityData.BundleName = "cisco_ios_xr"
     suppressed.EntityData.ParentYangName = "system"
-    suppressed.EntityData.SegmentPath = "suppressed" + "[aid='" + fmt.Sprintf("%v", suppressed.Aid) + "']" + "[eid='" + fmt.Sprintf("%v", suppressed.Eid) + "']"
+    suppressed.EntityData.SegmentPath = "suppressed" + types.AddKeyToken(suppressed.Aid, "aid") + types.AddKeyToken(suppressed.Eid, "eid")
     suppressed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    suppressed.EntityData.Children = make(map[string]types.YChild)
-    suppressed.EntityData.Leafs = make(map[string]types.YLeaf)
-    suppressed.EntityData.Leafs["aid"] = types.YLeaf{"Aid", suppressed.Aid}
-    suppressed.EntityData.Leafs["eid"] = types.YLeaf{"Eid", suppressed.Eid}
-    suppressed.EntityData.Leafs["tag"] = types.YLeaf{"Tag", suppressed.Tag}
-    suppressed.EntityData.Leafs["module"] = types.YLeaf{"Module", suppressed.Module}
-    suppressed.EntityData.Leafs["gen_location"] = types.YLeaf{"GenLocation", suppressed.GenLocation}
-    suppressed.EntityData.Leafs["severity"] = types.YLeaf{"Severity", suppressed.Severity}
-    suppressed.EntityData.Leafs["group"] = types.YLeaf{"Group", suppressed.Group}
-    suppressed.EntityData.Leafs["description"] = types.YLeaf{"Description", suppressed.Description}
-    suppressed.EntityData.Leafs["set_time"] = types.YLeaf{"SetTime", suppressed.SetTime}
-    suppressed.EntityData.Leafs["state"] = types.YLeaf{"State", suppressed.State}
-    suppressed.EntityData.Leafs["reporting_agent_id"] = types.YLeaf{"ReportingAgentId", suppressed.ReportingAgentId}
-    suppressed.EntityData.Leafs["resynced"] = types.YLeaf{"Resynced", suppressed.Resynced}
-    suppressed.EntityData.Leafs["detail_desc"] = types.YLeaf{"DetailDesc", suppressed.DetailDesc}
-    suppressed.EntityData.Leafs["suppressed_time"] = types.YLeaf{"SuppressedTime", suppressed.SuppressedTime}
+    suppressed.EntityData.Children = types.NewOrderedMap()
+    suppressed.EntityData.Leafs = types.NewOrderedMap()
+    suppressed.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", suppressed.Aid})
+    suppressed.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", suppressed.Eid})
+    suppressed.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", suppressed.Tag})
+    suppressed.EntityData.Leafs.Append("module", types.YLeaf{"Module", suppressed.Module})
+    suppressed.EntityData.Leafs.Append("gen_location", types.YLeaf{"GenLocation", suppressed.GenLocation})
+    suppressed.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", suppressed.Severity})
+    suppressed.EntityData.Leafs.Append("group", types.YLeaf{"Group", suppressed.Group})
+    suppressed.EntityData.Leafs.Append("description", types.YLeaf{"Description", suppressed.Description})
+    suppressed.EntityData.Leafs.Append("set_time", types.YLeaf{"SetTime", suppressed.SetTime})
+    suppressed.EntityData.Leafs.Append("state", types.YLeaf{"State", suppressed.State})
+    suppressed.EntityData.Leafs.Append("reporting_agent_id", types.YLeaf{"ReportingAgentId", suppressed.ReportingAgentId})
+    suppressed.EntityData.Leafs.Append("resynced", types.YLeaf{"Resynced", suppressed.Resynced})
+    suppressed.EntityData.Leafs.Append("detail_desc", types.YLeaf{"DetailDesc", suppressed.DetailDesc})
+    suppressed.EntityData.Leafs.Append("suppressed_time", types.YLeaf{"SuppressedTime", suppressed.SuppressedTime})
+
+    suppressed.EntityData.YListKeys = []string {"Aid", "Eid"}
+
     return &(suppressed.EntityData)
 }
 

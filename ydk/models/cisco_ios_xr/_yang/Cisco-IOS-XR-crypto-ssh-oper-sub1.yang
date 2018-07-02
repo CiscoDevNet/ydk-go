@@ -26,6 +26,10 @@ submodule Cisco-IOS-XR-crypto-ssh-oper-sub1 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-08-25 {
+    description
+      "Introducing show ssh history CLI.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -308,6 +312,21 @@ submodule Cisco-IOS-XR-crypto-ssh-oper-sub1 {
         description
           "Algorithm type RSA";
       }
+      enum "ecdsa-sha2-nistp521" {
+        value 2;
+        description
+          "Algorithm type ECDSA NISTP521";
+      }
+      enum "ecdsa-sha2-nistp384" {
+        value 3;
+        description
+          "Algorithm type ECDSA NISTP384";
+      }
+      enum "ecdsa-sha2-nistp256" {
+        value 4;
+        description
+          "Algorithm type ECDSA NISTP256";
+      }
     }
     description
       "SSH session authentication types";
@@ -373,6 +392,86 @@ submodule Cisco-IOS-XR-crypto-ssh-oper-sub1 {
       "Different key-exchange(kex) algorithms";
   }
 
+  grouping SESSION-HISTORY-INFO {
+    description
+      "Information for a particular session/channel";
+    list session-history-info {
+      description
+        "session history info";
+      leaf session-id {
+        type uint32;
+        description
+          "Session ID";
+      }
+      leaf node-name {
+        type xr:Node-id;
+        description
+          "Node name";
+      }
+      leaf user-id {
+        type string;
+        description
+          "User ID";
+      }
+      leaf host-address {
+        type string;
+        description
+          "Host address";
+      }
+      leaf version {
+        type Version;
+        description
+          "SSH state version";
+      }
+      leaf authentication-type {
+        type Authen;
+        description
+          "Authentication method";
+      }
+      list mc-info {
+        description
+          "List of channel info";
+        uses SSH-MCINFO;
+      }
+    }
+  }
+
+  grouping SSH-SESSION-HISTORY {
+    description
+      "Incoming ssh session history information";
+    container incoming-sessions {
+      description
+        "List of incoming sessions";
+      uses SESSION-HISTORY-INFO;
+    }
+  }
+
+  grouping SSH-MCINFO {
+    description
+      " Channel info store in bag";
+    leaf channel-id {
+      type uint32;
+      description
+        "Channel ID";
+    }
+    leaf connection-type {
+      type Connection;
+      description
+        "Channel Connection Type";
+    }
+    leaf vty-line-number {
+      type uint32;
+      description
+        "VTY line number";
+    }
+    leaf vty-assigned {
+      type boolean;
+      description
+        "Boolean indicating whether line VTY line number
+         is valid";
+    }
+  }
+
   grouping SESSION-BRIEF-INFO {
     description
       "Information for a particular session/channel";
@@ -383,22 +482,6 @@ submodule Cisco-IOS-XR-crypto-ssh-oper-sub1 {
         type uint32;
         description
           "Session ID";
-      }
-      leaf channel-id {
-        type uint32;
-        description
-          "Channel ID";
-      }
-      leaf vty-assigned {
-        type boolean;
-        description
-          "Boolean indicating whether line VTY line number
-           is valid";
-      }
-      leaf vty-line-number {
-        type uint32;
-        description
-          "VTY line number";
       }
       leaf node-name {
         type xr:Node-id;
@@ -430,10 +513,10 @@ submodule Cisco-IOS-XR-crypto-ssh-oper-sub1 {
         description
           "Authentication method";
       }
-      leaf connection-type {
-        type Connection;
+      list mc-info {
         description
-          "Channel Connection Type";
+          "List of channel info";
+        uses SSH-MCINFO;
       }
     }
   }
@@ -537,6 +620,16 @@ submodule Cisco-IOS-XR-crypto-ssh-oper-sub1 {
         type Mac;
         description
           "Out MAC";
+      }
+      leaf start-time {
+        type string;
+        description
+          "session start time";
+      }
+      leaf end-time {
+        type string;
+        description
+          "session end time";
       }
     }
   }

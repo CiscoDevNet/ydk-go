@@ -26,6 +26,10 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub6 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -724,6 +728,10 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub6 {
       enum "cost-limit-verify-failed" {
         description
           "Cost Limit verification failed";
+      }
+      enum "delay-limit-verify-failed" {
+        description
+          "Delay Limit verification failed";
       }
       enum "path-setup-timeout" {
         description

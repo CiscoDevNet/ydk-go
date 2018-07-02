@@ -37,6 +37,14 @@ module Cisco-IOS-XR-snmp-agent-cfg {
     description
       "Removed nonstateful class from correlator config";
   }
+  revision 2017-10-15 {
+    description
+      "Removed presence statement generated from internal CLI data.";
+  }
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -643,7 +651,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
                 "Security level to be used noauth/auth/priv";
             }
             leaf basic-trap-types {
-              type int32;
+              type uint32;
               mandatory true;
               description
                 "Number to signify the feature traps that
@@ -656,7 +664,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
                  numbersValue must be set to 0 for all traps";
             }
             leaf advanced-trap-types1 {
-              type int32;
+              type uint32;
               mandatory true;
               description
                 "Number to signify the feature traps that
@@ -665,7 +673,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
                  not used";
             }
             leaf advanced-trap-types2 {
-              type int32;
+              type uint32;
               mandatory true;
               description
                 "Number to signify the feature traps that
@@ -711,7 +719,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
                   "Security level to be used noauth/auth/priv";
               }
               leaf basic-trap-types {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Number to signify the feature traps that
@@ -724,7 +732,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
                    numbersValue must be set to 0 for all traps";
               }
               leaf advanced-trap-types1 {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Number to signify the feature traps that
@@ -733,7 +741,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
                    not used";
               }
               leaf advanced-trap-types2 {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Number to signify the feature traps that
@@ -773,7 +781,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
                   "Security level to be used noauth/auth/priv";
               }
               leaf basic-trap-types {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Number to signify the feature traps that
@@ -786,7 +794,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
                    numbersValue must be set to 0 for all traps";
               }
               leaf advanced-trap-types1 {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Number to signify the feature traps that
@@ -795,7 +803,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
                    not used";
               }
               leaf advanced-trap-types2 {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Number to signify the feature traps that
@@ -838,7 +846,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
                 "Security level to be used noauth/auth/priv";
             }
             leaf basic-trap-types {
-              type int32;
+              type uint32;
               mandatory true;
               description
                 "Number to signify the feature traps that
@@ -851,7 +859,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
                  numbersValue must be set to 0 for all traps";
             }
             leaf advanced-trap-types1 {
-              type int32;
+              type uint32;
               mandatory true;
               description
                 "Number to signify the feature traps that
@@ -860,7 +868,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
                  not used";
             }
             leaf advanced-trap-types2 {
-              type int32;
+              type uint32;
               mandatory true;
               description
                 "Number to signify the feature traps that
@@ -1492,7 +1500,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
                 "End Instance OID for repetition";
             }
             leaf max {
-              type int32;
+              type uint32;
               mandatory true;
               description
                 "Max value of Instance repetition";
@@ -1645,7 +1653,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
                transfer";
           }
           leaf interval {
-            type int32;
+            type uint32;
             units "minute";
             description
               "Periodicity for the transfer of bulk data in

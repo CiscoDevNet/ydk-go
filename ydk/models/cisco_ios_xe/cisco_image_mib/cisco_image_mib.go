@@ -23,7 +23,7 @@ type CISCOIMAGEMIB struct {
     YFilter yfilter.YFilter
 
     // A table provides content information describing the executing IOS image.
-    Ciscoimagetable CISCOIMAGEMIB_Ciscoimagetable
+    CiscoImageTable CISCOIMAGEMIB_CiscoImageTable
 }
 
 func (cISCOIMAGEMIB *CISCOIMAGEMIB) GetEntityData() *types.CommonEntityData {
@@ -36,71 +36,80 @@ func (cISCOIMAGEMIB *CISCOIMAGEMIB) GetEntityData() *types.CommonEntityData {
     cISCOIMAGEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIMAGEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOIMAGEMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOIMAGEMIB.EntityData.Children["ciscoImageTable"] = types.YChild{"Ciscoimagetable", &cISCOIMAGEMIB.Ciscoimagetable}
-    cISCOIMAGEMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOIMAGEMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOIMAGEMIB.EntityData.Children.Append("ciscoImageTable", types.YChild{"CiscoImageTable", &cISCOIMAGEMIB.CiscoImageTable})
+    cISCOIMAGEMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOIMAGEMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOIMAGEMIB.EntityData)
 }
 
-// CISCOIMAGEMIB_Ciscoimagetable
+// CISCOIMAGEMIB_CiscoImageTable
 // A table provides content information describing the
 // executing IOS image.
-type CISCOIMAGEMIB_Ciscoimagetable struct {
+type CISCOIMAGEMIB_CiscoImageTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A image characteristic string entry. The type is slice of
-    // CISCOIMAGEMIB_Ciscoimagetable_Ciscoimageentry.
-    Ciscoimageentry []CISCOIMAGEMIB_Ciscoimagetable_Ciscoimageentry
+    // CISCOIMAGEMIB_CiscoImageTable_CiscoImageEntry.
+    CiscoImageEntry []*CISCOIMAGEMIB_CiscoImageTable_CiscoImageEntry
 }
 
-func (ciscoimagetable *CISCOIMAGEMIB_Ciscoimagetable) GetEntityData() *types.CommonEntityData {
-    ciscoimagetable.EntityData.YFilter = ciscoimagetable.YFilter
-    ciscoimagetable.EntityData.YangName = "ciscoImageTable"
-    ciscoimagetable.EntityData.BundleName = "cisco_ios_xe"
-    ciscoimagetable.EntityData.ParentYangName = "CISCO-IMAGE-MIB"
-    ciscoimagetable.EntityData.SegmentPath = "ciscoImageTable"
-    ciscoimagetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoimagetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoimagetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoImageTable *CISCOIMAGEMIB_CiscoImageTable) GetEntityData() *types.CommonEntityData {
+    ciscoImageTable.EntityData.YFilter = ciscoImageTable.YFilter
+    ciscoImageTable.EntityData.YangName = "ciscoImageTable"
+    ciscoImageTable.EntityData.BundleName = "cisco_ios_xe"
+    ciscoImageTable.EntityData.ParentYangName = "CISCO-IMAGE-MIB"
+    ciscoImageTable.EntityData.SegmentPath = "ciscoImageTable"
+    ciscoImageTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoImageTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoImageTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoimagetable.EntityData.Children = make(map[string]types.YChild)
-    ciscoimagetable.EntityData.Children["ciscoImageEntry"] = types.YChild{"Ciscoimageentry", nil}
-    for i := range ciscoimagetable.Ciscoimageentry {
-        ciscoimagetable.EntityData.Children[types.GetSegmentPath(&ciscoimagetable.Ciscoimageentry[i])] = types.YChild{"Ciscoimageentry", &ciscoimagetable.Ciscoimageentry[i]}
+    ciscoImageTable.EntityData.Children = types.NewOrderedMap()
+    ciscoImageTable.EntityData.Children.Append("ciscoImageEntry", types.YChild{"CiscoImageEntry", nil})
+    for i := range ciscoImageTable.CiscoImageEntry {
+        ciscoImageTable.EntityData.Children.Append(types.GetSegmentPath(ciscoImageTable.CiscoImageEntry[i]), types.YChild{"CiscoImageEntry", ciscoImageTable.CiscoImageEntry[i]})
     }
-    ciscoimagetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ciscoimagetable.EntityData)
+    ciscoImageTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ciscoImageTable.EntityData.YListKeys = []string {}
+
+    return &(ciscoImageTable.EntityData)
 }
 
-// CISCOIMAGEMIB_Ciscoimagetable_Ciscoimageentry
+// CISCOIMAGEMIB_CiscoImageTable_CiscoImageEntry
 // A image characteristic string entry.
-type CISCOIMAGEMIB_Ciscoimagetable_Ciscoimageentry struct {
+type CISCOIMAGEMIB_CiscoImageTable_CiscoImageEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A sequence number for each string stored in the
     // IOS image. The type is interface{} with range: 0..2147483647.
-    Ciscoimageindex interface{}
+    CiscoImageIndex interface{}
 
     // The string of this entry. The type is string.
-    Ciscoimagestring interface{}
+    CiscoImageString interface{}
 }
 
-func (ciscoimageentry *CISCOIMAGEMIB_Ciscoimagetable_Ciscoimageentry) GetEntityData() *types.CommonEntityData {
-    ciscoimageentry.EntityData.YFilter = ciscoimageentry.YFilter
-    ciscoimageentry.EntityData.YangName = "ciscoImageEntry"
-    ciscoimageentry.EntityData.BundleName = "cisco_ios_xe"
-    ciscoimageentry.EntityData.ParentYangName = "ciscoImageTable"
-    ciscoimageentry.EntityData.SegmentPath = "ciscoImageEntry" + "[ciscoImageIndex='" + fmt.Sprintf("%v", ciscoimageentry.Ciscoimageindex) + "']"
-    ciscoimageentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoimageentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoimageentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoImageEntry *CISCOIMAGEMIB_CiscoImageTable_CiscoImageEntry) GetEntityData() *types.CommonEntityData {
+    ciscoImageEntry.EntityData.YFilter = ciscoImageEntry.YFilter
+    ciscoImageEntry.EntityData.YangName = "ciscoImageEntry"
+    ciscoImageEntry.EntityData.BundleName = "cisco_ios_xe"
+    ciscoImageEntry.EntityData.ParentYangName = "ciscoImageTable"
+    ciscoImageEntry.EntityData.SegmentPath = "ciscoImageEntry" + types.AddKeyToken(ciscoImageEntry.CiscoImageIndex, "ciscoImageIndex")
+    ciscoImageEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoImageEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoImageEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoimageentry.EntityData.Children = make(map[string]types.YChild)
-    ciscoimageentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ciscoimageentry.EntityData.Leafs["ciscoImageIndex"] = types.YLeaf{"Ciscoimageindex", ciscoimageentry.Ciscoimageindex}
-    ciscoimageentry.EntityData.Leafs["ciscoImageString"] = types.YLeaf{"Ciscoimagestring", ciscoimageentry.Ciscoimagestring}
-    return &(ciscoimageentry.EntityData)
+    ciscoImageEntry.EntityData.Children = types.NewOrderedMap()
+    ciscoImageEntry.EntityData.Leafs = types.NewOrderedMap()
+    ciscoImageEntry.EntityData.Leafs.Append("ciscoImageIndex", types.YLeaf{"CiscoImageIndex", ciscoImageEntry.CiscoImageIndex})
+    ciscoImageEntry.EntityData.Leafs.Append("ciscoImageString", types.YLeaf{"CiscoImageString", ciscoImageEntry.CiscoImageString})
+
+    ciscoImageEntry.EntityData.YListKeys = []string {"CiscoImageIndex"}
+
+    return &(ciscoImageEntry.EntityData)
 }
 

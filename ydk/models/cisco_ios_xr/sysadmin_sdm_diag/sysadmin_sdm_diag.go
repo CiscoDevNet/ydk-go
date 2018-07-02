@@ -1,3 +1,8 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
+// Copyright (c) 2012-2017 by Cisco Systems, Inc.
+// All rights reserved.
 package sysadmin_sdm_diag
 
 import (
@@ -52,15 +57,18 @@ func (diagnostic *Diagnostic) GetEntityData() *types.CommonEntityData {
     diagnostic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     diagnostic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    diagnostic.EntityData.Children = make(map[string]types.YChild)
-    diagnostic.EntityData.Children["monitor"] = types.YChild{"Monitor", &diagnostic.Monitor}
-    diagnostic.EntityData.Children["schedule"] = types.YChild{"Schedule", &diagnostic.Schedule}
-    diagnostic.EntityData.Children["status"] = types.YChild{"Status", &diagnostic.Status}
-    diagnostic.EntityData.Children["diag_start"] = types.YChild{"DiagStart", &diagnostic.DiagStart}
-    diagnostic.EntityData.Children["diag_stop"] = types.YChild{"DiagStop", &diagnostic.DiagStop}
-    diagnostic.EntityData.Children["content"] = types.YChild{"Content", &diagnostic.Content}
-    diagnostic.EntityData.Children["result"] = types.YChild{"Result", &diagnostic.Result}
-    diagnostic.EntityData.Leafs = make(map[string]types.YLeaf)
+    diagnostic.EntityData.Children = types.NewOrderedMap()
+    diagnostic.EntityData.Children.Append("monitor", types.YChild{"Monitor", &diagnostic.Monitor})
+    diagnostic.EntityData.Children.Append("schedule", types.YChild{"Schedule", &diagnostic.Schedule})
+    diagnostic.EntityData.Children.Append("status", types.YChild{"Status", &diagnostic.Status})
+    diagnostic.EntityData.Children.Append("diag_start", types.YChild{"DiagStart", &diagnostic.DiagStart})
+    diagnostic.EntityData.Children.Append("diag_stop", types.YChild{"DiagStop", &diagnostic.DiagStop})
+    diagnostic.EntityData.Children.Append("content", types.YChild{"Content", &diagnostic.Content})
+    diagnostic.EntityData.Children.Append("result", types.YChild{"Result", &diagnostic.Result})
+    diagnostic.EntityData.Leafs = types.NewOrderedMap()
+
+    diagnostic.EntityData.YListKeys = []string {}
+
     return &(diagnostic.EntityData)
 }
 
@@ -89,11 +97,14 @@ func (monitor *Diagnostic_Monitor) GetEntityData() *types.CommonEntityData {
     monitor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     monitor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    monitor.EntityData.Children = make(map[string]types.YChild)
-    monitor.EntityData.Children["rejected"] = types.YChild{"Rejected", &monitor.Rejected}
-    monitor.EntityData.Children["interval"] = types.YChild{"Interval", &monitor.Interval}
-    monitor.EntityData.Children["threshold"] = types.YChild{"Threshold", &monitor.Threshold}
-    monitor.EntityData.Leafs = make(map[string]types.YLeaf)
+    monitor.EntityData.Children = types.NewOrderedMap()
+    monitor.EntityData.Children.Append("rejected", types.YChild{"Rejected", &monitor.Rejected})
+    monitor.EntityData.Children.Append("interval", types.YChild{"Interval", &monitor.Interval})
+    monitor.EntityData.Children.Append("threshold", types.YChild{"Threshold", &monitor.Threshold})
+    monitor.EntityData.Leafs = types.NewOrderedMap()
+
+    monitor.EntityData.YListKeys = []string {}
+
     return &(monitor.EntityData)
 }
 
@@ -103,7 +114,7 @@ type Diagnostic_Monitor_Rejected struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Diagnostic_Monitor_Rejected_Location.
-    Location []Diagnostic_Monitor_Rejected_Location
+    Location []*Diagnostic_Monitor_Rejected_Location
 }
 
 func (rejected *Diagnostic_Monitor_Rejected) GetEntityData() *types.CommonEntityData {
@@ -116,12 +127,15 @@ func (rejected *Diagnostic_Monitor_Rejected) GetEntityData() *types.CommonEntity
     rejected.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rejected.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rejected.EntityData.Children = make(map[string]types.YChild)
-    rejected.EntityData.Children["location"] = types.YChild{"Location", nil}
+    rejected.EntityData.Children = types.NewOrderedMap()
+    rejected.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range rejected.Location {
-        rejected.EntityData.Children[types.GetSegmentPath(&rejected.Location[i])] = types.YChild{"Location", &rejected.Location[i]}
+        rejected.EntityData.Children.Append(types.GetSegmentPath(rejected.Location[i]), types.YChild{"Location", rejected.Location[i]})
     }
-    rejected.EntityData.Leafs = make(map[string]types.YLeaf)
+    rejected.EntityData.Leafs = types.NewOrderedMap()
+
+    rejected.EntityData.YListKeys = []string {}
+
     return &(rejected.EntityData)
 }
 
@@ -134,7 +148,7 @@ type Diagnostic_Monitor_Rejected_Location struct {
     Loc interface{}
 
     // The type is slice of Diagnostic_Monitor_Rejected_Location_Test.
-    Test []Diagnostic_Monitor_Rejected_Location_Test
+    Test []*Diagnostic_Monitor_Rejected_Location_Test
 }
 
 func (location *Diagnostic_Monitor_Rejected_Location) GetEntityData() *types.CommonEntityData {
@@ -142,18 +156,21 @@ func (location *Diagnostic_Monitor_Rejected_Location) GetEntityData() *types.Com
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "rejected"
-    location.EntityData.SegmentPath = "location" + "[loc='" + fmt.Sprintf("%v", location.Loc) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Loc, "loc")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["test"] = types.YChild{"Test", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("test", types.YChild{"Test", nil})
     for i := range location.Test {
-        location.EntityData.Children[types.GetSegmentPath(&location.Test[i])] = types.YChild{"Test", &location.Test[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.Test[i]), types.YChild{"Test", location.Test[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["loc"] = types.YLeaf{"Loc", location.Loc}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("loc", types.YLeaf{"Loc", location.Loc})
+
+    location.EntityData.YListKeys = []string {"Loc"}
+
     return &(location.EntityData)
 }
 
@@ -174,15 +191,18 @@ func (test *Diagnostic_Monitor_Rejected_Location_Test) GetEntityData() *types.Co
     test.EntityData.YangName = "test"
     test.EntityData.BundleName = "cisco_ios_xr"
     test.EntityData.ParentYangName = "location"
-    test.EntityData.SegmentPath = "test" + "[test_id='" + fmt.Sprintf("%v", test.TestId) + "']" + "[run='" + fmt.Sprintf("%v", test.Run) + "']"
+    test.EntityData.SegmentPath = "test" + types.AddKeyToken(test.TestId, "test_id") + types.AddKeyToken(test.Run, "run")
     test.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     test.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     test.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    test.EntityData.Children = make(map[string]types.YChild)
-    test.EntityData.Leafs = make(map[string]types.YLeaf)
-    test.EntityData.Leafs["test_id"] = types.YLeaf{"TestId", test.TestId}
-    test.EntityData.Leafs["run"] = types.YLeaf{"Run", test.Run}
+    test.EntityData.Children = types.NewOrderedMap()
+    test.EntityData.Leafs = types.NewOrderedMap()
+    test.EntityData.Leafs.Append("test_id", types.YLeaf{"TestId", test.TestId})
+    test.EntityData.Leafs.Append("run", types.YLeaf{"Run", test.Run})
+
+    test.EntityData.YListKeys = []string {"TestId", "Run"}
+
     return &(test.EntityData)
 }
 
@@ -199,7 +219,7 @@ type Diagnostic_Monitor_Interval struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Diagnostic_Monitor_Interval_Location.
-    Location []Diagnostic_Monitor_Interval_Location
+    Location []*Diagnostic_Monitor_Interval_Location
 }
 
 func (interval *Diagnostic_Monitor_Interval) GetEntityData() *types.CommonEntityData {
@@ -212,12 +232,15 @@ func (interval *Diagnostic_Monitor_Interval) GetEntityData() *types.CommonEntity
     interval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interval.EntityData.Children = make(map[string]types.YChild)
-    interval.EntityData.Children["location"] = types.YChild{"Location", nil}
+    interval.EntityData.Children = types.NewOrderedMap()
+    interval.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range interval.Location {
-        interval.EntityData.Children[types.GetSegmentPath(&interval.Location[i])] = types.YChild{"Location", &interval.Location[i]}
+        interval.EntityData.Children.Append(types.GetSegmentPath(interval.Location[i]), types.YChild{"Location", interval.Location[i]})
     }
-    interval.EntityData.Leafs = make(map[string]types.YLeaf)
+    interval.EntityData.Leafs = types.NewOrderedMap()
+
+    interval.EntityData.YListKeys = []string {}
+
     return &(interval.EntityData)
 }
 
@@ -230,7 +253,7 @@ type Diagnostic_Monitor_Interval_Location struct {
     Loc interface{}
 
     // The type is slice of Diagnostic_Monitor_Interval_Location_Test.
-    Test []Diagnostic_Monitor_Interval_Location_Test
+    Test []*Diagnostic_Monitor_Interval_Location_Test
 }
 
 func (location *Diagnostic_Monitor_Interval_Location) GetEntityData() *types.CommonEntityData {
@@ -238,18 +261,21 @@ func (location *Diagnostic_Monitor_Interval_Location) GetEntityData() *types.Com
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "interval"
-    location.EntityData.SegmentPath = "location" + "[loc='" + fmt.Sprintf("%v", location.Loc) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Loc, "loc")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["test"] = types.YChild{"Test", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("test", types.YChild{"Test", nil})
     for i := range location.Test {
-        location.EntityData.Children[types.GetSegmentPath(&location.Test[i])] = types.YChild{"Test", &location.Test[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.Test[i]), types.YChild{"Test", location.Test[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["loc"] = types.YLeaf{"Loc", location.Loc}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("loc", types.YLeaf{"Loc", location.Loc})
+
+    location.EntityData.YListKeys = []string {"Loc"}
+
     return &(location.EntityData)
 }
 
@@ -264,8 +290,8 @@ type Diagnostic_Monitor_Interval_Location_Test struct {
     // The type is interface{} with range: 0..20. This attribute is mandatory.
     Days interface{}
 
-    // The type is string with pattern:
-    // b'([01]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]'. This attribute is mandatory.
+    // The type is string with pattern: ([01]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].
+    // This attribute is mandatory.
     Time interface{}
 }
 
@@ -274,16 +300,19 @@ func (test *Diagnostic_Monitor_Interval_Location_Test) GetEntityData() *types.Co
     test.EntityData.YangName = "test"
     test.EntityData.BundleName = "cisco_ios_xr"
     test.EntityData.ParentYangName = "location"
-    test.EntityData.SegmentPath = "test" + "[test_id='" + fmt.Sprintf("%v", test.TestId) + "']"
+    test.EntityData.SegmentPath = "test" + types.AddKeyToken(test.TestId, "test_id")
     test.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     test.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     test.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    test.EntityData.Children = make(map[string]types.YChild)
-    test.EntityData.Leafs = make(map[string]types.YLeaf)
-    test.EntityData.Leafs["test_id"] = types.YLeaf{"TestId", test.TestId}
-    test.EntityData.Leafs["days"] = types.YLeaf{"Days", test.Days}
-    test.EntityData.Leafs["time"] = types.YLeaf{"Time", test.Time}
+    test.EntityData.Children = types.NewOrderedMap()
+    test.EntityData.Leafs = types.NewOrderedMap()
+    test.EntityData.Leafs.Append("test_id", types.YLeaf{"TestId", test.TestId})
+    test.EntityData.Leafs.Append("days", types.YLeaf{"Days", test.Days})
+    test.EntityData.Leafs.Append("time", types.YLeaf{"Time", test.Time})
+
+    test.EntityData.YListKeys = []string {"TestId"}
+
     return &(test.EntityData)
 }
 
@@ -293,7 +322,7 @@ type Diagnostic_Monitor_Threshold struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Diagnostic_Monitor_Threshold_Location.
-    Location []Diagnostic_Monitor_Threshold_Location
+    Location []*Diagnostic_Monitor_Threshold_Location
 }
 
 func (threshold *Diagnostic_Monitor_Threshold) GetEntityData() *types.CommonEntityData {
@@ -306,12 +335,15 @@ func (threshold *Diagnostic_Monitor_Threshold) GetEntityData() *types.CommonEnti
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    threshold.EntityData.Children = make(map[string]types.YChild)
-    threshold.EntityData.Children["location"] = types.YChild{"Location", nil}
+    threshold.EntityData.Children = types.NewOrderedMap()
+    threshold.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range threshold.Location {
-        threshold.EntityData.Children[types.GetSegmentPath(&threshold.Location[i])] = types.YChild{"Location", &threshold.Location[i]}
+        threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.Location[i]), types.YChild{"Location", threshold.Location[i]})
     }
-    threshold.EntityData.Leafs = make(map[string]types.YLeaf)
+    threshold.EntityData.Leafs = types.NewOrderedMap()
+
+    threshold.EntityData.YListKeys = []string {}
+
     return &(threshold.EntityData)
 }
 
@@ -324,7 +356,7 @@ type Diagnostic_Monitor_Threshold_Location struct {
     Loc interface{}
 
     // The type is slice of Diagnostic_Monitor_Threshold_Location_Test.
-    Test []Diagnostic_Monitor_Threshold_Location_Test
+    Test []*Diagnostic_Monitor_Threshold_Location_Test
 }
 
 func (location *Diagnostic_Monitor_Threshold_Location) GetEntityData() *types.CommonEntityData {
@@ -332,18 +364,21 @@ func (location *Diagnostic_Monitor_Threshold_Location) GetEntityData() *types.Co
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "threshold"
-    location.EntityData.SegmentPath = "location" + "[loc='" + fmt.Sprintf("%v", location.Loc) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Loc, "loc")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["test"] = types.YChild{"Test", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("test", types.YChild{"Test", nil})
     for i := range location.Test {
-        location.EntityData.Children[types.GetSegmentPath(&location.Test[i])] = types.YChild{"Test", &location.Test[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.Test[i]), types.YChild{"Test", location.Test[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["loc"] = types.YLeaf{"Loc", location.Loc}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("loc", types.YLeaf{"Loc", location.Loc})
+
+    location.EntityData.YListKeys = []string {"Loc"}
+
     return &(location.EntityData)
 }
 
@@ -364,15 +399,18 @@ func (test *Diagnostic_Monitor_Threshold_Location_Test) GetEntityData() *types.C
     test.EntityData.YangName = "test"
     test.EntityData.BundleName = "cisco_ios_xr"
     test.EntityData.ParentYangName = "location"
-    test.EntityData.SegmentPath = "test" + "[test_id='" + fmt.Sprintf("%v", test.TestId) + "']"
+    test.EntityData.SegmentPath = "test" + types.AddKeyToken(test.TestId, "test_id")
     test.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     test.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     test.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    test.EntityData.Children = make(map[string]types.YChild)
-    test.EntityData.Leafs = make(map[string]types.YLeaf)
-    test.EntityData.Leafs["test_id"] = types.YLeaf{"TestId", test.TestId}
-    test.EntityData.Leafs["failure-count"] = types.YLeaf{"FailureCount", test.FailureCount}
+    test.EntityData.Children = types.NewOrderedMap()
+    test.EntityData.Leafs = types.NewOrderedMap()
+    test.EntityData.Leafs.Append("test_id", types.YLeaf{"TestId", test.TestId})
+    test.EntityData.Leafs.Append("failure-count", types.YLeaf{"FailureCount", test.FailureCount})
+
+    test.EntityData.YListKeys = []string {"TestId"}
+
     return &(test.EntityData)
 }
 
@@ -395,9 +433,12 @@ func (schedule *Diagnostic_Schedule) GetEntityData() *types.CommonEntityData {
     schedule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     schedule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    schedule.EntityData.Children = make(map[string]types.YChild)
-    schedule.EntityData.Children["start"] = types.YChild{"Start", &schedule.Start}
-    schedule.EntityData.Leafs = make(map[string]types.YLeaf)
+    schedule.EntityData.Children = types.NewOrderedMap()
+    schedule.EntityData.Children.Append("start", types.YChild{"Start", &schedule.Start})
+    schedule.EntityData.Leafs = types.NewOrderedMap()
+
+    schedule.EntityData.YListKeys = []string {}
+
     return &(schedule.EntityData)
 }
 
@@ -407,7 +448,7 @@ type Diagnostic_Schedule_Start struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Diagnostic_Schedule_Start_Location.
-    Location []Diagnostic_Schedule_Start_Location
+    Location []*Diagnostic_Schedule_Start_Location
 }
 
 func (start *Diagnostic_Schedule_Start) GetEntityData() *types.CommonEntityData {
@@ -420,12 +461,15 @@ func (start *Diagnostic_Schedule_Start) GetEntityData() *types.CommonEntityData 
     start.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     start.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    start.EntityData.Children = make(map[string]types.YChild)
-    start.EntityData.Children["location"] = types.YChild{"Location", nil}
+    start.EntityData.Children = types.NewOrderedMap()
+    start.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range start.Location {
-        start.EntityData.Children[types.GetSegmentPath(&start.Location[i])] = types.YChild{"Location", &start.Location[i]}
+        start.EntityData.Children.Append(types.GetSegmentPath(start.Location[i]), types.YChild{"Location", start.Location[i]})
     }
-    start.EntityData.Leafs = make(map[string]types.YLeaf)
+    start.EntityData.Leafs = types.NewOrderedMap()
+
+    start.EntityData.YListKeys = []string {}
+
     return &(start.EntityData)
 }
 
@@ -438,7 +482,7 @@ type Diagnostic_Schedule_Start_Location struct {
     Loc interface{}
 
     // The type is slice of Diagnostic_Schedule_Start_Location_Test.
-    Test []Diagnostic_Schedule_Start_Location_Test
+    Test []*Diagnostic_Schedule_Start_Location_Test
 }
 
 func (location *Diagnostic_Schedule_Start_Location) GetEntityData() *types.CommonEntityData {
@@ -446,18 +490,21 @@ func (location *Diagnostic_Schedule_Start_Location) GetEntityData() *types.Commo
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "start"
-    location.EntityData.SegmentPath = "location" + "[loc='" + fmt.Sprintf("%v", location.Loc) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Loc, "loc")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["test"] = types.YChild{"Test", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("test", types.YChild{"Test", nil})
     for i := range location.Test {
-        location.EntityData.Children[types.GetSegmentPath(&location.Test[i])] = types.YChild{"Test", &location.Test[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.Test[i]), types.YChild{"Test", location.Test[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["loc"] = types.YLeaf{"Loc", location.Loc}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("loc", types.YLeaf{"Loc", location.Loc})
+
+    location.EntityData.YListKeys = []string {"Loc"}
+
     return &(location.EntityData)
 }
 
@@ -470,13 +517,13 @@ type Diagnostic_Schedule_Start_Location_Test struct {
     TestId interface{}
 
     // The type is slice of Diagnostic_Schedule_Start_Location_Test_Daily.
-    Daily []Diagnostic_Schedule_Start_Location_Test_Daily
+    Daily []*Diagnostic_Schedule_Start_Location_Test_Daily
 
     // The type is slice of Diagnostic_Schedule_Start_Location_Test_On.
-    On []Diagnostic_Schedule_Start_Location_Test_On
+    On []*Diagnostic_Schedule_Start_Location_Test_On
 
     // The type is slice of Diagnostic_Schedule_Start_Location_Test_Weekly.
-    Weekly []Diagnostic_Schedule_Start_Location_Test_Weekly
+    Weekly []*Diagnostic_Schedule_Start_Location_Test_Weekly
 }
 
 func (test *Diagnostic_Schedule_Start_Location_Test) GetEntityData() *types.CommonEntityData {
@@ -484,26 +531,29 @@ func (test *Diagnostic_Schedule_Start_Location_Test) GetEntityData() *types.Comm
     test.EntityData.YangName = "test"
     test.EntityData.BundleName = "cisco_ios_xr"
     test.EntityData.ParentYangName = "location"
-    test.EntityData.SegmentPath = "test" + "[test_id='" + fmt.Sprintf("%v", test.TestId) + "']"
+    test.EntityData.SegmentPath = "test" + types.AddKeyToken(test.TestId, "test_id")
     test.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     test.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     test.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    test.EntityData.Children = make(map[string]types.YChild)
-    test.EntityData.Children["daily"] = types.YChild{"Daily", nil}
+    test.EntityData.Children = types.NewOrderedMap()
+    test.EntityData.Children.Append("daily", types.YChild{"Daily", nil})
     for i := range test.Daily {
-        test.EntityData.Children[types.GetSegmentPath(&test.Daily[i])] = types.YChild{"Daily", &test.Daily[i]}
+        test.EntityData.Children.Append(types.GetSegmentPath(test.Daily[i]), types.YChild{"Daily", test.Daily[i]})
     }
-    test.EntityData.Children["on"] = types.YChild{"On", nil}
+    test.EntityData.Children.Append("on", types.YChild{"On", nil})
     for i := range test.On {
-        test.EntityData.Children[types.GetSegmentPath(&test.On[i])] = types.YChild{"On", &test.On[i]}
+        test.EntityData.Children.Append(types.GetSegmentPath(test.On[i]), types.YChild{"On", test.On[i]})
     }
-    test.EntityData.Children["weekly"] = types.YChild{"Weekly", nil}
+    test.EntityData.Children.Append("weekly", types.YChild{"Weekly", nil})
     for i := range test.Weekly {
-        test.EntityData.Children[types.GetSegmentPath(&test.Weekly[i])] = types.YChild{"Weekly", &test.Weekly[i]}
+        test.EntityData.Children.Append(types.GetSegmentPath(test.Weekly[i]), types.YChild{"Weekly", test.Weekly[i]})
     }
-    test.EntityData.Leafs = make(map[string]types.YLeaf)
-    test.EntityData.Leafs["test_id"] = types.YLeaf{"TestId", test.TestId}
+    test.EntityData.Leafs = types.NewOrderedMap()
+    test.EntityData.Leafs.Append("test_id", types.YLeaf{"TestId", test.TestId})
+
+    test.EntityData.YListKeys = []string {"TestId"}
+
     return &(test.EntityData)
 }
 
@@ -513,7 +563,7 @@ type Diagnostic_Schedule_Start_Location_Test_Daily struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'([01]?[0-9]|2[0-3]):[0-5][0-9]'.
+    // ([01]?[0-9]|2[0-3]):[0-5][0-9].
     HourMin interface{}
 }
 
@@ -522,14 +572,17 @@ func (daily *Diagnostic_Schedule_Start_Location_Test_Daily) GetEntityData() *typ
     daily.EntityData.YangName = "daily"
     daily.EntityData.BundleName = "cisco_ios_xr"
     daily.EntityData.ParentYangName = "test"
-    daily.EntityData.SegmentPath = "daily" + "[hour_min='" + fmt.Sprintf("%v", daily.HourMin) + "']"
+    daily.EntityData.SegmentPath = "daily" + types.AddKeyToken(daily.HourMin, "hour_min")
     daily.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     daily.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     daily.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    daily.EntityData.Children = make(map[string]types.YChild)
-    daily.EntityData.Leafs = make(map[string]types.YLeaf)
-    daily.EntityData.Leafs["hour_min"] = types.YLeaf{"HourMin", daily.HourMin}
+    daily.EntityData.Children = types.NewOrderedMap()
+    daily.EntityData.Leafs = types.NewOrderedMap()
+    daily.EntityData.Leafs.Append("hour_min", types.YLeaf{"HourMin", daily.HourMin})
+
+    daily.EntityData.YListKeys = []string {"HourMin"}
+
     return &(daily.EntityData)
 }
 
@@ -548,7 +601,7 @@ type Diagnostic_Schedule_Start_Location_Test_On struct {
     Year interface{}
 
     // This attribute is a key. The type is string with pattern:
-    // b'([01]?[0-9]|2[0-3]):[0-5][0-9]'.
+    // ([01]?[0-9]|2[0-3]):[0-5][0-9].
     HourMin interface{}
 }
 
@@ -557,17 +610,20 @@ func (on *Diagnostic_Schedule_Start_Location_Test_On) GetEntityData() *types.Com
     on.EntityData.YangName = "on"
     on.EntityData.BundleName = "cisco_ios_xr"
     on.EntityData.ParentYangName = "test"
-    on.EntityData.SegmentPath = "on" + "[month='" + fmt.Sprintf("%v", on.Month) + "']" + "[day_of_month='" + fmt.Sprintf("%v", on.DayOfMonth) + "']" + "[year='" + fmt.Sprintf("%v", on.Year) + "']" + "[hour_min='" + fmt.Sprintf("%v", on.HourMin) + "']"
+    on.EntityData.SegmentPath = "on" + types.AddKeyToken(on.Month, "month") + types.AddKeyToken(on.DayOfMonth, "day_of_month") + types.AddKeyToken(on.Year, "year") + types.AddKeyToken(on.HourMin, "hour_min")
     on.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     on.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     on.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    on.EntityData.Children = make(map[string]types.YChild)
-    on.EntityData.Leafs = make(map[string]types.YLeaf)
-    on.EntityData.Leafs["month"] = types.YLeaf{"Month", on.Month}
-    on.EntityData.Leafs["day_of_month"] = types.YLeaf{"DayOfMonth", on.DayOfMonth}
-    on.EntityData.Leafs["year"] = types.YLeaf{"Year", on.Year}
-    on.EntityData.Leafs["hour_min"] = types.YLeaf{"HourMin", on.HourMin}
+    on.EntityData.Children = types.NewOrderedMap()
+    on.EntityData.Leafs = types.NewOrderedMap()
+    on.EntityData.Leafs.Append("month", types.YLeaf{"Month", on.Month})
+    on.EntityData.Leafs.Append("day_of_month", types.YLeaf{"DayOfMonth", on.DayOfMonth})
+    on.EntityData.Leafs.Append("year", types.YLeaf{"Year", on.Year})
+    on.EntityData.Leafs.Append("hour_min", types.YLeaf{"HourMin", on.HourMin})
+
+    on.EntityData.YListKeys = []string {"Month", "DayOfMonth", "Year", "HourMin"}
+
     return &(on.EntityData)
 }
 
@@ -609,7 +665,7 @@ type Diagnostic_Schedule_Start_Location_Test_Weekly struct {
     Daysofweek interface{}
 
     // This attribute is a key. The type is string with pattern:
-    // b'([01]?[0-9]|2[0-3]):[0-5][0-9]'.
+    // ([01]?[0-9]|2[0-3]):[0-5][0-9].
     HourMin interface{}
 }
 
@@ -618,15 +674,18 @@ func (weekly *Diagnostic_Schedule_Start_Location_Test_Weekly) GetEntityData() *t
     weekly.EntityData.YangName = "weekly"
     weekly.EntityData.BundleName = "cisco_ios_xr"
     weekly.EntityData.ParentYangName = "test"
-    weekly.EntityData.SegmentPath = "weekly" + "[daysofweek='" + fmt.Sprintf("%v", weekly.Daysofweek) + "']" + "[hour_min='" + fmt.Sprintf("%v", weekly.HourMin) + "']"
+    weekly.EntityData.SegmentPath = "weekly" + types.AddKeyToken(weekly.Daysofweek, "daysofweek") + types.AddKeyToken(weekly.HourMin, "hour_min")
     weekly.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     weekly.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     weekly.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    weekly.EntityData.Children = make(map[string]types.YChild)
-    weekly.EntityData.Leafs = make(map[string]types.YLeaf)
-    weekly.EntityData.Leafs["daysofweek"] = types.YLeaf{"Daysofweek", weekly.Daysofweek}
-    weekly.EntityData.Leafs["hour_min"] = types.YLeaf{"HourMin", weekly.HourMin}
+    weekly.EntityData.Children = types.NewOrderedMap()
+    weekly.EntityData.Leafs = types.NewOrderedMap()
+    weekly.EntityData.Leafs.Append("daysofweek", types.YLeaf{"Daysofweek", weekly.Daysofweek})
+    weekly.EntityData.Leafs.Append("hour_min", types.YLeaf{"HourMin", weekly.HourMin})
+
+    weekly.EntityData.YListKeys = []string {"Daysofweek", "HourMin"}
+
     return &(weekly.EntityData)
 }
 
@@ -655,7 +714,7 @@ type Diagnostic_Status struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Diagnostic_Status_LocationIndex.
-    LocationIndex []Diagnostic_Status_LocationIndex
+    LocationIndex []*Diagnostic_Status_LocationIndex
 }
 
 func (status *Diagnostic_Status) GetEntityData() *types.CommonEntityData {
@@ -668,12 +727,15 @@ func (status *Diagnostic_Status) GetEntityData() *types.CommonEntityData {
     status.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    status.EntityData.Children = make(map[string]types.YChild)
-    status.EntityData.Children["location_index"] = types.YChild{"LocationIndex", nil}
+    status.EntityData.Children = types.NewOrderedMap()
+    status.EntityData.Children.Append("location_index", types.YChild{"LocationIndex", nil})
     for i := range status.LocationIndex {
-        status.EntityData.Children[types.GetSegmentPath(&status.LocationIndex[i])] = types.YChild{"LocationIndex", &status.LocationIndex[i]}
+        status.EntityData.Children.Append(types.GetSegmentPath(status.LocationIndex[i]), types.YChild{"LocationIndex", status.LocationIndex[i]})
     }
-    status.EntityData.Leafs = make(map[string]types.YLeaf)
+    status.EntityData.Leafs = types.NewOrderedMap()
+
+    status.EntityData.YListKeys = []string {}
+
     return &(status.EntityData)
 }
 
@@ -698,16 +760,19 @@ func (locationIndex *Diagnostic_Status_LocationIndex) GetEntityData() *types.Com
     locationIndex.EntityData.YangName = "location_index"
     locationIndex.EntityData.BundleName = "cisco_ios_xr"
     locationIndex.EntityData.ParentYangName = "status"
-    locationIndex.EntityData.SegmentPath = "location_index" + "[data_idx='" + fmt.Sprintf("%v", locationIndex.DataIdx) + "']"
+    locationIndex.EntityData.SegmentPath = "location_index" + types.AddKeyToken(locationIndex.DataIdx, "data_idx")
     locationIndex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locationIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locationIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    locationIndex.EntityData.Children = make(map[string]types.YChild)
-    locationIndex.EntityData.Leafs = make(map[string]types.YLeaf)
-    locationIndex.EntityData.Leafs["data_idx"] = types.YLeaf{"DataIdx", locationIndex.DataIdx}
-    locationIndex.EntityData.Leafs["description"] = types.YLeaf{"Description", locationIndex.Description}
-    locationIndex.EntityData.Leafs["curr_running_tst_runby"] = types.YLeaf{"CurrRunningTstRunby", locationIndex.CurrRunningTstRunby}
+    locationIndex.EntityData.Children = types.NewOrderedMap()
+    locationIndex.EntityData.Leafs = types.NewOrderedMap()
+    locationIndex.EntityData.Leafs.Append("data_idx", types.YLeaf{"DataIdx", locationIndex.DataIdx})
+    locationIndex.EntityData.Leafs.Append("description", types.YLeaf{"Description", locationIndex.Description})
+    locationIndex.EntityData.Leafs.Append("curr_running_tst_runby", types.YLeaf{"CurrRunningTstRunby", locationIndex.CurrRunningTstRunby})
+
+    locationIndex.EntityData.YListKeys = []string {"DataIdx"}
+
     return &(locationIndex.EntityData)
 }
 
@@ -717,7 +782,7 @@ type Diagnostic_DiagStart struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Diagnostic_DiagStart_Location.
-    Location []Diagnostic_DiagStart_Location
+    Location []*Diagnostic_DiagStart_Location
 }
 
 func (diagStart *Diagnostic_DiagStart) GetEntityData() *types.CommonEntityData {
@@ -730,12 +795,15 @@ func (diagStart *Diagnostic_DiagStart) GetEntityData() *types.CommonEntityData {
     diagStart.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     diagStart.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    diagStart.EntityData.Children = make(map[string]types.YChild)
-    diagStart.EntityData.Children["location"] = types.YChild{"Location", nil}
+    diagStart.EntityData.Children = types.NewOrderedMap()
+    diagStart.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range diagStart.Location {
-        diagStart.EntityData.Children[types.GetSegmentPath(&diagStart.Location[i])] = types.YChild{"Location", &diagStart.Location[i]}
+        diagStart.EntityData.Children.Append(types.GetSegmentPath(diagStart.Location[i]), types.YChild{"Location", diagStart.Location[i]})
     }
-    diagStart.EntityData.Leafs = make(map[string]types.YLeaf)
+    diagStart.EntityData.Leafs = types.NewOrderedMap()
+
+    diagStart.EntityData.YListKeys = []string {}
+
     return &(diagStart.EntityData)
 }
 
@@ -751,7 +819,7 @@ type Diagnostic_DiagStart_Location struct {
     Description interface{}
 
     // The type is slice of Diagnostic_DiagStart_Location_Test.
-    Test []Diagnostic_DiagStart_Location_Test
+    Test []*Diagnostic_DiagStart_Location_Test
 }
 
 func (location *Diagnostic_DiagStart_Location) GetEntityData() *types.CommonEntityData {
@@ -759,19 +827,22 @@ func (location *Diagnostic_DiagStart_Location) GetEntityData() *types.CommonEnti
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "diag_start"
-    location.EntityData.SegmentPath = "location" + "[loc='" + fmt.Sprintf("%v", location.Loc) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Loc, "loc")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["test"] = types.YChild{"Test", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("test", types.YChild{"Test", nil})
     for i := range location.Test {
-        location.EntityData.Children[types.GetSegmentPath(&location.Test[i])] = types.YChild{"Test", &location.Test[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.Test[i]), types.YChild{"Test", location.Test[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["loc"] = types.YLeaf{"Loc", location.Loc}
-    location.EntityData.Leafs["description"] = types.YLeaf{"Description", location.Description}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("loc", types.YLeaf{"Loc", location.Loc})
+    location.EntityData.Leafs.Append("description", types.YLeaf{"Description", location.Description})
+
+    location.EntityData.YListKeys = []string {"Loc"}
+
     return &(location.EntityData)
 }
 
@@ -792,15 +863,18 @@ func (test *Diagnostic_DiagStart_Location_Test) GetEntityData() *types.CommonEnt
     test.EntityData.YangName = "test"
     test.EntityData.BundleName = "cisco_ios_xr"
     test.EntityData.ParentYangName = "location"
-    test.EntityData.SegmentPath = "test" + "[test_type='" + fmt.Sprintf("%v", test.TestType) + "']"
+    test.EntityData.SegmentPath = "test" + types.AddKeyToken(test.TestType, "test_type")
     test.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     test.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     test.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    test.EntityData.Children = make(map[string]types.YChild)
-    test.EntityData.Leafs = make(map[string]types.YLeaf)
-    test.EntityData.Leafs["test_type"] = types.YLeaf{"TestType", test.TestType}
-    test.EntityData.Leafs["description"] = types.YLeaf{"Description", test.Description}
+    test.EntityData.Children = types.NewOrderedMap()
+    test.EntityData.Leafs = types.NewOrderedMap()
+    test.EntityData.Leafs.Append("test_type", types.YLeaf{"TestType", test.TestType})
+    test.EntityData.Leafs.Append("description", types.YLeaf{"Description", test.Description})
+
+    test.EntityData.YListKeys = []string {"TestType"}
+
     return &(test.EntityData)
 }
 
@@ -810,7 +884,7 @@ type Diagnostic_DiagStop struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Diagnostic_DiagStop_Location.
-    Location []Diagnostic_DiagStop_Location
+    Location []*Diagnostic_DiagStop_Location
 }
 
 func (diagStop *Diagnostic_DiagStop) GetEntityData() *types.CommonEntityData {
@@ -823,12 +897,15 @@ func (diagStop *Diagnostic_DiagStop) GetEntityData() *types.CommonEntityData {
     diagStop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     diagStop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    diagStop.EntityData.Children = make(map[string]types.YChild)
-    diagStop.EntityData.Children["location"] = types.YChild{"Location", nil}
+    diagStop.EntityData.Children = types.NewOrderedMap()
+    diagStop.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range diagStop.Location {
-        diagStop.EntityData.Children[types.GetSegmentPath(&diagStop.Location[i])] = types.YChild{"Location", &diagStop.Location[i]}
+        diagStop.EntityData.Children.Append(types.GetSegmentPath(diagStop.Location[i]), types.YChild{"Location", diagStop.Location[i]})
     }
-    diagStop.EntityData.Leafs = make(map[string]types.YLeaf)
+    diagStop.EntityData.Leafs = types.NewOrderedMap()
+
+    diagStop.EntityData.YListKeys = []string {}
+
     return &(diagStop.EntityData)
 }
 
@@ -844,7 +921,7 @@ type Diagnostic_DiagStop_Location struct {
     Description interface{}
 
     // The type is slice of Diagnostic_DiagStop_Location_Test.
-    Test []Diagnostic_DiagStop_Location_Test
+    Test []*Diagnostic_DiagStop_Location_Test
 }
 
 func (location *Diagnostic_DiagStop_Location) GetEntityData() *types.CommonEntityData {
@@ -852,19 +929,22 @@ func (location *Diagnostic_DiagStop_Location) GetEntityData() *types.CommonEntit
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "diag_stop"
-    location.EntityData.SegmentPath = "location" + "[loc='" + fmt.Sprintf("%v", location.Loc) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Loc, "loc")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["test"] = types.YChild{"Test", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("test", types.YChild{"Test", nil})
     for i := range location.Test {
-        location.EntityData.Children[types.GetSegmentPath(&location.Test[i])] = types.YChild{"Test", &location.Test[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.Test[i]), types.YChild{"Test", location.Test[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["loc"] = types.YLeaf{"Loc", location.Loc}
-    location.EntityData.Leafs["description"] = types.YLeaf{"Description", location.Description}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("loc", types.YLeaf{"Loc", location.Loc})
+    location.EntityData.Leafs.Append("description", types.YLeaf{"Description", location.Description})
+
+    location.EntityData.YListKeys = []string {"Loc"}
+
     return &(location.EntityData)
 }
 
@@ -885,15 +965,18 @@ func (test *Diagnostic_DiagStop_Location_Test) GetEntityData() *types.CommonEnti
     test.EntityData.YangName = "test"
     test.EntityData.BundleName = "cisco_ios_xr"
     test.EntityData.ParentYangName = "location"
-    test.EntityData.SegmentPath = "test" + "[test_type='" + fmt.Sprintf("%v", test.TestType) + "']"
+    test.EntityData.SegmentPath = "test" + types.AddKeyToken(test.TestType, "test_type")
     test.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     test.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     test.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    test.EntityData.Children = make(map[string]types.YChild)
-    test.EntityData.Leafs = make(map[string]types.YLeaf)
-    test.EntityData.Leafs["test_type"] = types.YLeaf{"TestType", test.TestType}
-    test.EntityData.Leafs["description"] = types.YLeaf{"Description", test.Description}
+    test.EntityData.Children = types.NewOrderedMap()
+    test.EntityData.Leafs = types.NewOrderedMap()
+    test.EntityData.Leafs.Append("test_type", types.YLeaf{"TestType", test.TestType})
+    test.EntityData.Leafs.Append("description", types.YLeaf{"Description", test.Description})
+
+    test.EntityData.YListKeys = []string {"TestType"}
+
     return &(test.EntityData)
 }
 
@@ -903,7 +986,7 @@ type Diagnostic_Content struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Diagnostic_Content_Location.
-    Location []Diagnostic_Content_Location
+    Location []*Diagnostic_Content_Location
 }
 
 func (content *Diagnostic_Content) GetEntityData() *types.CommonEntityData {
@@ -916,12 +999,15 @@ func (content *Diagnostic_Content) GetEntityData() *types.CommonEntityData {
     content.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     content.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    content.EntityData.Children = make(map[string]types.YChild)
-    content.EntityData.Children["location"] = types.YChild{"Location", nil}
+    content.EntityData.Children = types.NewOrderedMap()
+    content.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range content.Location {
-        content.EntityData.Children[types.GetSegmentPath(&content.Location[i])] = types.YChild{"Location", &content.Location[i]}
+        content.EntityData.Children.Append(types.GetSegmentPath(content.Location[i]), types.YChild{"Location", content.Location[i]})
     }
-    content.EntityData.Leafs = make(map[string]types.YLeaf)
+    content.EntityData.Leafs = types.NewOrderedMap()
+
+    content.EntityData.YListKeys = []string {}
+
     return &(content.EntityData)
 }
 
@@ -937,7 +1023,7 @@ type Diagnostic_Content_Location struct {
     Description interface{}
 
     // The type is slice of Diagnostic_Content_Location_DataList.
-    DataList []Diagnostic_Content_Location_DataList
+    DataList []*Diagnostic_Content_Location_DataList
 }
 
 func (location *Diagnostic_Content_Location) GetEntityData() *types.CommonEntityData {
@@ -945,19 +1031,22 @@ func (location *Diagnostic_Content_Location) GetEntityData() *types.CommonEntity
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "content"
-    location.EntityData.SegmentPath = "location" + "[loc='" + fmt.Sprintf("%v", location.Loc) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Loc, "loc")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["data_list"] = types.YChild{"DataList", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("data_list", types.YChild{"DataList", nil})
     for i := range location.DataList {
-        location.EntityData.Children[types.GetSegmentPath(&location.DataList[i])] = types.YChild{"DataList", &location.DataList[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.DataList[i]), types.YChild{"DataList", location.DataList[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["loc"] = types.YLeaf{"Loc", location.Loc}
-    location.EntityData.Leafs["description"] = types.YLeaf{"Description", location.Description}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("loc", types.YLeaf{"Loc", location.Loc})
+    location.EntityData.Leafs.Append("description", types.YLeaf{"Description", location.Description})
+
+    location.EntityData.YListKeys = []string {"Loc"}
+
     return &(location.EntityData)
 }
 
@@ -992,19 +1081,22 @@ func (dataList *Diagnostic_Content_Location_DataList) GetEntityData() *types.Com
     dataList.EntityData.YangName = "data_list"
     dataList.EntityData.BundleName = "cisco_ios_xr"
     dataList.EntityData.ParentYangName = "location"
-    dataList.EntityData.SegmentPath = "data_list" + "[data_idx='" + fmt.Sprintf("%v", dataList.DataIdx) + "']"
+    dataList.EntityData.SegmentPath = "data_list" + types.AddKeyToken(dataList.DataIdx, "data_idx")
     dataList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dataList.EntityData.Children = make(map[string]types.YChild)
-    dataList.EntityData.Leafs = make(map[string]types.YLeaf)
-    dataList.EntityData.Leafs["data_idx"] = types.YLeaf{"DataIdx", dataList.DataIdx}
-    dataList.EntityData.Leafs["id"] = types.YLeaf{"Id", dataList.Id}
-    dataList.EntityData.Leafs["test_name"] = types.YLeaf{"TestName", dataList.TestName}
-    dataList.EntityData.Leafs["attribute"] = types.YLeaf{"Attribute", dataList.Attribute}
-    dataList.EntityData.Leafs["timeinfo"] = types.YLeaf{"Timeinfo", dataList.Timeinfo}
-    dataList.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", dataList.Threshold}
+    dataList.EntityData.Children = types.NewOrderedMap()
+    dataList.EntityData.Leafs = types.NewOrderedMap()
+    dataList.EntityData.Leafs.Append("data_idx", types.YLeaf{"DataIdx", dataList.DataIdx})
+    dataList.EntityData.Leafs.Append("id", types.YLeaf{"Id", dataList.Id})
+    dataList.EntityData.Leafs.Append("test_name", types.YLeaf{"TestName", dataList.TestName})
+    dataList.EntityData.Leafs.Append("attribute", types.YLeaf{"Attribute", dataList.Attribute})
+    dataList.EntityData.Leafs.Append("timeinfo", types.YLeaf{"Timeinfo", dataList.Timeinfo})
+    dataList.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", dataList.Threshold})
+
+    dataList.EntityData.YListKeys = []string {"DataIdx"}
+
     return &(dataList.EntityData)
 }
 
@@ -1014,7 +1106,7 @@ type Diagnostic_Result struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Diagnostic_Result_Location.
-    Location []Diagnostic_Result_Location
+    Location []*Diagnostic_Result_Location
 }
 
 func (result *Diagnostic_Result) GetEntityData() *types.CommonEntityData {
@@ -1027,12 +1119,15 @@ func (result *Diagnostic_Result) GetEntityData() *types.CommonEntityData {
     result.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     result.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    result.EntityData.Children = make(map[string]types.YChild)
-    result.EntityData.Children["location"] = types.YChild{"Location", nil}
+    result.EntityData.Children = types.NewOrderedMap()
+    result.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range result.Location {
-        result.EntityData.Children[types.GetSegmentPath(&result.Location[i])] = types.YChild{"Location", &result.Location[i]}
+        result.EntityData.Children.Append(types.GetSegmentPath(result.Location[i]), types.YChild{"Location", result.Location[i]})
     }
-    result.EntityData.Leafs = make(map[string]types.YLeaf)
+    result.EntityData.Leafs = types.NewOrderedMap()
+
+    result.EntityData.YListKeys = []string {}
+
     return &(result.EntityData)
 }
 
@@ -1048,7 +1143,7 @@ type Diagnostic_Result_Location struct {
     Description interface{}
 
     // The type is slice of Diagnostic_Result_Location_Test.
-    Test []Diagnostic_Result_Location_Test
+    Test []*Diagnostic_Result_Location_Test
 }
 
 func (location *Diagnostic_Result_Location) GetEntityData() *types.CommonEntityData {
@@ -1056,19 +1151,22 @@ func (location *Diagnostic_Result_Location) GetEntityData() *types.CommonEntityD
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "result"
-    location.EntityData.SegmentPath = "location" + "[loc='" + fmt.Sprintf("%v", location.Loc) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Loc, "loc")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["test"] = types.YChild{"Test", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("test", types.YChild{"Test", nil})
     for i := range location.Test {
-        location.EntityData.Children[types.GetSegmentPath(&location.Test[i])] = types.YChild{"Test", &location.Test[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.Test[i]), types.YChild{"Test", location.Test[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["loc"] = types.YLeaf{"Loc", location.Loc}
-    location.EntityData.Leafs["description"] = types.YLeaf{"Description", location.Description}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("loc", types.YLeaf{"Loc", location.Loc})
+    location.EntityData.Leafs.Append("description", types.YLeaf{"Description", location.Description})
+
+    location.EntityData.YListKeys = []string {"Loc"}
+
     return &(location.EntityData)
 }
 
@@ -1084,7 +1182,7 @@ type Diagnostic_Result_Location_Test struct {
     Description interface{}
 
     // The type is slice of Diagnostic_Result_Location_Test_Detail.
-    Detail []Diagnostic_Result_Location_Test_Detail
+    Detail []*Diagnostic_Result_Location_Test_Detail
 }
 
 func (test *Diagnostic_Result_Location_Test) GetEntityData() *types.CommonEntityData {
@@ -1092,19 +1190,22 @@ func (test *Diagnostic_Result_Location_Test) GetEntityData() *types.CommonEntity
     test.EntityData.YangName = "test"
     test.EntityData.BundleName = "cisco_ios_xr"
     test.EntityData.ParentYangName = "location"
-    test.EntityData.SegmentPath = "test" + "[test_type='" + fmt.Sprintf("%v", test.TestType) + "']"
+    test.EntityData.SegmentPath = "test" + types.AddKeyToken(test.TestType, "test_type")
     test.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     test.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     test.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    test.EntityData.Children = make(map[string]types.YChild)
-    test.EntityData.Children["detail"] = types.YChild{"Detail", nil}
+    test.EntityData.Children = types.NewOrderedMap()
+    test.EntityData.Children.Append("detail", types.YChild{"Detail", nil})
     for i := range test.Detail {
-        test.EntityData.Children[types.GetSegmentPath(&test.Detail[i])] = types.YChild{"Detail", &test.Detail[i]}
+        test.EntityData.Children.Append(types.GetSegmentPath(test.Detail[i]), types.YChild{"Detail", test.Detail[i]})
     }
-    test.EntityData.Leafs = make(map[string]types.YLeaf)
-    test.EntityData.Leafs["test_type"] = types.YLeaf{"TestType", test.TestType}
-    test.EntityData.Leafs["description"] = types.YLeaf{"Description", test.Description}
+    test.EntityData.Leafs = types.NewOrderedMap()
+    test.EntityData.Leafs.Append("test_type", types.YLeaf{"TestType", test.TestType})
+    test.EntityData.Leafs.Append("description", types.YLeaf{"Description", test.Description})
+
+    test.EntityData.YListKeys = []string {"TestType"}
+
     return &(test.EntityData)
 }
 
@@ -1117,7 +1218,7 @@ type Diagnostic_Result_Location_Test_Detail struct {
     Det interface{}
 
     // The type is slice of Diagnostic_Result_Location_Test_Detail_DataList.
-    DataList []Diagnostic_Result_Location_Test_Detail_DataList
+    DataList []*Diagnostic_Result_Location_Test_Detail_DataList
 }
 
 func (detail *Diagnostic_Result_Location_Test_Detail) GetEntityData() *types.CommonEntityData {
@@ -1125,18 +1226,21 @@ func (detail *Diagnostic_Result_Location_Test_Detail) GetEntityData() *types.Com
     detail.EntityData.YangName = "detail"
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "test"
-    detail.EntityData.SegmentPath = "detail" + "[det='" + fmt.Sprintf("%v", detail.Det) + "']"
+    detail.EntityData.SegmentPath = "detail" + types.AddKeyToken(detail.Det, "det")
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detail.EntityData.Children = make(map[string]types.YChild)
-    detail.EntityData.Children["data_list"] = types.YChild{"DataList", nil}
+    detail.EntityData.Children = types.NewOrderedMap()
+    detail.EntityData.Children.Append("data_list", types.YChild{"DataList", nil})
     for i := range detail.DataList {
-        detail.EntityData.Children[types.GetSegmentPath(&detail.DataList[i])] = types.YChild{"DataList", &detail.DataList[i]}
+        detail.EntityData.Children.Append(types.GetSegmentPath(detail.DataList[i]), types.YChild{"DataList", detail.DataList[i]})
     }
-    detail.EntityData.Leafs = make(map[string]types.YLeaf)
-    detail.EntityData.Leafs["det"] = types.YLeaf{"Det", detail.Det}
+    detail.EntityData.Leafs = types.NewOrderedMap()
+    detail.EntityData.Leafs.Append("det", types.YLeaf{"Det", detail.Det})
+
+    detail.EntityData.YListKeys = []string {"Det"}
+
     return &(detail.EntityData)
 }
 
@@ -1209,32 +1313,35 @@ func (dataList *Diagnostic_Result_Location_Test_Detail_DataList) GetEntityData()
     dataList.EntityData.YangName = "data_list"
     dataList.EntityData.BundleName = "cisco_ios_xr"
     dataList.EntityData.ParentYangName = "detail"
-    dataList.EntityData.SegmentPath = "data_list" + "[data_idx='" + fmt.Sprintf("%v", dataList.DataIdx) + "']"
+    dataList.EntityData.SegmentPath = "data_list" + types.AddKeyToken(dataList.DataIdx, "data_idx")
     dataList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dataList.EntityData.Children = make(map[string]types.YChild)
-    dataList.EntityData.Leafs = make(map[string]types.YLeaf)
-    dataList.EntityData.Leafs["data_idx"] = types.YLeaf{"DataIdx", dataList.DataIdx}
-    dataList.EntityData.Leafs["detail_flag"] = types.YLeaf{"DetailFlag", dataList.DetailFlag}
-    dataList.EntityData.Leafs["sl_no"] = types.YLeaf{"SlNo", dataList.SlNo}
-    dataList.EntityData.Leafs["test_name"] = types.YLeaf{"TestName", dataList.TestName}
-    dataList.EntityData.Leafs["test_result"] = types.YLeaf{"TestResult", dataList.TestResult}
-    dataList.EntityData.Leafs["err_code"] = types.YLeaf{"ErrCode", dataList.ErrCode}
-    dataList.EntityData.Leafs["err_description"] = types.YLeaf{"ErrDescription", dataList.ErrDescription}
-    dataList.EntityData.Leafs["test_type"] = types.YLeaf{"TestType", dataList.TestType}
-    dataList.EntityData.Leafs["hm_test_count"] = types.YLeaf{"HmTestCount", dataList.HmTestCount}
-    dataList.EntityData.Leafs["od_test_count"] = types.YLeaf{"OdTestCount", dataList.OdTestCount}
-    dataList.EntityData.Leafs["sched_test_count"] = types.YLeaf{"SchedTestCount", dataList.SchedTestCount}
-    dataList.EntityData.Leafs["run_cnt"] = types.YLeaf{"RunCnt", dataList.RunCnt}
-    dataList.EntityData.Leafs["lt_exe_time"] = types.YLeaf{"LtExeTime", dataList.LtExeTime}
-    dataList.EntityData.Leafs["ft_fail_time"] = types.YLeaf{"FtFailTime", dataList.FtFailTime}
-    dataList.EntityData.Leafs["lt_fail_time"] = types.YLeaf{"LtFailTime", dataList.LtFailTime}
-    dataList.EntityData.Leafs["lt_pass_time"] = types.YLeaf{"LtPassTime", dataList.LtPassTime}
-    dataList.EntityData.Leafs["total_fail_cnt"] = types.YLeaf{"TotalFailCnt", dataList.TotalFailCnt}
-    dataList.EntityData.Leafs["cons_fail_cnt"] = types.YLeaf{"ConsFailCnt", dataList.ConsFailCnt}
-    dataList.EntityData.Leafs["more_info"] = types.YLeaf{"MoreInfo", dataList.MoreInfo}
+    dataList.EntityData.Children = types.NewOrderedMap()
+    dataList.EntityData.Leafs = types.NewOrderedMap()
+    dataList.EntityData.Leafs.Append("data_idx", types.YLeaf{"DataIdx", dataList.DataIdx})
+    dataList.EntityData.Leafs.Append("detail_flag", types.YLeaf{"DetailFlag", dataList.DetailFlag})
+    dataList.EntityData.Leafs.Append("sl_no", types.YLeaf{"SlNo", dataList.SlNo})
+    dataList.EntityData.Leafs.Append("test_name", types.YLeaf{"TestName", dataList.TestName})
+    dataList.EntityData.Leafs.Append("test_result", types.YLeaf{"TestResult", dataList.TestResult})
+    dataList.EntityData.Leafs.Append("err_code", types.YLeaf{"ErrCode", dataList.ErrCode})
+    dataList.EntityData.Leafs.Append("err_description", types.YLeaf{"ErrDescription", dataList.ErrDescription})
+    dataList.EntityData.Leafs.Append("test_type", types.YLeaf{"TestType", dataList.TestType})
+    dataList.EntityData.Leafs.Append("hm_test_count", types.YLeaf{"HmTestCount", dataList.HmTestCount})
+    dataList.EntityData.Leafs.Append("od_test_count", types.YLeaf{"OdTestCount", dataList.OdTestCount})
+    dataList.EntityData.Leafs.Append("sched_test_count", types.YLeaf{"SchedTestCount", dataList.SchedTestCount})
+    dataList.EntityData.Leafs.Append("run_cnt", types.YLeaf{"RunCnt", dataList.RunCnt})
+    dataList.EntityData.Leafs.Append("lt_exe_time", types.YLeaf{"LtExeTime", dataList.LtExeTime})
+    dataList.EntityData.Leafs.Append("ft_fail_time", types.YLeaf{"FtFailTime", dataList.FtFailTime})
+    dataList.EntityData.Leafs.Append("lt_fail_time", types.YLeaf{"LtFailTime", dataList.LtFailTime})
+    dataList.EntityData.Leafs.Append("lt_pass_time", types.YLeaf{"LtPassTime", dataList.LtPassTime})
+    dataList.EntityData.Leafs.Append("total_fail_cnt", types.YLeaf{"TotalFailCnt", dataList.TotalFailCnt})
+    dataList.EntityData.Leafs.Append("cons_fail_cnt", types.YLeaf{"ConsFailCnt", dataList.ConsFailCnt})
+    dataList.EntityData.Leafs.Append("more_info", types.YLeaf{"MoreInfo", dataList.MoreInfo})
+
+    dataList.EntityData.YListKeys = []string {"DataIdx"}
+
     return &(dataList.EntityData)
 }
 

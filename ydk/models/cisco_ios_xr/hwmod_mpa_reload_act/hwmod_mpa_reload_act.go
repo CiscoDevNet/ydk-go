@@ -40,9 +40,12 @@ func (hwModuleSubslot *HwModuleSubslot) GetEntityData() *types.CommonEntityData 
     hwModuleSubslot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwModuleSubslot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hwModuleSubslot.EntityData.Children = make(map[string]types.YChild)
-    hwModuleSubslot.EntityData.Children["input"] = types.YChild{"Input", &hwModuleSubslot.Input}
-    hwModuleSubslot.EntityData.Leafs = make(map[string]types.YLeaf)
+    hwModuleSubslot.EntityData.Children = types.NewOrderedMap()
+    hwModuleSubslot.EntityData.Children.Append("input", types.YChild{"Input", &hwModuleSubslot.Input})
+    hwModuleSubslot.EntityData.Leafs = types.NewOrderedMap()
+
+    hwModuleSubslot.EntityData.YListKeys = []string {}
+
     return &(hwModuleSubslot.EntityData)
 }
 
@@ -68,10 +71,13 @@ func (input *HwModuleSubslot_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["subslot"] = types.YLeaf{"Subslot", input.Subslot}
-    input.EntityData.Leafs["reload"] = types.YLeaf{"Reload", input.Reload}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("subslot", types.YLeaf{"Subslot", input.Subslot})
+    input.EntityData.Leafs.Append("reload", types.YLeaf{"Reload", input.Reload})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 

@@ -45,9 +45,12 @@ func (redundancyGroupManager *RedundancyGroupManager) GetEntityData() *types.Com
     redundancyGroupManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redundancyGroupManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    redundancyGroupManager.EntityData.Children = make(map[string]types.YChild)
-    redundancyGroupManager.EntityData.Children["controllers"] = types.YChild{"Controllers", &redundancyGroupManager.Controllers}
-    redundancyGroupManager.EntityData.Leafs = make(map[string]types.YLeaf)
+    redundancyGroupManager.EntityData.Children = types.NewOrderedMap()
+    redundancyGroupManager.EntityData.Children.Append("controllers", types.YChild{"Controllers", &redundancyGroupManager.Controllers})
+    redundancyGroupManager.EntityData.Leafs = types.NewOrderedMap()
+
+    redundancyGroupManager.EntityData.YListKeys = []string {}
+
     return &(redundancyGroupManager.EntityData)
 }
 
@@ -59,7 +62,7 @@ type RedundancyGroupManager_Controllers struct {
 
     // Display redundancy group by controller name. The type is slice of
     // RedundancyGroupManager_Controllers_Controller.
-    Controller []RedundancyGroupManager_Controllers_Controller
+    Controller []*RedundancyGroupManager_Controllers_Controller
 }
 
 func (controllers *RedundancyGroupManager_Controllers) GetEntityData() *types.CommonEntityData {
@@ -72,12 +75,15 @@ func (controllers *RedundancyGroupManager_Controllers) GetEntityData() *types.Co
     controllers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    controllers.EntityData.Children = make(map[string]types.YChild)
-    controllers.EntityData.Children["controller"] = types.YChild{"Controller", nil}
+    controllers.EntityData.Children = types.NewOrderedMap()
+    controllers.EntityData.Children.Append("controller", types.YChild{"Controller", nil})
     for i := range controllers.Controller {
-        controllers.EntityData.Children[types.GetSegmentPath(&controllers.Controller[i])] = types.YChild{"Controller", &controllers.Controller[i]}
+        controllers.EntityData.Children.Append(types.GetSegmentPath(controllers.Controller[i]), types.YChild{"Controller", controllers.Controller[i]})
     }
-    controllers.EntityData.Leafs = make(map[string]types.YLeaf)
+    controllers.EntityData.Leafs = types.NewOrderedMap()
+
+    controllers.EntityData.YListKeys = []string {}
+
     return &(controllers.EntityData)
 }
 
@@ -88,7 +94,7 @@ type RedundancyGroupManager_Controllers_Controller struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Controller name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     ControllerName interface{}
 
     // Configured interchassis redundancy group number. The type is string with
@@ -99,18 +105,17 @@ type RedundancyGroupManager_Controllers_Controller struct {
     ControllerNameXr interface{}
 
     // Handle of controller being backed up. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     ControllerHandle interface{}
 
     // Backup interface name. The type is string with length: 0..64.
     BackupInterfaceName interface{}
 
-    // Backup interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // Backup interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
     BackupInterfaceHandle interface{}
 
     // Backup interface next hop IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupInterfaceNextHopIpAddress interface{}
 
     // Configured interchassis redundancy group state. The type is string with
@@ -123,21 +128,24 @@ func (controller *RedundancyGroupManager_Controllers_Controller) GetEntityData()
     controller.EntityData.YangName = "controller"
     controller.EntityData.BundleName = "cisco_ios_xr"
     controller.EntityData.ParentYangName = "controllers"
-    controller.EntityData.SegmentPath = "controller" + "[controller-name='" + fmt.Sprintf("%v", controller.ControllerName) + "']"
+    controller.EntityData.SegmentPath = "controller" + types.AddKeyToken(controller.ControllerName, "controller-name")
     controller.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controller.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controller.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    controller.EntityData.Children = make(map[string]types.YChild)
-    controller.EntityData.Leafs = make(map[string]types.YLeaf)
-    controller.EntityData.Leafs["controller-name"] = types.YLeaf{"ControllerName", controller.ControllerName}
-    controller.EntityData.Leafs["multi-router-aps-group-number"] = types.YLeaf{"MultiRouterApsGroupNumber", controller.MultiRouterApsGroupNumber}
-    controller.EntityData.Leafs["controller-name-xr"] = types.YLeaf{"ControllerNameXr", controller.ControllerNameXr}
-    controller.EntityData.Leafs["controller-handle"] = types.YLeaf{"ControllerHandle", controller.ControllerHandle}
-    controller.EntityData.Leafs["backup-interface-name"] = types.YLeaf{"BackupInterfaceName", controller.BackupInterfaceName}
-    controller.EntityData.Leafs["backup-interface-handle"] = types.YLeaf{"BackupInterfaceHandle", controller.BackupInterfaceHandle}
-    controller.EntityData.Leafs["backup-interface-next-hop-ip-address"] = types.YLeaf{"BackupInterfaceNextHopIpAddress", controller.BackupInterfaceNextHopIpAddress}
-    controller.EntityData.Leafs["inter-chassis-group-state"] = types.YLeaf{"InterChassisGroupState", controller.InterChassisGroupState}
+    controller.EntityData.Children = types.NewOrderedMap()
+    controller.EntityData.Leafs = types.NewOrderedMap()
+    controller.EntityData.Leafs.Append("controller-name", types.YLeaf{"ControllerName", controller.ControllerName})
+    controller.EntityData.Leafs.Append("multi-router-aps-group-number", types.YLeaf{"MultiRouterApsGroupNumber", controller.MultiRouterApsGroupNumber})
+    controller.EntityData.Leafs.Append("controller-name-xr", types.YLeaf{"ControllerNameXr", controller.ControllerNameXr})
+    controller.EntityData.Leafs.Append("controller-handle", types.YLeaf{"ControllerHandle", controller.ControllerHandle})
+    controller.EntityData.Leafs.Append("backup-interface-name", types.YLeaf{"BackupInterfaceName", controller.BackupInterfaceName})
+    controller.EntityData.Leafs.Append("backup-interface-handle", types.YLeaf{"BackupInterfaceHandle", controller.BackupInterfaceHandle})
+    controller.EntityData.Leafs.Append("backup-interface-next-hop-ip-address", types.YLeaf{"BackupInterfaceNextHopIpAddress", controller.BackupInterfaceNextHopIpAddress})
+    controller.EntityData.Leafs.Append("inter-chassis-group-state", types.YLeaf{"InterChassisGroupState", controller.InterChassisGroupState})
+
+    controller.EntityData.YListKeys = []string {"ControllerName"}
+
     return &(controller.EntityData)
 }
 

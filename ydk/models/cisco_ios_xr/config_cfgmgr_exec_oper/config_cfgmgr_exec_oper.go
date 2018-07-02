@@ -67,7 +67,7 @@ type CfgHistGl struct {
 
     // History summary information for a specific type of history. The type is
     // slice of CfgHistGl_RecordType.
-    RecordType []CfgHistGl_RecordType
+    RecordType []*CfgHistGl_RecordType
 }
 
 func (cfgHistGl *CfgHistGl) GetEntityData() *types.CommonEntityData {
@@ -80,12 +80,15 @@ func (cfgHistGl *CfgHistGl) GetEntityData() *types.CommonEntityData {
     cfgHistGl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cfgHistGl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cfgHistGl.EntityData.Children = make(map[string]types.YChild)
-    cfgHistGl.EntityData.Children["record-type"] = types.YChild{"RecordType", nil}
+    cfgHistGl.EntityData.Children = types.NewOrderedMap()
+    cfgHistGl.EntityData.Children.Append("record-type", types.YChild{"RecordType", nil})
     for i := range cfgHistGl.RecordType {
-        cfgHistGl.EntityData.Children[types.GetSegmentPath(&cfgHistGl.RecordType[i])] = types.YChild{"RecordType", &cfgHistGl.RecordType[i]}
+        cfgHistGl.EntityData.Children.Append(types.GetSegmentPath(cfgHistGl.RecordType[i]), types.YChild{"RecordType", cfgHistGl.RecordType[i]})
     }
-    cfgHistGl.EntityData.Leafs = make(map[string]types.YLeaf)
+    cfgHistGl.EntityData.Leafs = types.NewOrderedMap()
+
+    cfgHistGl.EntityData.YListKeys = []string {}
+
     return &(cfgHistGl.EntityData)
 }
 
@@ -97,12 +100,12 @@ type CfgHistGl_RecordType struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Record type. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     RecordType interface{}
 
     // History summary information for a specific type of history. The type is
     // slice of CfgHistGl_RecordType_Record.
-    Record []CfgHistGl_RecordType_Record
+    Record []*CfgHistGl_RecordType_Record
 }
 
 func (recordType *CfgHistGl_RecordType) GetEntityData() *types.CommonEntityData {
@@ -110,18 +113,21 @@ func (recordType *CfgHistGl_RecordType) GetEntityData() *types.CommonEntityData 
     recordType.EntityData.YangName = "record-type"
     recordType.EntityData.BundleName = "cisco_ios_xr"
     recordType.EntityData.ParentYangName = "cfg-hist-gl"
-    recordType.EntityData.SegmentPath = "record-type" + "[record-type='" + fmt.Sprintf("%v", recordType.RecordType) + "']"
+    recordType.EntityData.SegmentPath = "record-type" + types.AddKeyToken(recordType.RecordType, "record-type")
     recordType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     recordType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     recordType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    recordType.EntityData.Children = make(map[string]types.YChild)
-    recordType.EntityData.Children["record"] = types.YChild{"Record", nil}
+    recordType.EntityData.Children = types.NewOrderedMap()
+    recordType.EntityData.Children.Append("record", types.YChild{"Record", nil})
     for i := range recordType.Record {
-        recordType.EntityData.Children[types.GetSegmentPath(&recordType.Record[i])] = types.YChild{"Record", &recordType.Record[i]}
+        recordType.EntityData.Children.Append(types.GetSegmentPath(recordType.Record[i]), types.YChild{"Record", recordType.Record[i]})
     }
-    recordType.EntityData.Leafs = make(map[string]types.YLeaf)
-    recordType.EntityData.Leafs["record-type"] = types.YLeaf{"RecordType", recordType.RecordType}
+    recordType.EntityData.Leafs = types.NewOrderedMap()
+    recordType.EntityData.Leafs.Append("record-type", types.YLeaf{"RecordType", recordType.RecordType})
+
+    recordType.EntityData.YListKeys = []string {"RecordType"}
+
     return &(recordType.EntityData)
 }
 
@@ -133,7 +139,7 @@ type CfgHistGl_RecordType_Record struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Record. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Record interface{}
 
     // Time stamp for the history. The type is interface{} with range:
@@ -152,17 +158,20 @@ func (record *CfgHistGl_RecordType_Record) GetEntityData() *types.CommonEntityDa
     record.EntityData.YangName = "record"
     record.EntityData.BundleName = "cisco_ios_xr"
     record.EntityData.ParentYangName = "record-type"
-    record.EntityData.SegmentPath = "record" + "[record='" + fmt.Sprintf("%v", record.Record) + "']"
+    record.EntityData.SegmentPath = "record" + types.AddKeyToken(record.Record, "record")
     record.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     record.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     record.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    record.EntityData.Children = make(map[string]types.YChild)
-    record.EntityData.Children["info"] = types.YChild{"Info", &record.Info}
-    record.EntityData.Leafs = make(map[string]types.YLeaf)
-    record.EntityData.Leafs["record"] = types.YLeaf{"Record", record.Record}
-    record.EntityData.Leafs["timestamp"] = types.YLeaf{"Timestamp", record.Timestamp}
-    record.EntityData.Leafs["record-type"] = types.YLeaf{"RecordType", record.RecordType}
+    record.EntityData.Children = types.NewOrderedMap()
+    record.EntityData.Children.Append("info", types.YChild{"Info", &record.Info})
+    record.EntityData.Leafs = types.NewOrderedMap()
+    record.EntityData.Leafs.Append("record", types.YLeaf{"Record", record.Record})
+    record.EntityData.Leafs.Append("timestamp", types.YLeaf{"Timestamp", record.Timestamp})
+    record.EntityData.Leafs.Append("record-type", types.YLeaf{"RecordType", record.RecordType})
+
+    record.EntityData.YListKeys = []string {"Record"}
+
     return &(record.EntityData)
 }
 
@@ -173,7 +182,7 @@ type CfgHistGl_RecordType_Record_Info struct {
     YFilter yfilter.YFilter
 
     // type. The type is HistRecord.
-    Type_ interface{}
+    Type interface{}
 
     // B. The type is interface{} with range: 0..4294967295.
     A interface{}
@@ -210,17 +219,20 @@ func (info *CfgHistGl_RecordType_Record_Info) GetEntityData() *types.CommonEntit
     info.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     info.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    info.EntityData.Children = make(map[string]types.YChild)
-    info.EntityData.Children["alarm-info"] = types.YChild{"AlarmInfo", &info.AlarmInfo}
-    info.EntityData.Children["cfscheck-info"] = types.YChild{"CfscheckInfo", &info.CfscheckInfo}
-    info.EntityData.Children["commit-info"] = types.YChild{"CommitInfo", &info.CommitInfo}
-    info.EntityData.Children["oir-info"] = types.YChild{"OirInfo", &info.OirInfo}
-    info.EntityData.Children["shutdown-info"] = types.YChild{"ShutdownInfo", &info.ShutdownInfo}
-    info.EntityData.Children["startup-info"] = types.YChild{"StartupInfo", &info.StartupInfo}
-    info.EntityData.Children["backup-info"] = types.YChild{"BackupInfo", &info.BackupInfo}
-    info.EntityData.Leafs = make(map[string]types.YLeaf)
-    info.EntityData.Leafs["type"] = types.YLeaf{"Type_", info.Type_}
-    info.EntityData.Leafs["a"] = types.YLeaf{"A", info.A}
+    info.EntityData.Children = types.NewOrderedMap()
+    info.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", &info.AlarmInfo})
+    info.EntityData.Children.Append("cfscheck-info", types.YChild{"CfscheckInfo", &info.CfscheckInfo})
+    info.EntityData.Children.Append("commit-info", types.YChild{"CommitInfo", &info.CommitInfo})
+    info.EntityData.Children.Append("oir-info", types.YChild{"OirInfo", &info.OirInfo})
+    info.EntityData.Children.Append("shutdown-info", types.YChild{"ShutdownInfo", &info.ShutdownInfo})
+    info.EntityData.Children.Append("startup-info", types.YChild{"StartupInfo", &info.StartupInfo})
+    info.EntityData.Children.Append("backup-info", types.YChild{"BackupInfo", &info.BackupInfo})
+    info.EntityData.Leafs = types.NewOrderedMap()
+    info.EntityData.Leafs.Append("type", types.YLeaf{"Type", info.Type})
+    info.EntityData.Leafs.Append("a", types.YLeaf{"A", info.A})
+
+    info.EntityData.YListKeys = []string {}
+
     return &(info.EntityData)
 }
 
@@ -247,10 +259,13 @@ func (alarmInfo *CfgHistGl_RecordType_Record_Info_AlarmInfo) GetEntityData() *ty
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarmInfo.EntityData.Children = make(map[string]types.YChild)
-    alarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    alarmInfo.EntityData.Leafs["state"] = types.YLeaf{"State", alarmInfo.State}
-    alarmInfo.EntityData.Leafs["where"] = types.YLeaf{"Where", alarmInfo.Where}
+    alarmInfo.EntityData.Children = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs.Append("state", types.YLeaf{"State", alarmInfo.State})
+    alarmInfo.EntityData.Leafs.Append("where", types.YLeaf{"Where", alarmInfo.Where})
+
+    alarmInfo.EntityData.YListKeys = []string {}
+
     return &(alarmInfo.EntityData)
 }
 
@@ -277,10 +292,13 @@ func (cfscheckInfo *CfgHistGl_RecordType_Record_Info_CfscheckInfo) GetEntityData
     cfscheckInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cfscheckInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cfscheckInfo.EntityData.Children = make(map[string]types.YChild)
-    cfscheckInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    cfscheckInfo.EntityData.Leafs["user-id"] = types.YLeaf{"UserId", cfscheckInfo.UserId}
-    cfscheckInfo.EntityData.Leafs["line"] = types.YLeaf{"Line", cfscheckInfo.Line}
+    cfscheckInfo.EntityData.Children = types.NewOrderedMap()
+    cfscheckInfo.EntityData.Leafs = types.NewOrderedMap()
+    cfscheckInfo.EntityData.Leafs.Append("user-id", types.YLeaf{"UserId", cfscheckInfo.UserId})
+    cfscheckInfo.EntityData.Leafs.Append("line", types.YLeaf{"Line", cfscheckInfo.Line})
+
+    cfscheckInfo.EntityData.YListKeys = []string {}
+
     return &(cfscheckInfo.EntityData)
 }
 
@@ -319,14 +337,17 @@ func (commitInfo *CfgHistGl_RecordType_Record_Info_CommitInfo) GetEntityData() *
     commitInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commitInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    commitInfo.EntityData.Children = make(map[string]types.YChild)
-    commitInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    commitInfo.EntityData.Leafs["commit-id"] = types.YLeaf{"CommitId", commitInfo.CommitId}
-    commitInfo.EntityData.Leafs["user-id"] = types.YLeaf{"UserId", commitInfo.UserId}
-    commitInfo.EntityData.Leafs["line"] = types.YLeaf{"Line", commitInfo.Line}
-    commitInfo.EntityData.Leafs["client-name"] = types.YLeaf{"ClientName", commitInfo.ClientName}
-    commitInfo.EntityData.Leafs["label"] = types.YLeaf{"Label", commitInfo.Label}
-    commitInfo.EntityData.Leafs["comment"] = types.YLeaf{"Comment", commitInfo.Comment}
+    commitInfo.EntityData.Children = types.NewOrderedMap()
+    commitInfo.EntityData.Leafs = types.NewOrderedMap()
+    commitInfo.EntityData.Leafs.Append("commit-id", types.YLeaf{"CommitId", commitInfo.CommitId})
+    commitInfo.EntityData.Leafs.Append("user-id", types.YLeaf{"UserId", commitInfo.UserId})
+    commitInfo.EntityData.Leafs.Append("line", types.YLeaf{"Line", commitInfo.Line})
+    commitInfo.EntityData.Leafs.Append("client-name", types.YLeaf{"ClientName", commitInfo.ClientName})
+    commitInfo.EntityData.Leafs.Append("label", types.YLeaf{"Label", commitInfo.Label})
+    commitInfo.EntityData.Leafs.Append("comment", types.YLeaf{"Comment", commitInfo.Comment})
+
+    commitInfo.EntityData.YListKeys = []string {}
+
     return &(commitInfo.EntityData)
 }
 
@@ -356,11 +377,14 @@ func (oirInfo *CfgHistGl_RecordType_Record_Info_OirInfo) GetEntityData() *types.
     oirInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oirInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oirInfo.EntityData.Children = make(map[string]types.YChild)
-    oirInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    oirInfo.EntityData.Leafs["config-type"] = types.YLeaf{"ConfigType", oirInfo.ConfigType}
-    oirInfo.EntityData.Leafs["operation"] = types.YLeaf{"Operation", oirInfo.Operation}
-    oirInfo.EntityData.Leafs["config-name"] = types.YLeaf{"ConfigName", oirInfo.ConfigName}
+    oirInfo.EntityData.Children = types.NewOrderedMap()
+    oirInfo.EntityData.Leafs = types.NewOrderedMap()
+    oirInfo.EntityData.Leafs.Append("config-type", types.YLeaf{"ConfigType", oirInfo.ConfigType})
+    oirInfo.EntityData.Leafs.Append("operation", types.YLeaf{"Operation", oirInfo.Operation})
+    oirInfo.EntityData.Leafs.Append("config-name", types.YLeaf{"ConfigName", oirInfo.ConfigName})
+
+    oirInfo.EntityData.YListKeys = []string {}
+
     return &(oirInfo.EntityData)
 }
 
@@ -384,9 +408,12 @@ func (shutdownInfo *CfgHistGl_RecordType_Record_Info_ShutdownInfo) GetEntityData
     shutdownInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shutdownInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    shutdownInfo.EntityData.Children = make(map[string]types.YChild)
-    shutdownInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    shutdownInfo.EntityData.Leafs["comment"] = types.YLeaf{"Comment", shutdownInfo.Comment}
+    shutdownInfo.EntityData.Children = types.NewOrderedMap()
+    shutdownInfo.EntityData.Leafs = types.NewOrderedMap()
+    shutdownInfo.EntityData.Leafs.Append("comment", types.YLeaf{"Comment", shutdownInfo.Comment})
+
+    shutdownInfo.EntityData.YListKeys = []string {}
+
     return &(shutdownInfo.EntityData)
 }
 
@@ -413,10 +440,13 @@ func (startupInfo *CfgHistGl_RecordType_Record_Info_StartupInfo) GetEntityData()
     startupInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     startupInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    startupInfo.EntityData.Children = make(map[string]types.YChild)
-    startupInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    startupInfo.EntityData.Leafs["how-booted"] = types.YLeaf{"HowBooted", startupInfo.HowBooted}
-    startupInfo.EntityData.Leafs["boot-path"] = types.YLeaf{"BootPath", startupInfo.BootPath}
+    startupInfo.EntityData.Children = types.NewOrderedMap()
+    startupInfo.EntityData.Leafs = types.NewOrderedMap()
+    startupInfo.EntityData.Leafs.Append("how-booted", types.YLeaf{"HowBooted", startupInfo.HowBooted})
+    startupInfo.EntityData.Leafs.Append("boot-path", types.YLeaf{"BootPath", startupInfo.BootPath})
+
+    startupInfo.EntityData.YListKeys = []string {}
+
     return &(startupInfo.EntityData)
 }
 
@@ -440,9 +470,12 @@ func (backupInfo *CfgHistGl_RecordType_Record_Info_BackupInfo) GetEntityData() *
     backupInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    backupInfo.EntityData.Children = make(map[string]types.YChild)
-    backupInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    backupInfo.EntityData.Leafs["comment"] = types.YLeaf{"Comment", backupInfo.Comment}
+    backupInfo.EntityData.Children = types.NewOrderedMap()
+    backupInfo.EntityData.Leafs = types.NewOrderedMap()
+    backupInfo.EntityData.Leafs.Append("comment", types.YLeaf{"Comment", backupInfo.Comment})
+
+    backupInfo.EntityData.YListKeys = []string {}
+
     return &(backupInfo.EntityData)
 }
 

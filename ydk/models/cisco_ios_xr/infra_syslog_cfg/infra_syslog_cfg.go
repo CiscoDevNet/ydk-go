@@ -27,112 +27,33 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-infra-syslog-cfg:syslog", reflect.TypeOf(Syslog{}))
 }
 
-// LoggingTos represents Logging tos
-type LoggingTos string
+// LogSeverity represents Log severity
+type LogSeverity string
 
 const (
-    // Logging TOS type precedence
-    LoggingTos_precedence LoggingTos = "precedence"
+    // System is unusable                (severity=0)
+    LogSeverity_emergency LogSeverity = "emergency"
 
-    // Logging TOS type DSCP
-    LoggingTos_dscp LoggingTos = "dscp"
-)
+    // Immediate action needed           (severity=1)
+    LogSeverity_alert LogSeverity = "alert"
 
-// LoggingDscpValue represents Logging dscp value
-type LoggingDscpValue string
+    // Critical conditions               (severity=2)
+    LogSeverity_critical LogSeverity = "critical"
 
-const (
-    // Applicable to DSCP: bits 000000
-    LoggingDscpValue_default_ LoggingDscpValue = "default"
+    // Error conditions                  (severity=3)
+    LogSeverity_error_ LogSeverity = "error"
 
-    // Applicable to DSCP: bits 001010
-    LoggingDscpValue_af11 LoggingDscpValue = "af11"
+    // Warning conditions                (severity=4)
+    LogSeverity_warning LogSeverity = "warning"
 
-    // Applicable to DSCP: bits 001100
-    LoggingDscpValue_af12 LoggingDscpValue = "af12"
+    // Normal but significant conditions (severity=5)
+    LogSeverity_notice LogSeverity = "notice"
 
-    // Applicable to DSCP: bits 001110
-    LoggingDscpValue_af13 LoggingDscpValue = "af13"
+    // Informational messages            (severity=6)
+    LogSeverity_informational LogSeverity = "informational"
 
-    // Applicable to DSCP: bits 010010
-    LoggingDscpValue_af21 LoggingDscpValue = "af21"
-
-    // Applicable to DSCP: bits 010100
-    LoggingDscpValue_af22 LoggingDscpValue = "af22"
-
-    // Applicable to DSCP: bits 010110
-    LoggingDscpValue_af23 LoggingDscpValue = "af23"
-
-    // Applicable to DSCP: bits 011010
-    LoggingDscpValue_af31 LoggingDscpValue = "af31"
-
-    // Applicable to DSCP: bits 011100
-    LoggingDscpValue_af32 LoggingDscpValue = "af32"
-
-    // Applicable to DSCP: bits 011110
-    LoggingDscpValue_af33 LoggingDscpValue = "af33"
-
-    // Applicable to DSCP: bits 100010
-    LoggingDscpValue_af41 LoggingDscpValue = "af41"
-
-    // Applicable to DSCP: bits 100100
-    LoggingDscpValue_af42 LoggingDscpValue = "af42"
-
-    // Applicable to DSCP: bits 100110
-    LoggingDscpValue_af43 LoggingDscpValue = "af43"
-
-    // Applicable to DSCP: bits 101110
-    LoggingDscpValue_ef LoggingDscpValue = "ef"
-
-    // Applicable to DSCP: bits 001000
-    LoggingDscpValue_cs1 LoggingDscpValue = "cs1"
-
-    // Applicable to DSCP: bits 010000
-    LoggingDscpValue_cs2 LoggingDscpValue = "cs2"
-
-    // Applicable to DSCP: bits 011000
-    LoggingDscpValue_cs3 LoggingDscpValue = "cs3"
-
-    // Applicable to DSCP: bits 100000
-    LoggingDscpValue_cs4 LoggingDscpValue = "cs4"
-
-    // Applicable to DSCP: bits 101000
-    LoggingDscpValue_cs5 LoggingDscpValue = "cs5"
-
-    // Applicable to DSCP: bits 110000
-    LoggingDscpValue_cs6 LoggingDscpValue = "cs6"
-
-    // Applicable to DSCP: bits 111000
-    LoggingDscpValue_cs7 LoggingDscpValue = "cs7"
-)
-
-// LoggingPrecedenceValue represents Logging precedence value
-type LoggingPrecedenceValue string
-
-const (
-    // Applicable to precedence: value 0
-    LoggingPrecedenceValue_routine LoggingPrecedenceValue = "routine"
-
-    // Applicable to precedence: value 1
-    LoggingPrecedenceValue_priority LoggingPrecedenceValue = "priority"
-
-    // Applicable to precedence: value 2
-    LoggingPrecedenceValue_immediate LoggingPrecedenceValue = "immediate"
-
-    // Applicable to precedence: value 3
-    LoggingPrecedenceValue_flash LoggingPrecedenceValue = "flash"
-
-    // Applicable to precedence: value 4
-    LoggingPrecedenceValue_flash_override LoggingPrecedenceValue = "flash-override"
-
-    // Applicable to precedence: value 5
-    LoggingPrecedenceValue_critical LoggingPrecedenceValue = "critical"
-
-    // Applicable to precedence: value 6
-    LoggingPrecedenceValue_internet LoggingPrecedenceValue = "internet"
-
-    // Applicable to precedence: value 7
-    LoggingPrecedenceValue_network LoggingPrecedenceValue = "network"
+    // Debugging messages                (severity=7)
+    LogSeverity_debug LogSeverity = "debug"
 )
 
 // Facility represents Facility
@@ -218,12 +139,55 @@ const (
     Facility_sys14 Facility = "sys14"
 )
 
-// LoggingDscp represents Logging dscp
-type LoggingDscp string
+// LogCollectFrequency represents Log collect frequency
+type LogCollectFrequency string
 
 const (
+    // Collect log in files on a weekly basis
+    LogCollectFrequency_weekly LogCollectFrequency = "weekly"
+
+    // Collect log in files on a daily basis
+    LogCollectFrequency_daily LogCollectFrequency = "daily"
+)
+
+// LoggingPrecedenceValue represents Logging precedence value
+type LoggingPrecedenceValue string
+
+const (
+    // Applicable to precedence: value 0
+    LoggingPrecedenceValue_routine LoggingPrecedenceValue = "routine"
+
+    // Applicable to precedence: value 1
+    LoggingPrecedenceValue_priority LoggingPrecedenceValue = "priority"
+
+    // Applicable to precedence: value 2
+    LoggingPrecedenceValue_immediate LoggingPrecedenceValue = "immediate"
+
+    // Applicable to precedence: value 3
+    LoggingPrecedenceValue_flash LoggingPrecedenceValue = "flash"
+
+    // Applicable to precedence: value 4
+    LoggingPrecedenceValue_flash_override LoggingPrecedenceValue = "flash-override"
+
+    // Applicable to precedence: value 5
+    LoggingPrecedenceValue_critical LoggingPrecedenceValue = "critical"
+
+    // Applicable to precedence: value 6
+    LoggingPrecedenceValue_internet LoggingPrecedenceValue = "internet"
+
+    // Applicable to precedence: value 7
+    LoggingPrecedenceValue_network LoggingPrecedenceValue = "network"
+)
+
+// LoggingTos represents Logging tos
+type LoggingTos string
+
+const (
+    // Logging TOS type precedence
+    LoggingTos_precedence LoggingTos = "precedence"
+
     // Logging TOS type DSCP
-    LoggingDscp_dscp LoggingDscp = "dscp"
+    LoggingTos_dscp LoggingTos = "dscp"
 )
 
 // LoggingLevels represents Logging levels
@@ -240,7 +204,7 @@ const (
     LoggingLevels_critical LoggingLevels = "critical"
 
     // Error Level Msg
-    LoggingLevels_error LoggingLevels = "error"
+    LoggingLevels_error_ LoggingLevels = "error"
 
     // Warning Level Msg
     LoggingLevels_warning LoggingLevels = "warning"
@@ -266,15 +230,72 @@ const (
     LoggingPrecedence_precedence LoggingPrecedence = "precedence"
 )
 
-// TimeInfo represents Time info
-type TimeInfo string
+// LoggingDscpValue represents Logging dscp value
+type LoggingDscpValue string
 
 const (
-    // Exclude
-    TimeInfo_disable TimeInfo = "disable"
+    // Applicable to DSCP: bits 000000
+    LoggingDscpValue_default_ LoggingDscpValue = "default"
 
-    // Include
-    TimeInfo_enable TimeInfo = "enable"
+    // Applicable to DSCP: bits 001010
+    LoggingDscpValue_af11 LoggingDscpValue = "af11"
+
+    // Applicable to DSCP: bits 001100
+    LoggingDscpValue_af12 LoggingDscpValue = "af12"
+
+    // Applicable to DSCP: bits 001110
+    LoggingDscpValue_af13 LoggingDscpValue = "af13"
+
+    // Applicable to DSCP: bits 010010
+    LoggingDscpValue_af21 LoggingDscpValue = "af21"
+
+    // Applicable to DSCP: bits 010100
+    LoggingDscpValue_af22 LoggingDscpValue = "af22"
+
+    // Applicable to DSCP: bits 010110
+    LoggingDscpValue_af23 LoggingDscpValue = "af23"
+
+    // Applicable to DSCP: bits 011010
+    LoggingDscpValue_af31 LoggingDscpValue = "af31"
+
+    // Applicable to DSCP: bits 011100
+    LoggingDscpValue_af32 LoggingDscpValue = "af32"
+
+    // Applicable to DSCP: bits 011110
+    LoggingDscpValue_af33 LoggingDscpValue = "af33"
+
+    // Applicable to DSCP: bits 100010
+    LoggingDscpValue_af41 LoggingDscpValue = "af41"
+
+    // Applicable to DSCP: bits 100100
+    LoggingDscpValue_af42 LoggingDscpValue = "af42"
+
+    // Applicable to DSCP: bits 100110
+    LoggingDscpValue_af43 LoggingDscpValue = "af43"
+
+    // Applicable to DSCP: bits 101110
+    LoggingDscpValue_ef LoggingDscpValue = "ef"
+
+    // Applicable to DSCP: bits 001000
+    LoggingDscpValue_cs1 LoggingDscpValue = "cs1"
+
+    // Applicable to DSCP: bits 010000
+    LoggingDscpValue_cs2 LoggingDscpValue = "cs2"
+
+    // Applicable to DSCP: bits 011000
+    LoggingDscpValue_cs3 LoggingDscpValue = "cs3"
+
+    // Applicable to DSCP: bits 100000
+    LoggingDscpValue_cs4 LoggingDscpValue = "cs4"
+
+    // Applicable to DSCP: bits 101000
+    LoggingDscpValue_cs5 LoggingDscpValue = "cs5"
+
+    // Applicable to DSCP: bits 110000
+    LoggingDscpValue_cs6 LoggingDscpValue = "cs6"
+
+    // Applicable to DSCP: bits 111000
+    LoggingDscpValue_cs7 LoggingDscpValue = "cs7"
 )
 
 // LogMessageSeverity represents Log message severity
@@ -291,7 +312,7 @@ const (
     LogMessageSeverity_critical LogMessageSeverity = "critical"
 
     // Error conditions                  (severity=3)
-    LogMessageSeverity_error LogMessageSeverity = "error"
+    LogMessageSeverity_error_ LogMessageSeverity = "error"
 
     // Warning conditions                (severity=4)
     LogMessageSeverity_warning LogMessageSeverity = "warning"
@@ -306,44 +327,23 @@ const (
     LogMessageSeverity_debug LogMessageSeverity = "debug"
 )
 
-// LogCollectFrequency represents Log collect frequency
-type LogCollectFrequency string
+// TimeInfo represents Time info
+type TimeInfo string
 
 const (
-    // Collect log in files on a weekly basis
-    LogCollectFrequency_weekly LogCollectFrequency = "weekly"
+    // Exclude
+    TimeInfo_disable TimeInfo = "disable"
 
-    // Collect log in files on a daily basis
-    LogCollectFrequency_daily LogCollectFrequency = "daily"
+    // Include
+    TimeInfo_enable TimeInfo = "enable"
 )
 
-// LogSeverity represents Log severity
-type LogSeverity string
+// LoggingDscp represents Logging dscp
+type LoggingDscp string
 
 const (
-    // System is unusable                (severity=0)
-    LogSeverity_emergency LogSeverity = "emergency"
-
-    // Immediate action needed           (severity=1)
-    LogSeverity_alert LogSeverity = "alert"
-
-    // Critical conditions               (severity=2)
-    LogSeverity_critical LogSeverity = "critical"
-
-    // Error conditions                  (severity=3)
-    LogSeverity_error LogSeverity = "error"
-
-    // Warning conditions                (severity=4)
-    LogSeverity_warning LogSeverity = "warning"
-
-    // Normal but significant conditions (severity=5)
-    LogSeverity_notice LogSeverity = "notice"
-
-    // Informational messages            (severity=6)
-    LogSeverity_informational LogSeverity = "informational"
-
-    // Debugging messages                (severity=7)
-    LogSeverity_debug LogSeverity = "debug"
+    // Logging TOS type DSCP
+    LoggingDscp_dscp LoggingDscp = "dscp"
 )
 
 // SyslogService
@@ -366,9 +366,12 @@ func (syslogService *SyslogService) GetEntityData() *types.CommonEntityData {
     syslogService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     syslogService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    syslogService.EntityData.Children = make(map[string]types.YChild)
-    syslogService.EntityData.Children["timestamps"] = types.YChild{"Timestamps", &syslogService.Timestamps}
-    syslogService.EntityData.Leafs = make(map[string]types.YLeaf)
+    syslogService.EntityData.Children = types.NewOrderedMap()
+    syslogService.EntityData.Children.Append("timestamps", types.YChild{"Timestamps", &syslogService.Timestamps})
+    syslogService.EntityData.Leafs = types.NewOrderedMap()
+
+    syslogService.EntityData.YListKeys = []string {}
+
     return &(syslogService.EntityData)
 }
 
@@ -398,11 +401,14 @@ func (timestamps *SyslogService_Timestamps) GetEntityData() *types.CommonEntityD
     timestamps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timestamps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    timestamps.EntityData.Children = make(map[string]types.YChild)
-    timestamps.EntityData.Children["log"] = types.YChild{"Log", &timestamps.Log}
-    timestamps.EntityData.Children["debug"] = types.YChild{"Debug", &timestamps.Debug}
-    timestamps.EntityData.Leafs = make(map[string]types.YLeaf)
-    timestamps.EntityData.Leafs["enable"] = types.YLeaf{"Enable", timestamps.Enable}
+    timestamps.EntityData.Children = types.NewOrderedMap()
+    timestamps.EntityData.Children.Append("log", types.YChild{"Log", &timestamps.Log})
+    timestamps.EntityData.Children.Append("debug", types.YChild{"Debug", &timestamps.Debug})
+    timestamps.EntityData.Leafs = types.NewOrderedMap()
+    timestamps.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", timestamps.Enable})
+
+    timestamps.EntityData.YListKeys = []string {}
+
     return &(timestamps.EntityData)
 }
 
@@ -432,11 +438,14 @@ func (log *SyslogService_Timestamps_Log) GetEntityData() *types.CommonEntityData
     log.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     log.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    log.EntityData.Children = make(map[string]types.YChild)
-    log.EntityData.Children["log-datetime"] = types.YChild{"LogDatetime", &log.LogDatetime}
-    log.EntityData.Leafs = make(map[string]types.YLeaf)
-    log.EntityData.Leafs["log-uptime"] = types.YLeaf{"LogUptime", log.LogUptime}
-    log.EntityData.Leafs["log-timestamp-disable"] = types.YLeaf{"LogTimestampDisable", log.LogTimestampDisable}
+    log.EntityData.Children = types.NewOrderedMap()
+    log.EntityData.Children.Append("log-datetime", types.YChild{"LogDatetime", &log.LogDatetime})
+    log.EntityData.Leafs = types.NewOrderedMap()
+    log.EntityData.Leafs.Append("log-uptime", types.YLeaf{"LogUptime", log.LogUptime})
+    log.EntityData.Leafs.Append("log-timestamp-disable", types.YLeaf{"LogTimestampDisable", log.LogTimestampDisable})
+
+    log.EntityData.YListKeys = []string {}
+
     return &(log.EntityData)
 }
 
@@ -460,9 +469,12 @@ func (logDatetime *SyslogService_Timestamps_Log_LogDatetime) GetEntityData() *ty
     logDatetime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logDatetime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logDatetime.EntityData.Children = make(map[string]types.YChild)
-    logDatetime.EntityData.Children["log-datetime-value"] = types.YChild{"LogDatetimeValue", &logDatetime.LogDatetimeValue}
-    logDatetime.EntityData.Leafs = make(map[string]types.YLeaf)
+    logDatetime.EntityData.Children = types.NewOrderedMap()
+    logDatetime.EntityData.Children.Append("log-datetime-value", types.YChild{"LogDatetimeValue", &logDatetime.LogDatetimeValue})
+    logDatetime.EntityData.Leafs = types.NewOrderedMap()
+
+    logDatetime.EntityData.YListKeys = []string {}
+
     return &(logDatetime.EntityData)
 }
 
@@ -496,12 +508,15 @@ func (logDatetimeValue *SyslogService_Timestamps_Log_LogDatetime_LogDatetimeValu
     logDatetimeValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logDatetimeValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logDatetimeValue.EntityData.Children = make(map[string]types.YChild)
-    logDatetimeValue.EntityData.Leafs = make(map[string]types.YLeaf)
-    logDatetimeValue.EntityData.Leafs["time-stamp-value"] = types.YLeaf{"TimeStampValue", logDatetimeValue.TimeStampValue}
-    logDatetimeValue.EntityData.Leafs["msec"] = types.YLeaf{"Msec", logDatetimeValue.Msec}
-    logDatetimeValue.EntityData.Leafs["time-zone"] = types.YLeaf{"TimeZone", logDatetimeValue.TimeZone}
-    logDatetimeValue.EntityData.Leafs["year"] = types.YLeaf{"Year", logDatetimeValue.Year}
+    logDatetimeValue.EntityData.Children = types.NewOrderedMap()
+    logDatetimeValue.EntityData.Leafs = types.NewOrderedMap()
+    logDatetimeValue.EntityData.Leafs.Append("time-stamp-value", types.YLeaf{"TimeStampValue", logDatetimeValue.TimeStampValue})
+    logDatetimeValue.EntityData.Leafs.Append("msec", types.YLeaf{"Msec", logDatetimeValue.Msec})
+    logDatetimeValue.EntityData.Leafs.Append("time-zone", types.YLeaf{"TimeZone", logDatetimeValue.TimeZone})
+    logDatetimeValue.EntityData.Leafs.Append("year", types.YLeaf{"Year", logDatetimeValue.Year})
+
+    logDatetimeValue.EntityData.YListKeys = []string {}
+
     return &(logDatetimeValue.EntityData)
 }
 
@@ -531,11 +546,14 @@ func (debug *SyslogService_Timestamps_Debug) GetEntityData() *types.CommonEntity
     debug.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     debug.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    debug.EntityData.Children = make(map[string]types.YChild)
-    debug.EntityData.Children["debug-datetime"] = types.YChild{"DebugDatetime", &debug.DebugDatetime}
-    debug.EntityData.Leafs = make(map[string]types.YLeaf)
-    debug.EntityData.Leafs["debug-timestamp-disable"] = types.YLeaf{"DebugTimestampDisable", debug.DebugTimestampDisable}
-    debug.EntityData.Leafs["debug-uptime"] = types.YLeaf{"DebugUptime", debug.DebugUptime}
+    debug.EntityData.Children = types.NewOrderedMap()
+    debug.EntityData.Children.Append("debug-datetime", types.YChild{"DebugDatetime", &debug.DebugDatetime})
+    debug.EntityData.Leafs = types.NewOrderedMap()
+    debug.EntityData.Leafs.Append("debug-timestamp-disable", types.YLeaf{"DebugTimestampDisable", debug.DebugTimestampDisable})
+    debug.EntityData.Leafs.Append("debug-uptime", types.YLeaf{"DebugUptime", debug.DebugUptime})
+
+    debug.EntityData.YListKeys = []string {}
+
     return &(debug.EntityData)
 }
 
@@ -559,9 +577,12 @@ func (debugDatetime *SyslogService_Timestamps_Debug_DebugDatetime) GetEntityData
     debugDatetime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     debugDatetime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    debugDatetime.EntityData.Children = make(map[string]types.YChild)
-    debugDatetime.EntityData.Children["datetime-value"] = types.YChild{"DatetimeValue", &debugDatetime.DatetimeValue}
-    debugDatetime.EntityData.Leafs = make(map[string]types.YLeaf)
+    debugDatetime.EntityData.Children = types.NewOrderedMap()
+    debugDatetime.EntityData.Children.Append("datetime-value", types.YChild{"DatetimeValue", &debugDatetime.DatetimeValue})
+    debugDatetime.EntityData.Leafs = types.NewOrderedMap()
+
+    debugDatetime.EntityData.YListKeys = []string {}
+
     return &(debugDatetime.EntityData)
 }
 
@@ -595,12 +616,15 @@ func (datetimeValue *SyslogService_Timestamps_Debug_DebugDatetime_DatetimeValue)
     datetimeValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     datetimeValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    datetimeValue.EntityData.Children = make(map[string]types.YChild)
-    datetimeValue.EntityData.Leafs = make(map[string]types.YLeaf)
-    datetimeValue.EntityData.Leafs["time-stamp-value"] = types.YLeaf{"TimeStampValue", datetimeValue.TimeStampValue}
-    datetimeValue.EntityData.Leafs["msec"] = types.YLeaf{"Msec", datetimeValue.Msec}
-    datetimeValue.EntityData.Leafs["time-zone"] = types.YLeaf{"TimeZone", datetimeValue.TimeZone}
-    datetimeValue.EntityData.Leafs["year"] = types.YLeaf{"Year", datetimeValue.Year}
+    datetimeValue.EntityData.Children = types.NewOrderedMap()
+    datetimeValue.EntityData.Leafs = types.NewOrderedMap()
+    datetimeValue.EntityData.Leafs.Append("time-stamp-value", types.YLeaf{"TimeStampValue", datetimeValue.TimeStampValue})
+    datetimeValue.EntityData.Leafs.Append("msec", types.YLeaf{"Msec", datetimeValue.Msec})
+    datetimeValue.EntityData.Leafs.Append("time-zone", types.YLeaf{"TimeZone", datetimeValue.TimeZone})
+    datetimeValue.EntityData.Leafs.Append("year", types.YLeaf{"Year", datetimeValue.Year})
+
+    datetimeValue.EntityData.YListKeys = []string {}
+
     return &(datetimeValue.EntityData)
 }
 
@@ -679,27 +703,30 @@ func (syslog *Syslog) GetEntityData() *types.CommonEntityData {
     syslog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     syslog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    syslog.EntityData.Children = make(map[string]types.YChild)
-    syslog.EntityData.Children["monitor-logging"] = types.YChild{"MonitorLogging", &syslog.MonitorLogging}
-    syslog.EntityData.Children["history-logging"] = types.YChild{"HistoryLogging", &syslog.HistoryLogging}
-    syslog.EntityData.Children["logging-facilities"] = types.YChild{"LoggingFacilities", &syslog.LoggingFacilities}
-    syslog.EntityData.Children["trap-logging"] = types.YChild{"TrapLogging", &syslog.TrapLogging}
-    syslog.EntityData.Children["buffered-logging"] = types.YChild{"BufferedLogging", &syslog.BufferedLogging}
-    syslog.EntityData.Children["host-server"] = types.YChild{"HostServer", &syslog.HostServer}
-    syslog.EntityData.Children["console-logging"] = types.YChild{"ConsoleLogging", &syslog.ConsoleLogging}
-    syslog.EntityData.Children["files"] = types.YChild{"Files", &syslog.Files}
-    syslog.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &syslog.Ipv4}
-    syslog.EntityData.Children["archive"] = types.YChild{"Archive", &syslog.Archive}
-    syslog.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &syslog.Ipv6}
-    syslog.EntityData.Children["source-interface-table"] = types.YChild{"SourceInterfaceTable", &syslog.SourceInterfaceTable}
-    syslog.EntityData.Children["Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger"] = types.YChild{"AlarmLogger", &syslog.AlarmLogger}
-    syslog.EntityData.Children["Cisco-IOS-XR-infra-correlator-cfg:correlator"] = types.YChild{"Correlator", &syslog.Correlator}
-    syslog.EntityData.Children["Cisco-IOS-XR-infra-correlator-cfg:suppression"] = types.YChild{"Suppression", &syslog.Suppression}
-    syslog.EntityData.Leafs = make(map[string]types.YLeaf)
-    syslog.EntityData.Leafs["host-name-prefix"] = types.YLeaf{"HostNamePrefix", syslog.HostNamePrefix}
-    syslog.EntityData.Leafs["local-log-file-size"] = types.YLeaf{"LocalLogFileSize", syslog.LocalLogFileSize}
-    syslog.EntityData.Leafs["enable-console-logging"] = types.YLeaf{"EnableConsoleLogging", syslog.EnableConsoleLogging}
-    syslog.EntityData.Leafs["suppress-duplicates"] = types.YLeaf{"SuppressDuplicates", syslog.SuppressDuplicates}
+    syslog.EntityData.Children = types.NewOrderedMap()
+    syslog.EntityData.Children.Append("monitor-logging", types.YChild{"MonitorLogging", &syslog.MonitorLogging})
+    syslog.EntityData.Children.Append("history-logging", types.YChild{"HistoryLogging", &syslog.HistoryLogging})
+    syslog.EntityData.Children.Append("logging-facilities", types.YChild{"LoggingFacilities", &syslog.LoggingFacilities})
+    syslog.EntityData.Children.Append("trap-logging", types.YChild{"TrapLogging", &syslog.TrapLogging})
+    syslog.EntityData.Children.Append("buffered-logging", types.YChild{"BufferedLogging", &syslog.BufferedLogging})
+    syslog.EntityData.Children.Append("host-server", types.YChild{"HostServer", &syslog.HostServer})
+    syslog.EntityData.Children.Append("console-logging", types.YChild{"ConsoleLogging", &syslog.ConsoleLogging})
+    syslog.EntityData.Children.Append("files", types.YChild{"Files", &syslog.Files})
+    syslog.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &syslog.Ipv4})
+    syslog.EntityData.Children.Append("archive", types.YChild{"Archive", &syslog.Archive})
+    syslog.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &syslog.Ipv6})
+    syslog.EntityData.Children.Append("source-interface-table", types.YChild{"SourceInterfaceTable", &syslog.SourceInterfaceTable})
+    syslog.EntityData.Children.Append("Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger", types.YChild{"AlarmLogger", &syslog.AlarmLogger})
+    syslog.EntityData.Children.Append("Cisco-IOS-XR-infra-correlator-cfg:correlator", types.YChild{"Correlator", &syslog.Correlator})
+    syslog.EntityData.Children.Append("Cisco-IOS-XR-infra-correlator-cfg:suppression", types.YChild{"Suppression", &syslog.Suppression})
+    syslog.EntityData.Leafs = types.NewOrderedMap()
+    syslog.EntityData.Leafs.Append("host-name-prefix", types.YLeaf{"HostNamePrefix", syslog.HostNamePrefix})
+    syslog.EntityData.Leafs.Append("local-log-file-size", types.YLeaf{"LocalLogFileSize", syslog.LocalLogFileSize})
+    syslog.EntityData.Leafs.Append("enable-console-logging", types.YLeaf{"EnableConsoleLogging", syslog.EnableConsoleLogging})
+    syslog.EntityData.Leafs.Append("suppress-duplicates", types.YLeaf{"SuppressDuplicates", syslog.SuppressDuplicates})
+
+    syslog.EntityData.YListKeys = []string {}
+
     return &(syslog.EntityData)
 }
 
@@ -727,10 +754,13 @@ func (monitorLogging *Syslog_MonitorLogging) GetEntityData() *types.CommonEntity
     monitorLogging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     monitorLogging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    monitorLogging.EntityData.Children = make(map[string]types.YChild)
-    monitorLogging.EntityData.Children["monitor-discriminator"] = types.YChild{"MonitorDiscriminator", &monitorLogging.MonitorDiscriminator}
-    monitorLogging.EntityData.Leafs = make(map[string]types.YLeaf)
-    monitorLogging.EntityData.Leafs["logging-level"] = types.YLeaf{"LoggingLevel", monitorLogging.LoggingLevel}
+    monitorLogging.EntityData.Children = types.NewOrderedMap()
+    monitorLogging.EntityData.Children.Append("monitor-discriminator", types.YChild{"MonitorDiscriminator", &monitorLogging.MonitorDiscriminator})
+    monitorLogging.EntityData.Leafs = types.NewOrderedMap()
+    monitorLogging.EntityData.Leafs.Append("logging-level", types.YLeaf{"LoggingLevel", monitorLogging.LoggingLevel})
+
+    monitorLogging.EntityData.YListKeys = []string {}
+
     return &(monitorLogging.EntityData)
 }
 
@@ -769,14 +799,17 @@ func (monitorDiscriminator *Syslog_MonitorLogging_MonitorDiscriminator) GetEntit
     monitorDiscriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     monitorDiscriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    monitorDiscriminator.EntityData.Children = make(map[string]types.YChild)
-    monitorDiscriminator.EntityData.Leafs = make(map[string]types.YLeaf)
-    monitorDiscriminator.EntityData.Leafs["match2"] = types.YLeaf{"Match2", monitorDiscriminator.Match2}
-    monitorDiscriminator.EntityData.Leafs["nomatch1"] = types.YLeaf{"Nomatch1", monitorDiscriminator.Nomatch1}
-    monitorDiscriminator.EntityData.Leafs["match1"] = types.YLeaf{"Match1", monitorDiscriminator.Match1}
-    monitorDiscriminator.EntityData.Leafs["nomatch3"] = types.YLeaf{"Nomatch3", monitorDiscriminator.Nomatch3}
-    monitorDiscriminator.EntityData.Leafs["match3"] = types.YLeaf{"Match3", monitorDiscriminator.Match3}
-    monitorDiscriminator.EntityData.Leafs["nomatch2"] = types.YLeaf{"Nomatch2", monitorDiscriminator.Nomatch2}
+    monitorDiscriminator.EntityData.Children = types.NewOrderedMap()
+    monitorDiscriminator.EntityData.Leafs = types.NewOrderedMap()
+    monitorDiscriminator.EntityData.Leafs.Append("match2", types.YLeaf{"Match2", monitorDiscriminator.Match2})
+    monitorDiscriminator.EntityData.Leafs.Append("nomatch1", types.YLeaf{"Nomatch1", monitorDiscriminator.Nomatch1})
+    monitorDiscriminator.EntityData.Leafs.Append("match1", types.YLeaf{"Match1", monitorDiscriminator.Match1})
+    monitorDiscriminator.EntityData.Leafs.Append("nomatch3", types.YLeaf{"Nomatch3", monitorDiscriminator.Nomatch3})
+    monitorDiscriminator.EntityData.Leafs.Append("match3", types.YLeaf{"Match3", monitorDiscriminator.Match3})
+    monitorDiscriminator.EntityData.Leafs.Append("nomatch2", types.YLeaf{"Nomatch2", monitorDiscriminator.Nomatch2})
+
+    monitorDiscriminator.EntityData.YListKeys = []string {}
+
     return &(monitorDiscriminator.EntityData)
 }
 
@@ -805,10 +838,13 @@ func (historyLogging *Syslog_HistoryLogging) GetEntityData() *types.CommonEntity
     historyLogging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     historyLogging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    historyLogging.EntityData.Children = make(map[string]types.YChild)
-    historyLogging.EntityData.Leafs = make(map[string]types.YLeaf)
-    historyLogging.EntityData.Leafs["history-size"] = types.YLeaf{"HistorySize", historyLogging.HistorySize}
-    historyLogging.EntityData.Leafs["logging-level"] = types.YLeaf{"LoggingLevel", historyLogging.LoggingLevel}
+    historyLogging.EntityData.Children = types.NewOrderedMap()
+    historyLogging.EntityData.Leafs = types.NewOrderedMap()
+    historyLogging.EntityData.Leafs.Append("history-size", types.YLeaf{"HistorySize", historyLogging.HistorySize})
+    historyLogging.EntityData.Leafs.Append("logging-level", types.YLeaf{"LoggingLevel", historyLogging.LoggingLevel})
+
+    historyLogging.EntityData.YListKeys = []string {}
+
     return &(historyLogging.EntityData)
 }
 
@@ -833,9 +869,12 @@ func (loggingFacilities *Syslog_LoggingFacilities) GetEntityData() *types.Common
     loggingFacilities.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loggingFacilities.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loggingFacilities.EntityData.Children = make(map[string]types.YChild)
-    loggingFacilities.EntityData.Leafs = make(map[string]types.YLeaf)
-    loggingFacilities.EntityData.Leafs["facility-level"] = types.YLeaf{"FacilityLevel", loggingFacilities.FacilityLevel}
+    loggingFacilities.EntityData.Children = types.NewOrderedMap()
+    loggingFacilities.EntityData.Leafs = types.NewOrderedMap()
+    loggingFacilities.EntityData.Leafs.Append("facility-level", types.YLeaf{"FacilityLevel", loggingFacilities.FacilityLevel})
+
+    loggingFacilities.EntityData.YListKeys = []string {}
+
     return &(loggingFacilities.EntityData)
 }
 
@@ -859,9 +898,12 @@ func (trapLogging *Syslog_TrapLogging) GetEntityData() *types.CommonEntityData {
     trapLogging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trapLogging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trapLogging.EntityData.Children = make(map[string]types.YChild)
-    trapLogging.EntityData.Leafs = make(map[string]types.YLeaf)
-    trapLogging.EntityData.Leafs["logging-level"] = types.YLeaf{"LoggingLevel", trapLogging.LoggingLevel}
+    trapLogging.EntityData.Children = types.NewOrderedMap()
+    trapLogging.EntityData.Leafs = types.NewOrderedMap()
+    trapLogging.EntityData.Leafs.Append("logging-level", types.YLeaf{"LoggingLevel", trapLogging.LoggingLevel})
+
+    trapLogging.EntityData.YListKeys = []string {}
+
     return &(trapLogging.EntityData)
 }
 
@@ -893,11 +935,14 @@ func (bufferedLogging *Syslog_BufferedLogging) GetEntityData() *types.CommonEnti
     bufferedLogging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bufferedLogging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bufferedLogging.EntityData.Children = make(map[string]types.YChild)
-    bufferedLogging.EntityData.Children["buffered-discriminator"] = types.YChild{"BufferedDiscriminator", &bufferedLogging.BufferedDiscriminator}
-    bufferedLogging.EntityData.Leafs = make(map[string]types.YLeaf)
-    bufferedLogging.EntityData.Leafs["logging-level"] = types.YLeaf{"LoggingLevel", bufferedLogging.LoggingLevel}
-    bufferedLogging.EntityData.Leafs["buffer-size"] = types.YLeaf{"BufferSize", bufferedLogging.BufferSize}
+    bufferedLogging.EntityData.Children = types.NewOrderedMap()
+    bufferedLogging.EntityData.Children.Append("buffered-discriminator", types.YChild{"BufferedDiscriminator", &bufferedLogging.BufferedDiscriminator})
+    bufferedLogging.EntityData.Leafs = types.NewOrderedMap()
+    bufferedLogging.EntityData.Leafs.Append("logging-level", types.YLeaf{"LoggingLevel", bufferedLogging.LoggingLevel})
+    bufferedLogging.EntityData.Leafs.Append("buffer-size", types.YLeaf{"BufferSize", bufferedLogging.BufferSize})
+
+    bufferedLogging.EntityData.YListKeys = []string {}
+
     return &(bufferedLogging.EntityData)
 }
 
@@ -936,14 +981,17 @@ func (bufferedDiscriminator *Syslog_BufferedLogging_BufferedDiscriminator) GetEn
     bufferedDiscriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bufferedDiscriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bufferedDiscriminator.EntityData.Children = make(map[string]types.YChild)
-    bufferedDiscriminator.EntityData.Leafs = make(map[string]types.YLeaf)
-    bufferedDiscriminator.EntityData.Leafs["match2"] = types.YLeaf{"Match2", bufferedDiscriminator.Match2}
-    bufferedDiscriminator.EntityData.Leafs["nomatch1"] = types.YLeaf{"Nomatch1", bufferedDiscriminator.Nomatch1}
-    bufferedDiscriminator.EntityData.Leafs["match1"] = types.YLeaf{"Match1", bufferedDiscriminator.Match1}
-    bufferedDiscriminator.EntityData.Leafs["nomatch3"] = types.YLeaf{"Nomatch3", bufferedDiscriminator.Nomatch3}
-    bufferedDiscriminator.EntityData.Leafs["match3"] = types.YLeaf{"Match3", bufferedDiscriminator.Match3}
-    bufferedDiscriminator.EntityData.Leafs["nomatch2"] = types.YLeaf{"Nomatch2", bufferedDiscriminator.Nomatch2}
+    bufferedDiscriminator.EntityData.Children = types.NewOrderedMap()
+    bufferedDiscriminator.EntityData.Leafs = types.NewOrderedMap()
+    bufferedDiscriminator.EntityData.Leafs.Append("match2", types.YLeaf{"Match2", bufferedDiscriminator.Match2})
+    bufferedDiscriminator.EntityData.Leafs.Append("nomatch1", types.YLeaf{"Nomatch1", bufferedDiscriminator.Nomatch1})
+    bufferedDiscriminator.EntityData.Leafs.Append("match1", types.YLeaf{"Match1", bufferedDiscriminator.Match1})
+    bufferedDiscriminator.EntityData.Leafs.Append("nomatch3", types.YLeaf{"Nomatch3", bufferedDiscriminator.Nomatch3})
+    bufferedDiscriminator.EntityData.Leafs.Append("match3", types.YLeaf{"Match3", bufferedDiscriminator.Match3})
+    bufferedDiscriminator.EntityData.Leafs.Append("nomatch2", types.YLeaf{"Nomatch2", bufferedDiscriminator.Nomatch2})
+
+    bufferedDiscriminator.EntityData.YListKeys = []string {}
+
     return &(bufferedDiscriminator.EntityData)
 }
 
@@ -967,9 +1015,12 @@ func (hostServer *Syslog_HostServer) GetEntityData() *types.CommonEntityData {
     hostServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hostServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hostServer.EntityData.Children = make(map[string]types.YChild)
-    hostServer.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &hostServer.Vrfs}
-    hostServer.EntityData.Leafs = make(map[string]types.YLeaf)
+    hostServer.EntityData.Children = types.NewOrderedMap()
+    hostServer.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &hostServer.Vrfs})
+    hostServer.EntityData.Leafs = types.NewOrderedMap()
+
+    hostServer.EntityData.YListKeys = []string {}
+
     return &(hostServer.EntityData)
 }
 
@@ -980,7 +1031,7 @@ type Syslog_HostServer_Vrfs struct {
     YFilter yfilter.YFilter
 
     // VRF specific data. The type is slice of Syslog_HostServer_Vrfs_Vrf.
-    Vrf []Syslog_HostServer_Vrfs_Vrf
+    Vrf []*Syslog_HostServer_Vrfs_Vrf
 }
 
 func (vrfs *Syslog_HostServer_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -993,12 +1044,15 @@ func (vrfs *Syslog_HostServer_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -1009,17 +1063,17 @@ type Syslog_HostServer_Vrfs_Vrf struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the VRF instance. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // List of the IPv6 logging host.
-    Ipv6S Syslog_HostServer_Vrfs_Vrf_Ipv6S
+    Ipv6s Syslog_HostServer_Vrfs_Vrf_Ipv6s
 
     // List of the logging host.
     Hosts Syslog_HostServer_Vrfs_Vrf_Hosts
 
     // List of the IPv4 logging host.
-    Ipv4S Syslog_HostServer_Vrfs_Vrf_Ipv4S
+    Ipv4s Syslog_HostServer_Vrfs_Vrf_Ipv4s
 }
 
 func (vrf *Syslog_HostServer_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
@@ -1027,107 +1081,113 @@ func (vrf *Syslog_HostServer_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["ipv6s"] = types.YChild{"Ipv6S", &vrf.Ipv6S}
-    vrf.EntityData.Children["hosts"] = types.YChild{"Hosts", &vrf.Hosts}
-    vrf.EntityData.Children["ipv4s"] = types.YChild{"Ipv4S", &vrf.Ipv4S}
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("ipv6s", types.YChild{"Ipv6s", &vrf.Ipv6s})
+    vrf.EntityData.Children.Append("hosts", types.YChild{"Hosts", &vrf.Hosts})
+    vrf.EntityData.Children.Append("ipv4s", types.YChild{"Ipv4s", &vrf.Ipv4s})
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
-// Syslog_HostServer_Vrfs_Vrf_Ipv6S
+// Syslog_HostServer_Vrfs_Vrf_Ipv6s
 // List of the IPv6 logging host
-type Syslog_HostServer_Vrfs_Vrf_Ipv6S struct {
+type Syslog_HostServer_Vrfs_Vrf_Ipv6s struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 address of the logging host. The type is slice of
-    // Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6.
-    Ipv6 []Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6
+    // Syslog_HostServer_Vrfs_Vrf_Ipv6s_Ipv6.
+    Ipv6 []*Syslog_HostServer_Vrfs_Vrf_Ipv6s_Ipv6
 }
 
-func (ipv6S *Syslog_HostServer_Vrfs_Vrf_Ipv6S) GetEntityData() *types.CommonEntityData {
-    ipv6S.EntityData.YFilter = ipv6S.YFilter
-    ipv6S.EntityData.YangName = "ipv6s"
-    ipv6S.EntityData.BundleName = "cisco_ios_xr"
-    ipv6S.EntityData.ParentYangName = "vrf"
-    ipv6S.EntityData.SegmentPath = "ipv6s"
-    ipv6S.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv6S.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv6S.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv6s *Syslog_HostServer_Vrfs_Vrf_Ipv6s) GetEntityData() *types.CommonEntityData {
+    ipv6s.EntityData.YFilter = ipv6s.YFilter
+    ipv6s.EntityData.YangName = "ipv6s"
+    ipv6s.EntityData.BundleName = "cisco_ios_xr"
+    ipv6s.EntityData.ParentYangName = "vrf"
+    ipv6s.EntityData.SegmentPath = "ipv6s"
+    ipv6s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6S.EntityData.Children = make(map[string]types.YChild)
-    ipv6S.EntityData.Children["ipv6"] = types.YChild{"Ipv6", nil}
-    for i := range ipv6S.Ipv6 {
-        ipv6S.EntityData.Children[types.GetSegmentPath(&ipv6S.Ipv6[i])] = types.YChild{"Ipv6", &ipv6S.Ipv6[i]}
+    ipv6s.EntityData.Children = types.NewOrderedMap()
+    ipv6s.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", nil})
+    for i := range ipv6s.Ipv6 {
+        ipv6s.EntityData.Children.Append(types.GetSegmentPath(ipv6s.Ipv6[i]), types.YChild{"Ipv6", ipv6s.Ipv6[i]})
     }
-    ipv6S.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipv6S.EntityData)
+    ipv6s.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6s.EntityData.YListKeys = []string {}
+
+    return &(ipv6s.EntityData)
 }
 
-// Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6
+// Syslog_HostServer_Vrfs_Vrf_Ipv6s_Ipv6
 // IPv6 address of the logging host
-type Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6 struct {
+type Syslog_HostServer_Vrfs_Vrf_Ipv6s_Ipv6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. IPv6 address of the logging host. The type is
     // string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Severity/Port for the logging host.
-    Ipv6SeverityPort Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6SeverityPort
-
-    // Set IPv6 logging discriminators.
-    Ipv6Discriminator Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6Discriminator
+    Ipv6SeverityPort Syslog_HostServer_Vrfs_Vrf_Ipv6s_Ipv6_Ipv6SeverityPort
 
     // Severity container of the logging host.
-    Ipv6SeverityLevels Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6SeverityLevels
+    Ipv6SeverityLevels Syslog_HostServer_Vrfs_Vrf_Ipv6s_Ipv6_Ipv6SeverityLevels
 }
 
-func (ipv6 *Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6) GetEntityData() *types.CommonEntityData {
+func (ipv6 *Syslog_HostServer_Vrfs_Vrf_Ipv6s_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.YFilter = ipv6.YFilter
     ipv6.EntityData.YangName = "ipv6"
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "ipv6s"
-    ipv6.EntityData.SegmentPath = "ipv6" + "[address='" + fmt.Sprintf("%v", ipv6.Address) + "']"
+    ipv6.EntityData.SegmentPath = "ipv6" + types.AddKeyToken(ipv6.Address, "address")
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["ipv6-severity-port"] = types.YChild{"Ipv6SeverityPort", &ipv6.Ipv6SeverityPort}
-    ipv6.EntityData.Children["ipv6-discriminator"] = types.YChild{"Ipv6Discriminator", &ipv6.Ipv6Discriminator}
-    ipv6.EntityData.Children["ipv6-severity-levels"] = types.YChild{"Ipv6SeverityLevels", &ipv6.Ipv6SeverityLevels}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6.EntityData.Leafs["address"] = types.YLeaf{"Address", ipv6.Address}
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("ipv6-severity-port", types.YChild{"Ipv6SeverityPort", &ipv6.Ipv6SeverityPort})
+    ipv6.EntityData.Children.Append("ipv6-severity-levels", types.YChild{"Ipv6SeverityLevels", &ipv6.Ipv6SeverityLevels})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+    ipv6.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6.Address})
+
+    ipv6.EntityData.YListKeys = []string {"Address"}
+
     return &(ipv6.EntityData)
 }
 
-// Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6SeverityPort
+// Syslog_HostServer_Vrfs_Vrf_Ipv6s_Ipv6_Ipv6SeverityPort
 // Severity/Port for the logging host
 // This type is a presence type.
-type Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6SeverityPort struct {
+type Syslog_HostServer_Vrfs_Vrf_Ipv6s_Ipv6_Ipv6SeverityPort struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Severity for the logging host. The type is interface{} with range:
-    // -2147483648..2147483647. The default value is 6.
+    // 0..4294967295. The default value is 6.
     Severity interface{}
 
     // Port for the logging host. The type is interface{} with range:
-    // -2147483648..2147483647. The default value is 514.
+    // 0..4294967295. The default value is 514.
     Port interface{}
 }
 
-func (ipv6SeverityPort *Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6SeverityPort) GetEntityData() *types.CommonEntityData {
+func (ipv6SeverityPort *Syslog_HostServer_Vrfs_Vrf_Ipv6s_Ipv6_Ipv6SeverityPort) GetEntityData() *types.CommonEntityData {
     ipv6SeverityPort.EntityData.YFilter = ipv6SeverityPort.YFilter
     ipv6SeverityPort.EntityData.YangName = "ipv6-severity-port"
     ipv6SeverityPort.EntityData.BundleName = "cisco_ios_xr"
@@ -1137,71 +1197,28 @@ func (ipv6SeverityPort *Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6SeverityPort) 
     ipv6SeverityPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SeverityPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6SeverityPort.EntityData.Children = make(map[string]types.YChild)
-    ipv6SeverityPort.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6SeverityPort.EntityData.Leafs["severity"] = types.YLeaf{"Severity", ipv6SeverityPort.Severity}
-    ipv6SeverityPort.EntityData.Leafs["port"] = types.YLeaf{"Port", ipv6SeverityPort.Port}
+    ipv6SeverityPort.EntityData.Children = types.NewOrderedMap()
+    ipv6SeverityPort.EntityData.Leafs = types.NewOrderedMap()
+    ipv6SeverityPort.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", ipv6SeverityPort.Severity})
+    ipv6SeverityPort.EntityData.Leafs.Append("port", types.YLeaf{"Port", ipv6SeverityPort.Port})
+
+    ipv6SeverityPort.EntityData.YListKeys = []string {}
+
     return &(ipv6SeverityPort.EntityData)
 }
 
-// Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6Discriminator
-// Set IPv6 logging discriminators
-type Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6Discriminator struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Set IPv6 logging no-match2 discriminator. The type is string.
-    Nomatch2 interface{}
-
-    // Set IPv6 logging match3 discriminator. The type is string.
-    Match3 interface{}
-
-    // Set IPv6 logging no-match3 discriminator. The type is string.
-    Nomatch3 interface{}
-
-    // Set IPv6 logging match1 discriminator. The type is string.
-    Match1 interface{}
-
-    // Set IPv6 logging no-match1 discriminator. The type is string.
-    Nomatch1 interface{}
-
-    // Set IPv6 logging match2 discriminator. The type is string.
-    Match2 interface{}
-}
-
-func (ipv6Discriminator *Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6Discriminator) GetEntityData() *types.CommonEntityData {
-    ipv6Discriminator.EntityData.YFilter = ipv6Discriminator.YFilter
-    ipv6Discriminator.EntityData.YangName = "ipv6-discriminator"
-    ipv6Discriminator.EntityData.BundleName = "cisco_ios_xr"
-    ipv6Discriminator.EntityData.ParentYangName = "ipv6"
-    ipv6Discriminator.EntityData.SegmentPath = "ipv6-discriminator"
-    ipv6Discriminator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv6Discriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv6Discriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipv6Discriminator.EntityData.Children = make(map[string]types.YChild)
-    ipv6Discriminator.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6Discriminator.EntityData.Leafs["nomatch2"] = types.YLeaf{"Nomatch2", ipv6Discriminator.Nomatch2}
-    ipv6Discriminator.EntityData.Leafs["match3"] = types.YLeaf{"Match3", ipv6Discriminator.Match3}
-    ipv6Discriminator.EntityData.Leafs["nomatch3"] = types.YLeaf{"Nomatch3", ipv6Discriminator.Nomatch3}
-    ipv6Discriminator.EntityData.Leafs["match1"] = types.YLeaf{"Match1", ipv6Discriminator.Match1}
-    ipv6Discriminator.EntityData.Leafs["nomatch1"] = types.YLeaf{"Nomatch1", ipv6Discriminator.Nomatch1}
-    ipv6Discriminator.EntityData.Leafs["match2"] = types.YLeaf{"Match2", ipv6Discriminator.Match2}
-    return &(ipv6Discriminator.EntityData)
-}
-
-// Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6SeverityLevels
+// Syslog_HostServer_Vrfs_Vrf_Ipv6s_Ipv6_Ipv6SeverityLevels
 // Severity container of the logging host
-type Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6SeverityLevels struct {
+type Syslog_HostServer_Vrfs_Vrf_Ipv6s_Ipv6_Ipv6SeverityLevels struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Severity for the logging host. The type is slice of
-    // Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6SeverityLevels_Ipv6SeverityLevel.
-    Ipv6SeverityLevel []Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6SeverityLevels_Ipv6SeverityLevel
+    // Syslog_HostServer_Vrfs_Vrf_Ipv6s_Ipv6_Ipv6SeverityLevels_Ipv6SeverityLevel.
+    Ipv6SeverityLevel []*Syslog_HostServer_Vrfs_Vrf_Ipv6s_Ipv6_Ipv6SeverityLevels_Ipv6SeverityLevel
 }
 
-func (ipv6SeverityLevels *Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6SeverityLevels) GetEntityData() *types.CommonEntityData {
+func (ipv6SeverityLevels *Syslog_HostServer_Vrfs_Vrf_Ipv6s_Ipv6_Ipv6SeverityLevels) GetEntityData() *types.CommonEntityData {
     ipv6SeverityLevels.EntityData.YFilter = ipv6SeverityLevels.YFilter
     ipv6SeverityLevels.EntityData.YangName = "ipv6-severity-levels"
     ipv6SeverityLevels.EntityData.BundleName = "cisco_ios_xr"
@@ -1211,18 +1228,21 @@ func (ipv6SeverityLevels *Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6SeverityLeve
     ipv6SeverityLevels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SeverityLevels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6SeverityLevels.EntityData.Children = make(map[string]types.YChild)
-    ipv6SeverityLevels.EntityData.Children["ipv6-severity-level"] = types.YChild{"Ipv6SeverityLevel", nil}
+    ipv6SeverityLevels.EntityData.Children = types.NewOrderedMap()
+    ipv6SeverityLevels.EntityData.Children.Append("ipv6-severity-level", types.YChild{"Ipv6SeverityLevel", nil})
     for i := range ipv6SeverityLevels.Ipv6SeverityLevel {
-        ipv6SeverityLevels.EntityData.Children[types.GetSegmentPath(&ipv6SeverityLevels.Ipv6SeverityLevel[i])] = types.YChild{"Ipv6SeverityLevel", &ipv6SeverityLevels.Ipv6SeverityLevel[i]}
+        ipv6SeverityLevels.EntityData.Children.Append(types.GetSegmentPath(ipv6SeverityLevels.Ipv6SeverityLevel[i]), types.YChild{"Ipv6SeverityLevel", ipv6SeverityLevels.Ipv6SeverityLevel[i]})
     }
-    ipv6SeverityLevels.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6SeverityLevels.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6SeverityLevels.EntityData.YListKeys = []string {}
+
     return &(ipv6SeverityLevels.EntityData)
 }
 
-// Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6SeverityLevels_Ipv6SeverityLevel
+// Syslog_HostServer_Vrfs_Vrf_Ipv6s_Ipv6_Ipv6SeverityLevels_Ipv6SeverityLevel
 // Severity for the logging host
-type Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6SeverityLevels_Ipv6SeverityLevel struct {
+type Syslog_HostServer_Vrfs_Vrf_Ipv6s_Ipv6_Ipv6SeverityLevels_Ipv6SeverityLevel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1231,19 +1251,22 @@ type Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6SeverityLevels_Ipv6SeverityLevel 
     Severity interface{}
 }
 
-func (ipv6SeverityLevel *Syslog_HostServer_Vrfs_Vrf_Ipv6S_Ipv6_Ipv6SeverityLevels_Ipv6SeverityLevel) GetEntityData() *types.CommonEntityData {
+func (ipv6SeverityLevel *Syslog_HostServer_Vrfs_Vrf_Ipv6s_Ipv6_Ipv6SeverityLevels_Ipv6SeverityLevel) GetEntityData() *types.CommonEntityData {
     ipv6SeverityLevel.EntityData.YFilter = ipv6SeverityLevel.YFilter
     ipv6SeverityLevel.EntityData.YangName = "ipv6-severity-level"
     ipv6SeverityLevel.EntityData.BundleName = "cisco_ios_xr"
     ipv6SeverityLevel.EntityData.ParentYangName = "ipv6-severity-levels"
-    ipv6SeverityLevel.EntityData.SegmentPath = "ipv6-severity-level" + "[severity='" + fmt.Sprintf("%v", ipv6SeverityLevel.Severity) + "']"
+    ipv6SeverityLevel.EntityData.SegmentPath = "ipv6-severity-level" + types.AddKeyToken(ipv6SeverityLevel.Severity, "severity")
     ipv6SeverityLevel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6SeverityLevel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SeverityLevel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6SeverityLevel.EntityData.Children = make(map[string]types.YChild)
-    ipv6SeverityLevel.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6SeverityLevel.EntityData.Leafs["severity"] = types.YLeaf{"Severity", ipv6SeverityLevel.Severity}
+    ipv6SeverityLevel.EntityData.Children = types.NewOrderedMap()
+    ipv6SeverityLevel.EntityData.Leafs = types.NewOrderedMap()
+    ipv6SeverityLevel.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", ipv6SeverityLevel.Severity})
+
+    ipv6SeverityLevel.EntityData.YListKeys = []string {"Severity"}
+
     return &(ipv6SeverityLevel.EntityData)
 }
 
@@ -1255,7 +1278,7 @@ type Syslog_HostServer_Vrfs_Vrf_Hosts struct {
 
     // Name of the logging host. The type is slice of
     // Syslog_HostServer_Vrfs_Vrf_Hosts_Host.
-    Host []Syslog_HostServer_Vrfs_Vrf_Hosts_Host
+    Host []*Syslog_HostServer_Vrfs_Vrf_Hosts_Host
 }
 
 func (hosts *Syslog_HostServer_Vrfs_Vrf_Hosts) GetEntityData() *types.CommonEntityData {
@@ -1268,12 +1291,15 @@ func (hosts *Syslog_HostServer_Vrfs_Vrf_Hosts) GetEntityData() *types.CommonEnti
     hosts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hosts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hosts.EntityData.Children = make(map[string]types.YChild)
-    hosts.EntityData.Children["host"] = types.YChild{"Host", nil}
+    hosts.EntityData.Children = types.NewOrderedMap()
+    hosts.EntityData.Children.Append("host", types.YChild{"Host", nil})
     for i := range hosts.Host {
-        hosts.EntityData.Children[types.GetSegmentPath(&hosts.Host[i])] = types.YChild{"Host", &hosts.Host[i]}
+        hosts.EntityData.Children.Append(types.GetSegmentPath(hosts.Host[i]), types.YChild{"Host", hosts.Host[i]})
     }
-    hosts.EntityData.Leafs = make(map[string]types.YLeaf)
+    hosts.EntityData.Leafs = types.NewOrderedMap()
+
+    hosts.EntityData.YListKeys = []string {}
+
     return &(hosts.EntityData)
 }
 
@@ -1289,9 +1315,6 @@ type Syslog_HostServer_Vrfs_Vrf_Hosts_Host struct {
     // Severity container of the logging host.
     HostNameSeverities Syslog_HostServer_Vrfs_Vrf_Hosts_Host_HostNameSeverities
 
-    // Set Hostname logging discriminators.
-    HostNameDiscriminator Syslog_HostServer_Vrfs_Vrf_Hosts_Host_HostNameDiscriminator
-
     // Severity/Port for the logging host.
     HostSeverityPort Syslog_HostServer_Vrfs_Vrf_Hosts_Host_HostSeverityPort
 }
@@ -1301,17 +1324,19 @@ func (host *Syslog_HostServer_Vrfs_Vrf_Hosts_Host) GetEntityData() *types.Common
     host.EntityData.YangName = "host"
     host.EntityData.BundleName = "cisco_ios_xr"
     host.EntityData.ParentYangName = "hosts"
-    host.EntityData.SegmentPath = "host" + "[host-name='" + fmt.Sprintf("%v", host.HostName) + "']"
+    host.EntityData.SegmentPath = "host" + types.AddKeyToken(host.HostName, "host-name")
     host.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     host.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     host.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    host.EntityData.Children = make(map[string]types.YChild)
-    host.EntityData.Children["host-name-severities"] = types.YChild{"HostNameSeverities", &host.HostNameSeverities}
-    host.EntityData.Children["host-name-discriminator"] = types.YChild{"HostNameDiscriminator", &host.HostNameDiscriminator}
-    host.EntityData.Children["host-severity-port"] = types.YChild{"HostSeverityPort", &host.HostSeverityPort}
-    host.EntityData.Leafs = make(map[string]types.YLeaf)
-    host.EntityData.Leafs["host-name"] = types.YLeaf{"HostName", host.HostName}
+    host.EntityData.Children = types.NewOrderedMap()
+    host.EntityData.Children.Append("host-name-severities", types.YChild{"HostNameSeverities", &host.HostNameSeverities})
+    host.EntityData.Children.Append("host-severity-port", types.YChild{"HostSeverityPort", &host.HostSeverityPort})
+    host.EntityData.Leafs = types.NewOrderedMap()
+    host.EntityData.Leafs.Append("host-name", types.YLeaf{"HostName", host.HostName})
+
+    host.EntityData.YListKeys = []string {"HostName"}
+
     return &(host.EntityData)
 }
 
@@ -1323,7 +1348,7 @@ type Syslog_HostServer_Vrfs_Vrf_Hosts_Host_HostNameSeverities struct {
 
     // Severity for the logging host. The type is slice of
     // Syslog_HostServer_Vrfs_Vrf_Hosts_Host_HostNameSeverities_HostNameSeverity.
-    HostNameSeverity []Syslog_HostServer_Vrfs_Vrf_Hosts_Host_HostNameSeverities_HostNameSeverity
+    HostNameSeverity []*Syslog_HostServer_Vrfs_Vrf_Hosts_Host_HostNameSeverities_HostNameSeverity
 }
 
 func (hostNameSeverities *Syslog_HostServer_Vrfs_Vrf_Hosts_Host_HostNameSeverities) GetEntityData() *types.CommonEntityData {
@@ -1336,12 +1361,15 @@ func (hostNameSeverities *Syslog_HostServer_Vrfs_Vrf_Hosts_Host_HostNameSeveriti
     hostNameSeverities.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hostNameSeverities.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hostNameSeverities.EntityData.Children = make(map[string]types.YChild)
-    hostNameSeverities.EntityData.Children["host-name-severity"] = types.YChild{"HostNameSeverity", nil}
+    hostNameSeverities.EntityData.Children = types.NewOrderedMap()
+    hostNameSeverities.EntityData.Children.Append("host-name-severity", types.YChild{"HostNameSeverity", nil})
     for i := range hostNameSeverities.HostNameSeverity {
-        hostNameSeverities.EntityData.Children[types.GetSegmentPath(&hostNameSeverities.HostNameSeverity[i])] = types.YChild{"HostNameSeverity", &hostNameSeverities.HostNameSeverity[i]}
+        hostNameSeverities.EntityData.Children.Append(types.GetSegmentPath(hostNameSeverities.HostNameSeverity[i]), types.YChild{"HostNameSeverity", hostNameSeverities.HostNameSeverity[i]})
     }
-    hostNameSeverities.EntityData.Leafs = make(map[string]types.YLeaf)
+    hostNameSeverities.EntityData.Leafs = types.NewOrderedMap()
+
+    hostNameSeverities.EntityData.YListKeys = []string {}
+
     return &(hostNameSeverities.EntityData)
 }
 
@@ -1361,61 +1389,18 @@ func (hostNameSeverity *Syslog_HostServer_Vrfs_Vrf_Hosts_Host_HostNameSeverities
     hostNameSeverity.EntityData.YangName = "host-name-severity"
     hostNameSeverity.EntityData.BundleName = "cisco_ios_xr"
     hostNameSeverity.EntityData.ParentYangName = "host-name-severities"
-    hostNameSeverity.EntityData.SegmentPath = "host-name-severity" + "[severity='" + fmt.Sprintf("%v", hostNameSeverity.Severity) + "']"
+    hostNameSeverity.EntityData.SegmentPath = "host-name-severity" + types.AddKeyToken(hostNameSeverity.Severity, "severity")
     hostNameSeverity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hostNameSeverity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hostNameSeverity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hostNameSeverity.EntityData.Children = make(map[string]types.YChild)
-    hostNameSeverity.EntityData.Leafs = make(map[string]types.YLeaf)
-    hostNameSeverity.EntityData.Leafs["severity"] = types.YLeaf{"Severity", hostNameSeverity.Severity}
+    hostNameSeverity.EntityData.Children = types.NewOrderedMap()
+    hostNameSeverity.EntityData.Leafs = types.NewOrderedMap()
+    hostNameSeverity.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", hostNameSeverity.Severity})
+
+    hostNameSeverity.EntityData.YListKeys = []string {"Severity"}
+
     return &(hostNameSeverity.EntityData)
-}
-
-// Syslog_HostServer_Vrfs_Vrf_Hosts_Host_HostNameDiscriminator
-// Set Hostname logging discriminators
-type Syslog_HostServer_Vrfs_Vrf_Hosts_Host_HostNameDiscriminator struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Set hostname logging no-match2 discriminator. The type is string.
-    Nomatch2 interface{}
-
-    // Set hostname logging match3 discriminator. The type is string.
-    Match3 interface{}
-
-    // Set hostname logging no-match3 discriminator. The type is string.
-    Nomatch3 interface{}
-
-    // Set hostname logging match1 discriminator. The type is string.
-    Match1 interface{}
-
-    // Set hostname logging no-match1 discriminator. The type is string.
-    Nomatch1 interface{}
-
-    // Set hostname logging match2 discriminator. The type is string.
-    Match2 interface{}
-}
-
-func (hostNameDiscriminator *Syslog_HostServer_Vrfs_Vrf_Hosts_Host_HostNameDiscriminator) GetEntityData() *types.CommonEntityData {
-    hostNameDiscriminator.EntityData.YFilter = hostNameDiscriminator.YFilter
-    hostNameDiscriminator.EntityData.YangName = "host-name-discriminator"
-    hostNameDiscriminator.EntityData.BundleName = "cisco_ios_xr"
-    hostNameDiscriminator.EntityData.ParentYangName = "host"
-    hostNameDiscriminator.EntityData.SegmentPath = "host-name-discriminator"
-    hostNameDiscriminator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    hostNameDiscriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    hostNameDiscriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    hostNameDiscriminator.EntityData.Children = make(map[string]types.YChild)
-    hostNameDiscriminator.EntityData.Leafs = make(map[string]types.YLeaf)
-    hostNameDiscriminator.EntityData.Leafs["nomatch2"] = types.YLeaf{"Nomatch2", hostNameDiscriminator.Nomatch2}
-    hostNameDiscriminator.EntityData.Leafs["match3"] = types.YLeaf{"Match3", hostNameDiscriminator.Match3}
-    hostNameDiscriminator.EntityData.Leafs["nomatch3"] = types.YLeaf{"Nomatch3", hostNameDiscriminator.Nomatch3}
-    hostNameDiscriminator.EntityData.Leafs["match1"] = types.YLeaf{"Match1", hostNameDiscriminator.Match1}
-    hostNameDiscriminator.EntityData.Leafs["nomatch1"] = types.YLeaf{"Nomatch1", hostNameDiscriminator.Nomatch1}
-    hostNameDiscriminator.EntityData.Leafs["match2"] = types.YLeaf{"Match2", hostNameDiscriminator.Match2}
-    return &(hostNameDiscriminator.EntityData)
 }
 
 // Syslog_HostServer_Vrfs_Vrf_Hosts_Host_HostSeverityPort
@@ -1424,13 +1409,14 @@ func (hostNameDiscriminator *Syslog_HostServer_Vrfs_Vrf_Hosts_Host_HostNameDiscr
 type Syslog_HostServer_Vrfs_Vrf_Hosts_Host_HostSeverityPort struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Severity for the logging host. The type is interface{} with range:
-    // -2147483648..2147483647. The default value is 6.
+    // 0..4294967295. The default value is 6.
     Severity interface{}
 
     // Port for the logging host. The type is interface{} with range:
-    // -2147483648..2147483647. The default value is 514.
+    // 0..4294967295. The default value is 514.
     Port interface{}
 }
 
@@ -1444,95 +1430,100 @@ func (hostSeverityPort *Syslog_HostServer_Vrfs_Vrf_Hosts_Host_HostSeverityPort) 
     hostSeverityPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hostSeverityPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hostSeverityPort.EntityData.Children = make(map[string]types.YChild)
-    hostSeverityPort.EntityData.Leafs = make(map[string]types.YLeaf)
-    hostSeverityPort.EntityData.Leafs["severity"] = types.YLeaf{"Severity", hostSeverityPort.Severity}
-    hostSeverityPort.EntityData.Leafs["port"] = types.YLeaf{"Port", hostSeverityPort.Port}
+    hostSeverityPort.EntityData.Children = types.NewOrderedMap()
+    hostSeverityPort.EntityData.Leafs = types.NewOrderedMap()
+    hostSeverityPort.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", hostSeverityPort.Severity})
+    hostSeverityPort.EntityData.Leafs.Append("port", types.YLeaf{"Port", hostSeverityPort.Port})
+
+    hostSeverityPort.EntityData.YListKeys = []string {}
+
     return &(hostSeverityPort.EntityData)
 }
 
-// Syslog_HostServer_Vrfs_Vrf_Ipv4S
+// Syslog_HostServer_Vrfs_Vrf_Ipv4s
 // List of the IPv4 logging host
-type Syslog_HostServer_Vrfs_Vrf_Ipv4S struct {
+type Syslog_HostServer_Vrfs_Vrf_Ipv4s struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 address of the logging host. The type is slice of
-    // Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4.
-    Ipv4 []Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4
+    // Syslog_HostServer_Vrfs_Vrf_Ipv4s_Ipv4.
+    Ipv4 []*Syslog_HostServer_Vrfs_Vrf_Ipv4s_Ipv4
 }
 
-func (ipv4S *Syslog_HostServer_Vrfs_Vrf_Ipv4S) GetEntityData() *types.CommonEntityData {
-    ipv4S.EntityData.YFilter = ipv4S.YFilter
-    ipv4S.EntityData.YangName = "ipv4s"
-    ipv4S.EntityData.BundleName = "cisco_ios_xr"
-    ipv4S.EntityData.ParentYangName = "vrf"
-    ipv4S.EntityData.SegmentPath = "ipv4s"
-    ipv4S.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4S.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4S.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4s *Syslog_HostServer_Vrfs_Vrf_Ipv4s) GetEntityData() *types.CommonEntityData {
+    ipv4s.EntityData.YFilter = ipv4s.YFilter
+    ipv4s.EntityData.YangName = "ipv4s"
+    ipv4s.EntityData.BundleName = "cisco_ios_xr"
+    ipv4s.EntityData.ParentYangName = "vrf"
+    ipv4s.EntityData.SegmentPath = "ipv4s"
+    ipv4s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4S.EntityData.Children = make(map[string]types.YChild)
-    ipv4S.EntityData.Children["ipv4"] = types.YChild{"Ipv4", nil}
-    for i := range ipv4S.Ipv4 {
-        ipv4S.EntityData.Children[types.GetSegmentPath(&ipv4S.Ipv4[i])] = types.YChild{"Ipv4", &ipv4S.Ipv4[i]}
+    ipv4s.EntityData.Children = types.NewOrderedMap()
+    ipv4s.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", nil})
+    for i := range ipv4s.Ipv4 {
+        ipv4s.EntityData.Children.Append(types.GetSegmentPath(ipv4s.Ipv4[i]), types.YChild{"Ipv4", ipv4s.Ipv4[i]})
     }
-    ipv4S.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipv4S.EntityData)
+    ipv4s.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4s.EntityData.YListKeys = []string {}
+
+    return &(ipv4s.EntityData)
 }
 
-// Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4
+// Syslog_HostServer_Vrfs_Vrf_Ipv4s_Ipv4
 // IPv4 address of the logging host
-type Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4 struct {
+type Syslog_HostServer_Vrfs_Vrf_Ipv4s_Ipv4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. IPv4 address of the logging host. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Severity container of the logging host.
-    Ipv4SeverityLevels Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4SeverityLevels
+    Ipv4SeverityLevels Syslog_HostServer_Vrfs_Vrf_Ipv4s_Ipv4_Ipv4SeverityLevels
 
     // Severity/Port for the logging host.
-    Ipv4SeverityPort Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4SeverityPort
-
-    // Set IPv4 logging discriminators.
-    Ipv4Discriminator Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4Discriminator
+    Ipv4SeverityPort Syslog_HostServer_Vrfs_Vrf_Ipv4s_Ipv4_Ipv4SeverityPort
 }
 
-func (ipv4 *Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4) GetEntityData() *types.CommonEntityData {
+func (ipv4 *Syslog_HostServer_Vrfs_Vrf_Ipv4s_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.YFilter = ipv4.YFilter
     ipv4.EntityData.YangName = "ipv4"
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "ipv4s"
-    ipv4.EntityData.SegmentPath = "ipv4" + "[address='" + fmt.Sprintf("%v", ipv4.Address) + "']"
+    ipv4.EntityData.SegmentPath = "ipv4" + types.AddKeyToken(ipv4.Address, "address")
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["ipv4-severity-levels"] = types.YChild{"Ipv4SeverityLevels", &ipv4.Ipv4SeverityLevels}
-    ipv4.EntityData.Children["ipv4-severity-port"] = types.YChild{"Ipv4SeverityPort", &ipv4.Ipv4SeverityPort}
-    ipv4.EntityData.Children["ipv4-discriminator"] = types.YChild{"Ipv4Discriminator", &ipv4.Ipv4Discriminator}
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4.EntityData.Leafs["address"] = types.YLeaf{"Address", ipv4.Address}
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("ipv4-severity-levels", types.YChild{"Ipv4SeverityLevels", &ipv4.Ipv4SeverityLevels})
+    ipv4.EntityData.Children.Append("ipv4-severity-port", types.YChild{"Ipv4SeverityPort", &ipv4.Ipv4SeverityPort})
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+    ipv4.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv4.Address})
+
+    ipv4.EntityData.YListKeys = []string {"Address"}
+
     return &(ipv4.EntityData)
 }
 
-// Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4SeverityLevels
+// Syslog_HostServer_Vrfs_Vrf_Ipv4s_Ipv4_Ipv4SeverityLevels
 // Severity container of the logging host
-type Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4SeverityLevels struct {
+type Syslog_HostServer_Vrfs_Vrf_Ipv4s_Ipv4_Ipv4SeverityLevels struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Severity for the logging host. The type is slice of
-    // Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4SeverityLevels_Ipv4SeverityLevel.
-    Ipv4SeverityLevel []Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4SeverityLevels_Ipv4SeverityLevel
+    // Syslog_HostServer_Vrfs_Vrf_Ipv4s_Ipv4_Ipv4SeverityLevels_Ipv4SeverityLevel.
+    Ipv4SeverityLevel []*Syslog_HostServer_Vrfs_Vrf_Ipv4s_Ipv4_Ipv4SeverityLevels_Ipv4SeverityLevel
 }
 
-func (ipv4SeverityLevels *Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4SeverityLevels) GetEntityData() *types.CommonEntityData {
+func (ipv4SeverityLevels *Syslog_HostServer_Vrfs_Vrf_Ipv4s_Ipv4_Ipv4SeverityLevels) GetEntityData() *types.CommonEntityData {
     ipv4SeverityLevels.EntityData.YFilter = ipv4SeverityLevels.YFilter
     ipv4SeverityLevels.EntityData.YangName = "ipv4-severity-levels"
     ipv4SeverityLevels.EntityData.BundleName = "cisco_ios_xr"
@@ -1542,18 +1533,21 @@ func (ipv4SeverityLevels *Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4SeverityLeve
     ipv4SeverityLevels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SeverityLevels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4SeverityLevels.EntityData.Children = make(map[string]types.YChild)
-    ipv4SeverityLevels.EntityData.Children["ipv4-severity-level"] = types.YChild{"Ipv4SeverityLevel", nil}
+    ipv4SeverityLevels.EntityData.Children = types.NewOrderedMap()
+    ipv4SeverityLevels.EntityData.Children.Append("ipv4-severity-level", types.YChild{"Ipv4SeverityLevel", nil})
     for i := range ipv4SeverityLevels.Ipv4SeverityLevel {
-        ipv4SeverityLevels.EntityData.Children[types.GetSegmentPath(&ipv4SeverityLevels.Ipv4SeverityLevel[i])] = types.YChild{"Ipv4SeverityLevel", &ipv4SeverityLevels.Ipv4SeverityLevel[i]}
+        ipv4SeverityLevels.EntityData.Children.Append(types.GetSegmentPath(ipv4SeverityLevels.Ipv4SeverityLevel[i]), types.YChild{"Ipv4SeverityLevel", ipv4SeverityLevels.Ipv4SeverityLevel[i]})
     }
-    ipv4SeverityLevels.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4SeverityLevels.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4SeverityLevels.EntityData.YListKeys = []string {}
+
     return &(ipv4SeverityLevels.EntityData)
 }
 
-// Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4SeverityLevels_Ipv4SeverityLevel
+// Syslog_HostServer_Vrfs_Vrf_Ipv4s_Ipv4_Ipv4SeverityLevels_Ipv4SeverityLevel
 // Severity for the logging host
-type Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4SeverityLevels_Ipv4SeverityLevel struct {
+type Syslog_HostServer_Vrfs_Vrf_Ipv4s_Ipv4_Ipv4SeverityLevels_Ipv4SeverityLevel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1562,39 +1556,43 @@ type Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4SeverityLevels_Ipv4SeverityLevel 
     Severity interface{}
 }
 
-func (ipv4SeverityLevel *Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4SeverityLevels_Ipv4SeverityLevel) GetEntityData() *types.CommonEntityData {
+func (ipv4SeverityLevel *Syslog_HostServer_Vrfs_Vrf_Ipv4s_Ipv4_Ipv4SeverityLevels_Ipv4SeverityLevel) GetEntityData() *types.CommonEntityData {
     ipv4SeverityLevel.EntityData.YFilter = ipv4SeverityLevel.YFilter
     ipv4SeverityLevel.EntityData.YangName = "ipv4-severity-level"
     ipv4SeverityLevel.EntityData.BundleName = "cisco_ios_xr"
     ipv4SeverityLevel.EntityData.ParentYangName = "ipv4-severity-levels"
-    ipv4SeverityLevel.EntityData.SegmentPath = "ipv4-severity-level" + "[severity='" + fmt.Sprintf("%v", ipv4SeverityLevel.Severity) + "']"
+    ipv4SeverityLevel.EntityData.SegmentPath = "ipv4-severity-level" + types.AddKeyToken(ipv4SeverityLevel.Severity, "severity")
     ipv4SeverityLevel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SeverityLevel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SeverityLevel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4SeverityLevel.EntityData.Children = make(map[string]types.YChild)
-    ipv4SeverityLevel.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4SeverityLevel.EntityData.Leafs["severity"] = types.YLeaf{"Severity", ipv4SeverityLevel.Severity}
+    ipv4SeverityLevel.EntityData.Children = types.NewOrderedMap()
+    ipv4SeverityLevel.EntityData.Leafs = types.NewOrderedMap()
+    ipv4SeverityLevel.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", ipv4SeverityLevel.Severity})
+
+    ipv4SeverityLevel.EntityData.YListKeys = []string {"Severity"}
+
     return &(ipv4SeverityLevel.EntityData)
 }
 
-// Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4SeverityPort
+// Syslog_HostServer_Vrfs_Vrf_Ipv4s_Ipv4_Ipv4SeverityPort
 // Severity/Port for the logging host
 // This type is a presence type.
-type Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4SeverityPort struct {
+type Syslog_HostServer_Vrfs_Vrf_Ipv4s_Ipv4_Ipv4SeverityPort struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Severity for the logging host. The type is interface{} with range:
-    // -2147483648..2147483647. The default value is 6.
+    // 0..4294967295. The default value is 6.
     Severity interface{}
 
     // Port for the logging host. The type is interface{} with range:
-    // -2147483648..2147483647. The default value is 514.
+    // 0..4294967295. The default value is 514.
     Port interface{}
 }
 
-func (ipv4SeverityPort *Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4SeverityPort) GetEntityData() *types.CommonEntityData {
+func (ipv4SeverityPort *Syslog_HostServer_Vrfs_Vrf_Ipv4s_Ipv4_Ipv4SeverityPort) GetEntityData() *types.CommonEntityData {
     ipv4SeverityPort.EntityData.YFilter = ipv4SeverityPort.YFilter
     ipv4SeverityPort.EntityData.YangName = "ipv4-severity-port"
     ipv4SeverityPort.EntityData.BundleName = "cisco_ios_xr"
@@ -1604,57 +1602,14 @@ func (ipv4SeverityPort *Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4SeverityPort) 
     ipv4SeverityPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SeverityPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4SeverityPort.EntityData.Children = make(map[string]types.YChild)
-    ipv4SeverityPort.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4SeverityPort.EntityData.Leafs["severity"] = types.YLeaf{"Severity", ipv4SeverityPort.Severity}
-    ipv4SeverityPort.EntityData.Leafs["port"] = types.YLeaf{"Port", ipv4SeverityPort.Port}
+    ipv4SeverityPort.EntityData.Children = types.NewOrderedMap()
+    ipv4SeverityPort.EntityData.Leafs = types.NewOrderedMap()
+    ipv4SeverityPort.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", ipv4SeverityPort.Severity})
+    ipv4SeverityPort.EntityData.Leafs.Append("port", types.YLeaf{"Port", ipv4SeverityPort.Port})
+
+    ipv4SeverityPort.EntityData.YListKeys = []string {}
+
     return &(ipv4SeverityPort.EntityData)
-}
-
-// Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4Discriminator
-// Set IPv4 logging discriminators
-type Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4Discriminator struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Set IPv4 logging no-match2 discriminator. The type is string.
-    Nomatch2 interface{}
-
-    // Set IPv4 logging match3 discriminator. The type is string.
-    Match3 interface{}
-
-    // Set IPv4 logging no-match3 discriminator. The type is string.
-    Nomatch3 interface{}
-
-    // Set IPv4 logging match1 discriminator. The type is string.
-    Match1 interface{}
-
-    // Set IPv4 logging no-match1 discriminator. The type is string.
-    Nomatch1 interface{}
-
-    // Set IPv4 logging match2 discriminator. The type is string.
-    Match2 interface{}
-}
-
-func (ipv4Discriminator *Syslog_HostServer_Vrfs_Vrf_Ipv4S_Ipv4_Ipv4Discriminator) GetEntityData() *types.CommonEntityData {
-    ipv4Discriminator.EntityData.YFilter = ipv4Discriminator.YFilter
-    ipv4Discriminator.EntityData.YangName = "ipv4-discriminator"
-    ipv4Discriminator.EntityData.BundleName = "cisco_ios_xr"
-    ipv4Discriminator.EntityData.ParentYangName = "ipv4"
-    ipv4Discriminator.EntityData.SegmentPath = "ipv4-discriminator"
-    ipv4Discriminator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4Discriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4Discriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipv4Discriminator.EntityData.Children = make(map[string]types.YChild)
-    ipv4Discriminator.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4Discriminator.EntityData.Leafs["nomatch2"] = types.YLeaf{"Nomatch2", ipv4Discriminator.Nomatch2}
-    ipv4Discriminator.EntityData.Leafs["match3"] = types.YLeaf{"Match3", ipv4Discriminator.Match3}
-    ipv4Discriminator.EntityData.Leafs["nomatch3"] = types.YLeaf{"Nomatch3", ipv4Discriminator.Nomatch3}
-    ipv4Discriminator.EntityData.Leafs["match1"] = types.YLeaf{"Match1", ipv4Discriminator.Match1}
-    ipv4Discriminator.EntityData.Leafs["nomatch1"] = types.YLeaf{"Nomatch1", ipv4Discriminator.Nomatch1}
-    ipv4Discriminator.EntityData.Leafs["match2"] = types.YLeaf{"Match2", ipv4Discriminator.Match2}
-    return &(ipv4Discriminator.EntityData)
 }
 
 // Syslog_ConsoleLogging
@@ -1681,10 +1636,13 @@ func (consoleLogging *Syslog_ConsoleLogging) GetEntityData() *types.CommonEntity
     consoleLogging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     consoleLogging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    consoleLogging.EntityData.Children = make(map[string]types.YChild)
-    consoleLogging.EntityData.Children["console-discriminator"] = types.YChild{"ConsoleDiscriminator", &consoleLogging.ConsoleDiscriminator}
-    consoleLogging.EntityData.Leafs = make(map[string]types.YLeaf)
-    consoleLogging.EntityData.Leafs["logging-level"] = types.YLeaf{"LoggingLevel", consoleLogging.LoggingLevel}
+    consoleLogging.EntityData.Children = types.NewOrderedMap()
+    consoleLogging.EntityData.Children.Append("console-discriminator", types.YChild{"ConsoleDiscriminator", &consoleLogging.ConsoleDiscriminator})
+    consoleLogging.EntityData.Leafs = types.NewOrderedMap()
+    consoleLogging.EntityData.Leafs.Append("logging-level", types.YLeaf{"LoggingLevel", consoleLogging.LoggingLevel})
+
+    consoleLogging.EntityData.YListKeys = []string {}
+
     return &(consoleLogging.EntityData)
 }
 
@@ -1723,14 +1681,17 @@ func (consoleDiscriminator *Syslog_ConsoleLogging_ConsoleDiscriminator) GetEntit
     consoleDiscriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     consoleDiscriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    consoleDiscriminator.EntityData.Children = make(map[string]types.YChild)
-    consoleDiscriminator.EntityData.Leafs = make(map[string]types.YLeaf)
-    consoleDiscriminator.EntityData.Leafs["match2"] = types.YLeaf{"Match2", consoleDiscriminator.Match2}
-    consoleDiscriminator.EntityData.Leafs["nomatch1"] = types.YLeaf{"Nomatch1", consoleDiscriminator.Nomatch1}
-    consoleDiscriminator.EntityData.Leafs["match1"] = types.YLeaf{"Match1", consoleDiscriminator.Match1}
-    consoleDiscriminator.EntityData.Leafs["nomatch3"] = types.YLeaf{"Nomatch3", consoleDiscriminator.Nomatch3}
-    consoleDiscriminator.EntityData.Leafs["match3"] = types.YLeaf{"Match3", consoleDiscriminator.Match3}
-    consoleDiscriminator.EntityData.Leafs["nomatch2"] = types.YLeaf{"Nomatch2", consoleDiscriminator.Nomatch2}
+    consoleDiscriminator.EntityData.Children = types.NewOrderedMap()
+    consoleDiscriminator.EntityData.Leafs = types.NewOrderedMap()
+    consoleDiscriminator.EntityData.Leafs.Append("match2", types.YLeaf{"Match2", consoleDiscriminator.Match2})
+    consoleDiscriminator.EntityData.Leafs.Append("nomatch1", types.YLeaf{"Nomatch1", consoleDiscriminator.Nomatch1})
+    consoleDiscriminator.EntityData.Leafs.Append("match1", types.YLeaf{"Match1", consoleDiscriminator.Match1})
+    consoleDiscriminator.EntityData.Leafs.Append("nomatch3", types.YLeaf{"Nomatch3", consoleDiscriminator.Nomatch3})
+    consoleDiscriminator.EntityData.Leafs.Append("match3", types.YLeaf{"Match3", consoleDiscriminator.Match3})
+    consoleDiscriminator.EntityData.Leafs.Append("nomatch2", types.YLeaf{"Nomatch2", consoleDiscriminator.Nomatch2})
+
+    consoleDiscriminator.EntityData.YListKeys = []string {}
+
     return &(consoleDiscriminator.EntityData)
 }
 
@@ -1741,7 +1702,7 @@ type Syslog_Files struct {
     YFilter yfilter.YFilter
 
     // Specify File Name. The type is slice of Syslog_Files_File.
-    File []Syslog_Files_File
+    File []*Syslog_Files_File
 }
 
 func (files *Syslog_Files) GetEntityData() *types.CommonEntityData {
@@ -1754,12 +1715,15 @@ func (files *Syslog_Files) GetEntityData() *types.CommonEntityData {
     files.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     files.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    files.EntityData.Children = make(map[string]types.YChild)
-    files.EntityData.Children["file"] = types.YChild{"File", nil}
+    files.EntityData.Children = types.NewOrderedMap()
+    files.EntityData.Children.Append("file", types.YChild{"File", nil})
     for i := range files.File {
-        files.EntityData.Children[types.GetSegmentPath(&files.File[i])] = types.YChild{"File", &files.File[i]}
+        files.EntityData.Children.Append(types.GetSegmentPath(files.File[i]), types.YChild{"File", files.File[i]})
     }
-    files.EntityData.Leafs = make(map[string]types.YLeaf)
+    files.EntityData.Leafs = types.NewOrderedMap()
+
+    files.EntityData.YListKeys = []string {}
+
     return &(files.EntityData)
 }
 
@@ -1770,7 +1734,7 @@ type Syslog_Files_File struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the file. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     FileName interface{}
 
     // Specifications of the logging file destination.
@@ -1785,16 +1749,19 @@ func (file *Syslog_Files_File) GetEntityData() *types.CommonEntityData {
     file.EntityData.YangName = "file"
     file.EntityData.BundleName = "cisco_ios_xr"
     file.EntityData.ParentYangName = "files"
-    file.EntityData.SegmentPath = "file" + "[file-name='" + fmt.Sprintf("%v", file.FileName) + "']"
+    file.EntityData.SegmentPath = "file" + types.AddKeyToken(file.FileName, "file-name")
     file.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     file.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     file.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    file.EntityData.Children = make(map[string]types.YChild)
-    file.EntityData.Children["file-specification"] = types.YChild{"FileSpecification", &file.FileSpecification}
-    file.EntityData.Children["file-log-discriminator"] = types.YChild{"FileLogDiscriminator", &file.FileLogDiscriminator}
-    file.EntityData.Leafs = make(map[string]types.YLeaf)
-    file.EntityData.Leafs["file-name"] = types.YLeaf{"FileName", file.FileName}
+    file.EntityData.Children = types.NewOrderedMap()
+    file.EntityData.Children.Append("file-specification", types.YChild{"FileSpecification", &file.FileSpecification})
+    file.EntityData.Children.Append("file-log-discriminator", types.YChild{"FileLogDiscriminator", &file.FileLogDiscriminator})
+    file.EntityData.Leafs = types.NewOrderedMap()
+    file.EntityData.Leafs.Append("file-name", types.YLeaf{"FileName", file.FileName})
+
+    file.EntityData.YListKeys = []string {"FileName"}
+
     return &(file.EntityData)
 }
 
@@ -1808,11 +1775,11 @@ type Syslog_Files_File_FileSpecification struct {
     Path interface{}
 
     // Maximum file size (in KB). The type is interface{} with range:
-    // -2147483648..2147483647. The default value is 1024.
+    // 0..4294967295. The default value is 1024.
     MaxFileSize interface{}
 
-    // Severity of messages. The type is interface{} with range:
-    // -2147483648..2147483647. The default value is 6.
+    // Severity of messages. The type is interface{} with range: 0..4294967295.
+    // The default value is 6.
     Severity interface{}
 }
 
@@ -1826,11 +1793,14 @@ func (fileSpecification *Syslog_Files_File_FileSpecification) GetEntityData() *t
     fileSpecification.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fileSpecification.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fileSpecification.EntityData.Children = make(map[string]types.YChild)
-    fileSpecification.EntityData.Leafs = make(map[string]types.YLeaf)
-    fileSpecification.EntityData.Leafs["path"] = types.YLeaf{"Path", fileSpecification.Path}
-    fileSpecification.EntityData.Leafs["max-file-size"] = types.YLeaf{"MaxFileSize", fileSpecification.MaxFileSize}
-    fileSpecification.EntityData.Leafs["severity"] = types.YLeaf{"Severity", fileSpecification.Severity}
+    fileSpecification.EntityData.Children = types.NewOrderedMap()
+    fileSpecification.EntityData.Leafs = types.NewOrderedMap()
+    fileSpecification.EntityData.Leafs.Append("path", types.YLeaf{"Path", fileSpecification.Path})
+    fileSpecification.EntityData.Leafs.Append("max-file-size", types.YLeaf{"MaxFileSize", fileSpecification.MaxFileSize})
+    fileSpecification.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", fileSpecification.Severity})
+
+    fileSpecification.EntityData.YListKeys = []string {}
+
     return &(fileSpecification.EntityData)
 }
 
@@ -1869,14 +1839,17 @@ func (fileLogDiscriminator *Syslog_Files_File_FileLogDiscriminator) GetEntityDat
     fileLogDiscriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fileLogDiscriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fileLogDiscriminator.EntityData.Children = make(map[string]types.YChild)
-    fileLogDiscriminator.EntityData.Leafs = make(map[string]types.YLeaf)
-    fileLogDiscriminator.EntityData.Leafs["nomatch2"] = types.YLeaf{"Nomatch2", fileLogDiscriminator.Nomatch2}
-    fileLogDiscriminator.EntityData.Leafs["match3"] = types.YLeaf{"Match3", fileLogDiscriminator.Match3}
-    fileLogDiscriminator.EntityData.Leafs["nomatch3"] = types.YLeaf{"Nomatch3", fileLogDiscriminator.Nomatch3}
-    fileLogDiscriminator.EntityData.Leafs["match1"] = types.YLeaf{"Match1", fileLogDiscriminator.Match1}
-    fileLogDiscriminator.EntityData.Leafs["nomatch1"] = types.YLeaf{"Nomatch1", fileLogDiscriminator.Nomatch1}
-    fileLogDiscriminator.EntityData.Leafs["match2"] = types.YLeaf{"Match2", fileLogDiscriminator.Match2}
+    fileLogDiscriminator.EntityData.Children = types.NewOrderedMap()
+    fileLogDiscriminator.EntityData.Leafs = types.NewOrderedMap()
+    fileLogDiscriminator.EntityData.Leafs.Append("nomatch2", types.YLeaf{"Nomatch2", fileLogDiscriminator.Nomatch2})
+    fileLogDiscriminator.EntityData.Leafs.Append("match3", types.YLeaf{"Match3", fileLogDiscriminator.Match3})
+    fileLogDiscriminator.EntityData.Leafs.Append("nomatch3", types.YLeaf{"Nomatch3", fileLogDiscriminator.Nomatch3})
+    fileLogDiscriminator.EntityData.Leafs.Append("match1", types.YLeaf{"Match1", fileLogDiscriminator.Match1})
+    fileLogDiscriminator.EntityData.Leafs.Append("nomatch1", types.YLeaf{"Nomatch1", fileLogDiscriminator.Nomatch1})
+    fileLogDiscriminator.EntityData.Leafs.Append("match2", types.YLeaf{"Match2", fileLogDiscriminator.Match2})
+
+    fileLogDiscriminator.EntityData.YListKeys = []string {}
+
     return &(fileLogDiscriminator.EntityData)
 }
 
@@ -1906,11 +1879,14 @@ func (ipv4 *Syslog_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["dscp"] = types.YChild{"Dscp", &ipv4.Dscp}
-    ipv4.EntityData.Children["tos"] = types.YChild{"Tos", &ipv4.Tos}
-    ipv4.EntityData.Children["precedence"] = types.YChild{"Precedence", &ipv4.Precedence}
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("dscp", types.YChild{"Dscp", &ipv4.Dscp})
+    ipv4.EntityData.Children.Append("tos", types.YChild{"Tos", &ipv4.Tos})
+    ipv4.EntityData.Children.Append("precedence", types.YChild{"Precedence", &ipv4.Precedence})
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -1920,10 +1896,11 @@ func (ipv4 *Syslog_Ipv4) GetEntityData() *types.CommonEntityData {
 type Syslog_Ipv4_Dscp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Logging TOS type DSCP. The type is LoggingDscp. This attribute is
     // mandatory.
-    Type_ interface{}
+    Type interface{}
 
     // Unused. The type is one of the following types: enumeration
     // LoggingPrecedenceValue, or int with range: 0..7.
@@ -1945,11 +1922,14 @@ func (dscp *Syslog_Ipv4_Dscp) GetEntityData() *types.CommonEntityData {
     dscp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dscp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dscp.EntityData.Children = make(map[string]types.YChild)
-    dscp.EntityData.Leafs = make(map[string]types.YLeaf)
-    dscp.EntityData.Leafs["type"] = types.YLeaf{"Type_", dscp.Type_}
-    dscp.EntityData.Leafs["unused"] = types.YLeaf{"Unused", dscp.Unused}
-    dscp.EntityData.Leafs["value"] = types.YLeaf{"Value", dscp.Value}
+    dscp.EntityData.Children = types.NewOrderedMap()
+    dscp.EntityData.Leafs = types.NewOrderedMap()
+    dscp.EntityData.Leafs.Append("type", types.YLeaf{"Type", dscp.Type})
+    dscp.EntityData.Leafs.Append("unused", types.YLeaf{"Unused", dscp.Unused})
+    dscp.EntityData.Leafs.Append("value", types.YLeaf{"Value", dscp.Value})
+
+    dscp.EntityData.YListKeys = []string {}
+
     return &(dscp.EntityData)
 }
 
@@ -1960,7 +1940,7 @@ type Syslog_Ipv4_Tos struct {
     YFilter yfilter.YFilter
 
     // Logging TOS type DSCP or precedence. The type is LoggingTos.
-    Type_ interface{}
+    Type interface{}
 
     // Logging precedence value. The type is one of the following types:
     // enumeration LoggingPrecedenceValue, or int with range: 0..7.
@@ -1981,11 +1961,14 @@ func (tos *Syslog_Ipv4_Tos) GetEntityData() *types.CommonEntityData {
     tos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tos.EntityData.Children = make(map[string]types.YChild)
-    tos.EntityData.Leafs = make(map[string]types.YLeaf)
-    tos.EntityData.Leafs["type"] = types.YLeaf{"Type_", tos.Type_}
-    tos.EntityData.Leafs["precedence"] = types.YLeaf{"Precedence", tos.Precedence}
-    tos.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", tos.Dscp}
+    tos.EntityData.Children = types.NewOrderedMap()
+    tos.EntityData.Leafs = types.NewOrderedMap()
+    tos.EntityData.Leafs.Append("type", types.YLeaf{"Type", tos.Type})
+    tos.EntityData.Leafs.Append("precedence", types.YLeaf{"Precedence", tos.Precedence})
+    tos.EntityData.Leafs.Append("dscp", types.YLeaf{"Dscp", tos.Dscp})
+
+    tos.EntityData.YListKeys = []string {}
+
     return &(tos.EntityData)
 }
 
@@ -1995,10 +1978,11 @@ func (tos *Syslog_Ipv4_Tos) GetEntityData() *types.CommonEntityData {
 type Syslog_Ipv4_Precedence struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Logging TOS type precedence. The type is LoggingPrecedence. This attribute
     // is mandatory.
-    Type_ interface{}
+    Type interface{}
 
     // Logging precedence value. The type is one of the following types:
     // enumeration LoggingPrecedenceValue This attribute is mandatory., or int
@@ -2020,11 +2004,14 @@ func (precedence *Syslog_Ipv4_Precedence) GetEntityData() *types.CommonEntityDat
     precedence.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     precedence.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    precedence.EntityData.Children = make(map[string]types.YChild)
-    precedence.EntityData.Leafs = make(map[string]types.YLeaf)
-    precedence.EntityData.Leafs["type"] = types.YLeaf{"Type_", precedence.Type_}
-    precedence.EntityData.Leafs["value"] = types.YLeaf{"Value", precedence.Value}
-    precedence.EntityData.Leafs["unused"] = types.YLeaf{"Unused", precedence.Unused}
+    precedence.EntityData.Children = types.NewOrderedMap()
+    precedence.EntityData.Leafs = types.NewOrderedMap()
+    precedence.EntityData.Leafs.Append("type", types.YLeaf{"Type", precedence.Type})
+    precedence.EntityData.Leafs.Append("value", types.YLeaf{"Value", precedence.Value})
+    precedence.EntityData.Leafs.Append("unused", types.YLeaf{"Unused", precedence.Unused})
+
+    precedence.EntityData.YListKeys = []string {}
+
     return &(precedence.EntityData)
 }
 
@@ -2070,15 +2057,18 @@ func (archive *Syslog_Archive) GetEntityData() *types.CommonEntityData {
     archive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     archive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    archive.EntityData.Children = make(map[string]types.YChild)
-    archive.EntityData.Leafs = make(map[string]types.YLeaf)
-    archive.EntityData.Leafs["size"] = types.YLeaf{"Size", archive.Size}
-    archive.EntityData.Leafs["file-size"] = types.YLeaf{"FileSize", archive.FileSize}
-    archive.EntityData.Leafs["device"] = types.YLeaf{"Device", archive.Device}
-    archive.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", archive.Threshold}
-    archive.EntityData.Leafs["frequency"] = types.YLeaf{"Frequency", archive.Frequency}
-    archive.EntityData.Leafs["severity"] = types.YLeaf{"Severity", archive.Severity}
-    archive.EntityData.Leafs["length"] = types.YLeaf{"Length", archive.Length}
+    archive.EntityData.Children = types.NewOrderedMap()
+    archive.EntityData.Leafs = types.NewOrderedMap()
+    archive.EntityData.Leafs.Append("size", types.YLeaf{"Size", archive.Size})
+    archive.EntityData.Leafs.Append("file-size", types.YLeaf{"FileSize", archive.FileSize})
+    archive.EntityData.Leafs.Append("device", types.YLeaf{"Device", archive.Device})
+    archive.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", archive.Threshold})
+    archive.EntityData.Leafs.Append("frequency", types.YLeaf{"Frequency", archive.Frequency})
+    archive.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", archive.Severity})
+    archive.EntityData.Leafs.Append("length", types.YLeaf{"Length", archive.Length})
+
+    archive.EntityData.YListKeys = []string {}
+
     return &(archive.EntityData)
 }
 
@@ -2108,11 +2098,14 @@ func (ipv6 *Syslog_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["dscp"] = types.YChild{"Dscp", &ipv6.Dscp}
-    ipv6.EntityData.Children["traffic-class"] = types.YChild{"TrafficClass", &ipv6.TrafficClass}
-    ipv6.EntityData.Children["precedence"] = types.YChild{"Precedence", &ipv6.Precedence}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("dscp", types.YChild{"Dscp", &ipv6.Dscp})
+    ipv6.EntityData.Children.Append("traffic-class", types.YChild{"TrafficClass", &ipv6.TrafficClass})
+    ipv6.EntityData.Children.Append("precedence", types.YChild{"Precedence", &ipv6.Precedence})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -2122,10 +2115,11 @@ func (ipv6 *Syslog_Ipv6) GetEntityData() *types.CommonEntityData {
 type Syslog_Ipv6_Dscp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Logging TOS type DSCP. The type is LoggingDscp. This attribute is
     // mandatory.
-    Type_ interface{}
+    Type interface{}
 
     // Unused. The type is one of the following types: enumeration
     // LoggingPrecedenceValue, or int with range: 0..7.
@@ -2147,11 +2141,14 @@ func (dscp *Syslog_Ipv6_Dscp) GetEntityData() *types.CommonEntityData {
     dscp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dscp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dscp.EntityData.Children = make(map[string]types.YChild)
-    dscp.EntityData.Leafs = make(map[string]types.YLeaf)
-    dscp.EntityData.Leafs["type"] = types.YLeaf{"Type_", dscp.Type_}
-    dscp.EntityData.Leafs["unused"] = types.YLeaf{"Unused", dscp.Unused}
-    dscp.EntityData.Leafs["value"] = types.YLeaf{"Value", dscp.Value}
+    dscp.EntityData.Children = types.NewOrderedMap()
+    dscp.EntityData.Leafs = types.NewOrderedMap()
+    dscp.EntityData.Leafs.Append("type", types.YLeaf{"Type", dscp.Type})
+    dscp.EntityData.Leafs.Append("unused", types.YLeaf{"Unused", dscp.Unused})
+    dscp.EntityData.Leafs.Append("value", types.YLeaf{"Value", dscp.Value})
+
+    dscp.EntityData.YListKeys = []string {}
+
     return &(dscp.EntityData)
 }
 
@@ -2162,7 +2159,7 @@ type Syslog_Ipv6_TrafficClass struct {
     YFilter yfilter.YFilter
 
     // Logging TOS type DSCP or precedence. The type is LoggingTos.
-    Type_ interface{}
+    Type interface{}
 
     // Logging precedence value. The type is one of the following types:
     // enumeration LoggingPrecedenceValue, or int with range: 0..7.
@@ -2183,11 +2180,14 @@ func (trafficClass *Syslog_Ipv6_TrafficClass) GetEntityData() *types.CommonEntit
     trafficClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trafficClass.EntityData.Children = make(map[string]types.YChild)
-    trafficClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    trafficClass.EntityData.Leafs["type"] = types.YLeaf{"Type_", trafficClass.Type_}
-    trafficClass.EntityData.Leafs["precedence"] = types.YLeaf{"Precedence", trafficClass.Precedence}
-    trafficClass.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", trafficClass.Dscp}
+    trafficClass.EntityData.Children = types.NewOrderedMap()
+    trafficClass.EntityData.Leafs = types.NewOrderedMap()
+    trafficClass.EntityData.Leafs.Append("type", types.YLeaf{"Type", trafficClass.Type})
+    trafficClass.EntityData.Leafs.Append("precedence", types.YLeaf{"Precedence", trafficClass.Precedence})
+    trafficClass.EntityData.Leafs.Append("dscp", types.YLeaf{"Dscp", trafficClass.Dscp})
+
+    trafficClass.EntityData.YListKeys = []string {}
+
     return &(trafficClass.EntityData)
 }
 
@@ -2197,10 +2197,11 @@ func (trafficClass *Syslog_Ipv6_TrafficClass) GetEntityData() *types.CommonEntit
 type Syslog_Ipv6_Precedence struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Logging TOS type precedence. The type is LoggingPrecedence. This attribute
     // is mandatory.
-    Type_ interface{}
+    Type interface{}
 
     // Logging precedence value. The type is one of the following types:
     // enumeration LoggingPrecedenceValue This attribute is mandatory., or int
@@ -2222,11 +2223,14 @@ func (precedence *Syslog_Ipv6_Precedence) GetEntityData() *types.CommonEntityDat
     precedence.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     precedence.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    precedence.EntityData.Children = make(map[string]types.YChild)
-    precedence.EntityData.Leafs = make(map[string]types.YLeaf)
-    precedence.EntityData.Leafs["type"] = types.YLeaf{"Type_", precedence.Type_}
-    precedence.EntityData.Leafs["value"] = types.YLeaf{"Value", precedence.Value}
-    precedence.EntityData.Leafs["unused"] = types.YLeaf{"Unused", precedence.Unused}
+    precedence.EntityData.Children = types.NewOrderedMap()
+    precedence.EntityData.Leafs = types.NewOrderedMap()
+    precedence.EntityData.Leafs.Append("type", types.YLeaf{"Type", precedence.Type})
+    precedence.EntityData.Leafs.Append("value", types.YLeaf{"Value", precedence.Value})
+    precedence.EntityData.Leafs.Append("unused", types.YLeaf{"Unused", precedence.Unused})
+
+    precedence.EntityData.YListKeys = []string {}
+
     return &(precedence.EntityData)
 }
 
@@ -2250,9 +2254,12 @@ func (sourceInterfaceTable *Syslog_SourceInterfaceTable) GetEntityData() *types.
     sourceInterfaceTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceInterfaceTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourceInterfaceTable.EntityData.Children = make(map[string]types.YChild)
-    sourceInterfaceTable.EntityData.Children["source-interface-values"] = types.YChild{"SourceInterfaceValues", &sourceInterfaceTable.SourceInterfaceValues}
-    sourceInterfaceTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    sourceInterfaceTable.EntityData.Children = types.NewOrderedMap()
+    sourceInterfaceTable.EntityData.Children.Append("source-interface-values", types.YChild{"SourceInterfaceValues", &sourceInterfaceTable.SourceInterfaceValues})
+    sourceInterfaceTable.EntityData.Leafs = types.NewOrderedMap()
+
+    sourceInterfaceTable.EntityData.YListKeys = []string {}
+
     return &(sourceInterfaceTable.EntityData)
 }
 
@@ -2265,7 +2272,7 @@ type Syslog_SourceInterfaceTable_SourceInterfaceValues struct {
 
     // Source interface. The type is slice of
     // Syslog_SourceInterfaceTable_SourceInterfaceValues_SourceInterfaceValue.
-    SourceInterfaceValue []Syslog_SourceInterfaceTable_SourceInterfaceValues_SourceInterfaceValue
+    SourceInterfaceValue []*Syslog_SourceInterfaceTable_SourceInterfaceValues_SourceInterfaceValue
 }
 
 func (sourceInterfaceValues *Syslog_SourceInterfaceTable_SourceInterfaceValues) GetEntityData() *types.CommonEntityData {
@@ -2278,12 +2285,15 @@ func (sourceInterfaceValues *Syslog_SourceInterfaceTable_SourceInterfaceValues) 
     sourceInterfaceValues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceInterfaceValues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourceInterfaceValues.EntityData.Children = make(map[string]types.YChild)
-    sourceInterfaceValues.EntityData.Children["source-interface-value"] = types.YChild{"SourceInterfaceValue", nil}
+    sourceInterfaceValues.EntityData.Children = types.NewOrderedMap()
+    sourceInterfaceValues.EntityData.Children.Append("source-interface-value", types.YChild{"SourceInterfaceValue", nil})
     for i := range sourceInterfaceValues.SourceInterfaceValue {
-        sourceInterfaceValues.EntityData.Children[types.GetSegmentPath(&sourceInterfaceValues.SourceInterfaceValue[i])] = types.YChild{"SourceInterfaceValue", &sourceInterfaceValues.SourceInterfaceValue[i]}
+        sourceInterfaceValues.EntityData.Children.Append(types.GetSegmentPath(sourceInterfaceValues.SourceInterfaceValue[i]), types.YChild{"SourceInterfaceValue", sourceInterfaceValues.SourceInterfaceValue[i]})
     }
-    sourceInterfaceValues.EntityData.Leafs = make(map[string]types.YLeaf)
+    sourceInterfaceValues.EntityData.Leafs = types.NewOrderedMap()
+
+    sourceInterfaceValues.EntityData.YListKeys = []string {}
+
     return &(sourceInterfaceValues.EntityData)
 }
 
@@ -2294,7 +2304,7 @@ type Syslog_SourceInterfaceTable_SourceInterfaceValues_SourceInterfaceValue stru
     YFilter yfilter.YFilter
 
     // This attribute is a key. Which Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     SrcInterfaceNameValue interface{}
 
     // Configure source interface VRF.
@@ -2306,15 +2316,18 @@ func (sourceInterfaceValue *Syslog_SourceInterfaceTable_SourceInterfaceValues_So
     sourceInterfaceValue.EntityData.YangName = "source-interface-value"
     sourceInterfaceValue.EntityData.BundleName = "cisco_ios_xr"
     sourceInterfaceValue.EntityData.ParentYangName = "source-interface-values"
-    sourceInterfaceValue.EntityData.SegmentPath = "source-interface-value" + "[src-interface-name-value='" + fmt.Sprintf("%v", sourceInterfaceValue.SrcInterfaceNameValue) + "']"
+    sourceInterfaceValue.EntityData.SegmentPath = "source-interface-value" + types.AddKeyToken(sourceInterfaceValue.SrcInterfaceNameValue, "src-interface-name-value")
     sourceInterfaceValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceInterfaceValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceInterfaceValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourceInterfaceValue.EntityData.Children = make(map[string]types.YChild)
-    sourceInterfaceValue.EntityData.Children["source-interface-vrfs"] = types.YChild{"SourceInterfaceVrfs", &sourceInterfaceValue.SourceInterfaceVrfs}
-    sourceInterfaceValue.EntityData.Leafs = make(map[string]types.YLeaf)
-    sourceInterfaceValue.EntityData.Leafs["src-interface-name-value"] = types.YLeaf{"SrcInterfaceNameValue", sourceInterfaceValue.SrcInterfaceNameValue}
+    sourceInterfaceValue.EntityData.Children = types.NewOrderedMap()
+    sourceInterfaceValue.EntityData.Children.Append("source-interface-vrfs", types.YChild{"SourceInterfaceVrfs", &sourceInterfaceValue.SourceInterfaceVrfs})
+    sourceInterfaceValue.EntityData.Leafs = types.NewOrderedMap()
+    sourceInterfaceValue.EntityData.Leafs.Append("src-interface-name-value", types.YLeaf{"SrcInterfaceNameValue", sourceInterfaceValue.SrcInterfaceNameValue})
+
+    sourceInterfaceValue.EntityData.YListKeys = []string {"SrcInterfaceNameValue"}
+
     return &(sourceInterfaceValue.EntityData)
 }
 
@@ -2326,7 +2339,7 @@ type Syslog_SourceInterfaceTable_SourceInterfaceValues_SourceInterfaceValue_Sour
 
     // Specify VRF for source interface. The type is slice of
     // Syslog_SourceInterfaceTable_SourceInterfaceValues_SourceInterfaceValue_SourceInterfaceVrfs_SourceInterfaceVrf.
-    SourceInterfaceVrf []Syslog_SourceInterfaceTable_SourceInterfaceValues_SourceInterfaceValue_SourceInterfaceVrfs_SourceInterfaceVrf
+    SourceInterfaceVrf []*Syslog_SourceInterfaceTable_SourceInterfaceValues_SourceInterfaceValue_SourceInterfaceVrfs_SourceInterfaceVrf
 }
 
 func (sourceInterfaceVrfs *Syslog_SourceInterfaceTable_SourceInterfaceValues_SourceInterfaceValue_SourceInterfaceVrfs) GetEntityData() *types.CommonEntityData {
@@ -2339,12 +2352,15 @@ func (sourceInterfaceVrfs *Syslog_SourceInterfaceTable_SourceInterfaceValues_Sou
     sourceInterfaceVrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceInterfaceVrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourceInterfaceVrfs.EntityData.Children = make(map[string]types.YChild)
-    sourceInterfaceVrfs.EntityData.Children["source-interface-vrf"] = types.YChild{"SourceInterfaceVrf", nil}
+    sourceInterfaceVrfs.EntityData.Children = types.NewOrderedMap()
+    sourceInterfaceVrfs.EntityData.Children.Append("source-interface-vrf", types.YChild{"SourceInterfaceVrf", nil})
     for i := range sourceInterfaceVrfs.SourceInterfaceVrf {
-        sourceInterfaceVrfs.EntityData.Children[types.GetSegmentPath(&sourceInterfaceVrfs.SourceInterfaceVrf[i])] = types.YChild{"SourceInterfaceVrf", &sourceInterfaceVrfs.SourceInterfaceVrf[i]}
+        sourceInterfaceVrfs.EntityData.Children.Append(types.GetSegmentPath(sourceInterfaceVrfs.SourceInterfaceVrf[i]), types.YChild{"SourceInterfaceVrf", sourceInterfaceVrfs.SourceInterfaceVrf[i]})
     }
-    sourceInterfaceVrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    sourceInterfaceVrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    sourceInterfaceVrfs.EntityData.YListKeys = []string {}
+
     return &(sourceInterfaceVrfs.EntityData)
 }
 
@@ -2355,7 +2371,7 @@ type Syslog_SourceInterfaceTable_SourceInterfaceValues_SourceInterfaceValue_Sour
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the VRF instance. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 }
 
@@ -2364,14 +2380,17 @@ func (sourceInterfaceVrf *Syslog_SourceInterfaceTable_SourceInterfaceValues_Sour
     sourceInterfaceVrf.EntityData.YangName = "source-interface-vrf"
     sourceInterfaceVrf.EntityData.BundleName = "cisco_ios_xr"
     sourceInterfaceVrf.EntityData.ParentYangName = "source-interface-vrfs"
-    sourceInterfaceVrf.EntityData.SegmentPath = "source-interface-vrf" + "[vrf-name='" + fmt.Sprintf("%v", sourceInterfaceVrf.VrfName) + "']"
+    sourceInterfaceVrf.EntityData.SegmentPath = "source-interface-vrf" + types.AddKeyToken(sourceInterfaceVrf.VrfName, "vrf-name")
     sourceInterfaceVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceInterfaceVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceInterfaceVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourceInterfaceVrf.EntityData.Children = make(map[string]types.YChild)
-    sourceInterfaceVrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    sourceInterfaceVrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", sourceInterfaceVrf.VrfName}
+    sourceInterfaceVrf.EntityData.Children = types.NewOrderedMap()
+    sourceInterfaceVrf.EntityData.Leafs = types.NewOrderedMap()
+    sourceInterfaceVrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", sourceInterfaceVrf.VrfName})
+
+    sourceInterfaceVrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(sourceInterfaceVrf.EntityData)
 }
 
@@ -2419,15 +2438,18 @@ func (alarmLogger *Syslog_AlarmLogger) GetEntityData() *types.CommonEntityData {
     alarmLogger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmLogger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarmLogger.EntityData.Children = make(map[string]types.YChild)
-    alarmLogger.EntityData.Children["alarm-filter-strings"] = types.YChild{"AlarmFilterStrings", &alarmLogger.AlarmFilterStrings}
-    alarmLogger.EntityData.Leafs = make(map[string]types.YLeaf)
-    alarmLogger.EntityData.Leafs["pre-config-suppression"] = types.YLeaf{"PreConfigSuppression", alarmLogger.PreConfigSuppression}
-    alarmLogger.EntityData.Leafs["severity-level"] = types.YLeaf{"SeverityLevel", alarmLogger.SeverityLevel}
-    alarmLogger.EntityData.Leafs["pre-config-suppression-timeout"] = types.YLeaf{"PreConfigSuppressionTimeout", alarmLogger.PreConfigSuppressionTimeout}
-    alarmLogger.EntityData.Leafs["buffer-size"] = types.YLeaf{"BufferSize", alarmLogger.BufferSize}
-    alarmLogger.EntityData.Leafs["source-location"] = types.YLeaf{"SourceLocation", alarmLogger.SourceLocation}
-    alarmLogger.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", alarmLogger.Threshold}
+    alarmLogger.EntityData.Children = types.NewOrderedMap()
+    alarmLogger.EntityData.Children.Append("alarm-filter-strings", types.YChild{"AlarmFilterStrings", &alarmLogger.AlarmFilterStrings})
+    alarmLogger.EntityData.Leafs = types.NewOrderedMap()
+    alarmLogger.EntityData.Leafs.Append("pre-config-suppression", types.YLeaf{"PreConfigSuppression", alarmLogger.PreConfigSuppression})
+    alarmLogger.EntityData.Leafs.Append("severity-level", types.YLeaf{"SeverityLevel", alarmLogger.SeverityLevel})
+    alarmLogger.EntityData.Leafs.Append("pre-config-suppression-timeout", types.YLeaf{"PreConfigSuppressionTimeout", alarmLogger.PreConfigSuppressionTimeout})
+    alarmLogger.EntityData.Leafs.Append("buffer-size", types.YLeaf{"BufferSize", alarmLogger.BufferSize})
+    alarmLogger.EntityData.Leafs.Append("source-location", types.YLeaf{"SourceLocation", alarmLogger.SourceLocation})
+    alarmLogger.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", alarmLogger.Threshold})
+
+    alarmLogger.EntityData.YListKeys = []string {}
+
     return &(alarmLogger.EntityData)
 }
 
@@ -2439,7 +2461,7 @@ type Syslog_AlarmLogger_AlarmFilterStrings struct {
 
     // Match string to filter alarms. The type is slice of
     // Syslog_AlarmLogger_AlarmFilterStrings_AlarmFilterString.
-    AlarmFilterString []Syslog_AlarmLogger_AlarmFilterStrings_AlarmFilterString
+    AlarmFilterString []*Syslog_AlarmLogger_AlarmFilterStrings_AlarmFilterString
 }
 
 func (alarmFilterStrings *Syslog_AlarmLogger_AlarmFilterStrings) GetEntityData() *types.CommonEntityData {
@@ -2452,12 +2474,15 @@ func (alarmFilterStrings *Syslog_AlarmLogger_AlarmFilterStrings) GetEntityData()
     alarmFilterStrings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmFilterStrings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarmFilterStrings.EntityData.Children = make(map[string]types.YChild)
-    alarmFilterStrings.EntityData.Children["alarm-filter-string"] = types.YChild{"AlarmFilterString", nil}
+    alarmFilterStrings.EntityData.Children = types.NewOrderedMap()
+    alarmFilterStrings.EntityData.Children.Append("alarm-filter-string", types.YChild{"AlarmFilterString", nil})
     for i := range alarmFilterStrings.AlarmFilterString {
-        alarmFilterStrings.EntityData.Children[types.GetSegmentPath(&alarmFilterStrings.AlarmFilterString[i])] = types.YChild{"AlarmFilterString", &alarmFilterStrings.AlarmFilterString[i]}
+        alarmFilterStrings.EntityData.Children.Append(types.GetSegmentPath(alarmFilterStrings.AlarmFilterString[i]), types.YChild{"AlarmFilterString", alarmFilterStrings.AlarmFilterString[i]})
     }
-    alarmFilterStrings.EntityData.Leafs = make(map[string]types.YLeaf)
+    alarmFilterStrings.EntityData.Leafs = types.NewOrderedMap()
+
+    alarmFilterStrings.EntityData.YListKeys = []string {}
+
     return &(alarmFilterStrings.EntityData)
 }
 
@@ -2468,7 +2493,7 @@ type Syslog_AlarmLogger_AlarmFilterStrings_AlarmFilterString struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Filter String. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     FilterString interface{}
 }
 
@@ -2477,14 +2502,17 @@ func (alarmFilterString *Syslog_AlarmLogger_AlarmFilterStrings_AlarmFilterString
     alarmFilterString.EntityData.YangName = "alarm-filter-string"
     alarmFilterString.EntityData.BundleName = "cisco_ios_xr"
     alarmFilterString.EntityData.ParentYangName = "alarm-filter-strings"
-    alarmFilterString.EntityData.SegmentPath = "alarm-filter-string" + "[filter-string='" + fmt.Sprintf("%v", alarmFilterString.FilterString) + "']"
+    alarmFilterString.EntityData.SegmentPath = "alarm-filter-string" + types.AddKeyToken(alarmFilterString.FilterString, "filter-string")
     alarmFilterString.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarmFilterString.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmFilterString.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarmFilterString.EntityData.Children = make(map[string]types.YChild)
-    alarmFilterString.EntityData.Leafs = make(map[string]types.YLeaf)
-    alarmFilterString.EntityData.Leafs["filter-string"] = types.YLeaf{"FilterString", alarmFilterString.FilterString}
+    alarmFilterString.EntityData.Children = types.NewOrderedMap()
+    alarmFilterString.EntityData.Leafs = types.NewOrderedMap()
+    alarmFilterString.EntityData.Leafs.Append("filter-string", types.YLeaf{"FilterString", alarmFilterString.FilterString})
+
+    alarmFilterString.EntityData.YListKeys = []string {"FilterString"}
+
     return &(alarmFilterString.EntityData)
 }
 
@@ -2515,11 +2543,14 @@ func (correlator *Syslog_Correlator) GetEntityData() *types.CommonEntityData {
     correlator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     correlator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    correlator.EntityData.Children = make(map[string]types.YChild)
-    correlator.EntityData.Children["rules"] = types.YChild{"Rules", &correlator.Rules}
-    correlator.EntityData.Children["rule-sets"] = types.YChild{"RuleSets", &correlator.RuleSets}
-    correlator.EntityData.Leafs = make(map[string]types.YLeaf)
-    correlator.EntityData.Leafs["buffer-size"] = types.YLeaf{"BufferSize", correlator.BufferSize}
+    correlator.EntityData.Children = types.NewOrderedMap()
+    correlator.EntityData.Children.Append("rules", types.YChild{"Rules", &correlator.Rules})
+    correlator.EntityData.Children.Append("rule-sets", types.YChild{"RuleSets", &correlator.RuleSets})
+    correlator.EntityData.Leafs = types.NewOrderedMap()
+    correlator.EntityData.Leafs.Append("buffer-size", types.YLeaf{"BufferSize", correlator.BufferSize})
+
+    correlator.EntityData.YListKeys = []string {}
+
     return &(correlator.EntityData)
 }
 
@@ -2530,7 +2561,7 @@ type Syslog_Correlator_Rules struct {
     YFilter yfilter.YFilter
 
     // Rule name. The type is slice of Syslog_Correlator_Rules_Rule.
-    Rule []Syslog_Correlator_Rules_Rule
+    Rule []*Syslog_Correlator_Rules_Rule
 }
 
 func (rules *Syslog_Correlator_Rules) GetEntityData() *types.CommonEntityData {
@@ -2543,12 +2574,15 @@ func (rules *Syslog_Correlator_Rules) GetEntityData() *types.CommonEntityData {
     rules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rules.EntityData.Children = make(map[string]types.YChild)
-    rules.EntityData.Children["rule"] = types.YChild{"Rule", nil}
+    rules.EntityData.Children = types.NewOrderedMap()
+    rules.EntityData.Children.Append("rule", types.YChild{"Rule", nil})
     for i := range rules.Rule {
-        rules.EntityData.Children[types.GetSegmentPath(&rules.Rule[i])] = types.YChild{"Rule", &rules.Rule[i]}
+        rules.EntityData.Children.Append(types.GetSegmentPath(rules.Rule[i]), types.YChild{"Rule", rules.Rule[i]})
     }
-    rules.EntityData.Leafs = make(map[string]types.YLeaf)
+    rules.EntityData.Leafs = types.NewOrderedMap()
+
+    rules.EntityData.YListKeys = []string {}
+
     return &(rules.EntityData)
 }
 
@@ -2582,19 +2616,22 @@ func (rule *Syslog_Correlator_Rules_Rule) GetEntityData() *types.CommonEntityDat
     rule.EntityData.YangName = "rule"
     rule.EntityData.BundleName = "cisco_ios_xr"
     rule.EntityData.ParentYangName = "rules"
-    rule.EntityData.SegmentPath = "rule" + "[name='" + fmt.Sprintf("%v", rule.Name) + "']"
+    rule.EntityData.SegmentPath = "rule" + types.AddKeyToken(rule.Name, "name")
     rule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rule.EntityData.Children = make(map[string]types.YChild)
-    rule.EntityData.Children["definition"] = types.YChild{"Definition", &rule.Definition}
-    rule.EntityData.Children["non-stateful"] = types.YChild{"NonStateful", &rule.NonStateful}
-    rule.EntityData.Children["stateful"] = types.YChild{"Stateful", &rule.Stateful}
-    rule.EntityData.Children["apply-to"] = types.YChild{"ApplyTo", &rule.ApplyTo}
-    rule.EntityData.Children["applied-to"] = types.YChild{"AppliedTo", &rule.AppliedTo}
-    rule.EntityData.Leafs = make(map[string]types.YLeaf)
-    rule.EntityData.Leafs["name"] = types.YLeaf{"Name", rule.Name}
+    rule.EntityData.Children = types.NewOrderedMap()
+    rule.EntityData.Children.Append("definition", types.YChild{"Definition", &rule.Definition})
+    rule.EntityData.Children.Append("non-stateful", types.YChild{"NonStateful", &rule.NonStateful})
+    rule.EntityData.Children.Append("stateful", types.YChild{"Stateful", &rule.Stateful})
+    rule.EntityData.Children.Append("apply-to", types.YChild{"ApplyTo", &rule.ApplyTo})
+    rule.EntityData.Children.Append("applied-to", types.YChild{"AppliedTo", &rule.AppliedTo})
+    rule.EntityData.Leafs = types.NewOrderedMap()
+    rule.EntityData.Leafs.Append("name", types.YLeaf{"Name", rule.Name})
+
+    rule.EntityData.YListKeys = []string {"Name"}
+
     return &(rule.EntityData)
 }
 
@@ -2709,39 +2746,42 @@ func (definition *Syslog_Correlator_Rules_Rule_Definition) GetEntityData() *type
     definition.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     definition.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    definition.EntityData.Children = make(map[string]types.YChild)
-    definition.EntityData.Leafs = make(map[string]types.YLeaf)
-    definition.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", definition.Timeout}
-    definition.EntityData.Leafs["category-name-entry1"] = types.YLeaf{"CategoryNameEntry1", definition.CategoryNameEntry1}
-    definition.EntityData.Leafs["group-name-entry1"] = types.YLeaf{"GroupNameEntry1", definition.GroupNameEntry1}
-    definition.EntityData.Leafs["message-code-entry1"] = types.YLeaf{"MessageCodeEntry1", definition.MessageCodeEntry1}
-    definition.EntityData.Leafs["category-name-entry2"] = types.YLeaf{"CategoryNameEntry2", definition.CategoryNameEntry2}
-    definition.EntityData.Leafs["group-name-entry2"] = types.YLeaf{"GroupNameEntry2", definition.GroupNameEntry2}
-    definition.EntityData.Leafs["message-code-entry2"] = types.YLeaf{"MessageCodeEntry2", definition.MessageCodeEntry2}
-    definition.EntityData.Leafs["category-name-entry3"] = types.YLeaf{"CategoryNameEntry3", definition.CategoryNameEntry3}
-    definition.EntityData.Leafs["group-name-entry3"] = types.YLeaf{"GroupNameEntry3", definition.GroupNameEntry3}
-    definition.EntityData.Leafs["message-code-entry3"] = types.YLeaf{"MessageCodeEntry3", definition.MessageCodeEntry3}
-    definition.EntityData.Leafs["category-name-entry4"] = types.YLeaf{"CategoryNameEntry4", definition.CategoryNameEntry4}
-    definition.EntityData.Leafs["group-name-entry4"] = types.YLeaf{"GroupNameEntry4", definition.GroupNameEntry4}
-    definition.EntityData.Leafs["message-code-entry4"] = types.YLeaf{"MessageCodeEntry4", definition.MessageCodeEntry4}
-    definition.EntityData.Leafs["category-name-entry5"] = types.YLeaf{"CategoryNameEntry5", definition.CategoryNameEntry5}
-    definition.EntityData.Leafs["group-name-entry5"] = types.YLeaf{"GroupNameEntry5", definition.GroupNameEntry5}
-    definition.EntityData.Leafs["message-code-entry5"] = types.YLeaf{"MessageCodeEntry5", definition.MessageCodeEntry5}
-    definition.EntityData.Leafs["category-name-entry6"] = types.YLeaf{"CategoryNameEntry6", definition.CategoryNameEntry6}
-    definition.EntityData.Leafs["group-name-entry6"] = types.YLeaf{"GroupNameEntry6", definition.GroupNameEntry6}
-    definition.EntityData.Leafs["message-code-entry6"] = types.YLeaf{"MessageCodeEntry6", definition.MessageCodeEntry6}
-    definition.EntityData.Leafs["category-name-entry7"] = types.YLeaf{"CategoryNameEntry7", definition.CategoryNameEntry7}
-    definition.EntityData.Leafs["group-name-entry7"] = types.YLeaf{"GroupNameEntry7", definition.GroupNameEntry7}
-    definition.EntityData.Leafs["message-code-entry7"] = types.YLeaf{"MessageCodeEntry7", definition.MessageCodeEntry7}
-    definition.EntityData.Leafs["category-name-entry8"] = types.YLeaf{"CategoryNameEntry8", definition.CategoryNameEntry8}
-    definition.EntityData.Leafs["group-name-entry8"] = types.YLeaf{"GroupNameEntry8", definition.GroupNameEntry8}
-    definition.EntityData.Leafs["message-code-entry8"] = types.YLeaf{"MessageCodeEntry8", definition.MessageCodeEntry8}
-    definition.EntityData.Leafs["category-name-entry9"] = types.YLeaf{"CategoryNameEntry9", definition.CategoryNameEntry9}
-    definition.EntityData.Leafs["group-name-entry9"] = types.YLeaf{"GroupNameEntry9", definition.GroupNameEntry9}
-    definition.EntityData.Leafs["message-code-entry9"] = types.YLeaf{"MessageCodeEntry9", definition.MessageCodeEntry9}
-    definition.EntityData.Leafs["category-name-entry10"] = types.YLeaf{"CategoryNameEntry10", definition.CategoryNameEntry10}
-    definition.EntityData.Leafs["group-name-entry10"] = types.YLeaf{"GroupNameEntry10", definition.GroupNameEntry10}
-    definition.EntityData.Leafs["message-code-entry10"] = types.YLeaf{"MessageCodeEntry10", definition.MessageCodeEntry10}
+    definition.EntityData.Children = types.NewOrderedMap()
+    definition.EntityData.Leafs = types.NewOrderedMap()
+    definition.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", definition.Timeout})
+    definition.EntityData.Leafs.Append("category-name-entry1", types.YLeaf{"CategoryNameEntry1", definition.CategoryNameEntry1})
+    definition.EntityData.Leafs.Append("group-name-entry1", types.YLeaf{"GroupNameEntry1", definition.GroupNameEntry1})
+    definition.EntityData.Leafs.Append("message-code-entry1", types.YLeaf{"MessageCodeEntry1", definition.MessageCodeEntry1})
+    definition.EntityData.Leafs.Append("category-name-entry2", types.YLeaf{"CategoryNameEntry2", definition.CategoryNameEntry2})
+    definition.EntityData.Leafs.Append("group-name-entry2", types.YLeaf{"GroupNameEntry2", definition.GroupNameEntry2})
+    definition.EntityData.Leafs.Append("message-code-entry2", types.YLeaf{"MessageCodeEntry2", definition.MessageCodeEntry2})
+    definition.EntityData.Leafs.Append("category-name-entry3", types.YLeaf{"CategoryNameEntry3", definition.CategoryNameEntry3})
+    definition.EntityData.Leafs.Append("group-name-entry3", types.YLeaf{"GroupNameEntry3", definition.GroupNameEntry3})
+    definition.EntityData.Leafs.Append("message-code-entry3", types.YLeaf{"MessageCodeEntry3", definition.MessageCodeEntry3})
+    definition.EntityData.Leafs.Append("category-name-entry4", types.YLeaf{"CategoryNameEntry4", definition.CategoryNameEntry4})
+    definition.EntityData.Leafs.Append("group-name-entry4", types.YLeaf{"GroupNameEntry4", definition.GroupNameEntry4})
+    definition.EntityData.Leafs.Append("message-code-entry4", types.YLeaf{"MessageCodeEntry4", definition.MessageCodeEntry4})
+    definition.EntityData.Leafs.Append("category-name-entry5", types.YLeaf{"CategoryNameEntry5", definition.CategoryNameEntry5})
+    definition.EntityData.Leafs.Append("group-name-entry5", types.YLeaf{"GroupNameEntry5", definition.GroupNameEntry5})
+    definition.EntityData.Leafs.Append("message-code-entry5", types.YLeaf{"MessageCodeEntry5", definition.MessageCodeEntry5})
+    definition.EntityData.Leafs.Append("category-name-entry6", types.YLeaf{"CategoryNameEntry6", definition.CategoryNameEntry6})
+    definition.EntityData.Leafs.Append("group-name-entry6", types.YLeaf{"GroupNameEntry6", definition.GroupNameEntry6})
+    definition.EntityData.Leafs.Append("message-code-entry6", types.YLeaf{"MessageCodeEntry6", definition.MessageCodeEntry6})
+    definition.EntityData.Leafs.Append("category-name-entry7", types.YLeaf{"CategoryNameEntry7", definition.CategoryNameEntry7})
+    definition.EntityData.Leafs.Append("group-name-entry7", types.YLeaf{"GroupNameEntry7", definition.GroupNameEntry7})
+    definition.EntityData.Leafs.Append("message-code-entry7", types.YLeaf{"MessageCodeEntry7", definition.MessageCodeEntry7})
+    definition.EntityData.Leafs.Append("category-name-entry8", types.YLeaf{"CategoryNameEntry8", definition.CategoryNameEntry8})
+    definition.EntityData.Leafs.Append("group-name-entry8", types.YLeaf{"GroupNameEntry8", definition.GroupNameEntry8})
+    definition.EntityData.Leafs.Append("message-code-entry8", types.YLeaf{"MessageCodeEntry8", definition.MessageCodeEntry8})
+    definition.EntityData.Leafs.Append("category-name-entry9", types.YLeaf{"CategoryNameEntry9", definition.CategoryNameEntry9})
+    definition.EntityData.Leafs.Append("group-name-entry9", types.YLeaf{"GroupNameEntry9", definition.GroupNameEntry9})
+    definition.EntityData.Leafs.Append("message-code-entry9", types.YLeaf{"MessageCodeEntry9", definition.MessageCodeEntry9})
+    definition.EntityData.Leafs.Append("category-name-entry10", types.YLeaf{"CategoryNameEntry10", definition.CategoryNameEntry10})
+    definition.EntityData.Leafs.Append("group-name-entry10", types.YLeaf{"GroupNameEntry10", definition.GroupNameEntry10})
+    definition.EntityData.Leafs.Append("message-code-entry10", types.YLeaf{"MessageCodeEntry10", definition.MessageCodeEntry10})
+
+    definition.EntityData.YListKeys = []string {}
+
     return &(definition.EntityData)
 }
 
@@ -2779,13 +2819,16 @@ func (nonStateful *Syslog_Correlator_Rules_Rule_NonStateful) GetEntityData() *ty
     nonStateful.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonStateful.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nonStateful.EntityData.Children = make(map[string]types.YChild)
-    nonStateful.EntityData.Children["non-root-causes"] = types.YChild{"NonRootCauses", &nonStateful.NonRootCauses}
-    nonStateful.EntityData.Children["root-cause"] = types.YChild{"RootCause", &nonStateful.RootCause}
-    nonStateful.EntityData.Leafs = make(map[string]types.YLeaf)
-    nonStateful.EntityData.Leafs["context-correlation"] = types.YLeaf{"ContextCorrelation", nonStateful.ContextCorrelation}
-    nonStateful.EntityData.Leafs["timeout-root-cause"] = types.YLeaf{"TimeoutRootCause", nonStateful.TimeoutRootCause}
-    nonStateful.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", nonStateful.Timeout}
+    nonStateful.EntityData.Children = types.NewOrderedMap()
+    nonStateful.EntityData.Children.Append("non-root-causes", types.YChild{"NonRootCauses", &nonStateful.NonRootCauses})
+    nonStateful.EntityData.Children.Append("root-cause", types.YChild{"RootCause", &nonStateful.RootCause})
+    nonStateful.EntityData.Leafs = types.NewOrderedMap()
+    nonStateful.EntityData.Leafs.Append("context-correlation", types.YLeaf{"ContextCorrelation", nonStateful.ContextCorrelation})
+    nonStateful.EntityData.Leafs.Append("timeout-root-cause", types.YLeaf{"TimeoutRootCause", nonStateful.TimeoutRootCause})
+    nonStateful.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", nonStateful.Timeout})
+
+    nonStateful.EntityData.YListKeys = []string {}
+
     return &(nonStateful.EntityData)
 }
 
@@ -2797,7 +2840,7 @@ type Syslog_Correlator_Rules_Rule_NonStateful_NonRootCauses struct {
 
     // A non-rootcause. The type is slice of
     // Syslog_Correlator_Rules_Rule_NonStateful_NonRootCauses_NonRootCause.
-    NonRootCause []Syslog_Correlator_Rules_Rule_NonStateful_NonRootCauses_NonRootCause
+    NonRootCause []*Syslog_Correlator_Rules_Rule_NonStateful_NonRootCauses_NonRootCause
 }
 
 func (nonRootCauses *Syslog_Correlator_Rules_Rule_NonStateful_NonRootCauses) GetEntityData() *types.CommonEntityData {
@@ -2810,12 +2853,15 @@ func (nonRootCauses *Syslog_Correlator_Rules_Rule_NonStateful_NonRootCauses) Get
     nonRootCauses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonRootCauses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nonRootCauses.EntityData.Children = make(map[string]types.YChild)
-    nonRootCauses.EntityData.Children["non-root-cause"] = types.YChild{"NonRootCause", nil}
+    nonRootCauses.EntityData.Children = types.NewOrderedMap()
+    nonRootCauses.EntityData.Children.Append("non-root-cause", types.YChild{"NonRootCause", nil})
     for i := range nonRootCauses.NonRootCause {
-        nonRootCauses.EntityData.Children[types.GetSegmentPath(&nonRootCauses.NonRootCause[i])] = types.YChild{"NonRootCause", &nonRootCauses.NonRootCause[i]}
+        nonRootCauses.EntityData.Children.Append(types.GetSegmentPath(nonRootCauses.NonRootCause[i]), types.YChild{"NonRootCause", nonRootCauses.NonRootCause[i]})
     }
-    nonRootCauses.EntityData.Leafs = make(map[string]types.YLeaf)
+    nonRootCauses.EntityData.Leafs = types.NewOrderedMap()
+
+    nonRootCauses.EntityData.YListKeys = []string {}
+
     return &(nonRootCauses.EntityData)
 }
 
@@ -2840,16 +2886,19 @@ func (nonRootCause *Syslog_Correlator_Rules_Rule_NonStateful_NonRootCauses_NonRo
     nonRootCause.EntityData.YangName = "non-root-cause"
     nonRootCause.EntityData.BundleName = "cisco_ios_xr"
     nonRootCause.EntityData.ParentYangName = "non-root-causes"
-    nonRootCause.EntityData.SegmentPath = "non-root-cause" + "[category='" + fmt.Sprintf("%v", nonRootCause.Category) + "']" + "[group='" + fmt.Sprintf("%v", nonRootCause.Group) + "']" + "[message-code='" + fmt.Sprintf("%v", nonRootCause.MessageCode) + "']"
+    nonRootCause.EntityData.SegmentPath = "non-root-cause" + types.AddKeyToken(nonRootCause.Category, "category") + types.AddKeyToken(nonRootCause.Group, "group") + types.AddKeyToken(nonRootCause.MessageCode, "message-code")
     nonRootCause.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonRootCause.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonRootCause.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nonRootCause.EntityData.Children = make(map[string]types.YChild)
-    nonRootCause.EntityData.Leafs = make(map[string]types.YLeaf)
-    nonRootCause.EntityData.Leafs["category"] = types.YLeaf{"Category", nonRootCause.Category}
-    nonRootCause.EntityData.Leafs["group"] = types.YLeaf{"Group", nonRootCause.Group}
-    nonRootCause.EntityData.Leafs["message-code"] = types.YLeaf{"MessageCode", nonRootCause.MessageCode}
+    nonRootCause.EntityData.Children = types.NewOrderedMap()
+    nonRootCause.EntityData.Leafs = types.NewOrderedMap()
+    nonRootCause.EntityData.Leafs.Append("category", types.YLeaf{"Category", nonRootCause.Category})
+    nonRootCause.EntityData.Leafs.Append("group", types.YLeaf{"Group", nonRootCause.Group})
+    nonRootCause.EntityData.Leafs.Append("message-code", types.YLeaf{"MessageCode", nonRootCause.MessageCode})
+
+    nonRootCause.EntityData.YListKeys = []string {"Category", "Group", "MessageCode"}
+
     return &(nonRootCause.EntityData)
 }
 
@@ -2879,11 +2928,14 @@ func (rootCause *Syslog_Correlator_Rules_Rule_NonStateful_RootCause) GetEntityDa
     rootCause.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rootCause.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rootCause.EntityData.Children = make(map[string]types.YChild)
-    rootCause.EntityData.Leafs = make(map[string]types.YLeaf)
-    rootCause.EntityData.Leafs["category"] = types.YLeaf{"Category", rootCause.Category}
-    rootCause.EntityData.Leafs["group"] = types.YLeaf{"Group", rootCause.Group}
-    rootCause.EntityData.Leafs["message-code"] = types.YLeaf{"MessageCode", rootCause.MessageCode}
+    rootCause.EntityData.Children = types.NewOrderedMap()
+    rootCause.EntityData.Leafs = types.NewOrderedMap()
+    rootCause.EntityData.Leafs.Append("category", types.YLeaf{"Category", rootCause.Category})
+    rootCause.EntityData.Leafs.Append("group", types.YLeaf{"Group", rootCause.Group})
+    rootCause.EntityData.Leafs.Append("message-code", types.YLeaf{"MessageCode", rootCause.MessageCode})
+
+    rootCause.EntityData.YListKeys = []string {}
+
     return &(rootCause.EntityData)
 }
 
@@ -2928,15 +2980,18 @@ func (stateful *Syslog_Correlator_Rules_Rule_Stateful) GetEntityData() *types.Co
     stateful.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateful.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateful.EntityData.Children = make(map[string]types.YChild)
-    stateful.EntityData.Children["non-root-causes"] = types.YChild{"NonRootCauses", &stateful.NonRootCauses}
-    stateful.EntityData.Children["root-cause"] = types.YChild{"RootCause", &stateful.RootCause}
-    stateful.EntityData.Leafs = make(map[string]types.YLeaf)
-    stateful.EntityData.Leafs["reparent"] = types.YLeaf{"Reparent", stateful.Reparent}
-    stateful.EntityData.Leafs["reissue"] = types.YLeaf{"Reissue", stateful.Reissue}
-    stateful.EntityData.Leafs["context-correlation"] = types.YLeaf{"ContextCorrelation", stateful.ContextCorrelation}
-    stateful.EntityData.Leafs["timeout-root-cause"] = types.YLeaf{"TimeoutRootCause", stateful.TimeoutRootCause}
-    stateful.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", stateful.Timeout}
+    stateful.EntityData.Children = types.NewOrderedMap()
+    stateful.EntityData.Children.Append("non-root-causes", types.YChild{"NonRootCauses", &stateful.NonRootCauses})
+    stateful.EntityData.Children.Append("root-cause", types.YChild{"RootCause", &stateful.RootCause})
+    stateful.EntityData.Leafs = types.NewOrderedMap()
+    stateful.EntityData.Leafs.Append("reparent", types.YLeaf{"Reparent", stateful.Reparent})
+    stateful.EntityData.Leafs.Append("reissue", types.YLeaf{"Reissue", stateful.Reissue})
+    stateful.EntityData.Leafs.Append("context-correlation", types.YLeaf{"ContextCorrelation", stateful.ContextCorrelation})
+    stateful.EntityData.Leafs.Append("timeout-root-cause", types.YLeaf{"TimeoutRootCause", stateful.TimeoutRootCause})
+    stateful.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", stateful.Timeout})
+
+    stateful.EntityData.YListKeys = []string {}
+
     return &(stateful.EntityData)
 }
 
@@ -2948,7 +3003,7 @@ type Syslog_Correlator_Rules_Rule_Stateful_NonRootCauses struct {
 
     // A non-rootcause. The type is slice of
     // Syslog_Correlator_Rules_Rule_Stateful_NonRootCauses_NonRootCause.
-    NonRootCause []Syslog_Correlator_Rules_Rule_Stateful_NonRootCauses_NonRootCause
+    NonRootCause []*Syslog_Correlator_Rules_Rule_Stateful_NonRootCauses_NonRootCause
 }
 
 func (nonRootCauses *Syslog_Correlator_Rules_Rule_Stateful_NonRootCauses) GetEntityData() *types.CommonEntityData {
@@ -2961,12 +3016,15 @@ func (nonRootCauses *Syslog_Correlator_Rules_Rule_Stateful_NonRootCauses) GetEnt
     nonRootCauses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonRootCauses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nonRootCauses.EntityData.Children = make(map[string]types.YChild)
-    nonRootCauses.EntityData.Children["non-root-cause"] = types.YChild{"NonRootCause", nil}
+    nonRootCauses.EntityData.Children = types.NewOrderedMap()
+    nonRootCauses.EntityData.Children.Append("non-root-cause", types.YChild{"NonRootCause", nil})
     for i := range nonRootCauses.NonRootCause {
-        nonRootCauses.EntityData.Children[types.GetSegmentPath(&nonRootCauses.NonRootCause[i])] = types.YChild{"NonRootCause", &nonRootCauses.NonRootCause[i]}
+        nonRootCauses.EntityData.Children.Append(types.GetSegmentPath(nonRootCauses.NonRootCause[i]), types.YChild{"NonRootCause", nonRootCauses.NonRootCause[i]})
     }
-    nonRootCauses.EntityData.Leafs = make(map[string]types.YLeaf)
+    nonRootCauses.EntityData.Leafs = types.NewOrderedMap()
+
+    nonRootCauses.EntityData.YListKeys = []string {}
+
     return &(nonRootCauses.EntityData)
 }
 
@@ -2991,16 +3049,19 @@ func (nonRootCause *Syslog_Correlator_Rules_Rule_Stateful_NonRootCauses_NonRootC
     nonRootCause.EntityData.YangName = "non-root-cause"
     nonRootCause.EntityData.BundleName = "cisco_ios_xr"
     nonRootCause.EntityData.ParentYangName = "non-root-causes"
-    nonRootCause.EntityData.SegmentPath = "non-root-cause" + "[category='" + fmt.Sprintf("%v", nonRootCause.Category) + "']" + "[group='" + fmt.Sprintf("%v", nonRootCause.Group) + "']" + "[message-code='" + fmt.Sprintf("%v", nonRootCause.MessageCode) + "']"
+    nonRootCause.EntityData.SegmentPath = "non-root-cause" + types.AddKeyToken(nonRootCause.Category, "category") + types.AddKeyToken(nonRootCause.Group, "group") + types.AddKeyToken(nonRootCause.MessageCode, "message-code")
     nonRootCause.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonRootCause.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonRootCause.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nonRootCause.EntityData.Children = make(map[string]types.YChild)
-    nonRootCause.EntityData.Leafs = make(map[string]types.YLeaf)
-    nonRootCause.EntityData.Leafs["category"] = types.YLeaf{"Category", nonRootCause.Category}
-    nonRootCause.EntityData.Leafs["group"] = types.YLeaf{"Group", nonRootCause.Group}
-    nonRootCause.EntityData.Leafs["message-code"] = types.YLeaf{"MessageCode", nonRootCause.MessageCode}
+    nonRootCause.EntityData.Children = types.NewOrderedMap()
+    nonRootCause.EntityData.Leafs = types.NewOrderedMap()
+    nonRootCause.EntityData.Leafs.Append("category", types.YLeaf{"Category", nonRootCause.Category})
+    nonRootCause.EntityData.Leafs.Append("group", types.YLeaf{"Group", nonRootCause.Group})
+    nonRootCause.EntityData.Leafs.Append("message-code", types.YLeaf{"MessageCode", nonRootCause.MessageCode})
+
+    nonRootCause.EntityData.YListKeys = []string {"Category", "Group", "MessageCode"}
+
     return &(nonRootCause.EntityData)
 }
 
@@ -3030,11 +3091,14 @@ func (rootCause *Syslog_Correlator_Rules_Rule_Stateful_RootCause) GetEntityData(
     rootCause.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rootCause.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rootCause.EntityData.Children = make(map[string]types.YChild)
-    rootCause.EntityData.Leafs = make(map[string]types.YLeaf)
-    rootCause.EntityData.Leafs["category"] = types.YLeaf{"Category", rootCause.Category}
-    rootCause.EntityData.Leafs["group"] = types.YLeaf{"Group", rootCause.Group}
-    rootCause.EntityData.Leafs["message-code"] = types.YLeaf{"MessageCode", rootCause.MessageCode}
+    rootCause.EntityData.Children = types.NewOrderedMap()
+    rootCause.EntityData.Leafs = types.NewOrderedMap()
+    rootCause.EntityData.Leafs.Append("category", types.YLeaf{"Category", rootCause.Category})
+    rootCause.EntityData.Leafs.Append("group", types.YLeaf{"Group", rootCause.Group})
+    rootCause.EntityData.Leafs.Append("message-code", types.YLeaf{"MessageCode", rootCause.MessageCode})
+
+    rootCause.EntityData.YListKeys = []string {}
+
     return &(rootCause.EntityData)
 }
 
@@ -3064,11 +3128,14 @@ func (applyTo *Syslog_Correlator_Rules_Rule_ApplyTo) GetEntityData() *types.Comm
     applyTo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applyTo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    applyTo.EntityData.Children = make(map[string]types.YChild)
-    applyTo.EntityData.Children["contexts"] = types.YChild{"Contexts", &applyTo.Contexts}
-    applyTo.EntityData.Children["locations"] = types.YChild{"Locations", &applyTo.Locations}
-    applyTo.EntityData.Leafs = make(map[string]types.YLeaf)
-    applyTo.EntityData.Leafs["all-of-router"] = types.YLeaf{"AllOfRouter", applyTo.AllOfRouter}
+    applyTo.EntityData.Children = types.NewOrderedMap()
+    applyTo.EntityData.Children.Append("contexts", types.YChild{"Contexts", &applyTo.Contexts})
+    applyTo.EntityData.Children.Append("locations", types.YChild{"Locations", &applyTo.Locations})
+    applyTo.EntityData.Leafs = types.NewOrderedMap()
+    applyTo.EntityData.Leafs.Append("all-of-router", types.YLeaf{"AllOfRouter", applyTo.AllOfRouter})
+
+    applyTo.EntityData.YListKeys = []string {}
+
     return &(applyTo.EntityData)
 }
 
@@ -3093,9 +3160,12 @@ func (contexts *Syslog_Correlator_Rules_Rule_ApplyTo_Contexts) GetEntityData() *
     contexts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contexts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    contexts.EntityData.Children = make(map[string]types.YChild)
-    contexts.EntityData.Leafs = make(map[string]types.YLeaf)
-    contexts.EntityData.Leafs["context"] = types.YLeaf{"Context", contexts.Context}
+    contexts.EntityData.Children = types.NewOrderedMap()
+    contexts.EntityData.Leafs = types.NewOrderedMap()
+    contexts.EntityData.Leafs.Append("context", types.YLeaf{"Context", contexts.Context})
+
+    contexts.EntityData.YListKeys = []string {}
+
     return &(contexts.EntityData)
 }
 
@@ -3106,7 +3176,7 @@ type Syslog_Correlator_Rules_Rule_ApplyTo_Locations struct {
     YFilter yfilter.YFilter
 
     // One or more Locations. The type is slice of string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location []interface{}
 }
 
@@ -3120,9 +3190,12 @@ func (locations *Syslog_Correlator_Rules_Rule_ApplyTo_Locations) GetEntityData()
     locations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    locations.EntityData.Children = make(map[string]types.YChild)
-    locations.EntityData.Leafs = make(map[string]types.YLeaf)
-    locations.EntityData.Leafs["location"] = types.YLeaf{"Location", locations.Location}
+    locations.EntityData.Children = types.NewOrderedMap()
+    locations.EntityData.Leafs = types.NewOrderedMap()
+    locations.EntityData.Leafs.Append("location", types.YLeaf{"Location", locations.Location})
+
+    locations.EntityData.YListKeys = []string {}
+
     return &(locations.EntityData)
 }
 
@@ -3152,11 +3225,14 @@ func (appliedTo *Syslog_Correlator_Rules_Rule_AppliedTo) GetEntityData() *types.
     appliedTo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appliedTo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appliedTo.EntityData.Children = make(map[string]types.YChild)
-    appliedTo.EntityData.Children["contexts"] = types.YChild{"Contexts", &appliedTo.Contexts}
-    appliedTo.EntityData.Children["locations"] = types.YChild{"Locations", &appliedTo.Locations}
-    appliedTo.EntityData.Leafs = make(map[string]types.YLeaf)
-    appliedTo.EntityData.Leafs["all"] = types.YLeaf{"All", appliedTo.All}
+    appliedTo.EntityData.Children = types.NewOrderedMap()
+    appliedTo.EntityData.Children.Append("contexts", types.YChild{"Contexts", &appliedTo.Contexts})
+    appliedTo.EntityData.Children.Append("locations", types.YChild{"Locations", &appliedTo.Locations})
+    appliedTo.EntityData.Leafs = types.NewOrderedMap()
+    appliedTo.EntityData.Leafs.Append("all", types.YLeaf{"All", appliedTo.All})
+
+    appliedTo.EntityData.YListKeys = []string {}
+
     return &(appliedTo.EntityData)
 }
 
@@ -3168,7 +3244,7 @@ type Syslog_Correlator_Rules_Rule_AppliedTo_Contexts struct {
 
     // A context. The type is slice of
     // Syslog_Correlator_Rules_Rule_AppliedTo_Contexts_Context.
-    Context []Syslog_Correlator_Rules_Rule_AppliedTo_Contexts_Context
+    Context []*Syslog_Correlator_Rules_Rule_AppliedTo_Contexts_Context
 }
 
 func (contexts *Syslog_Correlator_Rules_Rule_AppliedTo_Contexts) GetEntityData() *types.CommonEntityData {
@@ -3181,12 +3257,15 @@ func (contexts *Syslog_Correlator_Rules_Rule_AppliedTo_Contexts) GetEntityData()
     contexts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contexts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    contexts.EntityData.Children = make(map[string]types.YChild)
-    contexts.EntityData.Children["context"] = types.YChild{"Context", nil}
+    contexts.EntityData.Children = types.NewOrderedMap()
+    contexts.EntityData.Children.Append("context", types.YChild{"Context", nil})
     for i := range contexts.Context {
-        contexts.EntityData.Children[types.GetSegmentPath(&contexts.Context[i])] = types.YChild{"Context", &contexts.Context[i]}
+        contexts.EntityData.Children.Append(types.GetSegmentPath(contexts.Context[i]), types.YChild{"Context", contexts.Context[i]})
     }
-    contexts.EntityData.Leafs = make(map[string]types.YLeaf)
+    contexts.EntityData.Leafs = types.NewOrderedMap()
+
+    contexts.EntityData.YListKeys = []string {}
+
     return &(contexts.EntityData)
 }
 
@@ -3205,14 +3284,17 @@ func (context *Syslog_Correlator_Rules_Rule_AppliedTo_Contexts_Context) GetEntit
     context.EntityData.YangName = "context"
     context.EntityData.BundleName = "cisco_ios_xr"
     context.EntityData.ParentYangName = "contexts"
-    context.EntityData.SegmentPath = "context" + "[context='" + fmt.Sprintf("%v", context.Context) + "']"
+    context.EntityData.SegmentPath = "context" + types.AddKeyToken(context.Context, "context")
     context.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     context.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     context.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    context.EntityData.Children = make(map[string]types.YChild)
-    context.EntityData.Leafs = make(map[string]types.YLeaf)
-    context.EntityData.Leafs["context"] = types.YLeaf{"Context", context.Context}
+    context.EntityData.Children = types.NewOrderedMap()
+    context.EntityData.Leafs = types.NewOrderedMap()
+    context.EntityData.Leafs.Append("context", types.YLeaf{"Context", context.Context})
+
+    context.EntityData.YListKeys = []string {"Context"}
+
     return &(context.EntityData)
 }
 
@@ -3224,7 +3306,7 @@ type Syslog_Correlator_Rules_Rule_AppliedTo_Locations struct {
 
     // A location. The type is slice of
     // Syslog_Correlator_Rules_Rule_AppliedTo_Locations_Location.
-    Location []Syslog_Correlator_Rules_Rule_AppliedTo_Locations_Location
+    Location []*Syslog_Correlator_Rules_Rule_AppliedTo_Locations_Location
 }
 
 func (locations *Syslog_Correlator_Rules_Rule_AppliedTo_Locations) GetEntityData() *types.CommonEntityData {
@@ -3237,12 +3319,15 @@ func (locations *Syslog_Correlator_Rules_Rule_AppliedTo_Locations) GetEntityData
     locations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    locations.EntityData.Children = make(map[string]types.YChild)
-    locations.EntityData.Children["location"] = types.YChild{"Location", nil}
+    locations.EntityData.Children = types.NewOrderedMap()
+    locations.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range locations.Location {
-        locations.EntityData.Children[types.GetSegmentPath(&locations.Location[i])] = types.YChild{"Location", &locations.Location[i]}
+        locations.EntityData.Children.Append(types.GetSegmentPath(locations.Location[i]), types.YChild{"Location", locations.Location[i]})
     }
-    locations.EntityData.Leafs = make(map[string]types.YLeaf)
+    locations.EntityData.Leafs = types.NewOrderedMap()
+
+    locations.EntityData.YListKeys = []string {}
+
     return &(locations.EntityData)
 }
 
@@ -3253,7 +3338,7 @@ type Syslog_Correlator_Rules_Rule_AppliedTo_Locations_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 }
 
@@ -3262,14 +3347,17 @@ func (location *Syslog_Correlator_Rules_Rule_AppliedTo_Locations_Location) GetEn
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "locations"
-    location.EntityData.SegmentPath = "location" + "[location='" + fmt.Sprintf("%v", location.Location) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location"] = types.YLeaf{"Location", location.Location}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location", types.YLeaf{"Location", location.Location})
+
+    location.EntityData.YListKeys = []string {"Location"}
+
     return &(location.EntityData)
 }
 
@@ -3280,7 +3368,7 @@ type Syslog_Correlator_RuleSets struct {
     YFilter yfilter.YFilter
 
     // Ruleset name. The type is slice of Syslog_Correlator_RuleSets_RuleSet.
-    RuleSet []Syslog_Correlator_RuleSets_RuleSet
+    RuleSet []*Syslog_Correlator_RuleSets_RuleSet
 }
 
 func (ruleSets *Syslog_Correlator_RuleSets) GetEntityData() *types.CommonEntityData {
@@ -3293,12 +3381,15 @@ func (ruleSets *Syslog_Correlator_RuleSets) GetEntityData() *types.CommonEntityD
     ruleSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleSets.EntityData.Children = make(map[string]types.YChild)
-    ruleSets.EntityData.Children["rule-set"] = types.YChild{"RuleSet", nil}
+    ruleSets.EntityData.Children = types.NewOrderedMap()
+    ruleSets.EntityData.Children.Append("rule-set", types.YChild{"RuleSet", nil})
     for i := range ruleSets.RuleSet {
-        ruleSets.EntityData.Children[types.GetSegmentPath(&ruleSets.RuleSet[i])] = types.YChild{"RuleSet", &ruleSets.RuleSet[i]}
+        ruleSets.EntityData.Children.Append(types.GetSegmentPath(ruleSets.RuleSet[i]), types.YChild{"RuleSet", ruleSets.RuleSet[i]})
     }
-    ruleSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    ruleSets.EntityData.Leafs = types.NewOrderedMap()
+
+    ruleSets.EntityData.YListKeys = []string {}
+
     return &(ruleSets.EntityData)
 }
 
@@ -3324,16 +3415,19 @@ func (ruleSet *Syslog_Correlator_RuleSets_RuleSet) GetEntityData() *types.Common
     ruleSet.EntityData.YangName = "rule-set"
     ruleSet.EntityData.BundleName = "cisco_ios_xr"
     ruleSet.EntityData.ParentYangName = "rule-sets"
-    ruleSet.EntityData.SegmentPath = "rule-set" + "[name='" + fmt.Sprintf("%v", ruleSet.Name) + "']"
+    ruleSet.EntityData.SegmentPath = "rule-set" + types.AddKeyToken(ruleSet.Name, "name")
     ruleSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ruleSet.EntityData.Children = make(map[string]types.YChild)
-    ruleSet.EntityData.Children["rulenames"] = types.YChild{"Rulenames", &ruleSet.Rulenames}
-    ruleSet.EntityData.Children["applied-to"] = types.YChild{"AppliedTo", &ruleSet.AppliedTo}
-    ruleSet.EntityData.Leafs = make(map[string]types.YLeaf)
-    ruleSet.EntityData.Leafs["name"] = types.YLeaf{"Name", ruleSet.Name}
+    ruleSet.EntityData.Children = types.NewOrderedMap()
+    ruleSet.EntityData.Children.Append("rulenames", types.YChild{"Rulenames", &ruleSet.Rulenames})
+    ruleSet.EntityData.Children.Append("applied-to", types.YChild{"AppliedTo", &ruleSet.AppliedTo})
+    ruleSet.EntityData.Leafs = types.NewOrderedMap()
+    ruleSet.EntityData.Leafs.Append("name", types.YLeaf{"Name", ruleSet.Name})
+
+    ruleSet.EntityData.YListKeys = []string {"Name"}
+
     return &(ruleSet.EntityData)
 }
 
@@ -3345,7 +3439,7 @@ type Syslog_Correlator_RuleSets_RuleSet_Rulenames struct {
 
     // A rulename. The type is slice of
     // Syslog_Correlator_RuleSets_RuleSet_Rulenames_Rulename.
-    Rulename []Syslog_Correlator_RuleSets_RuleSet_Rulenames_Rulename
+    Rulename []*Syslog_Correlator_RuleSets_RuleSet_Rulenames_Rulename
 }
 
 func (rulenames *Syslog_Correlator_RuleSets_RuleSet_Rulenames) GetEntityData() *types.CommonEntityData {
@@ -3358,12 +3452,15 @@ func (rulenames *Syslog_Correlator_RuleSets_RuleSet_Rulenames) GetEntityData() *
     rulenames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rulenames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rulenames.EntityData.Children = make(map[string]types.YChild)
-    rulenames.EntityData.Children["rulename"] = types.YChild{"Rulename", nil}
+    rulenames.EntityData.Children = types.NewOrderedMap()
+    rulenames.EntityData.Children.Append("rulename", types.YChild{"Rulename", nil})
     for i := range rulenames.Rulename {
-        rulenames.EntityData.Children[types.GetSegmentPath(&rulenames.Rulename[i])] = types.YChild{"Rulename", &rulenames.Rulename[i]}
+        rulenames.EntityData.Children.Append(types.GetSegmentPath(rulenames.Rulename[i]), types.YChild{"Rulename", rulenames.Rulename[i]})
     }
-    rulenames.EntityData.Leafs = make(map[string]types.YLeaf)
+    rulenames.EntityData.Leafs = types.NewOrderedMap()
+
+    rulenames.EntityData.YListKeys = []string {}
+
     return &(rulenames.EntityData)
 }
 
@@ -3382,14 +3479,17 @@ func (rulename *Syslog_Correlator_RuleSets_RuleSet_Rulenames_Rulename) GetEntity
     rulename.EntityData.YangName = "rulename"
     rulename.EntityData.BundleName = "cisco_ios_xr"
     rulename.EntityData.ParentYangName = "rulenames"
-    rulename.EntityData.SegmentPath = "rulename" + "[rulename='" + fmt.Sprintf("%v", rulename.Rulename) + "']"
+    rulename.EntityData.SegmentPath = "rulename" + types.AddKeyToken(rulename.Rulename, "rulename")
     rulename.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rulename.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rulename.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rulename.EntityData.Children = make(map[string]types.YChild)
-    rulename.EntityData.Leafs = make(map[string]types.YLeaf)
-    rulename.EntityData.Leafs["rulename"] = types.YLeaf{"Rulename", rulename.Rulename}
+    rulename.EntityData.Children = types.NewOrderedMap()
+    rulename.EntityData.Leafs = types.NewOrderedMap()
+    rulename.EntityData.Leafs.Append("rulename", types.YLeaf{"Rulename", rulename.Rulename})
+
+    rulename.EntityData.YListKeys = []string {"Rulename"}
+
     return &(rulename.EntityData)
 }
 
@@ -3419,11 +3519,14 @@ func (appliedTo *Syslog_Correlator_RuleSets_RuleSet_AppliedTo) GetEntityData() *
     appliedTo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appliedTo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appliedTo.EntityData.Children = make(map[string]types.YChild)
-    appliedTo.EntityData.Children["contexts"] = types.YChild{"Contexts", &appliedTo.Contexts}
-    appliedTo.EntityData.Children["locations"] = types.YChild{"Locations", &appliedTo.Locations}
-    appliedTo.EntityData.Leafs = make(map[string]types.YLeaf)
-    appliedTo.EntityData.Leafs["all"] = types.YLeaf{"All", appliedTo.All}
+    appliedTo.EntityData.Children = types.NewOrderedMap()
+    appliedTo.EntityData.Children.Append("contexts", types.YChild{"Contexts", &appliedTo.Contexts})
+    appliedTo.EntityData.Children.Append("locations", types.YChild{"Locations", &appliedTo.Locations})
+    appliedTo.EntityData.Leafs = types.NewOrderedMap()
+    appliedTo.EntityData.Leafs.Append("all", types.YLeaf{"All", appliedTo.All})
+
+    appliedTo.EntityData.YListKeys = []string {}
+
     return &(appliedTo.EntityData)
 }
 
@@ -3435,7 +3538,7 @@ type Syslog_Correlator_RuleSets_RuleSet_AppliedTo_Contexts struct {
 
     // A context. The type is slice of
     // Syslog_Correlator_RuleSets_RuleSet_AppliedTo_Contexts_Context.
-    Context []Syslog_Correlator_RuleSets_RuleSet_AppliedTo_Contexts_Context
+    Context []*Syslog_Correlator_RuleSets_RuleSet_AppliedTo_Contexts_Context
 }
 
 func (contexts *Syslog_Correlator_RuleSets_RuleSet_AppliedTo_Contexts) GetEntityData() *types.CommonEntityData {
@@ -3448,12 +3551,15 @@ func (contexts *Syslog_Correlator_RuleSets_RuleSet_AppliedTo_Contexts) GetEntity
     contexts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contexts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    contexts.EntityData.Children = make(map[string]types.YChild)
-    contexts.EntityData.Children["context"] = types.YChild{"Context", nil}
+    contexts.EntityData.Children = types.NewOrderedMap()
+    contexts.EntityData.Children.Append("context", types.YChild{"Context", nil})
     for i := range contexts.Context {
-        contexts.EntityData.Children[types.GetSegmentPath(&contexts.Context[i])] = types.YChild{"Context", &contexts.Context[i]}
+        contexts.EntityData.Children.Append(types.GetSegmentPath(contexts.Context[i]), types.YChild{"Context", contexts.Context[i]})
     }
-    contexts.EntityData.Leafs = make(map[string]types.YLeaf)
+    contexts.EntityData.Leafs = types.NewOrderedMap()
+
+    contexts.EntityData.YListKeys = []string {}
+
     return &(contexts.EntityData)
 }
 
@@ -3472,14 +3578,17 @@ func (context *Syslog_Correlator_RuleSets_RuleSet_AppliedTo_Contexts_Context) Ge
     context.EntityData.YangName = "context"
     context.EntityData.BundleName = "cisco_ios_xr"
     context.EntityData.ParentYangName = "contexts"
-    context.EntityData.SegmentPath = "context" + "[context='" + fmt.Sprintf("%v", context.Context) + "']"
+    context.EntityData.SegmentPath = "context" + types.AddKeyToken(context.Context, "context")
     context.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     context.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     context.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    context.EntityData.Children = make(map[string]types.YChild)
-    context.EntityData.Leafs = make(map[string]types.YLeaf)
-    context.EntityData.Leafs["context"] = types.YLeaf{"Context", context.Context}
+    context.EntityData.Children = types.NewOrderedMap()
+    context.EntityData.Leafs = types.NewOrderedMap()
+    context.EntityData.Leafs.Append("context", types.YLeaf{"Context", context.Context})
+
+    context.EntityData.YListKeys = []string {"Context"}
+
     return &(context.EntityData)
 }
 
@@ -3491,7 +3600,7 @@ type Syslog_Correlator_RuleSets_RuleSet_AppliedTo_Locations struct {
 
     // A location. The type is slice of
     // Syslog_Correlator_RuleSets_RuleSet_AppliedTo_Locations_Location.
-    Location []Syslog_Correlator_RuleSets_RuleSet_AppliedTo_Locations_Location
+    Location []*Syslog_Correlator_RuleSets_RuleSet_AppliedTo_Locations_Location
 }
 
 func (locations *Syslog_Correlator_RuleSets_RuleSet_AppliedTo_Locations) GetEntityData() *types.CommonEntityData {
@@ -3504,12 +3613,15 @@ func (locations *Syslog_Correlator_RuleSets_RuleSet_AppliedTo_Locations) GetEnti
     locations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    locations.EntityData.Children = make(map[string]types.YChild)
-    locations.EntityData.Children["location"] = types.YChild{"Location", nil}
+    locations.EntityData.Children = types.NewOrderedMap()
+    locations.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range locations.Location {
-        locations.EntityData.Children[types.GetSegmentPath(&locations.Location[i])] = types.YChild{"Location", &locations.Location[i]}
+        locations.EntityData.Children.Append(types.GetSegmentPath(locations.Location[i]), types.YChild{"Location", locations.Location[i]})
     }
-    locations.EntityData.Leafs = make(map[string]types.YLeaf)
+    locations.EntityData.Leafs = types.NewOrderedMap()
+
+    locations.EntityData.YListKeys = []string {}
+
     return &(locations.EntityData)
 }
 
@@ -3520,7 +3632,7 @@ type Syslog_Correlator_RuleSets_RuleSet_AppliedTo_Locations_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 }
 
@@ -3529,14 +3641,17 @@ func (location *Syslog_Correlator_RuleSets_RuleSet_AppliedTo_Locations_Location)
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "locations"
-    location.EntityData.SegmentPath = "location" + "[location='" + fmt.Sprintf("%v", location.Location) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location"] = types.YLeaf{"Location", location.Location}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location", types.YLeaf{"Location", location.Location})
+
+    location.EntityData.YListKeys = []string {"Location"}
+
     return &(location.EntityData)
 }
 
@@ -3561,9 +3676,12 @@ func (suppression *Syslog_Suppression) GetEntityData() *types.CommonEntityData {
     suppression.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppression.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    suppression.EntityData.Children = make(map[string]types.YChild)
-    suppression.EntityData.Children["rules"] = types.YChild{"Rules", &suppression.Rules}
-    suppression.EntityData.Leafs = make(map[string]types.YLeaf)
+    suppression.EntityData.Children = types.NewOrderedMap()
+    suppression.EntityData.Children.Append("rules", types.YChild{"Rules", &suppression.Rules})
+    suppression.EntityData.Leafs = types.NewOrderedMap()
+
+    suppression.EntityData.YListKeys = []string {}
+
     return &(suppression.EntityData)
 }
 
@@ -3574,7 +3692,7 @@ type Syslog_Suppression_Rules struct {
     YFilter yfilter.YFilter
 
     // Rule name. The type is slice of Syslog_Suppression_Rules_Rule.
-    Rule []Syslog_Suppression_Rules_Rule
+    Rule []*Syslog_Suppression_Rules_Rule
 }
 
 func (rules *Syslog_Suppression_Rules) GetEntityData() *types.CommonEntityData {
@@ -3587,12 +3705,15 @@ func (rules *Syslog_Suppression_Rules) GetEntityData() *types.CommonEntityData {
     rules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rules.EntityData.Children = make(map[string]types.YChild)
-    rules.EntityData.Children["rule"] = types.YChild{"Rule", nil}
+    rules.EntityData.Children = types.NewOrderedMap()
+    rules.EntityData.Children.Append("rule", types.YChild{"Rule", nil})
     for i := range rules.Rule {
-        rules.EntityData.Children[types.GetSegmentPath(&rules.Rule[i])] = types.YChild{"Rule", &rules.Rule[i]}
+        rules.EntityData.Children.Append(types.GetSegmentPath(rules.Rule[i]), types.YChild{"Rule", rules.Rule[i]})
     }
-    rules.EntityData.Leafs = make(map[string]types.YLeaf)
+    rules.EntityData.Leafs = types.NewOrderedMap()
+
+    rules.EntityData.YListKeys = []string {}
+
     return &(rules.EntityData)
 }
 
@@ -3620,17 +3741,20 @@ func (rule *Syslog_Suppression_Rules_Rule) GetEntityData() *types.CommonEntityDa
     rule.EntityData.YangName = "rule"
     rule.EntityData.BundleName = "cisco_ios_xr"
     rule.EntityData.ParentYangName = "rules"
-    rule.EntityData.SegmentPath = "rule" + "[name='" + fmt.Sprintf("%v", rule.Name) + "']"
+    rule.EntityData.SegmentPath = "rule" + types.AddKeyToken(rule.Name, "name")
     rule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rule.EntityData.Children = make(map[string]types.YChild)
-    rule.EntityData.Children["applied-to"] = types.YChild{"AppliedTo", &rule.AppliedTo}
-    rule.EntityData.Children["alarm-causes"] = types.YChild{"AlarmCauses", &rule.AlarmCauses}
-    rule.EntityData.Leafs = make(map[string]types.YLeaf)
-    rule.EntityData.Leafs["name"] = types.YLeaf{"Name", rule.Name}
-    rule.EntityData.Leafs["all-alarms"] = types.YLeaf{"AllAlarms", rule.AllAlarms}
+    rule.EntityData.Children = types.NewOrderedMap()
+    rule.EntityData.Children.Append("applied-to", types.YChild{"AppliedTo", &rule.AppliedTo})
+    rule.EntityData.Children.Append("alarm-causes", types.YChild{"AlarmCauses", &rule.AlarmCauses})
+    rule.EntityData.Leafs = types.NewOrderedMap()
+    rule.EntityData.Leafs.Append("name", types.YLeaf{"Name", rule.Name})
+    rule.EntityData.Leafs.Append("all-alarms", types.YLeaf{"AllAlarms", rule.AllAlarms})
+
+    rule.EntityData.YListKeys = []string {"Name"}
+
     return &(rule.EntityData)
 }
 
@@ -3657,10 +3781,13 @@ func (appliedTo *Syslog_Suppression_Rules_Rule_AppliedTo) GetEntityData() *types
     appliedTo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appliedTo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    appliedTo.EntityData.Children = make(map[string]types.YChild)
-    appliedTo.EntityData.Children["sources"] = types.YChild{"Sources", &appliedTo.Sources}
-    appliedTo.EntityData.Leafs = make(map[string]types.YLeaf)
-    appliedTo.EntityData.Leafs["all"] = types.YLeaf{"All", appliedTo.All}
+    appliedTo.EntityData.Children = types.NewOrderedMap()
+    appliedTo.EntityData.Children.Append("sources", types.YChild{"Sources", &appliedTo.Sources})
+    appliedTo.EntityData.Leafs = types.NewOrderedMap()
+    appliedTo.EntityData.Leafs.Append("all", types.YLeaf{"All", appliedTo.All})
+
+    appliedTo.EntityData.YListKeys = []string {}
+
     return &(appliedTo.EntityData)
 }
 
@@ -3672,7 +3799,7 @@ type Syslog_Suppression_Rules_Rule_AppliedTo_Sources struct {
 
     // An alarm source. The type is slice of
     // Syslog_Suppression_Rules_Rule_AppliedTo_Sources_Source.
-    Source []Syslog_Suppression_Rules_Rule_AppliedTo_Sources_Source
+    Source []*Syslog_Suppression_Rules_Rule_AppliedTo_Sources_Source
 }
 
 func (sources *Syslog_Suppression_Rules_Rule_AppliedTo_Sources) GetEntityData() *types.CommonEntityData {
@@ -3685,12 +3812,15 @@ func (sources *Syslog_Suppression_Rules_Rule_AppliedTo_Sources) GetEntityData() 
     sources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sources.EntityData.Children = make(map[string]types.YChild)
-    sources.EntityData.Children["source"] = types.YChild{"Source", nil}
+    sources.EntityData.Children = types.NewOrderedMap()
+    sources.EntityData.Children.Append("source", types.YChild{"Source", nil})
     for i := range sources.Source {
-        sources.EntityData.Children[types.GetSegmentPath(&sources.Source[i])] = types.YChild{"Source", &sources.Source[i]}
+        sources.EntityData.Children.Append(types.GetSegmentPath(sources.Source[i]), types.YChild{"Source", sources.Source[i]})
     }
-    sources.EntityData.Leafs = make(map[string]types.YLeaf)
+    sources.EntityData.Leafs = types.NewOrderedMap()
+
+    sources.EntityData.YListKeys = []string {}
+
     return &(sources.EntityData)
 }
 
@@ -3701,7 +3831,7 @@ type Syslog_Suppression_Rules_Rule_AppliedTo_Sources_Source struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Source. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Source interface{}
 }
 
@@ -3710,14 +3840,17 @@ func (source *Syslog_Suppression_Rules_Rule_AppliedTo_Sources_Source) GetEntityD
     source.EntityData.YangName = "source"
     source.EntityData.BundleName = "cisco_ios_xr"
     source.EntityData.ParentYangName = "sources"
-    source.EntityData.SegmentPath = "source" + "[source='" + fmt.Sprintf("%v", source.Source) + "']"
+    source.EntityData.SegmentPath = "source" + types.AddKeyToken(source.Source, "source")
     source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    source.EntityData.Children = make(map[string]types.YChild)
-    source.EntityData.Leafs = make(map[string]types.YLeaf)
-    source.EntityData.Leafs["source"] = types.YLeaf{"Source", source.Source}
+    source.EntityData.Children = types.NewOrderedMap()
+    source.EntityData.Leafs = types.NewOrderedMap()
+    source.EntityData.Leafs.Append("source", types.YLeaf{"Source", source.Source})
+
+    source.EntityData.YListKeys = []string {"Source"}
+
     return &(source.EntityData)
 }
 
@@ -3729,7 +3862,7 @@ type Syslog_Suppression_Rules_Rule_AlarmCauses struct {
 
     // Category, Group and Code of alarm/syslog to be suppressed. The type is
     // slice of Syslog_Suppression_Rules_Rule_AlarmCauses_AlarmCause.
-    AlarmCause []Syslog_Suppression_Rules_Rule_AlarmCauses_AlarmCause
+    AlarmCause []*Syslog_Suppression_Rules_Rule_AlarmCauses_AlarmCause
 }
 
 func (alarmCauses *Syslog_Suppression_Rules_Rule_AlarmCauses) GetEntityData() *types.CommonEntityData {
@@ -3742,12 +3875,15 @@ func (alarmCauses *Syslog_Suppression_Rules_Rule_AlarmCauses) GetEntityData() *t
     alarmCauses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmCauses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarmCauses.EntityData.Children = make(map[string]types.YChild)
-    alarmCauses.EntityData.Children["alarm-cause"] = types.YChild{"AlarmCause", nil}
+    alarmCauses.EntityData.Children = types.NewOrderedMap()
+    alarmCauses.EntityData.Children.Append("alarm-cause", types.YChild{"AlarmCause", nil})
     for i := range alarmCauses.AlarmCause {
-        alarmCauses.EntityData.Children[types.GetSegmentPath(&alarmCauses.AlarmCause[i])] = types.YChild{"AlarmCause", &alarmCauses.AlarmCause[i]}
+        alarmCauses.EntityData.Children.Append(types.GetSegmentPath(alarmCauses.AlarmCause[i]), types.YChild{"AlarmCause", alarmCauses.AlarmCause[i]})
     }
-    alarmCauses.EntityData.Leafs = make(map[string]types.YLeaf)
+    alarmCauses.EntityData.Leafs = types.NewOrderedMap()
+
+    alarmCauses.EntityData.YListKeys = []string {}
+
     return &(alarmCauses.EntityData)
 }
 
@@ -3773,16 +3909,19 @@ func (alarmCause *Syslog_Suppression_Rules_Rule_AlarmCauses_AlarmCause) GetEntit
     alarmCause.EntityData.YangName = "alarm-cause"
     alarmCause.EntityData.BundleName = "cisco_ios_xr"
     alarmCause.EntityData.ParentYangName = "alarm-causes"
-    alarmCause.EntityData.SegmentPath = "alarm-cause" + "[category='" + fmt.Sprintf("%v", alarmCause.Category) + "']" + "[group='" + fmt.Sprintf("%v", alarmCause.Group) + "']" + "[code='" + fmt.Sprintf("%v", alarmCause.Code) + "']"
+    alarmCause.EntityData.SegmentPath = "alarm-cause" + types.AddKeyToken(alarmCause.Category, "category") + types.AddKeyToken(alarmCause.Group, "group") + types.AddKeyToken(alarmCause.Code, "code")
     alarmCause.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarmCause.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmCause.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarmCause.EntityData.Children = make(map[string]types.YChild)
-    alarmCause.EntityData.Leafs = make(map[string]types.YLeaf)
-    alarmCause.EntityData.Leafs["category"] = types.YLeaf{"Category", alarmCause.Category}
-    alarmCause.EntityData.Leafs["group"] = types.YLeaf{"Group", alarmCause.Group}
-    alarmCause.EntityData.Leafs["code"] = types.YLeaf{"Code", alarmCause.Code}
+    alarmCause.EntityData.Children = types.NewOrderedMap()
+    alarmCause.EntityData.Leafs = types.NewOrderedMap()
+    alarmCause.EntityData.Leafs.Append("category", types.YLeaf{"Category", alarmCause.Category})
+    alarmCause.EntityData.Leafs.Append("group", types.YLeaf{"Group", alarmCause.Group})
+    alarmCause.EntityData.Leafs.Append("code", types.YLeaf{"Code", alarmCause.Code})
+
+    alarmCause.EntityData.YListKeys = []string {"Category", "Group", "Code"}
+
     return &(alarmCause.EntityData)
 }
 

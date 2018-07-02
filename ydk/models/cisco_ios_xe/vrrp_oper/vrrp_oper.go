@@ -19,13 +19,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-vrrp-oper:vrrp-oper-data", reflect.TypeOf(VrrpOperData{}))
 }
 
-// ProtoVersion represents VRRP protocol version
-type ProtoVersion string
-
-const (
-    ProtoVersion_vrrp_v3 ProtoVersion = "vrrp-v3"
-)
-
 // MasterReason represents Indicates why this router became master of the VRRP group
 type MasterReason string
 
@@ -60,15 +53,11 @@ const (
     VrrpProtoState_proto_state_recover VrrpProtoState = "proto-state-recover"
 )
 
-// OmpStateUpdown represents Indicates the state of the Overlay Management Protocol tracking
-type OmpStateUpdown string
+// ProtoVersion represents VRRP protocol version
+type ProtoVersion string
 
 const (
-    // Indicates OMP track is up
-    OmpStateUpdown_omp_up OmpStateUpdown = "omp-up"
-
-    // Indicates OMP track is down
-    OmpStateUpdown_omp_down OmpStateUpdown = "omp-down"
+    ProtoVersion_vrrp_v3 ProtoVersion = "vrrp-v3"
 )
 
 // TrackState represents Indicates whether the track is resolved
@@ -82,6 +71,17 @@ const (
     TrackState_vrrp_track_state_unresolved TrackState = "vrrp-track-state-unresolved"
 )
 
+// OmpStateUpdown represents Indicates the state of the Overlay Management Protocol tracking
+type OmpStateUpdown string
+
+const (
+    // Indicates OMP track is up
+    OmpStateUpdown_omp_up OmpStateUpdown = "omp-up"
+
+    // Indicates OMP track is down
+    OmpStateUpdown_omp_down OmpStateUpdown = "omp-down"
+)
+
 // VrrpOperData
 // VRRP operational data
 type VrrpOperData struct {
@@ -89,7 +89,7 @@ type VrrpOperData struct {
     YFilter yfilter.YFilter
 
     // VRRP operational state. The type is slice of VrrpOperData_VrrpOperState.
-    VrrpOperState []VrrpOperData_VrrpOperState
+    VrrpOperState []*VrrpOperData_VrrpOperState
 }
 
 func (vrrpOperData *VrrpOperData) GetEntityData() *types.CommonEntityData {
@@ -102,12 +102,15 @@ func (vrrpOperData *VrrpOperData) GetEntityData() *types.CommonEntityData {
     vrrpOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vrrpOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vrrpOperData.EntityData.Children = make(map[string]types.YChild)
-    vrrpOperData.EntityData.Children["vrrp-oper-state"] = types.YChild{"VrrpOperState", nil}
+    vrrpOperData.EntityData.Children = types.NewOrderedMap()
+    vrrpOperData.EntityData.Children.Append("vrrp-oper-state", types.YChild{"VrrpOperState", nil})
     for i := range vrrpOperData.VrrpOperState {
-        vrrpOperData.EntityData.Children[types.GetSegmentPath(&vrrpOperData.VrrpOperState[i])] = types.YChild{"VrrpOperState", &vrrpOperData.VrrpOperState[i]}
+        vrrpOperData.EntityData.Children.Append(types.GetSegmentPath(vrrpOperData.VrrpOperState[i]), types.YChild{"VrrpOperState", vrrpOperData.VrrpOperState[i]})
     }
-    vrrpOperData.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrrpOperData.EntityData.Leafs = types.NewOrderedMap()
+
+    vrrpOperData.EntityData.YListKeys = []string {}
+
     return &(vrrpOperData.EntityData)
 }
 
@@ -134,9 +137,9 @@ type VrrpOperData_VrrpOperState struct {
 
     // Primary Virtual IP address for the VRRP group. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VirtualIp interface{}
 
     // Name for the interface on which VRRP group is hosted. The type is string.
@@ -146,14 +149,14 @@ type VrrpOperData_VrrpOperState struct {
     VrrpState interface{}
 
     // Virtual MAC address for the VRRP group. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     VirtualMac interface{}
 
     // IP address of the Master router for the VRRP group. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     MasterIp interface{}
 
     // Whether the router owns the VRRP Primary virtual IP address. When Interface
@@ -192,8 +195,7 @@ type VrrpOperData_VrrpOperState struct {
     NewMasterReason interface{}
 
     // Time when state of the VRRP group last changed. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastStateChangeTime interface{}
 
     // Total number of VRRP packets that arrived with advertisement interval
@@ -229,7 +231,7 @@ type VrrpOperData_VrrpOperState struct {
 
     // Indicates the last time when a discontinuity happened in gathering
     // statistics. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     DiscontinuityTime interface{}
 
     // Total number of VRRP packets sent. The type is interface{} with range:
@@ -246,7 +248,7 @@ type VrrpOperData_VrrpOperState struct {
 
     // Status of list of tracking objects in the group. The type is slice of
     // VrrpOperData_VrrpOperState_TrackList.
-    TrackList []VrrpOperData_VrrpOperState_TrackList
+    TrackList []*VrrpOperData_VrrpOperState_TrackList
 }
 
 func (vrrpOperState *VrrpOperData_VrrpOperState) GetEntityData() *types.CommonEntityData {
@@ -254,46 +256,49 @@ func (vrrpOperState *VrrpOperData_VrrpOperState) GetEntityData() *types.CommonEn
     vrrpOperState.EntityData.YangName = "vrrp-oper-state"
     vrrpOperState.EntityData.BundleName = "cisco_ios_xe"
     vrrpOperState.EntityData.ParentYangName = "vrrp-oper-data"
-    vrrpOperState.EntityData.SegmentPath = "vrrp-oper-state" + "[if-number='" + fmt.Sprintf("%v", vrrpOperState.IfNumber) + "']" + "[group-id='" + fmt.Sprintf("%v", vrrpOperState.GroupId) + "']" + "[addr-type='" + fmt.Sprintf("%v", vrrpOperState.AddrType) + "']"
+    vrrpOperState.EntityData.SegmentPath = "vrrp-oper-state" + types.AddKeyToken(vrrpOperState.IfNumber, "if-number") + types.AddKeyToken(vrrpOperState.GroupId, "group-id") + types.AddKeyToken(vrrpOperState.AddrType, "addr-type")
     vrrpOperState.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vrrpOperState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vrrpOperState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vrrpOperState.EntityData.Children = make(map[string]types.YChild)
-    vrrpOperState.EntityData.Children["track-list"] = types.YChild{"TrackList", nil}
+    vrrpOperState.EntityData.Children = types.NewOrderedMap()
+    vrrpOperState.EntityData.Children.Append("track-list", types.YChild{"TrackList", nil})
     for i := range vrrpOperState.TrackList {
-        vrrpOperState.EntityData.Children[types.GetSegmentPath(&vrrpOperState.TrackList[i])] = types.YChild{"TrackList", &vrrpOperState.TrackList[i]}
+        vrrpOperState.EntityData.Children.Append(types.GetSegmentPath(vrrpOperState.TrackList[i]), types.YChild{"TrackList", vrrpOperState.TrackList[i]})
     }
-    vrrpOperState.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrrpOperState.EntityData.Leafs["if-number"] = types.YLeaf{"IfNumber", vrrpOperState.IfNumber}
-    vrrpOperState.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", vrrpOperState.GroupId}
-    vrrpOperState.EntityData.Leafs["addr-type"] = types.YLeaf{"AddrType", vrrpOperState.AddrType}
-    vrrpOperState.EntityData.Leafs["version"] = types.YLeaf{"Version", vrrpOperState.Version}
-    vrrpOperState.EntityData.Leafs["virtual-ip"] = types.YLeaf{"VirtualIp", vrrpOperState.VirtualIp}
-    vrrpOperState.EntityData.Leafs["if-name"] = types.YLeaf{"IfName", vrrpOperState.IfName}
-    vrrpOperState.EntityData.Leafs["vrrp-state"] = types.YLeaf{"VrrpState", vrrpOperState.VrrpState}
-    vrrpOperState.EntityData.Leafs["virtual-mac"] = types.YLeaf{"VirtualMac", vrrpOperState.VirtualMac}
-    vrrpOperState.EntityData.Leafs["master-ip"] = types.YLeaf{"MasterIp", vrrpOperState.MasterIp}
-    vrrpOperState.EntityData.Leafs["is-owner"] = types.YLeaf{"IsOwner", vrrpOperState.IsOwner}
-    vrrpOperState.EntityData.Leafs["priority"] = types.YLeaf{"Priority", vrrpOperState.Priority}
-    vrrpOperState.EntityData.Leafs["advertisement-timer"] = types.YLeaf{"AdvertisementTimer", vrrpOperState.AdvertisementTimer}
-    vrrpOperState.EntityData.Leafs["master-down-timer"] = types.YLeaf{"MasterDownTimer", vrrpOperState.MasterDownTimer}
-    vrrpOperState.EntityData.Leafs["skew-time"] = types.YLeaf{"SkewTime", vrrpOperState.SkewTime}
-    vrrpOperState.EntityData.Leafs["preempt"] = types.YLeaf{"Preempt", vrrpOperState.Preempt}
-    vrrpOperState.EntityData.Leafs["master-transitions"] = types.YLeaf{"MasterTransitions", vrrpOperState.MasterTransitions}
-    vrrpOperState.EntityData.Leafs["new-master-reason"] = types.YLeaf{"NewMasterReason", vrrpOperState.NewMasterReason}
-    vrrpOperState.EntityData.Leafs["last-state-change-time"] = types.YLeaf{"LastStateChangeTime", vrrpOperState.LastStateChangeTime}
-    vrrpOperState.EntityData.Leafs["adv-interval-errors"] = types.YLeaf{"AdvIntervalErrors", vrrpOperState.AdvIntervalErrors}
-    vrrpOperState.EntityData.Leafs["ip-ttl-errors"] = types.YLeaf{"IpTtlErrors", vrrpOperState.IpTtlErrors}
-    vrrpOperState.EntityData.Leafs["rcvd-pri-zero-pak"] = types.YLeaf{"RcvdPriZeroPak", vrrpOperState.RcvdPriZeroPak}
-    vrrpOperState.EntityData.Leafs["sent-pri-zero-pak"] = types.YLeaf{"SentPriZeroPak", vrrpOperState.SentPriZeroPak}
-    vrrpOperState.EntityData.Leafs["rcvd-invalid-type-pak"] = types.YLeaf{"RcvdInvalidTypePak", vrrpOperState.RcvdInvalidTypePak}
-    vrrpOperState.EntityData.Leafs["addr-list-errors"] = types.YLeaf{"AddrListErrors", vrrpOperState.AddrListErrors}
-    vrrpOperState.EntityData.Leafs["pak-len-errors"] = types.YLeaf{"PakLenErrors", vrrpOperState.PakLenErrors}
-    vrrpOperState.EntityData.Leafs["discontinuity-time"] = types.YLeaf{"DiscontinuityTime", vrrpOperState.DiscontinuityTime}
-    vrrpOperState.EntityData.Leafs["advertisement-sent"] = types.YLeaf{"AdvertisementSent", vrrpOperState.AdvertisementSent}
-    vrrpOperState.EntityData.Leafs["advertisement-rcvd"] = types.YLeaf{"AdvertisementRcvd", vrrpOperState.AdvertisementRcvd}
-    vrrpOperState.EntityData.Leafs["omp-state"] = types.YLeaf{"OmpState", vrrpOperState.OmpState}
+    vrrpOperState.EntityData.Leafs = types.NewOrderedMap()
+    vrrpOperState.EntityData.Leafs.Append("if-number", types.YLeaf{"IfNumber", vrrpOperState.IfNumber})
+    vrrpOperState.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", vrrpOperState.GroupId})
+    vrrpOperState.EntityData.Leafs.Append("addr-type", types.YLeaf{"AddrType", vrrpOperState.AddrType})
+    vrrpOperState.EntityData.Leafs.Append("version", types.YLeaf{"Version", vrrpOperState.Version})
+    vrrpOperState.EntityData.Leafs.Append("virtual-ip", types.YLeaf{"VirtualIp", vrrpOperState.VirtualIp})
+    vrrpOperState.EntityData.Leafs.Append("if-name", types.YLeaf{"IfName", vrrpOperState.IfName})
+    vrrpOperState.EntityData.Leafs.Append("vrrp-state", types.YLeaf{"VrrpState", vrrpOperState.VrrpState})
+    vrrpOperState.EntityData.Leafs.Append("virtual-mac", types.YLeaf{"VirtualMac", vrrpOperState.VirtualMac})
+    vrrpOperState.EntityData.Leafs.Append("master-ip", types.YLeaf{"MasterIp", vrrpOperState.MasterIp})
+    vrrpOperState.EntityData.Leafs.Append("is-owner", types.YLeaf{"IsOwner", vrrpOperState.IsOwner})
+    vrrpOperState.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", vrrpOperState.Priority})
+    vrrpOperState.EntityData.Leafs.Append("advertisement-timer", types.YLeaf{"AdvertisementTimer", vrrpOperState.AdvertisementTimer})
+    vrrpOperState.EntityData.Leafs.Append("master-down-timer", types.YLeaf{"MasterDownTimer", vrrpOperState.MasterDownTimer})
+    vrrpOperState.EntityData.Leafs.Append("skew-time", types.YLeaf{"SkewTime", vrrpOperState.SkewTime})
+    vrrpOperState.EntityData.Leafs.Append("preempt", types.YLeaf{"Preempt", vrrpOperState.Preempt})
+    vrrpOperState.EntityData.Leafs.Append("master-transitions", types.YLeaf{"MasterTransitions", vrrpOperState.MasterTransitions})
+    vrrpOperState.EntityData.Leafs.Append("new-master-reason", types.YLeaf{"NewMasterReason", vrrpOperState.NewMasterReason})
+    vrrpOperState.EntityData.Leafs.Append("last-state-change-time", types.YLeaf{"LastStateChangeTime", vrrpOperState.LastStateChangeTime})
+    vrrpOperState.EntityData.Leafs.Append("adv-interval-errors", types.YLeaf{"AdvIntervalErrors", vrrpOperState.AdvIntervalErrors})
+    vrrpOperState.EntityData.Leafs.Append("ip-ttl-errors", types.YLeaf{"IpTtlErrors", vrrpOperState.IpTtlErrors})
+    vrrpOperState.EntityData.Leafs.Append("rcvd-pri-zero-pak", types.YLeaf{"RcvdPriZeroPak", vrrpOperState.RcvdPriZeroPak})
+    vrrpOperState.EntityData.Leafs.Append("sent-pri-zero-pak", types.YLeaf{"SentPriZeroPak", vrrpOperState.SentPriZeroPak})
+    vrrpOperState.EntityData.Leafs.Append("rcvd-invalid-type-pak", types.YLeaf{"RcvdInvalidTypePak", vrrpOperState.RcvdInvalidTypePak})
+    vrrpOperState.EntityData.Leafs.Append("addr-list-errors", types.YLeaf{"AddrListErrors", vrrpOperState.AddrListErrors})
+    vrrpOperState.EntityData.Leafs.Append("pak-len-errors", types.YLeaf{"PakLenErrors", vrrpOperState.PakLenErrors})
+    vrrpOperState.EntityData.Leafs.Append("discontinuity-time", types.YLeaf{"DiscontinuityTime", vrrpOperState.DiscontinuityTime})
+    vrrpOperState.EntityData.Leafs.Append("advertisement-sent", types.YLeaf{"AdvertisementSent", vrrpOperState.AdvertisementSent})
+    vrrpOperState.EntityData.Leafs.Append("advertisement-rcvd", types.YLeaf{"AdvertisementRcvd", vrrpOperState.AdvertisementRcvd})
+    vrrpOperState.EntityData.Leafs.Append("omp-state", types.YLeaf{"OmpState", vrrpOperState.OmpState})
+
+    vrrpOperState.EntityData.YListKeys = []string {"IfNumber", "GroupId", "AddrType"}
+
     return &(vrrpOperState.EntityData)
 }
 
@@ -320,10 +325,13 @@ func (trackList *VrrpOperData_VrrpOperState_TrackList) GetEntityData() *types.Co
     trackList.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     trackList.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    trackList.EntityData.Children = make(map[string]types.YChild)
-    trackList.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackList.EntityData.Leafs["track-name"] = types.YLeaf{"TrackName", trackList.TrackName}
-    trackList.EntityData.Leafs["track-obj-state"] = types.YLeaf{"TrackObjState", trackList.TrackObjState}
+    trackList.EntityData.Children = types.NewOrderedMap()
+    trackList.EntityData.Leafs = types.NewOrderedMap()
+    trackList.EntityData.Leafs.Append("track-name", types.YLeaf{"TrackName", trackList.TrackName})
+    trackList.EntityData.Leafs.Append("track-obj-state", types.YLeaf{"TrackObjState", trackList.TrackObjState})
+
+    trackList.EntityData.YListKeys = []string {}
+
     return &(trackList.EntityData)
 }
 

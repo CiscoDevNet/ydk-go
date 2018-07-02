@@ -6,6 +6,9 @@ submodule Cisco-IOS-XR-Ethernet-SPAN-oper-sub1 {
   import ietf-inet-types {
     prefix inet;
   }
+  import ietf-yang-types {
+    prefix yang;
+  }
   import Cisco-IOS-XR-types {
     prefix xr;
   }
@@ -32,6 +35,12 @@ submodule Cisco-IOS-XR-Ethernet-SPAN-oper-sub1 {
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
+  }
+
+  typedef Mac-address {
+    type yang:mac-address;
+    description
+      "MAC address type";
   }
 
   typedef Mirror-interval {
@@ -275,6 +284,24 @@ submodule Cisco-IOS-XR-Ethernet-SPAN-oper-sub1 {
       description
         "Last error observed for this session while
          programming the hardware";
+    }
+    leaf inject-interface-ifh {
+      type xr:Interface-name;
+      description
+        "Inject Interface ifhandle";
+    }
+    leaf inject-interface-mac {
+      type Mac-address;
+      description
+        "Inject Interface MAC address";
+    }
+    leaf inject-interface-invalid {
+      type boolean;
+      description
+        "An inject interface is flagged as invalid on a
+         particular node if the interface exists on that
+         node, and there is no attachment interface
+         config for it";
     }
   }
 

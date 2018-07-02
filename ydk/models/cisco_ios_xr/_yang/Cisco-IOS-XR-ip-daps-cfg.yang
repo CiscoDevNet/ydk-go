@@ -32,6 +32,10 @@ module Cisco-IOS-XR-ip-daps-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -70,7 +74,7 @@ module Cisco-IOS-XR-ip-daps-cfg {
                       "Start address of the range";
                   }
                   leaf blocked {
-                    type int32;
+                    type uint32;
                     description
                       "Blocked flag";
                   }
@@ -135,7 +139,7 @@ module Cisco-IOS-XR-ip-daps-cfg {
                       "First prefix of range";
                   }
                   leaf blocked {
-                    type int32;
+                    type uint32;
                     description
                       "Blocked flag";
                   }
@@ -160,7 +164,7 @@ module Cisco-IOS-XR-ip-daps-cfg {
                       "None";
                   }
                   leaf blocked {
-                    type int32;
+                    type uint32;
                     description
                       "Blocked flag";
                   }
@@ -218,7 +222,7 @@ module Cisco-IOS-XR-ip-daps-cfg {
                       "Last address of the range";
                   }
                   leaf blocked {
-                    type int32;
+                    type uint32;
                     description
                       "Blocked flag";
                   }
@@ -277,12 +281,12 @@ module Cisco-IOS-XR-ip-daps-cfg {
                       "None";
                   }
                   leaf blocked {
-                    type int32;
+                    type uint32;
                     description
                       "Blocked flag";
                   }
                   leaf prefix-length {
-                    type int32;
+                    type uint32;
                     mandatory true;
                     description
                       "Subnet Length for IPv4 subnet";

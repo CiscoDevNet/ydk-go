@@ -21,6 +21,24 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package ip"))
 }
 
+// NeighborOrigin represents The origin of a neighbor entry.
+type NeighborOrigin string
+
+const (
+    // None of the following.
+    NeighborOrigin_other NeighborOrigin = "other"
+
+    // Indicates that the mapping has been statically
+    // configured - for example, using NETCONF or a Command Line
+    // Interface.
+    NeighborOrigin_static NeighborOrigin = "static"
+
+    // Indicates that the mapping has been dynamically resolved
+    // using, e.g., IPv4 ARP or the IPv6 Neighbor Discovery
+    // protocol.
+    NeighborOrigin_dynamic NeighborOrigin = "dynamic"
+)
+
 // IpAddressOrigin represents The origin of an address.
 type IpAddressOrigin string
 
@@ -47,23 +65,5 @@ const (
     // RFC 4941 temporary address, or an RFC 7217 semantically
     // opaque address.
     IpAddressOrigin_random IpAddressOrigin = "random"
-)
-
-// NeighborOrigin represents The origin of a neighbor entry.
-type NeighborOrigin string
-
-const (
-    // None of the following.
-    NeighborOrigin_other NeighborOrigin = "other"
-
-    // Indicates that the mapping has been statically
-    // configured - for example, using NETCONF or a Command Line
-    // Interface.
-    NeighborOrigin_static NeighborOrigin = "static"
-
-    // Indicates that the mapping has been dynamically resolved
-    // using, e.g., IPv4 ARP or the IPv6 Neighbor Discovery
-    // protocol.
-    NeighborOrigin_dynamic NeighborOrigin = "dynamic"
 )
 

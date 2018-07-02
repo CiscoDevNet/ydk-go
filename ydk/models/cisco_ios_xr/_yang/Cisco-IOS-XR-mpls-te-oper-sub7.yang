@@ -7,10 +7,10 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub7 {
     prefix inet;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub5 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub6 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -32,6 +32,10 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub7 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -133,6 +137,49 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub7 {
       description
         "The timestamp when these stats are cleared
          relative to Jan 1, 1970";
+    }
+  }
+
+  grouping TE-STATS-DARKBW-INFO {
+    description
+      "Dark bandwidth counters";
+    leaf last-cleared-timestamp {
+      type uint32;
+      description
+        "The timestamp when these stats are cleared
+         relative to Jan 1, 1970";
+    }
+    leaf bandwidth-application-count {
+      type uint32;
+      description
+        "Number of bandwidth accounting applications";
+    }
+    leaf bandwidth-sample-count {
+      type uint32;
+      description
+        "Number of bandwidth accounting samples";
+    }
+    leaf invalid-sample-count {
+      type uint32;
+      description
+        "Number of invalid bandwidth accounting samples";
+    }
+    leaf skipped-application-count {
+      type uint32;
+      description
+        "Number of skipped bandwidth accounting
+         applications";
+    }
+    leaf capped-sample-count {
+      type uint32;
+      description
+        "Number of capped bandwidth accounting samples";
+    }
+    leaf high-latency-count {
+      type uint32;
+      description
+        "Number of statsd requests that returned with
+         high latency";
     }
   }
 

@@ -19,6 +19,53 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package aaa_protocol_radius_cfg"))
 }
 
+// AaaAuthentication represents Aaa authentication
+type AaaAuthentication string
+
+const (
+    // All
+    AaaAuthentication_all AaaAuthentication = "all"
+
+    // Any
+    AaaAuthentication_any AaaAuthentication = "any"
+
+    // Session key
+    AaaAuthentication_session_key AaaAuthentication = "session-key"
+)
+
+// AaaConfig represents Aaa config
+type AaaConfig string
+
+const (
+    // False
+    AaaConfig_false_ AaaConfig = "false"
+
+    // True
+    AaaConfig_true_ AaaConfig = "true"
+)
+
+// AaaAction represents Aaa action
+type AaaAction string
+
+const (
+    // Accept
+    AaaAction_accept AaaAction = "accept"
+
+    // Reject
+    AaaAction_reject AaaAction = "reject"
+)
+
+// AaaSelectKey represents Aaa select key
+type AaaSelectKey string
+
+const (
+    // Server key
+    AaaSelectKey_server_key AaaSelectKey = "server-key"
+
+    // Session  key
+    AaaSelectKey_session_key AaaSelectKey = "session-key"
+)
+
 // AaaDscpValue represents Aaa dscp value
 type AaaDscpValue string
 
@@ -87,42 +134,6 @@ const (
     AaaDscpValue_ef AaaDscpValue = "ef"
 )
 
-// AaaAction represents Aaa action
-type AaaAction string
-
-const (
-    // Accept
-    AaaAction_accept AaaAction = "accept"
-
-    // Reject
-    AaaAction_reject AaaAction = "reject"
-)
-
-// AaaAuthentication represents Aaa authentication
-type AaaAuthentication string
-
-const (
-    // All
-    AaaAuthentication_all AaaAuthentication = "all"
-
-    // Any
-    AaaAuthentication_any AaaAuthentication = "any"
-
-    // Session key
-    AaaAuthentication_session_key AaaAuthentication = "session-key"
-)
-
-// AaaSelectKey represents Aaa select key
-type AaaSelectKey string
-
-const (
-    // Server key
-    AaaSelectKey_server_key AaaSelectKey = "server-key"
-
-    // Session  key
-    AaaSelectKey_session_key AaaSelectKey = "session-key"
-)
-
 // AaaDirection represents Aaa direction
 type AaaDirection string
 
@@ -132,16 +143,5 @@ const (
 
     // Outbound
     AaaDirection_outbound AaaDirection = "outbound"
-)
-
-// AaaConfig represents Aaa config
-type AaaConfig string
-
-const (
-    // False
-    AaaConfig_false AaaConfig = "false"
-
-    // True
-    AaaConfig_true AaaConfig = "true"
 )
 

@@ -47,10 +47,13 @@ func (grpc *Grpc) GetEntityData() *types.CommonEntityData {
     grpc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     grpc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    grpc.EntityData.Children = make(map[string]types.YChild)
-    grpc.EntityData.Children["statistics"] = types.YChild{"Statistics", &grpc.Statistics}
-    grpc.EntityData.Children["status"] = types.YChild{"Status", &grpc.Status}
-    grpc.EntityData.Leafs = make(map[string]types.YLeaf)
+    grpc.EntityData.Children = types.NewOrderedMap()
+    grpc.EntityData.Children.Append("statistics", types.YChild{"Statistics", &grpc.Statistics})
+    grpc.EntityData.Children.Append("status", types.YChild{"Status", &grpc.Status})
+    grpc.EntityData.Leafs = types.NewOrderedMap()
+
+    grpc.EntityData.YListKeys = []string {}
+
     return &(grpc.EntityData)
 }
 
@@ -155,29 +158,32 @@ func (statistics *Grpc_Statistics) GetEntityData() *types.CommonEntityData {
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statistics.EntityData.Children = make(map[string]types.YChild)
-    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    statistics.EntityData.Leafs["ct-show-cmd-txt-req-recv"] = types.YLeaf{"CtShowCmdTxtReqRecv", statistics.CtShowCmdTxtReqRecv}
-    statistics.EntityData.Leafs["ct-show-cmd-txt-res-sent"] = types.YLeaf{"CtShowCmdTxtResSent", statistics.CtShowCmdTxtResSent}
-    statistics.EntityData.Leafs["ct-get-config-req-recv"] = types.YLeaf{"CtGetConfigReqRecv", statistics.CtGetConfigReqRecv}
-    statistics.EntityData.Leafs["ct-get-config-res-sent"] = types.YLeaf{"CtGetConfigResSent", statistics.CtGetConfigResSent}
-    statistics.EntityData.Leafs["ct-cli-config-req-recv"] = types.YLeaf{"CtCliConfigReqRecv", statistics.CtCliConfigReqRecv}
-    statistics.EntityData.Leafs["ct-cli-config-res-sent"] = types.YLeaf{"CtCliConfigResSent", statistics.CtCliConfigResSent}
-    statistics.EntityData.Leafs["ct-merge-config-req-recv"] = types.YLeaf{"CtMergeConfigReqRecv", statistics.CtMergeConfigReqRecv}
-    statistics.EntityData.Leafs["ct-merge-config-res-sent"] = types.YLeaf{"CtMergeConfigResSent", statistics.CtMergeConfigResSent}
-    statistics.EntityData.Leafs["ct-commit-replace-req-recv"] = types.YLeaf{"CtCommitReplaceReqRecv", statistics.CtCommitReplaceReqRecv}
-    statistics.EntityData.Leafs["ct-commit-replace-res-sent"] = types.YLeaf{"CtCommitReplaceResSent", statistics.CtCommitReplaceResSent}
-    statistics.EntityData.Leafs["ct-delete-config-req-recv"] = types.YLeaf{"CtDeleteConfigReqRecv", statistics.CtDeleteConfigReqRecv}
-    statistics.EntityData.Leafs["ct-delete-config-res-sent"] = types.YLeaf{"CtDeleteConfigResSent", statistics.CtDeleteConfigResSent}
-    statistics.EntityData.Leafs["ct-replace-config-req-recv"] = types.YLeaf{"CtReplaceConfigReqRecv", statistics.CtReplaceConfigReqRecv}
-    statistics.EntityData.Leafs["ct-replace-config-res-sent"] = types.YLeaf{"CtReplaceConfigResSent", statistics.CtReplaceConfigResSent}
-    statistics.EntityData.Leafs["ct-get-oper-req-recv"] = types.YLeaf{"CtGetOperReqRecv", statistics.CtGetOperReqRecv}
-    statistics.EntityData.Leafs["ct-get-oper-res-sent"] = types.YLeaf{"CtGetOperResSent", statistics.CtGetOperResSent}
-    statistics.EntityData.Leafs["ct-get-current-session"] = types.YLeaf{"CtGetCurrentSession", statistics.CtGetCurrentSession}
-    statistics.EntityData.Leafs["ct-commit-config-req-recv"] = types.YLeaf{"CtCommitConfigReqRecv", statistics.CtCommitConfigReqRecv}
-    statistics.EntityData.Leafs["ct-commit-config-res-sent"] = types.YLeaf{"CtCommitConfigResSent", statistics.CtCommitConfigResSent}
-    statistics.EntityData.Leafs["ct-action-json-req-recv"] = types.YLeaf{"CtActionJsonReqRecv", statistics.CtActionJsonReqRecv}
-    statistics.EntityData.Leafs["ct-action-json-res-sent"] = types.YLeaf{"CtActionJsonResSent", statistics.CtActionJsonResSent}
+    statistics.EntityData.Children = types.NewOrderedMap()
+    statistics.EntityData.Leafs = types.NewOrderedMap()
+    statistics.EntityData.Leafs.Append("ct-show-cmd-txt-req-recv", types.YLeaf{"CtShowCmdTxtReqRecv", statistics.CtShowCmdTxtReqRecv})
+    statistics.EntityData.Leafs.Append("ct-show-cmd-txt-res-sent", types.YLeaf{"CtShowCmdTxtResSent", statistics.CtShowCmdTxtResSent})
+    statistics.EntityData.Leafs.Append("ct-get-config-req-recv", types.YLeaf{"CtGetConfigReqRecv", statistics.CtGetConfigReqRecv})
+    statistics.EntityData.Leafs.Append("ct-get-config-res-sent", types.YLeaf{"CtGetConfigResSent", statistics.CtGetConfigResSent})
+    statistics.EntityData.Leafs.Append("ct-cli-config-req-recv", types.YLeaf{"CtCliConfigReqRecv", statistics.CtCliConfigReqRecv})
+    statistics.EntityData.Leafs.Append("ct-cli-config-res-sent", types.YLeaf{"CtCliConfigResSent", statistics.CtCliConfigResSent})
+    statistics.EntityData.Leafs.Append("ct-merge-config-req-recv", types.YLeaf{"CtMergeConfigReqRecv", statistics.CtMergeConfigReqRecv})
+    statistics.EntityData.Leafs.Append("ct-merge-config-res-sent", types.YLeaf{"CtMergeConfigResSent", statistics.CtMergeConfigResSent})
+    statistics.EntityData.Leafs.Append("ct-commit-replace-req-recv", types.YLeaf{"CtCommitReplaceReqRecv", statistics.CtCommitReplaceReqRecv})
+    statistics.EntityData.Leafs.Append("ct-commit-replace-res-sent", types.YLeaf{"CtCommitReplaceResSent", statistics.CtCommitReplaceResSent})
+    statistics.EntityData.Leafs.Append("ct-delete-config-req-recv", types.YLeaf{"CtDeleteConfigReqRecv", statistics.CtDeleteConfigReqRecv})
+    statistics.EntityData.Leafs.Append("ct-delete-config-res-sent", types.YLeaf{"CtDeleteConfigResSent", statistics.CtDeleteConfigResSent})
+    statistics.EntityData.Leafs.Append("ct-replace-config-req-recv", types.YLeaf{"CtReplaceConfigReqRecv", statistics.CtReplaceConfigReqRecv})
+    statistics.EntityData.Leafs.Append("ct-replace-config-res-sent", types.YLeaf{"CtReplaceConfigResSent", statistics.CtReplaceConfigResSent})
+    statistics.EntityData.Leafs.Append("ct-get-oper-req-recv", types.YLeaf{"CtGetOperReqRecv", statistics.CtGetOperReqRecv})
+    statistics.EntityData.Leafs.Append("ct-get-oper-res-sent", types.YLeaf{"CtGetOperResSent", statistics.CtGetOperResSent})
+    statistics.EntityData.Leafs.Append("ct-get-current-session", types.YLeaf{"CtGetCurrentSession", statistics.CtGetCurrentSession})
+    statistics.EntityData.Leafs.Append("ct-commit-config-req-recv", types.YLeaf{"CtCommitConfigReqRecv", statistics.CtCommitConfigReqRecv})
+    statistics.EntityData.Leafs.Append("ct-commit-config-res-sent", types.YLeaf{"CtCommitConfigResSent", statistics.CtCommitConfigResSent})
+    statistics.EntityData.Leafs.Append("ct-action-json-req-recv", types.YLeaf{"CtActionJsonReqRecv", statistics.CtActionJsonReqRecv})
+    statistics.EntityData.Leafs.Append("ct-action-json-res-sent", types.YLeaf{"CtActionJsonResSent", statistics.CtActionJsonResSent})
+
+    statistics.EntityData.YListKeys = []string {}
+
     return &(statistics.EntityData)
 }
 
@@ -222,16 +228,19 @@ func (status *Grpc_Status) GetEntityData() *types.CommonEntityData {
     status.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    status.EntityData.Children = make(map[string]types.YChild)
-    status.EntityData.Leafs = make(map[string]types.YLeaf)
-    status.EntityData.Leafs["transport"] = types.YLeaf{"Transport", status.Transport}
-    status.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", status.AddressFamily}
-    status.EntityData.Leafs["tls"] = types.YLeaf{"Tls", status.Tls}
-    status.EntityData.Leafs["trustpoint"] = types.YLeaf{"Trustpoint", status.Trustpoint}
-    status.EntityData.Leafs["listening-port"] = types.YLeaf{"ListeningPort", status.ListeningPort}
-    status.EntityData.Leafs["vrf-socket-ns-path"] = types.YLeaf{"VrfSocketNsPath", status.VrfSocketNsPath}
-    status.EntityData.Leafs["max-req-per-user"] = types.YLeaf{"MaxReqPerUser", status.MaxReqPerUser}
-    status.EntityData.Leafs["max-req-total"] = types.YLeaf{"MaxReqTotal", status.MaxReqTotal}
+    status.EntityData.Children = types.NewOrderedMap()
+    status.EntityData.Leafs = types.NewOrderedMap()
+    status.EntityData.Leafs.Append("transport", types.YLeaf{"Transport", status.Transport})
+    status.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", status.AddressFamily})
+    status.EntityData.Leafs.Append("tls", types.YLeaf{"Tls", status.Tls})
+    status.EntityData.Leafs.Append("trustpoint", types.YLeaf{"Trustpoint", status.Trustpoint})
+    status.EntityData.Leafs.Append("listening-port", types.YLeaf{"ListeningPort", status.ListeningPort})
+    status.EntityData.Leafs.Append("vrf-socket-ns-path", types.YLeaf{"VrfSocketNsPath", status.VrfSocketNsPath})
+    status.EntityData.Leafs.Append("max-req-per-user", types.YLeaf{"MaxReqPerUser", status.MaxReqPerUser})
+    status.EntityData.Leafs.Append("max-req-total", types.YLeaf{"MaxReqTotal", status.MaxReqTotal})
+
+    status.EntityData.YListKeys = []string {}
+
     return &(status.EntityData)
 }
 

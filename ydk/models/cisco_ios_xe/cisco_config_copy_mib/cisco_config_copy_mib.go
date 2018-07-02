@@ -22,34 +22,6 @@ func init() {
     ydk.RegisterEntity("CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB", reflect.TypeOf(CISCOCONFIGCOPYMIB{}))
 }
 
-// ConfigCopyProtocol represents sftp:   Secure File Transfer Protocol
-type ConfigCopyProtocol string
-
-const (
-    ConfigCopyProtocol_tftp ConfigCopyProtocol = "tftp"
-
-    ConfigCopyProtocol_ftp ConfigCopyProtocol = "ftp"
-
-    ConfigCopyProtocol_rcp ConfigCopyProtocol = "rcp"
-
-    ConfigCopyProtocol_scp ConfigCopyProtocol = "scp"
-
-    ConfigCopyProtocol_sftp ConfigCopyProtocol = "sftp"
-)
-
-// ConfigCopyState represents              unsuccessful.
-type ConfigCopyState string
-
-const (
-    ConfigCopyState_waiting ConfigCopyState = "waiting"
-
-    ConfigCopyState_running ConfigCopyState = "running"
-
-    ConfigCopyState_successful ConfigCopyState = "successful"
-
-    ConfigCopyState_failed ConfigCopyState = "failed"
-)
-
 // ConfigCopyFailCause represents requestAborted: config copy operation aborted.
 type ConfigCopyFailCause string
 
@@ -73,6 +45,19 @@ const (
     ConfigCopyFailCause_requestAborted ConfigCopyFailCause = "requestAborted"
 )
 
+// ConfigCopyState represents              unsuccessful.
+type ConfigCopyState string
+
+const (
+    ConfigCopyState_waiting ConfigCopyState = "waiting"
+
+    ConfigCopyState_running ConfigCopyState = "running"
+
+    ConfigCopyState_successful ConfigCopyState = "successful"
+
+    ConfigCopyState_failed ConfigCopyState = "failed"
+)
+
 // ConfigFileType represents                        or even a MAC-based fabric.
 type ConfigFileType string
 
@@ -90,13 +75,28 @@ const (
     ConfigFileType_fabricStartupConfig ConfigFileType = "fabricStartupConfig"
 )
 
+// ConfigCopyProtocol represents sftp:   Secure File Transfer Protocol
+type ConfigCopyProtocol string
+
+const (
+    ConfigCopyProtocol_tftp ConfigCopyProtocol = "tftp"
+
+    ConfigCopyProtocol_ftp ConfigCopyProtocol = "ftp"
+
+    ConfigCopyProtocol_rcp ConfigCopyProtocol = "rcp"
+
+    ConfigCopyProtocol_scp ConfigCopyProtocol = "scp"
+
+    ConfigCopyProtocol_sftp ConfigCopyProtocol = "sftp"
+)
+
 // CISCOCONFIGCOPYMIB
 type CISCOCONFIGCOPYMIB struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A table of config-copy requests.
-    Cccopytable CISCOCONFIGCOPYMIB_Cccopytable
+    CcCopyTable CISCOCONFIGCOPYMIB_CcCopyTable
 
     // A table containing information about the failure cause of the config copy
     // operation. An entry is created only when the value of ccCopyState changes
@@ -119,7 +119,7 @@ type CISCOCONFIGCOPYMIB struct {
     // same ccCopyIndex in this table are also  deleted.   In order to prevent old
     // entries from clogging the  table, entries age out at the same time as the 
     // corresponding entry with same ccCopyIndex in  ccCopyTable ages out.
-    Cccopyerrortable CISCOCONFIGCOPYMIB_Cccopyerrortable
+    CcCopyErrorTable CISCOCONFIGCOPYMIB_CcCopyErrorTable
 }
 
 func (cISCOCONFIGCOPYMIB *CISCOCONFIGCOPYMIB) GetEntityData() *types.CommonEntityData {
@@ -132,16 +132,19 @@ func (cISCOCONFIGCOPYMIB *CISCOCONFIGCOPYMIB) GetEntityData() *types.CommonEntit
     cISCOCONFIGCOPYMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOCONFIGCOPYMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOCONFIGCOPYMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOCONFIGCOPYMIB.EntityData.Children["ccCopyTable"] = types.YChild{"Cccopytable", &cISCOCONFIGCOPYMIB.Cccopytable}
-    cISCOCONFIGCOPYMIB.EntityData.Children["ccCopyErrorTable"] = types.YChild{"Cccopyerrortable", &cISCOCONFIGCOPYMIB.Cccopyerrortable}
-    cISCOCONFIGCOPYMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOCONFIGCOPYMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOCONFIGCOPYMIB.EntityData.Children.Append("ccCopyTable", types.YChild{"CcCopyTable", &cISCOCONFIGCOPYMIB.CcCopyTable})
+    cISCOCONFIGCOPYMIB.EntityData.Children.Append("ccCopyErrorTable", types.YChild{"CcCopyErrorTable", &cISCOCONFIGCOPYMIB.CcCopyErrorTable})
+    cISCOCONFIGCOPYMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOCONFIGCOPYMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOCONFIGCOPYMIB.EntityData)
 }
 
-// CISCOCONFIGCOPYMIB_Cccopytable
+// CISCOCONFIGCOPYMIB_CcCopyTable
 // A table of config-copy requests.
-type CISCOCONFIGCOPYMIB_Cccopytable struct {
+type CISCOCONFIGCOPYMIB_CcCopyTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -173,30 +176,33 @@ type CISCOCONFIGCOPYMIB_Cccopytable struct {
     // delete the entry.  In order to prevent old entries from clogging the 
     // table, entries will be aged out, but an entry will  ever be deleted within
     // 5 minutes of completing. The type is slice of
-    // CISCOCONFIGCOPYMIB_Cccopytable_Cccopyentry.
-    Cccopyentry []CISCOCONFIGCOPYMIB_Cccopytable_Cccopyentry
+    // CISCOCONFIGCOPYMIB_CcCopyTable_CcCopyEntry.
+    CcCopyEntry []*CISCOCONFIGCOPYMIB_CcCopyTable_CcCopyEntry
 }
 
-func (cccopytable *CISCOCONFIGCOPYMIB_Cccopytable) GetEntityData() *types.CommonEntityData {
-    cccopytable.EntityData.YFilter = cccopytable.YFilter
-    cccopytable.EntityData.YangName = "ccCopyTable"
-    cccopytable.EntityData.BundleName = "cisco_ios_xe"
-    cccopytable.EntityData.ParentYangName = "CISCO-CONFIG-COPY-MIB"
-    cccopytable.EntityData.SegmentPath = "ccCopyTable"
-    cccopytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cccopytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cccopytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ccCopyTable *CISCOCONFIGCOPYMIB_CcCopyTable) GetEntityData() *types.CommonEntityData {
+    ccCopyTable.EntityData.YFilter = ccCopyTable.YFilter
+    ccCopyTable.EntityData.YangName = "ccCopyTable"
+    ccCopyTable.EntityData.BundleName = "cisco_ios_xe"
+    ccCopyTable.EntityData.ParentYangName = "CISCO-CONFIG-COPY-MIB"
+    ccCopyTable.EntityData.SegmentPath = "ccCopyTable"
+    ccCopyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ccCopyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ccCopyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cccopytable.EntityData.Children = make(map[string]types.YChild)
-    cccopytable.EntityData.Children["ccCopyEntry"] = types.YChild{"Cccopyentry", nil}
-    for i := range cccopytable.Cccopyentry {
-        cccopytable.EntityData.Children[types.GetSegmentPath(&cccopytable.Cccopyentry[i])] = types.YChild{"Cccopyentry", &cccopytable.Cccopyentry[i]}
+    ccCopyTable.EntityData.Children = types.NewOrderedMap()
+    ccCopyTable.EntityData.Children.Append("ccCopyEntry", types.YChild{"CcCopyEntry", nil})
+    for i := range ccCopyTable.CcCopyEntry {
+        ccCopyTable.EntityData.Children.Append(types.GetSegmentPath(ccCopyTable.CcCopyEntry[i]), types.YChild{"CcCopyEntry", ccCopyTable.CcCopyEntry[i]})
     }
-    cccopytable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cccopytable.EntityData)
+    ccCopyTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ccCopyTable.EntityData.YListKeys = []string {}
+
+    return &(ccCopyTable.EntityData)
 }
 
-// CISCOCONFIGCOPYMIB_Cccopytable_Cccopyentry
+// CISCOCONFIGCOPYMIB_CcCopyTable_CcCopyEntry
 // A config-copy request.
 // 
 // A management station wishing to create an entry 
@@ -248,7 +254,7 @@ func (cccopytable *CISCOCONFIGCOPYMIB_Cccopytable) GetEntityData() *types.Common
 // order to prevent old entries from clogging the 
 // table, entries will be aged out, but an entry will 
 // ever be deleted within 5 minutes of completing.
-type CISCOCONFIGCOPYMIB_Cccopytable_Cccopyentry struct {
+type CISCOCONFIGCOPYMIB_CcCopyTable_CcCopyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -258,12 +264,12 @@ type CISCOCONFIGCOPYMIB_Cccopytable_Cccopyentry struct {
     // modifying an instance of a ccCopyEntry. The RowStatus semantics of the
     // ccCopyEntryRowStatus object will prevent access conflicts. The type is
     // interface{} with range: 1..2147483647.
-    Cccopyindex interface{}
+    CcCopyIndex interface{}
 
     // The protocol to be used for any copy.  If the copy operation occurs locally
     // on the SNMP  agent (e.g. 'runningConfig' to 'startupConfig'), this object
     // may be ignored by the implementation. The type is ConfigCopyProtocol.
-    Cccopyprotocol interface{}
+    CcCopyProtocol interface{}
 
     // Specifies the type of file to copy from. Either the ccCopySourceFileType or
     // the ccCopyDestFileType  (or both) must be of type 'runningConfig' or 
@@ -278,7 +284,7 @@ type CISCOCONFIGCOPYMIB_Cccopytable_Cccopyentry struct {
     // If the ccCopySourceFileType is 'iosFile', the  ccCopyFileName must also be
     // created, and the  2 objects together (ccCopySourceFileType, ccCopyFileName)
     // will uniquely identify the source  file. The type is ConfigFileType.
-    Cccopysourcefiletype interface{}
+    CcCopySourceFileType interface{}
 
     // specifies the type of file to copy to. Either the ccCopySourceFileType or
     // the ccCopyDestFileType  (or both) must be of type 'runningConfig' or 
@@ -293,7 +299,7 @@ type CISCOCONFIGCOPYMIB_Cccopytable_Cccopyentry struct {
     // If the ccCopyDestFileType is 'iosFile', the  ccCopyFileName must also be
     // created, and the 2 objects together (ccCopyDestFileType,  ccCopyFileName)
     // will uniquely identify the  destination file. The type is ConfigFileType.
-    Cccopydestfiletype interface{}
+    CcCopyDestFileType interface{}
 
     // The IP address of the TFTP server from (or to) which to copy the
     // configuration file. This object  must be created when either the 
@@ -301,13 +307,13 @@ type CISCOCONFIGCOPYMIB_Cccopytable_Cccopyentry struct {
     // Values of 0.0.0.0 or FF.FF.FF.FF for ccCopyServerAddress are not allowed. 
     // Since this object can just hold only IPv4 Transport type, it is deprecated
     // and replaced by  ccCopyServerAddressRev1. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Cccopyserveraddress interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CcCopyServerAddress interface{}
 
     // The file name (including the path, if applicable) of the file. This object
     // must be created when either the ccCopySourceFileType or ccCopyDestFileType
     // has the value 'networkFile' or 'iosFile'. The type is string.
-    Cccopyfilename interface{}
+    CcCopyFileName interface{}
 
     // Remote username for copy via FTP, RCP, SFTP or SCP protocol. This object
     // must be created when the ccCopyProtocol is 'rcp', 'scp', 'ftp', or 'sftp'.
@@ -316,54 +322,54 @@ type CISCOCONFIGCOPYMIB_Cccopytable_Cccopyentry struct {
     // The remote username is sent as the server username  in an RCP command
     // request sent by the system to a remote RCP server. The type is string with
     // length: 1..40.
-    Cccopyusername interface{}
+    CcCopyUserName interface{}
 
     // Password used by FTP, SFTP or SCP for copying a file to/from an
     // FTP/SFTP/SCP server. This object  must be created when the ccCopyProtocol
     // is FTP or SCP.  Reading it returns a zero-length string for security 
     // reasons. The type is string with length: 1..40.
-    Cccopyuserpassword interface{}
+    CcCopyUserPassword interface{}
 
     // Specifies whether or not a ccCopyCompletion notification should be issued
     // on completion of the TFTP transfer. If such a notification is desired,  it
     // is the responsibility of the management entity to ensure that the SNMP
     // administrative model is  configured in such a way as to allow the 
     // notification to be delivered. The type is bool.
-    Cccopynotificationoncompletion interface{}
+    CcCopyNotificationOnCompletion interface{}
 
     // Specifies the state of this config-copy request. This value of this object
     // is instantiated only after  the row has been instantiated, i.e. after the 
     // ccCopyEntryRowStatus has been made active. The type is ConfigCopyState.
-    Cccopystate interface{}
+    CcCopyState interface{}
 
     // Specifies the time the ccCopyState last transitioned to 'running', or 0 if
     // the state has  never transitioned to 'running'(e.g., stuck in 'waiting'
     // state).  This object is instantiated only after the row has  been
     // instantiated. The type is interface{} with range: 0..4294967295.
-    Cccopytimestarted interface{}
+    CcCopyTimeStarted interface{}
 
     // Specifies the time the ccCopyState last transitioned from 'running' to
     // 'successful' or  'failed' states. This object is instantiated only  after
     // the row has been instantiated. Its value will remain 0 until the request
     // has  completed. The type is interface{} with range: 0..4294967295.
-    Cccopytimecompleted interface{}
+    CcCopyTimeCompleted interface{}
 
     // The reason why the config-copy operation failed. This object is
     // instantiated only when the  ccCopyState for this entry is in the  'failed'
     // state. The type is ConfigCopyFailCause.
-    Cccopyfailcause interface{}
+    CcCopyFailCause interface{}
 
     // The status of this table entry. Once the entry status is set to active, the
     // associated entry cannot  be modified until the request completes 
     // (ccCopyState transitions to 'successful' or 'failed' state). The type is
     // RowStatus.
-    Cccopyentryrowstatus interface{}
+    CcCopyEntryRowStatus interface{}
 
     // This object indicates the transport type of the address contained in
     // ccCopyServerAddressRev1 object.  This must be created when either the
     // ccCopySourceFileType or ccCopyDestFileType has the value 'networkFile'. The
     // type is InetAddressType.
-    Cccopyserveraddresstype interface{}
+    CcCopyServerAddressType interface{}
 
     // The IP address of the TFTP server from (or to) which to copy the
     // configuration file. This object must be created when either the 
@@ -371,41 +377,44 @@ type CISCOCONFIGCOPYMIB_Cccopytable_Cccopyentry struct {
     // All bits as 0s or 1s for ccCopyServerAddressRev1 are not allowed.  The
     // format of this address depends on the value of  the ccCopyServerAddressType
     // object. The type is string with length: 0..255.
-    Cccopyserveraddressrev1 interface{}
+    CcCopyServerAddressRev1 interface{}
 }
 
-func (cccopyentry *CISCOCONFIGCOPYMIB_Cccopytable_Cccopyentry) GetEntityData() *types.CommonEntityData {
-    cccopyentry.EntityData.YFilter = cccopyentry.YFilter
-    cccopyentry.EntityData.YangName = "ccCopyEntry"
-    cccopyentry.EntityData.BundleName = "cisco_ios_xe"
-    cccopyentry.EntityData.ParentYangName = "ccCopyTable"
-    cccopyentry.EntityData.SegmentPath = "ccCopyEntry" + "[ccCopyIndex='" + fmt.Sprintf("%v", cccopyentry.Cccopyindex) + "']"
-    cccopyentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cccopyentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cccopyentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ccCopyEntry *CISCOCONFIGCOPYMIB_CcCopyTable_CcCopyEntry) GetEntityData() *types.CommonEntityData {
+    ccCopyEntry.EntityData.YFilter = ccCopyEntry.YFilter
+    ccCopyEntry.EntityData.YangName = "ccCopyEntry"
+    ccCopyEntry.EntityData.BundleName = "cisco_ios_xe"
+    ccCopyEntry.EntityData.ParentYangName = "ccCopyTable"
+    ccCopyEntry.EntityData.SegmentPath = "ccCopyEntry" + types.AddKeyToken(ccCopyEntry.CcCopyIndex, "ccCopyIndex")
+    ccCopyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ccCopyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ccCopyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cccopyentry.EntityData.Children = make(map[string]types.YChild)
-    cccopyentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cccopyentry.EntityData.Leafs["ccCopyIndex"] = types.YLeaf{"Cccopyindex", cccopyentry.Cccopyindex}
-    cccopyentry.EntityData.Leafs["ccCopyProtocol"] = types.YLeaf{"Cccopyprotocol", cccopyentry.Cccopyprotocol}
-    cccopyentry.EntityData.Leafs["ccCopySourceFileType"] = types.YLeaf{"Cccopysourcefiletype", cccopyentry.Cccopysourcefiletype}
-    cccopyentry.EntityData.Leafs["ccCopyDestFileType"] = types.YLeaf{"Cccopydestfiletype", cccopyentry.Cccopydestfiletype}
-    cccopyentry.EntityData.Leafs["ccCopyServerAddress"] = types.YLeaf{"Cccopyserveraddress", cccopyentry.Cccopyserveraddress}
-    cccopyentry.EntityData.Leafs["ccCopyFileName"] = types.YLeaf{"Cccopyfilename", cccopyentry.Cccopyfilename}
-    cccopyentry.EntityData.Leafs["ccCopyUserName"] = types.YLeaf{"Cccopyusername", cccopyentry.Cccopyusername}
-    cccopyentry.EntityData.Leafs["ccCopyUserPassword"] = types.YLeaf{"Cccopyuserpassword", cccopyentry.Cccopyuserpassword}
-    cccopyentry.EntityData.Leafs["ccCopyNotificationOnCompletion"] = types.YLeaf{"Cccopynotificationoncompletion", cccopyentry.Cccopynotificationoncompletion}
-    cccopyentry.EntityData.Leafs["ccCopyState"] = types.YLeaf{"Cccopystate", cccopyentry.Cccopystate}
-    cccopyentry.EntityData.Leafs["ccCopyTimeStarted"] = types.YLeaf{"Cccopytimestarted", cccopyentry.Cccopytimestarted}
-    cccopyentry.EntityData.Leafs["ccCopyTimeCompleted"] = types.YLeaf{"Cccopytimecompleted", cccopyentry.Cccopytimecompleted}
-    cccopyentry.EntityData.Leafs["ccCopyFailCause"] = types.YLeaf{"Cccopyfailcause", cccopyentry.Cccopyfailcause}
-    cccopyentry.EntityData.Leafs["ccCopyEntryRowStatus"] = types.YLeaf{"Cccopyentryrowstatus", cccopyentry.Cccopyentryrowstatus}
-    cccopyentry.EntityData.Leafs["ccCopyServerAddressType"] = types.YLeaf{"Cccopyserveraddresstype", cccopyentry.Cccopyserveraddresstype}
-    cccopyentry.EntityData.Leafs["ccCopyServerAddressRev1"] = types.YLeaf{"Cccopyserveraddressrev1", cccopyentry.Cccopyserveraddressrev1}
-    return &(cccopyentry.EntityData)
+    ccCopyEntry.EntityData.Children = types.NewOrderedMap()
+    ccCopyEntry.EntityData.Leafs = types.NewOrderedMap()
+    ccCopyEntry.EntityData.Leafs.Append("ccCopyIndex", types.YLeaf{"CcCopyIndex", ccCopyEntry.CcCopyIndex})
+    ccCopyEntry.EntityData.Leafs.Append("ccCopyProtocol", types.YLeaf{"CcCopyProtocol", ccCopyEntry.CcCopyProtocol})
+    ccCopyEntry.EntityData.Leafs.Append("ccCopySourceFileType", types.YLeaf{"CcCopySourceFileType", ccCopyEntry.CcCopySourceFileType})
+    ccCopyEntry.EntityData.Leafs.Append("ccCopyDestFileType", types.YLeaf{"CcCopyDestFileType", ccCopyEntry.CcCopyDestFileType})
+    ccCopyEntry.EntityData.Leafs.Append("ccCopyServerAddress", types.YLeaf{"CcCopyServerAddress", ccCopyEntry.CcCopyServerAddress})
+    ccCopyEntry.EntityData.Leafs.Append("ccCopyFileName", types.YLeaf{"CcCopyFileName", ccCopyEntry.CcCopyFileName})
+    ccCopyEntry.EntityData.Leafs.Append("ccCopyUserName", types.YLeaf{"CcCopyUserName", ccCopyEntry.CcCopyUserName})
+    ccCopyEntry.EntityData.Leafs.Append("ccCopyUserPassword", types.YLeaf{"CcCopyUserPassword", ccCopyEntry.CcCopyUserPassword})
+    ccCopyEntry.EntityData.Leafs.Append("ccCopyNotificationOnCompletion", types.YLeaf{"CcCopyNotificationOnCompletion", ccCopyEntry.CcCopyNotificationOnCompletion})
+    ccCopyEntry.EntityData.Leafs.Append("ccCopyState", types.YLeaf{"CcCopyState", ccCopyEntry.CcCopyState})
+    ccCopyEntry.EntityData.Leafs.Append("ccCopyTimeStarted", types.YLeaf{"CcCopyTimeStarted", ccCopyEntry.CcCopyTimeStarted})
+    ccCopyEntry.EntityData.Leafs.Append("ccCopyTimeCompleted", types.YLeaf{"CcCopyTimeCompleted", ccCopyEntry.CcCopyTimeCompleted})
+    ccCopyEntry.EntityData.Leafs.Append("ccCopyFailCause", types.YLeaf{"CcCopyFailCause", ccCopyEntry.CcCopyFailCause})
+    ccCopyEntry.EntityData.Leafs.Append("ccCopyEntryRowStatus", types.YLeaf{"CcCopyEntryRowStatus", ccCopyEntry.CcCopyEntryRowStatus})
+    ccCopyEntry.EntityData.Leafs.Append("ccCopyServerAddressType", types.YLeaf{"CcCopyServerAddressType", ccCopyEntry.CcCopyServerAddressType})
+    ccCopyEntry.EntityData.Leafs.Append("ccCopyServerAddressRev1", types.YLeaf{"CcCopyServerAddressRev1", ccCopyEntry.CcCopyServerAddressRev1})
+
+    ccCopyEntry.EntityData.YListKeys = []string {"CcCopyIndex"}
+
+    return &(ccCopyEntry.EntityData)
 }
 
-// CISCOCONFIGCOPYMIB_Cccopyerrortable
+// CISCOCONFIGCOPYMIB_CcCopyErrorTable
 // A table containing information about the failure
 // cause of the config copy operation. An entry is
 // created only when the value of ccCopyState changes
@@ -444,94 +453,100 @@ func (cccopyentry *CISCOCONFIGCOPYMIB_Cccopytable_Cccopyentry) GetEntityData() *
 // table, entries age out at the same time as the 
 // corresponding entry with same ccCopyIndex in 
 // ccCopyTable ages out.
-type CISCOCONFIGCOPYMIB_Cccopyerrortable struct {
+type CISCOCONFIGCOPYMIB_CcCopyErrorTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing information about the outcome at one destination of a
     // failed config copy operation. The type is slice of
-    // CISCOCONFIGCOPYMIB_Cccopyerrortable_Cccopyerrorentry.
-    Cccopyerrorentry []CISCOCONFIGCOPYMIB_Cccopyerrortable_Cccopyerrorentry
+    // CISCOCONFIGCOPYMIB_CcCopyErrorTable_CcCopyErrorEntry.
+    CcCopyErrorEntry []*CISCOCONFIGCOPYMIB_CcCopyErrorTable_CcCopyErrorEntry
 }
 
-func (cccopyerrortable *CISCOCONFIGCOPYMIB_Cccopyerrortable) GetEntityData() *types.CommonEntityData {
-    cccopyerrortable.EntityData.YFilter = cccopyerrortable.YFilter
-    cccopyerrortable.EntityData.YangName = "ccCopyErrorTable"
-    cccopyerrortable.EntityData.BundleName = "cisco_ios_xe"
-    cccopyerrortable.EntityData.ParentYangName = "CISCO-CONFIG-COPY-MIB"
-    cccopyerrortable.EntityData.SegmentPath = "ccCopyErrorTable"
-    cccopyerrortable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cccopyerrortable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cccopyerrortable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ccCopyErrorTable *CISCOCONFIGCOPYMIB_CcCopyErrorTable) GetEntityData() *types.CommonEntityData {
+    ccCopyErrorTable.EntityData.YFilter = ccCopyErrorTable.YFilter
+    ccCopyErrorTable.EntityData.YangName = "ccCopyErrorTable"
+    ccCopyErrorTable.EntityData.BundleName = "cisco_ios_xe"
+    ccCopyErrorTable.EntityData.ParentYangName = "CISCO-CONFIG-COPY-MIB"
+    ccCopyErrorTable.EntityData.SegmentPath = "ccCopyErrorTable"
+    ccCopyErrorTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ccCopyErrorTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ccCopyErrorTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cccopyerrortable.EntityData.Children = make(map[string]types.YChild)
-    cccopyerrortable.EntityData.Children["ccCopyErrorEntry"] = types.YChild{"Cccopyerrorentry", nil}
-    for i := range cccopyerrortable.Cccopyerrorentry {
-        cccopyerrortable.EntityData.Children[types.GetSegmentPath(&cccopyerrortable.Cccopyerrorentry[i])] = types.YChild{"Cccopyerrorentry", &cccopyerrortable.Cccopyerrorentry[i]}
+    ccCopyErrorTable.EntityData.Children = types.NewOrderedMap()
+    ccCopyErrorTable.EntityData.Children.Append("ccCopyErrorEntry", types.YChild{"CcCopyErrorEntry", nil})
+    for i := range ccCopyErrorTable.CcCopyErrorEntry {
+        ccCopyErrorTable.EntityData.Children.Append(types.GetSegmentPath(ccCopyErrorTable.CcCopyErrorEntry[i]), types.YChild{"CcCopyErrorEntry", ccCopyErrorTable.CcCopyErrorEntry[i]})
     }
-    cccopyerrortable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cccopyerrortable.EntityData)
+    ccCopyErrorTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ccCopyErrorTable.EntityData.YListKeys = []string {}
+
+    return &(ccCopyErrorTable.EntityData)
 }
 
-// CISCOCONFIGCOPYMIB_Cccopyerrortable_Cccopyerrorentry
+// CISCOCONFIGCOPYMIB_CcCopyErrorTable_CcCopyErrorEntry
 // An entry containing information about the
 // outcome at one destination of a failed config
 // copy operation.
-type CISCOCONFIGCOPYMIB_Cccopyerrortable_Cccopyerrorentry struct {
+type CISCOCONFIGCOPYMIB_CcCopyErrorTable_CcCopyErrorEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // cisco_config_copy_mib.CISCOCONFIGCOPYMIB_Cccopytable_Cccopyentry_Cccopyindex
-    Cccopyindex interface{}
+    // cisco_config_copy_mib.CISCOCONFIGCOPYMIB_CcCopyTable_CcCopyEntry_CcCopyIndex
+    CcCopyIndex interface{}
 
     // This attribute is a key. A monotonically increasing integer for the sole
     // purpose of indexing entries in this table. When a config copy operation has
     // multiple  destinations, then this index value is used to  distinguish
     // between those multiple destinations. The type is interface{} with range:
     // 0..4294967295.
-    Cccopyerrorindex interface{}
+    CcCopyErrorIndex interface{}
 
     // The type of Internet address for this destination device on which config
     // copy operation is performed. The type is InetAddressType.
-    Cccopyerrordeviceipaddresstype interface{}
+    CcCopyErrorDeviceIpAddressType interface{}
 
     // The IP address of this destination device on which config copy operation is
     // performed. The object value has to be consistent with the type specified in
     // ccCopyErrorDeviceIpAddressType. The type is string with length: 0..255.
-    Cccopyerrordeviceipaddress interface{}
+    CcCopyErrorDeviceIpAddress interface{}
 
     // The World Wide Name (WWN) of this destination device on which config copy
     // operation is performed. The value of this object is zero-length string if 
     // WWN is unassigned or unknown. For example, devices  which do not support
     // fibre channel would not have WWN. The type is string with length: 0 | 8 |
     // 16.
-    Cccopyerrordevicewwn interface{}
+    CcCopyErrorDeviceWWN interface{}
 
     // The error description for the error happened for this destination of this
     // config copy  operation. The type is string.
-    Cccopyerrordescription interface{}
+    CcCopyErrorDescription interface{}
 }
 
-func (cccopyerrorentry *CISCOCONFIGCOPYMIB_Cccopyerrortable_Cccopyerrorentry) GetEntityData() *types.CommonEntityData {
-    cccopyerrorentry.EntityData.YFilter = cccopyerrorentry.YFilter
-    cccopyerrorentry.EntityData.YangName = "ccCopyErrorEntry"
-    cccopyerrorentry.EntityData.BundleName = "cisco_ios_xe"
-    cccopyerrorentry.EntityData.ParentYangName = "ccCopyErrorTable"
-    cccopyerrorentry.EntityData.SegmentPath = "ccCopyErrorEntry" + "[ccCopyIndex='" + fmt.Sprintf("%v", cccopyerrorentry.Cccopyindex) + "']" + "[ccCopyErrorIndex='" + fmt.Sprintf("%v", cccopyerrorentry.Cccopyerrorindex) + "']"
-    cccopyerrorentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cccopyerrorentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cccopyerrorentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ccCopyErrorEntry *CISCOCONFIGCOPYMIB_CcCopyErrorTable_CcCopyErrorEntry) GetEntityData() *types.CommonEntityData {
+    ccCopyErrorEntry.EntityData.YFilter = ccCopyErrorEntry.YFilter
+    ccCopyErrorEntry.EntityData.YangName = "ccCopyErrorEntry"
+    ccCopyErrorEntry.EntityData.BundleName = "cisco_ios_xe"
+    ccCopyErrorEntry.EntityData.ParentYangName = "ccCopyErrorTable"
+    ccCopyErrorEntry.EntityData.SegmentPath = "ccCopyErrorEntry" + types.AddKeyToken(ccCopyErrorEntry.CcCopyIndex, "ccCopyIndex") + types.AddKeyToken(ccCopyErrorEntry.CcCopyErrorIndex, "ccCopyErrorIndex")
+    ccCopyErrorEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ccCopyErrorEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ccCopyErrorEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cccopyerrorentry.EntityData.Children = make(map[string]types.YChild)
-    cccopyerrorentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cccopyerrorentry.EntityData.Leafs["ccCopyIndex"] = types.YLeaf{"Cccopyindex", cccopyerrorentry.Cccopyindex}
-    cccopyerrorentry.EntityData.Leafs["ccCopyErrorIndex"] = types.YLeaf{"Cccopyerrorindex", cccopyerrorentry.Cccopyerrorindex}
-    cccopyerrorentry.EntityData.Leafs["ccCopyErrorDeviceIpAddressType"] = types.YLeaf{"Cccopyerrordeviceipaddresstype", cccopyerrorentry.Cccopyerrordeviceipaddresstype}
-    cccopyerrorentry.EntityData.Leafs["ccCopyErrorDeviceIpAddress"] = types.YLeaf{"Cccopyerrordeviceipaddress", cccopyerrorentry.Cccopyerrordeviceipaddress}
-    cccopyerrorentry.EntityData.Leafs["ccCopyErrorDeviceWWN"] = types.YLeaf{"Cccopyerrordevicewwn", cccopyerrorentry.Cccopyerrordevicewwn}
-    cccopyerrorentry.EntityData.Leafs["ccCopyErrorDescription"] = types.YLeaf{"Cccopyerrordescription", cccopyerrorentry.Cccopyerrordescription}
-    return &(cccopyerrorentry.EntityData)
+    ccCopyErrorEntry.EntityData.Children = types.NewOrderedMap()
+    ccCopyErrorEntry.EntityData.Leafs = types.NewOrderedMap()
+    ccCopyErrorEntry.EntityData.Leafs.Append("ccCopyIndex", types.YLeaf{"CcCopyIndex", ccCopyErrorEntry.CcCopyIndex})
+    ccCopyErrorEntry.EntityData.Leafs.Append("ccCopyErrorIndex", types.YLeaf{"CcCopyErrorIndex", ccCopyErrorEntry.CcCopyErrorIndex})
+    ccCopyErrorEntry.EntityData.Leafs.Append("ccCopyErrorDeviceIpAddressType", types.YLeaf{"CcCopyErrorDeviceIpAddressType", ccCopyErrorEntry.CcCopyErrorDeviceIpAddressType})
+    ccCopyErrorEntry.EntityData.Leafs.Append("ccCopyErrorDeviceIpAddress", types.YLeaf{"CcCopyErrorDeviceIpAddress", ccCopyErrorEntry.CcCopyErrorDeviceIpAddress})
+    ccCopyErrorEntry.EntityData.Leafs.Append("ccCopyErrorDeviceWWN", types.YLeaf{"CcCopyErrorDeviceWWN", ccCopyErrorEntry.CcCopyErrorDeviceWWN})
+    ccCopyErrorEntry.EntityData.Leafs.Append("ccCopyErrorDescription", types.YLeaf{"CcCopyErrorDescription", ccCopyErrorEntry.CcCopyErrorDescription})
+
+    ccCopyErrorEntry.EntityData.YListKeys = []string {"CcCopyIndex", "CcCopyErrorIndex"}
+
+    return &(ccCopyErrorEntry.EntityData)
 }
 

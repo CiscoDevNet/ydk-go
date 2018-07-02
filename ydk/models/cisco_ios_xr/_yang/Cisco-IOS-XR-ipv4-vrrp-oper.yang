@@ -6,7 +6,7 @@ module Cisco-IOS-XR-ipv4-vrrp-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ipv4-vrrp-oper-sub1 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -32,6 +32,10 @@ module Cisco-IOS-XR-ipv4-vrrp-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -70,7 +74,7 @@ module Cisco-IOS-XR-ipv4-vrrp-oper {
               "The interface name to track";
           }
           leaf virtual-router-id {
-            type int32;
+            type uint32;
             description
               "The VRRP virtual router id";
           }
@@ -95,7 +99,7 @@ module Cisco-IOS-XR-ipv4-vrrp-oper {
               "The name of the interface";
           }
           leaf virtual-router-id {
-            type int32;
+            type uint32;
             description
               "The VRRP virtual router id";
           }
@@ -149,7 +153,7 @@ module Cisco-IOS-XR-ipv4-vrrp-oper {
               "The interface name to track";
           }
           leaf virtual-router-id {
-            type int32;
+            type uint32;
             description
               "The VRRP virtual router id";
           }
@@ -174,7 +178,7 @@ module Cisco-IOS-XR-ipv4-vrrp-oper {
               "The name of the interface";
           }
           leaf virtual-router-id {
-            type int32;
+            type uint32;
             description
               "The VRRP virtual router id";
           }

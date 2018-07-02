@@ -24,111 +24,111 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-infra-objmgr-cfg:object-group", reflect.TypeOf(ObjectGroup{}))
 }
 
-// StartPort represents Start port
-type StartPort string
+// EndPort represents End port
+type EndPort string
 
 const (
     // Echo (7)
-    StartPort_echo StartPort = "echo"
+    EndPort_echo EndPort = "echo"
 
     // Discard (9)
-    StartPort_discard StartPort = "discard"
+    EndPort_discard EndPort = "discard"
 
     // Daytime (13)
-    StartPort_daytime StartPort = "daytime"
+    EndPort_daytime EndPort = "daytime"
 
     // Character generator (19)
-    StartPort_chargen StartPort = "chargen"
+    EndPort_chargen EndPort = "chargen"
 
     // FTP data connections (used infrequently, 20)
-    StartPort_ftp_data StartPort = "ftp-data"
+    EndPort_ftp_data EndPort = "ftp-data"
 
     // File Transfer Protocol (21)
-    StartPort_ftp StartPort = "ftp"
+    EndPort_ftp EndPort = "ftp"
 
     // Secure Shell (22)
-    StartPort_ssh StartPort = "ssh"
+    EndPort_ssh EndPort = "ssh"
 
     // Telnet (23)
-    StartPort_telnet StartPort = "telnet"
+    EndPort_telnet EndPort = "telnet"
 
     // Simple Mail Transport Protocol (25)
-    StartPort_smtp StartPort = "smtp"
+    EndPort_smtp EndPort = "smtp"
 
     // Time (37)
-    StartPort_time StartPort = "time"
+    EndPort_time EndPort = "time"
 
     // Nicname (43)
-    StartPort_nicname StartPort = "nicname"
+    EndPort_nicname EndPort = "nicname"
 
     // TAC Access Control System (49)
-    StartPort_tacacs StartPort = "tacacs"
+    EndPort_tacacs EndPort = "tacacs"
 
     // Domain Name Service (53)
-    StartPort_domain StartPort = "domain"
+    EndPort_domain EndPort = "domain"
 
     // Gopher (70)
-    StartPort_gopher StartPort = "gopher"
+    EndPort_gopher EndPort = "gopher"
 
     // Finger (79)
-    StartPort_finger StartPort = "finger"
+    EndPort_finger EndPort = "finger"
 
     // World Wide Web (HTTP, 80)
-    StartPort_www StartPort = "www"
+    EndPort_www EndPort = "www"
 
     // NIC hostname server (101)
-    StartPort_host_name StartPort = "host-name"
+    EndPort_host_name EndPort = "host-name"
 
     // Post Office Protocol v2 (109)
-    StartPort_pop2 StartPort = "pop2"
+    EndPort_pop2 EndPort = "pop2"
 
     // Post Office Protocol v3 (110)
-    StartPort_pop3 StartPort = "pop3"
+    EndPort_pop3 EndPort = "pop3"
 
     // Sun Remote Procedure Call (111)
-    StartPort_sun_rpc StartPort = "sun-rpc"
+    EndPort_sun_rpc EndPort = "sun-rpc"
 
     // Ident Protocol (113)
-    StartPort_ident StartPort = "ident"
+    EndPort_ident EndPort = "ident"
 
     // Network News Transport Protocol (119)
-    StartPort_nntp StartPort = "nntp"
+    EndPort_nntp EndPort = "nntp"
 
     // Border Gateway Protocol (179)
-    StartPort_bgp StartPort = "bgp"
+    EndPort_bgp EndPort = "bgp"
 
     // Internet Relay Chat (194)
-    StartPort_irc StartPort = "irc"
+    EndPort_irc EndPort = "irc"
 
     // PIM Auto-RP (496)
-    StartPort_pim_auto_rp StartPort = "pim-auto-rp"
+    EndPort_pim_auto_rp EndPort = "pim-auto-rp"
 
     // Exec (rsh, 512)
-    StartPort_exec StartPort = "exec"
+    EndPort_exec EndPort = "exec"
 
     // Login (rlogin, 513)
-    StartPort_login StartPort = "login"
+    EndPort_login EndPort = "login"
 
     // Remote commands (rcmd, 514)
-    StartPort_cmd StartPort = "cmd"
+    EndPort_cmd EndPort = "cmd"
 
     // Printer service (515)
-    StartPort_lpd StartPort = "lpd"
+    EndPort_lpd EndPort = "lpd"
 
     // Unix-to-Unix Copy Program (540)
-    StartPort_uucp StartPort = "uucp"
+    EndPort_uucp EndPort = "uucp"
 
     // Kerberos login (543)
-    StartPort_klogin StartPort = "klogin"
+    EndPort_klogin EndPort = "klogin"
 
     // Kerberos shell (544)
-    StartPort_kshell StartPort = "kshell"
+    EndPort_kshell EndPort = "kshell"
 
     // Talk (517)
-    StartPort_talk StartPort = "talk"
+    EndPort_talk EndPort = "talk"
 
     // LDP session connection attempts (MPLS, 646)
-    StartPort_ldp StartPort = "ldp"
+    EndPort_ldp EndPort = "ldp"
 )
 
 // PortOperator represents Port operator
@@ -259,111 +259,111 @@ const (
     Port_ldp Port = "ldp"
 )
 
-// EndPort represents End port
-type EndPort string
+// StartPort represents Start port
+type StartPort string
 
 const (
     // Echo (7)
-    EndPort_echo EndPort = "echo"
+    StartPort_echo StartPort = "echo"
 
     // Discard (9)
-    EndPort_discard EndPort = "discard"
+    StartPort_discard StartPort = "discard"
 
     // Daytime (13)
-    EndPort_daytime EndPort = "daytime"
+    StartPort_daytime StartPort = "daytime"
 
     // Character generator (19)
-    EndPort_chargen EndPort = "chargen"
+    StartPort_chargen StartPort = "chargen"
 
     // FTP data connections (used infrequently, 20)
-    EndPort_ftp_data EndPort = "ftp-data"
+    StartPort_ftp_data StartPort = "ftp-data"
 
     // File Transfer Protocol (21)
-    EndPort_ftp EndPort = "ftp"
+    StartPort_ftp StartPort = "ftp"
 
     // Secure Shell (22)
-    EndPort_ssh EndPort = "ssh"
+    StartPort_ssh StartPort = "ssh"
 
     // Telnet (23)
-    EndPort_telnet EndPort = "telnet"
+    StartPort_telnet StartPort = "telnet"
 
     // Simple Mail Transport Protocol (25)
-    EndPort_smtp EndPort = "smtp"
+    StartPort_smtp StartPort = "smtp"
 
     // Time (37)
-    EndPort_time EndPort = "time"
+    StartPort_time StartPort = "time"
 
     // Nicname (43)
-    EndPort_nicname EndPort = "nicname"
+    StartPort_nicname StartPort = "nicname"
 
     // TAC Access Control System (49)
-    EndPort_tacacs EndPort = "tacacs"
+    StartPort_tacacs StartPort = "tacacs"
 
     // Domain Name Service (53)
-    EndPort_domain EndPort = "domain"
+    StartPort_domain StartPort = "domain"
 
     // Gopher (70)
-    EndPort_gopher EndPort = "gopher"
+    StartPort_gopher StartPort = "gopher"
 
     // Finger (79)
-    EndPort_finger EndPort = "finger"
+    StartPort_finger StartPort = "finger"
 
     // World Wide Web (HTTP, 80)
-    EndPort_www EndPort = "www"
+    StartPort_www StartPort = "www"
 
     // NIC hostname server (101)
-    EndPort_host_name EndPort = "host-name"
+    StartPort_host_name StartPort = "host-name"
 
     // Post Office Protocol v2 (109)
-    EndPort_pop2 EndPort = "pop2"
+    StartPort_pop2 StartPort = "pop2"
 
     // Post Office Protocol v3 (110)
-    EndPort_pop3 EndPort = "pop3"
+    StartPort_pop3 StartPort = "pop3"
 
     // Sun Remote Procedure Call (111)
-    EndPort_sun_rpc EndPort = "sun-rpc"
+    StartPort_sun_rpc StartPort = "sun-rpc"
 
     // Ident Protocol (113)
-    EndPort_ident EndPort = "ident"
+    StartPort_ident StartPort = "ident"
 
     // Network News Transport Protocol (119)
-    EndPort_nntp EndPort = "nntp"
+    StartPort_nntp StartPort = "nntp"
 
     // Border Gateway Protocol (179)
-    EndPort_bgp EndPort = "bgp"
+    StartPort_bgp StartPort = "bgp"
 
     // Internet Relay Chat (194)
-    EndPort_irc EndPort = "irc"
+    StartPort_irc StartPort = "irc"
 
     // PIM Auto-RP (496)
-    EndPort_pim_auto_rp EndPort = "pim-auto-rp"
+    StartPort_pim_auto_rp StartPort = "pim-auto-rp"
 
     // Exec (rsh, 512)
-    EndPort_exec EndPort = "exec"
+    StartPort_exec StartPort = "exec"
 
     // Login (rlogin, 513)
-    EndPort_login EndPort = "login"
+    StartPort_login StartPort = "login"
 
     // Remote commands (rcmd, 514)
-    EndPort_cmd EndPort = "cmd"
+    StartPort_cmd StartPort = "cmd"
 
     // Printer service (515)
-    EndPort_lpd EndPort = "lpd"
+    StartPort_lpd StartPort = "lpd"
 
     // Unix-to-Unix Copy Program (540)
-    EndPort_uucp EndPort = "uucp"
+    StartPort_uucp StartPort = "uucp"
 
     // Kerberos login (543)
-    EndPort_klogin EndPort = "klogin"
+    StartPort_klogin StartPort = "klogin"
 
     // Kerberos shell (544)
-    EndPort_kshell EndPort = "kshell"
+    StartPort_kshell StartPort = "kshell"
 
     // Talk (517)
-    EndPort_talk EndPort = "talk"
+    StartPort_talk StartPort = "talk"
 
     // LDP session connection attempts (MPLS, 646)
-    EndPort_ldp EndPort = "ldp"
+    StartPort_ldp StartPort = "ldp"
 )
 
 // ObjectGroup
@@ -389,10 +389,13 @@ func (objectGroup *ObjectGroup) GetEntityData() *types.CommonEntityData {
     objectGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    objectGroup.EntityData.Children = make(map[string]types.YChild)
-    objectGroup.EntityData.Children["port"] = types.YChild{"Port", &objectGroup.Port}
-    objectGroup.EntityData.Children["network"] = types.YChild{"Network", &objectGroup.Network}
-    objectGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    objectGroup.EntityData.Children = types.NewOrderedMap()
+    objectGroup.EntityData.Children.Append("port", types.YChild{"Port", &objectGroup.Port})
+    objectGroup.EntityData.Children.Append("network", types.YChild{"Network", &objectGroup.Network})
+    objectGroup.EntityData.Leafs = types.NewOrderedMap()
+
+    objectGroup.EntityData.YListKeys = []string {}
+
     return &(objectGroup.EntityData)
 }
 
@@ -416,9 +419,12 @@ func (port *ObjectGroup_Port) GetEntityData() *types.CommonEntityData {
     port.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     port.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    port.EntityData.Children = make(map[string]types.YChild)
-    port.EntityData.Children["udf-objects"] = types.YChild{"UdfObjects", &port.UdfObjects}
-    port.EntityData.Leafs = make(map[string]types.YLeaf)
+    port.EntityData.Children = types.NewOrderedMap()
+    port.EntityData.Children.Append("udf-objects", types.YChild{"UdfObjects", &port.UdfObjects})
+    port.EntityData.Leafs = types.NewOrderedMap()
+
+    port.EntityData.YListKeys = []string {}
+
     return &(port.EntityData)
 }
 
@@ -430,7 +436,7 @@ type ObjectGroup_Port_UdfObjects struct {
 
     // Port object group. The type is slice of
     // ObjectGroup_Port_UdfObjects_UdfObject.
-    UdfObject []ObjectGroup_Port_UdfObjects_UdfObject
+    UdfObject []*ObjectGroup_Port_UdfObjects_UdfObject
 }
 
 func (udfObjects *ObjectGroup_Port_UdfObjects) GetEntityData() *types.CommonEntityData {
@@ -443,12 +449,15 @@ func (udfObjects *ObjectGroup_Port_UdfObjects) GetEntityData() *types.CommonEnti
     udfObjects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udfObjects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    udfObjects.EntityData.Children = make(map[string]types.YChild)
-    udfObjects.EntityData.Children["udf-object"] = types.YChild{"UdfObject", nil}
+    udfObjects.EntityData.Children = types.NewOrderedMap()
+    udfObjects.EntityData.Children.Append("udf-object", types.YChild{"UdfObject", nil})
     for i := range udfObjects.UdfObject {
-        udfObjects.EntityData.Children[types.GetSegmentPath(&udfObjects.UdfObject[i])] = types.YChild{"UdfObject", &udfObjects.UdfObject[i]}
+        udfObjects.EntityData.Children.Append(types.GetSegmentPath(udfObjects.UdfObject[i]), types.YChild{"UdfObject", udfObjects.UdfObject[i]})
     }
-    udfObjects.EntityData.Leafs = make(map[string]types.YLeaf)
+    udfObjects.EntityData.Leafs = types.NewOrderedMap()
+
+    udfObjects.EntityData.YListKeys = []string {}
+
     return &(udfObjects.EntityData)
 }
 
@@ -481,18 +490,21 @@ func (udfObject *ObjectGroup_Port_UdfObjects_UdfObject) GetEntityData() *types.C
     udfObject.EntityData.YangName = "udf-object"
     udfObject.EntityData.BundleName = "cisco_ios_xr"
     udfObject.EntityData.ParentYangName = "udf-objects"
-    udfObject.EntityData.SegmentPath = "udf-object" + "[object-name='" + fmt.Sprintf("%v", udfObject.ObjectName) + "']"
+    udfObject.EntityData.SegmentPath = "udf-object" + types.AddKeyToken(udfObject.ObjectName, "object-name")
     udfObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udfObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udfObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    udfObject.EntityData.Children = make(map[string]types.YChild)
-    udfObject.EntityData.Children["operators"] = types.YChild{"Operators", &udfObject.Operators}
-    udfObject.EntityData.Children["nested-groups"] = types.YChild{"NestedGroups", &udfObject.NestedGroups}
-    udfObject.EntityData.Children["port-ranges"] = types.YChild{"PortRanges", &udfObject.PortRanges}
-    udfObject.EntityData.Leafs = make(map[string]types.YLeaf)
-    udfObject.EntityData.Leafs["object-name"] = types.YLeaf{"ObjectName", udfObject.ObjectName}
-    udfObject.EntityData.Leafs["description"] = types.YLeaf{"Description", udfObject.Description}
+    udfObject.EntityData.Children = types.NewOrderedMap()
+    udfObject.EntityData.Children.Append("operators", types.YChild{"Operators", &udfObject.Operators})
+    udfObject.EntityData.Children.Append("nested-groups", types.YChild{"NestedGroups", &udfObject.NestedGroups})
+    udfObject.EntityData.Children.Append("port-ranges", types.YChild{"PortRanges", &udfObject.PortRanges})
+    udfObject.EntityData.Leafs = types.NewOrderedMap()
+    udfObject.EntityData.Leafs.Append("object-name", types.YLeaf{"ObjectName", udfObject.ObjectName})
+    udfObject.EntityData.Leafs.Append("description", types.YLeaf{"Description", udfObject.Description})
+
+    udfObject.EntityData.YListKeys = []string {"ObjectName"}
+
     return &(udfObject.EntityData)
 }
 
@@ -504,7 +516,7 @@ type ObjectGroup_Port_UdfObjects_UdfObject_Operators struct {
 
     // op class. The type is slice of
     // ObjectGroup_Port_UdfObjects_UdfObject_Operators_Operator.
-    Operator []ObjectGroup_Port_UdfObjects_UdfObject_Operators_Operator
+    Operator []*ObjectGroup_Port_UdfObjects_UdfObject_Operators_Operator
 }
 
 func (operators *ObjectGroup_Port_UdfObjects_UdfObject_Operators) GetEntityData() *types.CommonEntityData {
@@ -517,12 +529,15 @@ func (operators *ObjectGroup_Port_UdfObjects_UdfObject_Operators) GetEntityData(
     operators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    operators.EntityData.Children = make(map[string]types.YChild)
-    operators.EntityData.Children["operator"] = types.YChild{"Operator", nil}
+    operators.EntityData.Children = types.NewOrderedMap()
+    operators.EntityData.Children.Append("operator", types.YChild{"Operator", nil})
     for i := range operators.Operator {
-        operators.EntityData.Children[types.GetSegmentPath(&operators.Operator[i])] = types.YChild{"Operator", &operators.Operator[i]}
+        operators.EntityData.Children.Append(types.GetSegmentPath(operators.Operator[i]), types.YChild{"Operator", operators.Operator[i]})
     }
-    operators.EntityData.Leafs = make(map[string]types.YLeaf)
+    operators.EntityData.Leafs = types.NewOrderedMap()
+
+    operators.EntityData.YListKeys = []string {}
+
     return &(operators.EntityData)
 }
 
@@ -545,15 +560,18 @@ func (operator *ObjectGroup_Port_UdfObjects_UdfObject_Operators_Operator) GetEnt
     operator.EntityData.YangName = "operator"
     operator.EntityData.BundleName = "cisco_ios_xr"
     operator.EntityData.ParentYangName = "operators"
-    operator.EntityData.SegmentPath = "operator" + "[operator-type='" + fmt.Sprintf("%v", operator.OperatorType) + "']" + "[port='" + fmt.Sprintf("%v", operator.Port) + "']"
+    operator.EntityData.SegmentPath = "operator" + types.AddKeyToken(operator.OperatorType, "operator-type") + types.AddKeyToken(operator.Port, "port")
     operator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    operator.EntityData.Children = make(map[string]types.YChild)
-    operator.EntityData.Leafs = make(map[string]types.YLeaf)
-    operator.EntityData.Leafs["operator-type"] = types.YLeaf{"OperatorType", operator.OperatorType}
-    operator.EntityData.Leafs["port"] = types.YLeaf{"Port", operator.Port}
+    operator.EntityData.Children = types.NewOrderedMap()
+    operator.EntityData.Leafs = types.NewOrderedMap()
+    operator.EntityData.Leafs.Append("operator-type", types.YLeaf{"OperatorType", operator.OperatorType})
+    operator.EntityData.Leafs.Append("port", types.YLeaf{"Port", operator.Port})
+
+    operator.EntityData.YListKeys = []string {"OperatorType", "Port"}
+
     return &(operator.EntityData)
 }
 
@@ -565,7 +583,7 @@ type ObjectGroup_Port_UdfObjects_UdfObject_NestedGroups struct {
 
     // nested object group. The type is slice of
     // ObjectGroup_Port_UdfObjects_UdfObject_NestedGroups_NestedGroup.
-    NestedGroup []ObjectGroup_Port_UdfObjects_UdfObject_NestedGroups_NestedGroup
+    NestedGroup []*ObjectGroup_Port_UdfObjects_UdfObject_NestedGroups_NestedGroup
 }
 
 func (nestedGroups *ObjectGroup_Port_UdfObjects_UdfObject_NestedGroups) GetEntityData() *types.CommonEntityData {
@@ -578,12 +596,15 @@ func (nestedGroups *ObjectGroup_Port_UdfObjects_UdfObject_NestedGroups) GetEntit
     nestedGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nestedGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nestedGroups.EntityData.Children = make(map[string]types.YChild)
-    nestedGroups.EntityData.Children["nested-group"] = types.YChild{"NestedGroup", nil}
+    nestedGroups.EntityData.Children = types.NewOrderedMap()
+    nestedGroups.EntityData.Children.Append("nested-group", types.YChild{"NestedGroup", nil})
     for i := range nestedGroups.NestedGroup {
-        nestedGroups.EntityData.Children[types.GetSegmentPath(&nestedGroups.NestedGroup[i])] = types.YChild{"NestedGroup", &nestedGroups.NestedGroup[i]}
+        nestedGroups.EntityData.Children.Append(types.GetSegmentPath(nestedGroups.NestedGroup[i]), types.YChild{"NestedGroup", nestedGroups.NestedGroup[i]})
     }
-    nestedGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    nestedGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    nestedGroups.EntityData.YListKeys = []string {}
+
     return &(nestedGroups.EntityData)
 }
 
@@ -603,14 +624,17 @@ func (nestedGroup *ObjectGroup_Port_UdfObjects_UdfObject_NestedGroups_NestedGrou
     nestedGroup.EntityData.YangName = "nested-group"
     nestedGroup.EntityData.BundleName = "cisco_ios_xr"
     nestedGroup.EntityData.ParentYangName = "nested-groups"
-    nestedGroup.EntityData.SegmentPath = "nested-group" + "[nested-group-name='" + fmt.Sprintf("%v", nestedGroup.NestedGroupName) + "']"
+    nestedGroup.EntityData.SegmentPath = "nested-group" + types.AddKeyToken(nestedGroup.NestedGroupName, "nested-group-name")
     nestedGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nestedGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nestedGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nestedGroup.EntityData.Children = make(map[string]types.YChild)
-    nestedGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    nestedGroup.EntityData.Leafs["nested-group-name"] = types.YLeaf{"NestedGroupName", nestedGroup.NestedGroupName}
+    nestedGroup.EntityData.Children = types.NewOrderedMap()
+    nestedGroup.EntityData.Leafs = types.NewOrderedMap()
+    nestedGroup.EntityData.Leafs.Append("nested-group-name", types.YLeaf{"NestedGroupName", nestedGroup.NestedGroupName})
+
+    nestedGroup.EntityData.YListKeys = []string {"NestedGroupName"}
+
     return &(nestedGroup.EntityData)
 }
 
@@ -622,7 +646,7 @@ type ObjectGroup_Port_UdfObjects_UdfObject_PortRanges struct {
 
     // Match only packets on a given port range. The type is slice of
     // ObjectGroup_Port_UdfObjects_UdfObject_PortRanges_PortRange.
-    PortRange []ObjectGroup_Port_UdfObjects_UdfObject_PortRanges_PortRange
+    PortRange []*ObjectGroup_Port_UdfObjects_UdfObject_PortRanges_PortRange
 }
 
 func (portRanges *ObjectGroup_Port_UdfObjects_UdfObject_PortRanges) GetEntityData() *types.CommonEntityData {
@@ -635,12 +659,15 @@ func (portRanges *ObjectGroup_Port_UdfObjects_UdfObject_PortRanges) GetEntityDat
     portRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portRanges.EntityData.Children = make(map[string]types.YChild)
-    portRanges.EntityData.Children["port-range"] = types.YChild{"PortRange", nil}
+    portRanges.EntityData.Children = types.NewOrderedMap()
+    portRanges.EntityData.Children.Append("port-range", types.YChild{"PortRange", nil})
     for i := range portRanges.PortRange {
-        portRanges.EntityData.Children[types.GetSegmentPath(&portRanges.PortRange[i])] = types.YChild{"PortRange", &portRanges.PortRange[i]}
+        portRanges.EntityData.Children.Append(types.GetSegmentPath(portRanges.PortRange[i]), types.YChild{"PortRange", portRanges.PortRange[i]})
     }
-    portRanges.EntityData.Leafs = make(map[string]types.YLeaf)
+    portRanges.EntityData.Leafs = types.NewOrderedMap()
+
+    portRanges.EntityData.YListKeys = []string {}
+
     return &(portRanges.EntityData)
 }
 
@@ -664,15 +691,18 @@ func (portRange *ObjectGroup_Port_UdfObjects_UdfObject_PortRanges_PortRange) Get
     portRange.EntityData.YangName = "port-range"
     portRange.EntityData.BundleName = "cisco_ios_xr"
     portRange.EntityData.ParentYangName = "port-ranges"
-    portRange.EntityData.SegmentPath = "port-range" + "[start-port='" + fmt.Sprintf("%v", portRange.StartPort) + "']" + "[end-port='" + fmt.Sprintf("%v", portRange.EndPort) + "']"
+    portRange.EntityData.SegmentPath = "port-range" + types.AddKeyToken(portRange.StartPort, "start-port") + types.AddKeyToken(portRange.EndPort, "end-port")
     portRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portRange.EntityData.Children = make(map[string]types.YChild)
-    portRange.EntityData.Leafs = make(map[string]types.YLeaf)
-    portRange.EntityData.Leafs["start-port"] = types.YLeaf{"StartPort", portRange.StartPort}
-    portRange.EntityData.Leafs["end-port"] = types.YLeaf{"EndPort", portRange.EndPort}
+    portRange.EntityData.Children = types.NewOrderedMap()
+    portRange.EntityData.Leafs = types.NewOrderedMap()
+    portRange.EntityData.Leafs.Append("start-port", types.YLeaf{"StartPort", portRange.StartPort})
+    portRange.EntityData.Leafs.Append("end-port", types.YLeaf{"EndPort", portRange.EndPort})
+
+    portRange.EntityData.YListKeys = []string {"StartPort", "EndPort"}
+
     return &(portRange.EntityData)
 }
 
@@ -699,10 +729,13 @@ func (network *ObjectGroup_Network) GetEntityData() *types.CommonEntityData {
     network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    network.EntityData.Children = make(map[string]types.YChild)
-    network.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &network.Ipv6}
-    network.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &network.Ipv4}
-    network.EntityData.Leafs = make(map[string]types.YLeaf)
+    network.EntityData.Children = types.NewOrderedMap()
+    network.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &network.Ipv6})
+    network.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &network.Ipv4})
+    network.EntityData.Leafs = types.NewOrderedMap()
+
+    network.EntityData.YListKeys = []string {}
+
     return &(network.EntityData)
 }
 
@@ -726,9 +759,12 @@ func (ipv6 *ObjectGroup_Network_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["udf-objects"] = types.YChild{"UdfObjects", &ipv6.UdfObjects}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("udf-objects", types.YChild{"UdfObjects", &ipv6.UdfObjects})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -740,7 +776,7 @@ type ObjectGroup_Network_Ipv6_UdfObjects struct {
 
     // IPv6 object group. The type is slice of
     // ObjectGroup_Network_Ipv6_UdfObjects_UdfObject.
-    UdfObject []ObjectGroup_Network_Ipv6_UdfObjects_UdfObject
+    UdfObject []*ObjectGroup_Network_Ipv6_UdfObjects_UdfObject
 }
 
 func (udfObjects *ObjectGroup_Network_Ipv6_UdfObjects) GetEntityData() *types.CommonEntityData {
@@ -753,12 +789,15 @@ func (udfObjects *ObjectGroup_Network_Ipv6_UdfObjects) GetEntityData() *types.Co
     udfObjects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udfObjects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    udfObjects.EntityData.Children = make(map[string]types.YChild)
-    udfObjects.EntityData.Children["udf-object"] = types.YChild{"UdfObject", nil}
+    udfObjects.EntityData.Children = types.NewOrderedMap()
+    udfObjects.EntityData.Children.Append("udf-object", types.YChild{"UdfObject", nil})
     for i := range udfObjects.UdfObject {
-        udfObjects.EntityData.Children[types.GetSegmentPath(&udfObjects.UdfObject[i])] = types.YChild{"UdfObject", &udfObjects.UdfObject[i]}
+        udfObjects.EntityData.Children.Append(types.GetSegmentPath(udfObjects.UdfObject[i]), types.YChild{"UdfObject", udfObjects.UdfObject[i]})
     }
-    udfObjects.EntityData.Leafs = make(map[string]types.YLeaf)
+    udfObjects.EntityData.Leafs = types.NewOrderedMap()
+
+    udfObjects.EntityData.YListKeys = []string {}
+
     return &(udfObjects.EntityData)
 }
 
@@ -794,19 +833,22 @@ func (udfObject *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject) GetEntityData() 
     udfObject.EntityData.YangName = "udf-object"
     udfObject.EntityData.BundleName = "cisco_ios_xr"
     udfObject.EntityData.ParentYangName = "udf-objects"
-    udfObject.EntityData.SegmentPath = "udf-object" + "[object-name='" + fmt.Sprintf("%v", udfObject.ObjectName) + "']"
+    udfObject.EntityData.SegmentPath = "udf-object" + types.AddKeyToken(udfObject.ObjectName, "object-name")
     udfObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udfObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udfObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    udfObject.EntityData.Children = make(map[string]types.YChild)
-    udfObject.EntityData.Children["nested-groups"] = types.YChild{"NestedGroups", &udfObject.NestedGroups}
-    udfObject.EntityData.Children["address-ranges"] = types.YChild{"AddressRanges", &udfObject.AddressRanges}
-    udfObject.EntityData.Children["addresses"] = types.YChild{"Addresses", &udfObject.Addresses}
-    udfObject.EntityData.Children["hosts"] = types.YChild{"Hosts", &udfObject.Hosts}
-    udfObject.EntityData.Leafs = make(map[string]types.YLeaf)
-    udfObject.EntityData.Leafs["object-name"] = types.YLeaf{"ObjectName", udfObject.ObjectName}
-    udfObject.EntityData.Leafs["description"] = types.YLeaf{"Description", udfObject.Description}
+    udfObject.EntityData.Children = types.NewOrderedMap()
+    udfObject.EntityData.Children.Append("nested-groups", types.YChild{"NestedGroups", &udfObject.NestedGroups})
+    udfObject.EntityData.Children.Append("address-ranges", types.YChild{"AddressRanges", &udfObject.AddressRanges})
+    udfObject.EntityData.Children.Append("addresses", types.YChild{"Addresses", &udfObject.Addresses})
+    udfObject.EntityData.Children.Append("hosts", types.YChild{"Hosts", &udfObject.Hosts})
+    udfObject.EntityData.Leafs = types.NewOrderedMap()
+    udfObject.EntityData.Leafs.Append("object-name", types.YLeaf{"ObjectName", udfObject.ObjectName})
+    udfObject.EntityData.Leafs.Append("description", types.YLeaf{"Description", udfObject.Description})
+
+    udfObject.EntityData.YListKeys = []string {"ObjectName"}
+
     return &(udfObject.EntityData)
 }
 
@@ -818,7 +860,7 @@ type ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_NestedGroups struct {
 
     // nested object group. The type is slice of
     // ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_NestedGroups_NestedGroup.
-    NestedGroup []ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_NestedGroups_NestedGroup
+    NestedGroup []*ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_NestedGroups_NestedGroup
 }
 
 func (nestedGroups *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_NestedGroups) GetEntityData() *types.CommonEntityData {
@@ -831,12 +873,15 @@ func (nestedGroups *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_NestedGroups) 
     nestedGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nestedGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nestedGroups.EntityData.Children = make(map[string]types.YChild)
-    nestedGroups.EntityData.Children["nested-group"] = types.YChild{"NestedGroup", nil}
+    nestedGroups.EntityData.Children = types.NewOrderedMap()
+    nestedGroups.EntityData.Children.Append("nested-group", types.YChild{"NestedGroup", nil})
     for i := range nestedGroups.NestedGroup {
-        nestedGroups.EntityData.Children[types.GetSegmentPath(&nestedGroups.NestedGroup[i])] = types.YChild{"NestedGroup", &nestedGroups.NestedGroup[i]}
+        nestedGroups.EntityData.Children.Append(types.GetSegmentPath(nestedGroups.NestedGroup[i]), types.YChild{"NestedGroup", nestedGroups.NestedGroup[i]})
     }
-    nestedGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    nestedGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    nestedGroups.EntityData.YListKeys = []string {}
+
     return &(nestedGroups.EntityData)
 }
 
@@ -856,14 +901,17 @@ func (nestedGroup *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_NestedGroups_Ne
     nestedGroup.EntityData.YangName = "nested-group"
     nestedGroup.EntityData.BundleName = "cisco_ios_xr"
     nestedGroup.EntityData.ParentYangName = "nested-groups"
-    nestedGroup.EntityData.SegmentPath = "nested-group" + "[nested-group-name='" + fmt.Sprintf("%v", nestedGroup.NestedGroupName) + "']"
+    nestedGroup.EntityData.SegmentPath = "nested-group" + types.AddKeyToken(nestedGroup.NestedGroupName, "nested-group-name")
     nestedGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nestedGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nestedGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nestedGroup.EntityData.Children = make(map[string]types.YChild)
-    nestedGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    nestedGroup.EntityData.Leafs["nested-group-name"] = types.YLeaf{"NestedGroupName", nestedGroup.NestedGroupName}
+    nestedGroup.EntityData.Children = types.NewOrderedMap()
+    nestedGroup.EntityData.Leafs = types.NewOrderedMap()
+    nestedGroup.EntityData.Leafs.Append("nested-group-name", types.YLeaf{"NestedGroupName", nestedGroup.NestedGroupName})
+
+    nestedGroup.EntityData.YListKeys = []string {"NestedGroupName"}
+
     return &(nestedGroup.EntityData)
 }
 
@@ -875,7 +923,7 @@ type ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_AddressRanges struct {
 
     // Range of host addresses. The type is slice of
     // ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_AddressRanges_AddressRange.
-    AddressRange []ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_AddressRanges_AddressRange
+    AddressRange []*ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_AddressRanges_AddressRange
 }
 
 func (addressRanges *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_AddressRanges) GetEntityData() *types.CommonEntityData {
@@ -888,12 +936,15 @@ func (addressRanges *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_AddressRanges
     addressRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressRanges.EntityData.Children = make(map[string]types.YChild)
-    addressRanges.EntityData.Children["address-range"] = types.YChild{"AddressRange", nil}
+    addressRanges.EntityData.Children = types.NewOrderedMap()
+    addressRanges.EntityData.Children.Append("address-range", types.YChild{"AddressRange", nil})
     for i := range addressRanges.AddressRange {
-        addressRanges.EntityData.Children[types.GetSegmentPath(&addressRanges.AddressRange[i])] = types.YChild{"AddressRange", &addressRanges.AddressRange[i]}
+        addressRanges.EntityData.Children.Append(types.GetSegmentPath(addressRanges.AddressRange[i]), types.YChild{"AddressRange", addressRanges.AddressRange[i]})
     }
-    addressRanges.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressRanges.EntityData.Leafs = types.NewOrderedMap()
+
+    addressRanges.EntityData.YListKeys = []string {}
+
     return &(addressRanges.EntityData)
 }
 
@@ -905,16 +956,16 @@ type ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_AddressRanges_AddressRange st
 
     // This attribute is a key. IPv6 address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // This attribute is a key. IPv6 address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     EndAddress interface{}
 }
 
@@ -923,15 +974,18 @@ func (addressRange *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_AddressRanges_
     addressRange.EntityData.YangName = "address-range"
     addressRange.EntityData.BundleName = "cisco_ios_xr"
     addressRange.EntityData.ParentYangName = "address-ranges"
-    addressRange.EntityData.SegmentPath = "address-range" + "[start-address='" + fmt.Sprintf("%v", addressRange.StartAddress) + "']" + "[end-address='" + fmt.Sprintf("%v", addressRange.EndAddress) + "']"
+    addressRange.EntityData.SegmentPath = "address-range" + types.AddKeyToken(addressRange.StartAddress, "start-address") + types.AddKeyToken(addressRange.EndAddress, "end-address")
     addressRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressRange.EntityData.Children = make(map[string]types.YChild)
-    addressRange.EntityData.Leafs = make(map[string]types.YLeaf)
-    addressRange.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", addressRange.StartAddress}
-    addressRange.EntityData.Leafs["end-address"] = types.YLeaf{"EndAddress", addressRange.EndAddress}
+    addressRange.EntityData.Children = types.NewOrderedMap()
+    addressRange.EntityData.Leafs = types.NewOrderedMap()
+    addressRange.EntityData.Leafs.Append("start-address", types.YLeaf{"StartAddress", addressRange.StartAddress})
+    addressRange.EntityData.Leafs.Append("end-address", types.YLeaf{"EndAddress", addressRange.EndAddress})
+
+    addressRange.EntityData.YListKeys = []string {"StartAddress", "EndAddress"}
+
     return &(addressRange.EntityData)
 }
 
@@ -943,7 +997,7 @@ type ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Addresses struct {
 
     // IPv6 address. The type is slice of
     // ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Addresses_Address.
-    Address []ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Addresses_Address
+    Address []*ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Addresses_Address
 }
 
 func (addresses *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Addresses) GetEntityData() *types.CommonEntityData {
@@ -956,12 +1010,15 @@ func (addresses *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Addresses) GetEnt
     addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addresses.EntityData.Children = make(map[string]types.YChild)
-    addresses.EntityData.Children["address"] = types.YChild{"Address", nil}
+    addresses.EntityData.Children = types.NewOrderedMap()
+    addresses.EntityData.Children.Append("address", types.YChild{"Address", nil})
     for i := range addresses.Address {
-        addresses.EntityData.Children[types.GetSegmentPath(&addresses.Address[i])] = types.YChild{"Address", &addresses.Address[i]}
+        addresses.EntityData.Children.Append(types.GetSegmentPath(addresses.Address[i]), types.YChild{"Address", addresses.Address[i]})
     }
-    addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    addresses.EntityData.YListKeys = []string {}
+
     return &(addresses.EntityData)
 }
 
@@ -973,9 +1030,9 @@ type ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Addresses_Address struct {
 
     // This attribute is a key. IPv6 prefix x:x::x/y. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // This attribute is a key. Prefix of the IP Address. The type is interface{}
@@ -988,15 +1045,18 @@ func (address *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Addresses_Address) 
     address.EntityData.YangName = "address"
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "addresses"
-    address.EntityData.SegmentPath = "address" + "[prefix='" + fmt.Sprintf("%v", address.Prefix) + "']" + "[prefix-length='" + fmt.Sprintf("%v", address.PrefixLength) + "']"
+    address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Prefix, "prefix") + types.AddKeyToken(address.PrefixLength, "prefix-length")
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", address.Prefix}
-    address.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", address.PrefixLength}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", address.Prefix})
+    address.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", address.PrefixLength})
+
+    address.EntityData.YListKeys = []string {"Prefix", "PrefixLength"}
+
     return &(address.EntityData)
 }
 
@@ -1008,7 +1068,7 @@ type ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Hosts struct {
 
     // A single host address. The type is slice of
     // ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Hosts_Host.
-    Host []ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Hosts_Host
+    Host []*ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Hosts_Host
 }
 
 func (hosts *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Hosts) GetEntityData() *types.CommonEntityData {
@@ -1021,12 +1081,15 @@ func (hosts *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Hosts) GetEntityData(
     hosts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hosts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hosts.EntityData.Children = make(map[string]types.YChild)
-    hosts.EntityData.Children["host"] = types.YChild{"Host", nil}
+    hosts.EntityData.Children = types.NewOrderedMap()
+    hosts.EntityData.Children.Append("host", types.YChild{"Host", nil})
     for i := range hosts.Host {
-        hosts.EntityData.Children[types.GetSegmentPath(&hosts.Host[i])] = types.YChild{"Host", &hosts.Host[i]}
+        hosts.EntityData.Children.Append(types.GetSegmentPath(hosts.Host[i]), types.YChild{"Host", hosts.Host[i]})
     }
-    hosts.EntityData.Leafs = make(map[string]types.YLeaf)
+    hosts.EntityData.Leafs = types.NewOrderedMap()
+
+    hosts.EntityData.YListKeys = []string {}
+
     return &(hosts.EntityData)
 }
 
@@ -1038,9 +1101,9 @@ type ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Hosts_Host struct {
 
     // This attribute is a key. host ipv6 address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     HostAddress interface{}
 }
 
@@ -1049,14 +1112,17 @@ func (host *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Hosts_Host) GetEntityD
     host.EntityData.YangName = "host"
     host.EntityData.BundleName = "cisco_ios_xr"
     host.EntityData.ParentYangName = "hosts"
-    host.EntityData.SegmentPath = "host" + "[host-address='" + fmt.Sprintf("%v", host.HostAddress) + "']"
+    host.EntityData.SegmentPath = "host" + types.AddKeyToken(host.HostAddress, "host-address")
     host.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     host.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     host.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    host.EntityData.Children = make(map[string]types.YChild)
-    host.EntityData.Leafs = make(map[string]types.YLeaf)
-    host.EntityData.Leafs["host-address"] = types.YLeaf{"HostAddress", host.HostAddress}
+    host.EntityData.Children = types.NewOrderedMap()
+    host.EntityData.Leafs = types.NewOrderedMap()
+    host.EntityData.Leafs.Append("host-address", types.YLeaf{"HostAddress", host.HostAddress})
+
+    host.EntityData.YListKeys = []string {"HostAddress"}
+
     return &(host.EntityData)
 }
 
@@ -1080,9 +1146,12 @@ func (ipv4 *ObjectGroup_Network_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["udf-objects"] = types.YChild{"UdfObjects", &ipv4.UdfObjects}
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("udf-objects", types.YChild{"UdfObjects", &ipv4.UdfObjects})
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -1094,7 +1163,7 @@ type ObjectGroup_Network_Ipv4_UdfObjects struct {
 
     // IPv4 object group. The type is slice of
     // ObjectGroup_Network_Ipv4_UdfObjects_UdfObject.
-    UdfObject []ObjectGroup_Network_Ipv4_UdfObjects_UdfObject
+    UdfObject []*ObjectGroup_Network_Ipv4_UdfObjects_UdfObject
 }
 
 func (udfObjects *ObjectGroup_Network_Ipv4_UdfObjects) GetEntityData() *types.CommonEntityData {
@@ -1107,12 +1176,15 @@ func (udfObjects *ObjectGroup_Network_Ipv4_UdfObjects) GetEntityData() *types.Co
     udfObjects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udfObjects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    udfObjects.EntityData.Children = make(map[string]types.YChild)
-    udfObjects.EntityData.Children["udf-object"] = types.YChild{"UdfObject", nil}
+    udfObjects.EntityData.Children = types.NewOrderedMap()
+    udfObjects.EntityData.Children.Append("udf-object", types.YChild{"UdfObject", nil})
     for i := range udfObjects.UdfObject {
-        udfObjects.EntityData.Children[types.GetSegmentPath(&udfObjects.UdfObject[i])] = types.YChild{"UdfObject", &udfObjects.UdfObject[i]}
+        udfObjects.EntityData.Children.Append(types.GetSegmentPath(udfObjects.UdfObject[i]), types.YChild{"UdfObject", udfObjects.UdfObject[i]})
     }
-    udfObjects.EntityData.Leafs = make(map[string]types.YLeaf)
+    udfObjects.EntityData.Leafs = types.NewOrderedMap()
+
+    udfObjects.EntityData.YListKeys = []string {}
+
     return &(udfObjects.EntityData)
 }
 
@@ -1148,19 +1220,22 @@ func (udfObject *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject) GetEntityData() 
     udfObject.EntityData.YangName = "udf-object"
     udfObject.EntityData.BundleName = "cisco_ios_xr"
     udfObject.EntityData.ParentYangName = "udf-objects"
-    udfObject.EntityData.SegmentPath = "udf-object" + "[object-name='" + fmt.Sprintf("%v", udfObject.ObjectName) + "']"
+    udfObject.EntityData.SegmentPath = "udf-object" + types.AddKeyToken(udfObject.ObjectName, "object-name")
     udfObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udfObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udfObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    udfObject.EntityData.Children = make(map[string]types.YChild)
-    udfObject.EntityData.Children["nested-groups"] = types.YChild{"NestedGroups", &udfObject.NestedGroups}
-    udfObject.EntityData.Children["address-ranges"] = types.YChild{"AddressRanges", &udfObject.AddressRanges}
-    udfObject.EntityData.Children["addresses"] = types.YChild{"Addresses", &udfObject.Addresses}
-    udfObject.EntityData.Children["hosts"] = types.YChild{"Hosts", &udfObject.Hosts}
-    udfObject.EntityData.Leafs = make(map[string]types.YLeaf)
-    udfObject.EntityData.Leafs["object-name"] = types.YLeaf{"ObjectName", udfObject.ObjectName}
-    udfObject.EntityData.Leafs["description"] = types.YLeaf{"Description", udfObject.Description}
+    udfObject.EntityData.Children = types.NewOrderedMap()
+    udfObject.EntityData.Children.Append("nested-groups", types.YChild{"NestedGroups", &udfObject.NestedGroups})
+    udfObject.EntityData.Children.Append("address-ranges", types.YChild{"AddressRanges", &udfObject.AddressRanges})
+    udfObject.EntityData.Children.Append("addresses", types.YChild{"Addresses", &udfObject.Addresses})
+    udfObject.EntityData.Children.Append("hosts", types.YChild{"Hosts", &udfObject.Hosts})
+    udfObject.EntityData.Leafs = types.NewOrderedMap()
+    udfObject.EntityData.Leafs.Append("object-name", types.YLeaf{"ObjectName", udfObject.ObjectName})
+    udfObject.EntityData.Leafs.Append("description", types.YLeaf{"Description", udfObject.Description})
+
+    udfObject.EntityData.YListKeys = []string {"ObjectName"}
+
     return &(udfObject.EntityData)
 }
 
@@ -1172,7 +1247,7 @@ type ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_NestedGroups struct {
 
     // Nested object group. The type is slice of
     // ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_NestedGroups_NestedGroup.
-    NestedGroup []ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_NestedGroups_NestedGroup
+    NestedGroup []*ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_NestedGroups_NestedGroup
 }
 
 func (nestedGroups *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_NestedGroups) GetEntityData() *types.CommonEntityData {
@@ -1185,12 +1260,15 @@ func (nestedGroups *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_NestedGroups) 
     nestedGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nestedGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nestedGroups.EntityData.Children = make(map[string]types.YChild)
-    nestedGroups.EntityData.Children["nested-group"] = types.YChild{"NestedGroup", nil}
+    nestedGroups.EntityData.Children = types.NewOrderedMap()
+    nestedGroups.EntityData.Children.Append("nested-group", types.YChild{"NestedGroup", nil})
     for i := range nestedGroups.NestedGroup {
-        nestedGroups.EntityData.Children[types.GetSegmentPath(&nestedGroups.NestedGroup[i])] = types.YChild{"NestedGroup", &nestedGroups.NestedGroup[i]}
+        nestedGroups.EntityData.Children.Append(types.GetSegmentPath(nestedGroups.NestedGroup[i]), types.YChild{"NestedGroup", nestedGroups.NestedGroup[i]})
     }
-    nestedGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    nestedGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    nestedGroups.EntityData.YListKeys = []string {}
+
     return &(nestedGroups.EntityData)
 }
 
@@ -1210,14 +1288,17 @@ func (nestedGroup *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_NestedGroups_Ne
     nestedGroup.EntityData.YangName = "nested-group"
     nestedGroup.EntityData.BundleName = "cisco_ios_xr"
     nestedGroup.EntityData.ParentYangName = "nested-groups"
-    nestedGroup.EntityData.SegmentPath = "nested-group" + "[nested-group-name='" + fmt.Sprintf("%v", nestedGroup.NestedGroupName) + "']"
+    nestedGroup.EntityData.SegmentPath = "nested-group" + types.AddKeyToken(nestedGroup.NestedGroupName, "nested-group-name")
     nestedGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nestedGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nestedGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nestedGroup.EntityData.Children = make(map[string]types.YChild)
-    nestedGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    nestedGroup.EntityData.Leafs["nested-group-name"] = types.YLeaf{"NestedGroupName", nestedGroup.NestedGroupName}
+    nestedGroup.EntityData.Children = types.NewOrderedMap()
+    nestedGroup.EntityData.Leafs = types.NewOrderedMap()
+    nestedGroup.EntityData.Leafs.Append("nested-group-name", types.YLeaf{"NestedGroupName", nestedGroup.NestedGroupName})
+
+    nestedGroup.EntityData.YListKeys = []string {"NestedGroupName"}
+
     return &(nestedGroup.EntityData)
 }
 
@@ -1229,7 +1310,7 @@ type ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_AddressRanges struct {
 
     // Range of host addresses. The type is slice of
     // ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_AddressRanges_AddressRange.
-    AddressRange []ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_AddressRanges_AddressRange
+    AddressRange []*ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_AddressRanges_AddressRange
 }
 
 func (addressRanges *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_AddressRanges) GetEntityData() *types.CommonEntityData {
@@ -1242,12 +1323,15 @@ func (addressRanges *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_AddressRanges
     addressRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressRanges.EntityData.Children = make(map[string]types.YChild)
-    addressRanges.EntityData.Children["address-range"] = types.YChild{"AddressRange", nil}
+    addressRanges.EntityData.Children = types.NewOrderedMap()
+    addressRanges.EntityData.Children.Append("address-range", types.YChild{"AddressRange", nil})
     for i := range addressRanges.AddressRange {
-        addressRanges.EntityData.Children[types.GetSegmentPath(&addressRanges.AddressRange[i])] = types.YChild{"AddressRange", &addressRanges.AddressRange[i]}
+        addressRanges.EntityData.Children.Append(types.GetSegmentPath(addressRanges.AddressRange[i]), types.YChild{"AddressRange", addressRanges.AddressRange[i]})
     }
-    addressRanges.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressRanges.EntityData.Leafs = types.NewOrderedMap()
+
+    addressRanges.EntityData.YListKeys = []string {}
+
     return &(addressRanges.EntityData)
 }
 
@@ -1259,16 +1343,16 @@ type ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_AddressRanges_AddressRange st
 
     // This attribute is a key. IPv4 address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // This attribute is a key. IPv4 address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     EndAddress interface{}
 }
 
@@ -1277,15 +1361,18 @@ func (addressRange *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_AddressRanges_
     addressRange.EntityData.YangName = "address-range"
     addressRange.EntityData.BundleName = "cisco_ios_xr"
     addressRange.EntityData.ParentYangName = "address-ranges"
-    addressRange.EntityData.SegmentPath = "address-range" + "[start-address='" + fmt.Sprintf("%v", addressRange.StartAddress) + "']" + "[end-address='" + fmt.Sprintf("%v", addressRange.EndAddress) + "']"
+    addressRange.EntityData.SegmentPath = "address-range" + types.AddKeyToken(addressRange.StartAddress, "start-address") + types.AddKeyToken(addressRange.EndAddress, "end-address")
     addressRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressRange.EntityData.Children = make(map[string]types.YChild)
-    addressRange.EntityData.Leafs = make(map[string]types.YLeaf)
-    addressRange.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", addressRange.StartAddress}
-    addressRange.EntityData.Leafs["end-address"] = types.YLeaf{"EndAddress", addressRange.EndAddress}
+    addressRange.EntityData.Children = types.NewOrderedMap()
+    addressRange.EntityData.Leafs = types.NewOrderedMap()
+    addressRange.EntityData.Leafs.Append("start-address", types.YLeaf{"StartAddress", addressRange.StartAddress})
+    addressRange.EntityData.Leafs.Append("end-address", types.YLeaf{"EndAddress", addressRange.EndAddress})
+
+    addressRange.EntityData.YListKeys = []string {"StartAddress", "EndAddress"}
+
     return &(addressRange.EntityData)
 }
 
@@ -1297,7 +1384,7 @@ type ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Addresses struct {
 
     // IPv4 address. The type is slice of
     // ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Addresses_Address.
-    Address []ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Addresses_Address
+    Address []*ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Addresses_Address
 }
 
 func (addresses *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Addresses) GetEntityData() *types.CommonEntityData {
@@ -1310,12 +1397,15 @@ func (addresses *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Addresses) GetEnt
     addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addresses.EntityData.Children = make(map[string]types.YChild)
-    addresses.EntityData.Children["address"] = types.YChild{"Address", nil}
+    addresses.EntityData.Children = types.NewOrderedMap()
+    addresses.EntityData.Children.Append("address", types.YChild{"Address", nil})
     for i := range addresses.Address {
-        addresses.EntityData.Children[types.GetSegmentPath(&addresses.Address[i])] = types.YChild{"Address", &addresses.Address[i]}
+        addresses.EntityData.Children.Append(types.GetSegmentPath(addresses.Address[i]), types.YChild{"Address", addresses.Address[i]})
     }
-    addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    addresses.EntityData.YListKeys = []string {}
+
     return &(addresses.EntityData)
 }
 
@@ -1327,9 +1417,9 @@ type ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Addresses_Address struct {
 
     // This attribute is a key. IPv4 address/prefix. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // This attribute is a key. Prefix of the IP Address. The type is interface{}
@@ -1342,15 +1432,18 @@ func (address *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Addresses_Address) 
     address.EntityData.YangName = "address"
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "addresses"
-    address.EntityData.SegmentPath = "address" + "[prefix='" + fmt.Sprintf("%v", address.Prefix) + "']" + "[prefix-length='" + fmt.Sprintf("%v", address.PrefixLength) + "']"
+    address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Prefix, "prefix") + types.AddKeyToken(address.PrefixLength, "prefix-length")
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", address.Prefix}
-    address.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", address.PrefixLength}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", address.Prefix})
+    address.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", address.PrefixLength})
+
+    address.EntityData.YListKeys = []string {"Prefix", "PrefixLength"}
+
     return &(address.EntityData)
 }
 
@@ -1362,7 +1455,7 @@ type ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Hosts struct {
 
     // A single host address. The type is slice of
     // ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Hosts_Host.
-    Host []ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Hosts_Host
+    Host []*ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Hosts_Host
 }
 
 func (hosts *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Hosts) GetEntityData() *types.CommonEntityData {
@@ -1375,12 +1468,15 @@ func (hosts *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Hosts) GetEntityData(
     hosts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hosts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hosts.EntityData.Children = make(map[string]types.YChild)
-    hosts.EntityData.Children["host"] = types.YChild{"Host", nil}
+    hosts.EntityData.Children = types.NewOrderedMap()
+    hosts.EntityData.Children.Append("host", types.YChild{"Host", nil})
     for i := range hosts.Host {
-        hosts.EntityData.Children[types.GetSegmentPath(&hosts.Host[i])] = types.YChild{"Host", &hosts.Host[i]}
+        hosts.EntityData.Children.Append(types.GetSegmentPath(hosts.Host[i]), types.YChild{"Host", hosts.Host[i]})
     }
-    hosts.EntityData.Leafs = make(map[string]types.YLeaf)
+    hosts.EntityData.Leafs = types.NewOrderedMap()
+
+    hosts.EntityData.YListKeys = []string {}
+
     return &(hosts.EntityData)
 }
 
@@ -1392,9 +1488,9 @@ type ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Hosts_Host struct {
 
     // This attribute is a key. Host ipv4 address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     HostAddress interface{}
 }
 
@@ -1403,14 +1499,17 @@ func (host *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Hosts_Host) GetEntityD
     host.EntityData.YangName = "host"
     host.EntityData.BundleName = "cisco_ios_xr"
     host.EntityData.ParentYangName = "hosts"
-    host.EntityData.SegmentPath = "host" + "[host-address='" + fmt.Sprintf("%v", host.HostAddress) + "']"
+    host.EntityData.SegmentPath = "host" + types.AddKeyToken(host.HostAddress, "host-address")
     host.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     host.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     host.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    host.EntityData.Children = make(map[string]types.YChild)
-    host.EntityData.Leafs = make(map[string]types.YLeaf)
-    host.EntityData.Leafs["host-address"] = types.YLeaf{"HostAddress", host.HostAddress}
+    host.EntityData.Children = types.NewOrderedMap()
+    host.EntityData.Leafs = types.NewOrderedMap()
+    host.EntityData.Leafs.Append("host-address", types.YLeaf{"HostAddress", host.HostAddress})
+
+    host.EntityData.YListKeys = []string {"HostAddress"}
+
     return &(host.EntityData)
 }
 

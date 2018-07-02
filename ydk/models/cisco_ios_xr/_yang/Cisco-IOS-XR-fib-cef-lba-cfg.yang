@@ -31,18 +31,21 @@ module Cisco-IOS-XR-fib-cef-lba-cfg {
   }
 
   container fiblb {
+    presence "Indicates a fiblb node is configured.";
     description
       "FIB load-balancing";
     leaf fields {
       type uint32 {
         range "0..1";
       }
+      mandatory true;
       description
         "Specify number of fields used for the load
          balancing";
     }
     leaf payload {
       type boolean;
+      mandatory true;
       description
         "Payload Load-Balancing";
     }

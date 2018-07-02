@@ -27,7 +27,7 @@ type VirtualServices struct {
 
     // List of virtual services. The type is slice of
     // VirtualServices_VirtualService.
-    VirtualService []VirtualServices_VirtualService
+    VirtualService []*VirtualServices_VirtualService
 }
 
 func (virtualServices *VirtualServices) GetEntityData() *types.CommonEntityData {
@@ -40,12 +40,15 @@ func (virtualServices *VirtualServices) GetEntityData() *types.CommonEntityData 
     virtualServices.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     virtualServices.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    virtualServices.EntityData.Children = make(map[string]types.YChild)
-    virtualServices.EntityData.Children["virtual-service"] = types.YChild{"VirtualService", nil}
+    virtualServices.EntityData.Children = types.NewOrderedMap()
+    virtualServices.EntityData.Children.Append("virtual-service", types.YChild{"VirtualService", nil})
     for i := range virtualServices.VirtualService {
-        virtualServices.EntityData.Children[types.GetSegmentPath(&virtualServices.VirtualService[i])] = types.YChild{"VirtualService", &virtualServices.VirtualService[i]}
+        virtualServices.EntityData.Children.Append(types.GetSegmentPath(virtualServices.VirtualService[i]), types.YChild{"VirtualService", virtualServices.VirtualService[i]})
     }
-    virtualServices.EntityData.Leafs = make(map[string]types.YLeaf)
+    virtualServices.EntityData.Leafs = types.NewOrderedMap()
+
+    virtualServices.EntityData.YListKeys = []string {}
+
     return &(virtualServices.EntityData)
 }
 
@@ -88,22 +91,25 @@ func (virtualService *VirtualServices_VirtualService) GetEntityData() *types.Com
     virtualService.EntityData.YangName = "virtual-service"
     virtualService.EntityData.BundleName = "cisco_ios_xe"
     virtualService.EntityData.ParentYangName = "virtual-services"
-    virtualService.EntityData.SegmentPath = "virtual-service" + "[name='" + fmt.Sprintf("%v", virtualService.Name) + "']"
+    virtualService.EntityData.SegmentPath = "virtual-service" + types.AddKeyToken(virtualService.Name, "name")
     virtualService.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     virtualService.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     virtualService.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    virtualService.EntityData.Children = make(map[string]types.YChild)
-    virtualService.EntityData.Children["details"] = types.YChild{"Details", &virtualService.Details}
-    virtualService.EntityData.Children["utilization"] = types.YChild{"Utilization", &virtualService.Utilization}
-    virtualService.EntityData.Children["network-utils"] = types.YChild{"NetworkUtils", &virtualService.NetworkUtils}
-    virtualService.EntityData.Children["storage-utils"] = types.YChild{"StorageUtils", &virtualService.StorageUtils}
-    virtualService.EntityData.Children["processes"] = types.YChild{"Processes", &virtualService.Processes}
-    virtualService.EntityData.Children["attached-devices"] = types.YChild{"AttachedDevices", &virtualService.AttachedDevices}
-    virtualService.EntityData.Children["network-interfaces"] = types.YChild{"NetworkInterfaces", &virtualService.NetworkInterfaces}
-    virtualService.EntityData.Children["guest-routes"] = types.YChild{"GuestRoutes", &virtualService.GuestRoutes}
-    virtualService.EntityData.Leafs = make(map[string]types.YLeaf)
-    virtualService.EntityData.Leafs["name"] = types.YLeaf{"Name", virtualService.Name}
+    virtualService.EntityData.Children = types.NewOrderedMap()
+    virtualService.EntityData.Children.Append("details", types.YChild{"Details", &virtualService.Details})
+    virtualService.EntityData.Children.Append("utilization", types.YChild{"Utilization", &virtualService.Utilization})
+    virtualService.EntityData.Children.Append("network-utils", types.YChild{"NetworkUtils", &virtualService.NetworkUtils})
+    virtualService.EntityData.Children.Append("storage-utils", types.YChild{"StorageUtils", &virtualService.StorageUtils})
+    virtualService.EntityData.Children.Append("processes", types.YChild{"Processes", &virtualService.Processes})
+    virtualService.EntityData.Children.Append("attached-devices", types.YChild{"AttachedDevices", &virtualService.AttachedDevices})
+    virtualService.EntityData.Children.Append("network-interfaces", types.YChild{"NetworkInterfaces", &virtualService.NetworkInterfaces})
+    virtualService.EntityData.Children.Append("guest-routes", types.YChild{"GuestRoutes", &virtualService.GuestRoutes})
+    virtualService.EntityData.Leafs = types.NewOrderedMap()
+    virtualService.EntityData.Leafs.Append("name", types.YLeaf{"Name", virtualService.Name})
+
+    virtualService.EntityData.YListKeys = []string {"Name"}
+
     return &(virtualService.EntityData)
 }
 
@@ -145,15 +151,18 @@ func (details *VirtualServices_VirtualService_Details) GetEntityData() *types.Co
     details.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    details.EntityData.Children = make(map[string]types.YChild)
-    details.EntityData.Children["package-information"] = types.YChild{"PackageInformation", &details.PackageInformation}
-    details.EntityData.Children["detailed-guest-status"] = types.YChild{"DetailedGuestStatus", &details.DetailedGuestStatus}
-    details.EntityData.Children["resource-reservation"] = types.YChild{"ResourceReservation", &details.ResourceReservation}
-    details.EntityData.Children["resource-admission"] = types.YChild{"ResourceAdmission", &details.ResourceAdmission}
-    details.EntityData.Leafs = make(map[string]types.YLeaf)
-    details.EntityData.Leafs["state"] = types.YLeaf{"State", details.State}
-    details.EntityData.Leafs["activated-profile-name"] = types.YLeaf{"ActivatedProfileName", details.ActivatedProfileName}
-    details.EntityData.Leafs["guest-interface"] = types.YLeaf{"GuestInterface", details.GuestInterface}
+    details.EntityData.Children = types.NewOrderedMap()
+    details.EntityData.Children.Append("package-information", types.YChild{"PackageInformation", &details.PackageInformation})
+    details.EntityData.Children.Append("detailed-guest-status", types.YChild{"DetailedGuestStatus", &details.DetailedGuestStatus})
+    details.EntityData.Children.Append("resource-reservation", types.YChild{"ResourceReservation", &details.ResourceReservation})
+    details.EntityData.Children.Append("resource-admission", types.YChild{"ResourceAdmission", &details.ResourceAdmission})
+    details.EntityData.Leafs = types.NewOrderedMap()
+    details.EntityData.Leafs.Append("state", types.YLeaf{"State", details.State})
+    details.EntityData.Leafs.Append("activated-profile-name", types.YLeaf{"ActivatedProfileName", details.ActivatedProfileName})
+    details.EntityData.Leafs.Append("guest-interface", types.YLeaf{"GuestInterface", details.GuestInterface})
+
+    details.EntityData.YListKeys = []string {}
+
     return &(details.EntityData)
 }
 
@@ -189,13 +198,16 @@ func (packageInformation *VirtualServices_VirtualService_Details_PackageInformat
     packageInformation.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     packageInformation.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    packageInformation.EntityData.Children = make(map[string]types.YChild)
-    packageInformation.EntityData.Children["application"] = types.YChild{"Application", &packageInformation.Application}
-    packageInformation.EntityData.Children["signing"] = types.YChild{"Signing", &packageInformation.Signing}
-    packageInformation.EntityData.Children["licensing"] = types.YChild{"Licensing", &packageInformation.Licensing}
-    packageInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    packageInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", packageInformation.Name}
-    packageInformation.EntityData.Leafs["path"] = types.YLeaf{"Path", packageInformation.Path}
+    packageInformation.EntityData.Children = types.NewOrderedMap()
+    packageInformation.EntityData.Children.Append("application", types.YChild{"Application", &packageInformation.Application})
+    packageInformation.EntityData.Children.Append("signing", types.YChild{"Signing", &packageInformation.Signing})
+    packageInformation.EntityData.Children.Append("licensing", types.YChild{"Licensing", &packageInformation.Licensing})
+    packageInformation.EntityData.Leafs = types.NewOrderedMap()
+    packageInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", packageInformation.Name})
+    packageInformation.EntityData.Leafs.Append("path", types.YLeaf{"Path", packageInformation.Path})
+
+    packageInformation.EntityData.YListKeys = []string {}
+
     return &(packageInformation.EntityData)
 }
 
@@ -215,7 +227,7 @@ type VirtualServices_VirtualService_Details_PackageInformation_Application struc
     Description interface{}
 
     // Application type. The type is string.
-    Type_ interface{}
+    Type interface{}
 }
 
 func (application *VirtualServices_VirtualService_Details_PackageInformation_Application) GetEntityData() *types.CommonEntityData {
@@ -228,12 +240,15 @@ func (application *VirtualServices_VirtualService_Details_PackageInformation_App
     application.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     application.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    application.EntityData.Children = make(map[string]types.YChild)
-    application.EntityData.Leafs = make(map[string]types.YLeaf)
-    application.EntityData.Leafs["name"] = types.YLeaf{"Name", application.Name}
-    application.EntityData.Leafs["installed-version"] = types.YLeaf{"InstalledVersion", application.InstalledVersion}
-    application.EntityData.Leafs["description"] = types.YLeaf{"Description", application.Description}
-    application.EntityData.Leafs["type"] = types.YLeaf{"Type_", application.Type_}
+    application.EntityData.Children = types.NewOrderedMap()
+    application.EntityData.Leafs = types.NewOrderedMap()
+    application.EntityData.Leafs.Append("name", types.YLeaf{"Name", application.Name})
+    application.EntityData.Leafs.Append("installed-version", types.YLeaf{"InstalledVersion", application.InstalledVersion})
+    application.EntityData.Leafs.Append("description", types.YLeaf{"Description", application.Description})
+    application.EntityData.Leafs.Append("type", types.YLeaf{"Type", application.Type})
+
+    application.EntityData.YListKeys = []string {}
+
     return &(application.EntityData)
 }
 
@@ -260,10 +275,13 @@ func (signing *VirtualServices_VirtualService_Details_PackageInformation_Signing
     signing.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     signing.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    signing.EntityData.Children = make(map[string]types.YChild)
-    signing.EntityData.Leafs = make(map[string]types.YLeaf)
-    signing.EntityData.Leafs["key-type"] = types.YLeaf{"KeyType", signing.KeyType}
-    signing.EntityData.Leafs["method"] = types.YLeaf{"Method", signing.Method}
+    signing.EntityData.Children = types.NewOrderedMap()
+    signing.EntityData.Leafs = types.NewOrderedMap()
+    signing.EntityData.Leafs.Append("key-type", types.YLeaf{"KeyType", signing.KeyType})
+    signing.EntityData.Leafs.Append("method", types.YLeaf{"Method", signing.Method})
+
+    signing.EntityData.YListKeys = []string {}
+
     return &(signing.EntityData)
 }
 
@@ -290,10 +308,13 @@ func (licensing *VirtualServices_VirtualService_Details_PackageInformation_Licen
     licensing.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     licensing.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    licensing.EntityData.Children = make(map[string]types.YChild)
-    licensing.EntityData.Leafs = make(map[string]types.YLeaf)
-    licensing.EntityData.Leafs["name"] = types.YLeaf{"Name", licensing.Name}
-    licensing.EntityData.Leafs["version"] = types.YLeaf{"Version", licensing.Version}
+    licensing.EntityData.Children = types.NewOrderedMap()
+    licensing.EntityData.Leafs = types.NewOrderedMap()
+    licensing.EntityData.Leafs.Append("name", types.YLeaf{"Name", licensing.Name})
+    licensing.EntityData.Leafs.Append("version", types.YLeaf{"Version", licensing.Version})
+
+    licensing.EntityData.YListKeys = []string {}
+
     return &(licensing.EntityData)
 }
 
@@ -317,9 +338,12 @@ func (detailedGuestStatus *VirtualServices_VirtualService_Details_DetailedGuestS
     detailedGuestStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     detailedGuestStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    detailedGuestStatus.EntityData.Children = make(map[string]types.YChild)
-    detailedGuestStatus.EntityData.Children["processes"] = types.YChild{"Processes", &detailedGuestStatus.Processes}
-    detailedGuestStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    detailedGuestStatus.EntityData.Children = types.NewOrderedMap()
+    detailedGuestStatus.EntityData.Children.Append("processes", types.YChild{"Processes", &detailedGuestStatus.Processes})
+    detailedGuestStatus.EntityData.Leafs = types.NewOrderedMap()
+
+    detailedGuestStatus.EntityData.YListKeys = []string {}
+
     return &(detailedGuestStatus.EntityData)
 }
 
@@ -355,13 +379,16 @@ func (processes *VirtualServices_VirtualService_Details_DetailedGuestStatus_Proc
     processes.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     processes.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    processes.EntityData.Children = make(map[string]types.YChild)
-    processes.EntityData.Leafs = make(map[string]types.YLeaf)
-    processes.EntityData.Leafs["name"] = types.YLeaf{"Name", processes.Name}
-    processes.EntityData.Leafs["status"] = types.YLeaf{"Status", processes.Status}
-    processes.EntityData.Leafs["pid"] = types.YLeaf{"Pid", processes.Pid}
-    processes.EntityData.Leafs["uptime"] = types.YLeaf{"Uptime", processes.Uptime}
-    processes.EntityData.Leafs["memory"] = types.YLeaf{"Memory", processes.Memory}
+    processes.EntityData.Children = types.NewOrderedMap()
+    processes.EntityData.Leafs = types.NewOrderedMap()
+    processes.EntityData.Leafs.Append("name", types.YLeaf{"Name", processes.Name})
+    processes.EntityData.Leafs.Append("status", types.YLeaf{"Status", processes.Status})
+    processes.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", processes.Pid})
+    processes.EntityData.Leafs.Append("uptime", types.YLeaf{"Uptime", processes.Uptime})
+    processes.EntityData.Leafs.Append("memory", types.YLeaf{"Memory", processes.Memory})
+
+    processes.EntityData.YListKeys = []string {}
+
     return &(processes.EntityData)
 }
 
@@ -394,11 +421,14 @@ func (resourceReservation *VirtualServices_VirtualService_Details_ResourceReserv
     resourceReservation.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     resourceReservation.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    resourceReservation.EntityData.Children = make(map[string]types.YChild)
-    resourceReservation.EntityData.Leafs = make(map[string]types.YLeaf)
-    resourceReservation.EntityData.Leafs["disk"] = types.YLeaf{"Disk", resourceReservation.Disk}
-    resourceReservation.EntityData.Leafs["memory"] = types.YLeaf{"Memory", resourceReservation.Memory}
-    resourceReservation.EntityData.Leafs["cpu"] = types.YLeaf{"Cpu", resourceReservation.Cpu}
+    resourceReservation.EntityData.Children = types.NewOrderedMap()
+    resourceReservation.EntityData.Leafs = types.NewOrderedMap()
+    resourceReservation.EntityData.Leafs.Append("disk", types.YLeaf{"Disk", resourceReservation.Disk})
+    resourceReservation.EntityData.Leafs.Append("memory", types.YLeaf{"Memory", resourceReservation.Memory})
+    resourceReservation.EntityData.Leafs.Append("cpu", types.YLeaf{"Cpu", resourceReservation.Cpu})
+
+    resourceReservation.EntityData.YListKeys = []string {}
+
     return &(resourceReservation.EntityData)
 }
 
@@ -437,13 +467,16 @@ func (resourceAdmission *VirtualServices_VirtualService_Details_ResourceAdmissio
     resourceAdmission.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     resourceAdmission.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    resourceAdmission.EntityData.Children = make(map[string]types.YChild)
-    resourceAdmission.EntityData.Leafs = make(map[string]types.YLeaf)
-    resourceAdmission.EntityData.Leafs["state"] = types.YLeaf{"State", resourceAdmission.State}
-    resourceAdmission.EntityData.Leafs["disk-space"] = types.YLeaf{"DiskSpace", resourceAdmission.DiskSpace}
-    resourceAdmission.EntityData.Leafs["memory"] = types.YLeaf{"Memory", resourceAdmission.Memory}
-    resourceAdmission.EntityData.Leafs["cpu"] = types.YLeaf{"Cpu", resourceAdmission.Cpu}
-    resourceAdmission.EntityData.Leafs["vcpus"] = types.YLeaf{"Vcpus", resourceAdmission.Vcpus}
+    resourceAdmission.EntityData.Children = types.NewOrderedMap()
+    resourceAdmission.EntityData.Leafs = types.NewOrderedMap()
+    resourceAdmission.EntityData.Leafs.Append("state", types.YLeaf{"State", resourceAdmission.State})
+    resourceAdmission.EntityData.Leafs.Append("disk-space", types.YLeaf{"DiskSpace", resourceAdmission.DiskSpace})
+    resourceAdmission.EntityData.Leafs.Append("memory", types.YLeaf{"Memory", resourceAdmission.Memory})
+    resourceAdmission.EntityData.Leafs.Append("cpu", types.YLeaf{"Cpu", resourceAdmission.Cpu})
+    resourceAdmission.EntityData.Leafs.Append("vcpus", types.YLeaf{"Vcpus", resourceAdmission.Vcpus})
+
+    resourceAdmission.EntityData.YListKeys = []string {}
+
     return &(resourceAdmission.EntityData)
 }
 
@@ -473,11 +506,14 @@ func (utilization *VirtualServices_VirtualService_Utilization) GetEntityData() *
     utilization.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     utilization.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    utilization.EntityData.Children = make(map[string]types.YChild)
-    utilization.EntityData.Children["cpu-util"] = types.YChild{"CpuUtil", &utilization.CpuUtil}
-    utilization.EntityData.Children["memory-util"] = types.YChild{"MemoryUtil", &utilization.MemoryUtil}
-    utilization.EntityData.Leafs = make(map[string]types.YLeaf)
-    utilization.EntityData.Leafs["name"] = types.YLeaf{"Name", utilization.Name}
+    utilization.EntityData.Children = types.NewOrderedMap()
+    utilization.EntityData.Children.Append("cpu-util", types.YChild{"CpuUtil", &utilization.CpuUtil})
+    utilization.EntityData.Children.Append("memory-util", types.YChild{"MemoryUtil", &utilization.MemoryUtil})
+    utilization.EntityData.Leafs = types.NewOrderedMap()
+    utilization.EntityData.Leafs.Append("name", types.YLeaf{"Name", utilization.Name})
+
+    utilization.EntityData.YListKeys = []string {}
+
     return &(utilization.EntityData)
 }
 
@@ -509,11 +545,14 @@ func (cpuUtil *VirtualServices_VirtualService_Utilization_CpuUtil) GetEntityData
     cpuUtil.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpuUtil.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpuUtil.EntityData.Children = make(map[string]types.YChild)
-    cpuUtil.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpuUtil.EntityData.Leafs["requested-application-util"] = types.YLeaf{"RequestedApplicationUtil", cpuUtil.RequestedApplicationUtil}
-    cpuUtil.EntityData.Leafs["actual-application-util"] = types.YLeaf{"ActualApplicationUtil", cpuUtil.ActualApplicationUtil}
-    cpuUtil.EntityData.Leafs["cpu-state"] = types.YLeaf{"CpuState", cpuUtil.CpuState}
+    cpuUtil.EntityData.Children = types.NewOrderedMap()
+    cpuUtil.EntityData.Leafs = types.NewOrderedMap()
+    cpuUtil.EntityData.Leafs.Append("requested-application-util", types.YLeaf{"RequestedApplicationUtil", cpuUtil.RequestedApplicationUtil})
+    cpuUtil.EntityData.Leafs.Append("actual-application-util", types.YLeaf{"ActualApplicationUtil", cpuUtil.ActualApplicationUtil})
+    cpuUtil.EntityData.Leafs.Append("cpu-state", types.YLeaf{"CpuState", cpuUtil.CpuState})
+
+    cpuUtil.EntityData.YListKeys = []string {}
+
     return &(cpuUtil.EntityData)
 }
 
@@ -541,10 +580,13 @@ func (memoryUtil *VirtualServices_VirtualService_Utilization_MemoryUtil) GetEnti
     memoryUtil.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     memoryUtil.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    memoryUtil.EntityData.Children = make(map[string]types.YChild)
-    memoryUtil.EntityData.Leafs = make(map[string]types.YLeaf)
-    memoryUtil.EntityData.Leafs["memory-allocation"] = types.YLeaf{"MemoryAllocation", memoryUtil.MemoryAllocation}
-    memoryUtil.EntityData.Leafs["memory-used"] = types.YLeaf{"MemoryUsed", memoryUtil.MemoryUsed}
+    memoryUtil.EntityData.Children = types.NewOrderedMap()
+    memoryUtil.EntityData.Leafs = types.NewOrderedMap()
+    memoryUtil.EntityData.Leafs.Append("memory-allocation", types.YLeaf{"MemoryAllocation", memoryUtil.MemoryAllocation})
+    memoryUtil.EntityData.Leafs.Append("memory-used", types.YLeaf{"MemoryUsed", memoryUtil.MemoryUsed})
+
+    memoryUtil.EntityData.YListKeys = []string {}
+
     return &(memoryUtil.EntityData)
 }
 
@@ -556,7 +598,7 @@ type VirtualServices_VirtualService_NetworkUtils struct {
 
     // A list of network utilization details. The type is slice of
     // VirtualServices_VirtualService_NetworkUtils_NetworkUtil.
-    NetworkUtil []VirtualServices_VirtualService_NetworkUtils_NetworkUtil
+    NetworkUtil []*VirtualServices_VirtualService_NetworkUtils_NetworkUtil
 }
 
 func (networkUtils *VirtualServices_VirtualService_NetworkUtils) GetEntityData() *types.CommonEntityData {
@@ -569,12 +611,15 @@ func (networkUtils *VirtualServices_VirtualService_NetworkUtils) GetEntityData()
     networkUtils.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     networkUtils.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    networkUtils.EntityData.Children = make(map[string]types.YChild)
-    networkUtils.EntityData.Children["network-util"] = types.YChild{"NetworkUtil", nil}
+    networkUtils.EntityData.Children = types.NewOrderedMap()
+    networkUtils.EntityData.Children.Append("network-util", types.YChild{"NetworkUtil", nil})
     for i := range networkUtils.NetworkUtil {
-        networkUtils.EntityData.Children[types.GetSegmentPath(&networkUtils.NetworkUtil[i])] = types.YChild{"NetworkUtil", &networkUtils.NetworkUtil[i]}
+        networkUtils.EntityData.Children.Append(types.GetSegmentPath(networkUtils.NetworkUtil[i]), types.YChild{"NetworkUtil", networkUtils.NetworkUtil[i]})
     }
-    networkUtils.EntityData.Leafs = make(map[string]types.YLeaf)
+    networkUtils.EntityData.Leafs = types.NewOrderedMap()
+
+    networkUtils.EntityData.YListKeys = []string {}
+
     return &(networkUtils.EntityData)
 }
 
@@ -621,21 +666,24 @@ func (networkUtil *VirtualServices_VirtualService_NetworkUtils_NetworkUtil) GetE
     networkUtil.EntityData.YangName = "network-util"
     networkUtil.EntityData.BundleName = "cisco_ios_xe"
     networkUtil.EntityData.ParentYangName = "network-utils"
-    networkUtil.EntityData.SegmentPath = "network-util" + "[name='" + fmt.Sprintf("%v", networkUtil.Name) + "']"
+    networkUtil.EntityData.SegmentPath = "network-util" + types.AddKeyToken(networkUtil.Name, "name")
     networkUtil.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     networkUtil.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     networkUtil.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    networkUtil.EntityData.Children = make(map[string]types.YChild)
-    networkUtil.EntityData.Leafs = make(map[string]types.YLeaf)
-    networkUtil.EntityData.Leafs["name"] = types.YLeaf{"Name", networkUtil.Name}
-    networkUtil.EntityData.Leafs["alias"] = types.YLeaf{"Alias", networkUtil.Alias}
-    networkUtil.EntityData.Leafs["rx-packets"] = types.YLeaf{"RxPackets", networkUtil.RxPackets}
-    networkUtil.EntityData.Leafs["rx-bytes"] = types.YLeaf{"RxBytes", networkUtil.RxBytes}
-    networkUtil.EntityData.Leafs["rx-errors"] = types.YLeaf{"RxErrors", networkUtil.RxErrors}
-    networkUtil.EntityData.Leafs["tx-packets"] = types.YLeaf{"TxPackets", networkUtil.TxPackets}
-    networkUtil.EntityData.Leafs["tx-bytes"] = types.YLeaf{"TxBytes", networkUtil.TxBytes}
-    networkUtil.EntityData.Leafs["tx-errors"] = types.YLeaf{"TxErrors", networkUtil.TxErrors}
+    networkUtil.EntityData.Children = types.NewOrderedMap()
+    networkUtil.EntityData.Leafs = types.NewOrderedMap()
+    networkUtil.EntityData.Leafs.Append("name", types.YLeaf{"Name", networkUtil.Name})
+    networkUtil.EntityData.Leafs.Append("alias", types.YLeaf{"Alias", networkUtil.Alias})
+    networkUtil.EntityData.Leafs.Append("rx-packets", types.YLeaf{"RxPackets", networkUtil.RxPackets})
+    networkUtil.EntityData.Leafs.Append("rx-bytes", types.YLeaf{"RxBytes", networkUtil.RxBytes})
+    networkUtil.EntityData.Leafs.Append("rx-errors", types.YLeaf{"RxErrors", networkUtil.RxErrors})
+    networkUtil.EntityData.Leafs.Append("tx-packets", types.YLeaf{"TxPackets", networkUtil.TxPackets})
+    networkUtil.EntityData.Leafs.Append("tx-bytes", types.YLeaf{"TxBytes", networkUtil.TxBytes})
+    networkUtil.EntityData.Leafs.Append("tx-errors", types.YLeaf{"TxErrors", networkUtil.TxErrors})
+
+    networkUtil.EntityData.YListKeys = []string {"Name"}
+
     return &(networkUtil.EntityData)
 }
 
@@ -647,7 +695,7 @@ type VirtualServices_VirtualService_StorageUtils struct {
 
     // List of storage utilization details. The type is slice of
     // VirtualServices_VirtualService_StorageUtils_StorageUtil.
-    StorageUtil []VirtualServices_VirtualService_StorageUtils_StorageUtil
+    StorageUtil []*VirtualServices_VirtualService_StorageUtils_StorageUtil
 }
 
 func (storageUtils *VirtualServices_VirtualService_StorageUtils) GetEntityData() *types.CommonEntityData {
@@ -660,12 +708,15 @@ func (storageUtils *VirtualServices_VirtualService_StorageUtils) GetEntityData()
     storageUtils.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     storageUtils.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    storageUtils.EntityData.Children = make(map[string]types.YChild)
-    storageUtils.EntityData.Children["storage-util"] = types.YChild{"StorageUtil", nil}
+    storageUtils.EntityData.Children = types.NewOrderedMap()
+    storageUtils.EntityData.Children.Append("storage-util", types.YChild{"StorageUtil", nil})
     for i := range storageUtils.StorageUtil {
-        storageUtils.EntityData.Children[types.GetSegmentPath(&storageUtils.StorageUtil[i])] = types.YChild{"StorageUtil", &storageUtils.StorageUtil[i]}
+        storageUtils.EntityData.Children.Append(types.GetSegmentPath(storageUtils.StorageUtil[i]), types.YChild{"StorageUtil", storageUtils.StorageUtil[i]})
     }
-    storageUtils.EntityData.Leafs = make(map[string]types.YLeaf)
+    storageUtils.EntityData.Leafs = types.NewOrderedMap()
+
+    storageUtils.EntityData.YListKeys = []string {}
+
     return &(storageUtils.EntityData)
 }
 
@@ -724,24 +775,27 @@ func (storageUtil *VirtualServices_VirtualService_StorageUtils_StorageUtil) GetE
     storageUtil.EntityData.YangName = "storage-util"
     storageUtil.EntityData.BundleName = "cisco_ios_xe"
     storageUtil.EntityData.ParentYangName = "storage-utils"
-    storageUtil.EntityData.SegmentPath = "storage-util" + "[name='" + fmt.Sprintf("%v", storageUtil.Name) + "']"
+    storageUtil.EntityData.SegmentPath = "storage-util" + types.AddKeyToken(storageUtil.Name, "name")
     storageUtil.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     storageUtil.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     storageUtil.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    storageUtil.EntityData.Children = make(map[string]types.YChild)
-    storageUtil.EntityData.Leafs = make(map[string]types.YLeaf)
-    storageUtil.EntityData.Leafs["name"] = types.YLeaf{"Name", storageUtil.Name}
-    storageUtil.EntityData.Leafs["alias"] = types.YLeaf{"Alias", storageUtil.Alias}
-    storageUtil.EntityData.Leafs["rd-bytes"] = types.YLeaf{"RdBytes", storageUtil.RdBytes}
-    storageUtil.EntityData.Leafs["rd-requests"] = types.YLeaf{"RdRequests", storageUtil.RdRequests}
-    storageUtil.EntityData.Leafs["errors"] = types.YLeaf{"Errors", storageUtil.Errors}
-    storageUtil.EntityData.Leafs["wr-bytes"] = types.YLeaf{"WrBytes", storageUtil.WrBytes}
-    storageUtil.EntityData.Leafs["wr-requests"] = types.YLeaf{"WrRequests", storageUtil.WrRequests}
-    storageUtil.EntityData.Leafs["capacity"] = types.YLeaf{"Capacity", storageUtil.Capacity}
-    storageUtil.EntityData.Leafs["available"] = types.YLeaf{"Available", storageUtil.Available}
-    storageUtil.EntityData.Leafs["used"] = types.YLeaf{"Used", storageUtil.Used}
-    storageUtil.EntityData.Leafs["usage"] = types.YLeaf{"Usage", storageUtil.Usage}
+    storageUtil.EntityData.Children = types.NewOrderedMap()
+    storageUtil.EntityData.Leafs = types.NewOrderedMap()
+    storageUtil.EntityData.Leafs.Append("name", types.YLeaf{"Name", storageUtil.Name})
+    storageUtil.EntityData.Leafs.Append("alias", types.YLeaf{"Alias", storageUtil.Alias})
+    storageUtil.EntityData.Leafs.Append("rd-bytes", types.YLeaf{"RdBytes", storageUtil.RdBytes})
+    storageUtil.EntityData.Leafs.Append("rd-requests", types.YLeaf{"RdRequests", storageUtil.RdRequests})
+    storageUtil.EntityData.Leafs.Append("errors", types.YLeaf{"Errors", storageUtil.Errors})
+    storageUtil.EntityData.Leafs.Append("wr-bytes", types.YLeaf{"WrBytes", storageUtil.WrBytes})
+    storageUtil.EntityData.Leafs.Append("wr-requests", types.YLeaf{"WrRequests", storageUtil.WrRequests})
+    storageUtil.EntityData.Leafs.Append("capacity", types.YLeaf{"Capacity", storageUtil.Capacity})
+    storageUtil.EntityData.Leafs.Append("available", types.YLeaf{"Available", storageUtil.Available})
+    storageUtil.EntityData.Leafs.Append("used", types.YLeaf{"Used", storageUtil.Used})
+    storageUtil.EntityData.Leafs.Append("usage", types.YLeaf{"Usage", storageUtil.Usage})
+
+    storageUtil.EntityData.YListKeys = []string {"Name"}
+
     return &(storageUtil.EntityData)
 }
 
@@ -753,7 +807,7 @@ type VirtualServices_VirtualService_Processes struct {
 
     // List of process details. The type is slice of
     // VirtualServices_VirtualService_Processes_Process.
-    Process []VirtualServices_VirtualService_Processes_Process
+    Process []*VirtualServices_VirtualService_Processes_Process
 }
 
 func (processes *VirtualServices_VirtualService_Processes) GetEntityData() *types.CommonEntityData {
@@ -766,12 +820,15 @@ func (processes *VirtualServices_VirtualService_Processes) GetEntityData() *type
     processes.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     processes.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    processes.EntityData.Children = make(map[string]types.YChild)
-    processes.EntityData.Children["process"] = types.YChild{"Process", nil}
+    processes.EntityData.Children = types.NewOrderedMap()
+    processes.EntityData.Children.Append("process", types.YChild{"Process", nil})
     for i := range processes.Process {
-        processes.EntityData.Children[types.GetSegmentPath(&processes.Process[i])] = types.YChild{"Process", &processes.Process[i]}
+        processes.EntityData.Children.Append(types.GetSegmentPath(processes.Process[i]), types.YChild{"Process", processes.Process[i]})
     }
-    processes.EntityData.Leafs = make(map[string]types.YLeaf)
+    processes.EntityData.Leafs = types.NewOrderedMap()
+
+    processes.EntityData.YListKeys = []string {}
+
     return &(processes.EntityData)
 }
 
@@ -802,18 +859,21 @@ func (process *VirtualServices_VirtualService_Processes_Process) GetEntityData()
     process.EntityData.YangName = "process"
     process.EntityData.BundleName = "cisco_ios_xe"
     process.EntityData.ParentYangName = "processes"
-    process.EntityData.SegmentPath = "process" + "[name='" + fmt.Sprintf("%v", process.Name) + "']"
+    process.EntityData.SegmentPath = "process" + types.AddKeyToken(process.Name, "name")
     process.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    process.EntityData.Children = make(map[string]types.YChild)
-    process.EntityData.Leafs = make(map[string]types.YLeaf)
-    process.EntityData.Leafs["name"] = types.YLeaf{"Name", process.Name}
-    process.EntityData.Leafs["status"] = types.YLeaf{"Status", process.Status}
-    process.EntityData.Leafs["pid"] = types.YLeaf{"Pid", process.Pid}
-    process.EntityData.Leafs["uptime"] = types.YLeaf{"Uptime", process.Uptime}
-    process.EntityData.Leafs["memory"] = types.YLeaf{"Memory", process.Memory}
+    process.EntityData.Children = types.NewOrderedMap()
+    process.EntityData.Leafs = types.NewOrderedMap()
+    process.EntityData.Leafs.Append("name", types.YLeaf{"Name", process.Name})
+    process.EntityData.Leafs.Append("status", types.YLeaf{"Status", process.Status})
+    process.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", process.Pid})
+    process.EntityData.Leafs.Append("uptime", types.YLeaf{"Uptime", process.Uptime})
+    process.EntityData.Leafs.Append("memory", types.YLeaf{"Memory", process.Memory})
+
+    process.EntityData.YListKeys = []string {"Name"}
+
     return &(process.EntityData)
 }
 
@@ -825,7 +885,7 @@ type VirtualServices_VirtualService_AttachedDevices struct {
 
     // A list of attached device details. The type is slice of
     // VirtualServices_VirtualService_AttachedDevices_AttachedDevice.
-    AttachedDevice []VirtualServices_VirtualService_AttachedDevices_AttachedDevice
+    AttachedDevice []*VirtualServices_VirtualService_AttachedDevices_AttachedDevice
 }
 
 func (attachedDevices *VirtualServices_VirtualService_AttachedDevices) GetEntityData() *types.CommonEntityData {
@@ -838,12 +898,15 @@ func (attachedDevices *VirtualServices_VirtualService_AttachedDevices) GetEntity
     attachedDevices.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     attachedDevices.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    attachedDevices.EntityData.Children = make(map[string]types.YChild)
-    attachedDevices.EntityData.Children["attached-device"] = types.YChild{"AttachedDevice", nil}
+    attachedDevices.EntityData.Children = types.NewOrderedMap()
+    attachedDevices.EntityData.Children.Append("attached-device", types.YChild{"AttachedDevice", nil})
     for i := range attachedDevices.AttachedDevice {
-        attachedDevices.EntityData.Children[types.GetSegmentPath(&attachedDevices.AttachedDevice[i])] = types.YChild{"AttachedDevice", &attachedDevices.AttachedDevice[i]}
+        attachedDevices.EntityData.Children.Append(types.GetSegmentPath(attachedDevices.AttachedDevice[i]), types.YChild{"AttachedDevice", attachedDevices.AttachedDevice[i]})
     }
-    attachedDevices.EntityData.Leafs = make(map[string]types.YLeaf)
+    attachedDevices.EntityData.Leafs = types.NewOrderedMap()
+
+    attachedDevices.EntityData.YListKeys = []string {}
+
     return &(attachedDevices.EntityData)
 }
 
@@ -857,7 +920,7 @@ type VirtualServices_VirtualService_AttachedDevices_AttachedDevice struct {
     Name interface{}
 
     // Attached device type. The type is string.
-    Type_ interface{}
+    Type interface{}
 
     // Attached device alias. The type is string.
     Alias interface{}
@@ -868,16 +931,19 @@ func (attachedDevice *VirtualServices_VirtualService_AttachedDevices_AttachedDev
     attachedDevice.EntityData.YangName = "attached-device"
     attachedDevice.EntityData.BundleName = "cisco_ios_xe"
     attachedDevice.EntityData.ParentYangName = "attached-devices"
-    attachedDevice.EntityData.SegmentPath = "attached-device" + "[name='" + fmt.Sprintf("%v", attachedDevice.Name) + "']"
+    attachedDevice.EntityData.SegmentPath = "attached-device" + types.AddKeyToken(attachedDevice.Name, "name")
     attachedDevice.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     attachedDevice.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     attachedDevice.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    attachedDevice.EntityData.Children = make(map[string]types.YChild)
-    attachedDevice.EntityData.Leafs = make(map[string]types.YLeaf)
-    attachedDevice.EntityData.Leafs["name"] = types.YLeaf{"Name", attachedDevice.Name}
-    attachedDevice.EntityData.Leafs["type"] = types.YLeaf{"Type_", attachedDevice.Type_}
-    attachedDevice.EntityData.Leafs["alias"] = types.YLeaf{"Alias", attachedDevice.Alias}
+    attachedDevice.EntityData.Children = types.NewOrderedMap()
+    attachedDevice.EntityData.Leafs = types.NewOrderedMap()
+    attachedDevice.EntityData.Leafs.Append("name", types.YLeaf{"Name", attachedDevice.Name})
+    attachedDevice.EntityData.Leafs.Append("type", types.YLeaf{"Type", attachedDevice.Type})
+    attachedDevice.EntityData.Leafs.Append("alias", types.YLeaf{"Alias", attachedDevice.Alias})
+
+    attachedDevice.EntityData.YListKeys = []string {"Name"}
+
     return &(attachedDevice.EntityData)
 }
 
@@ -889,7 +955,7 @@ type VirtualServices_VirtualService_NetworkInterfaces struct {
 
     // A list of network interface details. The type is slice of
     // VirtualServices_VirtualService_NetworkInterfaces_NetworkInterface.
-    NetworkInterface []VirtualServices_VirtualService_NetworkInterfaces_NetworkInterface
+    NetworkInterface []*VirtualServices_VirtualService_NetworkInterfaces_NetworkInterface
 }
 
 func (networkInterfaces *VirtualServices_VirtualService_NetworkInterfaces) GetEntityData() *types.CommonEntityData {
@@ -902,12 +968,15 @@ func (networkInterfaces *VirtualServices_VirtualService_NetworkInterfaces) GetEn
     networkInterfaces.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     networkInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    networkInterfaces.EntityData.Children = make(map[string]types.YChild)
-    networkInterfaces.EntityData.Children["network-interface"] = types.YChild{"NetworkInterface", nil}
+    networkInterfaces.EntityData.Children = types.NewOrderedMap()
+    networkInterfaces.EntityData.Children.Append("network-interface", types.YChild{"NetworkInterface", nil})
     for i := range networkInterfaces.NetworkInterface {
-        networkInterfaces.EntityData.Children[types.GetSegmentPath(&networkInterfaces.NetworkInterface[i])] = types.YChild{"NetworkInterface", &networkInterfaces.NetworkInterface[i]}
+        networkInterfaces.EntityData.Children.Append(types.GetSegmentPath(networkInterfaces.NetworkInterface[i]), types.YChild{"NetworkInterface", networkInterfaces.NetworkInterface[i]})
     }
-    networkInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    networkInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    networkInterfaces.EntityData.YListKeys = []string {}
+
     return &(networkInterfaces.EntityData)
 }
 
@@ -918,14 +987,14 @@ type VirtualServices_VirtualService_NetworkInterfaces_NetworkInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. MAC address for the network interface. The type is
-    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Attached interface name. The type is string.
     AttachedInterface interface{}
 
     // IPv4 address for the network interface. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 }
 
@@ -934,16 +1003,19 @@ func (networkInterface *VirtualServices_VirtualService_NetworkInterfaces_Network
     networkInterface.EntityData.YangName = "network-interface"
     networkInterface.EntityData.BundleName = "cisco_ios_xe"
     networkInterface.EntityData.ParentYangName = "network-interfaces"
-    networkInterface.EntityData.SegmentPath = "network-interface" + "[mac-address='" + fmt.Sprintf("%v", networkInterface.MacAddress) + "']"
+    networkInterface.EntityData.SegmentPath = "network-interface" + types.AddKeyToken(networkInterface.MacAddress, "mac-address")
     networkInterface.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     networkInterface.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     networkInterface.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    networkInterface.EntityData.Children = make(map[string]types.YChild)
-    networkInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    networkInterface.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", networkInterface.MacAddress}
-    networkInterface.EntityData.Leafs["attached-interface"] = types.YLeaf{"AttachedInterface", networkInterface.AttachedInterface}
-    networkInterface.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", networkInterface.Ipv4Address}
+    networkInterface.EntityData.Children = types.NewOrderedMap()
+    networkInterface.EntityData.Leafs = types.NewOrderedMap()
+    networkInterface.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", networkInterface.MacAddress})
+    networkInterface.EntityData.Leafs.Append("attached-interface", types.YLeaf{"AttachedInterface", networkInterface.AttachedInterface})
+    networkInterface.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", networkInterface.Ipv4Address})
+
+    networkInterface.EntityData.YListKeys = []string {"MacAddress"}
+
     return &(networkInterface.EntityData)
 }
 
@@ -955,7 +1027,7 @@ type VirtualServices_VirtualService_GuestRoutes struct {
 
     // List of guest routes for a guest interface. The type is slice of
     // VirtualServices_VirtualService_GuestRoutes_GuestRoute.
-    GuestRoute []VirtualServices_VirtualService_GuestRoutes_GuestRoute
+    GuestRoute []*VirtualServices_VirtualService_GuestRoutes_GuestRoute
 }
 
 func (guestRoutes *VirtualServices_VirtualService_GuestRoutes) GetEntityData() *types.CommonEntityData {
@@ -968,12 +1040,15 @@ func (guestRoutes *VirtualServices_VirtualService_GuestRoutes) GetEntityData() *
     guestRoutes.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     guestRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    guestRoutes.EntityData.Children = make(map[string]types.YChild)
-    guestRoutes.EntityData.Children["guest-route"] = types.YChild{"GuestRoute", nil}
+    guestRoutes.EntityData.Children = types.NewOrderedMap()
+    guestRoutes.EntityData.Children.Append("guest-route", types.YChild{"GuestRoute", nil})
     for i := range guestRoutes.GuestRoute {
-        guestRoutes.EntityData.Children[types.GetSegmentPath(&guestRoutes.GuestRoute[i])] = types.YChild{"GuestRoute", &guestRoutes.GuestRoute[i]}
+        guestRoutes.EntityData.Children.Append(types.GetSegmentPath(guestRoutes.GuestRoute[i]), types.YChild{"GuestRoute", guestRoutes.GuestRoute[i]})
     }
-    guestRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
+    guestRoutes.EntityData.Leafs = types.NewOrderedMap()
+
+    guestRoutes.EntityData.YListKeys = []string {}
+
     return &(guestRoutes.EntityData)
 }
 
@@ -993,14 +1068,17 @@ func (guestRoute *VirtualServices_VirtualService_GuestRoutes_GuestRoute) GetEnti
     guestRoute.EntityData.YangName = "guest-route"
     guestRoute.EntityData.BundleName = "cisco_ios_xe"
     guestRoute.EntityData.ParentYangName = "guest-routes"
-    guestRoute.EntityData.SegmentPath = "guest-route" + "[route='" + fmt.Sprintf("%v", guestRoute.Route) + "']"
+    guestRoute.EntityData.SegmentPath = "guest-route" + types.AddKeyToken(guestRoute.Route, "route")
     guestRoute.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     guestRoute.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     guestRoute.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    guestRoute.EntityData.Children = make(map[string]types.YChild)
-    guestRoute.EntityData.Leafs = make(map[string]types.YLeaf)
-    guestRoute.EntityData.Leafs["route"] = types.YLeaf{"Route", guestRoute.Route}
+    guestRoute.EntityData.Children = types.NewOrderedMap()
+    guestRoute.EntityData.Leafs = types.NewOrderedMap()
+    guestRoute.EntityData.Leafs.Append("route", types.YLeaf{"Route", guestRoute.Route})
+
+    guestRoute.EntityData.YListKeys = []string {"Route"}
+
     return &(guestRoute.EntityData)
 }
 

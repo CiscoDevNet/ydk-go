@@ -32,9 +32,32 @@ submodule Cisco-IOS-XR-ip-rib-ipv6-oper-sub1 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
+  }
+
+  typedef Rib-edm-nnh {
+    type enumeration {
+      enum "unknown" {
+        description
+          "Unknown - Invalid";
+      }
+      enum "ipv4-address" {
+        description
+          "IPv4 Address";
+      }
+      enum "if-index" {
+        description
+          "Interface Index";
+      }
+    }
+    description
+      "Rib edm nnh";
   }
 
   typedef Ipv6-rib-edm-addr {
@@ -155,6 +178,43 @@ submodule Cisco-IOS-XR-ip-rib-ipv6-oper-sub1 {
         description
           "Instance name";
       }
+    }
+  }
+
+  grouping RIB-EDM-NNH {
+    description
+      "Information of a NNH in path installed in RIB";
+    leaf type {
+      type Rib-edm-nnh;
+      description
+        "type";
+    }
+    leaf unknownval {
+      when "../type = 'unknown'" {
+        description
+          "../type = 'Unknown'";
+      }
+      type uint32;
+      description
+        "Unknown Value";
+    }
+    leaf address {
+      when "../type = 'ipv4-address'" {
+        description
+          "../type = 'IPv4Address'";
+      }
+      type inet:ipv4-address;
+      description
+        "IPv4 Address";
+    }
+    leaf interface-index {
+      when "../type = 'if-index'" {
+        description
+          "../type = 'IfIndex'";
+      }
+      type uint32;
+      description
+        "Interface Index";
     }
   }
 
@@ -327,6 +387,11 @@ submodule Cisco-IOS-XR-ip-rib-ipv6-oper-sub1 {
           "SegmentedNexthopPresent";
         xr:event-telemetry "Subscribe Telemetry Event";
       }
+      leaf number-of-nnh {
+        type uint32;
+        description
+          "Number of Next Next Hops";
+      }
       leaf next-hop-id {
         type uint32;
         description
@@ -429,6 +494,11 @@ submodule Cisco-IOS-XR-ip-rib-ipv6-oper-sub1 {
           type uint32;
           xr:event-telemetry "Subscribe Telemetry Event";
         }
+      }
+      list next-next-hop {
+        description
+          "List of Next Next Hops";
+        uses RIB-EDM-NNH;
       }
     }
   }

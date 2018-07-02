@@ -3,6 +3,9 @@ submodule Cisco-IOS-XR-icpe-infra-oper-sub10 {
     prefix Cisco-IOS-XR-icpe-infra-oper;
   }
 
+  import ietf-yang-types {
+    prefix yang;
+  }
   include Cisco-IOS-XR-icpe-infra-oper-sub3 {
     revision-date 2015-11-09;
   }
@@ -31,260 +34,325 @@ submodule Cisco-IOS-XR-icpe-infra-oper-sub10 {
       "IOS XR 6.0 revision.";
   }
 
-  typedef Icpe-install-sat-state {
+  typedef Icpe-opm-resync-fsm-state {
     type enumeration {
-      enum "icpe-install-sat-state-unknown" {
+      enum "icpe-opm-resync-fsm-state-not-open" {
+        description
+          "Not open";
+      }
+      enum "icpe-opm-resync-fsm-state-stable" {
+        description
+          "Stable";
+      }
+      enum "icpe-opm-resync-fsm-state-in-resync" {
+        description
+          "In resync";
+      }
+      enum "icpe-opm-resync-fsm-state-queued" {
+        description
+          "Queued";
+      }
+      enum "icpe-opm-resync-fsm-state-resync-req" {
+        description
+          "Resync req";
+      }
+    }
+    description
+      "Icpe opm resync fsm state";
+  }
+
+  typedef Icpe-opm-chan-fsm-state {
+    type enumeration {
+      enum "icpe-opm-chan-fsm-state-down" {
+        description
+          "Down";
+      }
+      enum "icpe-opm-chan-fsm-state-closed" {
+        description
+          "Closed";
+      }
+      enum "icpe-opm-chan-fsm-state-opening" {
+        description
+          "Opening";
+      }
+      enum "icpe-opm-chan-fsm-state-opened" {
+        description
+          "Opened";
+      }
+      enum "icpe-opm-chan-fsm-state-open" {
+        description
+          "Open";
+      }
+    }
+    description
+      "Icpe opm chan fsm state";
+  }
+
+  typedef Icpe-opm-controller {
+    type enumeration {
+      enum "icpe-opm-controller-unknown" {
         description
           "Unknown";
       }
-      enum "icpe-install-sat-state-not-initiat-ed" {
+      enum "icpe-opm-controller-primary" {
         description
-          "Not initiated";
+          "Primary";
       }
-      enum "icpe-install-sat-state-transferring" {
+      enum "icpe-opm-controller-secondary" {
         description
-          "Transferring";
-      }
-      enum "icpe-install-sat-state-activating" {
-        description
-          "Activating";
-      }
-      enum "icpe-install-sat-state-updating" {
-        description
-          "Updating";
-      }
-      enum "icpe-install-sat-state-deactivating" {
-        description
-          "Deactivating";
-      }
-      enum "icpe-install-sat-state-removing" {
-        description
-          "Removing";
-      }
-      enum "icpe-install-sat-state-success" {
-        description
-          "Success";
-      }
-      enum "icpe-install-sat-state-failure" {
-        description
-          "Failure";
-      }
-      enum "icpe-install-sat-state-multiple-ops" {
-        description
-          "Multiple ops";
-      }
-      enum "icpe-install-sat-state-aborted" {
-        description
-          "Aborted";
-      }
-      enum "icpe-install-sat-state-protocol-version" {
-        description
-          "Protocol version";
-      }
-      enum "icpe-install-sat-state-pkg-not-present" {
-        description
-          "Pkg not present";
-      }
-      enum "icpe-install-sat-state-no-image" {
-        description
-          "No image";
-      }
-      enum "icpe-install-sat-state-no-such-file" {
-        description
-          "No such file";
-      }
-      enum "icpe-install-sat-state-sat-uncfgd" {
-        description
-          "Sat uncfgd";
-      }
-      enum "icpe-install-sat-state-processing" {
-        description
-          "Processing";
+          "Secondary";
       }
     }
     description
-      "Icpe install sat state";
+      "Icpe opm controller";
   }
 
-  grouping ICPE-INSTALL-SHOW-DETAIL-SATELLITE-TYPE {
+  typedef Icpe-opm-sync-fsm-state {
+    type enumeration {
+      enum "icpe-opm-sync-fsm-state-split-brain" {
+        description
+          "Split brain";
+      }
+      enum "icpe-opm-sync-fsm-state-waiting" {
+        description
+          "Waiting";
+      }
+      enum "icpe-opm-sync-fsm-state-whole-brain" {
+        description
+          "Whole brain";
+      }
+    }
     description
-      "ICPE INSTALL SHOW DETAIL SATELLITE TYPE";
-    leaf satellite-id {
-      type uint16;
-      description
-        "Satellite ID";
+      "Icpe opm sync fsm state";
+  }
+
+  typedef Icpe-opm-arbitration-fsm-state {
+    type enumeration {
+      enum "icpe-opm-arbitration-fsm-state-unarbitrated" {
+        description
+          "Unarbitrated";
+      }
+      enum "icpe-opm-arbitration-fsm-state-waiting" {
+        description
+          "Waiting";
+      }
+      enum "icpe-opm-arbitration-fsm-state-arbitrating" {
+        description
+          "Arbitrating";
+      }
+      enum "icpe-opm-arbitration-fsm-state-arbitrated" {
+        description
+          "Arbitrated";
+      }
     }
-    leaf state {
-      type Icpe-install-sat-state;
-      description
-        "State";
+    description
+      "Icpe opm arbitration fsm state";
+  }
+
+  typedef Icpe-opm-auth-fsm-state {
+    type enumeration {
+      enum "icpe-opm-auth-fsm-state-unauth" {
+        description
+          "Unauth";
+      }
+      enum "icpe-opm-auth-fsm-state-waiting" {
+        description
+          "Waiting";
+      }
+      enum "icpe-opm-auth-fsm-state-waiting-for-auth" {
+        description
+          "Waiting for auth";
+      }
+      enum "icpe-opm-auth-fsm-state-waiting-for-reply" {
+        description
+          "Waiting for reply";
+      }
+      enum "icpe-opm-auth-fsm-state-authed" {
+        description
+          "Authed";
+      }
     }
-    leaf percentage {
-      type uint16;
-      units "percentage";
-      description
-        "Percentage";
+    description
+      "Icpe opm auth fsm state";
+  }
+
+  typedef Icpe-opm-transport-state {
+    type enumeration {
+      enum "icpe-opm-transport-state-disconnected" {
+        description
+          "Disconnected";
+      }
+      enum "icpe-opm-transport-state-iccp-unavailable" {
+        description
+          "ICCP unavailable";
+      }
+      enum "icpe-opm-transport-state-no-member-present" {
+        description
+          "No member present";
+      }
+      enum "icpe-opm-transport-state-member-down" {
+        description
+          "Member down";
+      }
+      enum "icpe-opm-transport-state-member-not-reachable" {
+        description
+          "Member not reachable";
+      }
+      enum "icpe-opm-transport-state-waiting-for-app-connect" {
+        description
+          "Waiting for app connect";
+      }
+      enum "icpe-opm-transport-state-waiting-for-app-connect-response" {
+        description
+          "Waiting for app connect response";
+      }
+      enum "icpe-opm-transport-state-connected" {
+        description
+          "Connected";
+      }
     }
-    leaf retries {
-      type uint16;
-      description
-        "Retries";
+    description
+      "Icpe opm transport state";
+  }
+
+  typedef Icpe-opm-sess-state {
+    type enumeration {
+      enum "icpe-opm-sess-state-disconnected" {
+        description
+          "Disconnected";
+      }
+      enum "icpe-opm-sess-state-connecting" {
+        description
+          "Connecting";
+      }
+      enum "icpe-opm-sess-state-authenticating" {
+        description
+          "Authenticating";
+      }
+      enum "icpe-opm-sess-state-arbitrating" {
+        description
+          "Arbitrating";
+      }
+      enum "icpe-opm-sess-state-waiting-for-resyncs" {
+        description
+          "Waiting for resyncs";
+      }
+      enum "icpe-opm-sess-state-connected" {
+        description
+          "Connected";
+      }
     }
-    leaf start-time {
+    description
+      "Icpe opm sess state";
+  }
+
+  grouping ICPE-REDUNDANCY-CHAN-TYPE {
+    description
+      "ICPE REDUNDANCY CHAN TYPE";
+    container channel-state-timestamp {
+      description
+        "Timestamp";
+      uses ICPE-TIMESTAMP-TYPE;
+    }
+    container resync-state-timestamp {
+      description
+        "Timestamp";
+      uses ICPE-TIMESTAMP-TYPE;
+    }
+    leaf channel-id {
       type uint32;
       description
-        "Start time";
+        "Channel ID";
     }
-    leaf end-time {
-      type uint32;
+    leaf chan-state {
+      type Icpe-opm-chan-fsm-state;
       description
-        "End time";
+        "Chan state";
     }
-    leaf info {
-      type Xr-yang-string;
+    leaf resync-state {
+      type Icpe-opm-resync-fsm-state;
       description
-        "Info";
+        "Resync state";
+    }
+    leaf control-messages-sent {
+      type uint64;
+      description
+        "Control messages sent";
+    }
+    leaf normal-messages-sent {
+      type uint64;
+      description
+        "Normal messages sent";
+    }
+    leaf control-messages-received {
+      type uint64;
+      description
+        "Control messages received";
+    }
+    leaf normal-messages-received {
+      type uint64;
+      description
+        "Normal messages received";
     }
   }
 
-  grouping ICPE-INSTALL-SHOW-DETAIL-TYPE {
+  grouping ICPE-REDUNDANCY-SESSION {
     description
-      "Detailed breakdown of install status";
-    leaf operation-id-xr {
+      "nV Satellite Redundancy Protocol Information";
+    container protocol-state-timestamp {
+      description
+        "Timestamp";
+      uses ICPE-TIMESTAMP-TYPE;
+    }
+    leaf iccp-group-xr {
       type uint32;
       description
-        "Operation ID";
+        "ICCP group";
     }
-    leaf satellite-range {
-      type Xr-yang-string;
+    leaf protocol-state {
+      type Icpe-opm-sess-state;
       description
-        "Satellite range";
+        "Protocol state";
     }
-    leaf operation-type {
-      type uint16;
+    leaf transport-state {
+      type Icpe-opm-transport-state;
       description
-        "Operation type";
+        "Transport state";
     }
-    leaf progress-percentage {
-      type uint16;
-      units "percentage";
+    leaf authentication-state {
+      type Icpe-opm-auth-fsm-state;
       description
-        "Progress percentage";
+        "Authentication state";
     }
-    leaf start-time {
-      type uint32;
+    leaf arbitration-state {
+      type Icpe-opm-arbitration-fsm-state;
       description
-        "Start time";
+        "Arbitration state";
     }
-    leaf end-time {
-      type uint32;
+    leaf synchronization-state {
+      type Icpe-opm-sync-fsm-state;
       description
-        "End time";
+        "Synchronization state";
     }
-    leaf ref-state {
-      type Icpe-install-sat-state;
+    leaf primacy {
+      type Icpe-opm-controller;
       description
-        "Ref state";
+        "Primacy";
     }
-    leaf-list sats-not-initiated {
-      type uint16;
+    leaf system-mac {
+      type yang:mac-address;
       description
-        "Sats not initiated";
+        "System MAC";
     }
-    leaf-list sats-transferring {
-      type uint16;
+    leaf isolated {
+      type boolean;
       description
-        "Sats transferring";
+        "Isolated";
     }
-    leaf-list sats-activating {
-      type uint16;
+    list channel {
       description
-        "Sats activating";
-    }
-    leaf-list sats-updating {
-      type uint16;
-      description
-        "Sats updating";
-    }
-    leaf-list sats-deactivating {
-      type uint16;
-      description
-        "Sats deactivating";
-    }
-    leaf-list sats-removing {
-      type uint16;
-      description
-        "Sats removing";
-    }
-    leaf-list sats-transfer-failed {
-      type uint16;
-      description
-        "Sats transfer failed";
-    }
-    leaf-list sats-activate-failed {
-      type uint16;
-      description
-        "Sats activate failed";
-    }
-    leaf-list sats-update-failed {
-      type uint16;
-      description
-        "Sats update failed";
-    }
-    leaf-list sats-deactivate-failed {
-      type uint16;
-      description
-        "Sats deactivate failed";
-    }
-    leaf-list sats-remove-failed {
-      type uint16;
-      description
-        "Sats remove failed";
-    }
-    leaf-list sats-transfer-aborted {
-      type uint16;
-      description
-        "Sats transfer aborted";
-    }
-    leaf-list sats-activate-aborted {
-      type uint16;
-      description
-        "Sats activate aborted";
-    }
-    leaf-list sats-update-aborted {
-      type uint16;
-      description
-        "Sats update aborted";
-    }
-    leaf-list sats-deactivate-aborted {
-      type uint16;
-      description
-        "Sats deactivate aborted";
-    }
-    leaf-list sats-remove-aborted {
-      type uint16;
-      description
-        "Sats remove aborted";
-    }
-    leaf-list sats-no-operation {
-      type uint16;
-      description
-        "Sats no operation";
-    }
-    leaf-list sats-completed {
-      type uint16;
-      description
-        "Sats completed";
-    }
-    leaf-list name-string {
-      type Xr-yang-string;
-      description
-        "Name strings";
-    }
-    list satellite {
-      description
-        "Breakdown per satellite table";
-      uses ICPE-INSTALL-SHOW-DETAIL-SATELLITE-TYPE;
+        "Channels on this session table";
+      uses ICPE-REDUNDANCY-CHAN-TYPE;
     }
   }
 }

@@ -3,6 +3,7 @@
 // dynamic routing protocols.  These include static routes, locally
 // created aggregate routes for reducing the number of constituent
 // routes that must be advertised, summary routes for IGPs, etc.
+// 
 // This model expresses locally generated routes as generically as
 // possible, avoiding configuration of protocol-specific attributes
 // at the time of route creation.  This is primarily to avoid
@@ -11,6 +12,7 @@
 // maintain.  Hence, the definition of locally generated routes
 // essentially creates 'bare' routes that do not have any protocol-
 // specific attributes.
+// 
 // When protocol-specific attributes must be attached to a route
 // (e.g., communities on a locally defined route meant to be
 // advertised via BGP), the attributes should be attached via a
@@ -33,18 +35,18 @@ func init() {
     ydk.RegisterEntity("openconfig-local-routing:local-routes", reflect.TypeOf(LocalRoutes{}))
 }
 
-type LOCALDEFINEDNEXTHOP struct {
-}
-
-func (id LOCALDEFINEDNEXTHOP) String() string {
-	return "openconfig-local-routing:LOCAL_DEFINED_NEXT_HOP"
-}
-
 type DROP struct {
 }
 
 func (id DROP) String() string {
 	return "openconfig-local-routing:DROP"
+}
+
+type LOCALDEFINEDNEXTHOP struct {
+}
+
+func (id LOCALDEFINEDNEXTHOP) String() string {
+	return "openconfig-local-routing:LOCAL_DEFINED_NEXT_HOP"
 }
 
 type LOCALLINK struct {
@@ -83,12 +85,15 @@ func (localRoutes *LocalRoutes) GetEntityData() *types.CommonEntityData {
     localRoutes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     localRoutes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    localRoutes.EntityData.Children = make(map[string]types.YChild)
-    localRoutes.EntityData.Children["config"] = types.YChild{"Config", &localRoutes.Config}
-    localRoutes.EntityData.Children["state"] = types.YChild{"State", &localRoutes.State}
-    localRoutes.EntityData.Children["static-routes"] = types.YChild{"StaticRoutes", &localRoutes.StaticRoutes}
-    localRoutes.EntityData.Children["local-aggregates"] = types.YChild{"LocalAggregates", &localRoutes.LocalAggregates}
-    localRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
+    localRoutes.EntityData.Children = types.NewOrderedMap()
+    localRoutes.EntityData.Children.Append("config", types.YChild{"Config", &localRoutes.Config})
+    localRoutes.EntityData.Children.Append("state", types.YChild{"State", &localRoutes.State})
+    localRoutes.EntityData.Children.Append("static-routes", types.YChild{"StaticRoutes", &localRoutes.StaticRoutes})
+    localRoutes.EntityData.Children.Append("local-aggregates", types.YChild{"LocalAggregates", &localRoutes.LocalAggregates})
+    localRoutes.EntityData.Leafs = types.NewOrderedMap()
+
+    localRoutes.EntityData.YListKeys = []string {}
+
     return &(localRoutes.EntityData)
 }
 
@@ -109,8 +114,11 @@ func (config *LocalRoutes_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -131,8 +139,11 @@ func (state *LocalRoutes_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -144,7 +155,7 @@ type LocalRoutes_StaticRoutes struct {
 
     // List of locally configured static routes. The type is slice of
     // LocalRoutes_StaticRoutes_Static.
-    Static []LocalRoutes_StaticRoutes_Static
+    Static []*LocalRoutes_StaticRoutes_Static
 }
 
 func (staticRoutes *LocalRoutes_StaticRoutes) GetEntityData() *types.CommonEntityData {
@@ -157,12 +168,15 @@ func (staticRoutes *LocalRoutes_StaticRoutes) GetEntityData() *types.CommonEntit
     staticRoutes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     staticRoutes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    staticRoutes.EntityData.Children = make(map[string]types.YChild)
-    staticRoutes.EntityData.Children["static"] = types.YChild{"Static", nil}
+    staticRoutes.EntityData.Children = types.NewOrderedMap()
+    staticRoutes.EntityData.Children.Append("static", types.YChild{"Static", nil})
     for i := range staticRoutes.Static {
-        staticRoutes.EntityData.Children[types.GetSegmentPath(&staticRoutes.Static[i])] = types.YChild{"Static", &staticRoutes.Static[i]}
+        staticRoutes.EntityData.Children.Append(types.GetSegmentPath(staticRoutes.Static[i]), types.YChild{"Static", staticRoutes.Static[i]})
     }
-    staticRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
+    staticRoutes.EntityData.Leafs = types.NewOrderedMap()
+
+    staticRoutes.EntityData.YListKeys = []string {}
+
     return &(staticRoutes.EntityData)
 }
 
@@ -174,9 +188,9 @@ type LocalRoutes_StaticRoutes_Static struct {
 
     // This attribute is a key. Reference to the destination prefix list key. The
     // type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     Prefix interface{}
 
     // Configuration data for static routes.
@@ -195,17 +209,20 @@ func (static *LocalRoutes_StaticRoutes_Static) GetEntityData() *types.CommonEnti
     static.EntityData.YangName = "static"
     static.EntityData.BundleName = "openconfig"
     static.EntityData.ParentYangName = "static-routes"
-    static.EntityData.SegmentPath = "static" + "[prefix='" + fmt.Sprintf("%v", static.Prefix) + "']"
+    static.EntityData.SegmentPath = "static" + types.AddKeyToken(static.Prefix, "prefix")
     static.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     static.EntityData.NamespaceTable = openconfig.GetNamespaces()
     static.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    static.EntityData.Children = make(map[string]types.YChild)
-    static.EntityData.Children["config"] = types.YChild{"Config", &static.Config}
-    static.EntityData.Children["state"] = types.YChild{"State", &static.State}
-    static.EntityData.Children["next-hops"] = types.YChild{"NextHops", &static.NextHops}
-    static.EntityData.Leafs = make(map[string]types.YLeaf)
-    static.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", static.Prefix}
+    static.EntityData.Children = types.NewOrderedMap()
+    static.EntityData.Children.Append("config", types.YChild{"Config", &static.Config})
+    static.EntityData.Children.Append("state", types.YChild{"State", &static.State})
+    static.EntityData.Children.Append("next-hops", types.YChild{"NextHops", &static.NextHops})
+    static.EntityData.Leafs = types.NewOrderedMap()
+    static.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", static.Prefix})
+
+    static.EntityData.YListKeys = []string {"Prefix"}
+
     return &(static.EntityData)
 }
 
@@ -217,15 +234,15 @@ type LocalRoutes_StaticRoutes_Static_Config struct {
 
     // Destination prefix for the static route, either IPv4 or IPv6. The type is
     // one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     Prefix interface{}
 
     // Set a generic tag value on the route. This tag can be used for filtering
     // routes that are distributed to other routing protocols. The type is one of
     // the following types: int with range: 0..4294967295, or string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     SetTag interface{}
 }
 
@@ -239,10 +256,13 @@ func (config *LocalRoutes_StaticRoutes_Static_Config) GetEntityData() *types.Com
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", config.Prefix}
-    config.EntityData.Leafs["set-tag"] = types.YLeaf{"SetTag", config.SetTag}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", config.Prefix})
+    config.EntityData.Leafs.Append("set-tag", types.YLeaf{"SetTag", config.SetTag})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -254,15 +274,15 @@ type LocalRoutes_StaticRoutes_Static_State struct {
 
     // Destination prefix for the static route, either IPv4 or IPv6. The type is
     // one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     Prefix interface{}
 
     // Set a generic tag value on the route. This tag can be used for filtering
     // routes that are distributed to other routing protocols. The type is one of
     // the following types: int with range: 0..4294967295, or string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     SetTag interface{}
 }
 
@@ -276,10 +296,13 @@ func (state *LocalRoutes_StaticRoutes_Static_State) GetEntityData() *types.Commo
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", state.Prefix}
-    state.EntityData.Leafs["set-tag"] = types.YLeaf{"SetTag", state.SetTag}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", state.Prefix})
+    state.EntityData.Leafs.Append("set-tag", types.YLeaf{"SetTag", state.SetTag})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -293,7 +316,7 @@ type LocalRoutes_StaticRoutes_Static_NextHops struct {
 
     // A list of next-hops to be utilised for the static route being specified.
     // The type is slice of LocalRoutes_StaticRoutes_Static_NextHops_NextHop.
-    NextHop []LocalRoutes_StaticRoutes_Static_NextHops_NextHop
+    NextHop []*LocalRoutes_StaticRoutes_Static_NextHops_NextHop
 }
 
 func (nextHops *LocalRoutes_StaticRoutes_Static_NextHops) GetEntityData() *types.CommonEntityData {
@@ -306,12 +329,15 @@ func (nextHops *LocalRoutes_StaticRoutes_Static_NextHops) GetEntityData() *types
     nextHops.EntityData.NamespaceTable = openconfig.GetNamespaces()
     nextHops.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    nextHops.EntityData.Children = make(map[string]types.YChild)
-    nextHops.EntityData.Children["next-hop"] = types.YChild{"NextHop", nil}
+    nextHops.EntityData.Children = types.NewOrderedMap()
+    nextHops.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
     for i := range nextHops.NextHop {
-        nextHops.EntityData.Children[types.GetSegmentPath(&nextHops.NextHop[i])] = types.YChild{"NextHop", &nextHops.NextHop[i]}
+        nextHops.EntityData.Children.Append(types.GetSegmentPath(nextHops.NextHop[i]), types.YChild{"NextHop", nextHops.NextHop[i]})
     }
-    nextHops.EntityData.Leafs = make(map[string]types.YLeaf)
+    nextHops.EntityData.Leafs = types.NewOrderedMap()
+
+    nextHops.EntityData.YListKeys = []string {}
+
     return &(nextHops.EntityData)
 }
 
@@ -344,17 +370,20 @@ func (nextHop *LocalRoutes_StaticRoutes_Static_NextHops_NextHop) GetEntityData()
     nextHop.EntityData.YangName = "next-hop"
     nextHop.EntityData.BundleName = "openconfig"
     nextHop.EntityData.ParentYangName = "next-hops"
-    nextHop.EntityData.SegmentPath = "next-hop" + "[index='" + fmt.Sprintf("%v", nextHop.Index) + "']"
+    nextHop.EntityData.SegmentPath = "next-hop" + types.AddKeyToken(nextHop.Index, "index")
     nextHop.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     nextHop.EntityData.NamespaceTable = openconfig.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    nextHop.EntityData.Children = make(map[string]types.YChild)
-    nextHop.EntityData.Children["config"] = types.YChild{"Config", &nextHop.Config}
-    nextHop.EntityData.Children["state"] = types.YChild{"State", &nextHop.State}
-    nextHop.EntityData.Children["interface-ref"] = types.YChild{"InterfaceRef", &nextHop.InterfaceRef}
-    nextHop.EntityData.Leafs = make(map[string]types.YLeaf)
-    nextHop.EntityData.Leafs["index"] = types.YLeaf{"Index", nextHop.Index}
+    nextHop.EntityData.Children = types.NewOrderedMap()
+    nextHop.EntityData.Children.Append("config", types.YChild{"Config", &nextHop.Config})
+    nextHop.EntityData.Children.Append("state", types.YChild{"State", &nextHop.State})
+    nextHop.EntityData.Children.Append("interface-ref", types.YChild{"InterfaceRef", &nextHop.InterfaceRef})
+    nextHop.EntityData.Leafs = types.NewOrderedMap()
+    nextHop.EntityData.Leafs.Append("index", types.YLeaf{"Index", nextHop.Index})
+
+    nextHop.EntityData.YListKeys = []string {"Index"}
+
     return &(nextHop.EntityData)
 }
 
@@ -376,9 +405,9 @@ type LocalRoutes_StaticRoutes_Static_NextHops_NextHop_Config struct {
     // interface-ref value is specified for the next-hop, then the system should
     // treat the prefix as though it is directly connected to the interface. The
     // type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.,
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.,
     // or :go:struct:`LOCALDEFINEDNEXTHOP
     // <ydk/models/local_routing/LOCALDEFINEDNEXTHOP>`.
     NextHop interface{}
@@ -416,12 +445,15 @@ func (config *LocalRoutes_StaticRoutes_Static_NextHops_NextHop_Config) GetEntity
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["index"] = types.YLeaf{"Index", config.Index}
-    config.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", config.NextHop}
-    config.EntityData.Leafs["metric"] = types.YLeaf{"Metric", config.Metric}
-    config.EntityData.Leafs["recurse"] = types.YLeaf{"Recurse", config.Recurse}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("index", types.YLeaf{"Index", config.Index})
+    config.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", config.NextHop})
+    config.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", config.Metric})
+    config.EntityData.Leafs.Append("recurse", types.YLeaf{"Recurse", config.Recurse})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -443,9 +475,9 @@ type LocalRoutes_StaticRoutes_Static_NextHops_NextHop_State struct {
     // interface-ref value is specified for the next-hop, then the system should
     // treat the prefix as though it is directly connected to the interface. The
     // type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.,
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.,
     // or :go:struct:`LOCALDEFINEDNEXTHOP
     // <ydk/models/local_routing/LOCALDEFINEDNEXTHOP>`.
     NextHop interface{}
@@ -483,12 +515,15 @@ func (state *LocalRoutes_StaticRoutes_Static_NextHops_NextHop_State) GetEntityDa
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["index"] = types.YLeaf{"Index", state.Index}
-    state.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", state.NextHop}
-    state.EntityData.Leafs["metric"] = types.YLeaf{"Metric", state.Metric}
-    state.EntityData.Leafs["recurse"] = types.YLeaf{"Recurse", state.Recurse}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("index", types.YLeaf{"Index", state.Index})
+    state.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", state.NextHop})
+    state.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", state.Metric})
+    state.EntityData.Leafs.Append("recurse", types.YLeaf{"Recurse", state.Recurse})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -515,10 +550,13 @@ func (interfaceRef *LocalRoutes_StaticRoutes_Static_NextHops_NextHop_InterfaceRe
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    interfaceRef.EntityData.Children = make(map[string]types.YChild)
-    interfaceRef.EntityData.Children["config"] = types.YChild{"Config", &interfaceRef.Config}
-    interfaceRef.EntityData.Children["state"] = types.YChild{"State", &interfaceRef.State}
-    interfaceRef.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceRef.EntityData.Children = types.NewOrderedMap()
+    interfaceRef.EntityData.Children.Append("config", types.YChild{"Config", &interfaceRef.Config})
+    interfaceRef.EntityData.Children.Append("state", types.YChild{"State", &interfaceRef.State})
+    interfaceRef.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceRef.EntityData.YListKeys = []string {}
+
     return &(interfaceRef.EntityData)
 }
 
@@ -531,7 +569,7 @@ type LocalRoutes_StaticRoutes_Static_NextHops_NextHop_InterfaceRef_Config struct
     // Reference to a base interface.  If a reference to a subinterface is
     // required, this leaf must be specified to indicate the base interface. The
     // type is string. Refers to interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // Reference to a subinterface -- this requires the base interface to be
     // specified using the interface leaf in this container.  If only a reference
@@ -551,10 +589,13 @@ func (config *LocalRoutes_StaticRoutes_Static_NextHops_NextHop_InterfaceRef_Conf
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", config.Interface_}
-    config.EntityData.Leafs["subinterface"] = types.YLeaf{"Subinterface", config.Subinterface}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", config.Interface})
+    config.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", config.Subinterface})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -567,7 +608,7 @@ type LocalRoutes_StaticRoutes_Static_NextHops_NextHop_InterfaceRef_State struct 
     // Reference to a base interface.  If a reference to a subinterface is
     // required, this leaf must be specified to indicate the base interface. The
     // type is string. Refers to interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // Reference to a subinterface -- this requires the base interface to be
     // specified using the interface leaf in this container.  If only a reference
@@ -587,10 +628,13 @@ func (state *LocalRoutes_StaticRoutes_Static_NextHops_NextHop_InterfaceRef_State
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", state.Interface_}
-    state.EntityData.Leafs["subinterface"] = types.YLeaf{"Subinterface", state.Subinterface}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", state.Interface})
+    state.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", state.Subinterface})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -603,7 +647,7 @@ type LocalRoutes_LocalAggregates struct {
 
     // List of aggregates. The type is slice of
     // LocalRoutes_LocalAggregates_Aggregate.
-    Aggregate []LocalRoutes_LocalAggregates_Aggregate
+    Aggregate []*LocalRoutes_LocalAggregates_Aggregate
 }
 
 func (localAggregates *LocalRoutes_LocalAggregates) GetEntityData() *types.CommonEntityData {
@@ -616,12 +660,15 @@ func (localAggregates *LocalRoutes_LocalAggregates) GetEntityData() *types.Commo
     localAggregates.EntityData.NamespaceTable = openconfig.GetNamespaces()
     localAggregates.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    localAggregates.EntityData.Children = make(map[string]types.YChild)
-    localAggregates.EntityData.Children["aggregate"] = types.YChild{"Aggregate", nil}
+    localAggregates.EntityData.Children = types.NewOrderedMap()
+    localAggregates.EntityData.Children.Append("aggregate", types.YChild{"Aggregate", nil})
     for i := range localAggregates.Aggregate {
-        localAggregates.EntityData.Children[types.GetSegmentPath(&localAggregates.Aggregate[i])] = types.YChild{"Aggregate", &localAggregates.Aggregate[i]}
+        localAggregates.EntityData.Children.Append(types.GetSegmentPath(localAggregates.Aggregate[i]), types.YChild{"Aggregate", localAggregates.Aggregate[i]})
     }
-    localAggregates.EntityData.Leafs = make(map[string]types.YLeaf)
+    localAggregates.EntityData.Leafs = types.NewOrderedMap()
+
+    localAggregates.EntityData.YListKeys = []string {}
+
     return &(localAggregates.EntityData)
 }
 
@@ -633,9 +680,9 @@ type LocalRoutes_LocalAggregates_Aggregate struct {
 
     // This attribute is a key. Reference to the configured prefix for this
     // aggregate. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     Prefix interface{}
 
     // Configuration data for aggregate advertisements.
@@ -650,16 +697,19 @@ func (aggregate *LocalRoutes_LocalAggregates_Aggregate) GetEntityData() *types.C
     aggregate.EntityData.YangName = "aggregate"
     aggregate.EntityData.BundleName = "openconfig"
     aggregate.EntityData.ParentYangName = "local-aggregates"
-    aggregate.EntityData.SegmentPath = "aggregate" + "[prefix='" + fmt.Sprintf("%v", aggregate.Prefix) + "']"
+    aggregate.EntityData.SegmentPath = "aggregate" + types.AddKeyToken(aggregate.Prefix, "prefix")
     aggregate.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aggregate.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregate.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    aggregate.EntityData.Children = make(map[string]types.YChild)
-    aggregate.EntityData.Children["config"] = types.YChild{"Config", &aggregate.Config}
-    aggregate.EntityData.Children["state"] = types.YChild{"State", &aggregate.State}
-    aggregate.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggregate.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", aggregate.Prefix}
+    aggregate.EntityData.Children = types.NewOrderedMap()
+    aggregate.EntityData.Children.Append("config", types.YChild{"Config", &aggregate.Config})
+    aggregate.EntityData.Children.Append("state", types.YChild{"State", &aggregate.State})
+    aggregate.EntityData.Leafs = types.NewOrderedMap()
+    aggregate.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", aggregate.Prefix})
+
+    aggregate.EntityData.YListKeys = []string {"Prefix"}
+
     return &(aggregate.EntityData)
 }
 
@@ -671,9 +721,9 @@ type LocalRoutes_LocalAggregates_Aggregate_Config struct {
 
     // Aggregate prefix to be advertised. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     Prefix interface{}
 
     // When true, install the aggregate route with a discard next-hop -- traffic
@@ -686,7 +736,7 @@ type LocalRoutes_LocalAggregates_Aggregate_Config struct {
     // Set a generic tag value on the route. This tag can be used for filtering
     // routes that are distributed to other routing protocols. The type is one of
     // the following types: int with range: 0..4294967295, or string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     SetTag interface{}
 }
 
@@ -700,11 +750,14 @@ func (config *LocalRoutes_LocalAggregates_Aggregate_Config) GetEntityData() *typ
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", config.Prefix}
-    config.EntityData.Leafs["discard"] = types.YLeaf{"Discard", config.Discard}
-    config.EntityData.Leafs["set-tag"] = types.YLeaf{"SetTag", config.SetTag}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", config.Prefix})
+    config.EntityData.Leafs.Append("discard", types.YLeaf{"Discard", config.Discard})
+    config.EntityData.Leafs.Append("set-tag", types.YLeaf{"SetTag", config.SetTag})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -717,9 +770,9 @@ type LocalRoutes_LocalAggregates_Aggregate_State struct {
 
     // Aggregate prefix to be advertised. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     Prefix interface{}
 
     // When true, install the aggregate route with a discard next-hop -- traffic
@@ -732,7 +785,7 @@ type LocalRoutes_LocalAggregates_Aggregate_State struct {
     // Set a generic tag value on the route. This tag can be used for filtering
     // routes that are distributed to other routing protocols. The type is one of
     // the following types: int with range: 0..4294967295, or string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     SetTag interface{}
 }
 
@@ -746,11 +799,14 @@ func (state *LocalRoutes_LocalAggregates_Aggregate_State) GetEntityData() *types
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", state.Prefix}
-    state.EntityData.Leafs["discard"] = types.YLeaf{"Discard", state.Discard}
-    state.EntityData.Leafs["set-tag"] = types.YLeaf{"SetTag", state.SetTag}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", state.Prefix})
+    state.EntityData.Leafs.Append("discard", types.YLeaf{"Discard", state.Discard})
+    state.EntityData.Leafs.Append("set-tag", types.YLeaf{"SetTag", state.SetTag})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 

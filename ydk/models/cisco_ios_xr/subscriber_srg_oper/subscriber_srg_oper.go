@@ -28,6 +28,34 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent", reflect.TypeOf(SubscriberRedundancyAgent{}))
 }
 
+// SrgShowImRole represents SRG Interface Management Role
+type SrgShowImRole string
+
+const (
+    // Not Determined
+    SrgShowImRole_none SrgShowImRole = "none"
+
+    // Master Role
+    SrgShowImRole_master SrgShowImRole = "master"
+
+    // Slave Role
+    SrgShowImRole_slave SrgShowImRole = "slave"
+)
+
+// SrgShowSessionError represents SRG Session Error Operation
+type SrgShowSessionError string
+
+const (
+    // Invalid Error
+    SrgShowSessionError_none SrgShowSessionError = "none"
+
+    // Hard Error
+    SrgShowSessionError_hard SrgShowSessionError = "hard"
+
+    // Soft Error
+    SrgShowSessionError_soft SrgShowSessionError = "soft"
+)
+
 // SrgShowSoReason represents Subscriber Redundancy Switchover Reason
 type SrgShowSoReason string
 
@@ -49,6 +77,23 @@ const (
 
     // Unknown Switchover Reason
     SrgShowSoReason_srg_show_so_reason_max SrgShowSoReason = "srg-show-so-reason-max"
+)
+
+// SrgShowSessionOperation represents SRG Session Operation
+type SrgShowSessionOperation string
+
+const (
+    // No Operation
+    SrgShowSessionOperation_none SrgShowSessionOperation = "none"
+
+    // SRG Session Update Operation
+    SrgShowSessionOperation_update SrgShowSessionOperation = "update"
+
+    // SRG Session Delete Operation
+    SrgShowSessionOperation_delete_ SrgShowSessionOperation = "delete"
+
+    // SRG Session In Sync
+    SrgShowSessionOperation_in_sync SrgShowSessionOperation = "in-sync"
 )
 
 // SrgPeerStatus represents SRG Peer Status
@@ -83,35 +128,32 @@ const (
     SrgPeerStatus_established SrgPeerStatus = "established"
 )
 
-// SrgShowSessionError represents SRG Session Error Operation
-type SrgShowSessionError string
+// SrgShowRole represents SRG Role
+type SrgShowRole string
 
 const (
-    // Invalid Error
-    SrgShowSessionError_none SrgShowSessionError = "none"
+    // Not Configured
+    SrgShowRole_none SrgShowRole = "none"
 
-    // Hard Error
-    SrgShowSessionError_hard SrgShowSessionError = "hard"
+    // Master Role
+    SrgShowRole_master SrgShowRole = "master"
 
-    // Soft Error
-    SrgShowSessionError_soft SrgShowSessionError = "soft"
+    // Slave Role
+    SrgShowRole_slave SrgShowRole = "slave"
 )
 
-// SrgShowSessionOperation represents SRG Session Operation
-type SrgShowSessionOperation string
+// SrgShowSlaveMode represents SRG Slave Mode
+type SrgShowSlaveMode string
 
 const (
-    // No Operation
-    SrgShowSessionOperation_none SrgShowSessionOperation = "none"
+    // Not Configured
+    SrgShowSlaveMode_none SrgShowSlaveMode = "none"
 
-    // SRG Session Update Operation
-    SrgShowSessionOperation_update SrgShowSessionOperation = "update"
+    // Warm Modem
+    SrgShowSlaveMode_warm SrgShowSlaveMode = "warm"
 
-    // SRG Session Delete Operation
-    SrgShowSessionOperation_delete SrgShowSessionOperation = "delete"
-
-    // SRG Session In Sync
-    SrgShowSessionOperation_in_sync SrgShowSessionOperation = "in-sync"
+    // Hot Mode
+    SrgShowSlaveMode_hot SrgShowSlaveMode = "hot"
 )
 
 // SrgShowComp represents SRG Components
@@ -140,48 +182,6 @@ const (
     SrgShowComp_iedge SrgShowComp = "iedge"
 )
 
-// SrgShowSlaveMode represents SRG Slave Mode
-type SrgShowSlaveMode string
-
-const (
-    // Not Configured
-    SrgShowSlaveMode_none SrgShowSlaveMode = "none"
-
-    // Warm Modem
-    SrgShowSlaveMode_warm SrgShowSlaveMode = "warm"
-
-    // Hot Mode
-    SrgShowSlaveMode_hot SrgShowSlaveMode = "hot"
-)
-
-// SrgShowRole represents SRG Role
-type SrgShowRole string
-
-const (
-    // Not Configured
-    SrgShowRole_none SrgShowRole = "none"
-
-    // Master Role
-    SrgShowRole_master SrgShowRole = "master"
-
-    // Slave Role
-    SrgShowRole_slave SrgShowRole = "slave"
-)
-
-// SrgShowImRole represents SRG Interface Management Role
-type SrgShowImRole string
-
-const (
-    // Not Determined
-    SrgShowImRole_none SrgShowImRole = "none"
-
-    // Master Role
-    SrgShowImRole_master SrgShowImRole = "master"
-
-    // Slave Role
-    SrgShowImRole_slave SrgShowImRole = "slave"
-)
-
 // SubscriberRedundancyManager
 // Subscriber Redundancy Manager information
 type SubscriberRedundancyManager struct {
@@ -208,11 +208,14 @@ func (subscriberRedundancyManager *SubscriberRedundancyManager) GetEntityData() 
     subscriberRedundancyManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberRedundancyManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    subscriberRedundancyManager.EntityData.Children = make(map[string]types.YChild)
-    subscriberRedundancyManager.EntityData.Children["groups"] = types.YChild{"Groups", &subscriberRedundancyManager.Groups}
-    subscriberRedundancyManager.EntityData.Children["summary"] = types.YChild{"Summary", &subscriberRedundancyManager.Summary}
-    subscriberRedundancyManager.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &subscriberRedundancyManager.Interfaces}
-    subscriberRedundancyManager.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscriberRedundancyManager.EntityData.Children = types.NewOrderedMap()
+    subscriberRedundancyManager.EntityData.Children.Append("groups", types.YChild{"Groups", &subscriberRedundancyManager.Groups})
+    subscriberRedundancyManager.EntityData.Children.Append("summary", types.YChild{"Summary", &subscriberRedundancyManager.Summary})
+    subscriberRedundancyManager.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &subscriberRedundancyManager.Interfaces})
+    subscriberRedundancyManager.EntityData.Leafs = types.NewOrderedMap()
+
+    subscriberRedundancyManager.EntityData.YListKeys = []string {}
+
     return &(subscriberRedundancyManager.EntityData)
 }
 
@@ -224,7 +227,7 @@ type SubscriberRedundancyManager_Groups struct {
 
     // Subscriber redundancy manager group. The type is slice of
     // SubscriberRedundancyManager_Groups_Group.
-    Group []SubscriberRedundancyManager_Groups_Group
+    Group []*SubscriberRedundancyManager_Groups_Group
 }
 
 func (groups *SubscriberRedundancyManager_Groups) GetEntityData() *types.CommonEntityData {
@@ -237,12 +240,15 @@ func (groups *SubscriberRedundancyManager_Groups) GetEntityData() *types.CommonE
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groups.EntityData.Children = make(map[string]types.YChild)
-    groups.EntityData.Children["group"] = types.YChild{"Group", nil}
+    groups.EntityData.Children = types.NewOrderedMap()
+    groups.EntityData.Children.Append("group", types.YChild{"Group", nil})
     for i := range groups.Group {
-        groups.EntityData.Children[types.GetSegmentPath(&groups.Group[i])] = types.YChild{"Group", &groups.Group[i]}
+        groups.EntityData.Children.Append(types.GetSegmentPath(groups.Group[i]), types.YChild{"Group", groups.Group[i]})
     }
-    groups.EntityData.Leafs = make(map[string]types.YLeaf)
+    groups.EntityData.Leafs = types.NewOrderedMap()
+
+    groups.EntityData.YListKeys = []string {}
+
     return &(groups.EntityData)
 }
 
@@ -253,7 +259,7 @@ type SubscriberRedundancyManager_Groups_Group struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Group. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Group interface{}
 
     // Group ID. The type is interface{} with range: 0..4294967295.
@@ -269,11 +275,11 @@ type SubscriberRedundancyManager_Groups_Group struct {
     Role interface{}
 
     // Peer IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerIpv4Address interface{}
 
     // Peer IPv6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PeerIpv6Address interface{}
 
     // Interface Count. The type is interface{} with range: 0..4294967295.
@@ -303,27 +309,30 @@ func (group *SubscriberRedundancyManager_Groups_Group) GetEntityData() *types.Co
     group.EntityData.YangName = "group"
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
-    group.EntityData.SegmentPath = "group" + "[group='" + fmt.Sprintf("%v", group.Group) + "']"
+    group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.Group, "group")
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    group.EntityData.Children = make(map[string]types.YChild)
-    group.EntityData.Leafs = make(map[string]types.YLeaf)
-    group.EntityData.Leafs["group"] = types.YLeaf{"Group", group.Group}
-    group.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", group.GroupId}
-    group.EntityData.Leafs["description"] = types.YLeaf{"Description", group.Description}
-    group.EntityData.Leafs["disabled"] = types.YLeaf{"Disabled", group.Disabled}
-    group.EntityData.Leafs["role"] = types.YLeaf{"Role", group.Role}
-    group.EntityData.Leafs["peer-ipv4-address"] = types.YLeaf{"PeerIpv4Address", group.PeerIpv4Address}
-    group.EntityData.Leafs["peer-ipv6-address"] = types.YLeaf{"PeerIpv6Address", group.PeerIpv6Address}
-    group.EntityData.Leafs["interface-count"] = types.YLeaf{"InterfaceCount", group.InterfaceCount}
-    group.EntityData.Leafs["preferred-role"] = types.YLeaf{"PreferredRole", group.PreferredRole}
-    group.EntityData.Leafs["slave-mode"] = types.YLeaf{"SlaveMode", group.SlaveMode}
-    group.EntityData.Leafs["object-tracking-status"] = types.YLeaf{"ObjectTrackingStatus", group.ObjectTrackingStatus}
-    group.EntityData.Leafs["virtual-mac-address"] = types.YLeaf{"VirtualMacAddress", group.VirtualMacAddress}
-    group.EntityData.Leafs["virtual-mac-address-disable"] = types.YLeaf{"VirtualMacAddressDisable", group.VirtualMacAddressDisable}
-    group.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", group.NodeName}
+    group.EntityData.Children = types.NewOrderedMap()
+    group.EntityData.Leafs = types.NewOrderedMap()
+    group.EntityData.Leafs.Append("group", types.YLeaf{"Group", group.Group})
+    group.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", group.GroupId})
+    group.EntityData.Leafs.Append("description", types.YLeaf{"Description", group.Description})
+    group.EntityData.Leafs.Append("disabled", types.YLeaf{"Disabled", group.Disabled})
+    group.EntityData.Leafs.Append("role", types.YLeaf{"Role", group.Role})
+    group.EntityData.Leafs.Append("peer-ipv4-address", types.YLeaf{"PeerIpv4Address", group.PeerIpv4Address})
+    group.EntityData.Leafs.Append("peer-ipv6-address", types.YLeaf{"PeerIpv6Address", group.PeerIpv6Address})
+    group.EntityData.Leafs.Append("interface-count", types.YLeaf{"InterfaceCount", group.InterfaceCount})
+    group.EntityData.Leafs.Append("preferred-role", types.YLeaf{"PreferredRole", group.PreferredRole})
+    group.EntityData.Leafs.Append("slave-mode", types.YLeaf{"SlaveMode", group.SlaveMode})
+    group.EntityData.Leafs.Append("object-tracking-status", types.YLeaf{"ObjectTrackingStatus", group.ObjectTrackingStatus})
+    group.EntityData.Leafs.Append("virtual-mac-address", types.YLeaf{"VirtualMacAddress", group.VirtualMacAddress})
+    group.EntityData.Leafs.Append("virtual-mac-address-disable", types.YLeaf{"VirtualMacAddressDisable", group.VirtualMacAddressDisable})
+    group.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", group.NodeName})
+
+    group.EntityData.YListKeys = []string {"Group"}
+
     return &(group.EntityData)
 }
 
@@ -355,11 +364,11 @@ type SubscriberRedundancyManager_Summary struct {
     VrfName interface{}
 
     // Source Interface IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceInterfaceIpv4Address interface{}
 
     // Source Interface IPv6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceInterfaceIpv6Address interface{}
 
     // No. of Configured Groups. The type is interface{} with range:
@@ -399,24 +408,27 @@ func (summary *SubscriberRedundancyManager_Summary) GetEntityData() *types.Commo
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
-    summary.EntityData.Leafs["disabled"] = types.YLeaf{"Disabled", summary.Disabled}
-    summary.EntityData.Leafs["active-state"] = types.YLeaf{"ActiveState", summary.ActiveState}
-    summary.EntityData.Leafs["preferred-role"] = types.YLeaf{"PreferredRole", summary.PreferredRole}
-    summary.EntityData.Leafs["slave-mode"] = types.YLeaf{"SlaveMode", summary.SlaveMode}
-    summary.EntityData.Leafs["hold-timer"] = types.YLeaf{"HoldTimer", summary.HoldTimer}
-    summary.EntityData.Leafs["source-interface-name"] = types.YLeaf{"SourceInterfaceName", summary.SourceInterfaceName}
-    summary.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", summary.VrfName}
-    summary.EntityData.Leafs["source-interface-ipv4-address"] = types.YLeaf{"SourceInterfaceIpv4Address", summary.SourceInterfaceIpv4Address}
-    summary.EntityData.Leafs["source-interface-ipv6-address"] = types.YLeaf{"SourceInterfaceIpv6Address", summary.SourceInterfaceIpv6Address}
-    summary.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", summary.GroupCount}
-    summary.EntityData.Leafs["disabled-group-count"] = types.YLeaf{"DisabledGroupCount", summary.DisabledGroupCount}
-    summary.EntityData.Leafs["master-group-count"] = types.YLeaf{"MasterGroupCount", summary.MasterGroupCount}
-    summary.EntityData.Leafs["slave-group-count"] = types.YLeaf{"SlaveGroupCount", summary.SlaveGroupCount}
-    summary.EntityData.Leafs["interface-count"] = types.YLeaf{"InterfaceCount", summary.InterfaceCount}
-    summary.EntityData.Leafs["master-interface-count"] = types.YLeaf{"MasterInterfaceCount", summary.MasterInterfaceCount}
-    summary.EntityData.Leafs["slave-interface-count"] = types.YLeaf{"SlaveInterfaceCount", summary.SlaveInterfaceCount}
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Leafs = types.NewOrderedMap()
+    summary.EntityData.Leafs.Append("disabled", types.YLeaf{"Disabled", summary.Disabled})
+    summary.EntityData.Leafs.Append("active-state", types.YLeaf{"ActiveState", summary.ActiveState})
+    summary.EntityData.Leafs.Append("preferred-role", types.YLeaf{"PreferredRole", summary.PreferredRole})
+    summary.EntityData.Leafs.Append("slave-mode", types.YLeaf{"SlaveMode", summary.SlaveMode})
+    summary.EntityData.Leafs.Append("hold-timer", types.YLeaf{"HoldTimer", summary.HoldTimer})
+    summary.EntityData.Leafs.Append("source-interface-name", types.YLeaf{"SourceInterfaceName", summary.SourceInterfaceName})
+    summary.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", summary.VrfName})
+    summary.EntityData.Leafs.Append("source-interface-ipv4-address", types.YLeaf{"SourceInterfaceIpv4Address", summary.SourceInterfaceIpv4Address})
+    summary.EntityData.Leafs.Append("source-interface-ipv6-address", types.YLeaf{"SourceInterfaceIpv6Address", summary.SourceInterfaceIpv6Address})
+    summary.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", summary.GroupCount})
+    summary.EntityData.Leafs.Append("disabled-group-count", types.YLeaf{"DisabledGroupCount", summary.DisabledGroupCount})
+    summary.EntityData.Leafs.Append("master-group-count", types.YLeaf{"MasterGroupCount", summary.MasterGroupCount})
+    summary.EntityData.Leafs.Append("slave-group-count", types.YLeaf{"SlaveGroupCount", summary.SlaveGroupCount})
+    summary.EntityData.Leafs.Append("interface-count", types.YLeaf{"InterfaceCount", summary.InterfaceCount})
+    summary.EntityData.Leafs.Append("master-interface-count", types.YLeaf{"MasterInterfaceCount", summary.MasterInterfaceCount})
+    summary.EntityData.Leafs.Append("slave-interface-count", types.YLeaf{"SlaveInterfaceCount", summary.SlaveInterfaceCount})
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -427,8 +439,8 @@ type SubscriberRedundancyManager_Interfaces struct {
     YFilter yfilter.YFilter
 
     // Subscriber redundancy manager interface. The type is slice of
-    // SubscriberRedundancyManager_Interfaces_Interface_.
-    Interface_ []SubscriberRedundancyManager_Interfaces_Interface
+    // SubscriberRedundancyManager_Interfaces_Interface.
+    Interface []*SubscriberRedundancyManager_Interfaces_Interface
 }
 
 func (interfaces *SubscriberRedundancyManager_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -441,12 +453,15 @@ func (interfaces *SubscriberRedundancyManager_Interfaces) GetEntityData() *types
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -457,8 +472,8 @@ type SubscriberRedundancyManager_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
-    Interface_ interface{}
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    Interface interface{}
 
     // Interface Name. The type is string.
     InterfaceName interface{}
@@ -481,19 +496,22 @@ func (self *SubscriberRedundancyManager_Interfaces_Interface) GetEntityData() *t
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface='" + fmt.Sprintf("%v", self.Interface_) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Interface, "interface")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", self.Interface_}
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["interface-mapping-id"] = types.YLeaf{"InterfaceMappingId", self.InterfaceMappingId}
-    self.EntityData.Leafs["forward-referenced"] = types.YLeaf{"ForwardReferenced", self.ForwardReferenced}
-    self.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", self.GroupId}
-    self.EntityData.Leafs["role"] = types.YLeaf{"Role", self.Role}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", self.Interface})
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("interface-mapping-id", types.YLeaf{"InterfaceMappingId", self.InterfaceMappingId})
+    self.EntityData.Leafs.Append("forward-referenced", types.YLeaf{"ForwardReferenced", self.ForwardReferenced})
+    self.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", self.GroupId})
+    self.EntityData.Leafs.Append("role", types.YLeaf{"Role", self.Role})
+
+    self.EntityData.YListKeys = []string {"Interface"}
+
     return &(self.EntityData)
 }
 
@@ -517,9 +535,12 @@ func (subscriberRedundancyAgent *SubscriberRedundancyAgent) GetEntityData() *typ
     subscriberRedundancyAgent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberRedundancyAgent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    subscriberRedundancyAgent.EntityData.Children = make(map[string]types.YChild)
-    subscriberRedundancyAgent.EntityData.Children["nodes"] = types.YChild{"Nodes", &subscriberRedundancyAgent.Nodes}
-    subscriberRedundancyAgent.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscriberRedundancyAgent.EntityData.Children = types.NewOrderedMap()
+    subscriberRedundancyAgent.EntityData.Children.Append("nodes", types.YChild{"Nodes", &subscriberRedundancyAgent.Nodes})
+    subscriberRedundancyAgent.EntityData.Leafs = types.NewOrderedMap()
+
+    subscriberRedundancyAgent.EntityData.YListKeys = []string {}
+
     return &(subscriberRedundancyAgent.EntityData)
 }
 
@@ -532,7 +553,7 @@ type SubscriberRedundancyAgent_Nodes struct {
 
     // Subscriber data for a particular node. The type is slice of
     // SubscriberRedundancyAgent_Nodes_Node.
-    Node []SubscriberRedundancyAgent_Nodes_Node
+    Node []*SubscriberRedundancyAgent_Nodes_Node
 }
 
 func (nodes *SubscriberRedundancyAgent_Nodes) GetEntityData() *types.CommonEntityData {
@@ -545,12 +566,15 @@ func (nodes *SubscriberRedundancyAgent_Nodes) GetEntityData() *types.CommonEntit
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -561,7 +585,7 @@ type SubscriberRedundancyAgent_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Data for particular subscriber group session.
@@ -582,18 +606,21 @@ func (node *SubscriberRedundancyAgent_Nodes_Node) GetEntityData() *types.CommonE
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["group-id-xr"] = types.YChild{"GroupIdXr", &node.GroupIdXr}
-    node.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &node.Interfaces}
-    node.EntityData.Children["group-summaries"] = types.YChild{"GroupSummaries", &node.GroupSummaries}
-    node.EntityData.Children["group-ids"] = types.YChild{"GroupIds", &node.GroupIds}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("group-id-xr", types.YChild{"GroupIdXr", &node.GroupIdXr})
+    node.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &node.Interfaces})
+    node.EntityData.Children.Append("group-summaries", types.YChild{"GroupSummaries", &node.GroupSummaries})
+    node.EntityData.Children.Append("group-ids", types.YChild{"GroupIds", &node.GroupIds})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -605,7 +632,7 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupIdXr struct {
 
     // Group id for subscriber group session. The type is slice of
     // SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId.
-    GroupId []SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId
+    GroupId []*SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId
 }
 
 func (groupIdXr *SubscriberRedundancyAgent_Nodes_Node_GroupIdXr) GetEntityData() *types.CommonEntityData {
@@ -618,12 +645,15 @@ func (groupIdXr *SubscriberRedundancyAgent_Nodes_Node_GroupIdXr) GetEntityData()
     groupIdXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupIdXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groupIdXr.EntityData.Children = make(map[string]types.YChild)
-    groupIdXr.EntityData.Children["group-id"] = types.YChild{"GroupId", nil}
+    groupIdXr.EntityData.Children = types.NewOrderedMap()
+    groupIdXr.EntityData.Children.Append("group-id", types.YChild{"GroupId", nil})
     for i := range groupIdXr.GroupId {
-        groupIdXr.EntityData.Children[types.GetSegmentPath(&groupIdXr.GroupId[i])] = types.YChild{"GroupId", &groupIdXr.GroupId[i]}
+        groupIdXr.EntityData.Children.Append(types.GetSegmentPath(groupIdXr.GroupId[i]), types.YChild{"GroupId", groupIdXr.GroupId[i]})
     }
-    groupIdXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    groupIdXr.EntityData.Leafs = types.NewOrderedMap()
+
+    groupIdXr.EntityData.YListKeys = []string {}
+
     return &(groupIdXr.EntityData)
 }
 
@@ -634,7 +664,7 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. GroupId. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     GroupId interface{}
 
     // Group ID. The type is interface{} with range: 0..4294967295.
@@ -656,7 +686,7 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId struct {
     PppoeSessionId interface{}
 
     // L2TP Tunnel local ID. The type is interface{} with range: 0..4294967295.
-    L2TpTunnelId interface{}
+    L2tpTunnelId interface{}
 
     // Master Role is Set. The type is bool.
     RoleMaster interface{}
@@ -669,11 +699,11 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId struct {
 
     // More Session Information. The type is slice of
     // SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation.
-    SessionDetailedInformation []SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation
+    SessionDetailedInformation []*SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation
 
     // Session Synchroniation Error Information. The type is slice of
     // SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation.
-    SessionSyncErrorInformation []SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation
+    SessionSyncErrorInformation []*SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation
 }
 
 func (groupId *SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetEntityData() *types.CommonEntityData {
@@ -681,32 +711,35 @@ func (groupId *SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetEntity
     groupId.EntityData.YangName = "group-id"
     groupId.EntityData.BundleName = "cisco_ios_xr"
     groupId.EntityData.ParentYangName = "group-id-xr"
-    groupId.EntityData.SegmentPath = "group-id" + "[group-id='" + fmt.Sprintf("%v", groupId.GroupId) + "']"
+    groupId.EntityData.SegmentPath = "group-id" + types.AddKeyToken(groupId.GroupId, "group-id")
     groupId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groupId.EntityData.Children = make(map[string]types.YChild)
-    groupId.EntityData.Children["session-detailed-information"] = types.YChild{"SessionDetailedInformation", nil}
+    groupId.EntityData.Children = types.NewOrderedMap()
+    groupId.EntityData.Children.Append("session-detailed-information", types.YChild{"SessionDetailedInformation", nil})
     for i := range groupId.SessionDetailedInformation {
-        groupId.EntityData.Children[types.GetSegmentPath(&groupId.SessionDetailedInformation[i])] = types.YChild{"SessionDetailedInformation", &groupId.SessionDetailedInformation[i]}
+        groupId.EntityData.Children.Append(types.GetSegmentPath(groupId.SessionDetailedInformation[i]), types.YChild{"SessionDetailedInformation", groupId.SessionDetailedInformation[i]})
     }
-    groupId.EntityData.Children["session-sync-error-information"] = types.YChild{"SessionSyncErrorInformation", nil}
+    groupId.EntityData.Children.Append("session-sync-error-information", types.YChild{"SessionSyncErrorInformation", nil})
     for i := range groupId.SessionSyncErrorInformation {
-        groupId.EntityData.Children[types.GetSegmentPath(&groupId.SessionSyncErrorInformation[i])] = types.YChild{"SessionSyncErrorInformation", &groupId.SessionSyncErrorInformation[i]}
+        groupId.EntityData.Children.Append(types.GetSegmentPath(groupId.SessionSyncErrorInformation[i]), types.YChild{"SessionSyncErrorInformation", groupId.SessionSyncErrorInformation[i]})
     }
-    groupId.EntityData.Leafs = make(map[string]types.YLeaf)
-    groupId.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", groupId.GroupId}
-    groupId.EntityData.Leafs["group-id-xr"] = types.YLeaf{"GroupIdXr", groupId.GroupIdXr}
-    groupId.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", groupId.InterfaceName}
-    groupId.EntityData.Leafs["outer-vlan"] = types.YLeaf{"OuterVlan", groupId.OuterVlan}
-    groupId.EntityData.Leafs["inner-vlan"] = types.YLeaf{"InnerVlan", groupId.InnerVlan}
-    groupId.EntityData.Leafs["session-mac-address"] = types.YLeaf{"SessionMacAddress", groupId.SessionMacAddress}
-    groupId.EntityData.Leafs["pppoe-session-id"] = types.YLeaf{"PppoeSessionId", groupId.PppoeSessionId}
-    groupId.EntityData.Leafs["l2tp-tunnel-id"] = types.YLeaf{"L2TpTunnelId", groupId.L2TpTunnelId}
-    groupId.EntityData.Leafs["role-master"] = types.YLeaf{"RoleMaster", groupId.RoleMaster}
-    groupId.EntityData.Leafs["valid-mac-address"] = types.YLeaf{"ValidMacAddress", groupId.ValidMacAddress}
-    groupId.EntityData.Leafs["negative-acknowledgement-update-all"] = types.YLeaf{"NegativeAcknowledgementUpdateAll", groupId.NegativeAcknowledgementUpdateAll}
+    groupId.EntityData.Leafs = types.NewOrderedMap()
+    groupId.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", groupId.GroupId})
+    groupId.EntityData.Leafs.Append("group-id-xr", types.YLeaf{"GroupIdXr", groupId.GroupIdXr})
+    groupId.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", groupId.InterfaceName})
+    groupId.EntityData.Leafs.Append("outer-vlan", types.YLeaf{"OuterVlan", groupId.OuterVlan})
+    groupId.EntityData.Leafs.Append("inner-vlan", types.YLeaf{"InnerVlan", groupId.InnerVlan})
+    groupId.EntityData.Leafs.Append("session-mac-address", types.YLeaf{"SessionMacAddress", groupId.SessionMacAddress})
+    groupId.EntityData.Leafs.Append("pppoe-session-id", types.YLeaf{"PppoeSessionId", groupId.PppoeSessionId})
+    groupId.EntityData.Leafs.Append("l2tp-tunnel-id", types.YLeaf{"L2tpTunnelId", groupId.L2tpTunnelId})
+    groupId.EntityData.Leafs.Append("role-master", types.YLeaf{"RoleMaster", groupId.RoleMaster})
+    groupId.EntityData.Leafs.Append("valid-mac-address", types.YLeaf{"ValidMacAddress", groupId.ValidMacAddress})
+    groupId.EntityData.Leafs.Append("negative-acknowledgement-update-all", types.YLeaf{"NegativeAcknowledgementUpdateAll", groupId.NegativeAcknowledgementUpdateAll})
+
+    groupId.EntityData.YListKeys = []string {"GroupId"}
+
     return &(groupId.EntityData)
 }
 
@@ -742,13 +775,16 @@ func (sessionDetailedInformation *SubscriberRedundancyAgent_Nodes_Node_GroupIdXr
     sessionDetailedInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDetailedInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionDetailedInformation.EntityData.Children = make(map[string]types.YChild)
-    sessionDetailedInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionDetailedInformation.EntityData.Leafs["component"] = types.YLeaf{"Component", sessionDetailedInformation.Component}
-    sessionDetailedInformation.EntityData.Leafs["operation"] = types.YLeaf{"Operation", sessionDetailedInformation.Operation}
-    sessionDetailedInformation.EntityData.Leafs["tx-list-queue-fail"] = types.YLeaf{"TxListQueueFail", sessionDetailedInformation.TxListQueueFail}
-    sessionDetailedInformation.EntityData.Leafs["marked-for-sweeping"] = types.YLeaf{"MarkedForSweeping", sessionDetailedInformation.MarkedForSweeping}
-    sessionDetailedInformation.EntityData.Leafs["marked-for-cleanup"] = types.YLeaf{"MarkedForCleanup", sessionDetailedInformation.MarkedForCleanup}
+    sessionDetailedInformation.EntityData.Children = types.NewOrderedMap()
+    sessionDetailedInformation.EntityData.Leafs = types.NewOrderedMap()
+    sessionDetailedInformation.EntityData.Leafs.Append("component", types.YLeaf{"Component", sessionDetailedInformation.Component})
+    sessionDetailedInformation.EntityData.Leafs.Append("operation", types.YLeaf{"Operation", sessionDetailedInformation.Operation})
+    sessionDetailedInformation.EntityData.Leafs.Append("tx-list-queue-fail", types.YLeaf{"TxListQueueFail", sessionDetailedInformation.TxListQueueFail})
+    sessionDetailedInformation.EntityData.Leafs.Append("marked-for-sweeping", types.YLeaf{"MarkedForSweeping", sessionDetailedInformation.MarkedForSweeping})
+    sessionDetailedInformation.EntityData.Leafs.Append("marked-for-cleanup", types.YLeaf{"MarkedForCleanup", sessionDetailedInformation.MarkedForCleanup})
+
+    sessionDetailedInformation.EntityData.YListKeys = []string {}
+
     return &(sessionDetailedInformation.EntityData)
 }
 
@@ -779,11 +815,14 @@ func (sessionSyncErrorInformation *SubscriberRedundancyAgent_Nodes_Node_GroupIdX
     sessionSyncErrorInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionSyncErrorInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionSyncErrorInformation.EntityData.Children = make(map[string]types.YChild)
-    sessionSyncErrorInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionSyncErrorInformation.EntityData.Leafs["sync-error-count"] = types.YLeaf{"SyncErrorCount", sessionSyncErrorInformation.SyncErrorCount}
-    sessionSyncErrorInformation.EntityData.Leafs["last-error-code"] = types.YLeaf{"LastErrorCode", sessionSyncErrorInformation.LastErrorCode}
-    sessionSyncErrorInformation.EntityData.Leafs["last-error-type"] = types.YLeaf{"LastErrorType", sessionSyncErrorInformation.LastErrorType}
+    sessionSyncErrorInformation.EntityData.Children = types.NewOrderedMap()
+    sessionSyncErrorInformation.EntityData.Leafs = types.NewOrderedMap()
+    sessionSyncErrorInformation.EntityData.Leafs.Append("sync-error-count", types.YLeaf{"SyncErrorCount", sessionSyncErrorInformation.SyncErrorCount})
+    sessionSyncErrorInformation.EntityData.Leafs.Append("last-error-code", types.YLeaf{"LastErrorCode", sessionSyncErrorInformation.LastErrorCode})
+    sessionSyncErrorInformation.EntityData.Leafs.Append("last-error-type", types.YLeaf{"LastErrorType", sessionSyncErrorInformation.LastErrorType})
+
+    sessionSyncErrorInformation.EntityData.YListKeys = []string {}
+
     return &(sessionSyncErrorInformation.EntityData)
 }
 
@@ -794,8 +833,8 @@ type SubscriberRedundancyAgent_Nodes_Node_Interfaces struct {
     YFilter yfilter.YFilter
 
     // Specify interface name. The type is slice of
-    // SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface_.
-    Interface_ []SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface
+    // SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface.
+    Interface []*SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface
 }
 
 func (interfaces *SubscriberRedundancyAgent_Nodes_Node_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -808,12 +847,15 @@ func (interfaces *SubscriberRedundancyAgent_Nodes_Node_Interfaces) GetEntityData
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -824,8 +866,8 @@ type SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // [a-zA-Z0-9./-]+.
+    Interface interface{}
 
     // Interface Name. The type is string.
     InterfaceName interface{}
@@ -873,7 +915,7 @@ type SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface struct {
 
     // Interface status for each client. The type is slice of
     // SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus.
-    ClientStatus []SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus
+    ClientStatus []*SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus
 }
 
 func (self *SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
@@ -881,31 +923,34 @@ func (self *SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface) GetEntity
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface='" + fmt.Sprintf("%v", self.Interface_) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Interface, "interface")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["interface-oper"] = types.YChild{"InterfaceOper", &self.InterfaceOper}
-    self.EntityData.Children["interface-status"] = types.YChild{"InterfaceStatus", &self.InterfaceStatus}
-    self.EntityData.Children["client-status"] = types.YChild{"ClientStatus", nil}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("interface-oper", types.YChild{"InterfaceOper", &self.InterfaceOper})
+    self.EntityData.Children.Append("interface-status", types.YChild{"InterfaceStatus", &self.InterfaceStatus})
+    self.EntityData.Children.Append("client-status", types.YChild{"ClientStatus", nil})
     for i := range self.ClientStatus {
-        self.EntityData.Children[types.GetSegmentPath(&self.ClientStatus[i])] = types.YChild{"ClientStatus", &self.ClientStatus[i]}
+        self.EntityData.Children.Append(types.GetSegmentPath(self.ClientStatus[i]), types.YChild{"ClientStatus", self.ClientStatus[i]})
     }
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", self.Interface_}
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["interface-synchronization-id"] = types.YLeaf{"InterfaceSynchronizationId", self.InterfaceSynchronizationId}
-    self.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", self.GroupId}
-    self.EntityData.Leafs["role"] = types.YLeaf{"Role", self.Role}
-    self.EntityData.Leafs["forward-referenced"] = types.YLeaf{"ForwardReferenced", self.ForwardReferenced}
-    self.EntityData.Leafs["session-count"] = types.YLeaf{"SessionCount", self.SessionCount}
-    self.EntityData.Leafs["interface-enable-error-count"] = types.YLeaf{"InterfaceEnableErrorCount", self.InterfaceEnableErrorCount}
-    self.EntityData.Leafs["interface-disable-error-count"] = types.YLeaf{"InterfaceDisableErrorCount", self.InterfaceDisableErrorCount}
-    self.EntityData.Leafs["interface-caps-add-error-count"] = types.YLeaf{"InterfaceCapsAddErrorCount", self.InterfaceCapsAddErrorCount}
-    self.EntityData.Leafs["interface-caps-remove-error-count"] = types.YLeaf{"InterfaceCapsRemoveErrorCount", self.InterfaceCapsRemoveErrorCount}
-    self.EntityData.Leafs["interface-attribute-update-error-count"] = types.YLeaf{"InterfaceAttributeUpdateErrorCount", self.InterfaceAttributeUpdateErrorCount}
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", self.Interface})
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("interface-synchronization-id", types.YLeaf{"InterfaceSynchronizationId", self.InterfaceSynchronizationId})
+    self.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", self.GroupId})
+    self.EntityData.Leafs.Append("role", types.YLeaf{"Role", self.Role})
+    self.EntityData.Leafs.Append("forward-referenced", types.YLeaf{"ForwardReferenced", self.ForwardReferenced})
+    self.EntityData.Leafs.Append("session-count", types.YLeaf{"SessionCount", self.SessionCount})
+    self.EntityData.Leafs.Append("interface-enable-error-count", types.YLeaf{"InterfaceEnableErrorCount", self.InterfaceEnableErrorCount})
+    self.EntityData.Leafs.Append("interface-disable-error-count", types.YLeaf{"InterfaceDisableErrorCount", self.InterfaceDisableErrorCount})
+    self.EntityData.Leafs.Append("interface-caps-add-error-count", types.YLeaf{"InterfaceCapsAddErrorCount", self.InterfaceCapsAddErrorCount})
+    self.EntityData.Leafs.Append("interface-caps-remove-error-count", types.YLeaf{"InterfaceCapsRemoveErrorCount", self.InterfaceCapsRemoveErrorCount})
+    self.EntityData.Leafs.Append("interface-attribute-update-error-count", types.YLeaf{"InterfaceAttributeUpdateErrorCount", self.InterfaceAttributeUpdateErrorCount})
+
+    self.EntityData.YListKeys = []string {"Interface"}
+
     return &(self.EntityData)
 }
 
@@ -941,13 +986,16 @@ func (interfaceOper *SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface_I
     interfaceOper.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceOper.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceOper.EntityData.Children = make(map[string]types.YChild)
-    interfaceOper.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceOper.EntityData.Leafs["idb-oper-reg-enable"] = types.YLeaf{"IdbOperRegEnable", interfaceOper.IdbOperRegEnable}
-    interfaceOper.EntityData.Leafs["idb-oper-reg-disable"] = types.YLeaf{"IdbOperRegDisable", interfaceOper.IdbOperRegDisable}
-    interfaceOper.EntityData.Leafs["idb-oper-caps-add"] = types.YLeaf{"IdbOperCapsAdd", interfaceOper.IdbOperCapsAdd}
-    interfaceOper.EntityData.Leafs["idb-oper-caps-remove"] = types.YLeaf{"IdbOperCapsRemove", interfaceOper.IdbOperCapsRemove}
-    interfaceOper.EntityData.Leafs["idb-oper-attr-update"] = types.YLeaf{"IdbOperAttrUpdate", interfaceOper.IdbOperAttrUpdate}
+    interfaceOper.EntityData.Children = types.NewOrderedMap()
+    interfaceOper.EntityData.Leafs = types.NewOrderedMap()
+    interfaceOper.EntityData.Leafs.Append("idb-oper-reg-enable", types.YLeaf{"IdbOperRegEnable", interfaceOper.IdbOperRegEnable})
+    interfaceOper.EntityData.Leafs.Append("idb-oper-reg-disable", types.YLeaf{"IdbOperRegDisable", interfaceOper.IdbOperRegDisable})
+    interfaceOper.EntityData.Leafs.Append("idb-oper-caps-add", types.YLeaf{"IdbOperCapsAdd", interfaceOper.IdbOperCapsAdd})
+    interfaceOper.EntityData.Leafs.Append("idb-oper-caps-remove", types.YLeaf{"IdbOperCapsRemove", interfaceOper.IdbOperCapsRemove})
+    interfaceOper.EntityData.Leafs.Append("idb-oper-attr-update", types.YLeaf{"IdbOperAttrUpdate", interfaceOper.IdbOperAttrUpdate})
+
+    interfaceOper.EntityData.YListKeys = []string {}
+
     return &(interfaceOper.EntityData)
 }
 
@@ -992,16 +1040,19 @@ func (interfaceStatus *SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface
     interfaceStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceStatus.EntityData.Children = make(map[string]types.YChild)
-    interfaceStatus.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceStatus.EntityData.Leafs["idb-state-fwd-ref"] = types.YLeaf{"IdbStateFwdRef", interfaceStatus.IdbStateFwdRef}
-    interfaceStatus.EntityData.Leafs["idb-state-stale"] = types.YLeaf{"IdbStateStale", interfaceStatus.IdbStateStale}
-    interfaceStatus.EntityData.Leafs["idb-state-registered"] = types.YLeaf{"IdbStateRegistered", interfaceStatus.IdbStateRegistered}
-    interfaceStatus.EntityData.Leafs["idb-state-caps-added"] = types.YLeaf{"IdbStateCapsAdded", interfaceStatus.IdbStateCapsAdded}
-    interfaceStatus.EntityData.Leafs["idb-state-owned-re-source"] = types.YLeaf{"IdbStateOwnedReSource", interfaceStatus.IdbStateOwnedReSource}
-    interfaceStatus.EntityData.Leafs["idb-client-eoms-pending"] = types.YLeaf{"IdbClientEomsPending", interfaceStatus.IdbClientEomsPending}
-    interfaceStatus.EntityData.Leafs["idb-state-p-end-caps-rem"] = types.YLeaf{"IdbStatePEndCapsRem", interfaceStatus.IdbStatePEndCapsRem}
-    interfaceStatus.EntityData.Leafs["idb-state-p-end-reg-disable"] = types.YLeaf{"IdbStatePEndRegDisable", interfaceStatus.IdbStatePEndRegDisable}
+    interfaceStatus.EntityData.Children = types.NewOrderedMap()
+    interfaceStatus.EntityData.Leafs = types.NewOrderedMap()
+    interfaceStatus.EntityData.Leafs.Append("idb-state-fwd-ref", types.YLeaf{"IdbStateFwdRef", interfaceStatus.IdbStateFwdRef})
+    interfaceStatus.EntityData.Leafs.Append("idb-state-stale", types.YLeaf{"IdbStateStale", interfaceStatus.IdbStateStale})
+    interfaceStatus.EntityData.Leafs.Append("idb-state-registered", types.YLeaf{"IdbStateRegistered", interfaceStatus.IdbStateRegistered})
+    interfaceStatus.EntityData.Leafs.Append("idb-state-caps-added", types.YLeaf{"IdbStateCapsAdded", interfaceStatus.IdbStateCapsAdded})
+    interfaceStatus.EntityData.Leafs.Append("idb-state-owned-re-source", types.YLeaf{"IdbStateOwnedReSource", interfaceStatus.IdbStateOwnedReSource})
+    interfaceStatus.EntityData.Leafs.Append("idb-client-eoms-pending", types.YLeaf{"IdbClientEomsPending", interfaceStatus.IdbClientEomsPending})
+    interfaceStatus.EntityData.Leafs.Append("idb-state-p-end-caps-rem", types.YLeaf{"IdbStatePEndCapsRem", interfaceStatus.IdbStatePEndCapsRem})
+    interfaceStatus.EntityData.Leafs.Append("idb-state-p-end-reg-disable", types.YLeaf{"IdbStatePEndRegDisable", interfaceStatus.IdbStatePEndRegDisable})
+
+    interfaceStatus.EntityData.YListKeys = []string {}
+
     return &(interfaceStatus.EntityData)
 }
 
@@ -1034,12 +1085,15 @@ func (clientStatus *SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface_Cl
     clientStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clientStatus.EntityData.Children = make(map[string]types.YChild)
-    clientStatus.EntityData.Leafs = make(map[string]types.YLeaf)
-    clientStatus.EntityData.Leafs["component"] = types.YLeaf{"Component", clientStatus.Component}
-    clientStatus.EntityData.Leafs["srg-show-idb-client-eoms-pending"] = types.YLeaf{"SrgShowIdbClientEomsPending", clientStatus.SrgShowIdbClientEomsPending}
-    clientStatus.EntityData.Leafs["srg-show-idb-client-sync-eod-pending"] = types.YLeaf{"SrgShowIdbClientSyncEodPending", clientStatus.SrgShowIdbClientSyncEodPending}
-    clientStatus.EntityData.Leafs["session-count"] = types.YLeaf{"SessionCount", clientStatus.SessionCount}
+    clientStatus.EntityData.Children = types.NewOrderedMap()
+    clientStatus.EntityData.Leafs = types.NewOrderedMap()
+    clientStatus.EntityData.Leafs.Append("component", types.YLeaf{"Component", clientStatus.Component})
+    clientStatus.EntityData.Leafs.Append("srg-show-idb-client-eoms-pending", types.YLeaf{"SrgShowIdbClientEomsPending", clientStatus.SrgShowIdbClientEomsPending})
+    clientStatus.EntityData.Leafs.Append("srg-show-idb-client-sync-eod-pending", types.YLeaf{"SrgShowIdbClientSyncEodPending", clientStatus.SrgShowIdbClientSyncEodPending})
+    clientStatus.EntityData.Leafs.Append("session-count", types.YLeaf{"SessionCount", clientStatus.SessionCount})
+
+    clientStatus.EntityData.YListKeys = []string {}
+
     return &(clientStatus.EntityData)
 }
 
@@ -1051,7 +1105,7 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupSummaries struct {
 
     // Subscriber redundancy agent group summary. The type is slice of
     // SubscriberRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary.
-    GroupSummary []SubscriberRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary
+    GroupSummary []*SubscriberRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary
 }
 
 func (groupSummaries *SubscriberRedundancyAgent_Nodes_Node_GroupSummaries) GetEntityData() *types.CommonEntityData {
@@ -1064,12 +1118,15 @@ func (groupSummaries *SubscriberRedundancyAgent_Nodes_Node_GroupSummaries) GetEn
     groupSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groupSummaries.EntityData.Children = make(map[string]types.YChild)
-    groupSummaries.EntityData.Children["group-summary"] = types.YChild{"GroupSummary", nil}
+    groupSummaries.EntityData.Children = types.NewOrderedMap()
+    groupSummaries.EntityData.Children.Append("group-summary", types.YChild{"GroupSummary", nil})
     for i := range groupSummaries.GroupSummary {
-        groupSummaries.EntityData.Children[types.GetSegmentPath(&groupSummaries.GroupSummary[i])] = types.YChild{"GroupSummary", &groupSummaries.GroupSummary[i]}
+        groupSummaries.EntityData.Children.Append(types.GetSegmentPath(groupSummaries.GroupSummary[i]), types.YChild{"GroupSummary", groupSummaries.GroupSummary[i]})
     }
-    groupSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    groupSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    groupSummaries.EntityData.YListKeys = []string {}
+
     return &(groupSummaries.EntityData)
 }
 
@@ -1080,7 +1137,7 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. GroupId. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     GroupId interface{}
 
     // Group ID. The type is interface{} with range: 0..4294967295.
@@ -1093,11 +1150,11 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary struct {
     Disabled interface{}
 
     // Peer IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerIpv4Address interface{}
 
     // Peer IPv6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PeerIpv6Address interface{}
 
     // Peer Status. The type is SrgPeerStatus.
@@ -1128,26 +1185,29 @@ func (groupSummary *SubscriberRedundancyAgent_Nodes_Node_GroupSummaries_GroupSum
     groupSummary.EntityData.YangName = "group-summary"
     groupSummary.EntityData.BundleName = "cisco_ios_xr"
     groupSummary.EntityData.ParentYangName = "group-summaries"
-    groupSummary.EntityData.SegmentPath = "group-summary" + "[group-id='" + fmt.Sprintf("%v", groupSummary.GroupId) + "']"
+    groupSummary.EntityData.SegmentPath = "group-summary" + types.AddKeyToken(groupSummary.GroupId, "group-id")
     groupSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groupSummary.EntityData.Children = make(map[string]types.YChild)
-    groupSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    groupSummary.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", groupSummary.GroupId}
-    groupSummary.EntityData.Leafs["group-id-xr"] = types.YLeaf{"GroupIdXr", groupSummary.GroupIdXr}
-    groupSummary.EntityData.Leafs["role"] = types.YLeaf{"Role", groupSummary.Role}
-    groupSummary.EntityData.Leafs["disabled"] = types.YLeaf{"Disabled", groupSummary.Disabled}
-    groupSummary.EntityData.Leafs["peer-ipv4-address"] = types.YLeaf{"PeerIpv4Address", groupSummary.PeerIpv4Address}
-    groupSummary.EntityData.Leafs["peer-ipv6-address"] = types.YLeaf{"PeerIpv6Address", groupSummary.PeerIpv6Address}
-    groupSummary.EntityData.Leafs["peer-status"] = types.YLeaf{"PeerStatus", groupSummary.PeerStatus}
-    groupSummary.EntityData.Leafs["preferred-role"] = types.YLeaf{"PreferredRole", groupSummary.PreferredRole}
-    groupSummary.EntityData.Leafs["slave-mode"] = types.YLeaf{"SlaveMode", groupSummary.SlaveMode}
-    groupSummary.EntityData.Leafs["object-tracking-status"] = types.YLeaf{"ObjectTrackingStatus", groupSummary.ObjectTrackingStatus}
-    groupSummary.EntityData.Leafs["interface-count"] = types.YLeaf{"InterfaceCount", groupSummary.InterfaceCount}
-    groupSummary.EntityData.Leafs["session-count"] = types.YLeaf{"SessionCount", groupSummary.SessionCount}
-    groupSummary.EntityData.Leafs["pending-add-session-count"] = types.YLeaf{"PendingAddSessionCount", groupSummary.PendingAddSessionCount}
+    groupSummary.EntityData.Children = types.NewOrderedMap()
+    groupSummary.EntityData.Leafs = types.NewOrderedMap()
+    groupSummary.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", groupSummary.GroupId})
+    groupSummary.EntityData.Leafs.Append("group-id-xr", types.YLeaf{"GroupIdXr", groupSummary.GroupIdXr})
+    groupSummary.EntityData.Leafs.Append("role", types.YLeaf{"Role", groupSummary.Role})
+    groupSummary.EntityData.Leafs.Append("disabled", types.YLeaf{"Disabled", groupSummary.Disabled})
+    groupSummary.EntityData.Leafs.Append("peer-ipv4-address", types.YLeaf{"PeerIpv4Address", groupSummary.PeerIpv4Address})
+    groupSummary.EntityData.Leafs.Append("peer-ipv6-address", types.YLeaf{"PeerIpv6Address", groupSummary.PeerIpv6Address})
+    groupSummary.EntityData.Leafs.Append("peer-status", types.YLeaf{"PeerStatus", groupSummary.PeerStatus})
+    groupSummary.EntityData.Leafs.Append("preferred-role", types.YLeaf{"PreferredRole", groupSummary.PreferredRole})
+    groupSummary.EntityData.Leafs.Append("slave-mode", types.YLeaf{"SlaveMode", groupSummary.SlaveMode})
+    groupSummary.EntityData.Leafs.Append("object-tracking-status", types.YLeaf{"ObjectTrackingStatus", groupSummary.ObjectTrackingStatus})
+    groupSummary.EntityData.Leafs.Append("interface-count", types.YLeaf{"InterfaceCount", groupSummary.InterfaceCount})
+    groupSummary.EntityData.Leafs.Append("session-count", types.YLeaf{"SessionCount", groupSummary.SessionCount})
+    groupSummary.EntityData.Leafs.Append("pending-add-session-count", types.YLeaf{"PendingAddSessionCount", groupSummary.PendingAddSessionCount})
+
+    groupSummary.EntityData.YListKeys = []string {"GroupId"}
+
     return &(groupSummary.EntityData)
 }
 
@@ -1159,7 +1219,7 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupIds struct {
 
     // Group id for subscriber group. The type is slice of
     // SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId.
-    GroupId []SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId
+    GroupId []*SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId
 }
 
 func (groupIds *SubscriberRedundancyAgent_Nodes_Node_GroupIds) GetEntityData() *types.CommonEntityData {
@@ -1172,12 +1232,15 @@ func (groupIds *SubscriberRedundancyAgent_Nodes_Node_GroupIds) GetEntityData() *
     groupIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groupIds.EntityData.Children = make(map[string]types.YChild)
-    groupIds.EntityData.Children["group-id"] = types.YChild{"GroupId", nil}
+    groupIds.EntityData.Children = types.NewOrderedMap()
+    groupIds.EntityData.Children.Append("group-id", types.YChild{"GroupId", nil})
     for i := range groupIds.GroupId {
-        groupIds.EntityData.Children[types.GetSegmentPath(&groupIds.GroupId[i])] = types.YChild{"GroupId", &groupIds.GroupId[i]}
+        groupIds.EntityData.Children.Append(types.GetSegmentPath(groupIds.GroupId[i]), types.YChild{"GroupId", groupIds.GroupId[i]})
     }
-    groupIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    groupIds.EntityData.Leafs = types.NewOrderedMap()
+
+    groupIds.EntityData.YListKeys = []string {}
+
     return &(groupIds.EntityData)
 }
 
@@ -1188,7 +1251,7 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Group Id. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     GroupId interface{}
 
     // Group ID. The type is interface{} with range: 0..4294967295.
@@ -1222,8 +1285,8 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId struct {
     VirtualMacAddressDisable interface{}
 
     // L2TP Souce IP Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    L2TpSourceIp interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    L2tpSourceIp interface{}
 
     // Core Object Tracking Name. The type is string.
     CoreTrackingObjectName interface{}
@@ -1241,11 +1304,11 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId struct {
     ObjectTrackingStatus interface{}
 
     // Peer IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerIpv4Address interface{}
 
     // Peer IPv6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PeerIpv6Address interface{}
 
     // Peer Status. The type is SrgPeerStatus.
@@ -1316,8 +1379,8 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId struct {
     SwitchoverRevertTime interface{}
 
     // Interface List. The type is slice of
-    // SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface_.
-    Interface_ []SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface
+    // SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface.
+    Interface []*SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface
 }
 
 func (groupId *SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetEntityData() *types.CommonEntityData {
@@ -1325,56 +1388,59 @@ func (groupId *SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetEntityD
     groupId.EntityData.YangName = "group-id"
     groupId.EntityData.BundleName = "cisco_ios_xr"
     groupId.EntityData.ParentYangName = "group-ids"
-    groupId.EntityData.SegmentPath = "group-id" + "[group-id='" + fmt.Sprintf("%v", groupId.GroupId) + "']"
+    groupId.EntityData.SegmentPath = "group-id" + types.AddKeyToken(groupId.GroupId, "group-id")
     groupId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groupId.EntityData.Children = make(map[string]types.YChild)
-    groupId.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range groupId.Interface_ {
-        groupId.EntityData.Children[types.GetSegmentPath(&groupId.Interface_[i])] = types.YChild{"Interface_", &groupId.Interface_[i]}
+    groupId.EntityData.Children = types.NewOrderedMap()
+    groupId.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range groupId.Interface {
+        groupId.EntityData.Children.Append(types.GetSegmentPath(groupId.Interface[i]), types.YChild{"Interface", groupId.Interface[i]})
     }
-    groupId.EntityData.Leafs = make(map[string]types.YLeaf)
-    groupId.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", groupId.GroupId}
-    groupId.EntityData.Leafs["group-id-xr"] = types.YLeaf{"GroupIdXr", groupId.GroupIdXr}
-    groupId.EntityData.Leafs["description"] = types.YLeaf{"Description", groupId.Description}
-    groupId.EntityData.Leafs["disabled"] = types.YLeaf{"Disabled", groupId.Disabled}
-    groupId.EntityData.Leafs["init-role"] = types.YLeaf{"InitRole", groupId.InitRole}
-    groupId.EntityData.Leafs["negotiating-role"] = types.YLeaf{"NegotiatingRole", groupId.NegotiatingRole}
-    groupId.EntityData.Leafs["current-role"] = types.YLeaf{"CurrentRole", groupId.CurrentRole}
-    groupId.EntityData.Leafs["slave-mode"] = types.YLeaf{"SlaveMode", groupId.SlaveMode}
-    groupId.EntityData.Leafs["hold-timer"] = types.YLeaf{"HoldTimer", groupId.HoldTimer}
-    groupId.EntityData.Leafs["virtual-mac-address"] = types.YLeaf{"VirtualMacAddress", groupId.VirtualMacAddress}
-    groupId.EntityData.Leafs["virtual-mac-address-disable"] = types.YLeaf{"VirtualMacAddressDisable", groupId.VirtualMacAddressDisable}
-    groupId.EntityData.Leafs["l2tp-source-ip"] = types.YLeaf{"L2TpSourceIp", groupId.L2TpSourceIp}
-    groupId.EntityData.Leafs["core-tracking-object-name"] = types.YLeaf{"CoreTrackingObjectName", groupId.CoreTrackingObjectName}
-    groupId.EntityData.Leafs["core-tracking-object-status"] = types.YLeaf{"CoreTrackingObjectStatus", groupId.CoreTrackingObjectStatus}
-    groupId.EntityData.Leafs["access-tracking-object-name"] = types.YLeaf{"AccessTrackingObjectName", groupId.AccessTrackingObjectName}
-    groupId.EntityData.Leafs["access-tracking-object-status"] = types.YLeaf{"AccessTrackingObjectStatus", groupId.AccessTrackingObjectStatus}
-    groupId.EntityData.Leafs["object-tracking-status"] = types.YLeaf{"ObjectTrackingStatus", groupId.ObjectTrackingStatus}
-    groupId.EntityData.Leafs["peer-ipv4-address"] = types.YLeaf{"PeerIpv4Address", groupId.PeerIpv4Address}
-    groupId.EntityData.Leafs["peer-ipv6-address"] = types.YLeaf{"PeerIpv6Address", groupId.PeerIpv6Address}
-    groupId.EntityData.Leafs["peer-status"] = types.YLeaf{"PeerStatus", groupId.PeerStatus}
-    groupId.EntityData.Leafs["peer-last-negotiation-time"] = types.YLeaf{"PeerLastNegotiationTime", groupId.PeerLastNegotiationTime}
-    groupId.EntityData.Leafs["peer-last-up-time"] = types.YLeaf{"PeerLastUpTime", groupId.PeerLastUpTime}
-    groupId.EntityData.Leafs["peer-last-down-time"] = types.YLeaf{"PeerLastDownTime", groupId.PeerLastDownTime}
-    groupId.EntityData.Leafs["peer-init-role"] = types.YLeaf{"PeerInitRole", groupId.PeerInitRole}
-    groupId.EntityData.Leafs["peer-negotiating-role"] = types.YLeaf{"PeerNegotiatingRole", groupId.PeerNegotiatingRole}
-    groupId.EntityData.Leafs["peer-current-role"] = types.YLeaf{"PeerCurrentRole", groupId.PeerCurrentRole}
-    groupId.EntityData.Leafs["peer-object-tracking-status"] = types.YLeaf{"PeerObjectTrackingStatus", groupId.PeerObjectTrackingStatus}
-    groupId.EntityData.Leafs["last-switchover-time"] = types.YLeaf{"LastSwitchoverTime", groupId.LastSwitchoverTime}
-    groupId.EntityData.Leafs["switchover-count"] = types.YLeaf{"SwitchoverCount", groupId.SwitchoverCount}
-    groupId.EntityData.Leafs["last-switchover-reason"] = types.YLeaf{"LastSwitchoverReason", groupId.LastSwitchoverReason}
-    groupId.EntityData.Leafs["switchover-hold-time"] = types.YLeaf{"SwitchoverHoldTime", groupId.SwitchoverHoldTime}
-    groupId.EntityData.Leafs["session-count"] = types.YLeaf{"SessionCount", groupId.SessionCount}
-    groupId.EntityData.Leafs["slave-update-failure-count"] = types.YLeaf{"SlaveUpdateFailureCount", groupId.SlaveUpdateFailureCount}
-    groupId.EntityData.Leafs["tunnel-count"] = types.YLeaf{"TunnelCount", groupId.TunnelCount}
-    groupId.EntityData.Leafs["pending-session-update-count"] = types.YLeaf{"PendingSessionUpdateCount", groupId.PendingSessionUpdateCount}
-    groupId.EntityData.Leafs["pending-session-delete-count"] = types.YLeaf{"PendingSessionDeleteCount", groupId.PendingSessionDeleteCount}
-    groupId.EntityData.Leafs["interface-count"] = types.YLeaf{"InterfaceCount", groupId.InterfaceCount}
-    groupId.EntityData.Leafs["revertive-timer"] = types.YLeaf{"RevertiveTimer", groupId.RevertiveTimer}
-    groupId.EntityData.Leafs["switchover-revert-time"] = types.YLeaf{"SwitchoverRevertTime", groupId.SwitchoverRevertTime}
+    groupId.EntityData.Leafs = types.NewOrderedMap()
+    groupId.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", groupId.GroupId})
+    groupId.EntityData.Leafs.Append("group-id-xr", types.YLeaf{"GroupIdXr", groupId.GroupIdXr})
+    groupId.EntityData.Leafs.Append("description", types.YLeaf{"Description", groupId.Description})
+    groupId.EntityData.Leafs.Append("disabled", types.YLeaf{"Disabled", groupId.Disabled})
+    groupId.EntityData.Leafs.Append("init-role", types.YLeaf{"InitRole", groupId.InitRole})
+    groupId.EntityData.Leafs.Append("negotiating-role", types.YLeaf{"NegotiatingRole", groupId.NegotiatingRole})
+    groupId.EntityData.Leafs.Append("current-role", types.YLeaf{"CurrentRole", groupId.CurrentRole})
+    groupId.EntityData.Leafs.Append("slave-mode", types.YLeaf{"SlaveMode", groupId.SlaveMode})
+    groupId.EntityData.Leafs.Append("hold-timer", types.YLeaf{"HoldTimer", groupId.HoldTimer})
+    groupId.EntityData.Leafs.Append("virtual-mac-address", types.YLeaf{"VirtualMacAddress", groupId.VirtualMacAddress})
+    groupId.EntityData.Leafs.Append("virtual-mac-address-disable", types.YLeaf{"VirtualMacAddressDisable", groupId.VirtualMacAddressDisable})
+    groupId.EntityData.Leafs.Append("l2tp-source-ip", types.YLeaf{"L2tpSourceIp", groupId.L2tpSourceIp})
+    groupId.EntityData.Leafs.Append("core-tracking-object-name", types.YLeaf{"CoreTrackingObjectName", groupId.CoreTrackingObjectName})
+    groupId.EntityData.Leafs.Append("core-tracking-object-status", types.YLeaf{"CoreTrackingObjectStatus", groupId.CoreTrackingObjectStatus})
+    groupId.EntityData.Leafs.Append("access-tracking-object-name", types.YLeaf{"AccessTrackingObjectName", groupId.AccessTrackingObjectName})
+    groupId.EntityData.Leafs.Append("access-tracking-object-status", types.YLeaf{"AccessTrackingObjectStatus", groupId.AccessTrackingObjectStatus})
+    groupId.EntityData.Leafs.Append("object-tracking-status", types.YLeaf{"ObjectTrackingStatus", groupId.ObjectTrackingStatus})
+    groupId.EntityData.Leafs.Append("peer-ipv4-address", types.YLeaf{"PeerIpv4Address", groupId.PeerIpv4Address})
+    groupId.EntityData.Leafs.Append("peer-ipv6-address", types.YLeaf{"PeerIpv6Address", groupId.PeerIpv6Address})
+    groupId.EntityData.Leafs.Append("peer-status", types.YLeaf{"PeerStatus", groupId.PeerStatus})
+    groupId.EntityData.Leafs.Append("peer-last-negotiation-time", types.YLeaf{"PeerLastNegotiationTime", groupId.PeerLastNegotiationTime})
+    groupId.EntityData.Leafs.Append("peer-last-up-time", types.YLeaf{"PeerLastUpTime", groupId.PeerLastUpTime})
+    groupId.EntityData.Leafs.Append("peer-last-down-time", types.YLeaf{"PeerLastDownTime", groupId.PeerLastDownTime})
+    groupId.EntityData.Leafs.Append("peer-init-role", types.YLeaf{"PeerInitRole", groupId.PeerInitRole})
+    groupId.EntityData.Leafs.Append("peer-negotiating-role", types.YLeaf{"PeerNegotiatingRole", groupId.PeerNegotiatingRole})
+    groupId.EntityData.Leafs.Append("peer-current-role", types.YLeaf{"PeerCurrentRole", groupId.PeerCurrentRole})
+    groupId.EntityData.Leafs.Append("peer-object-tracking-status", types.YLeaf{"PeerObjectTrackingStatus", groupId.PeerObjectTrackingStatus})
+    groupId.EntityData.Leafs.Append("last-switchover-time", types.YLeaf{"LastSwitchoverTime", groupId.LastSwitchoverTime})
+    groupId.EntityData.Leafs.Append("switchover-count", types.YLeaf{"SwitchoverCount", groupId.SwitchoverCount})
+    groupId.EntityData.Leafs.Append("last-switchover-reason", types.YLeaf{"LastSwitchoverReason", groupId.LastSwitchoverReason})
+    groupId.EntityData.Leafs.Append("switchover-hold-time", types.YLeaf{"SwitchoverHoldTime", groupId.SwitchoverHoldTime})
+    groupId.EntityData.Leafs.Append("session-count", types.YLeaf{"SessionCount", groupId.SessionCount})
+    groupId.EntityData.Leafs.Append("slave-update-failure-count", types.YLeaf{"SlaveUpdateFailureCount", groupId.SlaveUpdateFailureCount})
+    groupId.EntityData.Leafs.Append("tunnel-count", types.YLeaf{"TunnelCount", groupId.TunnelCount})
+    groupId.EntityData.Leafs.Append("pending-session-update-count", types.YLeaf{"PendingSessionUpdateCount", groupId.PendingSessionUpdateCount})
+    groupId.EntityData.Leafs.Append("pending-session-delete-count", types.YLeaf{"PendingSessionDeleteCount", groupId.PendingSessionDeleteCount})
+    groupId.EntityData.Leafs.Append("interface-count", types.YLeaf{"InterfaceCount", groupId.InterfaceCount})
+    groupId.EntityData.Leafs.Append("revertive-timer", types.YLeaf{"RevertiveTimer", groupId.RevertiveTimer})
+    groupId.EntityData.Leafs.Append("switchover-revert-time", types.YLeaf{"SwitchoverRevertTime", groupId.SwitchoverRevertTime})
+
+    groupId.EntityData.YListKeys = []string {"GroupId"}
+
     return &(groupId.EntityData)
 }
 
@@ -1408,12 +1474,15 @@ func (self *SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) Get
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["interface-synchronization-id"] = types.YLeaf{"InterfaceSynchronizationId", self.InterfaceSynchronizationId}
-    self.EntityData.Leafs["forward-referenced"] = types.YLeaf{"ForwardReferenced", self.ForwardReferenced}
-    self.EntityData.Leafs["session-count"] = types.YLeaf{"SessionCount", self.SessionCount}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("interface-synchronization-id", types.YLeaf{"InterfaceSynchronizationId", self.InterfaceSynchronizationId})
+    self.EntityData.Leafs.Append("forward-referenced", types.YLeaf{"ForwardReferenced", self.ForwardReferenced})
+    self.EntityData.Leafs.Append("session-count", types.YLeaf{"SessionCount", self.SessionCount})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 

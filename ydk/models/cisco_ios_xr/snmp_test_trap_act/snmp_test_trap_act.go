@@ -115,8 +115,11 @@ func (snmpColdStart *SnmpColdStart) GetEntityData() *types.CommonEntityData {
     snmpColdStart.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snmpColdStart.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    snmpColdStart.EntityData.Children = make(map[string]types.YChild)
-    snmpColdStart.EntityData.Leafs = make(map[string]types.YLeaf)
+    snmpColdStart.EntityData.Children = types.NewOrderedMap()
+    snmpColdStart.EntityData.Leafs = types.NewOrderedMap()
+
+    snmpColdStart.EntityData.YListKeys = []string {}
+
     return &(snmpColdStart.EntityData)
 }
 
@@ -137,8 +140,11 @@ func (snmpWarmStart *SnmpWarmStart) GetEntityData() *types.CommonEntityData {
     snmpWarmStart.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snmpWarmStart.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    snmpWarmStart.EntityData.Children = make(map[string]types.YChild)
-    snmpWarmStart.EntityData.Leafs = make(map[string]types.YLeaf)
+    snmpWarmStart.EntityData.Children = types.NewOrderedMap()
+    snmpWarmStart.EntityData.Leafs = types.NewOrderedMap()
+
+    snmpWarmStart.EntityData.YListKeys = []string {}
+
     return &(snmpWarmStart.EntityData)
 }
 
@@ -162,9 +168,12 @@ func (interfaceLinkUp *InterfaceLinkUp) GetEntityData() *types.CommonEntityData 
     interfaceLinkUp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceLinkUp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceLinkUp.EntityData.Children = make(map[string]types.YChild)
-    interfaceLinkUp.EntityData.Children["input"] = types.YChild{"Input", &interfaceLinkUp.Input}
-    interfaceLinkUp.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceLinkUp.EntityData.Children = types.NewOrderedMap()
+    interfaceLinkUp.EntityData.Children.Append("input", types.YChild{"Input", &interfaceLinkUp.Input})
+    interfaceLinkUp.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceLinkUp.EntityData.YListKeys = []string {}
+
     return &(interfaceLinkUp.EntityData)
 }
 
@@ -188,9 +197,12 @@ func (input *InterfaceLinkUp_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["ifindex"] = types.YLeaf{"Ifindex", input.Ifindex}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("ifindex", types.YLeaf{"Ifindex", input.Ifindex})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -214,9 +226,12 @@ func (interfaceLinkDown *InterfaceLinkDown) GetEntityData() *types.CommonEntityD
     interfaceLinkDown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceLinkDown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceLinkDown.EntityData.Children = make(map[string]types.YChild)
-    interfaceLinkDown.EntityData.Children["input"] = types.YChild{"Input", &interfaceLinkDown.Input}
-    interfaceLinkDown.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceLinkDown.EntityData.Children = types.NewOrderedMap()
+    interfaceLinkDown.EntityData.Children.Append("input", types.YChild{"Input", &interfaceLinkDown.Input})
+    interfaceLinkDown.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceLinkDown.EntityData.YListKeys = []string {}
+
     return &(interfaceLinkDown.EntityData)
 }
 
@@ -240,9 +255,12 @@ func (input *InterfaceLinkDown_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["ifindex"] = types.YLeaf{"Ifindex", input.Ifindex}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("ifindex", types.YLeaf{"Ifindex", input.Ifindex})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -266,9 +284,12 @@ func (sonetSectionStatus *SonetSectionStatus) GetEntityData() *types.CommonEntit
     sonetSectionStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sonetSectionStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sonetSectionStatus.EntityData.Children = make(map[string]types.YChild)
-    sonetSectionStatus.EntityData.Children["input"] = types.YChild{"Input", &sonetSectionStatus.Input}
-    sonetSectionStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    sonetSectionStatus.EntityData.Children = types.NewOrderedMap()
+    sonetSectionStatus.EntityData.Children.Append("input", types.YChild{"Input", &sonetSectionStatus.Input})
+    sonetSectionStatus.EntityData.Leafs = types.NewOrderedMap()
+
+    sonetSectionStatus.EntityData.YListKeys = []string {}
+
     return &(sonetSectionStatus.EntityData)
 }
 
@@ -292,9 +313,12 @@ func (input *SonetSectionStatus_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["ifindex"] = types.YLeaf{"Ifindex", input.Ifindex}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("ifindex", types.YLeaf{"Ifindex", input.Ifindex})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -318,9 +342,12 @@ func (sonetLineStatus *SonetLineStatus) GetEntityData() *types.CommonEntityData 
     sonetLineStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sonetLineStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sonetLineStatus.EntityData.Children = make(map[string]types.YChild)
-    sonetLineStatus.EntityData.Children["input"] = types.YChild{"Input", &sonetLineStatus.Input}
-    sonetLineStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    sonetLineStatus.EntityData.Children = types.NewOrderedMap()
+    sonetLineStatus.EntityData.Children.Append("input", types.YChild{"Input", &sonetLineStatus.Input})
+    sonetLineStatus.EntityData.Leafs = types.NewOrderedMap()
+
+    sonetLineStatus.EntityData.YListKeys = []string {}
+
     return &(sonetLineStatus.EntityData)
 }
 
@@ -344,9 +371,12 @@ func (input *SonetLineStatus_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["ifindex"] = types.YLeaf{"Ifindex", input.Ifindex}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("ifindex", types.YLeaf{"Ifindex", input.Ifindex})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -370,9 +400,12 @@ func (sonetPathStatus *SonetPathStatus) GetEntityData() *types.CommonEntityData 
     sonetPathStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sonetPathStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sonetPathStatus.EntityData.Children = make(map[string]types.YChild)
-    sonetPathStatus.EntityData.Children["input"] = types.YChild{"Input", &sonetPathStatus.Input}
-    sonetPathStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    sonetPathStatus.EntityData.Children = types.NewOrderedMap()
+    sonetPathStatus.EntityData.Children.Append("input", types.YChild{"Input", &sonetPathStatus.Input})
+    sonetPathStatus.EntityData.Leafs = types.NewOrderedMap()
+
+    sonetPathStatus.EntityData.YListKeys = []string {}
+
     return &(sonetPathStatus.EntityData)
 }
 
@@ -396,9 +429,12 @@ func (input *SonetPathStatus_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["ifindex"] = types.YLeaf{"Ifindex", input.Ifindex}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("ifindex", types.YLeaf{"Ifindex", input.Ifindex})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -419,8 +455,11 @@ func (infraSyslogMessageGenerated *InfraSyslogMessageGenerated) GetEntityData() 
     infraSyslogMessageGenerated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infraSyslogMessageGenerated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    infraSyslogMessageGenerated.EntityData.Children = make(map[string]types.YChild)
-    infraSyslogMessageGenerated.EntityData.Leafs = make(map[string]types.YLeaf)
+    infraSyslogMessageGenerated.EntityData.Children = types.NewOrderedMap()
+    infraSyslogMessageGenerated.EntityData.Leafs = types.NewOrderedMap()
+
+    infraSyslogMessageGenerated.EntityData.YListKeys = []string {}
+
     return &(infraSyslogMessageGenerated.EntityData)
 }
 
@@ -441,8 +480,11 @@ func (infraFlashDeviceInserted *InfraFlashDeviceInserted) GetEntityData() *types
     infraFlashDeviceInserted.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infraFlashDeviceInserted.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    infraFlashDeviceInserted.EntityData.Children = make(map[string]types.YChild)
-    infraFlashDeviceInserted.EntityData.Leafs = make(map[string]types.YLeaf)
+    infraFlashDeviceInserted.EntityData.Children = types.NewOrderedMap()
+    infraFlashDeviceInserted.EntityData.Leafs = types.NewOrderedMap()
+
+    infraFlashDeviceInserted.EntityData.YListKeys = []string {}
+
     return &(infraFlashDeviceInserted.EntityData)
 }
 
@@ -463,8 +505,11 @@ func (infraFlashDeviceRemoved *InfraFlashDeviceRemoved) GetEntityData() *types.C
     infraFlashDeviceRemoved.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infraFlashDeviceRemoved.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    infraFlashDeviceRemoved.EntityData.Children = make(map[string]types.YChild)
-    infraFlashDeviceRemoved.EntityData.Leafs = make(map[string]types.YLeaf)
+    infraFlashDeviceRemoved.EntityData.Children = types.NewOrderedMap()
+    infraFlashDeviceRemoved.EntityData.Leafs = types.NewOrderedMap()
+
+    infraFlashDeviceRemoved.EntityData.YListKeys = []string {}
+
     return &(infraFlashDeviceRemoved.EntityData)
 }
 
@@ -485,8 +530,11 @@ func (infraRedundancyProgression *InfraRedundancyProgression) GetEntityData() *t
     infraRedundancyProgression.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infraRedundancyProgression.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    infraRedundancyProgression.EntityData.Children = make(map[string]types.YChild)
-    infraRedundancyProgression.EntityData.Leafs = make(map[string]types.YLeaf)
+    infraRedundancyProgression.EntityData.Children = types.NewOrderedMap()
+    infraRedundancyProgression.EntityData.Leafs = types.NewOrderedMap()
+
+    infraRedundancyProgression.EntityData.YListKeys = []string {}
+
     return &(infraRedundancyProgression.EntityData)
 }
 
@@ -507,8 +555,11 @@ func (infraRedundancySwitch *InfraRedundancySwitch) GetEntityData() *types.Commo
     infraRedundancySwitch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infraRedundancySwitch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    infraRedundancySwitch.EntityData.Children = make(map[string]types.YChild)
-    infraRedundancySwitch.EntityData.Leafs = make(map[string]types.YLeaf)
+    infraRedundancySwitch.EntityData.Children = types.NewOrderedMap()
+    infraRedundancySwitch.EntityData.Leafs = types.NewOrderedMap()
+
+    infraRedundancySwitch.EntityData.YListKeys = []string {}
+
     return &(infraRedundancySwitch.EntityData)
 }
 
@@ -529,8 +580,11 @@ func (infraBridgeNewRoot *InfraBridgeNewRoot) GetEntityData() *types.CommonEntit
     infraBridgeNewRoot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infraBridgeNewRoot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    infraBridgeNewRoot.EntityData.Children = make(map[string]types.YChild)
-    infraBridgeNewRoot.EntityData.Leafs = make(map[string]types.YLeaf)
+    infraBridgeNewRoot.EntityData.Children = types.NewOrderedMap()
+    infraBridgeNewRoot.EntityData.Leafs = types.NewOrderedMap()
+
+    infraBridgeNewRoot.EntityData.YListKeys = []string {}
+
     return &(infraBridgeNewRoot.EntityData)
 }
 
@@ -551,8 +605,11 @@ func (infraBridgeTopologyChange *InfraBridgeTopologyChange) GetEntityData() *typ
     infraBridgeTopologyChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infraBridgeTopologyChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    infraBridgeTopologyChange.EntityData.Children = make(map[string]types.YChild)
-    infraBridgeTopologyChange.EntityData.Leafs = make(map[string]types.YLeaf)
+    infraBridgeTopologyChange.EntityData.Children = types.NewOrderedMap()
+    infraBridgeTopologyChange.EntityData.Leafs = types.NewOrderedMap()
+
+    infraBridgeTopologyChange.EntityData.YListKeys = []string {}
+
     return &(infraBridgeTopologyChange.EntityData)
 }
 
@@ -573,8 +630,11 @@ func (infraConfigEvent *InfraConfigEvent) GetEntityData() *types.CommonEntityDat
     infraConfigEvent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infraConfigEvent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    infraConfigEvent.EntityData.Children = make(map[string]types.YChild)
-    infraConfigEvent.EntityData.Leafs = make(map[string]types.YLeaf)
+    infraConfigEvent.EntityData.Children = types.NewOrderedMap()
+    infraConfigEvent.EntityData.Leafs = types.NewOrderedMap()
+
+    infraConfigEvent.EntityData.YListKeys = []string {}
+
     return &(infraConfigEvent.EntityData)
 }
 
@@ -598,9 +658,12 @@ func (entitySensorThresholdNotification *EntitySensorThresholdNotification) GetE
     entitySensorThresholdNotification.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entitySensorThresholdNotification.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entitySensorThresholdNotification.EntityData.Children = make(map[string]types.YChild)
-    entitySensorThresholdNotification.EntityData.Children["input"] = types.YChild{"Input", &entitySensorThresholdNotification.Input}
-    entitySensorThresholdNotification.EntityData.Leafs = make(map[string]types.YLeaf)
+    entitySensorThresholdNotification.EntityData.Children = types.NewOrderedMap()
+    entitySensorThresholdNotification.EntityData.Children.Append("input", types.YChild{"Input", &entitySensorThresholdNotification.Input})
+    entitySensorThresholdNotification.EntityData.Leafs = types.NewOrderedMap()
+
+    entitySensorThresholdNotification.EntityData.YListKeys = []string {}
+
     return &(entitySensorThresholdNotification.EntityData)
 }
 
@@ -624,9 +687,12 @@ func (input *EntitySensorThresholdNotification_Input) GetEntityData() *types.Com
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["entindex"] = types.YLeaf{"Entindex", input.Entindex}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("entindex", types.YLeaf{"Entindex", input.Entindex})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -650,9 +716,12 @@ func (entityFruPowerStatusChangeFailed *EntityFruPowerStatusChangeFailed) GetEnt
     entityFruPowerStatusChangeFailed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entityFruPowerStatusChangeFailed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entityFruPowerStatusChangeFailed.EntityData.Children = make(map[string]types.YChild)
-    entityFruPowerStatusChangeFailed.EntityData.Children["input"] = types.YChild{"Input", &entityFruPowerStatusChangeFailed.Input}
-    entityFruPowerStatusChangeFailed.EntityData.Leafs = make(map[string]types.YLeaf)
+    entityFruPowerStatusChangeFailed.EntityData.Children = types.NewOrderedMap()
+    entityFruPowerStatusChangeFailed.EntityData.Children.Append("input", types.YChild{"Input", &entityFruPowerStatusChangeFailed.Input})
+    entityFruPowerStatusChangeFailed.EntityData.Leafs = types.NewOrderedMap()
+
+    entityFruPowerStatusChangeFailed.EntityData.YListKeys = []string {}
+
     return &(entityFruPowerStatusChangeFailed.EntityData)
 }
 
@@ -676,9 +745,12 @@ func (input *EntityFruPowerStatusChangeFailed_Input) GetEntityData() *types.Comm
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["entindex"] = types.YLeaf{"Entindex", input.Entindex}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("entindex", types.YLeaf{"Entindex", input.Entindex})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -702,9 +774,12 @@ func (entityFruModuleStatusChangeUp *EntityFruModuleStatusChangeUp) GetEntityDat
     entityFruModuleStatusChangeUp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entityFruModuleStatusChangeUp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entityFruModuleStatusChangeUp.EntityData.Children = make(map[string]types.YChild)
-    entityFruModuleStatusChangeUp.EntityData.Children["input"] = types.YChild{"Input", &entityFruModuleStatusChangeUp.Input}
-    entityFruModuleStatusChangeUp.EntityData.Leafs = make(map[string]types.YLeaf)
+    entityFruModuleStatusChangeUp.EntityData.Children = types.NewOrderedMap()
+    entityFruModuleStatusChangeUp.EntityData.Children.Append("input", types.YChild{"Input", &entityFruModuleStatusChangeUp.Input})
+    entityFruModuleStatusChangeUp.EntityData.Leafs = types.NewOrderedMap()
+
+    entityFruModuleStatusChangeUp.EntityData.YListKeys = []string {}
+
     return &(entityFruModuleStatusChangeUp.EntityData)
 }
 
@@ -728,9 +803,12 @@ func (input *EntityFruModuleStatusChangeUp_Input) GetEntityData() *types.CommonE
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["entindex"] = types.YLeaf{"Entindex", input.Entindex}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("entindex", types.YLeaf{"Entindex", input.Entindex})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -754,9 +832,12 @@ func (entityFruModuleStatusChangeDown *EntityFruModuleStatusChangeDown) GetEntit
     entityFruModuleStatusChangeDown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entityFruModuleStatusChangeDown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entityFruModuleStatusChangeDown.EntityData.Children = make(map[string]types.YChild)
-    entityFruModuleStatusChangeDown.EntityData.Children["input"] = types.YChild{"Input", &entityFruModuleStatusChangeDown.Input}
-    entityFruModuleStatusChangeDown.EntityData.Leafs = make(map[string]types.YLeaf)
+    entityFruModuleStatusChangeDown.EntityData.Children = types.NewOrderedMap()
+    entityFruModuleStatusChangeDown.EntityData.Children.Append("input", types.YChild{"Input", &entityFruModuleStatusChangeDown.Input})
+    entityFruModuleStatusChangeDown.EntityData.Leafs = types.NewOrderedMap()
+
+    entityFruModuleStatusChangeDown.EntityData.YListKeys = []string {}
+
     return &(entityFruModuleStatusChangeDown.EntityData)
 }
 
@@ -780,9 +861,12 @@ func (input *EntityFruModuleStatusChangeDown_Input) GetEntityData() *types.Commo
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["entindex"] = types.YLeaf{"Entindex", input.Entindex}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("entindex", types.YLeaf{"Entindex", input.Entindex})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -806,9 +890,12 @@ func (entityFruFanTrayOperStatusUp *EntityFruFanTrayOperStatusUp) GetEntityData(
     entityFruFanTrayOperStatusUp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entityFruFanTrayOperStatusUp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entityFruFanTrayOperStatusUp.EntityData.Children = make(map[string]types.YChild)
-    entityFruFanTrayOperStatusUp.EntityData.Children["input"] = types.YChild{"Input", &entityFruFanTrayOperStatusUp.Input}
-    entityFruFanTrayOperStatusUp.EntityData.Leafs = make(map[string]types.YLeaf)
+    entityFruFanTrayOperStatusUp.EntityData.Children = types.NewOrderedMap()
+    entityFruFanTrayOperStatusUp.EntityData.Children.Append("input", types.YChild{"Input", &entityFruFanTrayOperStatusUp.Input})
+    entityFruFanTrayOperStatusUp.EntityData.Leafs = types.NewOrderedMap()
+
+    entityFruFanTrayOperStatusUp.EntityData.YListKeys = []string {}
+
     return &(entityFruFanTrayOperStatusUp.EntityData)
 }
 
@@ -832,9 +919,12 @@ func (input *EntityFruFanTrayOperStatusUp_Input) GetEntityData() *types.CommonEn
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["entindex"] = types.YLeaf{"Entindex", input.Entindex}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("entindex", types.YLeaf{"Entindex", input.Entindex})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -858,9 +948,12 @@ func (entityFruFanTrayInserted *EntityFruFanTrayInserted) GetEntityData() *types
     entityFruFanTrayInserted.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entityFruFanTrayInserted.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entityFruFanTrayInserted.EntityData.Children = make(map[string]types.YChild)
-    entityFruFanTrayInserted.EntityData.Children["input"] = types.YChild{"Input", &entityFruFanTrayInserted.Input}
-    entityFruFanTrayInserted.EntityData.Leafs = make(map[string]types.YLeaf)
+    entityFruFanTrayInserted.EntityData.Children = types.NewOrderedMap()
+    entityFruFanTrayInserted.EntityData.Children.Append("input", types.YChild{"Input", &entityFruFanTrayInserted.Input})
+    entityFruFanTrayInserted.EntityData.Leafs = types.NewOrderedMap()
+
+    entityFruFanTrayInserted.EntityData.YListKeys = []string {}
+
     return &(entityFruFanTrayInserted.EntityData)
 }
 
@@ -884,9 +977,12 @@ func (input *EntityFruFanTrayInserted_Input) GetEntityData() *types.CommonEntity
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["entindex"] = types.YLeaf{"Entindex", input.Entindex}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("entindex", types.YLeaf{"Entindex", input.Entindex})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -910,9 +1006,12 @@ func (entityFruFanTrayRemoved *EntityFruFanTrayRemoved) GetEntityData() *types.C
     entityFruFanTrayRemoved.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entityFruFanTrayRemoved.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entityFruFanTrayRemoved.EntityData.Children = make(map[string]types.YChild)
-    entityFruFanTrayRemoved.EntityData.Children["input"] = types.YChild{"Input", &entityFruFanTrayRemoved.Input}
-    entityFruFanTrayRemoved.EntityData.Leafs = make(map[string]types.YLeaf)
+    entityFruFanTrayRemoved.EntityData.Children = types.NewOrderedMap()
+    entityFruFanTrayRemoved.EntityData.Children.Append("input", types.YChild{"Input", &entityFruFanTrayRemoved.Input})
+    entityFruFanTrayRemoved.EntityData.Leafs = types.NewOrderedMap()
+
+    entityFruFanTrayRemoved.EntityData.YListKeys = []string {}
+
     return &(entityFruFanTrayRemoved.EntityData)
 }
 
@@ -936,9 +1035,12 @@ func (input *EntityFruFanTrayRemoved_Input) GetEntityData() *types.CommonEntityD
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["entindex"] = types.YLeaf{"Entindex", input.Entindex}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("entindex", types.YLeaf{"Entindex", input.Entindex})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -962,9 +1064,12 @@ func (platformHfrBundleDownedLink *PlatformHfrBundleDownedLink) GetEntityData() 
     platformHfrBundleDownedLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platformHfrBundleDownedLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    platformHfrBundleDownedLink.EntityData.Children = make(map[string]types.YChild)
-    platformHfrBundleDownedLink.EntityData.Children["input"] = types.YChild{"Input", &platformHfrBundleDownedLink.Input}
-    platformHfrBundleDownedLink.EntityData.Leafs = make(map[string]types.YLeaf)
+    platformHfrBundleDownedLink.EntityData.Children = types.NewOrderedMap()
+    platformHfrBundleDownedLink.EntityData.Children.Append("input", types.YChild{"Input", &platformHfrBundleDownedLink.Input})
+    platformHfrBundleDownedLink.EntityData.Leafs = types.NewOrderedMap()
+
+    platformHfrBundleDownedLink.EntityData.YListKeys = []string {}
+
     return &(platformHfrBundleDownedLink.EntityData)
 }
 
@@ -987,9 +1092,12 @@ func (input *PlatformHfrBundleDownedLink_Input) GetEntityData() *types.CommonEnt
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["bundle-name"] = types.YLeaf{"BundleName", input.BundleName}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("bundle-name", types.YLeaf{"BundleName", input.BundleName})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -1013,9 +1121,12 @@ func (platformHfrBundleState *PlatformHfrBundleState) GetEntityData() *types.Com
     platformHfrBundleState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platformHfrBundleState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    platformHfrBundleState.EntityData.Children = make(map[string]types.YChild)
-    platformHfrBundleState.EntityData.Children["input"] = types.YChild{"Input", &platformHfrBundleState.Input}
-    platformHfrBundleState.EntityData.Leafs = make(map[string]types.YLeaf)
+    platformHfrBundleState.EntityData.Children = types.NewOrderedMap()
+    platformHfrBundleState.EntityData.Children.Append("input", types.YChild{"Input", &platformHfrBundleState.Input})
+    platformHfrBundleState.EntityData.Leafs = types.NewOrderedMap()
+
+    platformHfrBundleState.EntityData.YListKeys = []string {}
+
     return &(platformHfrBundleState.EntityData)
 }
 
@@ -1038,9 +1149,12 @@ func (input *PlatformHfrBundleState_Input) GetEntityData() *types.CommonEntityDa
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["bundle-name"] = types.YLeaf{"BundleName", input.BundleName}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("bundle-name", types.YLeaf{"BundleName", input.BundleName})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -1064,9 +1178,12 @@ func (platformHfrPlaneState *PlatformHfrPlaneState) GetEntityData() *types.Commo
     platformHfrPlaneState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platformHfrPlaneState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    platformHfrPlaneState.EntityData.Children = make(map[string]types.YChild)
-    platformHfrPlaneState.EntityData.Children["input"] = types.YChild{"Input", &platformHfrPlaneState.Input}
-    platformHfrPlaneState.EntityData.Leafs = make(map[string]types.YLeaf)
+    platformHfrPlaneState.EntityData.Children = types.NewOrderedMap()
+    platformHfrPlaneState.EntityData.Children.Append("input", types.YChild{"Input", &platformHfrPlaneState.Input})
+    platformHfrPlaneState.EntityData.Leafs = types.NewOrderedMap()
+
+    platformHfrPlaneState.EntityData.YListKeys = []string {}
+
     return &(platformHfrPlaneState.EntityData)
 }
 
@@ -1090,9 +1207,12 @@ func (input *PlatformHfrPlaneState_Input) GetEntityData() *types.CommonEntityDat
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["plane-id"] = types.YLeaf{"PlaneId", input.PlaneId}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("plane-id", types.YLeaf{"PlaneId", input.PlaneId})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -1113,8 +1233,11 @@ func (routingBgpEstablished *RoutingBgpEstablished) GetEntityData() *types.Commo
     routingBgpEstablished.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingBgpEstablished.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routingBgpEstablished.EntityData.Children = make(map[string]types.YChild)
-    routingBgpEstablished.EntityData.Leafs = make(map[string]types.YLeaf)
+    routingBgpEstablished.EntityData.Children = types.NewOrderedMap()
+    routingBgpEstablished.EntityData.Leafs = types.NewOrderedMap()
+
+    routingBgpEstablished.EntityData.YListKeys = []string {}
+
     return &(routingBgpEstablished.EntityData)
 }
 
@@ -1138,9 +1261,12 @@ func (routingBgpEstablishedRemotePeer *RoutingBgpEstablishedRemotePeer) GetEntit
     routingBgpEstablishedRemotePeer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingBgpEstablishedRemotePeer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routingBgpEstablishedRemotePeer.EntityData.Children = make(map[string]types.YChild)
-    routingBgpEstablishedRemotePeer.EntityData.Children["input"] = types.YChild{"Input", &routingBgpEstablishedRemotePeer.Input}
-    routingBgpEstablishedRemotePeer.EntityData.Leafs = make(map[string]types.YLeaf)
+    routingBgpEstablishedRemotePeer.EntityData.Children = types.NewOrderedMap()
+    routingBgpEstablishedRemotePeer.EntityData.Children.Append("input", types.YChild{"Input", &routingBgpEstablishedRemotePeer.Input})
+    routingBgpEstablishedRemotePeer.EntityData.Leafs = types.NewOrderedMap()
+
+    routingBgpEstablishedRemotePeer.EntityData.YListKeys = []string {}
+
     return &(routingBgpEstablishedRemotePeer.EntityData)
 }
 
@@ -1151,7 +1277,7 @@ type RoutingBgpEstablishedRemotePeer_Input struct {
 
     // BGP remote peer IP address for which to generate the trap. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Address interface{}
 }
@@ -1166,9 +1292,12 @@ func (input *RoutingBgpEstablishedRemotePeer_Input) GetEntityData() *types.Commo
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["address"] = types.YLeaf{"Address", input.Address}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("address", types.YLeaf{"Address", input.Address})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -1189,8 +1318,11 @@ func (routingBgpStateChange *RoutingBgpStateChange) GetEntityData() *types.Commo
     routingBgpStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingBgpStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routingBgpStateChange.EntityData.Children = make(map[string]types.YChild)
-    routingBgpStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
+    routingBgpStateChange.EntityData.Children = types.NewOrderedMap()
+    routingBgpStateChange.EntityData.Leafs = types.NewOrderedMap()
+
+    routingBgpStateChange.EntityData.YListKeys = []string {}
+
     return &(routingBgpStateChange.EntityData)
 }
 
@@ -1214,9 +1346,12 @@ func (routingBgpStateChangeRemotePeer *RoutingBgpStateChangeRemotePeer) GetEntit
     routingBgpStateChangeRemotePeer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingBgpStateChangeRemotePeer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routingBgpStateChangeRemotePeer.EntityData.Children = make(map[string]types.YChild)
-    routingBgpStateChangeRemotePeer.EntityData.Children["input"] = types.YChild{"Input", &routingBgpStateChangeRemotePeer.Input}
-    routingBgpStateChangeRemotePeer.EntityData.Leafs = make(map[string]types.YLeaf)
+    routingBgpStateChangeRemotePeer.EntityData.Children = types.NewOrderedMap()
+    routingBgpStateChangeRemotePeer.EntityData.Children.Append("input", types.YChild{"Input", &routingBgpStateChangeRemotePeer.Input})
+    routingBgpStateChangeRemotePeer.EntityData.Leafs = types.NewOrderedMap()
+
+    routingBgpStateChangeRemotePeer.EntityData.YListKeys = []string {}
+
     return &(routingBgpStateChangeRemotePeer.EntityData)
 }
 
@@ -1227,7 +1362,7 @@ type RoutingBgpStateChangeRemotePeer_Input struct {
 
     // BGP remote peer IP address for which to generate the trap. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Address interface{}
 }
@@ -1242,9 +1377,12 @@ func (input *RoutingBgpStateChangeRemotePeer_Input) GetEntityData() *types.Commo
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["address"] = types.YLeaf{"Address", input.Address}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("address", types.YLeaf{"Address", input.Address})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -1265,8 +1403,11 @@ func (routingOspfNeighborStateChange *RoutingOspfNeighborStateChange) GetEntityD
     routingOspfNeighborStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingOspfNeighborStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routingOspfNeighborStateChange.EntityData.Children = make(map[string]types.YChild)
-    routingOspfNeighborStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
+    routingOspfNeighborStateChange.EntityData.Children = types.NewOrderedMap()
+    routingOspfNeighborStateChange.EntityData.Leafs = types.NewOrderedMap()
+
+    routingOspfNeighborStateChange.EntityData.YListKeys = []string {}
+
     return &(routingOspfNeighborStateChange.EntityData)
 }
 
@@ -1290,9 +1431,12 @@ func (routingOspfNeighborStateChangeAddress *RoutingOspfNeighborStateChangeAddre
     routingOspfNeighborStateChangeAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingOspfNeighborStateChangeAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routingOspfNeighborStateChangeAddress.EntityData.Children = make(map[string]types.YChild)
-    routingOspfNeighborStateChangeAddress.EntityData.Children["input"] = types.YChild{"Input", &routingOspfNeighborStateChangeAddress.Input}
-    routingOspfNeighborStateChangeAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    routingOspfNeighborStateChangeAddress.EntityData.Children = types.NewOrderedMap()
+    routingOspfNeighborStateChangeAddress.EntityData.Children.Append("input", types.YChild{"Input", &routingOspfNeighborStateChangeAddress.Input})
+    routingOspfNeighborStateChangeAddress.EntityData.Leafs = types.NewOrderedMap()
+
+    routingOspfNeighborStateChangeAddress.EntityData.YListKeys = []string {}
+
     return &(routingOspfNeighborStateChangeAddress.EntityData)
 }
 
@@ -1303,7 +1447,7 @@ type RoutingOspfNeighborStateChangeAddress_Input struct {
 
     // neighbor's IP source address for which to generate the trap. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Address interface{}
 
@@ -1323,10 +1467,13 @@ func (input *RoutingOspfNeighborStateChangeAddress_Input) GetEntityData() *types
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["address"] = types.YLeaf{"Address", input.Address}
-    input.EntityData.Leafs["ifindex"] = types.YLeaf{"Ifindex", input.Ifindex}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("address", types.YLeaf{"Address", input.Address})
+    input.EntityData.Leafs.Append("ifindex", types.YLeaf{"Ifindex", input.Ifindex})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -1347,8 +1494,11 @@ func (routingMplsLdpSessionDown *RoutingMplsLdpSessionDown) GetEntityData() *typ
     routingMplsLdpSessionDown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingMplsLdpSessionDown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routingMplsLdpSessionDown.EntityData.Children = make(map[string]types.YChild)
-    routingMplsLdpSessionDown.EntityData.Leafs = make(map[string]types.YLeaf)
+    routingMplsLdpSessionDown.EntityData.Children = types.NewOrderedMap()
+    routingMplsLdpSessionDown.EntityData.Leafs = types.NewOrderedMap()
+
+    routingMplsLdpSessionDown.EntityData.YListKeys = []string {}
+
     return &(routingMplsLdpSessionDown.EntityData)
 }
 
@@ -1372,9 +1522,12 @@ func (routingMplsLdpSessionDownEntityId *RoutingMplsLdpSessionDownEntityId) GetE
     routingMplsLdpSessionDownEntityId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingMplsLdpSessionDownEntityId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routingMplsLdpSessionDownEntityId.EntityData.Children = make(map[string]types.YChild)
-    routingMplsLdpSessionDownEntityId.EntityData.Children["input"] = types.YChild{"Input", &routingMplsLdpSessionDownEntityId.Input}
-    routingMplsLdpSessionDownEntityId.EntityData.Leafs = make(map[string]types.YLeaf)
+    routingMplsLdpSessionDownEntityId.EntityData.Children = types.NewOrderedMap()
+    routingMplsLdpSessionDownEntityId.EntityData.Children.Append("input", types.YChild{"Input", &routingMplsLdpSessionDownEntityId.Input})
+    routingMplsLdpSessionDownEntityId.EntityData.Leafs = types.NewOrderedMap()
+
+    routingMplsLdpSessionDownEntityId.EntityData.YListKeys = []string {}
+
     return &(routingMplsLdpSessionDownEntityId.EntityData)
 }
 
@@ -1408,11 +1561,14 @@ func (input *RoutingMplsLdpSessionDownEntityId_Input) GetEntityData() *types.Com
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["entity-id"] = types.YLeaf{"EntityId", input.EntityId}
-    input.EntityData.Leafs["entity-index"] = types.YLeaf{"EntityIndex", input.EntityIndex}
-    input.EntityData.Leafs["peer-id"] = types.YLeaf{"PeerId", input.PeerId}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("entity-id", types.YLeaf{"EntityId", input.EntityId})
+    input.EntityData.Leafs.Append("entity-index", types.YLeaf{"EntityIndex", input.EntityIndex})
+    input.EntityData.Leafs.Append("peer-id", types.YLeaf{"PeerId", input.PeerId})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -1433,8 +1589,11 @@ func (routingMplsTunnelReRouted *RoutingMplsTunnelReRouted) GetEntityData() *typ
     routingMplsTunnelReRouted.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingMplsTunnelReRouted.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routingMplsTunnelReRouted.EntityData.Children = make(map[string]types.YChild)
-    routingMplsTunnelReRouted.EntityData.Leafs = make(map[string]types.YLeaf)
+    routingMplsTunnelReRouted.EntityData.Children = types.NewOrderedMap()
+    routingMplsTunnelReRouted.EntityData.Leafs = types.NewOrderedMap()
+
+    routingMplsTunnelReRouted.EntityData.YListKeys = []string {}
+
     return &(routingMplsTunnelReRouted.EntityData)
 }
 
@@ -1458,9 +1617,12 @@ func (routingMplsTunnelReRoutedIndex *RoutingMplsTunnelReRoutedIndex) GetEntityD
     routingMplsTunnelReRoutedIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingMplsTunnelReRoutedIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routingMplsTunnelReRoutedIndex.EntityData.Children = make(map[string]types.YChild)
-    routingMplsTunnelReRoutedIndex.EntityData.Children["input"] = types.YChild{"Input", &routingMplsTunnelReRoutedIndex.Input}
-    routingMplsTunnelReRoutedIndex.EntityData.Leafs = make(map[string]types.YLeaf)
+    routingMplsTunnelReRoutedIndex.EntityData.Children = types.NewOrderedMap()
+    routingMplsTunnelReRoutedIndex.EntityData.Children.Append("input", types.YChild{"Input", &routingMplsTunnelReRoutedIndex.Input})
+    routingMplsTunnelReRoutedIndex.EntityData.Leafs = types.NewOrderedMap()
+
+    routingMplsTunnelReRoutedIndex.EntityData.YListKeys = []string {}
+
     return &(routingMplsTunnelReRoutedIndex.EntityData)
 }
 
@@ -1479,13 +1641,13 @@ type RoutingMplsTunnelReRoutedIndex_Input struct {
 
     // source address for which to generate the trap. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Source interface{}
 
     // destination address for which to generate the trap. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Destination interface{}
 }
@@ -1500,12 +1662,15 @@ func (input *RoutingMplsTunnelReRoutedIndex_Input) GetEntityData() *types.Common
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["index"] = types.YLeaf{"Index", input.Index}
-    input.EntityData.Leafs["instance"] = types.YLeaf{"Instance", input.Instance}
-    input.EntityData.Leafs["source"] = types.YLeaf{"Source", input.Source}
-    input.EntityData.Leafs["destination"] = types.YLeaf{"Destination", input.Destination}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("index", types.YLeaf{"Index", input.Index})
+    input.EntityData.Leafs.Append("instance", types.YLeaf{"Instance", input.Instance})
+    input.EntityData.Leafs.Append("source", types.YLeaf{"Source", input.Source})
+    input.EntityData.Leafs.Append("destination", types.YLeaf{"Destination", input.Destination})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -1526,8 +1691,11 @@ func (routingMplsTunnelReOptimized *RoutingMplsTunnelReOptimized) GetEntityData(
     routingMplsTunnelReOptimized.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingMplsTunnelReOptimized.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routingMplsTunnelReOptimized.EntityData.Children = make(map[string]types.YChild)
-    routingMplsTunnelReOptimized.EntityData.Leafs = make(map[string]types.YLeaf)
+    routingMplsTunnelReOptimized.EntityData.Children = types.NewOrderedMap()
+    routingMplsTunnelReOptimized.EntityData.Leafs = types.NewOrderedMap()
+
+    routingMplsTunnelReOptimized.EntityData.YListKeys = []string {}
+
     return &(routingMplsTunnelReOptimized.EntityData)
 }
 
@@ -1551,9 +1719,12 @@ func (routingMplsTunnelReOptimizedIndex *RoutingMplsTunnelReOptimizedIndex) GetE
     routingMplsTunnelReOptimizedIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingMplsTunnelReOptimizedIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routingMplsTunnelReOptimizedIndex.EntityData.Children = make(map[string]types.YChild)
-    routingMplsTunnelReOptimizedIndex.EntityData.Children["input"] = types.YChild{"Input", &routingMplsTunnelReOptimizedIndex.Input}
-    routingMplsTunnelReOptimizedIndex.EntityData.Leafs = make(map[string]types.YLeaf)
+    routingMplsTunnelReOptimizedIndex.EntityData.Children = types.NewOrderedMap()
+    routingMplsTunnelReOptimizedIndex.EntityData.Children.Append("input", types.YChild{"Input", &routingMplsTunnelReOptimizedIndex.Input})
+    routingMplsTunnelReOptimizedIndex.EntityData.Leafs = types.NewOrderedMap()
+
+    routingMplsTunnelReOptimizedIndex.EntityData.YListKeys = []string {}
+
     return &(routingMplsTunnelReOptimizedIndex.EntityData)
 }
 
@@ -1572,13 +1743,13 @@ type RoutingMplsTunnelReOptimizedIndex_Input struct {
 
     // source address for which to generate the trap. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Source interface{}
 
     // destination address for which to generate the trap. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Destination interface{}
 }
@@ -1593,12 +1764,15 @@ func (input *RoutingMplsTunnelReOptimizedIndex_Input) GetEntityData() *types.Com
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["index"] = types.YLeaf{"Index", input.Index}
-    input.EntityData.Leafs["instance"] = types.YLeaf{"Instance", input.Instance}
-    input.EntityData.Leafs["source"] = types.YLeaf{"Source", input.Source}
-    input.EntityData.Leafs["destination"] = types.YLeaf{"Destination", input.Destination}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("index", types.YLeaf{"Index", input.Index})
+    input.EntityData.Leafs.Append("instance", types.YLeaf{"Instance", input.Instance})
+    input.EntityData.Leafs.Append("source", types.YLeaf{"Source", input.Source})
+    input.EntityData.Leafs.Append("destination", types.YLeaf{"Destination", input.Destination})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -1619,8 +1793,11 @@ func (routingMplsTunnelDown *RoutingMplsTunnelDown) GetEntityData() *types.Commo
     routingMplsTunnelDown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingMplsTunnelDown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routingMplsTunnelDown.EntityData.Children = make(map[string]types.YChild)
-    routingMplsTunnelDown.EntityData.Leafs = make(map[string]types.YLeaf)
+    routingMplsTunnelDown.EntityData.Children = types.NewOrderedMap()
+    routingMplsTunnelDown.EntityData.Leafs = types.NewOrderedMap()
+
+    routingMplsTunnelDown.EntityData.YListKeys = []string {}
+
     return &(routingMplsTunnelDown.EntityData)
 }
 
@@ -1644,9 +1821,12 @@ func (routingMplsTunnelDownIndex *RoutingMplsTunnelDownIndex) GetEntityData() *t
     routingMplsTunnelDownIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingMplsTunnelDownIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routingMplsTunnelDownIndex.EntityData.Children = make(map[string]types.YChild)
-    routingMplsTunnelDownIndex.EntityData.Children["input"] = types.YChild{"Input", &routingMplsTunnelDownIndex.Input}
-    routingMplsTunnelDownIndex.EntityData.Leafs = make(map[string]types.YLeaf)
+    routingMplsTunnelDownIndex.EntityData.Children = types.NewOrderedMap()
+    routingMplsTunnelDownIndex.EntityData.Children.Append("input", types.YChild{"Input", &routingMplsTunnelDownIndex.Input})
+    routingMplsTunnelDownIndex.EntityData.Leafs = types.NewOrderedMap()
+
+    routingMplsTunnelDownIndex.EntityData.YListKeys = []string {}
+
     return &(routingMplsTunnelDownIndex.EntityData)
 }
 
@@ -1664,13 +1844,13 @@ type RoutingMplsTunnelDownIndex_Input struct {
     Instance interface{}
 
     // src address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Source interface{}
 
     // destination address for which to generate the trap. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Destination interface{}
 }
@@ -1685,12 +1865,15 @@ func (input *RoutingMplsTunnelDownIndex_Input) GetEntityData() *types.CommonEnti
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["index"] = types.YLeaf{"Index", input.Index}
-    input.EntityData.Leafs["instance"] = types.YLeaf{"Instance", input.Instance}
-    input.EntityData.Leafs["source"] = types.YLeaf{"Source", input.Source}
-    input.EntityData.Leafs["destination"] = types.YLeaf{"Destination", input.Destination}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("index", types.YLeaf{"Index", input.Index})
+    input.EntityData.Leafs.Append("instance", types.YLeaf{"Instance", input.Instance})
+    input.EntityData.Leafs.Append("source", types.YLeaf{"Source", input.Source})
+    input.EntityData.Leafs.Append("destination", types.YLeaf{"Destination", input.Destination})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -1711,8 +1894,11 @@ func (all *All) GetEntityData() *types.CommonEntityData {
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    all.EntityData.Children = make(map[string]types.YChild)
-    all.EntityData.Leafs = make(map[string]types.YLeaf)
+    all.EntityData.Children = types.NewOrderedMap()
+    all.EntityData.Leafs = types.NewOrderedMap()
+
+    all.EntityData.YListKeys = []string {}
+
     return &(all.EntityData)
 }
 

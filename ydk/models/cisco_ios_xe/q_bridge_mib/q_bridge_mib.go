@@ -30,42 +30,42 @@ type QBRIDGEMIB struct {
     YFilter yfilter.YFilter
 
     
-    Dot1Qbase QBRIDGEMIB_Dot1Qbase
+    Dot1qBase QBRIDGEMIB_Dot1qBase
 
     
-    Dot1Qvlan QBRIDGEMIB_Dot1Qvlan
+    Dot1qVlan QBRIDGEMIB_Dot1qVlan
 
     // A table that contains configuration and control information for each
     // Filtering Database currently operating on this device.  Entries in this
     // table appear automatically when VLANs are assigned FDB IDs in the
     // dot1qVlanCurrentTable.
-    Dot1Qfdbtable QBRIDGEMIB_Dot1Qfdbtable
+    Dot1qFdbTable QBRIDGEMIB_Dot1qFdbTable
 
     // A table that contains information about unicast entries for which the
     // device has forwarding and/or filtering information.  This information is
     // used by the transparent bridging function in determining how to propagate a
     // received frame.
-    Dot1Qtpfdbtable QBRIDGEMIB_Dot1Qtpfdbtable
+    Dot1qTpFdbTable QBRIDGEMIB_Dot1qTpFdbTable
 
     // A table containing filtering information for VLANs configured into the
     // bridge by (local or network) management, or learned dynamically, specifying
     // the set of ports to which frames received on a VLAN for this FDB and
     // containing a specific Group destination address are allowed to be
     // forwarded.
-    Dot1Qtpgrouptable QBRIDGEMIB_Dot1Qtpgrouptable
+    Dot1qTpGroupTable QBRIDGEMIB_Dot1qTpGroupTable
 
     // A table containing forwarding information for each  VLAN, specifying the
     // set of ports to which forwarding of all multicasts applies, configured
     // statically by management or dynamically by GMRP.  An entry appears in this
     // table for all VLANs that are currently instantiated.
-    Dot1Qforwardalltable QBRIDGEMIB_Dot1Qforwardalltable
+    Dot1qForwardAllTable QBRIDGEMIB_Dot1qForwardAllTable
 
     // A table containing forwarding information for each VLAN, specifying the set
     // of ports to which forwarding of multicast group-addressed frames for which
     // no more specific forwarding information applies.  This is configured
     // statically by management and determined dynamically by GMRP.  An entry
     // appears in this table for all VLANs that are currently instantiated.
-    Dot1Qforwardunregisteredtable QBRIDGEMIB_Dot1Qforwardunregisteredtable
+    Dot1qForwardUnregisteredTable QBRIDGEMIB_Dot1qForwardUnregisteredTable
 
     // A table containing filtering information for Unicast MAC addresses for each
     // Filtering Database, configured into the device by (local or network)
@@ -76,7 +76,7 @@ type QBRIDGEMIB struct {
     // used to specify all ports for which there is no specific entry in this
     // table for that particular destination address.  Entries are valid for
     // unicast addresses only.
-    Dot1Qstaticunicasttable QBRIDGEMIB_Dot1Qstaticunicasttable
+    Dot1qStaticUnicastTable QBRIDGEMIB_Dot1qStaticUnicastTable
 
     // A table containing filtering information for Multicast and Broadcast MAC
     // addresses for each VLAN, configured into the device by (local or network)
@@ -87,17 +87,17 @@ type QBRIDGEMIB struct {
     // received) is used to specify all ports for which there is no specific entry
     // in this table for that particular destination address.  Entries are valid
     // for Multicast and Broadcast addresses only.
-    Dot1Qstaticmulticasttable QBRIDGEMIB_Dot1Qstaticmulticasttable
+    Dot1qStaticMulticastTable QBRIDGEMIB_Dot1qStaticMulticastTable
 
     // A table containing current configuration information for each VLAN
     // currently configured into the device by (local or network) management, or
     // dynamically created as a result of GVRP requests received.
-    Dot1Qvlancurrenttable QBRIDGEMIB_Dot1Qvlancurrenttable
+    Dot1qVlanCurrentTable QBRIDGEMIB_Dot1qVlanCurrentTable
 
     // A table containing static configuration information for each VLAN
     // configured into the device by (local or network) management.  All entries
     // are permanent and will be restored after the device is reset.
-    Dot1Qvlanstatictable QBRIDGEMIB_Dot1Qvlanstatictable
+    Dot1qVlanStaticTable QBRIDGEMIB_Dot1qVlanStaticTable
 
     // A table containing per-port, per-VLAN statistics for traffic received. 
     // Separate objects are provided for both the most-significant and
@@ -111,23 +111,23 @@ type QBRIDGEMIB struct {
     // sampling. The manager must be aware of this possibility, even within the
     // same varbindlist, when interpreting the results of a request or 
     // asynchronous notification.
-    Dot1Qportvlanstatisticstable QBRIDGEMIB_Dot1Qportvlanstatisticstable
+    Dot1qPortVlanStatisticsTable QBRIDGEMIB_Dot1qPortVlanStatisticsTable
 
     // A table containing per-port, per-VLAN statistics for traffic on
     // high-capacity interfaces.
-    Dot1Qportvlanhcstatisticstable QBRIDGEMIB_Dot1Qportvlanhcstatisticstable
+    Dot1qPortVlanHCStatisticsTable QBRIDGEMIB_Dot1qPortVlanHCStatisticsTable
 
     // A table containing learning constraints for sets of Shared and Independent
     // VLANs.
-    Dot1Qlearningconstraintstable QBRIDGEMIB_Dot1Qlearningconstraintstable
+    Dot1qLearningConstraintsTable QBRIDGEMIB_Dot1qLearningConstraintsTable
 
     // A table that contains mappings from Protocol Templates to Protocol Group
     // Identifiers used for Port-and-Protocol-based VLAN Classification.
-    Dot1Vprotocolgrouptable QBRIDGEMIB_Dot1Vprotocolgrouptable
+    Dot1vProtocolGroupTable QBRIDGEMIB_Dot1vProtocolGroupTable
 
     // A table that contains VID sets used for Port-and-Protocol-based VLAN
     // Classification.
-    Dot1Vprotocolporttable QBRIDGEMIB_Dot1Vprotocolporttable
+    Dot1vProtocolPortTable QBRIDGEMIB_Dot1vProtocolPortTable
 }
 
 func (qBRIDGEMIB *QBRIDGEMIB) GetEntityData() *types.CommonEntityData {
@@ -140,47 +140,50 @@ func (qBRIDGEMIB *QBRIDGEMIB) GetEntityData() *types.CommonEntityData {
     qBRIDGEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qBRIDGEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    qBRIDGEMIB.EntityData.Children = make(map[string]types.YChild)
-    qBRIDGEMIB.EntityData.Children["dot1qBase"] = types.YChild{"Dot1Qbase", &qBRIDGEMIB.Dot1Qbase}
-    qBRIDGEMIB.EntityData.Children["dot1qVlan"] = types.YChild{"Dot1Qvlan", &qBRIDGEMIB.Dot1Qvlan}
-    qBRIDGEMIB.EntityData.Children["dot1qFdbTable"] = types.YChild{"Dot1Qfdbtable", &qBRIDGEMIB.Dot1Qfdbtable}
-    qBRIDGEMIB.EntityData.Children["dot1qTpFdbTable"] = types.YChild{"Dot1Qtpfdbtable", &qBRIDGEMIB.Dot1Qtpfdbtable}
-    qBRIDGEMIB.EntityData.Children["dot1qTpGroupTable"] = types.YChild{"Dot1Qtpgrouptable", &qBRIDGEMIB.Dot1Qtpgrouptable}
-    qBRIDGEMIB.EntityData.Children["dot1qForwardAllTable"] = types.YChild{"Dot1Qforwardalltable", &qBRIDGEMIB.Dot1Qforwardalltable}
-    qBRIDGEMIB.EntityData.Children["dot1qForwardUnregisteredTable"] = types.YChild{"Dot1Qforwardunregisteredtable", &qBRIDGEMIB.Dot1Qforwardunregisteredtable}
-    qBRIDGEMIB.EntityData.Children["dot1qStaticUnicastTable"] = types.YChild{"Dot1Qstaticunicasttable", &qBRIDGEMIB.Dot1Qstaticunicasttable}
-    qBRIDGEMIB.EntityData.Children["dot1qStaticMulticastTable"] = types.YChild{"Dot1Qstaticmulticasttable", &qBRIDGEMIB.Dot1Qstaticmulticasttable}
-    qBRIDGEMIB.EntityData.Children["dot1qVlanCurrentTable"] = types.YChild{"Dot1Qvlancurrenttable", &qBRIDGEMIB.Dot1Qvlancurrenttable}
-    qBRIDGEMIB.EntityData.Children["dot1qVlanStaticTable"] = types.YChild{"Dot1Qvlanstatictable", &qBRIDGEMIB.Dot1Qvlanstatictable}
-    qBRIDGEMIB.EntityData.Children["dot1qPortVlanStatisticsTable"] = types.YChild{"Dot1Qportvlanstatisticstable", &qBRIDGEMIB.Dot1Qportvlanstatisticstable}
-    qBRIDGEMIB.EntityData.Children["dot1qPortVlanHCStatisticsTable"] = types.YChild{"Dot1Qportvlanhcstatisticstable", &qBRIDGEMIB.Dot1Qportvlanhcstatisticstable}
-    qBRIDGEMIB.EntityData.Children["dot1qLearningConstraintsTable"] = types.YChild{"Dot1Qlearningconstraintstable", &qBRIDGEMIB.Dot1Qlearningconstraintstable}
-    qBRIDGEMIB.EntityData.Children["dot1vProtocolGroupTable"] = types.YChild{"Dot1Vprotocolgrouptable", &qBRIDGEMIB.Dot1Vprotocolgrouptable}
-    qBRIDGEMIB.EntityData.Children["dot1vProtocolPortTable"] = types.YChild{"Dot1Vprotocolporttable", &qBRIDGEMIB.Dot1Vprotocolporttable}
-    qBRIDGEMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    qBRIDGEMIB.EntityData.Children = types.NewOrderedMap()
+    qBRIDGEMIB.EntityData.Children.Append("dot1qBase", types.YChild{"Dot1qBase", &qBRIDGEMIB.Dot1qBase})
+    qBRIDGEMIB.EntityData.Children.Append("dot1qVlan", types.YChild{"Dot1qVlan", &qBRIDGEMIB.Dot1qVlan})
+    qBRIDGEMIB.EntityData.Children.Append("dot1qFdbTable", types.YChild{"Dot1qFdbTable", &qBRIDGEMIB.Dot1qFdbTable})
+    qBRIDGEMIB.EntityData.Children.Append("dot1qTpFdbTable", types.YChild{"Dot1qTpFdbTable", &qBRIDGEMIB.Dot1qTpFdbTable})
+    qBRIDGEMIB.EntityData.Children.Append("dot1qTpGroupTable", types.YChild{"Dot1qTpGroupTable", &qBRIDGEMIB.Dot1qTpGroupTable})
+    qBRIDGEMIB.EntityData.Children.Append("dot1qForwardAllTable", types.YChild{"Dot1qForwardAllTable", &qBRIDGEMIB.Dot1qForwardAllTable})
+    qBRIDGEMIB.EntityData.Children.Append("dot1qForwardUnregisteredTable", types.YChild{"Dot1qForwardUnregisteredTable", &qBRIDGEMIB.Dot1qForwardUnregisteredTable})
+    qBRIDGEMIB.EntityData.Children.Append("dot1qStaticUnicastTable", types.YChild{"Dot1qStaticUnicastTable", &qBRIDGEMIB.Dot1qStaticUnicastTable})
+    qBRIDGEMIB.EntityData.Children.Append("dot1qStaticMulticastTable", types.YChild{"Dot1qStaticMulticastTable", &qBRIDGEMIB.Dot1qStaticMulticastTable})
+    qBRIDGEMIB.EntityData.Children.Append("dot1qVlanCurrentTable", types.YChild{"Dot1qVlanCurrentTable", &qBRIDGEMIB.Dot1qVlanCurrentTable})
+    qBRIDGEMIB.EntityData.Children.Append("dot1qVlanStaticTable", types.YChild{"Dot1qVlanStaticTable", &qBRIDGEMIB.Dot1qVlanStaticTable})
+    qBRIDGEMIB.EntityData.Children.Append("dot1qPortVlanStatisticsTable", types.YChild{"Dot1qPortVlanStatisticsTable", &qBRIDGEMIB.Dot1qPortVlanStatisticsTable})
+    qBRIDGEMIB.EntityData.Children.Append("dot1qPortVlanHCStatisticsTable", types.YChild{"Dot1qPortVlanHCStatisticsTable", &qBRIDGEMIB.Dot1qPortVlanHCStatisticsTable})
+    qBRIDGEMIB.EntityData.Children.Append("dot1qLearningConstraintsTable", types.YChild{"Dot1qLearningConstraintsTable", &qBRIDGEMIB.Dot1qLearningConstraintsTable})
+    qBRIDGEMIB.EntityData.Children.Append("dot1vProtocolGroupTable", types.YChild{"Dot1vProtocolGroupTable", &qBRIDGEMIB.Dot1vProtocolGroupTable})
+    qBRIDGEMIB.EntityData.Children.Append("dot1vProtocolPortTable", types.YChild{"Dot1vProtocolPortTable", &qBRIDGEMIB.Dot1vProtocolPortTable})
+    qBRIDGEMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    qBRIDGEMIB.EntityData.YListKeys = []string {}
+
     return &(qBRIDGEMIB.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qbase
-type QBRIDGEMIB_Dot1Qbase struct {
+// QBRIDGEMIB_Dot1qBase
+type QBRIDGEMIB_Dot1qBase struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The version number of IEEE 802.1Q that this device supports. The type is
-    // Dot1Qvlanversionnumber.
-    Dot1Qvlanversionnumber interface{}
+    // Dot1qVlanVersionNumber.
+    Dot1qVlanVersionNumber interface{}
 
     // The maximum IEEE 802.1Q VLAN-ID that this device  supports. The type is
     // interface{} with range: 1..4094.
-    Dot1Qmaxvlanid interface{}
+    Dot1qMaxVlanId interface{}
 
     // The maximum number of IEEE 802.1Q VLANs that this device supports. The type
     // is interface{} with range: 0..4294967295.
-    Dot1Qmaxsupportedvlans interface{}
+    Dot1qMaxSupportedVlans interface{}
 
     // The current number of IEEE 802.1Q VLANs that are configured in this device.
     // The type is interface{} with range: 0..4294967295.
-    Dot1Qnumvlans interface{}
+    Dot1qNumVlans interface{}
 
     // The administrative status requested by management for GVRP.  The value
     // enabled(1) indicates that GVRP should be enabled on this device, on all
@@ -191,38 +194,41 @@ type QBRIDGEMIB_Dot1Qbase struct {
     // of all GVRP state machines on all ports.  The value of this object MUST be
     // retained across reinitializations of the management system. The type is
     // EnabledStatus.
-    Dot1Qgvrpstatus interface{}
+    Dot1qGvrpStatus interface{}
 }
 
-func (dot1Qbase *QBRIDGEMIB_Dot1Qbase) GetEntityData() *types.CommonEntityData {
-    dot1Qbase.EntityData.YFilter = dot1Qbase.YFilter
-    dot1Qbase.EntityData.YangName = "dot1qBase"
-    dot1Qbase.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qbase.EntityData.ParentYangName = "Q-BRIDGE-MIB"
-    dot1Qbase.EntityData.SegmentPath = "dot1qBase"
-    dot1Qbase.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qbase.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qbase.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qBase *QBRIDGEMIB_Dot1qBase) GetEntityData() *types.CommonEntityData {
+    dot1qBase.EntityData.YFilter = dot1qBase.YFilter
+    dot1qBase.EntityData.YangName = "dot1qBase"
+    dot1qBase.EntityData.BundleName = "cisco_ios_xe"
+    dot1qBase.EntityData.ParentYangName = "Q-BRIDGE-MIB"
+    dot1qBase.EntityData.SegmentPath = "dot1qBase"
+    dot1qBase.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qBase.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qBase.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qbase.EntityData.Children = make(map[string]types.YChild)
-    dot1Qbase.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1Qbase.EntityData.Leafs["dot1qVlanVersionNumber"] = types.YLeaf{"Dot1Qvlanversionnumber", dot1Qbase.Dot1Qvlanversionnumber}
-    dot1Qbase.EntityData.Leafs["dot1qMaxVlanId"] = types.YLeaf{"Dot1Qmaxvlanid", dot1Qbase.Dot1Qmaxvlanid}
-    dot1Qbase.EntityData.Leafs["dot1qMaxSupportedVlans"] = types.YLeaf{"Dot1Qmaxsupportedvlans", dot1Qbase.Dot1Qmaxsupportedvlans}
-    dot1Qbase.EntityData.Leafs["dot1qNumVlans"] = types.YLeaf{"Dot1Qnumvlans", dot1Qbase.Dot1Qnumvlans}
-    dot1Qbase.EntityData.Leafs["dot1qGvrpStatus"] = types.YLeaf{"Dot1Qgvrpstatus", dot1Qbase.Dot1Qgvrpstatus}
-    return &(dot1Qbase.EntityData)
+    dot1qBase.EntityData.Children = types.NewOrderedMap()
+    dot1qBase.EntityData.Leafs = types.NewOrderedMap()
+    dot1qBase.EntityData.Leafs.Append("dot1qVlanVersionNumber", types.YLeaf{"Dot1qVlanVersionNumber", dot1qBase.Dot1qVlanVersionNumber})
+    dot1qBase.EntityData.Leafs.Append("dot1qMaxVlanId", types.YLeaf{"Dot1qMaxVlanId", dot1qBase.Dot1qMaxVlanId})
+    dot1qBase.EntityData.Leafs.Append("dot1qMaxSupportedVlans", types.YLeaf{"Dot1qMaxSupportedVlans", dot1qBase.Dot1qMaxSupportedVlans})
+    dot1qBase.EntityData.Leafs.Append("dot1qNumVlans", types.YLeaf{"Dot1qNumVlans", dot1qBase.Dot1qNumVlans})
+    dot1qBase.EntityData.Leafs.Append("dot1qGvrpStatus", types.YLeaf{"Dot1qGvrpStatus", dot1qBase.Dot1qGvrpStatus})
+
+    dot1qBase.EntityData.YListKeys = []string {}
+
+    return &(dot1qBase.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qbase_Dot1Qvlanversionnumber represents supports.
-type QBRIDGEMIB_Dot1Qbase_Dot1Qvlanversionnumber string
+// QBRIDGEMIB_Dot1qBase_Dot1qVlanVersionNumber represents supports.
+type QBRIDGEMIB_Dot1qBase_Dot1qVlanVersionNumber string
 
 const (
-    QBRIDGEMIB_Dot1Qbase_Dot1Qvlanversionnumber_version1 QBRIDGEMIB_Dot1Qbase_Dot1Qvlanversionnumber = "version1"
+    QBRIDGEMIB_Dot1qBase_Dot1qVlanVersionNumber_version1 QBRIDGEMIB_Dot1qBase_Dot1qVlanVersionNumber = "version1"
 )
 
-// QBRIDGEMIB_Dot1Qvlan
-type QBRIDGEMIB_Dot1Qvlan struct {
+// QBRIDGEMIB_Dot1qVlan
+type QBRIDGEMIB_Dot1qVlan struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -230,7 +236,7 @@ type QBRIDGEMIB_Dot1Qvlan struct {
     // dot1qVlanCurrentTable (for any reason).  If an entry is deleted, then
     // inserted, and then deleted, this counter will be incremented by 2. The type
     // is interface{} with range: 0..4294967295.
-    Dot1Qvlannumdeletes interface{}
+    Dot1qVlanNumDeletes interface{}
 
     // The next available value for dot1qVlanIndex of a local VLAN entry in
     // dot1qVlanStaticTable.  This will report values >=4096 if a new Local VLAN
@@ -244,167 +250,179 @@ type QBRIDGEMIB_Dot1Qvlan struct {
     // with the new value.  This value will automatically change when the current
     // value is used to create a new row. The type is interface{} with range:
     // 0..None | 4096..2147483647.
-    Dot1Qnextfreelocalvlanindex interface{}
+    Dot1qNextFreeLocalVlanIndex interface{}
 
     // The identity of the constraint set to which a VLAN belongs, if there is not
     // an explicit entry for that VLAN in dot1qLearningConstraintsTable.  The
     // value of this object MUST be retained across reinitializations of the
     // management system. The type is interface{} with range: 0..65535.
-    Dot1Qconstraintsetdefault interface{}
+    Dot1qConstraintSetDefault interface{}
 
     // The type of constraint set to which a VLAN belongs, if there is not an
     // explicit entry for that VLAN in dot1qLearningConstraintsTable.  The types
     // are as defined for dot1qConstraintType.  The value of this object MUST be
     // retained across  reinitializations of the management system. The type is
-    // Dot1Qconstrainttypedefault.
-    Dot1Qconstrainttypedefault interface{}
+    // Dot1qConstraintTypeDefault.
+    Dot1qConstraintTypeDefault interface{}
 }
 
-func (dot1Qvlan *QBRIDGEMIB_Dot1Qvlan) GetEntityData() *types.CommonEntityData {
-    dot1Qvlan.EntityData.YFilter = dot1Qvlan.YFilter
-    dot1Qvlan.EntityData.YangName = "dot1qVlan"
-    dot1Qvlan.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qvlan.EntityData.ParentYangName = "Q-BRIDGE-MIB"
-    dot1Qvlan.EntityData.SegmentPath = "dot1qVlan"
-    dot1Qvlan.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qvlan.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qvlan.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qVlan *QBRIDGEMIB_Dot1qVlan) GetEntityData() *types.CommonEntityData {
+    dot1qVlan.EntityData.YFilter = dot1qVlan.YFilter
+    dot1qVlan.EntityData.YangName = "dot1qVlan"
+    dot1qVlan.EntityData.BundleName = "cisco_ios_xe"
+    dot1qVlan.EntityData.ParentYangName = "Q-BRIDGE-MIB"
+    dot1qVlan.EntityData.SegmentPath = "dot1qVlan"
+    dot1qVlan.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qVlan.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qVlan.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qvlan.EntityData.Children = make(map[string]types.YChild)
-    dot1Qvlan.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1Qvlan.EntityData.Leafs["dot1qVlanNumDeletes"] = types.YLeaf{"Dot1Qvlannumdeletes", dot1Qvlan.Dot1Qvlannumdeletes}
-    dot1Qvlan.EntityData.Leafs["dot1qNextFreeLocalVlanIndex"] = types.YLeaf{"Dot1Qnextfreelocalvlanindex", dot1Qvlan.Dot1Qnextfreelocalvlanindex}
-    dot1Qvlan.EntityData.Leafs["dot1qConstraintSetDefault"] = types.YLeaf{"Dot1Qconstraintsetdefault", dot1Qvlan.Dot1Qconstraintsetdefault}
-    dot1Qvlan.EntityData.Leafs["dot1qConstraintTypeDefault"] = types.YLeaf{"Dot1Qconstrainttypedefault", dot1Qvlan.Dot1Qconstrainttypedefault}
-    return &(dot1Qvlan.EntityData)
+    dot1qVlan.EntityData.Children = types.NewOrderedMap()
+    dot1qVlan.EntityData.Leafs = types.NewOrderedMap()
+    dot1qVlan.EntityData.Leafs.Append("dot1qVlanNumDeletes", types.YLeaf{"Dot1qVlanNumDeletes", dot1qVlan.Dot1qVlanNumDeletes})
+    dot1qVlan.EntityData.Leafs.Append("dot1qNextFreeLocalVlanIndex", types.YLeaf{"Dot1qNextFreeLocalVlanIndex", dot1qVlan.Dot1qNextFreeLocalVlanIndex})
+    dot1qVlan.EntityData.Leafs.Append("dot1qConstraintSetDefault", types.YLeaf{"Dot1qConstraintSetDefault", dot1qVlan.Dot1qConstraintSetDefault})
+    dot1qVlan.EntityData.Leafs.Append("dot1qConstraintTypeDefault", types.YLeaf{"Dot1qConstraintTypeDefault", dot1qVlan.Dot1qConstraintTypeDefault})
+
+    dot1qVlan.EntityData.YListKeys = []string {}
+
+    return &(dot1qVlan.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qvlan_Dot1Qconstrainttypedefault represents reinitializations of the management system.
-type QBRIDGEMIB_Dot1Qvlan_Dot1Qconstrainttypedefault string
+// QBRIDGEMIB_Dot1qVlan_Dot1qConstraintTypeDefault represents reinitializations of the management system.
+type QBRIDGEMIB_Dot1qVlan_Dot1qConstraintTypeDefault string
 
 const (
-    QBRIDGEMIB_Dot1Qvlan_Dot1Qconstrainttypedefault_independent QBRIDGEMIB_Dot1Qvlan_Dot1Qconstrainttypedefault = "independent"
+    QBRIDGEMIB_Dot1qVlan_Dot1qConstraintTypeDefault_independent QBRIDGEMIB_Dot1qVlan_Dot1qConstraintTypeDefault = "independent"
 
-    QBRIDGEMIB_Dot1Qvlan_Dot1Qconstrainttypedefault_shared QBRIDGEMIB_Dot1Qvlan_Dot1Qconstrainttypedefault = "shared"
+    QBRIDGEMIB_Dot1qVlan_Dot1qConstraintTypeDefault_shared QBRIDGEMIB_Dot1qVlan_Dot1qConstraintTypeDefault = "shared"
 )
 
-// QBRIDGEMIB_Dot1Qfdbtable
+// QBRIDGEMIB_Dot1qFdbTable
 // A table that contains configuration and control
 // information for each Filtering Database currently
 // operating on this device.  Entries in this table appear
 // automatically when VLANs are assigned FDB IDs in the
 // dot1qVlanCurrentTable.
-type QBRIDGEMIB_Dot1Qfdbtable struct {
+type QBRIDGEMIB_Dot1qFdbTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a specific Filtering Database. The type is slice of
-    // QBRIDGEMIB_Dot1Qfdbtable_Dot1Qfdbentry.
-    Dot1Qfdbentry []QBRIDGEMIB_Dot1Qfdbtable_Dot1Qfdbentry
+    // QBRIDGEMIB_Dot1qFdbTable_Dot1qFdbEntry.
+    Dot1qFdbEntry []*QBRIDGEMIB_Dot1qFdbTable_Dot1qFdbEntry
 }
 
-func (dot1Qfdbtable *QBRIDGEMIB_Dot1Qfdbtable) GetEntityData() *types.CommonEntityData {
-    dot1Qfdbtable.EntityData.YFilter = dot1Qfdbtable.YFilter
-    dot1Qfdbtable.EntityData.YangName = "dot1qFdbTable"
-    dot1Qfdbtable.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qfdbtable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
-    dot1Qfdbtable.EntityData.SegmentPath = "dot1qFdbTable"
-    dot1Qfdbtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qfdbtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qfdbtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qFdbTable *QBRIDGEMIB_Dot1qFdbTable) GetEntityData() *types.CommonEntityData {
+    dot1qFdbTable.EntityData.YFilter = dot1qFdbTable.YFilter
+    dot1qFdbTable.EntityData.YangName = "dot1qFdbTable"
+    dot1qFdbTable.EntityData.BundleName = "cisco_ios_xe"
+    dot1qFdbTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
+    dot1qFdbTable.EntityData.SegmentPath = "dot1qFdbTable"
+    dot1qFdbTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qFdbTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qFdbTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qfdbtable.EntityData.Children = make(map[string]types.YChild)
-    dot1Qfdbtable.EntityData.Children["dot1qFdbEntry"] = types.YChild{"Dot1Qfdbentry", nil}
-    for i := range dot1Qfdbtable.Dot1Qfdbentry {
-        dot1Qfdbtable.EntityData.Children[types.GetSegmentPath(&dot1Qfdbtable.Dot1Qfdbentry[i])] = types.YChild{"Dot1Qfdbentry", &dot1Qfdbtable.Dot1Qfdbentry[i]}
+    dot1qFdbTable.EntityData.Children = types.NewOrderedMap()
+    dot1qFdbTable.EntityData.Children.Append("dot1qFdbEntry", types.YChild{"Dot1qFdbEntry", nil})
+    for i := range dot1qFdbTable.Dot1qFdbEntry {
+        dot1qFdbTable.EntityData.Children.Append(types.GetSegmentPath(dot1qFdbTable.Dot1qFdbEntry[i]), types.YChild{"Dot1qFdbEntry", dot1qFdbTable.Dot1qFdbEntry[i]})
     }
-    dot1Qfdbtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dot1Qfdbtable.EntityData)
+    dot1qFdbTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dot1qFdbTable.EntityData.YListKeys = []string {}
+
+    return &(dot1qFdbTable.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qfdbtable_Dot1Qfdbentry
+// QBRIDGEMIB_Dot1qFdbTable_Dot1qFdbEntry
 // Information about a specific Filtering Database.
-type QBRIDGEMIB_Dot1Qfdbtable_Dot1Qfdbentry struct {
+type QBRIDGEMIB_Dot1qFdbTable_Dot1qFdbEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The identity of this Filtering Database. The type
     // is interface{} with range: 0..4294967295.
-    Dot1Qfdbid interface{}
+    Dot1qFdbId interface{}
 
     // The current number of dynamic entries in this Filtering Database. The type
     // is interface{} with range: 0..4294967295.
-    Dot1Qfdbdynamiccount interface{}
+    Dot1qFdbDynamicCount interface{}
 }
 
-func (dot1Qfdbentry *QBRIDGEMIB_Dot1Qfdbtable_Dot1Qfdbentry) GetEntityData() *types.CommonEntityData {
-    dot1Qfdbentry.EntityData.YFilter = dot1Qfdbentry.YFilter
-    dot1Qfdbentry.EntityData.YangName = "dot1qFdbEntry"
-    dot1Qfdbentry.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qfdbentry.EntityData.ParentYangName = "dot1qFdbTable"
-    dot1Qfdbentry.EntityData.SegmentPath = "dot1qFdbEntry" + "[dot1qFdbId='" + fmt.Sprintf("%v", dot1Qfdbentry.Dot1Qfdbid) + "']"
-    dot1Qfdbentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qfdbentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qfdbentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qFdbEntry *QBRIDGEMIB_Dot1qFdbTable_Dot1qFdbEntry) GetEntityData() *types.CommonEntityData {
+    dot1qFdbEntry.EntityData.YFilter = dot1qFdbEntry.YFilter
+    dot1qFdbEntry.EntityData.YangName = "dot1qFdbEntry"
+    dot1qFdbEntry.EntityData.BundleName = "cisco_ios_xe"
+    dot1qFdbEntry.EntityData.ParentYangName = "dot1qFdbTable"
+    dot1qFdbEntry.EntityData.SegmentPath = "dot1qFdbEntry" + types.AddKeyToken(dot1qFdbEntry.Dot1qFdbId, "dot1qFdbId")
+    dot1qFdbEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qFdbEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qFdbEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qfdbentry.EntityData.Children = make(map[string]types.YChild)
-    dot1Qfdbentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1Qfdbentry.EntityData.Leafs["dot1qFdbId"] = types.YLeaf{"Dot1Qfdbid", dot1Qfdbentry.Dot1Qfdbid}
-    dot1Qfdbentry.EntityData.Leafs["dot1qFdbDynamicCount"] = types.YLeaf{"Dot1Qfdbdynamiccount", dot1Qfdbentry.Dot1Qfdbdynamiccount}
-    return &(dot1Qfdbentry.EntityData)
+    dot1qFdbEntry.EntityData.Children = types.NewOrderedMap()
+    dot1qFdbEntry.EntityData.Leafs = types.NewOrderedMap()
+    dot1qFdbEntry.EntityData.Leafs.Append("dot1qFdbId", types.YLeaf{"Dot1qFdbId", dot1qFdbEntry.Dot1qFdbId})
+    dot1qFdbEntry.EntityData.Leafs.Append("dot1qFdbDynamicCount", types.YLeaf{"Dot1qFdbDynamicCount", dot1qFdbEntry.Dot1qFdbDynamicCount})
+
+    dot1qFdbEntry.EntityData.YListKeys = []string {"Dot1qFdbId"}
+
+    return &(dot1qFdbEntry.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qtpfdbtable
+// QBRIDGEMIB_Dot1qTpFdbTable
 // A table that contains information about unicast entries
 // for which the device has forwarding and/or filtering
 // information.  This information is used by the
 // transparent bridging function in determining how to
 // propagate a received frame.
-type QBRIDGEMIB_Dot1Qtpfdbtable struct {
+type QBRIDGEMIB_Dot1qTpFdbTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a specific unicast MAC address for which the device has
     // some forwarding and/or filtering information. The type is slice of
-    // QBRIDGEMIB_Dot1Qtpfdbtable_Dot1Qtpfdbentry.
-    Dot1Qtpfdbentry []QBRIDGEMIB_Dot1Qtpfdbtable_Dot1Qtpfdbentry
+    // QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry.
+    Dot1qTpFdbEntry []*QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry
 }
 
-func (dot1Qtpfdbtable *QBRIDGEMIB_Dot1Qtpfdbtable) GetEntityData() *types.CommonEntityData {
-    dot1Qtpfdbtable.EntityData.YFilter = dot1Qtpfdbtable.YFilter
-    dot1Qtpfdbtable.EntityData.YangName = "dot1qTpFdbTable"
-    dot1Qtpfdbtable.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qtpfdbtable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
-    dot1Qtpfdbtable.EntityData.SegmentPath = "dot1qTpFdbTable"
-    dot1Qtpfdbtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qtpfdbtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qtpfdbtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qTpFdbTable *QBRIDGEMIB_Dot1qTpFdbTable) GetEntityData() *types.CommonEntityData {
+    dot1qTpFdbTable.EntityData.YFilter = dot1qTpFdbTable.YFilter
+    dot1qTpFdbTable.EntityData.YangName = "dot1qTpFdbTable"
+    dot1qTpFdbTable.EntityData.BundleName = "cisco_ios_xe"
+    dot1qTpFdbTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
+    dot1qTpFdbTable.EntityData.SegmentPath = "dot1qTpFdbTable"
+    dot1qTpFdbTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qTpFdbTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qTpFdbTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qtpfdbtable.EntityData.Children = make(map[string]types.YChild)
-    dot1Qtpfdbtable.EntityData.Children["dot1qTpFdbEntry"] = types.YChild{"Dot1Qtpfdbentry", nil}
-    for i := range dot1Qtpfdbtable.Dot1Qtpfdbentry {
-        dot1Qtpfdbtable.EntityData.Children[types.GetSegmentPath(&dot1Qtpfdbtable.Dot1Qtpfdbentry[i])] = types.YChild{"Dot1Qtpfdbentry", &dot1Qtpfdbtable.Dot1Qtpfdbentry[i]}
+    dot1qTpFdbTable.EntityData.Children = types.NewOrderedMap()
+    dot1qTpFdbTable.EntityData.Children.Append("dot1qTpFdbEntry", types.YChild{"Dot1qTpFdbEntry", nil})
+    for i := range dot1qTpFdbTable.Dot1qTpFdbEntry {
+        dot1qTpFdbTable.EntityData.Children.Append(types.GetSegmentPath(dot1qTpFdbTable.Dot1qTpFdbEntry[i]), types.YChild{"Dot1qTpFdbEntry", dot1qTpFdbTable.Dot1qTpFdbEntry[i]})
     }
-    dot1Qtpfdbtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dot1Qtpfdbtable.EntityData)
+    dot1qTpFdbTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dot1qTpFdbTable.EntityData.YListKeys = []string {}
+
+    return &(dot1qTpFdbTable.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qtpfdbtable_Dot1Qtpfdbentry
+// QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry
 // Information about a specific unicast MAC address for
 // which the device has some forwarding and/or filtering
 // information.
-type QBRIDGEMIB_Dot1Qtpfdbtable_Dot1Qtpfdbentry struct {
+type QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
-    // Refers to q_bridge_mib.QBRIDGEMIB_Dot1Qfdbtable_Dot1Qfdbentry_Dot1Qfdbid
-    Dot1Qfdbid interface{}
+    // Refers to q_bridge_mib.QBRIDGEMIB_Dot1qFdbTable_Dot1qFdbEntry_Dot1qFdbId
+    Dot1qFdbId interface{}
 
     // This attribute is a key. A unicast MAC address for which the device has
     // forwarding and/or filtering information. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
-    Dot1Qtpfdbaddress interface{}
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    Dot1qTpFdbAddress interface{}
 
     // Either the value '0', or the port number of the port on which a frame
     // having a source address equal to the value of the corresponding instance of
@@ -415,7 +433,7 @@ type QBRIDGEMIB_Dot1Qtpfdbtable_Dot1Qtpfdbentry struct {
     // value to this object whenever it is learned, even for addresses for which
     // the corresponding value of dot1qTpFdbStatus is not learned(3). The type is
     // interface{} with range: 0..65535.
-    Dot1Qtpfdbport interface{}
+    Dot1qTpFdbPort interface{}
 
     // The status of this entry.  The meanings of the values are:     other(1) -
     // none of the following.  This may include         the case where some other
@@ -432,52 +450,55 @@ type QBRIDGEMIB_Dot1Qtpfdbtable_Dot1Qtpfdbentry struct {
     // dot1qTpFdbPort indicates which of the device's         ports has this
     // address.     mgmt(5) - the value of the corresponding instance of        
     // dot1qTpFdbAddress is also the value of an         existing instance of
-    // dot1qStaticAddress. The type is Dot1Qtpfdbstatus.
-    Dot1Qtpfdbstatus interface{}
+    // dot1qStaticAddress. The type is Dot1qTpFdbStatus.
+    Dot1qTpFdbStatus interface{}
 }
 
-func (dot1Qtpfdbentry *QBRIDGEMIB_Dot1Qtpfdbtable_Dot1Qtpfdbentry) GetEntityData() *types.CommonEntityData {
-    dot1Qtpfdbentry.EntityData.YFilter = dot1Qtpfdbentry.YFilter
-    dot1Qtpfdbentry.EntityData.YangName = "dot1qTpFdbEntry"
-    dot1Qtpfdbentry.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qtpfdbentry.EntityData.ParentYangName = "dot1qTpFdbTable"
-    dot1Qtpfdbentry.EntityData.SegmentPath = "dot1qTpFdbEntry" + "[dot1qFdbId='" + fmt.Sprintf("%v", dot1Qtpfdbentry.Dot1Qfdbid) + "']" + "[dot1qTpFdbAddress='" + fmt.Sprintf("%v", dot1Qtpfdbentry.Dot1Qtpfdbaddress) + "']"
-    dot1Qtpfdbentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qtpfdbentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qtpfdbentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qTpFdbEntry *QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry) GetEntityData() *types.CommonEntityData {
+    dot1qTpFdbEntry.EntityData.YFilter = dot1qTpFdbEntry.YFilter
+    dot1qTpFdbEntry.EntityData.YangName = "dot1qTpFdbEntry"
+    dot1qTpFdbEntry.EntityData.BundleName = "cisco_ios_xe"
+    dot1qTpFdbEntry.EntityData.ParentYangName = "dot1qTpFdbTable"
+    dot1qTpFdbEntry.EntityData.SegmentPath = "dot1qTpFdbEntry" + types.AddKeyToken(dot1qTpFdbEntry.Dot1qFdbId, "dot1qFdbId") + types.AddKeyToken(dot1qTpFdbEntry.Dot1qTpFdbAddress, "dot1qTpFdbAddress")
+    dot1qTpFdbEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qTpFdbEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qTpFdbEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qtpfdbentry.EntityData.Children = make(map[string]types.YChild)
-    dot1Qtpfdbentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1Qtpfdbentry.EntityData.Leafs["dot1qFdbId"] = types.YLeaf{"Dot1Qfdbid", dot1Qtpfdbentry.Dot1Qfdbid}
-    dot1Qtpfdbentry.EntityData.Leafs["dot1qTpFdbAddress"] = types.YLeaf{"Dot1Qtpfdbaddress", dot1Qtpfdbentry.Dot1Qtpfdbaddress}
-    dot1Qtpfdbentry.EntityData.Leafs["dot1qTpFdbPort"] = types.YLeaf{"Dot1Qtpfdbport", dot1Qtpfdbentry.Dot1Qtpfdbport}
-    dot1Qtpfdbentry.EntityData.Leafs["dot1qTpFdbStatus"] = types.YLeaf{"Dot1Qtpfdbstatus", dot1Qtpfdbentry.Dot1Qtpfdbstatus}
-    return &(dot1Qtpfdbentry.EntityData)
+    dot1qTpFdbEntry.EntityData.Children = types.NewOrderedMap()
+    dot1qTpFdbEntry.EntityData.Leafs = types.NewOrderedMap()
+    dot1qTpFdbEntry.EntityData.Leafs.Append("dot1qFdbId", types.YLeaf{"Dot1qFdbId", dot1qTpFdbEntry.Dot1qFdbId})
+    dot1qTpFdbEntry.EntityData.Leafs.Append("dot1qTpFdbAddress", types.YLeaf{"Dot1qTpFdbAddress", dot1qTpFdbEntry.Dot1qTpFdbAddress})
+    dot1qTpFdbEntry.EntityData.Leafs.Append("dot1qTpFdbPort", types.YLeaf{"Dot1qTpFdbPort", dot1qTpFdbEntry.Dot1qTpFdbPort})
+    dot1qTpFdbEntry.EntityData.Leafs.Append("dot1qTpFdbStatus", types.YLeaf{"Dot1qTpFdbStatus", dot1qTpFdbEntry.Dot1qTpFdbStatus})
+
+    dot1qTpFdbEntry.EntityData.YListKeys = []string {"Dot1qFdbId", "Dot1qTpFdbAddress"}
+
+    return &(dot1qTpFdbEntry.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qtpfdbtable_Dot1Qtpfdbentry_Dot1Qtpfdbstatus represents         existing instance of dot1qStaticAddress.
-type QBRIDGEMIB_Dot1Qtpfdbtable_Dot1Qtpfdbentry_Dot1Qtpfdbstatus string
+// QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry_Dot1qTpFdbStatus represents         existing instance of dot1qStaticAddress.
+type QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry_Dot1qTpFdbStatus string
 
 const (
-    QBRIDGEMIB_Dot1Qtpfdbtable_Dot1Qtpfdbentry_Dot1Qtpfdbstatus_other QBRIDGEMIB_Dot1Qtpfdbtable_Dot1Qtpfdbentry_Dot1Qtpfdbstatus = "other"
+    QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry_Dot1qTpFdbStatus_other QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry_Dot1qTpFdbStatus = "other"
 
-    QBRIDGEMIB_Dot1Qtpfdbtable_Dot1Qtpfdbentry_Dot1Qtpfdbstatus_invalid QBRIDGEMIB_Dot1Qtpfdbtable_Dot1Qtpfdbentry_Dot1Qtpfdbstatus = "invalid"
+    QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry_Dot1qTpFdbStatus_invalid QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry_Dot1qTpFdbStatus = "invalid"
 
-    QBRIDGEMIB_Dot1Qtpfdbtable_Dot1Qtpfdbentry_Dot1Qtpfdbstatus_learned QBRIDGEMIB_Dot1Qtpfdbtable_Dot1Qtpfdbentry_Dot1Qtpfdbstatus = "learned"
+    QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry_Dot1qTpFdbStatus_learned QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry_Dot1qTpFdbStatus = "learned"
 
-    QBRIDGEMIB_Dot1Qtpfdbtable_Dot1Qtpfdbentry_Dot1Qtpfdbstatus_self QBRIDGEMIB_Dot1Qtpfdbtable_Dot1Qtpfdbentry_Dot1Qtpfdbstatus = "self"
+    QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry_Dot1qTpFdbStatus_self QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry_Dot1qTpFdbStatus = "self"
 
-    QBRIDGEMIB_Dot1Qtpfdbtable_Dot1Qtpfdbentry_Dot1Qtpfdbstatus_mgmt QBRIDGEMIB_Dot1Qtpfdbtable_Dot1Qtpfdbentry_Dot1Qtpfdbstatus = "mgmt"
+    QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry_Dot1qTpFdbStatus_mgmt QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry_Dot1qTpFdbStatus = "mgmt"
 )
 
-// QBRIDGEMIB_Dot1Qtpgrouptable
+// QBRIDGEMIB_Dot1qTpGroupTable
 // A table containing filtering information for VLANs
 // configured into the bridge by (local or network)
 // management, or learned dynamically, specifying the set of
 // ports to which frames received on a VLAN for this FDB
 // and containing a specific Group destination address are
 // allowed to be forwarded.
-type QBRIDGEMIB_Dot1Qtpgrouptable struct {
+type QBRIDGEMIB_Dot1qTpGroupTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -485,82 +506,88 @@ type QBRIDGEMIB_Dot1Qtpgrouptable struct {
     // dynamically, specifying the set of ports to which frames received on a VLAN
     // and containing a specific Group destination address are allowed to be
     // forwarded.  The subset of these ports learned dynamically is also provided.
-    // The type is slice of QBRIDGEMIB_Dot1Qtpgrouptable_Dot1Qtpgroupentry.
-    Dot1Qtpgroupentry []QBRIDGEMIB_Dot1Qtpgrouptable_Dot1Qtpgroupentry
+    // The type is slice of QBRIDGEMIB_Dot1qTpGroupTable_Dot1qTpGroupEntry.
+    Dot1qTpGroupEntry []*QBRIDGEMIB_Dot1qTpGroupTable_Dot1qTpGroupEntry
 }
 
-func (dot1Qtpgrouptable *QBRIDGEMIB_Dot1Qtpgrouptable) GetEntityData() *types.CommonEntityData {
-    dot1Qtpgrouptable.EntityData.YFilter = dot1Qtpgrouptable.YFilter
-    dot1Qtpgrouptable.EntityData.YangName = "dot1qTpGroupTable"
-    dot1Qtpgrouptable.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qtpgrouptable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
-    dot1Qtpgrouptable.EntityData.SegmentPath = "dot1qTpGroupTable"
-    dot1Qtpgrouptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qtpgrouptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qtpgrouptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qTpGroupTable *QBRIDGEMIB_Dot1qTpGroupTable) GetEntityData() *types.CommonEntityData {
+    dot1qTpGroupTable.EntityData.YFilter = dot1qTpGroupTable.YFilter
+    dot1qTpGroupTable.EntityData.YangName = "dot1qTpGroupTable"
+    dot1qTpGroupTable.EntityData.BundleName = "cisco_ios_xe"
+    dot1qTpGroupTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
+    dot1qTpGroupTable.EntityData.SegmentPath = "dot1qTpGroupTable"
+    dot1qTpGroupTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qTpGroupTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qTpGroupTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qtpgrouptable.EntityData.Children = make(map[string]types.YChild)
-    dot1Qtpgrouptable.EntityData.Children["dot1qTpGroupEntry"] = types.YChild{"Dot1Qtpgroupentry", nil}
-    for i := range dot1Qtpgrouptable.Dot1Qtpgroupentry {
-        dot1Qtpgrouptable.EntityData.Children[types.GetSegmentPath(&dot1Qtpgrouptable.Dot1Qtpgroupentry[i])] = types.YChild{"Dot1Qtpgroupentry", &dot1Qtpgrouptable.Dot1Qtpgroupentry[i]}
+    dot1qTpGroupTable.EntityData.Children = types.NewOrderedMap()
+    dot1qTpGroupTable.EntityData.Children.Append("dot1qTpGroupEntry", types.YChild{"Dot1qTpGroupEntry", nil})
+    for i := range dot1qTpGroupTable.Dot1qTpGroupEntry {
+        dot1qTpGroupTable.EntityData.Children.Append(types.GetSegmentPath(dot1qTpGroupTable.Dot1qTpGroupEntry[i]), types.YChild{"Dot1qTpGroupEntry", dot1qTpGroupTable.Dot1qTpGroupEntry[i]})
     }
-    dot1Qtpgrouptable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dot1Qtpgrouptable.EntityData)
+    dot1qTpGroupTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dot1qTpGroupTable.EntityData.YListKeys = []string {}
+
+    return &(dot1qTpGroupTable.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qtpgrouptable_Dot1Qtpgroupentry
+// QBRIDGEMIB_Dot1qTpGroupTable_Dot1qTpGroupEntry
 // Filtering information configured into the bridge by
 // management, or learned dynamically, specifying the set of
 // ports to which frames received on a VLAN and containing
 // a specific Group destination address are allowed to be
 // forwarded.  The subset of these ports learned dynamically
 // is also provided.
-type QBRIDGEMIB_Dot1Qtpgrouptable_Dot1Qtpgroupentry struct {
+type QBRIDGEMIB_Dot1qTpGroupTable_Dot1qTpGroupEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // q_bridge_mib.QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry_Dot1Qvlanindex
-    Dot1Qvlanindex interface{}
+    // q_bridge_mib.QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry_Dot1qVlanIndex
+    Dot1qVlanIndex interface{}
 
     // This attribute is a key. The destination Group MAC address in a frame to
     // which this entry's filtering information applies. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
-    Dot1Qtpgroupaddress interface{}
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    Dot1qTpGroupAddress interface{}
 
     // The complete set of ports, in this VLAN, to which frames destined for this
     // Group MAC address are currently being explicitly forwarded.  This does not
     // include ports for which this address is only implicitly forwarded, in the
     // dot1qForwardAllPorts list. The type is string.
-    Dot1Qtpgroupegressports interface{}
+    Dot1qTpGroupEgressPorts interface{}
 
     // The subset of ports in dot1qTpGroupEgressPorts that were learned by GMRP or
     // some other dynamic mechanism, in this Filtering database. The type is
     // string.
-    Dot1Qtpgrouplearnt interface{}
+    Dot1qTpGroupLearnt interface{}
 }
 
-func (dot1Qtpgroupentry *QBRIDGEMIB_Dot1Qtpgrouptable_Dot1Qtpgroupentry) GetEntityData() *types.CommonEntityData {
-    dot1Qtpgroupentry.EntityData.YFilter = dot1Qtpgroupentry.YFilter
-    dot1Qtpgroupentry.EntityData.YangName = "dot1qTpGroupEntry"
-    dot1Qtpgroupentry.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qtpgroupentry.EntityData.ParentYangName = "dot1qTpGroupTable"
-    dot1Qtpgroupentry.EntityData.SegmentPath = "dot1qTpGroupEntry" + "[dot1qVlanIndex='" + fmt.Sprintf("%v", dot1Qtpgroupentry.Dot1Qvlanindex) + "']" + "[dot1qTpGroupAddress='" + fmt.Sprintf("%v", dot1Qtpgroupentry.Dot1Qtpgroupaddress) + "']"
-    dot1Qtpgroupentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qtpgroupentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qtpgroupentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qTpGroupEntry *QBRIDGEMIB_Dot1qTpGroupTable_Dot1qTpGroupEntry) GetEntityData() *types.CommonEntityData {
+    dot1qTpGroupEntry.EntityData.YFilter = dot1qTpGroupEntry.YFilter
+    dot1qTpGroupEntry.EntityData.YangName = "dot1qTpGroupEntry"
+    dot1qTpGroupEntry.EntityData.BundleName = "cisco_ios_xe"
+    dot1qTpGroupEntry.EntityData.ParentYangName = "dot1qTpGroupTable"
+    dot1qTpGroupEntry.EntityData.SegmentPath = "dot1qTpGroupEntry" + types.AddKeyToken(dot1qTpGroupEntry.Dot1qVlanIndex, "dot1qVlanIndex") + types.AddKeyToken(dot1qTpGroupEntry.Dot1qTpGroupAddress, "dot1qTpGroupAddress")
+    dot1qTpGroupEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qTpGroupEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qTpGroupEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qtpgroupentry.EntityData.Children = make(map[string]types.YChild)
-    dot1Qtpgroupentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1Qtpgroupentry.EntityData.Leafs["dot1qVlanIndex"] = types.YLeaf{"Dot1Qvlanindex", dot1Qtpgroupentry.Dot1Qvlanindex}
-    dot1Qtpgroupentry.EntityData.Leafs["dot1qTpGroupAddress"] = types.YLeaf{"Dot1Qtpgroupaddress", dot1Qtpgroupentry.Dot1Qtpgroupaddress}
-    dot1Qtpgroupentry.EntityData.Leafs["dot1qTpGroupEgressPorts"] = types.YLeaf{"Dot1Qtpgroupegressports", dot1Qtpgroupentry.Dot1Qtpgroupegressports}
-    dot1Qtpgroupentry.EntityData.Leafs["dot1qTpGroupLearnt"] = types.YLeaf{"Dot1Qtpgrouplearnt", dot1Qtpgroupentry.Dot1Qtpgrouplearnt}
-    return &(dot1Qtpgroupentry.EntityData)
+    dot1qTpGroupEntry.EntityData.Children = types.NewOrderedMap()
+    dot1qTpGroupEntry.EntityData.Leafs = types.NewOrderedMap()
+    dot1qTpGroupEntry.EntityData.Leafs.Append("dot1qVlanIndex", types.YLeaf{"Dot1qVlanIndex", dot1qTpGroupEntry.Dot1qVlanIndex})
+    dot1qTpGroupEntry.EntityData.Leafs.Append("dot1qTpGroupAddress", types.YLeaf{"Dot1qTpGroupAddress", dot1qTpGroupEntry.Dot1qTpGroupAddress})
+    dot1qTpGroupEntry.EntityData.Leafs.Append("dot1qTpGroupEgressPorts", types.YLeaf{"Dot1qTpGroupEgressPorts", dot1qTpGroupEntry.Dot1qTpGroupEgressPorts})
+    dot1qTpGroupEntry.EntityData.Leafs.Append("dot1qTpGroupLearnt", types.YLeaf{"Dot1qTpGroupLearnt", dot1qTpGroupEntry.Dot1qTpGroupLearnt})
+
+    dot1qTpGroupEntry.EntityData.YListKeys = []string {"Dot1qVlanIndex", "Dot1qTpGroupAddress"}
+
+    return &(dot1qTpGroupEntry.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qforwardalltable
+// QBRIDGEMIB_Dot1qForwardAllTable
 // A table containing forwarding information for each
 // 
 // VLAN, specifying the set of ports to which forwarding of
@@ -568,55 +595,58 @@ func (dot1Qtpgroupentry *QBRIDGEMIB_Dot1Qtpgrouptable_Dot1Qtpgroupentry) GetEnti
 // management or dynamically by GMRP.  An entry appears in
 // this table for all VLANs that are currently
 // instantiated.
-type QBRIDGEMIB_Dot1Qforwardalltable struct {
+type QBRIDGEMIB_Dot1qForwardAllTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Forwarding information for a VLAN, specifying the set of ports to which all
     // multicasts should be forwarded, configured statically by management or
     // dynamically by GMRP. The type is slice of
-    // QBRIDGEMIB_Dot1Qforwardalltable_Dot1Qforwardallentry.
-    Dot1Qforwardallentry []QBRIDGEMIB_Dot1Qforwardalltable_Dot1Qforwardallentry
+    // QBRIDGEMIB_Dot1qForwardAllTable_Dot1qForwardAllEntry.
+    Dot1qForwardAllEntry []*QBRIDGEMIB_Dot1qForwardAllTable_Dot1qForwardAllEntry
 }
 
-func (dot1Qforwardalltable *QBRIDGEMIB_Dot1Qforwardalltable) GetEntityData() *types.CommonEntityData {
-    dot1Qforwardalltable.EntityData.YFilter = dot1Qforwardalltable.YFilter
-    dot1Qforwardalltable.EntityData.YangName = "dot1qForwardAllTable"
-    dot1Qforwardalltable.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qforwardalltable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
-    dot1Qforwardalltable.EntityData.SegmentPath = "dot1qForwardAllTable"
-    dot1Qforwardalltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qforwardalltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qforwardalltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qForwardAllTable *QBRIDGEMIB_Dot1qForwardAllTable) GetEntityData() *types.CommonEntityData {
+    dot1qForwardAllTable.EntityData.YFilter = dot1qForwardAllTable.YFilter
+    dot1qForwardAllTable.EntityData.YangName = "dot1qForwardAllTable"
+    dot1qForwardAllTable.EntityData.BundleName = "cisco_ios_xe"
+    dot1qForwardAllTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
+    dot1qForwardAllTable.EntityData.SegmentPath = "dot1qForwardAllTable"
+    dot1qForwardAllTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qForwardAllTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qForwardAllTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qforwardalltable.EntityData.Children = make(map[string]types.YChild)
-    dot1Qforwardalltable.EntityData.Children["dot1qForwardAllEntry"] = types.YChild{"Dot1Qforwardallentry", nil}
-    for i := range dot1Qforwardalltable.Dot1Qforwardallentry {
-        dot1Qforwardalltable.EntityData.Children[types.GetSegmentPath(&dot1Qforwardalltable.Dot1Qforwardallentry[i])] = types.YChild{"Dot1Qforwardallentry", &dot1Qforwardalltable.Dot1Qforwardallentry[i]}
+    dot1qForwardAllTable.EntityData.Children = types.NewOrderedMap()
+    dot1qForwardAllTable.EntityData.Children.Append("dot1qForwardAllEntry", types.YChild{"Dot1qForwardAllEntry", nil})
+    for i := range dot1qForwardAllTable.Dot1qForwardAllEntry {
+        dot1qForwardAllTable.EntityData.Children.Append(types.GetSegmentPath(dot1qForwardAllTable.Dot1qForwardAllEntry[i]), types.YChild{"Dot1qForwardAllEntry", dot1qForwardAllTable.Dot1qForwardAllEntry[i]})
     }
-    dot1Qforwardalltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dot1Qforwardalltable.EntityData)
+    dot1qForwardAllTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dot1qForwardAllTable.EntityData.YListKeys = []string {}
+
+    return &(dot1qForwardAllTable.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qforwardalltable_Dot1Qforwardallentry
+// QBRIDGEMIB_Dot1qForwardAllTable_Dot1qForwardAllEntry
 // Forwarding information for a VLAN, specifying the set
 // of ports to which all multicasts should be forwarded,
 // configured statically by management or dynamically by
 // GMRP.
-type QBRIDGEMIB_Dot1Qforwardalltable_Dot1Qforwardallentry struct {
+type QBRIDGEMIB_Dot1qForwardAllTable_Dot1qForwardAllEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // q_bridge_mib.QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry_Dot1Qvlanindex
-    Dot1Qvlanindex interface{}
+    // q_bridge_mib.QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry_Dot1qVlanIndex
+    Dot1qVlanIndex interface{}
 
     // The complete set of ports in this VLAN to which all multicast
     // group-addressed frames are to be forwarded. This includes ports for which
     // this need has been determined dynamically by GMRP, or configured statically
     // by management. The type is string.
-    Dot1Qforwardallports interface{}
+    Dot1qForwardAllPorts interface{}
 
     // The set of ports configured by management in this VLAN to which all
     // multicast group-addressed frames are to be forwarded.  Ports entered in
@@ -629,7 +659,7 @@ type QBRIDGEMIB_Dot1Qforwardalltable_Dot1Qforwardallentry struct {
     // standard behaviour of using basic filtering services, i.e., forward all
     // multicasts to all ports.  The value of this object MUST be retained across
     // reinitializations of the management system. The type is string.
-    Dot1Qforwardallstaticports interface{}
+    Dot1qForwardAllStaticPorts interface{}
 
     // The set of ports configured by management in this VLAN for which the
     // Service Requirement attribute Forward All Multicast Groups may not be
@@ -639,29 +669,32 @@ type QBRIDGEMIB_Dot1Qforwardalltable_Dot1Qforwardallentry struct {
     // value is a string of zeros of appropriate length.  The value of this object
     // MUST be retained across reinitializations of the management system. The
     // type is string.
-    Dot1Qforwardallforbiddenports interface{}
+    Dot1qForwardAllForbiddenPorts interface{}
 }
 
-func (dot1Qforwardallentry *QBRIDGEMIB_Dot1Qforwardalltable_Dot1Qforwardallentry) GetEntityData() *types.CommonEntityData {
-    dot1Qforwardallentry.EntityData.YFilter = dot1Qforwardallentry.YFilter
-    dot1Qforwardallentry.EntityData.YangName = "dot1qForwardAllEntry"
-    dot1Qforwardallentry.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qforwardallentry.EntityData.ParentYangName = "dot1qForwardAllTable"
-    dot1Qforwardallentry.EntityData.SegmentPath = "dot1qForwardAllEntry" + "[dot1qVlanIndex='" + fmt.Sprintf("%v", dot1Qforwardallentry.Dot1Qvlanindex) + "']"
-    dot1Qforwardallentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qforwardallentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qforwardallentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qForwardAllEntry *QBRIDGEMIB_Dot1qForwardAllTable_Dot1qForwardAllEntry) GetEntityData() *types.CommonEntityData {
+    dot1qForwardAllEntry.EntityData.YFilter = dot1qForwardAllEntry.YFilter
+    dot1qForwardAllEntry.EntityData.YangName = "dot1qForwardAllEntry"
+    dot1qForwardAllEntry.EntityData.BundleName = "cisco_ios_xe"
+    dot1qForwardAllEntry.EntityData.ParentYangName = "dot1qForwardAllTable"
+    dot1qForwardAllEntry.EntityData.SegmentPath = "dot1qForwardAllEntry" + types.AddKeyToken(dot1qForwardAllEntry.Dot1qVlanIndex, "dot1qVlanIndex")
+    dot1qForwardAllEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qForwardAllEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qForwardAllEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qforwardallentry.EntityData.Children = make(map[string]types.YChild)
-    dot1Qforwardallentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1Qforwardallentry.EntityData.Leafs["dot1qVlanIndex"] = types.YLeaf{"Dot1Qvlanindex", dot1Qforwardallentry.Dot1Qvlanindex}
-    dot1Qforwardallentry.EntityData.Leafs["dot1qForwardAllPorts"] = types.YLeaf{"Dot1Qforwardallports", dot1Qforwardallentry.Dot1Qforwardallports}
-    dot1Qforwardallentry.EntityData.Leafs["dot1qForwardAllStaticPorts"] = types.YLeaf{"Dot1Qforwardallstaticports", dot1Qforwardallentry.Dot1Qforwardallstaticports}
-    dot1Qforwardallentry.EntityData.Leafs["dot1qForwardAllForbiddenPorts"] = types.YLeaf{"Dot1Qforwardallforbiddenports", dot1Qforwardallentry.Dot1Qforwardallforbiddenports}
-    return &(dot1Qforwardallentry.EntityData)
+    dot1qForwardAllEntry.EntityData.Children = types.NewOrderedMap()
+    dot1qForwardAllEntry.EntityData.Leafs = types.NewOrderedMap()
+    dot1qForwardAllEntry.EntityData.Leafs.Append("dot1qVlanIndex", types.YLeaf{"Dot1qVlanIndex", dot1qForwardAllEntry.Dot1qVlanIndex})
+    dot1qForwardAllEntry.EntityData.Leafs.Append("dot1qForwardAllPorts", types.YLeaf{"Dot1qForwardAllPorts", dot1qForwardAllEntry.Dot1qForwardAllPorts})
+    dot1qForwardAllEntry.EntityData.Leafs.Append("dot1qForwardAllStaticPorts", types.YLeaf{"Dot1qForwardAllStaticPorts", dot1qForwardAllEntry.Dot1qForwardAllStaticPorts})
+    dot1qForwardAllEntry.EntityData.Leafs.Append("dot1qForwardAllForbiddenPorts", types.YLeaf{"Dot1qForwardAllForbiddenPorts", dot1qForwardAllEntry.Dot1qForwardAllForbiddenPorts})
+
+    dot1qForwardAllEntry.EntityData.YListKeys = []string {"Dot1qVlanIndex"}
+
+    return &(dot1qForwardAllEntry.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qforwardunregisteredtable
+// QBRIDGEMIB_Dot1qForwardUnregisteredTable
 // A table containing forwarding information for each
 // VLAN, specifying the set of ports to which forwarding of
 // multicast group-addressed frames for which no
@@ -669,7 +702,7 @@ func (dot1Qforwardallentry *QBRIDGEMIB_Dot1Qforwardalltable_Dot1Qforwardallentry
 // configured statically by management and determined
 // dynamically by GMRP.  An entry appears in this table for
 // all VLANs that are currently instantiated.
-type QBRIDGEMIB_Dot1Qforwardunregisteredtable struct {
+type QBRIDGEMIB_Dot1qForwardUnregisteredTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -677,50 +710,53 @@ type QBRIDGEMIB_Dot1Qforwardunregisteredtable struct {
     // multicasts for which there is no more specific forwarding information shall
     // be forwarded. This is configured statically by management or dynamically by
     // GMRP. The type is slice of
-    // QBRIDGEMIB_Dot1Qforwardunregisteredtable_Dot1Qforwardunregisteredentry.
-    Dot1Qforwardunregisteredentry []QBRIDGEMIB_Dot1Qforwardunregisteredtable_Dot1Qforwardunregisteredentry
+    // QBRIDGEMIB_Dot1qForwardUnregisteredTable_Dot1qForwardUnregisteredEntry.
+    Dot1qForwardUnregisteredEntry []*QBRIDGEMIB_Dot1qForwardUnregisteredTable_Dot1qForwardUnregisteredEntry
 }
 
-func (dot1Qforwardunregisteredtable *QBRIDGEMIB_Dot1Qforwardunregisteredtable) GetEntityData() *types.CommonEntityData {
-    dot1Qforwardunregisteredtable.EntityData.YFilter = dot1Qforwardunregisteredtable.YFilter
-    dot1Qforwardunregisteredtable.EntityData.YangName = "dot1qForwardUnregisteredTable"
-    dot1Qforwardunregisteredtable.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qforwardunregisteredtable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
-    dot1Qforwardunregisteredtable.EntityData.SegmentPath = "dot1qForwardUnregisteredTable"
-    dot1Qforwardunregisteredtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qforwardunregisteredtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qforwardunregisteredtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qForwardUnregisteredTable *QBRIDGEMIB_Dot1qForwardUnregisteredTable) GetEntityData() *types.CommonEntityData {
+    dot1qForwardUnregisteredTable.EntityData.YFilter = dot1qForwardUnregisteredTable.YFilter
+    dot1qForwardUnregisteredTable.EntityData.YangName = "dot1qForwardUnregisteredTable"
+    dot1qForwardUnregisteredTable.EntityData.BundleName = "cisco_ios_xe"
+    dot1qForwardUnregisteredTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
+    dot1qForwardUnregisteredTable.EntityData.SegmentPath = "dot1qForwardUnregisteredTable"
+    dot1qForwardUnregisteredTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qForwardUnregisteredTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qForwardUnregisteredTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qforwardunregisteredtable.EntityData.Children = make(map[string]types.YChild)
-    dot1Qforwardunregisteredtable.EntityData.Children["dot1qForwardUnregisteredEntry"] = types.YChild{"Dot1Qforwardunregisteredentry", nil}
-    for i := range dot1Qforwardunregisteredtable.Dot1Qforwardunregisteredentry {
-        dot1Qforwardunregisteredtable.EntityData.Children[types.GetSegmentPath(&dot1Qforwardunregisteredtable.Dot1Qforwardunregisteredentry[i])] = types.YChild{"Dot1Qforwardunregisteredentry", &dot1Qforwardunregisteredtable.Dot1Qforwardunregisteredentry[i]}
+    dot1qForwardUnregisteredTable.EntityData.Children = types.NewOrderedMap()
+    dot1qForwardUnregisteredTable.EntityData.Children.Append("dot1qForwardUnregisteredEntry", types.YChild{"Dot1qForwardUnregisteredEntry", nil})
+    for i := range dot1qForwardUnregisteredTable.Dot1qForwardUnregisteredEntry {
+        dot1qForwardUnregisteredTable.EntityData.Children.Append(types.GetSegmentPath(dot1qForwardUnregisteredTable.Dot1qForwardUnregisteredEntry[i]), types.YChild{"Dot1qForwardUnregisteredEntry", dot1qForwardUnregisteredTable.Dot1qForwardUnregisteredEntry[i]})
     }
-    dot1Qforwardunregisteredtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dot1Qforwardunregisteredtable.EntityData)
+    dot1qForwardUnregisteredTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dot1qForwardUnregisteredTable.EntityData.YListKeys = []string {}
+
+    return &(dot1qForwardUnregisteredTable.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qforwardunregisteredtable_Dot1Qforwardunregisteredentry
+// QBRIDGEMIB_Dot1qForwardUnregisteredTable_Dot1qForwardUnregisteredEntry
 // Forwarding information for a VLAN, specifying the set
 // of ports to which all multicasts for which there is no
 // more specific forwarding information shall be forwarded.
 // This is configured statically by management or
 // dynamically by GMRP.
-type QBRIDGEMIB_Dot1Qforwardunregisteredtable_Dot1Qforwardunregisteredentry struct {
+type QBRIDGEMIB_Dot1qForwardUnregisteredTable_Dot1qForwardUnregisteredEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // q_bridge_mib.QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry_Dot1Qvlanindex
-    Dot1Qvlanindex interface{}
+    // q_bridge_mib.QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry_Dot1qVlanIndex
+    Dot1qVlanIndex interface{}
 
     // The complete set of ports in this VLAN to which multicast group-addressed
     // frames for which there is no more specific forwarding information will be
     // forwarded. This includes ports for which this need has been determined
     // dynamically by GMRP, or configured statically by management. The type is
     // string.
-    Dot1Qforwardunregisteredports interface{}
+    Dot1qForwardUnregisteredPorts interface{}
 
     // The set of ports configured by management, in this VLAN, to which multicast
     // group-addressed frames for which there is no more specific forwarding
@@ -733,7 +769,7 @@ type QBRIDGEMIB_Dot1Qforwardunregisteredtable_Dot1Qforwardunregisteredentry stru
     // value of dot1qForwardAllStaticPorts.  The value of this object MUST be
     // retained across reinitializations of the management system. The type is
     // string.
-    Dot1Qforwardunregisteredstaticports interface{}
+    Dot1qForwardUnregisteredStaticPorts interface{}
 
     // The set of ports configured by management in this VLAN for which the
     // Service Requirement attribute Forward Unregistered Multicast Groups may not
@@ -743,29 +779,32 @@ type QBRIDGEMIB_Dot1Qforwardunregisteredtable_Dot1Qforwardunregisteredentry stru
     // default value is a string of zeros of appropriate length.  The value of
     // this object MUST be retained across reinitializations of the management
     // system. The type is string.
-    Dot1Qforwardunregisteredforbiddenports interface{}
+    Dot1qForwardUnregisteredForbiddenPorts interface{}
 }
 
-func (dot1Qforwardunregisteredentry *QBRIDGEMIB_Dot1Qforwardunregisteredtable_Dot1Qforwardunregisteredentry) GetEntityData() *types.CommonEntityData {
-    dot1Qforwardunregisteredentry.EntityData.YFilter = dot1Qforwardunregisteredentry.YFilter
-    dot1Qforwardunregisteredentry.EntityData.YangName = "dot1qForwardUnregisteredEntry"
-    dot1Qforwardunregisteredentry.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qforwardunregisteredentry.EntityData.ParentYangName = "dot1qForwardUnregisteredTable"
-    dot1Qforwardunregisteredentry.EntityData.SegmentPath = "dot1qForwardUnregisteredEntry" + "[dot1qVlanIndex='" + fmt.Sprintf("%v", dot1Qforwardunregisteredentry.Dot1Qvlanindex) + "']"
-    dot1Qforwardunregisteredentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qforwardunregisteredentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qforwardunregisteredentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qForwardUnregisteredEntry *QBRIDGEMIB_Dot1qForwardUnregisteredTable_Dot1qForwardUnregisteredEntry) GetEntityData() *types.CommonEntityData {
+    dot1qForwardUnregisteredEntry.EntityData.YFilter = dot1qForwardUnregisteredEntry.YFilter
+    dot1qForwardUnregisteredEntry.EntityData.YangName = "dot1qForwardUnregisteredEntry"
+    dot1qForwardUnregisteredEntry.EntityData.BundleName = "cisco_ios_xe"
+    dot1qForwardUnregisteredEntry.EntityData.ParentYangName = "dot1qForwardUnregisteredTable"
+    dot1qForwardUnregisteredEntry.EntityData.SegmentPath = "dot1qForwardUnregisteredEntry" + types.AddKeyToken(dot1qForwardUnregisteredEntry.Dot1qVlanIndex, "dot1qVlanIndex")
+    dot1qForwardUnregisteredEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qForwardUnregisteredEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qForwardUnregisteredEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qforwardunregisteredentry.EntityData.Children = make(map[string]types.YChild)
-    dot1Qforwardunregisteredentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1Qforwardunregisteredentry.EntityData.Leafs["dot1qVlanIndex"] = types.YLeaf{"Dot1Qvlanindex", dot1Qforwardunregisteredentry.Dot1Qvlanindex}
-    dot1Qforwardunregisteredentry.EntityData.Leafs["dot1qForwardUnregisteredPorts"] = types.YLeaf{"Dot1Qforwardunregisteredports", dot1Qforwardunregisteredentry.Dot1Qforwardunregisteredports}
-    dot1Qforwardunregisteredentry.EntityData.Leafs["dot1qForwardUnregisteredStaticPorts"] = types.YLeaf{"Dot1Qforwardunregisteredstaticports", dot1Qforwardunregisteredentry.Dot1Qforwardunregisteredstaticports}
-    dot1Qforwardunregisteredentry.EntityData.Leafs["dot1qForwardUnregisteredForbiddenPorts"] = types.YLeaf{"Dot1Qforwardunregisteredforbiddenports", dot1Qforwardunregisteredentry.Dot1Qforwardunregisteredforbiddenports}
-    return &(dot1Qforwardunregisteredentry.EntityData)
+    dot1qForwardUnregisteredEntry.EntityData.Children = types.NewOrderedMap()
+    dot1qForwardUnregisteredEntry.EntityData.Leafs = types.NewOrderedMap()
+    dot1qForwardUnregisteredEntry.EntityData.Leafs.Append("dot1qVlanIndex", types.YLeaf{"Dot1qVlanIndex", dot1qForwardUnregisteredEntry.Dot1qVlanIndex})
+    dot1qForwardUnregisteredEntry.EntityData.Leafs.Append("dot1qForwardUnregisteredPorts", types.YLeaf{"Dot1qForwardUnregisteredPorts", dot1qForwardUnregisteredEntry.Dot1qForwardUnregisteredPorts})
+    dot1qForwardUnregisteredEntry.EntityData.Leafs.Append("dot1qForwardUnregisteredStaticPorts", types.YLeaf{"Dot1qForwardUnregisteredStaticPorts", dot1qForwardUnregisteredEntry.Dot1qForwardUnregisteredStaticPorts})
+    dot1qForwardUnregisteredEntry.EntityData.Leafs.Append("dot1qForwardUnregisteredForbiddenPorts", types.YLeaf{"Dot1qForwardUnregisteredForbiddenPorts", dot1qForwardUnregisteredEntry.Dot1qForwardUnregisteredForbiddenPorts})
+
+    dot1qForwardUnregisteredEntry.EntityData.YListKeys = []string {"Dot1qVlanIndex"}
+
+    return &(dot1qForwardUnregisteredEntry.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qstaticunicasttable
+// QBRIDGEMIB_Dot1qStaticUnicastTable
 // A table containing filtering information for Unicast
 // MAC addresses for each Filtering Database, configured
 // into the device by (local or network) management
@@ -779,7 +818,7 @@ func (dot1Qforwardunregisteredentry *QBRIDGEMIB_Dot1Qforwardunregisteredtable_Do
 // is no specific entry in this table for that particular
 // destination address.  Entries are valid for unicast
 // addresses only.
-type QBRIDGEMIB_Dot1Qstaticunicasttable struct {
+type QBRIDGEMIB_Dot1qStaticUnicastTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -787,55 +826,58 @@ type QBRIDGEMIB_Dot1Qstaticunicasttable struct {
     // management specifying the set of ports to which frames received from a
     // specific port and containing a specific unicast destination address are
     // allowed to be forwarded. The type is slice of
-    // QBRIDGEMIB_Dot1Qstaticunicasttable_Dot1Qstaticunicastentry.
-    Dot1Qstaticunicastentry []QBRIDGEMIB_Dot1Qstaticunicasttable_Dot1Qstaticunicastentry
+    // QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry.
+    Dot1qStaticUnicastEntry []*QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry
 }
 
-func (dot1Qstaticunicasttable *QBRIDGEMIB_Dot1Qstaticunicasttable) GetEntityData() *types.CommonEntityData {
-    dot1Qstaticunicasttable.EntityData.YFilter = dot1Qstaticunicasttable.YFilter
-    dot1Qstaticunicasttable.EntityData.YangName = "dot1qStaticUnicastTable"
-    dot1Qstaticunicasttable.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qstaticunicasttable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
-    dot1Qstaticunicasttable.EntityData.SegmentPath = "dot1qStaticUnicastTable"
-    dot1Qstaticunicasttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qstaticunicasttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qstaticunicasttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qStaticUnicastTable *QBRIDGEMIB_Dot1qStaticUnicastTable) GetEntityData() *types.CommonEntityData {
+    dot1qStaticUnicastTable.EntityData.YFilter = dot1qStaticUnicastTable.YFilter
+    dot1qStaticUnicastTable.EntityData.YangName = "dot1qStaticUnicastTable"
+    dot1qStaticUnicastTable.EntityData.BundleName = "cisco_ios_xe"
+    dot1qStaticUnicastTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
+    dot1qStaticUnicastTable.EntityData.SegmentPath = "dot1qStaticUnicastTable"
+    dot1qStaticUnicastTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qStaticUnicastTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qStaticUnicastTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qstaticunicasttable.EntityData.Children = make(map[string]types.YChild)
-    dot1Qstaticunicasttable.EntityData.Children["dot1qStaticUnicastEntry"] = types.YChild{"Dot1Qstaticunicastentry", nil}
-    for i := range dot1Qstaticunicasttable.Dot1Qstaticunicastentry {
-        dot1Qstaticunicasttable.EntityData.Children[types.GetSegmentPath(&dot1Qstaticunicasttable.Dot1Qstaticunicastentry[i])] = types.YChild{"Dot1Qstaticunicastentry", &dot1Qstaticunicasttable.Dot1Qstaticunicastentry[i]}
+    dot1qStaticUnicastTable.EntityData.Children = types.NewOrderedMap()
+    dot1qStaticUnicastTable.EntityData.Children.Append("dot1qStaticUnicastEntry", types.YChild{"Dot1qStaticUnicastEntry", nil})
+    for i := range dot1qStaticUnicastTable.Dot1qStaticUnicastEntry {
+        dot1qStaticUnicastTable.EntityData.Children.Append(types.GetSegmentPath(dot1qStaticUnicastTable.Dot1qStaticUnicastEntry[i]), types.YChild{"Dot1qStaticUnicastEntry", dot1qStaticUnicastTable.Dot1qStaticUnicastEntry[i]})
     }
-    dot1Qstaticunicasttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dot1Qstaticunicasttable.EntityData)
+    dot1qStaticUnicastTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dot1qStaticUnicastTable.EntityData.YListKeys = []string {}
+
+    return &(dot1qStaticUnicastTable.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qstaticunicasttable_Dot1Qstaticunicastentry
+// QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry
 // Filtering information configured into the device by
 // (local or network) management specifying the set of
 // ports to which frames received from a specific port and
 // containing a specific unicast destination address are
 // allowed to be forwarded.
-type QBRIDGEMIB_Dot1Qstaticunicasttable_Dot1Qstaticunicastentry struct {
+type QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
-    // Refers to q_bridge_mib.QBRIDGEMIB_Dot1Qfdbtable_Dot1Qfdbentry_Dot1Qfdbid
-    Dot1Qfdbid interface{}
+    // Refers to q_bridge_mib.QBRIDGEMIB_Dot1qFdbTable_Dot1qFdbEntry_Dot1qFdbId
+    Dot1qFdbId interface{}
 
     // This attribute is a key. The destination MAC address in a frame to which
     // this entry's filtering information applies.  This object must take the
     // value of a unicast address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
-    Dot1Qstaticunicastaddress interface{}
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    Dot1qStaticUnicastAddress interface{}
 
     // This attribute is a key. Either the value '0' or the port number of the
     // port from which a frame must be received in order for this entry's
     // filtering information to apply.  A value of zero indicates that this entry
     // applies on all ports of the device for which there is no other applicable
     // entry. The type is interface{} with range: 0..65535.
-    Dot1Qstaticunicastreceiveport interface{}
+    Dot1qStaticUnicastReceivePort interface{}
 
     // The set of ports for which a frame with a specific unicast address will be
     // flooded in the event that it has not been learned.  It also specifies the
@@ -847,7 +889,7 @@ type QBRIDGEMIB_Dot1Qstaticunicasttable_Dot1Qstaticunicastentry struct {
     // dot1qVlanCurrentEgressPorts.  The default value of this object is a string
     // of ones of appropriate length.  The value of this object MUST be retained
     // across reinitializations of the management system. The type is string.
-    Dot1Qstaticunicastallowedtogoto interface{}
+    Dot1qStaticUnicastAllowedToGoTo interface{}
 
     // This object indicates the status of this entry. other(1) - this entry is
     // currently in use, but      the conditions under which it will remain     so
@@ -858,46 +900,49 @@ type QBRIDGEMIB_Dot1Qstaticunicasttable_Dot1Qstaticunicastentry struct {
     // remain so until the next     reset of the bridge. deleteOnTimeout(5) - this
     // entry is currently in     use and will remain so until it is aged out.  The
     // value of this object MUST be retained across reinitializations of the
-    // management system. The type is Dot1Qstaticunicaststatus.
-    Dot1Qstaticunicaststatus interface{}
+    // management system. The type is Dot1qStaticUnicastStatus.
+    Dot1qStaticUnicastStatus interface{}
 }
 
-func (dot1Qstaticunicastentry *QBRIDGEMIB_Dot1Qstaticunicasttable_Dot1Qstaticunicastentry) GetEntityData() *types.CommonEntityData {
-    dot1Qstaticunicastentry.EntityData.YFilter = dot1Qstaticunicastentry.YFilter
-    dot1Qstaticunicastentry.EntityData.YangName = "dot1qStaticUnicastEntry"
-    dot1Qstaticunicastentry.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qstaticunicastentry.EntityData.ParentYangName = "dot1qStaticUnicastTable"
-    dot1Qstaticunicastentry.EntityData.SegmentPath = "dot1qStaticUnicastEntry" + "[dot1qFdbId='" + fmt.Sprintf("%v", dot1Qstaticunicastentry.Dot1Qfdbid) + "']" + "[dot1qStaticUnicastAddress='" + fmt.Sprintf("%v", dot1Qstaticunicastentry.Dot1Qstaticunicastaddress) + "']" + "[dot1qStaticUnicastReceivePort='" + fmt.Sprintf("%v", dot1Qstaticunicastentry.Dot1Qstaticunicastreceiveport) + "']"
-    dot1Qstaticunicastentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qstaticunicastentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qstaticunicastentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qStaticUnicastEntry *QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry) GetEntityData() *types.CommonEntityData {
+    dot1qStaticUnicastEntry.EntityData.YFilter = dot1qStaticUnicastEntry.YFilter
+    dot1qStaticUnicastEntry.EntityData.YangName = "dot1qStaticUnicastEntry"
+    dot1qStaticUnicastEntry.EntityData.BundleName = "cisco_ios_xe"
+    dot1qStaticUnicastEntry.EntityData.ParentYangName = "dot1qStaticUnicastTable"
+    dot1qStaticUnicastEntry.EntityData.SegmentPath = "dot1qStaticUnicastEntry" + types.AddKeyToken(dot1qStaticUnicastEntry.Dot1qFdbId, "dot1qFdbId") + types.AddKeyToken(dot1qStaticUnicastEntry.Dot1qStaticUnicastAddress, "dot1qStaticUnicastAddress") + types.AddKeyToken(dot1qStaticUnicastEntry.Dot1qStaticUnicastReceivePort, "dot1qStaticUnicastReceivePort")
+    dot1qStaticUnicastEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qStaticUnicastEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qStaticUnicastEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qstaticunicastentry.EntityData.Children = make(map[string]types.YChild)
-    dot1Qstaticunicastentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1Qstaticunicastentry.EntityData.Leafs["dot1qFdbId"] = types.YLeaf{"Dot1Qfdbid", dot1Qstaticunicastentry.Dot1Qfdbid}
-    dot1Qstaticunicastentry.EntityData.Leafs["dot1qStaticUnicastAddress"] = types.YLeaf{"Dot1Qstaticunicastaddress", dot1Qstaticunicastentry.Dot1Qstaticunicastaddress}
-    dot1Qstaticunicastentry.EntityData.Leafs["dot1qStaticUnicastReceivePort"] = types.YLeaf{"Dot1Qstaticunicastreceiveport", dot1Qstaticunicastentry.Dot1Qstaticunicastreceiveport}
-    dot1Qstaticunicastentry.EntityData.Leafs["dot1qStaticUnicastAllowedToGoTo"] = types.YLeaf{"Dot1Qstaticunicastallowedtogoto", dot1Qstaticunicastentry.Dot1Qstaticunicastallowedtogoto}
-    dot1Qstaticunicastentry.EntityData.Leafs["dot1qStaticUnicastStatus"] = types.YLeaf{"Dot1Qstaticunicaststatus", dot1Qstaticunicastentry.Dot1Qstaticunicaststatus}
-    return &(dot1Qstaticunicastentry.EntityData)
+    dot1qStaticUnicastEntry.EntityData.Children = types.NewOrderedMap()
+    dot1qStaticUnicastEntry.EntityData.Leafs = types.NewOrderedMap()
+    dot1qStaticUnicastEntry.EntityData.Leafs.Append("dot1qFdbId", types.YLeaf{"Dot1qFdbId", dot1qStaticUnicastEntry.Dot1qFdbId})
+    dot1qStaticUnicastEntry.EntityData.Leafs.Append("dot1qStaticUnicastAddress", types.YLeaf{"Dot1qStaticUnicastAddress", dot1qStaticUnicastEntry.Dot1qStaticUnicastAddress})
+    dot1qStaticUnicastEntry.EntityData.Leafs.Append("dot1qStaticUnicastReceivePort", types.YLeaf{"Dot1qStaticUnicastReceivePort", dot1qStaticUnicastEntry.Dot1qStaticUnicastReceivePort})
+    dot1qStaticUnicastEntry.EntityData.Leafs.Append("dot1qStaticUnicastAllowedToGoTo", types.YLeaf{"Dot1qStaticUnicastAllowedToGoTo", dot1qStaticUnicastEntry.Dot1qStaticUnicastAllowedToGoTo})
+    dot1qStaticUnicastEntry.EntityData.Leafs.Append("dot1qStaticUnicastStatus", types.YLeaf{"Dot1qStaticUnicastStatus", dot1qStaticUnicastEntry.Dot1qStaticUnicastStatus})
+
+    dot1qStaticUnicastEntry.EntityData.YListKeys = []string {"Dot1qFdbId", "Dot1qStaticUnicastAddress", "Dot1qStaticUnicastReceivePort"}
+
+    return &(dot1qStaticUnicastEntry.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qstaticunicasttable_Dot1Qstaticunicastentry_Dot1Qstaticunicaststatus represents reinitializations of the management system.
-type QBRIDGEMIB_Dot1Qstaticunicasttable_Dot1Qstaticunicastentry_Dot1Qstaticunicaststatus string
+// QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry_Dot1qStaticUnicastStatus represents reinitializations of the management system.
+type QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry_Dot1qStaticUnicastStatus string
 
 const (
-    QBRIDGEMIB_Dot1Qstaticunicasttable_Dot1Qstaticunicastentry_Dot1Qstaticunicaststatus_other QBRIDGEMIB_Dot1Qstaticunicasttable_Dot1Qstaticunicastentry_Dot1Qstaticunicaststatus = "other"
+    QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry_Dot1qStaticUnicastStatus_other QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry_Dot1qStaticUnicastStatus = "other"
 
-    QBRIDGEMIB_Dot1Qstaticunicasttable_Dot1Qstaticunicastentry_Dot1Qstaticunicaststatus_invalid QBRIDGEMIB_Dot1Qstaticunicasttable_Dot1Qstaticunicastentry_Dot1Qstaticunicaststatus = "invalid"
+    QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry_Dot1qStaticUnicastStatus_invalid QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry_Dot1qStaticUnicastStatus = "invalid"
 
-    QBRIDGEMIB_Dot1Qstaticunicasttable_Dot1Qstaticunicastentry_Dot1Qstaticunicaststatus_permanent QBRIDGEMIB_Dot1Qstaticunicasttable_Dot1Qstaticunicastentry_Dot1Qstaticunicaststatus = "permanent"
+    QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry_Dot1qStaticUnicastStatus_permanent QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry_Dot1qStaticUnicastStatus = "permanent"
 
-    QBRIDGEMIB_Dot1Qstaticunicasttable_Dot1Qstaticunicastentry_Dot1Qstaticunicaststatus_deleteOnReset QBRIDGEMIB_Dot1Qstaticunicasttable_Dot1Qstaticunicastentry_Dot1Qstaticunicaststatus = "deleteOnReset"
+    QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry_Dot1qStaticUnicastStatus_deleteOnReset QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry_Dot1qStaticUnicastStatus = "deleteOnReset"
 
-    QBRIDGEMIB_Dot1Qstaticunicasttable_Dot1Qstaticunicastentry_Dot1Qstaticunicaststatus_deleteOnTimeout QBRIDGEMIB_Dot1Qstaticunicasttable_Dot1Qstaticunicastentry_Dot1Qstaticunicaststatus = "deleteOnTimeout"
+    QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry_Dot1qStaticUnicastStatus_deleteOnTimeout QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry_Dot1qStaticUnicastStatus = "deleteOnTimeout"
 )
 
-// QBRIDGEMIB_Dot1Qstaticmulticasttable
+// QBRIDGEMIB_Dot1qStaticMulticastTable
 // A table containing filtering information for Multicast
 // and Broadcast MAC addresses for each VLAN, configured
 // into the device by (local or network) management
@@ -910,7 +955,7 @@ const (
 // which there is no specific entry in this table for that
 // particular destination address.  Entries are valid for
 // Multicast and Broadcast addresses only.
-type QBRIDGEMIB_Dot1Qstaticmulticasttable struct {
+type QBRIDGEMIB_Dot1qStaticMulticastTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -918,57 +963,60 @@ type QBRIDGEMIB_Dot1Qstaticmulticasttable struct {
     // management specifying the set of ports to which frames received from this
     // specific port  for this VLAN and containing this Multicast or Broadcast
     // destination address are allowed to be forwarded. The type is slice of
-    // QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry.
-    Dot1Qstaticmulticastentry []QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry
+    // QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry.
+    Dot1qStaticMulticastEntry []*QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry
 }
 
-func (dot1Qstaticmulticasttable *QBRIDGEMIB_Dot1Qstaticmulticasttable) GetEntityData() *types.CommonEntityData {
-    dot1Qstaticmulticasttable.EntityData.YFilter = dot1Qstaticmulticasttable.YFilter
-    dot1Qstaticmulticasttable.EntityData.YangName = "dot1qStaticMulticastTable"
-    dot1Qstaticmulticasttable.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qstaticmulticasttable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
-    dot1Qstaticmulticasttable.EntityData.SegmentPath = "dot1qStaticMulticastTable"
-    dot1Qstaticmulticasttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qstaticmulticasttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qstaticmulticasttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qStaticMulticastTable *QBRIDGEMIB_Dot1qStaticMulticastTable) GetEntityData() *types.CommonEntityData {
+    dot1qStaticMulticastTable.EntityData.YFilter = dot1qStaticMulticastTable.YFilter
+    dot1qStaticMulticastTable.EntityData.YangName = "dot1qStaticMulticastTable"
+    dot1qStaticMulticastTable.EntityData.BundleName = "cisco_ios_xe"
+    dot1qStaticMulticastTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
+    dot1qStaticMulticastTable.EntityData.SegmentPath = "dot1qStaticMulticastTable"
+    dot1qStaticMulticastTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qStaticMulticastTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qStaticMulticastTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qstaticmulticasttable.EntityData.Children = make(map[string]types.YChild)
-    dot1Qstaticmulticasttable.EntityData.Children["dot1qStaticMulticastEntry"] = types.YChild{"Dot1Qstaticmulticastentry", nil}
-    for i := range dot1Qstaticmulticasttable.Dot1Qstaticmulticastentry {
-        dot1Qstaticmulticasttable.EntityData.Children[types.GetSegmentPath(&dot1Qstaticmulticasttable.Dot1Qstaticmulticastentry[i])] = types.YChild{"Dot1Qstaticmulticastentry", &dot1Qstaticmulticasttable.Dot1Qstaticmulticastentry[i]}
+    dot1qStaticMulticastTable.EntityData.Children = types.NewOrderedMap()
+    dot1qStaticMulticastTable.EntityData.Children.Append("dot1qStaticMulticastEntry", types.YChild{"Dot1qStaticMulticastEntry", nil})
+    for i := range dot1qStaticMulticastTable.Dot1qStaticMulticastEntry {
+        dot1qStaticMulticastTable.EntityData.Children.Append(types.GetSegmentPath(dot1qStaticMulticastTable.Dot1qStaticMulticastEntry[i]), types.YChild{"Dot1qStaticMulticastEntry", dot1qStaticMulticastTable.Dot1qStaticMulticastEntry[i]})
     }
-    dot1Qstaticmulticasttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dot1Qstaticmulticasttable.EntityData)
+    dot1qStaticMulticastTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dot1qStaticMulticastTable.EntityData.YListKeys = []string {}
+
+    return &(dot1qStaticMulticastTable.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry
+// QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry
 // Filtering information configured into the device by
 // (local or network) management specifying the set of
 // ports to which frames received from this specific port
 // 
 // for this VLAN and containing this Multicast or Broadcast
 // destination address are allowed to be forwarded.
-type QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry struct {
+type QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // q_bridge_mib.QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry_Dot1Qvlanindex
-    Dot1Qvlanindex interface{}
+    // q_bridge_mib.QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry_Dot1qVlanIndex
+    Dot1qVlanIndex interface{}
 
     // This attribute is a key. The destination MAC address in a frame to which
     // this entry's filtering information applies.  This object must take the
     // value of a Multicast or Broadcast address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
-    Dot1Qstaticmulticastaddress interface{}
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    Dot1qStaticMulticastAddress interface{}
 
     // This attribute is a key. Either the value '0' or the port number of the
     // port from which a frame must be received in order for this entry's
     // filtering information to apply.  A value of zero indicates that this entry
     // applies on all ports of the device for which there is no other applicable
     // entry. The type is interface{} with range: 0..65535.
-    Dot1Qstaticmulticastreceiveport interface{}
+    Dot1qStaticMulticastReceivePort interface{}
 
     // The set of ports to which frames received from a specific port and destined
     // for a specific Multicast or Broadcast MAC address must be forwarded,
@@ -978,7 +1026,7 @@ type QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry struct {
     // is a string of ones of appropriate length.  The value of this object MUST
     // be retained across reinitializations of the management system. The type is
     // string.
-    Dot1Qstaticmulticaststaticegressports interface{}
+    Dot1qStaticMulticastStaticEgressPorts interface{}
 
     // The set of ports to which frames received from a specific port and destined
     // for a specific Multicast or Broadcast MAC address must not be forwarded,
@@ -988,7 +1036,7 @@ type QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry struct {
     // a string of zeros of appropriate length.  The value of this object MUST be
     // retained across reinitializations of the management system. The type is
     // string.
-    Dot1Qstaticmulticastforbiddenegressports interface{}
+    Dot1qStaticMulticastForbiddenEgressPorts interface{}
 
     // This object indicates the status of this entry. other(1) - this entry is
     // currently in use, but     the conditions under which it will remain     so
@@ -999,98 +1047,104 @@ type QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry struct {
     // remain so until the next     reset of the bridge. deleteOnTimeout(5) - this
     // entry is currently in     use and will remain so until it is aged out.  The
     // value of this object MUST be retained across reinitializations of the
-    // management system. The type is Dot1Qstaticmulticaststatus.
-    Dot1Qstaticmulticaststatus interface{}
+    // management system. The type is Dot1qStaticMulticastStatus.
+    Dot1qStaticMulticastStatus interface{}
 }
 
-func (dot1Qstaticmulticastentry *QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry) GetEntityData() *types.CommonEntityData {
-    dot1Qstaticmulticastentry.EntityData.YFilter = dot1Qstaticmulticastentry.YFilter
-    dot1Qstaticmulticastentry.EntityData.YangName = "dot1qStaticMulticastEntry"
-    dot1Qstaticmulticastentry.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qstaticmulticastentry.EntityData.ParentYangName = "dot1qStaticMulticastTable"
-    dot1Qstaticmulticastentry.EntityData.SegmentPath = "dot1qStaticMulticastEntry" + "[dot1qVlanIndex='" + fmt.Sprintf("%v", dot1Qstaticmulticastentry.Dot1Qvlanindex) + "']" + "[dot1qStaticMulticastAddress='" + fmt.Sprintf("%v", dot1Qstaticmulticastentry.Dot1Qstaticmulticastaddress) + "']" + "[dot1qStaticMulticastReceivePort='" + fmt.Sprintf("%v", dot1Qstaticmulticastentry.Dot1Qstaticmulticastreceiveport) + "']"
-    dot1Qstaticmulticastentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qstaticmulticastentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qstaticmulticastentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qStaticMulticastEntry *QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry) GetEntityData() *types.CommonEntityData {
+    dot1qStaticMulticastEntry.EntityData.YFilter = dot1qStaticMulticastEntry.YFilter
+    dot1qStaticMulticastEntry.EntityData.YangName = "dot1qStaticMulticastEntry"
+    dot1qStaticMulticastEntry.EntityData.BundleName = "cisco_ios_xe"
+    dot1qStaticMulticastEntry.EntityData.ParentYangName = "dot1qStaticMulticastTable"
+    dot1qStaticMulticastEntry.EntityData.SegmentPath = "dot1qStaticMulticastEntry" + types.AddKeyToken(dot1qStaticMulticastEntry.Dot1qVlanIndex, "dot1qVlanIndex") + types.AddKeyToken(dot1qStaticMulticastEntry.Dot1qStaticMulticastAddress, "dot1qStaticMulticastAddress") + types.AddKeyToken(dot1qStaticMulticastEntry.Dot1qStaticMulticastReceivePort, "dot1qStaticMulticastReceivePort")
+    dot1qStaticMulticastEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qStaticMulticastEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qStaticMulticastEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qstaticmulticastentry.EntityData.Children = make(map[string]types.YChild)
-    dot1Qstaticmulticastentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1Qstaticmulticastentry.EntityData.Leafs["dot1qVlanIndex"] = types.YLeaf{"Dot1Qvlanindex", dot1Qstaticmulticastentry.Dot1Qvlanindex}
-    dot1Qstaticmulticastentry.EntityData.Leafs["dot1qStaticMulticastAddress"] = types.YLeaf{"Dot1Qstaticmulticastaddress", dot1Qstaticmulticastentry.Dot1Qstaticmulticastaddress}
-    dot1Qstaticmulticastentry.EntityData.Leafs["dot1qStaticMulticastReceivePort"] = types.YLeaf{"Dot1Qstaticmulticastreceiveport", dot1Qstaticmulticastentry.Dot1Qstaticmulticastreceiveport}
-    dot1Qstaticmulticastentry.EntityData.Leafs["dot1qStaticMulticastStaticEgressPorts"] = types.YLeaf{"Dot1Qstaticmulticaststaticegressports", dot1Qstaticmulticastentry.Dot1Qstaticmulticaststaticegressports}
-    dot1Qstaticmulticastentry.EntityData.Leafs["dot1qStaticMulticastForbiddenEgressPorts"] = types.YLeaf{"Dot1Qstaticmulticastforbiddenegressports", dot1Qstaticmulticastentry.Dot1Qstaticmulticastforbiddenegressports}
-    dot1Qstaticmulticastentry.EntityData.Leafs["dot1qStaticMulticastStatus"] = types.YLeaf{"Dot1Qstaticmulticaststatus", dot1Qstaticmulticastentry.Dot1Qstaticmulticaststatus}
-    return &(dot1Qstaticmulticastentry.EntityData)
+    dot1qStaticMulticastEntry.EntityData.Children = types.NewOrderedMap()
+    dot1qStaticMulticastEntry.EntityData.Leafs = types.NewOrderedMap()
+    dot1qStaticMulticastEntry.EntityData.Leafs.Append("dot1qVlanIndex", types.YLeaf{"Dot1qVlanIndex", dot1qStaticMulticastEntry.Dot1qVlanIndex})
+    dot1qStaticMulticastEntry.EntityData.Leafs.Append("dot1qStaticMulticastAddress", types.YLeaf{"Dot1qStaticMulticastAddress", dot1qStaticMulticastEntry.Dot1qStaticMulticastAddress})
+    dot1qStaticMulticastEntry.EntityData.Leafs.Append("dot1qStaticMulticastReceivePort", types.YLeaf{"Dot1qStaticMulticastReceivePort", dot1qStaticMulticastEntry.Dot1qStaticMulticastReceivePort})
+    dot1qStaticMulticastEntry.EntityData.Leafs.Append("dot1qStaticMulticastStaticEgressPorts", types.YLeaf{"Dot1qStaticMulticastStaticEgressPorts", dot1qStaticMulticastEntry.Dot1qStaticMulticastStaticEgressPorts})
+    dot1qStaticMulticastEntry.EntityData.Leafs.Append("dot1qStaticMulticastForbiddenEgressPorts", types.YLeaf{"Dot1qStaticMulticastForbiddenEgressPorts", dot1qStaticMulticastEntry.Dot1qStaticMulticastForbiddenEgressPorts})
+    dot1qStaticMulticastEntry.EntityData.Leafs.Append("dot1qStaticMulticastStatus", types.YLeaf{"Dot1qStaticMulticastStatus", dot1qStaticMulticastEntry.Dot1qStaticMulticastStatus})
+
+    dot1qStaticMulticastEntry.EntityData.YListKeys = []string {"Dot1qVlanIndex", "Dot1qStaticMulticastAddress", "Dot1qStaticMulticastReceivePort"}
+
+    return &(dot1qStaticMulticastEntry.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry_Dot1Qstaticmulticaststatus represents reinitializations of the management system.
-type QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry_Dot1Qstaticmulticaststatus string
+// QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry_Dot1qStaticMulticastStatus represents reinitializations of the management system.
+type QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry_Dot1qStaticMulticastStatus string
 
 const (
-    QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry_Dot1Qstaticmulticaststatus_other QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry_Dot1Qstaticmulticaststatus = "other"
+    QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry_Dot1qStaticMulticastStatus_other QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry_Dot1qStaticMulticastStatus = "other"
 
-    QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry_Dot1Qstaticmulticaststatus_invalid QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry_Dot1Qstaticmulticaststatus = "invalid"
+    QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry_Dot1qStaticMulticastStatus_invalid QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry_Dot1qStaticMulticastStatus = "invalid"
 
-    QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry_Dot1Qstaticmulticaststatus_permanent QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry_Dot1Qstaticmulticaststatus = "permanent"
+    QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry_Dot1qStaticMulticastStatus_permanent QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry_Dot1qStaticMulticastStatus = "permanent"
 
-    QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry_Dot1Qstaticmulticaststatus_deleteOnReset QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry_Dot1Qstaticmulticaststatus = "deleteOnReset"
+    QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry_Dot1qStaticMulticastStatus_deleteOnReset QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry_Dot1qStaticMulticastStatus = "deleteOnReset"
 
-    QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry_Dot1Qstaticmulticaststatus_deleteOnTimeout QBRIDGEMIB_Dot1Qstaticmulticasttable_Dot1Qstaticmulticastentry_Dot1Qstaticmulticaststatus = "deleteOnTimeout"
+    QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry_Dot1qStaticMulticastStatus_deleteOnTimeout QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry_Dot1qStaticMulticastStatus = "deleteOnTimeout"
 )
 
-// QBRIDGEMIB_Dot1Qvlancurrenttable
+// QBRIDGEMIB_Dot1qVlanCurrentTable
 // A table containing current configuration information
 // for each VLAN currently configured into the device by
 // (local or network) management, or dynamically created
 // as a result of GVRP requests received.
-type QBRIDGEMIB_Dot1Qvlancurrenttable struct {
+type QBRIDGEMIB_Dot1qVlanCurrentTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information for a VLAN configured into the device by  (local or network)
     // management, or dynamically created as a result of GVRP requests received.
     // The type is slice of
-    // QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry.
-    Dot1Qvlancurrententry []QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry
+    // QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry.
+    Dot1qVlanCurrentEntry []*QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry
 }
 
-func (dot1Qvlancurrenttable *QBRIDGEMIB_Dot1Qvlancurrenttable) GetEntityData() *types.CommonEntityData {
-    dot1Qvlancurrenttable.EntityData.YFilter = dot1Qvlancurrenttable.YFilter
-    dot1Qvlancurrenttable.EntityData.YangName = "dot1qVlanCurrentTable"
-    dot1Qvlancurrenttable.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qvlancurrenttable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
-    dot1Qvlancurrenttable.EntityData.SegmentPath = "dot1qVlanCurrentTable"
-    dot1Qvlancurrenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qvlancurrenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qvlancurrenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qVlanCurrentTable *QBRIDGEMIB_Dot1qVlanCurrentTable) GetEntityData() *types.CommonEntityData {
+    dot1qVlanCurrentTable.EntityData.YFilter = dot1qVlanCurrentTable.YFilter
+    dot1qVlanCurrentTable.EntityData.YangName = "dot1qVlanCurrentTable"
+    dot1qVlanCurrentTable.EntityData.BundleName = "cisco_ios_xe"
+    dot1qVlanCurrentTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
+    dot1qVlanCurrentTable.EntityData.SegmentPath = "dot1qVlanCurrentTable"
+    dot1qVlanCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qVlanCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qVlanCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qvlancurrenttable.EntityData.Children = make(map[string]types.YChild)
-    dot1Qvlancurrenttable.EntityData.Children["dot1qVlanCurrentEntry"] = types.YChild{"Dot1Qvlancurrententry", nil}
-    for i := range dot1Qvlancurrenttable.Dot1Qvlancurrententry {
-        dot1Qvlancurrenttable.EntityData.Children[types.GetSegmentPath(&dot1Qvlancurrenttable.Dot1Qvlancurrententry[i])] = types.YChild{"Dot1Qvlancurrententry", &dot1Qvlancurrenttable.Dot1Qvlancurrententry[i]}
+    dot1qVlanCurrentTable.EntityData.Children = types.NewOrderedMap()
+    dot1qVlanCurrentTable.EntityData.Children.Append("dot1qVlanCurrentEntry", types.YChild{"Dot1qVlanCurrentEntry", nil})
+    for i := range dot1qVlanCurrentTable.Dot1qVlanCurrentEntry {
+        dot1qVlanCurrentTable.EntityData.Children.Append(types.GetSegmentPath(dot1qVlanCurrentTable.Dot1qVlanCurrentEntry[i]), types.YChild{"Dot1qVlanCurrentEntry", dot1qVlanCurrentTable.Dot1qVlanCurrentEntry[i]})
     }
-    dot1Qvlancurrenttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dot1Qvlancurrenttable.EntityData)
+    dot1qVlanCurrentTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dot1qVlanCurrentTable.EntityData.YListKeys = []string {}
+
+    return &(dot1qVlanCurrentTable.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry
+// QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry
 // Information for a VLAN configured into the device by
 // 
 // (local or network) management, or dynamically created
 // as a result of GVRP requests received.
-type QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry struct {
+type QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A TimeFilter for this entry.  See the TimeFilter
     // textual convention to see how this works. The type is interface{} with
     // range: 0..4294967295.
-    Dot1Qvlantimemark interface{}
+    Dot1qVlanTimeMark interface{}
 
     // This attribute is a key. The VLAN-ID or other identifier referring to this
     // VLAN. The type is interface{} with range: 0..4294967295.
-    Dot1Qvlanindex interface{}
+    Dot1qVlanIndex interface{}
 
     // The Filtering Database used by this VLAN.  This is one of the dot1qFdbId
     // values in the dot1qFdbTable.  This value is allocated automatically by the
@@ -1099,15 +1153,15 @@ type QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry struct {
     // learning constraints defined for this VLAN in
     // dot1qLearningConstraintsTable. The type is interface{} with range:
     // 0..4294967295.
-    Dot1Qvlanfdbid interface{}
+    Dot1qVlanFdbId interface{}
 
     // The set of ports that are transmitting traffic for this VLAN as either
     // tagged or untagged frames. The type is string.
-    Dot1Qvlancurrentegressports interface{}
+    Dot1qVlanCurrentEgressPorts interface{}
 
     // The set of ports that are transmitting traffic for this VLAN as untagged
     // frames. The type is string.
-    Dot1Qvlancurrentuntaggedports interface{}
+    Dot1qVlanCurrentUntaggedPorts interface{}
 
     // This object indicates the status of this entry. other(1) - this entry is
     // currently in use, but the     conditions under which it will remain so
@@ -1119,96 +1173,102 @@ type QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry struct {
     // dynamicGvrp(3) - this entry is currently in use      and will remain so
     // until removed by GVRP.  There     is no static entry for this VLAN, and it
     // will be     removed when the last port leaves the VLAN. The type is
-    // Dot1Qvlanstatus.
-    Dot1Qvlanstatus interface{}
+    // Dot1qVlanStatus.
+    Dot1qVlanStatus interface{}
 
     // The value of sysUpTime when this VLAN was created. The type is interface{}
     // with range: 0..4294967295.
-    Dot1Qvlancreationtime interface{}
+    Dot1qVlanCreationTime interface{}
 }
 
-func (dot1Qvlancurrententry *QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry) GetEntityData() *types.CommonEntityData {
-    dot1Qvlancurrententry.EntityData.YFilter = dot1Qvlancurrententry.YFilter
-    dot1Qvlancurrententry.EntityData.YangName = "dot1qVlanCurrentEntry"
-    dot1Qvlancurrententry.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qvlancurrententry.EntityData.ParentYangName = "dot1qVlanCurrentTable"
-    dot1Qvlancurrententry.EntityData.SegmentPath = "dot1qVlanCurrentEntry" + "[dot1qVlanTimeMark='" + fmt.Sprintf("%v", dot1Qvlancurrententry.Dot1Qvlantimemark) + "']" + "[dot1qVlanIndex='" + fmt.Sprintf("%v", dot1Qvlancurrententry.Dot1Qvlanindex) + "']"
-    dot1Qvlancurrententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qvlancurrententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qvlancurrententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qVlanCurrentEntry *QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry) GetEntityData() *types.CommonEntityData {
+    dot1qVlanCurrentEntry.EntityData.YFilter = dot1qVlanCurrentEntry.YFilter
+    dot1qVlanCurrentEntry.EntityData.YangName = "dot1qVlanCurrentEntry"
+    dot1qVlanCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
+    dot1qVlanCurrentEntry.EntityData.ParentYangName = "dot1qVlanCurrentTable"
+    dot1qVlanCurrentEntry.EntityData.SegmentPath = "dot1qVlanCurrentEntry" + types.AddKeyToken(dot1qVlanCurrentEntry.Dot1qVlanTimeMark, "dot1qVlanTimeMark") + types.AddKeyToken(dot1qVlanCurrentEntry.Dot1qVlanIndex, "dot1qVlanIndex")
+    dot1qVlanCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qVlanCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qVlanCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qvlancurrententry.EntityData.Children = make(map[string]types.YChild)
-    dot1Qvlancurrententry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1Qvlancurrententry.EntityData.Leafs["dot1qVlanTimeMark"] = types.YLeaf{"Dot1Qvlantimemark", dot1Qvlancurrententry.Dot1Qvlantimemark}
-    dot1Qvlancurrententry.EntityData.Leafs["dot1qVlanIndex"] = types.YLeaf{"Dot1Qvlanindex", dot1Qvlancurrententry.Dot1Qvlanindex}
-    dot1Qvlancurrententry.EntityData.Leafs["dot1qVlanFdbId"] = types.YLeaf{"Dot1Qvlanfdbid", dot1Qvlancurrententry.Dot1Qvlanfdbid}
-    dot1Qvlancurrententry.EntityData.Leafs["dot1qVlanCurrentEgressPorts"] = types.YLeaf{"Dot1Qvlancurrentegressports", dot1Qvlancurrententry.Dot1Qvlancurrentegressports}
-    dot1Qvlancurrententry.EntityData.Leafs["dot1qVlanCurrentUntaggedPorts"] = types.YLeaf{"Dot1Qvlancurrentuntaggedports", dot1Qvlancurrententry.Dot1Qvlancurrentuntaggedports}
-    dot1Qvlancurrententry.EntityData.Leafs["dot1qVlanStatus"] = types.YLeaf{"Dot1Qvlanstatus", dot1Qvlancurrententry.Dot1Qvlanstatus}
-    dot1Qvlancurrententry.EntityData.Leafs["dot1qVlanCreationTime"] = types.YLeaf{"Dot1Qvlancreationtime", dot1Qvlancurrententry.Dot1Qvlancreationtime}
-    return &(dot1Qvlancurrententry.EntityData)
+    dot1qVlanCurrentEntry.EntityData.Children = types.NewOrderedMap()
+    dot1qVlanCurrentEntry.EntityData.Leafs = types.NewOrderedMap()
+    dot1qVlanCurrentEntry.EntityData.Leafs.Append("dot1qVlanTimeMark", types.YLeaf{"Dot1qVlanTimeMark", dot1qVlanCurrentEntry.Dot1qVlanTimeMark})
+    dot1qVlanCurrentEntry.EntityData.Leafs.Append("dot1qVlanIndex", types.YLeaf{"Dot1qVlanIndex", dot1qVlanCurrentEntry.Dot1qVlanIndex})
+    dot1qVlanCurrentEntry.EntityData.Leafs.Append("dot1qVlanFdbId", types.YLeaf{"Dot1qVlanFdbId", dot1qVlanCurrentEntry.Dot1qVlanFdbId})
+    dot1qVlanCurrentEntry.EntityData.Leafs.Append("dot1qVlanCurrentEgressPorts", types.YLeaf{"Dot1qVlanCurrentEgressPorts", dot1qVlanCurrentEntry.Dot1qVlanCurrentEgressPorts})
+    dot1qVlanCurrentEntry.EntityData.Leafs.Append("dot1qVlanCurrentUntaggedPorts", types.YLeaf{"Dot1qVlanCurrentUntaggedPorts", dot1qVlanCurrentEntry.Dot1qVlanCurrentUntaggedPorts})
+    dot1qVlanCurrentEntry.EntityData.Leafs.Append("dot1qVlanStatus", types.YLeaf{"Dot1qVlanStatus", dot1qVlanCurrentEntry.Dot1qVlanStatus})
+    dot1qVlanCurrentEntry.EntityData.Leafs.Append("dot1qVlanCreationTime", types.YLeaf{"Dot1qVlanCreationTime", dot1qVlanCurrentEntry.Dot1qVlanCreationTime})
+
+    dot1qVlanCurrentEntry.EntityData.YListKeys = []string {"Dot1qVlanTimeMark", "Dot1qVlanIndex"}
+
+    return &(dot1qVlanCurrentEntry.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry_Dot1Qvlanstatus represents     removed when the last port leaves the VLAN.
-type QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry_Dot1Qvlanstatus string
+// QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry_Dot1qVlanStatus represents     removed when the last port leaves the VLAN.
+type QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry_Dot1qVlanStatus string
 
 const (
-    QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry_Dot1Qvlanstatus_other QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry_Dot1Qvlanstatus = "other"
+    QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry_Dot1qVlanStatus_other QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry_Dot1qVlanStatus = "other"
 
-    QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry_Dot1Qvlanstatus_permanent QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry_Dot1Qvlanstatus = "permanent"
+    QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry_Dot1qVlanStatus_permanent QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry_Dot1qVlanStatus = "permanent"
 
-    QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry_Dot1Qvlanstatus_dynamicGvrp QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry_Dot1Qvlanstatus = "dynamicGvrp"
+    QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry_Dot1qVlanStatus_dynamicGvrp QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry_Dot1qVlanStatus = "dynamicGvrp"
 )
 
-// QBRIDGEMIB_Dot1Qvlanstatictable
+// QBRIDGEMIB_Dot1qVlanStaticTable
 // A table containing static configuration information for
 // each VLAN configured into the device by (local or
 // network) management.  All entries are permanent and will
 // be restored after the device is reset.
-type QBRIDGEMIB_Dot1Qvlanstatictable struct {
+type QBRIDGEMIB_Dot1qVlanStaticTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Static information for a VLAN configured into the device by (local or
     // network) management. The type is slice of
-    // QBRIDGEMIB_Dot1Qvlanstatictable_Dot1Qvlanstaticentry.
-    Dot1Qvlanstaticentry []QBRIDGEMIB_Dot1Qvlanstatictable_Dot1Qvlanstaticentry
+    // QBRIDGEMIB_Dot1qVlanStaticTable_Dot1qVlanStaticEntry.
+    Dot1qVlanStaticEntry []*QBRIDGEMIB_Dot1qVlanStaticTable_Dot1qVlanStaticEntry
 }
 
-func (dot1Qvlanstatictable *QBRIDGEMIB_Dot1Qvlanstatictable) GetEntityData() *types.CommonEntityData {
-    dot1Qvlanstatictable.EntityData.YFilter = dot1Qvlanstatictable.YFilter
-    dot1Qvlanstatictable.EntityData.YangName = "dot1qVlanStaticTable"
-    dot1Qvlanstatictable.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qvlanstatictable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
-    dot1Qvlanstatictable.EntityData.SegmentPath = "dot1qVlanStaticTable"
-    dot1Qvlanstatictable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qvlanstatictable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qvlanstatictable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qVlanStaticTable *QBRIDGEMIB_Dot1qVlanStaticTable) GetEntityData() *types.CommonEntityData {
+    dot1qVlanStaticTable.EntityData.YFilter = dot1qVlanStaticTable.YFilter
+    dot1qVlanStaticTable.EntityData.YangName = "dot1qVlanStaticTable"
+    dot1qVlanStaticTable.EntityData.BundleName = "cisco_ios_xe"
+    dot1qVlanStaticTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
+    dot1qVlanStaticTable.EntityData.SegmentPath = "dot1qVlanStaticTable"
+    dot1qVlanStaticTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qVlanStaticTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qVlanStaticTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qvlanstatictable.EntityData.Children = make(map[string]types.YChild)
-    dot1Qvlanstatictable.EntityData.Children["dot1qVlanStaticEntry"] = types.YChild{"Dot1Qvlanstaticentry", nil}
-    for i := range dot1Qvlanstatictable.Dot1Qvlanstaticentry {
-        dot1Qvlanstatictable.EntityData.Children[types.GetSegmentPath(&dot1Qvlanstatictable.Dot1Qvlanstaticentry[i])] = types.YChild{"Dot1Qvlanstaticentry", &dot1Qvlanstatictable.Dot1Qvlanstaticentry[i]}
+    dot1qVlanStaticTable.EntityData.Children = types.NewOrderedMap()
+    dot1qVlanStaticTable.EntityData.Children.Append("dot1qVlanStaticEntry", types.YChild{"Dot1qVlanStaticEntry", nil})
+    for i := range dot1qVlanStaticTable.Dot1qVlanStaticEntry {
+        dot1qVlanStaticTable.EntityData.Children.Append(types.GetSegmentPath(dot1qVlanStaticTable.Dot1qVlanStaticEntry[i]), types.YChild{"Dot1qVlanStaticEntry", dot1qVlanStaticTable.Dot1qVlanStaticEntry[i]})
     }
-    dot1Qvlanstatictable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dot1Qvlanstatictable.EntityData)
+    dot1qVlanStaticTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dot1qVlanStaticTable.EntityData.YListKeys = []string {}
+
+    return &(dot1qVlanStaticTable.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qvlanstatictable_Dot1Qvlanstaticentry
+// QBRIDGEMIB_Dot1qVlanStaticTable_Dot1qVlanStaticEntry
 // Static information for a VLAN configured into the
 // device by (local or network) management.
-type QBRIDGEMIB_Dot1Qvlanstatictable_Dot1Qvlanstaticentry struct {
+type QBRIDGEMIB_Dot1qVlanStaticTable_Dot1qVlanStaticEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // q_bridge_mib.QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry_Dot1Qvlanindex
-    Dot1Qvlanindex interface{}
+    // q_bridge_mib.QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry_Dot1qVlanIndex
+    Dot1qVlanIndex interface{}
 
     // An administratively assigned string, which may be used to identify the
     // VLAN. The type is string with length: 0..32.
-    Dot1Qvlanstaticname interface{}
+    Dot1qVlanStaticName interface{}
 
     // The set of ports that are permanently assigned to the egress list for this
     // VLAN by management.  Changes to a bit in this object affect the per-port,
@@ -1217,7 +1277,7 @@ type QBRIDGEMIB_Dot1Qvlanstatictable_Dot1Qvlanstaticentry struct {
     // already a member of the set of ports in dot1qVlanForbiddenEgressPorts.  The
     // default value of this object is a string of zeros of appropriate length,
     // indicating not fixed. The type is string.
-    Dot1Qvlanstaticegressports interface{}
+    Dot1qVlanStaticEgressPorts interface{}
 
     // The set of ports that are prohibited by management from being included in
     // the egress list for this VLAN. Changes to this object that cause a port to
@@ -1227,7 +1287,7 @@ type QBRIDGEMIB_Dot1Qvlanstatictable_Dot1Qvlanstaticentry struct {
     // ports in dot1qVlanStaticEgressPorts.  The default value of this object is a
     // string of zeros of appropriate length, excluding all ports from the
     // forbidden set. The type is string.
-    Dot1Qvlanforbiddenegressports interface{}
+    Dot1qVlanForbiddenEgressPorts interface{}
 
     // The set of ports that should transmit egress packets for this VLAN as
     // untagged.  The default value of this object for the default VLAN
@@ -1237,34 +1297,37 @@ type QBRIDGEMIB_Dot1Qvlanstatictable_Dot1Qvlanstaticentry struct {
     // with an error.  For example, a manager might attempt to set more than one
     // VLAN to be untagged on egress where the device does not support this IEEE
     // 802.1Q option. The type is string.
-    Dot1Qvlanstaticuntaggedports interface{}
+    Dot1qVlanStaticUntaggedPorts interface{}
 
     // This object indicates the status of this entry. The type is RowStatus.
-    Dot1Qvlanstaticrowstatus interface{}
+    Dot1qVlanStaticRowStatus interface{}
 }
 
-func (dot1Qvlanstaticentry *QBRIDGEMIB_Dot1Qvlanstatictable_Dot1Qvlanstaticentry) GetEntityData() *types.CommonEntityData {
-    dot1Qvlanstaticentry.EntityData.YFilter = dot1Qvlanstaticentry.YFilter
-    dot1Qvlanstaticentry.EntityData.YangName = "dot1qVlanStaticEntry"
-    dot1Qvlanstaticentry.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qvlanstaticentry.EntityData.ParentYangName = "dot1qVlanStaticTable"
-    dot1Qvlanstaticentry.EntityData.SegmentPath = "dot1qVlanStaticEntry" + "[dot1qVlanIndex='" + fmt.Sprintf("%v", dot1Qvlanstaticentry.Dot1Qvlanindex) + "']"
-    dot1Qvlanstaticentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qvlanstaticentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qvlanstaticentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qVlanStaticEntry *QBRIDGEMIB_Dot1qVlanStaticTable_Dot1qVlanStaticEntry) GetEntityData() *types.CommonEntityData {
+    dot1qVlanStaticEntry.EntityData.YFilter = dot1qVlanStaticEntry.YFilter
+    dot1qVlanStaticEntry.EntityData.YangName = "dot1qVlanStaticEntry"
+    dot1qVlanStaticEntry.EntityData.BundleName = "cisco_ios_xe"
+    dot1qVlanStaticEntry.EntityData.ParentYangName = "dot1qVlanStaticTable"
+    dot1qVlanStaticEntry.EntityData.SegmentPath = "dot1qVlanStaticEntry" + types.AddKeyToken(dot1qVlanStaticEntry.Dot1qVlanIndex, "dot1qVlanIndex")
+    dot1qVlanStaticEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qVlanStaticEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qVlanStaticEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qvlanstaticentry.EntityData.Children = make(map[string]types.YChild)
-    dot1Qvlanstaticentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1Qvlanstaticentry.EntityData.Leafs["dot1qVlanIndex"] = types.YLeaf{"Dot1Qvlanindex", dot1Qvlanstaticentry.Dot1Qvlanindex}
-    dot1Qvlanstaticentry.EntityData.Leafs["dot1qVlanStaticName"] = types.YLeaf{"Dot1Qvlanstaticname", dot1Qvlanstaticentry.Dot1Qvlanstaticname}
-    dot1Qvlanstaticentry.EntityData.Leafs["dot1qVlanStaticEgressPorts"] = types.YLeaf{"Dot1Qvlanstaticegressports", dot1Qvlanstaticentry.Dot1Qvlanstaticegressports}
-    dot1Qvlanstaticentry.EntityData.Leafs["dot1qVlanForbiddenEgressPorts"] = types.YLeaf{"Dot1Qvlanforbiddenegressports", dot1Qvlanstaticentry.Dot1Qvlanforbiddenegressports}
-    dot1Qvlanstaticentry.EntityData.Leafs["dot1qVlanStaticUntaggedPorts"] = types.YLeaf{"Dot1Qvlanstaticuntaggedports", dot1Qvlanstaticentry.Dot1Qvlanstaticuntaggedports}
-    dot1Qvlanstaticentry.EntityData.Leafs["dot1qVlanStaticRowStatus"] = types.YLeaf{"Dot1Qvlanstaticrowstatus", dot1Qvlanstaticentry.Dot1Qvlanstaticrowstatus}
-    return &(dot1Qvlanstaticentry.EntityData)
+    dot1qVlanStaticEntry.EntityData.Children = types.NewOrderedMap()
+    dot1qVlanStaticEntry.EntityData.Leafs = types.NewOrderedMap()
+    dot1qVlanStaticEntry.EntityData.Leafs.Append("dot1qVlanIndex", types.YLeaf{"Dot1qVlanIndex", dot1qVlanStaticEntry.Dot1qVlanIndex})
+    dot1qVlanStaticEntry.EntityData.Leafs.Append("dot1qVlanStaticName", types.YLeaf{"Dot1qVlanStaticName", dot1qVlanStaticEntry.Dot1qVlanStaticName})
+    dot1qVlanStaticEntry.EntityData.Leafs.Append("dot1qVlanStaticEgressPorts", types.YLeaf{"Dot1qVlanStaticEgressPorts", dot1qVlanStaticEntry.Dot1qVlanStaticEgressPorts})
+    dot1qVlanStaticEntry.EntityData.Leafs.Append("dot1qVlanForbiddenEgressPorts", types.YLeaf{"Dot1qVlanForbiddenEgressPorts", dot1qVlanStaticEntry.Dot1qVlanForbiddenEgressPorts})
+    dot1qVlanStaticEntry.EntityData.Leafs.Append("dot1qVlanStaticUntaggedPorts", types.YLeaf{"Dot1qVlanStaticUntaggedPorts", dot1qVlanStaticEntry.Dot1qVlanStaticUntaggedPorts})
+    dot1qVlanStaticEntry.EntityData.Leafs.Append("dot1qVlanStaticRowStatus", types.YLeaf{"Dot1qVlanStaticRowStatus", dot1qVlanStaticEntry.Dot1qVlanStaticRowStatus})
+
+    dot1qVlanStaticEntry.EntityData.YListKeys = []string {"Dot1qVlanIndex"}
+
+    return &(dot1qVlanStaticEntry.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qportvlanstatisticstable
+// QBRIDGEMIB_Dot1qPortVlanStatisticsTable
 // A table containing per-port, per-VLAN statistics for
 // traffic received.  Separate objects are provided for both the
 // most-significant and least-significant bits of statistics
@@ -1281,48 +1344,51 @@ func (dot1Qvlanstaticentry *QBRIDGEMIB_Dot1Qvlanstatictable_Dot1Qvlanstaticentry
 // same varbindlist, when interpreting the results of a request or
 // 
 // asynchronous notification.
-type QBRIDGEMIB_Dot1Qportvlanstatisticstable struct {
+type QBRIDGEMIB_Dot1qPortVlanStatisticsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Traffic statistics for a VLAN on an interface. The type is slice of
-    // QBRIDGEMIB_Dot1Qportvlanstatisticstable_Dot1Qportvlanstatisticsentry.
-    Dot1Qportvlanstatisticsentry []QBRIDGEMIB_Dot1Qportvlanstatisticstable_Dot1Qportvlanstatisticsentry
+    // QBRIDGEMIB_Dot1qPortVlanStatisticsTable_Dot1qPortVlanStatisticsEntry.
+    Dot1qPortVlanStatisticsEntry []*QBRIDGEMIB_Dot1qPortVlanStatisticsTable_Dot1qPortVlanStatisticsEntry
 }
 
-func (dot1Qportvlanstatisticstable *QBRIDGEMIB_Dot1Qportvlanstatisticstable) GetEntityData() *types.CommonEntityData {
-    dot1Qportvlanstatisticstable.EntityData.YFilter = dot1Qportvlanstatisticstable.YFilter
-    dot1Qportvlanstatisticstable.EntityData.YangName = "dot1qPortVlanStatisticsTable"
-    dot1Qportvlanstatisticstable.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qportvlanstatisticstable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
-    dot1Qportvlanstatisticstable.EntityData.SegmentPath = "dot1qPortVlanStatisticsTable"
-    dot1Qportvlanstatisticstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qportvlanstatisticstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qportvlanstatisticstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qPortVlanStatisticsTable *QBRIDGEMIB_Dot1qPortVlanStatisticsTable) GetEntityData() *types.CommonEntityData {
+    dot1qPortVlanStatisticsTable.EntityData.YFilter = dot1qPortVlanStatisticsTable.YFilter
+    dot1qPortVlanStatisticsTable.EntityData.YangName = "dot1qPortVlanStatisticsTable"
+    dot1qPortVlanStatisticsTable.EntityData.BundleName = "cisco_ios_xe"
+    dot1qPortVlanStatisticsTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
+    dot1qPortVlanStatisticsTable.EntityData.SegmentPath = "dot1qPortVlanStatisticsTable"
+    dot1qPortVlanStatisticsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qPortVlanStatisticsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qPortVlanStatisticsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qportvlanstatisticstable.EntityData.Children = make(map[string]types.YChild)
-    dot1Qportvlanstatisticstable.EntityData.Children["dot1qPortVlanStatisticsEntry"] = types.YChild{"Dot1Qportvlanstatisticsentry", nil}
-    for i := range dot1Qportvlanstatisticstable.Dot1Qportvlanstatisticsentry {
-        dot1Qportvlanstatisticstable.EntityData.Children[types.GetSegmentPath(&dot1Qportvlanstatisticstable.Dot1Qportvlanstatisticsentry[i])] = types.YChild{"Dot1Qportvlanstatisticsentry", &dot1Qportvlanstatisticstable.Dot1Qportvlanstatisticsentry[i]}
+    dot1qPortVlanStatisticsTable.EntityData.Children = types.NewOrderedMap()
+    dot1qPortVlanStatisticsTable.EntityData.Children.Append("dot1qPortVlanStatisticsEntry", types.YChild{"Dot1qPortVlanStatisticsEntry", nil})
+    for i := range dot1qPortVlanStatisticsTable.Dot1qPortVlanStatisticsEntry {
+        dot1qPortVlanStatisticsTable.EntityData.Children.Append(types.GetSegmentPath(dot1qPortVlanStatisticsTable.Dot1qPortVlanStatisticsEntry[i]), types.YChild{"Dot1qPortVlanStatisticsEntry", dot1qPortVlanStatisticsTable.Dot1qPortVlanStatisticsEntry[i]})
     }
-    dot1Qportvlanstatisticstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dot1Qportvlanstatisticstable.EntityData)
+    dot1qPortVlanStatisticsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dot1qPortVlanStatisticsTable.EntityData.YListKeys = []string {}
+
+    return &(dot1qPortVlanStatisticsTable.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qportvlanstatisticstable_Dot1Qportvlanstatisticsentry
+// QBRIDGEMIB_Dot1qPortVlanStatisticsTable_Dot1qPortVlanStatisticsEntry
 // Traffic statistics for a VLAN on an interface.
-type QBRIDGEMIB_Dot1Qportvlanstatisticstable_Dot1Qportvlanstatisticsentry struct {
+type QBRIDGEMIB_Dot1qPortVlanStatisticsTable_Dot1qPortVlanStatisticsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
-    // bridge_mib.BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry_Dot1Dbaseport
-    Dot1Dbaseport interface{}
+    // bridge_mib.BRIDGEMIB_Dot1dBasePortTable_Dot1dBasePortEntry_Dot1dBasePort
+    Dot1dBasePort interface{}
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // q_bridge_mib.QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry_Dot1Qvlanindex
-    Dot1Qvlanindex interface{}
+    // q_bridge_mib.QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry_Dot1qVlanIndex
+    Dot1qVlanIndex interface{}
 
     // The number of valid frames received by this port from its segment that were
     // classified as belonging to this VLAN.  Note that a frame received on this
@@ -1331,105 +1397,111 @@ type QBRIDGEMIB_Dot1Qportvlanstatisticstable_Dot1Qportvlanstatisticsentry struct
     // includes received bridge management frames classified as belonging to this
     // VLAN (e.g., GMRP, but not GVRP or STP. The type is interface{} with range:
     // 0..4294967295.
-    Dot1Qtpvlanportinframes interface{}
+    Dot1qTpVlanPortInFrames interface{}
 
     // The number of valid frames transmitted by this port to its segment from the
     // local forwarding process for this VLAN.  This includes bridge management
     // frames originated by this device that are classified as belonging to this
     // VLAN (e.g., GMRP, but not GVRP or STP). The type is interface{} with range:
     // 0..4294967295.
-    Dot1Qtpvlanportoutframes interface{}
+    Dot1qTpVlanPortOutFrames interface{}
 
     // The number of valid frames received by this port from its segment that were
     // classified as belonging to this VLAN and that were discarded due to
     // VLAN-related reasons. Specifically, the IEEE 802.1Q counters for Discard
     // Inbound and Discard on Ingress Filtering. The type is interface{} with
     // range: 0..4294967295.
-    Dot1Qtpvlanportindiscards interface{}
+    Dot1qTpVlanPortInDiscards interface{}
 
     // The number of times the associated dot1qTpVlanPortInFrames counter has
     // overflowed. The type is interface{} with range: 0..4294967295.
-    Dot1Qtpvlanportinoverflowframes interface{}
+    Dot1qTpVlanPortInOverflowFrames interface{}
 
     // The number of times the associated dot1qTpVlanPortOutFrames counter has
     // overflowed. The type is interface{} with range: 0..4294967295.
-    Dot1Qtpvlanportoutoverflowframes interface{}
+    Dot1qTpVlanPortOutOverflowFrames interface{}
 
     // The number of times the associated dot1qTpVlanPortInDiscards counter has
     // overflowed. The type is interface{} with range: 0..4294967295.
-    Dot1Qtpvlanportinoverflowdiscards interface{}
+    Dot1qTpVlanPortInOverflowDiscards interface{}
 }
 
-func (dot1Qportvlanstatisticsentry *QBRIDGEMIB_Dot1Qportvlanstatisticstable_Dot1Qportvlanstatisticsentry) GetEntityData() *types.CommonEntityData {
-    dot1Qportvlanstatisticsentry.EntityData.YFilter = dot1Qportvlanstatisticsentry.YFilter
-    dot1Qportvlanstatisticsentry.EntityData.YangName = "dot1qPortVlanStatisticsEntry"
-    dot1Qportvlanstatisticsentry.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qportvlanstatisticsentry.EntityData.ParentYangName = "dot1qPortVlanStatisticsTable"
-    dot1Qportvlanstatisticsentry.EntityData.SegmentPath = "dot1qPortVlanStatisticsEntry" + "[dot1dBasePort='" + fmt.Sprintf("%v", dot1Qportvlanstatisticsentry.Dot1Dbaseport) + "']" + "[dot1qVlanIndex='" + fmt.Sprintf("%v", dot1Qportvlanstatisticsentry.Dot1Qvlanindex) + "']"
-    dot1Qportvlanstatisticsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qportvlanstatisticsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qportvlanstatisticsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qPortVlanStatisticsEntry *QBRIDGEMIB_Dot1qPortVlanStatisticsTable_Dot1qPortVlanStatisticsEntry) GetEntityData() *types.CommonEntityData {
+    dot1qPortVlanStatisticsEntry.EntityData.YFilter = dot1qPortVlanStatisticsEntry.YFilter
+    dot1qPortVlanStatisticsEntry.EntityData.YangName = "dot1qPortVlanStatisticsEntry"
+    dot1qPortVlanStatisticsEntry.EntityData.BundleName = "cisco_ios_xe"
+    dot1qPortVlanStatisticsEntry.EntityData.ParentYangName = "dot1qPortVlanStatisticsTable"
+    dot1qPortVlanStatisticsEntry.EntityData.SegmentPath = "dot1qPortVlanStatisticsEntry" + types.AddKeyToken(dot1qPortVlanStatisticsEntry.Dot1dBasePort, "dot1dBasePort") + types.AddKeyToken(dot1qPortVlanStatisticsEntry.Dot1qVlanIndex, "dot1qVlanIndex")
+    dot1qPortVlanStatisticsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qPortVlanStatisticsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qPortVlanStatisticsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qportvlanstatisticsentry.EntityData.Children = make(map[string]types.YChild)
-    dot1Qportvlanstatisticsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1Qportvlanstatisticsentry.EntityData.Leafs["dot1dBasePort"] = types.YLeaf{"Dot1Dbaseport", dot1Qportvlanstatisticsentry.Dot1Dbaseport}
-    dot1Qportvlanstatisticsentry.EntityData.Leafs["dot1qVlanIndex"] = types.YLeaf{"Dot1Qvlanindex", dot1Qportvlanstatisticsentry.Dot1Qvlanindex}
-    dot1Qportvlanstatisticsentry.EntityData.Leafs["dot1qTpVlanPortInFrames"] = types.YLeaf{"Dot1Qtpvlanportinframes", dot1Qportvlanstatisticsentry.Dot1Qtpvlanportinframes}
-    dot1Qportvlanstatisticsentry.EntityData.Leafs["dot1qTpVlanPortOutFrames"] = types.YLeaf{"Dot1Qtpvlanportoutframes", dot1Qportvlanstatisticsentry.Dot1Qtpvlanportoutframes}
-    dot1Qportvlanstatisticsentry.EntityData.Leafs["dot1qTpVlanPortInDiscards"] = types.YLeaf{"Dot1Qtpvlanportindiscards", dot1Qportvlanstatisticsentry.Dot1Qtpvlanportindiscards}
-    dot1Qportvlanstatisticsentry.EntityData.Leafs["dot1qTpVlanPortInOverflowFrames"] = types.YLeaf{"Dot1Qtpvlanportinoverflowframes", dot1Qportvlanstatisticsentry.Dot1Qtpvlanportinoverflowframes}
-    dot1Qportvlanstatisticsentry.EntityData.Leafs["dot1qTpVlanPortOutOverflowFrames"] = types.YLeaf{"Dot1Qtpvlanportoutoverflowframes", dot1Qportvlanstatisticsentry.Dot1Qtpvlanportoutoverflowframes}
-    dot1Qportvlanstatisticsentry.EntityData.Leafs["dot1qTpVlanPortInOverflowDiscards"] = types.YLeaf{"Dot1Qtpvlanportinoverflowdiscards", dot1Qportvlanstatisticsentry.Dot1Qtpvlanportinoverflowdiscards}
-    return &(dot1Qportvlanstatisticsentry.EntityData)
+    dot1qPortVlanStatisticsEntry.EntityData.Children = types.NewOrderedMap()
+    dot1qPortVlanStatisticsEntry.EntityData.Leafs = types.NewOrderedMap()
+    dot1qPortVlanStatisticsEntry.EntityData.Leafs.Append("dot1dBasePort", types.YLeaf{"Dot1dBasePort", dot1qPortVlanStatisticsEntry.Dot1dBasePort})
+    dot1qPortVlanStatisticsEntry.EntityData.Leafs.Append("dot1qVlanIndex", types.YLeaf{"Dot1qVlanIndex", dot1qPortVlanStatisticsEntry.Dot1qVlanIndex})
+    dot1qPortVlanStatisticsEntry.EntityData.Leafs.Append("dot1qTpVlanPortInFrames", types.YLeaf{"Dot1qTpVlanPortInFrames", dot1qPortVlanStatisticsEntry.Dot1qTpVlanPortInFrames})
+    dot1qPortVlanStatisticsEntry.EntityData.Leafs.Append("dot1qTpVlanPortOutFrames", types.YLeaf{"Dot1qTpVlanPortOutFrames", dot1qPortVlanStatisticsEntry.Dot1qTpVlanPortOutFrames})
+    dot1qPortVlanStatisticsEntry.EntityData.Leafs.Append("dot1qTpVlanPortInDiscards", types.YLeaf{"Dot1qTpVlanPortInDiscards", dot1qPortVlanStatisticsEntry.Dot1qTpVlanPortInDiscards})
+    dot1qPortVlanStatisticsEntry.EntityData.Leafs.Append("dot1qTpVlanPortInOverflowFrames", types.YLeaf{"Dot1qTpVlanPortInOverflowFrames", dot1qPortVlanStatisticsEntry.Dot1qTpVlanPortInOverflowFrames})
+    dot1qPortVlanStatisticsEntry.EntityData.Leafs.Append("dot1qTpVlanPortOutOverflowFrames", types.YLeaf{"Dot1qTpVlanPortOutOverflowFrames", dot1qPortVlanStatisticsEntry.Dot1qTpVlanPortOutOverflowFrames})
+    dot1qPortVlanStatisticsEntry.EntityData.Leafs.Append("dot1qTpVlanPortInOverflowDiscards", types.YLeaf{"Dot1qTpVlanPortInOverflowDiscards", dot1qPortVlanStatisticsEntry.Dot1qTpVlanPortInOverflowDiscards})
+
+    dot1qPortVlanStatisticsEntry.EntityData.YListKeys = []string {"Dot1dBasePort", "Dot1qVlanIndex"}
+
+    return &(dot1qPortVlanStatisticsEntry.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qportvlanhcstatisticstable
+// QBRIDGEMIB_Dot1qPortVlanHCStatisticsTable
 // A table containing per-port, per-VLAN statistics for
 // traffic on high-capacity interfaces.
-type QBRIDGEMIB_Dot1Qportvlanhcstatisticstable struct {
+type QBRIDGEMIB_Dot1qPortVlanHCStatisticsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Traffic statistics for a VLAN on a high-capacity interface. The type is
     // slice of
-    // QBRIDGEMIB_Dot1Qportvlanhcstatisticstable_Dot1Qportvlanhcstatisticsentry.
-    Dot1Qportvlanhcstatisticsentry []QBRIDGEMIB_Dot1Qportvlanhcstatisticstable_Dot1Qportvlanhcstatisticsentry
+    // QBRIDGEMIB_Dot1qPortVlanHCStatisticsTable_Dot1qPortVlanHCStatisticsEntry.
+    Dot1qPortVlanHCStatisticsEntry []*QBRIDGEMIB_Dot1qPortVlanHCStatisticsTable_Dot1qPortVlanHCStatisticsEntry
 }
 
-func (dot1Qportvlanhcstatisticstable *QBRIDGEMIB_Dot1Qportvlanhcstatisticstable) GetEntityData() *types.CommonEntityData {
-    dot1Qportvlanhcstatisticstable.EntityData.YFilter = dot1Qportvlanhcstatisticstable.YFilter
-    dot1Qportvlanhcstatisticstable.EntityData.YangName = "dot1qPortVlanHCStatisticsTable"
-    dot1Qportvlanhcstatisticstable.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qportvlanhcstatisticstable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
-    dot1Qportvlanhcstatisticstable.EntityData.SegmentPath = "dot1qPortVlanHCStatisticsTable"
-    dot1Qportvlanhcstatisticstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qportvlanhcstatisticstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qportvlanhcstatisticstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qPortVlanHCStatisticsTable *QBRIDGEMIB_Dot1qPortVlanHCStatisticsTable) GetEntityData() *types.CommonEntityData {
+    dot1qPortVlanHCStatisticsTable.EntityData.YFilter = dot1qPortVlanHCStatisticsTable.YFilter
+    dot1qPortVlanHCStatisticsTable.EntityData.YangName = "dot1qPortVlanHCStatisticsTable"
+    dot1qPortVlanHCStatisticsTable.EntityData.BundleName = "cisco_ios_xe"
+    dot1qPortVlanHCStatisticsTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
+    dot1qPortVlanHCStatisticsTable.EntityData.SegmentPath = "dot1qPortVlanHCStatisticsTable"
+    dot1qPortVlanHCStatisticsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qPortVlanHCStatisticsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qPortVlanHCStatisticsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qportvlanhcstatisticstable.EntityData.Children = make(map[string]types.YChild)
-    dot1Qportvlanhcstatisticstable.EntityData.Children["dot1qPortVlanHCStatisticsEntry"] = types.YChild{"Dot1Qportvlanhcstatisticsentry", nil}
-    for i := range dot1Qportvlanhcstatisticstable.Dot1Qportvlanhcstatisticsentry {
-        dot1Qportvlanhcstatisticstable.EntityData.Children[types.GetSegmentPath(&dot1Qportvlanhcstatisticstable.Dot1Qportvlanhcstatisticsentry[i])] = types.YChild{"Dot1Qportvlanhcstatisticsentry", &dot1Qportvlanhcstatisticstable.Dot1Qportvlanhcstatisticsentry[i]}
+    dot1qPortVlanHCStatisticsTable.EntityData.Children = types.NewOrderedMap()
+    dot1qPortVlanHCStatisticsTable.EntityData.Children.Append("dot1qPortVlanHCStatisticsEntry", types.YChild{"Dot1qPortVlanHCStatisticsEntry", nil})
+    for i := range dot1qPortVlanHCStatisticsTable.Dot1qPortVlanHCStatisticsEntry {
+        dot1qPortVlanHCStatisticsTable.EntityData.Children.Append(types.GetSegmentPath(dot1qPortVlanHCStatisticsTable.Dot1qPortVlanHCStatisticsEntry[i]), types.YChild{"Dot1qPortVlanHCStatisticsEntry", dot1qPortVlanHCStatisticsTable.Dot1qPortVlanHCStatisticsEntry[i]})
     }
-    dot1Qportvlanhcstatisticstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dot1Qportvlanhcstatisticstable.EntityData)
+    dot1qPortVlanHCStatisticsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dot1qPortVlanHCStatisticsTable.EntityData.YListKeys = []string {}
+
+    return &(dot1qPortVlanHCStatisticsTable.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qportvlanhcstatisticstable_Dot1Qportvlanhcstatisticsentry
+// QBRIDGEMIB_Dot1qPortVlanHCStatisticsTable_Dot1qPortVlanHCStatisticsEntry
 // Traffic statistics for a VLAN on a high-capacity
 // interface.
-type QBRIDGEMIB_Dot1Qportvlanhcstatisticstable_Dot1Qportvlanhcstatisticsentry struct {
+type QBRIDGEMIB_Dot1qPortVlanHCStatisticsTable_Dot1qPortVlanHCStatisticsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
-    // bridge_mib.BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry_Dot1Dbaseport
-    Dot1Dbaseport interface{}
+    // bridge_mib.BRIDGEMIB_Dot1dBasePortTable_Dot1dBasePortEntry_Dot1dBasePort
+    Dot1dBasePort interface{}
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // q_bridge_mib.QBRIDGEMIB_Dot1Qvlancurrenttable_Dot1Qvlancurrententry_Dot1Qvlanindex
-    Dot1Qvlanindex interface{}
+    // q_bridge_mib.QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry_Dot1qVlanIndex
+    Dot1qVlanIndex interface{}
 
     // The number of valid frames received by this port from its segment that were
     // classified as belonging to this VLAN.  Note that a frame received on this
@@ -1438,173 +1510,185 @@ type QBRIDGEMIB_Dot1Qportvlanhcstatisticstable_Dot1Qportvlanhcstatisticsentry st
     // includes received bridge management frames classified as belonging to this
     // VLAN (e.g., GMRP, but not GVRP or STP). The type is interface{} with range:
     // 0..18446744073709551615.
-    Dot1Qtpvlanporthcinframes interface{}
+    Dot1qTpVlanPortHCInFrames interface{}
 
     // The number of valid frames transmitted by this port to its segment from the
     // local forwarding process for this VLAN.  This includes bridge management
     // frames originated by this device that are classified as belonging to this
     // VLAN (e.g., GMRP, but not GVRP or STP). The type is interface{} with range:
     // 0..18446744073709551615.
-    Dot1Qtpvlanporthcoutframes interface{}
+    Dot1qTpVlanPortHCOutFrames interface{}
 
     // The number of valid frames received by this port from its segment that were
     // classified as belonging to this VLAN and that were discarded due to
     // VLAN-related reasons. Specifically, the IEEE 802.1Q counters for Discard
     // Inbound and Discard on Ingress Filtering. The type is interface{} with
     // range: 0..18446744073709551615.
-    Dot1Qtpvlanporthcindiscards interface{}
+    Dot1qTpVlanPortHCInDiscards interface{}
 }
 
-func (dot1Qportvlanhcstatisticsentry *QBRIDGEMIB_Dot1Qportvlanhcstatisticstable_Dot1Qportvlanhcstatisticsentry) GetEntityData() *types.CommonEntityData {
-    dot1Qportvlanhcstatisticsentry.EntityData.YFilter = dot1Qportvlanhcstatisticsentry.YFilter
-    dot1Qportvlanhcstatisticsentry.EntityData.YangName = "dot1qPortVlanHCStatisticsEntry"
-    dot1Qportvlanhcstatisticsentry.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qportvlanhcstatisticsentry.EntityData.ParentYangName = "dot1qPortVlanHCStatisticsTable"
-    dot1Qportvlanhcstatisticsentry.EntityData.SegmentPath = "dot1qPortVlanHCStatisticsEntry" + "[dot1dBasePort='" + fmt.Sprintf("%v", dot1Qportvlanhcstatisticsentry.Dot1Dbaseport) + "']" + "[dot1qVlanIndex='" + fmt.Sprintf("%v", dot1Qportvlanhcstatisticsentry.Dot1Qvlanindex) + "']"
-    dot1Qportvlanhcstatisticsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qportvlanhcstatisticsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qportvlanhcstatisticsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qPortVlanHCStatisticsEntry *QBRIDGEMIB_Dot1qPortVlanHCStatisticsTable_Dot1qPortVlanHCStatisticsEntry) GetEntityData() *types.CommonEntityData {
+    dot1qPortVlanHCStatisticsEntry.EntityData.YFilter = dot1qPortVlanHCStatisticsEntry.YFilter
+    dot1qPortVlanHCStatisticsEntry.EntityData.YangName = "dot1qPortVlanHCStatisticsEntry"
+    dot1qPortVlanHCStatisticsEntry.EntityData.BundleName = "cisco_ios_xe"
+    dot1qPortVlanHCStatisticsEntry.EntityData.ParentYangName = "dot1qPortVlanHCStatisticsTable"
+    dot1qPortVlanHCStatisticsEntry.EntityData.SegmentPath = "dot1qPortVlanHCStatisticsEntry" + types.AddKeyToken(dot1qPortVlanHCStatisticsEntry.Dot1dBasePort, "dot1dBasePort") + types.AddKeyToken(dot1qPortVlanHCStatisticsEntry.Dot1qVlanIndex, "dot1qVlanIndex")
+    dot1qPortVlanHCStatisticsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qPortVlanHCStatisticsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qPortVlanHCStatisticsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qportvlanhcstatisticsentry.EntityData.Children = make(map[string]types.YChild)
-    dot1Qportvlanhcstatisticsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1Qportvlanhcstatisticsentry.EntityData.Leafs["dot1dBasePort"] = types.YLeaf{"Dot1Dbaseport", dot1Qportvlanhcstatisticsentry.Dot1Dbaseport}
-    dot1Qportvlanhcstatisticsentry.EntityData.Leafs["dot1qVlanIndex"] = types.YLeaf{"Dot1Qvlanindex", dot1Qportvlanhcstatisticsentry.Dot1Qvlanindex}
-    dot1Qportvlanhcstatisticsentry.EntityData.Leafs["dot1qTpVlanPortHCInFrames"] = types.YLeaf{"Dot1Qtpvlanporthcinframes", dot1Qportvlanhcstatisticsentry.Dot1Qtpvlanporthcinframes}
-    dot1Qportvlanhcstatisticsentry.EntityData.Leafs["dot1qTpVlanPortHCOutFrames"] = types.YLeaf{"Dot1Qtpvlanporthcoutframes", dot1Qportvlanhcstatisticsentry.Dot1Qtpvlanporthcoutframes}
-    dot1Qportvlanhcstatisticsentry.EntityData.Leafs["dot1qTpVlanPortHCInDiscards"] = types.YLeaf{"Dot1Qtpvlanporthcindiscards", dot1Qportvlanhcstatisticsentry.Dot1Qtpvlanporthcindiscards}
-    return &(dot1Qportvlanhcstatisticsentry.EntityData)
+    dot1qPortVlanHCStatisticsEntry.EntityData.Children = types.NewOrderedMap()
+    dot1qPortVlanHCStatisticsEntry.EntityData.Leafs = types.NewOrderedMap()
+    dot1qPortVlanHCStatisticsEntry.EntityData.Leafs.Append("dot1dBasePort", types.YLeaf{"Dot1dBasePort", dot1qPortVlanHCStatisticsEntry.Dot1dBasePort})
+    dot1qPortVlanHCStatisticsEntry.EntityData.Leafs.Append("dot1qVlanIndex", types.YLeaf{"Dot1qVlanIndex", dot1qPortVlanHCStatisticsEntry.Dot1qVlanIndex})
+    dot1qPortVlanHCStatisticsEntry.EntityData.Leafs.Append("dot1qTpVlanPortHCInFrames", types.YLeaf{"Dot1qTpVlanPortHCInFrames", dot1qPortVlanHCStatisticsEntry.Dot1qTpVlanPortHCInFrames})
+    dot1qPortVlanHCStatisticsEntry.EntityData.Leafs.Append("dot1qTpVlanPortHCOutFrames", types.YLeaf{"Dot1qTpVlanPortHCOutFrames", dot1qPortVlanHCStatisticsEntry.Dot1qTpVlanPortHCOutFrames})
+    dot1qPortVlanHCStatisticsEntry.EntityData.Leafs.Append("dot1qTpVlanPortHCInDiscards", types.YLeaf{"Dot1qTpVlanPortHCInDiscards", dot1qPortVlanHCStatisticsEntry.Dot1qTpVlanPortHCInDiscards})
+
+    dot1qPortVlanHCStatisticsEntry.EntityData.YListKeys = []string {"Dot1dBasePort", "Dot1qVlanIndex"}
+
+    return &(dot1qPortVlanHCStatisticsEntry.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qlearningconstraintstable
+// QBRIDGEMIB_Dot1qLearningConstraintsTable
 // A table containing learning constraints for sets of
 // Shared and Independent VLANs.
-type QBRIDGEMIB_Dot1Qlearningconstraintstable struct {
+type QBRIDGEMIB_Dot1qLearningConstraintsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A learning constraint defined for a VLAN. The type is slice of
-    // QBRIDGEMIB_Dot1Qlearningconstraintstable_Dot1Qlearningconstraintsentry.
-    Dot1Qlearningconstraintsentry []QBRIDGEMIB_Dot1Qlearningconstraintstable_Dot1Qlearningconstraintsentry
+    // QBRIDGEMIB_Dot1qLearningConstraintsTable_Dot1qLearningConstraintsEntry.
+    Dot1qLearningConstraintsEntry []*QBRIDGEMIB_Dot1qLearningConstraintsTable_Dot1qLearningConstraintsEntry
 }
 
-func (dot1Qlearningconstraintstable *QBRIDGEMIB_Dot1Qlearningconstraintstable) GetEntityData() *types.CommonEntityData {
-    dot1Qlearningconstraintstable.EntityData.YFilter = dot1Qlearningconstraintstable.YFilter
-    dot1Qlearningconstraintstable.EntityData.YangName = "dot1qLearningConstraintsTable"
-    dot1Qlearningconstraintstable.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qlearningconstraintstable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
-    dot1Qlearningconstraintstable.EntityData.SegmentPath = "dot1qLearningConstraintsTable"
-    dot1Qlearningconstraintstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qlearningconstraintstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qlearningconstraintstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qLearningConstraintsTable *QBRIDGEMIB_Dot1qLearningConstraintsTable) GetEntityData() *types.CommonEntityData {
+    dot1qLearningConstraintsTable.EntityData.YFilter = dot1qLearningConstraintsTable.YFilter
+    dot1qLearningConstraintsTable.EntityData.YangName = "dot1qLearningConstraintsTable"
+    dot1qLearningConstraintsTable.EntityData.BundleName = "cisco_ios_xe"
+    dot1qLearningConstraintsTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
+    dot1qLearningConstraintsTable.EntityData.SegmentPath = "dot1qLearningConstraintsTable"
+    dot1qLearningConstraintsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qLearningConstraintsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qLearningConstraintsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qlearningconstraintstable.EntityData.Children = make(map[string]types.YChild)
-    dot1Qlearningconstraintstable.EntityData.Children["dot1qLearningConstraintsEntry"] = types.YChild{"Dot1Qlearningconstraintsentry", nil}
-    for i := range dot1Qlearningconstraintstable.Dot1Qlearningconstraintsentry {
-        dot1Qlearningconstraintstable.EntityData.Children[types.GetSegmentPath(&dot1Qlearningconstraintstable.Dot1Qlearningconstraintsentry[i])] = types.YChild{"Dot1Qlearningconstraintsentry", &dot1Qlearningconstraintstable.Dot1Qlearningconstraintsentry[i]}
+    dot1qLearningConstraintsTable.EntityData.Children = types.NewOrderedMap()
+    dot1qLearningConstraintsTable.EntityData.Children.Append("dot1qLearningConstraintsEntry", types.YChild{"Dot1qLearningConstraintsEntry", nil})
+    for i := range dot1qLearningConstraintsTable.Dot1qLearningConstraintsEntry {
+        dot1qLearningConstraintsTable.EntityData.Children.Append(types.GetSegmentPath(dot1qLearningConstraintsTable.Dot1qLearningConstraintsEntry[i]), types.YChild{"Dot1qLearningConstraintsEntry", dot1qLearningConstraintsTable.Dot1qLearningConstraintsEntry[i]})
     }
-    dot1Qlearningconstraintstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dot1Qlearningconstraintstable.EntityData)
+    dot1qLearningConstraintsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dot1qLearningConstraintsTable.EntityData.YListKeys = []string {}
+
+    return &(dot1qLearningConstraintsTable.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qlearningconstraintstable_Dot1Qlearningconstraintsentry
+// QBRIDGEMIB_Dot1qLearningConstraintsTable_Dot1qLearningConstraintsEntry
 // A learning constraint defined for a VLAN.
-type QBRIDGEMIB_Dot1Qlearningconstraintstable_Dot1Qlearningconstraintsentry struct {
+type QBRIDGEMIB_Dot1qLearningConstraintsTable_Dot1qLearningConstraintsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index of the row in dot1qVlanCurrentTable for
     // the VLAN constrained by this entry. The type is interface{} with range:
     // 0..4294967295.
-    Dot1Qconstraintvlan interface{}
+    Dot1qConstraintVlan interface{}
 
     // This attribute is a key. The identity of the constraint set to which
     // dot1qConstraintVlan belongs.  These values may be chosen by the management
     // station. The type is interface{} with range: 0..65535.
-    Dot1Qconstraintset interface{}
+    Dot1qConstraintSet interface{}
 
     // The type of constraint this entry defines. independent(1) - the VLAN,
     // dot1qConstraintVlan,     uses a filtering database independent from all    
     // other VLANs in the same set, defined by     dot1qConstraintSet. shared(2) -
     // the VLAN, dot1qConstraintVlan, shares     the same filtering database as
     // all other VLANs     in the same set, defined by dot1qConstraintSet. The
-    // type is Dot1Qconstrainttype.
-    Dot1Qconstrainttype interface{}
+    // type is Dot1qConstraintType.
+    Dot1qConstraintType interface{}
 
     // The status of this entry. The type is RowStatus.
-    Dot1Qconstraintstatus interface{}
+    Dot1qConstraintStatus interface{}
 }
 
-func (dot1Qlearningconstraintsentry *QBRIDGEMIB_Dot1Qlearningconstraintstable_Dot1Qlearningconstraintsentry) GetEntityData() *types.CommonEntityData {
-    dot1Qlearningconstraintsentry.EntityData.YFilter = dot1Qlearningconstraintsentry.YFilter
-    dot1Qlearningconstraintsentry.EntityData.YangName = "dot1qLearningConstraintsEntry"
-    dot1Qlearningconstraintsentry.EntityData.BundleName = "cisco_ios_xe"
-    dot1Qlearningconstraintsentry.EntityData.ParentYangName = "dot1qLearningConstraintsTable"
-    dot1Qlearningconstraintsentry.EntityData.SegmentPath = "dot1qLearningConstraintsEntry" + "[dot1qConstraintVlan='" + fmt.Sprintf("%v", dot1Qlearningconstraintsentry.Dot1Qconstraintvlan) + "']" + "[dot1qConstraintSet='" + fmt.Sprintf("%v", dot1Qlearningconstraintsentry.Dot1Qconstraintset) + "']"
-    dot1Qlearningconstraintsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Qlearningconstraintsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Qlearningconstraintsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1qLearningConstraintsEntry *QBRIDGEMIB_Dot1qLearningConstraintsTable_Dot1qLearningConstraintsEntry) GetEntityData() *types.CommonEntityData {
+    dot1qLearningConstraintsEntry.EntityData.YFilter = dot1qLearningConstraintsEntry.YFilter
+    dot1qLearningConstraintsEntry.EntityData.YangName = "dot1qLearningConstraintsEntry"
+    dot1qLearningConstraintsEntry.EntityData.BundleName = "cisco_ios_xe"
+    dot1qLearningConstraintsEntry.EntityData.ParentYangName = "dot1qLearningConstraintsTable"
+    dot1qLearningConstraintsEntry.EntityData.SegmentPath = "dot1qLearningConstraintsEntry" + types.AddKeyToken(dot1qLearningConstraintsEntry.Dot1qConstraintVlan, "dot1qConstraintVlan") + types.AddKeyToken(dot1qLearningConstraintsEntry.Dot1qConstraintSet, "dot1qConstraintSet")
+    dot1qLearningConstraintsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1qLearningConstraintsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1qLearningConstraintsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Qlearningconstraintsentry.EntityData.Children = make(map[string]types.YChild)
-    dot1Qlearningconstraintsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1Qlearningconstraintsentry.EntityData.Leafs["dot1qConstraintVlan"] = types.YLeaf{"Dot1Qconstraintvlan", dot1Qlearningconstraintsentry.Dot1Qconstraintvlan}
-    dot1Qlearningconstraintsentry.EntityData.Leafs["dot1qConstraintSet"] = types.YLeaf{"Dot1Qconstraintset", dot1Qlearningconstraintsentry.Dot1Qconstraintset}
-    dot1Qlearningconstraintsentry.EntityData.Leafs["dot1qConstraintType"] = types.YLeaf{"Dot1Qconstrainttype", dot1Qlearningconstraintsentry.Dot1Qconstrainttype}
-    dot1Qlearningconstraintsentry.EntityData.Leafs["dot1qConstraintStatus"] = types.YLeaf{"Dot1Qconstraintstatus", dot1Qlearningconstraintsentry.Dot1Qconstraintstatus}
-    return &(dot1Qlearningconstraintsentry.EntityData)
+    dot1qLearningConstraintsEntry.EntityData.Children = types.NewOrderedMap()
+    dot1qLearningConstraintsEntry.EntityData.Leafs = types.NewOrderedMap()
+    dot1qLearningConstraintsEntry.EntityData.Leafs.Append("dot1qConstraintVlan", types.YLeaf{"Dot1qConstraintVlan", dot1qLearningConstraintsEntry.Dot1qConstraintVlan})
+    dot1qLearningConstraintsEntry.EntityData.Leafs.Append("dot1qConstraintSet", types.YLeaf{"Dot1qConstraintSet", dot1qLearningConstraintsEntry.Dot1qConstraintSet})
+    dot1qLearningConstraintsEntry.EntityData.Leafs.Append("dot1qConstraintType", types.YLeaf{"Dot1qConstraintType", dot1qLearningConstraintsEntry.Dot1qConstraintType})
+    dot1qLearningConstraintsEntry.EntityData.Leafs.Append("dot1qConstraintStatus", types.YLeaf{"Dot1qConstraintStatus", dot1qLearningConstraintsEntry.Dot1qConstraintStatus})
+
+    dot1qLearningConstraintsEntry.EntityData.YListKeys = []string {"Dot1qConstraintVlan", "Dot1qConstraintSet"}
+
+    return &(dot1qLearningConstraintsEntry.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Qlearningconstraintstable_Dot1Qlearningconstraintsentry_Dot1Qconstrainttype represents     in the same set, defined by dot1qConstraintSet.
-type QBRIDGEMIB_Dot1Qlearningconstraintstable_Dot1Qlearningconstraintsentry_Dot1Qconstrainttype string
+// QBRIDGEMIB_Dot1qLearningConstraintsTable_Dot1qLearningConstraintsEntry_Dot1qConstraintType represents     in the same set, defined by dot1qConstraintSet.
+type QBRIDGEMIB_Dot1qLearningConstraintsTable_Dot1qLearningConstraintsEntry_Dot1qConstraintType string
 
 const (
-    QBRIDGEMIB_Dot1Qlearningconstraintstable_Dot1Qlearningconstraintsentry_Dot1Qconstrainttype_independent QBRIDGEMIB_Dot1Qlearningconstraintstable_Dot1Qlearningconstraintsentry_Dot1Qconstrainttype = "independent"
+    QBRIDGEMIB_Dot1qLearningConstraintsTable_Dot1qLearningConstraintsEntry_Dot1qConstraintType_independent QBRIDGEMIB_Dot1qLearningConstraintsTable_Dot1qLearningConstraintsEntry_Dot1qConstraintType = "independent"
 
-    QBRIDGEMIB_Dot1Qlearningconstraintstable_Dot1Qlearningconstraintsentry_Dot1Qconstrainttype_shared QBRIDGEMIB_Dot1Qlearningconstraintstable_Dot1Qlearningconstraintsentry_Dot1Qconstrainttype = "shared"
+    QBRIDGEMIB_Dot1qLearningConstraintsTable_Dot1qLearningConstraintsEntry_Dot1qConstraintType_shared QBRIDGEMIB_Dot1qLearningConstraintsTable_Dot1qLearningConstraintsEntry_Dot1qConstraintType = "shared"
 )
 
-// QBRIDGEMIB_Dot1Vprotocolgrouptable
+// QBRIDGEMIB_Dot1vProtocolGroupTable
 // A table that contains mappings from Protocol
 // Templates to Protocol Group Identifiers used for
 // Port-and-Protocol-based VLAN Classification.
-type QBRIDGEMIB_Dot1Vprotocolgrouptable struct {
+type QBRIDGEMIB_Dot1vProtocolGroupTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A mapping from a Protocol Template to a Protocol Group Identifier. The type
-    // is slice of QBRIDGEMIB_Dot1Vprotocolgrouptable_Dot1Vprotocolgroupentry.
-    Dot1Vprotocolgroupentry []QBRIDGEMIB_Dot1Vprotocolgrouptable_Dot1Vprotocolgroupentry
+    // is slice of QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolGroupEntry.
+    Dot1vProtocolGroupEntry []*QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolGroupEntry
 }
 
-func (dot1Vprotocolgrouptable *QBRIDGEMIB_Dot1Vprotocolgrouptable) GetEntityData() *types.CommonEntityData {
-    dot1Vprotocolgrouptable.EntityData.YFilter = dot1Vprotocolgrouptable.YFilter
-    dot1Vprotocolgrouptable.EntityData.YangName = "dot1vProtocolGroupTable"
-    dot1Vprotocolgrouptable.EntityData.BundleName = "cisco_ios_xe"
-    dot1Vprotocolgrouptable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
-    dot1Vprotocolgrouptable.EntityData.SegmentPath = "dot1vProtocolGroupTable"
-    dot1Vprotocolgrouptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Vprotocolgrouptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Vprotocolgrouptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1vProtocolGroupTable *QBRIDGEMIB_Dot1vProtocolGroupTable) GetEntityData() *types.CommonEntityData {
+    dot1vProtocolGroupTable.EntityData.YFilter = dot1vProtocolGroupTable.YFilter
+    dot1vProtocolGroupTable.EntityData.YangName = "dot1vProtocolGroupTable"
+    dot1vProtocolGroupTable.EntityData.BundleName = "cisco_ios_xe"
+    dot1vProtocolGroupTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
+    dot1vProtocolGroupTable.EntityData.SegmentPath = "dot1vProtocolGroupTable"
+    dot1vProtocolGroupTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1vProtocolGroupTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1vProtocolGroupTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Vprotocolgrouptable.EntityData.Children = make(map[string]types.YChild)
-    dot1Vprotocolgrouptable.EntityData.Children["dot1vProtocolGroupEntry"] = types.YChild{"Dot1Vprotocolgroupentry", nil}
-    for i := range dot1Vprotocolgrouptable.Dot1Vprotocolgroupentry {
-        dot1Vprotocolgrouptable.EntityData.Children[types.GetSegmentPath(&dot1Vprotocolgrouptable.Dot1Vprotocolgroupentry[i])] = types.YChild{"Dot1Vprotocolgroupentry", &dot1Vprotocolgrouptable.Dot1Vprotocolgroupentry[i]}
+    dot1vProtocolGroupTable.EntityData.Children = types.NewOrderedMap()
+    dot1vProtocolGroupTable.EntityData.Children.Append("dot1vProtocolGroupEntry", types.YChild{"Dot1vProtocolGroupEntry", nil})
+    for i := range dot1vProtocolGroupTable.Dot1vProtocolGroupEntry {
+        dot1vProtocolGroupTable.EntityData.Children.Append(types.GetSegmentPath(dot1vProtocolGroupTable.Dot1vProtocolGroupEntry[i]), types.YChild{"Dot1vProtocolGroupEntry", dot1vProtocolGroupTable.Dot1vProtocolGroupEntry[i]})
     }
-    dot1Vprotocolgrouptable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dot1Vprotocolgrouptable.EntityData)
+    dot1vProtocolGroupTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dot1vProtocolGroupTable.EntityData.YListKeys = []string {}
+
+    return &(dot1vProtocolGroupTable.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Vprotocolgrouptable_Dot1Vprotocolgroupentry
+// QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolGroupEntry
 // A mapping from a Protocol Template to a Protocol
 // Group Identifier.
-type QBRIDGEMIB_Dot1Vprotocolgrouptable_Dot1Vprotocolgroupentry struct {
+type QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolGroupEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The data-link encapsulation format or the
     // 'detagged_frame_type' in a Protocol Template. The type is
-    // Dot1Vprotocoltemplateframetype.
-    Dot1Vprotocoltemplateframetype interface{}
+    // Dot1vProtocolTemplateFrameType.
+    Dot1vProtocolTemplateFrameType interface{}
 
     // This attribute is a key. The identification of the protocol above the
     // data-link layer in a Protocol Template.  Depending on the frame type, the
@@ -1615,119 +1699,128 @@ type QBRIDGEMIB_Dot1Vprotocolgrouptable_Dot1Vprotocolgroupentry struct {
     // Point (LSAP) pair: first octet for Destination Service     Access Point
     // (DSAP) and second octet for Source Service     Access Point (SSAP). The
     // type is string with length: 2 | 5.
-    Dot1Vprotocoltemplateprotocolvalue interface{}
+    Dot1vProtocolTemplateProtocolValue interface{}
 
     // Represents a group of protocols that are associated together when assigning
     // a VID to a frame. The type is interface{} with range: 0..2147483647.
-    Dot1Vprotocolgroupid interface{}
+    Dot1vProtocolGroupId interface{}
 
     // This object indicates the status of this entry. The type is RowStatus.
-    Dot1Vprotocolgrouprowstatus interface{}
+    Dot1vProtocolGroupRowStatus interface{}
 }
 
-func (dot1Vprotocolgroupentry *QBRIDGEMIB_Dot1Vprotocolgrouptable_Dot1Vprotocolgroupentry) GetEntityData() *types.CommonEntityData {
-    dot1Vprotocolgroupentry.EntityData.YFilter = dot1Vprotocolgroupentry.YFilter
-    dot1Vprotocolgroupentry.EntityData.YangName = "dot1vProtocolGroupEntry"
-    dot1Vprotocolgroupentry.EntityData.BundleName = "cisco_ios_xe"
-    dot1Vprotocolgroupentry.EntityData.ParentYangName = "dot1vProtocolGroupTable"
-    dot1Vprotocolgroupentry.EntityData.SegmentPath = "dot1vProtocolGroupEntry" + "[dot1vProtocolTemplateFrameType='" + fmt.Sprintf("%v", dot1Vprotocolgroupentry.Dot1Vprotocoltemplateframetype) + "']" + "[dot1vProtocolTemplateProtocolValue='" + fmt.Sprintf("%v", dot1Vprotocolgroupentry.Dot1Vprotocoltemplateprotocolvalue) + "']"
-    dot1Vprotocolgroupentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Vprotocolgroupentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Vprotocolgroupentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1vProtocolGroupEntry *QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolGroupEntry) GetEntityData() *types.CommonEntityData {
+    dot1vProtocolGroupEntry.EntityData.YFilter = dot1vProtocolGroupEntry.YFilter
+    dot1vProtocolGroupEntry.EntityData.YangName = "dot1vProtocolGroupEntry"
+    dot1vProtocolGroupEntry.EntityData.BundleName = "cisco_ios_xe"
+    dot1vProtocolGroupEntry.EntityData.ParentYangName = "dot1vProtocolGroupTable"
+    dot1vProtocolGroupEntry.EntityData.SegmentPath = "dot1vProtocolGroupEntry" + types.AddKeyToken(dot1vProtocolGroupEntry.Dot1vProtocolTemplateFrameType, "dot1vProtocolTemplateFrameType") + types.AddKeyToken(dot1vProtocolGroupEntry.Dot1vProtocolTemplateProtocolValue, "dot1vProtocolTemplateProtocolValue")
+    dot1vProtocolGroupEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1vProtocolGroupEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1vProtocolGroupEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Vprotocolgroupentry.EntityData.Children = make(map[string]types.YChild)
-    dot1Vprotocolgroupentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1Vprotocolgroupentry.EntityData.Leafs["dot1vProtocolTemplateFrameType"] = types.YLeaf{"Dot1Vprotocoltemplateframetype", dot1Vprotocolgroupentry.Dot1Vprotocoltemplateframetype}
-    dot1Vprotocolgroupentry.EntityData.Leafs["dot1vProtocolTemplateProtocolValue"] = types.YLeaf{"Dot1Vprotocoltemplateprotocolvalue", dot1Vprotocolgroupentry.Dot1Vprotocoltemplateprotocolvalue}
-    dot1Vprotocolgroupentry.EntityData.Leafs["dot1vProtocolGroupId"] = types.YLeaf{"Dot1Vprotocolgroupid", dot1Vprotocolgroupentry.Dot1Vprotocolgroupid}
-    dot1Vprotocolgroupentry.EntityData.Leafs["dot1vProtocolGroupRowStatus"] = types.YLeaf{"Dot1Vprotocolgrouprowstatus", dot1Vprotocolgroupentry.Dot1Vprotocolgrouprowstatus}
-    return &(dot1Vprotocolgroupentry.EntityData)
+    dot1vProtocolGroupEntry.EntityData.Children = types.NewOrderedMap()
+    dot1vProtocolGroupEntry.EntityData.Leafs = types.NewOrderedMap()
+    dot1vProtocolGroupEntry.EntityData.Leafs.Append("dot1vProtocolTemplateFrameType", types.YLeaf{"Dot1vProtocolTemplateFrameType", dot1vProtocolGroupEntry.Dot1vProtocolTemplateFrameType})
+    dot1vProtocolGroupEntry.EntityData.Leafs.Append("dot1vProtocolTemplateProtocolValue", types.YLeaf{"Dot1vProtocolTemplateProtocolValue", dot1vProtocolGroupEntry.Dot1vProtocolTemplateProtocolValue})
+    dot1vProtocolGroupEntry.EntityData.Leafs.Append("dot1vProtocolGroupId", types.YLeaf{"Dot1vProtocolGroupId", dot1vProtocolGroupEntry.Dot1vProtocolGroupId})
+    dot1vProtocolGroupEntry.EntityData.Leafs.Append("dot1vProtocolGroupRowStatus", types.YLeaf{"Dot1vProtocolGroupRowStatus", dot1vProtocolGroupEntry.Dot1vProtocolGroupRowStatus})
+
+    dot1vProtocolGroupEntry.EntityData.YListKeys = []string {"Dot1vProtocolTemplateFrameType", "Dot1vProtocolTemplateProtocolValue"}
+
+    return &(dot1vProtocolGroupEntry.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Vprotocolgrouptable_Dot1Vprotocolgroupentry_Dot1Vprotocoltemplateframetype represents 'detagged_frame_type' in a Protocol Template.
-type QBRIDGEMIB_Dot1Vprotocolgrouptable_Dot1Vprotocolgroupentry_Dot1Vprotocoltemplateframetype string
+// QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolGroupEntry_Dot1vProtocolTemplateFrameType represents 'detagged_frame_type' in a Protocol Template.
+type QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolGroupEntry_Dot1vProtocolTemplateFrameType string
 
 const (
-    QBRIDGEMIB_Dot1Vprotocolgrouptable_Dot1Vprotocolgroupentry_Dot1Vprotocoltemplateframetype_ethernet QBRIDGEMIB_Dot1Vprotocolgrouptable_Dot1Vprotocolgroupentry_Dot1Vprotocoltemplateframetype = "ethernet"
+    QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolGroupEntry_Dot1vProtocolTemplateFrameType_ethernet QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolGroupEntry_Dot1vProtocolTemplateFrameType = "ethernet"
 
-    QBRIDGEMIB_Dot1Vprotocolgrouptable_Dot1Vprotocolgroupentry_Dot1Vprotocoltemplateframetype_rfc1042 QBRIDGEMIB_Dot1Vprotocolgrouptable_Dot1Vprotocolgroupentry_Dot1Vprotocoltemplateframetype = "rfc1042"
+    QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolGroupEntry_Dot1vProtocolTemplateFrameType_rfc1042 QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolGroupEntry_Dot1vProtocolTemplateFrameType = "rfc1042"
 
-    QBRIDGEMIB_Dot1Vprotocolgrouptable_Dot1Vprotocolgroupentry_Dot1Vprotocoltemplateframetype_snap8021H QBRIDGEMIB_Dot1Vprotocolgrouptable_Dot1Vprotocolgroupentry_Dot1Vprotocoltemplateframetype = "snap8021H"
+    QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolGroupEntry_Dot1vProtocolTemplateFrameType_snap8021H QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolGroupEntry_Dot1vProtocolTemplateFrameType = "snap8021H"
 
-    QBRIDGEMIB_Dot1Vprotocolgrouptable_Dot1Vprotocolgroupentry_Dot1Vprotocoltemplateframetype_snapOther QBRIDGEMIB_Dot1Vprotocolgrouptable_Dot1Vprotocolgroupentry_Dot1Vprotocoltemplateframetype = "snapOther"
+    QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolGroupEntry_Dot1vProtocolTemplateFrameType_snapOther QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolGroupEntry_Dot1vProtocolTemplateFrameType = "snapOther"
 
-    QBRIDGEMIB_Dot1Vprotocolgrouptable_Dot1Vprotocolgroupentry_Dot1Vprotocoltemplateframetype_llcOther QBRIDGEMIB_Dot1Vprotocolgrouptable_Dot1Vprotocolgroupentry_Dot1Vprotocoltemplateframetype = "llcOther"
+    QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolGroupEntry_Dot1vProtocolTemplateFrameType_llcOther QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolGroupEntry_Dot1vProtocolTemplateFrameType = "llcOther"
 )
 
-// QBRIDGEMIB_Dot1Vprotocolporttable
+// QBRIDGEMIB_Dot1vProtocolPortTable
 // A table that contains VID sets used for
 // Port-and-Protocol-based VLAN Classification.
-type QBRIDGEMIB_Dot1Vprotocolporttable struct {
+type QBRIDGEMIB_Dot1vProtocolPortTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A VID set for a port. The type is slice of
-    // QBRIDGEMIB_Dot1Vprotocolporttable_Dot1Vprotocolportentry.
-    Dot1Vprotocolportentry []QBRIDGEMIB_Dot1Vprotocolporttable_Dot1Vprotocolportentry
+    // QBRIDGEMIB_Dot1vProtocolPortTable_Dot1vProtocolPortEntry.
+    Dot1vProtocolPortEntry []*QBRIDGEMIB_Dot1vProtocolPortTable_Dot1vProtocolPortEntry
 }
 
-func (dot1Vprotocolporttable *QBRIDGEMIB_Dot1Vprotocolporttable) GetEntityData() *types.CommonEntityData {
-    dot1Vprotocolporttable.EntityData.YFilter = dot1Vprotocolporttable.YFilter
-    dot1Vprotocolporttable.EntityData.YangName = "dot1vProtocolPortTable"
-    dot1Vprotocolporttable.EntityData.BundleName = "cisco_ios_xe"
-    dot1Vprotocolporttable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
-    dot1Vprotocolporttable.EntityData.SegmentPath = "dot1vProtocolPortTable"
-    dot1Vprotocolporttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Vprotocolporttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Vprotocolporttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1vProtocolPortTable *QBRIDGEMIB_Dot1vProtocolPortTable) GetEntityData() *types.CommonEntityData {
+    dot1vProtocolPortTable.EntityData.YFilter = dot1vProtocolPortTable.YFilter
+    dot1vProtocolPortTable.EntityData.YangName = "dot1vProtocolPortTable"
+    dot1vProtocolPortTable.EntityData.BundleName = "cisco_ios_xe"
+    dot1vProtocolPortTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
+    dot1vProtocolPortTable.EntityData.SegmentPath = "dot1vProtocolPortTable"
+    dot1vProtocolPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1vProtocolPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1vProtocolPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Vprotocolporttable.EntityData.Children = make(map[string]types.YChild)
-    dot1Vprotocolporttable.EntityData.Children["dot1vProtocolPortEntry"] = types.YChild{"Dot1Vprotocolportentry", nil}
-    for i := range dot1Vprotocolporttable.Dot1Vprotocolportentry {
-        dot1Vprotocolporttable.EntityData.Children[types.GetSegmentPath(&dot1Vprotocolporttable.Dot1Vprotocolportentry[i])] = types.YChild{"Dot1Vprotocolportentry", &dot1Vprotocolporttable.Dot1Vprotocolportentry[i]}
+    dot1vProtocolPortTable.EntityData.Children = types.NewOrderedMap()
+    dot1vProtocolPortTable.EntityData.Children.Append("dot1vProtocolPortEntry", types.YChild{"Dot1vProtocolPortEntry", nil})
+    for i := range dot1vProtocolPortTable.Dot1vProtocolPortEntry {
+        dot1vProtocolPortTable.EntityData.Children.Append(types.GetSegmentPath(dot1vProtocolPortTable.Dot1vProtocolPortEntry[i]), types.YChild{"Dot1vProtocolPortEntry", dot1vProtocolPortTable.Dot1vProtocolPortEntry[i]})
     }
-    dot1Vprotocolporttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dot1Vprotocolporttable.EntityData)
+    dot1vProtocolPortTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dot1vProtocolPortTable.EntityData.YListKeys = []string {}
+
+    return &(dot1vProtocolPortTable.EntityData)
 }
 
-// QBRIDGEMIB_Dot1Vprotocolporttable_Dot1Vprotocolportentry
+// QBRIDGEMIB_Dot1vProtocolPortTable_Dot1vProtocolPortEntry
 // A VID set for a port.
-type QBRIDGEMIB_Dot1Vprotocolporttable_Dot1Vprotocolportentry struct {
+type QBRIDGEMIB_Dot1vProtocolPortTable_Dot1vProtocolPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
-    // bridge_mib.BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry_Dot1Dbaseport
-    Dot1Dbaseport interface{}
+    // bridge_mib.BRIDGEMIB_Dot1dBasePortTable_Dot1dBasePortEntry_Dot1dBasePort
+    Dot1dBasePort interface{}
 
     // This attribute is a key. Designates a group of protocols in the Protocol
     // Group Database. The type is interface{} with range: 1..2147483647.
-    Dot1Vprotocolportgroupid interface{}
+    Dot1vProtocolPortGroupId interface{}
 
     // The VID associated with a group of protocols for each port. The type is
     // interface{} with range: 1..4094.
-    Dot1Vprotocolportgroupvid interface{}
+    Dot1vProtocolPortGroupVid interface{}
 
     // This object indicates the status of this entry. The type is RowStatus.
-    Dot1Vprotocolportrowstatus interface{}
+    Dot1vProtocolPortRowStatus interface{}
 }
 
-func (dot1Vprotocolportentry *QBRIDGEMIB_Dot1Vprotocolporttable_Dot1Vprotocolportentry) GetEntityData() *types.CommonEntityData {
-    dot1Vprotocolportentry.EntityData.YFilter = dot1Vprotocolportentry.YFilter
-    dot1Vprotocolportentry.EntityData.YangName = "dot1vProtocolPortEntry"
-    dot1Vprotocolportentry.EntityData.BundleName = "cisco_ios_xe"
-    dot1Vprotocolportentry.EntityData.ParentYangName = "dot1vProtocolPortTable"
-    dot1Vprotocolportentry.EntityData.SegmentPath = "dot1vProtocolPortEntry" + "[dot1dBasePort='" + fmt.Sprintf("%v", dot1Vprotocolportentry.Dot1Dbaseport) + "']" + "[dot1vProtocolPortGroupId='" + fmt.Sprintf("%v", dot1Vprotocolportentry.Dot1Vprotocolportgroupid) + "']"
-    dot1Vprotocolportentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dot1Vprotocolportentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dot1Vprotocolportentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dot1vProtocolPortEntry *QBRIDGEMIB_Dot1vProtocolPortTable_Dot1vProtocolPortEntry) GetEntityData() *types.CommonEntityData {
+    dot1vProtocolPortEntry.EntityData.YFilter = dot1vProtocolPortEntry.YFilter
+    dot1vProtocolPortEntry.EntityData.YangName = "dot1vProtocolPortEntry"
+    dot1vProtocolPortEntry.EntityData.BundleName = "cisco_ios_xe"
+    dot1vProtocolPortEntry.EntityData.ParentYangName = "dot1vProtocolPortTable"
+    dot1vProtocolPortEntry.EntityData.SegmentPath = "dot1vProtocolPortEntry" + types.AddKeyToken(dot1vProtocolPortEntry.Dot1dBasePort, "dot1dBasePort") + types.AddKeyToken(dot1vProtocolPortEntry.Dot1vProtocolPortGroupId, "dot1vProtocolPortGroupId")
+    dot1vProtocolPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1vProtocolPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1vProtocolPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dot1Vprotocolportentry.EntityData.Children = make(map[string]types.YChild)
-    dot1Vprotocolportentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dot1Vprotocolportentry.EntityData.Leafs["dot1dBasePort"] = types.YLeaf{"Dot1Dbaseport", dot1Vprotocolportentry.Dot1Dbaseport}
-    dot1Vprotocolportentry.EntityData.Leafs["dot1vProtocolPortGroupId"] = types.YLeaf{"Dot1Vprotocolportgroupid", dot1Vprotocolportentry.Dot1Vprotocolportgroupid}
-    dot1Vprotocolportentry.EntityData.Leafs["dot1vProtocolPortGroupVid"] = types.YLeaf{"Dot1Vprotocolportgroupvid", dot1Vprotocolportentry.Dot1Vprotocolportgroupvid}
-    dot1Vprotocolportentry.EntityData.Leafs["dot1vProtocolPortRowStatus"] = types.YLeaf{"Dot1Vprotocolportrowstatus", dot1Vprotocolportentry.Dot1Vprotocolportrowstatus}
-    return &(dot1Vprotocolportentry.EntityData)
+    dot1vProtocolPortEntry.EntityData.Children = types.NewOrderedMap()
+    dot1vProtocolPortEntry.EntityData.Leafs = types.NewOrderedMap()
+    dot1vProtocolPortEntry.EntityData.Leafs.Append("dot1dBasePort", types.YLeaf{"Dot1dBasePort", dot1vProtocolPortEntry.Dot1dBasePort})
+    dot1vProtocolPortEntry.EntityData.Leafs.Append("dot1vProtocolPortGroupId", types.YLeaf{"Dot1vProtocolPortGroupId", dot1vProtocolPortEntry.Dot1vProtocolPortGroupId})
+    dot1vProtocolPortEntry.EntityData.Leafs.Append("dot1vProtocolPortGroupVid", types.YLeaf{"Dot1vProtocolPortGroupVid", dot1vProtocolPortEntry.Dot1vProtocolPortGroupVid})
+    dot1vProtocolPortEntry.EntityData.Leafs.Append("dot1vProtocolPortRowStatus", types.YLeaf{"Dot1vProtocolPortRowStatus", dot1vProtocolPortEntry.Dot1vProtocolPortRowStatus})
+
+    dot1vProtocolPortEntry.EntityData.YListKeys = []string {"Dot1dBasePort", "Dot1vProtocolPortGroupId"}
+
+    return &(dot1vProtocolPortEntry.EntityData)
 }
 

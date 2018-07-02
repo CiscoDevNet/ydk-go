@@ -26,6 +26,10 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub8 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -77,19 +81,31 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub8 {
       "MPLS Protection Type";
   }
 
-  typedef Oc-mpls-te-metric {
+  typedef Oc-mpls-te-aa-metric {
     type enumeration {
-      enum "oc-mpls-te-metric-type-igp" {
+      enum "oc-mpls-te-aa-metric-type-relative" {
         description
-          "MPLS TE metric type IGP";
+          "MPLS TE auto-route announce metric type
+           RELATIVE";
       }
-      enum "oc-mpls-te-metric-type-te" {
+      enum "oc-mpls-te-aa-metric-type-absolute" {
         description
-          "MPLS TE metric type TE";
+          "MPLS TE auto-route announce metric type
+           ABSOLUTE";
+      }
+      enum "oc-mpls-te-aa-metric-type-constant" {
+        description
+          "MPLS TE auto-route announce metric type
+           CONSTANT";
+      }
+      enum "oc-mpls-te-aa-metric-type-inherited" {
+        description
+          "MPLS TE auto-route announce metric type
+           INHERITED";
       }
     }
     description
-      "OC MPLS TE Metric Type";
+      "OC MPLS TE Auto-route Announce Metric Type";
   }
 
   typedef Lsp-oper-status {
@@ -250,10 +266,20 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub8 {
       description
         "Operational Status";
     }
-    leaf metric {
-      type Oc-mpls-te-metric;
+    leaf aa-metric-type {
+      type Oc-mpls-te-aa-metric;
       description
-        "Metric type";
+        "Auto-route Announce Metric type";
+    }
+    leaf aa-metric {
+      type int32;
+      description
+        "Auto-route Announce Metric value";
+    }
+    leaf shortcut-eligible {
+      type boolean;
+      description
+        "Auto-route Announce enabled";
     }
     leaf protection-style-requested {
       type Mpls-protection;

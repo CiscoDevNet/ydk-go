@@ -131,12 +131,12 @@ type CISCONTPMIB struct {
     YFilter yfilter.YFilter
 
     
-    Cntpsystem CISCONTPMIB_Cntpsystem
+    CntpSystem CISCONTPMIB_CntpSystem
 
     // This table provides information on the peers with which the local NTP
     // server has associations.  The peers are also NTP servers but running on
     // different hosts.
-    Cntppeersvartable CISCONTPMIB_Cntppeersvartable
+    CntpPeersVarTable CISCONTPMIB_CntpPeersVarTable
 
     // The following table contains NTP state variables used by the NTP clock
     // filter and selection algorithms. This table depicts a shift register.  Each
@@ -149,7 +149,7 @@ type CISCONTPMIB struct {
     // clock-filter and selection algorithms are designed to do exactly this.  The
     // objects in the filter register table below are used by these algorthims to
     // minimize the error in the calculated time.
-    Cntpfilterregistertable CISCONTPMIB_Cntpfilterregistertable
+    CntpFilterRegisterTable CISCONTPMIB_CntpFilterRegisterTable
 }
 
 func (cISCONTPMIB *CISCONTPMIB) GetEntityData() *types.CommonEntityData {
@@ -162,28 +162,31 @@ func (cISCONTPMIB *CISCONTPMIB) GetEntityData() *types.CommonEntityData {
     cISCONTPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCONTPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCONTPMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCONTPMIB.EntityData.Children["cntpSystem"] = types.YChild{"Cntpsystem", &cISCONTPMIB.Cntpsystem}
-    cISCONTPMIB.EntityData.Children["cntpPeersVarTable"] = types.YChild{"Cntppeersvartable", &cISCONTPMIB.Cntppeersvartable}
-    cISCONTPMIB.EntityData.Children["cntpFilterRegisterTable"] = types.YChild{"Cntpfilterregistertable", &cISCONTPMIB.Cntpfilterregistertable}
-    cISCONTPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCONTPMIB.EntityData.Children = types.NewOrderedMap()
+    cISCONTPMIB.EntityData.Children.Append("cntpSystem", types.YChild{"CntpSystem", &cISCONTPMIB.CntpSystem})
+    cISCONTPMIB.EntityData.Children.Append("cntpPeersVarTable", types.YChild{"CntpPeersVarTable", &cISCONTPMIB.CntpPeersVarTable})
+    cISCONTPMIB.EntityData.Children.Append("cntpFilterRegisterTable", types.YChild{"CntpFilterRegisterTable", &cISCONTPMIB.CntpFilterRegisterTable})
+    cISCONTPMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCONTPMIB.EntityData.YListKeys = []string {}
+
     return &(cISCONTPMIB.EntityData)
 }
 
-// CISCONTPMIB_Cntpsystem
-type CISCONTPMIB_Cntpsystem struct {
+// CISCONTPMIB_CntpSystem
+type CISCONTPMIB_CntpSystem struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Two-bit code warning of an impending leap second to be inserted in the NTP
     // timescale. This object can be set only when the cntpSysStratum has a value
     // of 1. The type is NTPLeapIndicator.
-    Cntpsysleap interface{}
+    CntpSysLeap interface{}
 
     // The stratum of the local clock. If the value is set to 1, i.e., this is a
     // primary reference, then the Primary-Clock procedure described in Section
     // 3.4.6, in RFC-1305 is invoked. The type is interface{} with range: 0..255.
-    Cntpsysstratum interface{}
+    CntpSysStratum interface{}
 
     // Signed integer indicating the precision of the system clock, in seconds to
     // the nearest power of two.  The value must be rounded to the next larger
@@ -191,100 +194,103 @@ type CISCONTPMIB_Cntpsystem struct {
     // power-frequency clock would be assigned the value -5 (31.25 ms), while a
     // 1000-Hz (1 ms) crystal-controlled clock would be assigned the value -9
     // (1.95 ms). The type is interface{} with range: -20..20.
-    Cntpsysprecision interface{}
+    CntpSysPrecision interface{}
 
     // A signed fixed-point number indicating the total round-trip delay in
     // seconds, to the primary reference source at the root of the synchronization
     // subnet. The type is string with length: 4. Units are seconds.
-    Cntpsysrootdelay interface{}
+    CntpSysRootDelay interface{}
 
     // The maximum error in seconds, relative to the primary reference source at
     // the root of the synchronization subnet.  Only positive values greater than
     // zero are possible. The type is string with length: 4. Units are seconds.
-    Cntpsysrootdispersion interface{}
+    CntpSysRootDispersion interface{}
 
     // The reference identifier of the local clock. The type is string with
     // length: 4.
-    Cntpsysrefid interface{}
+    CntpSysRefId interface{}
 
     // The local time when the local clock was last updated.  If the local clock
     // has never been synchronized, the value is zero. The type is string with
     // length: 8.
-    Cntpsysreftime interface{}
+    CntpSysRefTime interface{}
 
     // The interval at which the NTP server polls other NTP servers to synchronize
     // its clock. The type is interface{} with range: -20..20.
-    Cntpsyspoll interface{}
+    CntpSysPoll interface{}
 
     // The current synchronization source.  This will contain the unique
     // association identifier cntpPeersAssocId of the corresponding peer entry in
     // the cntpPeersVarTable of the peer acting as the synchronization source.  If
     // there is no peer, the value will be 0. The type is interface{} with range:
     // 0..2147483647.
-    Cntpsyspeer interface{}
+    CntpSysPeer interface{}
 
     // The current local time.  Local time is derived from the hardware clock of
     // the particular machine and increments at intervals depending on the design
     // used. The type is string with length: 8.
-    Cntpsysclock interface{}
+    CntpSysClock interface{}
 
     // Current state of the NTP server with values coded as follows: 1: server
     // status is unknown 2: server is not running 3: server is not synchronized to
     // any time source 4: server is synchronized to its own local clock 5: server
     // is synchronized to a local hardware refclock (e.g. GPS) 6: server is
-    // synchronized to a remote NTP server. The type is Cntpsyssrvstatus.
-    Cntpsyssrvstatus interface{}
+    // synchronized to a remote NTP server. The type is CntpSysSrvStatus.
+    CntpSysSrvStatus interface{}
 }
 
-func (cntpsystem *CISCONTPMIB_Cntpsystem) GetEntityData() *types.CommonEntityData {
-    cntpsystem.EntityData.YFilter = cntpsystem.YFilter
-    cntpsystem.EntityData.YangName = "cntpSystem"
-    cntpsystem.EntityData.BundleName = "cisco_ios_xe"
-    cntpsystem.EntityData.ParentYangName = "CISCO-NTP-MIB"
-    cntpsystem.EntityData.SegmentPath = "cntpSystem"
-    cntpsystem.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cntpsystem.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cntpsystem.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cntpSystem *CISCONTPMIB_CntpSystem) GetEntityData() *types.CommonEntityData {
+    cntpSystem.EntityData.YFilter = cntpSystem.YFilter
+    cntpSystem.EntityData.YangName = "cntpSystem"
+    cntpSystem.EntityData.BundleName = "cisco_ios_xe"
+    cntpSystem.EntityData.ParentYangName = "CISCO-NTP-MIB"
+    cntpSystem.EntityData.SegmentPath = "cntpSystem"
+    cntpSystem.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cntpSystem.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cntpSystem.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cntpsystem.EntityData.Children = make(map[string]types.YChild)
-    cntpsystem.EntityData.Leafs = make(map[string]types.YLeaf)
-    cntpsystem.EntityData.Leafs["cntpSysLeap"] = types.YLeaf{"Cntpsysleap", cntpsystem.Cntpsysleap}
-    cntpsystem.EntityData.Leafs["cntpSysStratum"] = types.YLeaf{"Cntpsysstratum", cntpsystem.Cntpsysstratum}
-    cntpsystem.EntityData.Leafs["cntpSysPrecision"] = types.YLeaf{"Cntpsysprecision", cntpsystem.Cntpsysprecision}
-    cntpsystem.EntityData.Leafs["cntpSysRootDelay"] = types.YLeaf{"Cntpsysrootdelay", cntpsystem.Cntpsysrootdelay}
-    cntpsystem.EntityData.Leafs["cntpSysRootDispersion"] = types.YLeaf{"Cntpsysrootdispersion", cntpsystem.Cntpsysrootdispersion}
-    cntpsystem.EntityData.Leafs["cntpSysRefId"] = types.YLeaf{"Cntpsysrefid", cntpsystem.Cntpsysrefid}
-    cntpsystem.EntityData.Leafs["cntpSysRefTime"] = types.YLeaf{"Cntpsysreftime", cntpsystem.Cntpsysreftime}
-    cntpsystem.EntityData.Leafs["cntpSysPoll"] = types.YLeaf{"Cntpsyspoll", cntpsystem.Cntpsyspoll}
-    cntpsystem.EntityData.Leafs["cntpSysPeer"] = types.YLeaf{"Cntpsyspeer", cntpsystem.Cntpsyspeer}
-    cntpsystem.EntityData.Leafs["cntpSysClock"] = types.YLeaf{"Cntpsysclock", cntpsystem.Cntpsysclock}
-    cntpsystem.EntityData.Leafs["cntpSysSrvStatus"] = types.YLeaf{"Cntpsyssrvstatus", cntpsystem.Cntpsyssrvstatus}
-    return &(cntpsystem.EntityData)
+    cntpSystem.EntityData.Children = types.NewOrderedMap()
+    cntpSystem.EntityData.Leafs = types.NewOrderedMap()
+    cntpSystem.EntityData.Leafs.Append("cntpSysLeap", types.YLeaf{"CntpSysLeap", cntpSystem.CntpSysLeap})
+    cntpSystem.EntityData.Leafs.Append("cntpSysStratum", types.YLeaf{"CntpSysStratum", cntpSystem.CntpSysStratum})
+    cntpSystem.EntityData.Leafs.Append("cntpSysPrecision", types.YLeaf{"CntpSysPrecision", cntpSystem.CntpSysPrecision})
+    cntpSystem.EntityData.Leafs.Append("cntpSysRootDelay", types.YLeaf{"CntpSysRootDelay", cntpSystem.CntpSysRootDelay})
+    cntpSystem.EntityData.Leafs.Append("cntpSysRootDispersion", types.YLeaf{"CntpSysRootDispersion", cntpSystem.CntpSysRootDispersion})
+    cntpSystem.EntityData.Leafs.Append("cntpSysRefId", types.YLeaf{"CntpSysRefId", cntpSystem.CntpSysRefId})
+    cntpSystem.EntityData.Leafs.Append("cntpSysRefTime", types.YLeaf{"CntpSysRefTime", cntpSystem.CntpSysRefTime})
+    cntpSystem.EntityData.Leafs.Append("cntpSysPoll", types.YLeaf{"CntpSysPoll", cntpSystem.CntpSysPoll})
+    cntpSystem.EntityData.Leafs.Append("cntpSysPeer", types.YLeaf{"CntpSysPeer", cntpSystem.CntpSysPeer})
+    cntpSystem.EntityData.Leafs.Append("cntpSysClock", types.YLeaf{"CntpSysClock", cntpSystem.CntpSysClock})
+    cntpSystem.EntityData.Leafs.Append("cntpSysSrvStatus", types.YLeaf{"CntpSysSrvStatus", cntpSystem.CntpSysSrvStatus})
+
+    cntpSystem.EntityData.YListKeys = []string {}
+
+    return &(cntpSystem.EntityData)
 }
 
-// CISCONTPMIB_Cntpsystem_Cntpsyssrvstatus represents 6: server is synchronized to a remote NTP server
-type CISCONTPMIB_Cntpsystem_Cntpsyssrvstatus string
+// CISCONTPMIB_CntpSystem_CntpSysSrvStatus represents 6: server is synchronized to a remote NTP server
+type CISCONTPMIB_CntpSystem_CntpSysSrvStatus string
 
 const (
-    CISCONTPMIB_Cntpsystem_Cntpsyssrvstatus_unknown CISCONTPMIB_Cntpsystem_Cntpsyssrvstatus = "unknown"
+    CISCONTPMIB_CntpSystem_CntpSysSrvStatus_unknown CISCONTPMIB_CntpSystem_CntpSysSrvStatus = "unknown"
 
-    CISCONTPMIB_Cntpsystem_Cntpsyssrvstatus_notRunning CISCONTPMIB_Cntpsystem_Cntpsyssrvstatus = "notRunning"
+    CISCONTPMIB_CntpSystem_CntpSysSrvStatus_notRunning CISCONTPMIB_CntpSystem_CntpSysSrvStatus = "notRunning"
 
-    CISCONTPMIB_Cntpsystem_Cntpsyssrvstatus_notSynchronized CISCONTPMIB_Cntpsystem_Cntpsyssrvstatus = "notSynchronized"
+    CISCONTPMIB_CntpSystem_CntpSysSrvStatus_notSynchronized CISCONTPMIB_CntpSystem_CntpSysSrvStatus = "notSynchronized"
 
-    CISCONTPMIB_Cntpsystem_Cntpsyssrvstatus_syncToLocal CISCONTPMIB_Cntpsystem_Cntpsyssrvstatus = "syncToLocal"
+    CISCONTPMIB_CntpSystem_CntpSysSrvStatus_syncToLocal CISCONTPMIB_CntpSystem_CntpSysSrvStatus = "syncToLocal"
 
-    CISCONTPMIB_Cntpsystem_Cntpsyssrvstatus_syncToRefclock CISCONTPMIB_Cntpsystem_Cntpsyssrvstatus = "syncToRefclock"
+    CISCONTPMIB_CntpSystem_CntpSysSrvStatus_syncToRefclock CISCONTPMIB_CntpSystem_CntpSysSrvStatus = "syncToRefclock"
 
-    CISCONTPMIB_Cntpsystem_Cntpsyssrvstatus_syncToRemoteServer CISCONTPMIB_Cntpsystem_Cntpsyssrvstatus = "syncToRemoteServer"
+    CISCONTPMIB_CntpSystem_CntpSysSrvStatus_syncToRemoteServer CISCONTPMIB_CntpSystem_CntpSysSrvStatus = "syncToRemoteServer"
 )
 
-// CISCONTPMIB_Cntppeersvartable
+// CISCONTPMIB_CntpPeersVarTable
 // This table provides information on the peers with
 // which the local NTP server has associations.  The
 // peers are also NTP servers but running on different
 // hosts.
-type CISCONTPMIB_Cntppeersvartable struct {
+type CISCONTPMIB_CntpPeersVarTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -298,30 +304,33 @@ type CISCONTPMIB_Cntppeersvartable struct {
     // and cntpPeersMode and making the cntpPeersEntryStatus as active(1).  At the
     // least, the management station has to set a value for cntpPeersPeerAddress
     // or cntpPeersPeerName to make the row active. The type is slice of
-    // CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry.
-    Cntppeersvarentry []CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry
+    // CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry.
+    CntpPeersVarEntry []*CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry
 }
 
-func (cntppeersvartable *CISCONTPMIB_Cntppeersvartable) GetEntityData() *types.CommonEntityData {
-    cntppeersvartable.EntityData.YFilter = cntppeersvartable.YFilter
-    cntppeersvartable.EntityData.YangName = "cntpPeersVarTable"
-    cntppeersvartable.EntityData.BundleName = "cisco_ios_xe"
-    cntppeersvartable.EntityData.ParentYangName = "CISCO-NTP-MIB"
-    cntppeersvartable.EntityData.SegmentPath = "cntpPeersVarTable"
-    cntppeersvartable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cntppeersvartable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cntppeersvartable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cntpPeersVarTable *CISCONTPMIB_CntpPeersVarTable) GetEntityData() *types.CommonEntityData {
+    cntpPeersVarTable.EntityData.YFilter = cntpPeersVarTable.YFilter
+    cntpPeersVarTable.EntityData.YangName = "cntpPeersVarTable"
+    cntpPeersVarTable.EntityData.BundleName = "cisco_ios_xe"
+    cntpPeersVarTable.EntityData.ParentYangName = "CISCO-NTP-MIB"
+    cntpPeersVarTable.EntityData.SegmentPath = "cntpPeersVarTable"
+    cntpPeersVarTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cntpPeersVarTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cntpPeersVarTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cntppeersvartable.EntityData.Children = make(map[string]types.YChild)
-    cntppeersvartable.EntityData.Children["cntpPeersVarEntry"] = types.YChild{"Cntppeersvarentry", nil}
-    for i := range cntppeersvartable.Cntppeersvarentry {
-        cntppeersvartable.EntityData.Children[types.GetSegmentPath(&cntppeersvartable.Cntppeersvarentry[i])] = types.YChild{"Cntppeersvarentry", &cntppeersvartable.Cntppeersvarentry[i]}
+    cntpPeersVarTable.EntityData.Children = types.NewOrderedMap()
+    cntpPeersVarTable.EntityData.Children.Append("cntpPeersVarEntry", types.YChild{"CntpPeersVarEntry", nil})
+    for i := range cntpPeersVarTable.CntpPeersVarEntry {
+        cntpPeersVarTable.EntityData.Children.Append(types.GetSegmentPath(cntpPeersVarTable.CntpPeersVarEntry[i]), types.YChild{"CntpPeersVarEntry", cntpPeersVarTable.CntpPeersVarEntry[i]})
     }
-    cntppeersvartable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cntppeersvartable.EntityData)
+    cntpPeersVarTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cntpPeersVarTable.EntityData.YListKeys = []string {}
+
+    return &(cntpPeersVarTable.EntityData)
 }
 
-// CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry
+// CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry
 // Each peers' entry provides NTP information retrieved
 // from a particular peer NTP server.  Each peer is
 // identified by a unique association identifier.
@@ -339,43 +348,43 @@ func (cntppeersvartable *CISCONTPMIB_Cntppeersvartable) GetEntityData() *types.C
 // active(1).  At the least, the management station has
 // to set a value for cntpPeersPeerAddress or
 // cntpPeersPeerName to make the row active.
-type CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry struct {
+type CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An integer value greater than 0 that uniquely
     // identifies a peer with which the local NTP server is associated. The type
     // is interface{} with range: 0..2147483647.
-    Cntppeersassocid interface{}
+    CntpPeersAssocId interface{}
 
     // This is a bit indicating that the association was created from
     // configuration information and should not be de-associated even if the peer
     // becomes unreachable. The type is bool.
-    Cntppeersconfigured interface{}
+    CntpPeersConfigured interface{}
 
     // The IP address of the peer.  When creating a new association, a value
     // should be set either for this object or the corresponding instance of 
     // cntpPeersPeerName, before the row is made active. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Cntppeerspeeraddress interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CntpPeersPeerAddress interface{}
 
     // The UDP port number on which the peer receives NTP messages. The type is
     // interface{} with range: 1..65535.
-    Cntppeerspeerport interface{}
+    CntpPeersPeerPort interface{}
 
     // The IP address of the local host.  Multi-homing can be supported using this
     // object. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Cntppeershostaddress interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CntpPeersHostAddress interface{}
 
     // The UDP port number on which the local host receives NTP messages. The type
     // is interface{} with range: 1..65535.
-    Cntppeershostport interface{}
+    CntpPeersHostPort interface{}
 
     // Two-bit code warning of an impending leap second to be inserted in the NTP
     // timescale of the peer. The type is NTPLeapIndicator.
-    Cntppeersleap interface{}
+    CntpPeersLeap interface{}
 
     // The association mode of the NTP server, with values coded as follows, 0,
     // unspecified 1, symmetric active - A host operating in this mode        
@@ -407,19 +416,19 @@ type CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry struct {
     // to be         synchronized by any of them 6, reserved for NTP control
     // messages 7, reserved for private use.  When creating a new peer
     // association, if no value is specified for this object, it defaults to
-    // symmetricActive(1). The type is Cntppeersmode.
-    Cntppeersmode interface{}
+    // symmetricActive(1). The type is CntpPeersMode.
+    CntpPeersMode interface{}
 
     // The stratum of the peer clock. The type is interface{} with range: 0..255.
-    Cntppeersstratum interface{}
+    CntpPeersStratum interface{}
 
     // The interval at which the peer polls the local host. The type is
     // interface{} with range: -20..20.
-    Cntppeerspeerpoll interface{}
+    CntpPeersPeerPoll interface{}
 
     // The interval at which the local host polls the peer. The type is
     // interface{} with range: -20..20.
-    Cntppeershostpoll interface{}
+    CntpPeersHostPoll interface{}
 
     // Signed integer indicating the precision of the peer clock, in seconds to
     // the nearest power of two.  The value must be rounded to the next larger
@@ -427,47 +436,47 @@ type CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry struct {
     // power-frequency clock would be assigned the value -5 (31.25 ms), while a
     // 1000-Hz (1 ms) crystal-controlled clock would be assigned the value -9
     // (1.95 ms). The type is interface{} with range: -20..20.
-    Cntppeersprecision interface{}
+    CntpPeersPrecision interface{}
 
     // A signed fixed-point number indicating the total round-trip delay in
     // seconds, from the peer to the primary reference source at the root of the
     // synchronization subnet. The type is string with length: 4. Units are
     // seconds.
-    Cntppeersrootdelay interface{}
+    CntpPeersRootDelay interface{}
 
     // The maximum error in seconds, of the peer clock relative to the primary
     // reference source at the root of the synchronization subnet.  Only positive
     // values greater than zero are possible. The type is string with length: 4.
     // Units are seconds.
-    Cntppeersrootdispersion interface{}
+    CntpPeersRootDispersion interface{}
 
     // The reference identifier of the peer. The type is string with length: 4.
-    Cntppeersrefid interface{}
+    CntpPeersRefId interface{}
 
     // The local time at the peer when its clock was last updated.  If the peer
     // clock has never been synchronized, the value is zero. The type is string
     // with length: 8.
-    Cntppeersreftime interface{}
+    CntpPeersRefTime interface{}
 
     // The local time at the peer, when its latest NTP message was sent.  If the
     // peer becomes unreachable the value is set to zero. The type is string with
     // length: 8.
-    Cntppeersorgtime interface{}
+    CntpPeersOrgTime interface{}
 
     // The local time, when the latest NTP message from the peer arrived.  If the
     // peer becomes unreachable the value is set to zero. The type is string with
     // length: 8.
-    Cntppeersreceivetime interface{}
+    CntpPeersReceiveTime interface{}
 
     // The local time at which the NTP message departed the sender. The type is
     // string with length: 8.
-    Cntppeerstransmittime interface{}
+    CntpPeersTransmitTime interface{}
 
     // The local time, when the most recent NTP message was received from the peer
     // that was used to calculate the skew dispersion.  This represents only the
     // 32-bit integer part of the NTPTimestamp. The type is interface{} with
     // range: 0..2147483647.
-    Cntppeersupdatetime interface{}
+    CntpPeersUpdateTime interface{}
 
     // A shift register of used to determine the reachability status of the peer,
     // with bits entering from the least significant (rightmost) end.  A peer is
@@ -475,47 +484,47 @@ type CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry struct {
     // i.e, if the value of this object is non-zero. The data in the shift
     // register would be populated by the NTP protocol procedures. The type is
     // interface{} with range: 0..255.
-    Cntppeersreach interface{}
+    CntpPeersReach interface{}
 
     // The interval in seconds, between transmitted NTP messages from the local
     // host to the peer. The type is interface{} with range: 0..2147483647. Units
     // are seconds.
-    Cntppeerstimer interface{}
+    CntpPeersTimer interface{}
 
     // The estimated offset of the peer clock relative to the local clock, in
     // seconds.  The host determines the value of this object using the NTP
     // clock-filter algorithm. The type is string with length: 4. Units are
     // seconds.
-    Cntppeersoffset interface{}
+    CntpPeersOffset interface{}
 
     // The estimated round-trip delay of the peer clock relative to the local
     // clock over the network path between them, in seconds.  The host determines
     // the value of this object using the NTP clock-filter algorithm. The type is
     // string with length: 4. Units are seconds.
-    Cntppeersdelay interface{}
+    CntpPeersDelay interface{}
 
     // The estimated maximum error of the peer clock relative to the local clock
     // over the network path between them, in seconds.  The host determines the
     // value of this object using the NTP clock-filter algorithm. The type is
     // string with length: 4. Units are seconds.
-    Cntppeersdispersion interface{}
+    CntpPeersDispersion interface{}
 
     // The number of valid entries for a peer in the Filter Register Table. Since,
     // the Filter Register Table is optional, this object will have a value 0 if
     // the Filter Register Table is not implemented. The type is interface{} with
     // range: 0..4294967295.
-    Cntppeersfiltervalidentries interface{}
+    CntpPeersFilterValidEntries interface{}
 
     // The status object for this row. When a management station is creating a new
     // row, it should set the value for cntpPeersPeerAddress at least, before the
     // row can be made active(1). The type is RowStatus.
-    Cntppeersentrystatus interface{}
+    CntpPeersEntryStatus interface{}
 
     // The local time, when the most recent NTP message was received from the peer
     // that was used to calculate the skew dispersion.  This represents only the
     // 32-bit integer part of the NTPTimestamp. The type is interface{} with
     // range: 0..4294967295.
-    Cntppeersupdatetimerev1 interface{}
+    CntpPeersUpdateTimeRev1 interface{}
 
     // This object specifies whether this peer is the preferred one over the
     // others. By default, when the value of this object is 'false', NTP chooses 
@@ -524,87 +533,90 @@ type CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry struct {
     // synchronize the time with. If multiple entries have this object set to
     // 'true', NTP will choose the first one to be set. This object is a means to
     // override the selection of the peer by NTP. The type is bool.
-    Cntppeersprefpeer interface{}
+    CntpPeersPrefPeer interface{}
 
     // Represents the type of the corresponding instance of cntpPeersPeerName
     // object. The type is InetAddressType.
-    Cntppeerspeertype interface{}
+    CntpPeersPeerType interface{}
 
     // The address of the peer. When creating a new association, a value must be
     // set for either this object or the corresponding instance of
     // cntpPeersPeerAddress object, before the row is made active. The type is
     // string with length: 0..255.
-    Cntppeerspeername interface{}
+    CntpPeersPeerName interface{}
 }
 
-func (cntppeersvarentry *CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry) GetEntityData() *types.CommonEntityData {
-    cntppeersvarentry.EntityData.YFilter = cntppeersvarentry.YFilter
-    cntppeersvarentry.EntityData.YangName = "cntpPeersVarEntry"
-    cntppeersvarentry.EntityData.BundleName = "cisco_ios_xe"
-    cntppeersvarentry.EntityData.ParentYangName = "cntpPeersVarTable"
-    cntppeersvarentry.EntityData.SegmentPath = "cntpPeersVarEntry" + "[cntpPeersAssocId='" + fmt.Sprintf("%v", cntppeersvarentry.Cntppeersassocid) + "']"
-    cntppeersvarentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cntppeersvarentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cntppeersvarentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cntpPeersVarEntry *CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry) GetEntityData() *types.CommonEntityData {
+    cntpPeersVarEntry.EntityData.YFilter = cntpPeersVarEntry.YFilter
+    cntpPeersVarEntry.EntityData.YangName = "cntpPeersVarEntry"
+    cntpPeersVarEntry.EntityData.BundleName = "cisco_ios_xe"
+    cntpPeersVarEntry.EntityData.ParentYangName = "cntpPeersVarTable"
+    cntpPeersVarEntry.EntityData.SegmentPath = "cntpPeersVarEntry" + types.AddKeyToken(cntpPeersVarEntry.CntpPeersAssocId, "cntpPeersAssocId")
+    cntpPeersVarEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cntpPeersVarEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cntpPeersVarEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cntppeersvarentry.EntityData.Children = make(map[string]types.YChild)
-    cntppeersvarentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cntppeersvarentry.EntityData.Leafs["cntpPeersAssocId"] = types.YLeaf{"Cntppeersassocid", cntppeersvarentry.Cntppeersassocid}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersConfigured"] = types.YLeaf{"Cntppeersconfigured", cntppeersvarentry.Cntppeersconfigured}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersPeerAddress"] = types.YLeaf{"Cntppeerspeeraddress", cntppeersvarentry.Cntppeerspeeraddress}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersPeerPort"] = types.YLeaf{"Cntppeerspeerport", cntppeersvarentry.Cntppeerspeerport}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersHostAddress"] = types.YLeaf{"Cntppeershostaddress", cntppeersvarentry.Cntppeershostaddress}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersHostPort"] = types.YLeaf{"Cntppeershostport", cntppeersvarentry.Cntppeershostport}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersLeap"] = types.YLeaf{"Cntppeersleap", cntppeersvarentry.Cntppeersleap}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersMode"] = types.YLeaf{"Cntppeersmode", cntppeersvarentry.Cntppeersmode}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersStratum"] = types.YLeaf{"Cntppeersstratum", cntppeersvarentry.Cntppeersstratum}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersPeerPoll"] = types.YLeaf{"Cntppeerspeerpoll", cntppeersvarentry.Cntppeerspeerpoll}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersHostPoll"] = types.YLeaf{"Cntppeershostpoll", cntppeersvarentry.Cntppeershostpoll}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersPrecision"] = types.YLeaf{"Cntppeersprecision", cntppeersvarentry.Cntppeersprecision}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersRootDelay"] = types.YLeaf{"Cntppeersrootdelay", cntppeersvarentry.Cntppeersrootdelay}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersRootDispersion"] = types.YLeaf{"Cntppeersrootdispersion", cntppeersvarentry.Cntppeersrootdispersion}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersRefId"] = types.YLeaf{"Cntppeersrefid", cntppeersvarentry.Cntppeersrefid}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersRefTime"] = types.YLeaf{"Cntppeersreftime", cntppeersvarentry.Cntppeersreftime}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersOrgTime"] = types.YLeaf{"Cntppeersorgtime", cntppeersvarentry.Cntppeersorgtime}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersReceiveTime"] = types.YLeaf{"Cntppeersreceivetime", cntppeersvarentry.Cntppeersreceivetime}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersTransmitTime"] = types.YLeaf{"Cntppeerstransmittime", cntppeersvarentry.Cntppeerstransmittime}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersUpdateTime"] = types.YLeaf{"Cntppeersupdatetime", cntppeersvarentry.Cntppeersupdatetime}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersReach"] = types.YLeaf{"Cntppeersreach", cntppeersvarentry.Cntppeersreach}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersTimer"] = types.YLeaf{"Cntppeerstimer", cntppeersvarentry.Cntppeerstimer}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersOffset"] = types.YLeaf{"Cntppeersoffset", cntppeersvarentry.Cntppeersoffset}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersDelay"] = types.YLeaf{"Cntppeersdelay", cntppeersvarentry.Cntppeersdelay}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersDispersion"] = types.YLeaf{"Cntppeersdispersion", cntppeersvarentry.Cntppeersdispersion}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersFilterValidEntries"] = types.YLeaf{"Cntppeersfiltervalidentries", cntppeersvarentry.Cntppeersfiltervalidentries}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersEntryStatus"] = types.YLeaf{"Cntppeersentrystatus", cntppeersvarentry.Cntppeersentrystatus}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersUpdateTimeRev1"] = types.YLeaf{"Cntppeersupdatetimerev1", cntppeersvarentry.Cntppeersupdatetimerev1}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersPrefPeer"] = types.YLeaf{"Cntppeersprefpeer", cntppeersvarentry.Cntppeersprefpeer}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersPeerType"] = types.YLeaf{"Cntppeerspeertype", cntppeersvarentry.Cntppeerspeertype}
-    cntppeersvarentry.EntityData.Leafs["cntpPeersPeerName"] = types.YLeaf{"Cntppeerspeername", cntppeersvarentry.Cntppeerspeername}
-    return &(cntppeersvarentry.EntityData)
+    cntpPeersVarEntry.EntityData.Children = types.NewOrderedMap()
+    cntpPeersVarEntry.EntityData.Leafs = types.NewOrderedMap()
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersAssocId", types.YLeaf{"CntpPeersAssocId", cntpPeersVarEntry.CntpPeersAssocId})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersConfigured", types.YLeaf{"CntpPeersConfigured", cntpPeersVarEntry.CntpPeersConfigured})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersPeerAddress", types.YLeaf{"CntpPeersPeerAddress", cntpPeersVarEntry.CntpPeersPeerAddress})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersPeerPort", types.YLeaf{"CntpPeersPeerPort", cntpPeersVarEntry.CntpPeersPeerPort})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersHostAddress", types.YLeaf{"CntpPeersHostAddress", cntpPeersVarEntry.CntpPeersHostAddress})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersHostPort", types.YLeaf{"CntpPeersHostPort", cntpPeersVarEntry.CntpPeersHostPort})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersLeap", types.YLeaf{"CntpPeersLeap", cntpPeersVarEntry.CntpPeersLeap})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersMode", types.YLeaf{"CntpPeersMode", cntpPeersVarEntry.CntpPeersMode})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersStratum", types.YLeaf{"CntpPeersStratum", cntpPeersVarEntry.CntpPeersStratum})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersPeerPoll", types.YLeaf{"CntpPeersPeerPoll", cntpPeersVarEntry.CntpPeersPeerPoll})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersHostPoll", types.YLeaf{"CntpPeersHostPoll", cntpPeersVarEntry.CntpPeersHostPoll})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersPrecision", types.YLeaf{"CntpPeersPrecision", cntpPeersVarEntry.CntpPeersPrecision})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersRootDelay", types.YLeaf{"CntpPeersRootDelay", cntpPeersVarEntry.CntpPeersRootDelay})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersRootDispersion", types.YLeaf{"CntpPeersRootDispersion", cntpPeersVarEntry.CntpPeersRootDispersion})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersRefId", types.YLeaf{"CntpPeersRefId", cntpPeersVarEntry.CntpPeersRefId})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersRefTime", types.YLeaf{"CntpPeersRefTime", cntpPeersVarEntry.CntpPeersRefTime})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersOrgTime", types.YLeaf{"CntpPeersOrgTime", cntpPeersVarEntry.CntpPeersOrgTime})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersReceiveTime", types.YLeaf{"CntpPeersReceiveTime", cntpPeersVarEntry.CntpPeersReceiveTime})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersTransmitTime", types.YLeaf{"CntpPeersTransmitTime", cntpPeersVarEntry.CntpPeersTransmitTime})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersUpdateTime", types.YLeaf{"CntpPeersUpdateTime", cntpPeersVarEntry.CntpPeersUpdateTime})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersReach", types.YLeaf{"CntpPeersReach", cntpPeersVarEntry.CntpPeersReach})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersTimer", types.YLeaf{"CntpPeersTimer", cntpPeersVarEntry.CntpPeersTimer})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersOffset", types.YLeaf{"CntpPeersOffset", cntpPeersVarEntry.CntpPeersOffset})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersDelay", types.YLeaf{"CntpPeersDelay", cntpPeersVarEntry.CntpPeersDelay})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersDispersion", types.YLeaf{"CntpPeersDispersion", cntpPeersVarEntry.CntpPeersDispersion})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersFilterValidEntries", types.YLeaf{"CntpPeersFilterValidEntries", cntpPeersVarEntry.CntpPeersFilterValidEntries})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersEntryStatus", types.YLeaf{"CntpPeersEntryStatus", cntpPeersVarEntry.CntpPeersEntryStatus})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersUpdateTimeRev1", types.YLeaf{"CntpPeersUpdateTimeRev1", cntpPeersVarEntry.CntpPeersUpdateTimeRev1})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersPrefPeer", types.YLeaf{"CntpPeersPrefPeer", cntpPeersVarEntry.CntpPeersPrefPeer})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersPeerType", types.YLeaf{"CntpPeersPeerType", cntpPeersVarEntry.CntpPeersPeerType})
+    cntpPeersVarEntry.EntityData.Leafs.Append("cntpPeersPeerName", types.YLeaf{"CntpPeersPeerName", cntpPeersVarEntry.CntpPeersPeerName})
+
+    cntpPeersVarEntry.EntityData.YListKeys = []string {"CntpPeersAssocId"}
+
+    return &(cntpPeersVarEntry.EntityData)
 }
 
-// CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode represents symmetricActive(1).
-type CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode string
+// CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry_CntpPeersMode represents symmetricActive(1).
+type CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry_CntpPeersMode string
 
 const (
-    CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode_unspecified CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode = "unspecified"
+    CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry_CntpPeersMode_unspecified CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry_CntpPeersMode = "unspecified"
 
-    CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode_symmetricActive CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode = "symmetricActive"
+    CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry_CntpPeersMode_symmetricActive CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry_CntpPeersMode = "symmetricActive"
 
-    CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode_symmetricPassive CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode = "symmetricPassive"
+    CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry_CntpPeersMode_symmetricPassive CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry_CntpPeersMode = "symmetricPassive"
 
-    CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode_client CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode = "client"
+    CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry_CntpPeersMode_client CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry_CntpPeersMode = "client"
 
-    CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode_server CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode = "server"
+    CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry_CntpPeersMode_server CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry_CntpPeersMode = "server"
 
-    CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode_broadcast CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode = "broadcast"
+    CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry_CntpPeersMode_broadcast CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry_CntpPeersMode = "broadcast"
 
-    CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode_reservedControl CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode = "reservedControl"
+    CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry_CntpPeersMode_reservedControl CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry_CntpPeersMode = "reservedControl"
 
-    CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode_reservedPrivate CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode = "reservedPrivate"
+    CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry_CntpPeersMode_reservedPrivate CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry_CntpPeersMode = "reservedPrivate"
 )
 
-// CISCONTPMIB_Cntpfilterregistertable
+// CISCONTPMIB_CntpFilterRegisterTable
 // The following table contains NTP state variables
 // used by the NTP clock filter and selection algorithms.
 // This table depicts a shift register.  Each stage in
@@ -623,7 +635,7 @@ const (
 // filter register table below are used by these
 // algorthims to minimize the error in the calculated
 // time.
-type CISCONTPMIB_Cntpfilterregistertable struct {
+type CISCONTPMIB_CntpFilterRegisterTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -631,44 +643,47 @@ type CISCONTPMIB_Cntpfilterregistertable struct {
     // reading of the variables clock delay, clock offset and clock dispersion. 
     // Entries are automatically created whenever a peer is configured and deleted
     // when the peer is removed. The type is slice of
-    // CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry.
-    Cntpfilterregisterentry []CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry
+    // CISCONTPMIB_CntpFilterRegisterTable_CntpFilterRegisterEntry.
+    CntpFilterRegisterEntry []*CISCONTPMIB_CntpFilterRegisterTable_CntpFilterRegisterEntry
 }
 
-func (cntpfilterregistertable *CISCONTPMIB_Cntpfilterregistertable) GetEntityData() *types.CommonEntityData {
-    cntpfilterregistertable.EntityData.YFilter = cntpfilterregistertable.YFilter
-    cntpfilterregistertable.EntityData.YangName = "cntpFilterRegisterTable"
-    cntpfilterregistertable.EntityData.BundleName = "cisco_ios_xe"
-    cntpfilterregistertable.EntityData.ParentYangName = "CISCO-NTP-MIB"
-    cntpfilterregistertable.EntityData.SegmentPath = "cntpFilterRegisterTable"
-    cntpfilterregistertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cntpfilterregistertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cntpfilterregistertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cntpFilterRegisterTable *CISCONTPMIB_CntpFilterRegisterTable) GetEntityData() *types.CommonEntityData {
+    cntpFilterRegisterTable.EntityData.YFilter = cntpFilterRegisterTable.YFilter
+    cntpFilterRegisterTable.EntityData.YangName = "cntpFilterRegisterTable"
+    cntpFilterRegisterTable.EntityData.BundleName = "cisco_ios_xe"
+    cntpFilterRegisterTable.EntityData.ParentYangName = "CISCO-NTP-MIB"
+    cntpFilterRegisterTable.EntityData.SegmentPath = "cntpFilterRegisterTable"
+    cntpFilterRegisterTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cntpFilterRegisterTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cntpFilterRegisterTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cntpfilterregistertable.EntityData.Children = make(map[string]types.YChild)
-    cntpfilterregistertable.EntityData.Children["cntpFilterRegisterEntry"] = types.YChild{"Cntpfilterregisterentry", nil}
-    for i := range cntpfilterregistertable.Cntpfilterregisterentry {
-        cntpfilterregistertable.EntityData.Children[types.GetSegmentPath(&cntpfilterregistertable.Cntpfilterregisterentry[i])] = types.YChild{"Cntpfilterregisterentry", &cntpfilterregistertable.Cntpfilterregisterentry[i]}
+    cntpFilterRegisterTable.EntityData.Children = types.NewOrderedMap()
+    cntpFilterRegisterTable.EntityData.Children.Append("cntpFilterRegisterEntry", types.YChild{"CntpFilterRegisterEntry", nil})
+    for i := range cntpFilterRegisterTable.CntpFilterRegisterEntry {
+        cntpFilterRegisterTable.EntityData.Children.Append(types.GetSegmentPath(cntpFilterRegisterTable.CntpFilterRegisterEntry[i]), types.YChild{"CntpFilterRegisterEntry", cntpFilterRegisterTable.CntpFilterRegisterEntry[i]})
     }
-    cntpfilterregistertable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cntpfilterregistertable.EntityData)
+    cntpFilterRegisterTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cntpFilterRegisterTable.EntityData.YListKeys = []string {}
+
+    return &(cntpFilterRegisterTable.EntityData)
 }
 
-// CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry
+// CISCONTPMIB_CntpFilterRegisterTable_CntpFilterRegisterEntry
 // Each entry corresponds to one stage of the shift
 // register, i.e., one reading of the variables clock
 // delay, clock offset and clock dispersion.
 // 
 // Entries are automatically created whenever a peer is
 // configured and deleted when the peer is removed.
-type CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry struct {
+type CISCONTPMIB_CntpFilterRegisterTable_CntpFilterRegisterEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..2147483647.
     // Refers to
-    // cisco_ntp_mib.CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersassocid
-    Cntppeersassocid interface{}
+    // cisco_ntp_mib.CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry_CntpPeersAssocId
+    CntpPeersAssocId interface{}
 
     // This attribute is a key. An integer value in the specified range that is
     // used to index into the table.  The size of the table is fixed at 8.  Each
@@ -677,41 +692,44 @@ type CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry struct {
     // back to 1 when it reaches 8.  When the index wraps back, the new entries
     // will overwrite the old entries effectively deleting the old entry. The type
     // is interface{} with range: 1..8.
-    Cntpfilterindex interface{}
+    CntpFilterIndex interface{}
 
     // The offset of the peer clock relative to the local clock in seconds. The
     // type is string with length: 4. Units are seconds.
-    Cntpfilterpeersoffset interface{}
+    CntpFilterPeersOffset interface{}
 
     // Round-trip delay of the peer clock relative to the local clock over the
     // network path between them, in seconds.  This variable can take on both
     // positive and negative values, depending on clock precision and skew-error
     // accumulation. The type is string with length: 4. Units are seconds.
-    Cntpfilterpeersdelay interface{}
+    CntpFilterPeersDelay interface{}
 
     // The maximum error of the peer clock relative to the local clock over the
     // network path between them, in seconds.  Only positive values greater than
     // zero are possible. The type is string with length: 4. Units are seconds.
-    Cntpfilterpeersdispersion interface{}
+    CntpFilterPeersDispersion interface{}
 }
 
-func (cntpfilterregisterentry *CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry) GetEntityData() *types.CommonEntityData {
-    cntpfilterregisterentry.EntityData.YFilter = cntpfilterregisterentry.YFilter
-    cntpfilterregisterentry.EntityData.YangName = "cntpFilterRegisterEntry"
-    cntpfilterregisterentry.EntityData.BundleName = "cisco_ios_xe"
-    cntpfilterregisterentry.EntityData.ParentYangName = "cntpFilterRegisterTable"
-    cntpfilterregisterentry.EntityData.SegmentPath = "cntpFilterRegisterEntry" + "[cntpPeersAssocId='" + fmt.Sprintf("%v", cntpfilterregisterentry.Cntppeersassocid) + "']" + "[cntpFilterIndex='" + fmt.Sprintf("%v", cntpfilterregisterentry.Cntpfilterindex) + "']"
-    cntpfilterregisterentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cntpfilterregisterentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cntpfilterregisterentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cntpFilterRegisterEntry *CISCONTPMIB_CntpFilterRegisterTable_CntpFilterRegisterEntry) GetEntityData() *types.CommonEntityData {
+    cntpFilterRegisterEntry.EntityData.YFilter = cntpFilterRegisterEntry.YFilter
+    cntpFilterRegisterEntry.EntityData.YangName = "cntpFilterRegisterEntry"
+    cntpFilterRegisterEntry.EntityData.BundleName = "cisco_ios_xe"
+    cntpFilterRegisterEntry.EntityData.ParentYangName = "cntpFilterRegisterTable"
+    cntpFilterRegisterEntry.EntityData.SegmentPath = "cntpFilterRegisterEntry" + types.AddKeyToken(cntpFilterRegisterEntry.CntpPeersAssocId, "cntpPeersAssocId") + types.AddKeyToken(cntpFilterRegisterEntry.CntpFilterIndex, "cntpFilterIndex")
+    cntpFilterRegisterEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cntpFilterRegisterEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cntpFilterRegisterEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cntpfilterregisterentry.EntityData.Children = make(map[string]types.YChild)
-    cntpfilterregisterentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cntpfilterregisterentry.EntityData.Leafs["cntpPeersAssocId"] = types.YLeaf{"Cntppeersassocid", cntpfilterregisterentry.Cntppeersassocid}
-    cntpfilterregisterentry.EntityData.Leafs["cntpFilterIndex"] = types.YLeaf{"Cntpfilterindex", cntpfilterregisterentry.Cntpfilterindex}
-    cntpfilterregisterentry.EntityData.Leafs["cntpFilterPeersOffset"] = types.YLeaf{"Cntpfilterpeersoffset", cntpfilterregisterentry.Cntpfilterpeersoffset}
-    cntpfilterregisterentry.EntityData.Leafs["cntpFilterPeersDelay"] = types.YLeaf{"Cntpfilterpeersdelay", cntpfilterregisterentry.Cntpfilterpeersdelay}
-    cntpfilterregisterentry.EntityData.Leafs["cntpFilterPeersDispersion"] = types.YLeaf{"Cntpfilterpeersdispersion", cntpfilterregisterentry.Cntpfilterpeersdispersion}
-    return &(cntpfilterregisterentry.EntityData)
+    cntpFilterRegisterEntry.EntityData.Children = types.NewOrderedMap()
+    cntpFilterRegisterEntry.EntityData.Leafs = types.NewOrderedMap()
+    cntpFilterRegisterEntry.EntityData.Leafs.Append("cntpPeersAssocId", types.YLeaf{"CntpPeersAssocId", cntpFilterRegisterEntry.CntpPeersAssocId})
+    cntpFilterRegisterEntry.EntityData.Leafs.Append("cntpFilterIndex", types.YLeaf{"CntpFilterIndex", cntpFilterRegisterEntry.CntpFilterIndex})
+    cntpFilterRegisterEntry.EntityData.Leafs.Append("cntpFilterPeersOffset", types.YLeaf{"CntpFilterPeersOffset", cntpFilterRegisterEntry.CntpFilterPeersOffset})
+    cntpFilterRegisterEntry.EntityData.Leafs.Append("cntpFilterPeersDelay", types.YLeaf{"CntpFilterPeersDelay", cntpFilterRegisterEntry.CntpFilterPeersDelay})
+    cntpFilterRegisterEntry.EntityData.Leafs.Append("cntpFilterPeersDispersion", types.YLeaf{"CntpFilterPeersDispersion", cntpFilterRegisterEntry.CntpFilterPeersDispersion})
+
+    cntpFilterRegisterEntry.EntityData.YListKeys = []string {"CntpPeersAssocId", "CntpFilterIndex"}
+
+    return &(cntpFilterRegisterEntry.EntityData)
 }
 

@@ -6,8 +6,10 @@
 // submodules to handle other aspects of BGP configuration,
 // including policy, VRFs, VPNs, and additional address families
 // are also expected.
+// 
 // This model supports the following BGP configuration level
 // hierarchy:
+// 
 //  BGP
 //    |
 //    +-> [ global BGP configuration ]
@@ -62,11 +64,14 @@ func (bgp *Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    bgp.EntityData.Children = make(map[string]types.YChild)
-    bgp.EntityData.Children["global"] = types.YChild{"Global", &bgp.Global}
-    bgp.EntityData.Children["neighbors"] = types.YChild{"Neighbors", &bgp.Neighbors}
-    bgp.EntityData.Children["peer-groups"] = types.YChild{"PeerGroups", &bgp.PeerGroups}
-    bgp.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgp.EntityData.Children = types.NewOrderedMap()
+    bgp.EntityData.Children.Append("global", types.YChild{"Global", &bgp.Global})
+    bgp.EntityData.Children.Append("neighbors", types.YChild{"Neighbors", &bgp.Neighbors})
+    bgp.EntityData.Children.Append("peer-groups", types.YChild{"PeerGroups", &bgp.PeerGroups})
+    bgp.EntityData.Leafs = types.NewOrderedMap()
+
+    bgp.EntityData.YListKeys = []string {}
+
     return &(bgp.EntityData)
 }
 
@@ -102,10 +107,13 @@ type Bgp_Global struct {
     // Address family specific configuration.
     AfiSafis Bgp_Global_AfiSafis
 
-    // Anchor point for routing policies in the model. Import and export policies
-    // are with respect to the local routing table, i.e., export (send) and import
-    // (receive), depending on the context.
-    ApplyPolicy Bgp_Global_ApplyPolicy
+    // A list of IP prefixes from which the system should:  - Accept connections
+    // to the BGP daemon  - Dynamically configure a BGP neighbor corresponding to
+    // the    source address of the remote system, using the parameters    of the
+    // specified peer-group. For such neighbors, an entry within the neighbor list
+    // should be created, indicating that the peer was dynamically configured, and
+    // referencing the peer-group from which the configuration was derived.
+    DynamicNeighborPrefixes Bgp_Global_DynamicNeighborPrefixes
 }
 
 func (global *Bgp_Global) GetEntityData() *types.CommonEntityData {
@@ -118,17 +126,20 @@ func (global *Bgp_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.NamespaceTable = openconfig.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    global.EntityData.Children = make(map[string]types.YChild)
-    global.EntityData.Children["config"] = types.YChild{"Config", &global.Config}
-    global.EntityData.Children["state"] = types.YChild{"State", &global.State}
-    global.EntityData.Children["default-route-distance"] = types.YChild{"DefaultRouteDistance", &global.DefaultRouteDistance}
-    global.EntityData.Children["confederation"] = types.YChild{"Confederation", &global.Confederation}
-    global.EntityData.Children["graceful-restart"] = types.YChild{"GracefulRestart", &global.GracefulRestart}
-    global.EntityData.Children["use-multiple-paths"] = types.YChild{"UseMultiplePaths", &global.UseMultiplePaths}
-    global.EntityData.Children["route-selection-options"] = types.YChild{"RouteSelectionOptions", &global.RouteSelectionOptions}
-    global.EntityData.Children["afi-safis"] = types.YChild{"AfiSafis", &global.AfiSafis}
-    global.EntityData.Children["apply-policy"] = types.YChild{"ApplyPolicy", &global.ApplyPolicy}
-    global.EntityData.Leafs = make(map[string]types.YLeaf)
+    global.EntityData.Children = types.NewOrderedMap()
+    global.EntityData.Children.Append("config", types.YChild{"Config", &global.Config})
+    global.EntityData.Children.Append("state", types.YChild{"State", &global.State})
+    global.EntityData.Children.Append("default-route-distance", types.YChild{"DefaultRouteDistance", &global.DefaultRouteDistance})
+    global.EntityData.Children.Append("confederation", types.YChild{"Confederation", &global.Confederation})
+    global.EntityData.Children.Append("graceful-restart", types.YChild{"GracefulRestart", &global.GracefulRestart})
+    global.EntityData.Children.Append("use-multiple-paths", types.YChild{"UseMultiplePaths", &global.UseMultiplePaths})
+    global.EntityData.Children.Append("route-selection-options", types.YChild{"RouteSelectionOptions", &global.RouteSelectionOptions})
+    global.EntityData.Children.Append("afi-safis", types.YChild{"AfiSafis", &global.AfiSafis})
+    global.EntityData.Children.Append("dynamic-neighbor-prefixes", types.YChild{"DynamicNeighborPrefixes", &global.DynamicNeighborPrefixes})
+    global.EntityData.Leafs = types.NewOrderedMap()
+
+    global.EntityData.YListKeys = []string {}
+
     return &(global.EntityData)
 }
 
@@ -145,7 +156,7 @@ type Bgp_Global_Config struct {
 
     // Router id of the router - an unsigned 32-bit integer expressed in dotted
     // quad notation. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     RouterId interface{}
 }
 
@@ -159,10 +170,13 @@ func (config *Bgp_Global_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["as"] = types.YLeaf{"As", config.As}
-    config.EntityData.Leafs["router-id"] = types.YLeaf{"RouterId", config.RouterId}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("as", types.YLeaf{"As", config.As})
+    config.EntityData.Leafs.Append("router-id", types.YLeaf{"RouterId", config.RouterId})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -179,7 +193,7 @@ type Bgp_Global_State struct {
 
     // Router id of the router - an unsigned 32-bit integer expressed in dotted
     // quad notation. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     RouterId interface{}
 
     // Total number of BGP paths within the context. The type is interface{} with
@@ -201,12 +215,15 @@ func (state *Bgp_Global_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["as"] = types.YLeaf{"As", state.As}
-    state.EntityData.Leafs["router-id"] = types.YLeaf{"RouterId", state.RouterId}
-    state.EntityData.Leafs["total-paths"] = types.YLeaf{"TotalPaths", state.TotalPaths}
-    state.EntityData.Leafs["total-prefixes"] = types.YLeaf{"TotalPrefixes", state.TotalPrefixes}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("as", types.YLeaf{"As", state.As})
+    state.EntityData.Leafs.Append("router-id", types.YLeaf{"RouterId", state.RouterId})
+    state.EntityData.Leafs.Append("total-paths", types.YLeaf{"TotalPaths", state.TotalPaths})
+    state.EntityData.Leafs.Append("total-prefixes", types.YLeaf{"TotalPrefixes", state.TotalPrefixes})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -235,10 +252,13 @@ func (defaultRouteDistance *Bgp_Global_DefaultRouteDistance) GetEntityData() *ty
     defaultRouteDistance.EntityData.NamespaceTable = openconfig.GetNamespaces()
     defaultRouteDistance.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    defaultRouteDistance.EntityData.Children = make(map[string]types.YChild)
-    defaultRouteDistance.EntityData.Children["config"] = types.YChild{"Config", &defaultRouteDistance.Config}
-    defaultRouteDistance.EntityData.Children["state"] = types.YChild{"State", &defaultRouteDistance.State}
-    defaultRouteDistance.EntityData.Leafs = make(map[string]types.YLeaf)
+    defaultRouteDistance.EntityData.Children = types.NewOrderedMap()
+    defaultRouteDistance.EntityData.Children.Append("config", types.YChild{"Config", &defaultRouteDistance.Config})
+    defaultRouteDistance.EntityData.Children.Append("state", types.YChild{"State", &defaultRouteDistance.State})
+    defaultRouteDistance.EntityData.Leafs = types.NewOrderedMap()
+
+    defaultRouteDistance.EntityData.YListKeys = []string {}
+
     return &(defaultRouteDistance.EntityData)
 }
 
@@ -268,10 +288,13 @@ func (config *Bgp_Global_DefaultRouteDistance_Config) GetEntityData() *types.Com
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["external-route-distance"] = types.YLeaf{"ExternalRouteDistance", config.ExternalRouteDistance}
-    config.EntityData.Leafs["internal-route-distance"] = types.YLeaf{"InternalRouteDistance", config.InternalRouteDistance}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("external-route-distance", types.YLeaf{"ExternalRouteDistance", config.ExternalRouteDistance})
+    config.EntityData.Leafs.Append("internal-route-distance", types.YLeaf{"InternalRouteDistance", config.InternalRouteDistance})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -300,10 +323,13 @@ func (state *Bgp_Global_DefaultRouteDistance_State) GetEntityData() *types.Commo
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["external-route-distance"] = types.YLeaf{"ExternalRouteDistance", state.ExternalRouteDistance}
-    state.EntityData.Leafs["internal-route-distance"] = types.YLeaf{"InternalRouteDistance", state.InternalRouteDistance}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("external-route-distance", types.YLeaf{"ExternalRouteDistance", state.ExternalRouteDistance})
+    state.EntityData.Leafs.Append("internal-route-distance", types.YLeaf{"InternalRouteDistance", state.InternalRouteDistance})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -331,10 +357,13 @@ func (confederation *Bgp_Global_Confederation) GetEntityData() *types.CommonEnti
     confederation.EntityData.NamespaceTable = openconfig.GetNamespaces()
     confederation.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    confederation.EntityData.Children = make(map[string]types.YChild)
-    confederation.EntityData.Children["config"] = types.YChild{"Config", &confederation.Config}
-    confederation.EntityData.Children["state"] = types.YChild{"State", &confederation.State}
-    confederation.EntityData.Leafs = make(map[string]types.YLeaf)
+    confederation.EntityData.Children = types.NewOrderedMap()
+    confederation.EntityData.Children.Append("config", types.YChild{"Config", &confederation.Config})
+    confederation.EntityData.Children.Append("state", types.YChild{"State", &confederation.State})
+    confederation.EntityData.Leafs = types.NewOrderedMap()
+
+    confederation.EntityData.YListKeys = []string {}
+
     return &(confederation.EntityData)
 }
 
@@ -367,11 +396,14 @@ func (config *Bgp_Global_Confederation_Config) GetEntityData() *types.CommonEnti
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
-    config.EntityData.Leafs["identifier"] = types.YLeaf{"Identifier", config.Identifier}
-    config.EntityData.Leafs["member-as"] = types.YLeaf{"MemberAs", config.MemberAs}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+    config.EntityData.Leafs.Append("identifier", types.YLeaf{"Identifier", config.Identifier})
+    config.EntityData.Leafs.Append("member-as", types.YLeaf{"MemberAs", config.MemberAs})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -404,11 +436,14 @@ func (state *Bgp_Global_Confederation_State) GetEntityData() *types.CommonEntity
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["identifier"] = types.YLeaf{"Identifier", state.Identifier}
-    state.EntityData.Leafs["member-as"] = types.YLeaf{"MemberAs", state.MemberAs}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("identifier", types.YLeaf{"Identifier", state.Identifier})
+    state.EntityData.Leafs.Append("member-as", types.YLeaf{"MemberAs", state.MemberAs})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -435,10 +470,13 @@ func (gracefulRestart *Bgp_Global_GracefulRestart) GetEntityData() *types.Common
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    gracefulRestart.EntityData.Children = make(map[string]types.YChild)
-    gracefulRestart.EntityData.Children["config"] = types.YChild{"Config", &gracefulRestart.Config}
-    gracefulRestart.EntityData.Children["state"] = types.YChild{"State", &gracefulRestart.State}
-    gracefulRestart.EntityData.Leafs = make(map[string]types.YLeaf)
+    gracefulRestart.EntityData.Children = types.NewOrderedMap()
+    gracefulRestart.EntityData.Children.Append("config", types.YChild{"Config", &gracefulRestart.Config})
+    gracefulRestart.EntityData.Children.Append("state", types.YChild{"State", &gracefulRestart.State})
+    gracefulRestart.EntityData.Leafs = types.NewOrderedMap()
+
+    gracefulRestart.EntityData.YListKeys = []string {}
+
     return &(gracefulRestart.EntityData)
 }
 
@@ -484,12 +522,15 @@ func (config *Bgp_Global_GracefulRestart_Config) GetEntityData() *types.CommonEn
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
-    config.EntityData.Leafs["restart-time"] = types.YLeaf{"RestartTime", config.RestartTime}
-    config.EntityData.Leafs["stale-routes-time"] = types.YLeaf{"StaleRoutesTime", config.StaleRoutesTime}
-    config.EntityData.Leafs["helper-only"] = types.YLeaf{"HelperOnly", config.HelperOnly}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+    config.EntityData.Leafs.Append("restart-time", types.YLeaf{"RestartTime", config.RestartTime})
+    config.EntityData.Leafs.Append("stale-routes-time", types.YLeaf{"StaleRoutesTime", config.StaleRoutesTime})
+    config.EntityData.Leafs.Append("helper-only", types.YLeaf{"HelperOnly", config.HelperOnly})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -535,12 +576,15 @@ func (state *Bgp_Global_GracefulRestart_State) GetEntityData() *types.CommonEnti
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["restart-time"] = types.YLeaf{"RestartTime", state.RestartTime}
-    state.EntityData.Leafs["stale-routes-time"] = types.YLeaf{"StaleRoutesTime", state.StaleRoutesTime}
-    state.EntityData.Leafs["helper-only"] = types.YLeaf{"HelperOnly", state.HelperOnly}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("restart-time", types.YLeaf{"RestartTime", state.RestartTime})
+    state.EntityData.Leafs.Append("stale-routes-time", types.YLeaf{"StaleRoutesTime", state.StaleRoutesTime})
+    state.EntityData.Leafs.Append("helper-only", types.YLeaf{"HelperOnly", state.HelperOnly})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -574,12 +618,15 @@ func (useMultiplePaths *Bgp_Global_UseMultiplePaths) GetEntityData() *types.Comm
     useMultiplePaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     useMultiplePaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    useMultiplePaths.EntityData.Children = make(map[string]types.YChild)
-    useMultiplePaths.EntityData.Children["config"] = types.YChild{"Config", &useMultiplePaths.Config}
-    useMultiplePaths.EntityData.Children["state"] = types.YChild{"State", &useMultiplePaths.State}
-    useMultiplePaths.EntityData.Children["ebgp"] = types.YChild{"Ebgp", &useMultiplePaths.Ebgp}
-    useMultiplePaths.EntityData.Children["ibgp"] = types.YChild{"Ibgp", &useMultiplePaths.Ibgp}
-    useMultiplePaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    useMultiplePaths.EntityData.Children = types.NewOrderedMap()
+    useMultiplePaths.EntityData.Children.Append("config", types.YChild{"Config", &useMultiplePaths.Config})
+    useMultiplePaths.EntityData.Children.Append("state", types.YChild{"State", &useMultiplePaths.State})
+    useMultiplePaths.EntityData.Children.Append("ebgp", types.YChild{"Ebgp", &useMultiplePaths.Ebgp})
+    useMultiplePaths.EntityData.Children.Append("ibgp", types.YChild{"Ibgp", &useMultiplePaths.Ibgp})
+    useMultiplePaths.EntityData.Leafs = types.NewOrderedMap()
+
+    useMultiplePaths.EntityData.YListKeys = []string {}
+
     return &(useMultiplePaths.EntityData)
 }
 
@@ -605,9 +652,12 @@ func (config *Bgp_Global_UseMultiplePaths_Config) GetEntityData() *types.CommonE
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -633,9 +683,12 @@ func (state *Bgp_Global_UseMultiplePaths_State) GetEntityData() *types.CommonEnt
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -662,10 +715,13 @@ func (ebgp *Bgp_Global_UseMultiplePaths_Ebgp) GetEntityData() *types.CommonEntit
     ebgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ebgp.EntityData.Children = make(map[string]types.YChild)
-    ebgp.EntityData.Children["config"] = types.YChild{"Config", &ebgp.Config}
-    ebgp.EntityData.Children["state"] = types.YChild{"State", &ebgp.State}
-    ebgp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ebgp.EntityData.Children = types.NewOrderedMap()
+    ebgp.EntityData.Children.Append("config", types.YChild{"Config", &ebgp.Config})
+    ebgp.EntityData.Children.Append("state", types.YChild{"State", &ebgp.State})
+    ebgp.EntityData.Leafs = types.NewOrderedMap()
+
+    ebgp.EntityData.YListKeys = []string {}
+
     return &(ebgp.EntityData)
 }
 
@@ -696,10 +752,13 @@ func (config *Bgp_Global_UseMultiplePaths_Ebgp_Config) GetEntityData() *types.Co
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["allow-multiple-as"] = types.YLeaf{"AllowMultipleAs", config.AllowMultipleAs}
-    config.EntityData.Leafs["maximum-paths"] = types.YLeaf{"MaximumPaths", config.MaximumPaths}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("allow-multiple-as", types.YLeaf{"AllowMultipleAs", config.AllowMultipleAs})
+    config.EntityData.Leafs.Append("maximum-paths", types.YLeaf{"MaximumPaths", config.MaximumPaths})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -730,10 +789,13 @@ func (state *Bgp_Global_UseMultiplePaths_Ebgp_State) GetEntityData() *types.Comm
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["allow-multiple-as"] = types.YLeaf{"AllowMultipleAs", state.AllowMultipleAs}
-    state.EntityData.Leafs["maximum-paths"] = types.YLeaf{"MaximumPaths", state.MaximumPaths}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("allow-multiple-as", types.YLeaf{"AllowMultipleAs", state.AllowMultipleAs})
+    state.EntityData.Leafs.Append("maximum-paths", types.YLeaf{"MaximumPaths", state.MaximumPaths})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -760,10 +822,13 @@ func (ibgp *Bgp_Global_UseMultiplePaths_Ibgp) GetEntityData() *types.CommonEntit
     ibgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ibgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ibgp.EntityData.Children = make(map[string]types.YChild)
-    ibgp.EntityData.Children["config"] = types.YChild{"Config", &ibgp.Config}
-    ibgp.EntityData.Children["state"] = types.YChild{"State", &ibgp.State}
-    ibgp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ibgp.EntityData.Children = types.NewOrderedMap()
+    ibgp.EntityData.Children.Append("config", types.YChild{"Config", &ibgp.Config})
+    ibgp.EntityData.Children.Append("state", types.YChild{"State", &ibgp.State})
+    ibgp.EntityData.Leafs = types.NewOrderedMap()
+
+    ibgp.EntityData.YListKeys = []string {}
+
     return &(ibgp.EntityData)
 }
 
@@ -789,9 +854,12 @@ func (config *Bgp_Global_UseMultiplePaths_Ibgp_Config) GetEntityData() *types.Co
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["maximum-paths"] = types.YLeaf{"MaximumPaths", config.MaximumPaths}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("maximum-paths", types.YLeaf{"MaximumPaths", config.MaximumPaths})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -817,9 +885,12 @@ func (state *Bgp_Global_UseMultiplePaths_Ibgp_State) GetEntityData() *types.Comm
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["maximum-paths"] = types.YLeaf{"MaximumPaths", state.MaximumPaths}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("maximum-paths", types.YLeaf{"MaximumPaths", state.MaximumPaths})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -846,10 +917,13 @@ func (routeSelectionOptions *Bgp_Global_RouteSelectionOptions) GetEntityData() *
     routeSelectionOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routeSelectionOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    routeSelectionOptions.EntityData.Children = make(map[string]types.YChild)
-    routeSelectionOptions.EntityData.Children["config"] = types.YChild{"Config", &routeSelectionOptions.Config}
-    routeSelectionOptions.EntityData.Children["state"] = types.YChild{"State", &routeSelectionOptions.State}
-    routeSelectionOptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    routeSelectionOptions.EntityData.Children = types.NewOrderedMap()
+    routeSelectionOptions.EntityData.Children.Append("config", types.YChild{"Config", &routeSelectionOptions.Config})
+    routeSelectionOptions.EntityData.Children.Append("state", types.YChild{"State", &routeSelectionOptions.State})
+    routeSelectionOptions.EntityData.Leafs = types.NewOrderedMap()
+
+    routeSelectionOptions.EntityData.YListKeys = []string {}
+
     return &(routeSelectionOptions.EntityData)
 }
 
@@ -900,14 +974,17 @@ func (config *Bgp_Global_RouteSelectionOptions_Config) GetEntityData() *types.Co
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["always-compare-med"] = types.YLeaf{"AlwaysCompareMed", config.AlwaysCompareMed}
-    config.EntityData.Leafs["ignore-as-path-length"] = types.YLeaf{"IgnoreAsPathLength", config.IgnoreAsPathLength}
-    config.EntityData.Leafs["external-compare-router-id"] = types.YLeaf{"ExternalCompareRouterId", config.ExternalCompareRouterId}
-    config.EntityData.Leafs["advertise-inactive-routes"] = types.YLeaf{"AdvertiseInactiveRoutes", config.AdvertiseInactiveRoutes}
-    config.EntityData.Leafs["enable-aigp"] = types.YLeaf{"EnableAigp", config.EnableAigp}
-    config.EntityData.Leafs["ignore-next-hop-igp-metric"] = types.YLeaf{"IgnoreNextHopIgpMetric", config.IgnoreNextHopIgpMetric}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("always-compare-med", types.YLeaf{"AlwaysCompareMed", config.AlwaysCompareMed})
+    config.EntityData.Leafs.Append("ignore-as-path-length", types.YLeaf{"IgnoreAsPathLength", config.IgnoreAsPathLength})
+    config.EntityData.Leafs.Append("external-compare-router-id", types.YLeaf{"ExternalCompareRouterId", config.ExternalCompareRouterId})
+    config.EntityData.Leafs.Append("advertise-inactive-routes", types.YLeaf{"AdvertiseInactiveRoutes", config.AdvertiseInactiveRoutes})
+    config.EntityData.Leafs.Append("enable-aigp", types.YLeaf{"EnableAigp", config.EnableAigp})
+    config.EntityData.Leafs.Append("ignore-next-hop-igp-metric", types.YLeaf{"IgnoreNextHopIgpMetric", config.IgnoreNextHopIgpMetric})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -957,14 +1034,17 @@ func (state *Bgp_Global_RouteSelectionOptions_State) GetEntityData() *types.Comm
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["always-compare-med"] = types.YLeaf{"AlwaysCompareMed", state.AlwaysCompareMed}
-    state.EntityData.Leafs["ignore-as-path-length"] = types.YLeaf{"IgnoreAsPathLength", state.IgnoreAsPathLength}
-    state.EntityData.Leafs["external-compare-router-id"] = types.YLeaf{"ExternalCompareRouterId", state.ExternalCompareRouterId}
-    state.EntityData.Leafs["advertise-inactive-routes"] = types.YLeaf{"AdvertiseInactiveRoutes", state.AdvertiseInactiveRoutes}
-    state.EntityData.Leafs["enable-aigp"] = types.YLeaf{"EnableAigp", state.EnableAigp}
-    state.EntityData.Leafs["ignore-next-hop-igp-metric"] = types.YLeaf{"IgnoreNextHopIgpMetric", state.IgnoreNextHopIgpMetric}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("always-compare-med", types.YLeaf{"AlwaysCompareMed", state.AlwaysCompareMed})
+    state.EntityData.Leafs.Append("ignore-as-path-length", types.YLeaf{"IgnoreAsPathLength", state.IgnoreAsPathLength})
+    state.EntityData.Leafs.Append("external-compare-router-id", types.YLeaf{"ExternalCompareRouterId", state.ExternalCompareRouterId})
+    state.EntityData.Leafs.Append("advertise-inactive-routes", types.YLeaf{"AdvertiseInactiveRoutes", state.AdvertiseInactiveRoutes})
+    state.EntityData.Leafs.Append("enable-aigp", types.YLeaf{"EnableAigp", state.EnableAigp})
+    state.EntityData.Leafs.Append("ignore-next-hop-igp-metric", types.YLeaf{"IgnoreNextHopIgpMetric", state.IgnoreNextHopIgpMetric})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -976,7 +1056,7 @@ type Bgp_Global_AfiSafis struct {
 
     // AFI,SAFI configuration available for the neighbour or group. The type is
     // slice of Bgp_Global_AfiSafis_AfiSafi.
-    AfiSafi []Bgp_Global_AfiSafis_AfiSafi
+    AfiSafi []*Bgp_Global_AfiSafis_AfiSafi
 }
 
 func (afiSafis *Bgp_Global_AfiSafis) GetEntityData() *types.CommonEntityData {
@@ -989,12 +1069,15 @@ func (afiSafis *Bgp_Global_AfiSafis) GetEntityData() *types.CommonEntityData {
     afiSafis.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafis.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    afiSafis.EntityData.Children = make(map[string]types.YChild)
-    afiSafis.EntityData.Children["afi-safi"] = types.YChild{"AfiSafi", nil}
+    afiSafis.EntityData.Children = types.NewOrderedMap()
+    afiSafis.EntityData.Children.Append("afi-safi", types.YChild{"AfiSafi", nil})
     for i := range afiSafis.AfiSafi {
-        afiSafis.EntityData.Children[types.GetSegmentPath(&afiSafis.AfiSafi[i])] = types.YChild{"AfiSafi", &afiSafis.AfiSafi[i]}
+        afiSafis.EntityData.Children.Append(types.GetSegmentPath(afiSafis.AfiSafi[i]), types.YChild{"AfiSafi", afiSafis.AfiSafi[i]})
     }
-    afiSafis.EntityData.Leafs = make(map[string]types.YLeaf)
+    afiSafis.EntityData.Leafs = types.NewOrderedMap()
+
+    afiSafis.EntityData.YListKeys = []string {}
+
     return &(afiSafis.EntityData)
 }
 
@@ -1007,7 +1090,7 @@ type Bgp_Global_AfiSafis_AfiSafi struct {
 
     // This attribute is a key. Reference to the AFI-SAFI name used as a key for
     // the AFI-SAFI list. The type is one of the following:
-    // IPV4UNICASTIPV6UNICASTIPV4LABELEDUNICASTIPV6LABELEDUNICASTL3VPNIPV4UNICASTL3VPNIPV6UNICASTL3VPNIPV4MULTICASTL3VPNIPV6MULTICASTL2VPNVPLSL2VPNEVPN.
+    // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
     AfiSafiName interface{}
 
     // Configuration parameters for the AFI-SAFI.
@@ -1025,11 +1108,6 @@ type Bgp_Global_AfiSafis_AfiSafi struct {
     // Parameters related to the use of multiple paths for the same NLRI.
     UseMultiplePaths Bgp_Global_AfiSafis_AfiSafi_UseMultiplePaths
 
-    // Anchor point for routing policies in the model. Import and export policies
-    // are with respect to the local routing table, i.e., export (send) and import
-    // (receive), depending on the context.
-    ApplyPolicy Bgp_Global_AfiSafis_AfiSafi_ApplyPolicy
-
     // IPv4 unicast configuration options.
     Ipv4Unicast Bgp_Global_AfiSafis_AfiSafi_Ipv4Unicast
 
@@ -1043,22 +1121,22 @@ type Bgp_Global_AfiSafis_AfiSafi struct {
     Ipv6LabeledUnicast Bgp_Global_AfiSafis_AfiSafi_Ipv6LabeledUnicast
 
     // Unicast IPv4 L3VPN configuration options.
-    L3VpnIpv4Unicast Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast
+    L3vpnIpv4Unicast Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast
 
     // Unicast IPv6 L3VPN configuration options.
-    L3VpnIpv6Unicast Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast
+    L3vpnIpv6Unicast Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast
 
     // Multicast IPv4 L3VPN configuration options.
-    L3VpnIpv4Multicast Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast
+    L3vpnIpv4Multicast Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast
 
     // Multicast IPv6 L3VPN configuration options.
-    L3VpnIpv6Multicast Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast
+    L3vpnIpv6Multicast Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast
 
     // BGP-signalled VPLS configuration options.
-    L2VpnVpls Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls
+    L2vpnVpls Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls
 
     // BGP EVPN configuration options.
-    L2VpnEvpn Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn
+    L2vpnEvpn Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn
 }
 
 func (afiSafi *Bgp_Global_AfiSafis_AfiSafi) GetEntityData() *types.CommonEntityData {
@@ -1066,30 +1144,32 @@ func (afiSafi *Bgp_Global_AfiSafis_AfiSafi) GetEntityData() *types.CommonEntityD
     afiSafi.EntityData.YangName = "afi-safi"
     afiSafi.EntityData.BundleName = "openconfig"
     afiSafi.EntityData.ParentYangName = "afi-safis"
-    afiSafi.EntityData.SegmentPath = "afi-safi" + "[afi-safi-name='" + fmt.Sprintf("%v", afiSafi.AfiSafiName) + "']"
+    afiSafi.EntityData.SegmentPath = "afi-safi" + types.AddKeyToken(afiSafi.AfiSafiName, "afi-safi-name")
     afiSafi.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafi.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafi.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    afiSafi.EntityData.Children = make(map[string]types.YChild)
-    afiSafi.EntityData.Children["config"] = types.YChild{"Config", &afiSafi.Config}
-    afiSafi.EntityData.Children["state"] = types.YChild{"State", &afiSafi.State}
-    afiSafi.EntityData.Children["graceful-restart"] = types.YChild{"GracefulRestart", &afiSafi.GracefulRestart}
-    afiSafi.EntityData.Children["route-selection-options"] = types.YChild{"RouteSelectionOptions", &afiSafi.RouteSelectionOptions}
-    afiSafi.EntityData.Children["use-multiple-paths"] = types.YChild{"UseMultiplePaths", &afiSafi.UseMultiplePaths}
-    afiSafi.EntityData.Children["apply-policy"] = types.YChild{"ApplyPolicy", &afiSafi.ApplyPolicy}
-    afiSafi.EntityData.Children["ipv4-unicast"] = types.YChild{"Ipv4Unicast", &afiSafi.Ipv4Unicast}
-    afiSafi.EntityData.Children["ipv6-unicast"] = types.YChild{"Ipv6Unicast", &afiSafi.Ipv6Unicast}
-    afiSafi.EntityData.Children["ipv4-labeled-unicast"] = types.YChild{"Ipv4LabeledUnicast", &afiSafi.Ipv4LabeledUnicast}
-    afiSafi.EntityData.Children["ipv6-labeled-unicast"] = types.YChild{"Ipv6LabeledUnicast", &afiSafi.Ipv6LabeledUnicast}
-    afiSafi.EntityData.Children["l3vpn-ipv4-unicast"] = types.YChild{"L3VpnIpv4Unicast", &afiSafi.L3VpnIpv4Unicast}
-    afiSafi.EntityData.Children["l3vpn-ipv6-unicast"] = types.YChild{"L3VpnIpv6Unicast", &afiSafi.L3VpnIpv6Unicast}
-    afiSafi.EntityData.Children["l3vpn-ipv4-multicast"] = types.YChild{"L3VpnIpv4Multicast", &afiSafi.L3VpnIpv4Multicast}
-    afiSafi.EntityData.Children["l3vpn-ipv6-multicast"] = types.YChild{"L3VpnIpv6Multicast", &afiSafi.L3VpnIpv6Multicast}
-    afiSafi.EntityData.Children["l2vpn-vpls"] = types.YChild{"L2VpnVpls", &afiSafi.L2VpnVpls}
-    afiSafi.EntityData.Children["l2vpn-evpn"] = types.YChild{"L2VpnEvpn", &afiSafi.L2VpnEvpn}
-    afiSafi.EntityData.Leafs = make(map[string]types.YLeaf)
-    afiSafi.EntityData.Leafs["afi-safi-name"] = types.YLeaf{"AfiSafiName", afiSafi.AfiSafiName}
+    afiSafi.EntityData.Children = types.NewOrderedMap()
+    afiSafi.EntityData.Children.Append("config", types.YChild{"Config", &afiSafi.Config})
+    afiSafi.EntityData.Children.Append("state", types.YChild{"State", &afiSafi.State})
+    afiSafi.EntityData.Children.Append("graceful-restart", types.YChild{"GracefulRestart", &afiSafi.GracefulRestart})
+    afiSafi.EntityData.Children.Append("route-selection-options", types.YChild{"RouteSelectionOptions", &afiSafi.RouteSelectionOptions})
+    afiSafi.EntityData.Children.Append("use-multiple-paths", types.YChild{"UseMultiplePaths", &afiSafi.UseMultiplePaths})
+    afiSafi.EntityData.Children.Append("ipv4-unicast", types.YChild{"Ipv4Unicast", &afiSafi.Ipv4Unicast})
+    afiSafi.EntityData.Children.Append("ipv6-unicast", types.YChild{"Ipv6Unicast", &afiSafi.Ipv6Unicast})
+    afiSafi.EntityData.Children.Append("ipv4-labeled-unicast", types.YChild{"Ipv4LabeledUnicast", &afiSafi.Ipv4LabeledUnicast})
+    afiSafi.EntityData.Children.Append("ipv6-labeled-unicast", types.YChild{"Ipv6LabeledUnicast", &afiSafi.Ipv6LabeledUnicast})
+    afiSafi.EntityData.Children.Append("l3vpn-ipv4-unicast", types.YChild{"L3vpnIpv4Unicast", &afiSafi.L3vpnIpv4Unicast})
+    afiSafi.EntityData.Children.Append("l3vpn-ipv6-unicast", types.YChild{"L3vpnIpv6Unicast", &afiSafi.L3vpnIpv6Unicast})
+    afiSafi.EntityData.Children.Append("l3vpn-ipv4-multicast", types.YChild{"L3vpnIpv4Multicast", &afiSafi.L3vpnIpv4Multicast})
+    afiSafi.EntityData.Children.Append("l3vpn-ipv6-multicast", types.YChild{"L3vpnIpv6Multicast", &afiSafi.L3vpnIpv6Multicast})
+    afiSafi.EntityData.Children.Append("l2vpn-vpls", types.YChild{"L2vpnVpls", &afiSafi.L2vpnVpls})
+    afiSafi.EntityData.Children.Append("l2vpn-evpn", types.YChild{"L2vpnEvpn", &afiSafi.L2vpnEvpn})
+    afiSafi.EntityData.Leafs = types.NewOrderedMap()
+    afiSafi.EntityData.Leafs.Append("afi-safi-name", types.YLeaf{"AfiSafiName", afiSafi.AfiSafiName})
+
+    afiSafi.EntityData.YListKeys = []string {"AfiSafiName"}
+
     return &(afiSafi.EntityData)
 }
 
@@ -1100,7 +1180,7 @@ type Bgp_Global_AfiSafis_AfiSafi_Config struct {
     YFilter yfilter.YFilter
 
     // AFI,SAFI. The type is one of the following:
-    // IPV4UNICASTIPV6UNICASTIPV4LABELEDUNICASTIPV6LABELEDUNICASTL3VPNIPV4UNICASTL3VPNIPV6UNICASTL3VPNIPV4MULTICASTL3VPNIPV6MULTICASTL2VPNVPLSL2VPNEVPN.
+    // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
     AfiSafiName interface{}
 
     // This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the
@@ -1118,10 +1198,13 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_Config) GetEntityData() *types.CommonE
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["afi-safi-name"] = types.YLeaf{"AfiSafiName", config.AfiSafiName}
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("afi-safi-name", types.YLeaf{"AfiSafiName", config.AfiSafiName})
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1132,7 +1215,7 @@ type Bgp_Global_AfiSafis_AfiSafi_State struct {
     YFilter yfilter.YFilter
 
     // AFI,SAFI. The type is one of the following:
-    // IPV4UNICASTIPV6UNICASTIPV4LABELEDUNICASTIPV6LABELEDUNICASTL3VPNIPV4UNICASTL3VPNIPV6UNICASTL3VPNIPV4MULTICASTL3VPNIPV6MULTICASTL2VPNVPLSL2VPNEVPN.
+    // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
     AfiSafiName interface{}
 
     // This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the
@@ -1158,12 +1241,15 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_State) GetEntityData() *types.CommonEnt
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["afi-safi-name"] = types.YLeaf{"AfiSafiName", state.AfiSafiName}
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["total-paths"] = types.YLeaf{"TotalPaths", state.TotalPaths}
-    state.EntityData.Leafs["total-prefixes"] = types.YLeaf{"TotalPrefixes", state.TotalPrefixes}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("afi-safi-name", types.YLeaf{"AfiSafiName", state.AfiSafiName})
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("total-paths", types.YLeaf{"TotalPaths", state.TotalPaths})
+    state.EntityData.Leafs.Append("total-prefixes", types.YLeaf{"TotalPrefixes", state.TotalPrefixes})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1190,10 +1276,13 @@ func (gracefulRestart *Bgp_Global_AfiSafis_AfiSafi_GracefulRestart) GetEntityDat
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    gracefulRestart.EntityData.Children = make(map[string]types.YChild)
-    gracefulRestart.EntityData.Children["config"] = types.YChild{"Config", &gracefulRestart.Config}
-    gracefulRestart.EntityData.Children["state"] = types.YChild{"State", &gracefulRestart.State}
-    gracefulRestart.EntityData.Leafs = make(map[string]types.YLeaf)
+    gracefulRestart.EntityData.Children = types.NewOrderedMap()
+    gracefulRestart.EntityData.Children.Append("config", types.YChild{"Config", &gracefulRestart.Config})
+    gracefulRestart.EntityData.Children.Append("state", types.YChild{"State", &gracefulRestart.State})
+    gracefulRestart.EntityData.Leafs = types.NewOrderedMap()
+
+    gracefulRestart.EntityData.YListKeys = []string {}
+
     return &(gracefulRestart.EntityData)
 }
 
@@ -1218,9 +1307,12 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_GracefulRestart_Config) GetEntityData(
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1245,9 +1337,12 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_GracefulRestart_State) GetEntityData() 
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1274,10 +1369,13 @@ func (routeSelectionOptions *Bgp_Global_AfiSafis_AfiSafi_RouteSelectionOptions) 
     routeSelectionOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routeSelectionOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    routeSelectionOptions.EntityData.Children = make(map[string]types.YChild)
-    routeSelectionOptions.EntityData.Children["config"] = types.YChild{"Config", &routeSelectionOptions.Config}
-    routeSelectionOptions.EntityData.Children["state"] = types.YChild{"State", &routeSelectionOptions.State}
-    routeSelectionOptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    routeSelectionOptions.EntityData.Children = types.NewOrderedMap()
+    routeSelectionOptions.EntityData.Children.Append("config", types.YChild{"Config", &routeSelectionOptions.Config})
+    routeSelectionOptions.EntityData.Children.Append("state", types.YChild{"State", &routeSelectionOptions.State})
+    routeSelectionOptions.EntityData.Leafs = types.NewOrderedMap()
+
+    routeSelectionOptions.EntityData.YListKeys = []string {}
+
     return &(routeSelectionOptions.EntityData)
 }
 
@@ -1328,14 +1426,17 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_RouteSelectionOptions_Config) GetEntit
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["always-compare-med"] = types.YLeaf{"AlwaysCompareMed", config.AlwaysCompareMed}
-    config.EntityData.Leafs["ignore-as-path-length"] = types.YLeaf{"IgnoreAsPathLength", config.IgnoreAsPathLength}
-    config.EntityData.Leafs["external-compare-router-id"] = types.YLeaf{"ExternalCompareRouterId", config.ExternalCompareRouterId}
-    config.EntityData.Leafs["advertise-inactive-routes"] = types.YLeaf{"AdvertiseInactiveRoutes", config.AdvertiseInactiveRoutes}
-    config.EntityData.Leafs["enable-aigp"] = types.YLeaf{"EnableAigp", config.EnableAigp}
-    config.EntityData.Leafs["ignore-next-hop-igp-metric"] = types.YLeaf{"IgnoreNextHopIgpMetric", config.IgnoreNextHopIgpMetric}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("always-compare-med", types.YLeaf{"AlwaysCompareMed", config.AlwaysCompareMed})
+    config.EntityData.Leafs.Append("ignore-as-path-length", types.YLeaf{"IgnoreAsPathLength", config.IgnoreAsPathLength})
+    config.EntityData.Leafs.Append("external-compare-router-id", types.YLeaf{"ExternalCompareRouterId", config.ExternalCompareRouterId})
+    config.EntityData.Leafs.Append("advertise-inactive-routes", types.YLeaf{"AdvertiseInactiveRoutes", config.AdvertiseInactiveRoutes})
+    config.EntityData.Leafs.Append("enable-aigp", types.YLeaf{"EnableAigp", config.EnableAigp})
+    config.EntityData.Leafs.Append("ignore-next-hop-igp-metric", types.YLeaf{"IgnoreNextHopIgpMetric", config.IgnoreNextHopIgpMetric})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1385,14 +1486,17 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_RouteSelectionOptions_State) GetEntityD
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["always-compare-med"] = types.YLeaf{"AlwaysCompareMed", state.AlwaysCompareMed}
-    state.EntityData.Leafs["ignore-as-path-length"] = types.YLeaf{"IgnoreAsPathLength", state.IgnoreAsPathLength}
-    state.EntityData.Leafs["external-compare-router-id"] = types.YLeaf{"ExternalCompareRouterId", state.ExternalCompareRouterId}
-    state.EntityData.Leafs["advertise-inactive-routes"] = types.YLeaf{"AdvertiseInactiveRoutes", state.AdvertiseInactiveRoutes}
-    state.EntityData.Leafs["enable-aigp"] = types.YLeaf{"EnableAigp", state.EnableAigp}
-    state.EntityData.Leafs["ignore-next-hop-igp-metric"] = types.YLeaf{"IgnoreNextHopIgpMetric", state.IgnoreNextHopIgpMetric}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("always-compare-med", types.YLeaf{"AlwaysCompareMed", state.AlwaysCompareMed})
+    state.EntityData.Leafs.Append("ignore-as-path-length", types.YLeaf{"IgnoreAsPathLength", state.IgnoreAsPathLength})
+    state.EntityData.Leafs.Append("external-compare-router-id", types.YLeaf{"ExternalCompareRouterId", state.ExternalCompareRouterId})
+    state.EntityData.Leafs.Append("advertise-inactive-routes", types.YLeaf{"AdvertiseInactiveRoutes", state.AdvertiseInactiveRoutes})
+    state.EntityData.Leafs.Append("enable-aigp", types.YLeaf{"EnableAigp", state.EnableAigp})
+    state.EntityData.Leafs.Append("ignore-next-hop-igp-metric", types.YLeaf{"IgnoreNextHopIgpMetric", state.IgnoreNextHopIgpMetric})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1426,12 +1530,15 @@ func (useMultiplePaths *Bgp_Global_AfiSafis_AfiSafi_UseMultiplePaths) GetEntityD
     useMultiplePaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     useMultiplePaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    useMultiplePaths.EntityData.Children = make(map[string]types.YChild)
-    useMultiplePaths.EntityData.Children["config"] = types.YChild{"Config", &useMultiplePaths.Config}
-    useMultiplePaths.EntityData.Children["state"] = types.YChild{"State", &useMultiplePaths.State}
-    useMultiplePaths.EntityData.Children["ebgp"] = types.YChild{"Ebgp", &useMultiplePaths.Ebgp}
-    useMultiplePaths.EntityData.Children["ibgp"] = types.YChild{"Ibgp", &useMultiplePaths.Ibgp}
-    useMultiplePaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    useMultiplePaths.EntityData.Children = types.NewOrderedMap()
+    useMultiplePaths.EntityData.Children.Append("config", types.YChild{"Config", &useMultiplePaths.Config})
+    useMultiplePaths.EntityData.Children.Append("state", types.YChild{"State", &useMultiplePaths.State})
+    useMultiplePaths.EntityData.Children.Append("ebgp", types.YChild{"Ebgp", &useMultiplePaths.Ebgp})
+    useMultiplePaths.EntityData.Children.Append("ibgp", types.YChild{"Ibgp", &useMultiplePaths.Ibgp})
+    useMultiplePaths.EntityData.Leafs = types.NewOrderedMap()
+
+    useMultiplePaths.EntityData.YListKeys = []string {}
+
     return &(useMultiplePaths.EntityData)
 }
 
@@ -1457,9 +1564,12 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_UseMultiplePaths_Config) GetEntityData
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1485,9 +1595,12 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_UseMultiplePaths_State) GetEntityData()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1514,10 +1627,13 @@ func (ebgp *Bgp_Global_AfiSafis_AfiSafi_UseMultiplePaths_Ebgp) GetEntityData() *
     ebgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ebgp.EntityData.Children = make(map[string]types.YChild)
-    ebgp.EntityData.Children["config"] = types.YChild{"Config", &ebgp.Config}
-    ebgp.EntityData.Children["state"] = types.YChild{"State", &ebgp.State}
-    ebgp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ebgp.EntityData.Children = types.NewOrderedMap()
+    ebgp.EntityData.Children.Append("config", types.YChild{"Config", &ebgp.Config})
+    ebgp.EntityData.Children.Append("state", types.YChild{"State", &ebgp.State})
+    ebgp.EntityData.Leafs = types.NewOrderedMap()
+
+    ebgp.EntityData.YListKeys = []string {}
+
     return &(ebgp.EntityData)
 }
 
@@ -1548,10 +1664,13 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_UseMultiplePaths_Ebgp_Config) GetEntit
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["allow-multiple-as"] = types.YLeaf{"AllowMultipleAs", config.AllowMultipleAs}
-    config.EntityData.Leafs["maximum-paths"] = types.YLeaf{"MaximumPaths", config.MaximumPaths}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("allow-multiple-as", types.YLeaf{"AllowMultipleAs", config.AllowMultipleAs})
+    config.EntityData.Leafs.Append("maximum-paths", types.YLeaf{"MaximumPaths", config.MaximumPaths})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1582,10 +1701,13 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_UseMultiplePaths_Ebgp_State) GetEntityD
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["allow-multiple-as"] = types.YLeaf{"AllowMultipleAs", state.AllowMultipleAs}
-    state.EntityData.Leafs["maximum-paths"] = types.YLeaf{"MaximumPaths", state.MaximumPaths}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("allow-multiple-as", types.YLeaf{"AllowMultipleAs", state.AllowMultipleAs})
+    state.EntityData.Leafs.Append("maximum-paths", types.YLeaf{"MaximumPaths", state.MaximumPaths})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1612,10 +1734,13 @@ func (ibgp *Bgp_Global_AfiSafis_AfiSafi_UseMultiplePaths_Ibgp) GetEntityData() *
     ibgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ibgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ibgp.EntityData.Children = make(map[string]types.YChild)
-    ibgp.EntityData.Children["config"] = types.YChild{"Config", &ibgp.Config}
-    ibgp.EntityData.Children["state"] = types.YChild{"State", &ibgp.State}
-    ibgp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ibgp.EntityData.Children = types.NewOrderedMap()
+    ibgp.EntityData.Children.Append("config", types.YChild{"Config", &ibgp.Config})
+    ibgp.EntityData.Children.Append("state", types.YChild{"State", &ibgp.State})
+    ibgp.EntityData.Leafs = types.NewOrderedMap()
+
+    ibgp.EntityData.YListKeys = []string {}
+
     return &(ibgp.EntityData)
 }
 
@@ -1641,9 +1766,12 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_UseMultiplePaths_Ibgp_Config) GetEntit
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["maximum-paths"] = types.YLeaf{"MaximumPaths", config.MaximumPaths}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("maximum-paths", types.YLeaf{"MaximumPaths", config.MaximumPaths})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1669,138 +1797,12 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_UseMultiplePaths_Ibgp_State) GetEntityD
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["maximum-paths"] = types.YLeaf{"MaximumPaths", state.MaximumPaths}
-    return &(state.EntityData)
-}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("maximum-paths", types.YLeaf{"MaximumPaths", state.MaximumPaths})
 
-// Bgp_Global_AfiSafis_AfiSafi_ApplyPolicy
-// Anchor point for routing policies in the model.
-// Import and export policies are with respect to the local
-// routing table, i.e., export (send) and import (receive),
-// depending on the context.
-type Bgp_Global_AfiSafis_AfiSafi_ApplyPolicy struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
+    state.EntityData.YListKeys = []string {}
 
-    // Policy configuration data.
-    Config Bgp_Global_AfiSafis_AfiSafi_ApplyPolicy_Config
-
-    // Operational state for routing policy.
-    State Bgp_Global_AfiSafis_AfiSafi_ApplyPolicy_State
-}
-
-func (applyPolicy *Bgp_Global_AfiSafis_AfiSafi_ApplyPolicy) GetEntityData() *types.CommonEntityData {
-    applyPolicy.EntityData.YFilter = applyPolicy.YFilter
-    applyPolicy.EntityData.YangName = "apply-policy"
-    applyPolicy.EntityData.BundleName = "openconfig"
-    applyPolicy.EntityData.ParentYangName = "afi-safi"
-    applyPolicy.EntityData.SegmentPath = "apply-policy"
-    applyPolicy.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    applyPolicy.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    applyPolicy.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    applyPolicy.EntityData.Children = make(map[string]types.YChild)
-    applyPolicy.EntityData.Children["config"] = types.YChild{"Config", &applyPolicy.Config}
-    applyPolicy.EntityData.Children["state"] = types.YChild{"State", &applyPolicy.State}
-    applyPolicy.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(applyPolicy.EntityData)
-}
-
-// Bgp_Global_AfiSafis_AfiSafi_ApplyPolicy_Config
-// Policy configuration data.
-type Bgp_Global_AfiSafis_AfiSafi_ApplyPolicy_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // list of policy names in sequence to be applied on receiving a routing
-    // update in the current context, e.g., for the current peer group, neighbor,
-    // address family, etc. The type is slice of string. Refers to
-    // routing_policy.RoutingPolicy_PolicyDefinitions_PolicyDefinition_Name
-    ImportPolicy []interface{}
-
-    // explicitly set a default policy if no policy definition in the import
-    // policy chain is satisfied. The type is DefaultPolicyType. The default value
-    // is REJECT_ROUTE.
-    DefaultImportPolicy interface{}
-
-    // list of policy names in sequence to be applied on sending a routing update
-    // in the current context, e.g., for the current peer group, neighbor, address
-    // family, etc. The type is slice of string. Refers to
-    // routing_policy.RoutingPolicy_PolicyDefinitions_PolicyDefinition_Name
-    ExportPolicy []interface{}
-
-    // explicitly set a default policy if no policy definition in the export
-    // policy chain is satisfied. The type is DefaultPolicyType. The default value
-    // is REJECT_ROUTE.
-    DefaultExportPolicy interface{}
-}
-
-func (config *Bgp_Global_AfiSafis_AfiSafi_ApplyPolicy_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "apply-policy"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["import-policy"] = types.YLeaf{"ImportPolicy", config.ImportPolicy}
-    config.EntityData.Leafs["default-import-policy"] = types.YLeaf{"DefaultImportPolicy", config.DefaultImportPolicy}
-    config.EntityData.Leafs["export-policy"] = types.YLeaf{"ExportPolicy", config.ExportPolicy}
-    config.EntityData.Leafs["default-export-policy"] = types.YLeaf{"DefaultExportPolicy", config.DefaultExportPolicy}
-    return &(config.EntityData)
-}
-
-// Bgp_Global_AfiSafis_AfiSafi_ApplyPolicy_State
-// Operational state for routing policy
-type Bgp_Global_AfiSafis_AfiSafi_ApplyPolicy_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // list of policy names in sequence to be applied on receiving a routing
-    // update in the current context, e.g., for the current peer group, neighbor,
-    // address family, etc. The type is slice of string. Refers to
-    // routing_policy.RoutingPolicy_PolicyDefinitions_PolicyDefinition_Name
-    ImportPolicy []interface{}
-
-    // explicitly set a default policy if no policy definition in the import
-    // policy chain is satisfied. The type is DefaultPolicyType. The default value
-    // is REJECT_ROUTE.
-    DefaultImportPolicy interface{}
-
-    // list of policy names in sequence to be applied on sending a routing update
-    // in the current context, e.g., for the current peer group, neighbor, address
-    // family, etc. The type is slice of string. Refers to
-    // routing_policy.RoutingPolicy_PolicyDefinitions_PolicyDefinition_Name
-    ExportPolicy []interface{}
-
-    // explicitly set a default policy if no policy definition in the export
-    // policy chain is satisfied. The type is DefaultPolicyType. The default value
-    // is REJECT_ROUTE.
-    DefaultExportPolicy interface{}
-}
-
-func (state *Bgp_Global_AfiSafis_AfiSafi_ApplyPolicy_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "apply-policy"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["import-policy"] = types.YLeaf{"ImportPolicy", state.ImportPolicy}
-    state.EntityData.Leafs["default-import-policy"] = types.YLeaf{"DefaultImportPolicy", state.DefaultImportPolicy}
-    state.EntityData.Leafs["export-policy"] = types.YLeaf{"ExportPolicy", state.ExportPolicy}
-    state.EntityData.Leafs["default-export-policy"] = types.YLeaf{"DefaultExportPolicy", state.DefaultExportPolicy}
     return &(state.EntityData)
 }
 
@@ -1830,11 +1832,14 @@ func (ipv4Unicast *Bgp_Global_AfiSafis_AfiSafi_Ipv4Unicast) GetEntityData() *typ
     ipv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ipv4Unicast.EntityData.Children = make(map[string]types.YChild)
-    ipv4Unicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &ipv4Unicast.PrefixLimit}
-    ipv4Unicast.EntityData.Children["config"] = types.YChild{"Config", &ipv4Unicast.Config}
-    ipv4Unicast.EntityData.Children["state"] = types.YChild{"State", &ipv4Unicast.State}
-    ipv4Unicast.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4Unicast.EntityData.Children = types.NewOrderedMap()
+    ipv4Unicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &ipv4Unicast.PrefixLimit})
+    ipv4Unicast.EntityData.Children.Append("config", types.YChild{"Config", &ipv4Unicast.Config})
+    ipv4Unicast.EntityData.Children.Append("state", types.YChild{"State", &ipv4Unicast.State})
+    ipv4Unicast.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4Unicast.EntityData.YListKeys = []string {}
+
     return &(ipv4Unicast.EntityData)
 }
 
@@ -1862,10 +1867,13 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit) GetEntit
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
@@ -1879,6 +1887,12 @@ type Bgp_Global_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit_Config struct {
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -1902,11 +1916,15 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit_Config) GetEnt
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1920,6 +1938,12 @@ type Bgp_Global_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit_State struct {
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -1943,11 +1967,15 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit_State) GetEntit
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1973,9 +2001,12 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_Ipv4Unicast_Config) GetEntityData() *t
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["send-default-route"] = types.YLeaf{"SendDefaultRoute", config.SendDefaultRoute}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("send-default-route", types.YLeaf{"SendDefaultRoute", config.SendDefaultRoute})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2001,9 +2032,12 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_Ipv4Unicast_State) GetEntityData() *typ
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["send-default-route"] = types.YLeaf{"SendDefaultRoute", state.SendDefaultRoute}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("send-default-route", types.YLeaf{"SendDefaultRoute", state.SendDefaultRoute})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2033,11 +2067,14 @@ func (ipv6Unicast *Bgp_Global_AfiSafis_AfiSafi_Ipv6Unicast) GetEntityData() *typ
     ipv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ipv6Unicast.EntityData.Children = make(map[string]types.YChild)
-    ipv6Unicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &ipv6Unicast.PrefixLimit}
-    ipv6Unicast.EntityData.Children["config"] = types.YChild{"Config", &ipv6Unicast.Config}
-    ipv6Unicast.EntityData.Children["state"] = types.YChild{"State", &ipv6Unicast.State}
-    ipv6Unicast.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Unicast.EntityData.Children = types.NewOrderedMap()
+    ipv6Unicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &ipv6Unicast.PrefixLimit})
+    ipv6Unicast.EntityData.Children.Append("config", types.YChild{"Config", &ipv6Unicast.Config})
+    ipv6Unicast.EntityData.Children.Append("state", types.YChild{"State", &ipv6Unicast.State})
+    ipv6Unicast.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Unicast.EntityData.YListKeys = []string {}
+
     return &(ipv6Unicast.EntityData)
 }
 
@@ -2065,10 +2102,13 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit) GetEntit
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
@@ -2082,6 +2122,12 @@ type Bgp_Global_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit_Config struct {
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -2105,11 +2151,15 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit_Config) GetEnt
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2123,6 +2173,12 @@ type Bgp_Global_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit_State struct {
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -2146,11 +2202,15 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit_State) GetEntit
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2176,9 +2236,12 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_Ipv6Unicast_Config) GetEntityData() *t
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["send-default-route"] = types.YLeaf{"SendDefaultRoute", config.SendDefaultRoute}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("send-default-route", types.YLeaf{"SendDefaultRoute", config.SendDefaultRoute})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2204,9 +2267,12 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_Ipv6Unicast_State) GetEntityData() *typ
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["send-default-route"] = types.YLeaf{"SendDefaultRoute", state.SendDefaultRoute}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("send-default-route", types.YLeaf{"SendDefaultRoute", state.SendDefaultRoute})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2230,9 +2296,12 @@ func (ipv4LabeledUnicast *Bgp_Global_AfiSafis_AfiSafi_Ipv4LabeledUnicast) GetEnt
     ipv4LabeledUnicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4LabeledUnicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ipv4LabeledUnicast.EntityData.Children = make(map[string]types.YChild)
-    ipv4LabeledUnicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &ipv4LabeledUnicast.PrefixLimit}
-    ipv4LabeledUnicast.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4LabeledUnicast.EntityData.Children = types.NewOrderedMap()
+    ipv4LabeledUnicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &ipv4LabeledUnicast.PrefixLimit})
+    ipv4LabeledUnicast.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4LabeledUnicast.EntityData.YListKeys = []string {}
+
     return &(ipv4LabeledUnicast.EntityData)
 }
 
@@ -2260,10 +2329,13 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_Ipv4LabeledUnicast_PrefixLimit) G
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
@@ -2277,6 +2349,12 @@ type Bgp_Global_AfiSafis_AfiSafi_Ipv4LabeledUnicast_PrefixLimit_Config struct {
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -2300,11 +2378,15 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_Ipv4LabeledUnicast_PrefixLimit_Config)
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2318,6 +2400,12 @@ type Bgp_Global_AfiSafis_AfiSafi_Ipv4LabeledUnicast_PrefixLimit_State struct {
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -2341,11 +2429,15 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_Ipv4LabeledUnicast_PrefixLimit_State) G
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2369,9 +2461,12 @@ func (ipv6LabeledUnicast *Bgp_Global_AfiSafis_AfiSafi_Ipv6LabeledUnicast) GetEnt
     ipv6LabeledUnicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6LabeledUnicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ipv6LabeledUnicast.EntityData.Children = make(map[string]types.YChild)
-    ipv6LabeledUnicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &ipv6LabeledUnicast.PrefixLimit}
-    ipv6LabeledUnicast.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6LabeledUnicast.EntityData.Children = types.NewOrderedMap()
+    ipv6LabeledUnicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &ipv6LabeledUnicast.PrefixLimit})
+    ipv6LabeledUnicast.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6LabeledUnicast.EntityData.YListKeys = []string {}
+
     return &(ipv6LabeledUnicast.EntityData)
 }
 
@@ -2399,10 +2494,13 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_Ipv6LabeledUnicast_PrefixLimit) G
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
@@ -2416,6 +2514,12 @@ type Bgp_Global_AfiSafis_AfiSafi_Ipv6LabeledUnicast_PrefixLimit_Config struct {
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -2439,11 +2543,15 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_Ipv6LabeledUnicast_PrefixLimit_Config)
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2457,6 +2565,12 @@ type Bgp_Global_AfiSafis_AfiSafi_Ipv6LabeledUnicast_PrefixLimit_State struct {
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -2480,55 +2594,62 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_Ipv6LabeledUnicast_PrefixLimit_State) G
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast
+// Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast
 // Unicast IPv4 L3VPN configuration options
-type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast struct {
+type Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure the maximum number of prefixes that will be accepted from a peer.
-    PrefixLimit Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit
+    PrefixLimit Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit
 }
 
-func (l3VpnIpv4Unicast *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast) GetEntityData() *types.CommonEntityData {
-    l3VpnIpv4Unicast.EntityData.YFilter = l3VpnIpv4Unicast.YFilter
-    l3VpnIpv4Unicast.EntityData.YangName = "l3vpn-ipv4-unicast"
-    l3VpnIpv4Unicast.EntityData.BundleName = "openconfig"
-    l3VpnIpv4Unicast.EntityData.ParentYangName = "afi-safi"
-    l3VpnIpv4Unicast.EntityData.SegmentPath = "l3vpn-ipv4-unicast"
-    l3VpnIpv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    l3VpnIpv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    l3VpnIpv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (l3vpnIpv4Unicast *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast) GetEntityData() *types.CommonEntityData {
+    l3vpnIpv4Unicast.EntityData.YFilter = l3vpnIpv4Unicast.YFilter
+    l3vpnIpv4Unicast.EntityData.YangName = "l3vpn-ipv4-unicast"
+    l3vpnIpv4Unicast.EntityData.BundleName = "openconfig"
+    l3vpnIpv4Unicast.EntityData.ParentYangName = "afi-safi"
+    l3vpnIpv4Unicast.EntityData.SegmentPath = "l3vpn-ipv4-unicast"
+    l3vpnIpv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    l3vpnIpv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    l3vpnIpv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    l3VpnIpv4Unicast.EntityData.Children = make(map[string]types.YChild)
-    l3VpnIpv4Unicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &l3VpnIpv4Unicast.PrefixLimit}
-    l3VpnIpv4Unicast.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(l3VpnIpv4Unicast.EntityData)
+    l3vpnIpv4Unicast.EntityData.Children = types.NewOrderedMap()
+    l3vpnIpv4Unicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &l3vpnIpv4Unicast.PrefixLimit})
+    l3vpnIpv4Unicast.EntityData.Leafs = types.NewOrderedMap()
+
+    l3vpnIpv4Unicast.EntityData.YListKeys = []string {}
+
+    return &(l3vpnIpv4Unicast.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit
+// Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit
 // Configure the maximum number of prefixes that will be
 // accepted from a peer
-type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit struct {
+type Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters relating to the prefix limit for the AFI-SAFI.
-    Config Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_Config
+    Config Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_Config
 
     // State information relating to the prefix-limit for the AFI-SAFI.
-    State Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_State
+    State Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_State
 }
 
-func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
+func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
     prefixLimit.EntityData.YFilter = prefixLimit.YFilter
     prefixLimit.EntityData.YangName = "prefix-limit"
     prefixLimit.EntityData.BundleName = "openconfig"
@@ -2538,23 +2659,32 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit) Get
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_Config
+// Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_Config
 // Configuration parameters relating to the prefix
 // limit for the AFI-SAFI
-type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_Config struct {
+type Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -2568,7 +2698,7 @@ type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_Config struct {
     RestartTimer interface{}
 }
 
-func (config *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
+func (config *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -2578,24 +2708,34 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_Config) G
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_State
+// Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_State
 // State information relating to the prefix-limit for the
 // AFI-SAFI
-type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_State struct {
+type Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -2609,7 +2749,7 @@ type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_State struct {
     RestartTimer interface{}
 }
 
-func (state *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
+func (state *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -2619,55 +2759,62 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_State) Get
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast
+// Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast
 // Unicast IPv6 L3VPN configuration options
-type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast struct {
+type Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure the maximum number of prefixes that will be accepted from a peer.
-    PrefixLimit Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit
+    PrefixLimit Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit
 }
 
-func (l3VpnIpv6Unicast *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast) GetEntityData() *types.CommonEntityData {
-    l3VpnIpv6Unicast.EntityData.YFilter = l3VpnIpv6Unicast.YFilter
-    l3VpnIpv6Unicast.EntityData.YangName = "l3vpn-ipv6-unicast"
-    l3VpnIpv6Unicast.EntityData.BundleName = "openconfig"
-    l3VpnIpv6Unicast.EntityData.ParentYangName = "afi-safi"
-    l3VpnIpv6Unicast.EntityData.SegmentPath = "l3vpn-ipv6-unicast"
-    l3VpnIpv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    l3VpnIpv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    l3VpnIpv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (l3vpnIpv6Unicast *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast) GetEntityData() *types.CommonEntityData {
+    l3vpnIpv6Unicast.EntityData.YFilter = l3vpnIpv6Unicast.YFilter
+    l3vpnIpv6Unicast.EntityData.YangName = "l3vpn-ipv6-unicast"
+    l3vpnIpv6Unicast.EntityData.BundleName = "openconfig"
+    l3vpnIpv6Unicast.EntityData.ParentYangName = "afi-safi"
+    l3vpnIpv6Unicast.EntityData.SegmentPath = "l3vpn-ipv6-unicast"
+    l3vpnIpv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    l3vpnIpv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    l3vpnIpv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    l3VpnIpv6Unicast.EntityData.Children = make(map[string]types.YChild)
-    l3VpnIpv6Unicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &l3VpnIpv6Unicast.PrefixLimit}
-    l3VpnIpv6Unicast.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(l3VpnIpv6Unicast.EntityData)
+    l3vpnIpv6Unicast.EntityData.Children = types.NewOrderedMap()
+    l3vpnIpv6Unicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &l3vpnIpv6Unicast.PrefixLimit})
+    l3vpnIpv6Unicast.EntityData.Leafs = types.NewOrderedMap()
+
+    l3vpnIpv6Unicast.EntityData.YListKeys = []string {}
+
+    return &(l3vpnIpv6Unicast.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit
+// Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit
 // Configure the maximum number of prefixes that will be
 // accepted from a peer
-type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit struct {
+type Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters relating to the prefix limit for the AFI-SAFI.
-    Config Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_Config
+    Config Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_Config
 
     // State information relating to the prefix-limit for the AFI-SAFI.
-    State Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_State
+    State Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_State
 }
 
-func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
+func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
     prefixLimit.EntityData.YFilter = prefixLimit.YFilter
     prefixLimit.EntityData.YangName = "prefix-limit"
     prefixLimit.EntityData.BundleName = "openconfig"
@@ -2677,23 +2824,32 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit) Get
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_Config
+// Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_Config
 // Configuration parameters relating to the prefix
 // limit for the AFI-SAFI
-type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_Config struct {
+type Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -2707,7 +2863,7 @@ type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_Config struct {
     RestartTimer interface{}
 }
 
-func (config *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
+func (config *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -2717,24 +2873,34 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_Config) G
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_State
+// Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_State
 // State information relating to the prefix-limit for the
 // AFI-SAFI
-type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_State struct {
+type Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -2748,7 +2914,7 @@ type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_State struct {
     RestartTimer interface{}
 }
 
-func (state *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
+func (state *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -2758,55 +2924,62 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_State) Get
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast
+// Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast
 // Multicast IPv4 L3VPN configuration options
-type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast struct {
+type Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure the maximum number of prefixes that will be accepted from a peer.
-    PrefixLimit Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit
+    PrefixLimit Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit
 }
 
-func (l3VpnIpv4Multicast *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast) GetEntityData() *types.CommonEntityData {
-    l3VpnIpv4Multicast.EntityData.YFilter = l3VpnIpv4Multicast.YFilter
-    l3VpnIpv4Multicast.EntityData.YangName = "l3vpn-ipv4-multicast"
-    l3VpnIpv4Multicast.EntityData.BundleName = "openconfig"
-    l3VpnIpv4Multicast.EntityData.ParentYangName = "afi-safi"
-    l3VpnIpv4Multicast.EntityData.SegmentPath = "l3vpn-ipv4-multicast"
-    l3VpnIpv4Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    l3VpnIpv4Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    l3VpnIpv4Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (l3vpnIpv4Multicast *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast) GetEntityData() *types.CommonEntityData {
+    l3vpnIpv4Multicast.EntityData.YFilter = l3vpnIpv4Multicast.YFilter
+    l3vpnIpv4Multicast.EntityData.YangName = "l3vpn-ipv4-multicast"
+    l3vpnIpv4Multicast.EntityData.BundleName = "openconfig"
+    l3vpnIpv4Multicast.EntityData.ParentYangName = "afi-safi"
+    l3vpnIpv4Multicast.EntityData.SegmentPath = "l3vpn-ipv4-multicast"
+    l3vpnIpv4Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    l3vpnIpv4Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    l3vpnIpv4Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    l3VpnIpv4Multicast.EntityData.Children = make(map[string]types.YChild)
-    l3VpnIpv4Multicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &l3VpnIpv4Multicast.PrefixLimit}
-    l3VpnIpv4Multicast.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(l3VpnIpv4Multicast.EntityData)
+    l3vpnIpv4Multicast.EntityData.Children = types.NewOrderedMap()
+    l3vpnIpv4Multicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &l3vpnIpv4Multicast.PrefixLimit})
+    l3vpnIpv4Multicast.EntityData.Leafs = types.NewOrderedMap()
+
+    l3vpnIpv4Multicast.EntityData.YListKeys = []string {}
+
+    return &(l3vpnIpv4Multicast.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit
+// Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit
 // Configure the maximum number of prefixes that will be
 // accepted from a peer
-type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit struct {
+type Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters relating to the prefix limit for the AFI-SAFI.
-    Config Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_Config
+    Config Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_Config
 
     // State information relating to the prefix-limit for the AFI-SAFI.
-    State Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_State
+    State Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_State
 }
 
-func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
+func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
     prefixLimit.EntityData.YFilter = prefixLimit.YFilter
     prefixLimit.EntityData.YangName = "prefix-limit"
     prefixLimit.EntityData.BundleName = "openconfig"
@@ -2816,23 +2989,32 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit) G
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_Config
+// Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_Config
 // Configuration parameters relating to the prefix
 // limit for the AFI-SAFI
-type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_Config struct {
+type Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -2846,7 +3028,7 @@ type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_Config struct {
     RestartTimer interface{}
 }
 
-func (config *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
+func (config *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -2856,24 +3038,34 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_Config)
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_State
+// Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_State
 // State information relating to the prefix-limit for the
 // AFI-SAFI
-type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_State struct {
+type Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -2887,7 +3079,7 @@ type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_State struct {
     RestartTimer interface{}
 }
 
-func (state *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
+func (state *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -2897,55 +3089,62 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_State) G
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast
+// Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast
 // Multicast IPv6 L3VPN configuration options
-type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast struct {
+type Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure the maximum number of prefixes that will be accepted from a peer.
-    PrefixLimit Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit
+    PrefixLimit Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit
 }
 
-func (l3VpnIpv6Multicast *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast) GetEntityData() *types.CommonEntityData {
-    l3VpnIpv6Multicast.EntityData.YFilter = l3VpnIpv6Multicast.YFilter
-    l3VpnIpv6Multicast.EntityData.YangName = "l3vpn-ipv6-multicast"
-    l3VpnIpv6Multicast.EntityData.BundleName = "openconfig"
-    l3VpnIpv6Multicast.EntityData.ParentYangName = "afi-safi"
-    l3VpnIpv6Multicast.EntityData.SegmentPath = "l3vpn-ipv6-multicast"
-    l3VpnIpv6Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    l3VpnIpv6Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    l3VpnIpv6Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (l3vpnIpv6Multicast *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast) GetEntityData() *types.CommonEntityData {
+    l3vpnIpv6Multicast.EntityData.YFilter = l3vpnIpv6Multicast.YFilter
+    l3vpnIpv6Multicast.EntityData.YangName = "l3vpn-ipv6-multicast"
+    l3vpnIpv6Multicast.EntityData.BundleName = "openconfig"
+    l3vpnIpv6Multicast.EntityData.ParentYangName = "afi-safi"
+    l3vpnIpv6Multicast.EntityData.SegmentPath = "l3vpn-ipv6-multicast"
+    l3vpnIpv6Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    l3vpnIpv6Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    l3vpnIpv6Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    l3VpnIpv6Multicast.EntityData.Children = make(map[string]types.YChild)
-    l3VpnIpv6Multicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &l3VpnIpv6Multicast.PrefixLimit}
-    l3VpnIpv6Multicast.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(l3VpnIpv6Multicast.EntityData)
+    l3vpnIpv6Multicast.EntityData.Children = types.NewOrderedMap()
+    l3vpnIpv6Multicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &l3vpnIpv6Multicast.PrefixLimit})
+    l3vpnIpv6Multicast.EntityData.Leafs = types.NewOrderedMap()
+
+    l3vpnIpv6Multicast.EntityData.YListKeys = []string {}
+
+    return &(l3vpnIpv6Multicast.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit
+// Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit
 // Configure the maximum number of prefixes that will be
 // accepted from a peer
-type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit struct {
+type Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters relating to the prefix limit for the AFI-SAFI.
-    Config Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_Config
+    Config Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_Config
 
     // State information relating to the prefix-limit for the AFI-SAFI.
-    State Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_State
+    State Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_State
 }
 
-func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
+func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
     prefixLimit.EntityData.YFilter = prefixLimit.YFilter
     prefixLimit.EntityData.YangName = "prefix-limit"
     prefixLimit.EntityData.BundleName = "openconfig"
@@ -2955,23 +3154,32 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit) G
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_Config
+// Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_Config
 // Configuration parameters relating to the prefix
 // limit for the AFI-SAFI
-type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_Config struct {
+type Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -2985,7 +3193,7 @@ type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_Config struct {
     RestartTimer interface{}
 }
 
-func (config *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
+func (config *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -2995,24 +3203,34 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_Config)
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_State
+// Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_State
 // State information relating to the prefix-limit for the
 // AFI-SAFI
-type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_State struct {
+type Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -3026,7 +3244,7 @@ type Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_State struct {
     RestartTimer interface{}
 }
 
-func (state *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
+func (state *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -3036,55 +3254,62 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_State) G
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls
+// Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls
 // BGP-signalled VPLS configuration options
-type Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls struct {
+type Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure the maximum number of prefixes that will be accepted from a peer.
-    PrefixLimit Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit
+    PrefixLimit Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit
 }
 
-func (l2VpnVpls *Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls) GetEntityData() *types.CommonEntityData {
-    l2VpnVpls.EntityData.YFilter = l2VpnVpls.YFilter
-    l2VpnVpls.EntityData.YangName = "l2vpn-vpls"
-    l2VpnVpls.EntityData.BundleName = "openconfig"
-    l2VpnVpls.EntityData.ParentYangName = "afi-safi"
-    l2VpnVpls.EntityData.SegmentPath = "l2vpn-vpls"
-    l2VpnVpls.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    l2VpnVpls.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    l2VpnVpls.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (l2vpnVpls *Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls) GetEntityData() *types.CommonEntityData {
+    l2vpnVpls.EntityData.YFilter = l2vpnVpls.YFilter
+    l2vpnVpls.EntityData.YangName = "l2vpn-vpls"
+    l2vpnVpls.EntityData.BundleName = "openconfig"
+    l2vpnVpls.EntityData.ParentYangName = "afi-safi"
+    l2vpnVpls.EntityData.SegmentPath = "l2vpn-vpls"
+    l2vpnVpls.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    l2vpnVpls.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    l2vpnVpls.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    l2VpnVpls.EntityData.Children = make(map[string]types.YChild)
-    l2VpnVpls.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &l2VpnVpls.PrefixLimit}
-    l2VpnVpls.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(l2VpnVpls.EntityData)
+    l2vpnVpls.EntityData.Children = types.NewOrderedMap()
+    l2vpnVpls.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &l2vpnVpls.PrefixLimit})
+    l2vpnVpls.EntityData.Leafs = types.NewOrderedMap()
+
+    l2vpnVpls.EntityData.YListKeys = []string {}
+
+    return &(l2vpnVpls.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit
+// Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit
 // Configure the maximum number of prefixes that will be
 // accepted from a peer
-type Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit struct {
+type Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters relating to the prefix limit for the AFI-SAFI.
-    Config Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_Config
+    Config Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_Config
 
     // State information relating to the prefix-limit for the AFI-SAFI.
-    State Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_State
+    State Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_State
 }
 
-func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit) GetEntityData() *types.CommonEntityData {
+func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit) GetEntityData() *types.CommonEntityData {
     prefixLimit.EntityData.YFilter = prefixLimit.YFilter
     prefixLimit.EntityData.YangName = "prefix-limit"
     prefixLimit.EntityData.BundleName = "openconfig"
@@ -3094,23 +3319,32 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit) GetEntityD
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_Config
+// Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_Config
 // Configuration parameters relating to the prefix
 // limit for the AFI-SAFI
-type Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_Config struct {
+type Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -3124,7 +3358,7 @@ type Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_Config struct {
     RestartTimer interface{}
 }
 
-func (config *Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
+func (config *Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -3134,24 +3368,34 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_Config) GetEntit
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_State
+// Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_State
 // State information relating to the prefix-limit for the
 // AFI-SAFI
-type Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_State struct {
+type Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -3165,7 +3409,7 @@ type Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_State struct {
     RestartTimer interface{}
 }
 
-func (state *Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
+func (state *Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -3175,55 +3419,62 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_State) GetEntityD
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn
+// Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn
 // BGP EVPN configuration options
-type Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn struct {
+type Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure the maximum number of prefixes that will be accepted from a peer.
-    PrefixLimit Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit
+    PrefixLimit Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit
 }
 
-func (l2VpnEvpn *Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn) GetEntityData() *types.CommonEntityData {
-    l2VpnEvpn.EntityData.YFilter = l2VpnEvpn.YFilter
-    l2VpnEvpn.EntityData.YangName = "l2vpn-evpn"
-    l2VpnEvpn.EntityData.BundleName = "openconfig"
-    l2VpnEvpn.EntityData.ParentYangName = "afi-safi"
-    l2VpnEvpn.EntityData.SegmentPath = "l2vpn-evpn"
-    l2VpnEvpn.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    l2VpnEvpn.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    l2VpnEvpn.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (l2vpnEvpn *Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn) GetEntityData() *types.CommonEntityData {
+    l2vpnEvpn.EntityData.YFilter = l2vpnEvpn.YFilter
+    l2vpnEvpn.EntityData.YangName = "l2vpn-evpn"
+    l2vpnEvpn.EntityData.BundleName = "openconfig"
+    l2vpnEvpn.EntityData.ParentYangName = "afi-safi"
+    l2vpnEvpn.EntityData.SegmentPath = "l2vpn-evpn"
+    l2vpnEvpn.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    l2vpnEvpn.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    l2vpnEvpn.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    l2VpnEvpn.EntityData.Children = make(map[string]types.YChild)
-    l2VpnEvpn.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &l2VpnEvpn.PrefixLimit}
-    l2VpnEvpn.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(l2VpnEvpn.EntityData)
+    l2vpnEvpn.EntityData.Children = types.NewOrderedMap()
+    l2vpnEvpn.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &l2vpnEvpn.PrefixLimit})
+    l2vpnEvpn.EntityData.Leafs = types.NewOrderedMap()
+
+    l2vpnEvpn.EntityData.YListKeys = []string {}
+
+    return &(l2vpnEvpn.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit
+// Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit
 // Configure the maximum number of prefixes that will be
 // accepted from a peer
-type Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit struct {
+type Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters relating to the prefix limit for the AFI-SAFI.
-    Config Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_Config
+    Config Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_Config
 
     // State information relating to the prefix-limit for the AFI-SAFI.
-    State Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_State
+    State Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_State
 }
 
-func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit) GetEntityData() *types.CommonEntityData {
+func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit) GetEntityData() *types.CommonEntityData {
     prefixLimit.EntityData.YFilter = prefixLimit.YFilter
     prefixLimit.EntityData.YangName = "prefix-limit"
     prefixLimit.EntityData.BundleName = "openconfig"
@@ -3233,23 +3484,32 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit) GetEntityD
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_Config
+// Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_Config
 // Configuration parameters relating to the prefix
 // limit for the AFI-SAFI
-type Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_Config struct {
+type Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -3263,7 +3523,7 @@ type Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_Config struct {
     RestartTimer interface{}
 }
 
-func (config *Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
+func (config *Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -3273,24 +3533,34 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_Config) GetEntit
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_State
+// Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_State
 // State information relating to the prefix-limit for the
 // AFI-SAFI
-type Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_State struct {
+type Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -3304,7 +3574,7 @@ type Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_State struct {
     RestartTimer interface{}
 }
 
-func (state *Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
+func (state *Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -3314,140 +3584,186 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_State) GetEntityD
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Bgp_Global_ApplyPolicy
-// Anchor point for routing policies in the model.
-// Import and export policies are with respect to the local
-// routing table, i.e., export (send) and import (receive),
-// depending on the context.
-type Bgp_Global_ApplyPolicy struct {
+// Bgp_Global_DynamicNeighborPrefixes
+// A list of IP prefixes from which the system should:
+//  - Accept connections to the BGP daemon
+//  - Dynamically configure a BGP neighbor corresponding to the
+//    source address of the remote system, using the parameters
+//    of the specified peer-group.
+// For such neighbors, an entry within the neighbor list should
+// be created, indicating that the peer was dynamically
+// configured, and referencing the peer-group from which the
+// configuration was derived.
+type Bgp_Global_DynamicNeighborPrefixes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Policy configuration data.
-    Config Bgp_Global_ApplyPolicy_Config
-
-    // Operational state for routing policy.
-    State Bgp_Global_ApplyPolicy_State
+    // An individual prefix from which dynamic neighbor connections are allowed.
+    // The type is slice of
+    // Bgp_Global_DynamicNeighborPrefixes_DynamicNeighborPrefix.
+    DynamicNeighborPrefix []*Bgp_Global_DynamicNeighborPrefixes_DynamicNeighborPrefix
 }
 
-func (applyPolicy *Bgp_Global_ApplyPolicy) GetEntityData() *types.CommonEntityData {
-    applyPolicy.EntityData.YFilter = applyPolicy.YFilter
-    applyPolicy.EntityData.YangName = "apply-policy"
-    applyPolicy.EntityData.BundleName = "openconfig"
-    applyPolicy.EntityData.ParentYangName = "global"
-    applyPolicy.EntityData.SegmentPath = "apply-policy"
-    applyPolicy.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    applyPolicy.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    applyPolicy.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (dynamicNeighborPrefixes *Bgp_Global_DynamicNeighborPrefixes) GetEntityData() *types.CommonEntityData {
+    dynamicNeighborPrefixes.EntityData.YFilter = dynamicNeighborPrefixes.YFilter
+    dynamicNeighborPrefixes.EntityData.YangName = "dynamic-neighbor-prefixes"
+    dynamicNeighborPrefixes.EntityData.BundleName = "openconfig"
+    dynamicNeighborPrefixes.EntityData.ParentYangName = "global"
+    dynamicNeighborPrefixes.EntityData.SegmentPath = "dynamic-neighbor-prefixes"
+    dynamicNeighborPrefixes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    dynamicNeighborPrefixes.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    dynamicNeighborPrefixes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    applyPolicy.EntityData.Children = make(map[string]types.YChild)
-    applyPolicy.EntityData.Children["config"] = types.YChild{"Config", &applyPolicy.Config}
-    applyPolicy.EntityData.Children["state"] = types.YChild{"State", &applyPolicy.State}
-    applyPolicy.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(applyPolicy.EntityData)
+    dynamicNeighborPrefixes.EntityData.Children = types.NewOrderedMap()
+    dynamicNeighborPrefixes.EntityData.Children.Append("dynamic-neighbor-prefix", types.YChild{"DynamicNeighborPrefix", nil})
+    for i := range dynamicNeighborPrefixes.DynamicNeighborPrefix {
+        dynamicNeighborPrefixes.EntityData.Children.Append(types.GetSegmentPath(dynamicNeighborPrefixes.DynamicNeighborPrefix[i]), types.YChild{"DynamicNeighborPrefix", dynamicNeighborPrefixes.DynamicNeighborPrefix[i]})
+    }
+    dynamicNeighborPrefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    dynamicNeighborPrefixes.EntityData.YListKeys = []string {}
+
+    return &(dynamicNeighborPrefixes.EntityData)
 }
 
-// Bgp_Global_ApplyPolicy_Config
-// Policy configuration data.
-type Bgp_Global_ApplyPolicy_Config struct {
+// Bgp_Global_DynamicNeighborPrefixes_DynamicNeighborPrefix
+// An individual prefix from which dynamic neighbor
+// connections are allowed.
+type Bgp_Global_DynamicNeighborPrefixes_DynamicNeighborPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // list of policy names in sequence to be applied on receiving a routing
-    // update in the current context, e.g., for the current peer group, neighbor,
-    // address family, etc. The type is slice of string. Refers to
-    // routing_policy.RoutingPolicy_PolicyDefinitions_PolicyDefinition_Name
-    ImportPolicy []interface{}
+    // This attribute is a key. Reference to the IP prefix from which source
+    // connections are allowed for the dynamic neighbor group. The type is one of
+    // the following types: string with pattern:
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
+    // or string with pattern:
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
+    Prefix interface{}
 
-    // explicitly set a default policy if no policy definition in the import
-    // policy chain is satisfied. The type is DefaultPolicyType. The default value
-    // is REJECT_ROUTE.
-    DefaultImportPolicy interface{}
+    // Configuration parameters relating to the source prefix for the dynamic BGP
+    // neighbor connections.
+    Config Bgp_Global_DynamicNeighborPrefixes_DynamicNeighborPrefix_Config
 
-    // list of policy names in sequence to be applied on sending a routing update
-    // in the current context, e.g., for the current peer group, neighbor, address
-    // family, etc. The type is slice of string. Refers to
-    // routing_policy.RoutingPolicy_PolicyDefinitions_PolicyDefinition_Name
-    ExportPolicy []interface{}
-
-    // explicitly set a default policy if no policy definition in the export
-    // policy chain is satisfied. The type is DefaultPolicyType. The default value
-    // is REJECT_ROUTE.
-    DefaultExportPolicy interface{}
+    // Operational state parameters relating to the source prefix for the dynamic
+    // BGP neighbor connections.
+    State Bgp_Global_DynamicNeighborPrefixes_DynamicNeighborPrefix_State
 }
 
-func (config *Bgp_Global_ApplyPolicy_Config) GetEntityData() *types.CommonEntityData {
+func (dynamicNeighborPrefix *Bgp_Global_DynamicNeighborPrefixes_DynamicNeighborPrefix) GetEntityData() *types.CommonEntityData {
+    dynamicNeighborPrefix.EntityData.YFilter = dynamicNeighborPrefix.YFilter
+    dynamicNeighborPrefix.EntityData.YangName = "dynamic-neighbor-prefix"
+    dynamicNeighborPrefix.EntityData.BundleName = "openconfig"
+    dynamicNeighborPrefix.EntityData.ParentYangName = "dynamic-neighbor-prefixes"
+    dynamicNeighborPrefix.EntityData.SegmentPath = "dynamic-neighbor-prefix" + types.AddKeyToken(dynamicNeighborPrefix.Prefix, "prefix")
+    dynamicNeighborPrefix.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    dynamicNeighborPrefix.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    dynamicNeighborPrefix.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    dynamicNeighborPrefix.EntityData.Children = types.NewOrderedMap()
+    dynamicNeighborPrefix.EntityData.Children.Append("config", types.YChild{"Config", &dynamicNeighborPrefix.Config})
+    dynamicNeighborPrefix.EntityData.Children.Append("state", types.YChild{"State", &dynamicNeighborPrefix.State})
+    dynamicNeighborPrefix.EntityData.Leafs = types.NewOrderedMap()
+    dynamicNeighborPrefix.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", dynamicNeighborPrefix.Prefix})
+
+    dynamicNeighborPrefix.EntityData.YListKeys = []string {"Prefix"}
+
+    return &(dynamicNeighborPrefix.EntityData)
+}
+
+// Bgp_Global_DynamicNeighborPrefixes_DynamicNeighborPrefix_Config
+// Configuration parameters relating to the source prefix
+// for the dynamic BGP neighbor connections.
+type Bgp_Global_DynamicNeighborPrefixes_DynamicNeighborPrefix_Config struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The IP prefix within which the source address of the remote BGP speaker
+    // must fall to be considered eligible to the dynamically configured. The type
+    // is one of the following types: string with pattern:
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
+    // or string with pattern:
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
+    Prefix interface{}
+
+    // The peer-group within which the dynamic neighbor will be configured.  The
+    // configuration parameters used for the dynamic neighbor are those specified
+    // within the referenced peer group. The type is string. Refers to
+    // bgp.Bgp_PeerGroups_PeerGroup_Config_PeerGroupName
+    PeerGroup interface{}
+}
+
+func (config *Bgp_Global_DynamicNeighborPrefixes_DynamicNeighborPrefix_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "apply-policy"
+    config.EntityData.ParentYangName = "dynamic-neighbor-prefix"
     config.EntityData.SegmentPath = "config"
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["import-policy"] = types.YLeaf{"ImportPolicy", config.ImportPolicy}
-    config.EntityData.Leafs["default-import-policy"] = types.YLeaf{"DefaultImportPolicy", config.DefaultImportPolicy}
-    config.EntityData.Leafs["export-policy"] = types.YLeaf{"ExportPolicy", config.ExportPolicy}
-    config.EntityData.Leafs["default-export-policy"] = types.YLeaf{"DefaultExportPolicy", config.DefaultExportPolicy}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", config.Prefix})
+    config.EntityData.Leafs.Append("peer-group", types.YLeaf{"PeerGroup", config.PeerGroup})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Bgp_Global_ApplyPolicy_State
-// Operational state for routing policy
-type Bgp_Global_ApplyPolicy_State struct {
+// Bgp_Global_DynamicNeighborPrefixes_DynamicNeighborPrefix_State
+// Operational state parameters relating to the source
+// prefix for the dynamic BGP neighbor connections.
+type Bgp_Global_DynamicNeighborPrefixes_DynamicNeighborPrefix_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // list of policy names in sequence to be applied on receiving a routing
-    // update in the current context, e.g., for the current peer group, neighbor,
-    // address family, etc. The type is slice of string. Refers to
-    // routing_policy.RoutingPolicy_PolicyDefinitions_PolicyDefinition_Name
-    ImportPolicy []interface{}
+    // The IP prefix within which the source address of the remote BGP speaker
+    // must fall to be considered eligible to the dynamically configured. The type
+    // is one of the following types: string with pattern:
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
+    // or string with pattern:
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
+    Prefix interface{}
 
-    // explicitly set a default policy if no policy definition in the import
-    // policy chain is satisfied. The type is DefaultPolicyType. The default value
-    // is REJECT_ROUTE.
-    DefaultImportPolicy interface{}
-
-    // list of policy names in sequence to be applied on sending a routing update
-    // in the current context, e.g., for the current peer group, neighbor, address
-    // family, etc. The type is slice of string. Refers to
-    // routing_policy.RoutingPolicy_PolicyDefinitions_PolicyDefinition_Name
-    ExportPolicy []interface{}
-
-    // explicitly set a default policy if no policy definition in the export
-    // policy chain is satisfied. The type is DefaultPolicyType. The default value
-    // is REJECT_ROUTE.
-    DefaultExportPolicy interface{}
+    // The peer-group within which the dynamic neighbor will be configured.  The
+    // configuration parameters used for the dynamic neighbor are those specified
+    // within the referenced peer group. The type is string. Refers to
+    // bgp.Bgp_PeerGroups_PeerGroup_Config_PeerGroupName
+    PeerGroup interface{}
 }
 
-func (state *Bgp_Global_ApplyPolicy_State) GetEntityData() *types.CommonEntityData {
+func (state *Bgp_Global_DynamicNeighborPrefixes_DynamicNeighborPrefix_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "apply-policy"
+    state.EntityData.ParentYangName = "dynamic-neighbor-prefix"
     state.EntityData.SegmentPath = "state"
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["import-policy"] = types.YLeaf{"ImportPolicy", state.ImportPolicy}
-    state.EntityData.Leafs["default-import-policy"] = types.YLeaf{"DefaultImportPolicy", state.DefaultImportPolicy}
-    state.EntityData.Leafs["export-policy"] = types.YLeaf{"ExportPolicy", state.ExportPolicy}
-    state.EntityData.Leafs["default-export-policy"] = types.YLeaf{"DefaultExportPolicy", state.DefaultExportPolicy}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", state.Prefix})
+    state.EntityData.Leafs.Append("peer-group", types.YLeaf{"PeerGroup", state.PeerGroup})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -3459,7 +3775,7 @@ type Bgp_Neighbors struct {
 
     // List of BGP neighbors configured on the local system, uniquely identified
     // by peer IPv[46] address. The type is slice of Bgp_Neighbors_Neighbor.
-    Neighbor []Bgp_Neighbors_Neighbor
+    Neighbor []*Bgp_Neighbors_Neighbor
 }
 
 func (neighbors *Bgp_Neighbors) GetEntityData() *types.CommonEntityData {
@@ -3472,12 +3788,15 @@ func (neighbors *Bgp_Neighbors) GetEntityData() *types.CommonEntityData {
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighbors.EntityData.Children = make(map[string]types.YChild)
-    neighbors.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    neighbors.EntityData.Children = types.NewOrderedMap()
+    neighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighbors.Neighbor {
-        neighbors.EntityData.Children[types.GetSegmentPath(&neighbors.Neighbor[i])] = types.YChild{"Neighbor", &neighbors.Neighbor[i]}
+        neighbors.EntityData.Children.Append(types.GetSegmentPath(neighbors.Neighbor[i]), types.YChild{"Neighbor", neighbors.Neighbor[i]})
     }
-    neighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    neighbors.EntityData.YListKeys = []string {}
+
     return &(neighbors.EntityData)
 }
 
@@ -3491,9 +3810,9 @@ type Bgp_Neighbors_Neighbor struct {
     // This attribute is a key. Reference to the address of the BGP neighbor used
     // as a key in the neighbor list. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     NeighborAddress interface{}
 
     // Configuration parameters relating to the BGP neighbor or group.
@@ -3548,28 +3867,31 @@ func (neighbor *Bgp_Neighbors_Neighbor) GetEntityData() *types.CommonEntityData 
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[neighbor-address='" + fmt.Sprintf("%v", neighbor.NeighborAddress) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.NeighborAddress, "neighbor-address")
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Children["config"] = types.YChild{"Config", &neighbor.Config}
-    neighbor.EntityData.Children["state"] = types.YChild{"State", &neighbor.State}
-    neighbor.EntityData.Children["timers"] = types.YChild{"Timers", &neighbor.Timers}
-    neighbor.EntityData.Children["transport"] = types.YChild{"Transport", &neighbor.Transport}
-    neighbor.EntityData.Children["error-handling"] = types.YChild{"ErrorHandling", &neighbor.ErrorHandling}
-    neighbor.EntityData.Children["graceful-restart"] = types.YChild{"GracefulRestart", &neighbor.GracefulRestart}
-    neighbor.EntityData.Children["logging-options"] = types.YChild{"LoggingOptions", &neighbor.LoggingOptions}
-    neighbor.EntityData.Children["ebgp-multihop"] = types.YChild{"EbgpMultihop", &neighbor.EbgpMultihop}
-    neighbor.EntityData.Children["route-reflector"] = types.YChild{"RouteReflector", &neighbor.RouteReflector}
-    neighbor.EntityData.Children["as-path-options"] = types.YChild{"AsPathOptions", &neighbor.AsPathOptions}
-    neighbor.EntityData.Children["add-paths"] = types.YChild{"AddPaths", &neighbor.AddPaths}
-    neighbor.EntityData.Children["use-multiple-paths"] = types.YChild{"UseMultiplePaths", &neighbor.UseMultiplePaths}
-    neighbor.EntityData.Children["apply-policy"] = types.YChild{"ApplyPolicy", &neighbor.ApplyPolicy}
-    neighbor.EntityData.Children["afi-safis"] = types.YChild{"AfiSafis", &neighbor.AfiSafis}
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["neighbor-address"] = types.YLeaf{"NeighborAddress", neighbor.NeighborAddress}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Children.Append("config", types.YChild{"Config", &neighbor.Config})
+    neighbor.EntityData.Children.Append("state", types.YChild{"State", &neighbor.State})
+    neighbor.EntityData.Children.Append("timers", types.YChild{"Timers", &neighbor.Timers})
+    neighbor.EntityData.Children.Append("transport", types.YChild{"Transport", &neighbor.Transport})
+    neighbor.EntityData.Children.Append("error-handling", types.YChild{"ErrorHandling", &neighbor.ErrorHandling})
+    neighbor.EntityData.Children.Append("graceful-restart", types.YChild{"GracefulRestart", &neighbor.GracefulRestart})
+    neighbor.EntityData.Children.Append("logging-options", types.YChild{"LoggingOptions", &neighbor.LoggingOptions})
+    neighbor.EntityData.Children.Append("ebgp-multihop", types.YChild{"EbgpMultihop", &neighbor.EbgpMultihop})
+    neighbor.EntityData.Children.Append("route-reflector", types.YChild{"RouteReflector", &neighbor.RouteReflector})
+    neighbor.EntityData.Children.Append("as-path-options", types.YChild{"AsPathOptions", &neighbor.AsPathOptions})
+    neighbor.EntityData.Children.Append("add-paths", types.YChild{"AddPaths", &neighbor.AddPaths})
+    neighbor.EntityData.Children.Append("use-multiple-paths", types.YChild{"UseMultiplePaths", &neighbor.UseMultiplePaths})
+    neighbor.EntityData.Children.Append("apply-policy", types.YChild{"ApplyPolicy", &neighbor.ApplyPolicy})
+    neighbor.EntityData.Children.Append("afi-safis", types.YChild{"AfiSafis", &neighbor.AfiSafis})
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", neighbor.NeighborAddress})
+
+    neighbor.EntityData.YListKeys = []string {"NeighborAddress"}
+
     return &(neighbor.EntityData)
 }
 
@@ -3586,9 +3908,9 @@ type Bgp_Neighbors_Neighbor_Config struct {
 
     // Address of the BGP peer, either in IPv4 or IPv6. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     NeighborAddress interface{}
 
     // Whether the BGP peer is enabled. In cases where the enabled leaf is set to
@@ -3618,7 +3940,7 @@ type Bgp_Neighbors_Neighbor_Config struct {
 
     // Remove private AS numbers from updates sent to peers - when this leaf is
     // not specified, the AS_PATH attribute should be sent to the peer unchanged.
-    // The type is one of the following: PRIVATEASREMOVEALLPRIVATEASREPLACEALL.
+    // The type is one of the following: PRIVATEASREPLACEALLPRIVATEASREMOVEALL.
     RemovePrivateAs interface{}
 
     // Enable route flap damping. The type is bool. The default value is false.
@@ -3644,19 +3966,22 @@ func (config *Bgp_Neighbors_Neighbor_Config) GetEntityData() *types.CommonEntity
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["peer-group"] = types.YLeaf{"PeerGroup", config.PeerGroup}
-    config.EntityData.Leafs["neighbor-address"] = types.YLeaf{"NeighborAddress", config.NeighborAddress}
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
-    config.EntityData.Leafs["peer-as"] = types.YLeaf{"PeerAs", config.PeerAs}
-    config.EntityData.Leafs["local-as"] = types.YLeaf{"LocalAs", config.LocalAs}
-    config.EntityData.Leafs["peer-type"] = types.YLeaf{"PeerType", config.PeerType}
-    config.EntityData.Leafs["auth-password"] = types.YLeaf{"AuthPassword", config.AuthPassword}
-    config.EntityData.Leafs["remove-private-as"] = types.YLeaf{"RemovePrivateAs", config.RemovePrivateAs}
-    config.EntityData.Leafs["route-flap-damping"] = types.YLeaf{"RouteFlapDamping", config.RouteFlapDamping}
-    config.EntityData.Leafs["send-community"] = types.YLeaf{"SendCommunity", config.SendCommunity}
-    config.EntityData.Leafs["description"] = types.YLeaf{"Description", config.Description}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("peer-group", types.YLeaf{"PeerGroup", config.PeerGroup})
+    config.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", config.NeighborAddress})
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+    config.EntityData.Leafs.Append("peer-as", types.YLeaf{"PeerAs", config.PeerAs})
+    config.EntityData.Leafs.Append("local-as", types.YLeaf{"LocalAs", config.LocalAs})
+    config.EntityData.Leafs.Append("peer-type", types.YLeaf{"PeerType", config.PeerType})
+    config.EntityData.Leafs.Append("auth-password", types.YLeaf{"AuthPassword", config.AuthPassword})
+    config.EntityData.Leafs.Append("remove-private-as", types.YLeaf{"RemovePrivateAs", config.RemovePrivateAs})
+    config.EntityData.Leafs.Append("route-flap-damping", types.YLeaf{"RouteFlapDamping", config.RouteFlapDamping})
+    config.EntityData.Leafs.Append("send-community", types.YLeaf{"SendCommunity", config.SendCommunity})
+    config.EntityData.Leafs.Append("description", types.YLeaf{"Description", config.Description})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3672,9 +3997,9 @@ type Bgp_Neighbors_Neighbor_State struct {
 
     // Address of the BGP peer, either in IPv4 or IPv6. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     NeighborAddress interface{}
 
     // Whether the BGP peer is enabled. In cases where the enabled leaf is set to
@@ -3704,7 +4029,7 @@ type Bgp_Neighbors_Neighbor_State struct {
 
     // Remove private AS numbers from updates sent to peers - when this leaf is
     // not specified, the AS_PATH attribute should be sent to the peer unchanged.
-    // The type is one of the following: PRIVATEASREMOVEALLPRIVATEASREPLACEALL.
+    // The type is one of the following: PRIVATEASREPLACEALLPRIVATEASREMOVEALL.
     RemovePrivateAs interface{}
 
     // Enable route flap damping. The type is bool. The default value is false.
@@ -3724,7 +4049,7 @@ type Bgp_Neighbors_Neighbor_State struct {
 
     // This timestamp indicates the time that the BGP session last transitioned in
     // or out of the Established state.  The value is the timestamp in seconds
-    // relative to the Unix Epoch (Jan 1, 1970 00:00:00 UTC). The BGP session
+    // relative to the Unix Epoch (Jan 1, 1970 00:00:00 UTC).  The BGP session
     // uptime can be computed by clients as the difference between this value and
     // the current time in UTC (assuming the session is in the ESTABLISHED state,
     // per the session-state leaf). The type is interface{} with range:
@@ -3738,8 +4063,13 @@ type Bgp_Neighbors_Neighbor_State struct {
     EstablishedTransitions interface{}
 
     // BGP capabilities negotiated as supported with the peer. The type is slice
-    // of ['MPBGP', 'ROUTEREFRESH', 'ASN32', 'GRACEFULRESTART', 'ADDPATHS'].
+    // of [u'GRACEFULRESTART', u'ROUTEREFRESH', u'MPBGP', u'ASN32', u'ADDPATHS'].
     SupportedCapabilities []interface{}
+
+    // When this leaf is set to true, the peer was configured dynamically due to
+    // an inbound connection request from a specified source prefix within a
+    // dynamic-neighbor-prefix. The type is bool. The default value is false.
+    DynamicallyConfigured interface{}
 
     // Counters for BGP messages sent and received from the neighbor.
     Messages Bgp_Neighbors_Neighbor_State_Messages
@@ -3758,25 +4088,29 @@ func (state *Bgp_Neighbors_Neighbor_State) GetEntityData() *types.CommonEntityDa
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["messages"] = types.YChild{"Messages", &state.Messages}
-    state.EntityData.Children["queues"] = types.YChild{"Queues", &state.Queues}
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["peer-group"] = types.YLeaf{"PeerGroup", state.PeerGroup}
-    state.EntityData.Leafs["neighbor-address"] = types.YLeaf{"NeighborAddress", state.NeighborAddress}
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["peer-as"] = types.YLeaf{"PeerAs", state.PeerAs}
-    state.EntityData.Leafs["local-as"] = types.YLeaf{"LocalAs", state.LocalAs}
-    state.EntityData.Leafs["peer-type"] = types.YLeaf{"PeerType", state.PeerType}
-    state.EntityData.Leafs["auth-password"] = types.YLeaf{"AuthPassword", state.AuthPassword}
-    state.EntityData.Leafs["remove-private-as"] = types.YLeaf{"RemovePrivateAs", state.RemovePrivateAs}
-    state.EntityData.Leafs["route-flap-damping"] = types.YLeaf{"RouteFlapDamping", state.RouteFlapDamping}
-    state.EntityData.Leafs["send-community"] = types.YLeaf{"SendCommunity", state.SendCommunity}
-    state.EntityData.Leafs["description"] = types.YLeaf{"Description", state.Description}
-    state.EntityData.Leafs["session-state"] = types.YLeaf{"SessionState", state.SessionState}
-    state.EntityData.Leafs["last-established"] = types.YLeaf{"LastEstablished", state.LastEstablished}
-    state.EntityData.Leafs["established-transitions"] = types.YLeaf{"EstablishedTransitions", state.EstablishedTransitions}
-    state.EntityData.Leafs["supported-capabilities"] = types.YLeaf{"SupportedCapabilities", state.SupportedCapabilities}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("messages", types.YChild{"Messages", &state.Messages})
+    state.EntityData.Children.Append("queues", types.YChild{"Queues", &state.Queues})
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("peer-group", types.YLeaf{"PeerGroup", state.PeerGroup})
+    state.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", state.NeighborAddress})
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("peer-as", types.YLeaf{"PeerAs", state.PeerAs})
+    state.EntityData.Leafs.Append("local-as", types.YLeaf{"LocalAs", state.LocalAs})
+    state.EntityData.Leafs.Append("peer-type", types.YLeaf{"PeerType", state.PeerType})
+    state.EntityData.Leafs.Append("auth-password", types.YLeaf{"AuthPassword", state.AuthPassword})
+    state.EntityData.Leafs.Append("remove-private-as", types.YLeaf{"RemovePrivateAs", state.RemovePrivateAs})
+    state.EntityData.Leafs.Append("route-flap-damping", types.YLeaf{"RouteFlapDamping", state.RouteFlapDamping})
+    state.EntityData.Leafs.Append("send-community", types.YLeaf{"SendCommunity", state.SendCommunity})
+    state.EntityData.Leafs.Append("description", types.YLeaf{"Description", state.Description})
+    state.EntityData.Leafs.Append("session-state", types.YLeaf{"SessionState", state.SessionState})
+    state.EntityData.Leafs.Append("last-established", types.YLeaf{"LastEstablished", state.LastEstablished})
+    state.EntityData.Leafs.Append("established-transitions", types.YLeaf{"EstablishedTransitions", state.EstablishedTransitions})
+    state.EntityData.Leafs.Append("supported-capabilities", types.YLeaf{"SupportedCapabilities", state.SupportedCapabilities})
+    state.EntityData.Leafs.Append("dynamically-configured", types.YLeaf{"DynamicallyConfigured", state.DynamicallyConfigured})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -3804,10 +4138,13 @@ func (messages *Bgp_Neighbors_Neighbor_State_Messages) GetEntityData() *types.Co
     messages.EntityData.NamespaceTable = openconfig.GetNamespaces()
     messages.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    messages.EntityData.Children = make(map[string]types.YChild)
-    messages.EntityData.Children["sent"] = types.YChild{"Sent", &messages.Sent}
-    messages.EntityData.Children["received"] = types.YChild{"Received", &messages.Received}
-    messages.EntityData.Leafs = make(map[string]types.YLeaf)
+    messages.EntityData.Children = types.NewOrderedMap()
+    messages.EntityData.Children.Append("sent", types.YChild{"Sent", &messages.Sent})
+    messages.EntityData.Children.Append("received", types.YChild{"Received", &messages.Received})
+    messages.EntityData.Leafs = types.NewOrderedMap()
+
+    messages.EntityData.YListKeys = []string {}
+
     return &(messages.EntityData)
 }
 
@@ -3819,12 +4156,12 @@ type Bgp_Neighbors_Neighbor_State_Messages_Sent struct {
 
     // Number of BGP UPDATE messages announcing, withdrawing or modifying paths
     // exchanged. The type is interface{} with range: 0..18446744073709551615.
-    Update interface{}
+    UPDATE interface{}
 
     // Number of BGP NOTIFICATION messages indicating an error condition has
     // occurred exchanged. The type is interface{} with range:
     // 0..18446744073709551615.
-    Notification interface{}
+    NOTIFICATION interface{}
 }
 
 func (sent *Bgp_Neighbors_Neighbor_State_Messages_Sent) GetEntityData() *types.CommonEntityData {
@@ -3837,10 +4174,13 @@ func (sent *Bgp_Neighbors_Neighbor_State_Messages_Sent) GetEntityData() *types.C
     sent.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sent.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    sent.EntityData.Children = make(map[string]types.YChild)
-    sent.EntityData.Leafs = make(map[string]types.YLeaf)
-    sent.EntityData.Leafs["UPDATE"] = types.YLeaf{"Update", sent.Update}
-    sent.EntityData.Leafs["NOTIFICATION"] = types.YLeaf{"Notification", sent.Notification}
+    sent.EntityData.Children = types.NewOrderedMap()
+    sent.EntityData.Leafs = types.NewOrderedMap()
+    sent.EntityData.Leafs.Append("UPDATE", types.YLeaf{"UPDATE", sent.UPDATE})
+    sent.EntityData.Leafs.Append("NOTIFICATION", types.YLeaf{"NOTIFICATION", sent.NOTIFICATION})
+
+    sent.EntityData.YListKeys = []string {}
+
     return &(sent.EntityData)
 }
 
@@ -3852,12 +4192,12 @@ type Bgp_Neighbors_Neighbor_State_Messages_Received struct {
 
     // Number of BGP UPDATE messages announcing, withdrawing or modifying paths
     // exchanged. The type is interface{} with range: 0..18446744073709551615.
-    Update interface{}
+    UPDATE interface{}
 
     // Number of BGP NOTIFICATION messages indicating an error condition has
     // occurred exchanged. The type is interface{} with range:
     // 0..18446744073709551615.
-    Notification interface{}
+    NOTIFICATION interface{}
 }
 
 func (received *Bgp_Neighbors_Neighbor_State_Messages_Received) GetEntityData() *types.CommonEntityData {
@@ -3870,10 +4210,13 @@ func (received *Bgp_Neighbors_Neighbor_State_Messages_Received) GetEntityData() 
     received.EntityData.NamespaceTable = openconfig.GetNamespaces()
     received.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    received.EntityData.Children = make(map[string]types.YChild)
-    received.EntityData.Leafs = make(map[string]types.YLeaf)
-    received.EntityData.Leafs["UPDATE"] = types.YLeaf{"Update", received.Update}
-    received.EntityData.Leafs["NOTIFICATION"] = types.YLeaf{"Notification", received.Notification}
+    received.EntityData.Children = types.NewOrderedMap()
+    received.EntityData.Leafs = types.NewOrderedMap()
+    received.EntityData.Leafs.Append("UPDATE", types.YLeaf{"UPDATE", received.UPDATE})
+    received.EntityData.Leafs.Append("NOTIFICATION", types.YLeaf{"NOTIFICATION", received.NOTIFICATION})
+
+    received.EntityData.YListKeys = []string {}
+
     return &(received.EntityData)
 }
 
@@ -3903,10 +4246,13 @@ func (queues *Bgp_Neighbors_Neighbor_State_Queues) GetEntityData() *types.Common
     queues.EntityData.NamespaceTable = openconfig.GetNamespaces()
     queues.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    queues.EntityData.Children = make(map[string]types.YChild)
-    queues.EntityData.Leafs = make(map[string]types.YLeaf)
-    queues.EntityData.Leafs["input"] = types.YLeaf{"Input", queues.Input}
-    queues.EntityData.Leafs["output"] = types.YLeaf{"Output", queues.Output}
+    queues.EntityData.Children = types.NewOrderedMap()
+    queues.EntityData.Leafs = types.NewOrderedMap()
+    queues.EntityData.Leafs.Append("input", types.YLeaf{"Input", queues.Input})
+    queues.EntityData.Leafs.Append("output", types.YLeaf{"Output", queues.Output})
+
+    queues.EntityData.YListKeys = []string {}
+
     return &(queues.EntityData)
 }
 
@@ -3963,10 +4309,13 @@ func (timers *Bgp_Neighbors_Neighbor_Timers) GetEntityData() *types.CommonEntity
     timers.EntityData.NamespaceTable = openconfig.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    timers.EntityData.Children = make(map[string]types.YChild)
-    timers.EntityData.Children["config"] = types.YChild{"Config", &timers.Config}
-    timers.EntityData.Children["state"] = types.YChild{"State", &timers.State}
-    timers.EntityData.Leafs = make(map[string]types.YLeaf)
+    timers.EntityData.Children = types.NewOrderedMap()
+    timers.EntityData.Children.Append("config", types.YChild{"Config", &timers.Config})
+    timers.EntityData.Children.Append("state", types.YChild{"State", &timers.State})
+    timers.EntityData.Leafs = types.NewOrderedMap()
+
+    timers.EntityData.YListKeys = []string {}
+
     return &(timers.EntityData)
 }
 
@@ -4013,12 +4362,15 @@ func (config *Bgp_Neighbors_Neighbor_Timers_Config) GetEntityData() *types.Commo
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["connect-retry"] = types.YLeaf{"ConnectRetry", config.ConnectRetry}
-    config.EntityData.Leafs["hold-time"] = types.YLeaf{"HoldTime", config.HoldTime}
-    config.EntityData.Leafs["keepalive-interval"] = types.YLeaf{"KeepaliveInterval", config.KeepaliveInterval}
-    config.EntityData.Leafs["minimum-advertisement-interval"] = types.YLeaf{"MinimumAdvertisementInterval", config.MinimumAdvertisementInterval}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("connect-retry", types.YLeaf{"ConnectRetry", config.ConnectRetry})
+    config.EntityData.Leafs.Append("hold-time", types.YLeaf{"HoldTime", config.HoldTime})
+    config.EntityData.Leafs.Append("keepalive-interval", types.YLeaf{"KeepaliveInterval", config.KeepaliveInterval})
+    config.EntityData.Leafs.Append("minimum-advertisement-interval", types.YLeaf{"MinimumAdvertisementInterval", config.MinimumAdvertisementInterval})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -4069,13 +4421,16 @@ func (state *Bgp_Neighbors_Neighbor_Timers_State) GetEntityData() *types.CommonE
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["connect-retry"] = types.YLeaf{"ConnectRetry", state.ConnectRetry}
-    state.EntityData.Leafs["hold-time"] = types.YLeaf{"HoldTime", state.HoldTime}
-    state.EntityData.Leafs["keepalive-interval"] = types.YLeaf{"KeepaliveInterval", state.KeepaliveInterval}
-    state.EntityData.Leafs["minimum-advertisement-interval"] = types.YLeaf{"MinimumAdvertisementInterval", state.MinimumAdvertisementInterval}
-    state.EntityData.Leafs["negotiated-hold-time"] = types.YLeaf{"NegotiatedHoldTime", state.NegotiatedHoldTime}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("connect-retry", types.YLeaf{"ConnectRetry", state.ConnectRetry})
+    state.EntityData.Leafs.Append("hold-time", types.YLeaf{"HoldTime", state.HoldTime})
+    state.EntityData.Leafs.Append("keepalive-interval", types.YLeaf{"KeepaliveInterval", state.KeepaliveInterval})
+    state.EntityData.Leafs.Append("minimum-advertisement-interval", types.YLeaf{"MinimumAdvertisementInterval", state.MinimumAdvertisementInterval})
+    state.EntityData.Leafs.Append("negotiated-hold-time", types.YLeaf{"NegotiatedHoldTime", state.NegotiatedHoldTime})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -4104,10 +4459,13 @@ func (transport *Bgp_Neighbors_Neighbor_Transport) GetEntityData() *types.Common
     transport.EntityData.NamespaceTable = openconfig.GetNamespaces()
     transport.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    transport.EntityData.Children = make(map[string]types.YChild)
-    transport.EntityData.Children["config"] = types.YChild{"Config", &transport.Config}
-    transport.EntityData.Children["state"] = types.YChild{"State", &transport.State}
-    transport.EntityData.Leafs = make(map[string]types.YLeaf)
+    transport.EntityData.Children = types.NewOrderedMap()
+    transport.EntityData.Children.Append("config", types.YChild{"Config", &transport.Config})
+    transport.EntityData.Children.Append("state", types.YChild{"State", &transport.State})
+    transport.EntityData.Leafs = types.NewOrderedMap()
+
+    transport.EntityData.YListKeys = []string {}
+
     return &(transport.EntityData)
 }
 
@@ -4135,9 +4493,9 @@ type Bgp_Neighbors_Neighbor_Transport_Config struct {
     // sending BGP update messages.  This may be expressed as either an IP address
     // or reference to the name of an interface. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.,
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.,
     // or string.
     LocalAddress interface{}
 }
@@ -4152,12 +4510,15 @@ func (config *Bgp_Neighbors_Neighbor_Transport_Config) GetEntityData() *types.Co
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["tcp-mss"] = types.YLeaf{"TcpMss", config.TcpMss}
-    config.EntityData.Leafs["mtu-discovery"] = types.YLeaf{"MtuDiscovery", config.MtuDiscovery}
-    config.EntityData.Leafs["passive-mode"] = types.YLeaf{"PassiveMode", config.PassiveMode}
-    config.EntityData.Leafs["local-address"] = types.YLeaf{"LocalAddress", config.LocalAddress}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("tcp-mss", types.YLeaf{"TcpMss", config.TcpMss})
+    config.EntityData.Leafs.Append("mtu-discovery", types.YLeaf{"MtuDiscovery", config.MtuDiscovery})
+    config.EntityData.Leafs.Append("passive-mode", types.YLeaf{"PassiveMode", config.PassiveMode})
+    config.EntityData.Leafs.Append("local-address", types.YLeaf{"LocalAddress", config.LocalAddress})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -4185,9 +4546,9 @@ type Bgp_Neighbors_Neighbor_Transport_State struct {
     // sending BGP update messages.  This may be expressed as either an IP address
     // or reference to the name of an interface. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.,
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.,
     // or string.
     LocalAddress interface{}
 
@@ -4197,9 +4558,9 @@ type Bgp_Neighbors_Neighbor_Transport_State struct {
 
     // Remote address to which the BGP session has been established. The type is
     // one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     RemoteAddress interface{}
 
     // Remote port being used by the peer for the TCP session supporting the BGP
@@ -4217,15 +4578,18 @@ func (state *Bgp_Neighbors_Neighbor_Transport_State) GetEntityData() *types.Comm
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["tcp-mss"] = types.YLeaf{"TcpMss", state.TcpMss}
-    state.EntityData.Leafs["mtu-discovery"] = types.YLeaf{"MtuDiscovery", state.MtuDiscovery}
-    state.EntityData.Leafs["passive-mode"] = types.YLeaf{"PassiveMode", state.PassiveMode}
-    state.EntityData.Leafs["local-address"] = types.YLeaf{"LocalAddress", state.LocalAddress}
-    state.EntityData.Leafs["local-port"] = types.YLeaf{"LocalPort", state.LocalPort}
-    state.EntityData.Leafs["remote-address"] = types.YLeaf{"RemoteAddress", state.RemoteAddress}
-    state.EntityData.Leafs["remote-port"] = types.YLeaf{"RemotePort", state.RemotePort}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("tcp-mss", types.YLeaf{"TcpMss", state.TcpMss})
+    state.EntityData.Leafs.Append("mtu-discovery", types.YLeaf{"MtuDiscovery", state.MtuDiscovery})
+    state.EntityData.Leafs.Append("passive-mode", types.YLeaf{"PassiveMode", state.PassiveMode})
+    state.EntityData.Leafs.Append("local-address", types.YLeaf{"LocalAddress", state.LocalAddress})
+    state.EntityData.Leafs.Append("local-port", types.YLeaf{"LocalPort", state.LocalPort})
+    state.EntityData.Leafs.Append("remote-address", types.YLeaf{"RemoteAddress", state.RemoteAddress})
+    state.EntityData.Leafs.Append("remote-port", types.YLeaf{"RemotePort", state.RemotePort})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -4255,10 +4619,13 @@ func (errorHandling *Bgp_Neighbors_Neighbor_ErrorHandling) GetEntityData() *type
     errorHandling.EntityData.NamespaceTable = openconfig.GetNamespaces()
     errorHandling.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    errorHandling.EntityData.Children = make(map[string]types.YChild)
-    errorHandling.EntityData.Children["config"] = types.YChild{"Config", &errorHandling.Config}
-    errorHandling.EntityData.Children["state"] = types.YChild{"State", &errorHandling.State}
-    errorHandling.EntityData.Leafs = make(map[string]types.YLeaf)
+    errorHandling.EntityData.Children = types.NewOrderedMap()
+    errorHandling.EntityData.Children.Append("config", types.YChild{"Config", &errorHandling.Config})
+    errorHandling.EntityData.Children.Append("state", types.YChild{"State", &errorHandling.State})
+    errorHandling.EntityData.Leafs = types.NewOrderedMap()
+
+    errorHandling.EntityData.YListKeys = []string {}
+
     return &(errorHandling.EntityData)
 }
 
@@ -4286,9 +4653,12 @@ func (config *Bgp_Neighbors_Neighbor_ErrorHandling_Config) GetEntityData() *type
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["treat-as-withdraw"] = types.YLeaf{"TreatAsWithdraw", config.TreatAsWithdraw}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("treat-as-withdraw", types.YLeaf{"TreatAsWithdraw", config.TreatAsWithdraw})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -4320,10 +4690,13 @@ func (state *Bgp_Neighbors_Neighbor_ErrorHandling_State) GetEntityData() *types.
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["treat-as-withdraw"] = types.YLeaf{"TreatAsWithdraw", state.TreatAsWithdraw}
-    state.EntityData.Leafs["erroneous-update-messages"] = types.YLeaf{"ErroneousUpdateMessages", state.ErroneousUpdateMessages}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("treat-as-withdraw", types.YLeaf{"TreatAsWithdraw", state.TreatAsWithdraw})
+    state.EntityData.Leafs.Append("erroneous-update-messages", types.YLeaf{"ErroneousUpdateMessages", state.ErroneousUpdateMessages})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -4350,10 +4723,13 @@ func (gracefulRestart *Bgp_Neighbors_Neighbor_GracefulRestart) GetEntityData() *
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    gracefulRestart.EntityData.Children = make(map[string]types.YChild)
-    gracefulRestart.EntityData.Children["config"] = types.YChild{"Config", &gracefulRestart.Config}
-    gracefulRestart.EntityData.Children["state"] = types.YChild{"State", &gracefulRestart.State}
-    gracefulRestart.EntityData.Leafs = make(map[string]types.YLeaf)
+    gracefulRestart.EntityData.Children = types.NewOrderedMap()
+    gracefulRestart.EntityData.Children.Append("config", types.YChild{"Config", &gracefulRestart.Config})
+    gracefulRestart.EntityData.Children.Append("state", types.YChild{"State", &gracefulRestart.State})
+    gracefulRestart.EntityData.Leafs = types.NewOrderedMap()
+
+    gracefulRestart.EntityData.YListKeys = []string {}
+
     return &(gracefulRestart.EntityData)
 }
 
@@ -4399,12 +4775,15 @@ func (config *Bgp_Neighbors_Neighbor_GracefulRestart_Config) GetEntityData() *ty
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
-    config.EntityData.Leafs["restart-time"] = types.YLeaf{"RestartTime", config.RestartTime}
-    config.EntityData.Leafs["stale-routes-time"] = types.YLeaf{"StaleRoutesTime", config.StaleRoutesTime}
-    config.EntityData.Leafs["helper-only"] = types.YLeaf{"HelperOnly", config.HelperOnly}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+    config.EntityData.Leafs.Append("restart-time", types.YLeaf{"RestartTime", config.RestartTime})
+    config.EntityData.Leafs.Append("stale-routes-time", types.YLeaf{"StaleRoutesTime", config.StaleRoutesTime})
+    config.EntityData.Leafs.Append("helper-only", types.YLeaf{"HelperOnly", config.HelperOnly})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -4468,16 +4847,19 @@ func (state *Bgp_Neighbors_Neighbor_GracefulRestart_State) GetEntityData() *type
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["restart-time"] = types.YLeaf{"RestartTime", state.RestartTime}
-    state.EntityData.Leafs["stale-routes-time"] = types.YLeaf{"StaleRoutesTime", state.StaleRoutesTime}
-    state.EntityData.Leafs["helper-only"] = types.YLeaf{"HelperOnly", state.HelperOnly}
-    state.EntityData.Leafs["peer-restart-time"] = types.YLeaf{"PeerRestartTime", state.PeerRestartTime}
-    state.EntityData.Leafs["peer-restarting"] = types.YLeaf{"PeerRestarting", state.PeerRestarting}
-    state.EntityData.Leafs["local-restarting"] = types.YLeaf{"LocalRestarting", state.LocalRestarting}
-    state.EntityData.Leafs["mode"] = types.YLeaf{"Mode", state.Mode}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("restart-time", types.YLeaf{"RestartTime", state.RestartTime})
+    state.EntityData.Leafs.Append("stale-routes-time", types.YLeaf{"StaleRoutesTime", state.StaleRoutesTime})
+    state.EntityData.Leafs.Append("helper-only", types.YLeaf{"HelperOnly", state.HelperOnly})
+    state.EntityData.Leafs.Append("peer-restart-time", types.YLeaf{"PeerRestartTime", state.PeerRestartTime})
+    state.EntityData.Leafs.Append("peer-restarting", types.YLeaf{"PeerRestarting", state.PeerRestarting})
+    state.EntityData.Leafs.Append("local-restarting", types.YLeaf{"LocalRestarting", state.LocalRestarting})
+    state.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", state.Mode})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -4527,10 +4909,13 @@ func (loggingOptions *Bgp_Neighbors_Neighbor_LoggingOptions) GetEntityData() *ty
     loggingOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     loggingOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    loggingOptions.EntityData.Children = make(map[string]types.YChild)
-    loggingOptions.EntityData.Children["config"] = types.YChild{"Config", &loggingOptions.Config}
-    loggingOptions.EntityData.Children["state"] = types.YChild{"State", &loggingOptions.State}
-    loggingOptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    loggingOptions.EntityData.Children = types.NewOrderedMap()
+    loggingOptions.EntityData.Children.Append("config", types.YChild{"Config", &loggingOptions.Config})
+    loggingOptions.EntityData.Children.Append("state", types.YChild{"State", &loggingOptions.State})
+    loggingOptions.EntityData.Leafs = types.NewOrderedMap()
+
+    loggingOptions.EntityData.YListKeys = []string {}
+
     return &(loggingOptions.EntityData)
 }
 
@@ -4556,9 +4941,12 @@ func (config *Bgp_Neighbors_Neighbor_LoggingOptions_Config) GetEntityData() *typ
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["log-neighbor-state-changes"] = types.YLeaf{"LogNeighborStateChanges", config.LogNeighborStateChanges}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("log-neighbor-state-changes", types.YLeaf{"LogNeighborStateChanges", config.LogNeighborStateChanges})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -4584,9 +4972,12 @@ func (state *Bgp_Neighbors_Neighbor_LoggingOptions_State) GetEntityData() *types
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["log-neighbor-state-changes"] = types.YLeaf{"LogNeighborStateChanges", state.LogNeighborStateChanges}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("log-neighbor-state-changes", types.YLeaf{"LogNeighborStateChanges", state.LogNeighborStateChanges})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -4613,10 +5004,13 @@ func (ebgpMultihop *Bgp_Neighbors_Neighbor_EbgpMultihop) GetEntityData() *types.
     ebgpMultihop.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgpMultihop.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ebgpMultihop.EntityData.Children = make(map[string]types.YChild)
-    ebgpMultihop.EntityData.Children["config"] = types.YChild{"Config", &ebgpMultihop.Config}
-    ebgpMultihop.EntityData.Children["state"] = types.YChild{"State", &ebgpMultihop.State}
-    ebgpMultihop.EntityData.Leafs = make(map[string]types.YLeaf)
+    ebgpMultihop.EntityData.Children = types.NewOrderedMap()
+    ebgpMultihop.EntityData.Children.Append("config", types.YChild{"Config", &ebgpMultihop.Config})
+    ebgpMultihop.EntityData.Children.Append("state", types.YChild{"State", &ebgpMultihop.State})
+    ebgpMultihop.EntityData.Leafs = types.NewOrderedMap()
+
+    ebgpMultihop.EntityData.YListKeys = []string {}
+
     return &(ebgpMultihop.EntityData)
 }
 
@@ -4648,10 +5042,13 @@ func (config *Bgp_Neighbors_Neighbor_EbgpMultihop_Config) GetEntityData() *types
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
-    config.EntityData.Leafs["multihop-ttl"] = types.YLeaf{"MultihopTtl", config.MultihopTtl}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+    config.EntityData.Leafs.Append("multihop-ttl", types.YLeaf{"MultihopTtl", config.MultihopTtl})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -4683,10 +5080,13 @@ func (state *Bgp_Neighbors_Neighbor_EbgpMultihop_State) GetEntityData() *types.C
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["multihop-ttl"] = types.YLeaf{"MultihopTtl", state.MultihopTtl}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("multihop-ttl", types.YLeaf{"MultihopTtl", state.MultihopTtl})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -4713,10 +5113,13 @@ func (routeReflector *Bgp_Neighbors_Neighbor_RouteReflector) GetEntityData() *ty
     routeReflector.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routeReflector.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    routeReflector.EntityData.Children = make(map[string]types.YChild)
-    routeReflector.EntityData.Children["config"] = types.YChild{"Config", &routeReflector.Config}
-    routeReflector.EntityData.Children["state"] = types.YChild{"State", &routeReflector.State}
-    routeReflector.EntityData.Leafs = make(map[string]types.YLeaf)
+    routeReflector.EntityData.Children = types.NewOrderedMap()
+    routeReflector.EntityData.Children.Append("config", types.YChild{"Config", &routeReflector.Config})
+    routeReflector.EntityData.Children.Append("state", types.YChild{"State", &routeReflector.State})
+    routeReflector.EntityData.Leafs = types.NewOrderedMap()
+
+    routeReflector.EntityData.YListKeys = []string {}
+
     return &(routeReflector.EntityData)
 }
 
@@ -4731,7 +5134,7 @@ type Bgp_Neighbors_Neighbor_RouteReflector_Config struct {
     // route reflector.  Commonly set at the group level, but allows a different
     // cluster id to be set for each neighbor. The type is one of the following
     // types: int with range: 0..4294967295, or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     RouteReflectorClusterId interface{}
 
     // Configure the neighbor as a route reflector client. The type is bool. The
@@ -4749,10 +5152,13 @@ func (config *Bgp_Neighbors_Neighbor_RouteReflector_Config) GetEntityData() *typ
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["route-reflector-cluster-id"] = types.YLeaf{"RouteReflectorClusterId", config.RouteReflectorClusterId}
-    config.EntityData.Leafs["route-reflector-client"] = types.YLeaf{"RouteReflectorClient", config.RouteReflectorClient}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("route-reflector-cluster-id", types.YLeaf{"RouteReflectorClusterId", config.RouteReflectorClusterId})
+    config.EntityData.Leafs.Append("route-reflector-client", types.YLeaf{"RouteReflectorClient", config.RouteReflectorClient})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -4767,7 +5173,7 @@ type Bgp_Neighbors_Neighbor_RouteReflector_State struct {
     // route reflector.  Commonly set at the group level, but allows a different
     // cluster id to be set for each neighbor. The type is one of the following
     // types: int with range: 0..4294967295, or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     RouteReflectorClusterId interface{}
 
     // Configure the neighbor as a route reflector client. The type is bool. The
@@ -4785,10 +5191,13 @@ func (state *Bgp_Neighbors_Neighbor_RouteReflector_State) GetEntityData() *types
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["route-reflector-cluster-id"] = types.YLeaf{"RouteReflectorClusterId", state.RouteReflectorClusterId}
-    state.EntityData.Leafs["route-reflector-client"] = types.YLeaf{"RouteReflectorClient", state.RouteReflectorClient}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("route-reflector-cluster-id", types.YLeaf{"RouteReflectorClusterId", state.RouteReflectorClusterId})
+    state.EntityData.Leafs.Append("route-reflector-client", types.YLeaf{"RouteReflectorClient", state.RouteReflectorClient})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -4818,10 +5227,13 @@ func (asPathOptions *Bgp_Neighbors_Neighbor_AsPathOptions) GetEntityData() *type
     asPathOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     asPathOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    asPathOptions.EntityData.Children = make(map[string]types.YChild)
-    asPathOptions.EntityData.Children["config"] = types.YChild{"Config", &asPathOptions.Config}
-    asPathOptions.EntityData.Children["state"] = types.YChild{"State", &asPathOptions.State}
-    asPathOptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    asPathOptions.EntityData.Children = types.NewOrderedMap()
+    asPathOptions.EntityData.Children.Append("config", types.YChild{"Config", &asPathOptions.Config})
+    asPathOptions.EntityData.Children.Append("state", types.YChild{"State", &asPathOptions.State})
+    asPathOptions.EntityData.Leafs = types.NewOrderedMap()
+
+    asPathOptions.EntityData.YListKeys = []string {}
+
     return &(asPathOptions.EntityData)
 }
 
@@ -4852,10 +5264,13 @@ func (config *Bgp_Neighbors_Neighbor_AsPathOptions_Config) GetEntityData() *type
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["allow-own-as"] = types.YLeaf{"AllowOwnAs", config.AllowOwnAs}
-    config.EntityData.Leafs["replace-peer-as"] = types.YLeaf{"ReplacePeerAs", config.ReplacePeerAs}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("allow-own-as", types.YLeaf{"AllowOwnAs", config.AllowOwnAs})
+    config.EntityData.Leafs.Append("replace-peer-as", types.YLeaf{"ReplacePeerAs", config.ReplacePeerAs})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -4886,10 +5301,13 @@ func (state *Bgp_Neighbors_Neighbor_AsPathOptions_State) GetEntityData() *types.
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["allow-own-as"] = types.YLeaf{"AllowOwnAs", state.AllowOwnAs}
-    state.EntityData.Leafs["replace-peer-as"] = types.YLeaf{"ReplacePeerAs", state.ReplacePeerAs}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("allow-own-as", types.YLeaf{"AllowOwnAs", state.AllowOwnAs})
+    state.EntityData.Leafs.Append("replace-peer-as", types.YLeaf{"ReplacePeerAs", state.ReplacePeerAs})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -4917,10 +5335,13 @@ func (addPaths *Bgp_Neighbors_Neighbor_AddPaths) GetEntityData() *types.CommonEn
     addPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     addPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    addPaths.EntityData.Children = make(map[string]types.YChild)
-    addPaths.EntityData.Children["config"] = types.YChild{"Config", &addPaths.Config}
-    addPaths.EntityData.Children["state"] = types.YChild{"State", &addPaths.State}
-    addPaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    addPaths.EntityData.Children = types.NewOrderedMap()
+    addPaths.EntityData.Children.Append("config", types.YChild{"Config", &addPaths.Config})
+    addPaths.EntityData.Children.Append("state", types.YChild{"State", &addPaths.State})
+    addPaths.EntityData.Leafs = types.NewOrderedMap()
+
+    addPaths.EntityData.YListKeys = []string {}
+
     return &(addPaths.EntityData)
 }
 
@@ -4954,11 +5375,14 @@ func (config *Bgp_Neighbors_Neighbor_AddPaths_Config) GetEntityData() *types.Com
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["receive"] = types.YLeaf{"Receive", config.Receive}
-    config.EntityData.Leafs["send-max"] = types.YLeaf{"SendMax", config.SendMax}
-    config.EntityData.Leafs["eligible-prefix-policy"] = types.YLeaf{"EligiblePrefixPolicy", config.EligiblePrefixPolicy}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("receive", types.YLeaf{"Receive", config.Receive})
+    config.EntityData.Leafs.Append("send-max", types.YLeaf{"SendMax", config.SendMax})
+    config.EntityData.Leafs.Append("eligible-prefix-policy", types.YLeaf{"EligiblePrefixPolicy", config.EligiblePrefixPolicy})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -4992,11 +5416,14 @@ func (state *Bgp_Neighbors_Neighbor_AddPaths_State) GetEntityData() *types.Commo
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["receive"] = types.YLeaf{"Receive", state.Receive}
-    state.EntityData.Leafs["send-max"] = types.YLeaf{"SendMax", state.SendMax}
-    state.EntityData.Leafs["eligible-prefix-policy"] = types.YLeaf{"EligiblePrefixPolicy", state.EligiblePrefixPolicy}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("receive", types.YLeaf{"Receive", state.Receive})
+    state.EntityData.Leafs.Append("send-max", types.YLeaf{"SendMax", state.SendMax})
+    state.EntityData.Leafs.Append("eligible-prefix-policy", types.YLeaf{"EligiblePrefixPolicy", state.EligiblePrefixPolicy})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -5027,11 +5454,14 @@ func (useMultiplePaths *Bgp_Neighbors_Neighbor_UseMultiplePaths) GetEntityData()
     useMultiplePaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     useMultiplePaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    useMultiplePaths.EntityData.Children = make(map[string]types.YChild)
-    useMultiplePaths.EntityData.Children["config"] = types.YChild{"Config", &useMultiplePaths.Config}
-    useMultiplePaths.EntityData.Children["state"] = types.YChild{"State", &useMultiplePaths.State}
-    useMultiplePaths.EntityData.Children["ebgp"] = types.YChild{"Ebgp", &useMultiplePaths.Ebgp}
-    useMultiplePaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    useMultiplePaths.EntityData.Children = types.NewOrderedMap()
+    useMultiplePaths.EntityData.Children.Append("config", types.YChild{"Config", &useMultiplePaths.Config})
+    useMultiplePaths.EntityData.Children.Append("state", types.YChild{"State", &useMultiplePaths.State})
+    useMultiplePaths.EntityData.Children.Append("ebgp", types.YChild{"Ebgp", &useMultiplePaths.Ebgp})
+    useMultiplePaths.EntityData.Leafs = types.NewOrderedMap()
+
+    useMultiplePaths.EntityData.YListKeys = []string {}
+
     return &(useMultiplePaths.EntityData)
 }
 
@@ -5057,9 +5487,12 @@ func (config *Bgp_Neighbors_Neighbor_UseMultiplePaths_Config) GetEntityData() *t
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -5085,9 +5518,12 @@ func (state *Bgp_Neighbors_Neighbor_UseMultiplePaths_State) GetEntityData() *typ
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -5114,10 +5550,13 @@ func (ebgp *Bgp_Neighbors_Neighbor_UseMultiplePaths_Ebgp) GetEntityData() *types
     ebgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ebgp.EntityData.Children = make(map[string]types.YChild)
-    ebgp.EntityData.Children["config"] = types.YChild{"Config", &ebgp.Config}
-    ebgp.EntityData.Children["state"] = types.YChild{"State", &ebgp.State}
-    ebgp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ebgp.EntityData.Children = types.NewOrderedMap()
+    ebgp.EntityData.Children.Append("config", types.YChild{"Config", &ebgp.Config})
+    ebgp.EntityData.Children.Append("state", types.YChild{"State", &ebgp.State})
+    ebgp.EntityData.Leafs = types.NewOrderedMap()
+
+    ebgp.EntityData.YListKeys = []string {}
+
     return &(ebgp.EntityData)
 }
 
@@ -5143,9 +5582,12 @@ func (config *Bgp_Neighbors_Neighbor_UseMultiplePaths_Ebgp_Config) GetEntityData
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["allow-multiple-as"] = types.YLeaf{"AllowMultipleAs", config.AllowMultipleAs}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("allow-multiple-as", types.YLeaf{"AllowMultipleAs", config.AllowMultipleAs})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -5171,9 +5613,12 @@ func (state *Bgp_Neighbors_Neighbor_UseMultiplePaths_Ebgp_State) GetEntityData()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["allow-multiple-as"] = types.YLeaf{"AllowMultipleAs", state.AllowMultipleAs}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("allow-multiple-as", types.YLeaf{"AllowMultipleAs", state.AllowMultipleAs})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -5203,10 +5648,13 @@ func (applyPolicy *Bgp_Neighbors_Neighbor_ApplyPolicy) GetEntityData() *types.Co
     applyPolicy.EntityData.NamespaceTable = openconfig.GetNamespaces()
     applyPolicy.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    applyPolicy.EntityData.Children = make(map[string]types.YChild)
-    applyPolicy.EntityData.Children["config"] = types.YChild{"Config", &applyPolicy.Config}
-    applyPolicy.EntityData.Children["state"] = types.YChild{"State", &applyPolicy.State}
-    applyPolicy.EntityData.Leafs = make(map[string]types.YLeaf)
+    applyPolicy.EntityData.Children = types.NewOrderedMap()
+    applyPolicy.EntityData.Children.Append("config", types.YChild{"Config", &applyPolicy.Config})
+    applyPolicy.EntityData.Children.Append("state", types.YChild{"State", &applyPolicy.State})
+    applyPolicy.EntityData.Leafs = types.NewOrderedMap()
+
+    applyPolicy.EntityData.YListKeys = []string {}
+
     return &(applyPolicy.EntityData)
 }
 
@@ -5249,12 +5697,15 @@ func (config *Bgp_Neighbors_Neighbor_ApplyPolicy_Config) GetEntityData() *types.
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["import-policy"] = types.YLeaf{"ImportPolicy", config.ImportPolicy}
-    config.EntityData.Leafs["default-import-policy"] = types.YLeaf{"DefaultImportPolicy", config.DefaultImportPolicy}
-    config.EntityData.Leafs["export-policy"] = types.YLeaf{"ExportPolicy", config.ExportPolicy}
-    config.EntityData.Leafs["default-export-policy"] = types.YLeaf{"DefaultExportPolicy", config.DefaultExportPolicy}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("import-policy", types.YLeaf{"ImportPolicy", config.ImportPolicy})
+    config.EntityData.Leafs.Append("default-import-policy", types.YLeaf{"DefaultImportPolicy", config.DefaultImportPolicy})
+    config.EntityData.Leafs.Append("export-policy", types.YLeaf{"ExportPolicy", config.ExportPolicy})
+    config.EntityData.Leafs.Append("default-export-policy", types.YLeaf{"DefaultExportPolicy", config.DefaultExportPolicy})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -5297,12 +5748,15 @@ func (state *Bgp_Neighbors_Neighbor_ApplyPolicy_State) GetEntityData() *types.Co
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["import-policy"] = types.YLeaf{"ImportPolicy", state.ImportPolicy}
-    state.EntityData.Leafs["default-import-policy"] = types.YLeaf{"DefaultImportPolicy", state.DefaultImportPolicy}
-    state.EntityData.Leafs["export-policy"] = types.YLeaf{"ExportPolicy", state.ExportPolicy}
-    state.EntityData.Leafs["default-export-policy"] = types.YLeaf{"DefaultExportPolicy", state.DefaultExportPolicy}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("import-policy", types.YLeaf{"ImportPolicy", state.ImportPolicy})
+    state.EntityData.Leafs.Append("default-import-policy", types.YLeaf{"DefaultImportPolicy", state.DefaultImportPolicy})
+    state.EntityData.Leafs.Append("export-policy", types.YLeaf{"ExportPolicy", state.ExportPolicy})
+    state.EntityData.Leafs.Append("default-export-policy", types.YLeaf{"DefaultExportPolicy", state.DefaultExportPolicy})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -5315,7 +5769,7 @@ type Bgp_Neighbors_Neighbor_AfiSafis struct {
 
     // AFI,SAFI configuration available for the neighbour or group. The type is
     // slice of Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi.
-    AfiSafi []Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi
+    AfiSafi []*Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi
 }
 
 func (afiSafis *Bgp_Neighbors_Neighbor_AfiSafis) GetEntityData() *types.CommonEntityData {
@@ -5328,12 +5782,15 @@ func (afiSafis *Bgp_Neighbors_Neighbor_AfiSafis) GetEntityData() *types.CommonEn
     afiSafis.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafis.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    afiSafis.EntityData.Children = make(map[string]types.YChild)
-    afiSafis.EntityData.Children["afi-safi"] = types.YChild{"AfiSafi", nil}
+    afiSafis.EntityData.Children = types.NewOrderedMap()
+    afiSafis.EntityData.Children.Append("afi-safi", types.YChild{"AfiSafi", nil})
     for i := range afiSafis.AfiSafi {
-        afiSafis.EntityData.Children[types.GetSegmentPath(&afiSafis.AfiSafi[i])] = types.YChild{"AfiSafi", &afiSafis.AfiSafi[i]}
+        afiSafis.EntityData.Children.Append(types.GetSegmentPath(afiSafis.AfiSafi[i]), types.YChild{"AfiSafi", afiSafis.AfiSafi[i]})
     }
-    afiSafis.EntityData.Leafs = make(map[string]types.YLeaf)
+    afiSafis.EntityData.Leafs = types.NewOrderedMap()
+
+    afiSafis.EntityData.YListKeys = []string {}
+
     return &(afiSafis.EntityData)
 }
 
@@ -5346,7 +5803,7 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi struct {
 
     // This attribute is a key. Reference to the AFI-SAFI name used as a key for
     // the AFI-SAFI list. The type is one of the following:
-    // IPV4UNICASTIPV6UNICASTIPV4LABELEDUNICASTIPV6LABELEDUNICASTL3VPNIPV4UNICASTL3VPNIPV6UNICASTL3VPNIPV4MULTICASTL3VPNIPV6MULTICASTL2VPNVPLSL2VPNEVPN.
+    // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
     AfiSafiName interface{}
 
     // Configuration parameters for the AFI-SAFI.
@@ -5376,22 +5833,22 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi struct {
     Ipv6LabeledUnicast Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6LabeledUnicast
 
     // Unicast IPv4 L3VPN configuration options.
-    L3VpnIpv4Unicast Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast
+    L3vpnIpv4Unicast Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast
 
     // Unicast IPv6 L3VPN configuration options.
-    L3VpnIpv6Unicast Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast
+    L3vpnIpv6Unicast Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast
 
     // Multicast IPv4 L3VPN configuration options.
-    L3VpnIpv4Multicast Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast
+    L3vpnIpv4Multicast Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multicast
 
     // Multicast IPv6 L3VPN configuration options.
-    L3VpnIpv6Multicast Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast
+    L3vpnIpv6Multicast Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multicast
 
     // BGP-signalled VPLS configuration options.
-    L2VpnVpls Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls
+    L2vpnVpls Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls
 
     // BGP EVPN configuration options.
-    L2VpnEvpn Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn
+    L2vpnEvpn Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn
 
     // Parameters related to the use of multiple-paths for the same NLRI when they
     // are received only from this neighbor.
@@ -5403,29 +5860,32 @@ func (afiSafi *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi) GetEntityData() *types.C
     afiSafi.EntityData.YangName = "afi-safi"
     afiSafi.EntityData.BundleName = "openconfig"
     afiSafi.EntityData.ParentYangName = "afi-safis"
-    afiSafi.EntityData.SegmentPath = "afi-safi" + "[afi-safi-name='" + fmt.Sprintf("%v", afiSafi.AfiSafiName) + "']"
+    afiSafi.EntityData.SegmentPath = "afi-safi" + types.AddKeyToken(afiSafi.AfiSafiName, "afi-safi-name")
     afiSafi.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafi.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafi.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    afiSafi.EntityData.Children = make(map[string]types.YChild)
-    afiSafi.EntityData.Children["config"] = types.YChild{"Config", &afiSafi.Config}
-    afiSafi.EntityData.Children["state"] = types.YChild{"State", &afiSafi.State}
-    afiSafi.EntityData.Children["graceful-restart"] = types.YChild{"GracefulRestart", &afiSafi.GracefulRestart}
-    afiSafi.EntityData.Children["apply-policy"] = types.YChild{"ApplyPolicy", &afiSafi.ApplyPolicy}
-    afiSafi.EntityData.Children["ipv4-unicast"] = types.YChild{"Ipv4Unicast", &afiSafi.Ipv4Unicast}
-    afiSafi.EntityData.Children["ipv6-unicast"] = types.YChild{"Ipv6Unicast", &afiSafi.Ipv6Unicast}
-    afiSafi.EntityData.Children["ipv4-labeled-unicast"] = types.YChild{"Ipv4LabeledUnicast", &afiSafi.Ipv4LabeledUnicast}
-    afiSafi.EntityData.Children["ipv6-labeled-unicast"] = types.YChild{"Ipv6LabeledUnicast", &afiSafi.Ipv6LabeledUnicast}
-    afiSafi.EntityData.Children["l3vpn-ipv4-unicast"] = types.YChild{"L3VpnIpv4Unicast", &afiSafi.L3VpnIpv4Unicast}
-    afiSafi.EntityData.Children["l3vpn-ipv6-unicast"] = types.YChild{"L3VpnIpv6Unicast", &afiSafi.L3VpnIpv6Unicast}
-    afiSafi.EntityData.Children["l3vpn-ipv4-multicast"] = types.YChild{"L3VpnIpv4Multicast", &afiSafi.L3VpnIpv4Multicast}
-    afiSafi.EntityData.Children["l3vpn-ipv6-multicast"] = types.YChild{"L3VpnIpv6Multicast", &afiSafi.L3VpnIpv6Multicast}
-    afiSafi.EntityData.Children["l2vpn-vpls"] = types.YChild{"L2VpnVpls", &afiSafi.L2VpnVpls}
-    afiSafi.EntityData.Children["l2vpn-evpn"] = types.YChild{"L2VpnEvpn", &afiSafi.L2VpnEvpn}
-    afiSafi.EntityData.Children["use-multiple-paths"] = types.YChild{"UseMultiplePaths", &afiSafi.UseMultiplePaths}
-    afiSafi.EntityData.Leafs = make(map[string]types.YLeaf)
-    afiSafi.EntityData.Leafs["afi-safi-name"] = types.YLeaf{"AfiSafiName", afiSafi.AfiSafiName}
+    afiSafi.EntityData.Children = types.NewOrderedMap()
+    afiSafi.EntityData.Children.Append("config", types.YChild{"Config", &afiSafi.Config})
+    afiSafi.EntityData.Children.Append("state", types.YChild{"State", &afiSafi.State})
+    afiSafi.EntityData.Children.Append("graceful-restart", types.YChild{"GracefulRestart", &afiSafi.GracefulRestart})
+    afiSafi.EntityData.Children.Append("apply-policy", types.YChild{"ApplyPolicy", &afiSafi.ApplyPolicy})
+    afiSafi.EntityData.Children.Append("ipv4-unicast", types.YChild{"Ipv4Unicast", &afiSafi.Ipv4Unicast})
+    afiSafi.EntityData.Children.Append("ipv6-unicast", types.YChild{"Ipv6Unicast", &afiSafi.Ipv6Unicast})
+    afiSafi.EntityData.Children.Append("ipv4-labeled-unicast", types.YChild{"Ipv4LabeledUnicast", &afiSafi.Ipv4LabeledUnicast})
+    afiSafi.EntityData.Children.Append("ipv6-labeled-unicast", types.YChild{"Ipv6LabeledUnicast", &afiSafi.Ipv6LabeledUnicast})
+    afiSafi.EntityData.Children.Append("l3vpn-ipv4-unicast", types.YChild{"L3vpnIpv4Unicast", &afiSafi.L3vpnIpv4Unicast})
+    afiSafi.EntityData.Children.Append("l3vpn-ipv6-unicast", types.YChild{"L3vpnIpv6Unicast", &afiSafi.L3vpnIpv6Unicast})
+    afiSafi.EntityData.Children.Append("l3vpn-ipv4-multicast", types.YChild{"L3vpnIpv4Multicast", &afiSafi.L3vpnIpv4Multicast})
+    afiSafi.EntityData.Children.Append("l3vpn-ipv6-multicast", types.YChild{"L3vpnIpv6Multicast", &afiSafi.L3vpnIpv6Multicast})
+    afiSafi.EntityData.Children.Append("l2vpn-vpls", types.YChild{"L2vpnVpls", &afiSafi.L2vpnVpls})
+    afiSafi.EntityData.Children.Append("l2vpn-evpn", types.YChild{"L2vpnEvpn", &afiSafi.L2vpnEvpn})
+    afiSafi.EntityData.Children.Append("use-multiple-paths", types.YChild{"UseMultiplePaths", &afiSafi.UseMultiplePaths})
+    afiSafi.EntityData.Leafs = types.NewOrderedMap()
+    afiSafi.EntityData.Leafs.Append("afi-safi-name", types.YLeaf{"AfiSafiName", afiSafi.AfiSafiName})
+
+    afiSafi.EntityData.YListKeys = []string {"AfiSafiName"}
+
     return &(afiSafi.EntityData)
 }
 
@@ -5436,7 +5896,7 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Config struct {
     YFilter yfilter.YFilter
 
     // AFI,SAFI. The type is one of the following:
-    // IPV4UNICASTIPV6UNICASTIPV4LABELEDUNICASTIPV6LABELEDUNICASTL3VPNIPV4UNICASTL3VPNIPV6UNICASTL3VPNIPV4MULTICASTL3VPNIPV6MULTICASTL2VPNVPLSL2VPNEVPN.
+    // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
     AfiSafiName interface{}
 
     // This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the
@@ -5454,10 +5914,13 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Config) GetEntityData() *t
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["afi-safi-name"] = types.YLeaf{"AfiSafiName", config.AfiSafiName}
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("afi-safi-name", types.YLeaf{"AfiSafiName", config.AfiSafiName})
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -5468,7 +5931,7 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_State struct {
     YFilter yfilter.YFilter
 
     // AFI,SAFI. The type is one of the following:
-    // IPV4UNICASTIPV6UNICASTIPV4LABELEDUNICASTIPV6LABELEDUNICASTL3VPNIPV4UNICASTL3VPNIPV6UNICASTL3VPNIPV4MULTICASTL3VPNIPV6MULTICASTL2VPNVPLSL2VPNEVPN.
+    // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
     AfiSafiName interface{}
 
     // This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the
@@ -5495,12 +5958,15 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_State) GetEntityData() *typ
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["prefixes"] = types.YChild{"Prefixes", &state.Prefixes}
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["afi-safi-name"] = types.YLeaf{"AfiSafiName", state.AfiSafiName}
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["active"] = types.YLeaf{"Active", state.Active}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("prefixes", types.YChild{"Prefixes", &state.Prefixes})
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("afi-safi-name", types.YLeaf{"AfiSafiName", state.AfiSafiName})
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("active", types.YLeaf{"Active", state.Active})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -5533,11 +5999,14 @@ func (prefixes *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_State_Prefixes) GetEntit
     prefixes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixes.EntityData.Children = make(map[string]types.YChild)
-    prefixes.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefixes.EntityData.Leafs["received"] = types.YLeaf{"Received", prefixes.Received}
-    prefixes.EntityData.Leafs["sent"] = types.YLeaf{"Sent", prefixes.Sent}
-    prefixes.EntityData.Leafs["installed"] = types.YLeaf{"Installed", prefixes.Installed}
+    prefixes.EntityData.Children = types.NewOrderedMap()
+    prefixes.EntityData.Leafs = types.NewOrderedMap()
+    prefixes.EntityData.Leafs.Append("received", types.YLeaf{"Received", prefixes.Received})
+    prefixes.EntityData.Leafs.Append("sent", types.YLeaf{"Sent", prefixes.Sent})
+    prefixes.EntityData.Leafs.Append("installed", types.YLeaf{"Installed", prefixes.Installed})
+
+    prefixes.EntityData.YListKeys = []string {}
+
     return &(prefixes.EntityData)
 }
 
@@ -5564,10 +6033,13 @@ func (gracefulRestart *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_GracefulRestart) 
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    gracefulRestart.EntityData.Children = make(map[string]types.YChild)
-    gracefulRestart.EntityData.Children["config"] = types.YChild{"Config", &gracefulRestart.Config}
-    gracefulRestart.EntityData.Children["state"] = types.YChild{"State", &gracefulRestart.State}
-    gracefulRestart.EntityData.Leafs = make(map[string]types.YLeaf)
+    gracefulRestart.EntityData.Children = types.NewOrderedMap()
+    gracefulRestart.EntityData.Children.Append("config", types.YChild{"Config", &gracefulRestart.Config})
+    gracefulRestart.EntityData.Children.Append("state", types.YChild{"State", &gracefulRestart.State})
+    gracefulRestart.EntityData.Leafs = types.NewOrderedMap()
+
+    gracefulRestart.EntityData.YListKeys = []string {}
+
     return &(gracefulRestart.EntityData)
 }
 
@@ -5592,9 +6064,12 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_GracefulRestart_Config) Ge
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -5627,11 +6102,14 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_GracefulRestart_State) GetE
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["received"] = types.YLeaf{"Received", state.Received}
-    state.EntityData.Leafs["advertised"] = types.YLeaf{"Advertised", state.Advertised}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("received", types.YLeaf{"Received", state.Received})
+    state.EntityData.Leafs.Append("advertised", types.YLeaf{"Advertised", state.Advertised})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -5661,10 +6139,13 @@ func (applyPolicy *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_ApplyPolicy) GetEntit
     applyPolicy.EntityData.NamespaceTable = openconfig.GetNamespaces()
     applyPolicy.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    applyPolicy.EntityData.Children = make(map[string]types.YChild)
-    applyPolicy.EntityData.Children["config"] = types.YChild{"Config", &applyPolicy.Config}
-    applyPolicy.EntityData.Children["state"] = types.YChild{"State", &applyPolicy.State}
-    applyPolicy.EntityData.Leafs = make(map[string]types.YLeaf)
+    applyPolicy.EntityData.Children = types.NewOrderedMap()
+    applyPolicy.EntityData.Children.Append("config", types.YChild{"Config", &applyPolicy.Config})
+    applyPolicy.EntityData.Children.Append("state", types.YChild{"State", &applyPolicy.State})
+    applyPolicy.EntityData.Leafs = types.NewOrderedMap()
+
+    applyPolicy.EntityData.YListKeys = []string {}
+
     return &(applyPolicy.EntityData)
 }
 
@@ -5707,12 +6188,15 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_ApplyPolicy_Config) GetEnt
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["import-policy"] = types.YLeaf{"ImportPolicy", config.ImportPolicy}
-    config.EntityData.Leafs["default-import-policy"] = types.YLeaf{"DefaultImportPolicy", config.DefaultImportPolicy}
-    config.EntityData.Leafs["export-policy"] = types.YLeaf{"ExportPolicy", config.ExportPolicy}
-    config.EntityData.Leafs["default-export-policy"] = types.YLeaf{"DefaultExportPolicy", config.DefaultExportPolicy}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("import-policy", types.YLeaf{"ImportPolicy", config.ImportPolicy})
+    config.EntityData.Leafs.Append("default-import-policy", types.YLeaf{"DefaultImportPolicy", config.DefaultImportPolicy})
+    config.EntityData.Leafs.Append("export-policy", types.YLeaf{"ExportPolicy", config.ExportPolicy})
+    config.EntityData.Leafs.Append("default-export-policy", types.YLeaf{"DefaultExportPolicy", config.DefaultExportPolicy})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -5755,12 +6239,15 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_ApplyPolicy_State) GetEntit
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["import-policy"] = types.YLeaf{"ImportPolicy", state.ImportPolicy}
-    state.EntityData.Leafs["default-import-policy"] = types.YLeaf{"DefaultImportPolicy", state.DefaultImportPolicy}
-    state.EntityData.Leafs["export-policy"] = types.YLeaf{"ExportPolicy", state.ExportPolicy}
-    state.EntityData.Leafs["default-export-policy"] = types.YLeaf{"DefaultExportPolicy", state.DefaultExportPolicy}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("import-policy", types.YLeaf{"ImportPolicy", state.ImportPolicy})
+    state.EntityData.Leafs.Append("default-import-policy", types.YLeaf{"DefaultImportPolicy", state.DefaultImportPolicy})
+    state.EntityData.Leafs.Append("export-policy", types.YLeaf{"ExportPolicy", state.ExportPolicy})
+    state.EntityData.Leafs.Append("default-export-policy", types.YLeaf{"DefaultExportPolicy", state.DefaultExportPolicy})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -5790,11 +6277,14 @@ func (ipv4Unicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4Unicast) GetEntit
     ipv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ipv4Unicast.EntityData.Children = make(map[string]types.YChild)
-    ipv4Unicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &ipv4Unicast.PrefixLimit}
-    ipv4Unicast.EntityData.Children["config"] = types.YChild{"Config", &ipv4Unicast.Config}
-    ipv4Unicast.EntityData.Children["state"] = types.YChild{"State", &ipv4Unicast.State}
-    ipv4Unicast.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4Unicast.EntityData.Children = types.NewOrderedMap()
+    ipv4Unicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &ipv4Unicast.PrefixLimit})
+    ipv4Unicast.EntityData.Children.Append("config", types.YChild{"Config", &ipv4Unicast.Config})
+    ipv4Unicast.EntityData.Children.Append("state", types.YChild{"State", &ipv4Unicast.State})
+    ipv4Unicast.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4Unicast.EntityData.YListKeys = []string {}
+
     return &(ipv4Unicast.EntityData)
 }
 
@@ -5822,10 +6312,13 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLim
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
@@ -5839,6 +6332,12 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit_Config stru
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -5862,11 +6361,15 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit_Co
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -5880,6 +6383,12 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit_State struc
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -5903,11 +6412,15 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit_Sta
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -5933,9 +6446,12 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4Unicast_Config) GetEnt
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["send-default-route"] = types.YLeaf{"SendDefaultRoute", config.SendDefaultRoute}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("send-default-route", types.YLeaf{"SendDefaultRoute", config.SendDefaultRoute})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -5961,9 +6477,12 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4Unicast_State) GetEntit
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["send-default-route"] = types.YLeaf{"SendDefaultRoute", state.SendDefaultRoute}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("send-default-route", types.YLeaf{"SendDefaultRoute", state.SendDefaultRoute})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -5993,11 +6512,14 @@ func (ipv6Unicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6Unicast) GetEntit
     ipv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ipv6Unicast.EntityData.Children = make(map[string]types.YChild)
-    ipv6Unicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &ipv6Unicast.PrefixLimit}
-    ipv6Unicast.EntityData.Children["config"] = types.YChild{"Config", &ipv6Unicast.Config}
-    ipv6Unicast.EntityData.Children["state"] = types.YChild{"State", &ipv6Unicast.State}
-    ipv6Unicast.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Unicast.EntityData.Children = types.NewOrderedMap()
+    ipv6Unicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &ipv6Unicast.PrefixLimit})
+    ipv6Unicast.EntityData.Children.Append("config", types.YChild{"Config", &ipv6Unicast.Config})
+    ipv6Unicast.EntityData.Children.Append("state", types.YChild{"State", &ipv6Unicast.State})
+    ipv6Unicast.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Unicast.EntityData.YListKeys = []string {}
+
     return &(ipv6Unicast.EntityData)
 }
 
@@ -6025,10 +6547,13 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLim
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
@@ -6042,6 +6567,12 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit_Config stru
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -6065,11 +6596,15 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit_Co
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -6083,6 +6618,12 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit_State struc
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -6106,11 +6647,15 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit_Sta
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -6136,9 +6681,12 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6Unicast_Config) GetEnt
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["send-default-route"] = types.YLeaf{"SendDefaultRoute", config.SendDefaultRoute}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("send-default-route", types.YLeaf{"SendDefaultRoute", config.SendDefaultRoute})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -6164,9 +6712,12 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6Unicast_State) GetEntit
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["send-default-route"] = types.YLeaf{"SendDefaultRoute", state.SendDefaultRoute}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("send-default-route", types.YLeaf{"SendDefaultRoute", state.SendDefaultRoute})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -6190,9 +6741,12 @@ func (ipv4LabeledUnicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4LabeledUni
     ipv4LabeledUnicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4LabeledUnicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ipv4LabeledUnicast.EntityData.Children = make(map[string]types.YChild)
-    ipv4LabeledUnicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &ipv4LabeledUnicast.PrefixLimit}
-    ipv4LabeledUnicast.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4LabeledUnicast.EntityData.Children = types.NewOrderedMap()
+    ipv4LabeledUnicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &ipv4LabeledUnicast.PrefixLimit})
+    ipv4LabeledUnicast.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4LabeledUnicast.EntityData.YListKeys = []string {}
+
     return &(ipv4LabeledUnicast.EntityData)
 }
 
@@ -6220,10 +6774,13 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4LabeledUnicast_Pr
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
@@ -6237,6 +6794,12 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4LabeledUnicast_PrefixLimit_Conf
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -6260,11 +6823,15 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4LabeledUnicast_PrefixL
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -6278,6 +6845,12 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4LabeledUnicast_PrefixLimit_Stat
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -6301,11 +6874,15 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4LabeledUnicast_PrefixLi
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -6329,9 +6906,12 @@ func (ipv6LabeledUnicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6LabeledUni
     ipv6LabeledUnicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6LabeledUnicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ipv6LabeledUnicast.EntityData.Children = make(map[string]types.YChild)
-    ipv6LabeledUnicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &ipv6LabeledUnicast.PrefixLimit}
-    ipv6LabeledUnicast.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6LabeledUnicast.EntityData.Children = types.NewOrderedMap()
+    ipv6LabeledUnicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &ipv6LabeledUnicast.PrefixLimit})
+    ipv6LabeledUnicast.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6LabeledUnicast.EntityData.YListKeys = []string {}
+
     return &(ipv6LabeledUnicast.EntityData)
 }
 
@@ -6359,10 +6939,13 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6LabeledUnicast_Pr
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
@@ -6376,6 +6959,12 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6LabeledUnicast_PrefixLimit_Conf
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -6399,11 +6988,15 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6LabeledUnicast_PrefixL
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -6417,6 +7010,12 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6LabeledUnicast_PrefixLimit_Stat
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -6440,55 +7039,62 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6LabeledUnicast_PrefixLi
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast
 // Unicast IPv4 L3VPN configuration options
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure the maximum number of prefixes that will be accepted from a peer.
-    PrefixLimit Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit
+    PrefixLimit Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit
 }
 
-func (l3VpnIpv4Unicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast) GetEntityData() *types.CommonEntityData {
-    l3VpnIpv4Unicast.EntityData.YFilter = l3VpnIpv4Unicast.YFilter
-    l3VpnIpv4Unicast.EntityData.YangName = "l3vpn-ipv4-unicast"
-    l3VpnIpv4Unicast.EntityData.BundleName = "openconfig"
-    l3VpnIpv4Unicast.EntityData.ParentYangName = "afi-safi"
-    l3VpnIpv4Unicast.EntityData.SegmentPath = "l3vpn-ipv4-unicast"
-    l3VpnIpv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    l3VpnIpv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    l3VpnIpv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (l3vpnIpv4Unicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast) GetEntityData() *types.CommonEntityData {
+    l3vpnIpv4Unicast.EntityData.YFilter = l3vpnIpv4Unicast.YFilter
+    l3vpnIpv4Unicast.EntityData.YangName = "l3vpn-ipv4-unicast"
+    l3vpnIpv4Unicast.EntityData.BundleName = "openconfig"
+    l3vpnIpv4Unicast.EntityData.ParentYangName = "afi-safi"
+    l3vpnIpv4Unicast.EntityData.SegmentPath = "l3vpn-ipv4-unicast"
+    l3vpnIpv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    l3vpnIpv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    l3vpnIpv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    l3VpnIpv4Unicast.EntityData.Children = make(map[string]types.YChild)
-    l3VpnIpv4Unicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &l3VpnIpv4Unicast.PrefixLimit}
-    l3VpnIpv4Unicast.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(l3VpnIpv4Unicast.EntityData)
+    l3vpnIpv4Unicast.EntityData.Children = types.NewOrderedMap()
+    l3vpnIpv4Unicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &l3vpnIpv4Unicast.PrefixLimit})
+    l3vpnIpv4Unicast.EntityData.Leafs = types.NewOrderedMap()
+
+    l3vpnIpv4Unicast.EntityData.YListKeys = []string {}
+
+    return &(l3vpnIpv4Unicast.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit
 // Configure the maximum number of prefixes that will be
 // accepted from a peer
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters relating to the prefix limit for the AFI-SAFI.
-    Config Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_Config
+    Config Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_Config
 
     // State information relating to the prefix-limit for the AFI-SAFI.
-    State Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_State
+    State Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_State
 }
 
-func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
+func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
     prefixLimit.EntityData.YFilter = prefixLimit.YFilter
     prefixLimit.EntityData.YangName = "prefix-limit"
     prefixLimit.EntityData.BundleName = "openconfig"
@@ -6498,23 +7104,32 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast_Pref
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_Config
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_Config
 // Configuration parameters relating to the prefix
 // limit for the AFI-SAFI
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_Config struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -6528,7 +7143,7 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_Config
     RestartTimer interface{}
 }
 
-func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
+func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -6538,24 +7153,34 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLim
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_State
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_State
 // State information relating to the prefix-limit for the
 // AFI-SAFI
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_State struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -6569,7 +7194,7 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_State 
     RestartTimer interface{}
 }
 
-func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
+func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -6579,55 +7204,62 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimi
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast
 // Unicast IPv6 L3VPN configuration options
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure the maximum number of prefixes that will be accepted from a peer.
-    PrefixLimit Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit
+    PrefixLimit Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit
 }
 
-func (l3VpnIpv6Unicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast) GetEntityData() *types.CommonEntityData {
-    l3VpnIpv6Unicast.EntityData.YFilter = l3VpnIpv6Unicast.YFilter
-    l3VpnIpv6Unicast.EntityData.YangName = "l3vpn-ipv6-unicast"
-    l3VpnIpv6Unicast.EntityData.BundleName = "openconfig"
-    l3VpnIpv6Unicast.EntityData.ParentYangName = "afi-safi"
-    l3VpnIpv6Unicast.EntityData.SegmentPath = "l3vpn-ipv6-unicast"
-    l3VpnIpv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    l3VpnIpv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    l3VpnIpv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (l3vpnIpv6Unicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast) GetEntityData() *types.CommonEntityData {
+    l3vpnIpv6Unicast.EntityData.YFilter = l3vpnIpv6Unicast.YFilter
+    l3vpnIpv6Unicast.EntityData.YangName = "l3vpn-ipv6-unicast"
+    l3vpnIpv6Unicast.EntityData.BundleName = "openconfig"
+    l3vpnIpv6Unicast.EntityData.ParentYangName = "afi-safi"
+    l3vpnIpv6Unicast.EntityData.SegmentPath = "l3vpn-ipv6-unicast"
+    l3vpnIpv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    l3vpnIpv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    l3vpnIpv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    l3VpnIpv6Unicast.EntityData.Children = make(map[string]types.YChild)
-    l3VpnIpv6Unicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &l3VpnIpv6Unicast.PrefixLimit}
-    l3VpnIpv6Unicast.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(l3VpnIpv6Unicast.EntityData)
+    l3vpnIpv6Unicast.EntityData.Children = types.NewOrderedMap()
+    l3vpnIpv6Unicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &l3vpnIpv6Unicast.PrefixLimit})
+    l3vpnIpv6Unicast.EntityData.Leafs = types.NewOrderedMap()
+
+    l3vpnIpv6Unicast.EntityData.YListKeys = []string {}
+
+    return &(l3vpnIpv6Unicast.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit
 // Configure the maximum number of prefixes that will be
 // accepted from a peer
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters relating to the prefix limit for the AFI-SAFI.
-    Config Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_Config
+    Config Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_Config
 
     // State information relating to the prefix-limit for the AFI-SAFI.
-    State Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_State
+    State Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_State
 }
 
-func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
+func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
     prefixLimit.EntityData.YFilter = prefixLimit.YFilter
     prefixLimit.EntityData.YangName = "prefix-limit"
     prefixLimit.EntityData.BundleName = "openconfig"
@@ -6637,23 +7269,32 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast_Pref
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_Config
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_Config
 // Configuration parameters relating to the prefix
 // limit for the AFI-SAFI
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_Config struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -6667,7 +7308,7 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_Config
     RestartTimer interface{}
 }
 
-func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
+func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -6677,24 +7318,34 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLim
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_State
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_State
 // State information relating to the prefix-limit for the
 // AFI-SAFI
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_State struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -6708,7 +7359,7 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_State 
     RestartTimer interface{}
 }
 
-func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
+func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -6718,55 +7369,62 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimi
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multicast
 // Multicast IPv4 L3VPN configuration options
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multicast struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure the maximum number of prefixes that will be accepted from a peer.
-    PrefixLimit Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit
+    PrefixLimit Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit
 }
 
-func (l3VpnIpv4Multicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast) GetEntityData() *types.CommonEntityData {
-    l3VpnIpv4Multicast.EntityData.YFilter = l3VpnIpv4Multicast.YFilter
-    l3VpnIpv4Multicast.EntityData.YangName = "l3vpn-ipv4-multicast"
-    l3VpnIpv4Multicast.EntityData.BundleName = "openconfig"
-    l3VpnIpv4Multicast.EntityData.ParentYangName = "afi-safi"
-    l3VpnIpv4Multicast.EntityData.SegmentPath = "l3vpn-ipv4-multicast"
-    l3VpnIpv4Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    l3VpnIpv4Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    l3VpnIpv4Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (l3vpnIpv4Multicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multicast) GetEntityData() *types.CommonEntityData {
+    l3vpnIpv4Multicast.EntityData.YFilter = l3vpnIpv4Multicast.YFilter
+    l3vpnIpv4Multicast.EntityData.YangName = "l3vpn-ipv4-multicast"
+    l3vpnIpv4Multicast.EntityData.BundleName = "openconfig"
+    l3vpnIpv4Multicast.EntityData.ParentYangName = "afi-safi"
+    l3vpnIpv4Multicast.EntityData.SegmentPath = "l3vpn-ipv4-multicast"
+    l3vpnIpv4Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    l3vpnIpv4Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    l3vpnIpv4Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    l3VpnIpv4Multicast.EntityData.Children = make(map[string]types.YChild)
-    l3VpnIpv4Multicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &l3VpnIpv4Multicast.PrefixLimit}
-    l3VpnIpv4Multicast.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(l3VpnIpv4Multicast.EntityData)
+    l3vpnIpv4Multicast.EntityData.Children = types.NewOrderedMap()
+    l3vpnIpv4Multicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &l3vpnIpv4Multicast.PrefixLimit})
+    l3vpnIpv4Multicast.EntityData.Leafs = types.NewOrderedMap()
+
+    l3vpnIpv4Multicast.EntityData.YListKeys = []string {}
+
+    return &(l3vpnIpv4Multicast.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit
 // Configure the maximum number of prefixes that will be
 // accepted from a peer
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters relating to the prefix limit for the AFI-SAFI.
-    Config Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_Config
+    Config Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_Config
 
     // State information relating to the prefix-limit for the AFI-SAFI.
-    State Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_State
+    State Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_State
 }
 
-func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
+func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
     prefixLimit.EntityData.YFilter = prefixLimit.YFilter
     prefixLimit.EntityData.YangName = "prefix-limit"
     prefixLimit.EntityData.BundleName = "openconfig"
@@ -6776,23 +7434,32 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast_Pr
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_Config
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_Config
 // Configuration parameters relating to the prefix
 // limit for the AFI-SAFI
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_Config struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -6806,7 +7473,7 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_Conf
     RestartTimer interface{}
 }
 
-func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
+func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -6816,24 +7483,34 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixL
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_State
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_State
 // State information relating to the prefix-limit for the
 // AFI-SAFI
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_State struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -6847,7 +7524,7 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_Stat
     RestartTimer interface{}
 }
 
-func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
+func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -6857,55 +7534,62 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLi
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multicast
 // Multicast IPv6 L3VPN configuration options
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multicast struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure the maximum number of prefixes that will be accepted from a peer.
-    PrefixLimit Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit
+    PrefixLimit Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit
 }
 
-func (l3VpnIpv6Multicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast) GetEntityData() *types.CommonEntityData {
-    l3VpnIpv6Multicast.EntityData.YFilter = l3VpnIpv6Multicast.YFilter
-    l3VpnIpv6Multicast.EntityData.YangName = "l3vpn-ipv6-multicast"
-    l3VpnIpv6Multicast.EntityData.BundleName = "openconfig"
-    l3VpnIpv6Multicast.EntityData.ParentYangName = "afi-safi"
-    l3VpnIpv6Multicast.EntityData.SegmentPath = "l3vpn-ipv6-multicast"
-    l3VpnIpv6Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    l3VpnIpv6Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    l3VpnIpv6Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (l3vpnIpv6Multicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multicast) GetEntityData() *types.CommonEntityData {
+    l3vpnIpv6Multicast.EntityData.YFilter = l3vpnIpv6Multicast.YFilter
+    l3vpnIpv6Multicast.EntityData.YangName = "l3vpn-ipv6-multicast"
+    l3vpnIpv6Multicast.EntityData.BundleName = "openconfig"
+    l3vpnIpv6Multicast.EntityData.ParentYangName = "afi-safi"
+    l3vpnIpv6Multicast.EntityData.SegmentPath = "l3vpn-ipv6-multicast"
+    l3vpnIpv6Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    l3vpnIpv6Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    l3vpnIpv6Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    l3VpnIpv6Multicast.EntityData.Children = make(map[string]types.YChild)
-    l3VpnIpv6Multicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &l3VpnIpv6Multicast.PrefixLimit}
-    l3VpnIpv6Multicast.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(l3VpnIpv6Multicast.EntityData)
+    l3vpnIpv6Multicast.EntityData.Children = types.NewOrderedMap()
+    l3vpnIpv6Multicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &l3vpnIpv6Multicast.PrefixLimit})
+    l3vpnIpv6Multicast.EntityData.Leafs = types.NewOrderedMap()
+
+    l3vpnIpv6Multicast.EntityData.YListKeys = []string {}
+
+    return &(l3vpnIpv6Multicast.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit
 // Configure the maximum number of prefixes that will be
 // accepted from a peer
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters relating to the prefix limit for the AFI-SAFI.
-    Config Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_Config
+    Config Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_Config
 
     // State information relating to the prefix-limit for the AFI-SAFI.
-    State Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_State
+    State Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_State
 }
 
-func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
+func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
     prefixLimit.EntityData.YFilter = prefixLimit.YFilter
     prefixLimit.EntityData.YangName = "prefix-limit"
     prefixLimit.EntityData.BundleName = "openconfig"
@@ -6915,23 +7599,32 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast_Pr
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_Config
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_Config
 // Configuration parameters relating to the prefix
 // limit for the AFI-SAFI
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_Config struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -6945,7 +7638,7 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_Conf
     RestartTimer interface{}
 }
 
-func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
+func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -6955,24 +7648,34 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixL
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_State
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_State
 // State information relating to the prefix-limit for the
 // AFI-SAFI
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_State struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -6986,7 +7689,7 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_Stat
     RestartTimer interface{}
 }
 
-func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
+func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -6996,55 +7699,62 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLi
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls
 // BGP-signalled VPLS configuration options
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure the maximum number of prefixes that will be accepted from a peer.
-    PrefixLimit Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit
+    PrefixLimit Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit
 }
 
-func (l2VpnVpls *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls) GetEntityData() *types.CommonEntityData {
-    l2VpnVpls.EntityData.YFilter = l2VpnVpls.YFilter
-    l2VpnVpls.EntityData.YangName = "l2vpn-vpls"
-    l2VpnVpls.EntityData.BundleName = "openconfig"
-    l2VpnVpls.EntityData.ParentYangName = "afi-safi"
-    l2VpnVpls.EntityData.SegmentPath = "l2vpn-vpls"
-    l2VpnVpls.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    l2VpnVpls.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    l2VpnVpls.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (l2vpnVpls *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls) GetEntityData() *types.CommonEntityData {
+    l2vpnVpls.EntityData.YFilter = l2vpnVpls.YFilter
+    l2vpnVpls.EntityData.YangName = "l2vpn-vpls"
+    l2vpnVpls.EntityData.BundleName = "openconfig"
+    l2vpnVpls.EntityData.ParentYangName = "afi-safi"
+    l2vpnVpls.EntityData.SegmentPath = "l2vpn-vpls"
+    l2vpnVpls.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    l2vpnVpls.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    l2vpnVpls.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    l2VpnVpls.EntityData.Children = make(map[string]types.YChild)
-    l2VpnVpls.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &l2VpnVpls.PrefixLimit}
-    l2VpnVpls.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(l2VpnVpls.EntityData)
+    l2vpnVpls.EntityData.Children = types.NewOrderedMap()
+    l2vpnVpls.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &l2vpnVpls.PrefixLimit})
+    l2vpnVpls.EntityData.Leafs = types.NewOrderedMap()
+
+    l2vpnVpls.EntityData.YListKeys = []string {}
+
+    return &(l2vpnVpls.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit
 // Configure the maximum number of prefixes that will be
 // accepted from a peer
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters relating to the prefix limit for the AFI-SAFI.
-    Config Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_Config
+    Config Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_Config
 
     // State information relating to the prefix-limit for the AFI-SAFI.
-    State Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_State
+    State Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_State
 }
 
-func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit) GetEntityData() *types.CommonEntityData {
+func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit) GetEntityData() *types.CommonEntityData {
     prefixLimit.EntityData.YFilter = prefixLimit.YFilter
     prefixLimit.EntityData.YangName = "prefix-limit"
     prefixLimit.EntityData.BundleName = "openconfig"
@@ -7054,23 +7764,32 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_Config
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_Config
 // Configuration parameters relating to the prefix
 // limit for the AFI-SAFI
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_Config struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -7084,7 +7803,7 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_Config struct
     RestartTimer interface{}
 }
 
-func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
+func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -7094,24 +7813,34 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_Conf
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_State
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_State
 // State information relating to the prefix-limit for the
 // AFI-SAFI
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_State struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -7125,7 +7854,7 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_State struct 
     RestartTimer interface{}
 }
 
-func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
+func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -7135,55 +7864,62 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_State
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn
 // BGP EVPN configuration options
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure the maximum number of prefixes that will be accepted from a peer.
-    PrefixLimit Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit
+    PrefixLimit Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit
 }
 
-func (l2VpnEvpn *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn) GetEntityData() *types.CommonEntityData {
-    l2VpnEvpn.EntityData.YFilter = l2VpnEvpn.YFilter
-    l2VpnEvpn.EntityData.YangName = "l2vpn-evpn"
-    l2VpnEvpn.EntityData.BundleName = "openconfig"
-    l2VpnEvpn.EntityData.ParentYangName = "afi-safi"
-    l2VpnEvpn.EntityData.SegmentPath = "l2vpn-evpn"
-    l2VpnEvpn.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    l2VpnEvpn.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    l2VpnEvpn.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (l2vpnEvpn *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn) GetEntityData() *types.CommonEntityData {
+    l2vpnEvpn.EntityData.YFilter = l2vpnEvpn.YFilter
+    l2vpnEvpn.EntityData.YangName = "l2vpn-evpn"
+    l2vpnEvpn.EntityData.BundleName = "openconfig"
+    l2vpnEvpn.EntityData.ParentYangName = "afi-safi"
+    l2vpnEvpn.EntityData.SegmentPath = "l2vpn-evpn"
+    l2vpnEvpn.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    l2vpnEvpn.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    l2vpnEvpn.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    l2VpnEvpn.EntityData.Children = make(map[string]types.YChild)
-    l2VpnEvpn.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &l2VpnEvpn.PrefixLimit}
-    l2VpnEvpn.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(l2VpnEvpn.EntityData)
+    l2vpnEvpn.EntityData.Children = types.NewOrderedMap()
+    l2vpnEvpn.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &l2vpnEvpn.PrefixLimit})
+    l2vpnEvpn.EntityData.Leafs = types.NewOrderedMap()
+
+    l2vpnEvpn.EntityData.YListKeys = []string {}
+
+    return &(l2vpnEvpn.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit
 // Configure the maximum number of prefixes that will be
 // accepted from a peer
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters relating to the prefix limit for the AFI-SAFI.
-    Config Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_Config
+    Config Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_Config
 
     // State information relating to the prefix-limit for the AFI-SAFI.
-    State Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_State
+    State Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_State
 }
 
-func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit) GetEntityData() *types.CommonEntityData {
+func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit) GetEntityData() *types.CommonEntityData {
     prefixLimit.EntityData.YFilter = prefixLimit.YFilter
     prefixLimit.EntityData.YangName = "prefix-limit"
     prefixLimit.EntityData.BundleName = "openconfig"
@@ -7193,23 +7929,32 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_Config
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_Config
 // Configuration parameters relating to the prefix
 // limit for the AFI-SAFI
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_Config struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -7223,7 +7968,7 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_Config struct
     RestartTimer interface{}
 }
 
-func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
+func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -7233,24 +7978,34 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_Conf
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_State
+// Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_State
 // State information relating to the prefix-limit for the
 // AFI-SAFI
-type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_State struct {
+type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -7264,7 +8019,7 @@ type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_State struct 
     RestartTimer interface{}
 }
 
-func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
+func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -7274,11 +8029,15 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_State
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -7309,11 +8068,14 @@ func (useMultiplePaths *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_UseMultiplePaths
     useMultiplePaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     useMultiplePaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    useMultiplePaths.EntityData.Children = make(map[string]types.YChild)
-    useMultiplePaths.EntityData.Children["config"] = types.YChild{"Config", &useMultiplePaths.Config}
-    useMultiplePaths.EntityData.Children["state"] = types.YChild{"State", &useMultiplePaths.State}
-    useMultiplePaths.EntityData.Children["ebgp"] = types.YChild{"Ebgp", &useMultiplePaths.Ebgp}
-    useMultiplePaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    useMultiplePaths.EntityData.Children = types.NewOrderedMap()
+    useMultiplePaths.EntityData.Children.Append("config", types.YChild{"Config", &useMultiplePaths.Config})
+    useMultiplePaths.EntityData.Children.Append("state", types.YChild{"State", &useMultiplePaths.State})
+    useMultiplePaths.EntityData.Children.Append("ebgp", types.YChild{"Ebgp", &useMultiplePaths.Ebgp})
+    useMultiplePaths.EntityData.Leafs = types.NewOrderedMap()
+
+    useMultiplePaths.EntityData.YListKeys = []string {}
+
     return &(useMultiplePaths.EntityData)
 }
 
@@ -7339,9 +8101,12 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_UseMultiplePaths_Config) G
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -7367,9 +8132,12 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_UseMultiplePaths_State) Get
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -7396,10 +8164,13 @@ func (ebgp *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_UseMultiplePaths_Ebgp) GetEn
     ebgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ebgp.EntityData.Children = make(map[string]types.YChild)
-    ebgp.EntityData.Children["config"] = types.YChild{"Config", &ebgp.Config}
-    ebgp.EntityData.Children["state"] = types.YChild{"State", &ebgp.State}
-    ebgp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ebgp.EntityData.Children = types.NewOrderedMap()
+    ebgp.EntityData.Children.Append("config", types.YChild{"Config", &ebgp.Config})
+    ebgp.EntityData.Children.Append("state", types.YChild{"State", &ebgp.State})
+    ebgp.EntityData.Leafs = types.NewOrderedMap()
+
+    ebgp.EntityData.YListKeys = []string {}
+
     return &(ebgp.EntityData)
 }
 
@@ -7425,9 +8196,12 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_UseMultiplePaths_Ebgp_Conf
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["allow-multiple-as"] = types.YLeaf{"AllowMultipleAs", config.AllowMultipleAs}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("allow-multiple-as", types.YLeaf{"AllowMultipleAs", config.AllowMultipleAs})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -7453,9 +8227,12 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_UseMultiplePaths_Ebgp_State
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["allow-multiple-as"] = types.YLeaf{"AllowMultipleAs", state.AllowMultipleAs}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("allow-multiple-as", types.YLeaf{"AllowMultipleAs", state.AllowMultipleAs})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -7468,7 +8245,7 @@ type Bgp_PeerGroups struct {
     // List of BGP peer-groups configured on the local system - uniquely
     // identified by peer-group name. The type is slice of
     // Bgp_PeerGroups_PeerGroup.
-    PeerGroup []Bgp_PeerGroups_PeerGroup
+    PeerGroup []*Bgp_PeerGroups_PeerGroup
 }
 
 func (peerGroups *Bgp_PeerGroups) GetEntityData() *types.CommonEntityData {
@@ -7481,12 +8258,15 @@ func (peerGroups *Bgp_PeerGroups) GetEntityData() *types.CommonEntityData {
     peerGroups.EntityData.NamespaceTable = openconfig.GetNamespaces()
     peerGroups.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    peerGroups.EntityData.Children = make(map[string]types.YChild)
-    peerGroups.EntityData.Children["peer-group"] = types.YChild{"PeerGroup", nil}
+    peerGroups.EntityData.Children = types.NewOrderedMap()
+    peerGroups.EntityData.Children.Append("peer-group", types.YChild{"PeerGroup", nil})
     for i := range peerGroups.PeerGroup {
-        peerGroups.EntityData.Children[types.GetSegmentPath(&peerGroups.PeerGroup[i])] = types.YChild{"PeerGroup", &peerGroups.PeerGroup[i]}
+        peerGroups.EntityData.Children.Append(types.GetSegmentPath(peerGroups.PeerGroup[i]), types.YChild{"PeerGroup", peerGroups.PeerGroup[i]})
     }
-    peerGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    peerGroups.EntityData.YListKeys = []string {}
+
     return &(peerGroups.EntityData)
 }
 
@@ -7553,28 +8333,31 @@ func (peerGroup *Bgp_PeerGroups_PeerGroup) GetEntityData() *types.CommonEntityDa
     peerGroup.EntityData.YangName = "peer-group"
     peerGroup.EntityData.BundleName = "openconfig"
     peerGroup.EntityData.ParentYangName = "peer-groups"
-    peerGroup.EntityData.SegmentPath = "peer-group" + "[peer-group-name='" + fmt.Sprintf("%v", peerGroup.PeerGroupName) + "']"
+    peerGroup.EntityData.SegmentPath = "peer-group" + types.AddKeyToken(peerGroup.PeerGroupName, "peer-group-name")
     peerGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     peerGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     peerGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    peerGroup.EntityData.Children = make(map[string]types.YChild)
-    peerGroup.EntityData.Children["config"] = types.YChild{"Config", &peerGroup.Config}
-    peerGroup.EntityData.Children["state"] = types.YChild{"State", &peerGroup.State}
-    peerGroup.EntityData.Children["timers"] = types.YChild{"Timers", &peerGroup.Timers}
-    peerGroup.EntityData.Children["transport"] = types.YChild{"Transport", &peerGroup.Transport}
-    peerGroup.EntityData.Children["error-handling"] = types.YChild{"ErrorHandling", &peerGroup.ErrorHandling}
-    peerGroup.EntityData.Children["graceful-restart"] = types.YChild{"GracefulRestart", &peerGroup.GracefulRestart}
-    peerGroup.EntityData.Children["logging-options"] = types.YChild{"LoggingOptions", &peerGroup.LoggingOptions}
-    peerGroup.EntityData.Children["ebgp-multihop"] = types.YChild{"EbgpMultihop", &peerGroup.EbgpMultihop}
-    peerGroup.EntityData.Children["route-reflector"] = types.YChild{"RouteReflector", &peerGroup.RouteReflector}
-    peerGroup.EntityData.Children["as-path-options"] = types.YChild{"AsPathOptions", &peerGroup.AsPathOptions}
-    peerGroup.EntityData.Children["add-paths"] = types.YChild{"AddPaths", &peerGroup.AddPaths}
-    peerGroup.EntityData.Children["use-multiple-paths"] = types.YChild{"UseMultiplePaths", &peerGroup.UseMultiplePaths}
-    peerGroup.EntityData.Children["apply-policy"] = types.YChild{"ApplyPolicy", &peerGroup.ApplyPolicy}
-    peerGroup.EntityData.Children["afi-safis"] = types.YChild{"AfiSafis", &peerGroup.AfiSafis}
-    peerGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerGroup.EntityData.Leafs["peer-group-name"] = types.YLeaf{"PeerGroupName", peerGroup.PeerGroupName}
+    peerGroup.EntityData.Children = types.NewOrderedMap()
+    peerGroup.EntityData.Children.Append("config", types.YChild{"Config", &peerGroup.Config})
+    peerGroup.EntityData.Children.Append("state", types.YChild{"State", &peerGroup.State})
+    peerGroup.EntityData.Children.Append("timers", types.YChild{"Timers", &peerGroup.Timers})
+    peerGroup.EntityData.Children.Append("transport", types.YChild{"Transport", &peerGroup.Transport})
+    peerGroup.EntityData.Children.Append("error-handling", types.YChild{"ErrorHandling", &peerGroup.ErrorHandling})
+    peerGroup.EntityData.Children.Append("graceful-restart", types.YChild{"GracefulRestart", &peerGroup.GracefulRestart})
+    peerGroup.EntityData.Children.Append("logging-options", types.YChild{"LoggingOptions", &peerGroup.LoggingOptions})
+    peerGroup.EntityData.Children.Append("ebgp-multihop", types.YChild{"EbgpMultihop", &peerGroup.EbgpMultihop})
+    peerGroup.EntityData.Children.Append("route-reflector", types.YChild{"RouteReflector", &peerGroup.RouteReflector})
+    peerGroup.EntityData.Children.Append("as-path-options", types.YChild{"AsPathOptions", &peerGroup.AsPathOptions})
+    peerGroup.EntityData.Children.Append("add-paths", types.YChild{"AddPaths", &peerGroup.AddPaths})
+    peerGroup.EntityData.Children.Append("use-multiple-paths", types.YChild{"UseMultiplePaths", &peerGroup.UseMultiplePaths})
+    peerGroup.EntityData.Children.Append("apply-policy", types.YChild{"ApplyPolicy", &peerGroup.ApplyPolicy})
+    peerGroup.EntityData.Children.Append("afi-safis", types.YChild{"AfiSafis", &peerGroup.AfiSafis})
+    peerGroup.EntityData.Leafs = types.NewOrderedMap()
+    peerGroup.EntityData.Leafs.Append("peer-group-name", types.YLeaf{"PeerGroupName", peerGroup.PeerGroupName})
+
+    peerGroup.EntityData.YListKeys = []string {"PeerGroupName"}
+
     return &(peerGroup.EntityData)
 }
 
@@ -7607,7 +8390,7 @@ type Bgp_PeerGroups_PeerGroup_Config struct {
 
     // Remove private AS numbers from updates sent to peers - when this leaf is
     // not specified, the AS_PATH attribute should be sent to the peer unchanged.
-    // The type is one of the following: PRIVATEASREMOVEALLPRIVATEASREPLACEALL.
+    // The type is one of the following: PRIVATEASREPLACEALLPRIVATEASREMOVEALL.
     RemovePrivateAs interface{}
 
     // Enable route flap damping. The type is bool. The default value is false.
@@ -7633,17 +8416,20 @@ func (config *Bgp_PeerGroups_PeerGroup_Config) GetEntityData() *types.CommonEnti
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["peer-group-name"] = types.YLeaf{"PeerGroupName", config.PeerGroupName}
-    config.EntityData.Leafs["peer-as"] = types.YLeaf{"PeerAs", config.PeerAs}
-    config.EntityData.Leafs["local-as"] = types.YLeaf{"LocalAs", config.LocalAs}
-    config.EntityData.Leafs["peer-type"] = types.YLeaf{"PeerType", config.PeerType}
-    config.EntityData.Leafs["auth-password"] = types.YLeaf{"AuthPassword", config.AuthPassword}
-    config.EntityData.Leafs["remove-private-as"] = types.YLeaf{"RemovePrivateAs", config.RemovePrivateAs}
-    config.EntityData.Leafs["route-flap-damping"] = types.YLeaf{"RouteFlapDamping", config.RouteFlapDamping}
-    config.EntityData.Leafs["send-community"] = types.YLeaf{"SendCommunity", config.SendCommunity}
-    config.EntityData.Leafs["description"] = types.YLeaf{"Description", config.Description}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("peer-group-name", types.YLeaf{"PeerGroupName", config.PeerGroupName})
+    config.EntityData.Leafs.Append("peer-as", types.YLeaf{"PeerAs", config.PeerAs})
+    config.EntityData.Leafs.Append("local-as", types.YLeaf{"LocalAs", config.LocalAs})
+    config.EntityData.Leafs.Append("peer-type", types.YLeaf{"PeerType", config.PeerType})
+    config.EntityData.Leafs.Append("auth-password", types.YLeaf{"AuthPassword", config.AuthPassword})
+    config.EntityData.Leafs.Append("remove-private-as", types.YLeaf{"RemovePrivateAs", config.RemovePrivateAs})
+    config.EntityData.Leafs.Append("route-flap-damping", types.YLeaf{"RouteFlapDamping", config.RouteFlapDamping})
+    config.EntityData.Leafs.Append("send-community", types.YLeaf{"SendCommunity", config.SendCommunity})
+    config.EntityData.Leafs.Append("description", types.YLeaf{"Description", config.Description})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -7675,7 +8461,7 @@ type Bgp_PeerGroups_PeerGroup_State struct {
 
     // Remove private AS numbers from updates sent to peers - when this leaf is
     // not specified, the AS_PATH attribute should be sent to the peer unchanged.
-    // The type is one of the following: PRIVATEASREMOVEALLPRIVATEASREPLACEALL.
+    // The type is one of the following: PRIVATEASREPLACEALLPRIVATEASREMOVEALL.
     RemovePrivateAs interface{}
 
     // Enable route flap damping. The type is bool. The default value is false.
@@ -7709,19 +8495,22 @@ func (state *Bgp_PeerGroups_PeerGroup_State) GetEntityData() *types.CommonEntity
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["peer-group-name"] = types.YLeaf{"PeerGroupName", state.PeerGroupName}
-    state.EntityData.Leafs["peer-as"] = types.YLeaf{"PeerAs", state.PeerAs}
-    state.EntityData.Leafs["local-as"] = types.YLeaf{"LocalAs", state.LocalAs}
-    state.EntityData.Leafs["peer-type"] = types.YLeaf{"PeerType", state.PeerType}
-    state.EntityData.Leafs["auth-password"] = types.YLeaf{"AuthPassword", state.AuthPassword}
-    state.EntityData.Leafs["remove-private-as"] = types.YLeaf{"RemovePrivateAs", state.RemovePrivateAs}
-    state.EntityData.Leafs["route-flap-damping"] = types.YLeaf{"RouteFlapDamping", state.RouteFlapDamping}
-    state.EntityData.Leafs["send-community"] = types.YLeaf{"SendCommunity", state.SendCommunity}
-    state.EntityData.Leafs["description"] = types.YLeaf{"Description", state.Description}
-    state.EntityData.Leafs["total-paths"] = types.YLeaf{"TotalPaths", state.TotalPaths}
-    state.EntityData.Leafs["total-prefixes"] = types.YLeaf{"TotalPrefixes", state.TotalPrefixes}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("peer-group-name", types.YLeaf{"PeerGroupName", state.PeerGroupName})
+    state.EntityData.Leafs.Append("peer-as", types.YLeaf{"PeerAs", state.PeerAs})
+    state.EntityData.Leafs.Append("local-as", types.YLeaf{"LocalAs", state.LocalAs})
+    state.EntityData.Leafs.Append("peer-type", types.YLeaf{"PeerType", state.PeerType})
+    state.EntityData.Leafs.Append("auth-password", types.YLeaf{"AuthPassword", state.AuthPassword})
+    state.EntityData.Leafs.Append("remove-private-as", types.YLeaf{"RemovePrivateAs", state.RemovePrivateAs})
+    state.EntityData.Leafs.Append("route-flap-damping", types.YLeaf{"RouteFlapDamping", state.RouteFlapDamping})
+    state.EntityData.Leafs.Append("send-community", types.YLeaf{"SendCommunity", state.SendCommunity})
+    state.EntityData.Leafs.Append("description", types.YLeaf{"Description", state.Description})
+    state.EntityData.Leafs.Append("total-paths", types.YLeaf{"TotalPaths", state.TotalPaths})
+    state.EntityData.Leafs.Append("total-prefixes", types.YLeaf{"TotalPrefixes", state.TotalPrefixes})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -7749,10 +8538,13 @@ func (timers *Bgp_PeerGroups_PeerGroup_Timers) GetEntityData() *types.CommonEnti
     timers.EntityData.NamespaceTable = openconfig.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    timers.EntityData.Children = make(map[string]types.YChild)
-    timers.EntityData.Children["config"] = types.YChild{"Config", &timers.Config}
-    timers.EntityData.Children["state"] = types.YChild{"State", &timers.State}
-    timers.EntityData.Leafs = make(map[string]types.YLeaf)
+    timers.EntityData.Children = types.NewOrderedMap()
+    timers.EntityData.Children.Append("config", types.YChild{"Config", &timers.Config})
+    timers.EntityData.Children.Append("state", types.YChild{"State", &timers.State})
+    timers.EntityData.Leafs = types.NewOrderedMap()
+
+    timers.EntityData.YListKeys = []string {}
+
     return &(timers.EntityData)
 }
 
@@ -7799,12 +8591,15 @@ func (config *Bgp_PeerGroups_PeerGroup_Timers_Config) GetEntityData() *types.Com
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["connect-retry"] = types.YLeaf{"ConnectRetry", config.ConnectRetry}
-    config.EntityData.Leafs["hold-time"] = types.YLeaf{"HoldTime", config.HoldTime}
-    config.EntityData.Leafs["keepalive-interval"] = types.YLeaf{"KeepaliveInterval", config.KeepaliveInterval}
-    config.EntityData.Leafs["minimum-advertisement-interval"] = types.YLeaf{"MinimumAdvertisementInterval", config.MinimumAdvertisementInterval}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("connect-retry", types.YLeaf{"ConnectRetry", config.ConnectRetry})
+    config.EntityData.Leafs.Append("hold-time", types.YLeaf{"HoldTime", config.HoldTime})
+    config.EntityData.Leafs.Append("keepalive-interval", types.YLeaf{"KeepaliveInterval", config.KeepaliveInterval})
+    config.EntityData.Leafs.Append("minimum-advertisement-interval", types.YLeaf{"MinimumAdvertisementInterval", config.MinimumAdvertisementInterval})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -7851,12 +8646,15 @@ func (state *Bgp_PeerGroups_PeerGroup_Timers_State) GetEntityData() *types.Commo
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["connect-retry"] = types.YLeaf{"ConnectRetry", state.ConnectRetry}
-    state.EntityData.Leafs["hold-time"] = types.YLeaf{"HoldTime", state.HoldTime}
-    state.EntityData.Leafs["keepalive-interval"] = types.YLeaf{"KeepaliveInterval", state.KeepaliveInterval}
-    state.EntityData.Leafs["minimum-advertisement-interval"] = types.YLeaf{"MinimumAdvertisementInterval", state.MinimumAdvertisementInterval}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("connect-retry", types.YLeaf{"ConnectRetry", state.ConnectRetry})
+    state.EntityData.Leafs.Append("hold-time", types.YLeaf{"HoldTime", state.HoldTime})
+    state.EntityData.Leafs.Append("keepalive-interval", types.YLeaf{"KeepaliveInterval", state.KeepaliveInterval})
+    state.EntityData.Leafs.Append("minimum-advertisement-interval", types.YLeaf{"MinimumAdvertisementInterval", state.MinimumAdvertisementInterval})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -7885,10 +8683,13 @@ func (transport *Bgp_PeerGroups_PeerGroup_Transport) GetEntityData() *types.Comm
     transport.EntityData.NamespaceTable = openconfig.GetNamespaces()
     transport.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    transport.EntityData.Children = make(map[string]types.YChild)
-    transport.EntityData.Children["config"] = types.YChild{"Config", &transport.Config}
-    transport.EntityData.Children["state"] = types.YChild{"State", &transport.State}
-    transport.EntityData.Leafs = make(map[string]types.YLeaf)
+    transport.EntityData.Children = types.NewOrderedMap()
+    transport.EntityData.Children.Append("config", types.YChild{"Config", &transport.Config})
+    transport.EntityData.Children.Append("state", types.YChild{"State", &transport.State})
+    transport.EntityData.Leafs = types.NewOrderedMap()
+
+    transport.EntityData.YListKeys = []string {}
+
     return &(transport.EntityData)
 }
 
@@ -7916,9 +8717,9 @@ type Bgp_PeerGroups_PeerGroup_Transport_Config struct {
     // sending BGP update messages.  This may be expressed as either an IP address
     // or reference to the name of an interface. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.,
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.,
     // or string.
     LocalAddress interface{}
 }
@@ -7933,12 +8734,15 @@ func (config *Bgp_PeerGroups_PeerGroup_Transport_Config) GetEntityData() *types.
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["tcp-mss"] = types.YLeaf{"TcpMss", config.TcpMss}
-    config.EntityData.Leafs["mtu-discovery"] = types.YLeaf{"MtuDiscovery", config.MtuDiscovery}
-    config.EntityData.Leafs["passive-mode"] = types.YLeaf{"PassiveMode", config.PassiveMode}
-    config.EntityData.Leafs["local-address"] = types.YLeaf{"LocalAddress", config.LocalAddress}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("tcp-mss", types.YLeaf{"TcpMss", config.TcpMss})
+    config.EntityData.Leafs.Append("mtu-discovery", types.YLeaf{"MtuDiscovery", config.MtuDiscovery})
+    config.EntityData.Leafs.Append("passive-mode", types.YLeaf{"PassiveMode", config.PassiveMode})
+    config.EntityData.Leafs.Append("local-address", types.YLeaf{"LocalAddress", config.LocalAddress})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -7966,9 +8770,9 @@ type Bgp_PeerGroups_PeerGroup_Transport_State struct {
     // sending BGP update messages.  This may be expressed as either an IP address
     // or reference to the name of an interface. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.,
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.,
     // or string.
     LocalAddress interface{}
 }
@@ -7983,12 +8787,15 @@ func (state *Bgp_PeerGroups_PeerGroup_Transport_State) GetEntityData() *types.Co
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["tcp-mss"] = types.YLeaf{"TcpMss", state.TcpMss}
-    state.EntityData.Leafs["mtu-discovery"] = types.YLeaf{"MtuDiscovery", state.MtuDiscovery}
-    state.EntityData.Leafs["passive-mode"] = types.YLeaf{"PassiveMode", state.PassiveMode}
-    state.EntityData.Leafs["local-address"] = types.YLeaf{"LocalAddress", state.LocalAddress}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("tcp-mss", types.YLeaf{"TcpMss", state.TcpMss})
+    state.EntityData.Leafs.Append("mtu-discovery", types.YLeaf{"MtuDiscovery", state.MtuDiscovery})
+    state.EntityData.Leafs.Append("passive-mode", types.YLeaf{"PassiveMode", state.PassiveMode})
+    state.EntityData.Leafs.Append("local-address", types.YLeaf{"LocalAddress", state.LocalAddress})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -8017,10 +8824,13 @@ func (errorHandling *Bgp_PeerGroups_PeerGroup_ErrorHandling) GetEntityData() *ty
     errorHandling.EntityData.NamespaceTable = openconfig.GetNamespaces()
     errorHandling.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    errorHandling.EntityData.Children = make(map[string]types.YChild)
-    errorHandling.EntityData.Children["config"] = types.YChild{"Config", &errorHandling.Config}
-    errorHandling.EntityData.Children["state"] = types.YChild{"State", &errorHandling.State}
-    errorHandling.EntityData.Leafs = make(map[string]types.YLeaf)
+    errorHandling.EntityData.Children = types.NewOrderedMap()
+    errorHandling.EntityData.Children.Append("config", types.YChild{"Config", &errorHandling.Config})
+    errorHandling.EntityData.Children.Append("state", types.YChild{"State", &errorHandling.State})
+    errorHandling.EntityData.Leafs = types.NewOrderedMap()
+
+    errorHandling.EntityData.YListKeys = []string {}
+
     return &(errorHandling.EntityData)
 }
 
@@ -8048,9 +8858,12 @@ func (config *Bgp_PeerGroups_PeerGroup_ErrorHandling_Config) GetEntityData() *ty
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["treat-as-withdraw"] = types.YLeaf{"TreatAsWithdraw", config.TreatAsWithdraw}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("treat-as-withdraw", types.YLeaf{"TreatAsWithdraw", config.TreatAsWithdraw})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -8077,9 +8890,12 @@ func (state *Bgp_PeerGroups_PeerGroup_ErrorHandling_State) GetEntityData() *type
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["treat-as-withdraw"] = types.YLeaf{"TreatAsWithdraw", state.TreatAsWithdraw}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("treat-as-withdraw", types.YLeaf{"TreatAsWithdraw", state.TreatAsWithdraw})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -8106,10 +8922,13 @@ func (gracefulRestart *Bgp_PeerGroups_PeerGroup_GracefulRestart) GetEntityData()
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    gracefulRestart.EntityData.Children = make(map[string]types.YChild)
-    gracefulRestart.EntityData.Children["config"] = types.YChild{"Config", &gracefulRestart.Config}
-    gracefulRestart.EntityData.Children["state"] = types.YChild{"State", &gracefulRestart.State}
-    gracefulRestart.EntityData.Leafs = make(map[string]types.YLeaf)
+    gracefulRestart.EntityData.Children = types.NewOrderedMap()
+    gracefulRestart.EntityData.Children.Append("config", types.YChild{"Config", &gracefulRestart.Config})
+    gracefulRestart.EntityData.Children.Append("state", types.YChild{"State", &gracefulRestart.State})
+    gracefulRestart.EntityData.Leafs = types.NewOrderedMap()
+
+    gracefulRestart.EntityData.YListKeys = []string {}
+
     return &(gracefulRestart.EntityData)
 }
 
@@ -8155,12 +8974,15 @@ func (config *Bgp_PeerGroups_PeerGroup_GracefulRestart_Config) GetEntityData() *
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
-    config.EntityData.Leafs["restart-time"] = types.YLeaf{"RestartTime", config.RestartTime}
-    config.EntityData.Leafs["stale-routes-time"] = types.YLeaf{"StaleRoutesTime", config.StaleRoutesTime}
-    config.EntityData.Leafs["helper-only"] = types.YLeaf{"HelperOnly", config.HelperOnly}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+    config.EntityData.Leafs.Append("restart-time", types.YLeaf{"RestartTime", config.RestartTime})
+    config.EntityData.Leafs.Append("stale-routes-time", types.YLeaf{"StaleRoutesTime", config.StaleRoutesTime})
+    config.EntityData.Leafs.Append("helper-only", types.YLeaf{"HelperOnly", config.HelperOnly})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -8206,12 +9028,15 @@ func (state *Bgp_PeerGroups_PeerGroup_GracefulRestart_State) GetEntityData() *ty
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["restart-time"] = types.YLeaf{"RestartTime", state.RestartTime}
-    state.EntityData.Leafs["stale-routes-time"] = types.YLeaf{"StaleRoutesTime", state.StaleRoutesTime}
-    state.EntityData.Leafs["helper-only"] = types.YLeaf{"HelperOnly", state.HelperOnly}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("restart-time", types.YLeaf{"RestartTime", state.RestartTime})
+    state.EntityData.Leafs.Append("stale-routes-time", types.YLeaf{"StaleRoutesTime", state.StaleRoutesTime})
+    state.EntityData.Leafs.Append("helper-only", types.YLeaf{"HelperOnly", state.HelperOnly})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -8240,10 +9065,13 @@ func (loggingOptions *Bgp_PeerGroups_PeerGroup_LoggingOptions) GetEntityData() *
     loggingOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     loggingOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    loggingOptions.EntityData.Children = make(map[string]types.YChild)
-    loggingOptions.EntityData.Children["config"] = types.YChild{"Config", &loggingOptions.Config}
-    loggingOptions.EntityData.Children["state"] = types.YChild{"State", &loggingOptions.State}
-    loggingOptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    loggingOptions.EntityData.Children = types.NewOrderedMap()
+    loggingOptions.EntityData.Children.Append("config", types.YChild{"Config", &loggingOptions.Config})
+    loggingOptions.EntityData.Children.Append("state", types.YChild{"State", &loggingOptions.State})
+    loggingOptions.EntityData.Leafs = types.NewOrderedMap()
+
+    loggingOptions.EntityData.YListKeys = []string {}
+
     return &(loggingOptions.EntityData)
 }
 
@@ -8269,9 +9097,12 @@ func (config *Bgp_PeerGroups_PeerGroup_LoggingOptions_Config) GetEntityData() *t
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["log-neighbor-state-changes"] = types.YLeaf{"LogNeighborStateChanges", config.LogNeighborStateChanges}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("log-neighbor-state-changes", types.YLeaf{"LogNeighborStateChanges", config.LogNeighborStateChanges})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -8297,9 +9128,12 @@ func (state *Bgp_PeerGroups_PeerGroup_LoggingOptions_State) GetEntityData() *typ
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["log-neighbor-state-changes"] = types.YLeaf{"LogNeighborStateChanges", state.LogNeighborStateChanges}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("log-neighbor-state-changes", types.YLeaf{"LogNeighborStateChanges", state.LogNeighborStateChanges})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -8326,10 +9160,13 @@ func (ebgpMultihop *Bgp_PeerGroups_PeerGroup_EbgpMultihop) GetEntityData() *type
     ebgpMultihop.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgpMultihop.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ebgpMultihop.EntityData.Children = make(map[string]types.YChild)
-    ebgpMultihop.EntityData.Children["config"] = types.YChild{"Config", &ebgpMultihop.Config}
-    ebgpMultihop.EntityData.Children["state"] = types.YChild{"State", &ebgpMultihop.State}
-    ebgpMultihop.EntityData.Leafs = make(map[string]types.YLeaf)
+    ebgpMultihop.EntityData.Children = types.NewOrderedMap()
+    ebgpMultihop.EntityData.Children.Append("config", types.YChild{"Config", &ebgpMultihop.Config})
+    ebgpMultihop.EntityData.Children.Append("state", types.YChild{"State", &ebgpMultihop.State})
+    ebgpMultihop.EntityData.Leafs = types.NewOrderedMap()
+
+    ebgpMultihop.EntityData.YListKeys = []string {}
+
     return &(ebgpMultihop.EntityData)
 }
 
@@ -8361,10 +9198,13 @@ func (config *Bgp_PeerGroups_PeerGroup_EbgpMultihop_Config) GetEntityData() *typ
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
-    config.EntityData.Leafs["multihop-ttl"] = types.YLeaf{"MultihopTtl", config.MultihopTtl}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+    config.EntityData.Leafs.Append("multihop-ttl", types.YLeaf{"MultihopTtl", config.MultihopTtl})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -8396,10 +9236,13 @@ func (state *Bgp_PeerGroups_PeerGroup_EbgpMultihop_State) GetEntityData() *types
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["multihop-ttl"] = types.YLeaf{"MultihopTtl", state.MultihopTtl}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("multihop-ttl", types.YLeaf{"MultihopTtl", state.MultihopTtl})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -8426,10 +9269,13 @@ func (routeReflector *Bgp_PeerGroups_PeerGroup_RouteReflector) GetEntityData() *
     routeReflector.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routeReflector.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    routeReflector.EntityData.Children = make(map[string]types.YChild)
-    routeReflector.EntityData.Children["config"] = types.YChild{"Config", &routeReflector.Config}
-    routeReflector.EntityData.Children["state"] = types.YChild{"State", &routeReflector.State}
-    routeReflector.EntityData.Leafs = make(map[string]types.YLeaf)
+    routeReflector.EntityData.Children = types.NewOrderedMap()
+    routeReflector.EntityData.Children.Append("config", types.YChild{"Config", &routeReflector.Config})
+    routeReflector.EntityData.Children.Append("state", types.YChild{"State", &routeReflector.State})
+    routeReflector.EntityData.Leafs = types.NewOrderedMap()
+
+    routeReflector.EntityData.YListKeys = []string {}
+
     return &(routeReflector.EntityData)
 }
 
@@ -8444,7 +9290,7 @@ type Bgp_PeerGroups_PeerGroup_RouteReflector_Config struct {
     // route reflector.  Commonly set at the group level, but allows a different
     // cluster id to be set for each neighbor. The type is one of the following
     // types: int with range: 0..4294967295, or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     RouteReflectorClusterId interface{}
 
     // Configure the neighbor as a route reflector client. The type is bool. The
@@ -8462,10 +9308,13 @@ func (config *Bgp_PeerGroups_PeerGroup_RouteReflector_Config) GetEntityData() *t
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["route-reflector-cluster-id"] = types.YLeaf{"RouteReflectorClusterId", config.RouteReflectorClusterId}
-    config.EntityData.Leafs["route-reflector-client"] = types.YLeaf{"RouteReflectorClient", config.RouteReflectorClient}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("route-reflector-cluster-id", types.YLeaf{"RouteReflectorClusterId", config.RouteReflectorClusterId})
+    config.EntityData.Leafs.Append("route-reflector-client", types.YLeaf{"RouteReflectorClient", config.RouteReflectorClient})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -8480,7 +9329,7 @@ type Bgp_PeerGroups_PeerGroup_RouteReflector_State struct {
     // route reflector.  Commonly set at the group level, but allows a different
     // cluster id to be set for each neighbor. The type is one of the following
     // types: int with range: 0..4294967295, or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     RouteReflectorClusterId interface{}
 
     // Configure the neighbor as a route reflector client. The type is bool. The
@@ -8498,10 +9347,13 @@ func (state *Bgp_PeerGroups_PeerGroup_RouteReflector_State) GetEntityData() *typ
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["route-reflector-cluster-id"] = types.YLeaf{"RouteReflectorClusterId", state.RouteReflectorClusterId}
-    state.EntityData.Leafs["route-reflector-client"] = types.YLeaf{"RouteReflectorClient", state.RouteReflectorClient}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("route-reflector-cluster-id", types.YLeaf{"RouteReflectorClusterId", state.RouteReflectorClusterId})
+    state.EntityData.Leafs.Append("route-reflector-client", types.YLeaf{"RouteReflectorClient", state.RouteReflectorClient})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -8531,10 +9383,13 @@ func (asPathOptions *Bgp_PeerGroups_PeerGroup_AsPathOptions) GetEntityData() *ty
     asPathOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     asPathOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    asPathOptions.EntityData.Children = make(map[string]types.YChild)
-    asPathOptions.EntityData.Children["config"] = types.YChild{"Config", &asPathOptions.Config}
-    asPathOptions.EntityData.Children["state"] = types.YChild{"State", &asPathOptions.State}
-    asPathOptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    asPathOptions.EntityData.Children = types.NewOrderedMap()
+    asPathOptions.EntityData.Children.Append("config", types.YChild{"Config", &asPathOptions.Config})
+    asPathOptions.EntityData.Children.Append("state", types.YChild{"State", &asPathOptions.State})
+    asPathOptions.EntityData.Leafs = types.NewOrderedMap()
+
+    asPathOptions.EntityData.YListKeys = []string {}
+
     return &(asPathOptions.EntityData)
 }
 
@@ -8565,10 +9420,13 @@ func (config *Bgp_PeerGroups_PeerGroup_AsPathOptions_Config) GetEntityData() *ty
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["allow-own-as"] = types.YLeaf{"AllowOwnAs", config.AllowOwnAs}
-    config.EntityData.Leafs["replace-peer-as"] = types.YLeaf{"ReplacePeerAs", config.ReplacePeerAs}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("allow-own-as", types.YLeaf{"AllowOwnAs", config.AllowOwnAs})
+    config.EntityData.Leafs.Append("replace-peer-as", types.YLeaf{"ReplacePeerAs", config.ReplacePeerAs})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -8599,10 +9457,13 @@ func (state *Bgp_PeerGroups_PeerGroup_AsPathOptions_State) GetEntityData() *type
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["allow-own-as"] = types.YLeaf{"AllowOwnAs", state.AllowOwnAs}
-    state.EntityData.Leafs["replace-peer-as"] = types.YLeaf{"ReplacePeerAs", state.ReplacePeerAs}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("allow-own-as", types.YLeaf{"AllowOwnAs", state.AllowOwnAs})
+    state.EntityData.Leafs.Append("replace-peer-as", types.YLeaf{"ReplacePeerAs", state.ReplacePeerAs})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -8630,10 +9491,13 @@ func (addPaths *Bgp_PeerGroups_PeerGroup_AddPaths) GetEntityData() *types.Common
     addPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     addPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    addPaths.EntityData.Children = make(map[string]types.YChild)
-    addPaths.EntityData.Children["config"] = types.YChild{"Config", &addPaths.Config}
-    addPaths.EntityData.Children["state"] = types.YChild{"State", &addPaths.State}
-    addPaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    addPaths.EntityData.Children = types.NewOrderedMap()
+    addPaths.EntityData.Children.Append("config", types.YChild{"Config", &addPaths.Config})
+    addPaths.EntityData.Children.Append("state", types.YChild{"State", &addPaths.State})
+    addPaths.EntityData.Leafs = types.NewOrderedMap()
+
+    addPaths.EntityData.YListKeys = []string {}
+
     return &(addPaths.EntityData)
 }
 
@@ -8667,11 +9531,14 @@ func (config *Bgp_PeerGroups_PeerGroup_AddPaths_Config) GetEntityData() *types.C
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["receive"] = types.YLeaf{"Receive", config.Receive}
-    config.EntityData.Leafs["send-max"] = types.YLeaf{"SendMax", config.SendMax}
-    config.EntityData.Leafs["eligible-prefix-policy"] = types.YLeaf{"EligiblePrefixPolicy", config.EligiblePrefixPolicy}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("receive", types.YLeaf{"Receive", config.Receive})
+    config.EntityData.Leafs.Append("send-max", types.YLeaf{"SendMax", config.SendMax})
+    config.EntityData.Leafs.Append("eligible-prefix-policy", types.YLeaf{"EligiblePrefixPolicy", config.EligiblePrefixPolicy})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -8705,11 +9572,14 @@ func (state *Bgp_PeerGroups_PeerGroup_AddPaths_State) GetEntityData() *types.Com
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["receive"] = types.YLeaf{"Receive", state.Receive}
-    state.EntityData.Leafs["send-max"] = types.YLeaf{"SendMax", state.SendMax}
-    state.EntityData.Leafs["eligible-prefix-policy"] = types.YLeaf{"EligiblePrefixPolicy", state.EligiblePrefixPolicy}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("receive", types.YLeaf{"Receive", state.Receive})
+    state.EntityData.Leafs.Append("send-max", types.YLeaf{"SendMax", state.SendMax})
+    state.EntityData.Leafs.Append("eligible-prefix-policy", types.YLeaf{"EligiblePrefixPolicy", state.EligiblePrefixPolicy})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -8743,12 +9613,15 @@ func (useMultiplePaths *Bgp_PeerGroups_PeerGroup_UseMultiplePaths) GetEntityData
     useMultiplePaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     useMultiplePaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    useMultiplePaths.EntityData.Children = make(map[string]types.YChild)
-    useMultiplePaths.EntityData.Children["config"] = types.YChild{"Config", &useMultiplePaths.Config}
-    useMultiplePaths.EntityData.Children["state"] = types.YChild{"State", &useMultiplePaths.State}
-    useMultiplePaths.EntityData.Children["ebgp"] = types.YChild{"Ebgp", &useMultiplePaths.Ebgp}
-    useMultiplePaths.EntityData.Children["ibgp"] = types.YChild{"Ibgp", &useMultiplePaths.Ibgp}
-    useMultiplePaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    useMultiplePaths.EntityData.Children = types.NewOrderedMap()
+    useMultiplePaths.EntityData.Children.Append("config", types.YChild{"Config", &useMultiplePaths.Config})
+    useMultiplePaths.EntityData.Children.Append("state", types.YChild{"State", &useMultiplePaths.State})
+    useMultiplePaths.EntityData.Children.Append("ebgp", types.YChild{"Ebgp", &useMultiplePaths.Ebgp})
+    useMultiplePaths.EntityData.Children.Append("ibgp", types.YChild{"Ibgp", &useMultiplePaths.Ibgp})
+    useMultiplePaths.EntityData.Leafs = types.NewOrderedMap()
+
+    useMultiplePaths.EntityData.YListKeys = []string {}
+
     return &(useMultiplePaths.EntityData)
 }
 
@@ -8774,9 +9647,12 @@ func (config *Bgp_PeerGroups_PeerGroup_UseMultiplePaths_Config) GetEntityData() 
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -8802,9 +9678,12 @@ func (state *Bgp_PeerGroups_PeerGroup_UseMultiplePaths_State) GetEntityData() *t
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -8831,10 +9710,13 @@ func (ebgp *Bgp_PeerGroups_PeerGroup_UseMultiplePaths_Ebgp) GetEntityData() *typ
     ebgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ebgp.EntityData.Children = make(map[string]types.YChild)
-    ebgp.EntityData.Children["config"] = types.YChild{"Config", &ebgp.Config}
-    ebgp.EntityData.Children["state"] = types.YChild{"State", &ebgp.State}
-    ebgp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ebgp.EntityData.Children = types.NewOrderedMap()
+    ebgp.EntityData.Children.Append("config", types.YChild{"Config", &ebgp.Config})
+    ebgp.EntityData.Children.Append("state", types.YChild{"State", &ebgp.State})
+    ebgp.EntityData.Leafs = types.NewOrderedMap()
+
+    ebgp.EntityData.YListKeys = []string {}
+
     return &(ebgp.EntityData)
 }
 
@@ -8865,10 +9747,13 @@ func (config *Bgp_PeerGroups_PeerGroup_UseMultiplePaths_Ebgp_Config) GetEntityDa
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["allow-multiple-as"] = types.YLeaf{"AllowMultipleAs", config.AllowMultipleAs}
-    config.EntityData.Leafs["maximum-paths"] = types.YLeaf{"MaximumPaths", config.MaximumPaths}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("allow-multiple-as", types.YLeaf{"AllowMultipleAs", config.AllowMultipleAs})
+    config.EntityData.Leafs.Append("maximum-paths", types.YLeaf{"MaximumPaths", config.MaximumPaths})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -8899,10 +9784,13 @@ func (state *Bgp_PeerGroups_PeerGroup_UseMultiplePaths_Ebgp_State) GetEntityData
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["allow-multiple-as"] = types.YLeaf{"AllowMultipleAs", state.AllowMultipleAs}
-    state.EntityData.Leafs["maximum-paths"] = types.YLeaf{"MaximumPaths", state.MaximumPaths}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("allow-multiple-as", types.YLeaf{"AllowMultipleAs", state.AllowMultipleAs})
+    state.EntityData.Leafs.Append("maximum-paths", types.YLeaf{"MaximumPaths", state.MaximumPaths})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -8929,10 +9817,13 @@ func (ibgp *Bgp_PeerGroups_PeerGroup_UseMultiplePaths_Ibgp) GetEntityData() *typ
     ibgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ibgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ibgp.EntityData.Children = make(map[string]types.YChild)
-    ibgp.EntityData.Children["config"] = types.YChild{"Config", &ibgp.Config}
-    ibgp.EntityData.Children["state"] = types.YChild{"State", &ibgp.State}
-    ibgp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ibgp.EntityData.Children = types.NewOrderedMap()
+    ibgp.EntityData.Children.Append("config", types.YChild{"Config", &ibgp.Config})
+    ibgp.EntityData.Children.Append("state", types.YChild{"State", &ibgp.State})
+    ibgp.EntityData.Leafs = types.NewOrderedMap()
+
+    ibgp.EntityData.YListKeys = []string {}
+
     return &(ibgp.EntityData)
 }
 
@@ -8958,9 +9849,12 @@ func (config *Bgp_PeerGroups_PeerGroup_UseMultiplePaths_Ibgp_Config) GetEntityDa
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["maximum-paths"] = types.YLeaf{"MaximumPaths", config.MaximumPaths}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("maximum-paths", types.YLeaf{"MaximumPaths", config.MaximumPaths})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -8986,9 +9880,12 @@ func (state *Bgp_PeerGroups_PeerGroup_UseMultiplePaths_Ibgp_State) GetEntityData
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["maximum-paths"] = types.YLeaf{"MaximumPaths", state.MaximumPaths}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("maximum-paths", types.YLeaf{"MaximumPaths", state.MaximumPaths})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -9018,10 +9915,13 @@ func (applyPolicy *Bgp_PeerGroups_PeerGroup_ApplyPolicy) GetEntityData() *types.
     applyPolicy.EntityData.NamespaceTable = openconfig.GetNamespaces()
     applyPolicy.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    applyPolicy.EntityData.Children = make(map[string]types.YChild)
-    applyPolicy.EntityData.Children["config"] = types.YChild{"Config", &applyPolicy.Config}
-    applyPolicy.EntityData.Children["state"] = types.YChild{"State", &applyPolicy.State}
-    applyPolicy.EntityData.Leafs = make(map[string]types.YLeaf)
+    applyPolicy.EntityData.Children = types.NewOrderedMap()
+    applyPolicy.EntityData.Children.Append("config", types.YChild{"Config", &applyPolicy.Config})
+    applyPolicy.EntityData.Children.Append("state", types.YChild{"State", &applyPolicy.State})
+    applyPolicy.EntityData.Leafs = types.NewOrderedMap()
+
+    applyPolicy.EntityData.YListKeys = []string {}
+
     return &(applyPolicy.EntityData)
 }
 
@@ -9064,12 +9964,15 @@ func (config *Bgp_PeerGroups_PeerGroup_ApplyPolicy_Config) GetEntityData() *type
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["import-policy"] = types.YLeaf{"ImportPolicy", config.ImportPolicy}
-    config.EntityData.Leafs["default-import-policy"] = types.YLeaf{"DefaultImportPolicy", config.DefaultImportPolicy}
-    config.EntityData.Leafs["export-policy"] = types.YLeaf{"ExportPolicy", config.ExportPolicy}
-    config.EntityData.Leafs["default-export-policy"] = types.YLeaf{"DefaultExportPolicy", config.DefaultExportPolicy}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("import-policy", types.YLeaf{"ImportPolicy", config.ImportPolicy})
+    config.EntityData.Leafs.Append("default-import-policy", types.YLeaf{"DefaultImportPolicy", config.DefaultImportPolicy})
+    config.EntityData.Leafs.Append("export-policy", types.YLeaf{"ExportPolicy", config.ExportPolicy})
+    config.EntityData.Leafs.Append("default-export-policy", types.YLeaf{"DefaultExportPolicy", config.DefaultExportPolicy})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -9112,12 +10015,15 @@ func (state *Bgp_PeerGroups_PeerGroup_ApplyPolicy_State) GetEntityData() *types.
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["import-policy"] = types.YLeaf{"ImportPolicy", state.ImportPolicy}
-    state.EntityData.Leafs["default-import-policy"] = types.YLeaf{"DefaultImportPolicy", state.DefaultImportPolicy}
-    state.EntityData.Leafs["export-policy"] = types.YLeaf{"ExportPolicy", state.ExportPolicy}
-    state.EntityData.Leafs["default-export-policy"] = types.YLeaf{"DefaultExportPolicy", state.DefaultExportPolicy}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("import-policy", types.YLeaf{"ImportPolicy", state.ImportPolicy})
+    state.EntityData.Leafs.Append("default-import-policy", types.YLeaf{"DefaultImportPolicy", state.DefaultImportPolicy})
+    state.EntityData.Leafs.Append("export-policy", types.YLeaf{"ExportPolicy", state.ExportPolicy})
+    state.EntityData.Leafs.Append("default-export-policy", types.YLeaf{"DefaultExportPolicy", state.DefaultExportPolicy})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -9130,7 +10036,7 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis struct {
 
     // AFI,SAFI configuration available for the neighbour or group. The type is
     // slice of Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi.
-    AfiSafi []Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi
+    AfiSafi []*Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi
 }
 
 func (afiSafis *Bgp_PeerGroups_PeerGroup_AfiSafis) GetEntityData() *types.CommonEntityData {
@@ -9143,12 +10049,15 @@ func (afiSafis *Bgp_PeerGroups_PeerGroup_AfiSafis) GetEntityData() *types.Common
     afiSafis.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafis.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    afiSafis.EntityData.Children = make(map[string]types.YChild)
-    afiSafis.EntityData.Children["afi-safi"] = types.YChild{"AfiSafi", nil}
+    afiSafis.EntityData.Children = types.NewOrderedMap()
+    afiSafis.EntityData.Children.Append("afi-safi", types.YChild{"AfiSafi", nil})
     for i := range afiSafis.AfiSafi {
-        afiSafis.EntityData.Children[types.GetSegmentPath(&afiSafis.AfiSafi[i])] = types.YChild{"AfiSafi", &afiSafis.AfiSafi[i]}
+        afiSafis.EntityData.Children.Append(types.GetSegmentPath(afiSafis.AfiSafi[i]), types.YChild{"AfiSafi", afiSafis.AfiSafi[i]})
     }
-    afiSafis.EntityData.Leafs = make(map[string]types.YLeaf)
+    afiSafis.EntityData.Leafs = types.NewOrderedMap()
+
+    afiSafis.EntityData.YListKeys = []string {}
+
     return &(afiSafis.EntityData)
 }
 
@@ -9161,7 +10070,7 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi struct {
 
     // This attribute is a key. Reference to the AFI-SAFI name used as a key for
     // the AFI-SAFI list. The type is one of the following:
-    // IPV4UNICASTIPV6UNICASTIPV4LABELEDUNICASTIPV6LABELEDUNICASTL3VPNIPV4UNICASTL3VPNIPV6UNICASTL3VPNIPV4MULTICASTL3VPNIPV6MULTICASTL2VPNVPLSL2VPNEVPN.
+    // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
     AfiSafiName interface{}
 
     // Configuration parameters for the AFI-SAFI.
@@ -9197,22 +10106,22 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi struct {
     Ipv6LabeledUnicast Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6LabeledUnicast
 
     // Unicast IPv4 L3VPN configuration options.
-    L3VpnIpv4Unicast Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast
+    L3vpnIpv4Unicast Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unicast
 
     // Unicast IPv6 L3VPN configuration options.
-    L3VpnIpv6Unicast Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast
+    L3vpnIpv6Unicast Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unicast
 
     // Multicast IPv4 L3VPN configuration options.
-    L3VpnIpv4Multicast Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast
+    L3vpnIpv4Multicast Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Multicast
 
     // Multicast IPv6 L3VPN configuration options.
-    L3VpnIpv6Multicast Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast
+    L3vpnIpv6Multicast Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Multicast
 
     // BGP-signalled VPLS configuration options.
-    L2VpnVpls Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls
+    L2vpnVpls Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls
 
     // BGP EVPN configuration options.
-    L2VpnEvpn Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn
+    L2vpnEvpn Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn
 }
 
 func (afiSafi *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi) GetEntityData() *types.CommonEntityData {
@@ -9220,30 +10129,33 @@ func (afiSafi *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi) GetEntityData() *types
     afiSafi.EntityData.YangName = "afi-safi"
     afiSafi.EntityData.BundleName = "openconfig"
     afiSafi.EntityData.ParentYangName = "afi-safis"
-    afiSafi.EntityData.SegmentPath = "afi-safi" + "[afi-safi-name='" + fmt.Sprintf("%v", afiSafi.AfiSafiName) + "']"
+    afiSafi.EntityData.SegmentPath = "afi-safi" + types.AddKeyToken(afiSafi.AfiSafiName, "afi-safi-name")
     afiSafi.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafi.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafi.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    afiSafi.EntityData.Children = make(map[string]types.YChild)
-    afiSafi.EntityData.Children["config"] = types.YChild{"Config", &afiSafi.Config}
-    afiSafi.EntityData.Children["state"] = types.YChild{"State", &afiSafi.State}
-    afiSafi.EntityData.Children["graceful-restart"] = types.YChild{"GracefulRestart", &afiSafi.GracefulRestart}
-    afiSafi.EntityData.Children["route-selection-options"] = types.YChild{"RouteSelectionOptions", &afiSafi.RouteSelectionOptions}
-    afiSafi.EntityData.Children["use-multiple-paths"] = types.YChild{"UseMultiplePaths", &afiSafi.UseMultiplePaths}
-    afiSafi.EntityData.Children["apply-policy"] = types.YChild{"ApplyPolicy", &afiSafi.ApplyPolicy}
-    afiSafi.EntityData.Children["ipv4-unicast"] = types.YChild{"Ipv4Unicast", &afiSafi.Ipv4Unicast}
-    afiSafi.EntityData.Children["ipv6-unicast"] = types.YChild{"Ipv6Unicast", &afiSafi.Ipv6Unicast}
-    afiSafi.EntityData.Children["ipv4-labeled-unicast"] = types.YChild{"Ipv4LabeledUnicast", &afiSafi.Ipv4LabeledUnicast}
-    afiSafi.EntityData.Children["ipv6-labeled-unicast"] = types.YChild{"Ipv6LabeledUnicast", &afiSafi.Ipv6LabeledUnicast}
-    afiSafi.EntityData.Children["l3vpn-ipv4-unicast"] = types.YChild{"L3VpnIpv4Unicast", &afiSafi.L3VpnIpv4Unicast}
-    afiSafi.EntityData.Children["l3vpn-ipv6-unicast"] = types.YChild{"L3VpnIpv6Unicast", &afiSafi.L3VpnIpv6Unicast}
-    afiSafi.EntityData.Children["l3vpn-ipv4-multicast"] = types.YChild{"L3VpnIpv4Multicast", &afiSafi.L3VpnIpv4Multicast}
-    afiSafi.EntityData.Children["l3vpn-ipv6-multicast"] = types.YChild{"L3VpnIpv6Multicast", &afiSafi.L3VpnIpv6Multicast}
-    afiSafi.EntityData.Children["l2vpn-vpls"] = types.YChild{"L2VpnVpls", &afiSafi.L2VpnVpls}
-    afiSafi.EntityData.Children["l2vpn-evpn"] = types.YChild{"L2VpnEvpn", &afiSafi.L2VpnEvpn}
-    afiSafi.EntityData.Leafs = make(map[string]types.YLeaf)
-    afiSafi.EntityData.Leafs["afi-safi-name"] = types.YLeaf{"AfiSafiName", afiSafi.AfiSafiName}
+    afiSafi.EntityData.Children = types.NewOrderedMap()
+    afiSafi.EntityData.Children.Append("config", types.YChild{"Config", &afiSafi.Config})
+    afiSafi.EntityData.Children.Append("state", types.YChild{"State", &afiSafi.State})
+    afiSafi.EntityData.Children.Append("graceful-restart", types.YChild{"GracefulRestart", &afiSafi.GracefulRestart})
+    afiSafi.EntityData.Children.Append("route-selection-options", types.YChild{"RouteSelectionOptions", &afiSafi.RouteSelectionOptions})
+    afiSafi.EntityData.Children.Append("use-multiple-paths", types.YChild{"UseMultiplePaths", &afiSafi.UseMultiplePaths})
+    afiSafi.EntityData.Children.Append("apply-policy", types.YChild{"ApplyPolicy", &afiSafi.ApplyPolicy})
+    afiSafi.EntityData.Children.Append("ipv4-unicast", types.YChild{"Ipv4Unicast", &afiSafi.Ipv4Unicast})
+    afiSafi.EntityData.Children.Append("ipv6-unicast", types.YChild{"Ipv6Unicast", &afiSafi.Ipv6Unicast})
+    afiSafi.EntityData.Children.Append("ipv4-labeled-unicast", types.YChild{"Ipv4LabeledUnicast", &afiSafi.Ipv4LabeledUnicast})
+    afiSafi.EntityData.Children.Append("ipv6-labeled-unicast", types.YChild{"Ipv6LabeledUnicast", &afiSafi.Ipv6LabeledUnicast})
+    afiSafi.EntityData.Children.Append("l3vpn-ipv4-unicast", types.YChild{"L3vpnIpv4Unicast", &afiSafi.L3vpnIpv4Unicast})
+    afiSafi.EntityData.Children.Append("l3vpn-ipv6-unicast", types.YChild{"L3vpnIpv6Unicast", &afiSafi.L3vpnIpv6Unicast})
+    afiSafi.EntityData.Children.Append("l3vpn-ipv4-multicast", types.YChild{"L3vpnIpv4Multicast", &afiSafi.L3vpnIpv4Multicast})
+    afiSafi.EntityData.Children.Append("l3vpn-ipv6-multicast", types.YChild{"L3vpnIpv6Multicast", &afiSafi.L3vpnIpv6Multicast})
+    afiSafi.EntityData.Children.Append("l2vpn-vpls", types.YChild{"L2vpnVpls", &afiSafi.L2vpnVpls})
+    afiSafi.EntityData.Children.Append("l2vpn-evpn", types.YChild{"L2vpnEvpn", &afiSafi.L2vpnEvpn})
+    afiSafi.EntityData.Leafs = types.NewOrderedMap()
+    afiSafi.EntityData.Leafs.Append("afi-safi-name", types.YLeaf{"AfiSafiName", afiSafi.AfiSafiName})
+
+    afiSafi.EntityData.YListKeys = []string {"AfiSafiName"}
+
     return &(afiSafi.EntityData)
 }
 
@@ -9254,7 +10166,7 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Config struct {
     YFilter yfilter.YFilter
 
     // AFI,SAFI. The type is one of the following:
-    // IPV4UNICASTIPV6UNICASTIPV4LABELEDUNICASTIPV6LABELEDUNICASTL3VPNIPV4UNICASTL3VPNIPV6UNICASTL3VPNIPV4MULTICASTL3VPNIPV6MULTICASTL2VPNVPLSL2VPNEVPN.
+    // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
     AfiSafiName interface{}
 
     // This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the
@@ -9272,10 +10184,13 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Config) GetEntityData() 
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["afi-safi-name"] = types.YLeaf{"AfiSafiName", config.AfiSafiName}
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("afi-safi-name", types.YLeaf{"AfiSafiName", config.AfiSafiName})
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -9286,7 +10201,7 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_State struct {
     YFilter yfilter.YFilter
 
     // AFI,SAFI. The type is one of the following:
-    // IPV4UNICASTIPV6UNICASTIPV4LABELEDUNICASTIPV6LABELEDUNICASTL3VPNIPV4UNICASTL3VPNIPV6UNICASTL3VPNIPV4MULTICASTL3VPNIPV6MULTICASTL2VPNVPLSL2VPNEVPN.
+    // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
     AfiSafiName interface{}
 
     // This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the
@@ -9304,10 +10219,13 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_State) GetEntityData() *t
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["afi-safi-name"] = types.YLeaf{"AfiSafiName", state.AfiSafiName}
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("afi-safi-name", types.YLeaf{"AfiSafiName", state.AfiSafiName})
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -9334,10 +10252,13 @@ func (gracefulRestart *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_GracefulRestart
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    gracefulRestart.EntityData.Children = make(map[string]types.YChild)
-    gracefulRestart.EntityData.Children["config"] = types.YChild{"Config", &gracefulRestart.Config}
-    gracefulRestart.EntityData.Children["state"] = types.YChild{"State", &gracefulRestart.State}
-    gracefulRestart.EntityData.Leafs = make(map[string]types.YLeaf)
+    gracefulRestart.EntityData.Children = types.NewOrderedMap()
+    gracefulRestart.EntityData.Children.Append("config", types.YChild{"Config", &gracefulRestart.Config})
+    gracefulRestart.EntityData.Children.Append("state", types.YChild{"State", &gracefulRestart.State})
+    gracefulRestart.EntityData.Leafs = types.NewOrderedMap()
+
+    gracefulRestart.EntityData.YListKeys = []string {}
+
     return &(gracefulRestart.EntityData)
 }
 
@@ -9362,9 +10283,12 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_GracefulRestart_Config) 
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -9389,9 +10313,12 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_GracefulRestart_State) Ge
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -9418,10 +10345,13 @@ func (routeSelectionOptions *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_RouteSele
     routeSelectionOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routeSelectionOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    routeSelectionOptions.EntityData.Children = make(map[string]types.YChild)
-    routeSelectionOptions.EntityData.Children["config"] = types.YChild{"Config", &routeSelectionOptions.Config}
-    routeSelectionOptions.EntityData.Children["state"] = types.YChild{"State", &routeSelectionOptions.State}
-    routeSelectionOptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    routeSelectionOptions.EntityData.Children = types.NewOrderedMap()
+    routeSelectionOptions.EntityData.Children.Append("config", types.YChild{"Config", &routeSelectionOptions.Config})
+    routeSelectionOptions.EntityData.Children.Append("state", types.YChild{"State", &routeSelectionOptions.State})
+    routeSelectionOptions.EntityData.Leafs = types.NewOrderedMap()
+
+    routeSelectionOptions.EntityData.YListKeys = []string {}
+
     return &(routeSelectionOptions.EntityData)
 }
 
@@ -9472,14 +10402,17 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_RouteSelectionOptions_Co
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["always-compare-med"] = types.YLeaf{"AlwaysCompareMed", config.AlwaysCompareMed}
-    config.EntityData.Leafs["ignore-as-path-length"] = types.YLeaf{"IgnoreAsPathLength", config.IgnoreAsPathLength}
-    config.EntityData.Leafs["external-compare-router-id"] = types.YLeaf{"ExternalCompareRouterId", config.ExternalCompareRouterId}
-    config.EntityData.Leafs["advertise-inactive-routes"] = types.YLeaf{"AdvertiseInactiveRoutes", config.AdvertiseInactiveRoutes}
-    config.EntityData.Leafs["enable-aigp"] = types.YLeaf{"EnableAigp", config.EnableAigp}
-    config.EntityData.Leafs["ignore-next-hop-igp-metric"] = types.YLeaf{"IgnoreNextHopIgpMetric", config.IgnoreNextHopIgpMetric}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("always-compare-med", types.YLeaf{"AlwaysCompareMed", config.AlwaysCompareMed})
+    config.EntityData.Leafs.Append("ignore-as-path-length", types.YLeaf{"IgnoreAsPathLength", config.IgnoreAsPathLength})
+    config.EntityData.Leafs.Append("external-compare-router-id", types.YLeaf{"ExternalCompareRouterId", config.ExternalCompareRouterId})
+    config.EntityData.Leafs.Append("advertise-inactive-routes", types.YLeaf{"AdvertiseInactiveRoutes", config.AdvertiseInactiveRoutes})
+    config.EntityData.Leafs.Append("enable-aigp", types.YLeaf{"EnableAigp", config.EnableAigp})
+    config.EntityData.Leafs.Append("ignore-next-hop-igp-metric", types.YLeaf{"IgnoreNextHopIgpMetric", config.IgnoreNextHopIgpMetric})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -9529,14 +10462,17 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_RouteSelectionOptions_Sta
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["always-compare-med"] = types.YLeaf{"AlwaysCompareMed", state.AlwaysCompareMed}
-    state.EntityData.Leafs["ignore-as-path-length"] = types.YLeaf{"IgnoreAsPathLength", state.IgnoreAsPathLength}
-    state.EntityData.Leafs["external-compare-router-id"] = types.YLeaf{"ExternalCompareRouterId", state.ExternalCompareRouterId}
-    state.EntityData.Leafs["advertise-inactive-routes"] = types.YLeaf{"AdvertiseInactiveRoutes", state.AdvertiseInactiveRoutes}
-    state.EntityData.Leafs["enable-aigp"] = types.YLeaf{"EnableAigp", state.EnableAigp}
-    state.EntityData.Leafs["ignore-next-hop-igp-metric"] = types.YLeaf{"IgnoreNextHopIgpMetric", state.IgnoreNextHopIgpMetric}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("always-compare-med", types.YLeaf{"AlwaysCompareMed", state.AlwaysCompareMed})
+    state.EntityData.Leafs.Append("ignore-as-path-length", types.YLeaf{"IgnoreAsPathLength", state.IgnoreAsPathLength})
+    state.EntityData.Leafs.Append("external-compare-router-id", types.YLeaf{"ExternalCompareRouterId", state.ExternalCompareRouterId})
+    state.EntityData.Leafs.Append("advertise-inactive-routes", types.YLeaf{"AdvertiseInactiveRoutes", state.AdvertiseInactiveRoutes})
+    state.EntityData.Leafs.Append("enable-aigp", types.YLeaf{"EnableAigp", state.EnableAigp})
+    state.EntityData.Leafs.Append("ignore-next-hop-igp-metric", types.YLeaf{"IgnoreNextHopIgpMetric", state.IgnoreNextHopIgpMetric})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -9570,12 +10506,15 @@ func (useMultiplePaths *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_UseMultiplePat
     useMultiplePaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     useMultiplePaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    useMultiplePaths.EntityData.Children = make(map[string]types.YChild)
-    useMultiplePaths.EntityData.Children["config"] = types.YChild{"Config", &useMultiplePaths.Config}
-    useMultiplePaths.EntityData.Children["state"] = types.YChild{"State", &useMultiplePaths.State}
-    useMultiplePaths.EntityData.Children["ebgp"] = types.YChild{"Ebgp", &useMultiplePaths.Ebgp}
-    useMultiplePaths.EntityData.Children["ibgp"] = types.YChild{"Ibgp", &useMultiplePaths.Ibgp}
-    useMultiplePaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    useMultiplePaths.EntityData.Children = types.NewOrderedMap()
+    useMultiplePaths.EntityData.Children.Append("config", types.YChild{"Config", &useMultiplePaths.Config})
+    useMultiplePaths.EntityData.Children.Append("state", types.YChild{"State", &useMultiplePaths.State})
+    useMultiplePaths.EntityData.Children.Append("ebgp", types.YChild{"Ebgp", &useMultiplePaths.Ebgp})
+    useMultiplePaths.EntityData.Children.Append("ibgp", types.YChild{"Ibgp", &useMultiplePaths.Ibgp})
+    useMultiplePaths.EntityData.Leafs = types.NewOrderedMap()
+
+    useMultiplePaths.EntityData.YListKeys = []string {}
+
     return &(useMultiplePaths.EntityData)
 }
 
@@ -9601,9 +10540,12 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_UseMultiplePaths_Config)
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -9629,9 +10571,12 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_UseMultiplePaths_State) G
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -9658,10 +10603,13 @@ func (ebgp *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_UseMultiplePaths_Ebgp) Get
     ebgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ebgp.EntityData.Children = make(map[string]types.YChild)
-    ebgp.EntityData.Children["config"] = types.YChild{"Config", &ebgp.Config}
-    ebgp.EntityData.Children["state"] = types.YChild{"State", &ebgp.State}
-    ebgp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ebgp.EntityData.Children = types.NewOrderedMap()
+    ebgp.EntityData.Children.Append("config", types.YChild{"Config", &ebgp.Config})
+    ebgp.EntityData.Children.Append("state", types.YChild{"State", &ebgp.State})
+    ebgp.EntityData.Leafs = types.NewOrderedMap()
+
+    ebgp.EntityData.YListKeys = []string {}
+
     return &(ebgp.EntityData)
 }
 
@@ -9692,10 +10640,13 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_UseMultiplePaths_Ebgp_Co
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["allow-multiple-as"] = types.YLeaf{"AllowMultipleAs", config.AllowMultipleAs}
-    config.EntityData.Leafs["maximum-paths"] = types.YLeaf{"MaximumPaths", config.MaximumPaths}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("allow-multiple-as", types.YLeaf{"AllowMultipleAs", config.AllowMultipleAs})
+    config.EntityData.Leafs.Append("maximum-paths", types.YLeaf{"MaximumPaths", config.MaximumPaths})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -9726,10 +10677,13 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_UseMultiplePaths_Ebgp_Sta
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["allow-multiple-as"] = types.YLeaf{"AllowMultipleAs", state.AllowMultipleAs}
-    state.EntityData.Leafs["maximum-paths"] = types.YLeaf{"MaximumPaths", state.MaximumPaths}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("allow-multiple-as", types.YLeaf{"AllowMultipleAs", state.AllowMultipleAs})
+    state.EntityData.Leafs.Append("maximum-paths", types.YLeaf{"MaximumPaths", state.MaximumPaths})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -9756,10 +10710,13 @@ func (ibgp *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_UseMultiplePaths_Ibgp) Get
     ibgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ibgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ibgp.EntityData.Children = make(map[string]types.YChild)
-    ibgp.EntityData.Children["config"] = types.YChild{"Config", &ibgp.Config}
-    ibgp.EntityData.Children["state"] = types.YChild{"State", &ibgp.State}
-    ibgp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ibgp.EntityData.Children = types.NewOrderedMap()
+    ibgp.EntityData.Children.Append("config", types.YChild{"Config", &ibgp.Config})
+    ibgp.EntityData.Children.Append("state", types.YChild{"State", &ibgp.State})
+    ibgp.EntityData.Leafs = types.NewOrderedMap()
+
+    ibgp.EntityData.YListKeys = []string {}
+
     return &(ibgp.EntityData)
 }
 
@@ -9785,9 +10742,12 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_UseMultiplePaths_Ibgp_Co
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["maximum-paths"] = types.YLeaf{"MaximumPaths", config.MaximumPaths}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("maximum-paths", types.YLeaf{"MaximumPaths", config.MaximumPaths})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -9813,9 +10773,12 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_UseMultiplePaths_Ibgp_Sta
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["maximum-paths"] = types.YLeaf{"MaximumPaths", state.MaximumPaths}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("maximum-paths", types.YLeaf{"MaximumPaths", state.MaximumPaths})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -9845,10 +10808,13 @@ func (applyPolicy *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_ApplyPolicy) GetEnt
     applyPolicy.EntityData.NamespaceTable = openconfig.GetNamespaces()
     applyPolicy.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    applyPolicy.EntityData.Children = make(map[string]types.YChild)
-    applyPolicy.EntityData.Children["config"] = types.YChild{"Config", &applyPolicy.Config}
-    applyPolicy.EntityData.Children["state"] = types.YChild{"State", &applyPolicy.State}
-    applyPolicy.EntityData.Leafs = make(map[string]types.YLeaf)
+    applyPolicy.EntityData.Children = types.NewOrderedMap()
+    applyPolicy.EntityData.Children.Append("config", types.YChild{"Config", &applyPolicy.Config})
+    applyPolicy.EntityData.Children.Append("state", types.YChild{"State", &applyPolicy.State})
+    applyPolicy.EntityData.Leafs = types.NewOrderedMap()
+
+    applyPolicy.EntityData.YListKeys = []string {}
+
     return &(applyPolicy.EntityData)
 }
 
@@ -9891,12 +10857,15 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_ApplyPolicy_Config) GetE
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["import-policy"] = types.YLeaf{"ImportPolicy", config.ImportPolicy}
-    config.EntityData.Leafs["default-import-policy"] = types.YLeaf{"DefaultImportPolicy", config.DefaultImportPolicy}
-    config.EntityData.Leafs["export-policy"] = types.YLeaf{"ExportPolicy", config.ExportPolicy}
-    config.EntityData.Leafs["default-export-policy"] = types.YLeaf{"DefaultExportPolicy", config.DefaultExportPolicy}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("import-policy", types.YLeaf{"ImportPolicy", config.ImportPolicy})
+    config.EntityData.Leafs.Append("default-import-policy", types.YLeaf{"DefaultImportPolicy", config.DefaultImportPolicy})
+    config.EntityData.Leafs.Append("export-policy", types.YLeaf{"ExportPolicy", config.ExportPolicy})
+    config.EntityData.Leafs.Append("default-export-policy", types.YLeaf{"DefaultExportPolicy", config.DefaultExportPolicy})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -9939,12 +10908,15 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_ApplyPolicy_State) GetEnt
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["import-policy"] = types.YLeaf{"ImportPolicy", state.ImportPolicy}
-    state.EntityData.Leafs["default-import-policy"] = types.YLeaf{"DefaultImportPolicy", state.DefaultImportPolicy}
-    state.EntityData.Leafs["export-policy"] = types.YLeaf{"ExportPolicy", state.ExportPolicy}
-    state.EntityData.Leafs["default-export-policy"] = types.YLeaf{"DefaultExportPolicy", state.DefaultExportPolicy}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("import-policy", types.YLeaf{"ImportPolicy", state.ImportPolicy})
+    state.EntityData.Leafs.Append("default-import-policy", types.YLeaf{"DefaultImportPolicy", state.DefaultImportPolicy})
+    state.EntityData.Leafs.Append("export-policy", types.YLeaf{"ExportPolicy", state.ExportPolicy})
+    state.EntityData.Leafs.Append("default-export-policy", types.YLeaf{"DefaultExportPolicy", state.DefaultExportPolicy})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -9974,11 +10946,14 @@ func (ipv4Unicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4Unicast) GetEnt
     ipv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ipv4Unicast.EntityData.Children = make(map[string]types.YChild)
-    ipv4Unicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &ipv4Unicast.PrefixLimit}
-    ipv4Unicast.EntityData.Children["config"] = types.YChild{"Config", &ipv4Unicast.Config}
-    ipv4Unicast.EntityData.Children["state"] = types.YChild{"State", &ipv4Unicast.State}
-    ipv4Unicast.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4Unicast.EntityData.Children = types.NewOrderedMap()
+    ipv4Unicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &ipv4Unicast.PrefixLimit})
+    ipv4Unicast.EntityData.Children.Append("config", types.YChild{"Config", &ipv4Unicast.Config})
+    ipv4Unicast.EntityData.Children.Append("state", types.YChild{"State", &ipv4Unicast.State})
+    ipv4Unicast.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4Unicast.EntityData.YListKeys = []string {}
+
     return &(ipv4Unicast.EntityData)
 }
 
@@ -10006,10 +10981,13 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4Unicast_PrefixL
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
@@ -10023,6 +11001,12 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit_Config st
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -10046,11 +11030,15 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit_
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -10064,6 +11052,12 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit_State str
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -10087,11 +11081,15 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit_S
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -10117,9 +11115,12 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4Unicast_Config) GetE
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["send-default-route"] = types.YLeaf{"SendDefaultRoute", config.SendDefaultRoute}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("send-default-route", types.YLeaf{"SendDefaultRoute", config.SendDefaultRoute})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -10145,9 +11146,12 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4Unicast_State) GetEnt
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["send-default-route"] = types.YLeaf{"SendDefaultRoute", state.SendDefaultRoute}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("send-default-route", types.YLeaf{"SendDefaultRoute", state.SendDefaultRoute})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -10177,11 +11181,14 @@ func (ipv6Unicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6Unicast) GetEnt
     ipv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ipv6Unicast.EntityData.Children = make(map[string]types.YChild)
-    ipv6Unicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &ipv6Unicast.PrefixLimit}
-    ipv6Unicast.EntityData.Children["config"] = types.YChild{"Config", &ipv6Unicast.Config}
-    ipv6Unicast.EntityData.Children["state"] = types.YChild{"State", &ipv6Unicast.State}
-    ipv6Unicast.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Unicast.EntityData.Children = types.NewOrderedMap()
+    ipv6Unicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &ipv6Unicast.PrefixLimit})
+    ipv6Unicast.EntityData.Children.Append("config", types.YChild{"Config", &ipv6Unicast.Config})
+    ipv6Unicast.EntityData.Children.Append("state", types.YChild{"State", &ipv6Unicast.State})
+    ipv6Unicast.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Unicast.EntityData.YListKeys = []string {}
+
     return &(ipv6Unicast.EntityData)
 }
 
@@ -10209,10 +11216,13 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6Unicast_PrefixL
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
@@ -10226,6 +11236,12 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit_Config st
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -10249,11 +11265,15 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit_
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -10267,6 +11287,12 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit_State str
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -10290,11 +11316,15 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit_S
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -10320,9 +11350,12 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6Unicast_Config) GetE
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["send-default-route"] = types.YLeaf{"SendDefaultRoute", config.SendDefaultRoute}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("send-default-route", types.YLeaf{"SendDefaultRoute", config.SendDefaultRoute})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -10348,9 +11381,12 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6Unicast_State) GetEnt
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["send-default-route"] = types.YLeaf{"SendDefaultRoute", state.SendDefaultRoute}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("send-default-route", types.YLeaf{"SendDefaultRoute", state.SendDefaultRoute})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -10374,9 +11410,12 @@ func (ipv4LabeledUnicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4LabeledU
     ipv4LabeledUnicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4LabeledUnicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ipv4LabeledUnicast.EntityData.Children = make(map[string]types.YChild)
-    ipv4LabeledUnicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &ipv4LabeledUnicast.PrefixLimit}
-    ipv4LabeledUnicast.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4LabeledUnicast.EntityData.Children = types.NewOrderedMap()
+    ipv4LabeledUnicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &ipv4LabeledUnicast.PrefixLimit})
+    ipv4LabeledUnicast.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4LabeledUnicast.EntityData.YListKeys = []string {}
+
     return &(ipv4LabeledUnicast.EntityData)
 }
 
@@ -10404,10 +11443,13 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4LabeledUnicast_
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
@@ -10421,6 +11463,12 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4LabeledUnicast_PrefixLimit_Co
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -10444,11 +11492,15 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4LabeledUnicast_Prefi
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -10462,6 +11514,12 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4LabeledUnicast_PrefixLimit_St
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -10485,11 +11543,15 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4LabeledUnicast_Prefix
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -10513,9 +11575,12 @@ func (ipv6LabeledUnicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6LabeledU
     ipv6LabeledUnicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6LabeledUnicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ipv6LabeledUnicast.EntityData.Children = make(map[string]types.YChild)
-    ipv6LabeledUnicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &ipv6LabeledUnicast.PrefixLimit}
-    ipv6LabeledUnicast.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6LabeledUnicast.EntityData.Children = types.NewOrderedMap()
+    ipv6LabeledUnicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &ipv6LabeledUnicast.PrefixLimit})
+    ipv6LabeledUnicast.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6LabeledUnicast.EntityData.YListKeys = []string {}
+
     return &(ipv6LabeledUnicast.EntityData)
 }
 
@@ -10543,10 +11608,13 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6LabeledUnicast_
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
@@ -10560,6 +11628,12 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6LabeledUnicast_PrefixLimit_Co
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -10583,11 +11657,15 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6LabeledUnicast_Prefi
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -10601,6 +11679,12 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6LabeledUnicast_PrefixLimit_St
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -10624,55 +11708,62 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6LabeledUnicast_Prefix
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unicast
 // Unicast IPv4 L3VPN configuration options
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unicast struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure the maximum number of prefixes that will be accepted from a peer.
-    PrefixLimit Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit
+    PrefixLimit Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit
 }
 
-func (l3VpnIpv4Unicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast) GetEntityData() *types.CommonEntityData {
-    l3VpnIpv4Unicast.EntityData.YFilter = l3VpnIpv4Unicast.YFilter
-    l3VpnIpv4Unicast.EntityData.YangName = "l3vpn-ipv4-unicast"
-    l3VpnIpv4Unicast.EntityData.BundleName = "openconfig"
-    l3VpnIpv4Unicast.EntityData.ParentYangName = "afi-safi"
-    l3VpnIpv4Unicast.EntityData.SegmentPath = "l3vpn-ipv4-unicast"
-    l3VpnIpv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    l3VpnIpv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    l3VpnIpv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (l3vpnIpv4Unicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unicast) GetEntityData() *types.CommonEntityData {
+    l3vpnIpv4Unicast.EntityData.YFilter = l3vpnIpv4Unicast.YFilter
+    l3vpnIpv4Unicast.EntityData.YangName = "l3vpn-ipv4-unicast"
+    l3vpnIpv4Unicast.EntityData.BundleName = "openconfig"
+    l3vpnIpv4Unicast.EntityData.ParentYangName = "afi-safi"
+    l3vpnIpv4Unicast.EntityData.SegmentPath = "l3vpn-ipv4-unicast"
+    l3vpnIpv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    l3vpnIpv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    l3vpnIpv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    l3VpnIpv4Unicast.EntityData.Children = make(map[string]types.YChild)
-    l3VpnIpv4Unicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &l3VpnIpv4Unicast.PrefixLimit}
-    l3VpnIpv4Unicast.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(l3VpnIpv4Unicast.EntityData)
+    l3vpnIpv4Unicast.EntityData.Children = types.NewOrderedMap()
+    l3vpnIpv4Unicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &l3vpnIpv4Unicast.PrefixLimit})
+    l3vpnIpv4Unicast.EntityData.Leafs = types.NewOrderedMap()
+
+    l3vpnIpv4Unicast.EntityData.YListKeys = []string {}
+
+    return &(l3vpnIpv4Unicast.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit
 // Configure the maximum number of prefixes that will be
 // accepted from a peer
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters relating to the prefix limit for the AFI-SAFI.
-    Config Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_Config
+    Config Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_Config
 
     // State information relating to the prefix-limit for the AFI-SAFI.
-    State Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_State
+    State Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_State
 }
 
-func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
+func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
     prefixLimit.EntityData.YFilter = prefixLimit.YFilter
     prefixLimit.EntityData.YangName = "prefix-limit"
     prefixLimit.EntityData.BundleName = "openconfig"
@@ -10682,23 +11773,32 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast_Pr
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_Config
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_Config
 // Configuration parameters relating to the prefix
 // limit for the AFI-SAFI
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_Config struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -10712,7 +11812,7 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_Conf
     RestartTimer interface{}
 }
 
-func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
+func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -10722,24 +11822,34 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixL
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_State
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_State
 // State information relating to the prefix-limit for the
 // AFI-SAFI
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_State struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -10753,7 +11863,7 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_Stat
     RestartTimer interface{}
 }
 
-func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
+func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -10763,55 +11873,62 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Unicast_PrefixLi
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unicast
 // Unicast IPv6 L3VPN configuration options
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unicast struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure the maximum number of prefixes that will be accepted from a peer.
-    PrefixLimit Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit
+    PrefixLimit Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit
 }
 
-func (l3VpnIpv6Unicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast) GetEntityData() *types.CommonEntityData {
-    l3VpnIpv6Unicast.EntityData.YFilter = l3VpnIpv6Unicast.YFilter
-    l3VpnIpv6Unicast.EntityData.YangName = "l3vpn-ipv6-unicast"
-    l3VpnIpv6Unicast.EntityData.BundleName = "openconfig"
-    l3VpnIpv6Unicast.EntityData.ParentYangName = "afi-safi"
-    l3VpnIpv6Unicast.EntityData.SegmentPath = "l3vpn-ipv6-unicast"
-    l3VpnIpv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    l3VpnIpv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    l3VpnIpv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (l3vpnIpv6Unicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unicast) GetEntityData() *types.CommonEntityData {
+    l3vpnIpv6Unicast.EntityData.YFilter = l3vpnIpv6Unicast.YFilter
+    l3vpnIpv6Unicast.EntityData.YangName = "l3vpn-ipv6-unicast"
+    l3vpnIpv6Unicast.EntityData.BundleName = "openconfig"
+    l3vpnIpv6Unicast.EntityData.ParentYangName = "afi-safi"
+    l3vpnIpv6Unicast.EntityData.SegmentPath = "l3vpn-ipv6-unicast"
+    l3vpnIpv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    l3vpnIpv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    l3vpnIpv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    l3VpnIpv6Unicast.EntityData.Children = make(map[string]types.YChild)
-    l3VpnIpv6Unicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &l3VpnIpv6Unicast.PrefixLimit}
-    l3VpnIpv6Unicast.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(l3VpnIpv6Unicast.EntityData)
+    l3vpnIpv6Unicast.EntityData.Children = types.NewOrderedMap()
+    l3vpnIpv6Unicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &l3vpnIpv6Unicast.PrefixLimit})
+    l3vpnIpv6Unicast.EntityData.Leafs = types.NewOrderedMap()
+
+    l3vpnIpv6Unicast.EntityData.YListKeys = []string {}
+
+    return &(l3vpnIpv6Unicast.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit
 // Configure the maximum number of prefixes that will be
 // accepted from a peer
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters relating to the prefix limit for the AFI-SAFI.
-    Config Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_Config
+    Config Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_Config
 
     // State information relating to the prefix-limit for the AFI-SAFI.
-    State Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_State
+    State Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_State
 }
 
-func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
+func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
     prefixLimit.EntityData.YFilter = prefixLimit.YFilter
     prefixLimit.EntityData.YangName = "prefix-limit"
     prefixLimit.EntityData.BundleName = "openconfig"
@@ -10821,23 +11938,32 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast_Pr
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_Config
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_Config
 // Configuration parameters relating to the prefix
 // limit for the AFI-SAFI
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_Config struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -10851,7 +11977,7 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_Conf
     RestartTimer interface{}
 }
 
-func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
+func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -10861,24 +11987,34 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixL
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_State
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_State
 // State information relating to the prefix-limit for the
 // AFI-SAFI
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_State struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -10892,7 +12028,7 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_Stat
     RestartTimer interface{}
 }
 
-func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
+func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -10902,55 +12038,62 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Unicast_PrefixLi
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Multicast
 // Multicast IPv4 L3VPN configuration options
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Multicast struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure the maximum number of prefixes that will be accepted from a peer.
-    PrefixLimit Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit
+    PrefixLimit Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit
 }
 
-func (l3VpnIpv4Multicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast) GetEntityData() *types.CommonEntityData {
-    l3VpnIpv4Multicast.EntityData.YFilter = l3VpnIpv4Multicast.YFilter
-    l3VpnIpv4Multicast.EntityData.YangName = "l3vpn-ipv4-multicast"
-    l3VpnIpv4Multicast.EntityData.BundleName = "openconfig"
-    l3VpnIpv4Multicast.EntityData.ParentYangName = "afi-safi"
-    l3VpnIpv4Multicast.EntityData.SegmentPath = "l3vpn-ipv4-multicast"
-    l3VpnIpv4Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    l3VpnIpv4Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    l3VpnIpv4Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (l3vpnIpv4Multicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Multicast) GetEntityData() *types.CommonEntityData {
+    l3vpnIpv4Multicast.EntityData.YFilter = l3vpnIpv4Multicast.YFilter
+    l3vpnIpv4Multicast.EntityData.YangName = "l3vpn-ipv4-multicast"
+    l3vpnIpv4Multicast.EntityData.BundleName = "openconfig"
+    l3vpnIpv4Multicast.EntityData.ParentYangName = "afi-safi"
+    l3vpnIpv4Multicast.EntityData.SegmentPath = "l3vpn-ipv4-multicast"
+    l3vpnIpv4Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    l3vpnIpv4Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    l3vpnIpv4Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    l3VpnIpv4Multicast.EntityData.Children = make(map[string]types.YChild)
-    l3VpnIpv4Multicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &l3VpnIpv4Multicast.PrefixLimit}
-    l3VpnIpv4Multicast.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(l3VpnIpv4Multicast.EntityData)
+    l3vpnIpv4Multicast.EntityData.Children = types.NewOrderedMap()
+    l3vpnIpv4Multicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &l3vpnIpv4Multicast.PrefixLimit})
+    l3vpnIpv4Multicast.EntityData.Leafs = types.NewOrderedMap()
+
+    l3vpnIpv4Multicast.EntityData.YListKeys = []string {}
+
+    return &(l3vpnIpv4Multicast.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit
 // Configure the maximum number of prefixes that will be
 // accepted from a peer
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters relating to the prefix limit for the AFI-SAFI.
-    Config Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_Config
+    Config Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_Config
 
     // State information relating to the prefix-limit for the AFI-SAFI.
-    State Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_State
+    State Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_State
 }
 
-func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
+func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
     prefixLimit.EntityData.YFilter = prefixLimit.YFilter
     prefixLimit.EntityData.YangName = "prefix-limit"
     prefixLimit.EntityData.BundleName = "openconfig"
@@ -10960,23 +12103,32 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast_
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_Config
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_Config
 // Configuration parameters relating to the prefix
 // limit for the AFI-SAFI
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_Config struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -10990,7 +12142,7 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_Co
     RestartTimer interface{}
 }
 
-func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
+func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -11000,24 +12152,34 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast_Prefi
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_State
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_State
 // State information relating to the prefix-limit for the
 // AFI-SAFI
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_State struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -11031,7 +12193,7 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_St
     RestartTimer interface{}
 }
 
-func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
+func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -11041,55 +12203,62 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv4Multicast_Prefix
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Multicast
 // Multicast IPv6 L3VPN configuration options
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Multicast struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure the maximum number of prefixes that will be accepted from a peer.
-    PrefixLimit Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit
+    PrefixLimit Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit
 }
 
-func (l3VpnIpv6Multicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast) GetEntityData() *types.CommonEntityData {
-    l3VpnIpv6Multicast.EntityData.YFilter = l3VpnIpv6Multicast.YFilter
-    l3VpnIpv6Multicast.EntityData.YangName = "l3vpn-ipv6-multicast"
-    l3VpnIpv6Multicast.EntityData.BundleName = "openconfig"
-    l3VpnIpv6Multicast.EntityData.ParentYangName = "afi-safi"
-    l3VpnIpv6Multicast.EntityData.SegmentPath = "l3vpn-ipv6-multicast"
-    l3VpnIpv6Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    l3VpnIpv6Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    l3VpnIpv6Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (l3vpnIpv6Multicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Multicast) GetEntityData() *types.CommonEntityData {
+    l3vpnIpv6Multicast.EntityData.YFilter = l3vpnIpv6Multicast.YFilter
+    l3vpnIpv6Multicast.EntityData.YangName = "l3vpn-ipv6-multicast"
+    l3vpnIpv6Multicast.EntityData.BundleName = "openconfig"
+    l3vpnIpv6Multicast.EntityData.ParentYangName = "afi-safi"
+    l3vpnIpv6Multicast.EntityData.SegmentPath = "l3vpn-ipv6-multicast"
+    l3vpnIpv6Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    l3vpnIpv6Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    l3vpnIpv6Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    l3VpnIpv6Multicast.EntityData.Children = make(map[string]types.YChild)
-    l3VpnIpv6Multicast.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &l3VpnIpv6Multicast.PrefixLimit}
-    l3VpnIpv6Multicast.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(l3VpnIpv6Multicast.EntityData)
+    l3vpnIpv6Multicast.EntityData.Children = types.NewOrderedMap()
+    l3vpnIpv6Multicast.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &l3vpnIpv6Multicast.PrefixLimit})
+    l3vpnIpv6Multicast.EntityData.Leafs = types.NewOrderedMap()
+
+    l3vpnIpv6Multicast.EntityData.YListKeys = []string {}
+
+    return &(l3vpnIpv6Multicast.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit
 // Configure the maximum number of prefixes that will be
 // accepted from a peer
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters relating to the prefix limit for the AFI-SAFI.
-    Config Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_Config
+    Config Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_Config
 
     // State information relating to the prefix-limit for the AFI-SAFI.
-    State Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_State
+    State Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_State
 }
 
-func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
+func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit) GetEntityData() *types.CommonEntityData {
     prefixLimit.EntityData.YFilter = prefixLimit.YFilter
     prefixLimit.EntityData.YangName = "prefix-limit"
     prefixLimit.EntityData.BundleName = "openconfig"
@@ -11099,23 +12268,32 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast_
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_Config
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_Config
 // Configuration parameters relating to the prefix
 // limit for the AFI-SAFI
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_Config struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -11129,7 +12307,7 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_Co
     RestartTimer interface{}
 }
 
-func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
+func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -11139,24 +12317,34 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast_Prefi
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_State
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_State
 // State information relating to the prefix-limit for the
 // AFI-SAFI
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_State struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -11170,7 +12358,7 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_St
     RestartTimer interface{}
 }
 
-func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
+func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -11180,55 +12368,62 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3VpnIpv6Multicast_Prefix
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls
 // BGP-signalled VPLS configuration options
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure the maximum number of prefixes that will be accepted from a peer.
-    PrefixLimit Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit
+    PrefixLimit Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit
 }
 
-func (l2VpnVpls *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls) GetEntityData() *types.CommonEntityData {
-    l2VpnVpls.EntityData.YFilter = l2VpnVpls.YFilter
-    l2VpnVpls.EntityData.YangName = "l2vpn-vpls"
-    l2VpnVpls.EntityData.BundleName = "openconfig"
-    l2VpnVpls.EntityData.ParentYangName = "afi-safi"
-    l2VpnVpls.EntityData.SegmentPath = "l2vpn-vpls"
-    l2VpnVpls.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    l2VpnVpls.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    l2VpnVpls.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (l2vpnVpls *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls) GetEntityData() *types.CommonEntityData {
+    l2vpnVpls.EntityData.YFilter = l2vpnVpls.YFilter
+    l2vpnVpls.EntityData.YangName = "l2vpn-vpls"
+    l2vpnVpls.EntityData.BundleName = "openconfig"
+    l2vpnVpls.EntityData.ParentYangName = "afi-safi"
+    l2vpnVpls.EntityData.SegmentPath = "l2vpn-vpls"
+    l2vpnVpls.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    l2vpnVpls.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    l2vpnVpls.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    l2VpnVpls.EntityData.Children = make(map[string]types.YChild)
-    l2VpnVpls.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &l2VpnVpls.PrefixLimit}
-    l2VpnVpls.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(l2VpnVpls.EntityData)
+    l2vpnVpls.EntityData.Children = types.NewOrderedMap()
+    l2vpnVpls.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &l2vpnVpls.PrefixLimit})
+    l2vpnVpls.EntityData.Leafs = types.NewOrderedMap()
+
+    l2vpnVpls.EntityData.YListKeys = []string {}
+
+    return &(l2vpnVpls.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit
 // Configure the maximum number of prefixes that will be
 // accepted from a peer
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters relating to the prefix limit for the AFI-SAFI.
-    Config Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_Config
+    Config Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_Config
 
     // State information relating to the prefix-limit for the AFI-SAFI.
-    State Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_State
+    State Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_State
 }
 
-func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit) GetEntityData() *types.CommonEntityData {
+func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit) GetEntityData() *types.CommonEntityData {
     prefixLimit.EntityData.YFilter = prefixLimit.YFilter
     prefixLimit.EntityData.YangName = "prefix-limit"
     prefixLimit.EntityData.BundleName = "openconfig"
@@ -11238,23 +12433,32 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls_PrefixLim
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_Config
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_Config
 // Configuration parameters relating to the prefix
 // limit for the AFI-SAFI
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_Config struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -11268,7 +12472,7 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_Config stru
     RestartTimer interface{}
 }
 
-func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
+func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -11278,24 +12482,34 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_Co
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_State
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_State
 // State information relating to the prefix-limit for the
 // AFI-SAFI
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_State struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -11309,7 +12523,7 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_State struc
     RestartTimer interface{}
 }
 
-func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
+func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -11319,55 +12533,62 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnVpls_PrefixLimit_Sta
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn
 // BGP EVPN configuration options
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure the maximum number of prefixes that will be accepted from a peer.
-    PrefixLimit Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit
+    PrefixLimit Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit
 }
 
-func (l2VpnEvpn *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn) GetEntityData() *types.CommonEntityData {
-    l2VpnEvpn.EntityData.YFilter = l2VpnEvpn.YFilter
-    l2VpnEvpn.EntityData.YangName = "l2vpn-evpn"
-    l2VpnEvpn.EntityData.BundleName = "openconfig"
-    l2VpnEvpn.EntityData.ParentYangName = "afi-safi"
-    l2VpnEvpn.EntityData.SegmentPath = "l2vpn-evpn"
-    l2VpnEvpn.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    l2VpnEvpn.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    l2VpnEvpn.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+func (l2vpnEvpn *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn) GetEntityData() *types.CommonEntityData {
+    l2vpnEvpn.EntityData.YFilter = l2vpnEvpn.YFilter
+    l2vpnEvpn.EntityData.YangName = "l2vpn-evpn"
+    l2vpnEvpn.EntityData.BundleName = "openconfig"
+    l2vpnEvpn.EntityData.ParentYangName = "afi-safi"
+    l2vpnEvpn.EntityData.SegmentPath = "l2vpn-evpn"
+    l2vpnEvpn.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    l2vpnEvpn.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    l2vpnEvpn.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    l2VpnEvpn.EntityData.Children = make(map[string]types.YChild)
-    l2VpnEvpn.EntityData.Children["prefix-limit"] = types.YChild{"PrefixLimit", &l2VpnEvpn.PrefixLimit}
-    l2VpnEvpn.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(l2VpnEvpn.EntityData)
+    l2vpnEvpn.EntityData.Children = types.NewOrderedMap()
+    l2vpnEvpn.EntityData.Children.Append("prefix-limit", types.YChild{"PrefixLimit", &l2vpnEvpn.PrefixLimit})
+    l2vpnEvpn.EntityData.Leafs = types.NewOrderedMap()
+
+    l2vpnEvpn.EntityData.YListKeys = []string {}
+
+    return &(l2vpnEvpn.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit
 // Configure the maximum number of prefixes that will be
 // accepted from a peer
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration parameters relating to the prefix limit for the AFI-SAFI.
-    Config Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_Config
+    Config Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_Config
 
     // State information relating to the prefix-limit for the AFI-SAFI.
-    State Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_State
+    State Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_State
 }
 
-func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit) GetEntityData() *types.CommonEntityData {
+func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit) GetEntityData() *types.CommonEntityData {
     prefixLimit.EntityData.YFilter = prefixLimit.YFilter
     prefixLimit.EntityData.YangName = "prefix-limit"
     prefixLimit.EntityData.BundleName = "openconfig"
@@ -11377,23 +12598,32 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLim
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    prefixLimit.EntityData.Children = make(map[string]types.YChild)
-    prefixLimit.EntityData.Children["config"] = types.YChild{"Config", &prefixLimit.Config}
-    prefixLimit.EntityData.Children["state"] = types.YChild{"State", &prefixLimit.State}
-    prefixLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixLimit.EntityData.Children = types.NewOrderedMap()
+    prefixLimit.EntityData.Children.Append("config", types.YChild{"Config", &prefixLimit.Config})
+    prefixLimit.EntityData.Children.Append("state", types.YChild{"State", &prefixLimit.State})
+    prefixLimit.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixLimit.EntityData.YListKeys = []string {}
+
     return &(prefixLimit.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_Config
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_Config
 // Configuration parameters relating to the prefix
 // limit for the AFI-SAFI
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_Config struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -11407,7 +12637,7 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_Config stru
     RestartTimer interface{}
 }
 
-func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
+func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.YFilter = config.YFilter
     config.EntityData.YangName = "config"
     config.EntityData.BundleName = "openconfig"
@@ -11417,24 +12647,34 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_Co
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", config.MaxPrefixes}
-    config.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct}
-    config.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", config.RestartTimer}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", config.MaxPrefixes})
+    config.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", config.PreventTeardown})
+    config.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", config.ShutdownThresholdPct})
+    config.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", config.RestartTimer})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
-// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_State
+// Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_State
 // State information relating to the prefix-limit for the
 // AFI-SAFI
-type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_State struct {
+type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of prefixes that will be accepted from the neighbour. The
     // type is interface{} with range: 0..4294967295.
     MaxPrefixes interface{}
+
+    // Do not tear down the BGP session when the maximum prefix limit is exceeded,
+    // but rather only log a warning. The default of this leaf is false, such that
+    // when it is not specified, the session is torn down. The type is bool. The
+    // default value is false.
+    PreventTeardown interface{}
 
     // Threshold on number of prefixes that can be received from a neighbour
     // before generation of warning messages or log entries. Expressed as a
@@ -11448,7 +12688,7 @@ type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_State struc
     RestartTimer interface{}
 }
 
-func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
+func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "openconfig"
@@ -11458,11 +12698,15 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2VpnEvpn_PrefixLimit_Sta
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["max-prefixes"] = types.YLeaf{"MaxPrefixes", state.MaxPrefixes}
-    state.EntityData.Leafs["shutdown-threshold-pct"] = types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct}
-    state.EntityData.Leafs["restart-timer"] = types.YLeaf{"RestartTimer", state.RestartTimer}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("max-prefixes", types.YLeaf{"MaxPrefixes", state.MaxPrefixes})
+    state.EntityData.Leafs.Append("prevent-teardown", types.YLeaf{"PreventTeardown", state.PreventTeardown})
+    state.EntityData.Leafs.Append("shutdown-threshold-pct", types.YLeaf{"ShutdownThresholdPct", state.ShutdownThresholdPct})
+    state.EntityData.Leafs.Append("restart-timer", types.YLeaf{"RestartTimer", state.RestartTimer})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 

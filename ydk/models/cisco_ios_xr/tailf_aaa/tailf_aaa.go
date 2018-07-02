@@ -22,86 +22,104 @@ func init() {
     ydk.RegisterEntity("tailf-aaa:user", reflect.TypeOf(User{}))
 }
 
-// Dataoperationtype
-type Dataoperationtype string
+// DataOperationType
+type DataOperationType string
 
 const (
-    Dataoperationtype_r Dataoperationtype = "r"
+    DataOperationType_r DataOperationType = "r"
 
-    Dataoperationtype_rx Dataoperationtype = "rx"
+    DataOperationType_rx DataOperationType = "rx"
 
-    Dataoperationtype_x Dataoperationtype = "x"
+    DataOperationType_x DataOperationType = "x"
 
-    Dataoperationtype_rw Dataoperationtype = "rw"
+    DataOperationType_rw DataOperationType = "rw"
 
-    Dataoperationtype_rwx Dataoperationtype = "rwx"
+    DataOperationType_rwx DataOperationType = "rwx"
 
-    Dataoperationtype_wx Dataoperationtype = "wx"
+    DataOperationType_wx DataOperationType = "wx"
 
-    Dataoperationtype_w Dataoperationtype = "w"
+    DataOperationType_w DataOperationType = "w"
 
-    Dataoperationtype_c Dataoperationtype = "c"
+    DataOperationType_c DataOperationType = "c"
 
-    Dataoperationtype_cr Dataoperationtype = "cr"
+    DataOperationType_cr DataOperationType = "cr"
 
-    Dataoperationtype_cu Dataoperationtype = "cu"
+    DataOperationType_cu DataOperationType = "cu"
 
-    Dataoperationtype_cd Dataoperationtype = "cd"
+    DataOperationType_cd DataOperationType = "cd"
 
-    Dataoperationtype_cx Dataoperationtype = "cx"
+    DataOperationType_cx DataOperationType = "cx"
 
-    Dataoperationtype_cru Dataoperationtype = "cru"
+    DataOperationType_cru DataOperationType = "cru"
 
-    Dataoperationtype_crd Dataoperationtype = "crd"
+    DataOperationType_crd DataOperationType = "crd"
 
-    Dataoperationtype_crx Dataoperationtype = "crx"
+    DataOperationType_crx DataOperationType = "crx"
 
-    Dataoperationtype_cud Dataoperationtype = "cud"
+    DataOperationType_cud DataOperationType = "cud"
 
-    Dataoperationtype_cux Dataoperationtype = "cux"
+    DataOperationType_cux DataOperationType = "cux"
 
-    Dataoperationtype_cdx Dataoperationtype = "cdx"
+    DataOperationType_cdx DataOperationType = "cdx"
 
-    Dataoperationtype_crud Dataoperationtype = "crud"
+    DataOperationType_crud DataOperationType = "crud"
 
-    Dataoperationtype_crux Dataoperationtype = "crux"
+    DataOperationType_crux DataOperationType = "crux"
 
-    Dataoperationtype_crdx Dataoperationtype = "crdx"
+    DataOperationType_crdx DataOperationType = "crdx"
 
-    Dataoperationtype_cudx Dataoperationtype = "cudx"
+    DataOperationType_cudx DataOperationType = "cudx"
 
-    Dataoperationtype_crudx Dataoperationtype = "crudx"
+    DataOperationType_crudx DataOperationType = "crudx"
 
-    Dataoperationtype_ru Dataoperationtype = "ru"
+    DataOperationType_ru DataOperationType = "ru"
 
-    Dataoperationtype_rd Dataoperationtype = "rd"
+    DataOperationType_rd DataOperationType = "rd"
 
-    Dataoperationtype_rud Dataoperationtype = "rud"
+    DataOperationType_rud DataOperationType = "rud"
 
-    Dataoperationtype_rux Dataoperationtype = "rux"
+    DataOperationType_rux DataOperationType = "rux"
 
-    Dataoperationtype_rdx Dataoperationtype = "rdx"
+    DataOperationType_rdx DataOperationType = "rdx"
 
-    Dataoperationtype_u Dataoperationtype = "u"
+    DataOperationType_u DataOperationType = "u"
 
-    Dataoperationtype_ud Dataoperationtype = "ud"
+    DataOperationType_ud DataOperationType = "ud"
 
-    Dataoperationtype_ux Dataoperationtype = "ux"
+    DataOperationType_ux DataOperationType = "ux"
 
-    Dataoperationtype_d Dataoperationtype = "d"
+    DataOperationType_d DataOperationType = "d"
 
-    Dataoperationtype_dx Dataoperationtype = "dx"
+    DataOperationType_dx DataOperationType = "dx"
 )
 
-// Cmdoperationtype
-type Cmdoperationtype string
+// BuiltinModes
+type BuiltinModes string
 
 const (
-    Cmdoperationtype_r Cmdoperationtype = "r"
+    BuiltinModes_exec BuiltinModes = "exec"
 
-    Cmdoperationtype_rx Cmdoperationtype = "rx"
+    BuiltinModes_configure BuiltinModes = "configure"
+)
 
-    Cmdoperationtype_x Cmdoperationtype = "x"
+// BuiltinModes_
+type BuiltinModes_ string
+
+const (
+    BuiltinModes__exec BuiltinModes_ = "exec"
+
+    BuiltinModes__configure BuiltinModes_ = "configure"
+)
+
+// CmdOperationType
+type CmdOperationType string
+
+const (
+    CmdOperationType_r CmdOperationType = "r"
+
+    CmdOperationType_rx CmdOperationType = "rx"
+
+    CmdOperationType_x CmdOperationType = "x"
 )
 
 // Action
@@ -113,24 +131,6 @@ const (
     Action_reject Action = "reject"
 
     Action_accept_log Action = "accept_log"
-)
-
-// Builtinmodes
-type Builtinmodes string
-
-const (
-    Builtinmodes_exec Builtinmodes = "exec"
-
-    Builtinmodes_configure Builtinmodes = "configure"
-)
-
-// Builtinmodes_
-type Builtinmodes_ string
-
-const (
-    Builtinmodes__exec Builtinmodes_ = "exec"
-
-    Builtinmodes__configure Builtinmodes_ = "configure"
 )
 
 // Aaa
@@ -170,15 +170,18 @@ func (aaa *Aaa) GetEntityData() *types.CommonEntityData {
     aaa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aaa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aaa.EntityData.Children = make(map[string]types.YChild)
-    aaa.EntityData.Children["authentication"] = types.YChild{"Authentication", &aaa.Authentication}
-    aaa.EntityData.Children["authorization"] = types.YChild{"Authorization", &aaa.Authorization}
-    aaa.EntityData.Children["ios"] = types.YChild{"Ios", &aaa.Ios}
-    aaa.EntityData.Children["Cisco-IOS-XR-sysadmin-aaa-aaa-show:privileged-access"] = types.YChild{"PrivilegedAccess", &aaa.PrivilegedAccess}
-    aaa.EntityData.Children["Cisco-IOS-XR-sysadmin-aaa-aaa-show:accounting"] = types.YChild{"Accounting", &aaa.Accounting}
-    aaa.EntityData.Children["Cisco-IOS-XR-sysadmin-aaa-aaa-show:user-group"] = types.YChild{"UserGroup", &aaa.UserGroup}
-    aaa.EntityData.Children["Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery"] = types.YChild{"DisasterRecovery", &aaa.DisasterRecovery}
-    aaa.EntityData.Leafs = make(map[string]types.YLeaf)
+    aaa.EntityData.Children = types.NewOrderedMap()
+    aaa.EntityData.Children.Append("authentication", types.YChild{"Authentication", &aaa.Authentication})
+    aaa.EntityData.Children.Append("authorization", types.YChild{"Authorization", &aaa.Authorization})
+    aaa.EntityData.Children.Append("ios", types.YChild{"Ios", &aaa.Ios})
+    aaa.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-aaa-aaa-show:privileged-access", types.YChild{"PrivilegedAccess", &aaa.PrivilegedAccess})
+    aaa.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-aaa-aaa-show:accounting", types.YChild{"Accounting", &aaa.Accounting})
+    aaa.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-aaa-aaa-show:user-group", types.YChild{"UserGroup", &aaa.UserGroup})
+    aaa.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery", types.YChild{"DisasterRecovery", &aaa.DisasterRecovery})
+    aaa.EntityData.Leafs = types.NewOrderedMap()
+
+    aaa.EntityData.YListKeys = []string {}
+
     return &(aaa.EntityData)
 }
 
@@ -204,10 +207,13 @@ func (authentication *Aaa_Authentication) GetEntityData() *types.CommonEntityDat
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authentication.EntityData.Children = make(map[string]types.YChild)
-    authentication.EntityData.Children["users"] = types.YChild{"Users", &authentication.Users}
-    authentication.EntityData.Children["groups"] = types.YChild{"Groups", &authentication.Groups}
-    authentication.EntityData.Leafs = make(map[string]types.YLeaf)
+    authentication.EntityData.Children = types.NewOrderedMap()
+    authentication.EntityData.Children.Append("users", types.YChild{"Users", &authentication.Users})
+    authentication.EntityData.Children.Append("groups", types.YChild{"Groups", &authentication.Groups})
+    authentication.EntityData.Leafs = types.NewOrderedMap()
+
+    authentication.EntityData.YListKeys = []string {}
+
     return &(authentication.EntityData)
 }
 
@@ -217,7 +223,7 @@ type Aaa_Authentication_Users struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Aaa_Authentication_Users_User.
-    User []Aaa_Authentication_Users_User
+    User []*Aaa_Authentication_Users_User
 }
 
 func (users *Aaa_Authentication_Users) GetEntityData() *types.CommonEntityData {
@@ -230,12 +236,15 @@ func (users *Aaa_Authentication_Users) GetEntityData() *types.CommonEntityData {
     users.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     users.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    users.EntityData.Children = make(map[string]types.YChild)
-    users.EntityData.Children["user"] = types.YChild{"User", nil}
+    users.EntityData.Children = types.NewOrderedMap()
+    users.EntityData.Children.Append("user", types.YChild{"User", nil})
     for i := range users.User {
-        users.EntityData.Children[types.GetSegmentPath(&users.User[i])] = types.YChild{"User", &users.User[i]}
+        users.EntityData.Children.Append(types.GetSegmentPath(users.User[i]), types.YChild{"User", users.User[i]})
     }
-    users.EntityData.Leafs = make(map[string]types.YLeaf)
+    users.EntityData.Leafs = types.NewOrderedMap()
+
+    users.EntityData.YListKeys = []string {}
+
     return &(users.EntityData)
 }
 
@@ -270,19 +279,22 @@ func (user *Aaa_Authentication_Users_User) GetEntityData() *types.CommonEntityDa
     user.EntityData.YangName = "user"
     user.EntityData.BundleName = "cisco_ios_xr"
     user.EntityData.ParentYangName = "users"
-    user.EntityData.SegmentPath = "user" + "[name='" + fmt.Sprintf("%v", user.Name) + "']"
+    user.EntityData.SegmentPath = "user" + types.AddKeyToken(user.Name, "name")
     user.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     user.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     user.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    user.EntityData.Children = make(map[string]types.YChild)
-    user.EntityData.Leafs = make(map[string]types.YLeaf)
-    user.EntityData.Leafs["name"] = types.YLeaf{"Name", user.Name}
-    user.EntityData.Leafs["uid"] = types.YLeaf{"Uid", user.Uid}
-    user.EntityData.Leafs["gid"] = types.YLeaf{"Gid", user.Gid}
-    user.EntityData.Leafs["password"] = types.YLeaf{"Password", user.Password}
-    user.EntityData.Leafs["ssh_keydir"] = types.YLeaf{"SshKeydir", user.SshKeydir}
-    user.EntityData.Leafs["homedir"] = types.YLeaf{"Homedir", user.Homedir}
+    user.EntityData.Children = types.NewOrderedMap()
+    user.EntityData.Leafs = types.NewOrderedMap()
+    user.EntityData.Leafs.Append("name", types.YLeaf{"Name", user.Name})
+    user.EntityData.Leafs.Append("uid", types.YLeaf{"Uid", user.Uid})
+    user.EntityData.Leafs.Append("gid", types.YLeaf{"Gid", user.Gid})
+    user.EntityData.Leafs.Append("password", types.YLeaf{"Password", user.Password})
+    user.EntityData.Leafs.Append("ssh_keydir", types.YLeaf{"SshKeydir", user.SshKeydir})
+    user.EntityData.Leafs.Append("homedir", types.YLeaf{"Homedir", user.Homedir})
+
+    user.EntityData.YListKeys = []string {"Name"}
+
     return &(user.EntityData)
 }
 
@@ -292,7 +304,7 @@ type Aaa_Authentication_Groups struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Aaa_Authentication_Groups_Group.
-    Group []Aaa_Authentication_Groups_Group
+    Group []*Aaa_Authentication_Groups_Group
 }
 
 func (groups *Aaa_Authentication_Groups) GetEntityData() *types.CommonEntityData {
@@ -305,12 +317,15 @@ func (groups *Aaa_Authentication_Groups) GetEntityData() *types.CommonEntityData
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groups.EntityData.Children = make(map[string]types.YChild)
-    groups.EntityData.Children["group"] = types.YChild{"Group", nil}
+    groups.EntityData.Children = types.NewOrderedMap()
+    groups.EntityData.Children.Append("group", types.YChild{"Group", nil})
     for i := range groups.Group {
-        groups.EntityData.Children[types.GetSegmentPath(&groups.Group[i])] = types.YChild{"Group", &groups.Group[i]}
+        groups.EntityData.Children.Append(types.GetSegmentPath(groups.Group[i]), types.YChild{"Group", groups.Group[i]})
     }
-    groups.EntityData.Leafs = make(map[string]types.YLeaf)
+    groups.EntityData.Leafs = types.NewOrderedMap()
+
+    groups.EntityData.YListKeys = []string {}
+
     return &(groups.EntityData)
 }
 
@@ -334,16 +349,19 @@ func (group *Aaa_Authentication_Groups_Group) GetEntityData() *types.CommonEntit
     group.EntityData.YangName = "group"
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
-    group.EntityData.SegmentPath = "group" + "[name='" + fmt.Sprintf("%v", group.Name) + "']"
+    group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.Name, "name")
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    group.EntityData.Children = make(map[string]types.YChild)
-    group.EntityData.Leafs = make(map[string]types.YLeaf)
-    group.EntityData.Leafs["name"] = types.YLeaf{"Name", group.Name}
-    group.EntityData.Leafs["gid"] = types.YLeaf{"Gid", group.Gid}
-    group.EntityData.Leafs["users"] = types.YLeaf{"Users", group.Users}
+    group.EntityData.Children = types.NewOrderedMap()
+    group.EntityData.Leafs = types.NewOrderedMap()
+    group.EntityData.Leafs.Append("name", types.YLeaf{"Name", group.Name})
+    group.EntityData.Leafs.Append("gid", types.YLeaf{"Gid", group.Gid})
+    group.EntityData.Leafs.Append("users", types.YLeaf{"Users", group.Users})
+
+    group.EntityData.YListKeys = []string {"Name"}
+
     return &(group.EntityData)
 }
 
@@ -369,10 +387,13 @@ func (authorization *Aaa_Authorization) GetEntityData() *types.CommonEntityData 
     authorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authorization.EntityData.Children = make(map[string]types.YChild)
-    authorization.EntityData.Children["cmdrules"] = types.YChild{"Cmdrules", &authorization.Cmdrules}
-    authorization.EntityData.Children["datarules"] = types.YChild{"Datarules", &authorization.Datarules}
-    authorization.EntityData.Leafs = make(map[string]types.YLeaf)
+    authorization.EntityData.Children = types.NewOrderedMap()
+    authorization.EntityData.Children.Append("cmdrules", types.YChild{"Cmdrules", &authorization.Cmdrules})
+    authorization.EntityData.Children.Append("datarules", types.YChild{"Datarules", &authorization.Datarules})
+    authorization.EntityData.Leafs = types.NewOrderedMap()
+
+    authorization.EntityData.YListKeys = []string {}
+
     return &(authorization.EntityData)
 }
 
@@ -382,7 +403,7 @@ type Aaa_Authorization_Cmdrules struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Aaa_Authorization_Cmdrules_Cmdrule.
-    Cmdrule []Aaa_Authorization_Cmdrules_Cmdrule
+    Cmdrule []*Aaa_Authorization_Cmdrules_Cmdrule
 }
 
 func (cmdrules *Aaa_Authorization_Cmdrules) GetEntityData() *types.CommonEntityData {
@@ -395,12 +416,15 @@ func (cmdrules *Aaa_Authorization_Cmdrules) GetEntityData() *types.CommonEntityD
     cmdrules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cmdrules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cmdrules.EntityData.Children = make(map[string]types.YChild)
-    cmdrules.EntityData.Children["cmdrule"] = types.YChild{"Cmdrule", nil}
+    cmdrules.EntityData.Children = types.NewOrderedMap()
+    cmdrules.EntityData.Children.Append("cmdrule", types.YChild{"Cmdrule", nil})
     for i := range cmdrules.Cmdrule {
-        cmdrules.EntityData.Children[types.GetSegmentPath(&cmdrules.Cmdrule[i])] = types.YChild{"Cmdrule", &cmdrules.Cmdrule[i]}
+        cmdrules.EntityData.Children.Append(types.GetSegmentPath(cmdrules.Cmdrule[i]), types.YChild{"Cmdrule", cmdrules.Cmdrule[i]})
     }
-    cmdrules.EntityData.Leafs = make(map[string]types.YLeaf)
+    cmdrules.EntityData.Leafs = types.NewOrderedMap()
+
+    cmdrules.EntityData.YListKeys = []string {}
+
     return &(cmdrules.EntityData)
 }
 
@@ -421,7 +445,7 @@ type Aaa_Authorization_Cmdrules_Cmdrule struct {
     // The type is string. This attribute is mandatory.
     Group interface{}
 
-    // The type is Cmdoperationtype. This attribute is mandatory.
+    // The type is CmdOperationType. This attribute is mandatory.
     Ops interface{}
 
     // The type is Action. This attribute is mandatory.
@@ -433,19 +457,22 @@ func (cmdrule *Aaa_Authorization_Cmdrules_Cmdrule) GetEntityData() *types.Common
     cmdrule.EntityData.YangName = "cmdrule"
     cmdrule.EntityData.BundleName = "cisco_ios_xr"
     cmdrule.EntityData.ParentYangName = "cmdrules"
-    cmdrule.EntityData.SegmentPath = "cmdrule" + "[index='" + fmt.Sprintf("%v", cmdrule.Index) + "']"
+    cmdrule.EntityData.SegmentPath = "cmdrule" + types.AddKeyToken(cmdrule.Index, "index")
     cmdrule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cmdrule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cmdrule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cmdrule.EntityData.Children = make(map[string]types.YChild)
-    cmdrule.EntityData.Leafs = make(map[string]types.YLeaf)
-    cmdrule.EntityData.Leafs["index"] = types.YLeaf{"Index", cmdrule.Index}
-    cmdrule.EntityData.Leafs["context"] = types.YLeaf{"Context", cmdrule.Context}
-    cmdrule.EntityData.Leafs["command"] = types.YLeaf{"Command", cmdrule.Command}
-    cmdrule.EntityData.Leafs["group"] = types.YLeaf{"Group", cmdrule.Group}
-    cmdrule.EntityData.Leafs["ops"] = types.YLeaf{"Ops", cmdrule.Ops}
-    cmdrule.EntityData.Leafs["action"] = types.YLeaf{"Action", cmdrule.Action}
+    cmdrule.EntityData.Children = types.NewOrderedMap()
+    cmdrule.EntityData.Leafs = types.NewOrderedMap()
+    cmdrule.EntityData.Leafs.Append("index", types.YLeaf{"Index", cmdrule.Index})
+    cmdrule.EntityData.Leafs.Append("context", types.YLeaf{"Context", cmdrule.Context})
+    cmdrule.EntityData.Leafs.Append("command", types.YLeaf{"Command", cmdrule.Command})
+    cmdrule.EntityData.Leafs.Append("group", types.YLeaf{"Group", cmdrule.Group})
+    cmdrule.EntityData.Leafs.Append("ops", types.YLeaf{"Ops", cmdrule.Ops})
+    cmdrule.EntityData.Leafs.Append("action", types.YLeaf{"Action", cmdrule.Action})
+
+    cmdrule.EntityData.YListKeys = []string {"Index"}
+
     return &(cmdrule.EntityData)
 }
 
@@ -455,7 +482,7 @@ type Aaa_Authorization_Datarules struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Aaa_Authorization_Datarules_Datarule.
-    Datarule []Aaa_Authorization_Datarules_Datarule
+    Datarule []*Aaa_Authorization_Datarules_Datarule
 }
 
 func (datarules *Aaa_Authorization_Datarules) GetEntityData() *types.CommonEntityData {
@@ -468,12 +495,15 @@ func (datarules *Aaa_Authorization_Datarules) GetEntityData() *types.CommonEntit
     datarules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     datarules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    datarules.EntityData.Children = make(map[string]types.YChild)
-    datarules.EntityData.Children["datarule"] = types.YChild{"Datarule", nil}
+    datarules.EntityData.Children = types.NewOrderedMap()
+    datarules.EntityData.Children.Append("datarule", types.YChild{"Datarule", nil})
     for i := range datarules.Datarule {
-        datarules.EntityData.Children[types.GetSegmentPath(&datarules.Datarule[i])] = types.YChild{"Datarule", &datarules.Datarule[i]}
+        datarules.EntityData.Children.Append(types.GetSegmentPath(datarules.Datarule[i]), types.YChild{"Datarule", datarules.Datarule[i]})
     }
-    datarules.EntityData.Leafs = make(map[string]types.YLeaf)
+    datarules.EntityData.Leafs = types.NewOrderedMap()
+
+    datarules.EntityData.YListKeys = []string {}
+
     return &(datarules.EntityData)
 }
 
@@ -497,7 +527,7 @@ type Aaa_Authorization_Datarules_Datarule struct {
     // The type is string. This attribute is mandatory.
     Group interface{}
 
-    // The type is Dataoperationtype. This attribute is mandatory.
+    // The type is DataOperationType. This attribute is mandatory.
     Ops interface{}
 
     // The type is Action. This attribute is mandatory.
@@ -509,20 +539,23 @@ func (datarule *Aaa_Authorization_Datarules_Datarule) GetEntityData() *types.Com
     datarule.EntityData.YangName = "datarule"
     datarule.EntityData.BundleName = "cisco_ios_xr"
     datarule.EntityData.ParentYangName = "datarules"
-    datarule.EntityData.SegmentPath = "datarule" + "[index='" + fmt.Sprintf("%v", datarule.Index) + "']"
+    datarule.EntityData.SegmentPath = "datarule" + types.AddKeyToken(datarule.Index, "index")
     datarule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     datarule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     datarule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    datarule.EntityData.Children = make(map[string]types.YChild)
-    datarule.EntityData.Leafs = make(map[string]types.YLeaf)
-    datarule.EntityData.Leafs["index"] = types.YLeaf{"Index", datarule.Index}
-    datarule.EntityData.Leafs["namespace"] = types.YLeaf{"Namespace", datarule.Namespace}
-    datarule.EntityData.Leafs["context"] = types.YLeaf{"Context", datarule.Context}
-    datarule.EntityData.Leafs["keypath"] = types.YLeaf{"Keypath", datarule.Keypath}
-    datarule.EntityData.Leafs["group"] = types.YLeaf{"Group", datarule.Group}
-    datarule.EntityData.Leafs["ops"] = types.YLeaf{"Ops", datarule.Ops}
-    datarule.EntityData.Leafs["action"] = types.YLeaf{"Action", datarule.Action}
+    datarule.EntityData.Children = types.NewOrderedMap()
+    datarule.EntityData.Leafs = types.NewOrderedMap()
+    datarule.EntityData.Leafs.Append("index", types.YLeaf{"Index", datarule.Index})
+    datarule.EntityData.Leafs.Append("namespace", types.YLeaf{"Namespace", datarule.Namespace})
+    datarule.EntityData.Leafs.Append("context", types.YLeaf{"Context", datarule.Context})
+    datarule.EntityData.Leafs.Append("keypath", types.YLeaf{"Keypath", datarule.Keypath})
+    datarule.EntityData.Leafs.Append("group", types.YLeaf{"Group", datarule.Group})
+    datarule.EntityData.Leafs.Append("ops", types.YLeaf{"Ops", datarule.Ops})
+    datarule.EntityData.Leafs.Append("action", types.YLeaf{"Action", datarule.Action})
+
+    datarule.EntityData.YListKeys = []string {"Index"}
+
     return &(datarule.EntityData)
 }
 
@@ -531,12 +564,13 @@ func (datarule *Aaa_Authorization_Datarules_Datarule) GetEntityData() *types.Com
 type Aaa_Ios struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // The type is slice of Aaa_Ios_Level.
-    Level []Aaa_Ios_Level
+    Level []*Aaa_Ios_Level
 
     // The type is slice of Aaa_Ios_Privilege.
-    Privilege []Aaa_Ios_Privilege
+    Privilege []*Aaa_Ios_Privilege
 }
 
 func (ios *Aaa_Ios) GetEntityData() *types.CommonEntityData {
@@ -549,16 +583,19 @@ func (ios *Aaa_Ios) GetEntityData() *types.CommonEntityData {
     ios.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ios.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ios.EntityData.Children = make(map[string]types.YChild)
-    ios.EntityData.Children["level"] = types.YChild{"Level", nil}
+    ios.EntityData.Children = types.NewOrderedMap()
+    ios.EntityData.Children.Append("level", types.YChild{"Level", nil})
     for i := range ios.Level {
-        ios.EntityData.Children[types.GetSegmentPath(&ios.Level[i])] = types.YChild{"Level", &ios.Level[i]}
+        ios.EntityData.Children.Append(types.GetSegmentPath(ios.Level[i]), types.YChild{"Level", ios.Level[i]})
     }
-    ios.EntityData.Children["privilege"] = types.YChild{"Privilege", nil}
+    ios.EntityData.Children.Append("privilege", types.YChild{"Privilege", nil})
     for i := range ios.Privilege {
-        ios.EntityData.Children[types.GetSegmentPath(&ios.Privilege[i])] = types.YChild{"Privilege", &ios.Privilege[i]}
+        ios.EntityData.Children.Append(types.GetSegmentPath(ios.Privilege[i]), types.YChild{"Privilege", ios.Privilege[i]})
     }
-    ios.EntityData.Leafs = make(map[string]types.YLeaf)
+    ios.EntityData.Leafs = types.NewOrderedMap()
+
+    ios.EntityData.YListKeys = []string {}
+
     return &(ios.EntityData)
 }
 
@@ -585,17 +622,20 @@ func (level *Aaa_Ios_Level) GetEntityData() *types.CommonEntityData {
     level.EntityData.YangName = "level"
     level.EntityData.BundleName = "cisco_ios_xr"
     level.EntityData.ParentYangName = "ios"
-    level.EntityData.SegmentPath = "level" + "[nr='" + fmt.Sprintf("%v", level.Nr) + "']"
+    level.EntityData.SegmentPath = "level" + types.AddKeyToken(level.Nr, "nr")
     level.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     level.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     level.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    level.EntityData.Children = make(map[string]types.YChild)
-    level.EntityData.Leafs = make(map[string]types.YLeaf)
-    level.EntityData.Leafs["nr"] = types.YLeaf{"Nr", level.Nr}
-    level.EntityData.Leafs["secret"] = types.YLeaf{"Secret", level.Secret}
-    level.EntityData.Leafs["password"] = types.YLeaf{"Password", level.Password}
-    level.EntityData.Leafs["prompt"] = types.YLeaf{"Prompt", level.Prompt}
+    level.EntityData.Children = types.NewOrderedMap()
+    level.EntityData.Leafs = types.NewOrderedMap()
+    level.EntityData.Leafs.Append("nr", types.YLeaf{"Nr", level.Nr})
+    level.EntityData.Leafs.Append("secret", types.YLeaf{"Secret", level.Secret})
+    level.EntityData.Leafs.Append("password", types.YLeaf{"Password", level.Password})
+    level.EntityData.Leafs.Append("prompt", types.YLeaf{"Prompt", level.Prompt})
+
+    level.EntityData.YListKeys = []string {"Nr"}
+
     return &(level.EntityData)
 }
 
@@ -605,11 +645,11 @@ type Aaa_Ios_Privilege struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is one of the following types: string, or
-    // enumeration Builtinmodes_.
+    // enumeration BuiltinModes_.
     Mode interface{}
 
     // The type is slice of Aaa_Ios_Privilege_Level.
-    Level []Aaa_Ios_Privilege_Level
+    Level []*Aaa_Ios_Privilege_Level
 }
 
 func (privilege *Aaa_Ios_Privilege) GetEntityData() *types.CommonEntityData {
@@ -617,18 +657,21 @@ func (privilege *Aaa_Ios_Privilege) GetEntityData() *types.CommonEntityData {
     privilege.EntityData.YangName = "privilege"
     privilege.EntityData.BundleName = "cisco_ios_xr"
     privilege.EntityData.ParentYangName = "ios"
-    privilege.EntityData.SegmentPath = "privilege" + "[mode='" + fmt.Sprintf("%v", privilege.Mode) + "']"
+    privilege.EntityData.SegmentPath = "privilege" + types.AddKeyToken(privilege.Mode, "mode")
     privilege.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     privilege.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     privilege.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    privilege.EntityData.Children = make(map[string]types.YChild)
-    privilege.EntityData.Children["level"] = types.YChild{"Level", nil}
+    privilege.EntityData.Children = types.NewOrderedMap()
+    privilege.EntityData.Children.Append("level", types.YChild{"Level", nil})
     for i := range privilege.Level {
-        privilege.EntityData.Children[types.GetSegmentPath(&privilege.Level[i])] = types.YChild{"Level", &privilege.Level[i]}
+        privilege.EntityData.Children.Append(types.GetSegmentPath(privilege.Level[i]), types.YChild{"Level", privilege.Level[i]})
     }
-    privilege.EntityData.Leafs = make(map[string]types.YLeaf)
-    privilege.EntityData.Leafs["mode"] = types.YLeaf{"Mode", privilege.Mode}
+    privilege.EntityData.Leafs = types.NewOrderedMap()
+    privilege.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", privilege.Mode})
+
+    privilege.EntityData.YListKeys = []string {"Mode"}
+
     return &(privilege.EntityData)
 }
 
@@ -641,7 +684,7 @@ type Aaa_Ios_Privilege_Level struct {
     Nr interface{}
 
     // The type is slice of Aaa_Ios_Privilege_Level_Command.
-    Command []Aaa_Ios_Privilege_Level_Command
+    Command []*Aaa_Ios_Privilege_Level_Command
 }
 
 func (level *Aaa_Ios_Privilege_Level) GetEntityData() *types.CommonEntityData {
@@ -649,18 +692,21 @@ func (level *Aaa_Ios_Privilege_Level) GetEntityData() *types.CommonEntityData {
     level.EntityData.YangName = "level"
     level.EntityData.BundleName = "cisco_ios_xr"
     level.EntityData.ParentYangName = "privilege"
-    level.EntityData.SegmentPath = "level" + "[nr='" + fmt.Sprintf("%v", level.Nr) + "']"
+    level.EntityData.SegmentPath = "level" + types.AddKeyToken(level.Nr, "nr")
     level.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     level.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     level.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    level.EntityData.Children = make(map[string]types.YChild)
-    level.EntityData.Children["command"] = types.YChild{"Command", nil}
+    level.EntityData.Children = types.NewOrderedMap()
+    level.EntityData.Children.Append("command", types.YChild{"Command", nil})
     for i := range level.Command {
-        level.EntityData.Children[types.GetSegmentPath(&level.Command[i])] = types.YChild{"Command", &level.Command[i]}
+        level.EntityData.Children.Append(types.GetSegmentPath(level.Command[i]), types.YChild{"Command", level.Command[i]})
     }
-    level.EntityData.Leafs = make(map[string]types.YLeaf)
-    level.EntityData.Leafs["nr"] = types.YLeaf{"Nr", level.Nr}
+    level.EntityData.Leafs = types.NewOrderedMap()
+    level.EntityData.Leafs.Append("nr", types.YLeaf{"Nr", level.Nr})
+
+    level.EntityData.YListKeys = []string {"Nr"}
+
     return &(level.EntityData)
 }
 
@@ -678,14 +724,17 @@ func (command *Aaa_Ios_Privilege_Level_Command) GetEntityData() *types.CommonEnt
     command.EntityData.YangName = "command"
     command.EntityData.BundleName = "cisco_ios_xr"
     command.EntityData.ParentYangName = "level"
-    command.EntityData.SegmentPath = "command" + "[name='" + fmt.Sprintf("%v", command.Name) + "']"
+    command.EntityData.SegmentPath = "command" + types.AddKeyToken(command.Name, "name")
     command.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     command.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     command.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    command.EntityData.Children = make(map[string]types.YChild)
-    command.EntityData.Leafs = make(map[string]types.YLeaf)
-    command.EntityData.Leafs["name"] = types.YLeaf{"Name", command.Name}
+    command.EntityData.Children = types.NewOrderedMap()
+    command.EntityData.Leafs = types.NewOrderedMap()
+    command.EntityData.Leafs.Append("name", types.YLeaf{"Name", command.Name})
+
+    command.EntityData.YListKeys = []string {"Name"}
+
     return &(command.EntityData)
 }
 
@@ -717,12 +766,15 @@ func (privilegedAccess *Aaa_PrivilegedAccess) GetEntityData() *types.CommonEntit
     privilegedAccess.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     privilegedAccess.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    privilegedAccess.EntityData.Children = make(map[string]types.YChild)
-    privilegedAccess.EntityData.Leafs = make(map[string]types.YLeaf)
-    privilegedAccess.EntityData.Leafs["shell-access"] = types.YLeaf{"ShellAccess", privilegedAccess.ShellAccess}
-    privilegedAccess.EntityData.Leafs["first-user"] = types.YLeaf{"FirstUser", privilegedAccess.FirstUser}
-    privilegedAccess.EntityData.Leafs["first-user-change"] = types.YLeaf{"FirstUserChange", privilegedAccess.FirstUserChange}
-    privilegedAccess.EntityData.Leafs["current-disaster-recovery-user"] = types.YLeaf{"CurrentDisasterRecoveryUser", privilegedAccess.CurrentDisasterRecoveryUser}
+    privilegedAccess.EntityData.Children = types.NewOrderedMap()
+    privilegedAccess.EntityData.Leafs = types.NewOrderedMap()
+    privilegedAccess.EntityData.Leafs.Append("shell-access", types.YLeaf{"ShellAccess", privilegedAccess.ShellAccess})
+    privilegedAccess.EntityData.Leafs.Append("first-user", types.YLeaf{"FirstUser", privilegedAccess.FirstUser})
+    privilegedAccess.EntityData.Leafs.Append("first-user-change", types.YLeaf{"FirstUserChange", privilegedAccess.FirstUserChange})
+    privilegedAccess.EntityData.Leafs.Append("current-disaster-recovery-user", types.YLeaf{"CurrentDisasterRecoveryUser", privilegedAccess.CurrentDisasterRecoveryUser})
+
+    privilegedAccess.EntityData.YListKeys = []string {}
+
     return &(privilegedAccess.EntityData)
 }
 
@@ -745,9 +797,12 @@ func (accounting *Aaa_Accounting) GetEntityData() *types.CommonEntityData {
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accounting.EntityData.Children = make(map[string]types.YChild)
-    accounting.EntityData.Leafs = make(map[string]types.YLeaf)
-    accounting.EntityData.Leafs["log-data"] = types.YLeaf{"LogData", accounting.LogData}
+    accounting.EntityData.Children = types.NewOrderedMap()
+    accounting.EntityData.Leafs = types.NewOrderedMap()
+    accounting.EntityData.Leafs.Append("log-data", types.YLeaf{"LogData", accounting.LogData})
+
+    accounting.EntityData.YListKeys = []string {}
+
     return &(accounting.EntityData)
 }
 
@@ -770,9 +825,12 @@ func (userGroup *Aaa_UserGroup) GetEntityData() *types.CommonEntityData {
     userGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     userGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    userGroup.EntityData.Children = make(map[string]types.YChild)
-    userGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    userGroup.EntityData.Leafs["grp-data"] = types.YLeaf{"GrpData", userGroup.GrpData}
+    userGroup.EntityData.Children = types.NewOrderedMap()
+    userGroup.EntityData.Leafs = types.NewOrderedMap()
+    userGroup.EntityData.Leafs.Append("grp-data", types.YLeaf{"GrpData", userGroup.GrpData})
+
+    userGroup.EntityData.YListKeys = []string {}
+
     return &(userGroup.EntityData)
 }
 
@@ -798,10 +856,13 @@ func (disasterRecovery *Aaa_DisasterRecovery) GetEntityData() *types.CommonEntit
     disasterRecovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disasterRecovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    disasterRecovery.EntityData.Children = make(map[string]types.YChild)
-    disasterRecovery.EntityData.Leafs = make(map[string]types.YLeaf)
-    disasterRecovery.EntityData.Leafs["username"] = types.YLeaf{"Username", disasterRecovery.Username}
-    disasterRecovery.EntityData.Leafs["password"] = types.YLeaf{"Password", disasterRecovery.Password}
+    disasterRecovery.EntityData.Children = types.NewOrderedMap()
+    disasterRecovery.EntityData.Leafs = types.NewOrderedMap()
+    disasterRecovery.EntityData.Leafs.Append("username", types.YLeaf{"Username", disasterRecovery.Username})
+    disasterRecovery.EntityData.Leafs.Append("password", types.YLeaf{"Password", disasterRecovery.Password})
+
+    disasterRecovery.EntityData.YListKeys = []string {}
+
     return &(disasterRecovery.EntityData)
 }
 
@@ -822,15 +883,18 @@ func (alias *Alias) GetEntityData() *types.CommonEntityData {
     alias.EntityData.YangName = "alias"
     alias.EntityData.BundleName = "cisco_ios_xr"
     alias.EntityData.ParentYangName = "tailf-aaa"
-    alias.EntityData.SegmentPath = "tailf-aaa:alias" + "[name='" + fmt.Sprintf("%v", alias.Name) + "']"
+    alias.EntityData.SegmentPath = "tailf-aaa:alias" + types.AddKeyToken(alias.Name, "name")
     alias.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alias.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alias.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alias.EntityData.Children = make(map[string]types.YChild)
-    alias.EntityData.Leafs = make(map[string]types.YLeaf)
-    alias.EntityData.Leafs["name"] = types.YLeaf{"Name", alias.Name}
-    alias.EntityData.Leafs["expansion"] = types.YLeaf{"Expansion", alias.Expansion}
+    alias.EntityData.Children = types.NewOrderedMap()
+    alias.EntityData.Leafs = types.NewOrderedMap()
+    alias.EntityData.Leafs.Append("name", types.YLeaf{"Name", alias.Name})
+    alias.EntityData.Leafs.Append("expansion", types.YLeaf{"Expansion", alias.Expansion})
+
+    alias.EntityData.YListKeys = []string {"Name"}
+
     return &(alias.EntityData)
 }
 
@@ -839,6 +903,7 @@ func (alias *Alias) GetEntityData() *types.CommonEntityData {
 type Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // The type is bool.
     CompleteOnSpace interface{}
@@ -881,18 +946,21 @@ func (session *Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    session.EntityData.Children = make(map[string]types.YChild)
-    session.EntityData.Leafs = make(map[string]types.YLeaf)
-    session.EntityData.Leafs["complete-on-space"] = types.YLeaf{"CompleteOnSpace", session.CompleteOnSpace}
-    session.EntityData.Leafs["ignore-leading-space"] = types.YLeaf{"IgnoreLeadingSpace", session.IgnoreLeadingSpace}
-    session.EntityData.Leafs["idle-timeout"] = types.YLeaf{"IdleTimeout", session.IdleTimeout}
-    session.EntityData.Leafs["paginate"] = types.YLeaf{"Paginate", session.Paginate}
-    session.EntityData.Leafs["history"] = types.YLeaf{"History", session.History}
-    session.EntityData.Leafs["autowizard"] = types.YLeaf{"Autowizard", session.Autowizard}
-    session.EntityData.Leafs["show-defaults"] = types.YLeaf{"ShowDefaults", session.ShowDefaults}
-    session.EntityData.Leafs["display-level"] = types.YLeaf{"DisplayLevel", session.DisplayLevel}
-    session.EntityData.Leafs["prompt1"] = types.YLeaf{"Prompt1", session.Prompt1}
-    session.EntityData.Leafs["prompt2"] = types.YLeaf{"Prompt2", session.Prompt2}
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Leafs = types.NewOrderedMap()
+    session.EntityData.Leafs.Append("complete-on-space", types.YLeaf{"CompleteOnSpace", session.CompleteOnSpace})
+    session.EntityData.Leafs.Append("ignore-leading-space", types.YLeaf{"IgnoreLeadingSpace", session.IgnoreLeadingSpace})
+    session.EntityData.Leafs.Append("idle-timeout", types.YLeaf{"IdleTimeout", session.IdleTimeout})
+    session.EntityData.Leafs.Append("paginate", types.YLeaf{"Paginate", session.Paginate})
+    session.EntityData.Leafs.Append("history", types.YLeaf{"History", session.History})
+    session.EntityData.Leafs.Append("autowizard", types.YLeaf{"Autowizard", session.Autowizard})
+    session.EntityData.Leafs.Append("show-defaults", types.YLeaf{"ShowDefaults", session.ShowDefaults})
+    session.EntityData.Leafs.Append("display-level", types.YLeaf{"DisplayLevel", session.DisplayLevel})
+    session.EntityData.Leafs.Append("prompt1", types.YLeaf{"Prompt1", session.Prompt1})
+    session.EntityData.Leafs.Append("prompt2", types.YLeaf{"Prompt2", session.Prompt2})
+
+    session.EntityData.YListKeys = []string {}
+
     return &(session.EntityData)
 }
 
@@ -908,7 +976,7 @@ type User struct {
     Description interface{}
 
     // The type is slice of User_Alias.
-    Alias []User_Alias
+    Alias []*User_Alias
 
     
     Session User_Session
@@ -919,20 +987,23 @@ func (user *User) GetEntityData() *types.CommonEntityData {
     user.EntityData.YangName = "user"
     user.EntityData.BundleName = "cisco_ios_xr"
     user.EntityData.ParentYangName = "tailf-aaa"
-    user.EntityData.SegmentPath = "tailf-aaa:user" + "[name='" + fmt.Sprintf("%v", user.Name) + "']"
+    user.EntityData.SegmentPath = "tailf-aaa:user" + types.AddKeyToken(user.Name, "name")
     user.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     user.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     user.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    user.EntityData.Children = make(map[string]types.YChild)
-    user.EntityData.Children["alias"] = types.YChild{"Alias", nil}
+    user.EntityData.Children = types.NewOrderedMap()
+    user.EntityData.Children.Append("alias", types.YChild{"Alias", nil})
     for i := range user.Alias {
-        user.EntityData.Children[types.GetSegmentPath(&user.Alias[i])] = types.YChild{"Alias", &user.Alias[i]}
+        user.EntityData.Children.Append(types.GetSegmentPath(user.Alias[i]), types.YChild{"Alias", user.Alias[i]})
     }
-    user.EntityData.Children["session"] = types.YChild{"Session", &user.Session}
-    user.EntityData.Leafs = make(map[string]types.YLeaf)
-    user.EntityData.Leafs["name"] = types.YLeaf{"Name", user.Name}
-    user.EntityData.Leafs["description"] = types.YLeaf{"Description", user.Description}
+    user.EntityData.Children.Append("session", types.YChild{"Session", &user.Session})
+    user.EntityData.Leafs = types.NewOrderedMap()
+    user.EntityData.Leafs.Append("name", types.YLeaf{"Name", user.Name})
+    user.EntityData.Leafs.Append("description", types.YLeaf{"Description", user.Description})
+
+    user.EntityData.YListKeys = []string {"Name"}
+
     return &(user.EntityData)
 }
 
@@ -953,15 +1024,18 @@ func (alias *User_Alias) GetEntityData() *types.CommonEntityData {
     alias.EntityData.YangName = "alias"
     alias.EntityData.BundleName = "cisco_ios_xr"
     alias.EntityData.ParentYangName = "user"
-    alias.EntityData.SegmentPath = "alias" + "[name='" + fmt.Sprintf("%v", alias.Name) + "']"
+    alias.EntityData.SegmentPath = "alias" + types.AddKeyToken(alias.Name, "name")
     alias.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alias.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alias.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alias.EntityData.Children = make(map[string]types.YChild)
-    alias.EntityData.Leafs = make(map[string]types.YLeaf)
-    alias.EntityData.Leafs["name"] = types.YLeaf{"Name", alias.Name}
-    alias.EntityData.Leafs["expansion"] = types.YLeaf{"Expansion", alias.Expansion}
+    alias.EntityData.Children = types.NewOrderedMap()
+    alias.EntityData.Leafs = types.NewOrderedMap()
+    alias.EntityData.Leafs.Append("name", types.YLeaf{"Name", alias.Name})
+    alias.EntityData.Leafs.Append("expansion", types.YLeaf{"Expansion", alias.Expansion})
+
+    alias.EntityData.YListKeys = []string {"Name"}
+
     return &(alias.EntityData)
 }
 
@@ -1011,18 +1085,21 @@ func (session *User_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    session.EntityData.Children = make(map[string]types.YChild)
-    session.EntityData.Leafs = make(map[string]types.YLeaf)
-    session.EntityData.Leafs["complete-on-space"] = types.YLeaf{"CompleteOnSpace", session.CompleteOnSpace}
-    session.EntityData.Leafs["ignore-leading-space"] = types.YLeaf{"IgnoreLeadingSpace", session.IgnoreLeadingSpace}
-    session.EntityData.Leafs["idle-timeout"] = types.YLeaf{"IdleTimeout", session.IdleTimeout}
-    session.EntityData.Leafs["paginate"] = types.YLeaf{"Paginate", session.Paginate}
-    session.EntityData.Leafs["history"] = types.YLeaf{"History", session.History}
-    session.EntityData.Leafs["autowizard"] = types.YLeaf{"Autowizard", session.Autowizard}
-    session.EntityData.Leafs["show-defaults"] = types.YLeaf{"ShowDefaults", session.ShowDefaults}
-    session.EntityData.Leafs["display-level"] = types.YLeaf{"DisplayLevel", session.DisplayLevel}
-    session.EntityData.Leafs["prompt1"] = types.YLeaf{"Prompt1", session.Prompt1}
-    session.EntityData.Leafs["prompt2"] = types.YLeaf{"Prompt2", session.Prompt2}
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Leafs = types.NewOrderedMap()
+    session.EntityData.Leafs.Append("complete-on-space", types.YLeaf{"CompleteOnSpace", session.CompleteOnSpace})
+    session.EntityData.Leafs.Append("ignore-leading-space", types.YLeaf{"IgnoreLeadingSpace", session.IgnoreLeadingSpace})
+    session.EntityData.Leafs.Append("idle-timeout", types.YLeaf{"IdleTimeout", session.IdleTimeout})
+    session.EntityData.Leafs.Append("paginate", types.YLeaf{"Paginate", session.Paginate})
+    session.EntityData.Leafs.Append("history", types.YLeaf{"History", session.History})
+    session.EntityData.Leafs.Append("autowizard", types.YLeaf{"Autowizard", session.Autowizard})
+    session.EntityData.Leafs.Append("show-defaults", types.YLeaf{"ShowDefaults", session.ShowDefaults})
+    session.EntityData.Leafs.Append("display-level", types.YLeaf{"DisplayLevel", session.DisplayLevel})
+    session.EntityData.Leafs.Append("prompt1", types.YLeaf{"Prompt1", session.Prompt1})
+    session.EntityData.Leafs.Append("prompt2", types.YLeaf{"Prompt2", session.Prompt2})
+
+    session.EntityData.YListKeys = []string {}
+
     return &(session.EntityData)
 }
 

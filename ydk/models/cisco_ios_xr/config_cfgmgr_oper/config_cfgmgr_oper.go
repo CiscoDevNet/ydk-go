@@ -44,9 +44,12 @@ func (config *Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Children["global"] = types.YChild{"Global", &config.Global}
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Children.Append("global", types.YChild{"Global", &config.Global})
+    config.EntityData.Leafs = types.NewOrderedMap()
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -67,8 +70,11 @@ func (global *Config_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    global.EntityData.Children = make(map[string]types.YChild)
-    global.EntityData.Leafs = make(map[string]types.YLeaf)
+    global.EntityData.Children = types.NewOrderedMap()
+    global.EntityData.Leafs = types.NewOrderedMap()
+
+    global.EntityData.YListKeys = []string {}
+
     return &(global.EntityData)
 }
 

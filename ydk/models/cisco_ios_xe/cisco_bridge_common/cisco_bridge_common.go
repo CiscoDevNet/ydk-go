@@ -25,18 +25,11 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package cisco_bridge_common"))
 }
 
-type MacLimitNotificationType struct {
+type NotifSyslog struct {
 }
 
-func (id MacLimitNotificationType) String() string {
-	return "cisco-bridge-common:mac-limit-notification-type"
-}
-
-type NotifNone struct {
-}
-
-func (id NotifNone) String() string {
-	return "cisco-bridge-common:notif-none"
+func (id NotifSyslog) String() string {
+	return "cisco-bridge-common:notif-syslog"
 }
 
 type NotifSnmpTrap struct {
@@ -46,11 +39,18 @@ func (id NotifSnmpTrap) String() string {
 	return "cisco-bridge-common:notif-snmp-trap"
 }
 
-type NotifSyslog struct {
+type NotifNone struct {
 }
 
-func (id NotifSyslog) String() string {
-	return "cisco-bridge-common:notif-syslog"
+func (id NotifNone) String() string {
+	return "cisco-bridge-common:notif-none"
+}
+
+type MacLimitNotificationType struct {
+}
+
+func (id MacLimitNotificationType) String() string {
+	return "cisco-bridge-common:mac-limit-notification-type"
 }
 
 type NotifSyslogAndSnmpTrap struct {
@@ -59,6 +59,23 @@ type NotifSyslogAndSnmpTrap struct {
 func (id NotifSyslogAndSnmpTrap) String() string {
 	return "cisco-bridge-common:notif-syslog-and-snmp-trap"
 }
+
+// MacLimitAction represents Actions to be taken once mac limit threshold is exceeded.
+type MacLimitAction string
+
+const (
+    // No action
+    MacLimitAction_none MacLimitAction = "none"
+
+    // Stop mac learning and flood unknown unicast traffic.
+    MacLimitAction_flood MacLimitAction = "flood"
+
+    // Stop mac learning and drop unknown unicast traffic.
+    MacLimitAction_drop MacLimitAction = "drop"
+
+    // Bring down operational status of the interface.
+    MacLimitAction_shutdown MacLimitAction = "shutdown"
+)
 
 // EthTrafficClass represents Traffic class for layer 2 ethernet transport
 type EthTrafficClass string
@@ -90,23 +107,6 @@ const (
     // Dynamically learnt MAC entries are aged out after 
     // configured aging time.
     MacAgingType_absolute MacAgingType = "absolute"
-)
-
-// MacLimitAction represents Actions to be taken once mac limit threshold is exceeded.
-type MacLimitAction string
-
-const (
-    // No action
-    MacLimitAction_none MacLimitAction = "none"
-
-    // Stop mac learning and flood unknown unicast traffic.
-    MacLimitAction_flood MacLimitAction = "flood"
-
-    // Stop mac learning and drop unknown unicast traffic.
-    MacLimitAction_drop MacLimitAction = "drop"
-
-    // Bring down operational status of the interface.
-    MacLimitAction_shutdown MacLimitAction = "shutdown"
 )
 
 // MacSecureAction represents Actions to be taken upon mac secure violation.

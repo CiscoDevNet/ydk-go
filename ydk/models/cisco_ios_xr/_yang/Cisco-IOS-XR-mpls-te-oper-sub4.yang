@@ -7,7 +7,7 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub4 {
     prefix inet;
   }
   include Cisco-IOS-XR-mpls-te-oper-sub6 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -29,6 +29,10 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub4 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -673,17 +677,21 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub4 {
       description
         "Max TE queue length";
     }
-    leaf-list maximum-in-queue-depth {
-      type uint32;
+    list maximum-in-queue-depth {
       max-elements "3";
       description
         "Max Input Queue Depth";
+      leaf entry {
+        type uint32;
+      }
     }
-    leaf-list average-in-queue-depth {
-      type uint32;
+    list average-in-queue-depth {
       max-elements "3";
       description
         "Average Input Queue Depth";
+      leaf entry {
+        type uint32;
+      }
     }
   }
 
@@ -710,10 +718,12 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub4 {
       description
         "Metric Value";
     }
-    leaf-list destination {
-      type inet:ipv4-address;
+    list destination {
       description
         "Destinations";
+      leaf entry {
+        type inet:ipv4-address;
+      }
     }
   }
 
@@ -886,10 +896,12 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub4 {
       description
         "Cost";
     }
-    leaf-list address {
-      type inet:ipv4-address;
+    list address {
       description
         "List of Addresses";
+      leaf entry {
+        type inet:ipv4-address;
+      }
     }
     list subobject {
       description
@@ -1111,10 +1123,12 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub4 {
       description
         "Binding SID";
     }
-    leaf-list backup-path {
-      type inet:ipv4-address;
+    list backup-path {
       description
         "Backup Path";
+      leaf entry {
+        type inet:ipv4-address;
+      }
     }
     list paths {
       description

@@ -590,7 +590,7 @@ module Cisco-IOS-XR-ipv6-acl-datatypes {
         }
       }
       type uint32 {
-        range "0..64";
+        range "0..63";
       }
     }
     description
@@ -662,7 +662,7 @@ module Cisco-IOS-XR-ipv6-acl-datatypes {
 
   typedef Ipv6-acl-prefix-list-name {
     type xr:Cisco-ios-xr-string {
-      length "1..65";
+      length "1..64";
     }
     description
       "Ipv6 acl prefix list name";

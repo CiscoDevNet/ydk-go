@@ -25,13 +25,13 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
      Copyright (c) 2013, 2015-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2017-12-09 {
+  revision 2017-12-12 {
     description
-      "IOS XR 6.3.1 revision.";
+      "IOS XR 6.4.1 revision.";
   }
   revision 2017-06-27 {
     description
-      "IOS XR 6.3.1 revision.";
+      "IOS XR 6.4.1 revision.";
   }
   revision 2017-05-15 {
     description

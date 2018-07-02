@@ -404,5 +404,10 @@ submodule Cisco-IOS-XR-ipv4-dhcpd-oper-sub2 {
       description
         "Number of XID mismatch packets received";
     }
+    leaf num-vbind-failed {
+      type uint32;
+      description
+        "Number of socket vbind failed";
+    }
   }
 }

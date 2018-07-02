@@ -1,15 +1,9 @@
-// This module contains definitions
-// for the Calvados model objects.
-// 
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin configuration.
 // 
 // This module defines the SDR-SM support config for SDR
 // 
 // Copyright(c) 2011-2017 by Cisco Systems, Inc.
-// All rights reserved.
-// 
-// Copyright (c) 2012-2017 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_sdr_mgr
 
@@ -31,15 +25,6 @@ func init() {
     ydk.RegisterEntity("{http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-sdr-mgr private-sdr}", reflect.TypeOf(PrivateSdr{}))
     ydk.RegisterEntity("Cisco-IOS-XR-sysadmin-sdr-mgr:private-sdr", reflect.TypeOf(PrivateSdr{}))
 }
-
-// CardType represents The List of supported Card Types
-type CardType string
-
-const (
-    CardType_RP CardType = "RP"
-
-    CardType_LC CardType = "LC"
-)
 
 // VmReloadReason represents The List of vm reload reasons
 type VmReloadReason string
@@ -68,6 +53,17 @@ const (
     VmReloadReason_REASON_UNKNOWN VmReloadReason = "REASON_UNKNOWN"
 )
 
+// CardType represents The List of supported Card Types
+type CardType string
+
+const (
+    CardType_RP CardType = "RP"
+
+    CardType_LC CardType = "LC"
+
+    CardType_CC CardType = "CC"
+)
+
 // SdrConfig
 type SdrConfig struct {
     EntityData types.CommonEntityData
@@ -75,7 +71,7 @@ type SdrConfig struct {
 
     // Add/Edit a Secure Domain Router by name. The type is slice of
     // SdrConfig_Sdr.
-    Sdr []SdrConfig_Sdr
+    Sdr []*SdrConfig_Sdr
 }
 
 func (sdrConfig *SdrConfig) GetEntityData() *types.CommonEntityData {
@@ -88,12 +84,15 @@ func (sdrConfig *SdrConfig) GetEntityData() *types.CommonEntityData {
     sdrConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sdrConfig.EntityData.Children = make(map[string]types.YChild)
-    sdrConfig.EntityData.Children["sdr"] = types.YChild{"Sdr", nil}
+    sdrConfig.EntityData.Children = types.NewOrderedMap()
+    sdrConfig.EntityData.Children.Append("sdr", types.YChild{"Sdr", nil})
     for i := range sdrConfig.Sdr {
-        sdrConfig.EntityData.Children[types.GetSegmentPath(&sdrConfig.Sdr[i])] = types.YChild{"Sdr", &sdrConfig.Sdr[i]}
+        sdrConfig.EntityData.Children.Append(types.GetSegmentPath(sdrConfig.Sdr[i]), types.YChild{"Sdr", sdrConfig.Sdr[i]})
     }
-    sdrConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    sdrConfig.EntityData.Leafs = types.NewOrderedMap()
+
+    sdrConfig.EntityData.YListKeys = []string {}
+
     return &(sdrConfig.EntityData)
 }
 
@@ -104,7 +103,7 @@ type SdrConfig_Sdr struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the Secure Domain Router , 30 max
-    // characters. The type is string with pattern: b'[a-zA-Z0-9_-]{1,30}'.
+    // characters. The type is string with pattern: [a-zA-Z0-9_-]{1,30}.
     Name interface{}
 
     // List of the initial image and packages for the Secure Domain Router. The
@@ -127,7 +126,7 @@ type SdrConfig_Sdr struct {
 
     // Enter list of nodes' location to add to this LR. The type is slice of
     // SdrConfig_Sdr_Location.
-    Location []SdrConfig_Sdr_Location
+    Location []*SdrConfig_Sdr_Location
 
     
     Action SdrConfig_Sdr_Action
@@ -145,7 +144,7 @@ type SdrConfig_Sdr struct {
     Pairing2 SdrConfig_Sdr_Pairing2
 
     // Add/Edit a RP Pairing by name. The type is slice of SdrConfig_Sdr_Pairing.
-    Pairing []SdrConfig_Sdr_Pairing
+    Pairing []*SdrConfig_Sdr_Pairing
 }
 
 func (sdr *SdrConfig_Sdr) GetEntityData() *types.CommonEntityData {
@@ -153,32 +152,35 @@ func (sdr *SdrConfig_Sdr) GetEntityData() *types.CommonEntityData {
     sdr.EntityData.YangName = "sdr"
     sdr.EntityData.BundleName = "cisco_ios_xr"
     sdr.EntityData.ParentYangName = "sdr-config"
-    sdr.EntityData.SegmentPath = "sdr" + "[name='" + fmt.Sprintf("%v", sdr.Name) + "']"
+    sdr.EntityData.SegmentPath = "sdr" + types.AddKeyToken(sdr.Name, "name")
     sdr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sdr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sdr.EntityData.Children = make(map[string]types.YChild)
-    sdr.EntityData.Children["resources"] = types.YChild{"Resources", &sdr.Resources}
-    sdr.EntityData.Children["location"] = types.YChild{"Location", nil}
+    sdr.EntityData.Children = types.NewOrderedMap()
+    sdr.EntityData.Children.Append("resources", types.YChild{"Resources", &sdr.Resources})
+    sdr.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range sdr.Location {
-        sdr.EntityData.Children[types.GetSegmentPath(&sdr.Location[i])] = types.YChild{"Location", &sdr.Location[i]}
+        sdr.EntityData.Children.Append(types.GetSegmentPath(sdr.Location[i]), types.YChild{"Location", sdr.Location[i]})
     }
-    sdr.EntityData.Children["Action"] = types.YChild{"Action", &sdr.Action}
-    sdr.EntityData.Children["detail"] = types.YChild{"Detail", &sdr.Detail}
-    sdr.EntityData.Children["reboot-history"] = types.YChild{"RebootHistory", &sdr.RebootHistory}
-    sdr.EntityData.Children["nodes"] = types.YChild{"Nodes", &sdr.Nodes}
-    sdr.EntityData.Children["pairing2"] = types.YChild{"Pairing2", &sdr.Pairing2}
-    sdr.EntityData.Children["pairing"] = types.YChild{"Pairing", nil}
+    sdr.EntityData.Children.Append("Action", types.YChild{"Action", &sdr.Action})
+    sdr.EntityData.Children.Append("detail", types.YChild{"Detail", &sdr.Detail})
+    sdr.EntityData.Children.Append("reboot-history", types.YChild{"RebootHistory", &sdr.RebootHistory})
+    sdr.EntityData.Children.Append("nodes", types.YChild{"Nodes", &sdr.Nodes})
+    sdr.EntityData.Children.Append("pairing2", types.YChild{"Pairing2", &sdr.Pairing2})
+    sdr.EntityData.Children.Append("pairing", types.YChild{"Pairing", nil})
     for i := range sdr.Pairing {
-        sdr.EntityData.Children[types.GetSegmentPath(&sdr.Pairing[i])] = types.YChild{"Pairing", &sdr.Pairing[i]}
+        sdr.EntityData.Children.Append(types.GetSegmentPath(sdr.Pairing[i]), types.YChild{"Pairing", sdr.Pairing[i]})
     }
-    sdr.EntityData.Leafs = make(map[string]types.YLeaf)
-    sdr.EntityData.Leafs["name"] = types.YLeaf{"Name", sdr.Name}
-    sdr.EntityData.Leafs["initial-image"] = types.YLeaf{"InitialImage", sdr.InitialImage}
-    sdr.EntityData.Leafs["lead_down_delta"] = types.YLeaf{"LeadDownDelta", sdr.LeadDownDelta}
-    sdr.EntityData.Leafs["pairing-mode"] = types.YLeaf{"PairingMode", sdr.PairingMode}
-    sdr.EntityData.Leafs["issu"] = types.YLeaf{"Issu", sdr.Issu}
+    sdr.EntityData.Leafs = types.NewOrderedMap()
+    sdr.EntityData.Leafs.Append("name", types.YLeaf{"Name", sdr.Name})
+    sdr.EntityData.Leafs.Append("initial-image", types.YLeaf{"InitialImage", sdr.InitialImage})
+    sdr.EntityData.Leafs.Append("lead_down_delta", types.YLeaf{"LeadDownDelta", sdr.LeadDownDelta})
+    sdr.EntityData.Leafs.Append("pairing-mode", types.YLeaf{"PairingMode", sdr.PairingMode})
+    sdr.EntityData.Leafs.Append("issu", types.YLeaf{"Issu", sdr.Issu})
+
+    sdr.EntityData.YListKeys = []string {"Name"}
+
     return &(sdr.EntityData)
 }
 
@@ -201,7 +203,7 @@ type SdrConfig_Sdr_Resources struct {
     DiskSpaceSize interface{}
 
     // The type is slice of SdrConfig_Sdr_Resources_CardType.
-    CardType []SdrConfig_Sdr_Resources_CardType
+    CardType []*SdrConfig_Sdr_Resources_CardType
 }
 
 func (resources *SdrConfig_Sdr_Resources) GetEntityData() *types.CommonEntityData {
@@ -214,15 +216,18 @@ func (resources *SdrConfig_Sdr_Resources) GetEntityData() *types.CommonEntityDat
     resources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    resources.EntityData.Children = make(map[string]types.YChild)
-    resources.EntityData.Children["card-type"] = types.YChild{"CardType", nil}
+    resources.EntityData.Children = types.NewOrderedMap()
+    resources.EntityData.Children.Append("card-type", types.YChild{"CardType", nil})
     for i := range resources.CardType {
-        resources.EntityData.Children[types.GetSegmentPath(&resources.CardType[i])] = types.YChild{"CardType", &resources.CardType[i]}
+        resources.EntityData.Children.Append(types.GetSegmentPath(resources.CardType[i]), types.YChild{"CardType", resources.CardType[i]})
     }
-    resources.EntityData.Leafs = make(map[string]types.YLeaf)
-    resources.EntityData.Leafs["fgid"] = types.YLeaf{"Fgid", resources.Fgid}
-    resources.EntityData.Leafs["mgmt_ext_vlan"] = types.YLeaf{"MgmtExtVlan", resources.MgmtExtVlan}
-    resources.EntityData.Leafs["disk-space-size"] = types.YLeaf{"DiskSpaceSize", resources.DiskSpaceSize}
+    resources.EntityData.Leafs = types.NewOrderedMap()
+    resources.EntityData.Leafs.Append("fgid", types.YLeaf{"Fgid", resources.Fgid})
+    resources.EntityData.Leafs.Append("mgmt_ext_vlan", types.YLeaf{"MgmtExtVlan", resources.MgmtExtVlan})
+    resources.EntityData.Leafs.Append("disk-space-size", types.YLeaf{"DiskSpaceSize", resources.DiskSpaceSize})
+
+    resources.EntityData.YListKeys = []string {}
+
     return &(resources.EntityData)
 }
 
@@ -232,7 +237,7 @@ type SdrConfig_Sdr_Resources_CardType struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Card Type. The type is CardType.
-    Type_ interface{}
+    Type interface{}
 
     // VM Memory Size in units of [GB]. The type is interface{} with range:
     // 1..128.
@@ -247,16 +252,19 @@ func (cardType *SdrConfig_Sdr_Resources_CardType) GetEntityData() *types.CommonE
     cardType.EntityData.YangName = "card-type"
     cardType.EntityData.BundleName = "cisco_ios_xr"
     cardType.EntityData.ParentYangName = "resources"
-    cardType.EntityData.SegmentPath = "card-type" + "[type='" + fmt.Sprintf("%v", cardType.Type_) + "']"
+    cardType.EntityData.SegmentPath = "card-type" + types.AddKeyToken(cardType.Type, "type")
     cardType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cardType.EntityData.Children = make(map[string]types.YChild)
-    cardType.EntityData.Leafs = make(map[string]types.YLeaf)
-    cardType.EntityData.Leafs["type"] = types.YLeaf{"Type_", cardType.Type_}
-    cardType.EntityData.Leafs["vm-memory"] = types.YLeaf{"VmMemory", cardType.VmMemory}
-    cardType.EntityData.Leafs["vm-cpu"] = types.YLeaf{"VmCpu", cardType.VmCpu}
+    cardType.EntityData.Children = types.NewOrderedMap()
+    cardType.EntityData.Leafs = types.NewOrderedMap()
+    cardType.EntityData.Leafs.Append("type", types.YLeaf{"Type", cardType.Type})
+    cardType.EntityData.Leafs.Append("vm-memory", types.YLeaf{"VmMemory", cardType.VmMemory})
+    cardType.EntityData.Leafs.Append("vm-cpu", types.YLeaf{"VmCpu", cardType.VmCpu})
+
+    cardType.EntityData.YListKeys = []string {"Type"}
+
     return &(cardType.EntityData)
 }
 
@@ -268,7 +276,7 @@ type SdrConfig_Sdr_Location struct {
 
     // This attribute is a key. Enter location or all. The type is string with
     // pattern:
-    // b'((0?[0-9]|1[1-5])/(([rR][pP]|[lL][cC])?\\d{1,2}))(/[cC][pP][uU]0)?|all'.
+    // ((0?[0-9]|1[1-5]|[bB]\d)/(([rR][pP]|[lL][cC]|[cC][bB])?\d{1,2}))(/[cC][pP][uU]0)?|all.
     NodeLocation interface{}
 }
 
@@ -277,14 +285,17 @@ func (location *SdrConfig_Sdr_Location) GetEntityData() *types.CommonEntityData 
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "sdr"
-    location.EntityData.SegmentPath = "location" + "[node-location='" + fmt.Sprintf("%v", location.NodeLocation) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.NodeLocation, "node-location")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["node-location"] = types.YLeaf{"NodeLocation", location.NodeLocation}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("node-location", types.YLeaf{"NodeLocation", location.NodeLocation})
+
+    location.EntityData.YListKeys = []string {"NodeLocation"}
+
     return &(location.EntityData)
 }
 
@@ -294,7 +305,7 @@ type SdrConfig_Sdr_Action struct {
     YFilter yfilter.YFilter
 
     // The type is slice of SdrConfig_Sdr_Action_Location.
-    Location []SdrConfig_Sdr_Action_Location
+    Location []*SdrConfig_Sdr_Action_Location
 }
 
 func (action *SdrConfig_Sdr_Action) GetEntityData() *types.CommonEntityData {
@@ -307,12 +318,15 @@ func (action *SdrConfig_Sdr_Action) GetEntityData() *types.CommonEntityData {
     action.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     action.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    action.EntityData.Children = make(map[string]types.YChild)
-    action.EntityData.Children["location"] = types.YChild{"Location", nil}
+    action.EntityData.Children = types.NewOrderedMap()
+    action.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range action.Location {
-        action.EntityData.Children[types.GetSegmentPath(&action.Location[i])] = types.YChild{"Location", &action.Location[i]}
+        action.EntityData.Children.Append(types.GetSegmentPath(action.Location[i]), types.YChild{"Location", action.Location[i]})
     }
-    action.EntityData.Leafs = make(map[string]types.YLeaf)
+    action.EntityData.Leafs = types.NewOrderedMap()
+
+    action.EntityData.YListKeys = []string {}
+
     return &(action.EntityData)
 }
 
@@ -323,7 +337,7 @@ type SdrConfig_Sdr_Action_Location struct {
 
     // This attribute is a key. Enter location or all. The type is string with
     // pattern:
-    // b'((0?[0-9]|1[1-5])/(([rR]([sS]){0,1}[pP])?\\d{1,2})/[V][M](0?[0-9]|1[1-5]))?|all'.
+    // ((0?[0-9]|1[1-5]|[bB]\d)/((([rR]([sS]){0,1}[pP])|[cC][bB])?\d{1,2})/[V][M](0?[0-9]|1[1-5]))?|all.
     NodeLocation interface{}
 }
 
@@ -332,14 +346,17 @@ func (location *SdrConfig_Sdr_Action_Location) GetEntityData() *types.CommonEnti
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "Action"
-    location.EntityData.SegmentPath = "location" + "[node-location='" + fmt.Sprintf("%v", location.NodeLocation) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.NodeLocation, "node-location")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["node-location"] = types.YLeaf{"NodeLocation", location.NodeLocation}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("node-location", types.YLeaf{"NodeLocation", location.NodeLocation})
+
+    location.EntityData.YListKeys = []string {"NodeLocation"}
+
     return &(location.EntityData)
 }
 
@@ -349,7 +366,7 @@ type SdrConfig_Sdr_Detail struct {
     YFilter yfilter.YFilter
 
     // The type is slice of SdrConfig_Sdr_Detail_Location.
-    Location []SdrConfig_Sdr_Detail_Location
+    Location []*SdrConfig_Sdr_Detail_Location
 }
 
 func (detail *SdrConfig_Sdr_Detail) GetEntityData() *types.CommonEntityData {
@@ -362,12 +379,15 @@ func (detail *SdrConfig_Sdr_Detail) GetEntityData() *types.CommonEntityData {
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detail.EntityData.Children = make(map[string]types.YChild)
-    detail.EntityData.Children["location"] = types.YChild{"Location", nil}
+    detail.EntityData.Children = types.NewOrderedMap()
+    detail.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range detail.Location {
-        detail.EntityData.Children[types.GetSegmentPath(&detail.Location[i])] = types.YChild{"Location", &detail.Location[i]}
+        detail.EntityData.Children.Append(types.GetSegmentPath(detail.Location[i]), types.YChild{"Location", detail.Location[i]})
     }
-    detail.EntityData.Leafs = make(map[string]types.YLeaf)
+    detail.EntityData.Leafs = types.NewOrderedMap()
+
+    detail.EntityData.YListKeys = []string {}
+
     return &(detail.EntityData)
 }
 
@@ -377,7 +397,7 @@ type SdrConfig_Sdr_Detail_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((0?[0-9]|1[1-5])/(([rR]([sS]){0,1}[pP])?\\d{1,2})/[V][M](0?[0-9]|1[1-5]))?'.
+    // ((0?[0-9]|1[1-5]|[bB]\d)/((([rR]([sS]){0,1}[pP])|[cC][bB])?\d{1,2})/[V][M](0?[0-9]|1[1-5]))?.
     NodeLocation interface{}
 
     // The type is interface{} with range: 0..4294967295.
@@ -385,9 +405,9 @@ type SdrConfig_Sdr_Detail_Location struct {
 
     // IP address of VM. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddr interface{}
 
     // MAC address of VM. The type is string.
@@ -444,7 +464,7 @@ type SdrConfig_Sdr_Detail_Location struct {
     RhCount interface{}
 
     // The type is slice of SdrConfig_Sdr_Detail_Location_RebootHist1.
-    RebootHist1 []SdrConfig_Sdr_Detail_Location_RebootHist1
+    RebootHist1 []*SdrConfig_Sdr_Detail_Location_RebootHist1
 }
 
 func (location *SdrConfig_Sdr_Detail_Location) GetEntityData() *types.CommonEntityData {
@@ -452,37 +472,40 @@ func (location *SdrConfig_Sdr_Detail_Location) GetEntityData() *types.CommonEnti
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "detail"
-    location.EntityData.SegmentPath = "location" + "[node-location='" + fmt.Sprintf("%v", location.NodeLocation) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.NodeLocation, "node-location")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["reboot_hist1"] = types.YChild{"RebootHist1", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("reboot_hist1", types.YChild{"RebootHist1", nil})
     for i := range location.RebootHist1 {
-        location.EntityData.Children[types.GetSegmentPath(&location.RebootHist1[i])] = types.YChild{"RebootHist1", &location.RebootHist1[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.RebootHist1[i]), types.YChild{"RebootHist1", location.RebootHist1[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["node-location"] = types.YLeaf{"NodeLocation", location.NodeLocation}
-    location.EntityData.Leafs["sdr-id"] = types.YLeaf{"SdrId", location.SdrId}
-    location.EntityData.Leafs["ip-addr"] = types.YLeaf{"IpAddr", location.IpAddr}
-    location.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", location.MacAddress}
-    location.EntityData.Leafs["boot_part"] = types.YLeaf{"BootPart", location.BootPart}
-    location.EntityData.Leafs["data_part"] = types.YLeaf{"DataPart", location.DataPart}
-    location.EntityData.Leafs["big_disk"] = types.YLeaf{"BigDisk", location.BigDisk}
-    location.EntityData.Leafs["vm_id"] = types.YLeaf{"VmId", location.VmId}
-    location.EntityData.Leafs["vmcpu"] = types.YLeaf{"Vmcpu", location.Vmcpu}
-    location.EntityData.Leafs["vmmemory"] = types.YLeaf{"Vmmemory", location.Vmmemory}
-    location.EntityData.Leafs["card-type"] = types.YLeaf{"CardType", location.CardType}
-    location.EntityData.Leafs["card_serial"] = types.YLeaf{"CardSerial", location.CardSerial}
-    location.EntityData.Leafs["rack-type"] = types.YLeaf{"RackType", location.RackType}
-    location.EntityData.Leafs["chassis_serial"] = types.YLeaf{"ChassisSerial", location.ChassisSerial}
-    location.EntityData.Leafs["hw_version"] = types.YLeaf{"HwVersion", location.HwVersion}
-    location.EntityData.Leafs["mgmt_ext_vlan"] = types.YLeaf{"MgmtExtVlan", location.MgmtExtVlan}
-    location.EntityData.Leafs["state"] = types.YLeaf{"State", location.State}
-    location.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", location.StartTime}
-    location.EntityData.Leafs["reboot_count"] = types.YLeaf{"RebootCount", location.RebootCount}
-    location.EntityData.Leafs["rh_count"] = types.YLeaf{"RhCount", location.RhCount}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("node-location", types.YLeaf{"NodeLocation", location.NodeLocation})
+    location.EntityData.Leafs.Append("sdr-id", types.YLeaf{"SdrId", location.SdrId})
+    location.EntityData.Leafs.Append("ip-addr", types.YLeaf{"IpAddr", location.IpAddr})
+    location.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", location.MacAddress})
+    location.EntityData.Leafs.Append("boot_part", types.YLeaf{"BootPart", location.BootPart})
+    location.EntityData.Leafs.Append("data_part", types.YLeaf{"DataPart", location.DataPart})
+    location.EntityData.Leafs.Append("big_disk", types.YLeaf{"BigDisk", location.BigDisk})
+    location.EntityData.Leafs.Append("vm_id", types.YLeaf{"VmId", location.VmId})
+    location.EntityData.Leafs.Append("vmcpu", types.YLeaf{"Vmcpu", location.Vmcpu})
+    location.EntityData.Leafs.Append("vmmemory", types.YLeaf{"Vmmemory", location.Vmmemory})
+    location.EntityData.Leafs.Append("card-type", types.YLeaf{"CardType", location.CardType})
+    location.EntityData.Leafs.Append("card_serial", types.YLeaf{"CardSerial", location.CardSerial})
+    location.EntityData.Leafs.Append("rack-type", types.YLeaf{"RackType", location.RackType})
+    location.EntityData.Leafs.Append("chassis_serial", types.YLeaf{"ChassisSerial", location.ChassisSerial})
+    location.EntityData.Leafs.Append("hw_version", types.YLeaf{"HwVersion", location.HwVersion})
+    location.EntityData.Leafs.Append("mgmt_ext_vlan", types.YLeaf{"MgmtExtVlan", location.MgmtExtVlan})
+    location.EntityData.Leafs.Append("state", types.YLeaf{"State", location.State})
+    location.EntityData.Leafs.Append("start-time", types.YLeaf{"StartTime", location.StartTime})
+    location.EntityData.Leafs.Append("reboot_count", types.YLeaf{"RebootCount", location.RebootCount})
+    location.EntityData.Leafs.Append("rh_count", types.YLeaf{"RhCount", location.RhCount})
+
+    location.EntityData.YListKeys = []string {"NodeLocation"}
+
     return &(location.EntityData)
 }
 
@@ -506,16 +529,19 @@ func (rebootHist1 *SdrConfig_Sdr_Detail_Location_RebootHist1) GetEntityData() *t
     rebootHist1.EntityData.YangName = "reboot_hist1"
     rebootHist1.EntityData.BundleName = "cisco_ios_xr"
     rebootHist1.EntityData.ParentYangName = "location"
-    rebootHist1.EntityData.SegmentPath = "reboot_hist1" + "[count='" + fmt.Sprintf("%v", rebootHist1.Count) + "']"
+    rebootHist1.EntityData.SegmentPath = "reboot_hist1" + types.AddKeyToken(rebootHist1.Count, "count")
     rebootHist1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rebootHist1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rebootHist1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rebootHist1.EntityData.Children = make(map[string]types.YChild)
-    rebootHist1.EntityData.Leafs = make(map[string]types.YLeaf)
-    rebootHist1.EntityData.Leafs["count"] = types.YLeaf{"Count", rebootHist1.Count}
-    rebootHist1.EntityData.Leafs["Time"] = types.YLeaf{"Time", rebootHist1.Time}
-    rebootHist1.EntityData.Leafs["Reason"] = types.YLeaf{"Reason", rebootHist1.Reason}
+    rebootHist1.EntityData.Children = types.NewOrderedMap()
+    rebootHist1.EntityData.Leafs = types.NewOrderedMap()
+    rebootHist1.EntityData.Leafs.Append("count", types.YLeaf{"Count", rebootHist1.Count})
+    rebootHist1.EntityData.Leafs.Append("Time", types.YLeaf{"Time", rebootHist1.Time})
+    rebootHist1.EntityData.Leafs.Append("Reason", types.YLeaf{"Reason", rebootHist1.Reason})
+
+    rebootHist1.EntityData.YListKeys = []string {"Count"}
+
     return &(rebootHist1.EntityData)
 }
 
@@ -541,10 +567,13 @@ func (rebootHistory *SdrConfig_Sdr_RebootHistory) GetEntityData() *types.CommonE
     rebootHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rebootHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rebootHistory.EntityData.Children = make(map[string]types.YChild)
-    rebootHistory.EntityData.Children["reverse"] = types.YChild{"Reverse", &rebootHistory.Reverse}
-    rebootHistory.EntityData.Children["default-disp"] = types.YChild{"DefaultDisp", &rebootHistory.DefaultDisp}
-    rebootHistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    rebootHistory.EntityData.Children = types.NewOrderedMap()
+    rebootHistory.EntityData.Children.Append("reverse", types.YChild{"Reverse", &rebootHistory.Reverse})
+    rebootHistory.EntityData.Children.Append("default-disp", types.YChild{"DefaultDisp", &rebootHistory.DefaultDisp})
+    rebootHistory.EntityData.Leafs = types.NewOrderedMap()
+
+    rebootHistory.EntityData.YListKeys = []string {}
+
     return &(rebootHistory.EntityData)
 }
 
@@ -554,7 +583,7 @@ type SdrConfig_Sdr_RebootHistory_Reverse struct {
     YFilter yfilter.YFilter
 
     // The type is slice of SdrConfig_Sdr_RebootHistory_Reverse_Location.
-    Location []SdrConfig_Sdr_RebootHistory_Reverse_Location
+    Location []*SdrConfig_Sdr_RebootHistory_Reverse_Location
 }
 
 func (reverse *SdrConfig_Sdr_RebootHistory_Reverse) GetEntityData() *types.CommonEntityData {
@@ -567,12 +596,15 @@ func (reverse *SdrConfig_Sdr_RebootHistory_Reverse) GetEntityData() *types.Commo
     reverse.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reverse.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    reverse.EntityData.Children = make(map[string]types.YChild)
-    reverse.EntityData.Children["location"] = types.YChild{"Location", nil}
+    reverse.EntityData.Children = types.NewOrderedMap()
+    reverse.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range reverse.Location {
-        reverse.EntityData.Children[types.GetSegmentPath(&reverse.Location[i])] = types.YChild{"Location", &reverse.Location[i]}
+        reverse.EntityData.Children.Append(types.GetSegmentPath(reverse.Location[i]), types.YChild{"Location", reverse.Location[i]})
     }
-    reverse.EntityData.Leafs = make(map[string]types.YLeaf)
+    reverse.EntityData.Leafs = types.NewOrderedMap()
+
+    reverse.EntityData.YListKeys = []string {}
+
     return &(reverse.EntityData)
 }
 
@@ -582,7 +614,7 @@ type SdrConfig_Sdr_RebootHistory_Reverse_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((0?[0-9]|1[1-5])/(([rR]([sS]){0,1}[pP])?\\d{1,2})/[V][M](0?[0-9]|1[1-5]))?'.
+    // ((0?[0-9]|1[1-5]|[bB]\d)/((([rR]([sS]){0,1}[pP])|[cC][bB])?\d{1,2})/[V][M](0?[0-9]|1[1-5]))?.
     NodeLocation interface{}
 
     // Number of times rebooted since first boot. The type is interface{} with
@@ -595,7 +627,7 @@ type SdrConfig_Sdr_RebootHistory_Reverse_Location struct {
 
     // The type is slice of
     // SdrConfig_Sdr_RebootHistory_Reverse_Location_RebootHist2.
-    RebootHist2 []SdrConfig_Sdr_RebootHistory_Reverse_Location_RebootHist2
+    RebootHist2 []*SdrConfig_Sdr_RebootHistory_Reverse_Location_RebootHist2
 }
 
 func (location *SdrConfig_Sdr_RebootHistory_Reverse_Location) GetEntityData() *types.CommonEntityData {
@@ -603,20 +635,23 @@ func (location *SdrConfig_Sdr_RebootHistory_Reverse_Location) GetEntityData() *t
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "reverse"
-    location.EntityData.SegmentPath = "location" + "[node-location='" + fmt.Sprintf("%v", location.NodeLocation) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.NodeLocation, "node-location")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["reboot_hist2"] = types.YChild{"RebootHist2", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("reboot_hist2", types.YChild{"RebootHist2", nil})
     for i := range location.RebootHist2 {
-        location.EntityData.Children[types.GetSegmentPath(&location.RebootHist2[i])] = types.YChild{"RebootHist2", &location.RebootHist2[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.RebootHist2[i]), types.YChild{"RebootHist2", location.RebootHist2[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["node-location"] = types.YLeaf{"NodeLocation", location.NodeLocation}
-    location.EntityData.Leafs["reboot_count"] = types.YLeaf{"RebootCount", location.RebootCount}
-    location.EntityData.Leafs["rh_count"] = types.YLeaf{"RhCount", location.RhCount}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("node-location", types.YLeaf{"NodeLocation", location.NodeLocation})
+    location.EntityData.Leafs.Append("reboot_count", types.YLeaf{"RebootCount", location.RebootCount})
+    location.EntityData.Leafs.Append("rh_count", types.YLeaf{"RhCount", location.RhCount})
+
+    location.EntityData.YListKeys = []string {"NodeLocation"}
+
     return &(location.EntityData)
 }
 
@@ -640,16 +675,19 @@ func (rebootHist2 *SdrConfig_Sdr_RebootHistory_Reverse_Location_RebootHist2) Get
     rebootHist2.EntityData.YangName = "reboot_hist2"
     rebootHist2.EntityData.BundleName = "cisco_ios_xr"
     rebootHist2.EntityData.ParentYangName = "location"
-    rebootHist2.EntityData.SegmentPath = "reboot_hist2" + "[count='" + fmt.Sprintf("%v", rebootHist2.Count) + "']"
+    rebootHist2.EntityData.SegmentPath = "reboot_hist2" + types.AddKeyToken(rebootHist2.Count, "count")
     rebootHist2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rebootHist2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rebootHist2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rebootHist2.EntityData.Children = make(map[string]types.YChild)
-    rebootHist2.EntityData.Leafs = make(map[string]types.YLeaf)
-    rebootHist2.EntityData.Leafs["count"] = types.YLeaf{"Count", rebootHist2.Count}
-    rebootHist2.EntityData.Leafs["Time"] = types.YLeaf{"Time", rebootHist2.Time}
-    rebootHist2.EntityData.Leafs["Reason"] = types.YLeaf{"Reason", rebootHist2.Reason}
+    rebootHist2.EntityData.Children = types.NewOrderedMap()
+    rebootHist2.EntityData.Leafs = types.NewOrderedMap()
+    rebootHist2.EntityData.Leafs.Append("count", types.YLeaf{"Count", rebootHist2.Count})
+    rebootHist2.EntityData.Leafs.Append("Time", types.YLeaf{"Time", rebootHist2.Time})
+    rebootHist2.EntityData.Leafs.Append("Reason", types.YLeaf{"Reason", rebootHist2.Reason})
+
+    rebootHist2.EntityData.YListKeys = []string {"Count"}
+
     return &(rebootHist2.EntityData)
 }
 
@@ -659,7 +697,7 @@ type SdrConfig_Sdr_RebootHistory_DefaultDisp struct {
     YFilter yfilter.YFilter
 
     // The type is slice of SdrConfig_Sdr_RebootHistory_DefaultDisp_Location.
-    Location []SdrConfig_Sdr_RebootHistory_DefaultDisp_Location
+    Location []*SdrConfig_Sdr_RebootHistory_DefaultDisp_Location
 }
 
 func (defaultDisp *SdrConfig_Sdr_RebootHistory_DefaultDisp) GetEntityData() *types.CommonEntityData {
@@ -672,12 +710,15 @@ func (defaultDisp *SdrConfig_Sdr_RebootHistory_DefaultDisp) GetEntityData() *typ
     defaultDisp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultDisp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultDisp.EntityData.Children = make(map[string]types.YChild)
-    defaultDisp.EntityData.Children["location"] = types.YChild{"Location", nil}
+    defaultDisp.EntityData.Children = types.NewOrderedMap()
+    defaultDisp.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range defaultDisp.Location {
-        defaultDisp.EntityData.Children[types.GetSegmentPath(&defaultDisp.Location[i])] = types.YChild{"Location", &defaultDisp.Location[i]}
+        defaultDisp.EntityData.Children.Append(types.GetSegmentPath(defaultDisp.Location[i]), types.YChild{"Location", defaultDisp.Location[i]})
     }
-    defaultDisp.EntityData.Leafs = make(map[string]types.YLeaf)
+    defaultDisp.EntityData.Leafs = types.NewOrderedMap()
+
+    defaultDisp.EntityData.YListKeys = []string {}
+
     return &(defaultDisp.EntityData)
 }
 
@@ -687,7 +728,7 @@ type SdrConfig_Sdr_RebootHistory_DefaultDisp_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((0?[0-9]|1[1-5])/(([rR]([sS]){0,1}[pP])?\\d{1,2})/[V][M](0?[0-9]|1[1-5]))?'.
+    // ((0?[0-9]|1[1-5]|[bB]\d)/((([rR]([sS]){0,1}[pP])|[cC][bB])?\d{1,2})/[V][M](0?[0-9]|1[1-5]))?.
     NodeLocation interface{}
 
     // Number of times rebooted since first boot. The type is interface{} with
@@ -700,7 +741,7 @@ type SdrConfig_Sdr_RebootHistory_DefaultDisp_Location struct {
 
     // The type is slice of
     // SdrConfig_Sdr_RebootHistory_DefaultDisp_Location_RebootHist2.
-    RebootHist2 []SdrConfig_Sdr_RebootHistory_DefaultDisp_Location_RebootHist2
+    RebootHist2 []*SdrConfig_Sdr_RebootHistory_DefaultDisp_Location_RebootHist2
 }
 
 func (location *SdrConfig_Sdr_RebootHistory_DefaultDisp_Location) GetEntityData() *types.CommonEntityData {
@@ -708,20 +749,23 @@ func (location *SdrConfig_Sdr_RebootHistory_DefaultDisp_Location) GetEntityData(
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "default-disp"
-    location.EntityData.SegmentPath = "location" + "[node-location='" + fmt.Sprintf("%v", location.NodeLocation) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.NodeLocation, "node-location")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["reboot_hist2"] = types.YChild{"RebootHist2", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("reboot_hist2", types.YChild{"RebootHist2", nil})
     for i := range location.RebootHist2 {
-        location.EntityData.Children[types.GetSegmentPath(&location.RebootHist2[i])] = types.YChild{"RebootHist2", &location.RebootHist2[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.RebootHist2[i]), types.YChild{"RebootHist2", location.RebootHist2[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["node-location"] = types.YLeaf{"NodeLocation", location.NodeLocation}
-    location.EntityData.Leafs["reboot_count"] = types.YLeaf{"RebootCount", location.RebootCount}
-    location.EntityData.Leafs["rh_count"] = types.YLeaf{"RhCount", location.RhCount}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("node-location", types.YLeaf{"NodeLocation", location.NodeLocation})
+    location.EntityData.Leafs.Append("reboot_count", types.YLeaf{"RebootCount", location.RebootCount})
+    location.EntityData.Leafs.Append("rh_count", types.YLeaf{"RhCount", location.RhCount})
+
+    location.EntityData.YListKeys = []string {"NodeLocation"}
+
     return &(location.EntityData)
 }
 
@@ -745,16 +789,19 @@ func (rebootHist2 *SdrConfig_Sdr_RebootHistory_DefaultDisp_Location_RebootHist2)
     rebootHist2.EntityData.YangName = "reboot_hist2"
     rebootHist2.EntityData.BundleName = "cisco_ios_xr"
     rebootHist2.EntityData.ParentYangName = "location"
-    rebootHist2.EntityData.SegmentPath = "reboot_hist2" + "[count='" + fmt.Sprintf("%v", rebootHist2.Count) + "']"
+    rebootHist2.EntityData.SegmentPath = "reboot_hist2" + types.AddKeyToken(rebootHist2.Count, "count")
     rebootHist2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rebootHist2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rebootHist2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rebootHist2.EntityData.Children = make(map[string]types.YChild)
-    rebootHist2.EntityData.Leafs = make(map[string]types.YLeaf)
-    rebootHist2.EntityData.Leafs["count"] = types.YLeaf{"Count", rebootHist2.Count}
-    rebootHist2.EntityData.Leafs["Time"] = types.YLeaf{"Time", rebootHist2.Time}
-    rebootHist2.EntityData.Leafs["Reason"] = types.YLeaf{"Reason", rebootHist2.Reason}
+    rebootHist2.EntityData.Children = types.NewOrderedMap()
+    rebootHist2.EntityData.Leafs = types.NewOrderedMap()
+    rebootHist2.EntityData.Leafs.Append("count", types.YLeaf{"Count", rebootHist2.Count})
+    rebootHist2.EntityData.Leafs.Append("Time", types.YLeaf{"Time", rebootHist2.Time})
+    rebootHist2.EntityData.Leafs.Append("Reason", types.YLeaf{"Reason", rebootHist2.Reason})
+
+    rebootHist2.EntityData.YListKeys = []string {"Count"}
+
     return &(rebootHist2.EntityData)
 }
 
@@ -764,7 +811,7 @@ type SdrConfig_Sdr_Nodes struct {
     YFilter yfilter.YFilter
 
     // The type is slice of SdrConfig_Sdr_Nodes_Location.
-    Location []SdrConfig_Sdr_Nodes_Location
+    Location []*SdrConfig_Sdr_Nodes_Location
 }
 
 func (nodes *SdrConfig_Sdr_Nodes) GetEntityData() *types.CommonEntityData {
@@ -777,12 +824,15 @@ func (nodes *SdrConfig_Sdr_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["location"] = types.YChild{"Location", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range nodes.Location {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Location[i])] = types.YChild{"Location", &nodes.Location[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Location[i]), types.YChild{"Location", nodes.Location[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -792,7 +842,7 @@ type SdrConfig_Sdr_Nodes_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((0?[0-9]|1[1-5])/(([rR]([sS]){0,1}[pP])?\\d{1,2})/[V][M](0?[0-9]|1[1-5]))?'.
+    // ((0?[0-9]|1[1-5]|[bB]\d)/((([rR]([sS]){0,1}[pP])|[cC][bB])?\d{1,2})/[V][M](0?[0-9]|1[1-5]))?.
     NodeLocation interface{}
 
     // The type is interface{} with range: 0..4294967295.
@@ -800,9 +850,9 @@ type SdrConfig_Sdr_Nodes_Location struct {
 
     // IP address of VM. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddr interface{}
 
     // MAC address of VM. The type is string.
@@ -831,22 +881,25 @@ func (location *SdrConfig_Sdr_Nodes_Location) GetEntityData() *types.CommonEntit
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "nodes"
-    location.EntityData.SegmentPath = "location" + "[node-location='" + fmt.Sprintf("%v", location.NodeLocation) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.NodeLocation, "node-location")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["node-location"] = types.YLeaf{"NodeLocation", location.NodeLocation}
-    location.EntityData.Leafs["sdr-id"] = types.YLeaf{"SdrId", location.SdrId}
-    location.EntityData.Leafs["ip-addr"] = types.YLeaf{"IpAddr", location.IpAddr}
-    location.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", location.MacAddress}
-    location.EntityData.Leafs["state"] = types.YLeaf{"State", location.State}
-    location.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", location.StartTime}
-    location.EntityData.Leafs["reload_reason"] = types.YLeaf{"ReloadReason", location.ReloadReason}
-    location.EntityData.Leafs["reboot_count"] = types.YLeaf{"RebootCount", location.RebootCount}
-    location.EntityData.Leafs["rh_count"] = types.YLeaf{"RhCount", location.RhCount}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("node-location", types.YLeaf{"NodeLocation", location.NodeLocation})
+    location.EntityData.Leafs.Append("sdr-id", types.YLeaf{"SdrId", location.SdrId})
+    location.EntityData.Leafs.Append("ip-addr", types.YLeaf{"IpAddr", location.IpAddr})
+    location.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", location.MacAddress})
+    location.EntityData.Leafs.Append("state", types.YLeaf{"State", location.State})
+    location.EntityData.Leafs.Append("start-time", types.YLeaf{"StartTime", location.StartTime})
+    location.EntityData.Leafs.Append("reload_reason", types.YLeaf{"ReloadReason", location.ReloadReason})
+    location.EntityData.Leafs.Append("reboot_count", types.YLeaf{"RebootCount", location.RebootCount})
+    location.EntityData.Leafs.Append("rh_count", types.YLeaf{"RhCount", location.RhCount})
+
+    location.EntityData.YListKeys = []string {"NodeLocation"}
+
     return &(location.EntityData)
 }
 
@@ -862,7 +915,7 @@ type SdrConfig_Sdr_Pairing2 struct {
     Sdrlead SdrConfig_Sdr_Pairing2_Sdrlead
 
     // The type is slice of SdrConfig_Sdr_Pairing2_Pairing.
-    Pairing []SdrConfig_Sdr_Pairing2_Pairing
+    Pairing []*SdrConfig_Sdr_Pairing2_Pairing
 }
 
 func (pairing2 *SdrConfig_Sdr_Pairing2) GetEntityData() *types.CommonEntityData {
@@ -875,14 +928,17 @@ func (pairing2 *SdrConfig_Sdr_Pairing2) GetEntityData() *types.CommonEntityData 
     pairing2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pairing2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pairing2.EntityData.Children = make(map[string]types.YChild)
-    pairing2.EntityData.Children["sdrlead"] = types.YChild{"Sdrlead", &pairing2.Sdrlead}
-    pairing2.EntityData.Children["pairing"] = types.YChild{"Pairing", nil}
+    pairing2.EntityData.Children = types.NewOrderedMap()
+    pairing2.EntityData.Children.Append("sdrlead", types.YChild{"Sdrlead", &pairing2.Sdrlead})
+    pairing2.EntityData.Children.Append("pairing", types.YChild{"Pairing", nil})
     for i := range pairing2.Pairing {
-        pairing2.EntityData.Children[types.GetSegmentPath(&pairing2.Pairing[i])] = types.YChild{"Pairing", &pairing2.Pairing[i]}
+        pairing2.EntityData.Children.Append(types.GetSegmentPath(pairing2.Pairing[i]), types.YChild{"Pairing", pairing2.Pairing[i]})
     }
-    pairing2.EntityData.Leafs = make(map[string]types.YLeaf)
-    pairing2.EntityData.Leafs["pairing-mode"] = types.YLeaf{"PairingMode", pairing2.PairingMode}
+    pairing2.EntityData.Leafs = types.NewOrderedMap()
+    pairing2.EntityData.Leafs.Append("pairing-mode", types.YLeaf{"PairingMode", pairing2.PairingMode})
+
+    pairing2.EntityData.YListKeys = []string {}
+
     return &(pairing2.EntityData)
 }
 
@@ -908,10 +964,13 @@ func (sdrlead *SdrConfig_Sdr_Pairing2_Sdrlead) GetEntityData() *types.CommonEnti
     sdrlead.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrlead.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sdrlead.EntityData.Children = make(map[string]types.YChild)
-    sdrlead.EntityData.Leafs = make(map[string]types.YLeaf)
-    sdrlead.EntityData.Leafs["rp1"] = types.YLeaf{"Rp1", sdrlead.Rp1}
-    sdrlead.EntityData.Leafs["rp2"] = types.YLeaf{"Rp2", sdrlead.Rp2}
+    sdrlead.EntityData.Children = types.NewOrderedMap()
+    sdrlead.EntityData.Leafs = types.NewOrderedMap()
+    sdrlead.EntityData.Leafs.Append("rp1", types.YLeaf{"Rp1", sdrlead.Rp1})
+    sdrlead.EntityData.Leafs.Append("rp2", types.YLeaf{"Rp2", sdrlead.Rp2})
+
+    sdrlead.EntityData.YListKeys = []string {}
+
     return &(sdrlead.EntityData)
 }
 
@@ -935,16 +994,19 @@ func (pairing *SdrConfig_Sdr_Pairing2_Pairing) GetEntityData() *types.CommonEnti
     pairing.EntityData.YangName = "pairing"
     pairing.EntityData.BundleName = "cisco_ios_xr"
     pairing.EntityData.ParentYangName = "pairing2"
-    pairing.EntityData.SegmentPath = "pairing" + "[name='" + fmt.Sprintf("%v", pairing.Name) + "']"
+    pairing.EntityData.SegmentPath = "pairing" + types.AddKeyToken(pairing.Name, "name")
     pairing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pairing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pairing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pairing.EntityData.Children = make(map[string]types.YChild)
-    pairing.EntityData.Leafs = make(map[string]types.YLeaf)
-    pairing.EntityData.Leafs["name"] = types.YLeaf{"Name", pairing.Name}
-    pairing.EntityData.Leafs["rp1"] = types.YLeaf{"Rp1", pairing.Rp1}
-    pairing.EntityData.Leafs["rp2"] = types.YLeaf{"Rp2", pairing.Rp2}
+    pairing.EntityData.Children = types.NewOrderedMap()
+    pairing.EntityData.Leafs = types.NewOrderedMap()
+    pairing.EntityData.Leafs.Append("name", types.YLeaf{"Name", pairing.Name})
+    pairing.EntityData.Leafs.Append("rp1", types.YLeaf{"Rp1", pairing.Rp1})
+    pairing.EntityData.Leafs.Append("rp2", types.YLeaf{"Rp2", pairing.Rp2})
+
+    pairing.EntityData.YListKeys = []string {"Name"}
+
     return &(pairing.EntityData)
 }
 
@@ -955,17 +1017,17 @@ type SdrConfig_Sdr_Pairing struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'[a-zA-Z0-9_-]{1,64}'.
+    // [a-zA-Z0-9_-]{1,64}.
     Name interface{}
 
     // Enter RP Node location. The type is string with pattern:
-    // b'((0?[0-9]|1[1-5])/([rR][pP]\\d{1,2}))(/[cC][pP][uU]0)?'. This attribute
-    // is mandatory.
+    // ((0?[0-9]|1[1-5]|[bB]\d)/(([rR][pP]|[cC][bB])\d{1,2}))(/[cC][pP][uU]0)?.
+    // This attribute is mandatory.
     Rp1 interface{}
 
     // Enter RP Node location. The type is string with pattern:
-    // b'((0?[0-9]|1[1-5])/([rR][pP]\\d{1,2}))(/[cC][pP][uU]0)?'. This attribute
-    // is mandatory.
+    // ((0?[0-9]|1[1-5]|[bB]\d)/(([rR][pP]|[cC][bB])\d{1,2}))(/[cC][pP][uU]0)?.
+    // This attribute is mandatory.
     Rp2 interface{}
 }
 
@@ -974,16 +1036,19 @@ func (pairing *SdrConfig_Sdr_Pairing) GetEntityData() *types.CommonEntityData {
     pairing.EntityData.YangName = "pairing"
     pairing.EntityData.BundleName = "cisco_ios_xr"
     pairing.EntityData.ParentYangName = "sdr"
-    pairing.EntityData.SegmentPath = "pairing" + "[name='" + fmt.Sprintf("%v", pairing.Name) + "']"
+    pairing.EntityData.SegmentPath = "pairing" + types.AddKeyToken(pairing.Name, "name")
     pairing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pairing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pairing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pairing.EntityData.Children = make(map[string]types.YChild)
-    pairing.EntityData.Leafs = make(map[string]types.YLeaf)
-    pairing.EntityData.Leafs["name"] = types.YLeaf{"Name", pairing.Name}
-    pairing.EntityData.Leafs["rp1"] = types.YLeaf{"Rp1", pairing.Rp1}
-    pairing.EntityData.Leafs["rp2"] = types.YLeaf{"Rp2", pairing.Rp2}
+    pairing.EntityData.Children = types.NewOrderedMap()
+    pairing.EntityData.Leafs = types.NewOrderedMap()
+    pairing.EntityData.Leafs.Append("name", types.YLeaf{"Name", pairing.Name})
+    pairing.EntityData.Leafs.Append("rp1", types.YLeaf{"Rp1", pairing.Rp1})
+    pairing.EntityData.Leafs.Append("rp2", types.YLeaf{"Rp2", pairing.Rp2})
+
+    pairing.EntityData.YListKeys = []string {"Name"}
+
     return &(pairing.EntityData)
 }
 
@@ -1022,9 +1087,12 @@ func (sdrManager *SdrManager) GetEntityData() *types.CommonEntityData {
     sdrManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sdrManager.EntityData.Children = make(map[string]types.YChild)
-    sdrManager.EntityData.Children["sdr_mgr"] = types.YChild{"SdrMgr", &sdrManager.SdrMgr}
-    sdrManager.EntityData.Leafs = make(map[string]types.YLeaf)
+    sdrManager.EntityData.Children = types.NewOrderedMap()
+    sdrManager.EntityData.Children.Append("sdr_mgr", types.YChild{"SdrMgr", &sdrManager.SdrMgr})
+    sdrManager.EntityData.Leafs = types.NewOrderedMap()
+
+    sdrManager.EntityData.YListKeys = []string {}
+
     return &(sdrManager.EntityData)
 }
 
@@ -1034,7 +1102,7 @@ type SdrManager_SdrMgr struct {
     YFilter yfilter.YFilter
 
     // show traceable processes. The type is slice of SdrManager_SdrMgr_Trace.
-    Trace []SdrManager_SdrMgr_Trace
+    Trace []*SdrManager_SdrMgr_Trace
 }
 
 func (sdrMgr *SdrManager_SdrMgr) GetEntityData() *types.CommonEntityData {
@@ -1047,12 +1115,15 @@ func (sdrMgr *SdrManager_SdrMgr) GetEntityData() *types.CommonEntityData {
     sdrMgr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrMgr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sdrMgr.EntityData.Children = make(map[string]types.YChild)
-    sdrMgr.EntityData.Children["trace"] = types.YChild{"Trace", nil}
+    sdrMgr.EntityData.Children = types.NewOrderedMap()
+    sdrMgr.EntityData.Children.Append("trace", types.YChild{"Trace", nil})
     for i := range sdrMgr.Trace {
-        sdrMgr.EntityData.Children[types.GetSegmentPath(&sdrMgr.Trace[i])] = types.YChild{"Trace", &sdrMgr.Trace[i]}
+        sdrMgr.EntityData.Children.Append(types.GetSegmentPath(sdrMgr.Trace[i]), types.YChild{"Trace", sdrMgr.Trace[i]})
     }
-    sdrMgr.EntityData.Leafs = make(map[string]types.YLeaf)
+    sdrMgr.EntityData.Leafs = types.NewOrderedMap()
+
+    sdrMgr.EntityData.YListKeys = []string {}
+
     return &(sdrMgr.EntityData)
 }
 
@@ -1066,7 +1137,7 @@ type SdrManager_SdrMgr_Trace struct {
     Buffer interface{}
 
     // The type is slice of SdrManager_SdrMgr_Trace_Location.
-    Location []SdrManager_SdrMgr_Trace_Location
+    Location []*SdrManager_SdrMgr_Trace_Location
 }
 
 func (trace *SdrManager_SdrMgr_Trace) GetEntityData() *types.CommonEntityData {
@@ -1074,18 +1145,21 @@ func (trace *SdrManager_SdrMgr_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.YangName = "trace"
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "sdr_mgr"
-    trace.EntityData.SegmentPath = "trace" + "[buffer='" + fmt.Sprintf("%v", trace.Buffer) + "']"
+    trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trace.EntityData.Children = make(map[string]types.YChild)
-    trace.EntityData.Children["location"] = types.YChild{"Location", nil}
+    trace.EntityData.Children = types.NewOrderedMap()
+    trace.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range trace.Location {
-        trace.EntityData.Children[types.GetSegmentPath(&trace.Location[i])] = types.YChild{"Location", &trace.Location[i]}
+        trace.EntityData.Children.Append(types.GetSegmentPath(trace.Location[i]), types.YChild{"Location", trace.Location[i]})
     }
-    trace.EntityData.Leafs = make(map[string]types.YLeaf)
-    trace.EntityData.Leafs["buffer"] = types.YLeaf{"Buffer", trace.Buffer}
+    trace.EntityData.Leafs = types.NewOrderedMap()
+    trace.EntityData.Leafs.Append("buffer", types.YLeaf{"Buffer", trace.Buffer})
+
+    trace.EntityData.YListKeys = []string {"Buffer"}
+
     return &(trace.EntityData)
 }
 
@@ -1098,7 +1172,7 @@ type SdrManager_SdrMgr_Trace_Location struct {
     LocationName interface{}
 
     // The type is slice of SdrManager_SdrMgr_Trace_Location_AllOptions.
-    AllOptions []SdrManager_SdrMgr_Trace_Location_AllOptions
+    AllOptions []*SdrManager_SdrMgr_Trace_Location_AllOptions
 }
 
 func (location *SdrManager_SdrMgr_Trace_Location) GetEntityData() *types.CommonEntityData {
@@ -1106,18 +1180,21 @@ func (location *SdrManager_SdrMgr_Trace_Location) GetEntityData() *types.CommonE
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
-    location.EntityData.SegmentPath = "location" + "[location_name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["all-options"] = types.YChild{"AllOptions", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("all-options", types.YChild{"AllOptions", nil})
     for i := range location.AllOptions {
-        location.EntityData.Children[types.GetSegmentPath(&location.AllOptions[i])] = types.YChild{"AllOptions", &location.AllOptions[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.AllOptions[i]), types.YChild{"AllOptions", location.AllOptions[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location_name"] = types.YLeaf{"LocationName", location.LocationName}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location_name", types.YLeaf{"LocationName", location.LocationName})
+
+    location.EntityData.YListKeys = []string {"LocationName"}
+
     return &(location.EntityData)
 }
 
@@ -1131,7 +1208,7 @@ type SdrManager_SdrMgr_Trace_Location_AllOptions struct {
 
     // The type is slice of
     // SdrManager_SdrMgr_Trace_Location_AllOptions_TraceBlocks.
-    TraceBlocks []SdrManager_SdrMgr_Trace_Location_AllOptions_TraceBlocks
+    TraceBlocks []*SdrManager_SdrMgr_Trace_Location_AllOptions_TraceBlocks
 }
 
 func (allOptions *SdrManager_SdrMgr_Trace_Location_AllOptions) GetEntityData() *types.CommonEntityData {
@@ -1139,18 +1216,21 @@ func (allOptions *SdrManager_SdrMgr_Trace_Location_AllOptions) GetEntityData() *
     allOptions.EntityData.YangName = "all-options"
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
-    allOptions.EntityData.SegmentPath = "all-options" + "[option='" + fmt.Sprintf("%v", allOptions.Option) + "']"
+    allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allOptions.EntityData.Children = make(map[string]types.YChild)
-    allOptions.EntityData.Children["trace-blocks"] = types.YChild{"TraceBlocks", nil}
+    allOptions.EntityData.Children = types.NewOrderedMap()
+    allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
-        allOptions.EntityData.Children[types.GetSegmentPath(&allOptions.TraceBlocks[i])] = types.YChild{"TraceBlocks", &allOptions.TraceBlocks[i]}
+        allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
-    allOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    allOptions.EntityData.Leafs["option"] = types.YLeaf{"Option", allOptions.Option}
+    allOptions.EntityData.Leafs = types.NewOrderedMap()
+    allOptions.EntityData.Leafs.Append("option", types.YLeaf{"Option", allOptions.Option})
+
+    allOptions.EntityData.YListKeys = []string {"Option"}
+
     return &(allOptions.EntityData)
 }
 
@@ -1173,9 +1253,12 @@ func (traceBlocks *SdrManager_SdrMgr_Trace_Location_AllOptions_TraceBlocks) GetE
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    traceBlocks.EntityData.Children = make(map[string]types.YChild)
-    traceBlocks.EntityData.Leafs = make(map[string]types.YLeaf)
-    traceBlocks.EntityData.Leafs["data"] = types.YLeaf{"Data", traceBlocks.Data}
+    traceBlocks.EntityData.Children = types.NewOrderedMap()
+    traceBlocks.EntityData.Leafs = types.NewOrderedMap()
+    traceBlocks.EntityData.Leafs.Append("data", types.YLeaf{"Data", traceBlocks.Data})
+
+    traceBlocks.EntityData.YListKeys = []string {}
+
     return &(traceBlocks.EntityData)
 }
 
@@ -1185,7 +1268,7 @@ type PrivateSdr struct {
     YFilter yfilter.YFilter
 
     // The type is slice of PrivateSdr_SdrName.
-    SdrName []PrivateSdr_SdrName
+    SdrName []*PrivateSdr_SdrName
 }
 
 func (privateSdr *PrivateSdr) GetEntityData() *types.CommonEntityData {
@@ -1198,12 +1281,15 @@ func (privateSdr *PrivateSdr) GetEntityData() *types.CommonEntityData {
     privateSdr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     privateSdr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    privateSdr.EntityData.Children = make(map[string]types.YChild)
-    privateSdr.EntityData.Children["sdr-name"] = types.YChild{"SdrName", nil}
+    privateSdr.EntityData.Children = types.NewOrderedMap()
+    privateSdr.EntityData.Children.Append("sdr-name", types.YChild{"SdrName", nil})
     for i := range privateSdr.SdrName {
-        privateSdr.EntityData.Children[types.GetSegmentPath(&privateSdr.SdrName[i])] = types.YChild{"SdrName", &privateSdr.SdrName[i]}
+        privateSdr.EntityData.Children.Append(types.GetSegmentPath(privateSdr.SdrName[i]), types.YChild{"SdrName", privateSdr.SdrName[i]})
     }
-    privateSdr.EntityData.Leafs = make(map[string]types.YLeaf)
+    privateSdr.EntityData.Leafs = types.NewOrderedMap()
+
+    privateSdr.EntityData.YListKeys = []string {}
+
     return &(privateSdr.EntityData)
 }
 
@@ -1225,7 +1311,7 @@ type PrivateSdr_SdrName struct {
     LeadRack1 interface{}
 
     // The type is slice of PrivateSdr_SdrName_Pairing.
-    Pairing []PrivateSdr_SdrName_Pairing
+    Pairing []*PrivateSdr_SdrName_Pairing
 }
 
 func (sdrName *PrivateSdr_SdrName) GetEntityData() *types.CommonEntityData {
@@ -1233,21 +1319,24 @@ func (sdrName *PrivateSdr_SdrName) GetEntityData() *types.CommonEntityData {
     sdrName.EntityData.YangName = "sdr-name"
     sdrName.EntityData.BundleName = "cisco_ios_xr"
     sdrName.EntityData.ParentYangName = "private-sdr"
-    sdrName.EntityData.SegmentPath = "sdr-name" + "[name='" + fmt.Sprintf("%v", sdrName.Name) + "']"
+    sdrName.EntityData.SegmentPath = "sdr-name" + types.AddKeyToken(sdrName.Name, "name")
     sdrName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sdrName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sdrName.EntityData.Children = make(map[string]types.YChild)
-    sdrName.EntityData.Children["pairing"] = types.YChild{"Pairing", nil}
+    sdrName.EntityData.Children = types.NewOrderedMap()
+    sdrName.EntityData.Children.Append("pairing", types.YChild{"Pairing", nil})
     for i := range sdrName.Pairing {
-        sdrName.EntityData.Children[types.GetSegmentPath(&sdrName.Pairing[i])] = types.YChild{"Pairing", &sdrName.Pairing[i]}
+        sdrName.EntityData.Children.Append(types.GetSegmentPath(sdrName.Pairing[i]), types.YChild{"Pairing", sdrName.Pairing[i]})
     }
-    sdrName.EntityData.Leafs = make(map[string]types.YLeaf)
-    sdrName.EntityData.Leafs["name"] = types.YLeaf{"Name", sdrName.Name}
-    sdrName.EntityData.Leafs["id"] = types.YLeaf{"Id", sdrName.Id}
-    sdrName.EntityData.Leafs["lead_rack0"] = types.YLeaf{"LeadRack0", sdrName.LeadRack0}
-    sdrName.EntityData.Leafs["lead_rack1"] = types.YLeaf{"LeadRack1", sdrName.LeadRack1}
+    sdrName.EntityData.Leafs = types.NewOrderedMap()
+    sdrName.EntityData.Leafs.Append("name", types.YLeaf{"Name", sdrName.Name})
+    sdrName.EntityData.Leafs.Append("id", types.YLeaf{"Id", sdrName.Id})
+    sdrName.EntityData.Leafs.Append("lead_rack0", types.YLeaf{"LeadRack0", sdrName.LeadRack0})
+    sdrName.EntityData.Leafs.Append("lead_rack1", types.YLeaf{"LeadRack1", sdrName.LeadRack1})
+
+    sdrName.EntityData.YListKeys = []string {"Name"}
+
     return &(sdrName.EntityData)
 }
 
@@ -1280,19 +1369,22 @@ func (pairing *PrivateSdr_SdrName_Pairing) GetEntityData() *types.CommonEntityDa
     pairing.EntityData.YangName = "pairing"
     pairing.EntityData.BundleName = "cisco_ios_xr"
     pairing.EntityData.ParentYangName = "sdr-name"
-    pairing.EntityData.SegmentPath = "pairing" + "[num='" + fmt.Sprintf("%v", pairing.Num) + "']"
+    pairing.EntityData.SegmentPath = "pairing" + types.AddKeyToken(pairing.Num, "num")
     pairing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pairing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pairing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pairing.EntityData.Children = make(map[string]types.YChild)
-    pairing.EntityData.Leafs = make(map[string]types.YLeaf)
-    pairing.EntityData.Leafs["num"] = types.YLeaf{"Num", pairing.Num}
-    pairing.EntityData.Leafs["second_exist"] = types.YLeaf{"SecondExist", pairing.SecondExist}
-    pairing.EntityData.Leafs["rp1_rack"] = types.YLeaf{"Rp1Rack", pairing.Rp1Rack}
-    pairing.EntityData.Leafs["rp1_slot"] = types.YLeaf{"Rp1Slot", pairing.Rp1Slot}
-    pairing.EntityData.Leafs["rp2_rack"] = types.YLeaf{"Rp2Rack", pairing.Rp2Rack}
-    pairing.EntityData.Leafs["rp2_slot"] = types.YLeaf{"Rp2Slot", pairing.Rp2Slot}
+    pairing.EntityData.Children = types.NewOrderedMap()
+    pairing.EntityData.Leafs = types.NewOrderedMap()
+    pairing.EntityData.Leafs.Append("num", types.YLeaf{"Num", pairing.Num})
+    pairing.EntityData.Leafs.Append("second_exist", types.YLeaf{"SecondExist", pairing.SecondExist})
+    pairing.EntityData.Leafs.Append("rp1_rack", types.YLeaf{"Rp1Rack", pairing.Rp1Rack})
+    pairing.EntityData.Leafs.Append("rp1_slot", types.YLeaf{"Rp1Slot", pairing.Rp1Slot})
+    pairing.EntityData.Leafs.Append("rp2_rack", types.YLeaf{"Rp2Rack", pairing.Rp2Rack})
+    pairing.EntityData.Leafs.Append("rp2_slot", types.YLeaf{"Rp2Slot", pairing.Rp2Slot})
+
+    pairing.EntityData.YListKeys = []string {"Num"}
+
     return &(pairing.EntityData)
 }
 

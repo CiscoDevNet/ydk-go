@@ -27,98 +27,51 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-iedge4710-oper:iedge-license-manager", reflect.TypeOf(IedgeLicenseManager{}))
 }
 
-// SubscriberAuthorStateFilterFlag represents Subscriber author state filter flag
-type SubscriberAuthorStateFilterFlag string
+// AaaTunnelProto represents Tunnel protocol types
+type AaaTunnelProto string
 
 const (
-    // UnAuthorized
-    SubscriberAuthorStateFilterFlag_un_authorized SubscriberAuthorStateFilterFlag = "un-authorized"
+    // None
+    AaaTunnelProto_none AaaTunnelProto = "none"
 
-    // Authorized
-    SubscriberAuthorStateFilterFlag_authorized SubscriberAuthorStateFilterFlag = "authorized"
-)
+    // Point-to-point tunneling protocol
+    AaaTunnelProto_pptp AaaTunnelProto = "pptp"
 
-// SubscriberAddressFamilyFilterFlag represents Subscriber address family filter flag
-type SubscriberAddressFamilyFilterFlag string
+    // Layer 2 forwarding
+    AaaTunnelProto_l2f AaaTunnelProto = "l2f"
 
-const (
-    // IPv4 only
-    SubscriberAddressFamilyFilterFlag_ipv4_only SubscriberAddressFamilyFilterFlag = "ipv4-only"
+    // Layer 2 tunneling protocol
+    AaaTunnelProto_l2tp AaaTunnelProto = "l2tp"
 
-    // IPv6 only
-    SubscriberAddressFamilyFilterFlag_ipv6_only SubscriberAddressFamilyFilterFlag = "ipv6-only"
+    // Ascend tunnel management protocol
+    AaaTunnelProto_atmp AaaTunnelProto = "atmp"
 
-    // IPv4 all
-    SubscriberAddressFamilyFilterFlag_ipv4_all SubscriberAddressFamilyFilterFlag = "ipv4-all"
+    // VLAN trunk protocol
+    AaaTunnelProto_vtp AaaTunnelProto = "vtp"
 
-    // IPv6 all
-    SubscriberAddressFamilyFilterFlag_ipv6_all SubscriberAddressFamilyFilterFlag = "ipv6-all"
+    // Authentication header
+    AaaTunnelProto_ah AaaTunnelProto = "ah"
 
-    // Dual all
-    SubscriberAddressFamilyFilterFlag_dual_all SubscriberAddressFamilyFilterFlag = "dual-all"
+    // IP over IP
+    AaaTunnelProto_ip_over_ip AaaTunnelProto = "ip-over-ip"
 
-    // Dual part up
-    SubscriberAddressFamilyFilterFlag_dual_part_up SubscriberAddressFamilyFilterFlag = "dual-part-up"
+    // Minimum IP over IP
+    AaaTunnelProto_minimum_ip_over_ip AaaTunnelProto = "minimum-ip-over-ip"
 
-    // Dual up
-    SubscriberAddressFamilyFilterFlag_dual_up SubscriberAddressFamilyFilterFlag = "dual-up"
+    // Encapsulating security payload
+    AaaTunnelProto_esp AaaTunnelProto = "esp"
 
-    // LAC
-    SubscriberAddressFamilyFilterFlag_lac SubscriberAddressFamilyFilterFlag = "lac"
-)
+    // Generic routing encapsulation
+    AaaTunnelProto_gre AaaTunnelProto = "gre"
 
-// SubscriberStateFilterFlag represents Subscriber state filter flag
-type SubscriberStateFilterFlag string
+    // Bay dial virtual services
+    AaaTunnelProto_bay_dvs AaaTunnelProto = "bay-dvs"
 
-const (
-    // Initializing
-    SubscriberStateFilterFlag_initializing SubscriberStateFilterFlag = "initializing"
+    // IP in IP
+    AaaTunnelProto_ip_in_ip AaaTunnelProto = "ip-in-ip"
 
-    // Connecting
-    SubscriberStateFilterFlag_connecting SubscriberStateFilterFlag = "connecting"
-
-    // Connected
-    SubscriberStateFilterFlag_connected SubscriberStateFilterFlag = "connected"
-
-    // Activated
-    SubscriberStateFilterFlag_activated SubscriberStateFilterFlag = "activated"
-
-    // Idle
-    SubscriberStateFilterFlag_idle SubscriberStateFilterFlag = "idle"
-
-    // Disconnecting
-    SubscriberStateFilterFlag_disconnecting SubscriberStateFilterFlag = "disconnecting"
-
-    // End
-    SubscriberStateFilterFlag_end SubscriberStateFilterFlag = "end"
-)
-
-// SubscriberAuthenStateFilterFlag represents Subscriber authen state filter flag
-type SubscriberAuthenStateFilterFlag string
-
-const (
-    // UnAuthenticated
-    SubscriberAuthenStateFilterFlag_un_authenticated SubscriberAuthenStateFilterFlag = "un-authenticated"
-
-    // Authenticated
-    SubscriberAuthenStateFilterFlag_authenticated SubscriberAuthenStateFilterFlag = "authenticated"
-)
-
-// IedgeOperSessionAfState represents Subscriber session address family state
-type IedgeOperSessionAfState string
-
-const (
-    // Not started
-    IedgeOperSessionAfState_not_started IedgeOperSessionAfState = "not-started"
-
-    // Down
-    IedgeOperSessionAfState_down IedgeOperSessionAfState = "down"
-
-    // Up Pending
-    IedgeOperSessionAfState_up_pending IedgeOperSessionAfState = "up-pending"
-
-    // Up
-    IedgeOperSessionAfState_up IedgeOperSessionAfState = "up"
+    // VLAN
+    AaaTunnelProto_vlan AaaTunnelProto = "vlan"
 )
 
 // AaaTerminateCause represents AAA terminate cause types
@@ -193,6 +146,139 @@ const (
 
     // Admin disabled
     AaaTerminateCause_admin_disabled AaaTerminateCause = "admin-disabled"
+)
+
+// SubscriberAuthorStateFilterFlag represents Subscriber author state filter flag
+type SubscriberAuthorStateFilterFlag string
+
+const (
+    // UnAuthorized
+    SubscriberAuthorStateFilterFlag_un_authorized SubscriberAuthorStateFilterFlag = "un-authorized"
+
+    // Authorized
+    SubscriberAuthorStateFilterFlag_authorized SubscriberAuthorStateFilterFlag = "authorized"
+)
+
+// IedgeOperSessionState represents Subscriber session states
+type IedgeOperSessionState string
+
+const (
+    // Initialize
+    IedgeOperSessionState_initialize IedgeOperSessionState = "initialize"
+
+    // Connecting
+    IedgeOperSessionState_connecting IedgeOperSessionState = "connecting"
+
+    // Connected
+    IedgeOperSessionState_connected IedgeOperSessionState = "connected"
+
+    // Activated
+    IedgeOperSessionState_activated IedgeOperSessionState = "activated"
+
+    // Idle
+    IedgeOperSessionState_idle IedgeOperSessionState = "idle"
+
+    // Disconnecting
+    IedgeOperSessionState_disconnecting IedgeOperSessionState = "disconnecting"
+
+    // End
+    IedgeOperSessionState_end IedgeOperSessionState = "end"
+)
+
+// IedgeOperSessionAfState represents Subscriber session address family state
+type IedgeOperSessionAfState string
+
+const (
+    // Not started
+    IedgeOperSessionAfState_not_started IedgeOperSessionAfState = "not-started"
+
+    // Down
+    IedgeOperSessionAfState_down IedgeOperSessionAfState = "down"
+
+    // Up Pending
+    IedgeOperSessionAfState_up_pending IedgeOperSessionAfState = "up-pending"
+
+    // Up
+    IedgeOperSessionAfState_up IedgeOperSessionAfState = "up"
+)
+
+// SubscriberStateFilterFlag represents Subscriber state filter flag
+type SubscriberStateFilterFlag string
+
+const (
+    // Initializing
+    SubscriberStateFilterFlag_initializing SubscriberStateFilterFlag = "initializing"
+
+    // Connecting
+    SubscriberStateFilterFlag_connecting SubscriberStateFilterFlag = "connecting"
+
+    // Connected
+    SubscriberStateFilterFlag_connected SubscriberStateFilterFlag = "connected"
+
+    // Activated
+    SubscriberStateFilterFlag_activated SubscriberStateFilterFlag = "activated"
+
+    // Idle
+    SubscriberStateFilterFlag_idle SubscriberStateFilterFlag = "idle"
+
+    // Disconnecting
+    SubscriberStateFilterFlag_disconnecting SubscriberStateFilterFlag = "disconnecting"
+
+    // End
+    SubscriberStateFilterFlag_end SubscriberStateFilterFlag = "end"
+)
+
+// AaaAuthService represents AAA authorization service types
+type AaaAuthService string
+
+const (
+    // None
+    AaaAuthService_none AaaAuthService = "none"
+
+    // Login
+    AaaAuthService_login AaaAuthService = "login"
+
+    // Framed
+    AaaAuthService_framed AaaAuthService = "framed"
+
+    // Callback login
+    AaaAuthService_callback_login AaaAuthService = "callback-login"
+
+    // Callback framed
+    AaaAuthService_callback_framed AaaAuthService = "callback-framed"
+
+    // Outbound
+    AaaAuthService_outbound AaaAuthService = "outbound"
+
+    // Administrator
+    AaaAuthService_administrator AaaAuthService = "administrator"
+
+    // Prompt
+    AaaAuthService_prompt AaaAuthService = "prompt"
+
+    // Authentication only
+    AaaAuthService_authentication_only AaaAuthService = "authentication-only"
+
+    // Callback NAS prompt
+    AaaAuthService_callback_nas_prompt AaaAuthService = "callback-nas-prompt"
+
+    // Call check
+    AaaAuthService_call_check AaaAuthService = "call-check"
+
+    // Callback administrator
+    AaaAuthService_callback_administrator AaaAuthService = "callback-administrator"
+
+    // Voice
+    AaaAuthService_voice AaaAuthService = "voice"
+
+    // Fax
+    AaaAuthService_fax AaaAuthService = "fax"
+
+    // Modem relay
+    AaaAuthService_modem_relay AaaAuthService = "modem-relay"
+
+    // EAP over UDP
+    AaaAuthService_eap_over_udp AaaAuthService = "eap-over-udp"
 )
 
 // AaaInterface represents AAA interface types
@@ -284,51 +370,35 @@ const (
     AaaInterface_virtual_i_po_e_over_qinq AaaInterface = "virtual-i-po-e-over-qinq"
 )
 
-// AaaTunnelProto represents Tunnel protocol types
-type AaaTunnelProto string
+// SubscriberAuthenStateFilterFlag represents Subscriber authen state filter flag
+type SubscriberAuthenStateFilterFlag string
 
 const (
-    // None
-    AaaTunnelProto_none AaaTunnelProto = "none"
+    // UnAuthenticated
+    SubscriberAuthenStateFilterFlag_un_authenticated SubscriberAuthenStateFilterFlag = "un-authenticated"
 
-    // Point-to-point tunneling protocol
-    AaaTunnelProto_pptp AaaTunnelProto = "pptp"
+    // Authenticated
+    SubscriberAuthenStateFilterFlag_authenticated SubscriberAuthenStateFilterFlag = "authenticated"
+)
 
-    // Layer 2 forwarding
-    AaaTunnelProto_l2f AaaTunnelProto = "l2f"
+// IedgeOperSession represents Subscriber session types
+type IedgeOperSession string
 
-    // Layer 2 tunneling protocol
-    AaaTunnelProto_l2tp AaaTunnelProto = "l2tp"
+const (
+    // Unknown
+    IedgeOperSession_unknown IedgeOperSession = "unknown"
 
-    // Ascend tunnel management protocol
-    AaaTunnelProto_atmp AaaTunnelProto = "atmp"
+    // PPPoE/PPP client
+    IedgeOperSession_pppoe IedgeOperSession = "pppoe"
 
-    // VLAN trunk protocol
-    AaaTunnelProto_vtp AaaTunnelProto = "vtp"
+    // PPP serial client
+    IedgeOperSession_ppp IedgeOperSession = "ppp"
 
-    // Authentication header
-    AaaTunnelProto_ah AaaTunnelProto = "ah"
+    // IP subscriber - packet trigger
+    IedgeOperSession_ip_packet_trigger IedgeOperSession = "ip-packet-trigger"
 
-    // IP over IP
-    AaaTunnelProto_ip_over_ip AaaTunnelProto = "ip-over-ip"
-
-    // Minimum IP over IP
-    AaaTunnelProto_minimum_ip_over_ip AaaTunnelProto = "minimum-ip-over-ip"
-
-    // Encapsulating security payload
-    AaaTunnelProto_esp AaaTunnelProto = "esp"
-
-    // Generic routing encapsulation
-    AaaTunnelProto_gre AaaTunnelProto = "gre"
-
-    // Bay dial virtual services
-    AaaTunnelProto_bay_dvs AaaTunnelProto = "bay-dvs"
-
-    // IP in IP
-    AaaTunnelProto_ip_in_ip AaaTunnelProto = "ip-in-ip"
-
-    // VLAN
-    AaaTunnelProto_vlan AaaTunnelProto = "vlan"
+    // IP subscriber - DHCP trigger
+    IedgeOperSession_ip_packet_dhcp_trigger IedgeOperSession = "ip-packet-dhcp-trigger"
 )
 
 // AaaTunnelMedium represents Tunnel medium types
@@ -357,85 +427,6 @@ const (
     AaaTunnelMedium_all802 AaaTunnelMedium = "all802"
 )
 
-// AaaAuthService represents AAA authorization service types
-type AaaAuthService string
-
-const (
-    // None
-    AaaAuthService_none AaaAuthService = "none"
-
-    // Login
-    AaaAuthService_login AaaAuthService = "login"
-
-    // Framed
-    AaaAuthService_framed AaaAuthService = "framed"
-
-    // Callback login
-    AaaAuthService_callback_login AaaAuthService = "callback-login"
-
-    // Callback framed
-    AaaAuthService_callback_framed AaaAuthService = "callback-framed"
-
-    // Outbound
-    AaaAuthService_outbound AaaAuthService = "outbound"
-
-    // Administrator
-    AaaAuthService_administrator AaaAuthService = "administrator"
-
-    // Prompt
-    AaaAuthService_prompt AaaAuthService = "prompt"
-
-    // Authentication only
-    AaaAuthService_authentication_only AaaAuthService = "authentication-only"
-
-    // Callback NAS prompt
-    AaaAuthService_callback_nas_prompt AaaAuthService = "callback-nas-prompt"
-
-    // Call check
-    AaaAuthService_call_check AaaAuthService = "call-check"
-
-    // Callback administrator
-    AaaAuthService_callback_administrator AaaAuthService = "callback-administrator"
-
-    // Voice
-    AaaAuthService_voice AaaAuthService = "voice"
-
-    // Fax
-    AaaAuthService_fax AaaAuthService = "fax"
-
-    // Modem relay
-    AaaAuthService_modem_relay AaaAuthService = "modem-relay"
-
-    // EAP over UDP
-    AaaAuthService_eap_over_udp AaaAuthService = "eap-over-udp"
-)
-
-// IedgeOperSessionState represents Subscriber session states
-type IedgeOperSessionState string
-
-const (
-    // Initialize
-    IedgeOperSessionState_initialize IedgeOperSessionState = "initialize"
-
-    // Connecting
-    IedgeOperSessionState_connecting IedgeOperSessionState = "connecting"
-
-    // Connected
-    IedgeOperSessionState_connected IedgeOperSessionState = "connected"
-
-    // Activated
-    IedgeOperSessionState_activated IedgeOperSessionState = "activated"
-
-    // Idle
-    IedgeOperSessionState_idle IedgeOperSessionState = "idle"
-
-    // Disconnecting
-    IedgeOperSessionState_disconnecting IedgeOperSessionState = "disconnecting"
-
-    // End
-    IedgeOperSessionState_end IedgeOperSessionState = "end"
-)
-
 // IedgePppSub represents PPPoE sub types
 type IedgePppSub string
 
@@ -447,24 +438,33 @@ const (
     IedgePppSub_lac IedgePppSub = "lac"
 )
 
-// IedgeOperSession represents Subscriber session types
-type IedgeOperSession string
+// SubscriberAddressFamilyFilterFlag represents Subscriber address family filter flag
+type SubscriberAddressFamilyFilterFlag string
 
 const (
-    // Unknown
-    IedgeOperSession_unknown IedgeOperSession = "unknown"
+    // IPv4 only
+    SubscriberAddressFamilyFilterFlag_ipv4_only SubscriberAddressFamilyFilterFlag = "ipv4-only"
 
-    // PPPoE/PPP client
-    IedgeOperSession_pppoe IedgeOperSession = "pppoe"
+    // IPv6 only
+    SubscriberAddressFamilyFilterFlag_ipv6_only SubscriberAddressFamilyFilterFlag = "ipv6-only"
 
-    // PPP serial client
-    IedgeOperSession_ppp IedgeOperSession = "ppp"
+    // IPv4 all
+    SubscriberAddressFamilyFilterFlag_ipv4_all SubscriberAddressFamilyFilterFlag = "ipv4-all"
 
-    // IP subscriber - packet trigger
-    IedgeOperSession_ip_packet_trigger IedgeOperSession = "ip-packet-trigger"
+    // IPv6 all
+    SubscriberAddressFamilyFilterFlag_ipv6_all SubscriberAddressFamilyFilterFlag = "ipv6-all"
 
-    // IP subscriber - DHCP trigger
-    IedgeOperSession_ip_packet_dhcp_trigger IedgeOperSession = "ip-packet-dhcp-trigger"
+    // Dual all
+    SubscriberAddressFamilyFilterFlag_dual_all SubscriberAddressFamilyFilterFlag = "dual-all"
+
+    // Dual part up
+    SubscriberAddressFamilyFilterFlag_dual_part_up SubscriberAddressFamilyFilterFlag = "dual-part-up"
+
+    // Dual up
+    SubscriberAddressFamilyFilterFlag_dual_up SubscriberAddressFamilyFilterFlag = "dual-up"
+
+    // LAC
+    SubscriberAddressFamilyFilterFlag_lac SubscriberAddressFamilyFilterFlag = "lac"
 )
 
 // Subscriber
@@ -490,10 +490,13 @@ func (subscriber *Subscriber) GetEntityData() *types.CommonEntityData {
     subscriber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    subscriber.EntityData.Children = make(map[string]types.YChild)
-    subscriber.EntityData.Children["manager"] = types.YChild{"Manager", &subscriber.Manager}
-    subscriber.EntityData.Children["session"] = types.YChild{"Session", &subscriber.Session}
-    subscriber.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscriber.EntityData.Children = types.NewOrderedMap()
+    subscriber.EntityData.Children.Append("manager", types.YChild{"Manager", &subscriber.Manager})
+    subscriber.EntityData.Children.Append("session", types.YChild{"Session", &subscriber.Session})
+    subscriber.EntityData.Leafs = types.NewOrderedMap()
+
+    subscriber.EntityData.YListKeys = []string {}
+
     return &(subscriber.EntityData)
 }
 
@@ -517,9 +520,12 @@ func (manager *Subscriber_Manager) GetEntityData() *types.CommonEntityData {
     manager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     manager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    manager.EntityData.Children = make(map[string]types.YChild)
-    manager.EntityData.Children["nodes"] = types.YChild{"Nodes", &manager.Nodes}
-    manager.EntityData.Leafs = make(map[string]types.YLeaf)
+    manager.EntityData.Children = types.NewOrderedMap()
+    manager.EntityData.Children.Append("nodes", types.YChild{"Nodes", &manager.Nodes})
+    manager.EntityData.Leafs = types.NewOrderedMap()
+
+    manager.EntityData.YListKeys = []string {}
+
     return &(manager.EntityData)
 }
 
@@ -531,7 +537,7 @@ type Subscriber_Manager_Nodes struct {
 
     // Subscriber manager operational data for a particular node. The type is
     // slice of Subscriber_Manager_Nodes_Node.
-    Node []Subscriber_Manager_Nodes_Node
+    Node []*Subscriber_Manager_Nodes_Node
 }
 
 func (nodes *Subscriber_Manager_Nodes) GetEntityData() *types.CommonEntityData {
@@ -544,12 +550,15 @@ func (nodes *Subscriber_Manager_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -561,7 +570,7 @@ type Subscriber_Manager_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Subscriber manager statistics.
@@ -573,15 +582,18 @@ func (node *Subscriber_Manager_Nodes_Node) GetEntityData() *types.CommonEntityDa
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["statistics"] = types.YChild{"Statistics", &node.Statistics}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("statistics", types.YChild{"Statistics", &node.Statistics})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -611,11 +623,14 @@ func (statistics *Subscriber_Manager_Nodes_Node_Statistics) GetEntityData() *typ
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statistics.EntityData.Children = make(map[string]types.YChild)
-    statistics.EntityData.Children["aaa"] = types.YChild{"Aaa", &statistics.Aaa}
-    statistics.EntityData.Children["aggregate-summary"] = types.YChild{"AggregateSummary", &statistics.AggregateSummary}
-    statistics.EntityData.Children["srg"] = types.YChild{"Srg", &statistics.Srg}
-    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistics.EntityData.Children = types.NewOrderedMap()
+    statistics.EntityData.Children.Append("aaa", types.YChild{"Aaa", &statistics.Aaa})
+    statistics.EntityData.Children.Append("aggregate-summary", types.YChild{"AggregateSummary", &statistics.AggregateSummary})
+    statistics.EntityData.Children.Append("srg", types.YChild{"Srg", &statistics.Srg})
+    statistics.EntityData.Leafs = types.NewOrderedMap()
+
+    statistics.EntityData.YListKeys = []string {}
+
     return &(statistics.EntityData)
 }
 
@@ -672,20 +687,23 @@ func (aaa *Subscriber_Manager_Nodes_Node_Statistics_Aaa) GetEntityData() *types.
     aaa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aaa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aaa.EntityData.Children = make(map[string]types.YChild)
-    aaa.EntityData.Children["aggregate-accounting"] = types.YChild{"AggregateAccounting", &aaa.AggregateAccounting}
-    aaa.EntityData.Children["authentication"] = types.YChild{"Authentication", &aaa.Authentication}
-    aaa.EntityData.Children["aggregate-mobility"] = types.YChild{"AggregateMobility", &aaa.AggregateMobility}
-    aaa.EntityData.Children["aggregate-authentication"] = types.YChild{"AggregateAuthentication", &aaa.AggregateAuthentication}
-    aaa.EntityData.Children["accounting-stats-all"] = types.YChild{"AccountingStatsAll", &aaa.AccountingStatsAll}
-    aaa.EntityData.Children["change-of-authorization"] = types.YChild{"ChangeOfAuthorization", &aaa.ChangeOfAuthorization}
-    aaa.EntityData.Children["authorization"] = types.YChild{"Authorization", &aaa.Authorization}
-    aaa.EntityData.Children["aggregate-authorization"] = types.YChild{"AggregateAuthorization", &aaa.AggregateAuthorization}
-    aaa.EntityData.Children["aggregate-accounting-stats-all"] = types.YChild{"AggregateAccountingStatsAll", &aaa.AggregateAccountingStatsAll}
-    aaa.EntityData.Children["accounting"] = types.YChild{"Accounting", &aaa.Accounting}
-    aaa.EntityData.Children["mobility"] = types.YChild{"Mobility", &aaa.Mobility}
-    aaa.EntityData.Children["aggregate-change-of-authorization"] = types.YChild{"AggregateChangeOfAuthorization", &aaa.AggregateChangeOfAuthorization}
-    aaa.EntityData.Leafs = make(map[string]types.YLeaf)
+    aaa.EntityData.Children = types.NewOrderedMap()
+    aaa.EntityData.Children.Append("aggregate-accounting", types.YChild{"AggregateAccounting", &aaa.AggregateAccounting})
+    aaa.EntityData.Children.Append("authentication", types.YChild{"Authentication", &aaa.Authentication})
+    aaa.EntityData.Children.Append("aggregate-mobility", types.YChild{"AggregateMobility", &aaa.AggregateMobility})
+    aaa.EntityData.Children.Append("aggregate-authentication", types.YChild{"AggregateAuthentication", &aaa.AggregateAuthentication})
+    aaa.EntityData.Children.Append("accounting-stats-all", types.YChild{"AccountingStatsAll", &aaa.AccountingStatsAll})
+    aaa.EntityData.Children.Append("change-of-authorization", types.YChild{"ChangeOfAuthorization", &aaa.ChangeOfAuthorization})
+    aaa.EntityData.Children.Append("authorization", types.YChild{"Authorization", &aaa.Authorization})
+    aaa.EntityData.Children.Append("aggregate-authorization", types.YChild{"AggregateAuthorization", &aaa.AggregateAuthorization})
+    aaa.EntityData.Children.Append("aggregate-accounting-stats-all", types.YChild{"AggregateAccountingStatsAll", &aaa.AggregateAccountingStatsAll})
+    aaa.EntityData.Children.Append("accounting", types.YChild{"Accounting", &aaa.Accounting})
+    aaa.EntityData.Children.Append("mobility", types.YChild{"Mobility", &aaa.Mobility})
+    aaa.EntityData.Children.Append("aggregate-change-of-authorization", types.YChild{"AggregateChangeOfAuthorization", &aaa.AggregateChangeOfAuthorization})
+    aaa.EntityData.Leafs = types.NewOrderedMap()
+
+    aaa.EntityData.YListKeys = []string {}
+
     return &(aaa.EntityData)
 }
 
@@ -743,19 +761,22 @@ func (aggregateAccounting *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggregat
     aggregateAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aggregateAccounting.EntityData.Children = make(map[string]types.YChild)
-    aggregateAccounting.EntityData.Children["start"] = types.YChild{"Start", &aggregateAccounting.Start}
-    aggregateAccounting.EntityData.Children["stop"] = types.YChild{"Stop", &aggregateAccounting.Stop}
-    aggregateAccounting.EntityData.Children["interim"] = types.YChild{"Interim", &aggregateAccounting.Interim}
-    aggregateAccounting.EntityData.Children["pass-through"] = types.YChild{"PassThrough", &aggregateAccounting.PassThrough}
-    aggregateAccounting.EntityData.Children["update"] = types.YChild{"Update", &aggregateAccounting.Update}
-    aggregateAccounting.EntityData.Children["interim-inflight"] = types.YChild{"InterimInflight", &aggregateAccounting.InterimInflight}
-    aggregateAccounting.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggregateAccounting.EntityData.Leafs["active-sessions"] = types.YLeaf{"ActiveSessions", aggregateAccounting.ActiveSessions}
-    aggregateAccounting.EntityData.Leafs["started-sessions"] = types.YLeaf{"StartedSessions", aggregateAccounting.StartedSessions}
-    aggregateAccounting.EntityData.Leafs["stopped-sessions"] = types.YLeaf{"StoppedSessions", aggregateAccounting.StoppedSessions}
-    aggregateAccounting.EntityData.Leafs["policy-plane-errored-requests"] = types.YLeaf{"PolicyPlaneErroredRequests", aggregateAccounting.PolicyPlaneErroredRequests}
-    aggregateAccounting.EntityData.Leafs["policy-plane-unknown-requests"] = types.YLeaf{"PolicyPlaneUnknownRequests", aggregateAccounting.PolicyPlaneUnknownRequests}
+    aggregateAccounting.EntityData.Children = types.NewOrderedMap()
+    aggregateAccounting.EntityData.Children.Append("start", types.YChild{"Start", &aggregateAccounting.Start})
+    aggregateAccounting.EntityData.Children.Append("stop", types.YChild{"Stop", &aggregateAccounting.Stop})
+    aggregateAccounting.EntityData.Children.Append("interim", types.YChild{"Interim", &aggregateAccounting.Interim})
+    aggregateAccounting.EntityData.Children.Append("pass-through", types.YChild{"PassThrough", &aggregateAccounting.PassThrough})
+    aggregateAccounting.EntityData.Children.Append("update", types.YChild{"Update", &aggregateAccounting.Update})
+    aggregateAccounting.EntityData.Children.Append("interim-inflight", types.YChild{"InterimInflight", &aggregateAccounting.InterimInflight})
+    aggregateAccounting.EntityData.Leafs = types.NewOrderedMap()
+    aggregateAccounting.EntityData.Leafs.Append("active-sessions", types.YLeaf{"ActiveSessions", aggregateAccounting.ActiveSessions})
+    aggregateAccounting.EntityData.Leafs.Append("started-sessions", types.YLeaf{"StartedSessions", aggregateAccounting.StartedSessions})
+    aggregateAccounting.EntityData.Leafs.Append("stopped-sessions", types.YLeaf{"StoppedSessions", aggregateAccounting.StoppedSessions})
+    aggregateAccounting.EntityData.Leafs.Append("policy-plane-errored-requests", types.YLeaf{"PolicyPlaneErroredRequests", aggregateAccounting.PolicyPlaneErroredRequests})
+    aggregateAccounting.EntityData.Leafs.Append("policy-plane-unknown-requests", types.YLeaf{"PolicyPlaneUnknownRequests", aggregateAccounting.PolicyPlaneUnknownRequests})
+
+    aggregateAccounting.EntityData.YListKeys = []string {}
+
     return &(aggregateAccounting.EntityData)
 }
 
@@ -800,14 +821,17 @@ func (start *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccounting_St
     start.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     start.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    start.EntityData.Children = make(map[string]types.YChild)
-    start.EntityData.Leafs = make(map[string]types.YLeaf)
-    start.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", start.ReceivedRequests}
-    start.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", start.ErroredRequests}
-    start.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", start.AaaErroredRequests}
-    start.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", start.AaaSentRequests}
-    start.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", start.AaaSucceededResponses}
-    start.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", start.AaaFailedResponses}
+    start.EntityData.Children = types.NewOrderedMap()
+    start.EntityData.Leafs = types.NewOrderedMap()
+    start.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", start.ReceivedRequests})
+    start.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", start.ErroredRequests})
+    start.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", start.AaaErroredRequests})
+    start.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", start.AaaSentRequests})
+    start.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", start.AaaSucceededResponses})
+    start.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", start.AaaFailedResponses})
+
+    start.EntityData.YListKeys = []string {}
+
     return &(start.EntityData)
 }
 
@@ -852,14 +876,17 @@ func (stop *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccounting_Sto
     stop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stop.EntityData.Children = make(map[string]types.YChild)
-    stop.EntityData.Leafs = make(map[string]types.YLeaf)
-    stop.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", stop.ReceivedRequests}
-    stop.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", stop.ErroredRequests}
-    stop.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", stop.AaaErroredRequests}
-    stop.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", stop.AaaSentRequests}
-    stop.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", stop.AaaSucceededResponses}
-    stop.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", stop.AaaFailedResponses}
+    stop.EntityData.Children = types.NewOrderedMap()
+    stop.EntityData.Leafs = types.NewOrderedMap()
+    stop.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", stop.ReceivedRequests})
+    stop.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", stop.ErroredRequests})
+    stop.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", stop.AaaErroredRequests})
+    stop.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", stop.AaaSentRequests})
+    stop.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", stop.AaaSucceededResponses})
+    stop.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", stop.AaaFailedResponses})
+
+    stop.EntityData.YListKeys = []string {}
+
     return &(stop.EntityData)
 }
 
@@ -904,14 +931,17 @@ func (interim *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccounting_
     interim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interim.EntityData.Children = make(map[string]types.YChild)
-    interim.EntityData.Leafs = make(map[string]types.YLeaf)
-    interim.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", interim.ReceivedRequests}
-    interim.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", interim.ErroredRequests}
-    interim.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", interim.AaaErroredRequests}
-    interim.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", interim.AaaSentRequests}
-    interim.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", interim.AaaSucceededResponses}
-    interim.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", interim.AaaFailedResponses}
+    interim.EntityData.Children = types.NewOrderedMap()
+    interim.EntityData.Leafs = types.NewOrderedMap()
+    interim.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", interim.ReceivedRequests})
+    interim.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", interim.ErroredRequests})
+    interim.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", interim.AaaErroredRequests})
+    interim.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", interim.AaaSentRequests})
+    interim.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", interim.AaaSucceededResponses})
+    interim.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", interim.AaaFailedResponses})
+
+    interim.EntityData.YListKeys = []string {}
+
     return &(interim.EntityData)
 }
 
@@ -956,14 +986,17 @@ func (passThrough *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccount
     passThrough.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     passThrough.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    passThrough.EntityData.Children = make(map[string]types.YChild)
-    passThrough.EntityData.Leafs = make(map[string]types.YLeaf)
-    passThrough.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", passThrough.ReceivedRequests}
-    passThrough.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", passThrough.ErroredRequests}
-    passThrough.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", passThrough.AaaErroredRequests}
-    passThrough.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", passThrough.AaaSentRequests}
-    passThrough.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", passThrough.AaaSucceededResponses}
-    passThrough.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", passThrough.AaaFailedResponses}
+    passThrough.EntityData.Children = types.NewOrderedMap()
+    passThrough.EntityData.Leafs = types.NewOrderedMap()
+    passThrough.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", passThrough.ReceivedRequests})
+    passThrough.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", passThrough.ErroredRequests})
+    passThrough.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", passThrough.AaaErroredRequests})
+    passThrough.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", passThrough.AaaSentRequests})
+    passThrough.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", passThrough.AaaSucceededResponses})
+    passThrough.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", passThrough.AaaFailedResponses})
+
+    passThrough.EntityData.YListKeys = []string {}
+
     return &(passThrough.EntityData)
 }
 
@@ -1008,14 +1041,17 @@ func (update *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccounting_U
     update.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     update.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    update.EntityData.Children = make(map[string]types.YChild)
-    update.EntityData.Leafs = make(map[string]types.YLeaf)
-    update.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", update.ReceivedRequests}
-    update.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", update.ErroredRequests}
-    update.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", update.AaaErroredRequests}
-    update.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", update.AaaSentRequests}
-    update.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", update.AaaSucceededResponses}
-    update.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", update.AaaFailedResponses}
+    update.EntityData.Children = types.NewOrderedMap()
+    update.EntityData.Leafs = types.NewOrderedMap()
+    update.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", update.ReceivedRequests})
+    update.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", update.ErroredRequests})
+    update.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", update.AaaErroredRequests})
+    update.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", update.AaaSentRequests})
+    update.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", update.AaaSucceededResponses})
+    update.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", update.AaaFailedResponses})
+
+    update.EntityData.YListKeys = []string {}
+
     return &(update.EntityData)
 }
 
@@ -1056,14 +1092,17 @@ func (interimInflight *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAcc
     interimInflight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interimInflight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interimInflight.EntityData.Children = make(map[string]types.YChild)
-    interimInflight.EntityData.Leafs = make(map[string]types.YLeaf)
-    interimInflight.EntityData.Leafs["quota-exhausts"] = types.YLeaf{"QuotaExhausts", interimInflight.QuotaExhausts}
-    interimInflight.EntityData.Leafs["denied-requests"] = types.YLeaf{"DeniedRequests", interimInflight.DeniedRequests}
-    interimInflight.EntityData.Leafs["accepted-requests"] = types.YLeaf{"AcceptedRequests", interimInflight.AcceptedRequests}
-    interimInflight.EntityData.Leafs["total-quota-of-requests"] = types.YLeaf{"TotalQuotaOfRequests", interimInflight.TotalQuotaOfRequests}
-    interimInflight.EntityData.Leafs["remaining-quota-of-requests"] = types.YLeaf{"RemainingQuotaOfRequests", interimInflight.RemainingQuotaOfRequests}
-    interimInflight.EntityData.Leafs["low-water-mark-quota-of-requests"] = types.YLeaf{"LowWaterMarkQuotaOfRequests", interimInflight.LowWaterMarkQuotaOfRequests}
+    interimInflight.EntityData.Children = types.NewOrderedMap()
+    interimInflight.EntityData.Leafs = types.NewOrderedMap()
+    interimInflight.EntityData.Leafs.Append("quota-exhausts", types.YLeaf{"QuotaExhausts", interimInflight.QuotaExhausts})
+    interimInflight.EntityData.Leafs.Append("denied-requests", types.YLeaf{"DeniedRequests", interimInflight.DeniedRequests})
+    interimInflight.EntityData.Leafs.Append("accepted-requests", types.YLeaf{"AcceptedRequests", interimInflight.AcceptedRequests})
+    interimInflight.EntityData.Leafs.Append("total-quota-of-requests", types.YLeaf{"TotalQuotaOfRequests", interimInflight.TotalQuotaOfRequests})
+    interimInflight.EntityData.Leafs.Append("remaining-quota-of-requests", types.YLeaf{"RemainingQuotaOfRequests", interimInflight.RemainingQuotaOfRequests})
+    interimInflight.EntityData.Leafs.Append("low-water-mark-quota-of-requests", types.YLeaf{"LowWaterMarkQuotaOfRequests", interimInflight.LowWaterMarkQuotaOfRequests})
+
+    interimInflight.EntityData.YListKeys = []string {}
+
     return &(interimInflight.EntityData)
 }
 
@@ -1116,16 +1155,19 @@ func (authentication *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Authenticatio
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authentication.EntityData.Children = make(map[string]types.YChild)
-    authentication.EntityData.Leafs = make(map[string]types.YLeaf)
-    authentication.EntityData.Leafs["sent-requests"] = types.YLeaf{"SentRequests", authentication.SentRequests}
-    authentication.EntityData.Leafs["accepted-requests"] = types.YLeaf{"AcceptedRequests", authentication.AcceptedRequests}
-    authentication.EntityData.Leafs["successful-requests"] = types.YLeaf{"SuccessfulRequests", authentication.SuccessfulRequests}
-    authentication.EntityData.Leafs["rejected-requests"] = types.YLeaf{"RejectedRequests", authentication.RejectedRequests}
-    authentication.EntityData.Leafs["unreachable-requests"] = types.YLeaf{"UnreachableRequests", authentication.UnreachableRequests}
-    authentication.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", authentication.ErroredRequests}
-    authentication.EntityData.Leafs["incomplete-requests"] = types.YLeaf{"IncompleteRequests", authentication.IncompleteRequests}
-    authentication.EntityData.Leafs["terminated-requests"] = types.YLeaf{"TerminatedRequests", authentication.TerminatedRequests}
+    authentication.EntityData.Children = types.NewOrderedMap()
+    authentication.EntityData.Leafs = types.NewOrderedMap()
+    authentication.EntityData.Leafs.Append("sent-requests", types.YLeaf{"SentRequests", authentication.SentRequests})
+    authentication.EntityData.Leafs.Append("accepted-requests", types.YLeaf{"AcceptedRequests", authentication.AcceptedRequests})
+    authentication.EntityData.Leafs.Append("successful-requests", types.YLeaf{"SuccessfulRequests", authentication.SuccessfulRequests})
+    authentication.EntityData.Leafs.Append("rejected-requests", types.YLeaf{"RejectedRequests", authentication.RejectedRequests})
+    authentication.EntityData.Leafs.Append("unreachable-requests", types.YLeaf{"UnreachableRequests", authentication.UnreachableRequests})
+    authentication.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", authentication.ErroredRequests})
+    authentication.EntityData.Leafs.Append("incomplete-requests", types.YLeaf{"IncompleteRequests", authentication.IncompleteRequests})
+    authentication.EntityData.Leafs.Append("terminated-requests", types.YLeaf{"TerminatedRequests", authentication.TerminatedRequests})
+
+    authentication.EntityData.YListKeys = []string {}
+
     return &(authentication.EntityData)
 }
 
@@ -1162,12 +1204,15 @@ func (aggregateMobility *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateM
     aggregateMobility.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateMobility.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aggregateMobility.EntityData.Children = make(map[string]types.YChild)
-    aggregateMobility.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggregateMobility.EntityData.Leafs["send-request-successes"] = types.YLeaf{"SendRequestSuccesses", aggregateMobility.SendRequestSuccesses}
-    aggregateMobility.EntityData.Leafs["send-request-failures"] = types.YLeaf{"SendRequestFailures", aggregateMobility.SendRequestFailures}
-    aggregateMobility.EntityData.Leafs["receive-response-successes"] = types.YLeaf{"ReceiveResponseSuccesses", aggregateMobility.ReceiveResponseSuccesses}
-    aggregateMobility.EntityData.Leafs["receive-response-failures"] = types.YLeaf{"ReceiveResponseFailures", aggregateMobility.ReceiveResponseFailures}
+    aggregateMobility.EntityData.Children = types.NewOrderedMap()
+    aggregateMobility.EntityData.Leafs = types.NewOrderedMap()
+    aggregateMobility.EntityData.Leafs.Append("send-request-successes", types.YLeaf{"SendRequestSuccesses", aggregateMobility.SendRequestSuccesses})
+    aggregateMobility.EntityData.Leafs.Append("send-request-failures", types.YLeaf{"SendRequestFailures", aggregateMobility.SendRequestFailures})
+    aggregateMobility.EntityData.Leafs.Append("receive-response-successes", types.YLeaf{"ReceiveResponseSuccesses", aggregateMobility.ReceiveResponseSuccesses})
+    aggregateMobility.EntityData.Leafs.Append("receive-response-failures", types.YLeaf{"ReceiveResponseFailures", aggregateMobility.ReceiveResponseFailures})
+
+    aggregateMobility.EntityData.YListKeys = []string {}
+
     return &(aggregateMobility.EntityData)
 }
 
@@ -1220,16 +1265,19 @@ func (aggregateAuthentication *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggr
     aggregateAuthentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateAuthentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aggregateAuthentication.EntityData.Children = make(map[string]types.YChild)
-    aggregateAuthentication.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggregateAuthentication.EntityData.Leafs["sent-requests"] = types.YLeaf{"SentRequests", aggregateAuthentication.SentRequests}
-    aggregateAuthentication.EntityData.Leafs["accepted-requests"] = types.YLeaf{"AcceptedRequests", aggregateAuthentication.AcceptedRequests}
-    aggregateAuthentication.EntityData.Leafs["successful-requests"] = types.YLeaf{"SuccessfulRequests", aggregateAuthentication.SuccessfulRequests}
-    aggregateAuthentication.EntityData.Leafs["rejected-requests"] = types.YLeaf{"RejectedRequests", aggregateAuthentication.RejectedRequests}
-    aggregateAuthentication.EntityData.Leafs["unreachable-requests"] = types.YLeaf{"UnreachableRequests", aggregateAuthentication.UnreachableRequests}
-    aggregateAuthentication.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", aggregateAuthentication.ErroredRequests}
-    aggregateAuthentication.EntityData.Leafs["incomplete-requests"] = types.YLeaf{"IncompleteRequests", aggregateAuthentication.IncompleteRequests}
-    aggregateAuthentication.EntityData.Leafs["terminated-requests"] = types.YLeaf{"TerminatedRequests", aggregateAuthentication.TerminatedRequests}
+    aggregateAuthentication.EntityData.Children = types.NewOrderedMap()
+    aggregateAuthentication.EntityData.Leafs = types.NewOrderedMap()
+    aggregateAuthentication.EntityData.Leafs.Append("sent-requests", types.YLeaf{"SentRequests", aggregateAuthentication.SentRequests})
+    aggregateAuthentication.EntityData.Leafs.Append("accepted-requests", types.YLeaf{"AcceptedRequests", aggregateAuthentication.AcceptedRequests})
+    aggregateAuthentication.EntityData.Leafs.Append("successful-requests", types.YLeaf{"SuccessfulRequests", aggregateAuthentication.SuccessfulRequests})
+    aggregateAuthentication.EntityData.Leafs.Append("rejected-requests", types.YLeaf{"RejectedRequests", aggregateAuthentication.RejectedRequests})
+    aggregateAuthentication.EntityData.Leafs.Append("unreachable-requests", types.YLeaf{"UnreachableRequests", aggregateAuthentication.UnreachableRequests})
+    aggregateAuthentication.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", aggregateAuthentication.ErroredRequests})
+    aggregateAuthentication.EntityData.Leafs.Append("incomplete-requests", types.YLeaf{"IncompleteRequests", aggregateAuthentication.IncompleteRequests})
+    aggregateAuthentication.EntityData.Leafs.Append("terminated-requests", types.YLeaf{"TerminatedRequests", aggregateAuthentication.TerminatedRequests})
+
+    aggregateAuthentication.EntityData.YListKeys = []string {}
+
     return &(aggregateAuthentication.EntityData)
 }
 
@@ -1266,13 +1314,16 @@ func (accountingStatsAll *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accountin
     accountingStatsAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountingStatsAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accountingStatsAll.EntityData.Children = make(map[string]types.YChild)
-    accountingStatsAll.EntityData.Children["accounting-statistics"] = types.YChild{"AccountingStatistics", &accountingStatsAll.AccountingStatistics}
-    accountingStatsAll.EntityData.Children["authentication-statistics"] = types.YChild{"AuthenticationStatistics", &accountingStatsAll.AuthenticationStatistics}
-    accountingStatsAll.EntityData.Children["authorization-statistics"] = types.YChild{"AuthorizationStatistics", &accountingStatsAll.AuthorizationStatistics}
-    accountingStatsAll.EntityData.Children["change-of-authorization-statistics"] = types.YChild{"ChangeOfAuthorizationStatistics", &accountingStatsAll.ChangeOfAuthorizationStatistics}
-    accountingStatsAll.EntityData.Children["mobility-statistics"] = types.YChild{"MobilityStatistics", &accountingStatsAll.MobilityStatistics}
-    accountingStatsAll.EntityData.Leafs = make(map[string]types.YLeaf)
+    accountingStatsAll.EntityData.Children = types.NewOrderedMap()
+    accountingStatsAll.EntityData.Children.Append("accounting-statistics", types.YChild{"AccountingStatistics", &accountingStatsAll.AccountingStatistics})
+    accountingStatsAll.EntityData.Children.Append("authentication-statistics", types.YChild{"AuthenticationStatistics", &accountingStatsAll.AuthenticationStatistics})
+    accountingStatsAll.EntityData.Children.Append("authorization-statistics", types.YChild{"AuthorizationStatistics", &accountingStatsAll.AuthorizationStatistics})
+    accountingStatsAll.EntityData.Children.Append("change-of-authorization-statistics", types.YChild{"ChangeOfAuthorizationStatistics", &accountingStatsAll.ChangeOfAuthorizationStatistics})
+    accountingStatsAll.EntityData.Children.Append("mobility-statistics", types.YChild{"MobilityStatistics", &accountingStatsAll.MobilityStatistics})
+    accountingStatsAll.EntityData.Leafs = types.NewOrderedMap()
+
+    accountingStatsAll.EntityData.YListKeys = []string {}
+
     return &(accountingStatsAll.EntityData)
 }
 
@@ -1330,19 +1381,22 @@ func (accountingStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Account
     accountingStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountingStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accountingStatistics.EntityData.Children = make(map[string]types.YChild)
-    accountingStatistics.EntityData.Children["start"] = types.YChild{"Start", &accountingStatistics.Start}
-    accountingStatistics.EntityData.Children["stop"] = types.YChild{"Stop", &accountingStatistics.Stop}
-    accountingStatistics.EntityData.Children["interim"] = types.YChild{"Interim", &accountingStatistics.Interim}
-    accountingStatistics.EntityData.Children["pass-through"] = types.YChild{"PassThrough", &accountingStatistics.PassThrough}
-    accountingStatistics.EntityData.Children["update"] = types.YChild{"Update", &accountingStatistics.Update}
-    accountingStatistics.EntityData.Children["interim-inflight"] = types.YChild{"InterimInflight", &accountingStatistics.InterimInflight}
-    accountingStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    accountingStatistics.EntityData.Leafs["active-sessions"] = types.YLeaf{"ActiveSessions", accountingStatistics.ActiveSessions}
-    accountingStatistics.EntityData.Leafs["started-sessions"] = types.YLeaf{"StartedSessions", accountingStatistics.StartedSessions}
-    accountingStatistics.EntityData.Leafs["stopped-sessions"] = types.YLeaf{"StoppedSessions", accountingStatistics.StoppedSessions}
-    accountingStatistics.EntityData.Leafs["policy-plane-errored-requests"] = types.YLeaf{"PolicyPlaneErroredRequests", accountingStatistics.PolicyPlaneErroredRequests}
-    accountingStatistics.EntityData.Leafs["policy-plane-unknown-requests"] = types.YLeaf{"PolicyPlaneUnknownRequests", accountingStatistics.PolicyPlaneUnknownRequests}
+    accountingStatistics.EntityData.Children = types.NewOrderedMap()
+    accountingStatistics.EntityData.Children.Append("start", types.YChild{"Start", &accountingStatistics.Start})
+    accountingStatistics.EntityData.Children.Append("stop", types.YChild{"Stop", &accountingStatistics.Stop})
+    accountingStatistics.EntityData.Children.Append("interim", types.YChild{"Interim", &accountingStatistics.Interim})
+    accountingStatistics.EntityData.Children.Append("pass-through", types.YChild{"PassThrough", &accountingStatistics.PassThrough})
+    accountingStatistics.EntityData.Children.Append("update", types.YChild{"Update", &accountingStatistics.Update})
+    accountingStatistics.EntityData.Children.Append("interim-inflight", types.YChild{"InterimInflight", &accountingStatistics.InterimInflight})
+    accountingStatistics.EntityData.Leafs = types.NewOrderedMap()
+    accountingStatistics.EntityData.Leafs.Append("active-sessions", types.YLeaf{"ActiveSessions", accountingStatistics.ActiveSessions})
+    accountingStatistics.EntityData.Leafs.Append("started-sessions", types.YLeaf{"StartedSessions", accountingStatistics.StartedSessions})
+    accountingStatistics.EntityData.Leafs.Append("stopped-sessions", types.YLeaf{"StoppedSessions", accountingStatistics.StoppedSessions})
+    accountingStatistics.EntityData.Leafs.Append("policy-plane-errored-requests", types.YLeaf{"PolicyPlaneErroredRequests", accountingStatistics.PolicyPlaneErroredRequests})
+    accountingStatistics.EntityData.Leafs.Append("policy-plane-unknown-requests", types.YLeaf{"PolicyPlaneUnknownRequests", accountingStatistics.PolicyPlaneUnknownRequests})
+
+    accountingStatistics.EntityData.YListKeys = []string {}
+
     return &(accountingStatistics.EntityData)
 }
 
@@ -1387,14 +1441,17 @@ func (start *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStatsAll_Acc
     start.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     start.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    start.EntityData.Children = make(map[string]types.YChild)
-    start.EntityData.Leafs = make(map[string]types.YLeaf)
-    start.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", start.ReceivedRequests}
-    start.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", start.ErroredRequests}
-    start.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", start.AaaErroredRequests}
-    start.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", start.AaaSentRequests}
-    start.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", start.AaaSucceededResponses}
-    start.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", start.AaaFailedResponses}
+    start.EntityData.Children = types.NewOrderedMap()
+    start.EntityData.Leafs = types.NewOrderedMap()
+    start.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", start.ReceivedRequests})
+    start.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", start.ErroredRequests})
+    start.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", start.AaaErroredRequests})
+    start.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", start.AaaSentRequests})
+    start.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", start.AaaSucceededResponses})
+    start.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", start.AaaFailedResponses})
+
+    start.EntityData.YListKeys = []string {}
+
     return &(start.EntityData)
 }
 
@@ -1439,14 +1496,17 @@ func (stop *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStatsAll_Acco
     stop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stop.EntityData.Children = make(map[string]types.YChild)
-    stop.EntityData.Leafs = make(map[string]types.YLeaf)
-    stop.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", stop.ReceivedRequests}
-    stop.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", stop.ErroredRequests}
-    stop.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", stop.AaaErroredRequests}
-    stop.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", stop.AaaSentRequests}
-    stop.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", stop.AaaSucceededResponses}
-    stop.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", stop.AaaFailedResponses}
+    stop.EntityData.Children = types.NewOrderedMap()
+    stop.EntityData.Leafs = types.NewOrderedMap()
+    stop.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", stop.ReceivedRequests})
+    stop.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", stop.ErroredRequests})
+    stop.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", stop.AaaErroredRequests})
+    stop.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", stop.AaaSentRequests})
+    stop.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", stop.AaaSucceededResponses})
+    stop.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", stop.AaaFailedResponses})
+
+    stop.EntityData.YListKeys = []string {}
+
     return &(stop.EntityData)
 }
 
@@ -1491,14 +1551,17 @@ func (interim *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStatsAll_A
     interim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interim.EntityData.Children = make(map[string]types.YChild)
-    interim.EntityData.Leafs = make(map[string]types.YLeaf)
-    interim.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", interim.ReceivedRequests}
-    interim.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", interim.ErroredRequests}
-    interim.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", interim.AaaErroredRequests}
-    interim.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", interim.AaaSentRequests}
-    interim.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", interim.AaaSucceededResponses}
-    interim.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", interim.AaaFailedResponses}
+    interim.EntityData.Children = types.NewOrderedMap()
+    interim.EntityData.Leafs = types.NewOrderedMap()
+    interim.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", interim.ReceivedRequests})
+    interim.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", interim.ErroredRequests})
+    interim.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", interim.AaaErroredRequests})
+    interim.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", interim.AaaSentRequests})
+    interim.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", interim.AaaSucceededResponses})
+    interim.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", interim.AaaFailedResponses})
+
+    interim.EntityData.YListKeys = []string {}
+
     return &(interim.EntityData)
 }
 
@@ -1543,14 +1606,17 @@ func (passThrough *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStatsA
     passThrough.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     passThrough.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    passThrough.EntityData.Children = make(map[string]types.YChild)
-    passThrough.EntityData.Leafs = make(map[string]types.YLeaf)
-    passThrough.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", passThrough.ReceivedRequests}
-    passThrough.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", passThrough.ErroredRequests}
-    passThrough.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", passThrough.AaaErroredRequests}
-    passThrough.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", passThrough.AaaSentRequests}
-    passThrough.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", passThrough.AaaSucceededResponses}
-    passThrough.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", passThrough.AaaFailedResponses}
+    passThrough.EntityData.Children = types.NewOrderedMap()
+    passThrough.EntityData.Leafs = types.NewOrderedMap()
+    passThrough.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", passThrough.ReceivedRequests})
+    passThrough.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", passThrough.ErroredRequests})
+    passThrough.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", passThrough.AaaErroredRequests})
+    passThrough.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", passThrough.AaaSentRequests})
+    passThrough.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", passThrough.AaaSucceededResponses})
+    passThrough.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", passThrough.AaaFailedResponses})
+
+    passThrough.EntityData.YListKeys = []string {}
+
     return &(passThrough.EntityData)
 }
 
@@ -1595,14 +1661,17 @@ func (update *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStatsAll_Ac
     update.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     update.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    update.EntityData.Children = make(map[string]types.YChild)
-    update.EntityData.Leafs = make(map[string]types.YLeaf)
-    update.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", update.ReceivedRequests}
-    update.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", update.ErroredRequests}
-    update.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", update.AaaErroredRequests}
-    update.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", update.AaaSentRequests}
-    update.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", update.AaaSucceededResponses}
-    update.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", update.AaaFailedResponses}
+    update.EntityData.Children = types.NewOrderedMap()
+    update.EntityData.Leafs = types.NewOrderedMap()
+    update.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", update.ReceivedRequests})
+    update.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", update.ErroredRequests})
+    update.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", update.AaaErroredRequests})
+    update.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", update.AaaSentRequests})
+    update.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", update.AaaSucceededResponses})
+    update.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", update.AaaFailedResponses})
+
+    update.EntityData.YListKeys = []string {}
+
     return &(update.EntityData)
 }
 
@@ -1643,14 +1712,17 @@ func (interimInflight *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingSt
     interimInflight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interimInflight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interimInflight.EntityData.Children = make(map[string]types.YChild)
-    interimInflight.EntityData.Leafs = make(map[string]types.YLeaf)
-    interimInflight.EntityData.Leafs["quota-exhausts"] = types.YLeaf{"QuotaExhausts", interimInflight.QuotaExhausts}
-    interimInflight.EntityData.Leafs["denied-requests"] = types.YLeaf{"DeniedRequests", interimInflight.DeniedRequests}
-    interimInflight.EntityData.Leafs["accepted-requests"] = types.YLeaf{"AcceptedRequests", interimInflight.AcceptedRequests}
-    interimInflight.EntityData.Leafs["total-quota-of-requests"] = types.YLeaf{"TotalQuotaOfRequests", interimInflight.TotalQuotaOfRequests}
-    interimInflight.EntityData.Leafs["remaining-quota-of-requests"] = types.YLeaf{"RemainingQuotaOfRequests", interimInflight.RemainingQuotaOfRequests}
-    interimInflight.EntityData.Leafs["low-water-mark-quota-of-requests"] = types.YLeaf{"LowWaterMarkQuotaOfRequests", interimInflight.LowWaterMarkQuotaOfRequests}
+    interimInflight.EntityData.Children = types.NewOrderedMap()
+    interimInflight.EntityData.Leafs = types.NewOrderedMap()
+    interimInflight.EntityData.Leafs.Append("quota-exhausts", types.YLeaf{"QuotaExhausts", interimInflight.QuotaExhausts})
+    interimInflight.EntityData.Leafs.Append("denied-requests", types.YLeaf{"DeniedRequests", interimInflight.DeniedRequests})
+    interimInflight.EntityData.Leafs.Append("accepted-requests", types.YLeaf{"AcceptedRequests", interimInflight.AcceptedRequests})
+    interimInflight.EntityData.Leafs.Append("total-quota-of-requests", types.YLeaf{"TotalQuotaOfRequests", interimInflight.TotalQuotaOfRequests})
+    interimInflight.EntityData.Leafs.Append("remaining-quota-of-requests", types.YLeaf{"RemainingQuotaOfRequests", interimInflight.RemainingQuotaOfRequests})
+    interimInflight.EntityData.Leafs.Append("low-water-mark-quota-of-requests", types.YLeaf{"LowWaterMarkQuotaOfRequests", interimInflight.LowWaterMarkQuotaOfRequests})
+
+    interimInflight.EntityData.YListKeys = []string {}
+
     return &(interimInflight.EntityData)
 }
 
@@ -1703,16 +1775,19 @@ func (authenticationStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Acc
     authenticationStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authenticationStatistics.EntityData.Children = make(map[string]types.YChild)
-    authenticationStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    authenticationStatistics.EntityData.Leafs["sent-requests"] = types.YLeaf{"SentRequests", authenticationStatistics.SentRequests}
-    authenticationStatistics.EntityData.Leafs["accepted-requests"] = types.YLeaf{"AcceptedRequests", authenticationStatistics.AcceptedRequests}
-    authenticationStatistics.EntityData.Leafs["successful-requests"] = types.YLeaf{"SuccessfulRequests", authenticationStatistics.SuccessfulRequests}
-    authenticationStatistics.EntityData.Leafs["rejected-requests"] = types.YLeaf{"RejectedRequests", authenticationStatistics.RejectedRequests}
-    authenticationStatistics.EntityData.Leafs["unreachable-requests"] = types.YLeaf{"UnreachableRequests", authenticationStatistics.UnreachableRequests}
-    authenticationStatistics.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", authenticationStatistics.ErroredRequests}
-    authenticationStatistics.EntityData.Leafs["incomplete-requests"] = types.YLeaf{"IncompleteRequests", authenticationStatistics.IncompleteRequests}
-    authenticationStatistics.EntityData.Leafs["terminated-requests"] = types.YLeaf{"TerminatedRequests", authenticationStatistics.TerminatedRequests}
+    authenticationStatistics.EntityData.Children = types.NewOrderedMap()
+    authenticationStatistics.EntityData.Leafs = types.NewOrderedMap()
+    authenticationStatistics.EntityData.Leafs.Append("sent-requests", types.YLeaf{"SentRequests", authenticationStatistics.SentRequests})
+    authenticationStatistics.EntityData.Leafs.Append("accepted-requests", types.YLeaf{"AcceptedRequests", authenticationStatistics.AcceptedRequests})
+    authenticationStatistics.EntityData.Leafs.Append("successful-requests", types.YLeaf{"SuccessfulRequests", authenticationStatistics.SuccessfulRequests})
+    authenticationStatistics.EntityData.Leafs.Append("rejected-requests", types.YLeaf{"RejectedRequests", authenticationStatistics.RejectedRequests})
+    authenticationStatistics.EntityData.Leafs.Append("unreachable-requests", types.YLeaf{"UnreachableRequests", authenticationStatistics.UnreachableRequests})
+    authenticationStatistics.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", authenticationStatistics.ErroredRequests})
+    authenticationStatistics.EntityData.Leafs.Append("incomplete-requests", types.YLeaf{"IncompleteRequests", authenticationStatistics.IncompleteRequests})
+    authenticationStatistics.EntityData.Leafs.Append("terminated-requests", types.YLeaf{"TerminatedRequests", authenticationStatistics.TerminatedRequests})
+
+    authenticationStatistics.EntityData.YListKeys = []string {}
+
     return &(authenticationStatistics.EntityData)
 }
 
@@ -1765,16 +1840,19 @@ func (authorizationStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Acco
     authorizationStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorizationStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authorizationStatistics.EntityData.Children = make(map[string]types.YChild)
-    authorizationStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    authorizationStatistics.EntityData.Leafs["sent-requests"] = types.YLeaf{"SentRequests", authorizationStatistics.SentRequests}
-    authorizationStatistics.EntityData.Leafs["accepted-requests"] = types.YLeaf{"AcceptedRequests", authorizationStatistics.AcceptedRequests}
-    authorizationStatistics.EntityData.Leafs["successful-requests"] = types.YLeaf{"SuccessfulRequests", authorizationStatistics.SuccessfulRequests}
-    authorizationStatistics.EntityData.Leafs["rejected-requests"] = types.YLeaf{"RejectedRequests", authorizationStatistics.RejectedRequests}
-    authorizationStatistics.EntityData.Leafs["unreachable-requests"] = types.YLeaf{"UnreachableRequests", authorizationStatistics.UnreachableRequests}
-    authorizationStatistics.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", authorizationStatistics.ErroredRequests}
-    authorizationStatistics.EntityData.Leafs["incomplete-requests"] = types.YLeaf{"IncompleteRequests", authorizationStatistics.IncompleteRequests}
-    authorizationStatistics.EntityData.Leafs["terminated-requests"] = types.YLeaf{"TerminatedRequests", authorizationStatistics.TerminatedRequests}
+    authorizationStatistics.EntityData.Children = types.NewOrderedMap()
+    authorizationStatistics.EntityData.Leafs = types.NewOrderedMap()
+    authorizationStatistics.EntityData.Leafs.Append("sent-requests", types.YLeaf{"SentRequests", authorizationStatistics.SentRequests})
+    authorizationStatistics.EntityData.Leafs.Append("accepted-requests", types.YLeaf{"AcceptedRequests", authorizationStatistics.AcceptedRequests})
+    authorizationStatistics.EntityData.Leafs.Append("successful-requests", types.YLeaf{"SuccessfulRequests", authorizationStatistics.SuccessfulRequests})
+    authorizationStatistics.EntityData.Leafs.Append("rejected-requests", types.YLeaf{"RejectedRequests", authorizationStatistics.RejectedRequests})
+    authorizationStatistics.EntityData.Leafs.Append("unreachable-requests", types.YLeaf{"UnreachableRequests", authorizationStatistics.UnreachableRequests})
+    authorizationStatistics.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", authorizationStatistics.ErroredRequests})
+    authorizationStatistics.EntityData.Leafs.Append("incomplete-requests", types.YLeaf{"IncompleteRequests", authorizationStatistics.IncompleteRequests})
+    authorizationStatistics.EntityData.Leafs.Append("terminated-requests", types.YLeaf{"TerminatedRequests", authorizationStatistics.TerminatedRequests})
+
+    authorizationStatistics.EntityData.YListKeys = []string {}
+
     return &(authorizationStatistics.EntityData)
 }
 
@@ -1859,26 +1937,29 @@ func (changeOfAuthorizationStatistics *Subscriber_Manager_Nodes_Node_Statistics_
     changeOfAuthorizationStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeOfAuthorizationStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    changeOfAuthorizationStatistics.EntityData.Children = make(map[string]types.YChild)
-    changeOfAuthorizationStatistics.EntityData.Children["account-logon"] = types.YChild{"AccountLogon", &changeOfAuthorizationStatistics.AccountLogon}
-    changeOfAuthorizationStatistics.EntityData.Children["account-logoff"] = types.YChild{"AccountLogoff", &changeOfAuthorizationStatistics.AccountLogoff}
-    changeOfAuthorizationStatistics.EntityData.Children["account-update"] = types.YChild{"AccountUpdate", &changeOfAuthorizationStatistics.AccountUpdate}
-    changeOfAuthorizationStatistics.EntityData.Children["session-disconnect"] = types.YChild{"SessionDisconnect", &changeOfAuthorizationStatistics.SessionDisconnect}
-    changeOfAuthorizationStatistics.EntityData.Children["single-service-logon"] = types.YChild{"SingleServiceLogon", &changeOfAuthorizationStatistics.SingleServiceLogon}
-    changeOfAuthorizationStatistics.EntityData.Children["single-service-logoff"] = types.YChild{"SingleServiceLogoff", &changeOfAuthorizationStatistics.SingleServiceLogoff}
-    changeOfAuthorizationStatistics.EntityData.Children["single-service-modify"] = types.YChild{"SingleServiceModify", &changeOfAuthorizationStatistics.SingleServiceModify}
-    changeOfAuthorizationStatistics.EntityData.Children["service-multi"] = types.YChild{"ServiceMulti", &changeOfAuthorizationStatistics.ServiceMulti}
-    changeOfAuthorizationStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    changeOfAuthorizationStatistics.EntityData.Leafs["unknown-account-cmd-resps"] = types.YLeaf{"UnknownAccountCmdResps", changeOfAuthorizationStatistics.UnknownAccountCmdResps}
-    changeOfAuthorizationStatistics.EntityData.Leafs["unknown-service-cmd-resps"] = types.YLeaf{"UnknownServiceCmdResps", changeOfAuthorizationStatistics.UnknownServiceCmdResps}
-    changeOfAuthorizationStatistics.EntityData.Leafs["unknown-cmd-resps"] = types.YLeaf{"UnknownCmdResps", changeOfAuthorizationStatistics.UnknownCmdResps}
-    changeOfAuthorizationStatistics.EntityData.Leafs["attr-list-retrieve-failure-resps"] = types.YLeaf{"AttrListRetrieveFailureResps", changeOfAuthorizationStatistics.AttrListRetrieveFailureResps}
-    changeOfAuthorizationStatistics.EntityData.Leafs["resp-send-failure"] = types.YLeaf{"RespSendFailure", changeOfAuthorizationStatistics.RespSendFailure}
-    changeOfAuthorizationStatistics.EntityData.Leafs["internal-err-resps"] = types.YLeaf{"InternalErrResps", changeOfAuthorizationStatistics.InternalErrResps}
-    changeOfAuthorizationStatistics.EntityData.Leafs["service-profile-push-failure-resps"] = types.YLeaf{"ServiceProfilePushFailureResps", changeOfAuthorizationStatistics.ServiceProfilePushFailureResps}
-    changeOfAuthorizationStatistics.EntityData.Leafs["no-cmd-resps"] = types.YLeaf{"NoCmdResps", changeOfAuthorizationStatistics.NoCmdResps}
-    changeOfAuthorizationStatistics.EntityData.Leafs["no-session-found-resps"] = types.YLeaf{"NoSessionFoundResps", changeOfAuthorizationStatistics.NoSessionFoundResps}
-    changeOfAuthorizationStatistics.EntityData.Leafs["no-session-peer-resps"] = types.YLeaf{"NoSessionPeerResps", changeOfAuthorizationStatistics.NoSessionPeerResps}
+    changeOfAuthorizationStatistics.EntityData.Children = types.NewOrderedMap()
+    changeOfAuthorizationStatistics.EntityData.Children.Append("account-logon", types.YChild{"AccountLogon", &changeOfAuthorizationStatistics.AccountLogon})
+    changeOfAuthorizationStatistics.EntityData.Children.Append("account-logoff", types.YChild{"AccountLogoff", &changeOfAuthorizationStatistics.AccountLogoff})
+    changeOfAuthorizationStatistics.EntityData.Children.Append("account-update", types.YChild{"AccountUpdate", &changeOfAuthorizationStatistics.AccountUpdate})
+    changeOfAuthorizationStatistics.EntityData.Children.Append("session-disconnect", types.YChild{"SessionDisconnect", &changeOfAuthorizationStatistics.SessionDisconnect})
+    changeOfAuthorizationStatistics.EntityData.Children.Append("single-service-logon", types.YChild{"SingleServiceLogon", &changeOfAuthorizationStatistics.SingleServiceLogon})
+    changeOfAuthorizationStatistics.EntityData.Children.Append("single-service-logoff", types.YChild{"SingleServiceLogoff", &changeOfAuthorizationStatistics.SingleServiceLogoff})
+    changeOfAuthorizationStatistics.EntityData.Children.Append("single-service-modify", types.YChild{"SingleServiceModify", &changeOfAuthorizationStatistics.SingleServiceModify})
+    changeOfAuthorizationStatistics.EntityData.Children.Append("service-multi", types.YChild{"ServiceMulti", &changeOfAuthorizationStatistics.ServiceMulti})
+    changeOfAuthorizationStatistics.EntityData.Leafs = types.NewOrderedMap()
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("unknown-account-cmd-resps", types.YLeaf{"UnknownAccountCmdResps", changeOfAuthorizationStatistics.UnknownAccountCmdResps})
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("unknown-service-cmd-resps", types.YLeaf{"UnknownServiceCmdResps", changeOfAuthorizationStatistics.UnknownServiceCmdResps})
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("unknown-cmd-resps", types.YLeaf{"UnknownCmdResps", changeOfAuthorizationStatistics.UnknownCmdResps})
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("attr-list-retrieve-failure-resps", types.YLeaf{"AttrListRetrieveFailureResps", changeOfAuthorizationStatistics.AttrListRetrieveFailureResps})
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("resp-send-failure", types.YLeaf{"RespSendFailure", changeOfAuthorizationStatistics.RespSendFailure})
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("internal-err-resps", types.YLeaf{"InternalErrResps", changeOfAuthorizationStatistics.InternalErrResps})
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("service-profile-push-failure-resps", types.YLeaf{"ServiceProfilePushFailureResps", changeOfAuthorizationStatistics.ServiceProfilePushFailureResps})
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("no-cmd-resps", types.YLeaf{"NoCmdResps", changeOfAuthorizationStatistics.NoCmdResps})
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("no-session-found-resps", types.YLeaf{"NoSessionFoundResps", changeOfAuthorizationStatistics.NoSessionFoundResps})
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("no-session-peer-resps", types.YLeaf{"NoSessionPeerResps", changeOfAuthorizationStatistics.NoSessionPeerResps})
+
+    changeOfAuthorizationStatistics.EntityData.YListKeys = []string {}
+
     return &(changeOfAuthorizationStatistics.EntityData)
 }
 
@@ -1911,11 +1992,14 @@ func (accountLogon *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStats
     accountLogon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountLogon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accountLogon.EntityData.Children = make(map[string]types.YChild)
-    accountLogon.EntityData.Leafs = make(map[string]types.YLeaf)
-    accountLogon.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", accountLogon.ReceivedRequests}
-    accountLogon.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", accountLogon.AcknowledgedRequests}
-    accountLogon.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", accountLogon.NonAcknowledgedRequests}
+    accountLogon.EntityData.Children = types.NewOrderedMap()
+    accountLogon.EntityData.Leafs = types.NewOrderedMap()
+    accountLogon.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", accountLogon.ReceivedRequests})
+    accountLogon.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", accountLogon.AcknowledgedRequests})
+    accountLogon.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", accountLogon.NonAcknowledgedRequests})
+
+    accountLogon.EntityData.YListKeys = []string {}
+
     return &(accountLogon.EntityData)
 }
 
@@ -1948,11 +2032,14 @@ func (accountLogoff *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStat
     accountLogoff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountLogoff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accountLogoff.EntityData.Children = make(map[string]types.YChild)
-    accountLogoff.EntityData.Leafs = make(map[string]types.YLeaf)
-    accountLogoff.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", accountLogoff.ReceivedRequests}
-    accountLogoff.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", accountLogoff.AcknowledgedRequests}
-    accountLogoff.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", accountLogoff.NonAcknowledgedRequests}
+    accountLogoff.EntityData.Children = types.NewOrderedMap()
+    accountLogoff.EntityData.Leafs = types.NewOrderedMap()
+    accountLogoff.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", accountLogoff.ReceivedRequests})
+    accountLogoff.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", accountLogoff.AcknowledgedRequests})
+    accountLogoff.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", accountLogoff.NonAcknowledgedRequests})
+
+    accountLogoff.EntityData.YListKeys = []string {}
+
     return &(accountLogoff.EntityData)
 }
 
@@ -1985,11 +2072,14 @@ func (accountUpdate *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStat
     accountUpdate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountUpdate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accountUpdate.EntityData.Children = make(map[string]types.YChild)
-    accountUpdate.EntityData.Leafs = make(map[string]types.YLeaf)
-    accountUpdate.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", accountUpdate.ReceivedRequests}
-    accountUpdate.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", accountUpdate.AcknowledgedRequests}
-    accountUpdate.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", accountUpdate.NonAcknowledgedRequests}
+    accountUpdate.EntityData.Children = types.NewOrderedMap()
+    accountUpdate.EntityData.Leafs = types.NewOrderedMap()
+    accountUpdate.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", accountUpdate.ReceivedRequests})
+    accountUpdate.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", accountUpdate.AcknowledgedRequests})
+    accountUpdate.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", accountUpdate.NonAcknowledgedRequests})
+
+    accountUpdate.EntityData.YListKeys = []string {}
+
     return &(accountUpdate.EntityData)
 }
 
@@ -2022,11 +2112,14 @@ func (sessionDisconnect *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounting
     sessionDisconnect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDisconnect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionDisconnect.EntityData.Children = make(map[string]types.YChild)
-    sessionDisconnect.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionDisconnect.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", sessionDisconnect.ReceivedRequests}
-    sessionDisconnect.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", sessionDisconnect.AcknowledgedRequests}
-    sessionDisconnect.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", sessionDisconnect.NonAcknowledgedRequests}
+    sessionDisconnect.EntityData.Children = types.NewOrderedMap()
+    sessionDisconnect.EntityData.Leafs = types.NewOrderedMap()
+    sessionDisconnect.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", sessionDisconnect.ReceivedRequests})
+    sessionDisconnect.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", sessionDisconnect.AcknowledgedRequests})
+    sessionDisconnect.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", sessionDisconnect.NonAcknowledgedRequests})
+
+    sessionDisconnect.EntityData.YListKeys = []string {}
+
     return &(sessionDisconnect.EntityData)
 }
 
@@ -2059,11 +2152,14 @@ func (singleServiceLogon *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accountin
     singleServiceLogon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceLogon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    singleServiceLogon.EntityData.Children = make(map[string]types.YChild)
-    singleServiceLogon.EntityData.Leafs = make(map[string]types.YLeaf)
-    singleServiceLogon.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", singleServiceLogon.ReceivedRequests}
-    singleServiceLogon.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", singleServiceLogon.AcknowledgedRequests}
-    singleServiceLogon.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", singleServiceLogon.NonAcknowledgedRequests}
+    singleServiceLogon.EntityData.Children = types.NewOrderedMap()
+    singleServiceLogon.EntityData.Leafs = types.NewOrderedMap()
+    singleServiceLogon.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", singleServiceLogon.ReceivedRequests})
+    singleServiceLogon.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", singleServiceLogon.AcknowledgedRequests})
+    singleServiceLogon.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", singleServiceLogon.NonAcknowledgedRequests})
+
+    singleServiceLogon.EntityData.YListKeys = []string {}
+
     return &(singleServiceLogon.EntityData)
 }
 
@@ -2096,11 +2192,14 @@ func (singleServiceLogoff *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounti
     singleServiceLogoff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceLogoff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    singleServiceLogoff.EntityData.Children = make(map[string]types.YChild)
-    singleServiceLogoff.EntityData.Leafs = make(map[string]types.YLeaf)
-    singleServiceLogoff.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", singleServiceLogoff.ReceivedRequests}
-    singleServiceLogoff.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", singleServiceLogoff.AcknowledgedRequests}
-    singleServiceLogoff.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", singleServiceLogoff.NonAcknowledgedRequests}
+    singleServiceLogoff.EntityData.Children = types.NewOrderedMap()
+    singleServiceLogoff.EntityData.Leafs = types.NewOrderedMap()
+    singleServiceLogoff.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", singleServiceLogoff.ReceivedRequests})
+    singleServiceLogoff.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", singleServiceLogoff.AcknowledgedRequests})
+    singleServiceLogoff.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", singleServiceLogoff.NonAcknowledgedRequests})
+
+    singleServiceLogoff.EntityData.YListKeys = []string {}
+
     return &(singleServiceLogoff.EntityData)
 }
 
@@ -2133,11 +2232,14 @@ func (singleServiceModify *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounti
     singleServiceModify.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceModify.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    singleServiceModify.EntityData.Children = make(map[string]types.YChild)
-    singleServiceModify.EntityData.Leafs = make(map[string]types.YLeaf)
-    singleServiceModify.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", singleServiceModify.ReceivedRequests}
-    singleServiceModify.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", singleServiceModify.AcknowledgedRequests}
-    singleServiceModify.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", singleServiceModify.NonAcknowledgedRequests}
+    singleServiceModify.EntityData.Children = types.NewOrderedMap()
+    singleServiceModify.EntityData.Leafs = types.NewOrderedMap()
+    singleServiceModify.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", singleServiceModify.ReceivedRequests})
+    singleServiceModify.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", singleServiceModify.AcknowledgedRequests})
+    singleServiceModify.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", singleServiceModify.NonAcknowledgedRequests})
+
+    singleServiceModify.EntityData.YListKeys = []string {}
+
     return &(singleServiceModify.EntityData)
 }
 
@@ -2170,11 +2272,14 @@ func (serviceMulti *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStats
     serviceMulti.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceMulti.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceMulti.EntityData.Children = make(map[string]types.YChild)
-    serviceMulti.EntityData.Leafs = make(map[string]types.YLeaf)
-    serviceMulti.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", serviceMulti.ReceivedRequests}
-    serviceMulti.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", serviceMulti.AcknowledgedRequests}
-    serviceMulti.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", serviceMulti.NonAcknowledgedRequests}
+    serviceMulti.EntityData.Children = types.NewOrderedMap()
+    serviceMulti.EntityData.Leafs = types.NewOrderedMap()
+    serviceMulti.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", serviceMulti.ReceivedRequests})
+    serviceMulti.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", serviceMulti.AcknowledgedRequests})
+    serviceMulti.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", serviceMulti.NonAcknowledgedRequests})
+
+    serviceMulti.EntityData.YListKeys = []string {}
+
     return &(serviceMulti.EntityData)
 }
 
@@ -2211,12 +2316,15 @@ func (mobilityStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accountin
     mobilityStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobilityStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mobilityStatistics.EntityData.Children = make(map[string]types.YChild)
-    mobilityStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    mobilityStatistics.EntityData.Leafs["send-request-successes"] = types.YLeaf{"SendRequestSuccesses", mobilityStatistics.SendRequestSuccesses}
-    mobilityStatistics.EntityData.Leafs["send-request-failures"] = types.YLeaf{"SendRequestFailures", mobilityStatistics.SendRequestFailures}
-    mobilityStatistics.EntityData.Leafs["receive-response-successes"] = types.YLeaf{"ReceiveResponseSuccesses", mobilityStatistics.ReceiveResponseSuccesses}
-    mobilityStatistics.EntityData.Leafs["receive-response-failures"] = types.YLeaf{"ReceiveResponseFailures", mobilityStatistics.ReceiveResponseFailures}
+    mobilityStatistics.EntityData.Children = types.NewOrderedMap()
+    mobilityStatistics.EntityData.Leafs = types.NewOrderedMap()
+    mobilityStatistics.EntityData.Leafs.Append("send-request-successes", types.YLeaf{"SendRequestSuccesses", mobilityStatistics.SendRequestSuccesses})
+    mobilityStatistics.EntityData.Leafs.Append("send-request-failures", types.YLeaf{"SendRequestFailures", mobilityStatistics.SendRequestFailures})
+    mobilityStatistics.EntityData.Leafs.Append("receive-response-successes", types.YLeaf{"ReceiveResponseSuccesses", mobilityStatistics.ReceiveResponseSuccesses})
+    mobilityStatistics.EntityData.Leafs.Append("receive-response-failures", types.YLeaf{"ReceiveResponseFailures", mobilityStatistics.ReceiveResponseFailures})
+
+    mobilityStatistics.EntityData.YListKeys = []string {}
+
     return &(mobilityStatistics.EntityData)
 }
 
@@ -2301,26 +2409,29 @@ func (changeOfAuthorization *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Change
     changeOfAuthorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeOfAuthorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    changeOfAuthorization.EntityData.Children = make(map[string]types.YChild)
-    changeOfAuthorization.EntityData.Children["account-logon"] = types.YChild{"AccountLogon", &changeOfAuthorization.AccountLogon}
-    changeOfAuthorization.EntityData.Children["account-logoff"] = types.YChild{"AccountLogoff", &changeOfAuthorization.AccountLogoff}
-    changeOfAuthorization.EntityData.Children["account-update"] = types.YChild{"AccountUpdate", &changeOfAuthorization.AccountUpdate}
-    changeOfAuthorization.EntityData.Children["session-disconnect"] = types.YChild{"SessionDisconnect", &changeOfAuthorization.SessionDisconnect}
-    changeOfAuthorization.EntityData.Children["single-service-logon"] = types.YChild{"SingleServiceLogon", &changeOfAuthorization.SingleServiceLogon}
-    changeOfAuthorization.EntityData.Children["single-service-logoff"] = types.YChild{"SingleServiceLogoff", &changeOfAuthorization.SingleServiceLogoff}
-    changeOfAuthorization.EntityData.Children["single-service-modify"] = types.YChild{"SingleServiceModify", &changeOfAuthorization.SingleServiceModify}
-    changeOfAuthorization.EntityData.Children["service-multi"] = types.YChild{"ServiceMulti", &changeOfAuthorization.ServiceMulti}
-    changeOfAuthorization.EntityData.Leafs = make(map[string]types.YLeaf)
-    changeOfAuthorization.EntityData.Leafs["unknown-account-cmd-resps"] = types.YLeaf{"UnknownAccountCmdResps", changeOfAuthorization.UnknownAccountCmdResps}
-    changeOfAuthorization.EntityData.Leafs["unknown-service-cmd-resps"] = types.YLeaf{"UnknownServiceCmdResps", changeOfAuthorization.UnknownServiceCmdResps}
-    changeOfAuthorization.EntityData.Leafs["unknown-cmd-resps"] = types.YLeaf{"UnknownCmdResps", changeOfAuthorization.UnknownCmdResps}
-    changeOfAuthorization.EntityData.Leafs["attr-list-retrieve-failure-resps"] = types.YLeaf{"AttrListRetrieveFailureResps", changeOfAuthorization.AttrListRetrieveFailureResps}
-    changeOfAuthorization.EntityData.Leafs["resp-send-failure"] = types.YLeaf{"RespSendFailure", changeOfAuthorization.RespSendFailure}
-    changeOfAuthorization.EntityData.Leafs["internal-err-resps"] = types.YLeaf{"InternalErrResps", changeOfAuthorization.InternalErrResps}
-    changeOfAuthorization.EntityData.Leafs["service-profile-push-failure-resps"] = types.YLeaf{"ServiceProfilePushFailureResps", changeOfAuthorization.ServiceProfilePushFailureResps}
-    changeOfAuthorization.EntityData.Leafs["no-cmd-resps"] = types.YLeaf{"NoCmdResps", changeOfAuthorization.NoCmdResps}
-    changeOfAuthorization.EntityData.Leafs["no-session-found-resps"] = types.YLeaf{"NoSessionFoundResps", changeOfAuthorization.NoSessionFoundResps}
-    changeOfAuthorization.EntityData.Leafs["no-session-peer-resps"] = types.YLeaf{"NoSessionPeerResps", changeOfAuthorization.NoSessionPeerResps}
+    changeOfAuthorization.EntityData.Children = types.NewOrderedMap()
+    changeOfAuthorization.EntityData.Children.Append("account-logon", types.YChild{"AccountLogon", &changeOfAuthorization.AccountLogon})
+    changeOfAuthorization.EntityData.Children.Append("account-logoff", types.YChild{"AccountLogoff", &changeOfAuthorization.AccountLogoff})
+    changeOfAuthorization.EntityData.Children.Append("account-update", types.YChild{"AccountUpdate", &changeOfAuthorization.AccountUpdate})
+    changeOfAuthorization.EntityData.Children.Append("session-disconnect", types.YChild{"SessionDisconnect", &changeOfAuthorization.SessionDisconnect})
+    changeOfAuthorization.EntityData.Children.Append("single-service-logon", types.YChild{"SingleServiceLogon", &changeOfAuthorization.SingleServiceLogon})
+    changeOfAuthorization.EntityData.Children.Append("single-service-logoff", types.YChild{"SingleServiceLogoff", &changeOfAuthorization.SingleServiceLogoff})
+    changeOfAuthorization.EntityData.Children.Append("single-service-modify", types.YChild{"SingleServiceModify", &changeOfAuthorization.SingleServiceModify})
+    changeOfAuthorization.EntityData.Children.Append("service-multi", types.YChild{"ServiceMulti", &changeOfAuthorization.ServiceMulti})
+    changeOfAuthorization.EntityData.Leafs = types.NewOrderedMap()
+    changeOfAuthorization.EntityData.Leafs.Append("unknown-account-cmd-resps", types.YLeaf{"UnknownAccountCmdResps", changeOfAuthorization.UnknownAccountCmdResps})
+    changeOfAuthorization.EntityData.Leafs.Append("unknown-service-cmd-resps", types.YLeaf{"UnknownServiceCmdResps", changeOfAuthorization.UnknownServiceCmdResps})
+    changeOfAuthorization.EntityData.Leafs.Append("unknown-cmd-resps", types.YLeaf{"UnknownCmdResps", changeOfAuthorization.UnknownCmdResps})
+    changeOfAuthorization.EntityData.Leafs.Append("attr-list-retrieve-failure-resps", types.YLeaf{"AttrListRetrieveFailureResps", changeOfAuthorization.AttrListRetrieveFailureResps})
+    changeOfAuthorization.EntityData.Leafs.Append("resp-send-failure", types.YLeaf{"RespSendFailure", changeOfAuthorization.RespSendFailure})
+    changeOfAuthorization.EntityData.Leafs.Append("internal-err-resps", types.YLeaf{"InternalErrResps", changeOfAuthorization.InternalErrResps})
+    changeOfAuthorization.EntityData.Leafs.Append("service-profile-push-failure-resps", types.YLeaf{"ServiceProfilePushFailureResps", changeOfAuthorization.ServiceProfilePushFailureResps})
+    changeOfAuthorization.EntityData.Leafs.Append("no-cmd-resps", types.YLeaf{"NoCmdResps", changeOfAuthorization.NoCmdResps})
+    changeOfAuthorization.EntityData.Leafs.Append("no-session-found-resps", types.YLeaf{"NoSessionFoundResps", changeOfAuthorization.NoSessionFoundResps})
+    changeOfAuthorization.EntityData.Leafs.Append("no-session-peer-resps", types.YLeaf{"NoSessionPeerResps", changeOfAuthorization.NoSessionPeerResps})
+
+    changeOfAuthorization.EntityData.YListKeys = []string {}
+
     return &(changeOfAuthorization.EntityData)
 }
 
@@ -2353,11 +2464,14 @@ func (accountLogon *Subscriber_Manager_Nodes_Node_Statistics_Aaa_ChangeOfAuthori
     accountLogon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountLogon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accountLogon.EntityData.Children = make(map[string]types.YChild)
-    accountLogon.EntityData.Leafs = make(map[string]types.YLeaf)
-    accountLogon.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", accountLogon.ReceivedRequests}
-    accountLogon.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", accountLogon.AcknowledgedRequests}
-    accountLogon.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", accountLogon.NonAcknowledgedRequests}
+    accountLogon.EntityData.Children = types.NewOrderedMap()
+    accountLogon.EntityData.Leafs = types.NewOrderedMap()
+    accountLogon.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", accountLogon.ReceivedRequests})
+    accountLogon.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", accountLogon.AcknowledgedRequests})
+    accountLogon.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", accountLogon.NonAcknowledgedRequests})
+
+    accountLogon.EntityData.YListKeys = []string {}
+
     return &(accountLogon.EntityData)
 }
 
@@ -2390,11 +2504,14 @@ func (accountLogoff *Subscriber_Manager_Nodes_Node_Statistics_Aaa_ChangeOfAuthor
     accountLogoff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountLogoff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accountLogoff.EntityData.Children = make(map[string]types.YChild)
-    accountLogoff.EntityData.Leafs = make(map[string]types.YLeaf)
-    accountLogoff.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", accountLogoff.ReceivedRequests}
-    accountLogoff.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", accountLogoff.AcknowledgedRequests}
-    accountLogoff.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", accountLogoff.NonAcknowledgedRequests}
+    accountLogoff.EntityData.Children = types.NewOrderedMap()
+    accountLogoff.EntityData.Leafs = types.NewOrderedMap()
+    accountLogoff.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", accountLogoff.ReceivedRequests})
+    accountLogoff.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", accountLogoff.AcknowledgedRequests})
+    accountLogoff.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", accountLogoff.NonAcknowledgedRequests})
+
+    accountLogoff.EntityData.YListKeys = []string {}
+
     return &(accountLogoff.EntityData)
 }
 
@@ -2427,11 +2544,14 @@ func (accountUpdate *Subscriber_Manager_Nodes_Node_Statistics_Aaa_ChangeOfAuthor
     accountUpdate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountUpdate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accountUpdate.EntityData.Children = make(map[string]types.YChild)
-    accountUpdate.EntityData.Leafs = make(map[string]types.YLeaf)
-    accountUpdate.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", accountUpdate.ReceivedRequests}
-    accountUpdate.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", accountUpdate.AcknowledgedRequests}
-    accountUpdate.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", accountUpdate.NonAcknowledgedRequests}
+    accountUpdate.EntityData.Children = types.NewOrderedMap()
+    accountUpdate.EntityData.Leafs = types.NewOrderedMap()
+    accountUpdate.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", accountUpdate.ReceivedRequests})
+    accountUpdate.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", accountUpdate.AcknowledgedRequests})
+    accountUpdate.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", accountUpdate.NonAcknowledgedRequests})
+
+    accountUpdate.EntityData.YListKeys = []string {}
+
     return &(accountUpdate.EntityData)
 }
 
@@ -2464,11 +2584,14 @@ func (sessionDisconnect *Subscriber_Manager_Nodes_Node_Statistics_Aaa_ChangeOfAu
     sessionDisconnect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDisconnect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionDisconnect.EntityData.Children = make(map[string]types.YChild)
-    sessionDisconnect.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionDisconnect.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", sessionDisconnect.ReceivedRequests}
-    sessionDisconnect.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", sessionDisconnect.AcknowledgedRequests}
-    sessionDisconnect.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", sessionDisconnect.NonAcknowledgedRequests}
+    sessionDisconnect.EntityData.Children = types.NewOrderedMap()
+    sessionDisconnect.EntityData.Leafs = types.NewOrderedMap()
+    sessionDisconnect.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", sessionDisconnect.ReceivedRequests})
+    sessionDisconnect.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", sessionDisconnect.AcknowledgedRequests})
+    sessionDisconnect.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", sessionDisconnect.NonAcknowledgedRequests})
+
+    sessionDisconnect.EntityData.YListKeys = []string {}
+
     return &(sessionDisconnect.EntityData)
 }
 
@@ -2501,11 +2624,14 @@ func (singleServiceLogon *Subscriber_Manager_Nodes_Node_Statistics_Aaa_ChangeOfA
     singleServiceLogon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceLogon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    singleServiceLogon.EntityData.Children = make(map[string]types.YChild)
-    singleServiceLogon.EntityData.Leafs = make(map[string]types.YLeaf)
-    singleServiceLogon.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", singleServiceLogon.ReceivedRequests}
-    singleServiceLogon.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", singleServiceLogon.AcknowledgedRequests}
-    singleServiceLogon.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", singleServiceLogon.NonAcknowledgedRequests}
+    singleServiceLogon.EntityData.Children = types.NewOrderedMap()
+    singleServiceLogon.EntityData.Leafs = types.NewOrderedMap()
+    singleServiceLogon.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", singleServiceLogon.ReceivedRequests})
+    singleServiceLogon.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", singleServiceLogon.AcknowledgedRequests})
+    singleServiceLogon.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", singleServiceLogon.NonAcknowledgedRequests})
+
+    singleServiceLogon.EntityData.YListKeys = []string {}
+
     return &(singleServiceLogon.EntityData)
 }
 
@@ -2538,11 +2664,14 @@ func (singleServiceLogoff *Subscriber_Manager_Nodes_Node_Statistics_Aaa_ChangeOf
     singleServiceLogoff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceLogoff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    singleServiceLogoff.EntityData.Children = make(map[string]types.YChild)
-    singleServiceLogoff.EntityData.Leafs = make(map[string]types.YLeaf)
-    singleServiceLogoff.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", singleServiceLogoff.ReceivedRequests}
-    singleServiceLogoff.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", singleServiceLogoff.AcknowledgedRequests}
-    singleServiceLogoff.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", singleServiceLogoff.NonAcknowledgedRequests}
+    singleServiceLogoff.EntityData.Children = types.NewOrderedMap()
+    singleServiceLogoff.EntityData.Leafs = types.NewOrderedMap()
+    singleServiceLogoff.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", singleServiceLogoff.ReceivedRequests})
+    singleServiceLogoff.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", singleServiceLogoff.AcknowledgedRequests})
+    singleServiceLogoff.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", singleServiceLogoff.NonAcknowledgedRequests})
+
+    singleServiceLogoff.EntityData.YListKeys = []string {}
+
     return &(singleServiceLogoff.EntityData)
 }
 
@@ -2575,11 +2704,14 @@ func (singleServiceModify *Subscriber_Manager_Nodes_Node_Statistics_Aaa_ChangeOf
     singleServiceModify.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceModify.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    singleServiceModify.EntityData.Children = make(map[string]types.YChild)
-    singleServiceModify.EntityData.Leafs = make(map[string]types.YLeaf)
-    singleServiceModify.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", singleServiceModify.ReceivedRequests}
-    singleServiceModify.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", singleServiceModify.AcknowledgedRequests}
-    singleServiceModify.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", singleServiceModify.NonAcknowledgedRequests}
+    singleServiceModify.EntityData.Children = types.NewOrderedMap()
+    singleServiceModify.EntityData.Leafs = types.NewOrderedMap()
+    singleServiceModify.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", singleServiceModify.ReceivedRequests})
+    singleServiceModify.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", singleServiceModify.AcknowledgedRequests})
+    singleServiceModify.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", singleServiceModify.NonAcknowledgedRequests})
+
+    singleServiceModify.EntityData.YListKeys = []string {}
+
     return &(singleServiceModify.EntityData)
 }
 
@@ -2612,11 +2744,14 @@ func (serviceMulti *Subscriber_Manager_Nodes_Node_Statistics_Aaa_ChangeOfAuthori
     serviceMulti.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceMulti.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceMulti.EntityData.Children = make(map[string]types.YChild)
-    serviceMulti.EntityData.Leafs = make(map[string]types.YLeaf)
-    serviceMulti.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", serviceMulti.ReceivedRequests}
-    serviceMulti.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", serviceMulti.AcknowledgedRequests}
-    serviceMulti.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", serviceMulti.NonAcknowledgedRequests}
+    serviceMulti.EntityData.Children = types.NewOrderedMap()
+    serviceMulti.EntityData.Leafs = types.NewOrderedMap()
+    serviceMulti.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", serviceMulti.ReceivedRequests})
+    serviceMulti.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", serviceMulti.AcknowledgedRequests})
+    serviceMulti.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", serviceMulti.NonAcknowledgedRequests})
+
+    serviceMulti.EntityData.YListKeys = []string {}
+
     return &(serviceMulti.EntityData)
 }
 
@@ -2669,16 +2804,19 @@ func (authorization *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Authorization)
     authorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authorization.EntityData.Children = make(map[string]types.YChild)
-    authorization.EntityData.Leafs = make(map[string]types.YLeaf)
-    authorization.EntityData.Leafs["sent-requests"] = types.YLeaf{"SentRequests", authorization.SentRequests}
-    authorization.EntityData.Leafs["accepted-requests"] = types.YLeaf{"AcceptedRequests", authorization.AcceptedRequests}
-    authorization.EntityData.Leafs["successful-requests"] = types.YLeaf{"SuccessfulRequests", authorization.SuccessfulRequests}
-    authorization.EntityData.Leafs["rejected-requests"] = types.YLeaf{"RejectedRequests", authorization.RejectedRequests}
-    authorization.EntityData.Leafs["unreachable-requests"] = types.YLeaf{"UnreachableRequests", authorization.UnreachableRequests}
-    authorization.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", authorization.ErroredRequests}
-    authorization.EntityData.Leafs["incomplete-requests"] = types.YLeaf{"IncompleteRequests", authorization.IncompleteRequests}
-    authorization.EntityData.Leafs["terminated-requests"] = types.YLeaf{"TerminatedRequests", authorization.TerminatedRequests}
+    authorization.EntityData.Children = types.NewOrderedMap()
+    authorization.EntityData.Leafs = types.NewOrderedMap()
+    authorization.EntityData.Leafs.Append("sent-requests", types.YLeaf{"SentRequests", authorization.SentRequests})
+    authorization.EntityData.Leafs.Append("accepted-requests", types.YLeaf{"AcceptedRequests", authorization.AcceptedRequests})
+    authorization.EntityData.Leafs.Append("successful-requests", types.YLeaf{"SuccessfulRequests", authorization.SuccessfulRequests})
+    authorization.EntityData.Leafs.Append("rejected-requests", types.YLeaf{"RejectedRequests", authorization.RejectedRequests})
+    authorization.EntityData.Leafs.Append("unreachable-requests", types.YLeaf{"UnreachableRequests", authorization.UnreachableRequests})
+    authorization.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", authorization.ErroredRequests})
+    authorization.EntityData.Leafs.Append("incomplete-requests", types.YLeaf{"IncompleteRequests", authorization.IncompleteRequests})
+    authorization.EntityData.Leafs.Append("terminated-requests", types.YLeaf{"TerminatedRequests", authorization.TerminatedRequests})
+
+    authorization.EntityData.YListKeys = []string {}
+
     return &(authorization.EntityData)
 }
 
@@ -2731,16 +2869,19 @@ func (aggregateAuthorization *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggre
     aggregateAuthorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateAuthorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aggregateAuthorization.EntityData.Children = make(map[string]types.YChild)
-    aggregateAuthorization.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggregateAuthorization.EntityData.Leafs["sent-requests"] = types.YLeaf{"SentRequests", aggregateAuthorization.SentRequests}
-    aggregateAuthorization.EntityData.Leafs["accepted-requests"] = types.YLeaf{"AcceptedRequests", aggregateAuthorization.AcceptedRequests}
-    aggregateAuthorization.EntityData.Leafs["successful-requests"] = types.YLeaf{"SuccessfulRequests", aggregateAuthorization.SuccessfulRequests}
-    aggregateAuthorization.EntityData.Leafs["rejected-requests"] = types.YLeaf{"RejectedRequests", aggregateAuthorization.RejectedRequests}
-    aggregateAuthorization.EntityData.Leafs["unreachable-requests"] = types.YLeaf{"UnreachableRequests", aggregateAuthorization.UnreachableRequests}
-    aggregateAuthorization.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", aggregateAuthorization.ErroredRequests}
-    aggregateAuthorization.EntityData.Leafs["incomplete-requests"] = types.YLeaf{"IncompleteRequests", aggregateAuthorization.IncompleteRequests}
-    aggregateAuthorization.EntityData.Leafs["terminated-requests"] = types.YLeaf{"TerminatedRequests", aggregateAuthorization.TerminatedRequests}
+    aggregateAuthorization.EntityData.Children = types.NewOrderedMap()
+    aggregateAuthorization.EntityData.Leafs = types.NewOrderedMap()
+    aggregateAuthorization.EntityData.Leafs.Append("sent-requests", types.YLeaf{"SentRequests", aggregateAuthorization.SentRequests})
+    aggregateAuthorization.EntityData.Leafs.Append("accepted-requests", types.YLeaf{"AcceptedRequests", aggregateAuthorization.AcceptedRequests})
+    aggregateAuthorization.EntityData.Leafs.Append("successful-requests", types.YLeaf{"SuccessfulRequests", aggregateAuthorization.SuccessfulRequests})
+    aggregateAuthorization.EntityData.Leafs.Append("rejected-requests", types.YLeaf{"RejectedRequests", aggregateAuthorization.RejectedRequests})
+    aggregateAuthorization.EntityData.Leafs.Append("unreachable-requests", types.YLeaf{"UnreachableRequests", aggregateAuthorization.UnreachableRequests})
+    aggregateAuthorization.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", aggregateAuthorization.ErroredRequests})
+    aggregateAuthorization.EntityData.Leafs.Append("incomplete-requests", types.YLeaf{"IncompleteRequests", aggregateAuthorization.IncompleteRequests})
+    aggregateAuthorization.EntityData.Leafs.Append("terminated-requests", types.YLeaf{"TerminatedRequests", aggregateAuthorization.TerminatedRequests})
+
+    aggregateAuthorization.EntityData.YListKeys = []string {}
+
     return &(aggregateAuthorization.EntityData)
 }
 
@@ -2777,13 +2918,16 @@ func (aggregateAccountingStatsAll *Subscriber_Manager_Nodes_Node_Statistics_Aaa_
     aggregateAccountingStatsAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateAccountingStatsAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aggregateAccountingStatsAll.EntityData.Children = make(map[string]types.YChild)
-    aggregateAccountingStatsAll.EntityData.Children["accounting-statistics"] = types.YChild{"AccountingStatistics", &aggregateAccountingStatsAll.AccountingStatistics}
-    aggregateAccountingStatsAll.EntityData.Children["authentication-statistics"] = types.YChild{"AuthenticationStatistics", &aggregateAccountingStatsAll.AuthenticationStatistics}
-    aggregateAccountingStatsAll.EntityData.Children["authorization-statistics"] = types.YChild{"AuthorizationStatistics", &aggregateAccountingStatsAll.AuthorizationStatistics}
-    aggregateAccountingStatsAll.EntityData.Children["change-of-authorization-statistics"] = types.YChild{"ChangeOfAuthorizationStatistics", &aggregateAccountingStatsAll.ChangeOfAuthorizationStatistics}
-    aggregateAccountingStatsAll.EntityData.Children["mobility-statistics"] = types.YChild{"MobilityStatistics", &aggregateAccountingStatsAll.MobilityStatistics}
-    aggregateAccountingStatsAll.EntityData.Leafs = make(map[string]types.YLeaf)
+    aggregateAccountingStatsAll.EntityData.Children = types.NewOrderedMap()
+    aggregateAccountingStatsAll.EntityData.Children.Append("accounting-statistics", types.YChild{"AccountingStatistics", &aggregateAccountingStatsAll.AccountingStatistics})
+    aggregateAccountingStatsAll.EntityData.Children.Append("authentication-statistics", types.YChild{"AuthenticationStatistics", &aggregateAccountingStatsAll.AuthenticationStatistics})
+    aggregateAccountingStatsAll.EntityData.Children.Append("authorization-statistics", types.YChild{"AuthorizationStatistics", &aggregateAccountingStatsAll.AuthorizationStatistics})
+    aggregateAccountingStatsAll.EntityData.Children.Append("change-of-authorization-statistics", types.YChild{"ChangeOfAuthorizationStatistics", &aggregateAccountingStatsAll.ChangeOfAuthorizationStatistics})
+    aggregateAccountingStatsAll.EntityData.Children.Append("mobility-statistics", types.YChild{"MobilityStatistics", &aggregateAccountingStatsAll.MobilityStatistics})
+    aggregateAccountingStatsAll.EntityData.Leafs = types.NewOrderedMap()
+
+    aggregateAccountingStatsAll.EntityData.YListKeys = []string {}
+
     return &(aggregateAccountingStatsAll.EntityData)
 }
 
@@ -2841,19 +2985,22 @@ func (accountingStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggrega
     accountingStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountingStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accountingStatistics.EntityData.Children = make(map[string]types.YChild)
-    accountingStatistics.EntityData.Children["start"] = types.YChild{"Start", &accountingStatistics.Start}
-    accountingStatistics.EntityData.Children["stop"] = types.YChild{"Stop", &accountingStatistics.Stop}
-    accountingStatistics.EntityData.Children["interim"] = types.YChild{"Interim", &accountingStatistics.Interim}
-    accountingStatistics.EntityData.Children["pass-through"] = types.YChild{"PassThrough", &accountingStatistics.PassThrough}
-    accountingStatistics.EntityData.Children["update"] = types.YChild{"Update", &accountingStatistics.Update}
-    accountingStatistics.EntityData.Children["interim-inflight"] = types.YChild{"InterimInflight", &accountingStatistics.InterimInflight}
-    accountingStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    accountingStatistics.EntityData.Leafs["active-sessions"] = types.YLeaf{"ActiveSessions", accountingStatistics.ActiveSessions}
-    accountingStatistics.EntityData.Leafs["started-sessions"] = types.YLeaf{"StartedSessions", accountingStatistics.StartedSessions}
-    accountingStatistics.EntityData.Leafs["stopped-sessions"] = types.YLeaf{"StoppedSessions", accountingStatistics.StoppedSessions}
-    accountingStatistics.EntityData.Leafs["policy-plane-errored-requests"] = types.YLeaf{"PolicyPlaneErroredRequests", accountingStatistics.PolicyPlaneErroredRequests}
-    accountingStatistics.EntityData.Leafs["policy-plane-unknown-requests"] = types.YLeaf{"PolicyPlaneUnknownRequests", accountingStatistics.PolicyPlaneUnknownRequests}
+    accountingStatistics.EntityData.Children = types.NewOrderedMap()
+    accountingStatistics.EntityData.Children.Append("start", types.YChild{"Start", &accountingStatistics.Start})
+    accountingStatistics.EntityData.Children.Append("stop", types.YChild{"Stop", &accountingStatistics.Stop})
+    accountingStatistics.EntityData.Children.Append("interim", types.YChild{"Interim", &accountingStatistics.Interim})
+    accountingStatistics.EntityData.Children.Append("pass-through", types.YChild{"PassThrough", &accountingStatistics.PassThrough})
+    accountingStatistics.EntityData.Children.Append("update", types.YChild{"Update", &accountingStatistics.Update})
+    accountingStatistics.EntityData.Children.Append("interim-inflight", types.YChild{"InterimInflight", &accountingStatistics.InterimInflight})
+    accountingStatistics.EntityData.Leafs = types.NewOrderedMap()
+    accountingStatistics.EntityData.Leafs.Append("active-sessions", types.YLeaf{"ActiveSessions", accountingStatistics.ActiveSessions})
+    accountingStatistics.EntityData.Leafs.Append("started-sessions", types.YLeaf{"StartedSessions", accountingStatistics.StartedSessions})
+    accountingStatistics.EntityData.Leafs.Append("stopped-sessions", types.YLeaf{"StoppedSessions", accountingStatistics.StoppedSessions})
+    accountingStatistics.EntityData.Leafs.Append("policy-plane-errored-requests", types.YLeaf{"PolicyPlaneErroredRequests", accountingStatistics.PolicyPlaneErroredRequests})
+    accountingStatistics.EntityData.Leafs.Append("policy-plane-unknown-requests", types.YLeaf{"PolicyPlaneUnknownRequests", accountingStatistics.PolicyPlaneUnknownRequests})
+
+    accountingStatistics.EntityData.YListKeys = []string {}
+
     return &(accountingStatistics.EntityData)
 }
 
@@ -2898,14 +3045,17 @@ func (start *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccountingSta
     start.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     start.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    start.EntityData.Children = make(map[string]types.YChild)
-    start.EntityData.Leafs = make(map[string]types.YLeaf)
-    start.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", start.ReceivedRequests}
-    start.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", start.ErroredRequests}
-    start.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", start.AaaErroredRequests}
-    start.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", start.AaaSentRequests}
-    start.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", start.AaaSucceededResponses}
-    start.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", start.AaaFailedResponses}
+    start.EntityData.Children = types.NewOrderedMap()
+    start.EntityData.Leafs = types.NewOrderedMap()
+    start.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", start.ReceivedRequests})
+    start.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", start.ErroredRequests})
+    start.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", start.AaaErroredRequests})
+    start.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", start.AaaSentRequests})
+    start.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", start.AaaSucceededResponses})
+    start.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", start.AaaFailedResponses})
+
+    start.EntityData.YListKeys = []string {}
+
     return &(start.EntityData)
 }
 
@@ -2950,14 +3100,17 @@ func (stop *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccountingStat
     stop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stop.EntityData.Children = make(map[string]types.YChild)
-    stop.EntityData.Leafs = make(map[string]types.YLeaf)
-    stop.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", stop.ReceivedRequests}
-    stop.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", stop.ErroredRequests}
-    stop.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", stop.AaaErroredRequests}
-    stop.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", stop.AaaSentRequests}
-    stop.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", stop.AaaSucceededResponses}
-    stop.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", stop.AaaFailedResponses}
+    stop.EntityData.Children = types.NewOrderedMap()
+    stop.EntityData.Leafs = types.NewOrderedMap()
+    stop.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", stop.ReceivedRequests})
+    stop.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", stop.ErroredRequests})
+    stop.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", stop.AaaErroredRequests})
+    stop.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", stop.AaaSentRequests})
+    stop.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", stop.AaaSucceededResponses})
+    stop.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", stop.AaaFailedResponses})
+
+    stop.EntityData.YListKeys = []string {}
+
     return &(stop.EntityData)
 }
 
@@ -3002,14 +3155,17 @@ func (interim *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccountingS
     interim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interim.EntityData.Children = make(map[string]types.YChild)
-    interim.EntityData.Leafs = make(map[string]types.YLeaf)
-    interim.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", interim.ReceivedRequests}
-    interim.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", interim.ErroredRequests}
-    interim.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", interim.AaaErroredRequests}
-    interim.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", interim.AaaSentRequests}
-    interim.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", interim.AaaSucceededResponses}
-    interim.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", interim.AaaFailedResponses}
+    interim.EntityData.Children = types.NewOrderedMap()
+    interim.EntityData.Leafs = types.NewOrderedMap()
+    interim.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", interim.ReceivedRequests})
+    interim.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", interim.ErroredRequests})
+    interim.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", interim.AaaErroredRequests})
+    interim.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", interim.AaaSentRequests})
+    interim.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", interim.AaaSucceededResponses})
+    interim.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", interim.AaaFailedResponses})
+
+    interim.EntityData.YListKeys = []string {}
+
     return &(interim.EntityData)
 }
 
@@ -3054,14 +3210,17 @@ func (passThrough *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccount
     passThrough.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     passThrough.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    passThrough.EntityData.Children = make(map[string]types.YChild)
-    passThrough.EntityData.Leafs = make(map[string]types.YLeaf)
-    passThrough.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", passThrough.ReceivedRequests}
-    passThrough.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", passThrough.ErroredRequests}
-    passThrough.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", passThrough.AaaErroredRequests}
-    passThrough.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", passThrough.AaaSentRequests}
-    passThrough.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", passThrough.AaaSucceededResponses}
-    passThrough.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", passThrough.AaaFailedResponses}
+    passThrough.EntityData.Children = types.NewOrderedMap()
+    passThrough.EntityData.Leafs = types.NewOrderedMap()
+    passThrough.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", passThrough.ReceivedRequests})
+    passThrough.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", passThrough.ErroredRequests})
+    passThrough.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", passThrough.AaaErroredRequests})
+    passThrough.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", passThrough.AaaSentRequests})
+    passThrough.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", passThrough.AaaSucceededResponses})
+    passThrough.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", passThrough.AaaFailedResponses})
+
+    passThrough.EntityData.YListKeys = []string {}
+
     return &(passThrough.EntityData)
 }
 
@@ -3106,14 +3265,17 @@ func (update *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccountingSt
     update.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     update.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    update.EntityData.Children = make(map[string]types.YChild)
-    update.EntityData.Leafs = make(map[string]types.YLeaf)
-    update.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", update.ReceivedRequests}
-    update.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", update.ErroredRequests}
-    update.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", update.AaaErroredRequests}
-    update.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", update.AaaSentRequests}
-    update.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", update.AaaSucceededResponses}
-    update.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", update.AaaFailedResponses}
+    update.EntityData.Children = types.NewOrderedMap()
+    update.EntityData.Leafs = types.NewOrderedMap()
+    update.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", update.ReceivedRequests})
+    update.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", update.ErroredRequests})
+    update.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", update.AaaErroredRequests})
+    update.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", update.AaaSentRequests})
+    update.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", update.AaaSucceededResponses})
+    update.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", update.AaaFailedResponses})
+
+    update.EntityData.YListKeys = []string {}
+
     return &(update.EntityData)
 }
 
@@ -3154,14 +3316,17 @@ func (interimInflight *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAcc
     interimInflight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interimInflight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interimInflight.EntityData.Children = make(map[string]types.YChild)
-    interimInflight.EntityData.Leafs = make(map[string]types.YLeaf)
-    interimInflight.EntityData.Leafs["quota-exhausts"] = types.YLeaf{"QuotaExhausts", interimInflight.QuotaExhausts}
-    interimInflight.EntityData.Leafs["denied-requests"] = types.YLeaf{"DeniedRequests", interimInflight.DeniedRequests}
-    interimInflight.EntityData.Leafs["accepted-requests"] = types.YLeaf{"AcceptedRequests", interimInflight.AcceptedRequests}
-    interimInflight.EntityData.Leafs["total-quota-of-requests"] = types.YLeaf{"TotalQuotaOfRequests", interimInflight.TotalQuotaOfRequests}
-    interimInflight.EntityData.Leafs["remaining-quota-of-requests"] = types.YLeaf{"RemainingQuotaOfRequests", interimInflight.RemainingQuotaOfRequests}
-    interimInflight.EntityData.Leafs["low-water-mark-quota-of-requests"] = types.YLeaf{"LowWaterMarkQuotaOfRequests", interimInflight.LowWaterMarkQuotaOfRequests}
+    interimInflight.EntityData.Children = types.NewOrderedMap()
+    interimInflight.EntityData.Leafs = types.NewOrderedMap()
+    interimInflight.EntityData.Leafs.Append("quota-exhausts", types.YLeaf{"QuotaExhausts", interimInflight.QuotaExhausts})
+    interimInflight.EntityData.Leafs.Append("denied-requests", types.YLeaf{"DeniedRequests", interimInflight.DeniedRequests})
+    interimInflight.EntityData.Leafs.Append("accepted-requests", types.YLeaf{"AcceptedRequests", interimInflight.AcceptedRequests})
+    interimInflight.EntityData.Leafs.Append("total-quota-of-requests", types.YLeaf{"TotalQuotaOfRequests", interimInflight.TotalQuotaOfRequests})
+    interimInflight.EntityData.Leafs.Append("remaining-quota-of-requests", types.YLeaf{"RemainingQuotaOfRequests", interimInflight.RemainingQuotaOfRequests})
+    interimInflight.EntityData.Leafs.Append("low-water-mark-quota-of-requests", types.YLeaf{"LowWaterMarkQuotaOfRequests", interimInflight.LowWaterMarkQuotaOfRequests})
+
+    interimInflight.EntityData.YListKeys = []string {}
+
     return &(interimInflight.EntityData)
 }
 
@@ -3214,16 +3379,19 @@ func (authenticationStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Agg
     authenticationStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authenticationStatistics.EntityData.Children = make(map[string]types.YChild)
-    authenticationStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    authenticationStatistics.EntityData.Leafs["sent-requests"] = types.YLeaf{"SentRequests", authenticationStatistics.SentRequests}
-    authenticationStatistics.EntityData.Leafs["accepted-requests"] = types.YLeaf{"AcceptedRequests", authenticationStatistics.AcceptedRequests}
-    authenticationStatistics.EntityData.Leafs["successful-requests"] = types.YLeaf{"SuccessfulRequests", authenticationStatistics.SuccessfulRequests}
-    authenticationStatistics.EntityData.Leafs["rejected-requests"] = types.YLeaf{"RejectedRequests", authenticationStatistics.RejectedRequests}
-    authenticationStatistics.EntityData.Leafs["unreachable-requests"] = types.YLeaf{"UnreachableRequests", authenticationStatistics.UnreachableRequests}
-    authenticationStatistics.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", authenticationStatistics.ErroredRequests}
-    authenticationStatistics.EntityData.Leafs["incomplete-requests"] = types.YLeaf{"IncompleteRequests", authenticationStatistics.IncompleteRequests}
-    authenticationStatistics.EntityData.Leafs["terminated-requests"] = types.YLeaf{"TerminatedRequests", authenticationStatistics.TerminatedRequests}
+    authenticationStatistics.EntityData.Children = types.NewOrderedMap()
+    authenticationStatistics.EntityData.Leafs = types.NewOrderedMap()
+    authenticationStatistics.EntityData.Leafs.Append("sent-requests", types.YLeaf{"SentRequests", authenticationStatistics.SentRequests})
+    authenticationStatistics.EntityData.Leafs.Append("accepted-requests", types.YLeaf{"AcceptedRequests", authenticationStatistics.AcceptedRequests})
+    authenticationStatistics.EntityData.Leafs.Append("successful-requests", types.YLeaf{"SuccessfulRequests", authenticationStatistics.SuccessfulRequests})
+    authenticationStatistics.EntityData.Leafs.Append("rejected-requests", types.YLeaf{"RejectedRequests", authenticationStatistics.RejectedRequests})
+    authenticationStatistics.EntityData.Leafs.Append("unreachable-requests", types.YLeaf{"UnreachableRequests", authenticationStatistics.UnreachableRequests})
+    authenticationStatistics.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", authenticationStatistics.ErroredRequests})
+    authenticationStatistics.EntityData.Leafs.Append("incomplete-requests", types.YLeaf{"IncompleteRequests", authenticationStatistics.IncompleteRequests})
+    authenticationStatistics.EntityData.Leafs.Append("terminated-requests", types.YLeaf{"TerminatedRequests", authenticationStatistics.TerminatedRequests})
+
+    authenticationStatistics.EntityData.YListKeys = []string {}
+
     return &(authenticationStatistics.EntityData)
 }
 
@@ -3276,16 +3444,19 @@ func (authorizationStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggr
     authorizationStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorizationStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authorizationStatistics.EntityData.Children = make(map[string]types.YChild)
-    authorizationStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    authorizationStatistics.EntityData.Leafs["sent-requests"] = types.YLeaf{"SentRequests", authorizationStatistics.SentRequests}
-    authorizationStatistics.EntityData.Leafs["accepted-requests"] = types.YLeaf{"AcceptedRequests", authorizationStatistics.AcceptedRequests}
-    authorizationStatistics.EntityData.Leafs["successful-requests"] = types.YLeaf{"SuccessfulRequests", authorizationStatistics.SuccessfulRequests}
-    authorizationStatistics.EntityData.Leafs["rejected-requests"] = types.YLeaf{"RejectedRequests", authorizationStatistics.RejectedRequests}
-    authorizationStatistics.EntityData.Leafs["unreachable-requests"] = types.YLeaf{"UnreachableRequests", authorizationStatistics.UnreachableRequests}
-    authorizationStatistics.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", authorizationStatistics.ErroredRequests}
-    authorizationStatistics.EntityData.Leafs["incomplete-requests"] = types.YLeaf{"IncompleteRequests", authorizationStatistics.IncompleteRequests}
-    authorizationStatistics.EntityData.Leafs["terminated-requests"] = types.YLeaf{"TerminatedRequests", authorizationStatistics.TerminatedRequests}
+    authorizationStatistics.EntityData.Children = types.NewOrderedMap()
+    authorizationStatistics.EntityData.Leafs = types.NewOrderedMap()
+    authorizationStatistics.EntityData.Leafs.Append("sent-requests", types.YLeaf{"SentRequests", authorizationStatistics.SentRequests})
+    authorizationStatistics.EntityData.Leafs.Append("accepted-requests", types.YLeaf{"AcceptedRequests", authorizationStatistics.AcceptedRequests})
+    authorizationStatistics.EntityData.Leafs.Append("successful-requests", types.YLeaf{"SuccessfulRequests", authorizationStatistics.SuccessfulRequests})
+    authorizationStatistics.EntityData.Leafs.Append("rejected-requests", types.YLeaf{"RejectedRequests", authorizationStatistics.RejectedRequests})
+    authorizationStatistics.EntityData.Leafs.Append("unreachable-requests", types.YLeaf{"UnreachableRequests", authorizationStatistics.UnreachableRequests})
+    authorizationStatistics.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", authorizationStatistics.ErroredRequests})
+    authorizationStatistics.EntityData.Leafs.Append("incomplete-requests", types.YLeaf{"IncompleteRequests", authorizationStatistics.IncompleteRequests})
+    authorizationStatistics.EntityData.Leafs.Append("terminated-requests", types.YLeaf{"TerminatedRequests", authorizationStatistics.TerminatedRequests})
+
+    authorizationStatistics.EntityData.YListKeys = []string {}
+
     return &(authorizationStatistics.EntityData)
 }
 
@@ -3370,26 +3541,29 @@ func (changeOfAuthorizationStatistics *Subscriber_Manager_Nodes_Node_Statistics_
     changeOfAuthorizationStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeOfAuthorizationStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    changeOfAuthorizationStatistics.EntityData.Children = make(map[string]types.YChild)
-    changeOfAuthorizationStatistics.EntityData.Children["account-logon"] = types.YChild{"AccountLogon", &changeOfAuthorizationStatistics.AccountLogon}
-    changeOfAuthorizationStatistics.EntityData.Children["account-logoff"] = types.YChild{"AccountLogoff", &changeOfAuthorizationStatistics.AccountLogoff}
-    changeOfAuthorizationStatistics.EntityData.Children["account-update"] = types.YChild{"AccountUpdate", &changeOfAuthorizationStatistics.AccountUpdate}
-    changeOfAuthorizationStatistics.EntityData.Children["session-disconnect"] = types.YChild{"SessionDisconnect", &changeOfAuthorizationStatistics.SessionDisconnect}
-    changeOfAuthorizationStatistics.EntityData.Children["single-service-logon"] = types.YChild{"SingleServiceLogon", &changeOfAuthorizationStatistics.SingleServiceLogon}
-    changeOfAuthorizationStatistics.EntityData.Children["single-service-logoff"] = types.YChild{"SingleServiceLogoff", &changeOfAuthorizationStatistics.SingleServiceLogoff}
-    changeOfAuthorizationStatistics.EntityData.Children["single-service-modify"] = types.YChild{"SingleServiceModify", &changeOfAuthorizationStatistics.SingleServiceModify}
-    changeOfAuthorizationStatistics.EntityData.Children["service-multi"] = types.YChild{"ServiceMulti", &changeOfAuthorizationStatistics.ServiceMulti}
-    changeOfAuthorizationStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    changeOfAuthorizationStatistics.EntityData.Leafs["unknown-account-cmd-resps"] = types.YLeaf{"UnknownAccountCmdResps", changeOfAuthorizationStatistics.UnknownAccountCmdResps}
-    changeOfAuthorizationStatistics.EntityData.Leafs["unknown-service-cmd-resps"] = types.YLeaf{"UnknownServiceCmdResps", changeOfAuthorizationStatistics.UnknownServiceCmdResps}
-    changeOfAuthorizationStatistics.EntityData.Leafs["unknown-cmd-resps"] = types.YLeaf{"UnknownCmdResps", changeOfAuthorizationStatistics.UnknownCmdResps}
-    changeOfAuthorizationStatistics.EntityData.Leafs["attr-list-retrieve-failure-resps"] = types.YLeaf{"AttrListRetrieveFailureResps", changeOfAuthorizationStatistics.AttrListRetrieveFailureResps}
-    changeOfAuthorizationStatistics.EntityData.Leafs["resp-send-failure"] = types.YLeaf{"RespSendFailure", changeOfAuthorizationStatistics.RespSendFailure}
-    changeOfAuthorizationStatistics.EntityData.Leafs["internal-err-resps"] = types.YLeaf{"InternalErrResps", changeOfAuthorizationStatistics.InternalErrResps}
-    changeOfAuthorizationStatistics.EntityData.Leafs["service-profile-push-failure-resps"] = types.YLeaf{"ServiceProfilePushFailureResps", changeOfAuthorizationStatistics.ServiceProfilePushFailureResps}
-    changeOfAuthorizationStatistics.EntityData.Leafs["no-cmd-resps"] = types.YLeaf{"NoCmdResps", changeOfAuthorizationStatistics.NoCmdResps}
-    changeOfAuthorizationStatistics.EntityData.Leafs["no-session-found-resps"] = types.YLeaf{"NoSessionFoundResps", changeOfAuthorizationStatistics.NoSessionFoundResps}
-    changeOfAuthorizationStatistics.EntityData.Leafs["no-session-peer-resps"] = types.YLeaf{"NoSessionPeerResps", changeOfAuthorizationStatistics.NoSessionPeerResps}
+    changeOfAuthorizationStatistics.EntityData.Children = types.NewOrderedMap()
+    changeOfAuthorizationStatistics.EntityData.Children.Append("account-logon", types.YChild{"AccountLogon", &changeOfAuthorizationStatistics.AccountLogon})
+    changeOfAuthorizationStatistics.EntityData.Children.Append("account-logoff", types.YChild{"AccountLogoff", &changeOfAuthorizationStatistics.AccountLogoff})
+    changeOfAuthorizationStatistics.EntityData.Children.Append("account-update", types.YChild{"AccountUpdate", &changeOfAuthorizationStatistics.AccountUpdate})
+    changeOfAuthorizationStatistics.EntityData.Children.Append("session-disconnect", types.YChild{"SessionDisconnect", &changeOfAuthorizationStatistics.SessionDisconnect})
+    changeOfAuthorizationStatistics.EntityData.Children.Append("single-service-logon", types.YChild{"SingleServiceLogon", &changeOfAuthorizationStatistics.SingleServiceLogon})
+    changeOfAuthorizationStatistics.EntityData.Children.Append("single-service-logoff", types.YChild{"SingleServiceLogoff", &changeOfAuthorizationStatistics.SingleServiceLogoff})
+    changeOfAuthorizationStatistics.EntityData.Children.Append("single-service-modify", types.YChild{"SingleServiceModify", &changeOfAuthorizationStatistics.SingleServiceModify})
+    changeOfAuthorizationStatistics.EntityData.Children.Append("service-multi", types.YChild{"ServiceMulti", &changeOfAuthorizationStatistics.ServiceMulti})
+    changeOfAuthorizationStatistics.EntityData.Leafs = types.NewOrderedMap()
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("unknown-account-cmd-resps", types.YLeaf{"UnknownAccountCmdResps", changeOfAuthorizationStatistics.UnknownAccountCmdResps})
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("unknown-service-cmd-resps", types.YLeaf{"UnknownServiceCmdResps", changeOfAuthorizationStatistics.UnknownServiceCmdResps})
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("unknown-cmd-resps", types.YLeaf{"UnknownCmdResps", changeOfAuthorizationStatistics.UnknownCmdResps})
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("attr-list-retrieve-failure-resps", types.YLeaf{"AttrListRetrieveFailureResps", changeOfAuthorizationStatistics.AttrListRetrieveFailureResps})
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("resp-send-failure", types.YLeaf{"RespSendFailure", changeOfAuthorizationStatistics.RespSendFailure})
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("internal-err-resps", types.YLeaf{"InternalErrResps", changeOfAuthorizationStatistics.InternalErrResps})
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("service-profile-push-failure-resps", types.YLeaf{"ServiceProfilePushFailureResps", changeOfAuthorizationStatistics.ServiceProfilePushFailureResps})
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("no-cmd-resps", types.YLeaf{"NoCmdResps", changeOfAuthorizationStatistics.NoCmdResps})
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("no-session-found-resps", types.YLeaf{"NoSessionFoundResps", changeOfAuthorizationStatistics.NoSessionFoundResps})
+    changeOfAuthorizationStatistics.EntityData.Leafs.Append("no-session-peer-resps", types.YLeaf{"NoSessionPeerResps", changeOfAuthorizationStatistics.NoSessionPeerResps})
+
+    changeOfAuthorizationStatistics.EntityData.YListKeys = []string {}
+
     return &(changeOfAuthorizationStatistics.EntityData)
 }
 
@@ -3422,11 +3596,14 @@ func (accountLogon *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccoun
     accountLogon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountLogon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accountLogon.EntityData.Children = make(map[string]types.YChild)
-    accountLogon.EntityData.Leafs = make(map[string]types.YLeaf)
-    accountLogon.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", accountLogon.ReceivedRequests}
-    accountLogon.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", accountLogon.AcknowledgedRequests}
-    accountLogon.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", accountLogon.NonAcknowledgedRequests}
+    accountLogon.EntityData.Children = types.NewOrderedMap()
+    accountLogon.EntityData.Leafs = types.NewOrderedMap()
+    accountLogon.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", accountLogon.ReceivedRequests})
+    accountLogon.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", accountLogon.AcknowledgedRequests})
+    accountLogon.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", accountLogon.NonAcknowledgedRequests})
+
+    accountLogon.EntityData.YListKeys = []string {}
+
     return &(accountLogon.EntityData)
 }
 
@@ -3459,11 +3636,14 @@ func (accountLogoff *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccou
     accountLogoff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountLogoff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accountLogoff.EntityData.Children = make(map[string]types.YChild)
-    accountLogoff.EntityData.Leafs = make(map[string]types.YLeaf)
-    accountLogoff.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", accountLogoff.ReceivedRequests}
-    accountLogoff.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", accountLogoff.AcknowledgedRequests}
-    accountLogoff.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", accountLogoff.NonAcknowledgedRequests}
+    accountLogoff.EntityData.Children = types.NewOrderedMap()
+    accountLogoff.EntityData.Leafs = types.NewOrderedMap()
+    accountLogoff.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", accountLogoff.ReceivedRequests})
+    accountLogoff.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", accountLogoff.AcknowledgedRequests})
+    accountLogoff.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", accountLogoff.NonAcknowledgedRequests})
+
+    accountLogoff.EntityData.YListKeys = []string {}
+
     return &(accountLogoff.EntityData)
 }
 
@@ -3496,11 +3676,14 @@ func (accountUpdate *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccou
     accountUpdate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountUpdate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accountUpdate.EntityData.Children = make(map[string]types.YChild)
-    accountUpdate.EntityData.Leafs = make(map[string]types.YLeaf)
-    accountUpdate.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", accountUpdate.ReceivedRequests}
-    accountUpdate.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", accountUpdate.AcknowledgedRequests}
-    accountUpdate.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", accountUpdate.NonAcknowledgedRequests}
+    accountUpdate.EntityData.Children = types.NewOrderedMap()
+    accountUpdate.EntityData.Leafs = types.NewOrderedMap()
+    accountUpdate.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", accountUpdate.ReceivedRequests})
+    accountUpdate.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", accountUpdate.AcknowledgedRequests})
+    accountUpdate.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", accountUpdate.NonAcknowledgedRequests})
+
+    accountUpdate.EntityData.YListKeys = []string {}
+
     return &(accountUpdate.EntityData)
 }
 
@@ -3533,11 +3716,14 @@ func (sessionDisconnect *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateA
     sessionDisconnect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDisconnect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionDisconnect.EntityData.Children = make(map[string]types.YChild)
-    sessionDisconnect.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionDisconnect.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", sessionDisconnect.ReceivedRequests}
-    sessionDisconnect.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", sessionDisconnect.AcknowledgedRequests}
-    sessionDisconnect.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", sessionDisconnect.NonAcknowledgedRequests}
+    sessionDisconnect.EntityData.Children = types.NewOrderedMap()
+    sessionDisconnect.EntityData.Leafs = types.NewOrderedMap()
+    sessionDisconnect.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", sessionDisconnect.ReceivedRequests})
+    sessionDisconnect.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", sessionDisconnect.AcknowledgedRequests})
+    sessionDisconnect.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", sessionDisconnect.NonAcknowledgedRequests})
+
+    sessionDisconnect.EntityData.YListKeys = []string {}
+
     return &(sessionDisconnect.EntityData)
 }
 
@@ -3570,11 +3756,14 @@ func (singleServiceLogon *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggregate
     singleServiceLogon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceLogon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    singleServiceLogon.EntityData.Children = make(map[string]types.YChild)
-    singleServiceLogon.EntityData.Leafs = make(map[string]types.YLeaf)
-    singleServiceLogon.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", singleServiceLogon.ReceivedRequests}
-    singleServiceLogon.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", singleServiceLogon.AcknowledgedRequests}
-    singleServiceLogon.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", singleServiceLogon.NonAcknowledgedRequests}
+    singleServiceLogon.EntityData.Children = types.NewOrderedMap()
+    singleServiceLogon.EntityData.Leafs = types.NewOrderedMap()
+    singleServiceLogon.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", singleServiceLogon.ReceivedRequests})
+    singleServiceLogon.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", singleServiceLogon.AcknowledgedRequests})
+    singleServiceLogon.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", singleServiceLogon.NonAcknowledgedRequests})
+
+    singleServiceLogon.EntityData.YListKeys = []string {}
+
     return &(singleServiceLogon.EntityData)
 }
 
@@ -3607,11 +3796,14 @@ func (singleServiceLogoff *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggregat
     singleServiceLogoff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceLogoff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    singleServiceLogoff.EntityData.Children = make(map[string]types.YChild)
-    singleServiceLogoff.EntityData.Leafs = make(map[string]types.YLeaf)
-    singleServiceLogoff.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", singleServiceLogoff.ReceivedRequests}
-    singleServiceLogoff.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", singleServiceLogoff.AcknowledgedRequests}
-    singleServiceLogoff.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", singleServiceLogoff.NonAcknowledgedRequests}
+    singleServiceLogoff.EntityData.Children = types.NewOrderedMap()
+    singleServiceLogoff.EntityData.Leafs = types.NewOrderedMap()
+    singleServiceLogoff.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", singleServiceLogoff.ReceivedRequests})
+    singleServiceLogoff.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", singleServiceLogoff.AcknowledgedRequests})
+    singleServiceLogoff.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", singleServiceLogoff.NonAcknowledgedRequests})
+
+    singleServiceLogoff.EntityData.YListKeys = []string {}
+
     return &(singleServiceLogoff.EntityData)
 }
 
@@ -3644,11 +3836,14 @@ func (singleServiceModify *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggregat
     singleServiceModify.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceModify.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    singleServiceModify.EntityData.Children = make(map[string]types.YChild)
-    singleServiceModify.EntityData.Leafs = make(map[string]types.YLeaf)
-    singleServiceModify.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", singleServiceModify.ReceivedRequests}
-    singleServiceModify.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", singleServiceModify.AcknowledgedRequests}
-    singleServiceModify.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", singleServiceModify.NonAcknowledgedRequests}
+    singleServiceModify.EntityData.Children = types.NewOrderedMap()
+    singleServiceModify.EntityData.Leafs = types.NewOrderedMap()
+    singleServiceModify.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", singleServiceModify.ReceivedRequests})
+    singleServiceModify.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", singleServiceModify.AcknowledgedRequests})
+    singleServiceModify.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", singleServiceModify.NonAcknowledgedRequests})
+
+    singleServiceModify.EntityData.YListKeys = []string {}
+
     return &(singleServiceModify.EntityData)
 }
 
@@ -3681,11 +3876,14 @@ func (serviceMulti *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccoun
     serviceMulti.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceMulti.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceMulti.EntityData.Children = make(map[string]types.YChild)
-    serviceMulti.EntityData.Leafs = make(map[string]types.YLeaf)
-    serviceMulti.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", serviceMulti.ReceivedRequests}
-    serviceMulti.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", serviceMulti.AcknowledgedRequests}
-    serviceMulti.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", serviceMulti.NonAcknowledgedRequests}
+    serviceMulti.EntityData.Children = types.NewOrderedMap()
+    serviceMulti.EntityData.Leafs = types.NewOrderedMap()
+    serviceMulti.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", serviceMulti.ReceivedRequests})
+    serviceMulti.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", serviceMulti.AcknowledgedRequests})
+    serviceMulti.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", serviceMulti.NonAcknowledgedRequests})
+
+    serviceMulti.EntityData.YListKeys = []string {}
+
     return &(serviceMulti.EntityData)
 }
 
@@ -3722,12 +3920,15 @@ func (mobilityStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggregate
     mobilityStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobilityStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mobilityStatistics.EntityData.Children = make(map[string]types.YChild)
-    mobilityStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    mobilityStatistics.EntityData.Leafs["send-request-successes"] = types.YLeaf{"SendRequestSuccesses", mobilityStatistics.SendRequestSuccesses}
-    mobilityStatistics.EntityData.Leafs["send-request-failures"] = types.YLeaf{"SendRequestFailures", mobilityStatistics.SendRequestFailures}
-    mobilityStatistics.EntityData.Leafs["receive-response-successes"] = types.YLeaf{"ReceiveResponseSuccesses", mobilityStatistics.ReceiveResponseSuccesses}
-    mobilityStatistics.EntityData.Leafs["receive-response-failures"] = types.YLeaf{"ReceiveResponseFailures", mobilityStatistics.ReceiveResponseFailures}
+    mobilityStatistics.EntityData.Children = types.NewOrderedMap()
+    mobilityStatistics.EntityData.Leafs = types.NewOrderedMap()
+    mobilityStatistics.EntityData.Leafs.Append("send-request-successes", types.YLeaf{"SendRequestSuccesses", mobilityStatistics.SendRequestSuccesses})
+    mobilityStatistics.EntityData.Leafs.Append("send-request-failures", types.YLeaf{"SendRequestFailures", mobilityStatistics.SendRequestFailures})
+    mobilityStatistics.EntityData.Leafs.Append("receive-response-successes", types.YLeaf{"ReceiveResponseSuccesses", mobilityStatistics.ReceiveResponseSuccesses})
+    mobilityStatistics.EntityData.Leafs.Append("receive-response-failures", types.YLeaf{"ReceiveResponseFailures", mobilityStatistics.ReceiveResponseFailures})
+
+    mobilityStatistics.EntityData.YListKeys = []string {}
+
     return &(mobilityStatistics.EntityData)
 }
 
@@ -3785,19 +3986,22 @@ func (accounting *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounting) GetEn
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accounting.EntityData.Children = make(map[string]types.YChild)
-    accounting.EntityData.Children["start"] = types.YChild{"Start", &accounting.Start}
-    accounting.EntityData.Children["stop"] = types.YChild{"Stop", &accounting.Stop}
-    accounting.EntityData.Children["interim"] = types.YChild{"Interim", &accounting.Interim}
-    accounting.EntityData.Children["pass-through"] = types.YChild{"PassThrough", &accounting.PassThrough}
-    accounting.EntityData.Children["update"] = types.YChild{"Update", &accounting.Update}
-    accounting.EntityData.Children["interim-inflight"] = types.YChild{"InterimInflight", &accounting.InterimInflight}
-    accounting.EntityData.Leafs = make(map[string]types.YLeaf)
-    accounting.EntityData.Leafs["active-sessions"] = types.YLeaf{"ActiveSessions", accounting.ActiveSessions}
-    accounting.EntityData.Leafs["started-sessions"] = types.YLeaf{"StartedSessions", accounting.StartedSessions}
-    accounting.EntityData.Leafs["stopped-sessions"] = types.YLeaf{"StoppedSessions", accounting.StoppedSessions}
-    accounting.EntityData.Leafs["policy-plane-errored-requests"] = types.YLeaf{"PolicyPlaneErroredRequests", accounting.PolicyPlaneErroredRequests}
-    accounting.EntityData.Leafs["policy-plane-unknown-requests"] = types.YLeaf{"PolicyPlaneUnknownRequests", accounting.PolicyPlaneUnknownRequests}
+    accounting.EntityData.Children = types.NewOrderedMap()
+    accounting.EntityData.Children.Append("start", types.YChild{"Start", &accounting.Start})
+    accounting.EntityData.Children.Append("stop", types.YChild{"Stop", &accounting.Stop})
+    accounting.EntityData.Children.Append("interim", types.YChild{"Interim", &accounting.Interim})
+    accounting.EntityData.Children.Append("pass-through", types.YChild{"PassThrough", &accounting.PassThrough})
+    accounting.EntityData.Children.Append("update", types.YChild{"Update", &accounting.Update})
+    accounting.EntityData.Children.Append("interim-inflight", types.YChild{"InterimInflight", &accounting.InterimInflight})
+    accounting.EntityData.Leafs = types.NewOrderedMap()
+    accounting.EntityData.Leafs.Append("active-sessions", types.YLeaf{"ActiveSessions", accounting.ActiveSessions})
+    accounting.EntityData.Leafs.Append("started-sessions", types.YLeaf{"StartedSessions", accounting.StartedSessions})
+    accounting.EntityData.Leafs.Append("stopped-sessions", types.YLeaf{"StoppedSessions", accounting.StoppedSessions})
+    accounting.EntityData.Leafs.Append("policy-plane-errored-requests", types.YLeaf{"PolicyPlaneErroredRequests", accounting.PolicyPlaneErroredRequests})
+    accounting.EntityData.Leafs.Append("policy-plane-unknown-requests", types.YLeaf{"PolicyPlaneUnknownRequests", accounting.PolicyPlaneUnknownRequests})
+
+    accounting.EntityData.YListKeys = []string {}
+
     return &(accounting.EntityData)
 }
 
@@ -3842,14 +4046,17 @@ func (start *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounting_Start) GetE
     start.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     start.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    start.EntityData.Children = make(map[string]types.YChild)
-    start.EntityData.Leafs = make(map[string]types.YLeaf)
-    start.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", start.ReceivedRequests}
-    start.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", start.ErroredRequests}
-    start.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", start.AaaErroredRequests}
-    start.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", start.AaaSentRequests}
-    start.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", start.AaaSucceededResponses}
-    start.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", start.AaaFailedResponses}
+    start.EntityData.Children = types.NewOrderedMap()
+    start.EntityData.Leafs = types.NewOrderedMap()
+    start.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", start.ReceivedRequests})
+    start.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", start.ErroredRequests})
+    start.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", start.AaaErroredRequests})
+    start.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", start.AaaSentRequests})
+    start.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", start.AaaSucceededResponses})
+    start.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", start.AaaFailedResponses})
+
+    start.EntityData.YListKeys = []string {}
+
     return &(start.EntityData)
 }
 
@@ -3894,14 +4101,17 @@ func (stop *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounting_Stop) GetEnt
     stop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stop.EntityData.Children = make(map[string]types.YChild)
-    stop.EntityData.Leafs = make(map[string]types.YLeaf)
-    stop.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", stop.ReceivedRequests}
-    stop.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", stop.ErroredRequests}
-    stop.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", stop.AaaErroredRequests}
-    stop.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", stop.AaaSentRequests}
-    stop.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", stop.AaaSucceededResponses}
-    stop.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", stop.AaaFailedResponses}
+    stop.EntityData.Children = types.NewOrderedMap()
+    stop.EntityData.Leafs = types.NewOrderedMap()
+    stop.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", stop.ReceivedRequests})
+    stop.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", stop.ErroredRequests})
+    stop.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", stop.AaaErroredRequests})
+    stop.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", stop.AaaSentRequests})
+    stop.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", stop.AaaSucceededResponses})
+    stop.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", stop.AaaFailedResponses})
+
+    stop.EntityData.YListKeys = []string {}
+
     return &(stop.EntityData)
 }
 
@@ -3946,14 +4156,17 @@ func (interim *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounting_Interim) 
     interim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interim.EntityData.Children = make(map[string]types.YChild)
-    interim.EntityData.Leafs = make(map[string]types.YLeaf)
-    interim.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", interim.ReceivedRequests}
-    interim.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", interim.ErroredRequests}
-    interim.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", interim.AaaErroredRequests}
-    interim.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", interim.AaaSentRequests}
-    interim.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", interim.AaaSucceededResponses}
-    interim.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", interim.AaaFailedResponses}
+    interim.EntityData.Children = types.NewOrderedMap()
+    interim.EntityData.Leafs = types.NewOrderedMap()
+    interim.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", interim.ReceivedRequests})
+    interim.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", interim.ErroredRequests})
+    interim.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", interim.AaaErroredRequests})
+    interim.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", interim.AaaSentRequests})
+    interim.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", interim.AaaSucceededResponses})
+    interim.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", interim.AaaFailedResponses})
+
+    interim.EntityData.YListKeys = []string {}
+
     return &(interim.EntityData)
 }
 
@@ -3998,14 +4211,17 @@ func (passThrough *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounting_PassT
     passThrough.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     passThrough.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    passThrough.EntityData.Children = make(map[string]types.YChild)
-    passThrough.EntityData.Leafs = make(map[string]types.YLeaf)
-    passThrough.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", passThrough.ReceivedRequests}
-    passThrough.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", passThrough.ErroredRequests}
-    passThrough.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", passThrough.AaaErroredRequests}
-    passThrough.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", passThrough.AaaSentRequests}
-    passThrough.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", passThrough.AaaSucceededResponses}
-    passThrough.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", passThrough.AaaFailedResponses}
+    passThrough.EntityData.Children = types.NewOrderedMap()
+    passThrough.EntityData.Leafs = types.NewOrderedMap()
+    passThrough.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", passThrough.ReceivedRequests})
+    passThrough.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", passThrough.ErroredRequests})
+    passThrough.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", passThrough.AaaErroredRequests})
+    passThrough.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", passThrough.AaaSentRequests})
+    passThrough.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", passThrough.AaaSucceededResponses})
+    passThrough.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", passThrough.AaaFailedResponses})
+
+    passThrough.EntityData.YListKeys = []string {}
+
     return &(passThrough.EntityData)
 }
 
@@ -4050,14 +4266,17 @@ func (update *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounting_Update) Ge
     update.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     update.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    update.EntityData.Children = make(map[string]types.YChild)
-    update.EntityData.Leafs = make(map[string]types.YLeaf)
-    update.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", update.ReceivedRequests}
-    update.EntityData.Leafs["errored-requests"] = types.YLeaf{"ErroredRequests", update.ErroredRequests}
-    update.EntityData.Leafs["aaa-errored-requests"] = types.YLeaf{"AaaErroredRequests", update.AaaErroredRequests}
-    update.EntityData.Leafs["aaa-sent-requests"] = types.YLeaf{"AaaSentRequests", update.AaaSentRequests}
-    update.EntityData.Leafs["aaa-succeeded-responses"] = types.YLeaf{"AaaSucceededResponses", update.AaaSucceededResponses}
-    update.EntityData.Leafs["aaa-failed-responses"] = types.YLeaf{"AaaFailedResponses", update.AaaFailedResponses}
+    update.EntityData.Children = types.NewOrderedMap()
+    update.EntityData.Leafs = types.NewOrderedMap()
+    update.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", update.ReceivedRequests})
+    update.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", update.ErroredRequests})
+    update.EntityData.Leafs.Append("aaa-errored-requests", types.YLeaf{"AaaErroredRequests", update.AaaErroredRequests})
+    update.EntityData.Leafs.Append("aaa-sent-requests", types.YLeaf{"AaaSentRequests", update.AaaSentRequests})
+    update.EntityData.Leafs.Append("aaa-succeeded-responses", types.YLeaf{"AaaSucceededResponses", update.AaaSucceededResponses})
+    update.EntityData.Leafs.Append("aaa-failed-responses", types.YLeaf{"AaaFailedResponses", update.AaaFailedResponses})
+
+    update.EntityData.YListKeys = []string {}
+
     return &(update.EntityData)
 }
 
@@ -4098,14 +4317,17 @@ func (interimInflight *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounting_I
     interimInflight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interimInflight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interimInflight.EntityData.Children = make(map[string]types.YChild)
-    interimInflight.EntityData.Leafs = make(map[string]types.YLeaf)
-    interimInflight.EntityData.Leafs["quota-exhausts"] = types.YLeaf{"QuotaExhausts", interimInflight.QuotaExhausts}
-    interimInflight.EntityData.Leafs["denied-requests"] = types.YLeaf{"DeniedRequests", interimInflight.DeniedRequests}
-    interimInflight.EntityData.Leafs["accepted-requests"] = types.YLeaf{"AcceptedRequests", interimInflight.AcceptedRequests}
-    interimInflight.EntityData.Leafs["total-quota-of-requests"] = types.YLeaf{"TotalQuotaOfRequests", interimInflight.TotalQuotaOfRequests}
-    interimInflight.EntityData.Leafs["remaining-quota-of-requests"] = types.YLeaf{"RemainingQuotaOfRequests", interimInflight.RemainingQuotaOfRequests}
-    interimInflight.EntityData.Leafs["low-water-mark-quota-of-requests"] = types.YLeaf{"LowWaterMarkQuotaOfRequests", interimInflight.LowWaterMarkQuotaOfRequests}
+    interimInflight.EntityData.Children = types.NewOrderedMap()
+    interimInflight.EntityData.Leafs = types.NewOrderedMap()
+    interimInflight.EntityData.Leafs.Append("quota-exhausts", types.YLeaf{"QuotaExhausts", interimInflight.QuotaExhausts})
+    interimInflight.EntityData.Leafs.Append("denied-requests", types.YLeaf{"DeniedRequests", interimInflight.DeniedRequests})
+    interimInflight.EntityData.Leafs.Append("accepted-requests", types.YLeaf{"AcceptedRequests", interimInflight.AcceptedRequests})
+    interimInflight.EntityData.Leafs.Append("total-quota-of-requests", types.YLeaf{"TotalQuotaOfRequests", interimInflight.TotalQuotaOfRequests})
+    interimInflight.EntityData.Leafs.Append("remaining-quota-of-requests", types.YLeaf{"RemainingQuotaOfRequests", interimInflight.RemainingQuotaOfRequests})
+    interimInflight.EntityData.Leafs.Append("low-water-mark-quota-of-requests", types.YLeaf{"LowWaterMarkQuotaOfRequests", interimInflight.LowWaterMarkQuotaOfRequests})
+
+    interimInflight.EntityData.YListKeys = []string {}
+
     return &(interimInflight.EntityData)
 }
 
@@ -4142,12 +4364,15 @@ func (mobility *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Mobility) GetEntity
     mobility.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobility.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mobility.EntityData.Children = make(map[string]types.YChild)
-    mobility.EntityData.Leafs = make(map[string]types.YLeaf)
-    mobility.EntityData.Leafs["send-request-successes"] = types.YLeaf{"SendRequestSuccesses", mobility.SendRequestSuccesses}
-    mobility.EntityData.Leafs["send-request-failures"] = types.YLeaf{"SendRequestFailures", mobility.SendRequestFailures}
-    mobility.EntityData.Leafs["receive-response-successes"] = types.YLeaf{"ReceiveResponseSuccesses", mobility.ReceiveResponseSuccesses}
-    mobility.EntityData.Leafs["receive-response-failures"] = types.YLeaf{"ReceiveResponseFailures", mobility.ReceiveResponseFailures}
+    mobility.EntityData.Children = types.NewOrderedMap()
+    mobility.EntityData.Leafs = types.NewOrderedMap()
+    mobility.EntityData.Leafs.Append("send-request-successes", types.YLeaf{"SendRequestSuccesses", mobility.SendRequestSuccesses})
+    mobility.EntityData.Leafs.Append("send-request-failures", types.YLeaf{"SendRequestFailures", mobility.SendRequestFailures})
+    mobility.EntityData.Leafs.Append("receive-response-successes", types.YLeaf{"ReceiveResponseSuccesses", mobility.ReceiveResponseSuccesses})
+    mobility.EntityData.Leafs.Append("receive-response-failures", types.YLeaf{"ReceiveResponseFailures", mobility.ReceiveResponseFailures})
+
+    mobility.EntityData.YListKeys = []string {}
+
     return &(mobility.EntityData)
 }
 
@@ -4233,26 +4458,29 @@ func (aggregateChangeOfAuthorization *Subscriber_Manager_Nodes_Node_Statistics_A
     aggregateChangeOfAuthorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateChangeOfAuthorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aggregateChangeOfAuthorization.EntityData.Children = make(map[string]types.YChild)
-    aggregateChangeOfAuthorization.EntityData.Children["account-logon"] = types.YChild{"AccountLogon", &aggregateChangeOfAuthorization.AccountLogon}
-    aggregateChangeOfAuthorization.EntityData.Children["account-logoff"] = types.YChild{"AccountLogoff", &aggregateChangeOfAuthorization.AccountLogoff}
-    aggregateChangeOfAuthorization.EntityData.Children["account-update"] = types.YChild{"AccountUpdate", &aggregateChangeOfAuthorization.AccountUpdate}
-    aggregateChangeOfAuthorization.EntityData.Children["session-disconnect"] = types.YChild{"SessionDisconnect", &aggregateChangeOfAuthorization.SessionDisconnect}
-    aggregateChangeOfAuthorization.EntityData.Children["single-service-logon"] = types.YChild{"SingleServiceLogon", &aggregateChangeOfAuthorization.SingleServiceLogon}
-    aggregateChangeOfAuthorization.EntityData.Children["single-service-logoff"] = types.YChild{"SingleServiceLogoff", &aggregateChangeOfAuthorization.SingleServiceLogoff}
-    aggregateChangeOfAuthorization.EntityData.Children["single-service-modify"] = types.YChild{"SingleServiceModify", &aggregateChangeOfAuthorization.SingleServiceModify}
-    aggregateChangeOfAuthorization.EntityData.Children["service-multi"] = types.YChild{"ServiceMulti", &aggregateChangeOfAuthorization.ServiceMulti}
-    aggregateChangeOfAuthorization.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggregateChangeOfAuthorization.EntityData.Leafs["unknown-account-cmd-resps"] = types.YLeaf{"UnknownAccountCmdResps", aggregateChangeOfAuthorization.UnknownAccountCmdResps}
-    aggregateChangeOfAuthorization.EntityData.Leafs["unknown-service-cmd-resps"] = types.YLeaf{"UnknownServiceCmdResps", aggregateChangeOfAuthorization.UnknownServiceCmdResps}
-    aggregateChangeOfAuthorization.EntityData.Leafs["unknown-cmd-resps"] = types.YLeaf{"UnknownCmdResps", aggregateChangeOfAuthorization.UnknownCmdResps}
-    aggregateChangeOfAuthorization.EntityData.Leafs["attr-list-retrieve-failure-resps"] = types.YLeaf{"AttrListRetrieveFailureResps", aggregateChangeOfAuthorization.AttrListRetrieveFailureResps}
-    aggregateChangeOfAuthorization.EntityData.Leafs["resp-send-failure"] = types.YLeaf{"RespSendFailure", aggregateChangeOfAuthorization.RespSendFailure}
-    aggregateChangeOfAuthorization.EntityData.Leafs["internal-err-resps"] = types.YLeaf{"InternalErrResps", aggregateChangeOfAuthorization.InternalErrResps}
-    aggregateChangeOfAuthorization.EntityData.Leafs["service-profile-push-failure-resps"] = types.YLeaf{"ServiceProfilePushFailureResps", aggregateChangeOfAuthorization.ServiceProfilePushFailureResps}
-    aggregateChangeOfAuthorization.EntityData.Leafs["no-cmd-resps"] = types.YLeaf{"NoCmdResps", aggregateChangeOfAuthorization.NoCmdResps}
-    aggregateChangeOfAuthorization.EntityData.Leafs["no-session-found-resps"] = types.YLeaf{"NoSessionFoundResps", aggregateChangeOfAuthorization.NoSessionFoundResps}
-    aggregateChangeOfAuthorization.EntityData.Leafs["no-session-peer-resps"] = types.YLeaf{"NoSessionPeerResps", aggregateChangeOfAuthorization.NoSessionPeerResps}
+    aggregateChangeOfAuthorization.EntityData.Children = types.NewOrderedMap()
+    aggregateChangeOfAuthorization.EntityData.Children.Append("account-logon", types.YChild{"AccountLogon", &aggregateChangeOfAuthorization.AccountLogon})
+    aggregateChangeOfAuthorization.EntityData.Children.Append("account-logoff", types.YChild{"AccountLogoff", &aggregateChangeOfAuthorization.AccountLogoff})
+    aggregateChangeOfAuthorization.EntityData.Children.Append("account-update", types.YChild{"AccountUpdate", &aggregateChangeOfAuthorization.AccountUpdate})
+    aggregateChangeOfAuthorization.EntityData.Children.Append("session-disconnect", types.YChild{"SessionDisconnect", &aggregateChangeOfAuthorization.SessionDisconnect})
+    aggregateChangeOfAuthorization.EntityData.Children.Append("single-service-logon", types.YChild{"SingleServiceLogon", &aggregateChangeOfAuthorization.SingleServiceLogon})
+    aggregateChangeOfAuthorization.EntityData.Children.Append("single-service-logoff", types.YChild{"SingleServiceLogoff", &aggregateChangeOfAuthorization.SingleServiceLogoff})
+    aggregateChangeOfAuthorization.EntityData.Children.Append("single-service-modify", types.YChild{"SingleServiceModify", &aggregateChangeOfAuthorization.SingleServiceModify})
+    aggregateChangeOfAuthorization.EntityData.Children.Append("service-multi", types.YChild{"ServiceMulti", &aggregateChangeOfAuthorization.ServiceMulti})
+    aggregateChangeOfAuthorization.EntityData.Leafs = types.NewOrderedMap()
+    aggregateChangeOfAuthorization.EntityData.Leafs.Append("unknown-account-cmd-resps", types.YLeaf{"UnknownAccountCmdResps", aggregateChangeOfAuthorization.UnknownAccountCmdResps})
+    aggregateChangeOfAuthorization.EntityData.Leafs.Append("unknown-service-cmd-resps", types.YLeaf{"UnknownServiceCmdResps", aggregateChangeOfAuthorization.UnknownServiceCmdResps})
+    aggregateChangeOfAuthorization.EntityData.Leafs.Append("unknown-cmd-resps", types.YLeaf{"UnknownCmdResps", aggregateChangeOfAuthorization.UnknownCmdResps})
+    aggregateChangeOfAuthorization.EntityData.Leafs.Append("attr-list-retrieve-failure-resps", types.YLeaf{"AttrListRetrieveFailureResps", aggregateChangeOfAuthorization.AttrListRetrieveFailureResps})
+    aggregateChangeOfAuthorization.EntityData.Leafs.Append("resp-send-failure", types.YLeaf{"RespSendFailure", aggregateChangeOfAuthorization.RespSendFailure})
+    aggregateChangeOfAuthorization.EntityData.Leafs.Append("internal-err-resps", types.YLeaf{"InternalErrResps", aggregateChangeOfAuthorization.InternalErrResps})
+    aggregateChangeOfAuthorization.EntityData.Leafs.Append("service-profile-push-failure-resps", types.YLeaf{"ServiceProfilePushFailureResps", aggregateChangeOfAuthorization.ServiceProfilePushFailureResps})
+    aggregateChangeOfAuthorization.EntityData.Leafs.Append("no-cmd-resps", types.YLeaf{"NoCmdResps", aggregateChangeOfAuthorization.NoCmdResps})
+    aggregateChangeOfAuthorization.EntityData.Leafs.Append("no-session-found-resps", types.YLeaf{"NoSessionFoundResps", aggregateChangeOfAuthorization.NoSessionFoundResps})
+    aggregateChangeOfAuthorization.EntityData.Leafs.Append("no-session-peer-resps", types.YLeaf{"NoSessionPeerResps", aggregateChangeOfAuthorization.NoSessionPeerResps})
+
+    aggregateChangeOfAuthorization.EntityData.YListKeys = []string {}
+
     return &(aggregateChangeOfAuthorization.EntityData)
 }
 
@@ -4285,11 +4513,14 @@ func (accountLogon *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateChange
     accountLogon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountLogon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accountLogon.EntityData.Children = make(map[string]types.YChild)
-    accountLogon.EntityData.Leafs = make(map[string]types.YLeaf)
-    accountLogon.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", accountLogon.ReceivedRequests}
-    accountLogon.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", accountLogon.AcknowledgedRequests}
-    accountLogon.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", accountLogon.NonAcknowledgedRequests}
+    accountLogon.EntityData.Children = types.NewOrderedMap()
+    accountLogon.EntityData.Leafs = types.NewOrderedMap()
+    accountLogon.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", accountLogon.ReceivedRequests})
+    accountLogon.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", accountLogon.AcknowledgedRequests})
+    accountLogon.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", accountLogon.NonAcknowledgedRequests})
+
+    accountLogon.EntityData.YListKeys = []string {}
+
     return &(accountLogon.EntityData)
 }
 
@@ -4322,11 +4553,14 @@ func (accountLogoff *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateChang
     accountLogoff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountLogoff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accountLogoff.EntityData.Children = make(map[string]types.YChild)
-    accountLogoff.EntityData.Leafs = make(map[string]types.YLeaf)
-    accountLogoff.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", accountLogoff.ReceivedRequests}
-    accountLogoff.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", accountLogoff.AcknowledgedRequests}
-    accountLogoff.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", accountLogoff.NonAcknowledgedRequests}
+    accountLogoff.EntityData.Children = types.NewOrderedMap()
+    accountLogoff.EntityData.Leafs = types.NewOrderedMap()
+    accountLogoff.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", accountLogoff.ReceivedRequests})
+    accountLogoff.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", accountLogoff.AcknowledgedRequests})
+    accountLogoff.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", accountLogoff.NonAcknowledgedRequests})
+
+    accountLogoff.EntityData.YListKeys = []string {}
+
     return &(accountLogoff.EntityData)
 }
 
@@ -4359,11 +4593,14 @@ func (accountUpdate *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateChang
     accountUpdate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountUpdate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accountUpdate.EntityData.Children = make(map[string]types.YChild)
-    accountUpdate.EntityData.Leafs = make(map[string]types.YLeaf)
-    accountUpdate.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", accountUpdate.ReceivedRequests}
-    accountUpdate.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", accountUpdate.AcknowledgedRequests}
-    accountUpdate.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", accountUpdate.NonAcknowledgedRequests}
+    accountUpdate.EntityData.Children = types.NewOrderedMap()
+    accountUpdate.EntityData.Leafs = types.NewOrderedMap()
+    accountUpdate.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", accountUpdate.ReceivedRequests})
+    accountUpdate.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", accountUpdate.AcknowledgedRequests})
+    accountUpdate.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", accountUpdate.NonAcknowledgedRequests})
+
+    accountUpdate.EntityData.YListKeys = []string {}
+
     return &(accountUpdate.EntityData)
 }
 
@@ -4396,11 +4633,14 @@ func (sessionDisconnect *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateC
     sessionDisconnect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDisconnect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionDisconnect.EntityData.Children = make(map[string]types.YChild)
-    sessionDisconnect.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionDisconnect.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", sessionDisconnect.ReceivedRequests}
-    sessionDisconnect.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", sessionDisconnect.AcknowledgedRequests}
-    sessionDisconnect.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", sessionDisconnect.NonAcknowledgedRequests}
+    sessionDisconnect.EntityData.Children = types.NewOrderedMap()
+    sessionDisconnect.EntityData.Leafs = types.NewOrderedMap()
+    sessionDisconnect.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", sessionDisconnect.ReceivedRequests})
+    sessionDisconnect.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", sessionDisconnect.AcknowledgedRequests})
+    sessionDisconnect.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", sessionDisconnect.NonAcknowledgedRequests})
+
+    sessionDisconnect.EntityData.YListKeys = []string {}
+
     return &(sessionDisconnect.EntityData)
 }
 
@@ -4433,11 +4673,14 @@ func (singleServiceLogon *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggregate
     singleServiceLogon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceLogon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    singleServiceLogon.EntityData.Children = make(map[string]types.YChild)
-    singleServiceLogon.EntityData.Leafs = make(map[string]types.YLeaf)
-    singleServiceLogon.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", singleServiceLogon.ReceivedRequests}
-    singleServiceLogon.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", singleServiceLogon.AcknowledgedRequests}
-    singleServiceLogon.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", singleServiceLogon.NonAcknowledgedRequests}
+    singleServiceLogon.EntityData.Children = types.NewOrderedMap()
+    singleServiceLogon.EntityData.Leafs = types.NewOrderedMap()
+    singleServiceLogon.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", singleServiceLogon.ReceivedRequests})
+    singleServiceLogon.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", singleServiceLogon.AcknowledgedRequests})
+    singleServiceLogon.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", singleServiceLogon.NonAcknowledgedRequests})
+
+    singleServiceLogon.EntityData.YListKeys = []string {}
+
     return &(singleServiceLogon.EntityData)
 }
 
@@ -4470,11 +4713,14 @@ func (singleServiceLogoff *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggregat
     singleServiceLogoff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceLogoff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    singleServiceLogoff.EntityData.Children = make(map[string]types.YChild)
-    singleServiceLogoff.EntityData.Leafs = make(map[string]types.YLeaf)
-    singleServiceLogoff.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", singleServiceLogoff.ReceivedRequests}
-    singleServiceLogoff.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", singleServiceLogoff.AcknowledgedRequests}
-    singleServiceLogoff.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", singleServiceLogoff.NonAcknowledgedRequests}
+    singleServiceLogoff.EntityData.Children = types.NewOrderedMap()
+    singleServiceLogoff.EntityData.Leafs = types.NewOrderedMap()
+    singleServiceLogoff.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", singleServiceLogoff.ReceivedRequests})
+    singleServiceLogoff.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", singleServiceLogoff.AcknowledgedRequests})
+    singleServiceLogoff.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", singleServiceLogoff.NonAcknowledgedRequests})
+
+    singleServiceLogoff.EntityData.YListKeys = []string {}
+
     return &(singleServiceLogoff.EntityData)
 }
 
@@ -4507,11 +4753,14 @@ func (singleServiceModify *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggregat
     singleServiceModify.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceModify.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    singleServiceModify.EntityData.Children = make(map[string]types.YChild)
-    singleServiceModify.EntityData.Leafs = make(map[string]types.YLeaf)
-    singleServiceModify.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", singleServiceModify.ReceivedRequests}
-    singleServiceModify.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", singleServiceModify.AcknowledgedRequests}
-    singleServiceModify.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", singleServiceModify.NonAcknowledgedRequests}
+    singleServiceModify.EntityData.Children = types.NewOrderedMap()
+    singleServiceModify.EntityData.Leafs = types.NewOrderedMap()
+    singleServiceModify.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", singleServiceModify.ReceivedRequests})
+    singleServiceModify.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", singleServiceModify.AcknowledgedRequests})
+    singleServiceModify.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", singleServiceModify.NonAcknowledgedRequests})
+
+    singleServiceModify.EntityData.YListKeys = []string {}
+
     return &(singleServiceModify.EntityData)
 }
 
@@ -4544,11 +4793,14 @@ func (serviceMulti *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateChange
     serviceMulti.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceMulti.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceMulti.EntityData.Children = make(map[string]types.YChild)
-    serviceMulti.EntityData.Leafs = make(map[string]types.YLeaf)
-    serviceMulti.EntityData.Leafs["received-requests"] = types.YLeaf{"ReceivedRequests", serviceMulti.ReceivedRequests}
-    serviceMulti.EntityData.Leafs["acknowledged-requests"] = types.YLeaf{"AcknowledgedRequests", serviceMulti.AcknowledgedRequests}
-    serviceMulti.EntityData.Leafs["non-acknowledged-requests"] = types.YLeaf{"NonAcknowledgedRequests", serviceMulti.NonAcknowledgedRequests}
+    serviceMulti.EntityData.Children = types.NewOrderedMap()
+    serviceMulti.EntityData.Leafs = types.NewOrderedMap()
+    serviceMulti.EntityData.Leafs.Append("received-requests", types.YLeaf{"ReceivedRequests", serviceMulti.ReceivedRequests})
+    serviceMulti.EntityData.Leafs.Append("acknowledged-requests", types.YLeaf{"AcknowledgedRequests", serviceMulti.AcknowledgedRequests})
+    serviceMulti.EntityData.Leafs.Append("non-acknowledged-requests", types.YLeaf{"NonAcknowledgedRequests", serviceMulti.NonAcknowledgedRequests})
+
+    serviceMulti.EntityData.YListKeys = []string {}
+
     return &(serviceMulti.EntityData)
 }
 
@@ -4645,27 +4897,30 @@ func (aggregateSummary *Subscriber_Manager_Nodes_Node_Statistics_AggregateSummar
     aggregateSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aggregateSummary.EntityData.Children = make(map[string]types.YChild)
-    aggregateSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggregateSummary.EntityData.Leafs["no-subscriber-control-policy-on-interface"] = types.YLeaf{"NoSubscriberControlPolicyOnInterface", aggregateSummary.NoSubscriberControlPolicyOnInterface}
-    aggregateSummary.EntityData.Leafs["no-class-match-in-start-request"] = types.YLeaf{"NoClassMatchInStartRequest", aggregateSummary.NoClassMatchInStartRequest}
-    aggregateSummary.EntityData.Leafs["nas-port-attribute-format-warnings"] = types.YLeaf{"NasPortAttributeFormatWarnings", aggregateSummary.NasPortAttributeFormatWarnings}
-    aggregateSummary.EntityData.Leafs["nas-port-id-attribute-format-warnings"] = types.YLeaf{"NasPortIdAttributeFormatWarnings", aggregateSummary.NasPortIdAttributeFormatWarnings}
-    aggregateSummary.EntityData.Leafs["destination-station-id-attribute-format-warnings"] = types.YLeaf{"DestinationStationIdAttributeFormatWarnings", aggregateSummary.DestinationStationIdAttributeFormatWarnings}
-    aggregateSummary.EntityData.Leafs["calling-station-id-attribute-format-warnings"] = types.YLeaf{"CallingStationIdAttributeFormatWarnings", aggregateSummary.CallingStationIdAttributeFormatWarnings}
-    aggregateSummary.EntityData.Leafs["username-attribute-format-warnings"] = types.YLeaf{"UsernameAttributeFormatWarnings", aggregateSummary.UsernameAttributeFormatWarnings}
-    aggregateSummary.EntityData.Leafs["install-user-profiles"] = types.YLeaf{"InstallUserProfiles", aggregateSummary.InstallUserProfiles}
-    aggregateSummary.EntityData.Leafs["user-profile-install-errors"] = types.YLeaf{"UserProfileInstallErrors", aggregateSummary.UserProfileInstallErrors}
-    aggregateSummary.EntityData.Leafs["user-profile-removals"] = types.YLeaf{"UserProfileRemovals", aggregateSummary.UserProfileRemovals}
-    aggregateSummary.EntityData.Leafs["user-profile-errors"] = types.YLeaf{"UserProfileErrors", aggregateSummary.UserProfileErrors}
-    aggregateSummary.EntityData.Leafs["sess-disc-quota-exhausts"] = types.YLeaf{"SessDiscQuotaExhausts", aggregateSummary.SessDiscQuotaExhausts}
-    aggregateSummary.EntityData.Leafs["sess-disc-no-quota"] = types.YLeaf{"SessDiscNoQuota", aggregateSummary.SessDiscNoQuota}
-    aggregateSummary.EntityData.Leafs["sess-disc-quota-avail"] = types.YLeaf{"SessDiscQuotaAvail", aggregateSummary.SessDiscQuotaAvail}
-    aggregateSummary.EntityData.Leafs["sess-disc-recon-ip"] = types.YLeaf{"SessDiscReconIp", aggregateSummary.SessDiscReconIp}
-    aggregateSummary.EntityData.Leafs["sess-disc-none-started"] = types.YLeaf{"SessDiscNoneStarted", aggregateSummary.SessDiscNoneStarted}
-    aggregateSummary.EntityData.Leafs["sess-disc-quota"] = types.YLeaf{"SessDiscQuota", aggregateSummary.SessDiscQuota}
-    aggregateSummary.EntityData.Leafs["sess-disc-quota-remaining"] = types.YLeaf{"SessDiscQuotaRemaining", aggregateSummary.SessDiscQuotaRemaining}
-    aggregateSummary.EntityData.Leafs["sess-disc-q-count"] = types.YLeaf{"SessDiscQCount", aggregateSummary.SessDiscQCount}
+    aggregateSummary.EntityData.Children = types.NewOrderedMap()
+    aggregateSummary.EntityData.Leafs = types.NewOrderedMap()
+    aggregateSummary.EntityData.Leafs.Append("no-subscriber-control-policy-on-interface", types.YLeaf{"NoSubscriberControlPolicyOnInterface", aggregateSummary.NoSubscriberControlPolicyOnInterface})
+    aggregateSummary.EntityData.Leafs.Append("no-class-match-in-start-request", types.YLeaf{"NoClassMatchInStartRequest", aggregateSummary.NoClassMatchInStartRequest})
+    aggregateSummary.EntityData.Leafs.Append("nas-port-attribute-format-warnings", types.YLeaf{"NasPortAttributeFormatWarnings", aggregateSummary.NasPortAttributeFormatWarnings})
+    aggregateSummary.EntityData.Leafs.Append("nas-port-id-attribute-format-warnings", types.YLeaf{"NasPortIdAttributeFormatWarnings", aggregateSummary.NasPortIdAttributeFormatWarnings})
+    aggregateSummary.EntityData.Leafs.Append("destination-station-id-attribute-format-warnings", types.YLeaf{"DestinationStationIdAttributeFormatWarnings", aggregateSummary.DestinationStationIdAttributeFormatWarnings})
+    aggregateSummary.EntityData.Leafs.Append("calling-station-id-attribute-format-warnings", types.YLeaf{"CallingStationIdAttributeFormatWarnings", aggregateSummary.CallingStationIdAttributeFormatWarnings})
+    aggregateSummary.EntityData.Leafs.Append("username-attribute-format-warnings", types.YLeaf{"UsernameAttributeFormatWarnings", aggregateSummary.UsernameAttributeFormatWarnings})
+    aggregateSummary.EntityData.Leafs.Append("install-user-profiles", types.YLeaf{"InstallUserProfiles", aggregateSummary.InstallUserProfiles})
+    aggregateSummary.EntityData.Leafs.Append("user-profile-install-errors", types.YLeaf{"UserProfileInstallErrors", aggregateSummary.UserProfileInstallErrors})
+    aggregateSummary.EntityData.Leafs.Append("user-profile-removals", types.YLeaf{"UserProfileRemovals", aggregateSummary.UserProfileRemovals})
+    aggregateSummary.EntityData.Leafs.Append("user-profile-errors", types.YLeaf{"UserProfileErrors", aggregateSummary.UserProfileErrors})
+    aggregateSummary.EntityData.Leafs.Append("sess-disc-quota-exhausts", types.YLeaf{"SessDiscQuotaExhausts", aggregateSummary.SessDiscQuotaExhausts})
+    aggregateSummary.EntityData.Leafs.Append("sess-disc-no-quota", types.YLeaf{"SessDiscNoQuota", aggregateSummary.SessDiscNoQuota})
+    aggregateSummary.EntityData.Leafs.Append("sess-disc-quota-avail", types.YLeaf{"SessDiscQuotaAvail", aggregateSummary.SessDiscQuotaAvail})
+    aggregateSummary.EntityData.Leafs.Append("sess-disc-recon-ip", types.YLeaf{"SessDiscReconIp", aggregateSummary.SessDiscReconIp})
+    aggregateSummary.EntityData.Leafs.Append("sess-disc-none-started", types.YLeaf{"SessDiscNoneStarted", aggregateSummary.SessDiscNoneStarted})
+    aggregateSummary.EntityData.Leafs.Append("sess-disc-quota", types.YLeaf{"SessDiscQuota", aggregateSummary.SessDiscQuota})
+    aggregateSummary.EntityData.Leafs.Append("sess-disc-quota-remaining", types.YLeaf{"SessDiscQuotaRemaining", aggregateSummary.SessDiscQuotaRemaining})
+    aggregateSummary.EntityData.Leafs.Append("sess-disc-q-count", types.YLeaf{"SessDiscQCount", aggregateSummary.SessDiscQCount})
+
+    aggregateSummary.EntityData.YListKeys = []string {}
+
     return &(aggregateSummary.EntityData)
 }
 
@@ -4880,60 +5135,63 @@ func (srg *Subscriber_Manager_Nodes_Node_Statistics_Srg) GetEntityData() *types.
     srg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    srg.EntityData.Children = make(map[string]types.YChild)
-    srg.EntityData.Leafs = make(map[string]types.YLeaf)
-    srg.EntityData.Leafs["txlist-send-triggered"] = types.YLeaf{"TxlistSendTriggered", srg.TxlistSendTriggered}
-    srg.EntityData.Leafs["txlist-send-failed"] = types.YLeaf{"TxlistSendFailed", srg.TxlistSendFailed}
-    srg.EntityData.Leafs["txlist-send-failed-notactive"] = types.YLeaf{"TxlistSendFailedNotactive", srg.TxlistSendFailedNotactive}
-    srg.EntityData.Leafs["actual-txlist-sent"] = types.YLeaf{"ActualTxlistSent", srg.ActualTxlistSent}
-    srg.EntityData.Leafs["alreadyin-txlist"] = types.YLeaf{"AlreadyinTxlist", srg.AlreadyinTxlist}
-    srg.EntityData.Leafs["txlist-encode"] = types.YLeaf{"TxlistEncode", srg.TxlistEncode}
-    srg.EntityData.Leafs["txlist-encode-fail"] = types.YLeaf{"TxlistEncodeFail", srg.TxlistEncodeFail}
-    srg.EntityData.Leafs["create-update-encode"] = types.YLeaf{"CreateUpdateEncode", srg.CreateUpdateEncode}
-    srg.EntityData.Leafs["delete-encode"] = types.YLeaf{"DeleteEncode", srg.DeleteEncode}
-    srg.EntityData.Leafs["create-upd-clean-callback"] = types.YLeaf{"CreateUpdCleanCallback", srg.CreateUpdCleanCallback}
-    srg.EntityData.Leafs["delete-clean-callback"] = types.YLeaf{"DeleteCleanCallback", srg.DeleteCleanCallback}
-    srg.EntityData.Leafs["slave-recv-entry"] = types.YLeaf{"SlaveRecvEntry", srg.SlaveRecvEntry}
-    srg.EntityData.Leafs["slave-decode-fail"] = types.YLeaf{"SlaveDecodeFail", srg.SlaveDecodeFail}
-    srg.EntityData.Leafs["slave-create-update"] = types.YLeaf{"SlaveCreateUpdate", srg.SlaveCreateUpdate}
-    srg.EntityData.Leafs["slave-delete"] = types.YLeaf{"SlaveDelete", srg.SlaveDelete}
-    srg.EntityData.Leafs["srg-context-malloc"] = types.YLeaf{"SrgContextMalloc", srg.SrgContextMalloc}
-    srg.EntityData.Leafs["srg-context-free"] = types.YLeaf{"SrgContextFree", srg.SrgContextFree}
-    srg.EntityData.Leafs["sod-count"] = types.YLeaf{"SodCount", srg.SodCount}
-    srg.EntityData.Leafs["eod-count"] = types.YLeaf{"EodCount", srg.EodCount}
-    srg.EntityData.Leafs["sod-eod-replay-req-count"] = types.YLeaf{"SodEodReplayReqCount", srg.SodEodReplayReqCount}
-    srg.EntityData.Leafs["sod-eod-dirty-mark-count"] = types.YLeaf{"SodEodDirtyMarkCount", srg.SodEodDirtyMarkCount}
-    srg.EntityData.Leafs["sod-eod-dirty-delete-count"] = types.YLeaf{"SodEodDirtyDeleteCount", srg.SodEodDirtyDeleteCount}
-    srg.EntityData.Leafs["ack-to-srg"] = types.YLeaf{"AckToSrg", srg.AckToSrg}
-    srg.EntityData.Leafs["nack-to-srg"] = types.YLeaf{"NackToSrg", srg.NackToSrg}
-    srg.EntityData.Leafs["nack-to-srg-fail-cnt"] = types.YLeaf{"NackToSrgFailCnt", srg.NackToSrgFailCnt}
-    srg.EntityData.Leafs["txlist-remove-all"] = types.YLeaf{"TxlistRemoveAll", srg.TxlistRemoveAll}
-    srg.EntityData.Leafs["txlist-del-sync"] = types.YLeaf{"TxlistDelSync", srg.TxlistDelSync}
-    srg.EntityData.Leafs["txlist-del-sync-notlinked"] = types.YLeaf{"TxlistDelSyncNotlinked", srg.TxlistDelSyncNotlinked}
-    srg.EntityData.Leafs["txlist-del-app"] = types.YLeaf{"TxlistDelApp", srg.TxlistDelApp}
-    srg.EntityData.Leafs["txlist-del-app-notlinked"] = types.YLeaf{"TxlistDelAppNotlinked", srg.TxlistDelAppNotlinked}
-    srg.EntityData.Leafs["txlist-clean-invalid-state"] = types.YLeaf{"TxlistCleanInvalidState", srg.TxlistCleanInvalidState}
-    srg.EntityData.Leafs["txlist-remove-all-internal-error"] = types.YLeaf{"TxlistRemoveAllInternalError", srg.TxlistRemoveAllInternalError}
-    srg.EntityData.Leafs["is-srg-flow-control-enabled"] = types.YLeaf{"IsSrgFlowControlEnabled", srg.IsSrgFlowControlEnabled}
-    srg.EntityData.Leafs["max-inflight-sessoin-count"] = types.YLeaf{"MaxInflightSessoinCount", srg.MaxInflightSessoinCount}
-    srg.EntityData.Leafs["flow-control-resume-threshold"] = types.YLeaf{"FlowControlResumeThreshold", srg.FlowControlResumeThreshold}
-    srg.EntityData.Leafs["inflight-session-count"] = types.YLeaf{"InflightSessionCount", srg.InflightSessionCount}
-    srg.EntityData.Leafs["inflight-add-count"] = types.YLeaf{"InflightAddCount", srg.InflightAddCount}
-    srg.EntityData.Leafs["inflight-under-run-count"] = types.YLeaf{"InflightUnderRunCount", srg.InflightUnderRunCount}
-    srg.EntityData.Leafs["inflight-alloc-fails"] = types.YLeaf{"InflightAllocFails", srg.InflightAllocFails}
-    srg.EntityData.Leafs["inflight-insert-failures"] = types.YLeaf{"InflightInsertFailures", srg.InflightInsertFailures}
-    srg.EntityData.Leafs["inflight-deletes"] = types.YLeaf{"InflightDeletes", srg.InflightDeletes}
-    srg.EntityData.Leafs["inflight-not-found"] = types.YLeaf{"InflightNotFound", srg.InflightNotFound}
-    srg.EntityData.Leafs["inflight-delete-failures"] = types.YLeaf{"InflightDeleteFailures", srg.InflightDeleteFailures}
-    srg.EntityData.Leafs["total-pause-count"] = types.YLeaf{"TotalPauseCount", srg.TotalPauseCount}
-    srg.EntityData.Leafs["total-resume-count"] = types.YLeaf{"TotalResumeCount", srg.TotalResumeCount}
-    srg.EntityData.Leafs["total-dont-send-to-txlist"] = types.YLeaf{"TotalDontSendToTxlist", srg.TotalDontSendToTxlist}
-    srg.EntityData.Leafs["total-srg-not-master"] = types.YLeaf{"TotalSrgNotMaster", srg.TotalSrgNotMaster}
-    srg.EntityData.Leafs["total-master-eoms-pending"] = types.YLeaf{"TotalMasterEomsPending", srg.TotalMasterEomsPending}
-    srg.EntityData.Leafs["last-pause-period"] = types.YLeaf{"LastPausePeriod", srg.LastPausePeriod}
-    srg.EntityData.Leafs["total-pause-time"] = types.YLeaf{"TotalPauseTime", srg.TotalPauseTime}
-    srg.EntityData.Leafs["last-pause-time"] = types.YLeaf{"LastPauseTime", srg.LastPauseTime}
-    srg.EntityData.Leafs["last-resume-time"] = types.YLeaf{"LastResumeTime", srg.LastResumeTime}
+    srg.EntityData.Children = types.NewOrderedMap()
+    srg.EntityData.Leafs = types.NewOrderedMap()
+    srg.EntityData.Leafs.Append("txlist-send-triggered", types.YLeaf{"TxlistSendTriggered", srg.TxlistSendTriggered})
+    srg.EntityData.Leafs.Append("txlist-send-failed", types.YLeaf{"TxlistSendFailed", srg.TxlistSendFailed})
+    srg.EntityData.Leafs.Append("txlist-send-failed-notactive", types.YLeaf{"TxlistSendFailedNotactive", srg.TxlistSendFailedNotactive})
+    srg.EntityData.Leafs.Append("actual-txlist-sent", types.YLeaf{"ActualTxlistSent", srg.ActualTxlistSent})
+    srg.EntityData.Leafs.Append("alreadyin-txlist", types.YLeaf{"AlreadyinTxlist", srg.AlreadyinTxlist})
+    srg.EntityData.Leafs.Append("txlist-encode", types.YLeaf{"TxlistEncode", srg.TxlistEncode})
+    srg.EntityData.Leafs.Append("txlist-encode-fail", types.YLeaf{"TxlistEncodeFail", srg.TxlistEncodeFail})
+    srg.EntityData.Leafs.Append("create-update-encode", types.YLeaf{"CreateUpdateEncode", srg.CreateUpdateEncode})
+    srg.EntityData.Leafs.Append("delete-encode", types.YLeaf{"DeleteEncode", srg.DeleteEncode})
+    srg.EntityData.Leafs.Append("create-upd-clean-callback", types.YLeaf{"CreateUpdCleanCallback", srg.CreateUpdCleanCallback})
+    srg.EntityData.Leafs.Append("delete-clean-callback", types.YLeaf{"DeleteCleanCallback", srg.DeleteCleanCallback})
+    srg.EntityData.Leafs.Append("slave-recv-entry", types.YLeaf{"SlaveRecvEntry", srg.SlaveRecvEntry})
+    srg.EntityData.Leafs.Append("slave-decode-fail", types.YLeaf{"SlaveDecodeFail", srg.SlaveDecodeFail})
+    srg.EntityData.Leafs.Append("slave-create-update", types.YLeaf{"SlaveCreateUpdate", srg.SlaveCreateUpdate})
+    srg.EntityData.Leafs.Append("slave-delete", types.YLeaf{"SlaveDelete", srg.SlaveDelete})
+    srg.EntityData.Leafs.Append("srg-context-malloc", types.YLeaf{"SrgContextMalloc", srg.SrgContextMalloc})
+    srg.EntityData.Leafs.Append("srg-context-free", types.YLeaf{"SrgContextFree", srg.SrgContextFree})
+    srg.EntityData.Leafs.Append("sod-count", types.YLeaf{"SodCount", srg.SodCount})
+    srg.EntityData.Leafs.Append("eod-count", types.YLeaf{"EodCount", srg.EodCount})
+    srg.EntityData.Leafs.Append("sod-eod-replay-req-count", types.YLeaf{"SodEodReplayReqCount", srg.SodEodReplayReqCount})
+    srg.EntityData.Leafs.Append("sod-eod-dirty-mark-count", types.YLeaf{"SodEodDirtyMarkCount", srg.SodEodDirtyMarkCount})
+    srg.EntityData.Leafs.Append("sod-eod-dirty-delete-count", types.YLeaf{"SodEodDirtyDeleteCount", srg.SodEodDirtyDeleteCount})
+    srg.EntityData.Leafs.Append("ack-to-srg", types.YLeaf{"AckToSrg", srg.AckToSrg})
+    srg.EntityData.Leafs.Append("nack-to-srg", types.YLeaf{"NackToSrg", srg.NackToSrg})
+    srg.EntityData.Leafs.Append("nack-to-srg-fail-cnt", types.YLeaf{"NackToSrgFailCnt", srg.NackToSrgFailCnt})
+    srg.EntityData.Leafs.Append("txlist-remove-all", types.YLeaf{"TxlistRemoveAll", srg.TxlistRemoveAll})
+    srg.EntityData.Leafs.Append("txlist-del-sync", types.YLeaf{"TxlistDelSync", srg.TxlistDelSync})
+    srg.EntityData.Leafs.Append("txlist-del-sync-notlinked", types.YLeaf{"TxlistDelSyncNotlinked", srg.TxlistDelSyncNotlinked})
+    srg.EntityData.Leafs.Append("txlist-del-app", types.YLeaf{"TxlistDelApp", srg.TxlistDelApp})
+    srg.EntityData.Leafs.Append("txlist-del-app-notlinked", types.YLeaf{"TxlistDelAppNotlinked", srg.TxlistDelAppNotlinked})
+    srg.EntityData.Leafs.Append("txlist-clean-invalid-state", types.YLeaf{"TxlistCleanInvalidState", srg.TxlistCleanInvalidState})
+    srg.EntityData.Leafs.Append("txlist-remove-all-internal-error", types.YLeaf{"TxlistRemoveAllInternalError", srg.TxlistRemoveAllInternalError})
+    srg.EntityData.Leafs.Append("is-srg-flow-control-enabled", types.YLeaf{"IsSrgFlowControlEnabled", srg.IsSrgFlowControlEnabled})
+    srg.EntityData.Leafs.Append("max-inflight-sessoin-count", types.YLeaf{"MaxInflightSessoinCount", srg.MaxInflightSessoinCount})
+    srg.EntityData.Leafs.Append("flow-control-resume-threshold", types.YLeaf{"FlowControlResumeThreshold", srg.FlowControlResumeThreshold})
+    srg.EntityData.Leafs.Append("inflight-session-count", types.YLeaf{"InflightSessionCount", srg.InflightSessionCount})
+    srg.EntityData.Leafs.Append("inflight-add-count", types.YLeaf{"InflightAddCount", srg.InflightAddCount})
+    srg.EntityData.Leafs.Append("inflight-under-run-count", types.YLeaf{"InflightUnderRunCount", srg.InflightUnderRunCount})
+    srg.EntityData.Leafs.Append("inflight-alloc-fails", types.YLeaf{"InflightAllocFails", srg.InflightAllocFails})
+    srg.EntityData.Leafs.Append("inflight-insert-failures", types.YLeaf{"InflightInsertFailures", srg.InflightInsertFailures})
+    srg.EntityData.Leafs.Append("inflight-deletes", types.YLeaf{"InflightDeletes", srg.InflightDeletes})
+    srg.EntityData.Leafs.Append("inflight-not-found", types.YLeaf{"InflightNotFound", srg.InflightNotFound})
+    srg.EntityData.Leafs.Append("inflight-delete-failures", types.YLeaf{"InflightDeleteFailures", srg.InflightDeleteFailures})
+    srg.EntityData.Leafs.Append("total-pause-count", types.YLeaf{"TotalPauseCount", srg.TotalPauseCount})
+    srg.EntityData.Leafs.Append("total-resume-count", types.YLeaf{"TotalResumeCount", srg.TotalResumeCount})
+    srg.EntityData.Leafs.Append("total-dont-send-to-txlist", types.YLeaf{"TotalDontSendToTxlist", srg.TotalDontSendToTxlist})
+    srg.EntityData.Leafs.Append("total-srg-not-master", types.YLeaf{"TotalSrgNotMaster", srg.TotalSrgNotMaster})
+    srg.EntityData.Leafs.Append("total-master-eoms-pending", types.YLeaf{"TotalMasterEomsPending", srg.TotalMasterEomsPending})
+    srg.EntityData.Leafs.Append("last-pause-period", types.YLeaf{"LastPausePeriod", srg.LastPausePeriod})
+    srg.EntityData.Leafs.Append("total-pause-time", types.YLeaf{"TotalPauseTime", srg.TotalPauseTime})
+    srg.EntityData.Leafs.Append("last-pause-time", types.YLeaf{"LastPauseTime", srg.LastPauseTime})
+    srg.EntityData.Leafs.Append("last-resume-time", types.YLeaf{"LastResumeTime", srg.LastResumeTime})
+
+    srg.EntityData.YListKeys = []string {}
+
     return &(srg.EntityData)
 }
 
@@ -4957,9 +5215,12 @@ func (session *Subscriber_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    session.EntityData.Children = make(map[string]types.YChild)
-    session.EntityData.Children["nodes"] = types.YChild{"Nodes", &session.Nodes}
-    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Children.Append("nodes", types.YChild{"Nodes", &session.Nodes})
+    session.EntityData.Leafs = types.NewOrderedMap()
+
+    session.EntityData.YListKeys = []string {}
+
     return &(session.EntityData)
 }
 
@@ -4971,7 +5232,7 @@ type Subscriber_Session_Nodes struct {
 
     // Subscriber session operational data for a particular node. The type is
     // slice of Subscriber_Session_Nodes_Node.
-    Node []Subscriber_Session_Nodes_Node
+    Node []*Subscriber_Session_Nodes_Node
 }
 
 func (nodes *Subscriber_Session_Nodes) GetEntityData() *types.CommonEntityData {
@@ -4984,12 +5245,15 @@ func (nodes *Subscriber_Session_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -5001,7 +5265,7 @@ type Subscriber_Session_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Summary information filtered by authorization state.
@@ -5049,27 +5313,30 @@ func (node *Subscriber_Session_Nodes_Node) GetEntityData() *types.CommonEntityDa
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["author-summaries"] = types.YChild{"AuthorSummaries", &node.AuthorSummaries}
-    node.EntityData.Children["summary"] = types.YChild{"Summary", &node.Summary}
-    node.EntityData.Children["mac-summaries"] = types.YChild{"MacSummaries", &node.MacSummaries}
-    node.EntityData.Children["interface-summaries"] = types.YChild{"InterfaceSummaries", &node.InterfaceSummaries}
-    node.EntityData.Children["authentication-summaries"] = types.YChild{"AuthenticationSummaries", &node.AuthenticationSummaries}
-    node.EntityData.Children["state-summaries"] = types.YChild{"StateSummaries", &node.StateSummaries}
-    node.EntityData.Children["ipv4-address-vrf-summaries"] = types.YChild{"Ipv4AddressVrfSummaries", &node.Ipv4AddressVrfSummaries}
-    node.EntityData.Children["address-family-summaries"] = types.YChild{"AddressFamilySummaries", &node.AddressFamilySummaries}
-    node.EntityData.Children["username-summaries"] = types.YChild{"UsernameSummaries", &node.UsernameSummaries}
-    node.EntityData.Children["access-interface-summaries"] = types.YChild{"AccessInterfaceSummaries", &node.AccessInterfaceSummaries}
-    node.EntityData.Children["ipv4-address-summaries"] = types.YChild{"Ipv4AddressSummaries", &node.Ipv4AddressSummaries}
-    node.EntityData.Children["vrf-summaries"] = types.YChild{"VrfSummaries", &node.VrfSummaries}
-    node.EntityData.Children["sessions"] = types.YChild{"Sessions", &node.Sessions}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("author-summaries", types.YChild{"AuthorSummaries", &node.AuthorSummaries})
+    node.EntityData.Children.Append("summary", types.YChild{"Summary", &node.Summary})
+    node.EntityData.Children.Append("mac-summaries", types.YChild{"MacSummaries", &node.MacSummaries})
+    node.EntityData.Children.Append("interface-summaries", types.YChild{"InterfaceSummaries", &node.InterfaceSummaries})
+    node.EntityData.Children.Append("authentication-summaries", types.YChild{"AuthenticationSummaries", &node.AuthenticationSummaries})
+    node.EntityData.Children.Append("state-summaries", types.YChild{"StateSummaries", &node.StateSummaries})
+    node.EntityData.Children.Append("ipv4-address-vrf-summaries", types.YChild{"Ipv4AddressVrfSummaries", &node.Ipv4AddressVrfSummaries})
+    node.EntityData.Children.Append("address-family-summaries", types.YChild{"AddressFamilySummaries", &node.AddressFamilySummaries})
+    node.EntityData.Children.Append("username-summaries", types.YChild{"UsernameSummaries", &node.UsernameSummaries})
+    node.EntityData.Children.Append("access-interface-summaries", types.YChild{"AccessInterfaceSummaries", &node.AccessInterfaceSummaries})
+    node.EntityData.Children.Append("ipv4-address-summaries", types.YChild{"Ipv4AddressSummaries", &node.Ipv4AddressSummaries})
+    node.EntityData.Children.Append("vrf-summaries", types.YChild{"VrfSummaries", &node.VrfSummaries})
+    node.EntityData.Children.Append("sessions", types.YChild{"Sessions", &node.Sessions})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -5082,7 +5349,7 @@ type Subscriber_Session_Nodes_Node_AuthorSummaries struct {
 
     // authorization summary. The type is slice of
     // Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSummary.
-    AuthorSummary []Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSummary
+    AuthorSummary []*Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSummary
 }
 
 func (authorSummaries *Subscriber_Session_Nodes_Node_AuthorSummaries) GetEntityData() *types.CommonEntityData {
@@ -5095,12 +5362,15 @@ func (authorSummaries *Subscriber_Session_Nodes_Node_AuthorSummaries) GetEntityD
     authorSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authorSummaries.EntityData.Children = make(map[string]types.YChild)
-    authorSummaries.EntityData.Children["author-summary"] = types.YChild{"AuthorSummary", nil}
+    authorSummaries.EntityData.Children = types.NewOrderedMap()
+    authorSummaries.EntityData.Children.Append("author-summary", types.YChild{"AuthorSummary", nil})
     for i := range authorSummaries.AuthorSummary {
-        authorSummaries.EntityData.Children[types.GetSegmentPath(&authorSummaries.AuthorSummary[i])] = types.YChild{"AuthorSummary", &authorSummaries.AuthorSummary[i]}
+        authorSummaries.EntityData.Children.Append(types.GetSegmentPath(authorSummaries.AuthorSummary[i]), types.YChild{"AuthorSummary", authorSummaries.AuthorSummary[i]})
     }
-    authorSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    authorSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    authorSummaries.EntityData.YListKeys = []string {}
+
     return &(authorSummaries.EntityData)
 }
 
@@ -5126,16 +5396,19 @@ func (authorSummary *Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSummary
     authorSummary.EntityData.YangName = "author-summary"
     authorSummary.EntityData.BundleName = "cisco_ios_xr"
     authorSummary.EntityData.ParentYangName = "author-summaries"
-    authorSummary.EntityData.SegmentPath = "author-summary" + "[author-state='" + fmt.Sprintf("%v", authorSummary.AuthorState) + "']"
+    authorSummary.EntityData.SegmentPath = "author-summary" + types.AddKeyToken(authorSummary.AuthorState, "author-state")
     authorSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authorSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authorSummary.EntityData.Children = make(map[string]types.YChild)
-    authorSummary.EntityData.Children["state-xr"] = types.YChild{"StateXr", &authorSummary.StateXr}
-    authorSummary.EntityData.Children["address-family-xr"] = types.YChild{"AddressFamilyXr", &authorSummary.AddressFamilyXr}
-    authorSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    authorSummary.EntityData.Leafs["author-state"] = types.YLeaf{"AuthorState", authorSummary.AuthorState}
+    authorSummary.EntityData.Children = types.NewOrderedMap()
+    authorSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &authorSummary.StateXr})
+    authorSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &authorSummary.AddressFamilyXr})
+    authorSummary.EntityData.Leafs = types.NewOrderedMap()
+    authorSummary.EntityData.Leafs.Append("author-state", types.YLeaf{"AuthorState", authorSummary.AuthorState})
+
+    authorSummary.EntityData.YListKeys = []string {"AuthorState"}
+
     return &(authorSummary.EntityData)
 }
 
@@ -5165,11 +5438,14 @@ func (stateXr *Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSummary_State
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateXr.EntityData.Children = make(map[string]types.YChild)
-    stateXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &stateXr.Pppoe}
-    stateXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp}
-    stateXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket}
-    stateXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
     return &(stateXr.EntityData)
 }
 
@@ -5216,15 +5492,18 @@ func (pppoe *Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSummary_StateXr
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", pppoe.InitializedSessions}
-    pppoe.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions}
-    pppoe.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions}
-    pppoe.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions}
-    pppoe.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", pppoe.IdleSessions}
-    pppoe.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions}
-    pppoe.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", pppoe.EndSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -5271,15 +5550,18 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSumm
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions}
-    ipSubscriberDhcp.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -5326,15 +5608,18 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSu
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions}
-    ipSubscriberPacket.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions}
-    ipSubscriberPacket.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions}
-    ipSubscriberPacket.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions}
-    ipSubscriberPacket.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -5364,11 +5649,14 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSumma
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressFamilyXr.EntityData.Children = make(map[string]types.YChild)
-    addressFamilyXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &addressFamilyXr.Pppoe}
-    addressFamilyXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp}
-    addressFamilyXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket}
-    addressFamilyXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
     return &(addressFamilyXr.EntityData)
 }
 
@@ -5409,14 +5697,17 @@ func (pppoe *Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSummary_Address
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", pppoe.InProgressSessions}
-    pppoe.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions}
-    pppoe.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions}
-    pppoe.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions}
-    pppoe.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", pppoe.DualUpSessions}
-    pppoe.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", pppoe.LacSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -5457,14 +5748,17 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSumm
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -5505,14 +5799,17 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSu
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -5539,10 +5836,13 @@ func (summary *Subscriber_Session_Nodes_Node_Summary) GetEntityData() *types.Com
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Children["state-xr"] = types.YChild{"StateXr", &summary.StateXr}
-    summary.EntityData.Children["address-family-xr"] = types.YChild{"AddressFamilyXr", &summary.AddressFamilyXr}
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &summary.StateXr})
+    summary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &summary.AddressFamilyXr})
+    summary.EntityData.Leafs = types.NewOrderedMap()
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -5572,11 +5872,14 @@ func (stateXr *Subscriber_Session_Nodes_Node_Summary_StateXr) GetEntityData() *t
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateXr.EntityData.Children = make(map[string]types.YChild)
-    stateXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &stateXr.Pppoe}
-    stateXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp}
-    stateXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket}
-    stateXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
     return &(stateXr.EntityData)
 }
 
@@ -5623,15 +5926,18 @@ func (pppoe *Subscriber_Session_Nodes_Node_Summary_StateXr_Pppoe) GetEntityData(
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", pppoe.InitializedSessions}
-    pppoe.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions}
-    pppoe.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions}
-    pppoe.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions}
-    pppoe.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", pppoe.IdleSessions}
-    pppoe.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions}
-    pppoe.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", pppoe.EndSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -5678,15 +5984,18 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_Summary_StateXr_IpSubscrib
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions}
-    ipSubscriberDhcp.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -5733,15 +6042,18 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_Summary_StateXr_IpSubscr
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions}
-    ipSubscriberPacket.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions}
-    ipSubscriberPacket.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions}
-    ipSubscriberPacket.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions}
-    ipSubscriberPacket.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -5771,11 +6083,14 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_Summary_AddressFamilyXr) Ge
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressFamilyXr.EntityData.Children = make(map[string]types.YChild)
-    addressFamilyXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &addressFamilyXr.Pppoe}
-    addressFamilyXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp}
-    addressFamilyXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket}
-    addressFamilyXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
     return &(addressFamilyXr.EntityData)
 }
 
@@ -5816,14 +6131,17 @@ func (pppoe *Subscriber_Session_Nodes_Node_Summary_AddressFamilyXr_Pppoe) GetEnt
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", pppoe.InProgressSessions}
-    pppoe.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions}
-    pppoe.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions}
-    pppoe.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions}
-    pppoe.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", pppoe.DualUpSessions}
-    pppoe.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", pppoe.LacSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -5864,14 +6182,17 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_Summary_AddressFamilyXr_Ip
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -5912,14 +6233,17 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_Summary_AddressFamilyXr_
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -5931,7 +6255,7 @@ type Subscriber_Session_Nodes_Node_MacSummaries struct {
 
     // MAC address summary. The type is slice of
     // Subscriber_Session_Nodes_Node_MacSummaries_MacSummary.
-    MacSummary []Subscriber_Session_Nodes_Node_MacSummaries_MacSummary
+    MacSummary []*Subscriber_Session_Nodes_Node_MacSummaries_MacSummary
 }
 
 func (macSummaries *Subscriber_Session_Nodes_Node_MacSummaries) GetEntityData() *types.CommonEntityData {
@@ -5944,12 +6268,15 @@ func (macSummaries *Subscriber_Session_Nodes_Node_MacSummaries) GetEntityData() 
     macSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    macSummaries.EntityData.Children = make(map[string]types.YChild)
-    macSummaries.EntityData.Children["mac-summary"] = types.YChild{"MacSummary", nil}
+    macSummaries.EntityData.Children = types.NewOrderedMap()
+    macSummaries.EntityData.Children.Append("mac-summary", types.YChild{"MacSummary", nil})
     for i := range macSummaries.MacSummary {
-        macSummaries.EntityData.Children[types.GetSegmentPath(&macSummaries.MacSummary[i])] = types.YChild{"MacSummary", &macSummaries.MacSummary[i]}
+        macSummaries.EntityData.Children.Append(types.GetSegmentPath(macSummaries.MacSummary[i]), types.YChild{"MacSummary", macSummaries.MacSummary[i]})
     }
-    macSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    macSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    macSummaries.EntityData.YListKeys = []string {}
+
     return &(macSummaries.EntityData)
 }
 
@@ -5960,7 +6287,7 @@ type Subscriber_Session_Nodes_Node_MacSummaries_MacSummary struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Subscriber MAC address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // State summary.
@@ -5975,16 +6302,19 @@ func (macSummary *Subscriber_Session_Nodes_Node_MacSummaries_MacSummary) GetEnti
     macSummary.EntityData.YangName = "mac-summary"
     macSummary.EntityData.BundleName = "cisco_ios_xr"
     macSummary.EntityData.ParentYangName = "mac-summaries"
-    macSummary.EntityData.SegmentPath = "mac-summary" + "[mac-address='" + fmt.Sprintf("%v", macSummary.MacAddress) + "']"
+    macSummary.EntityData.SegmentPath = "mac-summary" + types.AddKeyToken(macSummary.MacAddress, "mac-address")
     macSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    macSummary.EntityData.Children = make(map[string]types.YChild)
-    macSummary.EntityData.Children["state-xr"] = types.YChild{"StateXr", &macSummary.StateXr}
-    macSummary.EntityData.Children["address-family-xr"] = types.YChild{"AddressFamilyXr", &macSummary.AddressFamilyXr}
-    macSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    macSummary.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", macSummary.MacAddress}
+    macSummary.EntityData.Children = types.NewOrderedMap()
+    macSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &macSummary.StateXr})
+    macSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &macSummary.AddressFamilyXr})
+    macSummary.EntityData.Leafs = types.NewOrderedMap()
+    macSummary.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", macSummary.MacAddress})
+
+    macSummary.EntityData.YListKeys = []string {"MacAddress"}
+
     return &(macSummary.EntityData)
 }
 
@@ -6014,11 +6344,14 @@ func (stateXr *Subscriber_Session_Nodes_Node_MacSummaries_MacSummary_StateXr) Ge
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateXr.EntityData.Children = make(map[string]types.YChild)
-    stateXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &stateXr.Pppoe}
-    stateXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp}
-    stateXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket}
-    stateXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
     return &(stateXr.EntityData)
 }
 
@@ -6065,15 +6398,18 @@ func (pppoe *Subscriber_Session_Nodes_Node_MacSummaries_MacSummary_StateXr_Pppoe
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", pppoe.InitializedSessions}
-    pppoe.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions}
-    pppoe.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions}
-    pppoe.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions}
-    pppoe.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", pppoe.IdleSessions}
-    pppoe.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions}
-    pppoe.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", pppoe.EndSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -6120,15 +6456,18 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_MacSummaries_MacSummary_St
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions}
-    ipSubscriberDhcp.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -6175,15 +6514,18 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_MacSummaries_MacSummary_
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions}
-    ipSubscriberPacket.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions}
-    ipSubscriberPacket.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions}
-    ipSubscriberPacket.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions}
-    ipSubscriberPacket.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -6213,11 +6555,14 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_MacSummaries_MacSummary_Add
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressFamilyXr.EntityData.Children = make(map[string]types.YChild)
-    addressFamilyXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &addressFamilyXr.Pppoe}
-    addressFamilyXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp}
-    addressFamilyXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket}
-    addressFamilyXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
     return &(addressFamilyXr.EntityData)
 }
 
@@ -6258,14 +6603,17 @@ func (pppoe *Subscriber_Session_Nodes_Node_MacSummaries_MacSummary_AddressFamily
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", pppoe.InProgressSessions}
-    pppoe.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions}
-    pppoe.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions}
-    pppoe.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions}
-    pppoe.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", pppoe.DualUpSessions}
-    pppoe.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", pppoe.LacSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -6306,14 +6654,17 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_MacSummaries_MacSummary_Ad
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -6354,14 +6705,17 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_MacSummaries_MacSummary_
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -6373,7 +6727,7 @@ type Subscriber_Session_Nodes_Node_InterfaceSummaries struct {
 
     // Interface summary. The type is slice of
     // Subscriber_Session_Nodes_Node_InterfaceSummaries_InterfaceSummary.
-    InterfaceSummary []Subscriber_Session_Nodes_Node_InterfaceSummaries_InterfaceSummary
+    InterfaceSummary []*Subscriber_Session_Nodes_Node_InterfaceSummaries_InterfaceSummary
 }
 
 func (interfaceSummaries *Subscriber_Session_Nodes_Node_InterfaceSummaries) GetEntityData() *types.CommonEntityData {
@@ -6386,12 +6740,15 @@ func (interfaceSummaries *Subscriber_Session_Nodes_Node_InterfaceSummaries) GetE
     interfaceSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceSummaries.EntityData.Children = make(map[string]types.YChild)
-    interfaceSummaries.EntityData.Children["interface-summary"] = types.YChild{"InterfaceSummary", nil}
+    interfaceSummaries.EntityData.Children = types.NewOrderedMap()
+    interfaceSummaries.EntityData.Children.Append("interface-summary", types.YChild{"InterfaceSummary", nil})
     for i := range interfaceSummaries.InterfaceSummary {
-        interfaceSummaries.EntityData.Children[types.GetSegmentPath(&interfaceSummaries.InterfaceSummary[i])] = types.YChild{"InterfaceSummary", &interfaceSummaries.InterfaceSummary[i]}
+        interfaceSummaries.EntityData.Children.Append(types.GetSegmentPath(interfaceSummaries.InterfaceSummary[i]), types.YChild{"InterfaceSummary", interfaceSummaries.InterfaceSummary[i]})
     }
-    interfaceSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceSummaries.EntityData.YListKeys = []string {}
+
     return &(interfaceSummaries.EntityData)
 }
 
@@ -6402,7 +6759,7 @@ type Subscriber_Session_Nodes_Node_InterfaceSummaries_InterfaceSummary struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // State summary.
@@ -6417,16 +6774,19 @@ func (interfaceSummary *Subscriber_Session_Nodes_Node_InterfaceSummaries_Interfa
     interfaceSummary.EntityData.YangName = "interface-summary"
     interfaceSummary.EntityData.BundleName = "cisco_ios_xr"
     interfaceSummary.EntityData.ParentYangName = "interface-summaries"
-    interfaceSummary.EntityData.SegmentPath = "interface-summary" + "[interface-name='" + fmt.Sprintf("%v", interfaceSummary.InterfaceName) + "']"
+    interfaceSummary.EntityData.SegmentPath = "interface-summary" + types.AddKeyToken(interfaceSummary.InterfaceName, "interface-name")
     interfaceSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceSummary.EntityData.Children = make(map[string]types.YChild)
-    interfaceSummary.EntityData.Children["state-xr"] = types.YChild{"StateXr", &interfaceSummary.StateXr}
-    interfaceSummary.EntityData.Children["address-family-xr"] = types.YChild{"AddressFamilyXr", &interfaceSummary.AddressFamilyXr}
-    interfaceSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceSummary.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceSummary.InterfaceName}
+    interfaceSummary.EntityData.Children = types.NewOrderedMap()
+    interfaceSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &interfaceSummary.StateXr})
+    interfaceSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &interfaceSummary.AddressFamilyXr})
+    interfaceSummary.EntityData.Leafs = types.NewOrderedMap()
+    interfaceSummary.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceSummary.InterfaceName})
+
+    interfaceSummary.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(interfaceSummary.EntityData)
 }
 
@@ -6456,11 +6816,14 @@ func (stateXr *Subscriber_Session_Nodes_Node_InterfaceSummaries_InterfaceSummary
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateXr.EntityData.Children = make(map[string]types.YChild)
-    stateXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &stateXr.Pppoe}
-    stateXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp}
-    stateXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket}
-    stateXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
     return &(stateXr.EntityData)
 }
 
@@ -6507,15 +6870,18 @@ func (pppoe *Subscriber_Session_Nodes_Node_InterfaceSummaries_InterfaceSummary_S
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", pppoe.InitializedSessions}
-    pppoe.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions}
-    pppoe.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions}
-    pppoe.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions}
-    pppoe.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", pppoe.IdleSessions}
-    pppoe.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions}
-    pppoe.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", pppoe.EndSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -6562,15 +6928,18 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_InterfaceSummaries_Interfa
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions}
-    ipSubscriberDhcp.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -6617,15 +6986,18 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_InterfaceSummaries_Inter
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions}
-    ipSubscriberPacket.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions}
-    ipSubscriberPacket.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions}
-    ipSubscriberPacket.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions}
-    ipSubscriberPacket.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -6655,11 +7027,14 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_InterfaceSummaries_Interfac
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressFamilyXr.EntityData.Children = make(map[string]types.YChild)
-    addressFamilyXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &addressFamilyXr.Pppoe}
-    addressFamilyXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp}
-    addressFamilyXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket}
-    addressFamilyXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
     return &(addressFamilyXr.EntityData)
 }
 
@@ -6700,14 +7075,17 @@ func (pppoe *Subscriber_Session_Nodes_Node_InterfaceSummaries_InterfaceSummary_A
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", pppoe.InProgressSessions}
-    pppoe.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions}
-    pppoe.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions}
-    pppoe.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions}
-    pppoe.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", pppoe.DualUpSessions}
-    pppoe.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", pppoe.LacSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -6748,14 +7126,17 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_InterfaceSummaries_Interfa
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -6796,14 +7177,17 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_InterfaceSummaries_Inter
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -6816,7 +7200,7 @@ type Subscriber_Session_Nodes_Node_AuthenticationSummaries struct {
 
     // authentication summary. The type is slice of
     // Subscriber_Session_Nodes_Node_AuthenticationSummaries_AuthenticationSummary.
-    AuthenticationSummary []Subscriber_Session_Nodes_Node_AuthenticationSummaries_AuthenticationSummary
+    AuthenticationSummary []*Subscriber_Session_Nodes_Node_AuthenticationSummaries_AuthenticationSummary
 }
 
 func (authenticationSummaries *Subscriber_Session_Nodes_Node_AuthenticationSummaries) GetEntityData() *types.CommonEntityData {
@@ -6829,12 +7213,15 @@ func (authenticationSummaries *Subscriber_Session_Nodes_Node_AuthenticationSumma
     authenticationSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authenticationSummaries.EntityData.Children = make(map[string]types.YChild)
-    authenticationSummaries.EntityData.Children["authentication-summary"] = types.YChild{"AuthenticationSummary", nil}
+    authenticationSummaries.EntityData.Children = types.NewOrderedMap()
+    authenticationSummaries.EntityData.Children.Append("authentication-summary", types.YChild{"AuthenticationSummary", nil})
     for i := range authenticationSummaries.AuthenticationSummary {
-        authenticationSummaries.EntityData.Children[types.GetSegmentPath(&authenticationSummaries.AuthenticationSummary[i])] = types.YChild{"AuthenticationSummary", &authenticationSummaries.AuthenticationSummary[i]}
+        authenticationSummaries.EntityData.Children.Append(types.GetSegmentPath(authenticationSummaries.AuthenticationSummary[i]), types.YChild{"AuthenticationSummary", authenticationSummaries.AuthenticationSummary[i]})
     }
-    authenticationSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    authenticationSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    authenticationSummaries.EntityData.YListKeys = []string {}
+
     return &(authenticationSummaries.EntityData)
 }
 
@@ -6860,16 +7247,19 @@ func (authenticationSummary *Subscriber_Session_Nodes_Node_AuthenticationSummari
     authenticationSummary.EntityData.YangName = "authentication-summary"
     authenticationSummary.EntityData.BundleName = "cisco_ios_xr"
     authenticationSummary.EntityData.ParentYangName = "authentication-summaries"
-    authenticationSummary.EntityData.SegmentPath = "authentication-summary" + "[authentication-state='" + fmt.Sprintf("%v", authenticationSummary.AuthenticationState) + "']"
+    authenticationSummary.EntityData.SegmentPath = "authentication-summary" + types.AddKeyToken(authenticationSummary.AuthenticationState, "authentication-state")
     authenticationSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticationSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authenticationSummary.EntityData.Children = make(map[string]types.YChild)
-    authenticationSummary.EntityData.Children["state-xr"] = types.YChild{"StateXr", &authenticationSummary.StateXr}
-    authenticationSummary.EntityData.Children["address-family-xr"] = types.YChild{"AddressFamilyXr", &authenticationSummary.AddressFamilyXr}
-    authenticationSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    authenticationSummary.EntityData.Leafs["authentication-state"] = types.YLeaf{"AuthenticationState", authenticationSummary.AuthenticationState}
+    authenticationSummary.EntityData.Children = types.NewOrderedMap()
+    authenticationSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &authenticationSummary.StateXr})
+    authenticationSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &authenticationSummary.AddressFamilyXr})
+    authenticationSummary.EntityData.Leafs = types.NewOrderedMap()
+    authenticationSummary.EntityData.Leafs.Append("authentication-state", types.YLeaf{"AuthenticationState", authenticationSummary.AuthenticationState})
+
+    authenticationSummary.EntityData.YListKeys = []string {"AuthenticationState"}
+
     return &(authenticationSummary.EntityData)
 }
 
@@ -6899,11 +7289,14 @@ func (stateXr *Subscriber_Session_Nodes_Node_AuthenticationSummaries_Authenticat
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateXr.EntityData.Children = make(map[string]types.YChild)
-    stateXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &stateXr.Pppoe}
-    stateXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp}
-    stateXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket}
-    stateXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
     return &(stateXr.EntityData)
 }
 
@@ -6950,15 +7343,18 @@ func (pppoe *Subscriber_Session_Nodes_Node_AuthenticationSummaries_Authenticatio
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", pppoe.InitializedSessions}
-    pppoe.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions}
-    pppoe.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions}
-    pppoe.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions}
-    pppoe.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", pppoe.IdleSessions}
-    pppoe.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions}
-    pppoe.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", pppoe.EndSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -7005,15 +7401,18 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_AuthenticationSummaries_Au
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions}
-    ipSubscriberDhcp.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -7060,15 +7459,18 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_AuthenticationSummaries_
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions}
-    ipSubscriberPacket.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions}
-    ipSubscriberPacket.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions}
-    ipSubscriberPacket.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions}
-    ipSubscriberPacket.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -7098,11 +7500,14 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_AuthenticationSummaries_Aut
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressFamilyXr.EntityData.Children = make(map[string]types.YChild)
-    addressFamilyXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &addressFamilyXr.Pppoe}
-    addressFamilyXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp}
-    addressFamilyXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket}
-    addressFamilyXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
     return &(addressFamilyXr.EntityData)
 }
 
@@ -7143,14 +7548,17 @@ func (pppoe *Subscriber_Session_Nodes_Node_AuthenticationSummaries_Authenticatio
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", pppoe.InProgressSessions}
-    pppoe.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions}
-    pppoe.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions}
-    pppoe.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions}
-    pppoe.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", pppoe.DualUpSessions}
-    pppoe.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", pppoe.LacSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -7191,14 +7599,17 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_AuthenticationSummaries_Au
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -7239,14 +7650,17 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_AuthenticationSummaries_
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -7258,7 +7672,7 @@ type Subscriber_Session_Nodes_Node_StateSummaries struct {
 
     // State summary. The type is slice of
     // Subscriber_Session_Nodes_Node_StateSummaries_StateSummary.
-    StateSummary []Subscriber_Session_Nodes_Node_StateSummaries_StateSummary
+    StateSummary []*Subscriber_Session_Nodes_Node_StateSummaries_StateSummary
 }
 
 func (stateSummaries *Subscriber_Session_Nodes_Node_StateSummaries) GetEntityData() *types.CommonEntityData {
@@ -7271,12 +7685,15 @@ func (stateSummaries *Subscriber_Session_Nodes_Node_StateSummaries) GetEntityDat
     stateSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateSummaries.EntityData.Children = make(map[string]types.YChild)
-    stateSummaries.EntityData.Children["state-summary"] = types.YChild{"StateSummary", nil}
+    stateSummaries.EntityData.Children = types.NewOrderedMap()
+    stateSummaries.EntityData.Children.Append("state-summary", types.YChild{"StateSummary", nil})
     for i := range stateSummaries.StateSummary {
-        stateSummaries.EntityData.Children[types.GetSegmentPath(&stateSummaries.StateSummary[i])] = types.YChild{"StateSummary", &stateSummaries.StateSummary[i]}
+        stateSummaries.EntityData.Children.Append(types.GetSegmentPath(stateSummaries.StateSummary[i]), types.YChild{"StateSummary", stateSummaries.StateSummary[i]})
     }
-    stateSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    stateSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    stateSummaries.EntityData.YListKeys = []string {}
+
     return &(stateSummaries.EntityData)
 }
 
@@ -7302,16 +7719,19 @@ func (stateSummary *Subscriber_Session_Nodes_Node_StateSummaries_StateSummary) G
     stateSummary.EntityData.YangName = "state-summary"
     stateSummary.EntityData.BundleName = "cisco_ios_xr"
     stateSummary.EntityData.ParentYangName = "state-summaries"
-    stateSummary.EntityData.SegmentPath = "state-summary" + "[state='" + fmt.Sprintf("%v", stateSummary.State) + "']"
+    stateSummary.EntityData.SegmentPath = "state-summary" + types.AddKeyToken(stateSummary.State, "state")
     stateSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateSummary.EntityData.Children = make(map[string]types.YChild)
-    stateSummary.EntityData.Children["state-xr"] = types.YChild{"StateXr", &stateSummary.StateXr}
-    stateSummary.EntityData.Children["address-family-xr"] = types.YChild{"AddressFamilyXr", &stateSummary.AddressFamilyXr}
-    stateSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    stateSummary.EntityData.Leafs["state"] = types.YLeaf{"State", stateSummary.State}
+    stateSummary.EntityData.Children = types.NewOrderedMap()
+    stateSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &stateSummary.StateXr})
+    stateSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &stateSummary.AddressFamilyXr})
+    stateSummary.EntityData.Leafs = types.NewOrderedMap()
+    stateSummary.EntityData.Leafs.Append("state", types.YLeaf{"State", stateSummary.State})
+
+    stateSummary.EntityData.YListKeys = []string {"State"}
+
     return &(stateSummary.EntityData)
 }
 
@@ -7341,11 +7761,14 @@ func (stateXr *Subscriber_Session_Nodes_Node_StateSummaries_StateSummary_StateXr
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateXr.EntityData.Children = make(map[string]types.YChild)
-    stateXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &stateXr.Pppoe}
-    stateXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp}
-    stateXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket}
-    stateXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
     return &(stateXr.EntityData)
 }
 
@@ -7392,15 +7815,18 @@ func (pppoe *Subscriber_Session_Nodes_Node_StateSummaries_StateSummary_StateXr_P
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", pppoe.InitializedSessions}
-    pppoe.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions}
-    pppoe.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions}
-    pppoe.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions}
-    pppoe.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", pppoe.IdleSessions}
-    pppoe.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions}
-    pppoe.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", pppoe.EndSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -7447,15 +7873,18 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_StateSummaries_StateSummar
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions}
-    ipSubscriberDhcp.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -7502,15 +7931,18 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_StateSummaries_StateSumm
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions}
-    ipSubscriberPacket.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions}
-    ipSubscriberPacket.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions}
-    ipSubscriberPacket.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions}
-    ipSubscriberPacket.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -7540,11 +7972,14 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_StateSummaries_StateSummary
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressFamilyXr.EntityData.Children = make(map[string]types.YChild)
-    addressFamilyXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &addressFamilyXr.Pppoe}
-    addressFamilyXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp}
-    addressFamilyXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket}
-    addressFamilyXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
     return &(addressFamilyXr.EntityData)
 }
 
@@ -7585,14 +8020,17 @@ func (pppoe *Subscriber_Session_Nodes_Node_StateSummaries_StateSummary_AddressFa
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", pppoe.InProgressSessions}
-    pppoe.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions}
-    pppoe.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions}
-    pppoe.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions}
-    pppoe.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", pppoe.DualUpSessions}
-    pppoe.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", pppoe.LacSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -7633,14 +8071,17 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_StateSummaries_StateSummar
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -7681,14 +8122,17 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_StateSummaries_StateSumm
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -7701,7 +8145,7 @@ type Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries struct {
 
     // IPv4 address and VRF summary. The type is slice of
     // Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary.
-    Ipv4AddressVrfSummary []Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary
+    Ipv4AddressVrfSummary []*Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary
 }
 
 func (ipv4AddressVrfSummaries *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries) GetEntityData() *types.CommonEntityData {
@@ -7714,12 +8158,15 @@ func (ipv4AddressVrfSummaries *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSumma
     ipv4AddressVrfSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4AddressVrfSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4AddressVrfSummaries.EntityData.Children = make(map[string]types.YChild)
-    ipv4AddressVrfSummaries.EntityData.Children["ipv4-address-vrf-summary"] = types.YChild{"Ipv4AddressVrfSummary", nil}
+    ipv4AddressVrfSummaries.EntityData.Children = types.NewOrderedMap()
+    ipv4AddressVrfSummaries.EntityData.Children.Append("ipv4-address-vrf-summary", types.YChild{"Ipv4AddressVrfSummary", nil})
     for i := range ipv4AddressVrfSummaries.Ipv4AddressVrfSummary {
-        ipv4AddressVrfSummaries.EntityData.Children[types.GetSegmentPath(&ipv4AddressVrfSummaries.Ipv4AddressVrfSummary[i])] = types.YChild{"Ipv4AddressVrfSummary", &ipv4AddressVrfSummaries.Ipv4AddressVrfSummary[i]}
+        ipv4AddressVrfSummaries.EntityData.Children.Append(types.GetSegmentPath(ipv4AddressVrfSummaries.Ipv4AddressVrfSummary[i]), types.YChild{"Ipv4AddressVrfSummary", ipv4AddressVrfSummaries.Ipv4AddressVrfSummary[i]})
     }
-    ipv4AddressVrfSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4AddressVrfSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4AddressVrfSummaries.EntityData.YListKeys = []string {}
+
     return &(ipv4AddressVrfSummaries.EntityData)
 }
 
@@ -7729,11 +8176,11 @@ type Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Subscriber IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // State summary.
@@ -7753,12 +8200,15 @@ func (ipv4AddressVrfSummary *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummari
     ipv4AddressVrfSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4AddressVrfSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4AddressVrfSummary.EntityData.Children = make(map[string]types.YChild)
-    ipv4AddressVrfSummary.EntityData.Children["state-xr"] = types.YChild{"StateXr", &ipv4AddressVrfSummary.StateXr}
-    ipv4AddressVrfSummary.EntityData.Children["address-family-xr"] = types.YChild{"AddressFamilyXr", &ipv4AddressVrfSummary.AddressFamilyXr}
-    ipv4AddressVrfSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4AddressVrfSummary.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4AddressVrfSummary.VrfName}
-    ipv4AddressVrfSummary.EntityData.Leafs["address"] = types.YLeaf{"Address", ipv4AddressVrfSummary.Address}
+    ipv4AddressVrfSummary.EntityData.Children = types.NewOrderedMap()
+    ipv4AddressVrfSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &ipv4AddressVrfSummary.StateXr})
+    ipv4AddressVrfSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &ipv4AddressVrfSummary.AddressFamilyXr})
+    ipv4AddressVrfSummary.EntityData.Leafs = types.NewOrderedMap()
+    ipv4AddressVrfSummary.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4AddressVrfSummary.VrfName})
+    ipv4AddressVrfSummary.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv4AddressVrfSummary.Address})
+
+    ipv4AddressVrfSummary.EntityData.YListKeys = []string {}
+
     return &(ipv4AddressVrfSummary.EntityData)
 }
 
@@ -7788,11 +8238,14 @@ func (stateXr *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_Ipv4Address
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateXr.EntityData.Children = make(map[string]types.YChild)
-    stateXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &stateXr.Pppoe}
-    stateXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp}
-    stateXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket}
-    stateXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
     return &(stateXr.EntityData)
 }
 
@@ -7839,15 +8292,18 @@ func (pppoe *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_Ipv4AddressVr
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", pppoe.InitializedSessions}
-    pppoe.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions}
-    pppoe.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions}
-    pppoe.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions}
-    pppoe.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", pppoe.IdleSessions}
-    pppoe.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions}
-    pppoe.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", pppoe.EndSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -7894,15 +8350,18 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_Ip
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions}
-    ipSubscriberDhcp.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -7949,15 +8408,18 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions}
-    ipSubscriberPacket.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions}
-    ipSubscriberPacket.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions}
-    ipSubscriberPacket.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions}
-    ipSubscriberPacket.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -7987,11 +8449,14 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_Ipv
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressFamilyXr.EntityData.Children = make(map[string]types.YChild)
-    addressFamilyXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &addressFamilyXr.Pppoe}
-    addressFamilyXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp}
-    addressFamilyXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket}
-    addressFamilyXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
     return &(addressFamilyXr.EntityData)
 }
 
@@ -8032,14 +8497,17 @@ func (pppoe *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_Ipv4AddressVr
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", pppoe.InProgressSessions}
-    pppoe.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions}
-    pppoe.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions}
-    pppoe.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions}
-    pppoe.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", pppoe.DualUpSessions}
-    pppoe.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", pppoe.LacSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -8080,14 +8548,17 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_Ip
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -8128,14 +8599,17 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -8148,7 +8622,7 @@ type Subscriber_Session_Nodes_Node_AddressFamilySummaries struct {
 
     // Address family summary. The type is slice of
     // Subscriber_Session_Nodes_Node_AddressFamilySummaries_AddressFamilySummary.
-    AddressFamilySummary []Subscriber_Session_Nodes_Node_AddressFamilySummaries_AddressFamilySummary
+    AddressFamilySummary []*Subscriber_Session_Nodes_Node_AddressFamilySummaries_AddressFamilySummary
 }
 
 func (addressFamilySummaries *Subscriber_Session_Nodes_Node_AddressFamilySummaries) GetEntityData() *types.CommonEntityData {
@@ -8161,12 +8635,15 @@ func (addressFamilySummaries *Subscriber_Session_Nodes_Node_AddressFamilySummari
     addressFamilySummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilySummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressFamilySummaries.EntityData.Children = make(map[string]types.YChild)
-    addressFamilySummaries.EntityData.Children["address-family-summary"] = types.YChild{"AddressFamilySummary", nil}
+    addressFamilySummaries.EntityData.Children = types.NewOrderedMap()
+    addressFamilySummaries.EntityData.Children.Append("address-family-summary", types.YChild{"AddressFamilySummary", nil})
     for i := range addressFamilySummaries.AddressFamilySummary {
-        addressFamilySummaries.EntityData.Children[types.GetSegmentPath(&addressFamilySummaries.AddressFamilySummary[i])] = types.YChild{"AddressFamilySummary", &addressFamilySummaries.AddressFamilySummary[i]}
+        addressFamilySummaries.EntityData.Children.Append(types.GetSegmentPath(addressFamilySummaries.AddressFamilySummary[i]), types.YChild{"AddressFamilySummary", addressFamilySummaries.AddressFamilySummary[i]})
     }
-    addressFamilySummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressFamilySummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilySummaries.EntityData.YListKeys = []string {}
+
     return &(addressFamilySummaries.EntityData)
 }
 
@@ -8192,16 +8669,19 @@ func (addressFamilySummary *Subscriber_Session_Nodes_Node_AddressFamilySummaries
     addressFamilySummary.EntityData.YangName = "address-family-summary"
     addressFamilySummary.EntityData.BundleName = "cisco_ios_xr"
     addressFamilySummary.EntityData.ParentYangName = "address-family-summaries"
-    addressFamilySummary.EntityData.SegmentPath = "address-family-summary" + "[address-family='" + fmt.Sprintf("%v", addressFamilySummary.AddressFamily) + "']"
+    addressFamilySummary.EntityData.SegmentPath = "address-family-summary" + types.AddKeyToken(addressFamilySummary.AddressFamily, "address-family")
     addressFamilySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamilySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressFamilySummary.EntityData.Children = make(map[string]types.YChild)
-    addressFamilySummary.EntityData.Children["state-xr"] = types.YChild{"StateXr", &addressFamilySummary.StateXr}
-    addressFamilySummary.EntityData.Children["address-family-xr"] = types.YChild{"AddressFamilyXr", &addressFamilySummary.AddressFamilyXr}
-    addressFamilySummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    addressFamilySummary.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", addressFamilySummary.AddressFamily}
+    addressFamilySummary.EntityData.Children = types.NewOrderedMap()
+    addressFamilySummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &addressFamilySummary.StateXr})
+    addressFamilySummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &addressFamilySummary.AddressFamilyXr})
+    addressFamilySummary.EntityData.Leafs = types.NewOrderedMap()
+    addressFamilySummary.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", addressFamilySummary.AddressFamily})
+
+    addressFamilySummary.EntityData.YListKeys = []string {"AddressFamily"}
+
     return &(addressFamilySummary.EntityData)
 }
 
@@ -8231,11 +8711,14 @@ func (stateXr *Subscriber_Session_Nodes_Node_AddressFamilySummaries_AddressFamil
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateXr.EntityData.Children = make(map[string]types.YChild)
-    stateXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &stateXr.Pppoe}
-    stateXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp}
-    stateXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket}
-    stateXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
     return &(stateXr.EntityData)
 }
 
@@ -8282,15 +8765,18 @@ func (pppoe *Subscriber_Session_Nodes_Node_AddressFamilySummaries_AddressFamilyS
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", pppoe.InitializedSessions}
-    pppoe.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions}
-    pppoe.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions}
-    pppoe.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions}
-    pppoe.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", pppoe.IdleSessions}
-    pppoe.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions}
-    pppoe.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", pppoe.EndSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -8337,15 +8823,18 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_AddressFamilySummaries_Add
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions}
-    ipSubscriberDhcp.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -8392,15 +8881,18 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_AddressFamilySummaries_A
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions}
-    ipSubscriberPacket.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions}
-    ipSubscriberPacket.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions}
-    ipSubscriberPacket.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions}
-    ipSubscriberPacket.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -8430,11 +8922,14 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_AddressFamilySummaries_Addr
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressFamilyXr.EntityData.Children = make(map[string]types.YChild)
-    addressFamilyXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &addressFamilyXr.Pppoe}
-    addressFamilyXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp}
-    addressFamilyXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket}
-    addressFamilyXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
     return &(addressFamilyXr.EntityData)
 }
 
@@ -8475,14 +8970,17 @@ func (pppoe *Subscriber_Session_Nodes_Node_AddressFamilySummaries_AddressFamilyS
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", pppoe.InProgressSessions}
-    pppoe.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions}
-    pppoe.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions}
-    pppoe.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions}
-    pppoe.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", pppoe.DualUpSessions}
-    pppoe.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", pppoe.LacSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -8523,14 +9021,17 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_AddressFamilySummaries_Add
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -8571,14 +9072,17 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_AddressFamilySummaries_A
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -8590,7 +9094,7 @@ type Subscriber_Session_Nodes_Node_UsernameSummaries struct {
 
     // Username summary. The type is slice of
     // Subscriber_Session_Nodes_Node_UsernameSummaries_UsernameSummary.
-    UsernameSummary []Subscriber_Session_Nodes_Node_UsernameSummaries_UsernameSummary
+    UsernameSummary []*Subscriber_Session_Nodes_Node_UsernameSummaries_UsernameSummary
 }
 
 func (usernameSummaries *Subscriber_Session_Nodes_Node_UsernameSummaries) GetEntityData() *types.CommonEntityData {
@@ -8603,12 +9107,15 @@ func (usernameSummaries *Subscriber_Session_Nodes_Node_UsernameSummaries) GetEnt
     usernameSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usernameSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    usernameSummaries.EntityData.Children = make(map[string]types.YChild)
-    usernameSummaries.EntityData.Children["username-summary"] = types.YChild{"UsernameSummary", nil}
+    usernameSummaries.EntityData.Children = types.NewOrderedMap()
+    usernameSummaries.EntityData.Children.Append("username-summary", types.YChild{"UsernameSummary", nil})
     for i := range usernameSummaries.UsernameSummary {
-        usernameSummaries.EntityData.Children[types.GetSegmentPath(&usernameSummaries.UsernameSummary[i])] = types.YChild{"UsernameSummary", &usernameSummaries.UsernameSummary[i]}
+        usernameSummaries.EntityData.Children.Append(types.GetSegmentPath(usernameSummaries.UsernameSummary[i]), types.YChild{"UsernameSummary", usernameSummaries.UsernameSummary[i]})
     }
-    usernameSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    usernameSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    usernameSummaries.EntityData.YListKeys = []string {}
+
     return &(usernameSummaries.EntityData)
 }
 
@@ -8619,7 +9126,7 @@ type Subscriber_Session_Nodes_Node_UsernameSummaries_UsernameSummary struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Subscriber username. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Username interface{}
 
     // State summary.
@@ -8634,16 +9141,19 @@ func (usernameSummary *Subscriber_Session_Nodes_Node_UsernameSummaries_UsernameS
     usernameSummary.EntityData.YangName = "username-summary"
     usernameSummary.EntityData.BundleName = "cisco_ios_xr"
     usernameSummary.EntityData.ParentYangName = "username-summaries"
-    usernameSummary.EntityData.SegmentPath = "username-summary" + "[username='" + fmt.Sprintf("%v", usernameSummary.Username) + "']"
+    usernameSummary.EntityData.SegmentPath = "username-summary" + types.AddKeyToken(usernameSummary.Username, "username")
     usernameSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     usernameSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usernameSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    usernameSummary.EntityData.Children = make(map[string]types.YChild)
-    usernameSummary.EntityData.Children["state-xr"] = types.YChild{"StateXr", &usernameSummary.StateXr}
-    usernameSummary.EntityData.Children["address-family-xr"] = types.YChild{"AddressFamilyXr", &usernameSummary.AddressFamilyXr}
-    usernameSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    usernameSummary.EntityData.Leafs["username"] = types.YLeaf{"Username", usernameSummary.Username}
+    usernameSummary.EntityData.Children = types.NewOrderedMap()
+    usernameSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &usernameSummary.StateXr})
+    usernameSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &usernameSummary.AddressFamilyXr})
+    usernameSummary.EntityData.Leafs = types.NewOrderedMap()
+    usernameSummary.EntityData.Leafs.Append("username", types.YLeaf{"Username", usernameSummary.Username})
+
+    usernameSummary.EntityData.YListKeys = []string {"Username"}
+
     return &(usernameSummary.EntityData)
 }
 
@@ -8673,11 +9183,14 @@ func (stateXr *Subscriber_Session_Nodes_Node_UsernameSummaries_UsernameSummary_S
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateXr.EntityData.Children = make(map[string]types.YChild)
-    stateXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &stateXr.Pppoe}
-    stateXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp}
-    stateXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket}
-    stateXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
     return &(stateXr.EntityData)
 }
 
@@ -8724,15 +9237,18 @@ func (pppoe *Subscriber_Session_Nodes_Node_UsernameSummaries_UsernameSummary_Sta
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", pppoe.InitializedSessions}
-    pppoe.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions}
-    pppoe.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions}
-    pppoe.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions}
-    pppoe.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", pppoe.IdleSessions}
-    pppoe.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions}
-    pppoe.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", pppoe.EndSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -8779,15 +9295,18 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_UsernameSummaries_Username
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions}
-    ipSubscriberDhcp.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -8834,15 +9353,18 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_UsernameSummaries_Userna
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions}
-    ipSubscriberPacket.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions}
-    ipSubscriberPacket.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions}
-    ipSubscriberPacket.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions}
-    ipSubscriberPacket.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -8872,11 +9394,14 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_UsernameSummaries_UsernameS
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressFamilyXr.EntityData.Children = make(map[string]types.YChild)
-    addressFamilyXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &addressFamilyXr.Pppoe}
-    addressFamilyXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp}
-    addressFamilyXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket}
-    addressFamilyXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
     return &(addressFamilyXr.EntityData)
 }
 
@@ -8917,14 +9442,17 @@ func (pppoe *Subscriber_Session_Nodes_Node_UsernameSummaries_UsernameSummary_Add
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", pppoe.InProgressSessions}
-    pppoe.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions}
-    pppoe.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions}
-    pppoe.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions}
-    pppoe.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", pppoe.DualUpSessions}
-    pppoe.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", pppoe.LacSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -8965,14 +9493,17 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_UsernameSummaries_Username
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -9013,14 +9544,17 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_UsernameSummaries_Userna
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -9033,7 +9567,7 @@ type Subscriber_Session_Nodes_Node_AccessInterfaceSummaries struct {
 
     // Access interface summary. The type is slice of
     // Subscriber_Session_Nodes_Node_AccessInterfaceSummaries_AccessInterfaceSummary.
-    AccessInterfaceSummary []Subscriber_Session_Nodes_Node_AccessInterfaceSummaries_AccessInterfaceSummary
+    AccessInterfaceSummary []*Subscriber_Session_Nodes_Node_AccessInterfaceSummaries_AccessInterfaceSummary
 }
 
 func (accessInterfaceSummaries *Subscriber_Session_Nodes_Node_AccessInterfaceSummaries) GetEntityData() *types.CommonEntityData {
@@ -9046,12 +9580,15 @@ func (accessInterfaceSummaries *Subscriber_Session_Nodes_Node_AccessInterfaceSum
     accessInterfaceSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessInterfaceSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accessInterfaceSummaries.EntityData.Children = make(map[string]types.YChild)
-    accessInterfaceSummaries.EntityData.Children["access-interface-summary"] = types.YChild{"AccessInterfaceSummary", nil}
+    accessInterfaceSummaries.EntityData.Children = types.NewOrderedMap()
+    accessInterfaceSummaries.EntityData.Children.Append("access-interface-summary", types.YChild{"AccessInterfaceSummary", nil})
     for i := range accessInterfaceSummaries.AccessInterfaceSummary {
-        accessInterfaceSummaries.EntityData.Children[types.GetSegmentPath(&accessInterfaceSummaries.AccessInterfaceSummary[i])] = types.YChild{"AccessInterfaceSummary", &accessInterfaceSummaries.AccessInterfaceSummary[i]}
+        accessInterfaceSummaries.EntityData.Children.Append(types.GetSegmentPath(accessInterfaceSummaries.AccessInterfaceSummary[i]), types.YChild{"AccessInterfaceSummary", accessInterfaceSummaries.AccessInterfaceSummary[i]})
     }
-    accessInterfaceSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessInterfaceSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    accessInterfaceSummaries.EntityData.YListKeys = []string {}
+
     return &(accessInterfaceSummaries.EntityData)
 }
 
@@ -9062,7 +9599,7 @@ type Subscriber_Session_Nodes_Node_AccessInterfaceSummaries_AccessInterfaceSumma
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // State summary.
@@ -9077,16 +9614,19 @@ func (accessInterfaceSummary *Subscriber_Session_Nodes_Node_AccessInterfaceSumma
     accessInterfaceSummary.EntityData.YangName = "access-interface-summary"
     accessInterfaceSummary.EntityData.BundleName = "cisco_ios_xr"
     accessInterfaceSummary.EntityData.ParentYangName = "access-interface-summaries"
-    accessInterfaceSummary.EntityData.SegmentPath = "access-interface-summary" + "[interface-name='" + fmt.Sprintf("%v", accessInterfaceSummary.InterfaceName) + "']"
+    accessInterfaceSummary.EntityData.SegmentPath = "access-interface-summary" + types.AddKeyToken(accessInterfaceSummary.InterfaceName, "interface-name")
     accessInterfaceSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessInterfaceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessInterfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accessInterfaceSummary.EntityData.Children = make(map[string]types.YChild)
-    accessInterfaceSummary.EntityData.Children["state-xr"] = types.YChild{"StateXr", &accessInterfaceSummary.StateXr}
-    accessInterfaceSummary.EntityData.Children["address-family-xr"] = types.YChild{"AddressFamilyXr", &accessInterfaceSummary.AddressFamilyXr}
-    accessInterfaceSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    accessInterfaceSummary.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", accessInterfaceSummary.InterfaceName}
+    accessInterfaceSummary.EntityData.Children = types.NewOrderedMap()
+    accessInterfaceSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &accessInterfaceSummary.StateXr})
+    accessInterfaceSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &accessInterfaceSummary.AddressFamilyXr})
+    accessInterfaceSummary.EntityData.Leafs = types.NewOrderedMap()
+    accessInterfaceSummary.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", accessInterfaceSummary.InterfaceName})
+
+    accessInterfaceSummary.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(accessInterfaceSummary.EntityData)
 }
 
@@ -9116,11 +9656,14 @@ func (stateXr *Subscriber_Session_Nodes_Node_AccessInterfaceSummaries_AccessInte
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateXr.EntityData.Children = make(map[string]types.YChild)
-    stateXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &stateXr.Pppoe}
-    stateXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp}
-    stateXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket}
-    stateXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
     return &(stateXr.EntityData)
 }
 
@@ -9167,15 +9710,18 @@ func (pppoe *Subscriber_Session_Nodes_Node_AccessInterfaceSummaries_AccessInterf
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", pppoe.InitializedSessions}
-    pppoe.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions}
-    pppoe.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions}
-    pppoe.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions}
-    pppoe.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", pppoe.IdleSessions}
-    pppoe.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions}
-    pppoe.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", pppoe.EndSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -9222,15 +9768,18 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_AccessInterfaceSummaries_A
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions}
-    ipSubscriberDhcp.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -9277,15 +9826,18 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_AccessInterfaceSummaries
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions}
-    ipSubscriberPacket.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions}
-    ipSubscriberPacket.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions}
-    ipSubscriberPacket.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions}
-    ipSubscriberPacket.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -9315,11 +9867,14 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_AccessInterfaceSummaries_Ac
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressFamilyXr.EntityData.Children = make(map[string]types.YChild)
-    addressFamilyXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &addressFamilyXr.Pppoe}
-    addressFamilyXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp}
-    addressFamilyXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket}
-    addressFamilyXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
     return &(addressFamilyXr.EntityData)
 }
 
@@ -9360,14 +9915,17 @@ func (pppoe *Subscriber_Session_Nodes_Node_AccessInterfaceSummaries_AccessInterf
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", pppoe.InProgressSessions}
-    pppoe.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions}
-    pppoe.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions}
-    pppoe.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions}
-    pppoe.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", pppoe.DualUpSessions}
-    pppoe.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", pppoe.LacSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -9408,14 +9966,17 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_AccessInterfaceSummaries_A
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -9456,14 +10017,17 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_AccessInterfaceSummaries
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -9476,7 +10040,7 @@ type Subscriber_Session_Nodes_Node_Ipv4AddressSummaries struct {
 
     // IPv4 address summary. The type is slice of
     // Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv4AddressSummary.
-    Ipv4AddressSummary []Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv4AddressSummary
+    Ipv4AddressSummary []*Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv4AddressSummary
 }
 
 func (ipv4AddressSummaries *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries) GetEntityData() *types.CommonEntityData {
@@ -9489,12 +10053,15 @@ func (ipv4AddressSummaries *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries) 
     ipv4AddressSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4AddressSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4AddressSummaries.EntityData.Children = make(map[string]types.YChild)
-    ipv4AddressSummaries.EntityData.Children["ipv4-address-summary"] = types.YChild{"Ipv4AddressSummary", nil}
+    ipv4AddressSummaries.EntityData.Children = types.NewOrderedMap()
+    ipv4AddressSummaries.EntityData.Children.Append("ipv4-address-summary", types.YChild{"Ipv4AddressSummary", nil})
     for i := range ipv4AddressSummaries.Ipv4AddressSummary {
-        ipv4AddressSummaries.EntityData.Children[types.GetSegmentPath(&ipv4AddressSummaries.Ipv4AddressSummary[i])] = types.YChild{"Ipv4AddressSummary", &ipv4AddressSummaries.Ipv4AddressSummary[i]}
+        ipv4AddressSummaries.EntityData.Children.Append(types.GetSegmentPath(ipv4AddressSummaries.Ipv4AddressSummary[i]), types.YChild{"Ipv4AddressSummary", ipv4AddressSummaries.Ipv4AddressSummary[i]})
     }
-    ipv4AddressSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4AddressSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4AddressSummaries.EntityData.YListKeys = []string {}
+
     return &(ipv4AddressSummaries.EntityData)
 }
 
@@ -9506,7 +10073,7 @@ type Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv4AddressSummary struc
 
     // This attribute is a key. Subscriber IPv4 address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // State summary.
@@ -9521,16 +10088,19 @@ func (ipv4AddressSummary *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv
     ipv4AddressSummary.EntityData.YangName = "ipv4-address-summary"
     ipv4AddressSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv4AddressSummary.EntityData.ParentYangName = "ipv4-address-summaries"
-    ipv4AddressSummary.EntityData.SegmentPath = "ipv4-address-summary" + "[address='" + fmt.Sprintf("%v", ipv4AddressSummary.Address) + "']"
+    ipv4AddressSummary.EntityData.SegmentPath = "ipv4-address-summary" + types.AddKeyToken(ipv4AddressSummary.Address, "address")
     ipv4AddressSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4AddressSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4AddressSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4AddressSummary.EntityData.Children = make(map[string]types.YChild)
-    ipv4AddressSummary.EntityData.Children["state-xr"] = types.YChild{"StateXr", &ipv4AddressSummary.StateXr}
-    ipv4AddressSummary.EntityData.Children["address-family-xr"] = types.YChild{"AddressFamilyXr", &ipv4AddressSummary.AddressFamilyXr}
-    ipv4AddressSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4AddressSummary.EntityData.Leafs["address"] = types.YLeaf{"Address", ipv4AddressSummary.Address}
+    ipv4AddressSummary.EntityData.Children = types.NewOrderedMap()
+    ipv4AddressSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &ipv4AddressSummary.StateXr})
+    ipv4AddressSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &ipv4AddressSummary.AddressFamilyXr})
+    ipv4AddressSummary.EntityData.Leafs = types.NewOrderedMap()
+    ipv4AddressSummary.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv4AddressSummary.Address})
+
+    ipv4AddressSummary.EntityData.YListKeys = []string {"Address"}
+
     return &(ipv4AddressSummary.EntityData)
 }
 
@@ -9560,11 +10130,14 @@ func (stateXr *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv4AddressSum
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateXr.EntityData.Children = make(map[string]types.YChild)
-    stateXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &stateXr.Pppoe}
-    stateXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp}
-    stateXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket}
-    stateXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
     return &(stateXr.EntityData)
 }
 
@@ -9611,15 +10184,18 @@ func (pppoe *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv4AddressSumma
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", pppoe.InitializedSessions}
-    pppoe.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions}
-    pppoe.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions}
-    pppoe.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions}
-    pppoe.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", pppoe.IdleSessions}
-    pppoe.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions}
-    pppoe.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", pppoe.EndSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -9666,15 +10242,18 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv4A
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions}
-    ipSubscriberDhcp.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -9721,15 +10300,18 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions}
-    ipSubscriberPacket.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions}
-    ipSubscriberPacket.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions}
-    ipSubscriberPacket.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions}
-    ipSubscriberPacket.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -9759,11 +10341,14 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv4Ad
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressFamilyXr.EntityData.Children = make(map[string]types.YChild)
-    addressFamilyXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &addressFamilyXr.Pppoe}
-    addressFamilyXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp}
-    addressFamilyXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket}
-    addressFamilyXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
     return &(addressFamilyXr.EntityData)
 }
 
@@ -9804,14 +10389,17 @@ func (pppoe *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv4AddressSumma
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", pppoe.InProgressSessions}
-    pppoe.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions}
-    pppoe.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions}
-    pppoe.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions}
-    pppoe.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", pppoe.DualUpSessions}
-    pppoe.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", pppoe.LacSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -9852,14 +10440,17 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv4A
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -9900,14 +10491,17 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -9919,7 +10513,7 @@ type Subscriber_Session_Nodes_Node_VrfSummaries struct {
 
     // VRF summary. The type is slice of
     // Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary.
-    VrfSummary []Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary
+    VrfSummary []*Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary
 }
 
 func (vrfSummaries *Subscriber_Session_Nodes_Node_VrfSummaries) GetEntityData() *types.CommonEntityData {
@@ -9932,12 +10526,15 @@ func (vrfSummaries *Subscriber_Session_Nodes_Node_VrfSummaries) GetEntityData() 
     vrfSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfSummaries.EntityData.Children = make(map[string]types.YChild)
-    vrfSummaries.EntityData.Children["vrf-summary"] = types.YChild{"VrfSummary", nil}
+    vrfSummaries.EntityData.Children = types.NewOrderedMap()
+    vrfSummaries.EntityData.Children.Append("vrf-summary", types.YChild{"VrfSummary", nil})
     for i := range vrfSummaries.VrfSummary {
-        vrfSummaries.EntityData.Children[types.GetSegmentPath(&vrfSummaries.VrfSummary[i])] = types.YChild{"VrfSummary", &vrfSummaries.VrfSummary[i]}
+        vrfSummaries.EntityData.Children.Append(types.GetSegmentPath(vrfSummaries.VrfSummary[i]), types.YChild{"VrfSummary", vrfSummaries.VrfSummary[i]})
     }
-    vrfSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfSummaries.EntityData.YListKeys = []string {}
+
     return &(vrfSummaries.EntityData)
 }
 
@@ -9948,7 +10545,7 @@ type Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // State summary.
@@ -9963,16 +10560,19 @@ func (vrfSummary *Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary) GetEnti
     vrfSummary.EntityData.YangName = "vrf-summary"
     vrfSummary.EntityData.BundleName = "cisco_ios_xr"
     vrfSummary.EntityData.ParentYangName = "vrf-summaries"
-    vrfSummary.EntityData.SegmentPath = "vrf-summary" + "[vrf-name='" + fmt.Sprintf("%v", vrfSummary.VrfName) + "']"
+    vrfSummary.EntityData.SegmentPath = "vrf-summary" + types.AddKeyToken(vrfSummary.VrfName, "vrf-name")
     vrfSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfSummary.EntityData.Children = make(map[string]types.YChild)
-    vrfSummary.EntityData.Children["state-xr"] = types.YChild{"StateXr", &vrfSummary.StateXr}
-    vrfSummary.EntityData.Children["address-family-xr"] = types.YChild{"AddressFamilyXr", &vrfSummary.AddressFamilyXr}
-    vrfSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrfSummary.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrfSummary.VrfName}
+    vrfSummary.EntityData.Children = types.NewOrderedMap()
+    vrfSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &vrfSummary.StateXr})
+    vrfSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &vrfSummary.AddressFamilyXr})
+    vrfSummary.EntityData.Leafs = types.NewOrderedMap()
+    vrfSummary.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrfSummary.VrfName})
+
+    vrfSummary.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrfSummary.EntityData)
 }
 
@@ -10002,11 +10602,14 @@ func (stateXr *Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary_StateXr) Ge
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateXr.EntityData.Children = make(map[string]types.YChild)
-    stateXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &stateXr.Pppoe}
-    stateXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp}
-    stateXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket}
-    stateXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
     return &(stateXr.EntityData)
 }
 
@@ -10053,15 +10656,18 @@ func (pppoe *Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary_StateXr_Pppoe
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", pppoe.InitializedSessions}
-    pppoe.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions}
-    pppoe.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions}
-    pppoe.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions}
-    pppoe.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", pppoe.IdleSessions}
-    pppoe.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions}
-    pppoe.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", pppoe.EndSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -10108,15 +10714,18 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary_St
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions}
-    ipSubscriberDhcp.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions}
-    ipSubscriberDhcp.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions}
-    ipSubscriberDhcp.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -10163,15 +10772,18 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary_
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["initialized-sessions"] = types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions}
-    ipSubscriberPacket.EntityData.Leafs["connecting-sessions"] = types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["connected-sessions"] = types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions}
-    ipSubscriberPacket.EntityData.Leafs["activated-sessions"] = types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions}
-    ipSubscriberPacket.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions}
-    ipSubscriberPacket.EntityData.Leafs["disconnecting-sessions"] = types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions}
-    ipSubscriberPacket.EntityData.Leafs["end-sessions"] = types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -10201,11 +10813,14 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary_Add
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressFamilyXr.EntityData.Children = make(map[string]types.YChild)
-    addressFamilyXr.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &addressFamilyXr.Pppoe}
-    addressFamilyXr.EntityData.Children["ip-subscriber-dhcp"] = types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp}
-    addressFamilyXr.EntityData.Children["ip-subscriber-packet"] = types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket}
-    addressFamilyXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
     return &(addressFamilyXr.EntityData)
 }
 
@@ -10246,14 +10861,17 @@ func (pppoe *Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary_AddressFamily
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", pppoe.InProgressSessions}
-    pppoe.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions}
-    pppoe.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions}
-    pppoe.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions}
-    pppoe.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", pppoe.DualUpSessions}
-    pppoe.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", pppoe.LacSessions}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -10294,14 +10912,17 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary_Ad
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberDhcp.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberDhcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberDhcp.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions}
-    ipSubscriberDhcp.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions}
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberDhcp.EntityData)
 }
 
@@ -10342,14 +10963,17 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary_
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipSubscriberPacket.EntityData.Children = make(map[string]types.YChild)
-    ipSubscriberPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipSubscriberPacket.EntityData.Leafs["in-progress-sessions"] = types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv4-only-sessions"] = types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["ipv6-only-sessions"] = types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-part-up-sessions"] = types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["dual-up-sessions"] = types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions}
-    ipSubscriberPacket.EntityData.Leafs["lac-sessions"] = types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions}
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
     return &(ipSubscriberPacket.EntityData)
 }
 
@@ -10361,7 +10985,7 @@ type Subscriber_Session_Nodes_Node_Sessions struct {
 
     // Subscriber session information. The type is slice of
     // Subscriber_Session_Nodes_Node_Sessions_Session.
-    Session []Subscriber_Session_Nodes_Node_Sessions_Session_
+    Session []*Subscriber_Session_Nodes_Node_Sessions_Session
 }
 
 func (sessions *Subscriber_Session_Nodes_Node_Sessions) GetEntityData() *types.CommonEntityData {
@@ -10374,23 +10998,26 @@ func (sessions *Subscriber_Session_Nodes_Node_Sessions) GetEntityData() *types.C
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessions.EntityData.Children = make(map[string]types.YChild)
-    sessions.EntityData.Children["session"] = types.YChild{"Session", nil}
+    sessions.EntityData.Children = types.NewOrderedMap()
+    sessions.EntityData.Children.Append("session", types.YChild{"Session", nil})
     for i := range sessions.Session {
-        sessions.EntityData.Children[types.GetSegmentPath(&sessions.Session[i])] = types.YChild{"Session", &sessions.Session[i]}
+        sessions.EntityData.Children.Append(types.GetSegmentPath(sessions.Session[i]), types.YChild{"Session", sessions.Session[i]})
     }
-    sessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessions.EntityData.Leafs = types.NewOrderedMap()
+
+    sessions.EntityData.YListKeys = []string {}
+
     return &(sessions.EntityData)
 }
 
-// Subscriber_Session_Nodes_Node_Sessions_Session_
+// Subscriber_Session_Nodes_Node_Sessions_Session
 // Subscriber session information
-type Subscriber_Session_Nodes_Node_Sessions_Session_ struct {
+type Subscriber_Session_Nodes_Node_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Session ID. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // [0-9a-fA-F]{1,8}.
     SessionId interface{}
 
     // Subscriber session type. The type is IedgeOperSession.
@@ -10399,7 +11026,7 @@ type Subscriber_Session_Nodes_Node_Sessions_Session_ struct {
     // PPPoE sub type. The type is IedgePppSub.
     PppoeSubType interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // VRF name. The type is string.
@@ -10412,11 +11039,11 @@ type Subscriber_Session_Nodes_Node_Sessions_Session_ struct {
     RemoteId interface{}
 
     // PPPoE LNS address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LnsAddress interface{}
 
     // PPPoE LAC address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LacAddress interface{}
 
     // PPPoE LAC tunnel client authentication ID. The type is string.
@@ -10426,7 +11053,7 @@ type Subscriber_Session_Nodes_Node_Sessions_Session_ struct {
     TunnelServerAuthenticationId interface{}
 
     // Session ip address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SessionIpAddress interface{}
 
     // Session IPv6 address. The type is string.
@@ -10439,11 +11066,11 @@ type Subscriber_Session_Nodes_Node_Sessions_Session_ struct {
     DelegatedIpv6Prefix interface{}
 
     // IPv6 Interface ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Ipv6InterfaceId interface{}
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Accounting session ID. The type is string.
@@ -10483,7 +11110,7 @@ type Subscriber_Session_Nodes_Node_Sessions_Session_ struct {
     TotalSessionIdleTime interface{}
 
     // Access interface name associated with the session. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     AccessInterfaceName interface{}
 
     // Active pending callbacks bitmask. The type is interface{} with range:
@@ -10501,86 +11128,89 @@ type Subscriber_Session_Nodes_Node_Sessions_Session_ struct {
     SessionIpv6State interface{}
 
     // Accounting information.
-    Accounting Subscriber_Session_Nodes_Node_Sessions_Session__Accounting
+    Accounting Subscriber_Session_Nodes_Node_Sessions_Session_Accounting
 
     // List of user profile attributes collected for subscriber session.
-    UserProfileAttributes Subscriber_Session_Nodes_Node_Sessions_Session__UserProfileAttributes
+    UserProfileAttributes Subscriber_Session_Nodes_Node_Sessions_Session_UserProfileAttributes
 
     // List of mobility attributes collected for subscriber session.
-    MobilityAttributes Subscriber_Session_Nodes_Node_Sessions_Session__MobilityAttributes
+    MobilityAttributes Subscriber_Session_Nodes_Node_Sessions_Session_MobilityAttributes
 
     // Subscriber change of authorization information. The type is slice of
-    // Subscriber_Session_Nodes_Node_Sessions_Session__SessionChangeOfAuthorization.
-    SessionChangeOfAuthorization []Subscriber_Session_Nodes_Node_Sessions_Session__SessionChangeOfAuthorization
+    // Subscriber_Session_Nodes_Node_Sessions_Session_SessionChangeOfAuthorization.
+    SessionChangeOfAuthorization []*Subscriber_Session_Nodes_Node_Sessions_Session_SessionChangeOfAuthorization
 }
 
-func (session_ *Subscriber_Session_Nodes_Node_Sessions_Session_) GetEntityData() *types.CommonEntityData {
-    session_.EntityData.YFilter = session_.YFilter
-    session_.EntityData.YangName = "session"
-    session_.EntityData.BundleName = "cisco_ios_xr"
-    session_.EntityData.ParentYangName = "sessions"
-    session_.EntityData.SegmentPath = "session" + "[session-id='" + fmt.Sprintf("%v", session_.SessionId) + "']"
-    session_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    session_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    session_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (session *Subscriber_Session_Nodes_Node_Sessions_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xr"
+    session.EntityData.ParentYangName = "sessions"
+    session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.SessionId, "session-id")
+    session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    session_.EntityData.Children = make(map[string]types.YChild)
-    session_.EntityData.Children["accounting"] = types.YChild{"Accounting", &session_.Accounting}
-    session_.EntityData.Children["user-profile-attributes"] = types.YChild{"UserProfileAttributes", &session_.UserProfileAttributes}
-    session_.EntityData.Children["mobility-attributes"] = types.YChild{"MobilityAttributes", &session_.MobilityAttributes}
-    session_.EntityData.Children["session-change-of-authorization"] = types.YChild{"SessionChangeOfAuthorization", nil}
-    for i := range session_.SessionChangeOfAuthorization {
-        session_.EntityData.Children[types.GetSegmentPath(&session_.SessionChangeOfAuthorization[i])] = types.YChild{"SessionChangeOfAuthorization", &session_.SessionChangeOfAuthorization[i]}
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Children.Append("accounting", types.YChild{"Accounting", &session.Accounting})
+    session.EntityData.Children.Append("user-profile-attributes", types.YChild{"UserProfileAttributes", &session.UserProfileAttributes})
+    session.EntityData.Children.Append("mobility-attributes", types.YChild{"MobilityAttributes", &session.MobilityAttributes})
+    session.EntityData.Children.Append("session-change-of-authorization", types.YChild{"SessionChangeOfAuthorization", nil})
+    for i := range session.SessionChangeOfAuthorization {
+        session.EntityData.Children.Append(types.GetSegmentPath(session.SessionChangeOfAuthorization[i]), types.YChild{"SessionChangeOfAuthorization", session.SessionChangeOfAuthorization[i]})
     }
-    session_.EntityData.Leafs = make(map[string]types.YLeaf)
-    session_.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", session_.SessionId}
-    session_.EntityData.Leafs["session-type"] = types.YLeaf{"SessionType", session_.SessionType}
-    session_.EntityData.Leafs["pppoe-sub-type"] = types.YLeaf{"PppoeSubType", session_.PppoeSubType}
-    session_.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", session_.InterfaceName}
-    session_.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", session_.VrfName}
-    session_.EntityData.Leafs["circuit-id"] = types.YLeaf{"CircuitId", session_.CircuitId}
-    session_.EntityData.Leafs["remote-id"] = types.YLeaf{"RemoteId", session_.RemoteId}
-    session_.EntityData.Leafs["lns-address"] = types.YLeaf{"LnsAddress", session_.LnsAddress}
-    session_.EntityData.Leafs["lac-address"] = types.YLeaf{"LacAddress", session_.LacAddress}
-    session_.EntityData.Leafs["tunnel-client-authentication-id"] = types.YLeaf{"TunnelClientAuthenticationId", session_.TunnelClientAuthenticationId}
-    session_.EntityData.Leafs["tunnel-server-authentication-id"] = types.YLeaf{"TunnelServerAuthenticationId", session_.TunnelServerAuthenticationId}
-    session_.EntityData.Leafs["session-ip-address"] = types.YLeaf{"SessionIpAddress", session_.SessionIpAddress}
-    session_.EntityData.Leafs["session-ipv6-address"] = types.YLeaf{"SessionIpv6Address", session_.SessionIpv6Address}
-    session_.EntityData.Leafs["session-ipv6-prefix"] = types.YLeaf{"SessionIpv6Prefix", session_.SessionIpv6Prefix}
-    session_.EntityData.Leafs["delegated-ipv6-prefix"] = types.YLeaf{"DelegatedIpv6Prefix", session_.DelegatedIpv6Prefix}
-    session_.EntityData.Leafs["ipv6-interface-id"] = types.YLeaf{"Ipv6InterfaceId", session_.Ipv6InterfaceId}
-    session_.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", session_.MacAddress}
-    session_.EntityData.Leafs["account-session-id"] = types.YLeaf{"AccountSessionId", session_.AccountSessionId}
-    session_.EntityData.Leafs["nas-port"] = types.YLeaf{"NasPort", session_.NasPort}
-    session_.EntityData.Leafs["username"] = types.YLeaf{"Username", session_.Username}
-    session_.EntityData.Leafs["clientname"] = types.YLeaf{"Clientname", session_.Clientname}
-    session_.EntityData.Leafs["formattedname"] = types.YLeaf{"Formattedname", session_.Formattedname}
-    session_.EntityData.Leafs["is-session-authentic"] = types.YLeaf{"IsSessionAuthentic", session_.IsSessionAuthentic}
-    session_.EntityData.Leafs["is-session-author"] = types.YLeaf{"IsSessionAuthor", session_.IsSessionAuthor}
-    session_.EntityData.Leafs["session-state"] = types.YLeaf{"SessionState", session_.SessionState}
-    session_.EntityData.Leafs["session-creation-time"] = types.YLeaf{"SessionCreationTime", session_.SessionCreationTime}
-    session_.EntityData.Leafs["idle-state-change-time"] = types.YLeaf{"IdleStateChangeTime", session_.IdleStateChangeTime}
-    session_.EntityData.Leafs["total-session-idle-time"] = types.YLeaf{"TotalSessionIdleTime", session_.TotalSessionIdleTime}
-    session_.EntityData.Leafs["access-interface-name"] = types.YLeaf{"AccessInterfaceName", session_.AccessInterfaceName}
-    session_.EntityData.Leafs["pending-callbacks"] = types.YLeaf{"PendingCallbacks", session_.PendingCallbacks}
-    session_.EntityData.Leafs["af-up-status"] = types.YLeaf{"AfUpStatus", session_.AfUpStatus}
-    session_.EntityData.Leafs["session-ipv4-state"] = types.YLeaf{"SessionIpv4State", session_.SessionIpv4State}
-    session_.EntityData.Leafs["session-ipv6-state"] = types.YLeaf{"SessionIpv6State", session_.SessionIpv6State}
-    return &(session_.EntityData)
+    session.EntityData.Leafs = types.NewOrderedMap()
+    session.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", session.SessionId})
+    session.EntityData.Leafs.Append("session-type", types.YLeaf{"SessionType", session.SessionType})
+    session.EntityData.Leafs.Append("pppoe-sub-type", types.YLeaf{"PppoeSubType", session.PppoeSubType})
+    session.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", session.InterfaceName})
+    session.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", session.VrfName})
+    session.EntityData.Leafs.Append("circuit-id", types.YLeaf{"CircuitId", session.CircuitId})
+    session.EntityData.Leafs.Append("remote-id", types.YLeaf{"RemoteId", session.RemoteId})
+    session.EntityData.Leafs.Append("lns-address", types.YLeaf{"LnsAddress", session.LnsAddress})
+    session.EntityData.Leafs.Append("lac-address", types.YLeaf{"LacAddress", session.LacAddress})
+    session.EntityData.Leafs.Append("tunnel-client-authentication-id", types.YLeaf{"TunnelClientAuthenticationId", session.TunnelClientAuthenticationId})
+    session.EntityData.Leafs.Append("tunnel-server-authentication-id", types.YLeaf{"TunnelServerAuthenticationId", session.TunnelServerAuthenticationId})
+    session.EntityData.Leafs.Append("session-ip-address", types.YLeaf{"SessionIpAddress", session.SessionIpAddress})
+    session.EntityData.Leafs.Append("session-ipv6-address", types.YLeaf{"SessionIpv6Address", session.SessionIpv6Address})
+    session.EntityData.Leafs.Append("session-ipv6-prefix", types.YLeaf{"SessionIpv6Prefix", session.SessionIpv6Prefix})
+    session.EntityData.Leafs.Append("delegated-ipv6-prefix", types.YLeaf{"DelegatedIpv6Prefix", session.DelegatedIpv6Prefix})
+    session.EntityData.Leafs.Append("ipv6-interface-id", types.YLeaf{"Ipv6InterfaceId", session.Ipv6InterfaceId})
+    session.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", session.MacAddress})
+    session.EntityData.Leafs.Append("account-session-id", types.YLeaf{"AccountSessionId", session.AccountSessionId})
+    session.EntityData.Leafs.Append("nas-port", types.YLeaf{"NasPort", session.NasPort})
+    session.EntityData.Leafs.Append("username", types.YLeaf{"Username", session.Username})
+    session.EntityData.Leafs.Append("clientname", types.YLeaf{"Clientname", session.Clientname})
+    session.EntityData.Leafs.Append("formattedname", types.YLeaf{"Formattedname", session.Formattedname})
+    session.EntityData.Leafs.Append("is-session-authentic", types.YLeaf{"IsSessionAuthentic", session.IsSessionAuthentic})
+    session.EntityData.Leafs.Append("is-session-author", types.YLeaf{"IsSessionAuthor", session.IsSessionAuthor})
+    session.EntityData.Leafs.Append("session-state", types.YLeaf{"SessionState", session.SessionState})
+    session.EntityData.Leafs.Append("session-creation-time", types.YLeaf{"SessionCreationTime", session.SessionCreationTime})
+    session.EntityData.Leafs.Append("idle-state-change-time", types.YLeaf{"IdleStateChangeTime", session.IdleStateChangeTime})
+    session.EntityData.Leafs.Append("total-session-idle-time", types.YLeaf{"TotalSessionIdleTime", session.TotalSessionIdleTime})
+    session.EntityData.Leafs.Append("access-interface-name", types.YLeaf{"AccessInterfaceName", session.AccessInterfaceName})
+    session.EntityData.Leafs.Append("pending-callbacks", types.YLeaf{"PendingCallbacks", session.PendingCallbacks})
+    session.EntityData.Leafs.Append("af-up-status", types.YLeaf{"AfUpStatus", session.AfUpStatus})
+    session.EntityData.Leafs.Append("session-ipv4-state", types.YLeaf{"SessionIpv4State", session.SessionIpv4State})
+    session.EntityData.Leafs.Append("session-ipv6-state", types.YLeaf{"SessionIpv6State", session.SessionIpv6State})
+
+    session.EntityData.YListKeys = []string {"SessionId"}
+
+    return &(session.EntityData)
 }
 
-// Subscriber_Session_Nodes_Node_Sessions_Session__Accounting
+// Subscriber_Session_Nodes_Node_Sessions_Session_Accounting
 // Accounting information
-type Subscriber_Session_Nodes_Node_Sessions_Session__Accounting struct {
+type Subscriber_Session_Nodes_Node_Sessions_Session_Accounting struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Accounting information. The type is slice of
-    // Subscriber_Session_Nodes_Node_Sessions_Session__Accounting_AccountingSession.
-    AccountingSession []Subscriber_Session_Nodes_Node_Sessions_Session__Accounting_AccountingSession
+    // Subscriber_Session_Nodes_Node_Sessions_Session_Accounting_AccountingSession.
+    AccountingSession []*Subscriber_Session_Nodes_Node_Sessions_Session_Accounting_AccountingSession
 }
 
-func (accounting *Subscriber_Session_Nodes_Node_Sessions_Session__Accounting) GetEntityData() *types.CommonEntityData {
+func (accounting *Subscriber_Session_Nodes_Node_Sessions_Session_Accounting) GetEntityData() *types.CommonEntityData {
     accounting.EntityData.YFilter = accounting.YFilter
     accounting.EntityData.YangName = "accounting"
     accounting.EntityData.BundleName = "cisco_ios_xr"
@@ -10590,18 +11220,21 @@ func (accounting *Subscriber_Session_Nodes_Node_Sessions_Session__Accounting) Ge
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accounting.EntityData.Children = make(map[string]types.YChild)
-    accounting.EntityData.Children["accounting-session"] = types.YChild{"AccountingSession", nil}
+    accounting.EntityData.Children = types.NewOrderedMap()
+    accounting.EntityData.Children.Append("accounting-session", types.YChild{"AccountingSession", nil})
     for i := range accounting.AccountingSession {
-        accounting.EntityData.Children[types.GetSegmentPath(&accounting.AccountingSession[i])] = types.YChild{"AccountingSession", &accounting.AccountingSession[i]}
+        accounting.EntityData.Children.Append(types.GetSegmentPath(accounting.AccountingSession[i]), types.YChild{"AccountingSession", accounting.AccountingSession[i]})
     }
-    accounting.EntityData.Leafs = make(map[string]types.YLeaf)
+    accounting.EntityData.Leafs = types.NewOrderedMap()
+
+    accounting.EntityData.YListKeys = []string {}
+
     return &(accounting.EntityData)
 }
 
-// Subscriber_Session_Nodes_Node_Sessions_Session__Accounting_AccountingSession
+// Subscriber_Session_Nodes_Node_Sessions_Session_Accounting_AccountingSession
 // Accounting information
-type Subscriber_Session_Nodes_Node_Sessions_Session__Accounting_AccountingSession struct {
+type Subscriber_Session_Nodes_Node_Sessions_Session_Accounting_AccountingSession struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -10661,7 +11294,7 @@ type Subscriber_Session_Nodes_Node_Sessions_Session__Accounting_AccountingSessio
     SentInterimUpdateFailures interface{}
 }
 
-func (accountingSession *Subscriber_Session_Nodes_Node_Sessions_Session__Accounting_AccountingSession) GetEntityData() *types.CommonEntityData {
+func (accountingSession *Subscriber_Session_Nodes_Node_Sessions_Session_Accounting_AccountingSession) GetEntityData() *types.CommonEntityData {
     accountingSession.EntityData.YFilter = accountingSession.YFilter
     accountingSession.EntityData.YangName = "accounting-session"
     accountingSession.EntityData.BundleName = "cisco_ios_xr"
@@ -10671,36 +11304,39 @@ func (accountingSession *Subscriber_Session_Nodes_Node_Sessions_Session__Account
     accountingSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountingSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accountingSession.EntityData.Children = make(map[string]types.YChild)
-    accountingSession.EntityData.Leafs = make(map[string]types.YLeaf)
-    accountingSession.EntityData.Leafs["accounting-state-rc"] = types.YLeaf{"AccountingStateRc", accountingSession.AccountingStateRc}
-    accountingSession.EntityData.Leafs["accounting-stop-state"] = types.YLeaf{"AccountingStopState", accountingSession.AccountingStopState}
-    accountingSession.EntityData.Leafs["record-context-name"] = types.YLeaf{"RecordContextName", accountingSession.RecordContextName}
-    accountingSession.EntityData.Leafs["method-list-name"] = types.YLeaf{"MethodListName", accountingSession.MethodListName}
-    accountingSession.EntityData.Leafs["account-session-id"] = types.YLeaf{"AccountSessionId", accountingSession.AccountSessionId}
-    accountingSession.EntityData.Leafs["accounting-start-time"] = types.YLeaf{"AccountingStartTime", accountingSession.AccountingStartTime}
-    accountingSession.EntityData.Leafs["is-interim-accounting-enabled"] = types.YLeaf{"IsInterimAccountingEnabled", accountingSession.IsInterimAccountingEnabled}
-    accountingSession.EntityData.Leafs["interim-interval"] = types.YLeaf{"InterimInterval", accountingSession.InterimInterval}
-    accountingSession.EntityData.Leafs["last-successful-interim-update-time"] = types.YLeaf{"LastSuccessfulInterimUpdateTime", accountingSession.LastSuccessfulInterimUpdateTime}
-    accountingSession.EntityData.Leafs["next-interim-update-attempt-time"] = types.YLeaf{"NextInterimUpdateAttemptTime", accountingSession.NextInterimUpdateAttemptTime}
-    accountingSession.EntityData.Leafs["last-interim-update-attempt-time"] = types.YLeaf{"LastInterimUpdateAttemptTime", accountingSession.LastInterimUpdateAttemptTime}
-    accountingSession.EntityData.Leafs["sent-interim-updates"] = types.YLeaf{"SentInterimUpdates", accountingSession.SentInterimUpdates}
-    accountingSession.EntityData.Leafs["accepted-interim-updates"] = types.YLeaf{"AcceptedInterimUpdates", accountingSession.AcceptedInterimUpdates}
-    accountingSession.EntityData.Leafs["rejected-interim-updates"] = types.YLeaf{"RejectedInterimUpdates", accountingSession.RejectedInterimUpdates}
-    accountingSession.EntityData.Leafs["sent-interim-update-failures"] = types.YLeaf{"SentInterimUpdateFailures", accountingSession.SentInterimUpdateFailures}
+    accountingSession.EntityData.Children = types.NewOrderedMap()
+    accountingSession.EntityData.Leafs = types.NewOrderedMap()
+    accountingSession.EntityData.Leafs.Append("accounting-state-rc", types.YLeaf{"AccountingStateRc", accountingSession.AccountingStateRc})
+    accountingSession.EntityData.Leafs.Append("accounting-stop-state", types.YLeaf{"AccountingStopState", accountingSession.AccountingStopState})
+    accountingSession.EntityData.Leafs.Append("record-context-name", types.YLeaf{"RecordContextName", accountingSession.RecordContextName})
+    accountingSession.EntityData.Leafs.Append("method-list-name", types.YLeaf{"MethodListName", accountingSession.MethodListName})
+    accountingSession.EntityData.Leafs.Append("account-session-id", types.YLeaf{"AccountSessionId", accountingSession.AccountSessionId})
+    accountingSession.EntityData.Leafs.Append("accounting-start-time", types.YLeaf{"AccountingStartTime", accountingSession.AccountingStartTime})
+    accountingSession.EntityData.Leafs.Append("is-interim-accounting-enabled", types.YLeaf{"IsInterimAccountingEnabled", accountingSession.IsInterimAccountingEnabled})
+    accountingSession.EntityData.Leafs.Append("interim-interval", types.YLeaf{"InterimInterval", accountingSession.InterimInterval})
+    accountingSession.EntityData.Leafs.Append("last-successful-interim-update-time", types.YLeaf{"LastSuccessfulInterimUpdateTime", accountingSession.LastSuccessfulInterimUpdateTime})
+    accountingSession.EntityData.Leafs.Append("next-interim-update-attempt-time", types.YLeaf{"NextInterimUpdateAttemptTime", accountingSession.NextInterimUpdateAttemptTime})
+    accountingSession.EntityData.Leafs.Append("last-interim-update-attempt-time", types.YLeaf{"LastInterimUpdateAttemptTime", accountingSession.LastInterimUpdateAttemptTime})
+    accountingSession.EntityData.Leafs.Append("sent-interim-updates", types.YLeaf{"SentInterimUpdates", accountingSession.SentInterimUpdates})
+    accountingSession.EntityData.Leafs.Append("accepted-interim-updates", types.YLeaf{"AcceptedInterimUpdates", accountingSession.AcceptedInterimUpdates})
+    accountingSession.EntityData.Leafs.Append("rejected-interim-updates", types.YLeaf{"RejectedInterimUpdates", accountingSession.RejectedInterimUpdates})
+    accountingSession.EntityData.Leafs.Append("sent-interim-update-failures", types.YLeaf{"SentInterimUpdateFailures", accountingSession.SentInterimUpdateFailures})
+
+    accountingSession.EntityData.YListKeys = []string {}
+
     return &(accountingSession.EntityData)
 }
 
-// Subscriber_Session_Nodes_Node_Sessions_Session__UserProfileAttributes
+// Subscriber_Session_Nodes_Node_Sessions_Session_UserProfileAttributes
 // List of user profile attributes collected for
 // subscriber session
-type Subscriber_Session_Nodes_Node_Sessions_Session__UserProfileAttributes struct {
+type Subscriber_Session_Nodes_Node_Sessions_Session_UserProfileAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 maximum transmission unit. The type is interface{} with range:
     // 0..4294967295.
-    Ipv4Mtu interface{}
+    Ipv4mtu interface{}
 
     // IPv4 unnumbered. The type is string.
     Ipv4Unnumbered interface{}
@@ -10709,11 +11345,11 @@ type Subscriber_Session_Nodes_Node_Sessions_Session__UserProfileAttributes struc
     AuthorizationServiceType interface{}
 
     // Tunnel client endpoint. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelClientEndpoint interface{}
 
     // Tunnel server endpoint. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelServerEndpoint interface{}
 
     // Tunnel TOS setting. The type is interface{} with range: 0..4294967295.
@@ -10765,11 +11401,11 @@ type Subscriber_Session_Nodes_Node_Sessions_Session__UserProfileAttributes struc
     DestinationStationId interface{}
 
     // Primary DNS server address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PrimaryDnsServerAddress interface{}
 
     // Secondary DNS server address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SecondaryDnsServerAddress interface{}
 
     // Formatted calling station id. The type is string.
@@ -10792,7 +11428,7 @@ type Subscriber_Session_Nodes_Node_Sessions_Session__UserProfileAttributes struc
     EgressAccessList interface{}
 
     // IP netmask for the user. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpNetmask interface{}
 
     // True, if interworking functionality. The type is bool.
@@ -10827,14 +11463,14 @@ type Subscriber_Session_Nodes_Node_Sessions_Session__UserProfileAttributes struc
     MinDataRateUpstreamLowPower interface{}
 
     // Primary net bios server address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PrimaryNetBiosServerAddress interface{}
 
     // Secondary net bios server address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SecondaryNetBiosServerAddress interface{}
 
-    // Parent interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Parent interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     ParentInterfaceName interface{}
 
     // Remote ID. The type is string.
@@ -10873,7 +11509,7 @@ type Subscriber_Session_Nodes_Node_Sessions_Session__UserProfileAttributes struc
     SessionTerminationCause interface{}
 }
 
-func (userProfileAttributes *Subscriber_Session_Nodes_Node_Sessions_Session__UserProfileAttributes) GetEntityData() *types.CommonEntityData {
+func (userProfileAttributes *Subscriber_Session_Nodes_Node_Sessions_Session_UserProfileAttributes) GetEntityData() *types.CommonEntityData {
     userProfileAttributes.EntityData.YFilter = userProfileAttributes.YFilter
     userProfileAttributes.EntityData.YangName = "user-profile-attributes"
     userProfileAttributes.EntityData.BundleName = "cisco_ios_xr"
@@ -10883,64 +11519,67 @@ func (userProfileAttributes *Subscriber_Session_Nodes_Node_Sessions_Session__Use
     userProfileAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     userProfileAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    userProfileAttributes.EntityData.Children = make(map[string]types.YChild)
-    userProfileAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    userProfileAttributes.EntityData.Leafs["ipv4mtu"] = types.YLeaf{"Ipv4Mtu", userProfileAttributes.Ipv4Mtu}
-    userProfileAttributes.EntityData.Leafs["ipv4-unnumbered"] = types.YLeaf{"Ipv4Unnumbered", userProfileAttributes.Ipv4Unnumbered}
-    userProfileAttributes.EntityData.Leafs["authorization-service-type"] = types.YLeaf{"AuthorizationServiceType", userProfileAttributes.AuthorizationServiceType}
-    userProfileAttributes.EntityData.Leafs["tunnel-client-endpoint"] = types.YLeaf{"TunnelClientEndpoint", userProfileAttributes.TunnelClientEndpoint}
-    userProfileAttributes.EntityData.Leafs["tunnel-server-endpoint"] = types.YLeaf{"TunnelServerEndpoint", userProfileAttributes.TunnelServerEndpoint}
-    userProfileAttributes.EntityData.Leafs["tunnel-tos-setting"] = types.YLeaf{"TunnelTosSetting", userProfileAttributes.TunnelTosSetting}
-    userProfileAttributes.EntityData.Leafs["tunnel-medium"] = types.YLeaf{"TunnelMedium", userProfileAttributes.TunnelMedium}
-    userProfileAttributes.EntityData.Leafs["tunnel-preference"] = types.YLeaf{"TunnelPreference", userProfileAttributes.TunnelPreference}
-    userProfileAttributes.EntityData.Leafs["tunnel-client-authentication-id"] = types.YLeaf{"TunnelClientAuthenticationId", userProfileAttributes.TunnelClientAuthenticationId}
-    userProfileAttributes.EntityData.Leafs["tunnel-protocol"] = types.YLeaf{"TunnelProtocol", userProfileAttributes.TunnelProtocol}
-    userProfileAttributes.EntityData.Leafs["actual-data-rate-upstream"] = types.YLeaf{"ActualDataRateUpstream", userProfileAttributes.ActualDataRateUpstream}
-    userProfileAttributes.EntityData.Leafs["actual-data-rate-downstream"] = types.YLeaf{"ActualDataRateDownstream", userProfileAttributes.ActualDataRateDownstream}
-    userProfileAttributes.EntityData.Leafs["attainable-data-rate-upstream"] = types.YLeaf{"AttainableDataRateUpstream", userProfileAttributes.AttainableDataRateUpstream}
-    userProfileAttributes.EntityData.Leafs["attainable-data-rate-downstream"] = types.YLeaf{"AttainableDataRateDownstream", userProfileAttributes.AttainableDataRateDownstream}
-    userProfileAttributes.EntityData.Leafs["pool-address"] = types.YLeaf{"PoolAddress", userProfileAttributes.PoolAddress}
-    userProfileAttributes.EntityData.Leafs["circuit-id"] = types.YLeaf{"CircuitId", userProfileAttributes.CircuitId}
-    userProfileAttributes.EntityData.Leafs["connection-receive-speed"] = types.YLeaf{"ConnectionReceiveSpeed", userProfileAttributes.ConnectionReceiveSpeed}
-    userProfileAttributes.EntityData.Leafs["connection-transmission-speed"] = types.YLeaf{"ConnectionTransmissionSpeed", userProfileAttributes.ConnectionTransmissionSpeed}
-    userProfileAttributes.EntityData.Leafs["destination-station-id"] = types.YLeaf{"DestinationStationId", userProfileAttributes.DestinationStationId}
-    userProfileAttributes.EntityData.Leafs["primary-dns-server-address"] = types.YLeaf{"PrimaryDnsServerAddress", userProfileAttributes.PrimaryDnsServerAddress}
-    userProfileAttributes.EntityData.Leafs["secondary-dns-server-address"] = types.YLeaf{"SecondaryDnsServerAddress", userProfileAttributes.SecondaryDnsServerAddress}
-    userProfileAttributes.EntityData.Leafs["formatted-calling-station-id"] = types.YLeaf{"FormattedCallingStationId", userProfileAttributes.FormattedCallingStationId}
-    userProfileAttributes.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", userProfileAttributes.InterfaceName}
-    userProfileAttributes.EntityData.Leafs["interface-type"] = types.YLeaf{"InterfaceType", userProfileAttributes.InterfaceType}
-    userProfileAttributes.EntityData.Leafs["interim-accounting-interval"] = types.YLeaf{"InterimAccountingInterval", userProfileAttributes.InterimAccountingInterval}
-    userProfileAttributes.EntityData.Leafs["ingress-access-list"] = types.YLeaf{"IngressAccessList", userProfileAttributes.IngressAccessList}
-    userProfileAttributes.EntityData.Leafs["egress-access-list"] = types.YLeaf{"EgressAccessList", userProfileAttributes.EgressAccessList}
-    userProfileAttributes.EntityData.Leafs["ip-netmask"] = types.YLeaf{"IpNetmask", userProfileAttributes.IpNetmask}
-    userProfileAttributes.EntityData.Leafs["is-interworking-functionality"] = types.YLeaf{"IsInterworkingFunctionality", userProfileAttributes.IsInterworkingFunctionality}
-    userProfileAttributes.EntityData.Leafs["max-interleaving-delay-downstream"] = types.YLeaf{"MaxInterleavingDelayDownstream", userProfileAttributes.MaxInterleavingDelayDownstream}
-    userProfileAttributes.EntityData.Leafs["max-interleaving-delay-upstream"] = types.YLeaf{"MaxInterleavingDelayUpstream", userProfileAttributes.MaxInterleavingDelayUpstream}
-    userProfileAttributes.EntityData.Leafs["max-data-rate-upstream"] = types.YLeaf{"MaxDataRateUpstream", userProfileAttributes.MaxDataRateUpstream}
-    userProfileAttributes.EntityData.Leafs["max-data-rate-downstream"] = types.YLeaf{"MaxDataRateDownstream", userProfileAttributes.MaxDataRateDownstream}
-    userProfileAttributes.EntityData.Leafs["min-data-rate-downstream"] = types.YLeaf{"MinDataRateDownstream", userProfileAttributes.MinDataRateDownstream}
-    userProfileAttributes.EntityData.Leafs["min-data-rate-downstream-low-power"] = types.YLeaf{"MinDataRateDownstreamLowPower", userProfileAttributes.MinDataRateDownstreamLowPower}
-    userProfileAttributes.EntityData.Leafs["min-data-rate-upstream-low-power"] = types.YLeaf{"MinDataRateUpstreamLowPower", userProfileAttributes.MinDataRateUpstreamLowPower}
-    userProfileAttributes.EntityData.Leafs["primary-net-bios-server-address"] = types.YLeaf{"PrimaryNetBiosServerAddress", userProfileAttributes.PrimaryNetBiosServerAddress}
-    userProfileAttributes.EntityData.Leafs["secondary-net-bios-server-address"] = types.YLeaf{"SecondaryNetBiosServerAddress", userProfileAttributes.SecondaryNetBiosServerAddress}
-    userProfileAttributes.EntityData.Leafs["parent-interface-name"] = types.YLeaf{"ParentInterfaceName", userProfileAttributes.ParentInterfaceName}
-    userProfileAttributes.EntityData.Leafs["remote-id"] = types.YLeaf{"RemoteId", userProfileAttributes.RemoteId}
-    userProfileAttributes.EntityData.Leafs["route"] = types.YLeaf{"Route", userProfileAttributes.Route}
-    userProfileAttributes.EntityData.Leafs["session-timeout"] = types.YLeaf{"SessionTimeout", userProfileAttributes.SessionTimeout}
-    userProfileAttributes.EntityData.Leafs["strict-rpf-packets"] = types.YLeaf{"StrictRpfPackets", userProfileAttributes.StrictRpfPackets}
-    userProfileAttributes.EntityData.Leafs["accounting-session-id"] = types.YLeaf{"AccountingSessionId", userProfileAttributes.AccountingSessionId}
-    userProfileAttributes.EntityData.Leafs["upstream-parameterized-qos-policy"] = types.YLeaf{"UpstreamParameterizedQosPolicy", userProfileAttributes.UpstreamParameterizedQosPolicy}
-    userProfileAttributes.EntityData.Leafs["downstream-parameterized-qos-policy"] = types.YLeaf{"DownstreamParameterizedQosPolicy", userProfileAttributes.DownstreamParameterizedQosPolicy}
-    userProfileAttributes.EntityData.Leafs["upstream-qos-policy"] = types.YLeaf{"UpstreamQosPolicy", userProfileAttributes.UpstreamQosPolicy}
-    userProfileAttributes.EntityData.Leafs["downstream-qos-policy"] = types.YLeaf{"DownstreamQosPolicy", userProfileAttributes.DownstreamQosPolicy}
-    userProfileAttributes.EntityData.Leafs["session-termination-cause"] = types.YLeaf{"SessionTerminationCause", userProfileAttributes.SessionTerminationCause}
+    userProfileAttributes.EntityData.Children = types.NewOrderedMap()
+    userProfileAttributes.EntityData.Leafs = types.NewOrderedMap()
+    userProfileAttributes.EntityData.Leafs.Append("ipv4mtu", types.YLeaf{"Ipv4mtu", userProfileAttributes.Ipv4mtu})
+    userProfileAttributes.EntityData.Leafs.Append("ipv4-unnumbered", types.YLeaf{"Ipv4Unnumbered", userProfileAttributes.Ipv4Unnumbered})
+    userProfileAttributes.EntityData.Leafs.Append("authorization-service-type", types.YLeaf{"AuthorizationServiceType", userProfileAttributes.AuthorizationServiceType})
+    userProfileAttributes.EntityData.Leafs.Append("tunnel-client-endpoint", types.YLeaf{"TunnelClientEndpoint", userProfileAttributes.TunnelClientEndpoint})
+    userProfileAttributes.EntityData.Leafs.Append("tunnel-server-endpoint", types.YLeaf{"TunnelServerEndpoint", userProfileAttributes.TunnelServerEndpoint})
+    userProfileAttributes.EntityData.Leafs.Append("tunnel-tos-setting", types.YLeaf{"TunnelTosSetting", userProfileAttributes.TunnelTosSetting})
+    userProfileAttributes.EntityData.Leafs.Append("tunnel-medium", types.YLeaf{"TunnelMedium", userProfileAttributes.TunnelMedium})
+    userProfileAttributes.EntityData.Leafs.Append("tunnel-preference", types.YLeaf{"TunnelPreference", userProfileAttributes.TunnelPreference})
+    userProfileAttributes.EntityData.Leafs.Append("tunnel-client-authentication-id", types.YLeaf{"TunnelClientAuthenticationId", userProfileAttributes.TunnelClientAuthenticationId})
+    userProfileAttributes.EntityData.Leafs.Append("tunnel-protocol", types.YLeaf{"TunnelProtocol", userProfileAttributes.TunnelProtocol})
+    userProfileAttributes.EntityData.Leafs.Append("actual-data-rate-upstream", types.YLeaf{"ActualDataRateUpstream", userProfileAttributes.ActualDataRateUpstream})
+    userProfileAttributes.EntityData.Leafs.Append("actual-data-rate-downstream", types.YLeaf{"ActualDataRateDownstream", userProfileAttributes.ActualDataRateDownstream})
+    userProfileAttributes.EntityData.Leafs.Append("attainable-data-rate-upstream", types.YLeaf{"AttainableDataRateUpstream", userProfileAttributes.AttainableDataRateUpstream})
+    userProfileAttributes.EntityData.Leafs.Append("attainable-data-rate-downstream", types.YLeaf{"AttainableDataRateDownstream", userProfileAttributes.AttainableDataRateDownstream})
+    userProfileAttributes.EntityData.Leafs.Append("pool-address", types.YLeaf{"PoolAddress", userProfileAttributes.PoolAddress})
+    userProfileAttributes.EntityData.Leafs.Append("circuit-id", types.YLeaf{"CircuitId", userProfileAttributes.CircuitId})
+    userProfileAttributes.EntityData.Leafs.Append("connection-receive-speed", types.YLeaf{"ConnectionReceiveSpeed", userProfileAttributes.ConnectionReceiveSpeed})
+    userProfileAttributes.EntityData.Leafs.Append("connection-transmission-speed", types.YLeaf{"ConnectionTransmissionSpeed", userProfileAttributes.ConnectionTransmissionSpeed})
+    userProfileAttributes.EntityData.Leafs.Append("destination-station-id", types.YLeaf{"DestinationStationId", userProfileAttributes.DestinationStationId})
+    userProfileAttributes.EntityData.Leafs.Append("primary-dns-server-address", types.YLeaf{"PrimaryDnsServerAddress", userProfileAttributes.PrimaryDnsServerAddress})
+    userProfileAttributes.EntityData.Leafs.Append("secondary-dns-server-address", types.YLeaf{"SecondaryDnsServerAddress", userProfileAttributes.SecondaryDnsServerAddress})
+    userProfileAttributes.EntityData.Leafs.Append("formatted-calling-station-id", types.YLeaf{"FormattedCallingStationId", userProfileAttributes.FormattedCallingStationId})
+    userProfileAttributes.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", userProfileAttributes.InterfaceName})
+    userProfileAttributes.EntityData.Leafs.Append("interface-type", types.YLeaf{"InterfaceType", userProfileAttributes.InterfaceType})
+    userProfileAttributes.EntityData.Leafs.Append("interim-accounting-interval", types.YLeaf{"InterimAccountingInterval", userProfileAttributes.InterimAccountingInterval})
+    userProfileAttributes.EntityData.Leafs.Append("ingress-access-list", types.YLeaf{"IngressAccessList", userProfileAttributes.IngressAccessList})
+    userProfileAttributes.EntityData.Leafs.Append("egress-access-list", types.YLeaf{"EgressAccessList", userProfileAttributes.EgressAccessList})
+    userProfileAttributes.EntityData.Leafs.Append("ip-netmask", types.YLeaf{"IpNetmask", userProfileAttributes.IpNetmask})
+    userProfileAttributes.EntityData.Leafs.Append("is-interworking-functionality", types.YLeaf{"IsInterworkingFunctionality", userProfileAttributes.IsInterworkingFunctionality})
+    userProfileAttributes.EntityData.Leafs.Append("max-interleaving-delay-downstream", types.YLeaf{"MaxInterleavingDelayDownstream", userProfileAttributes.MaxInterleavingDelayDownstream})
+    userProfileAttributes.EntityData.Leafs.Append("max-interleaving-delay-upstream", types.YLeaf{"MaxInterleavingDelayUpstream", userProfileAttributes.MaxInterleavingDelayUpstream})
+    userProfileAttributes.EntityData.Leafs.Append("max-data-rate-upstream", types.YLeaf{"MaxDataRateUpstream", userProfileAttributes.MaxDataRateUpstream})
+    userProfileAttributes.EntityData.Leafs.Append("max-data-rate-downstream", types.YLeaf{"MaxDataRateDownstream", userProfileAttributes.MaxDataRateDownstream})
+    userProfileAttributes.EntityData.Leafs.Append("min-data-rate-downstream", types.YLeaf{"MinDataRateDownstream", userProfileAttributes.MinDataRateDownstream})
+    userProfileAttributes.EntityData.Leafs.Append("min-data-rate-downstream-low-power", types.YLeaf{"MinDataRateDownstreamLowPower", userProfileAttributes.MinDataRateDownstreamLowPower})
+    userProfileAttributes.EntityData.Leafs.Append("min-data-rate-upstream-low-power", types.YLeaf{"MinDataRateUpstreamLowPower", userProfileAttributes.MinDataRateUpstreamLowPower})
+    userProfileAttributes.EntityData.Leafs.Append("primary-net-bios-server-address", types.YLeaf{"PrimaryNetBiosServerAddress", userProfileAttributes.PrimaryNetBiosServerAddress})
+    userProfileAttributes.EntityData.Leafs.Append("secondary-net-bios-server-address", types.YLeaf{"SecondaryNetBiosServerAddress", userProfileAttributes.SecondaryNetBiosServerAddress})
+    userProfileAttributes.EntityData.Leafs.Append("parent-interface-name", types.YLeaf{"ParentInterfaceName", userProfileAttributes.ParentInterfaceName})
+    userProfileAttributes.EntityData.Leafs.Append("remote-id", types.YLeaf{"RemoteId", userProfileAttributes.RemoteId})
+    userProfileAttributes.EntityData.Leafs.Append("route", types.YLeaf{"Route", userProfileAttributes.Route})
+    userProfileAttributes.EntityData.Leafs.Append("session-timeout", types.YLeaf{"SessionTimeout", userProfileAttributes.SessionTimeout})
+    userProfileAttributes.EntityData.Leafs.Append("strict-rpf-packets", types.YLeaf{"StrictRpfPackets", userProfileAttributes.StrictRpfPackets})
+    userProfileAttributes.EntityData.Leafs.Append("accounting-session-id", types.YLeaf{"AccountingSessionId", userProfileAttributes.AccountingSessionId})
+    userProfileAttributes.EntityData.Leafs.Append("upstream-parameterized-qos-policy", types.YLeaf{"UpstreamParameterizedQosPolicy", userProfileAttributes.UpstreamParameterizedQosPolicy})
+    userProfileAttributes.EntityData.Leafs.Append("downstream-parameterized-qos-policy", types.YLeaf{"DownstreamParameterizedQosPolicy", userProfileAttributes.DownstreamParameterizedQosPolicy})
+    userProfileAttributes.EntityData.Leafs.Append("upstream-qos-policy", types.YLeaf{"UpstreamQosPolicy", userProfileAttributes.UpstreamQosPolicy})
+    userProfileAttributes.EntityData.Leafs.Append("downstream-qos-policy", types.YLeaf{"DownstreamQosPolicy", userProfileAttributes.DownstreamQosPolicy})
+    userProfileAttributes.EntityData.Leafs.Append("session-termination-cause", types.YLeaf{"SessionTerminationCause", userProfileAttributes.SessionTerminationCause})
+
+    userProfileAttributes.EntityData.YListKeys = []string {}
+
     return &(userProfileAttributes.EntityData)
 }
 
-// Subscriber_Session_Nodes_Node_Sessions_Session__MobilityAttributes
+// Subscriber_Session_Nodes_Node_Sessions_Session_MobilityAttributes
 // List of mobility attributes collected for
 // subscriber session
-type Subscriber_Session_Nodes_Node_Sessions_Session__MobilityAttributes struct {
+type Subscriber_Session_Nodes_Node_Sessions_Session_MobilityAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -10975,7 +11614,7 @@ type Subscriber_Session_Nodes_Node_Sessions_Session__MobilityAttributes struct {
     LeaseTime interface{}
 }
 
-func (mobilityAttributes *Subscriber_Session_Nodes_Node_Sessions_Session__MobilityAttributes) GetEntityData() *types.CommonEntityData {
+func (mobilityAttributes *Subscriber_Session_Nodes_Node_Sessions_Session_MobilityAttributes) GetEntityData() *types.CommonEntityData {
     mobilityAttributes.EntityData.YFilter = mobilityAttributes.YFilter
     mobilityAttributes.EntityData.YangName = "mobility-attributes"
     mobilityAttributes.EntityData.BundleName = "cisco_ios_xr"
@@ -10985,24 +11624,27 @@ func (mobilityAttributes *Subscriber_Session_Nodes_Node_Sessions_Session__Mobili
     mobilityAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobilityAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mobilityAttributes.EntityData.Children = make(map[string]types.YChild)
-    mobilityAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    mobilityAttributes.EntityData.Leafs["mpc-protocol"] = types.YLeaf{"MpcProtocol", mobilityAttributes.MpcProtocol}
-    mobilityAttributes.EntityData.Leafs["mobility-ipv4-address"] = types.YLeaf{"MobilityIpv4Address", mobilityAttributes.MobilityIpv4Address}
-    mobilityAttributes.EntityData.Leafs["mobility-default-ipv4-gateway"] = types.YLeaf{"MobilityDefaultIpv4Gateway", mobilityAttributes.MobilityDefaultIpv4Gateway}
-    mobilityAttributes.EntityData.Leafs["mobility-dns-server"] = types.YLeaf{"MobilityDnsServer", mobilityAttributes.MobilityDnsServer}
-    mobilityAttributes.EntityData.Leafs["mobility-dhcp-server"] = types.YLeaf{"MobilityDhcpServer", mobilityAttributes.MobilityDhcpServer}
-    mobilityAttributes.EntityData.Leafs["mobility-ipv4-netmask"] = types.YLeaf{"MobilityIpv4Netmask", mobilityAttributes.MobilityIpv4Netmask}
-    mobilityAttributes.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", mobilityAttributes.DomainName}
-    mobilityAttributes.EntityData.Leafs["uplink-gre-key"] = types.YLeaf{"UplinkGreKey", mobilityAttributes.UplinkGreKey}
-    mobilityAttributes.EntityData.Leafs["downlink-gre-key"] = types.YLeaf{"DownlinkGreKey", mobilityAttributes.DownlinkGreKey}
-    mobilityAttributes.EntityData.Leafs["lease-time"] = types.YLeaf{"LeaseTime", mobilityAttributes.LeaseTime}
+    mobilityAttributes.EntityData.Children = types.NewOrderedMap()
+    mobilityAttributes.EntityData.Leafs = types.NewOrderedMap()
+    mobilityAttributes.EntityData.Leafs.Append("mpc-protocol", types.YLeaf{"MpcProtocol", mobilityAttributes.MpcProtocol})
+    mobilityAttributes.EntityData.Leafs.Append("mobility-ipv4-address", types.YLeaf{"MobilityIpv4Address", mobilityAttributes.MobilityIpv4Address})
+    mobilityAttributes.EntityData.Leafs.Append("mobility-default-ipv4-gateway", types.YLeaf{"MobilityDefaultIpv4Gateway", mobilityAttributes.MobilityDefaultIpv4Gateway})
+    mobilityAttributes.EntityData.Leafs.Append("mobility-dns-server", types.YLeaf{"MobilityDnsServer", mobilityAttributes.MobilityDnsServer})
+    mobilityAttributes.EntityData.Leafs.Append("mobility-dhcp-server", types.YLeaf{"MobilityDhcpServer", mobilityAttributes.MobilityDhcpServer})
+    mobilityAttributes.EntityData.Leafs.Append("mobility-ipv4-netmask", types.YLeaf{"MobilityIpv4Netmask", mobilityAttributes.MobilityIpv4Netmask})
+    mobilityAttributes.EntityData.Leafs.Append("domain-name", types.YLeaf{"DomainName", mobilityAttributes.DomainName})
+    mobilityAttributes.EntityData.Leafs.Append("uplink-gre-key", types.YLeaf{"UplinkGreKey", mobilityAttributes.UplinkGreKey})
+    mobilityAttributes.EntityData.Leafs.Append("downlink-gre-key", types.YLeaf{"DownlinkGreKey", mobilityAttributes.DownlinkGreKey})
+    mobilityAttributes.EntityData.Leafs.Append("lease-time", types.YLeaf{"LeaseTime", mobilityAttributes.LeaseTime})
+
+    mobilityAttributes.EntityData.YListKeys = []string {}
+
     return &(mobilityAttributes.EntityData)
 }
 
-// Subscriber_Session_Nodes_Node_Sessions_Session__SessionChangeOfAuthorization
+// Subscriber_Session_Nodes_Node_Sessions_Session_SessionChangeOfAuthorization
 // Subscriber change of authorization information
-type Subscriber_Session_Nodes_Node_Sessions_Session__SessionChangeOfAuthorization struct {
+type Subscriber_Session_Nodes_Node_Sessions_Session_SessionChangeOfAuthorization struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -11014,7 +11656,7 @@ type Subscriber_Session_Nodes_Node_Sessions_Session__SessionChangeOfAuthorizatio
     RequestTime interface{}
 
     // List of Request Attributes collected in COA response. The type is string
-    // with pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // with pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     CoaRequestAttributes interface{}
 
     // Reply time in DDD MMM DD HH:MM:SS YYYY format eg : Tue Apr 11 21:30:47
@@ -11022,11 +11664,11 @@ type Subscriber_Session_Nodes_Node_Sessions_Session__SessionChangeOfAuthorizatio
     ReplyTime interface{}
 
     // List of Reply Attributes collected in COA response. The type is string with
-    // pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     CoaReplyAttributes interface{}
 }
 
-func (sessionChangeOfAuthorization *Subscriber_Session_Nodes_Node_Sessions_Session__SessionChangeOfAuthorization) GetEntityData() *types.CommonEntityData {
+func (sessionChangeOfAuthorization *Subscriber_Session_Nodes_Node_Sessions_Session_SessionChangeOfAuthorization) GetEntityData() *types.CommonEntityData {
     sessionChangeOfAuthorization.EntityData.YFilter = sessionChangeOfAuthorization.YFilter
     sessionChangeOfAuthorization.EntityData.YangName = "session-change-of-authorization"
     sessionChangeOfAuthorization.EntityData.BundleName = "cisco_ios_xr"
@@ -11036,13 +11678,16 @@ func (sessionChangeOfAuthorization *Subscriber_Session_Nodes_Node_Sessions_Sessi
     sessionChangeOfAuthorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionChangeOfAuthorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionChangeOfAuthorization.EntityData.Children = make(map[string]types.YChild)
-    sessionChangeOfAuthorization.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionChangeOfAuthorization.EntityData.Leafs["request-acked"] = types.YLeaf{"RequestAcked", sessionChangeOfAuthorization.RequestAcked}
-    sessionChangeOfAuthorization.EntityData.Leafs["request-time"] = types.YLeaf{"RequestTime", sessionChangeOfAuthorization.RequestTime}
-    sessionChangeOfAuthorization.EntityData.Leafs["coa-request-attributes"] = types.YLeaf{"CoaRequestAttributes", sessionChangeOfAuthorization.CoaRequestAttributes}
-    sessionChangeOfAuthorization.EntityData.Leafs["reply-time"] = types.YLeaf{"ReplyTime", sessionChangeOfAuthorization.ReplyTime}
-    sessionChangeOfAuthorization.EntityData.Leafs["coa-reply-attributes"] = types.YLeaf{"CoaReplyAttributes", sessionChangeOfAuthorization.CoaReplyAttributes}
+    sessionChangeOfAuthorization.EntityData.Children = types.NewOrderedMap()
+    sessionChangeOfAuthorization.EntityData.Leafs = types.NewOrderedMap()
+    sessionChangeOfAuthorization.EntityData.Leafs.Append("request-acked", types.YLeaf{"RequestAcked", sessionChangeOfAuthorization.RequestAcked})
+    sessionChangeOfAuthorization.EntityData.Leafs.Append("request-time", types.YLeaf{"RequestTime", sessionChangeOfAuthorization.RequestTime})
+    sessionChangeOfAuthorization.EntityData.Leafs.Append("coa-request-attributes", types.YLeaf{"CoaRequestAttributes", sessionChangeOfAuthorization.CoaRequestAttributes})
+    sessionChangeOfAuthorization.EntityData.Leafs.Append("reply-time", types.YLeaf{"ReplyTime", sessionChangeOfAuthorization.ReplyTime})
+    sessionChangeOfAuthorization.EntityData.Leafs.Append("coa-reply-attributes", types.YLeaf{"CoaReplyAttributes", sessionChangeOfAuthorization.CoaReplyAttributes})
+
+    sessionChangeOfAuthorization.EntityData.YListKeys = []string {}
+
     return &(sessionChangeOfAuthorization.EntityData)
 }
 
@@ -11066,9 +11711,12 @@ func (iedgeLicenseManager *IedgeLicenseManager) GetEntityData() *types.CommonEnt
     iedgeLicenseManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iedgeLicenseManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    iedgeLicenseManager.EntityData.Children = make(map[string]types.YChild)
-    iedgeLicenseManager.EntityData.Children["nodes"] = types.YChild{"Nodes", &iedgeLicenseManager.Nodes}
-    iedgeLicenseManager.EntityData.Leafs = make(map[string]types.YLeaf)
+    iedgeLicenseManager.EntityData.Children = types.NewOrderedMap()
+    iedgeLicenseManager.EntityData.Children.Append("nodes", types.YChild{"Nodes", &iedgeLicenseManager.Nodes})
+    iedgeLicenseManager.EntityData.Leafs = types.NewOrderedMap()
+
+    iedgeLicenseManager.EntityData.YListKeys = []string {}
+
     return &(iedgeLicenseManager.EntityData)
 }
 
@@ -11081,7 +11729,7 @@ type IedgeLicenseManager_Nodes struct {
 
     // Location. For example, 0/1/CPU0. The type is slice of
     // IedgeLicenseManager_Nodes_Node.
-    Node []IedgeLicenseManager_Nodes_Node
+    Node []*IedgeLicenseManager_Nodes_Node
 }
 
 func (nodes *IedgeLicenseManager_Nodes) GetEntityData() *types.CommonEntityData {
@@ -11094,12 +11742,15 @@ func (nodes *IedgeLicenseManager_Nodes) GetEntityData() *types.CommonEntityData 
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -11111,7 +11762,7 @@ type IedgeLicenseManager_Nodes_Node struct {
 
     // This attribute is a key. The node id to filter on. For example, 0/1/CPU0.
     // The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Nodeid interface{}
 
     // Display Session License Manager summary data.
@@ -11123,15 +11774,18 @@ func (node *IedgeLicenseManager_Nodes_Node) GetEntityData() *types.CommonEntityD
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[nodeid='" + fmt.Sprintf("%v", node.Nodeid) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Nodeid, "nodeid")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["iedge-license-manager-summary"] = types.YChild{"IedgeLicenseManagerSummary", &node.IedgeLicenseManagerSummary}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["nodeid"] = types.YLeaf{"Nodeid", node.Nodeid}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("iedge-license-manager-summary", types.YChild{"IedgeLicenseManagerSummary", &node.IedgeLicenseManagerSummary})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("nodeid", types.YLeaf{"Nodeid", node.Nodeid})
+
+    node.EntityData.YListKeys = []string {"Nodeid"}
+
     return &(node.EntityData)
 }
 
@@ -11166,12 +11820,15 @@ func (iedgeLicenseManagerSummary *IedgeLicenseManager_Nodes_Node_IedgeLicenseMan
     iedgeLicenseManagerSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iedgeLicenseManagerSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    iedgeLicenseManagerSummary.EntityData.Children = make(map[string]types.YChild)
-    iedgeLicenseManagerSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    iedgeLicenseManagerSummary.EntityData.Leafs["session-limit"] = types.YLeaf{"SessionLimit", iedgeLicenseManagerSummary.SessionLimit}
-    iedgeLicenseManagerSummary.EntityData.Leafs["session-threshold"] = types.YLeaf{"SessionThreshold", iedgeLicenseManagerSummary.SessionThreshold}
-    iedgeLicenseManagerSummary.EntityData.Leafs["session-license-count"] = types.YLeaf{"SessionLicenseCount", iedgeLicenseManagerSummary.SessionLicenseCount}
-    iedgeLicenseManagerSummary.EntityData.Leafs["session-count"] = types.YLeaf{"SessionCount", iedgeLicenseManagerSummary.SessionCount}
+    iedgeLicenseManagerSummary.EntityData.Children = types.NewOrderedMap()
+    iedgeLicenseManagerSummary.EntityData.Leafs = types.NewOrderedMap()
+    iedgeLicenseManagerSummary.EntityData.Leafs.Append("session-limit", types.YLeaf{"SessionLimit", iedgeLicenseManagerSummary.SessionLimit})
+    iedgeLicenseManagerSummary.EntityData.Leafs.Append("session-threshold", types.YLeaf{"SessionThreshold", iedgeLicenseManagerSummary.SessionThreshold})
+    iedgeLicenseManagerSummary.EntityData.Leafs.Append("session-license-count", types.YLeaf{"SessionLicenseCount", iedgeLicenseManagerSummary.SessionLicenseCount})
+    iedgeLicenseManagerSummary.EntityData.Leafs.Append("session-count", types.YLeaf{"SessionCount", iedgeLicenseManagerSummary.SessionCount})
+
+    iedgeLicenseManagerSummary.EntityData.YListKeys = []string {}
+
     return &(iedgeLicenseManagerSummary.EntityData)
 }
 

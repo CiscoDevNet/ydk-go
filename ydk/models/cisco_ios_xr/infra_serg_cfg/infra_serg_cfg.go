@@ -24,17 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-infra-serg-cfg:session-redundancy", reflect.TypeOf(SessionRedundancy{}))
 }
 
-// SessionRedundancyGroupRole represents Session redundancy group role
-type SessionRedundancyGroupRole string
-
-const (
-    // Master Role
-    SessionRedundancyGroupRole_master SessionRedundancyGroupRole = "master"
-
-    // Slave Role
-    SessionRedundancyGroupRole_slave SessionRedundancyGroupRole = "slave"
-)
-
 // SergAddrFamily represents Serg addr family
 type SergAddrFamily string
 
@@ -44,6 +33,17 @@ const (
 
     // IPv6
     SergAddrFamily_ipv6 SergAddrFamily = "ipv6"
+)
+
+// SessionRedundancyGroupRole represents Session redundancy group role
+type SessionRedundancyGroupRole string
+
+const (
+    // Master Role
+    SessionRedundancyGroupRole_master SessionRedundancyGroupRole = "master"
+
+    // Slave Role
+    SessionRedundancyGroupRole_slave SessionRedundancyGroupRole = "slave"
 )
 
 // SessionRedundancy
@@ -61,7 +61,7 @@ type SessionRedundancy struct {
     Enable interface{}
 
     // Source Interface for Redundancy Peer Communication. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     SourceInterface interface{}
 
     // Set preferred role. The type is SessionRedundancyGroupRole.
@@ -88,15 +88,18 @@ func (sessionRedundancy *SessionRedundancy) GetEntityData() *types.CommonEntityD
     sessionRedundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionRedundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionRedundancy.EntityData.Children = make(map[string]types.YChild)
-    sessionRedundancy.EntityData.Children["groups"] = types.YChild{"Groups", &sessionRedundancy.Groups}
-    sessionRedundancy.EntityData.Children["revertive-timer"] = types.YChild{"RevertiveTimer", &sessionRedundancy.RevertiveTimer}
-    sessionRedundancy.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionRedundancy.EntityData.Leafs["redundancy-disable"] = types.YLeaf{"RedundancyDisable", sessionRedundancy.RedundancyDisable}
-    sessionRedundancy.EntityData.Leafs["enable"] = types.YLeaf{"Enable", sessionRedundancy.Enable}
-    sessionRedundancy.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", sessionRedundancy.SourceInterface}
-    sessionRedundancy.EntityData.Leafs["preferred-role"] = types.YLeaf{"PreferredRole", sessionRedundancy.PreferredRole}
-    sessionRedundancy.EntityData.Leafs["hold-timer"] = types.YLeaf{"HoldTimer", sessionRedundancy.HoldTimer}
+    sessionRedundancy.EntityData.Children = types.NewOrderedMap()
+    sessionRedundancy.EntityData.Children.Append("groups", types.YChild{"Groups", &sessionRedundancy.Groups})
+    sessionRedundancy.EntityData.Children.Append("revertive-timer", types.YChild{"RevertiveTimer", &sessionRedundancy.RevertiveTimer})
+    sessionRedundancy.EntityData.Leafs = types.NewOrderedMap()
+    sessionRedundancy.EntityData.Leafs.Append("redundancy-disable", types.YLeaf{"RedundancyDisable", sessionRedundancy.RedundancyDisable})
+    sessionRedundancy.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", sessionRedundancy.Enable})
+    sessionRedundancy.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", sessionRedundancy.SourceInterface})
+    sessionRedundancy.EntityData.Leafs.Append("preferred-role", types.YLeaf{"PreferredRole", sessionRedundancy.PreferredRole})
+    sessionRedundancy.EntityData.Leafs.Append("hold-timer", types.YLeaf{"HoldTimer", sessionRedundancy.HoldTimer})
+
+    sessionRedundancy.EntityData.YListKeys = []string {}
+
     return &(sessionRedundancy.EntityData)
 }
 
@@ -108,7 +111,7 @@ type SessionRedundancy_Groups struct {
 
     // Redundancy Group configuration. The type is slice of
     // SessionRedundancy_Groups_Group.
-    Group []SessionRedundancy_Groups_Group
+    Group []*SessionRedundancy_Groups_Group
 }
 
 func (groups *SessionRedundancy_Groups) GetEntityData() *types.CommonEntityData {
@@ -121,12 +124,15 @@ func (groups *SessionRedundancy_Groups) GetEntityData() *types.CommonEntityData 
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groups.EntityData.Children = make(map[string]types.YChild)
-    groups.EntityData.Children["group"] = types.YChild{"Group", nil}
+    groups.EntityData.Children = types.NewOrderedMap()
+    groups.EntityData.Children.Append("group", types.YChild{"Group", nil})
     for i := range groups.Group {
-        groups.EntityData.Children[types.GetSegmentPath(&groups.Group[i])] = types.YChild{"Group", &groups.Group[i]}
+        groups.EntityData.Children.Append(types.GetSegmentPath(groups.Group[i]), types.YChild{"Group", groups.Group[i]})
     }
-    groups.EntityData.Leafs = make(map[string]types.YLeaf)
+    groups.EntityData.Leafs = types.NewOrderedMap()
+
+    groups.EntityData.YListKeys = []string {}
+
     return &(groups.EntityData)
 }
 
@@ -181,25 +187,28 @@ func (group *SessionRedundancy_Groups_Group) GetEntityData() *types.CommonEntity
     group.EntityData.YangName = "group"
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
-    group.EntityData.SegmentPath = "group" + "[group-id='" + fmt.Sprintf("%v", group.GroupId) + "']"
+    group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupId, "group-id")
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    group.EntityData.Children = make(map[string]types.YChild)
-    group.EntityData.Children["peer"] = types.YChild{"Peer", &group.Peer}
-    group.EntityData.Children["revertive-timer"] = types.YChild{"RevertiveTimer", &group.RevertiveTimer}
-    group.EntityData.Children["interface-list"] = types.YChild{"InterfaceList", &group.InterfaceList}
-    group.EntityData.Leafs = make(map[string]types.YLeaf)
-    group.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", group.GroupId}
-    group.EntityData.Leafs["core-tracking-object"] = types.YLeaf{"CoreTrackingObject", group.CoreTrackingObject}
-    group.EntityData.Leafs["disable-tracking-object"] = types.YLeaf{"DisableTrackingObject", group.DisableTrackingObject}
-    group.EntityData.Leafs["redundancy-disable"] = types.YLeaf{"RedundancyDisable", group.RedundancyDisable}
-    group.EntityData.Leafs["enable"] = types.YLeaf{"Enable", group.Enable}
-    group.EntityData.Leafs["description"] = types.YLeaf{"Description", group.Description}
-    group.EntityData.Leafs["access-tracking-object"] = types.YLeaf{"AccessTrackingObject", group.AccessTrackingObject}
-    group.EntityData.Leafs["preferred-role"] = types.YLeaf{"PreferredRole", group.PreferredRole}
-    group.EntityData.Leafs["hold-timer"] = types.YLeaf{"HoldTimer", group.HoldTimer}
+    group.EntityData.Children = types.NewOrderedMap()
+    group.EntityData.Children.Append("peer", types.YChild{"Peer", &group.Peer})
+    group.EntityData.Children.Append("revertive-timer", types.YChild{"RevertiveTimer", &group.RevertiveTimer})
+    group.EntityData.Children.Append("interface-list", types.YChild{"InterfaceList", &group.InterfaceList})
+    group.EntityData.Leafs = types.NewOrderedMap()
+    group.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", group.GroupId})
+    group.EntityData.Leafs.Append("core-tracking-object", types.YLeaf{"CoreTrackingObject", group.CoreTrackingObject})
+    group.EntityData.Leafs.Append("disable-tracking-object", types.YLeaf{"DisableTrackingObject", group.DisableTrackingObject})
+    group.EntityData.Leafs.Append("redundancy-disable", types.YLeaf{"RedundancyDisable", group.RedundancyDisable})
+    group.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", group.Enable})
+    group.EntityData.Leafs.Append("description", types.YLeaf{"Description", group.Description})
+    group.EntityData.Leafs.Append("access-tracking-object", types.YLeaf{"AccessTrackingObject", group.AccessTrackingObject})
+    group.EntityData.Leafs.Append("preferred-role", types.YLeaf{"PreferredRole", group.PreferredRole})
+    group.EntityData.Leafs.Append("hold-timer", types.YLeaf{"HoldTimer", group.HoldTimer})
+
+    group.EntityData.YListKeys = []string {"GroupId"}
+
     return &(group.EntityData)
 }
 
@@ -223,9 +232,12 @@ func (peer *SessionRedundancy_Groups_Group_Peer) GetEntityData() *types.CommonEn
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Children["ipaddress"] = types.YChild{"Ipaddress", &peer.Ipaddress}
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Children.Append("ipaddress", types.YChild{"Ipaddress", &peer.Ipaddress})
+    peer.EntityData.Leafs = types.NewOrderedMap()
+
+    peer.EntityData.YListKeys = []string {}
+
     return &(peer.EntityData)
 }
 
@@ -240,9 +252,9 @@ type SessionRedundancy_Groups_Group_Peer_Ipaddress struct {
 
     // IPv4/IPv6 address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PrefixString interface{}
 }
 
@@ -256,10 +268,13 @@ func (ipaddress *SessionRedundancy_Groups_Group_Peer_Ipaddress) GetEntityData() 
     ipaddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipaddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipaddress.EntityData.Children = make(map[string]types.YChild)
-    ipaddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipaddress.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", ipaddress.AddressFamily}
-    ipaddress.EntityData.Leafs["prefix-string"] = types.YLeaf{"PrefixString", ipaddress.PrefixString}
+    ipaddress.EntityData.Children = types.NewOrderedMap()
+    ipaddress.EntityData.Leafs = types.NewOrderedMap()
+    ipaddress.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", ipaddress.AddressFamily})
+    ipaddress.EntityData.Leafs.Append("prefix-string", types.YLeaf{"PrefixString", ipaddress.PrefixString})
+
+    ipaddress.EntityData.YListKeys = []string {}
+
     return &(ipaddress.EntityData)
 }
 
@@ -287,10 +302,13 @@ func (revertiveTimer *SessionRedundancy_Groups_Group_RevertiveTimer) GetEntityDa
     revertiveTimer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     revertiveTimer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    revertiveTimer.EntityData.Children = make(map[string]types.YChild)
-    revertiveTimer.EntityData.Leafs = make(map[string]types.YLeaf)
-    revertiveTimer.EntityData.Leafs["max-value"] = types.YLeaf{"MaxValue", revertiveTimer.MaxValue}
-    revertiveTimer.EntityData.Leafs["value"] = types.YLeaf{"Value", revertiveTimer.Value}
+    revertiveTimer.EntityData.Children = types.NewOrderedMap()
+    revertiveTimer.EntityData.Leafs = types.NewOrderedMap()
+    revertiveTimer.EntityData.Leafs.Append("max-value", types.YLeaf{"MaxValue", revertiveTimer.MaxValue})
+    revertiveTimer.EntityData.Leafs.Append("value", types.YLeaf{"Value", revertiveTimer.Value})
+
+    revertiveTimer.EntityData.YListKeys = []string {}
+
     return &(revertiveTimer.EntityData)
 }
 
@@ -322,11 +340,14 @@ func (interfaceList *SessionRedundancy_Groups_Group_InterfaceList) GetEntityData
     interfaceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceList.EntityData.Children = make(map[string]types.YChild)
-    interfaceList.EntityData.Children["interface-ranges"] = types.YChild{"InterfaceRanges", &interfaceList.InterfaceRanges}
-    interfaceList.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &interfaceList.Interfaces}
-    interfaceList.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceList.EntityData.Leafs["enable"] = types.YLeaf{"Enable", interfaceList.Enable}
+    interfaceList.EntityData.Children = types.NewOrderedMap()
+    interfaceList.EntityData.Children.Append("interface-ranges", types.YChild{"InterfaceRanges", &interfaceList.InterfaceRanges})
+    interfaceList.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &interfaceList.Interfaces})
+    interfaceList.EntityData.Leafs = types.NewOrderedMap()
+    interfaceList.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", interfaceList.Enable})
+
+    interfaceList.EntityData.YListKeys = []string {}
+
     return &(interfaceList.EntityData)
 }
 
@@ -338,7 +359,7 @@ type SessionRedundancy_Groups_Group_InterfaceList_InterfaceRanges struct {
 
     // Interface for this Group. The type is slice of
     // SessionRedundancy_Groups_Group_InterfaceList_InterfaceRanges_InterfaceRange.
-    InterfaceRange []SessionRedundancy_Groups_Group_InterfaceList_InterfaceRanges_InterfaceRange
+    InterfaceRange []*SessionRedundancy_Groups_Group_InterfaceList_InterfaceRanges_InterfaceRange
 }
 
 func (interfaceRanges *SessionRedundancy_Groups_Group_InterfaceList_InterfaceRanges) GetEntityData() *types.CommonEntityData {
@@ -351,12 +372,15 @@ func (interfaceRanges *SessionRedundancy_Groups_Group_InterfaceList_InterfaceRan
     interfaceRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceRanges.EntityData.Children = make(map[string]types.YChild)
-    interfaceRanges.EntityData.Children["interface-range"] = types.YChild{"InterfaceRange", nil}
+    interfaceRanges.EntityData.Children = types.NewOrderedMap()
+    interfaceRanges.EntityData.Children.Append("interface-range", types.YChild{"InterfaceRange", nil})
     for i := range interfaceRanges.InterfaceRange {
-        interfaceRanges.EntityData.Children[types.GetSegmentPath(&interfaceRanges.InterfaceRange[i])] = types.YChild{"InterfaceRange", &interfaceRanges.InterfaceRange[i]}
+        interfaceRanges.EntityData.Children.Append(types.GetSegmentPath(interfaceRanges.InterfaceRange[i]), types.YChild{"InterfaceRange", interfaceRanges.InterfaceRange[i]})
     }
-    interfaceRanges.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceRanges.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceRanges.EntityData.YListKeys = []string {}
+
     return &(interfaceRanges.EntityData)
 }
 
@@ -367,7 +391,7 @@ type SessionRedundancy_Groups_Group_InterfaceList_InterfaceRanges_InterfaceRange
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Sub Interface Start Range. The type is interface{}
@@ -390,18 +414,21 @@ func (interfaceRange *SessionRedundancy_Groups_Group_InterfaceList_InterfaceRang
     interfaceRange.EntityData.YangName = "interface-range"
     interfaceRange.EntityData.BundleName = "cisco_ios_xr"
     interfaceRange.EntityData.ParentYangName = "interface-ranges"
-    interfaceRange.EntityData.SegmentPath = "interface-range" + "[interface-name='" + fmt.Sprintf("%v", interfaceRange.InterfaceName) + "']" + "[sub-interface-range-start='" + fmt.Sprintf("%v", interfaceRange.SubInterfaceRangeStart) + "']" + "[sub-interface-range-end='" + fmt.Sprintf("%v", interfaceRange.SubInterfaceRangeEnd) + "']"
+    interfaceRange.EntityData.SegmentPath = "interface-range" + types.AddKeyToken(interfaceRange.InterfaceName, "interface-name") + types.AddKeyToken(interfaceRange.SubInterfaceRangeStart, "sub-interface-range-start") + types.AddKeyToken(interfaceRange.SubInterfaceRangeEnd, "sub-interface-range-end")
     interfaceRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceRange.EntityData.Children = make(map[string]types.YChild)
-    interfaceRange.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceRange.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceRange.InterfaceName}
-    interfaceRange.EntityData.Leafs["sub-interface-range-start"] = types.YLeaf{"SubInterfaceRangeStart", interfaceRange.SubInterfaceRangeStart}
-    interfaceRange.EntityData.Leafs["sub-interface-range-end"] = types.YLeaf{"SubInterfaceRangeEnd", interfaceRange.SubInterfaceRangeEnd}
-    interfaceRange.EntityData.Leafs["interface-id-range-start"] = types.YLeaf{"InterfaceIdRangeStart", interfaceRange.InterfaceIdRangeStart}
-    interfaceRange.EntityData.Leafs["interface-id-range-end"] = types.YLeaf{"InterfaceIdRangeEnd", interfaceRange.InterfaceIdRangeEnd}
+    interfaceRange.EntityData.Children = types.NewOrderedMap()
+    interfaceRange.EntityData.Leafs = types.NewOrderedMap()
+    interfaceRange.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceRange.InterfaceName})
+    interfaceRange.EntityData.Leafs.Append("sub-interface-range-start", types.YLeaf{"SubInterfaceRangeStart", interfaceRange.SubInterfaceRangeStart})
+    interfaceRange.EntityData.Leafs.Append("sub-interface-range-end", types.YLeaf{"SubInterfaceRangeEnd", interfaceRange.SubInterfaceRangeEnd})
+    interfaceRange.EntityData.Leafs.Append("interface-id-range-start", types.YLeaf{"InterfaceIdRangeStart", interfaceRange.InterfaceIdRangeStart})
+    interfaceRange.EntityData.Leafs.Append("interface-id-range-end", types.YLeaf{"InterfaceIdRangeEnd", interfaceRange.InterfaceIdRangeEnd})
+
+    interfaceRange.EntityData.YListKeys = []string {"InterfaceName", "SubInterfaceRangeStart", "SubInterfaceRangeEnd"}
+
     return &(interfaceRange.EntityData)
 }
 
@@ -412,8 +439,8 @@ type SessionRedundancy_Groups_Group_InterfaceList_Interfaces struct {
     YFilter yfilter.YFilter
 
     // Interface for this Group. The type is slice of
-    // SessionRedundancy_Groups_Group_InterfaceList_Interfaces_Interface_.
-    Interface_ []SessionRedundancy_Groups_Group_InterfaceList_Interfaces_Interface
+    // SessionRedundancy_Groups_Group_InterfaceList_Interfaces_Interface.
+    Interface []*SessionRedundancy_Groups_Group_InterfaceList_Interfaces_Interface
 }
 
 func (interfaces *SessionRedundancy_Groups_Group_InterfaceList_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -426,12 +453,15 @@ func (interfaces *SessionRedundancy_Groups_Group_InterfaceList_Interfaces) GetEn
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -442,7 +472,7 @@ type SessionRedundancy_Groups_Group_InterfaceList_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Interface Id for the interface. The type is interface{} with range:
@@ -455,15 +485,18 @@ func (self *SessionRedundancy_Groups_Group_InterfaceList_Interfaces_Interface) G
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["interface-id"] = types.YLeaf{"InterfaceId", self.InterfaceId}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("interface-id", types.YLeaf{"InterfaceId", self.InterfaceId})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -491,10 +524,13 @@ func (revertiveTimer *SessionRedundancy_RevertiveTimer) GetEntityData() *types.C
     revertiveTimer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     revertiveTimer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    revertiveTimer.EntityData.Children = make(map[string]types.YChild)
-    revertiveTimer.EntityData.Leafs = make(map[string]types.YLeaf)
-    revertiveTimer.EntityData.Leafs["max-value"] = types.YLeaf{"MaxValue", revertiveTimer.MaxValue}
-    revertiveTimer.EntityData.Leafs["value"] = types.YLeaf{"Value", revertiveTimer.Value}
+    revertiveTimer.EntityData.Children = types.NewOrderedMap()
+    revertiveTimer.EntityData.Leafs = types.NewOrderedMap()
+    revertiveTimer.EntityData.Leafs.Append("max-value", types.YLeaf{"MaxValue", revertiveTimer.MaxValue})
+    revertiveTimer.EntityData.Leafs.Append("value", types.YLeaf{"Value", revertiveTimer.Value})
+
+    revertiveTimer.EntityData.YListKeys = []string {}
+
     return &(revertiveTimer.EntityData)
 }
 

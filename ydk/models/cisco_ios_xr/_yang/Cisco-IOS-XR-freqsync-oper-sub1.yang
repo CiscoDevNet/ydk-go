@@ -177,12 +177,6 @@ submodule Cisco-IOS-XR-freqsync-oper-sub1 {
       "Clock-interface class";
   }
 
-  typedef Fsync-bag-optional-string {
-    type string;
-    description
-      "Fsync bag optional string";
-  }
-
   typedef Fsync-bag-source-state {
     type enumeration {
       enum "source-state-unknown" {
@@ -252,7 +246,8 @@ submodule Cisco-IOS-XR-freqsync-oper-sub1 {
       enum "option2-generation2-none" {
         value 3;
         description
-          "None";
+          "Interface does not support SSMs or no QL has
+           been received";
       }
       enum "option2-generation2prs" {
         value 30;
@@ -319,7 +314,8 @@ submodule Cisco-IOS-XR-freqsync-oper-sub1 {
       enum "option2-generation1-none" {
         value 3;
         description
-          "None";
+          "Interface does not support SSMs or no QL has
+           been received";
       }
       enum "option2-generation1prs" {
         value 20;
@@ -376,7 +372,8 @@ submodule Cisco-IOS-XR-freqsync-oper-sub1 {
       enum "option1-none" {
         value 3;
         description
-          "None";
+          "Interface does not support SSMs or no QL has
+           been received";
       }
       enum "option1prc" {
         value 10;
@@ -408,7 +405,8 @@ submodule Cisco-IOS-XR-freqsync-oper-sub1 {
       enum "no-quality-level-option" {
         value 0;
         description
-          "No quality level option";
+          "Interface does not support SSMs or no QL has
+           been received";
       }
       enum "option1" {
         value 1;
@@ -584,6 +582,12 @@ submodule Cisco-IOS-XR-freqsync-oper-sub1 {
       "Fsync selection point type";
   }
 
+  typedef Fsync-bag-optional-string {
+    type string;
+    description
+      "Fsync bag optional string";
+  }
+
   typedef Fsync-bag-source-class {
     type enumeration {
       enum "invalid-source" {
@@ -625,6 +629,11 @@ submodule Cisco-IOS-XR-freqsync-oper-sub1 {
         value 7;
         description
           "NTP clock";
+      }
+      enum "gnss-receiver" {
+        value 8;
+        description
+          "GNSS Receiver";
       }
     }
     description
@@ -1624,10 +1633,16 @@ submodule Cisco-IOS-XR-freqsync-oper-sub1 {
       description
         "Node";
     }
-    leaf port {
+    leaf id {
       type uint32;
       description
-        "Port number";
+        "ID (port number for clock interface, receiver
+         number for GNSS receiver)";
+    }
+    leaf clock-name {
+      type Fsync-bag-optional-string;
+      description
+        "Name";
     }
   }
 
@@ -1641,6 +1656,15 @@ submodule Cisco-IOS-XR-freqsync-oper-sub1 {
       }
       description
         "Clock ID";
+      uses FSYNC-BAG-CLOCK-ID;
+    }
+    container gnss-receiver-id {
+      when "../source-class = 'gnss-receiver'" {
+        description
+          "../SourceClass = 'GNSSReceiver'";
+      }
+      description
+        "GNSS Receiver ID";
       uses FSYNC-BAG-CLOCK-ID;
     }
     leaf source-class {

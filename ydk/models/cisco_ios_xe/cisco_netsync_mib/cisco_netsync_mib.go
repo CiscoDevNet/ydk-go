@@ -46,57 +46,19 @@ func init() {
     ydk.RegisterEntity("CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB", reflect.TypeOf(CISCONETSYNCMIB{}))
 }
 
-// CiscoNetsyncIfType represents              type are T1 SF and T1 ESF.
-type CiscoNetsyncIfType string
+// CiscoNetsyncESMCCap represents netsyncESMCCapInvalid   Capability invalid or unsupported
+type CiscoNetsyncESMCCap string
 
 const (
-    CiscoNetsyncIfType_netsyncIfTypeUnknown CiscoNetsyncIfType = "netsyncIfTypeUnknown"
+    CiscoNetsyncESMCCap_netsyncESMCCapNone CiscoNetsyncESMCCap = "netsyncESMCCapNone"
 
-    CiscoNetsyncIfType_netsyncIfTypeInternal CiscoNetsyncIfType = "netsyncIfTypeInternal"
+    CiscoNetsyncESMCCap_netsyncESMCCapTxRx CiscoNetsyncESMCCap = "netsyncESMCCapTxRx"
 
-    CiscoNetsyncIfType_netsyncIfTypeEthernet CiscoNetsyncIfType = "netsyncIfTypeEthernet"
+    CiscoNetsyncESMCCap_netsyncESMCCapTx CiscoNetsyncESMCCap = "netsyncESMCCapTx"
 
-    CiscoNetsyncIfType_netsyncIfTypeSonet CiscoNetsyncIfType = "netsyncIfTypeSonet"
+    CiscoNetsyncESMCCap_netsyncESMCCapRx CiscoNetsyncESMCCap = "netsyncESMCCapRx"
 
-    CiscoNetsyncIfType_netsyncIfTypeTop CiscoNetsyncIfType = "netsyncIfTypeTop"
-
-    CiscoNetsyncIfType_netsyncIfTypeExt CiscoNetsyncIfType = "netsyncIfTypeExt"
-
-    CiscoNetsyncIfType_netsyncIfTypeController CiscoNetsyncIfType = "netsyncIfTypeController"
-
-    CiscoNetsyncIfType_netsyncIfTypeGps CiscoNetsyncIfType = "netsyncIfTypeGps"
-
-    CiscoNetsyncIfType_netsyncIfTypeAtm CiscoNetsyncIfType = "netsyncIfTypeAtm"
-)
-
-// CiscoNetsyncNetworkOption represents designed for Japan.
-type CiscoNetsyncNetworkOption string
-
-const (
-    CiscoNetsyncNetworkOption_netsyncNetworkOptionUnknown CiscoNetsyncNetworkOption = "netsyncNetworkOptionUnknown"
-
-    CiscoNetsyncNetworkOption_netsyncNetworkOption1 CiscoNetsyncNetworkOption = "netsyncNetworkOption1"
-
-    CiscoNetsyncNetworkOption_netsyncNetworkOption2Gen1 CiscoNetsyncNetworkOption = "netsyncNetworkOption2Gen1"
-
-    CiscoNetsyncNetworkOption_netsyncNetworkOption2Gen2 CiscoNetsyncNetworkOption = "netsyncNetworkOption2Gen2"
-
-    CiscoNetsyncNetworkOption_netsyncNetworkOption3 CiscoNetsyncNetworkOption = "netsyncNetworkOption3"
-
-    CiscoNetsyncNetworkOption_netsyncNetworkOptionInvalid CiscoNetsyncNetworkOption = "netsyncNetworkOptionInvalid"
-)
-
-// CiscoNetsyncEECOption represents netsyncEECOptionInvalid   Invalid EEC option
-type CiscoNetsyncEECOption string
-
-const (
-    CiscoNetsyncEECOption_netsyncEECOptionUnknown CiscoNetsyncEECOption = "netsyncEECOptionUnknown"
-
-    CiscoNetsyncEECOption_netsyncEECOption1 CiscoNetsyncEECOption = "netsyncEECOption1"
-
-    CiscoNetsyncEECOption_netsyncEECOption2 CiscoNetsyncEECOption = "netsyncEECOption2"
-
-    CiscoNetsyncEECOption_netsyncEECOptionInvalid CiscoNetsyncEECOption = "netsyncEECOptionInvalid"
+    CiscoNetsyncESMCCap_netsyncESMCCapInvalid CiscoNetsyncESMCCap = "netsyncESMCCapInvalid"
 )
 
 // CiscoNetsyncQLMode represents                           clock selection criteria.
@@ -108,19 +70,6 @@ const (
     CiscoNetsyncQLMode_netsyncQLModeQlDisabled CiscoNetsyncQLMode = "netsyncQLModeQlDisabled"
 
     CiscoNetsyncQLMode_netsyncQLModeQlEnabled CiscoNetsyncQLMode = "netsyncQLModeQlEnabled"
-)
-
-// CiscoNetsyncClockMode represents netsyncClockModeLocked   - a valid clock source is locked.
-type CiscoNetsyncClockMode string
-
-const (
-    CiscoNetsyncClockMode_netsyncClockModeUnknown CiscoNetsyncClockMode = "netsyncClockModeUnknown"
-
-    CiscoNetsyncClockMode_netsyncClockModeFreerun CiscoNetsyncClockMode = "netsyncClockModeFreerun"
-
-    CiscoNetsyncClockMode_netsyncClockModeHoldover CiscoNetsyncClockMode = "netsyncClockModeHoldover"
-
-    CiscoNetsyncClockMode_netsyncClockModeLocked CiscoNetsyncClockMode = "netsyncClockModeLocked"
 )
 
 // CiscoNetsyncQualityLevel represents QL-NSUPP   Not supporting the SSM processing        
@@ -200,6 +149,19 @@ const (
     CiscoNetsyncQualityLevel_netsyncQualityLevelUNK CiscoNetsyncQualityLevel = "netsyncQualityLevelUNK"
 )
 
+// CiscoNetsyncClockMode represents netsyncClockModeLocked   - a valid clock source is locked.
+type CiscoNetsyncClockMode string
+
+const (
+    CiscoNetsyncClockMode_netsyncClockModeUnknown CiscoNetsyncClockMode = "netsyncClockModeUnknown"
+
+    CiscoNetsyncClockMode_netsyncClockModeFreerun CiscoNetsyncClockMode = "netsyncClockModeFreerun"
+
+    CiscoNetsyncClockMode_netsyncClockModeHoldover CiscoNetsyncClockMode = "netsyncClockModeHoldover"
+
+    CiscoNetsyncClockMode_netsyncClockModeLocked CiscoNetsyncClockMode = "netsyncClockModeLocked"
+)
+
 // CiscoNetsyncSSMCap represents netsyncSSMCapInvalid   Capability invalid or unsupported
 type CiscoNetsyncSSMCap string
 
@@ -215,19 +177,57 @@ const (
     CiscoNetsyncSSMCap_netsyncSSMCapInvalid CiscoNetsyncSSMCap = "netsyncSSMCapInvalid"
 )
 
-// CiscoNetsyncESMCCap represents netsyncESMCCapInvalid   Capability invalid or unsupported
-type CiscoNetsyncESMCCap string
+// CiscoNetsyncIfType represents              type are T1 SF and T1 ESF.
+type CiscoNetsyncIfType string
 
 const (
-    CiscoNetsyncESMCCap_netsyncESMCCapNone CiscoNetsyncESMCCap = "netsyncESMCCapNone"
+    CiscoNetsyncIfType_netsyncIfTypeUnknown CiscoNetsyncIfType = "netsyncIfTypeUnknown"
 
-    CiscoNetsyncESMCCap_netsyncESMCCapTxRx CiscoNetsyncESMCCap = "netsyncESMCCapTxRx"
+    CiscoNetsyncIfType_netsyncIfTypeInternal CiscoNetsyncIfType = "netsyncIfTypeInternal"
 
-    CiscoNetsyncESMCCap_netsyncESMCCapTx CiscoNetsyncESMCCap = "netsyncESMCCapTx"
+    CiscoNetsyncIfType_netsyncIfTypeEthernet CiscoNetsyncIfType = "netsyncIfTypeEthernet"
 
-    CiscoNetsyncESMCCap_netsyncESMCCapRx CiscoNetsyncESMCCap = "netsyncESMCCapRx"
+    CiscoNetsyncIfType_netsyncIfTypeSonet CiscoNetsyncIfType = "netsyncIfTypeSonet"
 
-    CiscoNetsyncESMCCap_netsyncESMCCapInvalid CiscoNetsyncESMCCap = "netsyncESMCCapInvalid"
+    CiscoNetsyncIfType_netsyncIfTypeTop CiscoNetsyncIfType = "netsyncIfTypeTop"
+
+    CiscoNetsyncIfType_netsyncIfTypeExt CiscoNetsyncIfType = "netsyncIfTypeExt"
+
+    CiscoNetsyncIfType_netsyncIfTypeController CiscoNetsyncIfType = "netsyncIfTypeController"
+
+    CiscoNetsyncIfType_netsyncIfTypeGps CiscoNetsyncIfType = "netsyncIfTypeGps"
+
+    CiscoNetsyncIfType_netsyncIfTypeAtm CiscoNetsyncIfType = "netsyncIfTypeAtm"
+)
+
+// CiscoNetsyncNetworkOption represents designed for Japan.
+type CiscoNetsyncNetworkOption string
+
+const (
+    CiscoNetsyncNetworkOption_netsyncNetworkOptionUnknown CiscoNetsyncNetworkOption = "netsyncNetworkOptionUnknown"
+
+    CiscoNetsyncNetworkOption_netsyncNetworkOption1 CiscoNetsyncNetworkOption = "netsyncNetworkOption1"
+
+    CiscoNetsyncNetworkOption_netsyncNetworkOption2Gen1 CiscoNetsyncNetworkOption = "netsyncNetworkOption2Gen1"
+
+    CiscoNetsyncNetworkOption_netsyncNetworkOption2Gen2 CiscoNetsyncNetworkOption = "netsyncNetworkOption2Gen2"
+
+    CiscoNetsyncNetworkOption_netsyncNetworkOption3 CiscoNetsyncNetworkOption = "netsyncNetworkOption3"
+
+    CiscoNetsyncNetworkOption_netsyncNetworkOptionInvalid CiscoNetsyncNetworkOption = "netsyncNetworkOptionInvalid"
+)
+
+// CiscoNetsyncEECOption represents netsyncEECOptionInvalid   Invalid EEC option
+type CiscoNetsyncEECOption string
+
+const (
+    CiscoNetsyncEECOption_netsyncEECOptionUnknown CiscoNetsyncEECOption = "netsyncEECOptionUnknown"
+
+    CiscoNetsyncEECOption_netsyncEECOption1 CiscoNetsyncEECOption = "netsyncEECOption1"
+
+    CiscoNetsyncEECOption_netsyncEECOption2 CiscoNetsyncEECOption = "netsyncEECOption2"
+
+    CiscoNetsyncEECOption_netsyncEECOptionInvalid CiscoNetsyncEECOption = "netsyncEECOptionInvalid"
 )
 
 // CISCONETSYNCMIB
@@ -236,32 +236,32 @@ type CISCONETSYNCMIB struct {
     YFilter yfilter.YFilter
 
     
-    Cisconetsyncmibnotifcontrol CISCONETSYNCMIB_Cisconetsyncmibnotifcontrol
+    CiscoNetsyncMIBNotifControl CISCONETSYNCMIB_CiscoNetsyncMIBNotifControl
 
     // G.781 clock selection process table. This table contains the global
     // parameters for the G.781 clock selection process.
-    Cnsclkselglobaltable CISCONETSYNCMIB_Cnsclkselglobaltable
+    CnsClkSelGlobalTable CISCONETSYNCMIB_CnsClkSelGlobalTable
 
     // T0 selected clock source table. This table contains the selected clock
     // source for the input T0 clock.
-    Cnsselectedinputsourcetable CISCONETSYNCMIB_Cnsselectedinputsourcetable
+    CnsSelectedInputSourceTable CISCONETSYNCMIB_CnsSelectedInputSourceTable
 
     // T0 clock source table. This table contains a list of input sources for
     // input T0 clock selection.
-    Cnsinputsourcetable CISCONETSYNCMIB_Cnsinputsourcetable
+    CnsInputSourceTable CISCONETSYNCMIB_CnsInputSourceTable
 
     // T4 external output table. This table contains a list of T4 external
     // outputs.  Each T4 external output is associated with clock source(s) to be
     // found in cnsT4ClockSourceTable. The clock selection process considers all
     // the available clock sources and select the T4 clock source based on the
     // G.781 clock selection algorithm.
-    Cnsextoutputtable CISCONETSYNCMIB_Cnsextoutputtable
+    CnsExtOutputTable CISCONETSYNCMIB_CnsExtOutputTable
 
     // T4 clock source table. This table contains a list of input sources for a
     // specific T4 external output. An entry shall be added to cnsExtOutputTable
     // first. Then clock sources shall be added in this table for the selection
     // process to select the appropriate T4 clock source.
-    Cnst4Clocksourcetable CISCONETSYNCMIB_Cnst4Clocksourcetable
+    CnsT4ClockSourceTable CISCONETSYNCMIB_CnsT4ClockSourceTable
 }
 
 func (cISCONETSYNCMIB *CISCONETSYNCMIB) GetEntityData() *types.CommonEntityData {
@@ -274,19 +274,22 @@ func (cISCONETSYNCMIB *CISCONETSYNCMIB) GetEntityData() *types.CommonEntityData 
     cISCONETSYNCMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCONETSYNCMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCONETSYNCMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCONETSYNCMIB.EntityData.Children["ciscoNetsyncMIBNotifControl"] = types.YChild{"Cisconetsyncmibnotifcontrol", &cISCONETSYNCMIB.Cisconetsyncmibnotifcontrol}
-    cISCONETSYNCMIB.EntityData.Children["cnsClkSelGlobalTable"] = types.YChild{"Cnsclkselglobaltable", &cISCONETSYNCMIB.Cnsclkselglobaltable}
-    cISCONETSYNCMIB.EntityData.Children["cnsSelectedInputSourceTable"] = types.YChild{"Cnsselectedinputsourcetable", &cISCONETSYNCMIB.Cnsselectedinputsourcetable}
-    cISCONETSYNCMIB.EntityData.Children["cnsInputSourceTable"] = types.YChild{"Cnsinputsourcetable", &cISCONETSYNCMIB.Cnsinputsourcetable}
-    cISCONETSYNCMIB.EntityData.Children["cnsExtOutputTable"] = types.YChild{"Cnsextoutputtable", &cISCONETSYNCMIB.Cnsextoutputtable}
-    cISCONETSYNCMIB.EntityData.Children["cnsT4ClockSourceTable"] = types.YChild{"Cnst4Clocksourcetable", &cISCONETSYNCMIB.Cnst4Clocksourcetable}
-    cISCONETSYNCMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCONETSYNCMIB.EntityData.Children = types.NewOrderedMap()
+    cISCONETSYNCMIB.EntityData.Children.Append("ciscoNetsyncMIBNotifControl", types.YChild{"CiscoNetsyncMIBNotifControl", &cISCONETSYNCMIB.CiscoNetsyncMIBNotifControl})
+    cISCONETSYNCMIB.EntityData.Children.Append("cnsClkSelGlobalTable", types.YChild{"CnsClkSelGlobalTable", &cISCONETSYNCMIB.CnsClkSelGlobalTable})
+    cISCONETSYNCMIB.EntityData.Children.Append("cnsSelectedInputSourceTable", types.YChild{"CnsSelectedInputSourceTable", &cISCONETSYNCMIB.CnsSelectedInputSourceTable})
+    cISCONETSYNCMIB.EntityData.Children.Append("cnsInputSourceTable", types.YChild{"CnsInputSourceTable", &cISCONETSYNCMIB.CnsInputSourceTable})
+    cISCONETSYNCMIB.EntityData.Children.Append("cnsExtOutputTable", types.YChild{"CnsExtOutputTable", &cISCONETSYNCMIB.CnsExtOutputTable})
+    cISCONETSYNCMIB.EntityData.Children.Append("cnsT4ClockSourceTable", types.YChild{"CnsT4ClockSourceTable", &cISCONETSYNCMIB.CnsT4ClockSourceTable})
+    cISCONETSYNCMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCONETSYNCMIB.EntityData.YListKeys = []string {}
+
     return &(cISCONETSYNCMIB.EntityData)
 }
 
-// CISCONETSYNCMIB_Cisconetsyncmibnotifcontrol
-type CISCONETSYNCMIB_Cisconetsyncmibnotifcontrol struct {
+// CISCONETSYNCMIB_CiscoNetsyncMIBNotifControl
+type CISCONETSYNCMIB_CiscoNetsyncMIBNotifControl struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -296,65 +299,71 @@ type CISCONETSYNCMIB_Cisconetsyncmibnotifcontrol struct {
     // should hold any of the below values.     true - The notif is enabled
     // globally for the system     false- The notif is disabled globally for the
     // system. The type is bool.
-    Cnsmibenablestatusnotification interface{}
+    CnsMIBEnableStatusNotification interface{}
 }
 
-func (cisconetsyncmibnotifcontrol *CISCONETSYNCMIB_Cisconetsyncmibnotifcontrol) GetEntityData() *types.CommonEntityData {
-    cisconetsyncmibnotifcontrol.EntityData.YFilter = cisconetsyncmibnotifcontrol.YFilter
-    cisconetsyncmibnotifcontrol.EntityData.YangName = "ciscoNetsyncMIBNotifControl"
-    cisconetsyncmibnotifcontrol.EntityData.BundleName = "cisco_ios_xe"
-    cisconetsyncmibnotifcontrol.EntityData.ParentYangName = "CISCO-NETSYNC-MIB"
-    cisconetsyncmibnotifcontrol.EntityData.SegmentPath = "ciscoNetsyncMIBNotifControl"
-    cisconetsyncmibnotifcontrol.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cisconetsyncmibnotifcontrol.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cisconetsyncmibnotifcontrol.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoNetsyncMIBNotifControl *CISCONETSYNCMIB_CiscoNetsyncMIBNotifControl) GetEntityData() *types.CommonEntityData {
+    ciscoNetsyncMIBNotifControl.EntityData.YFilter = ciscoNetsyncMIBNotifControl.YFilter
+    ciscoNetsyncMIBNotifControl.EntityData.YangName = "ciscoNetsyncMIBNotifControl"
+    ciscoNetsyncMIBNotifControl.EntityData.BundleName = "cisco_ios_xe"
+    ciscoNetsyncMIBNotifControl.EntityData.ParentYangName = "CISCO-NETSYNC-MIB"
+    ciscoNetsyncMIBNotifControl.EntityData.SegmentPath = "ciscoNetsyncMIBNotifControl"
+    ciscoNetsyncMIBNotifControl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoNetsyncMIBNotifControl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoNetsyncMIBNotifControl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cisconetsyncmibnotifcontrol.EntityData.Children = make(map[string]types.YChild)
-    cisconetsyncmibnotifcontrol.EntityData.Leafs = make(map[string]types.YLeaf)
-    cisconetsyncmibnotifcontrol.EntityData.Leafs["cnsMIBEnableStatusNotification"] = types.YLeaf{"Cnsmibenablestatusnotification", cisconetsyncmibnotifcontrol.Cnsmibenablestatusnotification}
-    return &(cisconetsyncmibnotifcontrol.EntityData)
+    ciscoNetsyncMIBNotifControl.EntityData.Children = types.NewOrderedMap()
+    ciscoNetsyncMIBNotifControl.EntityData.Leafs = types.NewOrderedMap()
+    ciscoNetsyncMIBNotifControl.EntityData.Leafs.Append("cnsMIBEnableStatusNotification", types.YLeaf{"CnsMIBEnableStatusNotification", ciscoNetsyncMIBNotifControl.CnsMIBEnableStatusNotification})
+
+    ciscoNetsyncMIBNotifControl.EntityData.YListKeys = []string {}
+
+    return &(ciscoNetsyncMIBNotifControl.EntityData)
 }
 
-// CISCONETSYNCMIB_Cnsclkselglobaltable
+// CISCONETSYNCMIB_CnsClkSelGlobalTable
 // G.781 clock selection process table.
 // This table contains the global parameters for the G.781 clock
 // selection process.
-type CISCONETSYNCMIB_Cnsclkselglobaltable struct {
+type CISCONETSYNCMIB_CnsClkSelGlobalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry is added to cnsClkSelGlobalTable when G.781 clock selection is
     // enabled in the device configuration.  The entry is removed when G.781 clock
     // selection is removed from the configuration. The type is slice of
-    // CISCONETSYNCMIB_Cnsclkselglobaltable_Cnsclkselglobalentry.
-    Cnsclkselglobalentry []CISCONETSYNCMIB_Cnsclkselglobaltable_Cnsclkselglobalentry
+    // CISCONETSYNCMIB_CnsClkSelGlobalTable_CnsClkSelGlobalEntry.
+    CnsClkSelGlobalEntry []*CISCONETSYNCMIB_CnsClkSelGlobalTable_CnsClkSelGlobalEntry
 }
 
-func (cnsclkselglobaltable *CISCONETSYNCMIB_Cnsclkselglobaltable) GetEntityData() *types.CommonEntityData {
-    cnsclkselglobaltable.EntityData.YFilter = cnsclkselglobaltable.YFilter
-    cnsclkselglobaltable.EntityData.YangName = "cnsClkSelGlobalTable"
-    cnsclkselglobaltable.EntityData.BundleName = "cisco_ios_xe"
-    cnsclkselglobaltable.EntityData.ParentYangName = "CISCO-NETSYNC-MIB"
-    cnsclkselglobaltable.EntityData.SegmentPath = "cnsClkSelGlobalTable"
-    cnsclkselglobaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnsclkselglobaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnsclkselglobaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnsClkSelGlobalTable *CISCONETSYNCMIB_CnsClkSelGlobalTable) GetEntityData() *types.CommonEntityData {
+    cnsClkSelGlobalTable.EntityData.YFilter = cnsClkSelGlobalTable.YFilter
+    cnsClkSelGlobalTable.EntityData.YangName = "cnsClkSelGlobalTable"
+    cnsClkSelGlobalTable.EntityData.BundleName = "cisco_ios_xe"
+    cnsClkSelGlobalTable.EntityData.ParentYangName = "CISCO-NETSYNC-MIB"
+    cnsClkSelGlobalTable.EntityData.SegmentPath = "cnsClkSelGlobalTable"
+    cnsClkSelGlobalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnsClkSelGlobalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnsClkSelGlobalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnsclkselglobaltable.EntityData.Children = make(map[string]types.YChild)
-    cnsclkselglobaltable.EntityData.Children["cnsClkSelGlobalEntry"] = types.YChild{"Cnsclkselglobalentry", nil}
-    for i := range cnsclkselglobaltable.Cnsclkselglobalentry {
-        cnsclkselglobaltable.EntityData.Children[types.GetSegmentPath(&cnsclkselglobaltable.Cnsclkselglobalentry[i])] = types.YChild{"Cnsclkselglobalentry", &cnsclkselglobaltable.Cnsclkselglobalentry[i]}
+    cnsClkSelGlobalTable.EntityData.Children = types.NewOrderedMap()
+    cnsClkSelGlobalTable.EntityData.Children.Append("cnsClkSelGlobalEntry", types.YChild{"CnsClkSelGlobalEntry", nil})
+    for i := range cnsClkSelGlobalTable.CnsClkSelGlobalEntry {
+        cnsClkSelGlobalTable.EntityData.Children.Append(types.GetSegmentPath(cnsClkSelGlobalTable.CnsClkSelGlobalEntry[i]), types.YChild{"CnsClkSelGlobalEntry", cnsClkSelGlobalTable.CnsClkSelGlobalEntry[i]})
     }
-    cnsclkselglobaltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cnsclkselglobaltable.EntityData)
+    cnsClkSelGlobalTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cnsClkSelGlobalTable.EntityData.YListKeys = []string {}
+
+    return &(cnsClkSelGlobalTable.EntityData)
 }
 
-// CISCONETSYNCMIB_Cnsclkselglobaltable_Cnsclkselglobalentry
+// CISCONETSYNCMIB_CnsClkSelGlobalTable_CnsClkSelGlobalEntry
 // An entry is added to cnsClkSelGlobalTable when G.781 clock
 // selection is enabled in the device configuration.  The entry
 // is removed when G.781 clock selection is removed from the
 // configuration.
-type CISCONETSYNCMIB_Cnsclkselglobaltable_Cnsclkselglobalentry struct {
+type CISCONETSYNCMIB_CnsClkSelGlobalTable_CnsClkSelGlobalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -362,21 +371,21 @@ type CISCONETSYNCMIB_Cnsclkselglobaltable_Cnsclkselglobalentry struct {
     // selection process.  This index is assigned arbitrarily by the system and
     // may not be persistent across reboots. The type is interface{} with range:
     // 0..4294967295.
-    Cnsclkselgloprocindex interface{}
+    CnsClkSelGloProcIndex interface{}
 
     // This object indicates the QL mode of the network synchronization clock
     // selection process as described in ITU-T standard G.781 section 5.12. The
     // type is CiscoNetsyncQLMode.
-    Cnsclkselglobprocessmode interface{}
+    CnsClkSelGlobProcessMode interface{}
 
     // This object indicates the operating mode of the system clock. The type is
     // CiscoNetsyncClockMode.
-    Cnsclkselglobclockmode interface{}
+    CnsClkSelGlobClockMode interface{}
 
     // This object indicates whether the G.781 clock selection is enabled or not. 
     // 'true'  - G.781 clock selection is enabled 'false' - G.781 clock selection
     // is disabled. The type is bool.
-    Cnsclkselglobnetsyncenable interface{}
+    CnsClkSelGlobNetsyncEnable interface{}
 
     // This object indicates the revertive mode setting in the G.781 clock
     // selection process.  The switching of clock sources can be made revertive or
@@ -385,118 +394,124 @@ type CISCONETSYNCMIB_Cnsclkselglobaltable_Cnsclkselglobalentry struct {
     // failure that caused the switch. In revertive mode, the clock selection
     // process switches back to the original clock source after recovering from
     // the failure. The type is bool.
-    Cnsclkselglobrevertivemode interface{}
+    CnsClkSelGlobRevertiveMode interface{}
 
     // This object indicates if global ESMC is enabled. With ESMC enabled
     // globally, the system is capable of handling ESMC messages. The type is
     // bool.
-    Cnsclkselglobesmcmode interface{}
+    CnsClkSelGlobESMCMode interface{}
 
     // This object indicates the network synchronization EEC (Ethernet Equipment
     // Clock) option. The type is CiscoNetsyncEECOption.
-    Cnsclkselglobeecoption interface{}
+    CnsClkSelGlobEECOption interface{}
 
     // This object indicates the synchronization network option. The type is
     // CiscoNetsyncNetworkOption.
-    Cnsclkselglobnetworkoption interface{}
+    CnsClkSelGlobNetworkOption interface{}
 
     // This object indicates the global holdoff time in the G.781 clock selection
     // process. The type is interface{} with range: 0..4294967295. Units are
     // milliseconds.
-    Cnsclkselglobholdofftime interface{}
+    CnsClkSelGlobHoldoffTime interface{}
 
     // This object indicates the global wait-to-restore time in the G.781 clock
     // selection process. The type is interface{} with range: 0..4294967295. Units
     // are seconds.
-    Cnsclkselglobwtrtime interface{}
+    CnsClkSelGlobWtrTime interface{}
 
     // This object indicates the number of synchronization sources currently
     // configured for the G.781 clock selection process. The type is interface{}
     // with range: 0..255. Units are clock sources.
-    Cnsclkselglobnofsources interface{}
+    CnsClkSelGlobNofSources interface{}
 
     // This object indicates the duration of the last holdover period in seconds.
     // If the holdover duration is less than a second, the object will carry the
     // value zero. The type is interface{} with range: 0..4294967295. Units are
     // seconds.
-    Cnsclkselgloblastholdoverseconds interface{}
+    CnsClkSelGlobLastHoldoverSeconds interface{}
 
     // This object indicates the duration of the current holdover period. If a
     // system clock is in holdover mode, the object carries the current holdover
     // duration in seconds. If the system clock is not in holdover, the object
     // carries the value 0. The type is interface{} with range: 0..4294967295.
     // Units are seconds.
-    Cnsclkselglobcurrholdoverseconds interface{}
+    CnsClkSelGlobCurrHoldoverSeconds interface{}
 }
 
-func (cnsclkselglobalentry *CISCONETSYNCMIB_Cnsclkselglobaltable_Cnsclkselglobalentry) GetEntityData() *types.CommonEntityData {
-    cnsclkselglobalentry.EntityData.YFilter = cnsclkselglobalentry.YFilter
-    cnsclkselglobalentry.EntityData.YangName = "cnsClkSelGlobalEntry"
-    cnsclkselglobalentry.EntityData.BundleName = "cisco_ios_xe"
-    cnsclkselglobalentry.EntityData.ParentYangName = "cnsClkSelGlobalTable"
-    cnsclkselglobalentry.EntityData.SegmentPath = "cnsClkSelGlobalEntry" + "[cnsClkSelGloProcIndex='" + fmt.Sprintf("%v", cnsclkselglobalentry.Cnsclkselgloprocindex) + "']"
-    cnsclkselglobalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnsclkselglobalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnsclkselglobalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnsClkSelGlobalEntry *CISCONETSYNCMIB_CnsClkSelGlobalTable_CnsClkSelGlobalEntry) GetEntityData() *types.CommonEntityData {
+    cnsClkSelGlobalEntry.EntityData.YFilter = cnsClkSelGlobalEntry.YFilter
+    cnsClkSelGlobalEntry.EntityData.YangName = "cnsClkSelGlobalEntry"
+    cnsClkSelGlobalEntry.EntityData.BundleName = "cisco_ios_xe"
+    cnsClkSelGlobalEntry.EntityData.ParentYangName = "cnsClkSelGlobalTable"
+    cnsClkSelGlobalEntry.EntityData.SegmentPath = "cnsClkSelGlobalEntry" + types.AddKeyToken(cnsClkSelGlobalEntry.CnsClkSelGloProcIndex, "cnsClkSelGloProcIndex")
+    cnsClkSelGlobalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnsClkSelGlobalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnsClkSelGlobalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnsclkselglobalentry.EntityData.Children = make(map[string]types.YChild)
-    cnsclkselglobalentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cnsclkselglobalentry.EntityData.Leafs["cnsClkSelGloProcIndex"] = types.YLeaf{"Cnsclkselgloprocindex", cnsclkselglobalentry.Cnsclkselgloprocindex}
-    cnsclkselglobalentry.EntityData.Leafs["cnsClkSelGlobProcessMode"] = types.YLeaf{"Cnsclkselglobprocessmode", cnsclkselglobalentry.Cnsclkselglobprocessmode}
-    cnsclkselglobalentry.EntityData.Leafs["cnsClkSelGlobClockMode"] = types.YLeaf{"Cnsclkselglobclockmode", cnsclkselglobalentry.Cnsclkselglobclockmode}
-    cnsclkselglobalentry.EntityData.Leafs["cnsClkSelGlobNetsyncEnable"] = types.YLeaf{"Cnsclkselglobnetsyncenable", cnsclkselglobalentry.Cnsclkselglobnetsyncenable}
-    cnsclkselglobalentry.EntityData.Leafs["cnsClkSelGlobRevertiveMode"] = types.YLeaf{"Cnsclkselglobrevertivemode", cnsclkselglobalentry.Cnsclkselglobrevertivemode}
-    cnsclkselglobalentry.EntityData.Leafs["cnsClkSelGlobESMCMode"] = types.YLeaf{"Cnsclkselglobesmcmode", cnsclkselglobalentry.Cnsclkselglobesmcmode}
-    cnsclkselglobalentry.EntityData.Leafs["cnsClkSelGlobEECOption"] = types.YLeaf{"Cnsclkselglobeecoption", cnsclkselglobalentry.Cnsclkselglobeecoption}
-    cnsclkselglobalentry.EntityData.Leafs["cnsClkSelGlobNetworkOption"] = types.YLeaf{"Cnsclkselglobnetworkoption", cnsclkselglobalentry.Cnsclkselglobnetworkoption}
-    cnsclkselglobalentry.EntityData.Leafs["cnsClkSelGlobHoldoffTime"] = types.YLeaf{"Cnsclkselglobholdofftime", cnsclkselglobalentry.Cnsclkselglobholdofftime}
-    cnsclkselglobalentry.EntityData.Leafs["cnsClkSelGlobWtrTime"] = types.YLeaf{"Cnsclkselglobwtrtime", cnsclkselglobalentry.Cnsclkselglobwtrtime}
-    cnsclkselglobalentry.EntityData.Leafs["cnsClkSelGlobNofSources"] = types.YLeaf{"Cnsclkselglobnofsources", cnsclkselglobalentry.Cnsclkselglobnofsources}
-    cnsclkselglobalentry.EntityData.Leafs["cnsClkSelGlobLastHoldoverSeconds"] = types.YLeaf{"Cnsclkselgloblastholdoverseconds", cnsclkselglobalentry.Cnsclkselgloblastholdoverseconds}
-    cnsclkselglobalentry.EntityData.Leafs["cnsClkSelGlobCurrHoldoverSeconds"] = types.YLeaf{"Cnsclkselglobcurrholdoverseconds", cnsclkselglobalentry.Cnsclkselglobcurrholdoverseconds}
-    return &(cnsclkselglobalentry.EntityData)
+    cnsClkSelGlobalEntry.EntityData.Children = types.NewOrderedMap()
+    cnsClkSelGlobalEntry.EntityData.Leafs = types.NewOrderedMap()
+    cnsClkSelGlobalEntry.EntityData.Leafs.Append("cnsClkSelGloProcIndex", types.YLeaf{"CnsClkSelGloProcIndex", cnsClkSelGlobalEntry.CnsClkSelGloProcIndex})
+    cnsClkSelGlobalEntry.EntityData.Leafs.Append("cnsClkSelGlobProcessMode", types.YLeaf{"CnsClkSelGlobProcessMode", cnsClkSelGlobalEntry.CnsClkSelGlobProcessMode})
+    cnsClkSelGlobalEntry.EntityData.Leafs.Append("cnsClkSelGlobClockMode", types.YLeaf{"CnsClkSelGlobClockMode", cnsClkSelGlobalEntry.CnsClkSelGlobClockMode})
+    cnsClkSelGlobalEntry.EntityData.Leafs.Append("cnsClkSelGlobNetsyncEnable", types.YLeaf{"CnsClkSelGlobNetsyncEnable", cnsClkSelGlobalEntry.CnsClkSelGlobNetsyncEnable})
+    cnsClkSelGlobalEntry.EntityData.Leafs.Append("cnsClkSelGlobRevertiveMode", types.YLeaf{"CnsClkSelGlobRevertiveMode", cnsClkSelGlobalEntry.CnsClkSelGlobRevertiveMode})
+    cnsClkSelGlobalEntry.EntityData.Leafs.Append("cnsClkSelGlobESMCMode", types.YLeaf{"CnsClkSelGlobESMCMode", cnsClkSelGlobalEntry.CnsClkSelGlobESMCMode})
+    cnsClkSelGlobalEntry.EntityData.Leafs.Append("cnsClkSelGlobEECOption", types.YLeaf{"CnsClkSelGlobEECOption", cnsClkSelGlobalEntry.CnsClkSelGlobEECOption})
+    cnsClkSelGlobalEntry.EntityData.Leafs.Append("cnsClkSelGlobNetworkOption", types.YLeaf{"CnsClkSelGlobNetworkOption", cnsClkSelGlobalEntry.CnsClkSelGlobNetworkOption})
+    cnsClkSelGlobalEntry.EntityData.Leafs.Append("cnsClkSelGlobHoldoffTime", types.YLeaf{"CnsClkSelGlobHoldoffTime", cnsClkSelGlobalEntry.CnsClkSelGlobHoldoffTime})
+    cnsClkSelGlobalEntry.EntityData.Leafs.Append("cnsClkSelGlobWtrTime", types.YLeaf{"CnsClkSelGlobWtrTime", cnsClkSelGlobalEntry.CnsClkSelGlobWtrTime})
+    cnsClkSelGlobalEntry.EntityData.Leafs.Append("cnsClkSelGlobNofSources", types.YLeaf{"CnsClkSelGlobNofSources", cnsClkSelGlobalEntry.CnsClkSelGlobNofSources})
+    cnsClkSelGlobalEntry.EntityData.Leafs.Append("cnsClkSelGlobLastHoldoverSeconds", types.YLeaf{"CnsClkSelGlobLastHoldoverSeconds", cnsClkSelGlobalEntry.CnsClkSelGlobLastHoldoverSeconds})
+    cnsClkSelGlobalEntry.EntityData.Leafs.Append("cnsClkSelGlobCurrHoldoverSeconds", types.YLeaf{"CnsClkSelGlobCurrHoldoverSeconds", cnsClkSelGlobalEntry.CnsClkSelGlobCurrHoldoverSeconds})
+
+    cnsClkSelGlobalEntry.EntityData.YListKeys = []string {"CnsClkSelGloProcIndex"}
+
+    return &(cnsClkSelGlobalEntry.EntityData)
 }
 
-// CISCONETSYNCMIB_Cnsselectedinputsourcetable
+// CISCONETSYNCMIB_CnsSelectedInputSourceTable
 // T0 selected clock source table.
 // This table contains the selected clock source for the input T0
 // clock.
-type CISCONETSYNCMIB_Cnsselectedinputsourcetable struct {
+type CISCONETSYNCMIB_CnsSelectedInputSourceTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry is created in the table when the G.781 clock selection process has
     // successfully selected a T0 clock source.  The entry shall remain during the
     // time the G.781 clock selection process remains enabled. The type is slice
-    // of CISCONETSYNCMIB_Cnsselectedinputsourcetable_Cnsselectedinputsourceentry.
-    Cnsselectedinputsourceentry []CISCONETSYNCMIB_Cnsselectedinputsourcetable_Cnsselectedinputsourceentry
+    // of CISCONETSYNCMIB_CnsSelectedInputSourceTable_CnsSelectedInputSourceEntry.
+    CnsSelectedInputSourceEntry []*CISCONETSYNCMIB_CnsSelectedInputSourceTable_CnsSelectedInputSourceEntry
 }
 
-func (cnsselectedinputsourcetable *CISCONETSYNCMIB_Cnsselectedinputsourcetable) GetEntityData() *types.CommonEntityData {
-    cnsselectedinputsourcetable.EntityData.YFilter = cnsselectedinputsourcetable.YFilter
-    cnsselectedinputsourcetable.EntityData.YangName = "cnsSelectedInputSourceTable"
-    cnsselectedinputsourcetable.EntityData.BundleName = "cisco_ios_xe"
-    cnsselectedinputsourcetable.EntityData.ParentYangName = "CISCO-NETSYNC-MIB"
-    cnsselectedinputsourcetable.EntityData.SegmentPath = "cnsSelectedInputSourceTable"
-    cnsselectedinputsourcetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnsselectedinputsourcetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnsselectedinputsourcetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnsSelectedInputSourceTable *CISCONETSYNCMIB_CnsSelectedInputSourceTable) GetEntityData() *types.CommonEntityData {
+    cnsSelectedInputSourceTable.EntityData.YFilter = cnsSelectedInputSourceTable.YFilter
+    cnsSelectedInputSourceTable.EntityData.YangName = "cnsSelectedInputSourceTable"
+    cnsSelectedInputSourceTable.EntityData.BundleName = "cisco_ios_xe"
+    cnsSelectedInputSourceTable.EntityData.ParentYangName = "CISCO-NETSYNC-MIB"
+    cnsSelectedInputSourceTable.EntityData.SegmentPath = "cnsSelectedInputSourceTable"
+    cnsSelectedInputSourceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnsSelectedInputSourceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnsSelectedInputSourceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnsselectedinputsourcetable.EntityData.Children = make(map[string]types.YChild)
-    cnsselectedinputsourcetable.EntityData.Children["cnsSelectedInputSourceEntry"] = types.YChild{"Cnsselectedinputsourceentry", nil}
-    for i := range cnsselectedinputsourcetable.Cnsselectedinputsourceentry {
-        cnsselectedinputsourcetable.EntityData.Children[types.GetSegmentPath(&cnsselectedinputsourcetable.Cnsselectedinputsourceentry[i])] = types.YChild{"Cnsselectedinputsourceentry", &cnsselectedinputsourcetable.Cnsselectedinputsourceentry[i]}
+    cnsSelectedInputSourceTable.EntityData.Children = types.NewOrderedMap()
+    cnsSelectedInputSourceTable.EntityData.Children.Append("cnsSelectedInputSourceEntry", types.YChild{"CnsSelectedInputSourceEntry", nil})
+    for i := range cnsSelectedInputSourceTable.CnsSelectedInputSourceEntry {
+        cnsSelectedInputSourceTable.EntityData.Children.Append(types.GetSegmentPath(cnsSelectedInputSourceTable.CnsSelectedInputSourceEntry[i]), types.YChild{"CnsSelectedInputSourceEntry", cnsSelectedInputSourceTable.CnsSelectedInputSourceEntry[i]})
     }
-    cnsselectedinputsourcetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cnsselectedinputsourcetable.EntityData)
+    cnsSelectedInputSourceTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cnsSelectedInputSourceTable.EntityData.YListKeys = []string {}
+
+    return &(cnsSelectedInputSourceTable.EntityData)
 }
 
-// CISCONETSYNCMIB_Cnsselectedinputsourcetable_Cnsselectedinputsourceentry
+// CISCONETSYNCMIB_CnsSelectedInputSourceTable_CnsSelectedInputSourceEntry
 // An entry is created in the table when the G.781 clock
 // selection process has successfully selected a T0 clock
 // source.  The entry shall remain during the time
 // the G.781 clock selection process remains enabled.
-type CISCONETSYNCMIB_Cnsselectedinputsourcetable_Cnsselectedinputsourceentry struct {
+type CISCONETSYNCMIB_CnsSelectedInputSourceTable_CnsSelectedInputSourceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -504,15 +519,15 @@ type CISCONETSYNCMIB_Cnsselectedinputsourcetable_Cnsselectedinputsourceentry str
     // table. This index is assigned arbitrarily by the clock selection process
     // and may not be persistent across reboots. The type is interface{} with
     // range: 1..4294967295.
-    Cnsselinpsrcnetsyncindex interface{}
+    CnsSelInpSrcNetsyncIndex interface{}
 
     // This object indicates the name of the selected T0 clock. The type is string
     // with length: 1..255.
-    Cnsselinpsrcname interface{}
+    CnsSelInpSrcName interface{}
 
     // This object indicates the type of the selected T0 clock. The type is
     // CiscoNetsyncIfType.
-    Cnsselinpsrcintftype interface{}
+    CnsSelInpSrcIntfType interface{}
 
     // This object indicates the selected T0 clock source's effective quality
     // level, which is the derived clock quality based on the three factors:  (a)
@@ -520,17 +535,17 @@ type CISCONETSYNCMIB_Cnsselectedinputsourcetable_Cnsselectedinputsourceentry str
     // supersedes (a).  (c) System overridden quality level as a result of
     // exceptional events such as signal failure or ESMC failure.  This factor
     // supersedes (a) and (b). The type is CiscoNetsyncQualityLevel.
-    Cnsselinpsrcqualitylevel interface{}
+    CnsSelInpSrcQualityLevel interface{}
 
     // This object indicates the configured priority of the selected T0 clock. A
     // smaller value represents a higher priority. The type is interface{} with
     // range: 1..1024.
-    Cnsselinpsrcpriority interface{}
+    CnsSelInpSrcPriority interface{}
 
     // This object indicates the timestamp of the T0 clock source being selected
     // by the G.781 clock selection process. The type is interface{} with range:
     // 0..4294967295.
-    Cnsselinpsrctimestamp interface{}
+    CnsSelInpSrcTimestamp interface{}
 
     // This object indicates the forced switching flag. Forced switching, as
     // described in G.781, is used to override the currently selected
@@ -538,7 +553,7 @@ type CISCONETSYNCMIB_Cnsselectedinputsourcetable_Cnsselectedinputsourceentry str
     // clock source is a result of the forced switching. The 'false' value
     // indicates the currently selected clock source is not a result of forced
     // switching. The type is bool.
-    Cnsselinpsrcfsw interface{}
+    CnsSelInpSrcFSW interface{}
 
     // This object indicates the manual switching flag. The 'true' value indicates
     // the currently selected clock source is a result of the manual switch
@@ -547,72 +562,78 @@ type CISCONETSYNCMIB_Cnsselectedinputsourcetable_Cnsselectedinputsourceentry str
     // has a QL better than DNU in QL-enabled mode. Furthermore, in QL-enabled
     // mode, a manual switch can be performed only to a source which has the
     // highest available QL. The type is bool.
-    Cnsselinpsrcmsw interface{}
+    CnsSelInpSrcMSW interface{}
 }
 
-func (cnsselectedinputsourceentry *CISCONETSYNCMIB_Cnsselectedinputsourcetable_Cnsselectedinputsourceentry) GetEntityData() *types.CommonEntityData {
-    cnsselectedinputsourceentry.EntityData.YFilter = cnsselectedinputsourceentry.YFilter
-    cnsselectedinputsourceentry.EntityData.YangName = "cnsSelectedInputSourceEntry"
-    cnsselectedinputsourceentry.EntityData.BundleName = "cisco_ios_xe"
-    cnsselectedinputsourceentry.EntityData.ParentYangName = "cnsSelectedInputSourceTable"
-    cnsselectedinputsourceentry.EntityData.SegmentPath = "cnsSelectedInputSourceEntry" + "[cnsSelInpSrcNetsyncIndex='" + fmt.Sprintf("%v", cnsselectedinputsourceentry.Cnsselinpsrcnetsyncindex) + "']"
-    cnsselectedinputsourceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnsselectedinputsourceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnsselectedinputsourceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnsSelectedInputSourceEntry *CISCONETSYNCMIB_CnsSelectedInputSourceTable_CnsSelectedInputSourceEntry) GetEntityData() *types.CommonEntityData {
+    cnsSelectedInputSourceEntry.EntityData.YFilter = cnsSelectedInputSourceEntry.YFilter
+    cnsSelectedInputSourceEntry.EntityData.YangName = "cnsSelectedInputSourceEntry"
+    cnsSelectedInputSourceEntry.EntityData.BundleName = "cisco_ios_xe"
+    cnsSelectedInputSourceEntry.EntityData.ParentYangName = "cnsSelectedInputSourceTable"
+    cnsSelectedInputSourceEntry.EntityData.SegmentPath = "cnsSelectedInputSourceEntry" + types.AddKeyToken(cnsSelectedInputSourceEntry.CnsSelInpSrcNetsyncIndex, "cnsSelInpSrcNetsyncIndex")
+    cnsSelectedInputSourceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnsSelectedInputSourceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnsSelectedInputSourceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnsselectedinputsourceentry.EntityData.Children = make(map[string]types.YChild)
-    cnsselectedinputsourceentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cnsselectedinputsourceentry.EntityData.Leafs["cnsSelInpSrcNetsyncIndex"] = types.YLeaf{"Cnsselinpsrcnetsyncindex", cnsselectedinputsourceentry.Cnsselinpsrcnetsyncindex}
-    cnsselectedinputsourceentry.EntityData.Leafs["cnsSelInpSrcName"] = types.YLeaf{"Cnsselinpsrcname", cnsselectedinputsourceentry.Cnsselinpsrcname}
-    cnsselectedinputsourceentry.EntityData.Leafs["cnsSelInpSrcIntfType"] = types.YLeaf{"Cnsselinpsrcintftype", cnsselectedinputsourceentry.Cnsselinpsrcintftype}
-    cnsselectedinputsourceentry.EntityData.Leafs["cnsSelInpSrcQualityLevel"] = types.YLeaf{"Cnsselinpsrcqualitylevel", cnsselectedinputsourceentry.Cnsselinpsrcqualitylevel}
-    cnsselectedinputsourceentry.EntityData.Leafs["cnsSelInpSrcPriority"] = types.YLeaf{"Cnsselinpsrcpriority", cnsselectedinputsourceentry.Cnsselinpsrcpriority}
-    cnsselectedinputsourceentry.EntityData.Leafs["cnsSelInpSrcTimestamp"] = types.YLeaf{"Cnsselinpsrctimestamp", cnsselectedinputsourceentry.Cnsselinpsrctimestamp}
-    cnsselectedinputsourceentry.EntityData.Leafs["cnsSelInpSrcFSW"] = types.YLeaf{"Cnsselinpsrcfsw", cnsselectedinputsourceentry.Cnsselinpsrcfsw}
-    cnsselectedinputsourceentry.EntityData.Leafs["cnsSelInpSrcMSW"] = types.YLeaf{"Cnsselinpsrcmsw", cnsselectedinputsourceentry.Cnsselinpsrcmsw}
-    return &(cnsselectedinputsourceentry.EntityData)
+    cnsSelectedInputSourceEntry.EntityData.Children = types.NewOrderedMap()
+    cnsSelectedInputSourceEntry.EntityData.Leafs = types.NewOrderedMap()
+    cnsSelectedInputSourceEntry.EntityData.Leafs.Append("cnsSelInpSrcNetsyncIndex", types.YLeaf{"CnsSelInpSrcNetsyncIndex", cnsSelectedInputSourceEntry.CnsSelInpSrcNetsyncIndex})
+    cnsSelectedInputSourceEntry.EntityData.Leafs.Append("cnsSelInpSrcName", types.YLeaf{"CnsSelInpSrcName", cnsSelectedInputSourceEntry.CnsSelInpSrcName})
+    cnsSelectedInputSourceEntry.EntityData.Leafs.Append("cnsSelInpSrcIntfType", types.YLeaf{"CnsSelInpSrcIntfType", cnsSelectedInputSourceEntry.CnsSelInpSrcIntfType})
+    cnsSelectedInputSourceEntry.EntityData.Leafs.Append("cnsSelInpSrcQualityLevel", types.YLeaf{"CnsSelInpSrcQualityLevel", cnsSelectedInputSourceEntry.CnsSelInpSrcQualityLevel})
+    cnsSelectedInputSourceEntry.EntityData.Leafs.Append("cnsSelInpSrcPriority", types.YLeaf{"CnsSelInpSrcPriority", cnsSelectedInputSourceEntry.CnsSelInpSrcPriority})
+    cnsSelectedInputSourceEntry.EntityData.Leafs.Append("cnsSelInpSrcTimestamp", types.YLeaf{"CnsSelInpSrcTimestamp", cnsSelectedInputSourceEntry.CnsSelInpSrcTimestamp})
+    cnsSelectedInputSourceEntry.EntityData.Leafs.Append("cnsSelInpSrcFSW", types.YLeaf{"CnsSelInpSrcFSW", cnsSelectedInputSourceEntry.CnsSelInpSrcFSW})
+    cnsSelectedInputSourceEntry.EntityData.Leafs.Append("cnsSelInpSrcMSW", types.YLeaf{"CnsSelInpSrcMSW", cnsSelectedInputSourceEntry.CnsSelInpSrcMSW})
+
+    cnsSelectedInputSourceEntry.EntityData.YListKeys = []string {"CnsSelInpSrcNetsyncIndex"}
+
+    return &(cnsSelectedInputSourceEntry.EntityData)
 }
 
-// CISCONETSYNCMIB_Cnsinputsourcetable
+// CISCONETSYNCMIB_CnsInputSourceTable
 // T0 clock source table.
 // This table contains a list of input sources for input T0 clock
 // selection.
-type CISCONETSYNCMIB_Cnsinputsourcetable struct {
+type CISCONETSYNCMIB_CnsInputSourceTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry is created in the table when a user adds a T0 clock source in the
     // configuration. An entry is removed  in the table when a user removes a T0
     // clock source from the configuration. The type is slice of
-    // CISCONETSYNCMIB_Cnsinputsourcetable_Cnsinputsourceentry.
-    Cnsinputsourceentry []CISCONETSYNCMIB_Cnsinputsourcetable_Cnsinputsourceentry
+    // CISCONETSYNCMIB_CnsInputSourceTable_CnsInputSourceEntry.
+    CnsInputSourceEntry []*CISCONETSYNCMIB_CnsInputSourceTable_CnsInputSourceEntry
 }
 
-func (cnsinputsourcetable *CISCONETSYNCMIB_Cnsinputsourcetable) GetEntityData() *types.CommonEntityData {
-    cnsinputsourcetable.EntityData.YFilter = cnsinputsourcetable.YFilter
-    cnsinputsourcetable.EntityData.YangName = "cnsInputSourceTable"
-    cnsinputsourcetable.EntityData.BundleName = "cisco_ios_xe"
-    cnsinputsourcetable.EntityData.ParentYangName = "CISCO-NETSYNC-MIB"
-    cnsinputsourcetable.EntityData.SegmentPath = "cnsInputSourceTable"
-    cnsinputsourcetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnsinputsourcetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnsinputsourcetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnsInputSourceTable *CISCONETSYNCMIB_CnsInputSourceTable) GetEntityData() *types.CommonEntityData {
+    cnsInputSourceTable.EntityData.YFilter = cnsInputSourceTable.YFilter
+    cnsInputSourceTable.EntityData.YangName = "cnsInputSourceTable"
+    cnsInputSourceTable.EntityData.BundleName = "cisco_ios_xe"
+    cnsInputSourceTable.EntityData.ParentYangName = "CISCO-NETSYNC-MIB"
+    cnsInputSourceTable.EntityData.SegmentPath = "cnsInputSourceTable"
+    cnsInputSourceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnsInputSourceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnsInputSourceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnsinputsourcetable.EntityData.Children = make(map[string]types.YChild)
-    cnsinputsourcetable.EntityData.Children["cnsInputSourceEntry"] = types.YChild{"Cnsinputsourceentry", nil}
-    for i := range cnsinputsourcetable.Cnsinputsourceentry {
-        cnsinputsourcetable.EntityData.Children[types.GetSegmentPath(&cnsinputsourcetable.Cnsinputsourceentry[i])] = types.YChild{"Cnsinputsourceentry", &cnsinputsourcetable.Cnsinputsourceentry[i]}
+    cnsInputSourceTable.EntityData.Children = types.NewOrderedMap()
+    cnsInputSourceTable.EntityData.Children.Append("cnsInputSourceEntry", types.YChild{"CnsInputSourceEntry", nil})
+    for i := range cnsInputSourceTable.CnsInputSourceEntry {
+        cnsInputSourceTable.EntityData.Children.Append(types.GetSegmentPath(cnsInputSourceTable.CnsInputSourceEntry[i]), types.YChild{"CnsInputSourceEntry", cnsInputSourceTable.CnsInputSourceEntry[i]})
     }
-    cnsinputsourcetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cnsinputsourcetable.EntityData)
+    cnsInputSourceTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cnsInputSourceTable.EntityData.YListKeys = []string {}
+
+    return &(cnsInputSourceTable.EntityData)
 }
 
-// CISCONETSYNCMIB_Cnsinputsourcetable_Cnsinputsourceentry
+// CISCONETSYNCMIB_CnsInputSourceTable_CnsInputSourceEntry
 // An entry is created in the table when a user adds a T0
 // clock source in the configuration. An entry is removed 
 // in the table when a user removes a T0 clock source from
 // the configuration.
-type CISCONETSYNCMIB_Cnsinputsourcetable_Cnsinputsourceentry struct {
+type CISCONETSYNCMIB_CnsInputSourceTable_CnsInputSourceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -620,49 +641,49 @@ type CISCONETSYNCMIB_Cnsinputsourcetable_Cnsinputsourceentry struct {
     // table. This index is assigned arbitrarily by the clock selection process
     // and may not be persistent across reboots. The type is interface{} with
     // range: 1..4294967295.
-    Cnsinpsrcnetsyncindex interface{}
+    CnsInpSrcNetsyncIndex interface{}
 
     // This object indicates the name of an input clock source configured for the
     // T0 clock selection. The type is string with length: 1..255.
-    Cnsinpsrcname interface{}
+    CnsInpSrcName interface{}
 
     // This object indicates the type of an input clock source configured for the
     // T0 clock selection. The type is CiscoNetsyncIfType.
-    Cnsinpsrcintftype interface{}
+    CnsInpSrcIntfType interface{}
 
     // This object indicates the priority of an input clock source configured for
     // the T0 clock selection.  A smaller value represents a higher priority. The
     // type is interface{} with range: 1..1024.
-    Cnsinpsrcpriority interface{}
+    CnsInpSrcPriority interface{}
 
     // This object indicates the ESMC capability of an input clock source
     // configured for the T0 clock selection.  This is applicable only to
     // Synchronous Ethernet input clock source identified by cnsInpSrcIntfType
     // 'netsyncIfTypeEthernet'. The type is CiscoNetsyncESMCCap.
-    Cnsinpsrcesmccap interface{}
+    CnsInpSrcESMCCap interface{}
 
     // This object indicates the SSM capability of an input clock source
     // configured for the T0 clock selection. This is applicable only to any
     // synchronous interface clock source except SyncE interface, which is
     // identified by cnsInpSrcIntfType 'netsyncIfTypeEthernet'. The type is
     // CiscoNetsyncSSMCap.
-    Cnsinpsrcssmcap interface{}
+    CnsInpSrcSSMCap interface{}
 
     // This object indicates the configured transmit clock quality level of an
     // input clock source. The type is CiscoNetsyncQualityLevel.
-    Cnsinpsrcqualityleveltxcfg interface{}
+    CnsInpSrcQualityLevelTxCfg interface{}
 
     // This object indicates the configured receive clock quality level of an
     // input clock source. The type is CiscoNetsyncQualityLevel.
-    Cnsinpsrcqualitylevelrxcfg interface{}
+    CnsInpSrcQualityLevelRxCfg interface{}
 
     // This object indicates the most recent clock quality level transmitted on
     // the input clock source. The type is CiscoNetsyncQualityLevel.
-    Cnsinpsrcqualityleveltx interface{}
+    CnsInpSrcQualityLevelTx interface{}
 
     // This object indicates the last clock quality level received on the input
     // clock source. The type is CiscoNetsyncQualityLevel.
-    Cnsinpsrcqualitylevelrx interface{}
+    CnsInpSrcQualityLevelRx interface{}
 
     // This object indicates the current clock quality level of the input clock
     // source.  This is the effective quality which is derived from three values: 
@@ -670,7 +691,7 @@ type CISCONETSYNCMIB_Cnsinputsourcetable_Cnsinputsourceentry struct {
     // (entered via configuration) 3) overridden clock quality level as a result
     // of line protocol down, signal failure, or alarms. The type is
     // CiscoNetsyncQualityLevel.
-    Cnsinpsrcqualitylevel interface{}
+    CnsInpSrcQualityLevel interface{}
 
     // This object indicates the hold-off time value of an input clock source. 
     // The hold-off time prevents short activation of signal failure is passed to
@@ -678,7 +699,7 @@ type CISCONETSYNCMIB_Cnsinputsourcetable_Cnsinputsourceentry struct {
     // source, it waits the duration of the hold-off time before declaring signal
     // failure on the clock source. The type is interface{} with range:
     // 0..4294967295. Units are milliseconds.
-    Cnsinpsrcholdofftime interface{}
+    CnsInpSrcHoldoffTime interface{}
 
     // This object indicates the wait-to-restore time value of an input clock
     // source.  The wait-to-restore time ensures that a previous failed
@@ -688,24 +709,24 @@ type CISCONETSYNCMIB_Cnsinputsourcetable_Cnsinputsourceentry struct {
     // the wait-to-restore time before clearing the signal failure status on the
     // clock source. The type is interface{} with range: 0..4294967295. Units are
     // Seconds.
-    Cnsinpsrcwtrtime interface{}
+    CnsInpSrcWtrTime interface{}
 
     // This object indicates whether or not the lockout command has been applied
     // to a clock source.  The 'true' value means the clock source is not
     // considered by the selection process. The type is bool.
-    Cnsinpsrclockout interface{}
+    CnsInpSrcLockout interface{}
 
     // This object indicates whether or not a signal failure event is currently
     // being reported on the input clock source. The type is bool.
-    Cnsinpsrcsignalfailure interface{}
+    CnsInpSrcSignalFailure interface{}
 
     // This object indicates whether or not an alarm event is currently being
     // reported on the input clock source. The type is bool.
-    Cnsinpsrcalarm interface{}
+    CnsInpSrcAlarm interface{}
 
     // This object indicates the alarm reasons of an input clock source if an
     // alarm event is being reported on it. The type is map[string]bool.
-    Cnsinpsrcalarminfo interface{}
+    CnsInpSrcAlarmInfo interface{}
 
     // This object indicates the forced switching flag. Forced switching, as
     // described in G.781, is used to override the currently selected
@@ -713,7 +734,7 @@ type CISCONETSYNCMIB_Cnsinputsourcetable_Cnsinputsourceentry struct {
     // clock source is a result of the forced switching. The 'false' value
     // indicates the currently selected clock source is not a result of forced
     // switching. The type is bool.
-    Cnsinpsrcfsw interface{}
+    CnsInpSrcFSW interface{}
 
     // This object indicates the manual switching flag.  The 'true' value
     // indicates the currently selected clock source is a result of the manual
@@ -726,44 +747,47 @@ type CISCONETSYNCMIB_Cnsinputsourcetable_Cnsinputsourceentry struct {
     // value 'false'.  The QL is identified in cnsInpSrcQualityLevel.  In
     // QL-enabled mode, a manual switch can be performed only to a source which
     // has the highest available QL. The type is bool.
-    Cnsinpsrcmsw interface{}
+    CnsInpSrcMSW interface{}
 }
 
-func (cnsinputsourceentry *CISCONETSYNCMIB_Cnsinputsourcetable_Cnsinputsourceentry) GetEntityData() *types.CommonEntityData {
-    cnsinputsourceentry.EntityData.YFilter = cnsinputsourceentry.YFilter
-    cnsinputsourceentry.EntityData.YangName = "cnsInputSourceEntry"
-    cnsinputsourceentry.EntityData.BundleName = "cisco_ios_xe"
-    cnsinputsourceentry.EntityData.ParentYangName = "cnsInputSourceTable"
-    cnsinputsourceentry.EntityData.SegmentPath = "cnsInputSourceEntry" + "[cnsInpSrcNetsyncIndex='" + fmt.Sprintf("%v", cnsinputsourceentry.Cnsinpsrcnetsyncindex) + "']"
-    cnsinputsourceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnsinputsourceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnsinputsourceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnsInputSourceEntry *CISCONETSYNCMIB_CnsInputSourceTable_CnsInputSourceEntry) GetEntityData() *types.CommonEntityData {
+    cnsInputSourceEntry.EntityData.YFilter = cnsInputSourceEntry.YFilter
+    cnsInputSourceEntry.EntityData.YangName = "cnsInputSourceEntry"
+    cnsInputSourceEntry.EntityData.BundleName = "cisco_ios_xe"
+    cnsInputSourceEntry.EntityData.ParentYangName = "cnsInputSourceTable"
+    cnsInputSourceEntry.EntityData.SegmentPath = "cnsInputSourceEntry" + types.AddKeyToken(cnsInputSourceEntry.CnsInpSrcNetsyncIndex, "cnsInpSrcNetsyncIndex")
+    cnsInputSourceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnsInputSourceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnsInputSourceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnsinputsourceentry.EntityData.Children = make(map[string]types.YChild)
-    cnsinputsourceentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cnsinputsourceentry.EntityData.Leafs["cnsInpSrcNetsyncIndex"] = types.YLeaf{"Cnsinpsrcnetsyncindex", cnsinputsourceentry.Cnsinpsrcnetsyncindex}
-    cnsinputsourceentry.EntityData.Leafs["cnsInpSrcName"] = types.YLeaf{"Cnsinpsrcname", cnsinputsourceentry.Cnsinpsrcname}
-    cnsinputsourceentry.EntityData.Leafs["cnsInpSrcIntfType"] = types.YLeaf{"Cnsinpsrcintftype", cnsinputsourceentry.Cnsinpsrcintftype}
-    cnsinputsourceentry.EntityData.Leafs["cnsInpSrcPriority"] = types.YLeaf{"Cnsinpsrcpriority", cnsinputsourceentry.Cnsinpsrcpriority}
-    cnsinputsourceentry.EntityData.Leafs["cnsInpSrcESMCCap"] = types.YLeaf{"Cnsinpsrcesmccap", cnsinputsourceentry.Cnsinpsrcesmccap}
-    cnsinputsourceentry.EntityData.Leafs["cnsInpSrcSSMCap"] = types.YLeaf{"Cnsinpsrcssmcap", cnsinputsourceentry.Cnsinpsrcssmcap}
-    cnsinputsourceentry.EntityData.Leafs["cnsInpSrcQualityLevelTxCfg"] = types.YLeaf{"Cnsinpsrcqualityleveltxcfg", cnsinputsourceentry.Cnsinpsrcqualityleveltxcfg}
-    cnsinputsourceentry.EntityData.Leafs["cnsInpSrcQualityLevelRxCfg"] = types.YLeaf{"Cnsinpsrcqualitylevelrxcfg", cnsinputsourceentry.Cnsinpsrcqualitylevelrxcfg}
-    cnsinputsourceentry.EntityData.Leafs["cnsInpSrcQualityLevelTx"] = types.YLeaf{"Cnsinpsrcqualityleveltx", cnsinputsourceentry.Cnsinpsrcqualityleveltx}
-    cnsinputsourceentry.EntityData.Leafs["cnsInpSrcQualityLevelRx"] = types.YLeaf{"Cnsinpsrcqualitylevelrx", cnsinputsourceentry.Cnsinpsrcqualitylevelrx}
-    cnsinputsourceentry.EntityData.Leafs["cnsInpSrcQualityLevel"] = types.YLeaf{"Cnsinpsrcqualitylevel", cnsinputsourceentry.Cnsinpsrcqualitylevel}
-    cnsinputsourceentry.EntityData.Leafs["cnsInpSrcHoldoffTime"] = types.YLeaf{"Cnsinpsrcholdofftime", cnsinputsourceentry.Cnsinpsrcholdofftime}
-    cnsinputsourceentry.EntityData.Leafs["cnsInpSrcWtrTime"] = types.YLeaf{"Cnsinpsrcwtrtime", cnsinputsourceentry.Cnsinpsrcwtrtime}
-    cnsinputsourceentry.EntityData.Leafs["cnsInpSrcLockout"] = types.YLeaf{"Cnsinpsrclockout", cnsinputsourceentry.Cnsinpsrclockout}
-    cnsinputsourceentry.EntityData.Leafs["cnsInpSrcSignalFailure"] = types.YLeaf{"Cnsinpsrcsignalfailure", cnsinputsourceentry.Cnsinpsrcsignalfailure}
-    cnsinputsourceentry.EntityData.Leafs["cnsInpSrcAlarm"] = types.YLeaf{"Cnsinpsrcalarm", cnsinputsourceentry.Cnsinpsrcalarm}
-    cnsinputsourceentry.EntityData.Leafs["cnsInpSrcAlarmInfo"] = types.YLeaf{"Cnsinpsrcalarminfo", cnsinputsourceentry.Cnsinpsrcalarminfo}
-    cnsinputsourceentry.EntityData.Leafs["cnsInpSrcFSW"] = types.YLeaf{"Cnsinpsrcfsw", cnsinputsourceentry.Cnsinpsrcfsw}
-    cnsinputsourceentry.EntityData.Leafs["cnsInpSrcMSW"] = types.YLeaf{"Cnsinpsrcmsw", cnsinputsourceentry.Cnsinpsrcmsw}
-    return &(cnsinputsourceentry.EntityData)
+    cnsInputSourceEntry.EntityData.Children = types.NewOrderedMap()
+    cnsInputSourceEntry.EntityData.Leafs = types.NewOrderedMap()
+    cnsInputSourceEntry.EntityData.Leafs.Append("cnsInpSrcNetsyncIndex", types.YLeaf{"CnsInpSrcNetsyncIndex", cnsInputSourceEntry.CnsInpSrcNetsyncIndex})
+    cnsInputSourceEntry.EntityData.Leafs.Append("cnsInpSrcName", types.YLeaf{"CnsInpSrcName", cnsInputSourceEntry.CnsInpSrcName})
+    cnsInputSourceEntry.EntityData.Leafs.Append("cnsInpSrcIntfType", types.YLeaf{"CnsInpSrcIntfType", cnsInputSourceEntry.CnsInpSrcIntfType})
+    cnsInputSourceEntry.EntityData.Leafs.Append("cnsInpSrcPriority", types.YLeaf{"CnsInpSrcPriority", cnsInputSourceEntry.CnsInpSrcPriority})
+    cnsInputSourceEntry.EntityData.Leafs.Append("cnsInpSrcESMCCap", types.YLeaf{"CnsInpSrcESMCCap", cnsInputSourceEntry.CnsInpSrcESMCCap})
+    cnsInputSourceEntry.EntityData.Leafs.Append("cnsInpSrcSSMCap", types.YLeaf{"CnsInpSrcSSMCap", cnsInputSourceEntry.CnsInpSrcSSMCap})
+    cnsInputSourceEntry.EntityData.Leafs.Append("cnsInpSrcQualityLevelTxCfg", types.YLeaf{"CnsInpSrcQualityLevelTxCfg", cnsInputSourceEntry.CnsInpSrcQualityLevelTxCfg})
+    cnsInputSourceEntry.EntityData.Leafs.Append("cnsInpSrcQualityLevelRxCfg", types.YLeaf{"CnsInpSrcQualityLevelRxCfg", cnsInputSourceEntry.CnsInpSrcQualityLevelRxCfg})
+    cnsInputSourceEntry.EntityData.Leafs.Append("cnsInpSrcQualityLevelTx", types.YLeaf{"CnsInpSrcQualityLevelTx", cnsInputSourceEntry.CnsInpSrcQualityLevelTx})
+    cnsInputSourceEntry.EntityData.Leafs.Append("cnsInpSrcQualityLevelRx", types.YLeaf{"CnsInpSrcQualityLevelRx", cnsInputSourceEntry.CnsInpSrcQualityLevelRx})
+    cnsInputSourceEntry.EntityData.Leafs.Append("cnsInpSrcQualityLevel", types.YLeaf{"CnsInpSrcQualityLevel", cnsInputSourceEntry.CnsInpSrcQualityLevel})
+    cnsInputSourceEntry.EntityData.Leafs.Append("cnsInpSrcHoldoffTime", types.YLeaf{"CnsInpSrcHoldoffTime", cnsInputSourceEntry.CnsInpSrcHoldoffTime})
+    cnsInputSourceEntry.EntityData.Leafs.Append("cnsInpSrcWtrTime", types.YLeaf{"CnsInpSrcWtrTime", cnsInputSourceEntry.CnsInpSrcWtrTime})
+    cnsInputSourceEntry.EntityData.Leafs.Append("cnsInpSrcLockout", types.YLeaf{"CnsInpSrcLockout", cnsInputSourceEntry.CnsInpSrcLockout})
+    cnsInputSourceEntry.EntityData.Leafs.Append("cnsInpSrcSignalFailure", types.YLeaf{"CnsInpSrcSignalFailure", cnsInputSourceEntry.CnsInpSrcSignalFailure})
+    cnsInputSourceEntry.EntityData.Leafs.Append("cnsInpSrcAlarm", types.YLeaf{"CnsInpSrcAlarm", cnsInputSourceEntry.CnsInpSrcAlarm})
+    cnsInputSourceEntry.EntityData.Leafs.Append("cnsInpSrcAlarmInfo", types.YLeaf{"CnsInpSrcAlarmInfo", cnsInputSourceEntry.CnsInpSrcAlarmInfo})
+    cnsInputSourceEntry.EntityData.Leafs.Append("cnsInpSrcFSW", types.YLeaf{"CnsInpSrcFSW", cnsInputSourceEntry.CnsInpSrcFSW})
+    cnsInputSourceEntry.EntityData.Leafs.Append("cnsInpSrcMSW", types.YLeaf{"CnsInpSrcMSW", cnsInputSourceEntry.CnsInpSrcMSW})
+
+    cnsInputSourceEntry.EntityData.YListKeys = []string {"CnsInpSrcNetsyncIndex"}
+
+    return &(cnsInputSourceEntry.EntityData)
 }
 
-// CISCONETSYNCMIB_Cnsextoutputtable
+// CISCONETSYNCMIB_CnsExtOutputTable
 // T4 external output table.
 // This table contains a list of T4 external outputs.
 // 
@@ -772,7 +796,7 @@ func (cnsinputsourceentry *CISCONETSYNCMIB_Cnsinputsourcetable_Cnsinputsourceent
 // The clock selection process considers all the
 // available clock sources and select the T4 clock
 // source based on the G.781 clock selection algorithm.
-type CISCONETSYNCMIB_Cnsextoutputtable struct {
+type CISCONETSYNCMIB_CnsExtOutputTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -780,30 +804,33 @@ type CISCONETSYNCMIB_Cnsextoutputtable struct {
     // the configuration.  A T4 external output configured input clock sources are
     // defined in cnsT4ClockSourceTable.  An entry is removed from the table when
     // a user removes a T4 external output from the configuration. The type is
-    // slice of CISCONETSYNCMIB_Cnsextoutputtable_Cnsextoutputentry.
-    Cnsextoutputentry []CISCONETSYNCMIB_Cnsextoutputtable_Cnsextoutputentry
+    // slice of CISCONETSYNCMIB_CnsExtOutputTable_CnsExtOutputEntry.
+    CnsExtOutputEntry []*CISCONETSYNCMIB_CnsExtOutputTable_CnsExtOutputEntry
 }
 
-func (cnsextoutputtable *CISCONETSYNCMIB_Cnsextoutputtable) GetEntityData() *types.CommonEntityData {
-    cnsextoutputtable.EntityData.YFilter = cnsextoutputtable.YFilter
-    cnsextoutputtable.EntityData.YangName = "cnsExtOutputTable"
-    cnsextoutputtable.EntityData.BundleName = "cisco_ios_xe"
-    cnsextoutputtable.EntityData.ParentYangName = "CISCO-NETSYNC-MIB"
-    cnsextoutputtable.EntityData.SegmentPath = "cnsExtOutputTable"
-    cnsextoutputtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnsextoutputtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnsextoutputtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnsExtOutputTable *CISCONETSYNCMIB_CnsExtOutputTable) GetEntityData() *types.CommonEntityData {
+    cnsExtOutputTable.EntityData.YFilter = cnsExtOutputTable.YFilter
+    cnsExtOutputTable.EntityData.YangName = "cnsExtOutputTable"
+    cnsExtOutputTable.EntityData.BundleName = "cisco_ios_xe"
+    cnsExtOutputTable.EntityData.ParentYangName = "CISCO-NETSYNC-MIB"
+    cnsExtOutputTable.EntityData.SegmentPath = "cnsExtOutputTable"
+    cnsExtOutputTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnsExtOutputTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnsExtOutputTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnsextoutputtable.EntityData.Children = make(map[string]types.YChild)
-    cnsextoutputtable.EntityData.Children["cnsExtOutputEntry"] = types.YChild{"Cnsextoutputentry", nil}
-    for i := range cnsextoutputtable.Cnsextoutputentry {
-        cnsextoutputtable.EntityData.Children[types.GetSegmentPath(&cnsextoutputtable.Cnsextoutputentry[i])] = types.YChild{"Cnsextoutputentry", &cnsextoutputtable.Cnsextoutputentry[i]}
+    cnsExtOutputTable.EntityData.Children = types.NewOrderedMap()
+    cnsExtOutputTable.EntityData.Children.Append("cnsExtOutputEntry", types.YChild{"CnsExtOutputEntry", nil})
+    for i := range cnsExtOutputTable.CnsExtOutputEntry {
+        cnsExtOutputTable.EntityData.Children.Append(types.GetSegmentPath(cnsExtOutputTable.CnsExtOutputEntry[i]), types.YChild{"CnsExtOutputEntry", cnsExtOutputTable.CnsExtOutputEntry[i]})
     }
-    cnsextoutputtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cnsextoutputtable.EntityData)
+    cnsExtOutputTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cnsExtOutputTable.EntityData.YListKeys = []string {}
+
+    return &(cnsExtOutputTable.EntityData)
 }
 
-// CISCONETSYNCMIB_Cnsextoutputtable_Cnsextoutputentry
+// CISCONETSYNCMIB_CnsExtOutputTable_CnsExtOutputEntry
 // An entry is created in the table when a user adds
 // a T4 external output in the configuration.  A T4 external
 // output configured input clock sources are defined in
@@ -811,7 +838,7 @@ func (cnsextoutputtable *CISCONETSYNCMIB_Cnsextoutputtable) GetEntityData() *typ
 // 
 // An entry is removed from the table when a user removes
 // a T4 external output from the configuration.
-type CISCONETSYNCMIB_Cnsextoutputtable_Cnsextoutputentry struct {
+type CISCONETSYNCMIB_CnsExtOutputTable_CnsExtOutputEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -819,31 +846,31 @@ type CISCONETSYNCMIB_Cnsextoutputtable_Cnsextoutputentry struct {
     // table.  This index is assigned arbitrarily by the clock selection process
     // and may not be persistent across reboots. The type is interface{} with
     // range: 1..4294967295.
-    Cnsextoutlistindex interface{}
+    CnsExtOutListIndex interface{}
 
     // An index that uniquely represents the selected input clock source whose
     // information is reported by a row in cnsT4ClockSourceTable. The index lists
     // the value of cnsT4ClkSrcNetsyncIndex, which is the input clock source of
     // the T4 external output selected by the G.781 clock selection process. The
     // type is interface{} with range: 1..4294967295.
-    Cnsextoutselnetsyncindex interface{}
+    CnsExtOutSelNetsyncIndex interface{}
 
     // This object indicates the name of a T4 external output. The type is string
     // with length: 1..255.
-    Cnsextoutname interface{}
+    CnsExtOutName interface{}
 
     // This object indicates the interface type of the T4 external output. The
     // type is CiscoNetsyncIfType.
-    Cnsextoutintftype interface{}
+    CnsExtOutIntfType interface{}
 
     // This object indicates the clock quality of the T4 external output. The type
     // is CiscoNetsyncQualityLevel.
-    Cnsextoutqualitylevel interface{}
+    CnsExtOutQualityLevel interface{}
 
     // This object indicates the priority of the selected clock source for a T4
     // external output.  A smaller value represents a higher priority. The type is
     // interface{} with range: 1..1024.
-    Cnsextoutpriority interface{}
+    CnsExtOutPriority interface{}
 
     // This object indicates the forced switching flag. Forced switching, as
     // described in G.781, is used to override the currently selected
@@ -853,7 +880,7 @@ type CISCONETSYNCMIB_Cnsextoutputtable_Cnsextoutputentry struct {
     // currently selected T4 clock source is a result of the forced switching. The
     // 'false' value indicates the currently selected T4 clock source is not a
     // result of forced switching. The type is bool.
-    Cnsextoutfsw interface{}
+    CnsExtOutFSW interface{}
 
     // This object indicates the manual switching flag.  The 'true' value
     // indicates the currently selected T4 clock source is a result of the manual
@@ -867,48 +894,51 @@ type CISCONETSYNCMIB_Cnsextoutputtable_Cnsextoutputentry struct {
     // in cnsT4ClkSrcQualityLevel.  In QL-enabled mode, a manual switch can be 
     // performed only to a source which has the highest available QL. The type is
     // bool.
-    Cnsextoutmsw interface{}
+    CnsExtOutMSW interface{}
 
     // This object indicates whether or not a T4 external output is squelched. 
     // Squelching is a sychronization function defined to prevent transmission of
     // a timing signal with a quality that is lower than the quality of the clock
     // in the receiving networks element or SASE. It is also used for the
     // prevention of timing loops. The type is bool.
-    Cnsextoutsquelch interface{}
+    CnsExtOutSquelch interface{}
 }
 
-func (cnsextoutputentry *CISCONETSYNCMIB_Cnsextoutputtable_Cnsextoutputentry) GetEntityData() *types.CommonEntityData {
-    cnsextoutputentry.EntityData.YFilter = cnsextoutputentry.YFilter
-    cnsextoutputentry.EntityData.YangName = "cnsExtOutputEntry"
-    cnsextoutputentry.EntityData.BundleName = "cisco_ios_xe"
-    cnsextoutputentry.EntityData.ParentYangName = "cnsExtOutputTable"
-    cnsextoutputentry.EntityData.SegmentPath = "cnsExtOutputEntry" + "[cnsExtOutListIndex='" + fmt.Sprintf("%v", cnsextoutputentry.Cnsextoutlistindex) + "']"
-    cnsextoutputentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnsextoutputentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnsextoutputentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnsExtOutputEntry *CISCONETSYNCMIB_CnsExtOutputTable_CnsExtOutputEntry) GetEntityData() *types.CommonEntityData {
+    cnsExtOutputEntry.EntityData.YFilter = cnsExtOutputEntry.YFilter
+    cnsExtOutputEntry.EntityData.YangName = "cnsExtOutputEntry"
+    cnsExtOutputEntry.EntityData.BundleName = "cisco_ios_xe"
+    cnsExtOutputEntry.EntityData.ParentYangName = "cnsExtOutputTable"
+    cnsExtOutputEntry.EntityData.SegmentPath = "cnsExtOutputEntry" + types.AddKeyToken(cnsExtOutputEntry.CnsExtOutListIndex, "cnsExtOutListIndex")
+    cnsExtOutputEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnsExtOutputEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnsExtOutputEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnsextoutputentry.EntityData.Children = make(map[string]types.YChild)
-    cnsextoutputentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cnsextoutputentry.EntityData.Leafs["cnsExtOutListIndex"] = types.YLeaf{"Cnsextoutlistindex", cnsextoutputentry.Cnsextoutlistindex}
-    cnsextoutputentry.EntityData.Leafs["cnsExtOutSelNetsyncIndex"] = types.YLeaf{"Cnsextoutselnetsyncindex", cnsextoutputentry.Cnsextoutselnetsyncindex}
-    cnsextoutputentry.EntityData.Leafs["cnsExtOutName"] = types.YLeaf{"Cnsextoutname", cnsextoutputentry.Cnsextoutname}
-    cnsextoutputentry.EntityData.Leafs["cnsExtOutIntfType"] = types.YLeaf{"Cnsextoutintftype", cnsextoutputentry.Cnsextoutintftype}
-    cnsextoutputentry.EntityData.Leafs["cnsExtOutQualityLevel"] = types.YLeaf{"Cnsextoutqualitylevel", cnsextoutputentry.Cnsextoutqualitylevel}
-    cnsextoutputentry.EntityData.Leafs["cnsExtOutPriority"] = types.YLeaf{"Cnsextoutpriority", cnsextoutputentry.Cnsextoutpriority}
-    cnsextoutputentry.EntityData.Leafs["cnsExtOutFSW"] = types.YLeaf{"Cnsextoutfsw", cnsextoutputentry.Cnsextoutfsw}
-    cnsextoutputentry.EntityData.Leafs["cnsExtOutMSW"] = types.YLeaf{"Cnsextoutmsw", cnsextoutputentry.Cnsextoutmsw}
-    cnsextoutputentry.EntityData.Leafs["cnsExtOutSquelch"] = types.YLeaf{"Cnsextoutsquelch", cnsextoutputentry.Cnsextoutsquelch}
-    return &(cnsextoutputentry.EntityData)
+    cnsExtOutputEntry.EntityData.Children = types.NewOrderedMap()
+    cnsExtOutputEntry.EntityData.Leafs = types.NewOrderedMap()
+    cnsExtOutputEntry.EntityData.Leafs.Append("cnsExtOutListIndex", types.YLeaf{"CnsExtOutListIndex", cnsExtOutputEntry.CnsExtOutListIndex})
+    cnsExtOutputEntry.EntityData.Leafs.Append("cnsExtOutSelNetsyncIndex", types.YLeaf{"CnsExtOutSelNetsyncIndex", cnsExtOutputEntry.CnsExtOutSelNetsyncIndex})
+    cnsExtOutputEntry.EntityData.Leafs.Append("cnsExtOutName", types.YLeaf{"CnsExtOutName", cnsExtOutputEntry.CnsExtOutName})
+    cnsExtOutputEntry.EntityData.Leafs.Append("cnsExtOutIntfType", types.YLeaf{"CnsExtOutIntfType", cnsExtOutputEntry.CnsExtOutIntfType})
+    cnsExtOutputEntry.EntityData.Leafs.Append("cnsExtOutQualityLevel", types.YLeaf{"CnsExtOutQualityLevel", cnsExtOutputEntry.CnsExtOutQualityLevel})
+    cnsExtOutputEntry.EntityData.Leafs.Append("cnsExtOutPriority", types.YLeaf{"CnsExtOutPriority", cnsExtOutputEntry.CnsExtOutPriority})
+    cnsExtOutputEntry.EntityData.Leafs.Append("cnsExtOutFSW", types.YLeaf{"CnsExtOutFSW", cnsExtOutputEntry.CnsExtOutFSW})
+    cnsExtOutputEntry.EntityData.Leafs.Append("cnsExtOutMSW", types.YLeaf{"CnsExtOutMSW", cnsExtOutputEntry.CnsExtOutMSW})
+    cnsExtOutputEntry.EntityData.Leafs.Append("cnsExtOutSquelch", types.YLeaf{"CnsExtOutSquelch", cnsExtOutputEntry.CnsExtOutSquelch})
+
+    cnsExtOutputEntry.EntityData.YListKeys = []string {"CnsExtOutListIndex"}
+
+    return &(cnsExtOutputEntry.EntityData)
 }
 
-// CISCONETSYNCMIB_Cnst4Clocksourcetable
+// CISCONETSYNCMIB_CnsT4ClockSourceTable
 // T4 clock source table.
 // This table contains a list of input sources for a specific
 // T4 external output. An entry shall be added to
 // cnsExtOutputTable first. Then clock sources shall be
 // added in this table for the selection process to select
 // the appropriate T4 clock source.
-type CISCONETSYNCMIB_Cnst4Clocksourcetable struct {
+type CISCONETSYNCMIB_CnsT4ClockSourceTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -916,91 +946,94 @@ type CISCONETSYNCMIB_Cnst4Clocksourcetable struct {
     // external output in the configuration. The T4 external output is defined in
     // the T4 external output table. An entry is removed in the table when a user
     // removes a T4 clock source from the configuration. The type is slice of
-    // CISCONETSYNCMIB_Cnst4Clocksourcetable_Cnst4Clocksourceentry.
-    Cnst4Clocksourceentry []CISCONETSYNCMIB_Cnst4Clocksourcetable_Cnst4Clocksourceentry
+    // CISCONETSYNCMIB_CnsT4ClockSourceTable_CnsT4ClockSourceEntry.
+    CnsT4ClockSourceEntry []*CISCONETSYNCMIB_CnsT4ClockSourceTable_CnsT4ClockSourceEntry
 }
 
-func (cnst4Clocksourcetable *CISCONETSYNCMIB_Cnst4Clocksourcetable) GetEntityData() *types.CommonEntityData {
-    cnst4Clocksourcetable.EntityData.YFilter = cnst4Clocksourcetable.YFilter
-    cnst4Clocksourcetable.EntityData.YangName = "cnsT4ClockSourceTable"
-    cnst4Clocksourcetable.EntityData.BundleName = "cisco_ios_xe"
-    cnst4Clocksourcetable.EntityData.ParentYangName = "CISCO-NETSYNC-MIB"
-    cnst4Clocksourcetable.EntityData.SegmentPath = "cnsT4ClockSourceTable"
-    cnst4Clocksourcetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnst4Clocksourcetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnst4Clocksourcetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnsT4ClockSourceTable *CISCONETSYNCMIB_CnsT4ClockSourceTable) GetEntityData() *types.CommonEntityData {
+    cnsT4ClockSourceTable.EntityData.YFilter = cnsT4ClockSourceTable.YFilter
+    cnsT4ClockSourceTable.EntityData.YangName = "cnsT4ClockSourceTable"
+    cnsT4ClockSourceTable.EntityData.BundleName = "cisco_ios_xe"
+    cnsT4ClockSourceTable.EntityData.ParentYangName = "CISCO-NETSYNC-MIB"
+    cnsT4ClockSourceTable.EntityData.SegmentPath = "cnsT4ClockSourceTable"
+    cnsT4ClockSourceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnsT4ClockSourceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnsT4ClockSourceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnst4Clocksourcetable.EntityData.Children = make(map[string]types.YChild)
-    cnst4Clocksourcetable.EntityData.Children["cnsT4ClockSourceEntry"] = types.YChild{"Cnst4Clocksourceentry", nil}
-    for i := range cnst4Clocksourcetable.Cnst4Clocksourceentry {
-        cnst4Clocksourcetable.EntityData.Children[types.GetSegmentPath(&cnst4Clocksourcetable.Cnst4Clocksourceentry[i])] = types.YChild{"Cnst4Clocksourceentry", &cnst4Clocksourcetable.Cnst4Clocksourceentry[i]}
+    cnsT4ClockSourceTable.EntityData.Children = types.NewOrderedMap()
+    cnsT4ClockSourceTable.EntityData.Children.Append("cnsT4ClockSourceEntry", types.YChild{"CnsT4ClockSourceEntry", nil})
+    for i := range cnsT4ClockSourceTable.CnsT4ClockSourceEntry {
+        cnsT4ClockSourceTable.EntityData.Children.Append(types.GetSegmentPath(cnsT4ClockSourceTable.CnsT4ClockSourceEntry[i]), types.YChild{"CnsT4ClockSourceEntry", cnsT4ClockSourceTable.CnsT4ClockSourceEntry[i]})
     }
-    cnst4Clocksourcetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cnst4Clocksourcetable.EntityData)
+    cnsT4ClockSourceTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cnsT4ClockSourceTable.EntityData.YListKeys = []string {}
+
+    return &(cnsT4ClockSourceTable.EntityData)
 }
 
-// CISCONETSYNCMIB_Cnst4Clocksourcetable_Cnst4Clocksourceentry
+// CISCONETSYNCMIB_CnsT4ClockSourceTable_CnsT4ClockSourceEntry
 // An entry is created in the table when a user adds a
 // clock source to a T4 external output in the configuration.
 // The T4 external output is defined in the T4 external
 // output table. An entry is removed in the table when a user
 // removes a T4 clock source from the configuration.
-type CISCONETSYNCMIB_Cnst4Clocksourcetable_Cnst4Clocksourceentry struct {
+type CISCONETSYNCMIB_CnsT4ClockSourceTable_CnsT4ClockSourceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // cisco_netsync_mib.CISCONETSYNCMIB_Cnsextoutputtable_Cnsextoutputentry_Cnsextoutlistindex
-    Cnsextoutlistindex interface{}
+    // cisco_netsync_mib.CISCONETSYNCMIB_CnsExtOutputTable_CnsExtOutputEntry_CnsExtOutListIndex
+    CnsExtOutListIndex interface{}
 
     // This attribute is a key. An index that uniquely represents an entry in this
     // table.  This index is assigned arbitrarily by the clock selection process
     // and may not be persistent across reboots. The type is interface{} with
     // range: 1..4294967295.
-    Cnst4Clksrcnetsyncindex interface{}
+    CnsT4ClkSrcNetsyncIndex interface{}
 
     // This object indicates the name of a input clock source configured for the
     // T4 clock selection. The type is string with length: 1..255.
-    Cnst4Clksrcname interface{}
+    CnsT4ClkSrcName interface{}
 
     // This object indicates the type of an input clock source configured for the
     // T4 clock selection. The type is CiscoNetsyncIfType.
-    Cnst4Clksrcintftype interface{}
+    CnsT4ClkSrcIntfType interface{}
 
     // This object indicates the priority of an input clock source configured for
     // the T4 clock selection.  A smaller value represents a higher priority. The
     // type is interface{} with range: 1..1024.
-    Cnst4Clksrcpriority interface{}
+    CnsT4ClkSrcPriority interface{}
 
     // This object indicates the ESMC capability of an input clock source
     // configured for the T4 clock selection.  This is applicable only to
     // Synchronous Ethernet input clock source identified by cnsT4ClkSrcIntfType
     // 'netsyncIfTypeEthernet'. The type is CiscoNetsyncESMCCap.
-    Cnst4Clksrcesmccap interface{}
+    CnsT4ClkSrcESMCCap interface{}
 
     // This object indicates the SSM capability of an input clock source
     // configured for the T4 clock selection. This is applicable only to any
     // synchronous interface clock source except SyncE interface, which is
     // identified by cnsT4ClkSrcIntfType 'netsyncIfTypeEthernet'. The type is
     // CiscoNetsyncSSMCap.
-    Cnst4Clksrcssmcap interface{}
+    CnsT4ClkSrcSSMCap interface{}
 
     // This object indicates the configured transmit clock quality level of a T4
     // input clock source. The type is CiscoNetsyncQualityLevel.
-    Cnst4Clksrcqualityleveltxcfg interface{}
+    CnsT4ClkSrcQualityLevelTxCfg interface{}
 
     // This object indicates the configured receive clock quality level of a T4
     // input clock source. The type is CiscoNetsyncQualityLevel.
-    Cnst4Clksrcqualitylevelrxcfg interface{}
+    CnsT4ClkSrcQualityLevelRxCfg interface{}
 
     // This object indicates the most recent clock quality level transmitted on
     // the T4 input clock source. The type is CiscoNetsyncQualityLevel.
-    Cnst4Clksrcqualityleveltx interface{}
+    CnsT4ClkSrcQualityLevelTx interface{}
 
     // This object indicates the last clock quality level received on the T4 input
     // clock source. The type is CiscoNetsyncQualityLevel.
-    Cnst4Clksrcqualitylevelrx interface{}
+    CnsT4ClkSrcQualityLevelRx interface{}
 
     // This object indicates the current clock quality level of the T4 input clock
     // source.  This is the effective quality which is derived from three values: 
@@ -1008,7 +1041,7 @@ type CISCONETSYNCMIB_Cnst4Clocksourcetable_Cnst4Clocksourceentry struct {
     // (entered via configuration) 3) overridden clock quality level as a result
     // of line protocol down, signal failure, or alarms. The type is
     // CiscoNetsyncQualityLevel.
-    Cnst4Clksrcqualitylevel interface{}
+    CnsT4ClkSrcQualityLevel interface{}
 
     // This object indicates the hold-off time value of a T4 input clock source. 
     // The hold-off time prevents short activation of signal failure is passed to
@@ -1016,7 +1049,7 @@ type CISCONETSYNCMIB_Cnst4Clocksourcetable_Cnst4Clocksourceentry struct {
     // source, it waits the duration of the hold-off time before declaring signal
     // failure on the clock source. The type is interface{} with range:
     // 0..4294967295. Units are milliseconds.
-    Cnst4Clksrcholdofftime interface{}
+    CnsT4ClkSrcHoldoffTime interface{}
 
     // This object indicates the wait-to-restore time value of a T4 input clock
     // source.  The wait-to-restore time ensures that a previous failed
@@ -1026,25 +1059,25 @@ type CISCONETSYNCMIB_Cnst4Clocksourcetable_Cnst4Clocksourceentry struct {
     // the wait-to-restore time before clearing the signal failure status on the
     // clock source. The type is interface{} with range: 0..4294967295. Units are
     // seconds.
-    Cnst4Clksrcwtrtime interface{}
+    CnsT4ClkSrcWtrTime interface{}
 
     // This object indicates whether or not the lockout command has been applied
     // on a T4 clock source.  The 'true' value means the clock source is not
     // considered by the selection process. The type is bool.
-    Cnst4Clksrclockout interface{}
+    CnsT4ClkSrcLockout interface{}
 
     // This object indicates whether or not a signal failure event is currently
     // being reported on the T4 input clock source. The type is bool.
-    Cnst4Clksrcsignalfailure interface{}
+    CnsT4ClkSrcSignalFailure interface{}
 
     // This object indicates whether or not an alarm event is currently being
     // reported on the T4 input clock source. The type is bool.
-    Cnst4Clksrcalarm interface{}
+    CnsT4ClkSrcAlarm interface{}
 
     // This object indicates the alarm reasons of a T4 input clock source if an
     // alarm event is being reported on the clock source. The type is
     // map[string]bool.
-    Cnst4Clksrcalarminfo interface{}
+    CnsT4ClkSrcAlarmInfo interface{}
 
     // This object indicates the forced switching flag. Forced switching, as
     // described in G.781, is used to override the currently selected
@@ -1052,7 +1085,7 @@ type CISCONETSYNCMIB_Cnst4Clocksourcetable_Cnst4Clocksourceentry struct {
     // T4 clock source is a result of the forced switching. The 'false' value
     // indicates the currently selected T4 clock source is not a result of forced
     // switching. The type is bool.
-    Cnst4Clksrcfsw interface{}
+    CnsT4ClkSrcFSW interface{}
 
     // This object indicates the manual switching flag.  The 'true' value
     // indicates the currently selected T4 clock source is a result of the manual
@@ -1066,41 +1099,44 @@ type CISCONETSYNCMIB_Cnst4Clocksourcetable_Cnst4Clocksourceentry struct {
     // cnsT4ClkSrcQualityLevel.  In QL-enabled mode, a manual switch can be
     // performed only to a source which has the highest available QL. The type is
     // bool.
-    Cnst4Clksrcmsw interface{}
+    CnsT4ClkSrcMSW interface{}
 }
 
-func (cnst4Clocksourceentry *CISCONETSYNCMIB_Cnst4Clocksourcetable_Cnst4Clocksourceentry) GetEntityData() *types.CommonEntityData {
-    cnst4Clocksourceentry.EntityData.YFilter = cnst4Clocksourceentry.YFilter
-    cnst4Clocksourceentry.EntityData.YangName = "cnsT4ClockSourceEntry"
-    cnst4Clocksourceentry.EntityData.BundleName = "cisco_ios_xe"
-    cnst4Clocksourceentry.EntityData.ParentYangName = "cnsT4ClockSourceTable"
-    cnst4Clocksourceentry.EntityData.SegmentPath = "cnsT4ClockSourceEntry" + "[cnsExtOutListIndex='" + fmt.Sprintf("%v", cnst4Clocksourceentry.Cnsextoutlistindex) + "']" + "[cnsT4ClkSrcNetsyncIndex='" + fmt.Sprintf("%v", cnst4Clocksourceentry.Cnst4Clksrcnetsyncindex) + "']"
-    cnst4Clocksourceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cnst4Clocksourceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cnst4Clocksourceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cnsT4ClockSourceEntry *CISCONETSYNCMIB_CnsT4ClockSourceTable_CnsT4ClockSourceEntry) GetEntityData() *types.CommonEntityData {
+    cnsT4ClockSourceEntry.EntityData.YFilter = cnsT4ClockSourceEntry.YFilter
+    cnsT4ClockSourceEntry.EntityData.YangName = "cnsT4ClockSourceEntry"
+    cnsT4ClockSourceEntry.EntityData.BundleName = "cisco_ios_xe"
+    cnsT4ClockSourceEntry.EntityData.ParentYangName = "cnsT4ClockSourceTable"
+    cnsT4ClockSourceEntry.EntityData.SegmentPath = "cnsT4ClockSourceEntry" + types.AddKeyToken(cnsT4ClockSourceEntry.CnsExtOutListIndex, "cnsExtOutListIndex") + types.AddKeyToken(cnsT4ClockSourceEntry.CnsT4ClkSrcNetsyncIndex, "cnsT4ClkSrcNetsyncIndex")
+    cnsT4ClockSourceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnsT4ClockSourceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnsT4ClockSourceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cnst4Clocksourceentry.EntityData.Children = make(map[string]types.YChild)
-    cnst4Clocksourceentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cnst4Clocksourceentry.EntityData.Leafs["cnsExtOutListIndex"] = types.YLeaf{"Cnsextoutlistindex", cnst4Clocksourceentry.Cnsextoutlistindex}
-    cnst4Clocksourceentry.EntityData.Leafs["cnsT4ClkSrcNetsyncIndex"] = types.YLeaf{"Cnst4Clksrcnetsyncindex", cnst4Clocksourceentry.Cnst4Clksrcnetsyncindex}
-    cnst4Clocksourceentry.EntityData.Leafs["cnsT4ClkSrcName"] = types.YLeaf{"Cnst4Clksrcname", cnst4Clocksourceentry.Cnst4Clksrcname}
-    cnst4Clocksourceentry.EntityData.Leafs["cnsT4ClkSrcIntfType"] = types.YLeaf{"Cnst4Clksrcintftype", cnst4Clocksourceentry.Cnst4Clksrcintftype}
-    cnst4Clocksourceentry.EntityData.Leafs["cnsT4ClkSrcPriority"] = types.YLeaf{"Cnst4Clksrcpriority", cnst4Clocksourceentry.Cnst4Clksrcpriority}
-    cnst4Clocksourceentry.EntityData.Leafs["cnsT4ClkSrcESMCCap"] = types.YLeaf{"Cnst4Clksrcesmccap", cnst4Clocksourceentry.Cnst4Clksrcesmccap}
-    cnst4Clocksourceentry.EntityData.Leafs["cnsT4ClkSrcSSMCap"] = types.YLeaf{"Cnst4Clksrcssmcap", cnst4Clocksourceentry.Cnst4Clksrcssmcap}
-    cnst4Clocksourceentry.EntityData.Leafs["cnsT4ClkSrcQualityLevelTxCfg"] = types.YLeaf{"Cnst4Clksrcqualityleveltxcfg", cnst4Clocksourceentry.Cnst4Clksrcqualityleveltxcfg}
-    cnst4Clocksourceentry.EntityData.Leafs["cnsT4ClkSrcQualityLevelRxCfg"] = types.YLeaf{"Cnst4Clksrcqualitylevelrxcfg", cnst4Clocksourceentry.Cnst4Clksrcqualitylevelrxcfg}
-    cnst4Clocksourceentry.EntityData.Leafs["cnsT4ClkSrcQualityLevelTx"] = types.YLeaf{"Cnst4Clksrcqualityleveltx", cnst4Clocksourceentry.Cnst4Clksrcqualityleveltx}
-    cnst4Clocksourceentry.EntityData.Leafs["cnsT4ClkSrcQualityLevelRx"] = types.YLeaf{"Cnst4Clksrcqualitylevelrx", cnst4Clocksourceentry.Cnst4Clksrcqualitylevelrx}
-    cnst4Clocksourceentry.EntityData.Leafs["cnsT4ClkSrcQualityLevel"] = types.YLeaf{"Cnst4Clksrcqualitylevel", cnst4Clocksourceentry.Cnst4Clksrcqualitylevel}
-    cnst4Clocksourceentry.EntityData.Leafs["cnsT4ClkSrcHoldoffTime"] = types.YLeaf{"Cnst4Clksrcholdofftime", cnst4Clocksourceentry.Cnst4Clksrcholdofftime}
-    cnst4Clocksourceentry.EntityData.Leafs["cnsT4ClkSrcWtrTime"] = types.YLeaf{"Cnst4Clksrcwtrtime", cnst4Clocksourceentry.Cnst4Clksrcwtrtime}
-    cnst4Clocksourceentry.EntityData.Leafs["cnsT4ClkSrcLockout"] = types.YLeaf{"Cnst4Clksrclockout", cnst4Clocksourceentry.Cnst4Clksrclockout}
-    cnst4Clocksourceentry.EntityData.Leafs["cnsT4ClkSrcSignalFailure"] = types.YLeaf{"Cnst4Clksrcsignalfailure", cnst4Clocksourceentry.Cnst4Clksrcsignalfailure}
-    cnst4Clocksourceentry.EntityData.Leafs["cnsT4ClkSrcAlarm"] = types.YLeaf{"Cnst4Clksrcalarm", cnst4Clocksourceentry.Cnst4Clksrcalarm}
-    cnst4Clocksourceentry.EntityData.Leafs["cnsT4ClkSrcAlarmInfo"] = types.YLeaf{"Cnst4Clksrcalarminfo", cnst4Clocksourceentry.Cnst4Clksrcalarminfo}
-    cnst4Clocksourceentry.EntityData.Leafs["cnsT4ClkSrcFSW"] = types.YLeaf{"Cnst4Clksrcfsw", cnst4Clocksourceentry.Cnst4Clksrcfsw}
-    cnst4Clocksourceentry.EntityData.Leafs["cnsT4ClkSrcMSW"] = types.YLeaf{"Cnst4Clksrcmsw", cnst4Clocksourceentry.Cnst4Clksrcmsw}
-    return &(cnst4Clocksourceentry.EntityData)
+    cnsT4ClockSourceEntry.EntityData.Children = types.NewOrderedMap()
+    cnsT4ClockSourceEntry.EntityData.Leafs = types.NewOrderedMap()
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsExtOutListIndex", types.YLeaf{"CnsExtOutListIndex", cnsT4ClockSourceEntry.CnsExtOutListIndex})
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsT4ClkSrcNetsyncIndex", types.YLeaf{"CnsT4ClkSrcNetsyncIndex", cnsT4ClockSourceEntry.CnsT4ClkSrcNetsyncIndex})
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsT4ClkSrcName", types.YLeaf{"CnsT4ClkSrcName", cnsT4ClockSourceEntry.CnsT4ClkSrcName})
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsT4ClkSrcIntfType", types.YLeaf{"CnsT4ClkSrcIntfType", cnsT4ClockSourceEntry.CnsT4ClkSrcIntfType})
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsT4ClkSrcPriority", types.YLeaf{"CnsT4ClkSrcPriority", cnsT4ClockSourceEntry.CnsT4ClkSrcPriority})
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsT4ClkSrcESMCCap", types.YLeaf{"CnsT4ClkSrcESMCCap", cnsT4ClockSourceEntry.CnsT4ClkSrcESMCCap})
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsT4ClkSrcSSMCap", types.YLeaf{"CnsT4ClkSrcSSMCap", cnsT4ClockSourceEntry.CnsT4ClkSrcSSMCap})
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsT4ClkSrcQualityLevelTxCfg", types.YLeaf{"CnsT4ClkSrcQualityLevelTxCfg", cnsT4ClockSourceEntry.CnsT4ClkSrcQualityLevelTxCfg})
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsT4ClkSrcQualityLevelRxCfg", types.YLeaf{"CnsT4ClkSrcQualityLevelRxCfg", cnsT4ClockSourceEntry.CnsT4ClkSrcQualityLevelRxCfg})
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsT4ClkSrcQualityLevelTx", types.YLeaf{"CnsT4ClkSrcQualityLevelTx", cnsT4ClockSourceEntry.CnsT4ClkSrcQualityLevelTx})
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsT4ClkSrcQualityLevelRx", types.YLeaf{"CnsT4ClkSrcQualityLevelRx", cnsT4ClockSourceEntry.CnsT4ClkSrcQualityLevelRx})
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsT4ClkSrcQualityLevel", types.YLeaf{"CnsT4ClkSrcQualityLevel", cnsT4ClockSourceEntry.CnsT4ClkSrcQualityLevel})
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsT4ClkSrcHoldoffTime", types.YLeaf{"CnsT4ClkSrcHoldoffTime", cnsT4ClockSourceEntry.CnsT4ClkSrcHoldoffTime})
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsT4ClkSrcWtrTime", types.YLeaf{"CnsT4ClkSrcWtrTime", cnsT4ClockSourceEntry.CnsT4ClkSrcWtrTime})
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsT4ClkSrcLockout", types.YLeaf{"CnsT4ClkSrcLockout", cnsT4ClockSourceEntry.CnsT4ClkSrcLockout})
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsT4ClkSrcSignalFailure", types.YLeaf{"CnsT4ClkSrcSignalFailure", cnsT4ClockSourceEntry.CnsT4ClkSrcSignalFailure})
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsT4ClkSrcAlarm", types.YLeaf{"CnsT4ClkSrcAlarm", cnsT4ClockSourceEntry.CnsT4ClkSrcAlarm})
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsT4ClkSrcAlarmInfo", types.YLeaf{"CnsT4ClkSrcAlarmInfo", cnsT4ClockSourceEntry.CnsT4ClkSrcAlarmInfo})
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsT4ClkSrcFSW", types.YLeaf{"CnsT4ClkSrcFSW", cnsT4ClockSourceEntry.CnsT4ClkSrcFSW})
+    cnsT4ClockSourceEntry.EntityData.Leafs.Append("cnsT4ClkSrcMSW", types.YLeaf{"CnsT4ClkSrcMSW", cnsT4ClockSourceEntry.CnsT4ClkSrcMSW})
+
+    cnsT4ClockSourceEntry.EntityData.YListKeys = []string {"CnsExtOutListIndex", "CnsT4ClkSrcNetsyncIndex"}
+
+    return &(cnsT4ClockSourceEntry.EntityData)
 }
 

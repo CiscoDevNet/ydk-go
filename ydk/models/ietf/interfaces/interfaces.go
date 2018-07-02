@@ -53,8 +53,8 @@ type Interfaces struct {
     // shown in the /interfaces-state/interface list.  If the configuration of a
     // user-controlled interface cannot be used by the system, the configured
     // interface is not instantiated in the /interfaces-state/interface list. The
-    // type is slice of Interfaces_Interface_.
-    Interface_ []Interfaces_Interface
+    // type is slice of Interfaces_Interface.
+    Interface []*Interfaces_Interface
 }
 
 func (interfaces *Interfaces) GetEntityData() *types.CommonEntityData {
@@ -67,12 +67,15 @@ func (interfaces *Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.NamespaceTable = ietf.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -137,9 +140,9 @@ type Interfaces_Interface struct {
     // of the interface, the server MUST reject the request. A NETCONF server MUST
     // reply with an rpc-error with the error-tag 'invalid-value' in this case.
     // The type is one of the following:
-    // IanaInterfaceTypeOtherRegular1822Hdh1822Ddnx25Rfc877X25EthernetcsmacdIso88023CsmacdIso88024TokenbusIso88025TokenringIso88026ManStarlanProteon10MbitProteon80MbitHyperchannelFddiLapbSdlcDs1E1BasicisdnPrimaryisdnProppointtopointserialPppSoftwareloopbackEonEthernet3MbitNsipSlipUltraDs3SipFramerelayRs232ParaArcnetArcnetplusAtmMiox25SonetX25PleIso88022LlcLocaltalkSmdsdxiFramerelayserviceV35HssiHippiModemAal5SonetpathSonetvtSmdsicipPropvirtualPropmultiplexorIeee80212FibrechannelHippiinterfaceFramerelayinterconnectAflane8023Aflane8025CctemulFastetherIsdnV11V36G703At64KG703At2MbQllcFastetherfxChannelIeee80211Ibm370ParchanEsconDlswIsdnsIsdnuLapdIpswitchRsrbAtmlogicalDs0Ds0BundleBscAsyncCnrIso88025DtrEplrsArapPropcnlsHostpadTermpadFramerelaympiX213AdslRadslSdslVdslIso88025CrfpintMyrinetVoiceemVoicefxoVoicefxsVoiceencapVoiceoveripAtmdxiAtmfuniAtmimaPppmultilinkbundleIpovercdlcIpoverclawStacktostackVirtualipaddressMpcIpoveratmIso88025FiberTdlcGigabitethernetHdlcLapfV37X25MlpX25HuntgroupTransphdlcInterleaveFastIpDocscablemaclayerDocscabledownstreamDocscableupstreamA12MppswitchTunnelCoffeeCesAtmsubinterfaceL2VlanL3IpvlanL3IpxvlanDigitalpowerlineMediamailoveripDtmDcnIpforwardMsdslIeee1394IfGsnDvbrccmaclayerDvbrccdownstreamDvbrccupstreamAtmvirtualMplstunnelSrpVoiceoveratmVoiceoverframerelayIdslCompositelinkSs7SiglinkPropwirelessp2PFrforwardRfc1483UsbIeee8023AdlagBgppolicyaccountingFrf16MfrbundleH323GatekeeperH323ProxyMplsMfsiglinkHdsl2ShdslDs1FdlPosDvbasiinDvbasioutPlcNfasTr008Gr303RdtGr303IdtIsupPropdocswirelessmaclayerPropdocswirelessdownstreamPropdocswirelessupstreamHiperlan2Propbwap2MpSonetoverheadchannelDigitalwrapperoverheadchannelAal2RadiomacAtmradioImtMvlReachdslFrdlciendptAtmvciendptOpticalchannelOpticaltransportPropatmVoiceovercableInfinibandTelinkQ2931VirtualtgSiptgSipsigDocscableupstreamchannelEconetPon155Pon622BridgeLinegroupVoiceemfgdVoicefgdeanaVoicedidMpegtransportSixtofourGtpPdnetherloop1Pdnetherloop2OpticalchannelgroupHomepnaGfpCiscoislvlanActelismetaloopFciplinkRprQamLmpCblvectastarDocscablemcmtsdownstreamAdsl2MacseccontrolledifMacsecuncontrolledifAviciopticaletherAtmbondVoicefgdosMocaversion1Ieee80216WmanAdsl2PlusDvbrcsmaclayerDvbtdmDvbrcstdmaX86LapsWwanppWwanpp2VoiceebsIfpwtypeIlanPipAluelpGponVdsl2Capwapdot11ProfileCapwapdot11BssCapwapwtpvirtualradioBitsDocscableupstreamrfportCabledownstreamrfportVmwarevirtualnicIeee802154OtnoduOtnotuIfvfitypeG9981G9982G9983AlueponAluepononuAlueponphysicaluniAlueponlogicallinkAlugpononuAlugponphysicaluniVmwarenicteam.
+    // IanaInterfaceTypeVoiceFXOAtmVciEndPtPropBWAp2MpPropDocsWirelessDownstreamV11SoftwareLoopbackHdlcVoiceFGDOSFastEtherFXDvbTdmNfasIfPwTypeL2vlanAdsl2plusIeee802154VoiceFXSDvbRcsMacLayerIdslInfinibandDdnX25WwanPP2DocsCableUpstreamEthernet3MbitDigitalPowerlineH323ProxyGtpIpOverAtmAluEponImtIpSwitchMsdslDvbRccMacLayerSmdsDxiVoiceOverAtmArapFastEtherMpcLinegroupHippiRprDs1FDLSonetVTVoiceEncapSs7SigLinkArcnetActelisMetaLOOPQllcRfc877x25MpegTransportX25mlpVirtualTgHostPadStarLanIso88025DtrIbm370parChanAdsl2OtnOtuPropWirelessP2PInterleaveIsupRegular1822Gr303RDTPropDocsWirelessMaclayerAsyncRadioMACOpticalChannelGroupSixToFourPropDocsWirelessUpstreamQ2931FddiPropCnlsAal2DvbAsiOutAluELPCiscoISLvlanDocsCableUpstreamRfPortAal5FrDlciEndPtHippiInterfaceL3ipvlanMiox25HssiAtmVirtualAluGponOnuRfc1483CnrSipSigMyrinetDlswGigabitEthernetX25pleLmpOpticalTransportSdlcVoiceEMX86LapsG9982Iso88022llcDvbAsiInBgppolicyaccountingAluEponOnuMfSigLinkDcnAtmDxiVoiceOverFrameRelayGfpSonetOverheadChannelVmwareVirtualNicFcipLinkIpOverClawCoffeeRadslVdsl2Rs232E1ReachDSLVoiceOverCableTr008VoiceOverIpAtmDs3Ds0Ds1SrpDocsCableDownstreamDvbRcsTdmaG9983PlcFrameRelayMPIMvlPropMultiplexorVoiceDIDCompositeLinkProteon10MbitAtmbondFrf16MfrBundleCctEmulMplsTunnelGponVdslPosIeee8023adLagDocsCableMaclayerDocsCableMCmtsDownstreamPppFrameRelayEplrsVmwareNicTeamCableDownstreamRfPortMacSecUncontrolledIFIso88023CsmacdUsbAtmFuniTeLinkPon622EconetTdlcDs0BundleFastIeee1394CblVectaStarRsrbFrameRelayInterconnectIsdnsPppMultilinkBundleAflane8025LapbAflane8023LapdIsdnuLapfCapwapWtpVirtualRadioIfVfiTypeX25huntGroupParaMacSecControlledIFIso88024TokenBusLocalTalkHyperchannelMediaMailOverIpIfGsnCapwapDot11ProfileL3ipxvlanAtmSubInterfacePrimaryISDNProteon80MbitIso88026ManDigitalWrapperOverheadChannelDocsCableUpstreamChannelOpticalChannelEthernetCsmacdBitsTunnelHdsl2FrameRelayServiceMplsIeee80211Ieee80212MocaVersion1SonetEsconAluEponLogicalLinkG703at2mbUltraDvbRccDownstreamSipTgSmdsIcipBridgeAtmLogicalPropPointToPointSerialV35V36V37IpGr303IDTBasicISDNG703at64kArcnetPlusPipDtmSlipHiperlan2AdslIeee80216WMANAtmImaIsdnCapwapDot11BssSipPdnEtherLoop2VoiceEBSIpForwardIso88025CRFPIntPropVirtualWwanPPOtherPon155QamOtnOduIso88025FiberChannelVoiceEMFGDAluGponPhysicalUniA12MppSwitchIlanPdnEtherLoop1X213SonetPathVoiceFGDEANAIso88025TokenRingPropAtmAluEponPhysicalUniStackToStackFrForwardHomepnaSdslVirtualIpAddressBscAtmRadioAviciOpticalEtherG9981FibreChannelShdslEonH323GatekeeperHdh1822DvbRccUpstreamNsipTranspHdlcTermPadIpOverCdlcCesModem.
     // This attribute is mandatory.
-    Type_ interface{}
+    Type interface{}
 
     // This leaf contains the configured, desired state of the interface.  Systems
     // that implement the IF-MIB use the value of this leaf in the 'running'
@@ -157,15 +160,15 @@ type Interfaces_Interface struct {
     // 'disabled' otherwise. The type is LinkUpDownTrapEnable.
     LinkUpDownTrapEnable interface{}
 
-    // policy target for inbound or outbound direction. The type is slice of
-    // Interfaces_Interface_DiffservTargetEntry.
-    DiffservTargetEntry []Interfaces_Interface_DiffservTargetEntry
-
     // Parameters for the IPv4 address family.
     Ipv4 Interfaces_Interface_Ipv4
 
     // Parameters for the IPv6 address family.
     Ipv6 Interfaces_Interface_Ipv6
+
+    // policy target for inbound or outbound direction. The type is slice of
+    // Interfaces_Interface_DiffservTargetEntry.
+    DiffservTargetEntry []*Interfaces_Interface_DiffservTargetEntry
 }
 
 func (self *Interfaces_Interface) GetEntityData() *types.CommonEntityData {
@@ -173,56 +176,28 @@ func (self *Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "ietf"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[name='" + fmt.Sprintf("%v", self.Name) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
     self.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     self.EntityData.NamespaceTable = ietf.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["ietf-diffserv-target:diffserv-target-entry"] = types.YChild{"DiffservTargetEntry", nil}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("ietf-ip:ipv4", types.YChild{"Ipv4", &self.Ipv4})
+    self.EntityData.Children.Append("ietf-ip:ipv6", types.YChild{"Ipv6", &self.Ipv6})
+    self.EntityData.Children.Append("ietf-diffserv-target:diffserv-target-entry", types.YChild{"DiffservTargetEntry", nil})
     for i := range self.DiffservTargetEntry {
-        self.EntityData.Children[types.GetSegmentPath(&self.DiffservTargetEntry[i])] = types.YChild{"DiffservTargetEntry", &self.DiffservTargetEntry[i]}
+        self.EntityData.Children.Append(types.GetSegmentPath(self.DiffservTargetEntry[i]), types.YChild{"DiffservTargetEntry", self.DiffservTargetEntry[i]})
     }
-    self.EntityData.Children["ietf-ip:ipv4"] = types.YChild{"Ipv4", &self.Ipv4}
-    self.EntityData.Children["ietf-ip:ipv6"] = types.YChild{"Ipv6", &self.Ipv6}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
-    self.EntityData.Leafs["description"] = types.YLeaf{"Description", self.Description}
-    self.EntityData.Leafs["type"] = types.YLeaf{"Type_", self.Type_}
-    self.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", self.Enabled}
-    self.EntityData.Leafs["link-up-down-trap-enable"] = types.YLeaf{"LinkUpDownTrapEnable", self.LinkUpDownTrapEnable}
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("description", types.YLeaf{"Description", self.Description})
+    self.EntityData.Leafs.Append("type", types.YLeaf{"Type", self.Type})
+    self.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", self.Enabled})
+    self.EntityData.Leafs.Append("link-up-down-trap-enable", types.YLeaf{"LinkUpDownTrapEnable", self.LinkUpDownTrapEnable})
+
+    self.EntityData.YListKeys = []string {"Name"}
+
     return &(self.EntityData)
-}
-
-// Interfaces_Interface_DiffservTargetEntry
-// policy target for inbound or outbound direction
-type Interfaces_Interface_DiffservTargetEntry struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. Direction fo the traffic flow either inbound or
-    // outbound. The type is one of the following: InboundOutbound.
-    Direction interface{}
-
-    // This attribute is a key. Policy entry name. The type is string.
-    PolicyName interface{}
-}
-
-func (diffservTargetEntry *Interfaces_Interface_DiffservTargetEntry) GetEntityData() *types.CommonEntityData {
-    diffservTargetEntry.EntityData.YFilter = diffservTargetEntry.YFilter
-    diffservTargetEntry.EntityData.YangName = "diffserv-target-entry"
-    diffservTargetEntry.EntityData.BundleName = "ietf"
-    diffservTargetEntry.EntityData.ParentYangName = "interface"
-    diffservTargetEntry.EntityData.SegmentPath = "ietf-diffserv-target:diffserv-target-entry" + "[direction='" + fmt.Sprintf("%v", diffservTargetEntry.Direction) + "']" + "[policy-name='" + fmt.Sprintf("%v", diffservTargetEntry.PolicyName) + "']"
-    diffservTargetEntry.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    diffservTargetEntry.EntityData.NamespaceTable = ietf.GetNamespaces()
-    diffservTargetEntry.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    diffservTargetEntry.EntityData.Children = make(map[string]types.YChild)
-    diffservTargetEntry.EntityData.Leafs = make(map[string]types.YLeaf)
-    diffservTargetEntry.EntityData.Leafs["direction"] = types.YLeaf{"Direction", diffservTargetEntry.Direction}
-    diffservTargetEntry.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", diffservTargetEntry.PolicyName}
-    return &(diffservTargetEntry.EntityData)
 }
 
 // Interfaces_Interface_Ipv4
@@ -231,6 +206,7 @@ func (diffservTargetEntry *Interfaces_Interface_DiffservTargetEntry) GetEntityDa
 type Interfaces_Interface_Ipv4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Controls whether IPv4 is enabled or disabled on this interface.  When IPv4
     // is enabled, this interface is connected to an IPv4 stack, and the interface
@@ -253,12 +229,12 @@ type Interfaces_Interface_Ipv4 struct {
 
     // The list of configured IPv4 addresses on the interface. The type is slice
     // of Interfaces_Interface_Ipv4_Address.
-    Address []Interfaces_Interface_Ipv4_Address
+    Address []*Interfaces_Interface_Ipv4_Address
 
     // A list of mappings from IPv4 addresses to link-layer addresses. Entries in
     // this list are used as static entries in the ARP Cache. The type is slice of
     // Interfaces_Interface_Ipv4_Neighbor.
-    Neighbor []Interfaces_Interface_Ipv4_Neighbor
+    Neighbor []*Interfaces_Interface_Ipv4_Neighbor
 }
 
 func (ipv4 *Interfaces_Interface_Ipv4) GetEntityData() *types.CommonEntityData {
@@ -271,19 +247,22 @@ func (ipv4 *Interfaces_Interface_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.NamespaceTable = ietf.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["address"] = types.YChild{"Address", nil}
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("address", types.YChild{"Address", nil})
     for i := range ipv4.Address {
-        ipv4.EntityData.Children[types.GetSegmentPath(&ipv4.Address[i])] = types.YChild{"Address", &ipv4.Address[i]}
+        ipv4.EntityData.Children.Append(types.GetSegmentPath(ipv4.Address[i]), types.YChild{"Address", ipv4.Address[i]})
     }
-    ipv4.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    ipv4.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range ipv4.Neighbor {
-        ipv4.EntityData.Children[types.GetSegmentPath(&ipv4.Neighbor[i])] = types.YChild{"Neighbor", &ipv4.Neighbor[i]}
+        ipv4.EntityData.Children.Append(types.GetSegmentPath(ipv4.Neighbor[i]), types.YChild{"Neighbor", ipv4.Neighbor[i]})
     }
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", ipv4.Enabled}
-    ipv4.EntityData.Leafs["forwarding"] = types.YLeaf{"Forwarding", ipv4.Forwarding}
-    ipv4.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", ipv4.Mtu}
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+    ipv4.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", ipv4.Enabled})
+    ipv4.EntityData.Leafs.Append("forwarding", types.YLeaf{"Forwarding", ipv4.Forwarding})
+    ipv4.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv4.Mtu})
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -295,14 +274,14 @@ type Interfaces_Interface_Ipv4_Address struct {
 
     // This attribute is a key. The IPv4 address on the interface. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The length of the subnet prefix. The type is interface{} with range: 0..32.
     PrefixLength interface{}
 
     // The subnet specified as a netmask. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     Netmask interface{}
 }
 
@@ -311,16 +290,19 @@ func (address *Interfaces_Interface_Ipv4_Address) GetEntityData() *types.CommonE
     address.EntityData.YangName = "address"
     address.EntityData.BundleName = "ietf"
     address.EntityData.ParentYangName = "ipv4"
-    address.EntityData.SegmentPath = "address" + "[ip='" + fmt.Sprintf("%v", address.Ip) + "']"
+    address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
     address.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     address.EntityData.NamespaceTable = ietf.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["ip"] = types.YLeaf{"Ip", address.Ip}
-    address.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", address.PrefixLength}
-    address.EntityData.Leafs["netmask"] = types.YLeaf{"Netmask", address.Netmask}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", address.Ip})
+    address.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", address.PrefixLength})
+    address.EntityData.Leafs.Append("netmask", types.YLeaf{"Netmask", address.Netmask})
+
+    address.EntityData.YListKeys = []string {"Ip"}
+
     return &(address.EntityData)
 }
 
@@ -335,12 +317,11 @@ type Interfaces_Interface_Ipv4_Neighbor struct {
 
     // This attribute is a key. The IPv4 address of the neighbor node. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The link-layer address of the neighbor node. The type is string with
-    // pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'. This attribute is
-    // mandatory.
+    // pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?. This attribute is mandatory.
     LinkLayerAddress interface{}
 }
 
@@ -349,15 +330,18 @@ func (neighbor *Interfaces_Interface_Ipv4_Neighbor) GetEntityData() *types.Commo
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "ietf"
     neighbor.EntityData.ParentYangName = "ipv4"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[ip='" + fmt.Sprintf("%v", neighbor.Ip) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
     neighbor.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     neighbor.EntityData.NamespaceTable = ietf.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["ip"] = types.YLeaf{"Ip", neighbor.Ip}
-    neighbor.EntityData.Leafs["link-layer-address"] = types.YLeaf{"LinkLayerAddress", neighbor.LinkLayerAddress}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", neighbor.Ip})
+    neighbor.EntityData.Leafs.Append("link-layer-address", types.YLeaf{"LinkLayerAddress", neighbor.LinkLayerAddress})
+
+    neighbor.EntityData.YListKeys = []string {"Ip"}
+
     return &(neighbor.EntityData)
 }
 
@@ -367,6 +351,7 @@ func (neighbor *Interfaces_Interface_Ipv4_Neighbor) GetEntityData() *types.Commo
 type Interfaces_Interface_Ipv6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Controls whether IPv6 is enabled or disabled on this interface.  When IPv6
     // is enabled, this interface is connected to an IPv6 stack, and the interface
@@ -397,12 +382,12 @@ type Interfaces_Interface_Ipv6 struct {
 
     // The list of configured IPv6 addresses on the interface. The type is slice
     // of Interfaces_Interface_Ipv6_Address.
-    Address []Interfaces_Interface_Ipv6_Address
+    Address []*Interfaces_Interface_Ipv6_Address
 
     // A list of mappings from IPv6 addresses to link-layer addresses. Entries in
     // this list are used as static entries in the Neighbor Cache. The type is
     // slice of Interfaces_Interface_Ipv6_Neighbor.
-    Neighbor []Interfaces_Interface_Ipv6_Neighbor
+    Neighbor []*Interfaces_Interface_Ipv6_Neighbor
 
     // Parameters to control the autoconfiguration of IPv6 addresses, as described
     // in RFC 4862.
@@ -422,22 +407,25 @@ func (ipv6 *Interfaces_Interface_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.NamespaceTable = ietf.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["address"] = types.YChild{"Address", nil}
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("address", types.YChild{"Address", nil})
     for i := range ipv6.Address {
-        ipv6.EntityData.Children[types.GetSegmentPath(&ipv6.Address[i])] = types.YChild{"Address", &ipv6.Address[i]}
+        ipv6.EntityData.Children.Append(types.GetSegmentPath(ipv6.Address[i]), types.YChild{"Address", ipv6.Address[i]})
     }
-    ipv6.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    ipv6.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range ipv6.Neighbor {
-        ipv6.EntityData.Children[types.GetSegmentPath(&ipv6.Neighbor[i])] = types.YChild{"Neighbor", &ipv6.Neighbor[i]}
+        ipv6.EntityData.Children.Append(types.GetSegmentPath(ipv6.Neighbor[i]), types.YChild{"Neighbor", ipv6.Neighbor[i]})
     }
-    ipv6.EntityData.Children["autoconf"] = types.YChild{"Autoconf", &ipv6.Autoconf}
-    ipv6.EntityData.Children["ietf-ipv6-unicast-routing:ipv6-router-advertisements"] = types.YChild{"Ipv6RouterAdvertisements", &ipv6.Ipv6RouterAdvertisements}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", ipv6.Enabled}
-    ipv6.EntityData.Leafs["forwarding"] = types.YLeaf{"Forwarding", ipv6.Forwarding}
-    ipv6.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", ipv6.Mtu}
-    ipv6.EntityData.Leafs["dup-addr-detect-transmits"] = types.YLeaf{"DupAddrDetectTransmits", ipv6.DupAddrDetectTransmits}
+    ipv6.EntityData.Children.Append("autoconf", types.YChild{"Autoconf", &ipv6.Autoconf})
+    ipv6.EntityData.Children.Append("ietf-ipv6-unicast-routing:ipv6-router-advertisements", types.YChild{"Ipv6RouterAdvertisements", &ipv6.Ipv6RouterAdvertisements})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+    ipv6.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", ipv6.Enabled})
+    ipv6.EntityData.Leafs.Append("forwarding", types.YLeaf{"Forwarding", ipv6.Forwarding})
+    ipv6.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv6.Mtu})
+    ipv6.EntityData.Leafs.Append("dup-addr-detect-transmits", types.YLeaf{"DupAddrDetectTransmits", ipv6.DupAddrDetectTransmits})
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -449,7 +437,7 @@ type Interfaces_Interface_Ipv6_Address struct {
 
     // This attribute is a key. The IPv6 address on the interface. The type is
     // string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The length of the subnet prefix. The type is interface{} with range:
@@ -462,15 +450,18 @@ func (address *Interfaces_Interface_Ipv6_Address) GetEntityData() *types.CommonE
     address.EntityData.YangName = "address"
     address.EntityData.BundleName = "ietf"
     address.EntityData.ParentYangName = "ipv6"
-    address.EntityData.SegmentPath = "address" + "[ip='" + fmt.Sprintf("%v", address.Ip) + "']"
+    address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
     address.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     address.EntityData.NamespaceTable = ietf.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["ip"] = types.YLeaf{"Ip", address.Ip}
-    address.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", address.PrefixLength}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", address.Ip})
+    address.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", address.PrefixLength})
+
+    address.EntityData.YListKeys = []string {"Ip"}
+
     return &(address.EntityData)
 }
 
@@ -485,12 +476,11 @@ type Interfaces_Interface_Ipv6_Neighbor struct {
 
     // This attribute is a key. The IPv6 address of the neighbor node. The type is
     // string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The link-layer address of the neighbor node. The type is string with
-    // pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'. This attribute is
-    // mandatory.
+    // pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?. This attribute is mandatory.
     LinkLayerAddress interface{}
 }
 
@@ -499,15 +489,18 @@ func (neighbor *Interfaces_Interface_Ipv6_Neighbor) GetEntityData() *types.Commo
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "ietf"
     neighbor.EntityData.ParentYangName = "ipv6"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[ip='" + fmt.Sprintf("%v", neighbor.Ip) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
     neighbor.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     neighbor.EntityData.NamespaceTable = ietf.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["ip"] = types.YLeaf{"Ip", neighbor.Ip}
-    neighbor.EntityData.Leafs["link-layer-address"] = types.YLeaf{"LinkLayerAddress", neighbor.LinkLayerAddress}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", neighbor.Ip})
+    neighbor.EntityData.Leafs.Append("link-layer-address", types.YLeaf{"LinkLayerAddress", neighbor.LinkLayerAddress})
+
+    neighbor.EntityData.YListKeys = []string {"Ip"}
+
     return &(neighbor.EntityData)
 }
 
@@ -547,12 +540,15 @@ func (autoconf *Interfaces_Interface_Ipv6_Autoconf) GetEntityData() *types.Commo
     autoconf.EntityData.NamespaceTable = ietf.GetNamespaces()
     autoconf.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    autoconf.EntityData.Children = make(map[string]types.YChild)
-    autoconf.EntityData.Leafs = make(map[string]types.YLeaf)
-    autoconf.EntityData.Leafs["create-global-addresses"] = types.YLeaf{"CreateGlobalAddresses", autoconf.CreateGlobalAddresses}
-    autoconf.EntityData.Leafs["create-temporary-addresses"] = types.YLeaf{"CreateTemporaryAddresses", autoconf.CreateTemporaryAddresses}
-    autoconf.EntityData.Leafs["temporary-valid-lifetime"] = types.YLeaf{"TemporaryValidLifetime", autoconf.TemporaryValidLifetime}
-    autoconf.EntityData.Leafs["temporary-preferred-lifetime"] = types.YLeaf{"TemporaryPreferredLifetime", autoconf.TemporaryPreferredLifetime}
+    autoconf.EntityData.Children = types.NewOrderedMap()
+    autoconf.EntityData.Leafs = types.NewOrderedMap()
+    autoconf.EntityData.Leafs.Append("create-global-addresses", types.YLeaf{"CreateGlobalAddresses", autoconf.CreateGlobalAddresses})
+    autoconf.EntityData.Leafs.Append("create-temporary-addresses", types.YLeaf{"CreateTemporaryAddresses", autoconf.CreateTemporaryAddresses})
+    autoconf.EntityData.Leafs.Append("temporary-valid-lifetime", types.YLeaf{"TemporaryValidLifetime", autoconf.TemporaryValidLifetime})
+    autoconf.EntityData.Leafs.Append("temporary-preferred-lifetime", types.YLeaf{"TemporaryPreferredLifetime", autoconf.TemporaryPreferredLifetime})
+
+    autoconf.EntityData.YListKeys = []string {}
+
     return &(autoconf.EntityData)
 }
 
@@ -642,19 +638,22 @@ func (ipv6RouterAdvertisements *Interfaces_Interface_Ipv6_Ipv6RouterAdvertisemen
     ipv6RouterAdvertisements.EntityData.NamespaceTable = ietf.GetNamespaces()
     ipv6RouterAdvertisements.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ipv6RouterAdvertisements.EntityData.Children = make(map[string]types.YChild)
-    ipv6RouterAdvertisements.EntityData.Children["prefix-list"] = types.YChild{"PrefixList", &ipv6RouterAdvertisements.PrefixList}
-    ipv6RouterAdvertisements.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6RouterAdvertisements.EntityData.Leafs["send-advertisements"] = types.YLeaf{"SendAdvertisements", ipv6RouterAdvertisements.SendAdvertisements}
-    ipv6RouterAdvertisements.EntityData.Leafs["max-rtr-adv-interval"] = types.YLeaf{"MaxRtrAdvInterval", ipv6RouterAdvertisements.MaxRtrAdvInterval}
-    ipv6RouterAdvertisements.EntityData.Leafs["min-rtr-adv-interval"] = types.YLeaf{"MinRtrAdvInterval", ipv6RouterAdvertisements.MinRtrAdvInterval}
-    ipv6RouterAdvertisements.EntityData.Leafs["managed-flag"] = types.YLeaf{"ManagedFlag", ipv6RouterAdvertisements.ManagedFlag}
-    ipv6RouterAdvertisements.EntityData.Leafs["other-config-flag"] = types.YLeaf{"OtherConfigFlag", ipv6RouterAdvertisements.OtherConfigFlag}
-    ipv6RouterAdvertisements.EntityData.Leafs["link-mtu"] = types.YLeaf{"LinkMtu", ipv6RouterAdvertisements.LinkMtu}
-    ipv6RouterAdvertisements.EntityData.Leafs["reachable-time"] = types.YLeaf{"ReachableTime", ipv6RouterAdvertisements.ReachableTime}
-    ipv6RouterAdvertisements.EntityData.Leafs["retrans-timer"] = types.YLeaf{"RetransTimer", ipv6RouterAdvertisements.RetransTimer}
-    ipv6RouterAdvertisements.EntityData.Leafs["cur-hop-limit"] = types.YLeaf{"CurHopLimit", ipv6RouterAdvertisements.CurHopLimit}
-    ipv6RouterAdvertisements.EntityData.Leafs["default-lifetime"] = types.YLeaf{"DefaultLifetime", ipv6RouterAdvertisements.DefaultLifetime}
+    ipv6RouterAdvertisements.EntityData.Children = types.NewOrderedMap()
+    ipv6RouterAdvertisements.EntityData.Children.Append("prefix-list", types.YChild{"PrefixList", &ipv6RouterAdvertisements.PrefixList})
+    ipv6RouterAdvertisements.EntityData.Leafs = types.NewOrderedMap()
+    ipv6RouterAdvertisements.EntityData.Leafs.Append("send-advertisements", types.YLeaf{"SendAdvertisements", ipv6RouterAdvertisements.SendAdvertisements})
+    ipv6RouterAdvertisements.EntityData.Leafs.Append("max-rtr-adv-interval", types.YLeaf{"MaxRtrAdvInterval", ipv6RouterAdvertisements.MaxRtrAdvInterval})
+    ipv6RouterAdvertisements.EntityData.Leafs.Append("min-rtr-adv-interval", types.YLeaf{"MinRtrAdvInterval", ipv6RouterAdvertisements.MinRtrAdvInterval})
+    ipv6RouterAdvertisements.EntityData.Leafs.Append("managed-flag", types.YLeaf{"ManagedFlag", ipv6RouterAdvertisements.ManagedFlag})
+    ipv6RouterAdvertisements.EntityData.Leafs.Append("other-config-flag", types.YLeaf{"OtherConfigFlag", ipv6RouterAdvertisements.OtherConfigFlag})
+    ipv6RouterAdvertisements.EntityData.Leafs.Append("link-mtu", types.YLeaf{"LinkMtu", ipv6RouterAdvertisements.LinkMtu})
+    ipv6RouterAdvertisements.EntityData.Leafs.Append("reachable-time", types.YLeaf{"ReachableTime", ipv6RouterAdvertisements.ReachableTime})
+    ipv6RouterAdvertisements.EntityData.Leafs.Append("retrans-timer", types.YLeaf{"RetransTimer", ipv6RouterAdvertisements.RetransTimer})
+    ipv6RouterAdvertisements.EntityData.Leafs.Append("cur-hop-limit", types.YLeaf{"CurHopLimit", ipv6RouterAdvertisements.CurHopLimit})
+    ipv6RouterAdvertisements.EntityData.Leafs.Append("default-lifetime", types.YLeaf{"DefaultLifetime", ipv6RouterAdvertisements.DefaultLifetime})
+
+    ipv6RouterAdvertisements.EntityData.YListKeys = []string {}
+
     return &(ipv6RouterAdvertisements.EntityData)
 }
 
@@ -675,7 +674,7 @@ type Interfaces_Interface_Ipv6_Ipv6RouterAdvertisements_PrefixList struct {
 
     // Configuration of an advertised prefix entry. The type is slice of
     // Interfaces_Interface_Ipv6_Ipv6RouterAdvertisements_PrefixList_Prefix.
-    Prefix []Interfaces_Interface_Ipv6_Ipv6RouterAdvertisements_PrefixList_Prefix
+    Prefix []*Interfaces_Interface_Ipv6_Ipv6RouterAdvertisements_PrefixList_Prefix
 }
 
 func (prefixList *Interfaces_Interface_Ipv6_Ipv6RouterAdvertisements_PrefixList) GetEntityData() *types.CommonEntityData {
@@ -688,12 +687,15 @@ func (prefixList *Interfaces_Interface_Ipv6_Ipv6RouterAdvertisements_PrefixList)
     prefixList.EntityData.NamespaceTable = ietf.GetNamespaces()
     prefixList.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    prefixList.EntityData.Children = make(map[string]types.YChild)
-    prefixList.EntityData.Children["prefix"] = types.YChild{"Prefix", nil}
+    prefixList.EntityData.Children = types.NewOrderedMap()
+    prefixList.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range prefixList.Prefix {
-        prefixList.EntityData.Children[types.GetSegmentPath(&prefixList.Prefix[i])] = types.YChild{"Prefix", &prefixList.Prefix[i]}
+        prefixList.EntityData.Children.Append(types.GetSegmentPath(prefixList.Prefix[i]), types.YChild{"Prefix", prefixList.Prefix[i]})
     }
-    prefixList.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixList.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixList.EntityData.YListKeys = []string {}
+
     return &(prefixList.EntityData)
 }
 
@@ -705,7 +707,7 @@ type Interfaces_Interface_Ipv6_Ipv6RouterAdvertisements_PrefixList_Prefix struct
 
     // This attribute is a key. IPv6 address prefix. The type is string with
     // pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     PrefixSpec interface{}
 
     // The prefix will not be advertised.  This can be used for removing the
@@ -739,20 +741,57 @@ func (prefix *Interfaces_Interface_Ipv6_Ipv6RouterAdvertisements_PrefixList_Pref
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "ietf"
     prefix.EntityData.ParentYangName = "prefix-list"
-    prefix.EntityData.SegmentPath = "prefix" + "[prefix-spec='" + fmt.Sprintf("%v", prefix.PrefixSpec) + "']"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddKeyToken(prefix.PrefixSpec, "prefix-spec")
     prefix.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     prefix.EntityData.NamespaceTable = ietf.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    prefix.EntityData.Children = make(map[string]types.YChild)
-    prefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefix.EntityData.Leafs["prefix-spec"] = types.YLeaf{"PrefixSpec", prefix.PrefixSpec}
-    prefix.EntityData.Leafs["no-advertise"] = types.YLeaf{"NoAdvertise", prefix.NoAdvertise}
-    prefix.EntityData.Leafs["valid-lifetime"] = types.YLeaf{"ValidLifetime", prefix.ValidLifetime}
-    prefix.EntityData.Leafs["on-link-flag"] = types.YLeaf{"OnLinkFlag", prefix.OnLinkFlag}
-    prefix.EntityData.Leafs["preferred-lifetime"] = types.YLeaf{"PreferredLifetime", prefix.PreferredLifetime}
-    prefix.EntityData.Leafs["autonomous-flag"] = types.YLeaf{"AutonomousFlag", prefix.AutonomousFlag}
+    prefix.EntityData.Children = types.NewOrderedMap()
+    prefix.EntityData.Leafs = types.NewOrderedMap()
+    prefix.EntityData.Leafs.Append("prefix-spec", types.YLeaf{"PrefixSpec", prefix.PrefixSpec})
+    prefix.EntityData.Leafs.Append("no-advertise", types.YLeaf{"NoAdvertise", prefix.NoAdvertise})
+    prefix.EntityData.Leafs.Append("valid-lifetime", types.YLeaf{"ValidLifetime", prefix.ValidLifetime})
+    prefix.EntityData.Leafs.Append("on-link-flag", types.YLeaf{"OnLinkFlag", prefix.OnLinkFlag})
+    prefix.EntityData.Leafs.Append("preferred-lifetime", types.YLeaf{"PreferredLifetime", prefix.PreferredLifetime})
+    prefix.EntityData.Leafs.Append("autonomous-flag", types.YLeaf{"AutonomousFlag", prefix.AutonomousFlag})
+
+    prefix.EntityData.YListKeys = []string {"PrefixSpec"}
+
     return &(prefix.EntityData)
+}
+
+// Interfaces_Interface_DiffservTargetEntry
+// policy target for inbound or outbound direction
+type Interfaces_Interface_DiffservTargetEntry struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Direction fo the traffic flow either inbound or
+    // outbound. The type is one of the following: InboundOutbound.
+    Direction interface{}
+
+    // This attribute is a key. Policy entry name. The type is string.
+    PolicyName interface{}
+}
+
+func (diffservTargetEntry *Interfaces_Interface_DiffservTargetEntry) GetEntityData() *types.CommonEntityData {
+    diffservTargetEntry.EntityData.YFilter = diffservTargetEntry.YFilter
+    diffservTargetEntry.EntityData.YangName = "diffserv-target-entry"
+    diffservTargetEntry.EntityData.BundleName = "ietf"
+    diffservTargetEntry.EntityData.ParentYangName = "interface"
+    diffservTargetEntry.EntityData.SegmentPath = "ietf-diffserv-target:diffserv-target-entry" + types.AddKeyToken(diffservTargetEntry.Direction, "direction") + types.AddKeyToken(diffservTargetEntry.PolicyName, "policy-name")
+    diffservTargetEntry.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    diffservTargetEntry.EntityData.NamespaceTable = ietf.GetNamespaces()
+    diffservTargetEntry.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    diffservTargetEntry.EntityData.Children = types.NewOrderedMap()
+    diffservTargetEntry.EntityData.Leafs = types.NewOrderedMap()
+    diffservTargetEntry.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", diffservTargetEntry.Direction})
+    diffservTargetEntry.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", diffservTargetEntry.PolicyName})
+
+    diffservTargetEntry.EntityData.YListKeys = []string {"Direction", "PolicyName"}
+
+    return &(diffservTargetEntry.EntityData)
 }
 
 // Interfaces_Interface_LinkUpDownTrapEnable represents no 'lower-layer-if' entries), and 'disabled' otherwise.
@@ -772,8 +811,8 @@ type InterfacesState struct {
 
     // The list of interfaces on the device.  System-controlled interfaces created
     // by the system are always present in this list, whether they are configured
-    // or not. The type is slice of InterfacesState_Interface_.
-    Interface_ []InterfacesState_Interface
+    // or not. The type is slice of InterfacesState_Interface.
+    Interface []*InterfacesState_Interface
 }
 
 func (interfacesState *InterfacesState) GetEntityData() *types.CommonEntityData {
@@ -786,12 +825,15 @@ func (interfacesState *InterfacesState) GetEntityData() *types.CommonEntityData 
     interfacesState.EntityData.NamespaceTable = ietf.GetNamespaces()
     interfacesState.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    interfacesState.EntityData.Children = make(map[string]types.YChild)
-    interfacesState.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfacesState.Interface_ {
-        interfacesState.EntityData.Children[types.GetSegmentPath(&interfacesState.Interface_[i])] = types.YChild{"Interface_", &interfacesState.Interface_[i]}
+    interfacesState.EntityData.Children = types.NewOrderedMap()
+    interfacesState.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfacesState.Interface {
+        interfacesState.EntityData.Children.Append(types.GetSegmentPath(interfacesState.Interface[i]), types.YChild{"Interface", interfacesState.Interface[i]})
     }
-    interfacesState.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfacesState.EntityData.Leafs = types.NewOrderedMap()
+
+    interfacesState.EntityData.YListKeys = []string {}
+
     return &(interfacesState.EntityData)
 }
 
@@ -814,9 +856,9 @@ type InterfacesState_Interface struct {
     Name interface{}
 
     // The type of the interface. The type is one of the following:
-    // IanaInterfaceTypeOtherRegular1822Hdh1822Ddnx25Rfc877X25EthernetcsmacdIso88023CsmacdIso88024TokenbusIso88025TokenringIso88026ManStarlanProteon10MbitProteon80MbitHyperchannelFddiLapbSdlcDs1E1BasicisdnPrimaryisdnProppointtopointserialPppSoftwareloopbackEonEthernet3MbitNsipSlipUltraDs3SipFramerelayRs232ParaArcnetArcnetplusAtmMiox25SonetX25PleIso88022LlcLocaltalkSmdsdxiFramerelayserviceV35HssiHippiModemAal5SonetpathSonetvtSmdsicipPropvirtualPropmultiplexorIeee80212FibrechannelHippiinterfaceFramerelayinterconnectAflane8023Aflane8025CctemulFastetherIsdnV11V36G703At64KG703At2MbQllcFastetherfxChannelIeee80211Ibm370ParchanEsconDlswIsdnsIsdnuLapdIpswitchRsrbAtmlogicalDs0Ds0BundleBscAsyncCnrIso88025DtrEplrsArapPropcnlsHostpadTermpadFramerelaympiX213AdslRadslSdslVdslIso88025CrfpintMyrinetVoiceemVoicefxoVoicefxsVoiceencapVoiceoveripAtmdxiAtmfuniAtmimaPppmultilinkbundleIpovercdlcIpoverclawStacktostackVirtualipaddressMpcIpoveratmIso88025FiberTdlcGigabitethernetHdlcLapfV37X25MlpX25HuntgroupTransphdlcInterleaveFastIpDocscablemaclayerDocscabledownstreamDocscableupstreamA12MppswitchTunnelCoffeeCesAtmsubinterfaceL2VlanL3IpvlanL3IpxvlanDigitalpowerlineMediamailoveripDtmDcnIpforwardMsdslIeee1394IfGsnDvbrccmaclayerDvbrccdownstreamDvbrccupstreamAtmvirtualMplstunnelSrpVoiceoveratmVoiceoverframerelayIdslCompositelinkSs7SiglinkPropwirelessp2PFrforwardRfc1483UsbIeee8023AdlagBgppolicyaccountingFrf16MfrbundleH323GatekeeperH323ProxyMplsMfsiglinkHdsl2ShdslDs1FdlPosDvbasiinDvbasioutPlcNfasTr008Gr303RdtGr303IdtIsupPropdocswirelessmaclayerPropdocswirelessdownstreamPropdocswirelessupstreamHiperlan2Propbwap2MpSonetoverheadchannelDigitalwrapperoverheadchannelAal2RadiomacAtmradioImtMvlReachdslFrdlciendptAtmvciendptOpticalchannelOpticaltransportPropatmVoiceovercableInfinibandTelinkQ2931VirtualtgSiptgSipsigDocscableupstreamchannelEconetPon155Pon622BridgeLinegroupVoiceemfgdVoicefgdeanaVoicedidMpegtransportSixtofourGtpPdnetherloop1Pdnetherloop2OpticalchannelgroupHomepnaGfpCiscoislvlanActelismetaloopFciplinkRprQamLmpCblvectastarDocscablemcmtsdownstreamAdsl2MacseccontrolledifMacsecuncontrolledifAviciopticaletherAtmbondVoicefgdosMocaversion1Ieee80216WmanAdsl2PlusDvbrcsmaclayerDvbtdmDvbrcstdmaX86LapsWwanppWwanpp2VoiceebsIfpwtypeIlanPipAluelpGponVdsl2Capwapdot11ProfileCapwapdot11BssCapwapwtpvirtualradioBitsDocscableupstreamrfportCabledownstreamrfportVmwarevirtualnicIeee802154OtnoduOtnotuIfvfitypeG9981G9982G9983AlueponAluepononuAlueponphysicaluniAlueponlogicallinkAlugpononuAlugponphysicaluniVmwarenicteam.
+    // IanaInterfaceTypeVoiceFXOAtmVciEndPtPropBWAp2MpPropDocsWirelessDownstreamV11SoftwareLoopbackHdlcVoiceFGDOSFastEtherFXDvbTdmNfasIfPwTypeL2vlanAdsl2plusIeee802154VoiceFXSDvbRcsMacLayerIdslInfinibandDdnX25WwanPP2DocsCableUpstreamEthernet3MbitDigitalPowerlineH323ProxyGtpIpOverAtmAluEponImtIpSwitchMsdslDvbRccMacLayerSmdsDxiVoiceOverAtmArapFastEtherMpcLinegroupHippiRprDs1FDLSonetVTVoiceEncapSs7SigLinkArcnetActelisMetaLOOPQllcRfc877x25MpegTransportX25mlpVirtualTgHostPadStarLanIso88025DtrIbm370parChanAdsl2OtnOtuPropWirelessP2PInterleaveIsupRegular1822Gr303RDTPropDocsWirelessMaclayerAsyncRadioMACOpticalChannelGroupSixToFourPropDocsWirelessUpstreamQ2931FddiPropCnlsAal2DvbAsiOutAluELPCiscoISLvlanDocsCableUpstreamRfPortAal5FrDlciEndPtHippiInterfaceL3ipvlanMiox25HssiAtmVirtualAluGponOnuRfc1483CnrSipSigMyrinetDlswGigabitEthernetX25pleLmpOpticalTransportSdlcVoiceEMX86LapsG9982Iso88022llcDvbAsiInBgppolicyaccountingAluEponOnuMfSigLinkDcnAtmDxiVoiceOverFrameRelayGfpSonetOverheadChannelVmwareVirtualNicFcipLinkIpOverClawCoffeeRadslVdsl2Rs232E1ReachDSLVoiceOverCableTr008VoiceOverIpAtmDs3Ds0Ds1SrpDocsCableDownstreamDvbRcsTdmaG9983PlcFrameRelayMPIMvlPropMultiplexorVoiceDIDCompositeLinkProteon10MbitAtmbondFrf16MfrBundleCctEmulMplsTunnelGponVdslPosIeee8023adLagDocsCableMaclayerDocsCableMCmtsDownstreamPppFrameRelayEplrsVmwareNicTeamCableDownstreamRfPortMacSecUncontrolledIFIso88023CsmacdUsbAtmFuniTeLinkPon622EconetTdlcDs0BundleFastIeee1394CblVectaStarRsrbFrameRelayInterconnectIsdnsPppMultilinkBundleAflane8025LapbAflane8023LapdIsdnuLapfCapwapWtpVirtualRadioIfVfiTypeX25huntGroupParaMacSecControlledIFIso88024TokenBusLocalTalkHyperchannelMediaMailOverIpIfGsnCapwapDot11ProfileL3ipxvlanAtmSubInterfacePrimaryISDNProteon80MbitIso88026ManDigitalWrapperOverheadChannelDocsCableUpstreamChannelOpticalChannelEthernetCsmacdBitsTunnelHdsl2FrameRelayServiceMplsIeee80211Ieee80212MocaVersion1SonetEsconAluEponLogicalLinkG703at2mbUltraDvbRccDownstreamSipTgSmdsIcipBridgeAtmLogicalPropPointToPointSerialV35V36V37IpGr303IDTBasicISDNG703at64kArcnetPlusPipDtmSlipHiperlan2AdslIeee80216WMANAtmImaIsdnCapwapDot11BssSipPdnEtherLoop2VoiceEBSIpForwardIso88025CRFPIntPropVirtualWwanPPOtherPon155QamOtnOduIso88025FiberChannelVoiceEMFGDAluGponPhysicalUniA12MppSwitchIlanPdnEtherLoop1X213SonetPathVoiceFGDEANAIso88025TokenRingPropAtmAluEponPhysicalUniStackToStackFrForwardHomepnaSdslVirtualIpAddressBscAtmRadioAviciOpticalEtherG9981FibreChannelShdslEonH323GatekeeperHdh1822DvbRccUpstreamNsipTranspHdlcTermPadIpOverCdlcCesModem.
     // This attribute is mandatory.
-    Type_ interface{}
+    Type interface{}
 
     // The desired state of the interface.  This leaf has the same read semantics
     // as ifAdminStatus. The type is AdminStatus. This attribute is mandatory.
@@ -831,7 +873,7 @@ type InterfacesState_Interface struct {
     // current state was entered prior to the last re-initialization of the local
     // network management subsystem, then this node is not present. The type is
     // string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastChange interface{}
 
     // The ifIndex value for the ifEntry represented by this interface. The type
@@ -844,7 +886,7 @@ type InterfacesState_Interface struct {
     // byte ordering and the format of the value of this object.  For interfaces
     // that do not have such an address (e.g., a serial line), this node is not
     // present. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     PhysAddress interface{}
 
     // A list of references to interfaces layered on top of this interface. The
@@ -872,15 +914,15 @@ type InterfacesState_Interface struct {
     // A collection of interface-related statistics objects.
     Statistics InterfacesState_Interface_Statistics
 
-    // policy target for inbound or outbound direction. The type is slice of
-    // InterfacesState_Interface_DiffservTargetEntry.
-    DiffservTargetEntry []InterfacesState_Interface_DiffservTargetEntry
-
     // Interface-specific parameters for the IPv4 address family.
     Ipv4 InterfacesState_Interface_Ipv4
 
     // Parameters for the IPv6 address family.
     Ipv6 InterfacesState_Interface_Ipv6
+
+    // policy target for inbound or outbound direction. The type is slice of
+    // InterfacesState_Interface_DiffservTargetEntry.
+    DiffservTargetEntry []*InterfacesState_Interface_DiffservTargetEntry
 }
 
 func (self *InterfacesState_Interface) GetEntityData() *types.CommonEntityData {
@@ -888,31 +930,34 @@ func (self *InterfacesState_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "ietf"
     self.EntityData.ParentYangName = "interfaces-state"
-    self.EntityData.SegmentPath = "interface" + "[name='" + fmt.Sprintf("%v", self.Name) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
     self.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     self.EntityData.NamespaceTable = ietf.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["statistics"] = types.YChild{"Statistics", &self.Statistics}
-    self.EntityData.Children["ietf-diffserv-target:diffserv-target-entry"] = types.YChild{"DiffservTargetEntry", nil}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("statistics", types.YChild{"Statistics", &self.Statistics})
+    self.EntityData.Children.Append("ietf-ip:ipv4", types.YChild{"Ipv4", &self.Ipv4})
+    self.EntityData.Children.Append("ietf-ip:ipv6", types.YChild{"Ipv6", &self.Ipv6})
+    self.EntityData.Children.Append("ietf-diffserv-target:diffserv-target-entry", types.YChild{"DiffservTargetEntry", nil})
     for i := range self.DiffservTargetEntry {
-        self.EntityData.Children[types.GetSegmentPath(&self.DiffservTargetEntry[i])] = types.YChild{"DiffservTargetEntry", &self.DiffservTargetEntry[i]}
+        self.EntityData.Children.Append(types.GetSegmentPath(self.DiffservTargetEntry[i]), types.YChild{"DiffservTargetEntry", self.DiffservTargetEntry[i]})
     }
-    self.EntityData.Children["ietf-ip:ipv4"] = types.YChild{"Ipv4", &self.Ipv4}
-    self.EntityData.Children["ietf-ip:ipv6"] = types.YChild{"Ipv6", &self.Ipv6}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
-    self.EntityData.Leafs["type"] = types.YLeaf{"Type_", self.Type_}
-    self.EntityData.Leafs["admin-status"] = types.YLeaf{"AdminStatus", self.AdminStatus}
-    self.EntityData.Leafs["oper-status"] = types.YLeaf{"OperStatus", self.OperStatus}
-    self.EntityData.Leafs["last-change"] = types.YLeaf{"LastChange", self.LastChange}
-    self.EntityData.Leafs["if-index"] = types.YLeaf{"IfIndex", self.IfIndex}
-    self.EntityData.Leafs["phys-address"] = types.YLeaf{"PhysAddress", self.PhysAddress}
-    self.EntityData.Leafs["higher-layer-if"] = types.YLeaf{"HigherLayerIf", self.HigherLayerIf}
-    self.EntityData.Leafs["lower-layer-if"] = types.YLeaf{"LowerLayerIf", self.LowerLayerIf}
-    self.EntityData.Leafs["speed"] = types.YLeaf{"Speed", self.Speed}
-    self.EntityData.Leafs["routing-instance"] = types.YLeaf{"RoutingInstance", self.RoutingInstance}
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("type", types.YLeaf{"Type", self.Type})
+    self.EntityData.Leafs.Append("admin-status", types.YLeaf{"AdminStatus", self.AdminStatus})
+    self.EntityData.Leafs.Append("oper-status", types.YLeaf{"OperStatus", self.OperStatus})
+    self.EntityData.Leafs.Append("last-change", types.YLeaf{"LastChange", self.LastChange})
+    self.EntityData.Leafs.Append("if-index", types.YLeaf{"IfIndex", self.IfIndex})
+    self.EntityData.Leafs.Append("phys-address", types.YLeaf{"PhysAddress", self.PhysAddress})
+    self.EntityData.Leafs.Append("higher-layer-if", types.YLeaf{"HigherLayerIf", self.HigherLayerIf})
+    self.EntityData.Leafs.Append("lower-layer-if", types.YLeaf{"LowerLayerIf", self.LowerLayerIf})
+    self.EntityData.Leafs.Append("speed", types.YLeaf{"Speed", self.Speed})
+    self.EntityData.Leafs.Append("routing-instance", types.YLeaf{"RoutingInstance", self.RoutingInstance})
+
+    self.EntityData.YListKeys = []string {"Name"}
+
     return &(self.EntityData)
 }
 
@@ -927,8 +972,8 @@ type InterfacesState_Interface_Statistics struct {
     // have occurred since the last re-initialization of the local management
     // subsystem, then this node contains the time the local management subsystem
     // re-initialized itself. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
-    // This attribute is mandatory.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}). This
+    // attribute is mandatory.
     DiscontinuityTime interface{}
 
     // The total number of octets received on the interface, including framing
@@ -1066,288 +1111,28 @@ func (statistics *InterfacesState_Interface_Statistics) GetEntityData() *types.C
     statistics.EntityData.NamespaceTable = ietf.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    statistics.EntityData.Children = make(map[string]types.YChild)
-    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    statistics.EntityData.Leafs["discontinuity-time"] = types.YLeaf{"DiscontinuityTime", statistics.DiscontinuityTime}
-    statistics.EntityData.Leafs["in-octets"] = types.YLeaf{"InOctets", statistics.InOctets}
-    statistics.EntityData.Leafs["in-unicast-pkts"] = types.YLeaf{"InUnicastPkts", statistics.InUnicastPkts}
-    statistics.EntityData.Leafs["in-broadcast-pkts"] = types.YLeaf{"InBroadcastPkts", statistics.InBroadcastPkts}
-    statistics.EntityData.Leafs["in-multicast-pkts"] = types.YLeaf{"InMulticastPkts", statistics.InMulticastPkts}
-    statistics.EntityData.Leafs["in-discards"] = types.YLeaf{"InDiscards", statistics.InDiscards}
-    statistics.EntityData.Leafs["in-errors"] = types.YLeaf{"InErrors", statistics.InErrors}
-    statistics.EntityData.Leafs["in-unknown-protos"] = types.YLeaf{"InUnknownProtos", statistics.InUnknownProtos}
-    statistics.EntityData.Leafs["out-octets"] = types.YLeaf{"OutOctets", statistics.OutOctets}
-    statistics.EntityData.Leafs["out-unicast-pkts"] = types.YLeaf{"OutUnicastPkts", statistics.OutUnicastPkts}
-    statistics.EntityData.Leafs["out-broadcast-pkts"] = types.YLeaf{"OutBroadcastPkts", statistics.OutBroadcastPkts}
-    statistics.EntityData.Leafs["out-multicast-pkts"] = types.YLeaf{"OutMulticastPkts", statistics.OutMulticastPkts}
-    statistics.EntityData.Leafs["out-discards"] = types.YLeaf{"OutDiscards", statistics.OutDiscards}
-    statistics.EntityData.Leafs["out-errors"] = types.YLeaf{"OutErrors", statistics.OutErrors}
-    statistics.EntityData.Leafs["in-pkts"] = types.YLeaf{"InPkts", statistics.InPkts}
-    statistics.EntityData.Leafs["out-pkts"] = types.YLeaf{"OutPkts", statistics.OutPkts}
+    statistics.EntityData.Children = types.NewOrderedMap()
+    statistics.EntityData.Leafs = types.NewOrderedMap()
+    statistics.EntityData.Leafs.Append("discontinuity-time", types.YLeaf{"DiscontinuityTime", statistics.DiscontinuityTime})
+    statistics.EntityData.Leafs.Append("in-octets", types.YLeaf{"InOctets", statistics.InOctets})
+    statistics.EntityData.Leafs.Append("in-unicast-pkts", types.YLeaf{"InUnicastPkts", statistics.InUnicastPkts})
+    statistics.EntityData.Leafs.Append("in-broadcast-pkts", types.YLeaf{"InBroadcastPkts", statistics.InBroadcastPkts})
+    statistics.EntityData.Leafs.Append("in-multicast-pkts", types.YLeaf{"InMulticastPkts", statistics.InMulticastPkts})
+    statistics.EntityData.Leafs.Append("in-discards", types.YLeaf{"InDiscards", statistics.InDiscards})
+    statistics.EntityData.Leafs.Append("in-errors", types.YLeaf{"InErrors", statistics.InErrors})
+    statistics.EntityData.Leafs.Append("in-unknown-protos", types.YLeaf{"InUnknownProtos", statistics.InUnknownProtos})
+    statistics.EntityData.Leafs.Append("out-octets", types.YLeaf{"OutOctets", statistics.OutOctets})
+    statistics.EntityData.Leafs.Append("out-unicast-pkts", types.YLeaf{"OutUnicastPkts", statistics.OutUnicastPkts})
+    statistics.EntityData.Leafs.Append("out-broadcast-pkts", types.YLeaf{"OutBroadcastPkts", statistics.OutBroadcastPkts})
+    statistics.EntityData.Leafs.Append("out-multicast-pkts", types.YLeaf{"OutMulticastPkts", statistics.OutMulticastPkts})
+    statistics.EntityData.Leafs.Append("out-discards", types.YLeaf{"OutDiscards", statistics.OutDiscards})
+    statistics.EntityData.Leafs.Append("out-errors", types.YLeaf{"OutErrors", statistics.OutErrors})
+    statistics.EntityData.Leafs.Append("in-pkts", types.YLeaf{"InPkts", statistics.InPkts})
+    statistics.EntityData.Leafs.Append("out-pkts", types.YLeaf{"OutPkts", statistics.OutPkts})
+
+    statistics.EntityData.YListKeys = []string {}
+
     return &(statistics.EntityData)
-}
-
-// InterfacesState_Interface_DiffservTargetEntry
-// policy target for inbound or outbound direction
-type InterfacesState_Interface_DiffservTargetEntry struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. Direction fo the traffic flow either inbound or
-    // outbound. The type is one of the following: InboundOutbound.
-    Direction interface{}
-
-    // This attribute is a key. Policy entry name. The type is string.
-    PolicyName interface{}
-
-    // Statistics for each Classifier Entry in a Policy. The type is slice of
-    // InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics.
-    DiffservTargetClassifierStatistics []InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics
-}
-
-func (diffservTargetEntry *InterfacesState_Interface_DiffservTargetEntry) GetEntityData() *types.CommonEntityData {
-    diffservTargetEntry.EntityData.YFilter = diffservTargetEntry.YFilter
-    diffservTargetEntry.EntityData.YangName = "diffserv-target-entry"
-    diffservTargetEntry.EntityData.BundleName = "ietf"
-    diffservTargetEntry.EntityData.ParentYangName = "interface"
-    diffservTargetEntry.EntityData.SegmentPath = "ietf-diffserv-target:diffserv-target-entry" + "[direction='" + fmt.Sprintf("%v", diffservTargetEntry.Direction) + "']" + "[policy-name='" + fmt.Sprintf("%v", diffservTargetEntry.PolicyName) + "']"
-    diffservTargetEntry.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    diffservTargetEntry.EntityData.NamespaceTable = ietf.GetNamespaces()
-    diffservTargetEntry.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    diffservTargetEntry.EntityData.Children = make(map[string]types.YChild)
-    diffservTargetEntry.EntityData.Children["diffserv-target-classifier-statistics"] = types.YChild{"DiffservTargetClassifierStatistics", nil}
-    for i := range diffservTargetEntry.DiffservTargetClassifierStatistics {
-        diffservTargetEntry.EntityData.Children[types.GetSegmentPath(&diffservTargetEntry.DiffservTargetClassifierStatistics[i])] = types.YChild{"DiffservTargetClassifierStatistics", &diffservTargetEntry.DiffservTargetClassifierStatistics[i]}
-    }
-    diffservTargetEntry.EntityData.Leafs = make(map[string]types.YLeaf)
-    diffservTargetEntry.EntityData.Leafs["direction"] = types.YLeaf{"Direction", diffservTargetEntry.Direction}
-    diffservTargetEntry.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", diffservTargetEntry.PolicyName}
-    return &(diffservTargetEntry.EntityData)
-}
-
-// InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics
-// Statistics for each Classifier Entry in a Policy
-type InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. Classifier Entry Name. The type is string.
-    ClassifierEntryName interface{}
-
-    // This attribute is a key. Path of the Classifier Entry in a hierarchial
-    // policy . The type is string.
-    ParentPath interface{}
-
-    // This group defines the classifier filter statistics of  each classifier
-    // entry         .
-    ClassifierEntryStatistics InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics
-
-    // Meter statistics. The type is slice of
-    // InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics.
-    MeterStatistics []InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics
-
-    // queue related statistics .
-    QueuingStatistics InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics
-}
-
-func (diffservTargetClassifierStatistics *InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics) GetEntityData() *types.CommonEntityData {
-    diffservTargetClassifierStatistics.EntityData.YFilter = diffservTargetClassifierStatistics.YFilter
-    diffservTargetClassifierStatistics.EntityData.YangName = "diffserv-target-classifier-statistics"
-    diffservTargetClassifierStatistics.EntityData.BundleName = "ietf"
-    diffservTargetClassifierStatistics.EntityData.ParentYangName = "diffserv-target-entry"
-    diffservTargetClassifierStatistics.EntityData.SegmentPath = "diffserv-target-classifier-statistics" + "[classifier-entry-name='" + fmt.Sprintf("%v", diffservTargetClassifierStatistics.ClassifierEntryName) + "']" + "[parent-path='" + fmt.Sprintf("%v", diffservTargetClassifierStatistics.ParentPath) + "']"
-    diffservTargetClassifierStatistics.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    diffservTargetClassifierStatistics.EntityData.NamespaceTable = ietf.GetNamespaces()
-    diffservTargetClassifierStatistics.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    diffservTargetClassifierStatistics.EntityData.Children = make(map[string]types.YChild)
-    diffservTargetClassifierStatistics.EntityData.Children["classifier-entry-statistics"] = types.YChild{"ClassifierEntryStatistics", &diffservTargetClassifierStatistics.ClassifierEntryStatistics}
-    diffservTargetClassifierStatistics.EntityData.Children["meter-statistics"] = types.YChild{"MeterStatistics", nil}
-    for i := range diffservTargetClassifierStatistics.MeterStatistics {
-        diffservTargetClassifierStatistics.EntityData.Children[types.GetSegmentPath(&diffservTargetClassifierStatistics.MeterStatistics[i])] = types.YChild{"MeterStatistics", &diffservTargetClassifierStatistics.MeterStatistics[i]}
-    }
-    diffservTargetClassifierStatistics.EntityData.Children["queuing-statistics"] = types.YChild{"QueuingStatistics", &diffservTargetClassifierStatistics.QueuingStatistics}
-    diffservTargetClassifierStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    diffservTargetClassifierStatistics.EntityData.Leafs["classifier-entry-name"] = types.YLeaf{"ClassifierEntryName", diffservTargetClassifierStatistics.ClassifierEntryName}
-    diffservTargetClassifierStatistics.EntityData.Leafs["parent-path"] = types.YLeaf{"ParentPath", diffservTargetClassifierStatistics.ParentPath}
-    return &(diffservTargetClassifierStatistics.EntityData)
-}
-
-// InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics
-// 
-// This group defines the classifier filter statistics of 
-// each classifier entry
-//        
-// 
-type InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Number of total packets which filtered  to the classifier-entry. The type
-    // is interface{} with range: 0..18446744073709551615.
-    ClassifiedPkts interface{}
-
-    // Number of total bytes which filtered   to the classifier-entry. The type is
-    // interface{} with range: 0..18446744073709551615.
-    ClassifiedBytes interface{}
-
-    // Rate of average data flow through the   classifier-entry. The type is
-    // interface{} with range: 0..18446744073709551615. Units are bits-per-second.
-    ClassifiedRate interface{}
-}
-
-func (classifierEntryStatistics *InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics) GetEntityData() *types.CommonEntityData {
-    classifierEntryStatistics.EntityData.YFilter = classifierEntryStatistics.YFilter
-    classifierEntryStatistics.EntityData.YangName = "classifier-entry-statistics"
-    classifierEntryStatistics.EntityData.BundleName = "ietf"
-    classifierEntryStatistics.EntityData.ParentYangName = "diffserv-target-classifier-statistics"
-    classifierEntryStatistics.EntityData.SegmentPath = "classifier-entry-statistics"
-    classifierEntryStatistics.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    classifierEntryStatistics.EntityData.NamespaceTable = ietf.GetNamespaces()
-    classifierEntryStatistics.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    classifierEntryStatistics.EntityData.Children = make(map[string]types.YChild)
-    classifierEntryStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    classifierEntryStatistics.EntityData.Leafs["classified-pkts"] = types.YLeaf{"ClassifiedPkts", classifierEntryStatistics.ClassifiedPkts}
-    classifierEntryStatistics.EntityData.Leafs["classified-bytes"] = types.YLeaf{"ClassifiedBytes", classifierEntryStatistics.ClassifiedBytes}
-    classifierEntryStatistics.EntityData.Leafs["classified-rate"] = types.YLeaf{"ClassifiedRate", classifierEntryStatistics.ClassifiedRate}
-    return &(classifierEntryStatistics.EntityData)
-}
-
-// InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics
-// Meter statistics
-type InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. Meter Identifier. The type is interface{} with
-    // range: 0..65535.
-    MeterId interface{}
-
-    // Number of packets which succeed the meter. The type is interface{} with
-    // range: 0..18446744073709551615.
-    MeterSucceedPkts interface{}
-
-    // Bytes of packets which succeed the meter. The type is interface{} with
-    // range: 0..18446744073709551615.
-    MeterSucceedBytes interface{}
-
-    // Number of packets which failed the meter. The type is interface{} with
-    // range: 0..18446744073709551615.
-    MeterFailedPkts interface{}
-
-    // Bytes of packets which failed the meter. The type is interface{} with
-    // range: 0..18446744073709551615.
-    MeterFailedBytes interface{}
-}
-
-func (meterStatistics *InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics) GetEntityData() *types.CommonEntityData {
-    meterStatistics.EntityData.YFilter = meterStatistics.YFilter
-    meterStatistics.EntityData.YangName = "meter-statistics"
-    meterStatistics.EntityData.BundleName = "ietf"
-    meterStatistics.EntityData.ParentYangName = "diffserv-target-classifier-statistics"
-    meterStatistics.EntityData.SegmentPath = "meter-statistics" + "[meter-id='" + fmt.Sprintf("%v", meterStatistics.MeterId) + "']"
-    meterStatistics.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    meterStatistics.EntityData.NamespaceTable = ietf.GetNamespaces()
-    meterStatistics.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    meterStatistics.EntityData.Children = make(map[string]types.YChild)
-    meterStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    meterStatistics.EntityData.Leafs["meter-id"] = types.YLeaf{"MeterId", meterStatistics.MeterId}
-    meterStatistics.EntityData.Leafs["meter-succeed-pkts"] = types.YLeaf{"MeterSucceedPkts", meterStatistics.MeterSucceedPkts}
-    meterStatistics.EntityData.Leafs["meter-succeed-bytes"] = types.YLeaf{"MeterSucceedBytes", meterStatistics.MeterSucceedBytes}
-    meterStatistics.EntityData.Leafs["meter-failed-pkts"] = types.YLeaf{"MeterFailedPkts", meterStatistics.MeterFailedPkts}
-    meterStatistics.EntityData.Leafs["meter-failed-bytes"] = types.YLeaf{"MeterFailedBytes", meterStatistics.MeterFailedBytes}
-    return &(meterStatistics.EntityData)
-}
-
-// InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics
-// queue related statistics 
-type InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Number of packets transmitted from queue . The type is interface{} with
-    // range: 0..18446744073709551615.
-    OutputPkts interface{}
-
-    // Number of bytes transmitted from queue . The type is interface{} with
-    // range: 0..18446744073709551615.
-    OutputBytes interface{}
-
-    // Number of packets currently buffered . The type is interface{} with range:
-    // 0..18446744073709551615.
-    QueueSizePkts interface{}
-
-    // Number of bytes currently buffered . The type is interface{} with range:
-    // 0..18446744073709551615.
-    QueueSizeBytes interface{}
-
-    // Total number of packets dropped . The type is interface{} with range:
-    // 0..18446744073709551615.
-    DropPkts interface{}
-
-    // Total number of bytes dropped . The type is interface{} with range:
-    // 0..18446744073709551615.
-    DropBytes interface{}
-
-    // Container for WRED statistics.
-    WredStats InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats
-}
-
-func (queuingStatistics *InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics) GetEntityData() *types.CommonEntityData {
-    queuingStatistics.EntityData.YFilter = queuingStatistics.YFilter
-    queuingStatistics.EntityData.YangName = "queuing-statistics"
-    queuingStatistics.EntityData.BundleName = "ietf"
-    queuingStatistics.EntityData.ParentYangName = "diffserv-target-classifier-statistics"
-    queuingStatistics.EntityData.SegmentPath = "queuing-statistics"
-    queuingStatistics.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    queuingStatistics.EntityData.NamespaceTable = ietf.GetNamespaces()
-    queuingStatistics.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    queuingStatistics.EntityData.Children = make(map[string]types.YChild)
-    queuingStatistics.EntityData.Children["wred-stats"] = types.YChild{"WredStats", &queuingStatistics.WredStats}
-    queuingStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    queuingStatistics.EntityData.Leafs["output-pkts"] = types.YLeaf{"OutputPkts", queuingStatistics.OutputPkts}
-    queuingStatistics.EntityData.Leafs["output-bytes"] = types.YLeaf{"OutputBytes", queuingStatistics.OutputBytes}
-    queuingStatistics.EntityData.Leafs["queue-size-pkts"] = types.YLeaf{"QueueSizePkts", queuingStatistics.QueueSizePkts}
-    queuingStatistics.EntityData.Leafs["queue-size-bytes"] = types.YLeaf{"QueueSizeBytes", queuingStatistics.QueueSizeBytes}
-    queuingStatistics.EntityData.Leafs["drop-pkts"] = types.YLeaf{"DropPkts", queuingStatistics.DropPkts}
-    queuingStatistics.EntityData.Leafs["drop-bytes"] = types.YLeaf{"DropBytes", queuingStatistics.DropBytes}
-    return &(queuingStatistics.EntityData)
-}
-
-// InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats
-// Container for WRED statistics
-type InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Early drop packets . The type is interface{} with range:
-    // 0..18446744073709551615.
-    EarlyDropPkts interface{}
-
-    // Early drop bytes . The type is interface{} with range:
-    // 0..18446744073709551615.
-    EarlyDropBytes interface{}
-}
-
-func (wredStats *InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats) GetEntityData() *types.CommonEntityData {
-    wredStats.EntityData.YFilter = wredStats.YFilter
-    wredStats.EntityData.YangName = "wred-stats"
-    wredStats.EntityData.BundleName = "ietf"
-    wredStats.EntityData.ParentYangName = "queuing-statistics"
-    wredStats.EntityData.SegmentPath = "wred-stats"
-    wredStats.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    wredStats.EntityData.NamespaceTable = ietf.GetNamespaces()
-    wredStats.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    wredStats.EntityData.Children = make(map[string]types.YChild)
-    wredStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    wredStats.EntityData.Leafs["early-drop-pkts"] = types.YLeaf{"EarlyDropPkts", wredStats.EarlyDropPkts}
-    wredStats.EntityData.Leafs["early-drop-bytes"] = types.YLeaf{"EarlyDropBytes", wredStats.EarlyDropBytes}
-    return &(wredStats.EntityData)
 }
 
 // InterfacesState_Interface_Ipv4
@@ -1356,6 +1141,7 @@ func (wredStats *InterfacesState_Interface_DiffservTargetEntry_DiffservTargetCla
 type InterfacesState_Interface_Ipv4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Indicates whether IPv4 packet forwarding is enabled or disabled on this
     // interface. The type is bool.
@@ -1368,12 +1154,12 @@ type InterfacesState_Interface_Ipv4 struct {
 
     // The list of IPv4 addresses on the interface. The type is slice of
     // InterfacesState_Interface_Ipv4_Address.
-    Address []InterfacesState_Interface_Ipv4_Address
+    Address []*InterfacesState_Interface_Ipv4_Address
 
     // A list of mappings from IPv4 addresses to link-layer addresses. This list
     // represents the ARP Cache. The type is slice of
     // InterfacesState_Interface_Ipv4_Neighbor.
-    Neighbor []InterfacesState_Interface_Ipv4_Neighbor
+    Neighbor []*InterfacesState_Interface_Ipv4_Neighbor
 }
 
 func (ipv4 *InterfacesState_Interface_Ipv4) GetEntityData() *types.CommonEntityData {
@@ -1386,18 +1172,21 @@ func (ipv4 *InterfacesState_Interface_Ipv4) GetEntityData() *types.CommonEntityD
     ipv4.EntityData.NamespaceTable = ietf.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["address"] = types.YChild{"Address", nil}
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("address", types.YChild{"Address", nil})
     for i := range ipv4.Address {
-        ipv4.EntityData.Children[types.GetSegmentPath(&ipv4.Address[i])] = types.YChild{"Address", &ipv4.Address[i]}
+        ipv4.EntityData.Children.Append(types.GetSegmentPath(ipv4.Address[i]), types.YChild{"Address", ipv4.Address[i]})
     }
-    ipv4.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    ipv4.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range ipv4.Neighbor {
-        ipv4.EntityData.Children[types.GetSegmentPath(&ipv4.Neighbor[i])] = types.YChild{"Neighbor", &ipv4.Neighbor[i]}
+        ipv4.EntityData.Children.Append(types.GetSegmentPath(ipv4.Neighbor[i]), types.YChild{"Neighbor", ipv4.Neighbor[i]})
     }
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4.EntityData.Leafs["forwarding"] = types.YLeaf{"Forwarding", ipv4.Forwarding}
-    ipv4.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", ipv4.Mtu}
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+    ipv4.EntityData.Leafs.Append("forwarding", types.YLeaf{"Forwarding", ipv4.Forwarding})
+    ipv4.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv4.Mtu})
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -1409,14 +1198,14 @@ type InterfacesState_Interface_Ipv4_Address struct {
 
     // This attribute is a key. The IPv4 address on the interface. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The length of the subnet prefix. The type is interface{} with range: 0..32.
     PrefixLength interface{}
 
     // The subnet specified as a netmask. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     Netmask interface{}
 
     // The origin of this address. The type is IpAddressOrigin.
@@ -1428,17 +1217,20 @@ func (address *InterfacesState_Interface_Ipv4_Address) GetEntityData() *types.Co
     address.EntityData.YangName = "address"
     address.EntityData.BundleName = "ietf"
     address.EntityData.ParentYangName = "ipv4"
-    address.EntityData.SegmentPath = "address" + "[ip='" + fmt.Sprintf("%v", address.Ip) + "']"
+    address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
     address.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     address.EntityData.NamespaceTable = ietf.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["ip"] = types.YLeaf{"Ip", address.Ip}
-    address.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", address.PrefixLength}
-    address.EntityData.Leafs["netmask"] = types.YLeaf{"Netmask", address.Netmask}
-    address.EntityData.Leafs["origin"] = types.YLeaf{"Origin", address.Origin}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", address.Ip})
+    address.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", address.PrefixLength})
+    address.EntityData.Leafs.Append("netmask", types.YLeaf{"Netmask", address.Netmask})
+    address.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", address.Origin})
+
+    address.EntityData.YListKeys = []string {"Ip"}
+
     return &(address.EntityData)
 }
 
@@ -1452,11 +1244,11 @@ type InterfacesState_Interface_Ipv4_Neighbor struct {
 
     // This attribute is a key. The IPv4 address of the neighbor node. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The link-layer address of the neighbor node. The type is string with
-    // pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     LinkLayerAddress interface{}
 
     // The origin of this neighbor entry. The type is NeighborOrigin.
@@ -1468,16 +1260,19 @@ func (neighbor *InterfacesState_Interface_Ipv4_Neighbor) GetEntityData() *types.
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "ietf"
     neighbor.EntityData.ParentYangName = "ipv4"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[ip='" + fmt.Sprintf("%v", neighbor.Ip) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
     neighbor.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     neighbor.EntityData.NamespaceTable = ietf.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["ip"] = types.YLeaf{"Ip", neighbor.Ip}
-    neighbor.EntityData.Leafs["link-layer-address"] = types.YLeaf{"LinkLayerAddress", neighbor.LinkLayerAddress}
-    neighbor.EntityData.Leafs["origin"] = types.YLeaf{"Origin", neighbor.Origin}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", neighbor.Ip})
+    neighbor.EntityData.Leafs.Append("link-layer-address", types.YLeaf{"LinkLayerAddress", neighbor.LinkLayerAddress})
+    neighbor.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", neighbor.Origin})
+
+    neighbor.EntityData.YListKeys = []string {"Ip"}
+
     return &(neighbor.EntityData)
 }
 
@@ -1487,6 +1282,7 @@ func (neighbor *InterfacesState_Interface_Ipv4_Neighbor) GetEntityData() *types.
 type InterfacesState_Interface_Ipv6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Indicates whether IPv6 packet forwarding is enabled or disabled on this
     // interface. The type is bool. The default value is false.
@@ -1499,12 +1295,12 @@ type InterfacesState_Interface_Ipv6 struct {
 
     // The list of IPv6 addresses on the interface. The type is slice of
     // InterfacesState_Interface_Ipv6_Address.
-    Address []InterfacesState_Interface_Ipv6_Address
+    Address []*InterfacesState_Interface_Ipv6_Address
 
     // A list of mappings from IPv6 addresses to link-layer addresses. This list
     // represents the Neighbor Cache. The type is slice of
     // InterfacesState_Interface_Ipv6_Neighbor.
-    Neighbor []InterfacesState_Interface_Ipv6_Neighbor
+    Neighbor []*InterfacesState_Interface_Ipv6_Neighbor
 }
 
 func (ipv6 *InterfacesState_Interface_Ipv6) GetEntityData() *types.CommonEntityData {
@@ -1517,18 +1313,21 @@ func (ipv6 *InterfacesState_Interface_Ipv6) GetEntityData() *types.CommonEntityD
     ipv6.EntityData.NamespaceTable = ietf.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["address"] = types.YChild{"Address", nil}
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("address", types.YChild{"Address", nil})
     for i := range ipv6.Address {
-        ipv6.EntityData.Children[types.GetSegmentPath(&ipv6.Address[i])] = types.YChild{"Address", &ipv6.Address[i]}
+        ipv6.EntityData.Children.Append(types.GetSegmentPath(ipv6.Address[i]), types.YChild{"Address", ipv6.Address[i]})
     }
-    ipv6.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    ipv6.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range ipv6.Neighbor {
-        ipv6.EntityData.Children[types.GetSegmentPath(&ipv6.Neighbor[i])] = types.YChild{"Neighbor", &ipv6.Neighbor[i]}
+        ipv6.EntityData.Children.Append(types.GetSegmentPath(ipv6.Neighbor[i]), types.YChild{"Neighbor", ipv6.Neighbor[i]})
     }
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6.EntityData.Leafs["forwarding"] = types.YLeaf{"Forwarding", ipv6.Forwarding}
-    ipv6.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", ipv6.Mtu}
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+    ipv6.EntityData.Leafs.Append("forwarding", types.YLeaf{"Forwarding", ipv6.Forwarding})
+    ipv6.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv6.Mtu})
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -1540,7 +1339,7 @@ type InterfacesState_Interface_Ipv6_Address struct {
 
     // This attribute is a key. The IPv6 address on the interface. The type is
     // string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The length of the subnet prefix. The type is interface{} with range:
@@ -1560,17 +1359,20 @@ func (address *InterfacesState_Interface_Ipv6_Address) GetEntityData() *types.Co
     address.EntityData.YangName = "address"
     address.EntityData.BundleName = "ietf"
     address.EntityData.ParentYangName = "ipv6"
-    address.EntityData.SegmentPath = "address" + "[ip='" + fmt.Sprintf("%v", address.Ip) + "']"
+    address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
     address.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     address.EntityData.NamespaceTable = ietf.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["ip"] = types.YLeaf{"Ip", address.Ip}
-    address.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", address.PrefixLength}
-    address.EntityData.Leafs["origin"] = types.YLeaf{"Origin", address.Origin}
-    address.EntityData.Leafs["status"] = types.YLeaf{"Status", address.Status}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", address.Ip})
+    address.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", address.PrefixLength})
+    address.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", address.Origin})
+    address.EntityData.Leafs.Append("status", types.YLeaf{"Status", address.Status})
+
+    address.EntityData.YListKeys = []string {"Ip"}
+
     return &(address.EntityData)
 }
 
@@ -1626,11 +1428,11 @@ type InterfacesState_Interface_Ipv6_Neighbor struct {
 
     // This attribute is a key. The IPv6 address of the neighbor node. The type is
     // string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The link-layer address of the neighbor node. The type is string with
-    // pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     LinkLayerAddress interface{}
 
     // The origin of this neighbor entry. The type is NeighborOrigin.
@@ -1649,18 +1451,21 @@ func (neighbor *InterfacesState_Interface_Ipv6_Neighbor) GetEntityData() *types.
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "ietf"
     neighbor.EntityData.ParentYangName = "ipv6"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[ip='" + fmt.Sprintf("%v", neighbor.Ip) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
     neighbor.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     neighbor.EntityData.NamespaceTable = ietf.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["ip"] = types.YLeaf{"Ip", neighbor.Ip}
-    neighbor.EntityData.Leafs["link-layer-address"] = types.YLeaf{"LinkLayerAddress", neighbor.LinkLayerAddress}
-    neighbor.EntityData.Leafs["origin"] = types.YLeaf{"Origin", neighbor.Origin}
-    neighbor.EntityData.Leafs["is-router"] = types.YLeaf{"IsRouter", neighbor.IsRouter}
-    neighbor.EntityData.Leafs["state"] = types.YLeaf{"State", neighbor.State}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", neighbor.Ip})
+    neighbor.EntityData.Leafs.Append("link-layer-address", types.YLeaf{"LinkLayerAddress", neighbor.LinkLayerAddress})
+    neighbor.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", neighbor.Origin})
+    neighbor.EntityData.Leafs.Append("is-router", types.YLeaf{"IsRouter", neighbor.IsRouter})
+    neighbor.EntityData.Leafs.Append("state", types.YLeaf{"State", neighbor.State})
+
+    neighbor.EntityData.YListKeys = []string {"Ip"}
+
     return &(neighbor.EntityData)
 }
 
@@ -1695,6 +1500,287 @@ const (
     // to verify reachability.
     InterfacesState_Interface_Ipv6_Neighbor_State_probe InterfacesState_Interface_Ipv6_Neighbor_State = "probe"
 )
+
+// InterfacesState_Interface_DiffservTargetEntry
+// policy target for inbound or outbound direction
+type InterfacesState_Interface_DiffservTargetEntry struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Direction fo the traffic flow either inbound or
+    // outbound. The type is one of the following: InboundOutbound.
+    Direction interface{}
+
+    // This attribute is a key. Policy entry name. The type is string.
+    PolicyName interface{}
+
+    // Statistics for each Classifier Entry in a Policy. The type is slice of
+    // InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics.
+    DiffservTargetClassifierStatistics []*InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics
+}
+
+func (diffservTargetEntry *InterfacesState_Interface_DiffservTargetEntry) GetEntityData() *types.CommonEntityData {
+    diffservTargetEntry.EntityData.YFilter = diffservTargetEntry.YFilter
+    diffservTargetEntry.EntityData.YangName = "diffserv-target-entry"
+    diffservTargetEntry.EntityData.BundleName = "ietf"
+    diffservTargetEntry.EntityData.ParentYangName = "interface"
+    diffservTargetEntry.EntityData.SegmentPath = "ietf-diffserv-target:diffserv-target-entry" + types.AddKeyToken(diffservTargetEntry.Direction, "direction") + types.AddKeyToken(diffservTargetEntry.PolicyName, "policy-name")
+    diffservTargetEntry.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    diffservTargetEntry.EntityData.NamespaceTable = ietf.GetNamespaces()
+    diffservTargetEntry.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    diffservTargetEntry.EntityData.Children = types.NewOrderedMap()
+    diffservTargetEntry.EntityData.Children.Append("diffserv-target-classifier-statistics", types.YChild{"DiffservTargetClassifierStatistics", nil})
+    for i := range diffservTargetEntry.DiffservTargetClassifierStatistics {
+        diffservTargetEntry.EntityData.Children.Append(types.GetSegmentPath(diffservTargetEntry.DiffservTargetClassifierStatistics[i]), types.YChild{"DiffservTargetClassifierStatistics", diffservTargetEntry.DiffservTargetClassifierStatistics[i]})
+    }
+    diffservTargetEntry.EntityData.Leafs = types.NewOrderedMap()
+    diffservTargetEntry.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", diffservTargetEntry.Direction})
+    diffservTargetEntry.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", diffservTargetEntry.PolicyName})
+
+    diffservTargetEntry.EntityData.YListKeys = []string {"Direction", "PolicyName"}
+
+    return &(diffservTargetEntry.EntityData)
+}
+
+// InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics
+// Statistics for each Classifier Entry in a Policy
+type InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Classifier Entry Name. The type is string.
+    ClassifierEntryName interface{}
+
+    // This attribute is a key. Path of the Classifier Entry in a hierarchial
+    // policy . The type is string.
+    ParentPath interface{}
+
+    // This group defines the classifier filter statistics of  each classifier
+    // entry         .
+    ClassifierEntryStatistics InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics
+
+    // Meter statistics. The type is slice of
+    // InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics.
+    MeterStatistics []*InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics
+
+    // queue related statistics .
+    QueuingStatistics InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics
+}
+
+func (diffservTargetClassifierStatistics *InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics) GetEntityData() *types.CommonEntityData {
+    diffservTargetClassifierStatistics.EntityData.YFilter = diffservTargetClassifierStatistics.YFilter
+    diffservTargetClassifierStatistics.EntityData.YangName = "diffserv-target-classifier-statistics"
+    diffservTargetClassifierStatistics.EntityData.BundleName = "ietf"
+    diffservTargetClassifierStatistics.EntityData.ParentYangName = "diffserv-target-entry"
+    diffservTargetClassifierStatistics.EntityData.SegmentPath = "diffserv-target-classifier-statistics" + types.AddKeyToken(diffservTargetClassifierStatistics.ClassifierEntryName, "classifier-entry-name") + types.AddKeyToken(diffservTargetClassifierStatistics.ParentPath, "parent-path")
+    diffservTargetClassifierStatistics.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    diffservTargetClassifierStatistics.EntityData.NamespaceTable = ietf.GetNamespaces()
+    diffservTargetClassifierStatistics.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    diffservTargetClassifierStatistics.EntityData.Children = types.NewOrderedMap()
+    diffservTargetClassifierStatistics.EntityData.Children.Append("classifier-entry-statistics", types.YChild{"ClassifierEntryStatistics", &diffservTargetClassifierStatistics.ClassifierEntryStatistics})
+    diffservTargetClassifierStatistics.EntityData.Children.Append("meter-statistics", types.YChild{"MeterStatistics", nil})
+    for i := range diffservTargetClassifierStatistics.MeterStatistics {
+        diffservTargetClassifierStatistics.EntityData.Children.Append(types.GetSegmentPath(diffservTargetClassifierStatistics.MeterStatistics[i]), types.YChild{"MeterStatistics", diffservTargetClassifierStatistics.MeterStatistics[i]})
+    }
+    diffservTargetClassifierStatistics.EntityData.Children.Append("queuing-statistics", types.YChild{"QueuingStatistics", &diffservTargetClassifierStatistics.QueuingStatistics})
+    diffservTargetClassifierStatistics.EntityData.Leafs = types.NewOrderedMap()
+    diffservTargetClassifierStatistics.EntityData.Leafs.Append("classifier-entry-name", types.YLeaf{"ClassifierEntryName", diffservTargetClassifierStatistics.ClassifierEntryName})
+    diffservTargetClassifierStatistics.EntityData.Leafs.Append("parent-path", types.YLeaf{"ParentPath", diffservTargetClassifierStatistics.ParentPath})
+
+    diffservTargetClassifierStatistics.EntityData.YListKeys = []string {"ClassifierEntryName", "ParentPath"}
+
+    return &(diffservTargetClassifierStatistics.EntityData)
+}
+
+// InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics
+// 
+// This group defines the classifier filter statistics of 
+// each classifier entry
+//        
+// 
+type InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of total packets which filtered  to the classifier-entry. The type
+    // is interface{} with range: 0..18446744073709551615.
+    ClassifiedPkts interface{}
+
+    // Number of total bytes which filtered   to the classifier-entry. The type is
+    // interface{} with range: 0..18446744073709551615.
+    ClassifiedBytes interface{}
+
+    // Rate of average data flow through the   classifier-entry. The type is
+    // interface{} with range: 0..18446744073709551615. Units are bits-per-second.
+    ClassifiedRate interface{}
+}
+
+func (classifierEntryStatistics *InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics) GetEntityData() *types.CommonEntityData {
+    classifierEntryStatistics.EntityData.YFilter = classifierEntryStatistics.YFilter
+    classifierEntryStatistics.EntityData.YangName = "classifier-entry-statistics"
+    classifierEntryStatistics.EntityData.BundleName = "ietf"
+    classifierEntryStatistics.EntityData.ParentYangName = "diffserv-target-classifier-statistics"
+    classifierEntryStatistics.EntityData.SegmentPath = "classifier-entry-statistics"
+    classifierEntryStatistics.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    classifierEntryStatistics.EntityData.NamespaceTable = ietf.GetNamespaces()
+    classifierEntryStatistics.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    classifierEntryStatistics.EntityData.Children = types.NewOrderedMap()
+    classifierEntryStatistics.EntityData.Leafs = types.NewOrderedMap()
+    classifierEntryStatistics.EntityData.Leafs.Append("classified-pkts", types.YLeaf{"ClassifiedPkts", classifierEntryStatistics.ClassifiedPkts})
+    classifierEntryStatistics.EntityData.Leafs.Append("classified-bytes", types.YLeaf{"ClassifiedBytes", classifierEntryStatistics.ClassifiedBytes})
+    classifierEntryStatistics.EntityData.Leafs.Append("classified-rate", types.YLeaf{"ClassifiedRate", classifierEntryStatistics.ClassifiedRate})
+
+    classifierEntryStatistics.EntityData.YListKeys = []string {}
+
+    return &(classifierEntryStatistics.EntityData)
+}
+
+// InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics
+// Meter statistics
+type InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Meter Identifier. The type is interface{} with
+    // range: 0..65535.
+    MeterId interface{}
+
+    // Number of packets which succeed the meter. The type is interface{} with
+    // range: 0..18446744073709551615.
+    MeterSucceedPkts interface{}
+
+    // Bytes of packets which succeed the meter. The type is interface{} with
+    // range: 0..18446744073709551615.
+    MeterSucceedBytes interface{}
+
+    // Number of packets which failed the meter. The type is interface{} with
+    // range: 0..18446744073709551615.
+    MeterFailedPkts interface{}
+
+    // Bytes of packets which failed the meter. The type is interface{} with
+    // range: 0..18446744073709551615.
+    MeterFailedBytes interface{}
+}
+
+func (meterStatistics *InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics) GetEntityData() *types.CommonEntityData {
+    meterStatistics.EntityData.YFilter = meterStatistics.YFilter
+    meterStatistics.EntityData.YangName = "meter-statistics"
+    meterStatistics.EntityData.BundleName = "ietf"
+    meterStatistics.EntityData.ParentYangName = "diffserv-target-classifier-statistics"
+    meterStatistics.EntityData.SegmentPath = "meter-statistics" + types.AddKeyToken(meterStatistics.MeterId, "meter-id")
+    meterStatistics.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    meterStatistics.EntityData.NamespaceTable = ietf.GetNamespaces()
+    meterStatistics.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    meterStatistics.EntityData.Children = types.NewOrderedMap()
+    meterStatistics.EntityData.Leafs = types.NewOrderedMap()
+    meterStatistics.EntityData.Leafs.Append("meter-id", types.YLeaf{"MeterId", meterStatistics.MeterId})
+    meterStatistics.EntityData.Leafs.Append("meter-succeed-pkts", types.YLeaf{"MeterSucceedPkts", meterStatistics.MeterSucceedPkts})
+    meterStatistics.EntityData.Leafs.Append("meter-succeed-bytes", types.YLeaf{"MeterSucceedBytes", meterStatistics.MeterSucceedBytes})
+    meterStatistics.EntityData.Leafs.Append("meter-failed-pkts", types.YLeaf{"MeterFailedPkts", meterStatistics.MeterFailedPkts})
+    meterStatistics.EntityData.Leafs.Append("meter-failed-bytes", types.YLeaf{"MeterFailedBytes", meterStatistics.MeterFailedBytes})
+
+    meterStatistics.EntityData.YListKeys = []string {"MeterId"}
+
+    return &(meterStatistics.EntityData)
+}
+
+// InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics
+// queue related statistics 
+type InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of packets transmitted from queue . The type is interface{} with
+    // range: 0..18446744073709551615.
+    OutputPkts interface{}
+
+    // Number of bytes transmitted from queue . The type is interface{} with
+    // range: 0..18446744073709551615.
+    OutputBytes interface{}
+
+    // Number of packets currently buffered . The type is interface{} with range:
+    // 0..18446744073709551615.
+    QueueSizePkts interface{}
+
+    // Number of bytes currently buffered . The type is interface{} with range:
+    // 0..18446744073709551615.
+    QueueSizeBytes interface{}
+
+    // Total number of packets dropped . The type is interface{} with range:
+    // 0..18446744073709551615.
+    DropPkts interface{}
+
+    // Total number of bytes dropped . The type is interface{} with range:
+    // 0..18446744073709551615.
+    DropBytes interface{}
+
+    // Container for WRED statistics.
+    WredStats InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats
+}
+
+func (queuingStatistics *InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics) GetEntityData() *types.CommonEntityData {
+    queuingStatistics.EntityData.YFilter = queuingStatistics.YFilter
+    queuingStatistics.EntityData.YangName = "queuing-statistics"
+    queuingStatistics.EntityData.BundleName = "ietf"
+    queuingStatistics.EntityData.ParentYangName = "diffserv-target-classifier-statistics"
+    queuingStatistics.EntityData.SegmentPath = "queuing-statistics"
+    queuingStatistics.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    queuingStatistics.EntityData.NamespaceTable = ietf.GetNamespaces()
+    queuingStatistics.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    queuingStatistics.EntityData.Children = types.NewOrderedMap()
+    queuingStatistics.EntityData.Children.Append("wred-stats", types.YChild{"WredStats", &queuingStatistics.WredStats})
+    queuingStatistics.EntityData.Leafs = types.NewOrderedMap()
+    queuingStatistics.EntityData.Leafs.Append("output-pkts", types.YLeaf{"OutputPkts", queuingStatistics.OutputPkts})
+    queuingStatistics.EntityData.Leafs.Append("output-bytes", types.YLeaf{"OutputBytes", queuingStatistics.OutputBytes})
+    queuingStatistics.EntityData.Leafs.Append("queue-size-pkts", types.YLeaf{"QueueSizePkts", queuingStatistics.QueueSizePkts})
+    queuingStatistics.EntityData.Leafs.Append("queue-size-bytes", types.YLeaf{"QueueSizeBytes", queuingStatistics.QueueSizeBytes})
+    queuingStatistics.EntityData.Leafs.Append("drop-pkts", types.YLeaf{"DropPkts", queuingStatistics.DropPkts})
+    queuingStatistics.EntityData.Leafs.Append("drop-bytes", types.YLeaf{"DropBytes", queuingStatistics.DropBytes})
+
+    queuingStatistics.EntityData.YListKeys = []string {}
+
+    return &(queuingStatistics.EntityData)
+}
+
+// InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats
+// Container for WRED statistics
+type InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Early drop packets . The type is interface{} with range:
+    // 0..18446744073709551615.
+    EarlyDropPkts interface{}
+
+    // Early drop bytes . The type is interface{} with range:
+    // 0..18446744073709551615.
+    EarlyDropBytes interface{}
+}
+
+func (wredStats *InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats) GetEntityData() *types.CommonEntityData {
+    wredStats.EntityData.YFilter = wredStats.YFilter
+    wredStats.EntityData.YangName = "wred-stats"
+    wredStats.EntityData.BundleName = "ietf"
+    wredStats.EntityData.ParentYangName = "queuing-statistics"
+    wredStats.EntityData.SegmentPath = "wred-stats"
+    wredStats.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    wredStats.EntityData.NamespaceTable = ietf.GetNamespaces()
+    wredStats.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    wredStats.EntityData.Children = types.NewOrderedMap()
+    wredStats.EntityData.Leafs = types.NewOrderedMap()
+    wredStats.EntityData.Leafs.Append("early-drop-pkts", types.YLeaf{"EarlyDropPkts", wredStats.EarlyDropPkts})
+    wredStats.EntityData.Leafs.Append("early-drop-bytes", types.YLeaf{"EarlyDropBytes", wredStats.EarlyDropBytes})
+
+    wredStats.EntityData.YListKeys = []string {}
+
+    return &(wredStats.EntityData)
+}
 
 // InterfacesState_Interface_AdminStatus represents This leaf has the same read semantics as ifAdminStatus.
 type InterfacesState_Interface_AdminStatus string

@@ -94,7 +94,7 @@ type Vpdn struct {
     Loggings Vpdn_Loggings
 
     // L2TPv2 protocol commands.
-    L2Tp Vpdn_L2Tp
+    L2tp Vpdn_L2tp
 }
 
 func (vpdn *Vpdn) GetEntityData() *types.CommonEntityData {
@@ -107,19 +107,22 @@ func (vpdn *Vpdn) GetEntityData() *types.CommonEntityData {
     vpdn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpdn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vpdn.EntityData.Children = make(map[string]types.YChild)
-    vpdn.EntityData.Children["history"] = types.YChild{"History", &vpdn.History}
-    vpdn.EntityData.Children["redundancy"] = types.YChild{"Redundancy", &vpdn.Redundancy}
-    vpdn.EntityData.Children["local"] = types.YChild{"Local", &vpdn.Local}
-    vpdn.EntityData.Children["templates"] = types.YChild{"Templates", &vpdn.Templates}
-    vpdn.EntityData.Children["caller-id"] = types.YChild{"CallerId", &vpdn.CallerId}
-    vpdn.EntityData.Children["vpd-ngroups"] = types.YChild{"VpdNgroups", &vpdn.VpdNgroups}
-    vpdn.EntityData.Children["loggings"] = types.YChild{"Loggings", &vpdn.Loggings}
-    vpdn.EntityData.Children["l2tp"] = types.YChild{"L2Tp", &vpdn.L2Tp}
-    vpdn.EntityData.Leafs = make(map[string]types.YLeaf)
-    vpdn.EntityData.Leafs["session-limit"] = types.YLeaf{"SessionLimit", vpdn.SessionLimit}
-    vpdn.EntityData.Leafs["enable"] = types.YLeaf{"Enable", vpdn.Enable}
-    vpdn.EntityData.Leafs["soft-shut"] = types.YLeaf{"SoftShut", vpdn.SoftShut}
+    vpdn.EntityData.Children = types.NewOrderedMap()
+    vpdn.EntityData.Children.Append("history", types.YChild{"History", &vpdn.History})
+    vpdn.EntityData.Children.Append("redundancy", types.YChild{"Redundancy", &vpdn.Redundancy})
+    vpdn.EntityData.Children.Append("local", types.YChild{"Local", &vpdn.Local})
+    vpdn.EntityData.Children.Append("templates", types.YChild{"Templates", &vpdn.Templates})
+    vpdn.EntityData.Children.Append("caller-id", types.YChild{"CallerId", &vpdn.CallerId})
+    vpdn.EntityData.Children.Append("vpd-ngroups", types.YChild{"VpdNgroups", &vpdn.VpdNgroups})
+    vpdn.EntityData.Children.Append("loggings", types.YChild{"Loggings", &vpdn.Loggings})
+    vpdn.EntityData.Children.Append("l2tp", types.YChild{"L2tp", &vpdn.L2tp})
+    vpdn.EntityData.Leafs = types.NewOrderedMap()
+    vpdn.EntityData.Leafs.Append("session-limit", types.YLeaf{"SessionLimit", vpdn.SessionLimit})
+    vpdn.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", vpdn.Enable})
+    vpdn.EntityData.Leafs.Append("soft-shut", types.YLeaf{"SoftShut", vpdn.SoftShut})
+
+    vpdn.EntityData.YListKeys = []string {}
+
     return &(vpdn.EntityData)
 }
 
@@ -143,9 +146,12 @@ func (history *Vpdn_History) GetEntityData() *types.CommonEntityData {
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    history.EntityData.Children = make(map[string]types.YChild)
-    history.EntityData.Leafs = make(map[string]types.YLeaf)
-    history.EntityData.Leafs["failure"] = types.YLeaf{"Failure", history.Failure}
+    history.EntityData.Children = types.NewOrderedMap()
+    history.EntityData.Leafs = types.NewOrderedMap()
+    history.EntityData.Leafs.Append("failure", types.YLeaf{"Failure", history.Failure})
+
+    history.EntityData.YListKeys = []string {}
+
     return &(history.EntityData)
 }
 
@@ -173,10 +179,13 @@ func (redundancy *Vpdn_Redundancy) GetEntityData() *types.CommonEntityData {
     redundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    redundancy.EntityData.Children = make(map[string]types.YChild)
-    redundancy.EntityData.Children["process-failures"] = types.YChild{"ProcessFailures", &redundancy.ProcessFailures}
-    redundancy.EntityData.Leafs = make(map[string]types.YLeaf)
-    redundancy.EntityData.Leafs["enable"] = types.YLeaf{"Enable", redundancy.Enable}
+    redundancy.EntityData.Children = types.NewOrderedMap()
+    redundancy.EntityData.Children.Append("process-failures", types.YChild{"ProcessFailures", &redundancy.ProcessFailures})
+    redundancy.EntityData.Leafs = types.NewOrderedMap()
+    redundancy.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", redundancy.Enable})
+
+    redundancy.EntityData.YListKeys = []string {}
+
     return &(redundancy.EntityData)
 }
 
@@ -200,9 +209,12 @@ func (processFailures *Vpdn_Redundancy_ProcessFailures) GetEntityData() *types.C
     processFailures.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processFailures.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    processFailures.EntityData.Children = make(map[string]types.YChild)
-    processFailures.EntityData.Leafs = make(map[string]types.YLeaf)
-    processFailures.EntityData.Leafs["switchover"] = types.YLeaf{"Switchover", processFailures.Switchover}
+    processFailures.EntityData.Children = types.NewOrderedMap()
+    processFailures.EntityData.Leafs = types.NewOrderedMap()
+    processFailures.EntityData.Leafs.Append("switchover", types.YLeaf{"Switchover", processFailures.Switchover})
+
+    processFailures.EntityData.YListKeys = []string {}
+
     return &(processFailures.EntityData)
 }
 
@@ -235,12 +247,15 @@ func (local *Vpdn_Local) GetEntityData() *types.CommonEntityData {
     local.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     local.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    local.EntityData.Children = make(map[string]types.YChild)
-    local.EntityData.Leafs = make(map[string]types.YLeaf)
-    local.EntityData.Leafs["secret-text"] = types.YLeaf{"SecretText", local.SecretText}
-    local.EntityData.Leafs["path"] = types.YLeaf{"Path", local.Path}
-    local.EntityData.Leafs["cache-disabled"] = types.YLeaf{"CacheDisabled", local.CacheDisabled}
-    local.EntityData.Leafs["port"] = types.YLeaf{"Port", local.Port}
+    local.EntityData.Children = types.NewOrderedMap()
+    local.EntityData.Leafs = types.NewOrderedMap()
+    local.EntityData.Leafs.Append("secret-text", types.YLeaf{"SecretText", local.SecretText})
+    local.EntityData.Leafs.Append("path", types.YLeaf{"Path", local.Path})
+    local.EntityData.Leafs.Append("cache-disabled", types.YLeaf{"CacheDisabled", local.CacheDisabled})
+    local.EntityData.Leafs.Append("port", types.YLeaf{"Port", local.Port})
+
+    local.EntityData.YListKeys = []string {}
+
     return &(local.EntityData)
 }
 
@@ -251,7 +266,7 @@ type Vpdn_Templates struct {
     YFilter yfilter.YFilter
 
     // VPDN template configuration. The type is slice of Vpdn_Templates_Template.
-    Template []Vpdn_Templates_Template
+    Template []*Vpdn_Templates_Template
 }
 
 func (templates *Vpdn_Templates) GetEntityData() *types.CommonEntityData {
@@ -264,12 +279,15 @@ func (templates *Vpdn_Templates) GetEntityData() *types.CommonEntityData {
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    templates.EntityData.Children = make(map[string]types.YChild)
-    templates.EntityData.Children["template"] = types.YChild{"Template", nil}
+    templates.EntityData.Children = types.NewOrderedMap()
+    templates.EntityData.Children.Append("template", types.YChild{"Template", nil})
     for i := range templates.Template {
-        templates.EntityData.Children[types.GetSegmentPath(&templates.Template[i])] = types.YChild{"Template", &templates.Template[i]}
+        templates.EntityData.Children.Append(types.GetSegmentPath(templates.Template[i]), types.YChild{"Template", templates.Template[i]})
     }
-    templates.EntityData.Leafs = make(map[string]types.YLeaf)
+    templates.EntityData.Leafs = types.NewOrderedMap()
+
+    templates.EntityData.YListKeys = []string {}
+
     return &(templates.EntityData)
 }
 
@@ -291,7 +309,7 @@ type Vpdn_Templates_Template struct {
     Description interface{}
 
     // L2TP class  command. The type is string with length: 1..79.
-    L2TpClass interface{}
+    L2tpClass interface{}
 
     // Forward DSL Line Info attributes. The type is interface{}.
     DslLineForwarding interface{}
@@ -317,23 +335,26 @@ func (template *Vpdn_Templates_Template) GetEntityData() *types.CommonEntityData
     template.EntityData.YangName = "template"
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
-    template.EntityData.SegmentPath = "template" + "[template-name='" + fmt.Sprintf("%v", template.TemplateName) + "']"
+    template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    template.EntityData.Children = make(map[string]types.YChild)
-    template.EntityData.Children["caller-id"] = types.YChild{"CallerId", &template.CallerId}
-    template.EntityData.Children["vpn"] = types.YChild{"Vpn", &template.Vpn}
-    template.EntityData.Children["tunnel"] = types.YChild{"Tunnel", &template.Tunnel}
-    template.EntityData.Children["ip"] = types.YChild{"Ip", &template.Ip}
-    template.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &template.Ipv4}
-    template.EntityData.Leafs = make(map[string]types.YLeaf)
-    template.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", template.TemplateName}
-    template.EntityData.Leafs["cisco-avp100-format-e-enable"] = types.YLeaf{"CiscoAvp100FormatEEnable", template.CiscoAvp100FormatEEnable}
-    template.EntityData.Leafs["description"] = types.YLeaf{"Description", template.Description}
-    template.EntityData.Leafs["l2tp-class"] = types.YLeaf{"L2TpClass", template.L2TpClass}
-    template.EntityData.Leafs["dsl-line-forwarding"] = types.YLeaf{"DslLineForwarding", template.DslLineForwarding}
+    template.EntityData.Children = types.NewOrderedMap()
+    template.EntityData.Children.Append("caller-id", types.YChild{"CallerId", &template.CallerId})
+    template.EntityData.Children.Append("vpn", types.YChild{"Vpn", &template.Vpn})
+    template.EntityData.Children.Append("tunnel", types.YChild{"Tunnel", &template.Tunnel})
+    template.EntityData.Children.Append("ip", types.YChild{"Ip", &template.Ip})
+    template.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &template.Ipv4})
+    template.EntityData.Leafs = types.NewOrderedMap()
+    template.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", template.TemplateName})
+    template.EntityData.Leafs.Append("cisco-avp100-format-e-enable", types.YLeaf{"CiscoAvp100FormatEEnable", template.CiscoAvp100FormatEEnable})
+    template.EntityData.Leafs.Append("description", types.YLeaf{"Description", template.Description})
+    template.EntityData.Leafs.Append("l2tp-class", types.YLeaf{"L2tpClass", template.L2tpClass})
+    template.EntityData.Leafs.Append("dsl-line-forwarding", types.YLeaf{"DslLineForwarding", template.DslLineForwarding})
+
+    template.EntityData.YListKeys = []string {"TemplateName"}
+
     return &(template.EntityData)
 }
 
@@ -357,9 +378,12 @@ func (callerId *Vpdn_Templates_Template_CallerId) GetEntityData() *types.CommonE
     callerId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     callerId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    callerId.EntityData.Children = make(map[string]types.YChild)
-    callerId.EntityData.Leafs = make(map[string]types.YLeaf)
-    callerId.EntityData.Leafs["mask"] = types.YLeaf{"Mask", callerId.Mask}
+    callerId.EntityData.Children = types.NewOrderedMap()
+    callerId.EntityData.Leafs = types.NewOrderedMap()
+    callerId.EntityData.Leafs.Append("mask", types.YLeaf{"Mask", callerId.Mask})
+
+    callerId.EntityData.YListKeys = []string {}
+
     return &(callerId.EntityData)
 }
 
@@ -386,10 +410,13 @@ func (vpn *Vpdn_Templates_Template_Vpn) GetEntityData() *types.CommonEntityData 
     vpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vpn.EntityData.Children = make(map[string]types.YChild)
-    vpn.EntityData.Children["id"] = types.YChild{"Id", &vpn.Id}
-    vpn.EntityData.Leafs = make(map[string]types.YLeaf)
-    vpn.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", vpn.Vrf}
+    vpn.EntityData.Children = types.NewOrderedMap()
+    vpn.EntityData.Children.Append("id", types.YChild{"Id", &vpn.Id})
+    vpn.EntityData.Leafs = types.NewOrderedMap()
+    vpn.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", vpn.Vrf})
+
+    vpn.EntityData.YListKeys = []string {}
+
     return &(vpn.EntityData)
 }
 
@@ -400,11 +427,11 @@ type Vpdn_Templates_Template_Vpn_Id struct {
     YFilter yfilter.YFilter
 
     // VPN ID, (OUI:VPN-Index) format(hex), 3 bytes OUI Part. The type is string
-    // with pattern: b'[0-9a-fA-F]{1,8}'.
+    // with pattern: [0-9a-fA-F]{1,8}.
     Oui interface{}
 
     // VPN ID, (OUI:VPN-Index) format(hex), 4 bytes VPN_Index Part. The type is
-    // string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // string with pattern: [0-9a-fA-F]{1,8}.
     Index interface{}
 }
 
@@ -418,10 +445,13 @@ func (id *Vpdn_Templates_Template_Vpn_Id) GetEntityData() *types.CommonEntityDat
     id.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     id.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    id.EntityData.Children = make(map[string]types.YChild)
-    id.EntityData.Leafs = make(map[string]types.YLeaf)
-    id.EntityData.Leafs["oui"] = types.YLeaf{"Oui", id.Oui}
-    id.EntityData.Leafs["index"] = types.YLeaf{"Index", id.Index}
+    id.EntityData.Children = types.NewOrderedMap()
+    id.EntityData.Leafs = types.NewOrderedMap()
+    id.EntityData.Leafs.Append("oui", types.YLeaf{"Oui", id.Oui})
+    id.EntityData.Leafs.Append("index", types.YLeaf{"Index", id.Index})
+
+    id.EntityData.YListKeys = []string {}
+
     return &(id.EntityData)
 }
 
@@ -446,9 +476,12 @@ func (tunnel *Vpdn_Templates_Template_Tunnel) GetEntityData() *types.CommonEntit
     tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tunnel.EntityData.Children = make(map[string]types.YChild)
-    tunnel.EntityData.Leafs = make(map[string]types.YLeaf)
-    tunnel.EntityData.Leafs["busy-timeout"] = types.YLeaf{"BusyTimeout", tunnel.BusyTimeout}
+    tunnel.EntityData.Children = types.NewOrderedMap()
+    tunnel.EntityData.Leafs = types.NewOrderedMap()
+    tunnel.EntityData.Leafs.Append("busy-timeout", types.YLeaf{"BusyTimeout", tunnel.BusyTimeout})
+
+    tunnel.EntityData.YListKeys = []string {}
+
     return &(tunnel.EntityData)
 }
 
@@ -458,8 +491,7 @@ type Vpdn_Templates_Template_Ip struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Set constant integer. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Set constant integer. The type is interface{} with range: 0..4294967295.
     Tos interface{}
 }
 
@@ -473,9 +505,12 @@ func (ip *Vpdn_Templates_Template_Ip) GetEntityData() *types.CommonEntityData {
     ip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ip.EntityData.Children = make(map[string]types.YChild)
-    ip.EntityData.Leafs = make(map[string]types.YLeaf)
-    ip.EntityData.Leafs["tos"] = types.YLeaf{"Tos", ip.Tos}
+    ip.EntityData.Children = types.NewOrderedMap()
+    ip.EntityData.Leafs = types.NewOrderedMap()
+    ip.EntityData.Leafs.Append("tos", types.YLeaf{"Tos", ip.Tos})
+
+    ip.EntityData.YListKeys = []string {}
+
     return &(ip.EntityData)
 }
 
@@ -489,7 +524,7 @@ type Vpdn_Templates_Template_Ipv4 struct {
     DfBit interface{}
 
     // Enter an IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 }
 
@@ -503,10 +538,13 @@ func (ipv4 *Vpdn_Templates_Template_Ipv4) GetEntityData() *types.CommonEntityDat
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4.EntityData.Leafs["df-bit"] = types.YLeaf{"DfBit", ipv4.DfBit}
-    ipv4.EntityData.Leafs["source"] = types.YLeaf{"Source", ipv4.Source}
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+    ipv4.EntityData.Leafs.Append("df-bit", types.YLeaf{"DfBit", ipv4.DfBit})
+    ipv4.EntityData.Leafs.Append("source", types.YLeaf{"Source", ipv4.Source})
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -530,9 +568,12 @@ func (callerId *Vpdn_CallerId) GetEntityData() *types.CommonEntityData {
     callerId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     callerId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    callerId.EntityData.Children = make(map[string]types.YChild)
-    callerId.EntityData.Leafs = make(map[string]types.YLeaf)
-    callerId.EntityData.Leafs["mask"] = types.YLeaf{"Mask", callerId.Mask}
+    callerId.EntityData.Children = types.NewOrderedMap()
+    callerId.EntityData.Leafs = types.NewOrderedMap()
+    callerId.EntityData.Leafs.Append("mask", types.YLeaf{"Mask", callerId.Mask})
+
+    callerId.EntityData.YListKeys = []string {}
+
     return &(callerId.EntityData)
 }
 
@@ -543,7 +584,7 @@ type Vpdn_VpdNgroups struct {
     YFilter yfilter.YFilter
 
     // vpdn-group configuration. The type is slice of Vpdn_VpdNgroups_VpdNgroup.
-    VpdNgroup []Vpdn_VpdNgroups_VpdNgroup
+    VpdNgroup []*Vpdn_VpdNgroups_VpdNgroup
 }
 
 func (vpdNgroups *Vpdn_VpdNgroups) GetEntityData() *types.CommonEntityData {
@@ -556,12 +597,15 @@ func (vpdNgroups *Vpdn_VpdNgroups) GetEntityData() *types.CommonEntityData {
     vpdNgroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpdNgroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vpdNgroups.EntityData.Children = make(map[string]types.YChild)
-    vpdNgroups.EntityData.Children["vpd-ngroup"] = types.YChild{"VpdNgroup", nil}
+    vpdNgroups.EntityData.Children = types.NewOrderedMap()
+    vpdNgroups.EntityData.Children.Append("vpd-ngroup", types.YChild{"VpdNgroup", nil})
     for i := range vpdNgroups.VpdNgroup {
-        vpdNgroups.EntityData.Children[types.GetSegmentPath(&vpdNgroups.VpdNgroup[i])] = types.YChild{"VpdNgroup", &vpdNgroups.VpdNgroup[i]}
+        vpdNgroups.EntityData.Children.Append(types.GetSegmentPath(vpdNgroups.VpdNgroup[i]), types.YChild{"VpdNgroup", vpdNgroups.VpdNgroup[i]})
     }
-    vpdNgroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    vpdNgroups.EntityData.Leafs = types.NewOrderedMap()
+
+    vpdNgroups.EntityData.YListKeys = []string {}
+
     return &(vpdNgroups.EntityData)
 }
 
@@ -589,7 +633,7 @@ type Vpdn_VpdNgroups_VpdNgroup struct {
     Attribute interface{}
 
     // l2tp class name. The type is string with length: 1..79.
-    L2TpClass interface{}
+    L2tpClass interface{}
 
     // Busy list timeout length. The type is interface{} with range: 1..65535.
     TunnelBusyTimeout interface{}
@@ -612,24 +656,27 @@ func (vpdNgroup *Vpdn_VpdNgroups_VpdNgroup) GetEntityData() *types.CommonEntityD
     vpdNgroup.EntityData.YangName = "vpd-ngroup"
     vpdNgroup.EntityData.BundleName = "cisco_ios_xr"
     vpdNgroup.EntityData.ParentYangName = "vpd-ngroups"
-    vpdNgroup.EntityData.SegmentPath = "vpd-ngroup" + "[vpd-ngroupname='" + fmt.Sprintf("%v", vpdNgroup.VpdNgroupname) + "']"
+    vpdNgroup.EntityData.SegmentPath = "vpd-ngroup" + types.AddKeyToken(vpdNgroup.VpdNgroupname, "vpd-ngroupname")
     vpdNgroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vpdNgroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpdNgroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vpdNgroup.EntityData.Children = make(map[string]types.YChild)
-    vpdNgroup.EntityData.Children["vpn-id"] = types.YChild{"VpnId", &vpdNgroup.VpnId}
-    vpdNgroup.EntityData.Children["ip"] = types.YChild{"Ip", &vpdNgroup.Ip}
-    vpdNgroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    vpdNgroup.EntityData.Leafs["vpd-ngroupname"] = types.YLeaf{"VpdNgroupname", vpdNgroup.VpdNgroupname}
-    vpdNgroup.EntityData.Leafs["dsl-line-forwarding"] = types.YLeaf{"DslLineForwarding", vpdNgroup.DslLineForwarding}
-    vpdNgroup.EntityData.Leafs["cisco-avp100-format-e-enable"] = types.YLeaf{"CiscoAvp100FormatEEnable", vpdNgroup.CiscoAvp100FormatEEnable}
-    vpdNgroup.EntityData.Leafs["desc"] = types.YLeaf{"Desc", vpdNgroup.Desc}
-    vpdNgroup.EntityData.Leafs["attribute"] = types.YLeaf{"Attribute", vpdNgroup.Attribute}
-    vpdNgroup.EntityData.Leafs["l2tp-class"] = types.YLeaf{"L2TpClass", vpdNgroup.L2TpClass}
-    vpdNgroup.EntityData.Leafs["tunnel-busy-timeout"] = types.YLeaf{"TunnelBusyTimeout", vpdNgroup.TunnelBusyTimeout}
-    vpdNgroup.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vpdNgroup.VrfName}
-    vpdNgroup.EntityData.Leafs["sr-ctemplate"] = types.YLeaf{"SrCtemplate", vpdNgroup.SrCtemplate}
+    vpdNgroup.EntityData.Children = types.NewOrderedMap()
+    vpdNgroup.EntityData.Children.Append("vpn-id", types.YChild{"VpnId", &vpdNgroup.VpnId})
+    vpdNgroup.EntityData.Children.Append("ip", types.YChild{"Ip", &vpdNgroup.Ip})
+    vpdNgroup.EntityData.Leafs = types.NewOrderedMap()
+    vpdNgroup.EntityData.Leafs.Append("vpd-ngroupname", types.YLeaf{"VpdNgroupname", vpdNgroup.VpdNgroupname})
+    vpdNgroup.EntityData.Leafs.Append("dsl-line-forwarding", types.YLeaf{"DslLineForwarding", vpdNgroup.DslLineForwarding})
+    vpdNgroup.EntityData.Leafs.Append("cisco-avp100-format-e-enable", types.YLeaf{"CiscoAvp100FormatEEnable", vpdNgroup.CiscoAvp100FormatEEnable})
+    vpdNgroup.EntityData.Leafs.Append("desc", types.YLeaf{"Desc", vpdNgroup.Desc})
+    vpdNgroup.EntityData.Leafs.Append("attribute", types.YLeaf{"Attribute", vpdNgroup.Attribute})
+    vpdNgroup.EntityData.Leafs.Append("l2tp-class", types.YLeaf{"L2tpClass", vpdNgroup.L2tpClass})
+    vpdNgroup.EntityData.Leafs.Append("tunnel-busy-timeout", types.YLeaf{"TunnelBusyTimeout", vpdNgroup.TunnelBusyTimeout})
+    vpdNgroup.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vpdNgroup.VrfName})
+    vpdNgroup.EntityData.Leafs.Append("sr-ctemplate", types.YLeaf{"SrCtemplate", vpdNgroup.SrCtemplate})
+
+    vpdNgroup.EntityData.YListKeys = []string {"VpdNgroupname"}
+
     return &(vpdNgroup.EntityData)
 }
 
@@ -640,11 +687,11 @@ type Vpdn_VpdNgroups_VpdNgroup_VpnId struct {
     YFilter yfilter.YFilter
 
     // VPN ID, (OUI:VPN-Index) format(hex), 3 bytes OUI Part. The type is string
-    // with pattern: b'[0-9a-fA-F]{1,8}'.
+    // with pattern: [0-9a-fA-F]{1,8}.
     VpnIdOui interface{}
 
     // VPN ID, (OUI:VPN-Index) format(hex), 4 bytes VPN_Index Part. The type is
-    // string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // string with pattern: [0-9a-fA-F]{1,8}.
     VpnIdIndex interface{}
 }
 
@@ -658,10 +705,13 @@ func (vpnId *Vpdn_VpdNgroups_VpdNgroup_VpnId) GetEntityData() *types.CommonEntit
     vpnId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpnId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vpnId.EntityData.Children = make(map[string]types.YChild)
-    vpnId.EntityData.Leafs = make(map[string]types.YLeaf)
-    vpnId.EntityData.Leafs["vpn-id-oui"] = types.YLeaf{"VpnIdOui", vpnId.VpnIdOui}
-    vpnId.EntityData.Leafs["vpn-id-index"] = types.YLeaf{"VpnIdIndex", vpnId.VpnIdIndex}
+    vpnId.EntityData.Children = types.NewOrderedMap()
+    vpnId.EntityData.Leafs = types.NewOrderedMap()
+    vpnId.EntityData.Leafs.Append("vpn-id-oui", types.YLeaf{"VpnIdOui", vpnId.VpnIdOui})
+    vpnId.EntityData.Leafs.Append("vpn-id-index", types.YLeaf{"VpnIdIndex", vpnId.VpnIdIndex})
+
+    vpnId.EntityData.YListKeys = []string {}
+
     return &(vpnId.EntityData)
 }
 
@@ -685,9 +735,12 @@ func (ip *Vpdn_VpdNgroups_VpdNgroup_Ip) GetEntityData() *types.CommonEntityData 
     ip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ip.EntityData.Children = make(map[string]types.YChild)
-    ip.EntityData.Leafs = make(map[string]types.YLeaf)
-    ip.EntityData.Leafs["tos"] = types.YLeaf{"Tos", ip.Tos}
+    ip.EntityData.Children = types.NewOrderedMap()
+    ip.EntityData.Leafs = types.NewOrderedMap()
+    ip.EntityData.Leafs.Append("tos", types.YLeaf{"Tos", ip.Tos})
+
+    ip.EntityData.YListKeys = []string {}
+
     return &(ip.EntityData)
 }
 
@@ -698,7 +751,7 @@ type Vpdn_Loggings struct {
     YFilter yfilter.YFilter
 
     // Configure logging for VPDN. The type is slice of Vpdn_Loggings_Logging.
-    Logging []Vpdn_Loggings_Logging
+    Logging []*Vpdn_Loggings_Logging
 }
 
 func (loggings *Vpdn_Loggings) GetEntityData() *types.CommonEntityData {
@@ -711,12 +764,15 @@ func (loggings *Vpdn_Loggings) GetEntityData() *types.CommonEntityData {
     loggings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loggings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loggings.EntityData.Children = make(map[string]types.YChild)
-    loggings.EntityData.Children["logging"] = types.YChild{"Logging", nil}
+    loggings.EntityData.Children = types.NewOrderedMap()
+    loggings.EntityData.Children.Append("logging", types.YChild{"Logging", nil})
     for i := range loggings.Logging {
-        loggings.EntityData.Children[types.GetSegmentPath(&loggings.Logging[i])] = types.YChild{"Logging", &loggings.Logging[i]}
+        loggings.EntityData.Children.Append(types.GetSegmentPath(loggings.Logging[i]), types.YChild{"Logging", loggings.Logging[i]})
     }
-    loggings.EntityData.Leafs = make(map[string]types.YLeaf)
+    loggings.EntityData.Leafs = types.NewOrderedMap()
+
+    loggings.EntityData.YListKeys = []string {}
+
     return &(loggings.EntityData)
 }
 
@@ -735,20 +791,23 @@ func (logging *Vpdn_Loggings_Logging) GetEntityData() *types.CommonEntityData {
     logging.EntityData.YangName = "logging"
     logging.EntityData.BundleName = "cisco_ios_xr"
     logging.EntityData.ParentYangName = "loggings"
-    logging.EntityData.SegmentPath = "logging" + "[option='" + fmt.Sprintf("%v", logging.Option) + "']"
+    logging.EntityData.SegmentPath = "logging" + types.AddKeyToken(logging.Option, "option")
     logging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logging.EntityData.Children = make(map[string]types.YChild)
-    logging.EntityData.Leafs = make(map[string]types.YLeaf)
-    logging.EntityData.Leafs["option"] = types.YLeaf{"Option", logging.Option}
+    logging.EntityData.Children = types.NewOrderedMap()
+    logging.EntityData.Leafs = types.NewOrderedMap()
+    logging.EntityData.Leafs.Append("option", types.YLeaf{"Option", logging.Option})
+
+    logging.EntityData.YListKeys = []string {"Option"}
+
     return &(logging.EntityData)
 }
 
-// Vpdn_L2Tp
+// Vpdn_L2tp
 // L2TPv2 protocol commands
-type Vpdn_L2Tp struct {
+type Vpdn_L2tp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -760,38 +819,41 @@ type Vpdn_L2Tp struct {
     Reassembly interface{}
 
     // Session ID commands.
-    SessionId Vpdn_L2Tp_SessionId
+    SessionId Vpdn_L2tp_SessionId
 }
 
-func (l2Tp *Vpdn_L2Tp) GetEntityData() *types.CommonEntityData {
-    l2Tp.EntityData.YFilter = l2Tp.YFilter
-    l2Tp.EntityData.YangName = "l2tp"
-    l2Tp.EntityData.BundleName = "cisco_ios_xr"
-    l2Tp.EntityData.ParentYangName = "vpdn"
-    l2Tp.EntityData.SegmentPath = "l2tp"
-    l2Tp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    l2Tp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    l2Tp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (l2tp *Vpdn_L2tp) GetEntityData() *types.CommonEntityData {
+    l2tp.EntityData.YFilter = l2tp.YFilter
+    l2tp.EntityData.YangName = "l2tp"
+    l2tp.EntityData.BundleName = "cisco_ios_xr"
+    l2tp.EntityData.ParentYangName = "vpdn"
+    l2tp.EntityData.SegmentPath = "l2tp"
+    l2tp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    l2tp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    l2tp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    l2Tp.EntityData.Children = make(map[string]types.YChild)
-    l2Tp.EntityData.Children["session-id"] = types.YChild{"SessionId", &l2Tp.SessionId}
-    l2Tp.EntityData.Leafs = make(map[string]types.YLeaf)
-    l2Tp.EntityData.Leafs["tcp-mss-adjust"] = types.YLeaf{"TcpMssAdjust", l2Tp.TcpMssAdjust}
-    l2Tp.EntityData.Leafs["reassembly"] = types.YLeaf{"Reassembly", l2Tp.Reassembly}
-    return &(l2Tp.EntityData)
+    l2tp.EntityData.Children = types.NewOrderedMap()
+    l2tp.EntityData.Children.Append("session-id", types.YChild{"SessionId", &l2tp.SessionId})
+    l2tp.EntityData.Leafs = types.NewOrderedMap()
+    l2tp.EntityData.Leafs.Append("tcp-mss-adjust", types.YLeaf{"TcpMssAdjust", l2tp.TcpMssAdjust})
+    l2tp.EntityData.Leafs.Append("reassembly", types.YLeaf{"Reassembly", l2tp.Reassembly})
+
+    l2tp.EntityData.YListKeys = []string {}
+
+    return &(l2tp.EntityData)
 }
 
-// Vpdn_L2Tp_SessionId
+// Vpdn_L2tp_SessionId
 // Session ID commands
-type Vpdn_L2Tp_SessionId struct {
+type Vpdn_L2tp_SessionId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Session ID space commands.
-    Space Vpdn_L2Tp_SessionId_Space
+    Space Vpdn_L2tp_SessionId_Space
 }
 
-func (sessionId *Vpdn_L2Tp_SessionId) GetEntityData() *types.CommonEntityData {
+func (sessionId *Vpdn_L2tp_SessionId) GetEntityData() *types.CommonEntityData {
     sessionId.EntityData.YFilter = sessionId.YFilter
     sessionId.EntityData.YangName = "session-id"
     sessionId.EntityData.BundleName = "cisco_ios_xr"
@@ -801,15 +863,18 @@ func (sessionId *Vpdn_L2Tp_SessionId) GetEntityData() *types.CommonEntityData {
     sessionId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionId.EntityData.Children = make(map[string]types.YChild)
-    sessionId.EntityData.Children["space"] = types.YChild{"Space", &sessionId.Space}
-    sessionId.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessionId.EntityData.Children = types.NewOrderedMap()
+    sessionId.EntityData.Children.Append("space", types.YChild{"Space", &sessionId.Space})
+    sessionId.EntityData.Leafs = types.NewOrderedMap()
+
+    sessionId.EntityData.YListKeys = []string {}
+
     return &(sessionId.EntityData)
 }
 
-// Vpdn_L2Tp_SessionId_Space
+// Vpdn_L2tp_SessionId_Space
 // Session ID space commands
-type Vpdn_L2Tp_SessionId_Space struct {
+type Vpdn_L2tp_SessionId_Space struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -817,7 +882,7 @@ type Vpdn_L2Tp_SessionId_Space struct {
     Hierarchy interface{}
 }
 
-func (space *Vpdn_L2Tp_SessionId_Space) GetEntityData() *types.CommonEntityData {
+func (space *Vpdn_L2tp_SessionId_Space) GetEntityData() *types.CommonEntityData {
     space.EntityData.YFilter = space.YFilter
     space.EntityData.YangName = "space"
     space.EntityData.BundleName = "cisco_ios_xr"
@@ -827,9 +892,12 @@ func (space *Vpdn_L2Tp_SessionId_Space) GetEntityData() *types.CommonEntityData 
     space.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     space.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    space.EntityData.Children = make(map[string]types.YChild)
-    space.EntityData.Leafs = make(map[string]types.YLeaf)
-    space.EntityData.Leafs["hierarchy"] = types.YLeaf{"Hierarchy", space.Hierarchy}
+    space.EntityData.Children = types.NewOrderedMap()
+    space.EntityData.Leafs = types.NewOrderedMap()
+    space.EntityData.Leafs.Append("hierarchy", types.YLeaf{"Hierarchy", space.Hierarchy})
+
+    space.EntityData.YListKeys = []string {}
+
     return &(space.EntityData)
 }
 

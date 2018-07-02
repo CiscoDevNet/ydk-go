@@ -22,6 +22,10 @@ submodule Cisco-IOS-XR-fib-common-oper-sub5 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -35,123 +39,167 @@ submodule Cisco-IOS-XR-fib-common-oper-sub5 {
       "IOS XR 6.0 revision.";
   }
 
-  grouping FIB-STATISTICS-BAG-DROPS {
+  grouping FIB-GLOBAL-SUMMARY-OBJ-HISTORY {
     description
-      "FIB drop statistics";
-    leaf no-route-packets {
-      type uint64;
+      "FIB Global summary object history";
+    leaf count {
+      type uint32;
       description
-        "no route pkt";
+        "Placeholder for obj history counts";
     }
-    leaf punt-unreachable-packets {
-      type uint64;
+  }
+
+  grouping FIB-GLOBAL-SUMMARY-OBJ-HISTORY-PROTO {
+    description
+      "FIB GLOBAL SUMMARY OBJ HISTORY PROTO";
+    container base-object {
       description
-        "Punt generate unreach pkt";
+        "Base object";
+      uses FIB-GLOBAL-BASE-ST;
     }
-    leaf df-unreachable-packets {
-      type uint64;
+    container object-history {
       description
-        "DF unreachable pkt";
+        "Obj History";
+      uses FIB-GLOBAL-SUMMARY-OBJ-HISTORY;
     }
-    leaf encapsulation-failure-packets {
-      type uint64;
+  }
+
+  grouping FIB-GLOBAL-SUMMARY-HEALTH {
+    description
+      "FIB Global summary health";
+    leaf is-retry-db-empty {
+      type boolean;
       description
-        "encapsulation failure pkt";
+        "Is the retry db empty?";
     }
-    leaf incomplete-adjacency-packets {
-      type uint64;
+  }
+
+  grouping FIB-GLOBAL-BASE-ST {
+    description
+      "FIB Global Base st";
+    leaf protocol {
+      type uint32;
       description
-        "incomplete adjacency pkt";
+        "protocol";
     }
-    leaf unresolved-prefix-packets {
-      type uint64;
+  }
+
+  grouping FIB-GLOBAL-SUMMARY {
+    description
+      "FIB Global summary";
+    container base-object {
       description
-        "unresolved prefix pkt";
+        "Base object";
+      uses FIB-GLOBAL-BASE-ST;
     }
-    leaf unsupported-feature-packets {
-      type uint64;
+    container summary-counts {
       description
-        "unsupported feature pkt";
+        "Global Summary counts";
+      uses FIB-GLOBAL-SUMMARY-COUNTS;
     }
-    leaf discard-packets {
-      type uint64;
+    container health {
       description
-        "discard pkt";
+        "Global summary health";
+      uses FIB-GLOBAL-SUMMARY-HEALTH;
     }
-    leaf checksum-error-packets {
-      type uint64;
+  }
+
+  grouping FIB-GLOBAL-SUMMARY-PROTO {
+    description
+      "FIB GLOBAL SUMMARY PROTO";
+    container common-info {
       description
-        "checksum error pkt";
+        "Common Info";
+      uses FIB-GLOBAL-SUMMARY-COMMON-INFO;
     }
-    leaf fragmenation-consumed-packets {
-      type uint64;
+    container summary {
       description
-        "frag consumed packet pkt";
+        "Global summary";
+      uses FIB-GLOBAL-SUMMARY;
     }
-    leaf fragmenation-failure-packets {
-      type uint64;
+  }
+
+  grouping FIB-GLOBAL-NUM-OBJECTS-ST {
+    description
+      "FIB Global summary num retries";
+    leaf object-type {
+      type string {
+        length "0..30";
+      }
       description
-        "fragmenation failure pkt";
+        "object";
     }
-    leaf null-packets {
-      type uint64;
+    leaf num-objects {
+      type uint32;
       description
-        "null0 pkt";
+        "number of elements for this obj type";
     }
-    leaf rpf-check-failure-packets {
-      type uint64;
+  }
+
+  grouping FIB-GLOBAL-NUM-RETRIES-ST {
+    description
+      "FIB Global summary num retries";
+    leaf retry-object-type {
+      type string {
+        length "0..30";
+      }
       description
-        "RPF check failures pkt";
+        "retry object";
     }
-    leaf acl-in-rpf-packets {
+    leaf num-retries {
       type uint64;
       description
-        "ACL in RPF pkt";
+        "number of elements for this obj type in retry db";
     }
-    leaf rp-destination-drop-packets {
+  }
+
+  grouping FIB-GLOBAL-SUMMARY-COUNTS {
+    description
+      "FIB Global summary counts";
+    leaf num-retry-timeouts {
       type uint64;
       description
-        "rp dest drop pkt";
+        "number of retry timeouts";
     }
-    leaf total-number-of-drop-packets {
-      type uint64;
+    leaf num-retry-ojbects {
+      type uint32;
       description
-        "the total number of drop pkt";
+        "number of elements in retry db";
     }
-    leaf mpls-disabled-interface {
-      type uint64;
+    list array-number-of-retry {
       description
-        "mpls disabled in interface";
+        "number of objects in retry db";
+      uses FIB-GLOBAL-NUM-RETRIES-ST;
     }
-    leaf gre-lookup-failed-drop {
-      type uint64;
+    list array-number-of-object {
       description
-        "GRE tunnel lookup failed drop pkt";
+        "total number of objects";
+      uses FIB-GLOBAL-NUM-OBJECTS-ST;
     }
-    leaf gre-error-drop {
-      type uint64;
+  }
+
+  grouping FIB-GLOBAL-SUMMARY-COMMON-INFO {
+    description
+      "FIB Global summary common";
+    leaf count {
+      type uint32;
       description
-        "GRE processing errors";
+        "Placeholder for common info counts";
     }
-    leaf lisp-punt-drops {
-      type uint64;
+  }
+
+  grouping FIB-GLOBAL-SUMMARY-TOTAL {
+    description
+      "FIB GLOBAL SUMMARY TOTAL";
+    container common-info {
       description
-        "LISP Punt drops";
+        "Common info";
+      uses FIB-GLOBAL-SUMMARY-COMMON-INFO;
     }
-    leaf lisp-encap-error-drops {
-      type uint64;
+    container total-counters {
       description
-        "Lisp encap error drops";
-    }
-    leaf lisp-decap-error-drops {
-      type uint64;
-      description
-        "Lisp decap error drops";
-    }
-    leaf multi-label-drops {
-      type uint64;
-      description
-        "Drops for the packets with multi[le labels";
+        "Aggregate counters of all protocols";
+      uses FIB-GLOBAL-SUMMARY-COUNTS;
     }
   }
 }

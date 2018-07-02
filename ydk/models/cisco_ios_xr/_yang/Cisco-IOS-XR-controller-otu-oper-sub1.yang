@@ -723,11 +723,14 @@ submodule Cisco-IOS-XR-controller-otu-oper-sub1 {
       description
         "Array to maintain set id number";
     }
-    leaf-list srlg {
-      type uint32;
+    list srlg {
       description
         "Shared Risk Link Group information expressed in
+         
          integer format";
+      leaf entry {
+        type uint32;
+      }
     }
   }
 
@@ -751,20 +754,26 @@ submodule Cisco-IOS-XR-controller-otu-oper-sub1 {
       description
         "full tti ascii String ";
     }
-    leaf-list sapi {
-      type uint8;
+    list sapi {
       description
         "tx String ";
+      leaf entry {
+        type uint8;
+      }
     }
-    leaf-list dapi {
-      type uint8;
+    list dapi {
       description
         "exp String ";
+      leaf entry {
+        type uint8;
+      }
     }
-    leaf-list operator-specific {
-      type uint8;
+    list operator-specific {
       description
         "rec String ";
+      leaf entry {
+        type uint8;
+      }
     }
   }
 

@@ -43,10 +43,13 @@ func (action *Action) GetEntityData() *types.CommonEntityData {
     action.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     action.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    action.EntityData.Children = make(map[string]types.YChild)
-    action.EntityData.Children["input"] = types.YChild{"Input", &action.Input}
-    action.EntityData.Children["output"] = types.YChild{"Output", &action.Output}
-    action.EntityData.Leafs = make(map[string]types.YLeaf)
+    action.EntityData.Children = types.NewOrderedMap()
+    action.EntityData.Children.Append("input", types.YChild{"Input", &action.Input})
+    action.EntityData.Children.Append("output", types.YChild{"Output", &action.Output})
+    action.EntityData.Leafs = types.NewOrderedMap()
+
+    action.EntityData.YListKeys = []string {}
+
     return &(action.EntityData)
 }
 
@@ -69,9 +72,12 @@ func (input *Action_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["data"] = types.YLeaf{"Data", input.Data}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("data", types.YLeaf{"Data", input.Data})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -94,9 +100,12 @@ func (output *Action_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    output.EntityData.Children = make(map[string]types.YChild)
-    output.EntityData.Leafs = make(map[string]types.YLeaf)
-    output.EntityData.Leafs["data"] = types.YLeaf{"Data", output.Data}
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("data", types.YLeaf{"Data", output.Data})
+
+    output.EntityData.YListKeys = []string {}
+
     return &(output.EntityData)
 }
 

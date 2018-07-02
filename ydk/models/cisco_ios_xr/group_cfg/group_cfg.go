@@ -29,7 +29,7 @@ type Groups struct {
     YFilter yfilter.YFilter
 
     // Group config definition. The type is slice of Groups_Group.
-    Group []Groups_Group
+    Group []*Groups_Group
 }
 
 func (groups *Groups) GetEntityData() *types.CommonEntityData {
@@ -42,12 +42,15 @@ func (groups *Groups) GetEntityData() *types.CommonEntityData {
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groups.EntityData.Children = make(map[string]types.YChild)
-    groups.EntityData.Children["group"] = types.YChild{"Group", nil}
+    groups.EntityData.Children = types.NewOrderedMap()
+    groups.EntityData.Children.Append("group", types.YChild{"Group", nil})
     for i := range groups.Group {
-        groups.EntityData.Children[types.GetSegmentPath(&groups.Group[i])] = types.YChild{"Group", &groups.Group[i]}
+        groups.EntityData.Children.Append(types.GetSegmentPath(groups.Group[i]), types.YChild{"Group", groups.Group[i]})
     }
-    groups.EntityData.Leafs = make(map[string]types.YLeaf)
+    groups.EntityData.Leafs = types.NewOrderedMap()
+
+    groups.EntityData.YListKeys = []string {}
+
     return &(groups.EntityData)
 }
 
@@ -66,14 +69,17 @@ func (group *Groups_Group) GetEntityData() *types.CommonEntityData {
     group.EntityData.YangName = "group"
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
-    group.EntityData.SegmentPath = "group" + "[group-name='" + fmt.Sprintf("%v", group.GroupName) + "']"
+    group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupName, "group-name")
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    group.EntityData.Children = make(map[string]types.YChild)
-    group.EntityData.Leafs = make(map[string]types.YLeaf)
-    group.EntityData.Leafs["group-name"] = types.YLeaf{"GroupName", group.GroupName}
+    group.EntityData.Children = types.NewOrderedMap()
+    group.EntityData.Leafs = types.NewOrderedMap()
+    group.EntityData.Leafs.Append("group-name", types.YLeaf{"GroupName", group.GroupName})
+
+    group.EntityData.YListKeys = []string {"GroupName"}
+
     return &(group.EntityData)
 }
 
@@ -83,8 +89,7 @@ type ApplyGroups struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // apply-group name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // apply-group name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ApplyGroup interface{}
 }
 
@@ -98,9 +103,12 @@ func (applyGroups *ApplyGroups) GetEntityData() *types.CommonEntityData {
     applyGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applyGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    applyGroups.EntityData.Children = make(map[string]types.YChild)
-    applyGroups.EntityData.Leafs = make(map[string]types.YLeaf)
-    applyGroups.EntityData.Leafs["apply-group"] = types.YLeaf{"ApplyGroup", applyGroups.ApplyGroup}
+    applyGroups.EntityData.Children = types.NewOrderedMap()
+    applyGroups.EntityData.Leafs = types.NewOrderedMap()
+    applyGroups.EntityData.Leafs.Append("apply-group", types.YLeaf{"ApplyGroup", applyGroups.ApplyGroup})
+
+    applyGroups.EntityData.YListKeys = []string {}
+
     return &(applyGroups.EntityData)
 }
 

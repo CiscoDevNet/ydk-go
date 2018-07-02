@@ -34,13 +34,13 @@ type INTEGRATEDSERVICESMIB struct {
     YFilter yfilter.YFilter
 
     
-    Intsrvgenobjects INTEGRATEDSERVICESMIB_Intsrvgenobjects
+    IntSrvGenObjects INTEGRATEDSERVICESMIB_IntSrvGenObjects
 
     // The reservable attributes of the system's  in- terfaces.
-    Intsrvifattribtable INTEGRATEDSERVICESMIB_Intsrvifattribtable
+    IntSrvIfAttribTable INTEGRATEDSERVICESMIB_IntSrvIfAttribTable
 
     // Information describing the reserved flows  us- ing the system's interfaces.
-    Intsrvflowtable INTEGRATEDSERVICESMIB_Intsrvflowtable
+    IntSrvFlowTable INTEGRATEDSERVICESMIB_IntSrvFlowTable
 }
 
 func (iNTEGRATEDSERVICESMIB *INTEGRATEDSERVICESMIB) GetEntityData() *types.CommonEntityData {
@@ -53,16 +53,19 @@ func (iNTEGRATEDSERVICESMIB *INTEGRATEDSERVICESMIB) GetEntityData() *types.Commo
     iNTEGRATEDSERVICESMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     iNTEGRATEDSERVICESMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    iNTEGRATEDSERVICESMIB.EntityData.Children = make(map[string]types.YChild)
-    iNTEGRATEDSERVICESMIB.EntityData.Children["intSrvGenObjects"] = types.YChild{"Intsrvgenobjects", &iNTEGRATEDSERVICESMIB.Intsrvgenobjects}
-    iNTEGRATEDSERVICESMIB.EntityData.Children["intSrvIfAttribTable"] = types.YChild{"Intsrvifattribtable", &iNTEGRATEDSERVICESMIB.Intsrvifattribtable}
-    iNTEGRATEDSERVICESMIB.EntityData.Children["intSrvFlowTable"] = types.YChild{"Intsrvflowtable", &iNTEGRATEDSERVICESMIB.Intsrvflowtable}
-    iNTEGRATEDSERVICESMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    iNTEGRATEDSERVICESMIB.EntityData.Children = types.NewOrderedMap()
+    iNTEGRATEDSERVICESMIB.EntityData.Children.Append("intSrvGenObjects", types.YChild{"IntSrvGenObjects", &iNTEGRATEDSERVICESMIB.IntSrvGenObjects})
+    iNTEGRATEDSERVICESMIB.EntityData.Children.Append("intSrvIfAttribTable", types.YChild{"IntSrvIfAttribTable", &iNTEGRATEDSERVICESMIB.IntSrvIfAttribTable})
+    iNTEGRATEDSERVICESMIB.EntityData.Children.Append("intSrvFlowTable", types.YChild{"IntSrvFlowTable", &iNTEGRATEDSERVICESMIB.IntSrvFlowTable})
+    iNTEGRATEDSERVICESMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    iNTEGRATEDSERVICESMIB.EntityData.YListKeys = []string {}
+
     return &(iNTEGRATEDSERVICESMIB.EntityData)
 }
 
-// INTEGRATEDSERVICESMIB_Intsrvgenobjects
-type INTEGRATEDSERVICESMIB_Intsrvgenobjects struct {
+// INTEGRATEDSERVICESMIB_IntSrvGenObjects
+type INTEGRATEDSERVICESMIB_IntSrvGenObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -74,201 +77,213 @@ type INTEGRATEDSERVICESMIB_Intsrvgenobjects struct {
     // succeeds, then the ob- ject is incremented, and the  new  instance  is
     // created according to the manager's directions. The type is interface{} with
     // range: 0..2147483647.
-    Intsrvflownewindex interface{}
+    IntSrvFlowNewIndex interface{}
 }
 
-func (intsrvgenobjects *INTEGRATEDSERVICESMIB_Intsrvgenobjects) GetEntityData() *types.CommonEntityData {
-    intsrvgenobjects.EntityData.YFilter = intsrvgenobjects.YFilter
-    intsrvgenobjects.EntityData.YangName = "intSrvGenObjects"
-    intsrvgenobjects.EntityData.BundleName = "cisco_ios_xe"
-    intsrvgenobjects.EntityData.ParentYangName = "INTEGRATED-SERVICES-MIB"
-    intsrvgenobjects.EntityData.SegmentPath = "intSrvGenObjects"
-    intsrvgenobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    intsrvgenobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    intsrvgenobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (intSrvGenObjects *INTEGRATEDSERVICESMIB_IntSrvGenObjects) GetEntityData() *types.CommonEntityData {
+    intSrvGenObjects.EntityData.YFilter = intSrvGenObjects.YFilter
+    intSrvGenObjects.EntityData.YangName = "intSrvGenObjects"
+    intSrvGenObjects.EntityData.BundleName = "cisco_ios_xe"
+    intSrvGenObjects.EntityData.ParentYangName = "INTEGRATED-SERVICES-MIB"
+    intSrvGenObjects.EntityData.SegmentPath = "intSrvGenObjects"
+    intSrvGenObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    intSrvGenObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    intSrvGenObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    intsrvgenobjects.EntityData.Children = make(map[string]types.YChild)
-    intsrvgenobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    intsrvgenobjects.EntityData.Leafs["intSrvFlowNewIndex"] = types.YLeaf{"Intsrvflownewindex", intsrvgenobjects.Intsrvflownewindex}
-    return &(intsrvgenobjects.EntityData)
+    intSrvGenObjects.EntityData.Children = types.NewOrderedMap()
+    intSrvGenObjects.EntityData.Leafs = types.NewOrderedMap()
+    intSrvGenObjects.EntityData.Leafs.Append("intSrvFlowNewIndex", types.YLeaf{"IntSrvFlowNewIndex", intSrvGenObjects.IntSrvFlowNewIndex})
+
+    intSrvGenObjects.EntityData.YListKeys = []string {}
+
+    return &(intSrvGenObjects.EntityData)
 }
 
-// INTEGRATEDSERVICESMIB_Intsrvifattribtable
+// INTEGRATEDSERVICESMIB_IntSrvIfAttribTable
 // The reservable attributes of the system's  in-
 // terfaces.
-type INTEGRATEDSERVICESMIB_Intsrvifattribtable struct {
+type INTEGRATEDSERVICESMIB_IntSrvIfAttribTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The reservable attributes of  a  given  inter- face. The type is slice of
-    // INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry.
-    Intsrvifattribentry []INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry
+    // INTEGRATEDSERVICESMIB_IntSrvIfAttribTable_IntSrvIfAttribEntry.
+    IntSrvIfAttribEntry []*INTEGRATEDSERVICESMIB_IntSrvIfAttribTable_IntSrvIfAttribEntry
 }
 
-func (intsrvifattribtable *INTEGRATEDSERVICESMIB_Intsrvifattribtable) GetEntityData() *types.CommonEntityData {
-    intsrvifattribtable.EntityData.YFilter = intsrvifattribtable.YFilter
-    intsrvifattribtable.EntityData.YangName = "intSrvIfAttribTable"
-    intsrvifattribtable.EntityData.BundleName = "cisco_ios_xe"
-    intsrvifattribtable.EntityData.ParentYangName = "INTEGRATED-SERVICES-MIB"
-    intsrvifattribtable.EntityData.SegmentPath = "intSrvIfAttribTable"
-    intsrvifattribtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    intsrvifattribtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    intsrvifattribtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (intSrvIfAttribTable *INTEGRATEDSERVICESMIB_IntSrvIfAttribTable) GetEntityData() *types.CommonEntityData {
+    intSrvIfAttribTable.EntityData.YFilter = intSrvIfAttribTable.YFilter
+    intSrvIfAttribTable.EntityData.YangName = "intSrvIfAttribTable"
+    intSrvIfAttribTable.EntityData.BundleName = "cisco_ios_xe"
+    intSrvIfAttribTable.EntityData.ParentYangName = "INTEGRATED-SERVICES-MIB"
+    intSrvIfAttribTable.EntityData.SegmentPath = "intSrvIfAttribTable"
+    intSrvIfAttribTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    intSrvIfAttribTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    intSrvIfAttribTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    intsrvifattribtable.EntityData.Children = make(map[string]types.YChild)
-    intsrvifattribtable.EntityData.Children["intSrvIfAttribEntry"] = types.YChild{"Intsrvifattribentry", nil}
-    for i := range intsrvifattribtable.Intsrvifattribentry {
-        intsrvifattribtable.EntityData.Children[types.GetSegmentPath(&intsrvifattribtable.Intsrvifattribentry[i])] = types.YChild{"Intsrvifattribentry", &intsrvifattribtable.Intsrvifattribentry[i]}
+    intSrvIfAttribTable.EntityData.Children = types.NewOrderedMap()
+    intSrvIfAttribTable.EntityData.Children.Append("intSrvIfAttribEntry", types.YChild{"IntSrvIfAttribEntry", nil})
+    for i := range intSrvIfAttribTable.IntSrvIfAttribEntry {
+        intSrvIfAttribTable.EntityData.Children.Append(types.GetSegmentPath(intSrvIfAttribTable.IntSrvIfAttribEntry[i]), types.YChild{"IntSrvIfAttribEntry", intSrvIfAttribTable.IntSrvIfAttribEntry[i]})
     }
-    intsrvifattribtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(intsrvifattribtable.EntityData)
+    intSrvIfAttribTable.EntityData.Leafs = types.NewOrderedMap()
+
+    intSrvIfAttribTable.EntityData.YListKeys = []string {}
+
+    return &(intSrvIfAttribTable.EntityData)
 }
 
-// INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry
+// INTEGRATEDSERVICESMIB_IntSrvIfAttribTable_IntSrvIfAttribEntry
 // The reservable attributes of  a  given  inter-
 // face.
-type INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry struct {
+type INTEGRATEDSERVICESMIB_IntSrvIfAttribTable_IntSrvIfAttribEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // The number of bits/second currently  allocated to reserved sessions on the
     // interface. The type is interface{} with range: 0..2147483647. Units are
     // Bits per second.
-    Intsrvifattriballocatedbits interface{}
+    IntSrvIfAttribAllocatedBits interface{}
 
     // The maximum number of bits/second that may  be allocated  to  reserved 
     // sessions on the inter- face. The type is interface{} with range:
     // 0..2147483647. Units are Bits per second.
-    Intsrvifattribmaxallocatedbits interface{}
+    IntSrvIfAttribMaxAllocatedBits interface{}
 
     // The amount of buffer space  required  to  hold the simultaneous burst of
     // all reserved flows on the interface. The type is interface{} with range:
     // 0..2147483647. Units are Bytes.
-    Intsrvifattriballocatedbuffer interface{}
+    IntSrvIfAttribAllocatedBuffer interface{}
 
     // The number of reserved flows currently  active on  this  interface.  A flow
     // can be created ei- ther from a reservation protocol (such as  RSVP or
     // ST-II) or via configuration information. The type is interface{} with
     // range: 0..4294967295.
-    Intsrvifattribflows interface{}
+    IntSrvIfAttribFlows interface{}
 
     // The amount of propagation delay that this  in- terface  introduces  in
     // addition to that intro- diced by bit propagation delays. The type is
     // interface{} with range: -2147483648..2147483647. Units are microseconds.
-    Intsrvifattribpropagationdelay interface{}
+    IntSrvIfAttribPropagationDelay interface{}
 
     // 'active' on interfaces that are configured for RSVP. The type is RowStatus.
-    Intsrvifattribstatus interface{}
+    IntSrvIfAttribStatus interface{}
 }
 
-func (intsrvifattribentry *INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry) GetEntityData() *types.CommonEntityData {
-    intsrvifattribentry.EntityData.YFilter = intsrvifattribentry.YFilter
-    intsrvifattribentry.EntityData.YangName = "intSrvIfAttribEntry"
-    intsrvifattribentry.EntityData.BundleName = "cisco_ios_xe"
-    intsrvifattribentry.EntityData.ParentYangName = "intSrvIfAttribTable"
-    intsrvifattribentry.EntityData.SegmentPath = "intSrvIfAttribEntry" + "[ifIndex='" + fmt.Sprintf("%v", intsrvifattribentry.Ifindex) + "']"
-    intsrvifattribentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    intsrvifattribentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    intsrvifattribentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (intSrvIfAttribEntry *INTEGRATEDSERVICESMIB_IntSrvIfAttribTable_IntSrvIfAttribEntry) GetEntityData() *types.CommonEntityData {
+    intSrvIfAttribEntry.EntityData.YFilter = intSrvIfAttribEntry.YFilter
+    intSrvIfAttribEntry.EntityData.YangName = "intSrvIfAttribEntry"
+    intSrvIfAttribEntry.EntityData.BundleName = "cisco_ios_xe"
+    intSrvIfAttribEntry.EntityData.ParentYangName = "intSrvIfAttribTable"
+    intSrvIfAttribEntry.EntityData.SegmentPath = "intSrvIfAttribEntry" + types.AddKeyToken(intSrvIfAttribEntry.IfIndex, "ifIndex")
+    intSrvIfAttribEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    intSrvIfAttribEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    intSrvIfAttribEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    intsrvifattribentry.EntityData.Children = make(map[string]types.YChild)
-    intsrvifattribentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    intsrvifattribentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", intsrvifattribentry.Ifindex}
-    intsrvifattribentry.EntityData.Leafs["intSrvIfAttribAllocatedBits"] = types.YLeaf{"Intsrvifattriballocatedbits", intsrvifattribentry.Intsrvifattriballocatedbits}
-    intsrvifattribentry.EntityData.Leafs["intSrvIfAttribMaxAllocatedBits"] = types.YLeaf{"Intsrvifattribmaxallocatedbits", intsrvifattribentry.Intsrvifattribmaxallocatedbits}
-    intsrvifattribentry.EntityData.Leafs["intSrvIfAttribAllocatedBuffer"] = types.YLeaf{"Intsrvifattriballocatedbuffer", intsrvifattribentry.Intsrvifattriballocatedbuffer}
-    intsrvifattribentry.EntityData.Leafs["intSrvIfAttribFlows"] = types.YLeaf{"Intsrvifattribflows", intsrvifattribentry.Intsrvifattribflows}
-    intsrvifattribentry.EntityData.Leafs["intSrvIfAttribPropagationDelay"] = types.YLeaf{"Intsrvifattribpropagationdelay", intsrvifattribentry.Intsrvifattribpropagationdelay}
-    intsrvifattribentry.EntityData.Leafs["intSrvIfAttribStatus"] = types.YLeaf{"Intsrvifattribstatus", intsrvifattribentry.Intsrvifattribstatus}
-    return &(intsrvifattribentry.EntityData)
+    intSrvIfAttribEntry.EntityData.Children = types.NewOrderedMap()
+    intSrvIfAttribEntry.EntityData.Leafs = types.NewOrderedMap()
+    intSrvIfAttribEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", intSrvIfAttribEntry.IfIndex})
+    intSrvIfAttribEntry.EntityData.Leafs.Append("intSrvIfAttribAllocatedBits", types.YLeaf{"IntSrvIfAttribAllocatedBits", intSrvIfAttribEntry.IntSrvIfAttribAllocatedBits})
+    intSrvIfAttribEntry.EntityData.Leafs.Append("intSrvIfAttribMaxAllocatedBits", types.YLeaf{"IntSrvIfAttribMaxAllocatedBits", intSrvIfAttribEntry.IntSrvIfAttribMaxAllocatedBits})
+    intSrvIfAttribEntry.EntityData.Leafs.Append("intSrvIfAttribAllocatedBuffer", types.YLeaf{"IntSrvIfAttribAllocatedBuffer", intSrvIfAttribEntry.IntSrvIfAttribAllocatedBuffer})
+    intSrvIfAttribEntry.EntityData.Leafs.Append("intSrvIfAttribFlows", types.YLeaf{"IntSrvIfAttribFlows", intSrvIfAttribEntry.IntSrvIfAttribFlows})
+    intSrvIfAttribEntry.EntityData.Leafs.Append("intSrvIfAttribPropagationDelay", types.YLeaf{"IntSrvIfAttribPropagationDelay", intSrvIfAttribEntry.IntSrvIfAttribPropagationDelay})
+    intSrvIfAttribEntry.EntityData.Leafs.Append("intSrvIfAttribStatus", types.YLeaf{"IntSrvIfAttribStatus", intSrvIfAttribEntry.IntSrvIfAttribStatus})
+
+    intSrvIfAttribEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(intSrvIfAttribEntry.EntityData)
 }
 
-// INTEGRATEDSERVICESMIB_Intsrvflowtable
+// INTEGRATEDSERVICESMIB_IntSrvFlowTable
 // Information describing the reserved flows  us-
 // ing the system's interfaces.
-type INTEGRATEDSERVICESMIB_Intsrvflowtable struct {
+type INTEGRATEDSERVICESMIB_IntSrvFlowTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information describing the use of a given  in- terface   by   a   given  
     // flow.   The  counter intSrvFlowPoliced starts counting  at  the  in-
     // stallation of the flow. The type is slice of
-    // INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry.
-    Intsrvflowentry []INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry
+    // INTEGRATEDSERVICESMIB_IntSrvFlowTable_IntSrvFlowEntry.
+    IntSrvFlowEntry []*INTEGRATEDSERVICESMIB_IntSrvFlowTable_IntSrvFlowEntry
 }
 
-func (intsrvflowtable *INTEGRATEDSERVICESMIB_Intsrvflowtable) GetEntityData() *types.CommonEntityData {
-    intsrvflowtable.EntityData.YFilter = intsrvflowtable.YFilter
-    intsrvflowtable.EntityData.YangName = "intSrvFlowTable"
-    intsrvflowtable.EntityData.BundleName = "cisco_ios_xe"
-    intsrvflowtable.EntityData.ParentYangName = "INTEGRATED-SERVICES-MIB"
-    intsrvflowtable.EntityData.SegmentPath = "intSrvFlowTable"
-    intsrvflowtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    intsrvflowtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    intsrvflowtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (intSrvFlowTable *INTEGRATEDSERVICESMIB_IntSrvFlowTable) GetEntityData() *types.CommonEntityData {
+    intSrvFlowTable.EntityData.YFilter = intSrvFlowTable.YFilter
+    intSrvFlowTable.EntityData.YangName = "intSrvFlowTable"
+    intSrvFlowTable.EntityData.BundleName = "cisco_ios_xe"
+    intSrvFlowTable.EntityData.ParentYangName = "INTEGRATED-SERVICES-MIB"
+    intSrvFlowTable.EntityData.SegmentPath = "intSrvFlowTable"
+    intSrvFlowTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    intSrvFlowTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    intSrvFlowTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    intsrvflowtable.EntityData.Children = make(map[string]types.YChild)
-    intsrvflowtable.EntityData.Children["intSrvFlowEntry"] = types.YChild{"Intsrvflowentry", nil}
-    for i := range intsrvflowtable.Intsrvflowentry {
-        intsrvflowtable.EntityData.Children[types.GetSegmentPath(&intsrvflowtable.Intsrvflowentry[i])] = types.YChild{"Intsrvflowentry", &intsrvflowtable.Intsrvflowentry[i]}
+    intSrvFlowTable.EntityData.Children = types.NewOrderedMap()
+    intSrvFlowTable.EntityData.Children.Append("intSrvFlowEntry", types.YChild{"IntSrvFlowEntry", nil})
+    for i := range intSrvFlowTable.IntSrvFlowEntry {
+        intSrvFlowTable.EntityData.Children.Append(types.GetSegmentPath(intSrvFlowTable.IntSrvFlowEntry[i]), types.YChild{"IntSrvFlowEntry", intSrvFlowTable.IntSrvFlowEntry[i]})
     }
-    intsrvflowtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(intsrvflowtable.EntityData)
+    intSrvFlowTable.EntityData.Leafs = types.NewOrderedMap()
+
+    intSrvFlowTable.EntityData.YListKeys = []string {}
+
+    return &(intSrvFlowTable.EntityData)
 }
 
-// INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry
+// INTEGRATEDSERVICESMIB_IntSrvFlowTable_IntSrvFlowEntry
 // Information describing the use of a given  in-
 // terface   by   a   given   flow.   The  counter
 // intSrvFlowPoliced starts counting  at  the  in-
 // stallation of the flow.
-type INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry struct {
+type INTEGRATEDSERVICESMIB_IntSrvFlowTable_IntSrvFlowEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The number of this flow.  This is for SNMP In-
     // dexing purposes only and has no relation to any protocol value. The type is
     // interface{} with range: 0..2147483647.
-    Intsrvflownumber interface{}
+    IntSrvFlowNumber interface{}
 
     // The type of session (IP4, IP6, IP6  with  flow information, etc). The type
     // is interface{} with range: 1..255.
-    Intsrvflowtype interface{}
+    IntSrvFlowType interface{}
 
     // The process that installed this  flow  in  the queue policy database. The
-    // type is Intsrvflowowner.
-    Intsrvflowowner interface{}
+    // type is IntSrvFlowOwner.
+    IntSrvFlowOwner interface{}
 
     // The destination address used by all senders in this  session.   This object
     // may not be changed when the value of the RowStatus object is  'ac- tive'.
     // The type is string with length: 4..16.
-    Intsrvflowdestaddr interface{}
+    IntSrvFlowDestAddr interface{}
 
     // The source address of the sender  selected  by this  reservation.  The
     // value of all zeroes in- dicates 'all senders'.  This object may not  be
     // changed  when the value of the RowStatus object is 'active'. The type is
     // string with length: 4..16.
-    Intsrvflowsenderaddr interface{}
+    IntSrvFlowSenderAddr interface{}
 
     // The length of the destination address in bits. This  is  the CIDR Prefix
     // Length, which for IP4 hosts and multicast addresses is 32 bits.  This
     // object may not be changed when the value of the RowStatus object is
     // 'active'. The type is interface{} with range: 0..128.
-    Intsrvflowdestaddrlength interface{}
+    IntSrvFlowDestAddrLength interface{}
 
     // The length of the sender's  address  in  bits. This  is  the CIDR Prefix
     // Length, which for IP4 hosts and multicast addresses is 32 bits.  This
     // object may not be changed when the value of the RowStatus object is
     // 'active'. The type is interface{} with range: 0..128.
-    Intsrvflowsenderaddrlength interface{}
+    IntSrvFlowSenderAddrLength interface{}
 
     // The IP Protocol used by a session.   This  ob- ject  may  not be changed
     // when the value of the RowStatus object is 'active'. The type is interface{}
     // with range: 1..255.
-    Intsrvflowprotocol interface{}
+    IntSrvFlowProtocol interface{}
 
     // The UDP or TCP port number used as a  destina- tion  port for all senders
     // in this session.  If the  IP   protocol   in   use,   specified   by
@@ -277,7 +292,7 @@ type INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry struct {
     // protocol in use does not have ports.  This  ob- ject  may  not be changed
     // when the value of the RowStatus object is 'active'. The type is string with
     // length: 2..4.
-    Intsrvflowdestport interface{}
+    IntSrvFlowDestPort interface{}
 
     // The UDP or TCP port number used  as  a  source port  for  this sender in
     // this session.  If the IP    protocol    in    use,    specified    by
@@ -286,134 +301,137 @@ type INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry struct {
     // IP protocol in use does not have ports.  This  ob- ject  may  not be
     // changed when the value of the RowStatus object is 'active'. The type is
     // string with length: 2..4.
-    Intsrvflowport interface{}
+    IntSrvFlowPort interface{}
 
     // The flow ID that  this  sender  is  using,  if this  is  an IPv6 session.
     // The type is interface{} with range: 0..16777215.
-    Intsrvflowflowid interface{}
+    IntSrvFlowFlowId interface{}
 
     // The ifIndex value of the  interface  on  which this reservation exists. The
     // type is interface{} with range: 1..2147483647.
-    Intsrvflowinterface interface{}
+    IntSrvFlowInterface interface{}
 
     // The IP Address on the ifEntry  on  which  this reservation  exists.  This
     // is present primarily to support those interfaces which layer  multi- ple IP
     // Addresses on the interface. The type is string with length: 4..16.
-    Intsrvflowifaddr interface{}
+    IntSrvFlowIfAddr interface{}
 
     // The Reserved Rate of the sender's data stream. If this is a Controlled Load
     // service flow, this rate is derived from the Tspec  rate  parameter (r).  
     // If  this  is  a Guaranteed service flow, this rate is derived from  the 
     // Rspec  clearing rate parameter (R). The type is interface{} with range:
     // 0..2147483647. Units are bits per second.
-    Intsrvflowrate interface{}
+    IntSrvFlowRate interface{}
 
     // The size of the largest  burst  expected  from the sender at a time.  If
     // this is less than  the  sender's  advertised burst  size, the receiver is
     // asking the network to provide flow pacing  beyond  what  would  be provided
     // under normal circumstances. Such pac- ing is at the network's option. The
     // type is interface{} with range: 0..2147483647. Units are bytes.
-    Intsrvflowburst interface{}
+    IntSrvFlowBurst interface{}
 
     // The weight used  to  prioritize  the  traffic. Note  that the
     // interpretation of this object is implementation-specific,   as  
     // implementations vary in their use of weighting procedures. The type is
     // interface{} with range: -2147483648..2147483647.
-    Intsrvflowweight interface{}
+    IntSrvFlowWeight interface{}
 
     // The number of the queue used by this  traffic. Note  that the
     // interpretation of this object is implementation-specific,   as  
     // implementations vary in their use of queue identifiers. The type is
     // interface{} with range: -2147483648..2147483647.
-    Intsrvflowqueue interface{}
+    IntSrvFlowQueue interface{}
 
     // The minimum message size for  this  flow.  The policing  algorithm will
     // treat smaller messages as though they are this size. The type is
     // interface{} with range: 0..2147483647.
-    Intsrvflowmintu interface{}
+    IntSrvFlowMinTU interface{}
 
     // The maximum datagram size for this  flow  that will conform to the traffic
     // specification. This value cannot exceed the MTU of the interface. The type
     // is interface{} with range: 0..2147483647.
-    Intsrvflowmaxtu interface{}
+    IntSrvFlowMaxTU interface{}
 
     // The number of packets that  were  remanded  to best effort service. The
     // type is interface{} with range: 0..4294967295.
-    Intsrvflowbesteffort interface{}
+    IntSrvFlowBestEffort interface{}
 
     // The number of packets policed since the incep- tion of the flow's service.
     // The type is interface{} with range: 0..4294967295.
-    Intsrvflowpoliced interface{}
+    IntSrvFlowPoliced interface{}
 
     // If 'true', the flow  is  to  incur  loss  when traffic is policed.  If
     // 'false', policed traff- ic is treated as best effort traffic. The type is
     // bool.
-    Intsrvflowdiscard interface{}
+    IntSrvFlowDiscard interface{}
 
     // The QoS service being applied to this flow. The type is QosService.
-    Intsrvflowservice interface{}
+    IntSrvFlowService interface{}
 
     // In the event of ambiguity, the order in  which the  classifier  should 
     // make  its comparisons. The row with intSrvFlowOrder=0 is tried  first, and 
     // comparisons  proceed  in  the order of in- creasing value.  Non-serial
     // implementations  of the classifier should emulate this behavior. The type
     // is interface{} with range: 0..65535.
-    Intsrvfloworder interface{}
+    IntSrvFlowOrder interface{}
 
     // 'active' for all active  flows.   This  object may be used to install
     // static classifier infor- mation, delete classifier information,  or  au-
     // thorize such. The type is RowStatus.
-    Intsrvflowstatus interface{}
+    IntSrvFlowStatus interface{}
 }
 
-func (intsrvflowentry *INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry) GetEntityData() *types.CommonEntityData {
-    intsrvflowentry.EntityData.YFilter = intsrvflowentry.YFilter
-    intsrvflowentry.EntityData.YangName = "intSrvFlowEntry"
-    intsrvflowentry.EntityData.BundleName = "cisco_ios_xe"
-    intsrvflowentry.EntityData.ParentYangName = "intSrvFlowTable"
-    intsrvflowentry.EntityData.SegmentPath = "intSrvFlowEntry" + "[intSrvFlowNumber='" + fmt.Sprintf("%v", intsrvflowentry.Intsrvflownumber) + "']"
-    intsrvflowentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    intsrvflowentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    intsrvflowentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (intSrvFlowEntry *INTEGRATEDSERVICESMIB_IntSrvFlowTable_IntSrvFlowEntry) GetEntityData() *types.CommonEntityData {
+    intSrvFlowEntry.EntityData.YFilter = intSrvFlowEntry.YFilter
+    intSrvFlowEntry.EntityData.YangName = "intSrvFlowEntry"
+    intSrvFlowEntry.EntityData.BundleName = "cisco_ios_xe"
+    intSrvFlowEntry.EntityData.ParentYangName = "intSrvFlowTable"
+    intSrvFlowEntry.EntityData.SegmentPath = "intSrvFlowEntry" + types.AddKeyToken(intSrvFlowEntry.IntSrvFlowNumber, "intSrvFlowNumber")
+    intSrvFlowEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    intSrvFlowEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    intSrvFlowEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    intsrvflowentry.EntityData.Children = make(map[string]types.YChild)
-    intsrvflowentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    intsrvflowentry.EntityData.Leafs["intSrvFlowNumber"] = types.YLeaf{"Intsrvflownumber", intsrvflowentry.Intsrvflownumber}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowType"] = types.YLeaf{"Intsrvflowtype", intsrvflowentry.Intsrvflowtype}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowOwner"] = types.YLeaf{"Intsrvflowowner", intsrvflowentry.Intsrvflowowner}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowDestAddr"] = types.YLeaf{"Intsrvflowdestaddr", intsrvflowentry.Intsrvflowdestaddr}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowSenderAddr"] = types.YLeaf{"Intsrvflowsenderaddr", intsrvflowentry.Intsrvflowsenderaddr}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowDestAddrLength"] = types.YLeaf{"Intsrvflowdestaddrlength", intsrvflowentry.Intsrvflowdestaddrlength}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowSenderAddrLength"] = types.YLeaf{"Intsrvflowsenderaddrlength", intsrvflowentry.Intsrvflowsenderaddrlength}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowProtocol"] = types.YLeaf{"Intsrvflowprotocol", intsrvflowentry.Intsrvflowprotocol}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowDestPort"] = types.YLeaf{"Intsrvflowdestport", intsrvflowentry.Intsrvflowdestport}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowPort"] = types.YLeaf{"Intsrvflowport", intsrvflowentry.Intsrvflowport}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowFlowId"] = types.YLeaf{"Intsrvflowflowid", intsrvflowentry.Intsrvflowflowid}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowInterface"] = types.YLeaf{"Intsrvflowinterface", intsrvflowentry.Intsrvflowinterface}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowIfAddr"] = types.YLeaf{"Intsrvflowifaddr", intsrvflowentry.Intsrvflowifaddr}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowRate"] = types.YLeaf{"Intsrvflowrate", intsrvflowentry.Intsrvflowrate}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowBurst"] = types.YLeaf{"Intsrvflowburst", intsrvflowentry.Intsrvflowburst}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowWeight"] = types.YLeaf{"Intsrvflowweight", intsrvflowentry.Intsrvflowweight}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowQueue"] = types.YLeaf{"Intsrvflowqueue", intsrvflowentry.Intsrvflowqueue}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowMinTU"] = types.YLeaf{"Intsrvflowmintu", intsrvflowentry.Intsrvflowmintu}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowMaxTU"] = types.YLeaf{"Intsrvflowmaxtu", intsrvflowentry.Intsrvflowmaxtu}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowBestEffort"] = types.YLeaf{"Intsrvflowbesteffort", intsrvflowentry.Intsrvflowbesteffort}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowPoliced"] = types.YLeaf{"Intsrvflowpoliced", intsrvflowentry.Intsrvflowpoliced}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowDiscard"] = types.YLeaf{"Intsrvflowdiscard", intsrvflowentry.Intsrvflowdiscard}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowService"] = types.YLeaf{"Intsrvflowservice", intsrvflowentry.Intsrvflowservice}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowOrder"] = types.YLeaf{"Intsrvfloworder", intsrvflowentry.Intsrvfloworder}
-    intsrvflowentry.EntityData.Leafs["intSrvFlowStatus"] = types.YLeaf{"Intsrvflowstatus", intsrvflowentry.Intsrvflowstatus}
-    return &(intsrvflowentry.EntityData)
+    intSrvFlowEntry.EntityData.Children = types.NewOrderedMap()
+    intSrvFlowEntry.EntityData.Leafs = types.NewOrderedMap()
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowNumber", types.YLeaf{"IntSrvFlowNumber", intSrvFlowEntry.IntSrvFlowNumber})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowType", types.YLeaf{"IntSrvFlowType", intSrvFlowEntry.IntSrvFlowType})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowOwner", types.YLeaf{"IntSrvFlowOwner", intSrvFlowEntry.IntSrvFlowOwner})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowDestAddr", types.YLeaf{"IntSrvFlowDestAddr", intSrvFlowEntry.IntSrvFlowDestAddr})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowSenderAddr", types.YLeaf{"IntSrvFlowSenderAddr", intSrvFlowEntry.IntSrvFlowSenderAddr})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowDestAddrLength", types.YLeaf{"IntSrvFlowDestAddrLength", intSrvFlowEntry.IntSrvFlowDestAddrLength})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowSenderAddrLength", types.YLeaf{"IntSrvFlowSenderAddrLength", intSrvFlowEntry.IntSrvFlowSenderAddrLength})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowProtocol", types.YLeaf{"IntSrvFlowProtocol", intSrvFlowEntry.IntSrvFlowProtocol})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowDestPort", types.YLeaf{"IntSrvFlowDestPort", intSrvFlowEntry.IntSrvFlowDestPort})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowPort", types.YLeaf{"IntSrvFlowPort", intSrvFlowEntry.IntSrvFlowPort})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowFlowId", types.YLeaf{"IntSrvFlowFlowId", intSrvFlowEntry.IntSrvFlowFlowId})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowInterface", types.YLeaf{"IntSrvFlowInterface", intSrvFlowEntry.IntSrvFlowInterface})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowIfAddr", types.YLeaf{"IntSrvFlowIfAddr", intSrvFlowEntry.IntSrvFlowIfAddr})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowRate", types.YLeaf{"IntSrvFlowRate", intSrvFlowEntry.IntSrvFlowRate})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowBurst", types.YLeaf{"IntSrvFlowBurst", intSrvFlowEntry.IntSrvFlowBurst})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowWeight", types.YLeaf{"IntSrvFlowWeight", intSrvFlowEntry.IntSrvFlowWeight})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowQueue", types.YLeaf{"IntSrvFlowQueue", intSrvFlowEntry.IntSrvFlowQueue})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowMinTU", types.YLeaf{"IntSrvFlowMinTU", intSrvFlowEntry.IntSrvFlowMinTU})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowMaxTU", types.YLeaf{"IntSrvFlowMaxTU", intSrvFlowEntry.IntSrvFlowMaxTU})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowBestEffort", types.YLeaf{"IntSrvFlowBestEffort", intSrvFlowEntry.IntSrvFlowBestEffort})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowPoliced", types.YLeaf{"IntSrvFlowPoliced", intSrvFlowEntry.IntSrvFlowPoliced})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowDiscard", types.YLeaf{"IntSrvFlowDiscard", intSrvFlowEntry.IntSrvFlowDiscard})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowService", types.YLeaf{"IntSrvFlowService", intSrvFlowEntry.IntSrvFlowService})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowOrder", types.YLeaf{"IntSrvFlowOrder", intSrvFlowEntry.IntSrvFlowOrder})
+    intSrvFlowEntry.EntityData.Leafs.Append("intSrvFlowStatus", types.YLeaf{"IntSrvFlowStatus", intSrvFlowEntry.IntSrvFlowStatus})
+
+    intSrvFlowEntry.EntityData.YListKeys = []string {"IntSrvFlowNumber"}
+
+    return &(intSrvFlowEntry.EntityData)
 }
 
-// INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry_Intsrvflowowner represents queue policy database.
-type INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry_Intsrvflowowner string
+// INTEGRATEDSERVICESMIB_IntSrvFlowTable_IntSrvFlowEntry_IntSrvFlowOwner represents queue policy database.
+type INTEGRATEDSERVICESMIB_IntSrvFlowTable_IntSrvFlowEntry_IntSrvFlowOwner string
 
 const (
-    INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry_Intsrvflowowner_other INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry_Intsrvflowowner = "other"
+    INTEGRATEDSERVICESMIB_IntSrvFlowTable_IntSrvFlowEntry_IntSrvFlowOwner_other INTEGRATEDSERVICESMIB_IntSrvFlowTable_IntSrvFlowEntry_IntSrvFlowOwner = "other"
 
-    INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry_Intsrvflowowner_rsvp INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry_Intsrvflowowner = "rsvp"
+    INTEGRATEDSERVICESMIB_IntSrvFlowTable_IntSrvFlowEntry_IntSrvFlowOwner_rsvp INTEGRATEDSERVICESMIB_IntSrvFlowTable_IntSrvFlowEntry_IntSrvFlowOwner = "rsvp"
 
-    INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry_Intsrvflowowner_management INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry_Intsrvflowowner = "management"
+    INTEGRATEDSERVICESMIB_IntSrvFlowTable_IntSrvFlowEntry_IntSrvFlowOwner_management INTEGRATEDSERVICESMIB_IntSrvFlowTable_IntSrvFlowEntry_IntSrvFlowOwner = "management"
 )
 

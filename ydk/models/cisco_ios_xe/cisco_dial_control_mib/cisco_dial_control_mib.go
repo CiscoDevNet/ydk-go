@@ -23,15 +23,15 @@ type CISCODIALCONTROLMIB struct {
     YFilter yfilter.YFilter
 
     
-    Cpeerglobalconfiguration CISCODIALCONTROLMIB_Cpeerglobalconfiguration
+    CPeerGlobalConfiguration CISCODIALCONTROLMIB_CPeerGlobalConfiguration
 
     // A table containing information about specific calls to a specific
     // destination.
-    Ccallhistorytable CISCODIALCONTROLMIB_Ccallhistorytable
+    CCallHistoryTable CISCODIALCONTROLMIB_CCallHistoryTable
 
     // This table contains information about Internal Error Code(s) (IEC) which
     // caused the call to fail.
-    Ccallhistoryiectable CISCODIALCONTROLMIB_Ccallhistoryiectable
+    CCallHistoryIecTable CISCODIALCONTROLMIB_CCallHistoryIecTable
 }
 
 func (cISCODIALCONTROLMIB *CISCODIALCONTROLMIB) GetEntityData() *types.CommonEntityData {
@@ -44,16 +44,19 @@ func (cISCODIALCONTROLMIB *CISCODIALCONTROLMIB) GetEntityData() *types.CommonEnt
     cISCODIALCONTROLMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCODIALCONTROLMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCODIALCONTROLMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCODIALCONTROLMIB.EntityData.Children["cPeerGlobalConfiguration"] = types.YChild{"Cpeerglobalconfiguration", &cISCODIALCONTROLMIB.Cpeerglobalconfiguration}
-    cISCODIALCONTROLMIB.EntityData.Children["cCallHistoryTable"] = types.YChild{"Ccallhistorytable", &cISCODIALCONTROLMIB.Ccallhistorytable}
-    cISCODIALCONTROLMIB.EntityData.Children["cCallHistoryIecTable"] = types.YChild{"Ccallhistoryiectable", &cISCODIALCONTROLMIB.Ccallhistoryiectable}
-    cISCODIALCONTROLMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCODIALCONTROLMIB.EntityData.Children = types.NewOrderedMap()
+    cISCODIALCONTROLMIB.EntityData.Children.Append("cPeerGlobalConfiguration", types.YChild{"CPeerGlobalConfiguration", &cISCODIALCONTROLMIB.CPeerGlobalConfiguration})
+    cISCODIALCONTROLMIB.EntityData.Children.Append("cCallHistoryTable", types.YChild{"CCallHistoryTable", &cISCODIALCONTROLMIB.CCallHistoryTable})
+    cISCODIALCONTROLMIB.EntityData.Children.Append("cCallHistoryIecTable", types.YChild{"CCallHistoryIecTable", &cISCODIALCONTROLMIB.CCallHistoryIecTable})
+    cISCODIALCONTROLMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCODIALCONTROLMIB.EntityData.YListKeys = []string {}
+
     return &(cISCODIALCONTROLMIB.EntityData)
 }
 
-// CISCODIALCONTROLMIB_Cpeerglobalconfiguration
-type CISCODIALCONTROLMIB_Cpeerglobalconfiguration struct {
+// CISCODIALCONTROLMIB_CPeerGlobalConfiguration
+type CISCODIALCONTROLMIB_CPeerGlobalConfiguration struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -62,71 +65,77 @@ type CISCODIALCONTROLMIB_Cpeerglobalconfiguration struct {
     // are searched            in same preference. datavoice - search data peers
     // first. If no data peers            are found, the voice peers are searched.
     // voicedata - search voice peers first. If no voice peers            are
-    // found, the data peers are searched. The type is Cpeersearchtype.
-    Cpeersearchtype interface{}
+    // found, the data peers are searched. The type is CPeerSearchType.
+    CPeerSearchType interface{}
 }
 
-func (cpeerglobalconfiguration *CISCODIALCONTROLMIB_Cpeerglobalconfiguration) GetEntityData() *types.CommonEntityData {
-    cpeerglobalconfiguration.EntityData.YFilter = cpeerglobalconfiguration.YFilter
-    cpeerglobalconfiguration.EntityData.YangName = "cPeerGlobalConfiguration"
-    cpeerglobalconfiguration.EntityData.BundleName = "cisco_ios_xe"
-    cpeerglobalconfiguration.EntityData.ParentYangName = "CISCO-DIAL-CONTROL-MIB"
-    cpeerglobalconfiguration.EntityData.SegmentPath = "cPeerGlobalConfiguration"
-    cpeerglobalconfiguration.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpeerglobalconfiguration.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpeerglobalconfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cPeerGlobalConfiguration *CISCODIALCONTROLMIB_CPeerGlobalConfiguration) GetEntityData() *types.CommonEntityData {
+    cPeerGlobalConfiguration.EntityData.YFilter = cPeerGlobalConfiguration.YFilter
+    cPeerGlobalConfiguration.EntityData.YangName = "cPeerGlobalConfiguration"
+    cPeerGlobalConfiguration.EntityData.BundleName = "cisco_ios_xe"
+    cPeerGlobalConfiguration.EntityData.ParentYangName = "CISCO-DIAL-CONTROL-MIB"
+    cPeerGlobalConfiguration.EntityData.SegmentPath = "cPeerGlobalConfiguration"
+    cPeerGlobalConfiguration.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cPeerGlobalConfiguration.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cPeerGlobalConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpeerglobalconfiguration.EntityData.Children = make(map[string]types.YChild)
-    cpeerglobalconfiguration.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpeerglobalconfiguration.EntityData.Leafs["cPeerSearchType"] = types.YLeaf{"Cpeersearchtype", cpeerglobalconfiguration.Cpeersearchtype}
-    return &(cpeerglobalconfiguration.EntityData)
+    cPeerGlobalConfiguration.EntityData.Children = types.NewOrderedMap()
+    cPeerGlobalConfiguration.EntityData.Leafs = types.NewOrderedMap()
+    cPeerGlobalConfiguration.EntityData.Leafs.Append("cPeerSearchType", types.YLeaf{"CPeerSearchType", cPeerGlobalConfiguration.CPeerSearchType})
+
+    cPeerGlobalConfiguration.EntityData.YListKeys = []string {}
+
+    return &(cPeerGlobalConfiguration.EntityData)
 }
 
-// CISCODIALCONTROLMIB_Cpeerglobalconfiguration_Cpeersearchtype represents            are found, the data peers are searched.
-type CISCODIALCONTROLMIB_Cpeerglobalconfiguration_Cpeersearchtype string
+// CISCODIALCONTROLMIB_CPeerGlobalConfiguration_CPeerSearchType represents            are found, the data peers are searched.
+type CISCODIALCONTROLMIB_CPeerGlobalConfiguration_CPeerSearchType string
 
 const (
-    CISCODIALCONTROLMIB_Cpeerglobalconfiguration_Cpeersearchtype_none CISCODIALCONTROLMIB_Cpeerglobalconfiguration_Cpeersearchtype = "none"
+    CISCODIALCONTROLMIB_CPeerGlobalConfiguration_CPeerSearchType_none CISCODIALCONTROLMIB_CPeerGlobalConfiguration_CPeerSearchType = "none"
 
-    CISCODIALCONTROLMIB_Cpeerglobalconfiguration_Cpeersearchtype_datavoice CISCODIALCONTROLMIB_Cpeerglobalconfiguration_Cpeersearchtype = "datavoice"
+    CISCODIALCONTROLMIB_CPeerGlobalConfiguration_CPeerSearchType_datavoice CISCODIALCONTROLMIB_CPeerGlobalConfiguration_CPeerSearchType = "datavoice"
 
-    CISCODIALCONTROLMIB_Cpeerglobalconfiguration_Cpeersearchtype_voicedata CISCODIALCONTROLMIB_Cpeerglobalconfiguration_Cpeersearchtype = "voicedata"
+    CISCODIALCONTROLMIB_CPeerGlobalConfiguration_CPeerSearchType_voicedata CISCODIALCONTROLMIB_CPeerGlobalConfiguration_CPeerSearchType = "voicedata"
 )
 
-// CISCODIALCONTROLMIB_Ccallhistorytable
+// CISCODIALCONTROLMIB_CCallHistoryTable
 // A table containing information about specific
 // calls to a specific destination.
-type CISCODIALCONTROLMIB_Ccallhistorytable struct {
+type CISCODIALCONTROLMIB_CCallHistoryTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The information regarding a single Connection. The type is slice of
-    // CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry.
-    Ccallhistoryentry []CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry
+    // CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry.
+    CCallHistoryEntry []*CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry
 }
 
-func (ccallhistorytable *CISCODIALCONTROLMIB_Ccallhistorytable) GetEntityData() *types.CommonEntityData {
-    ccallhistorytable.EntityData.YFilter = ccallhistorytable.YFilter
-    ccallhistorytable.EntityData.YangName = "cCallHistoryTable"
-    ccallhistorytable.EntityData.BundleName = "cisco_ios_xe"
-    ccallhistorytable.EntityData.ParentYangName = "CISCO-DIAL-CONTROL-MIB"
-    ccallhistorytable.EntityData.SegmentPath = "cCallHistoryTable"
-    ccallhistorytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ccallhistorytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ccallhistorytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cCallHistoryTable *CISCODIALCONTROLMIB_CCallHistoryTable) GetEntityData() *types.CommonEntityData {
+    cCallHistoryTable.EntityData.YFilter = cCallHistoryTable.YFilter
+    cCallHistoryTable.EntityData.YangName = "cCallHistoryTable"
+    cCallHistoryTable.EntityData.BundleName = "cisco_ios_xe"
+    cCallHistoryTable.EntityData.ParentYangName = "CISCO-DIAL-CONTROL-MIB"
+    cCallHistoryTable.EntityData.SegmentPath = "cCallHistoryTable"
+    cCallHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cCallHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cCallHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ccallhistorytable.EntityData.Children = make(map[string]types.YChild)
-    ccallhistorytable.EntityData.Children["cCallHistoryEntry"] = types.YChild{"Ccallhistoryentry", nil}
-    for i := range ccallhistorytable.Ccallhistoryentry {
-        ccallhistorytable.EntityData.Children[types.GetSegmentPath(&ccallhistorytable.Ccallhistoryentry[i])] = types.YChild{"Ccallhistoryentry", &ccallhistorytable.Ccallhistoryentry[i]}
+    cCallHistoryTable.EntityData.Children = types.NewOrderedMap()
+    cCallHistoryTable.EntityData.Children.Append("cCallHistoryEntry", types.YChild{"CCallHistoryEntry", nil})
+    for i := range cCallHistoryTable.CCallHistoryEntry {
+        cCallHistoryTable.EntityData.Children.Append(types.GetSegmentPath(cCallHistoryTable.CCallHistoryEntry[i]), types.YChild{"CCallHistoryEntry", cCallHistoryTable.CCallHistoryEntry[i]})
     }
-    ccallhistorytable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ccallhistorytable.EntityData)
+    cCallHistoryTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cCallHistoryTable.EntityData.YListKeys = []string {}
+
+    return &(cCallHistoryTable.EntityData)
 }
 
-// CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry
+// CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry
 // The information regarding a single Connection.
-type CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry struct {
+type CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -135,7 +144,7 @@ type CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry struct {
     // maximum value, an extremely unlikely event, the agent wraps  the value back
     // to 1 and may flush existing entries. The type is interface{} with range:
     // 1..4294967295.
-    Ccallhistoryindex interface{}
+    CCallHistoryIndex interface{}
 
     // The value of sysUpTime when the call setup was started. This will be useful
     // for an NMS to sort the call history entry with call setup time. Also, this
@@ -144,84 +153,84 @@ type CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry struct {
     // the time when the setup message was received from or sent to the network.
     // The value of this object is the same as callActiveSetupTime in the
     // callActiveTable. The type is interface{} with range: 0..4294967295.
-    Ccallhistorysetuptime interface{}
+    CCallHistorySetupTime interface{}
 
     // The number this call was connected to. If the number is not available, then
     // it will have a length of zero. The type is string.
-    Ccallhistorypeeraddress interface{}
+    CCallHistoryPeerAddress interface{}
 
     // The subaddress this call was connected to. If the subaddress is undefined
     // or not available, this will be a zero length string. The type is string.
-    Ccallhistorypeersubaddress interface{}
+    CCallHistoryPeerSubAddress interface{}
 
     // This is the Id value of the peer table entry to which this call was made.
     // If a peer table entry for this call does not exist, the value of this
     // object will be zero. The type is interface{} with range: 0..2147483647.
-    Ccallhistorypeerid interface{}
+    CCallHistoryPeerId interface{}
 
     // This is the ifIndex value of the peer table entry to which this call was
     // made. If a peer table entry for this call does not exist, the value of this
     // object will be zero. The type is interface{} with range: 0..2147483647.
-    Ccallhistorypeerifindex interface{}
+    CCallHistoryPeerIfIndex interface{}
 
     // This is the ifIndex value of the logical interface through which this call
     // was made. For ISDN media, this would be the ifIndex of the B channel which
     // was used for this call. If the ifIndex value is unknown, the value of this
     // object  will be zero. For an IP call, the value will be zero. The type is
     // interface{} with range: 0..2147483647.
-    Ccallhistorylogicalifindex interface{}
+    CCallHistoryLogicalIfIndex interface{}
 
     // The encoded network cause value associated with this call.  The value of
     // this object will depend on the interface type as well as on the protocol
     // and protocol version being used on this interface. Some references for
     // possible cause values are given below. The type is string with length:
     // 0..4.
-    Ccallhistorydisconnectcause interface{}
+    CCallHistoryDisconnectCause interface{}
 
     // ASCII text describing the reason for call termination.  This object exists
     // because it would be impossible for a management station to store all
     // possible cause values for all types of interfaces. It should be used only
     // if a management station is unable to decode the value of
     // dialCtlPeerStatsLastDisconnectCause. The type is string.
-    Ccallhistorydisconnecttext interface{}
+    CCallHistoryDisconnectText interface{}
 
     // The value of sysUpTime when the call was connected. The type is interface{}
     // with range: 0..4294967295.
-    Ccallhistoryconnecttime interface{}
+    CCallHistoryConnectTime interface{}
 
     // The value of sysUpTime when the call was disconnected. The type is
     // interface{} with range: 0..4294967295.
-    Ccallhistorydisconnecttime interface{}
+    CCallHistoryDisconnectTime interface{}
 
-    // The call origin. The type is Ccallhistorycallorigin.
-    Ccallhistorycallorigin interface{}
+    // The call origin. The type is CCallHistoryCallOrigin.
+    CCallHistoryCallOrigin interface{}
 
     // The number of charged units for this connection. For incoming calls or if
     // charging information is not supplied by the switch, the value of this
     // object will be zero. The type is interface{} with range: 0..4294967295.
-    Ccallhistorychargedunits interface{}
+    CCallHistoryChargedUnits interface{}
 
-    // The information type for this call. The type is Ccallhistoryinfotype.
-    Ccallhistoryinfotype interface{}
+    // The information type for this call. The type is CCallHistoryInfoType.
+    CCallHistoryInfoType interface{}
 
     // The number of packets which were transmitted while this call was active.
     // The type is interface{} with range: 0..4294967295.
-    Ccallhistorytransmitpackets interface{}
+    CCallHistoryTransmitPackets interface{}
 
     // The number of bytes which were transmitted while this call was active. The
     // type is interface{} with range: 0..4294967295.
-    Ccallhistorytransmitbytes interface{}
+    CCallHistoryTransmitBytes interface{}
 
     // The number of packets which were received while this call was active. The
     // type is interface{} with range: 0..4294967295.
-    Ccallhistoryreceivepackets interface{}
+    CCallHistoryReceivePackets interface{}
 
     // The number of bytes which were received while this call was active. The
     // type is interface{} with range: 0..4294967295.
-    Ccallhistoryreceivebytes interface{}
+    CCallHistoryReceiveBytes interface{}
 
-    // Originator of the call release. The type is Ccallhistoryreleasesource.
-    Ccallhistoryreleasesource interface{}
+    // Originator of the call release. The type is CCallHistoryReleaseSource.
+    CCallHistoryReleaseSource interface{}
 
     // Originator of the call release. Indicates the source of  the call release
     // as follows :  1) callingPartyInPstn : Calling party in PSTN. 2)
@@ -241,180 +250,186 @@ type CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry struct {
     // externalGKTMPServer : External GKTMP server initiated     clear due to
     // receipt of Admission Reject message from     the gatekeeper, triggered by
     // RESPONSE.ARJ message from     the GKTMP server. The type is
-    // Ccallhistoryreleasesrc.
-    Ccallhistoryreleasesrc interface{}
+    // CCallHistoryReleaseSrc.
+    CCallHistoryReleaseSrc interface{}
 }
 
-func (ccallhistoryentry *CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry) GetEntityData() *types.CommonEntityData {
-    ccallhistoryentry.EntityData.YFilter = ccallhistoryentry.YFilter
-    ccallhistoryentry.EntityData.YangName = "cCallHistoryEntry"
-    ccallhistoryentry.EntityData.BundleName = "cisco_ios_xe"
-    ccallhistoryentry.EntityData.ParentYangName = "cCallHistoryTable"
-    ccallhistoryentry.EntityData.SegmentPath = "cCallHistoryEntry" + "[cCallHistoryIndex='" + fmt.Sprintf("%v", ccallhistoryentry.Ccallhistoryindex) + "']"
-    ccallhistoryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ccallhistoryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ccallhistoryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cCallHistoryEntry *CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry) GetEntityData() *types.CommonEntityData {
+    cCallHistoryEntry.EntityData.YFilter = cCallHistoryEntry.YFilter
+    cCallHistoryEntry.EntityData.YangName = "cCallHistoryEntry"
+    cCallHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
+    cCallHistoryEntry.EntityData.ParentYangName = "cCallHistoryTable"
+    cCallHistoryEntry.EntityData.SegmentPath = "cCallHistoryEntry" + types.AddKeyToken(cCallHistoryEntry.CCallHistoryIndex, "cCallHistoryIndex")
+    cCallHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cCallHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cCallHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ccallhistoryentry.EntityData.Children = make(map[string]types.YChild)
-    ccallhistoryentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ccallhistoryentry.EntityData.Leafs["cCallHistoryIndex"] = types.YLeaf{"Ccallhistoryindex", ccallhistoryentry.Ccallhistoryindex}
-    ccallhistoryentry.EntityData.Leafs["cCallHistorySetupTime"] = types.YLeaf{"Ccallhistorysetuptime", ccallhistoryentry.Ccallhistorysetuptime}
-    ccallhistoryentry.EntityData.Leafs["cCallHistoryPeerAddress"] = types.YLeaf{"Ccallhistorypeeraddress", ccallhistoryentry.Ccallhistorypeeraddress}
-    ccallhistoryentry.EntityData.Leafs["cCallHistoryPeerSubAddress"] = types.YLeaf{"Ccallhistorypeersubaddress", ccallhistoryentry.Ccallhistorypeersubaddress}
-    ccallhistoryentry.EntityData.Leafs["cCallHistoryPeerId"] = types.YLeaf{"Ccallhistorypeerid", ccallhistoryentry.Ccallhistorypeerid}
-    ccallhistoryentry.EntityData.Leafs["cCallHistoryPeerIfIndex"] = types.YLeaf{"Ccallhistorypeerifindex", ccallhistoryentry.Ccallhistorypeerifindex}
-    ccallhistoryentry.EntityData.Leafs["cCallHistoryLogicalIfIndex"] = types.YLeaf{"Ccallhistorylogicalifindex", ccallhistoryentry.Ccallhistorylogicalifindex}
-    ccallhistoryentry.EntityData.Leafs["cCallHistoryDisconnectCause"] = types.YLeaf{"Ccallhistorydisconnectcause", ccallhistoryentry.Ccallhistorydisconnectcause}
-    ccallhistoryentry.EntityData.Leafs["cCallHistoryDisconnectText"] = types.YLeaf{"Ccallhistorydisconnecttext", ccallhistoryentry.Ccallhistorydisconnecttext}
-    ccallhistoryentry.EntityData.Leafs["cCallHistoryConnectTime"] = types.YLeaf{"Ccallhistoryconnecttime", ccallhistoryentry.Ccallhistoryconnecttime}
-    ccallhistoryentry.EntityData.Leafs["cCallHistoryDisconnectTime"] = types.YLeaf{"Ccallhistorydisconnecttime", ccallhistoryentry.Ccallhistorydisconnecttime}
-    ccallhistoryentry.EntityData.Leafs["cCallHistoryCallOrigin"] = types.YLeaf{"Ccallhistorycallorigin", ccallhistoryentry.Ccallhistorycallorigin}
-    ccallhistoryentry.EntityData.Leafs["cCallHistoryChargedUnits"] = types.YLeaf{"Ccallhistorychargedunits", ccallhistoryentry.Ccallhistorychargedunits}
-    ccallhistoryentry.EntityData.Leafs["cCallHistoryInfoType"] = types.YLeaf{"Ccallhistoryinfotype", ccallhistoryentry.Ccallhistoryinfotype}
-    ccallhistoryentry.EntityData.Leafs["cCallHistoryTransmitPackets"] = types.YLeaf{"Ccallhistorytransmitpackets", ccallhistoryentry.Ccallhistorytransmitpackets}
-    ccallhistoryentry.EntityData.Leafs["cCallHistoryTransmitBytes"] = types.YLeaf{"Ccallhistorytransmitbytes", ccallhistoryentry.Ccallhistorytransmitbytes}
-    ccallhistoryentry.EntityData.Leafs["cCallHistoryReceivePackets"] = types.YLeaf{"Ccallhistoryreceivepackets", ccallhistoryentry.Ccallhistoryreceivepackets}
-    ccallhistoryentry.EntityData.Leafs["cCallHistoryReceiveBytes"] = types.YLeaf{"Ccallhistoryreceivebytes", ccallhistoryentry.Ccallhistoryreceivebytes}
-    ccallhistoryentry.EntityData.Leafs["cCallHistoryReleaseSource"] = types.YLeaf{"Ccallhistoryreleasesource", ccallhistoryentry.Ccallhistoryreleasesource}
-    ccallhistoryentry.EntityData.Leafs["cCallHistoryReleaseSrc"] = types.YLeaf{"Ccallhistoryreleasesrc", ccallhistoryentry.Ccallhistoryreleasesrc}
-    return &(ccallhistoryentry.EntityData)
+    cCallHistoryEntry.EntityData.Children = types.NewOrderedMap()
+    cCallHistoryEntry.EntityData.Leafs = types.NewOrderedMap()
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryIndex", types.YLeaf{"CCallHistoryIndex", cCallHistoryEntry.CCallHistoryIndex})
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistorySetupTime", types.YLeaf{"CCallHistorySetupTime", cCallHistoryEntry.CCallHistorySetupTime})
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryPeerAddress", types.YLeaf{"CCallHistoryPeerAddress", cCallHistoryEntry.CCallHistoryPeerAddress})
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryPeerSubAddress", types.YLeaf{"CCallHistoryPeerSubAddress", cCallHistoryEntry.CCallHistoryPeerSubAddress})
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryPeerId", types.YLeaf{"CCallHistoryPeerId", cCallHistoryEntry.CCallHistoryPeerId})
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryPeerIfIndex", types.YLeaf{"CCallHistoryPeerIfIndex", cCallHistoryEntry.CCallHistoryPeerIfIndex})
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryLogicalIfIndex", types.YLeaf{"CCallHistoryLogicalIfIndex", cCallHistoryEntry.CCallHistoryLogicalIfIndex})
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryDisconnectCause", types.YLeaf{"CCallHistoryDisconnectCause", cCallHistoryEntry.CCallHistoryDisconnectCause})
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryDisconnectText", types.YLeaf{"CCallHistoryDisconnectText", cCallHistoryEntry.CCallHistoryDisconnectText})
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryConnectTime", types.YLeaf{"CCallHistoryConnectTime", cCallHistoryEntry.CCallHistoryConnectTime})
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryDisconnectTime", types.YLeaf{"CCallHistoryDisconnectTime", cCallHistoryEntry.CCallHistoryDisconnectTime})
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryCallOrigin", types.YLeaf{"CCallHistoryCallOrigin", cCallHistoryEntry.CCallHistoryCallOrigin})
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryChargedUnits", types.YLeaf{"CCallHistoryChargedUnits", cCallHistoryEntry.CCallHistoryChargedUnits})
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryInfoType", types.YLeaf{"CCallHistoryInfoType", cCallHistoryEntry.CCallHistoryInfoType})
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryTransmitPackets", types.YLeaf{"CCallHistoryTransmitPackets", cCallHistoryEntry.CCallHistoryTransmitPackets})
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryTransmitBytes", types.YLeaf{"CCallHistoryTransmitBytes", cCallHistoryEntry.CCallHistoryTransmitBytes})
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryReceivePackets", types.YLeaf{"CCallHistoryReceivePackets", cCallHistoryEntry.CCallHistoryReceivePackets})
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryReceiveBytes", types.YLeaf{"CCallHistoryReceiveBytes", cCallHistoryEntry.CCallHistoryReceiveBytes})
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryReleaseSource", types.YLeaf{"CCallHistoryReleaseSource", cCallHistoryEntry.CCallHistoryReleaseSource})
+    cCallHistoryEntry.EntityData.Leafs.Append("cCallHistoryReleaseSrc", types.YLeaf{"CCallHistoryReleaseSrc", cCallHistoryEntry.CCallHistoryReleaseSrc})
+
+    cCallHistoryEntry.EntityData.YListKeys = []string {"CCallHistoryIndex"}
+
+    return &(cCallHistoryEntry.EntityData)
 }
 
-// CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistorycallorigin represents The call origin.
-type CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistorycallorigin string
+// CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryCallOrigin represents The call origin.
+type CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryCallOrigin string
 
 const (
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistorycallorigin_originate CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistorycallorigin = "originate"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryCallOrigin_originate CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryCallOrigin = "originate"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistorycallorigin_answer CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistorycallorigin = "answer"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryCallOrigin_answer CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryCallOrigin = "answer"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistorycallorigin_callback CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistorycallorigin = "callback"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryCallOrigin_callback CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryCallOrigin = "callback"
 )
 
-// CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype represents The information type for this call.
-type CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype string
+// CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType represents The information type for this call.
+type CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType string
 
 const (
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype_other CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype = "other"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType_other CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType = "other"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype_speech CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype = "speech"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType_speech CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType = "speech"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype_unrestrictedDigital CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype = "unrestrictedDigital"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType_unrestrictedDigital CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType = "unrestrictedDigital"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype_unrestrictedDigital56 CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype = "unrestrictedDigital56"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType_unrestrictedDigital56 CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType = "unrestrictedDigital56"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype_restrictedDigital CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype = "restrictedDigital"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType_restrictedDigital CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType = "restrictedDigital"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype_audio31 CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype = "audio31"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType_audio31 CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType = "audio31"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype_audio7 CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype = "audio7"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType_audio7 CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType = "audio7"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype_video CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype = "video"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType_video CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType = "video"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype_packetSwitched CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype = "packetSwitched"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType_packetSwitched CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType = "packetSwitched"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype_fax CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryinfotype = "fax"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType_fax CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryInfoType = "fax"
 )
 
-// CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource represents Originator of the call release.
-type CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource string
+// CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource represents Originator of the call release.
+type CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource string
 
 const (
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource_callingPartyInPstn CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource = "callingPartyInPstn"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource_callingPartyInPstn CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource = "callingPartyInPstn"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource_callingPartyInVoip CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource = "callingPartyInVoip"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource_callingPartyInVoip CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource = "callingPartyInVoip"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource_calledPartyInPstn CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource = "calledPartyInPstn"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource_calledPartyInPstn CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource = "calledPartyInPstn"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource_calledPartyInVoip CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource = "calledPartyInVoip"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource_calledPartyInVoip CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource = "calledPartyInVoip"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource_internalRelease CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource = "internalRelease"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource_internalRelease CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource = "internalRelease"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource_internalCallControlApp CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource = "internalCallControlApp"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource_internalCallControlApp CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource = "internalCallControlApp"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource_consoleCommand CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource = "consoleCommand"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource_consoleCommand CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource = "consoleCommand"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource_externalRadiusServer CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource = "externalRadiusServer"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource_externalRadiusServer CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource = "externalRadiusServer"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource_externalNmsApp CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource = "externalNmsApp"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource_externalNmsApp CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource = "externalNmsApp"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource_externalCallControlAgent CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesource = "externalCallControlAgent"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource_externalCallControlAgent CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSource = "externalCallControlAgent"
 )
 
-// CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc represents     the GKTMP server.
-type CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc string
+// CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc represents     the GKTMP server.
+type CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc string
 
 const (
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc_callingPartyInPstn CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc = "callingPartyInPstn"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc_callingPartyInPstn CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc = "callingPartyInPstn"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc_callingPartyInVoip CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc = "callingPartyInVoip"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc_callingPartyInVoip CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc = "callingPartyInVoip"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc_calledPartyInPstn CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc = "calledPartyInPstn"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc_calledPartyInPstn CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc = "calledPartyInPstn"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc_calledPartyInVoip CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc = "calledPartyInVoip"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc_calledPartyInVoip CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc = "calledPartyInVoip"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc_internalReleaseInPotsLeg CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc = "internalReleaseInPotsLeg"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc_internalReleaseInPotsLeg CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc = "internalReleaseInPotsLeg"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc_internalReleaseInVoipLeg CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc = "internalReleaseInVoipLeg"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc_internalReleaseInVoipLeg CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc = "internalReleaseInVoipLeg"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc_internalCallControlApp CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc = "internalCallControlApp"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc_internalCallControlApp CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc = "internalCallControlApp"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc_internalReleaseInVoipAAA CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc = "internalReleaseInVoipAAA"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc_internalReleaseInVoipAAA CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc = "internalReleaseInVoipAAA"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc_consoleCommand CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc = "consoleCommand"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc_consoleCommand CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc = "consoleCommand"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc_externalRadiusServer CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc = "externalRadiusServer"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc_externalRadiusServer CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc = "externalRadiusServer"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc_externalNmsApp CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc = "externalNmsApp"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc_externalNmsApp CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc = "externalNmsApp"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc_externalCallControlAgent CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc = "externalCallControlAgent"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc_externalCallControlAgent CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc = "externalCallControlAgent"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc_gatekeeper CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc = "gatekeeper"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc_gatekeeper CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc = "gatekeeper"
 
-    CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc_externalGKTMPServer CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryreleasesrc = "externalGKTMPServer"
+    CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc_externalGKTMPServer CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryReleaseSrc = "externalGKTMPServer"
 )
 
-// CISCODIALCONTROLMIB_Ccallhistoryiectable
+// CISCODIALCONTROLMIB_CCallHistoryIecTable
 // This table contains information about Internal Error
 // Code(s) (IEC) which caused the call to fail.
-type CISCODIALCONTROLMIB_Ccallhistoryiectable struct {
+type CISCODIALCONTROLMIB_CCallHistoryIecTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The IEC information regarding a single call. The type is slice of
-    // CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry.
-    Ccallhistoryiecentry []CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry
+    // CISCODIALCONTROLMIB_CCallHistoryIecTable_CCallHistoryIecEntry.
+    CCallHistoryIecEntry []*CISCODIALCONTROLMIB_CCallHistoryIecTable_CCallHistoryIecEntry
 }
 
-func (ccallhistoryiectable *CISCODIALCONTROLMIB_Ccallhistoryiectable) GetEntityData() *types.CommonEntityData {
-    ccallhistoryiectable.EntityData.YFilter = ccallhistoryiectable.YFilter
-    ccallhistoryiectable.EntityData.YangName = "cCallHistoryIecTable"
-    ccallhistoryiectable.EntityData.BundleName = "cisco_ios_xe"
-    ccallhistoryiectable.EntityData.ParentYangName = "CISCO-DIAL-CONTROL-MIB"
-    ccallhistoryiectable.EntityData.SegmentPath = "cCallHistoryIecTable"
-    ccallhistoryiectable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ccallhistoryiectable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ccallhistoryiectable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cCallHistoryIecTable *CISCODIALCONTROLMIB_CCallHistoryIecTable) GetEntityData() *types.CommonEntityData {
+    cCallHistoryIecTable.EntityData.YFilter = cCallHistoryIecTable.YFilter
+    cCallHistoryIecTable.EntityData.YangName = "cCallHistoryIecTable"
+    cCallHistoryIecTable.EntityData.BundleName = "cisco_ios_xe"
+    cCallHistoryIecTable.EntityData.ParentYangName = "CISCO-DIAL-CONTROL-MIB"
+    cCallHistoryIecTable.EntityData.SegmentPath = "cCallHistoryIecTable"
+    cCallHistoryIecTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cCallHistoryIecTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cCallHistoryIecTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ccallhistoryiectable.EntityData.Children = make(map[string]types.YChild)
-    ccallhistoryiectable.EntityData.Children["cCallHistoryIecEntry"] = types.YChild{"Ccallhistoryiecentry", nil}
-    for i := range ccallhistoryiectable.Ccallhistoryiecentry {
-        ccallhistoryiectable.EntityData.Children[types.GetSegmentPath(&ccallhistoryiectable.Ccallhistoryiecentry[i])] = types.YChild{"Ccallhistoryiecentry", &ccallhistoryiectable.Ccallhistoryiecentry[i]}
+    cCallHistoryIecTable.EntityData.Children = types.NewOrderedMap()
+    cCallHistoryIecTable.EntityData.Children.Append("cCallHistoryIecEntry", types.YChild{"CCallHistoryIecEntry", nil})
+    for i := range cCallHistoryIecTable.CCallHistoryIecEntry {
+        cCallHistoryIecTable.EntityData.Children.Append(types.GetSegmentPath(cCallHistoryIecTable.CCallHistoryIecEntry[i]), types.YChild{"CCallHistoryIecEntry", cCallHistoryIecTable.CCallHistoryIecEntry[i]})
     }
-    ccallhistoryiectable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ccallhistoryiectable.EntityData)
+    cCallHistoryIecTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cCallHistoryIecTable.EntityData.YListKeys = []string {}
+
+    return &(cCallHistoryIecTable.EntityData)
 }
 
-// CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry
+// CISCODIALCONTROLMIB_CCallHistoryIecTable_CCallHistoryIecEntry
 // The IEC information regarding a single call.
-type CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry struct {
+type CISCODIALCONTROLMIB_CCallHistoryIecTable_CCallHistoryIecEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // cisco_dial_control_mib.CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistoryindex
-    Ccallhistoryindex interface{}
+    // cisco_dial_control_mib.CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry_CCallHistoryIndex
+    CCallHistoryIndex interface{}
 
     // This attribute is a key. This object is used to index one or more IECs in
     // the context of a single call.  In most cases there will only be one IEC
@@ -423,7 +438,7 @@ type CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry struct {
     // scenario, there will be multiple entries in this table related to a single
     // call (cCallHistoryIndex) and this object will serve to uniquely identify
     // each IEC. The type is interface{} with range: 1..1024.
-    Ccallhistoryiecindex interface{}
+    CCallHistoryIecIndex interface{}
 
     // This object reflects the Internal Error Code. The format is a string of
     // dotted decimal numbers composed of the following components: 
@@ -434,24 +449,27 @@ type CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry struct {
     // resource unavailable, ...) Subsystem   : The subsystem in which the error
     // occurred. Errorcode   : A subsytem-specific error code. Diagnostic  : An
     // implementation-specific diagnostic code. The type is string.
-    Ccallhistoryiec interface{}
+    CCallHistoryIec interface{}
 }
 
-func (ccallhistoryiecentry *CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry) GetEntityData() *types.CommonEntityData {
-    ccallhistoryiecentry.EntityData.YFilter = ccallhistoryiecentry.YFilter
-    ccallhistoryiecentry.EntityData.YangName = "cCallHistoryIecEntry"
-    ccallhistoryiecentry.EntityData.BundleName = "cisco_ios_xe"
-    ccallhistoryiecentry.EntityData.ParentYangName = "cCallHistoryIecTable"
-    ccallhistoryiecentry.EntityData.SegmentPath = "cCallHistoryIecEntry" + "[cCallHistoryIndex='" + fmt.Sprintf("%v", ccallhistoryiecentry.Ccallhistoryindex) + "']" + "[cCallHistoryIecIndex='" + fmt.Sprintf("%v", ccallhistoryiecentry.Ccallhistoryiecindex) + "']"
-    ccallhistoryiecentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ccallhistoryiecentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ccallhistoryiecentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cCallHistoryIecEntry *CISCODIALCONTROLMIB_CCallHistoryIecTable_CCallHistoryIecEntry) GetEntityData() *types.CommonEntityData {
+    cCallHistoryIecEntry.EntityData.YFilter = cCallHistoryIecEntry.YFilter
+    cCallHistoryIecEntry.EntityData.YangName = "cCallHistoryIecEntry"
+    cCallHistoryIecEntry.EntityData.BundleName = "cisco_ios_xe"
+    cCallHistoryIecEntry.EntityData.ParentYangName = "cCallHistoryIecTable"
+    cCallHistoryIecEntry.EntityData.SegmentPath = "cCallHistoryIecEntry" + types.AddKeyToken(cCallHistoryIecEntry.CCallHistoryIndex, "cCallHistoryIndex") + types.AddKeyToken(cCallHistoryIecEntry.CCallHistoryIecIndex, "cCallHistoryIecIndex")
+    cCallHistoryIecEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cCallHistoryIecEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cCallHistoryIecEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ccallhistoryiecentry.EntityData.Children = make(map[string]types.YChild)
-    ccallhistoryiecentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ccallhistoryiecentry.EntityData.Leafs["cCallHistoryIndex"] = types.YLeaf{"Ccallhistoryindex", ccallhistoryiecentry.Ccallhistoryindex}
-    ccallhistoryiecentry.EntityData.Leafs["cCallHistoryIecIndex"] = types.YLeaf{"Ccallhistoryiecindex", ccallhistoryiecentry.Ccallhistoryiecindex}
-    ccallhistoryiecentry.EntityData.Leafs["cCallHistoryIec"] = types.YLeaf{"Ccallhistoryiec", ccallhistoryiecentry.Ccallhistoryiec}
-    return &(ccallhistoryiecentry.EntityData)
+    cCallHistoryIecEntry.EntityData.Children = types.NewOrderedMap()
+    cCallHistoryIecEntry.EntityData.Leafs = types.NewOrderedMap()
+    cCallHistoryIecEntry.EntityData.Leafs.Append("cCallHistoryIndex", types.YLeaf{"CCallHistoryIndex", cCallHistoryIecEntry.CCallHistoryIndex})
+    cCallHistoryIecEntry.EntityData.Leafs.Append("cCallHistoryIecIndex", types.YLeaf{"CCallHistoryIecIndex", cCallHistoryIecEntry.CCallHistoryIecIndex})
+    cCallHistoryIecEntry.EntityData.Leafs.Append("cCallHistoryIec", types.YLeaf{"CCallHistoryIec", cCallHistoryIecEntry.CCallHistoryIec})
+
+    cCallHistoryIecEntry.EntityData.YListKeys = []string {"CCallHistoryIndex", "CCallHistoryIecIndex"}
+
+    return &(cCallHistoryIecEntry.EntityData)
 }
 

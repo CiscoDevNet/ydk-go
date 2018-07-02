@@ -11,41 +11,6 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package aft_types"))
 }
 
-type AFTADDRESSFAMILY struct {
-}
-
-func (id AFTADDRESSFAMILY) String() string {
-	return "openconfig-aft-types:AFT_ADDRESS_FAMILY"
-}
-
-type IPV4UNICAST struct {
-}
-
-func (id IPV4UNICAST) String() string {
-	return "openconfig-aft-types:IPV4_UNICAST"
-}
-
-type IPV6UNICAST struct {
-}
-
-func (id IPV6UNICAST) String() string {
-	return "openconfig-aft-types:IPV6_UNICAST"
-}
-
-type MPLS struct {
-}
-
-func (id MPLS) String() string {
-	return "openconfig-aft-types:MPLS"
-}
-
-type L2ETHERNET struct {
-}
-
-func (id L2ETHERNET) String() string {
-	return "openconfig-aft-types:L2_ETHERNET"
-}
-
 // EncapsulationHeaderType represents head- or tail-end.
 type EncapsulationHeaderType string
 

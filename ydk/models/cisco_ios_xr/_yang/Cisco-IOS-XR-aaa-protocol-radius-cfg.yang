@@ -39,6 +39,10 @@ module Cisco-IOS-XR-aaa-protocol-radius-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -469,7 +473,7 @@ module Cisco-IOS-XR-aaa-protocol-radius-cfg {
               "RADIUS encryption key";
           }
           leaf ordering-index {
-            type int32;
+            type uint32;
             description
               "This is used to sort the servers in the order
                of precedence";
@@ -520,7 +524,7 @@ module Cisco-IOS-XR-aaa-protocol-radius-cfg {
         description
           "disallow null-username";
         leaf null-username {
-          type int32;
+          type uint32;
           description
             "Disallow null-username";
         }
@@ -747,7 +751,7 @@ module Cisco-IOS-XR-aaa-protocol-radius-cfg {
               description
                 "Vendor ID of vsa";
               leaf vendor-id {
-                type int32;
+                type uint32;
                 description
                   "Vendor Id of vsa";
               }
@@ -756,7 +760,7 @@ module Cisco-IOS-XR-aaa-protocol-radius-cfg {
                 description
                   "Vendor Type of vsa";
                 leaf vendor-type {
-                  type int32;
+                  type uint32;
                   description
                     "Vendor Type of vsa";
                 }
@@ -774,7 +778,7 @@ module Cisco-IOS-XR-aaa-protocol-radius-cfg {
                     description
                       "AttributeName of vsa is absent";
                     leaf attribute-name-absent {
-                      type int32;
+                      type uint32;
                       description
                         "AttributeName of vsa is absent";
                     }
@@ -783,7 +787,7 @@ module Cisco-IOS-XR-aaa-protocol-radius-cfg {
                       description
                         "AttributeName of vsa is present";
                       leaf attribute-name-present {
-                        type int32;
+                        type uint32;
                         description
                           "AttributeName of vsa is present";
                       }
@@ -871,7 +875,7 @@ module Cisco-IOS-XR-aaa-protocol-radius-cfg {
             description
               "A server to include in the server group";
             leaf ordering-index {
-              type int32;
+              type uint32;
               description
                 "This is used to sort the servers in the
                  order of precedence";
@@ -943,7 +947,7 @@ module Cisco-IOS-XR-aaa-protocol-radius-cfg {
                 "Ignore authentication Port";
             }
             leaf ordering-index {
-              type int32;
+              type uint32;
               description
                 "This is used to sort the servers in the
                  order of precedence";
@@ -1001,7 +1005,7 @@ module Cisco-IOS-XR-aaa-protocol-radius-cfg {
               description
                 "Batch size for selection of the server";
               leaf least-outstanding {
-                type int32;
+                type uint32;
                 default "4";
                 description
                   "Pick the server with the least transactions

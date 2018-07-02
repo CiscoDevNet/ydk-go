@@ -90,7 +90,7 @@ type MplsOam struct {
     YFilter yfilter.YFilter
 
     // MPLS OAM interface operational data.
-    Interface_ MplsOam_Interface
+    Interface MplsOam_Interface
 
     // LSPV packet counters operational data.
     Packet MplsOam_Packet
@@ -109,11 +109,14 @@ func (mplsOam *MplsOam) GetEntityData() *types.CommonEntityData {
     mplsOam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsOam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mplsOam.EntityData.Children = make(map[string]types.YChild)
-    mplsOam.EntityData.Children["interface"] = types.YChild{"Interface_", &mplsOam.Interface_}
-    mplsOam.EntityData.Children["packet"] = types.YChild{"Packet", &mplsOam.Packet}
-    mplsOam.EntityData.Children["global"] = types.YChild{"Global", &mplsOam.Global}
-    mplsOam.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsOam.EntityData.Children = types.NewOrderedMap()
+    mplsOam.EntityData.Children.Append("interface", types.YChild{"Interface", &mplsOam.Interface})
+    mplsOam.EntityData.Children.Append("packet", types.YChild{"Packet", &mplsOam.Packet})
+    mplsOam.EntityData.Children.Append("global", types.YChild{"Global", &mplsOam.Global})
+    mplsOam.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsOam.EntityData.YListKeys = []string {}
+
     return &(mplsOam.EntityData)
 }
 
@@ -140,10 +143,13 @@ func (self *MplsOam_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["briefs"] = types.YChild{"Briefs", &self.Briefs}
-    self.EntityData.Children["details"] = types.YChild{"Details", &self.Details}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("briefs", types.YChild{"Briefs", &self.Briefs})
+    self.EntityData.Children.Append("details", types.YChild{"Details", &self.Details})
+    self.EntityData.Leafs = types.NewOrderedMap()
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -155,7 +161,7 @@ type MplsOam_Interface_Briefs struct {
 
     // MPLS OAM interface operational data. The type is slice of
     // MplsOam_Interface_Briefs_Brief.
-    Brief []MplsOam_Interface_Briefs_Brief
+    Brief []*MplsOam_Interface_Briefs_Brief
 }
 
 func (briefs *MplsOam_Interface_Briefs) GetEntityData() *types.CommonEntityData {
@@ -168,12 +174,15 @@ func (briefs *MplsOam_Interface_Briefs) GetEntityData() *types.CommonEntityData 
     briefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     briefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    briefs.EntityData.Children = make(map[string]types.YChild)
-    briefs.EntityData.Children["brief"] = types.YChild{"Brief", nil}
+    briefs.EntityData.Children = types.NewOrderedMap()
+    briefs.EntityData.Children.Append("brief", types.YChild{"Brief", nil})
     for i := range briefs.Brief {
-        briefs.EntityData.Children[types.GetSegmentPath(&briefs.Brief[i])] = types.YChild{"Brief", &briefs.Brief[i]}
+        briefs.EntityData.Children.Append(types.GetSegmentPath(briefs.Brief[i]), types.YChild{"Brief", briefs.Brief[i]})
     }
-    briefs.EntityData.Leafs = make(map[string]types.YLeaf)
+    briefs.EntityData.Leafs = types.NewOrderedMap()
+
+    briefs.EntityData.YListKeys = []string {}
+
     return &(briefs.EntityData)
 }
 
@@ -184,10 +193,10 @@ type MplsOam_Interface_Briefs_Brief struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is LspvBagInterfaceState.
@@ -203,11 +212,11 @@ type MplsOam_Interface_Briefs_Brief struct {
     PrefixLengthV6 interface{}
 
     // Primary interface address (IPv4). The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PrimaryAddress interface{}
 
     // Primary interface address (IPv6). The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PrimaryAddressV6 interface{}
 }
 
@@ -216,21 +225,24 @@ func (brief *MplsOam_Interface_Briefs_Brief) GetEntityData() *types.CommonEntity
     brief.EntityData.YangName = "brief"
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "briefs"
-    brief.EntityData.SegmentPath = "brief" + "[interface-name='" + fmt.Sprintf("%v", brief.InterfaceName) + "']"
+    brief.EntityData.SegmentPath = "brief" + types.AddKeyToken(brief.InterfaceName, "interface-name")
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    brief.EntityData.Children = make(map[string]types.YChild)
-    brief.EntityData.Leafs = make(map[string]types.YLeaf)
-    brief.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", brief.InterfaceName}
-    brief.EntityData.Leafs["interface-name-xr"] = types.YLeaf{"InterfaceNameXr", brief.InterfaceNameXr}
-    brief.EntityData.Leafs["state"] = types.YLeaf{"State", brief.State}
-    brief.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", brief.Mtu}
-    brief.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", brief.PrefixLength}
-    brief.EntityData.Leafs["prefix-length-v6"] = types.YLeaf{"PrefixLengthV6", brief.PrefixLengthV6}
-    brief.EntityData.Leafs["primary-address"] = types.YLeaf{"PrimaryAddress", brief.PrimaryAddress}
-    brief.EntityData.Leafs["primary-address-v6"] = types.YLeaf{"PrimaryAddressV6", brief.PrimaryAddressV6}
+    brief.EntityData.Children = types.NewOrderedMap()
+    brief.EntityData.Leafs = types.NewOrderedMap()
+    brief.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", brief.InterfaceName})
+    brief.EntityData.Leafs.Append("interface-name-xr", types.YLeaf{"InterfaceNameXr", brief.InterfaceNameXr})
+    brief.EntityData.Leafs.Append("state", types.YLeaf{"State", brief.State})
+    brief.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", brief.Mtu})
+    brief.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", brief.PrefixLength})
+    brief.EntityData.Leafs.Append("prefix-length-v6", types.YLeaf{"PrefixLengthV6", brief.PrefixLengthV6})
+    brief.EntityData.Leafs.Append("primary-address", types.YLeaf{"PrimaryAddress", brief.PrimaryAddress})
+    brief.EntityData.Leafs.Append("primary-address-v6", types.YLeaf{"PrimaryAddressV6", brief.PrimaryAddressV6})
+
+    brief.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(brief.EntityData)
 }
 
@@ -242,7 +254,7 @@ type MplsOam_Interface_Details struct {
 
     // MPLS OAM interface operational data. The type is slice of
     // MplsOam_Interface_Details_Detail.
-    Detail []MplsOam_Interface_Details_Detail
+    Detail []*MplsOam_Interface_Details_Detail
 }
 
 func (details *MplsOam_Interface_Details) GetEntityData() *types.CommonEntityData {
@@ -255,12 +267,15 @@ func (details *MplsOam_Interface_Details) GetEntityData() *types.CommonEntityDat
     details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    details.EntityData.Children = make(map[string]types.YChild)
-    details.EntityData.Children["detail"] = types.YChild{"Detail", nil}
+    details.EntityData.Children = types.NewOrderedMap()
+    details.EntityData.Children.Append("detail", types.YChild{"Detail", nil})
     for i := range details.Detail {
-        details.EntityData.Children[types.GetSegmentPath(&details.Detail[i])] = types.YChild{"Detail", &details.Detail[i]}
+        details.EntityData.Children.Append(types.GetSegmentPath(details.Detail[i]), types.YChild{"Detail", details.Detail[i]})
     }
-    details.EntityData.Leafs = make(map[string]types.YLeaf)
+    details.EntityData.Leafs = types.NewOrderedMap()
+
+    details.EntityData.YListKeys = []string {}
+
     return &(details.EntityData)
 }
 
@@ -271,7 +286,7 @@ type MplsOam_Interface_Details_Detail struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Interface brief.
@@ -286,16 +301,19 @@ func (detail *MplsOam_Interface_Details_Detail) GetEntityData() *types.CommonEnt
     detail.EntityData.YangName = "detail"
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "details"
-    detail.EntityData.SegmentPath = "detail" + "[interface-name='" + fmt.Sprintf("%v", detail.InterfaceName) + "']"
+    detail.EntityData.SegmentPath = "detail" + types.AddKeyToken(detail.InterfaceName, "interface-name")
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detail.EntityData.Children = make(map[string]types.YChild)
-    detail.EntityData.Children["interface-brief"] = types.YChild{"InterfaceBrief", &detail.InterfaceBrief}
-    detail.EntityData.Children["packet-statistics"] = types.YChild{"PacketStatistics", &detail.PacketStatistics}
-    detail.EntityData.Leafs = make(map[string]types.YLeaf)
-    detail.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", detail.InterfaceName}
+    detail.EntityData.Children = types.NewOrderedMap()
+    detail.EntityData.Children.Append("interface-brief", types.YChild{"InterfaceBrief", &detail.InterfaceBrief})
+    detail.EntityData.Children.Append("packet-statistics", types.YChild{"PacketStatistics", &detail.PacketStatistics})
+    detail.EntityData.Leafs = types.NewOrderedMap()
+    detail.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", detail.InterfaceName})
+
+    detail.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(detail.EntityData)
 }
 
@@ -305,7 +323,7 @@ type MplsOam_Interface_Details_Detail_InterfaceBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is LspvBagInterfaceState.
@@ -321,11 +339,11 @@ type MplsOam_Interface_Details_Detail_InterfaceBrief struct {
     PrefixLengthV6 interface{}
 
     // Primary interface address (IPv4). The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PrimaryAddress interface{}
 
     // Primary interface address (IPv6). The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PrimaryAddressV6 interface{}
 }
 
@@ -339,15 +357,18 @@ func (interfaceBrief *MplsOam_Interface_Details_Detail_InterfaceBrief) GetEntity
     interfaceBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceBrief.EntityData.Children = make(map[string]types.YChild)
-    interfaceBrief.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceBrief.EntityData.Leafs["interface-name-xr"] = types.YLeaf{"InterfaceNameXr", interfaceBrief.InterfaceNameXr}
-    interfaceBrief.EntityData.Leafs["state"] = types.YLeaf{"State", interfaceBrief.State}
-    interfaceBrief.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", interfaceBrief.Mtu}
-    interfaceBrief.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", interfaceBrief.PrefixLength}
-    interfaceBrief.EntityData.Leafs["prefix-length-v6"] = types.YLeaf{"PrefixLengthV6", interfaceBrief.PrefixLengthV6}
-    interfaceBrief.EntityData.Leafs["primary-address"] = types.YLeaf{"PrimaryAddress", interfaceBrief.PrimaryAddress}
-    interfaceBrief.EntityData.Leafs["primary-address-v6"] = types.YLeaf{"PrimaryAddressV6", interfaceBrief.PrimaryAddressV6}
+    interfaceBrief.EntityData.Children = types.NewOrderedMap()
+    interfaceBrief.EntityData.Leafs = types.NewOrderedMap()
+    interfaceBrief.EntityData.Leafs.Append("interface-name-xr", types.YLeaf{"InterfaceNameXr", interfaceBrief.InterfaceNameXr})
+    interfaceBrief.EntityData.Leafs.Append("state", types.YLeaf{"State", interfaceBrief.State})
+    interfaceBrief.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", interfaceBrief.Mtu})
+    interfaceBrief.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", interfaceBrief.PrefixLength})
+    interfaceBrief.EntityData.Leafs.Append("prefix-length-v6", types.YLeaf{"PrefixLengthV6", interfaceBrief.PrefixLengthV6})
+    interfaceBrief.EntityData.Leafs.Append("primary-address", types.YLeaf{"PrimaryAddress", interfaceBrief.PrimaryAddress})
+    interfaceBrief.EntityData.Leafs.Append("primary-address-v6", types.YLeaf{"PrimaryAddressV6", interfaceBrief.PrimaryAddressV6})
+
+    interfaceBrief.EntityData.YListKeys = []string {}
+
     return &(interfaceBrief.EntityData)
 }
 
@@ -386,14 +407,17 @@ func (packetStatistics *MplsOam_Interface_Details_Detail_PacketStatistics) GetEn
     packetStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    packetStatistics.EntityData.Children = make(map[string]types.YChild)
-    packetStatistics.EntityData.Children["received"] = types.YChild{"Received", &packetStatistics.Received}
-    packetStatistics.EntityData.Children["sent"] = types.YChild{"Sent", &packetStatistics.Sent}
-    packetStatistics.EntityData.Children["working-req-sent"] = types.YChild{"WorkingReqSent", &packetStatistics.WorkingReqSent}
-    packetStatistics.EntityData.Children["working-rep-sent"] = types.YChild{"WorkingRepSent", &packetStatistics.WorkingRepSent}
-    packetStatistics.EntityData.Children["protect-req-sent"] = types.YChild{"ProtectReqSent", &packetStatistics.ProtectReqSent}
-    packetStatistics.EntityData.Children["protect-rep-sent"] = types.YChild{"ProtectRepSent", &packetStatistics.ProtectRepSent}
-    packetStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    packetStatistics.EntityData.Children = types.NewOrderedMap()
+    packetStatistics.EntityData.Children.Append("received", types.YChild{"Received", &packetStatistics.Received})
+    packetStatistics.EntityData.Children.Append("sent", types.YChild{"Sent", &packetStatistics.Sent})
+    packetStatistics.EntityData.Children.Append("working-req-sent", types.YChild{"WorkingReqSent", &packetStatistics.WorkingReqSent})
+    packetStatistics.EntityData.Children.Append("working-rep-sent", types.YChild{"WorkingRepSent", &packetStatistics.WorkingRepSent})
+    packetStatistics.EntityData.Children.Append("protect-req-sent", types.YChild{"ProtectReqSent", &packetStatistics.ProtectReqSent})
+    packetStatistics.EntityData.Children.Append("protect-rep-sent", types.YChild{"ProtectRepSent", &packetStatistics.ProtectRepSent})
+    packetStatistics.EntityData.Leafs = types.NewOrderedMap()
+
+    packetStatistics.EntityData.YListKeys = []string {}
+
     return &(packetStatistics.EntityData)
 }
 
@@ -456,22 +480,25 @@ func (received *MplsOam_Interface_Details_Detail_PacketStatistics_Received) GetE
     received.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     received.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    received.EntityData.Children = make(map[string]types.YChild)
-    received.EntityData.Children["received-good-request"] = types.YChild{"ReceivedGoodRequest", &received.ReceivedGoodRequest}
-    received.EntityData.Children["received-good-reply"] = types.YChild{"ReceivedGoodReply", &received.ReceivedGoodReply}
-    received.EntityData.Children["received-unknown"] = types.YChild{"ReceivedUnknown", &received.ReceivedUnknown}
-    received.EntityData.Children["received-error-ip-header"] = types.YChild{"ReceivedErrorIpHeader", &received.ReceivedErrorIpHeader}
-    received.EntityData.Children["received-error-udp-header"] = types.YChild{"ReceivedErrorUdpHeader", &received.ReceivedErrorUdpHeader}
-    received.EntityData.Children["received-error-runt"] = types.YChild{"ReceivedErrorRunt", &received.ReceivedErrorRunt}
-    received.EntityData.Children["received-error-queue-full"] = types.YChild{"ReceivedErrorQueueFull", &received.ReceivedErrorQueueFull}
-    received.EntityData.Children["received-error-general"] = types.YChild{"ReceivedErrorGeneral", &received.ReceivedErrorGeneral}
-    received.EntityData.Children["received-error-no-interface"] = types.YChild{"ReceivedErrorNoInterface", &received.ReceivedErrorNoInterface}
-    received.EntityData.Children["received-error-no-memory"] = types.YChild{"ReceivedErrorNoMemory", &received.ReceivedErrorNoMemory}
-    received.EntityData.Children["protect-protocol-received-good-request"] = types.YChild{"ProtectProtocolReceivedGoodRequest", &received.ProtectProtocolReceivedGoodRequest}
-    received.EntityData.Children["protect-protocol-received-good-reply"] = types.YChild{"ProtectProtocolReceivedGoodReply", &received.ProtectProtocolReceivedGoodReply}
-    received.EntityData.Children["received-good-bfd-request"] = types.YChild{"ReceivedGoodBfdRequest", &received.ReceivedGoodBfdRequest}
-    received.EntityData.Children["received-good-bfd-reply"] = types.YChild{"ReceivedGoodBfdReply", &received.ReceivedGoodBfdReply}
-    received.EntityData.Leafs = make(map[string]types.YLeaf)
+    received.EntityData.Children = types.NewOrderedMap()
+    received.EntityData.Children.Append("received-good-request", types.YChild{"ReceivedGoodRequest", &received.ReceivedGoodRequest})
+    received.EntityData.Children.Append("received-good-reply", types.YChild{"ReceivedGoodReply", &received.ReceivedGoodReply})
+    received.EntityData.Children.Append("received-unknown", types.YChild{"ReceivedUnknown", &received.ReceivedUnknown})
+    received.EntityData.Children.Append("received-error-ip-header", types.YChild{"ReceivedErrorIpHeader", &received.ReceivedErrorIpHeader})
+    received.EntityData.Children.Append("received-error-udp-header", types.YChild{"ReceivedErrorUdpHeader", &received.ReceivedErrorUdpHeader})
+    received.EntityData.Children.Append("received-error-runt", types.YChild{"ReceivedErrorRunt", &received.ReceivedErrorRunt})
+    received.EntityData.Children.Append("received-error-queue-full", types.YChild{"ReceivedErrorQueueFull", &received.ReceivedErrorQueueFull})
+    received.EntityData.Children.Append("received-error-general", types.YChild{"ReceivedErrorGeneral", &received.ReceivedErrorGeneral})
+    received.EntityData.Children.Append("received-error-no-interface", types.YChild{"ReceivedErrorNoInterface", &received.ReceivedErrorNoInterface})
+    received.EntityData.Children.Append("received-error-no-memory", types.YChild{"ReceivedErrorNoMemory", &received.ReceivedErrorNoMemory})
+    received.EntityData.Children.Append("protect-protocol-received-good-request", types.YChild{"ProtectProtocolReceivedGoodRequest", &received.ProtectProtocolReceivedGoodRequest})
+    received.EntityData.Children.Append("protect-protocol-received-good-reply", types.YChild{"ProtectProtocolReceivedGoodReply", &received.ProtectProtocolReceivedGoodReply})
+    received.EntityData.Children.Append("received-good-bfd-request", types.YChild{"ReceivedGoodBfdRequest", &received.ReceivedGoodBfdRequest})
+    received.EntityData.Children.Append("received-good-bfd-reply", types.YChild{"ReceivedGoodBfdReply", &received.ReceivedGoodBfdReply})
+    received.EntityData.Leafs = types.NewOrderedMap()
+
+    received.EntityData.YListKeys = []string {}
+
     return &(received.EntityData)
 }
 
@@ -500,10 +527,13 @@ func (receivedGoodRequest *MplsOam_Interface_Details_Detail_PacketStatistics_Rec
     receivedGoodRequest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedGoodRequest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedGoodRequest.EntityData.Children = make(map[string]types.YChild)
-    receivedGoodRequest.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedGoodRequest.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedGoodRequest.Packets}
-    receivedGoodRequest.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedGoodRequest.Bytes}
+    receivedGoodRequest.EntityData.Children = types.NewOrderedMap()
+    receivedGoodRequest.EntityData.Leafs = types.NewOrderedMap()
+    receivedGoodRequest.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedGoodRequest.Packets})
+    receivedGoodRequest.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedGoodRequest.Bytes})
+
+    receivedGoodRequest.EntityData.YListKeys = []string {}
+
     return &(receivedGoodRequest.EntityData)
 }
 
@@ -532,10 +562,13 @@ func (receivedGoodReply *MplsOam_Interface_Details_Detail_PacketStatistics_Recei
     receivedGoodReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedGoodReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedGoodReply.EntityData.Children = make(map[string]types.YChild)
-    receivedGoodReply.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedGoodReply.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedGoodReply.Packets}
-    receivedGoodReply.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedGoodReply.Bytes}
+    receivedGoodReply.EntityData.Children = types.NewOrderedMap()
+    receivedGoodReply.EntityData.Leafs = types.NewOrderedMap()
+    receivedGoodReply.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedGoodReply.Packets})
+    receivedGoodReply.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedGoodReply.Bytes})
+
+    receivedGoodReply.EntityData.YListKeys = []string {}
+
     return &(receivedGoodReply.EntityData)
 }
 
@@ -564,10 +597,13 @@ func (receivedUnknown *MplsOam_Interface_Details_Detail_PacketStatistics_Receive
     receivedUnknown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedUnknown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedUnknown.EntityData.Children = make(map[string]types.YChild)
-    receivedUnknown.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedUnknown.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedUnknown.Packets}
-    receivedUnknown.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedUnknown.Bytes}
+    receivedUnknown.EntityData.Children = types.NewOrderedMap()
+    receivedUnknown.EntityData.Leafs = types.NewOrderedMap()
+    receivedUnknown.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedUnknown.Packets})
+    receivedUnknown.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedUnknown.Bytes})
+
+    receivedUnknown.EntityData.YListKeys = []string {}
+
     return &(receivedUnknown.EntityData)
 }
 
@@ -596,10 +632,13 @@ func (receivedErrorIpHeader *MplsOam_Interface_Details_Detail_PacketStatistics_R
     receivedErrorIpHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorIpHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedErrorIpHeader.EntityData.Children = make(map[string]types.YChild)
-    receivedErrorIpHeader.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedErrorIpHeader.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedErrorIpHeader.Packets}
-    receivedErrorIpHeader.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedErrorIpHeader.Bytes}
+    receivedErrorIpHeader.EntityData.Children = types.NewOrderedMap()
+    receivedErrorIpHeader.EntityData.Leafs = types.NewOrderedMap()
+    receivedErrorIpHeader.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedErrorIpHeader.Packets})
+    receivedErrorIpHeader.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedErrorIpHeader.Bytes})
+
+    receivedErrorIpHeader.EntityData.YListKeys = []string {}
+
     return &(receivedErrorIpHeader.EntityData)
 }
 
@@ -628,10 +667,13 @@ func (receivedErrorUdpHeader *MplsOam_Interface_Details_Detail_PacketStatistics_
     receivedErrorUdpHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorUdpHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedErrorUdpHeader.EntityData.Children = make(map[string]types.YChild)
-    receivedErrorUdpHeader.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedErrorUdpHeader.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedErrorUdpHeader.Packets}
-    receivedErrorUdpHeader.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedErrorUdpHeader.Bytes}
+    receivedErrorUdpHeader.EntityData.Children = types.NewOrderedMap()
+    receivedErrorUdpHeader.EntityData.Leafs = types.NewOrderedMap()
+    receivedErrorUdpHeader.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedErrorUdpHeader.Packets})
+    receivedErrorUdpHeader.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedErrorUdpHeader.Bytes})
+
+    receivedErrorUdpHeader.EntityData.YListKeys = []string {}
+
     return &(receivedErrorUdpHeader.EntityData)
 }
 
@@ -660,10 +702,13 @@ func (receivedErrorRunt *MplsOam_Interface_Details_Detail_PacketStatistics_Recei
     receivedErrorRunt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorRunt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedErrorRunt.EntityData.Children = make(map[string]types.YChild)
-    receivedErrorRunt.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedErrorRunt.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedErrorRunt.Packets}
-    receivedErrorRunt.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedErrorRunt.Bytes}
+    receivedErrorRunt.EntityData.Children = types.NewOrderedMap()
+    receivedErrorRunt.EntityData.Leafs = types.NewOrderedMap()
+    receivedErrorRunt.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedErrorRunt.Packets})
+    receivedErrorRunt.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedErrorRunt.Bytes})
+
+    receivedErrorRunt.EntityData.YListKeys = []string {}
+
     return &(receivedErrorRunt.EntityData)
 }
 
@@ -692,10 +737,13 @@ func (receivedErrorQueueFull *MplsOam_Interface_Details_Detail_PacketStatistics_
     receivedErrorQueueFull.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorQueueFull.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedErrorQueueFull.EntityData.Children = make(map[string]types.YChild)
-    receivedErrorQueueFull.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedErrorQueueFull.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedErrorQueueFull.Packets}
-    receivedErrorQueueFull.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedErrorQueueFull.Bytes}
+    receivedErrorQueueFull.EntityData.Children = types.NewOrderedMap()
+    receivedErrorQueueFull.EntityData.Leafs = types.NewOrderedMap()
+    receivedErrorQueueFull.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedErrorQueueFull.Packets})
+    receivedErrorQueueFull.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedErrorQueueFull.Bytes})
+
+    receivedErrorQueueFull.EntityData.YListKeys = []string {}
+
     return &(receivedErrorQueueFull.EntityData)
 }
 
@@ -724,10 +772,13 @@ func (receivedErrorGeneral *MplsOam_Interface_Details_Detail_PacketStatistics_Re
     receivedErrorGeneral.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorGeneral.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedErrorGeneral.EntityData.Children = make(map[string]types.YChild)
-    receivedErrorGeneral.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedErrorGeneral.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedErrorGeneral.Packets}
-    receivedErrorGeneral.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedErrorGeneral.Bytes}
+    receivedErrorGeneral.EntityData.Children = types.NewOrderedMap()
+    receivedErrorGeneral.EntityData.Leafs = types.NewOrderedMap()
+    receivedErrorGeneral.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedErrorGeneral.Packets})
+    receivedErrorGeneral.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedErrorGeneral.Bytes})
+
+    receivedErrorGeneral.EntityData.YListKeys = []string {}
+
     return &(receivedErrorGeneral.EntityData)
 }
 
@@ -756,10 +807,13 @@ func (receivedErrorNoInterface *MplsOam_Interface_Details_Detail_PacketStatistic
     receivedErrorNoInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorNoInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedErrorNoInterface.EntityData.Children = make(map[string]types.YChild)
-    receivedErrorNoInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedErrorNoInterface.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedErrorNoInterface.Packets}
-    receivedErrorNoInterface.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedErrorNoInterface.Bytes}
+    receivedErrorNoInterface.EntityData.Children = types.NewOrderedMap()
+    receivedErrorNoInterface.EntityData.Leafs = types.NewOrderedMap()
+    receivedErrorNoInterface.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedErrorNoInterface.Packets})
+    receivedErrorNoInterface.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedErrorNoInterface.Bytes})
+
+    receivedErrorNoInterface.EntityData.YListKeys = []string {}
+
     return &(receivedErrorNoInterface.EntityData)
 }
 
@@ -788,10 +842,13 @@ func (receivedErrorNoMemory *MplsOam_Interface_Details_Detail_PacketStatistics_R
     receivedErrorNoMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorNoMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedErrorNoMemory.EntityData.Children = make(map[string]types.YChild)
-    receivedErrorNoMemory.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedErrorNoMemory.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedErrorNoMemory.Packets}
-    receivedErrorNoMemory.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedErrorNoMemory.Bytes}
+    receivedErrorNoMemory.EntityData.Children = types.NewOrderedMap()
+    receivedErrorNoMemory.EntityData.Leafs = types.NewOrderedMap()
+    receivedErrorNoMemory.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedErrorNoMemory.Packets})
+    receivedErrorNoMemory.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedErrorNoMemory.Bytes})
+
+    receivedErrorNoMemory.EntityData.YListKeys = []string {}
+
     return &(receivedErrorNoMemory.EntityData)
 }
 
@@ -820,10 +877,13 @@ func (protectProtocolReceivedGoodRequest *MplsOam_Interface_Details_Detail_Packe
     protectProtocolReceivedGoodRequest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectProtocolReceivedGoodRequest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    protectProtocolReceivedGoodRequest.EntityData.Children = make(map[string]types.YChild)
-    protectProtocolReceivedGoodRequest.EntityData.Leafs = make(map[string]types.YLeaf)
-    protectProtocolReceivedGoodRequest.EntityData.Leafs["packets"] = types.YLeaf{"Packets", protectProtocolReceivedGoodRequest.Packets}
-    protectProtocolReceivedGoodRequest.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", protectProtocolReceivedGoodRequest.Bytes}
+    protectProtocolReceivedGoodRequest.EntityData.Children = types.NewOrderedMap()
+    protectProtocolReceivedGoodRequest.EntityData.Leafs = types.NewOrderedMap()
+    protectProtocolReceivedGoodRequest.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", protectProtocolReceivedGoodRequest.Packets})
+    protectProtocolReceivedGoodRequest.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", protectProtocolReceivedGoodRequest.Bytes})
+
+    protectProtocolReceivedGoodRequest.EntityData.YListKeys = []string {}
+
     return &(protectProtocolReceivedGoodRequest.EntityData)
 }
 
@@ -852,10 +912,13 @@ func (protectProtocolReceivedGoodReply *MplsOam_Interface_Details_Detail_PacketS
     protectProtocolReceivedGoodReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectProtocolReceivedGoodReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    protectProtocolReceivedGoodReply.EntityData.Children = make(map[string]types.YChild)
-    protectProtocolReceivedGoodReply.EntityData.Leafs = make(map[string]types.YLeaf)
-    protectProtocolReceivedGoodReply.EntityData.Leafs["packets"] = types.YLeaf{"Packets", protectProtocolReceivedGoodReply.Packets}
-    protectProtocolReceivedGoodReply.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", protectProtocolReceivedGoodReply.Bytes}
+    protectProtocolReceivedGoodReply.EntityData.Children = types.NewOrderedMap()
+    protectProtocolReceivedGoodReply.EntityData.Leafs = types.NewOrderedMap()
+    protectProtocolReceivedGoodReply.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", protectProtocolReceivedGoodReply.Packets})
+    protectProtocolReceivedGoodReply.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", protectProtocolReceivedGoodReply.Bytes})
+
+    protectProtocolReceivedGoodReply.EntityData.YListKeys = []string {}
+
     return &(protectProtocolReceivedGoodReply.EntityData)
 }
 
@@ -884,10 +947,13 @@ func (receivedGoodBfdRequest *MplsOam_Interface_Details_Detail_PacketStatistics_
     receivedGoodBfdRequest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedGoodBfdRequest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedGoodBfdRequest.EntityData.Children = make(map[string]types.YChild)
-    receivedGoodBfdRequest.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedGoodBfdRequest.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedGoodBfdRequest.Packets}
-    receivedGoodBfdRequest.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedGoodBfdRequest.Bytes}
+    receivedGoodBfdRequest.EntityData.Children = types.NewOrderedMap()
+    receivedGoodBfdRequest.EntityData.Leafs = types.NewOrderedMap()
+    receivedGoodBfdRequest.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedGoodBfdRequest.Packets})
+    receivedGoodBfdRequest.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedGoodBfdRequest.Bytes})
+
+    receivedGoodBfdRequest.EntityData.YListKeys = []string {}
+
     return &(receivedGoodBfdRequest.EntityData)
 }
 
@@ -916,10 +982,13 @@ func (receivedGoodBfdReply *MplsOam_Interface_Details_Detail_PacketStatistics_Re
     receivedGoodBfdReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedGoodBfdReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedGoodBfdReply.EntityData.Children = make(map[string]types.YChild)
-    receivedGoodBfdReply.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedGoodBfdReply.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedGoodBfdReply.Packets}
-    receivedGoodBfdReply.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedGoodBfdReply.Bytes}
+    receivedGoodBfdReply.EntityData.Children = types.NewOrderedMap()
+    receivedGoodBfdReply.EntityData.Leafs = types.NewOrderedMap()
+    receivedGoodBfdReply.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedGoodBfdReply.Packets})
+    receivedGoodBfdReply.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedGoodBfdReply.Bytes})
+
+    receivedGoodBfdReply.EntityData.YListKeys = []string {}
+
     return &(receivedGoodBfdReply.EntityData)
 }
 
@@ -952,12 +1021,15 @@ func (sent *MplsOam_Interface_Details_Detail_PacketStatistics_Sent) GetEntityDat
     sent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sent.EntityData.Children = make(map[string]types.YChild)
-    sent.EntityData.Children["transmit-good"] = types.YChild{"TransmitGood", &sent.TransmitGood}
-    sent.EntityData.Children["transmit-drop"] = types.YChild{"TransmitDrop", &sent.TransmitDrop}
-    sent.EntityData.Children["transmit-bfd-good"] = types.YChild{"TransmitBfdGood", &sent.TransmitBfdGood}
-    sent.EntityData.Children["bfd-no-reply"] = types.YChild{"BfdNoReply", &sent.BfdNoReply}
-    sent.EntityData.Leafs = make(map[string]types.YLeaf)
+    sent.EntityData.Children = types.NewOrderedMap()
+    sent.EntityData.Children.Append("transmit-good", types.YChild{"TransmitGood", &sent.TransmitGood})
+    sent.EntityData.Children.Append("transmit-drop", types.YChild{"TransmitDrop", &sent.TransmitDrop})
+    sent.EntityData.Children.Append("transmit-bfd-good", types.YChild{"TransmitBfdGood", &sent.TransmitBfdGood})
+    sent.EntityData.Children.Append("bfd-no-reply", types.YChild{"BfdNoReply", &sent.BfdNoReply})
+    sent.EntityData.Leafs = types.NewOrderedMap()
+
+    sent.EntityData.YListKeys = []string {}
+
     return &(sent.EntityData)
 }
 
@@ -986,10 +1058,13 @@ func (transmitGood *MplsOam_Interface_Details_Detail_PacketStatistics_Sent_Trans
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitGood.EntityData.Children = make(map[string]types.YChild)
-    transmitGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitGood.Packets}
-    transmitGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitGood.Bytes}
+    transmitGood.EntityData.Children = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitGood.Packets})
+    transmitGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitGood.Bytes})
+
+    transmitGood.EntityData.YListKeys = []string {}
+
     return &(transmitGood.EntityData)
 }
 
@@ -1018,10 +1093,13 @@ func (transmitDrop *MplsOam_Interface_Details_Detail_PacketStatistics_Sent_Trans
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitDrop.EntityData.Children = make(map[string]types.YChild)
-    transmitDrop.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitDrop.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitDrop.Packets}
-    transmitDrop.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitDrop.Bytes}
+    transmitDrop.EntityData.Children = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitDrop.Packets})
+    transmitDrop.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitDrop.Bytes})
+
+    transmitDrop.EntityData.YListKeys = []string {}
+
     return &(transmitDrop.EntityData)
 }
 
@@ -1050,10 +1128,13 @@ func (transmitBfdGood *MplsOam_Interface_Details_Detail_PacketStatistics_Sent_Tr
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitBfdGood.EntityData.Children = make(map[string]types.YChild)
-    transmitBfdGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitBfdGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitBfdGood.Packets}
-    transmitBfdGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitBfdGood.Bytes}
+    transmitBfdGood.EntityData.Children = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitBfdGood.Packets})
+    transmitBfdGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitBfdGood.Bytes})
+
+    transmitBfdGood.EntityData.YListKeys = []string {}
+
     return &(transmitBfdGood.EntityData)
 }
 
@@ -1083,10 +1164,13 @@ func (bfdNoReply *MplsOam_Interface_Details_Detail_PacketStatistics_Sent_BfdNoRe
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfdNoReply.EntityData.Children = make(map[string]types.YChild)
-    bfdNoReply.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfdNoReply.EntityData.Leafs["packets"] = types.YLeaf{"Packets", bfdNoReply.Packets}
-    bfdNoReply.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", bfdNoReply.Bytes}
+    bfdNoReply.EntityData.Children = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", bfdNoReply.Packets})
+    bfdNoReply.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", bfdNoReply.Bytes})
+
+    bfdNoReply.EntityData.YListKeys = []string {}
+
     return &(bfdNoReply.EntityData)
 }
 
@@ -1119,12 +1203,15 @@ func (workingReqSent *MplsOam_Interface_Details_Detail_PacketStatistics_WorkingR
     workingReqSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     workingReqSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    workingReqSent.EntityData.Children = make(map[string]types.YChild)
-    workingReqSent.EntityData.Children["transmit-good"] = types.YChild{"TransmitGood", &workingReqSent.TransmitGood}
-    workingReqSent.EntityData.Children["transmit-drop"] = types.YChild{"TransmitDrop", &workingReqSent.TransmitDrop}
-    workingReqSent.EntityData.Children["transmit-bfd-good"] = types.YChild{"TransmitBfdGood", &workingReqSent.TransmitBfdGood}
-    workingReqSent.EntityData.Children["bfd-no-reply"] = types.YChild{"BfdNoReply", &workingReqSent.BfdNoReply}
-    workingReqSent.EntityData.Leafs = make(map[string]types.YLeaf)
+    workingReqSent.EntityData.Children = types.NewOrderedMap()
+    workingReqSent.EntityData.Children.Append("transmit-good", types.YChild{"TransmitGood", &workingReqSent.TransmitGood})
+    workingReqSent.EntityData.Children.Append("transmit-drop", types.YChild{"TransmitDrop", &workingReqSent.TransmitDrop})
+    workingReqSent.EntityData.Children.Append("transmit-bfd-good", types.YChild{"TransmitBfdGood", &workingReqSent.TransmitBfdGood})
+    workingReqSent.EntityData.Children.Append("bfd-no-reply", types.YChild{"BfdNoReply", &workingReqSent.BfdNoReply})
+    workingReqSent.EntityData.Leafs = types.NewOrderedMap()
+
+    workingReqSent.EntityData.YListKeys = []string {}
+
     return &(workingReqSent.EntityData)
 }
 
@@ -1153,10 +1240,13 @@ func (transmitGood *MplsOam_Interface_Details_Detail_PacketStatistics_WorkingReq
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitGood.EntityData.Children = make(map[string]types.YChild)
-    transmitGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitGood.Packets}
-    transmitGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitGood.Bytes}
+    transmitGood.EntityData.Children = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitGood.Packets})
+    transmitGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitGood.Bytes})
+
+    transmitGood.EntityData.YListKeys = []string {}
+
     return &(transmitGood.EntityData)
 }
 
@@ -1185,10 +1275,13 @@ func (transmitDrop *MplsOam_Interface_Details_Detail_PacketStatistics_WorkingReq
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitDrop.EntityData.Children = make(map[string]types.YChild)
-    transmitDrop.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitDrop.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitDrop.Packets}
-    transmitDrop.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitDrop.Bytes}
+    transmitDrop.EntityData.Children = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitDrop.Packets})
+    transmitDrop.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitDrop.Bytes})
+
+    transmitDrop.EntityData.YListKeys = []string {}
+
     return &(transmitDrop.EntityData)
 }
 
@@ -1217,10 +1310,13 @@ func (transmitBfdGood *MplsOam_Interface_Details_Detail_PacketStatistics_Working
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitBfdGood.EntityData.Children = make(map[string]types.YChild)
-    transmitBfdGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitBfdGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitBfdGood.Packets}
-    transmitBfdGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitBfdGood.Bytes}
+    transmitBfdGood.EntityData.Children = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitBfdGood.Packets})
+    transmitBfdGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitBfdGood.Bytes})
+
+    transmitBfdGood.EntityData.YListKeys = []string {}
+
     return &(transmitBfdGood.EntityData)
 }
 
@@ -1250,10 +1346,13 @@ func (bfdNoReply *MplsOam_Interface_Details_Detail_PacketStatistics_WorkingReqSe
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfdNoReply.EntityData.Children = make(map[string]types.YChild)
-    bfdNoReply.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfdNoReply.EntityData.Leafs["packets"] = types.YLeaf{"Packets", bfdNoReply.Packets}
-    bfdNoReply.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", bfdNoReply.Bytes}
+    bfdNoReply.EntityData.Children = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", bfdNoReply.Packets})
+    bfdNoReply.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", bfdNoReply.Bytes})
+
+    bfdNoReply.EntityData.YListKeys = []string {}
+
     return &(bfdNoReply.EntityData)
 }
 
@@ -1286,12 +1385,15 @@ func (workingRepSent *MplsOam_Interface_Details_Detail_PacketStatistics_WorkingR
     workingRepSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     workingRepSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    workingRepSent.EntityData.Children = make(map[string]types.YChild)
-    workingRepSent.EntityData.Children["transmit-good"] = types.YChild{"TransmitGood", &workingRepSent.TransmitGood}
-    workingRepSent.EntityData.Children["transmit-drop"] = types.YChild{"TransmitDrop", &workingRepSent.TransmitDrop}
-    workingRepSent.EntityData.Children["transmit-bfd-good"] = types.YChild{"TransmitBfdGood", &workingRepSent.TransmitBfdGood}
-    workingRepSent.EntityData.Children["bfd-no-reply"] = types.YChild{"BfdNoReply", &workingRepSent.BfdNoReply}
-    workingRepSent.EntityData.Leafs = make(map[string]types.YLeaf)
+    workingRepSent.EntityData.Children = types.NewOrderedMap()
+    workingRepSent.EntityData.Children.Append("transmit-good", types.YChild{"TransmitGood", &workingRepSent.TransmitGood})
+    workingRepSent.EntityData.Children.Append("transmit-drop", types.YChild{"TransmitDrop", &workingRepSent.TransmitDrop})
+    workingRepSent.EntityData.Children.Append("transmit-bfd-good", types.YChild{"TransmitBfdGood", &workingRepSent.TransmitBfdGood})
+    workingRepSent.EntityData.Children.Append("bfd-no-reply", types.YChild{"BfdNoReply", &workingRepSent.BfdNoReply})
+    workingRepSent.EntityData.Leafs = types.NewOrderedMap()
+
+    workingRepSent.EntityData.YListKeys = []string {}
+
     return &(workingRepSent.EntityData)
 }
 
@@ -1320,10 +1422,13 @@ func (transmitGood *MplsOam_Interface_Details_Detail_PacketStatistics_WorkingRep
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitGood.EntityData.Children = make(map[string]types.YChild)
-    transmitGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitGood.Packets}
-    transmitGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitGood.Bytes}
+    transmitGood.EntityData.Children = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitGood.Packets})
+    transmitGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitGood.Bytes})
+
+    transmitGood.EntityData.YListKeys = []string {}
+
     return &(transmitGood.EntityData)
 }
 
@@ -1352,10 +1457,13 @@ func (transmitDrop *MplsOam_Interface_Details_Detail_PacketStatistics_WorkingRep
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitDrop.EntityData.Children = make(map[string]types.YChild)
-    transmitDrop.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitDrop.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitDrop.Packets}
-    transmitDrop.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitDrop.Bytes}
+    transmitDrop.EntityData.Children = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitDrop.Packets})
+    transmitDrop.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitDrop.Bytes})
+
+    transmitDrop.EntityData.YListKeys = []string {}
+
     return &(transmitDrop.EntityData)
 }
 
@@ -1384,10 +1492,13 @@ func (transmitBfdGood *MplsOam_Interface_Details_Detail_PacketStatistics_Working
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitBfdGood.EntityData.Children = make(map[string]types.YChild)
-    transmitBfdGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitBfdGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitBfdGood.Packets}
-    transmitBfdGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitBfdGood.Bytes}
+    transmitBfdGood.EntityData.Children = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitBfdGood.Packets})
+    transmitBfdGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitBfdGood.Bytes})
+
+    transmitBfdGood.EntityData.YListKeys = []string {}
+
     return &(transmitBfdGood.EntityData)
 }
 
@@ -1417,10 +1528,13 @@ func (bfdNoReply *MplsOam_Interface_Details_Detail_PacketStatistics_WorkingRepSe
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfdNoReply.EntityData.Children = make(map[string]types.YChild)
-    bfdNoReply.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfdNoReply.EntityData.Leafs["packets"] = types.YLeaf{"Packets", bfdNoReply.Packets}
-    bfdNoReply.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", bfdNoReply.Bytes}
+    bfdNoReply.EntityData.Children = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", bfdNoReply.Packets})
+    bfdNoReply.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", bfdNoReply.Bytes})
+
+    bfdNoReply.EntityData.YListKeys = []string {}
+
     return &(bfdNoReply.EntityData)
 }
 
@@ -1453,12 +1567,15 @@ func (protectReqSent *MplsOam_Interface_Details_Detail_PacketStatistics_ProtectR
     protectReqSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectReqSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    protectReqSent.EntityData.Children = make(map[string]types.YChild)
-    protectReqSent.EntityData.Children["transmit-good"] = types.YChild{"TransmitGood", &protectReqSent.TransmitGood}
-    protectReqSent.EntityData.Children["transmit-drop"] = types.YChild{"TransmitDrop", &protectReqSent.TransmitDrop}
-    protectReqSent.EntityData.Children["transmit-bfd-good"] = types.YChild{"TransmitBfdGood", &protectReqSent.TransmitBfdGood}
-    protectReqSent.EntityData.Children["bfd-no-reply"] = types.YChild{"BfdNoReply", &protectReqSent.BfdNoReply}
-    protectReqSent.EntityData.Leafs = make(map[string]types.YLeaf)
+    protectReqSent.EntityData.Children = types.NewOrderedMap()
+    protectReqSent.EntityData.Children.Append("transmit-good", types.YChild{"TransmitGood", &protectReqSent.TransmitGood})
+    protectReqSent.EntityData.Children.Append("transmit-drop", types.YChild{"TransmitDrop", &protectReqSent.TransmitDrop})
+    protectReqSent.EntityData.Children.Append("transmit-bfd-good", types.YChild{"TransmitBfdGood", &protectReqSent.TransmitBfdGood})
+    protectReqSent.EntityData.Children.Append("bfd-no-reply", types.YChild{"BfdNoReply", &protectReqSent.BfdNoReply})
+    protectReqSent.EntityData.Leafs = types.NewOrderedMap()
+
+    protectReqSent.EntityData.YListKeys = []string {}
+
     return &(protectReqSent.EntityData)
 }
 
@@ -1487,10 +1604,13 @@ func (transmitGood *MplsOam_Interface_Details_Detail_PacketStatistics_ProtectReq
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitGood.EntityData.Children = make(map[string]types.YChild)
-    transmitGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitGood.Packets}
-    transmitGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitGood.Bytes}
+    transmitGood.EntityData.Children = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitGood.Packets})
+    transmitGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitGood.Bytes})
+
+    transmitGood.EntityData.YListKeys = []string {}
+
     return &(transmitGood.EntityData)
 }
 
@@ -1519,10 +1639,13 @@ func (transmitDrop *MplsOam_Interface_Details_Detail_PacketStatistics_ProtectReq
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitDrop.EntityData.Children = make(map[string]types.YChild)
-    transmitDrop.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitDrop.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitDrop.Packets}
-    transmitDrop.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitDrop.Bytes}
+    transmitDrop.EntityData.Children = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitDrop.Packets})
+    transmitDrop.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitDrop.Bytes})
+
+    transmitDrop.EntityData.YListKeys = []string {}
+
     return &(transmitDrop.EntityData)
 }
 
@@ -1551,10 +1674,13 @@ func (transmitBfdGood *MplsOam_Interface_Details_Detail_PacketStatistics_Protect
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitBfdGood.EntityData.Children = make(map[string]types.YChild)
-    transmitBfdGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitBfdGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitBfdGood.Packets}
-    transmitBfdGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitBfdGood.Bytes}
+    transmitBfdGood.EntityData.Children = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitBfdGood.Packets})
+    transmitBfdGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitBfdGood.Bytes})
+
+    transmitBfdGood.EntityData.YListKeys = []string {}
+
     return &(transmitBfdGood.EntityData)
 }
 
@@ -1584,10 +1710,13 @@ func (bfdNoReply *MplsOam_Interface_Details_Detail_PacketStatistics_ProtectReqSe
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfdNoReply.EntityData.Children = make(map[string]types.YChild)
-    bfdNoReply.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfdNoReply.EntityData.Leafs["packets"] = types.YLeaf{"Packets", bfdNoReply.Packets}
-    bfdNoReply.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", bfdNoReply.Bytes}
+    bfdNoReply.EntityData.Children = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", bfdNoReply.Packets})
+    bfdNoReply.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", bfdNoReply.Bytes})
+
+    bfdNoReply.EntityData.YListKeys = []string {}
+
     return &(bfdNoReply.EntityData)
 }
 
@@ -1620,12 +1749,15 @@ func (protectRepSent *MplsOam_Interface_Details_Detail_PacketStatistics_ProtectR
     protectRepSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectRepSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    protectRepSent.EntityData.Children = make(map[string]types.YChild)
-    protectRepSent.EntityData.Children["transmit-good"] = types.YChild{"TransmitGood", &protectRepSent.TransmitGood}
-    protectRepSent.EntityData.Children["transmit-drop"] = types.YChild{"TransmitDrop", &protectRepSent.TransmitDrop}
-    protectRepSent.EntityData.Children["transmit-bfd-good"] = types.YChild{"TransmitBfdGood", &protectRepSent.TransmitBfdGood}
-    protectRepSent.EntityData.Children["bfd-no-reply"] = types.YChild{"BfdNoReply", &protectRepSent.BfdNoReply}
-    protectRepSent.EntityData.Leafs = make(map[string]types.YLeaf)
+    protectRepSent.EntityData.Children = types.NewOrderedMap()
+    protectRepSent.EntityData.Children.Append("transmit-good", types.YChild{"TransmitGood", &protectRepSent.TransmitGood})
+    protectRepSent.EntityData.Children.Append("transmit-drop", types.YChild{"TransmitDrop", &protectRepSent.TransmitDrop})
+    protectRepSent.EntityData.Children.Append("transmit-bfd-good", types.YChild{"TransmitBfdGood", &protectRepSent.TransmitBfdGood})
+    protectRepSent.EntityData.Children.Append("bfd-no-reply", types.YChild{"BfdNoReply", &protectRepSent.BfdNoReply})
+    protectRepSent.EntityData.Leafs = types.NewOrderedMap()
+
+    protectRepSent.EntityData.YListKeys = []string {}
+
     return &(protectRepSent.EntityData)
 }
 
@@ -1654,10 +1786,13 @@ func (transmitGood *MplsOam_Interface_Details_Detail_PacketStatistics_ProtectRep
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitGood.EntityData.Children = make(map[string]types.YChild)
-    transmitGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitGood.Packets}
-    transmitGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitGood.Bytes}
+    transmitGood.EntityData.Children = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitGood.Packets})
+    transmitGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitGood.Bytes})
+
+    transmitGood.EntityData.YListKeys = []string {}
+
     return &(transmitGood.EntityData)
 }
 
@@ -1686,10 +1821,13 @@ func (transmitDrop *MplsOam_Interface_Details_Detail_PacketStatistics_ProtectRep
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitDrop.EntityData.Children = make(map[string]types.YChild)
-    transmitDrop.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitDrop.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitDrop.Packets}
-    transmitDrop.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitDrop.Bytes}
+    transmitDrop.EntityData.Children = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitDrop.Packets})
+    transmitDrop.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitDrop.Bytes})
+
+    transmitDrop.EntityData.YListKeys = []string {}
+
     return &(transmitDrop.EntityData)
 }
 
@@ -1718,10 +1856,13 @@ func (transmitBfdGood *MplsOam_Interface_Details_Detail_PacketStatistics_Protect
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitBfdGood.EntityData.Children = make(map[string]types.YChild)
-    transmitBfdGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitBfdGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitBfdGood.Packets}
-    transmitBfdGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitBfdGood.Bytes}
+    transmitBfdGood.EntityData.Children = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitBfdGood.Packets})
+    transmitBfdGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitBfdGood.Bytes})
+
+    transmitBfdGood.EntityData.YListKeys = []string {}
+
     return &(transmitBfdGood.EntityData)
 }
 
@@ -1751,10 +1892,13 @@ func (bfdNoReply *MplsOam_Interface_Details_Detail_PacketStatistics_ProtectRepSe
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfdNoReply.EntityData.Children = make(map[string]types.YChild)
-    bfdNoReply.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfdNoReply.EntityData.Leafs["packets"] = types.YLeaf{"Packets", bfdNoReply.Packets}
-    bfdNoReply.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", bfdNoReply.Bytes}
+    bfdNoReply.EntityData.Children = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", bfdNoReply.Packets})
+    bfdNoReply.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", bfdNoReply.Bytes})
+
+    bfdNoReply.EntityData.YListKeys = []string {}
+
     return &(bfdNoReply.EntityData)
 }
 
@@ -1793,14 +1937,17 @@ func (packet *MplsOam_Packet) GetEntityData() *types.CommonEntityData {
     packet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    packet.EntityData.Children = make(map[string]types.YChild)
-    packet.EntityData.Children["received"] = types.YChild{"Received", &packet.Received}
-    packet.EntityData.Children["sent"] = types.YChild{"Sent", &packet.Sent}
-    packet.EntityData.Children["working-req-sent"] = types.YChild{"WorkingReqSent", &packet.WorkingReqSent}
-    packet.EntityData.Children["working-rep-sent"] = types.YChild{"WorkingRepSent", &packet.WorkingRepSent}
-    packet.EntityData.Children["protect-req-sent"] = types.YChild{"ProtectReqSent", &packet.ProtectReqSent}
-    packet.EntityData.Children["protect-rep-sent"] = types.YChild{"ProtectRepSent", &packet.ProtectRepSent}
-    packet.EntityData.Leafs = make(map[string]types.YLeaf)
+    packet.EntityData.Children = types.NewOrderedMap()
+    packet.EntityData.Children.Append("received", types.YChild{"Received", &packet.Received})
+    packet.EntityData.Children.Append("sent", types.YChild{"Sent", &packet.Sent})
+    packet.EntityData.Children.Append("working-req-sent", types.YChild{"WorkingReqSent", &packet.WorkingReqSent})
+    packet.EntityData.Children.Append("working-rep-sent", types.YChild{"WorkingRepSent", &packet.WorkingRepSent})
+    packet.EntityData.Children.Append("protect-req-sent", types.YChild{"ProtectReqSent", &packet.ProtectReqSent})
+    packet.EntityData.Children.Append("protect-rep-sent", types.YChild{"ProtectRepSent", &packet.ProtectRepSent})
+    packet.EntityData.Leafs = types.NewOrderedMap()
+
+    packet.EntityData.YListKeys = []string {}
+
     return &(packet.EntityData)
 }
 
@@ -1863,22 +2010,25 @@ func (received *MplsOam_Packet_Received) GetEntityData() *types.CommonEntityData
     received.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     received.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    received.EntityData.Children = make(map[string]types.YChild)
-    received.EntityData.Children["received-good-request"] = types.YChild{"ReceivedGoodRequest", &received.ReceivedGoodRequest}
-    received.EntityData.Children["received-good-reply"] = types.YChild{"ReceivedGoodReply", &received.ReceivedGoodReply}
-    received.EntityData.Children["received-unknown"] = types.YChild{"ReceivedUnknown", &received.ReceivedUnknown}
-    received.EntityData.Children["received-error-ip-header"] = types.YChild{"ReceivedErrorIpHeader", &received.ReceivedErrorIpHeader}
-    received.EntityData.Children["received-error-udp-header"] = types.YChild{"ReceivedErrorUdpHeader", &received.ReceivedErrorUdpHeader}
-    received.EntityData.Children["received-error-runt"] = types.YChild{"ReceivedErrorRunt", &received.ReceivedErrorRunt}
-    received.EntityData.Children["received-error-queue-full"] = types.YChild{"ReceivedErrorQueueFull", &received.ReceivedErrorQueueFull}
-    received.EntityData.Children["received-error-general"] = types.YChild{"ReceivedErrorGeneral", &received.ReceivedErrorGeneral}
-    received.EntityData.Children["received-error-no-interface"] = types.YChild{"ReceivedErrorNoInterface", &received.ReceivedErrorNoInterface}
-    received.EntityData.Children["received-error-no-memory"] = types.YChild{"ReceivedErrorNoMemory", &received.ReceivedErrorNoMemory}
-    received.EntityData.Children["protect-protocol-received-good-request"] = types.YChild{"ProtectProtocolReceivedGoodRequest", &received.ProtectProtocolReceivedGoodRequest}
-    received.EntityData.Children["protect-protocol-received-good-reply"] = types.YChild{"ProtectProtocolReceivedGoodReply", &received.ProtectProtocolReceivedGoodReply}
-    received.EntityData.Children["received-good-bfd-request"] = types.YChild{"ReceivedGoodBfdRequest", &received.ReceivedGoodBfdRequest}
-    received.EntityData.Children["received-good-bfd-reply"] = types.YChild{"ReceivedGoodBfdReply", &received.ReceivedGoodBfdReply}
-    received.EntityData.Leafs = make(map[string]types.YLeaf)
+    received.EntityData.Children = types.NewOrderedMap()
+    received.EntityData.Children.Append("received-good-request", types.YChild{"ReceivedGoodRequest", &received.ReceivedGoodRequest})
+    received.EntityData.Children.Append("received-good-reply", types.YChild{"ReceivedGoodReply", &received.ReceivedGoodReply})
+    received.EntityData.Children.Append("received-unknown", types.YChild{"ReceivedUnknown", &received.ReceivedUnknown})
+    received.EntityData.Children.Append("received-error-ip-header", types.YChild{"ReceivedErrorIpHeader", &received.ReceivedErrorIpHeader})
+    received.EntityData.Children.Append("received-error-udp-header", types.YChild{"ReceivedErrorUdpHeader", &received.ReceivedErrorUdpHeader})
+    received.EntityData.Children.Append("received-error-runt", types.YChild{"ReceivedErrorRunt", &received.ReceivedErrorRunt})
+    received.EntityData.Children.Append("received-error-queue-full", types.YChild{"ReceivedErrorQueueFull", &received.ReceivedErrorQueueFull})
+    received.EntityData.Children.Append("received-error-general", types.YChild{"ReceivedErrorGeneral", &received.ReceivedErrorGeneral})
+    received.EntityData.Children.Append("received-error-no-interface", types.YChild{"ReceivedErrorNoInterface", &received.ReceivedErrorNoInterface})
+    received.EntityData.Children.Append("received-error-no-memory", types.YChild{"ReceivedErrorNoMemory", &received.ReceivedErrorNoMemory})
+    received.EntityData.Children.Append("protect-protocol-received-good-request", types.YChild{"ProtectProtocolReceivedGoodRequest", &received.ProtectProtocolReceivedGoodRequest})
+    received.EntityData.Children.Append("protect-protocol-received-good-reply", types.YChild{"ProtectProtocolReceivedGoodReply", &received.ProtectProtocolReceivedGoodReply})
+    received.EntityData.Children.Append("received-good-bfd-request", types.YChild{"ReceivedGoodBfdRequest", &received.ReceivedGoodBfdRequest})
+    received.EntityData.Children.Append("received-good-bfd-reply", types.YChild{"ReceivedGoodBfdReply", &received.ReceivedGoodBfdReply})
+    received.EntityData.Leafs = types.NewOrderedMap()
+
+    received.EntityData.YListKeys = []string {}
+
     return &(received.EntityData)
 }
 
@@ -1907,10 +2057,13 @@ func (receivedGoodRequest *MplsOam_Packet_Received_ReceivedGoodRequest) GetEntit
     receivedGoodRequest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedGoodRequest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedGoodRequest.EntityData.Children = make(map[string]types.YChild)
-    receivedGoodRequest.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedGoodRequest.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedGoodRequest.Packets}
-    receivedGoodRequest.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedGoodRequest.Bytes}
+    receivedGoodRequest.EntityData.Children = types.NewOrderedMap()
+    receivedGoodRequest.EntityData.Leafs = types.NewOrderedMap()
+    receivedGoodRequest.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedGoodRequest.Packets})
+    receivedGoodRequest.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedGoodRequest.Bytes})
+
+    receivedGoodRequest.EntityData.YListKeys = []string {}
+
     return &(receivedGoodRequest.EntityData)
 }
 
@@ -1939,10 +2092,13 @@ func (receivedGoodReply *MplsOam_Packet_Received_ReceivedGoodReply) GetEntityDat
     receivedGoodReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedGoodReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedGoodReply.EntityData.Children = make(map[string]types.YChild)
-    receivedGoodReply.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedGoodReply.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedGoodReply.Packets}
-    receivedGoodReply.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedGoodReply.Bytes}
+    receivedGoodReply.EntityData.Children = types.NewOrderedMap()
+    receivedGoodReply.EntityData.Leafs = types.NewOrderedMap()
+    receivedGoodReply.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedGoodReply.Packets})
+    receivedGoodReply.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedGoodReply.Bytes})
+
+    receivedGoodReply.EntityData.YListKeys = []string {}
+
     return &(receivedGoodReply.EntityData)
 }
 
@@ -1971,10 +2127,13 @@ func (receivedUnknown *MplsOam_Packet_Received_ReceivedUnknown) GetEntityData() 
     receivedUnknown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedUnknown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedUnknown.EntityData.Children = make(map[string]types.YChild)
-    receivedUnknown.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedUnknown.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedUnknown.Packets}
-    receivedUnknown.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedUnknown.Bytes}
+    receivedUnknown.EntityData.Children = types.NewOrderedMap()
+    receivedUnknown.EntityData.Leafs = types.NewOrderedMap()
+    receivedUnknown.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedUnknown.Packets})
+    receivedUnknown.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedUnknown.Bytes})
+
+    receivedUnknown.EntityData.YListKeys = []string {}
+
     return &(receivedUnknown.EntityData)
 }
 
@@ -2003,10 +2162,13 @@ func (receivedErrorIpHeader *MplsOam_Packet_Received_ReceivedErrorIpHeader) GetE
     receivedErrorIpHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorIpHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedErrorIpHeader.EntityData.Children = make(map[string]types.YChild)
-    receivedErrorIpHeader.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedErrorIpHeader.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedErrorIpHeader.Packets}
-    receivedErrorIpHeader.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedErrorIpHeader.Bytes}
+    receivedErrorIpHeader.EntityData.Children = types.NewOrderedMap()
+    receivedErrorIpHeader.EntityData.Leafs = types.NewOrderedMap()
+    receivedErrorIpHeader.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedErrorIpHeader.Packets})
+    receivedErrorIpHeader.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedErrorIpHeader.Bytes})
+
+    receivedErrorIpHeader.EntityData.YListKeys = []string {}
+
     return &(receivedErrorIpHeader.EntityData)
 }
 
@@ -2035,10 +2197,13 @@ func (receivedErrorUdpHeader *MplsOam_Packet_Received_ReceivedErrorUdpHeader) Ge
     receivedErrorUdpHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorUdpHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedErrorUdpHeader.EntityData.Children = make(map[string]types.YChild)
-    receivedErrorUdpHeader.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedErrorUdpHeader.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedErrorUdpHeader.Packets}
-    receivedErrorUdpHeader.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedErrorUdpHeader.Bytes}
+    receivedErrorUdpHeader.EntityData.Children = types.NewOrderedMap()
+    receivedErrorUdpHeader.EntityData.Leafs = types.NewOrderedMap()
+    receivedErrorUdpHeader.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedErrorUdpHeader.Packets})
+    receivedErrorUdpHeader.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedErrorUdpHeader.Bytes})
+
+    receivedErrorUdpHeader.EntityData.YListKeys = []string {}
+
     return &(receivedErrorUdpHeader.EntityData)
 }
 
@@ -2067,10 +2232,13 @@ func (receivedErrorRunt *MplsOam_Packet_Received_ReceivedErrorRunt) GetEntityDat
     receivedErrorRunt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorRunt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedErrorRunt.EntityData.Children = make(map[string]types.YChild)
-    receivedErrorRunt.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedErrorRunt.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedErrorRunt.Packets}
-    receivedErrorRunt.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedErrorRunt.Bytes}
+    receivedErrorRunt.EntityData.Children = types.NewOrderedMap()
+    receivedErrorRunt.EntityData.Leafs = types.NewOrderedMap()
+    receivedErrorRunt.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedErrorRunt.Packets})
+    receivedErrorRunt.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedErrorRunt.Bytes})
+
+    receivedErrorRunt.EntityData.YListKeys = []string {}
+
     return &(receivedErrorRunt.EntityData)
 }
 
@@ -2099,10 +2267,13 @@ func (receivedErrorQueueFull *MplsOam_Packet_Received_ReceivedErrorQueueFull) Ge
     receivedErrorQueueFull.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorQueueFull.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedErrorQueueFull.EntityData.Children = make(map[string]types.YChild)
-    receivedErrorQueueFull.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedErrorQueueFull.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedErrorQueueFull.Packets}
-    receivedErrorQueueFull.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedErrorQueueFull.Bytes}
+    receivedErrorQueueFull.EntityData.Children = types.NewOrderedMap()
+    receivedErrorQueueFull.EntityData.Leafs = types.NewOrderedMap()
+    receivedErrorQueueFull.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedErrorQueueFull.Packets})
+    receivedErrorQueueFull.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedErrorQueueFull.Bytes})
+
+    receivedErrorQueueFull.EntityData.YListKeys = []string {}
+
     return &(receivedErrorQueueFull.EntityData)
 }
 
@@ -2131,10 +2302,13 @@ func (receivedErrorGeneral *MplsOam_Packet_Received_ReceivedErrorGeneral) GetEnt
     receivedErrorGeneral.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorGeneral.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedErrorGeneral.EntityData.Children = make(map[string]types.YChild)
-    receivedErrorGeneral.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedErrorGeneral.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedErrorGeneral.Packets}
-    receivedErrorGeneral.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedErrorGeneral.Bytes}
+    receivedErrorGeneral.EntityData.Children = types.NewOrderedMap()
+    receivedErrorGeneral.EntityData.Leafs = types.NewOrderedMap()
+    receivedErrorGeneral.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedErrorGeneral.Packets})
+    receivedErrorGeneral.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedErrorGeneral.Bytes})
+
+    receivedErrorGeneral.EntityData.YListKeys = []string {}
+
     return &(receivedErrorGeneral.EntityData)
 }
 
@@ -2163,10 +2337,13 @@ func (receivedErrorNoInterface *MplsOam_Packet_Received_ReceivedErrorNoInterface
     receivedErrorNoInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorNoInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedErrorNoInterface.EntityData.Children = make(map[string]types.YChild)
-    receivedErrorNoInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedErrorNoInterface.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedErrorNoInterface.Packets}
-    receivedErrorNoInterface.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedErrorNoInterface.Bytes}
+    receivedErrorNoInterface.EntityData.Children = types.NewOrderedMap()
+    receivedErrorNoInterface.EntityData.Leafs = types.NewOrderedMap()
+    receivedErrorNoInterface.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedErrorNoInterface.Packets})
+    receivedErrorNoInterface.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedErrorNoInterface.Bytes})
+
+    receivedErrorNoInterface.EntityData.YListKeys = []string {}
+
     return &(receivedErrorNoInterface.EntityData)
 }
 
@@ -2195,10 +2372,13 @@ func (receivedErrorNoMemory *MplsOam_Packet_Received_ReceivedErrorNoMemory) GetE
     receivedErrorNoMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorNoMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedErrorNoMemory.EntityData.Children = make(map[string]types.YChild)
-    receivedErrorNoMemory.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedErrorNoMemory.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedErrorNoMemory.Packets}
-    receivedErrorNoMemory.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedErrorNoMemory.Bytes}
+    receivedErrorNoMemory.EntityData.Children = types.NewOrderedMap()
+    receivedErrorNoMemory.EntityData.Leafs = types.NewOrderedMap()
+    receivedErrorNoMemory.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedErrorNoMemory.Packets})
+    receivedErrorNoMemory.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedErrorNoMemory.Bytes})
+
+    receivedErrorNoMemory.EntityData.YListKeys = []string {}
+
     return &(receivedErrorNoMemory.EntityData)
 }
 
@@ -2227,10 +2407,13 @@ func (protectProtocolReceivedGoodRequest *MplsOam_Packet_Received_ProtectProtoco
     protectProtocolReceivedGoodRequest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectProtocolReceivedGoodRequest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    protectProtocolReceivedGoodRequest.EntityData.Children = make(map[string]types.YChild)
-    protectProtocolReceivedGoodRequest.EntityData.Leafs = make(map[string]types.YLeaf)
-    protectProtocolReceivedGoodRequest.EntityData.Leafs["packets"] = types.YLeaf{"Packets", protectProtocolReceivedGoodRequest.Packets}
-    protectProtocolReceivedGoodRequest.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", protectProtocolReceivedGoodRequest.Bytes}
+    protectProtocolReceivedGoodRequest.EntityData.Children = types.NewOrderedMap()
+    protectProtocolReceivedGoodRequest.EntityData.Leafs = types.NewOrderedMap()
+    protectProtocolReceivedGoodRequest.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", protectProtocolReceivedGoodRequest.Packets})
+    protectProtocolReceivedGoodRequest.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", protectProtocolReceivedGoodRequest.Bytes})
+
+    protectProtocolReceivedGoodRequest.EntityData.YListKeys = []string {}
+
     return &(protectProtocolReceivedGoodRequest.EntityData)
 }
 
@@ -2259,10 +2442,13 @@ func (protectProtocolReceivedGoodReply *MplsOam_Packet_Received_ProtectProtocolR
     protectProtocolReceivedGoodReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectProtocolReceivedGoodReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    protectProtocolReceivedGoodReply.EntityData.Children = make(map[string]types.YChild)
-    protectProtocolReceivedGoodReply.EntityData.Leafs = make(map[string]types.YLeaf)
-    protectProtocolReceivedGoodReply.EntityData.Leafs["packets"] = types.YLeaf{"Packets", protectProtocolReceivedGoodReply.Packets}
-    protectProtocolReceivedGoodReply.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", protectProtocolReceivedGoodReply.Bytes}
+    protectProtocolReceivedGoodReply.EntityData.Children = types.NewOrderedMap()
+    protectProtocolReceivedGoodReply.EntityData.Leafs = types.NewOrderedMap()
+    protectProtocolReceivedGoodReply.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", protectProtocolReceivedGoodReply.Packets})
+    protectProtocolReceivedGoodReply.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", protectProtocolReceivedGoodReply.Bytes})
+
+    protectProtocolReceivedGoodReply.EntityData.YListKeys = []string {}
+
     return &(protectProtocolReceivedGoodReply.EntityData)
 }
 
@@ -2291,10 +2477,13 @@ func (receivedGoodBfdRequest *MplsOam_Packet_Received_ReceivedGoodBfdRequest) Ge
     receivedGoodBfdRequest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedGoodBfdRequest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedGoodBfdRequest.EntityData.Children = make(map[string]types.YChild)
-    receivedGoodBfdRequest.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedGoodBfdRequest.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedGoodBfdRequest.Packets}
-    receivedGoodBfdRequest.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedGoodBfdRequest.Bytes}
+    receivedGoodBfdRequest.EntityData.Children = types.NewOrderedMap()
+    receivedGoodBfdRequest.EntityData.Leafs = types.NewOrderedMap()
+    receivedGoodBfdRequest.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedGoodBfdRequest.Packets})
+    receivedGoodBfdRequest.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedGoodBfdRequest.Bytes})
+
+    receivedGoodBfdRequest.EntityData.YListKeys = []string {}
+
     return &(receivedGoodBfdRequest.EntityData)
 }
 
@@ -2323,10 +2512,13 @@ func (receivedGoodBfdReply *MplsOam_Packet_Received_ReceivedGoodBfdReply) GetEnt
     receivedGoodBfdReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedGoodBfdReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivedGoodBfdReply.EntityData.Children = make(map[string]types.YChild)
-    receivedGoodBfdReply.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivedGoodBfdReply.EntityData.Leafs["packets"] = types.YLeaf{"Packets", receivedGoodBfdReply.Packets}
-    receivedGoodBfdReply.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", receivedGoodBfdReply.Bytes}
+    receivedGoodBfdReply.EntityData.Children = types.NewOrderedMap()
+    receivedGoodBfdReply.EntityData.Leafs = types.NewOrderedMap()
+    receivedGoodBfdReply.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", receivedGoodBfdReply.Packets})
+    receivedGoodBfdReply.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", receivedGoodBfdReply.Bytes})
+
+    receivedGoodBfdReply.EntityData.YListKeys = []string {}
+
     return &(receivedGoodBfdReply.EntityData)
 }
 
@@ -2359,12 +2551,15 @@ func (sent *MplsOam_Packet_Sent) GetEntityData() *types.CommonEntityData {
     sent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sent.EntityData.Children = make(map[string]types.YChild)
-    sent.EntityData.Children["transmit-good"] = types.YChild{"TransmitGood", &sent.TransmitGood}
-    sent.EntityData.Children["transmit-drop"] = types.YChild{"TransmitDrop", &sent.TransmitDrop}
-    sent.EntityData.Children["transmit-bfd-good"] = types.YChild{"TransmitBfdGood", &sent.TransmitBfdGood}
-    sent.EntityData.Children["bfd-no-reply"] = types.YChild{"BfdNoReply", &sent.BfdNoReply}
-    sent.EntityData.Leafs = make(map[string]types.YLeaf)
+    sent.EntityData.Children = types.NewOrderedMap()
+    sent.EntityData.Children.Append("transmit-good", types.YChild{"TransmitGood", &sent.TransmitGood})
+    sent.EntityData.Children.Append("transmit-drop", types.YChild{"TransmitDrop", &sent.TransmitDrop})
+    sent.EntityData.Children.Append("transmit-bfd-good", types.YChild{"TransmitBfdGood", &sent.TransmitBfdGood})
+    sent.EntityData.Children.Append("bfd-no-reply", types.YChild{"BfdNoReply", &sent.BfdNoReply})
+    sent.EntityData.Leafs = types.NewOrderedMap()
+
+    sent.EntityData.YListKeys = []string {}
+
     return &(sent.EntityData)
 }
 
@@ -2393,10 +2588,13 @@ func (transmitGood *MplsOam_Packet_Sent_TransmitGood) GetEntityData() *types.Com
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitGood.EntityData.Children = make(map[string]types.YChild)
-    transmitGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitGood.Packets}
-    transmitGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitGood.Bytes}
+    transmitGood.EntityData.Children = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitGood.Packets})
+    transmitGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitGood.Bytes})
+
+    transmitGood.EntityData.YListKeys = []string {}
+
     return &(transmitGood.EntityData)
 }
 
@@ -2425,10 +2623,13 @@ func (transmitDrop *MplsOam_Packet_Sent_TransmitDrop) GetEntityData() *types.Com
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitDrop.EntityData.Children = make(map[string]types.YChild)
-    transmitDrop.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitDrop.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitDrop.Packets}
-    transmitDrop.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitDrop.Bytes}
+    transmitDrop.EntityData.Children = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitDrop.Packets})
+    transmitDrop.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitDrop.Bytes})
+
+    transmitDrop.EntityData.YListKeys = []string {}
+
     return &(transmitDrop.EntityData)
 }
 
@@ -2457,10 +2658,13 @@ func (transmitBfdGood *MplsOam_Packet_Sent_TransmitBfdGood) GetEntityData() *typ
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitBfdGood.EntityData.Children = make(map[string]types.YChild)
-    transmitBfdGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitBfdGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitBfdGood.Packets}
-    transmitBfdGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitBfdGood.Bytes}
+    transmitBfdGood.EntityData.Children = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitBfdGood.Packets})
+    transmitBfdGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitBfdGood.Bytes})
+
+    transmitBfdGood.EntityData.YListKeys = []string {}
+
     return &(transmitBfdGood.EntityData)
 }
 
@@ -2490,10 +2694,13 @@ func (bfdNoReply *MplsOam_Packet_Sent_BfdNoReply) GetEntityData() *types.CommonE
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfdNoReply.EntityData.Children = make(map[string]types.YChild)
-    bfdNoReply.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfdNoReply.EntityData.Leafs["packets"] = types.YLeaf{"Packets", bfdNoReply.Packets}
-    bfdNoReply.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", bfdNoReply.Bytes}
+    bfdNoReply.EntityData.Children = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", bfdNoReply.Packets})
+    bfdNoReply.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", bfdNoReply.Bytes})
+
+    bfdNoReply.EntityData.YListKeys = []string {}
+
     return &(bfdNoReply.EntityData)
 }
 
@@ -2526,12 +2733,15 @@ func (workingReqSent *MplsOam_Packet_WorkingReqSent) GetEntityData() *types.Comm
     workingReqSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     workingReqSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    workingReqSent.EntityData.Children = make(map[string]types.YChild)
-    workingReqSent.EntityData.Children["transmit-good"] = types.YChild{"TransmitGood", &workingReqSent.TransmitGood}
-    workingReqSent.EntityData.Children["transmit-drop"] = types.YChild{"TransmitDrop", &workingReqSent.TransmitDrop}
-    workingReqSent.EntityData.Children["transmit-bfd-good"] = types.YChild{"TransmitBfdGood", &workingReqSent.TransmitBfdGood}
-    workingReqSent.EntityData.Children["bfd-no-reply"] = types.YChild{"BfdNoReply", &workingReqSent.BfdNoReply}
-    workingReqSent.EntityData.Leafs = make(map[string]types.YLeaf)
+    workingReqSent.EntityData.Children = types.NewOrderedMap()
+    workingReqSent.EntityData.Children.Append("transmit-good", types.YChild{"TransmitGood", &workingReqSent.TransmitGood})
+    workingReqSent.EntityData.Children.Append("transmit-drop", types.YChild{"TransmitDrop", &workingReqSent.TransmitDrop})
+    workingReqSent.EntityData.Children.Append("transmit-bfd-good", types.YChild{"TransmitBfdGood", &workingReqSent.TransmitBfdGood})
+    workingReqSent.EntityData.Children.Append("bfd-no-reply", types.YChild{"BfdNoReply", &workingReqSent.BfdNoReply})
+    workingReqSent.EntityData.Leafs = types.NewOrderedMap()
+
+    workingReqSent.EntityData.YListKeys = []string {}
+
     return &(workingReqSent.EntityData)
 }
 
@@ -2560,10 +2770,13 @@ func (transmitGood *MplsOam_Packet_WorkingReqSent_TransmitGood) GetEntityData() 
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitGood.EntityData.Children = make(map[string]types.YChild)
-    transmitGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitGood.Packets}
-    transmitGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitGood.Bytes}
+    transmitGood.EntityData.Children = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitGood.Packets})
+    transmitGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitGood.Bytes})
+
+    transmitGood.EntityData.YListKeys = []string {}
+
     return &(transmitGood.EntityData)
 }
 
@@ -2592,10 +2805,13 @@ func (transmitDrop *MplsOam_Packet_WorkingReqSent_TransmitDrop) GetEntityData() 
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitDrop.EntityData.Children = make(map[string]types.YChild)
-    transmitDrop.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitDrop.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitDrop.Packets}
-    transmitDrop.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitDrop.Bytes}
+    transmitDrop.EntityData.Children = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitDrop.Packets})
+    transmitDrop.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitDrop.Bytes})
+
+    transmitDrop.EntityData.YListKeys = []string {}
+
     return &(transmitDrop.EntityData)
 }
 
@@ -2624,10 +2840,13 @@ func (transmitBfdGood *MplsOam_Packet_WorkingReqSent_TransmitBfdGood) GetEntityD
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitBfdGood.EntityData.Children = make(map[string]types.YChild)
-    transmitBfdGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitBfdGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitBfdGood.Packets}
-    transmitBfdGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitBfdGood.Bytes}
+    transmitBfdGood.EntityData.Children = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitBfdGood.Packets})
+    transmitBfdGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitBfdGood.Bytes})
+
+    transmitBfdGood.EntityData.YListKeys = []string {}
+
     return &(transmitBfdGood.EntityData)
 }
 
@@ -2657,10 +2876,13 @@ func (bfdNoReply *MplsOam_Packet_WorkingReqSent_BfdNoReply) GetEntityData() *typ
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfdNoReply.EntityData.Children = make(map[string]types.YChild)
-    bfdNoReply.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfdNoReply.EntityData.Leafs["packets"] = types.YLeaf{"Packets", bfdNoReply.Packets}
-    bfdNoReply.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", bfdNoReply.Bytes}
+    bfdNoReply.EntityData.Children = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", bfdNoReply.Packets})
+    bfdNoReply.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", bfdNoReply.Bytes})
+
+    bfdNoReply.EntityData.YListKeys = []string {}
+
     return &(bfdNoReply.EntityData)
 }
 
@@ -2693,12 +2915,15 @@ func (workingRepSent *MplsOam_Packet_WorkingRepSent) GetEntityData() *types.Comm
     workingRepSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     workingRepSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    workingRepSent.EntityData.Children = make(map[string]types.YChild)
-    workingRepSent.EntityData.Children["transmit-good"] = types.YChild{"TransmitGood", &workingRepSent.TransmitGood}
-    workingRepSent.EntityData.Children["transmit-drop"] = types.YChild{"TransmitDrop", &workingRepSent.TransmitDrop}
-    workingRepSent.EntityData.Children["transmit-bfd-good"] = types.YChild{"TransmitBfdGood", &workingRepSent.TransmitBfdGood}
-    workingRepSent.EntityData.Children["bfd-no-reply"] = types.YChild{"BfdNoReply", &workingRepSent.BfdNoReply}
-    workingRepSent.EntityData.Leafs = make(map[string]types.YLeaf)
+    workingRepSent.EntityData.Children = types.NewOrderedMap()
+    workingRepSent.EntityData.Children.Append("transmit-good", types.YChild{"TransmitGood", &workingRepSent.TransmitGood})
+    workingRepSent.EntityData.Children.Append("transmit-drop", types.YChild{"TransmitDrop", &workingRepSent.TransmitDrop})
+    workingRepSent.EntityData.Children.Append("transmit-bfd-good", types.YChild{"TransmitBfdGood", &workingRepSent.TransmitBfdGood})
+    workingRepSent.EntityData.Children.Append("bfd-no-reply", types.YChild{"BfdNoReply", &workingRepSent.BfdNoReply})
+    workingRepSent.EntityData.Leafs = types.NewOrderedMap()
+
+    workingRepSent.EntityData.YListKeys = []string {}
+
     return &(workingRepSent.EntityData)
 }
 
@@ -2727,10 +2952,13 @@ func (transmitGood *MplsOam_Packet_WorkingRepSent_TransmitGood) GetEntityData() 
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitGood.EntityData.Children = make(map[string]types.YChild)
-    transmitGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitGood.Packets}
-    transmitGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitGood.Bytes}
+    transmitGood.EntityData.Children = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitGood.Packets})
+    transmitGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitGood.Bytes})
+
+    transmitGood.EntityData.YListKeys = []string {}
+
     return &(transmitGood.EntityData)
 }
 
@@ -2759,10 +2987,13 @@ func (transmitDrop *MplsOam_Packet_WorkingRepSent_TransmitDrop) GetEntityData() 
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitDrop.EntityData.Children = make(map[string]types.YChild)
-    transmitDrop.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitDrop.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitDrop.Packets}
-    transmitDrop.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitDrop.Bytes}
+    transmitDrop.EntityData.Children = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitDrop.Packets})
+    transmitDrop.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitDrop.Bytes})
+
+    transmitDrop.EntityData.YListKeys = []string {}
+
     return &(transmitDrop.EntityData)
 }
 
@@ -2791,10 +3022,13 @@ func (transmitBfdGood *MplsOam_Packet_WorkingRepSent_TransmitBfdGood) GetEntityD
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitBfdGood.EntityData.Children = make(map[string]types.YChild)
-    transmitBfdGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitBfdGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitBfdGood.Packets}
-    transmitBfdGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitBfdGood.Bytes}
+    transmitBfdGood.EntityData.Children = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitBfdGood.Packets})
+    transmitBfdGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitBfdGood.Bytes})
+
+    transmitBfdGood.EntityData.YListKeys = []string {}
+
     return &(transmitBfdGood.EntityData)
 }
 
@@ -2824,10 +3058,13 @@ func (bfdNoReply *MplsOam_Packet_WorkingRepSent_BfdNoReply) GetEntityData() *typ
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfdNoReply.EntityData.Children = make(map[string]types.YChild)
-    bfdNoReply.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfdNoReply.EntityData.Leafs["packets"] = types.YLeaf{"Packets", bfdNoReply.Packets}
-    bfdNoReply.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", bfdNoReply.Bytes}
+    bfdNoReply.EntityData.Children = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", bfdNoReply.Packets})
+    bfdNoReply.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", bfdNoReply.Bytes})
+
+    bfdNoReply.EntityData.YListKeys = []string {}
+
     return &(bfdNoReply.EntityData)
 }
 
@@ -2860,12 +3097,15 @@ func (protectReqSent *MplsOam_Packet_ProtectReqSent) GetEntityData() *types.Comm
     protectReqSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectReqSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    protectReqSent.EntityData.Children = make(map[string]types.YChild)
-    protectReqSent.EntityData.Children["transmit-good"] = types.YChild{"TransmitGood", &protectReqSent.TransmitGood}
-    protectReqSent.EntityData.Children["transmit-drop"] = types.YChild{"TransmitDrop", &protectReqSent.TransmitDrop}
-    protectReqSent.EntityData.Children["transmit-bfd-good"] = types.YChild{"TransmitBfdGood", &protectReqSent.TransmitBfdGood}
-    protectReqSent.EntityData.Children["bfd-no-reply"] = types.YChild{"BfdNoReply", &protectReqSent.BfdNoReply}
-    protectReqSent.EntityData.Leafs = make(map[string]types.YLeaf)
+    protectReqSent.EntityData.Children = types.NewOrderedMap()
+    protectReqSent.EntityData.Children.Append("transmit-good", types.YChild{"TransmitGood", &protectReqSent.TransmitGood})
+    protectReqSent.EntityData.Children.Append("transmit-drop", types.YChild{"TransmitDrop", &protectReqSent.TransmitDrop})
+    protectReqSent.EntityData.Children.Append("transmit-bfd-good", types.YChild{"TransmitBfdGood", &protectReqSent.TransmitBfdGood})
+    protectReqSent.EntityData.Children.Append("bfd-no-reply", types.YChild{"BfdNoReply", &protectReqSent.BfdNoReply})
+    protectReqSent.EntityData.Leafs = types.NewOrderedMap()
+
+    protectReqSent.EntityData.YListKeys = []string {}
+
     return &(protectReqSent.EntityData)
 }
 
@@ -2894,10 +3134,13 @@ func (transmitGood *MplsOam_Packet_ProtectReqSent_TransmitGood) GetEntityData() 
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitGood.EntityData.Children = make(map[string]types.YChild)
-    transmitGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitGood.Packets}
-    transmitGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitGood.Bytes}
+    transmitGood.EntityData.Children = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitGood.Packets})
+    transmitGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitGood.Bytes})
+
+    transmitGood.EntityData.YListKeys = []string {}
+
     return &(transmitGood.EntityData)
 }
 
@@ -2926,10 +3169,13 @@ func (transmitDrop *MplsOam_Packet_ProtectReqSent_TransmitDrop) GetEntityData() 
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitDrop.EntityData.Children = make(map[string]types.YChild)
-    transmitDrop.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitDrop.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitDrop.Packets}
-    transmitDrop.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitDrop.Bytes}
+    transmitDrop.EntityData.Children = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitDrop.Packets})
+    transmitDrop.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitDrop.Bytes})
+
+    transmitDrop.EntityData.YListKeys = []string {}
+
     return &(transmitDrop.EntityData)
 }
 
@@ -2958,10 +3204,13 @@ func (transmitBfdGood *MplsOam_Packet_ProtectReqSent_TransmitBfdGood) GetEntityD
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitBfdGood.EntityData.Children = make(map[string]types.YChild)
-    transmitBfdGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitBfdGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitBfdGood.Packets}
-    transmitBfdGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitBfdGood.Bytes}
+    transmitBfdGood.EntityData.Children = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitBfdGood.Packets})
+    transmitBfdGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitBfdGood.Bytes})
+
+    transmitBfdGood.EntityData.YListKeys = []string {}
+
     return &(transmitBfdGood.EntityData)
 }
 
@@ -2991,10 +3240,13 @@ func (bfdNoReply *MplsOam_Packet_ProtectReqSent_BfdNoReply) GetEntityData() *typ
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfdNoReply.EntityData.Children = make(map[string]types.YChild)
-    bfdNoReply.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfdNoReply.EntityData.Leafs["packets"] = types.YLeaf{"Packets", bfdNoReply.Packets}
-    bfdNoReply.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", bfdNoReply.Bytes}
+    bfdNoReply.EntityData.Children = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", bfdNoReply.Packets})
+    bfdNoReply.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", bfdNoReply.Bytes})
+
+    bfdNoReply.EntityData.YListKeys = []string {}
+
     return &(bfdNoReply.EntityData)
 }
 
@@ -3027,12 +3279,15 @@ func (protectRepSent *MplsOam_Packet_ProtectRepSent) GetEntityData() *types.Comm
     protectRepSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectRepSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    protectRepSent.EntityData.Children = make(map[string]types.YChild)
-    protectRepSent.EntityData.Children["transmit-good"] = types.YChild{"TransmitGood", &protectRepSent.TransmitGood}
-    protectRepSent.EntityData.Children["transmit-drop"] = types.YChild{"TransmitDrop", &protectRepSent.TransmitDrop}
-    protectRepSent.EntityData.Children["transmit-bfd-good"] = types.YChild{"TransmitBfdGood", &protectRepSent.TransmitBfdGood}
-    protectRepSent.EntityData.Children["bfd-no-reply"] = types.YChild{"BfdNoReply", &protectRepSent.BfdNoReply}
-    protectRepSent.EntityData.Leafs = make(map[string]types.YLeaf)
+    protectRepSent.EntityData.Children = types.NewOrderedMap()
+    protectRepSent.EntityData.Children.Append("transmit-good", types.YChild{"TransmitGood", &protectRepSent.TransmitGood})
+    protectRepSent.EntityData.Children.Append("transmit-drop", types.YChild{"TransmitDrop", &protectRepSent.TransmitDrop})
+    protectRepSent.EntityData.Children.Append("transmit-bfd-good", types.YChild{"TransmitBfdGood", &protectRepSent.TransmitBfdGood})
+    protectRepSent.EntityData.Children.Append("bfd-no-reply", types.YChild{"BfdNoReply", &protectRepSent.BfdNoReply})
+    protectRepSent.EntityData.Leafs = types.NewOrderedMap()
+
+    protectRepSent.EntityData.YListKeys = []string {}
+
     return &(protectRepSent.EntityData)
 }
 
@@ -3061,10 +3316,13 @@ func (transmitGood *MplsOam_Packet_ProtectRepSent_TransmitGood) GetEntityData() 
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitGood.EntityData.Children = make(map[string]types.YChild)
-    transmitGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitGood.Packets}
-    transmitGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitGood.Bytes}
+    transmitGood.EntityData.Children = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitGood.Packets})
+    transmitGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitGood.Bytes})
+
+    transmitGood.EntityData.YListKeys = []string {}
+
     return &(transmitGood.EntityData)
 }
 
@@ -3093,10 +3351,13 @@ func (transmitDrop *MplsOam_Packet_ProtectRepSent_TransmitDrop) GetEntityData() 
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitDrop.EntityData.Children = make(map[string]types.YChild)
-    transmitDrop.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitDrop.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitDrop.Packets}
-    transmitDrop.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitDrop.Bytes}
+    transmitDrop.EntityData.Children = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs = types.NewOrderedMap()
+    transmitDrop.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitDrop.Packets})
+    transmitDrop.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitDrop.Bytes})
+
+    transmitDrop.EntityData.YListKeys = []string {}
+
     return &(transmitDrop.EntityData)
 }
 
@@ -3125,10 +3386,13 @@ func (transmitBfdGood *MplsOam_Packet_ProtectRepSent_TransmitBfdGood) GetEntityD
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitBfdGood.EntityData.Children = make(map[string]types.YChild)
-    transmitBfdGood.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitBfdGood.EntityData.Leafs["packets"] = types.YLeaf{"Packets", transmitBfdGood.Packets}
-    transmitBfdGood.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", transmitBfdGood.Bytes}
+    transmitBfdGood.EntityData.Children = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs = types.NewOrderedMap()
+    transmitBfdGood.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", transmitBfdGood.Packets})
+    transmitBfdGood.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", transmitBfdGood.Bytes})
+
+    transmitBfdGood.EntityData.YListKeys = []string {}
+
     return &(transmitBfdGood.EntityData)
 }
 
@@ -3158,10 +3422,13 @@ func (bfdNoReply *MplsOam_Packet_ProtectRepSent_BfdNoReply) GetEntityData() *typ
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfdNoReply.EntityData.Children = make(map[string]types.YChild)
-    bfdNoReply.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfdNoReply.EntityData.Leafs["packets"] = types.YLeaf{"Packets", bfdNoReply.Packets}
-    bfdNoReply.EntityData.Leafs["bytes"] = types.YLeaf{"Bytes", bfdNoReply.Bytes}
+    bfdNoReply.EntityData.Children = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs = types.NewOrderedMap()
+    bfdNoReply.EntityData.Leafs.Append("packets", types.YLeaf{"Packets", bfdNoReply.Packets})
+    bfdNoReply.EntityData.Leafs.Append("bytes", types.YLeaf{"Bytes", bfdNoReply.Bytes})
+
+    bfdNoReply.EntityData.YListKeys = []string {}
+
     return &(bfdNoReply.EntityData)
 }
 
@@ -3191,11 +3458,14 @@ func (global *MplsOam_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    global.EntityData.Children = make(map[string]types.YChild)
-    global.EntityData.Children["message-statistics"] = types.YChild{"MessageStatistics", &global.MessageStatistics}
-    global.EntityData.Children["collaborator-statistics"] = types.YChild{"CollaboratorStatistics", &global.CollaboratorStatistics}
-    global.EntityData.Leafs = make(map[string]types.YLeaf)
-    global.EntityData.Leafs["total-clients"] = types.YLeaf{"TotalClients", global.TotalClients}
+    global.EntityData.Children = types.NewOrderedMap()
+    global.EntityData.Children.Append("message-statistics", types.YChild{"MessageStatistics", &global.MessageStatistics})
+    global.EntityData.Children.Append("collaborator-statistics", types.YChild{"CollaboratorStatistics", &global.CollaboratorStatistics})
+    global.EntityData.Leafs = types.NewOrderedMap()
+    global.EntityData.Leafs.Append("total-clients", types.YLeaf{"TotalClients", global.TotalClients})
+
+    global.EntityData.YListKeys = []string {}
+
     return &(global.EntityData)
 }
 
@@ -3259,19 +3529,22 @@ func (messageStatistics *MplsOam_Global_MessageStatistics) GetEntityData() *type
     messageStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     messageStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageStatistics.EntityData.Children = make(map[string]types.YChild)
-    messageStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    messageStatistics.EntityData.Leafs["register-messages"] = types.YLeaf{"RegisterMessages", messageStatistics.RegisterMessages}
-    messageStatistics.EntityData.Leafs["unregister-messages"] = types.YLeaf{"UnregisterMessages", messageStatistics.UnregisterMessages}
-    messageStatistics.EntityData.Leafs["echo-submit-messages"] = types.YLeaf{"EchoSubmitMessages", messageStatistics.EchoSubmitMessages}
-    messageStatistics.EntityData.Leafs["echo-cancel-messages"] = types.YLeaf{"EchoCancelMessages", messageStatistics.EchoCancelMessages}
-    messageStatistics.EntityData.Leafs["get-result-messages"] = types.YLeaf{"GetResultMessages", messageStatistics.GetResultMessages}
-    messageStatistics.EntityData.Leafs["get-config-messages"] = types.YLeaf{"GetConfigMessages", messageStatistics.GetConfigMessages}
-    messageStatistics.EntityData.Leafs["get-response-messages"] = types.YLeaf{"GetResponseMessages", messageStatistics.GetResponseMessages}
-    messageStatistics.EntityData.Leafs["property-response-messages"] = types.YLeaf{"PropertyResponseMessages", messageStatistics.PropertyResponseMessages}
-    messageStatistics.EntityData.Leafs["property-request-messages"] = types.YLeaf{"PropertyRequestMessages", messageStatistics.PropertyRequestMessages}
-    messageStatistics.EntityData.Leafs["property-block-messages"] = types.YLeaf{"PropertyBlockMessages", messageStatistics.PropertyBlockMessages}
-    messageStatistics.EntityData.Leafs["thread-request-messages"] = types.YLeaf{"ThreadRequestMessages", messageStatistics.ThreadRequestMessages}
+    messageStatistics.EntityData.Children = types.NewOrderedMap()
+    messageStatistics.EntityData.Leafs = types.NewOrderedMap()
+    messageStatistics.EntityData.Leafs.Append("register-messages", types.YLeaf{"RegisterMessages", messageStatistics.RegisterMessages})
+    messageStatistics.EntityData.Leafs.Append("unregister-messages", types.YLeaf{"UnregisterMessages", messageStatistics.UnregisterMessages})
+    messageStatistics.EntityData.Leafs.Append("echo-submit-messages", types.YLeaf{"EchoSubmitMessages", messageStatistics.EchoSubmitMessages})
+    messageStatistics.EntityData.Leafs.Append("echo-cancel-messages", types.YLeaf{"EchoCancelMessages", messageStatistics.EchoCancelMessages})
+    messageStatistics.EntityData.Leafs.Append("get-result-messages", types.YLeaf{"GetResultMessages", messageStatistics.GetResultMessages})
+    messageStatistics.EntityData.Leafs.Append("get-config-messages", types.YLeaf{"GetConfigMessages", messageStatistics.GetConfigMessages})
+    messageStatistics.EntityData.Leafs.Append("get-response-messages", types.YLeaf{"GetResponseMessages", messageStatistics.GetResponseMessages})
+    messageStatistics.EntityData.Leafs.Append("property-response-messages", types.YLeaf{"PropertyResponseMessages", messageStatistics.PropertyResponseMessages})
+    messageStatistics.EntityData.Leafs.Append("property-request-messages", types.YLeaf{"PropertyRequestMessages", messageStatistics.PropertyRequestMessages})
+    messageStatistics.EntityData.Leafs.Append("property-block-messages", types.YLeaf{"PropertyBlockMessages", messageStatistics.PropertyBlockMessages})
+    messageStatistics.EntityData.Leafs.Append("thread-request-messages", types.YLeaf{"ThreadRequestMessages", messageStatistics.ThreadRequestMessages})
+
+    messageStatistics.EntityData.YListKeys = []string {}
+
     return &(messageStatistics.EntityData)
 }
 
@@ -3304,12 +3577,15 @@ func (collaboratorStatistics *MplsOam_Global_CollaboratorStatistics) GetEntityDa
     collaboratorStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collaboratorStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    collaboratorStatistics.EntityData.Children = make(map[string]types.YChild)
-    collaboratorStatistics.EntityData.Children["collaborator-i-parm"] = types.YChild{"CollaboratorIParm", &collaboratorStatistics.CollaboratorIParm}
-    collaboratorStatistics.EntityData.Children["collaborator-im"] = types.YChild{"CollaboratorIm", &collaboratorStatistics.CollaboratorIm}
-    collaboratorStatistics.EntityData.Children["collaborator-net-io"] = types.YChild{"CollaboratorNetIo", &collaboratorStatistics.CollaboratorNetIo}
-    collaboratorStatistics.EntityData.Children["collaborator-rib"] = types.YChild{"CollaboratorRib", &collaboratorStatistics.CollaboratorRib}
-    collaboratorStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    collaboratorStatistics.EntityData.Children = types.NewOrderedMap()
+    collaboratorStatistics.EntityData.Children.Append("collaborator-i-parm", types.YChild{"CollaboratorIParm", &collaboratorStatistics.CollaboratorIParm})
+    collaboratorStatistics.EntityData.Children.Append("collaborator-im", types.YChild{"CollaboratorIm", &collaboratorStatistics.CollaboratorIm})
+    collaboratorStatistics.EntityData.Children.Append("collaborator-net-io", types.YChild{"CollaboratorNetIo", &collaboratorStatistics.CollaboratorNetIo})
+    collaboratorStatistics.EntityData.Children.Append("collaborator-rib", types.YChild{"CollaboratorRib", &collaboratorStatistics.CollaboratorRib})
+    collaboratorStatistics.EntityData.Leafs = types.NewOrderedMap()
+
+    collaboratorStatistics.EntityData.YListKeys = []string {}
+
     return &(collaboratorStatistics.EntityData)
 }
 
@@ -3337,10 +3613,13 @@ func (collaboratorIParm *MplsOam_Global_CollaboratorStatistics_CollaboratorIParm
     collaboratorIParm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collaboratorIParm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    collaboratorIParm.EntityData.Children = make(map[string]types.YChild)
-    collaboratorIParm.EntityData.Leafs = make(map[string]types.YLeaf)
-    collaboratorIParm.EntityData.Leafs["ups"] = types.YLeaf{"Ups", collaboratorIParm.Ups}
-    collaboratorIParm.EntityData.Leafs["downs"] = types.YLeaf{"Downs", collaboratorIParm.Downs}
+    collaboratorIParm.EntityData.Children = types.NewOrderedMap()
+    collaboratorIParm.EntityData.Leafs = types.NewOrderedMap()
+    collaboratorIParm.EntityData.Leafs.Append("ups", types.YLeaf{"Ups", collaboratorIParm.Ups})
+    collaboratorIParm.EntityData.Leafs.Append("downs", types.YLeaf{"Downs", collaboratorIParm.Downs})
+
+    collaboratorIParm.EntityData.YListKeys = []string {}
+
     return &(collaboratorIParm.EntityData)
 }
 
@@ -3368,10 +3647,13 @@ func (collaboratorIm *MplsOam_Global_CollaboratorStatistics_CollaboratorIm) GetE
     collaboratorIm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collaboratorIm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    collaboratorIm.EntityData.Children = make(map[string]types.YChild)
-    collaboratorIm.EntityData.Leafs = make(map[string]types.YLeaf)
-    collaboratorIm.EntityData.Leafs["ups"] = types.YLeaf{"Ups", collaboratorIm.Ups}
-    collaboratorIm.EntityData.Leafs["downs"] = types.YLeaf{"Downs", collaboratorIm.Downs}
+    collaboratorIm.EntityData.Children = types.NewOrderedMap()
+    collaboratorIm.EntityData.Leafs = types.NewOrderedMap()
+    collaboratorIm.EntityData.Leafs.Append("ups", types.YLeaf{"Ups", collaboratorIm.Ups})
+    collaboratorIm.EntityData.Leafs.Append("downs", types.YLeaf{"Downs", collaboratorIm.Downs})
+
+    collaboratorIm.EntityData.YListKeys = []string {}
+
     return &(collaboratorIm.EntityData)
 }
 
@@ -3399,10 +3681,13 @@ func (collaboratorNetIo *MplsOam_Global_CollaboratorStatistics_CollaboratorNetIo
     collaboratorNetIo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collaboratorNetIo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    collaboratorNetIo.EntityData.Children = make(map[string]types.YChild)
-    collaboratorNetIo.EntityData.Leafs = make(map[string]types.YLeaf)
-    collaboratorNetIo.EntityData.Leafs["ups"] = types.YLeaf{"Ups", collaboratorNetIo.Ups}
-    collaboratorNetIo.EntityData.Leafs["downs"] = types.YLeaf{"Downs", collaboratorNetIo.Downs}
+    collaboratorNetIo.EntityData.Children = types.NewOrderedMap()
+    collaboratorNetIo.EntityData.Leafs = types.NewOrderedMap()
+    collaboratorNetIo.EntityData.Leafs.Append("ups", types.YLeaf{"Ups", collaboratorNetIo.Ups})
+    collaboratorNetIo.EntityData.Leafs.Append("downs", types.YLeaf{"Downs", collaboratorNetIo.Downs})
+
+    collaboratorNetIo.EntityData.YListKeys = []string {}
+
     return &(collaboratorNetIo.EntityData)
 }
 
@@ -3430,10 +3715,13 @@ func (collaboratorRib *MplsOam_Global_CollaboratorStatistics_CollaboratorRib) Ge
     collaboratorRib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collaboratorRib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    collaboratorRib.EntityData.Children = make(map[string]types.YChild)
-    collaboratorRib.EntityData.Leafs = make(map[string]types.YLeaf)
-    collaboratorRib.EntityData.Leafs["ups"] = types.YLeaf{"Ups", collaboratorRib.Ups}
-    collaboratorRib.EntityData.Leafs["downs"] = types.YLeaf{"Downs", collaboratorRib.Downs}
+    collaboratorRib.EntityData.Children = types.NewOrderedMap()
+    collaboratorRib.EntityData.Leafs = types.NewOrderedMap()
+    collaboratorRib.EntityData.Leafs.Append("ups", types.YLeaf{"Ups", collaboratorRib.Ups})
+    collaboratorRib.EntityData.Leafs.Append("downs", types.YLeaf{"Downs", collaboratorRib.Downs})
+
+    collaboratorRib.EntityData.YListKeys = []string {}
+
     return &(collaboratorRib.EntityData)
 }
 

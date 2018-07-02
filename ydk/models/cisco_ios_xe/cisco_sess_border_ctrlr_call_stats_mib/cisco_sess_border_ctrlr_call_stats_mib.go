@@ -117,7 +117,7 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB struct {
     // physical entity (line card, primary, secondary cards). The index of the
     // table is instance index which uniquely identifies the physical entity
     // present on the box.
-    Csbcallstatsinstancetable CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable
+    CsbCallStatsInstanceTable CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsInstanceTable
 
     // This table describes the global statistics information in the form of a
     // table which contains call specific information like call rates, media
@@ -126,7 +126,7 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB struct {
     // of the table represents the global information regarding all the call flows
     // related to that particular service. The other index of this table is
     // csbCallStatsInstanceIndex which is defined in csbCallStatsInstanceTable.
-    Csbcallstatstable CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable
+    CsbCallStatsTable CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsTable
 
     // This table is used to collect measurement over several different intervals
     // as defined by the csbCurrPeriodicStatsInterval object. When a new interval
@@ -140,7 +140,7 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB struct {
     // the value at the instant that the query is issued.  2.Otherwise, for the
     // other intevals, this is an average value during the summary period sampled
     // at 5 minute intervals.
-    Csbcurrperiodicstatstable CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable
+    CsbCurrPeriodicStatsTable CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCurrPeriodicStatsTable
 
     // This table provide historical measurement in various interval length
     // defined by the csbHistoryStatsInterval object. Each interval may contain
@@ -152,14 +152,14 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB struct {
     // is the number of calls that were active at the end of the previous 5 minute
     // period. Otherwise for the other intevals, this is an average value during
     // the summary period, sampled at 5 minute intervals.
-    Csbhistorystatstable CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable
+    CsbHistoryStatsTable CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbHistoryStatsTable
 
     // This table describes statistics table for each call flow. The indices of
     // the table are virtual media gateway id, gate id, falow pair id and side id
     // (indices for side A or side B). The other indices of this table are
     // csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and
     // csbCallStatsServiceIndex defined in csbCallStatsTable.
-    Csbperflowstatstable CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable
+    CsbPerFlowStatsTable CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable
 
     // This table describes the H.248 statistics for SBC. The index of the table
     // is service index which corresponds to a particular  service configured on
@@ -167,14 +167,14 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB struct {
     // index of this table is csbCallStatsInstanceIndex defined in
     // csbCallStatsInstanceTable. This table is replaced by the
     // csbH248StatsRev1Table.
-    Csbh248Statstable CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable
+    CsbH248StatsTable CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbH248StatsTable
 
     // This table describes the H.248 statistics for SBC. The index of the table
     // is service index which corresponds to a particular  service configured on
     // the SBC and the index assigned to a particular H.248 controller. The other
     // index of this table is csbCallStatsInstanceIndex defined in
     // csbCallStatsInstanceTable.
-    Csbh248Statsrev1Table CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table
+    CsbH248StatsRev1Table CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbH248StatsRev1Table
 }
 
 func (cISCOSESSBORDERCTRLRCALLSTATSMIB *CISCOSESSBORDERCTRLRCALLSTATSMIB) GetEntityData() *types.CommonEntityData {
@@ -187,58 +187,64 @@ func (cISCOSESSBORDERCTRLRCALLSTATSMIB *CISCOSESSBORDERCTRLRCALLSTATSMIB) GetEnt
     cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children["csbCallStatsInstanceTable"] = types.YChild{"Csbcallstatsinstancetable", &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable}
-    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children["csbCallStatsTable"] = types.YChild{"Csbcallstatstable", &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable}
-    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children["csbCurrPeriodicStatsTable"] = types.YChild{"Csbcurrperiodicstatstable", &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcurrperiodicstatstable}
-    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children["csbHistoryStatsTable"] = types.YChild{"Csbhistorystatstable", &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbhistorystatstable}
-    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children["csbPerFlowStatsTable"] = types.YChild{"Csbperflowstatstable", &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbperflowstatstable}
-    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children["csbH248StatsTable"] = types.YChild{"Csbh248Statstable", &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable}
-    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children["csbH248StatsRev1Table"] = types.YChild{"Csbh248Statsrev1Table", &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table}
-    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children.Append("csbCallStatsInstanceTable", types.YChild{"CsbCallStatsInstanceTable", &cISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable})
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children.Append("csbCallStatsTable", types.YChild{"CsbCallStatsTable", &cISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable})
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children.Append("csbCurrPeriodicStatsTable", types.YChild{"CsbCurrPeriodicStatsTable", &cISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCurrPeriodicStatsTable})
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children.Append("csbHistoryStatsTable", types.YChild{"CsbHistoryStatsTable", &cISCOSESSBORDERCTRLRCALLSTATSMIB.CsbHistoryStatsTable})
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children.Append("csbPerFlowStatsTable", types.YChild{"CsbPerFlowStatsTable", &cISCOSESSBORDERCTRLRCALLSTATSMIB.CsbPerFlowStatsTable})
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children.Append("csbH248StatsTable", types.YChild{"CsbH248StatsTable", &cISCOSESSBORDERCTRLRCALLSTATSMIB.CsbH248StatsTable})
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children.Append("csbH248StatsRev1Table", types.YChild{"CsbH248StatsRev1Table", &cISCOSESSBORDERCTRLRCALLSTATSMIB.CsbH248StatsRev1Table})
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData)
 }
 
-// CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable
+// CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsInstanceTable
 // The call stats instance table contains the physical index for
 // each of the physical entity (line card, primary, secondary
 // cards). The index of the table is instance index which uniquely
 // identifies the physical entity present on the box.
-type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable struct {
+type CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsInstanceTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row in csbCallStatsInstanceTable. There is an entry in this
     // table for each SBC instance, as identified by a  value of
     // csbCallStatsInstanceIndex. The type is slice of
-    // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry.
-    Csbcallstatsinstanceentry []CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry
+    // CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsInstanceTable_CsbCallStatsInstanceEntry.
+    CsbCallStatsInstanceEntry []*CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsInstanceTable_CsbCallStatsInstanceEntry
 }
 
-func (csbcallstatsinstancetable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable) GetEntityData() *types.CommonEntityData {
-    csbcallstatsinstancetable.EntityData.YFilter = csbcallstatsinstancetable.YFilter
-    csbcallstatsinstancetable.EntityData.YangName = "csbCallStatsInstanceTable"
-    csbcallstatsinstancetable.EntityData.BundleName = "cisco_ios_xe"
-    csbcallstatsinstancetable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
-    csbcallstatsinstancetable.EntityData.SegmentPath = "csbCallStatsInstanceTable"
-    csbcallstatsinstancetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csbcallstatsinstancetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csbcallstatsinstancetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (csbCallStatsInstanceTable *CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsInstanceTable) GetEntityData() *types.CommonEntityData {
+    csbCallStatsInstanceTable.EntityData.YFilter = csbCallStatsInstanceTable.YFilter
+    csbCallStatsInstanceTable.EntityData.YangName = "csbCallStatsInstanceTable"
+    csbCallStatsInstanceTable.EntityData.BundleName = "cisco_ios_xe"
+    csbCallStatsInstanceTable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
+    csbCallStatsInstanceTable.EntityData.SegmentPath = "csbCallStatsInstanceTable"
+    csbCallStatsInstanceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbCallStatsInstanceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbCallStatsInstanceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csbcallstatsinstancetable.EntityData.Children = make(map[string]types.YChild)
-    csbcallstatsinstancetable.EntityData.Children["csbCallStatsInstanceEntry"] = types.YChild{"Csbcallstatsinstanceentry", nil}
-    for i := range csbcallstatsinstancetable.Csbcallstatsinstanceentry {
-        csbcallstatsinstancetable.EntityData.Children[types.GetSegmentPath(&csbcallstatsinstancetable.Csbcallstatsinstanceentry[i])] = types.YChild{"Csbcallstatsinstanceentry", &csbcallstatsinstancetable.Csbcallstatsinstanceentry[i]}
+    csbCallStatsInstanceTable.EntityData.Children = types.NewOrderedMap()
+    csbCallStatsInstanceTable.EntityData.Children.Append("csbCallStatsInstanceEntry", types.YChild{"CsbCallStatsInstanceEntry", nil})
+    for i := range csbCallStatsInstanceTable.CsbCallStatsInstanceEntry {
+        csbCallStatsInstanceTable.EntityData.Children.Append(types.GetSegmentPath(csbCallStatsInstanceTable.CsbCallStatsInstanceEntry[i]), types.YChild{"CsbCallStatsInstanceEntry", csbCallStatsInstanceTable.CsbCallStatsInstanceEntry[i]})
     }
-    csbcallstatsinstancetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(csbcallstatsinstancetable.EntityData)
+    csbCallStatsInstanceTable.EntityData.Leafs = types.NewOrderedMap()
+
+    csbCallStatsInstanceTable.EntityData.YListKeys = []string {}
+
+    return &(csbCallStatsInstanceTable.EntityData)
 }
 
-// CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry
+// CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsInstanceTable_CsbCallStatsInstanceEntry
 // A conceptual row in csbCallStatsInstanceTable. There is an
 // entry in this table for each SBC instance, as identified by a 
 // value of csbCallStatsInstanceIndex.
-type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry struct {
+type CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsInstanceTable_CsbCallStatsInstanceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -246,33 +252,36 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinst
     // number of an entity or slot that is configured per device. This index is
     // assigned arbitrarily by the engine and is not saved over reboots. The type
     // is interface{} with range: 0..4294967295.
-    Csbcallstatsinstanceindex interface{}
+    CsbCallStatsInstanceIndex interface{}
 
     // This object indicates the physical entity for which all the measurements
     // are maintained. The exact type of this entity is described by its
     // entPhysicalVendorType value. The type is interface{} with range:
     // 0..2147483647.
-    Csbcallstatsinstancephysicalindex interface{}
+    CsbCallStatsInstancePhysicalIndex interface{}
 }
 
-func (csbcallstatsinstanceentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry) GetEntityData() *types.CommonEntityData {
-    csbcallstatsinstanceentry.EntityData.YFilter = csbcallstatsinstanceentry.YFilter
-    csbcallstatsinstanceentry.EntityData.YangName = "csbCallStatsInstanceEntry"
-    csbcallstatsinstanceentry.EntityData.BundleName = "cisco_ios_xe"
-    csbcallstatsinstanceentry.EntityData.ParentYangName = "csbCallStatsInstanceTable"
-    csbcallstatsinstanceentry.EntityData.SegmentPath = "csbCallStatsInstanceEntry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbcallstatsinstanceentry.Csbcallstatsinstanceindex) + "']"
-    csbcallstatsinstanceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csbcallstatsinstanceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csbcallstatsinstanceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (csbCallStatsInstanceEntry *CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsInstanceTable_CsbCallStatsInstanceEntry) GetEntityData() *types.CommonEntityData {
+    csbCallStatsInstanceEntry.EntityData.YFilter = csbCallStatsInstanceEntry.YFilter
+    csbCallStatsInstanceEntry.EntityData.YangName = "csbCallStatsInstanceEntry"
+    csbCallStatsInstanceEntry.EntityData.BundleName = "cisco_ios_xe"
+    csbCallStatsInstanceEntry.EntityData.ParentYangName = "csbCallStatsInstanceTable"
+    csbCallStatsInstanceEntry.EntityData.SegmentPath = "csbCallStatsInstanceEntry" + types.AddKeyToken(csbCallStatsInstanceEntry.CsbCallStatsInstanceIndex, "csbCallStatsInstanceIndex")
+    csbCallStatsInstanceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbCallStatsInstanceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbCallStatsInstanceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csbcallstatsinstanceentry.EntityData.Children = make(map[string]types.YChild)
-    csbcallstatsinstanceentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    csbcallstatsinstanceentry.EntityData.Leafs["csbCallStatsInstanceIndex"] = types.YLeaf{"Csbcallstatsinstanceindex", csbcallstatsinstanceentry.Csbcallstatsinstanceindex}
-    csbcallstatsinstanceentry.EntityData.Leafs["csbCallStatsInstancePhysicalIndex"] = types.YLeaf{"Csbcallstatsinstancephysicalindex", csbcallstatsinstanceentry.Csbcallstatsinstancephysicalindex}
-    return &(csbcallstatsinstanceentry.EntityData)
+    csbCallStatsInstanceEntry.EntityData.Children = types.NewOrderedMap()
+    csbCallStatsInstanceEntry.EntityData.Leafs = types.NewOrderedMap()
+    csbCallStatsInstanceEntry.EntityData.Leafs.Append("csbCallStatsInstanceIndex", types.YLeaf{"CsbCallStatsInstanceIndex", csbCallStatsInstanceEntry.CsbCallStatsInstanceIndex})
+    csbCallStatsInstanceEntry.EntityData.Leafs.Append("csbCallStatsInstancePhysicalIndex", types.YLeaf{"CsbCallStatsInstancePhysicalIndex", csbCallStatsInstanceEntry.CsbCallStatsInstancePhysicalIndex})
+
+    csbCallStatsInstanceEntry.EntityData.YListKeys = []string {"CsbCallStatsInstanceIndex"}
+
+    return &(csbCallStatsInstanceEntry.EntityData)
 }
 
-// CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable
+// CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsTable
 // This table describes the global statistics information in the
 // form of a table which contains call specific information like
 // call rates, media flows, signaling flows etc. The index of the
@@ -282,7 +291,7 @@ func (csbcallstatsinstanceentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsin
 // related to that particular service. The other index of this
 // table is csbCallStatsInstanceIndex which is defined in
 // csbCallStatsInstanceTable.
-type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable struct {
+type CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -291,217 +300,223 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable struct {
     // value of csbCallStatsInstanceIndex. The other index of this table is
     // csbCallStatsInstanceIndex which is defined in csbCallStatsInstanceTable.
     // The type is slice of
-    // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry.
-    Csbcallstatsentry []CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry
+    // CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsTable_CsbCallStatsEntry.
+    CsbCallStatsEntry []*CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsTable_CsbCallStatsEntry
 }
 
-func (csbcallstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable) GetEntityData() *types.CommonEntityData {
-    csbcallstatstable.EntityData.YFilter = csbcallstatstable.YFilter
-    csbcallstatstable.EntityData.YangName = "csbCallStatsTable"
-    csbcallstatstable.EntityData.BundleName = "cisco_ios_xe"
-    csbcallstatstable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
-    csbcallstatstable.EntityData.SegmentPath = "csbCallStatsTable"
-    csbcallstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csbcallstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csbcallstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (csbCallStatsTable *CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsTable) GetEntityData() *types.CommonEntityData {
+    csbCallStatsTable.EntityData.YFilter = csbCallStatsTable.YFilter
+    csbCallStatsTable.EntityData.YangName = "csbCallStatsTable"
+    csbCallStatsTable.EntityData.BundleName = "cisco_ios_xe"
+    csbCallStatsTable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
+    csbCallStatsTable.EntityData.SegmentPath = "csbCallStatsTable"
+    csbCallStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbCallStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbCallStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csbcallstatstable.EntityData.Children = make(map[string]types.YChild)
-    csbcallstatstable.EntityData.Children["csbCallStatsEntry"] = types.YChild{"Csbcallstatsentry", nil}
-    for i := range csbcallstatstable.Csbcallstatsentry {
-        csbcallstatstable.EntityData.Children[types.GetSegmentPath(&csbcallstatstable.Csbcallstatsentry[i])] = types.YChild{"Csbcallstatsentry", &csbcallstatstable.Csbcallstatsentry[i]}
+    csbCallStatsTable.EntityData.Children = types.NewOrderedMap()
+    csbCallStatsTable.EntityData.Children.Append("csbCallStatsEntry", types.YChild{"CsbCallStatsEntry", nil})
+    for i := range csbCallStatsTable.CsbCallStatsEntry {
+        csbCallStatsTable.EntityData.Children.Append(types.GetSegmentPath(csbCallStatsTable.CsbCallStatsEntry[i]), types.YChild{"CsbCallStatsEntry", csbCallStatsTable.CsbCallStatsEntry[i]})
     }
-    csbcallstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(csbcallstatstable.EntityData)
+    csbCallStatsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    csbCallStatsTable.EntityData.YListKeys = []string {}
+
+    return &(csbCallStatsTable.EntityData)
 }
 
-// CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry
+// CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsTable_CsbCallStatsEntry
 // An conceptual row in the csbCallStatsGlobalStatsTable. There is
 // an entry in this table for the particular service configured on
 // SBC identified by a value of csbCallStatsInstanceIndex. The
 // other index of this table is csbCallStatsInstanceIndex which is
 // defined in csbCallStatsInstanceTable.
-type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry struct {
+type CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsTable_CsbCallStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry_Csbcallstatsinstanceindex
-    Csbcallstatsinstanceindex interface{}
+    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsInstanceTable_CsbCallStatsInstanceEntry_CsbCallStatsInstanceIndex
+    CsbCallStatsInstanceIndex interface{}
 
     // This attribute is a key. This object identifies the index of the name of
     // the SBC service configured. This object also acts as an index for the
     // table. The type is interface{} with range: 0..4294967295.
-    Csbcallstatsserviceindex interface{}
+    CsbCallStatsServiceIndex interface{}
 
     // This object indicates the configured name of the SBC service. The length of
     // this object is zero when value is not assigned to it. The type is string.
-    Csbcallstatssbcname interface{}
+    CsbCallStatsSbcName interface{}
 
     // This object indicates the maximum number of calls per second processed by
     // the Session Border Controller in past 24 hours. The type is interface{}
     // with range: 0..4294967295. Units are calls per second.
-    Csbcallstatscallshigh interface{}
+    CsbCallStatsCallsHigh interface{}
 
     // This object indicates the average calls per second processed by the Session
     // Border Controller. The type is interface{} with range: 0..4294967295. Units
     // are calls per second.
-    Csbcallstatsrate1Sec interface{}
+    CsbCallStatsRate1Sec interface{}
 
     // This object indicates the minimum calls per second in past 24 hours. The
     // type is interface{} with range: 0..4294967295. Units are calls per second.
-    Csbcallstatscallslow interface{}
+    CsbCallStatsCallsLow interface{}
 
     // This object indicates the number of media flows which are available. The
     // type is interface{} with range: 0..4294967295. Units are flows.
-    Csbcallstatsavailableflows interface{}
+    CsbCallStatsAvailableFlows interface{}
 
     // This object indicates the number of media flows which are used. This is for
     // the flow allocated and connected. The flow allocated but not connected is
     // not counted. The type is interface{} with range: 0..4294967295. Units are
     // flows.
-    Csbcallstatsusedflows interface{}
+    CsbCallStatsUsedFlows interface{}
 
     // This object indicates the number of peak flows in SBC. This is the highest
     // recorded value for the active flows since the box was booted/reseted. The
     // type is interface{} with range: 0..4294967295. Units are flows.
-    Csbcallstatspeakflows interface{}
+    CsbCallStatsPeakFlows interface{}
 
     // This object indicates the total number of media support by this instance of
     // SBC. The total number of flows include the available flows and the active
     // flows. This value is since box was booted/reseted. Total flows include the
     // active flows and the flows allocated but not connected. The type is
     // interface{} with range: 0..4294967295. Units are flows.
-    Csbcallstatstotalflows interface{}
+    CsbCallStatsTotalFlows interface{}
 
     // This object indicates the number of active signaling flows for signaling
     // pinholes. The type is interface{} with range: 0..4294967295. Units are
     // signal flows.
-    Csbcallstatsusedsigflows interface{}
+    CsbCallStatsUsedSigFlows interface{}
 
     // This object indicates the peak signaling flow in SBC. This is the highest
     // recorded value for the active signaling flows. This object is calculated
     // using csbCallStatsUsedFlows. The type is interface{} with range:
     // 0..4294967295. Units are signal flows.
-    Csbcallstatspeaksigflows interface{}
+    CsbCallStatsPeakSigFlows interface{}
 
     // This object indicates the maximum number of Signalling Flows that can be
     // supported by this instance of SBC. The type is interface{} with range:
     // 0..4294967295. Units are signal flows.
-    Csbcallstatstotalsigflows interface{}
+    CsbCallStatsTotalSigFlows interface{}
 
     // This object indicates the remaining capacity that can be supported by SBC.
     // The type is interface{} with range: 0..4294967295. Units are packets per
     // second.
-    Csbcallstatsavailablepktrate interface{}
+    CsbCallStatsAvailablePktRate interface{}
 
     // This object indicates the number of unclassified packets processed by SBC.
     // The type is interface{} with range: 0..18446744073709551615. Units are
     // packets.
-    Csbcallstatsunclassifiedpkts interface{}
+    CsbCallStatsUnclassifiedPkts interface{}
 
     // This object indicates the total number of RTP packets sent. The type is
     // interface{} with range: 0..18446744073709551615. Units are packets.
-    Csbcallstatsrtppktssent interface{}
+    CsbCallStatsRTPPktsSent interface{}
 
     // This object indicates the total number of RTP packets received. The type is
     // interface{} with range: 0..18446744073709551615. Units are packets.
-    Csbcallstatsrtppktsrcvd interface{}
+    CsbCallStatsRTPPktsRcvd interface{}
 
     // This object indicates the total number of RTP packets discarded. The type
     // is interface{} with range: 0..18446744073709551615. Units are packets.
-    Csbcallstatsrtppktsdiscard interface{}
+    CsbCallStatsRTPPktsDiscard interface{}
 
     // This object indicates the number of RTP octets sent by the SBC. The type is
     // interface{} with range: 0..18446744073709551615. Units are octets.
-    Csbcallstatsrtpoctetssent interface{}
+    CsbCallStatsRTPOctetsSent interface{}
 
     // This object indicates the number of RTP octets received by the SBC. The
     // type is interface{} with range: 0..18446744073709551615. Units are octets.
-    Csbcallstatsrtpoctetsrcvd interface{}
+    CsbCallStatsRTPOctetsRcvd interface{}
 
     // This object indicates the number of RTP octets discarded by the SBC. The
     // type is interface{} with range: 0..18446744073709551615. Units are octets.
-    Csbcallstatsrtpoctetsdiscard interface{}
+    CsbCallStatsRTPOctetsDiscard interface{}
 
     // This object indicates the accumulated No media event count. The type is
     // interface{} with range: 0..4294967295. Units are no media events.
-    Csbcallstatsnomediacount interface{}
+    CsbCallStatsNoMediaCount interface{}
 
     // This object indicates the accumulated route error event count. This counter
     // is for the route error of media stream. The type is interface{} with range:
     // 0..4294967295. Units are route error events.
-    Csbcallstatsrouteerrors interface{}
+    CsbCallStatsRouteErrors interface{}
 
     // This object indicates the number of additional transcoded flows that this
     // media gateway manager (MGM) entity is currently able to configure. The type
     // is interface{} with range: 0..4294967295. Units are flows.
-    Csbcallstatsavailabletranscodeflows interface{}
+    CsbCallStatsAvailableTranscodeFlows interface{}
 
     // This object indicates the current number of transcoded flows that are
     // actively forwarding media traffic.  In this context, a flow is a media
     // stream passing through the device. So a single voice call will be counted
     // only once. The type is interface{} with range: 0..4294967295. Units are
     // flows.
-    Csbcallstatsactivetranscodeflows interface{}
+    CsbCallStatsActiveTranscodeFlows interface{}
 
     // This object indicates the peak number of active transcoded flows since the
     // statistics were last reset.  In this context, a flow is a media stream
     // passing through the device, so a single voice call will be counted once.
     // The type is interface{} with range: 0..4294967295. Units are flows.
-    Csbcallstatspeaktranscodeflows interface{}
+    CsbCallStatsPeakTranscodeFlows interface{}
 
     // This object indicates the accumulated total number of transcoded flows. 
     // This count contains both active flows and flows that were allocated but
     // never connected.  In this context, a flow is a media stream passing through
     // the device, so a single voice call will be counted once. The type is
     // interface{} with range: 0..4294967295. Units are flows.
-    Csbcallstatstotaltranscodeflows interface{}
+    CsbCallStatsTotalTranscodeFlows interface{}
 }
 
-func (csbcallstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry) GetEntityData() *types.CommonEntityData {
-    csbcallstatsentry.EntityData.YFilter = csbcallstatsentry.YFilter
-    csbcallstatsentry.EntityData.YangName = "csbCallStatsEntry"
-    csbcallstatsentry.EntityData.BundleName = "cisco_ios_xe"
-    csbcallstatsentry.EntityData.ParentYangName = "csbCallStatsTable"
-    csbcallstatsentry.EntityData.SegmentPath = "csbCallStatsEntry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbcallstatsentry.Csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + fmt.Sprintf("%v", csbcallstatsentry.Csbcallstatsserviceindex) + "']"
-    csbcallstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csbcallstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csbcallstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (csbCallStatsEntry *CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsTable_CsbCallStatsEntry) GetEntityData() *types.CommonEntityData {
+    csbCallStatsEntry.EntityData.YFilter = csbCallStatsEntry.YFilter
+    csbCallStatsEntry.EntityData.YangName = "csbCallStatsEntry"
+    csbCallStatsEntry.EntityData.BundleName = "cisco_ios_xe"
+    csbCallStatsEntry.EntityData.ParentYangName = "csbCallStatsTable"
+    csbCallStatsEntry.EntityData.SegmentPath = "csbCallStatsEntry" + types.AddKeyToken(csbCallStatsEntry.CsbCallStatsInstanceIndex, "csbCallStatsInstanceIndex") + types.AddKeyToken(csbCallStatsEntry.CsbCallStatsServiceIndex, "csbCallStatsServiceIndex")
+    csbCallStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbCallStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbCallStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csbcallstatsentry.EntityData.Children = make(map[string]types.YChild)
-    csbcallstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsInstanceIndex"] = types.YLeaf{"Csbcallstatsinstanceindex", csbcallstatsentry.Csbcallstatsinstanceindex}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsServiceIndex"] = types.YLeaf{"Csbcallstatsserviceindex", csbcallstatsentry.Csbcallstatsserviceindex}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsSbcName"] = types.YLeaf{"Csbcallstatssbcname", csbcallstatsentry.Csbcallstatssbcname}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsCallsHigh"] = types.YLeaf{"Csbcallstatscallshigh", csbcallstatsentry.Csbcallstatscallshigh}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsRate1Sec"] = types.YLeaf{"Csbcallstatsrate1Sec", csbcallstatsentry.Csbcallstatsrate1Sec}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsCallsLow"] = types.YLeaf{"Csbcallstatscallslow", csbcallstatsentry.Csbcallstatscallslow}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsAvailableFlows"] = types.YLeaf{"Csbcallstatsavailableflows", csbcallstatsentry.Csbcallstatsavailableflows}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsUsedFlows"] = types.YLeaf{"Csbcallstatsusedflows", csbcallstatsentry.Csbcallstatsusedflows}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsPeakFlows"] = types.YLeaf{"Csbcallstatspeakflows", csbcallstatsentry.Csbcallstatspeakflows}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsTotalFlows"] = types.YLeaf{"Csbcallstatstotalflows", csbcallstatsentry.Csbcallstatstotalflows}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsUsedSigFlows"] = types.YLeaf{"Csbcallstatsusedsigflows", csbcallstatsentry.Csbcallstatsusedsigflows}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsPeakSigFlows"] = types.YLeaf{"Csbcallstatspeaksigflows", csbcallstatsentry.Csbcallstatspeaksigflows}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsTotalSigFlows"] = types.YLeaf{"Csbcallstatstotalsigflows", csbcallstatsentry.Csbcallstatstotalsigflows}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsAvailablePktRate"] = types.YLeaf{"Csbcallstatsavailablepktrate", csbcallstatsentry.Csbcallstatsavailablepktrate}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsUnclassifiedPkts"] = types.YLeaf{"Csbcallstatsunclassifiedpkts", csbcallstatsentry.Csbcallstatsunclassifiedpkts}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsRTPPktsSent"] = types.YLeaf{"Csbcallstatsrtppktssent", csbcallstatsentry.Csbcallstatsrtppktssent}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsRTPPktsRcvd"] = types.YLeaf{"Csbcallstatsrtppktsrcvd", csbcallstatsentry.Csbcallstatsrtppktsrcvd}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsRTPPktsDiscard"] = types.YLeaf{"Csbcallstatsrtppktsdiscard", csbcallstatsentry.Csbcallstatsrtppktsdiscard}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsRTPOctetsSent"] = types.YLeaf{"Csbcallstatsrtpoctetssent", csbcallstatsentry.Csbcallstatsrtpoctetssent}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsRTPOctetsRcvd"] = types.YLeaf{"Csbcallstatsrtpoctetsrcvd", csbcallstatsentry.Csbcallstatsrtpoctetsrcvd}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsRTPOctetsDiscard"] = types.YLeaf{"Csbcallstatsrtpoctetsdiscard", csbcallstatsentry.Csbcallstatsrtpoctetsdiscard}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsNoMediaCount"] = types.YLeaf{"Csbcallstatsnomediacount", csbcallstatsentry.Csbcallstatsnomediacount}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsRouteErrors"] = types.YLeaf{"Csbcallstatsrouteerrors", csbcallstatsentry.Csbcallstatsrouteerrors}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsAvailableTranscodeFlows"] = types.YLeaf{"Csbcallstatsavailabletranscodeflows", csbcallstatsentry.Csbcallstatsavailabletranscodeflows}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsActiveTranscodeFlows"] = types.YLeaf{"Csbcallstatsactivetranscodeflows", csbcallstatsentry.Csbcallstatsactivetranscodeflows}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsPeakTranscodeFlows"] = types.YLeaf{"Csbcallstatspeaktranscodeflows", csbcallstatsentry.Csbcallstatspeaktranscodeflows}
-    csbcallstatsentry.EntityData.Leafs["csbCallStatsTotalTranscodeFlows"] = types.YLeaf{"Csbcallstatstotaltranscodeflows", csbcallstatsentry.Csbcallstatstotaltranscodeflows}
-    return &(csbcallstatsentry.EntityData)
+    csbCallStatsEntry.EntityData.Children = types.NewOrderedMap()
+    csbCallStatsEntry.EntityData.Leafs = types.NewOrderedMap()
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsInstanceIndex", types.YLeaf{"CsbCallStatsInstanceIndex", csbCallStatsEntry.CsbCallStatsInstanceIndex})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsServiceIndex", types.YLeaf{"CsbCallStatsServiceIndex", csbCallStatsEntry.CsbCallStatsServiceIndex})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsSbcName", types.YLeaf{"CsbCallStatsSbcName", csbCallStatsEntry.CsbCallStatsSbcName})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsCallsHigh", types.YLeaf{"CsbCallStatsCallsHigh", csbCallStatsEntry.CsbCallStatsCallsHigh})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsRate1Sec", types.YLeaf{"CsbCallStatsRate1Sec", csbCallStatsEntry.CsbCallStatsRate1Sec})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsCallsLow", types.YLeaf{"CsbCallStatsCallsLow", csbCallStatsEntry.CsbCallStatsCallsLow})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsAvailableFlows", types.YLeaf{"CsbCallStatsAvailableFlows", csbCallStatsEntry.CsbCallStatsAvailableFlows})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsUsedFlows", types.YLeaf{"CsbCallStatsUsedFlows", csbCallStatsEntry.CsbCallStatsUsedFlows})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsPeakFlows", types.YLeaf{"CsbCallStatsPeakFlows", csbCallStatsEntry.CsbCallStatsPeakFlows})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsTotalFlows", types.YLeaf{"CsbCallStatsTotalFlows", csbCallStatsEntry.CsbCallStatsTotalFlows})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsUsedSigFlows", types.YLeaf{"CsbCallStatsUsedSigFlows", csbCallStatsEntry.CsbCallStatsUsedSigFlows})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsPeakSigFlows", types.YLeaf{"CsbCallStatsPeakSigFlows", csbCallStatsEntry.CsbCallStatsPeakSigFlows})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsTotalSigFlows", types.YLeaf{"CsbCallStatsTotalSigFlows", csbCallStatsEntry.CsbCallStatsTotalSigFlows})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsAvailablePktRate", types.YLeaf{"CsbCallStatsAvailablePktRate", csbCallStatsEntry.CsbCallStatsAvailablePktRate})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsUnclassifiedPkts", types.YLeaf{"CsbCallStatsUnclassifiedPkts", csbCallStatsEntry.CsbCallStatsUnclassifiedPkts})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsRTPPktsSent", types.YLeaf{"CsbCallStatsRTPPktsSent", csbCallStatsEntry.CsbCallStatsRTPPktsSent})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsRTPPktsRcvd", types.YLeaf{"CsbCallStatsRTPPktsRcvd", csbCallStatsEntry.CsbCallStatsRTPPktsRcvd})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsRTPPktsDiscard", types.YLeaf{"CsbCallStatsRTPPktsDiscard", csbCallStatsEntry.CsbCallStatsRTPPktsDiscard})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsRTPOctetsSent", types.YLeaf{"CsbCallStatsRTPOctetsSent", csbCallStatsEntry.CsbCallStatsRTPOctetsSent})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsRTPOctetsRcvd", types.YLeaf{"CsbCallStatsRTPOctetsRcvd", csbCallStatsEntry.CsbCallStatsRTPOctetsRcvd})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsRTPOctetsDiscard", types.YLeaf{"CsbCallStatsRTPOctetsDiscard", csbCallStatsEntry.CsbCallStatsRTPOctetsDiscard})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsNoMediaCount", types.YLeaf{"CsbCallStatsNoMediaCount", csbCallStatsEntry.CsbCallStatsNoMediaCount})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsRouteErrors", types.YLeaf{"CsbCallStatsRouteErrors", csbCallStatsEntry.CsbCallStatsRouteErrors})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsAvailableTranscodeFlows", types.YLeaf{"CsbCallStatsAvailableTranscodeFlows", csbCallStatsEntry.CsbCallStatsAvailableTranscodeFlows})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsActiveTranscodeFlows", types.YLeaf{"CsbCallStatsActiveTranscodeFlows", csbCallStatsEntry.CsbCallStatsActiveTranscodeFlows})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsPeakTranscodeFlows", types.YLeaf{"CsbCallStatsPeakTranscodeFlows", csbCallStatsEntry.CsbCallStatsPeakTranscodeFlows})
+    csbCallStatsEntry.EntityData.Leafs.Append("csbCallStatsTotalTranscodeFlows", types.YLeaf{"CsbCallStatsTotalTranscodeFlows", csbCallStatsEntry.CsbCallStatsTotalTranscodeFlows})
+
+    csbCallStatsEntry.EntityData.YListKeys = []string {"CsbCallStatsInstanceIndex", "CsbCallStatsServiceIndex"}
+
+    return &(csbCallStatsEntry.EntityData)
 }
 
-// CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable
+// CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCurrPeriodicStatsTable
 // This table is used to collect measurement over several
 // different intervals as defined by the
 // csbCurrPeriodicStatsInterval object. When a new interval starts
@@ -518,7 +533,7 @@ func (csbcallstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbc
 // at the instant that the query is issued. 
 // 2.Otherwise, for the other intevals, this is an average value
 // during the summary period sampled at 5 minute intervals.
-type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable struct {
+type CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCurrPeriodicStatsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -527,350 +542,356 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable struct {
     // csbH248StatsCtrlrIndex. The other indices of this table are
     // csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and
     // csbCallStatsServiceIndex defined in csbCallStatsTable. The type is slice of
-    // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry.
-    Csbcurrperiodicstatsentry []CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry
+    // CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCurrPeriodicStatsTable_CsbCurrPeriodicStatsEntry.
+    CsbCurrPeriodicStatsEntry []*CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCurrPeriodicStatsTable_CsbCurrPeriodicStatsEntry
 }
 
-func (csbcurrperiodicstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable) GetEntityData() *types.CommonEntityData {
-    csbcurrperiodicstatstable.EntityData.YFilter = csbcurrperiodicstatstable.YFilter
-    csbcurrperiodicstatstable.EntityData.YangName = "csbCurrPeriodicStatsTable"
-    csbcurrperiodicstatstable.EntityData.BundleName = "cisco_ios_xe"
-    csbcurrperiodicstatstable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
-    csbcurrperiodicstatstable.EntityData.SegmentPath = "csbCurrPeriodicStatsTable"
-    csbcurrperiodicstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csbcurrperiodicstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csbcurrperiodicstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (csbCurrPeriodicStatsTable *CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCurrPeriodicStatsTable) GetEntityData() *types.CommonEntityData {
+    csbCurrPeriodicStatsTable.EntityData.YFilter = csbCurrPeriodicStatsTable.YFilter
+    csbCurrPeriodicStatsTable.EntityData.YangName = "csbCurrPeriodicStatsTable"
+    csbCurrPeriodicStatsTable.EntityData.BundleName = "cisco_ios_xe"
+    csbCurrPeriodicStatsTable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
+    csbCurrPeriodicStatsTable.EntityData.SegmentPath = "csbCurrPeriodicStatsTable"
+    csbCurrPeriodicStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbCurrPeriodicStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbCurrPeriodicStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csbcurrperiodicstatstable.EntityData.Children = make(map[string]types.YChild)
-    csbcurrperiodicstatstable.EntityData.Children["csbCurrPeriodicStatsEntry"] = types.YChild{"Csbcurrperiodicstatsentry", nil}
-    for i := range csbcurrperiodicstatstable.Csbcurrperiodicstatsentry {
-        csbcurrperiodicstatstable.EntityData.Children[types.GetSegmentPath(&csbcurrperiodicstatstable.Csbcurrperiodicstatsentry[i])] = types.YChild{"Csbcurrperiodicstatsentry", &csbcurrperiodicstatstable.Csbcurrperiodicstatsentry[i]}
+    csbCurrPeriodicStatsTable.EntityData.Children = types.NewOrderedMap()
+    csbCurrPeriodicStatsTable.EntityData.Children.Append("csbCurrPeriodicStatsEntry", types.YChild{"CsbCurrPeriodicStatsEntry", nil})
+    for i := range csbCurrPeriodicStatsTable.CsbCurrPeriodicStatsEntry {
+        csbCurrPeriodicStatsTable.EntityData.Children.Append(types.GetSegmentPath(csbCurrPeriodicStatsTable.CsbCurrPeriodicStatsEntry[i]), types.YChild{"CsbCurrPeriodicStatsEntry", csbCurrPeriodicStatsTable.CsbCurrPeriodicStatsEntry[i]})
     }
-    csbcurrperiodicstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(csbcurrperiodicstatstable.EntityData)
+    csbCurrPeriodicStatsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    csbCurrPeriodicStatsTable.EntityData.YListKeys = []string {}
+
+    return &(csbCurrPeriodicStatsTable.EntityData)
 }
 
-// CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry
+// CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCurrPeriodicStatsTable_CsbCurrPeriodicStatsEntry
 // An conceptual row in the csbCurrPeriodicStatsTable. There is
 // an entry in this table for the particular controller by a value
 // of csbH248StatsCtrlrIndex. The other indices of this table are
 // csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable
 // and csbCallStatsServiceIndex defined in csbCallStatsTable.
-type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry struct {
+type CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCurrPeriodicStatsTable_CsbCurrPeriodicStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry_Csbcallstatsinstanceindex
-    Csbcallstatsinstanceindex interface{}
+    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsInstanceTable_CsbCallStatsInstanceEntry_CsbCallStatsInstanceIndex
+    CsbCallStatsInstanceIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry_Csbcallstatsserviceindex
-    Csbcallstatsserviceindex interface{}
+    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsTable_CsbCallStatsEntry_CsbCallStatsServiceIndex
+    CsbCallStatsServiceIndex interface{}
 
     // This attribute is a key. This object identifies the interval for which the
     // periodic statistics information is to be displayed. The interval values can
     // be 5 min, 15 mins, 1 hour , 1 Day. This object acts as index for the table.
     // The type is CiscoSbcPeriodicStatsInterval.
-    Csbcurrperiodicstatsinterval interface{}
+    CsbCurrPeriodicStatsInterval interface{}
 
     // This object indicates the number of calls that have become active during
     // this interval. The type is interface{} with range: 0..4294967295. Units are
     // calls.
-    Csbcurrperiodicstatsactivecalls interface{}
+    CsbCurrPeriodicStatsActiveCalls interface{}
 
     // This object indicates the number of calls that have become activing during
     // this interval. The type is interface{} with range: 0..4294967295. Units are
     // calls.
-    Csbcurrperiodicstatsactivatingcalls interface{}
+    CsbCurrPeriodicStatsActivatingCalls interface{}
 
     // This object indicates the number of calls that have become deactiving
     // during this interval. The type is interface{} with range: 0..4294967295.
     // Units are calls.
-    Csbcurrperiodicstatsdeactivatingcalls interface{}
+    CsbCurrPeriodicStatsDeactivatingCalls interface{}
 
     // This object indicates the number of total call attempts during this
     // interval. The type is interface{} with range: 0..4294967295.
-    Csbcurrperiodicstatstotalcallattempts interface{}
+    CsbCurrPeriodicStatsTotalCallAttempts interface{}
 
     // This object indicates the number of failed call attempts during this
     // interval. The type is interface{} with range: 0..4294967295.
-    Csbcurrperiodicstatsfailedcallattempts interface{}
+    CsbCurrPeriodicStatsFailedCallAttempts interface{}
 
     // This object indicates the number of call setup failures due to routing
     // failures during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbcurrperiodicstatscallroutingfailure interface{}
+    CsbCurrPeriodicStatsCallRoutingFailure interface{}
 
     // This object indicates the number of call setup failures due to resource
     // failures during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbcurrperiodicstatscallresourcefailure interface{}
+    CsbCurrPeriodicStatsCallResourceFailure interface{}
 
     // This object indicates the number of call setup failures due to media
     // failure during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbcurrperiodicstatscallmediafailure interface{}
+    CsbCurrPeriodicStatsCallMediaFailure interface{}
 
     // This object indicates the number of call setup failures due to signaling
     // failure during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbcurrperiodicstatscallsigfailure interface{}
+    CsbCurrPeriodicStatsCallSigFailure interface{}
 
     // This object indicates the number of active call failures during this
     // interval. The type is interface{} with range: 0..4294967295.
-    Csbcurrperiodicstatsactivecallfailure interface{}
+    CsbCurrPeriodicStatsActiveCallFailure interface{}
 
     // This object indicates the number of call setup failures due to congestion
     // during this interval. The type is interface{} with range: 0..4294967295.
-    Csbcurrperiodicstatscongestionfailure interface{}
+    CsbCurrPeriodicStatsCongestionFailure interface{}
 
     // This object indicates the number of call setup failures due to policy
     // failure during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbcurrperiodicstatscallsetuppolicyfailure interface{}
+    CsbCurrPeriodicStatsCallSetupPolicyFailure interface{}
 
     // This object indicates the number of call setup failures due to NA policy
     // failure during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbcurrperiodicstatscallsetupnapolicyfailure interface{}
+    CsbCurrPeriodicStatsCallSetupNAPolicyFailure interface{}
 
     // This object indicates the number of call setup failures due to routing
     // policy failure during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbcurrperiodicstatscallsetuproutingpolicyfailure interface{}
+    CsbCurrPeriodicStatsCallSetupRoutingPolicyFailure interface{}
 
     // This object indicates the number of call setup failures due to CAC policy
     // failure during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbcurrperiodicstatscallsetupcacpolicyfailure interface{}
+    CsbCurrPeriodicStatsCallSetupCACPolicyFailure interface{}
 
     // This object indicates the number of call setup failures due to CAC call
     // limit during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbcurrperiodicstatscallsetupcaccalllimitfailure interface{}
+    CsbCurrPeriodicStatsCallSetupCACCallLimitFailure interface{}
 
     // This object indicates the number of call setup failures due to CAC call
     // rate limit during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbcurrperiodicstatscallsetupcacratelimitfailure interface{}
+    CsbCurrPeriodicStatsCallSetupCACRateLimitFailure interface{}
 
     // This object indicates the number of call setup failures due to CAC
     // bandwidth limit during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbcurrperiodicstatscallsetupcacbandwidthfailure interface{}
+    CsbCurrPeriodicStatsCallSetupCACBandwidthFailure interface{}
 
     // This object indicates the number of call setup failures due to CAC media
     // limit during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbcurrperiodicstatscallsetupcacmedialimitfailure interface{}
+    CsbCurrPeriodicStatsCallSetupCACMediaLimitFailure interface{}
 
     // This object indicates the number of call update failure due to policy
     // failure during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbcurrperiodicstatscallsetupcacmediaupdatefailure interface{}
+    CsbCurrPeriodicStatsCallSetupCACMediaUpdateFailure interface{}
 
     // This object indicates the current time at the start of each interval. The
     // type is string with length: 0..80.
-    Csbcurrperiodicstatstimestamp interface{}
+    CsbCurrPeriodicStatsTimestamp interface{}
 
     // The object indicates the number of transcoded calls that are active during
     // this interval. The type is interface{} with range: 0..4294967295. Units are
     // calls.
-    Csbcurrperiodicstatstranscodedcalls interface{}
+    CsbCurrPeriodicStatsTranscodedCalls interface{}
 
     // The object indicates the number of transrated calls that are active during
     // this interval. The type is interface{} with range: 0..4294967295. Units are
     // calls.
-    Csbcurrperiodicstatstransratedcalls interface{}
+    CsbCurrPeriodicStatsTransratedCalls interface{}
 
     // This object indicates the total number of call update failures during this
     // interval. The type is interface{} with range: 0..4294967295. Units are
     // calls.
-    Csbcurrperiodicstatstotalcallupdatefailure interface{}
+    CsbCurrPeriodicStatsTotalCallUpdateFailure interface{}
 
     // This Object indicates the number of calls through SBC that use IPv6
     // signaling.  This statistic totals all calls that traverse an IPv6 adjacency
     // on either or both sides of SBC during this interval. The type is
     // interface{} with range: 0..4294967295. Units are calls.
-    Csbcurrperiodicstatsactiveipv6Calls interface{}
+    CsbCurrPeriodicStatsActiveIpv6Calls interface{}
 
     // This object indicates the number of calls through SBC that have been
     // identified as emergency calls (by Number Analysis) during this interval.
     // The type is interface{} with range: 0..4294967295. Units are calls.
-    Csbcurrperiodicstatsactiveemergencycalls interface{}
+    CsbCurrPeriodicStatsActiveEmergencyCalls interface{}
 
     // This object indicates the number of calls through SBC that have been
     // identified as emergency calls (by Number Analysis) and have used the e2
     // interface to obtain location information for the caller during this
     // interval. The type is interface{} with range: 0..4294967295. Units are
     // calls.
-    Csbcurrperiodicstatsactivee2Emergencycalls interface{}
+    CsbCurrPeriodicStatsActiveE2EmergencyCalls interface{}
 
     // This object indicates the total number of active calls which use IMS Rx,
     // during this interval. The type is interface{} with range: 0..4294967295.
     // Units are calls.
-    Csbcurrperiodicstatsimsrxactivecalls interface{}
+    CsbCurrPeriodicStatsImsRxActiveCalls interface{}
 
     // This object indicates the total call Setup failures owing to IMS Rx failure
     // during this interval. The type is interface{} with range: 0..4294967295.
     // Units are failures.
-    Csbcurrperiodicstatsimsrxcallsetupfaiures interface{}
+    CsbCurrPeriodicStatsImsRxCallSetupFaiures interface{}
 
     // This object indicates the total call renegotiation attempts using IMS Rx
     // during this interval. The type is interface{} with range: 0..4294967295.
     // Units are attempts.
-    Csbcurrperiodicstatsimsrxcallrenegotiationattempts interface{}
+    CsbCurrPeriodicStatsImsRxCallRenegotiationAttempts interface{}
 
     // This object indicates the total call renegotiation failures owing to IMS Rx
     // failure during this interval. The type is interface{} with range:
     // 0..4294967295. Units are failures.
-    Csbcurrperiodicstatsimsrxcallrenegotiationfailures interface{}
+    CsbCurrPeriodicStatsImsRxCallRenegotiationFailures interface{}
 
     // The number of active audio transcoded calls through this adjacency or
     // account during this interval. The type is interface{} with range:
     // 0..4294967295. Units are calls.
-    Csbcurrperiodicstatsaudiotranscodedcalls interface{}
+    CsbCurrPeriodicStatsAudioTranscodedCalls interface{}
 
     // This object indicates the the number of active fax transcoded calls through
     // this adjacency or account during this interval. The type is interface{}
     // with range: 0..4294967295. Units are calls.
-    Csbcurrperiodicstatsfaxtranscodedcalls interface{}
+    CsbCurrPeriodicStatsFaxTranscodedCalls interface{}
 
     // This object indicates the total call setup failures due to RTP being
     // proposed when not permitted during this interval. The type is interface{}
     // with range: 0..4294967295. Units are failures.
-    Csbcurrperiodicstatsrtpdisallowedfailures interface{}
+    CsbCurrPeriodicStatsRtpDisallowedFailures interface{}
 
     // This object indicates the total call setup failures due to SRTP being
     // proposed when not permitted during this interval. The type is interface{}
     // with range: 0..4294967295. Units are failures.
-    Csbcurrperiodicstatssrtpdisallowedfailures interface{}
+    CsbCurrPeriodicStatsSrtpDisallowedFailures interface{}
 
     // This object indicates the number of active calls through this adjacency or
     // account which do not use SRTP on any media channels during this interval.
     // The type is interface{} with range: 0..4294967295. Units are calls.
-    Csbcurrperiodicstatsnonsrtpcalls interface{}
+    CsbCurrPeriodicStatsNonSrtpCalls interface{}
 
     // This object indicates the number of active calls through this adjacency or
     // account that have one or more media channels which use SRTP. This count
     // does not include media  channels that provide interworking between RTP and
     // SRTP during this interval. The type is interface{} with range:
     // 0..4294967295. Units are calls.
-    Csbcurrperiodicstatssrtpnoniwcalls interface{}
+    CsbCurrPeriodicStatsSrtpNonIwCalls interface{}
 
     // This object indicates the number of active calls through this adjacency or
     // account that have one or more media channels that provide interworking
     // between RTP and SRTP during this interval. The type is interface{} with
     // range: 0..4294967295. Units are calls.
-    Csbcurrperiodicstatssrtpiwcalls interface{}
+    CsbCurrPeriodicStatsSrtpIwCalls interface{}
 
     // This object indicates the number of active calls through this adjacency or
     // account for which DTMF interworking is enabled between DTMF in signaling
     // and DTMF in media via RFC 2833 during this interval. The type is
     // interface{} with range: 0..4294967295. Units are calls.
-    Csbcurrperiodicstatsdtmfiw2833Calls interface{}
+    CsbCurrPeriodicStatsDtmfIw2833Calls interface{}
 
     // This object indicates the number of active calls through this adjacency or
     // account for which DTMF interworking is enabled between DTMF in signaling
     // and DTMF in media via  inband DTMF tones during this interval. The type is
     // interface{} with range: 0..4294967295. Units are calls.
-    Csbcurrperiodicstatsdtmfiwinbandcalls interface{}
+    CsbCurrPeriodicStatsDtmfIwInbandCalls interface{}
 
     // This object indicates the number of active calls through this adjacency or
     // account for which DTMF interworking is enabled between DTMF in media via
     // RFC 2833 and DTMF in media via inband DTMF tones during this interval. The
     // type is interface{} with range: 0..4294967295. Units are calls.
-    Csbcurrperiodicstatsdtmfiw2833Inbandcalls interface{}
+    CsbCurrPeriodicStatsDtmfIw2833InbandCalls interface{}
 
     // This object indicates the lawful intercept tap attempts requested within
     // the scope of this query during this interval. The type is interface{} with
     // range: 0..4294967295. Units are attempts.
-    Csbcurrperiodicstatstotaltapsrequested interface{}
+    CsbCurrPeriodicStatsTotalTapsRequested interface{}
 
     // This object indicates the lawful intercept tap attempts that have been
     // successfully implemented within the scope of this query during this
     // interval. The type is interface{} with range: 0..4294967295. Units are
     // success.
-    Csbcurrperiodicstatstotaltapssucceeded interface{}
+    CsbCurrPeriodicStatsTotalTapsSucceeded interface{}
 
     // This object indicates the Lawful intercept taps currently in place on calls
     // within the scope of this query during this interval. The type is
     // interface{} with range: 0..4294967295. Units are taps.
-    Csbcurrperiodicstatscurrenttaps interface{}
+    CsbCurrPeriodicStatsCurrentTaps interface{}
 
     // The number of active calls on this adjacency or account which are to or
     // from registered subscribers using IPSEC during this interval. The type is
     // interface{} with range: 0..4294967295. Units are calls.
-    Csbcurrperiodicipseccalls interface{}
+    CsbCurrPeriodicIpsecCalls interface{}
 }
 
-func (csbcurrperiodicstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry) GetEntityData() *types.CommonEntityData {
-    csbcurrperiodicstatsentry.EntityData.YFilter = csbcurrperiodicstatsentry.YFilter
-    csbcurrperiodicstatsentry.EntityData.YangName = "csbCurrPeriodicStatsEntry"
-    csbcurrperiodicstatsentry.EntityData.BundleName = "cisco_ios_xe"
-    csbcurrperiodicstatsentry.EntityData.ParentYangName = "csbCurrPeriodicStatsTable"
-    csbcurrperiodicstatsentry.EntityData.SegmentPath = "csbCurrPeriodicStatsEntry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbcurrperiodicstatsentry.Csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + fmt.Sprintf("%v", csbcurrperiodicstatsentry.Csbcallstatsserviceindex) + "']" + "[csbCurrPeriodicStatsInterval='" + fmt.Sprintf("%v", csbcurrperiodicstatsentry.Csbcurrperiodicstatsinterval) + "']"
-    csbcurrperiodicstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csbcurrperiodicstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csbcurrperiodicstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (csbCurrPeriodicStatsEntry *CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCurrPeriodicStatsTable_CsbCurrPeriodicStatsEntry) GetEntityData() *types.CommonEntityData {
+    csbCurrPeriodicStatsEntry.EntityData.YFilter = csbCurrPeriodicStatsEntry.YFilter
+    csbCurrPeriodicStatsEntry.EntityData.YangName = "csbCurrPeriodicStatsEntry"
+    csbCurrPeriodicStatsEntry.EntityData.BundleName = "cisco_ios_xe"
+    csbCurrPeriodicStatsEntry.EntityData.ParentYangName = "csbCurrPeriodicStatsTable"
+    csbCurrPeriodicStatsEntry.EntityData.SegmentPath = "csbCurrPeriodicStatsEntry" + types.AddKeyToken(csbCurrPeriodicStatsEntry.CsbCallStatsInstanceIndex, "csbCallStatsInstanceIndex") + types.AddKeyToken(csbCurrPeriodicStatsEntry.CsbCallStatsServiceIndex, "csbCallStatsServiceIndex") + types.AddKeyToken(csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsInterval, "csbCurrPeriodicStatsInterval")
+    csbCurrPeriodicStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbCurrPeriodicStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbCurrPeriodicStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csbcurrperiodicstatsentry.EntityData.Children = make(map[string]types.YChild)
-    csbcurrperiodicstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCallStatsInstanceIndex"] = types.YLeaf{"Csbcallstatsinstanceindex", csbcurrperiodicstatsentry.Csbcallstatsinstanceindex}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCallStatsServiceIndex"] = types.YLeaf{"Csbcallstatsserviceindex", csbcurrperiodicstatsentry.Csbcallstatsserviceindex}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsInterval"] = types.YLeaf{"Csbcurrperiodicstatsinterval", csbcurrperiodicstatsentry.Csbcurrperiodicstatsinterval}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsActiveCalls"] = types.YLeaf{"Csbcurrperiodicstatsactivecalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsactivecalls}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsActivatingCalls"] = types.YLeaf{"Csbcurrperiodicstatsactivatingcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsactivatingcalls}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsDeactivatingCalls"] = types.YLeaf{"Csbcurrperiodicstatsdeactivatingcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsdeactivatingcalls}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsTotalCallAttempts"] = types.YLeaf{"Csbcurrperiodicstatstotalcallattempts", csbcurrperiodicstatsentry.Csbcurrperiodicstatstotalcallattempts}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsFailedCallAttempts"] = types.YLeaf{"Csbcurrperiodicstatsfailedcallattempts", csbcurrperiodicstatsentry.Csbcurrperiodicstatsfailedcallattempts}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallRoutingFailure"] = types.YLeaf{"Csbcurrperiodicstatscallroutingfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallroutingfailure}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallResourceFailure"] = types.YLeaf{"Csbcurrperiodicstatscallresourcefailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallresourcefailure}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallMediaFailure"] = types.YLeaf{"Csbcurrperiodicstatscallmediafailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallmediafailure}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSigFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsigfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsigfailure}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsActiveCallFailure"] = types.YLeaf{"Csbcurrperiodicstatsactivecallfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatsactivecallfailure}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCongestionFailure"] = types.YLeaf{"Csbcurrperiodicstatscongestionfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscongestionfailure}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSetupPolicyFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsetuppolicyfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetuppolicyfailure}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSetupNAPolicyFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsetupnapolicyfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupnapolicyfailure}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSetupRoutingPolicyFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsetuproutingpolicyfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetuproutingpolicyfailure}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSetupCACPolicyFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsetupcacpolicyfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupcacpolicyfailure}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSetupCACCallLimitFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsetupcaccalllimitfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupcaccalllimitfailure}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSetupCACRateLimitFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsetupcacratelimitfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupcacratelimitfailure}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSetupCACBandwidthFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsetupcacbandwidthfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupcacbandwidthfailure}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSetupCACMediaLimitFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsetupcacmedialimitfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupcacmedialimitfailure}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSetupCACMediaUpdateFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsetupcacmediaupdatefailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupcacmediaupdatefailure}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsTimestamp"] = types.YLeaf{"Csbcurrperiodicstatstimestamp", csbcurrperiodicstatsentry.Csbcurrperiodicstatstimestamp}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsTranscodedCalls"] = types.YLeaf{"Csbcurrperiodicstatstranscodedcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatstranscodedcalls}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsTransratedCalls"] = types.YLeaf{"Csbcurrperiodicstatstransratedcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatstransratedcalls}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsTotalCallUpdateFailure"] = types.YLeaf{"Csbcurrperiodicstatstotalcallupdatefailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatstotalcallupdatefailure}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsActiveIpv6Calls"] = types.YLeaf{"Csbcurrperiodicstatsactiveipv6Calls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsactiveipv6Calls}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsActiveEmergencyCalls"] = types.YLeaf{"Csbcurrperiodicstatsactiveemergencycalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsactiveemergencycalls}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsActiveE2EmergencyCalls"] = types.YLeaf{"Csbcurrperiodicstatsactivee2Emergencycalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsactivee2Emergencycalls}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsImsRxActiveCalls"] = types.YLeaf{"Csbcurrperiodicstatsimsrxactivecalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsimsrxactivecalls}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsImsRxCallSetupFaiures"] = types.YLeaf{"Csbcurrperiodicstatsimsrxcallsetupfaiures", csbcurrperiodicstatsentry.Csbcurrperiodicstatsimsrxcallsetupfaiures}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsImsRxCallRenegotiationAttempts"] = types.YLeaf{"Csbcurrperiodicstatsimsrxcallrenegotiationattempts", csbcurrperiodicstatsentry.Csbcurrperiodicstatsimsrxcallrenegotiationattempts}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsImsRxCallRenegotiationFailures"] = types.YLeaf{"Csbcurrperiodicstatsimsrxcallrenegotiationfailures", csbcurrperiodicstatsentry.Csbcurrperiodicstatsimsrxcallrenegotiationfailures}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsAudioTranscodedCalls"] = types.YLeaf{"Csbcurrperiodicstatsaudiotranscodedcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsaudiotranscodedcalls}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsFaxTranscodedCalls"] = types.YLeaf{"Csbcurrperiodicstatsfaxtranscodedcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsfaxtranscodedcalls}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsRtpDisallowedFailures"] = types.YLeaf{"Csbcurrperiodicstatsrtpdisallowedfailures", csbcurrperiodicstatsentry.Csbcurrperiodicstatsrtpdisallowedfailures}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsSrtpDisallowedFailures"] = types.YLeaf{"Csbcurrperiodicstatssrtpdisallowedfailures", csbcurrperiodicstatsentry.Csbcurrperiodicstatssrtpdisallowedfailures}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsNonSrtpCalls"] = types.YLeaf{"Csbcurrperiodicstatsnonsrtpcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsnonsrtpcalls}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsSrtpNonIwCalls"] = types.YLeaf{"Csbcurrperiodicstatssrtpnoniwcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatssrtpnoniwcalls}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsSrtpIwCalls"] = types.YLeaf{"Csbcurrperiodicstatssrtpiwcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatssrtpiwcalls}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsDtmfIw2833Calls"] = types.YLeaf{"Csbcurrperiodicstatsdtmfiw2833Calls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsdtmfiw2833Calls}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsDtmfIwInbandCalls"] = types.YLeaf{"Csbcurrperiodicstatsdtmfiwinbandcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsdtmfiwinbandcalls}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsDtmfIw2833InbandCalls"] = types.YLeaf{"Csbcurrperiodicstatsdtmfiw2833Inbandcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsdtmfiw2833Inbandcalls}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsTotalTapsRequested"] = types.YLeaf{"Csbcurrperiodicstatstotaltapsrequested", csbcurrperiodicstatsentry.Csbcurrperiodicstatstotaltapsrequested}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsTotalTapsSucceeded"] = types.YLeaf{"Csbcurrperiodicstatstotaltapssucceeded", csbcurrperiodicstatsentry.Csbcurrperiodicstatstotaltapssucceeded}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCurrentTaps"] = types.YLeaf{"Csbcurrperiodicstatscurrenttaps", csbcurrperiodicstatsentry.Csbcurrperiodicstatscurrenttaps}
-    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicIpsecCalls"] = types.YLeaf{"Csbcurrperiodicipseccalls", csbcurrperiodicstatsentry.Csbcurrperiodicipseccalls}
-    return &(csbcurrperiodicstatsentry.EntityData)
+    csbCurrPeriodicStatsEntry.EntityData.Children = types.NewOrderedMap()
+    csbCurrPeriodicStatsEntry.EntityData.Leafs = types.NewOrderedMap()
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCallStatsInstanceIndex", types.YLeaf{"CsbCallStatsInstanceIndex", csbCurrPeriodicStatsEntry.CsbCallStatsInstanceIndex})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCallStatsServiceIndex", types.YLeaf{"CsbCallStatsServiceIndex", csbCurrPeriodicStatsEntry.CsbCallStatsServiceIndex})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsInterval", types.YLeaf{"CsbCurrPeriodicStatsInterval", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsInterval})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsActiveCalls", types.YLeaf{"CsbCurrPeriodicStatsActiveCalls", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsActiveCalls})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsActivatingCalls", types.YLeaf{"CsbCurrPeriodicStatsActivatingCalls", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsActivatingCalls})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsDeactivatingCalls", types.YLeaf{"CsbCurrPeriodicStatsDeactivatingCalls", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsDeactivatingCalls})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsTotalCallAttempts", types.YLeaf{"CsbCurrPeriodicStatsTotalCallAttempts", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsTotalCallAttempts})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsFailedCallAttempts", types.YLeaf{"CsbCurrPeriodicStatsFailedCallAttempts", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsFailedCallAttempts})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsCallRoutingFailure", types.YLeaf{"CsbCurrPeriodicStatsCallRoutingFailure", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsCallRoutingFailure})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsCallResourceFailure", types.YLeaf{"CsbCurrPeriodicStatsCallResourceFailure", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsCallResourceFailure})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsCallMediaFailure", types.YLeaf{"CsbCurrPeriodicStatsCallMediaFailure", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsCallMediaFailure})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsCallSigFailure", types.YLeaf{"CsbCurrPeriodicStatsCallSigFailure", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsCallSigFailure})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsActiveCallFailure", types.YLeaf{"CsbCurrPeriodicStatsActiveCallFailure", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsActiveCallFailure})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsCongestionFailure", types.YLeaf{"CsbCurrPeriodicStatsCongestionFailure", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsCongestionFailure})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsCallSetupPolicyFailure", types.YLeaf{"CsbCurrPeriodicStatsCallSetupPolicyFailure", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsCallSetupPolicyFailure})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsCallSetupNAPolicyFailure", types.YLeaf{"CsbCurrPeriodicStatsCallSetupNAPolicyFailure", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsCallSetupNAPolicyFailure})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsCallSetupRoutingPolicyFailure", types.YLeaf{"CsbCurrPeriodicStatsCallSetupRoutingPolicyFailure", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsCallSetupRoutingPolicyFailure})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsCallSetupCACPolicyFailure", types.YLeaf{"CsbCurrPeriodicStatsCallSetupCACPolicyFailure", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsCallSetupCACPolicyFailure})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsCallSetupCACCallLimitFailure", types.YLeaf{"CsbCurrPeriodicStatsCallSetupCACCallLimitFailure", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsCallSetupCACCallLimitFailure})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsCallSetupCACRateLimitFailure", types.YLeaf{"CsbCurrPeriodicStatsCallSetupCACRateLimitFailure", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsCallSetupCACRateLimitFailure})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsCallSetupCACBandwidthFailure", types.YLeaf{"CsbCurrPeriodicStatsCallSetupCACBandwidthFailure", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsCallSetupCACBandwidthFailure})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsCallSetupCACMediaLimitFailure", types.YLeaf{"CsbCurrPeriodicStatsCallSetupCACMediaLimitFailure", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsCallSetupCACMediaLimitFailure})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsCallSetupCACMediaUpdateFailure", types.YLeaf{"CsbCurrPeriodicStatsCallSetupCACMediaUpdateFailure", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsCallSetupCACMediaUpdateFailure})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsTimestamp", types.YLeaf{"CsbCurrPeriodicStatsTimestamp", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsTimestamp})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsTranscodedCalls", types.YLeaf{"CsbCurrPeriodicStatsTranscodedCalls", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsTranscodedCalls})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsTransratedCalls", types.YLeaf{"CsbCurrPeriodicStatsTransratedCalls", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsTransratedCalls})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsTotalCallUpdateFailure", types.YLeaf{"CsbCurrPeriodicStatsTotalCallUpdateFailure", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsTotalCallUpdateFailure})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsActiveIpv6Calls", types.YLeaf{"CsbCurrPeriodicStatsActiveIpv6Calls", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsActiveIpv6Calls})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsActiveEmergencyCalls", types.YLeaf{"CsbCurrPeriodicStatsActiveEmergencyCalls", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsActiveEmergencyCalls})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsActiveE2EmergencyCalls", types.YLeaf{"CsbCurrPeriodicStatsActiveE2EmergencyCalls", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsActiveE2EmergencyCalls})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsImsRxActiveCalls", types.YLeaf{"CsbCurrPeriodicStatsImsRxActiveCalls", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsImsRxActiveCalls})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsImsRxCallSetupFaiures", types.YLeaf{"CsbCurrPeriodicStatsImsRxCallSetupFaiures", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsImsRxCallSetupFaiures})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsImsRxCallRenegotiationAttempts", types.YLeaf{"CsbCurrPeriodicStatsImsRxCallRenegotiationAttempts", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsImsRxCallRenegotiationAttempts})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsImsRxCallRenegotiationFailures", types.YLeaf{"CsbCurrPeriodicStatsImsRxCallRenegotiationFailures", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsImsRxCallRenegotiationFailures})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsAudioTranscodedCalls", types.YLeaf{"CsbCurrPeriodicStatsAudioTranscodedCalls", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsAudioTranscodedCalls})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsFaxTranscodedCalls", types.YLeaf{"CsbCurrPeriodicStatsFaxTranscodedCalls", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsFaxTranscodedCalls})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsRtpDisallowedFailures", types.YLeaf{"CsbCurrPeriodicStatsRtpDisallowedFailures", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsRtpDisallowedFailures})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsSrtpDisallowedFailures", types.YLeaf{"CsbCurrPeriodicStatsSrtpDisallowedFailures", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsSrtpDisallowedFailures})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsNonSrtpCalls", types.YLeaf{"CsbCurrPeriodicStatsNonSrtpCalls", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsNonSrtpCalls})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsSrtpNonIwCalls", types.YLeaf{"CsbCurrPeriodicStatsSrtpNonIwCalls", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsSrtpNonIwCalls})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsSrtpIwCalls", types.YLeaf{"CsbCurrPeriodicStatsSrtpIwCalls", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsSrtpIwCalls})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsDtmfIw2833Calls", types.YLeaf{"CsbCurrPeriodicStatsDtmfIw2833Calls", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsDtmfIw2833Calls})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsDtmfIwInbandCalls", types.YLeaf{"CsbCurrPeriodicStatsDtmfIwInbandCalls", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsDtmfIwInbandCalls})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsDtmfIw2833InbandCalls", types.YLeaf{"CsbCurrPeriodicStatsDtmfIw2833InbandCalls", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsDtmfIw2833InbandCalls})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsTotalTapsRequested", types.YLeaf{"CsbCurrPeriodicStatsTotalTapsRequested", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsTotalTapsRequested})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsTotalTapsSucceeded", types.YLeaf{"CsbCurrPeriodicStatsTotalTapsSucceeded", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsTotalTapsSucceeded})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicStatsCurrentTaps", types.YLeaf{"CsbCurrPeriodicStatsCurrentTaps", csbCurrPeriodicStatsEntry.CsbCurrPeriodicStatsCurrentTaps})
+    csbCurrPeriodicStatsEntry.EntityData.Leafs.Append("csbCurrPeriodicIpsecCalls", types.YLeaf{"CsbCurrPeriodicIpsecCalls", csbCurrPeriodicStatsEntry.CsbCurrPeriodicIpsecCalls})
+
+    csbCurrPeriodicStatsEntry.EntityData.YListKeys = []string {"CsbCallStatsInstanceIndex", "CsbCallStatsServiceIndex", "CsbCurrPeriodicStatsInterval"}
+
+    return &(csbCurrPeriodicStatsEntry.EntityData)
 }
 
-// CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable
+// CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbHistoryStatsTable
 // This table provide historical measurement in various interval
 // length defined by the csbHistoryStatsInterval object. Each
 // interval may contain one or more entries to allow for detailed
@@ -886,60 +907,63 @@ func (csbcurrperiodicstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodi
 // of calls that were active at the end of the previous 5 minute
 // period. Otherwise for the other intevals, this is an average
 // value during the summary period, sampled at 5 minute intervals.
-type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable struct {
+type CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbHistoryStatsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row in the csbHistoryStatsTable. The entries in this table are
     // updated as interval completes in the csbCurrPeriodicStatsTable table and
     // the data is moved from that table to this one. The type is slice of
-    // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry.
-    Csbhistorystatsentry []CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry
+    // CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbHistoryStatsTable_CsbHistoryStatsEntry.
+    CsbHistoryStatsEntry []*CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbHistoryStatsTable_CsbHistoryStatsEntry
 }
 
-func (csbhistorystatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable) GetEntityData() *types.CommonEntityData {
-    csbhistorystatstable.EntityData.YFilter = csbhistorystatstable.YFilter
-    csbhistorystatstable.EntityData.YangName = "csbHistoryStatsTable"
-    csbhistorystatstable.EntityData.BundleName = "cisco_ios_xe"
-    csbhistorystatstable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
-    csbhistorystatstable.EntityData.SegmentPath = "csbHistoryStatsTable"
-    csbhistorystatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csbhistorystatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csbhistorystatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (csbHistoryStatsTable *CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbHistoryStatsTable) GetEntityData() *types.CommonEntityData {
+    csbHistoryStatsTable.EntityData.YFilter = csbHistoryStatsTable.YFilter
+    csbHistoryStatsTable.EntityData.YangName = "csbHistoryStatsTable"
+    csbHistoryStatsTable.EntityData.BundleName = "cisco_ios_xe"
+    csbHistoryStatsTable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
+    csbHistoryStatsTable.EntityData.SegmentPath = "csbHistoryStatsTable"
+    csbHistoryStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbHistoryStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbHistoryStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csbhistorystatstable.EntityData.Children = make(map[string]types.YChild)
-    csbhistorystatstable.EntityData.Children["csbHistoryStatsEntry"] = types.YChild{"Csbhistorystatsentry", nil}
-    for i := range csbhistorystatstable.Csbhistorystatsentry {
-        csbhistorystatstable.EntityData.Children[types.GetSegmentPath(&csbhistorystatstable.Csbhistorystatsentry[i])] = types.YChild{"Csbhistorystatsentry", &csbhistorystatstable.Csbhistorystatsentry[i]}
+    csbHistoryStatsTable.EntityData.Children = types.NewOrderedMap()
+    csbHistoryStatsTable.EntityData.Children.Append("csbHistoryStatsEntry", types.YChild{"CsbHistoryStatsEntry", nil})
+    for i := range csbHistoryStatsTable.CsbHistoryStatsEntry {
+        csbHistoryStatsTable.EntityData.Children.Append(types.GetSegmentPath(csbHistoryStatsTable.CsbHistoryStatsEntry[i]), types.YChild{"CsbHistoryStatsEntry", csbHistoryStatsTable.CsbHistoryStatsEntry[i]})
     }
-    csbhistorystatstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(csbhistorystatstable.EntityData)
+    csbHistoryStatsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    csbHistoryStatsTable.EntityData.YListKeys = []string {}
+
+    return &(csbHistoryStatsTable.EntityData)
 }
 
-// CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry
+// CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbHistoryStatsTable_CsbHistoryStatsEntry
 // A conceptual row in the csbHistoryStatsTable. The entries in
 // this table are updated as interval completes in the
 // csbCurrPeriodicStatsTable table and the data is moved from that
 // table to this one.
-type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry struct {
+type CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbHistoryStatsTable_CsbHistoryStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry_Csbcallstatsinstanceindex
-    Csbcallstatsinstanceindex interface{}
+    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsInstanceTable_CsbCallStatsInstanceEntry_CsbCallStatsInstanceIndex
+    CsbCallStatsInstanceIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry_Csbcallstatsserviceindex
-    Csbcallstatsserviceindex interface{}
+    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsTable_CsbCallStatsEntry_CsbCallStatsServiceIndex
+    CsbCallStatsServiceIndex interface{}
 
     // This attribute is a key. This object identifies the interval for which the
     // history statistics information is to be displayed. The interval values can
     // be 5 min, 15 mins, 1 hour , 1 day. This object acts as index for the table.
     // The type is CiscoSbcPeriodicStatsInterval.
-    Csbhistorystatsinterval interface{}
+    CsbHistoryStatsInterval interface{}
 
     // This attribute is a key. The platform assigns a number starting with one
     // and increments it each for each new row. When the maximum          number
@@ -947,298 +971,301 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry 
     // determine the number of entries for each interval. It is recommended that
     // each platform support at least one entry for 5 min, 15 mins, 1 hour and 1
     // day intervals. The type is interface{} with range: 0..4294967295.
-    Csbhistorystatselements interface{}
+    CsbHistoryStatsElements interface{}
 
     // This object indicates the number of active calls history during this
     // interval. The type is interface{} with range: 0..4294967295. Units are
     // calls.
-    Csbhistorystatsactivecalls interface{}
+    CsbHistoryStatsActiveCalls interface{}
 
     // This object indicates the number of total call attempts history during this
     // interval. The type is interface{} with range: 0..4294967295.
-    Csbhistorystatstotalcallattempts interface{}
+    CsbHistoryStatsTotalCallAttempts interface{}
 
     // This object indicates the number of failed call attempts during this
     // interval. The type is interface{} with range: 0..4294967295.
-    Csbhistorystatsfailedcallattempts interface{}
+    CsbHistoryStatsFailedCallAttempts interface{}
 
     // This object indicates the number of call setup failures due to routing
     // failures during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbhistorystatscallroutingfailure interface{}
+    CsbHistoryStatsCallRoutingFailure interface{}
 
     // This object indicates the number of call setup failures due to resource
     // failures during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbhistorystatscallresourcefailure interface{}
+    CsbHistoryStatsCallResourceFailure interface{}
 
     // This object indicates the number of call setup failures due to media
     // failure during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbhistorystatscallmediafailure interface{}
+    CsbHistoryStatsCallMediaFailure interface{}
 
     // This object indicates the number of call setup failures due to signaling
     // failure during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbhistorystatsfailsigfailure interface{}
+    CsbHistoryStatsFailSigFailure interface{}
 
     // This object indicates the number of active call failures during this
     // interval. The type is interface{} with range: 0..4294967295.
-    Csbhistorystatsactivecallfailure interface{}
+    CsbHistoryStatsActiveCallFailure interface{}
 
     // This object indicates the number of call setup failures due to congestion
     // during this interval. The type is interface{} with range: 0..4294967295.
-    Csbhistorystatscongestionfailure interface{}
+    CsbHistoryStatsCongestionFailure interface{}
 
     // This object indicates the number of call setup failures due to some policy
     // violations during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbhistorystatscallsetuppolicyfailure interface{}
+    CsbHistoryStatsCallSetupPolicyFailure interface{}
 
     // This object indicates the number of call setup failures due to NA policy
     // failure during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbhistorystatscallsetupnapolicyfailure interface{}
+    CsbHistoryStatsCallSetupNAPolicyFailure interface{}
 
     // This object indicates the number of call setup failures due to routing
     // policy failure during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbhistorystatscallsetuproutingpolicyfailure interface{}
+    CsbHistoryStatsCallSetupRoutingPolicyFailure interface{}
 
     // This object indicates the number of call setup failures due to CAC policy
     // failure during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbhistorystatscallsetupcacpolicyfailure interface{}
+    CsbHistoryStatsCallSetupCACPolicyFailure interface{}
 
     // This object indicates the number of call setup failures due to CAC call
     // limit during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbhistorystatscallsetupcaccalllimitfailure interface{}
+    CsbHistoryStatsCallSetupCACCallLimitFailure interface{}
 
     // This object indicates the number of call setup failures due to CAC call
     // rate limit during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbhistorystatscallsetupcacratelimitfailure interface{}
+    CsbHistoryStatsCallSetupCACRateLimitFailure interface{}
 
     // This object indicates the number of call setup failures due to CAC
     // bandwidth limit during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbhistorystatscallsetupcacbandwidthfailure interface{}
+    CsbHistoryStatsCallSetupCACBandwidthFailure interface{}
 
     // This object indicates the number of call setup failures due to CAC media
     // limit during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbhistorystatscallsetupcacmedialimitfailure interface{}
+    CsbHistoryStatsCallSetupCACMediaLimitFailure interface{}
 
     // This object indicates the number of call update failure due to policy
     // failure during this interval. The type is interface{} with range:
     // 0..4294967295.
-    Csbhistorystatscallsetupcacmediaupdatefailure interface{}
+    CsbHistoryStatsCallSetupCACMediaUpdateFailure interface{}
 
     // This object indicates the time at the start of the interval when
     // measurements were first collected for this interval in the
     // csbCurrPeriodicStatsTable. The type is string with length: 0..80.
-    Csbhistorystatstimestamp interface{}
+    CsbHistoryStatsTimestamp interface{}
 
     // The object indicates the number of active transcoded calls during this
     // interval. The type is interface{} with range: 0..4294967295. Units are
     // calls.
-    Csbhistroystatstranscodedcalls interface{}
+    CsbHistroyStatsTranscodedCalls interface{}
 
     // The object indicates the number of active transrated calls during this
     // interval. The type is interface{} with range: 0..4294967295. Units are
     // calls.
-    Csbhistroystatstransratedcalls interface{}
+    CsbHistroyStatsTransratedCalls interface{}
 
     // This object indicates the total call update failures during this interval.
     // The type is interface{} with range: 0..4294967295. Units are calls.
-    Csbhistorystatstotalcallupdatefailure interface{}
+    CsbHistoryStatsTotalCallUpdateFailure interface{}
 
     // This Object indicates the number of calls through SBC that use IPv6
     // signaling.  This statistic totals all calls that traverse an IPv6 adjacency
     // on either or both sides of SBC during this interval. The type is
     // interface{} with range: 0..4294967295. Units are calls.
-    Csbhistorystatsactiveipv6Calls interface{}
+    CsbHistoryStatsActiveIpv6Calls interface{}
 
     // This object indicates the number of calls through SBC that have been
     // identified as emergency calls (by Number Analysis)  during this interval.
     // The type is interface{} with range: 0..4294967295. Units are calls.
-    Csbhistorystatsactiveemergencycalls interface{}
+    CsbHistoryStatsActiveEmergencyCalls interface{}
 
     // This object indicates the number of calls through SBC that have been
     // identified as emergency calls (by Number Analysis) and have used the e2
     // interface to obtain location information for the caller. The type is
     // interface{} with range: 0..4294967295. Units are calls.
-    Csbhistorystatsactivee2Emergencycalls interface{}
+    CsbHistoryStatsActiveE2EmergencyCalls interface{}
 
     // This object indicates the total number of active calls which use IMS Rx,
     // during this interval. The type is interface{} with range: 0..4294967295.
     // Units are calls.
-    Csbhistorystatsimsrxactivecalls interface{}
+    CsbHistoryStatsImsRxActiveCalls interface{}
 
     // This object indicates the total call setup failures owing to IMS Rx failure
     // during this interval. The type is interface{} with range: 0..4294967295.
     // Units are failures.
-    Csbhistorystatsimsrxcallsetupfailures interface{}
+    CsbHistoryStatsImsRxCallSetupFailures interface{}
 
     // This object indicates the total call renegotiation attempts using IMS Rx
     // during this interval. The type is interface{} with range: 0..4294967295.
     // Units are attempts.
-    Csbhistorystatsimsrxcallrenegotiationattempts interface{}
+    CsbHistoryStatsImsRxCallRenegotiationAttempts interface{}
 
     // This object indicates the total call renegotiation failures owing to IMS Rx
     // failure during this interval. The type is interface{} with range:
     // 0..4294967295. Units are failures.
-    Csbhistorystatsimsrxcallrenegotiationfailures interface{}
+    CsbHistoryStatsImsRxCallRenegotiationFailures interface{}
 
     // The number of active audio transcoded calls through this adjacency or
     // account during this interval. The type is interface{} with range:
     // 0..4294967295. Units are calls.
-    Csbhistorystatsaudiotranscodedcalls interface{}
+    CsbHistoryStatsAudioTranscodedCalls interface{}
 
     // This object indicates the the number of active fax transcoded calls through
     // this adjacency or account during this interval. The type is interface{}
     // with range: 0..4294967295. Units are calls.
-    Csbhistorystatsfaxtranscodedcalls interface{}
+    CsbHistoryStatsFaxTranscodedCalls interface{}
 
     // This object indicates the total call setup failures due to RTP being
     // proposed when not permitted during this interval. The type is interface{}
     // with range: 0..4294967295. Units are failures.
-    Csbhistorystatsrtpdisallowedfailures interface{}
+    CsbHistoryStatsRtpDisallowedFailures interface{}
 
     // This object indicates the total call setup failures due to SRTP being
     // proposed when not permitted during this interval. The type is interface{}
     // with range: 0..4294967295. Units are failures.
-    Csbhistorystatssrtpdisallowedfailures interface{}
+    CsbHistoryStatsSrtpDisallowedFailures interface{}
 
     // This object indicates the number of active calls through this adjacency or
     // account which do not use SRTP on any media channels during this interval.
     // The type is interface{} with range: 0..4294967295. Units are calls.
-    Csbhistorystatsnonsrtpcalls interface{}
+    CsbHistoryStatsNonSrtpCalls interface{}
 
     // This object indicates the number of active calls through this adjacency or
     // account that have one or more media channels that use SRTP but no media
     // channels that provide interworking between RTP and SRTP during this
     // interval. The type is interface{} with range: 0..4294967295. Units are
     // calls.
-    Csbhistorystatssrtpnoniwcalls interface{}
+    CsbHistoryStatsSrtpNonIwCalls interface{}
 
     // This object indicates the number of active calls through this adjacency or
     // account that have one or more media channels that provide interworking
     // between RTP and SRTP during this interval. The type is interface{} with
     // range: 0..4294967295. Units are calls.
-    Csbhistorystatssrtpiwcalls interface{}
+    CsbHistoryStatsSrtpIwCalls interface{}
 
     // This object indicates the number of active calls through this adjacency or
     // account for which DTMF interworking is enabled between DTMF in signaling
     // and DTMF in media via RFC 2833 during this interval. The type is
     // interface{} with range: 0..4294967295. Units are calls.
-    Csbhistorystatsdtmfiw2833Calls interface{}
+    CsbHistoryStatsDtmfIw2833Calls interface{}
 
     // This object indicates the number of active calls through this adjacency or
     // account for which DTMF interworking is enabled between DTMF in signaling
     // and DTMF in media via inband DTMF tones during this interval. The type is
     // interface{} with range: 0..4294967295. Units are calls.
-    Csbhistorystatsdtmfiwinbandcalls interface{}
+    CsbHistoryStatsDtmfIwInbandCalls interface{}
 
     // This object indicates the number of active calls through this adjacency or
     // account for which DTMF interworking is enabled between DTMF in media via
     // RFC 2833 and DTMF in media via inband DTMF tones during this interval. The
     // type is interface{} with range: 0..4294967295. Units are calls.
-    Csbhistorystatsdtmfiw2833Inbandcalls interface{}
+    CsbHistoryStatsDtmfIw2833InbandCalls interface{}
 
     // This object indicates the lawful intercept tap attempts requested within
     // the scope of this query during this interval. The type is interface{} with
     // range: 0..4294967295. Units are attempts.
-    Csbhistorystatstotaltapsrequested interface{}
+    CsbHistoryStatsTotalTapsRequested interface{}
 
     // This object indicates the lawful intercept tap attempts that have been
     // successfully implemented within the scope of this query during this
     // interval. The type is interface{} with range: 0..4294967295. Units are
     // success.
-    Csbhistorystatstotaltapssucceeded interface{}
+    CsbHistoryStatsTotalTapsSucceeded interface{}
 
     // This object indicates the Lawful intercept taps currently in place on calls
     // within the scope of this query during this interval. The type is
     // interface{} with range: 0..4294967295. Units are taps.
-    Csbhistorystatscurrenttaps interface{}
+    CsbHistoryStatsCurrentTaps interface{}
 
     // The number of active calls on this adjacency or account which are to or
     // from registered subscribers using IPSEC during this interval. The type is
     // interface{} with range: 0..4294967295. Units are calls.
-    Csbhistorystatsipseccalls interface{}
+    CsbHistoryStatsIpsecCalls interface{}
 }
 
-func (csbhistorystatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry) GetEntityData() *types.CommonEntityData {
-    csbhistorystatsentry.EntityData.YFilter = csbhistorystatsentry.YFilter
-    csbhistorystatsentry.EntityData.YangName = "csbHistoryStatsEntry"
-    csbhistorystatsentry.EntityData.BundleName = "cisco_ios_xe"
-    csbhistorystatsentry.EntityData.ParentYangName = "csbHistoryStatsTable"
-    csbhistorystatsentry.EntityData.SegmentPath = "csbHistoryStatsEntry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbhistorystatsentry.Csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + fmt.Sprintf("%v", csbhistorystatsentry.Csbcallstatsserviceindex) + "']" + "[csbHistoryStatsInterval='" + fmt.Sprintf("%v", csbhistorystatsentry.Csbhistorystatsinterval) + "']" + "[csbHistoryStatsElements='" + fmt.Sprintf("%v", csbhistorystatsentry.Csbhistorystatselements) + "']"
-    csbhistorystatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csbhistorystatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csbhistorystatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (csbHistoryStatsEntry *CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbHistoryStatsTable_CsbHistoryStatsEntry) GetEntityData() *types.CommonEntityData {
+    csbHistoryStatsEntry.EntityData.YFilter = csbHistoryStatsEntry.YFilter
+    csbHistoryStatsEntry.EntityData.YangName = "csbHistoryStatsEntry"
+    csbHistoryStatsEntry.EntityData.BundleName = "cisco_ios_xe"
+    csbHistoryStatsEntry.EntityData.ParentYangName = "csbHistoryStatsTable"
+    csbHistoryStatsEntry.EntityData.SegmentPath = "csbHistoryStatsEntry" + types.AddKeyToken(csbHistoryStatsEntry.CsbCallStatsInstanceIndex, "csbCallStatsInstanceIndex") + types.AddKeyToken(csbHistoryStatsEntry.CsbCallStatsServiceIndex, "csbCallStatsServiceIndex") + types.AddKeyToken(csbHistoryStatsEntry.CsbHistoryStatsInterval, "csbHistoryStatsInterval") + types.AddKeyToken(csbHistoryStatsEntry.CsbHistoryStatsElements, "csbHistoryStatsElements")
+    csbHistoryStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbHistoryStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbHistoryStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csbhistorystatsentry.EntityData.Children = make(map[string]types.YChild)
-    csbhistorystatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    csbhistorystatsentry.EntityData.Leafs["csbCallStatsInstanceIndex"] = types.YLeaf{"Csbcallstatsinstanceindex", csbhistorystatsentry.Csbcallstatsinstanceindex}
-    csbhistorystatsentry.EntityData.Leafs["csbCallStatsServiceIndex"] = types.YLeaf{"Csbcallstatsserviceindex", csbhistorystatsentry.Csbcallstatsserviceindex}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsInterval"] = types.YLeaf{"Csbhistorystatsinterval", csbhistorystatsentry.Csbhistorystatsinterval}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsElements"] = types.YLeaf{"Csbhistorystatselements", csbhistorystatsentry.Csbhistorystatselements}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsActiveCalls"] = types.YLeaf{"Csbhistorystatsactivecalls", csbhistorystatsentry.Csbhistorystatsactivecalls}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsTotalCallAttempts"] = types.YLeaf{"Csbhistorystatstotalcallattempts", csbhistorystatsentry.Csbhistorystatstotalcallattempts}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsFailedCallAttempts"] = types.YLeaf{"Csbhistorystatsfailedcallattempts", csbhistorystatsentry.Csbhistorystatsfailedcallattempts}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallRoutingFailure"] = types.YLeaf{"Csbhistorystatscallroutingfailure", csbhistorystatsentry.Csbhistorystatscallroutingfailure}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallResourceFailure"] = types.YLeaf{"Csbhistorystatscallresourcefailure", csbhistorystatsentry.Csbhistorystatscallresourcefailure}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallMediaFailure"] = types.YLeaf{"Csbhistorystatscallmediafailure", csbhistorystatsentry.Csbhistorystatscallmediafailure}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsFailSigFailure"] = types.YLeaf{"Csbhistorystatsfailsigfailure", csbhistorystatsentry.Csbhistorystatsfailsigfailure}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsActiveCallFailure"] = types.YLeaf{"Csbhistorystatsactivecallfailure", csbhistorystatsentry.Csbhistorystatsactivecallfailure}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCongestionFailure"] = types.YLeaf{"Csbhistorystatscongestionfailure", csbhistorystatsentry.Csbhistorystatscongestionfailure}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallSetupPolicyFailure"] = types.YLeaf{"Csbhistorystatscallsetuppolicyfailure", csbhistorystatsentry.Csbhistorystatscallsetuppolicyfailure}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallSetupNAPolicyFailure"] = types.YLeaf{"Csbhistorystatscallsetupnapolicyfailure", csbhistorystatsentry.Csbhistorystatscallsetupnapolicyfailure}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallSetupRoutingPolicyFailure"] = types.YLeaf{"Csbhistorystatscallsetuproutingpolicyfailure", csbhistorystatsentry.Csbhistorystatscallsetuproutingpolicyfailure}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallSetupCACPolicyFailure"] = types.YLeaf{"Csbhistorystatscallsetupcacpolicyfailure", csbhistorystatsentry.Csbhistorystatscallsetupcacpolicyfailure}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallSetupCACCallLimitFailure"] = types.YLeaf{"Csbhistorystatscallsetupcaccalllimitfailure", csbhistorystatsentry.Csbhistorystatscallsetupcaccalllimitfailure}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallSetupCACRateLimitFailure"] = types.YLeaf{"Csbhistorystatscallsetupcacratelimitfailure", csbhistorystatsentry.Csbhistorystatscallsetupcacratelimitfailure}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallSetupCACBandwidthFailure"] = types.YLeaf{"Csbhistorystatscallsetupcacbandwidthfailure", csbhistorystatsentry.Csbhistorystatscallsetupcacbandwidthfailure}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallSetupCACMediaLimitFailure"] = types.YLeaf{"Csbhistorystatscallsetupcacmedialimitfailure", csbhistorystatsentry.Csbhistorystatscallsetupcacmedialimitfailure}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallSetupCACMediaUpdateFailure"] = types.YLeaf{"Csbhistorystatscallsetupcacmediaupdatefailure", csbhistorystatsentry.Csbhistorystatscallsetupcacmediaupdatefailure}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsTimestamp"] = types.YLeaf{"Csbhistorystatstimestamp", csbhistorystatsentry.Csbhistorystatstimestamp}
-    csbhistorystatsentry.EntityData.Leafs["csbHistroyStatsTranscodedCalls"] = types.YLeaf{"Csbhistroystatstranscodedcalls", csbhistorystatsentry.Csbhistroystatstranscodedcalls}
-    csbhistorystatsentry.EntityData.Leafs["csbHistroyStatsTransratedCalls"] = types.YLeaf{"Csbhistroystatstransratedcalls", csbhistorystatsentry.Csbhistroystatstransratedcalls}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsTotalCallUpdateFailure"] = types.YLeaf{"Csbhistorystatstotalcallupdatefailure", csbhistorystatsentry.Csbhistorystatstotalcallupdatefailure}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsActiveIpv6Calls"] = types.YLeaf{"Csbhistorystatsactiveipv6Calls", csbhistorystatsentry.Csbhistorystatsactiveipv6Calls}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsActiveEmergencyCalls"] = types.YLeaf{"Csbhistorystatsactiveemergencycalls", csbhistorystatsentry.Csbhistorystatsactiveemergencycalls}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsActiveE2EmergencyCalls"] = types.YLeaf{"Csbhistorystatsactivee2Emergencycalls", csbhistorystatsentry.Csbhistorystatsactivee2Emergencycalls}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsImsRxActiveCalls"] = types.YLeaf{"Csbhistorystatsimsrxactivecalls", csbhistorystatsentry.Csbhistorystatsimsrxactivecalls}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsImsRxCallSetupFailures"] = types.YLeaf{"Csbhistorystatsimsrxcallsetupfailures", csbhistorystatsentry.Csbhistorystatsimsrxcallsetupfailures}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsImsRxCallRenegotiationAttempts"] = types.YLeaf{"Csbhistorystatsimsrxcallrenegotiationattempts", csbhistorystatsentry.Csbhistorystatsimsrxcallrenegotiationattempts}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsImsRxCallRenegotiationFailures"] = types.YLeaf{"Csbhistorystatsimsrxcallrenegotiationfailures", csbhistorystatsentry.Csbhistorystatsimsrxcallrenegotiationfailures}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsAudioTranscodedCalls"] = types.YLeaf{"Csbhistorystatsaudiotranscodedcalls", csbhistorystatsentry.Csbhistorystatsaudiotranscodedcalls}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsFaxTranscodedCalls"] = types.YLeaf{"Csbhistorystatsfaxtranscodedcalls", csbhistorystatsentry.Csbhistorystatsfaxtranscodedcalls}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsRtpDisallowedFailures"] = types.YLeaf{"Csbhistorystatsrtpdisallowedfailures", csbhistorystatsentry.Csbhistorystatsrtpdisallowedfailures}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsSrtpDisallowedFailures"] = types.YLeaf{"Csbhistorystatssrtpdisallowedfailures", csbhistorystatsentry.Csbhistorystatssrtpdisallowedfailures}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsNonSrtpCalls"] = types.YLeaf{"Csbhistorystatsnonsrtpcalls", csbhistorystatsentry.Csbhistorystatsnonsrtpcalls}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsSrtpNonIwCalls"] = types.YLeaf{"Csbhistorystatssrtpnoniwcalls", csbhistorystatsentry.Csbhistorystatssrtpnoniwcalls}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsSrtpIwCalls"] = types.YLeaf{"Csbhistorystatssrtpiwcalls", csbhistorystatsentry.Csbhistorystatssrtpiwcalls}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsDtmfIw2833Calls"] = types.YLeaf{"Csbhistorystatsdtmfiw2833Calls", csbhistorystatsentry.Csbhistorystatsdtmfiw2833Calls}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsDtmfIwInbandCalls"] = types.YLeaf{"Csbhistorystatsdtmfiwinbandcalls", csbhistorystatsentry.Csbhistorystatsdtmfiwinbandcalls}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsDtmfIw2833InbandCalls"] = types.YLeaf{"Csbhistorystatsdtmfiw2833Inbandcalls", csbhistorystatsentry.Csbhistorystatsdtmfiw2833Inbandcalls}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsTotalTapsRequested"] = types.YLeaf{"Csbhistorystatstotaltapsrequested", csbhistorystatsentry.Csbhistorystatstotaltapsrequested}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsTotalTapsSucceeded"] = types.YLeaf{"Csbhistorystatstotaltapssucceeded", csbhistorystatsentry.Csbhistorystatstotaltapssucceeded}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCurrentTaps"] = types.YLeaf{"Csbhistorystatscurrenttaps", csbhistorystatsentry.Csbhistorystatscurrenttaps}
-    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsIpsecCalls"] = types.YLeaf{"Csbhistorystatsipseccalls", csbhistorystatsentry.Csbhistorystatsipseccalls}
-    return &(csbhistorystatsentry.EntityData)
+    csbHistoryStatsEntry.EntityData.Children = types.NewOrderedMap()
+    csbHistoryStatsEntry.EntityData.Leafs = types.NewOrderedMap()
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbCallStatsInstanceIndex", types.YLeaf{"CsbCallStatsInstanceIndex", csbHistoryStatsEntry.CsbCallStatsInstanceIndex})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbCallStatsServiceIndex", types.YLeaf{"CsbCallStatsServiceIndex", csbHistoryStatsEntry.CsbCallStatsServiceIndex})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsInterval", types.YLeaf{"CsbHistoryStatsInterval", csbHistoryStatsEntry.CsbHistoryStatsInterval})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsElements", types.YLeaf{"CsbHistoryStatsElements", csbHistoryStatsEntry.CsbHistoryStatsElements})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsActiveCalls", types.YLeaf{"CsbHistoryStatsActiveCalls", csbHistoryStatsEntry.CsbHistoryStatsActiveCalls})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsTotalCallAttempts", types.YLeaf{"CsbHistoryStatsTotalCallAttempts", csbHistoryStatsEntry.CsbHistoryStatsTotalCallAttempts})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsFailedCallAttempts", types.YLeaf{"CsbHistoryStatsFailedCallAttempts", csbHistoryStatsEntry.CsbHistoryStatsFailedCallAttempts})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsCallRoutingFailure", types.YLeaf{"CsbHistoryStatsCallRoutingFailure", csbHistoryStatsEntry.CsbHistoryStatsCallRoutingFailure})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsCallResourceFailure", types.YLeaf{"CsbHistoryStatsCallResourceFailure", csbHistoryStatsEntry.CsbHistoryStatsCallResourceFailure})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsCallMediaFailure", types.YLeaf{"CsbHistoryStatsCallMediaFailure", csbHistoryStatsEntry.CsbHistoryStatsCallMediaFailure})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsFailSigFailure", types.YLeaf{"CsbHistoryStatsFailSigFailure", csbHistoryStatsEntry.CsbHistoryStatsFailSigFailure})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsActiveCallFailure", types.YLeaf{"CsbHistoryStatsActiveCallFailure", csbHistoryStatsEntry.CsbHistoryStatsActiveCallFailure})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsCongestionFailure", types.YLeaf{"CsbHistoryStatsCongestionFailure", csbHistoryStatsEntry.CsbHistoryStatsCongestionFailure})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsCallSetupPolicyFailure", types.YLeaf{"CsbHistoryStatsCallSetupPolicyFailure", csbHistoryStatsEntry.CsbHistoryStatsCallSetupPolicyFailure})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsCallSetupNAPolicyFailure", types.YLeaf{"CsbHistoryStatsCallSetupNAPolicyFailure", csbHistoryStatsEntry.CsbHistoryStatsCallSetupNAPolicyFailure})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsCallSetupRoutingPolicyFailure", types.YLeaf{"CsbHistoryStatsCallSetupRoutingPolicyFailure", csbHistoryStatsEntry.CsbHistoryStatsCallSetupRoutingPolicyFailure})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsCallSetupCACPolicyFailure", types.YLeaf{"CsbHistoryStatsCallSetupCACPolicyFailure", csbHistoryStatsEntry.CsbHistoryStatsCallSetupCACPolicyFailure})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsCallSetupCACCallLimitFailure", types.YLeaf{"CsbHistoryStatsCallSetupCACCallLimitFailure", csbHistoryStatsEntry.CsbHistoryStatsCallSetupCACCallLimitFailure})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsCallSetupCACRateLimitFailure", types.YLeaf{"CsbHistoryStatsCallSetupCACRateLimitFailure", csbHistoryStatsEntry.CsbHistoryStatsCallSetupCACRateLimitFailure})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsCallSetupCACBandwidthFailure", types.YLeaf{"CsbHistoryStatsCallSetupCACBandwidthFailure", csbHistoryStatsEntry.CsbHistoryStatsCallSetupCACBandwidthFailure})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsCallSetupCACMediaLimitFailure", types.YLeaf{"CsbHistoryStatsCallSetupCACMediaLimitFailure", csbHistoryStatsEntry.CsbHistoryStatsCallSetupCACMediaLimitFailure})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsCallSetupCACMediaUpdateFailure", types.YLeaf{"CsbHistoryStatsCallSetupCACMediaUpdateFailure", csbHistoryStatsEntry.CsbHistoryStatsCallSetupCACMediaUpdateFailure})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsTimestamp", types.YLeaf{"CsbHistoryStatsTimestamp", csbHistoryStatsEntry.CsbHistoryStatsTimestamp})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistroyStatsTranscodedCalls", types.YLeaf{"CsbHistroyStatsTranscodedCalls", csbHistoryStatsEntry.CsbHistroyStatsTranscodedCalls})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistroyStatsTransratedCalls", types.YLeaf{"CsbHistroyStatsTransratedCalls", csbHistoryStatsEntry.CsbHistroyStatsTransratedCalls})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsTotalCallUpdateFailure", types.YLeaf{"CsbHistoryStatsTotalCallUpdateFailure", csbHistoryStatsEntry.CsbHistoryStatsTotalCallUpdateFailure})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsActiveIpv6Calls", types.YLeaf{"CsbHistoryStatsActiveIpv6Calls", csbHistoryStatsEntry.CsbHistoryStatsActiveIpv6Calls})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsActiveEmergencyCalls", types.YLeaf{"CsbHistoryStatsActiveEmergencyCalls", csbHistoryStatsEntry.CsbHistoryStatsActiveEmergencyCalls})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsActiveE2EmergencyCalls", types.YLeaf{"CsbHistoryStatsActiveE2EmergencyCalls", csbHistoryStatsEntry.CsbHistoryStatsActiveE2EmergencyCalls})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsImsRxActiveCalls", types.YLeaf{"CsbHistoryStatsImsRxActiveCalls", csbHistoryStatsEntry.CsbHistoryStatsImsRxActiveCalls})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsImsRxCallSetupFailures", types.YLeaf{"CsbHistoryStatsImsRxCallSetupFailures", csbHistoryStatsEntry.CsbHistoryStatsImsRxCallSetupFailures})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsImsRxCallRenegotiationAttempts", types.YLeaf{"CsbHistoryStatsImsRxCallRenegotiationAttempts", csbHistoryStatsEntry.CsbHistoryStatsImsRxCallRenegotiationAttempts})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsImsRxCallRenegotiationFailures", types.YLeaf{"CsbHistoryStatsImsRxCallRenegotiationFailures", csbHistoryStatsEntry.CsbHistoryStatsImsRxCallRenegotiationFailures})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsAudioTranscodedCalls", types.YLeaf{"CsbHistoryStatsAudioTranscodedCalls", csbHistoryStatsEntry.CsbHistoryStatsAudioTranscodedCalls})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsFaxTranscodedCalls", types.YLeaf{"CsbHistoryStatsFaxTranscodedCalls", csbHistoryStatsEntry.CsbHistoryStatsFaxTranscodedCalls})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsRtpDisallowedFailures", types.YLeaf{"CsbHistoryStatsRtpDisallowedFailures", csbHistoryStatsEntry.CsbHistoryStatsRtpDisallowedFailures})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsSrtpDisallowedFailures", types.YLeaf{"CsbHistoryStatsSrtpDisallowedFailures", csbHistoryStatsEntry.CsbHistoryStatsSrtpDisallowedFailures})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsNonSrtpCalls", types.YLeaf{"CsbHistoryStatsNonSrtpCalls", csbHistoryStatsEntry.CsbHistoryStatsNonSrtpCalls})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsSrtpNonIwCalls", types.YLeaf{"CsbHistoryStatsSrtpNonIwCalls", csbHistoryStatsEntry.CsbHistoryStatsSrtpNonIwCalls})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsSrtpIwCalls", types.YLeaf{"CsbHistoryStatsSrtpIwCalls", csbHistoryStatsEntry.CsbHistoryStatsSrtpIwCalls})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsDtmfIw2833Calls", types.YLeaf{"CsbHistoryStatsDtmfIw2833Calls", csbHistoryStatsEntry.CsbHistoryStatsDtmfIw2833Calls})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsDtmfIwInbandCalls", types.YLeaf{"CsbHistoryStatsDtmfIwInbandCalls", csbHistoryStatsEntry.CsbHistoryStatsDtmfIwInbandCalls})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsDtmfIw2833InbandCalls", types.YLeaf{"CsbHistoryStatsDtmfIw2833InbandCalls", csbHistoryStatsEntry.CsbHistoryStatsDtmfIw2833InbandCalls})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsTotalTapsRequested", types.YLeaf{"CsbHistoryStatsTotalTapsRequested", csbHistoryStatsEntry.CsbHistoryStatsTotalTapsRequested})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsTotalTapsSucceeded", types.YLeaf{"CsbHistoryStatsTotalTapsSucceeded", csbHistoryStatsEntry.CsbHistoryStatsTotalTapsSucceeded})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsCurrentTaps", types.YLeaf{"CsbHistoryStatsCurrentTaps", csbHistoryStatsEntry.CsbHistoryStatsCurrentTaps})
+    csbHistoryStatsEntry.EntityData.Leafs.Append("csbHistoryStatsIpsecCalls", types.YLeaf{"CsbHistoryStatsIpsecCalls", csbHistoryStatsEntry.CsbHistoryStatsIpsecCalls})
+
+    csbHistoryStatsEntry.EntityData.YListKeys = []string {"CsbCallStatsInstanceIndex", "CsbCallStatsServiceIndex", "CsbHistoryStatsInterval", "CsbHistoryStatsElements"}
+
+    return &(csbHistoryStatsEntry.EntityData)
 }
 
-// CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable
+// CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable
 // This table describes statistics table for each call flow. The
 // indices of the table are virtual media gateway id, gate id,
 // falow pair id and side id (indices for side A or side B). The
 // other indices of this table are csbCallStatsInstanceIndex
 // defined in csbCallStatsInstanceTable and
 // csbCallStatsServiceIndex defined in csbCallStatsTable.
-type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable struct {
+type CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1247,102 +1274,105 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable struct {
     // this table are csbCallStatsInstanceIndex defined in
     // csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in
     // csbCallStatsTable. The type is slice of
-    // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry.
-    Csbperflowstatsentry []CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry
+    // CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable_CsbPerFlowStatsEntry.
+    CsbPerFlowStatsEntry []*CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable_CsbPerFlowStatsEntry
 }
 
-func (csbperflowstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable) GetEntityData() *types.CommonEntityData {
-    csbperflowstatstable.EntityData.YFilter = csbperflowstatstable.YFilter
-    csbperflowstatstable.EntityData.YangName = "csbPerFlowStatsTable"
-    csbperflowstatstable.EntityData.BundleName = "cisco_ios_xe"
-    csbperflowstatstable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
-    csbperflowstatstable.EntityData.SegmentPath = "csbPerFlowStatsTable"
-    csbperflowstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csbperflowstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csbperflowstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (csbPerFlowStatsTable *CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable) GetEntityData() *types.CommonEntityData {
+    csbPerFlowStatsTable.EntityData.YFilter = csbPerFlowStatsTable.YFilter
+    csbPerFlowStatsTable.EntityData.YangName = "csbPerFlowStatsTable"
+    csbPerFlowStatsTable.EntityData.BundleName = "cisco_ios_xe"
+    csbPerFlowStatsTable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
+    csbPerFlowStatsTable.EntityData.SegmentPath = "csbPerFlowStatsTable"
+    csbPerFlowStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbPerFlowStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbPerFlowStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csbperflowstatstable.EntityData.Children = make(map[string]types.YChild)
-    csbperflowstatstable.EntityData.Children["csbPerFlowStatsEntry"] = types.YChild{"Csbperflowstatsentry", nil}
-    for i := range csbperflowstatstable.Csbperflowstatsentry {
-        csbperflowstatstable.EntityData.Children[types.GetSegmentPath(&csbperflowstatstable.Csbperflowstatsentry[i])] = types.YChild{"Csbperflowstatsentry", &csbperflowstatstable.Csbperflowstatsentry[i]}
+    csbPerFlowStatsTable.EntityData.Children = types.NewOrderedMap()
+    csbPerFlowStatsTable.EntityData.Children.Append("csbPerFlowStatsEntry", types.YChild{"CsbPerFlowStatsEntry", nil})
+    for i := range csbPerFlowStatsTable.CsbPerFlowStatsEntry {
+        csbPerFlowStatsTable.EntityData.Children.Append(types.GetSegmentPath(csbPerFlowStatsTable.CsbPerFlowStatsEntry[i]), types.YChild{"CsbPerFlowStatsEntry", csbPerFlowStatsTable.CsbPerFlowStatsEntry[i]})
     }
-    csbperflowstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(csbperflowstatstable.EntityData)
+    csbPerFlowStatsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    csbPerFlowStatsTable.EntityData.YListKeys = []string {}
+
+    return &(csbPerFlowStatsTable.EntityData)
 }
 
-// CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry
+// CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable_CsbPerFlowStatsEntry
 // An conceptual row in the csbPerFlowStatsTable. There is
 // an entry in this table for vdbe Id, gate id, flow pair id and
 // side id. The other indices of this table are
 // csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable
 // and csbCallStatsServiceIndex defined in csbCallStatsTable.
-type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry struct {
+type CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable_CsbPerFlowStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry_Csbcallstatsinstanceindex
-    Csbcallstatsinstanceindex interface{}
+    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsInstanceTable_CsbCallStatsInstanceEntry_CsbCallStatsInstanceIndex
+    CsbCallStatsInstanceIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry_Csbcallstatsserviceindex
-    Csbcallstatsserviceindex interface{}
+    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsTable_CsbCallStatsEntry_CsbCallStatsServiceIndex
+    CsbCallStatsServiceIndex interface{}
 
     // This attribute is a key. This object identifies the virtual media gateway
     // id. This object also acts as an index for the table. The type is
     // interface{} with range: 0..255.
-    Csbperflowstatsvdbeid interface{}
+    CsbPerFlowStatsVdbeId interface{}
 
     // This attribute is a key. This object identifies the gate id. This object
     // also acts as an index for the table. The type is interface{} with range:
     // 0..65535.
-    Csbperflowstatsgateid interface{}
+    CsbPerFlowStatsGateId interface{}
 
     // This attribute is a key. This object identifies the flow pair id. This
     // object also acts as an index for the table. The type is interface{} with
     // range: 0..65535.
-    Csbperflowstatsflowpairid interface{}
+    CsbPerFlowStatsFlowPairId interface{}
 
     // This attribute is a key. This object identifies the index corresponding to
     // side of flow pair either side A or side B. This object also acts as an
-    // index for the table. The type is Csbperflowstatssideid.
-    Csbperflowstatssideid interface{}
+    // index for the table. The type is CsbPerFlowStatsSideId.
+    CsbPerFlowStatsSideId interface{}
 
     // This object indicates the type of the flow, like media flow, signaling flow
-    // etc. The type is Csbperflowstatsflowtype.
-    Csbperflowstatsflowtype interface{}
+    // etc. The type is CsbPerFlowStatsFlowType.
+    CsbPerFlowStatsFlowType interface{}
 
     // This object indicates the number of RTP packets sent per flow by the SBC.
     // The type is interface{} with range: 0..18446744073709551615. Units are
     // packets.
-    Csbperflowstatsrtppktssent interface{}
+    CsbPerFlowStatsRTPPktsSent interface{}
 
     // This object indicates the number of RTP packets received per flow by the
     // SBC. The type is interface{} with range: 0..18446744073709551615. Units are
     // packets.
-    Csbperflowstatsrtppktsrcvd interface{}
+    CsbPerFlowStatsRTPPktsRcvd interface{}
 
     // This object indicates the number of RTP packets discarded  per flow by the
     // SBC. The type is interface{} with range: 0..18446744073709551615. Units are
     // packets.
-    Csbperflowstatsrtppktsdiscard interface{}
+    CsbPerFlowStatsRTPPktsDiscard interface{}
 
     // This object indicates the number of RTP octets sent per flow by the SBC.
     // The type is interface{} with range: 0..18446744073709551615. Units are
     // octets.
-    Csbperflowstatsrtpoctetssent interface{}
+    CsbPerFlowStatsRTPOctetsSent interface{}
 
     // This object indicates the number of RTP octets received per flow by the
     // SBC. The type is interface{} with range: 0..18446744073709551615. Units are
     // octets.
-    Csbperflowstatsrtpoctetsrcvd interface{}
+    CsbPerFlowStatsRTPOctetsRcvd interface{}
 
     // This object indicates the number of RTP octets discarded per flow by the
     // SBC. The type is interface{} with range: 0..18446744073709551615. Units are
     // octets.
-    Csbperflowstatsrtpoctetsdiscard interface{}
+    CsbPerFlowStatsRTPOctetsDiscard interface{}
 
     // The number of RTP packets sent by the remote end point to this MG on this
     // flow. Comparing this with the local number of RTP packets received from the
@@ -1351,7 +1381,7 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry 
     // all endpoints report this statistic, if it is not available it will be set
     // to zero. This statistic will not be available for signaling flows. The type
     // is interface{} with range: 0..18446744073709551615. Units are packets.
-    Csbperflowstatsrtcppktssent interface{}
+    CsbPerFlowStatsRTCPPktsSent interface{}
 
     // The number of RTP packets received by the remote end point from this MG on
     // this flow. Comparing this with the local number of RTP packets sent from
@@ -1361,111 +1391,114 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry 
     // will be set to zero. This statistic will not be available for signaling
     // flows. The type is interface{} with range: 0..18446744073709551615. Units
     // are packets.
-    Csbperflowstatsrtcppktsrcvd interface{}
+    CsbPerFlowStatsRTCPPktsRcvd interface{}
 
     // The number of RTP packets reported as lost by the remote end point on this
     // flow. This information is from RTCP packet. Not all endpoints report this
     // statistic, if it is not available it will be set to zero. This statistic
     // will not be available for signaling flows. The type is interface{} with
     // range: 0..18446744073709551615. Units are packets.
-    Csbperflowstatsrtcppktslost interface{}
+    CsbPerFlowStatsRTCPPktsLost interface{}
 
     // This object indicates the End Point jitter per flow in the SBC. The type is
     // interface{} with range: 0..18446744073709551615. Units are milliseconds.
-    Csbperflowstatsepjitter interface{}
+    CsbPerFlowStatsEPJitter interface{}
 
     // This object indicates the maximum burst size for the current FlowPair. The
     // type is interface{} with range: 0..4294967295. Units are bytes.
-    Csbperflowstatstmanpermbs interface{}
+    CsbPerFlowStatsTmanPerMbs interface{}
 
     // This object indicates the bandwidth reserved for flow in kilobytes/second.
     // The type is interface{} with range: 0..4294967295. Units are kilobytes per
     // second.
-    Csbperflowstatstmanpersdr interface{}
+    CsbPerFlowStatsTmanPerSdr interface{}
 
     // This object indicates the mark packets sent for the current FlowPair with,
     // or zero if none set. The DSCP is a 6-bit value, which will be present in
     // the top 6 bits of the lowest byte of this field. The type is string.
-    Csbperflowstatsdscpsettings interface{}
+    CsbPerFlowStatsDscpSettings interface{}
 
     // This object indicates whether the flow on the current FlowPair has
     // subscribed for the NAT latch event. The type is string with length: 0..10.
-    Csbperflowstatsadrstatus interface{}
+    CsbPerFlowStatsAdrStatus interface{}
 
     // This object indicates the flow on the current FlowPair has subscribed for
     // the media loss event. The type is string with length: 0..10.
-    Csbperflowstatsqasettings interface{}
+    CsbPerFlowStatsQASettings interface{}
 
     // This object indicates the number of RTP packets lost per flow by the SBC.
     // The type is interface{} with range: 0..18446744073709551615. Units are
     // packets.
-    Csbperflowstatsrtppktslost interface{}
+    CsbPerFlowStatsRTPPktsLost interface{}
 }
 
-func (csbperflowstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry) GetEntityData() *types.CommonEntityData {
-    csbperflowstatsentry.EntityData.YFilter = csbperflowstatsentry.YFilter
-    csbperflowstatsentry.EntityData.YangName = "csbPerFlowStatsEntry"
-    csbperflowstatsentry.EntityData.BundleName = "cisco_ios_xe"
-    csbperflowstatsentry.EntityData.ParentYangName = "csbPerFlowStatsTable"
-    csbperflowstatsentry.EntityData.SegmentPath = "csbPerFlowStatsEntry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbperflowstatsentry.Csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + fmt.Sprintf("%v", csbperflowstatsentry.Csbcallstatsserviceindex) + "']" + "[csbPerFlowStatsVdbeId='" + fmt.Sprintf("%v", csbperflowstatsentry.Csbperflowstatsvdbeid) + "']" + "[csbPerFlowStatsGateId='" + fmt.Sprintf("%v", csbperflowstatsentry.Csbperflowstatsgateid) + "']" + "[csbPerFlowStatsFlowPairId='" + fmt.Sprintf("%v", csbperflowstatsentry.Csbperflowstatsflowpairid) + "']" + "[csbPerFlowStatsSideId='" + fmt.Sprintf("%v", csbperflowstatsentry.Csbperflowstatssideid) + "']"
-    csbperflowstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csbperflowstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csbperflowstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (csbPerFlowStatsEntry *CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable_CsbPerFlowStatsEntry) GetEntityData() *types.CommonEntityData {
+    csbPerFlowStatsEntry.EntityData.YFilter = csbPerFlowStatsEntry.YFilter
+    csbPerFlowStatsEntry.EntityData.YangName = "csbPerFlowStatsEntry"
+    csbPerFlowStatsEntry.EntityData.BundleName = "cisco_ios_xe"
+    csbPerFlowStatsEntry.EntityData.ParentYangName = "csbPerFlowStatsTable"
+    csbPerFlowStatsEntry.EntityData.SegmentPath = "csbPerFlowStatsEntry" + types.AddKeyToken(csbPerFlowStatsEntry.CsbCallStatsInstanceIndex, "csbCallStatsInstanceIndex") + types.AddKeyToken(csbPerFlowStatsEntry.CsbCallStatsServiceIndex, "csbCallStatsServiceIndex") + types.AddKeyToken(csbPerFlowStatsEntry.CsbPerFlowStatsVdbeId, "csbPerFlowStatsVdbeId") + types.AddKeyToken(csbPerFlowStatsEntry.CsbPerFlowStatsGateId, "csbPerFlowStatsGateId") + types.AddKeyToken(csbPerFlowStatsEntry.CsbPerFlowStatsFlowPairId, "csbPerFlowStatsFlowPairId") + types.AddKeyToken(csbPerFlowStatsEntry.CsbPerFlowStatsSideId, "csbPerFlowStatsSideId")
+    csbPerFlowStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbPerFlowStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbPerFlowStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csbperflowstatsentry.EntityData.Children = make(map[string]types.YChild)
-    csbperflowstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    csbperflowstatsentry.EntityData.Leafs["csbCallStatsInstanceIndex"] = types.YLeaf{"Csbcallstatsinstanceindex", csbperflowstatsentry.Csbcallstatsinstanceindex}
-    csbperflowstatsentry.EntityData.Leafs["csbCallStatsServiceIndex"] = types.YLeaf{"Csbcallstatsserviceindex", csbperflowstatsentry.Csbcallstatsserviceindex}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsVdbeId"] = types.YLeaf{"Csbperflowstatsvdbeid", csbperflowstatsentry.Csbperflowstatsvdbeid}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsGateId"] = types.YLeaf{"Csbperflowstatsgateid", csbperflowstatsentry.Csbperflowstatsgateid}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsFlowPairId"] = types.YLeaf{"Csbperflowstatsflowpairid", csbperflowstatsentry.Csbperflowstatsflowpairid}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsSideId"] = types.YLeaf{"Csbperflowstatssideid", csbperflowstatsentry.Csbperflowstatssideid}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsFlowType"] = types.YLeaf{"Csbperflowstatsflowtype", csbperflowstatsentry.Csbperflowstatsflowtype}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTPPktsSent"] = types.YLeaf{"Csbperflowstatsrtppktssent", csbperflowstatsentry.Csbperflowstatsrtppktssent}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTPPktsRcvd"] = types.YLeaf{"Csbperflowstatsrtppktsrcvd", csbperflowstatsentry.Csbperflowstatsrtppktsrcvd}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTPPktsDiscard"] = types.YLeaf{"Csbperflowstatsrtppktsdiscard", csbperflowstatsentry.Csbperflowstatsrtppktsdiscard}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTPOctetsSent"] = types.YLeaf{"Csbperflowstatsrtpoctetssent", csbperflowstatsentry.Csbperflowstatsrtpoctetssent}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTPOctetsRcvd"] = types.YLeaf{"Csbperflowstatsrtpoctetsrcvd", csbperflowstatsentry.Csbperflowstatsrtpoctetsrcvd}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTPOctetsDiscard"] = types.YLeaf{"Csbperflowstatsrtpoctetsdiscard", csbperflowstatsentry.Csbperflowstatsrtpoctetsdiscard}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTCPPktsSent"] = types.YLeaf{"Csbperflowstatsrtcppktssent", csbperflowstatsentry.Csbperflowstatsrtcppktssent}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTCPPktsRcvd"] = types.YLeaf{"Csbperflowstatsrtcppktsrcvd", csbperflowstatsentry.Csbperflowstatsrtcppktsrcvd}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTCPPktsLost"] = types.YLeaf{"Csbperflowstatsrtcppktslost", csbperflowstatsentry.Csbperflowstatsrtcppktslost}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsEPJitter"] = types.YLeaf{"Csbperflowstatsepjitter", csbperflowstatsentry.Csbperflowstatsepjitter}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsTmanPerMbs"] = types.YLeaf{"Csbperflowstatstmanpermbs", csbperflowstatsentry.Csbperflowstatstmanpermbs}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsTmanPerSdr"] = types.YLeaf{"Csbperflowstatstmanpersdr", csbperflowstatsentry.Csbperflowstatstmanpersdr}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsDscpSettings"] = types.YLeaf{"Csbperflowstatsdscpsettings", csbperflowstatsentry.Csbperflowstatsdscpsettings}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsAdrStatus"] = types.YLeaf{"Csbperflowstatsadrstatus", csbperflowstatsentry.Csbperflowstatsadrstatus}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsQASettings"] = types.YLeaf{"Csbperflowstatsqasettings", csbperflowstatsentry.Csbperflowstatsqasettings}
-    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTPPktsLost"] = types.YLeaf{"Csbperflowstatsrtppktslost", csbperflowstatsentry.Csbperflowstatsrtppktslost}
-    return &(csbperflowstatsentry.EntityData)
+    csbPerFlowStatsEntry.EntityData.Children = types.NewOrderedMap()
+    csbPerFlowStatsEntry.EntityData.Leafs = types.NewOrderedMap()
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbCallStatsInstanceIndex", types.YLeaf{"CsbCallStatsInstanceIndex", csbPerFlowStatsEntry.CsbCallStatsInstanceIndex})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbCallStatsServiceIndex", types.YLeaf{"CsbCallStatsServiceIndex", csbPerFlowStatsEntry.CsbCallStatsServiceIndex})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsVdbeId", types.YLeaf{"CsbPerFlowStatsVdbeId", csbPerFlowStatsEntry.CsbPerFlowStatsVdbeId})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsGateId", types.YLeaf{"CsbPerFlowStatsGateId", csbPerFlowStatsEntry.CsbPerFlowStatsGateId})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsFlowPairId", types.YLeaf{"CsbPerFlowStatsFlowPairId", csbPerFlowStatsEntry.CsbPerFlowStatsFlowPairId})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsSideId", types.YLeaf{"CsbPerFlowStatsSideId", csbPerFlowStatsEntry.CsbPerFlowStatsSideId})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsFlowType", types.YLeaf{"CsbPerFlowStatsFlowType", csbPerFlowStatsEntry.CsbPerFlowStatsFlowType})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsRTPPktsSent", types.YLeaf{"CsbPerFlowStatsRTPPktsSent", csbPerFlowStatsEntry.CsbPerFlowStatsRTPPktsSent})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsRTPPktsRcvd", types.YLeaf{"CsbPerFlowStatsRTPPktsRcvd", csbPerFlowStatsEntry.CsbPerFlowStatsRTPPktsRcvd})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsRTPPktsDiscard", types.YLeaf{"CsbPerFlowStatsRTPPktsDiscard", csbPerFlowStatsEntry.CsbPerFlowStatsRTPPktsDiscard})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsRTPOctetsSent", types.YLeaf{"CsbPerFlowStatsRTPOctetsSent", csbPerFlowStatsEntry.CsbPerFlowStatsRTPOctetsSent})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsRTPOctetsRcvd", types.YLeaf{"CsbPerFlowStatsRTPOctetsRcvd", csbPerFlowStatsEntry.CsbPerFlowStatsRTPOctetsRcvd})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsRTPOctetsDiscard", types.YLeaf{"CsbPerFlowStatsRTPOctetsDiscard", csbPerFlowStatsEntry.CsbPerFlowStatsRTPOctetsDiscard})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsRTCPPktsSent", types.YLeaf{"CsbPerFlowStatsRTCPPktsSent", csbPerFlowStatsEntry.CsbPerFlowStatsRTCPPktsSent})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsRTCPPktsRcvd", types.YLeaf{"CsbPerFlowStatsRTCPPktsRcvd", csbPerFlowStatsEntry.CsbPerFlowStatsRTCPPktsRcvd})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsRTCPPktsLost", types.YLeaf{"CsbPerFlowStatsRTCPPktsLost", csbPerFlowStatsEntry.CsbPerFlowStatsRTCPPktsLost})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsEPJitter", types.YLeaf{"CsbPerFlowStatsEPJitter", csbPerFlowStatsEntry.CsbPerFlowStatsEPJitter})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsTmanPerMbs", types.YLeaf{"CsbPerFlowStatsTmanPerMbs", csbPerFlowStatsEntry.CsbPerFlowStatsTmanPerMbs})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsTmanPerSdr", types.YLeaf{"CsbPerFlowStatsTmanPerSdr", csbPerFlowStatsEntry.CsbPerFlowStatsTmanPerSdr})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsDscpSettings", types.YLeaf{"CsbPerFlowStatsDscpSettings", csbPerFlowStatsEntry.CsbPerFlowStatsDscpSettings})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsAdrStatus", types.YLeaf{"CsbPerFlowStatsAdrStatus", csbPerFlowStatsEntry.CsbPerFlowStatsAdrStatus})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsQASettings", types.YLeaf{"CsbPerFlowStatsQASettings", csbPerFlowStatsEntry.CsbPerFlowStatsQASettings})
+    csbPerFlowStatsEntry.EntityData.Leafs.Append("csbPerFlowStatsRTPPktsLost", types.YLeaf{"CsbPerFlowStatsRTPPktsLost", csbPerFlowStatsEntry.CsbPerFlowStatsRTPPktsLost})
+
+    csbPerFlowStatsEntry.EntityData.YListKeys = []string {"CsbCallStatsInstanceIndex", "CsbCallStatsServiceIndex", "CsbPerFlowStatsVdbeId", "CsbPerFlowStatsGateId", "CsbPerFlowStatsFlowPairId", "CsbPerFlowStatsSideId"}
+
+    return &(csbPerFlowStatsEntry.EntityData)
 }
 
-// CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry_Csbperflowstatsflowtype represents signaling flow etc.
-type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry_Csbperflowstatsflowtype string
+// CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable_CsbPerFlowStatsEntry_CsbPerFlowStatsFlowType represents signaling flow etc.
+type CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable_CsbPerFlowStatsEntry_CsbPerFlowStatsFlowType string
 
 const (
-    CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry_Csbperflowstatsflowtype_media CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry_Csbperflowstatsflowtype = "media"
+    CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable_CsbPerFlowStatsEntry_CsbPerFlowStatsFlowType_media CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable_CsbPerFlowStatsEntry_CsbPerFlowStatsFlowType = "media"
 
-    CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry_Csbperflowstatsflowtype_signalling CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry_Csbperflowstatsflowtype = "signalling"
+    CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable_CsbPerFlowStatsEntry_CsbPerFlowStatsFlowType_signalling CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable_CsbPerFlowStatsEntry_CsbPerFlowStatsFlowType = "signalling"
 )
 
-// CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry_Csbperflowstatssideid represents for the table.
-type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry_Csbperflowstatssideid string
+// CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable_CsbPerFlowStatsEntry_CsbPerFlowStatsSideId represents for the table.
+type CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable_CsbPerFlowStatsEntry_CsbPerFlowStatsSideId string
 
 const (
-    CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry_Csbperflowstatssideid_sideA CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry_Csbperflowstatssideid = "sideA"
+    CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable_CsbPerFlowStatsEntry_CsbPerFlowStatsSideId_sideA CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable_CsbPerFlowStatsEntry_CsbPerFlowStatsSideId = "sideA"
 
-    CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry_Csbperflowstatssideid_sideB CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry_Csbperflowstatssideid = "sideB"
+    CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable_CsbPerFlowStatsEntry_CsbPerFlowStatsSideId_sideB CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbPerFlowStatsTable_CsbPerFlowStatsEntry_CsbPerFlowStatsSideId = "sideB"
 )
 
-// CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable
+// CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbH248StatsTable
 // This table describes the H.248 statistics for SBC. The index of
 // the table is service index which corresponds to a particular 
 // service configured on the SBC and the index assigned to a
 // particular H.248 controller. The other index of this table is
 // csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable.
 // This table is replaced by the csbH248StatsRev1Table.
-type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable struct {
+type CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbH248StatsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1474,160 +1507,166 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable struct {
     // The other indices of this table are csbCallStatsInstanceIndex defined in
     // csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in
     // csbCallStatsTable. The type is slice of
-    // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry.
-    Csbh248Statsentry []CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry
+    // CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbH248StatsTable_CsbH248StatsEntry.
+    CsbH248StatsEntry []*CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbH248StatsTable_CsbH248StatsEntry
 }
 
-func (csbh248Statstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable) GetEntityData() *types.CommonEntityData {
-    csbh248Statstable.EntityData.YFilter = csbh248Statstable.YFilter
-    csbh248Statstable.EntityData.YangName = "csbH248StatsTable"
-    csbh248Statstable.EntityData.BundleName = "cisco_ios_xe"
-    csbh248Statstable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
-    csbh248Statstable.EntityData.SegmentPath = "csbH248StatsTable"
-    csbh248Statstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csbh248Statstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csbh248Statstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (csbH248StatsTable *CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbH248StatsTable) GetEntityData() *types.CommonEntityData {
+    csbH248StatsTable.EntityData.YFilter = csbH248StatsTable.YFilter
+    csbH248StatsTable.EntityData.YangName = "csbH248StatsTable"
+    csbH248StatsTable.EntityData.BundleName = "cisco_ios_xe"
+    csbH248StatsTable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
+    csbH248StatsTable.EntityData.SegmentPath = "csbH248StatsTable"
+    csbH248StatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbH248StatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbH248StatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csbh248Statstable.EntityData.Children = make(map[string]types.YChild)
-    csbh248Statstable.EntityData.Children["csbH248StatsEntry"] = types.YChild{"Csbh248Statsentry", nil}
-    for i := range csbh248Statstable.Csbh248Statsentry {
-        csbh248Statstable.EntityData.Children[types.GetSegmentPath(&csbh248Statstable.Csbh248Statsentry[i])] = types.YChild{"Csbh248Statsentry", &csbh248Statstable.Csbh248Statsentry[i]}
+    csbH248StatsTable.EntityData.Children = types.NewOrderedMap()
+    csbH248StatsTable.EntityData.Children.Append("csbH248StatsEntry", types.YChild{"CsbH248StatsEntry", nil})
+    for i := range csbH248StatsTable.CsbH248StatsEntry {
+        csbH248StatsTable.EntityData.Children.Append(types.GetSegmentPath(csbH248StatsTable.CsbH248StatsEntry[i]), types.YChild{"CsbH248StatsEntry", csbH248StatsTable.CsbH248StatsEntry[i]})
     }
-    csbh248Statstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(csbh248Statstable.EntityData)
+    csbH248StatsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    csbH248StatsTable.EntityData.YListKeys = []string {}
+
+    return &(csbH248StatsTable.EntityData)
 }
 
-// CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry
+// CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbH248StatsTable_CsbH248StatsEntry
 // An conceptual row in the csbCallStath248Table. There is
 // an entry in this table for the particular controller by a value
 // of csbH248StatsCtrlrIndex. The other indices of this table are
 // csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable
 // and csbCallStatsServiceIndex defined in csbCallStatsTable.
-type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry struct {
+type CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbH248StatsTable_CsbH248StatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry_Csbcallstatsinstanceindex
-    Csbcallstatsinstanceindex interface{}
+    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsInstanceTable_CsbCallStatsInstanceEntry_CsbCallStatsInstanceIndex
+    CsbCallStatsInstanceIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry_Csbcallstatsserviceindex
-    Csbcallstatsserviceindex interface{}
+    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsTable_CsbCallStatsEntry_CsbCallStatsServiceIndex
+    CsbCallStatsServiceIndex interface{}
 
     // This attribute is a key. This object identifies the controller index of the
     // H.248 server. This is also the index for the table. The type is interface{}
     // with range: 1..50.
-    Csbh248Statsctrlrindex interface{}
+    CsbH248StatsCtrlrIndex interface{}
 
     // This object indicates the requests sent through the Session Controller
     // Interface to an SBE or DBE. The type is interface{} with range:
     // 0..4294967295.
-    Csbh248Statsrequestssent interface{}
+    CsbH248StatsRequestsSent interface{}
 
     // This object indicates the requests received through the Session Controller
     // Interface to an SBE or DBE. The type is interface{} with range:
     // 0..4294967295.
-    Csbh248Statsrequestsrcvd interface{}
+    CsbH248StatsRequestsRcvd interface{}
 
     // This object indicates the requests failed on session Controller Interface
     // to an SBE or DBE. The type is interface{} with range: 0..4294967295.
-    Csbh248Statsrequestsfailed interface{}
+    CsbH248StatsRequestsFailed interface{}
 
     // This object indicates the requests retried through the Session Controller
     // Interface to an SBE or DBE. The type is interface{} with range:
     // 0..4294967295.
-    Csbh248Statsrequestsretried interface{}
+    CsbH248StatsRequestsRetried interface{}
 
     // This object indicates the number of replies sent through the Session
     // Controller Interface to an SBE or DBE. The type is interface{} with range:
     // 0..4294967295.
-    Csbh248Statsrepliessent interface{}
+    CsbH248StatsRepliesSent interface{}
 
     // This object indicates the number of replies received from the Session
     // Controller Interface to an SBE or DBE. The type is interface{} with range:
     // 0..4294967295.
-    Csbh248Statsrepliesrcvd interface{}
+    CsbH248StatsRepliesRcvd interface{}
 
     // This object indicates the number of replies retried through the Session
     // Controller Interface to an SBE or DBE. The type is interface{} with range:
     // 0..4294967295.
-    Csbh248Statsrepliesretried interface{}
+    CsbH248StatsRepliesRetried interface{}
 
     // This object indicates the number of packets sent through the Session
     // Controller Interface to an SBE or DBE. The type is interface{} with range:
     // 0..4294967295.
-    Csbh248Statssegpktssent interface{}
+    CsbH248StatsSegPktsSent interface{}
 
     // This object indicates the number of packets received from the Session
     // Controller Interface to an SBE or DBE. The type is interface{} with range:
     // 0..4294967295.
-    Csbh248Statssegpktsrcvd interface{}
+    CsbH248StatsSegPktsRcvd interface{}
 
     // This object indicates the H.248 Controller established time (the time at
     // which the association became established). The type is string with length:
     // 0..80.
-    Csbh248Statsestablishedtime interface{}
+    CsbH248StatsEstablishedTime interface{}
 
     // This object indicates the T-Max timeout value. This field specifies the
     // maximum delay (in milliseconds) for a response from an MGC before deciding
     // that the request has failed. The type is interface{} with range:
     // -2147483648..2147483647. Units are milliseconds.
-    Csbh248Statstmaxtimeoutval interface{}
+    CsbH248StatsTMaxTimeoutVal interface{}
 
     // This object indicates the calculated RTT value. This field specifies the
     // maximum round trip propagation delay in the  network (in milliseconds). The
     // type is interface{} with range: 0..4294967295. Units are milliseconds.
-    Csbh248Statsrtt interface{}
+    CsbH248StatsRTT interface{}
 
     // This object indicates the LT value calculated from RTT value and Max
     // timeout value. This field specifies the maximum delay (in milliseconds) for
     // a response from an MGC plus the maximum round trip propagation delay in the
     // network (in milliseconds). The type is interface{} with range:
     // 0..4294967295. Units are milliseconds.
-    Csbh248Statslt interface{}
+    CsbH248StatsLT interface{}
 }
 
-func (csbh248Statsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry) GetEntityData() *types.CommonEntityData {
-    csbh248Statsentry.EntityData.YFilter = csbh248Statsentry.YFilter
-    csbh248Statsentry.EntityData.YangName = "csbH248StatsEntry"
-    csbh248Statsentry.EntityData.BundleName = "cisco_ios_xe"
-    csbh248Statsentry.EntityData.ParentYangName = "csbH248StatsTable"
-    csbh248Statsentry.EntityData.SegmentPath = "csbH248StatsEntry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbh248Statsentry.Csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + fmt.Sprintf("%v", csbh248Statsentry.Csbcallstatsserviceindex) + "']" + "[csbH248StatsCtrlrIndex='" + fmt.Sprintf("%v", csbh248Statsentry.Csbh248Statsctrlrindex) + "']"
-    csbh248Statsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csbh248Statsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csbh248Statsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (csbH248StatsEntry *CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbH248StatsTable_CsbH248StatsEntry) GetEntityData() *types.CommonEntityData {
+    csbH248StatsEntry.EntityData.YFilter = csbH248StatsEntry.YFilter
+    csbH248StatsEntry.EntityData.YangName = "csbH248StatsEntry"
+    csbH248StatsEntry.EntityData.BundleName = "cisco_ios_xe"
+    csbH248StatsEntry.EntityData.ParentYangName = "csbH248StatsTable"
+    csbH248StatsEntry.EntityData.SegmentPath = "csbH248StatsEntry" + types.AddKeyToken(csbH248StatsEntry.CsbCallStatsInstanceIndex, "csbCallStatsInstanceIndex") + types.AddKeyToken(csbH248StatsEntry.CsbCallStatsServiceIndex, "csbCallStatsServiceIndex") + types.AddKeyToken(csbH248StatsEntry.CsbH248StatsCtrlrIndex, "csbH248StatsCtrlrIndex")
+    csbH248StatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbH248StatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbH248StatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csbh248Statsentry.EntityData.Children = make(map[string]types.YChild)
-    csbh248Statsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    csbh248Statsentry.EntityData.Leafs["csbCallStatsInstanceIndex"] = types.YLeaf{"Csbcallstatsinstanceindex", csbh248Statsentry.Csbcallstatsinstanceindex}
-    csbh248Statsentry.EntityData.Leafs["csbCallStatsServiceIndex"] = types.YLeaf{"Csbcallstatsserviceindex", csbh248Statsentry.Csbcallstatsserviceindex}
-    csbh248Statsentry.EntityData.Leafs["csbH248StatsCtrlrIndex"] = types.YLeaf{"Csbh248Statsctrlrindex", csbh248Statsentry.Csbh248Statsctrlrindex}
-    csbh248Statsentry.EntityData.Leafs["csbH248StatsRequestsSent"] = types.YLeaf{"Csbh248Statsrequestssent", csbh248Statsentry.Csbh248Statsrequestssent}
-    csbh248Statsentry.EntityData.Leafs["csbH248StatsRequestsRcvd"] = types.YLeaf{"Csbh248Statsrequestsrcvd", csbh248Statsentry.Csbh248Statsrequestsrcvd}
-    csbh248Statsentry.EntityData.Leafs["csbH248StatsRequestsFailed"] = types.YLeaf{"Csbh248Statsrequestsfailed", csbh248Statsentry.Csbh248Statsrequestsfailed}
-    csbh248Statsentry.EntityData.Leafs["csbH248StatsRequestsRetried"] = types.YLeaf{"Csbh248Statsrequestsretried", csbh248Statsentry.Csbh248Statsrequestsretried}
-    csbh248Statsentry.EntityData.Leafs["csbH248StatsRepliesSent"] = types.YLeaf{"Csbh248Statsrepliessent", csbh248Statsentry.Csbh248Statsrepliessent}
-    csbh248Statsentry.EntityData.Leafs["csbH248StatsRepliesRcvd"] = types.YLeaf{"Csbh248Statsrepliesrcvd", csbh248Statsentry.Csbh248Statsrepliesrcvd}
-    csbh248Statsentry.EntityData.Leafs["csbH248StatsRepliesRetried"] = types.YLeaf{"Csbh248Statsrepliesretried", csbh248Statsentry.Csbh248Statsrepliesretried}
-    csbh248Statsentry.EntityData.Leafs["csbH248StatsSegPktsSent"] = types.YLeaf{"Csbh248Statssegpktssent", csbh248Statsentry.Csbh248Statssegpktssent}
-    csbh248Statsentry.EntityData.Leafs["csbH248StatsSegPktsRcvd"] = types.YLeaf{"Csbh248Statssegpktsrcvd", csbh248Statsentry.Csbh248Statssegpktsrcvd}
-    csbh248Statsentry.EntityData.Leafs["csbH248StatsEstablishedTime"] = types.YLeaf{"Csbh248Statsestablishedtime", csbh248Statsentry.Csbh248Statsestablishedtime}
-    csbh248Statsentry.EntityData.Leafs["csbH248StatsTMaxTimeoutVal"] = types.YLeaf{"Csbh248Statstmaxtimeoutval", csbh248Statsentry.Csbh248Statstmaxtimeoutval}
-    csbh248Statsentry.EntityData.Leafs["csbH248StatsRTT"] = types.YLeaf{"Csbh248Statsrtt", csbh248Statsentry.Csbh248Statsrtt}
-    csbh248Statsentry.EntityData.Leafs["csbH248StatsLT"] = types.YLeaf{"Csbh248Statslt", csbh248Statsentry.Csbh248Statslt}
-    return &(csbh248Statsentry.EntityData)
+    csbH248StatsEntry.EntityData.Children = types.NewOrderedMap()
+    csbH248StatsEntry.EntityData.Leafs = types.NewOrderedMap()
+    csbH248StatsEntry.EntityData.Leafs.Append("csbCallStatsInstanceIndex", types.YLeaf{"CsbCallStatsInstanceIndex", csbH248StatsEntry.CsbCallStatsInstanceIndex})
+    csbH248StatsEntry.EntityData.Leafs.Append("csbCallStatsServiceIndex", types.YLeaf{"CsbCallStatsServiceIndex", csbH248StatsEntry.CsbCallStatsServiceIndex})
+    csbH248StatsEntry.EntityData.Leafs.Append("csbH248StatsCtrlrIndex", types.YLeaf{"CsbH248StatsCtrlrIndex", csbH248StatsEntry.CsbH248StatsCtrlrIndex})
+    csbH248StatsEntry.EntityData.Leafs.Append("csbH248StatsRequestsSent", types.YLeaf{"CsbH248StatsRequestsSent", csbH248StatsEntry.CsbH248StatsRequestsSent})
+    csbH248StatsEntry.EntityData.Leafs.Append("csbH248StatsRequestsRcvd", types.YLeaf{"CsbH248StatsRequestsRcvd", csbH248StatsEntry.CsbH248StatsRequestsRcvd})
+    csbH248StatsEntry.EntityData.Leafs.Append("csbH248StatsRequestsFailed", types.YLeaf{"CsbH248StatsRequestsFailed", csbH248StatsEntry.CsbH248StatsRequestsFailed})
+    csbH248StatsEntry.EntityData.Leafs.Append("csbH248StatsRequestsRetried", types.YLeaf{"CsbH248StatsRequestsRetried", csbH248StatsEntry.CsbH248StatsRequestsRetried})
+    csbH248StatsEntry.EntityData.Leafs.Append("csbH248StatsRepliesSent", types.YLeaf{"CsbH248StatsRepliesSent", csbH248StatsEntry.CsbH248StatsRepliesSent})
+    csbH248StatsEntry.EntityData.Leafs.Append("csbH248StatsRepliesRcvd", types.YLeaf{"CsbH248StatsRepliesRcvd", csbH248StatsEntry.CsbH248StatsRepliesRcvd})
+    csbH248StatsEntry.EntityData.Leafs.Append("csbH248StatsRepliesRetried", types.YLeaf{"CsbH248StatsRepliesRetried", csbH248StatsEntry.CsbH248StatsRepliesRetried})
+    csbH248StatsEntry.EntityData.Leafs.Append("csbH248StatsSegPktsSent", types.YLeaf{"CsbH248StatsSegPktsSent", csbH248StatsEntry.CsbH248StatsSegPktsSent})
+    csbH248StatsEntry.EntityData.Leafs.Append("csbH248StatsSegPktsRcvd", types.YLeaf{"CsbH248StatsSegPktsRcvd", csbH248StatsEntry.CsbH248StatsSegPktsRcvd})
+    csbH248StatsEntry.EntityData.Leafs.Append("csbH248StatsEstablishedTime", types.YLeaf{"CsbH248StatsEstablishedTime", csbH248StatsEntry.CsbH248StatsEstablishedTime})
+    csbH248StatsEntry.EntityData.Leafs.Append("csbH248StatsTMaxTimeoutVal", types.YLeaf{"CsbH248StatsTMaxTimeoutVal", csbH248StatsEntry.CsbH248StatsTMaxTimeoutVal})
+    csbH248StatsEntry.EntityData.Leafs.Append("csbH248StatsRTT", types.YLeaf{"CsbH248StatsRTT", csbH248StatsEntry.CsbH248StatsRTT})
+    csbH248StatsEntry.EntityData.Leafs.Append("csbH248StatsLT", types.YLeaf{"CsbH248StatsLT", csbH248StatsEntry.CsbH248StatsLT})
+
+    csbH248StatsEntry.EntityData.YListKeys = []string {"CsbCallStatsInstanceIndex", "CsbCallStatsServiceIndex", "CsbH248StatsCtrlrIndex"}
+
+    return &(csbH248StatsEntry.EntityData)
 }
 
-// CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table
+// CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbH248StatsRev1Table
 // This table describes the H.248 statistics for SBC. The index of
 // the table is service index which corresponds to a particular 
 // service configured on the SBC and the index assigned to a
 // particular H.248 controller. The other index of this table is
 // csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable.
-type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table struct {
+type CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbH248StatsRev1Table struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1636,150 +1675,156 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table struct {
     // indices of this table are csbCallStatsInstanceIndex defined in
     // csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in
     // csbCallStatsTable. The type is slice of
-    // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry.
-    Csbh248Statsrev1Entry []CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry
+    // CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbH248StatsRev1Table_CsbH248StatsRev1Entry.
+    CsbH248StatsRev1Entry []*CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbH248StatsRev1Table_CsbH248StatsRev1Entry
 }
 
-func (csbh248Statsrev1Table *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table) GetEntityData() *types.CommonEntityData {
-    csbh248Statsrev1Table.EntityData.YFilter = csbh248Statsrev1Table.YFilter
-    csbh248Statsrev1Table.EntityData.YangName = "csbH248StatsRev1Table"
-    csbh248Statsrev1Table.EntityData.BundleName = "cisco_ios_xe"
-    csbh248Statsrev1Table.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
-    csbh248Statsrev1Table.EntityData.SegmentPath = "csbH248StatsRev1Table"
-    csbh248Statsrev1Table.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csbh248Statsrev1Table.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csbh248Statsrev1Table.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (csbH248StatsRev1Table *CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbH248StatsRev1Table) GetEntityData() *types.CommonEntityData {
+    csbH248StatsRev1Table.EntityData.YFilter = csbH248StatsRev1Table.YFilter
+    csbH248StatsRev1Table.EntityData.YangName = "csbH248StatsRev1Table"
+    csbH248StatsRev1Table.EntityData.BundleName = "cisco_ios_xe"
+    csbH248StatsRev1Table.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
+    csbH248StatsRev1Table.EntityData.SegmentPath = "csbH248StatsRev1Table"
+    csbH248StatsRev1Table.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbH248StatsRev1Table.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbH248StatsRev1Table.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csbh248Statsrev1Table.EntityData.Children = make(map[string]types.YChild)
-    csbh248Statsrev1Table.EntityData.Children["csbH248StatsRev1Entry"] = types.YChild{"Csbh248Statsrev1Entry", nil}
-    for i := range csbh248Statsrev1Table.Csbh248Statsrev1Entry {
-        csbh248Statsrev1Table.EntityData.Children[types.GetSegmentPath(&csbh248Statsrev1Table.Csbh248Statsrev1Entry[i])] = types.YChild{"Csbh248Statsrev1Entry", &csbh248Statsrev1Table.Csbh248Statsrev1Entry[i]}
+    csbH248StatsRev1Table.EntityData.Children = types.NewOrderedMap()
+    csbH248StatsRev1Table.EntityData.Children.Append("csbH248StatsRev1Entry", types.YChild{"CsbH248StatsRev1Entry", nil})
+    for i := range csbH248StatsRev1Table.CsbH248StatsRev1Entry {
+        csbH248StatsRev1Table.EntityData.Children.Append(types.GetSegmentPath(csbH248StatsRev1Table.CsbH248StatsRev1Entry[i]), types.YChild{"CsbH248StatsRev1Entry", csbH248StatsRev1Table.CsbH248StatsRev1Entry[i]})
     }
-    csbh248Statsrev1Table.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(csbh248Statsrev1Table.EntityData)
+    csbH248StatsRev1Table.EntityData.Leafs = types.NewOrderedMap()
+
+    csbH248StatsRev1Table.EntityData.YListKeys = []string {}
+
+    return &(csbH248StatsRev1Table.EntityData)
 }
 
-// CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry
+// CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbH248StatsRev1Table_CsbH248StatsRev1Entry
 // An conceptual row in the csbCallStath248Table. There is
 // an entry in this table for the particular Vdbe by a value
 // of csbH248StatsVdbeId. The other indices of this table are
 // csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable
 // and csbCallStatsServiceIndex defined in csbCallStatsTable.
-type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry struct {
+type CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbH248StatsRev1Table_CsbH248StatsRev1Entry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry_Csbcallstatsinstanceindex
-    Csbcallstatsinstanceindex interface{}
+    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsInstanceTable_CsbCallStatsInstanceEntry_CsbCallStatsInstanceIndex
+    CsbCallStatsInstanceIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry_Csbcallstatsserviceindex
-    Csbcallstatsserviceindex interface{}
+    // cisco_sess_border_ctrlr_call_stats_mib.CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbCallStatsTable_CsbCallStatsEntry_CsbCallStatsServiceIndex
+    CsbCallStatsServiceIndex interface{}
 
     // This attribute is a key. This object identifies the virtual media gateway
     // id. This is also the index for the table. The type is interface{} with
     // range: 0..255.
-    Csbh248Statsvdbeid interface{}
+    CsbH248StatsVdbeId interface{}
 
     // This object indicates the requests sent through the Session Controller
     // Interface to an SBE or DBE. The type is interface{} with range:
     // 0..4294967295.
-    Csbh248Statsrequestssentrev1 interface{}
+    CsbH248StatsRequestsSentRev1 interface{}
 
     // This object indicates the requests received through the Session Controller
     // Interface to an SBE or DBE. The type is interface{} with range:
     // 0..4294967295.
-    Csbh248Statsrequestsrcvdrev1 interface{}
+    CsbH248StatsRequestsRcvdRev1 interface{}
 
     // This object indicates the requests failed on session Controller Interface
     // to an SBE or DBE. The type is interface{} with range: 0..4294967295.
-    Csbh248Statsrequestsfailedrev1 interface{}
+    CsbH248StatsRequestsFailedRev1 interface{}
 
     // This object indicates the requests retried through the Session Controller
     // Interface to an SBE or DBE. The type is interface{} with range:
     // 0..4294967295.
-    Csbh248Statsrequestsretriedrev1 interface{}
+    CsbH248StatsRequestsRetriedRev1 interface{}
 
     // This object indicates the number of replies sent through the Session
     // Controller Interface to an SBE or DBE. The type is interface{} with range:
     // 0..4294967295.
-    Csbh248Statsrepliessentrev1 interface{}
+    CsbH248StatsRepliesSentRev1 interface{}
 
     // This object indicates the number of replies received from the Session
     // Controller Interface to an SBE or DBE. The type is interface{} with range:
     // 0..4294967295.
-    Csbh248Statsrepliesrcvdrev1 interface{}
+    CsbH248StatsRepliesRcvdRev1 interface{}
 
     // This object indicates the number of replies retried through the Session
     // Controller Interface to an SBE or DBE. The type is interface{} with range:
     // 0..4294967295.
-    Csbh248Statsrepliesretriedrev1 interface{}
+    CsbH248StatsRepliesRetriedRev1 interface{}
 
     // This object indicates the number of response segments sent by DBE. This
     // field will only be present if segmentation is enabled on this association.
     // The type is interface{} with range: 0..4294967295.
-    Csbh248Statssegpktssentrev1 interface{}
+    CsbH248StatsSegPktsSentRev1 interface{}
 
     // This object indicates the number of response segments received by DBE. This
     // field will only be present if segmentation is enabled on this association.
     // The type is interface{} with range: 0..4294967295.
-    Csbh248Statssegpktsrcvdrev1 interface{}
+    CsbH248StatsSegPktsRcvdRev1 interface{}
 
     // This object indicates the H.248 Controller established time (the time at
     // which the association became established). The type is string with length:
     // 0..80.
-    Csbh248Statsestablishedtimerev1 interface{}
+    CsbH248StatsEstablishedTimeRev1 interface{}
 
     // This object indicates the T-Max timeout value. This field specifies the
     // maximum delay (in milliseconds) for a response from an MGC before deciding
     // that the request has failed. The type is interface{} with range:
     // -2147483648..2147483647. Units are milliseconds.
-    Csbh248Statstmaxtimeoutvalrev1 interface{}
+    CsbH248StatsTMaxTimeoutValRev1 interface{}
 
     // This object indicates the calculated RTT value. This field specifies the
     // maximum round trip propagation delay in the  network (in milliseconds). The
     // type is interface{} with range: 0..4294967295. Units are milliseconds.
-    Csbh248Statsrttrev1 interface{}
+    CsbH248StatsRTTRev1 interface{}
 
     // This object indicates the LT value calculated from RTT value and Max
     // timeout value. This field specifies the maximum delay (in milliseconds) for
     // a response from an MGC plus the maximum round trip propagation delay in the
     // network (in milliseconds). The type is interface{} with range:
     // 0..4294967295. Units are milliseconds.
-    Csbh248Statsltrev1 interface{}
+    CsbH248StatsLTRev1 interface{}
 }
 
-func (csbh248Statsrev1Entry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry) GetEntityData() *types.CommonEntityData {
-    csbh248Statsrev1Entry.EntityData.YFilter = csbh248Statsrev1Entry.YFilter
-    csbh248Statsrev1Entry.EntityData.YangName = "csbH248StatsRev1Entry"
-    csbh248Statsrev1Entry.EntityData.BundleName = "cisco_ios_xe"
-    csbh248Statsrev1Entry.EntityData.ParentYangName = "csbH248StatsRev1Table"
-    csbh248Statsrev1Entry.EntityData.SegmentPath = "csbH248StatsRev1Entry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbh248Statsrev1Entry.Csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + fmt.Sprintf("%v", csbh248Statsrev1Entry.Csbcallstatsserviceindex) + "']" + "[csbH248StatsVdbeId='" + fmt.Sprintf("%v", csbh248Statsrev1Entry.Csbh248Statsvdbeid) + "']"
-    csbh248Statsrev1Entry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    csbh248Statsrev1Entry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    csbh248Statsrev1Entry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (csbH248StatsRev1Entry *CISCOSESSBORDERCTRLRCALLSTATSMIB_CsbH248StatsRev1Table_CsbH248StatsRev1Entry) GetEntityData() *types.CommonEntityData {
+    csbH248StatsRev1Entry.EntityData.YFilter = csbH248StatsRev1Entry.YFilter
+    csbH248StatsRev1Entry.EntityData.YangName = "csbH248StatsRev1Entry"
+    csbH248StatsRev1Entry.EntityData.BundleName = "cisco_ios_xe"
+    csbH248StatsRev1Entry.EntityData.ParentYangName = "csbH248StatsRev1Table"
+    csbH248StatsRev1Entry.EntityData.SegmentPath = "csbH248StatsRev1Entry" + types.AddKeyToken(csbH248StatsRev1Entry.CsbCallStatsInstanceIndex, "csbCallStatsInstanceIndex") + types.AddKeyToken(csbH248StatsRev1Entry.CsbCallStatsServiceIndex, "csbCallStatsServiceIndex") + types.AddKeyToken(csbH248StatsRev1Entry.CsbH248StatsVdbeId, "csbH248StatsVdbeId")
+    csbH248StatsRev1Entry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbH248StatsRev1Entry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbH248StatsRev1Entry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    csbh248Statsrev1Entry.EntityData.Children = make(map[string]types.YChild)
-    csbh248Statsrev1Entry.EntityData.Leafs = make(map[string]types.YLeaf)
-    csbh248Statsrev1Entry.EntityData.Leafs["csbCallStatsInstanceIndex"] = types.YLeaf{"Csbcallstatsinstanceindex", csbh248Statsrev1Entry.Csbcallstatsinstanceindex}
-    csbh248Statsrev1Entry.EntityData.Leafs["csbCallStatsServiceIndex"] = types.YLeaf{"Csbcallstatsserviceindex", csbh248Statsrev1Entry.Csbcallstatsserviceindex}
-    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsVdbeId"] = types.YLeaf{"Csbh248Statsvdbeid", csbh248Statsrev1Entry.Csbh248Statsvdbeid}
-    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsRequestsSentRev1"] = types.YLeaf{"Csbh248Statsrequestssentrev1", csbh248Statsrev1Entry.Csbh248Statsrequestssentrev1}
-    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsRequestsRcvdRev1"] = types.YLeaf{"Csbh248Statsrequestsrcvdrev1", csbh248Statsrev1Entry.Csbh248Statsrequestsrcvdrev1}
-    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsRequestsFailedRev1"] = types.YLeaf{"Csbh248Statsrequestsfailedrev1", csbh248Statsrev1Entry.Csbh248Statsrequestsfailedrev1}
-    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsRequestsRetriedRev1"] = types.YLeaf{"Csbh248Statsrequestsretriedrev1", csbh248Statsrev1Entry.Csbh248Statsrequestsretriedrev1}
-    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsRepliesSentRev1"] = types.YLeaf{"Csbh248Statsrepliessentrev1", csbh248Statsrev1Entry.Csbh248Statsrepliessentrev1}
-    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsRepliesRcvdRev1"] = types.YLeaf{"Csbh248Statsrepliesrcvdrev1", csbh248Statsrev1Entry.Csbh248Statsrepliesrcvdrev1}
-    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsRepliesRetriedRev1"] = types.YLeaf{"Csbh248Statsrepliesretriedrev1", csbh248Statsrev1Entry.Csbh248Statsrepliesretriedrev1}
-    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsSegPktsSentRev1"] = types.YLeaf{"Csbh248Statssegpktssentrev1", csbh248Statsrev1Entry.Csbh248Statssegpktssentrev1}
-    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsSegPktsRcvdRev1"] = types.YLeaf{"Csbh248Statssegpktsrcvdrev1", csbh248Statsrev1Entry.Csbh248Statssegpktsrcvdrev1}
-    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsEstablishedTimeRev1"] = types.YLeaf{"Csbh248Statsestablishedtimerev1", csbh248Statsrev1Entry.Csbh248Statsestablishedtimerev1}
-    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsTMaxTimeoutValRev1"] = types.YLeaf{"Csbh248Statstmaxtimeoutvalrev1", csbh248Statsrev1Entry.Csbh248Statstmaxtimeoutvalrev1}
-    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsRTTRev1"] = types.YLeaf{"Csbh248Statsrttrev1", csbh248Statsrev1Entry.Csbh248Statsrttrev1}
-    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsLTRev1"] = types.YLeaf{"Csbh248Statsltrev1", csbh248Statsrev1Entry.Csbh248Statsltrev1}
-    return &(csbh248Statsrev1Entry.EntityData)
+    csbH248StatsRev1Entry.EntityData.Children = types.NewOrderedMap()
+    csbH248StatsRev1Entry.EntityData.Leafs = types.NewOrderedMap()
+    csbH248StatsRev1Entry.EntityData.Leafs.Append("csbCallStatsInstanceIndex", types.YLeaf{"CsbCallStatsInstanceIndex", csbH248StatsRev1Entry.CsbCallStatsInstanceIndex})
+    csbH248StatsRev1Entry.EntityData.Leafs.Append("csbCallStatsServiceIndex", types.YLeaf{"CsbCallStatsServiceIndex", csbH248StatsRev1Entry.CsbCallStatsServiceIndex})
+    csbH248StatsRev1Entry.EntityData.Leafs.Append("csbH248StatsVdbeId", types.YLeaf{"CsbH248StatsVdbeId", csbH248StatsRev1Entry.CsbH248StatsVdbeId})
+    csbH248StatsRev1Entry.EntityData.Leafs.Append("csbH248StatsRequestsSentRev1", types.YLeaf{"CsbH248StatsRequestsSentRev1", csbH248StatsRev1Entry.CsbH248StatsRequestsSentRev1})
+    csbH248StatsRev1Entry.EntityData.Leafs.Append("csbH248StatsRequestsRcvdRev1", types.YLeaf{"CsbH248StatsRequestsRcvdRev1", csbH248StatsRev1Entry.CsbH248StatsRequestsRcvdRev1})
+    csbH248StatsRev1Entry.EntityData.Leafs.Append("csbH248StatsRequestsFailedRev1", types.YLeaf{"CsbH248StatsRequestsFailedRev1", csbH248StatsRev1Entry.CsbH248StatsRequestsFailedRev1})
+    csbH248StatsRev1Entry.EntityData.Leafs.Append("csbH248StatsRequestsRetriedRev1", types.YLeaf{"CsbH248StatsRequestsRetriedRev1", csbH248StatsRev1Entry.CsbH248StatsRequestsRetriedRev1})
+    csbH248StatsRev1Entry.EntityData.Leafs.Append("csbH248StatsRepliesSentRev1", types.YLeaf{"CsbH248StatsRepliesSentRev1", csbH248StatsRev1Entry.CsbH248StatsRepliesSentRev1})
+    csbH248StatsRev1Entry.EntityData.Leafs.Append("csbH248StatsRepliesRcvdRev1", types.YLeaf{"CsbH248StatsRepliesRcvdRev1", csbH248StatsRev1Entry.CsbH248StatsRepliesRcvdRev1})
+    csbH248StatsRev1Entry.EntityData.Leafs.Append("csbH248StatsRepliesRetriedRev1", types.YLeaf{"CsbH248StatsRepliesRetriedRev1", csbH248StatsRev1Entry.CsbH248StatsRepliesRetriedRev1})
+    csbH248StatsRev1Entry.EntityData.Leafs.Append("csbH248StatsSegPktsSentRev1", types.YLeaf{"CsbH248StatsSegPktsSentRev1", csbH248StatsRev1Entry.CsbH248StatsSegPktsSentRev1})
+    csbH248StatsRev1Entry.EntityData.Leafs.Append("csbH248StatsSegPktsRcvdRev1", types.YLeaf{"CsbH248StatsSegPktsRcvdRev1", csbH248StatsRev1Entry.CsbH248StatsSegPktsRcvdRev1})
+    csbH248StatsRev1Entry.EntityData.Leafs.Append("csbH248StatsEstablishedTimeRev1", types.YLeaf{"CsbH248StatsEstablishedTimeRev1", csbH248StatsRev1Entry.CsbH248StatsEstablishedTimeRev1})
+    csbH248StatsRev1Entry.EntityData.Leafs.Append("csbH248StatsTMaxTimeoutValRev1", types.YLeaf{"CsbH248StatsTMaxTimeoutValRev1", csbH248StatsRev1Entry.CsbH248StatsTMaxTimeoutValRev1})
+    csbH248StatsRev1Entry.EntityData.Leafs.Append("csbH248StatsRTTRev1", types.YLeaf{"CsbH248StatsRTTRev1", csbH248StatsRev1Entry.CsbH248StatsRTTRev1})
+    csbH248StatsRev1Entry.EntityData.Leafs.Append("csbH248StatsLTRev1", types.YLeaf{"CsbH248StatsLTRev1", csbH248StatsRev1Entry.CsbH248StatsLTRev1})
+
+    csbH248StatsRev1Entry.EntityData.YListKeys = []string {"CsbCallStatsInstanceIndex", "CsbCallStatsServiceIndex", "CsbH248StatsVdbeId"}
+
+    return &(csbH248StatsRev1Entry.EntityData)
 }
 

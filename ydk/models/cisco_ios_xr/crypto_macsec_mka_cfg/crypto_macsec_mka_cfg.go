@@ -24,6 +24,20 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-crypto-macsec-mka-cfg:macsec", reflect.TypeOf(Macsec{}))
 }
 
+// MacsecMkaConfOffset represents Macsec mka conf offset
+type MacsecMkaConfOffset string
+
+const (
+    // CONF OFFSET 0
+    MacsecMkaConfOffset_conf_off_set_0 MacsecMkaConfOffset = "conf-off-set-0"
+
+    // CONF OFFSET 30
+    MacsecMkaConfOffset_conf_off_set_30 MacsecMkaConfOffset = "conf-off-set-30"
+
+    // CONF OFFSET 50
+    MacsecMkaConfOffset_conf_off_set_50 MacsecMkaConfOffset = "conf-off-set-50"
+)
+
 // MacsecMkaSecurityPolicy represents Macsec mka security policy
 type MacsecMkaSecurityPolicy string
 
@@ -60,20 +74,6 @@ const (
     MacsecMkaCipherSuite_gcm_aes_xpn_256 MacsecMkaCipherSuite = "gcm-aes-xpn-256"
 )
 
-// MacsecMkaConfOffset represents Macsec mka conf offset
-type MacsecMkaConfOffset string
-
-const (
-    // CONF OFFSET 0
-    MacsecMkaConfOffset_conf_off_set_0 MacsecMkaConfOffset = "conf-off-set-0"
-
-    // CONF OFFSET 30
-    MacsecMkaConfOffset_conf_off_set_30 MacsecMkaConfOffset = "conf-off-set-30"
-
-    // CONF OFFSET 50
-    MacsecMkaConfOffset_conf_off_set_50 MacsecMkaConfOffset = "conf-off-set-50"
-)
-
 // Macsec
 // MACSec MKA
 type Macsec struct {
@@ -81,7 +81,7 @@ type Macsec struct {
     YFilter yfilter.YFilter
 
     // MACSec Policy. The type is slice of Macsec_Policy.
-    Policy []Macsec_Policy
+    Policy []*Macsec_Policy
 }
 
 func (macsec *Macsec) GetEntityData() *types.CommonEntityData {
@@ -94,12 +94,15 @@ func (macsec *Macsec) GetEntityData() *types.CommonEntityData {
     macsec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macsec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    macsec.EntityData.Children = make(map[string]types.YChild)
-    macsec.EntityData.Children["policy"] = types.YChild{"Policy", nil}
+    macsec.EntityData.Children = types.NewOrderedMap()
+    macsec.EntityData.Children.Append("policy", types.YChild{"Policy", nil})
     for i := range macsec.Policy {
-        macsec.EntityData.Children[types.GetSegmentPath(&macsec.Policy[i])] = types.YChild{"Policy", &macsec.Policy[i]}
+        macsec.EntityData.Children.Append(types.GetSegmentPath(macsec.Policy[i]), types.YChild{"Policy", macsec.Policy[i]})
     }
-    macsec.EntityData.Leafs = make(map[string]types.YLeaf)
+    macsec.EntityData.Leafs = types.NewOrderedMap()
+
+    macsec.EntityData.YListKeys = []string {}
+
     return &(macsec.EntityData)
 }
 
@@ -151,24 +154,27 @@ func (policy *Macsec_Policy) GetEntityData() *types.CommonEntityData {
     policy.EntityData.YangName = "policy"
     policy.EntityData.BundleName = "cisco_ios_xr"
     policy.EntityData.ParentYangName = "macsec"
-    policy.EntityData.SegmentPath = "policy" + "[name='" + fmt.Sprintf("%v", policy.Name) + "']"
+    policy.EntityData.SegmentPath = "policy" + types.AddKeyToken(policy.Name, "name")
     policy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policy.EntityData.Children = make(map[string]types.YChild)
-    policy.EntityData.Leafs = make(map[string]types.YLeaf)
-    policy.EntityData.Leafs["name"] = types.YLeaf{"Name", policy.Name}
-    policy.EntityData.Leafs["delay-protection"] = types.YLeaf{"DelayProtection", policy.DelayProtection}
-    policy.EntityData.Leafs["security-policy"] = types.YLeaf{"SecurityPolicy", policy.SecurityPolicy}
-    policy.EntityData.Leafs["key-server-priority"] = types.YLeaf{"KeyServerPriority", policy.KeyServerPriority}
-    policy.EntityData.Leafs["conf-offset"] = types.YLeaf{"ConfOffset", policy.ConfOffset}
-    policy.EntityData.Leafs["sak-rekey-interval"] = types.YLeaf{"SakRekeyInterval", policy.SakRekeyInterval}
-    policy.EntityData.Leafs["policy-exception"] = types.YLeaf{"PolicyException", policy.PolicyException}
-    policy.EntityData.Leafs["window-size"] = types.YLeaf{"WindowSize", policy.WindowSize}
-    policy.EntityData.Leafs["cipher-suite"] = types.YLeaf{"CipherSuite", policy.CipherSuite}
-    policy.EntityData.Leafs["include-icv-indicator"] = types.YLeaf{"IncludeIcvIndicator", policy.IncludeIcvIndicator}
-    policy.EntityData.Leafs["vlan-tags-in-clear"] = types.YLeaf{"VlanTagsInClear", policy.VlanTagsInClear}
+    policy.EntityData.Children = types.NewOrderedMap()
+    policy.EntityData.Leafs = types.NewOrderedMap()
+    policy.EntityData.Leafs.Append("name", types.YLeaf{"Name", policy.Name})
+    policy.EntityData.Leafs.Append("delay-protection", types.YLeaf{"DelayProtection", policy.DelayProtection})
+    policy.EntityData.Leafs.Append("security-policy", types.YLeaf{"SecurityPolicy", policy.SecurityPolicy})
+    policy.EntityData.Leafs.Append("key-server-priority", types.YLeaf{"KeyServerPriority", policy.KeyServerPriority})
+    policy.EntityData.Leafs.Append("conf-offset", types.YLeaf{"ConfOffset", policy.ConfOffset})
+    policy.EntityData.Leafs.Append("sak-rekey-interval", types.YLeaf{"SakRekeyInterval", policy.SakRekeyInterval})
+    policy.EntityData.Leafs.Append("policy-exception", types.YLeaf{"PolicyException", policy.PolicyException})
+    policy.EntityData.Leafs.Append("window-size", types.YLeaf{"WindowSize", policy.WindowSize})
+    policy.EntityData.Leafs.Append("cipher-suite", types.YLeaf{"CipherSuite", policy.CipherSuite})
+    policy.EntityData.Leafs.Append("include-icv-indicator", types.YLeaf{"IncludeIcvIndicator", policy.IncludeIcvIndicator})
+    policy.EntityData.Leafs.Append("vlan-tags-in-clear", types.YLeaf{"VlanTagsInClear", policy.VlanTagsInClear})
+
+    policy.EntityData.YListKeys = []string {"Name"}
+
     return &(policy.EntityData)
 }
 

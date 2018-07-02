@@ -24,6 +24,17 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6", reflect.TypeOf(Dhcpv6{}))
 }
 
+// Action represents Action
+type Action string
+
+const (
+    // Allow vendor specific DHCP Solicit
+    Action_allow Action = "allow"
+
+    // Drop vendor specific DHCP Solicit
+    Action_drop Action = "drop"
+)
+
 // Insert represents Insert
 type Insert string
 
@@ -39,14 +50,6 @@ const (
     Insert_pppoe Insert = "pppoe"
 )
 
-// SubscriberId represents Subscriber id
-type SubscriberId string
-
-const (
-    // Insert Received Subscriber-ID Value from SADB
-    SubscriberId_pppoe SubscriberId = "pppoe"
-)
-
 // LinkLayerAddr represents Link layer addr
 type LinkLayerAddr string
 
@@ -55,12 +58,25 @@ const (
     LinkLayerAddr_set LinkLayerAddr = "set"
 )
 
+// SubscriberId represents Subscriber id
+type SubscriberId string
+
+const (
+    // Insert Received Subscriber-ID Value from SADB
+    SubscriberId_pppoe SubscriberId = "pppoe"
+)
+
 // Dhcpv6
 // None
 // This type is a presence type.
 type Dhcpv6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
+
+    // Inner cos values for DHCPv6 packets to wards clients. The type is
+    // interface{} with range: 0..7.
+    InnerCos interface{}
 
     // Enable None. Deletion of this object also causes deletion of all associated
     // objects under DHCPv6. The type is interface{}. This attribute is mandatory.
@@ -69,6 +85,10 @@ type Dhcpv6 struct {
     // For BNG session, allow duid change for a client MAC. The type is
     // interface{}.
     AllowDuidChange interface{}
+
+    // Configure outer cos values for DHCPv6 packet to wards client. The type is
+    // interface{} with range: 0..7.
+    OuterCos interface{}
 
     // Enable DHCP binding database storage to file system.
     Database Dhcpv6_Database
@@ -90,13 +110,18 @@ func (dhcpv6 *Dhcpv6) GetEntityData() *types.CommonEntityData {
     dhcpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dhcpv6.EntityData.Children = make(map[string]types.YChild)
-    dhcpv6.EntityData.Children["database"] = types.YChild{"Database", &dhcpv6.Database}
-    dhcpv6.EntityData.Children["profiles"] = types.YChild{"Profiles", &dhcpv6.Profiles}
-    dhcpv6.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &dhcpv6.Interfaces}
-    dhcpv6.EntityData.Leafs = make(map[string]types.YLeaf)
-    dhcpv6.EntityData.Leafs["enable"] = types.YLeaf{"Enable", dhcpv6.Enable}
-    dhcpv6.EntityData.Leafs["allow-duid-change"] = types.YLeaf{"AllowDuidChange", dhcpv6.AllowDuidChange}
+    dhcpv6.EntityData.Children = types.NewOrderedMap()
+    dhcpv6.EntityData.Children.Append("database", types.YChild{"Database", &dhcpv6.Database})
+    dhcpv6.EntityData.Children.Append("profiles", types.YChild{"Profiles", &dhcpv6.Profiles})
+    dhcpv6.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &dhcpv6.Interfaces})
+    dhcpv6.EntityData.Leafs = types.NewOrderedMap()
+    dhcpv6.EntityData.Leafs.Append("inner-cos", types.YLeaf{"InnerCos", dhcpv6.InnerCos})
+    dhcpv6.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", dhcpv6.Enable})
+    dhcpv6.EntityData.Leafs.Append("allow-duid-change", types.YLeaf{"AllowDuidChange", dhcpv6.AllowDuidChange})
+    dhcpv6.EntityData.Leafs.Append("outer-cos", types.YLeaf{"OuterCos", dhcpv6.OuterCos})
+
+    dhcpv6.EntityData.YListKeys = []string {}
+
     return &(dhcpv6.EntityData)
 }
 
@@ -138,13 +163,16 @@ func (database *Dhcpv6_Database) GetEntityData() *types.CommonEntityData {
     database.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     database.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    database.EntityData.Children = make(map[string]types.YChild)
-    database.EntityData.Leafs = make(map[string]types.YLeaf)
-    database.EntityData.Leafs["proxy"] = types.YLeaf{"Proxy", database.Proxy}
-    database.EntityData.Leafs["server"] = types.YLeaf{"Server", database.Server}
-    database.EntityData.Leafs["relay"] = types.YLeaf{"Relay", database.Relay}
-    database.EntityData.Leafs["full-write-interval"] = types.YLeaf{"FullWriteInterval", database.FullWriteInterval}
-    database.EntityData.Leafs["incremental-write-interval"] = types.YLeaf{"IncrementalWriteInterval", database.IncrementalWriteInterval}
+    database.EntityData.Children = types.NewOrderedMap()
+    database.EntityData.Leafs = types.NewOrderedMap()
+    database.EntityData.Leafs.Append("proxy", types.YLeaf{"Proxy", database.Proxy})
+    database.EntityData.Leafs.Append("server", types.YLeaf{"Server", database.Server})
+    database.EntityData.Leafs.Append("relay", types.YLeaf{"Relay", database.Relay})
+    database.EntityData.Leafs.Append("full-write-interval", types.YLeaf{"FullWriteInterval", database.FullWriteInterval})
+    database.EntityData.Leafs.Append("incremental-write-interval", types.YLeaf{"IncrementalWriteInterval", database.IncrementalWriteInterval})
+
+    database.EntityData.YListKeys = []string {}
+
     return &(database.EntityData)
 }
 
@@ -155,7 +183,7 @@ type Dhcpv6_Profiles struct {
     YFilter yfilter.YFilter
 
     // None. The type is slice of Dhcpv6_Profiles_Profile.
-    Profile []Dhcpv6_Profiles_Profile
+    Profile []*Dhcpv6_Profiles_Profile
 }
 
 func (profiles *Dhcpv6_Profiles) GetEntityData() *types.CommonEntityData {
@@ -168,12 +196,15 @@ func (profiles *Dhcpv6_Profiles) GetEntityData() *types.CommonEntityData {
     profiles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profiles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    profiles.EntityData.Children = make(map[string]types.YChild)
-    profiles.EntityData.Children["profile"] = types.YChild{"Profile", nil}
+    profiles.EntityData.Children = types.NewOrderedMap()
+    profiles.EntityData.Children.Append("profile", types.YChild{"Profile", nil})
     for i := range profiles.Profile {
-        profiles.EntityData.Children[types.GetSegmentPath(&profiles.Profile[i])] = types.YChild{"Profile", &profiles.Profile[i]}
+        profiles.EntityData.Children.Append(types.GetSegmentPath(profiles.Profile[i]), types.YChild{"Profile", profiles.Profile[i]})
     }
-    profiles.EntityData.Leafs = make(map[string]types.YLeaf)
+    profiles.EntityData.Leafs = types.NewOrderedMap()
+
+    profiles.EntityData.YListKeys = []string {}
+
     return &(profiles.EntityData)
 }
 
@@ -184,7 +215,7 @@ type Dhcpv6_Profiles_Profile struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Profile name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ProfileName interface{}
 
     // None.
@@ -205,18 +236,21 @@ func (profile *Dhcpv6_Profiles_Profile) GetEntityData() *types.CommonEntityData 
     profile.EntityData.YangName = "profile"
     profile.EntityData.BundleName = "cisco_ios_xr"
     profile.EntityData.ParentYangName = "profiles"
-    profile.EntityData.SegmentPath = "profile" + "[profile-name='" + fmt.Sprintf("%v", profile.ProfileName) + "']"
+    profile.EntityData.SegmentPath = "profile" + types.AddKeyToken(profile.ProfileName, "profile-name")
     profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    profile.EntityData.Children = make(map[string]types.YChild)
-    profile.EntityData.Children["relay"] = types.YChild{"Relay", &profile.Relay}
-    profile.EntityData.Children["base"] = types.YChild{"Base", &profile.Base}
-    profile.EntityData.Children["proxy"] = types.YChild{"Proxy", &profile.Proxy}
-    profile.EntityData.Children["server"] = types.YChild{"Server", &profile.Server}
-    profile.EntityData.Leafs = make(map[string]types.YLeaf)
-    profile.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", profile.ProfileName}
+    profile.EntityData.Children = types.NewOrderedMap()
+    profile.EntityData.Children.Append("relay", types.YChild{"Relay", &profile.Relay})
+    profile.EntityData.Children.Append("base", types.YChild{"Base", &profile.Base})
+    profile.EntityData.Children.Append("proxy", types.YChild{"Proxy", &profile.Proxy})
+    profile.EntityData.Children.Append("server", types.YChild{"Server", &profile.Server})
+    profile.EntityData.Leafs = types.NewOrderedMap()
+    profile.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", profile.ProfileName})
+
+    profile.EntityData.YListKeys = []string {"ProfileName"}
+
     return &(profile.EntityData)
 }
 
@@ -226,6 +260,11 @@ func (profile *Dhcpv6_Profiles_Profile) GetEntityData() *types.CommonEntityData 
 type Dhcpv6_Profiles_Profile_Relay struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
+
+    // Relay profile Source Interface Name. The type is string with pattern:
+    // [a-zA-Z0-9./-]+.
+    SrcIntfName interface{}
 
     // Enable None. Deletion of this object also causes deletion of all associated
     // objects under Relay. The type is interface{}. This attribute is mandatory.
@@ -236,6 +275,9 @@ type Dhcpv6_Profiles_Profile_Relay struct {
 
     // Table of HelperAddress.
     HelperAddresses Dhcpv6_Profiles_Profile_Relay_HelperAddresses
+
+    // Specify relay option configuration.
+    Option Dhcpv6_Profiles_Profile_Relay_Option
 }
 
 func (relay *Dhcpv6_Profiles_Profile_Relay) GetEntityData() *types.CommonEntityData {
@@ -248,11 +290,16 @@ func (relay *Dhcpv6_Profiles_Profile_Relay) GetEntityData() *types.CommonEntityD
     relay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    relay.EntityData.Children = make(map[string]types.YChild)
-    relay.EntityData.Children["helper-addresses"] = types.YChild{"HelperAddresses", &relay.HelperAddresses}
-    relay.EntityData.Leafs = make(map[string]types.YLeaf)
-    relay.EntityData.Leafs["enable"] = types.YLeaf{"Enable", relay.Enable}
-    relay.EntityData.Leafs["iana-route-add"] = types.YLeaf{"IanaRouteAdd", relay.IanaRouteAdd}
+    relay.EntityData.Children = types.NewOrderedMap()
+    relay.EntityData.Children.Append("helper-addresses", types.YChild{"HelperAddresses", &relay.HelperAddresses})
+    relay.EntityData.Children.Append("option", types.YChild{"Option", &relay.Option})
+    relay.EntityData.Leafs = types.NewOrderedMap()
+    relay.EntityData.Leafs.Append("src-intf-name", types.YLeaf{"SrcIntfName", relay.SrcIntfName})
+    relay.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", relay.Enable})
+    relay.EntityData.Leafs.Append("iana-route-add", types.YLeaf{"IanaRouteAdd", relay.IanaRouteAdd})
+
+    relay.EntityData.YListKeys = []string {}
+
     return &(relay.EntityData)
 }
 
@@ -264,7 +311,7 @@ type Dhcpv6_Profiles_Profile_Relay_HelperAddresses struct {
 
     // Specify the server helper address. The type is slice of
     // Dhcpv6_Profiles_Profile_Relay_HelperAddresses_HelperAddress.
-    HelperAddress []Dhcpv6_Profiles_Profile_Relay_HelperAddresses_HelperAddress
+    HelperAddress []*Dhcpv6_Profiles_Profile_Relay_HelperAddresses_HelperAddress
 }
 
 func (helperAddresses *Dhcpv6_Profiles_Profile_Relay_HelperAddresses) GetEntityData() *types.CommonEntityData {
@@ -277,12 +324,15 @@ func (helperAddresses *Dhcpv6_Profiles_Profile_Relay_HelperAddresses) GetEntityD
     helperAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    helperAddresses.EntityData.Children = make(map[string]types.YChild)
-    helperAddresses.EntityData.Children["helper-address"] = types.YChild{"HelperAddress", nil}
+    helperAddresses.EntityData.Children = types.NewOrderedMap()
+    helperAddresses.EntityData.Children.Append("helper-address", types.YChild{"HelperAddress", nil})
     for i := range helperAddresses.HelperAddress {
-        helperAddresses.EntityData.Children[types.GetSegmentPath(&helperAddresses.HelperAddress[i])] = types.YChild{"HelperAddress", &helperAddresses.HelperAddress[i]}
+        helperAddresses.EntityData.Children.Append(types.GetSegmentPath(helperAddresses.HelperAddress[i]), types.YChild{"HelperAddress", helperAddresses.HelperAddress[i]})
     }
-    helperAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    helperAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    helperAddresses.EntityData.YListKeys = []string {}
+
     return &(helperAddresses.EntityData)
 }
 
@@ -297,8 +347,15 @@ type Dhcpv6_Profiles_Profile_Relay_HelperAddresses_HelperAddress struct {
 
     // This attribute is a key. Server Global unicast address. The type is string
     // with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     HelperAddress interface{}
+
+    // Enable. The type is interface{}. This attribute is mandatory.
+    Enable interface{}
+
+    // Helper-address Specific Source Interface. The type is string with pattern:
+    // [a-zA-Z0-9./-]+.
+    SrcIntfName interface{}
 }
 
 func (helperAddress *Dhcpv6_Profiles_Profile_Relay_HelperAddresses_HelperAddress) GetEntityData() *types.CommonEntityData {
@@ -306,16 +363,50 @@ func (helperAddress *Dhcpv6_Profiles_Profile_Relay_HelperAddresses_HelperAddress
     helperAddress.EntityData.YangName = "helper-address"
     helperAddress.EntityData.BundleName = "cisco_ios_xr"
     helperAddress.EntityData.ParentYangName = "helper-addresses"
-    helperAddress.EntityData.SegmentPath = "helper-address" + "[vrf-name='" + fmt.Sprintf("%v", helperAddress.VrfName) + "']" + "[helper-address='" + fmt.Sprintf("%v", helperAddress.HelperAddress) + "']"
+    helperAddress.EntityData.SegmentPath = "helper-address" + types.AddKeyToken(helperAddress.VrfName, "vrf-name") + types.AddKeyToken(helperAddress.HelperAddress, "helper-address")
     helperAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helperAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    helperAddress.EntityData.Children = make(map[string]types.YChild)
-    helperAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    helperAddress.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", helperAddress.VrfName}
-    helperAddress.EntityData.Leafs["helper-address"] = types.YLeaf{"HelperAddress", helperAddress.HelperAddress}
+    helperAddress.EntityData.Children = types.NewOrderedMap()
+    helperAddress.EntityData.Leafs = types.NewOrderedMap()
+    helperAddress.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", helperAddress.VrfName})
+    helperAddress.EntityData.Leafs.Append("helper-address", types.YLeaf{"HelperAddress", helperAddress.HelperAddress})
+    helperAddress.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", helperAddress.Enable})
+    helperAddress.EntityData.Leafs.Append("src-intf-name", types.YLeaf{"SrcIntfName", helperAddress.SrcIntfName})
+
+    helperAddress.EntityData.YListKeys = []string {"VrfName", "HelperAddress"}
+
     return &(helperAddress.EntityData)
+}
+
+// Dhcpv6_Profiles_Profile_Relay_Option
+// Specify relay option configuration
+type Dhcpv6_Profiles_Profile_Relay_Option struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter remote-id value. The type is string with length: 1..256.
+    RemoteId interface{}
+}
+
+func (option *Dhcpv6_Profiles_Profile_Relay_Option) GetEntityData() *types.CommonEntityData {
+    option.EntityData.YFilter = option.YFilter
+    option.EntityData.YangName = "option"
+    option.EntityData.BundleName = "cisco_ios_xr"
+    option.EntityData.ParentYangName = "relay"
+    option.EntityData.SegmentPath = "option"
+    option.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    option.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    option.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    option.EntityData.Children = types.NewOrderedMap()
+    option.EntityData.Leafs = types.NewOrderedMap()
+    option.EntityData.Leafs.Append("remote-id", types.YLeaf{"RemoteId", option.RemoteId})
+
+    option.EntityData.YListKeys = []string {}
+
+    return &(option.EntityData)
 }
 
 // Dhcpv6_Profiles_Profile_Base
@@ -324,13 +415,14 @@ func (helperAddress *Dhcpv6_Profiles_Profile_Relay_HelperAddresses_HelperAddress
 type Dhcpv6_Profiles_Profile_Base struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Enable None. Deletion of this object also causes deletion of all associated
     // objects under Base. The type is interface{}. This attribute is mandatory.
     Enable interface{}
 
     // Default match option.
-    Default_ Dhcpv6_Profiles_Profile_Base_Default
+    Default Dhcpv6_Profiles_Profile_Base_Default
 
     // Enter match option.
     Match Dhcpv6_Profiles_Profile_Base_Match
@@ -346,11 +438,14 @@ func (base *Dhcpv6_Profiles_Profile_Base) GetEntityData() *types.CommonEntityDat
     base.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     base.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    base.EntityData.Children = make(map[string]types.YChild)
-    base.EntityData.Children["default"] = types.YChild{"Default_", &base.Default_}
-    base.EntityData.Children["match"] = types.YChild{"Match", &base.Match}
-    base.EntityData.Leafs = make(map[string]types.YLeaf)
-    base.EntityData.Leafs["enable"] = types.YLeaf{"Enable", base.Enable}
+    base.EntityData.Children = types.NewOrderedMap()
+    base.EntityData.Children.Append("default", types.YChild{"Default", &base.Default})
+    base.EntityData.Children.Append("match", types.YChild{"Match", &base.Match})
+    base.EntityData.Leafs = types.NewOrderedMap()
+    base.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", base.Enable})
+
+    base.EntityData.YListKeys = []string {}
+
     return &(base.EntityData)
 }
 
@@ -362,7 +457,7 @@ type Dhcpv6_Profiles_Profile_Base_Default struct {
 
     // Enter proxy or server profile. The type is slice of
     // Dhcpv6_Profiles_Profile_Base_Default_Profile.
-    Profile []Dhcpv6_Profiles_Profile_Base_Default_Profile_
+    Profile []*Dhcpv6_Profiles_Profile_Base_Default_Profile
 }
 
 func (self *Dhcpv6_Profiles_Profile_Base_Default) GetEntityData() *types.CommonEntityData {
@@ -375,18 +470,21 @@ func (self *Dhcpv6_Profiles_Profile_Base_Default) GetEntityData() *types.CommonE
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["profile"] = types.YChild{"Profile", nil}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("profile", types.YChild{"Profile", nil})
     for i := range self.Profile {
-        self.EntityData.Children[types.GetSegmentPath(&self.Profile[i])] = types.YChild{"Profile", &self.Profile[i]}
+        self.EntityData.Children.Append(types.GetSegmentPath(self.Profile[i]), types.YChild{"Profile", self.Profile[i]})
     }
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs = types.NewOrderedMap()
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
-// Dhcpv6_Profiles_Profile_Base_Default_Profile_
+// Dhcpv6_Profiles_Profile_Base_Default_Profile
 // Enter proxy or server profile
-type Dhcpv6_Profiles_Profile_Base_Default_Profile_ struct {
+type Dhcpv6_Profiles_Profile_Base_Default_Profile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -401,22 +499,25 @@ type Dhcpv6_Profiles_Profile_Base_Default_Profile_ struct {
     ProxyMode interface{}
 }
 
-func (profile_ *Dhcpv6_Profiles_Profile_Base_Default_Profile_) GetEntityData() *types.CommonEntityData {
-    profile_.EntityData.YFilter = profile_.YFilter
-    profile_.EntityData.YangName = "profile"
-    profile_.EntityData.BundleName = "cisco_ios_xr"
-    profile_.EntityData.ParentYangName = "default"
-    profile_.EntityData.SegmentPath = "profile" + "[profile-name='" + fmt.Sprintf("%v", profile_.ProfileName) + "']"
-    profile_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    profile_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    profile_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (profile *Dhcpv6_Profiles_Profile_Base_Default_Profile) GetEntityData() *types.CommonEntityData {
+    profile.EntityData.YFilter = profile.YFilter
+    profile.EntityData.YangName = "profile"
+    profile.EntityData.BundleName = "cisco_ios_xr"
+    profile.EntityData.ParentYangName = "default"
+    profile.EntityData.SegmentPath = "profile" + types.AddKeyToken(profile.ProfileName, "profile-name")
+    profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    profile_.EntityData.Children = make(map[string]types.YChild)
-    profile_.EntityData.Leafs = make(map[string]types.YLeaf)
-    profile_.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", profile_.ProfileName}
-    profile_.EntityData.Leafs["server-mode"] = types.YLeaf{"ServerMode", profile_.ServerMode}
-    profile_.EntityData.Leafs["proxy-mode"] = types.YLeaf{"ProxyMode", profile_.ProxyMode}
-    return &(profile_.EntityData)
+    profile.EntityData.Children = types.NewOrderedMap()
+    profile.EntityData.Leafs = types.NewOrderedMap()
+    profile.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", profile.ProfileName})
+    profile.EntityData.Leafs.Append("server-mode", types.YLeaf{"ServerMode", profile.ServerMode})
+    profile.EntityData.Leafs.Append("proxy-mode", types.YLeaf{"ProxyMode", profile.ProxyMode})
+
+    profile.EntityData.YListKeys = []string {"ProfileName"}
+
+    return &(profile.EntityData)
 }
 
 // Dhcpv6_Profiles_Profile_Base_Match
@@ -439,9 +540,12 @@ func (match *Dhcpv6_Profiles_Profile_Base_Match) GetEntityData() *types.CommonEn
     match.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     match.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    match.EntityData.Children = make(map[string]types.YChild)
-    match.EntityData.Children["mode-classes"] = types.YChild{"ModeClasses", &match.ModeClasses}
-    match.EntityData.Leafs = make(map[string]types.YLeaf)
+    match.EntityData.Children = types.NewOrderedMap()
+    match.EntityData.Children.Append("mode-classes", types.YChild{"ModeClasses", &match.ModeClasses})
+    match.EntityData.Leafs = types.NewOrderedMap()
+
+    match.EntityData.YListKeys = []string {}
+
     return &(match.EntityData)
 }
 
@@ -453,7 +557,7 @@ type Dhcpv6_Profiles_Profile_Base_Match_ModeClasses struct {
 
     // Specify PPP/IPoE class option. The type is slice of
     // Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass.
-    ModeClass []Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass
+    ModeClass []*Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass
 }
 
 func (modeClasses *Dhcpv6_Profiles_Profile_Base_Match_ModeClasses) GetEntityData() *types.CommonEntityData {
@@ -466,12 +570,15 @@ func (modeClasses *Dhcpv6_Profiles_Profile_Base_Match_ModeClasses) GetEntityData
     modeClasses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     modeClasses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    modeClasses.EntityData.Children = make(map[string]types.YChild)
-    modeClasses.EntityData.Children["mode-class"] = types.YChild{"ModeClass", nil}
+    modeClasses.EntityData.Children = types.NewOrderedMap()
+    modeClasses.EntityData.Children.Append("mode-class", types.YChild{"ModeClass", nil})
     for i := range modeClasses.ModeClass {
-        modeClasses.EntityData.Children[types.GetSegmentPath(&modeClasses.ModeClass[i])] = types.YChild{"ModeClass", &modeClasses.ModeClass[i]}
+        modeClasses.EntityData.Children.Append(types.GetSegmentPath(modeClasses.ModeClass[i]), types.YChild{"ModeClass", modeClasses.ModeClass[i]})
     }
-    modeClasses.EntityData.Leafs = make(map[string]types.YLeaf)
+    modeClasses.EntityData.Leafs = types.NewOrderedMap()
+
+    modeClasses.EntityData.YListKeys = []string {}
+
     return &(modeClasses.EntityData)
 }
 
@@ -487,7 +594,7 @@ type Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass struct {
 
     // Enter proxy or server profile. The type is slice of
     // Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile.
-    Profile []Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile_
+    Profile []*Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile
 }
 
 func (modeClass *Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass) GetEntityData() *types.CommonEntityData {
@@ -495,24 +602,27 @@ func (modeClass *Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass) GetEn
     modeClass.EntityData.YangName = "mode-class"
     modeClass.EntityData.BundleName = "cisco_ios_xr"
     modeClass.EntityData.ParentYangName = "mode-classes"
-    modeClass.EntityData.SegmentPath = "mode-class" + "[class-name='" + fmt.Sprintf("%v", modeClass.ClassName) + "']"
+    modeClass.EntityData.SegmentPath = "mode-class" + types.AddKeyToken(modeClass.ClassName, "class-name")
     modeClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     modeClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     modeClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    modeClass.EntityData.Children = make(map[string]types.YChild)
-    modeClass.EntityData.Children["profile"] = types.YChild{"Profile", nil}
+    modeClass.EntityData.Children = types.NewOrderedMap()
+    modeClass.EntityData.Children.Append("profile", types.YChild{"Profile", nil})
     for i := range modeClass.Profile {
-        modeClass.EntityData.Children[types.GetSegmentPath(&modeClass.Profile[i])] = types.YChild{"Profile", &modeClass.Profile[i]}
+        modeClass.EntityData.Children.Append(types.GetSegmentPath(modeClass.Profile[i]), types.YChild{"Profile", modeClass.Profile[i]})
     }
-    modeClass.EntityData.Leafs = make(map[string]types.YLeaf)
-    modeClass.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", modeClass.ClassName}
+    modeClass.EntityData.Leafs = types.NewOrderedMap()
+    modeClass.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", modeClass.ClassName})
+
+    modeClass.EntityData.YListKeys = []string {"ClassName"}
+
     return &(modeClass.EntityData)
 }
 
-// Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile_
+// Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile
 // Enter proxy or server profile
-type Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile_ struct {
+type Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -527,22 +637,25 @@ type Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile_ struct {
     ProxyMode interface{}
 }
 
-func (profile_ *Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile_) GetEntityData() *types.CommonEntityData {
-    profile_.EntityData.YFilter = profile_.YFilter
-    profile_.EntityData.YangName = "profile"
-    profile_.EntityData.BundleName = "cisco_ios_xr"
-    profile_.EntityData.ParentYangName = "mode-class"
-    profile_.EntityData.SegmentPath = "profile" + "[profile-name='" + fmt.Sprintf("%v", profile_.ProfileName) + "']"
-    profile_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    profile_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    profile_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (profile *Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile) GetEntityData() *types.CommonEntityData {
+    profile.EntityData.YFilter = profile.YFilter
+    profile.EntityData.YangName = "profile"
+    profile.EntityData.BundleName = "cisco_ios_xr"
+    profile.EntityData.ParentYangName = "mode-class"
+    profile.EntityData.SegmentPath = "profile" + types.AddKeyToken(profile.ProfileName, "profile-name")
+    profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    profile_.EntityData.Children = make(map[string]types.YChild)
-    profile_.EntityData.Leafs = make(map[string]types.YLeaf)
-    profile_.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", profile_.ProfileName}
-    profile_.EntityData.Leafs["server-mode"] = types.YLeaf{"ServerMode", profile_.ServerMode}
-    profile_.EntityData.Leafs["proxy-mode"] = types.YLeaf{"ProxyMode", profile_.ProxyMode}
-    return &(profile_.EntityData)
+    profile.EntityData.Children = types.NewOrderedMap()
+    profile.EntityData.Leafs = types.NewOrderedMap()
+    profile.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", profile.ProfileName})
+    profile.EntityData.Leafs.Append("server-mode", types.YLeaf{"ServerMode", profile.ServerMode})
+    profile.EntityData.Leafs.Append("proxy-mode", types.YLeaf{"ProxyMode", profile.ProxyMode})
+
+    profile.EntityData.YListKeys = []string {"ProfileName"}
+
+    return &(profile.EntityData)
 }
 
 // Dhcpv6_Profiles_Profile_Proxy
@@ -551,6 +664,7 @@ func (profile_ *Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile
 type Dhcpv6_Profiles_Profile_Proxy struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Fill linkaddress in Relay fwd msg with Prefix from Router Advertisement for
     // PPPoE sessions. The type is interface{}.
@@ -561,13 +675,13 @@ type Dhcpv6_Profiles_Profile_Proxy struct {
 
     // IPv6 address to be filled in link-address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LinkAddress interface{}
 
     // Create or enter proxy profile Source Interface Name. The type is string
-    // with pattern: b'[a-zA-Z0-9./-]+'.
+    // with pattern: [a-zA-Z0-9./-]+.
     SrcIntfName interface{}
 
     // Enable None. Deletion of this object also causes deletion of all associated
@@ -603,19 +717,22 @@ func (proxy *Dhcpv6_Profiles_Profile_Proxy) GetEntityData() *types.CommonEntityD
     proxy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     proxy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    proxy.EntityData.Children = make(map[string]types.YChild)
-    proxy.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &proxy.Interfaces}
-    proxy.EntityData.Children["relay"] = types.YChild{"Relay", &proxy.Relay}
-    proxy.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &proxy.Vrfs}
-    proxy.EntityData.Children["authentication"] = types.YChild{"Authentication", &proxy.Authentication}
-    proxy.EntityData.Children["classes"] = types.YChild{"Classes", &proxy.Classes}
-    proxy.EntityData.Children["sessions"] = types.YChild{"Sessions", &proxy.Sessions}
-    proxy.EntityData.Leafs = make(map[string]types.YLeaf)
-    proxy.EntityData.Leafs["linkaddress-from-ra-enable"] = types.YLeaf{"LinkaddressFromRaEnable", proxy.LinkaddressFromRaEnable}
-    proxy.EntityData.Leafs["route-add-disable"] = types.YLeaf{"RouteAddDisable", proxy.RouteAddDisable}
-    proxy.EntityData.Leafs["link-address"] = types.YLeaf{"LinkAddress", proxy.LinkAddress}
-    proxy.EntityData.Leafs["src-intf-name"] = types.YLeaf{"SrcIntfName", proxy.SrcIntfName}
-    proxy.EntityData.Leafs["enable"] = types.YLeaf{"Enable", proxy.Enable}
+    proxy.EntityData.Children = types.NewOrderedMap()
+    proxy.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &proxy.Interfaces})
+    proxy.EntityData.Children.Append("relay", types.YChild{"Relay", &proxy.Relay})
+    proxy.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &proxy.Vrfs})
+    proxy.EntityData.Children.Append("authentication", types.YChild{"Authentication", &proxy.Authentication})
+    proxy.EntityData.Children.Append("classes", types.YChild{"Classes", &proxy.Classes})
+    proxy.EntityData.Children.Append("sessions", types.YChild{"Sessions", &proxy.Sessions})
+    proxy.EntityData.Leafs = types.NewOrderedMap()
+    proxy.EntityData.Leafs.Append("linkaddress-from-ra-enable", types.YLeaf{"LinkaddressFromRaEnable", proxy.LinkaddressFromRaEnable})
+    proxy.EntityData.Leafs.Append("route-add-disable", types.YLeaf{"RouteAddDisable", proxy.RouteAddDisable})
+    proxy.EntityData.Leafs.Append("link-address", types.YLeaf{"LinkAddress", proxy.LinkAddress})
+    proxy.EntityData.Leafs.Append("src-intf-name", types.YLeaf{"SrcIntfName", proxy.SrcIntfName})
+    proxy.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", proxy.Enable})
+
+    proxy.EntityData.YListKeys = []string {}
+
     return &(proxy.EntityData)
 }
 
@@ -626,8 +743,8 @@ type Dhcpv6_Profiles_Profile_Proxy_Interfaces struct {
     YFilter yfilter.YFilter
 
     // None. The type is slice of
-    // Dhcpv6_Profiles_Profile_Proxy_Interfaces_Interface_.
-    Interface_ []Dhcpv6_Profiles_Profile_Proxy_Interfaces_Interface
+    // Dhcpv6_Profiles_Profile_Proxy_Interfaces_Interface.
+    Interface []*Dhcpv6_Profiles_Profile_Proxy_Interfaces_Interface
 }
 
 func (interfaces *Dhcpv6_Profiles_Profile_Proxy_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -640,12 +757,15 @@ func (interfaces *Dhcpv6_Profiles_Profile_Proxy_Interfaces) GetEntityData() *typ
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -656,7 +776,7 @@ type Dhcpv6_Profiles_Profile_Proxy_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface to configure. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Physical interface ID. The type is string.
@@ -668,15 +788,18 @@ func (self *Dhcpv6_Profiles_Profile_Proxy_Interfaces_Interface) GetEntityData() 
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["interface-id"] = types.YLeaf{"InterfaceId", self.InterfaceId}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("interface-id", types.YLeaf{"InterfaceId", self.InterfaceId})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -700,9 +823,12 @@ func (relay *Dhcpv6_Profiles_Profile_Proxy_Relay) GetEntityData() *types.CommonE
     relay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    relay.EntityData.Children = make(map[string]types.YChild)
-    relay.EntityData.Children["option"] = types.YChild{"Option", &relay.Option}
-    relay.EntityData.Leafs = make(map[string]types.YLeaf)
+    relay.EntityData.Children = types.NewOrderedMap()
+    relay.EntityData.Children.Append("option", types.YChild{"Option", &relay.Option})
+    relay.EntityData.Leafs = types.NewOrderedMap()
+
+    relay.EntityData.YListKeys = []string {}
+
     return &(relay.EntityData)
 }
 
@@ -719,7 +845,7 @@ type Dhcpv6_Profiles_Profile_Proxy_Relay_Option struct {
     LinkLayerAddr interface{}
 
     // Set remote-id value from SADB. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     RemoteIDreceived interface{}
 
     // Enter remote-id value. The type is string with length: 1..256.
@@ -739,13 +865,16 @@ func (option *Dhcpv6_Profiles_Profile_Proxy_Relay_Option) GetEntityData() *types
     option.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     option.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    option.EntityData.Children = make(map[string]types.YChild)
-    option.EntityData.Children["interface-id"] = types.YChild{"InterfaceId", &option.InterfaceId}
-    option.EntityData.Leafs = make(map[string]types.YLeaf)
-    option.EntityData.Leafs["subscriber-id"] = types.YLeaf{"SubscriberId", option.SubscriberId}
-    option.EntityData.Leafs["link-layer-addr"] = types.YLeaf{"LinkLayerAddr", option.LinkLayerAddr}
-    option.EntityData.Leafs["remote-i-dreceived"] = types.YLeaf{"RemoteIDreceived", option.RemoteIDreceived}
-    option.EntityData.Leafs["remote-id"] = types.YLeaf{"RemoteId", option.RemoteId}
+    option.EntityData.Children = types.NewOrderedMap()
+    option.EntityData.Children.Append("interface-id", types.YChild{"InterfaceId", &option.InterfaceId})
+    option.EntityData.Leafs = types.NewOrderedMap()
+    option.EntityData.Leafs.Append("subscriber-id", types.YLeaf{"SubscriberId", option.SubscriberId})
+    option.EntityData.Leafs.Append("link-layer-addr", types.YLeaf{"LinkLayerAddr", option.LinkLayerAddr})
+    option.EntityData.Leafs.Append("remote-i-dreceived", types.YLeaf{"RemoteIDreceived", option.RemoteIDreceived})
+    option.EntityData.Leafs.Append("remote-id", types.YLeaf{"RemoteId", option.RemoteId})
+
+    option.EntityData.YListKeys = []string {}
+
     return &(option.EntityData)
 }
 
@@ -769,9 +898,12 @@ func (interfaceId *Dhcpv6_Profiles_Profile_Proxy_Relay_Option_InterfaceId) GetEn
     interfaceId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceId.EntityData.Children = make(map[string]types.YChild)
-    interfaceId.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceId.EntityData.Leafs["insert"] = types.YLeaf{"Insert", interfaceId.Insert}
+    interfaceId.EntityData.Children = types.NewOrderedMap()
+    interfaceId.EntityData.Leafs = types.NewOrderedMap()
+    interfaceId.EntityData.Leafs.Append("insert", types.YLeaf{"Insert", interfaceId.Insert})
+
+    interfaceId.EntityData.YListKeys = []string {}
+
     return &(interfaceId.EntityData)
 }
 
@@ -783,7 +915,7 @@ type Dhcpv6_Profiles_Profile_Proxy_Vrfs struct {
 
     // IPv6 DHCP proxy VRF name. The type is slice of
     // Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf.
-    Vrf []Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf
+    Vrf []*Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf
 }
 
 func (vrfs *Dhcpv6_Profiles_Profile_Proxy_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -796,12 +928,15 @@ func (vrfs *Dhcpv6_Profiles_Profile_Proxy_Vrfs) GetEntityData() *types.CommonEnt
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -812,7 +947,7 @@ type Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Table of HelperAddress.
@@ -824,15 +959,18 @@ func (vrf *Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf) GetEntityData() *types.Common
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["helper-addresses"] = types.YChild{"HelperAddresses", &vrf.HelperAddresses}
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("helper-addresses", types.YChild{"HelperAddresses", &vrf.HelperAddresses})
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -844,7 +982,7 @@ type Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf_HelperAddresses struct {
 
     // DHCPv6 Helper Address. The type is slice of
     // Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf_HelperAddresses_HelperAddress.
-    HelperAddress []Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf_HelperAddresses_HelperAddress
+    HelperAddress []*Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf_HelperAddresses_HelperAddress
 }
 
 func (helperAddresses *Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf_HelperAddresses) GetEntityData() *types.CommonEntityData {
@@ -857,12 +995,15 @@ func (helperAddresses *Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf_HelperAddresses) G
     helperAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    helperAddresses.EntityData.Children = make(map[string]types.YChild)
-    helperAddresses.EntityData.Children["helper-address"] = types.YChild{"HelperAddress", nil}
+    helperAddresses.EntityData.Children = types.NewOrderedMap()
+    helperAddresses.EntityData.Children.Append("helper-address", types.YChild{"HelperAddress", nil})
     for i := range helperAddresses.HelperAddress {
-        helperAddresses.EntityData.Children[types.GetSegmentPath(&helperAddresses.HelperAddress[i])] = types.YChild{"HelperAddress", &helperAddresses.HelperAddress[i]}
+        helperAddresses.EntityData.Children.Append(types.GetSegmentPath(helperAddresses.HelperAddress[i]), types.YChild{"HelperAddress", helperAddresses.HelperAddress[i]})
     }
-    helperAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    helperAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    helperAddresses.EntityData.YListKeys = []string {}
+
     return &(helperAddresses.EntityData)
 }
 
@@ -874,11 +1015,11 @@ type Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf_HelperAddresses_HelperAddress struct
 
     // This attribute is a key. DHCPv6 Helper Address. The type is string with
     // pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     HelperAddress interface{}
 
     // DHCPv6 HelperAddress Specific Output Interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     OutInterface interface{}
 
     // DHCPv6 HelperAddress Output Interface. The type is interface{}.
@@ -890,16 +1031,19 @@ func (helperAddress *Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf_HelperAddresses_Help
     helperAddress.EntityData.YangName = "helper-address"
     helperAddress.EntityData.BundleName = "cisco_ios_xr"
     helperAddress.EntityData.ParentYangName = "helper-addresses"
-    helperAddress.EntityData.SegmentPath = "helper-address" + "[helper-address='" + fmt.Sprintf("%v", helperAddress.HelperAddress) + "']"
+    helperAddress.EntityData.SegmentPath = "helper-address" + types.AddKeyToken(helperAddress.HelperAddress, "helper-address")
     helperAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helperAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    helperAddress.EntityData.Children = make(map[string]types.YChild)
-    helperAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    helperAddress.EntityData.Leafs["helper-address"] = types.YLeaf{"HelperAddress", helperAddress.HelperAddress}
-    helperAddress.EntityData.Leafs["out-interface"] = types.YLeaf{"OutInterface", helperAddress.OutInterface}
-    helperAddress.EntityData.Leafs["any-out-interface"] = types.YLeaf{"AnyOutInterface", helperAddress.AnyOutInterface}
+    helperAddress.EntityData.Children = types.NewOrderedMap()
+    helperAddress.EntityData.Leafs = types.NewOrderedMap()
+    helperAddress.EntityData.Leafs.Append("helper-address", types.YLeaf{"HelperAddress", helperAddress.HelperAddress})
+    helperAddress.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", helperAddress.OutInterface})
+    helperAddress.EntityData.Leafs.Append("any-out-interface", types.YLeaf{"AnyOutInterface", helperAddress.AnyOutInterface})
+
+    helperAddress.EntityData.YListKeys = []string {"HelperAddress"}
+
     return &(helperAddress.EntityData)
 }
 
@@ -923,9 +1067,12 @@ func (authentication *Dhcpv6_Profiles_Profile_Proxy_Authentication) GetEntityDat
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    authentication.EntityData.Children = make(map[string]types.YChild)
-    authentication.EntityData.Leafs = make(map[string]types.YLeaf)
-    authentication.EntityData.Leafs["username"] = types.YLeaf{"Username", authentication.Username}
+    authentication.EntityData.Children = types.NewOrderedMap()
+    authentication.EntityData.Leafs = types.NewOrderedMap()
+    authentication.EntityData.Leafs.Append("username", types.YLeaf{"Username", authentication.Username})
+
+    authentication.EntityData.YListKeys = []string {}
+
     return &(authentication.EntityData)
 }
 
@@ -936,7 +1083,7 @@ type Dhcpv6_Profiles_Profile_Proxy_Classes struct {
     YFilter yfilter.YFilter
 
     // None. The type is slice of Dhcpv6_Profiles_Profile_Proxy_Classes_Class.
-    Class []Dhcpv6_Profiles_Profile_Proxy_Classes_Class
+    Class []*Dhcpv6_Profiles_Profile_Proxy_Classes_Class
 }
 
 func (classes *Dhcpv6_Profiles_Profile_Proxy_Classes) GetEntityData() *types.CommonEntityData {
@@ -949,12 +1096,15 @@ func (classes *Dhcpv6_Profiles_Profile_Proxy_Classes) GetEntityData() *types.Com
     classes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    classes.EntityData.Children = make(map[string]types.YChild)
-    classes.EntityData.Children["class"] = types.YChild{"Class", nil}
+    classes.EntityData.Children = types.NewOrderedMap()
+    classes.EntityData.Children.Append("class", types.YChild{"Class", nil})
     for i := range classes.Class {
-        classes.EntityData.Children[types.GetSegmentPath(&classes.Class[i])] = types.YChild{"Class", &classes.Class[i]}
+        classes.EntityData.Children.Append(types.GetSegmentPath(classes.Class[i]), types.YChild{"Class", classes.Class[i]})
     }
-    classes.EntityData.Leafs = make(map[string]types.YLeaf)
+    classes.EntityData.Leafs = types.NewOrderedMap()
+
+    classes.EntityData.YListKeys = []string {}
+
     return &(classes.EntityData)
 }
 
@@ -970,9 +1120,9 @@ type Dhcpv6_Profiles_Profile_Proxy_Classes_Class struct {
 
     // IPv6 address to be filled in link-address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LinkAddress interface{}
 
     // Table of HelperAddress.
@@ -984,16 +1134,19 @@ func (class *Dhcpv6_Profiles_Profile_Proxy_Classes_Class) GetEntityData() *types
     class.EntityData.YangName = "class"
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "classes"
-    class.EntityData.SegmentPath = "class" + "[class-name='" + fmt.Sprintf("%v", class.ClassName) + "']"
+    class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.ClassName, "class-name")
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    class.EntityData.Children = make(map[string]types.YChild)
-    class.EntityData.Children["helper-addresses"] = types.YChild{"HelperAddresses", &class.HelperAddresses}
-    class.EntityData.Leafs = make(map[string]types.YLeaf)
-    class.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", class.ClassName}
-    class.EntityData.Leafs["link-address"] = types.YLeaf{"LinkAddress", class.LinkAddress}
+    class.EntityData.Children = types.NewOrderedMap()
+    class.EntityData.Children.Append("helper-addresses", types.YChild{"HelperAddresses", &class.HelperAddresses})
+    class.EntityData.Leafs = types.NewOrderedMap()
+    class.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", class.ClassName})
+    class.EntityData.Leafs.Append("link-address", types.YLeaf{"LinkAddress", class.LinkAddress})
+
+    class.EntityData.YListKeys = []string {"ClassName"}
+
     return &(class.EntityData)
 }
 
@@ -1005,7 +1158,7 @@ type Dhcpv6_Profiles_Profile_Proxy_Classes_Class_HelperAddresses struct {
 
     // Specify the server helper address. The type is slice of
     // Dhcpv6_Profiles_Profile_Proxy_Classes_Class_HelperAddresses_HelperAddress.
-    HelperAddress []Dhcpv6_Profiles_Profile_Proxy_Classes_Class_HelperAddresses_HelperAddress
+    HelperAddress []*Dhcpv6_Profiles_Profile_Proxy_Classes_Class_HelperAddresses_HelperAddress
 }
 
 func (helperAddresses *Dhcpv6_Profiles_Profile_Proxy_Classes_Class_HelperAddresses) GetEntityData() *types.CommonEntityData {
@@ -1018,12 +1171,15 @@ func (helperAddresses *Dhcpv6_Profiles_Profile_Proxy_Classes_Class_HelperAddress
     helperAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    helperAddresses.EntityData.Children = make(map[string]types.YChild)
-    helperAddresses.EntityData.Children["helper-address"] = types.YChild{"HelperAddress", nil}
+    helperAddresses.EntityData.Children = types.NewOrderedMap()
+    helperAddresses.EntityData.Children.Append("helper-address", types.YChild{"HelperAddress", nil})
     for i := range helperAddresses.HelperAddress {
-        helperAddresses.EntityData.Children[types.GetSegmentPath(&helperAddresses.HelperAddress[i])] = types.YChild{"HelperAddress", &helperAddresses.HelperAddress[i]}
+        helperAddresses.EntityData.Children.Append(types.GetSegmentPath(helperAddresses.HelperAddress[i]), types.YChild{"HelperAddress", helperAddresses.HelperAddress[i]})
     }
-    helperAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    helperAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    helperAddresses.EntityData.YListKeys = []string {}
+
     return &(helperAddresses.EntityData)
 }
 
@@ -1037,7 +1193,7 @@ type Dhcpv6_Profiles_Profile_Proxy_Classes_Class_HelperAddresses_HelperAddress s
     VrfName interface{}
 
     // This attribute is a key. Server address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     HelperAddress interface{}
 }
 
@@ -1046,15 +1202,18 @@ func (helperAddress *Dhcpv6_Profiles_Profile_Proxy_Classes_Class_HelperAddresses
     helperAddress.EntityData.YangName = "helper-address"
     helperAddress.EntityData.BundleName = "cisco_ios_xr"
     helperAddress.EntityData.ParentYangName = "helper-addresses"
-    helperAddress.EntityData.SegmentPath = "helper-address" + "[vrf-name='" + fmt.Sprintf("%v", helperAddress.VrfName) + "']" + "[helper-address='" + fmt.Sprintf("%v", helperAddress.HelperAddress) + "']"
+    helperAddress.EntityData.SegmentPath = "helper-address" + types.AddKeyToken(helperAddress.VrfName, "vrf-name") + types.AddKeyToken(helperAddress.HelperAddress, "helper-address")
     helperAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helperAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    helperAddress.EntityData.Children = make(map[string]types.YChild)
-    helperAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    helperAddress.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", helperAddress.VrfName}
-    helperAddress.EntityData.Leafs["helper-address"] = types.YLeaf{"HelperAddress", helperAddress.HelperAddress}
+    helperAddress.EntityData.Children = types.NewOrderedMap()
+    helperAddress.EntityData.Leafs = types.NewOrderedMap()
+    helperAddress.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", helperAddress.VrfName})
+    helperAddress.EntityData.Leafs.Append("helper-address", types.YLeaf{"HelperAddress", helperAddress.HelperAddress})
+
+    helperAddress.EntityData.YListKeys = []string {"VrfName", "HelperAddress"}
+
     return &(helperAddress.EntityData)
 }
 
@@ -1078,9 +1237,12 @@ func (sessions *Dhcpv6_Profiles_Profile_Proxy_Sessions) GetEntityData() *types.C
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessions.EntityData.Children = make(map[string]types.YChild)
-    sessions.EntityData.Children["mac"] = types.YChild{"Mac", &sessions.Mac}
-    sessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessions.EntityData.Children = types.NewOrderedMap()
+    sessions.EntityData.Children.Append("mac", types.YChild{"Mac", &sessions.Mac})
+    sessions.EntityData.Leafs = types.NewOrderedMap()
+
+    sessions.EntityData.YListKeys = []string {}
+
     return &(sessions.EntityData)
 }
 
@@ -1104,9 +1266,12 @@ func (mac *Dhcpv6_Profiles_Profile_Proxy_Sessions_Mac) GetEntityData() *types.Co
     mac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mac.EntityData.Children = make(map[string]types.YChild)
-    mac.EntityData.Children["throttle"] = types.YChild{"Throttle", &mac.Throttle}
-    mac.EntityData.Leafs = make(map[string]types.YLeaf)
+    mac.EntityData.Children = types.NewOrderedMap()
+    mac.EntityData.Children.Append("throttle", types.YChild{"Throttle", &mac.Throttle})
+    mac.EntityData.Leafs = types.NewOrderedMap()
+
+    mac.EntityData.YListKeys = []string {}
+
     return &(mac.EntityData)
 }
 
@@ -1140,11 +1305,14 @@ func (throttle *Dhcpv6_Profiles_Profile_Proxy_Sessions_Mac_Throttle) GetEntityDa
     throttle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     throttle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    throttle.EntityData.Children = make(map[string]types.YChild)
-    throttle.EntityData.Leafs = make(map[string]types.YLeaf)
-    throttle.EntityData.Leafs["limit"] = types.YLeaf{"Limit", throttle.Limit}
-    throttle.EntityData.Leafs["request"] = types.YLeaf{"Request", throttle.Request}
-    throttle.EntityData.Leafs["block"] = types.YLeaf{"Block", throttle.Block}
+    throttle.EntityData.Children = types.NewOrderedMap()
+    throttle.EntityData.Leafs = types.NewOrderedMap()
+    throttle.EntityData.Leafs.Append("limit", types.YLeaf{"Limit", throttle.Limit})
+    throttle.EntityData.Leafs.Append("request", types.YLeaf{"Request", throttle.Request})
+    throttle.EntityData.Leafs.Append("block", types.YLeaf{"Block", throttle.Block})
+
+    throttle.EntityData.YListKeys = []string {}
+
     return &(throttle.EntityData)
 }
 
@@ -1154,6 +1322,7 @@ func (throttle *Dhcpv6_Profiles_Profile_Proxy_Sessions_Mac_Throttle) GetEntityDa
 type Dhcpv6_Profiles_Profile_Server struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Address pool name. The type is string with length: 1..64.
     AddressPool interface{}
@@ -1189,6 +1358,15 @@ type Dhcpv6_Profiles_Profile_Server struct {
     // lease.
     Lease Dhcpv6_Profiles_Profile_Server_Lease
 
+    // Client DUID.
+    Dhcpv6duid Dhcpv6_Profiles_Profile_Server_Dhcpv6duid
+
+    // Enable aaa dhcpv6 option force-insert.
+    AaaServer Dhcpv6_Profiles_Profile_Server_AaaServer
+
+    // DHCPv6 match.
+    Options Dhcpv6_Profiles_Profile_Server_Options
+
     // DHCPv6 options.
     Dhcpv6Options Dhcpv6_Profiles_Profile_Server_Dhcpv6Options
 }
@@ -1203,20 +1381,26 @@ func (server *Dhcpv6_Profiles_Profile_Server) GetEntityData() *types.CommonEntit
     server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    server.EntityData.Children = make(map[string]types.YChild)
-    server.EntityData.Children["sessions"] = types.YChild{"Sessions", &server.Sessions}
-    server.EntityData.Children["dns-servers"] = types.YChild{"DnsServers", &server.DnsServers}
-    server.EntityData.Children["classes"] = types.YChild{"Classes", &server.Classes}
-    server.EntityData.Children["lease"] = types.YChild{"Lease", &server.Lease}
-    server.EntityData.Children["dhcpv6-options"] = types.YChild{"Dhcpv6Options", &server.Dhcpv6Options}
-    server.EntityData.Leafs = make(map[string]types.YLeaf)
-    server.EntityData.Leafs["address-pool"] = types.YLeaf{"AddressPool", server.AddressPool}
-    server.EntityData.Leafs["aftr-name"] = types.YLeaf{"AftrName", server.AftrName}
-    server.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", server.DomainName}
-    server.EntityData.Leafs["preference"] = types.YLeaf{"Preference", server.Preference}
-    server.EntityData.Leafs["rapid-commit"] = types.YLeaf{"RapidCommit", server.RapidCommit}
-    server.EntityData.Leafs["enable"] = types.YLeaf{"Enable", server.Enable}
-    server.EntityData.Leafs["prefix-pool"] = types.YLeaf{"PrefixPool", server.PrefixPool}
+    server.EntityData.Children = types.NewOrderedMap()
+    server.EntityData.Children.Append("sessions", types.YChild{"Sessions", &server.Sessions})
+    server.EntityData.Children.Append("dns-servers", types.YChild{"DnsServers", &server.DnsServers})
+    server.EntityData.Children.Append("classes", types.YChild{"Classes", &server.Classes})
+    server.EntityData.Children.Append("lease", types.YChild{"Lease", &server.Lease})
+    server.EntityData.Children.Append("dhcpv6duid", types.YChild{"Dhcpv6duid", &server.Dhcpv6duid})
+    server.EntityData.Children.Append("aaa-server", types.YChild{"AaaServer", &server.AaaServer})
+    server.EntityData.Children.Append("options", types.YChild{"Options", &server.Options})
+    server.EntityData.Children.Append("dhcpv6-options", types.YChild{"Dhcpv6Options", &server.Dhcpv6Options})
+    server.EntityData.Leafs = types.NewOrderedMap()
+    server.EntityData.Leafs.Append("address-pool", types.YLeaf{"AddressPool", server.AddressPool})
+    server.EntityData.Leafs.Append("aftr-name", types.YLeaf{"AftrName", server.AftrName})
+    server.EntityData.Leafs.Append("domain-name", types.YLeaf{"DomainName", server.DomainName})
+    server.EntityData.Leafs.Append("preference", types.YLeaf{"Preference", server.Preference})
+    server.EntityData.Leafs.Append("rapid-commit", types.YLeaf{"RapidCommit", server.RapidCommit})
+    server.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", server.Enable})
+    server.EntityData.Leafs.Append("prefix-pool", types.YLeaf{"PrefixPool", server.PrefixPool})
+
+    server.EntityData.YListKeys = []string {}
+
     return &(server.EntityData)
 }
 
@@ -1240,9 +1424,12 @@ func (sessions *Dhcpv6_Profiles_Profile_Server_Sessions) GetEntityData() *types.
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessions.EntityData.Children = make(map[string]types.YChild)
-    sessions.EntityData.Children["mac"] = types.YChild{"Mac", &sessions.Mac}
-    sessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessions.EntityData.Children = types.NewOrderedMap()
+    sessions.EntityData.Children.Append("mac", types.YChild{"Mac", &sessions.Mac})
+    sessions.EntityData.Leafs = types.NewOrderedMap()
+
+    sessions.EntityData.YListKeys = []string {}
+
     return &(sessions.EntityData)
 }
 
@@ -1266,9 +1453,12 @@ func (mac *Dhcpv6_Profiles_Profile_Server_Sessions_Mac) GetEntityData() *types.C
     mac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mac.EntityData.Children = make(map[string]types.YChild)
-    mac.EntityData.Children["throttle"] = types.YChild{"Throttle", &mac.Throttle}
-    mac.EntityData.Leafs = make(map[string]types.YLeaf)
+    mac.EntityData.Children = types.NewOrderedMap()
+    mac.EntityData.Children.Append("throttle", types.YChild{"Throttle", &mac.Throttle})
+    mac.EntityData.Leafs = types.NewOrderedMap()
+
+    mac.EntityData.YListKeys = []string {}
+
     return &(mac.EntityData)
 }
 
@@ -1302,11 +1492,14 @@ func (throttle *Dhcpv6_Profiles_Profile_Server_Sessions_Mac_Throttle) GetEntityD
     throttle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     throttle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    throttle.EntityData.Children = make(map[string]types.YChild)
-    throttle.EntityData.Leafs = make(map[string]types.YLeaf)
-    throttle.EntityData.Leafs["limit"] = types.YLeaf{"Limit", throttle.Limit}
-    throttle.EntityData.Leafs["request"] = types.YLeaf{"Request", throttle.Request}
-    throttle.EntityData.Leafs["block"] = types.YLeaf{"Block", throttle.Block}
+    throttle.EntityData.Children = types.NewOrderedMap()
+    throttle.EntityData.Leafs = types.NewOrderedMap()
+    throttle.EntityData.Leafs.Append("limit", types.YLeaf{"Limit", throttle.Limit})
+    throttle.EntityData.Leafs.Append("request", types.YLeaf{"Request", throttle.Request})
+    throttle.EntityData.Leafs.Append("block", types.YLeaf{"Block", throttle.Block})
+
+    throttle.EntityData.YListKeys = []string {}
+
     return &(throttle.EntityData)
 }
 
@@ -1318,9 +1511,9 @@ type Dhcpv6_Profiles_Profile_Server_DnsServers struct {
 
     // Server's IPv6 address. The type is one of the following types: slice of
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or slice of string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DnsServer []interface{}
 }
 
@@ -1334,9 +1527,12 @@ func (dnsServers *Dhcpv6_Profiles_Profile_Server_DnsServers) GetEntityData() *ty
     dnsServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dnsServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dnsServers.EntityData.Children = make(map[string]types.YChild)
-    dnsServers.EntityData.Leafs = make(map[string]types.YLeaf)
-    dnsServers.EntityData.Leafs["dns-server"] = types.YLeaf{"DnsServer", dnsServers.DnsServer}
+    dnsServers.EntityData.Children = types.NewOrderedMap()
+    dnsServers.EntityData.Leafs = types.NewOrderedMap()
+    dnsServers.EntityData.Leafs.Append("dns-server", types.YLeaf{"DnsServer", dnsServers.DnsServer})
+
+    dnsServers.EntityData.YListKeys = []string {}
+
     return &(dnsServers.EntityData)
 }
 
@@ -1347,7 +1543,7 @@ type Dhcpv6_Profiles_Profile_Server_Classes struct {
     YFilter yfilter.YFilter
 
     // None. The type is slice of Dhcpv6_Profiles_Profile_Server_Classes_Class.
-    Class []Dhcpv6_Profiles_Profile_Server_Classes_Class
+    Class []*Dhcpv6_Profiles_Profile_Server_Classes_Class
 }
 
 func (classes *Dhcpv6_Profiles_Profile_Server_Classes) GetEntityData() *types.CommonEntityData {
@@ -1360,12 +1556,15 @@ func (classes *Dhcpv6_Profiles_Profile_Server_Classes) GetEntityData() *types.Co
     classes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    classes.EntityData.Children = make(map[string]types.YChild)
-    classes.EntityData.Children["class"] = types.YChild{"Class", nil}
+    classes.EntityData.Children = types.NewOrderedMap()
+    classes.EntityData.Children.Append("class", types.YChild{"Class", nil})
     for i := range classes.Class {
-        classes.EntityData.Children[types.GetSegmentPath(&classes.Class[i])] = types.YChild{"Class", &classes.Class[i]}
+        classes.EntityData.Children.Append(types.GetSegmentPath(classes.Class[i]), types.YChild{"Class", classes.Class[i]})
     }
-    classes.EntityData.Leafs = make(map[string]types.YLeaf)
+    classes.EntityData.Leafs = types.NewOrderedMap()
+
+    classes.EntityData.YListKeys = []string {}
+
     return &(classes.EntityData)
 }
 
@@ -1393,6 +1592,9 @@ type Dhcpv6_Profiles_Profile_Server_Classes_Class struct {
 
     // DNS servers.
     DnsServers Dhcpv6_Profiles_Profile_Server_Classes_Class_DnsServers
+
+    // lease.
+    Lease Dhcpv6_Profiles_Profile_Server_Classes_Class_Lease
 }
 
 func (class *Dhcpv6_Profiles_Profile_Server_Classes_Class) GetEntityData() *types.CommonEntityData {
@@ -1400,19 +1602,23 @@ func (class *Dhcpv6_Profiles_Profile_Server_Classes_Class) GetEntityData() *type
     class.EntityData.YangName = "class"
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "classes"
-    class.EntityData.SegmentPath = "class" + "[class-name='" + fmt.Sprintf("%v", class.ClassName) + "']"
+    class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.ClassName, "class-name")
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    class.EntityData.Children = make(map[string]types.YChild)
-    class.EntityData.Children["dns-servers"] = types.YChild{"DnsServers", &class.DnsServers}
-    class.EntityData.Leafs = make(map[string]types.YLeaf)
-    class.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", class.ClassName}
-    class.EntityData.Leafs["address-pool"] = types.YLeaf{"AddressPool", class.AddressPool}
-    class.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", class.DomainName}
-    class.EntityData.Leafs["preference"] = types.YLeaf{"Preference", class.Preference}
-    class.EntityData.Leafs["prefix-pool"] = types.YLeaf{"PrefixPool", class.PrefixPool}
+    class.EntityData.Children = types.NewOrderedMap()
+    class.EntityData.Children.Append("dns-servers", types.YChild{"DnsServers", &class.DnsServers})
+    class.EntityData.Children.Append("lease", types.YChild{"Lease", &class.Lease})
+    class.EntityData.Leafs = types.NewOrderedMap()
+    class.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", class.ClassName})
+    class.EntityData.Leafs.Append("address-pool", types.YLeaf{"AddressPool", class.AddressPool})
+    class.EntityData.Leafs.Append("domain-name", types.YLeaf{"DomainName", class.DomainName})
+    class.EntityData.Leafs.Append("preference", types.YLeaf{"Preference", class.Preference})
+    class.EntityData.Leafs.Append("prefix-pool", types.YLeaf{"PrefixPool", class.PrefixPool})
+
+    class.EntityData.YListKeys = []string {"ClassName"}
+
     return &(class.EntityData)
 }
 
@@ -1424,9 +1630,9 @@ type Dhcpv6_Profiles_Profile_Server_Classes_Class_DnsServers struct {
 
     // Server's IPv6 address. The type is one of the following types: slice of
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or slice of string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DnsServer []interface{}
 }
 
@@ -1440,10 +1646,54 @@ func (dnsServers *Dhcpv6_Profiles_Profile_Server_Classes_Class_DnsServers) GetEn
     dnsServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dnsServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dnsServers.EntityData.Children = make(map[string]types.YChild)
-    dnsServers.EntityData.Leafs = make(map[string]types.YLeaf)
-    dnsServers.EntityData.Leafs["dns-server"] = types.YLeaf{"DnsServer", dnsServers.DnsServer}
+    dnsServers.EntityData.Children = types.NewOrderedMap()
+    dnsServers.EntityData.Leafs = types.NewOrderedMap()
+    dnsServers.EntityData.Leafs.Append("dns-server", types.YLeaf{"DnsServer", dnsServers.DnsServer})
+
+    dnsServers.EntityData.YListKeys = []string {}
+
     return &(dnsServers.EntityData)
+}
+
+// Dhcpv6_Profiles_Profile_Server_Classes_Class_Lease
+// lease
+type Dhcpv6_Profiles_Profile_Server_Classes_Class_Lease struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Set string. The type is string.
+    Infinite interface{}
+
+    // Days. The type is interface{} with range: 0..365. Units are day.
+    Days interface{}
+
+    // Hours. The type is interface{} with range: 0..23. Units are hour.
+    Hours interface{}
+
+    // Minutes. The type is interface{} with range: 1..59. Units are minute.
+    Minutes interface{}
+}
+
+func (lease *Dhcpv6_Profiles_Profile_Server_Classes_Class_Lease) GetEntityData() *types.CommonEntityData {
+    lease.EntityData.YFilter = lease.YFilter
+    lease.EntityData.YangName = "lease"
+    lease.EntityData.BundleName = "cisco_ios_xr"
+    lease.EntityData.ParentYangName = "class"
+    lease.EntityData.SegmentPath = "lease"
+    lease.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lease.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lease.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    lease.EntityData.Children = types.NewOrderedMap()
+    lease.EntityData.Leafs = types.NewOrderedMap()
+    lease.EntityData.Leafs.Append("infinite", types.YLeaf{"Infinite", lease.Infinite})
+    lease.EntityData.Leafs.Append("days", types.YLeaf{"Days", lease.Days})
+    lease.EntityData.Leafs.Append("hours", types.YLeaf{"Hours", lease.Hours})
+    lease.EntityData.Leafs.Append("minutes", types.YLeaf{"Minutes", lease.Minutes})
+
+    lease.EntityData.YListKeys = []string {}
+
+    return &(lease.EntityData)
 }
 
 // Dhcpv6_Profiles_Profile_Server_Lease
@@ -1475,13 +1725,366 @@ func (lease *Dhcpv6_Profiles_Profile_Server_Lease) GetEntityData() *types.Common
     lease.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lease.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lease.EntityData.Children = make(map[string]types.YChild)
-    lease.EntityData.Leafs = make(map[string]types.YLeaf)
-    lease.EntityData.Leafs["days"] = types.YLeaf{"Days", lease.Days}
-    lease.EntityData.Leafs["hours"] = types.YLeaf{"Hours", lease.Hours}
-    lease.EntityData.Leafs["minutes"] = types.YLeaf{"Minutes", lease.Minutes}
-    lease.EntityData.Leafs["infinite"] = types.YLeaf{"Infinite", lease.Infinite}
+    lease.EntityData.Children = types.NewOrderedMap()
+    lease.EntityData.Leafs = types.NewOrderedMap()
+    lease.EntityData.Leafs.Append("days", types.YLeaf{"Days", lease.Days})
+    lease.EntityData.Leafs.Append("hours", types.YLeaf{"Hours", lease.Hours})
+    lease.EntityData.Leafs.Append("minutes", types.YLeaf{"Minutes", lease.Minutes})
+    lease.EntityData.Leafs.Append("infinite", types.YLeaf{"Infinite", lease.Infinite})
+
+    lease.EntityData.YListKeys = []string {}
+
     return &(lease.EntityData)
+}
+
+// Dhcpv6_Profiles_Profile_Server_Dhcpv6duid
+// Client DUID
+type Dhcpv6_Profiles_Profile_Server_Dhcpv6duid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Type of DUID to be allowed. The type is interface{} with range: 1..4.
+    AllowedType interface{}
+}
+
+func (dhcpv6duid *Dhcpv6_Profiles_Profile_Server_Dhcpv6duid) GetEntityData() *types.CommonEntityData {
+    dhcpv6duid.EntityData.YFilter = dhcpv6duid.YFilter
+    dhcpv6duid.EntityData.YangName = "dhcpv6duid"
+    dhcpv6duid.EntityData.BundleName = "cisco_ios_xr"
+    dhcpv6duid.EntityData.ParentYangName = "server"
+    dhcpv6duid.EntityData.SegmentPath = "dhcpv6duid"
+    dhcpv6duid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dhcpv6duid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dhcpv6duid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dhcpv6duid.EntityData.Children = types.NewOrderedMap()
+    dhcpv6duid.EntityData.Leafs = types.NewOrderedMap()
+    dhcpv6duid.EntityData.Leafs.Append("allowed-type", types.YLeaf{"AllowedType", dhcpv6duid.AllowedType})
+
+    dhcpv6duid.EntityData.YListKeys = []string {}
+
+    return &(dhcpv6duid.EntityData)
+}
+
+// Dhcpv6_Profiles_Profile_Server_AaaServer
+// Enable aaa dhcpv6 option force-insert
+type Dhcpv6_Profiles_Profile_Server_AaaServer struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable aaa dhcpv6 option force-insert.
+    Dhcpv6Option Dhcpv6_Profiles_Profile_Server_AaaServer_Dhcpv6Option
+}
+
+func (aaaServer *Dhcpv6_Profiles_Profile_Server_AaaServer) GetEntityData() *types.CommonEntityData {
+    aaaServer.EntityData.YFilter = aaaServer.YFilter
+    aaaServer.EntityData.YangName = "aaa-server"
+    aaaServer.EntityData.BundleName = "cisco_ios_xr"
+    aaaServer.EntityData.ParentYangName = "server"
+    aaaServer.EntityData.SegmentPath = "aaa-server"
+    aaaServer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    aaaServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    aaaServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    aaaServer.EntityData.Children = types.NewOrderedMap()
+    aaaServer.EntityData.Children.Append("dhcpv6-option", types.YChild{"Dhcpv6Option", &aaaServer.Dhcpv6Option})
+    aaaServer.EntityData.Leafs = types.NewOrderedMap()
+
+    aaaServer.EntityData.YListKeys = []string {}
+
+    return &(aaaServer.EntityData)
+}
+
+// Dhcpv6_Profiles_Profile_Server_AaaServer_Dhcpv6Option
+// Enable aaa dhcpv6 option force-insert
+type Dhcpv6_Profiles_Profile_Server_AaaServer_Dhcpv6Option struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable aaa dhcpv6 option force-insert. The type is interface{}.
+    ForceInsert interface{}
+}
+
+func (dhcpv6Option *Dhcpv6_Profiles_Profile_Server_AaaServer_Dhcpv6Option) GetEntityData() *types.CommonEntityData {
+    dhcpv6Option.EntityData.YFilter = dhcpv6Option.YFilter
+    dhcpv6Option.EntityData.YangName = "dhcpv6-option"
+    dhcpv6Option.EntityData.BundleName = "cisco_ios_xr"
+    dhcpv6Option.EntityData.ParentYangName = "aaa-server"
+    dhcpv6Option.EntityData.SegmentPath = "dhcpv6-option"
+    dhcpv6Option.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dhcpv6Option.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dhcpv6Option.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dhcpv6Option.EntityData.Children = types.NewOrderedMap()
+    dhcpv6Option.EntityData.Leafs = types.NewOrderedMap()
+    dhcpv6Option.EntityData.Leafs.Append("force-insert", types.YLeaf{"ForceInsert", dhcpv6Option.ForceInsert})
+
+    dhcpv6Option.EntityData.YListKeys = []string {}
+
+    return &(dhcpv6Option.EntityData)
+}
+
+// Dhcpv6_Profiles_Profile_Server_Options
+// DHCPv6 match
+type Dhcpv6_Profiles_Profile_Server_Options struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // DHCPv6 match option. The type is slice of
+    // Dhcpv6_Profiles_Profile_Server_Options_Option.
+    Option []*Dhcpv6_Profiles_Profile_Server_Options_Option
+}
+
+func (options *Dhcpv6_Profiles_Profile_Server_Options) GetEntityData() *types.CommonEntityData {
+    options.EntityData.YFilter = options.YFilter
+    options.EntityData.YangName = "options"
+    options.EntityData.BundleName = "cisco_ios_xr"
+    options.EntityData.ParentYangName = "server"
+    options.EntityData.SegmentPath = "options"
+    options.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    options.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    options.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    options.EntityData.Children = types.NewOrderedMap()
+    options.EntityData.Children.Append("option", types.YChild{"Option", nil})
+    for i := range options.Option {
+        options.EntityData.Children.Append(types.GetSegmentPath(options.Option[i]), types.YChild{"Option", options.Option[i]})
+    }
+    options.EntityData.Leafs = types.NewOrderedMap()
+
+    options.EntityData.YListKeys = []string {}
+
+    return &(options.EntityData)
+}
+
+// Dhcpv6_Profiles_Profile_Server_Options_Option
+// DHCPv6 match option
+type Dhcpv6_Profiles_Profile_Server_Options_Option struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Set string. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    Type interface{}
+
+    // This attribute is a key. Set constant integer. The type is interface{} with
+    // range: 0..4294967295.
+    Format interface{}
+
+    // This attribute is a key. Set string. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    Value interface{}
+
+    // match enterprise number.
+    EnterpriseId Dhcpv6_Profiles_Profile_Server_Options_Option_EnterpriseId
+
+    // match vendor class.
+    VendorClass Dhcpv6_Profiles_Profile_Server_Options_Option_VendorClass
+}
+
+func (option *Dhcpv6_Profiles_Profile_Server_Options_Option) GetEntityData() *types.CommonEntityData {
+    option.EntityData.YFilter = option.YFilter
+    option.EntityData.YangName = "option"
+    option.EntityData.BundleName = "cisco_ios_xr"
+    option.EntityData.ParentYangName = "options"
+    option.EntityData.SegmentPath = "option" + types.AddKeyToken(option.Type, "type") + types.AddKeyToken(option.Format, "format") + types.AddKeyToken(option.Value, "value")
+    option.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    option.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    option.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    option.EntityData.Children = types.NewOrderedMap()
+    option.EntityData.Children.Append("enterprise-id", types.YChild{"EnterpriseId", &option.EnterpriseId})
+    option.EntityData.Children.Append("vendor-class", types.YChild{"VendorClass", &option.VendorClass})
+    option.EntityData.Leafs = types.NewOrderedMap()
+    option.EntityData.Leafs.Append("type", types.YLeaf{"Type", option.Type})
+    option.EntityData.Leafs.Append("format", types.YLeaf{"Format", option.Format})
+    option.EntityData.Leafs.Append("value", types.YLeaf{"Value", option.Value})
+
+    option.EntityData.YListKeys = []string {"Type", "Format", "Value"}
+
+    return &(option.EntityData)
+}
+
+// Dhcpv6_Profiles_Profile_Server_Options_Option_EnterpriseId
+// match enterprise number
+type Dhcpv6_Profiles_Profile_Server_Options_Option_EnterpriseId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // defaut action for enterprise number.
+    HexEnterpriseId Dhcpv6_Profiles_Profile_Server_Options_Option_EnterpriseId_HexEnterpriseId
+
+    // defaut action for enterprise number.
+    DefaultEnterpriseId Dhcpv6_Profiles_Profile_Server_Options_Option_EnterpriseId_DefaultEnterpriseId
+}
+
+func (enterpriseId *Dhcpv6_Profiles_Profile_Server_Options_Option_EnterpriseId) GetEntityData() *types.CommonEntityData {
+    enterpriseId.EntityData.YFilter = enterpriseId.YFilter
+    enterpriseId.EntityData.YangName = "enterprise-id"
+    enterpriseId.EntityData.BundleName = "cisco_ios_xr"
+    enterpriseId.EntityData.ParentYangName = "option"
+    enterpriseId.EntityData.SegmentPath = "enterprise-id"
+    enterpriseId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    enterpriseId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    enterpriseId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    enterpriseId.EntityData.Children = types.NewOrderedMap()
+    enterpriseId.EntityData.Children.Append("hex-enterprise-id", types.YChild{"HexEnterpriseId", &enterpriseId.HexEnterpriseId})
+    enterpriseId.EntityData.Children.Append("default-enterprise-id", types.YChild{"DefaultEnterpriseId", &enterpriseId.DefaultEnterpriseId})
+    enterpriseId.EntityData.Leafs = types.NewOrderedMap()
+
+    enterpriseId.EntityData.YListKeys = []string {}
+
+    return &(enterpriseId.EntityData)
+}
+
+// Dhcpv6_Profiles_Profile_Server_Options_Option_EnterpriseId_HexEnterpriseId
+// defaut action for enterprise number
+type Dhcpv6_Profiles_Profile_Server_Options_Option_EnterpriseId_HexEnterpriseId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure Action to be take on match. The type is Action.
+    Action interface{}
+}
+
+func (hexEnterpriseId *Dhcpv6_Profiles_Profile_Server_Options_Option_EnterpriseId_HexEnterpriseId) GetEntityData() *types.CommonEntityData {
+    hexEnterpriseId.EntityData.YFilter = hexEnterpriseId.YFilter
+    hexEnterpriseId.EntityData.YangName = "hex-enterprise-id"
+    hexEnterpriseId.EntityData.BundleName = "cisco_ios_xr"
+    hexEnterpriseId.EntityData.ParentYangName = "enterprise-id"
+    hexEnterpriseId.EntityData.SegmentPath = "hex-enterprise-id"
+    hexEnterpriseId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hexEnterpriseId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hexEnterpriseId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hexEnterpriseId.EntityData.Children = types.NewOrderedMap()
+    hexEnterpriseId.EntityData.Leafs = types.NewOrderedMap()
+    hexEnterpriseId.EntityData.Leafs.Append("action", types.YLeaf{"Action", hexEnterpriseId.Action})
+
+    hexEnterpriseId.EntityData.YListKeys = []string {}
+
+    return &(hexEnterpriseId.EntityData)
+}
+
+// Dhcpv6_Profiles_Profile_Server_Options_Option_EnterpriseId_DefaultEnterpriseId
+// defaut action for enterprise number
+type Dhcpv6_Profiles_Profile_Server_Options_Option_EnterpriseId_DefaultEnterpriseId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure Action to be take on match. The type is Action.
+    Action interface{}
+}
+
+func (defaultEnterpriseId *Dhcpv6_Profiles_Profile_Server_Options_Option_EnterpriseId_DefaultEnterpriseId) GetEntityData() *types.CommonEntityData {
+    defaultEnterpriseId.EntityData.YFilter = defaultEnterpriseId.YFilter
+    defaultEnterpriseId.EntityData.YangName = "default-enterprise-id"
+    defaultEnterpriseId.EntityData.BundleName = "cisco_ios_xr"
+    defaultEnterpriseId.EntityData.ParentYangName = "enterprise-id"
+    defaultEnterpriseId.EntityData.SegmentPath = "default-enterprise-id"
+    defaultEnterpriseId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    defaultEnterpriseId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    defaultEnterpriseId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    defaultEnterpriseId.EntityData.Children = types.NewOrderedMap()
+    defaultEnterpriseId.EntityData.Leafs = types.NewOrderedMap()
+    defaultEnterpriseId.EntityData.Leafs.Append("action", types.YLeaf{"Action", defaultEnterpriseId.Action})
+
+    defaultEnterpriseId.EntityData.YListKeys = []string {}
+
+    return &(defaultEnterpriseId.EntityData)
+}
+
+// Dhcpv6_Profiles_Profile_Server_Options_Option_VendorClass
+// match vendor class
+type Dhcpv6_Profiles_Profile_Server_Options_Option_VendorClass struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // string action for vendor number.
+    StrVendorClass Dhcpv6_Profiles_Profile_Server_Options_Option_VendorClass_StrVendorClass
+
+    // default action for enterprise number.
+    DefaultVendorClass Dhcpv6_Profiles_Profile_Server_Options_Option_VendorClass_DefaultVendorClass
+}
+
+func (vendorClass *Dhcpv6_Profiles_Profile_Server_Options_Option_VendorClass) GetEntityData() *types.CommonEntityData {
+    vendorClass.EntityData.YFilter = vendorClass.YFilter
+    vendorClass.EntityData.YangName = "vendor-class"
+    vendorClass.EntityData.BundleName = "cisco_ios_xr"
+    vendorClass.EntityData.ParentYangName = "option"
+    vendorClass.EntityData.SegmentPath = "vendor-class"
+    vendorClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vendorClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vendorClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vendorClass.EntityData.Children = types.NewOrderedMap()
+    vendorClass.EntityData.Children.Append("str-vendor-class", types.YChild{"StrVendorClass", &vendorClass.StrVendorClass})
+    vendorClass.EntityData.Children.Append("default-vendor-class", types.YChild{"DefaultVendorClass", &vendorClass.DefaultVendorClass})
+    vendorClass.EntityData.Leafs = types.NewOrderedMap()
+
+    vendorClass.EntityData.YListKeys = []string {}
+
+    return &(vendorClass.EntityData)
+}
+
+// Dhcpv6_Profiles_Profile_Server_Options_Option_VendorClass_StrVendorClass
+// string action for vendor number
+type Dhcpv6_Profiles_Profile_Server_Options_Option_VendorClass_StrVendorClass struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure Action to be take on match. The type is Action.
+    Action interface{}
+}
+
+func (strVendorClass *Dhcpv6_Profiles_Profile_Server_Options_Option_VendorClass_StrVendorClass) GetEntityData() *types.CommonEntityData {
+    strVendorClass.EntityData.YFilter = strVendorClass.YFilter
+    strVendorClass.EntityData.YangName = "str-vendor-class"
+    strVendorClass.EntityData.BundleName = "cisco_ios_xr"
+    strVendorClass.EntityData.ParentYangName = "vendor-class"
+    strVendorClass.EntityData.SegmentPath = "str-vendor-class"
+    strVendorClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    strVendorClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    strVendorClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    strVendorClass.EntityData.Children = types.NewOrderedMap()
+    strVendorClass.EntityData.Leafs = types.NewOrderedMap()
+    strVendorClass.EntityData.Leafs.Append("action", types.YLeaf{"Action", strVendorClass.Action})
+
+    strVendorClass.EntityData.YListKeys = []string {}
+
+    return &(strVendorClass.EntityData)
+}
+
+// Dhcpv6_Profiles_Profile_Server_Options_Option_VendorClass_DefaultVendorClass
+// default action for enterprise number
+type Dhcpv6_Profiles_Profile_Server_Options_Option_VendorClass_DefaultVendorClass struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure Action to be take on match. The type is Action.
+    Action interface{}
+}
+
+func (defaultVendorClass *Dhcpv6_Profiles_Profile_Server_Options_Option_VendorClass_DefaultVendorClass) GetEntityData() *types.CommonEntityData {
+    defaultVendorClass.EntityData.YFilter = defaultVendorClass.YFilter
+    defaultVendorClass.EntityData.YangName = "default-vendor-class"
+    defaultVendorClass.EntityData.BundleName = "cisco_ios_xr"
+    defaultVendorClass.EntityData.ParentYangName = "vendor-class"
+    defaultVendorClass.EntityData.SegmentPath = "default-vendor-class"
+    defaultVendorClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    defaultVendorClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    defaultVendorClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    defaultVendorClass.EntityData.Children = types.NewOrderedMap()
+    defaultVendorClass.EntityData.Leafs = types.NewOrderedMap()
+    defaultVendorClass.EntityData.Leafs.Append("action", types.YLeaf{"Action", defaultVendorClass.Action})
+
+    defaultVendorClass.EntityData.YListKeys = []string {}
+
+    return &(defaultVendorClass.EntityData)
 }
 
 // Dhcpv6_Profiles_Profile_Server_Dhcpv6Options
@@ -1504,9 +2107,12 @@ func (dhcpv6Options *Dhcpv6_Profiles_Profile_Server_Dhcpv6Options) GetEntityData
     dhcpv6Options.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcpv6Options.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    dhcpv6Options.EntityData.Children = make(map[string]types.YChild)
-    dhcpv6Options.EntityData.Children["vendor-options"] = types.YChild{"VendorOptions", &dhcpv6Options.VendorOptions}
-    dhcpv6Options.EntityData.Leafs = make(map[string]types.YLeaf)
+    dhcpv6Options.EntityData.Children = types.NewOrderedMap()
+    dhcpv6Options.EntityData.Children.Append("vendor-options", types.YChild{"VendorOptions", &dhcpv6Options.VendorOptions})
+    dhcpv6Options.EntityData.Leafs = types.NewOrderedMap()
+
+    dhcpv6Options.EntityData.YListKeys = []string {}
+
     return &(dhcpv6Options.EntityData)
 }
 
@@ -1517,7 +2123,7 @@ type Dhcpv6_Profiles_Profile_Server_Dhcpv6Options_VendorOptions struct {
     YFilter yfilter.YFilter
 
     // Set string. The type is string.
-    Type_ interface{}
+    Type interface{}
 
     // Vendor options. The type is string with length: 1..512.
     VendorOptions interface{}
@@ -1533,10 +2139,13 @@ func (vendorOptions *Dhcpv6_Profiles_Profile_Server_Dhcpv6Options_VendorOptions)
     vendorOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vendorOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vendorOptions.EntityData.Children = make(map[string]types.YChild)
-    vendorOptions.EntityData.Leafs = make(map[string]types.YLeaf)
-    vendorOptions.EntityData.Leafs["type"] = types.YLeaf{"Type_", vendorOptions.Type_}
-    vendorOptions.EntityData.Leafs["vendor-options"] = types.YLeaf{"VendorOptions", vendorOptions.VendorOptions}
+    vendorOptions.EntityData.Children = types.NewOrderedMap()
+    vendorOptions.EntityData.Leafs = types.NewOrderedMap()
+    vendorOptions.EntityData.Leafs.Append("type", types.YLeaf{"Type", vendorOptions.Type})
+    vendorOptions.EntityData.Leafs.Append("vendor-options", types.YLeaf{"VendorOptions", vendorOptions.VendorOptions})
+
+    vendorOptions.EntityData.YListKeys = []string {}
+
     return &(vendorOptions.EntityData)
 }
 
@@ -1546,8 +2155,8 @@ type Dhcpv6_Interfaces struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // None. The type is slice of Dhcpv6_Interfaces_Interface_.
-    Interface_ []Dhcpv6_Interfaces_Interface
+    // None. The type is slice of Dhcpv6_Interfaces_Interface.
+    Interface []*Dhcpv6_Interfaces_Interface
 }
 
 func (interfaces *Dhcpv6_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -1560,12 +2169,15 @@ func (interfaces *Dhcpv6_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -1576,7 +2188,7 @@ type Dhcpv6_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface to configure. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // PPPoE subscriber interface.
@@ -1600,19 +2212,22 @@ func (self *Dhcpv6_Interfaces_Interface) GetEntityData() *types.CommonEntityData
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["pppoe"] = types.YChild{"Pppoe", &self.Pppoe}
-    self.EntityData.Children["proxy"] = types.YChild{"Proxy", &self.Proxy}
-    self.EntityData.Children["base"] = types.YChild{"Base", &self.Base}
-    self.EntityData.Children["server"] = types.YChild{"Server", &self.Server}
-    self.EntityData.Children["relay"] = types.YChild{"Relay", &self.Relay}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &self.Pppoe})
+    self.EntityData.Children.Append("proxy", types.YChild{"Proxy", &self.Proxy})
+    self.EntityData.Children.Append("base", types.YChild{"Base", &self.Base})
+    self.EntityData.Children.Append("server", types.YChild{"Server", &self.Server})
+    self.EntityData.Children.Append("relay", types.YChild{"Relay", &self.Relay})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -1636,9 +2251,12 @@ func (pppoe *Dhcpv6_Interfaces_Interface_Pppoe) GetEntityData() *types.CommonEnt
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pppoe.EntityData.Children = make(map[string]types.YChild)
-    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
-    pppoe.EntityData.Leafs["profile"] = types.YLeaf{"Profile", pppoe.Profile}
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("profile", types.YLeaf{"Profile", pppoe.Profile})
+
+    pppoe.EntityData.YListKeys = []string {}
+
     return &(pppoe.EntityData)
 }
 
@@ -1662,9 +2280,12 @@ func (proxy *Dhcpv6_Interfaces_Interface_Proxy) GetEntityData() *types.CommonEnt
     proxy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     proxy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    proxy.EntityData.Children = make(map[string]types.YChild)
-    proxy.EntityData.Leafs = make(map[string]types.YLeaf)
-    proxy.EntityData.Leafs["profile"] = types.YLeaf{"Profile", proxy.Profile}
+    proxy.EntityData.Children = types.NewOrderedMap()
+    proxy.EntityData.Leafs = types.NewOrderedMap()
+    proxy.EntityData.Leafs.Append("profile", types.YLeaf{"Profile", proxy.Profile})
+
+    proxy.EntityData.YListKeys = []string {}
+
     return &(proxy.EntityData)
 }
 
@@ -1688,9 +2309,12 @@ func (base *Dhcpv6_Interfaces_Interface_Base) GetEntityData() *types.CommonEntit
     base.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     base.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    base.EntityData.Children = make(map[string]types.YChild)
-    base.EntityData.Leafs = make(map[string]types.YLeaf)
-    base.EntityData.Leafs["profile"] = types.YLeaf{"Profile", base.Profile}
+    base.EntityData.Children = types.NewOrderedMap()
+    base.EntityData.Leafs = types.NewOrderedMap()
+    base.EntityData.Leafs.Append("profile", types.YLeaf{"Profile", base.Profile})
+
+    base.EntityData.YListKeys = []string {}
+
     return &(base.EntityData)
 }
 
@@ -1714,9 +2338,12 @@ func (server *Dhcpv6_Interfaces_Interface_Server) GetEntityData() *types.CommonE
     server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    server.EntityData.Children = make(map[string]types.YChild)
-    server.EntityData.Leafs = make(map[string]types.YLeaf)
-    server.EntityData.Leafs["profile"] = types.YLeaf{"Profile", server.Profile}
+    server.EntityData.Children = types.NewOrderedMap()
+    server.EntityData.Leafs = types.NewOrderedMap()
+    server.EntityData.Leafs.Append("profile", types.YLeaf{"Profile", server.Profile})
+
+    server.EntityData.YListKeys = []string {}
+
     return &(server.EntityData)
 }
 
@@ -1740,9 +2367,12 @@ func (relay *Dhcpv6_Interfaces_Interface_Relay) GetEntityData() *types.CommonEnt
     relay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    relay.EntityData.Children = make(map[string]types.YChild)
-    relay.EntityData.Leafs = make(map[string]types.YLeaf)
-    relay.EntityData.Leafs["profile"] = types.YLeaf{"Profile", relay.Profile}
+    relay.EntityData.Children = types.NewOrderedMap()
+    relay.EntityData.Leafs = types.NewOrderedMap()
+    relay.EntityData.Leafs.Append("profile", types.YLeaf{"Profile", relay.Profile})
+
+    relay.EntityData.YListKeys = []string {}
+
     return &(relay.EntityData)
 }
 

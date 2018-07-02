@@ -37,8 +37,8 @@ import (
 
 // configNative adds data to native object
 func configNative(native *nativeModel.Native) {
-    native.Interface_.Loopback = make([]nativeModel.Native_Interface_Loopback, 1)
-    loopback := &native.Interface_.Loopback[0]
+    native.Interface.Loopback = make([]nativeModel.Native_Interface_Loopback, 1)
+    loopback := &native.Interface.Loopback[0]
     loopback.Name = 0
     loopback.Description = "PRIMARY ROUTER LOOPBACK"
     loopback.Ip.Address.Primary.Address = "172.16.255.1"

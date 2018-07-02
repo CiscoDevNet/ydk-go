@@ -32,6 +32,10 @@ module Cisco-IOS-XR-segment-routing-ms-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -138,7 +142,7 @@ module Cisco-IOS-XR-segment-routing-ms-cfg {
             "IP prefix";
         }
         leaf mask {
-          type int32;
+          type uint32;
           description
             "Mask";
         }
@@ -150,7 +154,7 @@ module Cisco-IOS-XR-segment-routing-ms-cfg {
             "Start of SID index range";
         }
         leaf sid-range {
-          type int32;
+          type uint32;
           description
             "Range (number of SIDs)";
         }

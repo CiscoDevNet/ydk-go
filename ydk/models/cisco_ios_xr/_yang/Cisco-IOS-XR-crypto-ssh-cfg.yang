@@ -94,43 +94,14 @@ module Cisco-IOS-XR-crypto-ssh-cfg {
   grouping KEY-EXCHANGE {
     description
       "Common node of client-algo, server-algo";
-    container key-exchange {
-      presence "Indicates a key-exchange node is configured.";
+    container key-exchanges {
       description
         "Key exchange algorithm";
-      leaf kex-algo1st {
+      leaf-list key-exchange {
         type string {
           length "1..32";
         }
-        mandatory true;
-        description
-          "key exchange algorithm";
-      }
-      leaf kex-algo2nd {
-        type string {
-          length "1..32";
-        }
-        description
-          "key exchange algorithm";
-      }
-      leaf kex-algo3rd {
-        type string {
-          length "1..32";
-        }
-        description
-          "key exchange algorithm";
-      }
-      leaf kex-algo4th {
-        type string {
-          length "1..32";
-        }
-        description
-          "key exchange algorithm";
-      }
-      leaf kex-algo5th {
-        type string {
-          length "1..32";
-        }
+        max-elements "5";
         description
           "key exchange algorithm";
       }

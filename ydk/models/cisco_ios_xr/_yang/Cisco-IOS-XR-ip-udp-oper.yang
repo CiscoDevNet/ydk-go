@@ -6,16 +6,16 @@ module Cisco-IOS-XR-ip-udp-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ip-udp-oper-sub4 {
-    revision-date 2016-02-26;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-ip-udp-oper-sub3 {
-    revision-date 2016-02-26;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-ip-udp-oper-sub2 {
-    revision-date 2016-02-26;
+    revision-date 2017-09-07;
   }
   include Cisco-IOS-XR-ip-udp-oper-sub1 {
-    revision-date 2016-02-26;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -42,6 +42,10 @@ module Cisco-IOS-XR-ip-udp-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2016-02-26 {
     description
       "Descriptions updated.";

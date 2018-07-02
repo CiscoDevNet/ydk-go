@@ -24,6 +24,134 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-alarmgr-server-oper:alarms", reflect.TypeOf(Alarms{}))
 }
 
+// TimingBucket represents Timing bucket
+type TimingBucket string
+
+const (
+    // Bucket Type not applicable
+    TimingBucket_not_specified TimingBucket = "not-specified"
+
+    // Fifteen minute time bucket
+    TimingBucket_fifteen_min TimingBucket = "fifteen-min"
+
+    // One day time bucket
+    TimingBucket_one_day TimingBucket = "one-day"
+)
+
+// AlarmSeverity represents Alarm severity
+type AlarmSeverity string
+
+const (
+    // Unknown severity level
+    AlarmSeverity_unknown AlarmSeverity = "unknown"
+
+    // Severity level not reported will not raise an
+    // alarm
+    AlarmSeverity_not_reported AlarmSeverity = "not-reported"
+
+    // Severity level of info to cater to events such
+    // as Performance TCAS
+    AlarmSeverity_not_alarmed AlarmSeverity = "not-alarmed"
+
+    // Severity level of minor fault not traffic
+    // affecting
+    AlarmSeverity_minor AlarmSeverity = "minor"
+
+    // Severity level of major fault leading to
+    // service disruption
+    AlarmSeverity_major AlarmSeverity = "major"
+
+    // Severity level of critical leading to drops
+    // ,route loss, loss of service etc.
+    AlarmSeverity_critical AlarmSeverity = "critical"
+
+    // Last severity level
+    AlarmSeverity_severity_last AlarmSeverity = "severity-last"
+)
+
+// AlarmDirection represents Alarm direction
+type AlarmDirection string
+
+const (
+    // Direction Not Specified
+    AlarmDirection_not_specified AlarmDirection = "not-specified"
+
+    // Direction Send
+    AlarmDirection_send AlarmDirection = "send"
+
+    // Direction Receive
+    AlarmDirection_receive AlarmDirection = "receive"
+
+    // Direction Send and Receive
+    AlarmDirection_send_receive AlarmDirection = "send-receive"
+)
+
+// AlarmStatus represents Alarm status
+type AlarmStatus string
+
+const (
+    // Unknown alarm status level
+    AlarmStatus_unknown AlarmStatus = "unknown"
+
+    // Status of active alarm that is SET by the
+    // controller
+    AlarmStatus_set AlarmStatus = "set"
+
+    // Status of cleared alarm that is done by the
+    // controller
+    AlarmStatus_clear AlarmStatus = "clear"
+
+    // Status of suppressed alarm that is done by the
+    // controller
+    AlarmStatus_suppress AlarmStatus = "suppress"
+
+    // Last status level
+    AlarmStatus_last AlarmStatus = "last"
+)
+
+// AlarmServiceAffecting represents Alarm service affecting
+type AlarmServiceAffecting string
+
+const (
+    // Unknown whether alarm severity is service
+    // affecting
+    AlarmServiceAffecting_unknown AlarmServiceAffecting = "unknown"
+
+    // Alarm severity is not service affecting
+    AlarmServiceAffecting_not_service_affecting AlarmServiceAffecting = "not-service-affecting"
+
+    // Alarm severity is service affecting
+    AlarmServiceAffecting_service_affecting AlarmServiceAffecting = "service-affecting"
+)
+
+// AlarmNotificationSrc represents Alarm notification src
+type AlarmNotificationSrc string
+
+const (
+    // Notification src not specified
+    AlarmNotificationSrc_not_specified AlarmNotificationSrc = "not-specified"
+
+    // Notification src near end
+    AlarmNotificationSrc_near_end AlarmNotificationSrc = "near-end"
+
+    // Notification src far end
+    AlarmNotificationSrc_far_end AlarmNotificationSrc = "far-end"
+)
+
+// AlarmEvent represents Alarm event
+type AlarmEvent string
+
+const (
+    // Default Alarm Event Type
+    AlarmEvent_default_ AlarmEvent = "default"
+
+    // Alarm Notifcation Event Type
+    AlarmEvent_notification AlarmEvent = "notification"
+
+    // Last Event Type
+    AlarmEvent_last AlarmEvent = "last"
+)
+
 // AlarmClient represents Alarm client
 type AlarmClient string
 
@@ -68,80 +196,6 @@ const (
 
     // The client is ready
     AlarmClientState_ready AlarmClientState = "ready"
-)
-
-// AlarmEvent represents Alarm event
-type AlarmEvent string
-
-const (
-    // Default Alarm Event Type
-    AlarmEvent_default_ AlarmEvent = "default"
-
-    // Alarm Notifcation Event Type
-    AlarmEvent_notification AlarmEvent = "notification"
-
-    // Last Event Type
-    AlarmEvent_last AlarmEvent = "last"
-)
-
-// TimingBucket represents Timing bucket
-type TimingBucket string
-
-const (
-    // Bucket Type not applicable
-    TimingBucket_not_specified TimingBucket = "not-specified"
-
-    // Fifteen minute time bucket
-    TimingBucket_fifteen_min TimingBucket = "fifteen-min"
-
-    // One day time bucket
-    TimingBucket_one_day TimingBucket = "one-day"
-)
-
-// AlarmNotificationSrc represents Alarm notification src
-type AlarmNotificationSrc string
-
-const (
-    // Notification src not specified
-    AlarmNotificationSrc_not_specified AlarmNotificationSrc = "not-specified"
-
-    // Notification src near end
-    AlarmNotificationSrc_near_end AlarmNotificationSrc = "near-end"
-
-    // Notification src far end
-    AlarmNotificationSrc_far_end AlarmNotificationSrc = "far-end"
-)
-
-// AlarmDirection represents Alarm direction
-type AlarmDirection string
-
-const (
-    // Direction Not Specified
-    AlarmDirection_not_specified AlarmDirection = "not-specified"
-
-    // Direction Send
-    AlarmDirection_send AlarmDirection = "send"
-
-    // Direction Receive
-    AlarmDirection_receive AlarmDirection = "receive"
-
-    // Direction Send and Receive
-    AlarmDirection_send_receive AlarmDirection = "send-receive"
-)
-
-// AlarmServiceAffecting represents Alarm service affecting
-type AlarmServiceAffecting string
-
-const (
-    // Unknown whether alarm severity is service
-    // affecting
-    AlarmServiceAffecting_unknown AlarmServiceAffecting = "unknown"
-
-    // Alarm severity is not service affecting
-    AlarmServiceAffecting_not_service_affecting AlarmServiceAffecting = "not-service-affecting"
-
-    // Alarm severity is service affecting
-    AlarmServiceAffecting_service_affecting AlarmServiceAffecting = "service-affecting"
 )
 
 // AlarmGroups represents Alarm groups
@@ -206,60 +260,6 @@ const (
     AlarmGroups_last AlarmGroups = "last"
 )
 
-// AlarmStatus represents Alarm status
-type AlarmStatus string
-
-const (
-    // Unknown alarm status level
-    AlarmStatus_unknown AlarmStatus = "unknown"
-
-    // Status of active alarm that is SET by the
-    // controller
-    AlarmStatus_set AlarmStatus = "set"
-
-    // Status of cleared alarm that is done by the
-    // controller
-    AlarmStatus_clear AlarmStatus = "clear"
-
-    // Status of suppressed alarm that is done by the
-    // controller
-    AlarmStatus_suppress AlarmStatus = "suppress"
-
-    // Last status level
-    AlarmStatus_last AlarmStatus = "last"
-)
-
-// AlarmSeverity represents Alarm severity
-type AlarmSeverity string
-
-const (
-    // Unknown severity level
-    AlarmSeverity_unknown AlarmSeverity = "unknown"
-
-    // Severity level not reported will not raise an
-    // alarm
-    AlarmSeverity_not_reported AlarmSeverity = "not-reported"
-
-    // Severity level of info to cater to events such
-    // as Performance TCAS
-    AlarmSeverity_not_alarmed AlarmSeverity = "not-alarmed"
-
-    // Severity level of minor fault not traffic
-    // affecting
-    AlarmSeverity_minor AlarmSeverity = "minor"
-
-    // Severity level of major fault leading to
-    // service disruption
-    AlarmSeverity_major AlarmSeverity = "major"
-
-    // Severity level of critical leading to drops
-    // ,route loss, loss of service etc.
-    AlarmSeverity_critical AlarmSeverity = "critical"
-
-    // Last severity level
-    AlarmSeverity_severity_last AlarmSeverity = "severity-last"
-)
-
 // Alarms
 // Show Alarms associated with XR
 type Alarms struct {
@@ -283,10 +283,13 @@ func (alarms *Alarms) GetEntityData() *types.CommonEntityData {
     alarms.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarms.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarms.EntityData.Children = make(map[string]types.YChild)
-    alarms.EntityData.Children["detail"] = types.YChild{"Detail", &alarms.Detail}
-    alarms.EntityData.Children["brief"] = types.YChild{"Brief", &alarms.Brief}
-    alarms.EntityData.Leafs = make(map[string]types.YLeaf)
+    alarms.EntityData.Children = types.NewOrderedMap()
+    alarms.EntityData.Children.Append("detail", types.YChild{"Detail", &alarms.Detail})
+    alarms.EntityData.Children.Append("brief", types.YChild{"Brief", &alarms.Brief})
+    alarms.EntityData.Leafs = types.NewOrderedMap()
+
+    alarms.EntityData.YListKeys = []string {}
+
     return &(alarms.EntityData)
 }
 
@@ -313,10 +316,13 @@ func (detail *Alarms_Detail) GetEntityData() *types.CommonEntityData {
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detail.EntityData.Children = make(map[string]types.YChild)
-    detail.EntityData.Children["detail-system"] = types.YChild{"DetailSystem", &detail.DetailSystem}
-    detail.EntityData.Children["detail-card"] = types.YChild{"DetailCard", &detail.DetailCard}
-    detail.EntityData.Leafs = make(map[string]types.YLeaf)
+    detail.EntityData.Children = types.NewOrderedMap()
+    detail.EntityData.Children.Append("detail-system", types.YChild{"DetailSystem", &detail.DetailSystem})
+    detail.EntityData.Children.Append("detail-card", types.YChild{"DetailCard", &detail.DetailCard})
+    detail.EntityData.Leafs = types.NewOrderedMap()
+
+    detail.EntityData.YListKeys = []string {}
+
     return &(detail.EntityData)
 }
 
@@ -352,13 +358,16 @@ func (detailSystem *Alarms_Detail_DetailSystem) GetEntityData() *types.CommonEnt
     detailSystem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detailSystem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detailSystem.EntityData.Children = make(map[string]types.YChild)
-    detailSystem.EntityData.Children["active"] = types.YChild{"Active", &detailSystem.Active}
-    detailSystem.EntityData.Children["history"] = types.YChild{"History", &detailSystem.History}
-    detailSystem.EntityData.Children["suppressed"] = types.YChild{"Suppressed", &detailSystem.Suppressed}
-    detailSystem.EntityData.Children["stats"] = types.YChild{"Stats", &detailSystem.Stats}
-    detailSystem.EntityData.Children["clients"] = types.YChild{"Clients", &detailSystem.Clients}
-    detailSystem.EntityData.Leafs = make(map[string]types.YLeaf)
+    detailSystem.EntityData.Children = types.NewOrderedMap()
+    detailSystem.EntityData.Children.Append("active", types.YChild{"Active", &detailSystem.Active})
+    detailSystem.EntityData.Children.Append("history", types.YChild{"History", &detailSystem.History})
+    detailSystem.EntityData.Children.Append("suppressed", types.YChild{"Suppressed", &detailSystem.Suppressed})
+    detailSystem.EntityData.Children.Append("stats", types.YChild{"Stats", &detailSystem.Stats})
+    detailSystem.EntityData.Children.Append("clients", types.YChild{"Clients", &detailSystem.Clients})
+    detailSystem.EntityData.Leafs = types.NewOrderedMap()
+
+    detailSystem.EntityData.YListKeys = []string {}
+
     return &(detailSystem.EntityData)
 }
 
@@ -370,7 +379,7 @@ type Alarms_Detail_DetailSystem_Active struct {
 
     // Alarm List. The type is slice of
     // Alarms_Detail_DetailSystem_Active_AlarmInfo.
-    AlarmInfo []Alarms_Detail_DetailSystem_Active_AlarmInfo
+    AlarmInfo []*Alarms_Detail_DetailSystem_Active_AlarmInfo
 }
 
 func (active *Alarms_Detail_DetailSystem_Active) GetEntityData() *types.CommonEntityData {
@@ -383,12 +392,15 @@ func (active *Alarms_Detail_DetailSystem_Active) GetEntityData() *types.CommonEn
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    active.EntityData.Children = make(map[string]types.YChild)
-    active.EntityData.Children["alarm-info"] = types.YChild{"AlarmInfo", nil}
+    active.EntityData.Children = types.NewOrderedMap()
+    active.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range active.AlarmInfo {
-        active.EntityData.Children[types.GetSegmentPath(&active.AlarmInfo[i])] = types.YChild{"AlarmInfo", &active.AlarmInfo[i]}
+        active.EntityData.Children.Append(types.GetSegmentPath(active.AlarmInfo[i]), types.YChild{"AlarmInfo", active.AlarmInfo[i]})
     }
-    active.EntityData.Leafs = make(map[string]types.YLeaf)
+    active.EntityData.Leafs = types.NewOrderedMap()
+
+    active.EntityData.YListKeys = []string {}
+
     return &(active.EntityData)
 }
 
@@ -449,10 +461,10 @@ type Alarms_Detail_DetailSystem_Active_AlarmInfo struct {
     ServiceAffecting interface{}
 
     // alarm event type. The type is AlarmEvent.
-    Type_ interface{}
+    Type interface{}
 
     // Alarm interface name. The type is string with length: 0..128.
-    Interface_ interface{}
+    Interface interface{}
 
     // Alarm name. The type is string with length: 0..128.
     AlarmName interface{}
@@ -474,29 +486,32 @@ func (alarmInfo *Alarms_Detail_DetailSystem_Active_AlarmInfo) GetEntityData() *t
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarmInfo.EntityData.Children = make(map[string]types.YChild)
-    alarmInfo.EntityData.Children["otn"] = types.YChild{"Otn", &alarmInfo.Otn}
-    alarmInfo.EntityData.Children["tca"] = types.YChild{"Tca", &alarmInfo.Tca}
-    alarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    alarmInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", alarmInfo.Description}
-    alarmInfo.EntityData.Leafs["location"] = types.YLeaf{"Location", alarmInfo.Location}
-    alarmInfo.EntityData.Leafs["aid"] = types.YLeaf{"Aid", alarmInfo.Aid}
-    alarmInfo.EntityData.Leafs["tag"] = types.YLeaf{"Tag", alarmInfo.Tag}
-    alarmInfo.EntityData.Leafs["module"] = types.YLeaf{"Module", alarmInfo.Module}
-    alarmInfo.EntityData.Leafs["eid"] = types.YLeaf{"Eid", alarmInfo.Eid}
-    alarmInfo.EntityData.Leafs["reporting-agent-id"] = types.YLeaf{"ReportingAgentId", alarmInfo.ReportingAgentId}
-    alarmInfo.EntityData.Leafs["pending-sync"] = types.YLeaf{"PendingSync", alarmInfo.PendingSync}
-    alarmInfo.EntityData.Leafs["severity"] = types.YLeaf{"Severity", alarmInfo.Severity}
-    alarmInfo.EntityData.Leafs["status"] = types.YLeaf{"Status", alarmInfo.Status}
-    alarmInfo.EntityData.Leafs["group"] = types.YLeaf{"Group", alarmInfo.Group}
-    alarmInfo.EntityData.Leafs["set-time"] = types.YLeaf{"SetTime", alarmInfo.SetTime}
-    alarmInfo.EntityData.Leafs["set-timestamp"] = types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp}
-    alarmInfo.EntityData.Leafs["clear-time"] = types.YLeaf{"ClearTime", alarmInfo.ClearTime}
-    alarmInfo.EntityData.Leafs["clear-timestamp"] = types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp}
-    alarmInfo.EntityData.Leafs["service-affecting"] = types.YLeaf{"ServiceAffecting", alarmInfo.ServiceAffecting}
-    alarmInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", alarmInfo.Type_}
-    alarmInfo.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", alarmInfo.Interface_}
-    alarmInfo.EntityData.Leafs["alarm-name"] = types.YLeaf{"AlarmName", alarmInfo.AlarmName}
+    alarmInfo.EntityData.Children = types.NewOrderedMap()
+    alarmInfo.EntityData.Children.Append("otn", types.YChild{"Otn", &alarmInfo.Otn})
+    alarmInfo.EntityData.Children.Append("tca", types.YChild{"Tca", &alarmInfo.Tca})
+    alarmInfo.EntityData.Leafs = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", alarmInfo.Description})
+    alarmInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", alarmInfo.Location})
+    alarmInfo.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", alarmInfo.Aid})
+    alarmInfo.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", alarmInfo.Tag})
+    alarmInfo.EntityData.Leafs.Append("module", types.YLeaf{"Module", alarmInfo.Module})
+    alarmInfo.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", alarmInfo.Eid})
+    alarmInfo.EntityData.Leafs.Append("reporting-agent-id", types.YLeaf{"ReportingAgentId", alarmInfo.ReportingAgentId})
+    alarmInfo.EntityData.Leafs.Append("pending-sync", types.YLeaf{"PendingSync", alarmInfo.PendingSync})
+    alarmInfo.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", alarmInfo.Severity})
+    alarmInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", alarmInfo.Status})
+    alarmInfo.EntityData.Leafs.Append("group", types.YLeaf{"Group", alarmInfo.Group})
+    alarmInfo.EntityData.Leafs.Append("set-time", types.YLeaf{"SetTime", alarmInfo.SetTime})
+    alarmInfo.EntityData.Leafs.Append("set-timestamp", types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp})
+    alarmInfo.EntityData.Leafs.Append("clear-time", types.YLeaf{"ClearTime", alarmInfo.ClearTime})
+    alarmInfo.EntityData.Leafs.Append("clear-timestamp", types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp})
+    alarmInfo.EntityData.Leafs.Append("service-affecting", types.YLeaf{"ServiceAffecting", alarmInfo.ServiceAffecting})
+    alarmInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", alarmInfo.Type})
+    alarmInfo.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", alarmInfo.Interface})
+    alarmInfo.EntityData.Leafs.Append("alarm-name", types.YLeaf{"AlarmName", alarmInfo.AlarmName})
+
+    alarmInfo.EntityData.YListKeys = []string {}
+
     return &(alarmInfo.EntityData)
 }
 
@@ -523,10 +538,13 @@ func (otn *Alarms_Detail_DetailSystem_Active_AlarmInfo_Otn) GetEntityData() *typ
     otn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    otn.EntityData.Children = make(map[string]types.YChild)
-    otn.EntityData.Leafs = make(map[string]types.YLeaf)
-    otn.EntityData.Leafs["direction"] = types.YLeaf{"Direction", otn.Direction}
-    otn.EntityData.Leafs["notification-source"] = types.YLeaf{"NotificationSource", otn.NotificationSource}
+    otn.EntityData.Children = types.NewOrderedMap()
+    otn.EntityData.Leafs = types.NewOrderedMap()
+    otn.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", otn.Direction})
+    otn.EntityData.Leafs.Append("notification-source", types.YLeaf{"NotificationSource", otn.NotificationSource})
+
+    otn.EntityData.YListKeys = []string {}
+
     return &(otn.EntityData)
 }
 
@@ -556,11 +574,14 @@ func (tca *Alarms_Detail_DetailSystem_Active_AlarmInfo_Tca) GetEntityData() *typ
     tca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tca.EntityData.Children = make(map[string]types.YChild)
-    tca.EntityData.Leafs = make(map[string]types.YLeaf)
-    tca.EntityData.Leafs["threshold-value"] = types.YLeaf{"ThresholdValue", tca.ThresholdValue}
-    tca.EntityData.Leafs["current-value"] = types.YLeaf{"CurrentValue", tca.CurrentValue}
-    tca.EntityData.Leafs["bucket-type"] = types.YLeaf{"BucketType", tca.BucketType}
+    tca.EntityData.Children = types.NewOrderedMap()
+    tca.EntityData.Leafs = types.NewOrderedMap()
+    tca.EntityData.Leafs.Append("threshold-value", types.YLeaf{"ThresholdValue", tca.ThresholdValue})
+    tca.EntityData.Leafs.Append("current-value", types.YLeaf{"CurrentValue", tca.CurrentValue})
+    tca.EntityData.Leafs.Append("bucket-type", types.YLeaf{"BucketType", tca.BucketType})
+
+    tca.EntityData.YListKeys = []string {}
+
     return &(tca.EntityData)
 }
 
@@ -572,7 +593,7 @@ type Alarms_Detail_DetailSystem_History struct {
 
     // Alarm List. The type is slice of
     // Alarms_Detail_DetailSystem_History_AlarmInfo.
-    AlarmInfo []Alarms_Detail_DetailSystem_History_AlarmInfo
+    AlarmInfo []*Alarms_Detail_DetailSystem_History_AlarmInfo
 }
 
 func (history *Alarms_Detail_DetailSystem_History) GetEntityData() *types.CommonEntityData {
@@ -585,12 +606,15 @@ func (history *Alarms_Detail_DetailSystem_History) GetEntityData() *types.Common
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    history.EntityData.Children = make(map[string]types.YChild)
-    history.EntityData.Children["alarm-info"] = types.YChild{"AlarmInfo", nil}
+    history.EntityData.Children = types.NewOrderedMap()
+    history.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range history.AlarmInfo {
-        history.EntityData.Children[types.GetSegmentPath(&history.AlarmInfo[i])] = types.YChild{"AlarmInfo", &history.AlarmInfo[i]}
+        history.EntityData.Children.Append(types.GetSegmentPath(history.AlarmInfo[i]), types.YChild{"AlarmInfo", history.AlarmInfo[i]})
     }
-    history.EntityData.Leafs = make(map[string]types.YLeaf)
+    history.EntityData.Leafs = types.NewOrderedMap()
+
+    history.EntityData.YListKeys = []string {}
+
     return &(history.EntityData)
 }
 
@@ -651,10 +675,10 @@ type Alarms_Detail_DetailSystem_History_AlarmInfo struct {
     ServiceAffecting interface{}
 
     // alarm event type. The type is AlarmEvent.
-    Type_ interface{}
+    Type interface{}
 
     // Alarm interface name. The type is string with length: 0..128.
-    Interface_ interface{}
+    Interface interface{}
 
     // Alarm name. The type is string with length: 0..128.
     AlarmName interface{}
@@ -676,29 +700,32 @@ func (alarmInfo *Alarms_Detail_DetailSystem_History_AlarmInfo) GetEntityData() *
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarmInfo.EntityData.Children = make(map[string]types.YChild)
-    alarmInfo.EntityData.Children["otn"] = types.YChild{"Otn", &alarmInfo.Otn}
-    alarmInfo.EntityData.Children["tca"] = types.YChild{"Tca", &alarmInfo.Tca}
-    alarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    alarmInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", alarmInfo.Description}
-    alarmInfo.EntityData.Leafs["location"] = types.YLeaf{"Location", alarmInfo.Location}
-    alarmInfo.EntityData.Leafs["aid"] = types.YLeaf{"Aid", alarmInfo.Aid}
-    alarmInfo.EntityData.Leafs["tag"] = types.YLeaf{"Tag", alarmInfo.Tag}
-    alarmInfo.EntityData.Leafs["module"] = types.YLeaf{"Module", alarmInfo.Module}
-    alarmInfo.EntityData.Leafs["eid"] = types.YLeaf{"Eid", alarmInfo.Eid}
-    alarmInfo.EntityData.Leafs["reporting-agent-id"] = types.YLeaf{"ReportingAgentId", alarmInfo.ReportingAgentId}
-    alarmInfo.EntityData.Leafs["pending-sync"] = types.YLeaf{"PendingSync", alarmInfo.PendingSync}
-    alarmInfo.EntityData.Leafs["severity"] = types.YLeaf{"Severity", alarmInfo.Severity}
-    alarmInfo.EntityData.Leafs["status"] = types.YLeaf{"Status", alarmInfo.Status}
-    alarmInfo.EntityData.Leafs["group"] = types.YLeaf{"Group", alarmInfo.Group}
-    alarmInfo.EntityData.Leafs["set-time"] = types.YLeaf{"SetTime", alarmInfo.SetTime}
-    alarmInfo.EntityData.Leafs["set-timestamp"] = types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp}
-    alarmInfo.EntityData.Leafs["clear-time"] = types.YLeaf{"ClearTime", alarmInfo.ClearTime}
-    alarmInfo.EntityData.Leafs["clear-timestamp"] = types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp}
-    alarmInfo.EntityData.Leafs["service-affecting"] = types.YLeaf{"ServiceAffecting", alarmInfo.ServiceAffecting}
-    alarmInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", alarmInfo.Type_}
-    alarmInfo.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", alarmInfo.Interface_}
-    alarmInfo.EntityData.Leafs["alarm-name"] = types.YLeaf{"AlarmName", alarmInfo.AlarmName}
+    alarmInfo.EntityData.Children = types.NewOrderedMap()
+    alarmInfo.EntityData.Children.Append("otn", types.YChild{"Otn", &alarmInfo.Otn})
+    alarmInfo.EntityData.Children.Append("tca", types.YChild{"Tca", &alarmInfo.Tca})
+    alarmInfo.EntityData.Leafs = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", alarmInfo.Description})
+    alarmInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", alarmInfo.Location})
+    alarmInfo.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", alarmInfo.Aid})
+    alarmInfo.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", alarmInfo.Tag})
+    alarmInfo.EntityData.Leafs.Append("module", types.YLeaf{"Module", alarmInfo.Module})
+    alarmInfo.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", alarmInfo.Eid})
+    alarmInfo.EntityData.Leafs.Append("reporting-agent-id", types.YLeaf{"ReportingAgentId", alarmInfo.ReportingAgentId})
+    alarmInfo.EntityData.Leafs.Append("pending-sync", types.YLeaf{"PendingSync", alarmInfo.PendingSync})
+    alarmInfo.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", alarmInfo.Severity})
+    alarmInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", alarmInfo.Status})
+    alarmInfo.EntityData.Leafs.Append("group", types.YLeaf{"Group", alarmInfo.Group})
+    alarmInfo.EntityData.Leafs.Append("set-time", types.YLeaf{"SetTime", alarmInfo.SetTime})
+    alarmInfo.EntityData.Leafs.Append("set-timestamp", types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp})
+    alarmInfo.EntityData.Leafs.Append("clear-time", types.YLeaf{"ClearTime", alarmInfo.ClearTime})
+    alarmInfo.EntityData.Leafs.Append("clear-timestamp", types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp})
+    alarmInfo.EntityData.Leafs.Append("service-affecting", types.YLeaf{"ServiceAffecting", alarmInfo.ServiceAffecting})
+    alarmInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", alarmInfo.Type})
+    alarmInfo.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", alarmInfo.Interface})
+    alarmInfo.EntityData.Leafs.Append("alarm-name", types.YLeaf{"AlarmName", alarmInfo.AlarmName})
+
+    alarmInfo.EntityData.YListKeys = []string {}
+
     return &(alarmInfo.EntityData)
 }
 
@@ -725,10 +752,13 @@ func (otn *Alarms_Detail_DetailSystem_History_AlarmInfo_Otn) GetEntityData() *ty
     otn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    otn.EntityData.Children = make(map[string]types.YChild)
-    otn.EntityData.Leafs = make(map[string]types.YLeaf)
-    otn.EntityData.Leafs["direction"] = types.YLeaf{"Direction", otn.Direction}
-    otn.EntityData.Leafs["notification-source"] = types.YLeaf{"NotificationSource", otn.NotificationSource}
+    otn.EntityData.Children = types.NewOrderedMap()
+    otn.EntityData.Leafs = types.NewOrderedMap()
+    otn.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", otn.Direction})
+    otn.EntityData.Leafs.Append("notification-source", types.YLeaf{"NotificationSource", otn.NotificationSource})
+
+    otn.EntityData.YListKeys = []string {}
+
     return &(otn.EntityData)
 }
 
@@ -758,11 +788,14 @@ func (tca *Alarms_Detail_DetailSystem_History_AlarmInfo_Tca) GetEntityData() *ty
     tca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tca.EntityData.Children = make(map[string]types.YChild)
-    tca.EntityData.Leafs = make(map[string]types.YLeaf)
-    tca.EntityData.Leafs["threshold-value"] = types.YLeaf{"ThresholdValue", tca.ThresholdValue}
-    tca.EntityData.Leafs["current-value"] = types.YLeaf{"CurrentValue", tca.CurrentValue}
-    tca.EntityData.Leafs["bucket-type"] = types.YLeaf{"BucketType", tca.BucketType}
+    tca.EntityData.Children = types.NewOrderedMap()
+    tca.EntityData.Leafs = types.NewOrderedMap()
+    tca.EntityData.Leafs.Append("threshold-value", types.YLeaf{"ThresholdValue", tca.ThresholdValue})
+    tca.EntityData.Leafs.Append("current-value", types.YLeaf{"CurrentValue", tca.CurrentValue})
+    tca.EntityData.Leafs.Append("bucket-type", types.YLeaf{"BucketType", tca.BucketType})
+
+    tca.EntityData.YListKeys = []string {}
+
     return &(tca.EntityData)
 }
 
@@ -774,7 +807,7 @@ type Alarms_Detail_DetailSystem_Suppressed struct {
 
     // Suppressed Alarm List. The type is slice of
     // Alarms_Detail_DetailSystem_Suppressed_SuppressedInfo.
-    SuppressedInfo []Alarms_Detail_DetailSystem_Suppressed_SuppressedInfo
+    SuppressedInfo []*Alarms_Detail_DetailSystem_Suppressed_SuppressedInfo
 }
 
 func (suppressed *Alarms_Detail_DetailSystem_Suppressed) GetEntityData() *types.CommonEntityData {
@@ -787,12 +820,15 @@ func (suppressed *Alarms_Detail_DetailSystem_Suppressed) GetEntityData() *types.
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    suppressed.EntityData.Children = make(map[string]types.YChild)
-    suppressed.EntityData.Children["suppressed-info"] = types.YChild{"SuppressedInfo", nil}
+    suppressed.EntityData.Children = types.NewOrderedMap()
+    suppressed.EntityData.Children.Append("suppressed-info", types.YChild{"SuppressedInfo", nil})
     for i := range suppressed.SuppressedInfo {
-        suppressed.EntityData.Children[types.GetSegmentPath(&suppressed.SuppressedInfo[i])] = types.YChild{"SuppressedInfo", &suppressed.SuppressedInfo[i]}
+        suppressed.EntityData.Children.Append(types.GetSegmentPath(suppressed.SuppressedInfo[i]), types.YChild{"SuppressedInfo", suppressed.SuppressedInfo[i]})
     }
-    suppressed.EntityData.Leafs = make(map[string]types.YLeaf)
+    suppressed.EntityData.Leafs = types.NewOrderedMap()
+
+    suppressed.EntityData.YListKeys = []string {}
+
     return &(suppressed.EntityData)
 }
 
@@ -853,7 +889,7 @@ type Alarms_Detail_DetailSystem_Suppressed_SuppressedInfo struct {
     ServiceAffecting interface{}
 
     // Alarm interface name. The type is string with length: 0..128.
-    Interface_ interface{}
+    Interface interface{}
 
     // Alarm name. The type is string with length: 0..128.
     AlarmName interface{}
@@ -872,27 +908,30 @@ func (suppressedInfo *Alarms_Detail_DetailSystem_Suppressed_SuppressedInfo) GetE
     suppressedInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressedInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    suppressedInfo.EntityData.Children = make(map[string]types.YChild)
-    suppressedInfo.EntityData.Children["otn"] = types.YChild{"Otn", &suppressedInfo.Otn}
-    suppressedInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    suppressedInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", suppressedInfo.Description}
-    suppressedInfo.EntityData.Leafs["location"] = types.YLeaf{"Location", suppressedInfo.Location}
-    suppressedInfo.EntityData.Leafs["aid"] = types.YLeaf{"Aid", suppressedInfo.Aid}
-    suppressedInfo.EntityData.Leafs["tag"] = types.YLeaf{"Tag", suppressedInfo.Tag}
-    suppressedInfo.EntityData.Leafs["module"] = types.YLeaf{"Module", suppressedInfo.Module}
-    suppressedInfo.EntityData.Leafs["eid"] = types.YLeaf{"Eid", suppressedInfo.Eid}
-    suppressedInfo.EntityData.Leafs["reporting-agent-id"] = types.YLeaf{"ReportingAgentId", suppressedInfo.ReportingAgentId}
-    suppressedInfo.EntityData.Leafs["pending-sync"] = types.YLeaf{"PendingSync", suppressedInfo.PendingSync}
-    suppressedInfo.EntityData.Leafs["severity"] = types.YLeaf{"Severity", suppressedInfo.Severity}
-    suppressedInfo.EntityData.Leafs["status"] = types.YLeaf{"Status", suppressedInfo.Status}
-    suppressedInfo.EntityData.Leafs["group"] = types.YLeaf{"Group", suppressedInfo.Group}
-    suppressedInfo.EntityData.Leafs["set-time"] = types.YLeaf{"SetTime", suppressedInfo.SetTime}
-    suppressedInfo.EntityData.Leafs["set-timestamp"] = types.YLeaf{"SetTimestamp", suppressedInfo.SetTimestamp}
-    suppressedInfo.EntityData.Leafs["suppressed-time"] = types.YLeaf{"SuppressedTime", suppressedInfo.SuppressedTime}
-    suppressedInfo.EntityData.Leafs["suppressed-timestamp"] = types.YLeaf{"SuppressedTimestamp", suppressedInfo.SuppressedTimestamp}
-    suppressedInfo.EntityData.Leafs["service-affecting"] = types.YLeaf{"ServiceAffecting", suppressedInfo.ServiceAffecting}
-    suppressedInfo.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", suppressedInfo.Interface_}
-    suppressedInfo.EntityData.Leafs["alarm-name"] = types.YLeaf{"AlarmName", suppressedInfo.AlarmName}
+    suppressedInfo.EntityData.Children = types.NewOrderedMap()
+    suppressedInfo.EntityData.Children.Append("otn", types.YChild{"Otn", &suppressedInfo.Otn})
+    suppressedInfo.EntityData.Leafs = types.NewOrderedMap()
+    suppressedInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", suppressedInfo.Description})
+    suppressedInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", suppressedInfo.Location})
+    suppressedInfo.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", suppressedInfo.Aid})
+    suppressedInfo.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", suppressedInfo.Tag})
+    suppressedInfo.EntityData.Leafs.Append("module", types.YLeaf{"Module", suppressedInfo.Module})
+    suppressedInfo.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", suppressedInfo.Eid})
+    suppressedInfo.EntityData.Leafs.Append("reporting-agent-id", types.YLeaf{"ReportingAgentId", suppressedInfo.ReportingAgentId})
+    suppressedInfo.EntityData.Leafs.Append("pending-sync", types.YLeaf{"PendingSync", suppressedInfo.PendingSync})
+    suppressedInfo.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", suppressedInfo.Severity})
+    suppressedInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", suppressedInfo.Status})
+    suppressedInfo.EntityData.Leafs.Append("group", types.YLeaf{"Group", suppressedInfo.Group})
+    suppressedInfo.EntityData.Leafs.Append("set-time", types.YLeaf{"SetTime", suppressedInfo.SetTime})
+    suppressedInfo.EntityData.Leafs.Append("set-timestamp", types.YLeaf{"SetTimestamp", suppressedInfo.SetTimestamp})
+    suppressedInfo.EntityData.Leafs.Append("suppressed-time", types.YLeaf{"SuppressedTime", suppressedInfo.SuppressedTime})
+    suppressedInfo.EntityData.Leafs.Append("suppressed-timestamp", types.YLeaf{"SuppressedTimestamp", suppressedInfo.SuppressedTimestamp})
+    suppressedInfo.EntityData.Leafs.Append("service-affecting", types.YLeaf{"ServiceAffecting", suppressedInfo.ServiceAffecting})
+    suppressedInfo.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", suppressedInfo.Interface})
+    suppressedInfo.EntityData.Leafs.Append("alarm-name", types.YLeaf{"AlarmName", suppressedInfo.AlarmName})
+
+    suppressedInfo.EntityData.YListKeys = []string {}
+
     return &(suppressedInfo.EntityData)
 }
 
@@ -919,10 +958,13 @@ func (otn *Alarms_Detail_DetailSystem_Suppressed_SuppressedInfo_Otn) GetEntityDa
     otn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    otn.EntityData.Children = make(map[string]types.YChild)
-    otn.EntityData.Leafs = make(map[string]types.YLeaf)
-    otn.EntityData.Leafs["direction"] = types.YLeaf{"Direction", otn.Direction}
-    otn.EntityData.Leafs["notification-source"] = types.YLeaf{"NotificationSource", otn.NotificationSource}
+    otn.EntityData.Children = types.NewOrderedMap()
+    otn.EntityData.Leafs = types.NewOrderedMap()
+    otn.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", otn.Direction})
+    otn.EntityData.Leafs.Append("notification-source", types.YLeaf{"NotificationSource", otn.NotificationSource})
+
+    otn.EntityData.YListKeys = []string {}
+
     return &(otn.EntityData)
 }
 
@@ -1004,23 +1046,26 @@ func (stats *Alarms_Detail_DetailSystem_Stats) GetEntityData() *types.CommonEnti
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stats.EntityData.Children = make(map[string]types.YChild)
-    stats.EntityData.Leafs = make(map[string]types.YLeaf)
-    stats.EntityData.Leafs["reported"] = types.YLeaf{"Reported", stats.Reported}
-    stats.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", stats.Dropped}
-    stats.EntityData.Leafs["active"] = types.YLeaf{"Active", stats.Active}
-    stats.EntityData.Leafs["history"] = types.YLeaf{"History", stats.History}
-    stats.EntityData.Leafs["suppressed"] = types.YLeaf{"Suppressed", stats.Suppressed}
-    stats.EntityData.Leafs["sysadmin-active"] = types.YLeaf{"SysadminActive", stats.SysadminActive}
-    stats.EntityData.Leafs["sysadmin-history"] = types.YLeaf{"SysadminHistory", stats.SysadminHistory}
-    stats.EntityData.Leafs["sysadmin-suppressed"] = types.YLeaf{"SysadminSuppressed", stats.SysadminSuppressed}
-    stats.EntityData.Leafs["dropped-invalid-aid"] = types.YLeaf{"DroppedInvalidAid", stats.DroppedInvalidAid}
-    stats.EntityData.Leafs["dropped-insuff-mem"] = types.YLeaf{"DroppedInsuffMem", stats.DroppedInsuffMem}
-    stats.EntityData.Leafs["dropped-db-error"] = types.YLeaf{"DroppedDbError", stats.DroppedDbError}
-    stats.EntityData.Leafs["dropped-clear-without-set"] = types.YLeaf{"DroppedClearWithoutSet", stats.DroppedClearWithoutSet}
-    stats.EntityData.Leafs["dropped-duplicate"] = types.YLeaf{"DroppedDuplicate", stats.DroppedDuplicate}
-    stats.EntityData.Leafs["cache-hit"] = types.YLeaf{"CacheHit", stats.CacheHit}
-    stats.EntityData.Leafs["cache-miss"] = types.YLeaf{"CacheMiss", stats.CacheMiss}
+    stats.EntityData.Children = types.NewOrderedMap()
+    stats.EntityData.Leafs = types.NewOrderedMap()
+    stats.EntityData.Leafs.Append("reported", types.YLeaf{"Reported", stats.Reported})
+    stats.EntityData.Leafs.Append("dropped", types.YLeaf{"Dropped", stats.Dropped})
+    stats.EntityData.Leafs.Append("active", types.YLeaf{"Active", stats.Active})
+    stats.EntityData.Leafs.Append("history", types.YLeaf{"History", stats.History})
+    stats.EntityData.Leafs.Append("suppressed", types.YLeaf{"Suppressed", stats.Suppressed})
+    stats.EntityData.Leafs.Append("sysadmin-active", types.YLeaf{"SysadminActive", stats.SysadminActive})
+    stats.EntityData.Leafs.Append("sysadmin-history", types.YLeaf{"SysadminHistory", stats.SysadminHistory})
+    stats.EntityData.Leafs.Append("sysadmin-suppressed", types.YLeaf{"SysadminSuppressed", stats.SysadminSuppressed})
+    stats.EntityData.Leafs.Append("dropped-invalid-aid", types.YLeaf{"DroppedInvalidAid", stats.DroppedInvalidAid})
+    stats.EntityData.Leafs.Append("dropped-insuff-mem", types.YLeaf{"DroppedInsuffMem", stats.DroppedInsuffMem})
+    stats.EntityData.Leafs.Append("dropped-db-error", types.YLeaf{"DroppedDbError", stats.DroppedDbError})
+    stats.EntityData.Leafs.Append("dropped-clear-without-set", types.YLeaf{"DroppedClearWithoutSet", stats.DroppedClearWithoutSet})
+    stats.EntityData.Leafs.Append("dropped-duplicate", types.YLeaf{"DroppedDuplicate", stats.DroppedDuplicate})
+    stats.EntityData.Leafs.Append("cache-hit", types.YLeaf{"CacheHit", stats.CacheHit})
+    stats.EntityData.Leafs.Append("cache-miss", types.YLeaf{"CacheMiss", stats.CacheMiss})
+
+    stats.EntityData.YListKeys = []string {}
+
     return &(stats.EntityData)
 }
 
@@ -1032,7 +1077,7 @@ type Alarms_Detail_DetailSystem_Clients struct {
 
     // Client List. The type is slice of
     // Alarms_Detail_DetailSystem_Clients_ClientInfo.
-    ClientInfo []Alarms_Detail_DetailSystem_Clients_ClientInfo
+    ClientInfo []*Alarms_Detail_DetailSystem_Clients_ClientInfo
 }
 
 func (clients *Alarms_Detail_DetailSystem_Clients) GetEntityData() *types.CommonEntityData {
@@ -1045,12 +1090,15 @@ func (clients *Alarms_Detail_DetailSystem_Clients) GetEntityData() *types.Common
     clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clients.EntityData.Children = make(map[string]types.YChild)
-    clients.EntityData.Children["client-info"] = types.YChild{"ClientInfo", nil}
+    clients.EntityData.Children = types.NewOrderedMap()
+    clients.EntityData.Children.Append("client-info", types.YChild{"ClientInfo", nil})
     for i := range clients.ClientInfo {
-        clients.EntityData.Children[types.GetSegmentPath(&clients.ClientInfo[i])] = types.YChild{"ClientInfo", &clients.ClientInfo[i]}
+        clients.EntityData.Children.Append(types.GetSegmentPath(clients.ClientInfo[i]), types.YChild{"ClientInfo", clients.ClientInfo[i]})
     }
-    clients.EntityData.Leafs = make(map[string]types.YLeaf)
+    clients.EntityData.Leafs = types.NewOrderedMap()
+
+    clients.EntityData.YListKeys = []string {}
+
     return &(clients.EntityData)
 }
 
@@ -1078,7 +1126,7 @@ type Alarms_Detail_DetailSystem_Clients_ClientInfo struct {
     State interface{}
 
     // The type of the client. The type is AlarmClient.
-    Type_ interface{}
+    Type interface{}
 
     // The current subscription status of the client. The type is bool.
     FilterDisp interface{}
@@ -1126,24 +1174,27 @@ func (clientInfo *Alarms_Detail_DetailSystem_Clients_ClientInfo) GetEntityData()
     clientInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clientInfo.EntityData.Children = make(map[string]types.YChild)
-    clientInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    clientInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", clientInfo.Name}
-    clientInfo.EntityData.Leafs["id"] = types.YLeaf{"Id", clientInfo.Id}
-    clientInfo.EntityData.Leafs["location"] = types.YLeaf{"Location", clientInfo.Location}
-    clientInfo.EntityData.Leafs["handle"] = types.YLeaf{"Handle", clientInfo.Handle}
-    clientInfo.EntityData.Leafs["state"] = types.YLeaf{"State", clientInfo.State}
-    clientInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", clientInfo.Type_}
-    clientInfo.EntityData.Leafs["filter-disp"] = types.YLeaf{"FilterDisp", clientInfo.FilterDisp}
-    clientInfo.EntityData.Leafs["subscriber-id"] = types.YLeaf{"SubscriberId", clientInfo.SubscriberId}
-    clientInfo.EntityData.Leafs["filter-severity"] = types.YLeaf{"FilterSeverity", clientInfo.FilterSeverity}
-    clientInfo.EntityData.Leafs["filter-state"] = types.YLeaf{"FilterState", clientInfo.FilterState}
-    clientInfo.EntityData.Leafs["filter-group"] = types.YLeaf{"FilterGroup", clientInfo.FilterGroup}
-    clientInfo.EntityData.Leafs["connect-count"] = types.YLeaf{"ConnectCount", clientInfo.ConnectCount}
-    clientInfo.EntityData.Leafs["connect-timestamp"] = types.YLeaf{"ConnectTimestamp", clientInfo.ConnectTimestamp}
-    clientInfo.EntityData.Leafs["get-count"] = types.YLeaf{"GetCount", clientInfo.GetCount}
-    clientInfo.EntityData.Leafs["subscribe-count"] = types.YLeaf{"SubscribeCount", clientInfo.SubscribeCount}
-    clientInfo.EntityData.Leafs["report-count"] = types.YLeaf{"ReportCount", clientInfo.ReportCount}
+    clientInfo.EntityData.Children = types.NewOrderedMap()
+    clientInfo.EntityData.Leafs = types.NewOrderedMap()
+    clientInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", clientInfo.Name})
+    clientInfo.EntityData.Leafs.Append("id", types.YLeaf{"Id", clientInfo.Id})
+    clientInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", clientInfo.Location})
+    clientInfo.EntityData.Leafs.Append("handle", types.YLeaf{"Handle", clientInfo.Handle})
+    clientInfo.EntityData.Leafs.Append("state", types.YLeaf{"State", clientInfo.State})
+    clientInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", clientInfo.Type})
+    clientInfo.EntityData.Leafs.Append("filter-disp", types.YLeaf{"FilterDisp", clientInfo.FilterDisp})
+    clientInfo.EntityData.Leafs.Append("subscriber-id", types.YLeaf{"SubscriberId", clientInfo.SubscriberId})
+    clientInfo.EntityData.Leafs.Append("filter-severity", types.YLeaf{"FilterSeverity", clientInfo.FilterSeverity})
+    clientInfo.EntityData.Leafs.Append("filter-state", types.YLeaf{"FilterState", clientInfo.FilterState})
+    clientInfo.EntityData.Leafs.Append("filter-group", types.YLeaf{"FilterGroup", clientInfo.FilterGroup})
+    clientInfo.EntityData.Leafs.Append("connect-count", types.YLeaf{"ConnectCount", clientInfo.ConnectCount})
+    clientInfo.EntityData.Leafs.Append("connect-timestamp", types.YLeaf{"ConnectTimestamp", clientInfo.ConnectTimestamp})
+    clientInfo.EntityData.Leafs.Append("get-count", types.YLeaf{"GetCount", clientInfo.GetCount})
+    clientInfo.EntityData.Leafs.Append("subscribe-count", types.YLeaf{"SubscribeCount", clientInfo.SubscribeCount})
+    clientInfo.EntityData.Leafs.Append("report-count", types.YLeaf{"ReportCount", clientInfo.ReportCount})
+
+    clientInfo.EntityData.YListKeys = []string {}
+
     return &(clientInfo.EntityData)
 }
 
@@ -1167,9 +1218,12 @@ func (detailCard *Alarms_Detail_DetailCard) GetEntityData() *types.CommonEntityD
     detailCard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detailCard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detailCard.EntityData.Children = make(map[string]types.YChild)
-    detailCard.EntityData.Children["detail-locations"] = types.YChild{"DetailLocations", &detailCard.DetailLocations}
-    detailCard.EntityData.Leafs = make(map[string]types.YLeaf)
+    detailCard.EntityData.Children = types.NewOrderedMap()
+    detailCard.EntityData.Children.Append("detail-locations", types.YChild{"DetailLocations", &detailCard.DetailLocations})
+    detailCard.EntityData.Leafs = types.NewOrderedMap()
+
+    detailCard.EntityData.YListKeys = []string {}
+
     return &(detailCard.EntityData)
 }
 
@@ -1181,7 +1235,7 @@ type Alarms_Detail_DetailCard_DetailLocations struct {
 
     // Specify a card location for alarms. The type is slice of
     // Alarms_Detail_DetailCard_DetailLocations_DetailLocation.
-    DetailLocation []Alarms_Detail_DetailCard_DetailLocations_DetailLocation
+    DetailLocation []*Alarms_Detail_DetailCard_DetailLocations_DetailLocation
 }
 
 func (detailLocations *Alarms_Detail_DetailCard_DetailLocations) GetEntityData() *types.CommonEntityData {
@@ -1194,12 +1248,15 @@ func (detailLocations *Alarms_Detail_DetailCard_DetailLocations) GetEntityData()
     detailLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detailLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detailLocations.EntityData.Children = make(map[string]types.YChild)
-    detailLocations.EntityData.Children["detail-location"] = types.YChild{"DetailLocation", nil}
+    detailLocations.EntityData.Children = types.NewOrderedMap()
+    detailLocations.EntityData.Children.Append("detail-location", types.YChild{"DetailLocation", nil})
     for i := range detailLocations.DetailLocation {
-        detailLocations.EntityData.Children[types.GetSegmentPath(&detailLocations.DetailLocation[i])] = types.YChild{"DetailLocation", &detailLocations.DetailLocation[i]}
+        detailLocations.EntityData.Children.Append(types.GetSegmentPath(detailLocations.DetailLocation[i]), types.YChild{"DetailLocation", detailLocations.DetailLocation[i]})
     }
-    detailLocations.EntityData.Leafs = make(map[string]types.YLeaf)
+    detailLocations.EntityData.Leafs = types.NewOrderedMap()
+
+    detailLocations.EntityData.YListKeys = []string {}
+
     return &(detailLocations.EntityData)
 }
 
@@ -1210,7 +1267,7 @@ type Alarms_Detail_DetailCard_DetailLocations_DetailLocation struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. NodeID of the Location. The type is string with
-    // pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Show the active alarms at this scope.
@@ -1234,19 +1291,22 @@ func (detailLocation *Alarms_Detail_DetailCard_DetailLocations_DetailLocation) G
     detailLocation.EntityData.YangName = "detail-location"
     detailLocation.EntityData.BundleName = "cisco_ios_xr"
     detailLocation.EntityData.ParentYangName = "detail-locations"
-    detailLocation.EntityData.SegmentPath = "detail-location" + "[node-id='" + fmt.Sprintf("%v", detailLocation.NodeId) + "']"
+    detailLocation.EntityData.SegmentPath = "detail-location" + types.AddKeyToken(detailLocation.NodeId, "node-id")
     detailLocation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detailLocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detailLocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detailLocation.EntityData.Children = make(map[string]types.YChild)
-    detailLocation.EntityData.Children["active"] = types.YChild{"Active", &detailLocation.Active}
-    detailLocation.EntityData.Children["history"] = types.YChild{"History", &detailLocation.History}
-    detailLocation.EntityData.Children["suppressed"] = types.YChild{"Suppressed", &detailLocation.Suppressed}
-    detailLocation.EntityData.Children["stats"] = types.YChild{"Stats", &detailLocation.Stats}
-    detailLocation.EntityData.Children["clients"] = types.YChild{"Clients", &detailLocation.Clients}
-    detailLocation.EntityData.Leafs = make(map[string]types.YLeaf)
-    detailLocation.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", detailLocation.NodeId}
+    detailLocation.EntityData.Children = types.NewOrderedMap()
+    detailLocation.EntityData.Children.Append("active", types.YChild{"Active", &detailLocation.Active})
+    detailLocation.EntityData.Children.Append("history", types.YChild{"History", &detailLocation.History})
+    detailLocation.EntityData.Children.Append("suppressed", types.YChild{"Suppressed", &detailLocation.Suppressed})
+    detailLocation.EntityData.Children.Append("stats", types.YChild{"Stats", &detailLocation.Stats})
+    detailLocation.EntityData.Children.Append("clients", types.YChild{"Clients", &detailLocation.Clients})
+    detailLocation.EntityData.Leafs = types.NewOrderedMap()
+    detailLocation.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", detailLocation.NodeId})
+
+    detailLocation.EntityData.YListKeys = []string {"NodeId"}
+
     return &(detailLocation.EntityData)
 }
 
@@ -1258,7 +1318,7 @@ type Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Active struct {
 
     // Alarm List. The type is slice of
     // Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Active_AlarmInfo.
-    AlarmInfo []Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Active_AlarmInfo
+    AlarmInfo []*Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Active_AlarmInfo
 }
 
 func (active *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Active) GetEntityData() *types.CommonEntityData {
@@ -1271,12 +1331,15 @@ func (active *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Active) Ge
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    active.EntityData.Children = make(map[string]types.YChild)
-    active.EntityData.Children["alarm-info"] = types.YChild{"AlarmInfo", nil}
+    active.EntityData.Children = types.NewOrderedMap()
+    active.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range active.AlarmInfo {
-        active.EntityData.Children[types.GetSegmentPath(&active.AlarmInfo[i])] = types.YChild{"AlarmInfo", &active.AlarmInfo[i]}
+        active.EntityData.Children.Append(types.GetSegmentPath(active.AlarmInfo[i]), types.YChild{"AlarmInfo", active.AlarmInfo[i]})
     }
-    active.EntityData.Leafs = make(map[string]types.YLeaf)
+    active.EntityData.Leafs = types.NewOrderedMap()
+
+    active.EntityData.YListKeys = []string {}
+
     return &(active.EntityData)
 }
 
@@ -1337,10 +1400,10 @@ type Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Active_AlarmInfo st
     ServiceAffecting interface{}
 
     // alarm event type. The type is AlarmEvent.
-    Type_ interface{}
+    Type interface{}
 
     // Alarm interface name. The type is string with length: 0..128.
-    Interface_ interface{}
+    Interface interface{}
 
     // Alarm name. The type is string with length: 0..128.
     AlarmName interface{}
@@ -1362,29 +1425,32 @@ func (alarmInfo *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Active_
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarmInfo.EntityData.Children = make(map[string]types.YChild)
-    alarmInfo.EntityData.Children["otn"] = types.YChild{"Otn", &alarmInfo.Otn}
-    alarmInfo.EntityData.Children["tca"] = types.YChild{"Tca", &alarmInfo.Tca}
-    alarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    alarmInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", alarmInfo.Description}
-    alarmInfo.EntityData.Leafs["location"] = types.YLeaf{"Location", alarmInfo.Location}
-    alarmInfo.EntityData.Leafs["aid"] = types.YLeaf{"Aid", alarmInfo.Aid}
-    alarmInfo.EntityData.Leafs["tag"] = types.YLeaf{"Tag", alarmInfo.Tag}
-    alarmInfo.EntityData.Leafs["module"] = types.YLeaf{"Module", alarmInfo.Module}
-    alarmInfo.EntityData.Leafs["eid"] = types.YLeaf{"Eid", alarmInfo.Eid}
-    alarmInfo.EntityData.Leafs["reporting-agent-id"] = types.YLeaf{"ReportingAgentId", alarmInfo.ReportingAgentId}
-    alarmInfo.EntityData.Leafs["pending-sync"] = types.YLeaf{"PendingSync", alarmInfo.PendingSync}
-    alarmInfo.EntityData.Leafs["severity"] = types.YLeaf{"Severity", alarmInfo.Severity}
-    alarmInfo.EntityData.Leafs["status"] = types.YLeaf{"Status", alarmInfo.Status}
-    alarmInfo.EntityData.Leafs["group"] = types.YLeaf{"Group", alarmInfo.Group}
-    alarmInfo.EntityData.Leafs["set-time"] = types.YLeaf{"SetTime", alarmInfo.SetTime}
-    alarmInfo.EntityData.Leafs["set-timestamp"] = types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp}
-    alarmInfo.EntityData.Leafs["clear-time"] = types.YLeaf{"ClearTime", alarmInfo.ClearTime}
-    alarmInfo.EntityData.Leafs["clear-timestamp"] = types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp}
-    alarmInfo.EntityData.Leafs["service-affecting"] = types.YLeaf{"ServiceAffecting", alarmInfo.ServiceAffecting}
-    alarmInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", alarmInfo.Type_}
-    alarmInfo.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", alarmInfo.Interface_}
-    alarmInfo.EntityData.Leafs["alarm-name"] = types.YLeaf{"AlarmName", alarmInfo.AlarmName}
+    alarmInfo.EntityData.Children = types.NewOrderedMap()
+    alarmInfo.EntityData.Children.Append("otn", types.YChild{"Otn", &alarmInfo.Otn})
+    alarmInfo.EntityData.Children.Append("tca", types.YChild{"Tca", &alarmInfo.Tca})
+    alarmInfo.EntityData.Leafs = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", alarmInfo.Description})
+    alarmInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", alarmInfo.Location})
+    alarmInfo.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", alarmInfo.Aid})
+    alarmInfo.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", alarmInfo.Tag})
+    alarmInfo.EntityData.Leafs.Append("module", types.YLeaf{"Module", alarmInfo.Module})
+    alarmInfo.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", alarmInfo.Eid})
+    alarmInfo.EntityData.Leafs.Append("reporting-agent-id", types.YLeaf{"ReportingAgentId", alarmInfo.ReportingAgentId})
+    alarmInfo.EntityData.Leafs.Append("pending-sync", types.YLeaf{"PendingSync", alarmInfo.PendingSync})
+    alarmInfo.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", alarmInfo.Severity})
+    alarmInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", alarmInfo.Status})
+    alarmInfo.EntityData.Leafs.Append("group", types.YLeaf{"Group", alarmInfo.Group})
+    alarmInfo.EntityData.Leafs.Append("set-time", types.YLeaf{"SetTime", alarmInfo.SetTime})
+    alarmInfo.EntityData.Leafs.Append("set-timestamp", types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp})
+    alarmInfo.EntityData.Leafs.Append("clear-time", types.YLeaf{"ClearTime", alarmInfo.ClearTime})
+    alarmInfo.EntityData.Leafs.Append("clear-timestamp", types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp})
+    alarmInfo.EntityData.Leafs.Append("service-affecting", types.YLeaf{"ServiceAffecting", alarmInfo.ServiceAffecting})
+    alarmInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", alarmInfo.Type})
+    alarmInfo.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", alarmInfo.Interface})
+    alarmInfo.EntityData.Leafs.Append("alarm-name", types.YLeaf{"AlarmName", alarmInfo.AlarmName})
+
+    alarmInfo.EntityData.YListKeys = []string {}
+
     return &(alarmInfo.EntityData)
 }
 
@@ -1411,10 +1477,13 @@ func (otn *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Active_AlarmI
     otn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    otn.EntityData.Children = make(map[string]types.YChild)
-    otn.EntityData.Leafs = make(map[string]types.YLeaf)
-    otn.EntityData.Leafs["direction"] = types.YLeaf{"Direction", otn.Direction}
-    otn.EntityData.Leafs["notification-source"] = types.YLeaf{"NotificationSource", otn.NotificationSource}
+    otn.EntityData.Children = types.NewOrderedMap()
+    otn.EntityData.Leafs = types.NewOrderedMap()
+    otn.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", otn.Direction})
+    otn.EntityData.Leafs.Append("notification-source", types.YLeaf{"NotificationSource", otn.NotificationSource})
+
+    otn.EntityData.YListKeys = []string {}
+
     return &(otn.EntityData)
 }
 
@@ -1444,11 +1513,14 @@ func (tca *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Active_AlarmI
     tca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tca.EntityData.Children = make(map[string]types.YChild)
-    tca.EntityData.Leafs = make(map[string]types.YLeaf)
-    tca.EntityData.Leafs["threshold-value"] = types.YLeaf{"ThresholdValue", tca.ThresholdValue}
-    tca.EntityData.Leafs["current-value"] = types.YLeaf{"CurrentValue", tca.CurrentValue}
-    tca.EntityData.Leafs["bucket-type"] = types.YLeaf{"BucketType", tca.BucketType}
+    tca.EntityData.Children = types.NewOrderedMap()
+    tca.EntityData.Leafs = types.NewOrderedMap()
+    tca.EntityData.Leafs.Append("threshold-value", types.YLeaf{"ThresholdValue", tca.ThresholdValue})
+    tca.EntityData.Leafs.Append("current-value", types.YLeaf{"CurrentValue", tca.CurrentValue})
+    tca.EntityData.Leafs.Append("bucket-type", types.YLeaf{"BucketType", tca.BucketType})
+
+    tca.EntityData.YListKeys = []string {}
+
     return &(tca.EntityData)
 }
 
@@ -1460,7 +1532,7 @@ type Alarms_Detail_DetailCard_DetailLocations_DetailLocation_History struct {
 
     // Alarm List. The type is slice of
     // Alarms_Detail_DetailCard_DetailLocations_DetailLocation_History_AlarmInfo.
-    AlarmInfo []Alarms_Detail_DetailCard_DetailLocations_DetailLocation_History_AlarmInfo
+    AlarmInfo []*Alarms_Detail_DetailCard_DetailLocations_DetailLocation_History_AlarmInfo
 }
 
 func (history *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_History) GetEntityData() *types.CommonEntityData {
@@ -1473,12 +1545,15 @@ func (history *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_History) 
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    history.EntityData.Children = make(map[string]types.YChild)
-    history.EntityData.Children["alarm-info"] = types.YChild{"AlarmInfo", nil}
+    history.EntityData.Children = types.NewOrderedMap()
+    history.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range history.AlarmInfo {
-        history.EntityData.Children[types.GetSegmentPath(&history.AlarmInfo[i])] = types.YChild{"AlarmInfo", &history.AlarmInfo[i]}
+        history.EntityData.Children.Append(types.GetSegmentPath(history.AlarmInfo[i]), types.YChild{"AlarmInfo", history.AlarmInfo[i]})
     }
-    history.EntityData.Leafs = make(map[string]types.YLeaf)
+    history.EntityData.Leafs = types.NewOrderedMap()
+
+    history.EntityData.YListKeys = []string {}
+
     return &(history.EntityData)
 }
 
@@ -1539,10 +1614,10 @@ type Alarms_Detail_DetailCard_DetailLocations_DetailLocation_History_AlarmInfo s
     ServiceAffecting interface{}
 
     // alarm event type. The type is AlarmEvent.
-    Type_ interface{}
+    Type interface{}
 
     // Alarm interface name. The type is string with length: 0..128.
-    Interface_ interface{}
+    Interface interface{}
 
     // Alarm name. The type is string with length: 0..128.
     AlarmName interface{}
@@ -1564,29 +1639,32 @@ func (alarmInfo *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_History
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarmInfo.EntityData.Children = make(map[string]types.YChild)
-    alarmInfo.EntityData.Children["otn"] = types.YChild{"Otn", &alarmInfo.Otn}
-    alarmInfo.EntityData.Children["tca"] = types.YChild{"Tca", &alarmInfo.Tca}
-    alarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    alarmInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", alarmInfo.Description}
-    alarmInfo.EntityData.Leafs["location"] = types.YLeaf{"Location", alarmInfo.Location}
-    alarmInfo.EntityData.Leafs["aid"] = types.YLeaf{"Aid", alarmInfo.Aid}
-    alarmInfo.EntityData.Leafs["tag"] = types.YLeaf{"Tag", alarmInfo.Tag}
-    alarmInfo.EntityData.Leafs["module"] = types.YLeaf{"Module", alarmInfo.Module}
-    alarmInfo.EntityData.Leafs["eid"] = types.YLeaf{"Eid", alarmInfo.Eid}
-    alarmInfo.EntityData.Leafs["reporting-agent-id"] = types.YLeaf{"ReportingAgentId", alarmInfo.ReportingAgentId}
-    alarmInfo.EntityData.Leafs["pending-sync"] = types.YLeaf{"PendingSync", alarmInfo.PendingSync}
-    alarmInfo.EntityData.Leafs["severity"] = types.YLeaf{"Severity", alarmInfo.Severity}
-    alarmInfo.EntityData.Leafs["status"] = types.YLeaf{"Status", alarmInfo.Status}
-    alarmInfo.EntityData.Leafs["group"] = types.YLeaf{"Group", alarmInfo.Group}
-    alarmInfo.EntityData.Leafs["set-time"] = types.YLeaf{"SetTime", alarmInfo.SetTime}
-    alarmInfo.EntityData.Leafs["set-timestamp"] = types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp}
-    alarmInfo.EntityData.Leafs["clear-time"] = types.YLeaf{"ClearTime", alarmInfo.ClearTime}
-    alarmInfo.EntityData.Leafs["clear-timestamp"] = types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp}
-    alarmInfo.EntityData.Leafs["service-affecting"] = types.YLeaf{"ServiceAffecting", alarmInfo.ServiceAffecting}
-    alarmInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", alarmInfo.Type_}
-    alarmInfo.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", alarmInfo.Interface_}
-    alarmInfo.EntityData.Leafs["alarm-name"] = types.YLeaf{"AlarmName", alarmInfo.AlarmName}
+    alarmInfo.EntityData.Children = types.NewOrderedMap()
+    alarmInfo.EntityData.Children.Append("otn", types.YChild{"Otn", &alarmInfo.Otn})
+    alarmInfo.EntityData.Children.Append("tca", types.YChild{"Tca", &alarmInfo.Tca})
+    alarmInfo.EntityData.Leafs = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", alarmInfo.Description})
+    alarmInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", alarmInfo.Location})
+    alarmInfo.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", alarmInfo.Aid})
+    alarmInfo.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", alarmInfo.Tag})
+    alarmInfo.EntityData.Leafs.Append("module", types.YLeaf{"Module", alarmInfo.Module})
+    alarmInfo.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", alarmInfo.Eid})
+    alarmInfo.EntityData.Leafs.Append("reporting-agent-id", types.YLeaf{"ReportingAgentId", alarmInfo.ReportingAgentId})
+    alarmInfo.EntityData.Leafs.Append("pending-sync", types.YLeaf{"PendingSync", alarmInfo.PendingSync})
+    alarmInfo.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", alarmInfo.Severity})
+    alarmInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", alarmInfo.Status})
+    alarmInfo.EntityData.Leafs.Append("group", types.YLeaf{"Group", alarmInfo.Group})
+    alarmInfo.EntityData.Leafs.Append("set-time", types.YLeaf{"SetTime", alarmInfo.SetTime})
+    alarmInfo.EntityData.Leafs.Append("set-timestamp", types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp})
+    alarmInfo.EntityData.Leafs.Append("clear-time", types.YLeaf{"ClearTime", alarmInfo.ClearTime})
+    alarmInfo.EntityData.Leafs.Append("clear-timestamp", types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp})
+    alarmInfo.EntityData.Leafs.Append("service-affecting", types.YLeaf{"ServiceAffecting", alarmInfo.ServiceAffecting})
+    alarmInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", alarmInfo.Type})
+    alarmInfo.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", alarmInfo.Interface})
+    alarmInfo.EntityData.Leafs.Append("alarm-name", types.YLeaf{"AlarmName", alarmInfo.AlarmName})
+
+    alarmInfo.EntityData.YListKeys = []string {}
+
     return &(alarmInfo.EntityData)
 }
 
@@ -1613,10 +1691,13 @@ func (otn *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_History_Alarm
     otn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    otn.EntityData.Children = make(map[string]types.YChild)
-    otn.EntityData.Leafs = make(map[string]types.YLeaf)
-    otn.EntityData.Leafs["direction"] = types.YLeaf{"Direction", otn.Direction}
-    otn.EntityData.Leafs["notification-source"] = types.YLeaf{"NotificationSource", otn.NotificationSource}
+    otn.EntityData.Children = types.NewOrderedMap()
+    otn.EntityData.Leafs = types.NewOrderedMap()
+    otn.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", otn.Direction})
+    otn.EntityData.Leafs.Append("notification-source", types.YLeaf{"NotificationSource", otn.NotificationSource})
+
+    otn.EntityData.YListKeys = []string {}
+
     return &(otn.EntityData)
 }
 
@@ -1646,11 +1727,14 @@ func (tca *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_History_Alarm
     tca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tca.EntityData.Children = make(map[string]types.YChild)
-    tca.EntityData.Leafs = make(map[string]types.YLeaf)
-    tca.EntityData.Leafs["threshold-value"] = types.YLeaf{"ThresholdValue", tca.ThresholdValue}
-    tca.EntityData.Leafs["current-value"] = types.YLeaf{"CurrentValue", tca.CurrentValue}
-    tca.EntityData.Leafs["bucket-type"] = types.YLeaf{"BucketType", tca.BucketType}
+    tca.EntityData.Children = types.NewOrderedMap()
+    tca.EntityData.Leafs = types.NewOrderedMap()
+    tca.EntityData.Leafs.Append("threshold-value", types.YLeaf{"ThresholdValue", tca.ThresholdValue})
+    tca.EntityData.Leafs.Append("current-value", types.YLeaf{"CurrentValue", tca.CurrentValue})
+    tca.EntityData.Leafs.Append("bucket-type", types.YLeaf{"BucketType", tca.BucketType})
+
+    tca.EntityData.YListKeys = []string {}
+
     return &(tca.EntityData)
 }
 
@@ -1662,7 +1746,7 @@ type Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Suppressed struct {
 
     // Suppressed Alarm List. The type is slice of
     // Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Suppressed_SuppressedInfo.
-    SuppressedInfo []Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Suppressed_SuppressedInfo
+    SuppressedInfo []*Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Suppressed_SuppressedInfo
 }
 
 func (suppressed *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Suppressed) GetEntityData() *types.CommonEntityData {
@@ -1675,12 +1759,15 @@ func (suppressed *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Suppre
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    suppressed.EntityData.Children = make(map[string]types.YChild)
-    suppressed.EntityData.Children["suppressed-info"] = types.YChild{"SuppressedInfo", nil}
+    suppressed.EntityData.Children = types.NewOrderedMap()
+    suppressed.EntityData.Children.Append("suppressed-info", types.YChild{"SuppressedInfo", nil})
     for i := range suppressed.SuppressedInfo {
-        suppressed.EntityData.Children[types.GetSegmentPath(&suppressed.SuppressedInfo[i])] = types.YChild{"SuppressedInfo", &suppressed.SuppressedInfo[i]}
+        suppressed.EntityData.Children.Append(types.GetSegmentPath(suppressed.SuppressedInfo[i]), types.YChild{"SuppressedInfo", suppressed.SuppressedInfo[i]})
     }
-    suppressed.EntityData.Leafs = make(map[string]types.YLeaf)
+    suppressed.EntityData.Leafs = types.NewOrderedMap()
+
+    suppressed.EntityData.YListKeys = []string {}
+
     return &(suppressed.EntityData)
 }
 
@@ -1741,7 +1828,7 @@ type Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Suppressed_Suppress
     ServiceAffecting interface{}
 
     // Alarm interface name. The type is string with length: 0..128.
-    Interface_ interface{}
+    Interface interface{}
 
     // Alarm name. The type is string with length: 0..128.
     AlarmName interface{}
@@ -1760,27 +1847,30 @@ func (suppressedInfo *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Su
     suppressedInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressedInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    suppressedInfo.EntityData.Children = make(map[string]types.YChild)
-    suppressedInfo.EntityData.Children["otn"] = types.YChild{"Otn", &suppressedInfo.Otn}
-    suppressedInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    suppressedInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", suppressedInfo.Description}
-    suppressedInfo.EntityData.Leafs["location"] = types.YLeaf{"Location", suppressedInfo.Location}
-    suppressedInfo.EntityData.Leafs["aid"] = types.YLeaf{"Aid", suppressedInfo.Aid}
-    suppressedInfo.EntityData.Leafs["tag"] = types.YLeaf{"Tag", suppressedInfo.Tag}
-    suppressedInfo.EntityData.Leafs["module"] = types.YLeaf{"Module", suppressedInfo.Module}
-    suppressedInfo.EntityData.Leafs["eid"] = types.YLeaf{"Eid", suppressedInfo.Eid}
-    suppressedInfo.EntityData.Leafs["reporting-agent-id"] = types.YLeaf{"ReportingAgentId", suppressedInfo.ReportingAgentId}
-    suppressedInfo.EntityData.Leafs["pending-sync"] = types.YLeaf{"PendingSync", suppressedInfo.PendingSync}
-    suppressedInfo.EntityData.Leafs["severity"] = types.YLeaf{"Severity", suppressedInfo.Severity}
-    suppressedInfo.EntityData.Leafs["status"] = types.YLeaf{"Status", suppressedInfo.Status}
-    suppressedInfo.EntityData.Leafs["group"] = types.YLeaf{"Group", suppressedInfo.Group}
-    suppressedInfo.EntityData.Leafs["set-time"] = types.YLeaf{"SetTime", suppressedInfo.SetTime}
-    suppressedInfo.EntityData.Leafs["set-timestamp"] = types.YLeaf{"SetTimestamp", suppressedInfo.SetTimestamp}
-    suppressedInfo.EntityData.Leafs["suppressed-time"] = types.YLeaf{"SuppressedTime", suppressedInfo.SuppressedTime}
-    suppressedInfo.EntityData.Leafs["suppressed-timestamp"] = types.YLeaf{"SuppressedTimestamp", suppressedInfo.SuppressedTimestamp}
-    suppressedInfo.EntityData.Leafs["service-affecting"] = types.YLeaf{"ServiceAffecting", suppressedInfo.ServiceAffecting}
-    suppressedInfo.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", suppressedInfo.Interface_}
-    suppressedInfo.EntityData.Leafs["alarm-name"] = types.YLeaf{"AlarmName", suppressedInfo.AlarmName}
+    suppressedInfo.EntityData.Children = types.NewOrderedMap()
+    suppressedInfo.EntityData.Children.Append("otn", types.YChild{"Otn", &suppressedInfo.Otn})
+    suppressedInfo.EntityData.Leafs = types.NewOrderedMap()
+    suppressedInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", suppressedInfo.Description})
+    suppressedInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", suppressedInfo.Location})
+    suppressedInfo.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", suppressedInfo.Aid})
+    suppressedInfo.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", suppressedInfo.Tag})
+    suppressedInfo.EntityData.Leafs.Append("module", types.YLeaf{"Module", suppressedInfo.Module})
+    suppressedInfo.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", suppressedInfo.Eid})
+    suppressedInfo.EntityData.Leafs.Append("reporting-agent-id", types.YLeaf{"ReportingAgentId", suppressedInfo.ReportingAgentId})
+    suppressedInfo.EntityData.Leafs.Append("pending-sync", types.YLeaf{"PendingSync", suppressedInfo.PendingSync})
+    suppressedInfo.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", suppressedInfo.Severity})
+    suppressedInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", suppressedInfo.Status})
+    suppressedInfo.EntityData.Leafs.Append("group", types.YLeaf{"Group", suppressedInfo.Group})
+    suppressedInfo.EntityData.Leafs.Append("set-time", types.YLeaf{"SetTime", suppressedInfo.SetTime})
+    suppressedInfo.EntityData.Leafs.Append("set-timestamp", types.YLeaf{"SetTimestamp", suppressedInfo.SetTimestamp})
+    suppressedInfo.EntityData.Leafs.Append("suppressed-time", types.YLeaf{"SuppressedTime", suppressedInfo.SuppressedTime})
+    suppressedInfo.EntityData.Leafs.Append("suppressed-timestamp", types.YLeaf{"SuppressedTimestamp", suppressedInfo.SuppressedTimestamp})
+    suppressedInfo.EntityData.Leafs.Append("service-affecting", types.YLeaf{"ServiceAffecting", suppressedInfo.ServiceAffecting})
+    suppressedInfo.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", suppressedInfo.Interface})
+    suppressedInfo.EntityData.Leafs.Append("alarm-name", types.YLeaf{"AlarmName", suppressedInfo.AlarmName})
+
+    suppressedInfo.EntityData.YListKeys = []string {}
+
     return &(suppressedInfo.EntityData)
 }
 
@@ -1807,10 +1897,13 @@ func (otn *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Suppressed_Su
     otn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    otn.EntityData.Children = make(map[string]types.YChild)
-    otn.EntityData.Leafs = make(map[string]types.YLeaf)
-    otn.EntityData.Leafs["direction"] = types.YLeaf{"Direction", otn.Direction}
-    otn.EntityData.Leafs["notification-source"] = types.YLeaf{"NotificationSource", otn.NotificationSource}
+    otn.EntityData.Children = types.NewOrderedMap()
+    otn.EntityData.Leafs = types.NewOrderedMap()
+    otn.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", otn.Direction})
+    otn.EntityData.Leafs.Append("notification-source", types.YLeaf{"NotificationSource", otn.NotificationSource})
+
+    otn.EntityData.YListKeys = []string {}
+
     return &(otn.EntityData)
 }
 
@@ -1892,23 +1985,26 @@ func (stats *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Stats) GetE
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stats.EntityData.Children = make(map[string]types.YChild)
-    stats.EntityData.Leafs = make(map[string]types.YLeaf)
-    stats.EntityData.Leafs["reported"] = types.YLeaf{"Reported", stats.Reported}
-    stats.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", stats.Dropped}
-    stats.EntityData.Leafs["active"] = types.YLeaf{"Active", stats.Active}
-    stats.EntityData.Leafs["history"] = types.YLeaf{"History", stats.History}
-    stats.EntityData.Leafs["suppressed"] = types.YLeaf{"Suppressed", stats.Suppressed}
-    stats.EntityData.Leafs["sysadmin-active"] = types.YLeaf{"SysadminActive", stats.SysadminActive}
-    stats.EntityData.Leafs["sysadmin-history"] = types.YLeaf{"SysadminHistory", stats.SysadminHistory}
-    stats.EntityData.Leafs["sysadmin-suppressed"] = types.YLeaf{"SysadminSuppressed", stats.SysadminSuppressed}
-    stats.EntityData.Leafs["dropped-invalid-aid"] = types.YLeaf{"DroppedInvalidAid", stats.DroppedInvalidAid}
-    stats.EntityData.Leafs["dropped-insuff-mem"] = types.YLeaf{"DroppedInsuffMem", stats.DroppedInsuffMem}
-    stats.EntityData.Leafs["dropped-db-error"] = types.YLeaf{"DroppedDbError", stats.DroppedDbError}
-    stats.EntityData.Leafs["dropped-clear-without-set"] = types.YLeaf{"DroppedClearWithoutSet", stats.DroppedClearWithoutSet}
-    stats.EntityData.Leafs["dropped-duplicate"] = types.YLeaf{"DroppedDuplicate", stats.DroppedDuplicate}
-    stats.EntityData.Leafs["cache-hit"] = types.YLeaf{"CacheHit", stats.CacheHit}
-    stats.EntityData.Leafs["cache-miss"] = types.YLeaf{"CacheMiss", stats.CacheMiss}
+    stats.EntityData.Children = types.NewOrderedMap()
+    stats.EntityData.Leafs = types.NewOrderedMap()
+    stats.EntityData.Leafs.Append("reported", types.YLeaf{"Reported", stats.Reported})
+    stats.EntityData.Leafs.Append("dropped", types.YLeaf{"Dropped", stats.Dropped})
+    stats.EntityData.Leafs.Append("active", types.YLeaf{"Active", stats.Active})
+    stats.EntityData.Leafs.Append("history", types.YLeaf{"History", stats.History})
+    stats.EntityData.Leafs.Append("suppressed", types.YLeaf{"Suppressed", stats.Suppressed})
+    stats.EntityData.Leafs.Append("sysadmin-active", types.YLeaf{"SysadminActive", stats.SysadminActive})
+    stats.EntityData.Leafs.Append("sysadmin-history", types.YLeaf{"SysadminHistory", stats.SysadminHistory})
+    stats.EntityData.Leafs.Append("sysadmin-suppressed", types.YLeaf{"SysadminSuppressed", stats.SysadminSuppressed})
+    stats.EntityData.Leafs.Append("dropped-invalid-aid", types.YLeaf{"DroppedInvalidAid", stats.DroppedInvalidAid})
+    stats.EntityData.Leafs.Append("dropped-insuff-mem", types.YLeaf{"DroppedInsuffMem", stats.DroppedInsuffMem})
+    stats.EntityData.Leafs.Append("dropped-db-error", types.YLeaf{"DroppedDbError", stats.DroppedDbError})
+    stats.EntityData.Leafs.Append("dropped-clear-without-set", types.YLeaf{"DroppedClearWithoutSet", stats.DroppedClearWithoutSet})
+    stats.EntityData.Leafs.Append("dropped-duplicate", types.YLeaf{"DroppedDuplicate", stats.DroppedDuplicate})
+    stats.EntityData.Leafs.Append("cache-hit", types.YLeaf{"CacheHit", stats.CacheHit})
+    stats.EntityData.Leafs.Append("cache-miss", types.YLeaf{"CacheMiss", stats.CacheMiss})
+
+    stats.EntityData.YListKeys = []string {}
+
     return &(stats.EntityData)
 }
 
@@ -1921,7 +2017,7 @@ type Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Clients struct {
 
     // Client List. The type is slice of
     // Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Clients_ClientInfo.
-    ClientInfo []Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Clients_ClientInfo
+    ClientInfo []*Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Clients_ClientInfo
 }
 
 func (clients *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Clients) GetEntityData() *types.CommonEntityData {
@@ -1934,12 +2030,15 @@ func (clients *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Clients) 
     clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clients.EntityData.Children = make(map[string]types.YChild)
-    clients.EntityData.Children["client-info"] = types.YChild{"ClientInfo", nil}
+    clients.EntityData.Children = types.NewOrderedMap()
+    clients.EntityData.Children.Append("client-info", types.YChild{"ClientInfo", nil})
     for i := range clients.ClientInfo {
-        clients.EntityData.Children[types.GetSegmentPath(&clients.ClientInfo[i])] = types.YChild{"ClientInfo", &clients.ClientInfo[i]}
+        clients.EntityData.Children.Append(types.GetSegmentPath(clients.ClientInfo[i]), types.YChild{"ClientInfo", clients.ClientInfo[i]})
     }
-    clients.EntityData.Leafs = make(map[string]types.YLeaf)
+    clients.EntityData.Leafs = types.NewOrderedMap()
+
+    clients.EntityData.YListKeys = []string {}
+
     return &(clients.EntityData)
 }
 
@@ -1967,7 +2066,7 @@ type Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Clients_ClientInfo 
     State interface{}
 
     // The type of the client. The type is AlarmClient.
-    Type_ interface{}
+    Type interface{}
 
     // The current subscription status of the client. The type is bool.
     FilterDisp interface{}
@@ -2015,24 +2114,27 @@ func (clientInfo *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Client
     clientInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clientInfo.EntityData.Children = make(map[string]types.YChild)
-    clientInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    clientInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", clientInfo.Name}
-    clientInfo.EntityData.Leafs["id"] = types.YLeaf{"Id", clientInfo.Id}
-    clientInfo.EntityData.Leafs["location"] = types.YLeaf{"Location", clientInfo.Location}
-    clientInfo.EntityData.Leafs["handle"] = types.YLeaf{"Handle", clientInfo.Handle}
-    clientInfo.EntityData.Leafs["state"] = types.YLeaf{"State", clientInfo.State}
-    clientInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", clientInfo.Type_}
-    clientInfo.EntityData.Leafs["filter-disp"] = types.YLeaf{"FilterDisp", clientInfo.FilterDisp}
-    clientInfo.EntityData.Leafs["subscriber-id"] = types.YLeaf{"SubscriberId", clientInfo.SubscriberId}
-    clientInfo.EntityData.Leafs["filter-severity"] = types.YLeaf{"FilterSeverity", clientInfo.FilterSeverity}
-    clientInfo.EntityData.Leafs["filter-state"] = types.YLeaf{"FilterState", clientInfo.FilterState}
-    clientInfo.EntityData.Leafs["filter-group"] = types.YLeaf{"FilterGroup", clientInfo.FilterGroup}
-    clientInfo.EntityData.Leafs["connect-count"] = types.YLeaf{"ConnectCount", clientInfo.ConnectCount}
-    clientInfo.EntityData.Leafs["connect-timestamp"] = types.YLeaf{"ConnectTimestamp", clientInfo.ConnectTimestamp}
-    clientInfo.EntityData.Leafs["get-count"] = types.YLeaf{"GetCount", clientInfo.GetCount}
-    clientInfo.EntityData.Leafs["subscribe-count"] = types.YLeaf{"SubscribeCount", clientInfo.SubscribeCount}
-    clientInfo.EntityData.Leafs["report-count"] = types.YLeaf{"ReportCount", clientInfo.ReportCount}
+    clientInfo.EntityData.Children = types.NewOrderedMap()
+    clientInfo.EntityData.Leafs = types.NewOrderedMap()
+    clientInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", clientInfo.Name})
+    clientInfo.EntityData.Leafs.Append("id", types.YLeaf{"Id", clientInfo.Id})
+    clientInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", clientInfo.Location})
+    clientInfo.EntityData.Leafs.Append("handle", types.YLeaf{"Handle", clientInfo.Handle})
+    clientInfo.EntityData.Leafs.Append("state", types.YLeaf{"State", clientInfo.State})
+    clientInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", clientInfo.Type})
+    clientInfo.EntityData.Leafs.Append("filter-disp", types.YLeaf{"FilterDisp", clientInfo.FilterDisp})
+    clientInfo.EntityData.Leafs.Append("subscriber-id", types.YLeaf{"SubscriberId", clientInfo.SubscriberId})
+    clientInfo.EntityData.Leafs.Append("filter-severity", types.YLeaf{"FilterSeverity", clientInfo.FilterSeverity})
+    clientInfo.EntityData.Leafs.Append("filter-state", types.YLeaf{"FilterState", clientInfo.FilterState})
+    clientInfo.EntityData.Leafs.Append("filter-group", types.YLeaf{"FilterGroup", clientInfo.FilterGroup})
+    clientInfo.EntityData.Leafs.Append("connect-count", types.YLeaf{"ConnectCount", clientInfo.ConnectCount})
+    clientInfo.EntityData.Leafs.Append("connect-timestamp", types.YLeaf{"ConnectTimestamp", clientInfo.ConnectTimestamp})
+    clientInfo.EntityData.Leafs.Append("get-count", types.YLeaf{"GetCount", clientInfo.GetCount})
+    clientInfo.EntityData.Leafs.Append("subscribe-count", types.YLeaf{"SubscribeCount", clientInfo.SubscribeCount})
+    clientInfo.EntityData.Leafs.Append("report-count", types.YLeaf{"ReportCount", clientInfo.ReportCount})
+
+    clientInfo.EntityData.YListKeys = []string {}
+
     return &(clientInfo.EntityData)
 }
 
@@ -2059,10 +2161,13 @@ func (brief *Alarms_Brief) GetEntityData() *types.CommonEntityData {
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    brief.EntityData.Children = make(map[string]types.YChild)
-    brief.EntityData.Children["brief-card"] = types.YChild{"BriefCard", &brief.BriefCard}
-    brief.EntityData.Children["brief-system"] = types.YChild{"BriefSystem", &brief.BriefSystem}
-    brief.EntityData.Leafs = make(map[string]types.YLeaf)
+    brief.EntityData.Children = types.NewOrderedMap()
+    brief.EntityData.Children.Append("brief-card", types.YChild{"BriefCard", &brief.BriefCard})
+    brief.EntityData.Children.Append("brief-system", types.YChild{"BriefSystem", &brief.BriefSystem})
+    brief.EntityData.Leafs = types.NewOrderedMap()
+
+    brief.EntityData.YListKeys = []string {}
+
     return &(brief.EntityData)
 }
 
@@ -2086,9 +2191,12 @@ func (briefCard *Alarms_Brief_BriefCard) GetEntityData() *types.CommonEntityData
     briefCard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     briefCard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    briefCard.EntityData.Children = make(map[string]types.YChild)
-    briefCard.EntityData.Children["brief-locations"] = types.YChild{"BriefLocations", &briefCard.BriefLocations}
-    briefCard.EntityData.Leafs = make(map[string]types.YLeaf)
+    briefCard.EntityData.Children = types.NewOrderedMap()
+    briefCard.EntityData.Children.Append("brief-locations", types.YChild{"BriefLocations", &briefCard.BriefLocations})
+    briefCard.EntityData.Leafs = types.NewOrderedMap()
+
+    briefCard.EntityData.YListKeys = []string {}
+
     return &(briefCard.EntityData)
 }
 
@@ -2100,7 +2208,7 @@ type Alarms_Brief_BriefCard_BriefLocations struct {
 
     // Specify a card location for alarms. The type is slice of
     // Alarms_Brief_BriefCard_BriefLocations_BriefLocation.
-    BriefLocation []Alarms_Brief_BriefCard_BriefLocations_BriefLocation
+    BriefLocation []*Alarms_Brief_BriefCard_BriefLocations_BriefLocation
 }
 
 func (briefLocations *Alarms_Brief_BriefCard_BriefLocations) GetEntityData() *types.CommonEntityData {
@@ -2113,12 +2221,15 @@ func (briefLocations *Alarms_Brief_BriefCard_BriefLocations) GetEntityData() *ty
     briefLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     briefLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    briefLocations.EntityData.Children = make(map[string]types.YChild)
-    briefLocations.EntityData.Children["brief-location"] = types.YChild{"BriefLocation", nil}
+    briefLocations.EntityData.Children = types.NewOrderedMap()
+    briefLocations.EntityData.Children.Append("brief-location", types.YChild{"BriefLocation", nil})
     for i := range briefLocations.BriefLocation {
-        briefLocations.EntityData.Children[types.GetSegmentPath(&briefLocations.BriefLocation[i])] = types.YChild{"BriefLocation", &briefLocations.BriefLocation[i]}
+        briefLocations.EntityData.Children.Append(types.GetSegmentPath(briefLocations.BriefLocation[i]), types.YChild{"BriefLocation", briefLocations.BriefLocation[i]})
     }
-    briefLocations.EntityData.Leafs = make(map[string]types.YLeaf)
+    briefLocations.EntityData.Leafs = types.NewOrderedMap()
+
+    briefLocations.EntityData.YListKeys = []string {}
+
     return &(briefLocations.EntityData)
 }
 
@@ -2129,7 +2240,7 @@ type Alarms_Brief_BriefCard_BriefLocations_BriefLocation struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. NodeID of the Location. The type is string with
-    // pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Show the active alarms at this scope.
@@ -2147,17 +2258,20 @@ func (briefLocation *Alarms_Brief_BriefCard_BriefLocations_BriefLocation) GetEnt
     briefLocation.EntityData.YangName = "brief-location"
     briefLocation.EntityData.BundleName = "cisco_ios_xr"
     briefLocation.EntityData.ParentYangName = "brief-locations"
-    briefLocation.EntityData.SegmentPath = "brief-location" + "[node-id='" + fmt.Sprintf("%v", briefLocation.NodeId) + "']"
+    briefLocation.EntityData.SegmentPath = "brief-location" + types.AddKeyToken(briefLocation.NodeId, "node-id")
     briefLocation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     briefLocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     briefLocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    briefLocation.EntityData.Children = make(map[string]types.YChild)
-    briefLocation.EntityData.Children["active"] = types.YChild{"Active", &briefLocation.Active}
-    briefLocation.EntityData.Children["history"] = types.YChild{"History", &briefLocation.History}
-    briefLocation.EntityData.Children["suppressed"] = types.YChild{"Suppressed", &briefLocation.Suppressed}
-    briefLocation.EntityData.Leafs = make(map[string]types.YLeaf)
-    briefLocation.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", briefLocation.NodeId}
+    briefLocation.EntityData.Children = types.NewOrderedMap()
+    briefLocation.EntityData.Children.Append("active", types.YChild{"Active", &briefLocation.Active})
+    briefLocation.EntityData.Children.Append("history", types.YChild{"History", &briefLocation.History})
+    briefLocation.EntityData.Children.Append("suppressed", types.YChild{"Suppressed", &briefLocation.Suppressed})
+    briefLocation.EntityData.Leafs = types.NewOrderedMap()
+    briefLocation.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", briefLocation.NodeId})
+
+    briefLocation.EntityData.YListKeys = []string {"NodeId"}
+
     return &(briefLocation.EntityData)
 }
 
@@ -2169,7 +2283,7 @@ type Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Active struct {
 
     // Alarm List. The type is slice of
     // Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Active_AlarmInfo.
-    AlarmInfo []Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Active_AlarmInfo
+    AlarmInfo []*Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Active_AlarmInfo
 }
 
 func (active *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Active) GetEntityData() *types.CommonEntityData {
@@ -2182,12 +2296,15 @@ func (active *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Active) GetEnt
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    active.EntityData.Children = make(map[string]types.YChild)
-    active.EntityData.Children["alarm-info"] = types.YChild{"AlarmInfo", nil}
+    active.EntityData.Children = types.NewOrderedMap()
+    active.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range active.AlarmInfo {
-        active.EntityData.Children[types.GetSegmentPath(&active.AlarmInfo[i])] = types.YChild{"AlarmInfo", &active.AlarmInfo[i]}
+        active.EntityData.Children.Append(types.GetSegmentPath(active.AlarmInfo[i]), types.YChild{"AlarmInfo", active.AlarmInfo[i]})
     }
-    active.EntityData.Leafs = make(map[string]types.YLeaf)
+    active.EntityData.Leafs = types.NewOrderedMap()
+
+    active.EntityData.YListKeys = []string {}
+
     return &(active.EntityData)
 }
 
@@ -2234,16 +2351,19 @@ func (alarmInfo *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Active_Alar
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarmInfo.EntityData.Children = make(map[string]types.YChild)
-    alarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    alarmInfo.EntityData.Leafs["location"] = types.YLeaf{"Location", alarmInfo.Location}
-    alarmInfo.EntityData.Leafs["severity"] = types.YLeaf{"Severity", alarmInfo.Severity}
-    alarmInfo.EntityData.Leafs["group"] = types.YLeaf{"Group", alarmInfo.Group}
-    alarmInfo.EntityData.Leafs["set-time"] = types.YLeaf{"SetTime", alarmInfo.SetTime}
-    alarmInfo.EntityData.Leafs["set-timestamp"] = types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp}
-    alarmInfo.EntityData.Leafs["clear-time"] = types.YLeaf{"ClearTime", alarmInfo.ClearTime}
-    alarmInfo.EntityData.Leafs["clear-timestamp"] = types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp}
-    alarmInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", alarmInfo.Description}
+    alarmInfo.EntityData.Children = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", alarmInfo.Location})
+    alarmInfo.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", alarmInfo.Severity})
+    alarmInfo.EntityData.Leafs.Append("group", types.YLeaf{"Group", alarmInfo.Group})
+    alarmInfo.EntityData.Leafs.Append("set-time", types.YLeaf{"SetTime", alarmInfo.SetTime})
+    alarmInfo.EntityData.Leafs.Append("set-timestamp", types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp})
+    alarmInfo.EntityData.Leafs.Append("clear-time", types.YLeaf{"ClearTime", alarmInfo.ClearTime})
+    alarmInfo.EntityData.Leafs.Append("clear-timestamp", types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp})
+    alarmInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", alarmInfo.Description})
+
+    alarmInfo.EntityData.YListKeys = []string {}
+
     return &(alarmInfo.EntityData)
 }
 
@@ -2255,7 +2375,7 @@ type Alarms_Brief_BriefCard_BriefLocations_BriefLocation_History struct {
 
     // Alarm List. The type is slice of
     // Alarms_Brief_BriefCard_BriefLocations_BriefLocation_History_AlarmInfo.
-    AlarmInfo []Alarms_Brief_BriefCard_BriefLocations_BriefLocation_History_AlarmInfo
+    AlarmInfo []*Alarms_Brief_BriefCard_BriefLocations_BriefLocation_History_AlarmInfo
 }
 
 func (history *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_History) GetEntityData() *types.CommonEntityData {
@@ -2268,12 +2388,15 @@ func (history *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_History) GetE
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    history.EntityData.Children = make(map[string]types.YChild)
-    history.EntityData.Children["alarm-info"] = types.YChild{"AlarmInfo", nil}
+    history.EntityData.Children = types.NewOrderedMap()
+    history.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range history.AlarmInfo {
-        history.EntityData.Children[types.GetSegmentPath(&history.AlarmInfo[i])] = types.YChild{"AlarmInfo", &history.AlarmInfo[i]}
+        history.EntityData.Children.Append(types.GetSegmentPath(history.AlarmInfo[i]), types.YChild{"AlarmInfo", history.AlarmInfo[i]})
     }
-    history.EntityData.Leafs = make(map[string]types.YLeaf)
+    history.EntityData.Leafs = types.NewOrderedMap()
+
+    history.EntityData.YListKeys = []string {}
+
     return &(history.EntityData)
 }
 
@@ -2320,16 +2443,19 @@ func (alarmInfo *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_History_Ala
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarmInfo.EntityData.Children = make(map[string]types.YChild)
-    alarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    alarmInfo.EntityData.Leafs["location"] = types.YLeaf{"Location", alarmInfo.Location}
-    alarmInfo.EntityData.Leafs["severity"] = types.YLeaf{"Severity", alarmInfo.Severity}
-    alarmInfo.EntityData.Leafs["group"] = types.YLeaf{"Group", alarmInfo.Group}
-    alarmInfo.EntityData.Leafs["set-time"] = types.YLeaf{"SetTime", alarmInfo.SetTime}
-    alarmInfo.EntityData.Leafs["set-timestamp"] = types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp}
-    alarmInfo.EntityData.Leafs["clear-time"] = types.YLeaf{"ClearTime", alarmInfo.ClearTime}
-    alarmInfo.EntityData.Leafs["clear-timestamp"] = types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp}
-    alarmInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", alarmInfo.Description}
+    alarmInfo.EntityData.Children = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", alarmInfo.Location})
+    alarmInfo.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", alarmInfo.Severity})
+    alarmInfo.EntityData.Leafs.Append("group", types.YLeaf{"Group", alarmInfo.Group})
+    alarmInfo.EntityData.Leafs.Append("set-time", types.YLeaf{"SetTime", alarmInfo.SetTime})
+    alarmInfo.EntityData.Leafs.Append("set-timestamp", types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp})
+    alarmInfo.EntityData.Leafs.Append("clear-time", types.YLeaf{"ClearTime", alarmInfo.ClearTime})
+    alarmInfo.EntityData.Leafs.Append("clear-timestamp", types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp})
+    alarmInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", alarmInfo.Description})
+
+    alarmInfo.EntityData.YListKeys = []string {}
+
     return &(alarmInfo.EntityData)
 }
 
@@ -2341,7 +2467,7 @@ type Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Suppressed struct {
 
     // Suppressed Alarm List. The type is slice of
     // Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Suppressed_SuppressedInfo.
-    SuppressedInfo []Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Suppressed_SuppressedInfo
+    SuppressedInfo []*Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Suppressed_SuppressedInfo
 }
 
 func (suppressed *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Suppressed) GetEntityData() *types.CommonEntityData {
@@ -2354,12 +2480,15 @@ func (suppressed *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Suppressed
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    suppressed.EntityData.Children = make(map[string]types.YChild)
-    suppressed.EntityData.Children["suppressed-info"] = types.YChild{"SuppressedInfo", nil}
+    suppressed.EntityData.Children = types.NewOrderedMap()
+    suppressed.EntityData.Children.Append("suppressed-info", types.YChild{"SuppressedInfo", nil})
     for i := range suppressed.SuppressedInfo {
-        suppressed.EntityData.Children[types.GetSegmentPath(&suppressed.SuppressedInfo[i])] = types.YChild{"SuppressedInfo", &suppressed.SuppressedInfo[i]}
+        suppressed.EntityData.Children.Append(types.GetSegmentPath(suppressed.SuppressedInfo[i]), types.YChild{"SuppressedInfo", suppressed.SuppressedInfo[i]})
     }
-    suppressed.EntityData.Leafs = make(map[string]types.YLeaf)
+    suppressed.EntityData.Leafs = types.NewOrderedMap()
+
+    suppressed.EntityData.YListKeys = []string {}
+
     return &(suppressed.EntityData)
 }
 
@@ -2406,16 +2535,19 @@ func (suppressedInfo *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Suppre
     suppressedInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressedInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    suppressedInfo.EntityData.Children = make(map[string]types.YChild)
-    suppressedInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    suppressedInfo.EntityData.Leafs["location"] = types.YLeaf{"Location", suppressedInfo.Location}
-    suppressedInfo.EntityData.Leafs["severity"] = types.YLeaf{"Severity", suppressedInfo.Severity}
-    suppressedInfo.EntityData.Leafs["group"] = types.YLeaf{"Group", suppressedInfo.Group}
-    suppressedInfo.EntityData.Leafs["set-time"] = types.YLeaf{"SetTime", suppressedInfo.SetTime}
-    suppressedInfo.EntityData.Leafs["set-timestamp"] = types.YLeaf{"SetTimestamp", suppressedInfo.SetTimestamp}
-    suppressedInfo.EntityData.Leafs["suppressed-time"] = types.YLeaf{"SuppressedTime", suppressedInfo.SuppressedTime}
-    suppressedInfo.EntityData.Leafs["suppressed-timestamp"] = types.YLeaf{"SuppressedTimestamp", suppressedInfo.SuppressedTimestamp}
-    suppressedInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", suppressedInfo.Description}
+    suppressedInfo.EntityData.Children = types.NewOrderedMap()
+    suppressedInfo.EntityData.Leafs = types.NewOrderedMap()
+    suppressedInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", suppressedInfo.Location})
+    suppressedInfo.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", suppressedInfo.Severity})
+    suppressedInfo.EntityData.Leafs.Append("group", types.YLeaf{"Group", suppressedInfo.Group})
+    suppressedInfo.EntityData.Leafs.Append("set-time", types.YLeaf{"SetTime", suppressedInfo.SetTime})
+    suppressedInfo.EntityData.Leafs.Append("set-timestamp", types.YLeaf{"SetTimestamp", suppressedInfo.SetTimestamp})
+    suppressedInfo.EntityData.Leafs.Append("suppressed-time", types.YLeaf{"SuppressedTime", suppressedInfo.SuppressedTime})
+    suppressedInfo.EntityData.Leafs.Append("suppressed-timestamp", types.YLeaf{"SuppressedTimestamp", suppressedInfo.SuppressedTimestamp})
+    suppressedInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", suppressedInfo.Description})
+
+    suppressedInfo.EntityData.YListKeys = []string {}
+
     return &(suppressedInfo.EntityData)
 }
 
@@ -2445,11 +2577,14 @@ func (briefSystem *Alarms_Brief_BriefSystem) GetEntityData() *types.CommonEntity
     briefSystem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     briefSystem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    briefSystem.EntityData.Children = make(map[string]types.YChild)
-    briefSystem.EntityData.Children["active"] = types.YChild{"Active", &briefSystem.Active}
-    briefSystem.EntityData.Children["history"] = types.YChild{"History", &briefSystem.History}
-    briefSystem.EntityData.Children["suppressed"] = types.YChild{"Suppressed", &briefSystem.Suppressed}
-    briefSystem.EntityData.Leafs = make(map[string]types.YLeaf)
+    briefSystem.EntityData.Children = types.NewOrderedMap()
+    briefSystem.EntityData.Children.Append("active", types.YChild{"Active", &briefSystem.Active})
+    briefSystem.EntityData.Children.Append("history", types.YChild{"History", &briefSystem.History})
+    briefSystem.EntityData.Children.Append("suppressed", types.YChild{"Suppressed", &briefSystem.Suppressed})
+    briefSystem.EntityData.Leafs = types.NewOrderedMap()
+
+    briefSystem.EntityData.YListKeys = []string {}
+
     return &(briefSystem.EntityData)
 }
 
@@ -2460,7 +2595,7 @@ type Alarms_Brief_BriefSystem_Active struct {
     YFilter yfilter.YFilter
 
     // Alarm List. The type is slice of Alarms_Brief_BriefSystem_Active_AlarmInfo.
-    AlarmInfo []Alarms_Brief_BriefSystem_Active_AlarmInfo
+    AlarmInfo []*Alarms_Brief_BriefSystem_Active_AlarmInfo
 }
 
 func (active *Alarms_Brief_BriefSystem_Active) GetEntityData() *types.CommonEntityData {
@@ -2473,12 +2608,15 @@ func (active *Alarms_Brief_BriefSystem_Active) GetEntityData() *types.CommonEnti
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    active.EntityData.Children = make(map[string]types.YChild)
-    active.EntityData.Children["alarm-info"] = types.YChild{"AlarmInfo", nil}
+    active.EntityData.Children = types.NewOrderedMap()
+    active.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range active.AlarmInfo {
-        active.EntityData.Children[types.GetSegmentPath(&active.AlarmInfo[i])] = types.YChild{"AlarmInfo", &active.AlarmInfo[i]}
+        active.EntityData.Children.Append(types.GetSegmentPath(active.AlarmInfo[i]), types.YChild{"AlarmInfo", active.AlarmInfo[i]})
     }
-    active.EntityData.Leafs = make(map[string]types.YLeaf)
+    active.EntityData.Leafs = types.NewOrderedMap()
+
+    active.EntityData.YListKeys = []string {}
+
     return &(active.EntityData)
 }
 
@@ -2525,16 +2663,19 @@ func (alarmInfo *Alarms_Brief_BriefSystem_Active_AlarmInfo) GetEntityData() *typ
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarmInfo.EntityData.Children = make(map[string]types.YChild)
-    alarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    alarmInfo.EntityData.Leafs["location"] = types.YLeaf{"Location", alarmInfo.Location}
-    alarmInfo.EntityData.Leafs["severity"] = types.YLeaf{"Severity", alarmInfo.Severity}
-    alarmInfo.EntityData.Leafs["group"] = types.YLeaf{"Group", alarmInfo.Group}
-    alarmInfo.EntityData.Leafs["set-time"] = types.YLeaf{"SetTime", alarmInfo.SetTime}
-    alarmInfo.EntityData.Leafs["set-timestamp"] = types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp}
-    alarmInfo.EntityData.Leafs["clear-time"] = types.YLeaf{"ClearTime", alarmInfo.ClearTime}
-    alarmInfo.EntityData.Leafs["clear-timestamp"] = types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp}
-    alarmInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", alarmInfo.Description}
+    alarmInfo.EntityData.Children = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", alarmInfo.Location})
+    alarmInfo.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", alarmInfo.Severity})
+    alarmInfo.EntityData.Leafs.Append("group", types.YLeaf{"Group", alarmInfo.Group})
+    alarmInfo.EntityData.Leafs.Append("set-time", types.YLeaf{"SetTime", alarmInfo.SetTime})
+    alarmInfo.EntityData.Leafs.Append("set-timestamp", types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp})
+    alarmInfo.EntityData.Leafs.Append("clear-time", types.YLeaf{"ClearTime", alarmInfo.ClearTime})
+    alarmInfo.EntityData.Leafs.Append("clear-timestamp", types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp})
+    alarmInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", alarmInfo.Description})
+
+    alarmInfo.EntityData.YListKeys = []string {}
+
     return &(alarmInfo.EntityData)
 }
 
@@ -2546,7 +2687,7 @@ type Alarms_Brief_BriefSystem_History struct {
 
     // Alarm List. The type is slice of
     // Alarms_Brief_BriefSystem_History_AlarmInfo.
-    AlarmInfo []Alarms_Brief_BriefSystem_History_AlarmInfo
+    AlarmInfo []*Alarms_Brief_BriefSystem_History_AlarmInfo
 }
 
 func (history *Alarms_Brief_BriefSystem_History) GetEntityData() *types.CommonEntityData {
@@ -2559,12 +2700,15 @@ func (history *Alarms_Brief_BriefSystem_History) GetEntityData() *types.CommonEn
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    history.EntityData.Children = make(map[string]types.YChild)
-    history.EntityData.Children["alarm-info"] = types.YChild{"AlarmInfo", nil}
+    history.EntityData.Children = types.NewOrderedMap()
+    history.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range history.AlarmInfo {
-        history.EntityData.Children[types.GetSegmentPath(&history.AlarmInfo[i])] = types.YChild{"AlarmInfo", &history.AlarmInfo[i]}
+        history.EntityData.Children.Append(types.GetSegmentPath(history.AlarmInfo[i]), types.YChild{"AlarmInfo", history.AlarmInfo[i]})
     }
-    history.EntityData.Leafs = make(map[string]types.YLeaf)
+    history.EntityData.Leafs = types.NewOrderedMap()
+
+    history.EntityData.YListKeys = []string {}
+
     return &(history.EntityData)
 }
 
@@ -2611,16 +2755,19 @@ func (alarmInfo *Alarms_Brief_BriefSystem_History_AlarmInfo) GetEntityData() *ty
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alarmInfo.EntityData.Children = make(map[string]types.YChild)
-    alarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    alarmInfo.EntityData.Leafs["location"] = types.YLeaf{"Location", alarmInfo.Location}
-    alarmInfo.EntityData.Leafs["severity"] = types.YLeaf{"Severity", alarmInfo.Severity}
-    alarmInfo.EntityData.Leafs["group"] = types.YLeaf{"Group", alarmInfo.Group}
-    alarmInfo.EntityData.Leafs["set-time"] = types.YLeaf{"SetTime", alarmInfo.SetTime}
-    alarmInfo.EntityData.Leafs["set-timestamp"] = types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp}
-    alarmInfo.EntityData.Leafs["clear-time"] = types.YLeaf{"ClearTime", alarmInfo.ClearTime}
-    alarmInfo.EntityData.Leafs["clear-timestamp"] = types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp}
-    alarmInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", alarmInfo.Description}
+    alarmInfo.EntityData.Children = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", alarmInfo.Location})
+    alarmInfo.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", alarmInfo.Severity})
+    alarmInfo.EntityData.Leafs.Append("group", types.YLeaf{"Group", alarmInfo.Group})
+    alarmInfo.EntityData.Leafs.Append("set-time", types.YLeaf{"SetTime", alarmInfo.SetTime})
+    alarmInfo.EntityData.Leafs.Append("set-timestamp", types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp})
+    alarmInfo.EntityData.Leafs.Append("clear-time", types.YLeaf{"ClearTime", alarmInfo.ClearTime})
+    alarmInfo.EntityData.Leafs.Append("clear-timestamp", types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp})
+    alarmInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", alarmInfo.Description})
+
+    alarmInfo.EntityData.YListKeys = []string {}
+
     return &(alarmInfo.EntityData)
 }
 
@@ -2632,7 +2779,7 @@ type Alarms_Brief_BriefSystem_Suppressed struct {
 
     // Suppressed Alarm List. The type is slice of
     // Alarms_Brief_BriefSystem_Suppressed_SuppressedInfo.
-    SuppressedInfo []Alarms_Brief_BriefSystem_Suppressed_SuppressedInfo
+    SuppressedInfo []*Alarms_Brief_BriefSystem_Suppressed_SuppressedInfo
 }
 
 func (suppressed *Alarms_Brief_BriefSystem_Suppressed) GetEntityData() *types.CommonEntityData {
@@ -2645,12 +2792,15 @@ func (suppressed *Alarms_Brief_BriefSystem_Suppressed) GetEntityData() *types.Co
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    suppressed.EntityData.Children = make(map[string]types.YChild)
-    suppressed.EntityData.Children["suppressed-info"] = types.YChild{"SuppressedInfo", nil}
+    suppressed.EntityData.Children = types.NewOrderedMap()
+    suppressed.EntityData.Children.Append("suppressed-info", types.YChild{"SuppressedInfo", nil})
     for i := range suppressed.SuppressedInfo {
-        suppressed.EntityData.Children[types.GetSegmentPath(&suppressed.SuppressedInfo[i])] = types.YChild{"SuppressedInfo", &suppressed.SuppressedInfo[i]}
+        suppressed.EntityData.Children.Append(types.GetSegmentPath(suppressed.SuppressedInfo[i]), types.YChild{"SuppressedInfo", suppressed.SuppressedInfo[i]})
     }
-    suppressed.EntityData.Leafs = make(map[string]types.YLeaf)
+    suppressed.EntityData.Leafs = types.NewOrderedMap()
+
+    suppressed.EntityData.YListKeys = []string {}
+
     return &(suppressed.EntityData)
 }
 
@@ -2697,16 +2847,19 @@ func (suppressedInfo *Alarms_Brief_BriefSystem_Suppressed_SuppressedInfo) GetEnt
     suppressedInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressedInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    suppressedInfo.EntityData.Children = make(map[string]types.YChild)
-    suppressedInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    suppressedInfo.EntityData.Leafs["location"] = types.YLeaf{"Location", suppressedInfo.Location}
-    suppressedInfo.EntityData.Leafs["severity"] = types.YLeaf{"Severity", suppressedInfo.Severity}
-    suppressedInfo.EntityData.Leafs["group"] = types.YLeaf{"Group", suppressedInfo.Group}
-    suppressedInfo.EntityData.Leafs["set-time"] = types.YLeaf{"SetTime", suppressedInfo.SetTime}
-    suppressedInfo.EntityData.Leafs["set-timestamp"] = types.YLeaf{"SetTimestamp", suppressedInfo.SetTimestamp}
-    suppressedInfo.EntityData.Leafs["suppressed-time"] = types.YLeaf{"SuppressedTime", suppressedInfo.SuppressedTime}
-    suppressedInfo.EntityData.Leafs["suppressed-timestamp"] = types.YLeaf{"SuppressedTimestamp", suppressedInfo.SuppressedTimestamp}
-    suppressedInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", suppressedInfo.Description}
+    suppressedInfo.EntityData.Children = types.NewOrderedMap()
+    suppressedInfo.EntityData.Leafs = types.NewOrderedMap()
+    suppressedInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", suppressedInfo.Location})
+    suppressedInfo.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", suppressedInfo.Severity})
+    suppressedInfo.EntityData.Leafs.Append("group", types.YLeaf{"Group", suppressedInfo.Group})
+    suppressedInfo.EntityData.Leafs.Append("set-time", types.YLeaf{"SetTime", suppressedInfo.SetTime})
+    suppressedInfo.EntityData.Leafs.Append("set-timestamp", types.YLeaf{"SetTimestamp", suppressedInfo.SetTimestamp})
+    suppressedInfo.EntityData.Leafs.Append("suppressed-time", types.YLeaf{"SuppressedTime", suppressedInfo.SuppressedTime})
+    suppressedInfo.EntityData.Leafs.Append("suppressed-timestamp", types.YLeaf{"SuppressedTimestamp", suppressedInfo.SuppressedTimestamp})
+    suppressedInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", suppressedInfo.Description})
+
+    suppressedInfo.EntityData.YListKeys = []string {}
+
     return &(suppressedInfo.EntityData)
 }
 

@@ -44,9 +44,12 @@ func (ssespan *Ssespan) GetEntityData() *types.CommonEntityData {
     ssespan.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssespan.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssespan.EntityData.Children = make(map[string]types.YChild)
-    ssespan.EntityData.Children["nodes"] = types.YChild{"Nodes", &ssespan.Nodes}
-    ssespan.EntityData.Leafs = make(map[string]types.YLeaf)
+    ssespan.EntityData.Children = types.NewOrderedMap()
+    ssespan.EntityData.Children.Append("nodes", types.YChild{"Nodes", &ssespan.Nodes})
+    ssespan.EntityData.Leafs = types.NewOrderedMap()
+
+    ssespan.EntityData.YListKeys = []string {}
+
     return &(ssespan.EntityData)
 }
 
@@ -58,7 +61,7 @@ type Ssespan_Nodes struct {
 
     // Node-specific data for a particular node. The type is slice of
     // Ssespan_Nodes_Node.
-    Node []Ssespan_Nodes_Node
+    Node []*Ssespan_Nodes_Node
 }
 
 func (nodes *Ssespan_Nodes) GetEntityData() *types.CommonEntityData {
@@ -71,12 +74,15 @@ func (nodes *Ssespan_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -87,7 +93,7 @@ type Ssespan_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node interface{}
 
     // SPAN SFT entry.
@@ -105,17 +111,20 @@ func (node *Ssespan_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node='" + fmt.Sprintf("%v", node.Node) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Node, "node")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["span-mirr-infos"] = types.YChild{"SpanMirrInfos", &node.SpanMirrInfos}
-    node.EntityData.Children["spanudf"] = types.YChild{"Spanudf", &node.Spanudf}
-    node.EntityData.Children["span-sess-infos"] = types.YChild{"SpanSessInfos", &node.SpanSessInfos}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node"] = types.YLeaf{"Node", node.Node}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("span-mirr-infos", types.YChild{"SpanMirrInfos", &node.SpanMirrInfos})
+    node.EntityData.Children.Append("spanudf", types.YChild{"Spanudf", &node.Spanudf})
+    node.EntityData.Children.Append("span-sess-infos", types.YChild{"SpanSessInfos", &node.SpanSessInfos})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node", types.YLeaf{"Node", node.Node})
+
+    node.EntityData.YListKeys = []string {"Node"}
+
     return &(node.EntityData)
 }
 
@@ -127,7 +136,7 @@ type Ssespan_Nodes_Node_SpanMirrInfos struct {
 
     // Mirror info . The type is slice of
     // Ssespan_Nodes_Node_SpanMirrInfos_SpanMirrInfo.
-    SpanMirrInfo []Ssespan_Nodes_Node_SpanMirrInfos_SpanMirrInfo
+    SpanMirrInfo []*Ssespan_Nodes_Node_SpanMirrInfos_SpanMirrInfo
 }
 
 func (spanMirrInfos *Ssespan_Nodes_Node_SpanMirrInfos) GetEntityData() *types.CommonEntityData {
@@ -140,12 +149,15 @@ func (spanMirrInfos *Ssespan_Nodes_Node_SpanMirrInfos) GetEntityData() *types.Co
     spanMirrInfos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spanMirrInfos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spanMirrInfos.EntityData.Children = make(map[string]types.YChild)
-    spanMirrInfos.EntityData.Children["span-mirr-info"] = types.YChild{"SpanMirrInfo", nil}
+    spanMirrInfos.EntityData.Children = types.NewOrderedMap()
+    spanMirrInfos.EntityData.Children.Append("span-mirr-info", types.YChild{"SpanMirrInfo", nil})
     for i := range spanMirrInfos.SpanMirrInfo {
-        spanMirrInfos.EntityData.Children[types.GetSegmentPath(&spanMirrInfos.SpanMirrInfo[i])] = types.YChild{"SpanMirrInfo", &spanMirrInfos.SpanMirrInfo[i]}
+        spanMirrInfos.EntityData.Children.Append(types.GetSegmentPath(spanMirrInfos.SpanMirrInfo[i]), types.YChild{"SpanMirrInfo", spanMirrInfos.SpanMirrInfo[i]})
     }
-    spanMirrInfos.EntityData.Leafs = make(map[string]types.YLeaf)
+    spanMirrInfos.EntityData.Leafs = types.NewOrderedMap()
+
+    spanMirrInfos.EntityData.YListKeys = []string {}
+
     return &(spanMirrInfos.EntityData)
 }
 
@@ -156,14 +168,14 @@ type Ssespan_Nodes_Node_SpanMirrInfos_SpanMirrInfo struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     IntfName interface{}
 
     // source IFH. The type is interface{} with range: 0..4294967295.
     SrcIfh interface{}
 
     // interface name. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     IntfNameXr interface{}
 
     // ipv4 acl flag. The type is interface{} with range: 0..4294967295.
@@ -176,49 +188,49 @@ type Ssespan_Nodes_Node_SpanMirrInfos_SpanMirrInfo struct {
     GreAclFlag interface{}
 
     // ipv4 state. The type is interface{} with range: 0..4294967295.
-    V4State interface{}
+    V4state interface{}
 
     // ipv6 state. The type is interface{} with range: 0..4294967295.
-    V6State interface{}
+    V6state interface{}
 
     // gre state. The type is interface{} with range: 0..4294967295.
     GreState interface{}
 
     // ipv4 session Id. The type is interface{} with range: 0..4294967295.
-    V4Sessid interface{}
+    V4sessid interface{}
 
     // ipv6 session Id. The type is interface{} with range: 0..4294967295.
-    V6Sessid interface{}
+    V6sessid interface{}
 
     // gre session Id. The type is interface{} with range: 0..4294967295.
     GreSessid interface{}
 
     // ipv4 dst type. The type is interface{} with range: 0..4294967295.
-    V4DstType interface{}
+    V4dstType interface{}
 
     // ipv6 dst type. The type is interface{} with range: 0..4294967295.
-    V6DstType interface{}
+    V6dstType interface{}
 
     // gre dst type. The type is interface{} with range: 0..4294967295.
     GredstType interface{}
 
     // v4 stats ptr. The type is interface{} with range: 0..4294967295.
-    V4Statsptr interface{}
+    V4statsptr interface{}
 
     // v6 stats ptr. The type is interface{} with range: 0..4294967295.
-    V6Statsptr interface{}
+    V6statsptr interface{}
 
     // mpls ipv4 stats ptr. The type is interface{} with range: 0..4294967295.
-    Grev4Statsptr interface{}
+    Grev4statsptr interface{}
 
     // mpls ipv6 stats ptr. The type is interface{} with range: 0..4294967295.
-    Grev6Statsptr interface{}
+    Grev6statsptr interface{}
 
     // mpls ipv4 pkts. The type is interface{} with range: 0..4294967295.
-    Mplsv4Stats interface{}
+    Mplsv4stats interface{}
 
     // mpls ipv6 pkts. The type is interface{} with range: 0..4294967295.
-    Mplsv6Pkts interface{}
+    Mplsv6pkts interface{}
 
     // npu mask. The type is interface{} with range: 0..4294967295.
     NpUmask interface{}
@@ -236,37 +248,40 @@ func (spanMirrInfo *Ssespan_Nodes_Node_SpanMirrInfos_SpanMirrInfo) GetEntityData
     spanMirrInfo.EntityData.YangName = "span-mirr-info"
     spanMirrInfo.EntityData.BundleName = "cisco_ios_xr"
     spanMirrInfo.EntityData.ParentYangName = "span-mirr-infos"
-    spanMirrInfo.EntityData.SegmentPath = "span-mirr-info" + "[intf-name='" + fmt.Sprintf("%v", spanMirrInfo.IntfName) + "']"
+    spanMirrInfo.EntityData.SegmentPath = "span-mirr-info" + types.AddKeyToken(spanMirrInfo.IntfName, "intf-name")
     spanMirrInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spanMirrInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spanMirrInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spanMirrInfo.EntityData.Children = make(map[string]types.YChild)
-    spanMirrInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    spanMirrInfo.EntityData.Leafs["intf-name"] = types.YLeaf{"IntfName", spanMirrInfo.IntfName}
-    spanMirrInfo.EntityData.Leafs["src-ifh"] = types.YLeaf{"SrcIfh", spanMirrInfo.SrcIfh}
-    spanMirrInfo.EntityData.Leafs["intf-name-xr"] = types.YLeaf{"IntfNameXr", spanMirrInfo.IntfNameXr}
-    spanMirrInfo.EntityData.Leafs["v4-acl-flag"] = types.YLeaf{"V4AclFlag", spanMirrInfo.V4AclFlag}
-    spanMirrInfo.EntityData.Leafs["v6-acl-flag"] = types.YLeaf{"V6AclFlag", spanMirrInfo.V6AclFlag}
-    spanMirrInfo.EntityData.Leafs["gre-acl-flag"] = types.YLeaf{"GreAclFlag", spanMirrInfo.GreAclFlag}
-    spanMirrInfo.EntityData.Leafs["v4state"] = types.YLeaf{"V4State", spanMirrInfo.V4State}
-    spanMirrInfo.EntityData.Leafs["v6state"] = types.YLeaf{"V6State", spanMirrInfo.V6State}
-    spanMirrInfo.EntityData.Leafs["gre-state"] = types.YLeaf{"GreState", spanMirrInfo.GreState}
-    spanMirrInfo.EntityData.Leafs["v4sessid"] = types.YLeaf{"V4Sessid", spanMirrInfo.V4Sessid}
-    spanMirrInfo.EntityData.Leafs["v6sessid"] = types.YLeaf{"V6Sessid", spanMirrInfo.V6Sessid}
-    spanMirrInfo.EntityData.Leafs["gre-sessid"] = types.YLeaf{"GreSessid", spanMirrInfo.GreSessid}
-    spanMirrInfo.EntityData.Leafs["v4dst-type"] = types.YLeaf{"V4DstType", spanMirrInfo.V4DstType}
-    spanMirrInfo.EntityData.Leafs["v6dst-type"] = types.YLeaf{"V6DstType", spanMirrInfo.V6DstType}
-    spanMirrInfo.EntityData.Leafs["gredst-type"] = types.YLeaf{"GredstType", spanMirrInfo.GredstType}
-    spanMirrInfo.EntityData.Leafs["v4statsptr"] = types.YLeaf{"V4Statsptr", spanMirrInfo.V4Statsptr}
-    spanMirrInfo.EntityData.Leafs["v6statsptr"] = types.YLeaf{"V6Statsptr", spanMirrInfo.V6Statsptr}
-    spanMirrInfo.EntityData.Leafs["grev4statsptr"] = types.YLeaf{"Grev4Statsptr", spanMirrInfo.Grev4Statsptr}
-    spanMirrInfo.EntityData.Leafs["grev6statsptr"] = types.YLeaf{"Grev6Statsptr", spanMirrInfo.Grev6Statsptr}
-    spanMirrInfo.EntityData.Leafs["mplsv4stats"] = types.YLeaf{"Mplsv4Stats", spanMirrInfo.Mplsv4Stats}
-    spanMirrInfo.EntityData.Leafs["mplsv6pkts"] = types.YLeaf{"Mplsv6Pkts", spanMirrInfo.Mplsv6Pkts}
-    spanMirrInfo.EntityData.Leafs["np-umask"] = types.YLeaf{"NpUmask", spanMirrInfo.NpUmask}
-    spanMirrInfo.EntityData.Leafs["uidb"] = types.YLeaf{"Uidb", spanMirrInfo.Uidb}
-    spanMirrInfo.EntityData.Leafs["sft-hw-data"] = types.YLeaf{"SftHwData", spanMirrInfo.SftHwData}
+    spanMirrInfo.EntityData.Children = types.NewOrderedMap()
+    spanMirrInfo.EntityData.Leafs = types.NewOrderedMap()
+    spanMirrInfo.EntityData.Leafs.Append("intf-name", types.YLeaf{"IntfName", spanMirrInfo.IntfName})
+    spanMirrInfo.EntityData.Leafs.Append("src-ifh", types.YLeaf{"SrcIfh", spanMirrInfo.SrcIfh})
+    spanMirrInfo.EntityData.Leafs.Append("intf-name-xr", types.YLeaf{"IntfNameXr", spanMirrInfo.IntfNameXr})
+    spanMirrInfo.EntityData.Leafs.Append("v4-acl-flag", types.YLeaf{"V4AclFlag", spanMirrInfo.V4AclFlag})
+    spanMirrInfo.EntityData.Leafs.Append("v6-acl-flag", types.YLeaf{"V6AclFlag", spanMirrInfo.V6AclFlag})
+    spanMirrInfo.EntityData.Leafs.Append("gre-acl-flag", types.YLeaf{"GreAclFlag", spanMirrInfo.GreAclFlag})
+    spanMirrInfo.EntityData.Leafs.Append("v4state", types.YLeaf{"V4state", spanMirrInfo.V4state})
+    spanMirrInfo.EntityData.Leafs.Append("v6state", types.YLeaf{"V6state", spanMirrInfo.V6state})
+    spanMirrInfo.EntityData.Leafs.Append("gre-state", types.YLeaf{"GreState", spanMirrInfo.GreState})
+    spanMirrInfo.EntityData.Leafs.Append("v4sessid", types.YLeaf{"V4sessid", spanMirrInfo.V4sessid})
+    spanMirrInfo.EntityData.Leafs.Append("v6sessid", types.YLeaf{"V6sessid", spanMirrInfo.V6sessid})
+    spanMirrInfo.EntityData.Leafs.Append("gre-sessid", types.YLeaf{"GreSessid", spanMirrInfo.GreSessid})
+    spanMirrInfo.EntityData.Leafs.Append("v4dst-type", types.YLeaf{"V4dstType", spanMirrInfo.V4dstType})
+    spanMirrInfo.EntityData.Leafs.Append("v6dst-type", types.YLeaf{"V6dstType", spanMirrInfo.V6dstType})
+    spanMirrInfo.EntityData.Leafs.Append("gredst-type", types.YLeaf{"GredstType", spanMirrInfo.GredstType})
+    spanMirrInfo.EntityData.Leafs.Append("v4statsptr", types.YLeaf{"V4statsptr", spanMirrInfo.V4statsptr})
+    spanMirrInfo.EntityData.Leafs.Append("v6statsptr", types.YLeaf{"V6statsptr", spanMirrInfo.V6statsptr})
+    spanMirrInfo.EntityData.Leafs.Append("grev4statsptr", types.YLeaf{"Grev4statsptr", spanMirrInfo.Grev4statsptr})
+    spanMirrInfo.EntityData.Leafs.Append("grev6statsptr", types.YLeaf{"Grev6statsptr", spanMirrInfo.Grev6statsptr})
+    spanMirrInfo.EntityData.Leafs.Append("mplsv4stats", types.YLeaf{"Mplsv4stats", spanMirrInfo.Mplsv4stats})
+    spanMirrInfo.EntityData.Leafs.Append("mplsv6pkts", types.YLeaf{"Mplsv6pkts", spanMirrInfo.Mplsv6pkts})
+    spanMirrInfo.EntityData.Leafs.Append("np-umask", types.YLeaf{"NpUmask", spanMirrInfo.NpUmask})
+    spanMirrInfo.EntityData.Leafs.Append("uidb", types.YLeaf{"Uidb", spanMirrInfo.Uidb})
+    spanMirrInfo.EntityData.Leafs.Append("sft-hw-data", types.YLeaf{"SftHwData", spanMirrInfo.SftHwData})
+
+    spanMirrInfo.EntityData.YListKeys = []string {"IntfName"}
+
     return &(spanMirrInfo.EntityData)
 }
 
@@ -303,13 +318,16 @@ func (spanudf *Ssespan_Nodes_Node_Spanudf) GetEntityData() *types.CommonEntityDa
     spanudf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spanudf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spanudf.EntityData.Children = make(map[string]types.YChild)
-    spanudf.EntityData.Leafs = make(map[string]types.YLeaf)
-    spanudf.EntityData.Leafs["udf-hdr"] = types.YLeaf{"UdfHdr", spanudf.UdfHdr}
-    spanudf.EntityData.Leafs["udf-type"] = types.YLeaf{"UdfType", spanudf.UdfType}
-    spanudf.EntityData.Leafs["udf-len"] = types.YLeaf{"UdfLen", spanudf.UdfLen}
-    spanudf.EntityData.Leafs["udf-value"] = types.YLeaf{"UdfValue", spanudf.UdfValue}
-    spanudf.EntityData.Leafs["udf-hw-data"] = types.YLeaf{"UdfHwData", spanudf.UdfHwData}
+    spanudf.EntityData.Children = types.NewOrderedMap()
+    spanudf.EntityData.Leafs = types.NewOrderedMap()
+    spanudf.EntityData.Leafs.Append("udf-hdr", types.YLeaf{"UdfHdr", spanudf.UdfHdr})
+    spanudf.EntityData.Leafs.Append("udf-type", types.YLeaf{"UdfType", spanudf.UdfType})
+    spanudf.EntityData.Leafs.Append("udf-len", types.YLeaf{"UdfLen", spanudf.UdfLen})
+    spanudf.EntityData.Leafs.Append("udf-value", types.YLeaf{"UdfValue", spanudf.UdfValue})
+    spanudf.EntityData.Leafs.Append("udf-hw-data", types.YLeaf{"UdfHwData", spanudf.UdfHwData})
+
+    spanudf.EntityData.YListKeys = []string {}
+
     return &(spanudf.EntityData)
 }
 
@@ -321,7 +339,7 @@ type Ssespan_Nodes_Node_SpanSessInfos struct {
 
     // Session info . The type is slice of
     // Ssespan_Nodes_Node_SpanSessInfos_SpanSessInfo.
-    SpanSessInfo []Ssespan_Nodes_Node_SpanSessInfos_SpanSessInfo
+    SpanSessInfo []*Ssespan_Nodes_Node_SpanSessInfos_SpanSessInfo
 }
 
 func (spanSessInfos *Ssespan_Nodes_Node_SpanSessInfos) GetEntityData() *types.CommonEntityData {
@@ -334,12 +352,15 @@ func (spanSessInfos *Ssespan_Nodes_Node_SpanSessInfos) GetEntityData() *types.Co
     spanSessInfos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spanSessInfos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spanSessInfos.EntityData.Children = make(map[string]types.YChild)
-    spanSessInfos.EntityData.Children["span-sess-info"] = types.YChild{"SpanSessInfo", nil}
+    spanSessInfos.EntityData.Children = types.NewOrderedMap()
+    spanSessInfos.EntityData.Children.Append("span-sess-info", types.YChild{"SpanSessInfo", nil})
     for i := range spanSessInfos.SpanSessInfo {
-        spanSessInfos.EntityData.Children[types.GetSegmentPath(&spanSessInfos.SpanSessInfo[i])] = types.YChild{"SpanSessInfo", &spanSessInfos.SpanSessInfo[i]}
+        spanSessInfos.EntityData.Children.Append(types.GetSegmentPath(spanSessInfos.SpanSessInfo[i]), types.YChild{"SpanSessInfo", spanSessInfos.SpanSessInfo[i]})
     }
-    spanSessInfos.EntityData.Leafs = make(map[string]types.YLeaf)
+    spanSessInfos.EntityData.Leafs = types.NewOrderedMap()
+
+    spanSessInfos.EntityData.YListKeys = []string {}
+
     return &(spanSessInfos.EntityData)
 }
 
@@ -413,30 +434,33 @@ func (spanSessInfo *Ssespan_Nodes_Node_SpanSessInfos_SpanSessInfo) GetEntityData
     spanSessInfo.EntityData.YangName = "span-sess-info"
     spanSessInfo.EntityData.BundleName = "cisco_ios_xr"
     spanSessInfo.EntityData.ParentYangName = "span-sess-infos"
-    spanSessInfo.EntityData.SegmentPath = "span-sess-info" + "[session-id='" + fmt.Sprintf("%v", spanSessInfo.SessionId) + "']" + "[session-class='" + fmt.Sprintf("%v", spanSessInfo.SessionClass) + "']"
+    spanSessInfo.EntityData.SegmentPath = "span-sess-info" + types.AddKeyToken(spanSessInfo.SessionId, "session-id") + types.AddKeyToken(spanSessInfo.SessionClass, "session-class")
     spanSessInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spanSessInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spanSessInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spanSessInfo.EntityData.Children = make(map[string]types.YChild)
-    spanSessInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    spanSessInfo.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", spanSessInfo.SessionId}
-    spanSessInfo.EntityData.Leafs["session-class"] = types.YLeaf{"SessionClass", spanSessInfo.SessionClass}
-    spanSessInfo.EntityData.Leafs["valid"] = types.YLeaf{"Valid", spanSessInfo.Valid}
-    spanSessInfo.EntityData.Leafs["id"] = types.YLeaf{"Id", spanSessInfo.Id}
-    spanSessInfo.EntityData.Leafs["state"] = types.YLeaf{"State", spanSessInfo.State}
-    spanSessInfo.EntityData.Leafs["class"] = types.YLeaf{"Class", spanSessInfo.Class}
-    spanSessInfo.EntityData.Leafs["ifhandle"] = types.YLeaf{"Ifhandle", spanSessInfo.Ifhandle}
-    spanSessInfo.EntityData.Leafs["mode"] = types.YLeaf{"Mode", spanSessInfo.Mode}
-    spanSessInfo.EntityData.Leafs["ip-type"] = types.YLeaf{"IpType", spanSessInfo.IpType}
-    spanSessInfo.EntityData.Leafs["vrf-id"] = types.YLeaf{"VrfId", spanSessInfo.VrfId}
-    spanSessInfo.EntityData.Leafs["tos-bit"] = types.YLeaf{"TosBit", spanSessInfo.TosBit}
-    spanSessInfo.EntityData.Leafs["tos-bit-copied"] = types.YLeaf{"TosBitCopied", spanSessInfo.TosBitCopied}
-    spanSessInfo.EntityData.Leafs["ttl"] = types.YLeaf{"Ttl", spanSessInfo.Ttl}
-    spanSessInfo.EntityData.Leafs["dfbit"] = types.YLeaf{"Dfbit", spanSessInfo.Dfbit}
-    spanSessInfo.EntityData.Leafs["src-ip"] = types.YLeaf{"SrcIp", spanSessInfo.SrcIp}
-    spanSessInfo.EntityData.Leafs["dst-ip"] = types.YLeaf{"DstIp", spanSessInfo.DstIp}
-    spanSessInfo.EntityData.Leafs["sdt-hw-data"] = types.YLeaf{"SdtHwData", spanSessInfo.SdtHwData}
+    spanSessInfo.EntityData.Children = types.NewOrderedMap()
+    spanSessInfo.EntityData.Leafs = types.NewOrderedMap()
+    spanSessInfo.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", spanSessInfo.SessionId})
+    spanSessInfo.EntityData.Leafs.Append("session-class", types.YLeaf{"SessionClass", spanSessInfo.SessionClass})
+    spanSessInfo.EntityData.Leafs.Append("valid", types.YLeaf{"Valid", spanSessInfo.Valid})
+    spanSessInfo.EntityData.Leafs.Append("id", types.YLeaf{"Id", spanSessInfo.Id})
+    spanSessInfo.EntityData.Leafs.Append("state", types.YLeaf{"State", spanSessInfo.State})
+    spanSessInfo.EntityData.Leafs.Append("class", types.YLeaf{"Class", spanSessInfo.Class})
+    spanSessInfo.EntityData.Leafs.Append("ifhandle", types.YLeaf{"Ifhandle", spanSessInfo.Ifhandle})
+    spanSessInfo.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", spanSessInfo.Mode})
+    spanSessInfo.EntityData.Leafs.Append("ip-type", types.YLeaf{"IpType", spanSessInfo.IpType})
+    spanSessInfo.EntityData.Leafs.Append("vrf-id", types.YLeaf{"VrfId", spanSessInfo.VrfId})
+    spanSessInfo.EntityData.Leafs.Append("tos-bit", types.YLeaf{"TosBit", spanSessInfo.TosBit})
+    spanSessInfo.EntityData.Leafs.Append("tos-bit-copied", types.YLeaf{"TosBitCopied", spanSessInfo.TosBitCopied})
+    spanSessInfo.EntityData.Leafs.Append("ttl", types.YLeaf{"Ttl", spanSessInfo.Ttl})
+    spanSessInfo.EntityData.Leafs.Append("dfbit", types.YLeaf{"Dfbit", spanSessInfo.Dfbit})
+    spanSessInfo.EntityData.Leafs.Append("src-ip", types.YLeaf{"SrcIp", spanSessInfo.SrcIp})
+    spanSessInfo.EntityData.Leafs.Append("dst-ip", types.YLeaf{"DstIp", spanSessInfo.DstIp})
+    spanSessInfo.EntityData.Leafs.Append("sdt-hw-data", types.YLeaf{"SdtHwData", spanSessInfo.SdtHwData})
+
+    spanSessInfo.EntityData.YListKeys = []string {"SessionId", "SessionClass"}
+
     return &(spanSessInfo.EntityData)
 }
 

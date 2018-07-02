@@ -312,7 +312,7 @@ module Cisco-IOS-XR-ipv4-io-cfg {
               "DHCP option code";
           }
           leaf format {
-            type int32;
+            type uint32;
             description
               "Format type";
           }

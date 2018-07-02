@@ -6,7 +6,7 @@ module Cisco-IOS-XR-crypto-ssh-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-crypto-ssh-oper-sub1 {
-    revision-date 2017-05-01;
+    revision-date 2017-08-25;
   }
 
   organization
@@ -33,6 +33,10 @@ module Cisco-IOS-XR-crypto-ssh-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-08-25 {
+    description
+      "Introducing show ssh history CLI.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -82,10 +86,20 @@ module Cisco-IOS-XR-crypto-ssh-oper {
           "SSH session rekey information";
         uses SSH-SESSION-REKEY;
       }
+      container history-detail {
+        description
+          "SSH session history detail information";
+        uses SSH-SESSION-DETAIL;
+      }
       container brief {
         description
           "SSH session brief information";
         uses SSH-SESSION-BRIEF;
+      }
+      container history {
+        description
+          "SSH session history information";
+        uses SSH-SESSION-HISTORY;
       }
       container detail {
         description

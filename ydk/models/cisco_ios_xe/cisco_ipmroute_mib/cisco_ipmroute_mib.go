@@ -24,11 +24,11 @@ type CISCOIPMROUTEMIB struct {
     YFilter yfilter.YFilter
 
     
-    Ciscoipmroute CISCOIPMROUTEMIB_Ciscoipmroute
+    CiscoIpMRoute CISCOIPMROUTEMIB_CiscoIpMRoute
 
     // The (conceptual) table listing sets of IP Multicast heartbeat parameters. 
     // If no IP Multicast heartbeat is configured, this table would be empty.
-    Ciscoipmrouteheartbeattable CISCOIPMROUTEMIB_Ciscoipmrouteheartbeattable
+    CiscoIpMRouteHeartBeatTable CISCOIPMROUTEMIB_CiscoIpMRouteHeartBeatTable
 }
 
 func (cISCOIPMROUTEMIB *CISCOIPMROUTEMIB) GetEntityData() *types.CommonEntityData {
@@ -41,142 +41,154 @@ func (cISCOIPMROUTEMIB *CISCOIPMROUTEMIB) GetEntityData() *types.CommonEntityDat
     cISCOIPMROUTEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIPMROUTEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOIPMROUTEMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOIPMROUTEMIB.EntityData.Children["ciscoIpMRoute"] = types.YChild{"Ciscoipmroute", &cISCOIPMROUTEMIB.Ciscoipmroute}
-    cISCOIPMROUTEMIB.EntityData.Children["ciscoIpMRouteHeartBeatTable"] = types.YChild{"Ciscoipmrouteheartbeattable", &cISCOIPMROUTEMIB.Ciscoipmrouteheartbeattable}
-    cISCOIPMROUTEMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOIPMROUTEMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOIPMROUTEMIB.EntityData.Children.Append("ciscoIpMRoute", types.YChild{"CiscoIpMRoute", &cISCOIPMROUTEMIB.CiscoIpMRoute})
+    cISCOIPMROUTEMIB.EntityData.Children.Append("ciscoIpMRouteHeartBeatTable", types.YChild{"CiscoIpMRouteHeartBeatTable", &cISCOIPMROUTEMIB.CiscoIpMRouteHeartBeatTable})
+    cISCOIPMROUTEMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOIPMROUTEMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOIPMROUTEMIB.EntityData)
 }
 
-// CISCOIPMROUTEMIB_Ciscoipmroute
-type CISCOIPMROUTEMIB_Ciscoipmroute struct {
+// CISCOIPMROUTEMIB_CiscoIpMRoute
+type CISCOIPMROUTEMIB_CiscoIpMRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maintains a count of the number of entries in the ipMRouteTable. The type
     // is interface{} with range: 0..4294967295.
-    Ciscoipmroutenumberofentries interface{}
+    CiscoIpMRouteNumberOfEntries interface{}
 }
 
-func (ciscoipmroute *CISCOIPMROUTEMIB_Ciscoipmroute) GetEntityData() *types.CommonEntityData {
-    ciscoipmroute.EntityData.YFilter = ciscoipmroute.YFilter
-    ciscoipmroute.EntityData.YangName = "ciscoIpMRoute"
-    ciscoipmroute.EntityData.BundleName = "cisco_ios_xe"
-    ciscoipmroute.EntityData.ParentYangName = "CISCO-IPMROUTE-MIB"
-    ciscoipmroute.EntityData.SegmentPath = "ciscoIpMRoute"
-    ciscoipmroute.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoipmroute.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoipmroute.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoIpMRoute *CISCOIPMROUTEMIB_CiscoIpMRoute) GetEntityData() *types.CommonEntityData {
+    ciscoIpMRoute.EntityData.YFilter = ciscoIpMRoute.YFilter
+    ciscoIpMRoute.EntityData.YangName = "ciscoIpMRoute"
+    ciscoIpMRoute.EntityData.BundleName = "cisco_ios_xe"
+    ciscoIpMRoute.EntityData.ParentYangName = "CISCO-IPMROUTE-MIB"
+    ciscoIpMRoute.EntityData.SegmentPath = "ciscoIpMRoute"
+    ciscoIpMRoute.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoIpMRoute.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoIpMRoute.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoipmroute.EntityData.Children = make(map[string]types.YChild)
-    ciscoipmroute.EntityData.Leafs = make(map[string]types.YLeaf)
-    ciscoipmroute.EntityData.Leafs["ciscoIpMRouteNumberOfEntries"] = types.YLeaf{"Ciscoipmroutenumberofentries", ciscoipmroute.Ciscoipmroutenumberofentries}
-    return &(ciscoipmroute.EntityData)
+    ciscoIpMRoute.EntityData.Children = types.NewOrderedMap()
+    ciscoIpMRoute.EntityData.Leafs = types.NewOrderedMap()
+    ciscoIpMRoute.EntityData.Leafs.Append("ciscoIpMRouteNumberOfEntries", types.YLeaf{"CiscoIpMRouteNumberOfEntries", ciscoIpMRoute.CiscoIpMRouteNumberOfEntries})
+
+    ciscoIpMRoute.EntityData.YListKeys = []string {}
+
+    return &(ciscoIpMRoute.EntityData)
 }
 
-// CISCOIPMROUTEMIB_Ciscoipmrouteheartbeattable
+// CISCOIPMROUTEMIB_CiscoIpMRouteHeartBeatTable
 // The (conceptual) table listing sets of IP Multicast
 // heartbeat parameters.  If no IP Multicast heartbeat is
 // configured, this table would be empty.
-type CISCOIPMROUTEMIB_Ciscoipmrouteheartbeattable struct {
+type CISCOIPMROUTEMIB_CiscoIpMRouteHeartBeatTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) representing a set of IP Multicast heartbeat
     // parameters. The type is slice of
-    // CISCOIPMROUTEMIB_Ciscoipmrouteheartbeattable_Ciscoipmrouteheartbeatentry.
-    Ciscoipmrouteheartbeatentry []CISCOIPMROUTEMIB_Ciscoipmrouteheartbeattable_Ciscoipmrouteheartbeatentry
+    // CISCOIPMROUTEMIB_CiscoIpMRouteHeartBeatTable_CiscoIpMRouteHeartBeatEntry.
+    CiscoIpMRouteHeartBeatEntry []*CISCOIPMROUTEMIB_CiscoIpMRouteHeartBeatTable_CiscoIpMRouteHeartBeatEntry
 }
 
-func (ciscoipmrouteheartbeattable *CISCOIPMROUTEMIB_Ciscoipmrouteheartbeattable) GetEntityData() *types.CommonEntityData {
-    ciscoipmrouteheartbeattable.EntityData.YFilter = ciscoipmrouteheartbeattable.YFilter
-    ciscoipmrouteheartbeattable.EntityData.YangName = "ciscoIpMRouteHeartBeatTable"
-    ciscoipmrouteheartbeattable.EntityData.BundleName = "cisco_ios_xe"
-    ciscoipmrouteheartbeattable.EntityData.ParentYangName = "CISCO-IPMROUTE-MIB"
-    ciscoipmrouteheartbeattable.EntityData.SegmentPath = "ciscoIpMRouteHeartBeatTable"
-    ciscoipmrouteheartbeattable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoipmrouteheartbeattable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoipmrouteheartbeattable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoIpMRouteHeartBeatTable *CISCOIPMROUTEMIB_CiscoIpMRouteHeartBeatTable) GetEntityData() *types.CommonEntityData {
+    ciscoIpMRouteHeartBeatTable.EntityData.YFilter = ciscoIpMRouteHeartBeatTable.YFilter
+    ciscoIpMRouteHeartBeatTable.EntityData.YangName = "ciscoIpMRouteHeartBeatTable"
+    ciscoIpMRouteHeartBeatTable.EntityData.BundleName = "cisco_ios_xe"
+    ciscoIpMRouteHeartBeatTable.EntityData.ParentYangName = "CISCO-IPMROUTE-MIB"
+    ciscoIpMRouteHeartBeatTable.EntityData.SegmentPath = "ciscoIpMRouteHeartBeatTable"
+    ciscoIpMRouteHeartBeatTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoIpMRouteHeartBeatTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoIpMRouteHeartBeatTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoipmrouteheartbeattable.EntityData.Children = make(map[string]types.YChild)
-    ciscoipmrouteheartbeattable.EntityData.Children["ciscoIpMRouteHeartBeatEntry"] = types.YChild{"Ciscoipmrouteheartbeatentry", nil}
-    for i := range ciscoipmrouteheartbeattable.Ciscoipmrouteheartbeatentry {
-        ciscoipmrouteheartbeattable.EntityData.Children[types.GetSegmentPath(&ciscoipmrouteheartbeattable.Ciscoipmrouteheartbeatentry[i])] = types.YChild{"Ciscoipmrouteheartbeatentry", &ciscoipmrouteheartbeattable.Ciscoipmrouteheartbeatentry[i]}
+    ciscoIpMRouteHeartBeatTable.EntityData.Children = types.NewOrderedMap()
+    ciscoIpMRouteHeartBeatTable.EntityData.Children.Append("ciscoIpMRouteHeartBeatEntry", types.YChild{"CiscoIpMRouteHeartBeatEntry", nil})
+    for i := range ciscoIpMRouteHeartBeatTable.CiscoIpMRouteHeartBeatEntry {
+        ciscoIpMRouteHeartBeatTable.EntityData.Children.Append(types.GetSegmentPath(ciscoIpMRouteHeartBeatTable.CiscoIpMRouteHeartBeatEntry[i]), types.YChild{"CiscoIpMRouteHeartBeatEntry", ciscoIpMRouteHeartBeatTable.CiscoIpMRouteHeartBeatEntry[i]})
     }
-    ciscoipmrouteheartbeattable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ciscoipmrouteheartbeattable.EntityData)
+    ciscoIpMRouteHeartBeatTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ciscoIpMRouteHeartBeatTable.EntityData.YListKeys = []string {}
+
+    return &(ciscoIpMRouteHeartBeatTable.EntityData)
 }
 
-// CISCOIPMROUTEMIB_Ciscoipmrouteheartbeattable_Ciscoipmrouteheartbeatentry
+// CISCOIPMROUTEMIB_CiscoIpMRouteHeartBeatTable_CiscoIpMRouteHeartBeatEntry
 // An entry (conceptual row) representing a set of IP
 // Multicast heartbeat parameters.
-type CISCOIPMROUTEMIB_Ciscoipmrouteheartbeattable_Ciscoipmrouteheartbeatentry struct {
+type CISCOIPMROUTEMIB_CiscoIpMRouteHeartBeatTable_CiscoIpMRouteHeartBeatEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Multicast group address used to receive heartbeat
     // packets. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Ciscoipmrouteheartbeatgroupaddr interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CiscoIpMRouteHeartBeatGroupAddr interface{}
 
     // Source address of the last multicast heartbeat packet received. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Ciscoipmrouteheartbeatsourceaddr interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CiscoIpMRouteHeartBeatSourceAddr interface{}
 
     // Number of seconds in which a Cisco multicast router expects a valid
     // heartBeat packet from a source.  This value must be a multiple of 10. The
     // type is interface{} with range: 10..3600. Units are seconds.
-    Ciscoipmrouteheartbeatinterval interface{}
+    CiscoIpMRouteHeartBeatInterval interface{}
 
     // Number of ciscoIpMRouteHeartBeatInterval intervals a Cisco multicast router
     // waits before checking if expected number of heartbeat packets are received
     // or not. The type is interface{} with range: 1..100.
-    Ciscoipmrouteheartbeatwindowsize interface{}
+    CiscoIpMRouteHeartBeatWindowSize interface{}
 
     // Number of time intervals where multicast packets were received in the last
     // ciscoIpMRouteHeartBeatWindowSize intervals. The type is interface{} with
     // range: 0..4294967295.
-    Ciscoipmrouteheartbeatcount interface{}
+    CiscoIpMRouteHeartBeatCount interface{}
 
     // The minimal number of heartbeat packets expected in the last
     // ciscoIpMRouteHeartBeatWindowSize intervals. If ciscoIpMRouteHeartBeatCount
     // falls below this value, an SNMP trap/notification, if configured, will be
     // sent to the NMS. The type is interface{} with range: 1..100.
-    Ciscoipmrouteheartbeatminimum interface{}
+    CiscoIpMRouteHeartBeatMinimum interface{}
 
     // The value of sysUpTime on the most recent occasion at which a missing IP
     // multicast heartbeat condition occured for the group address specified in
     // this entry.  If no such condition have occurred since the last
     // re-initialization of the local management subsystem, then this object
     // contains a zero value. The type is interface{} with range: 0..4294967295.
-    Ciscoipmrouteheartbeatalerttime interface{}
+    CiscoIpMRouteHeartBeatAlertTime interface{}
 
     // This object is used to create a new row or delete an existing row in this
     // table. The type is RowStatus.
-    Ciscoipmrouteheartbeatstatus interface{}
+    CiscoIpMRouteHeartBeatStatus interface{}
 }
 
-func (ciscoipmrouteheartbeatentry *CISCOIPMROUTEMIB_Ciscoipmrouteheartbeattable_Ciscoipmrouteheartbeatentry) GetEntityData() *types.CommonEntityData {
-    ciscoipmrouteheartbeatentry.EntityData.YFilter = ciscoipmrouteheartbeatentry.YFilter
-    ciscoipmrouteheartbeatentry.EntityData.YangName = "ciscoIpMRouteHeartBeatEntry"
-    ciscoipmrouteheartbeatentry.EntityData.BundleName = "cisco_ios_xe"
-    ciscoipmrouteheartbeatentry.EntityData.ParentYangName = "ciscoIpMRouteHeartBeatTable"
-    ciscoipmrouteheartbeatentry.EntityData.SegmentPath = "ciscoIpMRouteHeartBeatEntry" + "[ciscoIpMRouteHeartBeatGroupAddr='" + fmt.Sprintf("%v", ciscoipmrouteheartbeatentry.Ciscoipmrouteheartbeatgroupaddr) + "']"
-    ciscoipmrouteheartbeatentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoipmrouteheartbeatentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoipmrouteheartbeatentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoIpMRouteHeartBeatEntry *CISCOIPMROUTEMIB_CiscoIpMRouteHeartBeatTable_CiscoIpMRouteHeartBeatEntry) GetEntityData() *types.CommonEntityData {
+    ciscoIpMRouteHeartBeatEntry.EntityData.YFilter = ciscoIpMRouteHeartBeatEntry.YFilter
+    ciscoIpMRouteHeartBeatEntry.EntityData.YangName = "ciscoIpMRouteHeartBeatEntry"
+    ciscoIpMRouteHeartBeatEntry.EntityData.BundleName = "cisco_ios_xe"
+    ciscoIpMRouteHeartBeatEntry.EntityData.ParentYangName = "ciscoIpMRouteHeartBeatTable"
+    ciscoIpMRouteHeartBeatEntry.EntityData.SegmentPath = "ciscoIpMRouteHeartBeatEntry" + types.AddKeyToken(ciscoIpMRouteHeartBeatEntry.CiscoIpMRouteHeartBeatGroupAddr, "ciscoIpMRouteHeartBeatGroupAddr")
+    ciscoIpMRouteHeartBeatEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoIpMRouteHeartBeatEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoIpMRouteHeartBeatEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoipmrouteheartbeatentry.EntityData.Children = make(map[string]types.YChild)
-    ciscoipmrouteheartbeatentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ciscoipmrouteheartbeatentry.EntityData.Leafs["ciscoIpMRouteHeartBeatGroupAddr"] = types.YLeaf{"Ciscoipmrouteheartbeatgroupaddr", ciscoipmrouteheartbeatentry.Ciscoipmrouteheartbeatgroupaddr}
-    ciscoipmrouteheartbeatentry.EntityData.Leafs["ciscoIpMRouteHeartBeatSourceAddr"] = types.YLeaf{"Ciscoipmrouteheartbeatsourceaddr", ciscoipmrouteheartbeatentry.Ciscoipmrouteheartbeatsourceaddr}
-    ciscoipmrouteheartbeatentry.EntityData.Leafs["ciscoIpMRouteHeartBeatInterval"] = types.YLeaf{"Ciscoipmrouteheartbeatinterval", ciscoipmrouteheartbeatentry.Ciscoipmrouteheartbeatinterval}
-    ciscoipmrouteheartbeatentry.EntityData.Leafs["ciscoIpMRouteHeartBeatWindowSize"] = types.YLeaf{"Ciscoipmrouteheartbeatwindowsize", ciscoipmrouteheartbeatentry.Ciscoipmrouteheartbeatwindowsize}
-    ciscoipmrouteheartbeatentry.EntityData.Leafs["ciscoIpMRouteHeartBeatCount"] = types.YLeaf{"Ciscoipmrouteheartbeatcount", ciscoipmrouteheartbeatentry.Ciscoipmrouteheartbeatcount}
-    ciscoipmrouteheartbeatentry.EntityData.Leafs["ciscoIpMRouteHeartBeatMinimum"] = types.YLeaf{"Ciscoipmrouteheartbeatminimum", ciscoipmrouteheartbeatentry.Ciscoipmrouteheartbeatminimum}
-    ciscoipmrouteheartbeatentry.EntityData.Leafs["ciscoIpMRouteHeartBeatAlertTime"] = types.YLeaf{"Ciscoipmrouteheartbeatalerttime", ciscoipmrouteheartbeatentry.Ciscoipmrouteheartbeatalerttime}
-    ciscoipmrouteheartbeatentry.EntityData.Leafs["ciscoIpMRouteHeartBeatStatus"] = types.YLeaf{"Ciscoipmrouteheartbeatstatus", ciscoipmrouteheartbeatentry.Ciscoipmrouteheartbeatstatus}
-    return &(ciscoipmrouteheartbeatentry.EntityData)
+    ciscoIpMRouteHeartBeatEntry.EntityData.Children = types.NewOrderedMap()
+    ciscoIpMRouteHeartBeatEntry.EntityData.Leafs = types.NewOrderedMap()
+    ciscoIpMRouteHeartBeatEntry.EntityData.Leafs.Append("ciscoIpMRouteHeartBeatGroupAddr", types.YLeaf{"CiscoIpMRouteHeartBeatGroupAddr", ciscoIpMRouteHeartBeatEntry.CiscoIpMRouteHeartBeatGroupAddr})
+    ciscoIpMRouteHeartBeatEntry.EntityData.Leafs.Append("ciscoIpMRouteHeartBeatSourceAddr", types.YLeaf{"CiscoIpMRouteHeartBeatSourceAddr", ciscoIpMRouteHeartBeatEntry.CiscoIpMRouteHeartBeatSourceAddr})
+    ciscoIpMRouteHeartBeatEntry.EntityData.Leafs.Append("ciscoIpMRouteHeartBeatInterval", types.YLeaf{"CiscoIpMRouteHeartBeatInterval", ciscoIpMRouteHeartBeatEntry.CiscoIpMRouteHeartBeatInterval})
+    ciscoIpMRouteHeartBeatEntry.EntityData.Leafs.Append("ciscoIpMRouteHeartBeatWindowSize", types.YLeaf{"CiscoIpMRouteHeartBeatWindowSize", ciscoIpMRouteHeartBeatEntry.CiscoIpMRouteHeartBeatWindowSize})
+    ciscoIpMRouteHeartBeatEntry.EntityData.Leafs.Append("ciscoIpMRouteHeartBeatCount", types.YLeaf{"CiscoIpMRouteHeartBeatCount", ciscoIpMRouteHeartBeatEntry.CiscoIpMRouteHeartBeatCount})
+    ciscoIpMRouteHeartBeatEntry.EntityData.Leafs.Append("ciscoIpMRouteHeartBeatMinimum", types.YLeaf{"CiscoIpMRouteHeartBeatMinimum", ciscoIpMRouteHeartBeatEntry.CiscoIpMRouteHeartBeatMinimum})
+    ciscoIpMRouteHeartBeatEntry.EntityData.Leafs.Append("ciscoIpMRouteHeartBeatAlertTime", types.YLeaf{"CiscoIpMRouteHeartBeatAlertTime", ciscoIpMRouteHeartBeatEntry.CiscoIpMRouteHeartBeatAlertTime})
+    ciscoIpMRouteHeartBeatEntry.EntityData.Leafs.Append("ciscoIpMRouteHeartBeatStatus", types.YLeaf{"CiscoIpMRouteHeartBeatStatus", ciscoIpMRouteHeartBeatEntry.CiscoIpMRouteHeartBeatStatus})
+
+    ciscoIpMRouteHeartBeatEntry.EntityData.YListKeys = []string {"CiscoIpMRouteHeartBeatGroupAddr"}
+
+    return &(ciscoIpMRouteHeartBeatEntry.EntityData)
 }
 

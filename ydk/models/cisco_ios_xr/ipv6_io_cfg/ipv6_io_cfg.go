@@ -49,7 +49,7 @@ type Ipv6Configuration struct {
     Ipv6Assembler Ipv6Configuration_Ipv6Assembler
 
     // Configure IPv6 ICMP parameters.
-    Ipv6Icmp Ipv6Configuration_Ipv6Icmp
+    Ipv6icmp Ipv6Configuration_Ipv6icmp
 }
 
 func (ipv6Configuration *Ipv6Configuration) GetEntityData() *types.CommonEntityData {
@@ -62,14 +62,17 @@ func (ipv6Configuration *Ipv6Configuration) GetEntityData() *types.CommonEntityD
     ipv6Configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6Configuration.EntityData.Children = make(map[string]types.YChild)
-    ipv6Configuration.EntityData.Children["ipv6-assembler"] = types.YChild{"Ipv6Assembler", &ipv6Configuration.Ipv6Assembler}
-    ipv6Configuration.EntityData.Children["ipv6icmp"] = types.YChild{"Ipv6Icmp", &ipv6Configuration.Ipv6Icmp}
-    ipv6Configuration.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6Configuration.EntityData.Leafs["ipv6-pmtu-time-out"] = types.YLeaf{"Ipv6PmtuTimeOut", ipv6Configuration.Ipv6PmtuTimeOut}
-    ipv6Configuration.EntityData.Leafs["ipv6-source-route"] = types.YLeaf{"Ipv6SourceRoute", ipv6Configuration.Ipv6SourceRoute}
-    ipv6Configuration.EntityData.Leafs["ipv6-pmtu-enable"] = types.YLeaf{"Ipv6PmtuEnable", ipv6Configuration.Ipv6PmtuEnable}
-    ipv6Configuration.EntityData.Leafs["ipv6-hop-limit"] = types.YLeaf{"Ipv6HopLimit", ipv6Configuration.Ipv6HopLimit}
+    ipv6Configuration.EntityData.Children = types.NewOrderedMap()
+    ipv6Configuration.EntityData.Children.Append("ipv6-assembler", types.YChild{"Ipv6Assembler", &ipv6Configuration.Ipv6Assembler})
+    ipv6Configuration.EntityData.Children.Append("ipv6icmp", types.YChild{"Ipv6icmp", &ipv6Configuration.Ipv6icmp})
+    ipv6Configuration.EntityData.Leafs = types.NewOrderedMap()
+    ipv6Configuration.EntityData.Leafs.Append("ipv6-pmtu-time-out", types.YLeaf{"Ipv6PmtuTimeOut", ipv6Configuration.Ipv6PmtuTimeOut})
+    ipv6Configuration.EntityData.Leafs.Append("ipv6-source-route", types.YLeaf{"Ipv6SourceRoute", ipv6Configuration.Ipv6SourceRoute})
+    ipv6Configuration.EntityData.Leafs.Append("ipv6-pmtu-enable", types.YLeaf{"Ipv6PmtuEnable", ipv6Configuration.Ipv6PmtuEnable})
+    ipv6Configuration.EntityData.Leafs.Append("ipv6-hop-limit", types.YLeaf{"Ipv6HopLimit", ipv6Configuration.Ipv6HopLimit})
+
+    ipv6Configuration.EntityData.YListKeys = []string {}
+
     return &(ipv6Configuration.EntityData)
 }
 
@@ -98,19 +101,23 @@ func (ipv6Assembler *Ipv6Configuration_Ipv6Assembler) GetEntityData() *types.Com
     ipv6Assembler.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Assembler.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6Assembler.EntityData.Children = make(map[string]types.YChild)
-    ipv6Assembler.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6Assembler.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", ipv6Assembler.Timeout}
-    ipv6Assembler.EntityData.Leafs["max-packets"] = types.YLeaf{"MaxPackets", ipv6Assembler.MaxPackets}
+    ipv6Assembler.EntityData.Children = types.NewOrderedMap()
+    ipv6Assembler.EntityData.Leafs = types.NewOrderedMap()
+    ipv6Assembler.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", ipv6Assembler.Timeout})
+    ipv6Assembler.EntityData.Leafs.Append("max-packets", types.YLeaf{"MaxPackets", ipv6Assembler.MaxPackets})
+
+    ipv6Assembler.EntityData.YListKeys = []string {}
+
     return &(ipv6Assembler.EntityData)
 }
 
-// Ipv6Configuration_Ipv6Icmp
+// Ipv6Configuration_Ipv6icmp
 // Configure IPv6 ICMP parameters
 // This type is a presence type.
-type Ipv6Configuration_Ipv6Icmp struct {
+type Ipv6Configuration_Ipv6icmp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Interval between tokens in milliseconds. The type is interface{} with
     // range: 0..2147483647. This attribute is mandatory. Units are millisecond.
@@ -121,20 +128,23 @@ type Ipv6Configuration_Ipv6Icmp struct {
     BucketSize interface{}
 }
 
-func (ipv6Icmp *Ipv6Configuration_Ipv6Icmp) GetEntityData() *types.CommonEntityData {
-    ipv6Icmp.EntityData.YFilter = ipv6Icmp.YFilter
-    ipv6Icmp.EntityData.YangName = "ipv6icmp"
-    ipv6Icmp.EntityData.BundleName = "cisco_ios_xr"
-    ipv6Icmp.EntityData.ParentYangName = "ipv6-configuration"
-    ipv6Icmp.EntityData.SegmentPath = "ipv6icmp"
-    ipv6Icmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv6Icmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv6Icmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv6icmp *Ipv6Configuration_Ipv6icmp) GetEntityData() *types.CommonEntityData {
+    ipv6icmp.EntityData.YFilter = ipv6icmp.YFilter
+    ipv6icmp.EntityData.YangName = "ipv6icmp"
+    ipv6icmp.EntityData.BundleName = "cisco_ios_xr"
+    ipv6icmp.EntityData.ParentYangName = "ipv6-configuration"
+    ipv6icmp.EntityData.SegmentPath = "ipv6icmp"
+    ipv6icmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6icmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6icmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6Icmp.EntityData.Children = make(map[string]types.YChild)
-    ipv6Icmp.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6Icmp.EntityData.Leafs["error-interval"] = types.YLeaf{"ErrorInterval", ipv6Icmp.ErrorInterval}
-    ipv6Icmp.EntityData.Leafs["bucket-size"] = types.YLeaf{"BucketSize", ipv6Icmp.BucketSize}
-    return &(ipv6Icmp.EntityData)
+    ipv6icmp.EntityData.Children = types.NewOrderedMap()
+    ipv6icmp.EntityData.Leafs = types.NewOrderedMap()
+    ipv6icmp.EntityData.Leafs.Append("error-interval", types.YLeaf{"ErrorInterval", ipv6icmp.ErrorInterval})
+    ipv6icmp.EntityData.Leafs.Append("bucket-size", types.YLeaf{"BucketSize", ipv6icmp.BucketSize})
+
+    ipv6icmp.EntityData.YListKeys = []string {}
+
+    return &(ipv6icmp.EntityData)
 }
 

@@ -24,43 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-ntp-oper:ntp", reflect.TypeOf(Ntp{}))
 }
 
-// ClockUpdateNode represents Mode of Clock Update
-type ClockUpdateNode string
-
-const (
-    //  clock is never updated
-    ClockUpdateNode_clk_never_updated ClockUpdateNode = "clk-never-updated"
-
-    //  clock is updated
-    ClockUpdateNode_clk_updated ClockUpdateNode = "clk-updated"
-
-    //  clock has no update info
-    ClockUpdateNode_clk_no_update_info ClockUpdateNode = "clk-no-update-info"
-)
-
-// NtpLoopFilterState represents Loop filter state
-type NtpLoopFilterState string
-
-const (
-    //  never set
-    NtpLoopFilterState_ntp_loop_flt_n_set NtpLoopFilterState = "ntp-loop-flt-n-set"
-
-    //  drift set from file
-    NtpLoopFilterState_ntp_loop_flt_f_set NtpLoopFilterState = "ntp-loop-flt-f-set"
-
-    //  spike
-    NtpLoopFilterState_ntp_loop_flt_spik NtpLoopFilterState = "ntp-loop-flt-spik"
-
-    //  drift being measured
-    NtpLoopFilterState_ntp_loop_flt_freq NtpLoopFilterState = "ntp-loop-flt-freq"
-
-    //  normal controlled loop
-    NtpLoopFilterState_ntp_loop_flt_sync NtpLoopFilterState = "ntp-loop-flt-sync"
-
-    //  unknown
-    NtpLoopFilterState_ntp_loop_flt_unkn NtpLoopFilterState = "ntp-loop-flt-unkn"
-)
-
 // NtpPeerStatus represents Type of peer status
 type NtpPeerStatus string
 
@@ -122,6 +85,43 @@ const (
     NtpMode_ntp_mode_xcast_client NtpMode = "ntp-mode-xcast-client"
 )
 
+// ClockUpdateNode represents Mode of Clock Update
+type ClockUpdateNode string
+
+const (
+    //  clock is never updated
+    ClockUpdateNode_clk_never_updated ClockUpdateNode = "clk-never-updated"
+
+    //  clock is updated
+    ClockUpdateNode_clk_updated ClockUpdateNode = "clk-updated"
+
+    //  clock has no update info
+    ClockUpdateNode_clk_no_update_info ClockUpdateNode = "clk-no-update-info"
+)
+
+// NtpLoopFilterState represents Loop filter state
+type NtpLoopFilterState string
+
+const (
+    //  never set
+    NtpLoopFilterState_ntp_loop_flt_n_set NtpLoopFilterState = "ntp-loop-flt-n-set"
+
+    //  drift set from file
+    NtpLoopFilterState_ntp_loop_flt_f_set NtpLoopFilterState = "ntp-loop-flt-f-set"
+
+    //  spike
+    NtpLoopFilterState_ntp_loop_flt_spik NtpLoopFilterState = "ntp-loop-flt-spik"
+
+    //  drift being measured
+    NtpLoopFilterState_ntp_loop_flt_freq NtpLoopFilterState = "ntp-loop-flt-freq"
+
+    //  normal controlled loop
+    NtpLoopFilterState_ntp_loop_flt_sync NtpLoopFilterState = "ntp-loop-flt-sync"
+
+    //  unknown
+    NtpLoopFilterState_ntp_loop_flt_unkn NtpLoopFilterState = "ntp-loop-flt-unkn"
+)
+
 // NtpLeap represents Type of leap
 type NtpLeap string
 
@@ -159,9 +159,12 @@ func (ntp *Ntp) GetEntityData() *types.CommonEntityData {
     ntp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ntp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ntp.EntityData.Children = make(map[string]types.YChild)
-    ntp.EntityData.Children["nodes"] = types.YChild{"Nodes", &ntp.Nodes}
-    ntp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ntp.EntityData.Children = types.NewOrderedMap()
+    ntp.EntityData.Children.Append("nodes", types.YChild{"Nodes", &ntp.Nodes})
+    ntp.EntityData.Leafs = types.NewOrderedMap()
+
+    ntp.EntityData.YListKeys = []string {}
+
     return &(ntp.EntityData)
 }
 
@@ -173,7 +176,7 @@ type Ntp_Nodes struct {
 
     // NTP operational data for a particular node. The type is slice of
     // Ntp_Nodes_Node.
-    Node []Ntp_Nodes_Node
+    Node []*Ntp_Nodes_Node
 }
 
 func (nodes *Ntp_Nodes) GetEntityData() *types.CommonEntityData {
@@ -186,12 +189,15 @@ func (nodes *Ntp_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -202,7 +208,7 @@ type Ntp_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The node identifier. The type is string with
-    // pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node interface{}
 
     // NTP Associations Detail information.
@@ -220,17 +226,20 @@ func (node *Ntp_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node='" + fmt.Sprintf("%v", node.Node) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Node, "node")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["associations-detail"] = types.YChild{"AssociationsDetail", &node.AssociationsDetail}
-    node.EntityData.Children["status"] = types.YChild{"Status", &node.Status}
-    node.EntityData.Children["associations"] = types.YChild{"Associations", &node.Associations}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node"] = types.YLeaf{"Node", node.Node}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("associations-detail", types.YChild{"AssociationsDetail", &node.AssociationsDetail})
+    node.EntityData.Children.Append("status", types.YChild{"Status", &node.Status})
+    node.EntityData.Children.Append("associations", types.YChild{"Associations", &node.Associations})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node", types.YLeaf{"Node", node.Node})
+
+    node.EntityData.YListKeys = []string {"Node"}
+
     return &(node.EntityData)
 }
 
@@ -248,7 +257,7 @@ type Ntp_Nodes_Node_AssociationsDetail struct {
 
     // Peer info. The type is slice of
     // Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo.
-    PeerDetailInfo []Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo
+    PeerDetailInfo []*Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo
 }
 
 func (associationsDetail *Ntp_Nodes_Node_AssociationsDetail) GetEntityData() *types.CommonEntityData {
@@ -261,14 +270,17 @@ func (associationsDetail *Ntp_Nodes_Node_AssociationsDetail) GetEntityData() *ty
     associationsDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationsDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    associationsDetail.EntityData.Children = make(map[string]types.YChild)
-    associationsDetail.EntityData.Children["peer-detail-info"] = types.YChild{"PeerDetailInfo", nil}
+    associationsDetail.EntityData.Children = types.NewOrderedMap()
+    associationsDetail.EntityData.Children.Append("peer-detail-info", types.YChild{"PeerDetailInfo", nil})
     for i := range associationsDetail.PeerDetailInfo {
-        associationsDetail.EntityData.Children[types.GetSegmentPath(&associationsDetail.PeerDetailInfo[i])] = types.YChild{"PeerDetailInfo", &associationsDetail.PeerDetailInfo[i]}
+        associationsDetail.EntityData.Children.Append(types.GetSegmentPath(associationsDetail.PeerDetailInfo[i]), types.YChild{"PeerDetailInfo", associationsDetail.PeerDetailInfo[i]})
     }
-    associationsDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    associationsDetail.EntityData.Leafs["is-ntp-enabled"] = types.YLeaf{"IsNtpEnabled", associationsDetail.IsNtpEnabled}
-    associationsDetail.EntityData.Leafs["sys-leap"] = types.YLeaf{"SysLeap", associationsDetail.SysLeap}
+    associationsDetail.EntityData.Leafs = types.NewOrderedMap()
+    associationsDetail.EntityData.Leafs.Append("is-ntp-enabled", types.YLeaf{"IsNtpEnabled", associationsDetail.IsNtpEnabled})
+    associationsDetail.EntityData.Leafs.Append("sys-leap", types.YLeaf{"SysLeap", associationsDetail.SysLeap})
+
+    associationsDetail.EntityData.YListKeys = []string {}
+
     return &(associationsDetail.EntityData)
 }
 
@@ -329,7 +341,7 @@ type Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo struct {
 
     // Filter Details. The type is slice of
     // Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_FilterDetail.
-    FilterDetail []Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_FilterDetail
+    FilterDetail []*Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_FilterDetail
 }
 
 func (peerDetailInfo *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo) GetEntityData() *types.CommonEntityData {
@@ -342,28 +354,31 @@ func (peerDetailInfo *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo) GetEntit
     peerDetailInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerDetailInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerDetailInfo.EntityData.Children = make(map[string]types.YChild)
-    peerDetailInfo.EntityData.Children["peer-info-common"] = types.YChild{"PeerInfoCommon", &peerDetailInfo.PeerInfoCommon}
-    peerDetailInfo.EntityData.Children["ref-time"] = types.YChild{"RefTime", &peerDetailInfo.RefTime}
-    peerDetailInfo.EntityData.Children["originate-time"] = types.YChild{"OriginateTime", &peerDetailInfo.OriginateTime}
-    peerDetailInfo.EntityData.Children["receive-time"] = types.YChild{"ReceiveTime", &peerDetailInfo.ReceiveTime}
-    peerDetailInfo.EntityData.Children["transmit-time"] = types.YChild{"TransmitTime", &peerDetailInfo.TransmitTime}
-    peerDetailInfo.EntityData.Children["filter-detail"] = types.YChild{"FilterDetail", nil}
+    peerDetailInfo.EntityData.Children = types.NewOrderedMap()
+    peerDetailInfo.EntityData.Children.Append("peer-info-common", types.YChild{"PeerInfoCommon", &peerDetailInfo.PeerInfoCommon})
+    peerDetailInfo.EntityData.Children.Append("ref-time", types.YChild{"RefTime", &peerDetailInfo.RefTime})
+    peerDetailInfo.EntityData.Children.Append("originate-time", types.YChild{"OriginateTime", &peerDetailInfo.OriginateTime})
+    peerDetailInfo.EntityData.Children.Append("receive-time", types.YChild{"ReceiveTime", &peerDetailInfo.ReceiveTime})
+    peerDetailInfo.EntityData.Children.Append("transmit-time", types.YChild{"TransmitTime", &peerDetailInfo.TransmitTime})
+    peerDetailInfo.EntityData.Children.Append("filter-detail", types.YChild{"FilterDetail", nil})
     for i := range peerDetailInfo.FilterDetail {
-        peerDetailInfo.EntityData.Children[types.GetSegmentPath(&peerDetailInfo.FilterDetail[i])] = types.YChild{"FilterDetail", &peerDetailInfo.FilterDetail[i]}
+        peerDetailInfo.EntityData.Children.Append(types.GetSegmentPath(peerDetailInfo.FilterDetail[i]), types.YChild{"FilterDetail", peerDetailInfo.FilterDetail[i]})
     }
-    peerDetailInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerDetailInfo.EntityData.Leafs["leap"] = types.YLeaf{"Leap", peerDetailInfo.Leap}
-    peerDetailInfo.EntityData.Leafs["peer-mode"] = types.YLeaf{"PeerMode", peerDetailInfo.PeerMode}
-    peerDetailInfo.EntityData.Leafs["poll-interval"] = types.YLeaf{"PollInterval", peerDetailInfo.PollInterval}
-    peerDetailInfo.EntityData.Leafs["is-ref-clock"] = types.YLeaf{"IsRefClock", peerDetailInfo.IsRefClock}
-    peerDetailInfo.EntityData.Leafs["is-authenticated"] = types.YLeaf{"IsAuthenticated", peerDetailInfo.IsAuthenticated}
-    peerDetailInfo.EntityData.Leafs["root-delay"] = types.YLeaf{"RootDelay", peerDetailInfo.RootDelay}
-    peerDetailInfo.EntityData.Leafs["root-dispersion"] = types.YLeaf{"RootDispersion", peerDetailInfo.RootDispersion}
-    peerDetailInfo.EntityData.Leafs["synch-distance"] = types.YLeaf{"SynchDistance", peerDetailInfo.SynchDistance}
-    peerDetailInfo.EntityData.Leafs["precision"] = types.YLeaf{"Precision", peerDetailInfo.Precision}
-    peerDetailInfo.EntityData.Leafs["version"] = types.YLeaf{"Version", peerDetailInfo.Version}
-    peerDetailInfo.EntityData.Leafs["filter-index"] = types.YLeaf{"FilterIndex", peerDetailInfo.FilterIndex}
+    peerDetailInfo.EntityData.Leafs = types.NewOrderedMap()
+    peerDetailInfo.EntityData.Leafs.Append("leap", types.YLeaf{"Leap", peerDetailInfo.Leap})
+    peerDetailInfo.EntityData.Leafs.Append("peer-mode", types.YLeaf{"PeerMode", peerDetailInfo.PeerMode})
+    peerDetailInfo.EntityData.Leafs.Append("poll-interval", types.YLeaf{"PollInterval", peerDetailInfo.PollInterval})
+    peerDetailInfo.EntityData.Leafs.Append("is-ref-clock", types.YLeaf{"IsRefClock", peerDetailInfo.IsRefClock})
+    peerDetailInfo.EntityData.Leafs.Append("is-authenticated", types.YLeaf{"IsAuthenticated", peerDetailInfo.IsAuthenticated})
+    peerDetailInfo.EntityData.Leafs.Append("root-delay", types.YLeaf{"RootDelay", peerDetailInfo.RootDelay})
+    peerDetailInfo.EntityData.Leafs.Append("root-dispersion", types.YLeaf{"RootDispersion", peerDetailInfo.RootDispersion})
+    peerDetailInfo.EntityData.Leafs.Append("synch-distance", types.YLeaf{"SynchDistance", peerDetailInfo.SynchDistance})
+    peerDetailInfo.EntityData.Leafs.Append("precision", types.YLeaf{"Precision", peerDetailInfo.Precision})
+    peerDetailInfo.EntityData.Leafs.Append("version", types.YLeaf{"Version", peerDetailInfo.Version})
+    peerDetailInfo.EntityData.Leafs.Append("filter-index", types.YLeaf{"FilterIndex", peerDetailInfo.FilterIndex})
+
+    peerDetailInfo.EntityData.YListKeys = []string {}
+
     return &(peerDetailInfo.EntityData)
 }
 
@@ -383,7 +398,7 @@ type Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_PeerInfoCommon struct {
     Address interface{}
 
     // Peer reference ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ReferenceId interface{}
 
     // Host poll. The type is interface{} with range: 0..255.
@@ -421,20 +436,23 @@ func (peerInfoCommon *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_PeerInfoC
     peerInfoCommon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerInfoCommon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerInfoCommon.EntityData.Children = make(map[string]types.YChild)
-    peerInfoCommon.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerInfoCommon.EntityData.Leafs["host-mode"] = types.YLeaf{"HostMode", peerInfoCommon.HostMode}
-    peerInfoCommon.EntityData.Leafs["is-configured"] = types.YLeaf{"IsConfigured", peerInfoCommon.IsConfigured}
-    peerInfoCommon.EntityData.Leafs["address"] = types.YLeaf{"Address", peerInfoCommon.Address}
-    peerInfoCommon.EntityData.Leafs["reference-id"] = types.YLeaf{"ReferenceId", peerInfoCommon.ReferenceId}
-    peerInfoCommon.EntityData.Leafs["host-poll"] = types.YLeaf{"HostPoll", peerInfoCommon.HostPoll}
-    peerInfoCommon.EntityData.Leafs["reachability"] = types.YLeaf{"Reachability", peerInfoCommon.Reachability}
-    peerInfoCommon.EntityData.Leafs["stratum"] = types.YLeaf{"Stratum", peerInfoCommon.Stratum}
-    peerInfoCommon.EntityData.Leafs["status"] = types.YLeaf{"Status", peerInfoCommon.Status}
-    peerInfoCommon.EntityData.Leafs["delay"] = types.YLeaf{"Delay", peerInfoCommon.Delay}
-    peerInfoCommon.EntityData.Leafs["offset"] = types.YLeaf{"Offset", peerInfoCommon.Offset}
-    peerInfoCommon.EntityData.Leafs["dispersion"] = types.YLeaf{"Dispersion", peerInfoCommon.Dispersion}
-    peerInfoCommon.EntityData.Leafs["is-sys-peer"] = types.YLeaf{"IsSysPeer", peerInfoCommon.IsSysPeer}
+    peerInfoCommon.EntityData.Children = types.NewOrderedMap()
+    peerInfoCommon.EntityData.Leafs = types.NewOrderedMap()
+    peerInfoCommon.EntityData.Leafs.Append("host-mode", types.YLeaf{"HostMode", peerInfoCommon.HostMode})
+    peerInfoCommon.EntityData.Leafs.Append("is-configured", types.YLeaf{"IsConfigured", peerInfoCommon.IsConfigured})
+    peerInfoCommon.EntityData.Leafs.Append("address", types.YLeaf{"Address", peerInfoCommon.Address})
+    peerInfoCommon.EntityData.Leafs.Append("reference-id", types.YLeaf{"ReferenceId", peerInfoCommon.ReferenceId})
+    peerInfoCommon.EntityData.Leafs.Append("host-poll", types.YLeaf{"HostPoll", peerInfoCommon.HostPoll})
+    peerInfoCommon.EntityData.Leafs.Append("reachability", types.YLeaf{"Reachability", peerInfoCommon.Reachability})
+    peerInfoCommon.EntityData.Leafs.Append("stratum", types.YLeaf{"Stratum", peerInfoCommon.Stratum})
+    peerInfoCommon.EntityData.Leafs.Append("status", types.YLeaf{"Status", peerInfoCommon.Status})
+    peerInfoCommon.EntityData.Leafs.Append("delay", types.YLeaf{"Delay", peerInfoCommon.Delay})
+    peerInfoCommon.EntityData.Leafs.Append("offset", types.YLeaf{"Offset", peerInfoCommon.Offset})
+    peerInfoCommon.EntityData.Leafs.Append("dispersion", types.YLeaf{"Dispersion", peerInfoCommon.Dispersion})
+    peerInfoCommon.EntityData.Leafs.Append("is-sys-peer", types.YLeaf{"IsSysPeer", peerInfoCommon.IsSysPeer})
+
+    peerInfoCommon.EntityData.YListKeys = []string {}
+
     return &(peerInfoCommon.EntityData)
 }
 
@@ -461,10 +479,13 @@ func (refTime *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_RefTime) GetEnti
     refTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     refTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    refTime.EntityData.Children = make(map[string]types.YChild)
-    refTime.EntityData.Children["sec"] = types.YChild{"Sec", &refTime.Sec}
-    refTime.EntityData.Children["frac-secs"] = types.YChild{"FracSecs", &refTime.FracSecs}
-    refTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    refTime.EntityData.Children = types.NewOrderedMap()
+    refTime.EntityData.Children.Append("sec", types.YChild{"Sec", &refTime.Sec})
+    refTime.EntityData.Children.Append("frac-secs", types.YChild{"FracSecs", &refTime.FracSecs})
+    refTime.EntityData.Leafs = types.NewOrderedMap()
+
+    refTime.EntityData.YListKeys = []string {}
+
     return &(refTime.EntityData)
 }
 
@@ -489,9 +510,12 @@ func (sec *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_RefTime_Sec) GetEnti
     sec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sec.EntityData.Children = make(map[string]types.YChild)
-    sec.EntityData.Leafs = make(map[string]types.YLeaf)
-    sec.EntityData.Leafs["int"] = types.YLeaf{"Int", sec.Int}
+    sec.EntityData.Children = types.NewOrderedMap()
+    sec.EntityData.Leafs = types.NewOrderedMap()
+    sec.EntityData.Leafs.Append("int", types.YLeaf{"Int", sec.Int})
+
+    sec.EntityData.YListKeys = []string {}
+
     return &(sec.EntityData)
 }
 
@@ -516,9 +540,12 @@ func (fracSecs *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_RefTime_FracSec
     fracSecs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fracSecs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fracSecs.EntityData.Children = make(map[string]types.YChild)
-    fracSecs.EntityData.Leafs = make(map[string]types.YLeaf)
-    fracSecs.EntityData.Leafs["frac"] = types.YLeaf{"Frac", fracSecs.Frac}
+    fracSecs.EntityData.Children = types.NewOrderedMap()
+    fracSecs.EntityData.Leafs = types.NewOrderedMap()
+    fracSecs.EntityData.Leafs.Append("frac", types.YLeaf{"Frac", fracSecs.Frac})
+
+    fracSecs.EntityData.YListKeys = []string {}
+
     return &(fracSecs.EntityData)
 }
 
@@ -545,10 +572,13 @@ func (originateTime *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_OriginateT
     originateTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     originateTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    originateTime.EntityData.Children = make(map[string]types.YChild)
-    originateTime.EntityData.Children["sec"] = types.YChild{"Sec", &originateTime.Sec}
-    originateTime.EntityData.Children["frac-secs"] = types.YChild{"FracSecs", &originateTime.FracSecs}
-    originateTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    originateTime.EntityData.Children = types.NewOrderedMap()
+    originateTime.EntityData.Children.Append("sec", types.YChild{"Sec", &originateTime.Sec})
+    originateTime.EntityData.Children.Append("frac-secs", types.YChild{"FracSecs", &originateTime.FracSecs})
+    originateTime.EntityData.Leafs = types.NewOrderedMap()
+
+    originateTime.EntityData.YListKeys = []string {}
+
     return &(originateTime.EntityData)
 }
 
@@ -573,9 +603,12 @@ func (sec *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_OriginateTime_Sec) G
     sec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sec.EntityData.Children = make(map[string]types.YChild)
-    sec.EntityData.Leafs = make(map[string]types.YLeaf)
-    sec.EntityData.Leafs["int"] = types.YLeaf{"Int", sec.Int}
+    sec.EntityData.Children = types.NewOrderedMap()
+    sec.EntityData.Leafs = types.NewOrderedMap()
+    sec.EntityData.Leafs.Append("int", types.YLeaf{"Int", sec.Int})
+
+    sec.EntityData.YListKeys = []string {}
+
     return &(sec.EntityData)
 }
 
@@ -600,9 +633,12 @@ func (fracSecs *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_OriginateTime_F
     fracSecs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fracSecs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fracSecs.EntityData.Children = make(map[string]types.YChild)
-    fracSecs.EntityData.Leafs = make(map[string]types.YLeaf)
-    fracSecs.EntityData.Leafs["frac"] = types.YLeaf{"Frac", fracSecs.Frac}
+    fracSecs.EntityData.Children = types.NewOrderedMap()
+    fracSecs.EntityData.Leafs = types.NewOrderedMap()
+    fracSecs.EntityData.Leafs.Append("frac", types.YLeaf{"Frac", fracSecs.Frac})
+
+    fracSecs.EntityData.YListKeys = []string {}
+
     return &(fracSecs.EntityData)
 }
 
@@ -629,10 +665,13 @@ func (receiveTime *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_ReceiveTime)
     receiveTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receiveTime.EntityData.Children = make(map[string]types.YChild)
-    receiveTime.EntityData.Children["sec"] = types.YChild{"Sec", &receiveTime.Sec}
-    receiveTime.EntityData.Children["frac-secs"] = types.YChild{"FracSecs", &receiveTime.FracSecs}
-    receiveTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    receiveTime.EntityData.Children = types.NewOrderedMap()
+    receiveTime.EntityData.Children.Append("sec", types.YChild{"Sec", &receiveTime.Sec})
+    receiveTime.EntityData.Children.Append("frac-secs", types.YChild{"FracSecs", &receiveTime.FracSecs})
+    receiveTime.EntityData.Leafs = types.NewOrderedMap()
+
+    receiveTime.EntityData.YListKeys = []string {}
+
     return &(receiveTime.EntityData)
 }
 
@@ -657,9 +696,12 @@ func (sec *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_ReceiveTime_Sec) Get
     sec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sec.EntityData.Children = make(map[string]types.YChild)
-    sec.EntityData.Leafs = make(map[string]types.YLeaf)
-    sec.EntityData.Leafs["int"] = types.YLeaf{"Int", sec.Int}
+    sec.EntityData.Children = types.NewOrderedMap()
+    sec.EntityData.Leafs = types.NewOrderedMap()
+    sec.EntityData.Leafs.Append("int", types.YLeaf{"Int", sec.Int})
+
+    sec.EntityData.YListKeys = []string {}
+
     return &(sec.EntityData)
 }
 
@@ -684,9 +726,12 @@ func (fracSecs *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_ReceiveTime_Fra
     fracSecs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fracSecs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fracSecs.EntityData.Children = make(map[string]types.YChild)
-    fracSecs.EntityData.Leafs = make(map[string]types.YLeaf)
-    fracSecs.EntityData.Leafs["frac"] = types.YLeaf{"Frac", fracSecs.Frac}
+    fracSecs.EntityData.Children = types.NewOrderedMap()
+    fracSecs.EntityData.Leafs = types.NewOrderedMap()
+    fracSecs.EntityData.Leafs.Append("frac", types.YLeaf{"Frac", fracSecs.Frac})
+
+    fracSecs.EntityData.YListKeys = []string {}
+
     return &(fracSecs.EntityData)
 }
 
@@ -713,10 +758,13 @@ func (transmitTime *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_TransmitTim
     transmitTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitTime.EntityData.Children = make(map[string]types.YChild)
-    transmitTime.EntityData.Children["sec"] = types.YChild{"Sec", &transmitTime.Sec}
-    transmitTime.EntityData.Children["frac-secs"] = types.YChild{"FracSecs", &transmitTime.FracSecs}
-    transmitTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    transmitTime.EntityData.Children = types.NewOrderedMap()
+    transmitTime.EntityData.Children.Append("sec", types.YChild{"Sec", &transmitTime.Sec})
+    transmitTime.EntityData.Children.Append("frac-secs", types.YChild{"FracSecs", &transmitTime.FracSecs})
+    transmitTime.EntityData.Leafs = types.NewOrderedMap()
+
+    transmitTime.EntityData.YListKeys = []string {}
+
     return &(transmitTime.EntityData)
 }
 
@@ -741,9 +789,12 @@ func (sec *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_TransmitTime_Sec) Ge
     sec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sec.EntityData.Children = make(map[string]types.YChild)
-    sec.EntityData.Leafs = make(map[string]types.YLeaf)
-    sec.EntityData.Leafs["int"] = types.YLeaf{"Int", sec.Int}
+    sec.EntityData.Children = types.NewOrderedMap()
+    sec.EntityData.Leafs = types.NewOrderedMap()
+    sec.EntityData.Leafs.Append("int", types.YLeaf{"Int", sec.Int})
+
+    sec.EntityData.YListKeys = []string {}
+
     return &(sec.EntityData)
 }
 
@@ -768,9 +819,12 @@ func (fracSecs *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_TransmitTime_Fr
     fracSecs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fracSecs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fracSecs.EntityData.Children = make(map[string]types.YChild)
-    fracSecs.EntityData.Leafs = make(map[string]types.YLeaf)
-    fracSecs.EntityData.Leafs["frac"] = types.YLeaf{"Frac", fracSecs.Frac}
+    fracSecs.EntityData.Children = types.NewOrderedMap()
+    fracSecs.EntityData.Leafs = types.NewOrderedMap()
+    fracSecs.EntityData.Leafs.Append("frac", types.YLeaf{"Frac", fracSecs.Frac})
+
+    fracSecs.EntityData.YListKeys = []string {}
+
     return &(fracSecs.EntityData)
 }
 
@@ -800,11 +854,14 @@ func (filterDetail *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_FilterDetai
     filterDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     filterDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    filterDetail.EntityData.Children = make(map[string]types.YChild)
-    filterDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    filterDetail.EntityData.Leafs["filter-delay"] = types.YLeaf{"FilterDelay", filterDetail.FilterDelay}
-    filterDetail.EntityData.Leafs["filter-offset"] = types.YLeaf{"FilterOffset", filterDetail.FilterOffset}
-    filterDetail.EntityData.Leafs["filter-disp"] = types.YLeaf{"FilterDisp", filterDetail.FilterDisp}
+    filterDetail.EntityData.Children = types.NewOrderedMap()
+    filterDetail.EntityData.Leafs = types.NewOrderedMap()
+    filterDetail.EntityData.Leafs.Append("filter-delay", types.YLeaf{"FilterDelay", filterDetail.FilterDelay})
+    filterDetail.EntityData.Leafs.Append("filter-offset", types.YLeaf{"FilterOffset", filterDetail.FilterOffset})
+    filterDetail.EntityData.Leafs.Append("filter-disp", types.YLeaf{"FilterDisp", filterDetail.FilterDisp})
+
+    filterDetail.EntityData.YListKeys = []string {}
+
     return &(filterDetail.EntityData)
 }
 
@@ -837,7 +894,7 @@ type Ntp_Nodes_Node_Status struct {
     SysStratum interface{}
 
     // Reference clock ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SysRefId interface{}
 
     // Root delay. The type is string.
@@ -858,6 +915,9 @@ type Ntp_Nodes_Node_Status struct {
     // Last Update. The type is interface{} with range: -2147483648..2147483647.
     LastUpdate interface{}
 
+    // Is NTP Authenticate enabled. The type is bool.
+    IsAuthEnabled interface{}
+
     // Reference time.
     SysRefTime Ntp_Nodes_Node_Status_SysRefTime
 
@@ -875,24 +935,28 @@ func (status *Ntp_Nodes_Node_Status) GetEntityData() *types.CommonEntityData {
     status.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    status.EntityData.Children = make(map[string]types.YChild)
-    status.EntityData.Children["sys-ref-time"] = types.YChild{"SysRefTime", &status.SysRefTime}
-    status.EntityData.Children["sys-drift"] = types.YChild{"SysDrift", &status.SysDrift}
-    status.EntityData.Leafs = make(map[string]types.YLeaf)
-    status.EntityData.Leafs["is-ntp-enabled"] = types.YLeaf{"IsNtpEnabled", status.IsNtpEnabled}
-    status.EntityData.Leafs["sys-dispersion"] = types.YLeaf{"SysDispersion", status.SysDispersion}
-    status.EntityData.Leafs["sys-offset"] = types.YLeaf{"SysOffset", status.SysOffset}
-    status.EntityData.Leafs["clock-period"] = types.YLeaf{"ClockPeriod", status.ClockPeriod}
-    status.EntityData.Leafs["sys-leap"] = types.YLeaf{"SysLeap", status.SysLeap}
-    status.EntityData.Leafs["sys-precision"] = types.YLeaf{"SysPrecision", status.SysPrecision}
-    status.EntityData.Leafs["sys-stratum"] = types.YLeaf{"SysStratum", status.SysStratum}
-    status.EntityData.Leafs["sys-ref-id"] = types.YLeaf{"SysRefId", status.SysRefId}
-    status.EntityData.Leafs["sys-root-delay"] = types.YLeaf{"SysRootDelay", status.SysRootDelay}
-    status.EntityData.Leafs["sys-root-dispersion"] = types.YLeaf{"SysRootDispersion", status.SysRootDispersion}
-    status.EntityData.Leafs["loop-filter-state"] = types.YLeaf{"LoopFilterState", status.LoopFilterState}
-    status.EntityData.Leafs["poll-interval"] = types.YLeaf{"PollInterval", status.PollInterval}
-    status.EntityData.Leafs["is-updated"] = types.YLeaf{"IsUpdated", status.IsUpdated}
-    status.EntityData.Leafs["last-update"] = types.YLeaf{"LastUpdate", status.LastUpdate}
+    status.EntityData.Children = types.NewOrderedMap()
+    status.EntityData.Children.Append("sys-ref-time", types.YChild{"SysRefTime", &status.SysRefTime})
+    status.EntityData.Children.Append("sys-drift", types.YChild{"SysDrift", &status.SysDrift})
+    status.EntityData.Leafs = types.NewOrderedMap()
+    status.EntityData.Leafs.Append("is-ntp-enabled", types.YLeaf{"IsNtpEnabled", status.IsNtpEnabled})
+    status.EntityData.Leafs.Append("sys-dispersion", types.YLeaf{"SysDispersion", status.SysDispersion})
+    status.EntityData.Leafs.Append("sys-offset", types.YLeaf{"SysOffset", status.SysOffset})
+    status.EntityData.Leafs.Append("clock-period", types.YLeaf{"ClockPeriod", status.ClockPeriod})
+    status.EntityData.Leafs.Append("sys-leap", types.YLeaf{"SysLeap", status.SysLeap})
+    status.EntityData.Leafs.Append("sys-precision", types.YLeaf{"SysPrecision", status.SysPrecision})
+    status.EntityData.Leafs.Append("sys-stratum", types.YLeaf{"SysStratum", status.SysStratum})
+    status.EntityData.Leafs.Append("sys-ref-id", types.YLeaf{"SysRefId", status.SysRefId})
+    status.EntityData.Leafs.Append("sys-root-delay", types.YLeaf{"SysRootDelay", status.SysRootDelay})
+    status.EntityData.Leafs.Append("sys-root-dispersion", types.YLeaf{"SysRootDispersion", status.SysRootDispersion})
+    status.EntityData.Leafs.Append("loop-filter-state", types.YLeaf{"LoopFilterState", status.LoopFilterState})
+    status.EntityData.Leafs.Append("poll-interval", types.YLeaf{"PollInterval", status.PollInterval})
+    status.EntityData.Leafs.Append("is-updated", types.YLeaf{"IsUpdated", status.IsUpdated})
+    status.EntityData.Leafs.Append("last-update", types.YLeaf{"LastUpdate", status.LastUpdate})
+    status.EntityData.Leafs.Append("is-auth-enabled", types.YLeaf{"IsAuthEnabled", status.IsAuthEnabled})
+
+    status.EntityData.YListKeys = []string {}
+
     return &(status.EntityData)
 }
 
@@ -919,10 +983,13 @@ func (sysRefTime *Ntp_Nodes_Node_Status_SysRefTime) GetEntityData() *types.Commo
     sysRefTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sysRefTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sysRefTime.EntityData.Children = make(map[string]types.YChild)
-    sysRefTime.EntityData.Children["sec"] = types.YChild{"Sec", &sysRefTime.Sec}
-    sysRefTime.EntityData.Children["frac-secs"] = types.YChild{"FracSecs", &sysRefTime.FracSecs}
-    sysRefTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    sysRefTime.EntityData.Children = types.NewOrderedMap()
+    sysRefTime.EntityData.Children.Append("sec", types.YChild{"Sec", &sysRefTime.Sec})
+    sysRefTime.EntityData.Children.Append("frac-secs", types.YChild{"FracSecs", &sysRefTime.FracSecs})
+    sysRefTime.EntityData.Leafs = types.NewOrderedMap()
+
+    sysRefTime.EntityData.YListKeys = []string {}
+
     return &(sysRefTime.EntityData)
 }
 
@@ -947,9 +1014,12 @@ func (sec *Ntp_Nodes_Node_Status_SysRefTime_Sec) GetEntityData() *types.CommonEn
     sec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sec.EntityData.Children = make(map[string]types.YChild)
-    sec.EntityData.Leafs = make(map[string]types.YLeaf)
-    sec.EntityData.Leafs["int"] = types.YLeaf{"Int", sec.Int}
+    sec.EntityData.Children = types.NewOrderedMap()
+    sec.EntityData.Leafs = types.NewOrderedMap()
+    sec.EntityData.Leafs.Append("int", types.YLeaf{"Int", sec.Int})
+
+    sec.EntityData.YListKeys = []string {}
+
     return &(sec.EntityData)
 }
 
@@ -974,9 +1044,12 @@ func (fracSecs *Ntp_Nodes_Node_Status_SysRefTime_FracSecs) GetEntityData() *type
     fracSecs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fracSecs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fracSecs.EntityData.Children = make(map[string]types.YChild)
-    fracSecs.EntityData.Leafs = make(map[string]types.YLeaf)
-    fracSecs.EntityData.Leafs["frac"] = types.YLeaf{"Frac", fracSecs.Frac}
+    fracSecs.EntityData.Children = types.NewOrderedMap()
+    fracSecs.EntityData.Leafs = types.NewOrderedMap()
+    fracSecs.EntityData.Leafs.Append("frac", types.YLeaf{"Frac", fracSecs.Frac})
+
+    fracSecs.EntityData.YListKeys = []string {}
+
     return &(fracSecs.EntityData)
 }
 
@@ -1003,10 +1076,13 @@ func (sysDrift *Ntp_Nodes_Node_Status_SysDrift) GetEntityData() *types.CommonEnt
     sysDrift.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sysDrift.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sysDrift.EntityData.Children = make(map[string]types.YChild)
-    sysDrift.EntityData.Children["sec"] = types.YChild{"Sec", &sysDrift.Sec}
-    sysDrift.EntityData.Children["frac-secs"] = types.YChild{"FracSecs", &sysDrift.FracSecs}
-    sysDrift.EntityData.Leafs = make(map[string]types.YLeaf)
+    sysDrift.EntityData.Children = types.NewOrderedMap()
+    sysDrift.EntityData.Children.Append("sec", types.YChild{"Sec", &sysDrift.Sec})
+    sysDrift.EntityData.Children.Append("frac-secs", types.YChild{"FracSecs", &sysDrift.FracSecs})
+    sysDrift.EntityData.Leafs = types.NewOrderedMap()
+
+    sysDrift.EntityData.YListKeys = []string {}
+
     return &(sysDrift.EntityData)
 }
 
@@ -1031,9 +1107,12 @@ func (sec *Ntp_Nodes_Node_Status_SysDrift_Sec) GetEntityData() *types.CommonEnti
     sec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sec.EntityData.Children = make(map[string]types.YChild)
-    sec.EntityData.Leafs = make(map[string]types.YLeaf)
-    sec.EntityData.Leafs["int"] = types.YLeaf{"Int", sec.Int}
+    sec.EntityData.Children = types.NewOrderedMap()
+    sec.EntityData.Leafs = types.NewOrderedMap()
+    sec.EntityData.Leafs.Append("int", types.YLeaf{"Int", sec.Int})
+
+    sec.EntityData.YListKeys = []string {}
+
     return &(sec.EntityData)
 }
 
@@ -1058,9 +1137,12 @@ func (fracSecs *Ntp_Nodes_Node_Status_SysDrift_FracSecs) GetEntityData() *types.
     fracSecs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fracSecs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fracSecs.EntityData.Children = make(map[string]types.YChild)
-    fracSecs.EntityData.Leafs = make(map[string]types.YLeaf)
-    fracSecs.EntityData.Leafs["frac"] = types.YLeaf{"Frac", fracSecs.Frac}
+    fracSecs.EntityData.Children = types.NewOrderedMap()
+    fracSecs.EntityData.Leafs = types.NewOrderedMap()
+    fracSecs.EntityData.Leafs.Append("frac", types.YLeaf{"Frac", fracSecs.Frac})
+
+    fracSecs.EntityData.YListKeys = []string {}
+
     return &(fracSecs.EntityData)
 }
 
@@ -1078,7 +1160,7 @@ type Ntp_Nodes_Node_Associations struct {
 
     // Peer info. The type is slice of
     // Ntp_Nodes_Node_Associations_PeerSummaryInfo.
-    PeerSummaryInfo []Ntp_Nodes_Node_Associations_PeerSummaryInfo
+    PeerSummaryInfo []*Ntp_Nodes_Node_Associations_PeerSummaryInfo
 }
 
 func (associations *Ntp_Nodes_Node_Associations) GetEntityData() *types.CommonEntityData {
@@ -1091,14 +1173,17 @@ func (associations *Ntp_Nodes_Node_Associations) GetEntityData() *types.CommonEn
     associations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    associations.EntityData.Children = make(map[string]types.YChild)
-    associations.EntityData.Children["peer-summary-info"] = types.YChild{"PeerSummaryInfo", nil}
+    associations.EntityData.Children = types.NewOrderedMap()
+    associations.EntityData.Children.Append("peer-summary-info", types.YChild{"PeerSummaryInfo", nil})
     for i := range associations.PeerSummaryInfo {
-        associations.EntityData.Children[types.GetSegmentPath(&associations.PeerSummaryInfo[i])] = types.YChild{"PeerSummaryInfo", &associations.PeerSummaryInfo[i]}
+        associations.EntityData.Children.Append(types.GetSegmentPath(associations.PeerSummaryInfo[i]), types.YChild{"PeerSummaryInfo", associations.PeerSummaryInfo[i]})
     }
-    associations.EntityData.Leafs = make(map[string]types.YLeaf)
-    associations.EntityData.Leafs["is-ntp-enabled"] = types.YLeaf{"IsNtpEnabled", associations.IsNtpEnabled}
-    associations.EntityData.Leafs["sys-leap"] = types.YLeaf{"SysLeap", associations.SysLeap}
+    associations.EntityData.Leafs = types.NewOrderedMap()
+    associations.EntityData.Leafs.Append("is-ntp-enabled", types.YLeaf{"IsNtpEnabled", associations.IsNtpEnabled})
+    associations.EntityData.Leafs.Append("sys-leap", types.YLeaf{"SysLeap", associations.SysLeap})
+
+    associations.EntityData.YListKeys = []string {}
+
     return &(associations.EntityData)
 }
 
@@ -1126,10 +1211,13 @@ func (peerSummaryInfo *Ntp_Nodes_Node_Associations_PeerSummaryInfo) GetEntityDat
     peerSummaryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerSummaryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerSummaryInfo.EntityData.Children = make(map[string]types.YChild)
-    peerSummaryInfo.EntityData.Children["peer-info-common"] = types.YChild{"PeerInfoCommon", &peerSummaryInfo.PeerInfoCommon}
-    peerSummaryInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerSummaryInfo.EntityData.Leafs["time-since"] = types.YLeaf{"TimeSince", peerSummaryInfo.TimeSince}
+    peerSummaryInfo.EntityData.Children = types.NewOrderedMap()
+    peerSummaryInfo.EntityData.Children.Append("peer-info-common", types.YChild{"PeerInfoCommon", &peerSummaryInfo.PeerInfoCommon})
+    peerSummaryInfo.EntityData.Leafs = types.NewOrderedMap()
+    peerSummaryInfo.EntityData.Leafs.Append("time-since", types.YLeaf{"TimeSince", peerSummaryInfo.TimeSince})
+
+    peerSummaryInfo.EntityData.YListKeys = []string {}
+
     return &(peerSummaryInfo.EntityData)
 }
 
@@ -1149,7 +1237,7 @@ type Ntp_Nodes_Node_Associations_PeerSummaryInfo_PeerInfoCommon struct {
     Address interface{}
 
     // Peer reference ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ReferenceId interface{}
 
     // Host poll. The type is interface{} with range: 0..255.
@@ -1187,20 +1275,23 @@ func (peerInfoCommon *Ntp_Nodes_Node_Associations_PeerSummaryInfo_PeerInfoCommon
     peerInfoCommon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerInfoCommon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peerInfoCommon.EntityData.Children = make(map[string]types.YChild)
-    peerInfoCommon.EntityData.Leafs = make(map[string]types.YLeaf)
-    peerInfoCommon.EntityData.Leafs["host-mode"] = types.YLeaf{"HostMode", peerInfoCommon.HostMode}
-    peerInfoCommon.EntityData.Leafs["is-configured"] = types.YLeaf{"IsConfigured", peerInfoCommon.IsConfigured}
-    peerInfoCommon.EntityData.Leafs["address"] = types.YLeaf{"Address", peerInfoCommon.Address}
-    peerInfoCommon.EntityData.Leafs["reference-id"] = types.YLeaf{"ReferenceId", peerInfoCommon.ReferenceId}
-    peerInfoCommon.EntityData.Leafs["host-poll"] = types.YLeaf{"HostPoll", peerInfoCommon.HostPoll}
-    peerInfoCommon.EntityData.Leafs["reachability"] = types.YLeaf{"Reachability", peerInfoCommon.Reachability}
-    peerInfoCommon.EntityData.Leafs["stratum"] = types.YLeaf{"Stratum", peerInfoCommon.Stratum}
-    peerInfoCommon.EntityData.Leafs["status"] = types.YLeaf{"Status", peerInfoCommon.Status}
-    peerInfoCommon.EntityData.Leafs["delay"] = types.YLeaf{"Delay", peerInfoCommon.Delay}
-    peerInfoCommon.EntityData.Leafs["offset"] = types.YLeaf{"Offset", peerInfoCommon.Offset}
-    peerInfoCommon.EntityData.Leafs["dispersion"] = types.YLeaf{"Dispersion", peerInfoCommon.Dispersion}
-    peerInfoCommon.EntityData.Leafs["is-sys-peer"] = types.YLeaf{"IsSysPeer", peerInfoCommon.IsSysPeer}
+    peerInfoCommon.EntityData.Children = types.NewOrderedMap()
+    peerInfoCommon.EntityData.Leafs = types.NewOrderedMap()
+    peerInfoCommon.EntityData.Leafs.Append("host-mode", types.YLeaf{"HostMode", peerInfoCommon.HostMode})
+    peerInfoCommon.EntityData.Leafs.Append("is-configured", types.YLeaf{"IsConfigured", peerInfoCommon.IsConfigured})
+    peerInfoCommon.EntityData.Leafs.Append("address", types.YLeaf{"Address", peerInfoCommon.Address})
+    peerInfoCommon.EntityData.Leafs.Append("reference-id", types.YLeaf{"ReferenceId", peerInfoCommon.ReferenceId})
+    peerInfoCommon.EntityData.Leafs.Append("host-poll", types.YLeaf{"HostPoll", peerInfoCommon.HostPoll})
+    peerInfoCommon.EntityData.Leafs.Append("reachability", types.YLeaf{"Reachability", peerInfoCommon.Reachability})
+    peerInfoCommon.EntityData.Leafs.Append("stratum", types.YLeaf{"Stratum", peerInfoCommon.Stratum})
+    peerInfoCommon.EntityData.Leafs.Append("status", types.YLeaf{"Status", peerInfoCommon.Status})
+    peerInfoCommon.EntityData.Leafs.Append("delay", types.YLeaf{"Delay", peerInfoCommon.Delay})
+    peerInfoCommon.EntityData.Leafs.Append("offset", types.YLeaf{"Offset", peerInfoCommon.Offset})
+    peerInfoCommon.EntityData.Leafs.Append("dispersion", types.YLeaf{"Dispersion", peerInfoCommon.Dispersion})
+    peerInfoCommon.EntityData.Leafs.Append("is-sys-peer", types.YLeaf{"IsSysPeer", peerInfoCommon.IsSysPeer})
+
+    peerInfoCommon.EntityData.YListKeys = []string {}
+
     return &(peerInfoCommon.EntityData)
 }
 

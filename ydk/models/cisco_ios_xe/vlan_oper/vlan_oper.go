@@ -35,7 +35,7 @@ type Vlans struct {
     YFilter yfilter.YFilter
 
     // List of VLANs, keyed by id. The type is slice of Vlans_Vlan.
-    Vlan []Vlans_Vlan
+    Vlan []*Vlans_Vlan
 }
 
 func (vlans *Vlans) GetEntityData() *types.CommonEntityData {
@@ -48,12 +48,15 @@ func (vlans *Vlans) GetEntityData() *types.CommonEntityData {
     vlans.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vlans.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vlans.EntityData.Children = make(map[string]types.YChild)
-    vlans.EntityData.Children["vlan"] = types.YChild{"Vlan", nil}
+    vlans.EntityData.Children = types.NewOrderedMap()
+    vlans.EntityData.Children.Append("vlan", types.YChild{"Vlan", nil})
     for i := range vlans.Vlan {
-        vlans.EntityData.Children[types.GetSegmentPath(&vlans.Vlan[i])] = types.YChild{"Vlan", &vlans.Vlan[i]}
+        vlans.EntityData.Children.Append(types.GetSegmentPath(vlans.Vlan[i]), types.YChild{"Vlan", vlans.Vlan[i]})
     }
-    vlans.EntityData.Leafs = make(map[string]types.YLeaf)
+    vlans.EntityData.Leafs = types.NewOrderedMap()
+
+    vlans.EntityData.YListKeys = []string {}
+
     return &(vlans.EntityData)
 }
 
@@ -74,7 +77,7 @@ type Vlans_Vlan struct {
     Status interface{}
 
     // Assigned ports. The type is slice of Vlans_Vlan_Ports.
-    Ports []Vlans_Vlan_Ports
+    Ports []*Vlans_Vlan_Ports
 }
 
 func (vlan *Vlans_Vlan) GetEntityData() *types.CommonEntityData {
@@ -82,20 +85,23 @@ func (vlan *Vlans_Vlan) GetEntityData() *types.CommonEntityData {
     vlan.EntityData.YangName = "vlan"
     vlan.EntityData.BundleName = "cisco_ios_xe"
     vlan.EntityData.ParentYangName = "vlans"
-    vlan.EntityData.SegmentPath = "vlan" + "[id='" + fmt.Sprintf("%v", vlan.Id) + "']"
+    vlan.EntityData.SegmentPath = "vlan" + types.AddKeyToken(vlan.Id, "id")
     vlan.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vlan.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vlan.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vlan.EntityData.Children = make(map[string]types.YChild)
-    vlan.EntityData.Children["ports"] = types.YChild{"Ports", nil}
+    vlan.EntityData.Children = types.NewOrderedMap()
+    vlan.EntityData.Children.Append("ports", types.YChild{"Ports", nil})
     for i := range vlan.Ports {
-        vlan.EntityData.Children[types.GetSegmentPath(&vlan.Ports[i])] = types.YChild{"Ports", &vlan.Ports[i]}
+        vlan.EntityData.Children.Append(types.GetSegmentPath(vlan.Ports[i]), types.YChild{"Ports", vlan.Ports[i]})
     }
-    vlan.EntityData.Leafs = make(map[string]types.YLeaf)
-    vlan.EntityData.Leafs["id"] = types.YLeaf{"Id", vlan.Id}
-    vlan.EntityData.Leafs["name"] = types.YLeaf{"Name", vlan.Name}
-    vlan.EntityData.Leafs["status"] = types.YLeaf{"Status", vlan.Status}
+    vlan.EntityData.Leafs = types.NewOrderedMap()
+    vlan.EntityData.Leafs.Append("id", types.YLeaf{"Id", vlan.Id})
+    vlan.EntityData.Leafs.Append("name", types.YLeaf{"Name", vlan.Name})
+    vlan.EntityData.Leafs.Append("status", types.YLeaf{"Status", vlan.Status})
+
+    vlan.EntityData.YListKeys = []string {"Id"}
+
     return &(vlan.EntityData)
 }
 
@@ -106,7 +112,7 @@ type Vlans_Vlan_Ports struct {
     YFilter yfilter.YFilter
 
     // Assigned interface. The type is string.
-    Interface_ interface{}
+    Interface interface{}
 
     // Assigned subinterface. The type is interface{} with range: 0..4294967295.
     Subinterface interface{}
@@ -122,10 +128,13 @@ func (ports *Vlans_Vlan_Ports) GetEntityData() *types.CommonEntityData {
     ports.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ports.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ports.EntityData.Children = make(map[string]types.YChild)
-    ports.EntityData.Leafs = make(map[string]types.YLeaf)
-    ports.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", ports.Interface_}
-    ports.EntityData.Leafs["subinterface"] = types.YLeaf{"Subinterface", ports.Subinterface}
+    ports.EntityData.Children = types.NewOrderedMap()
+    ports.EntityData.Leafs = types.NewOrderedMap()
+    ports.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", ports.Interface})
+    ports.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", ports.Subinterface})
+
+    ports.EntityData.YListKeys = []string {}
+
     return &(ports.EntityData)
 }
 

@@ -32,6 +32,14 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-12 {
+    description
+      "Added Remote-id config for relay profile";
+  }
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -78,6 +86,23 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
     }
     description
       "Subscriber id";
+  }
+
+  typedef Action {
+    type enumeration {
+      enum "allow" {
+        value 0;
+        description
+          "Allow vendor specific DHCP Solicit";
+      }
+      enum "drop" {
+        value 1;
+        description
+          "Drop vendor specific DHCP Solicit";
+      }
+    }
+    description
+      "Action";
   }
 
   typedef Link-layer-addr {
@@ -193,7 +218,34 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
                 description
                   "Server Global unicast address";
               }
+              leaf enable {
+                type empty;
+                mandatory true;
+                description
+                  "Enable";
+              }
+              leaf src-intf-name {
+                type xr:Interface-name;
+                description
+                  "Helper-address Specific Source Interface";
+              }
             }
+          }
+          container option {
+            description
+              "Specify relay option configuration";
+            leaf remote-id {
+              type string {
+                length "1..256";
+              }
+              description
+                "Enter remote-id value";
+            }
+          }
+          leaf src-intf-name {
+            type xr:Interface-name;
+            description
+              "Relay profile Source Interface Name";
           }
           leaf enable {
             type empty;
@@ -297,7 +349,7 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
                   "Configure Received link-layer-Addr";
               }
               leaf remote-i-dreceived {
-                type int32;
+                type uint32;
                 description
                   "Set remote-id value from SADB";
               }
@@ -534,6 +586,39 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
                     "Server's IPv6 address";
                 }
               }
+              container lease {
+                description
+                  "lease";
+                leaf infinite {
+                  type string;
+                  description
+                    "Set string";
+                }
+                leaf days {
+                  type uint32 {
+                    range "0..365";
+                  }
+                  units "day";
+                  description
+                    "Days";
+                }
+                leaf hours {
+                  type uint32 {
+                    range "0..23";
+                  }
+                  units "hour";
+                  description
+                    "Hours";
+                }
+                leaf minutes {
+                  type uint32 {
+                    range "1..59";
+                  }
+                  units "minute";
+                  description
+                    "Minutes";
+                }
+              }
               leaf address-pool {
                 type string {
                   length "1..64";
@@ -602,6 +687,98 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
               type string;
               description
                 "Set string";
+            }
+          }
+          container dhcpv6duid {
+            description
+              "Client DUID";
+            leaf allowed-type {
+              type uint32 {
+                range "1..4";
+              }
+              description
+                "Type of DUID to be allowed";
+            }
+          }
+          container aaa-server {
+            description
+              "Enable aaa dhcpv6 option force-insert";
+            container dhcpv6-option {
+              description
+                "Enable aaa dhcpv6 option force-insert";
+              leaf force-insert {
+                type empty;
+                description
+                  "Enable aaa dhcpv6 option force-insert";
+              }
+            }
+          }
+          container options {
+            description
+              "DHCPv6 match";
+            list option {
+              key "type format value";
+              description
+                "DHCPv6 match option";
+              container enterprise-id {
+                description
+                  "match enterprise number";
+                container hex-enterprise-id {
+                  description
+                    "defaut action for enterprise number";
+                  leaf action {
+                    type Action;
+                    description
+                      "Configure Action to be take on match";
+                  }
+                }
+                container default-enterprise-id {
+                  description
+                    "defaut action for enterprise number";
+                  leaf action {
+                    type Action;
+                    description
+                      "Configure Action to be take on match";
+                  }
+                }
+              }
+              container vendor-class {
+                description
+                  "match vendor class";
+                container str-vendor-class {
+                  description
+                    "string action for vendor number";
+                  leaf action {
+                    type Action;
+                    description
+                      "Configure Action to be take on match";
+                  }
+                }
+                container default-vendor-class {
+                  description
+                    "default action for enterprise number";
+                  leaf action {
+                    type Action;
+                    description
+                      "Configure Action to be take on match";
+                  }
+                }
+              }
+              leaf type {
+                type xr:Cisco-ios-xr-string;
+                description
+                  "Set string";
+              }
+              leaf format {
+                type uint32;
+                description
+                  "Set constant integer";
+              }
+              leaf value {
+                type xr:Cisco-ios-xr-string;
+                description
+                  "Set string";
+              }
             }
           }
           container dhcpv6-options {
@@ -749,6 +926,14 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
         }
       }
     }
+    leaf inner-cos {
+      type uint32 {
+        range "0..7";
+      }
+      description
+        "Inner cos values for DHCPv6 packets to wards
+         clients";
+    }
     leaf enable {
       type empty;
       mandatory true;
@@ -761,6 +946,14 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
       description
         "For BNG session, allow duid change for a client
          MAC";
+    }
+    leaf outer-cos {
+      type uint32 {
+        range "0..7";
+      }
+      description
+        "Configure outer cos values for DHCPv6 packet to
+         wards client";
     }
   }
 }

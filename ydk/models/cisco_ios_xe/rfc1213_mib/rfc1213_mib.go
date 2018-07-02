@@ -46,33 +46,33 @@ type RFC1213MIB struct {
 
     // A list of interface entries.  The number of entries is given by the value
     // of ifNumber.
-    Iftable RFC1213MIB_Iftable
+    IfTable RFC1213MIB_IfTable
 
     // The Address Translation tables contain the NetworkAddress to `physical'
     // address equivalences. Some interfaces do not use translation tables for
     // determining address equivalences (e.g., DDN-X.25 has an algorithmic
     // method); if all interfaces are of this type, then the Address Translation
     // table is empty, i.e., has zero entries.
-    Attable RFC1213MIB_Attable
+    AtTable RFC1213MIB_AtTable
 
     // The table of addressing information relevant to this entity's IP addresses.
-    Ipaddrtable RFC1213MIB_Ipaddrtable
+    IpAddrTable RFC1213MIB_IpAddrTable
 
     // This entity's IP Routing table.
-    Iproutetable RFC1213MIB_Iproutetable
+    IpRouteTable RFC1213MIB_IpRouteTable
 
     // The IP Address Translation table used for mapping from IP addresses to
     // physical addresses.
-    Ipnettomediatable RFC1213MIB_Ipnettomediatable
+    IpNetToMediaTable RFC1213MIB_IpNetToMediaTable
 
     // A table containing TCP connection-specific information.
-    Tcpconntable RFC1213MIB_Tcpconntable
+    TcpConnTable RFC1213MIB_TcpConnTable
 
     // A table containing UDP listener information.
-    Udptable RFC1213MIB_Udptable
+    UdpTable RFC1213MIB_UdpTable
 
     // The EGP neighbor table.
-    Egpneightable RFC1213MIB_Egpneightable
+    EgpNeighTable RFC1213MIB_EgpNeighTable
 }
 
 func (rFC1213MIB *RFC1213MIB) GetEntityData() *types.CommonEntityData {
@@ -85,24 +85,27 @@ func (rFC1213MIB *RFC1213MIB) GetEntityData() *types.CommonEntityData {
     rFC1213MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rFC1213MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rFC1213MIB.EntityData.Children = make(map[string]types.YChild)
-    rFC1213MIB.EntityData.Children["system"] = types.YChild{"System", &rFC1213MIB.System}
-    rFC1213MIB.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &rFC1213MIB.Interfaces}
-    rFC1213MIB.EntityData.Children["ip"] = types.YChild{"Ip", &rFC1213MIB.Ip}
-    rFC1213MIB.EntityData.Children["icmp"] = types.YChild{"Icmp", &rFC1213MIB.Icmp}
-    rFC1213MIB.EntityData.Children["tcp"] = types.YChild{"Tcp", &rFC1213MIB.Tcp}
-    rFC1213MIB.EntityData.Children["udp"] = types.YChild{"Udp", &rFC1213MIB.Udp}
-    rFC1213MIB.EntityData.Children["egp"] = types.YChild{"Egp", &rFC1213MIB.Egp}
-    rFC1213MIB.EntityData.Children["snmp"] = types.YChild{"Snmp", &rFC1213MIB.Snmp}
-    rFC1213MIB.EntityData.Children["ifTable"] = types.YChild{"Iftable", &rFC1213MIB.Iftable}
-    rFC1213MIB.EntityData.Children["atTable"] = types.YChild{"Attable", &rFC1213MIB.Attable}
-    rFC1213MIB.EntityData.Children["ipAddrTable"] = types.YChild{"Ipaddrtable", &rFC1213MIB.Ipaddrtable}
-    rFC1213MIB.EntityData.Children["ipRouteTable"] = types.YChild{"Iproutetable", &rFC1213MIB.Iproutetable}
-    rFC1213MIB.EntityData.Children["ipNetToMediaTable"] = types.YChild{"Ipnettomediatable", &rFC1213MIB.Ipnettomediatable}
-    rFC1213MIB.EntityData.Children["tcpConnTable"] = types.YChild{"Tcpconntable", &rFC1213MIB.Tcpconntable}
-    rFC1213MIB.EntityData.Children["udpTable"] = types.YChild{"Udptable", &rFC1213MIB.Udptable}
-    rFC1213MIB.EntityData.Children["egpNeighTable"] = types.YChild{"Egpneightable", &rFC1213MIB.Egpneightable}
-    rFC1213MIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    rFC1213MIB.EntityData.Children = types.NewOrderedMap()
+    rFC1213MIB.EntityData.Children.Append("system", types.YChild{"System", &rFC1213MIB.System})
+    rFC1213MIB.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &rFC1213MIB.Interfaces})
+    rFC1213MIB.EntityData.Children.Append("ip", types.YChild{"Ip", &rFC1213MIB.Ip})
+    rFC1213MIB.EntityData.Children.Append("icmp", types.YChild{"Icmp", &rFC1213MIB.Icmp})
+    rFC1213MIB.EntityData.Children.Append("tcp", types.YChild{"Tcp", &rFC1213MIB.Tcp})
+    rFC1213MIB.EntityData.Children.Append("udp", types.YChild{"Udp", &rFC1213MIB.Udp})
+    rFC1213MIB.EntityData.Children.Append("egp", types.YChild{"Egp", &rFC1213MIB.Egp})
+    rFC1213MIB.EntityData.Children.Append("snmp", types.YChild{"Snmp", &rFC1213MIB.Snmp})
+    rFC1213MIB.EntityData.Children.Append("ifTable", types.YChild{"IfTable", &rFC1213MIB.IfTable})
+    rFC1213MIB.EntityData.Children.Append("atTable", types.YChild{"AtTable", &rFC1213MIB.AtTable})
+    rFC1213MIB.EntityData.Children.Append("ipAddrTable", types.YChild{"IpAddrTable", &rFC1213MIB.IpAddrTable})
+    rFC1213MIB.EntityData.Children.Append("ipRouteTable", types.YChild{"IpRouteTable", &rFC1213MIB.IpRouteTable})
+    rFC1213MIB.EntityData.Children.Append("ipNetToMediaTable", types.YChild{"IpNetToMediaTable", &rFC1213MIB.IpNetToMediaTable})
+    rFC1213MIB.EntityData.Children.Append("tcpConnTable", types.YChild{"TcpConnTable", &rFC1213MIB.TcpConnTable})
+    rFC1213MIB.EntityData.Children.Append("udpTable", types.YChild{"UdpTable", &rFC1213MIB.UdpTable})
+    rFC1213MIB.EntityData.Children.Append("egpNeighTable", types.YChild{"EgpNeighTable", &rFC1213MIB.EgpNeighTable})
+    rFC1213MIB.EntityData.Leafs = types.NewOrderedMap()
+
+    rFC1213MIB.EntityData.YListKeys = []string {}
+
     return &(rFC1213MIB.EntityData)
 }
 
@@ -115,7 +118,7 @@ type RFC1213MIB_System struct {
     // name and version identification of the system's hardware type, software
     // operating-system, and networking software.  It is mandatory that this only
     // contain printable ASCII characters. The type is string with length: 0..255.
-    Sysdescr interface{}
+    SysDescr interface{}
 
     // The vendor's authoritative identification of the network management
     // subsystem contained in the entity.  This value is allocated within the SMI
@@ -124,27 +127,27 @@ type RFC1213MIB_System struct {
     // vendor `Flintstones, Inc.' was assigned the subtree 1.3.6.1.4.1.4242, it
     // could assign the identifier 1.3.6.1.4.1.4242.1.1 to its `Fred Router'. The
     // type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Sysobjectid interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    SysObjectID interface{}
 
     // The time (in hundredths of a second) since the network management portion
     // of the system was last re-initialized. The type is interface{} with range:
     // 0..4294967295.
-    Sysuptime interface{}
+    SysUpTime interface{}
 
     // The textual identification of the contact person for this managed node,
     // together with information on how to contact this person. The type is string
     // with length: 0..255.
-    Syscontact interface{}
+    SysContact interface{}
 
     // An administratively-assigned name for this managed node.  By convention,
     // this is the node's fully-qualified domain name. The type is string with
     // length: 0..255.
-    Sysname interface{}
+    SysName interface{}
 
     // The physical location of this node (e.g., `telephone closet, 3rd floor').
     // The type is string with length: 0..255.
-    Syslocation interface{}
+    SysLocation interface{}
 
     // A value which indicates the set of services that this entity primarily
     // offers.  The value is a sum.  This sum initially takes the value zero,
@@ -160,7 +163,7 @@ type RFC1213MIB_System struct {
     // 7  applications (e.g., mail relays)  For systems including OSI protocols,
     // layers 5 and 6 may also be counted. The type is interface{} with range:
     // 0..127.
-    Sysservices interface{}
+    SysServices interface{}
 }
 
 func (system *RFC1213MIB_System) GetEntityData() *types.CommonEntityData {
@@ -173,15 +176,18 @@ func (system *RFC1213MIB_System) GetEntityData() *types.CommonEntityData {
     system.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     system.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    system.EntityData.Children = make(map[string]types.YChild)
-    system.EntityData.Leafs = make(map[string]types.YLeaf)
-    system.EntityData.Leafs["sysDescr"] = types.YLeaf{"Sysdescr", system.Sysdescr}
-    system.EntityData.Leafs["sysObjectID"] = types.YLeaf{"Sysobjectid", system.Sysobjectid}
-    system.EntityData.Leafs["sysUpTime"] = types.YLeaf{"Sysuptime", system.Sysuptime}
-    system.EntityData.Leafs["sysContact"] = types.YLeaf{"Syscontact", system.Syscontact}
-    system.EntityData.Leafs["sysName"] = types.YLeaf{"Sysname", system.Sysname}
-    system.EntityData.Leafs["sysLocation"] = types.YLeaf{"Syslocation", system.Syslocation}
-    system.EntityData.Leafs["sysServices"] = types.YLeaf{"Sysservices", system.Sysservices}
+    system.EntityData.Children = types.NewOrderedMap()
+    system.EntityData.Leafs = types.NewOrderedMap()
+    system.EntityData.Leafs.Append("sysDescr", types.YLeaf{"SysDescr", system.SysDescr})
+    system.EntityData.Leafs.Append("sysObjectID", types.YLeaf{"SysObjectID", system.SysObjectID})
+    system.EntityData.Leafs.Append("sysUpTime", types.YLeaf{"SysUpTime", system.SysUpTime})
+    system.EntityData.Leafs.Append("sysContact", types.YLeaf{"SysContact", system.SysContact})
+    system.EntityData.Leafs.Append("sysName", types.YLeaf{"SysName", system.SysName})
+    system.EntityData.Leafs.Append("sysLocation", types.YLeaf{"SysLocation", system.SysLocation})
+    system.EntityData.Leafs.Append("sysServices", types.YLeaf{"SysServices", system.SysServices})
+
+    system.EntityData.YListKeys = []string {}
+
     return &(system.EntityData)
 }
 
@@ -193,7 +199,7 @@ type RFC1213MIB_Interfaces struct {
     // The number of network interfaces (regardless of their current state)
     // present on this system. The type is interface{} with range:
     // -2147483648..2147483647.
-    Ifnumber interface{}
+    IfNumber interface{}
 }
 
 func (interfaces *RFC1213MIB_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -206,9 +212,12 @@ func (interfaces *RFC1213MIB_Interfaces) GetEntityData() *types.CommonEntityData
     interfaces.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaces.EntityData.Leafs["ifNumber"] = types.YLeaf{"Ifnumber", interfaces.Ifnumber}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+    interfaces.EntityData.Leafs.Append("ifNumber", types.YLeaf{"IfNumber", interfaces.IfNumber})
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -224,24 +233,24 @@ type RFC1213MIB_Ip struct {
     // may take on only a subset of the values possible. Accordingly, it is
     // appropriate for an agent to return a `badValue' response if a management
     // station attempts to change this object to an inappropriate value. The type
-    // is Ipforwarding.
-    Ipforwarding interface{}
+    // is IpForwarding.
+    IpForwarding interface{}
 
     // The default value inserted into the Time-To-Live field of the IP header of
     // datagrams originated at this entity, whenever a TTL value is not supplied
     // by the transport layer protocol. The type is interface{} with range:
     // -2147483648..2147483647.
-    Ipdefaultttl interface{}
+    IpDefaultTTL interface{}
 
     // The total number of input datagrams received from interfaces, including
     // those received in error. The type is interface{} with range: 0..4294967295.
-    Ipinreceives interface{}
+    IpInReceives interface{}
 
     // The number of input datagrams discarded due to errors in their IP headers,
     // including bad checksums, version number mismatch, other format errors,
     // time-to-live exceeded, errors discovered in processing their IP options,
     // etc. The type is interface{} with range: 0..4294967295.
-    Ipinhdrerrors interface{}
+    IpInHdrErrors interface{}
 
     // The number of input datagrams discarded because the IP address in their IP
     // header's destination field was not a valid address to be received at this
@@ -250,7 +259,7 @@ type RFC1213MIB_Ip struct {
     // not IP Gateways and therefore do not forward datagrams, this counter
     // includes datagrams discarded because the destination address was not a
     // local address. The type is interface{} with range: 0..4294967295.
-    Ipinaddrerrors interface{}
+    IpInAddrErrors interface{}
 
     // The number of input datagrams for which this entity was not their final IP
     // destination, as a result of which an attempt was made to find a route to
@@ -258,30 +267,30 @@ type RFC1213MIB_Ip struct {
     // Gateways, this counter will include only those packets which were
     // Source-Routed via this entity, and the Source- Route option processing was
     // successful. The type is interface{} with range: 0..4294967295.
-    Ipforwdatagrams interface{}
+    IpForwDatagrams interface{}
 
     // The number of locally-addressed datagrams received successfully but
     // discarded because of an unknown or unsupported protocol. The type is
     // interface{} with range: 0..4294967295.
-    Ipinunknownprotos interface{}
+    IpInUnknownProtos interface{}
 
     // The number of input IP datagrams for which no problems were encountered to
     // prevent their continued processing, but which were discarded (e.g., for
     // lack of buffer space).  Note that this counter does not include any
     // datagrams discarded while awaiting re-assembly. The type is interface{}
     // with range: 0..4294967295.
-    Ipindiscards interface{}
+    IpInDiscards interface{}
 
     // The total number of input datagrams successfully delivered to IP
     // user-protocols (including ICMP). The type is interface{} with range:
     // 0..4294967295.
-    Ipindelivers interface{}
+    IpInDelivers interface{}
 
     // The total number of IP datagrams which local IP user-protocols (including
     // ICMP) supplied to IP in requests for transmission.  Note that this counter
     // does not include any datagrams counted in ipForwDatagrams. The type is
     // interface{} with range: 0..4294967295.
-    Ipoutrequests interface{}
+    IpOutRequests interface{}
 
     // The number of output IP datagrams for which no problem was encountered to
     // prevent their transmission to their destination, but which were discarded
@@ -289,7 +298,7 @@ type RFC1213MIB_Ip struct {
     // datagrams counted in ipForwDatagrams if any such packets met this
     // (discretionary) discard criterion. The type is interface{} with range:
     // 0..4294967295.
-    Ipoutdiscards interface{}
+    IpOutDiscards interface{}
 
     // The number of IP datagrams discarded because no route could be found to
     // transmit them to their destination.  Note that this counter includes any
@@ -297,20 +306,20 @@ type RFC1213MIB_Ip struct {
     // Note that this includes any datagrams which a host cannot route because all
     // of its default gateways are down. The type is interface{} with range:
     // 0..4294967295.
-    Ipoutnoroutes interface{}
+    IpOutNoRoutes interface{}
 
     // The maximum number of seconds which received fragments are held while they
     // are awaiting reassembly at this entity. The type is interface{} with range:
     // -2147483648..2147483647.
-    Ipreasmtimeout interface{}
+    IpReasmTimeout interface{}
 
     // The number of IP fragments received which needed to be reassembled at this
     // entity. The type is interface{} with range: 0..4294967295.
-    Ipreasmreqds interface{}
+    IpReasmReqds interface{}
 
     // The number of IP datagrams successfully re- assembled. The type is
     // interface{} with range: 0..4294967295.
-    Ipreasmoks interface{}
+    IpReasmOKs interface{}
 
     // The number of failures detected by the IP re- assembly algorithm (for
     // whatever reason: timed out, errors, etc).  Note that this is not
@@ -318,27 +327,27 @@ type RFC1213MIB_Ip struct {
     // (notably the algorithm in RFC 815) can lose track of the number of
     // fragments by combining them as they are received. The type is interface{}
     // with range: 0..4294967295.
-    Ipreasmfails interface{}
+    IpReasmFails interface{}
 
     // The number of IP datagrams that have been successfully fragmented at this
     // entity. The type is interface{} with range: 0..4294967295.
-    Ipfragoks interface{}
+    IpFragOKs interface{}
 
     // The number of IP datagrams that have been discarded because they needed to
     // be fragmented at this entity but could not be, e.g., because their Don't
     // Fragment flag was set. The type is interface{} with range: 0..4294967295.
-    Ipfragfails interface{}
+    IpFragFails interface{}
 
     // The number of IP datagram fragments that have been generated as a result of
     // fragmentation at this entity. The type is interface{} with range:
     // 0..4294967295.
-    Ipfragcreates interface{}
+    IpFragCreates interface{}
 
     // The number of routing entries which were chosen to be discarded even though
     // they are valid.  One possible reason for discarding such an entry could be
     // to free-up buffer space for other routing entries. The type is interface{}
     // with range: 0..4294967295.
-    Iproutingdiscards interface{}
+    IpRoutingDiscards interface{}
 }
 
 func (ip *RFC1213MIB_Ip) GetEntityData() *types.CommonEntityData {
@@ -351,38 +360,41 @@ func (ip *RFC1213MIB_Ip) GetEntityData() *types.CommonEntityData {
     ip.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ip.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ip.EntityData.Children = make(map[string]types.YChild)
-    ip.EntityData.Leafs = make(map[string]types.YLeaf)
-    ip.EntityData.Leafs["ipForwarding"] = types.YLeaf{"Ipforwarding", ip.Ipforwarding}
-    ip.EntityData.Leafs["ipDefaultTTL"] = types.YLeaf{"Ipdefaultttl", ip.Ipdefaultttl}
-    ip.EntityData.Leafs["ipInReceives"] = types.YLeaf{"Ipinreceives", ip.Ipinreceives}
-    ip.EntityData.Leafs["ipInHdrErrors"] = types.YLeaf{"Ipinhdrerrors", ip.Ipinhdrerrors}
-    ip.EntityData.Leafs["ipInAddrErrors"] = types.YLeaf{"Ipinaddrerrors", ip.Ipinaddrerrors}
-    ip.EntityData.Leafs["ipForwDatagrams"] = types.YLeaf{"Ipforwdatagrams", ip.Ipforwdatagrams}
-    ip.EntityData.Leafs["ipInUnknownProtos"] = types.YLeaf{"Ipinunknownprotos", ip.Ipinunknownprotos}
-    ip.EntityData.Leafs["ipInDiscards"] = types.YLeaf{"Ipindiscards", ip.Ipindiscards}
-    ip.EntityData.Leafs["ipInDelivers"] = types.YLeaf{"Ipindelivers", ip.Ipindelivers}
-    ip.EntityData.Leafs["ipOutRequests"] = types.YLeaf{"Ipoutrequests", ip.Ipoutrequests}
-    ip.EntityData.Leafs["ipOutDiscards"] = types.YLeaf{"Ipoutdiscards", ip.Ipoutdiscards}
-    ip.EntityData.Leafs["ipOutNoRoutes"] = types.YLeaf{"Ipoutnoroutes", ip.Ipoutnoroutes}
-    ip.EntityData.Leafs["ipReasmTimeout"] = types.YLeaf{"Ipreasmtimeout", ip.Ipreasmtimeout}
-    ip.EntityData.Leafs["ipReasmReqds"] = types.YLeaf{"Ipreasmreqds", ip.Ipreasmreqds}
-    ip.EntityData.Leafs["ipReasmOKs"] = types.YLeaf{"Ipreasmoks", ip.Ipreasmoks}
-    ip.EntityData.Leafs["ipReasmFails"] = types.YLeaf{"Ipreasmfails", ip.Ipreasmfails}
-    ip.EntityData.Leafs["ipFragOKs"] = types.YLeaf{"Ipfragoks", ip.Ipfragoks}
-    ip.EntityData.Leafs["ipFragFails"] = types.YLeaf{"Ipfragfails", ip.Ipfragfails}
-    ip.EntityData.Leafs["ipFragCreates"] = types.YLeaf{"Ipfragcreates", ip.Ipfragcreates}
-    ip.EntityData.Leafs["ipRoutingDiscards"] = types.YLeaf{"Iproutingdiscards", ip.Iproutingdiscards}
+    ip.EntityData.Children = types.NewOrderedMap()
+    ip.EntityData.Leafs = types.NewOrderedMap()
+    ip.EntityData.Leafs.Append("ipForwarding", types.YLeaf{"IpForwarding", ip.IpForwarding})
+    ip.EntityData.Leafs.Append("ipDefaultTTL", types.YLeaf{"IpDefaultTTL", ip.IpDefaultTTL})
+    ip.EntityData.Leafs.Append("ipInReceives", types.YLeaf{"IpInReceives", ip.IpInReceives})
+    ip.EntityData.Leafs.Append("ipInHdrErrors", types.YLeaf{"IpInHdrErrors", ip.IpInHdrErrors})
+    ip.EntityData.Leafs.Append("ipInAddrErrors", types.YLeaf{"IpInAddrErrors", ip.IpInAddrErrors})
+    ip.EntityData.Leafs.Append("ipForwDatagrams", types.YLeaf{"IpForwDatagrams", ip.IpForwDatagrams})
+    ip.EntityData.Leafs.Append("ipInUnknownProtos", types.YLeaf{"IpInUnknownProtos", ip.IpInUnknownProtos})
+    ip.EntityData.Leafs.Append("ipInDiscards", types.YLeaf{"IpInDiscards", ip.IpInDiscards})
+    ip.EntityData.Leafs.Append("ipInDelivers", types.YLeaf{"IpInDelivers", ip.IpInDelivers})
+    ip.EntityData.Leafs.Append("ipOutRequests", types.YLeaf{"IpOutRequests", ip.IpOutRequests})
+    ip.EntityData.Leafs.Append("ipOutDiscards", types.YLeaf{"IpOutDiscards", ip.IpOutDiscards})
+    ip.EntityData.Leafs.Append("ipOutNoRoutes", types.YLeaf{"IpOutNoRoutes", ip.IpOutNoRoutes})
+    ip.EntityData.Leafs.Append("ipReasmTimeout", types.YLeaf{"IpReasmTimeout", ip.IpReasmTimeout})
+    ip.EntityData.Leafs.Append("ipReasmReqds", types.YLeaf{"IpReasmReqds", ip.IpReasmReqds})
+    ip.EntityData.Leafs.Append("ipReasmOKs", types.YLeaf{"IpReasmOKs", ip.IpReasmOKs})
+    ip.EntityData.Leafs.Append("ipReasmFails", types.YLeaf{"IpReasmFails", ip.IpReasmFails})
+    ip.EntityData.Leafs.Append("ipFragOKs", types.YLeaf{"IpFragOKs", ip.IpFragOKs})
+    ip.EntityData.Leafs.Append("ipFragFails", types.YLeaf{"IpFragFails", ip.IpFragFails})
+    ip.EntityData.Leafs.Append("ipFragCreates", types.YLeaf{"IpFragCreates", ip.IpFragCreates})
+    ip.EntityData.Leafs.Append("ipRoutingDiscards", types.YLeaf{"IpRoutingDiscards", ip.IpRoutingDiscards})
+
+    ip.EntityData.YListKeys = []string {}
+
     return &(ip.EntityData)
 }
 
-// RFC1213MIB_Ip_Ipforwarding represents inappropriate value.
-type RFC1213MIB_Ip_Ipforwarding string
+// RFC1213MIB_Ip_IpForwarding represents inappropriate value.
+type RFC1213MIB_Ip_IpForwarding string
 
 const (
-    RFC1213MIB_Ip_Ipforwarding_forwarding RFC1213MIB_Ip_Ipforwarding = "forwarding"
+    RFC1213MIB_Ip_IpForwarding_forwarding RFC1213MIB_Ip_IpForwarding = "forwarding"
 
-    RFC1213MIB_Ip_Ipforwarding_not_forwarding RFC1213MIB_Ip_Ipforwarding = "not-forwarding"
+    RFC1213MIB_Ip_IpForwarding_not_forwarding RFC1213MIB_Ip_IpForwarding = "not-forwarding"
 )
 
 // RFC1213MIB_Icmp
@@ -393,61 +405,61 @@ type RFC1213MIB_Icmp struct {
     // The total number of ICMP messages which the entity received.  Note that
     // this counter includes all those counted by icmpInErrors. The type is
     // interface{} with range: 0..4294967295.
-    Icmpinmsgs interface{}
+    IcmpInMsgs interface{}
 
     // The number of ICMP messages which the entity received but determined as
     // having ICMP-specific errors (bad ICMP checksums, bad length, etc.). The
     // type is interface{} with range: 0..4294967295.
-    Icmpinerrors interface{}
+    IcmpInErrors interface{}
 
     // The number of ICMP Destination Unreachable messages received. The type is
     // interface{} with range: 0..4294967295.
-    Icmpindestunreachs interface{}
+    IcmpInDestUnreachs interface{}
 
     // The number of ICMP Time Exceeded messages received. The type is interface{}
     // with range: 0..4294967295.
-    Icmpintimeexcds interface{}
+    IcmpInTimeExcds interface{}
 
     // The number of ICMP Parameter Problem messages received. The type is
     // interface{} with range: 0..4294967295.
-    Icmpinparmprobs interface{}
+    IcmpInParmProbs interface{}
 
     // The number of ICMP Source Quench messages received. The type is interface{}
     // with range: 0..4294967295.
-    Icmpinsrcquenchs interface{}
+    IcmpInSrcQuenchs interface{}
 
     // The number of ICMP Redirect messages received. The type is interface{} with
     // range: 0..4294967295.
-    Icmpinredirects interface{}
+    IcmpInRedirects interface{}
 
     // The number of ICMP Echo (request) messages received. The type is
     // interface{} with range: 0..4294967295.
-    Icmpinechos interface{}
+    IcmpInEchos interface{}
 
     // The number of ICMP Echo Reply messages received. The type is interface{}
     // with range: 0..4294967295.
-    Icmpinechoreps interface{}
+    IcmpInEchoReps interface{}
 
     // The number of ICMP Timestamp (request) messages received. The type is
     // interface{} with range: 0..4294967295.
-    Icmpintimestamps interface{}
+    IcmpInTimestamps interface{}
 
     // The number of ICMP Timestamp Reply messages received. The type is
     // interface{} with range: 0..4294967295.
-    Icmpintimestampreps interface{}
+    IcmpInTimestampReps interface{}
 
     // The number of ICMP Address Mask Request messages received. The type is
     // interface{} with range: 0..4294967295.
-    Icmpinaddrmasks interface{}
+    IcmpInAddrMasks interface{}
 
     // The number of ICMP Address Mask Reply messages received. The type is
     // interface{} with range: 0..4294967295.
-    Icmpinaddrmaskreps interface{}
+    IcmpInAddrMaskReps interface{}
 
     // The total number of ICMP messages which this entity attempted to send. 
     // Note that this counter includes all those counted by icmpOutErrors. The
     // type is interface{} with range: 0..4294967295.
-    Icmpoutmsgs interface{}
+    IcmpOutMsgs interface{}
 
     // The number of ICMP messages which this entity did not send due to problems
     // discovered within ICMP such as a lack of buffers.  This value should not
@@ -455,52 +467,52 @@ type RFC1213MIB_Icmp struct {
     // IP to route the resultant datagram.  In some implementations there may be
     // no types of error which contribute to this counter's value. The type is
     // interface{} with range: 0..4294967295.
-    Icmpouterrors interface{}
+    IcmpOutErrors interface{}
 
     // The number of ICMP Destination Unreachable messages sent. The type is
     // interface{} with range: 0..4294967295.
-    Icmpoutdestunreachs interface{}
+    IcmpOutDestUnreachs interface{}
 
     // The number of ICMP Time Exceeded messages sent. The type is interface{}
     // with range: 0..4294967295.
-    Icmpouttimeexcds interface{}
+    IcmpOutTimeExcds interface{}
 
     // The number of ICMP Parameter Problem messages sent. The type is interface{}
     // with range: 0..4294967295.
-    Icmpoutparmprobs interface{}
+    IcmpOutParmProbs interface{}
 
     // The number of ICMP Source Quench messages sent. The type is interface{}
     // with range: 0..4294967295.
-    Icmpoutsrcquenchs interface{}
+    IcmpOutSrcQuenchs interface{}
 
     // The number of ICMP Redirect messages sent.  For a host, this object will
     // always be zero, since hosts do not send redirects. The type is interface{}
     // with range: 0..4294967295.
-    Icmpoutredirects interface{}
+    IcmpOutRedirects interface{}
 
     // The number of ICMP Echo (request) messages sent. The type is interface{}
     // with range: 0..4294967295.
-    Icmpoutechos interface{}
+    IcmpOutEchos interface{}
 
     // The number of ICMP Echo Reply messages sent. The type is interface{} with
     // range: 0..4294967295.
-    Icmpoutechoreps interface{}
+    IcmpOutEchoReps interface{}
 
     // The number of ICMP Timestamp (request) messages sent. The type is
     // interface{} with range: 0..4294967295.
-    Icmpouttimestamps interface{}
+    IcmpOutTimestamps interface{}
 
     // The number of ICMP Timestamp Reply messages sent. The type is interface{}
     // with range: 0..4294967295.
-    Icmpouttimestampreps interface{}
+    IcmpOutTimestampReps interface{}
 
     // The number of ICMP Address Mask Request messages sent. The type is
     // interface{} with range: 0..4294967295.
-    Icmpoutaddrmasks interface{}
+    IcmpOutAddrMasks interface{}
 
     // The number of ICMP Address Mask Reply messages sent. The type is
     // interface{} with range: 0..4294967295.
-    Icmpoutaddrmaskreps interface{}
+    IcmpOutAddrMaskReps interface{}
 }
 
 func (icmp *RFC1213MIB_Icmp) GetEntityData() *types.CommonEntityData {
@@ -513,34 +525,37 @@ func (icmp *RFC1213MIB_Icmp) GetEntityData() *types.CommonEntityData {
     icmp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     icmp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    icmp.EntityData.Children = make(map[string]types.YChild)
-    icmp.EntityData.Leafs = make(map[string]types.YLeaf)
-    icmp.EntityData.Leafs["icmpInMsgs"] = types.YLeaf{"Icmpinmsgs", icmp.Icmpinmsgs}
-    icmp.EntityData.Leafs["icmpInErrors"] = types.YLeaf{"Icmpinerrors", icmp.Icmpinerrors}
-    icmp.EntityData.Leafs["icmpInDestUnreachs"] = types.YLeaf{"Icmpindestunreachs", icmp.Icmpindestunreachs}
-    icmp.EntityData.Leafs["icmpInTimeExcds"] = types.YLeaf{"Icmpintimeexcds", icmp.Icmpintimeexcds}
-    icmp.EntityData.Leafs["icmpInParmProbs"] = types.YLeaf{"Icmpinparmprobs", icmp.Icmpinparmprobs}
-    icmp.EntityData.Leafs["icmpInSrcQuenchs"] = types.YLeaf{"Icmpinsrcquenchs", icmp.Icmpinsrcquenchs}
-    icmp.EntityData.Leafs["icmpInRedirects"] = types.YLeaf{"Icmpinredirects", icmp.Icmpinredirects}
-    icmp.EntityData.Leafs["icmpInEchos"] = types.YLeaf{"Icmpinechos", icmp.Icmpinechos}
-    icmp.EntityData.Leafs["icmpInEchoReps"] = types.YLeaf{"Icmpinechoreps", icmp.Icmpinechoreps}
-    icmp.EntityData.Leafs["icmpInTimestamps"] = types.YLeaf{"Icmpintimestamps", icmp.Icmpintimestamps}
-    icmp.EntityData.Leafs["icmpInTimestampReps"] = types.YLeaf{"Icmpintimestampreps", icmp.Icmpintimestampreps}
-    icmp.EntityData.Leafs["icmpInAddrMasks"] = types.YLeaf{"Icmpinaddrmasks", icmp.Icmpinaddrmasks}
-    icmp.EntityData.Leafs["icmpInAddrMaskReps"] = types.YLeaf{"Icmpinaddrmaskreps", icmp.Icmpinaddrmaskreps}
-    icmp.EntityData.Leafs["icmpOutMsgs"] = types.YLeaf{"Icmpoutmsgs", icmp.Icmpoutmsgs}
-    icmp.EntityData.Leafs["icmpOutErrors"] = types.YLeaf{"Icmpouterrors", icmp.Icmpouterrors}
-    icmp.EntityData.Leafs["icmpOutDestUnreachs"] = types.YLeaf{"Icmpoutdestunreachs", icmp.Icmpoutdestunreachs}
-    icmp.EntityData.Leafs["icmpOutTimeExcds"] = types.YLeaf{"Icmpouttimeexcds", icmp.Icmpouttimeexcds}
-    icmp.EntityData.Leafs["icmpOutParmProbs"] = types.YLeaf{"Icmpoutparmprobs", icmp.Icmpoutparmprobs}
-    icmp.EntityData.Leafs["icmpOutSrcQuenchs"] = types.YLeaf{"Icmpoutsrcquenchs", icmp.Icmpoutsrcquenchs}
-    icmp.EntityData.Leafs["icmpOutRedirects"] = types.YLeaf{"Icmpoutredirects", icmp.Icmpoutredirects}
-    icmp.EntityData.Leafs["icmpOutEchos"] = types.YLeaf{"Icmpoutechos", icmp.Icmpoutechos}
-    icmp.EntityData.Leafs["icmpOutEchoReps"] = types.YLeaf{"Icmpoutechoreps", icmp.Icmpoutechoreps}
-    icmp.EntityData.Leafs["icmpOutTimestamps"] = types.YLeaf{"Icmpouttimestamps", icmp.Icmpouttimestamps}
-    icmp.EntityData.Leafs["icmpOutTimestampReps"] = types.YLeaf{"Icmpouttimestampreps", icmp.Icmpouttimestampreps}
-    icmp.EntityData.Leafs["icmpOutAddrMasks"] = types.YLeaf{"Icmpoutaddrmasks", icmp.Icmpoutaddrmasks}
-    icmp.EntityData.Leafs["icmpOutAddrMaskReps"] = types.YLeaf{"Icmpoutaddrmaskreps", icmp.Icmpoutaddrmaskreps}
+    icmp.EntityData.Children = types.NewOrderedMap()
+    icmp.EntityData.Leafs = types.NewOrderedMap()
+    icmp.EntityData.Leafs.Append("icmpInMsgs", types.YLeaf{"IcmpInMsgs", icmp.IcmpInMsgs})
+    icmp.EntityData.Leafs.Append("icmpInErrors", types.YLeaf{"IcmpInErrors", icmp.IcmpInErrors})
+    icmp.EntityData.Leafs.Append("icmpInDestUnreachs", types.YLeaf{"IcmpInDestUnreachs", icmp.IcmpInDestUnreachs})
+    icmp.EntityData.Leafs.Append("icmpInTimeExcds", types.YLeaf{"IcmpInTimeExcds", icmp.IcmpInTimeExcds})
+    icmp.EntityData.Leafs.Append("icmpInParmProbs", types.YLeaf{"IcmpInParmProbs", icmp.IcmpInParmProbs})
+    icmp.EntityData.Leafs.Append("icmpInSrcQuenchs", types.YLeaf{"IcmpInSrcQuenchs", icmp.IcmpInSrcQuenchs})
+    icmp.EntityData.Leafs.Append("icmpInRedirects", types.YLeaf{"IcmpInRedirects", icmp.IcmpInRedirects})
+    icmp.EntityData.Leafs.Append("icmpInEchos", types.YLeaf{"IcmpInEchos", icmp.IcmpInEchos})
+    icmp.EntityData.Leafs.Append("icmpInEchoReps", types.YLeaf{"IcmpInEchoReps", icmp.IcmpInEchoReps})
+    icmp.EntityData.Leafs.Append("icmpInTimestamps", types.YLeaf{"IcmpInTimestamps", icmp.IcmpInTimestamps})
+    icmp.EntityData.Leafs.Append("icmpInTimestampReps", types.YLeaf{"IcmpInTimestampReps", icmp.IcmpInTimestampReps})
+    icmp.EntityData.Leafs.Append("icmpInAddrMasks", types.YLeaf{"IcmpInAddrMasks", icmp.IcmpInAddrMasks})
+    icmp.EntityData.Leafs.Append("icmpInAddrMaskReps", types.YLeaf{"IcmpInAddrMaskReps", icmp.IcmpInAddrMaskReps})
+    icmp.EntityData.Leafs.Append("icmpOutMsgs", types.YLeaf{"IcmpOutMsgs", icmp.IcmpOutMsgs})
+    icmp.EntityData.Leafs.Append("icmpOutErrors", types.YLeaf{"IcmpOutErrors", icmp.IcmpOutErrors})
+    icmp.EntityData.Leafs.Append("icmpOutDestUnreachs", types.YLeaf{"IcmpOutDestUnreachs", icmp.IcmpOutDestUnreachs})
+    icmp.EntityData.Leafs.Append("icmpOutTimeExcds", types.YLeaf{"IcmpOutTimeExcds", icmp.IcmpOutTimeExcds})
+    icmp.EntityData.Leafs.Append("icmpOutParmProbs", types.YLeaf{"IcmpOutParmProbs", icmp.IcmpOutParmProbs})
+    icmp.EntityData.Leafs.Append("icmpOutSrcQuenchs", types.YLeaf{"IcmpOutSrcQuenchs", icmp.IcmpOutSrcQuenchs})
+    icmp.EntityData.Leafs.Append("icmpOutRedirects", types.YLeaf{"IcmpOutRedirects", icmp.IcmpOutRedirects})
+    icmp.EntityData.Leafs.Append("icmpOutEchos", types.YLeaf{"IcmpOutEchos", icmp.IcmpOutEchos})
+    icmp.EntityData.Leafs.Append("icmpOutEchoReps", types.YLeaf{"IcmpOutEchoReps", icmp.IcmpOutEchoReps})
+    icmp.EntityData.Leafs.Append("icmpOutTimestamps", types.YLeaf{"IcmpOutTimestamps", icmp.IcmpOutTimestamps})
+    icmp.EntityData.Leafs.Append("icmpOutTimestampReps", types.YLeaf{"IcmpOutTimestampReps", icmp.IcmpOutTimestampReps})
+    icmp.EntityData.Leafs.Append("icmpOutAddrMasks", types.YLeaf{"IcmpOutAddrMasks", icmp.IcmpOutAddrMasks})
+    icmp.EntityData.Leafs.Append("icmpOutAddrMaskReps", types.YLeaf{"IcmpOutAddrMaskReps", icmp.IcmpOutAddrMaskReps})
+
+    icmp.EntityData.YListKeys = []string {}
+
     return &(icmp.EntityData)
 }
 
@@ -550,8 +565,8 @@ type RFC1213MIB_Tcp struct {
     YFilter yfilter.YFilter
 
     // The algorithm used to determine the timeout value used for retransmitting
-    // unacknowledged octets. The type is Tcprtoalgorithm.
-    Tcprtoalgorithm interface{}
+    // unacknowledged octets. The type is TcpRtoAlgorithm.
+    TcpRtoAlgorithm interface{}
 
     // The minimum value permitted by a TCP implementation for the retransmission
     // timeout, measured in milliseconds.  More refined semantics for objects of
@@ -559,7 +574,7 @@ type RFC1213MIB_Tcp struct {
     // timeout.  In particular, when the timeout algorithm is rsre(3), an object
     // of this type has the semantics of the LBOUND quantity described in RFC 793.
     // The type is interface{} with range: -2147483648..2147483647.
-    Tcprtomin interface{}
+    TcpRtoMin interface{}
 
     // The maximum value permitted by a TCP implementation for the retransmission
     // timeout, measured in milliseconds.  More refined semantics for objects of
@@ -567,63 +582,63 @@ type RFC1213MIB_Tcp struct {
     // timeout.  In particular, when the timeout algorithm is rsre(3), an object
     // of this type has the semantics of the UBOUND quantity described in RFC 793.
     // The type is interface{} with range: -2147483648..2147483647.
-    Tcprtomax interface{}
+    TcpRtoMax interface{}
 
     // The limit on the total number of TCP connections the entity can support. 
     // In entities where the maximum number of connections is dynamic, this object
     // should contain the value -1. The type is interface{} with range:
     // -2147483648..2147483647.
-    Tcpmaxconn interface{}
+    TcpMaxConn interface{}
 
     // The number of times TCP connections have made a direct transition to the
     // SYN-SENT state from the CLOSED state. The type is interface{} with range:
     // 0..4294967295.
-    Tcpactiveopens interface{}
+    TcpActiveOpens interface{}
 
     // The number of times TCP connections have made a direct transition to the
     // SYN-RCVD state from the LISTEN state. The type is interface{} with range:
     // 0..4294967295.
-    Tcppassiveopens interface{}
+    TcpPassiveOpens interface{}
 
     // The number of times TCP connections have made a direct transition to the
     // CLOSED state from either the SYN-SENT state or the SYN-RCVD state, plus the
     // number of times TCP connections have made a direct transition to the LISTEN
     // state from the SYN-RCVD state. The type is interface{} with range:
     // 0..4294967295.
-    Tcpattemptfails interface{}
+    TcpAttemptFails interface{}
 
     // The number of times TCP connections have made a direct transition to the
     // CLOSED state from either the ESTABLISHED state or the CLOSE-WAIT state. The
     // type is interface{} with range: 0..4294967295.
-    Tcpestabresets interface{}
+    TcpEstabResets interface{}
 
     // The number of TCP connections for which the current state is either
     // ESTABLISHED or CLOSE- WAIT. The type is interface{} with range:
     // 0..4294967295.
-    Tcpcurrestab interface{}
+    TcpCurrEstab interface{}
 
     // The total number of segments received, including those received in error. 
     // This count includes segments received on currently established connections.
     // The type is interface{} with range: 0..4294967295.
-    Tcpinsegs interface{}
+    TcpInSegs interface{}
 
     // The total number of segments sent, including those on current connections
     // but excluding those containing only retransmitted octets. The type is
     // interface{} with range: 0..4294967295.
-    Tcpoutsegs interface{}
+    TcpOutSegs interface{}
 
     // The total number of segments retransmitted - that is, the number of TCP
     // segments transmitted containing one or more previously transmitted octets.
     // The type is interface{} with range: 0..4294967295.
-    Tcpretranssegs interface{}
+    TcpRetransSegs interface{}
 
     // The total number of segments received in error (e.g., bad TCP checksums).
     // The type is interface{} with range: 0..4294967295.
-    Tcpinerrs interface{}
+    TcpInErrs interface{}
 
     // The number of TCP segments sent containing the RST flag. The type is
     // interface{} with range: 0..4294967295.
-    Tcpoutrsts interface{}
+    TcpOutRsts interface{}
 }
 
 func (tcp *RFC1213MIB_Tcp) GetEntityData() *types.CommonEntityData {
@@ -636,38 +651,41 @@ func (tcp *RFC1213MIB_Tcp) GetEntityData() *types.CommonEntityData {
     tcp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tcp.EntityData.Children = make(map[string]types.YChild)
-    tcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcp.EntityData.Leafs["tcpRtoAlgorithm"] = types.YLeaf{"Tcprtoalgorithm", tcp.Tcprtoalgorithm}
-    tcp.EntityData.Leafs["tcpRtoMin"] = types.YLeaf{"Tcprtomin", tcp.Tcprtomin}
-    tcp.EntityData.Leafs["tcpRtoMax"] = types.YLeaf{"Tcprtomax", tcp.Tcprtomax}
-    tcp.EntityData.Leafs["tcpMaxConn"] = types.YLeaf{"Tcpmaxconn", tcp.Tcpmaxconn}
-    tcp.EntityData.Leafs["tcpActiveOpens"] = types.YLeaf{"Tcpactiveopens", tcp.Tcpactiveopens}
-    tcp.EntityData.Leafs["tcpPassiveOpens"] = types.YLeaf{"Tcppassiveopens", tcp.Tcppassiveopens}
-    tcp.EntityData.Leafs["tcpAttemptFails"] = types.YLeaf{"Tcpattemptfails", tcp.Tcpattemptfails}
-    tcp.EntityData.Leafs["tcpEstabResets"] = types.YLeaf{"Tcpestabresets", tcp.Tcpestabresets}
-    tcp.EntityData.Leafs["tcpCurrEstab"] = types.YLeaf{"Tcpcurrestab", tcp.Tcpcurrestab}
-    tcp.EntityData.Leafs["tcpInSegs"] = types.YLeaf{"Tcpinsegs", tcp.Tcpinsegs}
-    tcp.EntityData.Leafs["tcpOutSegs"] = types.YLeaf{"Tcpoutsegs", tcp.Tcpoutsegs}
-    tcp.EntityData.Leafs["tcpRetransSegs"] = types.YLeaf{"Tcpretranssegs", tcp.Tcpretranssegs}
-    tcp.EntityData.Leafs["tcpInErrs"] = types.YLeaf{"Tcpinerrs", tcp.Tcpinerrs}
-    tcp.EntityData.Leafs["tcpOutRsts"] = types.YLeaf{"Tcpoutrsts", tcp.Tcpoutrsts}
+    tcp.EntityData.Children = types.NewOrderedMap()
+    tcp.EntityData.Leafs = types.NewOrderedMap()
+    tcp.EntityData.Leafs.Append("tcpRtoAlgorithm", types.YLeaf{"TcpRtoAlgorithm", tcp.TcpRtoAlgorithm})
+    tcp.EntityData.Leafs.Append("tcpRtoMin", types.YLeaf{"TcpRtoMin", tcp.TcpRtoMin})
+    tcp.EntityData.Leafs.Append("tcpRtoMax", types.YLeaf{"TcpRtoMax", tcp.TcpRtoMax})
+    tcp.EntityData.Leafs.Append("tcpMaxConn", types.YLeaf{"TcpMaxConn", tcp.TcpMaxConn})
+    tcp.EntityData.Leafs.Append("tcpActiveOpens", types.YLeaf{"TcpActiveOpens", tcp.TcpActiveOpens})
+    tcp.EntityData.Leafs.Append("tcpPassiveOpens", types.YLeaf{"TcpPassiveOpens", tcp.TcpPassiveOpens})
+    tcp.EntityData.Leafs.Append("tcpAttemptFails", types.YLeaf{"TcpAttemptFails", tcp.TcpAttemptFails})
+    tcp.EntityData.Leafs.Append("tcpEstabResets", types.YLeaf{"TcpEstabResets", tcp.TcpEstabResets})
+    tcp.EntityData.Leafs.Append("tcpCurrEstab", types.YLeaf{"TcpCurrEstab", tcp.TcpCurrEstab})
+    tcp.EntityData.Leafs.Append("tcpInSegs", types.YLeaf{"TcpInSegs", tcp.TcpInSegs})
+    tcp.EntityData.Leafs.Append("tcpOutSegs", types.YLeaf{"TcpOutSegs", tcp.TcpOutSegs})
+    tcp.EntityData.Leafs.Append("tcpRetransSegs", types.YLeaf{"TcpRetransSegs", tcp.TcpRetransSegs})
+    tcp.EntityData.Leafs.Append("tcpInErrs", types.YLeaf{"TcpInErrs", tcp.TcpInErrs})
+    tcp.EntityData.Leafs.Append("tcpOutRsts", types.YLeaf{"TcpOutRsts", tcp.TcpOutRsts})
+
+    tcp.EntityData.YListKeys = []string {}
+
     return &(tcp.EntityData)
 }
 
-// RFC1213MIB_Tcp_Tcprtoalgorithm represents used for retransmitting unacknowledged octets.
-type RFC1213MIB_Tcp_Tcprtoalgorithm string
+// RFC1213MIB_Tcp_TcpRtoAlgorithm represents used for retransmitting unacknowledged octets.
+type RFC1213MIB_Tcp_TcpRtoAlgorithm string
 
 const (
-    RFC1213MIB_Tcp_Tcprtoalgorithm_other RFC1213MIB_Tcp_Tcprtoalgorithm = "other"
+    RFC1213MIB_Tcp_TcpRtoAlgorithm_other RFC1213MIB_Tcp_TcpRtoAlgorithm = "other"
 
-    RFC1213MIB_Tcp_Tcprtoalgorithm_constant RFC1213MIB_Tcp_Tcprtoalgorithm = "constant"
+    RFC1213MIB_Tcp_TcpRtoAlgorithm_constant RFC1213MIB_Tcp_TcpRtoAlgorithm = "constant"
 
-    RFC1213MIB_Tcp_Tcprtoalgorithm_rsre RFC1213MIB_Tcp_Tcprtoalgorithm = "rsre"
+    RFC1213MIB_Tcp_TcpRtoAlgorithm_rsre RFC1213MIB_Tcp_TcpRtoAlgorithm = "rsre"
 
-    RFC1213MIB_Tcp_Tcprtoalgorithm_vanj RFC1213MIB_Tcp_Tcprtoalgorithm = "vanj"
+    RFC1213MIB_Tcp_TcpRtoAlgorithm_vanj RFC1213MIB_Tcp_TcpRtoAlgorithm = "vanj"
 
-    RFC1213MIB_Tcp_Tcprtoalgorithm_rfc2988 RFC1213MIB_Tcp_Tcprtoalgorithm = "rfc2988"
+    RFC1213MIB_Tcp_TcpRtoAlgorithm_rfc2988 RFC1213MIB_Tcp_TcpRtoAlgorithm = "rfc2988"
 )
 
 // RFC1213MIB_Udp
@@ -677,21 +695,21 @@ type RFC1213MIB_Udp struct {
 
     // The total number of UDP datagrams delivered to UDP users. The type is
     // interface{} with range: 0..4294967295.
-    Udpindatagrams interface{}
+    UdpInDatagrams interface{}
 
     // The total number of received UDP datagrams for which there was no
     // application at the destination port. The type is interface{} with range:
     // 0..4294967295.
-    Udpnoports interface{}
+    UdpNoPorts interface{}
 
     // The number of received UDP datagrams that could not be delivered for
     // reasons other than the lack of an application at the destination port. The
     // type is interface{} with range: 0..4294967295.
-    Udpinerrors interface{}
+    UdpInErrors interface{}
 
     // The total number of UDP datagrams sent from this entity. The type is
     // interface{} with range: 0..4294967295.
-    Udpoutdatagrams interface{}
+    UdpOutDatagrams interface{}
 }
 
 func (udp *RFC1213MIB_Udp) GetEntityData() *types.CommonEntityData {
@@ -704,12 +722,15 @@ func (udp *RFC1213MIB_Udp) GetEntityData() *types.CommonEntityData {
     udp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     udp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    udp.EntityData.Children = make(map[string]types.YChild)
-    udp.EntityData.Leafs = make(map[string]types.YLeaf)
-    udp.EntityData.Leafs["udpInDatagrams"] = types.YLeaf{"Udpindatagrams", udp.Udpindatagrams}
-    udp.EntityData.Leafs["udpNoPorts"] = types.YLeaf{"Udpnoports", udp.Udpnoports}
-    udp.EntityData.Leafs["udpInErrors"] = types.YLeaf{"Udpinerrors", udp.Udpinerrors}
-    udp.EntityData.Leafs["udpOutDatagrams"] = types.YLeaf{"Udpoutdatagrams", udp.Udpoutdatagrams}
+    udp.EntityData.Children = types.NewOrderedMap()
+    udp.EntityData.Leafs = types.NewOrderedMap()
+    udp.EntityData.Leafs.Append("udpInDatagrams", types.YLeaf{"UdpInDatagrams", udp.UdpInDatagrams})
+    udp.EntityData.Leafs.Append("udpNoPorts", types.YLeaf{"UdpNoPorts", udp.UdpNoPorts})
+    udp.EntityData.Leafs.Append("udpInErrors", types.YLeaf{"UdpInErrors", udp.UdpInErrors})
+    udp.EntityData.Leafs.Append("udpOutDatagrams", types.YLeaf{"UdpOutDatagrams", udp.UdpOutDatagrams})
+
+    udp.EntityData.YListKeys = []string {}
+
     return &(udp.EntityData)
 }
 
@@ -720,24 +741,24 @@ type RFC1213MIB_Egp struct {
 
     // The number of EGP messages received without error. The type is interface{}
     // with range: 0..4294967295.
-    Egpinmsgs interface{}
+    EgpInMsgs interface{}
 
     // The number of EGP messages received that proved to be in error. The type is
     // interface{} with range: 0..4294967295.
-    Egpinerrors interface{}
+    EgpInErrors interface{}
 
     // The total number of locally generated EGP messages. The type is interface{}
     // with range: 0..4294967295.
-    Egpoutmsgs interface{}
+    EgpOutMsgs interface{}
 
     // The number of locally generated EGP messages not sent due to resource
     // limitations within an EGP entity. The type is interface{} with range:
     // 0..4294967295.
-    Egpouterrors interface{}
+    EgpOutErrors interface{}
 
     // The autonomous system number of this EGP entity. The type is interface{}
     // with range: -2147483648..2147483647.
-    Egpas interface{}
+    EgpAs interface{}
 }
 
 func (egp *RFC1213MIB_Egp) GetEntityData() *types.CommonEntityData {
@@ -750,13 +771,16 @@ func (egp *RFC1213MIB_Egp) GetEntityData() *types.CommonEntityData {
     egp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     egp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    egp.EntityData.Children = make(map[string]types.YChild)
-    egp.EntityData.Leafs = make(map[string]types.YLeaf)
-    egp.EntityData.Leafs["egpInMsgs"] = types.YLeaf{"Egpinmsgs", egp.Egpinmsgs}
-    egp.EntityData.Leafs["egpInErrors"] = types.YLeaf{"Egpinerrors", egp.Egpinerrors}
-    egp.EntityData.Leafs["egpOutMsgs"] = types.YLeaf{"Egpoutmsgs", egp.Egpoutmsgs}
-    egp.EntityData.Leafs["egpOutErrors"] = types.YLeaf{"Egpouterrors", egp.Egpouterrors}
-    egp.EntityData.Leafs["egpAs"] = types.YLeaf{"Egpas", egp.Egpas}
+    egp.EntityData.Children = types.NewOrderedMap()
+    egp.EntityData.Leafs = types.NewOrderedMap()
+    egp.EntityData.Leafs.Append("egpInMsgs", types.YLeaf{"EgpInMsgs", egp.EgpInMsgs})
+    egp.EntityData.Leafs.Append("egpInErrors", types.YLeaf{"EgpInErrors", egp.EgpInErrors})
+    egp.EntityData.Leafs.Append("egpOutMsgs", types.YLeaf{"EgpOutMsgs", egp.EgpOutMsgs})
+    egp.EntityData.Leafs.Append("egpOutErrors", types.YLeaf{"EgpOutErrors", egp.EgpOutErrors})
+    egp.EntityData.Leafs.Append("egpAs", types.YLeaf{"EgpAs", egp.EgpAs})
+
+    egp.EntityData.YListKeys = []string {}
+
     return &(egp.EntityData)
 }
 
@@ -767,48 +791,48 @@ type RFC1213MIB_Snmp struct {
 
     // The total number of Messages delivered to the SNMP entity from the
     // transport service. The type is interface{} with range: 0..4294967295.
-    Snmpinpkts interface{}
+    SnmpInPkts interface{}
 
     // The total number of SNMP Messages which were passed from the SNMP protocol
     // entity to the transport service. The type is interface{} with range:
     // 0..4294967295.
-    Snmpoutpkts interface{}
+    SnmpOutPkts interface{}
 
     // The total number of SNMP Messages which were delivered to the SNMP protocol
     // entity and were for an unsupported SNMP version. The type is interface{}
     // with range: 0..4294967295.
-    Snmpinbadversions interface{}
+    SnmpInBadVersions interface{}
 
     // The total number of SNMP Messages delivered to the SNMP protocol entity
     // which used a SNMP community name not known to said entity. The type is
     // interface{} with range: 0..4294967295.
-    Snmpinbadcommunitynames interface{}
+    SnmpInBadCommunityNames interface{}
 
     // The total number of SNMP Messages delivered to the SNMP protocol entity
     // which represented an SNMP operation which was not allowed by the SNMP
     // community named in the Message. The type is interface{} with range:
     // 0..4294967295.
-    Snmpinbadcommunityuses interface{}
+    SnmpInBadCommunityUses interface{}
 
     // The total number of ASN.1 or BER errors encountered by the SNMP protocol
     // entity when decoding received SNMP Messages. The type is interface{} with
     // range: 0..4294967295.
-    Snmpinasnparseerrs interface{}
+    SnmpInASNParseErrs interface{}
 
     // The total number of SNMP PDUs which were delivered to the SNMP protocol
     // entity and for which the value of the error-status field is `tooBig'. The
     // type is interface{} with range: 0..4294967295.
-    Snmpintoobigs interface{}
+    SnmpInTooBigs interface{}
 
     // The total number of SNMP PDUs which were delivered to the SNMP protocol
     // entity and for which the value of the error-status field is `noSuchName'.
     // The type is interface{} with range: 0..4294967295.
-    Snmpinnosuchnames interface{}
+    SnmpInNoSuchNames interface{}
 
     // The total number of SNMP PDUs which were delivered to the SNMP protocol
     // entity and for which the value of the error-status field is `badValue'. The
     // type is interface{} with range: 0..4294967295.
-    Snmpinbadvalues interface{}
+    SnmpInBadValues interface{}
 
     // The total number valid SNMP PDUs which were delivered to the SNMP protocol
     // entity and for which the value of the error-status field is `readOnly'.  It
@@ -816,87 +840,87 @@ type RFC1213MIB_Snmp struct {
     // contains the value `readOnly' in the error-status field, as such this
     // object is provided as a means of detecting incorrect implementations of the
     // SNMP. The type is interface{} with range: 0..4294967295.
-    Snmpinreadonlys interface{}
+    SnmpInReadOnlys interface{}
 
     // The total number of SNMP PDUs which were delivered to the SNMP protocol
     // entity and for which the value of the error-status field is `genErr'. The
     // type is interface{} with range: 0..4294967295.
-    Snmpingenerrs interface{}
+    SnmpInGenErrs interface{}
 
     // The total number of MIB objects which have been retrieved successfully by
     // the SNMP protocol entity as the result of receiving valid SNMP Get-Request
     // and Get-Next PDUs. The type is interface{} with range: 0..4294967295.
-    Snmpintotalreqvars interface{}
+    SnmpInTotalReqVars interface{}
 
     // The total number of MIB objects which have been altered successfully by the
     // SNMP protocol entity as the result of receiving valid SNMP Set-Request
     // PDUs. The type is interface{} with range: 0..4294967295.
-    Snmpintotalsetvars interface{}
+    SnmpInTotalSetVars interface{}
 
     // The total number of SNMP Get-Request PDUs which have been accepted and
     // processed by the SNMP protocol entity. The type is interface{} with range:
     // 0..4294967295.
-    Snmpingetrequests interface{}
+    SnmpInGetRequests interface{}
 
     // The total number of SNMP Get-Next PDUs which have been accepted and
     // processed by the SNMP protocol entity. The type is interface{} with range:
     // 0..4294967295.
-    Snmpingetnexts interface{}
+    SnmpInGetNexts interface{}
 
     // The total number of SNMP Set-Request PDUs which have been accepted and
     // processed by the SNMP protocol entity. The type is interface{} with range:
     // 0..4294967295.
-    Snmpinsetrequests interface{}
+    SnmpInSetRequests interface{}
 
     // The total number of SNMP Get-Response PDUs which have been accepted and
     // processed by the SNMP protocol entity. The type is interface{} with range:
     // 0..4294967295.
-    Snmpingetresponses interface{}
+    SnmpInGetResponses interface{}
 
     // The total number of SNMP Trap PDUs which have been accepted and processed
     // by the SNMP protocol entity. The type is interface{} with range:
     // 0..4294967295.
-    Snmpintraps interface{}
+    SnmpInTraps interface{}
 
     // The total number of SNMP PDUs which were generated by the SNMP protocol
     // entity and for which the value of the error-status field is `tooBig.'. The
     // type is interface{} with range: 0..4294967295.
-    Snmpouttoobigs interface{}
+    SnmpOutTooBigs interface{}
 
     // The total number of SNMP PDUs which were generated by the SNMP protocol
     // entity and for which the value of the error-status is `noSuchName'. The
     // type is interface{} with range: 0..4294967295.
-    Snmpoutnosuchnames interface{}
+    SnmpOutNoSuchNames interface{}
 
     // The total number of SNMP PDUs which were generated by the SNMP protocol
     // entity and for which the value of the error-status field is `badValue'. The
     // type is interface{} with range: 0..4294967295.
-    Snmpoutbadvalues interface{}
+    SnmpOutBadValues interface{}
 
     // The total number of SNMP PDUs which were generated by the SNMP protocol
     // entity and for which the value of the error-status field is `genErr'. The
     // type is interface{} with range: 0..4294967295.
-    Snmpoutgenerrs interface{}
+    SnmpOutGenErrs interface{}
 
     // The total number of SNMP Get-Request PDUs which have been generated by the
     // SNMP protocol entity. The type is interface{} with range: 0..4294967295.
-    Snmpoutgetrequests interface{}
+    SnmpOutGetRequests interface{}
 
     // The total number of SNMP Get-Next PDUs which have been generated by the
     // SNMP protocol entity. The type is interface{} with range: 0..4294967295.
-    Snmpoutgetnexts interface{}
+    SnmpOutGetNexts interface{}
 
     // The total number of SNMP Set-Request PDUs which have been generated by the
     // SNMP protocol entity. The type is interface{} with range: 0..4294967295.
-    Snmpoutsetrequests interface{}
+    SnmpOutSetRequests interface{}
 
     // The total number of SNMP Get-Response PDUs which have been generated by the
     // SNMP protocol entity. The type is interface{} with range: 0..4294967295.
-    Snmpoutgetresponses interface{}
+    SnmpOutGetResponses interface{}
 
     // The total number of SNMP Trap PDUs which have been generated by the SNMP
     // protocol entity. The type is interface{} with range: 0..4294967295.
-    Snmpouttraps interface{}
+    SnmpOutTraps interface{}
 
     // Indicates whether the SNMP agent process is permitted to generate
     // authentication-failure traps.  The value of this object overrides any
@@ -904,8 +928,8 @@ type RFC1213MIB_Snmp struct {
     // authentication-failure traps may be disabled.  Note that it is strongly
     // recommended that this object be stored in non-volatile memory so that it
     // remains constant between re-initializations of the network management
-    // system. The type is Snmpenableauthentraps.
-    Snmpenableauthentraps interface{}
+    // system. The type is SnmpEnableAuthenTraps.
+    SnmpEnableAuthenTraps interface{}
 }
 
 func (snmp *RFC1213MIB_Snmp) GetEntityData() *types.CommonEntityData {
@@ -918,84 +942,90 @@ func (snmp *RFC1213MIB_Snmp) GetEntityData() *types.CommonEntityData {
     snmp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     snmp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    snmp.EntityData.Children = make(map[string]types.YChild)
-    snmp.EntityData.Leafs = make(map[string]types.YLeaf)
-    snmp.EntityData.Leafs["snmpInPkts"] = types.YLeaf{"Snmpinpkts", snmp.Snmpinpkts}
-    snmp.EntityData.Leafs["snmpOutPkts"] = types.YLeaf{"Snmpoutpkts", snmp.Snmpoutpkts}
-    snmp.EntityData.Leafs["snmpInBadVersions"] = types.YLeaf{"Snmpinbadversions", snmp.Snmpinbadversions}
-    snmp.EntityData.Leafs["snmpInBadCommunityNames"] = types.YLeaf{"Snmpinbadcommunitynames", snmp.Snmpinbadcommunitynames}
-    snmp.EntityData.Leafs["snmpInBadCommunityUses"] = types.YLeaf{"Snmpinbadcommunityuses", snmp.Snmpinbadcommunityuses}
-    snmp.EntityData.Leafs["snmpInASNParseErrs"] = types.YLeaf{"Snmpinasnparseerrs", snmp.Snmpinasnparseerrs}
-    snmp.EntityData.Leafs["snmpInTooBigs"] = types.YLeaf{"Snmpintoobigs", snmp.Snmpintoobigs}
-    snmp.EntityData.Leafs["snmpInNoSuchNames"] = types.YLeaf{"Snmpinnosuchnames", snmp.Snmpinnosuchnames}
-    snmp.EntityData.Leafs["snmpInBadValues"] = types.YLeaf{"Snmpinbadvalues", snmp.Snmpinbadvalues}
-    snmp.EntityData.Leafs["snmpInReadOnlys"] = types.YLeaf{"Snmpinreadonlys", snmp.Snmpinreadonlys}
-    snmp.EntityData.Leafs["snmpInGenErrs"] = types.YLeaf{"Snmpingenerrs", snmp.Snmpingenerrs}
-    snmp.EntityData.Leafs["snmpInTotalReqVars"] = types.YLeaf{"Snmpintotalreqvars", snmp.Snmpintotalreqvars}
-    snmp.EntityData.Leafs["snmpInTotalSetVars"] = types.YLeaf{"Snmpintotalsetvars", snmp.Snmpintotalsetvars}
-    snmp.EntityData.Leafs["snmpInGetRequests"] = types.YLeaf{"Snmpingetrequests", snmp.Snmpingetrequests}
-    snmp.EntityData.Leafs["snmpInGetNexts"] = types.YLeaf{"Snmpingetnexts", snmp.Snmpingetnexts}
-    snmp.EntityData.Leafs["snmpInSetRequests"] = types.YLeaf{"Snmpinsetrequests", snmp.Snmpinsetrequests}
-    snmp.EntityData.Leafs["snmpInGetResponses"] = types.YLeaf{"Snmpingetresponses", snmp.Snmpingetresponses}
-    snmp.EntityData.Leafs["snmpInTraps"] = types.YLeaf{"Snmpintraps", snmp.Snmpintraps}
-    snmp.EntityData.Leafs["snmpOutTooBigs"] = types.YLeaf{"Snmpouttoobigs", snmp.Snmpouttoobigs}
-    snmp.EntityData.Leafs["snmpOutNoSuchNames"] = types.YLeaf{"Snmpoutnosuchnames", snmp.Snmpoutnosuchnames}
-    snmp.EntityData.Leafs["snmpOutBadValues"] = types.YLeaf{"Snmpoutbadvalues", snmp.Snmpoutbadvalues}
-    snmp.EntityData.Leafs["snmpOutGenErrs"] = types.YLeaf{"Snmpoutgenerrs", snmp.Snmpoutgenerrs}
-    snmp.EntityData.Leafs["snmpOutGetRequests"] = types.YLeaf{"Snmpoutgetrequests", snmp.Snmpoutgetrequests}
-    snmp.EntityData.Leafs["snmpOutGetNexts"] = types.YLeaf{"Snmpoutgetnexts", snmp.Snmpoutgetnexts}
-    snmp.EntityData.Leafs["snmpOutSetRequests"] = types.YLeaf{"Snmpoutsetrequests", snmp.Snmpoutsetrequests}
-    snmp.EntityData.Leafs["snmpOutGetResponses"] = types.YLeaf{"Snmpoutgetresponses", snmp.Snmpoutgetresponses}
-    snmp.EntityData.Leafs["snmpOutTraps"] = types.YLeaf{"Snmpouttraps", snmp.Snmpouttraps}
-    snmp.EntityData.Leafs["snmpEnableAuthenTraps"] = types.YLeaf{"Snmpenableauthentraps", snmp.Snmpenableauthentraps}
+    snmp.EntityData.Children = types.NewOrderedMap()
+    snmp.EntityData.Leafs = types.NewOrderedMap()
+    snmp.EntityData.Leafs.Append("snmpInPkts", types.YLeaf{"SnmpInPkts", snmp.SnmpInPkts})
+    snmp.EntityData.Leafs.Append("snmpOutPkts", types.YLeaf{"SnmpOutPkts", snmp.SnmpOutPkts})
+    snmp.EntityData.Leafs.Append("snmpInBadVersions", types.YLeaf{"SnmpInBadVersions", snmp.SnmpInBadVersions})
+    snmp.EntityData.Leafs.Append("snmpInBadCommunityNames", types.YLeaf{"SnmpInBadCommunityNames", snmp.SnmpInBadCommunityNames})
+    snmp.EntityData.Leafs.Append("snmpInBadCommunityUses", types.YLeaf{"SnmpInBadCommunityUses", snmp.SnmpInBadCommunityUses})
+    snmp.EntityData.Leafs.Append("snmpInASNParseErrs", types.YLeaf{"SnmpInASNParseErrs", snmp.SnmpInASNParseErrs})
+    snmp.EntityData.Leafs.Append("snmpInTooBigs", types.YLeaf{"SnmpInTooBigs", snmp.SnmpInTooBigs})
+    snmp.EntityData.Leafs.Append("snmpInNoSuchNames", types.YLeaf{"SnmpInNoSuchNames", snmp.SnmpInNoSuchNames})
+    snmp.EntityData.Leafs.Append("snmpInBadValues", types.YLeaf{"SnmpInBadValues", snmp.SnmpInBadValues})
+    snmp.EntityData.Leafs.Append("snmpInReadOnlys", types.YLeaf{"SnmpInReadOnlys", snmp.SnmpInReadOnlys})
+    snmp.EntityData.Leafs.Append("snmpInGenErrs", types.YLeaf{"SnmpInGenErrs", snmp.SnmpInGenErrs})
+    snmp.EntityData.Leafs.Append("snmpInTotalReqVars", types.YLeaf{"SnmpInTotalReqVars", snmp.SnmpInTotalReqVars})
+    snmp.EntityData.Leafs.Append("snmpInTotalSetVars", types.YLeaf{"SnmpInTotalSetVars", snmp.SnmpInTotalSetVars})
+    snmp.EntityData.Leafs.Append("snmpInGetRequests", types.YLeaf{"SnmpInGetRequests", snmp.SnmpInGetRequests})
+    snmp.EntityData.Leafs.Append("snmpInGetNexts", types.YLeaf{"SnmpInGetNexts", snmp.SnmpInGetNexts})
+    snmp.EntityData.Leafs.Append("snmpInSetRequests", types.YLeaf{"SnmpInSetRequests", snmp.SnmpInSetRequests})
+    snmp.EntityData.Leafs.Append("snmpInGetResponses", types.YLeaf{"SnmpInGetResponses", snmp.SnmpInGetResponses})
+    snmp.EntityData.Leafs.Append("snmpInTraps", types.YLeaf{"SnmpInTraps", snmp.SnmpInTraps})
+    snmp.EntityData.Leafs.Append("snmpOutTooBigs", types.YLeaf{"SnmpOutTooBigs", snmp.SnmpOutTooBigs})
+    snmp.EntityData.Leafs.Append("snmpOutNoSuchNames", types.YLeaf{"SnmpOutNoSuchNames", snmp.SnmpOutNoSuchNames})
+    snmp.EntityData.Leafs.Append("snmpOutBadValues", types.YLeaf{"SnmpOutBadValues", snmp.SnmpOutBadValues})
+    snmp.EntityData.Leafs.Append("snmpOutGenErrs", types.YLeaf{"SnmpOutGenErrs", snmp.SnmpOutGenErrs})
+    snmp.EntityData.Leafs.Append("snmpOutGetRequests", types.YLeaf{"SnmpOutGetRequests", snmp.SnmpOutGetRequests})
+    snmp.EntityData.Leafs.Append("snmpOutGetNexts", types.YLeaf{"SnmpOutGetNexts", snmp.SnmpOutGetNexts})
+    snmp.EntityData.Leafs.Append("snmpOutSetRequests", types.YLeaf{"SnmpOutSetRequests", snmp.SnmpOutSetRequests})
+    snmp.EntityData.Leafs.Append("snmpOutGetResponses", types.YLeaf{"SnmpOutGetResponses", snmp.SnmpOutGetResponses})
+    snmp.EntityData.Leafs.Append("snmpOutTraps", types.YLeaf{"SnmpOutTraps", snmp.SnmpOutTraps})
+    snmp.EntityData.Leafs.Append("snmpEnableAuthenTraps", types.YLeaf{"SnmpEnableAuthenTraps", snmp.SnmpEnableAuthenTraps})
+
+    snmp.EntityData.YListKeys = []string {}
+
     return &(snmp.EntityData)
 }
 
-// RFC1213MIB_Snmp_Snmpenableauthentraps represents network management system.
-type RFC1213MIB_Snmp_Snmpenableauthentraps string
+// RFC1213MIB_Snmp_SnmpEnableAuthenTraps represents network management system.
+type RFC1213MIB_Snmp_SnmpEnableAuthenTraps string
 
 const (
-    RFC1213MIB_Snmp_Snmpenableauthentraps_enabled RFC1213MIB_Snmp_Snmpenableauthentraps = "enabled"
+    RFC1213MIB_Snmp_SnmpEnableAuthenTraps_enabled RFC1213MIB_Snmp_SnmpEnableAuthenTraps = "enabled"
 
-    RFC1213MIB_Snmp_Snmpenableauthentraps_disabled RFC1213MIB_Snmp_Snmpenableauthentraps = "disabled"
+    RFC1213MIB_Snmp_SnmpEnableAuthenTraps_disabled RFC1213MIB_Snmp_SnmpEnableAuthenTraps = "disabled"
 )
 
-// RFC1213MIB_Iftable
+// RFC1213MIB_IfTable
 // A list of interface entries.  The number of
 // entries is given by the value of ifNumber.
-type RFC1213MIB_Iftable struct {
+type RFC1213MIB_IfTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An interface entry containing objects at the subnetwork layer and below for
-    // a particular interface. The type is slice of RFC1213MIB_Iftable_Ifentry.
-    Ifentry []RFC1213MIB_Iftable_Ifentry
+    // a particular interface. The type is slice of RFC1213MIB_IfTable_IfEntry.
+    IfEntry []*RFC1213MIB_IfTable_IfEntry
 }
 
-func (iftable *RFC1213MIB_Iftable) GetEntityData() *types.CommonEntityData {
-    iftable.EntityData.YFilter = iftable.YFilter
-    iftable.EntityData.YangName = "ifTable"
-    iftable.EntityData.BundleName = "cisco_ios_xe"
-    iftable.EntityData.ParentYangName = "RFC1213-MIB"
-    iftable.EntityData.SegmentPath = "ifTable"
-    iftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    iftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    iftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ifTable *RFC1213MIB_IfTable) GetEntityData() *types.CommonEntityData {
+    ifTable.EntityData.YFilter = ifTable.YFilter
+    ifTable.EntityData.YangName = "ifTable"
+    ifTable.EntityData.BundleName = "cisco_ios_xe"
+    ifTable.EntityData.ParentYangName = "RFC1213-MIB"
+    ifTable.EntityData.SegmentPath = "ifTable"
+    ifTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ifTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ifTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    iftable.EntityData.Children = make(map[string]types.YChild)
-    iftable.EntityData.Children["ifEntry"] = types.YChild{"Ifentry", nil}
-    for i := range iftable.Ifentry {
-        iftable.EntityData.Children[types.GetSegmentPath(&iftable.Ifentry[i])] = types.YChild{"Ifentry", &iftable.Ifentry[i]}
+    ifTable.EntityData.Children = types.NewOrderedMap()
+    ifTable.EntityData.Children.Append("ifEntry", types.YChild{"IfEntry", nil})
+    for i := range ifTable.IfEntry {
+        ifTable.EntityData.Children.Append(types.GetSegmentPath(ifTable.IfEntry[i]), types.YChild{"IfEntry", ifTable.IfEntry[i]})
     }
-    iftable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(iftable.EntityData)
+    ifTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ifTable.EntityData.YListKeys = []string {}
+
+    return &(ifTable.EntityData)
 }
 
-// RFC1213MIB_Iftable_Ifentry
+// RFC1213MIB_IfTable_IfEntry
 // An interface entry containing objects at the
 // subnetwork layer and below for a particular
 // interface.
-type RFC1213MIB_Iftable_Ifentry struct {
+type RFC1213MIB_IfTable_IfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1004,110 +1034,110 @@ type RFC1213MIB_Iftable_Ifentry struct {
     // must remain constant at least from one re-initialization of the entity's
     // network management system to the next re- initialization. The type is
     // interface{} with range: -2147483648..2147483647.
-    Ifindex interface{}
+    IfIndex interface{}
 
     // A textual string containing information about the interface.  This string
     // should include the name of the manufacturer, the product name and the
     // version of the hardware interface. The type is string with length: 0..255.
-    Ifdescr interface{}
+    IfDescr interface{}
 
     // The type of interface.  Additional values for ifType are assigned by the
     // Internet Assigned Numbers Authority (IANA), through updating the syntax of
     // the IANAifType textual convention. The type is IANAifType.
-    Iftype interface{}
+    IfType interface{}
 
     // The size of the largest datagram which can be sent/received on the
     // interface, specified in octets.  For interfaces that are used for
     // transmitting network datagrams, this is the size of the largest network
     // datagram that can be sent on the interface. The type is interface{} with
     // range: -2147483648..2147483647.
-    Ifmtu interface{}
+    IfMtu interface{}
 
     // An estimate of the interface's current bandwidth in bits per second.  For
     // interfaces which do not vary in bandwidth or for those where no accurate
     // estimation can be made, this object should contain the nominal bandwidth.
     // The type is interface{} with range: 0..4294967295.
-    Ifspeed interface{}
+    IfSpeed interface{}
 
     // The interface's address at the protocol layer immediately `below' the
     // network layer in the protocol stack.  For interfaces which do not have such
     // an address (e.g., a serial line), this object should contain an octet
     // string of zero length. The type is string.
-    Ifphysaddress interface{}
+    IfPhysAddress interface{}
 
     // The desired state of the interface.  The testing(3) state indicates that no
-    // operational packets can be passed. The type is Ifadminstatus.
-    Ifadminstatus interface{}
+    // operational packets can be passed. The type is IfAdminStatus.
+    IfAdminStatus interface{}
 
     // The current operational state of the interface. The testing(3) state
     // indicates that no operational packets can be passed. The type is
-    // Ifoperstatus.
-    Ifoperstatus interface{}
+    // IfOperStatus.
+    IfOperStatus interface{}
 
     // The value of sysUpTime at the time the interface entered its current
     // operational state.  If the current state was entered prior to the last re-
     // initialization of the local network management subsystem, then this object
     // contains a zero value. The type is interface{} with range: 0..4294967295.
-    Iflastchange interface{}
+    IfLastChange interface{}
 
     // The total number of octets received on the interface, including framing
     // characters. The type is interface{} with range: 0..4294967295.
-    Ifinoctets interface{}
+    IfInOctets interface{}
 
     // The number of subnetwork-unicast packets delivered to a higher-layer
     // protocol. The type is interface{} with range: 0..4294967295.
-    Ifinucastpkts interface{}
+    IfInUcastPkts interface{}
 
     // The number of non-unicast (i.e., subnetwork- broadcast or
     // subnetwork-multicast) packets delivered to a higher-layer protocol. The
     // type is interface{} with range: 0..4294967295.
-    Ifinnucastpkts interface{}
+    IfInNUcastPkts interface{}
 
     // The number of inbound packets which were chosen to be discarded even though
     // no errors had been detected to prevent their being deliverable to a
     // higher-layer protocol.  One possible reason for discarding such a packet
     // could be to free up buffer space. The type is interface{} with range:
     // 0..4294967295.
-    Ifindiscards interface{}
+    IfInDiscards interface{}
 
     // The number of inbound packets that contained errors preventing them from
     // being deliverable to a higher-layer protocol. The type is interface{} with
     // range: 0..4294967295.
-    Ifinerrors interface{}
+    IfInErrors interface{}
 
     // The number of packets received via the interface which were discarded
     // because of an unknown or unsupported protocol. The type is interface{} with
     // range: 0..4294967295.
-    Ifinunknownprotos interface{}
+    IfInUnknownProtos interface{}
 
     // The total number of octets transmitted out of the interface, including
     // framing characters. The type is interface{} with range: 0..4294967295.
-    Ifoutoctets interface{}
+    IfOutOctets interface{}
 
     // The total number of packets that higher-level protocols requested be
     // transmitted to a subnetwork-unicast address, including those that were
     // discarded or not sent. The type is interface{} with range: 0..4294967295.
-    Ifoutucastpkts interface{}
+    IfOutUcastPkts interface{}
 
     // The total number of packets that higher-level protocols requested be
     // transmitted to a non- unicast (i.e., a subnetwork-broadcast or
     // subnetwork-multicast) address, including those that were discarded or not
     // sent. The type is interface{} with range: 0..4294967295.
-    Ifoutnucastpkts interface{}
+    IfOutNUcastPkts interface{}
 
     // The number of outbound packets which were chosen to be discarded even
     // though no errors had been detected to prevent their being transmitted.  One
     // possible reason for discarding such a packet could be to free up buffer
     // space. The type is interface{} with range: 0..4294967295.
-    Ifoutdiscards interface{}
+    IfOutDiscards interface{}
 
     // The number of outbound packets that could not be transmitted because of
     // errors. The type is interface{} with range: 0..4294967295.
-    Ifouterrors interface{}
+    IfOutErrors interface{}
 
     // The length of the output packet queue (in packets). The type is interface{}
     // with range: 0..4294967295.
-    Ifoutqlen interface{}
+    IfOutQLen interface{}
 
     // A reference to MIB definitions specific to the particular media being used
     // to realize the interface.  For example, if the interface is realized by an
@@ -1117,74 +1147,77 @@ type RFC1213MIB_Iftable_Ifentry struct {
     // syntactically valid object identifier, and any conformant implementation of
     // ASN.1 and BER must be able to generate and recognize this value. The type
     // is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Ifspecific interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    IfSpecific interface{}
 }
 
-func (ifentry *RFC1213MIB_Iftable_Ifentry) GetEntityData() *types.CommonEntityData {
-    ifentry.EntityData.YFilter = ifentry.YFilter
-    ifentry.EntityData.YangName = "ifEntry"
-    ifentry.EntityData.BundleName = "cisco_ios_xe"
-    ifentry.EntityData.ParentYangName = "ifTable"
-    ifentry.EntityData.SegmentPath = "ifEntry" + "[ifIndex='" + fmt.Sprintf("%v", ifentry.Ifindex) + "']"
-    ifentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ifentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ifentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ifEntry *RFC1213MIB_IfTable_IfEntry) GetEntityData() *types.CommonEntityData {
+    ifEntry.EntityData.YFilter = ifEntry.YFilter
+    ifEntry.EntityData.YangName = "ifEntry"
+    ifEntry.EntityData.BundleName = "cisco_ios_xe"
+    ifEntry.EntityData.ParentYangName = "ifTable"
+    ifEntry.EntityData.SegmentPath = "ifEntry" + types.AddKeyToken(ifEntry.IfIndex, "ifIndex")
+    ifEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ifEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ifEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ifentry.EntityData.Children = make(map[string]types.YChild)
-    ifentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ifentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", ifentry.Ifindex}
-    ifentry.EntityData.Leafs["ifDescr"] = types.YLeaf{"Ifdescr", ifentry.Ifdescr}
-    ifentry.EntityData.Leafs["ifType"] = types.YLeaf{"Iftype", ifentry.Iftype}
-    ifentry.EntityData.Leafs["ifMtu"] = types.YLeaf{"Ifmtu", ifentry.Ifmtu}
-    ifentry.EntityData.Leafs["ifSpeed"] = types.YLeaf{"Ifspeed", ifentry.Ifspeed}
-    ifentry.EntityData.Leafs["ifPhysAddress"] = types.YLeaf{"Ifphysaddress", ifentry.Ifphysaddress}
-    ifentry.EntityData.Leafs["ifAdminStatus"] = types.YLeaf{"Ifadminstatus", ifentry.Ifadminstatus}
-    ifentry.EntityData.Leafs["ifOperStatus"] = types.YLeaf{"Ifoperstatus", ifentry.Ifoperstatus}
-    ifentry.EntityData.Leafs["ifLastChange"] = types.YLeaf{"Iflastchange", ifentry.Iflastchange}
-    ifentry.EntityData.Leafs["ifInOctets"] = types.YLeaf{"Ifinoctets", ifentry.Ifinoctets}
-    ifentry.EntityData.Leafs["ifInUcastPkts"] = types.YLeaf{"Ifinucastpkts", ifentry.Ifinucastpkts}
-    ifentry.EntityData.Leafs["ifInNUcastPkts"] = types.YLeaf{"Ifinnucastpkts", ifentry.Ifinnucastpkts}
-    ifentry.EntityData.Leafs["ifInDiscards"] = types.YLeaf{"Ifindiscards", ifentry.Ifindiscards}
-    ifentry.EntityData.Leafs["ifInErrors"] = types.YLeaf{"Ifinerrors", ifentry.Ifinerrors}
-    ifentry.EntityData.Leafs["ifInUnknownProtos"] = types.YLeaf{"Ifinunknownprotos", ifentry.Ifinunknownprotos}
-    ifentry.EntityData.Leafs["ifOutOctets"] = types.YLeaf{"Ifoutoctets", ifentry.Ifoutoctets}
-    ifentry.EntityData.Leafs["ifOutUcastPkts"] = types.YLeaf{"Ifoutucastpkts", ifentry.Ifoutucastpkts}
-    ifentry.EntityData.Leafs["ifOutNUcastPkts"] = types.YLeaf{"Ifoutnucastpkts", ifentry.Ifoutnucastpkts}
-    ifentry.EntityData.Leafs["ifOutDiscards"] = types.YLeaf{"Ifoutdiscards", ifentry.Ifoutdiscards}
-    ifentry.EntityData.Leafs["ifOutErrors"] = types.YLeaf{"Ifouterrors", ifentry.Ifouterrors}
-    ifentry.EntityData.Leafs["ifOutQLen"] = types.YLeaf{"Ifoutqlen", ifentry.Ifoutqlen}
-    ifentry.EntityData.Leafs["ifSpecific"] = types.YLeaf{"Ifspecific", ifentry.Ifspecific}
-    return &(ifentry.EntityData)
+    ifEntry.EntityData.Children = types.NewOrderedMap()
+    ifEntry.EntityData.Leafs = types.NewOrderedMap()
+    ifEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", ifEntry.IfIndex})
+    ifEntry.EntityData.Leafs.Append("ifDescr", types.YLeaf{"IfDescr", ifEntry.IfDescr})
+    ifEntry.EntityData.Leafs.Append("ifType", types.YLeaf{"IfType", ifEntry.IfType})
+    ifEntry.EntityData.Leafs.Append("ifMtu", types.YLeaf{"IfMtu", ifEntry.IfMtu})
+    ifEntry.EntityData.Leafs.Append("ifSpeed", types.YLeaf{"IfSpeed", ifEntry.IfSpeed})
+    ifEntry.EntityData.Leafs.Append("ifPhysAddress", types.YLeaf{"IfPhysAddress", ifEntry.IfPhysAddress})
+    ifEntry.EntityData.Leafs.Append("ifAdminStatus", types.YLeaf{"IfAdminStatus", ifEntry.IfAdminStatus})
+    ifEntry.EntityData.Leafs.Append("ifOperStatus", types.YLeaf{"IfOperStatus", ifEntry.IfOperStatus})
+    ifEntry.EntityData.Leafs.Append("ifLastChange", types.YLeaf{"IfLastChange", ifEntry.IfLastChange})
+    ifEntry.EntityData.Leafs.Append("ifInOctets", types.YLeaf{"IfInOctets", ifEntry.IfInOctets})
+    ifEntry.EntityData.Leafs.Append("ifInUcastPkts", types.YLeaf{"IfInUcastPkts", ifEntry.IfInUcastPkts})
+    ifEntry.EntityData.Leafs.Append("ifInNUcastPkts", types.YLeaf{"IfInNUcastPkts", ifEntry.IfInNUcastPkts})
+    ifEntry.EntityData.Leafs.Append("ifInDiscards", types.YLeaf{"IfInDiscards", ifEntry.IfInDiscards})
+    ifEntry.EntityData.Leafs.Append("ifInErrors", types.YLeaf{"IfInErrors", ifEntry.IfInErrors})
+    ifEntry.EntityData.Leafs.Append("ifInUnknownProtos", types.YLeaf{"IfInUnknownProtos", ifEntry.IfInUnknownProtos})
+    ifEntry.EntityData.Leafs.Append("ifOutOctets", types.YLeaf{"IfOutOctets", ifEntry.IfOutOctets})
+    ifEntry.EntityData.Leafs.Append("ifOutUcastPkts", types.YLeaf{"IfOutUcastPkts", ifEntry.IfOutUcastPkts})
+    ifEntry.EntityData.Leafs.Append("ifOutNUcastPkts", types.YLeaf{"IfOutNUcastPkts", ifEntry.IfOutNUcastPkts})
+    ifEntry.EntityData.Leafs.Append("ifOutDiscards", types.YLeaf{"IfOutDiscards", ifEntry.IfOutDiscards})
+    ifEntry.EntityData.Leafs.Append("ifOutErrors", types.YLeaf{"IfOutErrors", ifEntry.IfOutErrors})
+    ifEntry.EntityData.Leafs.Append("ifOutQLen", types.YLeaf{"IfOutQLen", ifEntry.IfOutQLen})
+    ifEntry.EntityData.Leafs.Append("ifSpecific", types.YLeaf{"IfSpecific", ifEntry.IfSpecific})
+
+    ifEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(ifEntry.EntityData)
 }
 
-// RFC1213MIB_Iftable_Ifentry_Ifadminstatus represents packets can be passed.
-type RFC1213MIB_Iftable_Ifentry_Ifadminstatus string
+// RFC1213MIB_IfTable_IfEntry_IfAdminStatus represents packets can be passed.
+type RFC1213MIB_IfTable_IfEntry_IfAdminStatus string
 
 const (
-    RFC1213MIB_Iftable_Ifentry_Ifadminstatus_up RFC1213MIB_Iftable_Ifentry_Ifadminstatus = "up"
+    RFC1213MIB_IfTable_IfEntry_IfAdminStatus_up RFC1213MIB_IfTable_IfEntry_IfAdminStatus = "up"
 
-    RFC1213MIB_Iftable_Ifentry_Ifadminstatus_down RFC1213MIB_Iftable_Ifentry_Ifadminstatus = "down"
+    RFC1213MIB_IfTable_IfEntry_IfAdminStatus_down RFC1213MIB_IfTable_IfEntry_IfAdminStatus = "down"
 
-    RFC1213MIB_Iftable_Ifentry_Ifadminstatus_testing RFC1213MIB_Iftable_Ifentry_Ifadminstatus = "testing"
+    RFC1213MIB_IfTable_IfEntry_IfAdminStatus_testing RFC1213MIB_IfTable_IfEntry_IfAdminStatus = "testing"
 )
 
-// RFC1213MIB_Iftable_Ifentry_Ifoperstatus represents packets can be passed.
-type RFC1213MIB_Iftable_Ifentry_Ifoperstatus string
+// RFC1213MIB_IfTable_IfEntry_IfOperStatus represents packets can be passed.
+type RFC1213MIB_IfTable_IfEntry_IfOperStatus string
 
 const (
-    RFC1213MIB_Iftable_Ifentry_Ifoperstatus_up RFC1213MIB_Iftable_Ifentry_Ifoperstatus = "up"
+    RFC1213MIB_IfTable_IfEntry_IfOperStatus_up RFC1213MIB_IfTable_IfEntry_IfOperStatus = "up"
 
-    RFC1213MIB_Iftable_Ifentry_Ifoperstatus_down RFC1213MIB_Iftable_Ifentry_Ifoperstatus = "down"
+    RFC1213MIB_IfTable_IfEntry_IfOperStatus_down RFC1213MIB_IfTable_IfEntry_IfOperStatus = "down"
 
-    RFC1213MIB_Iftable_Ifentry_Ifoperstatus_testing RFC1213MIB_Iftable_Ifentry_Ifoperstatus = "testing"
+    RFC1213MIB_IfTable_IfEntry_IfOperStatus_testing RFC1213MIB_IfTable_IfEntry_IfOperStatus = "testing"
 
-    RFC1213MIB_Iftable_Ifentry_Ifoperstatus_unknown RFC1213MIB_Iftable_Ifentry_Ifoperstatus = "unknown"
+    RFC1213MIB_IfTable_IfEntry_IfOperStatus_unknown RFC1213MIB_IfTable_IfEntry_IfOperStatus = "unknown"
 
-    RFC1213MIB_Iftable_Ifentry_Ifoperstatus_dormant RFC1213MIB_Iftable_Ifentry_Ifoperstatus = "dormant"
+    RFC1213MIB_IfTable_IfEntry_IfOperStatus_dormant RFC1213MIB_IfTable_IfEntry_IfOperStatus = "dormant"
 )
 
-// RFC1213MIB_Attable
+// RFC1213MIB_AtTable
 // The Address Translation tables contain the
 // NetworkAddress to `physical' address equivalences.
 // Some interfaces do not use translation tables for
@@ -1192,38 +1225,41 @@ const (
 // has an algorithmic method); if all interfaces are
 // of this type, then the Address Translation table
 // is empty, i.e., has zero entries.
-type RFC1213MIB_Attable struct {
+type RFC1213MIB_AtTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains one NetworkAddress to `physical' address equivalence.
-    // The type is slice of RFC1213MIB_Attable_Atentry.
-    Atentry []RFC1213MIB_Attable_Atentry
+    // The type is slice of RFC1213MIB_AtTable_AtEntry.
+    AtEntry []*RFC1213MIB_AtTable_AtEntry
 }
 
-func (attable *RFC1213MIB_Attable) GetEntityData() *types.CommonEntityData {
-    attable.EntityData.YFilter = attable.YFilter
-    attable.EntityData.YangName = "atTable"
-    attable.EntityData.BundleName = "cisco_ios_xe"
-    attable.EntityData.ParentYangName = "RFC1213-MIB"
-    attable.EntityData.SegmentPath = "atTable"
-    attable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    attable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    attable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atTable *RFC1213MIB_AtTable) GetEntityData() *types.CommonEntityData {
+    atTable.EntityData.YFilter = atTable.YFilter
+    atTable.EntityData.YangName = "atTable"
+    atTable.EntityData.BundleName = "cisco_ios_xe"
+    atTable.EntityData.ParentYangName = "RFC1213-MIB"
+    atTable.EntityData.SegmentPath = "atTable"
+    atTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    attable.EntityData.Children = make(map[string]types.YChild)
-    attable.EntityData.Children["atEntry"] = types.YChild{"Atentry", nil}
-    for i := range attable.Atentry {
-        attable.EntityData.Children[types.GetSegmentPath(&attable.Atentry[i])] = types.YChild{"Atentry", &attable.Atentry[i]}
+    atTable.EntityData.Children = types.NewOrderedMap()
+    atTable.EntityData.Children.Append("atEntry", types.YChild{"AtEntry", nil})
+    for i := range atTable.AtEntry {
+        atTable.EntityData.Children.Append(types.GetSegmentPath(atTable.AtEntry[i]), types.YChild{"AtEntry", atTable.AtEntry[i]})
     }
-    attable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(attable.EntityData)
+    atTable.EntityData.Leafs = types.NewOrderedMap()
+
+    atTable.EntityData.YListKeys = []string {}
+
+    return &(atTable.EntityData)
 }
 
-// RFC1213MIB_Attable_Atentry
+// RFC1213MIB_AtTable_AtEntry
 // Each entry contains one NetworkAddress to
 // `physical' address equivalence.
-type RFC1213MIB_Attable_Atentry struct {
+type RFC1213MIB_AtTable_AtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1231,19 +1267,19 @@ type RFC1213MIB_Attable_Atentry struct {
     // effective.  The interface identified by a particular value of this index is
     // the same interface as identified by the same value of ifIndex. The type is
     // interface{} with range: -2147483648..2147483647.
-    Atifindex interface{}
+    AtIfIndex interface{}
 
     // This attribute is a key. The interface on which this entry's equivalence is
     // effective.  The interface identified by a particular value of this index is
     // the same interface as identified by the same value of ifIndex. The type is
     // interface{} with range: -2147483648..2147483647.
-    Atifindex2 interface{}
+    AtIfIndex2 interface{}
 
     // This attribute is a key. The NetworkAddress (e.g., the IP address)
     // corresponding to the media-dependent `physical' address. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Atnetaddress interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    AtNetAddress interface{}
 
     // The media-dependent `physical' address.  Setting this object to a null
     // string (one of zero length) has the effect of invaliding the corresponding
@@ -1255,82 +1291,88 @@ type RFC1213MIB_Attable_Atentry struct {
     // corresponds to entries not currently in use. Proper interpretation of such
     // entries requires examination of the relevant atPhysAddress object. The type
     // is string.
-    Atphysaddress interface{}
+    AtPhysAddress interface{}
 }
 
-func (atentry *RFC1213MIB_Attable_Atentry) GetEntityData() *types.CommonEntityData {
-    atentry.EntityData.YFilter = atentry.YFilter
-    atentry.EntityData.YangName = "atEntry"
-    atentry.EntityData.BundleName = "cisco_ios_xe"
-    atentry.EntityData.ParentYangName = "atTable"
-    atentry.EntityData.SegmentPath = "atEntry" + "[atIfIndex='" + fmt.Sprintf("%v", atentry.Atifindex) + "']" + "[atIfIndex_2='" + fmt.Sprintf("%v", atentry.Atifindex2) + "']" + "[atNetAddress='" + fmt.Sprintf("%v", atentry.Atnetaddress) + "']"
-    atentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atEntry *RFC1213MIB_AtTable_AtEntry) GetEntityData() *types.CommonEntityData {
+    atEntry.EntityData.YFilter = atEntry.YFilter
+    atEntry.EntityData.YangName = "atEntry"
+    atEntry.EntityData.BundleName = "cisco_ios_xe"
+    atEntry.EntityData.ParentYangName = "atTable"
+    atEntry.EntityData.SegmentPath = "atEntry" + types.AddKeyToken(atEntry.AtIfIndex, "atIfIndex") + types.AddKeyToken(atEntry.AtIfIndex2, "atIfIndex_2") + types.AddKeyToken(atEntry.AtNetAddress, "atNetAddress")
+    atEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atentry.EntityData.Children = make(map[string]types.YChild)
-    atentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    atentry.EntityData.Leafs["atIfIndex"] = types.YLeaf{"Atifindex", atentry.Atifindex}
-    atentry.EntityData.Leafs["atIfIndex_2"] = types.YLeaf{"Atifindex2", atentry.Atifindex2}
-    atentry.EntityData.Leafs["atNetAddress"] = types.YLeaf{"Atnetaddress", atentry.Atnetaddress}
-    atentry.EntityData.Leafs["atPhysAddress"] = types.YLeaf{"Atphysaddress", atentry.Atphysaddress}
-    return &(atentry.EntityData)
+    atEntry.EntityData.Children = types.NewOrderedMap()
+    atEntry.EntityData.Leafs = types.NewOrderedMap()
+    atEntry.EntityData.Leafs.Append("atIfIndex", types.YLeaf{"AtIfIndex", atEntry.AtIfIndex})
+    atEntry.EntityData.Leafs.Append("atIfIndex_2", types.YLeaf{"AtIfIndex2", atEntry.AtIfIndex2})
+    atEntry.EntityData.Leafs.Append("atNetAddress", types.YLeaf{"AtNetAddress", atEntry.AtNetAddress})
+    atEntry.EntityData.Leafs.Append("atPhysAddress", types.YLeaf{"AtPhysAddress", atEntry.AtPhysAddress})
+
+    atEntry.EntityData.YListKeys = []string {"AtIfIndex", "AtIfIndex2", "AtNetAddress"}
+
+    return &(atEntry.EntityData)
 }
 
-// RFC1213MIB_Ipaddrtable
+// RFC1213MIB_IpAddrTable
 // The table of addressing information relevant to
 // this entity's IP addresses.
-type RFC1213MIB_Ipaddrtable struct {
+type RFC1213MIB_IpAddrTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The addressing information for one of this entity's IP addresses. The type
-    // is slice of RFC1213MIB_Ipaddrtable_Ipaddrentry.
-    Ipaddrentry []RFC1213MIB_Ipaddrtable_Ipaddrentry
+    // is slice of RFC1213MIB_IpAddrTable_IpAddrEntry.
+    IpAddrEntry []*RFC1213MIB_IpAddrTable_IpAddrEntry
 }
 
-func (ipaddrtable *RFC1213MIB_Ipaddrtable) GetEntityData() *types.CommonEntityData {
-    ipaddrtable.EntityData.YFilter = ipaddrtable.YFilter
-    ipaddrtable.EntityData.YangName = "ipAddrTable"
-    ipaddrtable.EntityData.BundleName = "cisco_ios_xe"
-    ipaddrtable.EntityData.ParentYangName = "RFC1213-MIB"
-    ipaddrtable.EntityData.SegmentPath = "ipAddrTable"
-    ipaddrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ipaddrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ipaddrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ipAddrTable *RFC1213MIB_IpAddrTable) GetEntityData() *types.CommonEntityData {
+    ipAddrTable.EntityData.YFilter = ipAddrTable.YFilter
+    ipAddrTable.EntityData.YangName = "ipAddrTable"
+    ipAddrTable.EntityData.BundleName = "cisco_ios_xe"
+    ipAddrTable.EntityData.ParentYangName = "RFC1213-MIB"
+    ipAddrTable.EntityData.SegmentPath = "ipAddrTable"
+    ipAddrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipAddrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipAddrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ipaddrtable.EntityData.Children = make(map[string]types.YChild)
-    ipaddrtable.EntityData.Children["ipAddrEntry"] = types.YChild{"Ipaddrentry", nil}
-    for i := range ipaddrtable.Ipaddrentry {
-        ipaddrtable.EntityData.Children[types.GetSegmentPath(&ipaddrtable.Ipaddrentry[i])] = types.YChild{"Ipaddrentry", &ipaddrtable.Ipaddrentry[i]}
+    ipAddrTable.EntityData.Children = types.NewOrderedMap()
+    ipAddrTable.EntityData.Children.Append("ipAddrEntry", types.YChild{"IpAddrEntry", nil})
+    for i := range ipAddrTable.IpAddrEntry {
+        ipAddrTable.EntityData.Children.Append(types.GetSegmentPath(ipAddrTable.IpAddrEntry[i]), types.YChild{"IpAddrEntry", ipAddrTable.IpAddrEntry[i]})
     }
-    ipaddrtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipaddrtable.EntityData)
+    ipAddrTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ipAddrTable.EntityData.YListKeys = []string {}
+
+    return &(ipAddrTable.EntityData)
 }
 
-// RFC1213MIB_Ipaddrtable_Ipaddrentry
+// RFC1213MIB_IpAddrTable_IpAddrEntry
 // The addressing information for one of this
 // entity's IP addresses.
-type RFC1213MIB_Ipaddrtable_Ipaddrentry struct {
+type RFC1213MIB_IpAddrTable_IpAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IP address to which this entry's addressing
     // information pertains. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Ipadentaddr interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    IpAdEntAddr interface{}
 
     // The index value which uniquely identifies the interface to which this entry
     // is applicable.  The interface identified by a particular value of this
     // index is the same interface as identified by the same value of ifIndex. The
     // type is interface{} with range: -2147483648..2147483647.
-    Ipadentifindex interface{}
+    IpAdEntIfIndex interface{}
 
     // The subnet mask associated with the IP address of this entry.  The value of
     // the mask is an IP address with all the network bits set to 1 and all the
     // hosts bits set to 0. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Ipadentnetmask interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    IpAdEntNetMask interface{}
 
     // The value of the least-significant bit in the IP broadcast address used for
     // sending datagrams on the (logical) interface associated with the IP address
@@ -1339,67 +1381,73 @@ type RFC1213MIB_Ipaddrtable_Ipaddrentry struct {
     // subnet and network broadcasts addresses used by the entity on this
     // (logical) interface. The type is interface{} with range:
     // -2147483648..2147483647.
-    Ipadentbcastaddr interface{}
+    IpAdEntBcastAddr interface{}
 
     // The size of the largest IP datagram which this entity can re-assemble from
     // incoming IP fragmented datagrams received on this interface. The type is
     // interface{} with range: 0..65535.
-    Ipadentreasmmaxsize interface{}
+    IpAdEntReasmMaxSize interface{}
 }
 
-func (ipaddrentry *RFC1213MIB_Ipaddrtable_Ipaddrentry) GetEntityData() *types.CommonEntityData {
-    ipaddrentry.EntityData.YFilter = ipaddrentry.YFilter
-    ipaddrentry.EntityData.YangName = "ipAddrEntry"
-    ipaddrentry.EntityData.BundleName = "cisco_ios_xe"
-    ipaddrentry.EntityData.ParentYangName = "ipAddrTable"
-    ipaddrentry.EntityData.SegmentPath = "ipAddrEntry" + "[ipAdEntAddr='" + fmt.Sprintf("%v", ipaddrentry.Ipadentaddr) + "']"
-    ipaddrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ipaddrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ipaddrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ipAddrEntry *RFC1213MIB_IpAddrTable_IpAddrEntry) GetEntityData() *types.CommonEntityData {
+    ipAddrEntry.EntityData.YFilter = ipAddrEntry.YFilter
+    ipAddrEntry.EntityData.YangName = "ipAddrEntry"
+    ipAddrEntry.EntityData.BundleName = "cisco_ios_xe"
+    ipAddrEntry.EntityData.ParentYangName = "ipAddrTable"
+    ipAddrEntry.EntityData.SegmentPath = "ipAddrEntry" + types.AddKeyToken(ipAddrEntry.IpAdEntAddr, "ipAdEntAddr")
+    ipAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipAddrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ipaddrentry.EntityData.Children = make(map[string]types.YChild)
-    ipaddrentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipaddrentry.EntityData.Leafs["ipAdEntAddr"] = types.YLeaf{"Ipadentaddr", ipaddrentry.Ipadentaddr}
-    ipaddrentry.EntityData.Leafs["ipAdEntIfIndex"] = types.YLeaf{"Ipadentifindex", ipaddrentry.Ipadentifindex}
-    ipaddrentry.EntityData.Leafs["ipAdEntNetMask"] = types.YLeaf{"Ipadentnetmask", ipaddrentry.Ipadentnetmask}
-    ipaddrentry.EntityData.Leafs["ipAdEntBcastAddr"] = types.YLeaf{"Ipadentbcastaddr", ipaddrentry.Ipadentbcastaddr}
-    ipaddrentry.EntityData.Leafs["ipAdEntReasmMaxSize"] = types.YLeaf{"Ipadentreasmmaxsize", ipaddrentry.Ipadentreasmmaxsize}
-    return &(ipaddrentry.EntityData)
+    ipAddrEntry.EntityData.Children = types.NewOrderedMap()
+    ipAddrEntry.EntityData.Leafs = types.NewOrderedMap()
+    ipAddrEntry.EntityData.Leafs.Append("ipAdEntAddr", types.YLeaf{"IpAdEntAddr", ipAddrEntry.IpAdEntAddr})
+    ipAddrEntry.EntityData.Leafs.Append("ipAdEntIfIndex", types.YLeaf{"IpAdEntIfIndex", ipAddrEntry.IpAdEntIfIndex})
+    ipAddrEntry.EntityData.Leafs.Append("ipAdEntNetMask", types.YLeaf{"IpAdEntNetMask", ipAddrEntry.IpAdEntNetMask})
+    ipAddrEntry.EntityData.Leafs.Append("ipAdEntBcastAddr", types.YLeaf{"IpAdEntBcastAddr", ipAddrEntry.IpAdEntBcastAddr})
+    ipAddrEntry.EntityData.Leafs.Append("ipAdEntReasmMaxSize", types.YLeaf{"IpAdEntReasmMaxSize", ipAddrEntry.IpAdEntReasmMaxSize})
+
+    ipAddrEntry.EntityData.YListKeys = []string {"IpAdEntAddr"}
+
+    return &(ipAddrEntry.EntityData)
 }
 
-// RFC1213MIB_Iproutetable
+// RFC1213MIB_IpRouteTable
 // This entity's IP Routing table.
-type RFC1213MIB_Iproutetable struct {
+type RFC1213MIB_IpRouteTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A route to a particular destination. The type is slice of
-    // RFC1213MIB_Iproutetable_Iprouteentry.
-    Iprouteentry []RFC1213MIB_Iproutetable_Iprouteentry
+    // RFC1213MIB_IpRouteTable_IpRouteEntry.
+    IpRouteEntry []*RFC1213MIB_IpRouteTable_IpRouteEntry
 }
 
-func (iproutetable *RFC1213MIB_Iproutetable) GetEntityData() *types.CommonEntityData {
-    iproutetable.EntityData.YFilter = iproutetable.YFilter
-    iproutetable.EntityData.YangName = "ipRouteTable"
-    iproutetable.EntityData.BundleName = "cisco_ios_xe"
-    iproutetable.EntityData.ParentYangName = "RFC1213-MIB"
-    iproutetable.EntityData.SegmentPath = "ipRouteTable"
-    iproutetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    iproutetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    iproutetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ipRouteTable *RFC1213MIB_IpRouteTable) GetEntityData() *types.CommonEntityData {
+    ipRouteTable.EntityData.YFilter = ipRouteTable.YFilter
+    ipRouteTable.EntityData.YangName = "ipRouteTable"
+    ipRouteTable.EntityData.BundleName = "cisco_ios_xe"
+    ipRouteTable.EntityData.ParentYangName = "RFC1213-MIB"
+    ipRouteTable.EntityData.SegmentPath = "ipRouteTable"
+    ipRouteTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipRouteTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipRouteTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    iproutetable.EntityData.Children = make(map[string]types.YChild)
-    iproutetable.EntityData.Children["ipRouteEntry"] = types.YChild{"Iprouteentry", nil}
-    for i := range iproutetable.Iprouteentry {
-        iproutetable.EntityData.Children[types.GetSegmentPath(&iproutetable.Iprouteentry[i])] = types.YChild{"Iprouteentry", &iproutetable.Iprouteentry[i]}
+    ipRouteTable.EntityData.Children = types.NewOrderedMap()
+    ipRouteTable.EntityData.Children.Append("ipRouteEntry", types.YChild{"IpRouteEntry", nil})
+    for i := range ipRouteTable.IpRouteEntry {
+        ipRouteTable.EntityData.Children.Append(types.GetSegmentPath(ipRouteTable.IpRouteEntry[i]), types.YChild{"IpRouteEntry", ipRouteTable.IpRouteEntry[i]})
     }
-    iproutetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(iproutetable.EntityData)
+    ipRouteTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ipRouteTable.EntityData.YListKeys = []string {}
+
+    return &(ipRouteTable.EntityData)
 }
 
-// RFC1213MIB_Iproutetable_Iprouteentry
+// RFC1213MIB_IpRouteTable_IpRouteEntry
 // A route to a particular destination.
-type RFC1213MIB_Iproutetable_Iprouteentry struct {
+type RFC1213MIB_IpRouteTable_IpRouteEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1408,46 +1456,46 @@ type RFC1213MIB_Iproutetable_Iprouteentry struct {
     // routes to a single destination can appear in the table, but access to such
     // multiple entries is dependent on the table- access mechanisms defined by
     // the network management protocol in use. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Iproutedest interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    IpRouteDest interface{}
 
     // The index value which uniquely identifies the local interface through which
     // the next hop of this route should be reached.  The interface identified by
     // a particular value of this index is the same interface as identified by the
     // same value of ifIndex. The type is interface{} with range:
     // -2147483648..2147483647.
-    Iprouteifindex interface{}
+    IpRouteIfIndex interface{}
 
     // The primary routing metric for this route.  The semantics of this metric
     // are determined by the routing-protocol specified in the route's
     // ipRouteProto value.  If this metric is not used, its value should be set to
     // -1. The type is interface{} with range: -2147483648..2147483647.
-    Iproutemetric1 interface{}
+    IpRouteMetric1 interface{}
 
     // An alternate routing metric for this route.  The semantics of this metric
     // are determined by the routing-protocol specified in the route's
     // ipRouteProto value.  If this metric is not used, its value should be set to
     // -1. The type is interface{} with range: -2147483648..2147483647.
-    Iproutemetric2 interface{}
+    IpRouteMetric2 interface{}
 
     // An alternate routing metric for this route.  The semantics of this metric
     // are determined by the routing-protocol specified in the route's
     // ipRouteProto value.  If this metric is not used, its value should be set to
     // -1. The type is interface{} with range: -2147483648..2147483647.
-    Iproutemetric3 interface{}
+    IpRouteMetric3 interface{}
 
     // An alternate routing metric for this route.  The semantics of this metric
     // are determined by the routing-protocol specified in the route's
     // ipRouteProto value.  If this metric is not used, its value should be set to
     // -1. The type is interface{} with range: -2147483648..2147483647.
-    Iproutemetric4 interface{}
+    IpRouteMetric4 interface{}
 
     // The IP address of the next hop of this route. (In the case of a route bound
     // to an interface which is realized via a broadcast media, the value of this
     // field is the agent's IP address on that interface.). The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Iproutenexthop interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    IpRouteNextHop interface{}
 
     // The type of route.  Note that the values direct(3) and indirect(4) refer to
     // the notion of direct and indirect routing in the IP architecture.  Setting
@@ -1459,19 +1507,19 @@ type RFC1213MIB_Iproutetable_Iprouteentry struct {
     // management stations must be prepared to receive tabular information from
     // agents that corresponds to entries not currently in use. Proper
     // interpretation of such entries requires examination of the relevant
-    // ipRouteType object. The type is Iproutetype.
-    Iproutetype interface{}
+    // ipRouteType object. The type is IpRouteType.
+    IpRouteType interface{}
 
     // The routing mechanism via which this route was learned.  Inclusion of
     // values for gateway routing protocols is not intended to imply that hosts
-    // should support those protocols. The type is Iprouteproto.
-    Iprouteproto interface{}
+    // should support those protocols. The type is IpRouteProto.
+    IpRouteProto interface{}
 
     // The number of seconds since this route was last updated or otherwise
     // determined to be correct. Note that no semantics of `too old' can be
     // implied except through knowledge of the routing protocol by which the route
     // was learned. The type is interface{} with range: -2147483648..2147483647.
-    Iprouteage interface{}
+    IpRouteAge interface{}
 
     // Indicate the mask to be logical-ANDed with the destination address before
     // being compared to the value in the ipRouteDest field.  For those systems
@@ -1483,14 +1531,14 @@ type RFC1213MIB_Iproutetable_Iprouteentry struct {
     // ipRouteDest is 0.0.0.0 (a default route), then the mask value is also
     // 0.0.0.0.  It should be noted that all IP routing subsystems implicitly use
     // this mechanism. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Iproutemask interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    IpRouteMask interface{}
 
     // An alternate routing metric for this route.  The semantics of this metric
     // are determined by the routing-protocol specified in the route's
     // ipRouteProto value.  If this metric is not used, its value should be set to
     // -1. The type is interface{} with range: -2147483648..2147483647.
-    Iproutemetric5 interface{}
+    IpRouteMetric5 interface{}
 
     // A reference to MIB definitions specific to the particular routing protocol
     // which is responsible for this route, as determined by the value specified
@@ -1499,119 +1547,125 @@ type RFC1213MIB_Iproutetable_Iprouteentry struct {
     // syntactically valid object identifier, and any conformant implementation of
     // ASN.1 and BER must be able to generate and recognize this value. The type
     // is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Iprouteinfo interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    IpRouteInfo interface{}
 }
 
-func (iprouteentry *RFC1213MIB_Iproutetable_Iprouteentry) GetEntityData() *types.CommonEntityData {
-    iprouteentry.EntityData.YFilter = iprouteentry.YFilter
-    iprouteentry.EntityData.YangName = "ipRouteEntry"
-    iprouteentry.EntityData.BundleName = "cisco_ios_xe"
-    iprouteentry.EntityData.ParentYangName = "ipRouteTable"
-    iprouteentry.EntityData.SegmentPath = "ipRouteEntry" + "[ipRouteDest='" + fmt.Sprintf("%v", iprouteentry.Iproutedest) + "']"
-    iprouteentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    iprouteentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    iprouteentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ipRouteEntry *RFC1213MIB_IpRouteTable_IpRouteEntry) GetEntityData() *types.CommonEntityData {
+    ipRouteEntry.EntityData.YFilter = ipRouteEntry.YFilter
+    ipRouteEntry.EntityData.YangName = "ipRouteEntry"
+    ipRouteEntry.EntityData.BundleName = "cisco_ios_xe"
+    ipRouteEntry.EntityData.ParentYangName = "ipRouteTable"
+    ipRouteEntry.EntityData.SegmentPath = "ipRouteEntry" + types.AddKeyToken(ipRouteEntry.IpRouteDest, "ipRouteDest")
+    ipRouteEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipRouteEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipRouteEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    iprouteentry.EntityData.Children = make(map[string]types.YChild)
-    iprouteentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    iprouteentry.EntityData.Leafs["ipRouteDest"] = types.YLeaf{"Iproutedest", iprouteentry.Iproutedest}
-    iprouteentry.EntityData.Leafs["ipRouteIfIndex"] = types.YLeaf{"Iprouteifindex", iprouteentry.Iprouteifindex}
-    iprouteentry.EntityData.Leafs["ipRouteMetric1"] = types.YLeaf{"Iproutemetric1", iprouteentry.Iproutemetric1}
-    iprouteentry.EntityData.Leafs["ipRouteMetric2"] = types.YLeaf{"Iproutemetric2", iprouteentry.Iproutemetric2}
-    iprouteentry.EntityData.Leafs["ipRouteMetric3"] = types.YLeaf{"Iproutemetric3", iprouteentry.Iproutemetric3}
-    iprouteentry.EntityData.Leafs["ipRouteMetric4"] = types.YLeaf{"Iproutemetric4", iprouteentry.Iproutemetric4}
-    iprouteentry.EntityData.Leafs["ipRouteNextHop"] = types.YLeaf{"Iproutenexthop", iprouteentry.Iproutenexthop}
-    iprouteentry.EntityData.Leafs["ipRouteType"] = types.YLeaf{"Iproutetype", iprouteentry.Iproutetype}
-    iprouteentry.EntityData.Leafs["ipRouteProto"] = types.YLeaf{"Iprouteproto", iprouteentry.Iprouteproto}
-    iprouteentry.EntityData.Leafs["ipRouteAge"] = types.YLeaf{"Iprouteage", iprouteentry.Iprouteage}
-    iprouteentry.EntityData.Leafs["ipRouteMask"] = types.YLeaf{"Iproutemask", iprouteentry.Iproutemask}
-    iprouteentry.EntityData.Leafs["ipRouteMetric5"] = types.YLeaf{"Iproutemetric5", iprouteentry.Iproutemetric5}
-    iprouteentry.EntityData.Leafs["ipRouteInfo"] = types.YLeaf{"Iprouteinfo", iprouteentry.Iprouteinfo}
-    return &(iprouteentry.EntityData)
+    ipRouteEntry.EntityData.Children = types.NewOrderedMap()
+    ipRouteEntry.EntityData.Leafs = types.NewOrderedMap()
+    ipRouteEntry.EntityData.Leafs.Append("ipRouteDest", types.YLeaf{"IpRouteDest", ipRouteEntry.IpRouteDest})
+    ipRouteEntry.EntityData.Leafs.Append("ipRouteIfIndex", types.YLeaf{"IpRouteIfIndex", ipRouteEntry.IpRouteIfIndex})
+    ipRouteEntry.EntityData.Leafs.Append("ipRouteMetric1", types.YLeaf{"IpRouteMetric1", ipRouteEntry.IpRouteMetric1})
+    ipRouteEntry.EntityData.Leafs.Append("ipRouteMetric2", types.YLeaf{"IpRouteMetric2", ipRouteEntry.IpRouteMetric2})
+    ipRouteEntry.EntityData.Leafs.Append("ipRouteMetric3", types.YLeaf{"IpRouteMetric3", ipRouteEntry.IpRouteMetric3})
+    ipRouteEntry.EntityData.Leafs.Append("ipRouteMetric4", types.YLeaf{"IpRouteMetric4", ipRouteEntry.IpRouteMetric4})
+    ipRouteEntry.EntityData.Leafs.Append("ipRouteNextHop", types.YLeaf{"IpRouteNextHop", ipRouteEntry.IpRouteNextHop})
+    ipRouteEntry.EntityData.Leafs.Append("ipRouteType", types.YLeaf{"IpRouteType", ipRouteEntry.IpRouteType})
+    ipRouteEntry.EntityData.Leafs.Append("ipRouteProto", types.YLeaf{"IpRouteProto", ipRouteEntry.IpRouteProto})
+    ipRouteEntry.EntityData.Leafs.Append("ipRouteAge", types.YLeaf{"IpRouteAge", ipRouteEntry.IpRouteAge})
+    ipRouteEntry.EntityData.Leafs.Append("ipRouteMask", types.YLeaf{"IpRouteMask", ipRouteEntry.IpRouteMask})
+    ipRouteEntry.EntityData.Leafs.Append("ipRouteMetric5", types.YLeaf{"IpRouteMetric5", ipRouteEntry.IpRouteMetric5})
+    ipRouteEntry.EntityData.Leafs.Append("ipRouteInfo", types.YLeaf{"IpRouteInfo", ipRouteEntry.IpRouteInfo})
+
+    ipRouteEntry.EntityData.YListKeys = []string {"IpRouteDest"}
+
+    return &(ipRouteEntry.EntityData)
 }
 
-// RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto represents should support those protocols.
-type RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto string
+// RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto represents should support those protocols.
+type RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto string
 
 const (
-    RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto_other RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto = "other"
+    RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto_other RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto = "other"
 
-    RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto_local RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto = "local"
+    RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto_local RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto = "local"
 
-    RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto_netmgmt RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto = "netmgmt"
+    RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto_netmgmt RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto = "netmgmt"
 
-    RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto_icmp RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto = "icmp"
+    RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto_icmp RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto = "icmp"
 
-    RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto_egp RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto = "egp"
+    RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto_egp RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto = "egp"
 
-    RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto_ggp RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto = "ggp"
+    RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto_ggp RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto = "ggp"
 
-    RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto_hello RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto = "hello"
+    RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto_hello RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto = "hello"
 
-    RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto_rip RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto = "rip"
+    RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto_rip RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto = "rip"
 
-    RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto_is_is RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto = "is-is"
+    RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto_is_is RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto = "is-is"
 
-    RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto_es_is RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto = "es-is"
+    RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto_es_is RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto = "es-is"
 
-    RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto_ciscoIgrp RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto = "ciscoIgrp"
+    RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto_ciscoIgrp RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto = "ciscoIgrp"
 
-    RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto_bbnSpfIgp RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto = "bbnSpfIgp"
+    RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto_bbnSpfIgp RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto = "bbnSpfIgp"
 
-    RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto_ospf RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto = "ospf"
+    RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto_ospf RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto = "ospf"
 
-    RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto_bgp RFC1213MIB_Iproutetable_Iprouteentry_Iprouteproto = "bgp"
+    RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto_bgp RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteProto = "bgp"
 )
 
-// RFC1213MIB_Iproutetable_Iprouteentry_Iproutetype represents examination of the relevant ipRouteType object.
-type RFC1213MIB_Iproutetable_Iprouteentry_Iproutetype string
+// RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteType represents examination of the relevant ipRouteType object.
+type RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteType string
 
 const (
-    RFC1213MIB_Iproutetable_Iprouteentry_Iproutetype_other RFC1213MIB_Iproutetable_Iprouteentry_Iproutetype = "other"
+    RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteType_other RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteType = "other"
 
-    RFC1213MIB_Iproutetable_Iprouteentry_Iproutetype_invalid RFC1213MIB_Iproutetable_Iprouteentry_Iproutetype = "invalid"
+    RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteType_invalid RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteType = "invalid"
 
-    RFC1213MIB_Iproutetable_Iprouteentry_Iproutetype_direct RFC1213MIB_Iproutetable_Iprouteentry_Iproutetype = "direct"
+    RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteType_direct RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteType = "direct"
 
-    RFC1213MIB_Iproutetable_Iprouteentry_Iproutetype_indirect RFC1213MIB_Iproutetable_Iprouteentry_Iproutetype = "indirect"
+    RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteType_indirect RFC1213MIB_IpRouteTable_IpRouteEntry_IpRouteType = "indirect"
 )
 
-// RFC1213MIB_Ipnettomediatable
+// RFC1213MIB_IpNetToMediaTable
 // The IP Address Translation table used for mapping
 // from IP addresses to physical addresses.
-type RFC1213MIB_Ipnettomediatable struct {
+type RFC1213MIB_IpNetToMediaTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains one IpAddress to `physical' address equivalence. The
-    // type is slice of RFC1213MIB_Ipnettomediatable_Ipnettomediaentry.
-    Ipnettomediaentry []RFC1213MIB_Ipnettomediatable_Ipnettomediaentry
+    // type is slice of RFC1213MIB_IpNetToMediaTable_IpNetToMediaEntry.
+    IpNetToMediaEntry []*RFC1213MIB_IpNetToMediaTable_IpNetToMediaEntry
 }
 
-func (ipnettomediatable *RFC1213MIB_Ipnettomediatable) GetEntityData() *types.CommonEntityData {
-    ipnettomediatable.EntityData.YFilter = ipnettomediatable.YFilter
-    ipnettomediatable.EntityData.YangName = "ipNetToMediaTable"
-    ipnettomediatable.EntityData.BundleName = "cisco_ios_xe"
-    ipnettomediatable.EntityData.ParentYangName = "RFC1213-MIB"
-    ipnettomediatable.EntityData.SegmentPath = "ipNetToMediaTable"
-    ipnettomediatable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ipnettomediatable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ipnettomediatable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ipNetToMediaTable *RFC1213MIB_IpNetToMediaTable) GetEntityData() *types.CommonEntityData {
+    ipNetToMediaTable.EntityData.YFilter = ipNetToMediaTable.YFilter
+    ipNetToMediaTable.EntityData.YangName = "ipNetToMediaTable"
+    ipNetToMediaTable.EntityData.BundleName = "cisco_ios_xe"
+    ipNetToMediaTable.EntityData.ParentYangName = "RFC1213-MIB"
+    ipNetToMediaTable.EntityData.SegmentPath = "ipNetToMediaTable"
+    ipNetToMediaTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipNetToMediaTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipNetToMediaTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ipnettomediatable.EntityData.Children = make(map[string]types.YChild)
-    ipnettomediatable.EntityData.Children["ipNetToMediaEntry"] = types.YChild{"Ipnettomediaentry", nil}
-    for i := range ipnettomediatable.Ipnettomediaentry {
-        ipnettomediatable.EntityData.Children[types.GetSegmentPath(&ipnettomediatable.Ipnettomediaentry[i])] = types.YChild{"Ipnettomediaentry", &ipnettomediatable.Ipnettomediaentry[i]}
+    ipNetToMediaTable.EntityData.Children = types.NewOrderedMap()
+    ipNetToMediaTable.EntityData.Children.Append("ipNetToMediaEntry", types.YChild{"IpNetToMediaEntry", nil})
+    for i := range ipNetToMediaTable.IpNetToMediaEntry {
+        ipNetToMediaTable.EntityData.Children.Append(types.GetSegmentPath(ipNetToMediaTable.IpNetToMediaEntry[i]), types.YChild{"IpNetToMediaEntry", ipNetToMediaTable.IpNetToMediaEntry[i]})
     }
-    ipnettomediatable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipnettomediatable.EntityData)
+    ipNetToMediaTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ipNetToMediaTable.EntityData.YListKeys = []string {}
+
+    return &(ipNetToMediaTable.EntityData)
 }
 
-// RFC1213MIB_Ipnettomediatable_Ipnettomediaentry
+// RFC1213MIB_IpNetToMediaTable_IpNetToMediaEntry
 // Each entry contains one IpAddress to `physical'
 // address equivalence.
-type RFC1213MIB_Ipnettomediatable_Ipnettomediaentry struct {
+type RFC1213MIB_IpNetToMediaTable_IpNetToMediaEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1619,15 +1673,15 @@ type RFC1213MIB_Ipnettomediatable_Ipnettomediaentry struct {
     // effective.  The interface identified by a particular value of this index is
     // the same interface as identified by the same value of ifIndex. The type is
     // interface{} with range: -2147483648..2147483647.
-    Ipnettomediaifindex interface{}
+    IpNetToMediaIfIndex interface{}
 
     // This attribute is a key. The IpAddress corresponding to the media-
     // dependent `physical' address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Ipnettomedianetaddress interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    IpNetToMediaNetAddress interface{}
 
     // The media-dependent `physical' address. The type is string.
-    Ipnettomediaphysaddress interface{}
+    IpNetToMediaPhysAddress interface{}
 
     // The type of mapping.  Setting this object to the value invalid(2) has the
     // effect of invalidating the corresponding entry in the ipNetToMediaTable. 
@@ -1638,82 +1692,88 @@ type RFC1213MIB_Ipnettomediatable_Ipnettomediaentry struct {
     // prepared to receive tabular information from agents that corresponds to
     // entries not currently in use.  Proper interpretation of such entries
     // requires examination of the relevant ipNetToMediaType object. The type is
-    // Ipnettomediatype.
-    Ipnettomediatype interface{}
+    // IpNetToMediaType.
+    IpNetToMediaType interface{}
 }
 
-func (ipnettomediaentry *RFC1213MIB_Ipnettomediatable_Ipnettomediaentry) GetEntityData() *types.CommonEntityData {
-    ipnettomediaentry.EntityData.YFilter = ipnettomediaentry.YFilter
-    ipnettomediaentry.EntityData.YangName = "ipNetToMediaEntry"
-    ipnettomediaentry.EntityData.BundleName = "cisco_ios_xe"
-    ipnettomediaentry.EntityData.ParentYangName = "ipNetToMediaTable"
-    ipnettomediaentry.EntityData.SegmentPath = "ipNetToMediaEntry" + "[ipNetToMediaIfIndex='" + fmt.Sprintf("%v", ipnettomediaentry.Ipnettomediaifindex) + "']" + "[ipNetToMediaNetAddress='" + fmt.Sprintf("%v", ipnettomediaentry.Ipnettomedianetaddress) + "']"
-    ipnettomediaentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ipnettomediaentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ipnettomediaentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ipNetToMediaEntry *RFC1213MIB_IpNetToMediaTable_IpNetToMediaEntry) GetEntityData() *types.CommonEntityData {
+    ipNetToMediaEntry.EntityData.YFilter = ipNetToMediaEntry.YFilter
+    ipNetToMediaEntry.EntityData.YangName = "ipNetToMediaEntry"
+    ipNetToMediaEntry.EntityData.BundleName = "cisco_ios_xe"
+    ipNetToMediaEntry.EntityData.ParentYangName = "ipNetToMediaTable"
+    ipNetToMediaEntry.EntityData.SegmentPath = "ipNetToMediaEntry" + types.AddKeyToken(ipNetToMediaEntry.IpNetToMediaIfIndex, "ipNetToMediaIfIndex") + types.AddKeyToken(ipNetToMediaEntry.IpNetToMediaNetAddress, "ipNetToMediaNetAddress")
+    ipNetToMediaEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipNetToMediaEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipNetToMediaEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ipnettomediaentry.EntityData.Children = make(map[string]types.YChild)
-    ipnettomediaentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipnettomediaentry.EntityData.Leafs["ipNetToMediaIfIndex"] = types.YLeaf{"Ipnettomediaifindex", ipnettomediaentry.Ipnettomediaifindex}
-    ipnettomediaentry.EntityData.Leafs["ipNetToMediaNetAddress"] = types.YLeaf{"Ipnettomedianetaddress", ipnettomediaentry.Ipnettomedianetaddress}
-    ipnettomediaentry.EntityData.Leafs["ipNetToMediaPhysAddress"] = types.YLeaf{"Ipnettomediaphysaddress", ipnettomediaentry.Ipnettomediaphysaddress}
-    ipnettomediaentry.EntityData.Leafs["ipNetToMediaType"] = types.YLeaf{"Ipnettomediatype", ipnettomediaentry.Ipnettomediatype}
-    return &(ipnettomediaentry.EntityData)
+    ipNetToMediaEntry.EntityData.Children = types.NewOrderedMap()
+    ipNetToMediaEntry.EntityData.Leafs = types.NewOrderedMap()
+    ipNetToMediaEntry.EntityData.Leafs.Append("ipNetToMediaIfIndex", types.YLeaf{"IpNetToMediaIfIndex", ipNetToMediaEntry.IpNetToMediaIfIndex})
+    ipNetToMediaEntry.EntityData.Leafs.Append("ipNetToMediaNetAddress", types.YLeaf{"IpNetToMediaNetAddress", ipNetToMediaEntry.IpNetToMediaNetAddress})
+    ipNetToMediaEntry.EntityData.Leafs.Append("ipNetToMediaPhysAddress", types.YLeaf{"IpNetToMediaPhysAddress", ipNetToMediaEntry.IpNetToMediaPhysAddress})
+    ipNetToMediaEntry.EntityData.Leafs.Append("ipNetToMediaType", types.YLeaf{"IpNetToMediaType", ipNetToMediaEntry.IpNetToMediaType})
+
+    ipNetToMediaEntry.EntityData.YListKeys = []string {"IpNetToMediaIfIndex", "IpNetToMediaNetAddress"}
+
+    return &(ipNetToMediaEntry.EntityData)
 }
 
-// RFC1213MIB_Ipnettomediatable_Ipnettomediaentry_Ipnettomediatype represents ipNetToMediaType object.
-type RFC1213MIB_Ipnettomediatable_Ipnettomediaentry_Ipnettomediatype string
+// RFC1213MIB_IpNetToMediaTable_IpNetToMediaEntry_IpNetToMediaType represents ipNetToMediaType object.
+type RFC1213MIB_IpNetToMediaTable_IpNetToMediaEntry_IpNetToMediaType string
 
 const (
-    RFC1213MIB_Ipnettomediatable_Ipnettomediaentry_Ipnettomediatype_other RFC1213MIB_Ipnettomediatable_Ipnettomediaentry_Ipnettomediatype = "other"
+    RFC1213MIB_IpNetToMediaTable_IpNetToMediaEntry_IpNetToMediaType_other RFC1213MIB_IpNetToMediaTable_IpNetToMediaEntry_IpNetToMediaType = "other"
 
-    RFC1213MIB_Ipnettomediatable_Ipnettomediaentry_Ipnettomediatype_invalid RFC1213MIB_Ipnettomediatable_Ipnettomediaentry_Ipnettomediatype = "invalid"
+    RFC1213MIB_IpNetToMediaTable_IpNetToMediaEntry_IpNetToMediaType_invalid RFC1213MIB_IpNetToMediaTable_IpNetToMediaEntry_IpNetToMediaType = "invalid"
 
-    RFC1213MIB_Ipnettomediatable_Ipnettomediaentry_Ipnettomediatype_dynamic RFC1213MIB_Ipnettomediatable_Ipnettomediaentry_Ipnettomediatype = "dynamic"
+    RFC1213MIB_IpNetToMediaTable_IpNetToMediaEntry_IpNetToMediaType_dynamic RFC1213MIB_IpNetToMediaTable_IpNetToMediaEntry_IpNetToMediaType = "dynamic"
 
-    RFC1213MIB_Ipnettomediatable_Ipnettomediaentry_Ipnettomediatype_static RFC1213MIB_Ipnettomediatable_Ipnettomediaentry_Ipnettomediatype = "static"
+    RFC1213MIB_IpNetToMediaTable_IpNetToMediaEntry_IpNetToMediaType_static RFC1213MIB_IpNetToMediaTable_IpNetToMediaEntry_IpNetToMediaType = "static"
 )
 
-// RFC1213MIB_Tcpconntable
+// RFC1213MIB_TcpConnTable
 // A table containing TCP connection-specific
 // information.
-type RFC1213MIB_Tcpconntable struct {
+type RFC1213MIB_TcpConnTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a particular current TCP connection.  An object of this
     // type is transient, in that it ceases to exist when (or soon after) the
     // connection makes the transition to the CLOSED state. The type is slice of
-    // RFC1213MIB_Tcpconntable_Tcpconnentry.
-    Tcpconnentry []RFC1213MIB_Tcpconntable_Tcpconnentry
+    // RFC1213MIB_TcpConnTable_TcpConnEntry.
+    TcpConnEntry []*RFC1213MIB_TcpConnTable_TcpConnEntry
 }
 
-func (tcpconntable *RFC1213MIB_Tcpconntable) GetEntityData() *types.CommonEntityData {
-    tcpconntable.EntityData.YFilter = tcpconntable.YFilter
-    tcpconntable.EntityData.YangName = "tcpConnTable"
-    tcpconntable.EntityData.BundleName = "cisco_ios_xe"
-    tcpconntable.EntityData.ParentYangName = "RFC1213-MIB"
-    tcpconntable.EntityData.SegmentPath = "tcpConnTable"
-    tcpconntable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    tcpconntable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    tcpconntable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (tcpConnTable *RFC1213MIB_TcpConnTable) GetEntityData() *types.CommonEntityData {
+    tcpConnTable.EntityData.YFilter = tcpConnTable.YFilter
+    tcpConnTable.EntityData.YangName = "tcpConnTable"
+    tcpConnTable.EntityData.BundleName = "cisco_ios_xe"
+    tcpConnTable.EntityData.ParentYangName = "RFC1213-MIB"
+    tcpConnTable.EntityData.SegmentPath = "tcpConnTable"
+    tcpConnTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tcpConnTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tcpConnTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tcpconntable.EntityData.Children = make(map[string]types.YChild)
-    tcpconntable.EntityData.Children["tcpConnEntry"] = types.YChild{"Tcpconnentry", nil}
-    for i := range tcpconntable.Tcpconnentry {
-        tcpconntable.EntityData.Children[types.GetSegmentPath(&tcpconntable.Tcpconnentry[i])] = types.YChild{"Tcpconnentry", &tcpconntable.Tcpconnentry[i]}
+    tcpConnTable.EntityData.Children = types.NewOrderedMap()
+    tcpConnTable.EntityData.Children.Append("tcpConnEntry", types.YChild{"TcpConnEntry", nil})
+    for i := range tcpConnTable.TcpConnEntry {
+        tcpConnTable.EntityData.Children.Append(types.GetSegmentPath(tcpConnTable.TcpConnEntry[i]), types.YChild{"TcpConnEntry", tcpConnTable.TcpConnEntry[i]})
     }
-    tcpconntable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(tcpconntable.EntityData)
+    tcpConnTable.EntityData.Leafs = types.NewOrderedMap()
+
+    tcpConnTable.EntityData.YListKeys = []string {}
+
+    return &(tcpConnTable.EntityData)
 }
 
-// RFC1213MIB_Tcpconntable_Tcpconnentry
+// RFC1213MIB_TcpConnTable_TcpConnEntry
 // Information about a particular current TCP
 // connection.  An object of this type is transient,
 // in that it ceases to exist when (or soon after)
 // the connection makes the transition to the CLOSED
 // state.
-type RFC1213MIB_Tcpconntable_Tcpconnentry struct {
+type RFC1213MIB_TcpConnTable_TcpConnEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1721,21 +1781,21 @@ type RFC1213MIB_Tcpconntable_Tcpconnentry struct {
     // the case of a connection in the listen state which is willing to accept
     // connections for any IP interface associated with the node, the value
     // 0.0.0.0 is used. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Tcpconnlocaladdress interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    TcpConnLocalAddress interface{}
 
     // This attribute is a key. The local port number for this TCP connection. The
     // type is interface{} with range: 0..65535.
-    Tcpconnlocalport interface{}
+    TcpConnLocalPort interface{}
 
     // This attribute is a key. The remote IP address for this TCP connection. The
     // type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Tcpconnremaddress interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    TcpConnRemAddress interface{}
 
     // This attribute is a key. The remote port number for this TCP connection.
     // The type is interface{} with range: 0..65535.
-    Tcpconnremport interface{}
+    TcpConnRemPort interface{}
 
     // The state of this TCP connection.  The only value which may be set by a
     // management station is deleteTCB(12).  Accordingly, it is appropriate for an
@@ -1746,93 +1806,99 @@ type RFC1213MIB_Tcpconntable_Tcpconnentry struct {
     // node, resulting in immediate termination of the connection.  As an
     // implementation-specific option, a RST segment may be sent from the managed
     // node to the other TCP endpoint (note however that RST segments are not sent
-    // reliably). The type is Tcpconnstate.
-    Tcpconnstate interface{}
+    // reliably). The type is TcpConnState.
+    TcpConnState interface{}
 }
 
-func (tcpconnentry *RFC1213MIB_Tcpconntable_Tcpconnentry) GetEntityData() *types.CommonEntityData {
-    tcpconnentry.EntityData.YFilter = tcpconnentry.YFilter
-    tcpconnentry.EntityData.YangName = "tcpConnEntry"
-    tcpconnentry.EntityData.BundleName = "cisco_ios_xe"
-    tcpconnentry.EntityData.ParentYangName = "tcpConnTable"
-    tcpconnentry.EntityData.SegmentPath = "tcpConnEntry" + "[tcpConnLocalAddress='" + fmt.Sprintf("%v", tcpconnentry.Tcpconnlocaladdress) + "']" + "[tcpConnLocalPort='" + fmt.Sprintf("%v", tcpconnentry.Tcpconnlocalport) + "']" + "[tcpConnRemAddress='" + fmt.Sprintf("%v", tcpconnentry.Tcpconnremaddress) + "']" + "[tcpConnRemPort='" + fmt.Sprintf("%v", tcpconnentry.Tcpconnremport) + "']"
-    tcpconnentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    tcpconnentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    tcpconnentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (tcpConnEntry *RFC1213MIB_TcpConnTable_TcpConnEntry) GetEntityData() *types.CommonEntityData {
+    tcpConnEntry.EntityData.YFilter = tcpConnEntry.YFilter
+    tcpConnEntry.EntityData.YangName = "tcpConnEntry"
+    tcpConnEntry.EntityData.BundleName = "cisco_ios_xe"
+    tcpConnEntry.EntityData.ParentYangName = "tcpConnTable"
+    tcpConnEntry.EntityData.SegmentPath = "tcpConnEntry" + types.AddKeyToken(tcpConnEntry.TcpConnLocalAddress, "tcpConnLocalAddress") + types.AddKeyToken(tcpConnEntry.TcpConnLocalPort, "tcpConnLocalPort") + types.AddKeyToken(tcpConnEntry.TcpConnRemAddress, "tcpConnRemAddress") + types.AddKeyToken(tcpConnEntry.TcpConnRemPort, "tcpConnRemPort")
+    tcpConnEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tcpConnEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tcpConnEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tcpconnentry.EntityData.Children = make(map[string]types.YChild)
-    tcpconnentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcpconnentry.EntityData.Leafs["tcpConnLocalAddress"] = types.YLeaf{"Tcpconnlocaladdress", tcpconnentry.Tcpconnlocaladdress}
-    tcpconnentry.EntityData.Leafs["tcpConnLocalPort"] = types.YLeaf{"Tcpconnlocalport", tcpconnentry.Tcpconnlocalport}
-    tcpconnentry.EntityData.Leafs["tcpConnRemAddress"] = types.YLeaf{"Tcpconnremaddress", tcpconnentry.Tcpconnremaddress}
-    tcpconnentry.EntityData.Leafs["tcpConnRemPort"] = types.YLeaf{"Tcpconnremport", tcpconnentry.Tcpconnremport}
-    tcpconnentry.EntityData.Leafs["tcpConnState"] = types.YLeaf{"Tcpconnstate", tcpconnentry.Tcpconnstate}
-    return &(tcpconnentry.EntityData)
+    tcpConnEntry.EntityData.Children = types.NewOrderedMap()
+    tcpConnEntry.EntityData.Leafs = types.NewOrderedMap()
+    tcpConnEntry.EntityData.Leafs.Append("tcpConnLocalAddress", types.YLeaf{"TcpConnLocalAddress", tcpConnEntry.TcpConnLocalAddress})
+    tcpConnEntry.EntityData.Leafs.Append("tcpConnLocalPort", types.YLeaf{"TcpConnLocalPort", tcpConnEntry.TcpConnLocalPort})
+    tcpConnEntry.EntityData.Leafs.Append("tcpConnRemAddress", types.YLeaf{"TcpConnRemAddress", tcpConnEntry.TcpConnRemAddress})
+    tcpConnEntry.EntityData.Leafs.Append("tcpConnRemPort", types.YLeaf{"TcpConnRemPort", tcpConnEntry.TcpConnRemPort})
+    tcpConnEntry.EntityData.Leafs.Append("tcpConnState", types.YLeaf{"TcpConnState", tcpConnEntry.TcpConnState})
+
+    tcpConnEntry.EntityData.YListKeys = []string {"TcpConnLocalAddress", "TcpConnLocalPort", "TcpConnRemAddress", "TcpConnRemPort"}
+
+    return &(tcpConnEntry.EntityData)
 }
 
-// RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate represents are not sent reliably).
-type RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate string
+// RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState represents are not sent reliably).
+type RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState string
 
 const (
-    RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate_closed RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "closed"
+    RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState_closed RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState = "closed"
 
-    RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate_listen RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "listen"
+    RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState_listen RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState = "listen"
 
-    RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate_synSent RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "synSent"
+    RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState_synSent RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState = "synSent"
 
-    RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate_synReceived RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "synReceived"
+    RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState_synReceived RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState = "synReceived"
 
-    RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate_established RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "established"
+    RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState_established RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState = "established"
 
-    RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate_finWait1 RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "finWait1"
+    RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState_finWait1 RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState = "finWait1"
 
-    RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate_finWait2 RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "finWait2"
+    RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState_finWait2 RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState = "finWait2"
 
-    RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate_closeWait RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "closeWait"
+    RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState_closeWait RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState = "closeWait"
 
-    RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate_lastAck RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "lastAck"
+    RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState_lastAck RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState = "lastAck"
 
-    RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate_closing RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "closing"
+    RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState_closing RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState = "closing"
 
-    RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate_timeWait RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "timeWait"
+    RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState_timeWait RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState = "timeWait"
 
-    RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate_deleteTCB RFC1213MIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "deleteTCB"
+    RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState_deleteTCB RFC1213MIB_TcpConnTable_TcpConnEntry_TcpConnState = "deleteTCB"
 )
 
-// RFC1213MIB_Udptable
+// RFC1213MIB_UdpTable
 // A table containing UDP listener information.
-type RFC1213MIB_Udptable struct {
+type RFC1213MIB_UdpTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a particular current UDP listener. The type is slice of
-    // RFC1213MIB_Udptable_Udpentry.
-    Udpentry []RFC1213MIB_Udptable_Udpentry
+    // RFC1213MIB_UdpTable_UdpEntry.
+    UdpEntry []*RFC1213MIB_UdpTable_UdpEntry
 }
 
-func (udptable *RFC1213MIB_Udptable) GetEntityData() *types.CommonEntityData {
-    udptable.EntityData.YFilter = udptable.YFilter
-    udptable.EntityData.YangName = "udpTable"
-    udptable.EntityData.BundleName = "cisco_ios_xe"
-    udptable.EntityData.ParentYangName = "RFC1213-MIB"
-    udptable.EntityData.SegmentPath = "udpTable"
-    udptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    udptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    udptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (udpTable *RFC1213MIB_UdpTable) GetEntityData() *types.CommonEntityData {
+    udpTable.EntityData.YFilter = udpTable.YFilter
+    udpTable.EntityData.YangName = "udpTable"
+    udpTable.EntityData.BundleName = "cisco_ios_xe"
+    udpTable.EntityData.ParentYangName = "RFC1213-MIB"
+    udpTable.EntityData.SegmentPath = "udpTable"
+    udpTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    udpTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    udpTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    udptable.EntityData.Children = make(map[string]types.YChild)
-    udptable.EntityData.Children["udpEntry"] = types.YChild{"Udpentry", nil}
-    for i := range udptable.Udpentry {
-        udptable.EntityData.Children[types.GetSegmentPath(&udptable.Udpentry[i])] = types.YChild{"Udpentry", &udptable.Udpentry[i]}
+    udpTable.EntityData.Children = types.NewOrderedMap()
+    udpTable.EntityData.Children.Append("udpEntry", types.YChild{"UdpEntry", nil})
+    for i := range udpTable.UdpEntry {
+        udpTable.EntityData.Children.Append(types.GetSegmentPath(udpTable.UdpEntry[i]), types.YChild{"UdpEntry", udpTable.UdpEntry[i]})
     }
-    udptable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(udptable.EntityData)
+    udpTable.EntityData.Leafs = types.NewOrderedMap()
+
+    udpTable.EntityData.YListKeys = []string {}
+
+    return &(udpTable.EntityData)
 }
 
-// RFC1213MIB_Udptable_Udpentry
+// RFC1213MIB_UdpTable_UdpEntry
 // Information about a particular current UDP
 // listener.
-type RFC1213MIB_Udptable_Udpentry struct {
+type RFC1213MIB_UdpTable_UdpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1840,131 +1906,137 @@ type RFC1213MIB_Udptable_Udpentry struct {
     // the case of a UDP listener which is willing to accept datagrams for any IP
     // interface associated with the node, the value 0.0.0.0 is used. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Udplocaladdress interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    UdpLocalAddress interface{}
 
     // This attribute is a key. The local port number for this UDP listener. The
     // type is interface{} with range: 0..65535.
-    Udplocalport interface{}
+    UdpLocalPort interface{}
 }
 
-func (udpentry *RFC1213MIB_Udptable_Udpentry) GetEntityData() *types.CommonEntityData {
-    udpentry.EntityData.YFilter = udpentry.YFilter
-    udpentry.EntityData.YangName = "udpEntry"
-    udpentry.EntityData.BundleName = "cisco_ios_xe"
-    udpentry.EntityData.ParentYangName = "udpTable"
-    udpentry.EntityData.SegmentPath = "udpEntry" + "[udpLocalAddress='" + fmt.Sprintf("%v", udpentry.Udplocaladdress) + "']" + "[udpLocalPort='" + fmt.Sprintf("%v", udpentry.Udplocalport) + "']"
-    udpentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    udpentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    udpentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (udpEntry *RFC1213MIB_UdpTable_UdpEntry) GetEntityData() *types.CommonEntityData {
+    udpEntry.EntityData.YFilter = udpEntry.YFilter
+    udpEntry.EntityData.YangName = "udpEntry"
+    udpEntry.EntityData.BundleName = "cisco_ios_xe"
+    udpEntry.EntityData.ParentYangName = "udpTable"
+    udpEntry.EntityData.SegmentPath = "udpEntry" + types.AddKeyToken(udpEntry.UdpLocalAddress, "udpLocalAddress") + types.AddKeyToken(udpEntry.UdpLocalPort, "udpLocalPort")
+    udpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    udpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    udpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    udpentry.EntityData.Children = make(map[string]types.YChild)
-    udpentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    udpentry.EntityData.Leafs["udpLocalAddress"] = types.YLeaf{"Udplocaladdress", udpentry.Udplocaladdress}
-    udpentry.EntityData.Leafs["udpLocalPort"] = types.YLeaf{"Udplocalport", udpentry.Udplocalport}
-    return &(udpentry.EntityData)
+    udpEntry.EntityData.Children = types.NewOrderedMap()
+    udpEntry.EntityData.Leafs = types.NewOrderedMap()
+    udpEntry.EntityData.Leafs.Append("udpLocalAddress", types.YLeaf{"UdpLocalAddress", udpEntry.UdpLocalAddress})
+    udpEntry.EntityData.Leafs.Append("udpLocalPort", types.YLeaf{"UdpLocalPort", udpEntry.UdpLocalPort})
+
+    udpEntry.EntityData.YListKeys = []string {"UdpLocalAddress", "UdpLocalPort"}
+
+    return &(udpEntry.EntityData)
 }
 
-// RFC1213MIB_Egpneightable
+// RFC1213MIB_EgpNeighTable
 // The EGP neighbor table.
-type RFC1213MIB_Egpneightable struct {
+type RFC1213MIB_EgpNeighTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about this entity's relationship with a particular EGP
-    // neighbor. The type is slice of RFC1213MIB_Egpneightable_Egpneighentry.
-    Egpneighentry []RFC1213MIB_Egpneightable_Egpneighentry
+    // neighbor. The type is slice of RFC1213MIB_EgpNeighTable_EgpNeighEntry.
+    EgpNeighEntry []*RFC1213MIB_EgpNeighTable_EgpNeighEntry
 }
 
-func (egpneightable *RFC1213MIB_Egpneightable) GetEntityData() *types.CommonEntityData {
-    egpneightable.EntityData.YFilter = egpneightable.YFilter
-    egpneightable.EntityData.YangName = "egpNeighTable"
-    egpneightable.EntityData.BundleName = "cisco_ios_xe"
-    egpneightable.EntityData.ParentYangName = "RFC1213-MIB"
-    egpneightable.EntityData.SegmentPath = "egpNeighTable"
-    egpneightable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    egpneightable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    egpneightable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (egpNeighTable *RFC1213MIB_EgpNeighTable) GetEntityData() *types.CommonEntityData {
+    egpNeighTable.EntityData.YFilter = egpNeighTable.YFilter
+    egpNeighTable.EntityData.YangName = "egpNeighTable"
+    egpNeighTable.EntityData.BundleName = "cisco_ios_xe"
+    egpNeighTable.EntityData.ParentYangName = "RFC1213-MIB"
+    egpNeighTable.EntityData.SegmentPath = "egpNeighTable"
+    egpNeighTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    egpNeighTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    egpNeighTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    egpneightable.EntityData.Children = make(map[string]types.YChild)
-    egpneightable.EntityData.Children["egpNeighEntry"] = types.YChild{"Egpneighentry", nil}
-    for i := range egpneightable.Egpneighentry {
-        egpneightable.EntityData.Children[types.GetSegmentPath(&egpneightable.Egpneighentry[i])] = types.YChild{"Egpneighentry", &egpneightable.Egpneighentry[i]}
+    egpNeighTable.EntityData.Children = types.NewOrderedMap()
+    egpNeighTable.EntityData.Children.Append("egpNeighEntry", types.YChild{"EgpNeighEntry", nil})
+    for i := range egpNeighTable.EgpNeighEntry {
+        egpNeighTable.EntityData.Children.Append(types.GetSegmentPath(egpNeighTable.EgpNeighEntry[i]), types.YChild{"EgpNeighEntry", egpNeighTable.EgpNeighEntry[i]})
     }
-    egpneightable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(egpneightable.EntityData)
+    egpNeighTable.EntityData.Leafs = types.NewOrderedMap()
+
+    egpNeighTable.EntityData.YListKeys = []string {}
+
+    return &(egpNeighTable.EntityData)
 }
 
-// RFC1213MIB_Egpneightable_Egpneighentry
+// RFC1213MIB_EgpNeighTable_EgpNeighEntry
 // Information about this entity's relationship with
 // a particular EGP neighbor.
-type RFC1213MIB_Egpneightable_Egpneighentry struct {
+type RFC1213MIB_EgpNeighTable_EgpNeighEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IP address of this entry's EGP neighbor. The
     // type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Egpneighaddr interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    EgpNeighAddr interface{}
 
     // The EGP state of the local system with respect to this entry's EGP
     // neighbor.  Each EGP state is represented by a value that is one greater
     // than the numerical value associated with said state in RFC 904. The type is
-    // Egpneighstate.
-    Egpneighstate interface{}
+    // EgpNeighState.
+    EgpNeighState interface{}
 
     // The autonomous system of this EGP peer.  Zero should be specified if the
     // autonomous system number of the neighbor is not yet known. The type is
     // interface{} with range: -2147483648..2147483647.
-    Egpneighas interface{}
+    EgpNeighAs interface{}
 
     // The number of EGP messages received without error from this EGP peer. The
     // type is interface{} with range: 0..4294967295.
-    Egpneighinmsgs interface{}
+    EgpNeighInMsgs interface{}
 
     // The number of EGP messages received from this EGP peer that proved to be in
     // error (e.g., bad EGP checksum). The type is interface{} with range:
     // 0..4294967295.
-    Egpneighinerrs interface{}
+    EgpNeighInErrs interface{}
 
     // The number of locally generated EGP messages to this EGP peer. The type is
     // interface{} with range: 0..4294967295.
-    Egpneighoutmsgs interface{}
+    EgpNeighOutMsgs interface{}
 
     // The number of locally generated EGP messages not sent to this EGP peer due
     // to resource limitations within an EGP entity. The type is interface{} with
     // range: 0..4294967295.
-    Egpneighouterrs interface{}
+    EgpNeighOutErrs interface{}
 
     // The number of EGP-defined error messages received from this EGP peer. The
     // type is interface{} with range: 0..4294967295.
-    Egpneighinerrmsgs interface{}
+    EgpNeighInErrMsgs interface{}
 
     // The number of EGP-defined error messages sent to this EGP peer. The type is
     // interface{} with range: 0..4294967295.
-    Egpneighouterrmsgs interface{}
+    EgpNeighOutErrMsgs interface{}
 
     // The number of EGP state transitions to the UP state with this EGP peer. The
     // type is interface{} with range: 0..4294967295.
-    Egpneighstateups interface{}
+    EgpNeighStateUps interface{}
 
     // The number of EGP state transitions from the UP state to any other state
     // with this EGP peer. The type is interface{} with range: 0..4294967295.
-    Egpneighstatedowns interface{}
+    EgpNeighStateDowns interface{}
 
     // The interval between EGP Hello command retransmissions (in hundredths of a
     // second).  This represents the t1 timer as defined in RFC 904. The type is
     // interface{} with range: -2147483648..2147483647.
-    Egpneighintervalhello interface{}
+    EgpNeighIntervalHello interface{}
 
     // The interval between EGP poll command retransmissions (in hundredths of a
     // second).  This represents the t3 timer as defined in RFC 904. The type is
     // interface{} with range: -2147483648..2147483647.
-    Egpneighintervalpoll interface{}
+    EgpNeighIntervalPoll interface{}
 
     // The polling mode of this EGP entity, either passive or active. The type is
-    // Egpneighmode.
-    Egpneighmode interface{}
+    // EgpNeighMode.
+    EgpNeighMode interface{}
 
     // A control variable used to trigger operator- initiated Start and Stop
     // events.  When read, this variable always returns the most recent value that
@@ -1976,70 +2048,73 @@ type RFC1213MIB_Egpneightable_Egpneighentry struct {
     // non-Idle peer to reinitiate neighbor acquisition.  A stop event causes a
     // non-Idle peer to return to the Idle state until a Start event occurs,
     // either via egpNeighEventTrigger or otherwise. The type is
-    // Egpneigheventtrigger.
-    Egpneigheventtrigger interface{}
+    // EgpNeighEventTrigger.
+    EgpNeighEventTrigger interface{}
 }
 
-func (egpneighentry *RFC1213MIB_Egpneightable_Egpneighentry) GetEntityData() *types.CommonEntityData {
-    egpneighentry.EntityData.YFilter = egpneighentry.YFilter
-    egpneighentry.EntityData.YangName = "egpNeighEntry"
-    egpneighentry.EntityData.BundleName = "cisco_ios_xe"
-    egpneighentry.EntityData.ParentYangName = "egpNeighTable"
-    egpneighentry.EntityData.SegmentPath = "egpNeighEntry" + "[egpNeighAddr='" + fmt.Sprintf("%v", egpneighentry.Egpneighaddr) + "']"
-    egpneighentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    egpneighentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    egpneighentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (egpNeighEntry *RFC1213MIB_EgpNeighTable_EgpNeighEntry) GetEntityData() *types.CommonEntityData {
+    egpNeighEntry.EntityData.YFilter = egpNeighEntry.YFilter
+    egpNeighEntry.EntityData.YangName = "egpNeighEntry"
+    egpNeighEntry.EntityData.BundleName = "cisco_ios_xe"
+    egpNeighEntry.EntityData.ParentYangName = "egpNeighTable"
+    egpNeighEntry.EntityData.SegmentPath = "egpNeighEntry" + types.AddKeyToken(egpNeighEntry.EgpNeighAddr, "egpNeighAddr")
+    egpNeighEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    egpNeighEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    egpNeighEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    egpneighentry.EntityData.Children = make(map[string]types.YChild)
-    egpneighentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    egpneighentry.EntityData.Leafs["egpNeighAddr"] = types.YLeaf{"Egpneighaddr", egpneighentry.Egpneighaddr}
-    egpneighentry.EntityData.Leafs["egpNeighState"] = types.YLeaf{"Egpneighstate", egpneighentry.Egpneighstate}
-    egpneighentry.EntityData.Leafs["egpNeighAs"] = types.YLeaf{"Egpneighas", egpneighentry.Egpneighas}
-    egpneighentry.EntityData.Leafs["egpNeighInMsgs"] = types.YLeaf{"Egpneighinmsgs", egpneighentry.Egpneighinmsgs}
-    egpneighentry.EntityData.Leafs["egpNeighInErrs"] = types.YLeaf{"Egpneighinerrs", egpneighentry.Egpneighinerrs}
-    egpneighentry.EntityData.Leafs["egpNeighOutMsgs"] = types.YLeaf{"Egpneighoutmsgs", egpneighentry.Egpneighoutmsgs}
-    egpneighentry.EntityData.Leafs["egpNeighOutErrs"] = types.YLeaf{"Egpneighouterrs", egpneighentry.Egpneighouterrs}
-    egpneighentry.EntityData.Leafs["egpNeighInErrMsgs"] = types.YLeaf{"Egpneighinerrmsgs", egpneighentry.Egpneighinerrmsgs}
-    egpneighentry.EntityData.Leafs["egpNeighOutErrMsgs"] = types.YLeaf{"Egpneighouterrmsgs", egpneighentry.Egpneighouterrmsgs}
-    egpneighentry.EntityData.Leafs["egpNeighStateUps"] = types.YLeaf{"Egpneighstateups", egpneighentry.Egpneighstateups}
-    egpneighentry.EntityData.Leafs["egpNeighStateDowns"] = types.YLeaf{"Egpneighstatedowns", egpneighentry.Egpneighstatedowns}
-    egpneighentry.EntityData.Leafs["egpNeighIntervalHello"] = types.YLeaf{"Egpneighintervalhello", egpneighentry.Egpneighintervalhello}
-    egpneighentry.EntityData.Leafs["egpNeighIntervalPoll"] = types.YLeaf{"Egpneighintervalpoll", egpneighentry.Egpneighintervalpoll}
-    egpneighentry.EntityData.Leafs["egpNeighMode"] = types.YLeaf{"Egpneighmode", egpneighentry.Egpneighmode}
-    egpneighentry.EntityData.Leafs["egpNeighEventTrigger"] = types.YLeaf{"Egpneigheventtrigger", egpneighentry.Egpneigheventtrigger}
-    return &(egpneighentry.EntityData)
+    egpNeighEntry.EntityData.Children = types.NewOrderedMap()
+    egpNeighEntry.EntityData.Leafs = types.NewOrderedMap()
+    egpNeighEntry.EntityData.Leafs.Append("egpNeighAddr", types.YLeaf{"EgpNeighAddr", egpNeighEntry.EgpNeighAddr})
+    egpNeighEntry.EntityData.Leafs.Append("egpNeighState", types.YLeaf{"EgpNeighState", egpNeighEntry.EgpNeighState})
+    egpNeighEntry.EntityData.Leafs.Append("egpNeighAs", types.YLeaf{"EgpNeighAs", egpNeighEntry.EgpNeighAs})
+    egpNeighEntry.EntityData.Leafs.Append("egpNeighInMsgs", types.YLeaf{"EgpNeighInMsgs", egpNeighEntry.EgpNeighInMsgs})
+    egpNeighEntry.EntityData.Leafs.Append("egpNeighInErrs", types.YLeaf{"EgpNeighInErrs", egpNeighEntry.EgpNeighInErrs})
+    egpNeighEntry.EntityData.Leafs.Append("egpNeighOutMsgs", types.YLeaf{"EgpNeighOutMsgs", egpNeighEntry.EgpNeighOutMsgs})
+    egpNeighEntry.EntityData.Leafs.Append("egpNeighOutErrs", types.YLeaf{"EgpNeighOutErrs", egpNeighEntry.EgpNeighOutErrs})
+    egpNeighEntry.EntityData.Leafs.Append("egpNeighInErrMsgs", types.YLeaf{"EgpNeighInErrMsgs", egpNeighEntry.EgpNeighInErrMsgs})
+    egpNeighEntry.EntityData.Leafs.Append("egpNeighOutErrMsgs", types.YLeaf{"EgpNeighOutErrMsgs", egpNeighEntry.EgpNeighOutErrMsgs})
+    egpNeighEntry.EntityData.Leafs.Append("egpNeighStateUps", types.YLeaf{"EgpNeighStateUps", egpNeighEntry.EgpNeighStateUps})
+    egpNeighEntry.EntityData.Leafs.Append("egpNeighStateDowns", types.YLeaf{"EgpNeighStateDowns", egpNeighEntry.EgpNeighStateDowns})
+    egpNeighEntry.EntityData.Leafs.Append("egpNeighIntervalHello", types.YLeaf{"EgpNeighIntervalHello", egpNeighEntry.EgpNeighIntervalHello})
+    egpNeighEntry.EntityData.Leafs.Append("egpNeighIntervalPoll", types.YLeaf{"EgpNeighIntervalPoll", egpNeighEntry.EgpNeighIntervalPoll})
+    egpNeighEntry.EntityData.Leafs.Append("egpNeighMode", types.YLeaf{"EgpNeighMode", egpNeighEntry.EgpNeighMode})
+    egpNeighEntry.EntityData.Leafs.Append("egpNeighEventTrigger", types.YLeaf{"EgpNeighEventTrigger", egpNeighEntry.EgpNeighEventTrigger})
+
+    egpNeighEntry.EntityData.YListKeys = []string {"EgpNeighAddr"}
+
+    return &(egpNeighEntry.EntityData)
 }
 
-// RFC1213MIB_Egpneightable_Egpneighentry_Egpneigheventtrigger represents otherwise.
-type RFC1213MIB_Egpneightable_Egpneighentry_Egpneigheventtrigger string
+// RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighEventTrigger represents otherwise.
+type RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighEventTrigger string
 
 const (
-    RFC1213MIB_Egpneightable_Egpneighentry_Egpneigheventtrigger_start RFC1213MIB_Egpneightable_Egpneighentry_Egpneigheventtrigger = "start"
+    RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighEventTrigger_start RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighEventTrigger = "start"
 
-    RFC1213MIB_Egpneightable_Egpneighentry_Egpneigheventtrigger_stop RFC1213MIB_Egpneightable_Egpneighentry_Egpneigheventtrigger = "stop"
+    RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighEventTrigger_stop RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighEventTrigger = "stop"
 )
 
-// RFC1213MIB_Egpneightable_Egpneighentry_Egpneighmode represents passive or active.
-type RFC1213MIB_Egpneightable_Egpneighentry_Egpneighmode string
+// RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighMode represents passive or active.
+type RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighMode string
 
 const (
-    RFC1213MIB_Egpneightable_Egpneighentry_Egpneighmode_active RFC1213MIB_Egpneightable_Egpneighentry_Egpneighmode = "active"
+    RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighMode_active RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighMode = "active"
 
-    RFC1213MIB_Egpneightable_Egpneighentry_Egpneighmode_passive RFC1213MIB_Egpneightable_Egpneighentry_Egpneighmode = "passive"
+    RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighMode_passive RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighMode = "passive"
 )
 
-// RFC1213MIB_Egpneightable_Egpneighentry_Egpneighstate represents RFC 904.
-type RFC1213MIB_Egpneightable_Egpneighentry_Egpneighstate string
+// RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighState represents RFC 904.
+type RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighState string
 
 const (
-    RFC1213MIB_Egpneightable_Egpneighentry_Egpneighstate_idle RFC1213MIB_Egpneightable_Egpneighentry_Egpneighstate = "idle"
+    RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighState_idle RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighState = "idle"
 
-    RFC1213MIB_Egpneightable_Egpneighentry_Egpneighstate_acquisition RFC1213MIB_Egpneightable_Egpneighentry_Egpneighstate = "acquisition"
+    RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighState_acquisition RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighState = "acquisition"
 
-    RFC1213MIB_Egpneightable_Egpneighentry_Egpneighstate_down RFC1213MIB_Egpneightable_Egpneighentry_Egpneighstate = "down"
+    RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighState_down RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighState = "down"
 
-    RFC1213MIB_Egpneightable_Egpneighentry_Egpneighstate_up RFC1213MIB_Egpneightable_Egpneighentry_Egpneighstate = "up"
+    RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighState_up RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighState = "up"
 
-    RFC1213MIB_Egpneightable_Egpneighentry_Egpneighstate_cease RFC1213MIB_Egpneightable_Egpneighentry_Egpneighstate = "cease"
+    RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighState_cease RFC1213MIB_EgpNeighTable_EgpNeighEntry_EgpNeighState = "cease"
 )
 

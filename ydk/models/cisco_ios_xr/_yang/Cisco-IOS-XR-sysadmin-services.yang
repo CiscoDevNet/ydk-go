@@ -2,10 +2,6 @@ module Cisco-IOS-XR-sysadmin-services {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-services";
   prefix calvados_services;
 
-  import tailf-common {
-    prefix tailf;
-  }
-
   organization
     "Cisco Systems Inc.";
   contact
@@ -19,13 +15,19 @@ module Cisco-IOS-XR-sysadmin-services {
      
      E-mail: cs-yang@cisco.com";
   description
-    "This module contains a collection of YANG
+    "This module contains definitions
+     for the Calvados model objects.
+     
+     This module contains a collection of YANG
      definitions for Cisco IOS-XR SysAdmin configuration.
      
      This module defines the services offered in the
      sysadmin plane.
      
      Copyright(c) 2016 by Cisco Systems, Inc.
+     All rights reserved.
+     
+     Copyright (c) 2012-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2016-11-10 {
@@ -35,11 +37,8 @@ module Cisco-IOS-XR-sysadmin-services {
 
   container service {
     config true;
-    tailf:info "Modify use of network based services";
     container cli {
-      tailf:info "CLI configuration services";
       container interactive {
-        tailf:info "Change interactive behavior of commands";
         leaf enabled {
           type boolean;
           default "true";

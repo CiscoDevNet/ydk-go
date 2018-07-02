@@ -44,9 +44,12 @@ func (exception *Exception) GetEntityData() *types.CommonEntityData {
     exception.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exception.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    exception.EntityData.Children = make(map[string]types.YChild)
-    exception.EntityData.Children["enter"] = types.YChild{"Enter", &exception.Enter}
-    exception.EntityData.Leafs = make(map[string]types.YLeaf)
+    exception.EntityData.Children = types.NewOrderedMap()
+    exception.EntityData.Children.Append("enter", types.YChild{"Enter", &exception.Enter})
+    exception.EntityData.Leafs = types.NewOrderedMap()
+
+    exception.EntityData.YListKeys = []string {}
+
     return &(exception.EntityData)
 }
 
@@ -118,25 +121,28 @@ func (enter *Exception_Enter) GetEntityData() *types.CommonEntityData {
     enter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    enter.EntityData.Children = make(map[string]types.YChild)
-    enter.EntityData.Children["display-config1"] = types.YChild{"DisplayConfig1", &enter.DisplayConfig1}
-    enter.EntityData.Children["display-config2"] = types.YChild{"DisplayConfig2", &enter.DisplayConfig2}
-    enter.EntityData.Children["display-config3"] = types.YChild{"DisplayConfig3", &enter.DisplayConfig3}
-    enter.EntityData.Children["display-fall-back-config1"] = types.YChild{"DisplayFallBackConfig1", &enter.DisplayFallBackConfig1}
-    enter.EntityData.Children["display-fall-back-config2"] = types.YChild{"DisplayFallBackConfig2", &enter.DisplayFallBackConfig2}
-    enter.EntityData.Children["display-fall-back-config3"] = types.YChild{"DisplayFallBackConfig3", &enter.DisplayFallBackConfig3}
-    enter.EntityData.Children["kernel-config"] = types.YChild{"KernelConfig", &enter.KernelConfig}
-    enter.EntityData.Children["kernel-route-config"] = types.YChild{"KernelRouteConfig", &enter.KernelRouteConfig}
-    enter.EntityData.Children["core-size"] = types.YChild{"CoreSize", &enter.CoreSize}
-    enter.EntityData.Children["memory-threshold"] = types.YChild{"MemoryThreshold", &enter.MemoryThreshold}
-    enter.EntityData.Children["proc-size"] = types.YChild{"ProcSize", &enter.ProcSize}
-    enter.EntityData.Children["qsize"] = types.YChild{"Qsize", &enter.Qsize}
-    enter.EntityData.Leafs = make(map[string]types.YLeaf)
-    enter.EntityData.Leafs["pak-mem"] = types.YLeaf{"PakMem", enter.PakMem}
-    enter.EntityData.Leafs["sparse"] = types.YLeaf{"Sparse", enter.Sparse}
-    enter.EntityData.Leafs["spr-size"] = types.YLeaf{"SprSize", enter.SprSize}
-    enter.EntityData.Leafs["core-verification"] = types.YLeaf{"CoreVerification", enter.CoreVerification}
-    enter.EntityData.Leafs["dump-time-out"] = types.YLeaf{"DumpTimeOut", enter.DumpTimeOut}
+    enter.EntityData.Children = types.NewOrderedMap()
+    enter.EntityData.Children.Append("display-config1", types.YChild{"DisplayConfig1", &enter.DisplayConfig1})
+    enter.EntityData.Children.Append("display-config2", types.YChild{"DisplayConfig2", &enter.DisplayConfig2})
+    enter.EntityData.Children.Append("display-config3", types.YChild{"DisplayConfig3", &enter.DisplayConfig3})
+    enter.EntityData.Children.Append("display-fall-back-config1", types.YChild{"DisplayFallBackConfig1", &enter.DisplayFallBackConfig1})
+    enter.EntityData.Children.Append("display-fall-back-config2", types.YChild{"DisplayFallBackConfig2", &enter.DisplayFallBackConfig2})
+    enter.EntityData.Children.Append("display-fall-back-config3", types.YChild{"DisplayFallBackConfig3", &enter.DisplayFallBackConfig3})
+    enter.EntityData.Children.Append("kernel-config", types.YChild{"KernelConfig", &enter.KernelConfig})
+    enter.EntityData.Children.Append("kernel-route-config", types.YChild{"KernelRouteConfig", &enter.KernelRouteConfig})
+    enter.EntityData.Children.Append("core-size", types.YChild{"CoreSize", &enter.CoreSize})
+    enter.EntityData.Children.Append("memory-threshold", types.YChild{"MemoryThreshold", &enter.MemoryThreshold})
+    enter.EntityData.Children.Append("proc-size", types.YChild{"ProcSize", &enter.ProcSize})
+    enter.EntityData.Children.Append("qsize", types.YChild{"Qsize", &enter.Qsize})
+    enter.EntityData.Leafs = types.NewOrderedMap()
+    enter.EntityData.Leafs.Append("pak-mem", types.YLeaf{"PakMem", enter.PakMem})
+    enter.EntityData.Leafs.Append("sparse", types.YLeaf{"Sparse", enter.Sparse})
+    enter.EntityData.Leafs.Append("spr-size", types.YLeaf{"SprSize", enter.SprSize})
+    enter.EntityData.Leafs.Append("core-verification", types.YLeaf{"CoreVerification", enter.CoreVerification})
+    enter.EntityData.Leafs.Append("dump-time-out", types.YLeaf{"DumpTimeOut", enter.DumpTimeOut})
+
+    enter.EntityData.YListKeys = []string {}
+
     return &(enter.EntityData)
 }
 
@@ -175,14 +181,17 @@ func (displayConfig1 *Exception_Enter_DisplayConfig1) GetEntityData() *types.Com
     displayConfig1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     displayConfig1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    displayConfig1.EntityData.Children = make(map[string]types.YChild)
-    displayConfig1.EntityData.Leafs = make(map[string]types.YLeaf)
-    displayConfig1.EntityData.Leafs["choice"] = types.YLeaf{"Choice", displayConfig1.Choice}
-    displayConfig1.EntityData.Leafs["path"] = types.YLeaf{"Path", displayConfig1.Path}
-    displayConfig1.EntityData.Leafs["compress"] = types.YLeaf{"Compress", displayConfig1.Compress}
-    displayConfig1.EntityData.Leafs["file-name"] = types.YLeaf{"FileName", displayConfig1.FileName}
-    displayConfig1.EntityData.Leafs["range-low"] = types.YLeaf{"RangeLow", displayConfig1.RangeLow}
-    displayConfig1.EntityData.Leafs["range-high"] = types.YLeaf{"RangeHigh", displayConfig1.RangeHigh}
+    displayConfig1.EntityData.Children = types.NewOrderedMap()
+    displayConfig1.EntityData.Leafs = types.NewOrderedMap()
+    displayConfig1.EntityData.Leafs.Append("choice", types.YLeaf{"Choice", displayConfig1.Choice})
+    displayConfig1.EntityData.Leafs.Append("path", types.YLeaf{"Path", displayConfig1.Path})
+    displayConfig1.EntityData.Leafs.Append("compress", types.YLeaf{"Compress", displayConfig1.Compress})
+    displayConfig1.EntityData.Leafs.Append("file-name", types.YLeaf{"FileName", displayConfig1.FileName})
+    displayConfig1.EntityData.Leafs.Append("range-low", types.YLeaf{"RangeLow", displayConfig1.RangeLow})
+    displayConfig1.EntityData.Leafs.Append("range-high", types.YLeaf{"RangeHigh", displayConfig1.RangeHigh})
+
+    displayConfig1.EntityData.YListKeys = []string {}
+
     return &(displayConfig1.EntityData)
 }
 
@@ -221,14 +230,17 @@ func (displayConfig2 *Exception_Enter_DisplayConfig2) GetEntityData() *types.Com
     displayConfig2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     displayConfig2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    displayConfig2.EntityData.Children = make(map[string]types.YChild)
-    displayConfig2.EntityData.Leafs = make(map[string]types.YLeaf)
-    displayConfig2.EntityData.Leafs["choice"] = types.YLeaf{"Choice", displayConfig2.Choice}
-    displayConfig2.EntityData.Leafs["path"] = types.YLeaf{"Path", displayConfig2.Path}
-    displayConfig2.EntityData.Leafs["compress"] = types.YLeaf{"Compress", displayConfig2.Compress}
-    displayConfig2.EntityData.Leafs["file-name"] = types.YLeaf{"FileName", displayConfig2.FileName}
-    displayConfig2.EntityData.Leafs["range-low"] = types.YLeaf{"RangeLow", displayConfig2.RangeLow}
-    displayConfig2.EntityData.Leafs["range-high"] = types.YLeaf{"RangeHigh", displayConfig2.RangeHigh}
+    displayConfig2.EntityData.Children = types.NewOrderedMap()
+    displayConfig2.EntityData.Leafs = types.NewOrderedMap()
+    displayConfig2.EntityData.Leafs.Append("choice", types.YLeaf{"Choice", displayConfig2.Choice})
+    displayConfig2.EntityData.Leafs.Append("path", types.YLeaf{"Path", displayConfig2.Path})
+    displayConfig2.EntityData.Leafs.Append("compress", types.YLeaf{"Compress", displayConfig2.Compress})
+    displayConfig2.EntityData.Leafs.Append("file-name", types.YLeaf{"FileName", displayConfig2.FileName})
+    displayConfig2.EntityData.Leafs.Append("range-low", types.YLeaf{"RangeLow", displayConfig2.RangeLow})
+    displayConfig2.EntityData.Leafs.Append("range-high", types.YLeaf{"RangeHigh", displayConfig2.RangeHigh})
+
+    displayConfig2.EntityData.YListKeys = []string {}
+
     return &(displayConfig2.EntityData)
 }
 
@@ -267,14 +279,17 @@ func (displayConfig3 *Exception_Enter_DisplayConfig3) GetEntityData() *types.Com
     displayConfig3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     displayConfig3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    displayConfig3.EntityData.Children = make(map[string]types.YChild)
-    displayConfig3.EntityData.Leafs = make(map[string]types.YLeaf)
-    displayConfig3.EntityData.Leafs["choice"] = types.YLeaf{"Choice", displayConfig3.Choice}
-    displayConfig3.EntityData.Leafs["path"] = types.YLeaf{"Path", displayConfig3.Path}
-    displayConfig3.EntityData.Leafs["compress"] = types.YLeaf{"Compress", displayConfig3.Compress}
-    displayConfig3.EntityData.Leafs["file-name"] = types.YLeaf{"FileName", displayConfig3.FileName}
-    displayConfig3.EntityData.Leafs["range-low"] = types.YLeaf{"RangeLow", displayConfig3.RangeLow}
-    displayConfig3.EntityData.Leafs["range-high"] = types.YLeaf{"RangeHigh", displayConfig3.RangeHigh}
+    displayConfig3.EntityData.Children = types.NewOrderedMap()
+    displayConfig3.EntityData.Leafs = types.NewOrderedMap()
+    displayConfig3.EntityData.Leafs.Append("choice", types.YLeaf{"Choice", displayConfig3.Choice})
+    displayConfig3.EntityData.Leafs.Append("path", types.YLeaf{"Path", displayConfig3.Path})
+    displayConfig3.EntityData.Leafs.Append("compress", types.YLeaf{"Compress", displayConfig3.Compress})
+    displayConfig3.EntityData.Leafs.Append("file-name", types.YLeaf{"FileName", displayConfig3.FileName})
+    displayConfig3.EntityData.Leafs.Append("range-low", types.YLeaf{"RangeLow", displayConfig3.RangeLow})
+    displayConfig3.EntityData.Leafs.Append("range-high", types.YLeaf{"RangeHigh", displayConfig3.RangeHigh})
+
+    displayConfig3.EntityData.YListKeys = []string {}
+
     return &(displayConfig3.EntityData)
 }
 
@@ -316,15 +331,18 @@ func (displayFallBackConfig1 *Exception_Enter_DisplayFallBackConfig1) GetEntityD
     displayFallBackConfig1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     displayFallBackConfig1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    displayFallBackConfig1.EntityData.Children = make(map[string]types.YChild)
-    displayFallBackConfig1.EntityData.Leafs = make(map[string]types.YLeaf)
-    displayFallBackConfig1.EntityData.Leafs["choice-fall-back"] = types.YLeaf{"ChoiceFallBack", displayFallBackConfig1.ChoiceFallBack}
-    displayFallBackConfig1.EntityData.Leafs["path"] = types.YLeaf{"Path", displayFallBackConfig1.Path}
-    displayFallBackConfig1.EntityData.Leafs["compress"] = types.YLeaf{"Compress", displayFallBackConfig1.Compress}
-    displayFallBackConfig1.EntityData.Leafs["file-name"] = types.YLeaf{"FileName", displayFallBackConfig1.FileName}
-    displayFallBackConfig1.EntityData.Leafs["boot-device-str"] = types.YLeaf{"BootDeviceStr", displayFallBackConfig1.BootDeviceStr}
-    displayFallBackConfig1.EntityData.Leafs["range-low"] = types.YLeaf{"RangeLow", displayFallBackConfig1.RangeLow}
-    displayFallBackConfig1.EntityData.Leafs["range-high"] = types.YLeaf{"RangeHigh", displayFallBackConfig1.RangeHigh}
+    displayFallBackConfig1.EntityData.Children = types.NewOrderedMap()
+    displayFallBackConfig1.EntityData.Leafs = types.NewOrderedMap()
+    displayFallBackConfig1.EntityData.Leafs.Append("choice-fall-back", types.YLeaf{"ChoiceFallBack", displayFallBackConfig1.ChoiceFallBack})
+    displayFallBackConfig1.EntityData.Leafs.Append("path", types.YLeaf{"Path", displayFallBackConfig1.Path})
+    displayFallBackConfig1.EntityData.Leafs.Append("compress", types.YLeaf{"Compress", displayFallBackConfig1.Compress})
+    displayFallBackConfig1.EntityData.Leafs.Append("file-name", types.YLeaf{"FileName", displayFallBackConfig1.FileName})
+    displayFallBackConfig1.EntityData.Leafs.Append("boot-device-str", types.YLeaf{"BootDeviceStr", displayFallBackConfig1.BootDeviceStr})
+    displayFallBackConfig1.EntityData.Leafs.Append("range-low", types.YLeaf{"RangeLow", displayFallBackConfig1.RangeLow})
+    displayFallBackConfig1.EntityData.Leafs.Append("range-high", types.YLeaf{"RangeHigh", displayFallBackConfig1.RangeHigh})
+
+    displayFallBackConfig1.EntityData.YListKeys = []string {}
+
     return &(displayFallBackConfig1.EntityData)
 }
 
@@ -366,15 +384,18 @@ func (displayFallBackConfig2 *Exception_Enter_DisplayFallBackConfig2) GetEntityD
     displayFallBackConfig2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     displayFallBackConfig2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    displayFallBackConfig2.EntityData.Children = make(map[string]types.YChild)
-    displayFallBackConfig2.EntityData.Leafs = make(map[string]types.YLeaf)
-    displayFallBackConfig2.EntityData.Leafs["choice-fall-back"] = types.YLeaf{"ChoiceFallBack", displayFallBackConfig2.ChoiceFallBack}
-    displayFallBackConfig2.EntityData.Leafs["path"] = types.YLeaf{"Path", displayFallBackConfig2.Path}
-    displayFallBackConfig2.EntityData.Leafs["compress"] = types.YLeaf{"Compress", displayFallBackConfig2.Compress}
-    displayFallBackConfig2.EntityData.Leafs["file-name"] = types.YLeaf{"FileName", displayFallBackConfig2.FileName}
-    displayFallBackConfig2.EntityData.Leafs["boot-device-str"] = types.YLeaf{"BootDeviceStr", displayFallBackConfig2.BootDeviceStr}
-    displayFallBackConfig2.EntityData.Leafs["range-low"] = types.YLeaf{"RangeLow", displayFallBackConfig2.RangeLow}
-    displayFallBackConfig2.EntityData.Leafs["range-high"] = types.YLeaf{"RangeHigh", displayFallBackConfig2.RangeHigh}
+    displayFallBackConfig2.EntityData.Children = types.NewOrderedMap()
+    displayFallBackConfig2.EntityData.Leafs = types.NewOrderedMap()
+    displayFallBackConfig2.EntityData.Leafs.Append("choice-fall-back", types.YLeaf{"ChoiceFallBack", displayFallBackConfig2.ChoiceFallBack})
+    displayFallBackConfig2.EntityData.Leafs.Append("path", types.YLeaf{"Path", displayFallBackConfig2.Path})
+    displayFallBackConfig2.EntityData.Leafs.Append("compress", types.YLeaf{"Compress", displayFallBackConfig2.Compress})
+    displayFallBackConfig2.EntityData.Leafs.Append("file-name", types.YLeaf{"FileName", displayFallBackConfig2.FileName})
+    displayFallBackConfig2.EntityData.Leafs.Append("boot-device-str", types.YLeaf{"BootDeviceStr", displayFallBackConfig2.BootDeviceStr})
+    displayFallBackConfig2.EntityData.Leafs.Append("range-low", types.YLeaf{"RangeLow", displayFallBackConfig2.RangeLow})
+    displayFallBackConfig2.EntityData.Leafs.Append("range-high", types.YLeaf{"RangeHigh", displayFallBackConfig2.RangeHigh})
+
+    displayFallBackConfig2.EntityData.YListKeys = []string {}
+
     return &(displayFallBackConfig2.EntityData)
 }
 
@@ -416,15 +437,18 @@ func (displayFallBackConfig3 *Exception_Enter_DisplayFallBackConfig3) GetEntityD
     displayFallBackConfig3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     displayFallBackConfig3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    displayFallBackConfig3.EntityData.Children = make(map[string]types.YChild)
-    displayFallBackConfig3.EntityData.Leafs = make(map[string]types.YLeaf)
-    displayFallBackConfig3.EntityData.Leafs["choice-fall-back"] = types.YLeaf{"ChoiceFallBack", displayFallBackConfig3.ChoiceFallBack}
-    displayFallBackConfig3.EntityData.Leafs["path"] = types.YLeaf{"Path", displayFallBackConfig3.Path}
-    displayFallBackConfig3.EntityData.Leafs["compress"] = types.YLeaf{"Compress", displayFallBackConfig3.Compress}
-    displayFallBackConfig3.EntityData.Leafs["file-name"] = types.YLeaf{"FileName", displayFallBackConfig3.FileName}
-    displayFallBackConfig3.EntityData.Leafs["boot-device-str"] = types.YLeaf{"BootDeviceStr", displayFallBackConfig3.BootDeviceStr}
-    displayFallBackConfig3.EntityData.Leafs["range-low"] = types.YLeaf{"RangeLow", displayFallBackConfig3.RangeLow}
-    displayFallBackConfig3.EntityData.Leafs["range-high"] = types.YLeaf{"RangeHigh", displayFallBackConfig3.RangeHigh}
+    displayFallBackConfig3.EntityData.Children = types.NewOrderedMap()
+    displayFallBackConfig3.EntityData.Leafs = types.NewOrderedMap()
+    displayFallBackConfig3.EntityData.Leafs.Append("choice-fall-back", types.YLeaf{"ChoiceFallBack", displayFallBackConfig3.ChoiceFallBack})
+    displayFallBackConfig3.EntityData.Leafs.Append("path", types.YLeaf{"Path", displayFallBackConfig3.Path})
+    displayFallBackConfig3.EntityData.Leafs.Append("compress", types.YLeaf{"Compress", displayFallBackConfig3.Compress})
+    displayFallBackConfig3.EntityData.Leafs.Append("file-name", types.YLeaf{"FileName", displayFallBackConfig3.FileName})
+    displayFallBackConfig3.EntityData.Leafs.Append("boot-device-str", types.YLeaf{"BootDeviceStr", displayFallBackConfig3.BootDeviceStr})
+    displayFallBackConfig3.EntityData.Leafs.Append("range-low", types.YLeaf{"RangeLow", displayFallBackConfig3.RangeLow})
+    displayFallBackConfig3.EntityData.Leafs.Append("range-high", types.YLeaf{"RangeHigh", displayFallBackConfig3.RangeHigh})
+
+    displayFallBackConfig3.EntityData.YListKeys = []string {}
+
     return &(displayFallBackConfig3.EntityData)
 }
 
@@ -457,12 +481,15 @@ func (kernelConfig *Exception_Enter_KernelConfig) GetEntityData() *types.CommonE
     kernelConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     kernelConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    kernelConfig.EntityData.Children = make(map[string]types.YChild)
-    kernelConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    kernelConfig.EntityData.Leafs["choice-fall-back"] = types.YLeaf{"ChoiceFallBack", kernelConfig.ChoiceFallBack}
-    kernelConfig.EntityData.Leafs["path"] = types.YLeaf{"Path", kernelConfig.Path}
-    kernelConfig.EntityData.Leafs["file-name"] = types.YLeaf{"FileName", kernelConfig.FileName}
-    kernelConfig.EntityData.Leafs["memory"] = types.YLeaf{"Memory", kernelConfig.Memory}
+    kernelConfig.EntityData.Children = types.NewOrderedMap()
+    kernelConfig.EntityData.Leafs = types.NewOrderedMap()
+    kernelConfig.EntityData.Leafs.Append("choice-fall-back", types.YLeaf{"ChoiceFallBack", kernelConfig.ChoiceFallBack})
+    kernelConfig.EntityData.Leafs.Append("path", types.YLeaf{"Path", kernelConfig.Path})
+    kernelConfig.EntityData.Leafs.Append("file-name", types.YLeaf{"FileName", kernelConfig.FileName})
+    kernelConfig.EntityData.Leafs.Append("memory", types.YLeaf{"Memory", kernelConfig.Memory})
+
+    kernelConfig.EntityData.YListKeys = []string {}
+
     return &(kernelConfig.EntityData)
 }
 
@@ -501,14 +528,17 @@ func (kernelRouteConfig *Exception_Enter_KernelRouteConfig) GetEntityData() *typ
     kernelRouteConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     kernelRouteConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    kernelRouteConfig.EntityData.Children = make(map[string]types.YChild)
-    kernelRouteConfig.EntityData.Leafs = make(map[string]types.YLeaf)
-    kernelRouteConfig.EntityData.Leafs["slot"] = types.YLeaf{"Slot", kernelRouteConfig.Slot}
-    kernelRouteConfig.EntityData.Leafs["port"] = types.YLeaf{"Port", kernelRouteConfig.Port}
-    kernelRouteConfig.EntityData.Leafs["ip-addr"] = types.YLeaf{"IpAddr", kernelRouteConfig.IpAddr}
-    kernelRouteConfig.EntityData.Leafs["mask"] = types.YLeaf{"Mask", kernelRouteConfig.Mask}
-    kernelRouteConfig.EntityData.Leafs["destination"] = types.YLeaf{"Destination", kernelRouteConfig.Destination}
-    kernelRouteConfig.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", kernelRouteConfig.NextHop}
+    kernelRouteConfig.EntityData.Children = types.NewOrderedMap()
+    kernelRouteConfig.EntityData.Leafs = types.NewOrderedMap()
+    kernelRouteConfig.EntityData.Leafs.Append("slot", types.YLeaf{"Slot", kernelRouteConfig.Slot})
+    kernelRouteConfig.EntityData.Leafs.Append("port", types.YLeaf{"Port", kernelRouteConfig.Port})
+    kernelRouteConfig.EntityData.Leafs.Append("ip-addr", types.YLeaf{"IpAddr", kernelRouteConfig.IpAddr})
+    kernelRouteConfig.EntityData.Leafs.Append("mask", types.YLeaf{"Mask", kernelRouteConfig.Mask})
+    kernelRouteConfig.EntityData.Leafs.Append("destination", types.YLeaf{"Destination", kernelRouteConfig.Destination})
+    kernelRouteConfig.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", kernelRouteConfig.NextHop})
+
+    kernelRouteConfig.EntityData.YListKeys = []string {}
+
     return &(kernelRouteConfig.EntityData)
 }
 
@@ -519,7 +549,7 @@ type Exception_Enter_CoreSize struct {
     YFilter yfilter.YFilter
 
     // String  . The type is string.
-    String_ interface{}
+    String interface{}
 }
 
 func (coreSize *Exception_Enter_CoreSize) GetEntityData() *types.CommonEntityData {
@@ -532,9 +562,12 @@ func (coreSize *Exception_Enter_CoreSize) GetEntityData() *types.CommonEntityDat
     coreSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     coreSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    coreSize.EntityData.Children = make(map[string]types.YChild)
-    coreSize.EntityData.Leafs = make(map[string]types.YLeaf)
-    coreSize.EntityData.Leafs["string"] = types.YLeaf{"String_", coreSize.String_}
+    coreSize.EntityData.Children = types.NewOrderedMap()
+    coreSize.EntityData.Leafs = types.NewOrderedMap()
+    coreSize.EntityData.Leafs.Append("string", types.YLeaf{"String", coreSize.String})
+
+    coreSize.EntityData.YListKeys = []string {}
+
     return &(coreSize.EntityData)
 }
 
@@ -545,7 +578,7 @@ type Exception_Enter_MemoryThreshold struct {
     YFilter yfilter.YFilter
 
     // String  . The type is string.
-    String_ interface{}
+    String interface{}
 }
 
 func (memoryThreshold *Exception_Enter_MemoryThreshold) GetEntityData() *types.CommonEntityData {
@@ -558,9 +591,12 @@ func (memoryThreshold *Exception_Enter_MemoryThreshold) GetEntityData() *types.C
     memoryThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memoryThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    memoryThreshold.EntityData.Children = make(map[string]types.YChild)
-    memoryThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    memoryThreshold.EntityData.Leafs["string"] = types.YLeaf{"String_", memoryThreshold.String_}
+    memoryThreshold.EntityData.Children = types.NewOrderedMap()
+    memoryThreshold.EntityData.Leafs = types.NewOrderedMap()
+    memoryThreshold.EntityData.Leafs.Append("string", types.YLeaf{"String", memoryThreshold.String})
+
+    memoryThreshold.EntityData.YListKeys = []string {}
+
     return &(memoryThreshold.EntityData)
 }
 
@@ -571,7 +607,7 @@ type Exception_Enter_ProcSize struct {
     YFilter yfilter.YFilter
 
     // String  . The type is string.
-    String_ interface{}
+    String interface{}
 }
 
 func (procSize *Exception_Enter_ProcSize) GetEntityData() *types.CommonEntityData {
@@ -584,9 +620,12 @@ func (procSize *Exception_Enter_ProcSize) GetEntityData() *types.CommonEntityDat
     procSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     procSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    procSize.EntityData.Children = make(map[string]types.YChild)
-    procSize.EntityData.Leafs = make(map[string]types.YLeaf)
-    procSize.EntityData.Leafs["string"] = types.YLeaf{"String_", procSize.String_}
+    procSize.EntityData.Children = types.NewOrderedMap()
+    procSize.EntityData.Leafs = types.NewOrderedMap()
+    procSize.EntityData.Leafs.Append("string", types.YLeaf{"String", procSize.String})
+
+    procSize.EntityData.YListKeys = []string {}
+
     return &(procSize.EntityData)
 }
 
@@ -597,7 +636,7 @@ type Exception_Enter_Qsize struct {
     YFilter yfilter.YFilter
 
     // String  . The type is string.
-    String_ interface{}
+    String interface{}
 }
 
 func (qsize *Exception_Enter_Qsize) GetEntityData() *types.CommonEntityData {
@@ -610,9 +649,12 @@ func (qsize *Exception_Enter_Qsize) GetEntityData() *types.CommonEntityData {
     qsize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qsize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    qsize.EntityData.Children = make(map[string]types.YChild)
-    qsize.EntityData.Leafs = make(map[string]types.YLeaf)
-    qsize.EntityData.Leafs["string"] = types.YLeaf{"String_", qsize.String_}
+    qsize.EntityData.Children = types.NewOrderedMap()
+    qsize.EntityData.Leafs = types.NewOrderedMap()
+    qsize.EntityData.Leafs.Append("string", types.YLeaf{"String", qsize.String})
+
+    qsize.EntityData.YListKeys = []string {}
+
     return &(qsize.EntityData)
 }
 

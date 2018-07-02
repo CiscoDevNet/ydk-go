@@ -23,37 +23,6 @@ const (
     VlanTagOrCvp_native_with_cvlan_preservation VlanTagOrCvp = "native-with-cvlan-preservation"
 )
 
-// Vlan represents Vlan
-type Vlan string
-
-const (
-    // An 802.1ad VLAN
-    Vlan_vlan_type_dot1ad Vlan = "vlan-type-dot1ad"
-
-    // An 802.1q VLAN
-    Vlan_vlan_type_dot1q Vlan = "vlan-type-dot1q"
-)
-
-// VlanTagOrNative represents Vlan tag or native
-type VlanTagOrNative string
-
-const (
-    // This is the Native VLAN
-    VlanTagOrNative_native VlanTagOrNative = "native"
-
-    // This is the Native VLAN and C-VLAN
-    // preservation is enabled
-    VlanTagOrNative_native_with_cvlan_preservation VlanTagOrNative = "native-with-cvlan-preservation"
-)
-
-// VlanTagOrNull represents Vlan tag or null
-type VlanTagOrNull string
-
-const (
-    // Match any inner VLAN tag value
-    VlanTagOrNull_any VlanTagOrNull = "any"
-)
-
 // Rewrite represents Rewrite
 type Rewrite string
 
@@ -83,6 +52,53 @@ const (
     Rewrite_translate2to2 Rewrite = "translate2to2"
 )
 
+// Vlan represents Vlan
+type Vlan string
+
+const (
+    // An 802.1ad VLAN
+    Vlan_vlan_type_dot1ad Vlan = "vlan-type-dot1ad"
+
+    // An 802.1q VLAN
+    Vlan_vlan_type_dot1q Vlan = "vlan-type-dot1q"
+)
+
+// EthertypeMatch represents Ethertype match
+type EthertypeMatch string
+
+const (
+    // PPP over Ethernet
+    EthertypeMatch_ppp_over_ethernet EthertypeMatch = "ppp-over-ethernet"
+)
+
+// VlanTagOrNull represents Vlan tag or null
+type VlanTagOrNull string
+
+const (
+    // Match any inner VLAN tag value
+    VlanTagOrNull_any VlanTagOrNull = "any"
+)
+
+// VlanTagOrAny represents Vlan tag or any
+type VlanTagOrAny string
+
+const (
+    // Match any VLAN tag value
+    VlanTagOrAny_any VlanTagOrAny = "any"
+)
+
+// VlanTagOrNative represents Vlan tag or native
+type VlanTagOrNative string
+
+const (
+    // This is the Native VLAN
+    VlanTagOrNative_native VlanTagOrNative = "native"
+
+    // This is the Native VLAN and C-VLAN
+    // preservation is enabled
+    VlanTagOrNative_native_with_cvlan_preservation VlanTagOrNative = "native-with-cvlan-preservation"
+)
+
 // Match represents Match
 type Match string
 
@@ -104,21 +120,5 @@ const (
 
     // Match Dot1ad priority-tagged packets
     Match_match_dot1ad_priority Match = "match-dot1ad-priority"
-)
-
-// EthertypeMatch represents Ethertype match
-type EthertypeMatch string
-
-const (
-    // PPP over Ethernet
-    EthertypeMatch_ppp_over_ethernet EthertypeMatch = "ppp-over-ethernet"
-)
-
-// VlanTagOrAny represents Vlan tag or any
-type VlanTagOrAny string
-
-const (
-    // Match any VLAN tag value
-    VlanTagOrAny_any VlanTagOrAny = "any"
 )
 

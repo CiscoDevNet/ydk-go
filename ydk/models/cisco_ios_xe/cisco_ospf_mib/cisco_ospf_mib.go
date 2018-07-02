@@ -27,26 +27,26 @@ type CISCOOSPFMIB struct {
     YFilter yfilter.YFilter
 
     
-    Cospfgeneralgroup CISCOOSPFMIB_Cospfgeneralgroup
+    CospfGeneralGroup CISCOOSPFMIB_CospfGeneralGroup
 
     // The OSPF Process's Link State Database. This  table is meant for Opaque
     // LSA's.
-    Cospflsdbtable CISCOOSPFMIB_Cospflsdbtable
+    CospfLsdbTable CISCOOSPFMIB_CospfLsdbTable
 
     // Information about this router's sham links.
-    Cospfshamlinktable CISCOOSPFMIB_Cospfshamlinktable
+    CospfShamLinkTable CISCOOSPFMIB_CospfShamLinkTable
 
     // The OSPF Process's Link-Local Link State Database for non-virtual links.
-    Cospflocallsdbtable CISCOOSPFMIB_Cospflocallsdbtable
+    CospfLocalLsdbTable CISCOOSPFMIB_CospfLocalLsdbTable
 
     // The OSPF Process's Link-Local Link State Database for virtual links.
-    Cospfvirtlocallsdbtable CISCOOSPFMIB_Cospfvirtlocallsdbtable
+    CospfVirtLocalLsdbTable CISCOOSPFMIB_CospfVirtLocalLsdbTable
 
     // A table of sham link neighbor information.
-    Cospfshamlinknbrtable CISCOOSPFMIB_Cospfshamlinknbrtable
+    CospfShamLinkNbrTable CISCOOSPFMIB_CospfShamLinkNbrTable
 
     // Information about this router's sham links.
-    Cospfshamlinkstable CISCOOSPFMIB_Cospfshamlinkstable
+    CospfShamLinksTable CISCOOSPFMIB_CospfShamLinksTable
 }
 
 func (cISCOOSPFMIB *CISCOOSPFMIB) GetEntityData() *types.CommonEntityData {
@@ -59,20 +59,23 @@ func (cISCOOSPFMIB *CISCOOSPFMIB) GetEntityData() *types.CommonEntityData {
     cISCOOSPFMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOOSPFMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOOSPFMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOOSPFMIB.EntityData.Children["cospfGeneralGroup"] = types.YChild{"Cospfgeneralgroup", &cISCOOSPFMIB.Cospfgeneralgroup}
-    cISCOOSPFMIB.EntityData.Children["cospfLsdbTable"] = types.YChild{"Cospflsdbtable", &cISCOOSPFMIB.Cospflsdbtable}
-    cISCOOSPFMIB.EntityData.Children["cospfShamLinkTable"] = types.YChild{"Cospfshamlinktable", &cISCOOSPFMIB.Cospfshamlinktable}
-    cISCOOSPFMIB.EntityData.Children["cospfLocalLsdbTable"] = types.YChild{"Cospflocallsdbtable", &cISCOOSPFMIB.Cospflocallsdbtable}
-    cISCOOSPFMIB.EntityData.Children["cospfVirtLocalLsdbTable"] = types.YChild{"Cospfvirtlocallsdbtable", &cISCOOSPFMIB.Cospfvirtlocallsdbtable}
-    cISCOOSPFMIB.EntityData.Children["cospfShamLinkNbrTable"] = types.YChild{"Cospfshamlinknbrtable", &cISCOOSPFMIB.Cospfshamlinknbrtable}
-    cISCOOSPFMIB.EntityData.Children["cospfShamLinksTable"] = types.YChild{"Cospfshamlinkstable", &cISCOOSPFMIB.Cospfshamlinkstable}
-    cISCOOSPFMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOOSPFMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOOSPFMIB.EntityData.Children.Append("cospfGeneralGroup", types.YChild{"CospfGeneralGroup", &cISCOOSPFMIB.CospfGeneralGroup})
+    cISCOOSPFMIB.EntityData.Children.Append("cospfLsdbTable", types.YChild{"CospfLsdbTable", &cISCOOSPFMIB.CospfLsdbTable})
+    cISCOOSPFMIB.EntityData.Children.Append("cospfShamLinkTable", types.YChild{"CospfShamLinkTable", &cISCOOSPFMIB.CospfShamLinkTable})
+    cISCOOSPFMIB.EntityData.Children.Append("cospfLocalLsdbTable", types.YChild{"CospfLocalLsdbTable", &cISCOOSPFMIB.CospfLocalLsdbTable})
+    cISCOOSPFMIB.EntityData.Children.Append("cospfVirtLocalLsdbTable", types.YChild{"CospfVirtLocalLsdbTable", &cISCOOSPFMIB.CospfVirtLocalLsdbTable})
+    cISCOOSPFMIB.EntityData.Children.Append("cospfShamLinkNbrTable", types.YChild{"CospfShamLinkNbrTable", &cISCOOSPFMIB.CospfShamLinkNbrTable})
+    cISCOOSPFMIB.EntityData.Children.Append("cospfShamLinksTable", types.YChild{"CospfShamLinksTable", &cISCOOSPFMIB.CospfShamLinksTable})
+    cISCOOSPFMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOOSPFMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOOSPFMIB.EntityData)
 }
 
-// CISCOOSPFMIB_Cospfgeneralgroup
-type CISCOOSPFMIB_Cospfgeneralgroup struct {
+// CISCOOSPFMIB_CospfGeneralGroup
+type CISCOOSPFMIB_CospfGeneralGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -82,111 +85,117 @@ type CISCOOSPFMIB_Cospfgeneralgroup struct {
     // When cospfRFC1583Compatibility is set to disabled, preference will be
     // driven first by type of path using cost only to break ties. The type is
     // bool.
-    Cospfrfc1583Compatibility interface{}
+    CospfRFC1583Compatibility interface{}
 
     // The router's support for Opaque LSA types. The type is bool.
-    Cospfopaquelsasupport interface{}
+    CospfOpaqueLsaSupport interface{}
 
     // The router's support for OSPF traffic engineering. The type is bool.
-    Cospftrafficengineeringsupport interface{}
+    CospfTrafficEngineeringSupport interface{}
 
     // The total number of Opaque AS link-state advertisements in the link state
     // database. The type is interface{} with range: 0..4294967295.
-    Cospfopaqueaslsacount interface{}
+    CospfOpaqueASLsaCount interface{}
 
     // The 32-bit unsigned sum of the Opaque AS  link-state advertisements' LS
     // checksums contained link state database. The type is interface{} with
     // range: 0..4294967295.
-    Cospfopaqueaslsacksumsum interface{}
+    CospfOpaqueASLsaCksumSum interface{}
 }
 
-func (cospfgeneralgroup *CISCOOSPFMIB_Cospfgeneralgroup) GetEntityData() *types.CommonEntityData {
-    cospfgeneralgroup.EntityData.YFilter = cospfgeneralgroup.YFilter
-    cospfgeneralgroup.EntityData.YangName = "cospfGeneralGroup"
-    cospfgeneralgroup.EntityData.BundleName = "cisco_ios_xe"
-    cospfgeneralgroup.EntityData.ParentYangName = "CISCO-OSPF-MIB"
-    cospfgeneralgroup.EntityData.SegmentPath = "cospfGeneralGroup"
-    cospfgeneralgroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cospfgeneralgroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cospfgeneralgroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cospfGeneralGroup *CISCOOSPFMIB_CospfGeneralGroup) GetEntityData() *types.CommonEntityData {
+    cospfGeneralGroup.EntityData.YFilter = cospfGeneralGroup.YFilter
+    cospfGeneralGroup.EntityData.YangName = "cospfGeneralGroup"
+    cospfGeneralGroup.EntityData.BundleName = "cisco_ios_xe"
+    cospfGeneralGroup.EntityData.ParentYangName = "CISCO-OSPF-MIB"
+    cospfGeneralGroup.EntityData.SegmentPath = "cospfGeneralGroup"
+    cospfGeneralGroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cospfGeneralGroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cospfGeneralGroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cospfgeneralgroup.EntityData.Children = make(map[string]types.YChild)
-    cospfgeneralgroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    cospfgeneralgroup.EntityData.Leafs["cospfRFC1583Compatibility"] = types.YLeaf{"Cospfrfc1583Compatibility", cospfgeneralgroup.Cospfrfc1583Compatibility}
-    cospfgeneralgroup.EntityData.Leafs["cospfOpaqueLsaSupport"] = types.YLeaf{"Cospfopaquelsasupport", cospfgeneralgroup.Cospfopaquelsasupport}
-    cospfgeneralgroup.EntityData.Leafs["cospfTrafficEngineeringSupport"] = types.YLeaf{"Cospftrafficengineeringsupport", cospfgeneralgroup.Cospftrafficengineeringsupport}
-    cospfgeneralgroup.EntityData.Leafs["cospfOpaqueASLsaCount"] = types.YLeaf{"Cospfopaqueaslsacount", cospfgeneralgroup.Cospfopaqueaslsacount}
-    cospfgeneralgroup.EntityData.Leafs["cospfOpaqueASLsaCksumSum"] = types.YLeaf{"Cospfopaqueaslsacksumsum", cospfgeneralgroup.Cospfopaqueaslsacksumsum}
-    return &(cospfgeneralgroup.EntityData)
+    cospfGeneralGroup.EntityData.Children = types.NewOrderedMap()
+    cospfGeneralGroup.EntityData.Leafs = types.NewOrderedMap()
+    cospfGeneralGroup.EntityData.Leafs.Append("cospfRFC1583Compatibility", types.YLeaf{"CospfRFC1583Compatibility", cospfGeneralGroup.CospfRFC1583Compatibility})
+    cospfGeneralGroup.EntityData.Leafs.Append("cospfOpaqueLsaSupport", types.YLeaf{"CospfOpaqueLsaSupport", cospfGeneralGroup.CospfOpaqueLsaSupport})
+    cospfGeneralGroup.EntityData.Leafs.Append("cospfTrafficEngineeringSupport", types.YLeaf{"CospfTrafficEngineeringSupport", cospfGeneralGroup.CospfTrafficEngineeringSupport})
+    cospfGeneralGroup.EntityData.Leafs.Append("cospfOpaqueASLsaCount", types.YLeaf{"CospfOpaqueASLsaCount", cospfGeneralGroup.CospfOpaqueASLsaCount})
+    cospfGeneralGroup.EntityData.Leafs.Append("cospfOpaqueASLsaCksumSum", types.YLeaf{"CospfOpaqueASLsaCksumSum", cospfGeneralGroup.CospfOpaqueASLsaCksumSum})
+
+    cospfGeneralGroup.EntityData.YListKeys = []string {}
+
+    return &(cospfGeneralGroup.EntityData)
 }
 
-// CISCOOSPFMIB_Cospflsdbtable
+// CISCOOSPFMIB_CospfLsdbTable
 // The OSPF Process's Link State Database. This 
 // table is meant for Opaque LSA's
-type CISCOOSPFMIB_Cospflsdbtable struct {
+type CISCOOSPFMIB_CospfLsdbTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single Link State Advertisement. The type is slice of
-    // CISCOOSPFMIB_Cospflsdbtable_Cospflsdbentry.
-    Cospflsdbentry []CISCOOSPFMIB_Cospflsdbtable_Cospflsdbentry
+    // CISCOOSPFMIB_CospfLsdbTable_CospfLsdbEntry.
+    CospfLsdbEntry []*CISCOOSPFMIB_CospfLsdbTable_CospfLsdbEntry
 }
 
-func (cospflsdbtable *CISCOOSPFMIB_Cospflsdbtable) GetEntityData() *types.CommonEntityData {
-    cospflsdbtable.EntityData.YFilter = cospflsdbtable.YFilter
-    cospflsdbtable.EntityData.YangName = "cospfLsdbTable"
-    cospflsdbtable.EntityData.BundleName = "cisco_ios_xe"
-    cospflsdbtable.EntityData.ParentYangName = "CISCO-OSPF-MIB"
-    cospflsdbtable.EntityData.SegmentPath = "cospfLsdbTable"
-    cospflsdbtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cospflsdbtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cospflsdbtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cospfLsdbTable *CISCOOSPFMIB_CospfLsdbTable) GetEntityData() *types.CommonEntityData {
+    cospfLsdbTable.EntityData.YFilter = cospfLsdbTable.YFilter
+    cospfLsdbTable.EntityData.YangName = "cospfLsdbTable"
+    cospfLsdbTable.EntityData.BundleName = "cisco_ios_xe"
+    cospfLsdbTable.EntityData.ParentYangName = "CISCO-OSPF-MIB"
+    cospfLsdbTable.EntityData.SegmentPath = "cospfLsdbTable"
+    cospfLsdbTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cospfLsdbTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cospfLsdbTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cospflsdbtable.EntityData.Children = make(map[string]types.YChild)
-    cospflsdbtable.EntityData.Children["cospfLsdbEntry"] = types.YChild{"Cospflsdbentry", nil}
-    for i := range cospflsdbtable.Cospflsdbentry {
-        cospflsdbtable.EntityData.Children[types.GetSegmentPath(&cospflsdbtable.Cospflsdbentry[i])] = types.YChild{"Cospflsdbentry", &cospflsdbtable.Cospflsdbentry[i]}
+    cospfLsdbTable.EntityData.Children = types.NewOrderedMap()
+    cospfLsdbTable.EntityData.Children.Append("cospfLsdbEntry", types.YChild{"CospfLsdbEntry", nil})
+    for i := range cospfLsdbTable.CospfLsdbEntry {
+        cospfLsdbTable.EntityData.Children.Append(types.GetSegmentPath(cospfLsdbTable.CospfLsdbEntry[i]), types.YChild{"CospfLsdbEntry", cospfLsdbTable.CospfLsdbEntry[i]})
     }
-    cospflsdbtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cospflsdbtable.EntityData)
+    cospfLsdbTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cospfLsdbTable.EntityData.YListKeys = []string {}
+
+    return &(cospfLsdbTable.EntityData)
 }
 
-// CISCOOSPFMIB_Cospflsdbtable_Cospflsdbentry
+// CISCOOSPFMIB_CospfLsdbTable_CospfLsdbEntry
 // A single Link State Advertisement.
-type CISCOOSPFMIB_Cospflsdbtable_Cospflsdbentry struct {
+type CISCOOSPFMIB_CospfLsdbTable_CospfLsdbEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    // Refers to ospf_mib.OSPFMIB_Ospflsdbtable_Ospflsdbentry_Ospflsdbareaid
-    Ospflsdbareaid interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // Refers to ospf_mib.OSPFMIB_OspfLsdbTable_OspfLsdbEntry_OspfLsdbAreaId
+    OspfLsdbAreaId interface{}
 
     // This attribute is a key. The type of the link state advertisement. Each
     // link state type has a separate advertisement format. The type is
-    // Cospflsdbtype.
-    Cospflsdbtype interface{}
+    // CospfLsdbType.
+    CospfLsdbType interface{}
 
     // This attribute is a key. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    // Refers to ospf_mib.OSPFMIB_Ospflsdbtable_Ospflsdbentry_Ospflsdblsid
-    Ospflsdblsid interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // Refers to ospf_mib.OSPFMIB_OspfLsdbTable_OspfLsdbEntry_OspfLsdbLsid
+    OspfLsdbLsid interface{}
 
     // This attribute is a key. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    // Refers to ospf_mib.OSPFMIB_Ospflsdbtable_Ospflsdbentry_Ospflsdbrouterid
-    Ospflsdbrouterid interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // Refers to ospf_mib.OSPFMIB_OspfLsdbTable_OspfLsdbEntry_OspfLsdbRouterId
+    OspfLsdbRouterId interface{}
 
     // The sequence number field is a  signed  32-bit integer.   It  is used to
     // detect old and duplicate link state advertisements.  The  space  of
     // sequence  numbers  is  linearly  ordered.   The larger the sequence number
     // the more recent  the advertisement. The type is interface{} with range:
     // 1..147483647.
-    Cospflsdbsequence interface{}
+    CospfLsdbSequence interface{}
 
     // This field is the age of the link state advertisement in seconds. The type
     // is interface{} with range: 0..2147483647.
-    Cospflsdbage interface{}
+    CospfLsdbAge interface{}
 
     // This field is the  checksum  of  the  complete contents  of  the 
     // advertisement, excepting the age field.  The age field is excepted  so 
@@ -194,233 +203,245 @@ type CISCOOSPFMIB_Cospflsdbtable_Cospflsdbentry struct {
     // checksum.   The  checksum used  is  the same that is used for ISO
     // connectionless datagrams; it is commonly referred  to as the Fletcher
     // checksum. The type is interface{} with range: 0..2147483647.
-    Cospflsdbchecksum interface{}
+    CospfLsdbChecksum interface{}
 
     // The entire Link State Advertisement, including its header. The type is
     // string with length: 1..65535.
-    Cospflsdbadvertisement interface{}
+    CospfLsdbAdvertisement interface{}
 }
 
-func (cospflsdbentry *CISCOOSPFMIB_Cospflsdbtable_Cospflsdbentry) GetEntityData() *types.CommonEntityData {
-    cospflsdbentry.EntityData.YFilter = cospflsdbentry.YFilter
-    cospflsdbentry.EntityData.YangName = "cospfLsdbEntry"
-    cospflsdbentry.EntityData.BundleName = "cisco_ios_xe"
-    cospflsdbentry.EntityData.ParentYangName = "cospfLsdbTable"
-    cospflsdbentry.EntityData.SegmentPath = "cospfLsdbEntry" + "[ospfLsdbAreaId='" + fmt.Sprintf("%v", cospflsdbentry.Ospflsdbareaid) + "']" + "[cospfLsdbType='" + fmt.Sprintf("%v", cospflsdbentry.Cospflsdbtype) + "']" + "[ospfLsdbLsid='" + fmt.Sprintf("%v", cospflsdbentry.Ospflsdblsid) + "']" + "[ospfLsdbRouterId='" + fmt.Sprintf("%v", cospflsdbentry.Ospflsdbrouterid) + "']"
-    cospflsdbentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cospflsdbentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cospflsdbentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cospfLsdbEntry *CISCOOSPFMIB_CospfLsdbTable_CospfLsdbEntry) GetEntityData() *types.CommonEntityData {
+    cospfLsdbEntry.EntityData.YFilter = cospfLsdbEntry.YFilter
+    cospfLsdbEntry.EntityData.YangName = "cospfLsdbEntry"
+    cospfLsdbEntry.EntityData.BundleName = "cisco_ios_xe"
+    cospfLsdbEntry.EntityData.ParentYangName = "cospfLsdbTable"
+    cospfLsdbEntry.EntityData.SegmentPath = "cospfLsdbEntry" + types.AddKeyToken(cospfLsdbEntry.OspfLsdbAreaId, "ospfLsdbAreaId") + types.AddKeyToken(cospfLsdbEntry.CospfLsdbType, "cospfLsdbType") + types.AddKeyToken(cospfLsdbEntry.OspfLsdbLsid, "ospfLsdbLsid") + types.AddKeyToken(cospfLsdbEntry.OspfLsdbRouterId, "ospfLsdbRouterId")
+    cospfLsdbEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cospfLsdbEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cospfLsdbEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cospflsdbentry.EntityData.Children = make(map[string]types.YChild)
-    cospflsdbentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cospflsdbentry.EntityData.Leafs["ospfLsdbAreaId"] = types.YLeaf{"Ospflsdbareaid", cospflsdbentry.Ospflsdbareaid}
-    cospflsdbentry.EntityData.Leafs["cospfLsdbType"] = types.YLeaf{"Cospflsdbtype", cospflsdbentry.Cospflsdbtype}
-    cospflsdbentry.EntityData.Leafs["ospfLsdbLsid"] = types.YLeaf{"Ospflsdblsid", cospflsdbentry.Ospflsdblsid}
-    cospflsdbentry.EntityData.Leafs["ospfLsdbRouterId"] = types.YLeaf{"Ospflsdbrouterid", cospflsdbentry.Ospflsdbrouterid}
-    cospflsdbentry.EntityData.Leafs["cospfLsdbSequence"] = types.YLeaf{"Cospflsdbsequence", cospflsdbentry.Cospflsdbsequence}
-    cospflsdbentry.EntityData.Leafs["cospfLsdbAge"] = types.YLeaf{"Cospflsdbage", cospflsdbentry.Cospflsdbage}
-    cospflsdbentry.EntityData.Leafs["cospfLsdbChecksum"] = types.YLeaf{"Cospflsdbchecksum", cospflsdbentry.Cospflsdbchecksum}
-    cospflsdbentry.EntityData.Leafs["cospfLsdbAdvertisement"] = types.YLeaf{"Cospflsdbadvertisement", cospflsdbentry.Cospflsdbadvertisement}
-    return &(cospflsdbentry.EntityData)
+    cospfLsdbEntry.EntityData.Children = types.NewOrderedMap()
+    cospfLsdbEntry.EntityData.Leafs = types.NewOrderedMap()
+    cospfLsdbEntry.EntityData.Leafs.Append("ospfLsdbAreaId", types.YLeaf{"OspfLsdbAreaId", cospfLsdbEntry.OspfLsdbAreaId})
+    cospfLsdbEntry.EntityData.Leafs.Append("cospfLsdbType", types.YLeaf{"CospfLsdbType", cospfLsdbEntry.CospfLsdbType})
+    cospfLsdbEntry.EntityData.Leafs.Append("ospfLsdbLsid", types.YLeaf{"OspfLsdbLsid", cospfLsdbEntry.OspfLsdbLsid})
+    cospfLsdbEntry.EntityData.Leafs.Append("ospfLsdbRouterId", types.YLeaf{"OspfLsdbRouterId", cospfLsdbEntry.OspfLsdbRouterId})
+    cospfLsdbEntry.EntityData.Leafs.Append("cospfLsdbSequence", types.YLeaf{"CospfLsdbSequence", cospfLsdbEntry.CospfLsdbSequence})
+    cospfLsdbEntry.EntityData.Leafs.Append("cospfLsdbAge", types.YLeaf{"CospfLsdbAge", cospfLsdbEntry.CospfLsdbAge})
+    cospfLsdbEntry.EntityData.Leafs.Append("cospfLsdbChecksum", types.YLeaf{"CospfLsdbChecksum", cospfLsdbEntry.CospfLsdbChecksum})
+    cospfLsdbEntry.EntityData.Leafs.Append("cospfLsdbAdvertisement", types.YLeaf{"CospfLsdbAdvertisement", cospfLsdbEntry.CospfLsdbAdvertisement})
+
+    cospfLsdbEntry.EntityData.YListKeys = []string {"OspfLsdbAreaId", "CospfLsdbType", "OspfLsdbLsid", "OspfLsdbRouterId"}
+
+    return &(cospfLsdbEntry.EntityData)
 }
 
-// CISCOOSPFMIB_Cospflsdbtable_Cospflsdbentry_Cospflsdbtype represents Each link state type has a separate advertisement format.
-type CISCOOSPFMIB_Cospflsdbtable_Cospflsdbentry_Cospflsdbtype string
+// CISCOOSPFMIB_CospfLsdbTable_CospfLsdbEntry_CospfLsdbType represents Each link state type has a separate advertisement format.
+type CISCOOSPFMIB_CospfLsdbTable_CospfLsdbEntry_CospfLsdbType string
 
 const (
-    CISCOOSPFMIB_Cospflsdbtable_Cospflsdbentry_Cospflsdbtype_areaOpaqueLink CISCOOSPFMIB_Cospflsdbtable_Cospflsdbentry_Cospflsdbtype = "areaOpaqueLink"
+    CISCOOSPFMIB_CospfLsdbTable_CospfLsdbEntry_CospfLsdbType_areaOpaqueLink CISCOOSPFMIB_CospfLsdbTable_CospfLsdbEntry_CospfLsdbType = "areaOpaqueLink"
 
-    CISCOOSPFMIB_Cospflsdbtable_Cospflsdbentry_Cospflsdbtype_asOpaqueLink CISCOOSPFMIB_Cospflsdbtable_Cospflsdbentry_Cospflsdbtype = "asOpaqueLink"
+    CISCOOSPFMIB_CospfLsdbTable_CospfLsdbEntry_CospfLsdbType_asOpaqueLink CISCOOSPFMIB_CospfLsdbTable_CospfLsdbEntry_CospfLsdbType = "asOpaqueLink"
 )
 
-// CISCOOSPFMIB_Cospfshamlinktable
+// CISCOOSPFMIB_CospfShamLinkTable
 // Information about this router's sham links
-type CISCOOSPFMIB_Cospfshamlinktable struct {
+type CISCOOSPFMIB_CospfShamLinkTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a single sham link. The type is slice of
-    // CISCOOSPFMIB_Cospfshamlinktable_Cospfshamlinkentry.
-    Cospfshamlinkentry []CISCOOSPFMIB_Cospfshamlinktable_Cospfshamlinkentry
+    // CISCOOSPFMIB_CospfShamLinkTable_CospfShamLinkEntry.
+    CospfShamLinkEntry []*CISCOOSPFMIB_CospfShamLinkTable_CospfShamLinkEntry
 }
 
-func (cospfshamlinktable *CISCOOSPFMIB_Cospfshamlinktable) GetEntityData() *types.CommonEntityData {
-    cospfshamlinktable.EntityData.YFilter = cospfshamlinktable.YFilter
-    cospfshamlinktable.EntityData.YangName = "cospfShamLinkTable"
-    cospfshamlinktable.EntityData.BundleName = "cisco_ios_xe"
-    cospfshamlinktable.EntityData.ParentYangName = "CISCO-OSPF-MIB"
-    cospfshamlinktable.EntityData.SegmentPath = "cospfShamLinkTable"
-    cospfshamlinktable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cospfshamlinktable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cospfshamlinktable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cospfShamLinkTable *CISCOOSPFMIB_CospfShamLinkTable) GetEntityData() *types.CommonEntityData {
+    cospfShamLinkTable.EntityData.YFilter = cospfShamLinkTable.YFilter
+    cospfShamLinkTable.EntityData.YangName = "cospfShamLinkTable"
+    cospfShamLinkTable.EntityData.BundleName = "cisco_ios_xe"
+    cospfShamLinkTable.EntityData.ParentYangName = "CISCO-OSPF-MIB"
+    cospfShamLinkTable.EntityData.SegmentPath = "cospfShamLinkTable"
+    cospfShamLinkTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cospfShamLinkTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cospfShamLinkTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cospfshamlinktable.EntityData.Children = make(map[string]types.YChild)
-    cospfshamlinktable.EntityData.Children["cospfShamLinkEntry"] = types.YChild{"Cospfshamlinkentry", nil}
-    for i := range cospfshamlinktable.Cospfshamlinkentry {
-        cospfshamlinktable.EntityData.Children[types.GetSegmentPath(&cospfshamlinktable.Cospfshamlinkentry[i])] = types.YChild{"Cospfshamlinkentry", &cospfshamlinktable.Cospfshamlinkentry[i]}
+    cospfShamLinkTable.EntityData.Children = types.NewOrderedMap()
+    cospfShamLinkTable.EntityData.Children.Append("cospfShamLinkEntry", types.YChild{"CospfShamLinkEntry", nil})
+    for i := range cospfShamLinkTable.CospfShamLinkEntry {
+        cospfShamLinkTable.EntityData.Children.Append(types.GetSegmentPath(cospfShamLinkTable.CospfShamLinkEntry[i]), types.YChild{"CospfShamLinkEntry", cospfShamLinkTable.CospfShamLinkEntry[i]})
     }
-    cospfshamlinktable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cospfshamlinktable.EntityData)
+    cospfShamLinkTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cospfShamLinkTable.EntityData.YListKeys = []string {}
+
+    return &(cospfShamLinkTable.EntityData)
 }
 
-// CISCOOSPFMIB_Cospfshamlinktable_Cospfshamlinkentry
+// CISCOOSPFMIB_CospfShamLinkTable_CospfShamLinkEntry
 // Information about a single sham link
-type CISCOOSPFMIB_Cospfshamlinktable_Cospfshamlinkentry struct {
+type CISCOOSPFMIB_CospfShamLinkTable_CospfShamLinkEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The  Transit  Area  that  the   Virtual   Link
     // traverses.  By definition, this is not 0.0.0.0. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Cospfshamlinkareaid interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CospfShamLinkAreaId interface{}
 
     // This attribute is a key. The Local IP address of the sham link. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Cospfshamlinklocalipaddress interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CospfShamLinkLocalIpAddress interface{}
 
     // This attribute is a key. The Router ID of the other end router of the sham
     // link. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Cospfshamlinkneighborid interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CospfShamLinkNeighborId interface{}
 
     // The number of seconds between  link-state  advertisement retransmissions, 
     // for  adjacencies belonging to this  link.   This  value  is also used when
     // retransmitting database description   and  link-state  request  packets.
     // This value   should  be well over the expected round trip time. The type is
     // interface{} with range: 0..3600.
-    Cospfshamlinkretransinterval interface{}
+    CospfShamLinkRetransInterval interface{}
 
     // The length of time, in  seconds,  between  the Hello  packets that the
     // router sends on the sham link. The type is interface{} with range:
     // 1..65535.
-    Cospfshamlinkhellointerval interface{}
+    CospfShamLinkHelloInterval interface{}
 
     // The number of seconds that  a  router's  Hello packets  have  not been seen
     // before it's neighbors declare the router down.  This  should  be some 
     // multiple  of  the  Hello  interval. The type is interface{} with range:
     // 0..2147483647.
-    Cospfshamlinkrtrdeadinterval interface{}
+    CospfShamLinkRtrDeadInterval interface{}
 
-    // OSPF sham link states. The type is Cospfshamlinkstate.
-    Cospfshamlinkstate interface{}
+    // OSPF sham link states. The type is CospfShamLinkState.
+    CospfShamLinkState interface{}
 
     // The number of state changes or error events on this sham link. The type is
     // interface{} with range: 0..4294967295.
-    Cospfshamlinkevents interface{}
+    CospfShamLinkEvents interface{}
 
     // The Metric to be advertised. The type is interface{} with range: 0..65535.
-    Cospfshamlinkmetric interface{}
+    CospfShamLinkMetric interface{}
 }
 
-func (cospfshamlinkentry *CISCOOSPFMIB_Cospfshamlinktable_Cospfshamlinkentry) GetEntityData() *types.CommonEntityData {
-    cospfshamlinkentry.EntityData.YFilter = cospfshamlinkentry.YFilter
-    cospfshamlinkentry.EntityData.YangName = "cospfShamLinkEntry"
-    cospfshamlinkentry.EntityData.BundleName = "cisco_ios_xe"
-    cospfshamlinkentry.EntityData.ParentYangName = "cospfShamLinkTable"
-    cospfshamlinkentry.EntityData.SegmentPath = "cospfShamLinkEntry" + "[cospfShamLinkAreaId='" + fmt.Sprintf("%v", cospfshamlinkentry.Cospfshamlinkareaid) + "']" + "[cospfShamLinkLocalIpAddress='" + fmt.Sprintf("%v", cospfshamlinkentry.Cospfshamlinklocalipaddress) + "']" + "[cospfShamLinkNeighborId='" + fmt.Sprintf("%v", cospfshamlinkentry.Cospfshamlinkneighborid) + "']"
-    cospfshamlinkentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cospfshamlinkentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cospfshamlinkentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cospfShamLinkEntry *CISCOOSPFMIB_CospfShamLinkTable_CospfShamLinkEntry) GetEntityData() *types.CommonEntityData {
+    cospfShamLinkEntry.EntityData.YFilter = cospfShamLinkEntry.YFilter
+    cospfShamLinkEntry.EntityData.YangName = "cospfShamLinkEntry"
+    cospfShamLinkEntry.EntityData.BundleName = "cisco_ios_xe"
+    cospfShamLinkEntry.EntityData.ParentYangName = "cospfShamLinkTable"
+    cospfShamLinkEntry.EntityData.SegmentPath = "cospfShamLinkEntry" + types.AddKeyToken(cospfShamLinkEntry.CospfShamLinkAreaId, "cospfShamLinkAreaId") + types.AddKeyToken(cospfShamLinkEntry.CospfShamLinkLocalIpAddress, "cospfShamLinkLocalIpAddress") + types.AddKeyToken(cospfShamLinkEntry.CospfShamLinkNeighborId, "cospfShamLinkNeighborId")
+    cospfShamLinkEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cospfShamLinkEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cospfShamLinkEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cospfshamlinkentry.EntityData.Children = make(map[string]types.YChild)
-    cospfshamlinkentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cospfshamlinkentry.EntityData.Leafs["cospfShamLinkAreaId"] = types.YLeaf{"Cospfshamlinkareaid", cospfshamlinkentry.Cospfshamlinkareaid}
-    cospfshamlinkentry.EntityData.Leafs["cospfShamLinkLocalIpAddress"] = types.YLeaf{"Cospfshamlinklocalipaddress", cospfshamlinkentry.Cospfshamlinklocalipaddress}
-    cospfshamlinkentry.EntityData.Leafs["cospfShamLinkNeighborId"] = types.YLeaf{"Cospfshamlinkneighborid", cospfshamlinkentry.Cospfshamlinkneighborid}
-    cospfshamlinkentry.EntityData.Leafs["cospfShamLinkRetransInterval"] = types.YLeaf{"Cospfshamlinkretransinterval", cospfshamlinkentry.Cospfshamlinkretransinterval}
-    cospfshamlinkentry.EntityData.Leafs["cospfShamLinkHelloInterval"] = types.YLeaf{"Cospfshamlinkhellointerval", cospfshamlinkentry.Cospfshamlinkhellointerval}
-    cospfshamlinkentry.EntityData.Leafs["cospfShamLinkRtrDeadInterval"] = types.YLeaf{"Cospfshamlinkrtrdeadinterval", cospfshamlinkentry.Cospfshamlinkrtrdeadinterval}
-    cospfshamlinkentry.EntityData.Leafs["cospfShamLinkState"] = types.YLeaf{"Cospfshamlinkstate", cospfshamlinkentry.Cospfshamlinkstate}
-    cospfshamlinkentry.EntityData.Leafs["cospfShamLinkEvents"] = types.YLeaf{"Cospfshamlinkevents", cospfshamlinkentry.Cospfshamlinkevents}
-    cospfshamlinkentry.EntityData.Leafs["cospfShamLinkMetric"] = types.YLeaf{"Cospfshamlinkmetric", cospfshamlinkentry.Cospfshamlinkmetric}
-    return &(cospfshamlinkentry.EntityData)
+    cospfShamLinkEntry.EntityData.Children = types.NewOrderedMap()
+    cospfShamLinkEntry.EntityData.Leafs = types.NewOrderedMap()
+    cospfShamLinkEntry.EntityData.Leafs.Append("cospfShamLinkAreaId", types.YLeaf{"CospfShamLinkAreaId", cospfShamLinkEntry.CospfShamLinkAreaId})
+    cospfShamLinkEntry.EntityData.Leafs.Append("cospfShamLinkLocalIpAddress", types.YLeaf{"CospfShamLinkLocalIpAddress", cospfShamLinkEntry.CospfShamLinkLocalIpAddress})
+    cospfShamLinkEntry.EntityData.Leafs.Append("cospfShamLinkNeighborId", types.YLeaf{"CospfShamLinkNeighborId", cospfShamLinkEntry.CospfShamLinkNeighborId})
+    cospfShamLinkEntry.EntityData.Leafs.Append("cospfShamLinkRetransInterval", types.YLeaf{"CospfShamLinkRetransInterval", cospfShamLinkEntry.CospfShamLinkRetransInterval})
+    cospfShamLinkEntry.EntityData.Leafs.Append("cospfShamLinkHelloInterval", types.YLeaf{"CospfShamLinkHelloInterval", cospfShamLinkEntry.CospfShamLinkHelloInterval})
+    cospfShamLinkEntry.EntityData.Leafs.Append("cospfShamLinkRtrDeadInterval", types.YLeaf{"CospfShamLinkRtrDeadInterval", cospfShamLinkEntry.CospfShamLinkRtrDeadInterval})
+    cospfShamLinkEntry.EntityData.Leafs.Append("cospfShamLinkState", types.YLeaf{"CospfShamLinkState", cospfShamLinkEntry.CospfShamLinkState})
+    cospfShamLinkEntry.EntityData.Leafs.Append("cospfShamLinkEvents", types.YLeaf{"CospfShamLinkEvents", cospfShamLinkEntry.CospfShamLinkEvents})
+    cospfShamLinkEntry.EntityData.Leafs.Append("cospfShamLinkMetric", types.YLeaf{"CospfShamLinkMetric", cospfShamLinkEntry.CospfShamLinkMetric})
+
+    cospfShamLinkEntry.EntityData.YListKeys = []string {"CospfShamLinkAreaId", "CospfShamLinkLocalIpAddress", "CospfShamLinkNeighborId"}
+
+    return &(cospfShamLinkEntry.EntityData)
 }
 
-// CISCOOSPFMIB_Cospfshamlinktable_Cospfshamlinkentry_Cospfshamlinkstate represents OSPF sham link states.
-type CISCOOSPFMIB_Cospfshamlinktable_Cospfshamlinkentry_Cospfshamlinkstate string
+// CISCOOSPFMIB_CospfShamLinkTable_CospfShamLinkEntry_CospfShamLinkState represents OSPF sham link states.
+type CISCOOSPFMIB_CospfShamLinkTable_CospfShamLinkEntry_CospfShamLinkState string
 
 const (
-    CISCOOSPFMIB_Cospfshamlinktable_Cospfshamlinkentry_Cospfshamlinkstate_down CISCOOSPFMIB_Cospfshamlinktable_Cospfshamlinkentry_Cospfshamlinkstate = "down"
+    CISCOOSPFMIB_CospfShamLinkTable_CospfShamLinkEntry_CospfShamLinkState_down CISCOOSPFMIB_CospfShamLinkTable_CospfShamLinkEntry_CospfShamLinkState = "down"
 
-    CISCOOSPFMIB_Cospfshamlinktable_Cospfshamlinkentry_Cospfshamlinkstate_pointToPoint CISCOOSPFMIB_Cospfshamlinktable_Cospfshamlinkentry_Cospfshamlinkstate = "pointToPoint"
+    CISCOOSPFMIB_CospfShamLinkTable_CospfShamLinkEntry_CospfShamLinkState_pointToPoint CISCOOSPFMIB_CospfShamLinkTable_CospfShamLinkEntry_CospfShamLinkState = "pointToPoint"
 )
 
-// CISCOOSPFMIB_Cospflocallsdbtable
+// CISCOOSPFMIB_CospfLocalLsdbTable
 // The OSPF Process's Link-Local Link State Database
 // for non-virtual links.
-type CISCOOSPFMIB_Cospflocallsdbtable struct {
+type CISCOOSPFMIB_CospfLocalLsdbTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single Link State Advertisement. The type is slice of
-    // CISCOOSPFMIB_Cospflocallsdbtable_Cospflocallsdbentry.
-    Cospflocallsdbentry []CISCOOSPFMIB_Cospflocallsdbtable_Cospflocallsdbentry
+    // CISCOOSPFMIB_CospfLocalLsdbTable_CospfLocalLsdbEntry.
+    CospfLocalLsdbEntry []*CISCOOSPFMIB_CospfLocalLsdbTable_CospfLocalLsdbEntry
 }
 
-func (cospflocallsdbtable *CISCOOSPFMIB_Cospflocallsdbtable) GetEntityData() *types.CommonEntityData {
-    cospflocallsdbtable.EntityData.YFilter = cospflocallsdbtable.YFilter
-    cospflocallsdbtable.EntityData.YangName = "cospfLocalLsdbTable"
-    cospflocallsdbtable.EntityData.BundleName = "cisco_ios_xe"
-    cospflocallsdbtable.EntityData.ParentYangName = "CISCO-OSPF-MIB"
-    cospflocallsdbtable.EntityData.SegmentPath = "cospfLocalLsdbTable"
-    cospflocallsdbtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cospflocallsdbtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cospflocallsdbtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cospfLocalLsdbTable *CISCOOSPFMIB_CospfLocalLsdbTable) GetEntityData() *types.CommonEntityData {
+    cospfLocalLsdbTable.EntityData.YFilter = cospfLocalLsdbTable.YFilter
+    cospfLocalLsdbTable.EntityData.YangName = "cospfLocalLsdbTable"
+    cospfLocalLsdbTable.EntityData.BundleName = "cisco_ios_xe"
+    cospfLocalLsdbTable.EntityData.ParentYangName = "CISCO-OSPF-MIB"
+    cospfLocalLsdbTable.EntityData.SegmentPath = "cospfLocalLsdbTable"
+    cospfLocalLsdbTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cospfLocalLsdbTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cospfLocalLsdbTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cospflocallsdbtable.EntityData.Children = make(map[string]types.YChild)
-    cospflocallsdbtable.EntityData.Children["cospfLocalLsdbEntry"] = types.YChild{"Cospflocallsdbentry", nil}
-    for i := range cospflocallsdbtable.Cospflocallsdbentry {
-        cospflocallsdbtable.EntityData.Children[types.GetSegmentPath(&cospflocallsdbtable.Cospflocallsdbentry[i])] = types.YChild{"Cospflocallsdbentry", &cospflocallsdbtable.Cospflocallsdbentry[i]}
+    cospfLocalLsdbTable.EntityData.Children = types.NewOrderedMap()
+    cospfLocalLsdbTable.EntityData.Children.Append("cospfLocalLsdbEntry", types.YChild{"CospfLocalLsdbEntry", nil})
+    for i := range cospfLocalLsdbTable.CospfLocalLsdbEntry {
+        cospfLocalLsdbTable.EntityData.Children.Append(types.GetSegmentPath(cospfLocalLsdbTable.CospfLocalLsdbEntry[i]), types.YChild{"CospfLocalLsdbEntry", cospfLocalLsdbTable.CospfLocalLsdbEntry[i]})
     }
-    cospflocallsdbtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cospflocallsdbtable.EntityData)
+    cospfLocalLsdbTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cospfLocalLsdbTable.EntityData.YListKeys = []string {}
+
+    return &(cospfLocalLsdbTable.EntityData)
 }
 
-// CISCOOSPFMIB_Cospflocallsdbtable_Cospflocallsdbentry
+// CISCOOSPFMIB_CospfLocalLsdbTable_CospfLocalLsdbEntry
 // A single Link State Advertisement.
-type CISCOOSPFMIB_Cospflocallsdbtable_Cospflocallsdbentry struct {
+type CISCOOSPFMIB_CospfLocalLsdbTable_CospfLocalLsdbEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IP Address of the interface from which the LSA
     // was received if the interface is numbered. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Cospflocallsdbipaddress interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CospfLocalLsdbIpAddress interface{}
 
     // This attribute is a key. The Interface Index of the interface from which
     // the LSA was received if the interface is unnumbered. The type is
     // interface{} with range: 0..2147483647.
-    Cospflocallsdbaddresslessif interface{}
+    CospfLocalLsdbAddressLessIf interface{}
 
     // This attribute is a key. The type of the link state advertisement. Each
     // link state type has a separate advertisement format. The type is
-    // Cospflocallsdbtype.
-    Cospflocallsdbtype interface{}
+    // CospfLocalLsdbType.
+    CospfLocalLsdbType interface{}
 
     // This attribute is a key. The Link State ID is an LS Type Specific field
     // containing a 32 bit identifier in IP address format; it identifies the
     // piece of the routing domain that is being described by the advertisement.
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Cospflocallsdblsid interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CospfLocalLsdbLsid interface{}
 
     // This attribute is a key. The 32 bit number that uniquely identifies the
     // originating router in the Autonomous System. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Cospflocallsdbrouterid interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CospfLocalLsdbRouterId interface{}
 
     // The sequence number field is a signed 32-bit integer. It is used to detect
     // old and duplicate link state advertisements. The space of sequence numbers
     // is linearly ordered. The larger the sequence number the more recent the
     // advertisement. The type is interface{} with range: -2147483647..2147483647.
-    Cospflocallsdbsequence interface{}
+    CospfLocalLsdbSequence interface{}
 
     // This field is the age of the link state advertisement  in seconds. The type
     // is interface{} with range: 0..3600.
-    Cospflocallsdbage interface{}
+    CospfLocalLsdbAge interface{}
 
     // This field is the checksum of the complete contents of the advertisement,
     // excepting the age field. The age field is excepted so that an
@@ -428,119 +449,125 @@ type CISCOOSPFMIB_Cospflocallsdbtable_Cospflocallsdbentry struct {
     // checksum used is the same that is used for ISO connectionless datagrams; it
     // is commonly referred  to as the Fletcher checksum. The type is interface{}
     // with range: 0..4294967295.
-    Cospflocallsdbchecksum interface{}
+    CospfLocalLsdbChecksum interface{}
 
     // The entire Link State Advertisement, including its header. The type is
     // string with length: 1..65535.
-    Cospflocallsdbadvertisement interface{}
+    CospfLocalLsdbAdvertisement interface{}
 }
 
-func (cospflocallsdbentry *CISCOOSPFMIB_Cospflocallsdbtable_Cospflocallsdbentry) GetEntityData() *types.CommonEntityData {
-    cospflocallsdbentry.EntityData.YFilter = cospflocallsdbentry.YFilter
-    cospflocallsdbentry.EntityData.YangName = "cospfLocalLsdbEntry"
-    cospflocallsdbentry.EntityData.BundleName = "cisco_ios_xe"
-    cospflocallsdbentry.EntityData.ParentYangName = "cospfLocalLsdbTable"
-    cospflocallsdbentry.EntityData.SegmentPath = "cospfLocalLsdbEntry" + "[cospfLocalLsdbIpAddress='" + fmt.Sprintf("%v", cospflocallsdbentry.Cospflocallsdbipaddress) + "']" + "[cospfLocalLsdbAddressLessIf='" + fmt.Sprintf("%v", cospflocallsdbentry.Cospflocallsdbaddresslessif) + "']" + "[cospfLocalLsdbType='" + fmt.Sprintf("%v", cospflocallsdbentry.Cospflocallsdbtype) + "']" + "[cospfLocalLsdbLsid='" + fmt.Sprintf("%v", cospflocallsdbentry.Cospflocallsdblsid) + "']" + "[cospfLocalLsdbRouterId='" + fmt.Sprintf("%v", cospflocallsdbentry.Cospflocallsdbrouterid) + "']"
-    cospflocallsdbentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cospflocallsdbentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cospflocallsdbentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cospfLocalLsdbEntry *CISCOOSPFMIB_CospfLocalLsdbTable_CospfLocalLsdbEntry) GetEntityData() *types.CommonEntityData {
+    cospfLocalLsdbEntry.EntityData.YFilter = cospfLocalLsdbEntry.YFilter
+    cospfLocalLsdbEntry.EntityData.YangName = "cospfLocalLsdbEntry"
+    cospfLocalLsdbEntry.EntityData.BundleName = "cisco_ios_xe"
+    cospfLocalLsdbEntry.EntityData.ParentYangName = "cospfLocalLsdbTable"
+    cospfLocalLsdbEntry.EntityData.SegmentPath = "cospfLocalLsdbEntry" + types.AddKeyToken(cospfLocalLsdbEntry.CospfLocalLsdbIpAddress, "cospfLocalLsdbIpAddress") + types.AddKeyToken(cospfLocalLsdbEntry.CospfLocalLsdbAddressLessIf, "cospfLocalLsdbAddressLessIf") + types.AddKeyToken(cospfLocalLsdbEntry.CospfLocalLsdbType, "cospfLocalLsdbType") + types.AddKeyToken(cospfLocalLsdbEntry.CospfLocalLsdbLsid, "cospfLocalLsdbLsid") + types.AddKeyToken(cospfLocalLsdbEntry.CospfLocalLsdbRouterId, "cospfLocalLsdbRouterId")
+    cospfLocalLsdbEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cospfLocalLsdbEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cospfLocalLsdbEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cospflocallsdbentry.EntityData.Children = make(map[string]types.YChild)
-    cospflocallsdbentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cospflocallsdbentry.EntityData.Leafs["cospfLocalLsdbIpAddress"] = types.YLeaf{"Cospflocallsdbipaddress", cospflocallsdbentry.Cospflocallsdbipaddress}
-    cospflocallsdbentry.EntityData.Leafs["cospfLocalLsdbAddressLessIf"] = types.YLeaf{"Cospflocallsdbaddresslessif", cospflocallsdbentry.Cospflocallsdbaddresslessif}
-    cospflocallsdbentry.EntityData.Leafs["cospfLocalLsdbType"] = types.YLeaf{"Cospflocallsdbtype", cospflocallsdbentry.Cospflocallsdbtype}
-    cospflocallsdbentry.EntityData.Leafs["cospfLocalLsdbLsid"] = types.YLeaf{"Cospflocallsdblsid", cospflocallsdbentry.Cospflocallsdblsid}
-    cospflocallsdbentry.EntityData.Leafs["cospfLocalLsdbRouterId"] = types.YLeaf{"Cospflocallsdbrouterid", cospflocallsdbentry.Cospflocallsdbrouterid}
-    cospflocallsdbentry.EntityData.Leafs["cospfLocalLsdbSequence"] = types.YLeaf{"Cospflocallsdbsequence", cospflocallsdbentry.Cospflocallsdbsequence}
-    cospflocallsdbentry.EntityData.Leafs["cospfLocalLsdbAge"] = types.YLeaf{"Cospflocallsdbage", cospflocallsdbentry.Cospflocallsdbage}
-    cospflocallsdbentry.EntityData.Leafs["cospfLocalLsdbChecksum"] = types.YLeaf{"Cospflocallsdbchecksum", cospflocallsdbentry.Cospflocallsdbchecksum}
-    cospflocallsdbentry.EntityData.Leafs["cospfLocalLsdbAdvertisement"] = types.YLeaf{"Cospflocallsdbadvertisement", cospflocallsdbentry.Cospflocallsdbadvertisement}
-    return &(cospflocallsdbentry.EntityData)
+    cospfLocalLsdbEntry.EntityData.Children = types.NewOrderedMap()
+    cospfLocalLsdbEntry.EntityData.Leafs = types.NewOrderedMap()
+    cospfLocalLsdbEntry.EntityData.Leafs.Append("cospfLocalLsdbIpAddress", types.YLeaf{"CospfLocalLsdbIpAddress", cospfLocalLsdbEntry.CospfLocalLsdbIpAddress})
+    cospfLocalLsdbEntry.EntityData.Leafs.Append("cospfLocalLsdbAddressLessIf", types.YLeaf{"CospfLocalLsdbAddressLessIf", cospfLocalLsdbEntry.CospfLocalLsdbAddressLessIf})
+    cospfLocalLsdbEntry.EntityData.Leafs.Append("cospfLocalLsdbType", types.YLeaf{"CospfLocalLsdbType", cospfLocalLsdbEntry.CospfLocalLsdbType})
+    cospfLocalLsdbEntry.EntityData.Leafs.Append("cospfLocalLsdbLsid", types.YLeaf{"CospfLocalLsdbLsid", cospfLocalLsdbEntry.CospfLocalLsdbLsid})
+    cospfLocalLsdbEntry.EntityData.Leafs.Append("cospfLocalLsdbRouterId", types.YLeaf{"CospfLocalLsdbRouterId", cospfLocalLsdbEntry.CospfLocalLsdbRouterId})
+    cospfLocalLsdbEntry.EntityData.Leafs.Append("cospfLocalLsdbSequence", types.YLeaf{"CospfLocalLsdbSequence", cospfLocalLsdbEntry.CospfLocalLsdbSequence})
+    cospfLocalLsdbEntry.EntityData.Leafs.Append("cospfLocalLsdbAge", types.YLeaf{"CospfLocalLsdbAge", cospfLocalLsdbEntry.CospfLocalLsdbAge})
+    cospfLocalLsdbEntry.EntityData.Leafs.Append("cospfLocalLsdbChecksum", types.YLeaf{"CospfLocalLsdbChecksum", cospfLocalLsdbEntry.CospfLocalLsdbChecksum})
+    cospfLocalLsdbEntry.EntityData.Leafs.Append("cospfLocalLsdbAdvertisement", types.YLeaf{"CospfLocalLsdbAdvertisement", cospfLocalLsdbEntry.CospfLocalLsdbAdvertisement})
+
+    cospfLocalLsdbEntry.EntityData.YListKeys = []string {"CospfLocalLsdbIpAddress", "CospfLocalLsdbAddressLessIf", "CospfLocalLsdbType", "CospfLocalLsdbLsid", "CospfLocalLsdbRouterId"}
+
+    return &(cospfLocalLsdbEntry.EntityData)
 }
 
-// CISCOOSPFMIB_Cospflocallsdbtable_Cospflocallsdbentry_Cospflocallsdbtype represents Each link state type has a separate advertisement format.
-type CISCOOSPFMIB_Cospflocallsdbtable_Cospflocallsdbentry_Cospflocallsdbtype string
+// CISCOOSPFMIB_CospfLocalLsdbTable_CospfLocalLsdbEntry_CospfLocalLsdbType represents Each link state type has a separate advertisement format.
+type CISCOOSPFMIB_CospfLocalLsdbTable_CospfLocalLsdbEntry_CospfLocalLsdbType string
 
 const (
-    CISCOOSPFMIB_Cospflocallsdbtable_Cospflocallsdbentry_Cospflocallsdbtype_localOpaqueLink CISCOOSPFMIB_Cospflocallsdbtable_Cospflocallsdbentry_Cospflocallsdbtype = "localOpaqueLink"
+    CISCOOSPFMIB_CospfLocalLsdbTable_CospfLocalLsdbEntry_CospfLocalLsdbType_localOpaqueLink CISCOOSPFMIB_CospfLocalLsdbTable_CospfLocalLsdbEntry_CospfLocalLsdbType = "localOpaqueLink"
 )
 
-// CISCOOSPFMIB_Cospfvirtlocallsdbtable
+// CISCOOSPFMIB_CospfVirtLocalLsdbTable
 // The OSPF Process's Link-Local Link State Database
 // for virtual links.
-type CISCOOSPFMIB_Cospfvirtlocallsdbtable struct {
+type CISCOOSPFMIB_CospfVirtLocalLsdbTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single Link State Advertisement. The type is slice of
-    // CISCOOSPFMIB_Cospfvirtlocallsdbtable_Cospfvirtlocallsdbentry.
-    Cospfvirtlocallsdbentry []CISCOOSPFMIB_Cospfvirtlocallsdbtable_Cospfvirtlocallsdbentry
+    // CISCOOSPFMIB_CospfVirtLocalLsdbTable_CospfVirtLocalLsdbEntry.
+    CospfVirtLocalLsdbEntry []*CISCOOSPFMIB_CospfVirtLocalLsdbTable_CospfVirtLocalLsdbEntry
 }
 
-func (cospfvirtlocallsdbtable *CISCOOSPFMIB_Cospfvirtlocallsdbtable) GetEntityData() *types.CommonEntityData {
-    cospfvirtlocallsdbtable.EntityData.YFilter = cospfvirtlocallsdbtable.YFilter
-    cospfvirtlocallsdbtable.EntityData.YangName = "cospfVirtLocalLsdbTable"
-    cospfvirtlocallsdbtable.EntityData.BundleName = "cisco_ios_xe"
-    cospfvirtlocallsdbtable.EntityData.ParentYangName = "CISCO-OSPF-MIB"
-    cospfvirtlocallsdbtable.EntityData.SegmentPath = "cospfVirtLocalLsdbTable"
-    cospfvirtlocallsdbtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cospfvirtlocallsdbtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cospfvirtlocallsdbtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cospfVirtLocalLsdbTable *CISCOOSPFMIB_CospfVirtLocalLsdbTable) GetEntityData() *types.CommonEntityData {
+    cospfVirtLocalLsdbTable.EntityData.YFilter = cospfVirtLocalLsdbTable.YFilter
+    cospfVirtLocalLsdbTable.EntityData.YangName = "cospfVirtLocalLsdbTable"
+    cospfVirtLocalLsdbTable.EntityData.BundleName = "cisco_ios_xe"
+    cospfVirtLocalLsdbTable.EntityData.ParentYangName = "CISCO-OSPF-MIB"
+    cospfVirtLocalLsdbTable.EntityData.SegmentPath = "cospfVirtLocalLsdbTable"
+    cospfVirtLocalLsdbTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cospfVirtLocalLsdbTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cospfVirtLocalLsdbTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cospfvirtlocallsdbtable.EntityData.Children = make(map[string]types.YChild)
-    cospfvirtlocallsdbtable.EntityData.Children["cospfVirtLocalLsdbEntry"] = types.YChild{"Cospfvirtlocallsdbentry", nil}
-    for i := range cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry {
-        cospfvirtlocallsdbtable.EntityData.Children[types.GetSegmentPath(&cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry[i])] = types.YChild{"Cospfvirtlocallsdbentry", &cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry[i]}
+    cospfVirtLocalLsdbTable.EntityData.Children = types.NewOrderedMap()
+    cospfVirtLocalLsdbTable.EntityData.Children.Append("cospfVirtLocalLsdbEntry", types.YChild{"CospfVirtLocalLsdbEntry", nil})
+    for i := range cospfVirtLocalLsdbTable.CospfVirtLocalLsdbEntry {
+        cospfVirtLocalLsdbTable.EntityData.Children.Append(types.GetSegmentPath(cospfVirtLocalLsdbTable.CospfVirtLocalLsdbEntry[i]), types.YChild{"CospfVirtLocalLsdbEntry", cospfVirtLocalLsdbTable.CospfVirtLocalLsdbEntry[i]})
     }
-    cospfvirtlocallsdbtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cospfvirtlocallsdbtable.EntityData)
+    cospfVirtLocalLsdbTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cospfVirtLocalLsdbTable.EntityData.YListKeys = []string {}
+
+    return &(cospfVirtLocalLsdbTable.EntityData)
 }
 
-// CISCOOSPFMIB_Cospfvirtlocallsdbtable_Cospfvirtlocallsdbentry
+// CISCOOSPFMIB_CospfVirtLocalLsdbTable_CospfVirtLocalLsdbEntry
 // A single Link State Advertisement.
-type CISCOOSPFMIB_Cospfvirtlocallsdbtable_Cospfvirtlocallsdbentry struct {
+type CISCOOSPFMIB_CospfVirtLocalLsdbTable_CospfVirtLocalLsdbEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Transit Area that the Virtual Link traverses.
     // By definition, this is not 0.0.0.0. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Cospfvirtlocallsdbtransitarea interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CospfVirtLocalLsdbTransitArea interface{}
 
     // This attribute is a key. The Router ID of the Virtual Neighbor. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Cospfvirtlocallsdbneighbor interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CospfVirtLocalLsdbNeighbor interface{}
 
     // This attribute is a key. The type of the link state advertisement. Each 
     // link state type has a separate advertisement format. The type is
-    // Cospfvirtlocallsdbtype.
-    Cospfvirtlocallsdbtype interface{}
+    // CospfVirtLocalLsdbType.
+    CospfVirtLocalLsdbType interface{}
 
     // This attribute is a key. The Link State ID is an LS Type Specific field
     // containing a 32 bit identifier in IP address format; it identifies the
     // piece of the routing domain that is being described by the advertisement.
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Cospfvirtlocallsdblsid interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CospfVirtLocalLsdbLsid interface{}
 
     // This attribute is a key. The 32 bit number that uniquely identifies the
     // originating router in the Autonomous System. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Cospfvirtlocallsdbrouterid interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CospfVirtLocalLsdbRouterId interface{}
 
     // The sequence number field is a  signed  32-bit integer. It is used to
     // detect old and duplicate link state advertisements. The space of sequence
     // numbers is linearly ordered. The larger the sequence number the more recent
     // the advertisement. The type is interface{} with range:
     // -2147483647..2147483647.
-    Cospfvirtlocallsdbsequence interface{}
+    CospfVirtLocalLsdbSequence interface{}
 
     // This field is the age of the link state advertisement in seconds. The type
     // is interface{} with range: 0..3600.
-    Cospfvirtlocallsdbage interface{}
+    CospfVirtLocalLsdbAge interface{}
 
     // This field is the checksum of the complete contents of the advertisement,
     // excepting the age field. The age field is excepted so that an
@@ -548,105 +575,111 @@ type CISCOOSPFMIB_Cospfvirtlocallsdbtable_Cospfvirtlocallsdbentry struct {
     // checksum used is the same that is used for ISO connectionless datagrams; it
     // is commonly referred  to as the Fletcher checksum. The type is interface{}
     // with range: 0..4294967295.
-    Cospfvirtlocallsdbchecksum interface{}
+    CospfVirtLocalLsdbChecksum interface{}
 
     // The entire Link State Advertisement, including its header. The type is
     // string with length: 1..65535.
-    Cospfvirtlocallsdbadvertisement interface{}
+    CospfVirtLocalLsdbAdvertisement interface{}
 }
 
-func (cospfvirtlocallsdbentry *CISCOOSPFMIB_Cospfvirtlocallsdbtable_Cospfvirtlocallsdbentry) GetEntityData() *types.CommonEntityData {
-    cospfvirtlocallsdbentry.EntityData.YFilter = cospfvirtlocallsdbentry.YFilter
-    cospfvirtlocallsdbentry.EntityData.YangName = "cospfVirtLocalLsdbEntry"
-    cospfvirtlocallsdbentry.EntityData.BundleName = "cisco_ios_xe"
-    cospfvirtlocallsdbentry.EntityData.ParentYangName = "cospfVirtLocalLsdbTable"
-    cospfvirtlocallsdbentry.EntityData.SegmentPath = "cospfVirtLocalLsdbEntry" + "[cospfVirtLocalLsdbTransitArea='" + fmt.Sprintf("%v", cospfvirtlocallsdbentry.Cospfvirtlocallsdbtransitarea) + "']" + "[cospfVirtLocalLsdbNeighbor='" + fmt.Sprintf("%v", cospfvirtlocallsdbentry.Cospfvirtlocallsdbneighbor) + "']" + "[cospfVirtLocalLsdbType='" + fmt.Sprintf("%v", cospfvirtlocallsdbentry.Cospfvirtlocallsdbtype) + "']" + "[cospfVirtLocalLsdbLsid='" + fmt.Sprintf("%v", cospfvirtlocallsdbentry.Cospfvirtlocallsdblsid) + "']" + "[cospfVirtLocalLsdbRouterId='" + fmt.Sprintf("%v", cospfvirtlocallsdbentry.Cospfvirtlocallsdbrouterid) + "']"
-    cospfvirtlocallsdbentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cospfvirtlocallsdbentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cospfvirtlocallsdbentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cospfVirtLocalLsdbEntry *CISCOOSPFMIB_CospfVirtLocalLsdbTable_CospfVirtLocalLsdbEntry) GetEntityData() *types.CommonEntityData {
+    cospfVirtLocalLsdbEntry.EntityData.YFilter = cospfVirtLocalLsdbEntry.YFilter
+    cospfVirtLocalLsdbEntry.EntityData.YangName = "cospfVirtLocalLsdbEntry"
+    cospfVirtLocalLsdbEntry.EntityData.BundleName = "cisco_ios_xe"
+    cospfVirtLocalLsdbEntry.EntityData.ParentYangName = "cospfVirtLocalLsdbTable"
+    cospfVirtLocalLsdbEntry.EntityData.SegmentPath = "cospfVirtLocalLsdbEntry" + types.AddKeyToken(cospfVirtLocalLsdbEntry.CospfVirtLocalLsdbTransitArea, "cospfVirtLocalLsdbTransitArea") + types.AddKeyToken(cospfVirtLocalLsdbEntry.CospfVirtLocalLsdbNeighbor, "cospfVirtLocalLsdbNeighbor") + types.AddKeyToken(cospfVirtLocalLsdbEntry.CospfVirtLocalLsdbType, "cospfVirtLocalLsdbType") + types.AddKeyToken(cospfVirtLocalLsdbEntry.CospfVirtLocalLsdbLsid, "cospfVirtLocalLsdbLsid") + types.AddKeyToken(cospfVirtLocalLsdbEntry.CospfVirtLocalLsdbRouterId, "cospfVirtLocalLsdbRouterId")
+    cospfVirtLocalLsdbEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cospfVirtLocalLsdbEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cospfVirtLocalLsdbEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cospfvirtlocallsdbentry.EntityData.Children = make(map[string]types.YChild)
-    cospfvirtlocallsdbentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cospfvirtlocallsdbentry.EntityData.Leafs["cospfVirtLocalLsdbTransitArea"] = types.YLeaf{"Cospfvirtlocallsdbtransitarea", cospfvirtlocallsdbentry.Cospfvirtlocallsdbtransitarea}
-    cospfvirtlocallsdbentry.EntityData.Leafs["cospfVirtLocalLsdbNeighbor"] = types.YLeaf{"Cospfvirtlocallsdbneighbor", cospfvirtlocallsdbentry.Cospfvirtlocallsdbneighbor}
-    cospfvirtlocallsdbentry.EntityData.Leafs["cospfVirtLocalLsdbType"] = types.YLeaf{"Cospfvirtlocallsdbtype", cospfvirtlocallsdbentry.Cospfvirtlocallsdbtype}
-    cospfvirtlocallsdbentry.EntityData.Leafs["cospfVirtLocalLsdbLsid"] = types.YLeaf{"Cospfvirtlocallsdblsid", cospfvirtlocallsdbentry.Cospfvirtlocallsdblsid}
-    cospfvirtlocallsdbentry.EntityData.Leafs["cospfVirtLocalLsdbRouterId"] = types.YLeaf{"Cospfvirtlocallsdbrouterid", cospfvirtlocallsdbentry.Cospfvirtlocallsdbrouterid}
-    cospfvirtlocallsdbentry.EntityData.Leafs["cospfVirtLocalLsdbSequence"] = types.YLeaf{"Cospfvirtlocallsdbsequence", cospfvirtlocallsdbentry.Cospfvirtlocallsdbsequence}
-    cospfvirtlocallsdbentry.EntityData.Leafs["cospfVirtLocalLsdbAge"] = types.YLeaf{"Cospfvirtlocallsdbage", cospfvirtlocallsdbentry.Cospfvirtlocallsdbage}
-    cospfvirtlocallsdbentry.EntityData.Leafs["cospfVirtLocalLsdbChecksum"] = types.YLeaf{"Cospfvirtlocallsdbchecksum", cospfvirtlocallsdbentry.Cospfvirtlocallsdbchecksum}
-    cospfvirtlocallsdbentry.EntityData.Leafs["cospfVirtLocalLsdbAdvertisement"] = types.YLeaf{"Cospfvirtlocallsdbadvertisement", cospfvirtlocallsdbentry.Cospfvirtlocallsdbadvertisement}
-    return &(cospfvirtlocallsdbentry.EntityData)
+    cospfVirtLocalLsdbEntry.EntityData.Children = types.NewOrderedMap()
+    cospfVirtLocalLsdbEntry.EntityData.Leafs = types.NewOrderedMap()
+    cospfVirtLocalLsdbEntry.EntityData.Leafs.Append("cospfVirtLocalLsdbTransitArea", types.YLeaf{"CospfVirtLocalLsdbTransitArea", cospfVirtLocalLsdbEntry.CospfVirtLocalLsdbTransitArea})
+    cospfVirtLocalLsdbEntry.EntityData.Leafs.Append("cospfVirtLocalLsdbNeighbor", types.YLeaf{"CospfVirtLocalLsdbNeighbor", cospfVirtLocalLsdbEntry.CospfVirtLocalLsdbNeighbor})
+    cospfVirtLocalLsdbEntry.EntityData.Leafs.Append("cospfVirtLocalLsdbType", types.YLeaf{"CospfVirtLocalLsdbType", cospfVirtLocalLsdbEntry.CospfVirtLocalLsdbType})
+    cospfVirtLocalLsdbEntry.EntityData.Leafs.Append("cospfVirtLocalLsdbLsid", types.YLeaf{"CospfVirtLocalLsdbLsid", cospfVirtLocalLsdbEntry.CospfVirtLocalLsdbLsid})
+    cospfVirtLocalLsdbEntry.EntityData.Leafs.Append("cospfVirtLocalLsdbRouterId", types.YLeaf{"CospfVirtLocalLsdbRouterId", cospfVirtLocalLsdbEntry.CospfVirtLocalLsdbRouterId})
+    cospfVirtLocalLsdbEntry.EntityData.Leafs.Append("cospfVirtLocalLsdbSequence", types.YLeaf{"CospfVirtLocalLsdbSequence", cospfVirtLocalLsdbEntry.CospfVirtLocalLsdbSequence})
+    cospfVirtLocalLsdbEntry.EntityData.Leafs.Append("cospfVirtLocalLsdbAge", types.YLeaf{"CospfVirtLocalLsdbAge", cospfVirtLocalLsdbEntry.CospfVirtLocalLsdbAge})
+    cospfVirtLocalLsdbEntry.EntityData.Leafs.Append("cospfVirtLocalLsdbChecksum", types.YLeaf{"CospfVirtLocalLsdbChecksum", cospfVirtLocalLsdbEntry.CospfVirtLocalLsdbChecksum})
+    cospfVirtLocalLsdbEntry.EntityData.Leafs.Append("cospfVirtLocalLsdbAdvertisement", types.YLeaf{"CospfVirtLocalLsdbAdvertisement", cospfVirtLocalLsdbEntry.CospfVirtLocalLsdbAdvertisement})
+
+    cospfVirtLocalLsdbEntry.EntityData.YListKeys = []string {"CospfVirtLocalLsdbTransitArea", "CospfVirtLocalLsdbNeighbor", "CospfVirtLocalLsdbType", "CospfVirtLocalLsdbLsid", "CospfVirtLocalLsdbRouterId"}
+
+    return &(cospfVirtLocalLsdbEntry.EntityData)
 }
 
-// CISCOOSPFMIB_Cospfvirtlocallsdbtable_Cospfvirtlocallsdbentry_Cospfvirtlocallsdbtype represents Each  link state type has a separate advertisement format.
-type CISCOOSPFMIB_Cospfvirtlocallsdbtable_Cospfvirtlocallsdbentry_Cospfvirtlocallsdbtype string
+// CISCOOSPFMIB_CospfVirtLocalLsdbTable_CospfVirtLocalLsdbEntry_CospfVirtLocalLsdbType represents Each  link state type has a separate advertisement format.
+type CISCOOSPFMIB_CospfVirtLocalLsdbTable_CospfVirtLocalLsdbEntry_CospfVirtLocalLsdbType string
 
 const (
-    CISCOOSPFMIB_Cospfvirtlocallsdbtable_Cospfvirtlocallsdbentry_Cospfvirtlocallsdbtype_localOpaqueLink CISCOOSPFMIB_Cospfvirtlocallsdbtable_Cospfvirtlocallsdbentry_Cospfvirtlocallsdbtype = "localOpaqueLink"
+    CISCOOSPFMIB_CospfVirtLocalLsdbTable_CospfVirtLocalLsdbEntry_CospfVirtLocalLsdbType_localOpaqueLink CISCOOSPFMIB_CospfVirtLocalLsdbTable_CospfVirtLocalLsdbEntry_CospfVirtLocalLsdbType = "localOpaqueLink"
 )
 
-// CISCOOSPFMIB_Cospfshamlinknbrtable
+// CISCOOSPFMIB_CospfShamLinkNbrTable
 // A table of sham link neighbor information.
-type CISCOOSPFMIB_Cospfshamlinknbrtable struct {
+type CISCOOSPFMIB_CospfShamLinkNbrTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sham link neighbor information. The type is slice of
-    // CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry.
-    Cospfshamlinknbrentry []CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry
+    // CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry.
+    CospfShamLinkNbrEntry []*CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry
 }
 
-func (cospfshamlinknbrtable *CISCOOSPFMIB_Cospfshamlinknbrtable) GetEntityData() *types.CommonEntityData {
-    cospfshamlinknbrtable.EntityData.YFilter = cospfshamlinknbrtable.YFilter
-    cospfshamlinknbrtable.EntityData.YangName = "cospfShamLinkNbrTable"
-    cospfshamlinknbrtable.EntityData.BundleName = "cisco_ios_xe"
-    cospfshamlinknbrtable.EntityData.ParentYangName = "CISCO-OSPF-MIB"
-    cospfshamlinknbrtable.EntityData.SegmentPath = "cospfShamLinkNbrTable"
-    cospfshamlinknbrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cospfshamlinknbrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cospfshamlinknbrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cospfShamLinkNbrTable *CISCOOSPFMIB_CospfShamLinkNbrTable) GetEntityData() *types.CommonEntityData {
+    cospfShamLinkNbrTable.EntityData.YFilter = cospfShamLinkNbrTable.YFilter
+    cospfShamLinkNbrTable.EntityData.YangName = "cospfShamLinkNbrTable"
+    cospfShamLinkNbrTable.EntityData.BundleName = "cisco_ios_xe"
+    cospfShamLinkNbrTable.EntityData.ParentYangName = "CISCO-OSPF-MIB"
+    cospfShamLinkNbrTable.EntityData.SegmentPath = "cospfShamLinkNbrTable"
+    cospfShamLinkNbrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cospfShamLinkNbrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cospfShamLinkNbrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cospfshamlinknbrtable.EntityData.Children = make(map[string]types.YChild)
-    cospfshamlinknbrtable.EntityData.Children["cospfShamLinkNbrEntry"] = types.YChild{"Cospfshamlinknbrentry", nil}
-    for i := range cospfshamlinknbrtable.Cospfshamlinknbrentry {
-        cospfshamlinknbrtable.EntityData.Children[types.GetSegmentPath(&cospfshamlinknbrtable.Cospfshamlinknbrentry[i])] = types.YChild{"Cospfshamlinknbrentry", &cospfshamlinknbrtable.Cospfshamlinknbrentry[i]}
+    cospfShamLinkNbrTable.EntityData.Children = types.NewOrderedMap()
+    cospfShamLinkNbrTable.EntityData.Children.Append("cospfShamLinkNbrEntry", types.YChild{"CospfShamLinkNbrEntry", nil})
+    for i := range cospfShamLinkNbrTable.CospfShamLinkNbrEntry {
+        cospfShamLinkNbrTable.EntityData.Children.Append(types.GetSegmentPath(cospfShamLinkNbrTable.CospfShamLinkNbrEntry[i]), types.YChild{"CospfShamLinkNbrEntry", cospfShamLinkNbrTable.CospfShamLinkNbrEntry[i]})
     }
-    cospfshamlinknbrtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cospfshamlinknbrtable.EntityData)
+    cospfShamLinkNbrTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cospfShamLinkNbrTable.EntityData.YListKeys = []string {}
+
+    return &(cospfShamLinkNbrTable.EntityData)
 }
 
-// CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry
+// CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry
 // Sham link neighbor information.
-type CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry struct {
+type CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is InetAddressType. Refers to
-    // cisco_ospf_mib.CISCOOSPFMIB_Cospfshamlinkstable_Cospfshamlinksentry_Cospfshamlinkslocalipaddrtype
-    Cospfshamlinkslocalipaddrtype interface{}
+    // cisco_ospf_mib.CISCOOSPFMIB_CospfShamLinksTable_CospfShamLinksEntry_CospfShamLinksLocalIpAddrType
+    CospfShamLinksLocalIpAddrType interface{}
 
     // This attribute is a key. The type is string with length: 0..255. Refers to
-    // cisco_ospf_mib.CISCOOSPFMIB_Cospfshamlinkstable_Cospfshamlinksentry_Cospfshamlinkslocalipaddr
-    Cospfshamlinkslocalipaddr interface{}
+    // cisco_ospf_mib.CISCOOSPFMIB_CospfShamLinksTable_CospfShamLinksEntry_CospfShamLinksLocalIpAddr
+    CospfShamLinksLocalIpAddr interface{}
 
     // This attribute is a key. The area to which the sham link is part of. The
     // type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Cospfshamlinknbrarea interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CospfShamLinkNbrArea interface{}
 
     // This attribute is a key. The type of internet address of this sham link
     // neighbor's IP address. The type is InetAddressType.
-    Cospfshamlinknbripaddrtype interface{}
+    CospfShamLinkNbrIpAddrType interface{}
 
     // This attribute is a key. The IP address this sham link neighbor is using.
     // The type is string with length: 0..255.
-    Cospfshamlinknbripaddr interface{}
+    CospfShamLinkNbrIpAddr interface{}
 
     // A 32-bit integer uniquely identifying the neighboring router. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Cospfshamlinknbrrtrid interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CospfShamLinkNbrRtrId interface{}
 
     // A Bit Mask corresponding to the neighbor's options field.  Bit 1, if set,
     // indicates that the  system  will operate  on  Type of Service metrics other
@@ -654,191 +687,200 @@ type CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry struct {
     // 0 metric.  Bit 2, if set, indicates  that  the  system  is Network 
     // Multicast  capable; ie, that it implements  OSPF Multicast Routing. The
     // type is interface{} with range: 0..255.
-    Cospfshamlinknbroptions interface{}
+    CospfShamLinkNbrOptions interface{}
 
     // The state of this sham link neighbor relation- ship. The type is
-    // Cospfshamlinknbrstate.
-    Cospfshamlinknbrstate interface{}
+    // CospfShamLinkNbrState.
+    CospfShamLinkNbrState interface{}
 
     // The number of  times  this sham link has changed state or an error has
     // occurred. The type is interface{} with range: 0..4294967295.
-    Cospfshamlinknbrevents interface{}
+    CospfShamLinkNbrEvents interface{}
 
     // The  current  length  of  the   retransmission queue. The retransmission
     // queue is maintained for LSAs that have been flooded but not acknowledged on
     // this adjacency. The type is interface{} with range: 0..4294967295.
-    Cospfshamlinknbrlsretransqlen interface{}
+    CospfShamLinkNbrLsRetransQLen interface{}
 
     // Indicates whether Hellos are being  suppressed to the neighbor. The type is
     // bool.
-    Cospfshamlinknbrhellosuppressed interface{}
+    CospfShamLinkNbrHelloSuppressed interface{}
 }
 
-func (cospfshamlinknbrentry *CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry) GetEntityData() *types.CommonEntityData {
-    cospfshamlinknbrentry.EntityData.YFilter = cospfshamlinknbrentry.YFilter
-    cospfshamlinknbrentry.EntityData.YangName = "cospfShamLinkNbrEntry"
-    cospfshamlinknbrentry.EntityData.BundleName = "cisco_ios_xe"
-    cospfshamlinknbrentry.EntityData.ParentYangName = "cospfShamLinkNbrTable"
-    cospfshamlinknbrentry.EntityData.SegmentPath = "cospfShamLinkNbrEntry" + "[cospfShamLinksLocalIpAddrType='" + fmt.Sprintf("%v", cospfshamlinknbrentry.Cospfshamlinkslocalipaddrtype) + "']" + "[cospfShamLinksLocalIpAddr='" + fmt.Sprintf("%v", cospfshamlinknbrentry.Cospfshamlinkslocalipaddr) + "']" + "[cospfShamLinkNbrArea='" + fmt.Sprintf("%v", cospfshamlinknbrentry.Cospfshamlinknbrarea) + "']" + "[cospfShamLinkNbrIpAddrType='" + fmt.Sprintf("%v", cospfshamlinknbrentry.Cospfshamlinknbripaddrtype) + "']" + "[cospfShamLinkNbrIpAddr='" + fmt.Sprintf("%v", cospfshamlinknbrentry.Cospfshamlinknbripaddr) + "']"
-    cospfshamlinknbrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cospfshamlinknbrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cospfshamlinknbrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cospfShamLinkNbrEntry *CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry) GetEntityData() *types.CommonEntityData {
+    cospfShamLinkNbrEntry.EntityData.YFilter = cospfShamLinkNbrEntry.YFilter
+    cospfShamLinkNbrEntry.EntityData.YangName = "cospfShamLinkNbrEntry"
+    cospfShamLinkNbrEntry.EntityData.BundleName = "cisco_ios_xe"
+    cospfShamLinkNbrEntry.EntityData.ParentYangName = "cospfShamLinkNbrTable"
+    cospfShamLinkNbrEntry.EntityData.SegmentPath = "cospfShamLinkNbrEntry" + types.AddKeyToken(cospfShamLinkNbrEntry.CospfShamLinksLocalIpAddrType, "cospfShamLinksLocalIpAddrType") + types.AddKeyToken(cospfShamLinkNbrEntry.CospfShamLinksLocalIpAddr, "cospfShamLinksLocalIpAddr") + types.AddKeyToken(cospfShamLinkNbrEntry.CospfShamLinkNbrArea, "cospfShamLinkNbrArea") + types.AddKeyToken(cospfShamLinkNbrEntry.CospfShamLinkNbrIpAddrType, "cospfShamLinkNbrIpAddrType") + types.AddKeyToken(cospfShamLinkNbrEntry.CospfShamLinkNbrIpAddr, "cospfShamLinkNbrIpAddr")
+    cospfShamLinkNbrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cospfShamLinkNbrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cospfShamLinkNbrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cospfshamlinknbrentry.EntityData.Children = make(map[string]types.YChild)
-    cospfshamlinknbrentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cospfshamlinknbrentry.EntityData.Leafs["cospfShamLinksLocalIpAddrType"] = types.YLeaf{"Cospfshamlinkslocalipaddrtype", cospfshamlinknbrentry.Cospfshamlinkslocalipaddrtype}
-    cospfshamlinknbrentry.EntityData.Leafs["cospfShamLinksLocalIpAddr"] = types.YLeaf{"Cospfshamlinkslocalipaddr", cospfshamlinknbrentry.Cospfshamlinkslocalipaddr}
-    cospfshamlinknbrentry.EntityData.Leafs["cospfShamLinkNbrArea"] = types.YLeaf{"Cospfshamlinknbrarea", cospfshamlinknbrentry.Cospfshamlinknbrarea}
-    cospfshamlinknbrentry.EntityData.Leafs["cospfShamLinkNbrIpAddrType"] = types.YLeaf{"Cospfshamlinknbripaddrtype", cospfshamlinknbrentry.Cospfshamlinknbripaddrtype}
-    cospfshamlinknbrentry.EntityData.Leafs["cospfShamLinkNbrIpAddr"] = types.YLeaf{"Cospfshamlinknbripaddr", cospfshamlinknbrentry.Cospfshamlinknbripaddr}
-    cospfshamlinknbrentry.EntityData.Leafs["cospfShamLinkNbrRtrId"] = types.YLeaf{"Cospfshamlinknbrrtrid", cospfshamlinknbrentry.Cospfshamlinknbrrtrid}
-    cospfshamlinknbrentry.EntityData.Leafs["cospfShamLinkNbrOptions"] = types.YLeaf{"Cospfshamlinknbroptions", cospfshamlinknbrentry.Cospfshamlinknbroptions}
-    cospfshamlinknbrentry.EntityData.Leafs["cospfShamLinkNbrState"] = types.YLeaf{"Cospfshamlinknbrstate", cospfshamlinknbrentry.Cospfshamlinknbrstate}
-    cospfshamlinknbrentry.EntityData.Leafs["cospfShamLinkNbrEvents"] = types.YLeaf{"Cospfshamlinknbrevents", cospfshamlinknbrentry.Cospfshamlinknbrevents}
-    cospfshamlinknbrentry.EntityData.Leafs["cospfShamLinkNbrLsRetransQLen"] = types.YLeaf{"Cospfshamlinknbrlsretransqlen", cospfshamlinknbrentry.Cospfshamlinknbrlsretransqlen}
-    cospfshamlinknbrentry.EntityData.Leafs["cospfShamLinkNbrHelloSuppressed"] = types.YLeaf{"Cospfshamlinknbrhellosuppressed", cospfshamlinknbrentry.Cospfshamlinknbrhellosuppressed}
-    return &(cospfshamlinknbrentry.EntityData)
+    cospfShamLinkNbrEntry.EntityData.Children = types.NewOrderedMap()
+    cospfShamLinkNbrEntry.EntityData.Leafs = types.NewOrderedMap()
+    cospfShamLinkNbrEntry.EntityData.Leafs.Append("cospfShamLinksLocalIpAddrType", types.YLeaf{"CospfShamLinksLocalIpAddrType", cospfShamLinkNbrEntry.CospfShamLinksLocalIpAddrType})
+    cospfShamLinkNbrEntry.EntityData.Leafs.Append("cospfShamLinksLocalIpAddr", types.YLeaf{"CospfShamLinksLocalIpAddr", cospfShamLinkNbrEntry.CospfShamLinksLocalIpAddr})
+    cospfShamLinkNbrEntry.EntityData.Leafs.Append("cospfShamLinkNbrArea", types.YLeaf{"CospfShamLinkNbrArea", cospfShamLinkNbrEntry.CospfShamLinkNbrArea})
+    cospfShamLinkNbrEntry.EntityData.Leafs.Append("cospfShamLinkNbrIpAddrType", types.YLeaf{"CospfShamLinkNbrIpAddrType", cospfShamLinkNbrEntry.CospfShamLinkNbrIpAddrType})
+    cospfShamLinkNbrEntry.EntityData.Leafs.Append("cospfShamLinkNbrIpAddr", types.YLeaf{"CospfShamLinkNbrIpAddr", cospfShamLinkNbrEntry.CospfShamLinkNbrIpAddr})
+    cospfShamLinkNbrEntry.EntityData.Leafs.Append("cospfShamLinkNbrRtrId", types.YLeaf{"CospfShamLinkNbrRtrId", cospfShamLinkNbrEntry.CospfShamLinkNbrRtrId})
+    cospfShamLinkNbrEntry.EntityData.Leafs.Append("cospfShamLinkNbrOptions", types.YLeaf{"CospfShamLinkNbrOptions", cospfShamLinkNbrEntry.CospfShamLinkNbrOptions})
+    cospfShamLinkNbrEntry.EntityData.Leafs.Append("cospfShamLinkNbrState", types.YLeaf{"CospfShamLinkNbrState", cospfShamLinkNbrEntry.CospfShamLinkNbrState})
+    cospfShamLinkNbrEntry.EntityData.Leafs.Append("cospfShamLinkNbrEvents", types.YLeaf{"CospfShamLinkNbrEvents", cospfShamLinkNbrEntry.CospfShamLinkNbrEvents})
+    cospfShamLinkNbrEntry.EntityData.Leafs.Append("cospfShamLinkNbrLsRetransQLen", types.YLeaf{"CospfShamLinkNbrLsRetransQLen", cospfShamLinkNbrEntry.CospfShamLinkNbrLsRetransQLen})
+    cospfShamLinkNbrEntry.EntityData.Leafs.Append("cospfShamLinkNbrHelloSuppressed", types.YLeaf{"CospfShamLinkNbrHelloSuppressed", cospfShamLinkNbrEntry.CospfShamLinkNbrHelloSuppressed})
+
+    cospfShamLinkNbrEntry.EntityData.YListKeys = []string {"CospfShamLinksLocalIpAddrType", "CospfShamLinksLocalIpAddr", "CospfShamLinkNbrArea", "CospfShamLinkNbrIpAddrType", "CospfShamLinkNbrIpAddr"}
+
+    return &(cospfShamLinkNbrEntry.EntityData)
 }
 
-// CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry_Cospfshamlinknbrstate represents ship.
-type CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry_Cospfshamlinknbrstate string
+// CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry_CospfShamLinkNbrState represents ship.
+type CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry_CospfShamLinkNbrState string
 
 const (
-    CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry_Cospfshamlinknbrstate_down CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry_Cospfshamlinknbrstate = "down"
+    CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry_CospfShamLinkNbrState_down CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry_CospfShamLinkNbrState = "down"
 
-    CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry_Cospfshamlinknbrstate_attempt CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry_Cospfshamlinknbrstate = "attempt"
+    CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry_CospfShamLinkNbrState_attempt CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry_CospfShamLinkNbrState = "attempt"
 
-    CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry_Cospfshamlinknbrstate_init CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry_Cospfshamlinknbrstate = "init"
+    CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry_CospfShamLinkNbrState_init CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry_CospfShamLinkNbrState = "init"
 
-    CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry_Cospfshamlinknbrstate_twoWay CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry_Cospfshamlinknbrstate = "twoWay"
+    CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry_CospfShamLinkNbrState_twoWay CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry_CospfShamLinkNbrState = "twoWay"
 
-    CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry_Cospfshamlinknbrstate_exchangeStart CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry_Cospfshamlinknbrstate = "exchangeStart"
+    CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry_CospfShamLinkNbrState_exchangeStart CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry_CospfShamLinkNbrState = "exchangeStart"
 
-    CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry_Cospfshamlinknbrstate_exchange CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry_Cospfshamlinknbrstate = "exchange"
+    CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry_CospfShamLinkNbrState_exchange CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry_CospfShamLinkNbrState = "exchange"
 
-    CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry_Cospfshamlinknbrstate_loading CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry_Cospfshamlinknbrstate = "loading"
+    CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry_CospfShamLinkNbrState_loading CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry_CospfShamLinkNbrState = "loading"
 
-    CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry_Cospfshamlinknbrstate_full CISCOOSPFMIB_Cospfshamlinknbrtable_Cospfshamlinknbrentry_Cospfshamlinknbrstate = "full"
+    CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry_CospfShamLinkNbrState_full CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry_CospfShamLinkNbrState = "full"
 )
 
-// CISCOOSPFMIB_Cospfshamlinkstable
+// CISCOOSPFMIB_CospfShamLinksTable
 // Information about this router's sham links.
-type CISCOOSPFMIB_Cospfshamlinkstable struct {
+type CISCOOSPFMIB_CospfShamLinksTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a single sham link. The type is slice of
-    // CISCOOSPFMIB_Cospfshamlinkstable_Cospfshamlinksentry.
-    Cospfshamlinksentry []CISCOOSPFMIB_Cospfshamlinkstable_Cospfshamlinksentry
+    // CISCOOSPFMIB_CospfShamLinksTable_CospfShamLinksEntry.
+    CospfShamLinksEntry []*CISCOOSPFMIB_CospfShamLinksTable_CospfShamLinksEntry
 }
 
-func (cospfshamlinkstable *CISCOOSPFMIB_Cospfshamlinkstable) GetEntityData() *types.CommonEntityData {
-    cospfshamlinkstable.EntityData.YFilter = cospfshamlinkstable.YFilter
-    cospfshamlinkstable.EntityData.YangName = "cospfShamLinksTable"
-    cospfshamlinkstable.EntityData.BundleName = "cisco_ios_xe"
-    cospfshamlinkstable.EntityData.ParentYangName = "CISCO-OSPF-MIB"
-    cospfshamlinkstable.EntityData.SegmentPath = "cospfShamLinksTable"
-    cospfshamlinkstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cospfshamlinkstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cospfshamlinkstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cospfShamLinksTable *CISCOOSPFMIB_CospfShamLinksTable) GetEntityData() *types.CommonEntityData {
+    cospfShamLinksTable.EntityData.YFilter = cospfShamLinksTable.YFilter
+    cospfShamLinksTable.EntityData.YangName = "cospfShamLinksTable"
+    cospfShamLinksTable.EntityData.BundleName = "cisco_ios_xe"
+    cospfShamLinksTable.EntityData.ParentYangName = "CISCO-OSPF-MIB"
+    cospfShamLinksTable.EntityData.SegmentPath = "cospfShamLinksTable"
+    cospfShamLinksTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cospfShamLinksTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cospfShamLinksTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cospfshamlinkstable.EntityData.Children = make(map[string]types.YChild)
-    cospfshamlinkstable.EntityData.Children["cospfShamLinksEntry"] = types.YChild{"Cospfshamlinksentry", nil}
-    for i := range cospfshamlinkstable.Cospfshamlinksentry {
-        cospfshamlinkstable.EntityData.Children[types.GetSegmentPath(&cospfshamlinkstable.Cospfshamlinksentry[i])] = types.YChild{"Cospfshamlinksentry", &cospfshamlinkstable.Cospfshamlinksentry[i]}
+    cospfShamLinksTable.EntityData.Children = types.NewOrderedMap()
+    cospfShamLinksTable.EntityData.Children.Append("cospfShamLinksEntry", types.YChild{"CospfShamLinksEntry", nil})
+    for i := range cospfShamLinksTable.CospfShamLinksEntry {
+        cospfShamLinksTable.EntityData.Children.Append(types.GetSegmentPath(cospfShamLinksTable.CospfShamLinksEntry[i]), types.YChild{"CospfShamLinksEntry", cospfShamLinksTable.CospfShamLinksEntry[i]})
     }
-    cospfshamlinkstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cospfshamlinkstable.EntityData)
+    cospfShamLinksTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cospfShamLinksTable.EntityData.YListKeys = []string {}
+
+    return &(cospfShamLinksTable.EntityData)
 }
 
-// CISCOOSPFMIB_Cospfshamlinkstable_Cospfshamlinksentry
+// CISCOOSPFMIB_CospfShamLinksTable_CospfShamLinksEntry
 // Information about a single sham link.
-type CISCOOSPFMIB_Cospfshamlinkstable_Cospfshamlinksentry struct {
+type CISCOOSPFMIB_CospfShamLinksTable_CospfShamLinksEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The area that this sham link is part of. The type
     // is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Cospfshamlinksareaid interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CospfShamLinksAreaId interface{}
 
     // This attribute is a key. The type of internet address of this sham link's
     // local IP address. The type is InetAddressType.
-    Cospfshamlinkslocalipaddrtype interface{}
+    CospfShamLinksLocalIpAddrType interface{}
 
     // This attribute is a key. The Local IP address of the sham link. The type is
     // string with length: 0..255.
-    Cospfshamlinkslocalipaddr interface{}
+    CospfShamLinksLocalIpAddr interface{}
 
     // This attribute is a key. The type of internet address of this sham link's
     // remote IP address. The type is InetAddressType.
-    Cospfshamlinksremoteipaddrtype interface{}
+    CospfShamLinksRemoteIpAddrType interface{}
 
     // This attribute is a key. The IP address of the other end router of the sham
     // link. The type is string with length: 0..255.
-    Cospfshamlinksremoteipaddr interface{}
+    CospfShamLinksRemoteIpAddr interface{}
 
     // The number of seconds between  link-state  advertisement retransmissions,
     // for adjacencies belonging to this link. This value is also used when
     // retransmitting database  description and link-state request packets. This
     // value should be well over the expected round trip time. The type is
     // interface{} with range: 0..3600.
-    Cospfshamlinksretransinterval interface{}
+    CospfShamLinksRetransInterval interface{}
 
     // The length of time, in  seconds,  between  the Hello  packets that the
     // router sends on the sham link. The type is interface{} with range:
     // 1..65535.
-    Cospfshamlinkshellointerval interface{}
+    CospfShamLinksHelloInterval interface{}
 
     // The number of seconds that  a  router's  Hello packets  have  not been seen
     // before it's neighbors declare the router down.  This  should  be some 
     // multiple  of  the  Hello  interval. The type is interface{} with range:
     // 0..2147483647.
-    Cospfshamlinksrtrdeadinterval interface{}
+    CospfShamLinksRtrDeadInterval interface{}
 
-    // OSPF sham link states. The type is Cospfshamlinksstate.
-    Cospfshamlinksstate interface{}
+    // OSPF sham link states. The type is CospfShamLinksState.
+    CospfShamLinksState interface{}
 
     // The number of state changes or error events on this sham link. The type is
     // interface{} with range: 0..4294967295.
-    Cospfshamlinksevents interface{}
+    CospfShamLinksEvents interface{}
 
     // The Metric to be advertised. The type is interface{} with range: 0..65535.
-    Cospfshamlinksmetric interface{}
+    CospfShamLinksMetric interface{}
 }
 
-func (cospfshamlinksentry *CISCOOSPFMIB_Cospfshamlinkstable_Cospfshamlinksentry) GetEntityData() *types.CommonEntityData {
-    cospfshamlinksentry.EntityData.YFilter = cospfshamlinksentry.YFilter
-    cospfshamlinksentry.EntityData.YangName = "cospfShamLinksEntry"
-    cospfshamlinksentry.EntityData.BundleName = "cisco_ios_xe"
-    cospfshamlinksentry.EntityData.ParentYangName = "cospfShamLinksTable"
-    cospfshamlinksentry.EntityData.SegmentPath = "cospfShamLinksEntry" + "[cospfShamLinksAreaId='" + fmt.Sprintf("%v", cospfshamlinksentry.Cospfshamlinksareaid) + "']" + "[cospfShamLinksLocalIpAddrType='" + fmt.Sprintf("%v", cospfshamlinksentry.Cospfshamlinkslocalipaddrtype) + "']" + "[cospfShamLinksLocalIpAddr='" + fmt.Sprintf("%v", cospfshamlinksentry.Cospfshamlinkslocalipaddr) + "']" + "[cospfShamLinksRemoteIpAddrType='" + fmt.Sprintf("%v", cospfshamlinksentry.Cospfshamlinksremoteipaddrtype) + "']" + "[cospfShamLinksRemoteIpAddr='" + fmt.Sprintf("%v", cospfshamlinksentry.Cospfshamlinksremoteipaddr) + "']"
-    cospfshamlinksentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cospfshamlinksentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cospfshamlinksentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cospfShamLinksEntry *CISCOOSPFMIB_CospfShamLinksTable_CospfShamLinksEntry) GetEntityData() *types.CommonEntityData {
+    cospfShamLinksEntry.EntityData.YFilter = cospfShamLinksEntry.YFilter
+    cospfShamLinksEntry.EntityData.YangName = "cospfShamLinksEntry"
+    cospfShamLinksEntry.EntityData.BundleName = "cisco_ios_xe"
+    cospfShamLinksEntry.EntityData.ParentYangName = "cospfShamLinksTable"
+    cospfShamLinksEntry.EntityData.SegmentPath = "cospfShamLinksEntry" + types.AddKeyToken(cospfShamLinksEntry.CospfShamLinksAreaId, "cospfShamLinksAreaId") + types.AddKeyToken(cospfShamLinksEntry.CospfShamLinksLocalIpAddrType, "cospfShamLinksLocalIpAddrType") + types.AddKeyToken(cospfShamLinksEntry.CospfShamLinksLocalIpAddr, "cospfShamLinksLocalIpAddr") + types.AddKeyToken(cospfShamLinksEntry.CospfShamLinksRemoteIpAddrType, "cospfShamLinksRemoteIpAddrType") + types.AddKeyToken(cospfShamLinksEntry.CospfShamLinksRemoteIpAddr, "cospfShamLinksRemoteIpAddr")
+    cospfShamLinksEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cospfShamLinksEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cospfShamLinksEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cospfshamlinksentry.EntityData.Children = make(map[string]types.YChild)
-    cospfshamlinksentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cospfshamlinksentry.EntityData.Leafs["cospfShamLinksAreaId"] = types.YLeaf{"Cospfshamlinksareaid", cospfshamlinksentry.Cospfshamlinksareaid}
-    cospfshamlinksentry.EntityData.Leafs["cospfShamLinksLocalIpAddrType"] = types.YLeaf{"Cospfshamlinkslocalipaddrtype", cospfshamlinksentry.Cospfshamlinkslocalipaddrtype}
-    cospfshamlinksentry.EntityData.Leafs["cospfShamLinksLocalIpAddr"] = types.YLeaf{"Cospfshamlinkslocalipaddr", cospfshamlinksentry.Cospfshamlinkslocalipaddr}
-    cospfshamlinksentry.EntityData.Leafs["cospfShamLinksRemoteIpAddrType"] = types.YLeaf{"Cospfshamlinksremoteipaddrtype", cospfshamlinksentry.Cospfshamlinksremoteipaddrtype}
-    cospfshamlinksentry.EntityData.Leafs["cospfShamLinksRemoteIpAddr"] = types.YLeaf{"Cospfshamlinksremoteipaddr", cospfshamlinksentry.Cospfshamlinksremoteipaddr}
-    cospfshamlinksentry.EntityData.Leafs["cospfShamLinksRetransInterval"] = types.YLeaf{"Cospfshamlinksretransinterval", cospfshamlinksentry.Cospfshamlinksretransinterval}
-    cospfshamlinksentry.EntityData.Leafs["cospfShamLinksHelloInterval"] = types.YLeaf{"Cospfshamlinkshellointerval", cospfshamlinksentry.Cospfshamlinkshellointerval}
-    cospfshamlinksentry.EntityData.Leafs["cospfShamLinksRtrDeadInterval"] = types.YLeaf{"Cospfshamlinksrtrdeadinterval", cospfshamlinksentry.Cospfshamlinksrtrdeadinterval}
-    cospfshamlinksentry.EntityData.Leafs["cospfShamLinksState"] = types.YLeaf{"Cospfshamlinksstate", cospfshamlinksentry.Cospfshamlinksstate}
-    cospfshamlinksentry.EntityData.Leafs["cospfShamLinksEvents"] = types.YLeaf{"Cospfshamlinksevents", cospfshamlinksentry.Cospfshamlinksevents}
-    cospfshamlinksentry.EntityData.Leafs["cospfShamLinksMetric"] = types.YLeaf{"Cospfshamlinksmetric", cospfshamlinksentry.Cospfshamlinksmetric}
-    return &(cospfshamlinksentry.EntityData)
+    cospfShamLinksEntry.EntityData.Children = types.NewOrderedMap()
+    cospfShamLinksEntry.EntityData.Leafs = types.NewOrderedMap()
+    cospfShamLinksEntry.EntityData.Leafs.Append("cospfShamLinksAreaId", types.YLeaf{"CospfShamLinksAreaId", cospfShamLinksEntry.CospfShamLinksAreaId})
+    cospfShamLinksEntry.EntityData.Leafs.Append("cospfShamLinksLocalIpAddrType", types.YLeaf{"CospfShamLinksLocalIpAddrType", cospfShamLinksEntry.CospfShamLinksLocalIpAddrType})
+    cospfShamLinksEntry.EntityData.Leafs.Append("cospfShamLinksLocalIpAddr", types.YLeaf{"CospfShamLinksLocalIpAddr", cospfShamLinksEntry.CospfShamLinksLocalIpAddr})
+    cospfShamLinksEntry.EntityData.Leafs.Append("cospfShamLinksRemoteIpAddrType", types.YLeaf{"CospfShamLinksRemoteIpAddrType", cospfShamLinksEntry.CospfShamLinksRemoteIpAddrType})
+    cospfShamLinksEntry.EntityData.Leafs.Append("cospfShamLinksRemoteIpAddr", types.YLeaf{"CospfShamLinksRemoteIpAddr", cospfShamLinksEntry.CospfShamLinksRemoteIpAddr})
+    cospfShamLinksEntry.EntityData.Leafs.Append("cospfShamLinksRetransInterval", types.YLeaf{"CospfShamLinksRetransInterval", cospfShamLinksEntry.CospfShamLinksRetransInterval})
+    cospfShamLinksEntry.EntityData.Leafs.Append("cospfShamLinksHelloInterval", types.YLeaf{"CospfShamLinksHelloInterval", cospfShamLinksEntry.CospfShamLinksHelloInterval})
+    cospfShamLinksEntry.EntityData.Leafs.Append("cospfShamLinksRtrDeadInterval", types.YLeaf{"CospfShamLinksRtrDeadInterval", cospfShamLinksEntry.CospfShamLinksRtrDeadInterval})
+    cospfShamLinksEntry.EntityData.Leafs.Append("cospfShamLinksState", types.YLeaf{"CospfShamLinksState", cospfShamLinksEntry.CospfShamLinksState})
+    cospfShamLinksEntry.EntityData.Leafs.Append("cospfShamLinksEvents", types.YLeaf{"CospfShamLinksEvents", cospfShamLinksEntry.CospfShamLinksEvents})
+    cospfShamLinksEntry.EntityData.Leafs.Append("cospfShamLinksMetric", types.YLeaf{"CospfShamLinksMetric", cospfShamLinksEntry.CospfShamLinksMetric})
+
+    cospfShamLinksEntry.EntityData.YListKeys = []string {"CospfShamLinksAreaId", "CospfShamLinksLocalIpAddrType", "CospfShamLinksLocalIpAddr", "CospfShamLinksRemoteIpAddrType", "CospfShamLinksRemoteIpAddr"}
+
+    return &(cospfShamLinksEntry.EntityData)
 }
 
-// CISCOOSPFMIB_Cospfshamlinkstable_Cospfshamlinksentry_Cospfshamlinksstate represents OSPF sham link states.
-type CISCOOSPFMIB_Cospfshamlinkstable_Cospfshamlinksentry_Cospfshamlinksstate string
+// CISCOOSPFMIB_CospfShamLinksTable_CospfShamLinksEntry_CospfShamLinksState represents OSPF sham link states.
+type CISCOOSPFMIB_CospfShamLinksTable_CospfShamLinksEntry_CospfShamLinksState string
 
 const (
-    CISCOOSPFMIB_Cospfshamlinkstable_Cospfshamlinksentry_Cospfshamlinksstate_down CISCOOSPFMIB_Cospfshamlinkstable_Cospfshamlinksentry_Cospfshamlinksstate = "down"
+    CISCOOSPFMIB_CospfShamLinksTable_CospfShamLinksEntry_CospfShamLinksState_down CISCOOSPFMIB_CospfShamLinksTable_CospfShamLinksEntry_CospfShamLinksState = "down"
 
-    CISCOOSPFMIB_Cospfshamlinkstable_Cospfshamlinksentry_Cospfshamlinksstate_pointToPoint CISCOOSPFMIB_Cospfshamlinkstable_Cospfshamlinksentry_Cospfshamlinksstate = "pointToPoint"
+    CISCOOSPFMIB_CospfShamLinksTable_CospfShamLinksEntry_CospfShamLinksState_pointToPoint CISCOOSPFMIB_CospfShamLinksTable_CospfShamLinksEntry_CospfShamLinksState = "pointToPoint"
 )
 

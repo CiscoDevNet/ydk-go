@@ -25,14 +25,14 @@ type RFC1315MIB struct {
 
     // The Parameters for the Data Link Connection Management Interface for the
     // frame relay service on this interface.
-    Frdlcmitable RFC1315MIB_Frdlcmitable
+    FrDlcmiTable RFC1315MIB_FrDlcmiTable
 
     // A table containing information about specific Data Link Connection
     // Identifiers and corresponding virtual circuits.
-    Frcircuittable RFC1315MIB_Frcircuittable
+    FrCircuitTable RFC1315MIB_FrCircuitTable
 
     // A table containing information about Errors on the Frame Relay interface.
-    Frerrtable RFC1315MIB_Frerrtable
+    FrErrTable RFC1315MIB_FrErrTable
 }
 
 func (rFC1315MIB *RFC1315MIB) GetEntityData() *types.CommonEntityData {
@@ -45,12 +45,15 @@ func (rFC1315MIB *RFC1315MIB) GetEntityData() *types.CommonEntityData {
     rFC1315MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rFC1315MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rFC1315MIB.EntityData.Children = make(map[string]types.YChild)
-    rFC1315MIB.EntityData.Children["frame-relay-globals"] = types.YChild{"FrameRelayGlobals", &rFC1315MIB.FrameRelayGlobals}
-    rFC1315MIB.EntityData.Children["frDlcmiTable"] = types.YChild{"Frdlcmitable", &rFC1315MIB.Frdlcmitable}
-    rFC1315MIB.EntityData.Children["frCircuitTable"] = types.YChild{"Frcircuittable", &rFC1315MIB.Frcircuittable}
-    rFC1315MIB.EntityData.Children["frErrTable"] = types.YChild{"Frerrtable", &rFC1315MIB.Frerrtable}
-    rFC1315MIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    rFC1315MIB.EntityData.Children = types.NewOrderedMap()
+    rFC1315MIB.EntityData.Children.Append("frame-relay-globals", types.YChild{"FrameRelayGlobals", &rFC1315MIB.FrameRelayGlobals})
+    rFC1315MIB.EntityData.Children.Append("frDlcmiTable", types.YChild{"FrDlcmiTable", &rFC1315MIB.FrDlcmiTable})
+    rFC1315MIB.EntityData.Children.Append("frCircuitTable", types.YChild{"FrCircuitTable", &rFC1315MIB.FrCircuitTable})
+    rFC1315MIB.EntityData.Children.Append("frErrTable", types.YChild{"FrErrTable", &rFC1315MIB.FrErrTable})
+    rFC1315MIB.EntityData.Leafs = types.NewOrderedMap()
+
+    rFC1315MIB.EntityData.YListKeys = []string {}
+
     return &(rFC1315MIB.EntityData)
 }
 
@@ -60,8 +63,8 @@ type RFC1315MIB_FrameRelayGlobals struct {
     YFilter yfilter.YFilter
 
     // This variable  indicates  whether  the  system produces the
-    // frDLCIStatusChange trap. The type is Frtrapstate.
-    Frtrapstate interface{}
+    // frDLCIStatusChange trap. The type is FrTrapState.
+    FrTrapState interface{}
 }
 
 func (frameRelayGlobals *RFC1315MIB_FrameRelayGlobals) GetEntityData() *types.CommonEntityData {
@@ -74,228 +77,240 @@ func (frameRelayGlobals *RFC1315MIB_FrameRelayGlobals) GetEntityData() *types.Co
     frameRelayGlobals.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     frameRelayGlobals.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    frameRelayGlobals.EntityData.Children = make(map[string]types.YChild)
-    frameRelayGlobals.EntityData.Leafs = make(map[string]types.YLeaf)
-    frameRelayGlobals.EntityData.Leafs["frTrapState"] = types.YLeaf{"Frtrapstate", frameRelayGlobals.Frtrapstate}
+    frameRelayGlobals.EntityData.Children = types.NewOrderedMap()
+    frameRelayGlobals.EntityData.Leafs = types.NewOrderedMap()
+    frameRelayGlobals.EntityData.Leafs.Append("frTrapState", types.YLeaf{"FrTrapState", frameRelayGlobals.FrTrapState})
+
+    frameRelayGlobals.EntityData.YListKeys = []string {}
+
     return &(frameRelayGlobals.EntityData)
 }
 
-// RFC1315MIB_FrameRelayGlobals_Frtrapstate represents produces the frDLCIStatusChange trap.
-type RFC1315MIB_FrameRelayGlobals_Frtrapstate string
+// RFC1315MIB_FrameRelayGlobals_FrTrapState represents produces the frDLCIStatusChange trap.
+type RFC1315MIB_FrameRelayGlobals_FrTrapState string
 
 const (
-    RFC1315MIB_FrameRelayGlobals_Frtrapstate_enabled RFC1315MIB_FrameRelayGlobals_Frtrapstate = "enabled"
+    RFC1315MIB_FrameRelayGlobals_FrTrapState_enabled RFC1315MIB_FrameRelayGlobals_FrTrapState = "enabled"
 
-    RFC1315MIB_FrameRelayGlobals_Frtrapstate_disabled RFC1315MIB_FrameRelayGlobals_Frtrapstate = "disabled"
+    RFC1315MIB_FrameRelayGlobals_FrTrapState_disabled RFC1315MIB_FrameRelayGlobals_FrTrapState = "disabled"
 )
 
-// RFC1315MIB_Frdlcmitable
+// RFC1315MIB_FrDlcmiTable
 // The Parameters for the Data Link Connection Management
 // Interface for the frame relay service on this
 // interface.
-type RFC1315MIB_Frdlcmitable struct {
+type RFC1315MIB_FrDlcmiTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The Parameters for a particular Data Link Con- nection Management
-    // Interface. The type is slice of RFC1315MIB_Frdlcmitable_Frdlcmientry.
-    Frdlcmientry []RFC1315MIB_Frdlcmitable_Frdlcmientry
+    // Interface. The type is slice of RFC1315MIB_FrDlcmiTable_FrDlcmiEntry.
+    FrDlcmiEntry []*RFC1315MIB_FrDlcmiTable_FrDlcmiEntry
 }
 
-func (frdlcmitable *RFC1315MIB_Frdlcmitable) GetEntityData() *types.CommonEntityData {
-    frdlcmitable.EntityData.YFilter = frdlcmitable.YFilter
-    frdlcmitable.EntityData.YangName = "frDlcmiTable"
-    frdlcmitable.EntityData.BundleName = "cisco_ios_xe"
-    frdlcmitable.EntityData.ParentYangName = "RFC1315-MIB"
-    frdlcmitable.EntityData.SegmentPath = "frDlcmiTable"
-    frdlcmitable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    frdlcmitable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    frdlcmitable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (frDlcmiTable *RFC1315MIB_FrDlcmiTable) GetEntityData() *types.CommonEntityData {
+    frDlcmiTable.EntityData.YFilter = frDlcmiTable.YFilter
+    frDlcmiTable.EntityData.YangName = "frDlcmiTable"
+    frDlcmiTable.EntityData.BundleName = "cisco_ios_xe"
+    frDlcmiTable.EntityData.ParentYangName = "RFC1315-MIB"
+    frDlcmiTable.EntityData.SegmentPath = "frDlcmiTable"
+    frDlcmiTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    frDlcmiTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    frDlcmiTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    frdlcmitable.EntityData.Children = make(map[string]types.YChild)
-    frdlcmitable.EntityData.Children["frDlcmiEntry"] = types.YChild{"Frdlcmientry", nil}
-    for i := range frdlcmitable.Frdlcmientry {
-        frdlcmitable.EntityData.Children[types.GetSegmentPath(&frdlcmitable.Frdlcmientry[i])] = types.YChild{"Frdlcmientry", &frdlcmitable.Frdlcmientry[i]}
+    frDlcmiTable.EntityData.Children = types.NewOrderedMap()
+    frDlcmiTable.EntityData.Children.Append("frDlcmiEntry", types.YChild{"FrDlcmiEntry", nil})
+    for i := range frDlcmiTable.FrDlcmiEntry {
+        frDlcmiTable.EntityData.Children.Append(types.GetSegmentPath(frDlcmiTable.FrDlcmiEntry[i]), types.YChild{"FrDlcmiEntry", frDlcmiTable.FrDlcmiEntry[i]})
     }
-    frdlcmitable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(frdlcmitable.EntityData)
+    frDlcmiTable.EntityData.Leafs = types.NewOrderedMap()
+
+    frDlcmiTable.EntityData.YListKeys = []string {}
+
+    return &(frDlcmiTable.EntityData)
 }
 
-// RFC1315MIB_Frdlcmitable_Frdlcmientry
+// RFC1315MIB_FrDlcmiTable_FrDlcmiEntry
 // The Parameters for a particular Data Link Con-
 // nection Management Interface.
-type RFC1315MIB_Frdlcmitable_Frdlcmientry struct {
+type RFC1315MIB_FrDlcmiTable_FrDlcmiEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The ifIndex value of the  corresponding  ifEn-
     // try. The type is interface{} with range: -2147483648..2147483647.
-    Frdlcmiifindex interface{}
+    FrDlcmiIfIndex interface{}
 
     // This variable states which Data  Link  Connec- tion Management scheme is
     // active (and by impli- cation, what DLCI it uses) on the  Frame  Relay
-    // interface. The type is Frdlcmistate.
-    Frdlcmistate interface{}
+    // interface. The type is FrDlcmiState.
+    FrDlcmiState interface{}
 
     // This variable states which address  format  is in use on the Frame Relay
-    // interface. The type is Frdlcmiaddress.
-    Frdlcmiaddress interface{}
+    // interface. The type is FrDlcmiAddress.
+    FrDlcmiAddress interface{}
 
     // This variable states which address  length  in octets.  In the case of Q922
     // format, the length indicates the entire length of the address  in- cluding
-    // the control portion. The type is Frdlcmiaddresslen.
-    Frdlcmiaddresslen interface{}
+    // the control portion. The type is FrDlcmiAddressLen.
+    FrDlcmiAddressLen interface{}
 
     // This is the number of seconds between  succes- sive status enquiry
     // messages. The type is interface{} with range: 5..30.
-    Frdlcmipollinginterval interface{}
+    FrDlcmiPollingInterval interface{}
 
     // Number of status enquiry intervals  that  pass before  issuance  of a full
     // status enquiry mes- sage. The type is interface{} with range: 1..255.
-    Frdlcmifullenquiryinterval interface{}
+    FrDlcmiFullEnquiryInterval interface{}
 
     // This  is  the  maximum  number  of  unanswered Status Enquiries the
     // equipment shall accept be- fore declaring the interface down. The type is
     // interface{} with range: 1..10.
-    Frdlcmierrorthreshold interface{}
+    FrDlcmiErrorThreshold interface{}
 
     // This is the number of status polling intervals over which the error
     // threshold is counted.  For example, if within 'MonitoredEvents' number  of
     // events  the  station  receives 'ErrorThreshold' number of errors, the
     // interface  is  marked  as down. The type is interface{} with range: 1..10.
-    Frdlcmimonitoredevents interface{}
+    FrDlcmiMonitoredEvents interface{}
 
     // The maximum number of Virtual Circuits allowed for  this  interface.  
     // Usually dictated by the Frame Relay network.  In response to a SET, if a
     // value less than zero or  higher  than the agent's maximal capability is
     // configured, the agent  should  respond  bad- Value. The type is interface{}
     // with range: -2147483648..2147483647.
-    Frdlcmimaxsupportedvcs interface{}
+    FrDlcmiMaxSupportedVCs interface{}
 
     // This indicates whether the Frame Relay  inter- face is using a multicast
-    // service. The type is Frdlcmimulticast.
-    Frdlcmimulticast interface{}
+    // service. The type is FrDlcmiMulticast.
+    FrDlcmiMulticast interface{}
 }
 
-func (frdlcmientry *RFC1315MIB_Frdlcmitable_Frdlcmientry) GetEntityData() *types.CommonEntityData {
-    frdlcmientry.EntityData.YFilter = frdlcmientry.YFilter
-    frdlcmientry.EntityData.YangName = "frDlcmiEntry"
-    frdlcmientry.EntityData.BundleName = "cisco_ios_xe"
-    frdlcmientry.EntityData.ParentYangName = "frDlcmiTable"
-    frdlcmientry.EntityData.SegmentPath = "frDlcmiEntry" + "[frDlcmiIfIndex='" + fmt.Sprintf("%v", frdlcmientry.Frdlcmiifindex) + "']"
-    frdlcmientry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    frdlcmientry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    frdlcmientry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (frDlcmiEntry *RFC1315MIB_FrDlcmiTable_FrDlcmiEntry) GetEntityData() *types.CommonEntityData {
+    frDlcmiEntry.EntityData.YFilter = frDlcmiEntry.YFilter
+    frDlcmiEntry.EntityData.YangName = "frDlcmiEntry"
+    frDlcmiEntry.EntityData.BundleName = "cisco_ios_xe"
+    frDlcmiEntry.EntityData.ParentYangName = "frDlcmiTable"
+    frDlcmiEntry.EntityData.SegmentPath = "frDlcmiEntry" + types.AddKeyToken(frDlcmiEntry.FrDlcmiIfIndex, "frDlcmiIfIndex")
+    frDlcmiEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    frDlcmiEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    frDlcmiEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    frdlcmientry.EntityData.Children = make(map[string]types.YChild)
-    frdlcmientry.EntityData.Leafs = make(map[string]types.YLeaf)
-    frdlcmientry.EntityData.Leafs["frDlcmiIfIndex"] = types.YLeaf{"Frdlcmiifindex", frdlcmientry.Frdlcmiifindex}
-    frdlcmientry.EntityData.Leafs["frDlcmiState"] = types.YLeaf{"Frdlcmistate", frdlcmientry.Frdlcmistate}
-    frdlcmientry.EntityData.Leafs["frDlcmiAddress"] = types.YLeaf{"Frdlcmiaddress", frdlcmientry.Frdlcmiaddress}
-    frdlcmientry.EntityData.Leafs["frDlcmiAddressLen"] = types.YLeaf{"Frdlcmiaddresslen", frdlcmientry.Frdlcmiaddresslen}
-    frdlcmientry.EntityData.Leafs["frDlcmiPollingInterval"] = types.YLeaf{"Frdlcmipollinginterval", frdlcmientry.Frdlcmipollinginterval}
-    frdlcmientry.EntityData.Leafs["frDlcmiFullEnquiryInterval"] = types.YLeaf{"Frdlcmifullenquiryinterval", frdlcmientry.Frdlcmifullenquiryinterval}
-    frdlcmientry.EntityData.Leafs["frDlcmiErrorThreshold"] = types.YLeaf{"Frdlcmierrorthreshold", frdlcmientry.Frdlcmierrorthreshold}
-    frdlcmientry.EntityData.Leafs["frDlcmiMonitoredEvents"] = types.YLeaf{"Frdlcmimonitoredevents", frdlcmientry.Frdlcmimonitoredevents}
-    frdlcmientry.EntityData.Leafs["frDlcmiMaxSupportedVCs"] = types.YLeaf{"Frdlcmimaxsupportedvcs", frdlcmientry.Frdlcmimaxsupportedvcs}
-    frdlcmientry.EntityData.Leafs["frDlcmiMulticast"] = types.YLeaf{"Frdlcmimulticast", frdlcmientry.Frdlcmimulticast}
-    return &(frdlcmientry.EntityData)
+    frDlcmiEntry.EntityData.Children = types.NewOrderedMap()
+    frDlcmiEntry.EntityData.Leafs = types.NewOrderedMap()
+    frDlcmiEntry.EntityData.Leafs.Append("frDlcmiIfIndex", types.YLeaf{"FrDlcmiIfIndex", frDlcmiEntry.FrDlcmiIfIndex})
+    frDlcmiEntry.EntityData.Leafs.Append("frDlcmiState", types.YLeaf{"FrDlcmiState", frDlcmiEntry.FrDlcmiState})
+    frDlcmiEntry.EntityData.Leafs.Append("frDlcmiAddress", types.YLeaf{"FrDlcmiAddress", frDlcmiEntry.FrDlcmiAddress})
+    frDlcmiEntry.EntityData.Leafs.Append("frDlcmiAddressLen", types.YLeaf{"FrDlcmiAddressLen", frDlcmiEntry.FrDlcmiAddressLen})
+    frDlcmiEntry.EntityData.Leafs.Append("frDlcmiPollingInterval", types.YLeaf{"FrDlcmiPollingInterval", frDlcmiEntry.FrDlcmiPollingInterval})
+    frDlcmiEntry.EntityData.Leafs.Append("frDlcmiFullEnquiryInterval", types.YLeaf{"FrDlcmiFullEnquiryInterval", frDlcmiEntry.FrDlcmiFullEnquiryInterval})
+    frDlcmiEntry.EntityData.Leafs.Append("frDlcmiErrorThreshold", types.YLeaf{"FrDlcmiErrorThreshold", frDlcmiEntry.FrDlcmiErrorThreshold})
+    frDlcmiEntry.EntityData.Leafs.Append("frDlcmiMonitoredEvents", types.YLeaf{"FrDlcmiMonitoredEvents", frDlcmiEntry.FrDlcmiMonitoredEvents})
+    frDlcmiEntry.EntityData.Leafs.Append("frDlcmiMaxSupportedVCs", types.YLeaf{"FrDlcmiMaxSupportedVCs", frDlcmiEntry.FrDlcmiMaxSupportedVCs})
+    frDlcmiEntry.EntityData.Leafs.Append("frDlcmiMulticast", types.YLeaf{"FrDlcmiMulticast", frDlcmiEntry.FrDlcmiMulticast})
+
+    frDlcmiEntry.EntityData.YListKeys = []string {"FrDlcmiIfIndex"}
+
+    return &(frDlcmiEntry.EntityData)
 }
 
-// RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddress represents in use on the Frame Relay interface.
-type RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddress string
+// RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiAddress represents in use on the Frame Relay interface.
+type RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiAddress string
 
 const (
-    RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddress_q921 RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddress = "q921"
+    RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiAddress_q921 RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiAddress = "q921"
 
-    RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddress_q922March90 RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddress = "q922March90"
+    RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiAddress_q922March90 RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiAddress = "q922March90"
 
-    RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddress_q922November90 RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddress = "q922November90"
+    RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiAddress_q922November90 RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiAddress = "q922November90"
 
-    RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddress_q922 RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddress = "q922"
+    RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiAddress_q922 RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiAddress = "q922"
 )
 
-// RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddresslen represents cluding the control portion.
-type RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddresslen string
+// RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiAddressLen represents cluding the control portion.
+type RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiAddressLen string
 
 const (
-    RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddresslen_two_octets RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddresslen = "two-octets"
+    RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiAddressLen_two_octets RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiAddressLen = "two-octets"
 
-    RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddresslen_three_octets RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddresslen = "three-octets"
+    RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiAddressLen_three_octets RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiAddressLen = "three-octets"
 
-    RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddresslen_four_octets RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddresslen = "four-octets"
+    RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiAddressLen_four_octets RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiAddressLen = "four-octets"
 )
 
-// RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmimulticast represents face is using a multicast service.
-type RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmimulticast string
+// RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiMulticast represents face is using a multicast service.
+type RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiMulticast string
 
 const (
-    RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmimulticast_nonBroadcast RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmimulticast = "nonBroadcast"
+    RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiMulticast_nonBroadcast RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiMulticast = "nonBroadcast"
 
-    RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmimulticast_broadcast RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmimulticast = "broadcast"
+    RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiMulticast_broadcast RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiMulticast = "broadcast"
 )
 
-// RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmistate represents interface.
-type RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmistate string
+// RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiState represents interface.
+type RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiState string
 
 const (
-    RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmistate_noLmiConfigured RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmistate = "noLmiConfigured"
+    RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiState_noLmiConfigured RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiState = "noLmiConfigured"
 
-    RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmistate_lmiRev1 RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmistate = "lmiRev1"
+    RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiState_lmiRev1 RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiState = "lmiRev1"
 
-    RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmistate_ansiT1_617_D RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmistate = "ansiT1-617-D"
+    RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiState_ansiT1_617_D RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiState = "ansiT1-617-D"
 
-    RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmistate_ansiT1_617_B RFC1315MIB_Frdlcmitable_Frdlcmientry_Frdlcmistate = "ansiT1-617-B"
+    RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiState_ansiT1_617_B RFC1315MIB_FrDlcmiTable_FrDlcmiEntry_FrDlcmiState = "ansiT1-617-B"
 )
 
-// RFC1315MIB_Frcircuittable
+// RFC1315MIB_FrCircuitTable
 // A table containing information about specific Data
 // Link Connection Identifiers and corresponding virtual
 // circuits.
-type RFC1315MIB_Frcircuittable struct {
+type RFC1315MIB_FrCircuitTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The information regarding a single  Data  Link Connection Identifier. The
-    // type is slice of RFC1315MIB_Frcircuittable_Frcircuitentry.
-    Frcircuitentry []RFC1315MIB_Frcircuittable_Frcircuitentry
+    // type is slice of RFC1315MIB_FrCircuitTable_FrCircuitEntry.
+    FrCircuitEntry []*RFC1315MIB_FrCircuitTable_FrCircuitEntry
 }
 
-func (frcircuittable *RFC1315MIB_Frcircuittable) GetEntityData() *types.CommonEntityData {
-    frcircuittable.EntityData.YFilter = frcircuittable.YFilter
-    frcircuittable.EntityData.YangName = "frCircuitTable"
-    frcircuittable.EntityData.BundleName = "cisco_ios_xe"
-    frcircuittable.EntityData.ParentYangName = "RFC1315-MIB"
-    frcircuittable.EntityData.SegmentPath = "frCircuitTable"
-    frcircuittable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    frcircuittable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    frcircuittable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (frCircuitTable *RFC1315MIB_FrCircuitTable) GetEntityData() *types.CommonEntityData {
+    frCircuitTable.EntityData.YFilter = frCircuitTable.YFilter
+    frCircuitTable.EntityData.YangName = "frCircuitTable"
+    frCircuitTable.EntityData.BundleName = "cisco_ios_xe"
+    frCircuitTable.EntityData.ParentYangName = "RFC1315-MIB"
+    frCircuitTable.EntityData.SegmentPath = "frCircuitTable"
+    frCircuitTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    frCircuitTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    frCircuitTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    frcircuittable.EntityData.Children = make(map[string]types.YChild)
-    frcircuittable.EntityData.Children["frCircuitEntry"] = types.YChild{"Frcircuitentry", nil}
-    for i := range frcircuittable.Frcircuitentry {
-        frcircuittable.EntityData.Children[types.GetSegmentPath(&frcircuittable.Frcircuitentry[i])] = types.YChild{"Frcircuitentry", &frcircuittable.Frcircuitentry[i]}
+    frCircuitTable.EntityData.Children = types.NewOrderedMap()
+    frCircuitTable.EntityData.Children.Append("frCircuitEntry", types.YChild{"FrCircuitEntry", nil})
+    for i := range frCircuitTable.FrCircuitEntry {
+        frCircuitTable.EntityData.Children.Append(types.GetSegmentPath(frCircuitTable.FrCircuitEntry[i]), types.YChild{"FrCircuitEntry", frCircuitTable.FrCircuitEntry[i]})
     }
-    frcircuittable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(frcircuittable.EntityData)
+    frCircuitTable.EntityData.Leafs = types.NewOrderedMap()
+
+    frCircuitTable.EntityData.YListKeys = []string {}
+
+    return &(frCircuitTable.EntityData)
 }
 
-// RFC1315MIB_Frcircuittable_Frcircuitentry
+// RFC1315MIB_FrCircuitTable_FrCircuitEntry
 // The information regarding a single  Data  Link
 // Connection Identifier.
-type RFC1315MIB_Frcircuittable_Frcircuitentry struct {
+type RFC1315MIB_FrCircuitTable_FrCircuitEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The ifIndex Value of the ifEntry this  virtual
     // circuit is layered onto. The type is interface{} with range:
     // -2147483648..2147483647.
-    Frcircuitifindex interface{}
+    FrCircuitIfIndex interface{}
 
     // This attribute is a key. The Data Link Connection Identifier  for  this
     // virtual circuit. The type is interface{} with range:
     // -2147483648..2147483647.
-    Frcircuitdlci interface{}
+    FrCircuitDlci interface{}
 
     // Indicates whether the particular virtual  cir- cuit  is operational.  In
     // the absence of a Data Link Connection Management  Interface,  virtual
@@ -305,56 +320,56 @@ type RFC1315MIB_Frcircuittable_Frcircuitentry struct {
     // implementation, so this object may actually read as 'invalid' for  some 
     // arbitrary length  of  time.   It is also legal to set the state of a
     // virtual  circuit  to  'inactive'  to temporarily disable a given circuit.
-    // The type is Frcircuitstate.
-    Frcircuitstate interface{}
+    // The type is FrCircuitState.
+    FrCircuitState interface{}
 
     // Number of frames received from the network in- dicating  forward 
     // congestion since the virtual circuit was created. The type is interface{}
     // with range: 0..4294967295.
-    Frcircuitreceivedfecns interface{}
+    FrCircuitReceivedFECNs interface{}
 
     // Number of frames received from the network in- dicating  backward
     // congestion since the virtual circuit was created. The type is interface{}
     // with range: 0..4294967295.
-    Frcircuitreceivedbecns interface{}
+    FrCircuitReceivedBECNs interface{}
 
     // The number of frames sent  from  this  virtual circuit since it was
     // created. The type is interface{} with range: 0..4294967295.
-    Frcircuitsentframes interface{}
+    FrCircuitSentFrames interface{}
 
     // The number of octets sent  from  this  virtual circuit since it was
     // created. The type is interface{} with range: 0..4294967295.
-    Frcircuitsentoctets interface{}
+    FrCircuitSentOctets interface{}
 
     // Number of frames received  over  this  virtual circuit since it was
     // created. The type is interface{} with range: 0..4294967295.
-    Frcircuitreceivedframes interface{}
+    FrCircuitReceivedFrames interface{}
 
     // Number of octets received  over  this  virtual circuit since it was
     // created. The type is interface{} with range: 0..4294967295.
-    Frcircuitreceivedoctets interface{}
+    FrCircuitReceivedOctets interface{}
 
     // The value of sysUpTime when the  virtual  cir- cuit was created, whether by
     // the Data Link Con- nection Management Interface  or  by  a  SetRe- quest.
     // The type is interface{} with range: 0..4294967295.
-    Frcircuitcreationtime interface{}
+    FrCircuitCreationTime interface{}
 
     // The value of sysUpTime when last there  was  a change in the virtual
     // circuit state. The type is interface{} with range: 0..4294967295.
-    Frcircuitlasttimechange interface{}
+    FrCircuitLastTimeChange interface{}
 
     // This variable indicates the maximum amount  of data,  in  bits,  that  the 
     // network  agrees to transfer under normal  conditions,  during  the
     // measurement interval. The type is interface{} with range:
     // -2147483648..2147483647.
-    Frcircuitcommittedburst interface{}
+    FrCircuitCommittedBurst interface{}
 
     // This variable indicates the maximum amount  of uncommitted data bits that
     // the network will at- tempt to deliver over the measurement interval.  By
     // default, if not configured when creating the entry, the Excess Information
     // Burst Size is set to the value of ifSpeed. The type is interface{} with
     // range: -2147483648..2147483647.
-    Frcircuitexcessburst interface{}
+    FrCircuitExcessBurst interface{}
 
     // Throughput is the average number of 'Frame Re- lay  Information  Field' 
     // bits  transferred per second across a user network interface  in  one
@@ -364,147 +379,156 @@ type RFC1315MIB_Frcircuittable_Frcircuitentry struct {
     // committed  burst  rate  and throughput  are  both zero, the measurement in-
     // terval        T=frCircuitExcessBurst/ifSpeed. The type is interface{} with
     // range: -2147483648..2147483647.
-    Frcircuitthroughput interface{}
+    FrCircuitThroughput interface{}
 }
 
-func (frcircuitentry *RFC1315MIB_Frcircuittable_Frcircuitentry) GetEntityData() *types.CommonEntityData {
-    frcircuitentry.EntityData.YFilter = frcircuitentry.YFilter
-    frcircuitentry.EntityData.YangName = "frCircuitEntry"
-    frcircuitentry.EntityData.BundleName = "cisco_ios_xe"
-    frcircuitentry.EntityData.ParentYangName = "frCircuitTable"
-    frcircuitentry.EntityData.SegmentPath = "frCircuitEntry" + "[frCircuitIfIndex='" + fmt.Sprintf("%v", frcircuitentry.Frcircuitifindex) + "']" + "[frCircuitDlci='" + fmt.Sprintf("%v", frcircuitentry.Frcircuitdlci) + "']"
-    frcircuitentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    frcircuitentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    frcircuitentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (frCircuitEntry *RFC1315MIB_FrCircuitTable_FrCircuitEntry) GetEntityData() *types.CommonEntityData {
+    frCircuitEntry.EntityData.YFilter = frCircuitEntry.YFilter
+    frCircuitEntry.EntityData.YangName = "frCircuitEntry"
+    frCircuitEntry.EntityData.BundleName = "cisco_ios_xe"
+    frCircuitEntry.EntityData.ParentYangName = "frCircuitTable"
+    frCircuitEntry.EntityData.SegmentPath = "frCircuitEntry" + types.AddKeyToken(frCircuitEntry.FrCircuitIfIndex, "frCircuitIfIndex") + types.AddKeyToken(frCircuitEntry.FrCircuitDlci, "frCircuitDlci")
+    frCircuitEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    frCircuitEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    frCircuitEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    frcircuitentry.EntityData.Children = make(map[string]types.YChild)
-    frcircuitentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    frcircuitentry.EntityData.Leafs["frCircuitIfIndex"] = types.YLeaf{"Frcircuitifindex", frcircuitentry.Frcircuitifindex}
-    frcircuitentry.EntityData.Leafs["frCircuitDlci"] = types.YLeaf{"Frcircuitdlci", frcircuitentry.Frcircuitdlci}
-    frcircuitentry.EntityData.Leafs["frCircuitState"] = types.YLeaf{"Frcircuitstate", frcircuitentry.Frcircuitstate}
-    frcircuitentry.EntityData.Leafs["frCircuitReceivedFECNs"] = types.YLeaf{"Frcircuitreceivedfecns", frcircuitentry.Frcircuitreceivedfecns}
-    frcircuitentry.EntityData.Leafs["frCircuitReceivedBECNs"] = types.YLeaf{"Frcircuitreceivedbecns", frcircuitentry.Frcircuitreceivedbecns}
-    frcircuitentry.EntityData.Leafs["frCircuitSentFrames"] = types.YLeaf{"Frcircuitsentframes", frcircuitentry.Frcircuitsentframes}
-    frcircuitentry.EntityData.Leafs["frCircuitSentOctets"] = types.YLeaf{"Frcircuitsentoctets", frcircuitentry.Frcircuitsentoctets}
-    frcircuitentry.EntityData.Leafs["frCircuitReceivedFrames"] = types.YLeaf{"Frcircuitreceivedframes", frcircuitentry.Frcircuitreceivedframes}
-    frcircuitentry.EntityData.Leafs["frCircuitReceivedOctets"] = types.YLeaf{"Frcircuitreceivedoctets", frcircuitentry.Frcircuitreceivedoctets}
-    frcircuitentry.EntityData.Leafs["frCircuitCreationTime"] = types.YLeaf{"Frcircuitcreationtime", frcircuitentry.Frcircuitcreationtime}
-    frcircuitentry.EntityData.Leafs["frCircuitLastTimeChange"] = types.YLeaf{"Frcircuitlasttimechange", frcircuitentry.Frcircuitlasttimechange}
-    frcircuitentry.EntityData.Leafs["frCircuitCommittedBurst"] = types.YLeaf{"Frcircuitcommittedburst", frcircuitentry.Frcircuitcommittedburst}
-    frcircuitentry.EntityData.Leafs["frCircuitExcessBurst"] = types.YLeaf{"Frcircuitexcessburst", frcircuitentry.Frcircuitexcessburst}
-    frcircuitentry.EntityData.Leafs["frCircuitThroughput"] = types.YLeaf{"Frcircuitthroughput", frcircuitentry.Frcircuitthroughput}
-    return &(frcircuitentry.EntityData)
+    frCircuitEntry.EntityData.Children = types.NewOrderedMap()
+    frCircuitEntry.EntityData.Leafs = types.NewOrderedMap()
+    frCircuitEntry.EntityData.Leafs.Append("frCircuitIfIndex", types.YLeaf{"FrCircuitIfIndex", frCircuitEntry.FrCircuitIfIndex})
+    frCircuitEntry.EntityData.Leafs.Append("frCircuitDlci", types.YLeaf{"FrCircuitDlci", frCircuitEntry.FrCircuitDlci})
+    frCircuitEntry.EntityData.Leafs.Append("frCircuitState", types.YLeaf{"FrCircuitState", frCircuitEntry.FrCircuitState})
+    frCircuitEntry.EntityData.Leafs.Append("frCircuitReceivedFECNs", types.YLeaf{"FrCircuitReceivedFECNs", frCircuitEntry.FrCircuitReceivedFECNs})
+    frCircuitEntry.EntityData.Leafs.Append("frCircuitReceivedBECNs", types.YLeaf{"FrCircuitReceivedBECNs", frCircuitEntry.FrCircuitReceivedBECNs})
+    frCircuitEntry.EntityData.Leafs.Append("frCircuitSentFrames", types.YLeaf{"FrCircuitSentFrames", frCircuitEntry.FrCircuitSentFrames})
+    frCircuitEntry.EntityData.Leafs.Append("frCircuitSentOctets", types.YLeaf{"FrCircuitSentOctets", frCircuitEntry.FrCircuitSentOctets})
+    frCircuitEntry.EntityData.Leafs.Append("frCircuitReceivedFrames", types.YLeaf{"FrCircuitReceivedFrames", frCircuitEntry.FrCircuitReceivedFrames})
+    frCircuitEntry.EntityData.Leafs.Append("frCircuitReceivedOctets", types.YLeaf{"FrCircuitReceivedOctets", frCircuitEntry.FrCircuitReceivedOctets})
+    frCircuitEntry.EntityData.Leafs.Append("frCircuitCreationTime", types.YLeaf{"FrCircuitCreationTime", frCircuitEntry.FrCircuitCreationTime})
+    frCircuitEntry.EntityData.Leafs.Append("frCircuitLastTimeChange", types.YLeaf{"FrCircuitLastTimeChange", frCircuitEntry.FrCircuitLastTimeChange})
+    frCircuitEntry.EntityData.Leafs.Append("frCircuitCommittedBurst", types.YLeaf{"FrCircuitCommittedBurst", frCircuitEntry.FrCircuitCommittedBurst})
+    frCircuitEntry.EntityData.Leafs.Append("frCircuitExcessBurst", types.YLeaf{"FrCircuitExcessBurst", frCircuitEntry.FrCircuitExcessBurst})
+    frCircuitEntry.EntityData.Leafs.Append("frCircuitThroughput", types.YLeaf{"FrCircuitThroughput", frCircuitEntry.FrCircuitThroughput})
+
+    frCircuitEntry.EntityData.YListKeys = []string {"FrCircuitIfIndex", "FrCircuitDlci"}
+
+    return &(frCircuitEntry.EntityData)
 }
 
-// RFC1315MIB_Frcircuittable_Frcircuitentry_Frcircuitstate represents temporarily disable a given circuit.
-type RFC1315MIB_Frcircuittable_Frcircuitentry_Frcircuitstate string
+// RFC1315MIB_FrCircuitTable_FrCircuitEntry_FrCircuitState represents temporarily disable a given circuit.
+type RFC1315MIB_FrCircuitTable_FrCircuitEntry_FrCircuitState string
 
 const (
-    RFC1315MIB_Frcircuittable_Frcircuitentry_Frcircuitstate_invalid RFC1315MIB_Frcircuittable_Frcircuitentry_Frcircuitstate = "invalid"
+    RFC1315MIB_FrCircuitTable_FrCircuitEntry_FrCircuitState_invalid RFC1315MIB_FrCircuitTable_FrCircuitEntry_FrCircuitState = "invalid"
 
-    RFC1315MIB_Frcircuittable_Frcircuitentry_Frcircuitstate_active RFC1315MIB_Frcircuittable_Frcircuitentry_Frcircuitstate = "active"
+    RFC1315MIB_FrCircuitTable_FrCircuitEntry_FrCircuitState_active RFC1315MIB_FrCircuitTable_FrCircuitEntry_FrCircuitState = "active"
 
-    RFC1315MIB_Frcircuittable_Frcircuitentry_Frcircuitstate_inactive RFC1315MIB_Frcircuittable_Frcircuitentry_Frcircuitstate = "inactive"
+    RFC1315MIB_FrCircuitTable_FrCircuitEntry_FrCircuitState_inactive RFC1315MIB_FrCircuitTable_FrCircuitEntry_FrCircuitState = "inactive"
 )
 
-// RFC1315MIB_Frerrtable
+// RFC1315MIB_FrErrTable
 // A table containing information about Errors on the
 // Frame Relay interface.
-type RFC1315MIB_Frerrtable struct {
+type RFC1315MIB_FrErrTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The error information for a single frame relay interface. The type is slice
-    // of RFC1315MIB_Frerrtable_Frerrentry.
-    Frerrentry []RFC1315MIB_Frerrtable_Frerrentry
+    // of RFC1315MIB_FrErrTable_FrErrEntry.
+    FrErrEntry []*RFC1315MIB_FrErrTable_FrErrEntry
 }
 
-func (frerrtable *RFC1315MIB_Frerrtable) GetEntityData() *types.CommonEntityData {
-    frerrtable.EntityData.YFilter = frerrtable.YFilter
-    frerrtable.EntityData.YangName = "frErrTable"
-    frerrtable.EntityData.BundleName = "cisco_ios_xe"
-    frerrtable.EntityData.ParentYangName = "RFC1315-MIB"
-    frerrtable.EntityData.SegmentPath = "frErrTable"
-    frerrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    frerrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    frerrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (frErrTable *RFC1315MIB_FrErrTable) GetEntityData() *types.CommonEntityData {
+    frErrTable.EntityData.YFilter = frErrTable.YFilter
+    frErrTable.EntityData.YangName = "frErrTable"
+    frErrTable.EntityData.BundleName = "cisco_ios_xe"
+    frErrTable.EntityData.ParentYangName = "RFC1315-MIB"
+    frErrTable.EntityData.SegmentPath = "frErrTable"
+    frErrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    frErrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    frErrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    frerrtable.EntityData.Children = make(map[string]types.YChild)
-    frerrtable.EntityData.Children["frErrEntry"] = types.YChild{"Frerrentry", nil}
-    for i := range frerrtable.Frerrentry {
-        frerrtable.EntityData.Children[types.GetSegmentPath(&frerrtable.Frerrentry[i])] = types.YChild{"Frerrentry", &frerrtable.Frerrentry[i]}
+    frErrTable.EntityData.Children = types.NewOrderedMap()
+    frErrTable.EntityData.Children.Append("frErrEntry", types.YChild{"FrErrEntry", nil})
+    for i := range frErrTable.FrErrEntry {
+        frErrTable.EntityData.Children.Append(types.GetSegmentPath(frErrTable.FrErrEntry[i]), types.YChild{"FrErrEntry", frErrTable.FrErrEntry[i]})
     }
-    frerrtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(frerrtable.EntityData)
+    frErrTable.EntityData.Leafs = types.NewOrderedMap()
+
+    frErrTable.EntityData.YListKeys = []string {}
+
+    return &(frErrTable.EntityData)
 }
 
-// RFC1315MIB_Frerrtable_Frerrentry
+// RFC1315MIB_FrErrTable_FrErrEntry
 // The error information for a single frame relay
 // interface.
-type RFC1315MIB_Frerrtable_Frerrentry struct {
+type RFC1315MIB_FrErrTable_FrErrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The ifIndex Value of the  corresponding  ifEn-
     // try. The type is interface{} with range: -2147483648..2147483647.
-    Frerrifindex interface{}
+    FrErrIfIndex interface{}
 
     // The type of error that was last seen  on  this interface. The type is
-    // Frerrtype.
-    Frerrtype interface{}
+    // FrErrType.
+    FrErrType interface{}
 
     // An octet string containing as much of the  er- ror  packet as possible.  As
     // a minimum, it must contain the Q.922 Address or  as  much  as  was
     // delivered.   It is desirable to include all in- formation up to the PDU.
     // The type is string.
-    Frerrdata interface{}
+    FrErrData interface{}
 
     // The value of sysUpTime at which the error  was detected. The type is
     // interface{} with range: 0..4294967295.
-    Frerrtime interface{}
+    FrErrTime interface{}
 }
 
-func (frerrentry *RFC1315MIB_Frerrtable_Frerrentry) GetEntityData() *types.CommonEntityData {
-    frerrentry.EntityData.YFilter = frerrentry.YFilter
-    frerrentry.EntityData.YangName = "frErrEntry"
-    frerrentry.EntityData.BundleName = "cisco_ios_xe"
-    frerrentry.EntityData.ParentYangName = "frErrTable"
-    frerrentry.EntityData.SegmentPath = "frErrEntry" + "[frErrIfIndex='" + fmt.Sprintf("%v", frerrentry.Frerrifindex) + "']"
-    frerrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    frerrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    frerrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (frErrEntry *RFC1315MIB_FrErrTable_FrErrEntry) GetEntityData() *types.CommonEntityData {
+    frErrEntry.EntityData.YFilter = frErrEntry.YFilter
+    frErrEntry.EntityData.YangName = "frErrEntry"
+    frErrEntry.EntityData.BundleName = "cisco_ios_xe"
+    frErrEntry.EntityData.ParentYangName = "frErrTable"
+    frErrEntry.EntityData.SegmentPath = "frErrEntry" + types.AddKeyToken(frErrEntry.FrErrIfIndex, "frErrIfIndex")
+    frErrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    frErrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    frErrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    frerrentry.EntityData.Children = make(map[string]types.YChild)
-    frerrentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    frerrentry.EntityData.Leafs["frErrIfIndex"] = types.YLeaf{"Frerrifindex", frerrentry.Frerrifindex}
-    frerrentry.EntityData.Leafs["frErrType"] = types.YLeaf{"Frerrtype", frerrentry.Frerrtype}
-    frerrentry.EntityData.Leafs["frErrData"] = types.YLeaf{"Frerrdata", frerrentry.Frerrdata}
-    frerrentry.EntityData.Leafs["frErrTime"] = types.YLeaf{"Frerrtime", frerrentry.Frerrtime}
-    return &(frerrentry.EntityData)
+    frErrEntry.EntityData.Children = types.NewOrderedMap()
+    frErrEntry.EntityData.Leafs = types.NewOrderedMap()
+    frErrEntry.EntityData.Leafs.Append("frErrIfIndex", types.YLeaf{"FrErrIfIndex", frErrEntry.FrErrIfIndex})
+    frErrEntry.EntityData.Leafs.Append("frErrType", types.YLeaf{"FrErrType", frErrEntry.FrErrType})
+    frErrEntry.EntityData.Leafs.Append("frErrData", types.YLeaf{"FrErrData", frErrEntry.FrErrData})
+    frErrEntry.EntityData.Leafs.Append("frErrTime", types.YLeaf{"FrErrTime", frErrEntry.FrErrTime})
+
+    frErrEntry.EntityData.YListKeys = []string {"FrErrIfIndex"}
+
+    return &(frErrEntry.EntityData)
 }
 
-// RFC1315MIB_Frerrtable_Frerrentry_Frerrtype represents interface.
-type RFC1315MIB_Frerrtable_Frerrentry_Frerrtype string
+// RFC1315MIB_FrErrTable_FrErrEntry_FrErrType represents interface.
+type RFC1315MIB_FrErrTable_FrErrEntry_FrErrType string
 
 const (
-    RFC1315MIB_Frerrtable_Frerrentry_Frerrtype_unknownError RFC1315MIB_Frerrtable_Frerrentry_Frerrtype = "unknownError"
+    RFC1315MIB_FrErrTable_FrErrEntry_FrErrType_unknownError RFC1315MIB_FrErrTable_FrErrEntry_FrErrType = "unknownError"
 
-    RFC1315MIB_Frerrtable_Frerrentry_Frerrtype_receiveShort RFC1315MIB_Frerrtable_Frerrentry_Frerrtype = "receiveShort"
+    RFC1315MIB_FrErrTable_FrErrEntry_FrErrType_receiveShort RFC1315MIB_FrErrTable_FrErrEntry_FrErrType = "receiveShort"
 
-    RFC1315MIB_Frerrtable_Frerrentry_Frerrtype_receiveLong RFC1315MIB_Frerrtable_Frerrentry_Frerrtype = "receiveLong"
+    RFC1315MIB_FrErrTable_FrErrEntry_FrErrType_receiveLong RFC1315MIB_FrErrTable_FrErrEntry_FrErrType = "receiveLong"
 
-    RFC1315MIB_Frerrtable_Frerrentry_Frerrtype_illegalDLCI RFC1315MIB_Frerrtable_Frerrentry_Frerrtype = "illegalDLCI"
+    RFC1315MIB_FrErrTable_FrErrEntry_FrErrType_illegalDLCI RFC1315MIB_FrErrTable_FrErrEntry_FrErrType = "illegalDLCI"
 
-    RFC1315MIB_Frerrtable_Frerrentry_Frerrtype_unknownDLCI RFC1315MIB_Frerrtable_Frerrentry_Frerrtype = "unknownDLCI"
+    RFC1315MIB_FrErrTable_FrErrEntry_FrErrType_unknownDLCI RFC1315MIB_FrErrTable_FrErrEntry_FrErrType = "unknownDLCI"
 
-    RFC1315MIB_Frerrtable_Frerrentry_Frerrtype_dlcmiProtoErr RFC1315MIB_Frerrtable_Frerrentry_Frerrtype = "dlcmiProtoErr"
+    RFC1315MIB_FrErrTable_FrErrEntry_FrErrType_dlcmiProtoErr RFC1315MIB_FrErrTable_FrErrEntry_FrErrType = "dlcmiProtoErr"
 
-    RFC1315MIB_Frerrtable_Frerrentry_Frerrtype_dlcmiUnknownIE RFC1315MIB_Frerrtable_Frerrentry_Frerrtype = "dlcmiUnknownIE"
+    RFC1315MIB_FrErrTable_FrErrEntry_FrErrType_dlcmiUnknownIE RFC1315MIB_FrErrTable_FrErrEntry_FrErrType = "dlcmiUnknownIE"
 
-    RFC1315MIB_Frerrtable_Frerrentry_Frerrtype_dlcmiSequenceErr RFC1315MIB_Frerrtable_Frerrentry_Frerrtype = "dlcmiSequenceErr"
+    RFC1315MIB_FrErrTable_FrErrEntry_FrErrType_dlcmiSequenceErr RFC1315MIB_FrErrTable_FrErrEntry_FrErrType = "dlcmiSequenceErr"
 
-    RFC1315MIB_Frerrtable_Frerrentry_Frerrtype_dlcmiUnknownRpt RFC1315MIB_Frerrtable_Frerrentry_Frerrtype = "dlcmiUnknownRpt"
+    RFC1315MIB_FrErrTable_FrErrEntry_FrErrType_dlcmiUnknownRpt RFC1315MIB_FrErrTable_FrErrEntry_FrErrType = "dlcmiUnknownRpt"
 
-    RFC1315MIB_Frerrtable_Frerrentry_Frerrtype_noErrorSinceReset RFC1315MIB_Frerrtable_Frerrentry_Frerrtype = "noErrorSinceReset"
+    RFC1315MIB_FrErrTable_FrErrEntry_FrErrType_noErrorSinceReset RFC1315MIB_FrErrTable_FrErrEntry_FrErrType = "noErrorSinceReset"
 )
 

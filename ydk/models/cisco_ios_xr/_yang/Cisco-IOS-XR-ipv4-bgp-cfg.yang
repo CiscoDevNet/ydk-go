@@ -49,6 +49,14 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-11-05 {
+    description
+      "Corrected boolean values in when statements.";
+  }
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-07-31 {
     description
       "Fixed missing augmentation from multiple MDA parent.";
@@ -542,6 +550,52 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     }
     description
       "Bgp cluster id";
+  }
+
+  typedef Bgp-global-extcomm-v4-addr-index {
+    type uint32 {
+      range "0..65535";
+    }
+    description
+      "Bgp global extcomm v4 addr index";
+  }
+
+  typedef Bgp-global-extcomm-asn-index {
+    type uint32 {
+      range "0..4294967295";
+    }
+    description
+      "Bgp global extcomm asn index";
+  }
+
+  typedef Bgp-global-route-distinguisher {
+    type enumeration {
+      enum "as" {
+        value 2;
+        description
+          "AS format RD";
+      }
+      enum "four-byte-as" {
+        value 3;
+        description
+          "4-byte AS format RD";
+      }
+      enum "ipv4-address" {
+        value 4;
+        description
+          "IPv4 address format RD";
+      }
+    }
+    description
+      "Bgp global route distinguisher";
+  }
+
+  typedef Bgp-global-as-range {
+    type uint32 {
+      range "0..4294967295";
+    }
+    description
+      "Bgp global as range";
   }
 
   grouping ADVERTISE-DISABLE {
@@ -1458,7 +1512,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
       leaf local-ip-address {
         when "../local-address-disable = 'false'" {
           description
-            "../LocalAddressDisable = 0";
+            "../LocalAddressDisable = false";
         }
         type inet:ip-address-no-zone;
         description
@@ -2718,7 +2772,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
       leaf password {
         when "../password-disable = 'false'" {
           description
-            "../PasswordDisable = 0";
+            "../PasswordDisable = false";
         }
         type xr:Proprietary-password;
         description
@@ -3287,9 +3341,9 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
            otherwise ";
       }
       leaf cost-community-id {
-        when "../enable = 1" {
+        when "../enable = 'true'" {
           description
-            "../Enable = <expr>";
+            "../Enable = 'true'";
         }
         type uint32 {
           range "0..255";
@@ -3298,9 +3352,9 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
           "Cost Community ID";
       }
       leaf transitive {
-        when "../enable = 1" {
+        when "../enable = 'true'" {
           description
-            "../Enable = <expr>";
+            "../Enable = 'true'";
         }
         type boolean;
         description
@@ -3308,9 +3362,9 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
            otherwise";
       }
       leaf cost-community-poi-type {
-        when "../enable = 1" {
+        when "../enable = 'true'" {
           description
-            "../Enable = <expr>";
+            "../Enable = 'true'";
         }
         type Bgp-aigp-cfg-poi;
         description
@@ -3420,7 +3474,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
       leaf keychain-name {
         when "../keychain-disable = 'false'" {
           description
-            "../KeychainDisable = 0";
+            "../KeychainDisable = false";
         }
         type string;
         description
@@ -3590,6 +3644,69 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     }
   }
 
+  augment "/a1:vrfs/a1:vrf" {
+    description
+      "This augment extends the configuration data of
+       'Cisco-IOS-XR-infra-rsi-cfg'";
+    container bgp-global {
+      description
+        "BGP related VRF GBL config";
+      container route-distinguisher {
+        description
+          "Global Route distinguisher";
+        leaf type {
+          type Bgp-global-route-distinguisher;
+          description
+            "Type of RD";
+        }
+        leaf as-xx {
+          when "../type = 'as' or ../type = 'four-byte-as'" {
+            description
+              "../Type = AS or ../Type = FourByteAS";
+          }
+          type Bgp-global-as-range;
+          description
+            "AS number";
+        }
+        leaf as {
+          when "../type = 'as' or ../type = 'four-byte-as'" {
+            description
+              "../Type = AS or ../Type = FourByteAS";
+          }
+          type Bgp-global-as-range;
+          description
+            "AS number";
+        }
+        leaf as-index {
+          when "../type = 'as' or ../type = 'four-byte-as'" {
+            description
+              "../Type = AS or ../Type = FourByteAS";
+          }
+          type Bgp-global-extcomm-asn-index;
+          description
+            "ASN Index";
+        }
+        leaf address {
+          when "../type = 'ipv4-address'" {
+            description
+              "../Type = IPV4Address";
+          }
+          type inet:ipv4-address-no-zone;
+          description
+            "IP address";
+        }
+        leaf address-index {
+          when "../type = 'ipv4-address'" {
+            description
+              "../Type = IPV4Address";
+          }
+          type Bgp-global-extcomm-v4-addr-index;
+          description
+            "IP address index";
+        }
+      }
+    }
+  }
   augment "/a2:snmp/a2:notification" {
     description
       "This augment extends the configuration data of
@@ -5502,6 +5619,11 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       "Wait for route install before sending
                        updates to neighbors";
                   }
+                  leaf prefix-sid-map {
+                    type empty;
+                    description
+                      "Retrieve prefix sid mapping from SRMS";
+                  }
                   leaf af-name {
                     type dt1:Bgp-address-family;
                     description
@@ -5551,12 +5673,12 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       "Address";
                   }
                   leaf minimum {
-                    type int32;
+                    type uint32;
                     description
                       "Minimum Prefix Length";
                   }
                   leaf maximum {
-                    type int32;
+                    type uint32;
                     description
                       "Maximum Prefix Length";
                   }

@@ -31,63 +31,43 @@ submodule Cisco-IOS-XR-icpe-infra-oper-sub8 {
       "IOS XR 6.0 revision.";
   }
 
-  grouping ICPE-OPER-SAT-VERSION-TYPE {
+  grouping ICPE-GCO-PRIORITY-OPER-TYPE {
     description
-      "ICPE OPER SAT VERSION TYPE";
-    leaf version-check-state {
-      type Icpe-oper-ver-check-state;
-      description
-        "Version check state";
-    }
-    leaf remote-version-present {
-      type boolean;
-      description
-        "Remote version present";
-    }
-    leaf-list remote-version {
-      type Xr-yang-string;
-      description
-        "Remote version";
-    }
-  }
-
-  grouping ICPE-OPER-SAT-REMOTE-VERSION-TYPE {
-    description
-      "Satellite remote version information";
-    container active-version {
-      description
-        "Satellite active version information";
-      uses ICPE-OPER-SAT-VERSION-TYPE;
-    }
-    container transferred-version {
-      description
-        "Satellite transferred version information";
-      uses ICPE-OPER-SAT-VERSION-TYPE;
-    }
-    container committed-version {
-      description
-        "Satellite committed version information";
-      uses ICPE-OPER-SAT-VERSION-TYPE;
-    }
+      "Satellite priority information";
     leaf satellite-id-xr {
       type uint16;
       description
         "Satellite ID";
     }
-    leaf version-check-state {
-      type Icpe-oper-ver-check-state;
+    leaf rgid {
+      type uint32;
       description
-        "Version check state";
+        "RG ID";
     }
-    leaf remote-version-present {
-      type boolean;
+    leaf best-path-hops {
+      type uint32;
       description
-        "Remote version present";
+        "Best path hops";
     }
-    leaf-list remote-version {
-      type Xr-yang-string;
+    leaf configured-priority {
+      type uint8;
       description
-        "Remote version";
+        "Configured priority";
+    }
+    leaf host-priority {
+      type uint64;
+      description
+        "Host priority";
+    }
+    leaf partner-priority {
+      type uint64;
+      description
+        "Partner priority";
+    }
+    leaf multichassis-redundancy {
+      type Icpe-oper-multichassis-redundancy;
+      description
+        "Multichassis redundancy";
     }
   }
 }

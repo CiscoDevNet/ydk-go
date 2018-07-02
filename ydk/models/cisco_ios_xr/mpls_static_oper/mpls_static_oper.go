@@ -47,6 +47,34 @@ const (
     MgmtMplsStaticPathStatus_backup MgmtMplsStaticPathStatus = "backup"
 )
 
+// MgmtStaticPath represents Mgmt static path
+type MgmtStaticPath string
+
+const (
+    // Crossconnect Path
+    MgmtStaticPath_cross_connect_path MgmtStaticPath = "cross-connect-path"
+
+    // Pop and Lookup Path
+    MgmtStaticPath_pop_lookup_path MgmtStaticPath = "pop-lookup-path"
+)
+
+// MgmtMplsStaticLabelMode represents Mgmt mpls static label mode
+type MgmtMplsStaticLabelMode string
+
+const (
+    // No Label Mode
+    MgmtMplsStaticLabelMode_none MgmtMplsStaticLabelMode = "none"
+
+    // Per-prefix Label
+    MgmtMplsStaticLabelMode_per_prefix MgmtMplsStaticLabelMode = "per-prefix"
+
+    // Per-VRF label
+    MgmtMplsStaticLabelMode_per_vrf MgmtMplsStaticLabelMode = "per-vrf"
+
+    // Label with crossconnect
+    MgmtMplsStaticLabelMode_cross_connect MgmtMplsStaticLabelMode = "cross-connect"
+)
+
 // MgmtStaticLspAfi represents Mgmt static lsp afi
 type MgmtStaticLspAfi string
 
@@ -59,45 +87,6 @@ const (
 
     // IPv6
     MgmtStaticLspAfi_ipv6 MgmtStaticLspAfi = "ipv6"
-)
-
-// MplsStaticPathRole represents Mpls static path role
-type MplsStaticPathRole string
-
-const (
-    // Path is only for primary traffic
-    MplsStaticPathRole_primary MplsStaticPathRole = "primary"
-
-    // Path is only for backup traffic
-    MplsStaticPathRole_backup MplsStaticPathRole = "backup"
-
-    // Path is for primary and backup traffic
-    MplsStaticPathRole_primary_and_backup MplsStaticPathRole = "primary-and-backup"
-)
-
-// MgmtStaticPath represents Mgmt static path
-type MgmtStaticPath string
-
-const (
-    // Crossconnect Path
-    MgmtStaticPath_cross_connect_path MgmtStaticPath = "cross-connect-path"
-
-    // Pop and Lookup Path
-    MgmtStaticPath_pop_lookup_path MgmtStaticPath = "pop-lookup-path"
-)
-
-// MgmtStaticAddr represents Mgmt static addr
-type MgmtStaticAddr string
-
-const (
-    // Not Applicable
-    MgmtStaticAddr_not_applicable MgmtStaticAddr = "not-applicable"
-
-    // IPv4
-    MgmtStaticAddr_ipv4 MgmtStaticAddr = "ipv4"
-
-    // IPv6
-    MgmtStaticAddr_ipv6 MgmtStaticAddr = "ipv6"
 )
 
 // MgmtMplsStaticLabelStatus represents Mgmt mpls static label status
@@ -147,21 +136,32 @@ const (
     MgmtMplsStaticLabelStatus_label_status_unknown MgmtMplsStaticLabelStatus = "label-status-unknown"
 )
 
-// MgmtMplsStaticLabelMode represents Mgmt mpls static label mode
-type MgmtMplsStaticLabelMode string
+// MgmtStaticAddr represents Mgmt static addr
+type MgmtStaticAddr string
 
 const (
-    // No Label Mode
-    MgmtMplsStaticLabelMode_none MgmtMplsStaticLabelMode = "none"
+    // Not Applicable
+    MgmtStaticAddr_not_applicable MgmtStaticAddr = "not-applicable"
 
-    // Per-prefix Label
-    MgmtMplsStaticLabelMode_per_prefix MgmtMplsStaticLabelMode = "per-prefix"
+    // IPv4
+    MgmtStaticAddr_ipv4 MgmtStaticAddr = "ipv4"
 
-    // Per-VRF label
-    MgmtMplsStaticLabelMode_per_vrf MgmtMplsStaticLabelMode = "per-vrf"
+    // IPv6
+    MgmtStaticAddr_ipv6 MgmtStaticAddr = "ipv6"
+)
 
-    // Label with crossconnect
-    MgmtMplsStaticLabelMode_cross_connect MgmtMplsStaticLabelMode = "cross-connect"
+// MplsStaticPathRole represents Mpls static path role
+type MplsStaticPathRole string
+
+const (
+    // Path is only for primary traffic
+    MplsStaticPathRole_primary MplsStaticPathRole = "primary"
+
+    // Path is only for backup traffic
+    MplsStaticPathRole_backup MplsStaticPathRole = "backup"
+
+    // Path is for primary and backup traffic
+    MplsStaticPathRole_primary_and_backup MplsStaticPathRole = "primary-and-backup"
 )
 
 // MplsStatic
@@ -190,11 +190,14 @@ func (mplsStatic *MplsStatic) GetEntityData() *types.CommonEntityData {
     mplsStatic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsStatic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mplsStatic.EntityData.Children = make(map[string]types.YChild)
-    mplsStatic.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &mplsStatic.Vrfs}
-    mplsStatic.EntityData.Children["summary"] = types.YChild{"Summary", &mplsStatic.Summary}
-    mplsStatic.EntityData.Children["local-labels"] = types.YChild{"LocalLabels", &mplsStatic.LocalLabels}
-    mplsStatic.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsStatic.EntityData.Children = types.NewOrderedMap()
+    mplsStatic.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &mplsStatic.Vrfs})
+    mplsStatic.EntityData.Children.Append("summary", types.YChild{"Summary", &mplsStatic.Summary})
+    mplsStatic.EntityData.Children.Append("local-labels", types.YChild{"LocalLabels", &mplsStatic.LocalLabels})
+    mplsStatic.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsStatic.EntityData.YListKeys = []string {}
+
     return &(mplsStatic.EntityData)
 }
 
@@ -205,7 +208,7 @@ type MplsStatic_Vrfs struct {
     YFilter yfilter.YFilter
 
     // VRF Name. The type is slice of MplsStatic_Vrfs_Vrf.
-    Vrf []MplsStatic_Vrfs_Vrf
+    Vrf []*MplsStatic_Vrfs_Vrf
 }
 
 func (vrfs *MplsStatic_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -218,12 +221,15 @@ func (vrfs *MplsStatic_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -234,7 +240,7 @@ type MplsStatic_Vrfs_Vrf struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // data for static lsp table.
@@ -249,16 +255,19 @@ func (vrf *MplsStatic_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["lsps"] = types.YChild{"Lsps", &vrf.Lsps}
-    vrf.EntityData.Children["local-labels"] = types.YChild{"LocalLabels", &vrf.LocalLabels}
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("lsps", types.YChild{"Lsps", &vrf.Lsps})
+    vrf.EntityData.Children.Append("local-labels", types.YChild{"LocalLabels", &vrf.LocalLabels})
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -269,7 +278,7 @@ type MplsStatic_Vrfs_Vrf_Lsps struct {
     YFilter yfilter.YFilter
 
     // Data for static lsp. The type is slice of MplsStatic_Vrfs_Vrf_Lsps_Lsp.
-    Lsp []MplsStatic_Vrfs_Vrf_Lsps_Lsp
+    Lsp []*MplsStatic_Vrfs_Vrf_Lsps_Lsp
 }
 
 func (lsps *MplsStatic_Vrfs_Vrf_Lsps) GetEntityData() *types.CommonEntityData {
@@ -282,12 +291,15 @@ func (lsps *MplsStatic_Vrfs_Vrf_Lsps) GetEntityData() *types.CommonEntityData {
     lsps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lsps.EntityData.Children = make(map[string]types.YChild)
-    lsps.EntityData.Children["lsp"] = types.YChild{"Lsp", nil}
+    lsps.EntityData.Children = types.NewOrderedMap()
+    lsps.EntityData.Children.Append("lsp", types.YChild{"Lsp", nil})
     for i := range lsps.Lsp {
-        lsps.EntityData.Children[types.GetSegmentPath(&lsps.Lsp[i])] = types.YChild{"Lsp", &lsps.Lsp[i]}
+        lsps.EntityData.Children.Append(types.GetSegmentPath(lsps.Lsp[i]), types.YChild{"Lsp", lsps.Lsp[i]})
     }
-    lsps.EntityData.Leafs = make(map[string]types.YLeaf)
+    lsps.EntityData.Leafs = types.NewOrderedMap()
+
+    lsps.EntityData.YListKeys = []string {}
+
     return &(lsps.EntityData)
 }
 
@@ -298,7 +310,7 @@ type MplsStatic_Vrfs_Vrf_Lsps_Lsp struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. LSP Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     LspName interface{}
 
     // LSP Name. The type is string.
@@ -313,16 +325,19 @@ func (lsp *MplsStatic_Vrfs_Vrf_Lsps_Lsp) GetEntityData() *types.CommonEntityData
     lsp.EntityData.YangName = "lsp"
     lsp.EntityData.BundleName = "cisco_ios_xr"
     lsp.EntityData.ParentYangName = "lsps"
-    lsp.EntityData.SegmentPath = "lsp" + "[lsp-name='" + fmt.Sprintf("%v", lsp.LspName) + "']"
+    lsp.EntityData.SegmentPath = "lsp" + types.AddKeyToken(lsp.LspName, "lsp-name")
     lsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lsp.EntityData.Children = make(map[string]types.YChild)
-    lsp.EntityData.Children["label"] = types.YChild{"Label", &lsp.Label}
-    lsp.EntityData.Leafs = make(map[string]types.YLeaf)
-    lsp.EntityData.Leafs["lsp-name"] = types.YLeaf{"LspName", lsp.LspName}
-    lsp.EntityData.Leafs["lsp-name-xr"] = types.YLeaf{"LspNameXr", lsp.LspNameXr}
+    lsp.EntityData.Children = types.NewOrderedMap()
+    lsp.EntityData.Children.Append("label", types.YChild{"Label", &lsp.Label})
+    lsp.EntityData.Leafs = types.NewOrderedMap()
+    lsp.EntityData.Leafs.Append("lsp-name", types.YLeaf{"LspName", lsp.LspName})
+    lsp.EntityData.Leafs.Append("lsp-name-xr", types.YLeaf{"LspNameXr", lsp.LspNameXr})
+
+    lsp.EntityData.YListKeys = []string {"LspName"}
+
     return &(lsp.EntityData)
 }
 
@@ -364,11 +379,11 @@ type MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label struct {
 
     // Path Information. The type is slice of
     // MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_PathInfo.
-    PathInfo []MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_PathInfo
+    PathInfo []*MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_PathInfo
 
     // Backup Path Information. The type is slice of
     // MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_BackupPathInfo.
-    BackupPathInfo []MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_BackupPathInfo
+    BackupPathInfo []*MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_BackupPathInfo
 }
 
 func (label *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label) GetEntityData() *types.CommonEntityData {
@@ -381,26 +396,29 @@ func (label *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label) GetEntityData() *types.CommonEn
     label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    label.EntityData.Children = make(map[string]types.YChild)
-    label.EntityData.Children["prefix"] = types.YChild{"Prefix", &label.Prefix}
-    label.EntityData.Children["pathset-resolve-nh"] = types.YChild{"PathsetResolveNh", &label.PathsetResolveNh}
-    label.EntityData.Children["backup-pathset-resolve-nh"] = types.YChild{"BackupPathsetResolveNh", &label.BackupPathsetResolveNh}
-    label.EntityData.Children["path-info"] = types.YChild{"PathInfo", nil}
+    label.EntityData.Children = types.NewOrderedMap()
+    label.EntityData.Children.Append("prefix", types.YChild{"Prefix", &label.Prefix})
+    label.EntityData.Children.Append("pathset-resolve-nh", types.YChild{"PathsetResolveNh", &label.PathsetResolveNh})
+    label.EntityData.Children.Append("backup-pathset-resolve-nh", types.YChild{"BackupPathsetResolveNh", &label.BackupPathsetResolveNh})
+    label.EntityData.Children.Append("path-info", types.YChild{"PathInfo", nil})
     for i := range label.PathInfo {
-        label.EntityData.Children[types.GetSegmentPath(&label.PathInfo[i])] = types.YChild{"PathInfo", &label.PathInfo[i]}
+        label.EntityData.Children.Append(types.GetSegmentPath(label.PathInfo[i]), types.YChild{"PathInfo", label.PathInfo[i]})
     }
-    label.EntityData.Children["backup-path-info"] = types.YChild{"BackupPathInfo", nil}
+    label.EntityData.Children.Append("backup-path-info", types.YChild{"BackupPathInfo", nil})
     for i := range label.BackupPathInfo {
-        label.EntityData.Children[types.GetSegmentPath(&label.BackupPathInfo[i])] = types.YChild{"BackupPathInfo", &label.BackupPathInfo[i]}
+        label.EntityData.Children.Append(types.GetSegmentPath(label.BackupPathInfo[i]), types.YChild{"BackupPathInfo", label.BackupPathInfo[i]})
     }
-    label.EntityData.Leafs = make(map[string]types.YLeaf)
-    label.EntityData.Leafs["label"] = types.YLeaf{"Label", label.Label}
-    label.EntityData.Leafs["label-mode"] = types.YLeaf{"LabelMode", label.LabelMode}
-    label.EntityData.Leafs["label-status"] = types.YLeaf{"LabelStatus", label.LabelStatus}
-    label.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", label.VrfName}
-    label.EntityData.Leafs["pathset-via-resolve"] = types.YLeaf{"PathsetViaResolve", label.PathsetViaResolve}
-    label.EntityData.Leafs["backup-pathset-via-resolve"] = types.YLeaf{"BackupPathsetViaResolve", label.BackupPathsetViaResolve}
-    label.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", label.AddressFamily}
+    label.EntityData.Leafs = types.NewOrderedMap()
+    label.EntityData.Leafs.Append("label", types.YLeaf{"Label", label.Label})
+    label.EntityData.Leafs.Append("label-mode", types.YLeaf{"LabelMode", label.LabelMode})
+    label.EntityData.Leafs.Append("label-status", types.YLeaf{"LabelStatus", label.LabelStatus})
+    label.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", label.VrfName})
+    label.EntityData.Leafs.Append("pathset-via-resolve", types.YLeaf{"PathsetViaResolve", label.PathsetViaResolve})
+    label.EntityData.Leafs.Append("backup-pathset-via-resolve", types.YLeaf{"BackupPathsetViaResolve", label.BackupPathsetViaResolve})
+    label.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", label.AddressFamily})
+
+    label.EntityData.YListKeys = []string {}
+
     return &(label.EntityData)
 }
 
@@ -414,7 +432,7 @@ type MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_Prefix struct {
     PrefixLength interface{}
 
     // Prefix.
-    Prefix MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_Prefix_Prefix_
+    Prefix MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_Prefix_Prefix
 }
 
 func (prefix *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_Prefix) GetEntityData() *types.CommonEntityData {
@@ -427,16 +445,19 @@ func (prefix *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_Prefix) GetEntityData() *types.
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefix.EntityData.Children = make(map[string]types.YChild)
-    prefix.EntityData.Children["prefix"] = types.YChild{"Prefix", &prefix.Prefix}
-    prefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefix.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", prefix.PrefixLength}
+    prefix.EntityData.Children = types.NewOrderedMap()
+    prefix.EntityData.Children.Append("prefix", types.YChild{"Prefix", &prefix.Prefix})
+    prefix.EntityData.Leafs = types.NewOrderedMap()
+    prefix.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", prefix.PrefixLength})
+
+    prefix.EntityData.YListKeys = []string {}
+
     return &(prefix.EntityData)
 }
 
-// MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_Prefix_Prefix_
+// MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_Prefix_Prefix
 // Prefix
-type MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_Prefix_Prefix_ struct {
+type MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_Prefix_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -444,30 +465,33 @@ type MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_Prefix_Prefix_ struct {
     AfName interface{}
 
     // IPv4 context. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Prefix interface{}
 
     // IPv6 context. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Prefix interface{}
 }
 
-func (prefix_ *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_Prefix_Prefix_) GetEntityData() *types.CommonEntityData {
-    prefix_.EntityData.YFilter = prefix_.YFilter
-    prefix_.EntityData.YangName = "prefix"
-    prefix_.EntityData.BundleName = "cisco_ios_xr"
-    prefix_.EntityData.ParentYangName = "prefix"
-    prefix_.EntityData.SegmentPath = "prefix"
-    prefix_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    prefix_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    prefix_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (prefix *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_Prefix_Prefix) GetEntityData() *types.CommonEntityData {
+    prefix.EntityData.YFilter = prefix.YFilter
+    prefix.EntityData.YangName = "prefix"
+    prefix.EntityData.BundleName = "cisco_ios_xr"
+    prefix.EntityData.ParentYangName = "prefix"
+    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefix_.EntityData.Children = make(map[string]types.YChild)
-    prefix_.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefix_.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", prefix_.AfName}
-    prefix_.EntityData.Leafs["ipv4-prefix"] = types.YLeaf{"Ipv4Prefix", prefix_.Ipv4Prefix}
-    prefix_.EntityData.Leafs["ipv6-prefix"] = types.YLeaf{"Ipv6Prefix", prefix_.Ipv6Prefix}
-    return &(prefix_.EntityData)
+    prefix.EntityData.Children = types.NewOrderedMap()
+    prefix.EntityData.Leafs = types.NewOrderedMap()
+    prefix.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", prefix.AfName})
+    prefix.EntityData.Leafs.Append("ipv4-prefix", types.YLeaf{"Ipv4Prefix", prefix.Ipv4Prefix})
+    prefix.EntityData.Leafs.Append("ipv6-prefix", types.YLeaf{"Ipv6Prefix", prefix.Ipv6Prefix})
+
+    prefix.EntityData.YListKeys = []string {}
+
+    return &(prefix.EntityData)
 }
 
 // MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_PathsetResolveNh
@@ -480,11 +504,11 @@ type MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_PathsetResolveNh struct {
     AfName interface{}
 
     // IPv4 context. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Prefix interface{}
 
     // IPv6 context. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Prefix interface{}
 }
 
@@ -498,11 +522,14 @@ func (pathsetResolveNh *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_PathsetResolveNh) Get
     pathsetResolveNh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathsetResolveNh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pathsetResolveNh.EntityData.Children = make(map[string]types.YChild)
-    pathsetResolveNh.EntityData.Leafs = make(map[string]types.YLeaf)
-    pathsetResolveNh.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", pathsetResolveNh.AfName}
-    pathsetResolveNh.EntityData.Leafs["ipv4-prefix"] = types.YLeaf{"Ipv4Prefix", pathsetResolveNh.Ipv4Prefix}
-    pathsetResolveNh.EntityData.Leafs["ipv6-prefix"] = types.YLeaf{"Ipv6Prefix", pathsetResolveNh.Ipv6Prefix}
+    pathsetResolveNh.EntityData.Children = types.NewOrderedMap()
+    pathsetResolveNh.EntityData.Leafs = types.NewOrderedMap()
+    pathsetResolveNh.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", pathsetResolveNh.AfName})
+    pathsetResolveNh.EntityData.Leafs.Append("ipv4-prefix", types.YLeaf{"Ipv4Prefix", pathsetResolveNh.Ipv4Prefix})
+    pathsetResolveNh.EntityData.Leafs.Append("ipv6-prefix", types.YLeaf{"Ipv6Prefix", pathsetResolveNh.Ipv6Prefix})
+
+    pathsetResolveNh.EntityData.YListKeys = []string {}
+
     return &(pathsetResolveNh.EntityData)
 }
 
@@ -516,11 +543,11 @@ type MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_BackupPathsetResolveNh struct {
     AfName interface{}
 
     // IPv4 context. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Prefix interface{}
 
     // IPv6 context. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Prefix interface{}
 }
 
@@ -534,11 +561,14 @@ func (backupPathsetResolveNh *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_BackupPathsetRe
     backupPathsetResolveNh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupPathsetResolveNh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    backupPathsetResolveNh.EntityData.Children = make(map[string]types.YChild)
-    backupPathsetResolveNh.EntityData.Leafs = make(map[string]types.YLeaf)
-    backupPathsetResolveNh.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", backupPathsetResolveNh.AfName}
-    backupPathsetResolveNh.EntityData.Leafs["ipv4-prefix"] = types.YLeaf{"Ipv4Prefix", backupPathsetResolveNh.Ipv4Prefix}
-    backupPathsetResolveNh.EntityData.Leafs["ipv6-prefix"] = types.YLeaf{"Ipv6Prefix", backupPathsetResolveNh.Ipv6Prefix}
+    backupPathsetResolveNh.EntityData.Children = types.NewOrderedMap()
+    backupPathsetResolveNh.EntityData.Leafs = types.NewOrderedMap()
+    backupPathsetResolveNh.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", backupPathsetResolveNh.AfName})
+    backupPathsetResolveNh.EntityData.Leafs.Append("ipv4-prefix", types.YLeaf{"Ipv4Prefix", backupPathsetResolveNh.Ipv4Prefix})
+    backupPathsetResolveNh.EntityData.Leafs.Append("ipv6-prefix", types.YLeaf{"Ipv6Prefix", backupPathsetResolveNh.Ipv6Prefix})
+
+    backupPathsetResolveNh.EntityData.YListKeys = []string {}
+
     return &(backupPathsetResolveNh.EntityData)
 }
 
@@ -552,7 +582,7 @@ type MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_PathInfo struct {
     PathNumber interface{}
 
     // Path Type. The type is MgmtStaticPath.
-    Type_ interface{}
+    Type interface{}
 
     // Path Role. The type is MplsStaticPathRole.
     PathRole interface{}
@@ -580,15 +610,18 @@ func (pathInfo *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_PathInfo) GetEntityData() *ty
     pathInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pathInfo.EntityData.Children = make(map[string]types.YChild)
-    pathInfo.EntityData.Children["nexthop"] = types.YChild{"Nexthop", &pathInfo.Nexthop}
-    pathInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    pathInfo.EntityData.Leafs["path-number"] = types.YLeaf{"PathNumber", pathInfo.PathNumber}
-    pathInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", pathInfo.Type_}
-    pathInfo.EntityData.Leafs["path-role"] = types.YLeaf{"PathRole", pathInfo.PathRole}
-    pathInfo.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", pathInfo.PathId}
-    pathInfo.EntityData.Leafs["backup-id"] = types.YLeaf{"BackupId", pathInfo.BackupId}
-    pathInfo.EntityData.Leafs["status"] = types.YLeaf{"Status", pathInfo.Status}
+    pathInfo.EntityData.Children = types.NewOrderedMap()
+    pathInfo.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &pathInfo.Nexthop})
+    pathInfo.EntityData.Leafs = types.NewOrderedMap()
+    pathInfo.EntityData.Leafs.Append("path-number", types.YLeaf{"PathNumber", pathInfo.PathNumber})
+    pathInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", pathInfo.Type})
+    pathInfo.EntityData.Leafs.Append("path-role", types.YLeaf{"PathRole", pathInfo.PathRole})
+    pathInfo.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", pathInfo.PathId})
+    pathInfo.EntityData.Leafs.Append("backup-id", types.YLeaf{"BackupId", pathInfo.BackupId})
+    pathInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", pathInfo.Status})
+
+    pathInfo.EntityData.YListKeys = []string {}
+
     return &(pathInfo.EntityData)
 }
 
@@ -621,12 +654,15 @@ func (nexthop *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_PathInfo_Nexthop) GetEntityDat
     nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nexthop.EntityData.Children = make(map[string]types.YChild)
-    nexthop.EntityData.Children["address"] = types.YChild{"Address", &nexthop.Address}
-    nexthop.EntityData.Leafs = make(map[string]types.YLeaf)
-    nexthop.EntityData.Leafs["label"] = types.YLeaf{"Label", nexthop.Label}
-    nexthop.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", nexthop.InterfaceName}
-    nexthop.EntityData.Leafs["afi"] = types.YLeaf{"Afi", nexthop.Afi}
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Children.Append("address", types.YChild{"Address", &nexthop.Address})
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("label", types.YLeaf{"Label", nexthop.Label})
+    nexthop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", nexthop.InterfaceName})
+    nexthop.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", nexthop.Afi})
+
+    nexthop.EntityData.YListKeys = []string {}
+
     return &(nexthop.EntityData)
 }
 
@@ -640,11 +676,11 @@ type MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_PathInfo_Nexthop_Address struct {
     AfName interface{}
 
     // IPv4 context. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Prefix interface{}
 
     // IPv6 context. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Prefix interface{}
 }
 
@@ -658,11 +694,14 @@ func (address *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_PathInfo_Nexthop_Address) GetE
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", address.AfName}
-    address.EntityData.Leafs["ipv4-prefix"] = types.YLeaf{"Ipv4Prefix", address.Ipv4Prefix}
-    address.EntityData.Leafs["ipv6-prefix"] = types.YLeaf{"Ipv6Prefix", address.Ipv6Prefix}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", address.AfName})
+    address.EntityData.Leafs.Append("ipv4-prefix", types.YLeaf{"Ipv4Prefix", address.Ipv4Prefix})
+    address.EntityData.Leafs.Append("ipv6-prefix", types.YLeaf{"Ipv6Prefix", address.Ipv6Prefix})
+
+    address.EntityData.YListKeys = []string {}
+
     return &(address.EntityData)
 }
 
@@ -676,7 +715,7 @@ type MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_BackupPathInfo struct {
     PathNumber interface{}
 
     // Path Type. The type is MgmtStaticPath.
-    Type_ interface{}
+    Type interface{}
 
     // Path Role. The type is MplsStaticPathRole.
     PathRole interface{}
@@ -704,15 +743,18 @@ func (backupPathInfo *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_BackupPathInfo) GetEnti
     backupPathInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupPathInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    backupPathInfo.EntityData.Children = make(map[string]types.YChild)
-    backupPathInfo.EntityData.Children["nexthop"] = types.YChild{"Nexthop", &backupPathInfo.Nexthop}
-    backupPathInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    backupPathInfo.EntityData.Leafs["path-number"] = types.YLeaf{"PathNumber", backupPathInfo.PathNumber}
-    backupPathInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", backupPathInfo.Type_}
-    backupPathInfo.EntityData.Leafs["path-role"] = types.YLeaf{"PathRole", backupPathInfo.PathRole}
-    backupPathInfo.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", backupPathInfo.PathId}
-    backupPathInfo.EntityData.Leafs["backup-id"] = types.YLeaf{"BackupId", backupPathInfo.BackupId}
-    backupPathInfo.EntityData.Leafs["status"] = types.YLeaf{"Status", backupPathInfo.Status}
+    backupPathInfo.EntityData.Children = types.NewOrderedMap()
+    backupPathInfo.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &backupPathInfo.Nexthop})
+    backupPathInfo.EntityData.Leafs = types.NewOrderedMap()
+    backupPathInfo.EntityData.Leafs.Append("path-number", types.YLeaf{"PathNumber", backupPathInfo.PathNumber})
+    backupPathInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", backupPathInfo.Type})
+    backupPathInfo.EntityData.Leafs.Append("path-role", types.YLeaf{"PathRole", backupPathInfo.PathRole})
+    backupPathInfo.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", backupPathInfo.PathId})
+    backupPathInfo.EntityData.Leafs.Append("backup-id", types.YLeaf{"BackupId", backupPathInfo.BackupId})
+    backupPathInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", backupPathInfo.Status})
+
+    backupPathInfo.EntityData.YListKeys = []string {}
+
     return &(backupPathInfo.EntityData)
 }
 
@@ -745,12 +787,15 @@ func (nexthop *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_BackupPathInfo_Nexthop) GetEnt
     nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nexthop.EntityData.Children = make(map[string]types.YChild)
-    nexthop.EntityData.Children["address"] = types.YChild{"Address", &nexthop.Address}
-    nexthop.EntityData.Leafs = make(map[string]types.YLeaf)
-    nexthop.EntityData.Leafs["label"] = types.YLeaf{"Label", nexthop.Label}
-    nexthop.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", nexthop.InterfaceName}
-    nexthop.EntityData.Leafs["afi"] = types.YLeaf{"Afi", nexthop.Afi}
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Children.Append("address", types.YChild{"Address", &nexthop.Address})
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("label", types.YLeaf{"Label", nexthop.Label})
+    nexthop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", nexthop.InterfaceName})
+    nexthop.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", nexthop.Afi})
+
+    nexthop.EntityData.YListKeys = []string {}
+
     return &(nexthop.EntityData)
 }
 
@@ -764,11 +809,11 @@ type MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_BackupPathInfo_Nexthop_Address struct {
     AfName interface{}
 
     // IPv4 context. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Prefix interface{}
 
     // IPv6 context. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Prefix interface{}
 }
 
@@ -782,11 +827,14 @@ func (address *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_BackupPathInfo_Nexthop_Address
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", address.AfName}
-    address.EntityData.Leafs["ipv4-prefix"] = types.YLeaf{"Ipv4Prefix", address.Ipv4Prefix}
-    address.EntityData.Leafs["ipv6-prefix"] = types.YLeaf{"Ipv6Prefix", address.Ipv6Prefix}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", address.AfName})
+    address.EntityData.Leafs.Append("ipv4-prefix", types.YLeaf{"Ipv4Prefix", address.Ipv4Prefix})
+    address.EntityData.Leafs.Append("ipv6-prefix", types.YLeaf{"Ipv6Prefix", address.Ipv6Prefix})
+
+    address.EntityData.YListKeys = []string {}
+
     return &(address.EntityData)
 }
 
@@ -798,7 +846,7 @@ type MplsStatic_Vrfs_Vrf_LocalLabels struct {
 
     // Data for static label. The type is slice of
     // MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel.
-    LocalLabel []MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel
+    LocalLabel []*MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel
 }
 
 func (localLabels *MplsStatic_Vrfs_Vrf_LocalLabels) GetEntityData() *types.CommonEntityData {
@@ -811,12 +859,15 @@ func (localLabels *MplsStatic_Vrfs_Vrf_LocalLabels) GetEntityData() *types.Commo
     localLabels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localLabels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localLabels.EntityData.Children = make(map[string]types.YChild)
-    localLabels.EntityData.Children["local-label"] = types.YChild{"LocalLabel", nil}
+    localLabels.EntityData.Children = types.NewOrderedMap()
+    localLabels.EntityData.Children.Append("local-label", types.YChild{"LocalLabel", nil})
     for i := range localLabels.LocalLabel {
-        localLabels.EntityData.Children[types.GetSegmentPath(&localLabels.LocalLabel[i])] = types.YChild{"LocalLabel", &localLabels.LocalLabel[i]}
+        localLabels.EntityData.Children.Append(types.GetSegmentPath(localLabels.LocalLabel[i]), types.YChild{"LocalLabel", localLabels.LocalLabel[i]})
     }
-    localLabels.EntityData.Leafs = make(map[string]types.YLeaf)
+    localLabels.EntityData.Leafs = types.NewOrderedMap()
+
+    localLabels.EntityData.YListKeys = []string {}
+
     return &(localLabels.EntityData)
 }
 
@@ -862,11 +913,11 @@ type MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel struct {
 
     // Path Information. The type is slice of
     // MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_PathInfo.
-    PathInfo []MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_PathInfo
+    PathInfo []*MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_PathInfo
 
     // Backup Path Information. The type is slice of
     // MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_BackupPathInfo.
-    BackupPathInfo []MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_BackupPathInfo
+    BackupPathInfo []*MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_BackupPathInfo
 }
 
 func (localLabel *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel) GetEntityData() *types.CommonEntityData {
@@ -874,32 +925,35 @@ func (localLabel *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel) GetEntityData() *t
     localLabel.EntityData.YangName = "local-label"
     localLabel.EntityData.BundleName = "cisco_ios_xr"
     localLabel.EntityData.ParentYangName = "local-labels"
-    localLabel.EntityData.SegmentPath = "local-label" + "[local-label-id='" + fmt.Sprintf("%v", localLabel.LocalLabelId) + "']"
+    localLabel.EntityData.SegmentPath = "local-label" + types.AddKeyToken(localLabel.LocalLabelId, "local-label-id")
     localLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localLabel.EntityData.Children = make(map[string]types.YChild)
-    localLabel.EntityData.Children["prefix"] = types.YChild{"Prefix", &localLabel.Prefix}
-    localLabel.EntityData.Children["pathset-resolve-nh"] = types.YChild{"PathsetResolveNh", &localLabel.PathsetResolveNh}
-    localLabel.EntityData.Children["backup-pathset-resolve-nh"] = types.YChild{"BackupPathsetResolveNh", &localLabel.BackupPathsetResolveNh}
-    localLabel.EntityData.Children["path-info"] = types.YChild{"PathInfo", nil}
+    localLabel.EntityData.Children = types.NewOrderedMap()
+    localLabel.EntityData.Children.Append("prefix", types.YChild{"Prefix", &localLabel.Prefix})
+    localLabel.EntityData.Children.Append("pathset-resolve-nh", types.YChild{"PathsetResolveNh", &localLabel.PathsetResolveNh})
+    localLabel.EntityData.Children.Append("backup-pathset-resolve-nh", types.YChild{"BackupPathsetResolveNh", &localLabel.BackupPathsetResolveNh})
+    localLabel.EntityData.Children.Append("path-info", types.YChild{"PathInfo", nil})
     for i := range localLabel.PathInfo {
-        localLabel.EntityData.Children[types.GetSegmentPath(&localLabel.PathInfo[i])] = types.YChild{"PathInfo", &localLabel.PathInfo[i]}
+        localLabel.EntityData.Children.Append(types.GetSegmentPath(localLabel.PathInfo[i]), types.YChild{"PathInfo", localLabel.PathInfo[i]})
     }
-    localLabel.EntityData.Children["backup-path-info"] = types.YChild{"BackupPathInfo", nil}
+    localLabel.EntityData.Children.Append("backup-path-info", types.YChild{"BackupPathInfo", nil})
     for i := range localLabel.BackupPathInfo {
-        localLabel.EntityData.Children[types.GetSegmentPath(&localLabel.BackupPathInfo[i])] = types.YChild{"BackupPathInfo", &localLabel.BackupPathInfo[i]}
+        localLabel.EntityData.Children.Append(types.GetSegmentPath(localLabel.BackupPathInfo[i]), types.YChild{"BackupPathInfo", localLabel.BackupPathInfo[i]})
     }
-    localLabel.EntityData.Leafs = make(map[string]types.YLeaf)
-    localLabel.EntityData.Leafs["local-label-id"] = types.YLeaf{"LocalLabelId", localLabel.LocalLabelId}
-    localLabel.EntityData.Leafs["label"] = types.YLeaf{"Label", localLabel.Label}
-    localLabel.EntityData.Leafs["label-mode"] = types.YLeaf{"LabelMode", localLabel.LabelMode}
-    localLabel.EntityData.Leafs["label-status"] = types.YLeaf{"LabelStatus", localLabel.LabelStatus}
-    localLabel.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", localLabel.VrfName}
-    localLabel.EntityData.Leafs["pathset-via-resolve"] = types.YLeaf{"PathsetViaResolve", localLabel.PathsetViaResolve}
-    localLabel.EntityData.Leafs["backup-pathset-via-resolve"] = types.YLeaf{"BackupPathsetViaResolve", localLabel.BackupPathsetViaResolve}
-    localLabel.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", localLabel.AddressFamily}
+    localLabel.EntityData.Leafs = types.NewOrderedMap()
+    localLabel.EntityData.Leafs.Append("local-label-id", types.YLeaf{"LocalLabelId", localLabel.LocalLabelId})
+    localLabel.EntityData.Leafs.Append("label", types.YLeaf{"Label", localLabel.Label})
+    localLabel.EntityData.Leafs.Append("label-mode", types.YLeaf{"LabelMode", localLabel.LabelMode})
+    localLabel.EntityData.Leafs.Append("label-status", types.YLeaf{"LabelStatus", localLabel.LabelStatus})
+    localLabel.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", localLabel.VrfName})
+    localLabel.EntityData.Leafs.Append("pathset-via-resolve", types.YLeaf{"PathsetViaResolve", localLabel.PathsetViaResolve})
+    localLabel.EntityData.Leafs.Append("backup-pathset-via-resolve", types.YLeaf{"BackupPathsetViaResolve", localLabel.BackupPathsetViaResolve})
+    localLabel.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", localLabel.AddressFamily})
+
+    localLabel.EntityData.YListKeys = []string {"LocalLabelId"}
+
     return &(localLabel.EntityData)
 }
 
@@ -913,7 +967,7 @@ type MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_Prefix struct {
     PrefixLength interface{}
 
     // Prefix.
-    Prefix MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_Prefix_Prefix_
+    Prefix MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_Prefix_Prefix
 }
 
 func (prefix *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_Prefix) GetEntityData() *types.CommonEntityData {
@@ -926,16 +980,19 @@ func (prefix *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_Prefix) GetEntityData()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefix.EntityData.Children = make(map[string]types.YChild)
-    prefix.EntityData.Children["prefix"] = types.YChild{"Prefix", &prefix.Prefix}
-    prefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefix.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", prefix.PrefixLength}
+    prefix.EntityData.Children = types.NewOrderedMap()
+    prefix.EntityData.Children.Append("prefix", types.YChild{"Prefix", &prefix.Prefix})
+    prefix.EntityData.Leafs = types.NewOrderedMap()
+    prefix.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", prefix.PrefixLength})
+
+    prefix.EntityData.YListKeys = []string {}
+
     return &(prefix.EntityData)
 }
 
-// MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_Prefix_Prefix_
+// MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_Prefix_Prefix
 // Prefix
-type MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_Prefix_Prefix_ struct {
+type MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_Prefix_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -943,30 +1000,33 @@ type MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_Prefix_Prefix_ struct {
     AfName interface{}
 
     // IPv4 context. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Prefix interface{}
 
     // IPv6 context. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Prefix interface{}
 }
 
-func (prefix_ *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_Prefix_Prefix_) GetEntityData() *types.CommonEntityData {
-    prefix_.EntityData.YFilter = prefix_.YFilter
-    prefix_.EntityData.YangName = "prefix"
-    prefix_.EntityData.BundleName = "cisco_ios_xr"
-    prefix_.EntityData.ParentYangName = "prefix"
-    prefix_.EntityData.SegmentPath = "prefix"
-    prefix_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    prefix_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    prefix_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (prefix *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_Prefix_Prefix) GetEntityData() *types.CommonEntityData {
+    prefix.EntityData.YFilter = prefix.YFilter
+    prefix.EntityData.YangName = "prefix"
+    prefix.EntityData.BundleName = "cisco_ios_xr"
+    prefix.EntityData.ParentYangName = "prefix"
+    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefix_.EntityData.Children = make(map[string]types.YChild)
-    prefix_.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefix_.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", prefix_.AfName}
-    prefix_.EntityData.Leafs["ipv4-prefix"] = types.YLeaf{"Ipv4Prefix", prefix_.Ipv4Prefix}
-    prefix_.EntityData.Leafs["ipv6-prefix"] = types.YLeaf{"Ipv6Prefix", prefix_.Ipv6Prefix}
-    return &(prefix_.EntityData)
+    prefix.EntityData.Children = types.NewOrderedMap()
+    prefix.EntityData.Leafs = types.NewOrderedMap()
+    prefix.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", prefix.AfName})
+    prefix.EntityData.Leafs.Append("ipv4-prefix", types.YLeaf{"Ipv4Prefix", prefix.Ipv4Prefix})
+    prefix.EntityData.Leafs.Append("ipv6-prefix", types.YLeaf{"Ipv6Prefix", prefix.Ipv6Prefix})
+
+    prefix.EntityData.YListKeys = []string {}
+
+    return &(prefix.EntityData)
 }
 
 // MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_PathsetResolveNh
@@ -979,11 +1039,11 @@ type MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_PathsetResolveNh struct {
     AfName interface{}
 
     // IPv4 context. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Prefix interface{}
 
     // IPv6 context. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Prefix interface{}
 }
 
@@ -997,11 +1057,14 @@ func (pathsetResolveNh *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_PathsetResolv
     pathsetResolveNh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathsetResolveNh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pathsetResolveNh.EntityData.Children = make(map[string]types.YChild)
-    pathsetResolveNh.EntityData.Leafs = make(map[string]types.YLeaf)
-    pathsetResolveNh.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", pathsetResolveNh.AfName}
-    pathsetResolveNh.EntityData.Leafs["ipv4-prefix"] = types.YLeaf{"Ipv4Prefix", pathsetResolveNh.Ipv4Prefix}
-    pathsetResolveNh.EntityData.Leafs["ipv6-prefix"] = types.YLeaf{"Ipv6Prefix", pathsetResolveNh.Ipv6Prefix}
+    pathsetResolveNh.EntityData.Children = types.NewOrderedMap()
+    pathsetResolveNh.EntityData.Leafs = types.NewOrderedMap()
+    pathsetResolveNh.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", pathsetResolveNh.AfName})
+    pathsetResolveNh.EntityData.Leafs.Append("ipv4-prefix", types.YLeaf{"Ipv4Prefix", pathsetResolveNh.Ipv4Prefix})
+    pathsetResolveNh.EntityData.Leafs.Append("ipv6-prefix", types.YLeaf{"Ipv6Prefix", pathsetResolveNh.Ipv6Prefix})
+
+    pathsetResolveNh.EntityData.YListKeys = []string {}
+
     return &(pathsetResolveNh.EntityData)
 }
 
@@ -1015,11 +1078,11 @@ type MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_BackupPathsetResolveNh struct {
     AfName interface{}
 
     // IPv4 context. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Prefix interface{}
 
     // IPv6 context. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Prefix interface{}
 }
 
@@ -1033,11 +1096,14 @@ func (backupPathsetResolveNh *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_BackupP
     backupPathsetResolveNh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupPathsetResolveNh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    backupPathsetResolveNh.EntityData.Children = make(map[string]types.YChild)
-    backupPathsetResolveNh.EntityData.Leafs = make(map[string]types.YLeaf)
-    backupPathsetResolveNh.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", backupPathsetResolveNh.AfName}
-    backupPathsetResolveNh.EntityData.Leafs["ipv4-prefix"] = types.YLeaf{"Ipv4Prefix", backupPathsetResolveNh.Ipv4Prefix}
-    backupPathsetResolveNh.EntityData.Leafs["ipv6-prefix"] = types.YLeaf{"Ipv6Prefix", backupPathsetResolveNh.Ipv6Prefix}
+    backupPathsetResolveNh.EntityData.Children = types.NewOrderedMap()
+    backupPathsetResolveNh.EntityData.Leafs = types.NewOrderedMap()
+    backupPathsetResolveNh.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", backupPathsetResolveNh.AfName})
+    backupPathsetResolveNh.EntityData.Leafs.Append("ipv4-prefix", types.YLeaf{"Ipv4Prefix", backupPathsetResolveNh.Ipv4Prefix})
+    backupPathsetResolveNh.EntityData.Leafs.Append("ipv6-prefix", types.YLeaf{"Ipv6Prefix", backupPathsetResolveNh.Ipv6Prefix})
+
+    backupPathsetResolveNh.EntityData.YListKeys = []string {}
+
     return &(backupPathsetResolveNh.EntityData)
 }
 
@@ -1051,7 +1117,7 @@ type MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_PathInfo struct {
     PathNumber interface{}
 
     // Path Type. The type is MgmtStaticPath.
-    Type_ interface{}
+    Type interface{}
 
     // Path Role. The type is MplsStaticPathRole.
     PathRole interface{}
@@ -1079,15 +1145,18 @@ func (pathInfo *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_PathInfo) GetEntityDa
     pathInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pathInfo.EntityData.Children = make(map[string]types.YChild)
-    pathInfo.EntityData.Children["nexthop"] = types.YChild{"Nexthop", &pathInfo.Nexthop}
-    pathInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    pathInfo.EntityData.Leafs["path-number"] = types.YLeaf{"PathNumber", pathInfo.PathNumber}
-    pathInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", pathInfo.Type_}
-    pathInfo.EntityData.Leafs["path-role"] = types.YLeaf{"PathRole", pathInfo.PathRole}
-    pathInfo.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", pathInfo.PathId}
-    pathInfo.EntityData.Leafs["backup-id"] = types.YLeaf{"BackupId", pathInfo.BackupId}
-    pathInfo.EntityData.Leafs["status"] = types.YLeaf{"Status", pathInfo.Status}
+    pathInfo.EntityData.Children = types.NewOrderedMap()
+    pathInfo.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &pathInfo.Nexthop})
+    pathInfo.EntityData.Leafs = types.NewOrderedMap()
+    pathInfo.EntityData.Leafs.Append("path-number", types.YLeaf{"PathNumber", pathInfo.PathNumber})
+    pathInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", pathInfo.Type})
+    pathInfo.EntityData.Leafs.Append("path-role", types.YLeaf{"PathRole", pathInfo.PathRole})
+    pathInfo.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", pathInfo.PathId})
+    pathInfo.EntityData.Leafs.Append("backup-id", types.YLeaf{"BackupId", pathInfo.BackupId})
+    pathInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", pathInfo.Status})
+
+    pathInfo.EntityData.YListKeys = []string {}
+
     return &(pathInfo.EntityData)
 }
 
@@ -1120,12 +1189,15 @@ func (nexthop *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_PathInfo_Nexthop) GetE
     nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nexthop.EntityData.Children = make(map[string]types.YChild)
-    nexthop.EntityData.Children["address"] = types.YChild{"Address", &nexthop.Address}
-    nexthop.EntityData.Leafs = make(map[string]types.YLeaf)
-    nexthop.EntityData.Leafs["label"] = types.YLeaf{"Label", nexthop.Label}
-    nexthop.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", nexthop.InterfaceName}
-    nexthop.EntityData.Leafs["afi"] = types.YLeaf{"Afi", nexthop.Afi}
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Children.Append("address", types.YChild{"Address", &nexthop.Address})
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("label", types.YLeaf{"Label", nexthop.Label})
+    nexthop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", nexthop.InterfaceName})
+    nexthop.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", nexthop.Afi})
+
+    nexthop.EntityData.YListKeys = []string {}
+
     return &(nexthop.EntityData)
 }
 
@@ -1139,11 +1211,11 @@ type MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_PathInfo_Nexthop_Address struct 
     AfName interface{}
 
     // IPv4 context. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Prefix interface{}
 
     // IPv6 context. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Prefix interface{}
 }
 
@@ -1157,11 +1229,14 @@ func (address *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_PathInfo_Nexthop_Addre
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", address.AfName}
-    address.EntityData.Leafs["ipv4-prefix"] = types.YLeaf{"Ipv4Prefix", address.Ipv4Prefix}
-    address.EntityData.Leafs["ipv6-prefix"] = types.YLeaf{"Ipv6Prefix", address.Ipv6Prefix}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", address.AfName})
+    address.EntityData.Leafs.Append("ipv4-prefix", types.YLeaf{"Ipv4Prefix", address.Ipv4Prefix})
+    address.EntityData.Leafs.Append("ipv6-prefix", types.YLeaf{"Ipv6Prefix", address.Ipv6Prefix})
+
+    address.EntityData.YListKeys = []string {}
+
     return &(address.EntityData)
 }
 
@@ -1175,7 +1250,7 @@ type MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_BackupPathInfo struct {
     PathNumber interface{}
 
     // Path Type. The type is MgmtStaticPath.
-    Type_ interface{}
+    Type interface{}
 
     // Path Role. The type is MplsStaticPathRole.
     PathRole interface{}
@@ -1203,15 +1278,18 @@ func (backupPathInfo *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_BackupPathInfo)
     backupPathInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupPathInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    backupPathInfo.EntityData.Children = make(map[string]types.YChild)
-    backupPathInfo.EntityData.Children["nexthop"] = types.YChild{"Nexthop", &backupPathInfo.Nexthop}
-    backupPathInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    backupPathInfo.EntityData.Leafs["path-number"] = types.YLeaf{"PathNumber", backupPathInfo.PathNumber}
-    backupPathInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", backupPathInfo.Type_}
-    backupPathInfo.EntityData.Leafs["path-role"] = types.YLeaf{"PathRole", backupPathInfo.PathRole}
-    backupPathInfo.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", backupPathInfo.PathId}
-    backupPathInfo.EntityData.Leafs["backup-id"] = types.YLeaf{"BackupId", backupPathInfo.BackupId}
-    backupPathInfo.EntityData.Leafs["status"] = types.YLeaf{"Status", backupPathInfo.Status}
+    backupPathInfo.EntityData.Children = types.NewOrderedMap()
+    backupPathInfo.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &backupPathInfo.Nexthop})
+    backupPathInfo.EntityData.Leafs = types.NewOrderedMap()
+    backupPathInfo.EntityData.Leafs.Append("path-number", types.YLeaf{"PathNumber", backupPathInfo.PathNumber})
+    backupPathInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", backupPathInfo.Type})
+    backupPathInfo.EntityData.Leafs.Append("path-role", types.YLeaf{"PathRole", backupPathInfo.PathRole})
+    backupPathInfo.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", backupPathInfo.PathId})
+    backupPathInfo.EntityData.Leafs.Append("backup-id", types.YLeaf{"BackupId", backupPathInfo.BackupId})
+    backupPathInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", backupPathInfo.Status})
+
+    backupPathInfo.EntityData.YListKeys = []string {}
+
     return &(backupPathInfo.EntityData)
 }
 
@@ -1244,12 +1322,15 @@ func (nexthop *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_BackupPathInfo_Nexthop
     nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nexthop.EntityData.Children = make(map[string]types.YChild)
-    nexthop.EntityData.Children["address"] = types.YChild{"Address", &nexthop.Address}
-    nexthop.EntityData.Leafs = make(map[string]types.YLeaf)
-    nexthop.EntityData.Leafs["label"] = types.YLeaf{"Label", nexthop.Label}
-    nexthop.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", nexthop.InterfaceName}
-    nexthop.EntityData.Leafs["afi"] = types.YLeaf{"Afi", nexthop.Afi}
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Children.Append("address", types.YChild{"Address", &nexthop.Address})
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("label", types.YLeaf{"Label", nexthop.Label})
+    nexthop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", nexthop.InterfaceName})
+    nexthop.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", nexthop.Afi})
+
+    nexthop.EntityData.YListKeys = []string {}
+
     return &(nexthop.EntityData)
 }
 
@@ -1263,11 +1344,11 @@ type MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_BackupPathInfo_Nexthop_Address s
     AfName interface{}
 
     // IPv4 context. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Prefix interface{}
 
     // IPv6 context. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Prefix interface{}
 }
 
@@ -1281,11 +1362,14 @@ func (address *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_BackupPathInfo_Nexthop
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", address.AfName}
-    address.EntityData.Leafs["ipv4-prefix"] = types.YLeaf{"Ipv4Prefix", address.Ipv4Prefix}
-    address.EntityData.Leafs["ipv6-prefix"] = types.YLeaf{"Ipv6Prefix", address.Ipv6Prefix}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", address.AfName})
+    address.EntityData.Leafs.Append("ipv4-prefix", types.YLeaf{"Ipv4Prefix", address.Ipv4Prefix})
+    address.EntityData.Leafs.Append("ipv6-prefix", types.YLeaf{"Ipv6Prefix", address.Ipv6Prefix})
+
+    address.EntityData.YListKeys = []string {}
+
     return &(address.EntityData)
 }
 
@@ -1363,24 +1447,27 @@ func (summary *MplsStatic_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
-    summary.EntityData.Leafs["lsp-count"] = types.YLeaf{"LspCount", summary.LspCount}
-    summary.EntityData.Leafs["label-count"] = types.YLeaf{"LabelCount", summary.LabelCount}
-    summary.EntityData.Leafs["label-error-count"] = types.YLeaf{"LabelErrorCount", summary.LabelErrorCount}
-    summary.EntityData.Leafs["label-discrepancy-count"] = types.YLeaf{"LabelDiscrepancyCount", summary.LabelDiscrepancyCount}
-    summary.EntityData.Leafs["vrf-count"] = types.YLeaf{"VrfCount", summary.VrfCount}
-    summary.EntityData.Leafs["active-vrf-count"] = types.YLeaf{"ActiveVrfCount", summary.ActiveVrfCount}
-    summary.EntityData.Leafs["interface-count"] = types.YLeaf{"InterfaceCount", summary.InterfaceCount}
-    summary.EntityData.Leafs["interface-foward-reference-count"] = types.YLeaf{"InterfaceFowardReferenceCount", summary.InterfaceFowardReferenceCount}
-    summary.EntityData.Leafs["mpls-enabled-interface-count"] = types.YLeaf{"MplsEnabledInterfaceCount", summary.MplsEnabledInterfaceCount}
-    summary.EntityData.Leafs["ipv4-res-nh-count"] = types.YLeaf{"Ipv4ResNhCount", summary.Ipv4ResNhCount}
-    summary.EntityData.Leafs["ipv6-res-nh-count"] = types.YLeaf{"Ipv6ResNhCount", summary.Ipv6ResNhCount}
-    summary.EntityData.Leafs["lsd-connected"] = types.YLeaf{"LsdConnected", summary.LsdConnected}
-    summary.EntityData.Leafs["im-connected"] = types.YLeaf{"ImConnected", summary.ImConnected}
-    summary.EntityData.Leafs["rsi-connected"] = types.YLeaf{"RsiConnected", summary.RsiConnected}
-    summary.EntityData.Leafs["ribv4-connected"] = types.YLeaf{"Ribv4Connected", summary.Ribv4Connected}
-    summary.EntityData.Leafs["ribv6-connected"] = types.YLeaf{"Ribv6Connected", summary.Ribv6Connected}
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Leafs = types.NewOrderedMap()
+    summary.EntityData.Leafs.Append("lsp-count", types.YLeaf{"LspCount", summary.LspCount})
+    summary.EntityData.Leafs.Append("label-count", types.YLeaf{"LabelCount", summary.LabelCount})
+    summary.EntityData.Leafs.Append("label-error-count", types.YLeaf{"LabelErrorCount", summary.LabelErrorCount})
+    summary.EntityData.Leafs.Append("label-discrepancy-count", types.YLeaf{"LabelDiscrepancyCount", summary.LabelDiscrepancyCount})
+    summary.EntityData.Leafs.Append("vrf-count", types.YLeaf{"VrfCount", summary.VrfCount})
+    summary.EntityData.Leafs.Append("active-vrf-count", types.YLeaf{"ActiveVrfCount", summary.ActiveVrfCount})
+    summary.EntityData.Leafs.Append("interface-count", types.YLeaf{"InterfaceCount", summary.InterfaceCount})
+    summary.EntityData.Leafs.Append("interface-foward-reference-count", types.YLeaf{"InterfaceFowardReferenceCount", summary.InterfaceFowardReferenceCount})
+    summary.EntityData.Leafs.Append("mpls-enabled-interface-count", types.YLeaf{"MplsEnabledInterfaceCount", summary.MplsEnabledInterfaceCount})
+    summary.EntityData.Leafs.Append("ipv4-res-nh-count", types.YLeaf{"Ipv4ResNhCount", summary.Ipv4ResNhCount})
+    summary.EntityData.Leafs.Append("ipv6-res-nh-count", types.YLeaf{"Ipv6ResNhCount", summary.Ipv6ResNhCount})
+    summary.EntityData.Leafs.Append("lsd-connected", types.YLeaf{"LsdConnected", summary.LsdConnected})
+    summary.EntityData.Leafs.Append("im-connected", types.YLeaf{"ImConnected", summary.ImConnected})
+    summary.EntityData.Leafs.Append("rsi-connected", types.YLeaf{"RsiConnected", summary.RsiConnected})
+    summary.EntityData.Leafs.Append("ribv4-connected", types.YLeaf{"Ribv4Connected", summary.Ribv4Connected})
+    summary.EntityData.Leafs.Append("ribv6-connected", types.YLeaf{"Ribv6Connected", summary.Ribv6Connected})
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -1392,7 +1479,7 @@ type MplsStatic_LocalLabels struct {
 
     // Data for static label. The type is slice of
     // MplsStatic_LocalLabels_LocalLabel.
-    LocalLabel []MplsStatic_LocalLabels_LocalLabel
+    LocalLabel []*MplsStatic_LocalLabels_LocalLabel
 }
 
 func (localLabels *MplsStatic_LocalLabels) GetEntityData() *types.CommonEntityData {
@@ -1405,12 +1492,15 @@ func (localLabels *MplsStatic_LocalLabels) GetEntityData() *types.CommonEntityDa
     localLabels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localLabels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localLabels.EntityData.Children = make(map[string]types.YChild)
-    localLabels.EntityData.Children["local-label"] = types.YChild{"LocalLabel", nil}
+    localLabels.EntityData.Children = types.NewOrderedMap()
+    localLabels.EntityData.Children.Append("local-label", types.YChild{"LocalLabel", nil})
     for i := range localLabels.LocalLabel {
-        localLabels.EntityData.Children[types.GetSegmentPath(&localLabels.LocalLabel[i])] = types.YChild{"LocalLabel", &localLabels.LocalLabel[i]}
+        localLabels.EntityData.Children.Append(types.GetSegmentPath(localLabels.LocalLabel[i]), types.YChild{"LocalLabel", localLabels.LocalLabel[i]})
     }
-    localLabels.EntityData.Leafs = make(map[string]types.YLeaf)
+    localLabels.EntityData.Leafs = types.NewOrderedMap()
+
+    localLabels.EntityData.YListKeys = []string {}
+
     return &(localLabels.EntityData)
 }
 
@@ -1456,11 +1546,11 @@ type MplsStatic_LocalLabels_LocalLabel struct {
 
     // Path Information. The type is slice of
     // MplsStatic_LocalLabels_LocalLabel_PathInfo.
-    PathInfo []MplsStatic_LocalLabels_LocalLabel_PathInfo
+    PathInfo []*MplsStatic_LocalLabels_LocalLabel_PathInfo
 
     // Backup Path Information. The type is slice of
     // MplsStatic_LocalLabels_LocalLabel_BackupPathInfo.
-    BackupPathInfo []MplsStatic_LocalLabels_LocalLabel_BackupPathInfo
+    BackupPathInfo []*MplsStatic_LocalLabels_LocalLabel_BackupPathInfo
 }
 
 func (localLabel *MplsStatic_LocalLabels_LocalLabel) GetEntityData() *types.CommonEntityData {
@@ -1468,32 +1558,35 @@ func (localLabel *MplsStatic_LocalLabels_LocalLabel) GetEntityData() *types.Comm
     localLabel.EntityData.YangName = "local-label"
     localLabel.EntityData.BundleName = "cisco_ios_xr"
     localLabel.EntityData.ParentYangName = "local-labels"
-    localLabel.EntityData.SegmentPath = "local-label" + "[local-label-id='" + fmt.Sprintf("%v", localLabel.LocalLabelId) + "']"
+    localLabel.EntityData.SegmentPath = "local-label" + types.AddKeyToken(localLabel.LocalLabelId, "local-label-id")
     localLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    localLabel.EntityData.Children = make(map[string]types.YChild)
-    localLabel.EntityData.Children["prefix"] = types.YChild{"Prefix", &localLabel.Prefix}
-    localLabel.EntityData.Children["pathset-resolve-nh"] = types.YChild{"PathsetResolveNh", &localLabel.PathsetResolveNh}
-    localLabel.EntityData.Children["backup-pathset-resolve-nh"] = types.YChild{"BackupPathsetResolveNh", &localLabel.BackupPathsetResolveNh}
-    localLabel.EntityData.Children["path-info"] = types.YChild{"PathInfo", nil}
+    localLabel.EntityData.Children = types.NewOrderedMap()
+    localLabel.EntityData.Children.Append("prefix", types.YChild{"Prefix", &localLabel.Prefix})
+    localLabel.EntityData.Children.Append("pathset-resolve-nh", types.YChild{"PathsetResolveNh", &localLabel.PathsetResolveNh})
+    localLabel.EntityData.Children.Append("backup-pathset-resolve-nh", types.YChild{"BackupPathsetResolveNh", &localLabel.BackupPathsetResolveNh})
+    localLabel.EntityData.Children.Append("path-info", types.YChild{"PathInfo", nil})
     for i := range localLabel.PathInfo {
-        localLabel.EntityData.Children[types.GetSegmentPath(&localLabel.PathInfo[i])] = types.YChild{"PathInfo", &localLabel.PathInfo[i]}
+        localLabel.EntityData.Children.Append(types.GetSegmentPath(localLabel.PathInfo[i]), types.YChild{"PathInfo", localLabel.PathInfo[i]})
     }
-    localLabel.EntityData.Children["backup-path-info"] = types.YChild{"BackupPathInfo", nil}
+    localLabel.EntityData.Children.Append("backup-path-info", types.YChild{"BackupPathInfo", nil})
     for i := range localLabel.BackupPathInfo {
-        localLabel.EntityData.Children[types.GetSegmentPath(&localLabel.BackupPathInfo[i])] = types.YChild{"BackupPathInfo", &localLabel.BackupPathInfo[i]}
+        localLabel.EntityData.Children.Append(types.GetSegmentPath(localLabel.BackupPathInfo[i]), types.YChild{"BackupPathInfo", localLabel.BackupPathInfo[i]})
     }
-    localLabel.EntityData.Leafs = make(map[string]types.YLeaf)
-    localLabel.EntityData.Leafs["local-label-id"] = types.YLeaf{"LocalLabelId", localLabel.LocalLabelId}
-    localLabel.EntityData.Leafs["label"] = types.YLeaf{"Label", localLabel.Label}
-    localLabel.EntityData.Leafs["label-mode"] = types.YLeaf{"LabelMode", localLabel.LabelMode}
-    localLabel.EntityData.Leafs["label-status"] = types.YLeaf{"LabelStatus", localLabel.LabelStatus}
-    localLabel.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", localLabel.VrfName}
-    localLabel.EntityData.Leafs["pathset-via-resolve"] = types.YLeaf{"PathsetViaResolve", localLabel.PathsetViaResolve}
-    localLabel.EntityData.Leafs["backup-pathset-via-resolve"] = types.YLeaf{"BackupPathsetViaResolve", localLabel.BackupPathsetViaResolve}
-    localLabel.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", localLabel.AddressFamily}
+    localLabel.EntityData.Leafs = types.NewOrderedMap()
+    localLabel.EntityData.Leafs.Append("local-label-id", types.YLeaf{"LocalLabelId", localLabel.LocalLabelId})
+    localLabel.EntityData.Leafs.Append("label", types.YLeaf{"Label", localLabel.Label})
+    localLabel.EntityData.Leafs.Append("label-mode", types.YLeaf{"LabelMode", localLabel.LabelMode})
+    localLabel.EntityData.Leafs.Append("label-status", types.YLeaf{"LabelStatus", localLabel.LabelStatus})
+    localLabel.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", localLabel.VrfName})
+    localLabel.EntityData.Leafs.Append("pathset-via-resolve", types.YLeaf{"PathsetViaResolve", localLabel.PathsetViaResolve})
+    localLabel.EntityData.Leafs.Append("backup-pathset-via-resolve", types.YLeaf{"BackupPathsetViaResolve", localLabel.BackupPathsetViaResolve})
+    localLabel.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", localLabel.AddressFamily})
+
+    localLabel.EntityData.YListKeys = []string {"LocalLabelId"}
+
     return &(localLabel.EntityData)
 }
 
@@ -1507,7 +1600,7 @@ type MplsStatic_LocalLabels_LocalLabel_Prefix struct {
     PrefixLength interface{}
 
     // Prefix.
-    Prefix MplsStatic_LocalLabels_LocalLabel_Prefix_Prefix_
+    Prefix MplsStatic_LocalLabels_LocalLabel_Prefix_Prefix
 }
 
 func (prefix *MplsStatic_LocalLabels_LocalLabel_Prefix) GetEntityData() *types.CommonEntityData {
@@ -1520,16 +1613,19 @@ func (prefix *MplsStatic_LocalLabels_LocalLabel_Prefix) GetEntityData() *types.C
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefix.EntityData.Children = make(map[string]types.YChild)
-    prefix.EntityData.Children["prefix"] = types.YChild{"Prefix", &prefix.Prefix}
-    prefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefix.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", prefix.PrefixLength}
+    prefix.EntityData.Children = types.NewOrderedMap()
+    prefix.EntityData.Children.Append("prefix", types.YChild{"Prefix", &prefix.Prefix})
+    prefix.EntityData.Leafs = types.NewOrderedMap()
+    prefix.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", prefix.PrefixLength})
+
+    prefix.EntityData.YListKeys = []string {}
+
     return &(prefix.EntityData)
 }
 
-// MplsStatic_LocalLabels_LocalLabel_Prefix_Prefix_
+// MplsStatic_LocalLabels_LocalLabel_Prefix_Prefix
 // Prefix
-type MplsStatic_LocalLabels_LocalLabel_Prefix_Prefix_ struct {
+type MplsStatic_LocalLabels_LocalLabel_Prefix_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1537,30 +1633,33 @@ type MplsStatic_LocalLabels_LocalLabel_Prefix_Prefix_ struct {
     AfName interface{}
 
     // IPv4 context. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Prefix interface{}
 
     // IPv6 context. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Prefix interface{}
 }
 
-func (prefix_ *MplsStatic_LocalLabels_LocalLabel_Prefix_Prefix_) GetEntityData() *types.CommonEntityData {
-    prefix_.EntityData.YFilter = prefix_.YFilter
-    prefix_.EntityData.YangName = "prefix"
-    prefix_.EntityData.BundleName = "cisco_ios_xr"
-    prefix_.EntityData.ParentYangName = "prefix"
-    prefix_.EntityData.SegmentPath = "prefix"
-    prefix_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    prefix_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    prefix_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (prefix *MplsStatic_LocalLabels_LocalLabel_Prefix_Prefix) GetEntityData() *types.CommonEntityData {
+    prefix.EntityData.YFilter = prefix.YFilter
+    prefix.EntityData.YangName = "prefix"
+    prefix.EntityData.BundleName = "cisco_ios_xr"
+    prefix.EntityData.ParentYangName = "prefix"
+    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefix_.EntityData.Children = make(map[string]types.YChild)
-    prefix_.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefix_.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", prefix_.AfName}
-    prefix_.EntityData.Leafs["ipv4-prefix"] = types.YLeaf{"Ipv4Prefix", prefix_.Ipv4Prefix}
-    prefix_.EntityData.Leafs["ipv6-prefix"] = types.YLeaf{"Ipv6Prefix", prefix_.Ipv6Prefix}
-    return &(prefix_.EntityData)
+    prefix.EntityData.Children = types.NewOrderedMap()
+    prefix.EntityData.Leafs = types.NewOrderedMap()
+    prefix.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", prefix.AfName})
+    prefix.EntityData.Leafs.Append("ipv4-prefix", types.YLeaf{"Ipv4Prefix", prefix.Ipv4Prefix})
+    prefix.EntityData.Leafs.Append("ipv6-prefix", types.YLeaf{"Ipv6Prefix", prefix.Ipv6Prefix})
+
+    prefix.EntityData.YListKeys = []string {}
+
+    return &(prefix.EntityData)
 }
 
 // MplsStatic_LocalLabels_LocalLabel_PathsetResolveNh
@@ -1573,11 +1672,11 @@ type MplsStatic_LocalLabels_LocalLabel_PathsetResolveNh struct {
     AfName interface{}
 
     // IPv4 context. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Prefix interface{}
 
     // IPv6 context. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Prefix interface{}
 }
 
@@ -1591,11 +1690,14 @@ func (pathsetResolveNh *MplsStatic_LocalLabels_LocalLabel_PathsetResolveNh) GetE
     pathsetResolveNh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathsetResolveNh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pathsetResolveNh.EntityData.Children = make(map[string]types.YChild)
-    pathsetResolveNh.EntityData.Leafs = make(map[string]types.YLeaf)
-    pathsetResolveNh.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", pathsetResolveNh.AfName}
-    pathsetResolveNh.EntityData.Leafs["ipv4-prefix"] = types.YLeaf{"Ipv4Prefix", pathsetResolveNh.Ipv4Prefix}
-    pathsetResolveNh.EntityData.Leafs["ipv6-prefix"] = types.YLeaf{"Ipv6Prefix", pathsetResolveNh.Ipv6Prefix}
+    pathsetResolveNh.EntityData.Children = types.NewOrderedMap()
+    pathsetResolveNh.EntityData.Leafs = types.NewOrderedMap()
+    pathsetResolveNh.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", pathsetResolveNh.AfName})
+    pathsetResolveNh.EntityData.Leafs.Append("ipv4-prefix", types.YLeaf{"Ipv4Prefix", pathsetResolveNh.Ipv4Prefix})
+    pathsetResolveNh.EntityData.Leafs.Append("ipv6-prefix", types.YLeaf{"Ipv6Prefix", pathsetResolveNh.Ipv6Prefix})
+
+    pathsetResolveNh.EntityData.YListKeys = []string {}
+
     return &(pathsetResolveNh.EntityData)
 }
 
@@ -1609,11 +1711,11 @@ type MplsStatic_LocalLabels_LocalLabel_BackupPathsetResolveNh struct {
     AfName interface{}
 
     // IPv4 context. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Prefix interface{}
 
     // IPv6 context. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Prefix interface{}
 }
 
@@ -1627,11 +1729,14 @@ func (backupPathsetResolveNh *MplsStatic_LocalLabels_LocalLabel_BackupPathsetRes
     backupPathsetResolveNh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupPathsetResolveNh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    backupPathsetResolveNh.EntityData.Children = make(map[string]types.YChild)
-    backupPathsetResolveNh.EntityData.Leafs = make(map[string]types.YLeaf)
-    backupPathsetResolveNh.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", backupPathsetResolveNh.AfName}
-    backupPathsetResolveNh.EntityData.Leafs["ipv4-prefix"] = types.YLeaf{"Ipv4Prefix", backupPathsetResolveNh.Ipv4Prefix}
-    backupPathsetResolveNh.EntityData.Leafs["ipv6-prefix"] = types.YLeaf{"Ipv6Prefix", backupPathsetResolveNh.Ipv6Prefix}
+    backupPathsetResolveNh.EntityData.Children = types.NewOrderedMap()
+    backupPathsetResolveNh.EntityData.Leafs = types.NewOrderedMap()
+    backupPathsetResolveNh.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", backupPathsetResolveNh.AfName})
+    backupPathsetResolveNh.EntityData.Leafs.Append("ipv4-prefix", types.YLeaf{"Ipv4Prefix", backupPathsetResolveNh.Ipv4Prefix})
+    backupPathsetResolveNh.EntityData.Leafs.Append("ipv6-prefix", types.YLeaf{"Ipv6Prefix", backupPathsetResolveNh.Ipv6Prefix})
+
+    backupPathsetResolveNh.EntityData.YListKeys = []string {}
+
     return &(backupPathsetResolveNh.EntityData)
 }
 
@@ -1645,7 +1750,7 @@ type MplsStatic_LocalLabels_LocalLabel_PathInfo struct {
     PathNumber interface{}
 
     // Path Type. The type is MgmtStaticPath.
-    Type_ interface{}
+    Type interface{}
 
     // Path Role. The type is MplsStaticPathRole.
     PathRole interface{}
@@ -1673,15 +1778,18 @@ func (pathInfo *MplsStatic_LocalLabels_LocalLabel_PathInfo) GetEntityData() *typ
     pathInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pathInfo.EntityData.Children = make(map[string]types.YChild)
-    pathInfo.EntityData.Children["nexthop"] = types.YChild{"Nexthop", &pathInfo.Nexthop}
-    pathInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    pathInfo.EntityData.Leafs["path-number"] = types.YLeaf{"PathNumber", pathInfo.PathNumber}
-    pathInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", pathInfo.Type_}
-    pathInfo.EntityData.Leafs["path-role"] = types.YLeaf{"PathRole", pathInfo.PathRole}
-    pathInfo.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", pathInfo.PathId}
-    pathInfo.EntityData.Leafs["backup-id"] = types.YLeaf{"BackupId", pathInfo.BackupId}
-    pathInfo.EntityData.Leafs["status"] = types.YLeaf{"Status", pathInfo.Status}
+    pathInfo.EntityData.Children = types.NewOrderedMap()
+    pathInfo.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &pathInfo.Nexthop})
+    pathInfo.EntityData.Leafs = types.NewOrderedMap()
+    pathInfo.EntityData.Leafs.Append("path-number", types.YLeaf{"PathNumber", pathInfo.PathNumber})
+    pathInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", pathInfo.Type})
+    pathInfo.EntityData.Leafs.Append("path-role", types.YLeaf{"PathRole", pathInfo.PathRole})
+    pathInfo.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", pathInfo.PathId})
+    pathInfo.EntityData.Leafs.Append("backup-id", types.YLeaf{"BackupId", pathInfo.BackupId})
+    pathInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", pathInfo.Status})
+
+    pathInfo.EntityData.YListKeys = []string {}
+
     return &(pathInfo.EntityData)
 }
 
@@ -1714,12 +1822,15 @@ func (nexthop *MplsStatic_LocalLabels_LocalLabel_PathInfo_Nexthop) GetEntityData
     nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nexthop.EntityData.Children = make(map[string]types.YChild)
-    nexthop.EntityData.Children["address"] = types.YChild{"Address", &nexthop.Address}
-    nexthop.EntityData.Leafs = make(map[string]types.YLeaf)
-    nexthop.EntityData.Leafs["label"] = types.YLeaf{"Label", nexthop.Label}
-    nexthop.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", nexthop.InterfaceName}
-    nexthop.EntityData.Leafs["afi"] = types.YLeaf{"Afi", nexthop.Afi}
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Children.Append("address", types.YChild{"Address", &nexthop.Address})
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("label", types.YLeaf{"Label", nexthop.Label})
+    nexthop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", nexthop.InterfaceName})
+    nexthop.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", nexthop.Afi})
+
+    nexthop.EntityData.YListKeys = []string {}
+
     return &(nexthop.EntityData)
 }
 
@@ -1733,11 +1844,11 @@ type MplsStatic_LocalLabels_LocalLabel_PathInfo_Nexthop_Address struct {
     AfName interface{}
 
     // IPv4 context. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Prefix interface{}
 
     // IPv6 context. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Prefix interface{}
 }
 
@@ -1751,11 +1862,14 @@ func (address *MplsStatic_LocalLabels_LocalLabel_PathInfo_Nexthop_Address) GetEn
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", address.AfName}
-    address.EntityData.Leafs["ipv4-prefix"] = types.YLeaf{"Ipv4Prefix", address.Ipv4Prefix}
-    address.EntityData.Leafs["ipv6-prefix"] = types.YLeaf{"Ipv6Prefix", address.Ipv6Prefix}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", address.AfName})
+    address.EntityData.Leafs.Append("ipv4-prefix", types.YLeaf{"Ipv4Prefix", address.Ipv4Prefix})
+    address.EntityData.Leafs.Append("ipv6-prefix", types.YLeaf{"Ipv6Prefix", address.Ipv6Prefix})
+
+    address.EntityData.YListKeys = []string {}
+
     return &(address.EntityData)
 }
 
@@ -1769,7 +1883,7 @@ type MplsStatic_LocalLabels_LocalLabel_BackupPathInfo struct {
     PathNumber interface{}
 
     // Path Type. The type is MgmtStaticPath.
-    Type_ interface{}
+    Type interface{}
 
     // Path Role. The type is MplsStaticPathRole.
     PathRole interface{}
@@ -1797,15 +1911,18 @@ func (backupPathInfo *MplsStatic_LocalLabels_LocalLabel_BackupPathInfo) GetEntit
     backupPathInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupPathInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    backupPathInfo.EntityData.Children = make(map[string]types.YChild)
-    backupPathInfo.EntityData.Children["nexthop"] = types.YChild{"Nexthop", &backupPathInfo.Nexthop}
-    backupPathInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    backupPathInfo.EntityData.Leafs["path-number"] = types.YLeaf{"PathNumber", backupPathInfo.PathNumber}
-    backupPathInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", backupPathInfo.Type_}
-    backupPathInfo.EntityData.Leafs["path-role"] = types.YLeaf{"PathRole", backupPathInfo.PathRole}
-    backupPathInfo.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", backupPathInfo.PathId}
-    backupPathInfo.EntityData.Leafs["backup-id"] = types.YLeaf{"BackupId", backupPathInfo.BackupId}
-    backupPathInfo.EntityData.Leafs["status"] = types.YLeaf{"Status", backupPathInfo.Status}
+    backupPathInfo.EntityData.Children = types.NewOrderedMap()
+    backupPathInfo.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &backupPathInfo.Nexthop})
+    backupPathInfo.EntityData.Leafs = types.NewOrderedMap()
+    backupPathInfo.EntityData.Leafs.Append("path-number", types.YLeaf{"PathNumber", backupPathInfo.PathNumber})
+    backupPathInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", backupPathInfo.Type})
+    backupPathInfo.EntityData.Leafs.Append("path-role", types.YLeaf{"PathRole", backupPathInfo.PathRole})
+    backupPathInfo.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", backupPathInfo.PathId})
+    backupPathInfo.EntityData.Leafs.Append("backup-id", types.YLeaf{"BackupId", backupPathInfo.BackupId})
+    backupPathInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", backupPathInfo.Status})
+
+    backupPathInfo.EntityData.YListKeys = []string {}
+
     return &(backupPathInfo.EntityData)
 }
 
@@ -1838,12 +1955,15 @@ func (nexthop *MplsStatic_LocalLabels_LocalLabel_BackupPathInfo_Nexthop) GetEnti
     nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nexthop.EntityData.Children = make(map[string]types.YChild)
-    nexthop.EntityData.Children["address"] = types.YChild{"Address", &nexthop.Address}
-    nexthop.EntityData.Leafs = make(map[string]types.YLeaf)
-    nexthop.EntityData.Leafs["label"] = types.YLeaf{"Label", nexthop.Label}
-    nexthop.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", nexthop.InterfaceName}
-    nexthop.EntityData.Leafs["afi"] = types.YLeaf{"Afi", nexthop.Afi}
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Children.Append("address", types.YChild{"Address", &nexthop.Address})
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("label", types.YLeaf{"Label", nexthop.Label})
+    nexthop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", nexthop.InterfaceName})
+    nexthop.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", nexthop.Afi})
+
+    nexthop.EntityData.YListKeys = []string {}
+
     return &(nexthop.EntityData)
 }
 
@@ -1857,11 +1977,11 @@ type MplsStatic_LocalLabels_LocalLabel_BackupPathInfo_Nexthop_Address struct {
     AfName interface{}
 
     // IPv4 context. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Prefix interface{}
 
     // IPv6 context. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Prefix interface{}
 }
 
@@ -1875,11 +1995,14 @@ func (address *MplsStatic_LocalLabels_LocalLabel_BackupPathInfo_Nexthop_Address)
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", address.AfName}
-    address.EntityData.Leafs["ipv4-prefix"] = types.YLeaf{"Ipv4Prefix", address.Ipv4Prefix}
-    address.EntityData.Leafs["ipv6-prefix"] = types.YLeaf{"Ipv6Prefix", address.Ipv6Prefix}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", address.AfName})
+    address.EntityData.Leafs.Append("ipv4-prefix", types.YLeaf{"Ipv4Prefix", address.Ipv4Prefix})
+    address.EntityData.Leafs.Append("ipv6-prefix", types.YLeaf{"Ipv6Prefix", address.Ipv6Prefix})
+
+    address.EntityData.YListKeys = []string {}
+
     return &(address.EntityData)
 }
 

@@ -39,6 +39,10 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -417,7 +421,7 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
             description
               "A server to include in the server group";
             leaf ordering-index {
-              type int32;
+              type uint32;
               description
                 "This is used to sort the servers in the
                  order of precedence";

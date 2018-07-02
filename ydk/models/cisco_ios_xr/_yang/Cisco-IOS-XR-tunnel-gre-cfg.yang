@@ -35,6 +35,10 @@ module Cisco-IOS-XR-tunnel-gre-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -76,7 +80,7 @@ module Cisco-IOS-XR-tunnel-gre-cfg {
         description
           "Tunnel encapsulation method";
         leaf value {
-          type int32;
+          type uint32;
           description
             "GRE IPV4 - 1, GRE IPV6 - 2, MGRE IPV4 - 3,
              MGRE IPV6 -4. IPV4 - 5, IPV6 - 6";
@@ -91,7 +95,7 @@ module Cisco-IOS-XR-tunnel-gre-cfg {
         description
           "Configure source of tunnel";
         leaf type {
-          type int32;
+          type uint32;
           description
             "1 for Interface Name, 2 for IPv4 Address, 3
              for IPv6 Address";
@@ -152,7 +156,7 @@ module Cisco-IOS-XR-tunnel-gre-cfg {
         description
           "Configure destination of tunnel";
         leaf type {
-          type int32;
+          type uint32;
           description
             "1 for IPv4 Address, 2 for IPv6 Address";
         }
@@ -208,7 +212,7 @@ module Cisco-IOS-XR-tunnel-gre-cfg {
           "Configure Type of Service bits for this tunnel";
       }
       leaf disable {
-        type int32;
+        type uint32;
         description
           "Disable DF bit (i.e. allow fragmentation)";
       }

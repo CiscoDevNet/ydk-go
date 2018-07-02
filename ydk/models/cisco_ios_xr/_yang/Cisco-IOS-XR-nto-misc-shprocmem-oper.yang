@@ -56,7 +56,7 @@ module Cisco-IOS-XR-nto-misc-shprocmem-oper {
             description
               "Job Id";
             leaf job-id {
-              type int32;
+              type uint32;
               description
                 "Job Id";
             }

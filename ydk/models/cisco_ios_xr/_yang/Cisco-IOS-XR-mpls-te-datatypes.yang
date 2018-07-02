@@ -407,11 +407,6 @@ module Cisco-IOS-XR-mpls-te-datatypes {
         description
           "TE Metric";
       }
-      enum "delay" {
-        value 4;
-        description
-          "DELAY Metric";
-      }
     }
     description
       "Mpls te path selection metric";
@@ -545,6 +540,14 @@ module Cisco-IOS-XR-mpls-te-datatypes {
     }
     description
       "Ctype";
+  }
+
+  typedef Attribute-set-affinity-name-length {
+    type xr:Cisco-ios-xr-string {
+      length "1..64";
+    }
+    description
+      "Attribute set affinity name length";
   }
 
   typedef Mpls-te-path-diversity-conformance {

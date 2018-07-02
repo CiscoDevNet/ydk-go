@@ -26,7 +26,7 @@ type TcamDetails struct {
     YFilter yfilter.YFilter
 
     // FED ASIC TCAM Utilization. The type is slice of TcamDetails_TcamDetail.
-    TcamDetail []TcamDetails_TcamDetail
+    TcamDetail []*TcamDetails_TcamDetail
 }
 
 func (tcamDetails *TcamDetails) GetEntityData() *types.CommonEntityData {
@@ -39,12 +39,15 @@ func (tcamDetails *TcamDetails) GetEntityData() *types.CommonEntityData {
     tcamDetails.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcamDetails.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tcamDetails.EntityData.Children = make(map[string]types.YChild)
-    tcamDetails.EntityData.Children["tcam-detail"] = types.YChild{"TcamDetail", nil}
+    tcamDetails.EntityData.Children = types.NewOrderedMap()
+    tcamDetails.EntityData.Children.Append("tcam-detail", types.YChild{"TcamDetail", nil})
     for i := range tcamDetails.TcamDetail {
-        tcamDetails.EntityData.Children[types.GetSegmentPath(&tcamDetails.TcamDetail[i])] = types.YChild{"TcamDetail", &tcamDetails.TcamDetail[i]}
+        tcamDetails.EntityData.Children.Append(types.GetSegmentPath(tcamDetails.TcamDetail[i]), types.YChild{"TcamDetail", tcamDetails.TcamDetail[i]})
     }
-    tcamDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    tcamDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    tcamDetails.EntityData.YListKeys = []string {}
+
     return &(tcamDetails.EntityData)
 }
 
@@ -79,19 +82,22 @@ func (tcamDetail *TcamDetails_TcamDetail) GetEntityData() *types.CommonEntityDat
     tcamDetail.EntityData.YangName = "tcam-detail"
     tcamDetail.EntityData.BundleName = "cisco_ios_xe"
     tcamDetail.EntityData.ParentYangName = "tcam-details"
-    tcamDetail.EntityData.SegmentPath = "tcam-detail" + "[asic-no='" + fmt.Sprintf("%v", tcamDetail.AsicNo) + "']" + "[name='" + fmt.Sprintf("%v", tcamDetail.Name) + "']"
+    tcamDetail.EntityData.SegmentPath = "tcam-detail" + types.AddKeyToken(tcamDetail.AsicNo, "asic-no") + types.AddKeyToken(tcamDetail.Name, "name")
     tcamDetail.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tcamDetail.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcamDetail.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tcamDetail.EntityData.Children = make(map[string]types.YChild)
-    tcamDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcamDetail.EntityData.Leafs["asic-no"] = types.YLeaf{"AsicNo", tcamDetail.AsicNo}
-    tcamDetail.EntityData.Leafs["name"] = types.YLeaf{"Name", tcamDetail.Name}
-    tcamDetail.EntityData.Leafs["hash-entries-max"] = types.YLeaf{"HashEntriesMax", tcamDetail.HashEntriesMax}
-    tcamDetail.EntityData.Leafs["tcam-entries-max"] = types.YLeaf{"TcamEntriesMax", tcamDetail.TcamEntriesMax}
-    tcamDetail.EntityData.Leafs["hash-entries-used"] = types.YLeaf{"HashEntriesUsed", tcamDetail.HashEntriesUsed}
-    tcamDetail.EntityData.Leafs["tcam-entries-used"] = types.YLeaf{"TcamEntriesUsed", tcamDetail.TcamEntriesUsed}
+    tcamDetail.EntityData.Children = types.NewOrderedMap()
+    tcamDetail.EntityData.Leafs = types.NewOrderedMap()
+    tcamDetail.EntityData.Leafs.Append("asic-no", types.YLeaf{"AsicNo", tcamDetail.AsicNo})
+    tcamDetail.EntityData.Leafs.Append("name", types.YLeaf{"Name", tcamDetail.Name})
+    tcamDetail.EntityData.Leafs.Append("hash-entries-max", types.YLeaf{"HashEntriesMax", tcamDetail.HashEntriesMax})
+    tcamDetail.EntityData.Leafs.Append("tcam-entries-max", types.YLeaf{"TcamEntriesMax", tcamDetail.TcamEntriesMax})
+    tcamDetail.EntityData.Leafs.Append("hash-entries-used", types.YLeaf{"HashEntriesUsed", tcamDetail.HashEntriesUsed})
+    tcamDetail.EntityData.Leafs.Append("tcam-entries-used", types.YLeaf{"TcamEntriesUsed", tcamDetail.TcamEntriesUsed})
+
+    tcamDetail.EntityData.YListKeys = []string {"AsicNo", "Name"}
+
     return &(tcamDetail.EntityData)
 }
 

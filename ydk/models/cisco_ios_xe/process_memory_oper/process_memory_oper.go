@@ -27,7 +27,7 @@ type MemoryUsageProcesses struct {
 
     // The list of software processes on the device. The type is slice of
     // MemoryUsageProcesses_MemoryUsageProcess.
-    MemoryUsageProcess []MemoryUsageProcesses_MemoryUsageProcess
+    MemoryUsageProcess []*MemoryUsageProcesses_MemoryUsageProcess
 }
 
 func (memoryUsageProcesses *MemoryUsageProcesses) GetEntityData() *types.CommonEntityData {
@@ -40,12 +40,15 @@ func (memoryUsageProcesses *MemoryUsageProcesses) GetEntityData() *types.CommonE
     memoryUsageProcesses.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     memoryUsageProcesses.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    memoryUsageProcesses.EntityData.Children = make(map[string]types.YChild)
-    memoryUsageProcesses.EntityData.Children["memory-usage-process"] = types.YChild{"MemoryUsageProcess", nil}
+    memoryUsageProcesses.EntityData.Children = types.NewOrderedMap()
+    memoryUsageProcesses.EntityData.Children.Append("memory-usage-process", types.YChild{"MemoryUsageProcess", nil})
     for i := range memoryUsageProcesses.MemoryUsageProcess {
-        memoryUsageProcesses.EntityData.Children[types.GetSegmentPath(&memoryUsageProcesses.MemoryUsageProcess[i])] = types.YChild{"MemoryUsageProcess", &memoryUsageProcesses.MemoryUsageProcess[i]}
+        memoryUsageProcesses.EntityData.Children.Append(types.GetSegmentPath(memoryUsageProcesses.MemoryUsageProcess[i]), types.YChild{"MemoryUsageProcess", memoryUsageProcesses.MemoryUsageProcess[i]})
     }
-    memoryUsageProcesses.EntityData.Leafs = make(map[string]types.YLeaf)
+    memoryUsageProcesses.EntityData.Leafs = types.NewOrderedMap()
+
+    memoryUsageProcesses.EntityData.YListKeys = []string {}
+
     return &(memoryUsageProcesses.EntityData)
 }
 
@@ -91,21 +94,24 @@ func (memoryUsageProcess *MemoryUsageProcesses_MemoryUsageProcess) GetEntityData
     memoryUsageProcess.EntityData.YangName = "memory-usage-process"
     memoryUsageProcess.EntityData.BundleName = "cisco_ios_xe"
     memoryUsageProcess.EntityData.ParentYangName = "memory-usage-processes"
-    memoryUsageProcess.EntityData.SegmentPath = "memory-usage-process" + "[pid='" + fmt.Sprintf("%v", memoryUsageProcess.Pid) + "']" + "[name='" + fmt.Sprintf("%v", memoryUsageProcess.Name) + "']"
+    memoryUsageProcess.EntityData.SegmentPath = "memory-usage-process" + types.AddKeyToken(memoryUsageProcess.Pid, "pid") + types.AddKeyToken(memoryUsageProcess.Name, "name")
     memoryUsageProcess.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     memoryUsageProcess.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     memoryUsageProcess.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    memoryUsageProcess.EntityData.Children = make(map[string]types.YChild)
-    memoryUsageProcess.EntityData.Leafs = make(map[string]types.YLeaf)
-    memoryUsageProcess.EntityData.Leafs["pid"] = types.YLeaf{"Pid", memoryUsageProcess.Pid}
-    memoryUsageProcess.EntityData.Leafs["name"] = types.YLeaf{"Name", memoryUsageProcess.Name}
-    memoryUsageProcess.EntityData.Leafs["tty"] = types.YLeaf{"Tty", memoryUsageProcess.Tty}
-    memoryUsageProcess.EntityData.Leafs["allocated-memory"] = types.YLeaf{"AllocatedMemory", memoryUsageProcess.AllocatedMemory}
-    memoryUsageProcess.EntityData.Leafs["freed-memory"] = types.YLeaf{"FreedMemory", memoryUsageProcess.FreedMemory}
-    memoryUsageProcess.EntityData.Leafs["holding-memory"] = types.YLeaf{"HoldingMemory", memoryUsageProcess.HoldingMemory}
-    memoryUsageProcess.EntityData.Leafs["get-buffers"] = types.YLeaf{"GetBuffers", memoryUsageProcess.GetBuffers}
-    memoryUsageProcess.EntityData.Leafs["ret-buffers"] = types.YLeaf{"RetBuffers", memoryUsageProcess.RetBuffers}
+    memoryUsageProcess.EntityData.Children = types.NewOrderedMap()
+    memoryUsageProcess.EntityData.Leafs = types.NewOrderedMap()
+    memoryUsageProcess.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", memoryUsageProcess.Pid})
+    memoryUsageProcess.EntityData.Leafs.Append("name", types.YLeaf{"Name", memoryUsageProcess.Name})
+    memoryUsageProcess.EntityData.Leafs.Append("tty", types.YLeaf{"Tty", memoryUsageProcess.Tty})
+    memoryUsageProcess.EntityData.Leafs.Append("allocated-memory", types.YLeaf{"AllocatedMemory", memoryUsageProcess.AllocatedMemory})
+    memoryUsageProcess.EntityData.Leafs.Append("freed-memory", types.YLeaf{"FreedMemory", memoryUsageProcess.FreedMemory})
+    memoryUsageProcess.EntityData.Leafs.Append("holding-memory", types.YLeaf{"HoldingMemory", memoryUsageProcess.HoldingMemory})
+    memoryUsageProcess.EntityData.Leafs.Append("get-buffers", types.YLeaf{"GetBuffers", memoryUsageProcess.GetBuffers})
+    memoryUsageProcess.EntityData.Leafs.Append("ret-buffers", types.YLeaf{"RetBuffers", memoryUsageProcess.RetBuffers})
+
+    memoryUsageProcess.EntityData.YListKeys = []string {"Pid", "Name"}
+
     return &(memoryUsageProcess.EntityData)
 }
 

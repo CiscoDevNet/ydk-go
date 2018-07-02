@@ -14,6 +14,17 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package tty_management_datatypes"))
 }
 
+// TtySessionTimeoutDirection represents Tty session timeout direction
+type TtySessionTimeoutDirection string
+
+const (
+    // Input traffic
+    TtySessionTimeoutDirection_in TtySessionTimeoutDirection = "in"
+
+    // In & Output traffic
+    TtySessionTimeoutDirection_in_out TtySessionTimeoutDirection = "in-out"
+)
+
 // TtyPager represents Tty pager
 type TtyPager string
 
@@ -42,31 +53,6 @@ const (
     TtyEscapeChar_none TtyEscapeChar = "none"
 )
 
-// TtyTransportProtocolSelect represents Tty transport protocol select
-type TtyTransportProtocolSelect string
-
-const (
-    // No protocols
-    TtyTransportProtocolSelect_none TtyTransportProtocolSelect = "none"
-
-    // All protocols
-    TtyTransportProtocolSelect_all TtyTransportProtocolSelect = "all"
-
-    // Some Protocol
-    TtyTransportProtocolSelect_some TtyTransportProtocolSelect = "some"
-)
-
-// TtySessionTimeoutDirection represents Tty session timeout direction
-type TtySessionTimeoutDirection string
-
-const (
-    // Input traffic
-    TtySessionTimeoutDirection_in TtySessionTimeoutDirection = "in"
-
-    // In & Output traffic
-    TtySessionTimeoutDirection_in_out TtySessionTimeoutDirection = "in-out"
-)
-
 // TtyTransportProtocol represents Tty transport protocol
 type TtyTransportProtocol string
 
@@ -79,5 +65,19 @@ const (
 
     // Unix ssh protocol
     TtyTransportProtocol_ssh TtyTransportProtocol = "ssh"
+)
+
+// TtyTransportProtocolSelect represents Tty transport protocol select
+type TtyTransportProtocolSelect string
+
+const (
+    // No protocols
+    TtyTransportProtocolSelect_none TtyTransportProtocolSelect = "none"
+
+    // All protocols
+    TtyTransportProtocolSelect_all TtyTransportProtocolSelect = "all"
+
+    // Some Protocol
+    TtyTransportProtocolSelect_some TtyTransportProtocolSelect = "some"
 )
 

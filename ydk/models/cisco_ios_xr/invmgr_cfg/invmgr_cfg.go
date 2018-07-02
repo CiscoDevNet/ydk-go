@@ -31,7 +31,7 @@ type InventoryConfigurations struct {
     YFilter yfilter.YFilter
 
     // Entity name. The type is slice of InventoryConfigurations_Entity.
-    Entity []InventoryConfigurations_Entity
+    Entity []*InventoryConfigurations_Entity
 }
 
 func (inventoryConfigurations *InventoryConfigurations) GetEntityData() *types.CommonEntityData {
@@ -44,12 +44,15 @@ func (inventoryConfigurations *InventoryConfigurations) GetEntityData() *types.C
     inventoryConfigurations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventoryConfigurations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inventoryConfigurations.EntityData.Children = make(map[string]types.YChild)
-    inventoryConfigurations.EntityData.Children["entity"] = types.YChild{"Entity", nil}
+    inventoryConfigurations.EntityData.Children = types.NewOrderedMap()
+    inventoryConfigurations.EntityData.Children.Append("entity", types.YChild{"Entity", nil})
     for i := range inventoryConfigurations.Entity {
-        inventoryConfigurations.EntityData.Children[types.GetSegmentPath(&inventoryConfigurations.Entity[i])] = types.YChild{"Entity", &inventoryConfigurations.Entity[i]}
+        inventoryConfigurations.EntityData.Children.Append(types.GetSegmentPath(inventoryConfigurations.Entity[i]), types.YChild{"Entity", inventoryConfigurations.Entity[i]})
     }
-    inventoryConfigurations.EntityData.Leafs = make(map[string]types.YLeaf)
+    inventoryConfigurations.EntityData.Leafs = types.NewOrderedMap()
+
+    inventoryConfigurations.EntityData.YListKeys = []string {}
+
     return &(inventoryConfigurations.EntityData)
 }
 
@@ -71,15 +74,18 @@ func (entity *InventoryConfigurations_Entity) GetEntityData() *types.CommonEntit
     entity.EntityData.YangName = "entity"
     entity.EntityData.BundleName = "cisco_ios_xr"
     entity.EntityData.ParentYangName = "inventory-configurations"
-    entity.EntityData.SegmentPath = "entity" + "[name='" + fmt.Sprintf("%v", entity.Name) + "']"
+    entity.EntityData.SegmentPath = "entity" + types.AddKeyToken(entity.Name, "name")
     entity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entity.EntityData.Children = make(map[string]types.YChild)
-    entity.EntityData.Leafs = make(map[string]types.YLeaf)
-    entity.EntityData.Leafs["name"] = types.YLeaf{"Name", entity.Name}
-    entity.EntityData.Leafs["name-xr"] = types.YLeaf{"NameXr", entity.NameXr}
+    entity.EntityData.Children = types.NewOrderedMap()
+    entity.EntityData.Leafs = types.NewOrderedMap()
+    entity.EntityData.Leafs.Append("name", types.YLeaf{"Name", entity.Name})
+    entity.EntityData.Leafs.Append("name-xr", types.YLeaf{"NameXr", entity.NameXr})
+
+    entity.EntityData.YListKeys = []string {"Name"}
+
     return &(entity.EntityData)
 }
 

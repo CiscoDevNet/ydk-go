@@ -25,45 +25,45 @@ type ATMMIB struct {
     YFilter yfilter.YFilter
 
     
-    Atmmibobjects ATMMIB_Atmmibobjects
+    AtmMIBObjects ATMMIB_AtmMIBObjects
 
     // This table contains ATM local interface configuration parameters, one entry
     // per ATM interface port.
-    Atminterfaceconftable ATMMIB_Atminterfaceconftable
+    AtmInterfaceConfTable ATMMIB_AtmInterfaceConfTable
 
     // This table contains ATM interface DS3 PLCP parameters and state variables,
     // one entry per ATM interface port.
-    Atminterfaceds3Plcptable ATMMIB_Atminterfaceds3Plcptable
+    AtmInterfaceDs3PlcpTable ATMMIB_AtmInterfaceDs3PlcpTable
 
     // This table contains ATM interface TC Sublayer parameters and state
     // variables, one entry per ATM interface port.
-    Atminterfacetctable ATMMIB_Atminterfacetctable
+    AtmInterfaceTCTable ATMMIB_AtmInterfaceTCTable
 
     // This table contains information on ATM traffic descriptor type and the
     // associated parameters.
-    Atmtrafficdescrparamtable ATMMIB_Atmtrafficdescrparamtable
+    AtmTrafficDescrParamTable ATMMIB_AtmTrafficDescrParamTable
 
     // The Virtual Path Link (VPL) table.  A bi-directional VPL is modeled as one
     // entry in this table. This table can be used for PVCs, SVCs and Soft PVCs.
     // Entries are not present in this table for the VPIs used by entries in the
     // atmVclTable.
-    Atmvpltable ATMMIB_Atmvpltable
+    AtmVplTable ATMMIB_AtmVplTable
 
     // The Virtual Channel Link (VCL) table.  A bi-directional VCL is modeled as
     // one entry in this table. This table can be used for PVCs, SVCs and Soft
     // PVCs.
-    Atmvcltable ATMMIB_Atmvcltable
+    AtmVclTable ATMMIB_AtmVclTable
 
     // The ATM VP Cross Connect table for PVCs. An entry in this table models two
     // cross-connected VPLs. Each VPL must have its atmConnKind set to pvc(1).
-    Atmvpcrossconnecttable ATMMIB_Atmvpcrossconnecttable
+    AtmVpCrossConnectTable ATMMIB_AtmVpCrossConnectTable
 
     // The ATM VC Cross Connect table for PVCs. An entry in this table models two
     // cross-connected VCLs. Each VCL must have its atmConnKind set to pvc(1).
-    Atmvccrossconnecttable ATMMIB_Atmvccrossconnecttable
+    AtmVcCrossConnectTable ATMMIB_AtmVcCrossConnectTable
 
     // This table contains AAL5 VCC performance parameters.
-    Aal5Vcctable ATMMIB_Aal5Vcctable
+    Aal5VccTable ATMMIB_Aal5VccTable
 }
 
 func (aTMMIB *ATMMIB) GetEntityData() *types.CommonEntityData {
@@ -76,23 +76,26 @@ func (aTMMIB *ATMMIB) GetEntityData() *types.CommonEntityData {
     aTMMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aTMMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    aTMMIB.EntityData.Children = make(map[string]types.YChild)
-    aTMMIB.EntityData.Children["atmMIBObjects"] = types.YChild{"Atmmibobjects", &aTMMIB.Atmmibobjects}
-    aTMMIB.EntityData.Children["atmInterfaceConfTable"] = types.YChild{"Atminterfaceconftable", &aTMMIB.Atminterfaceconftable}
-    aTMMIB.EntityData.Children["atmInterfaceDs3PlcpTable"] = types.YChild{"Atminterfaceds3Plcptable", &aTMMIB.Atminterfaceds3Plcptable}
-    aTMMIB.EntityData.Children["atmInterfaceTCTable"] = types.YChild{"Atminterfacetctable", &aTMMIB.Atminterfacetctable}
-    aTMMIB.EntityData.Children["atmTrafficDescrParamTable"] = types.YChild{"Atmtrafficdescrparamtable", &aTMMIB.Atmtrafficdescrparamtable}
-    aTMMIB.EntityData.Children["atmVplTable"] = types.YChild{"Atmvpltable", &aTMMIB.Atmvpltable}
-    aTMMIB.EntityData.Children["atmVclTable"] = types.YChild{"Atmvcltable", &aTMMIB.Atmvcltable}
-    aTMMIB.EntityData.Children["atmVpCrossConnectTable"] = types.YChild{"Atmvpcrossconnecttable", &aTMMIB.Atmvpcrossconnecttable}
-    aTMMIB.EntityData.Children["atmVcCrossConnectTable"] = types.YChild{"Atmvccrossconnecttable", &aTMMIB.Atmvccrossconnecttable}
-    aTMMIB.EntityData.Children["aal5VccTable"] = types.YChild{"Aal5Vcctable", &aTMMIB.Aal5Vcctable}
-    aTMMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    aTMMIB.EntityData.Children = types.NewOrderedMap()
+    aTMMIB.EntityData.Children.Append("atmMIBObjects", types.YChild{"AtmMIBObjects", &aTMMIB.AtmMIBObjects})
+    aTMMIB.EntityData.Children.Append("atmInterfaceConfTable", types.YChild{"AtmInterfaceConfTable", &aTMMIB.AtmInterfaceConfTable})
+    aTMMIB.EntityData.Children.Append("atmInterfaceDs3PlcpTable", types.YChild{"AtmInterfaceDs3PlcpTable", &aTMMIB.AtmInterfaceDs3PlcpTable})
+    aTMMIB.EntityData.Children.Append("atmInterfaceTCTable", types.YChild{"AtmInterfaceTCTable", &aTMMIB.AtmInterfaceTCTable})
+    aTMMIB.EntityData.Children.Append("atmTrafficDescrParamTable", types.YChild{"AtmTrafficDescrParamTable", &aTMMIB.AtmTrafficDescrParamTable})
+    aTMMIB.EntityData.Children.Append("atmVplTable", types.YChild{"AtmVplTable", &aTMMIB.AtmVplTable})
+    aTMMIB.EntityData.Children.Append("atmVclTable", types.YChild{"AtmVclTable", &aTMMIB.AtmVclTable})
+    aTMMIB.EntityData.Children.Append("atmVpCrossConnectTable", types.YChild{"AtmVpCrossConnectTable", &aTMMIB.AtmVpCrossConnectTable})
+    aTMMIB.EntityData.Children.Append("atmVcCrossConnectTable", types.YChild{"AtmVcCrossConnectTable", &aTMMIB.AtmVcCrossConnectTable})
+    aTMMIB.EntityData.Children.Append("aal5VccTable", types.YChild{"Aal5VccTable", &aTMMIB.Aal5VccTable})
+    aTMMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    aTMMIB.EntityData.YListKeys = []string {}
+
     return &(aTMMIB.EntityData)
 }
 
-// ATMMIB_Atmmibobjects
-type ATMMIB_Atmmibobjects struct {
+// ATMMIB_AtmMIBObjects
+type ATMMIB_AtmMIBObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -105,7 +108,7 @@ type ATMMIB_Atmmibobjects struct {
     // next unassigned index. After a manager retrieves a value the agent will
     // determine through its local policy when this index value will be made
     // available for reuse. The type is interface{} with range: 0..2147483647.
-    Atmvpcrossconnectindexnext interface{}
+    AtmVpCrossConnectIndexNext interface{}
 
     // This object contains an appropriate value to be used for
     // atmVcCrossConnectIndex when creating entries in the atmVcCrossConnectTable.
@@ -116,7 +119,7 @@ type ATMMIB_Atmmibobjects struct {
     // next unassigned index. After a manager retrieves a value the agent will
     // determine through its local policy when this index value will be made
     // available for reuse. The type is interface{} with range: 0..2147483647.
-    Atmvccrossconnectindexnext interface{}
+    AtmVcCrossConnectIndexNext interface{}
 
     // This object contains an appropriate value to be used for
     // atmTrafficDescrParamIndex when creating entries in the
@@ -128,80 +131,86 @@ type ATMMIB_Atmmibobjects struct {
     // retrieves a value the agent will determine through its local policy when
     // this index value will be made available for reuse. The type is interface{}
     // with range: 0..2147483647.
-    Atmtrafficdescrparamindexnext interface{}
+    AtmTrafficDescrParamIndexNext interface{}
 }
 
-func (atmmibobjects *ATMMIB_Atmmibobjects) GetEntityData() *types.CommonEntityData {
-    atmmibobjects.EntityData.YFilter = atmmibobjects.YFilter
-    atmmibobjects.EntityData.YangName = "atmMIBObjects"
-    atmmibobjects.EntityData.BundleName = "cisco_ios_xe"
-    atmmibobjects.EntityData.ParentYangName = "ATM-MIB"
-    atmmibobjects.EntityData.SegmentPath = "atmMIBObjects"
-    atmmibobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atmmibobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atmmibobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmMIBObjects *ATMMIB_AtmMIBObjects) GetEntityData() *types.CommonEntityData {
+    atmMIBObjects.EntityData.YFilter = atmMIBObjects.YFilter
+    atmMIBObjects.EntityData.YangName = "atmMIBObjects"
+    atmMIBObjects.EntityData.BundleName = "cisco_ios_xe"
+    atmMIBObjects.EntityData.ParentYangName = "ATM-MIB"
+    atmMIBObjects.EntityData.SegmentPath = "atmMIBObjects"
+    atmMIBObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmMIBObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmMIBObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atmmibobjects.EntityData.Children = make(map[string]types.YChild)
-    atmmibobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    atmmibobjects.EntityData.Leafs["atmVpCrossConnectIndexNext"] = types.YLeaf{"Atmvpcrossconnectindexnext", atmmibobjects.Atmvpcrossconnectindexnext}
-    atmmibobjects.EntityData.Leafs["atmVcCrossConnectIndexNext"] = types.YLeaf{"Atmvccrossconnectindexnext", atmmibobjects.Atmvccrossconnectindexnext}
-    atmmibobjects.EntityData.Leafs["atmTrafficDescrParamIndexNext"] = types.YLeaf{"Atmtrafficdescrparamindexnext", atmmibobjects.Atmtrafficdescrparamindexnext}
-    return &(atmmibobjects.EntityData)
+    atmMIBObjects.EntityData.Children = types.NewOrderedMap()
+    atmMIBObjects.EntityData.Leafs = types.NewOrderedMap()
+    atmMIBObjects.EntityData.Leafs.Append("atmVpCrossConnectIndexNext", types.YLeaf{"AtmVpCrossConnectIndexNext", atmMIBObjects.AtmVpCrossConnectIndexNext})
+    atmMIBObjects.EntityData.Leafs.Append("atmVcCrossConnectIndexNext", types.YLeaf{"AtmVcCrossConnectIndexNext", atmMIBObjects.AtmVcCrossConnectIndexNext})
+    atmMIBObjects.EntityData.Leafs.Append("atmTrafficDescrParamIndexNext", types.YLeaf{"AtmTrafficDescrParamIndexNext", atmMIBObjects.AtmTrafficDescrParamIndexNext})
+
+    atmMIBObjects.EntityData.YListKeys = []string {}
+
+    return &(atmMIBObjects.EntityData)
 }
 
-// ATMMIB_Atminterfaceconftable
+// ATMMIB_AtmInterfaceConfTable
 // This table contains ATM local interface
 // configuration parameters, one entry per ATM
 // interface port.
-type ATMMIB_Atminterfaceconftable struct {
+type ATMMIB_AtmInterfaceConfTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This list contains ATM interface configuration parameters and state
     // variables and is indexed by ifIndex values of ATM interfaces. The type is
-    // slice of ATMMIB_Atminterfaceconftable_Atminterfaceconfentry.
-    Atminterfaceconfentry []ATMMIB_Atminterfaceconftable_Atminterfaceconfentry
+    // slice of ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry.
+    AtmInterfaceConfEntry []*ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry
 }
 
-func (atminterfaceconftable *ATMMIB_Atminterfaceconftable) GetEntityData() *types.CommonEntityData {
-    atminterfaceconftable.EntityData.YFilter = atminterfaceconftable.YFilter
-    atminterfaceconftable.EntityData.YangName = "atmInterfaceConfTable"
-    atminterfaceconftable.EntityData.BundleName = "cisco_ios_xe"
-    atminterfaceconftable.EntityData.ParentYangName = "ATM-MIB"
-    atminterfaceconftable.EntityData.SegmentPath = "atmInterfaceConfTable"
-    atminterfaceconftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atminterfaceconftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atminterfaceconftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmInterfaceConfTable *ATMMIB_AtmInterfaceConfTable) GetEntityData() *types.CommonEntityData {
+    atmInterfaceConfTable.EntityData.YFilter = atmInterfaceConfTable.YFilter
+    atmInterfaceConfTable.EntityData.YangName = "atmInterfaceConfTable"
+    atmInterfaceConfTable.EntityData.BundleName = "cisco_ios_xe"
+    atmInterfaceConfTable.EntityData.ParentYangName = "ATM-MIB"
+    atmInterfaceConfTable.EntityData.SegmentPath = "atmInterfaceConfTable"
+    atmInterfaceConfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmInterfaceConfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmInterfaceConfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atminterfaceconftable.EntityData.Children = make(map[string]types.YChild)
-    atminterfaceconftable.EntityData.Children["atmInterfaceConfEntry"] = types.YChild{"Atminterfaceconfentry", nil}
-    for i := range atminterfaceconftable.Atminterfaceconfentry {
-        atminterfaceconftable.EntityData.Children[types.GetSegmentPath(&atminterfaceconftable.Atminterfaceconfentry[i])] = types.YChild{"Atminterfaceconfentry", &atminterfaceconftable.Atminterfaceconfentry[i]}
+    atmInterfaceConfTable.EntityData.Children = types.NewOrderedMap()
+    atmInterfaceConfTable.EntityData.Children.Append("atmInterfaceConfEntry", types.YChild{"AtmInterfaceConfEntry", nil})
+    for i := range atmInterfaceConfTable.AtmInterfaceConfEntry {
+        atmInterfaceConfTable.EntityData.Children.Append(types.GetSegmentPath(atmInterfaceConfTable.AtmInterfaceConfEntry[i]), types.YChild{"AtmInterfaceConfEntry", atmInterfaceConfTable.AtmInterfaceConfEntry[i]})
     }
-    atminterfaceconftable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(atminterfaceconftable.EntityData)
+    atmInterfaceConfTable.EntityData.Leafs = types.NewOrderedMap()
+
+    atmInterfaceConfTable.EntityData.YListKeys = []string {}
+
+    return &(atmInterfaceConfTable.EntityData)
 }
 
-// ATMMIB_Atminterfaceconftable_Atminterfaceconfentry
+// ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry
 // This list contains ATM interface configuration
 // parameters and state variables and is indexed
 // by ifIndex values of ATM interfaces.
-type ATMMIB_Atminterfaceconftable_Atminterfaceconfentry struct {
+type ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // The maximum number of VPCs (PVPCs and SVPCs) supported at this ATM
     // interface. At the ATM UNI, the maximum number of VPCs (PVPCs and SVPCs)
     // ranges from 0 to 256 only. The type is interface{} with range: 0..4096.
-    Atminterfacemaxvpcs interface{}
+    AtmInterfaceMaxVpcs interface{}
 
     // The maximum number of VCCs (PVCCs and SVCCs) supported at this ATM
     // interface. The type is interface{} with range: 0..65536.
-    Atminterfacemaxvccs interface{}
+    AtmInterfaceMaxVccs interface{}
 
     // The number of VPCs (PVPC, Soft PVPC and SVPC) currently in use at this ATM
     // interface.  It includes the number of PVPCs and Soft PVPCs that are
@@ -209,38 +218,38 @@ type ATMMIB_Atminterfaceconftable_Atminterfaceconfentry struct {
     // established at the interface.  At the ATM UNI, the configured number of
     // VPCs (PVPCs and SVPCs) can range from 0 to 256 only. The type is
     // interface{} with range: 0..4096.
-    Atminterfaceconfvpcs interface{}
+    AtmInterfaceConfVpcs interface{}
 
     // The number of VCCs (PVCC, Soft PVCC and SVCC) currently in use at this ATM
     // interface.  It includes the number of PVCCs and Soft PVCCs that are
     // configured at the interface, plus the number of SVCCs that are currently 
     // established at the interface. The type is interface{} with range: 0..65536.
-    Atminterfaceconfvccs interface{}
+    AtmInterfaceConfVccs interface{}
 
     // The  maximum number of active VPI bits configured for use at the ATM
     // interface. At the ATM UNI, the maximum number of active VPI bits configured
     // for use ranges from 0 to 8 only. The type is interface{} with range: 0..12.
-    Atminterfacemaxactivevpibits interface{}
+    AtmInterfaceMaxActiveVpiBits interface{}
 
     // The maximum number of active VCI bits configured for use at this ATM
     // interface. The type is interface{} with range: 0..16.
-    Atminterfacemaxactivevcibits interface{}
+    AtmInterfaceMaxActiveVciBits interface{}
 
     // The VPI value of the VCC supporting the ILMI at this ATM interface.  If the
     // values of atmInterfaceIlmiVpi and atmInterfaceIlmiVci are both equal to
     // zero then the ILMI is not supported at this ATM interface. The type is
     // interface{} with range: 0..4095.
-    Atminterfaceilmivpi interface{}
+    AtmInterfaceIlmiVpi interface{}
 
     // The VCI value of the VCC supporting the ILMI at this ATM interface.  If the
     // values of atmInterfaceIlmiVpi and atmInterfaceIlmiVci are both equal to
     // zero then the ILMI is not supported at this ATM interface. The type is
     // interface{} with range: 0..65535.
-    Atminterfaceilmivci interface{}
+    AtmInterfaceIlmiVci interface{}
 
     // The type of primary ATM address configured for use at this ATM interface.
-    // The type is Atminterfaceaddresstype.
-    Atminterfaceaddresstype interface{}
+    // The type is AtmInterfaceAddressType.
+    AtmInterfaceAddressType interface{}
 
     // The primary address assigned for administrative purposes, for example, an
     // address associated with the service provider side of a public network UNI
@@ -249,7 +258,7 @@ type ATMMIB_Atminterfaceconftable_Atminterfaceconfentry struct {
     // administrative address, or when the address used for administrative
     // purposes is the same as that used for ifPhysAddress, then this is an octet
     // string of zero length. The type is string.
-    Atminterfaceadminaddress interface{}
+    AtmInterfaceAdminAddress interface{}
 
     // The IP address of the neighbor system connected to the  far end of this
     // interface, to which a Network Management Station can send SNMP messages, as
@@ -258,8 +267,8 @@ type ATMMIB_Atminterfaceconftable_Atminterfaceconfentry struct {
     // of this object may be obtained in different ways, e.g., by manual
     // configuration, or through ILMI interaction with the neighbor system. The
     // type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Atminterfacemyneighboripaddress interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    AtmInterfaceMyNeighborIpAddress interface{}
 
     // The textual name of the interface on the neighbor system on the far end of
     // this interface, and to which this interface connects.  If the neighbor
@@ -270,7 +279,7 @@ type ATMMIB_Atminterfaceconftable_Atminterfaceconfentry struct {
     // Note that the value of this object may be obtained in different ways, e.g.,
     // by manual configuration, or through ILMI interaction with the neighbor
     // system. The type is string.
-    Atminterfacemyneighborifname interface{}
+    AtmInterfaceMyNeighborIfName interface{}
 
     // The maximum number of VPI Bits that may currently be used at this ATM
     // interface. The value is the minimum of atmInterfaceMaxActiveVpiBits, and
@@ -279,7 +288,7 @@ type ATMMIB_Atminterfaceconftable_Atminterfaceconfentry struct {
     // Bits that can be used on the interface, then the value of this object must
     // equal atmInterfaceMaxActiveVpiBits. The type is interface{} with range:
     // 0..12.
-    Atminterfacecurrentmaxvpibits interface{}
+    AtmInterfaceCurrentMaxVpiBits interface{}
 
     // The maximum number of VCI Bits that may currently be used at this ATM
     // interface. The value is the minimum of atmInterfaceMaxActiveVciBits, and
@@ -288,294 +297,300 @@ type ATMMIB_Atminterfaceconftable_Atminterfaceconfentry struct {
     // Bits that can be used on the interface, then the value of this object must
     // equal atmInterfaceMaxActiveVciBits. The type is interface{} with range:
     // 0..16.
-    Atminterfacecurrentmaxvcibits interface{}
+    AtmInterfaceCurrentMaxVciBits interface{}
 
     // The identifier assigned by a service provider to the network side of a
     // public network UNI. If this interface has no assigned service provider
     // address, or for other interfaces this is an octet string of zero length.
     // The type is string.
-    Atminterfacesubscraddress interface{}
+    AtmInterfaceSubscrAddress interface{}
 
     // The number of times the operational status of a PVCL on this interface has
     // gone down. The type is interface{} with range: 0..4294967295.
-    Atmintfpvcfailures interface{}
+    AtmIntfPvcFailures interface{}
 
     // The current number of VCLs on this interface for which there is an active
     // row in the atmVclTable having an atmVclConnKind value of `pvc' and an
     // atmVclOperStatus with a value other than `up'. The type is interface{} with
     // range: 0..4294967295.
-    Atmintfcurrentlyfailingpvcls interface{}
+    AtmIntfCurrentlyFailingPVcls interface{}
 
     // Allows the generation of traps in response to PVCL failures on this
     // interface. The type is bool.
-    Atmintfpvcfailurestrapenable interface{}
+    AtmIntfPvcFailuresTrapEnable interface{}
 
     // The minimum interval between the sending of cIntfPvcFailuresTrap
     // notifications for this interface. The type is interface{} with range:
     // 1..3600. Units are seconds.
-    Atmintfpvcnotificationinterval interface{}
+    AtmIntfPvcNotificationInterval interface{}
 
     // The interval for storing the failed time in
     // atmPreviouslyFailedPVclTimeStamp. The type is interface{} with range:
     // 0..3600. Units are seconds.
-    Atmpreviouslyfailedpvclinterval interface{}
+    AtmPreviouslyFailedPVclInterval interface{}
 
     // The current number PVCLs on this interface which  changed state to 'up'
     // since the last  atmIntPvcUp2Trap was sent. The type is interface{} with
     // range: 0..4294967295.
-    Catmintfcurrentlydowntouppvcls interface{}
+    CatmIntfCurrentlyDownToUpPVcls interface{}
 
     // The total number of PVCLs in this interface which  are currently in the OAM
     // loopback failed condition but  the status of each PVCL remain in the 'up'
     // state. The type is interface{} with range: 0..4294967295.
-    Catmintfoamfailedpvcls interface{}
+    CatmIntfOAMFailedPVcls interface{}
 
     // The current number of PVCLs on this interface for which the OAM loop back
     // has failed but the status of each PVCL remain  in the 'up' state in the
     // last notification interval. The type is interface{} with range:
     // 0..4294967295.
-    Catmintfcurrentoamfailingpvcls interface{}
+    CatmIntfCurrentOAMFailingPVcls interface{}
 
     // The total number of PVCLs in this interface which  are currently in the
     // Segment CC OAM failed condition  but the status of each PVCL remain in the
     // 'up' state. The type is interface{} with range: 0..4294967295.
-    Catmintfsegccoamfailedpvcls interface{}
+    CatmIntfSegCCOAMFailedPVcls interface{}
 
     // The current number of PVCLs on this interface for which the Segment CC OAM
     // has failed but the status of each PVCL remain  in the 'up' state in the
     // last notification interval. The type is interface{} with range:
     // 0..4294967295.
-    Catmintfcursegccoamfailingpvcls interface{}
+    CatmIntfCurSegCCOAMFailingPVcls interface{}
 
     // The total number of PVCLs in this interface which  are currently in the
     // End-to-End CC OAM failed condition  but the status of each PVCL remain in
     // the 'up' state. The type is interface{} with range: 0..4294967295.
-    Catmintfendccoamfailedpvcls interface{}
+    CatmIntfEndCCOAMFailedPVcls interface{}
 
     // The current number of PVCLs on this interface for which the End-to-End CC
     // OAM has failed but the status of each PVCL  remain in the 'up' state in the
     // last notification interval. The type is interface{} with range:
     // 0..4294967295.
-    Catmintfcurendccoamfailingpvcls interface{}
+    CatmIntfCurEndCCOAMFailingPVcls interface{}
 
     // The total number of PVCLs in this interface which  are currently in the AIS
     // RDI OAM failed condition but  the status of each PVCL remain in the 'up'
     // state. The type is interface{} with range: 0..4294967295.
-    Catmintfaisrdioamfailedpvcls interface{}
+    CatmIntfAISRDIOAMFailedPVcls interface{}
 
     // The current number of PVCLs on this interface for which the AIS RDI OAM has
     // failed but the status of each PVCL remain  in the 'up' state in the last
     // notification interval. The type is interface{} with range: 0..4294967295.
-    Catmintfcuraisrdioamfailingpvcls interface{}
+    CatmIntfCurAISRDIOAMFailingPVcls interface{}
 
     // The total number of PVCLs in this interface which  are currently in any
     // type of OAM failed condition but  the status of each PVCL remain in the
     // 'up' state. The type is interface{} with range: 0..4294967295.
-    Catmintfanyoamfailedpvcls interface{}
+    CatmIntfAnyOAMFailedPVcls interface{}
 
     // The current number of PVCLs on this interface for which  any of OAM has
     // failed but the status of each PVCL remain  in the 'up' state in the last
     // notification interval. The type is interface{} with range: 0..4294967295.
-    Catmintfcuranyoamfailingpvcls interface{}
+    CatmIntfCurAnyOAMFailingPVcls interface{}
 
     // Type of OAM failure. The type is CatmOAMFailureType.
-    Catmintftypeofoamfailure interface{}
+    CatmIntfTypeOfOAMFailure interface{}
 
     // The total number of PVCLs in this interface which  are currently in the OAM
     // loopback recovered condition and  the status of each PVCL is in the 'up'
     // state. The type is interface{} with range: 0..4294967295.
-    Catmintfoamrcovedpvcls interface{}
+    CatmIntfOAMRcovedPVcls interface{}
 
     // The current number of PVCLs on this interface for which the OAM loop back
     // has recovered and the status of each PVCL is  in the 'up' state in the last
     // notification interval. The type is interface{} with range: 0..4294967295.
-    Catmintfcurrentoamrcovingpvcls interface{}
+    CatmIntfCurrentOAMRcovingPVcls interface{}
 
     // The total number of PVCLs in this interface which  are currently in the
     // Segment CC OAM recovered condition  and the status of each PVCL is in the
     // 'up' state. The type is interface{} with range: 0..4294967295.
-    Catmintfsegccoamrcovedpvcls interface{}
+    CatmIntfSegCCOAMRcovedPVcls interface{}
 
     // The current number of PVCLs on this interface for which the Segment CC OAM
     // has recovered and the status of each PVCL is  in the 'up' state in the last
     // notification interval. The type is interface{} with range: 0..4294967295.
-    Catmintfcursegccoamrcovingpvcls interface{}
+    CatmIntfCurSegCCOAMRcovingPVcls interface{}
 
     // The total number of PVCLs in this interface which  are currently in the
     // End-to-End CC OAM recovered condition  and the status of each PVCL is in
     // the 'up' state. The type is interface{} with range: 0..4294967295.
-    Catmintfendccoamrcovedpvcls interface{}
+    CatmIntfEndCCOAMRcovedPVcls interface{}
 
     // The current number of PVCLs on this interface for which the End-to-End CC
     // OAM has recovered and the status of each PVCL  is in the 'up' state in the
     // last notification interval. The type is interface{} with range:
     // 0..4294967295.
-    Catmintfcurendccoamrcovingpvcls interface{}
+    CatmIntfCurEndCCOAMRcovingPVcls interface{}
 
     // The total number of PVCLs in this interface which  are currently in the AIS
     // RDI OAM recovered condition and  the status of each PVCL is in the 'up'
     // state. The type is interface{} with range: 0..4294967295.
-    Catmintfaisrdioamrcovedpvcls interface{}
+    CatmIntfAISRDIOAMRcovedPVcls interface{}
 
     // The current number of PVCLs on this interface for which the AIS RDI OAM has
     // recovered and the status of each PVCL is  in the 'up' state in the last
     // notification interval. The type is interface{} with range: 0..4294967295.
-    Catmintfcuraisrdioamrcovingpvcls interface{}
+    CatmIntfCurAISRDIOAMRcovingPVcls interface{}
 
     // The total number of PVCLs in this interface which  are currently in any
     // type of OAM recovered condition and  the status of each PVCL is in the 'up'
     // state. The type is interface{} with range: 0..4294967295.
-    Catmintfanyoamrcovedpvcls interface{}
+    CatmIntfAnyOAMRcovedPVcls interface{}
 
     // The current number of PVCLs on this interface for which  any of OAM has
     // recovered and the status of each PVCL is  in the 'up' state in the last
     // notification interval. The type is interface{} with range: 0..4294967295.
-    Catmintfcuranyoamrcovingpvcls interface{}
+    CatmIntfCurAnyOAMRcovingPVcls interface{}
 
     // Type of OAM Recovered. The type is CatmOAMRecoveryType.
-    Catmintftypeofoamrecover interface{}
+    CatmIntfTypeOfOAMRecover interface{}
 
     // The current number PVCLs on this interface which  changed state to 'up'
     // since the last  atmIntPvcUpTrap was sent. The type is interface{} with
     // range: 0..4294967295.
-    Atmintfcurrentlydowntouppvcls interface{}
+    AtmIntfCurrentlyDownToUpPVcls interface{}
 
     // The total number of PVCLs in this interface which  are currently in the oam
     // loopback failed condition but  the status of each PVCL remain in the 'up'
     // state. The type is interface{} with range: 0..4294967295.
-    Atmintfoamfailedpvcls interface{}
+    AtmIntfOAMFailedPVcls interface{}
 
     // The current number of PVCLs on this interface for which the oam loop back
     // has failed but the status of each PVCL remain  in the 'up' state in the
     // last notification interval. The type is interface{} with range:
     // 0..4294967295.
-    Atmintfcurrentlyoamfailingpvcls interface{}
+    AtmIntfCurrentlyOAMFailingPVcls interface{}
 }
 
-func (atminterfaceconfentry *ATMMIB_Atminterfaceconftable_Atminterfaceconfentry) GetEntityData() *types.CommonEntityData {
-    atminterfaceconfentry.EntityData.YFilter = atminterfaceconfentry.YFilter
-    atminterfaceconfentry.EntityData.YangName = "atmInterfaceConfEntry"
-    atminterfaceconfentry.EntityData.BundleName = "cisco_ios_xe"
-    atminterfaceconfentry.EntityData.ParentYangName = "atmInterfaceConfTable"
-    atminterfaceconfentry.EntityData.SegmentPath = "atmInterfaceConfEntry" + "[ifIndex='" + fmt.Sprintf("%v", atminterfaceconfentry.Ifindex) + "']"
-    atminterfaceconfentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atminterfaceconfentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atminterfaceconfentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmInterfaceConfEntry *ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry) GetEntityData() *types.CommonEntityData {
+    atmInterfaceConfEntry.EntityData.YFilter = atmInterfaceConfEntry.YFilter
+    atmInterfaceConfEntry.EntityData.YangName = "atmInterfaceConfEntry"
+    atmInterfaceConfEntry.EntityData.BundleName = "cisco_ios_xe"
+    atmInterfaceConfEntry.EntityData.ParentYangName = "atmInterfaceConfTable"
+    atmInterfaceConfEntry.EntityData.SegmentPath = "atmInterfaceConfEntry" + types.AddKeyToken(atmInterfaceConfEntry.IfIndex, "ifIndex")
+    atmInterfaceConfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmInterfaceConfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmInterfaceConfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atminterfaceconfentry.EntityData.Children = make(map[string]types.YChild)
-    atminterfaceconfentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    atminterfaceconfentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", atminterfaceconfentry.Ifindex}
-    atminterfaceconfentry.EntityData.Leafs["atmInterfaceMaxVpcs"] = types.YLeaf{"Atminterfacemaxvpcs", atminterfaceconfentry.Atminterfacemaxvpcs}
-    atminterfaceconfentry.EntityData.Leafs["atmInterfaceMaxVccs"] = types.YLeaf{"Atminterfacemaxvccs", atminterfaceconfentry.Atminterfacemaxvccs}
-    atminterfaceconfentry.EntityData.Leafs["atmInterfaceConfVpcs"] = types.YLeaf{"Atminterfaceconfvpcs", atminterfaceconfentry.Atminterfaceconfvpcs}
-    atminterfaceconfentry.EntityData.Leafs["atmInterfaceConfVccs"] = types.YLeaf{"Atminterfaceconfvccs", atminterfaceconfentry.Atminterfaceconfvccs}
-    atminterfaceconfentry.EntityData.Leafs["atmInterfaceMaxActiveVpiBits"] = types.YLeaf{"Atminterfacemaxactivevpibits", atminterfaceconfentry.Atminterfacemaxactivevpibits}
-    atminterfaceconfentry.EntityData.Leafs["atmInterfaceMaxActiveVciBits"] = types.YLeaf{"Atminterfacemaxactivevcibits", atminterfaceconfentry.Atminterfacemaxactivevcibits}
-    atminterfaceconfentry.EntityData.Leafs["atmInterfaceIlmiVpi"] = types.YLeaf{"Atminterfaceilmivpi", atminterfaceconfentry.Atminterfaceilmivpi}
-    atminterfaceconfentry.EntityData.Leafs["atmInterfaceIlmiVci"] = types.YLeaf{"Atminterfaceilmivci", atminterfaceconfentry.Atminterfaceilmivci}
-    atminterfaceconfentry.EntityData.Leafs["atmInterfaceAddressType"] = types.YLeaf{"Atminterfaceaddresstype", atminterfaceconfentry.Atminterfaceaddresstype}
-    atminterfaceconfentry.EntityData.Leafs["atmInterfaceAdminAddress"] = types.YLeaf{"Atminterfaceadminaddress", atminterfaceconfentry.Atminterfaceadminaddress}
-    atminterfaceconfentry.EntityData.Leafs["atmInterfaceMyNeighborIpAddress"] = types.YLeaf{"Atminterfacemyneighboripaddress", atminterfaceconfentry.Atminterfacemyneighboripaddress}
-    atminterfaceconfentry.EntityData.Leafs["atmInterfaceMyNeighborIfName"] = types.YLeaf{"Atminterfacemyneighborifname", atminterfaceconfentry.Atminterfacemyneighborifname}
-    atminterfaceconfentry.EntityData.Leafs["atmInterfaceCurrentMaxVpiBits"] = types.YLeaf{"Atminterfacecurrentmaxvpibits", atminterfaceconfentry.Atminterfacecurrentmaxvpibits}
-    atminterfaceconfentry.EntityData.Leafs["atmInterfaceCurrentMaxVciBits"] = types.YLeaf{"Atminterfacecurrentmaxvcibits", atminterfaceconfentry.Atminterfacecurrentmaxvcibits}
-    atminterfaceconfentry.EntityData.Leafs["atmInterfaceSubscrAddress"] = types.YLeaf{"Atminterfacesubscraddress", atminterfaceconfentry.Atminterfacesubscraddress}
-    atminterfaceconfentry.EntityData.Leafs["atmIntfPvcFailures"] = types.YLeaf{"Atmintfpvcfailures", atminterfaceconfentry.Atmintfpvcfailures}
-    atminterfaceconfentry.EntityData.Leafs["atmIntfCurrentlyFailingPVcls"] = types.YLeaf{"Atmintfcurrentlyfailingpvcls", atminterfaceconfentry.Atmintfcurrentlyfailingpvcls}
-    atminterfaceconfentry.EntityData.Leafs["atmIntfPvcFailuresTrapEnable"] = types.YLeaf{"Atmintfpvcfailurestrapenable", atminterfaceconfentry.Atmintfpvcfailurestrapenable}
-    atminterfaceconfentry.EntityData.Leafs["atmIntfPvcNotificationInterval"] = types.YLeaf{"Atmintfpvcnotificationinterval", atminterfaceconfentry.Atmintfpvcnotificationinterval}
-    atminterfaceconfentry.EntityData.Leafs["atmPreviouslyFailedPVclInterval"] = types.YLeaf{"Atmpreviouslyfailedpvclinterval", atminterfaceconfentry.Atmpreviouslyfailedpvclinterval}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfCurrentlyDownToUpPVcls"] = types.YLeaf{"Catmintfcurrentlydowntouppvcls", atminterfaceconfentry.Catmintfcurrentlydowntouppvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfOAMFailedPVcls"] = types.YLeaf{"Catmintfoamfailedpvcls", atminterfaceconfentry.Catmintfoamfailedpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfCurrentOAMFailingPVcls"] = types.YLeaf{"Catmintfcurrentoamfailingpvcls", atminterfaceconfentry.Catmintfcurrentoamfailingpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfSegCCOAMFailedPVcls"] = types.YLeaf{"Catmintfsegccoamfailedpvcls", atminterfaceconfentry.Catmintfsegccoamfailedpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfCurSegCCOAMFailingPVcls"] = types.YLeaf{"Catmintfcursegccoamfailingpvcls", atminterfaceconfentry.Catmintfcursegccoamfailingpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfEndCCOAMFailedPVcls"] = types.YLeaf{"Catmintfendccoamfailedpvcls", atminterfaceconfentry.Catmintfendccoamfailedpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfCurEndCCOAMFailingPVcls"] = types.YLeaf{"Catmintfcurendccoamfailingpvcls", atminterfaceconfentry.Catmintfcurendccoamfailingpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfAISRDIOAMFailedPVcls"] = types.YLeaf{"Catmintfaisrdioamfailedpvcls", atminterfaceconfentry.Catmintfaisrdioamfailedpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfCurAISRDIOAMFailingPVcls"] = types.YLeaf{"Catmintfcuraisrdioamfailingpvcls", atminterfaceconfentry.Catmintfcuraisrdioamfailingpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfAnyOAMFailedPVcls"] = types.YLeaf{"Catmintfanyoamfailedpvcls", atminterfaceconfentry.Catmintfanyoamfailedpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfCurAnyOAMFailingPVcls"] = types.YLeaf{"Catmintfcuranyoamfailingpvcls", atminterfaceconfentry.Catmintfcuranyoamfailingpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfTypeOfOAMFailure"] = types.YLeaf{"Catmintftypeofoamfailure", atminterfaceconfentry.Catmintftypeofoamfailure}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfOAMRcovedPVcls"] = types.YLeaf{"Catmintfoamrcovedpvcls", atminterfaceconfentry.Catmintfoamrcovedpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfCurrentOAMRcovingPVcls"] = types.YLeaf{"Catmintfcurrentoamrcovingpvcls", atminterfaceconfentry.Catmintfcurrentoamrcovingpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfSegCCOAMRcovedPVcls"] = types.YLeaf{"Catmintfsegccoamrcovedpvcls", atminterfaceconfentry.Catmintfsegccoamrcovedpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfCurSegCCOAMRcovingPVcls"] = types.YLeaf{"Catmintfcursegccoamrcovingpvcls", atminterfaceconfentry.Catmintfcursegccoamrcovingpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfEndCCOAMRcovedPVcls"] = types.YLeaf{"Catmintfendccoamrcovedpvcls", atminterfaceconfentry.Catmintfendccoamrcovedpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfCurEndCCOAMRcovingPVcls"] = types.YLeaf{"Catmintfcurendccoamrcovingpvcls", atminterfaceconfentry.Catmintfcurendccoamrcovingpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfAISRDIOAMRcovedPVcls"] = types.YLeaf{"Catmintfaisrdioamrcovedpvcls", atminterfaceconfentry.Catmintfaisrdioamrcovedpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfCurAISRDIOAMRcovingPVcls"] = types.YLeaf{"Catmintfcuraisrdioamrcovingpvcls", atminterfaceconfentry.Catmintfcuraisrdioamrcovingpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfAnyOAMRcovedPVcls"] = types.YLeaf{"Catmintfanyoamrcovedpvcls", atminterfaceconfentry.Catmintfanyoamrcovedpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfCurAnyOAMRcovingPVcls"] = types.YLeaf{"Catmintfcuranyoamrcovingpvcls", atminterfaceconfentry.Catmintfcuranyoamrcovingpvcls}
-    atminterfaceconfentry.EntityData.Leafs["catmIntfTypeOfOAMRecover"] = types.YLeaf{"Catmintftypeofoamrecover", atminterfaceconfentry.Catmintftypeofoamrecover}
-    atminterfaceconfentry.EntityData.Leafs["atmIntfCurrentlyDownToUpPVcls"] = types.YLeaf{"Atmintfcurrentlydowntouppvcls", atminterfaceconfentry.Atmintfcurrentlydowntouppvcls}
-    atminterfaceconfentry.EntityData.Leafs["atmIntfOAMFailedPVcls"] = types.YLeaf{"Atmintfoamfailedpvcls", atminterfaceconfentry.Atmintfoamfailedpvcls}
-    atminterfaceconfentry.EntityData.Leafs["atmIntfCurrentlyOAMFailingPVcls"] = types.YLeaf{"Atmintfcurrentlyoamfailingpvcls", atminterfaceconfentry.Atmintfcurrentlyoamfailingpvcls}
-    return &(atminterfaceconfentry.EntityData)
+    atmInterfaceConfEntry.EntityData.Children = types.NewOrderedMap()
+    atmInterfaceConfEntry.EntityData.Leafs = types.NewOrderedMap()
+    atmInterfaceConfEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", atmInterfaceConfEntry.IfIndex})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceMaxVpcs", types.YLeaf{"AtmInterfaceMaxVpcs", atmInterfaceConfEntry.AtmInterfaceMaxVpcs})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceMaxVccs", types.YLeaf{"AtmInterfaceMaxVccs", atmInterfaceConfEntry.AtmInterfaceMaxVccs})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceConfVpcs", types.YLeaf{"AtmInterfaceConfVpcs", atmInterfaceConfEntry.AtmInterfaceConfVpcs})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceConfVccs", types.YLeaf{"AtmInterfaceConfVccs", atmInterfaceConfEntry.AtmInterfaceConfVccs})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceMaxActiveVpiBits", types.YLeaf{"AtmInterfaceMaxActiveVpiBits", atmInterfaceConfEntry.AtmInterfaceMaxActiveVpiBits})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceMaxActiveVciBits", types.YLeaf{"AtmInterfaceMaxActiveVciBits", atmInterfaceConfEntry.AtmInterfaceMaxActiveVciBits})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceIlmiVpi", types.YLeaf{"AtmInterfaceIlmiVpi", atmInterfaceConfEntry.AtmInterfaceIlmiVpi})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceIlmiVci", types.YLeaf{"AtmInterfaceIlmiVci", atmInterfaceConfEntry.AtmInterfaceIlmiVci})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceAddressType", types.YLeaf{"AtmInterfaceAddressType", atmInterfaceConfEntry.AtmInterfaceAddressType})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceAdminAddress", types.YLeaf{"AtmInterfaceAdminAddress", atmInterfaceConfEntry.AtmInterfaceAdminAddress})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceMyNeighborIpAddress", types.YLeaf{"AtmInterfaceMyNeighborIpAddress", atmInterfaceConfEntry.AtmInterfaceMyNeighborIpAddress})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceMyNeighborIfName", types.YLeaf{"AtmInterfaceMyNeighborIfName", atmInterfaceConfEntry.AtmInterfaceMyNeighborIfName})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceCurrentMaxVpiBits", types.YLeaf{"AtmInterfaceCurrentMaxVpiBits", atmInterfaceConfEntry.AtmInterfaceCurrentMaxVpiBits})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceCurrentMaxVciBits", types.YLeaf{"AtmInterfaceCurrentMaxVciBits", atmInterfaceConfEntry.AtmInterfaceCurrentMaxVciBits})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceSubscrAddress", types.YLeaf{"AtmInterfaceSubscrAddress", atmInterfaceConfEntry.AtmInterfaceSubscrAddress})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfPvcFailures", types.YLeaf{"AtmIntfPvcFailures", atmInterfaceConfEntry.AtmIntfPvcFailures})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfCurrentlyFailingPVcls", types.YLeaf{"AtmIntfCurrentlyFailingPVcls", atmInterfaceConfEntry.AtmIntfCurrentlyFailingPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfPvcFailuresTrapEnable", types.YLeaf{"AtmIntfPvcFailuresTrapEnable", atmInterfaceConfEntry.AtmIntfPvcFailuresTrapEnable})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfPvcNotificationInterval", types.YLeaf{"AtmIntfPvcNotificationInterval", atmInterfaceConfEntry.AtmIntfPvcNotificationInterval})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmPreviouslyFailedPVclInterval", types.YLeaf{"AtmPreviouslyFailedPVclInterval", atmInterfaceConfEntry.AtmPreviouslyFailedPVclInterval})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfCurrentlyDownToUpPVcls", types.YLeaf{"CatmIntfCurrentlyDownToUpPVcls", atmInterfaceConfEntry.CatmIntfCurrentlyDownToUpPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfOAMFailedPVcls", types.YLeaf{"CatmIntfOAMFailedPVcls", atmInterfaceConfEntry.CatmIntfOAMFailedPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfCurrentOAMFailingPVcls", types.YLeaf{"CatmIntfCurrentOAMFailingPVcls", atmInterfaceConfEntry.CatmIntfCurrentOAMFailingPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfSegCCOAMFailedPVcls", types.YLeaf{"CatmIntfSegCCOAMFailedPVcls", atmInterfaceConfEntry.CatmIntfSegCCOAMFailedPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfCurSegCCOAMFailingPVcls", types.YLeaf{"CatmIntfCurSegCCOAMFailingPVcls", atmInterfaceConfEntry.CatmIntfCurSegCCOAMFailingPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfEndCCOAMFailedPVcls", types.YLeaf{"CatmIntfEndCCOAMFailedPVcls", atmInterfaceConfEntry.CatmIntfEndCCOAMFailedPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfCurEndCCOAMFailingPVcls", types.YLeaf{"CatmIntfCurEndCCOAMFailingPVcls", atmInterfaceConfEntry.CatmIntfCurEndCCOAMFailingPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfAISRDIOAMFailedPVcls", types.YLeaf{"CatmIntfAISRDIOAMFailedPVcls", atmInterfaceConfEntry.CatmIntfAISRDIOAMFailedPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfCurAISRDIOAMFailingPVcls", types.YLeaf{"CatmIntfCurAISRDIOAMFailingPVcls", atmInterfaceConfEntry.CatmIntfCurAISRDIOAMFailingPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfAnyOAMFailedPVcls", types.YLeaf{"CatmIntfAnyOAMFailedPVcls", atmInterfaceConfEntry.CatmIntfAnyOAMFailedPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfCurAnyOAMFailingPVcls", types.YLeaf{"CatmIntfCurAnyOAMFailingPVcls", atmInterfaceConfEntry.CatmIntfCurAnyOAMFailingPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfTypeOfOAMFailure", types.YLeaf{"CatmIntfTypeOfOAMFailure", atmInterfaceConfEntry.CatmIntfTypeOfOAMFailure})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfOAMRcovedPVcls", types.YLeaf{"CatmIntfOAMRcovedPVcls", atmInterfaceConfEntry.CatmIntfOAMRcovedPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfCurrentOAMRcovingPVcls", types.YLeaf{"CatmIntfCurrentOAMRcovingPVcls", atmInterfaceConfEntry.CatmIntfCurrentOAMRcovingPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfSegCCOAMRcovedPVcls", types.YLeaf{"CatmIntfSegCCOAMRcovedPVcls", atmInterfaceConfEntry.CatmIntfSegCCOAMRcovedPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfCurSegCCOAMRcovingPVcls", types.YLeaf{"CatmIntfCurSegCCOAMRcovingPVcls", atmInterfaceConfEntry.CatmIntfCurSegCCOAMRcovingPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfEndCCOAMRcovedPVcls", types.YLeaf{"CatmIntfEndCCOAMRcovedPVcls", atmInterfaceConfEntry.CatmIntfEndCCOAMRcovedPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfCurEndCCOAMRcovingPVcls", types.YLeaf{"CatmIntfCurEndCCOAMRcovingPVcls", atmInterfaceConfEntry.CatmIntfCurEndCCOAMRcovingPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfAISRDIOAMRcovedPVcls", types.YLeaf{"CatmIntfAISRDIOAMRcovedPVcls", atmInterfaceConfEntry.CatmIntfAISRDIOAMRcovedPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfCurAISRDIOAMRcovingPVcls", types.YLeaf{"CatmIntfCurAISRDIOAMRcovingPVcls", atmInterfaceConfEntry.CatmIntfCurAISRDIOAMRcovingPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfAnyOAMRcovedPVcls", types.YLeaf{"CatmIntfAnyOAMRcovedPVcls", atmInterfaceConfEntry.CatmIntfAnyOAMRcovedPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfCurAnyOAMRcovingPVcls", types.YLeaf{"CatmIntfCurAnyOAMRcovingPVcls", atmInterfaceConfEntry.CatmIntfCurAnyOAMRcovingPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfTypeOfOAMRecover", types.YLeaf{"CatmIntfTypeOfOAMRecover", atmInterfaceConfEntry.CatmIntfTypeOfOAMRecover})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfCurrentlyDownToUpPVcls", types.YLeaf{"AtmIntfCurrentlyDownToUpPVcls", atmInterfaceConfEntry.AtmIntfCurrentlyDownToUpPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfOAMFailedPVcls", types.YLeaf{"AtmIntfOAMFailedPVcls", atmInterfaceConfEntry.AtmIntfOAMFailedPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfCurrentlyOAMFailingPVcls", types.YLeaf{"AtmIntfCurrentlyOAMFailingPVcls", atmInterfaceConfEntry.AtmIntfCurrentlyOAMFailingPVcls})
+
+    atmInterfaceConfEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(atmInterfaceConfEntry.EntityData)
 }
 
-// ATMMIB_Atminterfaceconftable_Atminterfaceconfentry_Atminterfaceaddresstype represents for use at this ATM interface.
-type ATMMIB_Atminterfaceconftable_Atminterfaceconfentry_Atminterfaceaddresstype string
+// ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry_AtmInterfaceAddressType represents for use at this ATM interface.
+type ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry_AtmInterfaceAddressType string
 
 const (
-    ATMMIB_Atminterfaceconftable_Atminterfaceconfentry_Atminterfaceaddresstype_private ATMMIB_Atminterfaceconftable_Atminterfaceconfentry_Atminterfaceaddresstype = "private"
+    ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry_AtmInterfaceAddressType_private ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry_AtmInterfaceAddressType = "private"
 
-    ATMMIB_Atminterfaceconftable_Atminterfaceconfentry_Atminterfaceaddresstype_nsapE164 ATMMIB_Atminterfaceconftable_Atminterfaceconfentry_Atminterfaceaddresstype = "nsapE164"
+    ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry_AtmInterfaceAddressType_nsapE164 ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry_AtmInterfaceAddressType = "nsapE164"
 
-    ATMMIB_Atminterfaceconftable_Atminterfaceconfentry_Atminterfaceaddresstype_nativeE164 ATMMIB_Atminterfaceconftable_Atminterfaceconfentry_Atminterfaceaddresstype = "nativeE164"
+    ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry_AtmInterfaceAddressType_nativeE164 ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry_AtmInterfaceAddressType = "nativeE164"
 
-    ATMMIB_Atminterfaceconftable_Atminterfaceconfentry_Atminterfaceaddresstype_other ATMMIB_Atminterfaceconftable_Atminterfaceconfentry_Atminterfaceaddresstype = "other"
+    ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry_AtmInterfaceAddressType_other ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry_AtmInterfaceAddressType = "other"
 )
 
-// ATMMIB_Atminterfaceds3Plcptable
+// ATMMIB_AtmInterfaceDs3PlcpTable
 // This table contains ATM interface DS3 PLCP
 // parameters and state variables, one entry per
 // ATM interface port.
-type ATMMIB_Atminterfaceds3Plcptable struct {
+type ATMMIB_AtmInterfaceDs3PlcpTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This list contains DS3 PLCP parameters and state variables at the ATM
     // interface and is indexed by the ifIndex value of the ATM interface. The
-    // type is slice of ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry.
-    Atminterfaceds3Plcpentry []ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry
+    // type is slice of ATMMIB_AtmInterfaceDs3PlcpTable_AtmInterfaceDs3PlcpEntry.
+    AtmInterfaceDs3PlcpEntry []*ATMMIB_AtmInterfaceDs3PlcpTable_AtmInterfaceDs3PlcpEntry
 }
 
-func (atminterfaceds3Plcptable *ATMMIB_Atminterfaceds3Plcptable) GetEntityData() *types.CommonEntityData {
-    atminterfaceds3Plcptable.EntityData.YFilter = atminterfaceds3Plcptable.YFilter
-    atminterfaceds3Plcptable.EntityData.YangName = "atmInterfaceDs3PlcpTable"
-    atminterfaceds3Plcptable.EntityData.BundleName = "cisco_ios_xe"
-    atminterfaceds3Plcptable.EntityData.ParentYangName = "ATM-MIB"
-    atminterfaceds3Plcptable.EntityData.SegmentPath = "atmInterfaceDs3PlcpTable"
-    atminterfaceds3Plcptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atminterfaceds3Plcptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atminterfaceds3Plcptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmInterfaceDs3PlcpTable *ATMMIB_AtmInterfaceDs3PlcpTable) GetEntityData() *types.CommonEntityData {
+    atmInterfaceDs3PlcpTable.EntityData.YFilter = atmInterfaceDs3PlcpTable.YFilter
+    atmInterfaceDs3PlcpTable.EntityData.YangName = "atmInterfaceDs3PlcpTable"
+    atmInterfaceDs3PlcpTable.EntityData.BundleName = "cisco_ios_xe"
+    atmInterfaceDs3PlcpTable.EntityData.ParentYangName = "ATM-MIB"
+    atmInterfaceDs3PlcpTable.EntityData.SegmentPath = "atmInterfaceDs3PlcpTable"
+    atmInterfaceDs3PlcpTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmInterfaceDs3PlcpTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmInterfaceDs3PlcpTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atminterfaceds3Plcptable.EntityData.Children = make(map[string]types.YChild)
-    atminterfaceds3Plcptable.EntityData.Children["atmInterfaceDs3PlcpEntry"] = types.YChild{"Atminterfaceds3Plcpentry", nil}
-    for i := range atminterfaceds3Plcptable.Atminterfaceds3Plcpentry {
-        atminterfaceds3Plcptable.EntityData.Children[types.GetSegmentPath(&atminterfaceds3Plcptable.Atminterfaceds3Plcpentry[i])] = types.YChild{"Atminterfaceds3Plcpentry", &atminterfaceds3Plcptable.Atminterfaceds3Plcpentry[i]}
+    atmInterfaceDs3PlcpTable.EntityData.Children = types.NewOrderedMap()
+    atmInterfaceDs3PlcpTable.EntityData.Children.Append("atmInterfaceDs3PlcpEntry", types.YChild{"AtmInterfaceDs3PlcpEntry", nil})
+    for i := range atmInterfaceDs3PlcpTable.AtmInterfaceDs3PlcpEntry {
+        atmInterfaceDs3PlcpTable.EntityData.Children.Append(types.GetSegmentPath(atmInterfaceDs3PlcpTable.AtmInterfaceDs3PlcpEntry[i]), types.YChild{"AtmInterfaceDs3PlcpEntry", atmInterfaceDs3PlcpTable.AtmInterfaceDs3PlcpEntry[i]})
     }
-    atminterfaceds3Plcptable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(atminterfaceds3Plcptable.EntityData)
+    atmInterfaceDs3PlcpTable.EntityData.Leafs = types.NewOrderedMap()
+
+    atmInterfaceDs3PlcpTable.EntityData.YListKeys = []string {}
+
+    return &(atmInterfaceDs3PlcpTable.EntityData)
 }
 
-// ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry
+// ATMMIB_AtmInterfaceDs3PlcpTable_AtmInterfaceDs3PlcpEntry
 // This list contains DS3 PLCP parameters and
 // state variables at the ATM interface and is
 // indexed by the ifIndex value of the ATM interface.
-type ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry struct {
+type ATMMIB_AtmInterfaceDs3PlcpTable_AtmInterfaceDs3PlcpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // The number of DS3 PLCP Severely Errored Framing Seconds (SEFS). Each SEFS
     // represents a one-second interval which contains one or more SEF events. The
     // type is interface{} with range: 0..4294967295.
-    Atminterfaceds3Plcpsefss interface{}
+    AtmInterfaceDs3PlcpSEFSs interface{}
 
     // This variable indicates if there is an alarm present for the DS3 PLCP.  The
     // value receivedFarEndAlarm means that the DS3 PLCP has received an incoming
@@ -583,166 +598,178 @@ type ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry struct {
     // loss of frame (LOF) failure condition, and the value noAlarm means that
     // there are no alarms present. Transition from the failure to the no alarm
     // state occurs when no defects (e.g., LOF) are received for more than 10
-    // seconds. The type is Atminterfaceds3Plcpalarmstate.
-    Atminterfaceds3Plcpalarmstate interface{}
+    // seconds. The type is AtmInterfaceDs3PlcpAlarmState.
+    AtmInterfaceDs3PlcpAlarmState interface{}
 
     // The counter associated with the number of Unavailable Seconds encountered
     // by the PLCP. The type is interface{} with range: 0..4294967295.
-    Atminterfaceds3Plcpuass interface{}
+    AtmInterfaceDs3PlcpUASs interface{}
 }
 
-func (atminterfaceds3Plcpentry *ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry) GetEntityData() *types.CommonEntityData {
-    atminterfaceds3Plcpentry.EntityData.YFilter = atminterfaceds3Plcpentry.YFilter
-    atminterfaceds3Plcpentry.EntityData.YangName = "atmInterfaceDs3PlcpEntry"
-    atminterfaceds3Plcpentry.EntityData.BundleName = "cisco_ios_xe"
-    atminterfaceds3Plcpentry.EntityData.ParentYangName = "atmInterfaceDs3PlcpTable"
-    atminterfaceds3Plcpentry.EntityData.SegmentPath = "atmInterfaceDs3PlcpEntry" + "[ifIndex='" + fmt.Sprintf("%v", atminterfaceds3Plcpentry.Ifindex) + "']"
-    atminterfaceds3Plcpentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atminterfaceds3Plcpentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atminterfaceds3Plcpentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmInterfaceDs3PlcpEntry *ATMMIB_AtmInterfaceDs3PlcpTable_AtmInterfaceDs3PlcpEntry) GetEntityData() *types.CommonEntityData {
+    atmInterfaceDs3PlcpEntry.EntityData.YFilter = atmInterfaceDs3PlcpEntry.YFilter
+    atmInterfaceDs3PlcpEntry.EntityData.YangName = "atmInterfaceDs3PlcpEntry"
+    atmInterfaceDs3PlcpEntry.EntityData.BundleName = "cisco_ios_xe"
+    atmInterfaceDs3PlcpEntry.EntityData.ParentYangName = "atmInterfaceDs3PlcpTable"
+    atmInterfaceDs3PlcpEntry.EntityData.SegmentPath = "atmInterfaceDs3PlcpEntry" + types.AddKeyToken(atmInterfaceDs3PlcpEntry.IfIndex, "ifIndex")
+    atmInterfaceDs3PlcpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmInterfaceDs3PlcpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmInterfaceDs3PlcpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atminterfaceds3Plcpentry.EntityData.Children = make(map[string]types.YChild)
-    atminterfaceds3Plcpentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    atminterfaceds3Plcpentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", atminterfaceds3Plcpentry.Ifindex}
-    atminterfaceds3Plcpentry.EntityData.Leafs["atmInterfaceDs3PlcpSEFSs"] = types.YLeaf{"Atminterfaceds3Plcpsefss", atminterfaceds3Plcpentry.Atminterfaceds3Plcpsefss}
-    atminterfaceds3Plcpentry.EntityData.Leafs["atmInterfaceDs3PlcpAlarmState"] = types.YLeaf{"Atminterfaceds3Plcpalarmstate", atminterfaceds3Plcpentry.Atminterfaceds3Plcpalarmstate}
-    atminterfaceds3Plcpentry.EntityData.Leafs["atmInterfaceDs3PlcpUASs"] = types.YLeaf{"Atminterfaceds3Plcpuass", atminterfaceds3Plcpentry.Atminterfaceds3Plcpuass}
-    return &(atminterfaceds3Plcpentry.EntityData)
+    atmInterfaceDs3PlcpEntry.EntityData.Children = types.NewOrderedMap()
+    atmInterfaceDs3PlcpEntry.EntityData.Leafs = types.NewOrderedMap()
+    atmInterfaceDs3PlcpEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", atmInterfaceDs3PlcpEntry.IfIndex})
+    atmInterfaceDs3PlcpEntry.EntityData.Leafs.Append("atmInterfaceDs3PlcpSEFSs", types.YLeaf{"AtmInterfaceDs3PlcpSEFSs", atmInterfaceDs3PlcpEntry.AtmInterfaceDs3PlcpSEFSs})
+    atmInterfaceDs3PlcpEntry.EntityData.Leafs.Append("atmInterfaceDs3PlcpAlarmState", types.YLeaf{"AtmInterfaceDs3PlcpAlarmState", atmInterfaceDs3PlcpEntry.AtmInterfaceDs3PlcpAlarmState})
+    atmInterfaceDs3PlcpEntry.EntityData.Leafs.Append("atmInterfaceDs3PlcpUASs", types.YLeaf{"AtmInterfaceDs3PlcpUASs", atmInterfaceDs3PlcpEntry.AtmInterfaceDs3PlcpUASs})
+
+    atmInterfaceDs3PlcpEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(atmInterfaceDs3PlcpEntry.EntityData)
 }
 
-// ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry_Atminterfaceds3Plcpalarmstate represents for more than 10 seconds.
-type ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry_Atminterfaceds3Plcpalarmstate string
+// ATMMIB_AtmInterfaceDs3PlcpTable_AtmInterfaceDs3PlcpEntry_AtmInterfaceDs3PlcpAlarmState represents for more than 10 seconds.
+type ATMMIB_AtmInterfaceDs3PlcpTable_AtmInterfaceDs3PlcpEntry_AtmInterfaceDs3PlcpAlarmState string
 
 const (
-    ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry_Atminterfaceds3Plcpalarmstate_noAlarm ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry_Atminterfaceds3Plcpalarmstate = "noAlarm"
+    ATMMIB_AtmInterfaceDs3PlcpTable_AtmInterfaceDs3PlcpEntry_AtmInterfaceDs3PlcpAlarmState_noAlarm ATMMIB_AtmInterfaceDs3PlcpTable_AtmInterfaceDs3PlcpEntry_AtmInterfaceDs3PlcpAlarmState = "noAlarm"
 
-    ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry_Atminterfaceds3Plcpalarmstate_receivedFarEndAlarm ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry_Atminterfaceds3Plcpalarmstate = "receivedFarEndAlarm"
+    ATMMIB_AtmInterfaceDs3PlcpTable_AtmInterfaceDs3PlcpEntry_AtmInterfaceDs3PlcpAlarmState_receivedFarEndAlarm ATMMIB_AtmInterfaceDs3PlcpTable_AtmInterfaceDs3PlcpEntry_AtmInterfaceDs3PlcpAlarmState = "receivedFarEndAlarm"
 
-    ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry_Atminterfaceds3Plcpalarmstate_incomingLOF ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry_Atminterfaceds3Plcpalarmstate = "incomingLOF"
+    ATMMIB_AtmInterfaceDs3PlcpTable_AtmInterfaceDs3PlcpEntry_AtmInterfaceDs3PlcpAlarmState_incomingLOF ATMMIB_AtmInterfaceDs3PlcpTable_AtmInterfaceDs3PlcpEntry_AtmInterfaceDs3PlcpAlarmState = "incomingLOF"
 )
 
-// ATMMIB_Atminterfacetctable
+// ATMMIB_AtmInterfaceTCTable
 // This table contains ATM interface TC
 // Sublayer parameters and state variables,
 // one entry per ATM interface port.
-type ATMMIB_Atminterfacetctable struct {
+type ATMMIB_AtmInterfaceTCTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This list contains TC Sublayer parameters and state variables at the ATM
     // interface and is indexed by the ifIndex value of the ATM interface. The
-    // type is slice of ATMMIB_Atminterfacetctable_Atminterfacetcentry.
-    Atminterfacetcentry []ATMMIB_Atminterfacetctable_Atminterfacetcentry
+    // type is slice of ATMMIB_AtmInterfaceTCTable_AtmInterfaceTCEntry.
+    AtmInterfaceTCEntry []*ATMMIB_AtmInterfaceTCTable_AtmInterfaceTCEntry
 }
 
-func (atminterfacetctable *ATMMIB_Atminterfacetctable) GetEntityData() *types.CommonEntityData {
-    atminterfacetctable.EntityData.YFilter = atminterfacetctable.YFilter
-    atminterfacetctable.EntityData.YangName = "atmInterfaceTCTable"
-    atminterfacetctable.EntityData.BundleName = "cisco_ios_xe"
-    atminterfacetctable.EntityData.ParentYangName = "ATM-MIB"
-    atminterfacetctable.EntityData.SegmentPath = "atmInterfaceTCTable"
-    atminterfacetctable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atminterfacetctable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atminterfacetctable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmInterfaceTCTable *ATMMIB_AtmInterfaceTCTable) GetEntityData() *types.CommonEntityData {
+    atmInterfaceTCTable.EntityData.YFilter = atmInterfaceTCTable.YFilter
+    atmInterfaceTCTable.EntityData.YangName = "atmInterfaceTCTable"
+    atmInterfaceTCTable.EntityData.BundleName = "cisco_ios_xe"
+    atmInterfaceTCTable.EntityData.ParentYangName = "ATM-MIB"
+    atmInterfaceTCTable.EntityData.SegmentPath = "atmInterfaceTCTable"
+    atmInterfaceTCTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmInterfaceTCTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmInterfaceTCTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atminterfacetctable.EntityData.Children = make(map[string]types.YChild)
-    atminterfacetctable.EntityData.Children["atmInterfaceTCEntry"] = types.YChild{"Atminterfacetcentry", nil}
-    for i := range atminterfacetctable.Atminterfacetcentry {
-        atminterfacetctable.EntityData.Children[types.GetSegmentPath(&atminterfacetctable.Atminterfacetcentry[i])] = types.YChild{"Atminterfacetcentry", &atminterfacetctable.Atminterfacetcentry[i]}
+    atmInterfaceTCTable.EntityData.Children = types.NewOrderedMap()
+    atmInterfaceTCTable.EntityData.Children.Append("atmInterfaceTCEntry", types.YChild{"AtmInterfaceTCEntry", nil})
+    for i := range atmInterfaceTCTable.AtmInterfaceTCEntry {
+        atmInterfaceTCTable.EntityData.Children.Append(types.GetSegmentPath(atmInterfaceTCTable.AtmInterfaceTCEntry[i]), types.YChild{"AtmInterfaceTCEntry", atmInterfaceTCTable.AtmInterfaceTCEntry[i]})
     }
-    atminterfacetctable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(atminterfacetctable.EntityData)
+    atmInterfaceTCTable.EntityData.Leafs = types.NewOrderedMap()
+
+    atmInterfaceTCTable.EntityData.YListKeys = []string {}
+
+    return &(atmInterfaceTCTable.EntityData)
 }
 
-// ATMMIB_Atminterfacetctable_Atminterfacetcentry
+// ATMMIB_AtmInterfaceTCTable_AtmInterfaceTCEntry
 // This list contains TC Sublayer parameters
 // and state variables at the ATM interface and is
 // indexed by the ifIndex value of the ATM interface.
-type ATMMIB_Atminterfacetctable_Atminterfacetcentry struct {
+type ATMMIB_AtmInterfaceTCTable_AtmInterfaceTCEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // The number of times the Out of Cell Delineation (OCD) events occur.  If
     // seven consecutive ATM cells have Header Error Control (HEC) violations, an
     // OCD event occurs. A high number of OCD events may indicate a problem with
     // the TC Sublayer. The type is interface{} with range: 0..4294967295.
-    Atminterfaceocdevents interface{}
+    AtmInterfaceOCDEvents interface{}
 
     // This variable indicates if there is an alarm present for the TC Sublayer. 
     // The value lcdFailure(2) indicates that the TC Sublayer is currently in the
     // Loss of Cell Delineation (LCD) defect maintenance state.  The value
     // noAlarm(1) indicates that the TC Sublayer is currently not in the LCD
-    // defect maintenance state. The type is Atminterfacetcalarmstate.
-    Atminterfacetcalarmstate interface{}
+    // defect maintenance state. The type is AtmInterfaceTCAlarmState.
+    AtmInterfaceTCAlarmState interface{}
 }
 
-func (atminterfacetcentry *ATMMIB_Atminterfacetctable_Atminterfacetcentry) GetEntityData() *types.CommonEntityData {
-    atminterfacetcentry.EntityData.YFilter = atminterfacetcentry.YFilter
-    atminterfacetcentry.EntityData.YangName = "atmInterfaceTCEntry"
-    atminterfacetcentry.EntityData.BundleName = "cisco_ios_xe"
-    atminterfacetcentry.EntityData.ParentYangName = "atmInterfaceTCTable"
-    atminterfacetcentry.EntityData.SegmentPath = "atmInterfaceTCEntry" + "[ifIndex='" + fmt.Sprintf("%v", atminterfacetcentry.Ifindex) + "']"
-    atminterfacetcentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atminterfacetcentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atminterfacetcentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmInterfaceTCEntry *ATMMIB_AtmInterfaceTCTable_AtmInterfaceTCEntry) GetEntityData() *types.CommonEntityData {
+    atmInterfaceTCEntry.EntityData.YFilter = atmInterfaceTCEntry.YFilter
+    atmInterfaceTCEntry.EntityData.YangName = "atmInterfaceTCEntry"
+    atmInterfaceTCEntry.EntityData.BundleName = "cisco_ios_xe"
+    atmInterfaceTCEntry.EntityData.ParentYangName = "atmInterfaceTCTable"
+    atmInterfaceTCEntry.EntityData.SegmentPath = "atmInterfaceTCEntry" + types.AddKeyToken(atmInterfaceTCEntry.IfIndex, "ifIndex")
+    atmInterfaceTCEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmInterfaceTCEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmInterfaceTCEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atminterfacetcentry.EntityData.Children = make(map[string]types.YChild)
-    atminterfacetcentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    atminterfacetcentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", atminterfacetcentry.Ifindex}
-    atminterfacetcentry.EntityData.Leafs["atmInterfaceOCDEvents"] = types.YLeaf{"Atminterfaceocdevents", atminterfacetcentry.Atminterfaceocdevents}
-    atminterfacetcentry.EntityData.Leafs["atmInterfaceTCAlarmState"] = types.YLeaf{"Atminterfacetcalarmstate", atminterfacetcentry.Atminterfacetcalarmstate}
-    return &(atminterfacetcentry.EntityData)
+    atmInterfaceTCEntry.EntityData.Children = types.NewOrderedMap()
+    atmInterfaceTCEntry.EntityData.Leafs = types.NewOrderedMap()
+    atmInterfaceTCEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", atmInterfaceTCEntry.IfIndex})
+    atmInterfaceTCEntry.EntityData.Leafs.Append("atmInterfaceOCDEvents", types.YLeaf{"AtmInterfaceOCDEvents", atmInterfaceTCEntry.AtmInterfaceOCDEvents})
+    atmInterfaceTCEntry.EntityData.Leafs.Append("atmInterfaceTCAlarmState", types.YLeaf{"AtmInterfaceTCAlarmState", atmInterfaceTCEntry.AtmInterfaceTCAlarmState})
+
+    atmInterfaceTCEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(atmInterfaceTCEntry.EntityData)
 }
 
-// ATMMIB_Atminterfacetctable_Atminterfacetcentry_Atminterfacetcalarmstate represents maintenance state.
-type ATMMIB_Atminterfacetctable_Atminterfacetcentry_Atminterfacetcalarmstate string
+// ATMMIB_AtmInterfaceTCTable_AtmInterfaceTCEntry_AtmInterfaceTCAlarmState represents maintenance state.
+type ATMMIB_AtmInterfaceTCTable_AtmInterfaceTCEntry_AtmInterfaceTCAlarmState string
 
 const (
-    ATMMIB_Atminterfacetctable_Atminterfacetcentry_Atminterfacetcalarmstate_noAlarm ATMMIB_Atminterfacetctable_Atminterfacetcentry_Atminterfacetcalarmstate = "noAlarm"
+    ATMMIB_AtmInterfaceTCTable_AtmInterfaceTCEntry_AtmInterfaceTCAlarmState_noAlarm ATMMIB_AtmInterfaceTCTable_AtmInterfaceTCEntry_AtmInterfaceTCAlarmState = "noAlarm"
 
-    ATMMIB_Atminterfacetctable_Atminterfacetcentry_Atminterfacetcalarmstate_lcdFailure ATMMIB_Atminterfacetctable_Atminterfacetcentry_Atminterfacetcalarmstate = "lcdFailure"
+    ATMMIB_AtmInterfaceTCTable_AtmInterfaceTCEntry_AtmInterfaceTCAlarmState_lcdFailure ATMMIB_AtmInterfaceTCTable_AtmInterfaceTCEntry_AtmInterfaceTCAlarmState = "lcdFailure"
 )
 
-// ATMMIB_Atmtrafficdescrparamtable
+// ATMMIB_AtmTrafficDescrParamTable
 // This table contains information on ATM traffic
 // descriptor type and the associated parameters.
-type ATMMIB_Atmtrafficdescrparamtable struct {
+type ATMMIB_AtmTrafficDescrParamTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This list contains ATM traffic descriptor type and the associated
     // parameters. The type is slice of
-    // ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry.
-    Atmtrafficdescrparamentry []ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry
+    // ATMMIB_AtmTrafficDescrParamTable_AtmTrafficDescrParamEntry.
+    AtmTrafficDescrParamEntry []*ATMMIB_AtmTrafficDescrParamTable_AtmTrafficDescrParamEntry
 }
 
-func (atmtrafficdescrparamtable *ATMMIB_Atmtrafficdescrparamtable) GetEntityData() *types.CommonEntityData {
-    atmtrafficdescrparamtable.EntityData.YFilter = atmtrafficdescrparamtable.YFilter
-    atmtrafficdescrparamtable.EntityData.YangName = "atmTrafficDescrParamTable"
-    atmtrafficdescrparamtable.EntityData.BundleName = "cisco_ios_xe"
-    atmtrafficdescrparamtable.EntityData.ParentYangName = "ATM-MIB"
-    atmtrafficdescrparamtable.EntityData.SegmentPath = "atmTrafficDescrParamTable"
-    atmtrafficdescrparamtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atmtrafficdescrparamtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atmtrafficdescrparamtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmTrafficDescrParamTable *ATMMIB_AtmTrafficDescrParamTable) GetEntityData() *types.CommonEntityData {
+    atmTrafficDescrParamTable.EntityData.YFilter = atmTrafficDescrParamTable.YFilter
+    atmTrafficDescrParamTable.EntityData.YangName = "atmTrafficDescrParamTable"
+    atmTrafficDescrParamTable.EntityData.BundleName = "cisco_ios_xe"
+    atmTrafficDescrParamTable.EntityData.ParentYangName = "ATM-MIB"
+    atmTrafficDescrParamTable.EntityData.SegmentPath = "atmTrafficDescrParamTable"
+    atmTrafficDescrParamTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmTrafficDescrParamTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmTrafficDescrParamTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atmtrafficdescrparamtable.EntityData.Children = make(map[string]types.YChild)
-    atmtrafficdescrparamtable.EntityData.Children["atmTrafficDescrParamEntry"] = types.YChild{"Atmtrafficdescrparamentry", nil}
-    for i := range atmtrafficdescrparamtable.Atmtrafficdescrparamentry {
-        atmtrafficdescrparamtable.EntityData.Children[types.GetSegmentPath(&atmtrafficdescrparamtable.Atmtrafficdescrparamentry[i])] = types.YChild{"Atmtrafficdescrparamentry", &atmtrafficdescrparamtable.Atmtrafficdescrparamentry[i]}
+    atmTrafficDescrParamTable.EntityData.Children = types.NewOrderedMap()
+    atmTrafficDescrParamTable.EntityData.Children.Append("atmTrafficDescrParamEntry", types.YChild{"AtmTrafficDescrParamEntry", nil})
+    for i := range atmTrafficDescrParamTable.AtmTrafficDescrParamEntry {
+        atmTrafficDescrParamTable.EntityData.Children.Append(types.GetSegmentPath(atmTrafficDescrParamTable.AtmTrafficDescrParamEntry[i]), types.YChild{"AtmTrafficDescrParamEntry", atmTrafficDescrParamTable.AtmTrafficDescrParamEntry[i]})
     }
-    atmtrafficdescrparamtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(atmtrafficdescrparamtable.EntityData)
+    atmTrafficDescrParamTable.EntityData.Leafs = types.NewOrderedMap()
+
+    atmTrafficDescrParamTable.EntityData.YListKeys = []string {}
+
+    return &(atmTrafficDescrParamTable.EntityData)
 }
 
-// ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry
+// ATMMIB_AtmTrafficDescrParamTable_AtmTrafficDescrParamEntry
 // This list contains ATM traffic descriptor
 // type and the associated parameters.
-type ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry struct {
+type ATMMIB_AtmTrafficDescrParamTable_AtmTrafficDescrParamEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -751,7 +778,7 @@ type ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry struct {
     // new row in the table the value of this index may be obtained by retrieving
     // the value of atmTrafficDescrParamIndexNext. The type is interface{} with
     // range: 1..2147483647.
-    Atmtrafficdescrparamindex interface{}
+    AtmTrafficDescrParamIndex interface{}
 
     // The value of this object identifies the type of ATM traffic descriptor. The
     // type may indicate no traffic descriptor or traffic descriptor with one or
@@ -759,33 +786,33 @@ type ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry struct {
     // the corresponding instances of the objects:     atmTrafficDescrParam1    
     // atmTrafficDescrParam2     atmTrafficDescrParam3     atmTrafficDescrParam4  
     // atmTrafficDescrParam5. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Atmtrafficdescrtype interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    AtmTrafficDescrType interface{}
 
     // The first parameter of the ATM traffic descriptor used according to the
     // value of atmTrafficDescrType. The type is interface{} with range:
     // -2147483648..2147483647.
-    Atmtrafficdescrparam1 interface{}
+    AtmTrafficDescrParam1 interface{}
 
     // The second parameter of the ATM traffic descriptor used according to the
     // value of atmTrafficDescrType. The type is interface{} with range:
     // -2147483648..2147483647.
-    Atmtrafficdescrparam2 interface{}
+    AtmTrafficDescrParam2 interface{}
 
     // The third parameter of the ATM traffic descriptor used according to the
     // value of atmTrafficDescrType. The type is interface{} with range:
     // -2147483648..2147483647.
-    Atmtrafficdescrparam3 interface{}
+    AtmTrafficDescrParam3 interface{}
 
     // The fourth parameter of the ATM traffic descriptor used according to the
     // value of atmTrafficDescrType. The type is interface{} with range:
     // -2147483648..2147483647.
-    Atmtrafficdescrparam4 interface{}
+    AtmTrafficDescrParam4 interface{}
 
     // The fifth parameter of the ATM traffic descriptor used according to the
     // value of atmTrafficDescrType. The type is interface{} with range:
     // -2147483648..2147483647.
-    Atmtrafficdescrparam5 interface{}
+    AtmTrafficDescrParam5 interface{}
 
     // The value of this object identifies the QoS Class. Four Service classes
     // have been specified in the ATM Forum UNI Specification: Service Class A:
@@ -795,14 +822,14 @@ type ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry struct {
     // 3, and 4 have been specified with the aim to support service classes A, B,
     // C, and D respectively. An unspecified QoS Class numbered `0' is used for
     // best effort traffic. The type is interface{} with range: 0..255.
-    Atmtrafficqosclass interface{}
+    AtmTrafficQoSClass interface{}
 
     // This object is used to create a new row or modify or delete an existing row
     // in this table. The type is RowStatus.
-    Atmtrafficdescrrowstatus interface{}
+    AtmTrafficDescrRowStatus interface{}
 
     // The ATM service category. The type is AtmServiceCategory.
-    Atmservicecategory interface{}
+    AtmServiceCategory interface{}
 
     // If set to 'true', this object indicates that the network is requested to
     // treat data for this connection, in the given direction, as frames (e.g.
@@ -810,43 +837,46 @@ type ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry struct {
     // implementation is network-specific, this treatment may for example involve
     // discarding entire frames during congestion, rather than a few cells from
     // many frames. The type is bool.
-    Atmtrafficframediscard interface{}
+    AtmTrafficFrameDiscard interface{}
 }
 
-func (atmtrafficdescrparamentry *ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry) GetEntityData() *types.CommonEntityData {
-    atmtrafficdescrparamentry.EntityData.YFilter = atmtrafficdescrparamentry.YFilter
-    atmtrafficdescrparamentry.EntityData.YangName = "atmTrafficDescrParamEntry"
-    atmtrafficdescrparamentry.EntityData.BundleName = "cisco_ios_xe"
-    atmtrafficdescrparamentry.EntityData.ParentYangName = "atmTrafficDescrParamTable"
-    atmtrafficdescrparamentry.EntityData.SegmentPath = "atmTrafficDescrParamEntry" + "[atmTrafficDescrParamIndex='" + fmt.Sprintf("%v", atmtrafficdescrparamentry.Atmtrafficdescrparamindex) + "']"
-    atmtrafficdescrparamentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atmtrafficdescrparamentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atmtrafficdescrparamentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmTrafficDescrParamEntry *ATMMIB_AtmTrafficDescrParamTable_AtmTrafficDescrParamEntry) GetEntityData() *types.CommonEntityData {
+    atmTrafficDescrParamEntry.EntityData.YFilter = atmTrafficDescrParamEntry.YFilter
+    atmTrafficDescrParamEntry.EntityData.YangName = "atmTrafficDescrParamEntry"
+    atmTrafficDescrParamEntry.EntityData.BundleName = "cisco_ios_xe"
+    atmTrafficDescrParamEntry.EntityData.ParentYangName = "atmTrafficDescrParamTable"
+    atmTrafficDescrParamEntry.EntityData.SegmentPath = "atmTrafficDescrParamEntry" + types.AddKeyToken(atmTrafficDescrParamEntry.AtmTrafficDescrParamIndex, "atmTrafficDescrParamIndex")
+    atmTrafficDescrParamEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmTrafficDescrParamEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmTrafficDescrParamEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atmtrafficdescrparamentry.EntityData.Children = make(map[string]types.YChild)
-    atmtrafficdescrparamentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficDescrParamIndex"] = types.YLeaf{"Atmtrafficdescrparamindex", atmtrafficdescrparamentry.Atmtrafficdescrparamindex}
-    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficDescrType"] = types.YLeaf{"Atmtrafficdescrtype", atmtrafficdescrparamentry.Atmtrafficdescrtype}
-    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficDescrParam1"] = types.YLeaf{"Atmtrafficdescrparam1", atmtrafficdescrparamentry.Atmtrafficdescrparam1}
-    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficDescrParam2"] = types.YLeaf{"Atmtrafficdescrparam2", atmtrafficdescrparamentry.Atmtrafficdescrparam2}
-    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficDescrParam3"] = types.YLeaf{"Atmtrafficdescrparam3", atmtrafficdescrparamentry.Atmtrafficdescrparam3}
-    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficDescrParam4"] = types.YLeaf{"Atmtrafficdescrparam4", atmtrafficdescrparamentry.Atmtrafficdescrparam4}
-    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficDescrParam5"] = types.YLeaf{"Atmtrafficdescrparam5", atmtrafficdescrparamentry.Atmtrafficdescrparam5}
-    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficQoSClass"] = types.YLeaf{"Atmtrafficqosclass", atmtrafficdescrparamentry.Atmtrafficqosclass}
-    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficDescrRowStatus"] = types.YLeaf{"Atmtrafficdescrrowstatus", atmtrafficdescrparamentry.Atmtrafficdescrrowstatus}
-    atmtrafficdescrparamentry.EntityData.Leafs["atmServiceCategory"] = types.YLeaf{"Atmservicecategory", atmtrafficdescrparamentry.Atmservicecategory}
-    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficFrameDiscard"] = types.YLeaf{"Atmtrafficframediscard", atmtrafficdescrparamentry.Atmtrafficframediscard}
-    return &(atmtrafficdescrparamentry.EntityData)
+    atmTrafficDescrParamEntry.EntityData.Children = types.NewOrderedMap()
+    atmTrafficDescrParamEntry.EntityData.Leafs = types.NewOrderedMap()
+    atmTrafficDescrParamEntry.EntityData.Leafs.Append("atmTrafficDescrParamIndex", types.YLeaf{"AtmTrafficDescrParamIndex", atmTrafficDescrParamEntry.AtmTrafficDescrParamIndex})
+    atmTrafficDescrParamEntry.EntityData.Leafs.Append("atmTrafficDescrType", types.YLeaf{"AtmTrafficDescrType", atmTrafficDescrParamEntry.AtmTrafficDescrType})
+    atmTrafficDescrParamEntry.EntityData.Leafs.Append("atmTrafficDescrParam1", types.YLeaf{"AtmTrafficDescrParam1", atmTrafficDescrParamEntry.AtmTrafficDescrParam1})
+    atmTrafficDescrParamEntry.EntityData.Leafs.Append("atmTrafficDescrParam2", types.YLeaf{"AtmTrafficDescrParam2", atmTrafficDescrParamEntry.AtmTrafficDescrParam2})
+    atmTrafficDescrParamEntry.EntityData.Leafs.Append("atmTrafficDescrParam3", types.YLeaf{"AtmTrafficDescrParam3", atmTrafficDescrParamEntry.AtmTrafficDescrParam3})
+    atmTrafficDescrParamEntry.EntityData.Leafs.Append("atmTrafficDescrParam4", types.YLeaf{"AtmTrafficDescrParam4", atmTrafficDescrParamEntry.AtmTrafficDescrParam4})
+    atmTrafficDescrParamEntry.EntityData.Leafs.Append("atmTrafficDescrParam5", types.YLeaf{"AtmTrafficDescrParam5", atmTrafficDescrParamEntry.AtmTrafficDescrParam5})
+    atmTrafficDescrParamEntry.EntityData.Leafs.Append("atmTrafficQoSClass", types.YLeaf{"AtmTrafficQoSClass", atmTrafficDescrParamEntry.AtmTrafficQoSClass})
+    atmTrafficDescrParamEntry.EntityData.Leafs.Append("atmTrafficDescrRowStatus", types.YLeaf{"AtmTrafficDescrRowStatus", atmTrafficDescrParamEntry.AtmTrafficDescrRowStatus})
+    atmTrafficDescrParamEntry.EntityData.Leafs.Append("atmServiceCategory", types.YLeaf{"AtmServiceCategory", atmTrafficDescrParamEntry.AtmServiceCategory})
+    atmTrafficDescrParamEntry.EntityData.Leafs.Append("atmTrafficFrameDiscard", types.YLeaf{"AtmTrafficFrameDiscard", atmTrafficDescrParamEntry.AtmTrafficFrameDiscard})
+
+    atmTrafficDescrParamEntry.EntityData.YListKeys = []string {"AtmTrafficDescrParamIndex"}
+
+    return &(atmTrafficDescrParamEntry.EntityData)
 }
 
-// ATMMIB_Atmvpltable
+// ATMMIB_AtmVplTable
 // The Virtual Path Link (VPL) table.  A
 // bi-directional VPL is modeled as one entry
 // in this table. This table can be used for
 // PVCs, SVCs and Soft PVCs.
 // Entries are not present in this table for
 // the VPIs used by entries in the atmVclTable.
-type ATMMIB_Atmvpltable struct {
+type ATMMIB_AtmVplTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -885,30 +915,33 @@ type ATMMIB_Atmvpltable struct {
     // operation but does not have the advantage of step-wise error checking.  VPL
     // Retirement  A VPL is released by setting atmVplRowStatus to destroy(6), and
     // the agent may release all associated resources. The type is slice of
-    // ATMMIB_Atmvpltable_Atmvplentry.
-    Atmvplentry []ATMMIB_Atmvpltable_Atmvplentry
+    // ATMMIB_AtmVplTable_AtmVplEntry.
+    AtmVplEntry []*ATMMIB_AtmVplTable_AtmVplEntry
 }
 
-func (atmvpltable *ATMMIB_Atmvpltable) GetEntityData() *types.CommonEntityData {
-    atmvpltable.EntityData.YFilter = atmvpltable.YFilter
-    atmvpltable.EntityData.YangName = "atmVplTable"
-    atmvpltable.EntityData.BundleName = "cisco_ios_xe"
-    atmvpltable.EntityData.ParentYangName = "ATM-MIB"
-    atmvpltable.EntityData.SegmentPath = "atmVplTable"
-    atmvpltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atmvpltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atmvpltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmVplTable *ATMMIB_AtmVplTable) GetEntityData() *types.CommonEntityData {
+    atmVplTable.EntityData.YFilter = atmVplTable.YFilter
+    atmVplTable.EntityData.YangName = "atmVplTable"
+    atmVplTable.EntityData.BundleName = "cisco_ios_xe"
+    atmVplTable.EntityData.ParentYangName = "ATM-MIB"
+    atmVplTable.EntityData.SegmentPath = "atmVplTable"
+    atmVplTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmVplTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmVplTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atmvpltable.EntityData.Children = make(map[string]types.YChild)
-    atmvpltable.EntityData.Children["atmVplEntry"] = types.YChild{"Atmvplentry", nil}
-    for i := range atmvpltable.Atmvplentry {
-        atmvpltable.EntityData.Children[types.GetSegmentPath(&atmvpltable.Atmvplentry[i])] = types.YChild{"Atmvplentry", &atmvpltable.Atmvplentry[i]}
+    atmVplTable.EntityData.Children = types.NewOrderedMap()
+    atmVplTable.EntityData.Children.Append("atmVplEntry", types.YChild{"AtmVplEntry", nil})
+    for i := range atmVplTable.AtmVplEntry {
+        atmVplTable.EntityData.Children.Append(types.GetSegmentPath(atmVplTable.AtmVplEntry[i]), types.YChild{"AtmVplEntry", atmVplTable.AtmVplEntry[i]})
     }
-    atmvpltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(atmvpltable.EntityData)
+    atmVplTable.EntityData.Leafs = types.NewOrderedMap()
+
+    atmVplTable.EntityData.YListKeys = []string {}
+
+    return &(atmVplTable.EntityData)
 }
 
-// ATMMIB_Atmvpltable_Atmvplentry
+// ATMMIB_AtmVplTable_AtmVplEntry
 // An entry in the VPL table.  This entry is
 // used to model a bi-directional VPL.
 // To create a VPL at an ATM interface,
@@ -984,39 +1017,39 @@ func (atmvpltable *ATMMIB_Atmvpltable) GetEntityData() *types.CommonEntityData {
 // A VPL is released by setting atmVplRowStatus to
 // destroy(6), and the agent may release all
 // associated resources.
-type ATMMIB_Atmvpltable_Atmvplentry struct {
+type ATMMIB_AtmVplTable_AtmVplEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The VPI value of the VPL. The type is interface{}
     // with range: 0..4095.
-    Atmvplvpi interface{}
+    AtmVplVpi interface{}
 
     // This object is instanciated only for a VPL which terminates a VPC (i.e.,
     // one which is NOT cross-connected to other VPLs). Its value specifies the
     // desired administrative state of the VPL. The type is AtmVorXAdminStatus.
-    Atmvpladminstatus interface{}
+    AtmVplAdminStatus interface{}
 
     // The current operational status of the VPL. The type is AtmVorXOperStatus.
-    Atmvploperstatus interface{}
+    AtmVplOperStatus interface{}
 
     // The value of sysUpTime at the time this VPL entered its current operational
     // state. The type is interface{} with range: 0..4294967295.
-    Atmvpllastchange interface{}
+    AtmVplLastChange interface{}
 
     // The value of this object identifies the row in the
     // atmTrafficDescrParamTable which applies to the receive direction of the
     // VPL. The type is interface{} with range: 0..2147483647.
-    Atmvplreceivetrafficdescrindex interface{}
+    AtmVplReceiveTrafficDescrIndex interface{}
 
     // The value of this object identifies the row in the
     // atmTrafficDescrParamTable which applies to the transmit direction of the
     // VPL. The type is interface{} with range: 0..2147483647.
-    Atmvpltransmittrafficdescrindex interface{}
+    AtmVplTransmitTrafficDescrIndex interface{}
 
     // This object is instantiated only for a VPL which is cross-connected to
     // other VPLs that belong to the same VPC.  All such associated VPLs have the
@@ -1029,7 +1062,7 @@ type ATMMIB_Atmvpltable_Atmvplentry struct {
     // the same cross-connect index value. The value of this object is initialized
     // by the agent after the associated entries in the atmVpCrossConnectTable
     // have been created. The type is interface{} with range: 0..2147483647.
-    Atmvplcrossconnectidentifier interface{}
+    AtmVplCrossConnectIdentifier interface{}
 
     // This object is used to create, delete or modify a row in this table. To
     // create a new VCL, this object is initially set to 'createAndWait' or
@@ -1038,47 +1071,50 @@ type ATMMIB_Atmvpltable_Atmvplentry struct {
     // row: atmVplReceiveTrafficDescrIndex and atmVplTransmitTrafficDescrIndex.
     // The DESCRIPTION of atmVplEntry provides further guidance to row treatment
     // in this table. The type is RowStatus.
-    Atmvplrowstatus interface{}
+    AtmVplRowStatus interface{}
 
     // The connection topology type. The type is AtmConnCastType.
-    Atmvplcasttype interface{}
+    AtmVplCastType interface{}
 
     // The use of call control. The type is AtmConnKind.
-    Atmvplconnkind interface{}
+    AtmVplConnKind interface{}
 }
 
-func (atmvplentry *ATMMIB_Atmvpltable_Atmvplentry) GetEntityData() *types.CommonEntityData {
-    atmvplentry.EntityData.YFilter = atmvplentry.YFilter
-    atmvplentry.EntityData.YangName = "atmVplEntry"
-    atmvplentry.EntityData.BundleName = "cisco_ios_xe"
-    atmvplentry.EntityData.ParentYangName = "atmVplTable"
-    atmvplentry.EntityData.SegmentPath = "atmVplEntry" + "[ifIndex='" + fmt.Sprintf("%v", atmvplentry.Ifindex) + "']" + "[atmVplVpi='" + fmt.Sprintf("%v", atmvplentry.Atmvplvpi) + "']"
-    atmvplentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atmvplentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atmvplentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmVplEntry *ATMMIB_AtmVplTable_AtmVplEntry) GetEntityData() *types.CommonEntityData {
+    atmVplEntry.EntityData.YFilter = atmVplEntry.YFilter
+    atmVplEntry.EntityData.YangName = "atmVplEntry"
+    atmVplEntry.EntityData.BundleName = "cisco_ios_xe"
+    atmVplEntry.EntityData.ParentYangName = "atmVplTable"
+    atmVplEntry.EntityData.SegmentPath = "atmVplEntry" + types.AddKeyToken(atmVplEntry.IfIndex, "ifIndex") + types.AddKeyToken(atmVplEntry.AtmVplVpi, "atmVplVpi")
+    atmVplEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmVplEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmVplEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atmvplentry.EntityData.Children = make(map[string]types.YChild)
-    atmvplentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    atmvplentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", atmvplentry.Ifindex}
-    atmvplentry.EntityData.Leafs["atmVplVpi"] = types.YLeaf{"Atmvplvpi", atmvplentry.Atmvplvpi}
-    atmvplentry.EntityData.Leafs["atmVplAdminStatus"] = types.YLeaf{"Atmvpladminstatus", atmvplentry.Atmvpladminstatus}
-    atmvplentry.EntityData.Leafs["atmVplOperStatus"] = types.YLeaf{"Atmvploperstatus", atmvplentry.Atmvploperstatus}
-    atmvplentry.EntityData.Leafs["atmVplLastChange"] = types.YLeaf{"Atmvpllastchange", atmvplentry.Atmvpllastchange}
-    atmvplentry.EntityData.Leafs["atmVplReceiveTrafficDescrIndex"] = types.YLeaf{"Atmvplreceivetrafficdescrindex", atmvplentry.Atmvplreceivetrafficdescrindex}
-    atmvplentry.EntityData.Leafs["atmVplTransmitTrafficDescrIndex"] = types.YLeaf{"Atmvpltransmittrafficdescrindex", atmvplentry.Atmvpltransmittrafficdescrindex}
-    atmvplentry.EntityData.Leafs["atmVplCrossConnectIdentifier"] = types.YLeaf{"Atmvplcrossconnectidentifier", atmvplentry.Atmvplcrossconnectidentifier}
-    atmvplentry.EntityData.Leafs["atmVplRowStatus"] = types.YLeaf{"Atmvplrowstatus", atmvplentry.Atmvplrowstatus}
-    atmvplentry.EntityData.Leafs["atmVplCastType"] = types.YLeaf{"Atmvplcasttype", atmvplentry.Atmvplcasttype}
-    atmvplentry.EntityData.Leafs["atmVplConnKind"] = types.YLeaf{"Atmvplconnkind", atmvplentry.Atmvplconnkind}
-    return &(atmvplentry.EntityData)
+    atmVplEntry.EntityData.Children = types.NewOrderedMap()
+    atmVplEntry.EntityData.Leafs = types.NewOrderedMap()
+    atmVplEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", atmVplEntry.IfIndex})
+    atmVplEntry.EntityData.Leafs.Append("atmVplVpi", types.YLeaf{"AtmVplVpi", atmVplEntry.AtmVplVpi})
+    atmVplEntry.EntityData.Leafs.Append("atmVplAdminStatus", types.YLeaf{"AtmVplAdminStatus", atmVplEntry.AtmVplAdminStatus})
+    atmVplEntry.EntityData.Leafs.Append("atmVplOperStatus", types.YLeaf{"AtmVplOperStatus", atmVplEntry.AtmVplOperStatus})
+    atmVplEntry.EntityData.Leafs.Append("atmVplLastChange", types.YLeaf{"AtmVplLastChange", atmVplEntry.AtmVplLastChange})
+    atmVplEntry.EntityData.Leafs.Append("atmVplReceiveTrafficDescrIndex", types.YLeaf{"AtmVplReceiveTrafficDescrIndex", atmVplEntry.AtmVplReceiveTrafficDescrIndex})
+    atmVplEntry.EntityData.Leafs.Append("atmVplTransmitTrafficDescrIndex", types.YLeaf{"AtmVplTransmitTrafficDescrIndex", atmVplEntry.AtmVplTransmitTrafficDescrIndex})
+    atmVplEntry.EntityData.Leafs.Append("atmVplCrossConnectIdentifier", types.YLeaf{"AtmVplCrossConnectIdentifier", atmVplEntry.AtmVplCrossConnectIdentifier})
+    atmVplEntry.EntityData.Leafs.Append("atmVplRowStatus", types.YLeaf{"AtmVplRowStatus", atmVplEntry.AtmVplRowStatus})
+    atmVplEntry.EntityData.Leafs.Append("atmVplCastType", types.YLeaf{"AtmVplCastType", atmVplEntry.AtmVplCastType})
+    atmVplEntry.EntityData.Leafs.Append("atmVplConnKind", types.YLeaf{"AtmVplConnKind", atmVplEntry.AtmVplConnKind})
+
+    atmVplEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVplVpi"}
+
+    return &(atmVplEntry.EntityData)
 }
 
-// ATMMIB_Atmvcltable
+// ATMMIB_AtmVclTable
 // The Virtual Channel Link (VCL) table.  A
 // bi-directional VCL is modeled as one entry
 // in this table. This table can be used for
 // PVCs, SVCs and Soft PVCs.
-type ATMMIB_Atmvcltable struct {
+type ATMMIB_AtmVclTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1118,30 +1154,33 @@ type ATMMIB_Atmvcltable struct {
     // operation but does not have the advantage of step-wise error checking.  VCL
     // Retirement  A VCL is released by setting atmVclRowStatus to destroy(6), and
     // the agent may release all associated resources. The type is slice of
-    // ATMMIB_Atmvcltable_Atmvclentry.
-    Atmvclentry []ATMMIB_Atmvcltable_Atmvclentry
+    // ATMMIB_AtmVclTable_AtmVclEntry.
+    AtmVclEntry []*ATMMIB_AtmVclTable_AtmVclEntry
 }
 
-func (atmvcltable *ATMMIB_Atmvcltable) GetEntityData() *types.CommonEntityData {
-    atmvcltable.EntityData.YFilter = atmvcltable.YFilter
-    atmvcltable.EntityData.YangName = "atmVclTable"
-    atmvcltable.EntityData.BundleName = "cisco_ios_xe"
-    atmvcltable.EntityData.ParentYangName = "ATM-MIB"
-    atmvcltable.EntityData.SegmentPath = "atmVclTable"
-    atmvcltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atmvcltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atmvcltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmVclTable *ATMMIB_AtmVclTable) GetEntityData() *types.CommonEntityData {
+    atmVclTable.EntityData.YFilter = atmVclTable.YFilter
+    atmVclTable.EntityData.YangName = "atmVclTable"
+    atmVclTable.EntityData.BundleName = "cisco_ios_xe"
+    atmVclTable.EntityData.ParentYangName = "ATM-MIB"
+    atmVclTable.EntityData.SegmentPath = "atmVclTable"
+    atmVclTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmVclTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmVclTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atmvcltable.EntityData.Children = make(map[string]types.YChild)
-    atmvcltable.EntityData.Children["atmVclEntry"] = types.YChild{"Atmvclentry", nil}
-    for i := range atmvcltable.Atmvclentry {
-        atmvcltable.EntityData.Children[types.GetSegmentPath(&atmvcltable.Atmvclentry[i])] = types.YChild{"Atmvclentry", &atmvcltable.Atmvclentry[i]}
+    atmVclTable.EntityData.Children = types.NewOrderedMap()
+    atmVclTable.EntityData.Children.Append("atmVclEntry", types.YChild{"AtmVclEntry", nil})
+    for i := range atmVclTable.AtmVclEntry {
+        atmVclTable.EntityData.Children.Append(types.GetSegmentPath(atmVclTable.AtmVclEntry[i]), types.YChild{"AtmVclEntry", atmVclTable.AtmVclEntry[i]})
     }
-    atmvcltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(atmvcltable.EntityData)
+    atmVclTable.EntityData.Leafs = types.NewOrderedMap()
+
+    atmVclTable.EntityData.YListKeys = []string {}
+
+    return &(atmVclTable.EntityData)
 }
 
-// ATMMIB_Atmvcltable_Atmvclentry
+// ATMMIB_AtmVclTable_AtmVclEntry
 // An entry in the VCL table. This entry is
 // used to model a bi-directional VCL.
 // To create a VCL at an ATM interface,
@@ -1219,69 +1258,69 @@ func (atmvcltable *ATMMIB_Atmvcltable) GetEntityData() *types.CommonEntityData {
 // A VCL is released by setting atmVclRowStatus to
 // destroy(6), and the agent may release all
 // associated resources.
-type ATMMIB_Atmvcltable_Atmvclentry struct {
+type ATMMIB_AtmVclTable_AtmVclEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The VPI value of the VCL. The type is interface{}
     // with range: 0..4095.
-    Atmvclvpi interface{}
+    AtmVclVpi interface{}
 
     // This attribute is a key. The VCI value of the VCL. The type is interface{}
     // with range: 0..65535.
-    Atmvclvci interface{}
+    AtmVclVci interface{}
 
     // This object is instanciated only for a VCL which terminates a VCC (i.e.,
     // one which is NOT cross-connected to other VCLs). Its value specifies the
     // desired administrative state of the VCL. The type is AtmVorXAdminStatus.
-    Atmvcladminstatus interface{}
+    AtmVclAdminStatus interface{}
 
     // The current operational status of the VCL. The type is AtmVorXOperStatus.
-    Atmvcloperstatus interface{}
+    AtmVclOperStatus interface{}
 
     // The value of sysUpTime at the time this VCL entered its current operational
     // state. The type is interface{} with range: 0..4294967295.
-    Atmvcllastchange interface{}
+    AtmVclLastChange interface{}
 
     // The value of this object identifies the row in the ATM Traffic Descriptor
     // Table which applies to the receive direction of this VCL. The type is
     // interface{} with range: 0..2147483647.
-    Atmvclreceivetrafficdescrindex interface{}
+    AtmVclReceiveTrafficDescrIndex interface{}
 
     // The value of this object identifies the row of the ATM Traffic Descriptor
     // Table which applies to the transmit direction of this VCL. The type is
     // interface{} with range: 0..2147483647.
-    Atmvcltransmittrafficdescrindex interface{}
+    AtmVclTransmitTrafficDescrIndex interface{}
 
     // An instance of this object only exists when the local VCL end-point is also
     // the VCC end-point, and AAL is in use. The type of AAL used on this VCC. The
     // AAL type includes AAL1, AAL2, AAL3/4, and AAL5. The other(4) may be
     // user-defined AAL type.  The unknown type indicates that the AAL type cannot
-    // be determined. The type is Atmvccaaltype.
-    Atmvccaaltype interface{}
+    // be determined. The type is AtmVccAalType.
+    AtmVccAalType interface{}
 
     // An instance of this object only exists when the local VCL end-point is also
     // the VCC end-point, and AAL5 is in use. The maximum AAL5 CPCS SDU size in
     // octets that is supported on the transmit direction of this VCC. The type is
     // interface{} with range: 1..65535.
-    Atmvccaal5Cpcstransmitsdusize interface{}
+    AtmVccAal5CpcsTransmitSduSize interface{}
 
     // An instance of this object only exists when the local VCL end-point is also
     // the VCC end-point, and AAL5 is in use. The maximum AAL5 CPCS SDU size in
     // octets that is supported on the receive direction of this VCC. The type is
     // interface{} with range: 1..65535.
-    Atmvccaal5Cpcsreceivesdusize interface{}
+    AtmVccAal5CpcsReceiveSduSize interface{}
 
     // An instance of this object only exists when the local VCL end-point is also
     // the VCC end-point, and AAL5 is in use. The type of data encapsulation used
     // over the AAL5 SSCS layer. The definitions reference RFC 1483 Multiprotocol
     // Encapsulation over ATM AAL5 and to the ATM Forum LAN Emulation
-    // specification. The type is Atmvccaal5Encapstype.
-    Atmvccaal5Encapstype interface{}
+    // specification. The type is AtmVccAal5EncapsType.
+    AtmVccAal5EncapsType interface{}
 
     // This object is instantiated only for a VCL which is cross-connected to
     // other VCLs that belong to the same VCC.  All such associated VCLs have the
@@ -1294,7 +1333,7 @@ type ATMMIB_Atmvcltable_Atmvclentry struct {
     // the same cross-connect index value. The value of this object is initialized
     // by the agent after the associated entries in the atmVcCrossConnectTable
     // have been created. The type is interface{} with range: 0..2147483647.
-    Atmvclcrossconnectidentifier interface{}
+    AtmVclCrossConnectIdentifier interface{}
 
     // This object is used to create, delete or modify a row in this table.  To
     // create a new VCL, this object is initially set to 'createAndWait' or
@@ -1307,66 +1346,66 @@ type ATMMIB_Atmvcltable_Atmvclentry struct {
     // atmVccAal5EncapsType. (The existence of these objects imply the AAL
     // connection type.). The DESCRIPTION of atmVclEntry provides further guidance
     // to row treatment in this table. The type is RowStatus.
-    Atmvclrowstatus interface{}
+    AtmVclRowStatus interface{}
 
     // The connection topology type. The type is AtmConnCastType.
-    Atmvclcasttype interface{}
+    AtmVclCastType interface{}
 
     // The use of call control. The type is AtmConnKind.
-    Atmvclconnkind interface{}
+    AtmVclConnKind interface{}
 
     // Specifies OAM loopback frequency. The type is interface{} with range:
     // 0..4294967295. Units are seconds.
-    Catmxvcloamloopbackfreq interface{}
+    CatmxVclOamLoopbackFreq interface{}
 
     // Specifies OAM retry polling frequency. The type is interface{} with range:
     // 0..4294967295. Units are seconds.
-    Catmxvcloamretryfreq interface{}
+    CatmxVclOamRetryFreq interface{}
 
     // Specifies OAM retry count before declaring a VC  is up. The type is
     // interface{} with range: 0..4294967295.
-    Catmxvcloamupretrycount interface{}
+    CatmxVclOamUpRetryCount interface{}
 
     // Specifies OAM retry count before declaring a VC  is down. The type is
     // interface{} with range: 0..4294967295.
-    Catmxvcloamdownretrycount interface{}
+    CatmxVclOamDownRetryCount interface{}
 
     // Specifies OAM End-to-end Continuity check (CC)  Activation retry count. The
     // type is interface{} with range: 0..4294967295.
-    Catmxvcloamendccactcount interface{}
+    CatmxVclOamEndCCActCount interface{}
 
     // Specifies OAM End-to-end Continuity check (CC)  Deactivation retry count.
     // The type is interface{} with range: 0..4294967295.
-    Catmxvcloamendccdeactcount interface{}
+    CatmxVclOamEndCCDeActCount interface{}
 
     // Specifies OAM End-to-end Continuity check (CC)  Activation/Deactivation
     // retry frequency. The type is interface{} with range: 0..4294967295. Units
     // are seconds.
-    Catmxvcloamendccretryfreq interface{}
+    CatmxVclOamEndCCRetryFreq interface{}
 
     // Specifies OAM Segment Continuity check (CC)  Activation retry count. The
     // type is interface{} with range: 0..4294967295.
-    Catmxvcloamsegccactcount interface{}
+    CatmxVclOamSegCCActCount interface{}
 
     // Specifies OAM Segment Continuity check (CC)  Deactivation retry count. The
     // type is interface{} with range: 0..4294967295.
-    Catmxvcloamsegccdeactcount interface{}
+    CatmxVclOamSegCCDeActCount interface{}
 
     // Specifies OAM Segment Continuity check (CC)  Activation/Deactivation retry
     // frequency. The type is interface{} with range: 0..4294967295. Units are
     // seconds.
-    Catmxvcloamsegccretryfreq interface{}
+    CatmxVclOamSegCCRetryFreq interface{}
 
     // Specifies OAM Enable/Disable on the VC. true(1) indicates that OAM is
     // enabled on the VC. false(2) indicates that OAM is disabled on the VC. The
     // type is bool.
-    Catmxvcloammanage interface{}
+    CatmxVclOamManage interface{}
 
     // Indicates OAM loopback status of the VC. disabled(1)  --   No OAMs on this
     // VC. sent(2)      --   OAM sent, waiting for echo. received(3)  --   OAM
     // received from target. failed(4)    --   Last OAM did not return. The type
-    // is Catmxvcloamloopbkstatus.
-    Catmxvcloamloopbkstatus interface{}
+    // is CatmxVclOamLoopBkStatus.
+    CatmxVclOamLoopBkStatus interface{}
 
     // Indicates the state of VC OAM. downRetry(1)   --  Loopback failed. Retry
     // sending                     loopbacks with retry frequency.                
@@ -1376,194 +1415,197 @@ type ATMMIB_Atmvcltable_Atmvclentry struct {
     // down. aisRDI(5)      --  Received AIS/RDI. Loopback are                    
     // not sent in this state. aisOut(6)      --  Sending AIS. Loopback and reply
     // are                     not sent in this state. notManaged(7)  --  VC is
-    // not managed by OAM. The type is Catmxvcloamvcstate.
-    Catmxvcloamvcstate interface{}
+    // not managed by OAM. The type is CatmxVclOamVcState.
+    CatmxVclOamVcState interface{}
 
     // Indicates OAM End-to-end Continuity check (CC)  status. The type is
     // OamCCStatus.
-    Catmxvcloamendccstatus interface{}
+    CatmxVclOamEndCCStatus interface{}
 
     // Indicates OAM Segment Continuity check (CC) status. The type is
     // OamCCStatus.
-    Catmxvcloamsegccstatus interface{}
+    CatmxVclOamSegCCStatus interface{}
 
     // Indicates OAM End-to-end Continuity check (CC)  VC state. The type is
     // OamCCVcState.
-    Catmxvcloamendccvcstate interface{}
+    CatmxVclOamEndCCVcState interface{}
 
     // Indicates OAM Segment Continuity check (CC) VC  state. The type is
     // OamCCVcState.
-    Catmxvcloamsegccvcstate interface{}
+    CatmxVclOamSegCCVcState interface{}
 
     // Indicates the number of OAM cells received on  this VC. The type is
     // interface{} with range: 0..4294967295. Units are cells.
-    Catmxvcloamcellsreceived interface{}
+    CatmxVclOamCellsReceived interface{}
 
     // Indicates the number of OAM cells sent on  this VC. The type is interface{}
     // with range: 0..4294967295. Units are cells.
-    Catmxvcloamcellssent interface{}
+    CatmxVclOamCellsSent interface{}
 
     // Indicates the number of OAM cells dropped on  this VC. The type is
     // interface{} with range: 0..4294967295. Units are cells.
-    Catmxvcloamcellsdropped interface{}
+    CatmxVclOamCellsDropped interface{}
 
     // Indicates the number of received OAM  F5 Alarm Indication Signal (AIS)
     // cells from the VC. The type is interface{} with range: 0..4294967295. Units
     // are cells.
-    Catmxvcloaminf5Ais interface{}
+    CatmxVclOamInF5ais interface{}
 
     // Indicates the number of transmitted OAM  F5 Alarm Indication Signal (AIS)
     // cells to the VC. The type is interface{} with range: 0..4294967295. Units
     // are cells.
-    Catmxvcloamoutf5Ais interface{}
+    CatmxVclOamOutF5ais interface{}
 
     // Indicates the number of received OAM  F5 Remote Detection Indication (RDI)
     // cells from  the VC. The type is interface{} with range: 0..4294967295.
     // Units are cells.
-    Catmxvcloaminf5Rdi interface{}
+    CatmxVclOamInF5rdi interface{}
 
     // Indicates the number of transmitted OAM  F5 Remote Detection Indication
     // (RDI) cells to the VC. The type is interface{} with range: 0..4294967295.
     // Units are cells.
-    Catmxvcloamoutf5Rdi interface{}
+    CatmxVclOamOutF5rdi interface{}
 }
 
-func (atmvclentry *ATMMIB_Atmvcltable_Atmvclentry) GetEntityData() *types.CommonEntityData {
-    atmvclentry.EntityData.YFilter = atmvclentry.YFilter
-    atmvclentry.EntityData.YangName = "atmVclEntry"
-    atmvclentry.EntityData.BundleName = "cisco_ios_xe"
-    atmvclentry.EntityData.ParentYangName = "atmVclTable"
-    atmvclentry.EntityData.SegmentPath = "atmVclEntry" + "[ifIndex='" + fmt.Sprintf("%v", atmvclentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", atmvclentry.Atmvclvpi) + "']" + "[atmVclVci='" + fmt.Sprintf("%v", atmvclentry.Atmvclvci) + "']"
-    atmvclentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atmvclentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atmvclentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmVclEntry *ATMMIB_AtmVclTable_AtmVclEntry) GetEntityData() *types.CommonEntityData {
+    atmVclEntry.EntityData.YFilter = atmVclEntry.YFilter
+    atmVclEntry.EntityData.YangName = "atmVclEntry"
+    atmVclEntry.EntityData.BundleName = "cisco_ios_xe"
+    atmVclEntry.EntityData.ParentYangName = "atmVclTable"
+    atmVclEntry.EntityData.SegmentPath = "atmVclEntry" + types.AddKeyToken(atmVclEntry.IfIndex, "ifIndex") + types.AddKeyToken(atmVclEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(atmVclEntry.AtmVclVci, "atmVclVci")
+    atmVclEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmVclEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmVclEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atmvclentry.EntityData.Children = make(map[string]types.YChild)
-    atmvclentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    atmvclentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", atmvclentry.Ifindex}
-    atmvclentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", atmvclentry.Atmvclvpi}
-    atmvclentry.EntityData.Leafs["atmVclVci"] = types.YLeaf{"Atmvclvci", atmvclentry.Atmvclvci}
-    atmvclentry.EntityData.Leafs["atmVclAdminStatus"] = types.YLeaf{"Atmvcladminstatus", atmvclentry.Atmvcladminstatus}
-    atmvclentry.EntityData.Leafs["atmVclOperStatus"] = types.YLeaf{"Atmvcloperstatus", atmvclentry.Atmvcloperstatus}
-    atmvclentry.EntityData.Leafs["atmVclLastChange"] = types.YLeaf{"Atmvcllastchange", atmvclentry.Atmvcllastchange}
-    atmvclentry.EntityData.Leafs["atmVclReceiveTrafficDescrIndex"] = types.YLeaf{"Atmvclreceivetrafficdescrindex", atmvclentry.Atmvclreceivetrafficdescrindex}
-    atmvclentry.EntityData.Leafs["atmVclTransmitTrafficDescrIndex"] = types.YLeaf{"Atmvcltransmittrafficdescrindex", atmvclentry.Atmvcltransmittrafficdescrindex}
-    atmvclentry.EntityData.Leafs["atmVccAalType"] = types.YLeaf{"Atmvccaaltype", atmvclentry.Atmvccaaltype}
-    atmvclentry.EntityData.Leafs["atmVccAal5CpcsTransmitSduSize"] = types.YLeaf{"Atmvccaal5Cpcstransmitsdusize", atmvclentry.Atmvccaal5Cpcstransmitsdusize}
-    atmvclentry.EntityData.Leafs["atmVccAal5CpcsReceiveSduSize"] = types.YLeaf{"Atmvccaal5Cpcsreceivesdusize", atmvclentry.Atmvccaal5Cpcsreceivesdusize}
-    atmvclentry.EntityData.Leafs["atmVccAal5EncapsType"] = types.YLeaf{"Atmvccaal5Encapstype", atmvclentry.Atmvccaal5Encapstype}
-    atmvclentry.EntityData.Leafs["atmVclCrossConnectIdentifier"] = types.YLeaf{"Atmvclcrossconnectidentifier", atmvclentry.Atmvclcrossconnectidentifier}
-    atmvclentry.EntityData.Leafs["atmVclRowStatus"] = types.YLeaf{"Atmvclrowstatus", atmvclentry.Atmvclrowstatus}
-    atmvclentry.EntityData.Leafs["atmVclCastType"] = types.YLeaf{"Atmvclcasttype", atmvclentry.Atmvclcasttype}
-    atmvclentry.EntityData.Leafs["atmVclConnKind"] = types.YLeaf{"Atmvclconnkind", atmvclentry.Atmvclconnkind}
-    atmvclentry.EntityData.Leafs["catmxVclOamLoopbackFreq"] = types.YLeaf{"Catmxvcloamloopbackfreq", atmvclentry.Catmxvcloamloopbackfreq}
-    atmvclentry.EntityData.Leafs["catmxVclOamRetryFreq"] = types.YLeaf{"Catmxvcloamretryfreq", atmvclentry.Catmxvcloamretryfreq}
-    atmvclentry.EntityData.Leafs["catmxVclOamUpRetryCount"] = types.YLeaf{"Catmxvcloamupretrycount", atmvclentry.Catmxvcloamupretrycount}
-    atmvclentry.EntityData.Leafs["catmxVclOamDownRetryCount"] = types.YLeaf{"Catmxvcloamdownretrycount", atmvclentry.Catmxvcloamdownretrycount}
-    atmvclentry.EntityData.Leafs["catmxVclOamEndCCActCount"] = types.YLeaf{"Catmxvcloamendccactcount", atmvclentry.Catmxvcloamendccactcount}
-    atmvclentry.EntityData.Leafs["catmxVclOamEndCCDeActCount"] = types.YLeaf{"Catmxvcloamendccdeactcount", atmvclentry.Catmxvcloamendccdeactcount}
-    atmvclentry.EntityData.Leafs["catmxVclOamEndCCRetryFreq"] = types.YLeaf{"Catmxvcloamendccretryfreq", atmvclentry.Catmxvcloamendccretryfreq}
-    atmvclentry.EntityData.Leafs["catmxVclOamSegCCActCount"] = types.YLeaf{"Catmxvcloamsegccactcount", atmvclentry.Catmxvcloamsegccactcount}
-    atmvclentry.EntityData.Leafs["catmxVclOamSegCCDeActCount"] = types.YLeaf{"Catmxvcloamsegccdeactcount", atmvclentry.Catmxvcloamsegccdeactcount}
-    atmvclentry.EntityData.Leafs["catmxVclOamSegCCRetryFreq"] = types.YLeaf{"Catmxvcloamsegccretryfreq", atmvclentry.Catmxvcloamsegccretryfreq}
-    atmvclentry.EntityData.Leafs["catmxVclOamManage"] = types.YLeaf{"Catmxvcloammanage", atmvclentry.Catmxvcloammanage}
-    atmvclentry.EntityData.Leafs["catmxVclOamLoopBkStatus"] = types.YLeaf{"Catmxvcloamloopbkstatus", atmvclentry.Catmxvcloamloopbkstatus}
-    atmvclentry.EntityData.Leafs["catmxVclOamVcState"] = types.YLeaf{"Catmxvcloamvcstate", atmvclentry.Catmxvcloamvcstate}
-    atmvclentry.EntityData.Leafs["catmxVclOamEndCCStatus"] = types.YLeaf{"Catmxvcloamendccstatus", atmvclentry.Catmxvcloamendccstatus}
-    atmvclentry.EntityData.Leafs["catmxVclOamSegCCStatus"] = types.YLeaf{"Catmxvcloamsegccstatus", atmvclentry.Catmxvcloamsegccstatus}
-    atmvclentry.EntityData.Leafs["catmxVclOamEndCCVcState"] = types.YLeaf{"Catmxvcloamendccvcstate", atmvclentry.Catmxvcloamendccvcstate}
-    atmvclentry.EntityData.Leafs["catmxVclOamSegCCVcState"] = types.YLeaf{"Catmxvcloamsegccvcstate", atmvclentry.Catmxvcloamsegccvcstate}
-    atmvclentry.EntityData.Leafs["catmxVclOamCellsReceived"] = types.YLeaf{"Catmxvcloamcellsreceived", atmvclentry.Catmxvcloamcellsreceived}
-    atmvclentry.EntityData.Leafs["catmxVclOamCellsSent"] = types.YLeaf{"Catmxvcloamcellssent", atmvclentry.Catmxvcloamcellssent}
-    atmvclentry.EntityData.Leafs["catmxVclOamCellsDropped"] = types.YLeaf{"Catmxvcloamcellsdropped", atmvclentry.Catmxvcloamcellsdropped}
-    atmvclentry.EntityData.Leafs["catmxVclOamInF5ais"] = types.YLeaf{"Catmxvcloaminf5Ais", atmvclentry.Catmxvcloaminf5Ais}
-    atmvclentry.EntityData.Leafs["catmxVclOamOutF5ais"] = types.YLeaf{"Catmxvcloamoutf5Ais", atmvclentry.Catmxvcloamoutf5Ais}
-    atmvclentry.EntityData.Leafs["catmxVclOamInF5rdi"] = types.YLeaf{"Catmxvcloaminf5Rdi", atmvclentry.Catmxvcloaminf5Rdi}
-    atmvclentry.EntityData.Leafs["catmxVclOamOutF5rdi"] = types.YLeaf{"Catmxvcloamoutf5Rdi", atmvclentry.Catmxvcloamoutf5Rdi}
-    return &(atmvclentry.EntityData)
+    atmVclEntry.EntityData.Children = types.NewOrderedMap()
+    atmVclEntry.EntityData.Leafs = types.NewOrderedMap()
+    atmVclEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", atmVclEntry.IfIndex})
+    atmVclEntry.EntityData.Leafs.Append("atmVclVpi", types.YLeaf{"AtmVclVpi", atmVclEntry.AtmVclVpi})
+    atmVclEntry.EntityData.Leafs.Append("atmVclVci", types.YLeaf{"AtmVclVci", atmVclEntry.AtmVclVci})
+    atmVclEntry.EntityData.Leafs.Append("atmVclAdminStatus", types.YLeaf{"AtmVclAdminStatus", atmVclEntry.AtmVclAdminStatus})
+    atmVclEntry.EntityData.Leafs.Append("atmVclOperStatus", types.YLeaf{"AtmVclOperStatus", atmVclEntry.AtmVclOperStatus})
+    atmVclEntry.EntityData.Leafs.Append("atmVclLastChange", types.YLeaf{"AtmVclLastChange", atmVclEntry.AtmVclLastChange})
+    atmVclEntry.EntityData.Leafs.Append("atmVclReceiveTrafficDescrIndex", types.YLeaf{"AtmVclReceiveTrafficDescrIndex", atmVclEntry.AtmVclReceiveTrafficDescrIndex})
+    atmVclEntry.EntityData.Leafs.Append("atmVclTransmitTrafficDescrIndex", types.YLeaf{"AtmVclTransmitTrafficDescrIndex", atmVclEntry.AtmVclTransmitTrafficDescrIndex})
+    atmVclEntry.EntityData.Leafs.Append("atmVccAalType", types.YLeaf{"AtmVccAalType", atmVclEntry.AtmVccAalType})
+    atmVclEntry.EntityData.Leafs.Append("atmVccAal5CpcsTransmitSduSize", types.YLeaf{"AtmVccAal5CpcsTransmitSduSize", atmVclEntry.AtmVccAal5CpcsTransmitSduSize})
+    atmVclEntry.EntityData.Leafs.Append("atmVccAal5CpcsReceiveSduSize", types.YLeaf{"AtmVccAal5CpcsReceiveSduSize", atmVclEntry.AtmVccAal5CpcsReceiveSduSize})
+    atmVclEntry.EntityData.Leafs.Append("atmVccAal5EncapsType", types.YLeaf{"AtmVccAal5EncapsType", atmVclEntry.AtmVccAal5EncapsType})
+    atmVclEntry.EntityData.Leafs.Append("atmVclCrossConnectIdentifier", types.YLeaf{"AtmVclCrossConnectIdentifier", atmVclEntry.AtmVclCrossConnectIdentifier})
+    atmVclEntry.EntityData.Leafs.Append("atmVclRowStatus", types.YLeaf{"AtmVclRowStatus", atmVclEntry.AtmVclRowStatus})
+    atmVclEntry.EntityData.Leafs.Append("atmVclCastType", types.YLeaf{"AtmVclCastType", atmVclEntry.AtmVclCastType})
+    atmVclEntry.EntityData.Leafs.Append("atmVclConnKind", types.YLeaf{"AtmVclConnKind", atmVclEntry.AtmVclConnKind})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamLoopbackFreq", types.YLeaf{"CatmxVclOamLoopbackFreq", atmVclEntry.CatmxVclOamLoopbackFreq})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamRetryFreq", types.YLeaf{"CatmxVclOamRetryFreq", atmVclEntry.CatmxVclOamRetryFreq})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamUpRetryCount", types.YLeaf{"CatmxVclOamUpRetryCount", atmVclEntry.CatmxVclOamUpRetryCount})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamDownRetryCount", types.YLeaf{"CatmxVclOamDownRetryCount", atmVclEntry.CatmxVclOamDownRetryCount})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamEndCCActCount", types.YLeaf{"CatmxVclOamEndCCActCount", atmVclEntry.CatmxVclOamEndCCActCount})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamEndCCDeActCount", types.YLeaf{"CatmxVclOamEndCCDeActCount", atmVclEntry.CatmxVclOamEndCCDeActCount})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamEndCCRetryFreq", types.YLeaf{"CatmxVclOamEndCCRetryFreq", atmVclEntry.CatmxVclOamEndCCRetryFreq})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamSegCCActCount", types.YLeaf{"CatmxVclOamSegCCActCount", atmVclEntry.CatmxVclOamSegCCActCount})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamSegCCDeActCount", types.YLeaf{"CatmxVclOamSegCCDeActCount", atmVclEntry.CatmxVclOamSegCCDeActCount})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamSegCCRetryFreq", types.YLeaf{"CatmxVclOamSegCCRetryFreq", atmVclEntry.CatmxVclOamSegCCRetryFreq})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamManage", types.YLeaf{"CatmxVclOamManage", atmVclEntry.CatmxVclOamManage})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamLoopBkStatus", types.YLeaf{"CatmxVclOamLoopBkStatus", atmVclEntry.CatmxVclOamLoopBkStatus})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamVcState", types.YLeaf{"CatmxVclOamVcState", atmVclEntry.CatmxVclOamVcState})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamEndCCStatus", types.YLeaf{"CatmxVclOamEndCCStatus", atmVclEntry.CatmxVclOamEndCCStatus})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamSegCCStatus", types.YLeaf{"CatmxVclOamSegCCStatus", atmVclEntry.CatmxVclOamSegCCStatus})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamEndCCVcState", types.YLeaf{"CatmxVclOamEndCCVcState", atmVclEntry.CatmxVclOamEndCCVcState})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamSegCCVcState", types.YLeaf{"CatmxVclOamSegCCVcState", atmVclEntry.CatmxVclOamSegCCVcState})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamCellsReceived", types.YLeaf{"CatmxVclOamCellsReceived", atmVclEntry.CatmxVclOamCellsReceived})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamCellsSent", types.YLeaf{"CatmxVclOamCellsSent", atmVclEntry.CatmxVclOamCellsSent})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamCellsDropped", types.YLeaf{"CatmxVclOamCellsDropped", atmVclEntry.CatmxVclOamCellsDropped})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamInF5ais", types.YLeaf{"CatmxVclOamInF5ais", atmVclEntry.CatmxVclOamInF5ais})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamOutF5ais", types.YLeaf{"CatmxVclOamOutF5ais", atmVclEntry.CatmxVclOamOutF5ais})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamInF5rdi", types.YLeaf{"CatmxVclOamInF5rdi", atmVclEntry.CatmxVclOamInF5rdi})
+    atmVclEntry.EntityData.Leafs.Append("catmxVclOamOutF5rdi", types.YLeaf{"CatmxVclOamOutF5rdi", atmVclEntry.CatmxVclOamOutF5rdi})
+
+    atmVclEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVclVpi", "AtmVclVci"}
+
+    return &(atmVclEntry.EntityData)
 }
 
-// ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype represents LAN Emulation specification.
-type ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype string
+// ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType represents LAN Emulation specification.
+type ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType string
 
 const (
-    ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype_vcMultiplexRoutedProtocol ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype = "vcMultiplexRoutedProtocol"
+    ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType_vcMultiplexRoutedProtocol ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType = "vcMultiplexRoutedProtocol"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype_vcMultiplexBridgedProtocol8023 ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype = "vcMultiplexBridgedProtocol8023"
+    ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType_vcMultiplexBridgedProtocol8023 ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType = "vcMultiplexBridgedProtocol8023"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype_vcMultiplexBridgedProtocol8025 ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype = "vcMultiplexBridgedProtocol8025"
+    ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType_vcMultiplexBridgedProtocol8025 ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType = "vcMultiplexBridgedProtocol8025"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype_vcMultiplexBridgedProtocol8026 ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype = "vcMultiplexBridgedProtocol8026"
+    ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType_vcMultiplexBridgedProtocol8026 ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType = "vcMultiplexBridgedProtocol8026"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype_vcMultiplexLANemulation8023 ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype = "vcMultiplexLANemulation8023"
+    ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType_vcMultiplexLANemulation8023 ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType = "vcMultiplexLANemulation8023"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype_vcMultiplexLANemulation8025 ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype = "vcMultiplexLANemulation8025"
+    ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType_vcMultiplexLANemulation8025 ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType = "vcMultiplexLANemulation8025"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype_llcEncapsulation ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype = "llcEncapsulation"
+    ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType_llcEncapsulation ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType = "llcEncapsulation"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype_multiprotocolFrameRelaySscs ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype = "multiprotocolFrameRelaySscs"
+    ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType_multiprotocolFrameRelaySscs ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType = "multiprotocolFrameRelaySscs"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype_other ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype = "other"
+    ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType_other ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType = "other"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype_unknown ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype = "unknown"
+    ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType_unknown ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAal5EncapsType = "unknown"
 )
 
-// ATMMIB_Atmvcltable_Atmvclentry_Atmvccaaltype represents the AAL type cannot be determined.
-type ATMMIB_Atmvcltable_Atmvclentry_Atmvccaaltype string
+// ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAalType represents the AAL type cannot be determined.
+type ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAalType string
 
 const (
-    ATMMIB_Atmvcltable_Atmvclentry_Atmvccaaltype_aal1 ATMMIB_Atmvcltable_Atmvclentry_Atmvccaaltype = "aal1"
+    ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAalType_aal1 ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAalType = "aal1"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Atmvccaaltype_aal34 ATMMIB_Atmvcltable_Atmvclentry_Atmvccaaltype = "aal34"
+    ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAalType_aal34 ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAalType = "aal34"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Atmvccaaltype_aal5 ATMMIB_Atmvcltable_Atmvclentry_Atmvccaaltype = "aal5"
+    ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAalType_aal5 ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAalType = "aal5"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Atmvccaaltype_other ATMMIB_Atmvcltable_Atmvclentry_Atmvccaaltype = "other"
+    ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAalType_other ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAalType = "other"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Atmvccaaltype_unknown ATMMIB_Atmvcltable_Atmvclentry_Atmvccaaltype = "unknown"
+    ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAalType_unknown ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAalType = "unknown"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Atmvccaaltype_aal2 ATMMIB_Atmvcltable_Atmvclentry_Atmvccaaltype = "aal2"
+    ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAalType_aal2 ATMMIB_AtmVclTable_AtmVclEntry_AtmVccAalType = "aal2"
 )
 
-// ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamloopbkstatus represents failed(4)    --   Last OAM did not return.
-type ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamloopbkstatus string
+// ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamLoopBkStatus represents failed(4)    --   Last OAM did not return.
+type ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamLoopBkStatus string
 
 const (
-    ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamloopbkstatus_disabled ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamloopbkstatus = "disabled"
+    ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamLoopBkStatus_disabled ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamLoopBkStatus = "disabled"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamloopbkstatus_sent ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamloopbkstatus = "sent"
+    ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamLoopBkStatus_sent ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamLoopBkStatus = "sent"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamloopbkstatus_received ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamloopbkstatus = "received"
+    ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamLoopBkStatus_received ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamLoopBkStatus = "received"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamloopbkstatus_failed ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamloopbkstatus = "failed"
+    ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamLoopBkStatus_failed ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamLoopBkStatus = "failed"
 )
 
-// ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamvcstate represents notManaged(7)  --  VC is not managed by OAM.
-type ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamvcstate string
+// ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamVcState represents notManaged(7)  --  VC is not managed by OAM.
+type ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamVcState string
 
 const (
-    ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamvcstate_downRetry ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamvcstate = "downRetry"
+    ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamVcState_downRetry ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamVcState = "downRetry"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamvcstate_verified ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamvcstate = "verified"
+    ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamVcState_verified ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamVcState = "verified"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamvcstate_notVerified ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamvcstate = "notVerified"
+    ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamVcState_notVerified ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamVcState = "notVerified"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamvcstate_upRetry ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamvcstate = "upRetry"
+    ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamVcState_upRetry ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamVcState = "upRetry"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamvcstate_aisRDI ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamvcstate = "aisRDI"
+    ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamVcState_aisRDI ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamVcState = "aisRDI"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamvcstate_aisOut ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamvcstate = "aisOut"
+    ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamVcState_aisOut ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamVcState = "aisOut"
 
-    ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamvcstate_notManaged ATMMIB_Atmvcltable_Atmvclentry_Catmxvcloamvcstate = "notManaged"
+    ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamVcState_notManaged ATMMIB_AtmVclTable_AtmVclEntry_CatmxVclOamVcState = "notManaged"
 )
 
-// ATMMIB_Atmvpcrossconnecttable
+// ATMMIB_AtmVpCrossConnectTable
 // The ATM VP Cross Connect table for PVCs.
 // An entry in this table models two
 // cross-connected VPLs.
 // Each VPL must have its atmConnKind set
 // to pvc(1).
-type ATMMIB_Atmvpcrossconnecttable struct {
+type ATMMIB_AtmVpCrossConnectTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1626,30 +1668,33 @@ type ATMMIB_Atmvpcrossconnecttable struct {
     // of traffic/service category parameter values requires release of the VP
     // cross-connect before those parameter values may by changed for individual
     // VPLs. The type is slice of
-    // ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry.
-    Atmvpcrossconnectentry []ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry
+    // ATMMIB_AtmVpCrossConnectTable_AtmVpCrossConnectEntry.
+    AtmVpCrossConnectEntry []*ATMMIB_AtmVpCrossConnectTable_AtmVpCrossConnectEntry
 }
 
-func (atmvpcrossconnecttable *ATMMIB_Atmvpcrossconnecttable) GetEntityData() *types.CommonEntityData {
-    atmvpcrossconnecttable.EntityData.YFilter = atmvpcrossconnecttable.YFilter
-    atmvpcrossconnecttable.EntityData.YangName = "atmVpCrossConnectTable"
-    atmvpcrossconnecttable.EntityData.BundleName = "cisco_ios_xe"
-    atmvpcrossconnecttable.EntityData.ParentYangName = "ATM-MIB"
-    atmvpcrossconnecttable.EntityData.SegmentPath = "atmVpCrossConnectTable"
-    atmvpcrossconnecttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atmvpcrossconnecttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atmvpcrossconnecttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmVpCrossConnectTable *ATMMIB_AtmVpCrossConnectTable) GetEntityData() *types.CommonEntityData {
+    atmVpCrossConnectTable.EntityData.YFilter = atmVpCrossConnectTable.YFilter
+    atmVpCrossConnectTable.EntityData.YangName = "atmVpCrossConnectTable"
+    atmVpCrossConnectTable.EntityData.BundleName = "cisco_ios_xe"
+    atmVpCrossConnectTable.EntityData.ParentYangName = "ATM-MIB"
+    atmVpCrossConnectTable.EntityData.SegmentPath = "atmVpCrossConnectTable"
+    atmVpCrossConnectTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmVpCrossConnectTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmVpCrossConnectTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atmvpcrossconnecttable.EntityData.Children = make(map[string]types.YChild)
-    atmvpcrossconnecttable.EntityData.Children["atmVpCrossConnectEntry"] = types.YChild{"Atmvpcrossconnectentry", nil}
-    for i := range atmvpcrossconnecttable.Atmvpcrossconnectentry {
-        atmvpcrossconnecttable.EntityData.Children[types.GetSegmentPath(&atmvpcrossconnecttable.Atmvpcrossconnectentry[i])] = types.YChild{"Atmvpcrossconnectentry", &atmvpcrossconnecttable.Atmvpcrossconnectentry[i]}
+    atmVpCrossConnectTable.EntityData.Children = types.NewOrderedMap()
+    atmVpCrossConnectTable.EntityData.Children.Append("atmVpCrossConnectEntry", types.YChild{"AtmVpCrossConnectEntry", nil})
+    for i := range atmVpCrossConnectTable.AtmVpCrossConnectEntry {
+        atmVpCrossConnectTable.EntityData.Children.Append(types.GetSegmentPath(atmVpCrossConnectTable.AtmVpCrossConnectEntry[i]), types.YChild{"AtmVpCrossConnectEntry", atmVpCrossConnectTable.AtmVpCrossConnectEntry[i]})
     }
-    atmvpcrossconnecttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(atmvpcrossconnecttable.EntityData)
+    atmVpCrossConnectTable.EntityData.Leafs = types.NewOrderedMap()
+
+    atmVpCrossConnectTable.EntityData.YListKeys = []string {}
+
+    return &(atmVpCrossConnectTable.EntityData)
 }
 
-// ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry
+// ATMMIB_AtmVpCrossConnectTable_AtmVpCrossConnectEntry
 // An entry in the ATM VP Cross Connect table.
 // This entry is used to model a bi-directional
 // ATM VP cross-connect which cross-connects
@@ -1771,7 +1816,7 @@ func (atmvpcrossconnecttable *ATMMIB_Atmvpcrossconnecttable) GetEntityData() *ty
 // values requires release of the VP cross-connect
 // before those parameter values may by changed
 // for individual VPLs.
-type ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry struct {
+type ATMMIB_AtmVpCrossConnectTable_AtmVpCrossConnectEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1780,53 +1825,53 @@ type ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry struct {
     // cross-connect index value in the atmVplCrossConnectIdentifier attribute of
     // the corresponding atmVplTable entries. The type is interface{} with range:
     // 1..2147483647.
-    Atmvpcrossconnectindex interface{}
+    AtmVpCrossConnectIndex interface{}
 
     // This attribute is a key. The ifIndex value of the ATM interface for this VP
     // cross-connect. The term low implies that this ATM interface has the
     // numerically lower ifIndex value than the other ATM interface identified in
     // the same atmVpCrossConnectEntry. The type is interface{} with range:
     // 1..2147483647.
-    Atmvpcrossconnectlowifindex interface{}
+    AtmVpCrossConnectLowIfIndex interface{}
 
     // This attribute is a key. The VPI value at the ATM interface associated with
     // the VP cross-connect that is identified by atmVpCrossConnectLowIfIndex. The
     // type is interface{} with range: 0..4095.
-    Atmvpcrossconnectlowvpi interface{}
+    AtmVpCrossConnectLowVpi interface{}
 
     // This attribute is a key. The ifIndex value of the ATM interface for this VP
     // cross-connect. The term high implies that this ATM interface has the
     // numerically higher ifIndex value than the  other ATM interface identified
     // in the same atmVpCrossConnectEntry. The type is interface{} with range:
     // 1..2147483647.
-    Atmvpcrossconnecthighifindex interface{}
+    AtmVpCrossConnectHighIfIndex interface{}
 
     // This attribute is a key. The VPI value at the ATM interface associated with
     // the VP cross-connect that is identified by atmVpCrossConnectHighIfIndex.
     // The type is interface{} with range: 0..4095.
-    Atmvpcrossconnecthighvpi interface{}
+    AtmVpCrossConnectHighVpi interface{}
 
     // The desired administrative status of this bi-directional VP cross-connect.
     // The type is AtmVorXAdminStatus.
-    Atmvpcrossconnectadminstatus interface{}
+    AtmVpCrossConnectAdminStatus interface{}
 
     // The operational status of the VP cross-connect in one direction; (i.e.,
     // from the low to high direction). The type is AtmVorXOperStatus.
-    Atmvpcrossconnectl2Hoperstatus interface{}
+    AtmVpCrossConnectL2HOperStatus interface{}
 
     // The operational status of the VP cross-connect in one direction; (i.e.,
     // from the high to low direction). The type is AtmVorXOperStatus.
-    Atmvpcrossconnecth2Loperstatus interface{}
+    AtmVpCrossConnectH2LOperStatus interface{}
 
     // The value of sysUpTime at the time this VP cross-connect entered its
     // current operational state in the low to high direction. The type is
     // interface{} with range: 0..4294967295.
-    Atmvpcrossconnectl2Hlastchange interface{}
+    AtmVpCrossConnectL2HLastChange interface{}
 
     // The value of sysUpTime at the time this VP cross-connect entered its
     // current operational in the high to low direction. The type is interface{}
     // with range: 0..4294967295.
-    Atmvpcrossconnecth2Llastchange interface{}
+    AtmVpCrossConnectH2LLastChange interface{}
 
     // The status of this entry in the atmVpCrossConnectTable.  This object is
     // used to create a cross-connect for cross-connecting VPLs which are created
@@ -1834,42 +1879,45 @@ type ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry struct {
     // This object must be initially set to `createAndWait' or 'createAndGo'. To
     // turn on a VP cross-connect, the atmVpCrossConnectAdminStatus is set to
     // `up'. The type is RowStatus.
-    Atmvpcrossconnectrowstatus interface{}
+    AtmVpCrossConnectRowStatus interface{}
 }
 
-func (atmvpcrossconnectentry *ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry) GetEntityData() *types.CommonEntityData {
-    atmvpcrossconnectentry.EntityData.YFilter = atmvpcrossconnectentry.YFilter
-    atmvpcrossconnectentry.EntityData.YangName = "atmVpCrossConnectEntry"
-    atmvpcrossconnectentry.EntityData.BundleName = "cisco_ios_xe"
-    atmvpcrossconnectentry.EntityData.ParentYangName = "atmVpCrossConnectTable"
-    atmvpcrossconnectentry.EntityData.SegmentPath = "atmVpCrossConnectEntry" + "[atmVpCrossConnectIndex='" + fmt.Sprintf("%v", atmvpcrossconnectentry.Atmvpcrossconnectindex) + "']" + "[atmVpCrossConnectLowIfIndex='" + fmt.Sprintf("%v", atmvpcrossconnectentry.Atmvpcrossconnectlowifindex) + "']" + "[atmVpCrossConnectLowVpi='" + fmt.Sprintf("%v", atmvpcrossconnectentry.Atmvpcrossconnectlowvpi) + "']" + "[atmVpCrossConnectHighIfIndex='" + fmt.Sprintf("%v", atmvpcrossconnectentry.Atmvpcrossconnecthighifindex) + "']" + "[atmVpCrossConnectHighVpi='" + fmt.Sprintf("%v", atmvpcrossconnectentry.Atmvpcrossconnecthighvpi) + "']"
-    atmvpcrossconnectentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atmvpcrossconnectentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atmvpcrossconnectentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmVpCrossConnectEntry *ATMMIB_AtmVpCrossConnectTable_AtmVpCrossConnectEntry) GetEntityData() *types.CommonEntityData {
+    atmVpCrossConnectEntry.EntityData.YFilter = atmVpCrossConnectEntry.YFilter
+    atmVpCrossConnectEntry.EntityData.YangName = "atmVpCrossConnectEntry"
+    atmVpCrossConnectEntry.EntityData.BundleName = "cisco_ios_xe"
+    atmVpCrossConnectEntry.EntityData.ParentYangName = "atmVpCrossConnectTable"
+    atmVpCrossConnectEntry.EntityData.SegmentPath = "atmVpCrossConnectEntry" + types.AddKeyToken(atmVpCrossConnectEntry.AtmVpCrossConnectIndex, "atmVpCrossConnectIndex") + types.AddKeyToken(atmVpCrossConnectEntry.AtmVpCrossConnectLowIfIndex, "atmVpCrossConnectLowIfIndex") + types.AddKeyToken(atmVpCrossConnectEntry.AtmVpCrossConnectLowVpi, "atmVpCrossConnectLowVpi") + types.AddKeyToken(atmVpCrossConnectEntry.AtmVpCrossConnectHighIfIndex, "atmVpCrossConnectHighIfIndex") + types.AddKeyToken(atmVpCrossConnectEntry.AtmVpCrossConnectHighVpi, "atmVpCrossConnectHighVpi")
+    atmVpCrossConnectEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmVpCrossConnectEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmVpCrossConnectEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atmvpcrossconnectentry.EntityData.Children = make(map[string]types.YChild)
-    atmvpcrossconnectentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectIndex"] = types.YLeaf{"Atmvpcrossconnectindex", atmvpcrossconnectentry.Atmvpcrossconnectindex}
-    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectLowIfIndex"] = types.YLeaf{"Atmvpcrossconnectlowifindex", atmvpcrossconnectentry.Atmvpcrossconnectlowifindex}
-    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectLowVpi"] = types.YLeaf{"Atmvpcrossconnectlowvpi", atmvpcrossconnectentry.Atmvpcrossconnectlowvpi}
-    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectHighIfIndex"] = types.YLeaf{"Atmvpcrossconnecthighifindex", atmvpcrossconnectentry.Atmvpcrossconnecthighifindex}
-    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectHighVpi"] = types.YLeaf{"Atmvpcrossconnecthighvpi", atmvpcrossconnectentry.Atmvpcrossconnecthighvpi}
-    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectAdminStatus"] = types.YLeaf{"Atmvpcrossconnectadminstatus", atmvpcrossconnectentry.Atmvpcrossconnectadminstatus}
-    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectL2HOperStatus"] = types.YLeaf{"Atmvpcrossconnectl2Hoperstatus", atmvpcrossconnectentry.Atmvpcrossconnectl2Hoperstatus}
-    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectH2LOperStatus"] = types.YLeaf{"Atmvpcrossconnecth2Loperstatus", atmvpcrossconnectentry.Atmvpcrossconnecth2Loperstatus}
-    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectL2HLastChange"] = types.YLeaf{"Atmvpcrossconnectl2Hlastchange", atmvpcrossconnectentry.Atmvpcrossconnectl2Hlastchange}
-    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectH2LLastChange"] = types.YLeaf{"Atmvpcrossconnecth2Llastchange", atmvpcrossconnectentry.Atmvpcrossconnecth2Llastchange}
-    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectRowStatus"] = types.YLeaf{"Atmvpcrossconnectrowstatus", atmvpcrossconnectentry.Atmvpcrossconnectrowstatus}
-    return &(atmvpcrossconnectentry.EntityData)
+    atmVpCrossConnectEntry.EntityData.Children = types.NewOrderedMap()
+    atmVpCrossConnectEntry.EntityData.Leafs = types.NewOrderedMap()
+    atmVpCrossConnectEntry.EntityData.Leafs.Append("atmVpCrossConnectIndex", types.YLeaf{"AtmVpCrossConnectIndex", atmVpCrossConnectEntry.AtmVpCrossConnectIndex})
+    atmVpCrossConnectEntry.EntityData.Leafs.Append("atmVpCrossConnectLowIfIndex", types.YLeaf{"AtmVpCrossConnectLowIfIndex", atmVpCrossConnectEntry.AtmVpCrossConnectLowIfIndex})
+    atmVpCrossConnectEntry.EntityData.Leafs.Append("atmVpCrossConnectLowVpi", types.YLeaf{"AtmVpCrossConnectLowVpi", atmVpCrossConnectEntry.AtmVpCrossConnectLowVpi})
+    atmVpCrossConnectEntry.EntityData.Leafs.Append("atmVpCrossConnectHighIfIndex", types.YLeaf{"AtmVpCrossConnectHighIfIndex", atmVpCrossConnectEntry.AtmVpCrossConnectHighIfIndex})
+    atmVpCrossConnectEntry.EntityData.Leafs.Append("atmVpCrossConnectHighVpi", types.YLeaf{"AtmVpCrossConnectHighVpi", atmVpCrossConnectEntry.AtmVpCrossConnectHighVpi})
+    atmVpCrossConnectEntry.EntityData.Leafs.Append("atmVpCrossConnectAdminStatus", types.YLeaf{"AtmVpCrossConnectAdminStatus", atmVpCrossConnectEntry.AtmVpCrossConnectAdminStatus})
+    atmVpCrossConnectEntry.EntityData.Leafs.Append("atmVpCrossConnectL2HOperStatus", types.YLeaf{"AtmVpCrossConnectL2HOperStatus", atmVpCrossConnectEntry.AtmVpCrossConnectL2HOperStatus})
+    atmVpCrossConnectEntry.EntityData.Leafs.Append("atmVpCrossConnectH2LOperStatus", types.YLeaf{"AtmVpCrossConnectH2LOperStatus", atmVpCrossConnectEntry.AtmVpCrossConnectH2LOperStatus})
+    atmVpCrossConnectEntry.EntityData.Leafs.Append("atmVpCrossConnectL2HLastChange", types.YLeaf{"AtmVpCrossConnectL2HLastChange", atmVpCrossConnectEntry.AtmVpCrossConnectL2HLastChange})
+    atmVpCrossConnectEntry.EntityData.Leafs.Append("atmVpCrossConnectH2LLastChange", types.YLeaf{"AtmVpCrossConnectH2LLastChange", atmVpCrossConnectEntry.AtmVpCrossConnectH2LLastChange})
+    atmVpCrossConnectEntry.EntityData.Leafs.Append("atmVpCrossConnectRowStatus", types.YLeaf{"AtmVpCrossConnectRowStatus", atmVpCrossConnectEntry.AtmVpCrossConnectRowStatus})
+
+    atmVpCrossConnectEntry.EntityData.YListKeys = []string {"AtmVpCrossConnectIndex", "AtmVpCrossConnectLowIfIndex", "AtmVpCrossConnectLowVpi", "AtmVpCrossConnectHighIfIndex", "AtmVpCrossConnectHighVpi"}
+
+    return &(atmVpCrossConnectEntry.EntityData)
 }
 
-// ATMMIB_Atmvccrossconnecttable
+// ATMMIB_AtmVcCrossConnectTable
 // The ATM VC Cross Connect table for PVCs.
 // An entry in this table models two
 // cross-connected VCLs.
 // Each VCL must have its atmConnKind set
 // to pvc(1).
-type ATMMIB_Atmvccrossconnecttable struct {
+type ATMMIB_AtmVcCrossConnectTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1932,30 +1980,33 @@ type ATMMIB_Atmvccrossconnecttable struct {
     // of traffic/service category parameter values requires release of the VC
     // cross-connect before those parameter values may by changed for individual
     // VCLs. The type is slice of
-    // ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry.
-    Atmvccrossconnectentry []ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry
+    // ATMMIB_AtmVcCrossConnectTable_AtmVcCrossConnectEntry.
+    AtmVcCrossConnectEntry []*ATMMIB_AtmVcCrossConnectTable_AtmVcCrossConnectEntry
 }
 
-func (atmvccrossconnecttable *ATMMIB_Atmvccrossconnecttable) GetEntityData() *types.CommonEntityData {
-    atmvccrossconnecttable.EntityData.YFilter = atmvccrossconnecttable.YFilter
-    atmvccrossconnecttable.EntityData.YangName = "atmVcCrossConnectTable"
-    atmvccrossconnecttable.EntityData.BundleName = "cisco_ios_xe"
-    atmvccrossconnecttable.EntityData.ParentYangName = "ATM-MIB"
-    atmvccrossconnecttable.EntityData.SegmentPath = "atmVcCrossConnectTable"
-    atmvccrossconnecttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atmvccrossconnecttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atmvccrossconnecttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmVcCrossConnectTable *ATMMIB_AtmVcCrossConnectTable) GetEntityData() *types.CommonEntityData {
+    atmVcCrossConnectTable.EntityData.YFilter = atmVcCrossConnectTable.YFilter
+    atmVcCrossConnectTable.EntityData.YangName = "atmVcCrossConnectTable"
+    atmVcCrossConnectTable.EntityData.BundleName = "cisco_ios_xe"
+    atmVcCrossConnectTable.EntityData.ParentYangName = "ATM-MIB"
+    atmVcCrossConnectTable.EntityData.SegmentPath = "atmVcCrossConnectTable"
+    atmVcCrossConnectTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmVcCrossConnectTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmVcCrossConnectTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atmvccrossconnecttable.EntityData.Children = make(map[string]types.YChild)
-    atmvccrossconnecttable.EntityData.Children["atmVcCrossConnectEntry"] = types.YChild{"Atmvccrossconnectentry", nil}
-    for i := range atmvccrossconnecttable.Atmvccrossconnectentry {
-        atmvccrossconnecttable.EntityData.Children[types.GetSegmentPath(&atmvccrossconnecttable.Atmvccrossconnectentry[i])] = types.YChild{"Atmvccrossconnectentry", &atmvccrossconnecttable.Atmvccrossconnectentry[i]}
+    atmVcCrossConnectTable.EntityData.Children = types.NewOrderedMap()
+    atmVcCrossConnectTable.EntityData.Children.Append("atmVcCrossConnectEntry", types.YChild{"AtmVcCrossConnectEntry", nil})
+    for i := range atmVcCrossConnectTable.AtmVcCrossConnectEntry {
+        atmVcCrossConnectTable.EntityData.Children.Append(types.GetSegmentPath(atmVcCrossConnectTable.AtmVcCrossConnectEntry[i]), types.YChild{"AtmVcCrossConnectEntry", atmVcCrossConnectTable.AtmVcCrossConnectEntry[i]})
     }
-    atmvccrossconnecttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(atmvccrossconnecttable.EntityData)
+    atmVcCrossConnectTable.EntityData.Leafs = types.NewOrderedMap()
+
+    atmVcCrossConnectTable.EntityData.YListKeys = []string {}
+
+    return &(atmVcCrossConnectTable.EntityData)
 }
 
-// ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry
+// ATMMIB_AtmVcCrossConnectTable_AtmVcCrossConnectEntry
 // An entry in the ATM VC Cross Connect table.
 // This entry is used to model a bi-directional ATM
 // VC cross-connect cross-connecting two end points.
@@ -2078,7 +2129,7 @@ func (atmvccrossconnecttable *ATMMIB_Atmvccrossconnecttable) GetEntityData() *ty
 // values requires release of the VC cross-connect
 // before those parameter values may by changed
 // for individual VCLs.
-type ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry struct {
+type ATMMIB_AtmVcCrossConnectTable_AtmVcCrossConnectEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2087,63 +2138,63 @@ type ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry struct {
     // cross-connect index value in the atmVclCrossConnectIdentifier attribute of
     // the corresponding atmVclTable entries. The type is interface{} with range:
     // 1..2147483647.
-    Atmvccrossconnectindex interface{}
+    AtmVcCrossConnectIndex interface{}
 
     // This attribute is a key. The ifIndex value of the ATM interface for this VC
     // cross-connect. The term low implies that this ATM interface has the
     // numerically lower ifIndex value than the other ATM interface identified in
     // the same atmVcCrossConnectEntry. The type is interface{} with range:
     // 1..2147483647.
-    Atmvccrossconnectlowifindex interface{}
+    AtmVcCrossConnectLowIfIndex interface{}
 
     // This attribute is a key. The VPI value at the ATM interface associated with
     // the VC cross-connect that is identified by atmVcCrossConnectLowIfIndex. The
     // type is interface{} with range: 0..4095.
-    Atmvccrossconnectlowvpi interface{}
+    AtmVcCrossConnectLowVpi interface{}
 
     // This attribute is a key. The VCI value at the ATM interface associated with
     // this VC cross-connect that is identified by atmVcCrossConnectLowIfIndex.
     // The type is interface{} with range: 0..65535.
-    Atmvccrossconnectlowvci interface{}
+    AtmVcCrossConnectLowVci interface{}
 
     // This attribute is a key. The ifIndex value for the ATM interface for this
     // VC cross-connect. The term high implies that this ATM interface has the
     // numerically higher ifIndex value than the other ATM interface identified in
     // the same atmVcCrossConnectEntry. The type is interface{} with range:
     // 1..2147483647.
-    Atmvccrossconnecthighifindex interface{}
+    AtmVcCrossConnectHighIfIndex interface{}
 
     // This attribute is a key. The VPI value at the ATM interface associated with
     // the VC cross-connect that is identified by atmVcCrossConnectHighIfIndex.
     // The type is interface{} with range: 0..4095.
-    Atmvccrossconnecthighvpi interface{}
+    AtmVcCrossConnectHighVpi interface{}
 
     // This attribute is a key. The VCI value at the ATM interface associated with
     // the VC cross-connect that is identified by atmVcCrossConnectHighIfIndex.
     // The type is interface{} with range: 0..65535.
-    Atmvccrossconnecthighvci interface{}
+    AtmVcCrossConnectHighVci interface{}
 
     // The desired administrative status of this bi-directional VC cross-connect.
     // The type is AtmVorXAdminStatus.
-    Atmvccrossconnectadminstatus interface{}
+    AtmVcCrossConnectAdminStatus interface{}
 
     // The current operational status of the VC cross-connect in one direction;
     // (i.e., from the low to high direction). The type is AtmVorXOperStatus.
-    Atmvccrossconnectl2Hoperstatus interface{}
+    AtmVcCrossConnectL2HOperStatus interface{}
 
     // The current operational status of the VC cross-connect in one direction;
     // (i.e., from the high to low direction). The type is AtmVorXOperStatus.
-    Atmvccrossconnecth2Loperstatus interface{}
+    AtmVcCrossConnectH2LOperStatus interface{}
 
     // The value of sysUpTime at the time this VC cross-connect entered its
     // current operational state in low to high direction. The type is interface{}
     // with range: 0..4294967295.
-    Atmvccrossconnectl2Hlastchange interface{}
+    AtmVcCrossConnectL2HLastChange interface{}
 
     // The value of sysUpTime at the time this VC cross-connect entered its
     // current operational state in high to low direction. The type is interface{}
     // with range: 0..4294967295.
-    Atmvccrossconnecth2Llastchange interface{}
+    AtmVcCrossConnectH2LLastChange interface{}
 
     // The status of this entry in the atmVcCrossConnectTable.  This object is
     // used to create a new cross-connect for cross-connecting VCLs which are
@@ -2151,212 +2202,221 @@ type ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry struct {
     // cross-connect. This object must be initially set to `createAndWait' or
     // 'createAndGo'. To turn on a VC cross-connect, the
     // atmVcCrossConnectAdminStatus is set to `up'. The type is RowStatus.
-    Atmvccrossconnectrowstatus interface{}
+    AtmVcCrossConnectRowStatus interface{}
 }
 
-func (atmvccrossconnectentry *ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry) GetEntityData() *types.CommonEntityData {
-    atmvccrossconnectentry.EntityData.YFilter = atmvccrossconnectentry.YFilter
-    atmvccrossconnectentry.EntityData.YangName = "atmVcCrossConnectEntry"
-    atmvccrossconnectentry.EntityData.BundleName = "cisco_ios_xe"
-    atmvccrossconnectentry.EntityData.ParentYangName = "atmVcCrossConnectTable"
-    atmvccrossconnectentry.EntityData.SegmentPath = "atmVcCrossConnectEntry" + "[atmVcCrossConnectIndex='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnectindex) + "']" + "[atmVcCrossConnectLowIfIndex='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnectlowifindex) + "']" + "[atmVcCrossConnectLowVpi='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnectlowvpi) + "']" + "[atmVcCrossConnectLowVci='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnectlowvci) + "']" + "[atmVcCrossConnectHighIfIndex='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnecthighifindex) + "']" + "[atmVcCrossConnectHighVpi='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnecthighvpi) + "']" + "[atmVcCrossConnectHighVci='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnecthighvci) + "']"
-    atmvccrossconnectentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atmvccrossconnectentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atmvccrossconnectentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmVcCrossConnectEntry *ATMMIB_AtmVcCrossConnectTable_AtmVcCrossConnectEntry) GetEntityData() *types.CommonEntityData {
+    atmVcCrossConnectEntry.EntityData.YFilter = atmVcCrossConnectEntry.YFilter
+    atmVcCrossConnectEntry.EntityData.YangName = "atmVcCrossConnectEntry"
+    atmVcCrossConnectEntry.EntityData.BundleName = "cisco_ios_xe"
+    atmVcCrossConnectEntry.EntityData.ParentYangName = "atmVcCrossConnectTable"
+    atmVcCrossConnectEntry.EntityData.SegmentPath = "atmVcCrossConnectEntry" + types.AddKeyToken(atmVcCrossConnectEntry.AtmVcCrossConnectIndex, "atmVcCrossConnectIndex") + types.AddKeyToken(atmVcCrossConnectEntry.AtmVcCrossConnectLowIfIndex, "atmVcCrossConnectLowIfIndex") + types.AddKeyToken(atmVcCrossConnectEntry.AtmVcCrossConnectLowVpi, "atmVcCrossConnectLowVpi") + types.AddKeyToken(atmVcCrossConnectEntry.AtmVcCrossConnectLowVci, "atmVcCrossConnectLowVci") + types.AddKeyToken(atmVcCrossConnectEntry.AtmVcCrossConnectHighIfIndex, "atmVcCrossConnectHighIfIndex") + types.AddKeyToken(atmVcCrossConnectEntry.AtmVcCrossConnectHighVpi, "atmVcCrossConnectHighVpi") + types.AddKeyToken(atmVcCrossConnectEntry.AtmVcCrossConnectHighVci, "atmVcCrossConnectHighVci")
+    atmVcCrossConnectEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmVcCrossConnectEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmVcCrossConnectEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atmvccrossconnectentry.EntityData.Children = make(map[string]types.YChild)
-    atmvccrossconnectentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectIndex"] = types.YLeaf{"Atmvccrossconnectindex", atmvccrossconnectentry.Atmvccrossconnectindex}
-    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectLowIfIndex"] = types.YLeaf{"Atmvccrossconnectlowifindex", atmvccrossconnectentry.Atmvccrossconnectlowifindex}
-    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectLowVpi"] = types.YLeaf{"Atmvccrossconnectlowvpi", atmvccrossconnectentry.Atmvccrossconnectlowvpi}
-    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectLowVci"] = types.YLeaf{"Atmvccrossconnectlowvci", atmvccrossconnectentry.Atmvccrossconnectlowvci}
-    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectHighIfIndex"] = types.YLeaf{"Atmvccrossconnecthighifindex", atmvccrossconnectentry.Atmvccrossconnecthighifindex}
-    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectHighVpi"] = types.YLeaf{"Atmvccrossconnecthighvpi", atmvccrossconnectentry.Atmvccrossconnecthighvpi}
-    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectHighVci"] = types.YLeaf{"Atmvccrossconnecthighvci", atmvccrossconnectentry.Atmvccrossconnecthighvci}
-    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectAdminStatus"] = types.YLeaf{"Atmvccrossconnectadminstatus", atmvccrossconnectentry.Atmvccrossconnectadminstatus}
-    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectL2HOperStatus"] = types.YLeaf{"Atmvccrossconnectl2Hoperstatus", atmvccrossconnectentry.Atmvccrossconnectl2Hoperstatus}
-    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectH2LOperStatus"] = types.YLeaf{"Atmvccrossconnecth2Loperstatus", atmvccrossconnectentry.Atmvccrossconnecth2Loperstatus}
-    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectL2HLastChange"] = types.YLeaf{"Atmvccrossconnectl2Hlastchange", atmvccrossconnectentry.Atmvccrossconnectl2Hlastchange}
-    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectH2LLastChange"] = types.YLeaf{"Atmvccrossconnecth2Llastchange", atmvccrossconnectentry.Atmvccrossconnecth2Llastchange}
-    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectRowStatus"] = types.YLeaf{"Atmvccrossconnectrowstatus", atmvccrossconnectentry.Atmvccrossconnectrowstatus}
-    return &(atmvccrossconnectentry.EntityData)
+    atmVcCrossConnectEntry.EntityData.Children = types.NewOrderedMap()
+    atmVcCrossConnectEntry.EntityData.Leafs = types.NewOrderedMap()
+    atmVcCrossConnectEntry.EntityData.Leafs.Append("atmVcCrossConnectIndex", types.YLeaf{"AtmVcCrossConnectIndex", atmVcCrossConnectEntry.AtmVcCrossConnectIndex})
+    atmVcCrossConnectEntry.EntityData.Leafs.Append("atmVcCrossConnectLowIfIndex", types.YLeaf{"AtmVcCrossConnectLowIfIndex", atmVcCrossConnectEntry.AtmVcCrossConnectLowIfIndex})
+    atmVcCrossConnectEntry.EntityData.Leafs.Append("atmVcCrossConnectLowVpi", types.YLeaf{"AtmVcCrossConnectLowVpi", atmVcCrossConnectEntry.AtmVcCrossConnectLowVpi})
+    atmVcCrossConnectEntry.EntityData.Leafs.Append("atmVcCrossConnectLowVci", types.YLeaf{"AtmVcCrossConnectLowVci", atmVcCrossConnectEntry.AtmVcCrossConnectLowVci})
+    atmVcCrossConnectEntry.EntityData.Leafs.Append("atmVcCrossConnectHighIfIndex", types.YLeaf{"AtmVcCrossConnectHighIfIndex", atmVcCrossConnectEntry.AtmVcCrossConnectHighIfIndex})
+    atmVcCrossConnectEntry.EntityData.Leafs.Append("atmVcCrossConnectHighVpi", types.YLeaf{"AtmVcCrossConnectHighVpi", atmVcCrossConnectEntry.AtmVcCrossConnectHighVpi})
+    atmVcCrossConnectEntry.EntityData.Leafs.Append("atmVcCrossConnectHighVci", types.YLeaf{"AtmVcCrossConnectHighVci", atmVcCrossConnectEntry.AtmVcCrossConnectHighVci})
+    atmVcCrossConnectEntry.EntityData.Leafs.Append("atmVcCrossConnectAdminStatus", types.YLeaf{"AtmVcCrossConnectAdminStatus", atmVcCrossConnectEntry.AtmVcCrossConnectAdminStatus})
+    atmVcCrossConnectEntry.EntityData.Leafs.Append("atmVcCrossConnectL2HOperStatus", types.YLeaf{"AtmVcCrossConnectL2HOperStatus", atmVcCrossConnectEntry.AtmVcCrossConnectL2HOperStatus})
+    atmVcCrossConnectEntry.EntityData.Leafs.Append("atmVcCrossConnectH2LOperStatus", types.YLeaf{"AtmVcCrossConnectH2LOperStatus", atmVcCrossConnectEntry.AtmVcCrossConnectH2LOperStatus})
+    atmVcCrossConnectEntry.EntityData.Leafs.Append("atmVcCrossConnectL2HLastChange", types.YLeaf{"AtmVcCrossConnectL2HLastChange", atmVcCrossConnectEntry.AtmVcCrossConnectL2HLastChange})
+    atmVcCrossConnectEntry.EntityData.Leafs.Append("atmVcCrossConnectH2LLastChange", types.YLeaf{"AtmVcCrossConnectH2LLastChange", atmVcCrossConnectEntry.AtmVcCrossConnectH2LLastChange})
+    atmVcCrossConnectEntry.EntityData.Leafs.Append("atmVcCrossConnectRowStatus", types.YLeaf{"AtmVcCrossConnectRowStatus", atmVcCrossConnectEntry.AtmVcCrossConnectRowStatus})
+
+    atmVcCrossConnectEntry.EntityData.YListKeys = []string {"AtmVcCrossConnectIndex", "AtmVcCrossConnectLowIfIndex", "AtmVcCrossConnectLowVpi", "AtmVcCrossConnectLowVci", "AtmVcCrossConnectHighIfIndex", "AtmVcCrossConnectHighVpi", "AtmVcCrossConnectHighVci"}
+
+    return &(atmVcCrossConnectEntry.EntityData)
 }
 
-// ATMMIB_Aal5Vcctable
+// ATMMIB_Aal5VccTable
 // This table contains AAL5 VCC performance
 // parameters.
-type ATMMIB_Aal5Vcctable struct {
+type ATMMIB_Aal5VccTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This list contains the AAL5 VCC performance parameters and is indexed by
     // ifIndex values of AAL5 interfaces and the associated VPI/VCI values. The
-    // type is slice of ATMMIB_Aal5Vcctable_Aal5Vccentry.
-    Aal5Vccentry []ATMMIB_Aal5Vcctable_Aal5Vccentry
+    // type is slice of ATMMIB_Aal5VccTable_Aal5VccEntry.
+    Aal5VccEntry []*ATMMIB_Aal5VccTable_Aal5VccEntry
 }
 
-func (aal5Vcctable *ATMMIB_Aal5Vcctable) GetEntityData() *types.CommonEntityData {
-    aal5Vcctable.EntityData.YFilter = aal5Vcctable.YFilter
-    aal5Vcctable.EntityData.YangName = "aal5VccTable"
-    aal5Vcctable.EntityData.BundleName = "cisco_ios_xe"
-    aal5Vcctable.EntityData.ParentYangName = "ATM-MIB"
-    aal5Vcctable.EntityData.SegmentPath = "aal5VccTable"
-    aal5Vcctable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    aal5Vcctable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    aal5Vcctable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (aal5VccTable *ATMMIB_Aal5VccTable) GetEntityData() *types.CommonEntityData {
+    aal5VccTable.EntityData.YFilter = aal5VccTable.YFilter
+    aal5VccTable.EntityData.YangName = "aal5VccTable"
+    aal5VccTable.EntityData.BundleName = "cisco_ios_xe"
+    aal5VccTable.EntityData.ParentYangName = "ATM-MIB"
+    aal5VccTable.EntityData.SegmentPath = "aal5VccTable"
+    aal5VccTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    aal5VccTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    aal5VccTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    aal5Vcctable.EntityData.Children = make(map[string]types.YChild)
-    aal5Vcctable.EntityData.Children["aal5VccEntry"] = types.YChild{"Aal5Vccentry", nil}
-    for i := range aal5Vcctable.Aal5Vccentry {
-        aal5Vcctable.EntityData.Children[types.GetSegmentPath(&aal5Vcctable.Aal5Vccentry[i])] = types.YChild{"Aal5Vccentry", &aal5Vcctable.Aal5Vccentry[i]}
+    aal5VccTable.EntityData.Children = types.NewOrderedMap()
+    aal5VccTable.EntityData.Children.Append("aal5VccEntry", types.YChild{"Aal5VccEntry", nil})
+    for i := range aal5VccTable.Aal5VccEntry {
+        aal5VccTable.EntityData.Children.Append(types.GetSegmentPath(aal5VccTable.Aal5VccEntry[i]), types.YChild{"Aal5VccEntry", aal5VccTable.Aal5VccEntry[i]})
     }
-    aal5Vcctable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(aal5Vcctable.EntityData)
+    aal5VccTable.EntityData.Leafs = types.NewOrderedMap()
+
+    aal5VccTable.EntityData.YListKeys = []string {}
+
+    return &(aal5VccTable.EntityData)
 }
 
-// ATMMIB_Aal5Vcctable_Aal5Vccentry
+// ATMMIB_Aal5VccTable_Aal5VccEntry
 // This list contains the AAL5 VCC
 // performance parameters and is indexed
 // by ifIndex values of AAL5 interfaces
 // and the associated VPI/VCI values.
-type ATMMIB_Aal5Vcctable_Aal5Vccentry struct {
+type ATMMIB_Aal5VccTable_Aal5VccEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The VPI value of the AAL5 VCC at the interface
     // identified by the ifIndex. The type is interface{} with range: 0..4095.
-    Aal5Vccvpi interface{}
+    Aal5VccVpi interface{}
 
     // This attribute is a key. The VCI value of the AAL5 VCC at the interface
     // identified by the ifIndex. The type is interface{} with range: 0..65535.
-    Aal5Vccvci interface{}
+    Aal5VccVci interface{}
 
     // The number of AAL5 CPCS PDUs received with CRC-32 errors on this AAL5 VCC
     // at the interface associated with an AAL5 entity. The type is interface{}
     // with range: 0..4294967295.
-    Aal5Vcccrcerrors interface{}
+    Aal5VccCrcErrors interface{}
 
     // The number of partially re-assembled AAL5 CPCS PDUs which were discarded on
     // this AAL5 VCC at the interface associated with an AAL5 entity because they
     // were not fully re-assembled within the required time period.  If the
     // re-assembly timer is not supported, then this object contains a zero value.
     // The type is interface{} with range: 0..4294967295.
-    Aal5Vccsartimeouts interface{}
+    Aal5VccSarTimeOuts interface{}
 
     // The number of AAL5 CPCS PDUs discarded on this AAL5 VCC at the interface
     // associated with an AAL5 entity because the AAL5 SDUs were too large. The
     // type is interface{} with range: 0..4294967295.
-    Aal5Vccoversizedsdus interface{}
+    Aal5VccOverSizedSDUs interface{}
+
+    // Boolean, if compression enabled for VCC. The type is bool.
+    CAal5VccExtCompEnabled interface{}
+
+    // Boolean, TRUE if VCC is used to carry voice. The type is bool.
+    CAal5VccExtVoice interface{}
+
+    // Number of OAM F5 end to end loopback cells  received through the VCC. The
+    // type is interface{} with range: 0..4294967295.
+    CAal5VccExtInF5OamCells interface{}
+
+    // Number of OAM F5 end to end loopback cells sent  through the VCC. The type
+    // is interface{} with range: 0..4294967295.
+    CAal5VccExtOutF5OamCells interface{}
 
     // The number of AAL5 CPCS PDUs received on this AAL5 VCC at the interface
     // associated with an AAL5 entity. The type is interface{} with range:
     // 0..4294967295. Units are packets.
-    Caal5Vccinpkts interface{}
+    CAal5VccInPkts interface{}
 
     // The number of AAL5 CPCS PDUs transmitted on this AAL5 VCC at the interface
     // associated with an AAL5 entity. The type is interface{} with range:
     // 0..4294967295. Units are packets.
-    Caal5Vccoutpkts interface{}
+    CAal5VccOutPkts interface{}
 
     // The number of AAL5 CPCS PDU octets received on this AAL5 VCC at the
     // interface associated with an AAL5 entity. The type is interface{} with
     // range: 0..4294967295. Units are octets.
-    Caal5Vccinoctets interface{}
+    CAal5VccInOctets interface{}
 
     // The number of AAL5 CPCS PDU octets transmitted on this AAL5  VCC at the
     // interface associated with an AAL5 entity. The type is interface{} with
     // range: 0..4294967295. Units are octets.
-    Caal5Vccoutoctets interface{}
+    CAal5VccOutOctets interface{}
 
     // The number of AAL5 CPCS PDUs dropped at the  receive side of this AAL5 VCC
     // at the interface  associated with an AAL5 entity. The type is interface{}
     // with range: 0..4294967295. Units are packets.
-    Caal5Vccindroppedpkts interface{}
+    CAal5VccInDroppedPkts interface{}
 
     // The number of AAL5 CPCS PDUs dropped at the transmit side  of this AAL5 VCC
     // at the interface associated with an  AAL5 entity. The type is interface{}
     // with range: 0..4294967295. Units are packets.
-    Caal5Vccoutdroppedpkts interface{}
+    CAal5VccOutDroppedPkts interface{}
 
     // The number of AAL5 CPCS PDU Octets dropped at the  receive side of this
     // AAL5 VCC at the interface  associated with an AAL5 entity. The type is
     // interface{} with range: 0..4294967295. Units are octets.
-    Caal5Vccindroppedoctets interface{}
+    CAal5VccInDroppedOctets interface{}
 
     // The number of AAL5 CPCS PDU Octets dropped at the  transmit side of this
     // AAL5 VCC at the interface  associated with an AAL5 entity. The type is
     // interface{} with range: 0..4294967295. Units are octets.
-    Caal5Vccoutdroppedoctets interface{}
+    CAal5VccOutDroppedOctets interface{}
 
     // This is 64bit (High Capacity) version of cAal5VccInPkts  counters. The type
     // is interface{} with range: 0..18446744073709551615.
-    Caal5Vcchcinpkts interface{}
+    CAal5VccHCInPkts interface{}
 
     // This is 64bit (High Capacity) version of cAal5VccOutPkts  counters. The
     // type is interface{} with range: 0..18446744073709551615.
-    Caal5Vcchcoutpkts interface{}
+    CAal5VccHCOutPkts interface{}
 
     // This is 64bit (High Capacity) version of cAal5VccInOctets  counters. The
     // type is interface{} with range: 0..18446744073709551615.
-    Caal5Vcchcinoctets interface{}
+    CAal5VccHCInOctets interface{}
 
     // This is 64bit (High Capacity) version of cAal5VccOutOctets  counters. The
     // type is interface{} with range: 0..18446744073709551615.
-    Caal5Vcchcoutoctets interface{}
-
-    // Boolean, if compression enabled for VCC. The type is bool.
-    Caal5Vccextcompenabled interface{}
-
-    // Boolean, TRUE if VCC is used to carry voice. The type is bool.
-    Caal5Vccextvoice interface{}
-
-    // Number of OAM F5 end to end loopback cells  received through the VCC. The
-    // type is interface{} with range: 0..4294967295.
-    Caal5Vccextinf5Oamcells interface{}
-
-    // Number of OAM F5 end to end loopback cells sent  through the VCC. The type
-    // is interface{} with range: 0..4294967295.
-    Caal5Vccextoutf5Oamcells interface{}
+    CAal5VccHCOutOctets interface{}
 }
 
-func (aal5Vccentry *ATMMIB_Aal5Vcctable_Aal5Vccentry) GetEntityData() *types.CommonEntityData {
-    aal5Vccentry.EntityData.YFilter = aal5Vccentry.YFilter
-    aal5Vccentry.EntityData.YangName = "aal5VccEntry"
-    aal5Vccentry.EntityData.BundleName = "cisco_ios_xe"
-    aal5Vccentry.EntityData.ParentYangName = "aal5VccTable"
-    aal5Vccentry.EntityData.SegmentPath = "aal5VccEntry" + "[ifIndex='" + fmt.Sprintf("%v", aal5Vccentry.Ifindex) + "']" + "[aal5VccVpi='" + fmt.Sprintf("%v", aal5Vccentry.Aal5Vccvpi) + "']" + "[aal5VccVci='" + fmt.Sprintf("%v", aal5Vccentry.Aal5Vccvci) + "']"
-    aal5Vccentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    aal5Vccentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    aal5Vccentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (aal5VccEntry *ATMMIB_Aal5VccTable_Aal5VccEntry) GetEntityData() *types.CommonEntityData {
+    aal5VccEntry.EntityData.YFilter = aal5VccEntry.YFilter
+    aal5VccEntry.EntityData.YangName = "aal5VccEntry"
+    aal5VccEntry.EntityData.BundleName = "cisco_ios_xe"
+    aal5VccEntry.EntityData.ParentYangName = "aal5VccTable"
+    aal5VccEntry.EntityData.SegmentPath = "aal5VccEntry" + types.AddKeyToken(aal5VccEntry.IfIndex, "ifIndex") + types.AddKeyToken(aal5VccEntry.Aal5VccVpi, "aal5VccVpi") + types.AddKeyToken(aal5VccEntry.Aal5VccVci, "aal5VccVci")
+    aal5VccEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    aal5VccEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    aal5VccEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    aal5Vccentry.EntityData.Children = make(map[string]types.YChild)
-    aal5Vccentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    aal5Vccentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", aal5Vccentry.Ifindex}
-    aal5Vccentry.EntityData.Leafs["aal5VccVpi"] = types.YLeaf{"Aal5Vccvpi", aal5Vccentry.Aal5Vccvpi}
-    aal5Vccentry.EntityData.Leafs["aal5VccVci"] = types.YLeaf{"Aal5Vccvci", aal5Vccentry.Aal5Vccvci}
-    aal5Vccentry.EntityData.Leafs["aal5VccCrcErrors"] = types.YLeaf{"Aal5Vcccrcerrors", aal5Vccentry.Aal5Vcccrcerrors}
-    aal5Vccentry.EntityData.Leafs["aal5VccSarTimeOuts"] = types.YLeaf{"Aal5Vccsartimeouts", aal5Vccentry.Aal5Vccsartimeouts}
-    aal5Vccentry.EntityData.Leafs["aal5VccOverSizedSDUs"] = types.YLeaf{"Aal5Vccoversizedsdus", aal5Vccentry.Aal5Vccoversizedsdus}
-    aal5Vccentry.EntityData.Leafs["cAal5VccInPkts"] = types.YLeaf{"Caal5Vccinpkts", aal5Vccentry.Caal5Vccinpkts}
-    aal5Vccentry.EntityData.Leafs["cAal5VccOutPkts"] = types.YLeaf{"Caal5Vccoutpkts", aal5Vccentry.Caal5Vccoutpkts}
-    aal5Vccentry.EntityData.Leafs["cAal5VccInOctets"] = types.YLeaf{"Caal5Vccinoctets", aal5Vccentry.Caal5Vccinoctets}
-    aal5Vccentry.EntityData.Leafs["cAal5VccOutOctets"] = types.YLeaf{"Caal5Vccoutoctets", aal5Vccentry.Caal5Vccoutoctets}
-    aal5Vccentry.EntityData.Leafs["cAal5VccInDroppedPkts"] = types.YLeaf{"Caal5Vccindroppedpkts", aal5Vccentry.Caal5Vccindroppedpkts}
-    aal5Vccentry.EntityData.Leafs["cAal5VccOutDroppedPkts"] = types.YLeaf{"Caal5Vccoutdroppedpkts", aal5Vccentry.Caal5Vccoutdroppedpkts}
-    aal5Vccentry.EntityData.Leafs["cAal5VccInDroppedOctets"] = types.YLeaf{"Caal5Vccindroppedoctets", aal5Vccentry.Caal5Vccindroppedoctets}
-    aal5Vccentry.EntityData.Leafs["cAal5VccOutDroppedOctets"] = types.YLeaf{"Caal5Vccoutdroppedoctets", aal5Vccentry.Caal5Vccoutdroppedoctets}
-    aal5Vccentry.EntityData.Leafs["cAal5VccHCInPkts"] = types.YLeaf{"Caal5Vcchcinpkts", aal5Vccentry.Caal5Vcchcinpkts}
-    aal5Vccentry.EntityData.Leafs["cAal5VccHCOutPkts"] = types.YLeaf{"Caal5Vcchcoutpkts", aal5Vccentry.Caal5Vcchcoutpkts}
-    aal5Vccentry.EntityData.Leafs["cAal5VccHCInOctets"] = types.YLeaf{"Caal5Vcchcinoctets", aal5Vccentry.Caal5Vcchcinoctets}
-    aal5Vccentry.EntityData.Leafs["cAal5VccHCOutOctets"] = types.YLeaf{"Caal5Vcchcoutoctets", aal5Vccentry.Caal5Vcchcoutoctets}
-    aal5Vccentry.EntityData.Leafs["cAal5VccExtCompEnabled"] = types.YLeaf{"Caal5Vccextcompenabled", aal5Vccentry.Caal5Vccextcompenabled}
-    aal5Vccentry.EntityData.Leafs["cAal5VccExtVoice"] = types.YLeaf{"Caal5Vccextvoice", aal5Vccentry.Caal5Vccextvoice}
-    aal5Vccentry.EntityData.Leafs["cAal5VccExtInF5OamCells"] = types.YLeaf{"Caal5Vccextinf5Oamcells", aal5Vccentry.Caal5Vccextinf5Oamcells}
-    aal5Vccentry.EntityData.Leafs["cAal5VccExtOutF5OamCells"] = types.YLeaf{"Caal5Vccextoutf5Oamcells", aal5Vccentry.Caal5Vccextoutf5Oamcells}
-    return &(aal5Vccentry.EntityData)
+    aal5VccEntry.EntityData.Children = types.NewOrderedMap()
+    aal5VccEntry.EntityData.Leafs = types.NewOrderedMap()
+    aal5VccEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", aal5VccEntry.IfIndex})
+    aal5VccEntry.EntityData.Leafs.Append("aal5VccVpi", types.YLeaf{"Aal5VccVpi", aal5VccEntry.Aal5VccVpi})
+    aal5VccEntry.EntityData.Leafs.Append("aal5VccVci", types.YLeaf{"Aal5VccVci", aal5VccEntry.Aal5VccVci})
+    aal5VccEntry.EntityData.Leafs.Append("aal5VccCrcErrors", types.YLeaf{"Aal5VccCrcErrors", aal5VccEntry.Aal5VccCrcErrors})
+    aal5VccEntry.EntityData.Leafs.Append("aal5VccSarTimeOuts", types.YLeaf{"Aal5VccSarTimeOuts", aal5VccEntry.Aal5VccSarTimeOuts})
+    aal5VccEntry.EntityData.Leafs.Append("aal5VccOverSizedSDUs", types.YLeaf{"Aal5VccOverSizedSDUs", aal5VccEntry.Aal5VccOverSizedSDUs})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccExtCompEnabled", types.YLeaf{"CAal5VccExtCompEnabled", aal5VccEntry.CAal5VccExtCompEnabled})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccExtVoice", types.YLeaf{"CAal5VccExtVoice", aal5VccEntry.CAal5VccExtVoice})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccExtInF5OamCells", types.YLeaf{"CAal5VccExtInF5OamCells", aal5VccEntry.CAal5VccExtInF5OamCells})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccExtOutF5OamCells", types.YLeaf{"CAal5VccExtOutF5OamCells", aal5VccEntry.CAal5VccExtOutF5OamCells})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccInPkts", types.YLeaf{"CAal5VccInPkts", aal5VccEntry.CAal5VccInPkts})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccOutPkts", types.YLeaf{"CAal5VccOutPkts", aal5VccEntry.CAal5VccOutPkts})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccInOctets", types.YLeaf{"CAal5VccInOctets", aal5VccEntry.CAal5VccInOctets})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccOutOctets", types.YLeaf{"CAal5VccOutOctets", aal5VccEntry.CAal5VccOutOctets})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccInDroppedPkts", types.YLeaf{"CAal5VccInDroppedPkts", aal5VccEntry.CAal5VccInDroppedPkts})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccOutDroppedPkts", types.YLeaf{"CAal5VccOutDroppedPkts", aal5VccEntry.CAal5VccOutDroppedPkts})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccInDroppedOctets", types.YLeaf{"CAal5VccInDroppedOctets", aal5VccEntry.CAal5VccInDroppedOctets})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccOutDroppedOctets", types.YLeaf{"CAal5VccOutDroppedOctets", aal5VccEntry.CAal5VccOutDroppedOctets})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccHCInPkts", types.YLeaf{"CAal5VccHCInPkts", aal5VccEntry.CAal5VccHCInPkts})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccHCOutPkts", types.YLeaf{"CAal5VccHCOutPkts", aal5VccEntry.CAal5VccHCOutPkts})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccHCInOctets", types.YLeaf{"CAal5VccHCInOctets", aal5VccEntry.CAal5VccHCInOctets})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccHCOutOctets", types.YLeaf{"CAal5VccHCOutOctets", aal5VccEntry.CAal5VccHCOutOctets})
+
+    aal5VccEntry.EntityData.YListKeys = []string {"IfIndex", "Aal5VccVpi", "Aal5VccVci"}
+
+    return &(aal5VccEntry.EntityData)
 }
 

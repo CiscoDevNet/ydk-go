@@ -44,9 +44,12 @@ func (hardwareModule *HardwareModule) GetEntityData() *types.CommonEntityData {
     hardwareModule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareModule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareModule.EntityData.Children = make(map[string]types.YChild)
-    hardwareModule.EntityData.Children["segment-routing"] = types.YChild{"SegmentRouting", &hardwareModule.SegmentRouting}
-    hardwareModule.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareModule.EntityData.Children = types.NewOrderedMap()
+    hardwareModule.EntityData.Children.Append("segment-routing", types.YChild{"SegmentRouting", &hardwareModule.SegmentRouting})
+    hardwareModule.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareModule.EntityData.YListKeys = []string {}
+
     return &(hardwareModule.EntityData)
 }
 
@@ -70,9 +73,12 @@ func (segmentRouting *HardwareModule_SegmentRouting) GetEntityData() *types.Comm
     segmentRouting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    segmentRouting.EntityData.Children = make(map[string]types.YChild)
-    segmentRouting.EntityData.Children["reserve"] = types.YChild{"Reserve", &segmentRouting.Reserve}
-    segmentRouting.EntityData.Leafs = make(map[string]types.YLeaf)
+    segmentRouting.EntityData.Children = types.NewOrderedMap()
+    segmentRouting.EntityData.Children.Append("reserve", types.YChild{"Reserve", &segmentRouting.Reserve})
+    segmentRouting.EntityData.Leafs = types.NewOrderedMap()
+
+    segmentRouting.EntityData.YListKeys = []string {}
+
     return &(segmentRouting.EntityData)
 }
 
@@ -96,9 +102,12 @@ func (reserve *HardwareModule_SegmentRouting_Reserve) GetEntityData() *types.Com
     reserve.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reserve.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    reserve.EntityData.Children = make(map[string]types.YChild)
-    reserve.EntityData.Children["service-label"] = types.YChild{"ServiceLabel", &reserve.ServiceLabel}
-    reserve.EntityData.Leafs = make(map[string]types.YLeaf)
+    reserve.EntityData.Children = types.NewOrderedMap()
+    reserve.EntityData.Children.Append("service-label", types.YChild{"ServiceLabel", &reserve.ServiceLabel})
+    reserve.EntityData.Leafs = types.NewOrderedMap()
+
+    reserve.EntityData.YListKeys = []string {}
+
     return &(reserve.EntityData)
 }
 
@@ -122,9 +131,12 @@ func (serviceLabel *HardwareModule_SegmentRouting_Reserve_ServiceLabel) GetEntit
     serviceLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceLabel.EntityData.Children = make(map[string]types.YChild)
-    serviceLabel.EntityData.Leafs = make(map[string]types.YLeaf)
-    serviceLabel.EntityData.Leafs["enable"] = types.YLeaf{"Enable", serviceLabel.Enable}
+    serviceLabel.EntityData.Children = types.NewOrderedMap()
+    serviceLabel.EntityData.Leafs = types.NewOrderedMap()
+    serviceLabel.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", serviceLabel.Enable})
+
+    serviceLabel.EntityData.YListKeys = []string {}
+
     return &(serviceLabel.EntityData)
 }
 

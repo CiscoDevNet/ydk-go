@@ -26,7 +26,7 @@ type EfpStats struct {
     YFilter yfilter.YFilter
 
     // List of service instance stats. The type is slice of EfpStats_EfpStat.
-    EfpStat []EfpStats_EfpStat
+    EfpStat []*EfpStats_EfpStat
 }
 
 func (efpStats *EfpStats) GetEntityData() *types.CommonEntityData {
@@ -39,12 +39,15 @@ func (efpStats *EfpStats) GetEntityData() *types.CommonEntityData {
     efpStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     efpStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    efpStats.EntityData.Children = make(map[string]types.YChild)
-    efpStats.EntityData.Children["efp-stat"] = types.YChild{"EfpStat", nil}
+    efpStats.EntityData.Children = types.NewOrderedMap()
+    efpStats.EntityData.Children.Append("efp-stat", types.YChild{"EfpStat", nil})
     for i := range efpStats.EfpStat {
-        efpStats.EntityData.Children[types.GetSegmentPath(&efpStats.EfpStat[i])] = types.YChild{"EfpStat", &efpStats.EfpStat[i]}
+        efpStats.EntityData.Children.Append(types.GetSegmentPath(efpStats.EfpStat[i]), types.YChild{"EfpStat", efpStats.EfpStat[i]})
     }
-    efpStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    efpStats.EntityData.Leafs = types.NewOrderedMap()
+
+    efpStats.EntityData.YListKeys = []string {}
+
     return &(efpStats.EntityData)
 }
 
@@ -59,7 +62,7 @@ type EfpStats_EfpStat struct {
     Id interface{}
 
     // This attribute is a key. Interface name. The type is string.
-    Interface_ interface{}
+    Interface interface{}
 
     // Incoming packets. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -83,19 +86,22 @@ func (efpStat *EfpStats_EfpStat) GetEntityData() *types.CommonEntityData {
     efpStat.EntityData.YangName = "efp-stat"
     efpStat.EntityData.BundleName = "cisco_ios_xe"
     efpStat.EntityData.ParentYangName = "efp-stats"
-    efpStat.EntityData.SegmentPath = "efp-stat" + "[id='" + fmt.Sprintf("%v", efpStat.Id) + "']" + "[interface='" + fmt.Sprintf("%v", efpStat.Interface_) + "']"
+    efpStat.EntityData.SegmentPath = "efp-stat" + types.AddKeyToken(efpStat.Id, "id") + types.AddKeyToken(efpStat.Interface, "interface")
     efpStat.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     efpStat.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     efpStat.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    efpStat.EntityData.Children = make(map[string]types.YChild)
-    efpStat.EntityData.Leafs = make(map[string]types.YLeaf)
-    efpStat.EntityData.Leafs["id"] = types.YLeaf{"Id", efpStat.Id}
-    efpStat.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", efpStat.Interface_}
-    efpStat.EntityData.Leafs["in-pkts"] = types.YLeaf{"InPkts", efpStat.InPkts}
-    efpStat.EntityData.Leafs["in-bytes"] = types.YLeaf{"InBytes", efpStat.InBytes}
-    efpStat.EntityData.Leafs["out-pkts"] = types.YLeaf{"OutPkts", efpStat.OutPkts}
-    efpStat.EntityData.Leafs["out-bytes"] = types.YLeaf{"OutBytes", efpStat.OutBytes}
+    efpStat.EntityData.Children = types.NewOrderedMap()
+    efpStat.EntityData.Leafs = types.NewOrderedMap()
+    efpStat.EntityData.Leafs.Append("id", types.YLeaf{"Id", efpStat.Id})
+    efpStat.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", efpStat.Interface})
+    efpStat.EntityData.Leafs.Append("in-pkts", types.YLeaf{"InPkts", efpStat.InPkts})
+    efpStat.EntityData.Leafs.Append("in-bytes", types.YLeaf{"InBytes", efpStat.InBytes})
+    efpStat.EntityData.Leafs.Append("out-pkts", types.YLeaf{"OutPkts", efpStat.OutPkts})
+    efpStat.EntityData.Leafs.Append("out-bytes", types.YLeaf{"OutBytes", efpStat.OutBytes})
+
+    efpStat.EntityData.YListKeys = []string {"Id", "Interface"}
+
     return &(efpStat.EntityData)
 }
 

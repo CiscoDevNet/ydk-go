@@ -80,13 +80,16 @@ func (ipv4NetworkGlobal *Ipv4NetworkGlobal) GetEntityData() *types.CommonEntityD
     ipv4NetworkGlobal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4NetworkGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4NetworkGlobal.EntityData.Children = make(map[string]types.YChild)
-    ipv4NetworkGlobal.EntityData.Children["unnumbered"] = types.YChild{"Unnumbered", &ipv4NetworkGlobal.Unnumbered}
-    ipv4NetworkGlobal.EntityData.Children["qppb"] = types.YChild{"Qppb", &ipv4NetworkGlobal.Qppb}
-    ipv4NetworkGlobal.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4NetworkGlobal.EntityData.Leafs["source-route"] = types.YLeaf{"SourceRoute", ipv4NetworkGlobal.SourceRoute}
-    ipv4NetworkGlobal.EntityData.Leafs["reassemble-max-packets"] = types.YLeaf{"ReassembleMaxPackets", ipv4NetworkGlobal.ReassembleMaxPackets}
-    ipv4NetworkGlobal.EntityData.Leafs["reassemble-time-out"] = types.YLeaf{"ReassembleTimeOut", ipv4NetworkGlobal.ReassembleTimeOut}
+    ipv4NetworkGlobal.EntityData.Children = types.NewOrderedMap()
+    ipv4NetworkGlobal.EntityData.Children.Append("unnumbered", types.YChild{"Unnumbered", &ipv4NetworkGlobal.Unnumbered})
+    ipv4NetworkGlobal.EntityData.Children.Append("qppb", types.YChild{"Qppb", &ipv4NetworkGlobal.Qppb})
+    ipv4NetworkGlobal.EntityData.Leafs = types.NewOrderedMap()
+    ipv4NetworkGlobal.EntityData.Leafs.Append("source-route", types.YLeaf{"SourceRoute", ipv4NetworkGlobal.SourceRoute})
+    ipv4NetworkGlobal.EntityData.Leafs.Append("reassemble-max-packets", types.YLeaf{"ReassembleMaxPackets", ipv4NetworkGlobal.ReassembleMaxPackets})
+    ipv4NetworkGlobal.EntityData.Leafs.Append("reassemble-time-out", types.YLeaf{"ReassembleTimeOut", ipv4NetworkGlobal.ReassembleTimeOut})
+
+    ipv4NetworkGlobal.EntityData.YListKeys = []string {}
+
     return &(ipv4NetworkGlobal.EntityData)
 }
 
@@ -111,9 +114,12 @@ func (unnumbered *Ipv4NetworkGlobal_Unnumbered) GetEntityData() *types.CommonEnt
     unnumbered.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unnumbered.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    unnumbered.EntityData.Children = make(map[string]types.YChild)
-    unnumbered.EntityData.Children["mpls"] = types.YChild{"Mpls", &unnumbered.Mpls}
-    unnumbered.EntityData.Leafs = make(map[string]types.YLeaf)
+    unnumbered.EntityData.Children = types.NewOrderedMap()
+    unnumbered.EntityData.Children.Append("mpls", types.YChild{"Mpls", &unnumbered.Mpls})
+    unnumbered.EntityData.Leafs = types.NewOrderedMap()
+
+    unnumbered.EntityData.YListKeys = []string {}
+
     return &(unnumbered.EntityData)
 }
 
@@ -137,9 +143,12 @@ func (mpls *Ipv4NetworkGlobal_Unnumbered_Mpls) GetEntityData() *types.CommonEnti
     mpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mpls.EntityData.Children = make(map[string]types.YChild)
-    mpls.EntityData.Children["te"] = types.YChild{"Te", &mpls.Te}
-    mpls.EntityData.Leafs = make(map[string]types.YLeaf)
+    mpls.EntityData.Children = types.NewOrderedMap()
+    mpls.EntityData.Children.Append("te", types.YChild{"Te", &mpls.Te})
+    mpls.EntityData.Leafs = types.NewOrderedMap()
+
+    mpls.EntityData.YListKeys = []string {}
+
     return &(mpls.EntityData)
 }
 
@@ -151,7 +160,7 @@ type Ipv4NetworkGlobal_Unnumbered_Mpls_Te struct {
 
     // Enable IP processing without an explicit address on MPLS Traffic-Eng. The
     // type is string.
-    Interface_ interface{}
+    Interface interface{}
 }
 
 func (te *Ipv4NetworkGlobal_Unnumbered_Mpls_Te) GetEntityData() *types.CommonEntityData {
@@ -164,9 +173,12 @@ func (te *Ipv4NetworkGlobal_Unnumbered_Mpls_Te) GetEntityData() *types.CommonEnt
     te.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     te.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    te.EntityData.Children = make(map[string]types.YChild)
-    te.EntityData.Leafs = make(map[string]types.YLeaf)
-    te.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", te.Interface_}
+    te.EntityData.Children = types.NewOrderedMap()
+    te.EntityData.Leafs = types.NewOrderedMap()
+    te.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", te.Interface})
+
+    te.EntityData.YListKeys = []string {}
+
     return &(te.EntityData)
 }
 
@@ -193,10 +205,13 @@ func (qppb *Ipv4NetworkGlobal_Qppb) GetEntityData() *types.CommonEntityData {
     qppb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qppb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    qppb.EntityData.Children = make(map[string]types.YChild)
-    qppb.EntityData.Leafs = make(map[string]types.YLeaf)
-    qppb.EntityData.Leafs["source"] = types.YLeaf{"Source", qppb.Source}
-    qppb.EntityData.Leafs["destination"] = types.YLeaf{"Destination", qppb.Destination}
+    qppb.EntityData.Children = types.NewOrderedMap()
+    qppb.EntityData.Leafs = types.NewOrderedMap()
+    qppb.EntityData.Leafs.Append("source", types.YLeaf{"Source", qppb.Source})
+    qppb.EntityData.Leafs.Append("destination", types.YLeaf{"Destination", qppb.Destination})
+
+    qppb.EntityData.YListKeys = []string {}
+
     return &(qppb.EntityData)
 }
 
@@ -221,9 +236,12 @@ func (subscriberPta *SubscriberPta) GetEntityData() *types.CommonEntityData {
     subscriberPta.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberPta.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    subscriberPta.EntityData.Children = make(map[string]types.YChild)
-    subscriberPta.EntityData.Leafs = make(map[string]types.YLeaf)
-    subscriberPta.EntityData.Leafs["tcp-mss-adjust"] = types.YLeaf{"TcpMssAdjust", subscriberPta.TcpMssAdjust}
+    subscriberPta.EntityData.Children = types.NewOrderedMap()
+    subscriberPta.EntityData.Leafs = types.NewOrderedMap()
+    subscriberPta.EntityData.Leafs.Append("tcp-mss-adjust", types.YLeaf{"TcpMssAdjust", subscriberPta.TcpMssAdjust})
+
+    subscriberPta.EntityData.YListKeys = []string {}
+
     return &(subscriberPta.EntityData)
 }
 

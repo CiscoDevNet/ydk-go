@@ -66,9 +66,12 @@ func (wanphy *Wanphy) GetEntityData() *types.CommonEntityData {
     wanphy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wanphy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    wanphy.EntityData.Children = make(map[string]types.YChild)
-    wanphy.EntityData.Children["controllers"] = types.YChild{"Controllers", &wanphy.Controllers}
-    wanphy.EntityData.Leafs = make(map[string]types.YLeaf)
+    wanphy.EntityData.Children = types.NewOrderedMap()
+    wanphy.EntityData.Children.Append("controllers", types.YChild{"Controllers", &wanphy.Controllers})
+    wanphy.EntityData.Leafs = types.NewOrderedMap()
+
+    wanphy.EntityData.YListKeys = []string {}
+
     return &(wanphy.EntityData)
 }
 
@@ -80,7 +83,7 @@ type Wanphy_Controllers struct {
 
     // WANPHY controller operational data. The type is slice of
     // Wanphy_Controllers_Controller.
-    Controller []Wanphy_Controllers_Controller
+    Controller []*Wanphy_Controllers_Controller
 }
 
 func (controllers *Wanphy_Controllers) GetEntityData() *types.CommonEntityData {
@@ -93,12 +96,15 @@ func (controllers *Wanphy_Controllers) GetEntityData() *types.CommonEntityData {
     controllers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    controllers.EntityData.Children = make(map[string]types.YChild)
-    controllers.EntityData.Children["controller"] = types.YChild{"Controller", nil}
+    controllers.EntityData.Children = types.NewOrderedMap()
+    controllers.EntityData.Children.Append("controller", types.YChild{"Controller", nil})
     for i := range controllers.Controller {
-        controllers.EntityData.Children[types.GetSegmentPath(&controllers.Controller[i])] = types.YChild{"Controller", &controllers.Controller[i]}
+        controllers.EntityData.Children.Append(types.GetSegmentPath(controllers.Controller[i]), types.YChild{"Controller", controllers.Controller[i]})
     }
-    controllers.EntityData.Leafs = make(map[string]types.YLeaf)
+    controllers.EntityData.Leafs = types.NewOrderedMap()
+
+    controllers.EntityData.YListKeys = []string {}
+
     return &(controllers.EntityData)
 }
 
@@ -109,7 +115,7 @@ type Wanphy_Controllers_Controller struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Controller name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     ControllerName interface{}
 
     // WANPHY controller operational data.
@@ -121,15 +127,18 @@ func (controller *Wanphy_Controllers_Controller) GetEntityData() *types.CommonEn
     controller.EntityData.YangName = "controller"
     controller.EntityData.BundleName = "cisco_ios_xr"
     controller.EntityData.ParentYangName = "controllers"
-    controller.EntityData.SegmentPath = "controller" + "[controller-name='" + fmt.Sprintf("%v", controller.ControllerName) + "']"
+    controller.EntityData.SegmentPath = "controller" + types.AddKeyToken(controller.ControllerName, "controller-name")
     controller.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controller.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controller.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    controller.EntityData.Children = make(map[string]types.YChild)
-    controller.EntityData.Children["info"] = types.YChild{"Info", &controller.Info}
-    controller.EntityData.Leafs = make(map[string]types.YLeaf)
-    controller.EntityData.Leafs["controller-name"] = types.YLeaf{"ControllerName", controller.ControllerName}
+    controller.EntityData.Children = types.NewOrderedMap()
+    controller.EntityData.Children.Append("info", types.YChild{"Info", &controller.Info})
+    controller.EntityData.Leafs = types.NewOrderedMap()
+    controller.EntityData.Leafs.Append("controller-name", types.YLeaf{"ControllerName", controller.ControllerName})
+
+    controller.EntityData.YListKeys = []string {"ControllerName"}
+
     return &(controller.EntityData)
 }
 
@@ -290,53 +299,56 @@ func (info *Wanphy_Controllers_Controller_Info) GetEntityData() *types.CommonEnt
     info.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     info.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    info.EntityData.Children = make(map[string]types.YChild)
-    info.EntityData.Leafs = make(map[string]types.YLeaf)
-    info.EntityData.Leafs["admin-mode"] = types.YLeaf{"AdminMode", info.AdminMode}
-    info.EntityData.Leafs["port-state"] = types.YLeaf{"PortState", info.PortState}
-    info.EntityData.Leafs["section-lof"] = types.YLeaf{"SectionLof", info.SectionLof}
-    info.EntityData.Leafs["section-los"] = types.YLeaf{"SectionLos", info.SectionLos}
-    info.EntityData.Leafs["section-bip"] = types.YLeaf{"SectionBip", info.SectionBip}
-    info.EntityData.Leafs["line-ais"] = types.YLeaf{"LineAis", info.LineAis}
-    info.EntityData.Leafs["line-rdi"] = types.YLeaf{"LineRdi", info.LineRdi}
-    info.EntityData.Leafs["line-febe"] = types.YLeaf{"LineFebe", info.LineFebe}
-    info.EntityData.Leafs["line-bip"] = types.YLeaf{"LineBip", info.LineBip}
-    info.EntityData.Leafs["path-ais"] = types.YLeaf{"PathAis", info.PathAis}
-    info.EntityData.Leafs["path-rdi"] = types.YLeaf{"PathRdi", info.PathRdi}
-    info.EntityData.Leafs["path-febe"] = types.YLeaf{"PathFebe", info.PathFebe}
-    info.EntityData.Leafs["path-bip"] = types.YLeaf{"PathBip", info.PathBip}
-    info.EntityData.Leafs["path-lop"] = types.YLeaf{"PathLop", info.PathLop}
-    info.EntityData.Leafs["path-newptr"] = types.YLeaf{"PathNewptr", info.PathNewptr}
-    info.EntityData.Leafs["path-pse"] = types.YLeaf{"PathPse", info.PathPse}
-    info.EntityData.Leafs["path-nse"] = types.YLeaf{"PathNse", info.PathNse}
-    info.EntityData.Leafs["wis-alarms-ser"] = types.YLeaf{"WisAlarmsSer", info.WisAlarmsSer}
-    info.EntityData.Leafs["wis-alarms-felcdp"] = types.YLeaf{"WisAlarmsFelcdp", info.WisAlarmsFelcdp}
-    info.EntityData.Leafs["wis-alarms-feaisp"] = types.YLeaf{"WisAlarmsFeaisp", info.WisAlarmsFeaisp}
-    info.EntityData.Leafs["wis-alarms-wlos"] = types.YLeaf{"WisAlarmsWlos", info.WisAlarmsWlos}
-    info.EntityData.Leafs["wis-alarms-plcd"] = types.YLeaf{"WisAlarmsPlcd", info.WisAlarmsPlcd}
-    info.EntityData.Leafs["wis-alarms-lfebip"] = types.YLeaf{"WisAlarmsLfebip", info.WisAlarmsLfebip}
-    info.EntityData.Leafs["wis-alarms-pbec"] = types.YLeaf{"WisAlarmsPbec", info.WisAlarmsPbec}
-    info.EntityData.Leafs["wis-alarms-plmp"] = types.YLeaf{"WisAlarmsPlmp", info.WisAlarmsPlmp}
-    info.EntityData.Leafs["sf-ber-threshold"] = types.YLeaf{"SfBerThreshold", info.SfBerThreshold}
-    info.EntityData.Leafs["sd-ber-threshold"] = types.YLeaf{"SdBerThreshold", info.SdBerThreshold}
-    info.EntityData.Leafs["sf-ber-report"] = types.YLeaf{"SfBerReport", info.SfBerReport}
-    info.EntityData.Leafs["sd-ber-report"] = types.YLeaf{"SdBerReport", info.SdBerReport}
-    info.EntityData.Leafs["operational-mode"] = types.YLeaf{"OperationalMode", info.OperationalMode}
-    info.EntityData.Leafs["remote-ip"] = types.YLeaf{"RemoteIp", info.RemoteIp}
-    info.EntityData.Leafs["register-p-febe"] = types.YLeaf{"RegisterPFebe", info.RegisterPFebe}
-    info.EntityData.Leafs["register-l-fe-bip"] = types.YLeaf{"RegisterLFeBip", info.RegisterLFeBip}
-    info.EntityData.Leafs["register-l-bip"] = types.YLeaf{"RegisterLBip", info.RegisterLBip}
-    info.EntityData.Leafs["register-p-bec"] = types.YLeaf{"RegisterPBec", info.RegisterPBec}
-    info.EntityData.Leafs["register-s-bip"] = types.YLeaf{"RegisterSBip", info.RegisterSBip}
-    info.EntityData.Leafs["register-j1-rx0"] = types.YLeaf{"RegisterJ1Rx0", info.RegisterJ1Rx0}
-    info.EntityData.Leafs["register-j1-rx1"] = types.YLeaf{"RegisterJ1Rx1", info.RegisterJ1Rx1}
-    info.EntityData.Leafs["register-j1-rx2"] = types.YLeaf{"RegisterJ1Rx2", info.RegisterJ1Rx2}
-    info.EntityData.Leafs["register-j1-rx3"] = types.YLeaf{"RegisterJ1Rx3", info.RegisterJ1Rx3}
-    info.EntityData.Leafs["register-j1-rx4"] = types.YLeaf{"RegisterJ1Rx4", info.RegisterJ1Rx4}
-    info.EntityData.Leafs["register-j1-rx5"] = types.YLeaf{"RegisterJ1Rx5", info.RegisterJ1Rx5}
-    info.EntityData.Leafs["register-j1-rx6"] = types.YLeaf{"RegisterJ1Rx6", info.RegisterJ1Rx6}
-    info.EntityData.Leafs["register-j1-rx7"] = types.YLeaf{"RegisterJ1Rx7", info.RegisterJ1Rx7}
-    info.EntityData.Leafs["wanphy-poll-timer"] = types.YLeaf{"WanphyPollTimer", info.WanphyPollTimer}
+    info.EntityData.Children = types.NewOrderedMap()
+    info.EntityData.Leafs = types.NewOrderedMap()
+    info.EntityData.Leafs.Append("admin-mode", types.YLeaf{"AdminMode", info.AdminMode})
+    info.EntityData.Leafs.Append("port-state", types.YLeaf{"PortState", info.PortState})
+    info.EntityData.Leafs.Append("section-lof", types.YLeaf{"SectionLof", info.SectionLof})
+    info.EntityData.Leafs.Append("section-los", types.YLeaf{"SectionLos", info.SectionLos})
+    info.EntityData.Leafs.Append("section-bip", types.YLeaf{"SectionBip", info.SectionBip})
+    info.EntityData.Leafs.Append("line-ais", types.YLeaf{"LineAis", info.LineAis})
+    info.EntityData.Leafs.Append("line-rdi", types.YLeaf{"LineRdi", info.LineRdi})
+    info.EntityData.Leafs.Append("line-febe", types.YLeaf{"LineFebe", info.LineFebe})
+    info.EntityData.Leafs.Append("line-bip", types.YLeaf{"LineBip", info.LineBip})
+    info.EntityData.Leafs.Append("path-ais", types.YLeaf{"PathAis", info.PathAis})
+    info.EntityData.Leafs.Append("path-rdi", types.YLeaf{"PathRdi", info.PathRdi})
+    info.EntityData.Leafs.Append("path-febe", types.YLeaf{"PathFebe", info.PathFebe})
+    info.EntityData.Leafs.Append("path-bip", types.YLeaf{"PathBip", info.PathBip})
+    info.EntityData.Leafs.Append("path-lop", types.YLeaf{"PathLop", info.PathLop})
+    info.EntityData.Leafs.Append("path-newptr", types.YLeaf{"PathNewptr", info.PathNewptr})
+    info.EntityData.Leafs.Append("path-pse", types.YLeaf{"PathPse", info.PathPse})
+    info.EntityData.Leafs.Append("path-nse", types.YLeaf{"PathNse", info.PathNse})
+    info.EntityData.Leafs.Append("wis-alarms-ser", types.YLeaf{"WisAlarmsSer", info.WisAlarmsSer})
+    info.EntityData.Leafs.Append("wis-alarms-felcdp", types.YLeaf{"WisAlarmsFelcdp", info.WisAlarmsFelcdp})
+    info.EntityData.Leafs.Append("wis-alarms-feaisp", types.YLeaf{"WisAlarmsFeaisp", info.WisAlarmsFeaisp})
+    info.EntityData.Leafs.Append("wis-alarms-wlos", types.YLeaf{"WisAlarmsWlos", info.WisAlarmsWlos})
+    info.EntityData.Leafs.Append("wis-alarms-plcd", types.YLeaf{"WisAlarmsPlcd", info.WisAlarmsPlcd})
+    info.EntityData.Leafs.Append("wis-alarms-lfebip", types.YLeaf{"WisAlarmsLfebip", info.WisAlarmsLfebip})
+    info.EntityData.Leafs.Append("wis-alarms-pbec", types.YLeaf{"WisAlarmsPbec", info.WisAlarmsPbec})
+    info.EntityData.Leafs.Append("wis-alarms-plmp", types.YLeaf{"WisAlarmsPlmp", info.WisAlarmsPlmp})
+    info.EntityData.Leafs.Append("sf-ber-threshold", types.YLeaf{"SfBerThreshold", info.SfBerThreshold})
+    info.EntityData.Leafs.Append("sd-ber-threshold", types.YLeaf{"SdBerThreshold", info.SdBerThreshold})
+    info.EntityData.Leafs.Append("sf-ber-report", types.YLeaf{"SfBerReport", info.SfBerReport})
+    info.EntityData.Leafs.Append("sd-ber-report", types.YLeaf{"SdBerReport", info.SdBerReport})
+    info.EntityData.Leafs.Append("operational-mode", types.YLeaf{"OperationalMode", info.OperationalMode})
+    info.EntityData.Leafs.Append("remote-ip", types.YLeaf{"RemoteIp", info.RemoteIp})
+    info.EntityData.Leafs.Append("register-p-febe", types.YLeaf{"RegisterPFebe", info.RegisterPFebe})
+    info.EntityData.Leafs.Append("register-l-fe-bip", types.YLeaf{"RegisterLFeBip", info.RegisterLFeBip})
+    info.EntityData.Leafs.Append("register-l-bip", types.YLeaf{"RegisterLBip", info.RegisterLBip})
+    info.EntityData.Leafs.Append("register-p-bec", types.YLeaf{"RegisterPBec", info.RegisterPBec})
+    info.EntityData.Leafs.Append("register-s-bip", types.YLeaf{"RegisterSBip", info.RegisterSBip})
+    info.EntityData.Leafs.Append("register-j1-rx0", types.YLeaf{"RegisterJ1Rx0", info.RegisterJ1Rx0})
+    info.EntityData.Leafs.Append("register-j1-rx1", types.YLeaf{"RegisterJ1Rx1", info.RegisterJ1Rx1})
+    info.EntityData.Leafs.Append("register-j1-rx2", types.YLeaf{"RegisterJ1Rx2", info.RegisterJ1Rx2})
+    info.EntityData.Leafs.Append("register-j1-rx3", types.YLeaf{"RegisterJ1Rx3", info.RegisterJ1Rx3})
+    info.EntityData.Leafs.Append("register-j1-rx4", types.YLeaf{"RegisterJ1Rx4", info.RegisterJ1Rx4})
+    info.EntityData.Leafs.Append("register-j1-rx5", types.YLeaf{"RegisterJ1Rx5", info.RegisterJ1Rx5})
+    info.EntityData.Leafs.Append("register-j1-rx6", types.YLeaf{"RegisterJ1Rx6", info.RegisterJ1Rx6})
+    info.EntityData.Leafs.Append("register-j1-rx7", types.YLeaf{"RegisterJ1Rx7", info.RegisterJ1Rx7})
+    info.EntityData.Leafs.Append("wanphy-poll-timer", types.YLeaf{"WanphyPollTimer", info.WanphyPollTimer})
+
+    info.EntityData.YListKeys = []string {}
+
     return &(info.EntityData)
 }
 

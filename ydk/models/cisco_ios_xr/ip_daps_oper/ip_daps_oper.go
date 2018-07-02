@@ -75,9 +75,12 @@ func (addressPoolService *AddressPoolService) GetEntityData() *types.CommonEntit
     addressPoolService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressPoolService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressPoolService.EntityData.Children = make(map[string]types.YChild)
-    addressPoolService.EntityData.Children["nodes"] = types.YChild{"Nodes", &addressPoolService.Nodes}
-    addressPoolService.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressPoolService.EntityData.Children = types.NewOrderedMap()
+    addressPoolService.EntityData.Children.Append("nodes", types.YChild{"Nodes", &addressPoolService.Nodes})
+    addressPoolService.EntityData.Leafs = types.NewOrderedMap()
+
+    addressPoolService.EntityData.YListKeys = []string {}
+
     return &(addressPoolService.EntityData)
 }
 
@@ -89,7 +92,7 @@ type AddressPoolService_Nodes struct {
 
     // Location. For eg., 0/1/CPU0. The type is slice of
     // AddressPoolService_Nodes_Node.
-    Node []AddressPoolService_Nodes_Node
+    Node []*AddressPoolService_Nodes_Node
 }
 
 func (nodes *AddressPoolService_Nodes) GetEntityData() *types.CommonEntityData {
@@ -102,12 +105,15 @@ func (nodes *AddressPoolService_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -118,7 +124,7 @@ type AddressPoolService_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // List of IPv4/IPv6 pool data.
@@ -136,17 +142,20 @@ func (node *AddressPoolService_Nodes_Node) GetEntityData() *types.CommonEntityDa
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["pools"] = types.YChild{"Pools", &node.Pools}
-    node.EntityData.Children["total-utilization"] = types.YChild{"TotalUtilization", &node.TotalUtilization}
-    node.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &node.Vrfs}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("pools", types.YChild{"Pools", &node.Pools})
+    node.EntityData.Children.Append("total-utilization", types.YChild{"TotalUtilization", &node.TotalUtilization})
+    node.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &node.Vrfs})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -158,7 +167,7 @@ type AddressPoolService_Nodes_Node_Pools struct {
 
     // Pool data by pool name. The type is slice of
     // AddressPoolService_Nodes_Node_Pools_Pool.
-    Pool []AddressPoolService_Nodes_Node_Pools_Pool
+    Pool []*AddressPoolService_Nodes_Node_Pools_Pool
 }
 
 func (pools *AddressPoolService_Nodes_Node_Pools) GetEntityData() *types.CommonEntityData {
@@ -171,12 +180,15 @@ func (pools *AddressPoolService_Nodes_Node_Pools) GetEntityData() *types.CommonE
     pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pools.EntityData.Children = make(map[string]types.YChild)
-    pools.EntityData.Children["pool"] = types.YChild{"Pool", nil}
+    pools.EntityData.Children = types.NewOrderedMap()
+    pools.EntityData.Children.Append("pool", types.YChild{"Pool", nil})
     for i := range pools.Pool {
-        pools.EntityData.Children[types.GetSegmentPath(&pools.Pool[i])] = types.YChild{"Pool", &pools.Pool[i]}
+        pools.EntityData.Children.Append(types.GetSegmentPath(pools.Pool[i]), types.YChild{"Pool", pools.Pool[i]})
     }
-    pools.EntityData.Leafs = make(map[string]types.YLeaf)
+    pools.EntityData.Leafs = types.NewOrderedMap()
+
+    pools.EntityData.YListKeys = []string {}
+
     return &(pools.EntityData)
 }
 
@@ -187,7 +199,7 @@ type AddressPoolService_Nodes_Node_Pools_Pool struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The pool name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     PoolName interface{}
 
     // Summary info for pool.
@@ -205,17 +217,20 @@ func (pool *AddressPoolService_Nodes_Node_Pools_Pool) GetEntityData() *types.Com
     pool.EntityData.YangName = "pool"
     pool.EntityData.BundleName = "cisco_ios_xr"
     pool.EntityData.ParentYangName = "pools"
-    pool.EntityData.SegmentPath = "pool" + "[pool-name='" + fmt.Sprintf("%v", pool.PoolName) + "']"
+    pool.EntityData.SegmentPath = "pool" + types.AddKeyToken(pool.PoolName, "pool-name")
     pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pool.EntityData.Children = make(map[string]types.YChild)
-    pool.EntityData.Children["address-ranges"] = types.YChild{"AddressRanges", &pool.AddressRanges}
-    pool.EntityData.Children["allocated-addresses"] = types.YChild{"AllocatedAddresses", &pool.AllocatedAddresses}
-    pool.EntityData.Children["configuration"] = types.YChild{"Configuration", &pool.Configuration}
-    pool.EntityData.Leafs = make(map[string]types.YLeaf)
-    pool.EntityData.Leafs["pool-name"] = types.YLeaf{"PoolName", pool.PoolName}
+    pool.EntityData.Children = types.NewOrderedMap()
+    pool.EntityData.Children.Append("address-ranges", types.YChild{"AddressRanges", &pool.AddressRanges})
+    pool.EntityData.Children.Append("allocated-addresses", types.YChild{"AllocatedAddresses", &pool.AllocatedAddresses})
+    pool.EntityData.Children.Append("configuration", types.YChild{"Configuration", &pool.Configuration})
+    pool.EntityData.Leafs = types.NewOrderedMap()
+    pool.EntityData.Leafs.Append("pool-name", types.YLeaf{"PoolName", pool.PoolName})
+
+    pool.EntityData.YListKeys = []string {"PoolName"}
+
     return &(pool.EntityData)
 }
 
@@ -227,7 +242,7 @@ type AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges struct {
 
     // Start Address of the Range. The type is slice of
     // AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_AddressRange.
-    AddressRange []AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_AddressRange
+    AddressRange []*AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_AddressRange
 }
 
 func (addressRanges *AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges) GetEntityData() *types.CommonEntityData {
@@ -240,12 +255,15 @@ func (addressRanges *AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges) Get
     addressRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressRanges.EntityData.Children = make(map[string]types.YChild)
-    addressRanges.EntityData.Children["address-range"] = types.YChild{"AddressRange", nil}
+    addressRanges.EntityData.Children = types.NewOrderedMap()
+    addressRanges.EntityData.Children.Append("address-range", types.YChild{"AddressRange", nil})
     for i := range addressRanges.AddressRange {
-        addressRanges.EntityData.Children[types.GetSegmentPath(&addressRanges.AddressRange[i])] = types.YChild{"AddressRange", &addressRanges.AddressRange[i]}
+        addressRanges.EntityData.Children.Append(types.GetSegmentPath(addressRanges.AddressRange[i]), types.YChild{"AddressRange", addressRanges.AddressRange[i]})
     }
-    addressRanges.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressRanges.EntityData.Leafs = types.NewOrderedMap()
+
+    addressRanges.EntityData.YListKeys = []string {}
+
     return &(addressRanges.EntityData)
 }
 
@@ -257,9 +275,9 @@ type AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_AddressRange struct 
 
     // This attribute is a key. IP Address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // Pool name. The type is string with length: 0..64.
@@ -305,25 +323,28 @@ func (addressRange *AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_Addre
     addressRange.EntityData.YangName = "address-range"
     addressRange.EntityData.BundleName = "cisco_ios_xr"
     addressRange.EntityData.ParentYangName = "address-ranges"
-    addressRange.EntityData.SegmentPath = "address-range" + "[start-address='" + fmt.Sprintf("%v", addressRange.StartAddress) + "']"
+    addressRange.EntityData.SegmentPath = "address-range" + types.AddKeyToken(addressRange.StartAddress, "start-address")
     addressRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressRange.EntityData.Children = make(map[string]types.YChild)
-    addressRange.EntityData.Children["start-address-xr"] = types.YChild{"StartAddressXr", &addressRange.StartAddressXr}
-    addressRange.EntityData.Children["end-address"] = types.YChild{"EndAddress", &addressRange.EndAddress}
-    addressRange.EntityData.Children["default-router"] = types.YChild{"DefaultRouter", &addressRange.DefaultRouter}
-    addressRange.EntityData.Leafs = make(map[string]types.YLeaf)
-    addressRange.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", addressRange.StartAddress}
-    addressRange.EntityData.Leafs["pool-name"] = types.YLeaf{"PoolName", addressRange.PoolName}
-    addressRange.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", addressRange.VrfName}
-    addressRange.EntityData.Leafs["pool-scope"] = types.YLeaf{"PoolScope", addressRange.PoolScope}
-    addressRange.EntityData.Leafs["allocated-addresses"] = types.YLeaf{"AllocatedAddresses", addressRange.AllocatedAddresses}
-    addressRange.EntityData.Leafs["free-addresses"] = types.YLeaf{"FreeAddresses", addressRange.FreeAddresses}
-    addressRange.EntityData.Leafs["excluded-addresses"] = types.YLeaf{"ExcludedAddresses", addressRange.ExcludedAddresses}
-    addressRange.EntityData.Leafs["network-blocked-status"] = types.YLeaf{"NetworkBlockedStatus", addressRange.NetworkBlockedStatus}
-    addressRange.EntityData.Leafs["network-blocked-status-trp"] = types.YLeaf{"NetworkBlockedStatusTrp", addressRange.NetworkBlockedStatusTrp}
+    addressRange.EntityData.Children = types.NewOrderedMap()
+    addressRange.EntityData.Children.Append("start-address-xr", types.YChild{"StartAddressXr", &addressRange.StartAddressXr})
+    addressRange.EntityData.Children.Append("end-address", types.YChild{"EndAddress", &addressRange.EndAddress})
+    addressRange.EntityData.Children.Append("default-router", types.YChild{"DefaultRouter", &addressRange.DefaultRouter})
+    addressRange.EntityData.Leafs = types.NewOrderedMap()
+    addressRange.EntityData.Leafs.Append("start-address", types.YLeaf{"StartAddress", addressRange.StartAddress})
+    addressRange.EntityData.Leafs.Append("pool-name", types.YLeaf{"PoolName", addressRange.PoolName})
+    addressRange.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", addressRange.VrfName})
+    addressRange.EntityData.Leafs.Append("pool-scope", types.YLeaf{"PoolScope", addressRange.PoolScope})
+    addressRange.EntityData.Leafs.Append("allocated-addresses", types.YLeaf{"AllocatedAddresses", addressRange.AllocatedAddresses})
+    addressRange.EntityData.Leafs.Append("free-addresses", types.YLeaf{"FreeAddresses", addressRange.FreeAddresses})
+    addressRange.EntityData.Leafs.Append("excluded-addresses", types.YLeaf{"ExcludedAddresses", addressRange.ExcludedAddresses})
+    addressRange.EntityData.Leafs.Append("network-blocked-status", types.YLeaf{"NetworkBlockedStatus", addressRange.NetworkBlockedStatus})
+    addressRange.EntityData.Leafs.Append("network-blocked-status-trp", types.YLeaf{"NetworkBlockedStatusTrp", addressRange.NetworkBlockedStatusTrp})
+
+    addressRange.EntityData.YListKeys = []string {"StartAddress"}
+
     return &(addressRange.EntityData)
 }
 
@@ -347,9 +368,12 @@ func (startAddressXr *AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_Add
     startAddressXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     startAddressXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    startAddressXr.EntityData.Children = make(map[string]types.YChild)
-    startAddressXr.EntityData.Children["address"] = types.YChild{"Address", &startAddressXr.Address}
-    startAddressXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    startAddressXr.EntityData.Children = types.NewOrderedMap()
+    startAddressXr.EntityData.Children.Append("address", types.YChild{"Address", &startAddressXr.Address})
+    startAddressXr.EntityData.Leafs = types.NewOrderedMap()
+
+    startAddressXr.EntityData.YListKeys = []string {}
+
     return &(startAddressXr.EntityData)
 }
 
@@ -363,11 +387,11 @@ type AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_AddressRange_StartAd
     AddressFamily interface{}
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -381,11 +405,14 @@ func (address *AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_AddressRan
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", address.AddressFamily}
-    address.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", address.Ipv4Address}
-    address.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", address.Ipv6Address}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", address.AddressFamily})
+    address.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", address.Ipv4Address})
+    address.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", address.Ipv6Address})
+
+    address.EntityData.YListKeys = []string {}
+
     return &(address.EntityData)
 }
 
@@ -409,9 +436,12 @@ func (endAddress *AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_Address
     endAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     endAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    endAddress.EntityData.Children = make(map[string]types.YChild)
-    endAddress.EntityData.Children["address"] = types.YChild{"Address", &endAddress.Address}
-    endAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    endAddress.EntityData.Children = types.NewOrderedMap()
+    endAddress.EntityData.Children.Append("address", types.YChild{"Address", &endAddress.Address})
+    endAddress.EntityData.Leafs = types.NewOrderedMap()
+
+    endAddress.EntityData.YListKeys = []string {}
+
     return &(endAddress.EntityData)
 }
 
@@ -425,11 +455,11 @@ type AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_AddressRange_EndAddr
     AddressFamily interface{}
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -443,11 +473,14 @@ func (address *AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_AddressRan
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", address.AddressFamily}
-    address.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", address.Ipv4Address}
-    address.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", address.Ipv6Address}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", address.AddressFamily})
+    address.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", address.Ipv4Address})
+    address.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", address.Ipv6Address})
+
+    address.EntityData.YListKeys = []string {}
+
     return &(address.EntityData)
 }
 
@@ -471,9 +504,12 @@ func (defaultRouter *AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_Addr
     defaultRouter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultRouter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultRouter.EntityData.Children = make(map[string]types.YChild)
-    defaultRouter.EntityData.Children["address"] = types.YChild{"Address", &defaultRouter.Address}
-    defaultRouter.EntityData.Leafs = make(map[string]types.YLeaf)
+    defaultRouter.EntityData.Children = types.NewOrderedMap()
+    defaultRouter.EntityData.Children.Append("address", types.YChild{"Address", &defaultRouter.Address})
+    defaultRouter.EntityData.Leafs = types.NewOrderedMap()
+
+    defaultRouter.EntityData.YListKeys = []string {}
+
     return &(defaultRouter.EntityData)
 }
 
@@ -487,11 +523,11 @@ type AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_AddressRange_Default
     AddressFamily interface{}
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -505,11 +541,14 @@ func (address *AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_AddressRan
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", address.AddressFamily}
-    address.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", address.Ipv4Address}
-    address.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", address.Ipv6Address}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", address.AddressFamily})
+    address.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", address.Ipv4Address})
+    address.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", address.Ipv6Address})
+
+    address.EntityData.YListKeys = []string {}
+
     return &(address.EntityData)
 }
 
@@ -524,11 +563,11 @@ type AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses struct {
 
     // Address ranges. The type is slice of
     // AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_AddressRange.
-    AddressRange []AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_AddressRange
+    AddressRange []*AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_AddressRange
 
     // In-use addresses. The type is slice of
     // AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_InUseAddress.
-    InUseAddress []AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_InUseAddress
+    InUseAddress []*AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_InUseAddress
 }
 
 func (allocatedAddresses *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses) GetEntityData() *types.CommonEntityData {
@@ -541,17 +580,20 @@ func (allocatedAddresses *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddr
     allocatedAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allocatedAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allocatedAddresses.EntityData.Children = make(map[string]types.YChild)
-    allocatedAddresses.EntityData.Children["pool-allocations"] = types.YChild{"PoolAllocations", &allocatedAddresses.PoolAllocations}
-    allocatedAddresses.EntityData.Children["address-range"] = types.YChild{"AddressRange", nil}
+    allocatedAddresses.EntityData.Children = types.NewOrderedMap()
+    allocatedAddresses.EntityData.Children.Append("pool-allocations", types.YChild{"PoolAllocations", &allocatedAddresses.PoolAllocations})
+    allocatedAddresses.EntityData.Children.Append("address-range", types.YChild{"AddressRange", nil})
     for i := range allocatedAddresses.AddressRange {
-        allocatedAddresses.EntityData.Children[types.GetSegmentPath(&allocatedAddresses.AddressRange[i])] = types.YChild{"AddressRange", &allocatedAddresses.AddressRange[i]}
+        allocatedAddresses.EntityData.Children.Append(types.GetSegmentPath(allocatedAddresses.AddressRange[i]), types.YChild{"AddressRange", allocatedAddresses.AddressRange[i]})
     }
-    allocatedAddresses.EntityData.Children["in-use-address"] = types.YChild{"InUseAddress", nil}
+    allocatedAddresses.EntityData.Children.Append("in-use-address", types.YChild{"InUseAddress", nil})
     for i := range allocatedAddresses.InUseAddress {
-        allocatedAddresses.EntityData.Children[types.GetSegmentPath(&allocatedAddresses.InUseAddress[i])] = types.YChild{"InUseAddress", &allocatedAddresses.InUseAddress[i]}
+        allocatedAddresses.EntityData.Children.Append(types.GetSegmentPath(allocatedAddresses.InUseAddress[i]), types.YChild{"InUseAddress", allocatedAddresses.InUseAddress[i]})
     }
-    allocatedAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    allocatedAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    allocatedAddresses.EntityData.YListKeys = []string {}
+
     return &(allocatedAddresses.EntityData)
 }
 
@@ -597,16 +639,19 @@ func (poolAllocations *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddress
     poolAllocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     poolAllocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    poolAllocations.EntityData.Children = make(map[string]types.YChild)
-    poolAllocations.EntityData.Children["high-threshold"] = types.YChild{"HighThreshold", &poolAllocations.HighThreshold}
-    poolAllocations.EntityData.Children["low-threshold"] = types.YChild{"LowThreshold", &poolAllocations.LowThreshold}
-    poolAllocations.EntityData.Leafs = make(map[string]types.YLeaf)
-    poolAllocations.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", poolAllocations.VrfName}
-    poolAllocations.EntityData.Leafs["used"] = types.YLeaf{"Used", poolAllocations.Used}
-    poolAllocations.EntityData.Leafs["excluded"] = types.YLeaf{"Excluded", poolAllocations.Excluded}
-    poolAllocations.EntityData.Leafs["free"] = types.YLeaf{"Free", poolAllocations.Free}
-    poolAllocations.EntityData.Leafs["total"] = types.YLeaf{"Total", poolAllocations.Total}
-    poolAllocations.EntityData.Leafs["utilization"] = types.YLeaf{"Utilization", poolAllocations.Utilization}
+    poolAllocations.EntityData.Children = types.NewOrderedMap()
+    poolAllocations.EntityData.Children.Append("high-threshold", types.YChild{"HighThreshold", &poolAllocations.HighThreshold})
+    poolAllocations.EntityData.Children.Append("low-threshold", types.YChild{"LowThreshold", &poolAllocations.LowThreshold})
+    poolAllocations.EntityData.Leafs = types.NewOrderedMap()
+    poolAllocations.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", poolAllocations.VrfName})
+    poolAllocations.EntityData.Leafs.Append("used", types.YLeaf{"Used", poolAllocations.Used})
+    poolAllocations.EntityData.Leafs.Append("excluded", types.YLeaf{"Excluded", poolAllocations.Excluded})
+    poolAllocations.EntityData.Leafs.Append("free", types.YLeaf{"Free", poolAllocations.Free})
+    poolAllocations.EntityData.Leafs.Append("total", types.YLeaf{"Total", poolAllocations.Total})
+    poolAllocations.EntityData.Leafs.Append("utilization", types.YLeaf{"Utilization", poolAllocations.Utilization})
+
+    poolAllocations.EntityData.YListKeys = []string {}
+
     return &(poolAllocations.EntityData)
 }
 
@@ -638,11 +683,14 @@ func (highThreshold *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses
     highThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    highThreshold.EntityData.Children = make(map[string]types.YChild)
-    highThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    highThreshold.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", highThreshold.Threshold}
-    highThreshold.EntityData.Leafs["triggers"] = types.YLeaf{"Triggers", highThreshold.Triggers}
-    highThreshold.EntityData.Leafs["time-last-crossed"] = types.YLeaf{"TimeLastCrossed", highThreshold.TimeLastCrossed}
+    highThreshold.EntityData.Children = types.NewOrderedMap()
+    highThreshold.EntityData.Leafs = types.NewOrderedMap()
+    highThreshold.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", highThreshold.Threshold})
+    highThreshold.EntityData.Leafs.Append("triggers", types.YLeaf{"Triggers", highThreshold.Triggers})
+    highThreshold.EntityData.Leafs.Append("time-last-crossed", types.YLeaf{"TimeLastCrossed", highThreshold.TimeLastCrossed})
+
+    highThreshold.EntityData.YListKeys = []string {}
+
     return &(highThreshold.EntityData)
 }
 
@@ -674,11 +722,14 @@ func (lowThreshold *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_
     lowThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lowThreshold.EntityData.Children = make(map[string]types.YChild)
-    lowThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
-    lowThreshold.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", lowThreshold.Threshold}
-    lowThreshold.EntityData.Leafs["triggers"] = types.YLeaf{"Triggers", lowThreshold.Triggers}
-    lowThreshold.EntityData.Leafs["time-last-crossed"] = types.YLeaf{"TimeLastCrossed", lowThreshold.TimeLastCrossed}
+    lowThreshold.EntityData.Children = types.NewOrderedMap()
+    lowThreshold.EntityData.Leafs = types.NewOrderedMap()
+    lowThreshold.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", lowThreshold.Threshold})
+    lowThreshold.EntityData.Leafs.Append("triggers", types.YLeaf{"Triggers", lowThreshold.Triggers})
+    lowThreshold.EntityData.Leafs.Append("time-last-crossed", types.YLeaf{"TimeLastCrossed", lowThreshold.TimeLastCrossed})
+
+    lowThreshold.EntityData.YListKeys = []string {}
+
     return &(lowThreshold.EntityData)
 }
 
@@ -714,13 +765,16 @@ func (addressRange *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_
     addressRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    addressRange.EntityData.Children = make(map[string]types.YChild)
-    addressRange.EntityData.Children["start-address"] = types.YChild{"StartAddress", &addressRange.StartAddress}
-    addressRange.EntityData.Children["end-address"] = types.YChild{"EndAddress", &addressRange.EndAddress}
-    addressRange.EntityData.Leafs = make(map[string]types.YLeaf)
-    addressRange.EntityData.Leafs["used"] = types.YLeaf{"Used", addressRange.Used}
-    addressRange.EntityData.Leafs["excluded"] = types.YLeaf{"Excluded", addressRange.Excluded}
-    addressRange.EntityData.Leafs["free"] = types.YLeaf{"Free", addressRange.Free}
+    addressRange.EntityData.Children = types.NewOrderedMap()
+    addressRange.EntityData.Children.Append("start-address", types.YChild{"StartAddress", &addressRange.StartAddress})
+    addressRange.EntityData.Children.Append("end-address", types.YChild{"EndAddress", &addressRange.EndAddress})
+    addressRange.EntityData.Leafs = types.NewOrderedMap()
+    addressRange.EntityData.Leafs.Append("used", types.YLeaf{"Used", addressRange.Used})
+    addressRange.EntityData.Leafs.Append("excluded", types.YLeaf{"Excluded", addressRange.Excluded})
+    addressRange.EntityData.Leafs.Append("free", types.YLeaf{"Free", addressRange.Free})
+
+    addressRange.EntityData.YListKeys = []string {}
+
     return &(addressRange.EntityData)
 }
 
@@ -744,9 +798,12 @@ func (startAddress *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_
     startAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     startAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    startAddress.EntityData.Children = make(map[string]types.YChild)
-    startAddress.EntityData.Children["address"] = types.YChild{"Address", &startAddress.Address}
-    startAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    startAddress.EntityData.Children = types.NewOrderedMap()
+    startAddress.EntityData.Children.Append("address", types.YChild{"Address", &startAddress.Address})
+    startAddress.EntityData.Leafs = types.NewOrderedMap()
+
+    startAddress.EntityData.YListKeys = []string {}
+
     return &(startAddress.EntityData)
 }
 
@@ -760,11 +817,11 @@ type AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_AddressRange_St
     AddressFamily interface{}
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -778,11 +835,14 @@ func (address *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_Addre
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", address.AddressFamily}
-    address.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", address.Ipv4Address}
-    address.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", address.Ipv6Address}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", address.AddressFamily})
+    address.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", address.Ipv4Address})
+    address.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", address.Ipv6Address})
+
+    address.EntityData.YListKeys = []string {}
+
     return &(address.EntityData)
 }
 
@@ -806,9 +866,12 @@ func (endAddress *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_Ad
     endAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     endAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    endAddress.EntityData.Children = make(map[string]types.YChild)
-    endAddress.EntityData.Children["address"] = types.YChild{"Address", &endAddress.Address}
-    endAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    endAddress.EntityData.Children = types.NewOrderedMap()
+    endAddress.EntityData.Children.Append("address", types.YChild{"Address", &endAddress.Address})
+    endAddress.EntityData.Leafs = types.NewOrderedMap()
+
+    endAddress.EntityData.YListKeys = []string {}
+
     return &(endAddress.EntityData)
 }
 
@@ -822,11 +885,11 @@ type AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_AddressRange_En
     AddressFamily interface{}
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -840,11 +903,14 @@ func (address *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_Addre
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", address.AddressFamily}
-    address.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", address.Ipv4Address}
-    address.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", address.Ipv6Address}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", address.AddressFamily})
+    address.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", address.Ipv4Address})
+    address.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", address.Ipv6Address})
+
+    address.EntityData.YListKeys = []string {}
+
     return &(address.EntityData)
 }
 
@@ -871,10 +937,13 @@ func (inUseAddress *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_
     inUseAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inUseAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inUseAddress.EntityData.Children = make(map[string]types.YChild)
-    inUseAddress.EntityData.Children["address"] = types.YChild{"Address", &inUseAddress.Address}
-    inUseAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    inUseAddress.EntityData.Leafs["client-type"] = types.YLeaf{"ClientType", inUseAddress.ClientType}
+    inUseAddress.EntityData.Children = types.NewOrderedMap()
+    inUseAddress.EntityData.Children.Append("address", types.YChild{"Address", &inUseAddress.Address})
+    inUseAddress.EntityData.Leafs = types.NewOrderedMap()
+    inUseAddress.EntityData.Leafs.Append("client-type", types.YLeaf{"ClientType", inUseAddress.ClientType})
+
+    inUseAddress.EntityData.YListKeys = []string {}
+
     return &(inUseAddress.EntityData)
 }
 
@@ -885,7 +954,7 @@ type AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_InUseAddress_Ad
     YFilter yfilter.YFilter
 
     // Address.
-    Address AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_InUseAddress_Address_Address_
+    Address AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_InUseAddress_Address_Address
 }
 
 func (address *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_InUseAddress_Address) GetEntityData() *types.CommonEntityData {
@@ -898,15 +967,18 @@ func (address *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_InUse
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Children["address"] = types.YChild{"Address", &address.Address}
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Children.Append("address", types.YChild{"Address", &address.Address})
+    address.EntityData.Leafs = types.NewOrderedMap()
+
+    address.EntityData.YListKeys = []string {}
+
     return &(address.EntityData)
 }
 
-// AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_InUseAddress_Address_Address_
+// AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_InUseAddress_Address_Address
 // Address
-type AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_InUseAddress_Address_Address_ struct {
+type AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_InUseAddress_Address_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -914,30 +986,33 @@ type AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_InUseAddress_Ad
     AddressFamily interface{}
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
-func (address_ *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_InUseAddress_Address_Address_) GetEntityData() *types.CommonEntityData {
-    address_.EntityData.YFilter = address_.YFilter
-    address_.EntityData.YangName = "address"
-    address_.EntityData.BundleName = "cisco_ios_xr"
-    address_.EntityData.ParentYangName = "address"
-    address_.EntityData.SegmentPath = "address"
-    address_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    address_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    address_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (address *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_InUseAddress_Address_Address) GetEntityData() *types.CommonEntityData {
+    address.EntityData.YFilter = address.YFilter
+    address.EntityData.YangName = "address"
+    address.EntityData.BundleName = "cisco_ios_xr"
+    address.EntityData.ParentYangName = "address"
+    address.EntityData.SegmentPath = "address"
+    address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    address_.EntityData.Children = make(map[string]types.YChild)
-    address_.EntityData.Leafs = make(map[string]types.YLeaf)
-    address_.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", address_.AddressFamily}
-    address_.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", address_.Ipv4Address}
-    address_.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", address_.Ipv6Address}
-    return &(address_.EntityData)
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", address.AddressFamily})
+    address.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", address.Ipv4Address})
+    address.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", address.Ipv6Address})
+
+    address.EntityData.YListKeys = []string {}
+
+    return &(address.EntityData)
 }
 
 // AddressPoolService_Nodes_Node_Pools_Pool_Configuration
@@ -989,18 +1064,21 @@ func (configuration *AddressPoolService_Nodes_Node_Pools_Pool_Configuration) Get
     configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configuration.EntityData.Children = make(map[string]types.YChild)
-    configuration.EntityData.Leafs = make(map[string]types.YLeaf)
-    configuration.EntityData.Leafs["pool-name"] = types.YLeaf{"PoolName", configuration.PoolName}
-    configuration.EntityData.Leafs["pool-id"] = types.YLeaf{"PoolId", configuration.PoolId}
-    configuration.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", configuration.VrfName}
-    configuration.EntityData.Leafs["pool-scope"] = types.YLeaf{"PoolScope", configuration.PoolScope}
-    configuration.EntityData.Leafs["pool-prefix-length"] = types.YLeaf{"PoolPrefixLength", configuration.PoolPrefixLength}
-    configuration.EntityData.Leafs["high-utilization-mark"] = types.YLeaf{"HighUtilizationMark", configuration.HighUtilizationMark}
-    configuration.EntityData.Leafs["low-utilization-mark"] = types.YLeaf{"LowUtilizationMark", configuration.LowUtilizationMark}
-    configuration.EntityData.Leafs["current-utilization"] = types.YLeaf{"CurrentUtilization", configuration.CurrentUtilization}
-    configuration.EntityData.Leafs["utilization-high-count"] = types.YLeaf{"UtilizationHighCount", configuration.UtilizationHighCount}
-    configuration.EntityData.Leafs["utilization-low-count"] = types.YLeaf{"UtilizationLowCount", configuration.UtilizationLowCount}
+    configuration.EntityData.Children = types.NewOrderedMap()
+    configuration.EntityData.Leafs = types.NewOrderedMap()
+    configuration.EntityData.Leafs.Append("pool-name", types.YLeaf{"PoolName", configuration.PoolName})
+    configuration.EntityData.Leafs.Append("pool-id", types.YLeaf{"PoolId", configuration.PoolId})
+    configuration.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", configuration.VrfName})
+    configuration.EntityData.Leafs.Append("pool-scope", types.YLeaf{"PoolScope", configuration.PoolScope})
+    configuration.EntityData.Leafs.Append("pool-prefix-length", types.YLeaf{"PoolPrefixLength", configuration.PoolPrefixLength})
+    configuration.EntityData.Leafs.Append("high-utilization-mark", types.YLeaf{"HighUtilizationMark", configuration.HighUtilizationMark})
+    configuration.EntityData.Leafs.Append("low-utilization-mark", types.YLeaf{"LowUtilizationMark", configuration.LowUtilizationMark})
+    configuration.EntityData.Leafs.Append("current-utilization", types.YLeaf{"CurrentUtilization", configuration.CurrentUtilization})
+    configuration.EntityData.Leafs.Append("utilization-high-count", types.YLeaf{"UtilizationHighCount", configuration.UtilizationHighCount})
+    configuration.EntityData.Leafs.Append("utilization-low-count", types.YLeaf{"UtilizationLowCount", configuration.UtilizationLowCount})
+
+    configuration.EntityData.YListKeys = []string {}
+
     return &(configuration.EntityData)
 }
 
@@ -1030,11 +1108,14 @@ func (totalUtilization *AddressPoolService_Nodes_Node_TotalUtilization) GetEntit
     totalUtilization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     totalUtilization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    totalUtilization.EntityData.Children = make(map[string]types.YChild)
-    totalUtilization.EntityData.Leafs = make(map[string]types.YLeaf)
-    totalUtilization.EntityData.Leafs["total-utilization-high-mark"] = types.YLeaf{"TotalUtilizationHighMark", totalUtilization.TotalUtilizationHighMark}
-    totalUtilization.EntityData.Leafs["total-utilization-low-mark"] = types.YLeaf{"TotalUtilizationLowMark", totalUtilization.TotalUtilizationLowMark}
-    totalUtilization.EntityData.Leafs["current-total-utilization"] = types.YLeaf{"CurrentTotalUtilization", totalUtilization.CurrentTotalUtilization}
+    totalUtilization.EntityData.Children = types.NewOrderedMap()
+    totalUtilization.EntityData.Leafs = types.NewOrderedMap()
+    totalUtilization.EntityData.Leafs.Append("total-utilization-high-mark", types.YLeaf{"TotalUtilizationHighMark", totalUtilization.TotalUtilizationHighMark})
+    totalUtilization.EntityData.Leafs.Append("total-utilization-low-mark", types.YLeaf{"TotalUtilizationLowMark", totalUtilization.TotalUtilizationLowMark})
+    totalUtilization.EntityData.Leafs.Append("current-total-utilization", types.YLeaf{"CurrentTotalUtilization", totalUtilization.CurrentTotalUtilization})
+
+    totalUtilization.EntityData.YListKeys = []string {}
+
     return &(totalUtilization.EntityData)
 }
 
@@ -1046,7 +1127,7 @@ type AddressPoolService_Nodes_Node_Vrfs struct {
 
     // VRF level Pool information. The type is slice of
     // AddressPoolService_Nodes_Node_Vrfs_Vrf.
-    Vrf []AddressPoolService_Nodes_Node_Vrfs_Vrf
+    Vrf []*AddressPoolService_Nodes_Node_Vrfs_Vrf
 }
 
 func (vrfs *AddressPoolService_Nodes_Node_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -1059,12 +1140,15 @@ func (vrfs *AddressPoolService_Nodes_Node_Vrfs) GetEntityData() *types.CommonEnt
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -1075,7 +1159,7 @@ type AddressPoolService_Nodes_Node_Vrfs_Vrf struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // IPv4 pool VRF data.
@@ -1090,16 +1174,19 @@ func (vrf *AddressPoolService_Nodes_Node_Vrfs_Vrf) GetEntityData() *types.Common
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &vrf.Ipv4}
-    vrf.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &vrf.Ipv6}
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &vrf.Ipv4})
+    vrf.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &vrf.Ipv6})
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -1114,7 +1201,7 @@ type AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv4 struct {
 
     // Pools data. The type is slice of
     // AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv4_Pools.
-    Pools []AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv4_Pools
+    Pools []*AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv4_Pools
 }
 
 func (ipv4 *AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv4) GetEntityData() *types.CommonEntityData {
@@ -1127,13 +1214,16 @@ func (ipv4 *AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv4) GetEntityData() *types.
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["allocation-summary"] = types.YChild{"AllocationSummary", &ipv4.AllocationSummary}
-    ipv4.EntityData.Children["pools"] = types.YChild{"Pools", nil}
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("allocation-summary", types.YChild{"AllocationSummary", &ipv4.AllocationSummary})
+    ipv4.EntityData.Children.Append("pools", types.YChild{"Pools", nil})
     for i := range ipv4.Pools {
-        ipv4.EntityData.Children[types.GetSegmentPath(&ipv4.Pools[i])] = types.YChild{"Pools", &ipv4.Pools[i]}
+        ipv4.EntityData.Children.Append(types.GetSegmentPath(ipv4.Pools[i]), types.YChild{"Pools", ipv4.Pools[i]})
     }
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -1178,15 +1268,18 @@ func (allocationSummary *AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv4_AllocationS
     allocationSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allocationSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allocationSummary.EntityData.Children = make(map[string]types.YChild)
-    allocationSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    allocationSummary.EntityData.Leafs["used"] = types.YLeaf{"Used", allocationSummary.Used}
-    allocationSummary.EntityData.Leafs["excluded"] = types.YLeaf{"Excluded", allocationSummary.Excluded}
-    allocationSummary.EntityData.Leafs["free"] = types.YLeaf{"Free", allocationSummary.Free}
-    allocationSummary.EntityData.Leafs["total"] = types.YLeaf{"Total", allocationSummary.Total}
-    allocationSummary.EntityData.Leafs["high-utilization-threshold"] = types.YLeaf{"HighUtilizationThreshold", allocationSummary.HighUtilizationThreshold}
-    allocationSummary.EntityData.Leafs["low-utilization-threshold"] = types.YLeaf{"LowUtilizationThreshold", allocationSummary.LowUtilizationThreshold}
-    allocationSummary.EntityData.Leafs["utilization"] = types.YLeaf{"Utilization", allocationSummary.Utilization}
+    allocationSummary.EntityData.Children = types.NewOrderedMap()
+    allocationSummary.EntityData.Leafs = types.NewOrderedMap()
+    allocationSummary.EntityData.Leafs.Append("used", types.YLeaf{"Used", allocationSummary.Used})
+    allocationSummary.EntityData.Leafs.Append("excluded", types.YLeaf{"Excluded", allocationSummary.Excluded})
+    allocationSummary.EntityData.Leafs.Append("free", types.YLeaf{"Free", allocationSummary.Free})
+    allocationSummary.EntityData.Leafs.Append("total", types.YLeaf{"Total", allocationSummary.Total})
+    allocationSummary.EntityData.Leafs.Append("high-utilization-threshold", types.YLeaf{"HighUtilizationThreshold", allocationSummary.HighUtilizationThreshold})
+    allocationSummary.EntityData.Leafs.Append("low-utilization-threshold", types.YLeaf{"LowUtilizationThreshold", allocationSummary.LowUtilizationThreshold})
+    allocationSummary.EntityData.Leafs.Append("utilization", types.YLeaf{"Utilization", allocationSummary.Utilization})
+
+    allocationSummary.EntityData.YListKeys = []string {}
+
     return &(allocationSummary.EntityData)
 }
 
@@ -1225,14 +1318,17 @@ func (pools *AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv4_Pools) GetEntityData() 
     pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pools.EntityData.Children = make(map[string]types.YChild)
-    pools.EntityData.Leafs = make(map[string]types.YLeaf)
-    pools.EntityData.Leafs["pool-name"] = types.YLeaf{"PoolName", pools.PoolName}
-    pools.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", pools.VrfName}
-    pools.EntityData.Leafs["used"] = types.YLeaf{"Used", pools.Used}
-    pools.EntityData.Leafs["excluded"] = types.YLeaf{"Excluded", pools.Excluded}
-    pools.EntityData.Leafs["free"] = types.YLeaf{"Free", pools.Free}
-    pools.EntityData.Leafs["total"] = types.YLeaf{"Total", pools.Total}
+    pools.EntityData.Children = types.NewOrderedMap()
+    pools.EntityData.Leafs = types.NewOrderedMap()
+    pools.EntityData.Leafs.Append("pool-name", types.YLeaf{"PoolName", pools.PoolName})
+    pools.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", pools.VrfName})
+    pools.EntityData.Leafs.Append("used", types.YLeaf{"Used", pools.Used})
+    pools.EntityData.Leafs.Append("excluded", types.YLeaf{"Excluded", pools.Excluded})
+    pools.EntityData.Leafs.Append("free", types.YLeaf{"Free", pools.Free})
+    pools.EntityData.Leafs.Append("total", types.YLeaf{"Total", pools.Total})
+
+    pools.EntityData.YListKeys = []string {}
+
     return &(pools.EntityData)
 }
 
@@ -1247,7 +1343,7 @@ type AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv6 struct {
 
     // Pools data. The type is slice of
     // AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv6_Pools.
-    Pools []AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv6_Pools
+    Pools []*AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv6_Pools
 }
 
 func (ipv6 *AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv6) GetEntityData() *types.CommonEntityData {
@@ -1260,13 +1356,16 @@ func (ipv6 *AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv6) GetEntityData() *types.
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["allocation-summary"] = types.YChild{"AllocationSummary", &ipv6.AllocationSummary}
-    ipv6.EntityData.Children["pools"] = types.YChild{"Pools", nil}
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("allocation-summary", types.YChild{"AllocationSummary", &ipv6.AllocationSummary})
+    ipv6.EntityData.Children.Append("pools", types.YChild{"Pools", nil})
     for i := range ipv6.Pools {
-        ipv6.EntityData.Children[types.GetSegmentPath(&ipv6.Pools[i])] = types.YChild{"Pools", &ipv6.Pools[i]}
+        ipv6.EntityData.Children.Append(types.GetSegmentPath(ipv6.Pools[i]), types.YChild{"Pools", ipv6.Pools[i]})
     }
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -1311,15 +1410,18 @@ func (allocationSummary *AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv6_AllocationS
     allocationSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allocationSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allocationSummary.EntityData.Children = make(map[string]types.YChild)
-    allocationSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    allocationSummary.EntityData.Leafs["used"] = types.YLeaf{"Used", allocationSummary.Used}
-    allocationSummary.EntityData.Leafs["excluded"] = types.YLeaf{"Excluded", allocationSummary.Excluded}
-    allocationSummary.EntityData.Leafs["free"] = types.YLeaf{"Free", allocationSummary.Free}
-    allocationSummary.EntityData.Leafs["total"] = types.YLeaf{"Total", allocationSummary.Total}
-    allocationSummary.EntityData.Leafs["high-utilization-threshold"] = types.YLeaf{"HighUtilizationThreshold", allocationSummary.HighUtilizationThreshold}
-    allocationSummary.EntityData.Leafs["low-utilization-threshold"] = types.YLeaf{"LowUtilizationThreshold", allocationSummary.LowUtilizationThreshold}
-    allocationSummary.EntityData.Leafs["utilization"] = types.YLeaf{"Utilization", allocationSummary.Utilization}
+    allocationSummary.EntityData.Children = types.NewOrderedMap()
+    allocationSummary.EntityData.Leafs = types.NewOrderedMap()
+    allocationSummary.EntityData.Leafs.Append("used", types.YLeaf{"Used", allocationSummary.Used})
+    allocationSummary.EntityData.Leafs.Append("excluded", types.YLeaf{"Excluded", allocationSummary.Excluded})
+    allocationSummary.EntityData.Leafs.Append("free", types.YLeaf{"Free", allocationSummary.Free})
+    allocationSummary.EntityData.Leafs.Append("total", types.YLeaf{"Total", allocationSummary.Total})
+    allocationSummary.EntityData.Leafs.Append("high-utilization-threshold", types.YLeaf{"HighUtilizationThreshold", allocationSummary.HighUtilizationThreshold})
+    allocationSummary.EntityData.Leafs.Append("low-utilization-threshold", types.YLeaf{"LowUtilizationThreshold", allocationSummary.LowUtilizationThreshold})
+    allocationSummary.EntityData.Leafs.Append("utilization", types.YLeaf{"Utilization", allocationSummary.Utilization})
+
+    allocationSummary.EntityData.YListKeys = []string {}
+
     return &(allocationSummary.EntityData)
 }
 
@@ -1358,14 +1460,17 @@ func (pools *AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv6_Pools) GetEntityData() 
     pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pools.EntityData.Children = make(map[string]types.YChild)
-    pools.EntityData.Leafs = make(map[string]types.YLeaf)
-    pools.EntityData.Leafs["pool-name"] = types.YLeaf{"PoolName", pools.PoolName}
-    pools.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", pools.VrfName}
-    pools.EntityData.Leafs["used"] = types.YLeaf{"Used", pools.Used}
-    pools.EntityData.Leafs["excluded"] = types.YLeaf{"Excluded", pools.Excluded}
-    pools.EntityData.Leafs["free"] = types.YLeaf{"Free", pools.Free}
-    pools.EntityData.Leafs["total"] = types.YLeaf{"Total", pools.Total}
+    pools.EntityData.Children = types.NewOrderedMap()
+    pools.EntityData.Leafs = types.NewOrderedMap()
+    pools.EntityData.Leafs.Append("pool-name", types.YLeaf{"PoolName", pools.PoolName})
+    pools.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", pools.VrfName})
+    pools.EntityData.Leafs.Append("used", types.YLeaf{"Used", pools.Used})
+    pools.EntityData.Leafs.Append("excluded", types.YLeaf{"Excluded", pools.Excluded})
+    pools.EntityData.Leafs.Append("free", types.YLeaf{"Free", pools.Free})
+    pools.EntityData.Leafs.Append("total", types.YLeaf{"Total", pools.Total})
+
+    pools.EntityData.YListKeys = []string {}
+
     return &(pools.EntityData)
 }
 

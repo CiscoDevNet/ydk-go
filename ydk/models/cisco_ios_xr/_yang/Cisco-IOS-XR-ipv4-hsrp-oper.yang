@@ -9,7 +9,7 @@ module Cisco-IOS-XR-ipv4-hsrp-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ipv4-hsrp-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -35,6 +35,10 @@ module Cisco-IOS-XR-ipv4-hsrp-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -60,7 +64,7 @@ module Cisco-IOS-XR-ipv4-hsrp-oper {
               "The interface name";
           }
           leaf group-number {
-            type int32;
+            type uint32;
             description
               "The HSRP group number";
           }
@@ -80,7 +84,7 @@ module Cisco-IOS-XR-ipv4-hsrp-oper {
               "The interface name of the interface";
           }
           leaf group-number {
-            type int32;
+            type uint32;
             description
               "The HSRP group number";
           }
@@ -140,7 +144,7 @@ module Cisco-IOS-XR-ipv4-hsrp-oper {
               "The interface name of the interface";
           }
           leaf group-number {
-            type int32;
+            type uint32;
             description
               "The HSRP group number";
           }
@@ -166,7 +170,7 @@ module Cisco-IOS-XR-ipv4-hsrp-oper {
               "The interface name";
           }
           leaf group-number {
-            type int32;
+            type uint32;
             description
               "The HSRP group number";
           }

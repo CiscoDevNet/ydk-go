@@ -30,15 +30,15 @@ type CISCOIETFPWTDMMIB struct {
     YFilter yfilter.YFilter
 
     
-    Cpwctdmobjects CISCOIETFPWTDMMIB_Cpwctdmobjects
+    CpwCTDMObjects CISCOIETFPWTDMMIB_CpwCTDMObjects
 
     // This table contains basic information including ifIndex, and pointers to
     // entries in the relevant TDM config tables for this TDM PW.
-    Cpwctdmtable CISCOIETFPWTDMMIB_Cpwctdmtable
+    CpwCTDMTable CISCOIETFPWTDMMIB_CpwCTDMTable
 
     // This table contains a set of parameters that may be referenced by one or
     // more TDM PWs in cpwCTDMTable.
-    Cpwctdmcfgtable CISCOIETFPWTDMMIB_Cpwctdmcfgtable
+    CpwCTDMCfgTable CISCOIETFPWTDMMIB_CpwCTDMCfgTable
 
     // This table provides TDM PW performance information. This includes current
     // 15 minute interval counts.   The table includes counters that work together
@@ -47,19 +47,19 @@ type CISCOIETFPWTDMMIB struct {
     // in the network, (uncorrectable) packet out of sequence, packet length
     // error, jitter buffer overflow, and jitter buffer underflow. The result is
     // declaring whether or not the TDM PW is in Loss of Packet (LOPS) state.
-    Cpwctdmperfcurrenttable CISCOIETFPWTDMMIB_Cpwctdmperfcurrenttable
+    CpwCTDMPerfCurrentTable CISCOIETFPWTDMMIB_CpwCTDMPerfCurrentTable
 
     // This table provides performance information per TDM PW similar to the
     // cpwCTDMPerfCurrentTable above. However, these counts represent historical
     // 15 minute intervals. Typically, this table will have a maximum of 96
     // entries for a 24 hour period, but is not limited to this.
-    Cpwctdmperfintervaltable CISCOIETFPWTDMMIB_Cpwctdmperfintervaltable
+    CpwCTDMPerfIntervalTable CISCOIETFPWTDMMIB_CpwCTDMPerfIntervalTable
 
     // This table provides performance information per TDM PW similar to the
     // cpwCTDMPerfIntervalTable above. However, these counters represent
     // historical 1 day intervals up to one full month. The table consists of real
     // time data, as such it is not persistence across re-boot.
-    Cpwctdmperf1Dayintervaltable CISCOIETFPWTDMMIB_Cpwctdmperf1Dayintervaltable
+    CpwCTDMPerf1DayIntervalTable CISCOIETFPWTDMMIB_CpwCTDMPerf1DayIntervalTable
 }
 
 func (cISCOIETFPWTDMMIB *CISCOIETFPWTDMMIB) GetEntityData() *types.CommonEntityData {
@@ -72,19 +72,22 @@ func (cISCOIETFPWTDMMIB *CISCOIETFPWTDMMIB) GetEntityData() *types.CommonEntityD
     cISCOIETFPWTDMMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIETFPWTDMMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOIETFPWTDMMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOIETFPWTDMMIB.EntityData.Children["cpwCTDMObjects"] = types.YChild{"Cpwctdmobjects", &cISCOIETFPWTDMMIB.Cpwctdmobjects}
-    cISCOIETFPWTDMMIB.EntityData.Children["cpwCTDMTable"] = types.YChild{"Cpwctdmtable", &cISCOIETFPWTDMMIB.Cpwctdmtable}
-    cISCOIETFPWTDMMIB.EntityData.Children["cpwCTDMCfgTable"] = types.YChild{"Cpwctdmcfgtable", &cISCOIETFPWTDMMIB.Cpwctdmcfgtable}
-    cISCOIETFPWTDMMIB.EntityData.Children["cpwCTDMPerfCurrentTable"] = types.YChild{"Cpwctdmperfcurrenttable", &cISCOIETFPWTDMMIB.Cpwctdmperfcurrenttable}
-    cISCOIETFPWTDMMIB.EntityData.Children["cpwCTDMPerfIntervalTable"] = types.YChild{"Cpwctdmperfintervaltable", &cISCOIETFPWTDMMIB.Cpwctdmperfintervaltable}
-    cISCOIETFPWTDMMIB.EntityData.Children["cpwCTDMPerf1DayIntervalTable"] = types.YChild{"Cpwctdmperf1Dayintervaltable", &cISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable}
-    cISCOIETFPWTDMMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOIETFPWTDMMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOIETFPWTDMMIB.EntityData.Children.Append("cpwCTDMObjects", types.YChild{"CpwCTDMObjects", &cISCOIETFPWTDMMIB.CpwCTDMObjects})
+    cISCOIETFPWTDMMIB.EntityData.Children.Append("cpwCTDMTable", types.YChild{"CpwCTDMTable", &cISCOIETFPWTDMMIB.CpwCTDMTable})
+    cISCOIETFPWTDMMIB.EntityData.Children.Append("cpwCTDMCfgTable", types.YChild{"CpwCTDMCfgTable", &cISCOIETFPWTDMMIB.CpwCTDMCfgTable})
+    cISCOIETFPWTDMMIB.EntityData.Children.Append("cpwCTDMPerfCurrentTable", types.YChild{"CpwCTDMPerfCurrentTable", &cISCOIETFPWTDMMIB.CpwCTDMPerfCurrentTable})
+    cISCOIETFPWTDMMIB.EntityData.Children.Append("cpwCTDMPerfIntervalTable", types.YChild{"CpwCTDMPerfIntervalTable", &cISCOIETFPWTDMMIB.CpwCTDMPerfIntervalTable})
+    cISCOIETFPWTDMMIB.EntityData.Children.Append("cpwCTDMPerf1DayIntervalTable", types.YChild{"CpwCTDMPerf1DayIntervalTable", &cISCOIETFPWTDMMIB.CpwCTDMPerf1DayIntervalTable})
+    cISCOIETFPWTDMMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOIETFPWTDMMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOIETFPWTDMMIB.EntityData)
 }
 
-// CISCOIETFPWTDMMIB_Cpwctdmobjects
-type CISCOIETFPWTDMMIB_Cpwctdmobjects struct {
+// CISCOIETFPWTDMMIB_CpwCTDMObjects
+type CISCOIETFPWTDMMIB_CpwCTDMObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -95,30 +98,33 @@ type CISCOIETFPWTDMMIB_Cpwctdmobjects struct {
     // retrieval operation. The agent will determine through its local policy when
     // this index value will be made available for reuse. The type is interface{}
     // with range: 0..4294967295.
-    Cpwctdmcfgindexnext interface{}
+    CpwCTDMCfgIndexNext interface{}
 }
 
-func (cpwctdmobjects *CISCOIETFPWTDMMIB_Cpwctdmobjects) GetEntityData() *types.CommonEntityData {
-    cpwctdmobjects.EntityData.YFilter = cpwctdmobjects.YFilter
-    cpwctdmobjects.EntityData.YangName = "cpwCTDMObjects"
-    cpwctdmobjects.EntityData.BundleName = "cisco_ios_xe"
-    cpwctdmobjects.EntityData.ParentYangName = "CISCO-IETF-PW-TDM-MIB"
-    cpwctdmobjects.EntityData.SegmentPath = "cpwCTDMObjects"
-    cpwctdmobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwctdmobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwctdmobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwCTDMObjects *CISCOIETFPWTDMMIB_CpwCTDMObjects) GetEntityData() *types.CommonEntityData {
+    cpwCTDMObjects.EntityData.YFilter = cpwCTDMObjects.YFilter
+    cpwCTDMObjects.EntityData.YangName = "cpwCTDMObjects"
+    cpwCTDMObjects.EntityData.BundleName = "cisco_ios_xe"
+    cpwCTDMObjects.EntityData.ParentYangName = "CISCO-IETF-PW-TDM-MIB"
+    cpwCTDMObjects.EntityData.SegmentPath = "cpwCTDMObjects"
+    cpwCTDMObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwCTDMObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwCTDMObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwctdmobjects.EntityData.Children = make(map[string]types.YChild)
-    cpwctdmobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwctdmobjects.EntityData.Leafs["cpwCTDMCfgIndexNext"] = types.YLeaf{"Cpwctdmcfgindexnext", cpwctdmobjects.Cpwctdmcfgindexnext}
-    return &(cpwctdmobjects.EntityData)
+    cpwCTDMObjects.EntityData.Children = types.NewOrderedMap()
+    cpwCTDMObjects.EntityData.Leafs = types.NewOrderedMap()
+    cpwCTDMObjects.EntityData.Leafs.Append("cpwCTDMCfgIndexNext", types.YLeaf{"CpwCTDMCfgIndexNext", cpwCTDMObjects.CpwCTDMCfgIndexNext})
+
+    cpwCTDMObjects.EntityData.YListKeys = []string {}
+
+    return &(cpwCTDMObjects.EntityData)
 }
 
-// CISCOIETFPWTDMMIB_Cpwctdmtable
+// CISCOIETFPWTDMMIB_CpwCTDMTable
 // This table contains basic information including ifIndex,
 // and pointers to entries in the relevant TDM config
 // tables for this TDM PW.
-type CISCOIETFPWTDMMIB_Cpwctdmtable struct {
+type CISCOIETFPWTDMMIB_CpwCTDMTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -128,30 +134,33 @@ type CISCOIETFPWTDMMIB_Cpwctdmtable struct {
     // cpwVcTable with a cpwVcType equal to one of the following: e1Satop(12),
     // t1Satop(13), e3Satop(14), t3Satop(15), basicCesPsn(16), basicTdmIp(17), 
     // tdmCasCesPsn(18), tdmCasTdmIp(19). The type is slice of
-    // CISCOIETFPWTDMMIB_Cpwctdmtable_Cpwctdmentry.
-    Cpwctdmentry []CISCOIETFPWTDMMIB_Cpwctdmtable_Cpwctdmentry
+    // CISCOIETFPWTDMMIB_CpwCTDMTable_CpwCTDMEntry.
+    CpwCTDMEntry []*CISCOIETFPWTDMMIB_CpwCTDMTable_CpwCTDMEntry
 }
 
-func (cpwctdmtable *CISCOIETFPWTDMMIB_Cpwctdmtable) GetEntityData() *types.CommonEntityData {
-    cpwctdmtable.EntityData.YFilter = cpwctdmtable.YFilter
-    cpwctdmtable.EntityData.YangName = "cpwCTDMTable"
-    cpwctdmtable.EntityData.BundleName = "cisco_ios_xe"
-    cpwctdmtable.EntityData.ParentYangName = "CISCO-IETF-PW-TDM-MIB"
-    cpwctdmtable.EntityData.SegmentPath = "cpwCTDMTable"
-    cpwctdmtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwctdmtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwctdmtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwCTDMTable *CISCOIETFPWTDMMIB_CpwCTDMTable) GetEntityData() *types.CommonEntityData {
+    cpwCTDMTable.EntityData.YFilter = cpwCTDMTable.YFilter
+    cpwCTDMTable.EntityData.YangName = "cpwCTDMTable"
+    cpwCTDMTable.EntityData.BundleName = "cisco_ios_xe"
+    cpwCTDMTable.EntityData.ParentYangName = "CISCO-IETF-PW-TDM-MIB"
+    cpwCTDMTable.EntityData.SegmentPath = "cpwCTDMTable"
+    cpwCTDMTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwCTDMTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwCTDMTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwctdmtable.EntityData.Children = make(map[string]types.YChild)
-    cpwctdmtable.EntityData.Children["cpwCTDMEntry"] = types.YChild{"Cpwctdmentry", nil}
-    for i := range cpwctdmtable.Cpwctdmentry {
-        cpwctdmtable.EntityData.Children[types.GetSegmentPath(&cpwctdmtable.Cpwctdmentry[i])] = types.YChild{"Cpwctdmentry", &cpwctdmtable.Cpwctdmentry[i]}
+    cpwCTDMTable.EntityData.Children = types.NewOrderedMap()
+    cpwCTDMTable.EntityData.Children.Append("cpwCTDMEntry", types.YChild{"CpwCTDMEntry", nil})
+    for i := range cpwCTDMTable.CpwCTDMEntry {
+        cpwCTDMTable.EntityData.Children.Append(types.GetSegmentPath(cpwCTDMTable.CpwCTDMEntry[i]), types.YChild{"CpwCTDMEntry", cpwCTDMTable.CpwCTDMEntry[i]})
     }
-    cpwctdmtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpwctdmtable.EntityData)
+    cpwCTDMTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpwCTDMTable.EntityData.YListKeys = []string {}
+
+    return &(cpwCTDMTable.EntityData)
 }
 
-// CISCOIETFPWTDMMIB_Cpwctdmtable_Cpwctdmentry
+// CISCOIETFPWTDMMIB_CpwCTDMTable_CpwCTDMEntry
 // This table is indexed by the same index that was
 // created for the associated entry in the VC Table
 // (in the CISCO-IETF-PW-MIB).
@@ -164,13 +173,13 @@ func (cpwctdmtable *CISCOIETFPWTDMMIB_Cpwctdmtable) GetEntityData() *types.Commo
 // e1Satop(12), t1Satop(13), e3Satop(14), t3Satop(15),
 // basicCesPsn(16), basicTdmIp(17),  tdmCasCesPsn(18),
 // tdmCasTdmIp(19).
-type CISCOIETFPWTDMMIB_Cpwctdmtable_Cpwctdmentry struct {
+type CISCOIETFPWTDMMIB_CpwCTDMTable_CpwCTDMEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
-    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcindex
-    Cpwvcindex interface{}
+    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
+    CpwVcIndex interface{}
 
     // The parameter represents the bit-rate of the TDM service in multiples of
     // the 'basic' 64 Kbit/s rate. It complements the definition of cpwVcType used
@@ -181,7 +190,7 @@ type CISCOIETFPWTDMMIB_Cpwctdmtable_Cpwctdmentry struct {
     // structure-aware emulation, this parameter MUST be set to N where N is the
     // number of DS0 channels in the corresponding attachment circuit. The type is
     // interface{} with range: -2147483648..2147483647.
-    Cpwctdmrate interface{}
+    CpwCTDMRate interface{}
 
     // This is a unique index within the ifTable. It represents the interface
     // index of the full link or the interface index for the bundle holding the
@@ -191,20 +200,20 @@ type CISCOIETFPWTDMMIB_Cpwctdmtable_Cpwctdmentry struct {
     // delete the associated PW rows (e.g., this cpwCTDMTable entry). If the agent
     // does not delete the rows,  the agent MUST set this object to zero. The type
     // is interface{} with range: 0..2147483647.
-    Cpwctdmifindex interface{}
+    CpwCTDMIfIndex interface{}
 
     // Index to the generic parameters in the TDM configuration table that appears
     // in this MIB module. It is likely that multiple TDM PWs of the same
     // characteristic will share a single TDM Cfg entry. The type is interface{}
     // with range: 0..4294967295.
-    Cpwcgentdmcfgindex interface{}
+    CpwCGenTDMCfgIndex interface{}
 
     // Index to the relevant TDM configuration table entry that appears in one of
     // the related MIB modules such as TDMoIP or CESoPSN. It is likely that
     // multiple TDM PWs of the same characteristic will share a single
     // configuration entry of the relevant type. The value 0 implies no entry in
     // other related MIB. The type is interface{} with range: 0..4294967295.
-    Cpwcreltdmcfgindex interface{}
+    CpwCRelTDMCfgIndex interface{}
 
     // Any of the bits are set if the local configuration is not compatible with
     // the peer configuration as available from the various parameters options. 
@@ -215,14 +224,14 @@ type CISCOIETFPWTDMMIB_Cpwctdmtable_Cpwctdmentry struct {
     // -peerPayloadSizeIncompatible bit is set if the local configuration is not
     // carrying the same Payload Size as the peer configuration. The type is
     // map[string]bool.
-    Cpwctdmconfigerror interface{}
+    CpwCTDMConfigError interface{}
 
     // The number of seconds, including partial seconds, that have elapsed since
     // the beginning of the current measurement period. If, for some reason, such
     // as an adjustment in the system's time-of-day clock, the current interval
     // exceeds the maximum value, the agent will return the maximum value. The
     // type is interface{} with range: 1..900. Units are seconds.
-    Cpwctdmtimeelapsed interface{}
+    CpwCTDMTimeElapsed interface{}
 
     // The number of previous 15-minute intervals for which data was collected. An
     // agent with TDM capability must be capable of supporting at least n
@@ -234,13 +243,13 @@ type CISCOIETFPWTDMMIB_Cpwctdmtable_Cpwctdmentry struct {
     // proxy) it is possible that some intervals are unavailable. In this case,
     // this interval is the maximum interval number for which data is available.
     // The type is interface{} with range: 0..96. Units are minutes.
-    Cpwctdmvalidintervals interface{}
+    CpwCTDMValidIntervals interface{}
 
     // The number of previous days for which data was collected. An agent with TDM
     // capability must be capable of supporting at least n intervals. The minimum
     // value of n is 1, The default of n is 1 and the maximum value of n is 30.
     // The type is interface{} with range: 0..30. Units are days.
-    Cpwctdmvaliddayintervals interface{}
+    CpwCTDMValidDayIntervals interface{}
 
     // The following defects should be detected and reported upon request:  -Stray
     // packets MAY be detected by the PSN and multiplexing layers. Stray packets
@@ -262,7 +271,7 @@ type CISCOIETFPWTDMMIB_Cpwctdmtable_Cpwctdmentry struct {
     // the L bit is set the payload MAY be omitted in order to conserve bandwidth.
     // Note: the algorithm used to capture these indications is implementation
     // specific. The type is map[string]bool.
-    Cpwctdmcurrentindications interface{}
+    CpwCTDMCurrentIndications interface{}
 
     // The state of TDM indicators when the TDM PW last declared an error second
     // (either as ES, SES or a second with errors inside a UAS) condition. At this
@@ -271,87 +280,93 @@ type CISCOIETFPWTDMMIB_Cpwctdmtable_Cpwctdmentry struct {
     // cpwCTDMCurrentIndications above.  Note: the algorithm used to latch these
     // indications when entering a defect state is implementation specific. The
     // type is map[string]bool.
-    Cpwctdmlatchedindications interface{}
+    CpwCTDMLatchedIndications interface{}
 
     // The value of sysUpTime at the most recent occasion at which the TDM PW
     // entered the ES or SES state. The type is interface{} with range:
     // 0..4294967295.
-    Cpwctdmlastestimestamp interface{}
+    CpwCTDMLastEsTimeStamp interface{}
 }
 
-func (cpwctdmentry *CISCOIETFPWTDMMIB_Cpwctdmtable_Cpwctdmentry) GetEntityData() *types.CommonEntityData {
-    cpwctdmentry.EntityData.YFilter = cpwctdmentry.YFilter
-    cpwctdmentry.EntityData.YangName = "cpwCTDMEntry"
-    cpwctdmentry.EntityData.BundleName = "cisco_ios_xe"
-    cpwctdmentry.EntityData.ParentYangName = "cpwCTDMTable"
-    cpwctdmentry.EntityData.SegmentPath = "cpwCTDMEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwctdmentry.Cpwvcindex) + "']"
-    cpwctdmentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwctdmentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwctdmentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwCTDMEntry *CISCOIETFPWTDMMIB_CpwCTDMTable_CpwCTDMEntry) GetEntityData() *types.CommonEntityData {
+    cpwCTDMEntry.EntityData.YFilter = cpwCTDMEntry.YFilter
+    cpwCTDMEntry.EntityData.YangName = "cpwCTDMEntry"
+    cpwCTDMEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpwCTDMEntry.EntityData.ParentYangName = "cpwCTDMTable"
+    cpwCTDMEntry.EntityData.SegmentPath = "cpwCTDMEntry" + types.AddKeyToken(cpwCTDMEntry.CpwVcIndex, "cpwVcIndex")
+    cpwCTDMEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwCTDMEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwCTDMEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwctdmentry.EntityData.Children = make(map[string]types.YChild)
-    cpwctdmentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwctdmentry.EntityData.Leafs["cpwVcIndex"] = types.YLeaf{"Cpwvcindex", cpwctdmentry.Cpwvcindex}
-    cpwctdmentry.EntityData.Leafs["cpwCTDMRate"] = types.YLeaf{"Cpwctdmrate", cpwctdmentry.Cpwctdmrate}
-    cpwctdmentry.EntityData.Leafs["cpwCTDMIfIndex"] = types.YLeaf{"Cpwctdmifindex", cpwctdmentry.Cpwctdmifindex}
-    cpwctdmentry.EntityData.Leafs["cpwCGenTDMCfgIndex"] = types.YLeaf{"Cpwcgentdmcfgindex", cpwctdmentry.Cpwcgentdmcfgindex}
-    cpwctdmentry.EntityData.Leafs["cpwCRelTDMCfgIndex"] = types.YLeaf{"Cpwcreltdmcfgindex", cpwctdmentry.Cpwcreltdmcfgindex}
-    cpwctdmentry.EntityData.Leafs["cpwCTDMConfigError"] = types.YLeaf{"Cpwctdmconfigerror", cpwctdmentry.Cpwctdmconfigerror}
-    cpwctdmentry.EntityData.Leafs["cpwCTDMTimeElapsed"] = types.YLeaf{"Cpwctdmtimeelapsed", cpwctdmentry.Cpwctdmtimeelapsed}
-    cpwctdmentry.EntityData.Leafs["cpwCTDMValidIntervals"] = types.YLeaf{"Cpwctdmvalidintervals", cpwctdmentry.Cpwctdmvalidintervals}
-    cpwctdmentry.EntityData.Leafs["cpwCTDMValidDayIntervals"] = types.YLeaf{"Cpwctdmvaliddayintervals", cpwctdmentry.Cpwctdmvaliddayintervals}
-    cpwctdmentry.EntityData.Leafs["cpwCTDMCurrentIndications"] = types.YLeaf{"Cpwctdmcurrentindications", cpwctdmentry.Cpwctdmcurrentindications}
-    cpwctdmentry.EntityData.Leafs["cpwCTDMLatchedIndications"] = types.YLeaf{"Cpwctdmlatchedindications", cpwctdmentry.Cpwctdmlatchedindications}
-    cpwctdmentry.EntityData.Leafs["cpwCTDMLastEsTimeStamp"] = types.YLeaf{"Cpwctdmlastestimestamp", cpwctdmentry.Cpwctdmlastestimestamp}
-    return &(cpwctdmentry.EntityData)
+    cpwCTDMEntry.EntityData.Children = types.NewOrderedMap()
+    cpwCTDMEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpwCTDMEntry.EntityData.Leafs.Append("cpwVcIndex", types.YLeaf{"CpwVcIndex", cpwCTDMEntry.CpwVcIndex})
+    cpwCTDMEntry.EntityData.Leafs.Append("cpwCTDMRate", types.YLeaf{"CpwCTDMRate", cpwCTDMEntry.CpwCTDMRate})
+    cpwCTDMEntry.EntityData.Leafs.Append("cpwCTDMIfIndex", types.YLeaf{"CpwCTDMIfIndex", cpwCTDMEntry.CpwCTDMIfIndex})
+    cpwCTDMEntry.EntityData.Leafs.Append("cpwCGenTDMCfgIndex", types.YLeaf{"CpwCGenTDMCfgIndex", cpwCTDMEntry.CpwCGenTDMCfgIndex})
+    cpwCTDMEntry.EntityData.Leafs.Append("cpwCRelTDMCfgIndex", types.YLeaf{"CpwCRelTDMCfgIndex", cpwCTDMEntry.CpwCRelTDMCfgIndex})
+    cpwCTDMEntry.EntityData.Leafs.Append("cpwCTDMConfigError", types.YLeaf{"CpwCTDMConfigError", cpwCTDMEntry.CpwCTDMConfigError})
+    cpwCTDMEntry.EntityData.Leafs.Append("cpwCTDMTimeElapsed", types.YLeaf{"CpwCTDMTimeElapsed", cpwCTDMEntry.CpwCTDMTimeElapsed})
+    cpwCTDMEntry.EntityData.Leafs.Append("cpwCTDMValidIntervals", types.YLeaf{"CpwCTDMValidIntervals", cpwCTDMEntry.CpwCTDMValidIntervals})
+    cpwCTDMEntry.EntityData.Leafs.Append("cpwCTDMValidDayIntervals", types.YLeaf{"CpwCTDMValidDayIntervals", cpwCTDMEntry.CpwCTDMValidDayIntervals})
+    cpwCTDMEntry.EntityData.Leafs.Append("cpwCTDMCurrentIndications", types.YLeaf{"CpwCTDMCurrentIndications", cpwCTDMEntry.CpwCTDMCurrentIndications})
+    cpwCTDMEntry.EntityData.Leafs.Append("cpwCTDMLatchedIndications", types.YLeaf{"CpwCTDMLatchedIndications", cpwCTDMEntry.CpwCTDMLatchedIndications})
+    cpwCTDMEntry.EntityData.Leafs.Append("cpwCTDMLastEsTimeStamp", types.YLeaf{"CpwCTDMLastEsTimeStamp", cpwCTDMEntry.CpwCTDMLastEsTimeStamp})
+
+    cpwCTDMEntry.EntityData.YListKeys = []string {"CpwVcIndex"}
+
+    return &(cpwCTDMEntry.EntityData)
 }
 
-// CISCOIETFPWTDMMIB_Cpwctdmcfgtable
+// CISCOIETFPWTDMMIB_CpwCTDMCfgTable
 // This table contains a set of parameters that may be
 // referenced by one or more TDM PWs in cpwCTDMTable.
-type CISCOIETFPWTDMMIB_Cpwctdmcfgtable struct {
+type CISCOIETFPWTDMMIB_CpwCTDMCfgTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // These parameters define the characteristics of a TDM PW. They are grouped
     // here to ease NMS burden. Once an entry is created here it may be re-used by
     // many PWs. The type is slice of
-    // CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry.
-    Cpwctdmcfgentry []CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry
+    // CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry.
+    CpwCTDMCfgEntry []*CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry
 }
 
-func (cpwctdmcfgtable *CISCOIETFPWTDMMIB_Cpwctdmcfgtable) GetEntityData() *types.CommonEntityData {
-    cpwctdmcfgtable.EntityData.YFilter = cpwctdmcfgtable.YFilter
-    cpwctdmcfgtable.EntityData.YangName = "cpwCTDMCfgTable"
-    cpwctdmcfgtable.EntityData.BundleName = "cisco_ios_xe"
-    cpwctdmcfgtable.EntityData.ParentYangName = "CISCO-IETF-PW-TDM-MIB"
-    cpwctdmcfgtable.EntityData.SegmentPath = "cpwCTDMCfgTable"
-    cpwctdmcfgtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwctdmcfgtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwctdmcfgtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwCTDMCfgTable *CISCOIETFPWTDMMIB_CpwCTDMCfgTable) GetEntityData() *types.CommonEntityData {
+    cpwCTDMCfgTable.EntityData.YFilter = cpwCTDMCfgTable.YFilter
+    cpwCTDMCfgTable.EntityData.YangName = "cpwCTDMCfgTable"
+    cpwCTDMCfgTable.EntityData.BundleName = "cisco_ios_xe"
+    cpwCTDMCfgTable.EntityData.ParentYangName = "CISCO-IETF-PW-TDM-MIB"
+    cpwCTDMCfgTable.EntityData.SegmentPath = "cpwCTDMCfgTable"
+    cpwCTDMCfgTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwCTDMCfgTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwCTDMCfgTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwctdmcfgtable.EntityData.Children = make(map[string]types.YChild)
-    cpwctdmcfgtable.EntityData.Children["cpwCTDMCfgEntry"] = types.YChild{"Cpwctdmcfgentry", nil}
-    for i := range cpwctdmcfgtable.Cpwctdmcfgentry {
-        cpwctdmcfgtable.EntityData.Children[types.GetSegmentPath(&cpwctdmcfgtable.Cpwctdmcfgentry[i])] = types.YChild{"Cpwctdmcfgentry", &cpwctdmcfgtable.Cpwctdmcfgentry[i]}
+    cpwCTDMCfgTable.EntityData.Children = types.NewOrderedMap()
+    cpwCTDMCfgTable.EntityData.Children.Append("cpwCTDMCfgEntry", types.YChild{"CpwCTDMCfgEntry", nil})
+    for i := range cpwCTDMCfgTable.CpwCTDMCfgEntry {
+        cpwCTDMCfgTable.EntityData.Children.Append(types.GetSegmentPath(cpwCTDMCfgTable.CpwCTDMCfgEntry[i]), types.YChild{"CpwCTDMCfgEntry", cpwCTDMCfgTable.CpwCTDMCfgEntry[i]})
     }
-    cpwctdmcfgtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpwctdmcfgtable.EntityData)
+    cpwCTDMCfgTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpwCTDMCfgTable.EntityData.YListKeys = []string {}
+
+    return &(cpwCTDMCfgTable.EntityData)
 }
 
-// CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry
+// CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry
 // These parameters define the characteristics of a
 // TDM PW. They are grouped here to ease NMS burden.
 // Once an entry is created here it may be re-used
 // by many PWs.
-type CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry struct {
+type CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Index to an entry in this table. The value is a
     // copy of the assigned cpwCTDMCfgIndexNext. The type is interface{} with
     // range: 0..4294967295.
-    Cpwctdmcfgindex interface{}
+    CpwCTDMCfgIndex interface{}
 
     // This object indicates the various configuration errors, illegal settings
     // within the cpwCTDMCfg table. The errors can be due to several reasons, like
@@ -361,7 +376,7 @@ type CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry struct {
     // set if there is Jitter Buffer               depth value mistmatch. other   
     // - This bit is set if the error is not due to               payloadSize and
     // jtrBfrDepth mismatch. The type is map[string]bool.
-    Cpwctdmcfgconferr interface{}
+    CpwCTDMCfgConfErr interface{}
 
     // The value of this object indicates the PayLoad Size (in bytes) to be
     // defined during the PW setUp. Upon TX, implementation must be capable of
@@ -370,17 +385,17 @@ type CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry struct {
     // inconsistent with this length, the packet MUST be considered to be
     // malformed. The type is interface{} with range: 0..4294967295. Units are
     // bytes.
-    Cpwctdmcfgpayloadsize interface{}
+    CpwCTDMCfgPayloadSize interface{}
 
     // If set to true, CE bound packets are queued in the jitter buffer, out of
     // order packets are re-ordered. The maximum sequence number differential
     // (i.e., the range in which re-sequencing can occur) is dependant on the
     // depth of the jitter buffer. See cpwCTDMCfgJtrBfrDepth. The type is bool.
-    Cpwctdmcfgpktreorder interface{}
+    CpwCTDMCfgPktReorder interface{}
 
     // If the value of this object is set to false, then a RTP header is not
     // pre-pended to the TDM packet. The type is bool.
-    Cpwctdmcfgrtphdrused interface{}
+    CpwCTDMCfgRtpHdrUsed interface{}
 
     // The size of this buffer SHOULD be locally configured to allow accommodation
     // to the PSN-specific packet delay variation.  If configured to a value not
@@ -389,23 +404,23 @@ type CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry struct {
     // resource to be managed. The actual size should be at least twice as big as
     // the value of cpwCTDMCfgJtrBfrDepth. The type is interface{} with range:
     // 0..4294967295. Units are microsecond.
-    Cpwctdmcfgjtrbfrdepth interface{}
+    CpwCTDMCfgJtrBfrDepth interface{}
 
     // This object indicates whether the Payload suppression is eanbled or
     // disabled. Payload MAY be omitted in order to conserve bandwidth.  enable  -
     // Payload suppression is allowed. disable - No Payload suppresion under any
-    // condition. The type is Cpwctdmcfgpayloadsuppression.
-    Cpwctdmcfgpayloadsuppression interface{}
+    // condition. The type is CpwCTDMCfgPayloadSuppression.
+    CpwCTDMCfgPayloadSuppression interface{}
 
     // The number of consecutive packets with sequential sequence numbers that are
     // required to exit the Loss of Packets (LOPS) state. The type is interface{}
     // with range: 0..4294967295. Units are packets.
-    Cpwctdmcfgconsecpktsinsynch interface{}
+    CpwCTDMCfgConsecPktsInSynch interface{}
 
     // The number of consecutive missing packets that are required to enter the
     // LOPS state. The type is interface{} with range: 0..4294967295. Units are
     // packets.
-    Cpwctdmcfgconsecmisspktsoutsynch interface{}
+    CpwCTDMCfgConsecMissPktsOutSynch interface{}
 
     // The amount of time the host should wait before declaring the pseudo wire in
     // down state,  if the number of consecutive TDM packets that have been
@@ -419,7 +434,7 @@ type CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry struct {
     // the PW. If the PW fails due to network impairments a 'down' notification
     // should be sent. The type is interface{} with range: 0..4294967295. Units
     // are millisecond.
-    Cpwctdmcfgsetup2Synchtimeout interface{}
+    CpwCTDMCfgSetUp2SynchTimeOut interface{}
 
     // This parameter determines the value to be played when CE bound packets have
     // over/underflow the jitter buffer, or are missing for any reason. This AIS
@@ -427,34 +442,34 @@ type CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry struct {
     // - AIS (Alarm Indication Signal)                          pattern is sent
     // (played) on                          the TDM line.  implementationSpecific
     // - Implementation specific pattern is                          sent on the
-    // TDM line. The type is Cpwctdmcfgpktreplacepolicy.
-    Cpwctdmcfgpktreplacepolicy interface{}
+    // TDM line. The type is CpwCTDMCfgPktReplacePolicy.
+    CpwCTDMCfgPktReplacePolicy interface{}
 
     // The length of time over which the average packet loss rate should be
     // computed to detect Excessive packet loss rate. The type is interface{} with
     // range: -2147483648..2147483647. Units are millisecond.
-    Cpwctdmcfgavepktlosstimewindow interface{}
+    CpwCTDMCfgAvePktLossTimeWindow interface{}
 
     // Excessive packet loss rate is detected by computing the average packetloss
     // rate over a  cpwCTDMCfgAvePktLossTimeWindow amount of time and comparing it
     // with this threshold value. The type is interface{} with range:
     // 0..4294967295.
-    Cpwctdmcfgexcessivepktlossthreshold interface{}
+    CpwCTDMCfgExcessivePktLossThreshold interface{}
 
     // Alarms are only reported when the defect state persists for the length of
     // time specified by this object. The object's unit is millisec. The type is
     // interface{} with range: 0..4294967295. Units are milliseconds.
-    Cpwctdmcfgalarmthreshold interface{}
+    CpwCTDMCfgAlarmThreshold interface{}
 
     // Alarm MUST be cleared after the corresponding defect is undetected for the
     // amount of time specified by this object. The object's unit is millisec. The
     // type is interface{} with range: 0..4294967295. Units are milliseconds.
-    Cpwctdmcfgclearalarmthreshold interface{}
+    CpwCTDMCfgClearAlarmThreshold interface{}
 
     // Number of missing packets detected (consecutive or not) within a 1 second
     // window to cause a Severely Error Second (SES) to be counted. The type is
     // interface{} with range: 0..4294967295. Units are seconds.
-    Cpwctdmcfgmissingpktstoses interface{}
+    CpwCTDMCfgMissingPktsToSes interface{}
 
     // Timestamp generation MAY be used in one of the following modes: 1. Absolute
     // mode: the PSN-bound IWF sets timestamps  using the clock recovered from the
@@ -463,15 +478,15 @@ type CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry struct {
     // that support usage of the RTP header MUST  support this mode. 2.
     // Differential mode: Both IWFs have access to a common  high-quality timing
     // source, and this source is used for  timestamp generation. Support of this
-    // mode is OPTIONAL. The type is Cpwctdmcfgtimestampmode.
-    Cpwctdmcfgtimestampmode interface{}
+    // mode is OPTIONAL. The type is CpwCTDMCfgTimestampMode.
+    CpwCTDMCfgTimestampMode interface{}
 
     // This variable indicates the storage type for this row. The following are
     // the read-write objects in permanent(4) rows, that an agent must allow to be
     // writable: cpwCTDMCfgPayloadSize, cpwCTDMCfgPktReorder,
     // cpwCTDMCfgRtpHdrUsed, cpwCTDMCfgJtrBfrDepth, cpwCTDMCfgPayloadSuppression,
     // cpwCTDMCfgConfErr. The type is StorageType.
-    Cpwctdmcfgstoragetype interface{}
+    CpwCTDMCfgStorageType interface{}
 
     // The status of this conceptual row.  To create a row in this table, a
     // manager must set this object to either createAndGo(4) or createAndWait(5). 
@@ -490,73 +505,76 @@ type CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry struct {
     // cpwCTDMCfgClearAlarmThreshold, cpwCTDMCfgMissingPktsToSes,
     // cpwCTDMCfgTimestampMode, cpwCTDMCfgStorageType.  A row may be deleted by
     // setting the RowStatus to 'destroy'. The type is RowStatus.
-    Cpwctdmcfgrowstatus interface{}
+    CpwCTDMCfgRowStatus interface{}
 }
 
-func (cpwctdmcfgentry *CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry) GetEntityData() *types.CommonEntityData {
-    cpwctdmcfgentry.EntityData.YFilter = cpwctdmcfgentry.YFilter
-    cpwctdmcfgentry.EntityData.YangName = "cpwCTDMCfgEntry"
-    cpwctdmcfgentry.EntityData.BundleName = "cisco_ios_xe"
-    cpwctdmcfgentry.EntityData.ParentYangName = "cpwCTDMCfgTable"
-    cpwctdmcfgentry.EntityData.SegmentPath = "cpwCTDMCfgEntry" + "[cpwCTDMCfgIndex='" + fmt.Sprintf("%v", cpwctdmcfgentry.Cpwctdmcfgindex) + "']"
-    cpwctdmcfgentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwctdmcfgentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwctdmcfgentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwCTDMCfgEntry *CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry) GetEntityData() *types.CommonEntityData {
+    cpwCTDMCfgEntry.EntityData.YFilter = cpwCTDMCfgEntry.YFilter
+    cpwCTDMCfgEntry.EntityData.YangName = "cpwCTDMCfgEntry"
+    cpwCTDMCfgEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpwCTDMCfgEntry.EntityData.ParentYangName = "cpwCTDMCfgTable"
+    cpwCTDMCfgEntry.EntityData.SegmentPath = "cpwCTDMCfgEntry" + types.AddKeyToken(cpwCTDMCfgEntry.CpwCTDMCfgIndex, "cpwCTDMCfgIndex")
+    cpwCTDMCfgEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwCTDMCfgEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwCTDMCfgEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwctdmcfgentry.EntityData.Children = make(map[string]types.YChild)
-    cpwctdmcfgentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwctdmcfgentry.EntityData.Leafs["cpwCTDMCfgIndex"] = types.YLeaf{"Cpwctdmcfgindex", cpwctdmcfgentry.Cpwctdmcfgindex}
-    cpwctdmcfgentry.EntityData.Leafs["cpwCTDMCfgConfErr"] = types.YLeaf{"Cpwctdmcfgconferr", cpwctdmcfgentry.Cpwctdmcfgconferr}
-    cpwctdmcfgentry.EntityData.Leafs["cpwCTDMCfgPayloadSize"] = types.YLeaf{"Cpwctdmcfgpayloadsize", cpwctdmcfgentry.Cpwctdmcfgpayloadsize}
-    cpwctdmcfgentry.EntityData.Leafs["cpwCTDMCfgPktReorder"] = types.YLeaf{"Cpwctdmcfgpktreorder", cpwctdmcfgentry.Cpwctdmcfgpktreorder}
-    cpwctdmcfgentry.EntityData.Leafs["cpwCTDMCfgRtpHdrUsed"] = types.YLeaf{"Cpwctdmcfgrtphdrused", cpwctdmcfgentry.Cpwctdmcfgrtphdrused}
-    cpwctdmcfgentry.EntityData.Leafs["cpwCTDMCfgJtrBfrDepth"] = types.YLeaf{"Cpwctdmcfgjtrbfrdepth", cpwctdmcfgentry.Cpwctdmcfgjtrbfrdepth}
-    cpwctdmcfgentry.EntityData.Leafs["cpwCTDMCfgPayloadSuppression"] = types.YLeaf{"Cpwctdmcfgpayloadsuppression", cpwctdmcfgentry.Cpwctdmcfgpayloadsuppression}
-    cpwctdmcfgentry.EntityData.Leafs["cpwCTDMCfgConsecPktsInSynch"] = types.YLeaf{"Cpwctdmcfgconsecpktsinsynch", cpwctdmcfgentry.Cpwctdmcfgconsecpktsinsynch}
-    cpwctdmcfgentry.EntityData.Leafs["cpwCTDMCfgConsecMissPktsOutSynch"] = types.YLeaf{"Cpwctdmcfgconsecmisspktsoutsynch", cpwctdmcfgentry.Cpwctdmcfgconsecmisspktsoutsynch}
-    cpwctdmcfgentry.EntityData.Leafs["cpwCTDMCfgSetUp2SynchTimeOut"] = types.YLeaf{"Cpwctdmcfgsetup2Synchtimeout", cpwctdmcfgentry.Cpwctdmcfgsetup2Synchtimeout}
-    cpwctdmcfgentry.EntityData.Leafs["cpwCTDMCfgPktReplacePolicy"] = types.YLeaf{"Cpwctdmcfgpktreplacepolicy", cpwctdmcfgentry.Cpwctdmcfgpktreplacepolicy}
-    cpwctdmcfgentry.EntityData.Leafs["cpwCTDMCfgAvePktLossTimeWindow"] = types.YLeaf{"Cpwctdmcfgavepktlosstimewindow", cpwctdmcfgentry.Cpwctdmcfgavepktlosstimewindow}
-    cpwctdmcfgentry.EntityData.Leafs["cpwCTDMCfgExcessivePktLossThreshold"] = types.YLeaf{"Cpwctdmcfgexcessivepktlossthreshold", cpwctdmcfgentry.Cpwctdmcfgexcessivepktlossthreshold}
-    cpwctdmcfgentry.EntityData.Leafs["cpwCTDMCfgAlarmThreshold"] = types.YLeaf{"Cpwctdmcfgalarmthreshold", cpwctdmcfgentry.Cpwctdmcfgalarmthreshold}
-    cpwctdmcfgentry.EntityData.Leafs["cpwCTDMCfgClearAlarmThreshold"] = types.YLeaf{"Cpwctdmcfgclearalarmthreshold", cpwctdmcfgentry.Cpwctdmcfgclearalarmthreshold}
-    cpwctdmcfgentry.EntityData.Leafs["cpwCTDMCfgMissingPktsToSes"] = types.YLeaf{"Cpwctdmcfgmissingpktstoses", cpwctdmcfgentry.Cpwctdmcfgmissingpktstoses}
-    cpwctdmcfgentry.EntityData.Leafs["cpwCTDMCfgTimestampMode"] = types.YLeaf{"Cpwctdmcfgtimestampmode", cpwctdmcfgentry.Cpwctdmcfgtimestampmode}
-    cpwctdmcfgentry.EntityData.Leafs["cpwCTDMCfgStorageType"] = types.YLeaf{"Cpwctdmcfgstoragetype", cpwctdmcfgentry.Cpwctdmcfgstoragetype}
-    cpwctdmcfgentry.EntityData.Leafs["cpwCTDMCfgRowStatus"] = types.YLeaf{"Cpwctdmcfgrowstatus", cpwctdmcfgentry.Cpwctdmcfgrowstatus}
-    return &(cpwctdmcfgentry.EntityData)
+    cpwCTDMCfgEntry.EntityData.Children = types.NewOrderedMap()
+    cpwCTDMCfgEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpwCTDMCfgEntry.EntityData.Leafs.Append("cpwCTDMCfgIndex", types.YLeaf{"CpwCTDMCfgIndex", cpwCTDMCfgEntry.CpwCTDMCfgIndex})
+    cpwCTDMCfgEntry.EntityData.Leafs.Append("cpwCTDMCfgConfErr", types.YLeaf{"CpwCTDMCfgConfErr", cpwCTDMCfgEntry.CpwCTDMCfgConfErr})
+    cpwCTDMCfgEntry.EntityData.Leafs.Append("cpwCTDMCfgPayloadSize", types.YLeaf{"CpwCTDMCfgPayloadSize", cpwCTDMCfgEntry.CpwCTDMCfgPayloadSize})
+    cpwCTDMCfgEntry.EntityData.Leafs.Append("cpwCTDMCfgPktReorder", types.YLeaf{"CpwCTDMCfgPktReorder", cpwCTDMCfgEntry.CpwCTDMCfgPktReorder})
+    cpwCTDMCfgEntry.EntityData.Leafs.Append("cpwCTDMCfgRtpHdrUsed", types.YLeaf{"CpwCTDMCfgRtpHdrUsed", cpwCTDMCfgEntry.CpwCTDMCfgRtpHdrUsed})
+    cpwCTDMCfgEntry.EntityData.Leafs.Append("cpwCTDMCfgJtrBfrDepth", types.YLeaf{"CpwCTDMCfgJtrBfrDepth", cpwCTDMCfgEntry.CpwCTDMCfgJtrBfrDepth})
+    cpwCTDMCfgEntry.EntityData.Leafs.Append("cpwCTDMCfgPayloadSuppression", types.YLeaf{"CpwCTDMCfgPayloadSuppression", cpwCTDMCfgEntry.CpwCTDMCfgPayloadSuppression})
+    cpwCTDMCfgEntry.EntityData.Leafs.Append("cpwCTDMCfgConsecPktsInSynch", types.YLeaf{"CpwCTDMCfgConsecPktsInSynch", cpwCTDMCfgEntry.CpwCTDMCfgConsecPktsInSynch})
+    cpwCTDMCfgEntry.EntityData.Leafs.Append("cpwCTDMCfgConsecMissPktsOutSynch", types.YLeaf{"CpwCTDMCfgConsecMissPktsOutSynch", cpwCTDMCfgEntry.CpwCTDMCfgConsecMissPktsOutSynch})
+    cpwCTDMCfgEntry.EntityData.Leafs.Append("cpwCTDMCfgSetUp2SynchTimeOut", types.YLeaf{"CpwCTDMCfgSetUp2SynchTimeOut", cpwCTDMCfgEntry.CpwCTDMCfgSetUp2SynchTimeOut})
+    cpwCTDMCfgEntry.EntityData.Leafs.Append("cpwCTDMCfgPktReplacePolicy", types.YLeaf{"CpwCTDMCfgPktReplacePolicy", cpwCTDMCfgEntry.CpwCTDMCfgPktReplacePolicy})
+    cpwCTDMCfgEntry.EntityData.Leafs.Append("cpwCTDMCfgAvePktLossTimeWindow", types.YLeaf{"CpwCTDMCfgAvePktLossTimeWindow", cpwCTDMCfgEntry.CpwCTDMCfgAvePktLossTimeWindow})
+    cpwCTDMCfgEntry.EntityData.Leafs.Append("cpwCTDMCfgExcessivePktLossThreshold", types.YLeaf{"CpwCTDMCfgExcessivePktLossThreshold", cpwCTDMCfgEntry.CpwCTDMCfgExcessivePktLossThreshold})
+    cpwCTDMCfgEntry.EntityData.Leafs.Append("cpwCTDMCfgAlarmThreshold", types.YLeaf{"CpwCTDMCfgAlarmThreshold", cpwCTDMCfgEntry.CpwCTDMCfgAlarmThreshold})
+    cpwCTDMCfgEntry.EntityData.Leafs.Append("cpwCTDMCfgClearAlarmThreshold", types.YLeaf{"CpwCTDMCfgClearAlarmThreshold", cpwCTDMCfgEntry.CpwCTDMCfgClearAlarmThreshold})
+    cpwCTDMCfgEntry.EntityData.Leafs.Append("cpwCTDMCfgMissingPktsToSes", types.YLeaf{"CpwCTDMCfgMissingPktsToSes", cpwCTDMCfgEntry.CpwCTDMCfgMissingPktsToSes})
+    cpwCTDMCfgEntry.EntityData.Leafs.Append("cpwCTDMCfgTimestampMode", types.YLeaf{"CpwCTDMCfgTimestampMode", cpwCTDMCfgEntry.CpwCTDMCfgTimestampMode})
+    cpwCTDMCfgEntry.EntityData.Leafs.Append("cpwCTDMCfgStorageType", types.YLeaf{"CpwCTDMCfgStorageType", cpwCTDMCfgEntry.CpwCTDMCfgStorageType})
+    cpwCTDMCfgEntry.EntityData.Leafs.Append("cpwCTDMCfgRowStatus", types.YLeaf{"CpwCTDMCfgRowStatus", cpwCTDMCfgEntry.CpwCTDMCfgRowStatus})
+
+    cpwCTDMCfgEntry.EntityData.YListKeys = []string {"CpwCTDMCfgIndex"}
+
+    return &(cpwCTDMCfgEntry.EntityData)
 }
 
-// CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgpayloadsuppression represents disable - No Payload suppresion under any condition.
-type CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgpayloadsuppression string
+// CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgPayloadSuppression represents disable - No Payload suppresion under any condition.
+type CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgPayloadSuppression string
 
 const (
-    CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgpayloadsuppression_enable CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgpayloadsuppression = "enable"
+    CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgPayloadSuppression_enable CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgPayloadSuppression = "enable"
 
-    CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgpayloadsuppression_disable CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgpayloadsuppression = "disable"
+    CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgPayloadSuppression_disable CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgPayloadSuppression = "disable"
 )
 
-// CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgpktreplacepolicy represents                          sent on the TDM line.
-type CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgpktreplacepolicy string
+// CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgPktReplacePolicy represents                          sent on the TDM line.
+type CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgPktReplacePolicy string
 
 const (
-    CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgpktreplacepolicy_ais CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgpktreplacepolicy = "ais"
+    CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgPktReplacePolicy_ais CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgPktReplacePolicy = "ais"
 
-    CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgpktreplacepolicy_implementationSpecific CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgpktreplacepolicy = "implementationSpecific"
+    CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgPktReplacePolicy_implementationSpecific CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgPktReplacePolicy = "implementationSpecific"
 )
 
-// CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgtimestampmode represents  timestamp generation. Support of this mode is OPTIONAL.
-type CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgtimestampmode string
+// CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgTimestampMode represents  timestamp generation. Support of this mode is OPTIONAL.
+type CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgTimestampMode string
 
 const (
-    CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgtimestampmode_notApplicable CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgtimestampmode = "notApplicable"
+    CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgTimestampMode_notApplicable CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgTimestampMode = "notApplicable"
 
-    CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgtimestampmode_absolute CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgtimestampmode = "absolute"
+    CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgTimestampMode_absolute CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgTimestampMode = "absolute"
 
-    CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgtimestampmode_differential CISCOIETFPWTDMMIB_Cpwctdmcfgtable_Cpwctdmcfgentry_Cpwctdmcfgtimestampmode = "differential"
+    CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgTimestampMode_differential CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry_CpwCTDMCfgTimestampMode = "differential"
 )
 
-// CISCOIETFPWTDMMIB_Cpwctdmperfcurrenttable
+// CISCOIETFPWTDMMIB_CpwCTDMPerfCurrentTable
 // This table provides TDM PW performance information.
 // This includes current 15 minute interval counts. 
 // 
@@ -568,7 +586,7 @@ const (
 // jitter buffer overflow, and jitter buffer underflow.
 // The result is declaring whether or not the TDM PW is in
 // Loss of Packet (LOPS) state.
-type CISCOIETFPWTDMMIB_Cpwctdmperfcurrenttable struct {
+type CISCOIETFPWTDMMIB_CpwCTDMPerfCurrentTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -576,122 +594,128 @@ type CISCOIETFPWTDMMIB_Cpwctdmperfcurrenttable struct {
     // entry. After 15 minutes, the contents of this table entry are copied to a
     // new entry in the cpwCTDMPerfInterval table and the counts in this entry are
     // reset to zero. The type is slice of
-    // CISCOIETFPWTDMMIB_Cpwctdmperfcurrenttable_Cpwctdmperfcurrententry.
-    Cpwctdmperfcurrententry []CISCOIETFPWTDMMIB_Cpwctdmperfcurrenttable_Cpwctdmperfcurrententry
+    // CISCOIETFPWTDMMIB_CpwCTDMPerfCurrentTable_CpwCTDMPerfCurrentEntry.
+    CpwCTDMPerfCurrentEntry []*CISCOIETFPWTDMMIB_CpwCTDMPerfCurrentTable_CpwCTDMPerfCurrentEntry
 }
 
-func (cpwctdmperfcurrenttable *CISCOIETFPWTDMMIB_Cpwctdmperfcurrenttable) GetEntityData() *types.CommonEntityData {
-    cpwctdmperfcurrenttable.EntityData.YFilter = cpwctdmperfcurrenttable.YFilter
-    cpwctdmperfcurrenttable.EntityData.YangName = "cpwCTDMPerfCurrentTable"
-    cpwctdmperfcurrenttable.EntityData.BundleName = "cisco_ios_xe"
-    cpwctdmperfcurrenttable.EntityData.ParentYangName = "CISCO-IETF-PW-TDM-MIB"
-    cpwctdmperfcurrenttable.EntityData.SegmentPath = "cpwCTDMPerfCurrentTable"
-    cpwctdmperfcurrenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwctdmperfcurrenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwctdmperfcurrenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwCTDMPerfCurrentTable *CISCOIETFPWTDMMIB_CpwCTDMPerfCurrentTable) GetEntityData() *types.CommonEntityData {
+    cpwCTDMPerfCurrentTable.EntityData.YFilter = cpwCTDMPerfCurrentTable.YFilter
+    cpwCTDMPerfCurrentTable.EntityData.YangName = "cpwCTDMPerfCurrentTable"
+    cpwCTDMPerfCurrentTable.EntityData.BundleName = "cisco_ios_xe"
+    cpwCTDMPerfCurrentTable.EntityData.ParentYangName = "CISCO-IETF-PW-TDM-MIB"
+    cpwCTDMPerfCurrentTable.EntityData.SegmentPath = "cpwCTDMPerfCurrentTable"
+    cpwCTDMPerfCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwCTDMPerfCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwCTDMPerfCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwctdmperfcurrenttable.EntityData.Children = make(map[string]types.YChild)
-    cpwctdmperfcurrenttable.EntityData.Children["cpwCTDMPerfCurrentEntry"] = types.YChild{"Cpwctdmperfcurrententry", nil}
-    for i := range cpwctdmperfcurrenttable.Cpwctdmperfcurrententry {
-        cpwctdmperfcurrenttable.EntityData.Children[types.GetSegmentPath(&cpwctdmperfcurrenttable.Cpwctdmperfcurrententry[i])] = types.YChild{"Cpwctdmperfcurrententry", &cpwctdmperfcurrenttable.Cpwctdmperfcurrententry[i]}
+    cpwCTDMPerfCurrentTable.EntityData.Children = types.NewOrderedMap()
+    cpwCTDMPerfCurrentTable.EntityData.Children.Append("cpwCTDMPerfCurrentEntry", types.YChild{"CpwCTDMPerfCurrentEntry", nil})
+    for i := range cpwCTDMPerfCurrentTable.CpwCTDMPerfCurrentEntry {
+        cpwCTDMPerfCurrentTable.EntityData.Children.Append(types.GetSegmentPath(cpwCTDMPerfCurrentTable.CpwCTDMPerfCurrentEntry[i]), types.YChild{"CpwCTDMPerfCurrentEntry", cpwCTDMPerfCurrentTable.CpwCTDMPerfCurrentEntry[i]})
     }
-    cpwctdmperfcurrenttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpwctdmperfcurrenttable.EntityData)
+    cpwCTDMPerfCurrentTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpwCTDMPerfCurrentTable.EntityData.YListKeys = []string {}
+
+    return &(cpwCTDMPerfCurrentTable.EntityData)
 }
 
-// CISCOIETFPWTDMMIB_Cpwctdmperfcurrenttable_Cpwctdmperfcurrententry
+// CISCOIETFPWTDMMIB_CpwCTDMPerfCurrentTable_CpwCTDMPerfCurrentEntry
 // An entry in this table is created by the agent for every
 // cpwCTDMTable entry. After 15 minutes, the contents of this
 // table entry are copied to a new entry in the
 // cpwCTDMPerfInterval table and the counts in this entry
 // are reset to zero.
-type CISCOIETFPWTDMMIB_Cpwctdmperfcurrenttable_Cpwctdmperfcurrententry struct {
+type CISCOIETFPWTDMMIB_CpwCTDMPerfCurrentTable_CpwCTDMPerfCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
-    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcindex
-    Cpwvcindex interface{}
+    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
+    CpwVcIndex interface{}
 
     // Number of missing packets (as detected via control word sequence number
     // gaps). The type is interface{} with range: 0..4294967295. Units are
     // packets.
-    Cpwctdmperfcurrentmissingpkts interface{}
+    CpwCTDMPerfCurrentMissingPkts interface{}
 
     // Number of packets detected out of sequence (via control word sequence
     // number), but successfully re-ordered. The type is interface{} with range:
     // 0..4294967295. Units are packets.
-    Cpwctdmperfcurrentpktsreorder interface{}
+    CpwCTDMPerfCurrentPktsReOrder interface{}
 
     // Number of times a packet needed to be played out and the jitter buffer was
     // empty. The type is interface{} with range: 0..4294967295.
-    Cpwctdmperfcurrentjtrbfrunderruns interface{}
+    CpwCTDMPerfCurrentJtrBfrUnderruns interface{}
 
     // Number of packets detected out of order(via control word sequence numbers),
     // and could not be re-ordered, or could not fit in the jitter buffer. The
     // type is interface{} with range: 0..4294967295. Units are packets.
-    Cpwctdmperfcurrentmisorderdropped interface{}
+    CpwCTDMPerfCurrentMisOrderDropped interface{}
 
     // Number of packets detected with unexpected size, or bad headers' stack. The
     // type is interface{} with range: 0..4294967295. Units are packets.
-    Cpwctdmperfcurrentmalformedpkt interface{}
+    CpwCTDMPerfCurrentMalformedPkt interface{}
 
     // The counter associated with the number of Error Seconds encountered. Any
     // malformed packet, sequence error and similar are considered as error
     // second. The type is interface{} with range: 0..4294967295. Units are
     // seconds.
-    Cpwctdmperfcurrentess interface{}
+    CpwCTDMPerfCurrentESs interface{}
 
     // The counter associated with the number of Severely Error Seconds
     // encountered. The type is interface{} with range: 0..4294967295. Units are
     // seconds.
-    Cpwctdmperfcurrentsess interface{}
+    CpwCTDMPerfCurrentSESs interface{}
 
     // The counter associated with the number of Unavailable Seconds encountered.
     // Any consequtive five seconds of SES are counted as one UAS. The type is
     // interface{} with range: 0..4294967295. Units are seconds.
-    Cpwctdmperfcurrentuass interface{}
+    CpwCTDMPerfCurrentUASs interface{}
 
     // This object represents the number of TDM failure events. A failure event
     // begins when the LOPS failure is declared, and ends when the failure is
     // cleared. A failure event that begins in one period and ends in another
     // period is counted only in the period in which it begins. The type is
     // interface{} with range: 0..4294967295.
-    Cpwctdmperfcurrentfc interface{}
+    CpwCTDMPerfCurrentFC interface{}
 }
 
-func (cpwctdmperfcurrententry *CISCOIETFPWTDMMIB_Cpwctdmperfcurrenttable_Cpwctdmperfcurrententry) GetEntityData() *types.CommonEntityData {
-    cpwctdmperfcurrententry.EntityData.YFilter = cpwctdmperfcurrententry.YFilter
-    cpwctdmperfcurrententry.EntityData.YangName = "cpwCTDMPerfCurrentEntry"
-    cpwctdmperfcurrententry.EntityData.BundleName = "cisco_ios_xe"
-    cpwctdmperfcurrententry.EntityData.ParentYangName = "cpwCTDMPerfCurrentTable"
-    cpwctdmperfcurrententry.EntityData.SegmentPath = "cpwCTDMPerfCurrentEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwctdmperfcurrententry.Cpwvcindex) + "']"
-    cpwctdmperfcurrententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwctdmperfcurrententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwctdmperfcurrententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwCTDMPerfCurrentEntry *CISCOIETFPWTDMMIB_CpwCTDMPerfCurrentTable_CpwCTDMPerfCurrentEntry) GetEntityData() *types.CommonEntityData {
+    cpwCTDMPerfCurrentEntry.EntityData.YFilter = cpwCTDMPerfCurrentEntry.YFilter
+    cpwCTDMPerfCurrentEntry.EntityData.YangName = "cpwCTDMPerfCurrentEntry"
+    cpwCTDMPerfCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpwCTDMPerfCurrentEntry.EntityData.ParentYangName = "cpwCTDMPerfCurrentTable"
+    cpwCTDMPerfCurrentEntry.EntityData.SegmentPath = "cpwCTDMPerfCurrentEntry" + types.AddKeyToken(cpwCTDMPerfCurrentEntry.CpwVcIndex, "cpwVcIndex")
+    cpwCTDMPerfCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwCTDMPerfCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwCTDMPerfCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwctdmperfcurrententry.EntityData.Children = make(map[string]types.YChild)
-    cpwctdmperfcurrententry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwctdmperfcurrententry.EntityData.Leafs["cpwVcIndex"] = types.YLeaf{"Cpwvcindex", cpwctdmperfcurrententry.Cpwvcindex}
-    cpwctdmperfcurrententry.EntityData.Leafs["cpwCTDMPerfCurrentMissingPkts"] = types.YLeaf{"Cpwctdmperfcurrentmissingpkts", cpwctdmperfcurrententry.Cpwctdmperfcurrentmissingpkts}
-    cpwctdmperfcurrententry.EntityData.Leafs["cpwCTDMPerfCurrentPktsReOrder"] = types.YLeaf{"Cpwctdmperfcurrentpktsreorder", cpwctdmperfcurrententry.Cpwctdmperfcurrentpktsreorder}
-    cpwctdmperfcurrententry.EntityData.Leafs["cpwCTDMPerfCurrentJtrBfrUnderruns"] = types.YLeaf{"Cpwctdmperfcurrentjtrbfrunderruns", cpwctdmperfcurrententry.Cpwctdmperfcurrentjtrbfrunderruns}
-    cpwctdmperfcurrententry.EntityData.Leafs["cpwCTDMPerfCurrentMisOrderDropped"] = types.YLeaf{"Cpwctdmperfcurrentmisorderdropped", cpwctdmperfcurrententry.Cpwctdmperfcurrentmisorderdropped}
-    cpwctdmperfcurrententry.EntityData.Leafs["cpwCTDMPerfCurrentMalformedPkt"] = types.YLeaf{"Cpwctdmperfcurrentmalformedpkt", cpwctdmperfcurrententry.Cpwctdmperfcurrentmalformedpkt}
-    cpwctdmperfcurrententry.EntityData.Leafs["cpwCTDMPerfCurrentESs"] = types.YLeaf{"Cpwctdmperfcurrentess", cpwctdmperfcurrententry.Cpwctdmperfcurrentess}
-    cpwctdmperfcurrententry.EntityData.Leafs["cpwCTDMPerfCurrentSESs"] = types.YLeaf{"Cpwctdmperfcurrentsess", cpwctdmperfcurrententry.Cpwctdmperfcurrentsess}
-    cpwctdmperfcurrententry.EntityData.Leafs["cpwCTDMPerfCurrentUASs"] = types.YLeaf{"Cpwctdmperfcurrentuass", cpwctdmperfcurrententry.Cpwctdmperfcurrentuass}
-    cpwctdmperfcurrententry.EntityData.Leafs["cpwCTDMPerfCurrentFC"] = types.YLeaf{"Cpwctdmperfcurrentfc", cpwctdmperfcurrententry.Cpwctdmperfcurrentfc}
-    return &(cpwctdmperfcurrententry.EntityData)
+    cpwCTDMPerfCurrentEntry.EntityData.Children = types.NewOrderedMap()
+    cpwCTDMPerfCurrentEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpwCTDMPerfCurrentEntry.EntityData.Leafs.Append("cpwVcIndex", types.YLeaf{"CpwVcIndex", cpwCTDMPerfCurrentEntry.CpwVcIndex})
+    cpwCTDMPerfCurrentEntry.EntityData.Leafs.Append("cpwCTDMPerfCurrentMissingPkts", types.YLeaf{"CpwCTDMPerfCurrentMissingPkts", cpwCTDMPerfCurrentEntry.CpwCTDMPerfCurrentMissingPkts})
+    cpwCTDMPerfCurrentEntry.EntityData.Leafs.Append("cpwCTDMPerfCurrentPktsReOrder", types.YLeaf{"CpwCTDMPerfCurrentPktsReOrder", cpwCTDMPerfCurrentEntry.CpwCTDMPerfCurrentPktsReOrder})
+    cpwCTDMPerfCurrentEntry.EntityData.Leafs.Append("cpwCTDMPerfCurrentJtrBfrUnderruns", types.YLeaf{"CpwCTDMPerfCurrentJtrBfrUnderruns", cpwCTDMPerfCurrentEntry.CpwCTDMPerfCurrentJtrBfrUnderruns})
+    cpwCTDMPerfCurrentEntry.EntityData.Leafs.Append("cpwCTDMPerfCurrentMisOrderDropped", types.YLeaf{"CpwCTDMPerfCurrentMisOrderDropped", cpwCTDMPerfCurrentEntry.CpwCTDMPerfCurrentMisOrderDropped})
+    cpwCTDMPerfCurrentEntry.EntityData.Leafs.Append("cpwCTDMPerfCurrentMalformedPkt", types.YLeaf{"CpwCTDMPerfCurrentMalformedPkt", cpwCTDMPerfCurrentEntry.CpwCTDMPerfCurrentMalformedPkt})
+    cpwCTDMPerfCurrentEntry.EntityData.Leafs.Append("cpwCTDMPerfCurrentESs", types.YLeaf{"CpwCTDMPerfCurrentESs", cpwCTDMPerfCurrentEntry.CpwCTDMPerfCurrentESs})
+    cpwCTDMPerfCurrentEntry.EntityData.Leafs.Append("cpwCTDMPerfCurrentSESs", types.YLeaf{"CpwCTDMPerfCurrentSESs", cpwCTDMPerfCurrentEntry.CpwCTDMPerfCurrentSESs})
+    cpwCTDMPerfCurrentEntry.EntityData.Leafs.Append("cpwCTDMPerfCurrentUASs", types.YLeaf{"CpwCTDMPerfCurrentUASs", cpwCTDMPerfCurrentEntry.CpwCTDMPerfCurrentUASs})
+    cpwCTDMPerfCurrentEntry.EntityData.Leafs.Append("cpwCTDMPerfCurrentFC", types.YLeaf{"CpwCTDMPerfCurrentFC", cpwCTDMPerfCurrentEntry.CpwCTDMPerfCurrentFC})
+
+    cpwCTDMPerfCurrentEntry.EntityData.YListKeys = []string {"CpwVcIndex"}
+
+    return &(cpwCTDMPerfCurrentEntry.EntityData)
 }
 
-// CISCOIETFPWTDMMIB_Cpwctdmperfintervaltable
+// CISCOIETFPWTDMMIB_CpwCTDMPerfIntervalTable
 // This table provides performance information per TDM PW
 // similar to the cpwCTDMPerfCurrentTable above. However,
 // these counts represent historical 15 minute intervals.
 // Typically, this table will have a maximum of 96 entries
 // for a 24 hour period, but is not limited to this.
-type CISCOIETFPWTDMMIB_Cpwctdmperfintervaltable struct {
+type CISCOIETFPWTDMMIB_CpwCTDMPerfIntervalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -699,42 +723,45 @@ type CISCOIETFPWTDMMIB_Cpwctdmperfintervaltable struct {
     // cpwCTDMPerfCurrentEntry that is 15 minutes old. The contents of the Current
     // entry are copied to the new entry here. The Current entry, then resets its
     // counts to zero for the next current 15 minute interval. The type is slice
-    // of CISCOIETFPWTDMMIB_Cpwctdmperfintervaltable_Cpwctdmperfintervalentry.
-    Cpwctdmperfintervalentry []CISCOIETFPWTDMMIB_Cpwctdmperfintervaltable_Cpwctdmperfintervalentry
+    // of CISCOIETFPWTDMMIB_CpwCTDMPerfIntervalTable_CpwCTDMPerfIntervalEntry.
+    CpwCTDMPerfIntervalEntry []*CISCOIETFPWTDMMIB_CpwCTDMPerfIntervalTable_CpwCTDMPerfIntervalEntry
 }
 
-func (cpwctdmperfintervaltable *CISCOIETFPWTDMMIB_Cpwctdmperfintervaltable) GetEntityData() *types.CommonEntityData {
-    cpwctdmperfintervaltable.EntityData.YFilter = cpwctdmperfintervaltable.YFilter
-    cpwctdmperfintervaltable.EntityData.YangName = "cpwCTDMPerfIntervalTable"
-    cpwctdmperfintervaltable.EntityData.BundleName = "cisco_ios_xe"
-    cpwctdmperfintervaltable.EntityData.ParentYangName = "CISCO-IETF-PW-TDM-MIB"
-    cpwctdmperfintervaltable.EntityData.SegmentPath = "cpwCTDMPerfIntervalTable"
-    cpwctdmperfintervaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwctdmperfintervaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwctdmperfintervaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwCTDMPerfIntervalTable *CISCOIETFPWTDMMIB_CpwCTDMPerfIntervalTable) GetEntityData() *types.CommonEntityData {
+    cpwCTDMPerfIntervalTable.EntityData.YFilter = cpwCTDMPerfIntervalTable.YFilter
+    cpwCTDMPerfIntervalTable.EntityData.YangName = "cpwCTDMPerfIntervalTable"
+    cpwCTDMPerfIntervalTable.EntityData.BundleName = "cisco_ios_xe"
+    cpwCTDMPerfIntervalTable.EntityData.ParentYangName = "CISCO-IETF-PW-TDM-MIB"
+    cpwCTDMPerfIntervalTable.EntityData.SegmentPath = "cpwCTDMPerfIntervalTable"
+    cpwCTDMPerfIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwCTDMPerfIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwCTDMPerfIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwctdmperfintervaltable.EntityData.Children = make(map[string]types.YChild)
-    cpwctdmperfintervaltable.EntityData.Children["cpwCTDMPerfIntervalEntry"] = types.YChild{"Cpwctdmperfintervalentry", nil}
-    for i := range cpwctdmperfintervaltable.Cpwctdmperfintervalentry {
-        cpwctdmperfintervaltable.EntityData.Children[types.GetSegmentPath(&cpwctdmperfintervaltable.Cpwctdmperfintervalentry[i])] = types.YChild{"Cpwctdmperfintervalentry", &cpwctdmperfintervaltable.Cpwctdmperfintervalentry[i]}
+    cpwCTDMPerfIntervalTable.EntityData.Children = types.NewOrderedMap()
+    cpwCTDMPerfIntervalTable.EntityData.Children.Append("cpwCTDMPerfIntervalEntry", types.YChild{"CpwCTDMPerfIntervalEntry", nil})
+    for i := range cpwCTDMPerfIntervalTable.CpwCTDMPerfIntervalEntry {
+        cpwCTDMPerfIntervalTable.EntityData.Children.Append(types.GetSegmentPath(cpwCTDMPerfIntervalTable.CpwCTDMPerfIntervalEntry[i]), types.YChild{"CpwCTDMPerfIntervalEntry", cpwCTDMPerfIntervalTable.CpwCTDMPerfIntervalEntry[i]})
     }
-    cpwctdmperfintervaltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpwctdmperfintervaltable.EntityData)
+    cpwCTDMPerfIntervalTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpwCTDMPerfIntervalTable.EntityData.YListKeys = []string {}
+
+    return &(cpwCTDMPerfIntervalTable.EntityData)
 }
 
-// CISCOIETFPWTDMMIB_Cpwctdmperfintervaltable_Cpwctdmperfintervalentry
+// CISCOIETFPWTDMMIB_CpwCTDMPerfIntervalTable_CpwCTDMPerfIntervalEntry
 // An entry in this table is created by the agent for
 // every cpwCTDMPerfCurrentEntry that is 15 minutes old.
 // The contents of the Current entry are copied to the new
 // entry here. The Current entry, then resets its counts
 // to zero for the next current 15 minute interval.
-type CISCOIETFPWTDMMIB_Cpwctdmperfintervaltable_Cpwctdmperfintervalentry struct {
+type CISCOIETFPWTDMMIB_CpwCTDMPerfIntervalTable_CpwCTDMPerfIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
-    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcindex
-    Cpwvcindex interface{}
+    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
+    CpwVcIndex interface{}
 
     // This attribute is a key. This object indicates a number (normally between 1
     // and 96 to cover a 24 hour period) which identifies the interval for which
@@ -744,218 +771,227 @@ type CISCOIETFPWTDMMIB_Cpwctdmperfintervaltable_Cpwctdmperfintervalentry struct 
     // minimum range of N is 1 through 4.The default range is 1 through 32. The
     // maximum value of N is 1 through 96. The type is interface{} with range:
     // 0..4294967295.
-    Cpwctdmperfintervalnumber interface{}
+    CpwCTDMPerfIntervalNumber interface{}
 
     // This variable indicates if the data for this interval is valid. The type is
     // bool.
-    Cpwctdmperfintervalvaliddata interface{}
+    CpwCTDMPerfIntervalValidData interface{}
 
     // The duration of a particular interval in seconds. Adjustments in the
     // system's time-of-day clock, may cause the interval to be greater or less
     // than, the normal value. Therefore this actual interval value is provided.
     // The type is interface{} with range: 0..4294967295. Units are seconds.
-    Cpwctdmperfintervalduration interface{}
+    CpwCTDMPerfIntervalDuration interface{}
 
     // Number of missing packets (as detected via control word sequence number
     // gaps). The type is interface{} with range: 0..4294967295. Units are
     // packets.
-    Cpwctdmperfintervalmissingpkts interface{}
+    CpwCTDMPerfIntervalMissingPkts interface{}
 
     // Number of packets detected out of sequence (via control word sequence
     // number), but successfully re-ordered. The type is interface{} with range:
     // 0..4294967295. Units are packets.
-    Cpwctdmperfintervalpktsreorder interface{}
+    CpwCTDMPerfIntervalPktsReOrder interface{}
 
     // Number of times a packet needed to be played out and the jitter buffer was
     // empty. The type is interface{} with range: 0..4294967295.
-    Cpwctdmperfintervaljtrbfrunderruns interface{}
+    CpwCTDMPerfIntervalJtrBfrUnderruns interface{}
 
     // Number of packets detected out of order(via control word sequence numbers),
     // and could not be re-ordered, or could not fit in the jitter buffer. The
     // type is interface{} with range: 0..4294967295. Units are packets.
-    Cpwctdmperfintervalmisorderdropped interface{}
+    CpwCTDMPerfIntervalMisOrderDropped interface{}
 
     // Number of packets detected with unexpected size, or bad headers' stack. The
     // type is interface{} with range: 0..4294967295. Units are packets.
-    Cpwctdmperfintervalmalformedpkt interface{}
+    CpwCTDMPerfIntervalMalformedPkt interface{}
 
     // The counter associated with the number of Error Seconds encountered. The
     // type is interface{} with range: 0..4294967295. Units are seconds.
-    Cpwctdmperfintervaless interface{}
+    CpwCTDMPerfIntervalESs interface{}
 
     // The counter associated with the number of Severely Error Seconds
     // encountered. The type is interface{} with range: 0..4294967295.
-    Cpwctdmperfintervalsess interface{}
+    CpwCTDMPerfIntervalSESs interface{}
 
     // The counter associated with the number of Unavailable Seconds encountered.
     // The type is interface{} with range: 0..4294967295. Units are seconds.
-    Cpwctdmperfintervaluass interface{}
+    CpwCTDMPerfIntervalUASs interface{}
 
     // This object represents the number of TDM failure events. A failure event
     // begins when the LOPS failure is declared, and ends when the failure is
     // cleared. A failure event that begins in one period and ends in another
     // period is counted only in the period in which it begins. The type is
     // interface{} with range: 0..4294967295.
-    Cpwctdmperfintervalfc interface{}
+    CpwCTDMPerfIntervalFC interface{}
 }
 
-func (cpwctdmperfintervalentry *CISCOIETFPWTDMMIB_Cpwctdmperfintervaltable_Cpwctdmperfintervalentry) GetEntityData() *types.CommonEntityData {
-    cpwctdmperfintervalentry.EntityData.YFilter = cpwctdmperfintervalentry.YFilter
-    cpwctdmperfintervalentry.EntityData.YangName = "cpwCTDMPerfIntervalEntry"
-    cpwctdmperfintervalentry.EntityData.BundleName = "cisco_ios_xe"
-    cpwctdmperfintervalentry.EntityData.ParentYangName = "cpwCTDMPerfIntervalTable"
-    cpwctdmperfintervalentry.EntityData.SegmentPath = "cpwCTDMPerfIntervalEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwctdmperfintervalentry.Cpwvcindex) + "']" + "[cpwCTDMPerfIntervalNumber='" + fmt.Sprintf("%v", cpwctdmperfintervalentry.Cpwctdmperfintervalnumber) + "']"
-    cpwctdmperfintervalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwctdmperfintervalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwctdmperfintervalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwCTDMPerfIntervalEntry *CISCOIETFPWTDMMIB_CpwCTDMPerfIntervalTable_CpwCTDMPerfIntervalEntry) GetEntityData() *types.CommonEntityData {
+    cpwCTDMPerfIntervalEntry.EntityData.YFilter = cpwCTDMPerfIntervalEntry.YFilter
+    cpwCTDMPerfIntervalEntry.EntityData.YangName = "cpwCTDMPerfIntervalEntry"
+    cpwCTDMPerfIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpwCTDMPerfIntervalEntry.EntityData.ParentYangName = "cpwCTDMPerfIntervalTable"
+    cpwCTDMPerfIntervalEntry.EntityData.SegmentPath = "cpwCTDMPerfIntervalEntry" + types.AddKeyToken(cpwCTDMPerfIntervalEntry.CpwVcIndex, "cpwVcIndex") + types.AddKeyToken(cpwCTDMPerfIntervalEntry.CpwCTDMPerfIntervalNumber, "cpwCTDMPerfIntervalNumber")
+    cpwCTDMPerfIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwCTDMPerfIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwCTDMPerfIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwctdmperfintervalentry.EntityData.Children = make(map[string]types.YChild)
-    cpwctdmperfintervalentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwctdmperfintervalentry.EntityData.Leafs["cpwVcIndex"] = types.YLeaf{"Cpwvcindex", cpwctdmperfintervalentry.Cpwvcindex}
-    cpwctdmperfintervalentry.EntityData.Leafs["cpwCTDMPerfIntervalNumber"] = types.YLeaf{"Cpwctdmperfintervalnumber", cpwctdmperfintervalentry.Cpwctdmperfintervalnumber}
-    cpwctdmperfintervalentry.EntityData.Leafs["cpwCTDMPerfIntervalValidData"] = types.YLeaf{"Cpwctdmperfintervalvaliddata", cpwctdmperfintervalentry.Cpwctdmperfintervalvaliddata}
-    cpwctdmperfintervalentry.EntityData.Leafs["cpwCTDMPerfIntervalDuration"] = types.YLeaf{"Cpwctdmperfintervalduration", cpwctdmperfintervalentry.Cpwctdmperfintervalduration}
-    cpwctdmperfintervalentry.EntityData.Leafs["cpwCTDMPerfIntervalMissingPkts"] = types.YLeaf{"Cpwctdmperfintervalmissingpkts", cpwctdmperfintervalentry.Cpwctdmperfintervalmissingpkts}
-    cpwctdmperfintervalentry.EntityData.Leafs["cpwCTDMPerfIntervalPktsReOrder"] = types.YLeaf{"Cpwctdmperfintervalpktsreorder", cpwctdmperfintervalentry.Cpwctdmperfintervalpktsreorder}
-    cpwctdmperfintervalentry.EntityData.Leafs["cpwCTDMPerfIntervalJtrBfrUnderruns"] = types.YLeaf{"Cpwctdmperfintervaljtrbfrunderruns", cpwctdmperfintervalentry.Cpwctdmperfintervaljtrbfrunderruns}
-    cpwctdmperfintervalentry.EntityData.Leafs["cpwCTDMPerfIntervalMisOrderDropped"] = types.YLeaf{"Cpwctdmperfintervalmisorderdropped", cpwctdmperfintervalentry.Cpwctdmperfintervalmisorderdropped}
-    cpwctdmperfintervalentry.EntityData.Leafs["cpwCTDMPerfIntervalMalformedPkt"] = types.YLeaf{"Cpwctdmperfintervalmalformedpkt", cpwctdmperfintervalentry.Cpwctdmperfintervalmalformedpkt}
-    cpwctdmperfintervalentry.EntityData.Leafs["cpwCTDMPerfIntervalESs"] = types.YLeaf{"Cpwctdmperfintervaless", cpwctdmperfintervalentry.Cpwctdmperfintervaless}
-    cpwctdmperfintervalentry.EntityData.Leafs["cpwCTDMPerfIntervalSESs"] = types.YLeaf{"Cpwctdmperfintervalsess", cpwctdmperfintervalentry.Cpwctdmperfintervalsess}
-    cpwctdmperfintervalentry.EntityData.Leafs["cpwCTDMPerfIntervalUASs"] = types.YLeaf{"Cpwctdmperfintervaluass", cpwctdmperfintervalentry.Cpwctdmperfintervaluass}
-    cpwctdmperfintervalentry.EntityData.Leafs["cpwCTDMPerfIntervalFC"] = types.YLeaf{"Cpwctdmperfintervalfc", cpwctdmperfintervalentry.Cpwctdmperfintervalfc}
-    return &(cpwctdmperfintervalentry.EntityData)
+    cpwCTDMPerfIntervalEntry.EntityData.Children = types.NewOrderedMap()
+    cpwCTDMPerfIntervalEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpwCTDMPerfIntervalEntry.EntityData.Leafs.Append("cpwVcIndex", types.YLeaf{"CpwVcIndex", cpwCTDMPerfIntervalEntry.CpwVcIndex})
+    cpwCTDMPerfIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerfIntervalNumber", types.YLeaf{"CpwCTDMPerfIntervalNumber", cpwCTDMPerfIntervalEntry.CpwCTDMPerfIntervalNumber})
+    cpwCTDMPerfIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerfIntervalValidData", types.YLeaf{"CpwCTDMPerfIntervalValidData", cpwCTDMPerfIntervalEntry.CpwCTDMPerfIntervalValidData})
+    cpwCTDMPerfIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerfIntervalDuration", types.YLeaf{"CpwCTDMPerfIntervalDuration", cpwCTDMPerfIntervalEntry.CpwCTDMPerfIntervalDuration})
+    cpwCTDMPerfIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerfIntervalMissingPkts", types.YLeaf{"CpwCTDMPerfIntervalMissingPkts", cpwCTDMPerfIntervalEntry.CpwCTDMPerfIntervalMissingPkts})
+    cpwCTDMPerfIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerfIntervalPktsReOrder", types.YLeaf{"CpwCTDMPerfIntervalPktsReOrder", cpwCTDMPerfIntervalEntry.CpwCTDMPerfIntervalPktsReOrder})
+    cpwCTDMPerfIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerfIntervalJtrBfrUnderruns", types.YLeaf{"CpwCTDMPerfIntervalJtrBfrUnderruns", cpwCTDMPerfIntervalEntry.CpwCTDMPerfIntervalJtrBfrUnderruns})
+    cpwCTDMPerfIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerfIntervalMisOrderDropped", types.YLeaf{"CpwCTDMPerfIntervalMisOrderDropped", cpwCTDMPerfIntervalEntry.CpwCTDMPerfIntervalMisOrderDropped})
+    cpwCTDMPerfIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerfIntervalMalformedPkt", types.YLeaf{"CpwCTDMPerfIntervalMalformedPkt", cpwCTDMPerfIntervalEntry.CpwCTDMPerfIntervalMalformedPkt})
+    cpwCTDMPerfIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerfIntervalESs", types.YLeaf{"CpwCTDMPerfIntervalESs", cpwCTDMPerfIntervalEntry.CpwCTDMPerfIntervalESs})
+    cpwCTDMPerfIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerfIntervalSESs", types.YLeaf{"CpwCTDMPerfIntervalSESs", cpwCTDMPerfIntervalEntry.CpwCTDMPerfIntervalSESs})
+    cpwCTDMPerfIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerfIntervalUASs", types.YLeaf{"CpwCTDMPerfIntervalUASs", cpwCTDMPerfIntervalEntry.CpwCTDMPerfIntervalUASs})
+    cpwCTDMPerfIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerfIntervalFC", types.YLeaf{"CpwCTDMPerfIntervalFC", cpwCTDMPerfIntervalEntry.CpwCTDMPerfIntervalFC})
+
+    cpwCTDMPerfIntervalEntry.EntityData.YListKeys = []string {"CpwVcIndex", "CpwCTDMPerfIntervalNumber"}
+
+    return &(cpwCTDMPerfIntervalEntry.EntityData)
 }
 
-// CISCOIETFPWTDMMIB_Cpwctdmperf1Dayintervaltable
+// CISCOIETFPWTDMMIB_CpwCTDMPerf1DayIntervalTable
 // This table provides performance information per TDM PW
 // similar to the cpwCTDMPerfIntervalTable above. However,
 // these counters represent historical 1 day intervals up to
 // one full month. The table consists of real time data, as
 // such it is not persistence across re-boot.
-type CISCOIETFPWTDMMIB_Cpwctdmperf1Dayintervaltable struct {
+type CISCOIETFPWTDMMIB_CpwCTDMPerf1DayIntervalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry is created in this table by the agent for every entry in the
     // cpwCTDMTable table. The type is slice of
-    // CISCOIETFPWTDMMIB_Cpwctdmperf1Dayintervaltable_Cpwctdmperf1Dayintervalentry.
-    Cpwctdmperf1Dayintervalentry []CISCOIETFPWTDMMIB_Cpwctdmperf1Dayintervaltable_Cpwctdmperf1Dayintervalentry
+    // CISCOIETFPWTDMMIB_CpwCTDMPerf1DayIntervalTable_CpwCTDMPerf1DayIntervalEntry.
+    CpwCTDMPerf1DayIntervalEntry []*CISCOIETFPWTDMMIB_CpwCTDMPerf1DayIntervalTable_CpwCTDMPerf1DayIntervalEntry
 }
 
-func (cpwctdmperf1Dayintervaltable *CISCOIETFPWTDMMIB_Cpwctdmperf1Dayintervaltable) GetEntityData() *types.CommonEntityData {
-    cpwctdmperf1Dayintervaltable.EntityData.YFilter = cpwctdmperf1Dayintervaltable.YFilter
-    cpwctdmperf1Dayintervaltable.EntityData.YangName = "cpwCTDMPerf1DayIntervalTable"
-    cpwctdmperf1Dayintervaltable.EntityData.BundleName = "cisco_ios_xe"
-    cpwctdmperf1Dayintervaltable.EntityData.ParentYangName = "CISCO-IETF-PW-TDM-MIB"
-    cpwctdmperf1Dayintervaltable.EntityData.SegmentPath = "cpwCTDMPerf1DayIntervalTable"
-    cpwctdmperf1Dayintervaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwctdmperf1Dayintervaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwctdmperf1Dayintervaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwCTDMPerf1DayIntervalTable *CISCOIETFPWTDMMIB_CpwCTDMPerf1DayIntervalTable) GetEntityData() *types.CommonEntityData {
+    cpwCTDMPerf1DayIntervalTable.EntityData.YFilter = cpwCTDMPerf1DayIntervalTable.YFilter
+    cpwCTDMPerf1DayIntervalTable.EntityData.YangName = "cpwCTDMPerf1DayIntervalTable"
+    cpwCTDMPerf1DayIntervalTable.EntityData.BundleName = "cisco_ios_xe"
+    cpwCTDMPerf1DayIntervalTable.EntityData.ParentYangName = "CISCO-IETF-PW-TDM-MIB"
+    cpwCTDMPerf1DayIntervalTable.EntityData.SegmentPath = "cpwCTDMPerf1DayIntervalTable"
+    cpwCTDMPerf1DayIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwCTDMPerf1DayIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwCTDMPerf1DayIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwctdmperf1Dayintervaltable.EntityData.Children = make(map[string]types.YChild)
-    cpwctdmperf1Dayintervaltable.EntityData.Children["cpwCTDMPerf1DayIntervalEntry"] = types.YChild{"Cpwctdmperf1Dayintervalentry", nil}
-    for i := range cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry {
-        cpwctdmperf1Dayintervaltable.EntityData.Children[types.GetSegmentPath(&cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry[i])] = types.YChild{"Cpwctdmperf1Dayintervalentry", &cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry[i]}
+    cpwCTDMPerf1DayIntervalTable.EntityData.Children = types.NewOrderedMap()
+    cpwCTDMPerf1DayIntervalTable.EntityData.Children.Append("cpwCTDMPerf1DayIntervalEntry", types.YChild{"CpwCTDMPerf1DayIntervalEntry", nil})
+    for i := range cpwCTDMPerf1DayIntervalTable.CpwCTDMPerf1DayIntervalEntry {
+        cpwCTDMPerf1DayIntervalTable.EntityData.Children.Append(types.GetSegmentPath(cpwCTDMPerf1DayIntervalTable.CpwCTDMPerf1DayIntervalEntry[i]), types.YChild{"CpwCTDMPerf1DayIntervalEntry", cpwCTDMPerf1DayIntervalTable.CpwCTDMPerf1DayIntervalEntry[i]})
     }
-    cpwctdmperf1Dayintervaltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpwctdmperf1Dayintervaltable.EntityData)
+    cpwCTDMPerf1DayIntervalTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpwCTDMPerf1DayIntervalTable.EntityData.YListKeys = []string {}
+
+    return &(cpwCTDMPerf1DayIntervalTable.EntityData)
 }
 
-// CISCOIETFPWTDMMIB_Cpwctdmperf1Dayintervaltable_Cpwctdmperf1Dayintervalentry
+// CISCOIETFPWTDMMIB_CpwCTDMPerf1DayIntervalTable_CpwCTDMPerf1DayIntervalEntry
 // An entry is created in this table by the agent
 // for every entry in the cpwCTDMTable table.
-type CISCOIETFPWTDMMIB_Cpwctdmperf1Dayintervaltable_Cpwctdmperf1Dayintervalentry struct {
+type CISCOIETFPWTDMMIB_CpwCTDMPerf1DayIntervalTable_CpwCTDMPerf1DayIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
-    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcindex
-    Cpwvcindex interface{}
+    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
+    CpwVcIndex interface{}
 
     // This attribute is a key. The number of interval, where 1 indicates current
     // day measured period and 2 and above indicate previous days respectively.
     // The type is interface{} with range: 0..4294967295.
-    Cpwctdmperf1Dayintervalnumber interface{}
+    CpwCTDMPerf1DayIntervalNumber interface{}
 
     // This variable indicates if the data for this interval is valid. The type is
     // bool.
-    Cpwctdmperf1Dayintervalvaliddata interface{}
+    CpwCTDMPerf1DayIntervalValidData interface{}
 
     // The duration of a particular interval in seconds, Adjustments in the
     // system's time-of-day clock, may cause the interval to be greater or less
     // than, the normal value. Therefore this actual interval value is provided.
     // The type is interface{} with range: 0..4294967295. Units are seconds.
-    Cpwctdmperf1Dayintervalduration interface{}
+    CpwCTDMPerf1DayIntervalDuration interface{}
 
     // Number of missing packets (as detected via control word sequence number
     // gaps). The type is interface{} with range: 0..4294967295. Units are
     // packets.
-    Cpwctdmperf1Dayintervalmissingpkts interface{}
+    CpwCTDMPerf1DayIntervalMissingPkts interface{}
 
     // Number of packets detected out of sequence (via control word sequence
     // number), but successfully re-ordered. The type is interface{} with range:
     // 0..4294967295. Units are packets.
-    Cpwctdmperf1Dayintervalpktsreorder interface{}
+    CpwCTDMPerf1DayIntervalPktsReOrder interface{}
 
     // Number of times a packet needed to be played out and the jitter buffer was
     // empty. The type is interface{} with range: 0..4294967295.
-    Cpwctdmperf1Dayintervaljtrbfrunderruns interface{}
+    CpwCTDMPerf1DayIntervalJtrBfrUnderruns interface{}
 
     // Number of packets detected out of order(via control word sequence numbers),
     // and could not be re-ordered, or could not fit in the jitter buffer. The
     // type is interface{} with range: 0..4294967295. Units are packets.
-    Cpwctdmperf1Dayintervalmisorderdropped interface{}
+    CpwCTDMPerf1DayIntervalMisOrderDropped interface{}
 
     // Number of packets detected with unexpected size, or bad headers' stack. The
     // type is interface{} with range: 0..4294967295. Units are packets.
-    Cpwctdmperf1Dayintervalmalformedpkt interface{}
+    CpwCTDMPerf1DayIntervalMalformedPkt interface{}
 
     // The counter associated with the number of Error Seconds encountered. The
     // type is interface{} with range: 0..4294967295. Units are seconds.
-    Cpwctdmperf1Dayintervaless interface{}
+    CpwCTDMPerf1DayIntervalESs interface{}
 
     // The counter associated with the number of Severely Error Seconds. The type
     // is interface{} with range: 0..4294967295. Units are seconds.
-    Cpwctdmperf1Dayintervalsess interface{}
+    CpwCTDMPerf1DayIntervalSESs interface{}
 
     // The counter associated with the number of UnAvailable Seconds. When first
     // entering the UAS state, the number of SES To UAS is added to this object,
     // then as each additional UAS occurs, this object increments by one. The type
     // is interface{} with range: 0..4294967295. Units are seconds.
-    Cpwctdmperf1Dayintervaluass interface{}
+    CpwCTDMPerf1DayIntervalUASs interface{}
 
     // This object represents the number of TDM failure events. A failure event
     // begins when the LOPS failure is declared, and ends when the failure is
     // cleared. The type is interface{} with range: 0..4294967295.
-    Cpwctdmperf1Dayintervalfc interface{}
+    CpwCTDMPerf1DayIntervalFC interface{}
 }
 
-func (cpwctdmperf1Dayintervalentry *CISCOIETFPWTDMMIB_Cpwctdmperf1Dayintervaltable_Cpwctdmperf1Dayintervalentry) GetEntityData() *types.CommonEntityData {
-    cpwctdmperf1Dayintervalentry.EntityData.YFilter = cpwctdmperf1Dayintervalentry.YFilter
-    cpwctdmperf1Dayintervalentry.EntityData.YangName = "cpwCTDMPerf1DayIntervalEntry"
-    cpwctdmperf1Dayintervalentry.EntityData.BundleName = "cisco_ios_xe"
-    cpwctdmperf1Dayintervalentry.EntityData.ParentYangName = "cpwCTDMPerf1DayIntervalTable"
-    cpwctdmperf1Dayintervalentry.EntityData.SegmentPath = "cpwCTDMPerf1DayIntervalEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwctdmperf1Dayintervalentry.Cpwvcindex) + "']" + "[cpwCTDMPerf1DayIntervalNumber='" + fmt.Sprintf("%v", cpwctdmperf1Dayintervalentry.Cpwctdmperf1Dayintervalnumber) + "']"
-    cpwctdmperf1Dayintervalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwctdmperf1Dayintervalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwctdmperf1Dayintervalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwCTDMPerf1DayIntervalEntry *CISCOIETFPWTDMMIB_CpwCTDMPerf1DayIntervalTable_CpwCTDMPerf1DayIntervalEntry) GetEntityData() *types.CommonEntityData {
+    cpwCTDMPerf1DayIntervalEntry.EntityData.YFilter = cpwCTDMPerf1DayIntervalEntry.YFilter
+    cpwCTDMPerf1DayIntervalEntry.EntityData.YangName = "cpwCTDMPerf1DayIntervalEntry"
+    cpwCTDMPerf1DayIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpwCTDMPerf1DayIntervalEntry.EntityData.ParentYangName = "cpwCTDMPerf1DayIntervalTable"
+    cpwCTDMPerf1DayIntervalEntry.EntityData.SegmentPath = "cpwCTDMPerf1DayIntervalEntry" + types.AddKeyToken(cpwCTDMPerf1DayIntervalEntry.CpwVcIndex, "cpwVcIndex") + types.AddKeyToken(cpwCTDMPerf1DayIntervalEntry.CpwCTDMPerf1DayIntervalNumber, "cpwCTDMPerf1DayIntervalNumber")
+    cpwCTDMPerf1DayIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwCTDMPerf1DayIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwCTDMPerf1DayIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwctdmperf1Dayintervalentry.EntityData.Children = make(map[string]types.YChild)
-    cpwctdmperf1Dayintervalentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwctdmperf1Dayintervalentry.EntityData.Leafs["cpwVcIndex"] = types.YLeaf{"Cpwvcindex", cpwctdmperf1Dayintervalentry.Cpwvcindex}
-    cpwctdmperf1Dayintervalentry.EntityData.Leafs["cpwCTDMPerf1DayIntervalNumber"] = types.YLeaf{"Cpwctdmperf1Dayintervalnumber", cpwctdmperf1Dayintervalentry.Cpwctdmperf1Dayintervalnumber}
-    cpwctdmperf1Dayintervalentry.EntityData.Leafs["cpwCTDMPerf1DayIntervalValidData"] = types.YLeaf{"Cpwctdmperf1Dayintervalvaliddata", cpwctdmperf1Dayintervalentry.Cpwctdmperf1Dayintervalvaliddata}
-    cpwctdmperf1Dayintervalentry.EntityData.Leafs["cpwCTDMPerf1DayIntervalDuration"] = types.YLeaf{"Cpwctdmperf1Dayintervalduration", cpwctdmperf1Dayintervalentry.Cpwctdmperf1Dayintervalduration}
-    cpwctdmperf1Dayintervalentry.EntityData.Leafs["cpwCTDMPerf1DayIntervalMissingPkts"] = types.YLeaf{"Cpwctdmperf1Dayintervalmissingpkts", cpwctdmperf1Dayintervalentry.Cpwctdmperf1Dayintervalmissingpkts}
-    cpwctdmperf1Dayintervalentry.EntityData.Leafs["cpwCTDMPerf1DayIntervalPktsReOrder"] = types.YLeaf{"Cpwctdmperf1Dayintervalpktsreorder", cpwctdmperf1Dayintervalentry.Cpwctdmperf1Dayintervalpktsreorder}
-    cpwctdmperf1Dayintervalentry.EntityData.Leafs["cpwCTDMPerf1DayIntervalJtrBfrUnderruns"] = types.YLeaf{"Cpwctdmperf1Dayintervaljtrbfrunderruns", cpwctdmperf1Dayintervalentry.Cpwctdmperf1Dayintervaljtrbfrunderruns}
-    cpwctdmperf1Dayintervalentry.EntityData.Leafs["cpwCTDMPerf1DayIntervalMisOrderDropped"] = types.YLeaf{"Cpwctdmperf1Dayintervalmisorderdropped", cpwctdmperf1Dayintervalentry.Cpwctdmperf1Dayintervalmisorderdropped}
-    cpwctdmperf1Dayintervalentry.EntityData.Leafs["cpwCTDMPerf1DayIntervalMalformedPkt"] = types.YLeaf{"Cpwctdmperf1Dayintervalmalformedpkt", cpwctdmperf1Dayintervalentry.Cpwctdmperf1Dayintervalmalformedpkt}
-    cpwctdmperf1Dayintervalentry.EntityData.Leafs["cpwCTDMPerf1DayIntervalESs"] = types.YLeaf{"Cpwctdmperf1Dayintervaless", cpwctdmperf1Dayintervalentry.Cpwctdmperf1Dayintervaless}
-    cpwctdmperf1Dayintervalentry.EntityData.Leafs["cpwCTDMPerf1DayIntervalSESs"] = types.YLeaf{"Cpwctdmperf1Dayintervalsess", cpwctdmperf1Dayintervalentry.Cpwctdmperf1Dayintervalsess}
-    cpwctdmperf1Dayintervalentry.EntityData.Leafs["cpwCTDMPerf1DayIntervalUASs"] = types.YLeaf{"Cpwctdmperf1Dayintervaluass", cpwctdmperf1Dayintervalentry.Cpwctdmperf1Dayintervaluass}
-    cpwctdmperf1Dayintervalentry.EntityData.Leafs["cpwCTDMPerf1DayIntervalFC"] = types.YLeaf{"Cpwctdmperf1Dayintervalfc", cpwctdmperf1Dayintervalentry.Cpwctdmperf1Dayintervalfc}
-    return &(cpwctdmperf1Dayintervalentry.EntityData)
+    cpwCTDMPerf1DayIntervalEntry.EntityData.Children = types.NewOrderedMap()
+    cpwCTDMPerf1DayIntervalEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpwCTDMPerf1DayIntervalEntry.EntityData.Leafs.Append("cpwVcIndex", types.YLeaf{"CpwVcIndex", cpwCTDMPerf1DayIntervalEntry.CpwVcIndex})
+    cpwCTDMPerf1DayIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerf1DayIntervalNumber", types.YLeaf{"CpwCTDMPerf1DayIntervalNumber", cpwCTDMPerf1DayIntervalEntry.CpwCTDMPerf1DayIntervalNumber})
+    cpwCTDMPerf1DayIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerf1DayIntervalValidData", types.YLeaf{"CpwCTDMPerf1DayIntervalValidData", cpwCTDMPerf1DayIntervalEntry.CpwCTDMPerf1DayIntervalValidData})
+    cpwCTDMPerf1DayIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerf1DayIntervalDuration", types.YLeaf{"CpwCTDMPerf1DayIntervalDuration", cpwCTDMPerf1DayIntervalEntry.CpwCTDMPerf1DayIntervalDuration})
+    cpwCTDMPerf1DayIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerf1DayIntervalMissingPkts", types.YLeaf{"CpwCTDMPerf1DayIntervalMissingPkts", cpwCTDMPerf1DayIntervalEntry.CpwCTDMPerf1DayIntervalMissingPkts})
+    cpwCTDMPerf1DayIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerf1DayIntervalPktsReOrder", types.YLeaf{"CpwCTDMPerf1DayIntervalPktsReOrder", cpwCTDMPerf1DayIntervalEntry.CpwCTDMPerf1DayIntervalPktsReOrder})
+    cpwCTDMPerf1DayIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerf1DayIntervalJtrBfrUnderruns", types.YLeaf{"CpwCTDMPerf1DayIntervalJtrBfrUnderruns", cpwCTDMPerf1DayIntervalEntry.CpwCTDMPerf1DayIntervalJtrBfrUnderruns})
+    cpwCTDMPerf1DayIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerf1DayIntervalMisOrderDropped", types.YLeaf{"CpwCTDMPerf1DayIntervalMisOrderDropped", cpwCTDMPerf1DayIntervalEntry.CpwCTDMPerf1DayIntervalMisOrderDropped})
+    cpwCTDMPerf1DayIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerf1DayIntervalMalformedPkt", types.YLeaf{"CpwCTDMPerf1DayIntervalMalformedPkt", cpwCTDMPerf1DayIntervalEntry.CpwCTDMPerf1DayIntervalMalformedPkt})
+    cpwCTDMPerf1DayIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerf1DayIntervalESs", types.YLeaf{"CpwCTDMPerf1DayIntervalESs", cpwCTDMPerf1DayIntervalEntry.CpwCTDMPerf1DayIntervalESs})
+    cpwCTDMPerf1DayIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerf1DayIntervalSESs", types.YLeaf{"CpwCTDMPerf1DayIntervalSESs", cpwCTDMPerf1DayIntervalEntry.CpwCTDMPerf1DayIntervalSESs})
+    cpwCTDMPerf1DayIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerf1DayIntervalUASs", types.YLeaf{"CpwCTDMPerf1DayIntervalUASs", cpwCTDMPerf1DayIntervalEntry.CpwCTDMPerf1DayIntervalUASs})
+    cpwCTDMPerf1DayIntervalEntry.EntityData.Leafs.Append("cpwCTDMPerf1DayIntervalFC", types.YLeaf{"CpwCTDMPerf1DayIntervalFC", cpwCTDMPerf1DayIntervalEntry.CpwCTDMPerf1DayIntervalFC})
+
+    cpwCTDMPerf1DayIntervalEntry.EntityData.YListKeys = []string {"CpwVcIndex", "CpwCTDMPerf1DayIntervalNumber"}
+
+    return &(cpwCTDMPerf1DayIntervalEntry.EntityData)
 }
 

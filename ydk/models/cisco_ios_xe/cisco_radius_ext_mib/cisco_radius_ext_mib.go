@@ -51,13 +51,13 @@ type CISCORADIUSEXTMIB struct {
     YFilter yfilter.YFilter
 
     
-    Creclientglobal CISCORADIUSEXTMIB_Creclientglobal
+    CreClientGlobal CISCORADIUSEXTMIB_CreClientGlobal
 
     
-    Creclientauthentication CISCORADIUSEXTMIB_Creclientauthentication
+    CreClientAuthentication CISCORADIUSEXTMIB_CreClientAuthentication
 
     
-    Creclientaccounting CISCORADIUSEXTMIB_Creclientaccounting
+    CreClientAccounting CISCORADIUSEXTMIB_CreClientAccounting
 }
 
 func (cISCORADIUSEXTMIB *CISCORADIUSEXTMIB) GetEntityData() *types.CommonEntityData {
@@ -70,296 +70,308 @@ func (cISCORADIUSEXTMIB *CISCORADIUSEXTMIB) GetEntityData() *types.CommonEntityD
     cISCORADIUSEXTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCORADIUSEXTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCORADIUSEXTMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCORADIUSEXTMIB.EntityData.Children["creClientGlobal"] = types.YChild{"Creclientglobal", &cISCORADIUSEXTMIB.Creclientglobal}
-    cISCORADIUSEXTMIB.EntityData.Children["creClientAuthentication"] = types.YChild{"Creclientauthentication", &cISCORADIUSEXTMIB.Creclientauthentication}
-    cISCORADIUSEXTMIB.EntityData.Children["creClientAccounting"] = types.YChild{"Creclientaccounting", &cISCORADIUSEXTMIB.Creclientaccounting}
-    cISCORADIUSEXTMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCORADIUSEXTMIB.EntityData.Children = types.NewOrderedMap()
+    cISCORADIUSEXTMIB.EntityData.Children.Append("creClientGlobal", types.YChild{"CreClientGlobal", &cISCORADIUSEXTMIB.CreClientGlobal})
+    cISCORADIUSEXTMIB.EntityData.Children.Append("creClientAuthentication", types.YChild{"CreClientAuthentication", &cISCORADIUSEXTMIB.CreClientAuthentication})
+    cISCORADIUSEXTMIB.EntityData.Children.Append("creClientAccounting", types.YChild{"CreClientAccounting", &cISCORADIUSEXTMIB.CreClientAccounting})
+    cISCORADIUSEXTMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCORADIUSEXTMIB.EntityData.YListKeys = []string {}
+
     return &(cISCORADIUSEXTMIB.EntityData)
 }
 
-// CISCORADIUSEXTMIB_Creclientglobal
-type CISCORADIUSEXTMIB_Creclientglobal struct {
+// CISCORADIUSEXTMIB_CreClientGlobal
+type CISCORADIUSEXTMIB_CreClientGlobal struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object indicates the maximum length of the queue which stores the
     // incoming RADIUS packets. The type is interface{} with range: 0..4294967295.
     // Units are RADIUS packets.
-    Creclienttotalmaxinqlength interface{}
+    CreClientTotalMaxInQLength interface{}
 
     // This object indicates the maximum length of the queue which stores the
     // pending RADIUS packets for which the responses are outstanding. The type is
     // interface{} with range: 0..4294967295. Units are RADIUS packets.
-    Creclienttotalmaxwaitqlength interface{}
+    CreClientTotalMaxWaitQLength interface{}
 
     // This object indicates the maximum length of the queue which stores those
     // RADIUS packets for which the responses are received. The type is
     // interface{} with range: 0..4294967295. Units are RADIUS packets.
-    Creclienttotalmaxdoneqlength interface{}
+    CreClientTotalMaxDoneQLength interface{}
 
     // This object indicates the number of access reject packets received by the
     // RADIUS client. The type is interface{} with range: 0..4294967295. Units are
     // RADIUS packets.
-    Creclienttotalaccessrejects interface{}
+    CreClientTotalAccessRejects interface{}
 
     // This object indicates the overall response delay experienced by RADIUS
     // packets (both authentication and accounting). The type is interface{} with
     // range: 0..2147483647.
-    Creclienttotalaverageresponsedelay interface{}
+    CreClientTotalAverageResponseDelay interface{}
 
     // If the 'extended RADIUS source ports' is configured, multiple source ports
     // are used for sending out RADIUS authentication or accounting requests. 
     // This MIB object indicates the port value from where this range starts. The
     // type is interface{} with range: 0..65535.
-    Creclientsourceportrangestart interface{}
+    CreClientSourcePortRangeStart interface{}
 
     // If the 'extended RADIUS source port' is configured, multiple source ports
     // are used for sending out RADIUS authentication or accounting requests. 
     // This MIB object indicates the port value where this range ends. The type is
     // interface{} with range: 0..65535.
-    Creclientsourceportrangeend interface{}
+    CreClientSourcePortRangeEnd interface{}
 
     // If the 'extended RADIUS source ports' is configured, multiple source ports
     // are used for sending out RADIUS authentication or accounting requests. 
     // This MIB object indicates the last source port that was used to send out a
     // RADIUS authentication or accounting request. The type is interface{} with
     // range: 0..65535.
-    Creclientlastusedsourceport interface{}
+    CreClientLastUsedSourcePort interface{}
 
     // This MIB object indicates the last source identifier that was used to send
     // out a RADIUS packet when 'extended RADIUS source ports' is configured.  The
     // source identifier is a counter that is incremented everytime a RADIUS
     // authentication or an accounting packet is sent. The type is interface{}
     // with range: 0..255.
-    Creclientlastusedsourceid interface{}
+    CreClientLastUsedSourceId interface{}
 }
 
-func (creclientglobal *CISCORADIUSEXTMIB_Creclientglobal) GetEntityData() *types.CommonEntityData {
-    creclientglobal.EntityData.YFilter = creclientglobal.YFilter
-    creclientglobal.EntityData.YangName = "creClientGlobal"
-    creclientglobal.EntityData.BundleName = "cisco_ios_xe"
-    creclientglobal.EntityData.ParentYangName = "CISCO-RADIUS-EXT-MIB"
-    creclientglobal.EntityData.SegmentPath = "creClientGlobal"
-    creclientglobal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    creclientglobal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    creclientglobal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (creClientGlobal *CISCORADIUSEXTMIB_CreClientGlobal) GetEntityData() *types.CommonEntityData {
+    creClientGlobal.EntityData.YFilter = creClientGlobal.YFilter
+    creClientGlobal.EntityData.YangName = "creClientGlobal"
+    creClientGlobal.EntityData.BundleName = "cisco_ios_xe"
+    creClientGlobal.EntityData.ParentYangName = "CISCO-RADIUS-EXT-MIB"
+    creClientGlobal.EntityData.SegmentPath = "creClientGlobal"
+    creClientGlobal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    creClientGlobal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    creClientGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    creclientglobal.EntityData.Children = make(map[string]types.YChild)
-    creclientglobal.EntityData.Leafs = make(map[string]types.YLeaf)
-    creclientglobal.EntityData.Leafs["creClientTotalMaxInQLength"] = types.YLeaf{"Creclienttotalmaxinqlength", creclientglobal.Creclienttotalmaxinqlength}
-    creclientglobal.EntityData.Leafs["creClientTotalMaxWaitQLength"] = types.YLeaf{"Creclienttotalmaxwaitqlength", creclientglobal.Creclienttotalmaxwaitqlength}
-    creclientglobal.EntityData.Leafs["creClientTotalMaxDoneQLength"] = types.YLeaf{"Creclienttotalmaxdoneqlength", creclientglobal.Creclienttotalmaxdoneqlength}
-    creclientglobal.EntityData.Leafs["creClientTotalAccessRejects"] = types.YLeaf{"Creclienttotalaccessrejects", creclientglobal.Creclienttotalaccessrejects}
-    creclientglobal.EntityData.Leafs["creClientTotalAverageResponseDelay"] = types.YLeaf{"Creclienttotalaverageresponsedelay", creclientglobal.Creclienttotalaverageresponsedelay}
-    creclientglobal.EntityData.Leafs["creClientSourcePortRangeStart"] = types.YLeaf{"Creclientsourceportrangestart", creclientglobal.Creclientsourceportrangestart}
-    creclientglobal.EntityData.Leafs["creClientSourcePortRangeEnd"] = types.YLeaf{"Creclientsourceportrangeend", creclientglobal.Creclientsourceportrangeend}
-    creclientglobal.EntityData.Leafs["creClientLastUsedSourcePort"] = types.YLeaf{"Creclientlastusedsourceport", creclientglobal.Creclientlastusedsourceport}
-    creclientglobal.EntityData.Leafs["creClientLastUsedSourceId"] = types.YLeaf{"Creclientlastusedsourceid", creclientglobal.Creclientlastusedsourceid}
-    return &(creclientglobal.EntityData)
+    creClientGlobal.EntityData.Children = types.NewOrderedMap()
+    creClientGlobal.EntityData.Leafs = types.NewOrderedMap()
+    creClientGlobal.EntityData.Leafs.Append("creClientTotalMaxInQLength", types.YLeaf{"CreClientTotalMaxInQLength", creClientGlobal.CreClientTotalMaxInQLength})
+    creClientGlobal.EntityData.Leafs.Append("creClientTotalMaxWaitQLength", types.YLeaf{"CreClientTotalMaxWaitQLength", creClientGlobal.CreClientTotalMaxWaitQLength})
+    creClientGlobal.EntityData.Leafs.Append("creClientTotalMaxDoneQLength", types.YLeaf{"CreClientTotalMaxDoneQLength", creClientGlobal.CreClientTotalMaxDoneQLength})
+    creClientGlobal.EntityData.Leafs.Append("creClientTotalAccessRejects", types.YLeaf{"CreClientTotalAccessRejects", creClientGlobal.CreClientTotalAccessRejects})
+    creClientGlobal.EntityData.Leafs.Append("creClientTotalAverageResponseDelay", types.YLeaf{"CreClientTotalAverageResponseDelay", creClientGlobal.CreClientTotalAverageResponseDelay})
+    creClientGlobal.EntityData.Leafs.Append("creClientSourcePortRangeStart", types.YLeaf{"CreClientSourcePortRangeStart", creClientGlobal.CreClientSourcePortRangeStart})
+    creClientGlobal.EntityData.Leafs.Append("creClientSourcePortRangeEnd", types.YLeaf{"CreClientSourcePortRangeEnd", creClientGlobal.CreClientSourcePortRangeEnd})
+    creClientGlobal.EntityData.Leafs.Append("creClientLastUsedSourcePort", types.YLeaf{"CreClientLastUsedSourcePort", creClientGlobal.CreClientLastUsedSourcePort})
+    creClientGlobal.EntityData.Leafs.Append("creClientLastUsedSourceId", types.YLeaf{"CreClientLastUsedSourceId", creClientGlobal.CreClientLastUsedSourceId})
+
+    creClientGlobal.EntityData.YListKeys = []string {}
+
+    return &(creClientGlobal.EntityData)
 }
 
-// CISCORADIUSEXTMIB_Creclientauthentication
-type CISCORADIUSEXTMIB_Creclientauthentication struct {
+// CISCORADIUSEXTMIB_CreClientAuthentication
+type CISCORADIUSEXTMIB_CreClientAuthentication struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object indicates the number of RADIUS authentication response packets
     // received which contained invalid authenticators. The type is interface{}
     // with range: 0..4294967295. Units are RADIUS packets.
-    Creauthclientbadauthenticators interface{}
+    CreAuthClientBadAuthenticators interface{}
 
     // This object indicates the number of unknown RADIUS authentication responses
     // received. The type is interface{} with range: 0..4294967295. Units are
     // RADIUS packets.
-    Creauthclientunknownresponses interface{}
+    CreAuthClientUnknownResponses interface{}
 
     // This object indicates the number of RADIUS authentication packets that
     // received responses. The type is interface{} with range: 0..4294967295.
     // Units are RADIUS packets.
-    Creauthclienttotalpacketswithresponses interface{}
+    CreAuthClientTotalPacketsWithResponses interface{}
 
     // This object indicates the number of buffer allocation failures encountered
     // during RADIUS request formation. The type is interface{} with range:
     // 0..4294967295. Units are buffer failures.
-    Creauthclientbufferallocfailures interface{}
+    CreAuthClientBufferAllocFailures interface{}
 
     // This object indicates the number of RADIUS authentication response packets
     // received by the RADIUS client. The type is interface{} with range:
     // 0..4294967295. Units are RADIUS packets.
-    Creauthclienttotalresponses interface{}
+    CreAuthClientTotalResponses interface{}
 
     // This object indicates the number of RADIUS authentication packets that
     // never received a response. The type is interface{} with range:
     // 0..4294967295. Units are RADIUS packets.
-    Creauthclienttotalpacketswithoutresponses interface{}
+    CreAuthClientTotalPacketsWithoutResponses interface{}
 
     // This object indicates the average response delay experienced for RADIUS
     // authentication requests. The type is interface{} with range: 0..2147483647.
-    Creauthclientaverageresponsedelay interface{}
+    CreAuthClientAverageResponseDelay interface{}
 
     // This object indicates the maximum delay experienced for RADIUS
     // authentication requests. The type is interface{} with range: 0..2147483647.
-    Creauthclientmaxresponsedelay interface{}
+    CreAuthClientMaxResponseDelay interface{}
 
     // This object indicates the maximum buffer size for RADIUS authentication
     // packet. The type is interface{} with range: 0..4294967295. Units are bytes.
-    Creauthclientmaxbuffersize interface{}
+    CreAuthClientMaxBufferSize interface{}
 
     // This object indicates the number of timeouts that have occurred for RADIUS
     // authentication.  After a timeout the client may retry sending the request
     // to the same server or to a different server or give up depending on the
     // configuration. The type is interface{} with range: 0..4294967295. Units are
     // timeouts.
-    Creauthclienttimeouts interface{}
+    CreAuthClientTimeouts interface{}
 
     // This object indicates the number of times client has received duplicate
     // authentication responses with the same identifier.  Out of these two
     // packets, the later packet is considered as a true match. The type is
     // interface{} with range: 0..4294967295. Units are RADIUS packets.
-    Creauthclientdupids interface{}
+    CreAuthClientDupIDs interface{}
 
     // This object indicates the number of malformed RADIUS authentication
     // responses received.  Malformed packets include packets with an invalid
     // length. The type is interface{} with range: 0..4294967295. Units are RADIUS
     // packets.
-    Creauthclientmalformedresponses interface{}
+    CreAuthClientMalformedResponses interface{}
 
     // This MIB object indicates the last source identifier that was used to send
     // out a RADIUS authentication request when 'extended RADIUS source ports' is
     // configured.  The source identifier is a counter that is incremented
     // everytime a RADIUS authentication request is sent. The type is interface{}
     // with range: 0..255.
-    Creauthclientlastusedsourceid interface{}
+    CreAuthClientLastUsedSourceId interface{}
 }
 
-func (creclientauthentication *CISCORADIUSEXTMIB_Creclientauthentication) GetEntityData() *types.CommonEntityData {
-    creclientauthentication.EntityData.YFilter = creclientauthentication.YFilter
-    creclientauthentication.EntityData.YangName = "creClientAuthentication"
-    creclientauthentication.EntityData.BundleName = "cisco_ios_xe"
-    creclientauthentication.EntityData.ParentYangName = "CISCO-RADIUS-EXT-MIB"
-    creclientauthentication.EntityData.SegmentPath = "creClientAuthentication"
-    creclientauthentication.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    creclientauthentication.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    creclientauthentication.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (creClientAuthentication *CISCORADIUSEXTMIB_CreClientAuthentication) GetEntityData() *types.CommonEntityData {
+    creClientAuthentication.EntityData.YFilter = creClientAuthentication.YFilter
+    creClientAuthentication.EntityData.YangName = "creClientAuthentication"
+    creClientAuthentication.EntityData.BundleName = "cisco_ios_xe"
+    creClientAuthentication.EntityData.ParentYangName = "CISCO-RADIUS-EXT-MIB"
+    creClientAuthentication.EntityData.SegmentPath = "creClientAuthentication"
+    creClientAuthentication.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    creClientAuthentication.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    creClientAuthentication.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    creclientauthentication.EntityData.Children = make(map[string]types.YChild)
-    creclientauthentication.EntityData.Leafs = make(map[string]types.YLeaf)
-    creclientauthentication.EntityData.Leafs["creAuthClientBadAuthenticators"] = types.YLeaf{"Creauthclientbadauthenticators", creclientauthentication.Creauthclientbadauthenticators}
-    creclientauthentication.EntityData.Leafs["creAuthClientUnknownResponses"] = types.YLeaf{"Creauthclientunknownresponses", creclientauthentication.Creauthclientunknownresponses}
-    creclientauthentication.EntityData.Leafs["creAuthClientTotalPacketsWithResponses"] = types.YLeaf{"Creauthclienttotalpacketswithresponses", creclientauthentication.Creauthclienttotalpacketswithresponses}
-    creclientauthentication.EntityData.Leafs["creAuthClientBufferAllocFailures"] = types.YLeaf{"Creauthclientbufferallocfailures", creclientauthentication.Creauthclientbufferallocfailures}
-    creclientauthentication.EntityData.Leafs["creAuthClientTotalResponses"] = types.YLeaf{"Creauthclienttotalresponses", creclientauthentication.Creauthclienttotalresponses}
-    creclientauthentication.EntityData.Leafs["creAuthClientTotalPacketsWithoutResponses"] = types.YLeaf{"Creauthclienttotalpacketswithoutresponses", creclientauthentication.Creauthclienttotalpacketswithoutresponses}
-    creclientauthentication.EntityData.Leafs["creAuthClientAverageResponseDelay"] = types.YLeaf{"Creauthclientaverageresponsedelay", creclientauthentication.Creauthclientaverageresponsedelay}
-    creclientauthentication.EntityData.Leafs["creAuthClientMaxResponseDelay"] = types.YLeaf{"Creauthclientmaxresponsedelay", creclientauthentication.Creauthclientmaxresponsedelay}
-    creclientauthentication.EntityData.Leafs["creAuthClientMaxBufferSize"] = types.YLeaf{"Creauthclientmaxbuffersize", creclientauthentication.Creauthclientmaxbuffersize}
-    creclientauthentication.EntityData.Leafs["creAuthClientTimeouts"] = types.YLeaf{"Creauthclienttimeouts", creclientauthentication.Creauthclienttimeouts}
-    creclientauthentication.EntityData.Leafs["creAuthClientDupIDs"] = types.YLeaf{"Creauthclientdupids", creclientauthentication.Creauthclientdupids}
-    creclientauthentication.EntityData.Leafs["creAuthClientMalformedResponses"] = types.YLeaf{"Creauthclientmalformedresponses", creclientauthentication.Creauthclientmalformedresponses}
-    creclientauthentication.EntityData.Leafs["creAuthClientLastUsedSourceId"] = types.YLeaf{"Creauthclientlastusedsourceid", creclientauthentication.Creauthclientlastusedsourceid}
-    return &(creclientauthentication.EntityData)
+    creClientAuthentication.EntityData.Children = types.NewOrderedMap()
+    creClientAuthentication.EntityData.Leafs = types.NewOrderedMap()
+    creClientAuthentication.EntityData.Leafs.Append("creAuthClientBadAuthenticators", types.YLeaf{"CreAuthClientBadAuthenticators", creClientAuthentication.CreAuthClientBadAuthenticators})
+    creClientAuthentication.EntityData.Leafs.Append("creAuthClientUnknownResponses", types.YLeaf{"CreAuthClientUnknownResponses", creClientAuthentication.CreAuthClientUnknownResponses})
+    creClientAuthentication.EntityData.Leafs.Append("creAuthClientTotalPacketsWithResponses", types.YLeaf{"CreAuthClientTotalPacketsWithResponses", creClientAuthentication.CreAuthClientTotalPacketsWithResponses})
+    creClientAuthentication.EntityData.Leafs.Append("creAuthClientBufferAllocFailures", types.YLeaf{"CreAuthClientBufferAllocFailures", creClientAuthentication.CreAuthClientBufferAllocFailures})
+    creClientAuthentication.EntityData.Leafs.Append("creAuthClientTotalResponses", types.YLeaf{"CreAuthClientTotalResponses", creClientAuthentication.CreAuthClientTotalResponses})
+    creClientAuthentication.EntityData.Leafs.Append("creAuthClientTotalPacketsWithoutResponses", types.YLeaf{"CreAuthClientTotalPacketsWithoutResponses", creClientAuthentication.CreAuthClientTotalPacketsWithoutResponses})
+    creClientAuthentication.EntityData.Leafs.Append("creAuthClientAverageResponseDelay", types.YLeaf{"CreAuthClientAverageResponseDelay", creClientAuthentication.CreAuthClientAverageResponseDelay})
+    creClientAuthentication.EntityData.Leafs.Append("creAuthClientMaxResponseDelay", types.YLeaf{"CreAuthClientMaxResponseDelay", creClientAuthentication.CreAuthClientMaxResponseDelay})
+    creClientAuthentication.EntityData.Leafs.Append("creAuthClientMaxBufferSize", types.YLeaf{"CreAuthClientMaxBufferSize", creClientAuthentication.CreAuthClientMaxBufferSize})
+    creClientAuthentication.EntityData.Leafs.Append("creAuthClientTimeouts", types.YLeaf{"CreAuthClientTimeouts", creClientAuthentication.CreAuthClientTimeouts})
+    creClientAuthentication.EntityData.Leafs.Append("creAuthClientDupIDs", types.YLeaf{"CreAuthClientDupIDs", creClientAuthentication.CreAuthClientDupIDs})
+    creClientAuthentication.EntityData.Leafs.Append("creAuthClientMalformedResponses", types.YLeaf{"CreAuthClientMalformedResponses", creClientAuthentication.CreAuthClientMalformedResponses})
+    creClientAuthentication.EntityData.Leafs.Append("creAuthClientLastUsedSourceId", types.YLeaf{"CreAuthClientLastUsedSourceId", creClientAuthentication.CreAuthClientLastUsedSourceId})
+
+    creClientAuthentication.EntityData.YListKeys = []string {}
+
+    return &(creClientAuthentication.EntityData)
 }
 
-// CISCORADIUSEXTMIB_Creclientaccounting
-type CISCORADIUSEXTMIB_Creclientaccounting struct {
+// CISCORADIUSEXTMIB_CreClientAccounting
+type CISCORADIUSEXTMIB_CreClientAccounting struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object indicates the number of RADIUS Accounting-Response packets
     // received with invalid authenticators. The type is interface{} with range:
     // 0..4294967295. Units are RADIUS packets.
-    Creacctclientbadauthenticators interface{}
+    CreAcctClientBadAuthenticators interface{}
 
     // This object indicates the number of unknown RADIUS accounting responses
     // received. The type is interface{} with range: 0..4294967295. Units are
     // RADIUS packets.
-    Creacctclientunknownresponses interface{}
+    CreAcctClientUnknownResponses interface{}
 
     // This object indicates the number of RADIUS accounting packets that received
     // responses. The type is interface{} with range: 0..4294967295. Units are
     // RADIUS packets.
-    Creacctclienttotalpacketswithresponses interface{}
+    CreAcctClientTotalPacketsWithResponses interface{}
 
     // This object indicates the number of buffer allocation failures encountered
     // for RADIUS accounting request. The type is interface{} with range:
     // 0..4294967295. Units are buffer failures.
-    Creacctclientbufferallocfailures interface{}
+    CreAcctClientBufferAllocFailures interface{}
 
     // This object indicates the number of RADIUS accounting response packets
     // received by the RADIUS client. The type is interface{} with range:
     // 0..4294967295. Units are RADIUS packets.
-    Creacctclienttotalresponses interface{}
+    CreAcctClientTotalResponses interface{}
 
     // This object indicates the number of RADIUS accounting packets that never
     // received a response. The type is interface{} with range: 0..4294967295.
     // Units are RADIUS packets.
-    Creacctclienttotalpacketswithoutresponses interface{}
+    CreAcctClientTotalPacketsWithoutResponses interface{}
 
     // This object indicates the average response delay experienced for RADIUS
     // accounting. The type is interface{} with range: 0..2147483647.
-    Creacctclientaverageresponsedelay interface{}
+    CreAcctClientAverageResponseDelay interface{}
 
     // This object indicates the maximum delay experienced for RADIUS accounting.
     // The type is interface{} with range: 0..2147483647.
-    Creacctclientmaxresponsedelay interface{}
+    CreAcctClientMaxResponseDelay interface{}
 
     // This object indicates the maximum buffer size for RADIUS accounting
     // packets. The type is interface{} with range: 0..4294967295. Units are
     // bytes.
-    Creacctclientmaxbuffersize interface{}
+    CreAcctClientMaxBufferSize interface{}
 
     // This object indicates the number of timeouts that have occurred for RADIUS
     // accounting.  After a timeout the client may retry sending the request to
     // the same server or to a different server or give up depending on the
     // configuration. The type is interface{} with range: 0..4294967295. Units are
     // timeouts.
-    Creacctclienttimeouts interface{}
+    CreAcctClientTimeouts interface{}
 
     // This object indicates the number of times client has received duplicate
     // accounting responses with the same identifier.  Out of these two packets,
     // the later packet is considered as a true match. The type is interface{}
     // with range: 0..4294967295. Units are RADIUS packets.
-    Creacctclientdupids interface{}
+    CreAcctClientDupIDs interface{}
 
     // This object indicates the number of malformed RADIUS accounting responses
     // received.  Malformed packets include packets with an invalid length. The
     // type is interface{} with range: 0..4294967295. Units are RADIUS packets.
-    Creacctclientmalformedresponses interface{}
+    CreAcctClientMalformedResponses interface{}
 
     // This MIB object indicates the last source identifier that was used to send
     // out a RADIUS accounting request when 'extended RADIUS source ports' is
     // configured.  The source identifier is a counter that is incremented
     // everytime a RADIUS accounting request is sent. The type is interface{} with
     // range: 0..255.
-    Creacctclientlastusedsourceid interface{}
+    CreAcctClientLastUsedSourceId interface{}
 }
 
-func (creclientaccounting *CISCORADIUSEXTMIB_Creclientaccounting) GetEntityData() *types.CommonEntityData {
-    creclientaccounting.EntityData.YFilter = creclientaccounting.YFilter
-    creclientaccounting.EntityData.YangName = "creClientAccounting"
-    creclientaccounting.EntityData.BundleName = "cisco_ios_xe"
-    creclientaccounting.EntityData.ParentYangName = "CISCO-RADIUS-EXT-MIB"
-    creclientaccounting.EntityData.SegmentPath = "creClientAccounting"
-    creclientaccounting.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    creclientaccounting.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    creclientaccounting.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (creClientAccounting *CISCORADIUSEXTMIB_CreClientAccounting) GetEntityData() *types.CommonEntityData {
+    creClientAccounting.EntityData.YFilter = creClientAccounting.YFilter
+    creClientAccounting.EntityData.YangName = "creClientAccounting"
+    creClientAccounting.EntityData.BundleName = "cisco_ios_xe"
+    creClientAccounting.EntityData.ParentYangName = "CISCO-RADIUS-EXT-MIB"
+    creClientAccounting.EntityData.SegmentPath = "creClientAccounting"
+    creClientAccounting.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    creClientAccounting.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    creClientAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    creclientaccounting.EntityData.Children = make(map[string]types.YChild)
-    creclientaccounting.EntityData.Leafs = make(map[string]types.YLeaf)
-    creclientaccounting.EntityData.Leafs["creAcctClientBadAuthenticators"] = types.YLeaf{"Creacctclientbadauthenticators", creclientaccounting.Creacctclientbadauthenticators}
-    creclientaccounting.EntityData.Leafs["creAcctClientUnknownResponses"] = types.YLeaf{"Creacctclientunknownresponses", creclientaccounting.Creacctclientunknownresponses}
-    creclientaccounting.EntityData.Leafs["creAcctClientTotalPacketsWithResponses"] = types.YLeaf{"Creacctclienttotalpacketswithresponses", creclientaccounting.Creacctclienttotalpacketswithresponses}
-    creclientaccounting.EntityData.Leafs["creAcctClientBufferAllocFailures"] = types.YLeaf{"Creacctclientbufferallocfailures", creclientaccounting.Creacctclientbufferallocfailures}
-    creclientaccounting.EntityData.Leafs["creAcctClientTotalResponses"] = types.YLeaf{"Creacctclienttotalresponses", creclientaccounting.Creacctclienttotalresponses}
-    creclientaccounting.EntityData.Leafs["creAcctClientTotalPacketsWithoutResponses"] = types.YLeaf{"Creacctclienttotalpacketswithoutresponses", creclientaccounting.Creacctclienttotalpacketswithoutresponses}
-    creclientaccounting.EntityData.Leafs["creAcctClientAverageResponseDelay"] = types.YLeaf{"Creacctclientaverageresponsedelay", creclientaccounting.Creacctclientaverageresponsedelay}
-    creclientaccounting.EntityData.Leafs["creAcctClientMaxResponseDelay"] = types.YLeaf{"Creacctclientmaxresponsedelay", creclientaccounting.Creacctclientmaxresponsedelay}
-    creclientaccounting.EntityData.Leafs["creAcctClientMaxBufferSize"] = types.YLeaf{"Creacctclientmaxbuffersize", creclientaccounting.Creacctclientmaxbuffersize}
-    creclientaccounting.EntityData.Leafs["creAcctClientTimeouts"] = types.YLeaf{"Creacctclienttimeouts", creclientaccounting.Creacctclienttimeouts}
-    creclientaccounting.EntityData.Leafs["creAcctClientDupIDs"] = types.YLeaf{"Creacctclientdupids", creclientaccounting.Creacctclientdupids}
-    creclientaccounting.EntityData.Leafs["creAcctClientMalformedResponses"] = types.YLeaf{"Creacctclientmalformedresponses", creclientaccounting.Creacctclientmalformedresponses}
-    creclientaccounting.EntityData.Leafs["creAcctClientLastUsedSourceId"] = types.YLeaf{"Creacctclientlastusedsourceid", creclientaccounting.Creacctclientlastusedsourceid}
-    return &(creclientaccounting.EntityData)
+    creClientAccounting.EntityData.Children = types.NewOrderedMap()
+    creClientAccounting.EntityData.Leafs = types.NewOrderedMap()
+    creClientAccounting.EntityData.Leafs.Append("creAcctClientBadAuthenticators", types.YLeaf{"CreAcctClientBadAuthenticators", creClientAccounting.CreAcctClientBadAuthenticators})
+    creClientAccounting.EntityData.Leafs.Append("creAcctClientUnknownResponses", types.YLeaf{"CreAcctClientUnknownResponses", creClientAccounting.CreAcctClientUnknownResponses})
+    creClientAccounting.EntityData.Leafs.Append("creAcctClientTotalPacketsWithResponses", types.YLeaf{"CreAcctClientTotalPacketsWithResponses", creClientAccounting.CreAcctClientTotalPacketsWithResponses})
+    creClientAccounting.EntityData.Leafs.Append("creAcctClientBufferAllocFailures", types.YLeaf{"CreAcctClientBufferAllocFailures", creClientAccounting.CreAcctClientBufferAllocFailures})
+    creClientAccounting.EntityData.Leafs.Append("creAcctClientTotalResponses", types.YLeaf{"CreAcctClientTotalResponses", creClientAccounting.CreAcctClientTotalResponses})
+    creClientAccounting.EntityData.Leafs.Append("creAcctClientTotalPacketsWithoutResponses", types.YLeaf{"CreAcctClientTotalPacketsWithoutResponses", creClientAccounting.CreAcctClientTotalPacketsWithoutResponses})
+    creClientAccounting.EntityData.Leafs.Append("creAcctClientAverageResponseDelay", types.YLeaf{"CreAcctClientAverageResponseDelay", creClientAccounting.CreAcctClientAverageResponseDelay})
+    creClientAccounting.EntityData.Leafs.Append("creAcctClientMaxResponseDelay", types.YLeaf{"CreAcctClientMaxResponseDelay", creClientAccounting.CreAcctClientMaxResponseDelay})
+    creClientAccounting.EntityData.Leafs.Append("creAcctClientMaxBufferSize", types.YLeaf{"CreAcctClientMaxBufferSize", creClientAccounting.CreAcctClientMaxBufferSize})
+    creClientAccounting.EntityData.Leafs.Append("creAcctClientTimeouts", types.YLeaf{"CreAcctClientTimeouts", creClientAccounting.CreAcctClientTimeouts})
+    creClientAccounting.EntityData.Leafs.Append("creAcctClientDupIDs", types.YLeaf{"CreAcctClientDupIDs", creClientAccounting.CreAcctClientDupIDs})
+    creClientAccounting.EntityData.Leafs.Append("creAcctClientMalformedResponses", types.YLeaf{"CreAcctClientMalformedResponses", creClientAccounting.CreAcctClientMalformedResponses})
+    creClientAccounting.EntityData.Leafs.Append("creAcctClientLastUsedSourceId", types.YLeaf{"CreAcctClientLastUsedSourceId", creClientAccounting.CreAcctClientLastUsedSourceId})
+
+    creClientAccounting.EntityData.YListKeys = []string {}
+
+    return &(creClientAccounting.EntityData)
 }
 

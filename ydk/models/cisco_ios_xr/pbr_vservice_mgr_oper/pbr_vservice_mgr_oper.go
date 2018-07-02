@@ -81,11 +81,14 @@ func (globalServiceFunctionChaining *GlobalServiceFunctionChaining) GetEntityDat
     globalServiceFunctionChaining.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalServiceFunctionChaining.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    globalServiceFunctionChaining.EntityData.Children = make(map[string]types.YChild)
-    globalServiceFunctionChaining.EntityData.Children["service-function-path"] = types.YChild{"ServiceFunctionPath", &globalServiceFunctionChaining.ServiceFunctionPath}
-    globalServiceFunctionChaining.EntityData.Children["service-function"] = types.YChild{"ServiceFunction", &globalServiceFunctionChaining.ServiceFunction}
-    globalServiceFunctionChaining.EntityData.Children["service-function-forwarder"] = types.YChild{"ServiceFunctionForwarder", &globalServiceFunctionChaining.ServiceFunctionForwarder}
-    globalServiceFunctionChaining.EntityData.Leafs = make(map[string]types.YLeaf)
+    globalServiceFunctionChaining.EntityData.Children = types.NewOrderedMap()
+    globalServiceFunctionChaining.EntityData.Children.Append("service-function-path", types.YChild{"ServiceFunctionPath", &globalServiceFunctionChaining.ServiceFunctionPath})
+    globalServiceFunctionChaining.EntityData.Children.Append("service-function", types.YChild{"ServiceFunction", &globalServiceFunctionChaining.ServiceFunction})
+    globalServiceFunctionChaining.EntityData.Children.Append("service-function-forwarder", types.YChild{"ServiceFunctionForwarder", &globalServiceFunctionChaining.ServiceFunctionForwarder})
+    globalServiceFunctionChaining.EntityData.Leafs = types.NewOrderedMap()
+
+    globalServiceFunctionChaining.EntityData.YListKeys = []string {}
+
     return &(globalServiceFunctionChaining.EntityData)
 }
 
@@ -109,9 +112,12 @@ func (serviceFunctionPath *GlobalServiceFunctionChaining_ServiceFunctionPath) Ge
     serviceFunctionPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceFunctionPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceFunctionPath.EntityData.Children = make(map[string]types.YChild)
-    serviceFunctionPath.EntityData.Children["path-ids"] = types.YChild{"PathIds", &serviceFunctionPath.PathIds}
-    serviceFunctionPath.EntityData.Leafs = make(map[string]types.YLeaf)
+    serviceFunctionPath.EntityData.Children = types.NewOrderedMap()
+    serviceFunctionPath.EntityData.Children.Append("path-ids", types.YChild{"PathIds", &serviceFunctionPath.PathIds})
+    serviceFunctionPath.EntityData.Leafs = types.NewOrderedMap()
+
+    serviceFunctionPath.EntityData.YListKeys = []string {}
+
     return &(serviceFunctionPath.EntityData)
 }
 
@@ -123,7 +129,7 @@ type GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds struct {
 
     // Specific Service-Function-Path identifier . The type is slice of
     // GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId.
-    PathId []GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId
+    PathId []*GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId
 }
 
 func (pathIds *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds) GetEntityData() *types.CommonEntityData {
@@ -136,12 +142,15 @@ func (pathIds *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds) GetEnt
     pathIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pathIds.EntityData.Children = make(map[string]types.YChild)
-    pathIds.EntityData.Children["path-id"] = types.YChild{"PathId", nil}
+    pathIds.EntityData.Children = types.NewOrderedMap()
+    pathIds.EntityData.Children.Append("path-id", types.YChild{"PathId", nil})
     for i := range pathIds.PathId {
-        pathIds.EntityData.Children[types.GetSegmentPath(&pathIds.PathId[i])] = types.YChild{"PathId", &pathIds.PathId[i]}
+        pathIds.EntityData.Children.Append(types.GetSegmentPath(pathIds.PathId[i]), types.YChild{"PathId", pathIds.PathId[i]})
     }
-    pathIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    pathIds.EntityData.Leafs = types.NewOrderedMap()
+
+    pathIds.EntityData.YListKeys = []string {}
+
     return &(pathIds.EntityData)
 }
 
@@ -167,16 +176,19 @@ func (pathId *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId) 
     pathId.EntityData.YangName = "path-id"
     pathId.EntityData.BundleName = "cisco_ios_xr"
     pathId.EntityData.ParentYangName = "path-ids"
-    pathId.EntityData.SegmentPath = "path-id" + "[id='" + fmt.Sprintf("%v", pathId.Id) + "']"
+    pathId.EntityData.SegmentPath = "path-id" + types.AddKeyToken(pathId.Id, "id")
     pathId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pathId.EntityData.Children = make(map[string]types.YChild)
-    pathId.EntityData.Children["stats"] = types.YChild{"Stats", &pathId.Stats}
-    pathId.EntityData.Children["service-indexes"] = types.YChild{"ServiceIndexes", &pathId.ServiceIndexes}
-    pathId.EntityData.Leafs = make(map[string]types.YLeaf)
-    pathId.EntityData.Leafs["id"] = types.YLeaf{"Id", pathId.Id}
+    pathId.EntityData.Children = types.NewOrderedMap()
+    pathId.EntityData.Children.Append("stats", types.YChild{"Stats", &pathId.Stats})
+    pathId.EntityData.Children.Append("service-indexes", types.YChild{"ServiceIndexes", &pathId.ServiceIndexes})
+    pathId.EntityData.Leafs = types.NewOrderedMap()
+    pathId.EntityData.Leafs.Append("id", types.YLeaf{"Id", pathId.Id})
+
+    pathId.EntityData.YListKeys = []string {"Id"}
+
     return &(pathId.EntityData)
 }
 
@@ -203,10 +215,13 @@ func (stats *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_St
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stats.EntityData.Children = make(map[string]types.YChild)
-    stats.EntityData.Children["detail"] = types.YChild{"Detail", &stats.Detail}
-    stats.EntityData.Children["summarized"] = types.YChild{"Summarized", &stats.Summarized}
-    stats.EntityData.Leafs = make(map[string]types.YLeaf)
+    stats.EntityData.Children = types.NewOrderedMap()
+    stats.EntityData.Children.Append("detail", types.YChild{"Detail", &stats.Detail})
+    stats.EntityData.Children.Append("summarized", types.YChild{"Summarized", &stats.Summarized})
+    stats.EntityData.Leafs = types.NewOrderedMap()
+
+    stats.EntityData.YListKeys = []string {}
+
     return &(stats.EntityData)
 }
 
@@ -221,7 +236,7 @@ type GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats_Deta
 
     // SI array in case of detail stats. The type is slice of
     // GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats_Detail_SiArr.
-    SiArr []GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats_Detail_SiArr
+    SiArr []*GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats_Detail_SiArr
 }
 
 func (detail *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats_Detail) GetEntityData() *types.CommonEntityData {
@@ -234,13 +249,16 @@ func (detail *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_S
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detail.EntityData.Children = make(map[string]types.YChild)
-    detail.EntityData.Children["data"] = types.YChild{"Data", &detail.Data}
-    detail.EntityData.Children["si-arr"] = types.YChild{"SiArr", nil}
+    detail.EntityData.Children = types.NewOrderedMap()
+    detail.EntityData.Children.Append("data", types.YChild{"Data", &detail.Data})
+    detail.EntityData.Children.Append("si-arr", types.YChild{"SiArr", nil})
     for i := range detail.SiArr {
-        detail.EntityData.Children[types.GetSegmentPath(&detail.SiArr[i])] = types.YChild{"SiArr", &detail.SiArr[i]}
+        detail.EntityData.Children.Append(types.GetSegmentPath(detail.SiArr[i]), types.YChild{"SiArr", detail.SiArr[i]})
     }
-    detail.EntityData.Leafs = make(map[string]types.YLeaf)
+    detail.EntityData.Leafs = types.NewOrderedMap()
+
+    detail.EntityData.YListKeys = []string {}
+
     return &(detail.EntityData)
 }
 
@@ -251,7 +269,7 @@ type GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats_Deta
     YFilter yfilter.YFilter
 
     // type. The type is VsNshStats.
-    Type_ interface{}
+    Type interface{}
 
     // SFP stats.
     Sfp GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats_Detail_Data_Sfp
@@ -282,15 +300,18 @@ func (data *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Sta
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    data.EntityData.Children = make(map[string]types.YChild)
-    data.EntityData.Children["sfp"] = types.YChild{"Sfp", &data.Sfp}
-    data.EntityData.Children["spi-si"] = types.YChild{"SpiSi", &data.SpiSi}
-    data.EntityData.Children["term"] = types.YChild{"Term", &data.Term}
-    data.EntityData.Children["sf"] = types.YChild{"Sf", &data.Sf}
-    data.EntityData.Children["sff"] = types.YChild{"Sff", &data.Sff}
-    data.EntityData.Children["sff-local"] = types.YChild{"SffLocal", &data.SffLocal}
-    data.EntityData.Leafs = make(map[string]types.YLeaf)
-    data.EntityData.Leafs["type"] = types.YLeaf{"Type_", data.Type_}
+    data.EntityData.Children = types.NewOrderedMap()
+    data.EntityData.Children.Append("sfp", types.YChild{"Sfp", &data.Sfp})
+    data.EntityData.Children.Append("spi-si", types.YChild{"SpiSi", &data.SpiSi})
+    data.EntityData.Children.Append("term", types.YChild{"Term", &data.Term})
+    data.EntityData.Children.Append("sf", types.YChild{"Sf", &data.Sf})
+    data.EntityData.Children.Append("sff", types.YChild{"Sff", &data.Sff})
+    data.EntityData.Children.Append("sff-local", types.YChild{"SffLocal", &data.SffLocal})
+    data.EntityData.Leafs = types.NewOrderedMap()
+    data.EntityData.Leafs.Append("type", types.YLeaf{"Type", data.Type})
+
+    data.EntityData.YListKeys = []string {}
+
     return &(data.EntityData)
 }
 
@@ -317,10 +338,13 @@ func (sfp *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stat
     sfp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sfp.EntityData.Children = make(map[string]types.YChild)
-    sfp.EntityData.Children["spi-si"] = types.YChild{"SpiSi", &sfp.SpiSi}
-    sfp.EntityData.Children["term"] = types.YChild{"Term", &sfp.Term}
-    sfp.EntityData.Leafs = make(map[string]types.YLeaf)
+    sfp.EntityData.Children = types.NewOrderedMap()
+    sfp.EntityData.Children.Append("spi-si", types.YChild{"SpiSi", &sfp.SpiSi})
+    sfp.EntityData.Children.Append("term", types.YChild{"Term", &sfp.Term})
+    sfp.EntityData.Leafs = types.NewOrderedMap()
+
+    sfp.EntityData.YListKeys = []string {}
+
     return &(sfp.EntityData)
 }
 
@@ -349,10 +373,13 @@ func (spiSi *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_St
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spiSi.EntityData.Children = make(map[string]types.YChild)
-    spiSi.EntityData.Leafs = make(map[string]types.YLeaf)
-    spiSi.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts}
-    spiSi.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes}
+    spiSi.EntityData.Children = types.NewOrderedMap()
+    spiSi.EntityData.Leafs = types.NewOrderedMap()
+    spiSi.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts})
+    spiSi.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes})
+
+    spiSi.EntityData.YListKeys = []string {}
+
     return &(spiSi.EntityData)
 }
 
@@ -381,10 +408,13 @@ func (term *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Sta
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    term.EntityData.Children = make(map[string]types.YChild)
-    term.EntityData.Leafs = make(map[string]types.YLeaf)
-    term.EntityData.Leafs["terminated-pkts"] = types.YLeaf{"TerminatedPkts", term.TerminatedPkts}
-    term.EntityData.Leafs["terminated-bytes"] = types.YLeaf{"TerminatedBytes", term.TerminatedBytes}
+    term.EntityData.Children = types.NewOrderedMap()
+    term.EntityData.Leafs = types.NewOrderedMap()
+    term.EntityData.Leafs.Append("terminated-pkts", types.YLeaf{"TerminatedPkts", term.TerminatedPkts})
+    term.EntityData.Leafs.Append("terminated-bytes", types.YLeaf{"TerminatedBytes", term.TerminatedBytes})
+
+    term.EntityData.YListKeys = []string {}
+
     return &(term.EntityData)
 }
 
@@ -413,10 +443,13 @@ func (spiSi *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_St
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spiSi.EntityData.Children = make(map[string]types.YChild)
-    spiSi.EntityData.Leafs = make(map[string]types.YLeaf)
-    spiSi.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts}
-    spiSi.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes}
+    spiSi.EntityData.Children = types.NewOrderedMap()
+    spiSi.EntityData.Leafs = types.NewOrderedMap()
+    spiSi.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts})
+    spiSi.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes})
+
+    spiSi.EntityData.YListKeys = []string {}
+
     return &(spiSi.EntityData)
 }
 
@@ -445,10 +478,13 @@ func (term *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Sta
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    term.EntityData.Children = make(map[string]types.YChild)
-    term.EntityData.Leafs = make(map[string]types.YLeaf)
-    term.EntityData.Leafs["terminated-pkts"] = types.YLeaf{"TerminatedPkts", term.TerminatedPkts}
-    term.EntityData.Leafs["terminated-bytes"] = types.YLeaf{"TerminatedBytes", term.TerminatedBytes}
+    term.EntityData.Children = types.NewOrderedMap()
+    term.EntityData.Leafs = types.NewOrderedMap()
+    term.EntityData.Leafs.Append("terminated-pkts", types.YLeaf{"TerminatedPkts", term.TerminatedPkts})
+    term.EntityData.Leafs.Append("terminated-bytes", types.YLeaf{"TerminatedBytes", term.TerminatedBytes})
+
+    term.EntityData.YListKeys = []string {}
+
     return &(term.EntityData)
 }
 
@@ -477,10 +513,13 @@ func (sf *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats
     sf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sf.EntityData.Children = make(map[string]types.YChild)
-    sf.EntityData.Leafs = make(map[string]types.YLeaf)
-    sf.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", sf.ProcessedPkts}
-    sf.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", sf.ProcessedBytes}
+    sf.EntityData.Children = types.NewOrderedMap()
+    sf.EntityData.Leafs = types.NewOrderedMap()
+    sf.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", sf.ProcessedPkts})
+    sf.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", sf.ProcessedBytes})
+
+    sf.EntityData.YListKeys = []string {}
+
     return &(sf.EntityData)
 }
 
@@ -509,10 +548,13 @@ func (sff *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stat
     sff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sff.EntityData.Children = make(map[string]types.YChild)
-    sff.EntityData.Leafs = make(map[string]types.YLeaf)
-    sff.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", sff.ProcessedPkts}
-    sff.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", sff.ProcessedBytes}
+    sff.EntityData.Children = types.NewOrderedMap()
+    sff.EntityData.Leafs = types.NewOrderedMap()
+    sff.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", sff.ProcessedPkts})
+    sff.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", sff.ProcessedBytes})
+
+    sff.EntityData.YListKeys = []string {}
+
     return &(sff.EntityData)
 }
 
@@ -549,12 +591,15 @@ func (sffLocal *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId
     sffLocal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sffLocal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sffLocal.EntityData.Children = make(map[string]types.YChild)
-    sffLocal.EntityData.Leafs = make(map[string]types.YLeaf)
-    sffLocal.EntityData.Leafs["malformed-err-pkts"] = types.YLeaf{"MalformedErrPkts", sffLocal.MalformedErrPkts}
-    sffLocal.EntityData.Leafs["lookup-err-pkts"] = types.YLeaf{"LookupErrPkts", sffLocal.LookupErrPkts}
-    sffLocal.EntityData.Leafs["malformed-err-bytes"] = types.YLeaf{"MalformedErrBytes", sffLocal.MalformedErrBytes}
-    sffLocal.EntityData.Leafs["lookup-err-bytes"] = types.YLeaf{"LookupErrBytes", sffLocal.LookupErrBytes}
+    sffLocal.EntityData.Children = types.NewOrderedMap()
+    sffLocal.EntityData.Leafs = types.NewOrderedMap()
+    sffLocal.EntityData.Leafs.Append("malformed-err-pkts", types.YLeaf{"MalformedErrPkts", sffLocal.MalformedErrPkts})
+    sffLocal.EntityData.Leafs.Append("lookup-err-pkts", types.YLeaf{"LookupErrPkts", sffLocal.LookupErrPkts})
+    sffLocal.EntityData.Leafs.Append("malformed-err-bytes", types.YLeaf{"MalformedErrBytes", sffLocal.MalformedErrBytes})
+    sffLocal.EntityData.Leafs.Append("lookup-err-bytes", types.YLeaf{"LookupErrBytes", sffLocal.LookupErrBytes})
+
+    sffLocal.EntityData.YListKeys = []string {}
+
     return &(sffLocal.EntityData)
 }
 
@@ -581,10 +626,13 @@ func (siArr *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_St
     siArr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siArr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    siArr.EntityData.Children = make(map[string]types.YChild)
-    siArr.EntityData.Children["data"] = types.YChild{"Data", &siArr.Data}
-    siArr.EntityData.Leafs = make(map[string]types.YLeaf)
-    siArr.EntityData.Leafs["si"] = types.YLeaf{"Si", siArr.Si}
+    siArr.EntityData.Children = types.NewOrderedMap()
+    siArr.EntityData.Children.Append("data", types.YChild{"Data", &siArr.Data})
+    siArr.EntityData.Leafs = types.NewOrderedMap()
+    siArr.EntityData.Leafs.Append("si", types.YLeaf{"Si", siArr.Si})
+
+    siArr.EntityData.YListKeys = []string {}
+
     return &(siArr.EntityData)
 }
 
@@ -595,7 +643,7 @@ type GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats_Deta
     YFilter yfilter.YFilter
 
     // type. The type is VsNshStats.
-    Type_ interface{}
+    Type interface{}
 
     // SF/SFF stats.
     SpiSi GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats_Detail_SiArr_Data_SpiSi
@@ -614,11 +662,14 @@ func (data *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Sta
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    data.EntityData.Children = make(map[string]types.YChild)
-    data.EntityData.Children["spi-si"] = types.YChild{"SpiSi", &data.SpiSi}
-    data.EntityData.Children["term"] = types.YChild{"Term", &data.Term}
-    data.EntityData.Leafs = make(map[string]types.YLeaf)
-    data.EntityData.Leafs["type"] = types.YLeaf{"Type_", data.Type_}
+    data.EntityData.Children = types.NewOrderedMap()
+    data.EntityData.Children.Append("spi-si", types.YChild{"SpiSi", &data.SpiSi})
+    data.EntityData.Children.Append("term", types.YChild{"Term", &data.Term})
+    data.EntityData.Leafs = types.NewOrderedMap()
+    data.EntityData.Leafs.Append("type", types.YLeaf{"Type", data.Type})
+
+    data.EntityData.YListKeys = []string {}
+
     return &(data.EntityData)
 }
 
@@ -647,10 +698,13 @@ func (spiSi *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_St
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spiSi.EntityData.Children = make(map[string]types.YChild)
-    spiSi.EntityData.Leafs = make(map[string]types.YLeaf)
-    spiSi.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts}
-    spiSi.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes}
+    spiSi.EntityData.Children = types.NewOrderedMap()
+    spiSi.EntityData.Leafs = types.NewOrderedMap()
+    spiSi.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts})
+    spiSi.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes})
+
+    spiSi.EntityData.YListKeys = []string {}
+
     return &(spiSi.EntityData)
 }
 
@@ -679,10 +733,13 @@ func (term *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Sta
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    term.EntityData.Children = make(map[string]types.YChild)
-    term.EntityData.Leafs = make(map[string]types.YLeaf)
-    term.EntityData.Leafs["terminated-pkts"] = types.YLeaf{"TerminatedPkts", term.TerminatedPkts}
-    term.EntityData.Leafs["terminated-bytes"] = types.YLeaf{"TerminatedBytes", term.TerminatedBytes}
+    term.EntityData.Children = types.NewOrderedMap()
+    term.EntityData.Leafs = types.NewOrderedMap()
+    term.EntityData.Leafs.Append("terminated-pkts", types.YLeaf{"TerminatedPkts", term.TerminatedPkts})
+    term.EntityData.Leafs.Append("terminated-bytes", types.YLeaf{"TerminatedBytes", term.TerminatedBytes})
+
+    term.EntityData.YListKeys = []string {}
+
     return &(term.EntityData)
 }
 
@@ -698,7 +755,7 @@ type GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats_Summ
 
     // SI array in case of detail stats. The type is slice of
     // GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats_Summarized_SiArr.
-    SiArr []GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats_Summarized_SiArr
+    SiArr []*GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats_Summarized_SiArr
 }
 
 func (summarized *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats_Summarized) GetEntityData() *types.CommonEntityData {
@@ -711,13 +768,16 @@ func (summarized *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_Path
     summarized.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summarized.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summarized.EntityData.Children = make(map[string]types.YChild)
-    summarized.EntityData.Children["data"] = types.YChild{"Data", &summarized.Data}
-    summarized.EntityData.Children["si-arr"] = types.YChild{"SiArr", nil}
+    summarized.EntityData.Children = types.NewOrderedMap()
+    summarized.EntityData.Children.Append("data", types.YChild{"Data", &summarized.Data})
+    summarized.EntityData.Children.Append("si-arr", types.YChild{"SiArr", nil})
     for i := range summarized.SiArr {
-        summarized.EntityData.Children[types.GetSegmentPath(&summarized.SiArr[i])] = types.YChild{"SiArr", &summarized.SiArr[i]}
+        summarized.EntityData.Children.Append(types.GetSegmentPath(summarized.SiArr[i]), types.YChild{"SiArr", summarized.SiArr[i]})
     }
-    summarized.EntityData.Leafs = make(map[string]types.YLeaf)
+    summarized.EntityData.Leafs = types.NewOrderedMap()
+
+    summarized.EntityData.YListKeys = []string {}
+
     return &(summarized.EntityData)
 }
 
@@ -728,7 +788,7 @@ type GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats_Summ
     YFilter yfilter.YFilter
 
     // type. The type is VsNshStats.
-    Type_ interface{}
+    Type interface{}
 
     // SFP stats.
     Sfp GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats_Summarized_Data_Sfp
@@ -759,15 +819,18 @@ func (data *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Sta
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    data.EntityData.Children = make(map[string]types.YChild)
-    data.EntityData.Children["sfp"] = types.YChild{"Sfp", &data.Sfp}
-    data.EntityData.Children["spi-si"] = types.YChild{"SpiSi", &data.SpiSi}
-    data.EntityData.Children["term"] = types.YChild{"Term", &data.Term}
-    data.EntityData.Children["sf"] = types.YChild{"Sf", &data.Sf}
-    data.EntityData.Children["sff"] = types.YChild{"Sff", &data.Sff}
-    data.EntityData.Children["sff-local"] = types.YChild{"SffLocal", &data.SffLocal}
-    data.EntityData.Leafs = make(map[string]types.YLeaf)
-    data.EntityData.Leafs["type"] = types.YLeaf{"Type_", data.Type_}
+    data.EntityData.Children = types.NewOrderedMap()
+    data.EntityData.Children.Append("sfp", types.YChild{"Sfp", &data.Sfp})
+    data.EntityData.Children.Append("spi-si", types.YChild{"SpiSi", &data.SpiSi})
+    data.EntityData.Children.Append("term", types.YChild{"Term", &data.Term})
+    data.EntityData.Children.Append("sf", types.YChild{"Sf", &data.Sf})
+    data.EntityData.Children.Append("sff", types.YChild{"Sff", &data.Sff})
+    data.EntityData.Children.Append("sff-local", types.YChild{"SffLocal", &data.SffLocal})
+    data.EntityData.Leafs = types.NewOrderedMap()
+    data.EntityData.Leafs.Append("type", types.YLeaf{"Type", data.Type})
+
+    data.EntityData.YListKeys = []string {}
+
     return &(data.EntityData)
 }
 
@@ -794,10 +857,13 @@ func (sfp *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stat
     sfp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sfp.EntityData.Children = make(map[string]types.YChild)
-    sfp.EntityData.Children["spi-si"] = types.YChild{"SpiSi", &sfp.SpiSi}
-    sfp.EntityData.Children["term"] = types.YChild{"Term", &sfp.Term}
-    sfp.EntityData.Leafs = make(map[string]types.YLeaf)
+    sfp.EntityData.Children = types.NewOrderedMap()
+    sfp.EntityData.Children.Append("spi-si", types.YChild{"SpiSi", &sfp.SpiSi})
+    sfp.EntityData.Children.Append("term", types.YChild{"Term", &sfp.Term})
+    sfp.EntityData.Leafs = types.NewOrderedMap()
+
+    sfp.EntityData.YListKeys = []string {}
+
     return &(sfp.EntityData)
 }
 
@@ -826,10 +892,13 @@ func (spiSi *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_St
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spiSi.EntityData.Children = make(map[string]types.YChild)
-    spiSi.EntityData.Leafs = make(map[string]types.YLeaf)
-    spiSi.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts}
-    spiSi.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes}
+    spiSi.EntityData.Children = types.NewOrderedMap()
+    spiSi.EntityData.Leafs = types.NewOrderedMap()
+    spiSi.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts})
+    spiSi.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes})
+
+    spiSi.EntityData.YListKeys = []string {}
+
     return &(spiSi.EntityData)
 }
 
@@ -858,10 +927,13 @@ func (term *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Sta
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    term.EntityData.Children = make(map[string]types.YChild)
-    term.EntityData.Leafs = make(map[string]types.YLeaf)
-    term.EntityData.Leafs["terminated-pkts"] = types.YLeaf{"TerminatedPkts", term.TerminatedPkts}
-    term.EntityData.Leafs["terminated-bytes"] = types.YLeaf{"TerminatedBytes", term.TerminatedBytes}
+    term.EntityData.Children = types.NewOrderedMap()
+    term.EntityData.Leafs = types.NewOrderedMap()
+    term.EntityData.Leafs.Append("terminated-pkts", types.YLeaf{"TerminatedPkts", term.TerminatedPkts})
+    term.EntityData.Leafs.Append("terminated-bytes", types.YLeaf{"TerminatedBytes", term.TerminatedBytes})
+
+    term.EntityData.YListKeys = []string {}
+
     return &(term.EntityData)
 }
 
@@ -890,10 +962,13 @@ func (spiSi *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_St
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spiSi.EntityData.Children = make(map[string]types.YChild)
-    spiSi.EntityData.Leafs = make(map[string]types.YLeaf)
-    spiSi.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts}
-    spiSi.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes}
+    spiSi.EntityData.Children = types.NewOrderedMap()
+    spiSi.EntityData.Leafs = types.NewOrderedMap()
+    spiSi.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts})
+    spiSi.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes})
+
+    spiSi.EntityData.YListKeys = []string {}
+
     return &(spiSi.EntityData)
 }
 
@@ -922,10 +997,13 @@ func (term *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Sta
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    term.EntityData.Children = make(map[string]types.YChild)
-    term.EntityData.Leafs = make(map[string]types.YLeaf)
-    term.EntityData.Leafs["terminated-pkts"] = types.YLeaf{"TerminatedPkts", term.TerminatedPkts}
-    term.EntityData.Leafs["terminated-bytes"] = types.YLeaf{"TerminatedBytes", term.TerminatedBytes}
+    term.EntityData.Children = types.NewOrderedMap()
+    term.EntityData.Leafs = types.NewOrderedMap()
+    term.EntityData.Leafs.Append("terminated-pkts", types.YLeaf{"TerminatedPkts", term.TerminatedPkts})
+    term.EntityData.Leafs.Append("terminated-bytes", types.YLeaf{"TerminatedBytes", term.TerminatedBytes})
+
+    term.EntityData.YListKeys = []string {}
+
     return &(term.EntityData)
 }
 
@@ -954,10 +1032,13 @@ func (sf *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats
     sf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sf.EntityData.Children = make(map[string]types.YChild)
-    sf.EntityData.Leafs = make(map[string]types.YLeaf)
-    sf.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", sf.ProcessedPkts}
-    sf.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", sf.ProcessedBytes}
+    sf.EntityData.Children = types.NewOrderedMap()
+    sf.EntityData.Leafs = types.NewOrderedMap()
+    sf.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", sf.ProcessedPkts})
+    sf.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", sf.ProcessedBytes})
+
+    sf.EntityData.YListKeys = []string {}
+
     return &(sf.EntityData)
 }
 
@@ -986,10 +1067,13 @@ func (sff *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stat
     sff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sff.EntityData.Children = make(map[string]types.YChild)
-    sff.EntityData.Leafs = make(map[string]types.YLeaf)
-    sff.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", sff.ProcessedPkts}
-    sff.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", sff.ProcessedBytes}
+    sff.EntityData.Children = types.NewOrderedMap()
+    sff.EntityData.Leafs = types.NewOrderedMap()
+    sff.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", sff.ProcessedPkts})
+    sff.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", sff.ProcessedBytes})
+
+    sff.EntityData.YListKeys = []string {}
+
     return &(sff.EntityData)
 }
 
@@ -1026,12 +1110,15 @@ func (sffLocal *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId
     sffLocal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sffLocal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sffLocal.EntityData.Children = make(map[string]types.YChild)
-    sffLocal.EntityData.Leafs = make(map[string]types.YLeaf)
-    sffLocal.EntityData.Leafs["malformed-err-pkts"] = types.YLeaf{"MalformedErrPkts", sffLocal.MalformedErrPkts}
-    sffLocal.EntityData.Leafs["lookup-err-pkts"] = types.YLeaf{"LookupErrPkts", sffLocal.LookupErrPkts}
-    sffLocal.EntityData.Leafs["malformed-err-bytes"] = types.YLeaf{"MalformedErrBytes", sffLocal.MalformedErrBytes}
-    sffLocal.EntityData.Leafs["lookup-err-bytes"] = types.YLeaf{"LookupErrBytes", sffLocal.LookupErrBytes}
+    sffLocal.EntityData.Children = types.NewOrderedMap()
+    sffLocal.EntityData.Leafs = types.NewOrderedMap()
+    sffLocal.EntityData.Leafs.Append("malformed-err-pkts", types.YLeaf{"MalformedErrPkts", sffLocal.MalformedErrPkts})
+    sffLocal.EntityData.Leafs.Append("lookup-err-pkts", types.YLeaf{"LookupErrPkts", sffLocal.LookupErrPkts})
+    sffLocal.EntityData.Leafs.Append("malformed-err-bytes", types.YLeaf{"MalformedErrBytes", sffLocal.MalformedErrBytes})
+    sffLocal.EntityData.Leafs.Append("lookup-err-bytes", types.YLeaf{"LookupErrBytes", sffLocal.LookupErrBytes})
+
+    sffLocal.EntityData.YListKeys = []string {}
+
     return &(sffLocal.EntityData)
 }
 
@@ -1058,10 +1145,13 @@ func (siArr *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_St
     siArr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siArr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    siArr.EntityData.Children = make(map[string]types.YChild)
-    siArr.EntityData.Children["data"] = types.YChild{"Data", &siArr.Data}
-    siArr.EntityData.Leafs = make(map[string]types.YLeaf)
-    siArr.EntityData.Leafs["si"] = types.YLeaf{"Si", siArr.Si}
+    siArr.EntityData.Children = types.NewOrderedMap()
+    siArr.EntityData.Children.Append("data", types.YChild{"Data", &siArr.Data})
+    siArr.EntityData.Leafs = types.NewOrderedMap()
+    siArr.EntityData.Leafs.Append("si", types.YLeaf{"Si", siArr.Si})
+
+    siArr.EntityData.YListKeys = []string {}
+
     return &(siArr.EntityData)
 }
 
@@ -1072,7 +1162,7 @@ type GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats_Summ
     YFilter yfilter.YFilter
 
     // type. The type is VsNshStats.
-    Type_ interface{}
+    Type interface{}
 
     // SF/SFF stats.
     SpiSi GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Stats_Summarized_SiArr_Data_SpiSi
@@ -1091,11 +1181,14 @@ func (data *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Sta
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    data.EntityData.Children = make(map[string]types.YChild)
-    data.EntityData.Children["spi-si"] = types.YChild{"SpiSi", &data.SpiSi}
-    data.EntityData.Children["term"] = types.YChild{"Term", &data.Term}
-    data.EntityData.Leafs = make(map[string]types.YLeaf)
-    data.EntityData.Leafs["type"] = types.YLeaf{"Type_", data.Type_}
+    data.EntityData.Children = types.NewOrderedMap()
+    data.EntityData.Children.Append("spi-si", types.YChild{"SpiSi", &data.SpiSi})
+    data.EntityData.Children.Append("term", types.YChild{"Term", &data.Term})
+    data.EntityData.Leafs = types.NewOrderedMap()
+    data.EntityData.Leafs.Append("type", types.YLeaf{"Type", data.Type})
+
+    data.EntityData.YListKeys = []string {}
+
     return &(data.EntityData)
 }
 
@@ -1124,10 +1217,13 @@ func (spiSi *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_St
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spiSi.EntityData.Children = make(map[string]types.YChild)
-    spiSi.EntityData.Leafs = make(map[string]types.YLeaf)
-    spiSi.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts}
-    spiSi.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes}
+    spiSi.EntityData.Children = types.NewOrderedMap()
+    spiSi.EntityData.Leafs = types.NewOrderedMap()
+    spiSi.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts})
+    spiSi.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes})
+
+    spiSi.EntityData.YListKeys = []string {}
+
     return &(spiSi.EntityData)
 }
 
@@ -1156,10 +1252,13 @@ func (term *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Sta
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    term.EntityData.Children = make(map[string]types.YChild)
-    term.EntityData.Leafs = make(map[string]types.YLeaf)
-    term.EntityData.Leafs["terminated-pkts"] = types.YLeaf{"TerminatedPkts", term.TerminatedPkts}
-    term.EntityData.Leafs["terminated-bytes"] = types.YLeaf{"TerminatedBytes", term.TerminatedBytes}
+    term.EntityData.Children = types.NewOrderedMap()
+    term.EntityData.Leafs = types.NewOrderedMap()
+    term.EntityData.Leafs.Append("terminated-pkts", types.YLeaf{"TerminatedPkts", term.TerminatedPkts})
+    term.EntityData.Leafs.Append("terminated-bytes", types.YLeaf{"TerminatedBytes", term.TerminatedBytes})
+
+    term.EntityData.YListKeys = []string {}
+
     return &(term.EntityData)
 }
 
@@ -1171,7 +1270,7 @@ type GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_ServiceInd
 
     // Service index operational data belonging to this path. The type is slice of
     // GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_ServiceIndexes_ServiceIndex.
-    ServiceIndex []GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_ServiceIndexes_ServiceIndex
+    ServiceIndex []*GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_ServiceIndexes_ServiceIndex
 }
 
 func (serviceIndexes *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_ServiceIndexes) GetEntityData() *types.CommonEntityData {
@@ -1184,12 +1283,15 @@ func (serviceIndexes *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_
     serviceIndexes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceIndexes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceIndexes.EntityData.Children = make(map[string]types.YChild)
-    serviceIndexes.EntityData.Children["service-index"] = types.YChild{"ServiceIndex", nil}
+    serviceIndexes.EntityData.Children = types.NewOrderedMap()
+    serviceIndexes.EntityData.Children.Append("service-index", types.YChild{"ServiceIndex", nil})
     for i := range serviceIndexes.ServiceIndex {
-        serviceIndexes.EntityData.Children[types.GetSegmentPath(&serviceIndexes.ServiceIndex[i])] = types.YChild{"ServiceIndex", &serviceIndexes.ServiceIndex[i]}
+        serviceIndexes.EntityData.Children.Append(types.GetSegmentPath(serviceIndexes.ServiceIndex[i]), types.YChild{"ServiceIndex", serviceIndexes.ServiceIndex[i]})
     }
-    serviceIndexes.EntityData.Leafs = make(map[string]types.YLeaf)
+    serviceIndexes.EntityData.Leafs = types.NewOrderedMap()
+
+    serviceIndexes.EntityData.YListKeys = []string {}
+
     return &(serviceIndexes.EntityData)
 }
 
@@ -1209,7 +1311,7 @@ type GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_ServiceInd
 
     // SI array in case of detail stats. The type is slice of
     // GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_ServiceIndexes_ServiceIndex_SiArr.
-    SiArr []GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_ServiceIndexes_ServiceIndex_SiArr
+    SiArr []*GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_ServiceIndexes_ServiceIndex_SiArr
 }
 
 func (serviceIndex *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_ServiceIndexes_ServiceIndex) GetEntityData() *types.CommonEntityData {
@@ -1217,19 +1319,22 @@ func (serviceIndex *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_Pa
     serviceIndex.EntityData.YangName = "service-index"
     serviceIndex.EntityData.BundleName = "cisco_ios_xr"
     serviceIndex.EntityData.ParentYangName = "service-indexes"
-    serviceIndex.EntityData.SegmentPath = "service-index" + "[index='" + fmt.Sprintf("%v", serviceIndex.Index) + "']"
+    serviceIndex.EntityData.SegmentPath = "service-index" + types.AddKeyToken(serviceIndex.Index, "index")
     serviceIndex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceIndex.EntityData.Children = make(map[string]types.YChild)
-    serviceIndex.EntityData.Children["data"] = types.YChild{"Data", &serviceIndex.Data}
-    serviceIndex.EntityData.Children["si-arr"] = types.YChild{"SiArr", nil}
+    serviceIndex.EntityData.Children = types.NewOrderedMap()
+    serviceIndex.EntityData.Children.Append("data", types.YChild{"Data", &serviceIndex.Data})
+    serviceIndex.EntityData.Children.Append("si-arr", types.YChild{"SiArr", nil})
     for i := range serviceIndex.SiArr {
-        serviceIndex.EntityData.Children[types.GetSegmentPath(&serviceIndex.SiArr[i])] = types.YChild{"SiArr", &serviceIndex.SiArr[i]}
+        serviceIndex.EntityData.Children.Append(types.GetSegmentPath(serviceIndex.SiArr[i]), types.YChild{"SiArr", serviceIndex.SiArr[i]})
     }
-    serviceIndex.EntityData.Leafs = make(map[string]types.YLeaf)
-    serviceIndex.EntityData.Leafs["index"] = types.YLeaf{"Index", serviceIndex.Index}
+    serviceIndex.EntityData.Leafs = types.NewOrderedMap()
+    serviceIndex.EntityData.Leafs.Append("index", types.YLeaf{"Index", serviceIndex.Index})
+
+    serviceIndex.EntityData.YListKeys = []string {"Index"}
+
     return &(serviceIndex.EntityData)
 }
 
@@ -1240,7 +1345,7 @@ type GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_ServiceInd
     YFilter yfilter.YFilter
 
     // type. The type is VsNshStats.
-    Type_ interface{}
+    Type interface{}
 
     // SFP stats.
     Sfp GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_ServiceIndexes_ServiceIndex_Data_Sfp
@@ -1271,15 +1376,18 @@ func (data *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Ser
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    data.EntityData.Children = make(map[string]types.YChild)
-    data.EntityData.Children["sfp"] = types.YChild{"Sfp", &data.Sfp}
-    data.EntityData.Children["spi-si"] = types.YChild{"SpiSi", &data.SpiSi}
-    data.EntityData.Children["term"] = types.YChild{"Term", &data.Term}
-    data.EntityData.Children["sf"] = types.YChild{"Sf", &data.Sf}
-    data.EntityData.Children["sff"] = types.YChild{"Sff", &data.Sff}
-    data.EntityData.Children["sff-local"] = types.YChild{"SffLocal", &data.SffLocal}
-    data.EntityData.Leafs = make(map[string]types.YLeaf)
-    data.EntityData.Leafs["type"] = types.YLeaf{"Type_", data.Type_}
+    data.EntityData.Children = types.NewOrderedMap()
+    data.EntityData.Children.Append("sfp", types.YChild{"Sfp", &data.Sfp})
+    data.EntityData.Children.Append("spi-si", types.YChild{"SpiSi", &data.SpiSi})
+    data.EntityData.Children.Append("term", types.YChild{"Term", &data.Term})
+    data.EntityData.Children.Append("sf", types.YChild{"Sf", &data.Sf})
+    data.EntityData.Children.Append("sff", types.YChild{"Sff", &data.Sff})
+    data.EntityData.Children.Append("sff-local", types.YChild{"SffLocal", &data.SffLocal})
+    data.EntityData.Leafs = types.NewOrderedMap()
+    data.EntityData.Leafs.Append("type", types.YLeaf{"Type", data.Type})
+
+    data.EntityData.YListKeys = []string {}
+
     return &(data.EntityData)
 }
 
@@ -1306,10 +1414,13 @@ func (sfp *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Serv
     sfp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sfp.EntityData.Children = make(map[string]types.YChild)
-    sfp.EntityData.Children["spi-si"] = types.YChild{"SpiSi", &sfp.SpiSi}
-    sfp.EntityData.Children["term"] = types.YChild{"Term", &sfp.Term}
-    sfp.EntityData.Leafs = make(map[string]types.YLeaf)
+    sfp.EntityData.Children = types.NewOrderedMap()
+    sfp.EntityData.Children.Append("spi-si", types.YChild{"SpiSi", &sfp.SpiSi})
+    sfp.EntityData.Children.Append("term", types.YChild{"Term", &sfp.Term})
+    sfp.EntityData.Leafs = types.NewOrderedMap()
+
+    sfp.EntityData.YListKeys = []string {}
+
     return &(sfp.EntityData)
 }
 
@@ -1338,10 +1449,13 @@ func (spiSi *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Se
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spiSi.EntityData.Children = make(map[string]types.YChild)
-    spiSi.EntityData.Leafs = make(map[string]types.YLeaf)
-    spiSi.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts}
-    spiSi.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes}
+    spiSi.EntityData.Children = types.NewOrderedMap()
+    spiSi.EntityData.Leafs = types.NewOrderedMap()
+    spiSi.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts})
+    spiSi.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes})
+
+    spiSi.EntityData.YListKeys = []string {}
+
     return &(spiSi.EntityData)
 }
 
@@ -1370,10 +1484,13 @@ func (term *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Ser
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    term.EntityData.Children = make(map[string]types.YChild)
-    term.EntityData.Leafs = make(map[string]types.YLeaf)
-    term.EntityData.Leafs["terminated-pkts"] = types.YLeaf{"TerminatedPkts", term.TerminatedPkts}
-    term.EntityData.Leafs["terminated-bytes"] = types.YLeaf{"TerminatedBytes", term.TerminatedBytes}
+    term.EntityData.Children = types.NewOrderedMap()
+    term.EntityData.Leafs = types.NewOrderedMap()
+    term.EntityData.Leafs.Append("terminated-pkts", types.YLeaf{"TerminatedPkts", term.TerminatedPkts})
+    term.EntityData.Leafs.Append("terminated-bytes", types.YLeaf{"TerminatedBytes", term.TerminatedBytes})
+
+    term.EntityData.YListKeys = []string {}
+
     return &(term.EntityData)
 }
 
@@ -1402,10 +1519,13 @@ func (spiSi *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Se
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spiSi.EntityData.Children = make(map[string]types.YChild)
-    spiSi.EntityData.Leafs = make(map[string]types.YLeaf)
-    spiSi.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts}
-    spiSi.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes}
+    spiSi.EntityData.Children = types.NewOrderedMap()
+    spiSi.EntityData.Leafs = types.NewOrderedMap()
+    spiSi.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts})
+    spiSi.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes})
+
+    spiSi.EntityData.YListKeys = []string {}
+
     return &(spiSi.EntityData)
 }
 
@@ -1434,10 +1554,13 @@ func (term *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Ser
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    term.EntityData.Children = make(map[string]types.YChild)
-    term.EntityData.Leafs = make(map[string]types.YLeaf)
-    term.EntityData.Leafs["terminated-pkts"] = types.YLeaf{"TerminatedPkts", term.TerminatedPkts}
-    term.EntityData.Leafs["terminated-bytes"] = types.YLeaf{"TerminatedBytes", term.TerminatedBytes}
+    term.EntityData.Children = types.NewOrderedMap()
+    term.EntityData.Leafs = types.NewOrderedMap()
+    term.EntityData.Leafs.Append("terminated-pkts", types.YLeaf{"TerminatedPkts", term.TerminatedPkts})
+    term.EntityData.Leafs.Append("terminated-bytes", types.YLeaf{"TerminatedBytes", term.TerminatedBytes})
+
+    term.EntityData.YListKeys = []string {}
+
     return &(term.EntityData)
 }
 
@@ -1466,10 +1589,13 @@ func (sf *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Servi
     sf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sf.EntityData.Children = make(map[string]types.YChild)
-    sf.EntityData.Leafs = make(map[string]types.YLeaf)
-    sf.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", sf.ProcessedPkts}
-    sf.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", sf.ProcessedBytes}
+    sf.EntityData.Children = types.NewOrderedMap()
+    sf.EntityData.Leafs = types.NewOrderedMap()
+    sf.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", sf.ProcessedPkts})
+    sf.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", sf.ProcessedBytes})
+
+    sf.EntityData.YListKeys = []string {}
+
     return &(sf.EntityData)
 }
 
@@ -1498,10 +1624,13 @@ func (sff *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Serv
     sff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sff.EntityData.Children = make(map[string]types.YChild)
-    sff.EntityData.Leafs = make(map[string]types.YLeaf)
-    sff.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", sff.ProcessedPkts}
-    sff.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", sff.ProcessedBytes}
+    sff.EntityData.Children = types.NewOrderedMap()
+    sff.EntityData.Leafs = types.NewOrderedMap()
+    sff.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", sff.ProcessedPkts})
+    sff.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", sff.ProcessedBytes})
+
+    sff.EntityData.YListKeys = []string {}
+
     return &(sff.EntityData)
 }
 
@@ -1538,12 +1667,15 @@ func (sffLocal *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId
     sffLocal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sffLocal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sffLocal.EntityData.Children = make(map[string]types.YChild)
-    sffLocal.EntityData.Leafs = make(map[string]types.YLeaf)
-    sffLocal.EntityData.Leafs["malformed-err-pkts"] = types.YLeaf{"MalformedErrPkts", sffLocal.MalformedErrPkts}
-    sffLocal.EntityData.Leafs["lookup-err-pkts"] = types.YLeaf{"LookupErrPkts", sffLocal.LookupErrPkts}
-    sffLocal.EntityData.Leafs["malformed-err-bytes"] = types.YLeaf{"MalformedErrBytes", sffLocal.MalformedErrBytes}
-    sffLocal.EntityData.Leafs["lookup-err-bytes"] = types.YLeaf{"LookupErrBytes", sffLocal.LookupErrBytes}
+    sffLocal.EntityData.Children = types.NewOrderedMap()
+    sffLocal.EntityData.Leafs = types.NewOrderedMap()
+    sffLocal.EntityData.Leafs.Append("malformed-err-pkts", types.YLeaf{"MalformedErrPkts", sffLocal.MalformedErrPkts})
+    sffLocal.EntityData.Leafs.Append("lookup-err-pkts", types.YLeaf{"LookupErrPkts", sffLocal.LookupErrPkts})
+    sffLocal.EntityData.Leafs.Append("malformed-err-bytes", types.YLeaf{"MalformedErrBytes", sffLocal.MalformedErrBytes})
+    sffLocal.EntityData.Leafs.Append("lookup-err-bytes", types.YLeaf{"LookupErrBytes", sffLocal.LookupErrBytes})
+
+    sffLocal.EntityData.YListKeys = []string {}
+
     return &(sffLocal.EntityData)
 }
 
@@ -1570,10 +1702,13 @@ func (siArr *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Se
     siArr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siArr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    siArr.EntityData.Children = make(map[string]types.YChild)
-    siArr.EntityData.Children["data"] = types.YChild{"Data", &siArr.Data}
-    siArr.EntityData.Leafs = make(map[string]types.YLeaf)
-    siArr.EntityData.Leafs["si"] = types.YLeaf{"Si", siArr.Si}
+    siArr.EntityData.Children = types.NewOrderedMap()
+    siArr.EntityData.Children.Append("data", types.YChild{"Data", &siArr.Data})
+    siArr.EntityData.Leafs = types.NewOrderedMap()
+    siArr.EntityData.Leafs.Append("si", types.YLeaf{"Si", siArr.Si})
+
+    siArr.EntityData.YListKeys = []string {}
+
     return &(siArr.EntityData)
 }
 
@@ -1584,7 +1719,7 @@ type GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_ServiceInd
     YFilter yfilter.YFilter
 
     // type. The type is VsNshStats.
-    Type_ interface{}
+    Type interface{}
 
     // SF/SFF stats.
     SpiSi GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_ServiceIndexes_ServiceIndex_SiArr_Data_SpiSi
@@ -1603,11 +1738,14 @@ func (data *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Ser
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    data.EntityData.Children = make(map[string]types.YChild)
-    data.EntityData.Children["spi-si"] = types.YChild{"SpiSi", &data.SpiSi}
-    data.EntityData.Children["term"] = types.YChild{"Term", &data.Term}
-    data.EntityData.Leafs = make(map[string]types.YLeaf)
-    data.EntityData.Leafs["type"] = types.YLeaf{"Type_", data.Type_}
+    data.EntityData.Children = types.NewOrderedMap()
+    data.EntityData.Children.Append("spi-si", types.YChild{"SpiSi", &data.SpiSi})
+    data.EntityData.Children.Append("term", types.YChild{"Term", &data.Term})
+    data.EntityData.Leafs = types.NewOrderedMap()
+    data.EntityData.Leafs.Append("type", types.YLeaf{"Type", data.Type})
+
+    data.EntityData.YListKeys = []string {}
+
     return &(data.EntityData)
 }
 
@@ -1636,10 +1774,13 @@ func (spiSi *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Se
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spiSi.EntityData.Children = make(map[string]types.YChild)
-    spiSi.EntityData.Leafs = make(map[string]types.YLeaf)
-    spiSi.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts}
-    spiSi.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes}
+    spiSi.EntityData.Children = types.NewOrderedMap()
+    spiSi.EntityData.Leafs = types.NewOrderedMap()
+    spiSi.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts})
+    spiSi.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes})
+
+    spiSi.EntityData.YListKeys = []string {}
+
     return &(spiSi.EntityData)
 }
 
@@ -1668,10 +1809,13 @@ func (term *GlobalServiceFunctionChaining_ServiceFunctionPath_PathIds_PathId_Ser
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    term.EntityData.Children = make(map[string]types.YChild)
-    term.EntityData.Leafs = make(map[string]types.YLeaf)
-    term.EntityData.Leafs["terminated-pkts"] = types.YLeaf{"TerminatedPkts", term.TerminatedPkts}
-    term.EntityData.Leafs["terminated-bytes"] = types.YLeaf{"TerminatedBytes", term.TerminatedBytes}
+    term.EntityData.Children = types.NewOrderedMap()
+    term.EntityData.Leafs = types.NewOrderedMap()
+    term.EntityData.Leafs.Append("terminated-pkts", types.YLeaf{"TerminatedPkts", term.TerminatedPkts})
+    term.EntityData.Leafs.Append("terminated-bytes", types.YLeaf{"TerminatedBytes", term.TerminatedBytes})
+
+    term.EntityData.YListKeys = []string {}
+
     return &(term.EntityData)
 }
 
@@ -1695,9 +1839,12 @@ func (serviceFunction *GlobalServiceFunctionChaining_ServiceFunction) GetEntityD
     serviceFunction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceFunction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceFunction.EntityData.Children = make(map[string]types.YChild)
-    serviceFunction.EntityData.Children["sf-names"] = types.YChild{"SfNames", &serviceFunction.SfNames}
-    serviceFunction.EntityData.Leafs = make(map[string]types.YLeaf)
+    serviceFunction.EntityData.Children = types.NewOrderedMap()
+    serviceFunction.EntityData.Children.Append("sf-names", types.YChild{"SfNames", &serviceFunction.SfNames})
+    serviceFunction.EntityData.Leafs = types.NewOrderedMap()
+
+    serviceFunction.EntityData.YListKeys = []string {}
+
     return &(serviceFunction.EntityData)
 }
 
@@ -1709,7 +1856,7 @@ type GlobalServiceFunctionChaining_ServiceFunction_SfNames struct {
 
     // Name of Service Function. The type is slice of
     // GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName.
-    SfName []GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName
+    SfName []*GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName
 }
 
 func (sfNames *GlobalServiceFunctionChaining_ServiceFunction_SfNames) GetEntityData() *types.CommonEntityData {
@@ -1722,12 +1869,15 @@ func (sfNames *GlobalServiceFunctionChaining_ServiceFunction_SfNames) GetEntityD
     sfNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sfNames.EntityData.Children = make(map[string]types.YChild)
-    sfNames.EntityData.Children["sf-name"] = types.YChild{"SfName", nil}
+    sfNames.EntityData.Children = types.NewOrderedMap()
+    sfNames.EntityData.Children.Append("sf-name", types.YChild{"SfName", nil})
     for i := range sfNames.SfName {
-        sfNames.EntityData.Children[types.GetSegmentPath(&sfNames.SfName[i])] = types.YChild{"SfName", &sfNames.SfName[i]}
+        sfNames.EntityData.Children.Append(types.GetSegmentPath(sfNames.SfName[i]), types.YChild{"SfName", sfNames.SfName[i]})
     }
-    sfNames.EntityData.Leafs = make(map[string]types.YLeaf)
+    sfNames.EntityData.Leafs = types.NewOrderedMap()
+
+    sfNames.EntityData.YListKeys = []string {}
+
     return &(sfNames.EntityData)
 }
 
@@ -1745,7 +1895,7 @@ type GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName struct {
 
     // SI array in case of detail stats. The type is slice of
     // GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_SiArr.
-    SiArr []GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_SiArr
+    SiArr []*GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_SiArr
 }
 
 func (sfName *GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName) GetEntityData() *types.CommonEntityData {
@@ -1753,19 +1903,22 @@ func (sfName *GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName) GetE
     sfName.EntityData.YangName = "sf-name"
     sfName.EntityData.BundleName = "cisco_ios_xr"
     sfName.EntityData.ParentYangName = "sf-names"
-    sfName.EntityData.SegmentPath = "sf-name" + "[name='" + fmt.Sprintf("%v", sfName.Name) + "']"
+    sfName.EntityData.SegmentPath = "sf-name" + types.AddKeyToken(sfName.Name, "name")
     sfName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sfName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sfName.EntityData.Children = make(map[string]types.YChild)
-    sfName.EntityData.Children["data"] = types.YChild{"Data", &sfName.Data}
-    sfName.EntityData.Children["si-arr"] = types.YChild{"SiArr", nil}
+    sfName.EntityData.Children = types.NewOrderedMap()
+    sfName.EntityData.Children.Append("data", types.YChild{"Data", &sfName.Data})
+    sfName.EntityData.Children.Append("si-arr", types.YChild{"SiArr", nil})
     for i := range sfName.SiArr {
-        sfName.EntityData.Children[types.GetSegmentPath(&sfName.SiArr[i])] = types.YChild{"SiArr", &sfName.SiArr[i]}
+        sfName.EntityData.Children.Append(types.GetSegmentPath(sfName.SiArr[i]), types.YChild{"SiArr", sfName.SiArr[i]})
     }
-    sfName.EntityData.Leafs = make(map[string]types.YLeaf)
-    sfName.EntityData.Leafs["name"] = types.YLeaf{"Name", sfName.Name}
+    sfName.EntityData.Leafs = types.NewOrderedMap()
+    sfName.EntityData.Leafs.Append("name", types.YLeaf{"Name", sfName.Name})
+
+    sfName.EntityData.YListKeys = []string {"Name"}
+
     return &(sfName.EntityData)
 }
 
@@ -1776,7 +1929,7 @@ type GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_Data struct {
     YFilter yfilter.YFilter
 
     // type. The type is VsNshStats.
-    Type_ interface{}
+    Type interface{}
 
     // SFP stats.
     Sfp GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_Data_Sfp
@@ -1807,15 +1960,18 @@ func (data *GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_Data) G
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    data.EntityData.Children = make(map[string]types.YChild)
-    data.EntityData.Children["sfp"] = types.YChild{"Sfp", &data.Sfp}
-    data.EntityData.Children["spi-si"] = types.YChild{"SpiSi", &data.SpiSi}
-    data.EntityData.Children["term"] = types.YChild{"Term", &data.Term}
-    data.EntityData.Children["sf"] = types.YChild{"Sf", &data.Sf}
-    data.EntityData.Children["sff"] = types.YChild{"Sff", &data.Sff}
-    data.EntityData.Children["sff-local"] = types.YChild{"SffLocal", &data.SffLocal}
-    data.EntityData.Leafs = make(map[string]types.YLeaf)
-    data.EntityData.Leafs["type"] = types.YLeaf{"Type_", data.Type_}
+    data.EntityData.Children = types.NewOrderedMap()
+    data.EntityData.Children.Append("sfp", types.YChild{"Sfp", &data.Sfp})
+    data.EntityData.Children.Append("spi-si", types.YChild{"SpiSi", &data.SpiSi})
+    data.EntityData.Children.Append("term", types.YChild{"Term", &data.Term})
+    data.EntityData.Children.Append("sf", types.YChild{"Sf", &data.Sf})
+    data.EntityData.Children.Append("sff", types.YChild{"Sff", &data.Sff})
+    data.EntityData.Children.Append("sff-local", types.YChild{"SffLocal", &data.SffLocal})
+    data.EntityData.Leafs = types.NewOrderedMap()
+    data.EntityData.Leafs.Append("type", types.YLeaf{"Type", data.Type})
+
+    data.EntityData.YListKeys = []string {}
+
     return &(data.EntityData)
 }
 
@@ -1842,10 +1998,13 @@ func (sfp *GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_Data_Sfp
     sfp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sfp.EntityData.Children = make(map[string]types.YChild)
-    sfp.EntityData.Children["spi-si"] = types.YChild{"SpiSi", &sfp.SpiSi}
-    sfp.EntityData.Children["term"] = types.YChild{"Term", &sfp.Term}
-    sfp.EntityData.Leafs = make(map[string]types.YLeaf)
+    sfp.EntityData.Children = types.NewOrderedMap()
+    sfp.EntityData.Children.Append("spi-si", types.YChild{"SpiSi", &sfp.SpiSi})
+    sfp.EntityData.Children.Append("term", types.YChild{"Term", &sfp.Term})
+    sfp.EntityData.Leafs = types.NewOrderedMap()
+
+    sfp.EntityData.YListKeys = []string {}
+
     return &(sfp.EntityData)
 }
 
@@ -1874,10 +2033,13 @@ func (spiSi *GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_Data_S
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spiSi.EntityData.Children = make(map[string]types.YChild)
-    spiSi.EntityData.Leafs = make(map[string]types.YLeaf)
-    spiSi.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts}
-    spiSi.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes}
+    spiSi.EntityData.Children = types.NewOrderedMap()
+    spiSi.EntityData.Leafs = types.NewOrderedMap()
+    spiSi.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts})
+    spiSi.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes})
+
+    spiSi.EntityData.YListKeys = []string {}
+
     return &(spiSi.EntityData)
 }
 
@@ -1906,10 +2068,13 @@ func (term *GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_Data_Sf
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    term.EntityData.Children = make(map[string]types.YChild)
-    term.EntityData.Leafs = make(map[string]types.YLeaf)
-    term.EntityData.Leafs["terminated-pkts"] = types.YLeaf{"TerminatedPkts", term.TerminatedPkts}
-    term.EntityData.Leafs["terminated-bytes"] = types.YLeaf{"TerminatedBytes", term.TerminatedBytes}
+    term.EntityData.Children = types.NewOrderedMap()
+    term.EntityData.Leafs = types.NewOrderedMap()
+    term.EntityData.Leafs.Append("terminated-pkts", types.YLeaf{"TerminatedPkts", term.TerminatedPkts})
+    term.EntityData.Leafs.Append("terminated-bytes", types.YLeaf{"TerminatedBytes", term.TerminatedBytes})
+
+    term.EntityData.YListKeys = []string {}
+
     return &(term.EntityData)
 }
 
@@ -1938,10 +2103,13 @@ func (spiSi *GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_Data_S
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spiSi.EntityData.Children = make(map[string]types.YChild)
-    spiSi.EntityData.Leafs = make(map[string]types.YLeaf)
-    spiSi.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts}
-    spiSi.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes}
+    spiSi.EntityData.Children = types.NewOrderedMap()
+    spiSi.EntityData.Leafs = types.NewOrderedMap()
+    spiSi.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts})
+    spiSi.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes})
+
+    spiSi.EntityData.YListKeys = []string {}
+
     return &(spiSi.EntityData)
 }
 
@@ -1970,10 +2138,13 @@ func (term *GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_Data_Te
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    term.EntityData.Children = make(map[string]types.YChild)
-    term.EntityData.Leafs = make(map[string]types.YLeaf)
-    term.EntityData.Leafs["terminated-pkts"] = types.YLeaf{"TerminatedPkts", term.TerminatedPkts}
-    term.EntityData.Leafs["terminated-bytes"] = types.YLeaf{"TerminatedBytes", term.TerminatedBytes}
+    term.EntityData.Children = types.NewOrderedMap()
+    term.EntityData.Leafs = types.NewOrderedMap()
+    term.EntityData.Leafs.Append("terminated-pkts", types.YLeaf{"TerminatedPkts", term.TerminatedPkts})
+    term.EntityData.Leafs.Append("terminated-bytes", types.YLeaf{"TerminatedBytes", term.TerminatedBytes})
+
+    term.EntityData.YListKeys = []string {}
+
     return &(term.EntityData)
 }
 
@@ -2002,10 +2173,13 @@ func (sf *GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_Data_Sf) 
     sf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sf.EntityData.Children = make(map[string]types.YChild)
-    sf.EntityData.Leafs = make(map[string]types.YLeaf)
-    sf.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", sf.ProcessedPkts}
-    sf.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", sf.ProcessedBytes}
+    sf.EntityData.Children = types.NewOrderedMap()
+    sf.EntityData.Leafs = types.NewOrderedMap()
+    sf.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", sf.ProcessedPkts})
+    sf.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", sf.ProcessedBytes})
+
+    sf.EntityData.YListKeys = []string {}
+
     return &(sf.EntityData)
 }
 
@@ -2034,10 +2208,13 @@ func (sff *GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_Data_Sff
     sff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sff.EntityData.Children = make(map[string]types.YChild)
-    sff.EntityData.Leafs = make(map[string]types.YLeaf)
-    sff.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", sff.ProcessedPkts}
-    sff.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", sff.ProcessedBytes}
+    sff.EntityData.Children = types.NewOrderedMap()
+    sff.EntityData.Leafs = types.NewOrderedMap()
+    sff.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", sff.ProcessedPkts})
+    sff.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", sff.ProcessedBytes})
+
+    sff.EntityData.YListKeys = []string {}
+
     return &(sff.EntityData)
 }
 
@@ -2074,12 +2251,15 @@ func (sffLocal *GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_Dat
     sffLocal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sffLocal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sffLocal.EntityData.Children = make(map[string]types.YChild)
-    sffLocal.EntityData.Leafs = make(map[string]types.YLeaf)
-    sffLocal.EntityData.Leafs["malformed-err-pkts"] = types.YLeaf{"MalformedErrPkts", sffLocal.MalformedErrPkts}
-    sffLocal.EntityData.Leafs["lookup-err-pkts"] = types.YLeaf{"LookupErrPkts", sffLocal.LookupErrPkts}
-    sffLocal.EntityData.Leafs["malformed-err-bytes"] = types.YLeaf{"MalformedErrBytes", sffLocal.MalformedErrBytes}
-    sffLocal.EntityData.Leafs["lookup-err-bytes"] = types.YLeaf{"LookupErrBytes", sffLocal.LookupErrBytes}
+    sffLocal.EntityData.Children = types.NewOrderedMap()
+    sffLocal.EntityData.Leafs = types.NewOrderedMap()
+    sffLocal.EntityData.Leafs.Append("malformed-err-pkts", types.YLeaf{"MalformedErrPkts", sffLocal.MalformedErrPkts})
+    sffLocal.EntityData.Leafs.Append("lookup-err-pkts", types.YLeaf{"LookupErrPkts", sffLocal.LookupErrPkts})
+    sffLocal.EntityData.Leafs.Append("malformed-err-bytes", types.YLeaf{"MalformedErrBytes", sffLocal.MalformedErrBytes})
+    sffLocal.EntityData.Leafs.Append("lookup-err-bytes", types.YLeaf{"LookupErrBytes", sffLocal.LookupErrBytes})
+
+    sffLocal.EntityData.YListKeys = []string {}
+
     return &(sffLocal.EntityData)
 }
 
@@ -2106,10 +2286,13 @@ func (siArr *GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_SiArr)
     siArr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siArr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    siArr.EntityData.Children = make(map[string]types.YChild)
-    siArr.EntityData.Children["data"] = types.YChild{"Data", &siArr.Data}
-    siArr.EntityData.Leafs = make(map[string]types.YLeaf)
-    siArr.EntityData.Leafs["si"] = types.YLeaf{"Si", siArr.Si}
+    siArr.EntityData.Children = types.NewOrderedMap()
+    siArr.EntityData.Children.Append("data", types.YChild{"Data", &siArr.Data})
+    siArr.EntityData.Leafs = types.NewOrderedMap()
+    siArr.EntityData.Leafs.Append("si", types.YLeaf{"Si", siArr.Si})
+
+    siArr.EntityData.YListKeys = []string {}
+
     return &(siArr.EntityData)
 }
 
@@ -2120,7 +2303,7 @@ type GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_SiArr_Data str
     YFilter yfilter.YFilter
 
     // type. The type is VsNshStats.
-    Type_ interface{}
+    Type interface{}
 
     // SF/SFF stats.
     SpiSi GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_SiArr_Data_SpiSi
@@ -2139,11 +2322,14 @@ func (data *GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_SiArr_D
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    data.EntityData.Children = make(map[string]types.YChild)
-    data.EntityData.Children["spi-si"] = types.YChild{"SpiSi", &data.SpiSi}
-    data.EntityData.Children["term"] = types.YChild{"Term", &data.Term}
-    data.EntityData.Leafs = make(map[string]types.YLeaf)
-    data.EntityData.Leafs["type"] = types.YLeaf{"Type_", data.Type_}
+    data.EntityData.Children = types.NewOrderedMap()
+    data.EntityData.Children.Append("spi-si", types.YChild{"SpiSi", &data.SpiSi})
+    data.EntityData.Children.Append("term", types.YChild{"Term", &data.Term})
+    data.EntityData.Leafs = types.NewOrderedMap()
+    data.EntityData.Leafs.Append("type", types.YLeaf{"Type", data.Type})
+
+    data.EntityData.YListKeys = []string {}
+
     return &(data.EntityData)
 }
 
@@ -2172,10 +2358,13 @@ func (spiSi *GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_SiArr_
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spiSi.EntityData.Children = make(map[string]types.YChild)
-    spiSi.EntityData.Leafs = make(map[string]types.YLeaf)
-    spiSi.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts}
-    spiSi.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes}
+    spiSi.EntityData.Children = types.NewOrderedMap()
+    spiSi.EntityData.Leafs = types.NewOrderedMap()
+    spiSi.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts})
+    spiSi.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes})
+
+    spiSi.EntityData.YListKeys = []string {}
+
     return &(spiSi.EntityData)
 }
 
@@ -2204,10 +2393,13 @@ func (term *GlobalServiceFunctionChaining_ServiceFunction_SfNames_SfName_SiArr_D
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    term.EntityData.Children = make(map[string]types.YChild)
-    term.EntityData.Leafs = make(map[string]types.YLeaf)
-    term.EntityData.Leafs["terminated-pkts"] = types.YLeaf{"TerminatedPkts", term.TerminatedPkts}
-    term.EntityData.Leafs["terminated-bytes"] = types.YLeaf{"TerminatedBytes", term.TerminatedBytes}
+    term.EntityData.Children = types.NewOrderedMap()
+    term.EntityData.Leafs = types.NewOrderedMap()
+    term.EntityData.Leafs.Append("terminated-pkts", types.YLeaf{"TerminatedPkts", term.TerminatedPkts})
+    term.EntityData.Leafs.Append("terminated-bytes", types.YLeaf{"TerminatedBytes", term.TerminatedBytes})
+
+    term.EntityData.YListKeys = []string {}
+
     return &(term.EntityData)
 }
 
@@ -2234,10 +2426,13 @@ func (serviceFunctionForwarder *GlobalServiceFunctionChaining_ServiceFunctionFor
     serviceFunctionForwarder.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceFunctionForwarder.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serviceFunctionForwarder.EntityData.Children = make(map[string]types.YChild)
-    serviceFunctionForwarder.EntityData.Children["sff-names"] = types.YChild{"SffNames", &serviceFunctionForwarder.SffNames}
-    serviceFunctionForwarder.EntityData.Children["local"] = types.YChild{"Local", &serviceFunctionForwarder.Local}
-    serviceFunctionForwarder.EntityData.Leafs = make(map[string]types.YLeaf)
+    serviceFunctionForwarder.EntityData.Children = types.NewOrderedMap()
+    serviceFunctionForwarder.EntityData.Children.Append("sff-names", types.YChild{"SffNames", &serviceFunctionForwarder.SffNames})
+    serviceFunctionForwarder.EntityData.Children.Append("local", types.YChild{"Local", &serviceFunctionForwarder.Local})
+    serviceFunctionForwarder.EntityData.Leafs = types.NewOrderedMap()
+
+    serviceFunctionForwarder.EntityData.YListKeys = []string {}
+
     return &(serviceFunctionForwarder.EntityData)
 }
 
@@ -2249,7 +2444,7 @@ type GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames struct {
 
     // Name of Service Function Forwarder. The type is slice of
     // GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffName.
-    SffName []GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffName
+    SffName []*GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffName
 }
 
 func (sffNames *GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames) GetEntityData() *types.CommonEntityData {
@@ -2262,12 +2457,15 @@ func (sffNames *GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames)
     sffNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sffNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sffNames.EntityData.Children = make(map[string]types.YChild)
-    sffNames.EntityData.Children["sff-name"] = types.YChild{"SffName", nil}
+    sffNames.EntityData.Children = types.NewOrderedMap()
+    sffNames.EntityData.Children.Append("sff-name", types.YChild{"SffName", nil})
     for i := range sffNames.SffName {
-        sffNames.EntityData.Children[types.GetSegmentPath(&sffNames.SffName[i])] = types.YChild{"SffName", &sffNames.SffName[i]}
+        sffNames.EntityData.Children.Append(types.GetSegmentPath(sffNames.SffName[i]), types.YChild{"SffName", sffNames.SffName[i]})
     }
-    sffNames.EntityData.Leafs = make(map[string]types.YLeaf)
+    sffNames.EntityData.Leafs = types.NewOrderedMap()
+
+    sffNames.EntityData.YListKeys = []string {}
+
     return &(sffNames.EntityData)
 }
 
@@ -2285,7 +2483,7 @@ type GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffName str
 
     // SI array in case of detail stats. The type is slice of
     // GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffName_SiArr.
-    SiArr []GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffName_SiArr
+    SiArr []*GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffName_SiArr
 }
 
 func (sffName *GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffName) GetEntityData() *types.CommonEntityData {
@@ -2293,19 +2491,22 @@ func (sffName *GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_S
     sffName.EntityData.YangName = "sff-name"
     sffName.EntityData.BundleName = "cisco_ios_xr"
     sffName.EntityData.ParentYangName = "sff-names"
-    sffName.EntityData.SegmentPath = "sff-name" + "[name='" + fmt.Sprintf("%v", sffName.Name) + "']"
+    sffName.EntityData.SegmentPath = "sff-name" + types.AddKeyToken(sffName.Name, "name")
     sffName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sffName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sffName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sffName.EntityData.Children = make(map[string]types.YChild)
-    sffName.EntityData.Children["data"] = types.YChild{"Data", &sffName.Data}
-    sffName.EntityData.Children["si-arr"] = types.YChild{"SiArr", nil}
+    sffName.EntityData.Children = types.NewOrderedMap()
+    sffName.EntityData.Children.Append("data", types.YChild{"Data", &sffName.Data})
+    sffName.EntityData.Children.Append("si-arr", types.YChild{"SiArr", nil})
     for i := range sffName.SiArr {
-        sffName.EntityData.Children[types.GetSegmentPath(&sffName.SiArr[i])] = types.YChild{"SiArr", &sffName.SiArr[i]}
+        sffName.EntityData.Children.Append(types.GetSegmentPath(sffName.SiArr[i]), types.YChild{"SiArr", sffName.SiArr[i]})
     }
-    sffName.EntityData.Leafs = make(map[string]types.YLeaf)
-    sffName.EntityData.Leafs["name"] = types.YLeaf{"Name", sffName.Name}
+    sffName.EntityData.Leafs = types.NewOrderedMap()
+    sffName.EntityData.Leafs.Append("name", types.YLeaf{"Name", sffName.Name})
+
+    sffName.EntityData.YListKeys = []string {"Name"}
+
     return &(sffName.EntityData)
 }
 
@@ -2316,7 +2517,7 @@ type GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffName_Dat
     YFilter yfilter.YFilter
 
     // type. The type is VsNshStats.
-    Type_ interface{}
+    Type interface{}
 
     // SFP stats.
     Sfp GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffName_Data_Sfp
@@ -2347,15 +2548,18 @@ func (data *GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffN
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    data.EntityData.Children = make(map[string]types.YChild)
-    data.EntityData.Children["sfp"] = types.YChild{"Sfp", &data.Sfp}
-    data.EntityData.Children["spi-si"] = types.YChild{"SpiSi", &data.SpiSi}
-    data.EntityData.Children["term"] = types.YChild{"Term", &data.Term}
-    data.EntityData.Children["sf"] = types.YChild{"Sf", &data.Sf}
-    data.EntityData.Children["sff"] = types.YChild{"Sff", &data.Sff}
-    data.EntityData.Children["sff-local"] = types.YChild{"SffLocal", &data.SffLocal}
-    data.EntityData.Leafs = make(map[string]types.YLeaf)
-    data.EntityData.Leafs["type"] = types.YLeaf{"Type_", data.Type_}
+    data.EntityData.Children = types.NewOrderedMap()
+    data.EntityData.Children.Append("sfp", types.YChild{"Sfp", &data.Sfp})
+    data.EntityData.Children.Append("spi-si", types.YChild{"SpiSi", &data.SpiSi})
+    data.EntityData.Children.Append("term", types.YChild{"Term", &data.Term})
+    data.EntityData.Children.Append("sf", types.YChild{"Sf", &data.Sf})
+    data.EntityData.Children.Append("sff", types.YChild{"Sff", &data.Sff})
+    data.EntityData.Children.Append("sff-local", types.YChild{"SffLocal", &data.SffLocal})
+    data.EntityData.Leafs = types.NewOrderedMap()
+    data.EntityData.Leafs.Append("type", types.YLeaf{"Type", data.Type})
+
+    data.EntityData.YListKeys = []string {}
+
     return &(data.EntityData)
 }
 
@@ -2382,10 +2586,13 @@ func (sfp *GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffNa
     sfp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sfp.EntityData.Children = make(map[string]types.YChild)
-    sfp.EntityData.Children["spi-si"] = types.YChild{"SpiSi", &sfp.SpiSi}
-    sfp.EntityData.Children["term"] = types.YChild{"Term", &sfp.Term}
-    sfp.EntityData.Leafs = make(map[string]types.YLeaf)
+    sfp.EntityData.Children = types.NewOrderedMap()
+    sfp.EntityData.Children.Append("spi-si", types.YChild{"SpiSi", &sfp.SpiSi})
+    sfp.EntityData.Children.Append("term", types.YChild{"Term", &sfp.Term})
+    sfp.EntityData.Leafs = types.NewOrderedMap()
+
+    sfp.EntityData.YListKeys = []string {}
+
     return &(sfp.EntityData)
 }
 
@@ -2414,10 +2621,13 @@ func (spiSi *GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_Sff
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spiSi.EntityData.Children = make(map[string]types.YChild)
-    spiSi.EntityData.Leafs = make(map[string]types.YLeaf)
-    spiSi.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts}
-    spiSi.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes}
+    spiSi.EntityData.Children = types.NewOrderedMap()
+    spiSi.EntityData.Leafs = types.NewOrderedMap()
+    spiSi.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts})
+    spiSi.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes})
+
+    spiSi.EntityData.YListKeys = []string {}
+
     return &(spiSi.EntityData)
 }
 
@@ -2446,10 +2656,13 @@ func (term *GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffN
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    term.EntityData.Children = make(map[string]types.YChild)
-    term.EntityData.Leafs = make(map[string]types.YLeaf)
-    term.EntityData.Leafs["terminated-pkts"] = types.YLeaf{"TerminatedPkts", term.TerminatedPkts}
-    term.EntityData.Leafs["terminated-bytes"] = types.YLeaf{"TerminatedBytes", term.TerminatedBytes}
+    term.EntityData.Children = types.NewOrderedMap()
+    term.EntityData.Leafs = types.NewOrderedMap()
+    term.EntityData.Leafs.Append("terminated-pkts", types.YLeaf{"TerminatedPkts", term.TerminatedPkts})
+    term.EntityData.Leafs.Append("terminated-bytes", types.YLeaf{"TerminatedBytes", term.TerminatedBytes})
+
+    term.EntityData.YListKeys = []string {}
+
     return &(term.EntityData)
 }
 
@@ -2478,10 +2691,13 @@ func (spiSi *GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_Sff
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spiSi.EntityData.Children = make(map[string]types.YChild)
-    spiSi.EntityData.Leafs = make(map[string]types.YLeaf)
-    spiSi.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts}
-    spiSi.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes}
+    spiSi.EntityData.Children = types.NewOrderedMap()
+    spiSi.EntityData.Leafs = types.NewOrderedMap()
+    spiSi.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts})
+    spiSi.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes})
+
+    spiSi.EntityData.YListKeys = []string {}
+
     return &(spiSi.EntityData)
 }
 
@@ -2510,10 +2726,13 @@ func (term *GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffN
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    term.EntityData.Children = make(map[string]types.YChild)
-    term.EntityData.Leafs = make(map[string]types.YLeaf)
-    term.EntityData.Leafs["terminated-pkts"] = types.YLeaf{"TerminatedPkts", term.TerminatedPkts}
-    term.EntityData.Leafs["terminated-bytes"] = types.YLeaf{"TerminatedBytes", term.TerminatedBytes}
+    term.EntityData.Children = types.NewOrderedMap()
+    term.EntityData.Leafs = types.NewOrderedMap()
+    term.EntityData.Leafs.Append("terminated-pkts", types.YLeaf{"TerminatedPkts", term.TerminatedPkts})
+    term.EntityData.Leafs.Append("terminated-bytes", types.YLeaf{"TerminatedBytes", term.TerminatedBytes})
+
+    term.EntityData.YListKeys = []string {}
+
     return &(term.EntityData)
 }
 
@@ -2542,10 +2761,13 @@ func (sf *GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffNam
     sf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sf.EntityData.Children = make(map[string]types.YChild)
-    sf.EntityData.Leafs = make(map[string]types.YLeaf)
-    sf.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", sf.ProcessedPkts}
-    sf.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", sf.ProcessedBytes}
+    sf.EntityData.Children = types.NewOrderedMap()
+    sf.EntityData.Leafs = types.NewOrderedMap()
+    sf.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", sf.ProcessedPkts})
+    sf.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", sf.ProcessedBytes})
+
+    sf.EntityData.YListKeys = []string {}
+
     return &(sf.EntityData)
 }
 
@@ -2574,10 +2796,13 @@ func (sff *GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffNa
     sff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sff.EntityData.Children = make(map[string]types.YChild)
-    sff.EntityData.Leafs = make(map[string]types.YLeaf)
-    sff.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", sff.ProcessedPkts}
-    sff.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", sff.ProcessedBytes}
+    sff.EntityData.Children = types.NewOrderedMap()
+    sff.EntityData.Leafs = types.NewOrderedMap()
+    sff.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", sff.ProcessedPkts})
+    sff.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", sff.ProcessedBytes})
+
+    sff.EntityData.YListKeys = []string {}
+
     return &(sff.EntityData)
 }
 
@@ -2614,12 +2839,15 @@ func (sffLocal *GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_
     sffLocal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sffLocal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sffLocal.EntityData.Children = make(map[string]types.YChild)
-    sffLocal.EntityData.Leafs = make(map[string]types.YLeaf)
-    sffLocal.EntityData.Leafs["malformed-err-pkts"] = types.YLeaf{"MalformedErrPkts", sffLocal.MalformedErrPkts}
-    sffLocal.EntityData.Leafs["lookup-err-pkts"] = types.YLeaf{"LookupErrPkts", sffLocal.LookupErrPkts}
-    sffLocal.EntityData.Leafs["malformed-err-bytes"] = types.YLeaf{"MalformedErrBytes", sffLocal.MalformedErrBytes}
-    sffLocal.EntityData.Leafs["lookup-err-bytes"] = types.YLeaf{"LookupErrBytes", sffLocal.LookupErrBytes}
+    sffLocal.EntityData.Children = types.NewOrderedMap()
+    sffLocal.EntityData.Leafs = types.NewOrderedMap()
+    sffLocal.EntityData.Leafs.Append("malformed-err-pkts", types.YLeaf{"MalformedErrPkts", sffLocal.MalformedErrPkts})
+    sffLocal.EntityData.Leafs.Append("lookup-err-pkts", types.YLeaf{"LookupErrPkts", sffLocal.LookupErrPkts})
+    sffLocal.EntityData.Leafs.Append("malformed-err-bytes", types.YLeaf{"MalformedErrBytes", sffLocal.MalformedErrBytes})
+    sffLocal.EntityData.Leafs.Append("lookup-err-bytes", types.YLeaf{"LookupErrBytes", sffLocal.LookupErrBytes})
+
+    sffLocal.EntityData.YListKeys = []string {}
+
     return &(sffLocal.EntityData)
 }
 
@@ -2646,10 +2874,13 @@ func (siArr *GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_Sff
     siArr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siArr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    siArr.EntityData.Children = make(map[string]types.YChild)
-    siArr.EntityData.Children["data"] = types.YChild{"Data", &siArr.Data}
-    siArr.EntityData.Leafs = make(map[string]types.YLeaf)
-    siArr.EntityData.Leafs["si"] = types.YLeaf{"Si", siArr.Si}
+    siArr.EntityData.Children = types.NewOrderedMap()
+    siArr.EntityData.Children.Append("data", types.YChild{"Data", &siArr.Data})
+    siArr.EntityData.Leafs = types.NewOrderedMap()
+    siArr.EntityData.Leafs.Append("si", types.YLeaf{"Si", siArr.Si})
+
+    siArr.EntityData.YListKeys = []string {}
+
     return &(siArr.EntityData)
 }
 
@@ -2660,7 +2891,7 @@ type GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffName_SiA
     YFilter yfilter.YFilter
 
     // type. The type is VsNshStats.
-    Type_ interface{}
+    Type interface{}
 
     // SF/SFF stats.
     SpiSi GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffName_SiArr_Data_SpiSi
@@ -2679,11 +2910,14 @@ func (data *GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffN
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    data.EntityData.Children = make(map[string]types.YChild)
-    data.EntityData.Children["spi-si"] = types.YChild{"SpiSi", &data.SpiSi}
-    data.EntityData.Children["term"] = types.YChild{"Term", &data.Term}
-    data.EntityData.Leafs = make(map[string]types.YLeaf)
-    data.EntityData.Leafs["type"] = types.YLeaf{"Type_", data.Type_}
+    data.EntityData.Children = types.NewOrderedMap()
+    data.EntityData.Children.Append("spi-si", types.YChild{"SpiSi", &data.SpiSi})
+    data.EntityData.Children.Append("term", types.YChild{"Term", &data.Term})
+    data.EntityData.Leafs = types.NewOrderedMap()
+    data.EntityData.Leafs.Append("type", types.YLeaf{"Type", data.Type})
+
+    data.EntityData.YListKeys = []string {}
+
     return &(data.EntityData)
 }
 
@@ -2712,10 +2946,13 @@ func (spiSi *GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_Sff
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spiSi.EntityData.Children = make(map[string]types.YChild)
-    spiSi.EntityData.Leafs = make(map[string]types.YLeaf)
-    spiSi.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts}
-    spiSi.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes}
+    spiSi.EntityData.Children = types.NewOrderedMap()
+    spiSi.EntityData.Leafs = types.NewOrderedMap()
+    spiSi.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts})
+    spiSi.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes})
+
+    spiSi.EntityData.YListKeys = []string {}
+
     return &(spiSi.EntityData)
 }
 
@@ -2744,10 +2981,13 @@ func (term *GlobalServiceFunctionChaining_ServiceFunctionForwarder_SffNames_SffN
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    term.EntityData.Children = make(map[string]types.YChild)
-    term.EntityData.Leafs = make(map[string]types.YLeaf)
-    term.EntityData.Leafs["terminated-pkts"] = types.YLeaf{"TerminatedPkts", term.TerminatedPkts}
-    term.EntityData.Leafs["terminated-bytes"] = types.YLeaf{"TerminatedBytes", term.TerminatedBytes}
+    term.EntityData.Children = types.NewOrderedMap()
+    term.EntityData.Leafs = types.NewOrderedMap()
+    term.EntityData.Leafs.Append("terminated-pkts", types.YLeaf{"TerminatedPkts", term.TerminatedPkts})
+    term.EntityData.Leafs.Append("terminated-bytes", types.YLeaf{"TerminatedBytes", term.TerminatedBytes})
+
+    term.EntityData.YListKeys = []string {}
+
     return &(term.EntityData)
 }
 
@@ -2772,9 +3012,12 @@ func (local *GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local) GetEn
     local.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     local.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    local.EntityData.Children = make(map[string]types.YChild)
-    local.EntityData.Children["error"] = types.YChild{"Error", &local.Error}
-    local.EntityData.Leafs = make(map[string]types.YLeaf)
+    local.EntityData.Children = types.NewOrderedMap()
+    local.EntityData.Children.Append("error", types.YChild{"Error", &local.Error})
+    local.EntityData.Leafs = types.NewOrderedMap()
+
+    local.EntityData.YListKeys = []string {}
+
     return &(local.EntityData)
 }
 
@@ -2790,27 +3033,30 @@ type GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error struct {
 
     // SI array in case of detail stats. The type is slice of
     // GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_SiArr.
-    SiArr []GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_SiArr
+    SiArr []*GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_SiArr
 }
 
-func (error *GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "local"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "local"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["data"] = types.YChild{"Data", &error.Data}
-    error.EntityData.Children["si-arr"] = types.YChild{"SiArr", nil}
-    for i := range error.SiArr {
-        error.EntityData.Children[types.GetSegmentPath(&error.SiArr[i])] = types.YChild{"SiArr", &error.SiArr[i]}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("data", types.YChild{"Data", &self.Data})
+    self.EntityData.Children.Append("si-arr", types.YChild{"SiArr", nil})
+    for i := range self.SiArr {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.SiArr[i]), types.YChild{"SiArr", self.SiArr[i]})
     }
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(error.EntityData)
+    self.EntityData.Leafs = types.NewOrderedMap()
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_Data
@@ -2820,7 +3066,7 @@ type GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_Data str
     YFilter yfilter.YFilter
 
     // type. The type is VsNshStats.
-    Type_ interface{}
+    Type interface{}
 
     // SFP stats.
     Sfp GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_Data_Sfp
@@ -2851,15 +3097,18 @@ func (data *GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_D
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    data.EntityData.Children = make(map[string]types.YChild)
-    data.EntityData.Children["sfp"] = types.YChild{"Sfp", &data.Sfp}
-    data.EntityData.Children["spi-si"] = types.YChild{"SpiSi", &data.SpiSi}
-    data.EntityData.Children["term"] = types.YChild{"Term", &data.Term}
-    data.EntityData.Children["sf"] = types.YChild{"Sf", &data.Sf}
-    data.EntityData.Children["sff"] = types.YChild{"Sff", &data.Sff}
-    data.EntityData.Children["sff-local"] = types.YChild{"SffLocal", &data.SffLocal}
-    data.EntityData.Leafs = make(map[string]types.YLeaf)
-    data.EntityData.Leafs["type"] = types.YLeaf{"Type_", data.Type_}
+    data.EntityData.Children = types.NewOrderedMap()
+    data.EntityData.Children.Append("sfp", types.YChild{"Sfp", &data.Sfp})
+    data.EntityData.Children.Append("spi-si", types.YChild{"SpiSi", &data.SpiSi})
+    data.EntityData.Children.Append("term", types.YChild{"Term", &data.Term})
+    data.EntityData.Children.Append("sf", types.YChild{"Sf", &data.Sf})
+    data.EntityData.Children.Append("sff", types.YChild{"Sff", &data.Sff})
+    data.EntityData.Children.Append("sff-local", types.YChild{"SffLocal", &data.SffLocal})
+    data.EntityData.Leafs = types.NewOrderedMap()
+    data.EntityData.Leafs.Append("type", types.YLeaf{"Type", data.Type})
+
+    data.EntityData.YListKeys = []string {}
+
     return &(data.EntityData)
 }
 
@@ -2886,10 +3135,13 @@ func (sfp *GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_Da
     sfp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sfp.EntityData.Children = make(map[string]types.YChild)
-    sfp.EntityData.Children["spi-si"] = types.YChild{"SpiSi", &sfp.SpiSi}
-    sfp.EntityData.Children["term"] = types.YChild{"Term", &sfp.Term}
-    sfp.EntityData.Leafs = make(map[string]types.YLeaf)
+    sfp.EntityData.Children = types.NewOrderedMap()
+    sfp.EntityData.Children.Append("spi-si", types.YChild{"SpiSi", &sfp.SpiSi})
+    sfp.EntityData.Children.Append("term", types.YChild{"Term", &sfp.Term})
+    sfp.EntityData.Leafs = types.NewOrderedMap()
+
+    sfp.EntityData.YListKeys = []string {}
+
     return &(sfp.EntityData)
 }
 
@@ -2918,10 +3170,13 @@ func (spiSi *GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spiSi.EntityData.Children = make(map[string]types.YChild)
-    spiSi.EntityData.Leafs = make(map[string]types.YLeaf)
-    spiSi.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts}
-    spiSi.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes}
+    spiSi.EntityData.Children = types.NewOrderedMap()
+    spiSi.EntityData.Leafs = types.NewOrderedMap()
+    spiSi.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts})
+    spiSi.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes})
+
+    spiSi.EntityData.YListKeys = []string {}
+
     return &(spiSi.EntityData)
 }
 
@@ -2950,10 +3205,13 @@ func (term *GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_D
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    term.EntityData.Children = make(map[string]types.YChild)
-    term.EntityData.Leafs = make(map[string]types.YLeaf)
-    term.EntityData.Leafs["terminated-pkts"] = types.YLeaf{"TerminatedPkts", term.TerminatedPkts}
-    term.EntityData.Leafs["terminated-bytes"] = types.YLeaf{"TerminatedBytes", term.TerminatedBytes}
+    term.EntityData.Children = types.NewOrderedMap()
+    term.EntityData.Leafs = types.NewOrderedMap()
+    term.EntityData.Leafs.Append("terminated-pkts", types.YLeaf{"TerminatedPkts", term.TerminatedPkts})
+    term.EntityData.Leafs.Append("terminated-bytes", types.YLeaf{"TerminatedBytes", term.TerminatedBytes})
+
+    term.EntityData.YListKeys = []string {}
+
     return &(term.EntityData)
 }
 
@@ -2982,10 +3240,13 @@ func (spiSi *GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spiSi.EntityData.Children = make(map[string]types.YChild)
-    spiSi.EntityData.Leafs = make(map[string]types.YLeaf)
-    spiSi.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts}
-    spiSi.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes}
+    spiSi.EntityData.Children = types.NewOrderedMap()
+    spiSi.EntityData.Leafs = types.NewOrderedMap()
+    spiSi.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts})
+    spiSi.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes})
+
+    spiSi.EntityData.YListKeys = []string {}
+
     return &(spiSi.EntityData)
 }
 
@@ -3014,10 +3275,13 @@ func (term *GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_D
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    term.EntityData.Children = make(map[string]types.YChild)
-    term.EntityData.Leafs = make(map[string]types.YLeaf)
-    term.EntityData.Leafs["terminated-pkts"] = types.YLeaf{"TerminatedPkts", term.TerminatedPkts}
-    term.EntityData.Leafs["terminated-bytes"] = types.YLeaf{"TerminatedBytes", term.TerminatedBytes}
+    term.EntityData.Children = types.NewOrderedMap()
+    term.EntityData.Leafs = types.NewOrderedMap()
+    term.EntityData.Leafs.Append("terminated-pkts", types.YLeaf{"TerminatedPkts", term.TerminatedPkts})
+    term.EntityData.Leafs.Append("terminated-bytes", types.YLeaf{"TerminatedBytes", term.TerminatedBytes})
+
+    term.EntityData.YListKeys = []string {}
+
     return &(term.EntityData)
 }
 
@@ -3046,10 +3310,13 @@ func (sf *GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_Dat
     sf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sf.EntityData.Children = make(map[string]types.YChild)
-    sf.EntityData.Leafs = make(map[string]types.YLeaf)
-    sf.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", sf.ProcessedPkts}
-    sf.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", sf.ProcessedBytes}
+    sf.EntityData.Children = types.NewOrderedMap()
+    sf.EntityData.Leafs = types.NewOrderedMap()
+    sf.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", sf.ProcessedPkts})
+    sf.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", sf.ProcessedBytes})
+
+    sf.EntityData.YListKeys = []string {}
+
     return &(sf.EntityData)
 }
 
@@ -3078,10 +3345,13 @@ func (sff *GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_Da
     sff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sff.EntityData.Children = make(map[string]types.YChild)
-    sff.EntityData.Leafs = make(map[string]types.YLeaf)
-    sff.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", sff.ProcessedPkts}
-    sff.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", sff.ProcessedBytes}
+    sff.EntityData.Children = types.NewOrderedMap()
+    sff.EntityData.Leafs = types.NewOrderedMap()
+    sff.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", sff.ProcessedPkts})
+    sff.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", sff.ProcessedBytes})
+
+    sff.EntityData.YListKeys = []string {}
+
     return &(sff.EntityData)
 }
 
@@ -3118,12 +3388,15 @@ func (sffLocal *GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Err
     sffLocal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sffLocal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sffLocal.EntityData.Children = make(map[string]types.YChild)
-    sffLocal.EntityData.Leafs = make(map[string]types.YLeaf)
-    sffLocal.EntityData.Leafs["malformed-err-pkts"] = types.YLeaf{"MalformedErrPkts", sffLocal.MalformedErrPkts}
-    sffLocal.EntityData.Leafs["lookup-err-pkts"] = types.YLeaf{"LookupErrPkts", sffLocal.LookupErrPkts}
-    sffLocal.EntityData.Leafs["malformed-err-bytes"] = types.YLeaf{"MalformedErrBytes", sffLocal.MalformedErrBytes}
-    sffLocal.EntityData.Leafs["lookup-err-bytes"] = types.YLeaf{"LookupErrBytes", sffLocal.LookupErrBytes}
+    sffLocal.EntityData.Children = types.NewOrderedMap()
+    sffLocal.EntityData.Leafs = types.NewOrderedMap()
+    sffLocal.EntityData.Leafs.Append("malformed-err-pkts", types.YLeaf{"MalformedErrPkts", sffLocal.MalformedErrPkts})
+    sffLocal.EntityData.Leafs.Append("lookup-err-pkts", types.YLeaf{"LookupErrPkts", sffLocal.LookupErrPkts})
+    sffLocal.EntityData.Leafs.Append("malformed-err-bytes", types.YLeaf{"MalformedErrBytes", sffLocal.MalformedErrBytes})
+    sffLocal.EntityData.Leafs.Append("lookup-err-bytes", types.YLeaf{"LookupErrBytes", sffLocal.LookupErrBytes})
+
+    sffLocal.EntityData.YListKeys = []string {}
+
     return &(sffLocal.EntityData)
 }
 
@@ -3150,10 +3423,13 @@ func (siArr *GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_
     siArr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siArr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    siArr.EntityData.Children = make(map[string]types.YChild)
-    siArr.EntityData.Children["data"] = types.YChild{"Data", &siArr.Data}
-    siArr.EntityData.Leafs = make(map[string]types.YLeaf)
-    siArr.EntityData.Leafs["si"] = types.YLeaf{"Si", siArr.Si}
+    siArr.EntityData.Children = types.NewOrderedMap()
+    siArr.EntityData.Children.Append("data", types.YChild{"Data", &siArr.Data})
+    siArr.EntityData.Leafs = types.NewOrderedMap()
+    siArr.EntityData.Leafs.Append("si", types.YLeaf{"Si", siArr.Si})
+
+    siArr.EntityData.YListKeys = []string {}
+
     return &(siArr.EntityData)
 }
 
@@ -3164,7 +3440,7 @@ type GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_SiArr_Da
     YFilter yfilter.YFilter
 
     // type. The type is VsNshStats.
-    Type_ interface{}
+    Type interface{}
 
     // SF/SFF stats.
     SpiSi GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_SiArr_Data_SpiSi
@@ -3183,11 +3459,14 @@ func (data *GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_S
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    data.EntityData.Children = make(map[string]types.YChild)
-    data.EntityData.Children["spi-si"] = types.YChild{"SpiSi", &data.SpiSi}
-    data.EntityData.Children["term"] = types.YChild{"Term", &data.Term}
-    data.EntityData.Leafs = make(map[string]types.YLeaf)
-    data.EntityData.Leafs["type"] = types.YLeaf{"Type_", data.Type_}
+    data.EntityData.Children = types.NewOrderedMap()
+    data.EntityData.Children.Append("spi-si", types.YChild{"SpiSi", &data.SpiSi})
+    data.EntityData.Children.Append("term", types.YChild{"Term", &data.Term})
+    data.EntityData.Leafs = types.NewOrderedMap()
+    data.EntityData.Leafs.Append("type", types.YLeaf{"Type", data.Type})
+
+    data.EntityData.YListKeys = []string {}
+
     return &(data.EntityData)
 }
 
@@ -3216,10 +3495,13 @@ func (spiSi *GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    spiSi.EntityData.Children = make(map[string]types.YChild)
-    spiSi.EntityData.Leafs = make(map[string]types.YLeaf)
-    spiSi.EntityData.Leafs["processed-pkts"] = types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts}
-    spiSi.EntityData.Leafs["processed-bytes"] = types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes}
+    spiSi.EntityData.Children = types.NewOrderedMap()
+    spiSi.EntityData.Leafs = types.NewOrderedMap()
+    spiSi.EntityData.Leafs.Append("processed-pkts", types.YLeaf{"ProcessedPkts", spiSi.ProcessedPkts})
+    spiSi.EntityData.Leafs.Append("processed-bytes", types.YLeaf{"ProcessedBytes", spiSi.ProcessedBytes})
+
+    spiSi.EntityData.YListKeys = []string {}
+
     return &(spiSi.EntityData)
 }
 
@@ -3248,10 +3530,13 @@ func (term *GlobalServiceFunctionChaining_ServiceFunctionForwarder_Local_Error_S
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    term.EntityData.Children = make(map[string]types.YChild)
-    term.EntityData.Leafs = make(map[string]types.YLeaf)
-    term.EntityData.Leafs["terminated-pkts"] = types.YLeaf{"TerminatedPkts", term.TerminatedPkts}
-    term.EntityData.Leafs["terminated-bytes"] = types.YLeaf{"TerminatedBytes", term.TerminatedBytes}
+    term.EntityData.Children = types.NewOrderedMap()
+    term.EntityData.Leafs = types.NewOrderedMap()
+    term.EntityData.Leafs.Append("terminated-pkts", types.YLeaf{"TerminatedPkts", term.TerminatedPkts})
+    term.EntityData.Leafs.Append("terminated-bytes", types.YLeaf{"TerminatedBytes", term.TerminatedBytes})
+
+    term.EntityData.YListKeys = []string {}
+
     return &(term.EntityData)
 }
 

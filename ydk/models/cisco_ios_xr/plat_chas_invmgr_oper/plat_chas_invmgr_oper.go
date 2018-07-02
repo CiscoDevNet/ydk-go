@@ -27,6 +27,179 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-plat-chas-invmgr-oper:platform-inventory", reflect.TypeOf(PlatformInventory{}))
 }
 
+// InvAdminState represents Inv admin state
+type InvAdminState string
+
+const (
+    // admin state invalid
+    InvAdminState_admin_state_invalid InvAdminState = "admin-state-invalid"
+
+    // admin up
+    InvAdminState_admin_up InvAdminState = "admin-up"
+
+    // admin down
+    InvAdminState_admin_down InvAdminState = "admin-down"
+)
+
+// InvResetReason represents Inv reset reason
+type InvResetReason string
+
+const (
+    // module reset reason unknown
+    InvResetReason_module_reset_reason_unknown InvResetReason = "module-reset-reason-unknown"
+
+    // module reset reason powerup
+    InvResetReason_module_reset_reason_powerup InvResetReason = "module-reset-reason-powerup"
+
+    // module reset reason user shutdown
+    InvResetReason_module_reset_reason_user_shutdown InvResetReason = "module-reset-reason-user-shutdown"
+
+    // module reset reason user reload
+    InvResetReason_module_reset_reason_user_reload InvResetReason = "module-reset-reason-user-reload"
+
+    // module reset reason auto reload
+    InvResetReason_module_reset_reason_auto_reload InvResetReason = "module-reset-reason-auto-reload"
+
+    // module reset reason environment
+    InvResetReason_module_reset_reason_environment InvResetReason = "module-reset-reason-environment"
+
+    // module reset reason user unpower
+    InvResetReason_module_reset_reason_user_unpower InvResetReason = "module-reset-reason-user-unpower"
+)
+
+// InvCardState represents Inv card state
+type InvCardState string
+
+const (
+    // inv card not present
+    InvCardState_inv_card_not_present InvCardState = "inv-card-not-present"
+
+    // inv card present
+    InvCardState_inv_card_present InvCardState = "inv-card-present"
+
+    // inv card reset
+    InvCardState_inv_card_reset InvCardState = "inv-card-reset"
+
+    // inv card booting
+    InvCardState_inv_card_booting InvCardState = "inv-card-booting"
+
+    // inv card mbi booting
+    InvCardState_inv_card_mbi_booting InvCardState = "inv-card-mbi-booting"
+
+    // inv card running mbi
+    InvCardState_inv_card_running_mbi InvCardState = "inv-card-running-mbi"
+
+    // inv card running ena
+    InvCardState_inv_card_running_ena InvCardState = "inv-card-running-ena"
+
+    // inv card bring down
+    InvCardState_inv_card_bring_down InvCardState = "inv-card-bring-down"
+
+    // inv card ena failure
+    InvCardState_inv_card_ena_failure InvCardState = "inv-card-ena-failure"
+
+    // inv card f diag run
+    InvCardState_inv_card_f_diag_run InvCardState = "inv-card-f-diag-run"
+
+    // inv card f diag failure
+    InvCardState_inv_card_f_diag_failure InvCardState = "inv-card-f-diag-failure"
+
+    // inv card powered
+    InvCardState_inv_card_powered InvCardState = "inv-card-powered"
+
+    // inv card unpowered
+    InvCardState_inv_card_unpowered InvCardState = "inv-card-unpowered"
+
+    // inv card mdr
+    InvCardState_inv_card_mdr InvCardState = "inv-card-mdr"
+
+    // inv card mdr running mbi
+    InvCardState_inv_card_mdr_running_mbi InvCardState = "inv-card-mdr-running-mbi"
+
+    // inv card main t mode
+    InvCardState_inv_card_main_t_mode InvCardState = "inv-card-main-t-mode"
+
+    // inv card admin down
+    InvCardState_inv_card_admin_down InvCardState = "inv-card-admin-down"
+
+    // inv card no mon
+    InvCardState_inv_card_no_mon InvCardState = "inv-card-no-mon"
+
+    // inv card unknown
+    InvCardState_inv_card_unknown InvCardState = "inv-card-unknown"
+
+    // inv card failed
+    InvCardState_inv_card_failed InvCardState = "inv-card-failed"
+
+    // inv card ok
+    InvCardState_inv_card_ok InvCardState = "inv-card-ok"
+
+    // inv card missing
+    InvCardState_inv_card_missing InvCardState = "inv-card-missing"
+
+    // inv card field diag downloading
+    InvCardState_inv_card_field_diag_downloading InvCardState = "inv-card-field-diag-downloading"
+
+    // inv card field diag unmonitor
+    InvCardState_inv_card_field_diag_unmonitor InvCardState = "inv-card-field-diag-unmonitor"
+
+    // inv card fabric field diag unmonitor
+    InvCardState_inv_card_fabric_field_diag_unmonitor InvCardState = "inv-card-fabric-field-diag-unmonitor"
+
+    // inv card field diag rp launching
+    InvCardState_inv_card_field_diag_rp_launching InvCardState = "inv-card-field-diag-rp-launching"
+
+    // inv card field diag running
+    InvCardState_inv_card_field_diag_running InvCardState = "inv-card-field-diag-running"
+
+    // inv card field diag pass
+    InvCardState_inv_card_field_diag_pass InvCardState = "inv-card-field-diag-pass"
+
+    // inv card field diag fail
+    InvCardState_inv_card_field_diag_fail InvCardState = "inv-card-field-diag-fail"
+
+    // inv card field diag timeout
+    InvCardState_inv_card_field_diag_timeout InvCardState = "inv-card-field-diag-timeout"
+
+    // inv card disabled
+    InvCardState_inv_card_disabled InvCardState = "inv-card-disabled"
+
+    // inv card spa booting
+    InvCardState_inv_card_spa_booting InvCardState = "inv-card-spa-booting"
+
+    // inv card not allowed online
+    InvCardState_inv_card_not_allowed_online InvCardState = "inv-card-not-allowed-online"
+
+    // inv card stopped
+    InvCardState_inv_card_stopped InvCardState = "inv-card-stopped"
+
+    // inv card incompatible fw ver
+    InvCardState_inv_card_incompatible_fw_ver InvCardState = "inv-card-incompatible-fw-ver"
+
+    // inv card fpd hold
+    InvCardState_inv_card_fpd_hold InvCardState = "inv-card-fpd-hold"
+
+    // inv card node prep
+    InvCardState_inv_card_node_prep InvCardState = "inv-card-node-prep"
+
+    // inv card updating fpd
+    InvCardState_inv_card_updating_fpd InvCardState = "inv-card-updating-fpd"
+
+    // inv card num states
+    InvCardState_inv_card_num_states InvCardState = "inv-card-num-states"
+)
+
+// InvMonitorState represents Inv monitor state
+type InvMonitorState string
+
+const (
+    // unmonitored
+    InvMonitorState_unmonitored InvMonitorState = "unmonitored"
+
+    // monitored
+    InvMonitorState_monitored InvMonitorState = "monitored"
+)
+
 // NodeState represents Node state detail
 type NodeState string
 
@@ -196,165 +369,6 @@ const (
     CardRedundancyState_standby CardRedundancyState = "standby"
 )
 
-// InvResetReason represents Inv reset reason
-type InvResetReason string
-
-const (
-    // module reset reason unknown
-    InvResetReason_module_reset_reason_unknown InvResetReason = "module-reset-reason-unknown"
-
-    // module reset reason powerup
-    InvResetReason_module_reset_reason_powerup InvResetReason = "module-reset-reason-powerup"
-
-    // module reset reason user shutdown
-    InvResetReason_module_reset_reason_user_shutdown InvResetReason = "module-reset-reason-user-shutdown"
-
-    // module reset reason user reload
-    InvResetReason_module_reset_reason_user_reload InvResetReason = "module-reset-reason-user-reload"
-
-    // module reset reason auto reload
-    InvResetReason_module_reset_reason_auto_reload InvResetReason = "module-reset-reason-auto-reload"
-
-    // module reset reason environment
-    InvResetReason_module_reset_reason_environment InvResetReason = "module-reset-reason-environment"
-
-    // module reset reason user unpower
-    InvResetReason_module_reset_reason_user_unpower InvResetReason = "module-reset-reason-user-unpower"
-)
-
-// InvMonitorState represents Inv monitor state
-type InvMonitorState string
-
-const (
-    // unmonitored
-    InvMonitorState_unmonitored InvMonitorState = "unmonitored"
-
-    // monitored
-    InvMonitorState_monitored InvMonitorState = "monitored"
-)
-
-// InvCardState represents Inv card state
-type InvCardState string
-
-const (
-    // inv card not present
-    InvCardState_inv_card_not_present InvCardState = "inv-card-not-present"
-
-    // inv card present
-    InvCardState_inv_card_present InvCardState = "inv-card-present"
-
-    // inv card reset
-    InvCardState_inv_card_reset InvCardState = "inv-card-reset"
-
-    // inv card booting
-    InvCardState_inv_card_booting InvCardState = "inv-card-booting"
-
-    // inv card mbi booting
-    InvCardState_inv_card_mbi_booting InvCardState = "inv-card-mbi-booting"
-
-    // inv card running mbi
-    InvCardState_inv_card_running_mbi InvCardState = "inv-card-running-mbi"
-
-    // inv card running ena
-    InvCardState_inv_card_running_ena InvCardState = "inv-card-running-ena"
-
-    // inv card bring down
-    InvCardState_inv_card_bring_down InvCardState = "inv-card-bring-down"
-
-    // inv card ena failure
-    InvCardState_inv_card_ena_failure InvCardState = "inv-card-ena-failure"
-
-    // inv card f diag run
-    InvCardState_inv_card_f_diag_run InvCardState = "inv-card-f-diag-run"
-
-    // inv card f diag failure
-    InvCardState_inv_card_f_diag_failure InvCardState = "inv-card-f-diag-failure"
-
-    // inv card powered
-    InvCardState_inv_card_powered InvCardState = "inv-card-powered"
-
-    // inv card unpowered
-    InvCardState_inv_card_unpowered InvCardState = "inv-card-unpowered"
-
-    // inv card mdr
-    InvCardState_inv_card_mdr InvCardState = "inv-card-mdr"
-
-    // inv card mdr running mbi
-    InvCardState_inv_card_mdr_running_mbi InvCardState = "inv-card-mdr-running-mbi"
-
-    // inv card main t mode
-    InvCardState_inv_card_main_t_mode InvCardState = "inv-card-main-t-mode"
-
-    // inv card admin down
-    InvCardState_inv_card_admin_down InvCardState = "inv-card-admin-down"
-
-    // inv card no mon
-    InvCardState_inv_card_no_mon InvCardState = "inv-card-no-mon"
-
-    // inv card unknown
-    InvCardState_inv_card_unknown InvCardState = "inv-card-unknown"
-
-    // inv card failed
-    InvCardState_inv_card_failed InvCardState = "inv-card-failed"
-
-    // inv card ok
-    InvCardState_inv_card_ok InvCardState = "inv-card-ok"
-
-    // inv card missing
-    InvCardState_inv_card_missing InvCardState = "inv-card-missing"
-
-    // inv card field diag downloading
-    InvCardState_inv_card_field_diag_downloading InvCardState = "inv-card-field-diag-downloading"
-
-    // inv card field diag unmonitor
-    InvCardState_inv_card_field_diag_unmonitor InvCardState = "inv-card-field-diag-unmonitor"
-
-    // inv card fabric field diag unmonitor
-    InvCardState_inv_card_fabric_field_diag_unmonitor InvCardState = "inv-card-fabric-field-diag-unmonitor"
-
-    // inv card field diag rp launching
-    InvCardState_inv_card_field_diag_rp_launching InvCardState = "inv-card-field-diag-rp-launching"
-
-    // inv card field diag running
-    InvCardState_inv_card_field_diag_running InvCardState = "inv-card-field-diag-running"
-
-    // inv card field diag pass
-    InvCardState_inv_card_field_diag_pass InvCardState = "inv-card-field-diag-pass"
-
-    // inv card field diag fail
-    InvCardState_inv_card_field_diag_fail InvCardState = "inv-card-field-diag-fail"
-
-    // inv card field diag timeout
-    InvCardState_inv_card_field_diag_timeout InvCardState = "inv-card-field-diag-timeout"
-
-    // inv card disabled
-    InvCardState_inv_card_disabled InvCardState = "inv-card-disabled"
-
-    // inv card spa booting
-    InvCardState_inv_card_spa_booting InvCardState = "inv-card-spa-booting"
-
-    // inv card not allowed online
-    InvCardState_inv_card_not_allowed_online InvCardState = "inv-card-not-allowed-online"
-
-    // inv card stopped
-    InvCardState_inv_card_stopped InvCardState = "inv-card-stopped"
-
-    // inv card incompatible fw ver
-    InvCardState_inv_card_incompatible_fw_ver InvCardState = "inv-card-incompatible-fw-ver"
-
-    // inv card fpd hold
-    InvCardState_inv_card_fpd_hold InvCardState = "inv-card-fpd-hold"
-
-    // inv card node prep
-    InvCardState_inv_card_node_prep InvCardState = "inv-card-node-prep"
-
-    // inv card updating fpd
-    InvCardState_inv_card_updating_fpd InvCardState = "inv-card-updating-fpd"
-
-    // inv card num states
-    InvCardState_inv_card_num_states InvCardState = "inv-card-num-states"
-)
-
 // InvPowerAdminState represents Inv power admin state
 type InvPowerAdminState string
 
@@ -367,20 +381,6 @@ const (
 
     // admin off
     InvPowerAdminState_admin_off InvPowerAdminState = "admin-off"
-)
-
-// InvAdminState represents Inv admin state
-type InvAdminState string
-
-const (
-    // admin state invalid
-    InvAdminState_admin_state_invalid InvAdminState = "admin-state-invalid"
-
-    // admin up
-    InvAdminState_admin_up InvAdminState = "admin-up"
-
-    // admin down
-    InvAdminState_admin_down InvAdminState = "admin-down"
 )
 
 // Platform
@@ -403,9 +403,12 @@ func (platform *Platform) GetEntityData() *types.CommonEntityData {
     platform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    platform.EntityData.Children = make(map[string]types.YChild)
-    platform.EntityData.Children["racks"] = types.YChild{"Racks", &platform.Racks}
-    platform.EntityData.Leafs = make(map[string]types.YLeaf)
+    platform.EntityData.Children = types.NewOrderedMap()
+    platform.EntityData.Children.Append("racks", types.YChild{"Racks", &platform.Racks})
+    platform.EntityData.Leafs = types.NewOrderedMap()
+
+    platform.EntityData.YListKeys = []string {}
+
     return &(platform.EntityData)
 }
 
@@ -416,7 +419,7 @@ type Platform_Racks struct {
     YFilter yfilter.YFilter
 
     // Rack name. The type is slice of Platform_Racks_Rack.
-    Rack []Platform_Racks_Rack
+    Rack []*Platform_Racks_Rack
 }
 
 func (racks *Platform_Racks) GetEntityData() *types.CommonEntityData {
@@ -429,12 +432,15 @@ func (racks *Platform_Racks) GetEntityData() *types.CommonEntityData {
     racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    racks.EntityData.Children = make(map[string]types.YChild)
-    racks.EntityData.Children["rack"] = types.YChild{"Rack", nil}
+    racks.EntityData.Children = types.NewOrderedMap()
+    racks.EntityData.Children.Append("rack", types.YChild{"Rack", nil})
     for i := range racks.Rack {
-        racks.EntityData.Children[types.GetSegmentPath(&racks.Rack[i])] = types.YChild{"Rack", &racks.Rack[i]}
+        racks.EntityData.Children.Append(types.GetSegmentPath(racks.Rack[i]), types.YChild{"Rack", racks.Rack[i]})
     }
-    racks.EntityData.Leafs = make(map[string]types.YLeaf)
+    racks.EntityData.Leafs = types.NewOrderedMap()
+
+    racks.EntityData.YListKeys = []string {}
+
     return &(racks.EntityData)
 }
 
@@ -445,7 +451,7 @@ type Platform_Racks_Rack struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Rack name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     RackName interface{}
 
     // Table of slots.
@@ -457,15 +463,18 @@ func (rack *Platform_Racks_Rack) GetEntityData() *types.CommonEntityData {
     rack.EntityData.YangName = "rack"
     rack.EntityData.BundleName = "cisco_ios_xr"
     rack.EntityData.ParentYangName = "racks"
-    rack.EntityData.SegmentPath = "rack" + "[rack-name='" + fmt.Sprintf("%v", rack.RackName) + "']"
+    rack.EntityData.SegmentPath = "rack" + types.AddKeyToken(rack.RackName, "rack-name")
     rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rack.EntityData.Children = make(map[string]types.YChild)
-    rack.EntityData.Children["slots"] = types.YChild{"Slots", &rack.Slots}
-    rack.EntityData.Leafs = make(map[string]types.YLeaf)
-    rack.EntityData.Leafs["rack-name"] = types.YLeaf{"RackName", rack.RackName}
+    rack.EntityData.Children = types.NewOrderedMap()
+    rack.EntityData.Children.Append("slots", types.YChild{"Slots", &rack.Slots})
+    rack.EntityData.Leafs = types.NewOrderedMap()
+    rack.EntityData.Leafs.Append("rack-name", types.YLeaf{"RackName", rack.RackName})
+
+    rack.EntityData.YListKeys = []string {"RackName"}
+
     return &(rack.EntityData)
 }
 
@@ -476,7 +485,7 @@ type Platform_Racks_Rack_Slots struct {
     YFilter yfilter.YFilter
 
     // Slot name. The type is slice of Platform_Racks_Rack_Slots_Slot.
-    Slot []Platform_Racks_Rack_Slots_Slot
+    Slot []*Platform_Racks_Rack_Slots_Slot
 }
 
 func (slots *Platform_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData {
@@ -489,12 +498,15 @@ func (slots *Platform_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData 
     slots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slots.EntityData.Children = make(map[string]types.YChild)
-    slots.EntityData.Children["slot"] = types.YChild{"Slot", nil}
+    slots.EntityData.Children = types.NewOrderedMap()
+    slots.EntityData.Children.Append("slot", types.YChild{"Slot", nil})
     for i := range slots.Slot {
-        slots.EntityData.Children[types.GetSegmentPath(&slots.Slot[i])] = types.YChild{"Slot", &slots.Slot[i]}
+        slots.EntityData.Children.Append(types.GetSegmentPath(slots.Slot[i]), types.YChild{"Slot", slots.Slot[i]})
     }
-    slots.EntityData.Leafs = make(map[string]types.YLeaf)
+    slots.EntityData.Leafs = types.NewOrderedMap()
+
+    slots.EntityData.YListKeys = []string {}
+
     return &(slots.EntityData)
 }
 
@@ -505,7 +517,7 @@ type Platform_Racks_Rack_Slots_Slot struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SlotName interface{}
 
     // Table of Instances.
@@ -523,17 +535,20 @@ func (slot *Platform_Racks_Rack_Slots_Slot) GetEntityData() *types.CommonEntityD
     slot.EntityData.YangName = "slot"
     slot.EntityData.BundleName = "cisco_ios_xr"
     slot.EntityData.ParentYangName = "slots"
-    slot.EntityData.SegmentPath = "slot" + "[slot-name='" + fmt.Sprintf("%v", slot.SlotName) + "']"
+    slot.EntityData.SegmentPath = "slot" + types.AddKeyToken(slot.SlotName, "slot-name")
     slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slot.EntityData.Children = make(map[string]types.YChild)
-    slot.EntityData.Children["instances"] = types.YChild{"Instances", &slot.Instances}
-    slot.EntityData.Children["vm"] = types.YChild{"Vm", &slot.Vm}
-    slot.EntityData.Children["state"] = types.YChild{"State", &slot.State}
-    slot.EntityData.Leafs = make(map[string]types.YLeaf)
-    slot.EntityData.Leafs["slot-name"] = types.YLeaf{"SlotName", slot.SlotName}
+    slot.EntityData.Children = types.NewOrderedMap()
+    slot.EntityData.Children.Append("instances", types.YChild{"Instances", &slot.Instances})
+    slot.EntityData.Children.Append("vm", types.YChild{"Vm", &slot.Vm})
+    slot.EntityData.Children.Append("state", types.YChild{"State", &slot.State})
+    slot.EntityData.Leafs = types.NewOrderedMap()
+    slot.EntityData.Leafs.Append("slot-name", types.YLeaf{"SlotName", slot.SlotName})
+
+    slot.EntityData.YListKeys = []string {"SlotName"}
+
     return &(slot.EntityData)
 }
 
@@ -545,7 +560,7 @@ type Platform_Racks_Rack_Slots_Slot_Instances struct {
 
     // Instance name. The type is slice of
     // Platform_Racks_Rack_Slots_Slot_Instances_Instance.
-    Instance []Platform_Racks_Rack_Slots_Slot_Instances_Instance
+    Instance []*Platform_Racks_Rack_Slots_Slot_Instances_Instance
 }
 
 func (instances *Platform_Racks_Rack_Slots_Slot_Instances) GetEntityData() *types.CommonEntityData {
@@ -558,12 +573,15 @@ func (instances *Platform_Racks_Rack_Slots_Slot_Instances) GetEntityData() *type
     instances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instances.EntityData.Children = make(map[string]types.YChild)
-    instances.EntityData.Children["instance"] = types.YChild{"Instance", nil}
+    instances.EntityData.Children = types.NewOrderedMap()
+    instances.EntityData.Children.Append("instance", types.YChild{"Instance", nil})
     for i := range instances.Instance {
-        instances.EntityData.Children[types.GetSegmentPath(&instances.Instance[i])] = types.YChild{"Instance", &instances.Instance[i]}
+        instances.EntityData.Children.Append(types.GetSegmentPath(instances.Instance[i]), types.YChild{"Instance", instances.Instance[i]})
     }
-    instances.EntityData.Leafs = make(map[string]types.YLeaf)
+    instances.EntityData.Leafs = types.NewOrderedMap()
+
+    instances.EntityData.YListKeys = []string {}
+
     return &(instances.EntityData)
 }
 
@@ -585,15 +603,18 @@ func (instance *Platform_Racks_Rack_Slots_Slot_Instances_Instance) GetEntityData
     instance.EntityData.YangName = "instance"
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "instances"
-    instance.EntityData.SegmentPath = "instance" + "[instance-name='" + fmt.Sprintf("%v", instance.InstanceName) + "']"
+    instance.EntityData.SegmentPath = "instance" + types.AddKeyToken(instance.InstanceName, "instance-name")
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    instance.EntityData.Children = make(map[string]types.YChild)
-    instance.EntityData.Children["state"] = types.YChild{"State", &instance.State}
-    instance.EntityData.Leafs = make(map[string]types.YLeaf)
-    instance.EntityData.Leafs["instance-name"] = types.YLeaf{"InstanceName", instance.InstanceName}
+    instance.EntityData.Children = types.NewOrderedMap()
+    instance.EntityData.Children.Append("state", types.YChild{"State", &instance.State})
+    instance.EntityData.Leafs = types.NewOrderedMap()
+    instance.EntityData.Leafs.Append("instance-name", types.YLeaf{"InstanceName", instance.InstanceName})
+
+    instance.EntityData.YListKeys = []string {"InstanceName"}
+
     return &(instance.EntityData)
 }
 
@@ -638,16 +659,19 @@ func (state *Platform_Racks_Rack_Slots_Slot_Instances_Instance_State) GetEntityD
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["card-type"] = types.YLeaf{"CardType", state.CardType}
-    state.EntityData.Leafs["card-redundancy-state"] = types.YLeaf{"CardRedundancyState", state.CardRedundancyState}
-    state.EntityData.Leafs["plim"] = types.YLeaf{"Plim", state.Plim}
-    state.EntityData.Leafs["state"] = types.YLeaf{"State", state.State}
-    state.EntityData.Leafs["is-monitored"] = types.YLeaf{"IsMonitored", state.IsMonitored}
-    state.EntityData.Leafs["is-powered"] = types.YLeaf{"IsPowered", state.IsPowered}
-    state.EntityData.Leafs["is-shutdown"] = types.YLeaf{"IsShutdown", state.IsShutdown}
-    state.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", state.AdminState}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("card-type", types.YLeaf{"CardType", state.CardType})
+    state.EntityData.Leafs.Append("card-redundancy-state", types.YLeaf{"CardRedundancyState", state.CardRedundancyState})
+    state.EntityData.Leafs.Append("plim", types.YLeaf{"Plim", state.Plim})
+    state.EntityData.Leafs.Append("state", types.YLeaf{"State", state.State})
+    state.EntityData.Leafs.Append("is-monitored", types.YLeaf{"IsMonitored", state.IsMonitored})
+    state.EntityData.Leafs.Append("is-powered", types.YLeaf{"IsPowered", state.IsPowered})
+    state.EntityData.Leafs.Append("is-shutdown", types.YLeaf{"IsShutdown", state.IsShutdown})
+    state.EntityData.Leafs.Append("admin-state", types.YLeaf{"AdminState", state.AdminState})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -683,13 +707,16 @@ func (vm *Platform_Racks_Rack_Slots_Slot_Vm) GetEntityData() *types.CommonEntity
     vm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vm.EntityData.Children = make(map[string]types.YChild)
-    vm.EntityData.Leafs = make(map[string]types.YLeaf)
-    vm.EntityData.Leafs["node-description"] = types.YLeaf{"NodeDescription", vm.NodeDescription}
-    vm.EntityData.Leafs["red-role"] = types.YLeaf{"RedRole", vm.RedRole}
-    vm.EntityData.Leafs["partner-name"] = types.YLeaf{"PartnerName", vm.PartnerName}
-    vm.EntityData.Leafs["software-status"] = types.YLeaf{"SoftwareStatus", vm.SoftwareStatus}
-    vm.EntityData.Leafs["node-ip"] = types.YLeaf{"NodeIp", vm.NodeIp}
+    vm.EntityData.Children = types.NewOrderedMap()
+    vm.EntityData.Leafs = types.NewOrderedMap()
+    vm.EntityData.Leafs.Append("node-description", types.YLeaf{"NodeDescription", vm.NodeDescription})
+    vm.EntityData.Leafs.Append("red-role", types.YLeaf{"RedRole", vm.RedRole})
+    vm.EntityData.Leafs.Append("partner-name", types.YLeaf{"PartnerName", vm.PartnerName})
+    vm.EntityData.Leafs.Append("software-status", types.YLeaf{"SoftwareStatus", vm.SoftwareStatus})
+    vm.EntityData.Leafs.Append("node-ip", types.YLeaf{"NodeIp", vm.NodeIp})
+
+    vm.EntityData.YListKeys = []string {}
+
     return &(vm.EntityData)
 }
 
@@ -734,16 +761,19 @@ func (state *Platform_Racks_Rack_Slots_Slot_State) GetEntityData() *types.Common
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["card-type"] = types.YLeaf{"CardType", state.CardType}
-    state.EntityData.Leafs["card-redundancy-state"] = types.YLeaf{"CardRedundancyState", state.CardRedundancyState}
-    state.EntityData.Leafs["plim"] = types.YLeaf{"Plim", state.Plim}
-    state.EntityData.Leafs["state"] = types.YLeaf{"State", state.State}
-    state.EntityData.Leafs["is-monitored"] = types.YLeaf{"IsMonitored", state.IsMonitored}
-    state.EntityData.Leafs["is-powered"] = types.YLeaf{"IsPowered", state.IsPowered}
-    state.EntityData.Leafs["is-shutdown"] = types.YLeaf{"IsShutdown", state.IsShutdown}
-    state.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", state.AdminState}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("card-type", types.YLeaf{"CardType", state.CardType})
+    state.EntityData.Leafs.Append("card-redundancy-state", types.YLeaf{"CardRedundancyState", state.CardRedundancyState})
+    state.EntityData.Leafs.Append("plim", types.YLeaf{"Plim", state.Plim})
+    state.EntityData.Leafs.Append("state", types.YLeaf{"State", state.State})
+    state.EntityData.Leafs.Append("is-monitored", types.YLeaf{"IsMonitored", state.IsMonitored})
+    state.EntityData.Leafs.Append("is-powered", types.YLeaf{"IsPowered", state.IsPowered})
+    state.EntityData.Leafs.Append("is-shutdown", types.YLeaf{"IsShutdown", state.IsShutdown})
+    state.EntityData.Leafs.Append("admin-state", types.YLeaf{"AdminState", state.AdminState})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -767,9 +797,12 @@ func (platformInventory *PlatformInventory) GetEntityData() *types.CommonEntityD
     platformInventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platformInventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    platformInventory.EntityData.Children = make(map[string]types.YChild)
-    platformInventory.EntityData.Children["racks"] = types.YChild{"Racks", &platformInventory.Racks}
-    platformInventory.EntityData.Leafs = make(map[string]types.YLeaf)
+    platformInventory.EntityData.Children = types.NewOrderedMap()
+    platformInventory.EntityData.Children.Append("racks", types.YChild{"Racks", &platformInventory.Racks})
+    platformInventory.EntityData.Leafs = types.NewOrderedMap()
+
+    platformInventory.EntityData.YListKeys = []string {}
+
     return &(platformInventory.EntityData)
 }
 
@@ -780,7 +813,7 @@ type PlatformInventory_Racks struct {
     YFilter yfilter.YFilter
 
     // Rack name. The type is slice of PlatformInventory_Racks_Rack.
-    Rack []PlatformInventory_Racks_Rack
+    Rack []*PlatformInventory_Racks_Rack
 }
 
 func (racks *PlatformInventory_Racks) GetEntityData() *types.CommonEntityData {
@@ -793,12 +826,15 @@ func (racks *PlatformInventory_Racks) GetEntityData() *types.CommonEntityData {
     racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    racks.EntityData.Children = make(map[string]types.YChild)
-    racks.EntityData.Children["rack"] = types.YChild{"Rack", nil}
+    racks.EntityData.Children = types.NewOrderedMap()
+    racks.EntityData.Children.Append("rack", types.YChild{"Rack", nil})
     for i := range racks.Rack {
-        racks.EntityData.Children[types.GetSegmentPath(&racks.Rack[i])] = types.YChild{"Rack", &racks.Rack[i]}
+        racks.EntityData.Children.Append(types.GetSegmentPath(racks.Rack[i]), types.YChild{"Rack", racks.Rack[i]})
     }
-    racks.EntityData.Leafs = make(map[string]types.YLeaf)
+    racks.EntityData.Leafs = types.NewOrderedMap()
+
+    racks.EntityData.YListKeys = []string {}
+
     return &(racks.EntityData)
 }
 
@@ -809,7 +845,7 @@ type PlatformInventory_Racks_Rack struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Rack name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Table of slots.
@@ -824,16 +860,19 @@ func (rack *PlatformInventory_Racks_Rack) GetEntityData() *types.CommonEntityDat
     rack.EntityData.YangName = "rack"
     rack.EntityData.BundleName = "cisco_ios_xr"
     rack.EntityData.ParentYangName = "racks"
-    rack.EntityData.SegmentPath = "rack" + "[name='" + fmt.Sprintf("%v", rack.Name) + "']"
+    rack.EntityData.SegmentPath = "rack" + types.AddKeyToken(rack.Name, "name")
     rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rack.EntityData.Children = make(map[string]types.YChild)
-    rack.EntityData.Children["slots"] = types.YChild{"Slots", &rack.Slots}
-    rack.EntityData.Children["attributes"] = types.YChild{"Attributes", &rack.Attributes}
-    rack.EntityData.Leafs = make(map[string]types.YLeaf)
-    rack.EntityData.Leafs["name"] = types.YLeaf{"Name", rack.Name}
+    rack.EntityData.Children = types.NewOrderedMap()
+    rack.EntityData.Children.Append("slots", types.YChild{"Slots", &rack.Slots})
+    rack.EntityData.Children.Append("attributes", types.YChild{"Attributes", &rack.Attributes})
+    rack.EntityData.Leafs = types.NewOrderedMap()
+    rack.EntityData.Leafs.Append("name", types.YLeaf{"Name", rack.Name})
+
+    rack.EntityData.YListKeys = []string {"Name"}
+
     return &(rack.EntityData)
 }
 
@@ -844,7 +883,7 @@ type PlatformInventory_Racks_Rack_Slots struct {
     YFilter yfilter.YFilter
 
     // Slot name. The type is slice of PlatformInventory_Racks_Rack_Slots_Slot.
-    Slot []PlatformInventory_Racks_Rack_Slots_Slot
+    Slot []*PlatformInventory_Racks_Rack_Slots_Slot
 }
 
 func (slots *PlatformInventory_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData {
@@ -857,12 +896,15 @@ func (slots *PlatformInventory_Racks_Rack_Slots) GetEntityData() *types.CommonEn
     slots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slots.EntityData.Children = make(map[string]types.YChild)
-    slots.EntityData.Children["slot"] = types.YChild{"Slot", nil}
+    slots.EntityData.Children = types.NewOrderedMap()
+    slots.EntityData.Children.Append("slot", types.YChild{"Slot", nil})
     for i := range slots.Slot {
-        slots.EntityData.Children[types.GetSegmentPath(&slots.Slot[i])] = types.YChild{"Slot", &slots.Slot[i]}
+        slots.EntityData.Children.Append(types.GetSegmentPath(slots.Slot[i]), types.YChild{"Slot", slots.Slot[i]})
     }
-    slots.EntityData.Leafs = make(map[string]types.YLeaf)
+    slots.EntityData.Leafs = types.NewOrderedMap()
+
+    slots.EntityData.YListKeys = []string {}
+
     return &(slots.EntityData)
 }
 
@@ -873,7 +915,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Table of cards.
@@ -888,16 +930,19 @@ func (slot *PlatformInventory_Racks_Rack_Slots_Slot) GetEntityData() *types.Comm
     slot.EntityData.YangName = "slot"
     slot.EntityData.BundleName = "cisco_ios_xr"
     slot.EntityData.ParentYangName = "slots"
-    slot.EntityData.SegmentPath = "slot" + "[name='" + fmt.Sprintf("%v", slot.Name) + "']"
+    slot.EntityData.SegmentPath = "slot" + types.AddKeyToken(slot.Name, "name")
     slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slot.EntityData.Children = make(map[string]types.YChild)
-    slot.EntityData.Children["cards"] = types.YChild{"Cards", &slot.Cards}
-    slot.EntityData.Children["attributes"] = types.YChild{"Attributes", &slot.Attributes}
-    slot.EntityData.Leafs = make(map[string]types.YLeaf)
-    slot.EntityData.Leafs["name"] = types.YLeaf{"Name", slot.Name}
+    slot.EntityData.Children = types.NewOrderedMap()
+    slot.EntityData.Children.Append("cards", types.YChild{"Cards", &slot.Cards})
+    slot.EntityData.Children.Append("attributes", types.YChild{"Attributes", &slot.Attributes})
+    slot.EntityData.Leafs = types.NewOrderedMap()
+    slot.EntityData.Leafs.Append("name", types.YLeaf{"Name", slot.Name})
+
+    slot.EntityData.YListKeys = []string {"Name"}
+
     return &(slot.EntityData)
 }
 
@@ -909,7 +954,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards struct {
 
     // Card number. The type is slice of
     // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card.
-    Card []PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card
+    Card []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card
 }
 
 func (cards *PlatformInventory_Racks_Rack_Slots_Slot_Cards) GetEntityData() *types.CommonEntityData {
@@ -922,12 +967,15 @@ func (cards *PlatformInventory_Racks_Rack_Slots_Slot_Cards) GetEntityData() *typ
     cards.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cards.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cards.EntityData.Children = make(map[string]types.YChild)
-    cards.EntityData.Children["card"] = types.YChild{"Card", nil}
+    cards.EntityData.Children = types.NewOrderedMap()
+    cards.EntityData.Children.Append("card", types.YChild{"Card", nil})
     for i := range cards.Card {
-        cards.EntityData.Children[types.GetSegmentPath(&cards.Card[i])] = types.YChild{"Card", &cards.Card[i]}
+        cards.EntityData.Children.Append(types.GetSegmentPath(cards.Card[i]), types.YChild{"Card", cards.Card[i]})
     }
-    cards.EntityData.Leafs = make(map[string]types.YLeaf)
+    cards.EntityData.Leafs = types.NewOrderedMap()
+
+    cards.EntityData.YListKeys = []string {}
+
     return &(cards.EntityData)
 }
 
@@ -938,7 +986,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Card name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // HardwareInformationDir.
@@ -946,6 +994,9 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card struct {
 
     // Table of subslots.
     SubSlots PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots
+
+    // Table of port slots.
+    Portses PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses
 
     // Table of port slots.
     PortSlots PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots
@@ -965,20 +1016,24 @@ func (card *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card) GetEntityData() 
     card.EntityData.YangName = "card"
     card.EntityData.BundleName = "cisco_ios_xr"
     card.EntityData.ParentYangName = "cards"
-    card.EntityData.SegmentPath = "card" + "[name='" + fmt.Sprintf("%v", card.Name) + "']"
+    card.EntityData.SegmentPath = "card" + types.AddKeyToken(card.Name, "name")
     card.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     card.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     card.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    card.EntityData.Children = make(map[string]types.YChild)
-    card.EntityData.Children["hardware-information"] = types.YChild{"HardwareInformation", &card.HardwareInformation}
-    card.EntityData.Children["sub-slots"] = types.YChild{"SubSlots", &card.SubSlots}
-    card.EntityData.Children["port-slots"] = types.YChild{"PortSlots", &card.PortSlots}
-    card.EntityData.Children["hw-components"] = types.YChild{"HwComponents", &card.HwComponents}
-    card.EntityData.Children["sensors"] = types.YChild{"Sensors", &card.Sensors}
-    card.EntityData.Children["attributes"] = types.YChild{"Attributes", &card.Attributes}
-    card.EntityData.Leafs = make(map[string]types.YLeaf)
-    card.EntityData.Leafs["name"] = types.YLeaf{"Name", card.Name}
+    card.EntityData.Children = types.NewOrderedMap()
+    card.EntityData.Children.Append("hardware-information", types.YChild{"HardwareInformation", &card.HardwareInformation})
+    card.EntityData.Children.Append("sub-slots", types.YChild{"SubSlots", &card.SubSlots})
+    card.EntityData.Children.Append("portses", types.YChild{"Portses", &card.Portses})
+    card.EntityData.Children.Append("port-slots", types.YChild{"PortSlots", &card.PortSlots})
+    card.EntityData.Children.Append("hw-components", types.YChild{"HwComponents", &card.HwComponents})
+    card.EntityData.Children.Append("sensors", types.YChild{"Sensors", &card.Sensors})
+    card.EntityData.Children.Append("attributes", types.YChild{"Attributes", &card.Attributes})
+    card.EntityData.Leafs = types.NewOrderedMap()
+    card.EntityData.Leafs.Append("name", types.YLeaf{"Name", card.Name})
+
+    card.EntityData.YListKeys = []string {"Name"}
+
     return &(card.EntityData)
 }
 
@@ -1011,12 +1066,15 @@ func (hardwareInformation *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Ha
     hardwareInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hardwareInformation.EntityData.Children = make(map[string]types.YChild)
-    hardwareInformation.EntityData.Children["processor-information"] = types.YChild{"ProcessorInformation", &hardwareInformation.ProcessorInformation}
-    hardwareInformation.EntityData.Children["motherboard-information"] = types.YChild{"MotherboardInformation", &hardwareInformation.MotherboardInformation}
-    hardwareInformation.EntityData.Children["bootflash-information"] = types.YChild{"BootflashInformation", &hardwareInformation.BootflashInformation}
-    hardwareInformation.EntityData.Children["disk-information"] = types.YChild{"DiskInformation", &hardwareInformation.DiskInformation}
-    hardwareInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareInformation.EntityData.Children = types.NewOrderedMap()
+    hardwareInformation.EntityData.Children.Append("processor-information", types.YChild{"ProcessorInformation", &hardwareInformation.ProcessorInformation})
+    hardwareInformation.EntityData.Children.Append("motherboard-information", types.YChild{"MotherboardInformation", &hardwareInformation.MotherboardInformation})
+    hardwareInformation.EntityData.Children.Append("bootflash-information", types.YChild{"BootflashInformation", &hardwareInformation.BootflashInformation})
+    hardwareInformation.EntityData.Children.Append("disk-information", types.YChild{"DiskInformation", &hardwareInformation.DiskInformation})
+    hardwareInformation.EntityData.Leafs = types.NewOrderedMap()
+
+    hardwareInformation.EntityData.YListKeys = []string {}
+
     return &(hardwareInformation.EntityData)
 }
 
@@ -1046,11 +1104,14 @@ func (processorInformation *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_H
     processorInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processorInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    processorInformation.EntityData.Children = make(map[string]types.YChild)
-    processorInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    processorInformation.EntityData.Leafs["processor-type"] = types.YLeaf{"ProcessorType", processorInformation.ProcessorType}
-    processorInformation.EntityData.Leafs["speed"] = types.YLeaf{"Speed", processorInformation.Speed}
-    processorInformation.EntityData.Leafs["revision"] = types.YLeaf{"Revision", processorInformation.Revision}
+    processorInformation.EntityData.Children = types.NewOrderedMap()
+    processorInformation.EntityData.Leafs = types.NewOrderedMap()
+    processorInformation.EntityData.Leafs.Append("processor-type", types.YLeaf{"ProcessorType", processorInformation.ProcessorType})
+    processorInformation.EntityData.Leafs.Append("speed", types.YLeaf{"Speed", processorInformation.Speed})
+    processorInformation.EntityData.Leafs.Append("revision", types.YLeaf{"Revision", processorInformation.Revision})
+
+    processorInformation.EntityData.YListKeys = []string {}
+
     return &(processorInformation.EntityData)
 }
 
@@ -1088,13 +1149,16 @@ func (motherboardInformation *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card
     motherboardInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     motherboardInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    motherboardInformation.EntityData.Children = make(map[string]types.YChild)
-    motherboardInformation.EntityData.Children["rom"] = types.YChild{"Rom", &motherboardInformation.Rom}
-    motherboardInformation.EntityData.Children["bootflash"] = types.YChild{"Bootflash", &motherboardInformation.Bootflash}
-    motherboardInformation.EntityData.Children["processor"] = types.YChild{"Processor", &motherboardInformation.Processor}
-    motherboardInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    motherboardInformation.EntityData.Leafs["main-memory-size"] = types.YLeaf{"MainMemorySize", motherboardInformation.MainMemorySize}
-    motherboardInformation.EntityData.Leafs["nvram-size"] = types.YLeaf{"NvramSize", motherboardInformation.NvramSize}
+    motherboardInformation.EntityData.Children = types.NewOrderedMap()
+    motherboardInformation.EntityData.Children.Append("rom", types.YChild{"Rom", &motherboardInformation.Rom})
+    motherboardInformation.EntityData.Children.Append("bootflash", types.YChild{"Bootflash", &motherboardInformation.Bootflash})
+    motherboardInformation.EntityData.Children.Append("processor", types.YChild{"Processor", &motherboardInformation.Processor})
+    motherboardInformation.EntityData.Leafs = types.NewOrderedMap()
+    motherboardInformation.EntityData.Leafs.Append("main-memory-size", types.YLeaf{"MainMemorySize", motherboardInformation.MainMemorySize})
+    motherboardInformation.EntityData.Leafs.Append("nvram-size", types.YLeaf{"NvramSize", motherboardInformation.NvramSize})
+
+    motherboardInformation.EntityData.YListKeys = []string {}
+
     return &(motherboardInformation.EntityData)
 }
 
@@ -1133,14 +1197,17 @@ func (rom *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HardwareInformatio
     rom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rom.EntityData.Children = make(map[string]types.YChild)
-    rom.EntityData.Leafs = make(map[string]types.YLeaf)
-    rom.EntityData.Leafs["image-name"] = types.YLeaf{"ImageName", rom.ImageName}
-    rom.EntityData.Leafs["major-version"] = types.YLeaf{"MajorVersion", rom.MajorVersion}
-    rom.EntityData.Leafs["minor-version"] = types.YLeaf{"MinorVersion", rom.MinorVersion}
-    rom.EntityData.Leafs["micro-image-version"] = types.YLeaf{"MicroImageVersion", rom.MicroImageVersion}
-    rom.EntityData.Leafs["platform-specific"] = types.YLeaf{"PlatformSpecific", rom.PlatformSpecific}
-    rom.EntityData.Leafs["release-type"] = types.YLeaf{"ReleaseType", rom.ReleaseType}
+    rom.EntityData.Children = types.NewOrderedMap()
+    rom.EntityData.Leafs = types.NewOrderedMap()
+    rom.EntityData.Leafs.Append("image-name", types.YLeaf{"ImageName", rom.ImageName})
+    rom.EntityData.Leafs.Append("major-version", types.YLeaf{"MajorVersion", rom.MajorVersion})
+    rom.EntityData.Leafs.Append("minor-version", types.YLeaf{"MinorVersion", rom.MinorVersion})
+    rom.EntityData.Leafs.Append("micro-image-version", types.YLeaf{"MicroImageVersion", rom.MicroImageVersion})
+    rom.EntityData.Leafs.Append("platform-specific", types.YLeaf{"PlatformSpecific", rom.PlatformSpecific})
+    rom.EntityData.Leafs.Append("release-type", types.YLeaf{"ReleaseType", rom.ReleaseType})
+
+    rom.EntityData.YListKeys = []string {}
+
     return &(rom.EntityData)
 }
 
@@ -1193,18 +1260,21 @@ func (bootflash *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HardwareInfo
     bootflash.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bootflash.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bootflash.EntityData.Children = make(map[string]types.YChild)
-    bootflash.EntityData.Leafs = make(map[string]types.YLeaf)
-    bootflash.EntityData.Leafs["image-name"] = types.YLeaf{"ImageName", bootflash.ImageName}
-    bootflash.EntityData.Leafs["platform-type"] = types.YLeaf{"PlatformType", bootflash.PlatformType}
-    bootflash.EntityData.Leafs["major-version"] = types.YLeaf{"MajorVersion", bootflash.MajorVersion}
-    bootflash.EntityData.Leafs["minor-version"] = types.YLeaf{"MinorVersion", bootflash.MinorVersion}
-    bootflash.EntityData.Leafs["micro-image-version"] = types.YLeaf{"MicroImageVersion", bootflash.MicroImageVersion}
-    bootflash.EntityData.Leafs["platform-specific"] = types.YLeaf{"PlatformSpecific", bootflash.PlatformSpecific}
-    bootflash.EntityData.Leafs["release-type"] = types.YLeaf{"ReleaseType", bootflash.ReleaseType}
-    bootflash.EntityData.Leafs["bootflash-type"] = types.YLeaf{"BootflashType", bootflash.BootflashType}
-    bootflash.EntityData.Leafs["bootflash-size"] = types.YLeaf{"BootflashSize", bootflash.BootflashSize}
-    bootflash.EntityData.Leafs["sector-size"] = types.YLeaf{"SectorSize", bootflash.SectorSize}
+    bootflash.EntityData.Children = types.NewOrderedMap()
+    bootflash.EntityData.Leafs = types.NewOrderedMap()
+    bootflash.EntityData.Leafs.Append("image-name", types.YLeaf{"ImageName", bootflash.ImageName})
+    bootflash.EntityData.Leafs.Append("platform-type", types.YLeaf{"PlatformType", bootflash.PlatformType})
+    bootflash.EntityData.Leafs.Append("major-version", types.YLeaf{"MajorVersion", bootflash.MajorVersion})
+    bootflash.EntityData.Leafs.Append("minor-version", types.YLeaf{"MinorVersion", bootflash.MinorVersion})
+    bootflash.EntityData.Leafs.Append("micro-image-version", types.YLeaf{"MicroImageVersion", bootflash.MicroImageVersion})
+    bootflash.EntityData.Leafs.Append("platform-specific", types.YLeaf{"PlatformSpecific", bootflash.PlatformSpecific})
+    bootflash.EntityData.Leafs.Append("release-type", types.YLeaf{"ReleaseType", bootflash.ReleaseType})
+    bootflash.EntityData.Leafs.Append("bootflash-type", types.YLeaf{"BootflashType", bootflash.BootflashType})
+    bootflash.EntityData.Leafs.Append("bootflash-size", types.YLeaf{"BootflashSize", bootflash.BootflashSize})
+    bootflash.EntityData.Leafs.Append("sector-size", types.YLeaf{"SectorSize", bootflash.SectorSize})
+
+    bootflash.EntityData.YListKeys = []string {}
+
     return &(bootflash.EntityData)
 }
 
@@ -1234,11 +1304,14 @@ func (processor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HardwareInfo
     processor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    processor.EntityData.Children = make(map[string]types.YChild)
-    processor.EntityData.Leafs = make(map[string]types.YLeaf)
-    processor.EntityData.Leafs["processor-type"] = types.YLeaf{"ProcessorType", processor.ProcessorType}
-    processor.EntityData.Leafs["speed"] = types.YLeaf{"Speed", processor.Speed}
-    processor.EntityData.Leafs["revision"] = types.YLeaf{"Revision", processor.Revision}
+    processor.EntityData.Children = types.NewOrderedMap()
+    processor.EntityData.Leafs = types.NewOrderedMap()
+    processor.EntityData.Leafs.Append("processor-type", types.YLeaf{"ProcessorType", processor.ProcessorType})
+    processor.EntityData.Leafs.Append("speed", types.YLeaf{"Speed", processor.Speed})
+    processor.EntityData.Leafs.Append("revision", types.YLeaf{"Revision", processor.Revision})
+
+    processor.EntityData.YListKeys = []string {}
+
     return &(processor.EntityData)
 }
 
@@ -1291,18 +1364,21 @@ func (bootflashInformation *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_H
     bootflashInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bootflashInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bootflashInformation.EntityData.Children = make(map[string]types.YChild)
-    bootflashInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    bootflashInformation.EntityData.Leafs["image-name"] = types.YLeaf{"ImageName", bootflashInformation.ImageName}
-    bootflashInformation.EntityData.Leafs["platform-type"] = types.YLeaf{"PlatformType", bootflashInformation.PlatformType}
-    bootflashInformation.EntityData.Leafs["major-version"] = types.YLeaf{"MajorVersion", bootflashInformation.MajorVersion}
-    bootflashInformation.EntityData.Leafs["minor-version"] = types.YLeaf{"MinorVersion", bootflashInformation.MinorVersion}
-    bootflashInformation.EntityData.Leafs["micro-image-version"] = types.YLeaf{"MicroImageVersion", bootflashInformation.MicroImageVersion}
-    bootflashInformation.EntityData.Leafs["platform-specific"] = types.YLeaf{"PlatformSpecific", bootflashInformation.PlatformSpecific}
-    bootflashInformation.EntityData.Leafs["release-type"] = types.YLeaf{"ReleaseType", bootflashInformation.ReleaseType}
-    bootflashInformation.EntityData.Leafs["bootflash-type"] = types.YLeaf{"BootflashType", bootflashInformation.BootflashType}
-    bootflashInformation.EntityData.Leafs["bootflash-size"] = types.YLeaf{"BootflashSize", bootflashInformation.BootflashSize}
-    bootflashInformation.EntityData.Leafs["sector-size"] = types.YLeaf{"SectorSize", bootflashInformation.SectorSize}
+    bootflashInformation.EntityData.Children = types.NewOrderedMap()
+    bootflashInformation.EntityData.Leafs = types.NewOrderedMap()
+    bootflashInformation.EntityData.Leafs.Append("image-name", types.YLeaf{"ImageName", bootflashInformation.ImageName})
+    bootflashInformation.EntityData.Leafs.Append("platform-type", types.YLeaf{"PlatformType", bootflashInformation.PlatformType})
+    bootflashInformation.EntityData.Leafs.Append("major-version", types.YLeaf{"MajorVersion", bootflashInformation.MajorVersion})
+    bootflashInformation.EntityData.Leafs.Append("minor-version", types.YLeaf{"MinorVersion", bootflashInformation.MinorVersion})
+    bootflashInformation.EntityData.Leafs.Append("micro-image-version", types.YLeaf{"MicroImageVersion", bootflashInformation.MicroImageVersion})
+    bootflashInformation.EntityData.Leafs.Append("platform-specific", types.YLeaf{"PlatformSpecific", bootflashInformation.PlatformSpecific})
+    bootflashInformation.EntityData.Leafs.Append("release-type", types.YLeaf{"ReleaseType", bootflashInformation.ReleaseType})
+    bootflashInformation.EntityData.Leafs.Append("bootflash-type", types.YLeaf{"BootflashType", bootflashInformation.BootflashType})
+    bootflashInformation.EntityData.Leafs.Append("bootflash-size", types.YLeaf{"BootflashSize", bootflashInformation.BootflashSize})
+    bootflashInformation.EntityData.Leafs.Append("sector-size", types.YLeaf{"SectorSize", bootflashInformation.SectorSize})
+
+    bootflashInformation.EntityData.YListKeys = []string {}
+
     return &(bootflashInformation.EntityData)
 }
 
@@ -1325,7 +1401,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HardwareInformation_Disk
 
     // Disk attributes. The type is slice of
     // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HardwareInformation_DiskInformation_Disks.
-    Disks []PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HardwareInformation_DiskInformation_Disks
+    Disks []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HardwareInformation_DiskInformation_Disks
 }
 
 func (diskInformation *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HardwareInformation_DiskInformation) GetEntityData() *types.CommonEntityData {
@@ -1338,15 +1414,18 @@ func (diskInformation *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Hardwa
     diskInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     diskInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    diskInformation.EntityData.Children = make(map[string]types.YChild)
-    diskInformation.EntityData.Children["disks"] = types.YChild{"Disks", nil}
+    diskInformation.EntityData.Children = types.NewOrderedMap()
+    diskInformation.EntityData.Children.Append("disks", types.YChild{"Disks", nil})
     for i := range diskInformation.Disks {
-        diskInformation.EntityData.Children[types.GetSegmentPath(&diskInformation.Disks[i])] = types.YChild{"Disks", &diskInformation.Disks[i]}
+        diskInformation.EntityData.Children.Append(types.GetSegmentPath(diskInformation.Disks[i]), types.YChild{"Disks", diskInformation.Disks[i]})
     }
-    diskInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    diskInformation.EntityData.Leafs["disk-name"] = types.YLeaf{"DiskName", diskInformation.DiskName}
-    diskInformation.EntityData.Leafs["disk-size"] = types.YLeaf{"DiskSize", diskInformation.DiskSize}
-    diskInformation.EntityData.Leafs["sector-size"] = types.YLeaf{"SectorSize", diskInformation.SectorSize}
+    diskInformation.EntityData.Leafs = types.NewOrderedMap()
+    diskInformation.EntityData.Leafs.Append("disk-name", types.YLeaf{"DiskName", diskInformation.DiskName})
+    diskInformation.EntityData.Leafs.Append("disk-size", types.YLeaf{"DiskSize", diskInformation.DiskSize})
+    diskInformation.EntityData.Leafs.Append("sector-size", types.YLeaf{"SectorSize", diskInformation.SectorSize})
+
+    diskInformation.EntityData.YListKeys = []string {}
+
     return &(diskInformation.EntityData)
 }
 
@@ -1378,11 +1457,14 @@ func (disks *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HardwareInformat
     disks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    disks.EntityData.Children = make(map[string]types.YChild)
-    disks.EntityData.Leafs = make(map[string]types.YLeaf)
-    disks.EntityData.Leafs["disk-name"] = types.YLeaf{"DiskName", disks.DiskName}
-    disks.EntityData.Leafs["disk-size"] = types.YLeaf{"DiskSize", disks.DiskSize}
-    disks.EntityData.Leafs["sector-size"] = types.YLeaf{"SectorSize", disks.SectorSize}
+    disks.EntityData.Children = types.NewOrderedMap()
+    disks.EntityData.Leafs = types.NewOrderedMap()
+    disks.EntityData.Leafs.Append("disk-name", types.YLeaf{"DiskName", disks.DiskName})
+    disks.EntityData.Leafs.Append("disk-size", types.YLeaf{"DiskSize", disks.DiskSize})
+    disks.EntityData.Leafs.Append("sector-size", types.YLeaf{"SectorSize", disks.SectorSize})
+
+    disks.EntityData.YListKeys = []string {}
+
     return &(disks.EntityData)
 }
 
@@ -1394,7 +1476,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots struct {
 
     // Subslot number. The type is slice of
     // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot.
-    SubSlot []PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot
+    SubSlot []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot
 }
 
 func (subSlots *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) GetEntityData() *types.CommonEntityData {
@@ -1407,12 +1489,15 @@ func (subSlots *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) Get
     subSlots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subSlots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    subSlots.EntityData.Children = make(map[string]types.YChild)
-    subSlots.EntityData.Children["sub-slot"] = types.YChild{"SubSlot", nil}
+    subSlots.EntityData.Children = types.NewOrderedMap()
+    subSlots.EntityData.Children.Append("sub-slot", types.YChild{"SubSlot", nil})
     for i := range subSlots.SubSlot {
-        subSlots.EntityData.Children[types.GetSegmentPath(&subSlots.SubSlot[i])] = types.YChild{"SubSlot", &subSlots.SubSlot[i]}
+        subSlots.EntityData.Children.Append(types.GetSegmentPath(subSlots.SubSlot[i]), types.YChild{"SubSlot", subSlots.SubSlot[i]})
     }
-    subSlots.EntityData.Leafs = make(map[string]types.YLeaf)
+    subSlots.EntityData.Leafs = types.NewOrderedMap()
+
+    subSlots.EntityData.YListKeys = []string {}
+
     return &(subSlots.EntityData)
 }
 
@@ -1423,7 +1508,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot struct 
     YFilter yfilter.YFilter
 
     // This attribute is a key. Subslot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Module of a subslot.
@@ -1438,16 +1523,19 @@ func (subSlot *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     subSlot.EntityData.YangName = "sub-slot"
     subSlot.EntityData.BundleName = "cisco_ios_xr"
     subSlot.EntityData.ParentYangName = "sub-slots"
-    subSlot.EntityData.SegmentPath = "sub-slot" + "[name='" + fmt.Sprintf("%v", subSlot.Name) + "']"
+    subSlot.EntityData.SegmentPath = "sub-slot" + types.AddKeyToken(subSlot.Name, "name")
     subSlot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subSlot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subSlot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    subSlot.EntityData.Children = make(map[string]types.YChild)
-    subSlot.EntityData.Children["module"] = types.YChild{"Module", &subSlot.Module}
-    subSlot.EntityData.Children["attributes"] = types.YChild{"Attributes", &subSlot.Attributes}
-    subSlot.EntityData.Leafs = make(map[string]types.YLeaf)
-    subSlot.EntityData.Leafs["name"] = types.YLeaf{"Name", subSlot.Name}
+    subSlot.EntityData.Children = types.NewOrderedMap()
+    subSlot.EntityData.Children.Append("module", types.YChild{"Module", &subSlot.Module})
+    subSlot.EntityData.Children.Append("attributes", types.YChild{"Attributes", &subSlot.Attributes})
+    subSlot.EntityData.Leafs = types.NewOrderedMap()
+    subSlot.EntityData.Leafs.Append("name", types.YLeaf{"Name", subSlot.Name})
+
+    subSlot.EntityData.YListKeys = []string {"Name"}
+
     return &(subSlot.EntityData)
 }
 
@@ -1477,11 +1565,14 @@ func (module *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlo
     module.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     module.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    module.EntityData.Children = make(map[string]types.YChild)
-    module.EntityData.Children["port-slots"] = types.YChild{"PortSlots", &module.PortSlots}
-    module.EntityData.Children["sensors"] = types.YChild{"Sensors", &module.Sensors}
-    module.EntityData.Children["attributes"] = types.YChild{"Attributes", &module.Attributes}
-    module.EntityData.Leafs = make(map[string]types.YLeaf)
+    module.EntityData.Children = types.NewOrderedMap()
+    module.EntityData.Children.Append("port-slots", types.YChild{"PortSlots", &module.PortSlots})
+    module.EntityData.Children.Append("sensors", types.YChild{"Sensors", &module.Sensors})
+    module.EntityData.Children.Append("attributes", types.YChild{"Attributes", &module.Attributes})
+    module.EntityData.Leafs = types.NewOrderedMap()
+
+    module.EntityData.YListKeys = []string {}
+
     return &(module.EntityData)
 }
 
@@ -1493,7 +1584,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
 
     // Port slot number. The type is slice of
     // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot.
-    PortSlot []PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot
+    PortSlot []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot
 }
 
 func (portSlots *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots) GetEntityData() *types.CommonEntityData {
@@ -1506,12 +1597,15 @@ func (portSlots *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     portSlots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portSlots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portSlots.EntityData.Children = make(map[string]types.YChild)
-    portSlots.EntityData.Children["port-slot"] = types.YChild{"PortSlot", nil}
+    portSlots.EntityData.Children = types.NewOrderedMap()
+    portSlots.EntityData.Children.Append("port-slot", types.YChild{"PortSlot", nil})
     for i := range portSlots.PortSlot {
-        portSlots.EntityData.Children[types.GetSegmentPath(&portSlots.PortSlot[i])] = types.YChild{"PortSlot", &portSlots.PortSlot[i]}
+        portSlots.EntityData.Children.Append(types.GetSegmentPath(portSlots.PortSlot[i]), types.YChild{"PortSlot", portSlots.PortSlot[i]})
     }
-    portSlots.EntityData.Leafs = make(map[string]types.YLeaf)
+    portSlots.EntityData.Leafs = types.NewOrderedMap()
+
+    portSlots.EntityData.YListKeys = []string {}
+
     return &(portSlots.EntityData)
 }
 
@@ -1522,10 +1616,10 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Port slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
-    // Table of spirit port slots.
+    // Table of port slots.
     Portses PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses
 
     // Table of sensors.
@@ -1540,29 +1634,32 @@ func (portSlot *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubS
     portSlot.EntityData.YangName = "port-slot"
     portSlot.EntityData.BundleName = "cisco_ios_xr"
     portSlot.EntityData.ParentYangName = "port-slots"
-    portSlot.EntityData.SegmentPath = "port-slot" + "[name='" + fmt.Sprintf("%v", portSlot.Name) + "']"
+    portSlot.EntityData.SegmentPath = "port-slot" + types.AddKeyToken(portSlot.Name, "name")
     portSlot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portSlot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portSlot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portSlot.EntityData.Children = make(map[string]types.YChild)
-    portSlot.EntityData.Children["portses"] = types.YChild{"Portses", &portSlot.Portses}
-    portSlot.EntityData.Children["sensors"] = types.YChild{"Sensors", &portSlot.Sensors}
-    portSlot.EntityData.Children["attributes"] = types.YChild{"Attributes", &portSlot.Attributes}
-    portSlot.EntityData.Leafs = make(map[string]types.YLeaf)
-    portSlot.EntityData.Leafs["name"] = types.YLeaf{"Name", portSlot.Name}
+    portSlot.EntityData.Children = types.NewOrderedMap()
+    portSlot.EntityData.Children.Append("portses", types.YChild{"Portses", &portSlot.Portses})
+    portSlot.EntityData.Children.Append("sensors", types.YChild{"Sensors", &portSlot.Sensors})
+    portSlot.EntityData.Children.Append("attributes", types.YChild{"Attributes", &portSlot.Attributes})
+    portSlot.EntityData.Leafs = types.NewOrderedMap()
+    portSlot.EntityData.Leafs.Append("name", types.YLeaf{"Name", portSlot.Name})
+
+    portSlot.EntityData.YListKeys = []string {"Name"}
+
     return &(portSlot.EntityData)
 }
 
 // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses
-// Table of spirit port slots
+// Table of port slots
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Port number. The type is slice of
     // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses_Ports.
-    Ports []PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses_Ports
+    Ports []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses_Ports
 }
 
 func (portses *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses) GetEntityData() *types.CommonEntityData {
@@ -1575,12 +1672,15 @@ func (portses *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     portses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portses.EntityData.Children = make(map[string]types.YChild)
-    portses.EntityData.Children["ports"] = types.YChild{"Ports", nil}
+    portses.EntityData.Children = types.NewOrderedMap()
+    portses.EntityData.Children.Append("ports", types.YChild{"Ports", nil})
     for i := range portses.Ports {
-        portses.EntityData.Children[types.GetSegmentPath(&portses.Ports[i])] = types.YChild{"Ports", &portses.Ports[i]}
+        portses.EntityData.Children.Append(types.GetSegmentPath(portses.Ports[i]), types.YChild{"Ports", portses.Ports[i]})
     }
-    portses.EntityData.Leafs = make(map[string]types.YLeaf)
+    portses.EntityData.Leafs = types.NewOrderedMap()
+
+    portses.EntityData.YListKeys = []string {}
+
     return &(portses.EntityData)
 }
 
@@ -1591,7 +1691,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Port name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Table of  HW components .
@@ -1609,17 +1709,20 @@ func (ports *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot
     ports.EntityData.YangName = "ports"
     ports.EntityData.BundleName = "cisco_ios_xr"
     ports.EntityData.ParentYangName = "portses"
-    ports.EntityData.SegmentPath = "ports" + "[name='" + fmt.Sprintf("%v", ports.Name) + "']"
+    ports.EntityData.SegmentPath = "ports" + types.AddKeyToken(ports.Name, "name")
     ports.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ports.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ports.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ports.EntityData.Children = make(map[string]types.YChild)
-    ports.EntityData.Children["hw-components"] = types.YChild{"HwComponents", &ports.HwComponents}
-    ports.EntityData.Children["sensors"] = types.YChild{"Sensors", &ports.Sensors}
-    ports.EntityData.Children["attributes"] = types.YChild{"Attributes", &ports.Attributes}
-    ports.EntityData.Leafs = make(map[string]types.YLeaf)
-    ports.EntityData.Leafs["name"] = types.YLeaf{"Name", ports.Name}
+    ports.EntityData.Children = types.NewOrderedMap()
+    ports.EntityData.Children.Append("hw-components", types.YChild{"HwComponents", &ports.HwComponents})
+    ports.EntityData.Children.Append("sensors", types.YChild{"Sensors", &ports.Sensors})
+    ports.EntityData.Children.Append("attributes", types.YChild{"Attributes", &ports.Attributes})
+    ports.EntityData.Leafs = types.NewOrderedMap()
+    ports.EntityData.Leafs.Append("name", types.YLeaf{"Name", ports.Name})
+
+    ports.EntityData.YListKeys = []string {"Name"}
+
     return &(ports.EntityData)
 }
 
@@ -1631,7 +1734,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
 
     // HW component number. The type is slice of
     // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses_Ports_HwComponents_HwComponent.
-    HwComponent []PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses_Ports_HwComponents_HwComponent
+    HwComponent []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses_Ports_HwComponents_HwComponent
 }
 
 func (hwComponents *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses_Ports_HwComponents) GetEntityData() *types.CommonEntityData {
@@ -1644,12 +1747,15 @@ func (hwComponents *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     hwComponents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwComponents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hwComponents.EntityData.Children = make(map[string]types.YChild)
-    hwComponents.EntityData.Children["hw-component"] = types.YChild{"HwComponent", nil}
+    hwComponents.EntityData.Children = types.NewOrderedMap()
+    hwComponents.EntityData.Children.Append("hw-component", types.YChild{"HwComponent", nil})
     for i := range hwComponents.HwComponent {
-        hwComponents.EntityData.Children[types.GetSegmentPath(&hwComponents.HwComponent[i])] = types.YChild{"HwComponent", &hwComponents.HwComponent[i]}
+        hwComponents.EntityData.Children.Append(types.GetSegmentPath(hwComponents.HwComponent[i]), types.YChild{"HwComponent", hwComponents.HwComponent[i]})
     }
-    hwComponents.EntityData.Leafs = make(map[string]types.YLeaf)
+    hwComponents.EntityData.Leafs = types.NewOrderedMap()
+
+    hwComponents.EntityData.YListKeys = []string {}
+
     return &(hwComponents.EntityData)
 }
 
@@ -1660,7 +1766,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     YFilter yfilter.YFilter
 
     // This attribute is a key. HW component name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Table of sensors.
@@ -1675,16 +1781,19 @@ func (hwComponent *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_S
     hwComponent.EntityData.YangName = "hw-component"
     hwComponent.EntityData.BundleName = "cisco_ios_xr"
     hwComponent.EntityData.ParentYangName = "hw-components"
-    hwComponent.EntityData.SegmentPath = "hw-component" + "[name='" + fmt.Sprintf("%v", hwComponent.Name) + "']"
+    hwComponent.EntityData.SegmentPath = "hw-component" + types.AddKeyToken(hwComponent.Name, "name")
     hwComponent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwComponent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwComponent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hwComponent.EntityData.Children = make(map[string]types.YChild)
-    hwComponent.EntityData.Children["sensors"] = types.YChild{"Sensors", &hwComponent.Sensors}
-    hwComponent.EntityData.Children["attributes"] = types.YChild{"Attributes", &hwComponent.Attributes}
-    hwComponent.EntityData.Leafs = make(map[string]types.YLeaf)
-    hwComponent.EntityData.Leafs["name"] = types.YLeaf{"Name", hwComponent.Name}
+    hwComponent.EntityData.Children = types.NewOrderedMap()
+    hwComponent.EntityData.Children.Append("sensors", types.YChild{"Sensors", &hwComponent.Sensors})
+    hwComponent.EntityData.Children.Append("attributes", types.YChild{"Attributes", &hwComponent.Attributes})
+    hwComponent.EntityData.Leafs = types.NewOrderedMap()
+    hwComponent.EntityData.Leafs.Append("name", types.YLeaf{"Name", hwComponent.Name})
+
+    hwComponent.EntityData.YListKeys = []string {"Name"}
+
     return &(hwComponent.EntityData)
 }
 
@@ -1696,7 +1805,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
 
     // Sensor number. The type is slice of
     // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor.
-    Sensor []PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor
+    Sensor []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor
 }
 
 func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses_Ports_HwComponents_HwComponent_Sensors) GetEntityData() *types.CommonEntityData {
@@ -1709,12 +1818,15 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensors.EntityData.Children = make(map[string]types.YChild)
-    sensors.EntityData.Children["sensor"] = types.YChild{"Sensor", nil}
+    sensors.EntityData.Children = types.NewOrderedMap()
+    sensors.EntityData.Children.Append("sensor", types.YChild{"Sensor", nil})
     for i := range sensors.Sensor {
-        sensors.EntityData.Children[types.GetSegmentPath(&sensors.Sensor[i])] = types.YChild{"Sensor", &sensors.Sensor[i]}
+        sensors.EntityData.Children.Append(types.GetSegmentPath(sensors.Sensor[i]), types.YChild{"Sensor", sensors.Sensor[i]})
     }
-    sensors.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensors.EntityData.Leafs = types.NewOrderedMap()
+
+    sensors.EntityData.YListKeys = []string {}
+
     return &(sensors.EntityData)
 }
 
@@ -1725,7 +1837,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sensor name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Attributes.
@@ -1737,15 +1849,18 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlo
     sensor.EntityData.YangName = "sensor"
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
-    sensor.EntityData.SegmentPath = "sensor" + "[name='" + fmt.Sprintf("%v", sensor.Name) + "']"
+    sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensor.EntityData.Children = make(map[string]types.YChild)
-    sensor.EntityData.Children["attributes"] = types.YChild{"Attributes", &sensor.Attributes}
-    sensor.EntityData.Leafs = make(map[string]types.YLeaf)
-    sensor.EntityData.Leafs["name"] = types.YLeaf{"Name", sensor.Name}
+    sensor.EntityData.Children = types.NewOrderedMap()
+    sensor.EntityData.Children.Append("attributes", types.YChild{"Attributes", &sensor.Attributes})
+    sensor.EntityData.Leafs = types.NewOrderedMap()
+    sensor.EntityData.Leafs.Append("name", types.YLeaf{"Name", sensor.Name})
+
+    sensor.EntityData.YListKeys = []string {"Name"}
+
     return &(sensor.EntityData)
 }
 
@@ -1772,10 +1887,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Su
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -1824,17 +1942,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -1876,15 +1997,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -1913,10 +2037,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -1945,10 +2072,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -1975,10 +2105,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Su
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -2027,17 +2160,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -2079,15 +2215,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -2116,10 +2255,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -2148,10 +2290,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -2163,7 +2308,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
 
     // Sensor number. The type is slice of
     // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses_Ports_Sensors_Sensor.
-    Sensor []PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses_Ports_Sensors_Sensor
+    Sensor []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses_Ports_Sensors_Sensor
 }
 
 func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses_Ports_Sensors) GetEntityData() *types.CommonEntityData {
@@ -2176,12 +2321,15 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensors.EntityData.Children = make(map[string]types.YChild)
-    sensors.EntityData.Children["sensor"] = types.YChild{"Sensor", nil}
+    sensors.EntityData.Children = types.NewOrderedMap()
+    sensors.EntityData.Children.Append("sensor", types.YChild{"Sensor", nil})
     for i := range sensors.Sensor {
-        sensors.EntityData.Children[types.GetSegmentPath(&sensors.Sensor[i])] = types.YChild{"Sensor", &sensors.Sensor[i]}
+        sensors.EntityData.Children.Append(types.GetSegmentPath(sensors.Sensor[i]), types.YChild{"Sensor", sensors.Sensor[i]})
     }
-    sensors.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensors.EntityData.Leafs = types.NewOrderedMap()
+
+    sensors.EntityData.YListKeys = []string {}
+
     return &(sensors.EntityData)
 }
 
@@ -2192,7 +2340,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sensor name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Attributes.
@@ -2204,15 +2352,18 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlo
     sensor.EntityData.YangName = "sensor"
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
-    sensor.EntityData.SegmentPath = "sensor" + "[name='" + fmt.Sprintf("%v", sensor.Name) + "']"
+    sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensor.EntityData.Children = make(map[string]types.YChild)
-    sensor.EntityData.Children["attributes"] = types.YChild{"Attributes", &sensor.Attributes}
-    sensor.EntityData.Leafs = make(map[string]types.YLeaf)
-    sensor.EntityData.Leafs["name"] = types.YLeaf{"Name", sensor.Name}
+    sensor.EntityData.Children = types.NewOrderedMap()
+    sensor.EntityData.Children.Append("attributes", types.YChild{"Attributes", &sensor.Attributes})
+    sensor.EntityData.Leafs = types.NewOrderedMap()
+    sensor.EntityData.Leafs.Append("name", types.YLeaf{"Name", sensor.Name})
+
+    sensor.EntityData.YListKeys = []string {"Name"}
+
     return &(sensor.EntityData)
 }
 
@@ -2239,10 +2390,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Su
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -2291,17 +2445,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -2343,15 +2500,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -2380,10 +2540,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -2412,10 +2575,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -2442,10 +2608,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Su
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -2494,17 +2663,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -2546,15 +2718,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -2583,10 +2758,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -2615,10 +2793,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -2630,7 +2811,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
 
     // Sensor number. The type is slice of
     // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Sensors_Sensor.
-    Sensor []PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Sensors_Sensor
+    Sensor []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Sensors_Sensor
 }
 
 func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Sensors) GetEntityData() *types.CommonEntityData {
@@ -2643,12 +2824,15 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensors.EntityData.Children = make(map[string]types.YChild)
-    sensors.EntityData.Children["sensor"] = types.YChild{"Sensor", nil}
+    sensors.EntityData.Children = types.NewOrderedMap()
+    sensors.EntityData.Children.Append("sensor", types.YChild{"Sensor", nil})
     for i := range sensors.Sensor {
-        sensors.EntityData.Children[types.GetSegmentPath(&sensors.Sensor[i])] = types.YChild{"Sensor", &sensors.Sensor[i]}
+        sensors.EntityData.Children.Append(types.GetSegmentPath(sensors.Sensor[i]), types.YChild{"Sensor", sensors.Sensor[i]})
     }
-    sensors.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensors.EntityData.Leafs = types.NewOrderedMap()
+
+    sensors.EntityData.YListKeys = []string {}
+
     return &(sensors.EntityData)
 }
 
@@ -2659,7 +2843,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sensor name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Attributes.
@@ -2671,15 +2855,18 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlo
     sensor.EntityData.YangName = "sensor"
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
-    sensor.EntityData.SegmentPath = "sensor" + "[name='" + fmt.Sprintf("%v", sensor.Name) + "']"
+    sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensor.EntityData.Children = make(map[string]types.YChild)
-    sensor.EntityData.Children["attributes"] = types.YChild{"Attributes", &sensor.Attributes}
-    sensor.EntityData.Leafs = make(map[string]types.YLeaf)
-    sensor.EntityData.Leafs["name"] = types.YLeaf{"Name", sensor.Name}
+    sensor.EntityData.Children = types.NewOrderedMap()
+    sensor.EntityData.Children.Append("attributes", types.YChild{"Attributes", &sensor.Attributes})
+    sensor.EntityData.Leafs = types.NewOrderedMap()
+    sensor.EntityData.Leafs.Append("name", types.YLeaf{"Name", sensor.Name})
+
+    sensor.EntityData.YListKeys = []string {"Name"}
+
     return &(sensor.EntityData)
 }
 
@@ -2706,10 +2893,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Su
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -2758,17 +2948,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -2810,15 +3003,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -2847,10 +3043,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -2879,10 +3078,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -2909,10 +3111,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Su
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -2961,17 +3166,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -3013,15 +3221,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -3050,10 +3261,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -3082,10 +3296,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -3097,7 +3314,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
 
     // Sensor number. The type is slice of
     // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor.
-    Sensor []PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor
+    Sensor []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor
 }
 
 func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors) GetEntityData() *types.CommonEntityData {
@@ -3110,12 +3327,15 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensors.EntityData.Children = make(map[string]types.YChild)
-    sensors.EntityData.Children["sensor"] = types.YChild{"Sensor", nil}
+    sensors.EntityData.Children = types.NewOrderedMap()
+    sensors.EntityData.Children.Append("sensor", types.YChild{"Sensor", nil})
     for i := range sensors.Sensor {
-        sensors.EntityData.Children[types.GetSegmentPath(&sensors.Sensor[i])] = types.YChild{"Sensor", &sensors.Sensor[i]}
+        sensors.EntityData.Children.Append(types.GetSegmentPath(sensors.Sensor[i]), types.YChild{"Sensor", sensors.Sensor[i]})
     }
-    sensors.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensors.EntityData.Leafs = types.NewOrderedMap()
+
+    sensors.EntityData.YListKeys = []string {}
+
     return &(sensors.EntityData)
 }
 
@@ -3126,7 +3346,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sensor name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Attributes.
@@ -3138,15 +3358,18 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlo
     sensor.EntityData.YangName = "sensor"
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
-    sensor.EntityData.SegmentPath = "sensor" + "[name='" + fmt.Sprintf("%v", sensor.Name) + "']"
+    sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensor.EntityData.Children = make(map[string]types.YChild)
-    sensor.EntityData.Children["attributes"] = types.YChild{"Attributes", &sensor.Attributes}
-    sensor.EntityData.Leafs = make(map[string]types.YLeaf)
-    sensor.EntityData.Leafs["name"] = types.YLeaf{"Name", sensor.Name}
+    sensor.EntityData.Children = types.NewOrderedMap()
+    sensor.EntityData.Children.Append("attributes", types.YChild{"Attributes", &sensor.Attributes})
+    sensor.EntityData.Leafs = types.NewOrderedMap()
+    sensor.EntityData.Leafs.Append("name", types.YLeaf{"Name", sensor.Name})
+
+    sensor.EntityData.YListKeys = []string {"Name"}
+
     return &(sensor.EntityData)
 }
 
@@ -3173,10 +3396,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Su
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -3225,17 +3451,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -3277,15 +3506,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -3314,10 +3546,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -3346,10 +3581,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -3376,10 +3614,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Su
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -3428,17 +3669,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -3480,15 +3724,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -3517,10 +3764,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -3549,10 +3799,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -3579,10 +3832,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Su
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -3631,17 +3887,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -3683,15 +3942,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -3720,10 +3982,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -3752,10 +4017,1165 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
+    return &(moduleUpTime.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses
+// Table of port slots
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Port number. The type is slice of
+    // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports.
+    Ports []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports
+}
+
+func (portses *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses) GetEntityData() *types.CommonEntityData {
+    portses.EntityData.YFilter = portses.YFilter
+    portses.EntityData.YangName = "portses"
+    portses.EntityData.BundleName = "cisco_ios_xr"
+    portses.EntityData.ParentYangName = "card"
+    portses.EntityData.SegmentPath = "portses"
+    portses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    portses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    portses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    portses.EntityData.Children = types.NewOrderedMap()
+    portses.EntityData.Children.Append("ports", types.YChild{"Ports", nil})
+    for i := range portses.Ports {
+        portses.EntityData.Children.Append(types.GetSegmentPath(portses.Ports[i]), types.YChild{"Ports", portses.Ports[i]})
+    }
+    portses.EntityData.Leafs = types.NewOrderedMap()
+
+    portses.EntityData.YListKeys = []string {}
+
+    return &(portses.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports
+// Port number
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Port name. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    Name interface{}
+
+    // Table of  HW components .
+    HwComponents PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents
+
+    // Table of sensors.
+    Sensors PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors
+
+    // Attributes.
+    Attributes PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes
+}
+
+func (ports *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports) GetEntityData() *types.CommonEntityData {
+    ports.EntityData.YFilter = ports.YFilter
+    ports.EntityData.YangName = "ports"
+    ports.EntityData.BundleName = "cisco_ios_xr"
+    ports.EntityData.ParentYangName = "portses"
+    ports.EntityData.SegmentPath = "ports" + types.AddKeyToken(ports.Name, "name")
+    ports.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ports.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ports.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ports.EntityData.Children = types.NewOrderedMap()
+    ports.EntityData.Children.Append("hw-components", types.YChild{"HwComponents", &ports.HwComponents})
+    ports.EntityData.Children.Append("sensors", types.YChild{"Sensors", &ports.Sensors})
+    ports.EntityData.Children.Append("attributes", types.YChild{"Attributes", &ports.Attributes})
+    ports.EntityData.Leafs = types.NewOrderedMap()
+    ports.EntityData.Leafs.Append("name", types.YLeaf{"Name", ports.Name})
+
+    ports.EntityData.YListKeys = []string {"Name"}
+
+    return &(ports.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents
+// Table of  HW components 
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // HW component number. The type is slice of
+    // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent.
+    HwComponent []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent
+}
+
+func (hwComponents *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents) GetEntityData() *types.CommonEntityData {
+    hwComponents.EntityData.YFilter = hwComponents.YFilter
+    hwComponents.EntityData.YangName = "hw-components"
+    hwComponents.EntityData.BundleName = "cisco_ios_xr"
+    hwComponents.EntityData.ParentYangName = "ports"
+    hwComponents.EntityData.SegmentPath = "hw-components"
+    hwComponents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hwComponents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hwComponents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hwComponents.EntityData.Children = types.NewOrderedMap()
+    hwComponents.EntityData.Children.Append("hw-component", types.YChild{"HwComponent", nil})
+    for i := range hwComponents.HwComponent {
+        hwComponents.EntityData.Children.Append(types.GetSegmentPath(hwComponents.HwComponent[i]), types.YChild{"HwComponent", hwComponents.HwComponent[i]})
+    }
+    hwComponents.EntityData.Leafs = types.NewOrderedMap()
+
+    hwComponents.EntityData.YListKeys = []string {}
+
+    return &(hwComponents.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent
+// HW component number
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. HW component name. The type is string with
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    Name interface{}
+
+    // Table of sensors.
+    Sensors PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors
+
+    // Attributes.
+    Attributes PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes
+}
+
+func (hwComponent *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent) GetEntityData() *types.CommonEntityData {
+    hwComponent.EntityData.YFilter = hwComponent.YFilter
+    hwComponent.EntityData.YangName = "hw-component"
+    hwComponent.EntityData.BundleName = "cisco_ios_xr"
+    hwComponent.EntityData.ParentYangName = "hw-components"
+    hwComponent.EntityData.SegmentPath = "hw-component" + types.AddKeyToken(hwComponent.Name, "name")
+    hwComponent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hwComponent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hwComponent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hwComponent.EntityData.Children = types.NewOrderedMap()
+    hwComponent.EntityData.Children.Append("sensors", types.YChild{"Sensors", &hwComponent.Sensors})
+    hwComponent.EntityData.Children.Append("attributes", types.YChild{"Attributes", &hwComponent.Attributes})
+    hwComponent.EntityData.Leafs = types.NewOrderedMap()
+    hwComponent.EntityData.Leafs.Append("name", types.YLeaf{"Name", hwComponent.Name})
+
+    hwComponent.EntityData.YListKeys = []string {"Name"}
+
+    return &(hwComponent.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors
+// Table of sensors
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sensor number. The type is slice of
+    // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor.
+    Sensor []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor
+}
+
+func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors) GetEntityData() *types.CommonEntityData {
+    sensors.EntityData.YFilter = sensors.YFilter
+    sensors.EntityData.YangName = "sensors"
+    sensors.EntityData.BundleName = "cisco_ios_xr"
+    sensors.EntityData.ParentYangName = "hw-component"
+    sensors.EntityData.SegmentPath = "sensors"
+    sensors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sensors.EntityData.Children = types.NewOrderedMap()
+    sensors.EntityData.Children.Append("sensor", types.YChild{"Sensor", nil})
+    for i := range sensors.Sensor {
+        sensors.EntityData.Children.Append(types.GetSegmentPath(sensors.Sensor[i]), types.YChild{"Sensor", sensors.Sensor[i]})
+    }
+    sensors.EntityData.Leafs = types.NewOrderedMap()
+
+    sensors.EntityData.YListKeys = []string {}
+
+    return &(sensors.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor
+// Sensor number
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Sensor name. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    Name interface{}
+
+    // Attributes.
+    Attributes PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes
+}
+
+func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor) GetEntityData() *types.CommonEntityData {
+    sensor.EntityData.YFilter = sensor.YFilter
+    sensor.EntityData.YangName = "sensor"
+    sensor.EntityData.BundleName = "cisco_ios_xr"
+    sensor.EntityData.ParentYangName = "sensors"
+    sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
+    sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sensor.EntityData.Children = types.NewOrderedMap()
+    sensor.EntityData.Children.Append("attributes", types.YChild{"Attributes", &sensor.Attributes})
+    sensor.EntityData.Leafs = types.NewOrderedMap()
+    sensor.EntityData.Leafs.Append("name", types.YLeaf{"Name", sensor.Name})
+
+    sensor.EntityData.YListKeys = []string {"Name"}
+
+    return &(sensor.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes
+// Attributes
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Entity attributes.
+    BasicInfo PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes_BasicInfo
+
+    // Field Replaceable Unit (FRU) attributes.
+    FruInfo PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes_FruInfo
+}
+
+func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes) GetEntityData() *types.CommonEntityData {
+    attributes.EntityData.YFilter = attributes.YFilter
+    attributes.EntityData.YangName = "attributes"
+    attributes.EntityData.BundleName = "cisco_ios_xr"
+    attributes.EntityData.ParentYangName = "sensor"
+    attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
+    return &(attributes.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes_BasicInfo
+// Entity attributes
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes_BasicInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // name string for the entity. The type is string with length: 0..255.
+    Name interface{}
+
+    // describes in user-readable terms                 what the entity in
+    // question does. The type is string with length: 0..255.
+    Description interface{}
+
+    // model name. The type is string with length: 0..255.
+    ModelName interface{}
+
+    // hw revision string. The type is string with length: 0..255.
+    HardwareRevision interface{}
+
+    // serial number. The type is string with length: 0..255.
+    SerialNumber interface{}
+
+    // firmware revision string. The type is string with length: 0..255.
+    FirmwareRevision interface{}
+
+    // software revision string. The type is string with length: 0..255.
+    SoftwareRevision interface{}
+
+    // maps to the vendor OID string. The type is string with length: 0..255.
+    VendorType interface{}
+
+    // 1 if Field Replaceable Unit 0, if not. The type is bool.
+    IsFieldReplaceableUnit interface{}
+}
+
+func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes_BasicInfo) GetEntityData() *types.CommonEntityData {
+    basicInfo.EntityData.YFilter = basicInfo.YFilter
+    basicInfo.EntityData.YangName = "basic-info"
+    basicInfo.EntityData.BundleName = "cisco_ios_xr"
+    basicInfo.EntityData.ParentYangName = "attributes"
+    basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
+    return &(basicInfo.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes_FruInfo
+// Field Replaceable Unit (FRU) attributes
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes_FruInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Administrative    state. The type is InvAdminState.
+    ModuleAdministrativeState interface{}
+
+    // Power administrative state. The type is InvPowerAdminState.
+    ModulePowerAdministrativeState interface{}
+
+    // Operation state. The type is InvCardState.
+    ModuleOperationalState interface{}
+
+    // Monitor state. The type is InvMonitorState.
+    ModuleMonitorState interface{}
+
+    // Reset reason. The type is InvResetReason.
+    ModuleResetReason interface{}
+
+    // Time operational state is   last changed.
+    LastOperationalStateChange PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes_FruInfo_LastOperationalStateChange
+
+    // Module up time.
+    ModuleUpTime PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes_FruInfo_ModuleUpTime
+}
+
+func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes_FruInfo) GetEntityData() *types.CommonEntityData {
+    fruInfo.EntityData.YFilter = fruInfo.YFilter
+    fruInfo.EntityData.YangName = "fru-info"
+    fruInfo.EntityData.BundleName = "cisco_ios_xr"
+    fruInfo.EntityData.ParentYangName = "attributes"
+    fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
+    return &(fruInfo.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes_FruInfo_LastOperationalStateChange
+// Time operational state is   last changed
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes_FruInfo_LastOperationalStateChange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Time Value in Seconds. The type is interface{} with range:
+    // -2147483648..2147483647. Units are second.
+    TimeInSeconds interface{}
+
+    // Time Value in Nano-seconds. The type is interface{} with range:
+    // -2147483648..2147483647. Units are nanosecond.
+    TimeInNanoSeconds interface{}
+}
+
+func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes_FruInfo_LastOperationalStateChange) GetEntityData() *types.CommonEntityData {
+    lastOperationalStateChange.EntityData.YFilter = lastOperationalStateChange.YFilter
+    lastOperationalStateChange.EntityData.YangName = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
+    lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
+    lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
+    return &(lastOperationalStateChange.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes_FruInfo_ModuleUpTime
+// Module up time
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes_FruInfo_ModuleUpTime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Time Value in Seconds. The type is interface{} with range:
+    // -2147483648..2147483647. Units are second.
+    TimeInSeconds interface{}
+
+    // Time Value in Nano-seconds. The type is interface{} with range:
+    // -2147483648..2147483647. Units are nanosecond.
+    TimeInNanoSeconds interface{}
+}
+
+func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor_Attributes_FruInfo_ModuleUpTime) GetEntityData() *types.CommonEntityData {
+    moduleUpTime.EntityData.YFilter = moduleUpTime.YFilter
+    moduleUpTime.EntityData.YangName = "module-up-time"
+    moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
+    moduleUpTime.EntityData.ParentYangName = "fru-info"
+    moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
+    return &(moduleUpTime.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes
+// Attributes
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Entity attributes.
+    BasicInfo PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes_BasicInfo
+
+    // Field Replaceable Unit (FRU) attributes.
+    FruInfo PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes_FruInfo
+}
+
+func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes) GetEntityData() *types.CommonEntityData {
+    attributes.EntityData.YFilter = attributes.YFilter
+    attributes.EntityData.YangName = "attributes"
+    attributes.EntityData.BundleName = "cisco_ios_xr"
+    attributes.EntityData.ParentYangName = "hw-component"
+    attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
+    return &(attributes.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes_BasicInfo
+// Entity attributes
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes_BasicInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // name string for the entity. The type is string with length: 0..255.
+    Name interface{}
+
+    // describes in user-readable terms                 what the entity in
+    // question does. The type is string with length: 0..255.
+    Description interface{}
+
+    // model name. The type is string with length: 0..255.
+    ModelName interface{}
+
+    // hw revision string. The type is string with length: 0..255.
+    HardwareRevision interface{}
+
+    // serial number. The type is string with length: 0..255.
+    SerialNumber interface{}
+
+    // firmware revision string. The type is string with length: 0..255.
+    FirmwareRevision interface{}
+
+    // software revision string. The type is string with length: 0..255.
+    SoftwareRevision interface{}
+
+    // maps to the vendor OID string. The type is string with length: 0..255.
+    VendorType interface{}
+
+    // 1 if Field Replaceable Unit 0, if not. The type is bool.
+    IsFieldReplaceableUnit interface{}
+}
+
+func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes_BasicInfo) GetEntityData() *types.CommonEntityData {
+    basicInfo.EntityData.YFilter = basicInfo.YFilter
+    basicInfo.EntityData.YangName = "basic-info"
+    basicInfo.EntityData.BundleName = "cisco_ios_xr"
+    basicInfo.EntityData.ParentYangName = "attributes"
+    basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
+    return &(basicInfo.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes_FruInfo
+// Field Replaceable Unit (FRU) attributes
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes_FruInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Administrative    state. The type is InvAdminState.
+    ModuleAdministrativeState interface{}
+
+    // Power administrative state. The type is InvPowerAdminState.
+    ModulePowerAdministrativeState interface{}
+
+    // Operation state. The type is InvCardState.
+    ModuleOperationalState interface{}
+
+    // Monitor state. The type is InvMonitorState.
+    ModuleMonitorState interface{}
+
+    // Reset reason. The type is InvResetReason.
+    ModuleResetReason interface{}
+
+    // Time operational state is   last changed.
+    LastOperationalStateChange PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes_FruInfo_LastOperationalStateChange
+
+    // Module up time.
+    ModuleUpTime PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes_FruInfo_ModuleUpTime
+}
+
+func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes_FruInfo) GetEntityData() *types.CommonEntityData {
+    fruInfo.EntityData.YFilter = fruInfo.YFilter
+    fruInfo.EntityData.YangName = "fru-info"
+    fruInfo.EntityData.BundleName = "cisco_ios_xr"
+    fruInfo.EntityData.ParentYangName = "attributes"
+    fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
+    return &(fruInfo.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes_FruInfo_LastOperationalStateChange
+// Time operational state is   last changed
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes_FruInfo_LastOperationalStateChange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Time Value in Seconds. The type is interface{} with range:
+    // -2147483648..2147483647. Units are second.
+    TimeInSeconds interface{}
+
+    // Time Value in Nano-seconds. The type is interface{} with range:
+    // -2147483648..2147483647. Units are nanosecond.
+    TimeInNanoSeconds interface{}
+}
+
+func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes_FruInfo_LastOperationalStateChange) GetEntityData() *types.CommonEntityData {
+    lastOperationalStateChange.EntityData.YFilter = lastOperationalStateChange.YFilter
+    lastOperationalStateChange.EntityData.YangName = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
+    lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
+    lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
+    return &(lastOperationalStateChange.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes_FruInfo_ModuleUpTime
+// Module up time
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes_FruInfo_ModuleUpTime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Time Value in Seconds. The type is interface{} with range:
+    // -2147483648..2147483647. Units are second.
+    TimeInSeconds interface{}
+
+    // Time Value in Nano-seconds. The type is interface{} with range:
+    // -2147483648..2147483647. Units are nanosecond.
+    TimeInNanoSeconds interface{}
+}
+
+func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Attributes_FruInfo_ModuleUpTime) GetEntityData() *types.CommonEntityData {
+    moduleUpTime.EntityData.YFilter = moduleUpTime.YFilter
+    moduleUpTime.EntityData.YangName = "module-up-time"
+    moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
+    moduleUpTime.EntityData.ParentYangName = "fru-info"
+    moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
+    return &(moduleUpTime.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors
+// Table of sensors
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sensor number. The type is slice of
+    // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor.
+    Sensor []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor
+}
+
+func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors) GetEntityData() *types.CommonEntityData {
+    sensors.EntityData.YFilter = sensors.YFilter
+    sensors.EntityData.YangName = "sensors"
+    sensors.EntityData.BundleName = "cisco_ios_xr"
+    sensors.EntityData.ParentYangName = "ports"
+    sensors.EntityData.SegmentPath = "sensors"
+    sensors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sensors.EntityData.Children = types.NewOrderedMap()
+    sensors.EntityData.Children.Append("sensor", types.YChild{"Sensor", nil})
+    for i := range sensors.Sensor {
+        sensors.EntityData.Children.Append(types.GetSegmentPath(sensors.Sensor[i]), types.YChild{"Sensor", sensors.Sensor[i]})
+    }
+    sensors.EntityData.Leafs = types.NewOrderedMap()
+
+    sensors.EntityData.YListKeys = []string {}
+
+    return &(sensors.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor
+// Sensor number
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Sensor name. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    Name interface{}
+
+    // Attributes.
+    Attributes PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes
+}
+
+func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor) GetEntityData() *types.CommonEntityData {
+    sensor.EntityData.YFilter = sensor.YFilter
+    sensor.EntityData.YangName = "sensor"
+    sensor.EntityData.BundleName = "cisco_ios_xr"
+    sensor.EntityData.ParentYangName = "sensors"
+    sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
+    sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sensor.EntityData.Children = types.NewOrderedMap()
+    sensor.EntityData.Children.Append("attributes", types.YChild{"Attributes", &sensor.Attributes})
+    sensor.EntityData.Leafs = types.NewOrderedMap()
+    sensor.EntityData.Leafs.Append("name", types.YLeaf{"Name", sensor.Name})
+
+    sensor.EntityData.YListKeys = []string {"Name"}
+
+    return &(sensor.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes
+// Attributes
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Entity attributes.
+    BasicInfo PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes_BasicInfo
+
+    // Field Replaceable Unit (FRU) attributes.
+    FruInfo PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes_FruInfo
+}
+
+func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes) GetEntityData() *types.CommonEntityData {
+    attributes.EntityData.YFilter = attributes.YFilter
+    attributes.EntityData.YangName = "attributes"
+    attributes.EntityData.BundleName = "cisco_ios_xr"
+    attributes.EntityData.ParentYangName = "sensor"
+    attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
+    return &(attributes.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes_BasicInfo
+// Entity attributes
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes_BasicInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // name string for the entity. The type is string with length: 0..255.
+    Name interface{}
+
+    // describes in user-readable terms                 what the entity in
+    // question does. The type is string with length: 0..255.
+    Description interface{}
+
+    // model name. The type is string with length: 0..255.
+    ModelName interface{}
+
+    // hw revision string. The type is string with length: 0..255.
+    HardwareRevision interface{}
+
+    // serial number. The type is string with length: 0..255.
+    SerialNumber interface{}
+
+    // firmware revision string. The type is string with length: 0..255.
+    FirmwareRevision interface{}
+
+    // software revision string. The type is string with length: 0..255.
+    SoftwareRevision interface{}
+
+    // maps to the vendor OID string. The type is string with length: 0..255.
+    VendorType interface{}
+
+    // 1 if Field Replaceable Unit 0, if not. The type is bool.
+    IsFieldReplaceableUnit interface{}
+}
+
+func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes_BasicInfo) GetEntityData() *types.CommonEntityData {
+    basicInfo.EntityData.YFilter = basicInfo.YFilter
+    basicInfo.EntityData.YangName = "basic-info"
+    basicInfo.EntityData.BundleName = "cisco_ios_xr"
+    basicInfo.EntityData.ParentYangName = "attributes"
+    basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
+    return &(basicInfo.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes_FruInfo
+// Field Replaceable Unit (FRU) attributes
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes_FruInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Administrative    state. The type is InvAdminState.
+    ModuleAdministrativeState interface{}
+
+    // Power administrative state. The type is InvPowerAdminState.
+    ModulePowerAdministrativeState interface{}
+
+    // Operation state. The type is InvCardState.
+    ModuleOperationalState interface{}
+
+    // Monitor state. The type is InvMonitorState.
+    ModuleMonitorState interface{}
+
+    // Reset reason. The type is InvResetReason.
+    ModuleResetReason interface{}
+
+    // Time operational state is   last changed.
+    LastOperationalStateChange PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes_FruInfo_LastOperationalStateChange
+
+    // Module up time.
+    ModuleUpTime PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes_FruInfo_ModuleUpTime
+}
+
+func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes_FruInfo) GetEntityData() *types.CommonEntityData {
+    fruInfo.EntityData.YFilter = fruInfo.YFilter
+    fruInfo.EntityData.YangName = "fru-info"
+    fruInfo.EntityData.BundleName = "cisco_ios_xr"
+    fruInfo.EntityData.ParentYangName = "attributes"
+    fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
+    return &(fruInfo.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes_FruInfo_LastOperationalStateChange
+// Time operational state is   last changed
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes_FruInfo_LastOperationalStateChange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Time Value in Seconds. The type is interface{} with range:
+    // -2147483648..2147483647. Units are second.
+    TimeInSeconds interface{}
+
+    // Time Value in Nano-seconds. The type is interface{} with range:
+    // -2147483648..2147483647. Units are nanosecond.
+    TimeInNanoSeconds interface{}
+}
+
+func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes_FruInfo_LastOperationalStateChange) GetEntityData() *types.CommonEntityData {
+    lastOperationalStateChange.EntityData.YFilter = lastOperationalStateChange.YFilter
+    lastOperationalStateChange.EntityData.YangName = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
+    lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
+    lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
+    return &(lastOperationalStateChange.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes_FruInfo_ModuleUpTime
+// Module up time
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes_FruInfo_ModuleUpTime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Time Value in Seconds. The type is interface{} with range:
+    // -2147483648..2147483647. Units are second.
+    TimeInSeconds interface{}
+
+    // Time Value in Nano-seconds. The type is interface{} with range:
+    // -2147483648..2147483647. Units are nanosecond.
+    TimeInNanoSeconds interface{}
+}
+
+func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor_Attributes_FruInfo_ModuleUpTime) GetEntityData() *types.CommonEntityData {
+    moduleUpTime.EntityData.YFilter = moduleUpTime.YFilter
+    moduleUpTime.EntityData.YangName = "module-up-time"
+    moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
+    moduleUpTime.EntityData.ParentYangName = "fru-info"
+    moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
+    return &(moduleUpTime.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes
+// Attributes
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Entity attributes.
+    BasicInfo PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes_BasicInfo
+
+    // Field Replaceable Unit (FRU) attributes.
+    FruInfo PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes_FruInfo
+}
+
+func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes) GetEntityData() *types.CommonEntityData {
+    attributes.EntityData.YFilter = attributes.YFilter
+    attributes.EntityData.YangName = "attributes"
+    attributes.EntityData.BundleName = "cisco_ios_xr"
+    attributes.EntityData.ParentYangName = "ports"
+    attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
+    return &(attributes.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes_BasicInfo
+// Entity attributes
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes_BasicInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // name string for the entity. The type is string with length: 0..255.
+    Name interface{}
+
+    // describes in user-readable terms                 what the entity in
+    // question does. The type is string with length: 0..255.
+    Description interface{}
+
+    // model name. The type is string with length: 0..255.
+    ModelName interface{}
+
+    // hw revision string. The type is string with length: 0..255.
+    HardwareRevision interface{}
+
+    // serial number. The type is string with length: 0..255.
+    SerialNumber interface{}
+
+    // firmware revision string. The type is string with length: 0..255.
+    FirmwareRevision interface{}
+
+    // software revision string. The type is string with length: 0..255.
+    SoftwareRevision interface{}
+
+    // maps to the vendor OID string. The type is string with length: 0..255.
+    VendorType interface{}
+
+    // 1 if Field Replaceable Unit 0, if not. The type is bool.
+    IsFieldReplaceableUnit interface{}
+}
+
+func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes_BasicInfo) GetEntityData() *types.CommonEntityData {
+    basicInfo.EntityData.YFilter = basicInfo.YFilter
+    basicInfo.EntityData.YangName = "basic-info"
+    basicInfo.EntityData.BundleName = "cisco_ios_xr"
+    basicInfo.EntityData.ParentYangName = "attributes"
+    basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
+    return &(basicInfo.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes_FruInfo
+// Field Replaceable Unit (FRU) attributes
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes_FruInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Administrative    state. The type is InvAdminState.
+    ModuleAdministrativeState interface{}
+
+    // Power administrative state. The type is InvPowerAdminState.
+    ModulePowerAdministrativeState interface{}
+
+    // Operation state. The type is InvCardState.
+    ModuleOperationalState interface{}
+
+    // Monitor state. The type is InvMonitorState.
+    ModuleMonitorState interface{}
+
+    // Reset reason. The type is InvResetReason.
+    ModuleResetReason interface{}
+
+    // Time operational state is   last changed.
+    LastOperationalStateChange PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes_FruInfo_LastOperationalStateChange
+
+    // Module up time.
+    ModuleUpTime PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes_FruInfo_ModuleUpTime
+}
+
+func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes_FruInfo) GetEntityData() *types.CommonEntityData {
+    fruInfo.EntityData.YFilter = fruInfo.YFilter
+    fruInfo.EntityData.YangName = "fru-info"
+    fruInfo.EntityData.BundleName = "cisco_ios_xr"
+    fruInfo.EntityData.ParentYangName = "attributes"
+    fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
+    return &(fruInfo.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes_FruInfo_LastOperationalStateChange
+// Time operational state is   last changed
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes_FruInfo_LastOperationalStateChange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Time Value in Seconds. The type is interface{} with range:
+    // -2147483648..2147483647. Units are second.
+    TimeInSeconds interface{}
+
+    // Time Value in Nano-seconds. The type is interface{} with range:
+    // -2147483648..2147483647. Units are nanosecond.
+    TimeInNanoSeconds interface{}
+}
+
+func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes_FruInfo_LastOperationalStateChange) GetEntityData() *types.CommonEntityData {
+    lastOperationalStateChange.EntityData.YFilter = lastOperationalStateChange.YFilter
+    lastOperationalStateChange.EntityData.YangName = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
+    lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
+    lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
+    return &(lastOperationalStateChange.EntityData)
+}
+
+// PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes_FruInfo_ModuleUpTime
+// Module up time
+type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes_FruInfo_ModuleUpTime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Time Value in Seconds. The type is interface{} with range:
+    // -2147483648..2147483647. Units are second.
+    TimeInSeconds interface{}
+
+    // Time Value in Nano-seconds. The type is interface{} with range:
+    // -2147483648..2147483647. Units are nanosecond.
+    TimeInNanoSeconds interface{}
+}
+
+func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes_FruInfo_ModuleUpTime) GetEntityData() *types.CommonEntityData {
+    moduleUpTime.EntityData.YFilter = moduleUpTime.YFilter
+    moduleUpTime.EntityData.YangName = "module-up-time"
+    moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
+    moduleUpTime.EntityData.ParentYangName = "fru-info"
+    moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -3767,7 +5187,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots struct {
 
     // Port slot number. The type is slice of
     // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot.
-    PortSlot []PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot
+    PortSlot []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot
 }
 
 func (portSlots *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) GetEntityData() *types.CommonEntityData {
@@ -3780,12 +5200,15 @@ func (portSlots *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) G
     portSlots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portSlots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portSlots.EntityData.Children = make(map[string]types.YChild)
-    portSlots.EntityData.Children["port-slot"] = types.YChild{"PortSlot", nil}
+    portSlots.EntityData.Children = types.NewOrderedMap()
+    portSlots.EntityData.Children.Append("port-slot", types.YChild{"PortSlot", nil})
     for i := range portSlots.PortSlot {
-        portSlots.EntityData.Children[types.GetSegmentPath(&portSlots.PortSlot[i])] = types.YChild{"PortSlot", &portSlots.PortSlot[i]}
+        portSlots.EntityData.Children.Append(types.GetSegmentPath(portSlots.PortSlot[i]), types.YChild{"PortSlot", portSlots.PortSlot[i]})
     }
-    portSlots.EntityData.Leafs = make(map[string]types.YLeaf)
+    portSlots.EntityData.Leafs = types.NewOrderedMap()
+
+    portSlots.EntityData.YListKeys = []string {}
+
     return &(portSlots.EntityData)
 }
 
@@ -3796,10 +5219,10 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot struc
     YFilter yfilter.YFilter
 
     // This attribute is a key. Port slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
-    // Table of spirit port slots.
+    // Table of port slots.
     Portses PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses
 
     // Table of sensors.
@@ -3814,29 +5237,32 @@ func (portSlot *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Por
     portSlot.EntityData.YangName = "port-slot"
     portSlot.EntityData.BundleName = "cisco_ios_xr"
     portSlot.EntityData.ParentYangName = "port-slots"
-    portSlot.EntityData.SegmentPath = "port-slot" + "[name='" + fmt.Sprintf("%v", portSlot.Name) + "']"
+    portSlot.EntityData.SegmentPath = "port-slot" + types.AddKeyToken(portSlot.Name, "name")
     portSlot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portSlot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portSlot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portSlot.EntityData.Children = make(map[string]types.YChild)
-    portSlot.EntityData.Children["portses"] = types.YChild{"Portses", &portSlot.Portses}
-    portSlot.EntityData.Children["sensors"] = types.YChild{"Sensors", &portSlot.Sensors}
-    portSlot.EntityData.Children["attributes"] = types.YChild{"Attributes", &portSlot.Attributes}
-    portSlot.EntityData.Leafs = make(map[string]types.YLeaf)
-    portSlot.EntityData.Leafs["name"] = types.YLeaf{"Name", portSlot.Name}
+    portSlot.EntityData.Children = types.NewOrderedMap()
+    portSlot.EntityData.Children.Append("portses", types.YChild{"Portses", &portSlot.Portses})
+    portSlot.EntityData.Children.Append("sensors", types.YChild{"Sensors", &portSlot.Sensors})
+    portSlot.EntityData.Children.Append("attributes", types.YChild{"Attributes", &portSlot.Attributes})
+    portSlot.EntityData.Leafs = types.NewOrderedMap()
+    portSlot.EntityData.Leafs.Append("name", types.YLeaf{"Name", portSlot.Name})
+
+    portSlot.EntityData.YListKeys = []string {"Name"}
+
     return &(portSlot.EntityData)
 }
 
 // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses
-// Table of spirit port slots
+// Table of port slots
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Port number. The type is slice of
     // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses_Ports.
-    Ports []PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses_Ports
+    Ports []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses_Ports
 }
 
 func (portses *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses) GetEntityData() *types.CommonEntityData {
@@ -3849,12 +5275,15 @@ func (portses *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     portses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portses.EntityData.Children = make(map[string]types.YChild)
-    portses.EntityData.Children["ports"] = types.YChild{"Ports", nil}
+    portses.EntityData.Children = types.NewOrderedMap()
+    portses.EntityData.Children.Append("ports", types.YChild{"Ports", nil})
     for i := range portses.Ports {
-        portses.EntityData.Children[types.GetSegmentPath(&portses.Ports[i])] = types.YChild{"Ports", &portses.Ports[i]}
+        portses.EntityData.Children.Append(types.GetSegmentPath(portses.Ports[i]), types.YChild{"Ports", portses.Ports[i]})
     }
-    portses.EntityData.Leafs = make(map[string]types.YLeaf)
+    portses.EntityData.Leafs = types.NewOrderedMap()
+
+    portses.EntityData.YListKeys = []string {}
+
     return &(portses.EntityData)
 }
 
@@ -3865,7 +5294,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Ports
     YFilter yfilter.YFilter
 
     // This attribute is a key. Port name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Table of  HW components .
@@ -3883,17 +5312,20 @@ func (ports *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSl
     ports.EntityData.YangName = "ports"
     ports.EntityData.BundleName = "cisco_ios_xr"
     ports.EntityData.ParentYangName = "portses"
-    ports.EntityData.SegmentPath = "ports" + "[name='" + fmt.Sprintf("%v", ports.Name) + "']"
+    ports.EntityData.SegmentPath = "ports" + types.AddKeyToken(ports.Name, "name")
     ports.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ports.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ports.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ports.EntityData.Children = make(map[string]types.YChild)
-    ports.EntityData.Children["hw-components"] = types.YChild{"HwComponents", &ports.HwComponents}
-    ports.EntityData.Children["sensors"] = types.YChild{"Sensors", &ports.Sensors}
-    ports.EntityData.Children["attributes"] = types.YChild{"Attributes", &ports.Attributes}
-    ports.EntityData.Leafs = make(map[string]types.YLeaf)
-    ports.EntityData.Leafs["name"] = types.YLeaf{"Name", ports.Name}
+    ports.EntityData.Children = types.NewOrderedMap()
+    ports.EntityData.Children.Append("hw-components", types.YChild{"HwComponents", &ports.HwComponents})
+    ports.EntityData.Children.Append("sensors", types.YChild{"Sensors", &ports.Sensors})
+    ports.EntityData.Children.Append("attributes", types.YChild{"Attributes", &ports.Attributes})
+    ports.EntityData.Leafs = types.NewOrderedMap()
+    ports.EntityData.Leafs.Append("name", types.YLeaf{"Name", ports.Name})
+
+    ports.EntityData.YListKeys = []string {"Name"}
+
     return &(ports.EntityData)
 }
 
@@ -3905,7 +5337,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Ports
 
     // HW component number. The type is slice of
     // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses_Ports_HwComponents_HwComponent.
-    HwComponent []PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses_Ports_HwComponents_HwComponent
+    HwComponent []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses_Ports_HwComponents_HwComponent
 }
 
 func (hwComponents *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses_Ports_HwComponents) GetEntityData() *types.CommonEntityData {
@@ -3918,12 +5350,15 @@ func (hwComponents *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots
     hwComponents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwComponents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hwComponents.EntityData.Children = make(map[string]types.YChild)
-    hwComponents.EntityData.Children["hw-component"] = types.YChild{"HwComponent", nil}
+    hwComponents.EntityData.Children = types.NewOrderedMap()
+    hwComponents.EntityData.Children.Append("hw-component", types.YChild{"HwComponent", nil})
     for i := range hwComponents.HwComponent {
-        hwComponents.EntityData.Children[types.GetSegmentPath(&hwComponents.HwComponent[i])] = types.YChild{"HwComponent", &hwComponents.HwComponent[i]}
+        hwComponents.EntityData.Children.Append(types.GetSegmentPath(hwComponents.HwComponent[i]), types.YChild{"HwComponent", hwComponents.HwComponent[i]})
     }
-    hwComponents.EntityData.Leafs = make(map[string]types.YLeaf)
+    hwComponents.EntityData.Leafs = types.NewOrderedMap()
+
+    hwComponents.EntityData.YListKeys = []string {}
+
     return &(hwComponents.EntityData)
 }
 
@@ -3934,7 +5369,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Ports
     YFilter yfilter.YFilter
 
     // This attribute is a key. HW component name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Table of sensors.
@@ -3949,16 +5384,19 @@ func (hwComponent *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_
     hwComponent.EntityData.YangName = "hw-component"
     hwComponent.EntityData.BundleName = "cisco_ios_xr"
     hwComponent.EntityData.ParentYangName = "hw-components"
-    hwComponent.EntityData.SegmentPath = "hw-component" + "[name='" + fmt.Sprintf("%v", hwComponent.Name) + "']"
+    hwComponent.EntityData.SegmentPath = "hw-component" + types.AddKeyToken(hwComponent.Name, "name")
     hwComponent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwComponent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwComponent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hwComponent.EntityData.Children = make(map[string]types.YChild)
-    hwComponent.EntityData.Children["sensors"] = types.YChild{"Sensors", &hwComponent.Sensors}
-    hwComponent.EntityData.Children["attributes"] = types.YChild{"Attributes", &hwComponent.Attributes}
-    hwComponent.EntityData.Leafs = make(map[string]types.YLeaf)
-    hwComponent.EntityData.Leafs["name"] = types.YLeaf{"Name", hwComponent.Name}
+    hwComponent.EntityData.Children = types.NewOrderedMap()
+    hwComponent.EntityData.Children.Append("sensors", types.YChild{"Sensors", &hwComponent.Sensors})
+    hwComponent.EntityData.Children.Append("attributes", types.YChild{"Attributes", &hwComponent.Attributes})
+    hwComponent.EntityData.Leafs = types.NewOrderedMap()
+    hwComponent.EntityData.Leafs.Append("name", types.YLeaf{"Name", hwComponent.Name})
+
+    hwComponent.EntityData.YListKeys = []string {"Name"}
+
     return &(hwComponent.EntityData)
 }
 
@@ -3970,7 +5408,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Ports
 
     // Sensor number. The type is slice of
     // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor.
-    Sensor []PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor
+    Sensor []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor
 }
 
 func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses_Ports_HwComponents_HwComponent_Sensors) GetEntityData() *types.CommonEntityData {
@@ -3983,12 +5421,15 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensors.EntityData.Children = make(map[string]types.YChild)
-    sensors.EntityData.Children["sensor"] = types.YChild{"Sensor", nil}
+    sensors.EntityData.Children = types.NewOrderedMap()
+    sensors.EntityData.Children.Append("sensor", types.YChild{"Sensor", nil})
     for i := range sensors.Sensor {
-        sensors.EntityData.Children[types.GetSegmentPath(&sensors.Sensor[i])] = types.YChild{"Sensor", &sensors.Sensor[i]}
+        sensors.EntityData.Children.Append(types.GetSegmentPath(sensors.Sensor[i]), types.YChild{"Sensor", sensors.Sensor[i]})
     }
-    sensors.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensors.EntityData.Leafs = types.NewOrderedMap()
+
+    sensors.EntityData.YListKeys = []string {}
+
     return &(sensors.EntityData)
 }
 
@@ -3999,7 +5440,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Ports
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sensor name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Attributes.
@@ -4011,15 +5452,18 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortS
     sensor.EntityData.YangName = "sensor"
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
-    sensor.EntityData.SegmentPath = "sensor" + "[name='" + fmt.Sprintf("%v", sensor.Name) + "']"
+    sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensor.EntityData.Children = make(map[string]types.YChild)
-    sensor.EntityData.Children["attributes"] = types.YChild{"Attributes", &sensor.Attributes}
-    sensor.EntityData.Leafs = make(map[string]types.YLeaf)
-    sensor.EntityData.Leafs["name"] = types.YLeaf{"Name", sensor.Name}
+    sensor.EntityData.Children = types.NewOrderedMap()
+    sensor.EntityData.Children.Append("attributes", types.YChild{"Attributes", &sensor.Attributes})
+    sensor.EntityData.Leafs = types.NewOrderedMap()
+    sensor.EntityData.Leafs.Append("name", types.YLeaf{"Name", sensor.Name})
+
+    sensor.EntityData.YListKeys = []string {"Name"}
+
     return &(sensor.EntityData)
 }
 
@@ -4046,10 +5490,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_P
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -4098,17 +5545,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Po
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -4150,15 +5600,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -4187,10 +5640,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -4219,10 +5675,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -4249,10 +5708,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_P
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -4301,17 +5763,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Po
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -4353,15 +5818,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -4390,10 +5858,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -4422,10 +5893,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -4437,7 +5911,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Ports
 
     // Sensor number. The type is slice of
     // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses_Ports_Sensors_Sensor.
-    Sensor []PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses_Ports_Sensors_Sensor
+    Sensor []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses_Ports_Sensors_Sensor
 }
 
 func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses_Ports_Sensors) GetEntityData() *types.CommonEntityData {
@@ -4450,12 +5924,15 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensors.EntityData.Children = make(map[string]types.YChild)
-    sensors.EntityData.Children["sensor"] = types.YChild{"Sensor", nil}
+    sensors.EntityData.Children = types.NewOrderedMap()
+    sensors.EntityData.Children.Append("sensor", types.YChild{"Sensor", nil})
     for i := range sensors.Sensor {
-        sensors.EntityData.Children[types.GetSegmentPath(&sensors.Sensor[i])] = types.YChild{"Sensor", &sensors.Sensor[i]}
+        sensors.EntityData.Children.Append(types.GetSegmentPath(sensors.Sensor[i]), types.YChild{"Sensor", sensors.Sensor[i]})
     }
-    sensors.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensors.EntityData.Leafs = types.NewOrderedMap()
+
+    sensors.EntityData.YListKeys = []string {}
+
     return &(sensors.EntityData)
 }
 
@@ -4466,7 +5943,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Ports
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sensor name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Attributes.
@@ -4478,15 +5955,18 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortS
     sensor.EntityData.YangName = "sensor"
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
-    sensor.EntityData.SegmentPath = "sensor" + "[name='" + fmt.Sprintf("%v", sensor.Name) + "']"
+    sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensor.EntityData.Children = make(map[string]types.YChild)
-    sensor.EntityData.Children["attributes"] = types.YChild{"Attributes", &sensor.Attributes}
-    sensor.EntityData.Leafs = make(map[string]types.YLeaf)
-    sensor.EntityData.Leafs["name"] = types.YLeaf{"Name", sensor.Name}
+    sensor.EntityData.Children = types.NewOrderedMap()
+    sensor.EntityData.Children.Append("attributes", types.YChild{"Attributes", &sensor.Attributes})
+    sensor.EntityData.Leafs = types.NewOrderedMap()
+    sensor.EntityData.Leafs.Append("name", types.YLeaf{"Name", sensor.Name})
+
+    sensor.EntityData.YListKeys = []string {"Name"}
+
     return &(sensor.EntityData)
 }
 
@@ -4513,10 +5993,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_P
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -4565,17 +6048,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Po
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -4617,15 +6103,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -4654,10 +6143,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -4686,10 +6178,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -4716,10 +6211,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_P
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -4768,17 +6266,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Po
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -4820,15 +6321,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -4857,10 +6361,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -4889,10 +6396,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -4904,7 +6414,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Senso
 
     // Sensor number. The type is slice of
     // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Sensors_Sensor.
-    Sensor []PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Sensors_Sensor
+    Sensor []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Sensors_Sensor
 }
 
 func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Sensors) GetEntityData() *types.CommonEntityData {
@@ -4917,12 +6427,15 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensors.EntityData.Children = make(map[string]types.YChild)
-    sensors.EntityData.Children["sensor"] = types.YChild{"Sensor", nil}
+    sensors.EntityData.Children = types.NewOrderedMap()
+    sensors.EntityData.Children.Append("sensor", types.YChild{"Sensor", nil})
     for i := range sensors.Sensor {
-        sensors.EntityData.Children[types.GetSegmentPath(&sensors.Sensor[i])] = types.YChild{"Sensor", &sensors.Sensor[i]}
+        sensors.EntityData.Children.Append(types.GetSegmentPath(sensors.Sensor[i]), types.YChild{"Sensor", sensors.Sensor[i]})
     }
-    sensors.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensors.EntityData.Leafs = types.NewOrderedMap()
+
+    sensors.EntityData.YListKeys = []string {}
+
     return &(sensors.EntityData)
 }
 
@@ -4933,7 +6446,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Senso
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sensor name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Attributes.
@@ -4945,15 +6458,18 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortS
     sensor.EntityData.YangName = "sensor"
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
-    sensor.EntityData.SegmentPath = "sensor" + "[name='" + fmt.Sprintf("%v", sensor.Name) + "']"
+    sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensor.EntityData.Children = make(map[string]types.YChild)
-    sensor.EntityData.Children["attributes"] = types.YChild{"Attributes", &sensor.Attributes}
-    sensor.EntityData.Leafs = make(map[string]types.YLeaf)
-    sensor.EntityData.Leafs["name"] = types.YLeaf{"Name", sensor.Name}
+    sensor.EntityData.Children = types.NewOrderedMap()
+    sensor.EntityData.Children.Append("attributes", types.YChild{"Attributes", &sensor.Attributes})
+    sensor.EntityData.Leafs = types.NewOrderedMap()
+    sensor.EntityData.Leafs.Append("name", types.YLeaf{"Name", sensor.Name})
+
+    sensor.EntityData.YListKeys = []string {"Name"}
+
     return &(sensor.EntityData)
 }
 
@@ -4980,10 +6496,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_P
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -5032,17 +6551,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Po
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -5084,15 +6606,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -5121,10 +6646,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -5153,10 +6681,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -5183,10 +6714,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_P
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -5235,17 +6769,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Po
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -5287,15 +6824,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -5324,10 +6864,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -5356,10 +6899,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -5371,7 +6917,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents struct {
 
     // HW component number. The type is slice of
     // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent.
-    HwComponent []PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent
+    HwComponent []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent
 }
 
 func (hwComponents *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents) GetEntityData() *types.CommonEntityData {
@@ -5384,12 +6930,15 @@ func (hwComponents *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwCompone
     hwComponents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwComponents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hwComponents.EntityData.Children = make(map[string]types.YChild)
-    hwComponents.EntityData.Children["hw-component"] = types.YChild{"HwComponent", nil}
+    hwComponents.EntityData.Children = types.NewOrderedMap()
+    hwComponents.EntityData.Children.Append("hw-component", types.YChild{"HwComponent", nil})
     for i := range hwComponents.HwComponent {
-        hwComponents.EntityData.Children[types.GetSegmentPath(&hwComponents.HwComponent[i])] = types.YChild{"HwComponent", &hwComponents.HwComponent[i]}
+        hwComponents.EntityData.Children.Append(types.GetSegmentPath(hwComponents.HwComponent[i]), types.YChild{"HwComponent", hwComponents.HwComponent[i]})
     }
-    hwComponents.EntityData.Leafs = make(map[string]types.YLeaf)
+    hwComponents.EntityData.Leafs = types.NewOrderedMap()
+
+    hwComponents.EntityData.YListKeys = []string {}
+
     return &(hwComponents.EntityData)
 }
 
@@ -5400,7 +6949,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent
     YFilter yfilter.YFilter
 
     // This attribute is a key. HW component name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Table of sensors.
@@ -5415,16 +6964,19 @@ func (hwComponent *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponen
     hwComponent.EntityData.YangName = "hw-component"
     hwComponent.EntityData.BundleName = "cisco_ios_xr"
     hwComponent.EntityData.ParentYangName = "hw-components"
-    hwComponent.EntityData.SegmentPath = "hw-component" + "[name='" + fmt.Sprintf("%v", hwComponent.Name) + "']"
+    hwComponent.EntityData.SegmentPath = "hw-component" + types.AddKeyToken(hwComponent.Name, "name")
     hwComponent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwComponent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwComponent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hwComponent.EntityData.Children = make(map[string]types.YChild)
-    hwComponent.EntityData.Children["sensors"] = types.YChild{"Sensors", &hwComponent.Sensors}
-    hwComponent.EntityData.Children["attributes"] = types.YChild{"Attributes", &hwComponent.Attributes}
-    hwComponent.EntityData.Leafs = make(map[string]types.YLeaf)
-    hwComponent.EntityData.Leafs["name"] = types.YLeaf{"Name", hwComponent.Name}
+    hwComponent.EntityData.Children = types.NewOrderedMap()
+    hwComponent.EntityData.Children.Append("sensors", types.YChild{"Sensors", &hwComponent.Sensors})
+    hwComponent.EntityData.Children.Append("attributes", types.YChild{"Attributes", &hwComponent.Attributes})
+    hwComponent.EntityData.Leafs = types.NewOrderedMap()
+    hwComponent.EntityData.Leafs.Append("name", types.YLeaf{"Name", hwComponent.Name})
+
+    hwComponent.EntityData.YListKeys = []string {"Name"}
+
     return &(hwComponent.EntityData)
 }
 
@@ -5436,7 +6988,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent
 
     // Sensor number. The type is slice of
     // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor.
-    Sensor []PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor
+    Sensor []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor
 }
 
 func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors) GetEntityData() *types.CommonEntityData {
@@ -5449,12 +7001,15 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_H
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensors.EntityData.Children = make(map[string]types.YChild)
-    sensors.EntityData.Children["sensor"] = types.YChild{"Sensor", nil}
+    sensors.EntityData.Children = types.NewOrderedMap()
+    sensors.EntityData.Children.Append("sensor", types.YChild{"Sensor", nil})
     for i := range sensors.Sensor {
-        sensors.EntityData.Children[types.GetSegmentPath(&sensors.Sensor[i])] = types.YChild{"Sensor", &sensors.Sensor[i]}
+        sensors.EntityData.Children.Append(types.GetSegmentPath(sensors.Sensor[i]), types.YChild{"Sensor", sensors.Sensor[i]})
     }
-    sensors.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensors.EntityData.Leafs = types.NewOrderedMap()
+
+    sensors.EntityData.YListKeys = []string {}
+
     return &(sensors.EntityData)
 }
 
@@ -5465,7 +7020,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sensor name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Attributes.
@@ -5477,15 +7032,18 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_Hw
     sensor.EntityData.YangName = "sensor"
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
-    sensor.EntityData.SegmentPath = "sensor" + "[name='" + fmt.Sprintf("%v", sensor.Name) + "']"
+    sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensor.EntityData.Children = make(map[string]types.YChild)
-    sensor.EntityData.Children["attributes"] = types.YChild{"Attributes", &sensor.Attributes}
-    sensor.EntityData.Leafs = make(map[string]types.YLeaf)
-    sensor.EntityData.Leafs["name"] = types.YLeaf{"Name", sensor.Name}
+    sensor.EntityData.Children = types.NewOrderedMap()
+    sensor.EntityData.Children.Append("attributes", types.YChild{"Attributes", &sensor.Attributes})
+    sensor.EntityData.Leafs = types.NewOrderedMap()
+    sensor.EntityData.Leafs.Append("name", types.YLeaf{"Name", sensor.Name})
+
+    sensor.EntityData.YListKeys = []string {"Name"}
+
     return &(sensor.EntityData)
 }
 
@@ -5512,10 +7070,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponent
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -5564,17 +7125,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -5616,15 +7180,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_H
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -5653,10 +7220,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -5685,10 +7255,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwCompone
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -5715,10 +7288,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponent
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -5767,17 +7343,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -5819,15 +7398,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_H
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -5856,10 +7438,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -5888,10 +7473,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwCompone
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -5903,7 +7491,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors struct {
 
     // Sensor number. The type is slice of
     // PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor.
-    Sensor []PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor
+    Sensor []*PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor
 }
 
 func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) GetEntityData() *types.CommonEntityData {
@@ -5916,12 +7504,15 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) GetEn
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensors.EntityData.Children = make(map[string]types.YChild)
-    sensors.EntityData.Children["sensor"] = types.YChild{"Sensor", nil}
+    sensors.EntityData.Children = types.NewOrderedMap()
+    sensors.EntityData.Children.Append("sensor", types.YChild{"Sensor", nil})
     for i := range sensors.Sensor {
-        sensors.EntityData.Children[types.GetSegmentPath(&sensors.Sensor[i])] = types.YChild{"Sensor", &sensors.Sensor[i]}
+        sensors.EntityData.Children.Append(types.GetSegmentPath(sensors.Sensor[i]), types.YChild{"Sensor", sensors.Sensor[i]})
     }
-    sensors.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensors.EntityData.Leafs = types.NewOrderedMap()
+
+    sensors.EntityData.YListKeys = []string {}
+
     return &(sensors.EntityData)
 }
 
@@ -5932,7 +7523,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sensor name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Attributes.
@@ -5944,15 +7535,18 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor)
     sensor.EntityData.YangName = "sensor"
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
-    sensor.EntityData.SegmentPath = "sensor" + "[name='" + fmt.Sprintf("%v", sensor.Name) + "']"
+    sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sensor.EntityData.Children = make(map[string]types.YChild)
-    sensor.EntityData.Children["attributes"] = types.YChild{"Attributes", &sensor.Attributes}
-    sensor.EntityData.Leafs = make(map[string]types.YLeaf)
-    sensor.EntityData.Leafs["name"] = types.YLeaf{"Name", sensor.Name}
+    sensor.EntityData.Children = types.NewOrderedMap()
+    sensor.EntityData.Children.Append("attributes", types.YChild{"Attributes", &sensor.Attributes})
+    sensor.EntityData.Leafs = types.NewOrderedMap()
+    sensor.EntityData.Leafs.Append("name", types.YLeaf{"Name", sensor.Name})
+
+    sensor.EntityData.YListKeys = []string {"Name"}
+
     return &(sensor.EntityData)
 }
 
@@ -5979,10 +7573,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sen
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -6031,17 +7628,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sens
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -6083,15 +7683,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -6120,10 +7723,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -6152,10 +7758,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_S
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -6182,10 +7791,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Attributes)
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -6234,17 +7846,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Attributes_B
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -6286,15 +7901,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Attributes_Fru
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -6323,10 +7941,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -6355,10 +7976,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Attribute
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -6385,10 +8009,13 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Attributes) GetEntityD
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -6437,17 +8064,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Attributes_BasicInfo) G
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -6489,15 +8119,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Attributes_FruInfo) GetEn
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -6526,10 +8159,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Attrib
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -6558,10 +8194,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Attributes_FruInfo_M
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 
@@ -6588,10 +8227,13 @@ func (attributes *PlatformInventory_Racks_Rack_Attributes) GetEntityData() *type
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &attributes.BasicInfo}
-    attributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &attributes.FruInfo}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("basic-info", types.YChild{"BasicInfo", &attributes.BasicInfo})
+    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -6640,17 +8282,20 @@ func (basicInfo *PlatformInventory_Racks_Rack_Attributes_BasicInfo) GetEntityDat
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    basicInfo.EntityData.Children = make(map[string]types.YChild)
-    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
-    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
-    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
-    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
-    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
-    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
-    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
-    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
-    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Children = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs = types.NewOrderedMap()
+    basicInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", basicInfo.Name})
+    basicInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", basicInfo.Description})
+    basicInfo.EntityData.Leafs.Append("model-name", types.YLeaf{"ModelName", basicInfo.ModelName})
+    basicInfo.EntityData.Leafs.Append("hardware-revision", types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision})
+    basicInfo.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", basicInfo.SerialNumber})
+    basicInfo.EntityData.Leafs.Append("firmware-revision", types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision})
+    basicInfo.EntityData.Leafs.Append("software-revision", types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision})
+    basicInfo.EntityData.Leafs.Append("vendor-type", types.YLeaf{"VendorType", basicInfo.VendorType})
+    basicInfo.EntityData.Leafs.Append("is-field-replaceable-unit", types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit})
+
+    basicInfo.EntityData.YListKeys = []string {}
+
     return &(basicInfo.EntityData)
 }
 
@@ -6692,15 +8337,18 @@ func (fruInfo *PlatformInventory_Racks_Rack_Attributes_FruInfo) GetEntityData() 
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fruInfo.EntityData.Children = make(map[string]types.YChild)
-    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
-    fruInfo.EntityData.Children["module-up-time"] = types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime}
-    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    fruInfo.EntityData.Leafs["module-administrative-state"] = types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState}
-    fruInfo.EntityData.Leafs["module-power-administrative-state"] = types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState}
-    fruInfo.EntityData.Leafs["module-operational-state"] = types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState}
-    fruInfo.EntityData.Leafs["module-monitor-state"] = types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState}
-    fruInfo.EntityData.Leafs["module-reset-reason"] = types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason}
+    fruInfo.EntityData.Children = types.NewOrderedMap()
+    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
+    fruInfo.EntityData.Children.Append("module-up-time", types.YChild{"ModuleUpTime", &fruInfo.ModuleUpTime})
+    fruInfo.EntityData.Leafs = types.NewOrderedMap()
+    fruInfo.EntityData.Leafs.Append("module-administrative-state", types.YLeaf{"ModuleAdministrativeState", fruInfo.ModuleAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-power-administrative-state", types.YLeaf{"ModulePowerAdministrativeState", fruInfo.ModulePowerAdministrativeState})
+    fruInfo.EntityData.Leafs.Append("module-operational-state", types.YLeaf{"ModuleOperationalState", fruInfo.ModuleOperationalState})
+    fruInfo.EntityData.Leafs.Append("module-monitor-state", types.YLeaf{"ModuleMonitorState", fruInfo.ModuleMonitorState})
+    fruInfo.EntityData.Leafs.Append("module-reset-reason", types.YLeaf{"ModuleResetReason", fruInfo.ModuleResetReason})
+
+    fruInfo.EntityData.YListKeys = []string {}
+
     return &(fruInfo.EntityData)
 }
 
@@ -6729,10 +8377,13 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Attributes_FruInf
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
-    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
+    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
+
+    lastOperationalStateChange.EntityData.YListKeys = []string {}
+
     return &(lastOperationalStateChange.EntityData)
 }
 
@@ -6761,10 +8412,13 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Attributes_FruInfo_ModuleUpTime
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    moduleUpTime.EntityData.Children = make(map[string]types.YChild)
-    moduleUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    moduleUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds}
-    moduleUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds}
+    moduleUpTime.EntityData.Children = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs = types.NewOrderedMap()
+    moduleUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", moduleUpTime.TimeInSeconds})
+    moduleUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", moduleUpTime.TimeInNanoSeconds})
+
+    moduleUpTime.EntityData.YListKeys = []string {}
+
     return &(moduleUpTime.EntityData)
 }
 

@@ -64,6 +64,11 @@ submodule Cisco-IOS-XR-icpe-infra-oper-sub1 {
       description
         "Sats updating";
     }
+    leaf-list sats-replacing {
+      type uint16;
+      description
+        "Sats replacing";
+    }
     leaf-list sats-deactivating {
       type uint16;
       description
@@ -89,6 +94,11 @@ submodule Cisco-IOS-XR-icpe-infra-oper-sub1 {
       description
         "Sats update failed";
     }
+    leaf-list sats-replace-failed {
+      type uint16;
+      description
+        "Sats replace failed";
+    }
     leaf-list sats-deactivate-failed {
       type uint16;
       description
@@ -113,6 +123,11 @@ submodule Cisco-IOS-XR-icpe-infra-oper-sub1 {
       type uint16;
       description
         "Sats update aborted";
+    }
+    leaf-list sats-replace-aborted {
+      type uint16;
+      description
+        "Sats replace aborted";
     }
     leaf-list sats-deactivate-aborted {
       type uint16;

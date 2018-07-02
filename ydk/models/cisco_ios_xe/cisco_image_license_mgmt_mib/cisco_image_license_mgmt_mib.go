@@ -81,23 +81,23 @@ type CISCOIMAGELICENSEMGMTMIB struct {
     YFilter yfilter.YFilter
 
     
-    Ciscoimagelicensemgmtmibobjects CISCOIMAGELICENSEMGMTMIB_Ciscoimagelicensemgmtmibobjects
+    CiscoImageLicenseMgmtMIBObjects CISCOIMAGELICENSEMGMTMIB_CiscoImageLicenseMgmtMIBObjects
 
     
-    Cilmnotifcntl CISCOIMAGELICENSEMGMTMIB_Cilmnotifcntl
+    CilmNotifCntl CISCOIMAGELICENSEMGMTMIB_CilmNotifCntl
 
     // A table that contains the configuration information of current and next
     // boot image level. This table contains entries for each software module
     // running in an image  loaded in the device. The software module is
     // identified by cilmModuleName and the device is identified by 
     // entPhysicalIndex.
-    Cilmbootimageleveltable CISCOIMAGELICENSEMGMTMIB_Cilmbootimageleveltable
+    CilmBootImageLevelTable CISCOIMAGELICENSEMGMTMIB_CilmBootImageLevelTable
 
     // This table contains the mapping between different image levels of each
     // modules in the image and the license required to run the modules at a
     // particular image level. This table can be used to identify the different
     // image levels and the appropriate licenses  required for each.
-    Cilmimageleveltolicensemaptable CISCOIMAGELICENSEMGMTMIB_Cilmimageleveltolicensemaptable
+    CilmImageLevelToLicenseMapTable CISCOIMAGELICENSEMGMTMIB_CilmImageLevelToLicenseMapTable
 }
 
 func (cISCOIMAGELICENSEMGMTMIB *CISCOIMAGELICENSEMGMTMIB) GetEntityData() *types.CommonEntityData {
@@ -110,17 +110,20 @@ func (cISCOIMAGELICENSEMGMTMIB *CISCOIMAGELICENSEMGMTMIB) GetEntityData() *types
     cISCOIMAGELICENSEMGMTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIMAGELICENSEMGMTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOIMAGELICENSEMGMTMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOIMAGELICENSEMGMTMIB.EntityData.Children["ciscoImageLicenseMgmtMIBObjects"] = types.YChild{"Ciscoimagelicensemgmtmibobjects", &cISCOIMAGELICENSEMGMTMIB.Ciscoimagelicensemgmtmibobjects}
-    cISCOIMAGELICENSEMGMTMIB.EntityData.Children["cilmNotifCntl"] = types.YChild{"Cilmnotifcntl", &cISCOIMAGELICENSEMGMTMIB.Cilmnotifcntl}
-    cISCOIMAGELICENSEMGMTMIB.EntityData.Children["cilmBootImageLevelTable"] = types.YChild{"Cilmbootimageleveltable", &cISCOIMAGELICENSEMGMTMIB.Cilmbootimageleveltable}
-    cISCOIMAGELICENSEMGMTMIB.EntityData.Children["cilmImageLevelToLicenseMapTable"] = types.YChild{"Cilmimageleveltolicensemaptable", &cISCOIMAGELICENSEMGMTMIB.Cilmimageleveltolicensemaptable}
-    cISCOIMAGELICENSEMGMTMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOIMAGELICENSEMGMTMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOIMAGELICENSEMGMTMIB.EntityData.Children.Append("ciscoImageLicenseMgmtMIBObjects", types.YChild{"CiscoImageLicenseMgmtMIBObjects", &cISCOIMAGELICENSEMGMTMIB.CiscoImageLicenseMgmtMIBObjects})
+    cISCOIMAGELICENSEMGMTMIB.EntityData.Children.Append("cilmNotifCntl", types.YChild{"CilmNotifCntl", &cISCOIMAGELICENSEMGMTMIB.CilmNotifCntl})
+    cISCOIMAGELICENSEMGMTMIB.EntityData.Children.Append("cilmBootImageLevelTable", types.YChild{"CilmBootImageLevelTable", &cISCOIMAGELICENSEMGMTMIB.CilmBootImageLevelTable})
+    cISCOIMAGELICENSEMGMTMIB.EntityData.Children.Append("cilmImageLevelToLicenseMapTable", types.YChild{"CilmImageLevelToLicenseMapTable", &cISCOIMAGELICENSEMGMTMIB.CilmImageLevelToLicenseMapTable})
+    cISCOIMAGELICENSEMGMTMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOIMAGELICENSEMGMTMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOIMAGELICENSEMGMTMIB.EntityData)
 }
 
-// CISCOIMAGELICENSEMGMTMIB_Ciscoimagelicensemgmtmibobjects
-type CISCOIMAGELICENSEMGMTMIB_Ciscoimagelicensemgmtmibobjects struct {
+// CISCOIMAGELICENSEMGMTMIB_CiscoImageLicenseMgmtMIBObjects
+type CISCOIMAGELICENSEMGMTMIB_CiscoImageLicenseMgmtMIBObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -128,27 +131,30 @@ type CISCOIMAGELICENSEMGMTMIB_Ciscoimagelicensemgmtmibobjects struct {
     // LICENSE AGREEMENT. This object has to be set to TRUE by the user before
     // using the objects in the cilmBootImageLevelTable to configure the license.
     // The type is bool.
-    Cilmeulaaccepted interface{}
+    CilmEULAAccepted interface{}
 }
 
-func (ciscoimagelicensemgmtmibobjects *CISCOIMAGELICENSEMGMTMIB_Ciscoimagelicensemgmtmibobjects) GetEntityData() *types.CommonEntityData {
-    ciscoimagelicensemgmtmibobjects.EntityData.YFilter = ciscoimagelicensemgmtmibobjects.YFilter
-    ciscoimagelicensemgmtmibobjects.EntityData.YangName = "ciscoImageLicenseMgmtMIBObjects"
-    ciscoimagelicensemgmtmibobjects.EntityData.BundleName = "cisco_ios_xe"
-    ciscoimagelicensemgmtmibobjects.EntityData.ParentYangName = "CISCO-IMAGE-LICENSE-MGMT-MIB"
-    ciscoimagelicensemgmtmibobjects.EntityData.SegmentPath = "ciscoImageLicenseMgmtMIBObjects"
-    ciscoimagelicensemgmtmibobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ciscoimagelicensemgmtmibobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ciscoimagelicensemgmtmibobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ciscoImageLicenseMgmtMIBObjects *CISCOIMAGELICENSEMGMTMIB_CiscoImageLicenseMgmtMIBObjects) GetEntityData() *types.CommonEntityData {
+    ciscoImageLicenseMgmtMIBObjects.EntityData.YFilter = ciscoImageLicenseMgmtMIBObjects.YFilter
+    ciscoImageLicenseMgmtMIBObjects.EntityData.YangName = "ciscoImageLicenseMgmtMIBObjects"
+    ciscoImageLicenseMgmtMIBObjects.EntityData.BundleName = "cisco_ios_xe"
+    ciscoImageLicenseMgmtMIBObjects.EntityData.ParentYangName = "CISCO-IMAGE-LICENSE-MGMT-MIB"
+    ciscoImageLicenseMgmtMIBObjects.EntityData.SegmentPath = "ciscoImageLicenseMgmtMIBObjects"
+    ciscoImageLicenseMgmtMIBObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoImageLicenseMgmtMIBObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoImageLicenseMgmtMIBObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoimagelicensemgmtmibobjects.EntityData.Children = make(map[string]types.YChild)
-    ciscoimagelicensemgmtmibobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    ciscoimagelicensemgmtmibobjects.EntityData.Leafs["cilmEULAAccepted"] = types.YLeaf{"Cilmeulaaccepted", ciscoimagelicensemgmtmibobjects.Cilmeulaaccepted}
-    return &(ciscoimagelicensemgmtmibobjects.EntityData)
+    ciscoImageLicenseMgmtMIBObjects.EntityData.Children = types.NewOrderedMap()
+    ciscoImageLicenseMgmtMIBObjects.EntityData.Leafs = types.NewOrderedMap()
+    ciscoImageLicenseMgmtMIBObjects.EntityData.Leafs.Append("cilmEULAAccepted", types.YLeaf{"CilmEULAAccepted", ciscoImageLicenseMgmtMIBObjects.CilmEULAAccepted})
+
+    ciscoImageLicenseMgmtMIBObjects.EntityData.YListKeys = []string {}
+
+    return &(ciscoImageLicenseMgmtMIBObjects.EntityData)
 }
 
-// CISCOIMAGELICENSEMGMTMIB_Cilmnotifcntl
-type CISCOIMAGELICENSEMGMTMIB_Cilmnotifcntl struct {
+// CISCOIMAGELICENSEMGMTMIB_CilmNotifCntl
+type CISCOIMAGELICENSEMGMTMIB_CilmNotifCntl struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -158,33 +164,36 @@ type CISCOIMAGELICENSEMGMTMIB_Cilmnotifcntl struct {
     // responsibility of the management entity to ensure that the SNMP
     // administrative model is configured in such a way as to allow the 
     // notification to be delivered. The type is bool.
-    Cilmimagelevelchangednotif interface{}
+    CilmImageLevelChangedNotif interface{}
 }
 
-func (cilmnotifcntl *CISCOIMAGELICENSEMGMTMIB_Cilmnotifcntl) GetEntityData() *types.CommonEntityData {
-    cilmnotifcntl.EntityData.YFilter = cilmnotifcntl.YFilter
-    cilmnotifcntl.EntityData.YangName = "cilmNotifCntl"
-    cilmnotifcntl.EntityData.BundleName = "cisco_ios_xe"
-    cilmnotifcntl.EntityData.ParentYangName = "CISCO-IMAGE-LICENSE-MGMT-MIB"
-    cilmnotifcntl.EntityData.SegmentPath = "cilmNotifCntl"
-    cilmnotifcntl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cilmnotifcntl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cilmnotifcntl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cilmNotifCntl *CISCOIMAGELICENSEMGMTMIB_CilmNotifCntl) GetEntityData() *types.CommonEntityData {
+    cilmNotifCntl.EntityData.YFilter = cilmNotifCntl.YFilter
+    cilmNotifCntl.EntityData.YangName = "cilmNotifCntl"
+    cilmNotifCntl.EntityData.BundleName = "cisco_ios_xe"
+    cilmNotifCntl.EntityData.ParentYangName = "CISCO-IMAGE-LICENSE-MGMT-MIB"
+    cilmNotifCntl.EntityData.SegmentPath = "cilmNotifCntl"
+    cilmNotifCntl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cilmNotifCntl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cilmNotifCntl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cilmnotifcntl.EntityData.Children = make(map[string]types.YChild)
-    cilmnotifcntl.EntityData.Leafs = make(map[string]types.YLeaf)
-    cilmnotifcntl.EntityData.Leafs["cilmImageLevelChangedNotif"] = types.YLeaf{"Cilmimagelevelchangednotif", cilmnotifcntl.Cilmimagelevelchangednotif}
-    return &(cilmnotifcntl.EntityData)
+    cilmNotifCntl.EntityData.Children = types.NewOrderedMap()
+    cilmNotifCntl.EntityData.Leafs = types.NewOrderedMap()
+    cilmNotifCntl.EntityData.Leafs.Append("cilmImageLevelChangedNotif", types.YLeaf{"CilmImageLevelChangedNotif", cilmNotifCntl.CilmImageLevelChangedNotif})
+
+    cilmNotifCntl.EntityData.YListKeys = []string {}
+
+    return &(cilmNotifCntl.EntityData)
 }
 
-// CISCOIMAGELICENSEMGMTMIB_Cilmbootimageleveltable
+// CISCOIMAGELICENSEMGMTMIB_CilmBootImageLevelTable
 // A table that contains the configuration information of
 // current and next boot image level. This table contains
 // entries for each software module running in an image 
 // loaded in the device. The software module is identified by
 // cilmModuleName and the device is identified by 
 // entPhysicalIndex.
-type CISCOIMAGELICENSEMGMTMIB_Cilmbootimageleveltable struct {
+type CISCOIMAGELICENSEMGMTMIB_CilmBootImageLevelTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -195,30 +204,33 @@ type CISCOIMAGELICENSEMGMTMIB_Cilmbootimageleveltable struct {
     // boot. - License store index for the current license. - License index of the
     // current license. - License store index for the next boot license. - License
     // index of the next boot license. The type is slice of
-    // CISCOIMAGELICENSEMGMTMIB_Cilmbootimageleveltable_Cilmbootimagelevelentry.
-    Cilmbootimagelevelentry []CISCOIMAGELICENSEMGMTMIB_Cilmbootimageleveltable_Cilmbootimagelevelentry
+    // CISCOIMAGELICENSEMGMTMIB_CilmBootImageLevelTable_CilmBootImageLevelEntry.
+    CilmBootImageLevelEntry []*CISCOIMAGELICENSEMGMTMIB_CilmBootImageLevelTable_CilmBootImageLevelEntry
 }
 
-func (cilmbootimageleveltable *CISCOIMAGELICENSEMGMTMIB_Cilmbootimageleveltable) GetEntityData() *types.CommonEntityData {
-    cilmbootimageleveltable.EntityData.YFilter = cilmbootimageleveltable.YFilter
-    cilmbootimageleveltable.EntityData.YangName = "cilmBootImageLevelTable"
-    cilmbootimageleveltable.EntityData.BundleName = "cisco_ios_xe"
-    cilmbootimageleveltable.EntityData.ParentYangName = "CISCO-IMAGE-LICENSE-MGMT-MIB"
-    cilmbootimageleveltable.EntityData.SegmentPath = "cilmBootImageLevelTable"
-    cilmbootimageleveltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cilmbootimageleveltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cilmbootimageleveltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cilmBootImageLevelTable *CISCOIMAGELICENSEMGMTMIB_CilmBootImageLevelTable) GetEntityData() *types.CommonEntityData {
+    cilmBootImageLevelTable.EntityData.YFilter = cilmBootImageLevelTable.YFilter
+    cilmBootImageLevelTable.EntityData.YangName = "cilmBootImageLevelTable"
+    cilmBootImageLevelTable.EntityData.BundleName = "cisco_ios_xe"
+    cilmBootImageLevelTable.EntityData.ParentYangName = "CISCO-IMAGE-LICENSE-MGMT-MIB"
+    cilmBootImageLevelTable.EntityData.SegmentPath = "cilmBootImageLevelTable"
+    cilmBootImageLevelTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cilmBootImageLevelTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cilmBootImageLevelTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cilmbootimageleveltable.EntityData.Children = make(map[string]types.YChild)
-    cilmbootimageleveltable.EntityData.Children["cilmBootImageLevelEntry"] = types.YChild{"Cilmbootimagelevelentry", nil}
-    for i := range cilmbootimageleveltable.Cilmbootimagelevelentry {
-        cilmbootimageleveltable.EntityData.Children[types.GetSegmentPath(&cilmbootimageleveltable.Cilmbootimagelevelentry[i])] = types.YChild{"Cilmbootimagelevelentry", &cilmbootimageleveltable.Cilmbootimagelevelentry[i]}
+    cilmBootImageLevelTable.EntityData.Children = types.NewOrderedMap()
+    cilmBootImageLevelTable.EntityData.Children.Append("cilmBootImageLevelEntry", types.YChild{"CilmBootImageLevelEntry", nil})
+    for i := range cilmBootImageLevelTable.CilmBootImageLevelEntry {
+        cilmBootImageLevelTable.EntityData.Children.Append(types.GetSegmentPath(cilmBootImageLevelTable.CilmBootImageLevelEntry[i]), types.YChild{"CilmBootImageLevelEntry", cilmBootImageLevelTable.CilmBootImageLevelEntry[i]})
     }
-    cilmbootimageleveltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cilmbootimageleveltable.EntityData)
+    cilmBootImageLevelTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cilmBootImageLevelTable.EntityData.YListKeys = []string {}
+
+    return &(cilmBootImageLevelTable.EntityData)
 }
 
-// CISCOIMAGELICENSEMGMTMIB_Cilmbootimageleveltable_Cilmbootimagelevelentry
+// CISCOIMAGELICENSEMGMTMIB_CilmBootImageLevelTable_CilmBootImageLevelEntry
 // An entry in the table for each module containing the
 // list of objects that define the configuration of next
 // boot level. The following information is specified by
@@ -231,38 +243,38 @@ func (cilmbootimageleveltable *CISCOIMAGELICENSEMGMTMIB_Cilmbootimageleveltable)
 // - License index of the current license.
 // - License store index for the next boot license.
 // - License index of the next boot license.
-type CISCOIMAGELICENSEMGMTMIB_Cilmbootimageleveltable_Cilmbootimagelevelentry struct {
+type CISCOIMAGELICENSEMGMTMIB_CilmBootImageLevelTable_CilmBootImageLevelEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // entity_mib.ENTITYMIB_Entphysicaltable_Entphysicalentry_Entphysicalindex
-    Entphysicalindex interface{}
+    // entity_mib.ENTITYMIB_EntPhysicalTable_EntPhysicalEntry_EntPhysicalIndex
+    EntPhysicalIndex interface{}
 
     // This attribute is a key. This object is used as one of the two indices in
     // cilmBootImageLevelTable. This object indicates the module name of the
     // software package. There can be multiple modules in an image performing
     // specific functionality. For example, in a wireless image there can be two
     // modules - a base image module and a wireless module. The type is string.
-    Cilmmodulename interface{}
+    CilmModuleName interface{}
 
     // This object indicates the current image level that the module is running.
     // The type is string with length: 0..255.
-    Cilmcurrentimagelevel interface{}
+    CilmCurrentImageLevel interface{}
 
     // This object indicates the configured image level of the module for the next
     // boot.  Note: The configured next boot image level may not  be the actual
     // next boot image level. The actual next boot image level is denoted by
     // cilmNextBootImageLevel which is determined based on the license
     // availability. The type is string with length: 0..255.
-    Cilmconfiguredbootimagelevel interface{}
+    CilmConfiguredBootImageLevel interface{}
 
     // This object indicates the next boot image level. The next boot image level
     // can be different from configured level. The next boot image level is
     // determined based on the availability of required license. The type is
     // string with length: 0..255.
-    Cilmnextbootimagelevel interface{}
+    CilmNextBootImageLevel interface{}
 
     // This object indicates the license store index where the currently used
     // license is stored. This object has the same value as
@@ -270,14 +282,14 @@ type CISCOIMAGELICENSEMGMTMIB_Cilmbootimageleveltable_Cilmbootimagelevelentry st
     // clmgmtLicenseStoreInfoTable in CISCO-LICENSE-MGMT-MIB.  Note: The license
     // store index can be '0' if no license is installed and device is running
     // base image. The type is interface{} with range: 0..4294967295.
-    Cilmcurrentlicensestoreindex interface{}
+    CilmCurrentLicenseStoreIndex interface{}
 
     // This object indicates the license index of the currently used license. This
     // object has the same value as clmgmtLicenseIndex and uniquely identifies an
     // entry in clmgmtLicenseInfoTable in CISCO-LICENSE-MGMT-MIB.  Note: The
     // license index can be '0' if no license is installed and device is running
     // base image. The type is interface{} with range: 0..4294967295.
-    Cilmcurrentlicenseindex interface{}
+    CilmCurrentLicenseIndex interface{}
 
     // This object indicates the license store index where the next boot license
     // is stored. This object has the same value as clmgmtLicenseStoreIndex object
@@ -285,48 +297,51 @@ type CISCOIMAGELICENSEMGMTMIB_Cilmbootimageleveltable_Cilmbootimagelevelentry st
     // CISCO-LICENSE-MGMT-MIB.  Note: The license store index can be '0' if no
     // license is installed for the next boot. The type is interface{} with range:
     // 0..4294967295.
-    Cilmnextbootlicensestoreindex interface{}
+    CilmNextBootLicenseStoreIndex interface{}
 
     // This object indicates the license index of the next boot license. This
     // object has the same value as clmgmtLicenseIndex and uniquely identifies an
     // entry in clmgmtLicenseInfoTable in CISCO-LICENSE-MGMT-MIB.  Note: The
     // license index can be '0' if no license is installed for the next boot. The
     // type is interface{} with range: 0..4294967295.
-    Cilmnextbootlicenseindex interface{}
+    CilmNextBootLicenseIndex interface{}
 }
 
-func (cilmbootimagelevelentry *CISCOIMAGELICENSEMGMTMIB_Cilmbootimageleveltable_Cilmbootimagelevelentry) GetEntityData() *types.CommonEntityData {
-    cilmbootimagelevelentry.EntityData.YFilter = cilmbootimagelevelentry.YFilter
-    cilmbootimagelevelentry.EntityData.YangName = "cilmBootImageLevelEntry"
-    cilmbootimagelevelentry.EntityData.BundleName = "cisco_ios_xe"
-    cilmbootimagelevelentry.EntityData.ParentYangName = "cilmBootImageLevelTable"
-    cilmbootimagelevelentry.EntityData.SegmentPath = "cilmBootImageLevelEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cilmbootimagelevelentry.Entphysicalindex) + "']" + "[cilmModuleName='" + fmt.Sprintf("%v", cilmbootimagelevelentry.Cilmmodulename) + "']"
-    cilmbootimagelevelentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cilmbootimagelevelentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cilmbootimagelevelentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cilmBootImageLevelEntry *CISCOIMAGELICENSEMGMTMIB_CilmBootImageLevelTable_CilmBootImageLevelEntry) GetEntityData() *types.CommonEntityData {
+    cilmBootImageLevelEntry.EntityData.YFilter = cilmBootImageLevelEntry.YFilter
+    cilmBootImageLevelEntry.EntityData.YangName = "cilmBootImageLevelEntry"
+    cilmBootImageLevelEntry.EntityData.BundleName = "cisco_ios_xe"
+    cilmBootImageLevelEntry.EntityData.ParentYangName = "cilmBootImageLevelTable"
+    cilmBootImageLevelEntry.EntityData.SegmentPath = "cilmBootImageLevelEntry" + types.AddKeyToken(cilmBootImageLevelEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cilmBootImageLevelEntry.CilmModuleName, "cilmModuleName")
+    cilmBootImageLevelEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cilmBootImageLevelEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cilmBootImageLevelEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cilmbootimagelevelentry.EntityData.Children = make(map[string]types.YChild)
-    cilmbootimagelevelentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cilmbootimagelevelentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cilmbootimagelevelentry.Entphysicalindex}
-    cilmbootimagelevelentry.EntityData.Leafs["cilmModuleName"] = types.YLeaf{"Cilmmodulename", cilmbootimagelevelentry.Cilmmodulename}
-    cilmbootimagelevelentry.EntityData.Leafs["cilmCurrentImageLevel"] = types.YLeaf{"Cilmcurrentimagelevel", cilmbootimagelevelentry.Cilmcurrentimagelevel}
-    cilmbootimagelevelentry.EntityData.Leafs["cilmConfiguredBootImageLevel"] = types.YLeaf{"Cilmconfiguredbootimagelevel", cilmbootimagelevelentry.Cilmconfiguredbootimagelevel}
-    cilmbootimagelevelentry.EntityData.Leafs["cilmNextBootImageLevel"] = types.YLeaf{"Cilmnextbootimagelevel", cilmbootimagelevelentry.Cilmnextbootimagelevel}
-    cilmbootimagelevelentry.EntityData.Leafs["cilmCurrentLicenseStoreIndex"] = types.YLeaf{"Cilmcurrentlicensestoreindex", cilmbootimagelevelentry.Cilmcurrentlicensestoreindex}
-    cilmbootimagelevelentry.EntityData.Leafs["cilmCurrentLicenseIndex"] = types.YLeaf{"Cilmcurrentlicenseindex", cilmbootimagelevelentry.Cilmcurrentlicenseindex}
-    cilmbootimagelevelentry.EntityData.Leafs["cilmNextBootLicenseStoreIndex"] = types.YLeaf{"Cilmnextbootlicensestoreindex", cilmbootimagelevelentry.Cilmnextbootlicensestoreindex}
-    cilmbootimagelevelentry.EntityData.Leafs["cilmNextBootLicenseIndex"] = types.YLeaf{"Cilmnextbootlicenseindex", cilmbootimagelevelentry.Cilmnextbootlicenseindex}
-    return &(cilmbootimagelevelentry.EntityData)
+    cilmBootImageLevelEntry.EntityData.Children = types.NewOrderedMap()
+    cilmBootImageLevelEntry.EntityData.Leafs = types.NewOrderedMap()
+    cilmBootImageLevelEntry.EntityData.Leafs.Append("entPhysicalIndex", types.YLeaf{"EntPhysicalIndex", cilmBootImageLevelEntry.EntPhysicalIndex})
+    cilmBootImageLevelEntry.EntityData.Leafs.Append("cilmModuleName", types.YLeaf{"CilmModuleName", cilmBootImageLevelEntry.CilmModuleName})
+    cilmBootImageLevelEntry.EntityData.Leafs.Append("cilmCurrentImageLevel", types.YLeaf{"CilmCurrentImageLevel", cilmBootImageLevelEntry.CilmCurrentImageLevel})
+    cilmBootImageLevelEntry.EntityData.Leafs.Append("cilmConfiguredBootImageLevel", types.YLeaf{"CilmConfiguredBootImageLevel", cilmBootImageLevelEntry.CilmConfiguredBootImageLevel})
+    cilmBootImageLevelEntry.EntityData.Leafs.Append("cilmNextBootImageLevel", types.YLeaf{"CilmNextBootImageLevel", cilmBootImageLevelEntry.CilmNextBootImageLevel})
+    cilmBootImageLevelEntry.EntityData.Leafs.Append("cilmCurrentLicenseStoreIndex", types.YLeaf{"CilmCurrentLicenseStoreIndex", cilmBootImageLevelEntry.CilmCurrentLicenseStoreIndex})
+    cilmBootImageLevelEntry.EntityData.Leafs.Append("cilmCurrentLicenseIndex", types.YLeaf{"CilmCurrentLicenseIndex", cilmBootImageLevelEntry.CilmCurrentLicenseIndex})
+    cilmBootImageLevelEntry.EntityData.Leafs.Append("cilmNextBootLicenseStoreIndex", types.YLeaf{"CilmNextBootLicenseStoreIndex", cilmBootImageLevelEntry.CilmNextBootLicenseStoreIndex})
+    cilmBootImageLevelEntry.EntityData.Leafs.Append("cilmNextBootLicenseIndex", types.YLeaf{"CilmNextBootLicenseIndex", cilmBootImageLevelEntry.CilmNextBootLicenseIndex})
+
+    cilmBootImageLevelEntry.EntityData.YListKeys = []string {"EntPhysicalIndex", "CilmModuleName"}
+
+    return &(cilmBootImageLevelEntry.EntityData)
 }
 
-// CISCOIMAGELICENSEMGMTMIB_Cilmimageleveltolicensemaptable
+// CISCOIMAGELICENSEMGMTMIB_CilmImageLevelToLicenseMapTable
 // This table contains the mapping between different
 // image levels of each modules in the image and the
 // license required to run the modules at a particular
 // image level. This table can be used to identify the
 // different image levels and the appropriate licenses 
 // required for each.
-type CISCOIMAGELICENSEMGMTMIB_Cilmimageleveltolicensemaptable struct {
+type CISCOIMAGELICENSEMGMTMIB_CilmImageLevelToLicenseMapTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -334,63 +349,66 @@ type CISCOIMAGELICENSEMGMTMIB_Cilmimageleveltolicensemaptable struct {
     // levels at the which the modules can be run. - The license required to the
     // run a module at a particular image level. - The priority of the license.
     // The type is slice of
-    // CISCOIMAGELICENSEMGMTMIB_Cilmimageleveltolicensemaptable_Cilmimageleveltolicensemapentry.
-    Cilmimageleveltolicensemapentry []CISCOIMAGELICENSEMGMTMIB_Cilmimageleveltolicensemaptable_Cilmimageleveltolicensemapentry
+    // CISCOIMAGELICENSEMGMTMIB_CilmImageLevelToLicenseMapTable_CilmImageLevelToLicenseMapEntry.
+    CilmImageLevelToLicenseMapEntry []*CISCOIMAGELICENSEMGMTMIB_CilmImageLevelToLicenseMapTable_CilmImageLevelToLicenseMapEntry
 }
 
-func (cilmimageleveltolicensemaptable *CISCOIMAGELICENSEMGMTMIB_Cilmimageleveltolicensemaptable) GetEntityData() *types.CommonEntityData {
-    cilmimageleveltolicensemaptable.EntityData.YFilter = cilmimageleveltolicensemaptable.YFilter
-    cilmimageleveltolicensemaptable.EntityData.YangName = "cilmImageLevelToLicenseMapTable"
-    cilmimageleveltolicensemaptable.EntityData.BundleName = "cisco_ios_xe"
-    cilmimageleveltolicensemaptable.EntityData.ParentYangName = "CISCO-IMAGE-LICENSE-MGMT-MIB"
-    cilmimageleveltolicensemaptable.EntityData.SegmentPath = "cilmImageLevelToLicenseMapTable"
-    cilmimageleveltolicensemaptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cilmimageleveltolicensemaptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cilmimageleveltolicensemaptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cilmImageLevelToLicenseMapTable *CISCOIMAGELICENSEMGMTMIB_CilmImageLevelToLicenseMapTable) GetEntityData() *types.CommonEntityData {
+    cilmImageLevelToLicenseMapTable.EntityData.YFilter = cilmImageLevelToLicenseMapTable.YFilter
+    cilmImageLevelToLicenseMapTable.EntityData.YangName = "cilmImageLevelToLicenseMapTable"
+    cilmImageLevelToLicenseMapTable.EntityData.BundleName = "cisco_ios_xe"
+    cilmImageLevelToLicenseMapTable.EntityData.ParentYangName = "CISCO-IMAGE-LICENSE-MGMT-MIB"
+    cilmImageLevelToLicenseMapTable.EntityData.SegmentPath = "cilmImageLevelToLicenseMapTable"
+    cilmImageLevelToLicenseMapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cilmImageLevelToLicenseMapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cilmImageLevelToLicenseMapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cilmimageleveltolicensemaptable.EntityData.Children = make(map[string]types.YChild)
-    cilmimageleveltolicensemaptable.EntityData.Children["cilmImageLevelToLicenseMapEntry"] = types.YChild{"Cilmimageleveltolicensemapentry", nil}
-    for i := range cilmimageleveltolicensemaptable.Cilmimageleveltolicensemapentry {
-        cilmimageleveltolicensemaptable.EntityData.Children[types.GetSegmentPath(&cilmimageleveltolicensemaptable.Cilmimageleveltolicensemapentry[i])] = types.YChild{"Cilmimageleveltolicensemapentry", &cilmimageleveltolicensemaptable.Cilmimageleveltolicensemapentry[i]}
+    cilmImageLevelToLicenseMapTable.EntityData.Children = types.NewOrderedMap()
+    cilmImageLevelToLicenseMapTable.EntityData.Children.Append("cilmImageLevelToLicenseMapEntry", types.YChild{"CilmImageLevelToLicenseMapEntry", nil})
+    for i := range cilmImageLevelToLicenseMapTable.CilmImageLevelToLicenseMapEntry {
+        cilmImageLevelToLicenseMapTable.EntityData.Children.Append(types.GetSegmentPath(cilmImageLevelToLicenseMapTable.CilmImageLevelToLicenseMapEntry[i]), types.YChild{"CilmImageLevelToLicenseMapEntry", cilmImageLevelToLicenseMapTable.CilmImageLevelToLicenseMapEntry[i]})
     }
-    cilmimageleveltolicensemaptable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cilmimageleveltolicensemaptable.EntityData)
+    cilmImageLevelToLicenseMapTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cilmImageLevelToLicenseMapTable.EntityData.YListKeys = []string {}
+
+    return &(cilmImageLevelToLicenseMapTable.EntityData)
 }
 
-// CISCOIMAGELICENSEMGMTMIB_Cilmimageleveltolicensemaptable_Cilmimageleveltolicensemapentry
+// CISCOIMAGELICENSEMGMTMIB_CilmImageLevelToLicenseMapTable_CilmImageLevelToLicenseMapEntry
 // An entry in the table containing the following
 // information.
 // - The image levels at the which the modules can be run.
 // - The license required to the run a module at a
 // particular image level.
 // - The priority of the license.
-type CISCOIMAGELICENSEMGMTMIB_Cilmimageleveltolicensemaptable_Cilmimageleveltolicensemapentry struct {
+type CISCOIMAGELICENSEMGMTMIB_CilmImageLevelToLicenseMapTable_CilmImageLevelToLicenseMapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // entity_mib.ENTITYMIB_Entphysicaltable_Entphysicalentry_Entphysicalindex
-    Entphysicalindex interface{}
+    // entity_mib.ENTITYMIB_EntPhysicalTable_EntPhysicalEntry_EntPhysicalIndex
+    EntPhysicalIndex interface{}
 
     // This attribute is a key. The type is string. Refers to
-    // cisco_image_license_mgmt_mib.CISCOIMAGELICENSEMGMTMIB_Cilmbootimageleveltable_Cilmbootimagelevelentry_Cilmmodulename
-    Cilmmodulename interface{}
+    // cisco_image_license_mgmt_mib.CISCOIMAGELICENSEMGMTMIB_CilmBootImageLevelTable_CilmBootImageLevelEntry_CilmModuleName
+    CilmModuleName interface{}
 
     // This attribute is a key. This is a running index used to identify an entry
     // of this table. The type is interface{} with range: 0..4294967295.
-    Cilmimagelicensemapindex interface{}
+    CilmImageLicenseMapIndex interface{}
 
     // This object indicates the image level at which a module can be run. A
     // module can be run at different image levels. An entry will be created in
     // this table for every module and image level combination. The type is string
     // with length: 0..255.
-    Cilmimagelicenseimagelevel interface{}
+    CilmImageLicenseImageLevel interface{}
 
     // This object indicates the list of licenses needed to be installed for the
     // module to run at the image level mentioned by cilmImageLicenseImageLevel
     // object of this entry. The type is string with length: 0..255.
-    Cilmimagelicensename interface{}
+    CilmImageLicenseName interface{}
 
     // This object indicates the priority of the image level mentioned by
     // cilmImageLicenseImageLevel object of this entry. The image level with the
@@ -402,27 +420,30 @@ type CISCOIMAGELICENSEMGMTMIB_Cilmimageleveltolicensemaptable_Cilmimageleveltoli
     // priority. The highest priority license supports a feature set which is a
     // super set of all other licenses. The type is interface{} with range:
     // 1..255.
-    Cilmimagelicensepriority interface{}
+    CilmImageLicensePriority interface{}
 }
 
-func (cilmimageleveltolicensemapentry *CISCOIMAGELICENSEMGMTMIB_Cilmimageleveltolicensemaptable_Cilmimageleveltolicensemapentry) GetEntityData() *types.CommonEntityData {
-    cilmimageleveltolicensemapentry.EntityData.YFilter = cilmimageleveltolicensemapentry.YFilter
-    cilmimageleveltolicensemapentry.EntityData.YangName = "cilmImageLevelToLicenseMapEntry"
-    cilmimageleveltolicensemapentry.EntityData.BundleName = "cisco_ios_xe"
-    cilmimageleveltolicensemapentry.EntityData.ParentYangName = "cilmImageLevelToLicenseMapTable"
-    cilmimageleveltolicensemapentry.EntityData.SegmentPath = "cilmImageLevelToLicenseMapEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cilmimageleveltolicensemapentry.Entphysicalindex) + "']" + "[cilmModuleName='" + fmt.Sprintf("%v", cilmimageleveltolicensemapentry.Cilmmodulename) + "']" + "[cilmImageLicenseMapIndex='" + fmt.Sprintf("%v", cilmimageleveltolicensemapentry.Cilmimagelicensemapindex) + "']"
-    cilmimageleveltolicensemapentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cilmimageleveltolicensemapentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cilmimageleveltolicensemapentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cilmImageLevelToLicenseMapEntry *CISCOIMAGELICENSEMGMTMIB_CilmImageLevelToLicenseMapTable_CilmImageLevelToLicenseMapEntry) GetEntityData() *types.CommonEntityData {
+    cilmImageLevelToLicenseMapEntry.EntityData.YFilter = cilmImageLevelToLicenseMapEntry.YFilter
+    cilmImageLevelToLicenseMapEntry.EntityData.YangName = "cilmImageLevelToLicenseMapEntry"
+    cilmImageLevelToLicenseMapEntry.EntityData.BundleName = "cisco_ios_xe"
+    cilmImageLevelToLicenseMapEntry.EntityData.ParentYangName = "cilmImageLevelToLicenseMapTable"
+    cilmImageLevelToLicenseMapEntry.EntityData.SegmentPath = "cilmImageLevelToLicenseMapEntry" + types.AddKeyToken(cilmImageLevelToLicenseMapEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cilmImageLevelToLicenseMapEntry.CilmModuleName, "cilmModuleName") + types.AddKeyToken(cilmImageLevelToLicenseMapEntry.CilmImageLicenseMapIndex, "cilmImageLicenseMapIndex")
+    cilmImageLevelToLicenseMapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cilmImageLevelToLicenseMapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cilmImageLevelToLicenseMapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cilmimageleveltolicensemapentry.EntityData.Children = make(map[string]types.YChild)
-    cilmimageleveltolicensemapentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cilmimageleveltolicensemapentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cilmimageleveltolicensemapentry.Entphysicalindex}
-    cilmimageleveltolicensemapentry.EntityData.Leafs["cilmModuleName"] = types.YLeaf{"Cilmmodulename", cilmimageleveltolicensemapentry.Cilmmodulename}
-    cilmimageleveltolicensemapentry.EntityData.Leafs["cilmImageLicenseMapIndex"] = types.YLeaf{"Cilmimagelicensemapindex", cilmimageleveltolicensemapentry.Cilmimagelicensemapindex}
-    cilmimageleveltolicensemapentry.EntityData.Leafs["cilmImageLicenseImageLevel"] = types.YLeaf{"Cilmimagelicenseimagelevel", cilmimageleveltolicensemapentry.Cilmimagelicenseimagelevel}
-    cilmimageleveltolicensemapentry.EntityData.Leafs["cilmImageLicenseName"] = types.YLeaf{"Cilmimagelicensename", cilmimageleveltolicensemapentry.Cilmimagelicensename}
-    cilmimageleveltolicensemapentry.EntityData.Leafs["cilmImageLicensePriority"] = types.YLeaf{"Cilmimagelicensepriority", cilmimageleveltolicensemapentry.Cilmimagelicensepriority}
-    return &(cilmimageleveltolicensemapentry.EntityData)
+    cilmImageLevelToLicenseMapEntry.EntityData.Children = types.NewOrderedMap()
+    cilmImageLevelToLicenseMapEntry.EntityData.Leafs = types.NewOrderedMap()
+    cilmImageLevelToLicenseMapEntry.EntityData.Leafs.Append("entPhysicalIndex", types.YLeaf{"EntPhysicalIndex", cilmImageLevelToLicenseMapEntry.EntPhysicalIndex})
+    cilmImageLevelToLicenseMapEntry.EntityData.Leafs.Append("cilmModuleName", types.YLeaf{"CilmModuleName", cilmImageLevelToLicenseMapEntry.CilmModuleName})
+    cilmImageLevelToLicenseMapEntry.EntityData.Leafs.Append("cilmImageLicenseMapIndex", types.YLeaf{"CilmImageLicenseMapIndex", cilmImageLevelToLicenseMapEntry.CilmImageLicenseMapIndex})
+    cilmImageLevelToLicenseMapEntry.EntityData.Leafs.Append("cilmImageLicenseImageLevel", types.YLeaf{"CilmImageLicenseImageLevel", cilmImageLevelToLicenseMapEntry.CilmImageLicenseImageLevel})
+    cilmImageLevelToLicenseMapEntry.EntityData.Leafs.Append("cilmImageLicenseName", types.YLeaf{"CilmImageLicenseName", cilmImageLevelToLicenseMapEntry.CilmImageLicenseName})
+    cilmImageLevelToLicenseMapEntry.EntityData.Leafs.Append("cilmImageLicensePriority", types.YLeaf{"CilmImageLicensePriority", cilmImageLevelToLicenseMapEntry.CilmImageLicensePriority})
+
+    cilmImageLevelToLicenseMapEntry.EntityData.YListKeys = []string {"EntPhysicalIndex", "CilmModuleName", "CilmImageLicenseMapIndex"}
+
+    return &(cilmImageLevelToLicenseMapEntry.EntityData)
 }
 

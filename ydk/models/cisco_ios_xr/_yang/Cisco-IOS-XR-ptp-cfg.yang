@@ -482,8 +482,8 @@ module Cisco-IOS-XR-ptp-cfg {
         leaf telecom-clock-type {
           when "../clock-profile = 'g82651' or ../clock-profile = 'g82751' or ../clock-profile = 'g82752'" {
             description
-              "../ClockProfile = 1 or ../ClockProfile = 2
-               or ../ClockProfile = 3";
+              "../ClockProfile = G82651 or ../ClockProfile
+               = G82751 or ../ClockProfile = G82752";
           }
           type dt1:Ptp-telecom-clock;
           description
@@ -502,7 +502,7 @@ module Cisco-IOS-XR-ptp-cfg {
         leaf mac-address {
           when "../clock-id-type = 'user-mac'" {
             description
-              "../ClockIDType = 1";
+              "../ClockIDType = UserMAC";
           }
           type yang:mac-address;
           description
@@ -511,7 +511,7 @@ module Cisco-IOS-XR-ptp-cfg {
         leaf eui {
           when "../clock-id-type = 'eui'" {
             description
-              "../ClockIDType = 2";
+              "../ClockIDType = EUI";
           }
           type string;
           description

@@ -75,7 +75,7 @@ module Cisco-IOS-XR-Ethernet-SPAN-datatypes {
   }
 
   typedef Span-session-id {
-    type int32;
+    type uint32;
     description
       "Span session id";
   }

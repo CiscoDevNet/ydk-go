@@ -265,27 +265,6 @@ func init() {
     ydk.RegisterEntity("CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB", reflect.TypeOf(CISCOLICENSEMGMTMIB{}))
 }
 
-// ClmgmtLicenseTransferProtocol represents which protocol is supported and use.
-type ClmgmtLicenseTransferProtocol string
-
-const (
-    ClmgmtLicenseTransferProtocol_none ClmgmtLicenseTransferProtocol = "none"
-
-    ClmgmtLicenseTransferProtocol_local ClmgmtLicenseTransferProtocol = "local"
-
-    ClmgmtLicenseTransferProtocol_tftp ClmgmtLicenseTransferProtocol = "tftp"
-
-    ClmgmtLicenseTransferProtocol_ftp ClmgmtLicenseTransferProtocol = "ftp"
-
-    ClmgmtLicenseTransferProtocol_rcp ClmgmtLicenseTransferProtocol = "rcp"
-
-    ClmgmtLicenseTransferProtocol_http ClmgmtLicenseTransferProtocol = "http"
-
-    ClmgmtLicenseTransferProtocol_scp ClmgmtLicenseTransferProtocol = "scp"
-
-    ClmgmtLicenseTransferProtocol_sftp ClmgmtLicenseTransferProtocol = "sftp"
-)
-
 // ClmgmtLicenseActionState represents failed(6)              - action has failed.
 type ClmgmtLicenseActionState string
 
@@ -352,19 +331,40 @@ const (
     ClmgmtLicenseActionFailCause_invalidLicenseEULAFile ClmgmtLicenseActionFailCause = "invalidLicenseEULAFile"
 )
 
+// ClmgmtLicenseTransferProtocol represents which protocol is supported and use.
+type ClmgmtLicenseTransferProtocol string
+
+const (
+    ClmgmtLicenseTransferProtocol_none ClmgmtLicenseTransferProtocol = "none"
+
+    ClmgmtLicenseTransferProtocol_local ClmgmtLicenseTransferProtocol = "local"
+
+    ClmgmtLicenseTransferProtocol_tftp ClmgmtLicenseTransferProtocol = "tftp"
+
+    ClmgmtLicenseTransferProtocol_ftp ClmgmtLicenseTransferProtocol = "ftp"
+
+    ClmgmtLicenseTransferProtocol_rcp ClmgmtLicenseTransferProtocol = "rcp"
+
+    ClmgmtLicenseTransferProtocol_http ClmgmtLicenseTransferProtocol = "http"
+
+    ClmgmtLicenseTransferProtocol_scp ClmgmtLicenseTransferProtocol = "scp"
+
+    ClmgmtLicenseTransferProtocol_sftp ClmgmtLicenseTransferProtocol = "sftp"
+)
+
 // CISCOLICENSEMGMTMIB
 type CISCOLICENSEMGMTMIB struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
-    Clmgmtlicenseconfiguration CISCOLICENSEMGMTMIB_Clmgmtlicenseconfiguration
+    ClmgmtLicenseConfiguration CISCOLICENSEMGMTMIB_ClmgmtLicenseConfiguration
 
     
-    Clmgmtlicensedeviceinformation CISCOLICENSEMGMTMIB_Clmgmtlicensedeviceinformation
+    ClmgmtLicenseDeviceInformation CISCOLICENSEMGMTMIB_ClmgmtLicenseDeviceInformation
 
     
-    Clmgmtlicensenotifobjects CISCOLICENSEMGMTMIB_Clmgmtlicensenotifobjects
+    ClmgmtLicenseNotifObjects CISCOLICENSEMGMTMIB_ClmgmtLicenseNotifObjects
 
     // A table for invoking license management actions. Management application
     // must create a row in this table to trigger any of the license management
@@ -377,7 +377,7 @@ type CISCOLICENSEMGMTMIB struct {
     // delete the entry.  In order to prevent old entries from clogging the table,
     // entries will be aged out, but an entry will never be deleted within 5
     // minutes of completion.
-    Clmgmtlicenseactiontable CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable
+    ClmgmtLicenseActionTable CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable
 
     // This table contains results of license action if the license action
     // involves multiple licenses. Entries in this table are not created for
@@ -385,11 +385,11 @@ type CISCOLICENSEMGMTMIB struct {
     // example, if there are 3 licenses in a license file when executing license
     // install action, 3 entries will be created in this table, one for each
     // license.
-    Clmgmtlicenseactionresulttable CISCOLICENSEMGMTMIB_Clmgmtlicenseactionresulttable
+    ClmgmtLicenseActionResultTable CISCOLICENSEMGMTMIB_ClmgmtLicenseActionResultTable
 
     // This table contains information about all the license stores allocated on
     // the device.
-    Clmgmtlicensestoreinfotable CISCOLICENSEMGMTMIB_Clmgmtlicensestoreinfotable
+    ClmgmtLicenseStoreInfoTable CISCOLICENSEMGMTMIB_ClmgmtLicenseStoreInfoTable
 
     // This table contains objects that provide licensing related information at
     // the device level. Entries will exist only for entities that support
@@ -397,11 +397,11 @@ type CISCOLICENSEMGMTMIB struct {
     // licensing, then there will be only one entry in this table. If it is
     // stackable switch then there will be multiple entries with one entry for
     // each device in the stack.
-    Clmgmtlicensedeviceinfotable CISCOLICENSEMGMTMIB_Clmgmtlicensedeviceinfotable
+    ClmgmtLicenseDeviceInfoTable CISCOLICENSEMGMTMIB_ClmgmtLicenseDeviceInfoTable
 
     // This table contains information about all the licenses installed on the
     // device.
-    Clmgmtlicenseinfotable CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable
+    ClmgmtLicenseInfoTable CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable
 
     // This table contains list of licensable features in the image. All the
     // licensable features will have an entry each in this table irrespective of
@@ -409,7 +409,7 @@ type CISCOLICENSEMGMTMIB struct {
     // created by the agent one for each licensable feature in the image. These
     // entries remain in the table permanently and can not be deleted. Management
     // application can not create or delete entries from this table.
-    Clmgmtlicensablefeaturetable CISCOLICENSEMGMTMIB_Clmgmtlicensablefeaturetable
+    ClmgmtLicensableFeatureTable CISCOLICENSEMGMTMIB_ClmgmtLicensableFeatureTable
 
     // A table for triggering device credentials export action. Management
     // application must create this entry to trigger the export of device
@@ -418,7 +418,7 @@ type CISCOLICENSEMGMTMIB struct {
     // interest, and then delete the entry.  In order to prevent old entries from
     // clogging the table, entries will be aged out, but an entry will never be
     // deleted within 5 minutes of completion.
-    Clmgmtdevcredexportactiontable CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable
+    ClmgmtDevCredExportActionTable CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable
 }
 
 func (cISCOLICENSEMGMTMIB *CISCOLICENSEMGMTMIB) GetEntityData() *types.CommonEntityData {
@@ -431,23 +431,26 @@ func (cISCOLICENSEMGMTMIB *CISCOLICENSEMGMTMIB) GetEntityData() *types.CommonEnt
     cISCOLICENSEMGMTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOLICENSEMGMTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOLICENSEMGMTMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOLICENSEMGMTMIB.EntityData.Children["clmgmtLicenseConfiguration"] = types.YChild{"Clmgmtlicenseconfiguration", &cISCOLICENSEMGMTMIB.Clmgmtlicenseconfiguration}
-    cISCOLICENSEMGMTMIB.EntityData.Children["clmgmtLicenseDeviceInformation"] = types.YChild{"Clmgmtlicensedeviceinformation", &cISCOLICENSEMGMTMIB.Clmgmtlicensedeviceinformation}
-    cISCOLICENSEMGMTMIB.EntityData.Children["clmgmtLicenseNotifObjects"] = types.YChild{"Clmgmtlicensenotifobjects", &cISCOLICENSEMGMTMIB.Clmgmtlicensenotifobjects}
-    cISCOLICENSEMGMTMIB.EntityData.Children["clmgmtLicenseActionTable"] = types.YChild{"Clmgmtlicenseactiontable", &cISCOLICENSEMGMTMIB.Clmgmtlicenseactiontable}
-    cISCOLICENSEMGMTMIB.EntityData.Children["clmgmtLicenseActionResultTable"] = types.YChild{"Clmgmtlicenseactionresulttable", &cISCOLICENSEMGMTMIB.Clmgmtlicenseactionresulttable}
-    cISCOLICENSEMGMTMIB.EntityData.Children["clmgmtLicenseStoreInfoTable"] = types.YChild{"Clmgmtlicensestoreinfotable", &cISCOLICENSEMGMTMIB.Clmgmtlicensestoreinfotable}
-    cISCOLICENSEMGMTMIB.EntityData.Children["clmgmtLicenseDeviceInfoTable"] = types.YChild{"Clmgmtlicensedeviceinfotable", &cISCOLICENSEMGMTMIB.Clmgmtlicensedeviceinfotable}
-    cISCOLICENSEMGMTMIB.EntityData.Children["clmgmtLicenseInfoTable"] = types.YChild{"Clmgmtlicenseinfotable", &cISCOLICENSEMGMTMIB.Clmgmtlicenseinfotable}
-    cISCOLICENSEMGMTMIB.EntityData.Children["clmgmtLicensableFeatureTable"] = types.YChild{"Clmgmtlicensablefeaturetable", &cISCOLICENSEMGMTMIB.Clmgmtlicensablefeaturetable}
-    cISCOLICENSEMGMTMIB.EntityData.Children["clmgmtDevCredExportActionTable"] = types.YChild{"Clmgmtdevcredexportactiontable", &cISCOLICENSEMGMTMIB.Clmgmtdevcredexportactiontable}
-    cISCOLICENSEMGMTMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOLICENSEMGMTMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOLICENSEMGMTMIB.EntityData.Children.Append("clmgmtLicenseConfiguration", types.YChild{"ClmgmtLicenseConfiguration", &cISCOLICENSEMGMTMIB.ClmgmtLicenseConfiguration})
+    cISCOLICENSEMGMTMIB.EntityData.Children.Append("clmgmtLicenseDeviceInformation", types.YChild{"ClmgmtLicenseDeviceInformation", &cISCOLICENSEMGMTMIB.ClmgmtLicenseDeviceInformation})
+    cISCOLICENSEMGMTMIB.EntityData.Children.Append("clmgmtLicenseNotifObjects", types.YChild{"ClmgmtLicenseNotifObjects", &cISCOLICENSEMGMTMIB.ClmgmtLicenseNotifObjects})
+    cISCOLICENSEMGMTMIB.EntityData.Children.Append("clmgmtLicenseActionTable", types.YChild{"ClmgmtLicenseActionTable", &cISCOLICENSEMGMTMIB.ClmgmtLicenseActionTable})
+    cISCOLICENSEMGMTMIB.EntityData.Children.Append("clmgmtLicenseActionResultTable", types.YChild{"ClmgmtLicenseActionResultTable", &cISCOLICENSEMGMTMIB.ClmgmtLicenseActionResultTable})
+    cISCOLICENSEMGMTMIB.EntityData.Children.Append("clmgmtLicenseStoreInfoTable", types.YChild{"ClmgmtLicenseStoreInfoTable", &cISCOLICENSEMGMTMIB.ClmgmtLicenseStoreInfoTable})
+    cISCOLICENSEMGMTMIB.EntityData.Children.Append("clmgmtLicenseDeviceInfoTable", types.YChild{"ClmgmtLicenseDeviceInfoTable", &cISCOLICENSEMGMTMIB.ClmgmtLicenseDeviceInfoTable})
+    cISCOLICENSEMGMTMIB.EntityData.Children.Append("clmgmtLicenseInfoTable", types.YChild{"ClmgmtLicenseInfoTable", &cISCOLICENSEMGMTMIB.ClmgmtLicenseInfoTable})
+    cISCOLICENSEMGMTMIB.EntityData.Children.Append("clmgmtLicensableFeatureTable", types.YChild{"ClmgmtLicensableFeatureTable", &cISCOLICENSEMGMTMIB.ClmgmtLicensableFeatureTable})
+    cISCOLICENSEMGMTMIB.EntityData.Children.Append("clmgmtDevCredExportActionTable", types.YChild{"ClmgmtDevCredExportActionTable", &cISCOLICENSEMGMTMIB.ClmgmtDevCredExportActionTable})
+    cISCOLICENSEMGMTMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOLICENSEMGMTMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOLICENSEMGMTMIB.EntityData)
 }
 
-// CISCOLICENSEMGMTMIB_Clmgmtlicenseconfiguration
-type CISCOLICENSEMGMTMIB_Clmgmtlicenseconfiguration struct {
+// CISCOLICENSEMGMTMIB_ClmgmtLicenseConfiguration
+type CISCOLICENSEMGMTMIB_ClmgmtLicenseConfiguration struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -463,27 +466,30 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseconfiguration struct {
     // first request will get an error and the process of reading this object and
     // entry creation needs to be repeated. The type is interface{} with range:
     // 1..4294967295.
-    Clmgmtnextfreelicenseactionindex interface{}
+    ClmgmtNextFreeLicenseActionIndex interface{}
 }
 
-func (clmgmtlicenseconfiguration *CISCOLICENSEMGMTMIB_Clmgmtlicenseconfiguration) GetEntityData() *types.CommonEntityData {
-    clmgmtlicenseconfiguration.EntityData.YFilter = clmgmtlicenseconfiguration.YFilter
-    clmgmtlicenseconfiguration.EntityData.YangName = "clmgmtLicenseConfiguration"
-    clmgmtlicenseconfiguration.EntityData.BundleName = "cisco_ios_xe"
-    clmgmtlicenseconfiguration.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
-    clmgmtlicenseconfiguration.EntityData.SegmentPath = "clmgmtLicenseConfiguration"
-    clmgmtlicenseconfiguration.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    clmgmtlicenseconfiguration.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    clmgmtlicenseconfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (clmgmtLicenseConfiguration *CISCOLICENSEMGMTMIB_ClmgmtLicenseConfiguration) GetEntityData() *types.CommonEntityData {
+    clmgmtLicenseConfiguration.EntityData.YFilter = clmgmtLicenseConfiguration.YFilter
+    clmgmtLicenseConfiguration.EntityData.YangName = "clmgmtLicenseConfiguration"
+    clmgmtLicenseConfiguration.EntityData.BundleName = "cisco_ios_xe"
+    clmgmtLicenseConfiguration.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
+    clmgmtLicenseConfiguration.EntityData.SegmentPath = "clmgmtLicenseConfiguration"
+    clmgmtLicenseConfiguration.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clmgmtLicenseConfiguration.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clmgmtLicenseConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clmgmtlicenseconfiguration.EntityData.Children = make(map[string]types.YChild)
-    clmgmtlicenseconfiguration.EntityData.Leafs = make(map[string]types.YLeaf)
-    clmgmtlicenseconfiguration.EntityData.Leafs["clmgmtNextFreeLicenseActionIndex"] = types.YLeaf{"Clmgmtnextfreelicenseactionindex", clmgmtlicenseconfiguration.Clmgmtnextfreelicenseactionindex}
-    return &(clmgmtlicenseconfiguration.EntityData)
+    clmgmtLicenseConfiguration.EntityData.Children = types.NewOrderedMap()
+    clmgmtLicenseConfiguration.EntityData.Leafs = types.NewOrderedMap()
+    clmgmtLicenseConfiguration.EntityData.Leafs.Append("clmgmtNextFreeLicenseActionIndex", types.YLeaf{"ClmgmtNextFreeLicenseActionIndex", clmgmtLicenseConfiguration.ClmgmtNextFreeLicenseActionIndex})
+
+    clmgmtLicenseConfiguration.EntityData.YListKeys = []string {}
+
+    return &(clmgmtLicenseConfiguration.EntityData)
 }
 
-// CISCOLICENSEMGMTMIB_Clmgmtlicensedeviceinformation
-type CISCOLICENSEMGMTMIB_Clmgmtlicensedeviceinformation struct {
+// CISCOLICENSEMGMTMIB_ClmgmtLicenseDeviceInformation
+type CISCOLICENSEMGMTMIB_ClmgmtLicenseDeviceInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -499,27 +505,30 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicensedeviceinformation struct {
     // processed after the first request will get an error and the process of
     // reading this object and entry creation needs to be repeated. The type is
     // interface{} with range: 0..4294967295.
-    Clmgmtnextfreedevcredexportactionindex interface{}
+    ClmgmtNextFreeDevCredExportActionIndex interface{}
 }
 
-func (clmgmtlicensedeviceinformation *CISCOLICENSEMGMTMIB_Clmgmtlicensedeviceinformation) GetEntityData() *types.CommonEntityData {
-    clmgmtlicensedeviceinformation.EntityData.YFilter = clmgmtlicensedeviceinformation.YFilter
-    clmgmtlicensedeviceinformation.EntityData.YangName = "clmgmtLicenseDeviceInformation"
-    clmgmtlicensedeviceinformation.EntityData.BundleName = "cisco_ios_xe"
-    clmgmtlicensedeviceinformation.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
-    clmgmtlicensedeviceinformation.EntityData.SegmentPath = "clmgmtLicenseDeviceInformation"
-    clmgmtlicensedeviceinformation.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    clmgmtlicensedeviceinformation.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    clmgmtlicensedeviceinformation.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (clmgmtLicenseDeviceInformation *CISCOLICENSEMGMTMIB_ClmgmtLicenseDeviceInformation) GetEntityData() *types.CommonEntityData {
+    clmgmtLicenseDeviceInformation.EntityData.YFilter = clmgmtLicenseDeviceInformation.YFilter
+    clmgmtLicenseDeviceInformation.EntityData.YangName = "clmgmtLicenseDeviceInformation"
+    clmgmtLicenseDeviceInformation.EntityData.BundleName = "cisco_ios_xe"
+    clmgmtLicenseDeviceInformation.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
+    clmgmtLicenseDeviceInformation.EntityData.SegmentPath = "clmgmtLicenseDeviceInformation"
+    clmgmtLicenseDeviceInformation.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clmgmtLicenseDeviceInformation.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clmgmtLicenseDeviceInformation.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clmgmtlicensedeviceinformation.EntityData.Children = make(map[string]types.YChild)
-    clmgmtlicensedeviceinformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    clmgmtlicensedeviceinformation.EntityData.Leafs["clmgmtNextFreeDevCredExportActionIndex"] = types.YLeaf{"Clmgmtnextfreedevcredexportactionindex", clmgmtlicensedeviceinformation.Clmgmtnextfreedevcredexportactionindex}
-    return &(clmgmtlicensedeviceinformation.EntityData)
+    clmgmtLicenseDeviceInformation.EntityData.Children = types.NewOrderedMap()
+    clmgmtLicenseDeviceInformation.EntityData.Leafs = types.NewOrderedMap()
+    clmgmtLicenseDeviceInformation.EntityData.Leafs.Append("clmgmtNextFreeDevCredExportActionIndex", types.YLeaf{"ClmgmtNextFreeDevCredExportActionIndex", clmgmtLicenseDeviceInformation.ClmgmtNextFreeDevCredExportActionIndex})
+
+    clmgmtLicenseDeviceInformation.EntityData.YListKeys = []string {}
+
+    return &(clmgmtLicenseDeviceInformation.EntityData)
 }
 
-// CISCOLICENSEMGMTMIB_Clmgmtlicensenotifobjects
-type CISCOLICENSEMGMTMIB_Clmgmtlicensenotifobjects struct {
+// CISCOLICENSEMGMTMIB_ClmgmtLicenseNotifObjects
+type CISCOLICENSEMGMTMIB_ClmgmtLicenseNotifObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -532,52 +541,55 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicensenotifobjects struct {
     // clmgmtLicenseSubscriptionExtExpiryWarning    
     // clmgmtLicenseSubscriptionExpired     clmgmtLicenseEvalRTUTransitionWarning 
     // clmgmtLicenseEvalRTUTransition. The type is bool.
-    Clmgmtlicenseusagenotifenable interface{}
+    ClmgmtLicenseUsageNotifEnable interface{}
 
     // This object indicates whether the device should generate notifications
     // related to license deployment. This object enables/disables sending
     // following notifications:     clmgmtLicenseInstalled    
     // clmgmtLicenseCleared     clmgmtLicenseRevoked    
     // clmgmtLicenseEULAAccepted. The type is bool.
-    Clmgmtlicensedeploymentnotifenable interface{}
+    ClmgmtLicenseDeploymentNotifEnable interface{}
 
     // This object indicates whether the device should generate notifications
     // related to error conditions in enforcing licensing. This object
     // enables/disables sending following notifications:    
-    // clmgmtLicenseNotEnforced. The type is Clmgmtlicenseerrornotifenable.
-    Clmgmtlicenseerrornotifenable interface{}
+    // clmgmtLicenseNotEnforced. The type is ClmgmtLicenseErrorNotifEnable.
+    ClmgmtLicenseErrorNotifEnable interface{}
 }
 
-func (clmgmtlicensenotifobjects *CISCOLICENSEMGMTMIB_Clmgmtlicensenotifobjects) GetEntityData() *types.CommonEntityData {
-    clmgmtlicensenotifobjects.EntityData.YFilter = clmgmtlicensenotifobjects.YFilter
-    clmgmtlicensenotifobjects.EntityData.YangName = "clmgmtLicenseNotifObjects"
-    clmgmtlicensenotifobjects.EntityData.BundleName = "cisco_ios_xe"
-    clmgmtlicensenotifobjects.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
-    clmgmtlicensenotifobjects.EntityData.SegmentPath = "clmgmtLicenseNotifObjects"
-    clmgmtlicensenotifobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    clmgmtlicensenotifobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    clmgmtlicensenotifobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (clmgmtLicenseNotifObjects *CISCOLICENSEMGMTMIB_ClmgmtLicenseNotifObjects) GetEntityData() *types.CommonEntityData {
+    clmgmtLicenseNotifObjects.EntityData.YFilter = clmgmtLicenseNotifObjects.YFilter
+    clmgmtLicenseNotifObjects.EntityData.YangName = "clmgmtLicenseNotifObjects"
+    clmgmtLicenseNotifObjects.EntityData.BundleName = "cisco_ios_xe"
+    clmgmtLicenseNotifObjects.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
+    clmgmtLicenseNotifObjects.EntityData.SegmentPath = "clmgmtLicenseNotifObjects"
+    clmgmtLicenseNotifObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clmgmtLicenseNotifObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clmgmtLicenseNotifObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clmgmtlicensenotifobjects.EntityData.Children = make(map[string]types.YChild)
-    clmgmtlicensenotifobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    clmgmtlicensenotifobjects.EntityData.Leafs["clmgmtLicenseUsageNotifEnable"] = types.YLeaf{"Clmgmtlicenseusagenotifenable", clmgmtlicensenotifobjects.Clmgmtlicenseusagenotifenable}
-    clmgmtlicensenotifobjects.EntityData.Leafs["clmgmtLicenseDeploymentNotifEnable"] = types.YLeaf{"Clmgmtlicensedeploymentnotifenable", clmgmtlicensenotifobjects.Clmgmtlicensedeploymentnotifenable}
-    clmgmtlicensenotifobjects.EntityData.Leafs["clmgmtLicenseErrorNotifEnable"] = types.YLeaf{"Clmgmtlicenseerrornotifenable", clmgmtlicensenotifobjects.Clmgmtlicenseerrornotifenable}
-    return &(clmgmtlicensenotifobjects.EntityData)
+    clmgmtLicenseNotifObjects.EntityData.Children = types.NewOrderedMap()
+    clmgmtLicenseNotifObjects.EntityData.Leafs = types.NewOrderedMap()
+    clmgmtLicenseNotifObjects.EntityData.Leafs.Append("clmgmtLicenseUsageNotifEnable", types.YLeaf{"ClmgmtLicenseUsageNotifEnable", clmgmtLicenseNotifObjects.ClmgmtLicenseUsageNotifEnable})
+    clmgmtLicenseNotifObjects.EntityData.Leafs.Append("clmgmtLicenseDeploymentNotifEnable", types.YLeaf{"ClmgmtLicenseDeploymentNotifEnable", clmgmtLicenseNotifObjects.ClmgmtLicenseDeploymentNotifEnable})
+    clmgmtLicenseNotifObjects.EntityData.Leafs.Append("clmgmtLicenseErrorNotifEnable", types.YLeaf{"ClmgmtLicenseErrorNotifEnable", clmgmtLicenseNotifObjects.ClmgmtLicenseErrorNotifEnable})
+
+    clmgmtLicenseNotifObjects.EntityData.YListKeys = []string {}
+
+    return &(clmgmtLicenseNotifObjects.EntityData)
 }
 
-// CISCOLICENSEMGMTMIB_Clmgmtlicensenotifobjects_Clmgmtlicenseerrornotifenable represents     clmgmtLicenseNotEnforced
-type CISCOLICENSEMGMTMIB_Clmgmtlicensenotifobjects_Clmgmtlicenseerrornotifenable string
+// CISCOLICENSEMGMTMIB_ClmgmtLicenseNotifObjects_ClmgmtLicenseErrorNotifEnable represents     clmgmtLicenseNotEnforced
+type CISCOLICENSEMGMTMIB_ClmgmtLicenseNotifObjects_ClmgmtLicenseErrorNotifEnable string
 
 const (
-    CISCOLICENSEMGMTMIB_Clmgmtlicensenotifobjects_Clmgmtlicenseerrornotifenable_other CISCOLICENSEMGMTMIB_Clmgmtlicensenotifobjects_Clmgmtlicenseerrornotifenable = "other"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseNotifObjects_ClmgmtLicenseErrorNotifEnable_other CISCOLICENSEMGMTMIB_ClmgmtLicenseNotifObjects_ClmgmtLicenseErrorNotifEnable = "other"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicensenotifobjects_Clmgmtlicenseerrornotifenable_true CISCOLICENSEMGMTMIB_Clmgmtlicensenotifobjects_Clmgmtlicenseerrornotifenable = "true"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseNotifObjects_ClmgmtLicenseErrorNotifEnable_true_ CISCOLICENSEMGMTMIB_ClmgmtLicenseNotifObjects_ClmgmtLicenseErrorNotifEnable = "true"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicensenotifobjects_Clmgmtlicenseerrornotifenable_false CISCOLICENSEMGMTMIB_Clmgmtlicensenotifobjects_Clmgmtlicenseerrornotifenable = "false"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseNotifObjects_ClmgmtLicenseErrorNotifEnable_false_ CISCOLICENSEMGMTMIB_ClmgmtLicenseNotifObjects_ClmgmtLicenseErrorNotifEnable = "false"
 )
 
-// CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable
+// CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable
 // A table for invoking license management actions. Management
 // application must create a row in this table to trigger any of
 // the license management actions. The following are different
@@ -596,7 +608,7 @@ const (
 // delete the entry.  In order to prevent old entries from
 // clogging the table, entries will be aged out, but an entry
 // will never be deleted within 5 minutes of completion.
-type CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable struct {
+type CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -674,30 +686,33 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable struct {
     // clmgmtLicenseServerUsername      d. clmgmtLicenseServerPassword  Entry can
     // be deleted except when clmgmtLicenseAction is set to pending(2). All
     // entries are volatile and are cleared on agent reset. The type is slice of
-    // CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry.
-    Clmgmtlicenseactionentry []CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry
+    // CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry.
+    ClmgmtLicenseActionEntry []*CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry
 }
 
-func (clmgmtlicenseactiontable *CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable) GetEntityData() *types.CommonEntityData {
-    clmgmtlicenseactiontable.EntityData.YFilter = clmgmtlicenseactiontable.YFilter
-    clmgmtlicenseactiontable.EntityData.YangName = "clmgmtLicenseActionTable"
-    clmgmtlicenseactiontable.EntityData.BundleName = "cisco_ios_xe"
-    clmgmtlicenseactiontable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
-    clmgmtlicenseactiontable.EntityData.SegmentPath = "clmgmtLicenseActionTable"
-    clmgmtlicenseactiontable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    clmgmtlicenseactiontable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    clmgmtlicenseactiontable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (clmgmtLicenseActionTable *CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable) GetEntityData() *types.CommonEntityData {
+    clmgmtLicenseActionTable.EntityData.YFilter = clmgmtLicenseActionTable.YFilter
+    clmgmtLicenseActionTable.EntityData.YangName = "clmgmtLicenseActionTable"
+    clmgmtLicenseActionTable.EntityData.BundleName = "cisco_ios_xe"
+    clmgmtLicenseActionTable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
+    clmgmtLicenseActionTable.EntityData.SegmentPath = "clmgmtLicenseActionTable"
+    clmgmtLicenseActionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clmgmtLicenseActionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clmgmtLicenseActionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clmgmtlicenseactiontable.EntityData.Children = make(map[string]types.YChild)
-    clmgmtlicenseactiontable.EntityData.Children["clmgmtLicenseActionEntry"] = types.YChild{"Clmgmtlicenseactionentry", nil}
-    for i := range clmgmtlicenseactiontable.Clmgmtlicenseactionentry {
-        clmgmtlicenseactiontable.EntityData.Children[types.GetSegmentPath(&clmgmtlicenseactiontable.Clmgmtlicenseactionentry[i])] = types.YChild{"Clmgmtlicenseactionentry", &clmgmtlicenseactiontable.Clmgmtlicenseactionentry[i]}
+    clmgmtLicenseActionTable.EntityData.Children = types.NewOrderedMap()
+    clmgmtLicenseActionTable.EntityData.Children.Append("clmgmtLicenseActionEntry", types.YChild{"ClmgmtLicenseActionEntry", nil})
+    for i := range clmgmtLicenseActionTable.ClmgmtLicenseActionEntry {
+        clmgmtLicenseActionTable.EntityData.Children.Append(types.GetSegmentPath(clmgmtLicenseActionTable.ClmgmtLicenseActionEntry[i]), types.YChild{"ClmgmtLicenseActionEntry", clmgmtLicenseActionTable.ClmgmtLicenseActionEntry[i]})
     }
-    clmgmtlicenseactiontable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(clmgmtlicenseactiontable.EntityData)
+    clmgmtLicenseActionTable.EntityData.Leafs = types.NewOrderedMap()
+
+    clmgmtLicenseActionTable.EntityData.YListKeys = []string {}
+
+    return &(clmgmtLicenseActionTable.EntityData)
 }
 
-// CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry
+// CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry
 // An entry for each action that is being executed or was
 // executed recently. The management application executes an
 // action
@@ -840,7 +855,7 @@ func (clmgmtlicenseactiontable *CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable) Ge
 // Entry can be deleted except when clmgmtLicenseAction is set
 // to pending(2). All entries are volatile and are cleared
 // on agent reset.
-type CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry struct {
+type CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -852,7 +867,7 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry struc
     // application should read the value of clmgmtNextFreeLicenseActionIndex again
     // and retry with the new value for this object. The type is interface{} with
     // range: 1..4294967295.
-    Clmgmtlicenseactionindex interface{}
+    ClmgmtLicenseActionIndex interface{}
 
     // This object represents the entPhysicalIndex of the device where the action
     // is being executed. This object is mainly used in devices where one device
@@ -862,7 +877,7 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry struc
     // card configuration. If this object is not set, the license action will be
     // executed on the master device. Note: This object need not be set if there
     // is a stand alone device. The type is interface{} with range: 0..2147483647.
-    Clmgmtlicenseactionentphysicalindex interface{}
+    ClmgmtLicenseActionEntPhysicalIndex interface{}
 
     // This object represents the transfer protocol to be used when copying files
     // as specified in the following objects. 1. clmgmtLicenseFile 2.
@@ -870,13 +885,13 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry struc
     // clmgmtLicenseBackupFile  Note: This object need not be set if the all the
     // files required for the action are in device's local file system. The type
     // is ClmgmtLicenseTransferProtocol.
-    Clmgmtlicenseactiontransferprotocol interface{}
+    ClmgmtLicenseActionTransferProtocol interface{}
 
     // This object indicates the transport type of the address contained in
     // clmgmtLicenseServerAddress object. This must be set when
     // clmgmtLicenseActionTransferProtocol is not none(1) or local(2). The type is
     // InetAddressType.
-    Clmgmtlicenseserveraddresstype interface{}
+    ClmgmtLicenseServerAddressType interface{}
 
     // This object indicates the ip address of the server from which the files
     // must be read or written to if clmgmtLicenseActionTransferProtocol is not
@@ -884,7 +899,7 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry struc
     // are not allowed.  The format of this address depends on the value of the
     // clmgmtLicenseServerAddressType object. The type is string with length:
     // 0..255.
-    Clmgmtlicenseserveraddress interface{}
+    ClmgmtLicenseServerAddress interface{}
 
     // This object indicates the remote user name for accessing files via ftp,
     // rcp, sftp or scp protocols. This object must be set when the
@@ -892,14 +907,14 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry struc
     // If clmgmtLicenseActionTransferProtocol is rcp(5), the remote username is
     // sent as the server username in an rcp command request sent by the system to
     // a remote rcp server. The type is string with length: 0..96.
-    Clmgmtlicenseserverusername interface{}
+    ClmgmtLicenseServerUsername interface{}
 
     // This object indicates the password used by ftp, sftp or scp for copying a
     // file to/from an ftp/sftp/scp server. This object must be set when the
     // clmgmtLicenseActionTransferProtocol is ftp(4) or scp(7) or sftp(8). Reading
     // it returns a zero-length string for security reasons. The type is string
     // with length: 0..96.
-    Clmgmtlicenseserverpassword interface{}
+    ClmgmtLicenseServerPassword interface{}
 
     // This object represents the location of the license file on the server
     // identified by clmgmtLicenseServerAddress. This object MUST be set to a
@@ -907,7 +922,7 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry struc
     // clmgmtLicenseAction object to install(2). For other operations, the value
     // of this object is not considered, it is irrelevant. The type is string with
     // length: 0..255.
-    Clmgmtlicensefile interface{}
+    ClmgmtLicenseFile interface{}
 
     // This object represents the clmgmtLicenseStoreIndex of the license store to
     // use within the device. The license store can be a local disk or flash. A
@@ -915,7 +930,7 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry struc
     // the license will be stored in the default license store as exposed by
     // clmgmtDefaultLicenseStore object. The type is interface{} with range:
     // 0..4294967295.
-    Clmgmtlicensestore interface{}
+    ClmgmtLicenseStore interface{}
 
     // This object indicates the the license index of the license that is the
     // subject of this action. This is used for identifying a license for
@@ -924,7 +939,7 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry struc
     // same as the clmgmtLicenseIndex object in clmgmtLicenseInfoEntry for license
     // that is subject of this action. The type is interface{} with range:
     // 0..4294967295.
-    Clmgmtlicenseactionlicenseindex interface{}
+    ClmgmtLicenseActionLicenseIndex interface{}
 
     // This object indicates the file name of the permission ticket. This object
     // need to be set only if clmgmtLicenseAction is set to
@@ -932,7 +947,7 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry struc
     // permission ticket is obtained from Cisco licensing portal to revoke a
     // license. The management application must set this object to valid value
     // before invoking the action. The type is string with length: 0..255.
-    Clmgmtlicensepermissionticketfile interface{}
+    ClmgmtLicensePermissionTicketFile interface{}
 
     // This object indicates the file where the rehost ticket generated by the
     // device need to be exported to. The rehost ticket is generated as a result
@@ -941,19 +956,19 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry struc
     // to this file. This object need to be set only if clmgmtLicenseAction is set
     // to processPermissionTicket(4) or regenerateLastRehostTicket(5) actions. The
     // type is string with length: 0..255.
-    Clmgmtlicenserehostticketfile interface{}
+    ClmgmtLicenseRehostTicketFile interface{}
 
     // This object indicates the file where all the licenses in the device need to
     // be backed up. This object need to be set only if clmgmtLicenseAction is set
     // to backup(6) and the management application must set the value of this 
     // object to valid value before invoking action. The type is string with
     // length: 0..255.
-    Clmgmtlicensebackupfile interface{}
+    ClmgmtLicenseBackupFile interface{}
 
     // This object indicates whether the license action should stop if the action
     // on a license fails. This object is applicable only if there are more than
     // one licenses involved in an action. The type is bool.
-    Clmgmtlicensestoponfailure interface{}
+    ClmgmtLicenseStopOnFailure interface{}
 
     // This object indicates the the command/action to be executed.  Command      
     // Remarks -------                        ------- noOp(1)                     
@@ -968,12 +983,12 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry struc
     // generateEULA(7)                Checks whether the licenses                 
     // in the license file need EULA                                acceptance and
     // uploads the                                needed EULA contents to a file.
-    // The type is Clmgmtlicenseaction.
-    Clmgmtlicenseaction interface{}
+    // The type is ClmgmtLicenseAction.
+    ClmgmtLicenseAction interface{}
 
     // This object indicates the state of this license action. The type is
     // ClmgmtLicenseActionState.
-    Clmgmtlicenseactionstate interface{}
+    ClmgmtLicenseActionState interface{}
 
     // This object represents the position of the action in the license action job
     // queue that is maintained internally. Only actions in pending(2) state will
@@ -984,17 +999,17 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry struc
     // application can choose to defer its license back up action to a later time.
     // This object will return a value of 0 if the action is not in pending(2)
     // state. The type is interface{} with range: 0..4294967295.
-    Clmgmtlicensejobqposition interface{}
+    ClmgmtLicenseJobQPosition interface{}
 
     // This object indicates the reason for this license action failure. The value
     // of this object is valid only when clmgmtLicenseActionState is failed(6).
     // The type is ClmgmtLicenseActionFailCause.
-    Clmgmtlicenseactionfailcause interface{}
+    ClmgmtLicenseActionFailCause interface{}
 
     // This object indicates the storage type for this conceptual row. Conceptual
     // rows having the value 'permanent' need not allow write-access to any
     // columnar objects in the row. The type is StorageType.
-    Clmgmtlicenseactionstoragetype interface{}
+    ClmgmtLicenseActionStorageType interface{}
 
     // This object indicates the the status of this table entry. Once the entry
     // status is set to active(1), the associated entry cannot be modified until
@@ -1005,80 +1020,83 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry struc
     // the result. In order to prevent old entries from clogging the table,
     // entries will be aged out, but an entry will never be deleted within 5
     // minutes of completion. The type is RowStatus.
-    Clmgmtlicenseactionrowstatus interface{}
+    ClmgmtLicenseActionRowStatus interface{}
 
     // This object indicates whether the End User License Agreement needed for
     // installing the licenses is accepted.  true(1) - EULA is read and accepted
     // false(2) - EULA is not accepted  Management application should set this
     // object to true(1) when installing licenses that need EULA acceptance. The
     // type is bool.
-    Clmgmtlicenseaccepteula interface{}
+    ClmgmtLicenseAcceptEULA interface{}
 
     // This object indicates the file where all the End User License Agreements
     // (EULAs) need to be exported to. This object need to be set only if
     // clmgmtLicenseAction is set to generateEULA(7) and the management
     // application must set the value of this object to valid value before
     // invoking action. The type is string with length: 0..255.
-    Clmgmtlicenseeulafile interface{}
+    ClmgmtLicenseEULAFile interface{}
 }
 
-func (clmgmtlicenseactionentry *CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry) GetEntityData() *types.CommonEntityData {
-    clmgmtlicenseactionentry.EntityData.YFilter = clmgmtlicenseactionentry.YFilter
-    clmgmtlicenseactionentry.EntityData.YangName = "clmgmtLicenseActionEntry"
-    clmgmtlicenseactionentry.EntityData.BundleName = "cisco_ios_xe"
-    clmgmtlicenseactionentry.EntityData.ParentYangName = "clmgmtLicenseActionTable"
-    clmgmtlicenseactionentry.EntityData.SegmentPath = "clmgmtLicenseActionEntry" + "[clmgmtLicenseActionIndex='" + fmt.Sprintf("%v", clmgmtlicenseactionentry.Clmgmtlicenseactionindex) + "']"
-    clmgmtlicenseactionentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    clmgmtlicenseactionentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    clmgmtlicenseactionentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (clmgmtLicenseActionEntry *CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry) GetEntityData() *types.CommonEntityData {
+    clmgmtLicenseActionEntry.EntityData.YFilter = clmgmtLicenseActionEntry.YFilter
+    clmgmtLicenseActionEntry.EntityData.YangName = "clmgmtLicenseActionEntry"
+    clmgmtLicenseActionEntry.EntityData.BundleName = "cisco_ios_xe"
+    clmgmtLicenseActionEntry.EntityData.ParentYangName = "clmgmtLicenseActionTable"
+    clmgmtLicenseActionEntry.EntityData.SegmentPath = "clmgmtLicenseActionEntry" + types.AddKeyToken(clmgmtLicenseActionEntry.ClmgmtLicenseActionIndex, "clmgmtLicenseActionIndex")
+    clmgmtLicenseActionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clmgmtLicenseActionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clmgmtLicenseActionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clmgmtlicenseactionentry.EntityData.Children = make(map[string]types.YChild)
-    clmgmtlicenseactionentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseActionIndex"] = types.YLeaf{"Clmgmtlicenseactionindex", clmgmtlicenseactionentry.Clmgmtlicenseactionindex}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseActionEntPhysicalIndex"] = types.YLeaf{"Clmgmtlicenseactionentphysicalindex", clmgmtlicenseactionentry.Clmgmtlicenseactionentphysicalindex}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseActionTransferProtocol"] = types.YLeaf{"Clmgmtlicenseactiontransferprotocol", clmgmtlicenseactionentry.Clmgmtlicenseactiontransferprotocol}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseServerAddressType"] = types.YLeaf{"Clmgmtlicenseserveraddresstype", clmgmtlicenseactionentry.Clmgmtlicenseserveraddresstype}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseServerAddress"] = types.YLeaf{"Clmgmtlicenseserveraddress", clmgmtlicenseactionentry.Clmgmtlicenseserveraddress}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseServerUsername"] = types.YLeaf{"Clmgmtlicenseserverusername", clmgmtlicenseactionentry.Clmgmtlicenseserverusername}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseServerPassword"] = types.YLeaf{"Clmgmtlicenseserverpassword", clmgmtlicenseactionentry.Clmgmtlicenseserverpassword}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseFile"] = types.YLeaf{"Clmgmtlicensefile", clmgmtlicenseactionentry.Clmgmtlicensefile}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseStore"] = types.YLeaf{"Clmgmtlicensestore", clmgmtlicenseactionentry.Clmgmtlicensestore}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseActionLicenseIndex"] = types.YLeaf{"Clmgmtlicenseactionlicenseindex", clmgmtlicenseactionentry.Clmgmtlicenseactionlicenseindex}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicensePermissionTicketFile"] = types.YLeaf{"Clmgmtlicensepermissionticketfile", clmgmtlicenseactionentry.Clmgmtlicensepermissionticketfile}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseRehostTicketFile"] = types.YLeaf{"Clmgmtlicenserehostticketfile", clmgmtlicenseactionentry.Clmgmtlicenserehostticketfile}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseBackupFile"] = types.YLeaf{"Clmgmtlicensebackupfile", clmgmtlicenseactionentry.Clmgmtlicensebackupfile}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseStopOnFailure"] = types.YLeaf{"Clmgmtlicensestoponfailure", clmgmtlicenseactionentry.Clmgmtlicensestoponfailure}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseAction"] = types.YLeaf{"Clmgmtlicenseaction", clmgmtlicenseactionentry.Clmgmtlicenseaction}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseActionState"] = types.YLeaf{"Clmgmtlicenseactionstate", clmgmtlicenseactionentry.Clmgmtlicenseactionstate}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseJobQPosition"] = types.YLeaf{"Clmgmtlicensejobqposition", clmgmtlicenseactionentry.Clmgmtlicensejobqposition}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseActionFailCause"] = types.YLeaf{"Clmgmtlicenseactionfailcause", clmgmtlicenseactionentry.Clmgmtlicenseactionfailcause}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseActionStorageType"] = types.YLeaf{"Clmgmtlicenseactionstoragetype", clmgmtlicenseactionentry.Clmgmtlicenseactionstoragetype}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseActionRowStatus"] = types.YLeaf{"Clmgmtlicenseactionrowstatus", clmgmtlicenseactionentry.Clmgmtlicenseactionrowstatus}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseAcceptEULA"] = types.YLeaf{"Clmgmtlicenseaccepteula", clmgmtlicenseactionentry.Clmgmtlicenseaccepteula}
-    clmgmtlicenseactionentry.EntityData.Leafs["clmgmtLicenseEULAFile"] = types.YLeaf{"Clmgmtlicenseeulafile", clmgmtlicenseactionentry.Clmgmtlicenseeulafile}
-    return &(clmgmtlicenseactionentry.EntityData)
+    clmgmtLicenseActionEntry.EntityData.Children = types.NewOrderedMap()
+    clmgmtLicenseActionEntry.EntityData.Leafs = types.NewOrderedMap()
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseActionIndex", types.YLeaf{"ClmgmtLicenseActionIndex", clmgmtLicenseActionEntry.ClmgmtLicenseActionIndex})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseActionEntPhysicalIndex", types.YLeaf{"ClmgmtLicenseActionEntPhysicalIndex", clmgmtLicenseActionEntry.ClmgmtLicenseActionEntPhysicalIndex})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseActionTransferProtocol", types.YLeaf{"ClmgmtLicenseActionTransferProtocol", clmgmtLicenseActionEntry.ClmgmtLicenseActionTransferProtocol})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseServerAddressType", types.YLeaf{"ClmgmtLicenseServerAddressType", clmgmtLicenseActionEntry.ClmgmtLicenseServerAddressType})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseServerAddress", types.YLeaf{"ClmgmtLicenseServerAddress", clmgmtLicenseActionEntry.ClmgmtLicenseServerAddress})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseServerUsername", types.YLeaf{"ClmgmtLicenseServerUsername", clmgmtLicenseActionEntry.ClmgmtLicenseServerUsername})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseServerPassword", types.YLeaf{"ClmgmtLicenseServerPassword", clmgmtLicenseActionEntry.ClmgmtLicenseServerPassword})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseFile", types.YLeaf{"ClmgmtLicenseFile", clmgmtLicenseActionEntry.ClmgmtLicenseFile})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseStore", types.YLeaf{"ClmgmtLicenseStore", clmgmtLicenseActionEntry.ClmgmtLicenseStore})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseActionLicenseIndex", types.YLeaf{"ClmgmtLicenseActionLicenseIndex", clmgmtLicenseActionEntry.ClmgmtLicenseActionLicenseIndex})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicensePermissionTicketFile", types.YLeaf{"ClmgmtLicensePermissionTicketFile", clmgmtLicenseActionEntry.ClmgmtLicensePermissionTicketFile})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseRehostTicketFile", types.YLeaf{"ClmgmtLicenseRehostTicketFile", clmgmtLicenseActionEntry.ClmgmtLicenseRehostTicketFile})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseBackupFile", types.YLeaf{"ClmgmtLicenseBackupFile", clmgmtLicenseActionEntry.ClmgmtLicenseBackupFile})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseStopOnFailure", types.YLeaf{"ClmgmtLicenseStopOnFailure", clmgmtLicenseActionEntry.ClmgmtLicenseStopOnFailure})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseAction", types.YLeaf{"ClmgmtLicenseAction", clmgmtLicenseActionEntry.ClmgmtLicenseAction})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseActionState", types.YLeaf{"ClmgmtLicenseActionState", clmgmtLicenseActionEntry.ClmgmtLicenseActionState})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseJobQPosition", types.YLeaf{"ClmgmtLicenseJobQPosition", clmgmtLicenseActionEntry.ClmgmtLicenseJobQPosition})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseActionFailCause", types.YLeaf{"ClmgmtLicenseActionFailCause", clmgmtLicenseActionEntry.ClmgmtLicenseActionFailCause})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseActionStorageType", types.YLeaf{"ClmgmtLicenseActionStorageType", clmgmtLicenseActionEntry.ClmgmtLicenseActionStorageType})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseActionRowStatus", types.YLeaf{"ClmgmtLicenseActionRowStatus", clmgmtLicenseActionEntry.ClmgmtLicenseActionRowStatus})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseAcceptEULA", types.YLeaf{"ClmgmtLicenseAcceptEULA", clmgmtLicenseActionEntry.ClmgmtLicenseAcceptEULA})
+    clmgmtLicenseActionEntry.EntityData.Leafs.Append("clmgmtLicenseEULAFile", types.YLeaf{"ClmgmtLicenseEULAFile", clmgmtLicenseActionEntry.ClmgmtLicenseEULAFile})
+
+    clmgmtLicenseActionEntry.EntityData.YListKeys = []string {"ClmgmtLicenseActionIndex"}
+
+    return &(clmgmtLicenseActionEntry.EntityData)
 }
 
-// CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry_Clmgmtlicenseaction represents                                needed EULA contents to a file.
-type CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry_Clmgmtlicenseaction string
+// CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry_ClmgmtLicenseAction represents                                needed EULA contents to a file.
+type CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry_ClmgmtLicenseAction string
 
 const (
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry_Clmgmtlicenseaction_noOp CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry_Clmgmtlicenseaction = "noOp"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry_ClmgmtLicenseAction_noOp CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry_ClmgmtLicenseAction = "noOp"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry_Clmgmtlicenseaction_install CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry_Clmgmtlicenseaction = "install"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry_ClmgmtLicenseAction_install CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry_ClmgmtLicenseAction = "install"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry_Clmgmtlicenseaction_clear CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry_Clmgmtlicenseaction = "clear"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry_ClmgmtLicenseAction_clear CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry_ClmgmtLicenseAction = "clear"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry_Clmgmtlicenseaction_processPermissionTicket CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry_Clmgmtlicenseaction = "processPermissionTicket"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry_ClmgmtLicenseAction_processPermissionTicket CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry_ClmgmtLicenseAction = "processPermissionTicket"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry_Clmgmtlicenseaction_regenerateLastRehostTicket CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry_Clmgmtlicenseaction = "regenerateLastRehostTicket"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry_ClmgmtLicenseAction_regenerateLastRehostTicket CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry_ClmgmtLicenseAction = "regenerateLastRehostTicket"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry_Clmgmtlicenseaction_backup CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry_Clmgmtlicenseaction = "backup"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry_ClmgmtLicenseAction_backup CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry_ClmgmtLicenseAction = "backup"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry_Clmgmtlicenseaction_generateEULA CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry_Clmgmtlicenseaction = "generateEULA"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry_ClmgmtLicenseAction_generateEULA CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry_ClmgmtLicenseAction = "generateEULA"
 )
 
-// CISCOLICENSEMGMTMIB_Clmgmtlicenseactionresulttable
+// CISCOLICENSEMGMTMIB_ClmgmtLicenseActionResultTable
 // This table contains results of license action if the
 // license action involves multiple licenses. Entries in this
 // table are not created for actions where there is
@@ -1086,7 +1104,7 @@ const (
 // example, if there are 3 licenses in a license file
 // when executing license install action, 3 entries will
 // be created in this table, one for each license.
-type CISCOLICENSEMGMTMIB_Clmgmtlicenseactionresulttable struct {
+type CISCOLICENSEMGMTMIB_ClmgmtLicenseActionResultTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1095,30 +1113,33 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseactionresulttable struct {
     // after action execution when the action involves multiple licenses. These
     // entries get automatically deleted when the corresponding entry in
     // clmgmtLicenseActionTable is deleted. The type is slice of
-    // CISCOLICENSEMGMTMIB_Clmgmtlicenseactionresulttable_Clmgmtlicenseactionresultentry.
-    Clmgmtlicenseactionresultentry []CISCOLICENSEMGMTMIB_Clmgmtlicenseactionresulttable_Clmgmtlicenseactionresultentry
+    // CISCOLICENSEMGMTMIB_ClmgmtLicenseActionResultTable_ClmgmtLicenseActionResultEntry.
+    ClmgmtLicenseActionResultEntry []*CISCOLICENSEMGMTMIB_ClmgmtLicenseActionResultTable_ClmgmtLicenseActionResultEntry
 }
 
-func (clmgmtlicenseactionresulttable *CISCOLICENSEMGMTMIB_Clmgmtlicenseactionresulttable) GetEntityData() *types.CommonEntityData {
-    clmgmtlicenseactionresulttable.EntityData.YFilter = clmgmtlicenseactionresulttable.YFilter
-    clmgmtlicenseactionresulttable.EntityData.YangName = "clmgmtLicenseActionResultTable"
-    clmgmtlicenseactionresulttable.EntityData.BundleName = "cisco_ios_xe"
-    clmgmtlicenseactionresulttable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
-    clmgmtlicenseactionresulttable.EntityData.SegmentPath = "clmgmtLicenseActionResultTable"
-    clmgmtlicenseactionresulttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    clmgmtlicenseactionresulttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    clmgmtlicenseactionresulttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (clmgmtLicenseActionResultTable *CISCOLICENSEMGMTMIB_ClmgmtLicenseActionResultTable) GetEntityData() *types.CommonEntityData {
+    clmgmtLicenseActionResultTable.EntityData.YFilter = clmgmtLicenseActionResultTable.YFilter
+    clmgmtLicenseActionResultTable.EntityData.YangName = "clmgmtLicenseActionResultTable"
+    clmgmtLicenseActionResultTable.EntityData.BundleName = "cisco_ios_xe"
+    clmgmtLicenseActionResultTable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
+    clmgmtLicenseActionResultTable.EntityData.SegmentPath = "clmgmtLicenseActionResultTable"
+    clmgmtLicenseActionResultTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clmgmtLicenseActionResultTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clmgmtLicenseActionResultTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clmgmtlicenseactionresulttable.EntityData.Children = make(map[string]types.YChild)
-    clmgmtlicenseactionresulttable.EntityData.Children["clmgmtLicenseActionResultEntry"] = types.YChild{"Clmgmtlicenseactionresultentry", nil}
-    for i := range clmgmtlicenseactionresulttable.Clmgmtlicenseactionresultentry {
-        clmgmtlicenseactionresulttable.EntityData.Children[types.GetSegmentPath(&clmgmtlicenseactionresulttable.Clmgmtlicenseactionresultentry[i])] = types.YChild{"Clmgmtlicenseactionresultentry", &clmgmtlicenseactionresulttable.Clmgmtlicenseactionresultentry[i]}
+    clmgmtLicenseActionResultTable.EntityData.Children = types.NewOrderedMap()
+    clmgmtLicenseActionResultTable.EntityData.Children.Append("clmgmtLicenseActionResultEntry", types.YChild{"ClmgmtLicenseActionResultEntry", nil})
+    for i := range clmgmtLicenseActionResultTable.ClmgmtLicenseActionResultEntry {
+        clmgmtLicenseActionResultTable.EntityData.Children.Append(types.GetSegmentPath(clmgmtLicenseActionResultTable.ClmgmtLicenseActionResultEntry[i]), types.YChild{"ClmgmtLicenseActionResultEntry", clmgmtLicenseActionResultTable.ClmgmtLicenseActionResultEntry[i]})
     }
-    clmgmtlicenseactionresulttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(clmgmtlicenseactionresulttable.EntityData)
+    clmgmtLicenseActionResultTable.EntityData.Leafs = types.NewOrderedMap()
+
+    clmgmtLicenseActionResultTable.EntityData.YListKeys = []string {}
+
+    return &(clmgmtLicenseActionResultTable.EntityData)
 }
 
-// CISCOLICENSEMGMTMIB_Clmgmtlicenseactionresulttable_Clmgmtlicenseactionresultentry
+// CISCOLICENSEMGMTMIB_ClmgmtLicenseActionResultTable_ClmgmtLicenseActionResultEntry
 // An entry in clmgmtLicenseActionResultTable. Each entry
 // contains result of the action for a single license.
 // These entries are created immediately after action
@@ -1126,14 +1147,14 @@ func (clmgmtlicenseactionresulttable *CISCOLICENSEMGMTMIB_Clmgmtlicenseactionres
 // These entries get automatically deleted when the
 // corresponding entry in clmgmtLicenseActionTable
 // is deleted.
-type CISCOLICENSEMGMTMIB_Clmgmtlicenseactionresulttable_Clmgmtlicenseactionresultentry struct {
+type CISCOLICENSEMGMTMIB_ClmgmtLicenseActionResultTable_ClmgmtLicenseActionResultEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // cisco_license_mgmt_mib.CISCOLICENSEMGMTMIB_Clmgmtlicenseactiontable_Clmgmtlicenseactionentry_Clmgmtlicenseactionindex
-    Clmgmtlicenseactionindex interface{}
+    // cisco_license_mgmt_mib.CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry_ClmgmtLicenseActionIndex
+    ClmgmtLicenseActionIndex interface{}
 
     // This attribute is a key. This object indicates the sequence number of this
     // license in the list of licenses on which the action is executed. For
@@ -1141,124 +1162,133 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseactionresulttable_Clmgmtlicenseactionresul
     // install action, this object will have values 1, 2 and 3 respectively as
     // ordered in the license file. The type is interface{} with range:
     // 1..4294967295.
-    Clmgmtlicensenumber interface{}
+    ClmgmtLicenseNumber interface{}
 
     // This object indicates the state of action on this individual license. The
     // type is ClmgmtLicenseActionState.
-    Clmgmtlicenseindivactionstate interface{}
+    ClmgmtLicenseIndivActionState interface{}
 
     // This object indicates the reason for action failure on this individual
     // license. The type is ClmgmtLicenseActionFailCause.
-    Clmgmtlicenseindivactionfailcause interface{}
+    ClmgmtLicenseIndivActionFailCause interface{}
 }
 
-func (clmgmtlicenseactionresultentry *CISCOLICENSEMGMTMIB_Clmgmtlicenseactionresulttable_Clmgmtlicenseactionresultentry) GetEntityData() *types.CommonEntityData {
-    clmgmtlicenseactionresultentry.EntityData.YFilter = clmgmtlicenseactionresultentry.YFilter
-    clmgmtlicenseactionresultentry.EntityData.YangName = "clmgmtLicenseActionResultEntry"
-    clmgmtlicenseactionresultentry.EntityData.BundleName = "cisco_ios_xe"
-    clmgmtlicenseactionresultentry.EntityData.ParentYangName = "clmgmtLicenseActionResultTable"
-    clmgmtlicenseactionresultentry.EntityData.SegmentPath = "clmgmtLicenseActionResultEntry" + "[clmgmtLicenseActionIndex='" + fmt.Sprintf("%v", clmgmtlicenseactionresultentry.Clmgmtlicenseactionindex) + "']" + "[clmgmtLicenseNumber='" + fmt.Sprintf("%v", clmgmtlicenseactionresultentry.Clmgmtlicensenumber) + "']"
-    clmgmtlicenseactionresultentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    clmgmtlicenseactionresultentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    clmgmtlicenseactionresultentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (clmgmtLicenseActionResultEntry *CISCOLICENSEMGMTMIB_ClmgmtLicenseActionResultTable_ClmgmtLicenseActionResultEntry) GetEntityData() *types.CommonEntityData {
+    clmgmtLicenseActionResultEntry.EntityData.YFilter = clmgmtLicenseActionResultEntry.YFilter
+    clmgmtLicenseActionResultEntry.EntityData.YangName = "clmgmtLicenseActionResultEntry"
+    clmgmtLicenseActionResultEntry.EntityData.BundleName = "cisco_ios_xe"
+    clmgmtLicenseActionResultEntry.EntityData.ParentYangName = "clmgmtLicenseActionResultTable"
+    clmgmtLicenseActionResultEntry.EntityData.SegmentPath = "clmgmtLicenseActionResultEntry" + types.AddKeyToken(clmgmtLicenseActionResultEntry.ClmgmtLicenseActionIndex, "clmgmtLicenseActionIndex") + types.AddKeyToken(clmgmtLicenseActionResultEntry.ClmgmtLicenseNumber, "clmgmtLicenseNumber")
+    clmgmtLicenseActionResultEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clmgmtLicenseActionResultEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clmgmtLicenseActionResultEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clmgmtlicenseactionresultentry.EntityData.Children = make(map[string]types.YChild)
-    clmgmtlicenseactionresultentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    clmgmtlicenseactionresultentry.EntityData.Leafs["clmgmtLicenseActionIndex"] = types.YLeaf{"Clmgmtlicenseactionindex", clmgmtlicenseactionresultentry.Clmgmtlicenseactionindex}
-    clmgmtlicenseactionresultentry.EntityData.Leafs["clmgmtLicenseNumber"] = types.YLeaf{"Clmgmtlicensenumber", clmgmtlicenseactionresultentry.Clmgmtlicensenumber}
-    clmgmtlicenseactionresultentry.EntityData.Leafs["clmgmtLicenseIndivActionState"] = types.YLeaf{"Clmgmtlicenseindivactionstate", clmgmtlicenseactionresultentry.Clmgmtlicenseindivactionstate}
-    clmgmtlicenseactionresultentry.EntityData.Leafs["clmgmtLicenseIndivActionFailCause"] = types.YLeaf{"Clmgmtlicenseindivactionfailcause", clmgmtlicenseactionresultentry.Clmgmtlicenseindivactionfailcause}
-    return &(clmgmtlicenseactionresultentry.EntityData)
+    clmgmtLicenseActionResultEntry.EntityData.Children = types.NewOrderedMap()
+    clmgmtLicenseActionResultEntry.EntityData.Leafs = types.NewOrderedMap()
+    clmgmtLicenseActionResultEntry.EntityData.Leafs.Append("clmgmtLicenseActionIndex", types.YLeaf{"ClmgmtLicenseActionIndex", clmgmtLicenseActionResultEntry.ClmgmtLicenseActionIndex})
+    clmgmtLicenseActionResultEntry.EntityData.Leafs.Append("clmgmtLicenseNumber", types.YLeaf{"ClmgmtLicenseNumber", clmgmtLicenseActionResultEntry.ClmgmtLicenseNumber})
+    clmgmtLicenseActionResultEntry.EntityData.Leafs.Append("clmgmtLicenseIndivActionState", types.YLeaf{"ClmgmtLicenseIndivActionState", clmgmtLicenseActionResultEntry.ClmgmtLicenseIndivActionState})
+    clmgmtLicenseActionResultEntry.EntityData.Leafs.Append("clmgmtLicenseIndivActionFailCause", types.YLeaf{"ClmgmtLicenseIndivActionFailCause", clmgmtLicenseActionResultEntry.ClmgmtLicenseIndivActionFailCause})
+
+    clmgmtLicenseActionResultEntry.EntityData.YListKeys = []string {"ClmgmtLicenseActionIndex", "ClmgmtLicenseNumber"}
+
+    return &(clmgmtLicenseActionResultEntry.EntityData)
 }
 
-// CISCOLICENSEMGMTMIB_Clmgmtlicensestoreinfotable
+// CISCOLICENSEMGMTMIB_ClmgmtLicenseStoreInfoTable
 // This table contains information about all the license
 // stores allocated on the device.
-type CISCOLICENSEMGMTMIB_Clmgmtlicensestoreinfotable struct {
+type CISCOLICENSEMGMTMIB_ClmgmtLicenseStoreInfoTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in clmgmtLicenseStoreInfoTable. Each entry contains information
     // about a license store allocated on the device. The type is slice of
-    // CISCOLICENSEMGMTMIB_Clmgmtlicensestoreinfotable_Clmgmtlicensestoreinfoentry.
-    Clmgmtlicensestoreinfoentry []CISCOLICENSEMGMTMIB_Clmgmtlicensestoreinfotable_Clmgmtlicensestoreinfoentry
+    // CISCOLICENSEMGMTMIB_ClmgmtLicenseStoreInfoTable_ClmgmtLicenseStoreInfoEntry.
+    ClmgmtLicenseStoreInfoEntry []*CISCOLICENSEMGMTMIB_ClmgmtLicenseStoreInfoTable_ClmgmtLicenseStoreInfoEntry
 }
 
-func (clmgmtlicensestoreinfotable *CISCOLICENSEMGMTMIB_Clmgmtlicensestoreinfotable) GetEntityData() *types.CommonEntityData {
-    clmgmtlicensestoreinfotable.EntityData.YFilter = clmgmtlicensestoreinfotable.YFilter
-    clmgmtlicensestoreinfotable.EntityData.YangName = "clmgmtLicenseStoreInfoTable"
-    clmgmtlicensestoreinfotable.EntityData.BundleName = "cisco_ios_xe"
-    clmgmtlicensestoreinfotable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
-    clmgmtlicensestoreinfotable.EntityData.SegmentPath = "clmgmtLicenseStoreInfoTable"
-    clmgmtlicensestoreinfotable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    clmgmtlicensestoreinfotable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    clmgmtlicensestoreinfotable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (clmgmtLicenseStoreInfoTable *CISCOLICENSEMGMTMIB_ClmgmtLicenseStoreInfoTable) GetEntityData() *types.CommonEntityData {
+    clmgmtLicenseStoreInfoTable.EntityData.YFilter = clmgmtLicenseStoreInfoTable.YFilter
+    clmgmtLicenseStoreInfoTable.EntityData.YangName = "clmgmtLicenseStoreInfoTable"
+    clmgmtLicenseStoreInfoTable.EntityData.BundleName = "cisco_ios_xe"
+    clmgmtLicenseStoreInfoTable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
+    clmgmtLicenseStoreInfoTable.EntityData.SegmentPath = "clmgmtLicenseStoreInfoTable"
+    clmgmtLicenseStoreInfoTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clmgmtLicenseStoreInfoTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clmgmtLicenseStoreInfoTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clmgmtlicensestoreinfotable.EntityData.Children = make(map[string]types.YChild)
-    clmgmtlicensestoreinfotable.EntityData.Children["clmgmtLicenseStoreInfoEntry"] = types.YChild{"Clmgmtlicensestoreinfoentry", nil}
-    for i := range clmgmtlicensestoreinfotable.Clmgmtlicensestoreinfoentry {
-        clmgmtlicensestoreinfotable.EntityData.Children[types.GetSegmentPath(&clmgmtlicensestoreinfotable.Clmgmtlicensestoreinfoentry[i])] = types.YChild{"Clmgmtlicensestoreinfoentry", &clmgmtlicensestoreinfotable.Clmgmtlicensestoreinfoentry[i]}
+    clmgmtLicenseStoreInfoTable.EntityData.Children = types.NewOrderedMap()
+    clmgmtLicenseStoreInfoTable.EntityData.Children.Append("clmgmtLicenseStoreInfoEntry", types.YChild{"ClmgmtLicenseStoreInfoEntry", nil})
+    for i := range clmgmtLicenseStoreInfoTable.ClmgmtLicenseStoreInfoEntry {
+        clmgmtLicenseStoreInfoTable.EntityData.Children.Append(types.GetSegmentPath(clmgmtLicenseStoreInfoTable.ClmgmtLicenseStoreInfoEntry[i]), types.YChild{"ClmgmtLicenseStoreInfoEntry", clmgmtLicenseStoreInfoTable.ClmgmtLicenseStoreInfoEntry[i]})
     }
-    clmgmtlicensestoreinfotable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(clmgmtlicensestoreinfotable.EntityData)
+    clmgmtLicenseStoreInfoTable.EntityData.Leafs = types.NewOrderedMap()
+
+    clmgmtLicenseStoreInfoTable.EntityData.YListKeys = []string {}
+
+    return &(clmgmtLicenseStoreInfoTable.EntityData)
 }
 
-// CISCOLICENSEMGMTMIB_Clmgmtlicensestoreinfotable_Clmgmtlicensestoreinfoentry
+// CISCOLICENSEMGMTMIB_ClmgmtLicenseStoreInfoTable_ClmgmtLicenseStoreInfoEntry
 // An entry in clmgmtLicenseStoreInfoTable. Each entry
 // contains information about a license store allocated
 // on the device
-type CISCOLICENSEMGMTMIB_Clmgmtlicensestoreinfotable_Clmgmtlicensestoreinfoentry struct {
+type CISCOLICENSEMGMTMIB_ClmgmtLicenseStoreInfoTable_ClmgmtLicenseStoreInfoEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // entity_mib.ENTITYMIB_Entphysicaltable_Entphysicalentry_Entphysicalindex
-    Entphysicalindex interface{}
+    // entity_mib.ENTITYMIB_EntPhysicalTable_EntPhysicalEntry_EntPhysicalIndex
+    EntPhysicalIndex interface{}
 
     // This attribute is a key. This object uniquely identifies a license store
     // within the device. The type is interface{} with range: 1..4294967295.
-    Clmgmtlicensestoreindex interface{}
+    ClmgmtLicenseStoreIndex interface{}
 
     // This object indicates the name of the license store within the device. It
     // is a file in device's local file system i.e., either on a local disk or
     // flash or some other storage media. For example, the value of this object
     // can be 'disk1:lic_store_1.txt' or 'flash:lic_store_2.txt. The type is
     // string with length: 0..255.
-    Clmgmtlicensestorename interface{}
+    ClmgmtLicenseStoreName interface{}
 
     // This object indicates the total number of bytes that are allocated to the
     // license store. The type is interface{} with range: 0..4294967295. Units are
     // bytes.
-    Clmgmtlicensestoretotalsize interface{}
+    ClmgmtLicenseStoreTotalSize interface{}
 
     // This object indicates the number of bytes still remaining to be used for
     // new license installations in the license store. The type is interface{}
     // with range: 0..4294967295. Units are bytes.
-    Clmgmtlicensestoresizeremaining interface{}
+    ClmgmtLicenseStoreSizeRemaining interface{}
 }
 
-func (clmgmtlicensestoreinfoentry *CISCOLICENSEMGMTMIB_Clmgmtlicensestoreinfotable_Clmgmtlicensestoreinfoentry) GetEntityData() *types.CommonEntityData {
-    clmgmtlicensestoreinfoentry.EntityData.YFilter = clmgmtlicensestoreinfoentry.YFilter
-    clmgmtlicensestoreinfoentry.EntityData.YangName = "clmgmtLicenseStoreInfoEntry"
-    clmgmtlicensestoreinfoentry.EntityData.BundleName = "cisco_ios_xe"
-    clmgmtlicensestoreinfoentry.EntityData.ParentYangName = "clmgmtLicenseStoreInfoTable"
-    clmgmtlicensestoreinfoentry.EntityData.SegmentPath = "clmgmtLicenseStoreInfoEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", clmgmtlicensestoreinfoentry.Entphysicalindex) + "']" + "[clmgmtLicenseStoreIndex='" + fmt.Sprintf("%v", clmgmtlicensestoreinfoentry.Clmgmtlicensestoreindex) + "']"
-    clmgmtlicensestoreinfoentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    clmgmtlicensestoreinfoentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    clmgmtlicensestoreinfoentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (clmgmtLicenseStoreInfoEntry *CISCOLICENSEMGMTMIB_ClmgmtLicenseStoreInfoTable_ClmgmtLicenseStoreInfoEntry) GetEntityData() *types.CommonEntityData {
+    clmgmtLicenseStoreInfoEntry.EntityData.YFilter = clmgmtLicenseStoreInfoEntry.YFilter
+    clmgmtLicenseStoreInfoEntry.EntityData.YangName = "clmgmtLicenseStoreInfoEntry"
+    clmgmtLicenseStoreInfoEntry.EntityData.BundleName = "cisco_ios_xe"
+    clmgmtLicenseStoreInfoEntry.EntityData.ParentYangName = "clmgmtLicenseStoreInfoTable"
+    clmgmtLicenseStoreInfoEntry.EntityData.SegmentPath = "clmgmtLicenseStoreInfoEntry" + types.AddKeyToken(clmgmtLicenseStoreInfoEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(clmgmtLicenseStoreInfoEntry.ClmgmtLicenseStoreIndex, "clmgmtLicenseStoreIndex")
+    clmgmtLicenseStoreInfoEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clmgmtLicenseStoreInfoEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clmgmtLicenseStoreInfoEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clmgmtlicensestoreinfoentry.EntityData.Children = make(map[string]types.YChild)
-    clmgmtlicensestoreinfoentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    clmgmtlicensestoreinfoentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", clmgmtlicensestoreinfoentry.Entphysicalindex}
-    clmgmtlicensestoreinfoentry.EntityData.Leafs["clmgmtLicenseStoreIndex"] = types.YLeaf{"Clmgmtlicensestoreindex", clmgmtlicensestoreinfoentry.Clmgmtlicensestoreindex}
-    clmgmtlicensestoreinfoentry.EntityData.Leafs["clmgmtLicenseStoreName"] = types.YLeaf{"Clmgmtlicensestorename", clmgmtlicensestoreinfoentry.Clmgmtlicensestorename}
-    clmgmtlicensestoreinfoentry.EntityData.Leafs["clmgmtLicenseStoreTotalSize"] = types.YLeaf{"Clmgmtlicensestoretotalsize", clmgmtlicensestoreinfoentry.Clmgmtlicensestoretotalsize}
-    clmgmtlicensestoreinfoentry.EntityData.Leafs["clmgmtLicenseStoreSizeRemaining"] = types.YLeaf{"Clmgmtlicensestoresizeremaining", clmgmtlicensestoreinfoentry.Clmgmtlicensestoresizeremaining}
-    return &(clmgmtlicensestoreinfoentry.EntityData)
+    clmgmtLicenseStoreInfoEntry.EntityData.Children = types.NewOrderedMap()
+    clmgmtLicenseStoreInfoEntry.EntityData.Leafs = types.NewOrderedMap()
+    clmgmtLicenseStoreInfoEntry.EntityData.Leafs.Append("entPhysicalIndex", types.YLeaf{"EntPhysicalIndex", clmgmtLicenseStoreInfoEntry.EntPhysicalIndex})
+    clmgmtLicenseStoreInfoEntry.EntityData.Leafs.Append("clmgmtLicenseStoreIndex", types.YLeaf{"ClmgmtLicenseStoreIndex", clmgmtLicenseStoreInfoEntry.ClmgmtLicenseStoreIndex})
+    clmgmtLicenseStoreInfoEntry.EntityData.Leafs.Append("clmgmtLicenseStoreName", types.YLeaf{"ClmgmtLicenseStoreName", clmgmtLicenseStoreInfoEntry.ClmgmtLicenseStoreName})
+    clmgmtLicenseStoreInfoEntry.EntityData.Leafs.Append("clmgmtLicenseStoreTotalSize", types.YLeaf{"ClmgmtLicenseStoreTotalSize", clmgmtLicenseStoreInfoEntry.ClmgmtLicenseStoreTotalSize})
+    clmgmtLicenseStoreInfoEntry.EntityData.Leafs.Append("clmgmtLicenseStoreSizeRemaining", types.YLeaf{"ClmgmtLicenseStoreSizeRemaining", clmgmtLicenseStoreInfoEntry.ClmgmtLicenseStoreSizeRemaining})
+
+    clmgmtLicenseStoreInfoEntry.EntityData.YListKeys = []string {"EntPhysicalIndex", "ClmgmtLicenseStoreIndex"}
+
+    return &(clmgmtLicenseStoreInfoEntry.EntityData)
 }
 
-// CISCOLICENSEMGMTMIB_Clmgmtlicensedeviceinfotable
+// CISCOLICENSEMGMTMIB_ClmgmtLicenseDeviceInfoTable
 // This table contains objects that provide licensing related
 // information at the device level. Entries will exist
 // only for entities that support licensing. For example,
@@ -1266,75 +1296,81 @@ func (clmgmtlicensestoreinfoentry *CISCOLICENSEMGMTMIB_Clmgmtlicensestoreinfotab
 // then there will be only one entry in this table. If
 // it is stackable switch then there will be multiple
 // entries with one entry for each device in the stack.
-type CISCOLICENSEMGMTMIB_Clmgmtlicensedeviceinfotable struct {
+type CISCOLICENSEMGMTMIB_ClmgmtLicenseDeviceInfoTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in clmgmtLicenseDeviceInfoTable. Each entry contains device level
     // licensing information for a device. The type is slice of
-    // CISCOLICENSEMGMTMIB_Clmgmtlicensedeviceinfotable_Clmgmtlicensedeviceinfoentry.
-    Clmgmtlicensedeviceinfoentry []CISCOLICENSEMGMTMIB_Clmgmtlicensedeviceinfotable_Clmgmtlicensedeviceinfoentry
+    // CISCOLICENSEMGMTMIB_ClmgmtLicenseDeviceInfoTable_ClmgmtLicenseDeviceInfoEntry.
+    ClmgmtLicenseDeviceInfoEntry []*CISCOLICENSEMGMTMIB_ClmgmtLicenseDeviceInfoTable_ClmgmtLicenseDeviceInfoEntry
 }
 
-func (clmgmtlicensedeviceinfotable *CISCOLICENSEMGMTMIB_Clmgmtlicensedeviceinfotable) GetEntityData() *types.CommonEntityData {
-    clmgmtlicensedeviceinfotable.EntityData.YFilter = clmgmtlicensedeviceinfotable.YFilter
-    clmgmtlicensedeviceinfotable.EntityData.YangName = "clmgmtLicenseDeviceInfoTable"
-    clmgmtlicensedeviceinfotable.EntityData.BundleName = "cisco_ios_xe"
-    clmgmtlicensedeviceinfotable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
-    clmgmtlicensedeviceinfotable.EntityData.SegmentPath = "clmgmtLicenseDeviceInfoTable"
-    clmgmtlicensedeviceinfotable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    clmgmtlicensedeviceinfotable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    clmgmtlicensedeviceinfotable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (clmgmtLicenseDeviceInfoTable *CISCOLICENSEMGMTMIB_ClmgmtLicenseDeviceInfoTable) GetEntityData() *types.CommonEntityData {
+    clmgmtLicenseDeviceInfoTable.EntityData.YFilter = clmgmtLicenseDeviceInfoTable.YFilter
+    clmgmtLicenseDeviceInfoTable.EntityData.YangName = "clmgmtLicenseDeviceInfoTable"
+    clmgmtLicenseDeviceInfoTable.EntityData.BundleName = "cisco_ios_xe"
+    clmgmtLicenseDeviceInfoTable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
+    clmgmtLicenseDeviceInfoTable.EntityData.SegmentPath = "clmgmtLicenseDeviceInfoTable"
+    clmgmtLicenseDeviceInfoTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clmgmtLicenseDeviceInfoTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clmgmtLicenseDeviceInfoTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clmgmtlicensedeviceinfotable.EntityData.Children = make(map[string]types.YChild)
-    clmgmtlicensedeviceinfotable.EntityData.Children["clmgmtLicenseDeviceInfoEntry"] = types.YChild{"Clmgmtlicensedeviceinfoentry", nil}
-    for i := range clmgmtlicensedeviceinfotable.Clmgmtlicensedeviceinfoentry {
-        clmgmtlicensedeviceinfotable.EntityData.Children[types.GetSegmentPath(&clmgmtlicensedeviceinfotable.Clmgmtlicensedeviceinfoentry[i])] = types.YChild{"Clmgmtlicensedeviceinfoentry", &clmgmtlicensedeviceinfotable.Clmgmtlicensedeviceinfoentry[i]}
+    clmgmtLicenseDeviceInfoTable.EntityData.Children = types.NewOrderedMap()
+    clmgmtLicenseDeviceInfoTable.EntityData.Children.Append("clmgmtLicenseDeviceInfoEntry", types.YChild{"ClmgmtLicenseDeviceInfoEntry", nil})
+    for i := range clmgmtLicenseDeviceInfoTable.ClmgmtLicenseDeviceInfoEntry {
+        clmgmtLicenseDeviceInfoTable.EntityData.Children.Append(types.GetSegmentPath(clmgmtLicenseDeviceInfoTable.ClmgmtLicenseDeviceInfoEntry[i]), types.YChild{"ClmgmtLicenseDeviceInfoEntry", clmgmtLicenseDeviceInfoTable.ClmgmtLicenseDeviceInfoEntry[i]})
     }
-    clmgmtlicensedeviceinfotable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(clmgmtlicensedeviceinfotable.EntityData)
+    clmgmtLicenseDeviceInfoTable.EntityData.Leafs = types.NewOrderedMap()
+
+    clmgmtLicenseDeviceInfoTable.EntityData.YListKeys = []string {}
+
+    return &(clmgmtLicenseDeviceInfoTable.EntityData)
 }
 
-// CISCOLICENSEMGMTMIB_Clmgmtlicensedeviceinfotable_Clmgmtlicensedeviceinfoentry
+// CISCOLICENSEMGMTMIB_ClmgmtLicenseDeviceInfoTable_ClmgmtLicenseDeviceInfoEntry
 // An entry in clmgmtLicenseDeviceInfoTable. Each entry
 // contains device level licensing information for a device.
-type CISCOLICENSEMGMTMIB_Clmgmtlicensedeviceinfotable_Clmgmtlicensedeviceinfoentry struct {
+type CISCOLICENSEMGMTMIB_ClmgmtLicenseDeviceInfoTable_ClmgmtLicenseDeviceInfoEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // entity_mib.ENTITYMIB_Entphysicaltable_Entphysicalentry_Entphysicalindex
-    Entphysicalindex interface{}
+    // entity_mib.ENTITYMIB_EntPhysicalTable_EntPhysicalEntry_EntPhysicalIndex
+    EntPhysicalIndex interface{}
 
     // This object indicates the clmgmtLicenseStoreIndex of default store in the
     // device. There will be only one default license store per device. If no
     // license store is specified during license install, this default license
     // store will be used. The type is interface{} with range: 1..4294967295.
-    Clmgmtdefaultlicensestore interface{}
+    ClmgmtDefaultLicenseStore interface{}
 }
 
-func (clmgmtlicensedeviceinfoentry *CISCOLICENSEMGMTMIB_Clmgmtlicensedeviceinfotable_Clmgmtlicensedeviceinfoentry) GetEntityData() *types.CommonEntityData {
-    clmgmtlicensedeviceinfoentry.EntityData.YFilter = clmgmtlicensedeviceinfoentry.YFilter
-    clmgmtlicensedeviceinfoentry.EntityData.YangName = "clmgmtLicenseDeviceInfoEntry"
-    clmgmtlicensedeviceinfoentry.EntityData.BundleName = "cisco_ios_xe"
-    clmgmtlicensedeviceinfoentry.EntityData.ParentYangName = "clmgmtLicenseDeviceInfoTable"
-    clmgmtlicensedeviceinfoentry.EntityData.SegmentPath = "clmgmtLicenseDeviceInfoEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", clmgmtlicensedeviceinfoentry.Entphysicalindex) + "']"
-    clmgmtlicensedeviceinfoentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    clmgmtlicensedeviceinfoentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    clmgmtlicensedeviceinfoentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (clmgmtLicenseDeviceInfoEntry *CISCOLICENSEMGMTMIB_ClmgmtLicenseDeviceInfoTable_ClmgmtLicenseDeviceInfoEntry) GetEntityData() *types.CommonEntityData {
+    clmgmtLicenseDeviceInfoEntry.EntityData.YFilter = clmgmtLicenseDeviceInfoEntry.YFilter
+    clmgmtLicenseDeviceInfoEntry.EntityData.YangName = "clmgmtLicenseDeviceInfoEntry"
+    clmgmtLicenseDeviceInfoEntry.EntityData.BundleName = "cisco_ios_xe"
+    clmgmtLicenseDeviceInfoEntry.EntityData.ParentYangName = "clmgmtLicenseDeviceInfoTable"
+    clmgmtLicenseDeviceInfoEntry.EntityData.SegmentPath = "clmgmtLicenseDeviceInfoEntry" + types.AddKeyToken(clmgmtLicenseDeviceInfoEntry.EntPhysicalIndex, "entPhysicalIndex")
+    clmgmtLicenseDeviceInfoEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clmgmtLicenseDeviceInfoEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clmgmtLicenseDeviceInfoEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clmgmtlicensedeviceinfoentry.EntityData.Children = make(map[string]types.YChild)
-    clmgmtlicensedeviceinfoentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    clmgmtlicensedeviceinfoentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", clmgmtlicensedeviceinfoentry.Entphysicalindex}
-    clmgmtlicensedeviceinfoentry.EntityData.Leafs["clmgmtDefaultLicenseStore"] = types.YLeaf{"Clmgmtdefaultlicensestore", clmgmtlicensedeviceinfoentry.Clmgmtdefaultlicensestore}
-    return &(clmgmtlicensedeviceinfoentry.EntityData)
+    clmgmtLicenseDeviceInfoEntry.EntityData.Children = types.NewOrderedMap()
+    clmgmtLicenseDeviceInfoEntry.EntityData.Leafs = types.NewOrderedMap()
+    clmgmtLicenseDeviceInfoEntry.EntityData.Leafs.Append("entPhysicalIndex", types.YLeaf{"EntPhysicalIndex", clmgmtLicenseDeviceInfoEntry.EntPhysicalIndex})
+    clmgmtLicenseDeviceInfoEntry.EntityData.Leafs.Append("clmgmtDefaultLicenseStore", types.YLeaf{"ClmgmtDefaultLicenseStore", clmgmtLicenseDeviceInfoEntry.ClmgmtDefaultLicenseStore})
+
+    clmgmtLicenseDeviceInfoEntry.EntityData.YListKeys = []string {"EntPhysicalIndex"}
+
+    return &(clmgmtLicenseDeviceInfoEntry.EntityData)
 }
 
-// CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable
+// CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable
 // This table contains information about all the licenses
 // installed on the device.
-type CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable struct {
+type CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1344,30 +1380,33 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable struct {
     // directly, but will do so indirectly by executing license install action.
     // Some of these entries may already exist that correspond to demo licenses
     // even before management application installs any licenses. The type is slice
-    // of CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry.
-    Clmgmtlicenseinfoentry []CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry
+    // of CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry.
+    ClmgmtLicenseInfoEntry []*CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry
 }
 
-func (clmgmtlicenseinfotable *CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable) GetEntityData() *types.CommonEntityData {
-    clmgmtlicenseinfotable.EntityData.YFilter = clmgmtlicenseinfotable.YFilter
-    clmgmtlicenseinfotable.EntityData.YangName = "clmgmtLicenseInfoTable"
-    clmgmtlicenseinfotable.EntityData.BundleName = "cisco_ios_xe"
-    clmgmtlicenseinfotable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
-    clmgmtlicenseinfotable.EntityData.SegmentPath = "clmgmtLicenseInfoTable"
-    clmgmtlicenseinfotable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    clmgmtlicenseinfotable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    clmgmtlicenseinfotable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (clmgmtLicenseInfoTable *CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable) GetEntityData() *types.CommonEntityData {
+    clmgmtLicenseInfoTable.EntityData.YFilter = clmgmtLicenseInfoTable.YFilter
+    clmgmtLicenseInfoTable.EntityData.YangName = "clmgmtLicenseInfoTable"
+    clmgmtLicenseInfoTable.EntityData.BundleName = "cisco_ios_xe"
+    clmgmtLicenseInfoTable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
+    clmgmtLicenseInfoTable.EntityData.SegmentPath = "clmgmtLicenseInfoTable"
+    clmgmtLicenseInfoTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clmgmtLicenseInfoTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clmgmtLicenseInfoTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clmgmtlicenseinfotable.EntityData.Children = make(map[string]types.YChild)
-    clmgmtlicenseinfotable.EntityData.Children["clmgmtLicenseInfoEntry"] = types.YChild{"Clmgmtlicenseinfoentry", nil}
-    for i := range clmgmtlicenseinfotable.Clmgmtlicenseinfoentry {
-        clmgmtlicenseinfotable.EntityData.Children[types.GetSegmentPath(&clmgmtlicenseinfotable.Clmgmtlicenseinfoentry[i])] = types.YChild{"Clmgmtlicenseinfoentry", &clmgmtlicenseinfotable.Clmgmtlicenseinfoentry[i]}
+    clmgmtLicenseInfoTable.EntityData.Children = types.NewOrderedMap()
+    clmgmtLicenseInfoTable.EntityData.Children.Append("clmgmtLicenseInfoEntry", types.YChild{"ClmgmtLicenseInfoEntry", nil})
+    for i := range clmgmtLicenseInfoTable.ClmgmtLicenseInfoEntry {
+        clmgmtLicenseInfoTable.EntityData.Children.Append(types.GetSegmentPath(clmgmtLicenseInfoTable.ClmgmtLicenseInfoEntry[i]), types.YChild{"ClmgmtLicenseInfoEntry", clmgmtLicenseInfoTable.ClmgmtLicenseInfoEntry[i]})
     }
-    clmgmtlicenseinfotable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(clmgmtlicenseinfotable.EntityData)
+    clmgmtLicenseInfoTable.EntityData.Leafs = types.NewOrderedMap()
+
+    clmgmtLicenseInfoTable.EntityData.YListKeys = []string {}
+
+    return &(clmgmtLicenseInfoTable.EntityData)
 }
 
-// CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry
+// CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry
 // An entry in clmgmtLicenseInfoTable. Each entry contains
 // information about a license installed on the device. This
 // entry gets created when a license is installed successfully.
@@ -1376,34 +1415,34 @@ func (clmgmtlicenseinfotable *CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable) GetEnt
 // Some of these entries may already exist that correspond to
 // demo licenses even before management application installs any
 // licenses.
-type CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry struct {
+type CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // entity_mib.ENTITYMIB_Entphysicaltable_Entphysicalentry_Entphysicalindex
-    Entphysicalindex interface{}
+    // entity_mib.ENTITYMIB_EntPhysicalTable_EntPhysicalEntry_EntPhysicalIndex
+    EntPhysicalIndex interface{}
 
     // This attribute is a key. This object represents the license store that is
     // used for storing this license. This object will have the same value as
     // clmgmtLicenseStoreIndex in clmgmtLicenseStoreInfoEntry of the license store
     // used. The type is interface{} with range: 1..4294967295.
-    Clmgmtlicensestoreused interface{}
+    ClmgmtLicenseStoreUsed interface{}
 
     // This attribute is a key. This object uniquely identifies a license within
     // the device. The type is interface{} with range: 1..4294967295.
-    Clmgmtlicenseindex interface{}
+    ClmgmtLicenseIndex interface{}
 
     // This object indicates the name of the feature that is using or can use this
     // license. A license can be used by only one feature. Examples of feature
     // name are: 'IPBASE', 'ADVIPSERVICE'. The type is string with length: 0..128.
-    Clmgmtlicensefeaturename interface{}
+    ClmgmtLicenseFeatureName interface{}
 
     // This object indicates the version of the feature that is using or can use
     // this license. Examples of feature version are: '1.0', '2.0'. The type is
     // string with length: 0..128.
-    Clmgmtlicensefeatureversion interface{}
+    ClmgmtLicenseFeatureVersion interface{}
 
     // This object identifies type of license. Licenses may have validity period
     // defined in terms of time duration that the license is valid for or it may
@@ -1431,26 +1470,26 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry struct {
     // permanentRightToUse(10) ? Right To Use license right after it is configured
     // and is valid for the lifetime of the product.                           
     // This is a Right To Use license which is not in                           
-    // evaluation mode for a limited time. The type is Clmgmtlicensetype.
-    Clmgmtlicensetype interface{}
+    // evaluation mode for a limited time. The type is ClmgmtLicenseType.
+    ClmgmtLicenseType interface{}
 
     // This object indicates whether the license is counted license. true(1)  -
     // counted license false(2) - uncounted license. The type is bool.
-    Clmgmtlicensecounted interface{}
+    ClmgmtLicenseCounted interface{}
 
     // This object indicates the time period the license is valid for. This object
     // is applicable only if clmgmtLicenseType is demo(1), or extension(2) or
     // gracePeriod(3) or evalRightToUse(8). The object will return 0 for other
     // license types. The type is interface{} with range: 0..4294967295. Units are
     // seconds.
-    Clmgmtlicensevalidityperiod interface{}
+    ClmgmtLicenseValidityPeriod interface{}
 
     // This object indicates the time period remaining before the license expires
     // or transitions to rightToUse(9) license. This object is applicable only if
     // clmgmtLicenseType is demo(1), or extension(2) or gracePeriod(3) or
     // evalRightToUse(8). The object will contain 0 for other license types. The
     // type is interface{} with range: 0..4294967295. Units are seconds.
-    Clmgmtlicensevalidityperiodremaining interface{}
+    ClmgmtLicenseValidityPeriodRemaining interface{}
 
     // This object indicates the elapsed time period since the license expired.
     // This object is applicable only if clmgmtLicenseType is demo(1), or
@@ -1458,28 +1497,28 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry struct {
     // valid only after the license expires. The object will return 0 for other
     // license types or before the license expiry. The type is interface{} with
     // range: 0..4294967295. Units are seconds.
-    Clmgmtlicenseexpiredperiod interface{}
+    ClmgmtLicenseExpiredPeriod interface{}
 
     // This object indicates the maximum number of entities that can use this
     // license. This object is applicable only if clmgmtLicenseCounted is true(1).
     // The entity that is being counted can be anything and it depends on the
     // licensable feature. The type is interface{} with range: 0..4294967295.
-    Clmgmtlicensemaxusagecount interface{}
+    ClmgmtLicenseMaxUsageCount interface{}
 
     // This object indicates the number of entities that can still use this
     // license. This object is applicable only if clmgmtLicenseCounted is true(1).
     // The type is interface{} with range: 0..4294967295.
-    Clmgmtlicenseusagecountremaining interface{}
+    ClmgmtLicenseUsageCountRemaining interface{}
 
     // This object indicates whether the user accepted End User License Agreement
     // for this license.  true(1)  - EULA accpeted false(2) - EULA not accepted.
     // The type is bool.
-    Clmgmtlicenseeulastatus interface{}
+    ClmgmtLicenseEULAStatus interface{}
 
     // This object represents the user modifiable comments about the license. This
     // object is initially populated with comments from the license file. The type
     // is string with length: 0..255.
-    Clmgmtlicensecomments interface{}
+    ClmgmtLicenseComments interface{}
 
     // This object represents status of the license.  inactive(1)           -
     // license is installed, but                         not active. notInUse(2)  
@@ -1491,8 +1530,8 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry struct {
     // usageCountConsumed(6) - number of entities using this                      
     // licenses has reached the allowed                         limit, no new
     // entities are allowed                         to use this license. The type
-    // is Clmgmtlicensestatus.
-    Clmgmtlicensestatus interface{}
+    // is ClmgmtLicenseStatus.
+    ClmgmtLicenseStatus interface{}
 
     // This object indicates the start date for a subscription license. It is
     // optional for subscription linceses to have a start date associated with
@@ -1501,97 +1540,100 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry struct {
     // evaluationSubscription(6) or extensionSubscription (7).       The object
     // will contain an octet string of length 0 when it is not applicable. The
     // type is string.
-    Clmgmtlicensestartdate interface{}
+    ClmgmtLicenseStartDate interface{}
 
     // This object indicates the end date for a subscription license. This object
     // is applicable only when clmgmtLicenseType is paidSubscription(5),
     // evaluationSubscription(6) or extensionSubscription (7). The object will
     // contain an octet string of length 0 when it is not applicable. The type is
     // string.
-    Clmgmtlicenseenddate interface{}
+    ClmgmtLicenseEndDate interface{}
 
     // This object indicates the time period used for the Right to use (RTU)
     // licenses. This object is applicable for all RTU licenses. The type is
     // interface{} with range: 0..4294967295. Units are seconds.
-    Clmgmtlicenseperiodused interface{}
+    ClmgmtLicensePeriodUsed interface{}
 }
 
-func (clmgmtlicenseinfoentry *CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry) GetEntityData() *types.CommonEntityData {
-    clmgmtlicenseinfoentry.EntityData.YFilter = clmgmtlicenseinfoentry.YFilter
-    clmgmtlicenseinfoentry.EntityData.YangName = "clmgmtLicenseInfoEntry"
-    clmgmtlicenseinfoentry.EntityData.BundleName = "cisco_ios_xe"
-    clmgmtlicenseinfoentry.EntityData.ParentYangName = "clmgmtLicenseInfoTable"
-    clmgmtlicenseinfoentry.EntityData.SegmentPath = "clmgmtLicenseInfoEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", clmgmtlicenseinfoentry.Entphysicalindex) + "']" + "[clmgmtLicenseStoreUsed='" + fmt.Sprintf("%v", clmgmtlicenseinfoentry.Clmgmtlicensestoreused) + "']" + "[clmgmtLicenseIndex='" + fmt.Sprintf("%v", clmgmtlicenseinfoentry.Clmgmtlicenseindex) + "']"
-    clmgmtlicenseinfoentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    clmgmtlicenseinfoentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    clmgmtlicenseinfoentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (clmgmtLicenseInfoEntry *CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry) GetEntityData() *types.CommonEntityData {
+    clmgmtLicenseInfoEntry.EntityData.YFilter = clmgmtLicenseInfoEntry.YFilter
+    clmgmtLicenseInfoEntry.EntityData.YangName = "clmgmtLicenseInfoEntry"
+    clmgmtLicenseInfoEntry.EntityData.BundleName = "cisco_ios_xe"
+    clmgmtLicenseInfoEntry.EntityData.ParentYangName = "clmgmtLicenseInfoTable"
+    clmgmtLicenseInfoEntry.EntityData.SegmentPath = "clmgmtLicenseInfoEntry" + types.AddKeyToken(clmgmtLicenseInfoEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(clmgmtLicenseInfoEntry.ClmgmtLicenseStoreUsed, "clmgmtLicenseStoreUsed") + types.AddKeyToken(clmgmtLicenseInfoEntry.ClmgmtLicenseIndex, "clmgmtLicenseIndex")
+    clmgmtLicenseInfoEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clmgmtLicenseInfoEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clmgmtLicenseInfoEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clmgmtlicenseinfoentry.EntityData.Children = make(map[string]types.YChild)
-    clmgmtlicenseinfoentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    clmgmtlicenseinfoentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", clmgmtlicenseinfoentry.Entphysicalindex}
-    clmgmtlicenseinfoentry.EntityData.Leafs["clmgmtLicenseStoreUsed"] = types.YLeaf{"Clmgmtlicensestoreused", clmgmtlicenseinfoentry.Clmgmtlicensestoreused}
-    clmgmtlicenseinfoentry.EntityData.Leafs["clmgmtLicenseIndex"] = types.YLeaf{"Clmgmtlicenseindex", clmgmtlicenseinfoentry.Clmgmtlicenseindex}
-    clmgmtlicenseinfoentry.EntityData.Leafs["clmgmtLicenseFeatureName"] = types.YLeaf{"Clmgmtlicensefeaturename", clmgmtlicenseinfoentry.Clmgmtlicensefeaturename}
-    clmgmtlicenseinfoentry.EntityData.Leafs["clmgmtLicenseFeatureVersion"] = types.YLeaf{"Clmgmtlicensefeatureversion", clmgmtlicenseinfoentry.Clmgmtlicensefeatureversion}
-    clmgmtlicenseinfoentry.EntityData.Leafs["clmgmtLicenseType"] = types.YLeaf{"Clmgmtlicensetype", clmgmtlicenseinfoentry.Clmgmtlicensetype}
-    clmgmtlicenseinfoentry.EntityData.Leafs["clmgmtLicenseCounted"] = types.YLeaf{"Clmgmtlicensecounted", clmgmtlicenseinfoentry.Clmgmtlicensecounted}
-    clmgmtlicenseinfoentry.EntityData.Leafs["clmgmtLicenseValidityPeriod"] = types.YLeaf{"Clmgmtlicensevalidityperiod", clmgmtlicenseinfoentry.Clmgmtlicensevalidityperiod}
-    clmgmtlicenseinfoentry.EntityData.Leafs["clmgmtLicenseValidityPeriodRemaining"] = types.YLeaf{"Clmgmtlicensevalidityperiodremaining", clmgmtlicenseinfoentry.Clmgmtlicensevalidityperiodremaining}
-    clmgmtlicenseinfoentry.EntityData.Leafs["clmgmtLicenseExpiredPeriod"] = types.YLeaf{"Clmgmtlicenseexpiredperiod", clmgmtlicenseinfoentry.Clmgmtlicenseexpiredperiod}
-    clmgmtlicenseinfoentry.EntityData.Leafs["clmgmtLicenseMaxUsageCount"] = types.YLeaf{"Clmgmtlicensemaxusagecount", clmgmtlicenseinfoentry.Clmgmtlicensemaxusagecount}
-    clmgmtlicenseinfoentry.EntityData.Leafs["clmgmtLicenseUsageCountRemaining"] = types.YLeaf{"Clmgmtlicenseusagecountremaining", clmgmtlicenseinfoentry.Clmgmtlicenseusagecountremaining}
-    clmgmtlicenseinfoentry.EntityData.Leafs["clmgmtLicenseEULAStatus"] = types.YLeaf{"Clmgmtlicenseeulastatus", clmgmtlicenseinfoentry.Clmgmtlicenseeulastatus}
-    clmgmtlicenseinfoentry.EntityData.Leafs["clmgmtLicenseComments"] = types.YLeaf{"Clmgmtlicensecomments", clmgmtlicenseinfoentry.Clmgmtlicensecomments}
-    clmgmtlicenseinfoentry.EntityData.Leafs["clmgmtLicenseStatus"] = types.YLeaf{"Clmgmtlicensestatus", clmgmtlicenseinfoentry.Clmgmtlicensestatus}
-    clmgmtlicenseinfoentry.EntityData.Leafs["clmgmtLicenseStartDate"] = types.YLeaf{"Clmgmtlicensestartdate", clmgmtlicenseinfoentry.Clmgmtlicensestartdate}
-    clmgmtlicenseinfoentry.EntityData.Leafs["clmgmtLicenseEndDate"] = types.YLeaf{"Clmgmtlicenseenddate", clmgmtlicenseinfoentry.Clmgmtlicenseenddate}
-    clmgmtlicenseinfoentry.EntityData.Leafs["clmgmtLicensePeriodUsed"] = types.YLeaf{"Clmgmtlicenseperiodused", clmgmtlicenseinfoentry.Clmgmtlicenseperiodused}
-    return &(clmgmtlicenseinfoentry.EntityData)
+    clmgmtLicenseInfoEntry.EntityData.Children = types.NewOrderedMap()
+    clmgmtLicenseInfoEntry.EntityData.Leafs = types.NewOrderedMap()
+    clmgmtLicenseInfoEntry.EntityData.Leafs.Append("entPhysicalIndex", types.YLeaf{"EntPhysicalIndex", clmgmtLicenseInfoEntry.EntPhysicalIndex})
+    clmgmtLicenseInfoEntry.EntityData.Leafs.Append("clmgmtLicenseStoreUsed", types.YLeaf{"ClmgmtLicenseStoreUsed", clmgmtLicenseInfoEntry.ClmgmtLicenseStoreUsed})
+    clmgmtLicenseInfoEntry.EntityData.Leafs.Append("clmgmtLicenseIndex", types.YLeaf{"ClmgmtLicenseIndex", clmgmtLicenseInfoEntry.ClmgmtLicenseIndex})
+    clmgmtLicenseInfoEntry.EntityData.Leafs.Append("clmgmtLicenseFeatureName", types.YLeaf{"ClmgmtLicenseFeatureName", clmgmtLicenseInfoEntry.ClmgmtLicenseFeatureName})
+    clmgmtLicenseInfoEntry.EntityData.Leafs.Append("clmgmtLicenseFeatureVersion", types.YLeaf{"ClmgmtLicenseFeatureVersion", clmgmtLicenseInfoEntry.ClmgmtLicenseFeatureVersion})
+    clmgmtLicenseInfoEntry.EntityData.Leafs.Append("clmgmtLicenseType", types.YLeaf{"ClmgmtLicenseType", clmgmtLicenseInfoEntry.ClmgmtLicenseType})
+    clmgmtLicenseInfoEntry.EntityData.Leafs.Append("clmgmtLicenseCounted", types.YLeaf{"ClmgmtLicenseCounted", clmgmtLicenseInfoEntry.ClmgmtLicenseCounted})
+    clmgmtLicenseInfoEntry.EntityData.Leafs.Append("clmgmtLicenseValidityPeriod", types.YLeaf{"ClmgmtLicenseValidityPeriod", clmgmtLicenseInfoEntry.ClmgmtLicenseValidityPeriod})
+    clmgmtLicenseInfoEntry.EntityData.Leafs.Append("clmgmtLicenseValidityPeriodRemaining", types.YLeaf{"ClmgmtLicenseValidityPeriodRemaining", clmgmtLicenseInfoEntry.ClmgmtLicenseValidityPeriodRemaining})
+    clmgmtLicenseInfoEntry.EntityData.Leafs.Append("clmgmtLicenseExpiredPeriod", types.YLeaf{"ClmgmtLicenseExpiredPeriod", clmgmtLicenseInfoEntry.ClmgmtLicenseExpiredPeriod})
+    clmgmtLicenseInfoEntry.EntityData.Leafs.Append("clmgmtLicenseMaxUsageCount", types.YLeaf{"ClmgmtLicenseMaxUsageCount", clmgmtLicenseInfoEntry.ClmgmtLicenseMaxUsageCount})
+    clmgmtLicenseInfoEntry.EntityData.Leafs.Append("clmgmtLicenseUsageCountRemaining", types.YLeaf{"ClmgmtLicenseUsageCountRemaining", clmgmtLicenseInfoEntry.ClmgmtLicenseUsageCountRemaining})
+    clmgmtLicenseInfoEntry.EntityData.Leafs.Append("clmgmtLicenseEULAStatus", types.YLeaf{"ClmgmtLicenseEULAStatus", clmgmtLicenseInfoEntry.ClmgmtLicenseEULAStatus})
+    clmgmtLicenseInfoEntry.EntityData.Leafs.Append("clmgmtLicenseComments", types.YLeaf{"ClmgmtLicenseComments", clmgmtLicenseInfoEntry.ClmgmtLicenseComments})
+    clmgmtLicenseInfoEntry.EntityData.Leafs.Append("clmgmtLicenseStatus", types.YLeaf{"ClmgmtLicenseStatus", clmgmtLicenseInfoEntry.ClmgmtLicenseStatus})
+    clmgmtLicenseInfoEntry.EntityData.Leafs.Append("clmgmtLicenseStartDate", types.YLeaf{"ClmgmtLicenseStartDate", clmgmtLicenseInfoEntry.ClmgmtLicenseStartDate})
+    clmgmtLicenseInfoEntry.EntityData.Leafs.Append("clmgmtLicenseEndDate", types.YLeaf{"ClmgmtLicenseEndDate", clmgmtLicenseInfoEntry.ClmgmtLicenseEndDate})
+    clmgmtLicenseInfoEntry.EntityData.Leafs.Append("clmgmtLicensePeriodUsed", types.YLeaf{"ClmgmtLicensePeriodUsed", clmgmtLicenseInfoEntry.ClmgmtLicensePeriodUsed})
+
+    clmgmtLicenseInfoEntry.EntityData.YListKeys = []string {"EntPhysicalIndex", "ClmgmtLicenseStoreUsed", "ClmgmtLicenseIndex"}
+
+    return &(clmgmtLicenseInfoEntry.EntityData)
 }
 
-// CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensestatus represents                         to use this license.
-type CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensestatus string
+// CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseStatus represents                         to use this license.
+type CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseStatus string
 
 const (
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensestatus_inactive CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensestatus = "inactive"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseStatus_inactive CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseStatus = "inactive"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensestatus_notInUse CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensestatus = "notInUse"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseStatus_notInUse CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseStatus = "notInUse"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensestatus_inUse CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensestatus = "inUse"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseStatus_inUse CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseStatus = "inUse"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensestatus_expiredInUse CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensestatus = "expiredInUse"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseStatus_expiredInUse CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseStatus = "expiredInUse"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensestatus_expiredNotInUse CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensestatus = "expiredNotInUse"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseStatus_expiredNotInUse CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseStatus = "expiredNotInUse"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensestatus_usageCountConsumed CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensestatus = "usageCountConsumed"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseStatus_usageCountConsumed CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseStatus = "usageCountConsumed"
 )
 
-// CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype represents                           evaluation mode for a limited time.
-type CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype string
+// CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType represents                           evaluation mode for a limited time.
+type CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType string
 
 const (
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype_demo CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype = "demo"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType_demo CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType = "demo"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype_extension CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype = "extension"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType_extension CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType = "extension"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype_gracePeriod CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype = "gracePeriod"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType_gracePeriod CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType = "gracePeriod"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype_permanent CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype = "permanent"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType_permanent CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType = "permanent"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype_paidSubscription CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype = "paidSubscription"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType_paidSubscription CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType = "paidSubscription"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype_evaluationSubscription CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype = "evaluationSubscription"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType_evaluationSubscription CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType = "evaluationSubscription"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype_extensionSubscription CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype = "extensionSubscription"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType_extensionSubscription CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType = "extensionSubscription"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype_evalRightToUse CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype = "evalRightToUse"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType_evalRightToUse CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType = "evalRightToUse"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype_rightToUse CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype = "rightToUse"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType_rightToUse CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType = "rightToUse"
 
-    CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype_permanentRightToUse CISCOLICENSEMGMTMIB_Clmgmtlicenseinfotable_Clmgmtlicenseinfoentry_Clmgmtlicensetype = "permanentRightToUse"
+    CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType_permanentRightToUse CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry_ClmgmtLicenseType = "permanentRightToUse"
 )
 
-// CISCOLICENSEMGMTMIB_Clmgmtlicensablefeaturetable
+// CISCOLICENSEMGMTMIB_ClmgmtLicensableFeatureTable
 // This table contains list of licensable features in the
 // image. All the licensable features will have an entry each
 // in this table irrespective of whether they are using any
@@ -1600,60 +1642,63 @@ const (
 // These entries remain in the table permanently and can not
 // be deleted. Management application can not create or delete
 // entries from this table.
-type CISCOLICENSEMGMTMIB_Clmgmtlicensablefeaturetable struct {
+type CISCOLICENSEMGMTMIB_ClmgmtLicensableFeatureTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in clmgmtLicensableFeatureTable. Each entry represents a
     // licensable feature. The type is slice of
-    // CISCOLICENSEMGMTMIB_Clmgmtlicensablefeaturetable_Clmgmtlicensablefeatureentry.
-    Clmgmtlicensablefeatureentry []CISCOLICENSEMGMTMIB_Clmgmtlicensablefeaturetable_Clmgmtlicensablefeatureentry
+    // CISCOLICENSEMGMTMIB_ClmgmtLicensableFeatureTable_ClmgmtLicensableFeatureEntry.
+    ClmgmtLicensableFeatureEntry []*CISCOLICENSEMGMTMIB_ClmgmtLicensableFeatureTable_ClmgmtLicensableFeatureEntry
 }
 
-func (clmgmtlicensablefeaturetable *CISCOLICENSEMGMTMIB_Clmgmtlicensablefeaturetable) GetEntityData() *types.CommonEntityData {
-    clmgmtlicensablefeaturetable.EntityData.YFilter = clmgmtlicensablefeaturetable.YFilter
-    clmgmtlicensablefeaturetable.EntityData.YangName = "clmgmtLicensableFeatureTable"
-    clmgmtlicensablefeaturetable.EntityData.BundleName = "cisco_ios_xe"
-    clmgmtlicensablefeaturetable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
-    clmgmtlicensablefeaturetable.EntityData.SegmentPath = "clmgmtLicensableFeatureTable"
-    clmgmtlicensablefeaturetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    clmgmtlicensablefeaturetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    clmgmtlicensablefeaturetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (clmgmtLicensableFeatureTable *CISCOLICENSEMGMTMIB_ClmgmtLicensableFeatureTable) GetEntityData() *types.CommonEntityData {
+    clmgmtLicensableFeatureTable.EntityData.YFilter = clmgmtLicensableFeatureTable.YFilter
+    clmgmtLicensableFeatureTable.EntityData.YangName = "clmgmtLicensableFeatureTable"
+    clmgmtLicensableFeatureTable.EntityData.BundleName = "cisco_ios_xe"
+    clmgmtLicensableFeatureTable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
+    clmgmtLicensableFeatureTable.EntityData.SegmentPath = "clmgmtLicensableFeatureTable"
+    clmgmtLicensableFeatureTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clmgmtLicensableFeatureTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clmgmtLicensableFeatureTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clmgmtlicensablefeaturetable.EntityData.Children = make(map[string]types.YChild)
-    clmgmtlicensablefeaturetable.EntityData.Children["clmgmtLicensableFeatureEntry"] = types.YChild{"Clmgmtlicensablefeatureentry", nil}
-    for i := range clmgmtlicensablefeaturetable.Clmgmtlicensablefeatureentry {
-        clmgmtlicensablefeaturetable.EntityData.Children[types.GetSegmentPath(&clmgmtlicensablefeaturetable.Clmgmtlicensablefeatureentry[i])] = types.YChild{"Clmgmtlicensablefeatureentry", &clmgmtlicensablefeaturetable.Clmgmtlicensablefeatureentry[i]}
+    clmgmtLicensableFeatureTable.EntityData.Children = types.NewOrderedMap()
+    clmgmtLicensableFeatureTable.EntityData.Children.Append("clmgmtLicensableFeatureEntry", types.YChild{"ClmgmtLicensableFeatureEntry", nil})
+    for i := range clmgmtLicensableFeatureTable.ClmgmtLicensableFeatureEntry {
+        clmgmtLicensableFeatureTable.EntityData.Children.Append(types.GetSegmentPath(clmgmtLicensableFeatureTable.ClmgmtLicensableFeatureEntry[i]), types.YChild{"ClmgmtLicensableFeatureEntry", clmgmtLicensableFeatureTable.ClmgmtLicensableFeatureEntry[i]})
     }
-    clmgmtlicensablefeaturetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(clmgmtlicensablefeaturetable.EntityData)
+    clmgmtLicensableFeatureTable.EntityData.Leafs = types.NewOrderedMap()
+
+    clmgmtLicensableFeatureTable.EntityData.YListKeys = []string {}
+
+    return &(clmgmtLicensableFeatureTable.EntityData)
 }
 
-// CISCOLICENSEMGMTMIB_Clmgmtlicensablefeaturetable_Clmgmtlicensablefeatureentry
+// CISCOLICENSEMGMTMIB_ClmgmtLicensableFeatureTable_ClmgmtLicensableFeatureEntry
 // An entry in clmgmtLicensableFeatureTable. Each entry represents
 // a licensable feature.
-type CISCOLICENSEMGMTMIB_Clmgmtlicensablefeaturetable_Clmgmtlicensablefeatureentry struct {
+type CISCOLICENSEMGMTMIB_ClmgmtLicensableFeatureTable_ClmgmtLicensableFeatureEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // entity_mib.ENTITYMIB_Entphysicaltable_Entphysicalentry_Entphysicalindex
-    Entphysicalindex interface{}
+    // entity_mib.ENTITYMIB_EntPhysicalTable_EntPhysicalEntry_EntPhysicalIndex
+    EntPhysicalIndex interface{}
 
     // This attribute is a key. This object uniquely identifies a licensable
     // feature in the device. The type is interface{} with range: 1..4294967295.
-    Clmgmtfeatureindex interface{}
+    ClmgmtFeatureIndex interface{}
 
     // This object indicates the name of the licensable feature in the device.
     // Examples of feature names are: 'IPBASE', 'ADVIPSERVICE'. The type is string
     // with length: 0..128.
-    Clmgmtfeaturename interface{}
+    ClmgmtFeatureName interface{}
 
     // This object indicates the version of the licensable feature in the device.
     // Examples of feature versions are: '1.0' or '2.0'. The type is string with
     // length: 0..32.
-    Clmgmtfeatureversion interface{}
+    ClmgmtFeatureVersion interface{}
 
     // This object indicates the time period remaining before the feature's
     // license expires or transitions. This object is applicable only if
@@ -1664,14 +1709,14 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicensablefeaturetable_Clmgmtlicensablefeatureent
     // represent the cumulative period remaining from all the licenses used by
     // this feature. The type is interface{} with range: 0..4294967295. Units are
     // seconds.
-    Clmgmtfeaturevalidityperiodremaining interface{}
+    ClmgmtFeatureValidityPeriodRemaining interface{}
 
     // This object represents the entity that is being counted by this feature.
     // Examples of entities are IP Phones, number of sessions etc. This object is
     // only applicable for features that use counting licenses. For other
     // features, this object will return empty string. The type is string with
     // length: 0..128.
-    Clmgmtfeaturewhatiscounted interface{}
+    ClmgmtFeatureWhatIsCounted interface{}
 
     // This object indicates the license start date of the feature. This object is
     // applicable if at least one of the licenses used for this feature has a
@@ -1679,7 +1724,7 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicensablefeaturetable_Clmgmtlicensablefeatureent
     // dates of all the licenses used for this feature. If none of the licenses
     // used for this feature have a valid start date then this object will contain
     // an octet string of length 0. The type is string.
-    Clmgmtfeaturestartdate interface{}
+    ClmgmtFeatureStartDate interface{}
 
     // This object indicates the license end date of the feature. This object is
     // applicable if at least one of the licenses used for this feature has a
@@ -1687,38 +1732,41 @@ type CISCOLICENSEMGMTMIB_Clmgmtlicensablefeaturetable_Clmgmtlicensablefeatureent
     // all the licenses used for this feature. If none of the licenses used for
     // this feature have a valid end date then this object will contain an octet
     // string of length 0. The type is string.
-    Clmgmtfeatureenddate interface{}
+    ClmgmtFeatureEndDate interface{}
 
     // This object indicates the license period used for the feature. The type is
     // interface{} with range: 0..4294967295. Units are seconds.
-    Clmgmtfeatureperiodused interface{}
+    ClmgmtFeaturePeriodUsed interface{}
 }
 
-func (clmgmtlicensablefeatureentry *CISCOLICENSEMGMTMIB_Clmgmtlicensablefeaturetable_Clmgmtlicensablefeatureentry) GetEntityData() *types.CommonEntityData {
-    clmgmtlicensablefeatureentry.EntityData.YFilter = clmgmtlicensablefeatureentry.YFilter
-    clmgmtlicensablefeatureentry.EntityData.YangName = "clmgmtLicensableFeatureEntry"
-    clmgmtlicensablefeatureentry.EntityData.BundleName = "cisco_ios_xe"
-    clmgmtlicensablefeatureentry.EntityData.ParentYangName = "clmgmtLicensableFeatureTable"
-    clmgmtlicensablefeatureentry.EntityData.SegmentPath = "clmgmtLicensableFeatureEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", clmgmtlicensablefeatureentry.Entphysicalindex) + "']" + "[clmgmtFeatureIndex='" + fmt.Sprintf("%v", clmgmtlicensablefeatureentry.Clmgmtfeatureindex) + "']"
-    clmgmtlicensablefeatureentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    clmgmtlicensablefeatureentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    clmgmtlicensablefeatureentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (clmgmtLicensableFeatureEntry *CISCOLICENSEMGMTMIB_ClmgmtLicensableFeatureTable_ClmgmtLicensableFeatureEntry) GetEntityData() *types.CommonEntityData {
+    clmgmtLicensableFeatureEntry.EntityData.YFilter = clmgmtLicensableFeatureEntry.YFilter
+    clmgmtLicensableFeatureEntry.EntityData.YangName = "clmgmtLicensableFeatureEntry"
+    clmgmtLicensableFeatureEntry.EntityData.BundleName = "cisco_ios_xe"
+    clmgmtLicensableFeatureEntry.EntityData.ParentYangName = "clmgmtLicensableFeatureTable"
+    clmgmtLicensableFeatureEntry.EntityData.SegmentPath = "clmgmtLicensableFeatureEntry" + types.AddKeyToken(clmgmtLicensableFeatureEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(clmgmtLicensableFeatureEntry.ClmgmtFeatureIndex, "clmgmtFeatureIndex")
+    clmgmtLicensableFeatureEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clmgmtLicensableFeatureEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clmgmtLicensableFeatureEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clmgmtlicensablefeatureentry.EntityData.Children = make(map[string]types.YChild)
-    clmgmtlicensablefeatureentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    clmgmtlicensablefeatureentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", clmgmtlicensablefeatureentry.Entphysicalindex}
-    clmgmtlicensablefeatureentry.EntityData.Leafs["clmgmtFeatureIndex"] = types.YLeaf{"Clmgmtfeatureindex", clmgmtlicensablefeatureentry.Clmgmtfeatureindex}
-    clmgmtlicensablefeatureentry.EntityData.Leafs["clmgmtFeatureName"] = types.YLeaf{"Clmgmtfeaturename", clmgmtlicensablefeatureentry.Clmgmtfeaturename}
-    clmgmtlicensablefeatureentry.EntityData.Leafs["clmgmtFeatureVersion"] = types.YLeaf{"Clmgmtfeatureversion", clmgmtlicensablefeatureentry.Clmgmtfeatureversion}
-    clmgmtlicensablefeatureentry.EntityData.Leafs["clmgmtFeatureValidityPeriodRemaining"] = types.YLeaf{"Clmgmtfeaturevalidityperiodremaining", clmgmtlicensablefeatureentry.Clmgmtfeaturevalidityperiodremaining}
-    clmgmtlicensablefeatureentry.EntityData.Leafs["clmgmtFeatureWhatIsCounted"] = types.YLeaf{"Clmgmtfeaturewhatiscounted", clmgmtlicensablefeatureentry.Clmgmtfeaturewhatiscounted}
-    clmgmtlicensablefeatureentry.EntityData.Leafs["clmgmtFeatureStartDate"] = types.YLeaf{"Clmgmtfeaturestartdate", clmgmtlicensablefeatureentry.Clmgmtfeaturestartdate}
-    clmgmtlicensablefeatureentry.EntityData.Leafs["clmgmtFeatureEndDate"] = types.YLeaf{"Clmgmtfeatureenddate", clmgmtlicensablefeatureentry.Clmgmtfeatureenddate}
-    clmgmtlicensablefeatureentry.EntityData.Leafs["clmgmtFeaturePeriodUsed"] = types.YLeaf{"Clmgmtfeatureperiodused", clmgmtlicensablefeatureentry.Clmgmtfeatureperiodused}
-    return &(clmgmtlicensablefeatureentry.EntityData)
+    clmgmtLicensableFeatureEntry.EntityData.Children = types.NewOrderedMap()
+    clmgmtLicensableFeatureEntry.EntityData.Leafs = types.NewOrderedMap()
+    clmgmtLicensableFeatureEntry.EntityData.Leafs.Append("entPhysicalIndex", types.YLeaf{"EntPhysicalIndex", clmgmtLicensableFeatureEntry.EntPhysicalIndex})
+    clmgmtLicensableFeatureEntry.EntityData.Leafs.Append("clmgmtFeatureIndex", types.YLeaf{"ClmgmtFeatureIndex", clmgmtLicensableFeatureEntry.ClmgmtFeatureIndex})
+    clmgmtLicensableFeatureEntry.EntityData.Leafs.Append("clmgmtFeatureName", types.YLeaf{"ClmgmtFeatureName", clmgmtLicensableFeatureEntry.ClmgmtFeatureName})
+    clmgmtLicensableFeatureEntry.EntityData.Leafs.Append("clmgmtFeatureVersion", types.YLeaf{"ClmgmtFeatureVersion", clmgmtLicensableFeatureEntry.ClmgmtFeatureVersion})
+    clmgmtLicensableFeatureEntry.EntityData.Leafs.Append("clmgmtFeatureValidityPeriodRemaining", types.YLeaf{"ClmgmtFeatureValidityPeriodRemaining", clmgmtLicensableFeatureEntry.ClmgmtFeatureValidityPeriodRemaining})
+    clmgmtLicensableFeatureEntry.EntityData.Leafs.Append("clmgmtFeatureWhatIsCounted", types.YLeaf{"ClmgmtFeatureWhatIsCounted", clmgmtLicensableFeatureEntry.ClmgmtFeatureWhatIsCounted})
+    clmgmtLicensableFeatureEntry.EntityData.Leafs.Append("clmgmtFeatureStartDate", types.YLeaf{"ClmgmtFeatureStartDate", clmgmtLicensableFeatureEntry.ClmgmtFeatureStartDate})
+    clmgmtLicensableFeatureEntry.EntityData.Leafs.Append("clmgmtFeatureEndDate", types.YLeaf{"ClmgmtFeatureEndDate", clmgmtLicensableFeatureEntry.ClmgmtFeatureEndDate})
+    clmgmtLicensableFeatureEntry.EntityData.Leafs.Append("clmgmtFeaturePeriodUsed", types.YLeaf{"ClmgmtFeaturePeriodUsed", clmgmtLicensableFeatureEntry.ClmgmtFeaturePeriodUsed})
+
+    clmgmtLicensableFeatureEntry.EntityData.YListKeys = []string {"EntPhysicalIndex", "ClmgmtFeatureIndex"}
+
+    return &(clmgmtLicensableFeatureEntry.EntityData)
 }
 
-// CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable
+// CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable
 // A table for triggering device credentials export action.
 // Management application must create this entry to trigger the
 // export of device credentials from the device to a file.
@@ -1728,7 +1776,7 @@ func (clmgmtlicensablefeatureentry *CISCOLICENSEMGMTMIB_Clmgmtlicensablefeaturet
 // delete the entry.  In order to prevent old entries from
 // clogging the table, entries will be aged out, but an entry
 // will never be deleted within 5 minutes of completion.
-type CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable struct {
+type CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1758,30 +1806,33 @@ type CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable struct {
     // clmgmtDevCredCommandFailCause.  Entry can be deleted except when
     // clmgmtLicenseAction is set to inProgress(3). All entries in this table are
     // volatile and are cleared on agent reset. The type is slice of
-    // CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry.
-    Clmgmtdevcredexportactionentry []CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry
+    // CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry.
+    ClmgmtDevCredExportActionEntry []*CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry
 }
 
-func (clmgmtdevcredexportactiontable *CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable) GetEntityData() *types.CommonEntityData {
-    clmgmtdevcredexportactiontable.EntityData.YFilter = clmgmtdevcredexportactiontable.YFilter
-    clmgmtdevcredexportactiontable.EntityData.YangName = "clmgmtDevCredExportActionTable"
-    clmgmtdevcredexportactiontable.EntityData.BundleName = "cisco_ios_xe"
-    clmgmtdevcredexportactiontable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
-    clmgmtdevcredexportactiontable.EntityData.SegmentPath = "clmgmtDevCredExportActionTable"
-    clmgmtdevcredexportactiontable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    clmgmtdevcredexportactiontable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    clmgmtdevcredexportactiontable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (clmgmtDevCredExportActionTable *CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable) GetEntityData() *types.CommonEntityData {
+    clmgmtDevCredExportActionTable.EntityData.YFilter = clmgmtDevCredExportActionTable.YFilter
+    clmgmtDevCredExportActionTable.EntityData.YangName = "clmgmtDevCredExportActionTable"
+    clmgmtDevCredExportActionTable.EntityData.BundleName = "cisco_ios_xe"
+    clmgmtDevCredExportActionTable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
+    clmgmtDevCredExportActionTable.EntityData.SegmentPath = "clmgmtDevCredExportActionTable"
+    clmgmtDevCredExportActionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clmgmtDevCredExportActionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clmgmtDevCredExportActionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clmgmtdevcredexportactiontable.EntityData.Children = make(map[string]types.YChild)
-    clmgmtdevcredexportactiontable.EntityData.Children["clmgmtDevCredExportActionEntry"] = types.YChild{"Clmgmtdevcredexportactionentry", nil}
-    for i := range clmgmtdevcredexportactiontable.Clmgmtdevcredexportactionentry {
-        clmgmtdevcredexportactiontable.EntityData.Children[types.GetSegmentPath(&clmgmtdevcredexportactiontable.Clmgmtdevcredexportactionentry[i])] = types.YChild{"Clmgmtdevcredexportactionentry", &clmgmtdevcredexportactiontable.Clmgmtdevcredexportactionentry[i]}
+    clmgmtDevCredExportActionTable.EntityData.Children = types.NewOrderedMap()
+    clmgmtDevCredExportActionTable.EntityData.Children.Append("clmgmtDevCredExportActionEntry", types.YChild{"ClmgmtDevCredExportActionEntry", nil})
+    for i := range clmgmtDevCredExportActionTable.ClmgmtDevCredExportActionEntry {
+        clmgmtDevCredExportActionTable.EntityData.Children.Append(types.GetSegmentPath(clmgmtDevCredExportActionTable.ClmgmtDevCredExportActionEntry[i]), types.YChild{"ClmgmtDevCredExportActionEntry", clmgmtDevCredExportActionTable.ClmgmtDevCredExportActionEntry[i]})
     }
-    clmgmtdevcredexportactiontable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(clmgmtdevcredexportactiontable.EntityData)
+    clmgmtDevCredExportActionTable.EntityData.Leafs = types.NewOrderedMap()
+
+    clmgmtDevCredExportActionTable.EntityData.YListKeys = []string {}
+
+    return &(clmgmtDevCredExportActionTable.EntityData)
 }
 
-// CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry
+// CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry
 // An entry for each device credential export action that
 // is being executed or was executed recently. The management
 // application triggers the export by creating an entry in this
@@ -1819,7 +1870,7 @@ func (clmgmtdevcredexportactiontable *CISCOLICENSEMGMTMIB_Clmgmtdevcredexportact
 // Entry can be deleted except when clmgmtLicenseAction is set
 // to inProgress(3). All entries in this table are volatile
 // and are cleared on agent reset.
-type CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry struct {
+type CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1831,7 +1882,7 @@ type CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactio
     // management application should read the value of
     // clmgmtNextFreeDevCredExportActionIndex again and retry with the new value
     // for this object. The type is interface{} with range: 1..4294967295.
-    Clmgmtdevcredexportactionindex interface{}
+    ClmgmtDevCredExportActionIndex interface{}
 
     // This object represents the entPhysicalIndex of the device for which the
     // device credentials are being retrieved. This object is mainly used in
@@ -1840,18 +1891,18 @@ type CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactio
     // manager. Examples include stackable switches, devices with router processor
     // and line cards.  Note: This object need not be set if it is a stand alone
     // device. The type is interface{} with range: 0..2147483647.
-    Clmgmtdevcredentphysicalindex interface{}
+    ClmgmtDevCredEntPhysicalIndex interface{}
 
     // This object indicates the transfer protocol to be used when copying files
     // as specified in the following objects. 1. clmgmtDevCredExportFile . The
     // type is ClmgmtLicenseTransferProtocol.
-    Clmgmtdevcredtransferprotocol interface{}
+    ClmgmtDevCredTransferProtocol interface{}
 
     // This object indicates the transport type of the address contained in
     // clmgmtDevCredServerAddress object. This must be set when
     // clmgmtDevCredTransferProtocol is not none(1) or local(2). The type is
     // InetAddressType.
-    Clmgmtdevcredserveraddresstype interface{}
+    ClmgmtDevCredServerAddressType interface{}
 
     // This object indicates the the ip address of the server from which the files
     // must be read or written to if  clmgmtDevCredTransferProtocol is not none(1)
@@ -1859,7 +1910,7 @@ type CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactio
     // allowed.  The format of this address depends on the value of the
     // clmgmtDevCredServerAddressType object. The type is string with length:
     // 0..255.
-    Clmgmtdevcredserveraddress interface{}
+    ClmgmtDevCredServerAddress interface{}
 
     // This object indicates the remote user name for accessing files via ftp,
     // rcp, sftp or scp protocols. This object must be set when the
@@ -1867,30 +1918,30 @@ type CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactio
     // clmgmtDevCredTransferProtocol is rcp(5), the remote username is sent as the
     // server username in an rcp command request sent by the system to a remote
     // rcp server. The type is string with length: 0..96.
-    Clmgmtdevcredserverusername interface{}
+    ClmgmtDevCredServerUsername interface{}
 
     // This object indicates the password used by ftp, sftp or scp for copying a
     // file to/from an ftp/sftp/scp server.  This object must be set when the
     // clmgmtDevCredTransferProtocol is ftp(4) or scp(7) or sftp(8). Reading it
     // returns a zero-length string for  security reasons. The type is string with
     // length: 0..96.
-    Clmgmtdevcredserverpassword interface{}
+    ClmgmtDevCredServerPassword interface{}
 
     // This object represents file where device credentials needs to be exported
     // to. The type is string with length: 0..255.
-    Clmgmtdevcredexportfile interface{}
+    ClmgmtDevCredExportFile interface{}
 
     // This object indicates the the command to be executed.  Command             
     // Remarks -------                          ------- noOp(1)                   
     // No operation will be                                 performed. 
     // getDeviceCredentials(2)         Exports device credentials. The type is
-    // Clmgmtdevcredcommand.
-    Clmgmtdevcredcommand interface{}
+    // ClmgmtDevCredCommand.
+    ClmgmtDevCredCommand interface{}
 
     // This object indicates the state of the action that is executed as a result
     // of setting clmgmtDevCredRowStatus to active(1). The type is
     // ClmgmtLicenseActionState.
-    Clmgmtdevcredcommandstate interface{}
+    ClmgmtDevCredCommandState interface{}
 
     // This object indicates the the reason for device credentials export
     // operation failure.  The value of this object is valid only when
@@ -1904,13 +1955,13 @@ type CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactio
     // not supported. fileServerNotReachable(4)       - file server is not
     // reachable. unrecognizedEntPhysicalIndex(5) - entPhysicalIndex is not       
     // valid invalidFile(6)  - The target file specified is not valid. The type is
-    // Clmgmtdevcredcommandfailcause.
-    Clmgmtdevcredcommandfailcause interface{}
+    // ClmgmtDevCredCommandFailCause.
+    ClmgmtDevCredCommandFailCause interface{}
 
     // This object indicates the storage type for this conceptual row. Conceptual
     // rows having the value 'permanent' need not allow write-access to any
     // columnar objects in the row. The type is StorageType.
-    Clmgmtdevcredstoragetype interface{}
+    ClmgmtDevCredStorageType interface{}
 
     // This object indicates the the status of this table entry. Once the entry
     // status is set to active(1), the associated entry cannot be modified until
@@ -1918,60 +1969,63 @@ type CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactio
     // than inProgress(3)). Once the action completes the only operation possible
     // after this is to delete the row.  clmgmtDevCredExportFile is a mandatory
     // object to be set when creating this entry. The type is RowStatus.
-    Clmgmtdevcredrowstatus interface{}
+    ClmgmtDevCredRowStatus interface{}
 }
 
-func (clmgmtdevcredexportactionentry *CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry) GetEntityData() *types.CommonEntityData {
-    clmgmtdevcredexportactionentry.EntityData.YFilter = clmgmtdevcredexportactionentry.YFilter
-    clmgmtdevcredexportactionentry.EntityData.YangName = "clmgmtDevCredExportActionEntry"
-    clmgmtdevcredexportactionentry.EntityData.BundleName = "cisco_ios_xe"
-    clmgmtdevcredexportactionentry.EntityData.ParentYangName = "clmgmtDevCredExportActionTable"
-    clmgmtdevcredexportactionentry.EntityData.SegmentPath = "clmgmtDevCredExportActionEntry" + "[clmgmtDevCredExportActionIndex='" + fmt.Sprintf("%v", clmgmtdevcredexportactionentry.Clmgmtdevcredexportactionindex) + "']"
-    clmgmtdevcredexportactionentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    clmgmtdevcredexportactionentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    clmgmtdevcredexportactionentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (clmgmtDevCredExportActionEntry *CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry) GetEntityData() *types.CommonEntityData {
+    clmgmtDevCredExportActionEntry.EntityData.YFilter = clmgmtDevCredExportActionEntry.YFilter
+    clmgmtDevCredExportActionEntry.EntityData.YangName = "clmgmtDevCredExportActionEntry"
+    clmgmtDevCredExportActionEntry.EntityData.BundleName = "cisco_ios_xe"
+    clmgmtDevCredExportActionEntry.EntityData.ParentYangName = "clmgmtDevCredExportActionTable"
+    clmgmtDevCredExportActionEntry.EntityData.SegmentPath = "clmgmtDevCredExportActionEntry" + types.AddKeyToken(clmgmtDevCredExportActionEntry.ClmgmtDevCredExportActionIndex, "clmgmtDevCredExportActionIndex")
+    clmgmtDevCredExportActionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clmgmtDevCredExportActionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clmgmtDevCredExportActionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    clmgmtdevcredexportactionentry.EntityData.Children = make(map[string]types.YChild)
-    clmgmtdevcredexportactionentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    clmgmtdevcredexportactionentry.EntityData.Leafs["clmgmtDevCredExportActionIndex"] = types.YLeaf{"Clmgmtdevcredexportactionindex", clmgmtdevcredexportactionentry.Clmgmtdevcredexportactionindex}
-    clmgmtdevcredexportactionentry.EntityData.Leafs["clmgmtDevCredEntPhysicalIndex"] = types.YLeaf{"Clmgmtdevcredentphysicalindex", clmgmtdevcredexportactionentry.Clmgmtdevcredentphysicalindex}
-    clmgmtdevcredexportactionentry.EntityData.Leafs["clmgmtDevCredTransferProtocol"] = types.YLeaf{"Clmgmtdevcredtransferprotocol", clmgmtdevcredexportactionentry.Clmgmtdevcredtransferprotocol}
-    clmgmtdevcredexportactionentry.EntityData.Leafs["clmgmtDevCredServerAddressType"] = types.YLeaf{"Clmgmtdevcredserveraddresstype", clmgmtdevcredexportactionentry.Clmgmtdevcredserveraddresstype}
-    clmgmtdevcredexportactionentry.EntityData.Leafs["clmgmtDevCredServerAddress"] = types.YLeaf{"Clmgmtdevcredserveraddress", clmgmtdevcredexportactionentry.Clmgmtdevcredserveraddress}
-    clmgmtdevcredexportactionentry.EntityData.Leafs["clmgmtDevCredServerUsername"] = types.YLeaf{"Clmgmtdevcredserverusername", clmgmtdevcredexportactionentry.Clmgmtdevcredserverusername}
-    clmgmtdevcredexportactionentry.EntityData.Leafs["clmgmtDevCredServerPassword"] = types.YLeaf{"Clmgmtdevcredserverpassword", clmgmtdevcredexportactionentry.Clmgmtdevcredserverpassword}
-    clmgmtdevcredexportactionentry.EntityData.Leafs["clmgmtDevCredExportFile"] = types.YLeaf{"Clmgmtdevcredexportfile", clmgmtdevcredexportactionentry.Clmgmtdevcredexportfile}
-    clmgmtdevcredexportactionentry.EntityData.Leafs["clmgmtDevCredCommand"] = types.YLeaf{"Clmgmtdevcredcommand", clmgmtdevcredexportactionentry.Clmgmtdevcredcommand}
-    clmgmtdevcredexportactionentry.EntityData.Leafs["clmgmtDevCredCommandState"] = types.YLeaf{"Clmgmtdevcredcommandstate", clmgmtdevcredexportactionentry.Clmgmtdevcredcommandstate}
-    clmgmtdevcredexportactionentry.EntityData.Leafs["clmgmtDevCredCommandFailCause"] = types.YLeaf{"Clmgmtdevcredcommandfailcause", clmgmtdevcredexportactionentry.Clmgmtdevcredcommandfailcause}
-    clmgmtdevcredexportactionentry.EntityData.Leafs["clmgmtDevCredStorageType"] = types.YLeaf{"Clmgmtdevcredstoragetype", clmgmtdevcredexportactionentry.Clmgmtdevcredstoragetype}
-    clmgmtdevcredexportactionentry.EntityData.Leafs["clmgmtDevCredRowStatus"] = types.YLeaf{"Clmgmtdevcredrowstatus", clmgmtdevcredexportactionentry.Clmgmtdevcredrowstatus}
-    return &(clmgmtdevcredexportactionentry.EntityData)
+    clmgmtDevCredExportActionEntry.EntityData.Children = types.NewOrderedMap()
+    clmgmtDevCredExportActionEntry.EntityData.Leafs = types.NewOrderedMap()
+    clmgmtDevCredExportActionEntry.EntityData.Leafs.Append("clmgmtDevCredExportActionIndex", types.YLeaf{"ClmgmtDevCredExportActionIndex", clmgmtDevCredExportActionEntry.ClmgmtDevCredExportActionIndex})
+    clmgmtDevCredExportActionEntry.EntityData.Leafs.Append("clmgmtDevCredEntPhysicalIndex", types.YLeaf{"ClmgmtDevCredEntPhysicalIndex", clmgmtDevCredExportActionEntry.ClmgmtDevCredEntPhysicalIndex})
+    clmgmtDevCredExportActionEntry.EntityData.Leafs.Append("clmgmtDevCredTransferProtocol", types.YLeaf{"ClmgmtDevCredTransferProtocol", clmgmtDevCredExportActionEntry.ClmgmtDevCredTransferProtocol})
+    clmgmtDevCredExportActionEntry.EntityData.Leafs.Append("clmgmtDevCredServerAddressType", types.YLeaf{"ClmgmtDevCredServerAddressType", clmgmtDevCredExportActionEntry.ClmgmtDevCredServerAddressType})
+    clmgmtDevCredExportActionEntry.EntityData.Leafs.Append("clmgmtDevCredServerAddress", types.YLeaf{"ClmgmtDevCredServerAddress", clmgmtDevCredExportActionEntry.ClmgmtDevCredServerAddress})
+    clmgmtDevCredExportActionEntry.EntityData.Leafs.Append("clmgmtDevCredServerUsername", types.YLeaf{"ClmgmtDevCredServerUsername", clmgmtDevCredExportActionEntry.ClmgmtDevCredServerUsername})
+    clmgmtDevCredExportActionEntry.EntityData.Leafs.Append("clmgmtDevCredServerPassword", types.YLeaf{"ClmgmtDevCredServerPassword", clmgmtDevCredExportActionEntry.ClmgmtDevCredServerPassword})
+    clmgmtDevCredExportActionEntry.EntityData.Leafs.Append("clmgmtDevCredExportFile", types.YLeaf{"ClmgmtDevCredExportFile", clmgmtDevCredExportActionEntry.ClmgmtDevCredExportFile})
+    clmgmtDevCredExportActionEntry.EntityData.Leafs.Append("clmgmtDevCredCommand", types.YLeaf{"ClmgmtDevCredCommand", clmgmtDevCredExportActionEntry.ClmgmtDevCredCommand})
+    clmgmtDevCredExportActionEntry.EntityData.Leafs.Append("clmgmtDevCredCommandState", types.YLeaf{"ClmgmtDevCredCommandState", clmgmtDevCredExportActionEntry.ClmgmtDevCredCommandState})
+    clmgmtDevCredExportActionEntry.EntityData.Leafs.Append("clmgmtDevCredCommandFailCause", types.YLeaf{"ClmgmtDevCredCommandFailCause", clmgmtDevCredExportActionEntry.ClmgmtDevCredCommandFailCause})
+    clmgmtDevCredExportActionEntry.EntityData.Leafs.Append("clmgmtDevCredStorageType", types.YLeaf{"ClmgmtDevCredStorageType", clmgmtDevCredExportActionEntry.ClmgmtDevCredStorageType})
+    clmgmtDevCredExportActionEntry.EntityData.Leafs.Append("clmgmtDevCredRowStatus", types.YLeaf{"ClmgmtDevCredRowStatus", clmgmtDevCredExportActionEntry.ClmgmtDevCredRowStatus})
+
+    clmgmtDevCredExportActionEntry.EntityData.YListKeys = []string {"ClmgmtDevCredExportActionIndex"}
+
+    return &(clmgmtDevCredExportActionEntry.EntityData)
 }
 
-// CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommand represents getDeviceCredentials(2)         Exports device credentials
-type CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommand string
+// CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommand represents getDeviceCredentials(2)         Exports device credentials
+type CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommand string
 
 const (
-    CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommand_noOp CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommand = "noOp"
+    CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommand_noOp CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommand = "noOp"
 
-    CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommand_getDeviceCredentials CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommand = "getDeviceCredentials"
+    CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommand_getDeviceCredentials CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommand = "getDeviceCredentials"
 )
 
-// CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommandfailcause represents invalidFile(6)  - The target file specified is not valid.
-type CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommandfailcause string
+// CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommandFailCause represents invalidFile(6)  - The target file specified is not valid.
+type CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommandFailCause string
 
 const (
-    CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommandfailcause_none CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommandfailcause = "none"
+    CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommandFailCause_none CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommandFailCause = "none"
 
-    CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommandfailcause_unknownError CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommandfailcause = "unknownError"
+    CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommandFailCause_unknownError CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommandFailCause = "unknownError"
 
-    CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommandfailcause_transferProtocolNotSupported CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommandfailcause = "transferProtocolNotSupported"
+    CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommandFailCause_transferProtocolNotSupported CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommandFailCause = "transferProtocolNotSupported"
 
-    CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommandfailcause_fileServerNotReachable CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommandfailcause = "fileServerNotReachable"
+    CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommandFailCause_fileServerNotReachable CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommandFailCause = "fileServerNotReachable"
 
-    CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommandfailcause_unrecognizedEntPhysicalIndex CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommandfailcause = "unrecognizedEntPhysicalIndex"
+    CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommandFailCause_unrecognizedEntPhysicalIndex CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommandFailCause = "unrecognizedEntPhysicalIndex"
 
-    CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommandfailcause_invalidFile CISCOLICENSEMGMTMIB_Clmgmtdevcredexportactiontable_Clmgmtdevcredexportactionentry_Clmgmtdevcredcommandfailcause = "invalidFile"
+    CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommandFailCause_invalidFile CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry_ClmgmtDevCredCommandFailCause = "invalidFile"
 )
 

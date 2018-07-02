@@ -58,9 +58,12 @@ func (aaa *Aaa) GetEntityData() *types.CommonEntityData {
     aaa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aaa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aaa.EntityData.Children = make(map[string]types.YChild)
-    aaa.EntityData.Children["usernames"] = types.YChild{"Usernames", &aaa.Usernames}
-    aaa.EntityData.Leafs = make(map[string]types.YLeaf)
+    aaa.EntityData.Children = types.NewOrderedMap()
+    aaa.EntityData.Children.Append("usernames", types.YChild{"Usernames", &aaa.Usernames})
+    aaa.EntityData.Leafs = types.NewOrderedMap()
+
+    aaa.EntityData.YListKeys = []string {}
+
     return &(aaa.EntityData)
 }
 
@@ -71,7 +74,7 @@ type Aaa_Usernames struct {
     YFilter yfilter.YFilter
 
     // Admin Username. The type is slice of Aaa_Usernames_Username.
-    Username []Aaa_Usernames_Username
+    Username []*Aaa_Usernames_Username
 }
 
 func (usernames *Aaa_Usernames) GetEntityData() *types.CommonEntityData {
@@ -84,12 +87,15 @@ func (usernames *Aaa_Usernames) GetEntityData() *types.CommonEntityData {
     usernames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usernames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    usernames.EntityData.Children = make(map[string]types.YChild)
-    usernames.EntityData.Children["username"] = types.YChild{"Username", nil}
+    usernames.EntityData.Children = types.NewOrderedMap()
+    usernames.EntityData.Children.Append("username", types.YChild{"Username", nil})
     for i := range usernames.Username {
-        usernames.EntityData.Children[types.GetSegmentPath(&usernames.Username[i])] = types.YChild{"Username", &usernames.Username[i]}
+        usernames.EntityData.Children.Append(types.GetSegmentPath(usernames.Username[i]), types.YChild{"Username", usernames.Username[i]})
     }
-    usernames.EntityData.Leafs = make(map[string]types.YLeaf)
+    usernames.EntityData.Leafs = types.NewOrderedMap()
+
+    usernames.EntityData.YListKeys = []string {}
+
     return &(usernames.EntityData)
 }
 
@@ -114,16 +120,19 @@ func (username *Aaa_Usernames_Username) GetEntityData() *types.CommonEntityData 
     username.EntityData.YangName = "username"
     username.EntityData.BundleName = "cisco_ios_xr"
     username.EntityData.ParentYangName = "usernames"
-    username.EntityData.SegmentPath = "username" + "[name='" + fmt.Sprintf("%v", username.Name) + "']"
+    username.EntityData.SegmentPath = "username" + types.AddKeyToken(username.Name, "name")
     username.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     username.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     username.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    username.EntityData.Children = make(map[string]types.YChild)
-    username.EntityData.Children["usergroup-under-usernames"] = types.YChild{"UsergroupUnderUsernames", &username.UsergroupUnderUsernames}
-    username.EntityData.Children["secret"] = types.YChild{"Secret", &username.Secret}
-    username.EntityData.Leafs = make(map[string]types.YLeaf)
-    username.EntityData.Leafs["name"] = types.YLeaf{"Name", username.Name}
+    username.EntityData.Children = types.NewOrderedMap()
+    username.EntityData.Children.Append("usergroup-under-usernames", types.YChild{"UsergroupUnderUsernames", &username.UsergroupUnderUsernames})
+    username.EntityData.Children.Append("secret", types.YChild{"Secret", &username.Secret})
+    username.EntityData.Leafs = types.NewOrderedMap()
+    username.EntityData.Leafs.Append("name", types.YLeaf{"Name", username.Name})
+
+    username.EntityData.YListKeys = []string {"Name"}
+
     return &(username.EntityData)
 }
 
@@ -136,7 +145,7 @@ type Aaa_Usernames_Username_UsergroupUnderUsernames struct {
 
     // Name of the usergroup. The type is slice of
     // Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername.
-    UsergroupUnderUsername []Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername
+    UsergroupUnderUsername []*Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername
 }
 
 func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) GetEntityData() *types.CommonEntityData {
@@ -149,12 +158,15 @@ func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) G
     usergroupUnderUsernames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usergroupUnderUsernames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    usergroupUnderUsernames.EntityData.Children = make(map[string]types.YChild)
-    usergroupUnderUsernames.EntityData.Children["usergroup-under-username"] = types.YChild{"UsergroupUnderUsername", nil}
+    usergroupUnderUsernames.EntityData.Children = types.NewOrderedMap()
+    usergroupUnderUsernames.EntityData.Children.Append("usergroup-under-username", types.YChild{"UsergroupUnderUsername", nil})
     for i := range usergroupUnderUsernames.UsergroupUnderUsername {
-        usergroupUnderUsernames.EntityData.Children[types.GetSegmentPath(&usergroupUnderUsernames.UsergroupUnderUsername[i])] = types.YChild{"UsergroupUnderUsername", &usergroupUnderUsernames.UsergroupUnderUsername[i]}
+        usergroupUnderUsernames.EntityData.Children.Append(types.GetSegmentPath(usergroupUnderUsernames.UsergroupUnderUsername[i]), types.YChild{"UsergroupUnderUsername", usergroupUnderUsernames.UsergroupUnderUsername[i]})
     }
-    usergroupUnderUsernames.EntityData.Leafs = make(map[string]types.YLeaf)
+    usergroupUnderUsernames.EntityData.Leafs = types.NewOrderedMap()
+
+    usergroupUnderUsernames.EntityData.YListKeys = []string {}
+
     return &(usergroupUnderUsernames.EntityData)
 }
 
@@ -165,7 +177,7 @@ type Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername struc
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the usergroup. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 }
 
@@ -174,14 +186,17 @@ func (usergroupUnderUsername *Aaa_Usernames_Username_UsergroupUnderUsernames_Use
     usergroupUnderUsername.EntityData.YangName = "usergroup-under-username"
     usergroupUnderUsername.EntityData.BundleName = "cisco_ios_xr"
     usergroupUnderUsername.EntityData.ParentYangName = "usergroup-under-usernames"
-    usergroupUnderUsername.EntityData.SegmentPath = "usergroup-under-username" + "[name='" + fmt.Sprintf("%v", usergroupUnderUsername.Name) + "']"
+    usergroupUnderUsername.EntityData.SegmentPath = "usergroup-under-username" + types.AddKeyToken(usergroupUnderUsername.Name, "name")
     usergroupUnderUsername.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     usergroupUnderUsername.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usergroupUnderUsername.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    usergroupUnderUsername.EntityData.Children = make(map[string]types.YChild)
-    usergroupUnderUsername.EntityData.Leafs = make(map[string]types.YLeaf)
-    usergroupUnderUsername.EntityData.Leafs["name"] = types.YLeaf{"Name", usergroupUnderUsername.Name}
+    usergroupUnderUsername.EntityData.Children = types.NewOrderedMap()
+    usergroupUnderUsername.EntityData.Leafs = types.NewOrderedMap()
+    usergroupUnderUsername.EntityData.Leafs.Append("name", types.YLeaf{"Name", usergroupUnderUsername.Name})
+
+    usergroupUnderUsername.EntityData.YListKeys = []string {"Name"}
+
     return &(usergroupUnderUsername.EntityData)
 }
 
@@ -192,16 +207,16 @@ type Aaa_Usernames_Username_Secret struct {
     YFilter yfilter.YFilter
 
     // Password type. The type is AaaAdminPassword.
-    Type_ interface{}
+    Type interface{}
 
     // The user's secret password. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Secret5 interface{}
 
-    // Type 8 password. The type is string with pattern: b'(!.+)|([^!].+)'.
+    // Type 8 password. The type is string with pattern: (!.+)|([^!].+).
     Secret8 interface{}
 
-    // Type 9 password. The type is string with pattern: b'(!.+)|([^!].+)'.
+    // Type 9 password. The type is string with pattern: (!.+)|([^!].+).
     Secret9 interface{}
 }
 
@@ -215,12 +230,15 @@ func (secret *Aaa_Usernames_Username_Secret) GetEntityData() *types.CommonEntity
     secret.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secret.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    secret.EntityData.Children = make(map[string]types.YChild)
-    secret.EntityData.Leafs = make(map[string]types.YLeaf)
-    secret.EntityData.Leafs["type"] = types.YLeaf{"Type_", secret.Type_}
-    secret.EntityData.Leafs["secret5"] = types.YLeaf{"Secret5", secret.Secret5}
-    secret.EntityData.Leafs["secret8"] = types.YLeaf{"Secret8", secret.Secret8}
-    secret.EntityData.Leafs["secret9"] = types.YLeaf{"Secret9", secret.Secret9}
+    secret.EntityData.Children = types.NewOrderedMap()
+    secret.EntityData.Leafs = types.NewOrderedMap()
+    secret.EntityData.Leafs.Append("type", types.YLeaf{"Type", secret.Type})
+    secret.EntityData.Leafs.Append("secret5", types.YLeaf{"Secret5", secret.Secret5})
+    secret.EntityData.Leafs.Append("secret8", types.YLeaf{"Secret8", secret.Secret8})
+    secret.EntityData.Leafs.Append("secret9", types.YLeaf{"Secret9", secret.Secret9})
+
+    secret.EntityData.YListKeys = []string {}
+
     return &(secret.EntityData)
 }
 

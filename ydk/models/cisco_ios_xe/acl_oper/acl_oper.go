@@ -32,7 +32,7 @@ type AccessLists struct {
     // different attributes for each and different for each vendor, this model
     // accommodates customizing access control lists for each kind and for each
     // vendor. The type is slice of AccessLists_AccessList.
-    AccessList []AccessLists_AccessList
+    AccessList []*AccessLists_AccessList
 }
 
 func (accessLists *AccessLists) GetEntityData() *types.CommonEntityData {
@@ -45,12 +45,15 @@ func (accessLists *AccessLists) GetEntityData() *types.CommonEntityData {
     accessLists.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     accessLists.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    accessLists.EntityData.Children = make(map[string]types.YChild)
-    accessLists.EntityData.Children["access-list"] = types.YChild{"AccessList", nil}
+    accessLists.EntityData.Children = types.NewOrderedMap()
+    accessLists.EntityData.Children.Append("access-list", types.YChild{"AccessList", nil})
     for i := range accessLists.AccessList {
-        accessLists.EntityData.Children[types.GetSegmentPath(&accessLists.AccessList[i])] = types.YChild{"AccessList", &accessLists.AccessList[i]}
+        accessLists.EntityData.Children.Append(types.GetSegmentPath(accessLists.AccessList[i]), types.YChild{"AccessList", accessLists.AccessList[i]})
     }
-    accessLists.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessLists.EntityData.Leafs = types.NewOrderedMap()
+
+    accessLists.EntityData.YListKeys = []string {}
+
     return &(accessLists.EntityData)
 }
 
@@ -81,15 +84,18 @@ func (accessList *AccessLists_AccessList) GetEntityData() *types.CommonEntityDat
     accessList.EntityData.YangName = "access-list"
     accessList.EntityData.BundleName = "cisco_ios_xe"
     accessList.EntityData.ParentYangName = "access-lists"
-    accessList.EntityData.SegmentPath = "access-list" + "[access-control-list-name='" + fmt.Sprintf("%v", accessList.AccessControlListName) + "']"
+    accessList.EntityData.SegmentPath = "access-list" + types.AddKeyToken(accessList.AccessControlListName, "access-control-list-name")
     accessList.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     accessList.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     accessList.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    accessList.EntityData.Children = make(map[string]types.YChild)
-    accessList.EntityData.Children["access-list-entries"] = types.YChild{"AccessListEntries", &accessList.AccessListEntries}
-    accessList.EntityData.Leafs = make(map[string]types.YLeaf)
-    accessList.EntityData.Leafs["access-control-list-name"] = types.YLeaf{"AccessControlListName", accessList.AccessControlListName}
+    accessList.EntityData.Children = types.NewOrderedMap()
+    accessList.EntityData.Children.Append("access-list-entries", types.YChild{"AccessListEntries", &accessList.AccessListEntries})
+    accessList.EntityData.Leafs = types.NewOrderedMap()
+    accessList.EntityData.Leafs.Append("access-control-list-name", types.YLeaf{"AccessControlListName", accessList.AccessControlListName})
+
+    accessList.EntityData.YListKeys = []string {"AccessControlListName"}
+
     return &(accessList.EntityData)
 }
 
@@ -101,7 +107,7 @@ type AccessLists_AccessList_AccessListEntries struct {
 
     // A list of ACEs. The type is slice of
     // AccessLists_AccessList_AccessListEntries_AccessListEntry.
-    AccessListEntry []AccessLists_AccessList_AccessListEntries_AccessListEntry
+    AccessListEntry []*AccessLists_AccessList_AccessListEntries_AccessListEntry
 }
 
 func (accessListEntries *AccessLists_AccessList_AccessListEntries) GetEntityData() *types.CommonEntityData {
@@ -114,12 +120,15 @@ func (accessListEntries *AccessLists_AccessList_AccessListEntries) GetEntityData
     accessListEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     accessListEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    accessListEntries.EntityData.Children = make(map[string]types.YChild)
-    accessListEntries.EntityData.Children["access-list-entry"] = types.YChild{"AccessListEntry", nil}
+    accessListEntries.EntityData.Children = types.NewOrderedMap()
+    accessListEntries.EntityData.Children.Append("access-list-entry", types.YChild{"AccessListEntry", nil})
     for i := range accessListEntries.AccessListEntry {
-        accessListEntries.EntityData.Children[types.GetSegmentPath(&accessListEntries.AccessListEntry[i])] = types.YChild{"AccessListEntry", &accessListEntries.AccessListEntry[i]}
+        accessListEntries.EntityData.Children.Append(types.GetSegmentPath(accessListEntries.AccessListEntry[i]), types.YChild{"AccessListEntry", accessListEntries.AccessListEntry[i]})
     }
-    accessListEntries.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessListEntries.EntityData.Leafs = types.NewOrderedMap()
+
+    accessListEntries.EntityData.YListKeys = []string {}
+
     return &(accessListEntries.EntityData)
 }
 
@@ -142,15 +151,18 @@ func (accessListEntry *AccessLists_AccessList_AccessListEntries_AccessListEntry)
     accessListEntry.EntityData.YangName = "access-list-entry"
     accessListEntry.EntityData.BundleName = "cisco_ios_xe"
     accessListEntry.EntityData.ParentYangName = "access-list-entries"
-    accessListEntry.EntityData.SegmentPath = "access-list-entry" + "[rule-name='" + fmt.Sprintf("%v", accessListEntry.RuleName) + "']"
+    accessListEntry.EntityData.SegmentPath = "access-list-entry" + types.AddKeyToken(accessListEntry.RuleName, "rule-name")
     accessListEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     accessListEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     accessListEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    accessListEntry.EntityData.Children = make(map[string]types.YChild)
-    accessListEntry.EntityData.Children["access-list-entries-oper-data"] = types.YChild{"AccessListEntriesOperData", &accessListEntry.AccessListEntriesOperData}
-    accessListEntry.EntityData.Leafs = make(map[string]types.YLeaf)
-    accessListEntry.EntityData.Leafs["rule-name"] = types.YLeaf{"RuleName", accessListEntry.RuleName}
+    accessListEntry.EntityData.Children = types.NewOrderedMap()
+    accessListEntry.EntityData.Children.Append("access-list-entries-oper-data", types.YChild{"AccessListEntriesOperData", &accessListEntry.AccessListEntriesOperData})
+    accessListEntry.EntityData.Leafs = types.NewOrderedMap()
+    accessListEntry.EntityData.Leafs.Append("rule-name", types.YLeaf{"RuleName", accessListEntry.RuleName})
+
+    accessListEntry.EntityData.YListKeys = []string {"RuleName"}
+
     return &(accessListEntry.EntityData)
 }
 
@@ -175,9 +187,12 @@ func (accessListEntriesOperData *AccessLists_AccessList_AccessListEntries_Access
     accessListEntriesOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     accessListEntriesOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    accessListEntriesOperData.EntityData.Children = make(map[string]types.YChild)
-    accessListEntriesOperData.EntityData.Leafs = make(map[string]types.YLeaf)
-    accessListEntriesOperData.EntityData.Leafs["match-counter"] = types.YLeaf{"MatchCounter", accessListEntriesOperData.MatchCounter}
+    accessListEntriesOperData.EntityData.Children = types.NewOrderedMap()
+    accessListEntriesOperData.EntityData.Leafs = types.NewOrderedMap()
+    accessListEntriesOperData.EntityData.Leafs.Append("match-counter", types.YLeaf{"MatchCounter", accessListEntriesOperData.MatchCounter})
+
+    accessListEntriesOperData.EntityData.YListKeys = []string {}
+
     return &(accessListEntriesOperData.EntityData)
 }
 

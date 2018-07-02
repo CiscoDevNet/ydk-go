@@ -26,6 +26,57 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-installmgr-admin-oper:install", reflect.TypeOf(Install{}))
 }
 
+// InstmgrIssuAbortMethod represents Abort method
+type InstmgrIssuAbortMethod string
+
+const (
+    // Unknown abort method
+    InstmgrIssuAbortMethod_method_undefined InstmgrIssuAbortMethod = "method-undefined"
+
+    // No abort is required
+    InstmgrIssuAbortMethod_method_no_operation InstmgrIssuAbortMethod = "method-no-operation"
+
+    // Abort will reload standby nodes
+    InstmgrIssuAbortMethod_method_standby_reload InstmgrIssuAbortMethod = "method-standby-reload"
+
+    // Abort will reload the whole system
+    InstmgrIssuAbortMethod_method_system_reload InstmgrIssuAbortMethod = "method-system-reload"
+
+    // Abort will rollback
+    InstmgrIssuAbortMethod_method_rollback InstmgrIssuAbortMethod = "method-rollback"
+
+    // Abort is not possible
+    InstmgrIssuAbortMethod_method_not_possible InstmgrIssuAbortMethod = "method-not-possible"
+
+    // Abort is not possible by SDR user
+    InstmgrIssuAbortMethod_method_admin_only InstmgrIssuAbortMethod = "method-admin-only"
+)
+
+// InstmgrBagRequestTrigger represents The trigger type of an install request
+type InstmgrBagRequestTrigger string
+
+const (
+    // Request triggered by CLI
+    InstmgrBagRequestTrigger_cli InstmgrBagRequestTrigger = "cli"
+
+    // Request triggered by XML
+    InstmgrBagRequestTrigger_xr_xml InstmgrBagRequestTrigger = "xr-xml"
+)
+
+// InstmgrGroup represents Group type
+type InstmgrGroup string
+
+const (
+    // Undefined grouping
+    InstmgrGroup_inst_pkg_group_undefined InstmgrGroup = "inst-pkg-group-undefined"
+
+    // Packages are grouped
+    InstmgrGroup_inst_pkg_group_grouped InstmgrGroup = "inst-pkg-group-grouped"
+
+    // Packages are all individual
+    InstmgrGroup_inst_pkg_group_individual InstmgrGroup = "inst-pkg-group-individual"
+)
+
 // IsmCardTypeFamily represents Ism card type family
 type IsmCardTypeFamily string
 
@@ -73,105 +124,33 @@ const (
     IsmCardTypeFamily_spa IsmCardTypeFamily = "spa"
 )
 
-// InstmgrIsmFsmState represents Install manager FSM state
-type InstmgrIsmFsmState string
+// InstmgrBagUserMsgCategory represents Instmgr bag user msg category
+type InstmgrBagUserMsgCategory string
 
 const (
-    // No ISSU in progress
-    InstmgrIsmFsmState_idle InstmgrIsmFsmState = "idle"
+    // User error
+    InstmgrBagUserMsgCategory_user_error InstmgrBagUserMsgCategory = "user-error"
 
-    // LOAD init
-    InstmgrIsmFsmState_init_done InstmgrIsmFsmState = "init-done"
+    // Non-specific message
+    InstmgrBagUserMsgCategory_non_specific InstmgrBagUserMsgCategory = "non-specific"
 
-    // LOAD preparation
-    InstmgrIsmFsmState_load_shut InstmgrIsmFsmState = "load-shut"
+    // Warning message
+    InstmgrBagUserMsgCategory_warning InstmgrBagUserMsgCategory = "warning"
 
-    // LOAD wait
-    InstmgrIsmFsmState_load_wait InstmgrIsmFsmState = "load-wait"
+    // Information message
+    InstmgrBagUserMsgCategory_information InstmgrBagUserMsgCategory = "information"
 
-    // LOAD root SC FO
-    InstmgrIsmFsmState_load_stp_root_before InstmgrIsmFsmState = "load-stp-root-before"
+    // User prompt
+    InstmgrBagUserMsgCategory_user_prompt InstmgrBagUserMsgCategory = "user-prompt"
 
-    // LOAD standby ROOT SC Upgrade
-    InstmgrIsmFsmState_load_standby_root_sc_upgrade InstmgrIsmFsmState = "load-standby-root-sc-upgrade"
+    // Log message
+    InstmgrBagUserMsgCategory_log InstmgrBagUserMsgCategory = "log"
 
-    // LOAD standby management upgrade
-    InstmgrIsmFsmState_load_standby_management_upgrade InstmgrIsmFsmState = "load-standby-management-upgrade"
+    // System error
+    InstmgrBagUserMsgCategory_system_error InstmgrBagUserMsgCategory = "system-error"
 
-    // LOAD NDSC FO
-    InstmgrIsmFsmState_load_stp_root_after InstmgrIsmFsmState = "load-stp-root-after"
-
-    // LOAD fabric upgrade
-    InstmgrIsmFsmState_load_fabric_upgrade InstmgrIsmFsmState = "load-fabric-upgrade"
-
-    // LOAD ISSU ready
-    InstmgrIsmFsmState_load_management_issu_ready InstmgrIsmFsmState = "load-management-issu-ready"
-
-    // LOAD done
-    InstmgrIsmFsmState_load_done InstmgrIsmFsmState = "load-done"
-
-    // RUN preparation
-    InstmgrIsmFsmState_run_prep InstmgrIsmFsmState = "run-prep"
-
-    // RUN wait
-    InstmgrIsmFsmState_run_wait InstmgrIsmFsmState = "run-wait"
-
-    // RUN iMDR preparation
-    InstmgrIsmFsmState_runi_mdr_prep InstmgrIsmFsmState = "runi-mdr-prep"
-
-    // RUN iMDR start
-    InstmgrIsmFsmState_runi_mdr_start InstmgrIsmFsmState = "runi-mdr-start"
-
-    // RUN iMDR complete
-    InstmgrIsmFsmState_runi_mdr_complete InstmgrIsmFsmState = "runi-mdr-complete"
-
-    // RUN make standby ready
-    InstmgrIsmFsmState_run_make_standby_ready InstmgrIsmFsmState = "run-make-standby-ready"
-
-    // RUN root SC FO
-    InstmgrIsmFsmState_run_root_scfo InstmgrIsmFsmState = "run-root-scfo"
-
-    // RUN NDSC FO
-    InstmgrIsmFsmState_run_ndscfo InstmgrIsmFsmState = "run-ndscfo"
-
-    // RUN transient1
-    InstmgrIsmFsmState_run_transient1 InstmgrIsmFsmState = "run-transient1"
-
-    // RUN DSC FO
-    InstmgrIsmFsmState_run_dscfo InstmgrIsmFsmState = "run-dscfo"
-
-    // RUN FO compelte
-    InstmgrIsmFsmState_run_fo_complete InstmgrIsmFsmState = "run-fo-complete"
-
-    // Run STP Root Return
-    InstmgrIsmFsmState_run_stp_root_return InstmgrIsmFsmState = "run-stp-root-return"
-
-    // RUN iMDR continue
-    InstmgrIsmFsmState_runi_mdr_continue InstmgrIsmFsmState = "runi-mdr-continue"
-
-    // RUN I am ready after iMDR
-    InstmgrIsmFsmState_run_am_i_ready_afteri_mdr InstmgrIsmFsmState = "run-am-i-ready-afteri-mdr"
-
-    // RUN NSF ready
-    InstmgrIsmFsmState_run_nsf_ready InstmgrIsmFsmState = "run-nsf-ready"
-
-    // RUN iMDR begin
-    InstmgrIsmFsmState_run_nsf_begin InstmgrIsmFsmState = "run-nsf-begin"
-
-    // RUN iMDR done
-    InstmgrIsmFsmState_runi_mdr_done InstmgrIsmFsmState = "runi-mdr-done"
-
-    // RUN mgmt issu ready
-    InstmgrIsmFsmState_run_management_issu_ready InstmgrIsmFsmState = "run-management-issu-ready"
-
-    // RUN unshut
-    InstmgrIsmFsmState_run_un_shut InstmgrIsmFsmState = "run-un-shut"
-
-    // RUN done
-    InstmgrIsmFsmState_run_is_done InstmgrIsmFsmState = "run-is-done"
-
-    // Max ISSU state
-    InstmgrIsmFsmState_state_max InstmgrIsmFsmState = "state-max"
+    // User response
+    InstmgrBagUserMsgCategory_user_response InstmgrBagUserMsgCategory = "user-response"
 )
 
 // InstallmgrIsmNodeConforming represents ISSU manage node inventory type
@@ -192,6 +171,40 @@ const (
 
     // SPA Upgrade failed
     InstallmgrIsmNodeConforming_spa_upgrade_fail InstallmgrIsmNodeConforming = "spa-upgrade-fail"
+)
+
+// InstmgrInstallPhase represents Current operation phase
+type InstmgrInstallPhase string
+
+const (
+    // Unknown operational phase
+    InstmgrInstallPhase_inst_phase_unknown InstmgrInstallPhase = "inst-phase-unknown"
+
+    // Downloading
+    InstmgrInstallPhase_inst_phase_download InstmgrInstallPhase = "inst-phase-download"
+
+    // Performing software changes
+    InstmgrInstallPhase_inst_phase_sw_change InstmgrInstallPhase = "inst-phase-sw-change"
+
+    // Cleaning up after op
+    InstmgrInstallPhase_inst_phase_cleaning_up InstmgrInstallPhase = "inst-phase-cleaning-up"
+)
+
+// InstmgrIssuAbortImpact represents Abort impact
+type InstmgrIssuAbortImpact string
+
+const (
+    // Unknown abort impact
+    InstmgrIssuAbortImpact_undefined InstmgrIssuAbortImpact = "undefined"
+
+    // Abort is hitless
+    InstmgrIssuAbortImpact_hitless InstmgrIssuAbortImpact = "hitless"
+
+    // Abort will not affect traffic
+    InstmgrIssuAbortImpact_traffic_outage InstmgrIssuAbortImpact = "traffic-outage"
+
+    // Abort impact: n/a
+    InstmgrIssuAbortImpact_not_applicable InstmgrIssuAbortImpact = "not-applicable"
 )
 
 // InstmgrIsmNodeState represents ISSU manager node state
@@ -295,44 +308,21 @@ const (
     InstmgrIsmNodeState_max InstmgrIsmNodeState = "max"
 )
 
-// InstmgrPiCard represents PI card types
-type InstmgrPiCard string
+// InstmgrPkg represents Package type
+type InstmgrPkg string
 
 const (
-    // Card type RP
-    InstmgrPiCard_type_rp InstmgrPiCard = "type-rp"
+    // Undefined package
+    InstmgrPkg_inst_pkg_type_undefined InstmgrPkg = "inst-pkg-type-undefined"
 
-    // Card Type DRP
-    InstmgrPiCard_type_drp InstmgrPiCard = "type-drp"
+    // Root package
+    InstmgrPkg_inst_pkg_type_root InstmgrPkg = "inst-pkg-type-root"
 
-    // Card type  LC
-    InstmgrPiCard_type_lc InstmgrPiCard = "type-lc"
+    // Standard package
+    InstmgrPkg_inst_pkg_type_standard InstmgrPkg = "inst-pkg-type-standard"
 
-    // Card type SC
-    InstmgrPiCard_type_sc InstmgrPiCard = "type-sc"
-
-    // Card type SP
-    InstmgrPiCard_type_sp InstmgrPiCard = "type-sp"
-
-    // Card type other
-    InstmgrPiCard_type_other InstmgrPiCard = "type-other"
-)
-
-// InstmgrNodeRole represents Node role
-type InstmgrNodeRole string
-
-const (
-    // Redundency unknown
-    InstmgrNodeRole_redundency_unknown InstmgrNodeRole = "redundency-unknown"
-
-    // Redundency active
-    InstmgrNodeRole_redundency_active InstmgrNodeRole = "redundency-active"
-
-    // Redundency standby
-    InstmgrNodeRole_redundency_standby InstmgrNodeRole = "redundency-standby"
-
-    // Redundency unusable
-    InstmgrNodeRole_redundency_unusable InstmgrNodeRole = "redundency-unusable"
+    // Internal package
+    InstmgrPkg_inst_pkg_type_internal InstmgrPkg = "inst-pkg-type-internal"
 )
 
 // InstmgrCardState represents Instmgr card state
@@ -454,175 +444,21 @@ const (
     InstmgrCardState_instmgr_card_num_states InstmgrCardState = "instmgr-card-num-states"
 )
 
-// InstmgrGroup represents Group type
-type InstmgrGroup string
+// InstmgrNodeRole represents Node role
+type InstmgrNodeRole string
 
 const (
-    // Undefined grouping
-    InstmgrGroup_inst_pkg_group_undefined InstmgrGroup = "inst-pkg-group-undefined"
+    // Redundency unknown
+    InstmgrNodeRole_redundency_unknown InstmgrNodeRole = "redundency-unknown"
 
-    // Packages are grouped
-    InstmgrGroup_inst_pkg_group_grouped InstmgrGroup = "inst-pkg-group-grouped"
+    // Redundency active
+    InstmgrNodeRole_redundency_active InstmgrNodeRole = "redundency-active"
 
-    // Packages are all individual
-    InstmgrGroup_inst_pkg_group_individual InstmgrGroup = "inst-pkg-group-individual"
-)
+    // Redundency standby
+    InstmgrNodeRole_redundency_standby InstmgrNodeRole = "redundency-standby"
 
-// InstmgrPkg represents Package type
-type InstmgrPkg string
-
-const (
-    // Undefined package
-    InstmgrPkg_inst_pkg_type_undefined InstmgrPkg = "inst-pkg-type-undefined"
-
-    // Root package
-    InstmgrPkg_inst_pkg_type_root InstmgrPkg = "inst-pkg-type-root"
-
-    // Standard package
-    InstmgrPkg_inst_pkg_type_standard InstmgrPkg = "inst-pkg-type-standard"
-
-    // Internal package
-    InstmgrPkg_inst_pkg_type_internal InstmgrPkg = "inst-pkg-type-internal"
-)
-
-// InstmgrInstallPhase represents Current operation phase
-type InstmgrInstallPhase string
-
-const (
-    // Unknown operational phase
-    InstmgrInstallPhase_inst_phase_unknown InstmgrInstallPhase = "inst-phase-unknown"
-
-    // Downloading
-    InstmgrInstallPhase_inst_phase_download InstmgrInstallPhase = "inst-phase-download"
-
-    // Performing software changes
-    InstmgrInstallPhase_inst_phase_sw_change InstmgrInstallPhase = "inst-phase-sw-change"
-
-    // Cleaning up after op
-    InstmgrInstallPhase_inst_phase_cleaning_up InstmgrInstallPhase = "inst-phase-cleaning-up"
-)
-
-// InstmgrBagIiState represents The Incremental Install state of an install
-type InstmgrBagIiState string
-
-const (
-    // Node to be upraded
-    InstmgrBagIiState_idle InstmgrBagIiState = "idle"
-
-    // Node is being upraded
-    InstmgrBagIiState_in_progress InstmgrBagIiState = "in-progress"
-
-    // Node upgraded successfully
-    InstmgrBagIiState_completed InstmgrBagIiState = "completed"
-
-    // Node reverted to the old S/W
-    InstmgrBagIiState_aborted InstmgrBagIiState = "aborted"
-
-    // Node rebooted and held in MBI
-    InstmgrBagIiState_rebooted InstmgrBagIiState = "rebooted"
-)
-
-// InstmgrBagIiDirection represents The Incremental Install direction
-type InstmgrBagIiDirection string
-
-const (
-    // Not incremental install operation
-    InstmgrBagIiDirection_not_incremental InstmgrBagIiDirection = "not-incremental"
-
-    // Installing
-    InstmgrBagIiDirection_installing InstmgrBagIiDirection = "installing"
-
-    // Unwinding
-    InstmgrBagIiDirection_unwinding InstmgrBagIiDirection = "unwinding"
-)
-
-// InstmgrBagUserMsgCategory represents Instmgr bag user msg category
-type InstmgrBagUserMsgCategory string
-
-const (
-    // User error
-    InstmgrBagUserMsgCategory_user_error InstmgrBagUserMsgCategory = "user-error"
-
-    // Non-specific message
-    InstmgrBagUserMsgCategory_non_specific InstmgrBagUserMsgCategory = "non-specific"
-
-    // Warning message
-    InstmgrBagUserMsgCategory_warning InstmgrBagUserMsgCategory = "warning"
-
-    // Information message
-    InstmgrBagUserMsgCategory_information InstmgrBagUserMsgCategory = "information"
-
-    // User prompt
-    InstmgrBagUserMsgCategory_user_prompt InstmgrBagUserMsgCategory = "user-prompt"
-
-    // Log message
-    InstmgrBagUserMsgCategory_log InstmgrBagUserMsgCategory = "log"
-
-    // System error
-    InstmgrBagUserMsgCategory_system_error InstmgrBagUserMsgCategory = "system-error"
-
-    // User response
-    InstmgrBagUserMsgCategory_user_response InstmgrBagUserMsgCategory = "user-response"
-)
-
-// InstmgrIssuAbortImpact represents Abort impact
-type InstmgrIssuAbortImpact string
-
-const (
-    // Unknown abort impact
-    InstmgrIssuAbortImpact_undefined InstmgrIssuAbortImpact = "undefined"
-
-    // Abort is hitless
-    InstmgrIssuAbortImpact_hitless InstmgrIssuAbortImpact = "hitless"
-
-    // Abort will not affect traffic
-    InstmgrIssuAbortImpact_traffic_outage InstmgrIssuAbortImpact = "traffic-outage"
-
-    // Abort impact: n/a
-    InstmgrIssuAbortImpact_not_applicable InstmgrIssuAbortImpact = "not-applicable"
-)
-
-// InstmgrIssuAbortMethod represents Abort method
-type InstmgrIssuAbortMethod string
-
-const (
-    // Unknown abort method
-    InstmgrIssuAbortMethod_method_undefined InstmgrIssuAbortMethod = "method-undefined"
-
-    // No abort is required
-    InstmgrIssuAbortMethod_method_no_operation InstmgrIssuAbortMethod = "method-no-operation"
-
-    // Abort will reload standby nodes
-    InstmgrIssuAbortMethod_method_standby_reload InstmgrIssuAbortMethod = "method-standby-reload"
-
-    // Abort will reload the whole system
-    InstmgrIssuAbortMethod_method_system_reload InstmgrIssuAbortMethod = "method-system-reload"
-
-    // Abort will rollback
-    InstmgrIssuAbortMethod_method_rollback InstmgrIssuAbortMethod = "method-rollback"
-
-    // Abort is not possible
-    InstmgrIssuAbortMethod_method_not_possible InstmgrIssuAbortMethod = "method-not-possible"
-
-    // Abort is not possible by SDR user
-    InstmgrIssuAbortMethod_method_admin_only InstmgrIssuAbortMethod = "method-admin-only"
-)
-
-// InstmgrBagAbortState represents The abortable state of an install command
-type InstmgrBagAbortState string
-
-const (
-    // Operation can be aborted
-    InstmgrBagAbortState_abortable InstmgrBagAbortState = "abortable"
-
-    // Operation can no longer be aborted
-    InstmgrBagAbortState_no_longer_abortable InstmgrBagAbortState = "no-longer-abortable"
-
-    // Operation cannot be aborted
-    InstmgrBagAbortState_never_abortable InstmgrBagAbortState = "never-abortable"
-
-    // Operation has been aborted
-    InstmgrBagAbortState_already_aborted InstmgrBagAbortState = "already-aborted"
+    // Redundency unusable
+    InstmgrNodeRole_redundency_unusable InstmgrNodeRole = "redundency-unusable"
 )
 
 // InstmgrRequest represents Instmgr request
@@ -678,15 +514,162 @@ const (
     InstmgrRequest_extend InstmgrRequest = "extend"
 )
 
-// InstmgrBagRequestTrigger represents The trigger type of an install request
-type InstmgrBagRequestTrigger string
+// InstmgrIsmFsmState represents Install manager FSM state
+type InstmgrIsmFsmState string
 
 const (
-    // Request triggered by CLI
-    InstmgrBagRequestTrigger_cli InstmgrBagRequestTrigger = "cli"
+    // No ISSU in progress
+    InstmgrIsmFsmState_idle InstmgrIsmFsmState = "idle"
 
-    // Request triggered by XML
-    InstmgrBagRequestTrigger_xr_xml InstmgrBagRequestTrigger = "xr-xml"
+    // LOAD init
+    InstmgrIsmFsmState_init_done InstmgrIsmFsmState = "init-done"
+
+    // LOAD preparation
+    InstmgrIsmFsmState_load_shut InstmgrIsmFsmState = "load-shut"
+
+    // LOAD wait
+    InstmgrIsmFsmState_load_wait InstmgrIsmFsmState = "load-wait"
+
+    // LOAD root SC FO
+    InstmgrIsmFsmState_load_stp_root_before InstmgrIsmFsmState = "load-stp-root-before"
+
+    // LOAD standby ROOT SC Upgrade
+    InstmgrIsmFsmState_load_standby_root_sc_upgrade InstmgrIsmFsmState = "load-standby-root-sc-upgrade"
+
+    // LOAD standby management upgrade
+    InstmgrIsmFsmState_load_standby_management_upgrade InstmgrIsmFsmState = "load-standby-management-upgrade"
+
+    // LOAD NDSC FO
+    InstmgrIsmFsmState_load_stp_root_after InstmgrIsmFsmState = "load-stp-root-after"
+
+    // LOAD fabric upgrade
+    InstmgrIsmFsmState_load_fabric_upgrade InstmgrIsmFsmState = "load-fabric-upgrade"
+
+    // LOAD ISSU ready
+    InstmgrIsmFsmState_load_management_issu_ready InstmgrIsmFsmState = "load-management-issu-ready"
+
+    // LOAD done
+    InstmgrIsmFsmState_load_done InstmgrIsmFsmState = "load-done"
+
+    // RUN preparation
+    InstmgrIsmFsmState_run_prep InstmgrIsmFsmState = "run-prep"
+
+    // RUN wait
+    InstmgrIsmFsmState_run_wait InstmgrIsmFsmState = "run-wait"
+
+    // RUN iMDR preparation
+    InstmgrIsmFsmState_runi_mdr_prep InstmgrIsmFsmState = "runi-mdr-prep"
+
+    // RUN iMDR start
+    InstmgrIsmFsmState_runi_mdr_start InstmgrIsmFsmState = "runi-mdr-start"
+
+    // RUN iMDR complete
+    InstmgrIsmFsmState_runi_mdr_complete InstmgrIsmFsmState = "runi-mdr-complete"
+
+    // RUN make standby ready
+    InstmgrIsmFsmState_run_make_standby_ready InstmgrIsmFsmState = "run-make-standby-ready"
+
+    // RUN root SC FO
+    InstmgrIsmFsmState_run_root_scfo InstmgrIsmFsmState = "run-root-scfo"
+
+    // RUN NDSC FO
+    InstmgrIsmFsmState_run_ndscfo InstmgrIsmFsmState = "run-ndscfo"
+
+    // RUN transient1
+    InstmgrIsmFsmState_run_transient1 InstmgrIsmFsmState = "run-transient1"
+
+    // RUN DSC FO
+    InstmgrIsmFsmState_run_dscfo InstmgrIsmFsmState = "run-dscfo"
+
+    // RUN FO compelte
+    InstmgrIsmFsmState_run_fo_complete InstmgrIsmFsmState = "run-fo-complete"
+
+    // Run STP Root Return
+    InstmgrIsmFsmState_run_stp_root_return InstmgrIsmFsmState = "run-stp-root-return"
+
+    // RUN iMDR continue
+    InstmgrIsmFsmState_runi_mdr_continue InstmgrIsmFsmState = "runi-mdr-continue"
+
+    // RUN I am ready after iMDR
+    InstmgrIsmFsmState_run_am_i_ready_afteri_mdr InstmgrIsmFsmState = "run-am-i-ready-afteri-mdr"
+
+    // RUN NSF ready
+    InstmgrIsmFsmState_run_nsf_ready InstmgrIsmFsmState = "run-nsf-ready"
+
+    // RUN iMDR begin
+    InstmgrIsmFsmState_run_nsf_begin InstmgrIsmFsmState = "run-nsf-begin"
+
+    // RUN iMDR done
+    InstmgrIsmFsmState_runi_mdr_done InstmgrIsmFsmState = "runi-mdr-done"
+
+    // RUN mgmt issu ready
+    InstmgrIsmFsmState_run_management_issu_ready InstmgrIsmFsmState = "run-management-issu-ready"
+
+    // RUN unshut
+    InstmgrIsmFsmState_run_un_shut InstmgrIsmFsmState = "run-un-shut"
+
+    // RUN done
+    InstmgrIsmFsmState_run_is_done InstmgrIsmFsmState = "run-is-done"
+
+    // Max ISSU state
+    InstmgrIsmFsmState_state_max InstmgrIsmFsmState = "state-max"
+)
+
+// InstmgrBagIiDirection represents The Incremental Install direction
+type InstmgrBagIiDirection string
+
+const (
+    // Not incremental install operation
+    InstmgrBagIiDirection_not_incremental InstmgrBagIiDirection = "not-incremental"
+
+    // Installing
+    InstmgrBagIiDirection_installing InstmgrBagIiDirection = "installing"
+
+    // Unwinding
+    InstmgrBagIiDirection_unwinding InstmgrBagIiDirection = "unwinding"
+)
+
+// InstmgrPiCard represents PI card types
+type InstmgrPiCard string
+
+const (
+    // Card type RP
+    InstmgrPiCard_type_rp InstmgrPiCard = "type-rp"
+
+    // Card Type DRP
+    InstmgrPiCard_type_drp InstmgrPiCard = "type-drp"
+
+    // Card type  LC
+    InstmgrPiCard_type_lc InstmgrPiCard = "type-lc"
+
+    // Card type SC
+    InstmgrPiCard_type_sc InstmgrPiCard = "type-sc"
+
+    // Card type SP
+    InstmgrPiCard_type_sp InstmgrPiCard = "type-sp"
+
+    // Card type other
+    InstmgrPiCard_type_other InstmgrPiCard = "type-other"
+)
+
+// InstmgrBagIiState represents The Incremental Install state of an install
+type InstmgrBagIiState string
+
+const (
+    // Node to be upraded
+    InstmgrBagIiState_idle InstmgrBagIiState = "idle"
+
+    // Node is being upraded
+    InstmgrBagIiState_in_progress InstmgrBagIiState = "in-progress"
+
+    // Node upgraded successfully
+    InstmgrBagIiState_completed InstmgrBagIiState = "completed"
+
+    // Node reverted to the old S/W
+    InstmgrBagIiState_aborted InstmgrBagIiState = "aborted"
+
+    // Node rebooted and held in MBI
+    InstmgrBagIiState_rebooted InstmgrBagIiState = "rebooted"
 )
 
 // InstmgrBagLogEntryUserMsgCategory represents Category type
@@ -716,6 +699,23 @@ const (
 
     // User response
     InstmgrBagLogEntryUserMsgCategory_user_response InstmgrBagLogEntryUserMsgCategory = "user-response"
+)
+
+// InstmgrBagAbortState represents The abortable state of an install command
+type InstmgrBagAbortState string
+
+const (
+    // Operation can be aborted
+    InstmgrBagAbortState_abortable InstmgrBagAbortState = "abortable"
+
+    // Operation can no longer be aborted
+    InstmgrBagAbortState_no_longer_abortable InstmgrBagAbortState = "no-longer-abortable"
+
+    // Operation cannot be aborted
+    InstmgrBagAbortState_never_abortable InstmgrBagAbortState = "never-abortable"
+
+    // Operation has been aborted
+    InstmgrBagAbortState_already_aborted InstmgrBagAbortState = "already-aborted"
 )
 
 // Install
@@ -764,17 +764,20 @@ func (install *Install) GetEntityData() *types.CommonEntityData {
     install.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     install.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    install.EntityData.Children = make(map[string]types.YChild)
-    install.EntityData.Children["configuration-registers"] = types.YChild{"ConfigurationRegisters", &install.ConfigurationRegisters}
-    install.EntityData.Children["request-statuses"] = types.YChild{"RequestStatuses", &install.RequestStatuses}
-    install.EntityData.Children["boot-variables"] = types.YChild{"BootVariables", &install.BootVariables}
-    install.EntityData.Children["software"] = types.YChild{"Software", &install.Software}
-    install.EntityData.Children["software-inventory"] = types.YChild{"SoftwareInventory", &install.SoftwareInventory}
-    install.EntityData.Children["issu"] = types.YChild{"Issu", &install.Issu}
-    install.EntityData.Children["boot-image"] = types.YChild{"BootImage", &install.BootImage}
-    install.EntityData.Children["logs"] = types.YChild{"Logs", &install.Logs}
-    install.EntityData.Leafs = make(map[string]types.YLeaf)
-    install.EntityData.Leafs["log-size"] = types.YLeaf{"LogSize", install.LogSize}
+    install.EntityData.Children = types.NewOrderedMap()
+    install.EntityData.Children.Append("configuration-registers", types.YChild{"ConfigurationRegisters", &install.ConfigurationRegisters})
+    install.EntityData.Children.Append("request-statuses", types.YChild{"RequestStatuses", &install.RequestStatuses})
+    install.EntityData.Children.Append("boot-variables", types.YChild{"BootVariables", &install.BootVariables})
+    install.EntityData.Children.Append("software", types.YChild{"Software", &install.Software})
+    install.EntityData.Children.Append("software-inventory", types.YChild{"SoftwareInventory", &install.SoftwareInventory})
+    install.EntityData.Children.Append("issu", types.YChild{"Issu", &install.Issu})
+    install.EntityData.Children.Append("boot-image", types.YChild{"BootImage", &install.BootImage})
+    install.EntityData.Children.Append("logs", types.YChild{"Logs", &install.Logs})
+    install.EntityData.Leafs = types.NewOrderedMap()
+    install.EntityData.Leafs.Append("log-size", types.YLeaf{"LogSize", install.LogSize})
+
+    install.EntityData.YListKeys = []string {}
+
     return &(install.EntityData)
 }
 
@@ -786,7 +789,7 @@ type Install_ConfigurationRegisters struct {
 
     // Configuration register for specific node. The type is slice of
     // Install_ConfigurationRegisters_ConfigurationRegister.
-    ConfigurationRegister []Install_ConfigurationRegisters_ConfigurationRegister
+    ConfigurationRegister []*Install_ConfigurationRegisters_ConfigurationRegister
 }
 
 func (configurationRegisters *Install_ConfigurationRegisters) GetEntityData() *types.CommonEntityData {
@@ -799,12 +802,15 @@ func (configurationRegisters *Install_ConfigurationRegisters) GetEntityData() *t
     configurationRegisters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configurationRegisters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configurationRegisters.EntityData.Children = make(map[string]types.YChild)
-    configurationRegisters.EntityData.Children["configuration-register"] = types.YChild{"ConfigurationRegister", nil}
+    configurationRegisters.EntityData.Children = types.NewOrderedMap()
+    configurationRegisters.EntityData.Children.Append("configuration-register", types.YChild{"ConfigurationRegister", nil})
     for i := range configurationRegisters.ConfigurationRegister {
-        configurationRegisters.EntityData.Children[types.GetSegmentPath(&configurationRegisters.ConfigurationRegister[i])] = types.YChild{"ConfigurationRegister", &configurationRegisters.ConfigurationRegister[i]}
+        configurationRegisters.EntityData.Children.Append(types.GetSegmentPath(configurationRegisters.ConfigurationRegister[i]), types.YChild{"ConfigurationRegister", configurationRegisters.ConfigurationRegister[i]})
     }
-    configurationRegisters.EntityData.Leafs = make(map[string]types.YLeaf)
+    configurationRegisters.EntityData.Leafs = types.NewOrderedMap()
+
+    configurationRegisters.EntityData.YListKeys = []string {}
+
     return &(configurationRegisters.EntityData)
 }
 
@@ -815,11 +821,11 @@ type Install_ConfigurationRegisters_ConfigurationRegister struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Configuration register value. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'. This attribute is mandatory.
+    // [0-9a-fA-F]{1,8}. This attribute is mandatory.
     ConfigRegister interface{}
 }
 
@@ -828,15 +834,18 @@ func (configurationRegister *Install_ConfigurationRegisters_ConfigurationRegiste
     configurationRegister.EntityData.YangName = "configuration-register"
     configurationRegister.EntityData.BundleName = "cisco_ios_xr"
     configurationRegister.EntityData.ParentYangName = "configuration-registers"
-    configurationRegister.EntityData.SegmentPath = "configuration-register" + "[node-name='" + fmt.Sprintf("%v", configurationRegister.NodeName) + "']"
+    configurationRegister.EntityData.SegmentPath = "configuration-register" + types.AddKeyToken(configurationRegister.NodeName, "node-name")
     configurationRegister.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configurationRegister.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configurationRegister.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configurationRegister.EntityData.Children = make(map[string]types.YChild)
-    configurationRegister.EntityData.Leafs = make(map[string]types.YLeaf)
-    configurationRegister.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", configurationRegister.NodeName}
-    configurationRegister.EntityData.Leafs["config-register"] = types.YLeaf{"ConfigRegister", configurationRegister.ConfigRegister}
+    configurationRegister.EntityData.Children = types.NewOrderedMap()
+    configurationRegister.EntityData.Leafs = types.NewOrderedMap()
+    configurationRegister.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", configurationRegister.NodeName})
+    configurationRegister.EntityData.Leafs.Append("config-register", types.YLeaf{"ConfigRegister", configurationRegister.ConfigRegister})
+
+    configurationRegister.EntityData.YListKeys = []string {"NodeName"}
+
     return &(configurationRegister.EntityData)
 }
 
@@ -848,7 +857,7 @@ type Install_RequestStatuses struct {
 
     // Request status Information. The type is slice of
     // Install_RequestStatuses_RequestStatus.
-    RequestStatus []Install_RequestStatuses_RequestStatus
+    RequestStatus []*Install_RequestStatuses_RequestStatus
 }
 
 func (requestStatuses *Install_RequestStatuses) GetEntityData() *types.CommonEntityData {
@@ -861,12 +870,15 @@ func (requestStatuses *Install_RequestStatuses) GetEntityData() *types.CommonEnt
     requestStatuses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requestStatuses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    requestStatuses.EntityData.Children = make(map[string]types.YChild)
-    requestStatuses.EntityData.Children["request-status"] = types.YChild{"RequestStatus", nil}
+    requestStatuses.EntityData.Children = types.NewOrderedMap()
+    requestStatuses.EntityData.Children.Append("request-status", types.YChild{"RequestStatus", nil})
     for i := range requestStatuses.RequestStatus {
-        requestStatuses.EntityData.Children[types.GetSegmentPath(&requestStatuses.RequestStatus[i])] = types.YChild{"RequestStatus", &requestStatuses.RequestStatus[i]}
+        requestStatuses.EntityData.Children.Append(types.GetSegmentPath(requestStatuses.RequestStatus[i]), types.YChild{"RequestStatus", requestStatuses.RequestStatus[i]})
     }
-    requestStatuses.EntityData.Leafs = make(map[string]types.YLeaf)
+    requestStatuses.EntityData.Leafs = types.NewOrderedMap()
+
+    requestStatuses.EntityData.YListKeys = []string {}
+
     return &(requestStatuses.EntityData)
 }
 
@@ -909,11 +921,11 @@ type Install_RequestStatuses_RequestStatus struct {
 
     // Messages related to ISSU operations. The type is slice of
     // Install_RequestStatuses_RequestStatus_IssuMessage.
-    IssuMessage []Install_RequestStatuses_RequestStatus_IssuMessage
+    IssuMessage []*Install_RequestStatuses_RequestStatus_IssuMessage
 
     // Messages output to the user. The type is slice of
     // Install_RequestStatuses_RequestStatus_Message.
-    Message []Install_RequestStatuses_RequestStatus_Message
+    Message []*Install_RequestStatuses_RequestStatus_Message
 }
 
 func (requestStatus *Install_RequestStatuses_RequestStatus) GetEntityData() *types.CommonEntityData {
@@ -921,30 +933,33 @@ func (requestStatus *Install_RequestStatuses_RequestStatus) GetEntityData() *typ
     requestStatus.EntityData.YangName = "request-status"
     requestStatus.EntityData.BundleName = "cisco_ios_xr"
     requestStatus.EntityData.ParentYangName = "request-statuses"
-    requestStatus.EntityData.SegmentPath = "request-status" + "[request-id='" + fmt.Sprintf("%v", requestStatus.RequestId) + "']"
+    requestStatus.EntityData.SegmentPath = "request-status" + types.AddKeyToken(requestStatus.RequestId, "request-id")
     requestStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     requestStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requestStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    requestStatus.EntityData.Children = make(map[string]types.YChild)
-    requestStatus.EntityData.Children["request-information"] = types.YChild{"RequestInformation", &requestStatus.RequestInformation}
-    requestStatus.EntityData.Children["abort-status"] = types.YChild{"AbortStatus", &requestStatus.AbortStatus}
-    requestStatus.EntityData.Children["incremental-install-information"] = types.YChild{"IncrementalInstallInformation", &requestStatus.IncrementalInstallInformation}
-    requestStatus.EntityData.Children["issu-message"] = types.YChild{"IssuMessage", nil}
+    requestStatus.EntityData.Children = types.NewOrderedMap()
+    requestStatus.EntityData.Children.Append("request-information", types.YChild{"RequestInformation", &requestStatus.RequestInformation})
+    requestStatus.EntityData.Children.Append("abort-status", types.YChild{"AbortStatus", &requestStatus.AbortStatus})
+    requestStatus.EntityData.Children.Append("incremental-install-information", types.YChild{"IncrementalInstallInformation", &requestStatus.IncrementalInstallInformation})
+    requestStatus.EntityData.Children.Append("issu-message", types.YChild{"IssuMessage", nil})
     for i := range requestStatus.IssuMessage {
-        requestStatus.EntityData.Children[types.GetSegmentPath(&requestStatus.IssuMessage[i])] = types.YChild{"IssuMessage", &requestStatus.IssuMessage[i]}
+        requestStatus.EntityData.Children.Append(types.GetSegmentPath(requestStatus.IssuMessage[i]), types.YChild{"IssuMessage", requestStatus.IssuMessage[i]})
     }
-    requestStatus.EntityData.Children["message"] = types.YChild{"Message", nil}
+    requestStatus.EntityData.Children.Append("message", types.YChild{"Message", nil})
     for i := range requestStatus.Message {
-        requestStatus.EntityData.Children[types.GetSegmentPath(&requestStatus.Message[i])] = types.YChild{"Message", &requestStatus.Message[i]}
+        requestStatus.EntityData.Children.Append(types.GetSegmentPath(requestStatus.Message[i]), types.YChild{"Message", requestStatus.Message[i]})
     }
-    requestStatus.EntityData.Leafs = make(map[string]types.YLeaf)
-    requestStatus.EntityData.Leafs["request-id"] = types.YLeaf{"RequestId", requestStatus.RequestId}
-    requestStatus.EntityData.Leafs["percentage"] = types.YLeaf{"Percentage", requestStatus.Percentage}
-    requestStatus.EntityData.Leafs["abort-state"] = types.YLeaf{"AbortState", requestStatus.AbortState}
-    requestStatus.EntityData.Leafs["downloaded-bytes"] = types.YLeaf{"DownloadedBytes", requestStatus.DownloadedBytes}
-    requestStatus.EntityData.Leafs["unanswered-query"] = types.YLeaf{"UnansweredQuery", requestStatus.UnansweredQuery}
-    requestStatus.EntityData.Leafs["operation-phase"] = types.YLeaf{"OperationPhase", requestStatus.OperationPhase}
+    requestStatus.EntityData.Leafs = types.NewOrderedMap()
+    requestStatus.EntityData.Leafs.Append("request-id", types.YLeaf{"RequestId", requestStatus.RequestId})
+    requestStatus.EntityData.Leafs.Append("percentage", types.YLeaf{"Percentage", requestStatus.Percentage})
+    requestStatus.EntityData.Leafs.Append("abort-state", types.YLeaf{"AbortState", requestStatus.AbortState})
+    requestStatus.EntityData.Leafs.Append("downloaded-bytes", types.YLeaf{"DownloadedBytes", requestStatus.DownloadedBytes})
+    requestStatus.EntityData.Leafs.Append("unanswered-query", types.YLeaf{"UnansweredQuery", requestStatus.UnansweredQuery})
+    requestStatus.EntityData.Leafs.Append("operation-phase", types.YLeaf{"OperationPhase", requestStatus.OperationPhase})
+
+    requestStatus.EntityData.YListKeys = []string {"RequestId"}
+
     return &(requestStatus.EntityData)
 }
 
@@ -984,14 +999,17 @@ func (requestInformation *Install_RequestStatuses_RequestStatus_RequestInformati
     requestInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requestInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    requestInformation.EntityData.Children = make(map[string]types.YChild)
-    requestInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    requestInformation.EntityData.Leafs["request-id"] = types.YLeaf{"RequestId", requestInformation.RequestId}
-    requestInformation.EntityData.Leafs["user-id"] = types.YLeaf{"UserId", requestInformation.UserId}
-    requestInformation.EntityData.Leafs["trigger-type"] = types.YLeaf{"TriggerType", requestInformation.TriggerType}
-    requestInformation.EntityData.Leafs["request-option"] = types.YLeaf{"RequestOption", requestInformation.RequestOption}
-    requestInformation.EntityData.Leafs["operation-type"] = types.YLeaf{"OperationType", requestInformation.OperationType}
-    requestInformation.EntityData.Leafs["operation-detail"] = types.YLeaf{"OperationDetail", requestInformation.OperationDetail}
+    requestInformation.EntityData.Children = types.NewOrderedMap()
+    requestInformation.EntityData.Leafs = types.NewOrderedMap()
+    requestInformation.EntityData.Leafs.Append("request-id", types.YLeaf{"RequestId", requestInformation.RequestId})
+    requestInformation.EntityData.Leafs.Append("user-id", types.YLeaf{"UserId", requestInformation.UserId})
+    requestInformation.EntityData.Leafs.Append("trigger-type", types.YLeaf{"TriggerType", requestInformation.TriggerType})
+    requestInformation.EntityData.Leafs.Append("request-option", types.YLeaf{"RequestOption", requestInformation.RequestOption})
+    requestInformation.EntityData.Leafs.Append("operation-type", types.YLeaf{"OperationType", requestInformation.OperationType})
+    requestInformation.EntityData.Leafs.Append("operation-detail", types.YLeaf{"OperationDetail", requestInformation.OperationDetail})
+
+    requestInformation.EntityData.YListKeys = []string {}
+
     return &(requestInformation.EntityData)
 }
 
@@ -1018,10 +1036,13 @@ func (abortStatus *Install_RequestStatuses_RequestStatus_AbortStatus) GetEntityD
     abortStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     abortStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    abortStatus.EntityData.Children = make(map[string]types.YChild)
-    abortStatus.EntityData.Leafs = make(map[string]types.YLeaf)
-    abortStatus.EntityData.Leafs["abort-method"] = types.YLeaf{"AbortMethod", abortStatus.AbortMethod}
-    abortStatus.EntityData.Leafs["abort-impact"] = types.YLeaf{"AbortImpact", abortStatus.AbortImpact}
+    abortStatus.EntityData.Children = types.NewOrderedMap()
+    abortStatus.EntityData.Leafs = types.NewOrderedMap()
+    abortStatus.EntityData.Leafs.Append("abort-method", types.YLeaf{"AbortMethod", abortStatus.AbortMethod})
+    abortStatus.EntityData.Leafs.Append("abort-impact", types.YLeaf{"AbortImpact", abortStatus.AbortImpact})
+
+    abortStatus.EntityData.YListKeys = []string {}
+
     return &(abortStatus.EntityData)
 }
 
@@ -1039,7 +1060,7 @@ type Install_RequestStatuses_RequestStatus_IncrementalInstallInformation struct 
 
     // Participating nodes. The type is slice of
     // Install_RequestStatuses_RequestStatus_IncrementalInstallInformation_Nodes.
-    Nodes []Install_RequestStatuses_RequestStatus_IncrementalInstallInformation_Nodes
+    Nodes []*Install_RequestStatuses_RequestStatus_IncrementalInstallInformation_Nodes
 }
 
 func (incrementalInstallInformation *Install_RequestStatuses_RequestStatus_IncrementalInstallInformation) GetEntityData() *types.CommonEntityData {
@@ -1052,14 +1073,17 @@ func (incrementalInstallInformation *Install_RequestStatuses_RequestStatus_Incre
     incrementalInstallInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     incrementalInstallInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    incrementalInstallInformation.EntityData.Children = make(map[string]types.YChild)
-    incrementalInstallInformation.EntityData.Children["nodes"] = types.YChild{"Nodes", nil}
+    incrementalInstallInformation.EntityData.Children = types.NewOrderedMap()
+    incrementalInstallInformation.EntityData.Children.Append("nodes", types.YChild{"Nodes", nil})
     for i := range incrementalInstallInformation.Nodes {
-        incrementalInstallInformation.EntityData.Children[types.GetSegmentPath(&incrementalInstallInformation.Nodes[i])] = types.YChild{"Nodes", &incrementalInstallInformation.Nodes[i]}
+        incrementalInstallInformation.EntityData.Children.Append(types.GetSegmentPath(incrementalInstallInformation.Nodes[i]), types.YChild{"Nodes", incrementalInstallInformation.Nodes[i]})
     }
-    incrementalInstallInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    incrementalInstallInformation.EntityData.Leafs["direction"] = types.YLeaf{"Direction", incrementalInstallInformation.Direction}
-    incrementalInstallInformation.EntityData.Leafs["ii-error"] = types.YLeaf{"IiError", incrementalInstallInformation.IiError}
+    incrementalInstallInformation.EntityData.Leafs = types.NewOrderedMap()
+    incrementalInstallInformation.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", incrementalInstallInformation.Direction})
+    incrementalInstallInformation.EntityData.Leafs.Append("ii-error", types.YLeaf{"IiError", incrementalInstallInformation.IiError})
+
+    incrementalInstallInformation.EntityData.YListKeys = []string {}
+
     return &(incrementalInstallInformation.EntityData)
 }
 
@@ -1070,7 +1094,7 @@ type Install_RequestStatuses_RequestStatus_IncrementalInstallInformation_Nodes s
     YFilter yfilter.YFilter
 
     // Node identifier. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // State. The type is InstmgrBagIiState.
@@ -1087,10 +1111,13 @@ func (nodes *Install_RequestStatuses_RequestStatus_IncrementalInstallInformation
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
-    nodes.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", nodes.NodeName}
-    nodes.EntityData.Leafs["state"] = types.YLeaf{"State", nodes.State}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+    nodes.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", nodes.NodeName})
+    nodes.EntityData.Leafs.Append("state", types.YLeaf{"State", nodes.State})
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -1120,11 +1147,14 @@ func (issuMessage *Install_RequestStatuses_RequestStatus_IssuMessage) GetEntityD
     issuMessage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     issuMessage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    issuMessage.EntityData.Children = make(map[string]types.YChild)
-    issuMessage.EntityData.Children["scope"] = types.YChild{"Scope", &issuMessage.Scope}
-    issuMessage.EntityData.Leafs = make(map[string]types.YLeaf)
-    issuMessage.EntityData.Leafs["category"] = types.YLeaf{"Category", issuMessage.Category}
-    issuMessage.EntityData.Leafs["message"] = types.YLeaf{"Message", issuMessage.Message}
+    issuMessage.EntityData.Children = types.NewOrderedMap()
+    issuMessage.EntityData.Children.Append("scope", types.YChild{"Scope", &issuMessage.Scope})
+    issuMessage.EntityData.Leafs = types.NewOrderedMap()
+    issuMessage.EntityData.Leafs.Append("category", types.YLeaf{"Category", issuMessage.Category})
+    issuMessage.EntityData.Leafs.Append("message", types.YLeaf{"Message", issuMessage.Message})
+
+    issuMessage.EntityData.YListKeys = []string {}
+
     return &(issuMessage.EntityData)
 }
 
@@ -1152,10 +1182,13 @@ func (scope *Install_RequestStatuses_RequestStatus_IssuMessage_Scope) GetEntityD
     scope.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scope.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    scope.EntityData.Children = make(map[string]types.YChild)
-    scope.EntityData.Leafs = make(map[string]types.YLeaf)
-    scope.EntityData.Leafs["admin-read"] = types.YLeaf{"AdminRead", scope.AdminRead}
-    scope.EntityData.Leafs["affected-sd-rs"] = types.YLeaf{"AffectedSdRs", scope.AffectedSdRs}
+    scope.EntityData.Children = types.NewOrderedMap()
+    scope.EntityData.Leafs = types.NewOrderedMap()
+    scope.EntityData.Leafs.Append("admin-read", types.YLeaf{"AdminRead", scope.AdminRead})
+    scope.EntityData.Leafs.Append("affected-sd-rs", types.YLeaf{"AffectedSdRs", scope.AffectedSdRs})
+
+    scope.EntityData.YListKeys = []string {}
+
     return &(scope.EntityData)
 }
 
@@ -1185,11 +1218,14 @@ func (message *Install_RequestStatuses_RequestStatus_Message) GetEntityData() *t
     message.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     message.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    message.EntityData.Children = make(map[string]types.YChild)
-    message.EntityData.Children["scope"] = types.YChild{"Scope", &message.Scope}
-    message.EntityData.Leafs = make(map[string]types.YLeaf)
-    message.EntityData.Leafs["category"] = types.YLeaf{"Category", message.Category}
-    message.EntityData.Leafs["message"] = types.YLeaf{"Message", message.Message}
+    message.EntityData.Children = types.NewOrderedMap()
+    message.EntityData.Children.Append("scope", types.YChild{"Scope", &message.Scope})
+    message.EntityData.Leafs = types.NewOrderedMap()
+    message.EntityData.Leafs.Append("category", types.YLeaf{"Category", message.Category})
+    message.EntityData.Leafs.Append("message", types.YLeaf{"Message", message.Message})
+
+    message.EntityData.YListKeys = []string {}
+
     return &(message.EntityData)
 }
 
@@ -1217,10 +1253,13 @@ func (scope *Install_RequestStatuses_RequestStatus_Message_Scope) GetEntityData(
     scope.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scope.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    scope.EntityData.Children = make(map[string]types.YChild)
-    scope.EntityData.Leafs = make(map[string]types.YLeaf)
-    scope.EntityData.Leafs["admin-read"] = types.YLeaf{"AdminRead", scope.AdminRead}
-    scope.EntityData.Leafs["affected-sd-rs"] = types.YLeaf{"AffectedSdRs", scope.AffectedSdRs}
+    scope.EntityData.Children = types.NewOrderedMap()
+    scope.EntityData.Leafs = types.NewOrderedMap()
+    scope.EntityData.Leafs.Append("admin-read", types.YLeaf{"AdminRead", scope.AdminRead})
+    scope.EntityData.Leafs.Append("affected-sd-rs", types.YLeaf{"AffectedSdRs", scope.AffectedSdRs})
+
+    scope.EntityData.YListKeys = []string {}
+
     return &(scope.EntityData)
 }
 
@@ -1232,7 +1271,7 @@ type Install_BootVariables struct {
 
     // Boot variable for specific node. The type is slice of
     // Install_BootVariables_BootVariable.
-    BootVariable []Install_BootVariables_BootVariable
+    BootVariable []*Install_BootVariables_BootVariable
 }
 
 func (bootVariables *Install_BootVariables) GetEntityData() *types.CommonEntityData {
@@ -1245,12 +1284,15 @@ func (bootVariables *Install_BootVariables) GetEntityData() *types.CommonEntityD
     bootVariables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bootVariables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bootVariables.EntityData.Children = make(map[string]types.YChild)
-    bootVariables.EntityData.Children["boot-variable"] = types.YChild{"BootVariable", nil}
+    bootVariables.EntityData.Children = types.NewOrderedMap()
+    bootVariables.EntityData.Children.Append("boot-variable", types.YChild{"BootVariable", nil})
     for i := range bootVariables.BootVariable {
-        bootVariables.EntityData.Children[types.GetSegmentPath(&bootVariables.BootVariable[i])] = types.YChild{"BootVariable", &bootVariables.BootVariable[i]}
+        bootVariables.EntityData.Children.Append(types.GetSegmentPath(bootVariables.BootVariable[i]), types.YChild{"BootVariable", bootVariables.BootVariable[i]})
     }
-    bootVariables.EntityData.Leafs = make(map[string]types.YLeaf)
+    bootVariables.EntityData.Leafs = types.NewOrderedMap()
+
+    bootVariables.EntityData.YListKeys = []string {}
+
     return &(bootVariables.EntityData)
 }
 
@@ -1261,7 +1303,7 @@ type Install_BootVariables_BootVariable struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Boot variable value. The type is string. This attribute is mandatory.
@@ -1273,15 +1315,18 @@ func (bootVariable *Install_BootVariables_BootVariable) GetEntityData() *types.C
     bootVariable.EntityData.YangName = "boot-variable"
     bootVariable.EntityData.BundleName = "cisco_ios_xr"
     bootVariable.EntityData.ParentYangName = "boot-variables"
-    bootVariable.EntityData.SegmentPath = "boot-variable" + "[node-name='" + fmt.Sprintf("%v", bootVariable.NodeName) + "']"
+    bootVariable.EntityData.SegmentPath = "boot-variable" + types.AddKeyToken(bootVariable.NodeName, "node-name")
     bootVariable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bootVariable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bootVariable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bootVariable.EntityData.Children = make(map[string]types.YChild)
-    bootVariable.EntityData.Leafs = make(map[string]types.YLeaf)
-    bootVariable.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", bootVariable.NodeName}
-    bootVariable.EntityData.Leafs["boot-variable"] = types.YLeaf{"BootVariable", bootVariable.BootVariable}
+    bootVariable.EntityData.Children = types.NewOrderedMap()
+    bootVariable.EntityData.Leafs = types.NewOrderedMap()
+    bootVariable.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", bootVariable.NodeName})
+    bootVariable.EntityData.Leafs.Append("boot-variable", types.YLeaf{"BootVariable", bootVariable.BootVariable})
+
+    bootVariable.EntityData.YListKeys = []string {"NodeName"}
+
     return &(bootVariable.EntityData)
 }
 
@@ -1311,11 +1356,14 @@ func (software *Install_Software) GetEntityData() *types.CommonEntityData {
     software.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     software.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    software.EntityData.Children = make(map[string]types.YChild)
-    software.EntityData.Children["alias-devices"] = types.YChild{"AliasDevices", &software.AliasDevices}
-    software.EntityData.Children["package-devices"] = types.YChild{"PackageDevices", &software.PackageDevices}
-    software.EntityData.Children["component-devices"] = types.YChild{"ComponentDevices", &software.ComponentDevices}
-    software.EntityData.Leafs = make(map[string]types.YLeaf)
+    software.EntityData.Children = types.NewOrderedMap()
+    software.EntityData.Children.Append("alias-devices", types.YChild{"AliasDevices", &software.AliasDevices})
+    software.EntityData.Children.Append("package-devices", types.YChild{"PackageDevices", &software.PackageDevices})
+    software.EntityData.Children.Append("component-devices", types.YChild{"ComponentDevices", &software.ComponentDevices})
+    software.EntityData.Leafs = types.NewOrderedMap()
+
+    software.EntityData.YListKeys = []string {}
+
     return &(software.EntityData)
 }
 
@@ -1327,7 +1375,7 @@ type Install_Software_AliasDevices struct {
 
     // Package alias information for specific device. The type is slice of
     // Install_Software_AliasDevices_AliasDevice.
-    AliasDevice []Install_Software_AliasDevices_AliasDevice
+    AliasDevice []*Install_Software_AliasDevices_AliasDevice
 }
 
 func (aliasDevices *Install_Software_AliasDevices) GetEntityData() *types.CommonEntityData {
@@ -1340,12 +1388,15 @@ func (aliasDevices *Install_Software_AliasDevices) GetEntityData() *types.Common
     aliasDevices.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aliasDevices.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aliasDevices.EntityData.Children = make(map[string]types.YChild)
-    aliasDevices.EntityData.Children["alias-device"] = types.YChild{"AliasDevice", nil}
+    aliasDevices.EntityData.Children = types.NewOrderedMap()
+    aliasDevices.EntityData.Children.Append("alias-device", types.YChild{"AliasDevice", nil})
     for i := range aliasDevices.AliasDevice {
-        aliasDevices.EntityData.Children[types.GetSegmentPath(&aliasDevices.AliasDevice[i])] = types.YChild{"AliasDevice", &aliasDevices.AliasDevice[i]}
+        aliasDevices.EntityData.Children.Append(types.GetSegmentPath(aliasDevices.AliasDevice[i]), types.YChild{"AliasDevice", aliasDevices.AliasDevice[i]})
     }
-    aliasDevices.EntityData.Leafs = make(map[string]types.YLeaf)
+    aliasDevices.EntityData.Leafs = types.NewOrderedMap()
+
+    aliasDevices.EntityData.YListKeys = []string {}
+
     return &(aliasDevices.EntityData)
 }
 
@@ -1356,7 +1407,7 @@ type Install_Software_AliasDevices_AliasDevice struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Device Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     DeviceName interface{}
 
     // alias information.
@@ -1368,15 +1419,18 @@ func (aliasDevice *Install_Software_AliasDevices_AliasDevice) GetEntityData() *t
     aliasDevice.EntityData.YangName = "alias-device"
     aliasDevice.EntityData.BundleName = "cisco_ios_xr"
     aliasDevice.EntityData.ParentYangName = "alias-devices"
-    aliasDevice.EntityData.SegmentPath = "alias-device" + "[device-name='" + fmt.Sprintf("%v", aliasDevice.DeviceName) + "']"
+    aliasDevice.EntityData.SegmentPath = "alias-device" + types.AddKeyToken(aliasDevice.DeviceName, "device-name")
     aliasDevice.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aliasDevice.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aliasDevice.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aliasDevice.EntityData.Children = make(map[string]types.YChild)
-    aliasDevice.EntityData.Children["aliases"] = types.YChild{"Aliases", &aliasDevice.Aliases}
-    aliasDevice.EntityData.Leafs = make(map[string]types.YLeaf)
-    aliasDevice.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", aliasDevice.DeviceName}
+    aliasDevice.EntityData.Children = types.NewOrderedMap()
+    aliasDevice.EntityData.Children.Append("aliases", types.YChild{"Aliases", &aliasDevice.Aliases})
+    aliasDevice.EntityData.Leafs = types.NewOrderedMap()
+    aliasDevice.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", aliasDevice.DeviceName})
+
+    aliasDevice.EntityData.YListKeys = []string {"DeviceName"}
+
     return &(aliasDevice.EntityData)
 }
 
@@ -1388,7 +1442,7 @@ type Install_Software_AliasDevices_AliasDevice_Aliases struct {
 
     // Aliases for specific package. The type is slice of
     // Install_Software_AliasDevices_AliasDevice_Aliases_Alias.
-    Alias []Install_Software_AliasDevices_AliasDevice_Aliases_Alias
+    Alias []*Install_Software_AliasDevices_AliasDevice_Aliases_Alias
 }
 
 func (aliases *Install_Software_AliasDevices_AliasDevice_Aliases) GetEntityData() *types.CommonEntityData {
@@ -1401,12 +1455,15 @@ func (aliases *Install_Software_AliasDevices_AliasDevice_Aliases) GetEntityData(
     aliases.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aliases.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aliases.EntityData.Children = make(map[string]types.YChild)
-    aliases.EntityData.Children["alias"] = types.YChild{"Alias", nil}
+    aliases.EntityData.Children = types.NewOrderedMap()
+    aliases.EntityData.Children.Append("alias", types.YChild{"Alias", nil})
     for i := range aliases.Alias {
-        aliases.EntityData.Children[types.GetSegmentPath(&aliases.Alias[i])] = types.YChild{"Alias", &aliases.Alias[i]}
+        aliases.EntityData.Children.Append(types.GetSegmentPath(aliases.Alias[i]), types.YChild{"Alias", aliases.Alias[i]})
     }
-    aliases.EntityData.Leafs = make(map[string]types.YLeaf)
+    aliases.EntityData.Leafs = types.NewOrderedMap()
+
+    aliases.EntityData.YListKeys = []string {}
+
     return &(aliases.EntityData)
 }
 
@@ -1428,15 +1485,18 @@ func (alias *Install_Software_AliasDevices_AliasDevice_Aliases_Alias) GetEntityD
     alias.EntityData.YangName = "alias"
     alias.EntityData.BundleName = "cisco_ios_xr"
     alias.EntityData.ParentYangName = "aliases"
-    alias.EntityData.SegmentPath = "alias" + "[package-name='" + fmt.Sprintf("%v", alias.PackageName) + "']"
+    alias.EntityData.SegmentPath = "alias" + types.AddKeyToken(alias.PackageName, "package-name")
     alias.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alias.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alias.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    alias.EntityData.Children = make(map[string]types.YChild)
-    alias.EntityData.Leafs = make(map[string]types.YLeaf)
-    alias.EntityData.Leafs["package-name"] = types.YLeaf{"PackageName", alias.PackageName}
-    alias.EntityData.Leafs["alias-names"] = types.YLeaf{"AliasNames", alias.AliasNames}
+    alias.EntityData.Children = types.NewOrderedMap()
+    alias.EntityData.Leafs = types.NewOrderedMap()
+    alias.EntityData.Leafs.Append("package-name", types.YLeaf{"PackageName", alias.PackageName})
+    alias.EntityData.Leafs.Append("alias-names", types.YLeaf{"AliasNames", alias.AliasNames})
+
+    alias.EntityData.YListKeys = []string {"PackageName"}
+
     return &(alias.EntityData)
 }
 
@@ -1448,7 +1508,7 @@ type Install_Software_PackageDevices struct {
 
     // Package information for specific device. The type is slice of
     // Install_Software_PackageDevices_PackageDevice.
-    PackageDevice []Install_Software_PackageDevices_PackageDevice
+    PackageDevice []*Install_Software_PackageDevices_PackageDevice
 }
 
 func (packageDevices *Install_Software_PackageDevices) GetEntityData() *types.CommonEntityData {
@@ -1461,12 +1521,15 @@ func (packageDevices *Install_Software_PackageDevices) GetEntityData() *types.Co
     packageDevices.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packageDevices.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    packageDevices.EntityData.Children = make(map[string]types.YChild)
-    packageDevices.EntityData.Children["package-device"] = types.YChild{"PackageDevice", nil}
+    packageDevices.EntityData.Children = types.NewOrderedMap()
+    packageDevices.EntityData.Children.Append("package-device", types.YChild{"PackageDevice", nil})
     for i := range packageDevices.PackageDevice {
-        packageDevices.EntityData.Children[types.GetSegmentPath(&packageDevices.PackageDevice[i])] = types.YChild{"PackageDevice", &packageDevices.PackageDevice[i]}
+        packageDevices.EntityData.Children.Append(types.GetSegmentPath(packageDevices.PackageDevice[i]), types.YChild{"PackageDevice", packageDevices.PackageDevice[i]})
     }
-    packageDevices.EntityData.Leafs = make(map[string]types.YLeaf)
+    packageDevices.EntityData.Leafs = types.NewOrderedMap()
+
+    packageDevices.EntityData.YListKeys = []string {}
+
     return &(packageDevices.EntityData)
 }
 
@@ -1477,7 +1540,7 @@ type Install_Software_PackageDevices_PackageDevice struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Device Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     DeviceName interface{}
 
     // Package information for specific package.
@@ -1489,15 +1552,18 @@ func (packageDevice *Install_Software_PackageDevices_PackageDevice) GetEntityDat
     packageDevice.EntityData.YangName = "package-device"
     packageDevice.EntityData.BundleName = "cisco_ios_xr"
     packageDevice.EntityData.ParentYangName = "package-devices"
-    packageDevice.EntityData.SegmentPath = "package-device" + "[device-name='" + fmt.Sprintf("%v", packageDevice.DeviceName) + "']"
+    packageDevice.EntityData.SegmentPath = "package-device" + types.AddKeyToken(packageDevice.DeviceName, "device-name")
     packageDevice.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packageDevice.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packageDevice.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    packageDevice.EntityData.Children = make(map[string]types.YChild)
-    packageDevice.EntityData.Children["packages"] = types.YChild{"Packages", &packageDevice.Packages}
-    packageDevice.EntityData.Leafs = make(map[string]types.YLeaf)
-    packageDevice.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", packageDevice.DeviceName}
+    packageDevice.EntityData.Children = types.NewOrderedMap()
+    packageDevice.EntityData.Children.Append("packages", types.YChild{"Packages", &packageDevice.Packages})
+    packageDevice.EntityData.Leafs = types.NewOrderedMap()
+    packageDevice.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", packageDevice.DeviceName})
+
+    packageDevice.EntityData.YListKeys = []string {"DeviceName"}
+
     return &(packageDevice.EntityData)
 }
 
@@ -1508,8 +1574,8 @@ type Install_Software_PackageDevices_PackageDevice_Packages struct {
     YFilter yfilter.YFilter
 
     // Package information. The type is slice of
-    // Install_Software_PackageDevices_PackageDevice_Packages_Package_.
-    Package_ []Install_Software_PackageDevices_PackageDevice_Packages_Package
+    // Install_Software_PackageDevices_PackageDevice_Packages_Package.
+    Package []*Install_Software_PackageDevices_PackageDevice_Packages_Package
 }
 
 func (packages *Install_Software_PackageDevices_PackageDevice_Packages) GetEntityData() *types.CommonEntityData {
@@ -1522,12 +1588,15 @@ func (packages *Install_Software_PackageDevices_PackageDevice_Packages) GetEntit
     packages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    packages.EntityData.Children = make(map[string]types.YChild)
-    packages.EntityData.Children["package"] = types.YChild{"Package_", nil}
-    for i := range packages.Package_ {
-        packages.EntityData.Children[types.GetSegmentPath(&packages.Package_[i])] = types.YChild{"Package_", &packages.Package_[i]}
+    packages.EntityData.Children = types.NewOrderedMap()
+    packages.EntityData.Children.Append("package", types.YChild{"Package", nil})
+    for i := range packages.Package {
+        packages.EntityData.Children.Append(types.GetSegmentPath(packages.Package[i]), types.YChild{"Package", packages.Package[i]})
     }
-    packages.EntityData.Leafs = make(map[string]types.YLeaf)
+    packages.EntityData.Leafs = types.NewOrderedMap()
+
+    packages.EntityData.YListKeys = []string {}
+
     return &(packages.EntityData)
 }
 
@@ -1597,7 +1666,7 @@ type Install_Software_PackageDevices_PackageDevice_Packages_Package struct {
 
     // Sub-package info of the package. The type is slice of
     // Install_Software_PackageDevices_PackageDevice_Packages_Package_SubPkg.
-    SubPkg []Install_Software_PackageDevices_PackageDevice_Packages_Package_SubPkg
+    SubPkg []*Install_Software_PackageDevices_PackageDevice_Packages_Package_SubPkg
 }
 
 func (self *Install_Software_PackageDevices_PackageDevice_Packages_Package) GetEntityData() *types.CommonEntityData {
@@ -1605,35 +1674,38 @@ func (self *Install_Software_PackageDevices_PackageDevice_Packages_Package) GetE
     self.EntityData.YangName = "package"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "packages"
-    self.EntityData.SegmentPath = "package" + "[package-name='" + fmt.Sprintf("%v", self.PackageName) + "']"
+    self.EntityData.SegmentPath = "package" + types.AddKeyToken(self.PackageName, "package-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["sub-pkg"] = types.YChild{"SubPkg", nil}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("sub-pkg", types.YChild{"SubPkg", nil})
     for i := range self.SubPkg {
-        self.EntityData.Children[types.GetSegmentPath(&self.SubPkg[i])] = types.YChild{"SubPkg", &self.SubPkg[i]}
+        self.EntityData.Children.Append(types.GetSegmentPath(self.SubPkg[i]), types.YChild{"SubPkg", self.SubPkg[i]})
     }
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["package-name"] = types.YLeaf{"PackageName", self.PackageName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
-    self.EntityData.Leafs["version"] = types.YLeaf{"Version", self.Version}
-    self.EntityData.Leafs["description"] = types.YLeaf{"Description", self.Description}
-    self.EntityData.Leafs["release"] = types.YLeaf{"Release", self.Release}
-    self.EntityData.Leafs["vendor"] = types.YLeaf{"Vendor", self.Vendor}
-    self.EntityData.Leafs["date"] = types.YLeaf{"Date", self.Date}
-    self.EntityData.Leafs["source"] = types.YLeaf{"Source", self.Source}
-    self.EntityData.Leafs["base"] = types.YLeaf{"Base", self.Base}
-    self.EntityData.Leafs["bootable"] = types.YLeaf{"Bootable", self.Bootable}
-    self.EntityData.Leafs["composite"] = types.YLeaf{"Composite", self.Composite}
-    self.EntityData.Leafs["restart-info"] = types.YLeaf{"RestartInfo", self.RestartInfo}
-    self.EntityData.Leafs["package-type"] = types.YLeaf{"PackageType", self.PackageType}
-    self.EntityData.Leafs["group-type"] = types.YLeaf{"GroupType", self.GroupType}
-    self.EntityData.Leafs["depth"] = types.YLeaf{"Depth", self.Depth}
-    self.EntityData.Leafs["uncompressed-size"] = types.YLeaf{"UncompressedSize", self.UncompressedSize}
-    self.EntityData.Leafs["compressed-size"] = types.YLeaf{"CompressedSize", self.CompressedSize}
-    self.EntityData.Leafs["cards"] = types.YLeaf{"Cards", self.Cards}
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("package-name", types.YLeaf{"PackageName", self.PackageName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("version", types.YLeaf{"Version", self.Version})
+    self.EntityData.Leafs.Append("description", types.YLeaf{"Description", self.Description})
+    self.EntityData.Leafs.Append("release", types.YLeaf{"Release", self.Release})
+    self.EntityData.Leafs.Append("vendor", types.YLeaf{"Vendor", self.Vendor})
+    self.EntityData.Leafs.Append("date", types.YLeaf{"Date", self.Date})
+    self.EntityData.Leafs.Append("source", types.YLeaf{"Source", self.Source})
+    self.EntityData.Leafs.Append("base", types.YLeaf{"Base", self.Base})
+    self.EntityData.Leafs.Append("bootable", types.YLeaf{"Bootable", self.Bootable})
+    self.EntityData.Leafs.Append("composite", types.YLeaf{"Composite", self.Composite})
+    self.EntityData.Leafs.Append("restart-info", types.YLeaf{"RestartInfo", self.RestartInfo})
+    self.EntityData.Leafs.Append("package-type", types.YLeaf{"PackageType", self.PackageType})
+    self.EntityData.Leafs.Append("group-type", types.YLeaf{"GroupType", self.GroupType})
+    self.EntityData.Leafs.Append("depth", types.YLeaf{"Depth", self.Depth})
+    self.EntityData.Leafs.Append("uncompressed-size", types.YLeaf{"UncompressedSize", self.UncompressedSize})
+    self.EntityData.Leafs.Append("compressed-size", types.YLeaf{"CompressedSize", self.CompressedSize})
+    self.EntityData.Leafs.Append("cards", types.YLeaf{"Cards", self.Cards})
+
+    self.EntityData.YListKeys = []string {"PackageName"}
+
     return &(self.EntityData)
 }
 
@@ -1661,10 +1733,13 @@ func (subPkg *Install_Software_PackageDevices_PackageDevice_Packages_Package_Sub
     subPkg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subPkg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    subPkg.EntityData.Children = make(map[string]types.YChild)
-    subPkg.EntityData.Leafs = make(map[string]types.YLeaf)
-    subPkg.EntityData.Leafs["name"] = types.YLeaf{"Name", subPkg.Name}
-    subPkg.EntityData.Leafs["node-types"] = types.YLeaf{"NodeTypes", subPkg.NodeTypes}
+    subPkg.EntityData.Children = types.NewOrderedMap()
+    subPkg.EntityData.Leafs = types.NewOrderedMap()
+    subPkg.EntityData.Leafs.Append("name", types.YLeaf{"Name", subPkg.Name})
+    subPkg.EntityData.Leafs.Append("node-types", types.YLeaf{"NodeTypes", subPkg.NodeTypes})
+
+    subPkg.EntityData.YListKeys = []string {}
+
     return &(subPkg.EntityData)
 }
 
@@ -1676,7 +1751,7 @@ type Install_Software_ComponentDevices struct {
 
     // Component information for specific device. The type is slice of
     // Install_Software_ComponentDevices_ComponentDevice.
-    ComponentDevice []Install_Software_ComponentDevices_ComponentDevice
+    ComponentDevice []*Install_Software_ComponentDevices_ComponentDevice
 }
 
 func (componentDevices *Install_Software_ComponentDevices) GetEntityData() *types.CommonEntityData {
@@ -1689,12 +1764,15 @@ func (componentDevices *Install_Software_ComponentDevices) GetEntityData() *type
     componentDevices.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     componentDevices.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    componentDevices.EntityData.Children = make(map[string]types.YChild)
-    componentDevices.EntityData.Children["component-device"] = types.YChild{"ComponentDevice", nil}
+    componentDevices.EntityData.Children = types.NewOrderedMap()
+    componentDevices.EntityData.Children.Append("component-device", types.YChild{"ComponentDevice", nil})
     for i := range componentDevices.ComponentDevice {
-        componentDevices.EntityData.Children[types.GetSegmentPath(&componentDevices.ComponentDevice[i])] = types.YChild{"ComponentDevice", &componentDevices.ComponentDevice[i]}
+        componentDevices.EntityData.Children.Append(types.GetSegmentPath(componentDevices.ComponentDevice[i]), types.YChild{"ComponentDevice", componentDevices.ComponentDevice[i]})
     }
-    componentDevices.EntityData.Leafs = make(map[string]types.YLeaf)
+    componentDevices.EntityData.Leafs = types.NewOrderedMap()
+
+    componentDevices.EntityData.YListKeys = []string {}
+
     return &(componentDevices.EntityData)
 }
 
@@ -1705,7 +1783,7 @@ type Install_Software_ComponentDevices_ComponentDevice struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Device Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     DeviceName interface{}
 
     // Software package information.
@@ -1717,15 +1795,18 @@ func (componentDevice *Install_Software_ComponentDevices_ComponentDevice) GetEnt
     componentDevice.EntityData.YangName = "component-device"
     componentDevice.EntityData.BundleName = "cisco_ios_xr"
     componentDevice.EntityData.ParentYangName = "component-devices"
-    componentDevice.EntityData.SegmentPath = "component-device" + "[device-name='" + fmt.Sprintf("%v", componentDevice.DeviceName) + "']"
+    componentDevice.EntityData.SegmentPath = "component-device" + types.AddKeyToken(componentDevice.DeviceName, "device-name")
     componentDevice.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     componentDevice.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     componentDevice.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    componentDevice.EntityData.Children = make(map[string]types.YChild)
-    componentDevice.EntityData.Children["component-packages"] = types.YChild{"ComponentPackages", &componentDevice.ComponentPackages}
-    componentDevice.EntityData.Leafs = make(map[string]types.YLeaf)
-    componentDevice.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", componentDevice.DeviceName}
+    componentDevice.EntityData.Children = types.NewOrderedMap()
+    componentDevice.EntityData.Children.Append("component-packages", types.YChild{"ComponentPackages", &componentDevice.ComponentPackages})
+    componentDevice.EntityData.Leafs = types.NewOrderedMap()
+    componentDevice.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", componentDevice.DeviceName})
+
+    componentDevice.EntityData.YListKeys = []string {"DeviceName"}
+
     return &(componentDevice.EntityData)
 }
 
@@ -1737,7 +1818,7 @@ type Install_Software_ComponentDevices_ComponentDevice_ComponentPackages struct 
 
     // Component information for specific package. The type is slice of
     // Install_Software_ComponentDevices_ComponentDevice_ComponentPackages_ComponentPackage.
-    ComponentPackage []Install_Software_ComponentDevices_ComponentDevice_ComponentPackages_ComponentPackage
+    ComponentPackage []*Install_Software_ComponentDevices_ComponentDevice_ComponentPackages_ComponentPackage
 }
 
 func (componentPackages *Install_Software_ComponentDevices_ComponentDevice_ComponentPackages) GetEntityData() *types.CommonEntityData {
@@ -1750,12 +1831,15 @@ func (componentPackages *Install_Software_ComponentDevices_ComponentDevice_Compo
     componentPackages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     componentPackages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    componentPackages.EntityData.Children = make(map[string]types.YChild)
-    componentPackages.EntityData.Children["component-package"] = types.YChild{"ComponentPackage", nil}
+    componentPackages.EntityData.Children = types.NewOrderedMap()
+    componentPackages.EntityData.Children.Append("component-package", types.YChild{"ComponentPackage", nil})
     for i := range componentPackages.ComponentPackage {
-        componentPackages.EntityData.Children[types.GetSegmentPath(&componentPackages.ComponentPackage[i])] = types.YChild{"ComponentPackage", &componentPackages.ComponentPackage[i]}
+        componentPackages.EntityData.Children.Append(types.GetSegmentPath(componentPackages.ComponentPackage[i]), types.YChild{"ComponentPackage", componentPackages.ComponentPackage[i]})
     }
-    componentPackages.EntityData.Leafs = make(map[string]types.YLeaf)
+    componentPackages.EntityData.Leafs = types.NewOrderedMap()
+
+    componentPackages.EntityData.YListKeys = []string {}
+
     return &(componentPackages.EntityData)
 }
 
@@ -1770,7 +1854,7 @@ type Install_Software_ComponentDevices_ComponentDevice_ComponentPackages_Compone
 
     // Component information. The type is slice of
     // Install_Software_ComponentDevices_ComponentDevice_ComponentPackages_ComponentPackage_Component.
-    Component []Install_Software_ComponentDevices_ComponentDevice_ComponentPackages_ComponentPackage_Component
+    Component []*Install_Software_ComponentDevices_ComponentDevice_ComponentPackages_ComponentPackage_Component
 }
 
 func (componentPackage *Install_Software_ComponentDevices_ComponentDevice_ComponentPackages_ComponentPackage) GetEntityData() *types.CommonEntityData {
@@ -1778,18 +1862,21 @@ func (componentPackage *Install_Software_ComponentDevices_ComponentDevice_Compon
     componentPackage.EntityData.YangName = "component-package"
     componentPackage.EntityData.BundleName = "cisco_ios_xr"
     componentPackage.EntityData.ParentYangName = "component-packages"
-    componentPackage.EntityData.SegmentPath = "component-package" + "[package-name='" + fmt.Sprintf("%v", componentPackage.PackageName) + "']"
+    componentPackage.EntityData.SegmentPath = "component-package" + types.AddKeyToken(componentPackage.PackageName, "package-name")
     componentPackage.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     componentPackage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     componentPackage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    componentPackage.EntityData.Children = make(map[string]types.YChild)
-    componentPackage.EntityData.Children["component"] = types.YChild{"Component", nil}
+    componentPackage.EntityData.Children = types.NewOrderedMap()
+    componentPackage.EntityData.Children.Append("component", types.YChild{"Component", nil})
     for i := range componentPackage.Component {
-        componentPackage.EntityData.Children[types.GetSegmentPath(&componentPackage.Component[i])] = types.YChild{"Component", &componentPackage.Component[i]}
+        componentPackage.EntityData.Children.Append(types.GetSegmentPath(componentPackage.Component[i]), types.YChild{"Component", componentPackage.Component[i]})
     }
-    componentPackage.EntityData.Leafs = make(map[string]types.YLeaf)
-    componentPackage.EntityData.Leafs["package-name"] = types.YLeaf{"PackageName", componentPackage.PackageName}
+    componentPackage.EntityData.Leafs = types.NewOrderedMap()
+    componentPackage.EntityData.Leafs.Append("package-name", types.YLeaf{"PackageName", componentPackage.PackageName})
+
+    componentPackage.EntityData.YListKeys = []string {"PackageName"}
+
     return &(componentPackage.EntityData)
 }
 
@@ -1823,19 +1910,22 @@ func (component *Install_Software_ComponentDevices_ComponentDevice_ComponentPack
     component.EntityData.YangName = "component"
     component.EntityData.BundleName = "cisco_ios_xr"
     component.EntityData.ParentYangName = "component-package"
-    component.EntityData.SegmentPath = "component" + "[component-name='" + fmt.Sprintf("%v", component.ComponentName) + "']"
+    component.EntityData.SegmentPath = "component" + types.AddKeyToken(component.ComponentName, "component-name")
     component.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     component.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     component.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    component.EntityData.Children = make(map[string]types.YChild)
-    component.EntityData.Leafs = make(map[string]types.YLeaf)
-    component.EntityData.Leafs["component-name"] = types.YLeaf{"ComponentName", component.ComponentName}
-    component.EntityData.Leafs["name"] = types.YLeaf{"Name", component.Name}
-    component.EntityData.Leafs["version"] = types.YLeaf{"Version", component.Version}
-    component.EntityData.Leafs["release"] = types.YLeaf{"Release", component.Release}
-    component.EntityData.Leafs["description"] = types.YLeaf{"Description", component.Description}
-    component.EntityData.Leafs["files"] = types.YLeaf{"Files", component.Files}
+    component.EntityData.Children = types.NewOrderedMap()
+    component.EntityData.Leafs = types.NewOrderedMap()
+    component.EntityData.Leafs.Append("component-name", types.YLeaf{"ComponentName", component.ComponentName})
+    component.EntityData.Leafs.Append("name", types.YLeaf{"Name", component.Name})
+    component.EntityData.Leafs.Append("version", types.YLeaf{"Version", component.Version})
+    component.EntityData.Leafs.Append("release", types.YLeaf{"Release", component.Release})
+    component.EntityData.Leafs.Append("description", types.YLeaf{"Description", component.Description})
+    component.EntityData.Leafs.Append("files", types.YLeaf{"Files", component.Files})
+
+    component.EntityData.YListKeys = []string {"ComponentName"}
+
     return &(component.EntityData)
 }
 
@@ -1868,12 +1958,15 @@ func (softwareInventory *Install_SoftwareInventory) GetEntityData() *types.Commo
     softwareInventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     softwareInventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    softwareInventory.EntityData.Children = make(map[string]types.YChild)
-    softwareInventory.EntityData.Children["committed"] = types.YChild{"Committed", &softwareInventory.Committed}
-    softwareInventory.EntityData.Children["inactive"] = types.YChild{"Inactive", &softwareInventory.Inactive}
-    softwareInventory.EntityData.Children["requests"] = types.YChild{"Requests", &softwareInventory.Requests}
-    softwareInventory.EntityData.Children["active"] = types.YChild{"Active", &softwareInventory.Active}
-    softwareInventory.EntityData.Leafs = make(map[string]types.YLeaf)
+    softwareInventory.EntityData.Children = types.NewOrderedMap()
+    softwareInventory.EntityData.Children.Append("committed", types.YChild{"Committed", &softwareInventory.Committed})
+    softwareInventory.EntityData.Children.Append("inactive", types.YChild{"Inactive", &softwareInventory.Inactive})
+    softwareInventory.EntityData.Children.Append("requests", types.YChild{"Requests", &softwareInventory.Requests})
+    softwareInventory.EntityData.Children.Append("active", types.YChild{"Active", &softwareInventory.Active})
+    softwareInventory.EntityData.Leafs = types.NewOrderedMap()
+
+    softwareInventory.EntityData.YListKeys = []string {}
+
     return &(softwareInventory.EntityData)
 }
 
@@ -1900,10 +1993,13 @@ func (committed *Install_SoftwareInventory_Committed) GetEntityData() *types.Com
     committed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     committed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    committed.EntityData.Children = make(map[string]types.YChild)
-    committed.EntityData.Children["summary"] = types.YChild{"Summary", &committed.Summary}
-    committed.EntityData.Children["inventories"] = types.YChild{"Inventories", &committed.Inventories}
-    committed.EntityData.Leafs = make(map[string]types.YLeaf)
+    committed.EntityData.Children = types.NewOrderedMap()
+    committed.EntityData.Children.Append("summary", types.YChild{"Summary", &committed.Summary})
+    committed.EntityData.Children.Append("inventories", types.YChild{"Inventories", &committed.Inventories})
+    committed.EntityData.Leafs = types.NewOrderedMap()
+
+    committed.EntityData.YListKeys = []string {}
+
     return &(committed.EntityData)
 }
 
@@ -1921,11 +2017,11 @@ type Install_SoftwareInventory_Committed_Summary struct {
 
     // SDR load paths. The type is slice of
     // Install_SoftwareInventory_Committed_Summary_SdrLoadPath.
-    SdrLoadPath []Install_SoftwareInventory_Committed_Summary_SdrLoadPath
+    SdrLoadPath []*Install_SoftwareInventory_Committed_Summary_SdrLoadPath
 
     // Location load paths. The type is slice of
     // Install_SoftwareInventory_Committed_Summary_LocationLoadPath.
-    LocationLoadPath []Install_SoftwareInventory_Committed_Summary_LocationLoadPath
+    LocationLoadPath []*Install_SoftwareInventory_Committed_Summary_LocationLoadPath
 }
 
 func (summary *Install_SoftwareInventory_Committed_Summary) GetEntityData() *types.CommonEntityData {
@@ -1938,18 +2034,21 @@ func (summary *Install_SoftwareInventory_Committed_Summary) GetEntityData() *typ
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Children["default-load-path"] = types.YChild{"DefaultLoadPath", &summary.DefaultLoadPath}
-    summary.EntityData.Children["admin-load-path"] = types.YChild{"AdminLoadPath", &summary.AdminLoadPath}
-    summary.EntityData.Children["sdr-load-path"] = types.YChild{"SdrLoadPath", nil}
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Children.Append("default-load-path", types.YChild{"DefaultLoadPath", &summary.DefaultLoadPath})
+    summary.EntityData.Children.Append("admin-load-path", types.YChild{"AdminLoadPath", &summary.AdminLoadPath})
+    summary.EntityData.Children.Append("sdr-load-path", types.YChild{"SdrLoadPath", nil})
     for i := range summary.SdrLoadPath {
-        summary.EntityData.Children[types.GetSegmentPath(&summary.SdrLoadPath[i])] = types.YChild{"SdrLoadPath", &summary.SdrLoadPath[i]}
+        summary.EntityData.Children.Append(types.GetSegmentPath(summary.SdrLoadPath[i]), types.YChild{"SdrLoadPath", summary.SdrLoadPath[i]})
     }
-    summary.EntityData.Children["location-load-path"] = types.YChild{"LocationLoadPath", nil}
+    summary.EntityData.Children.Append("location-load-path", types.YChild{"LocationLoadPath", nil})
     for i := range summary.LocationLoadPath {
-        summary.EntityData.Children[types.GetSegmentPath(&summary.LocationLoadPath[i])] = types.YChild{"LocationLoadPath", &summary.LocationLoadPath[i]}
+        summary.EntityData.Children.Append(types.GetSegmentPath(summary.LocationLoadPath[i]), types.YChild{"LocationLoadPath", summary.LocationLoadPath[i]})
     }
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Leafs = types.NewOrderedMap()
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -1971,11 +2070,11 @@ type Install_SoftwareInventory_Committed_Summary_DefaultLoadPath struct {
 
     // Default load path. The type is slice of
     // Install_SoftwareInventory_Committed_Summary_DefaultLoadPath_LoadPath.
-    LoadPath []Install_SoftwareInventory_Committed_Summary_DefaultLoadPath_LoadPath
+    LoadPath []*Install_SoftwareInventory_Committed_Summary_DefaultLoadPath_LoadPath
 
     // Load paths for standby nodes. The type is slice of
     // Install_SoftwareInventory_Committed_Summary_DefaultLoadPath_StandbyLoadPath.
-    StandbyLoadPath []Install_SoftwareInventory_Committed_Summary_DefaultLoadPath_StandbyLoadPath
+    StandbyLoadPath []*Install_SoftwareInventory_Committed_Summary_DefaultLoadPath_StandbyLoadPath
 }
 
 func (defaultLoadPath *Install_SoftwareInventory_Committed_Summary_DefaultLoadPath) GetEntityData() *types.CommonEntityData {
@@ -1988,19 +2087,22 @@ func (defaultLoadPath *Install_SoftwareInventory_Committed_Summary_DefaultLoadPa
     defaultLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultLoadPath.EntityData.Children = make(map[string]types.YChild)
-    defaultLoadPath.EntityData.Children["load-path"] = types.YChild{"LoadPath", nil}
+    defaultLoadPath.EntityData.Children = types.NewOrderedMap()
+    defaultLoadPath.EntityData.Children.Append("load-path", types.YChild{"LoadPath", nil})
     for i := range defaultLoadPath.LoadPath {
-        defaultLoadPath.EntityData.Children[types.GetSegmentPath(&defaultLoadPath.LoadPath[i])] = types.YChild{"LoadPath", &defaultLoadPath.LoadPath[i]}
+        defaultLoadPath.EntityData.Children.Append(types.GetSegmentPath(defaultLoadPath.LoadPath[i]), types.YChild{"LoadPath", defaultLoadPath.LoadPath[i]})
     }
-    defaultLoadPath.EntityData.Children["standby-load-path"] = types.YChild{"StandbyLoadPath", nil}
+    defaultLoadPath.EntityData.Children.Append("standby-load-path", types.YChild{"StandbyLoadPath", nil})
     for i := range defaultLoadPath.StandbyLoadPath {
-        defaultLoadPath.EntityData.Children[types.GetSegmentPath(&defaultLoadPath.StandbyLoadPath[i])] = types.YChild{"StandbyLoadPath", &defaultLoadPath.StandbyLoadPath[i]}
+        defaultLoadPath.EntityData.Children.Append(types.GetSegmentPath(defaultLoadPath.StandbyLoadPath[i]), types.YChild{"StandbyLoadPath", defaultLoadPath.StandbyLoadPath[i]})
     }
-    defaultLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    defaultLoadPath.EntityData.Leafs["request-id"] = types.YLeaf{"RequestId", defaultLoadPath.RequestId}
-    defaultLoadPath.EntityData.Leafs["admin-match"] = types.YLeaf{"AdminMatch", defaultLoadPath.AdminMatch}
-    defaultLoadPath.EntityData.Leafs["secure-domain-router-name"] = types.YLeaf{"SecureDomainRouterName", defaultLoadPath.SecureDomainRouterName}
+    defaultLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    defaultLoadPath.EntityData.Leafs.Append("request-id", types.YLeaf{"RequestId", defaultLoadPath.RequestId})
+    defaultLoadPath.EntityData.Leafs.Append("admin-match", types.YLeaf{"AdminMatch", defaultLoadPath.AdminMatch})
+    defaultLoadPath.EntityData.Leafs.Append("secure-domain-router-name", types.YLeaf{"SecureDomainRouterName", defaultLoadPath.SecureDomainRouterName})
+
+    defaultLoadPath.EntityData.YListKeys = []string {}
+
     return &(defaultLoadPath.EntityData)
 }
 
@@ -2017,7 +2119,7 @@ type Install_SoftwareInventory_Committed_Summary_DefaultLoadPath_LoadPath struct
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Committed_Summary_DefaultLoadPath_LoadPath_Package
+    Package Install_SoftwareInventory_Committed_Summary_DefaultLoadPath_LoadPath_Package
 }
 
 func (loadPath *Install_SoftwareInventory_Committed_Summary_DefaultLoadPath_LoadPath) GetEntityData() *types.CommonEntityData {
@@ -2030,11 +2132,14 @@ func (loadPath *Install_SoftwareInventory_Committed_Summary_DefaultLoadPath_Load
     loadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loadPath.EntityData.Children = make(map[string]types.YChild)
-    loadPath.EntityData.Children["package"] = types.YChild{"Package_", &loadPath.Package_}
-    loadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    loadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", loadPath.Version}
-    loadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", loadPath.BuildInformation}
+    loadPath.EntityData.Children = types.NewOrderedMap()
+    loadPath.EntityData.Children.Append("package", types.YChild{"Package", &loadPath.Package})
+    loadPath.EntityData.Leafs = types.NewOrderedMap()
+    loadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", loadPath.Version})
+    loadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", loadPath.BuildInformation})
+
+    loadPath.EntityData.YListKeys = []string {}
+
     return &(loadPath.EntityData)
 }
 
@@ -2061,10 +2166,13 @@ func (self *Install_SoftwareInventory_Committed_Summary_DefaultLoadPath_LoadPath
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -2081,7 +2189,7 @@ type Install_SoftwareInventory_Committed_Summary_DefaultLoadPath_StandbyLoadPath
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Committed_Summary_DefaultLoadPath_StandbyLoadPath_Package
+    Package Install_SoftwareInventory_Committed_Summary_DefaultLoadPath_StandbyLoadPath_Package
 }
 
 func (standbyLoadPath *Install_SoftwareInventory_Committed_Summary_DefaultLoadPath_StandbyLoadPath) GetEntityData() *types.CommonEntityData {
@@ -2094,11 +2202,14 @@ func (standbyLoadPath *Install_SoftwareInventory_Committed_Summary_DefaultLoadPa
     standbyLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standbyLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    standbyLoadPath.EntityData.Children = make(map[string]types.YChild)
-    standbyLoadPath.EntityData.Children["package"] = types.YChild{"Package_", &standbyLoadPath.Package_}
-    standbyLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    standbyLoadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", standbyLoadPath.Version}
-    standbyLoadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation}
+    standbyLoadPath.EntityData.Children = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Children.Append("package", types.YChild{"Package", &standbyLoadPath.Package})
+    standbyLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", standbyLoadPath.Version})
+    standbyLoadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation})
+
+    standbyLoadPath.EntityData.YListKeys = []string {}
+
     return &(standbyLoadPath.EntityData)
 }
 
@@ -2125,10 +2236,13 @@ func (self *Install_SoftwareInventory_Committed_Summary_DefaultLoadPath_StandbyL
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -2144,11 +2258,11 @@ type Install_SoftwareInventory_Committed_Summary_AdminLoadPath struct {
 
     // Admin Resources load path. The type is slice of
     // Install_SoftwareInventory_Committed_Summary_AdminLoadPath_LoadPath.
-    LoadPath []Install_SoftwareInventory_Committed_Summary_AdminLoadPath_LoadPath
+    LoadPath []*Install_SoftwareInventory_Committed_Summary_AdminLoadPath_LoadPath
 
     // Load paths for standby nodes. The type is slice of
     // Install_SoftwareInventory_Committed_Summary_AdminLoadPath_StandbyLoadPath.
-    StandbyLoadPath []Install_SoftwareInventory_Committed_Summary_AdminLoadPath_StandbyLoadPath
+    StandbyLoadPath []*Install_SoftwareInventory_Committed_Summary_AdminLoadPath_StandbyLoadPath
 }
 
 func (adminLoadPath *Install_SoftwareInventory_Committed_Summary_AdminLoadPath) GetEntityData() *types.CommonEntityData {
@@ -2161,17 +2275,20 @@ func (adminLoadPath *Install_SoftwareInventory_Committed_Summary_AdminLoadPath) 
     adminLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adminLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    adminLoadPath.EntityData.Children = make(map[string]types.YChild)
-    adminLoadPath.EntityData.Children["load-path"] = types.YChild{"LoadPath", nil}
+    adminLoadPath.EntityData.Children = types.NewOrderedMap()
+    adminLoadPath.EntityData.Children.Append("load-path", types.YChild{"LoadPath", nil})
     for i := range adminLoadPath.LoadPath {
-        adminLoadPath.EntityData.Children[types.GetSegmentPath(&adminLoadPath.LoadPath[i])] = types.YChild{"LoadPath", &adminLoadPath.LoadPath[i]}
+        adminLoadPath.EntityData.Children.Append(types.GetSegmentPath(adminLoadPath.LoadPath[i]), types.YChild{"LoadPath", adminLoadPath.LoadPath[i]})
     }
-    adminLoadPath.EntityData.Children["standby-load-path"] = types.YChild{"StandbyLoadPath", nil}
+    adminLoadPath.EntityData.Children.Append("standby-load-path", types.YChild{"StandbyLoadPath", nil})
     for i := range adminLoadPath.StandbyLoadPath {
-        adminLoadPath.EntityData.Children[types.GetSegmentPath(&adminLoadPath.StandbyLoadPath[i])] = types.YChild{"StandbyLoadPath", &adminLoadPath.StandbyLoadPath[i]}
+        adminLoadPath.EntityData.Children.Append(types.GetSegmentPath(adminLoadPath.StandbyLoadPath[i]), types.YChild{"StandbyLoadPath", adminLoadPath.StandbyLoadPath[i]})
     }
-    adminLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    adminLoadPath.EntityData.Leafs["request-id"] = types.YLeaf{"RequestId", adminLoadPath.RequestId}
+    adminLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    adminLoadPath.EntityData.Leafs.Append("request-id", types.YLeaf{"RequestId", adminLoadPath.RequestId})
+
+    adminLoadPath.EntityData.YListKeys = []string {}
+
     return &(adminLoadPath.EntityData)
 }
 
@@ -2188,7 +2305,7 @@ type Install_SoftwareInventory_Committed_Summary_AdminLoadPath_LoadPath struct {
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Committed_Summary_AdminLoadPath_LoadPath_Package
+    Package Install_SoftwareInventory_Committed_Summary_AdminLoadPath_LoadPath_Package
 }
 
 func (loadPath *Install_SoftwareInventory_Committed_Summary_AdminLoadPath_LoadPath) GetEntityData() *types.CommonEntityData {
@@ -2201,11 +2318,14 @@ func (loadPath *Install_SoftwareInventory_Committed_Summary_AdminLoadPath_LoadPa
     loadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loadPath.EntityData.Children = make(map[string]types.YChild)
-    loadPath.EntityData.Children["package"] = types.YChild{"Package_", &loadPath.Package_}
-    loadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    loadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", loadPath.Version}
-    loadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", loadPath.BuildInformation}
+    loadPath.EntityData.Children = types.NewOrderedMap()
+    loadPath.EntityData.Children.Append("package", types.YChild{"Package", &loadPath.Package})
+    loadPath.EntityData.Leafs = types.NewOrderedMap()
+    loadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", loadPath.Version})
+    loadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", loadPath.BuildInformation})
+
+    loadPath.EntityData.YListKeys = []string {}
+
     return &(loadPath.EntityData)
 }
 
@@ -2232,10 +2352,13 @@ func (self *Install_SoftwareInventory_Committed_Summary_AdminLoadPath_LoadPath_P
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -2252,7 +2375,7 @@ type Install_SoftwareInventory_Committed_Summary_AdminLoadPath_StandbyLoadPath s
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Committed_Summary_AdminLoadPath_StandbyLoadPath_Package
+    Package Install_SoftwareInventory_Committed_Summary_AdminLoadPath_StandbyLoadPath_Package
 }
 
 func (standbyLoadPath *Install_SoftwareInventory_Committed_Summary_AdminLoadPath_StandbyLoadPath) GetEntityData() *types.CommonEntityData {
@@ -2265,11 +2388,14 @@ func (standbyLoadPath *Install_SoftwareInventory_Committed_Summary_AdminLoadPath
     standbyLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standbyLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    standbyLoadPath.EntityData.Children = make(map[string]types.YChild)
-    standbyLoadPath.EntityData.Children["package"] = types.YChild{"Package_", &standbyLoadPath.Package_}
-    standbyLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    standbyLoadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", standbyLoadPath.Version}
-    standbyLoadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation}
+    standbyLoadPath.EntityData.Children = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Children.Append("package", types.YChild{"Package", &standbyLoadPath.Package})
+    standbyLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", standbyLoadPath.Version})
+    standbyLoadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation})
+
+    standbyLoadPath.EntityData.YListKeys = []string {}
+
     return &(standbyLoadPath.EntityData)
 }
 
@@ -2296,10 +2422,13 @@ func (self *Install_SoftwareInventory_Committed_Summary_AdminLoadPath_StandbyLoa
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -2318,11 +2447,11 @@ type Install_SoftwareInventory_Committed_Summary_SdrLoadPath struct {
 
     // Load path. The type is slice of
     // Install_SoftwareInventory_Committed_Summary_SdrLoadPath_LoadPath.
-    LoadPath []Install_SoftwareInventory_Committed_Summary_SdrLoadPath_LoadPath
+    LoadPath []*Install_SoftwareInventory_Committed_Summary_SdrLoadPath_LoadPath
 
     // Load paths for standby nodes. The type is slice of
     // Install_SoftwareInventory_Committed_Summary_SdrLoadPath_StandbyLoadPath.
-    StandbyLoadPath []Install_SoftwareInventory_Committed_Summary_SdrLoadPath_StandbyLoadPath
+    StandbyLoadPath []*Install_SoftwareInventory_Committed_Summary_SdrLoadPath_StandbyLoadPath
 }
 
 func (sdrLoadPath *Install_SoftwareInventory_Committed_Summary_SdrLoadPath) GetEntityData() *types.CommonEntityData {
@@ -2335,18 +2464,21 @@ func (sdrLoadPath *Install_SoftwareInventory_Committed_Summary_SdrLoadPath) GetE
     sdrLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sdrLoadPath.EntityData.Children = make(map[string]types.YChild)
-    sdrLoadPath.EntityData.Children["load-path"] = types.YChild{"LoadPath", nil}
+    sdrLoadPath.EntityData.Children = types.NewOrderedMap()
+    sdrLoadPath.EntityData.Children.Append("load-path", types.YChild{"LoadPath", nil})
     for i := range sdrLoadPath.LoadPath {
-        sdrLoadPath.EntityData.Children[types.GetSegmentPath(&sdrLoadPath.LoadPath[i])] = types.YChild{"LoadPath", &sdrLoadPath.LoadPath[i]}
+        sdrLoadPath.EntityData.Children.Append(types.GetSegmentPath(sdrLoadPath.LoadPath[i]), types.YChild{"LoadPath", sdrLoadPath.LoadPath[i]})
     }
-    sdrLoadPath.EntityData.Children["standby-load-path"] = types.YChild{"StandbyLoadPath", nil}
+    sdrLoadPath.EntityData.Children.Append("standby-load-path", types.YChild{"StandbyLoadPath", nil})
     for i := range sdrLoadPath.StandbyLoadPath {
-        sdrLoadPath.EntityData.Children[types.GetSegmentPath(&sdrLoadPath.StandbyLoadPath[i])] = types.YChild{"StandbyLoadPath", &sdrLoadPath.StandbyLoadPath[i]}
+        sdrLoadPath.EntityData.Children.Append(types.GetSegmentPath(sdrLoadPath.StandbyLoadPath[i]), types.YChild{"StandbyLoadPath", sdrLoadPath.StandbyLoadPath[i]})
     }
-    sdrLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    sdrLoadPath.EntityData.Leafs["request-id"] = types.YLeaf{"RequestId", sdrLoadPath.RequestId}
-    sdrLoadPath.EntityData.Leafs["secure-domain-router-name"] = types.YLeaf{"SecureDomainRouterName", sdrLoadPath.SecureDomainRouterName}
+    sdrLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    sdrLoadPath.EntityData.Leafs.Append("request-id", types.YLeaf{"RequestId", sdrLoadPath.RequestId})
+    sdrLoadPath.EntityData.Leafs.Append("secure-domain-router-name", types.YLeaf{"SecureDomainRouterName", sdrLoadPath.SecureDomainRouterName})
+
+    sdrLoadPath.EntityData.YListKeys = []string {}
+
     return &(sdrLoadPath.EntityData)
 }
 
@@ -2363,7 +2495,7 @@ type Install_SoftwareInventory_Committed_Summary_SdrLoadPath_LoadPath struct {
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Committed_Summary_SdrLoadPath_LoadPath_Package
+    Package Install_SoftwareInventory_Committed_Summary_SdrLoadPath_LoadPath_Package
 }
 
 func (loadPath *Install_SoftwareInventory_Committed_Summary_SdrLoadPath_LoadPath) GetEntityData() *types.CommonEntityData {
@@ -2376,11 +2508,14 @@ func (loadPath *Install_SoftwareInventory_Committed_Summary_SdrLoadPath_LoadPath
     loadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loadPath.EntityData.Children = make(map[string]types.YChild)
-    loadPath.EntityData.Children["package"] = types.YChild{"Package_", &loadPath.Package_}
-    loadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    loadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", loadPath.Version}
-    loadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", loadPath.BuildInformation}
+    loadPath.EntityData.Children = types.NewOrderedMap()
+    loadPath.EntityData.Children.Append("package", types.YChild{"Package", &loadPath.Package})
+    loadPath.EntityData.Leafs = types.NewOrderedMap()
+    loadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", loadPath.Version})
+    loadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", loadPath.BuildInformation})
+
+    loadPath.EntityData.YListKeys = []string {}
+
     return &(loadPath.EntityData)
 }
 
@@ -2407,10 +2542,13 @@ func (self *Install_SoftwareInventory_Committed_Summary_SdrLoadPath_LoadPath_Pac
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -2427,7 +2565,7 @@ type Install_SoftwareInventory_Committed_Summary_SdrLoadPath_StandbyLoadPath str
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Committed_Summary_SdrLoadPath_StandbyLoadPath_Package
+    Package Install_SoftwareInventory_Committed_Summary_SdrLoadPath_StandbyLoadPath_Package
 }
 
 func (standbyLoadPath *Install_SoftwareInventory_Committed_Summary_SdrLoadPath_StandbyLoadPath) GetEntityData() *types.CommonEntityData {
@@ -2440,11 +2578,14 @@ func (standbyLoadPath *Install_SoftwareInventory_Committed_Summary_SdrLoadPath_S
     standbyLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standbyLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    standbyLoadPath.EntityData.Children = make(map[string]types.YChild)
-    standbyLoadPath.EntityData.Children["package"] = types.YChild{"Package_", &standbyLoadPath.Package_}
-    standbyLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    standbyLoadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", standbyLoadPath.Version}
-    standbyLoadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation}
+    standbyLoadPath.EntityData.Children = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Children.Append("package", types.YChild{"Package", &standbyLoadPath.Package})
+    standbyLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", standbyLoadPath.Version})
+    standbyLoadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation})
+
+    standbyLoadPath.EntityData.YListKeys = []string {}
+
     return &(standbyLoadPath.EntityData)
 }
 
@@ -2471,10 +2612,13 @@ func (self *Install_SoftwareInventory_Committed_Summary_SdrLoadPath_StandbyLoadP
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -2492,16 +2636,16 @@ type Install_SoftwareInventory_Committed_Summary_LocationLoadPath struct {
     SecureDomainRouterName interface{}
 
     // Node identifier. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Load path. The type is slice of
     // Install_SoftwareInventory_Committed_Summary_LocationLoadPath_LoadPath.
-    LoadPath []Install_SoftwareInventory_Committed_Summary_LocationLoadPath_LoadPath
+    LoadPath []*Install_SoftwareInventory_Committed_Summary_LocationLoadPath_LoadPath
 
     // Load paths for standby nodes. The type is slice of
     // Install_SoftwareInventory_Committed_Summary_LocationLoadPath_StandbyLoadPath.
-    StandbyLoadPath []Install_SoftwareInventory_Committed_Summary_LocationLoadPath_StandbyLoadPath
+    StandbyLoadPath []*Install_SoftwareInventory_Committed_Summary_LocationLoadPath_StandbyLoadPath
 }
 
 func (locationLoadPath *Install_SoftwareInventory_Committed_Summary_LocationLoadPath) GetEntityData() *types.CommonEntityData {
@@ -2514,19 +2658,22 @@ func (locationLoadPath *Install_SoftwareInventory_Committed_Summary_LocationLoad
     locationLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locationLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    locationLoadPath.EntityData.Children = make(map[string]types.YChild)
-    locationLoadPath.EntityData.Children["load-path"] = types.YChild{"LoadPath", nil}
+    locationLoadPath.EntityData.Children = types.NewOrderedMap()
+    locationLoadPath.EntityData.Children.Append("load-path", types.YChild{"LoadPath", nil})
     for i := range locationLoadPath.LoadPath {
-        locationLoadPath.EntityData.Children[types.GetSegmentPath(&locationLoadPath.LoadPath[i])] = types.YChild{"LoadPath", &locationLoadPath.LoadPath[i]}
+        locationLoadPath.EntityData.Children.Append(types.GetSegmentPath(locationLoadPath.LoadPath[i]), types.YChild{"LoadPath", locationLoadPath.LoadPath[i]})
     }
-    locationLoadPath.EntityData.Children["standby-load-path"] = types.YChild{"StandbyLoadPath", nil}
+    locationLoadPath.EntityData.Children.Append("standby-load-path", types.YChild{"StandbyLoadPath", nil})
     for i := range locationLoadPath.StandbyLoadPath {
-        locationLoadPath.EntityData.Children[types.GetSegmentPath(&locationLoadPath.StandbyLoadPath[i])] = types.YChild{"StandbyLoadPath", &locationLoadPath.StandbyLoadPath[i]}
+        locationLoadPath.EntityData.Children.Append(types.GetSegmentPath(locationLoadPath.StandbyLoadPath[i]), types.YChild{"StandbyLoadPath", locationLoadPath.StandbyLoadPath[i]})
     }
-    locationLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    locationLoadPath.EntityData.Leafs["request-id"] = types.YLeaf{"RequestId", locationLoadPath.RequestId}
-    locationLoadPath.EntityData.Leafs["secure-domain-router-name"] = types.YLeaf{"SecureDomainRouterName", locationLoadPath.SecureDomainRouterName}
-    locationLoadPath.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", locationLoadPath.NodeName}
+    locationLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    locationLoadPath.EntityData.Leafs.Append("request-id", types.YLeaf{"RequestId", locationLoadPath.RequestId})
+    locationLoadPath.EntityData.Leafs.Append("secure-domain-router-name", types.YLeaf{"SecureDomainRouterName", locationLoadPath.SecureDomainRouterName})
+    locationLoadPath.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", locationLoadPath.NodeName})
+
+    locationLoadPath.EntityData.YListKeys = []string {}
+
     return &(locationLoadPath.EntityData)
 }
 
@@ -2543,7 +2690,7 @@ type Install_SoftwareInventory_Committed_Summary_LocationLoadPath_LoadPath struc
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Committed_Summary_LocationLoadPath_LoadPath_Package
+    Package Install_SoftwareInventory_Committed_Summary_LocationLoadPath_LoadPath_Package
 }
 
 func (loadPath *Install_SoftwareInventory_Committed_Summary_LocationLoadPath_LoadPath) GetEntityData() *types.CommonEntityData {
@@ -2556,11 +2703,14 @@ func (loadPath *Install_SoftwareInventory_Committed_Summary_LocationLoadPath_Loa
     loadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loadPath.EntityData.Children = make(map[string]types.YChild)
-    loadPath.EntityData.Children["package"] = types.YChild{"Package_", &loadPath.Package_}
-    loadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    loadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", loadPath.Version}
-    loadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", loadPath.BuildInformation}
+    loadPath.EntityData.Children = types.NewOrderedMap()
+    loadPath.EntityData.Children.Append("package", types.YChild{"Package", &loadPath.Package})
+    loadPath.EntityData.Leafs = types.NewOrderedMap()
+    loadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", loadPath.Version})
+    loadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", loadPath.BuildInformation})
+
+    loadPath.EntityData.YListKeys = []string {}
+
     return &(loadPath.EntityData)
 }
 
@@ -2587,10 +2737,13 @@ func (self *Install_SoftwareInventory_Committed_Summary_LocationLoadPath_LoadPat
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -2607,7 +2760,7 @@ type Install_SoftwareInventory_Committed_Summary_LocationLoadPath_StandbyLoadPat
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Committed_Summary_LocationLoadPath_StandbyLoadPath_Package
+    Package Install_SoftwareInventory_Committed_Summary_LocationLoadPath_StandbyLoadPath_Package
 }
 
 func (standbyLoadPath *Install_SoftwareInventory_Committed_Summary_LocationLoadPath_StandbyLoadPath) GetEntityData() *types.CommonEntityData {
@@ -2620,11 +2773,14 @@ func (standbyLoadPath *Install_SoftwareInventory_Committed_Summary_LocationLoadP
     standbyLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standbyLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    standbyLoadPath.EntityData.Children = make(map[string]types.YChild)
-    standbyLoadPath.EntityData.Children["package"] = types.YChild{"Package_", &standbyLoadPath.Package_}
-    standbyLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    standbyLoadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", standbyLoadPath.Version}
-    standbyLoadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation}
+    standbyLoadPath.EntityData.Children = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Children.Append("package", types.YChild{"Package", &standbyLoadPath.Package})
+    standbyLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", standbyLoadPath.Version})
+    standbyLoadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation})
+
+    standbyLoadPath.EntityData.YListKeys = []string {}
+
     return &(standbyLoadPath.EntityData)
 }
 
@@ -2651,10 +2807,13 @@ func (self *Install_SoftwareInventory_Committed_Summary_LocationLoadPath_Standby
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -2666,7 +2825,7 @@ type Install_SoftwareInventory_Committed_Inventories struct {
 
     // Inventory information for specific node. The type is slice of
     // Install_SoftwareInventory_Committed_Inventories_Inventory.
-    Inventory []Install_SoftwareInventory_Committed_Inventories_Inventory
+    Inventory []*Install_SoftwareInventory_Committed_Inventories_Inventory
 }
 
 func (inventories *Install_SoftwareInventory_Committed_Inventories) GetEntityData() *types.CommonEntityData {
@@ -2679,12 +2838,15 @@ func (inventories *Install_SoftwareInventory_Committed_Inventories) GetEntityDat
     inventories.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventories.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inventories.EntityData.Children = make(map[string]types.YChild)
-    inventories.EntityData.Children["inventory"] = types.YChild{"Inventory", nil}
+    inventories.EntityData.Children = types.NewOrderedMap()
+    inventories.EntityData.Children.Append("inventory", types.YChild{"Inventory", nil})
     for i := range inventories.Inventory {
-        inventories.EntityData.Children[types.GetSegmentPath(&inventories.Inventory[i])] = types.YChild{"Inventory", &inventories.Inventory[i]}
+        inventories.EntityData.Children.Append(types.GetSegmentPath(inventories.Inventory[i]), types.YChild{"Inventory", inventories.Inventory[i]})
     }
-    inventories.EntityData.Leafs = make(map[string]types.YLeaf)
+    inventories.EntityData.Leafs = types.NewOrderedMap()
+
+    inventories.EntityData.YListKeys = []string {}
+
     return &(inventories.EntityData)
 }
 
@@ -2695,7 +2857,7 @@ type Install_SoftwareInventory_Committed_Inventories_Inventory struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Major data version number. The type is interface{} with range:
@@ -2717,7 +2879,7 @@ type Install_SoftwareInventory_Committed_Inventories_Inventory struct {
 
     // Load path. The type is slice of
     // Install_SoftwareInventory_Committed_Inventories_Inventory_LoadPath.
-    LoadPath []Install_SoftwareInventory_Committed_Inventories_Inventory_LoadPath
+    LoadPath []*Install_SoftwareInventory_Committed_Inventories_Inventory_LoadPath
 }
 
 func (inventory *Install_SoftwareInventory_Committed_Inventories_Inventory) GetEntityData() *types.CommonEntityData {
@@ -2725,23 +2887,26 @@ func (inventory *Install_SoftwareInventory_Committed_Inventories_Inventory) GetE
     inventory.EntityData.YangName = "inventory"
     inventory.EntityData.BundleName = "cisco_ios_xr"
     inventory.EntityData.ParentYangName = "inventories"
-    inventory.EntityData.SegmentPath = "inventory" + "[node-name='" + fmt.Sprintf("%v", inventory.NodeName) + "']"
+    inventory.EntityData.SegmentPath = "inventory" + types.AddKeyToken(inventory.NodeName, "node-name")
     inventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inventory.EntityData.Children = make(map[string]types.YChild)
-    inventory.EntityData.Children["load-path"] = types.YChild{"LoadPath", nil}
+    inventory.EntityData.Children = types.NewOrderedMap()
+    inventory.EntityData.Children.Append("load-path", types.YChild{"LoadPath", nil})
     for i := range inventory.LoadPath {
-        inventory.EntityData.Children[types.GetSegmentPath(&inventory.LoadPath[i])] = types.YChild{"LoadPath", &inventory.LoadPath[i]}
+        inventory.EntityData.Children.Append(types.GetSegmentPath(inventory.LoadPath[i]), types.YChild{"LoadPath", inventory.LoadPath[i]})
     }
-    inventory.EntityData.Leafs = make(map[string]types.YLeaf)
-    inventory.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", inventory.NodeName}
-    inventory.EntityData.Leafs["major"] = types.YLeaf{"Major", inventory.Major}
-    inventory.EntityData.Leafs["minor"] = types.YLeaf{"Minor", inventory.Minor}
-    inventory.EntityData.Leafs["boot-image-name"] = types.YLeaf{"BootImageName", inventory.BootImageName}
-    inventory.EntityData.Leafs["node-type"] = types.YLeaf{"NodeType", inventory.NodeType}
-    inventory.EntityData.Leafs["secure-domain-router-name"] = types.YLeaf{"SecureDomainRouterName", inventory.SecureDomainRouterName}
+    inventory.EntityData.Leafs = types.NewOrderedMap()
+    inventory.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", inventory.NodeName})
+    inventory.EntityData.Leafs.Append("major", types.YLeaf{"Major", inventory.Major})
+    inventory.EntityData.Leafs.Append("minor", types.YLeaf{"Minor", inventory.Minor})
+    inventory.EntityData.Leafs.Append("boot-image-name", types.YLeaf{"BootImageName", inventory.BootImageName})
+    inventory.EntityData.Leafs.Append("node-type", types.YLeaf{"NodeType", inventory.NodeType})
+    inventory.EntityData.Leafs.Append("secure-domain-router-name", types.YLeaf{"SecureDomainRouterName", inventory.SecureDomainRouterName})
+
+    inventory.EntityData.YListKeys = []string {"NodeName"}
+
     return &(inventory.EntityData)
 }
 
@@ -2758,7 +2923,7 @@ type Install_SoftwareInventory_Committed_Inventories_Inventory_LoadPath struct {
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Committed_Inventories_Inventory_LoadPath_Package
+    Package Install_SoftwareInventory_Committed_Inventories_Inventory_LoadPath_Package
 }
 
 func (loadPath *Install_SoftwareInventory_Committed_Inventories_Inventory_LoadPath) GetEntityData() *types.CommonEntityData {
@@ -2771,11 +2936,14 @@ func (loadPath *Install_SoftwareInventory_Committed_Inventories_Inventory_LoadPa
     loadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loadPath.EntityData.Children = make(map[string]types.YChild)
-    loadPath.EntityData.Children["package"] = types.YChild{"Package_", &loadPath.Package_}
-    loadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    loadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", loadPath.Version}
-    loadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", loadPath.BuildInformation}
+    loadPath.EntityData.Children = types.NewOrderedMap()
+    loadPath.EntityData.Children.Append("package", types.YChild{"Package", &loadPath.Package})
+    loadPath.EntityData.Leafs = types.NewOrderedMap()
+    loadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", loadPath.Version})
+    loadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", loadPath.BuildInformation})
+
+    loadPath.EntityData.YListKeys = []string {}
+
     return &(loadPath.EntityData)
 }
 
@@ -2802,10 +2970,13 @@ func (self *Install_SoftwareInventory_Committed_Inventories_Inventory_LoadPath_P
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -2832,10 +3003,13 @@ func (inactive *Install_SoftwareInventory_Inactive) GetEntityData() *types.Commo
     inactive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inactive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inactive.EntityData.Children = make(map[string]types.YChild)
-    inactive.EntityData.Children["summary"] = types.YChild{"Summary", &inactive.Summary}
-    inactive.EntityData.Children["inventories"] = types.YChild{"Inventories", &inactive.Inventories}
-    inactive.EntityData.Leafs = make(map[string]types.YLeaf)
+    inactive.EntityData.Children = types.NewOrderedMap()
+    inactive.EntityData.Children.Append("summary", types.YChild{"Summary", &inactive.Summary})
+    inactive.EntityData.Children.Append("inventories", types.YChild{"Inventories", &inactive.Inventories})
+    inactive.EntityData.Leafs = types.NewOrderedMap()
+
+    inactive.EntityData.YListKeys = []string {}
+
     return &(inactive.EntityData)
 }
 
@@ -2853,11 +3027,11 @@ type Install_SoftwareInventory_Inactive_Summary struct {
 
     // SDR load paths. The type is slice of
     // Install_SoftwareInventory_Inactive_Summary_SdrLoadPath.
-    SdrLoadPath []Install_SoftwareInventory_Inactive_Summary_SdrLoadPath
+    SdrLoadPath []*Install_SoftwareInventory_Inactive_Summary_SdrLoadPath
 
     // Location load paths. The type is slice of
     // Install_SoftwareInventory_Inactive_Summary_LocationLoadPath.
-    LocationLoadPath []Install_SoftwareInventory_Inactive_Summary_LocationLoadPath
+    LocationLoadPath []*Install_SoftwareInventory_Inactive_Summary_LocationLoadPath
 }
 
 func (summary *Install_SoftwareInventory_Inactive_Summary) GetEntityData() *types.CommonEntityData {
@@ -2870,18 +3044,21 @@ func (summary *Install_SoftwareInventory_Inactive_Summary) GetEntityData() *type
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Children["default-load-path"] = types.YChild{"DefaultLoadPath", &summary.DefaultLoadPath}
-    summary.EntityData.Children["admin-load-path"] = types.YChild{"AdminLoadPath", &summary.AdminLoadPath}
-    summary.EntityData.Children["sdr-load-path"] = types.YChild{"SdrLoadPath", nil}
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Children.Append("default-load-path", types.YChild{"DefaultLoadPath", &summary.DefaultLoadPath})
+    summary.EntityData.Children.Append("admin-load-path", types.YChild{"AdminLoadPath", &summary.AdminLoadPath})
+    summary.EntityData.Children.Append("sdr-load-path", types.YChild{"SdrLoadPath", nil})
     for i := range summary.SdrLoadPath {
-        summary.EntityData.Children[types.GetSegmentPath(&summary.SdrLoadPath[i])] = types.YChild{"SdrLoadPath", &summary.SdrLoadPath[i]}
+        summary.EntityData.Children.Append(types.GetSegmentPath(summary.SdrLoadPath[i]), types.YChild{"SdrLoadPath", summary.SdrLoadPath[i]})
     }
-    summary.EntityData.Children["location-load-path"] = types.YChild{"LocationLoadPath", nil}
+    summary.EntityData.Children.Append("location-load-path", types.YChild{"LocationLoadPath", nil})
     for i := range summary.LocationLoadPath {
-        summary.EntityData.Children[types.GetSegmentPath(&summary.LocationLoadPath[i])] = types.YChild{"LocationLoadPath", &summary.LocationLoadPath[i]}
+        summary.EntityData.Children.Append(types.GetSegmentPath(summary.LocationLoadPath[i]), types.YChild{"LocationLoadPath", summary.LocationLoadPath[i]})
     }
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Leafs = types.NewOrderedMap()
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -2903,11 +3080,11 @@ type Install_SoftwareInventory_Inactive_Summary_DefaultLoadPath struct {
 
     // Default load path. The type is slice of
     // Install_SoftwareInventory_Inactive_Summary_DefaultLoadPath_LoadPath.
-    LoadPath []Install_SoftwareInventory_Inactive_Summary_DefaultLoadPath_LoadPath
+    LoadPath []*Install_SoftwareInventory_Inactive_Summary_DefaultLoadPath_LoadPath
 
     // Load paths for standby nodes. The type is slice of
     // Install_SoftwareInventory_Inactive_Summary_DefaultLoadPath_StandbyLoadPath.
-    StandbyLoadPath []Install_SoftwareInventory_Inactive_Summary_DefaultLoadPath_StandbyLoadPath
+    StandbyLoadPath []*Install_SoftwareInventory_Inactive_Summary_DefaultLoadPath_StandbyLoadPath
 }
 
 func (defaultLoadPath *Install_SoftwareInventory_Inactive_Summary_DefaultLoadPath) GetEntityData() *types.CommonEntityData {
@@ -2920,19 +3097,22 @@ func (defaultLoadPath *Install_SoftwareInventory_Inactive_Summary_DefaultLoadPat
     defaultLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultLoadPath.EntityData.Children = make(map[string]types.YChild)
-    defaultLoadPath.EntityData.Children["load-path"] = types.YChild{"LoadPath", nil}
+    defaultLoadPath.EntityData.Children = types.NewOrderedMap()
+    defaultLoadPath.EntityData.Children.Append("load-path", types.YChild{"LoadPath", nil})
     for i := range defaultLoadPath.LoadPath {
-        defaultLoadPath.EntityData.Children[types.GetSegmentPath(&defaultLoadPath.LoadPath[i])] = types.YChild{"LoadPath", &defaultLoadPath.LoadPath[i]}
+        defaultLoadPath.EntityData.Children.Append(types.GetSegmentPath(defaultLoadPath.LoadPath[i]), types.YChild{"LoadPath", defaultLoadPath.LoadPath[i]})
     }
-    defaultLoadPath.EntityData.Children["standby-load-path"] = types.YChild{"StandbyLoadPath", nil}
+    defaultLoadPath.EntityData.Children.Append("standby-load-path", types.YChild{"StandbyLoadPath", nil})
     for i := range defaultLoadPath.StandbyLoadPath {
-        defaultLoadPath.EntityData.Children[types.GetSegmentPath(&defaultLoadPath.StandbyLoadPath[i])] = types.YChild{"StandbyLoadPath", &defaultLoadPath.StandbyLoadPath[i]}
+        defaultLoadPath.EntityData.Children.Append(types.GetSegmentPath(defaultLoadPath.StandbyLoadPath[i]), types.YChild{"StandbyLoadPath", defaultLoadPath.StandbyLoadPath[i]})
     }
-    defaultLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    defaultLoadPath.EntityData.Leafs["request-id"] = types.YLeaf{"RequestId", defaultLoadPath.RequestId}
-    defaultLoadPath.EntityData.Leafs["admin-match"] = types.YLeaf{"AdminMatch", defaultLoadPath.AdminMatch}
-    defaultLoadPath.EntityData.Leafs["secure-domain-router-name"] = types.YLeaf{"SecureDomainRouterName", defaultLoadPath.SecureDomainRouterName}
+    defaultLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    defaultLoadPath.EntityData.Leafs.Append("request-id", types.YLeaf{"RequestId", defaultLoadPath.RequestId})
+    defaultLoadPath.EntityData.Leafs.Append("admin-match", types.YLeaf{"AdminMatch", defaultLoadPath.AdminMatch})
+    defaultLoadPath.EntityData.Leafs.Append("secure-domain-router-name", types.YLeaf{"SecureDomainRouterName", defaultLoadPath.SecureDomainRouterName})
+
+    defaultLoadPath.EntityData.YListKeys = []string {}
+
     return &(defaultLoadPath.EntityData)
 }
 
@@ -2949,7 +3129,7 @@ type Install_SoftwareInventory_Inactive_Summary_DefaultLoadPath_LoadPath struct 
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Inactive_Summary_DefaultLoadPath_LoadPath_Package
+    Package Install_SoftwareInventory_Inactive_Summary_DefaultLoadPath_LoadPath_Package
 }
 
 func (loadPath *Install_SoftwareInventory_Inactive_Summary_DefaultLoadPath_LoadPath) GetEntityData() *types.CommonEntityData {
@@ -2962,11 +3142,14 @@ func (loadPath *Install_SoftwareInventory_Inactive_Summary_DefaultLoadPath_LoadP
     loadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loadPath.EntityData.Children = make(map[string]types.YChild)
-    loadPath.EntityData.Children["package"] = types.YChild{"Package_", &loadPath.Package_}
-    loadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    loadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", loadPath.Version}
-    loadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", loadPath.BuildInformation}
+    loadPath.EntityData.Children = types.NewOrderedMap()
+    loadPath.EntityData.Children.Append("package", types.YChild{"Package", &loadPath.Package})
+    loadPath.EntityData.Leafs = types.NewOrderedMap()
+    loadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", loadPath.Version})
+    loadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", loadPath.BuildInformation})
+
+    loadPath.EntityData.YListKeys = []string {}
+
     return &(loadPath.EntityData)
 }
 
@@ -2993,10 +3176,13 @@ func (self *Install_SoftwareInventory_Inactive_Summary_DefaultLoadPath_LoadPath_
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -3013,7 +3199,7 @@ type Install_SoftwareInventory_Inactive_Summary_DefaultLoadPath_StandbyLoadPath 
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Inactive_Summary_DefaultLoadPath_StandbyLoadPath_Package
+    Package Install_SoftwareInventory_Inactive_Summary_DefaultLoadPath_StandbyLoadPath_Package
 }
 
 func (standbyLoadPath *Install_SoftwareInventory_Inactive_Summary_DefaultLoadPath_StandbyLoadPath) GetEntityData() *types.CommonEntityData {
@@ -3026,11 +3212,14 @@ func (standbyLoadPath *Install_SoftwareInventory_Inactive_Summary_DefaultLoadPat
     standbyLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standbyLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    standbyLoadPath.EntityData.Children = make(map[string]types.YChild)
-    standbyLoadPath.EntityData.Children["package"] = types.YChild{"Package_", &standbyLoadPath.Package_}
-    standbyLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    standbyLoadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", standbyLoadPath.Version}
-    standbyLoadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation}
+    standbyLoadPath.EntityData.Children = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Children.Append("package", types.YChild{"Package", &standbyLoadPath.Package})
+    standbyLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", standbyLoadPath.Version})
+    standbyLoadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation})
+
+    standbyLoadPath.EntityData.YListKeys = []string {}
+
     return &(standbyLoadPath.EntityData)
 }
 
@@ -3057,10 +3246,13 @@ func (self *Install_SoftwareInventory_Inactive_Summary_DefaultLoadPath_StandbyLo
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -3076,11 +3268,11 @@ type Install_SoftwareInventory_Inactive_Summary_AdminLoadPath struct {
 
     // Admin Resources load path. The type is slice of
     // Install_SoftwareInventory_Inactive_Summary_AdminLoadPath_LoadPath.
-    LoadPath []Install_SoftwareInventory_Inactive_Summary_AdminLoadPath_LoadPath
+    LoadPath []*Install_SoftwareInventory_Inactive_Summary_AdminLoadPath_LoadPath
 
     // Load paths for standby nodes. The type is slice of
     // Install_SoftwareInventory_Inactive_Summary_AdminLoadPath_StandbyLoadPath.
-    StandbyLoadPath []Install_SoftwareInventory_Inactive_Summary_AdminLoadPath_StandbyLoadPath
+    StandbyLoadPath []*Install_SoftwareInventory_Inactive_Summary_AdminLoadPath_StandbyLoadPath
 }
 
 func (adminLoadPath *Install_SoftwareInventory_Inactive_Summary_AdminLoadPath) GetEntityData() *types.CommonEntityData {
@@ -3093,17 +3285,20 @@ func (adminLoadPath *Install_SoftwareInventory_Inactive_Summary_AdminLoadPath) G
     adminLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adminLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    adminLoadPath.EntityData.Children = make(map[string]types.YChild)
-    adminLoadPath.EntityData.Children["load-path"] = types.YChild{"LoadPath", nil}
+    adminLoadPath.EntityData.Children = types.NewOrderedMap()
+    adminLoadPath.EntityData.Children.Append("load-path", types.YChild{"LoadPath", nil})
     for i := range adminLoadPath.LoadPath {
-        adminLoadPath.EntityData.Children[types.GetSegmentPath(&adminLoadPath.LoadPath[i])] = types.YChild{"LoadPath", &adminLoadPath.LoadPath[i]}
+        adminLoadPath.EntityData.Children.Append(types.GetSegmentPath(adminLoadPath.LoadPath[i]), types.YChild{"LoadPath", adminLoadPath.LoadPath[i]})
     }
-    adminLoadPath.EntityData.Children["standby-load-path"] = types.YChild{"StandbyLoadPath", nil}
+    adminLoadPath.EntityData.Children.Append("standby-load-path", types.YChild{"StandbyLoadPath", nil})
     for i := range adminLoadPath.StandbyLoadPath {
-        adminLoadPath.EntityData.Children[types.GetSegmentPath(&adminLoadPath.StandbyLoadPath[i])] = types.YChild{"StandbyLoadPath", &adminLoadPath.StandbyLoadPath[i]}
+        adminLoadPath.EntityData.Children.Append(types.GetSegmentPath(adminLoadPath.StandbyLoadPath[i]), types.YChild{"StandbyLoadPath", adminLoadPath.StandbyLoadPath[i]})
     }
-    adminLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    adminLoadPath.EntityData.Leafs["request-id"] = types.YLeaf{"RequestId", adminLoadPath.RequestId}
+    adminLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    adminLoadPath.EntityData.Leafs.Append("request-id", types.YLeaf{"RequestId", adminLoadPath.RequestId})
+
+    adminLoadPath.EntityData.YListKeys = []string {}
+
     return &(adminLoadPath.EntityData)
 }
 
@@ -3120,7 +3315,7 @@ type Install_SoftwareInventory_Inactive_Summary_AdminLoadPath_LoadPath struct {
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Inactive_Summary_AdminLoadPath_LoadPath_Package
+    Package Install_SoftwareInventory_Inactive_Summary_AdminLoadPath_LoadPath_Package
 }
 
 func (loadPath *Install_SoftwareInventory_Inactive_Summary_AdminLoadPath_LoadPath) GetEntityData() *types.CommonEntityData {
@@ -3133,11 +3328,14 @@ func (loadPath *Install_SoftwareInventory_Inactive_Summary_AdminLoadPath_LoadPat
     loadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loadPath.EntityData.Children = make(map[string]types.YChild)
-    loadPath.EntityData.Children["package"] = types.YChild{"Package_", &loadPath.Package_}
-    loadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    loadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", loadPath.Version}
-    loadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", loadPath.BuildInformation}
+    loadPath.EntityData.Children = types.NewOrderedMap()
+    loadPath.EntityData.Children.Append("package", types.YChild{"Package", &loadPath.Package})
+    loadPath.EntityData.Leafs = types.NewOrderedMap()
+    loadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", loadPath.Version})
+    loadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", loadPath.BuildInformation})
+
+    loadPath.EntityData.YListKeys = []string {}
+
     return &(loadPath.EntityData)
 }
 
@@ -3164,10 +3362,13 @@ func (self *Install_SoftwareInventory_Inactive_Summary_AdminLoadPath_LoadPath_Pa
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -3184,7 +3385,7 @@ type Install_SoftwareInventory_Inactive_Summary_AdminLoadPath_StandbyLoadPath st
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Inactive_Summary_AdminLoadPath_StandbyLoadPath_Package
+    Package Install_SoftwareInventory_Inactive_Summary_AdminLoadPath_StandbyLoadPath_Package
 }
 
 func (standbyLoadPath *Install_SoftwareInventory_Inactive_Summary_AdminLoadPath_StandbyLoadPath) GetEntityData() *types.CommonEntityData {
@@ -3197,11 +3398,14 @@ func (standbyLoadPath *Install_SoftwareInventory_Inactive_Summary_AdminLoadPath_
     standbyLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standbyLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    standbyLoadPath.EntityData.Children = make(map[string]types.YChild)
-    standbyLoadPath.EntityData.Children["package"] = types.YChild{"Package_", &standbyLoadPath.Package_}
-    standbyLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    standbyLoadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", standbyLoadPath.Version}
-    standbyLoadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation}
+    standbyLoadPath.EntityData.Children = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Children.Append("package", types.YChild{"Package", &standbyLoadPath.Package})
+    standbyLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", standbyLoadPath.Version})
+    standbyLoadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation})
+
+    standbyLoadPath.EntityData.YListKeys = []string {}
+
     return &(standbyLoadPath.EntityData)
 }
 
@@ -3228,10 +3432,13 @@ func (self *Install_SoftwareInventory_Inactive_Summary_AdminLoadPath_StandbyLoad
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -3250,11 +3457,11 @@ type Install_SoftwareInventory_Inactive_Summary_SdrLoadPath struct {
 
     // Load path. The type is slice of
     // Install_SoftwareInventory_Inactive_Summary_SdrLoadPath_LoadPath.
-    LoadPath []Install_SoftwareInventory_Inactive_Summary_SdrLoadPath_LoadPath
+    LoadPath []*Install_SoftwareInventory_Inactive_Summary_SdrLoadPath_LoadPath
 
     // Load paths for standby nodes. The type is slice of
     // Install_SoftwareInventory_Inactive_Summary_SdrLoadPath_StandbyLoadPath.
-    StandbyLoadPath []Install_SoftwareInventory_Inactive_Summary_SdrLoadPath_StandbyLoadPath
+    StandbyLoadPath []*Install_SoftwareInventory_Inactive_Summary_SdrLoadPath_StandbyLoadPath
 }
 
 func (sdrLoadPath *Install_SoftwareInventory_Inactive_Summary_SdrLoadPath) GetEntityData() *types.CommonEntityData {
@@ -3267,18 +3474,21 @@ func (sdrLoadPath *Install_SoftwareInventory_Inactive_Summary_SdrLoadPath) GetEn
     sdrLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sdrLoadPath.EntityData.Children = make(map[string]types.YChild)
-    sdrLoadPath.EntityData.Children["load-path"] = types.YChild{"LoadPath", nil}
+    sdrLoadPath.EntityData.Children = types.NewOrderedMap()
+    sdrLoadPath.EntityData.Children.Append("load-path", types.YChild{"LoadPath", nil})
     for i := range sdrLoadPath.LoadPath {
-        sdrLoadPath.EntityData.Children[types.GetSegmentPath(&sdrLoadPath.LoadPath[i])] = types.YChild{"LoadPath", &sdrLoadPath.LoadPath[i]}
+        sdrLoadPath.EntityData.Children.Append(types.GetSegmentPath(sdrLoadPath.LoadPath[i]), types.YChild{"LoadPath", sdrLoadPath.LoadPath[i]})
     }
-    sdrLoadPath.EntityData.Children["standby-load-path"] = types.YChild{"StandbyLoadPath", nil}
+    sdrLoadPath.EntityData.Children.Append("standby-load-path", types.YChild{"StandbyLoadPath", nil})
     for i := range sdrLoadPath.StandbyLoadPath {
-        sdrLoadPath.EntityData.Children[types.GetSegmentPath(&sdrLoadPath.StandbyLoadPath[i])] = types.YChild{"StandbyLoadPath", &sdrLoadPath.StandbyLoadPath[i]}
+        sdrLoadPath.EntityData.Children.Append(types.GetSegmentPath(sdrLoadPath.StandbyLoadPath[i]), types.YChild{"StandbyLoadPath", sdrLoadPath.StandbyLoadPath[i]})
     }
-    sdrLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    sdrLoadPath.EntityData.Leafs["request-id"] = types.YLeaf{"RequestId", sdrLoadPath.RequestId}
-    sdrLoadPath.EntityData.Leafs["secure-domain-router-name"] = types.YLeaf{"SecureDomainRouterName", sdrLoadPath.SecureDomainRouterName}
+    sdrLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    sdrLoadPath.EntityData.Leafs.Append("request-id", types.YLeaf{"RequestId", sdrLoadPath.RequestId})
+    sdrLoadPath.EntityData.Leafs.Append("secure-domain-router-name", types.YLeaf{"SecureDomainRouterName", sdrLoadPath.SecureDomainRouterName})
+
+    sdrLoadPath.EntityData.YListKeys = []string {}
+
     return &(sdrLoadPath.EntityData)
 }
 
@@ -3295,7 +3505,7 @@ type Install_SoftwareInventory_Inactive_Summary_SdrLoadPath_LoadPath struct {
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Inactive_Summary_SdrLoadPath_LoadPath_Package
+    Package Install_SoftwareInventory_Inactive_Summary_SdrLoadPath_LoadPath_Package
 }
 
 func (loadPath *Install_SoftwareInventory_Inactive_Summary_SdrLoadPath_LoadPath) GetEntityData() *types.CommonEntityData {
@@ -3308,11 +3518,14 @@ func (loadPath *Install_SoftwareInventory_Inactive_Summary_SdrLoadPath_LoadPath)
     loadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loadPath.EntityData.Children = make(map[string]types.YChild)
-    loadPath.EntityData.Children["package"] = types.YChild{"Package_", &loadPath.Package_}
-    loadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    loadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", loadPath.Version}
-    loadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", loadPath.BuildInformation}
+    loadPath.EntityData.Children = types.NewOrderedMap()
+    loadPath.EntityData.Children.Append("package", types.YChild{"Package", &loadPath.Package})
+    loadPath.EntityData.Leafs = types.NewOrderedMap()
+    loadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", loadPath.Version})
+    loadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", loadPath.BuildInformation})
+
+    loadPath.EntityData.YListKeys = []string {}
+
     return &(loadPath.EntityData)
 }
 
@@ -3339,10 +3552,13 @@ func (self *Install_SoftwareInventory_Inactive_Summary_SdrLoadPath_LoadPath_Pack
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -3359,7 +3575,7 @@ type Install_SoftwareInventory_Inactive_Summary_SdrLoadPath_StandbyLoadPath stru
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Inactive_Summary_SdrLoadPath_StandbyLoadPath_Package
+    Package Install_SoftwareInventory_Inactive_Summary_SdrLoadPath_StandbyLoadPath_Package
 }
 
 func (standbyLoadPath *Install_SoftwareInventory_Inactive_Summary_SdrLoadPath_StandbyLoadPath) GetEntityData() *types.CommonEntityData {
@@ -3372,11 +3588,14 @@ func (standbyLoadPath *Install_SoftwareInventory_Inactive_Summary_SdrLoadPath_St
     standbyLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standbyLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    standbyLoadPath.EntityData.Children = make(map[string]types.YChild)
-    standbyLoadPath.EntityData.Children["package"] = types.YChild{"Package_", &standbyLoadPath.Package_}
-    standbyLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    standbyLoadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", standbyLoadPath.Version}
-    standbyLoadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation}
+    standbyLoadPath.EntityData.Children = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Children.Append("package", types.YChild{"Package", &standbyLoadPath.Package})
+    standbyLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", standbyLoadPath.Version})
+    standbyLoadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation})
+
+    standbyLoadPath.EntityData.YListKeys = []string {}
+
     return &(standbyLoadPath.EntityData)
 }
 
@@ -3403,10 +3622,13 @@ func (self *Install_SoftwareInventory_Inactive_Summary_SdrLoadPath_StandbyLoadPa
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -3424,16 +3646,16 @@ type Install_SoftwareInventory_Inactive_Summary_LocationLoadPath struct {
     SecureDomainRouterName interface{}
 
     // Node identifier. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Load path. The type is slice of
     // Install_SoftwareInventory_Inactive_Summary_LocationLoadPath_LoadPath.
-    LoadPath []Install_SoftwareInventory_Inactive_Summary_LocationLoadPath_LoadPath
+    LoadPath []*Install_SoftwareInventory_Inactive_Summary_LocationLoadPath_LoadPath
 
     // Load paths for standby nodes. The type is slice of
     // Install_SoftwareInventory_Inactive_Summary_LocationLoadPath_StandbyLoadPath.
-    StandbyLoadPath []Install_SoftwareInventory_Inactive_Summary_LocationLoadPath_StandbyLoadPath
+    StandbyLoadPath []*Install_SoftwareInventory_Inactive_Summary_LocationLoadPath_StandbyLoadPath
 }
 
 func (locationLoadPath *Install_SoftwareInventory_Inactive_Summary_LocationLoadPath) GetEntityData() *types.CommonEntityData {
@@ -3446,19 +3668,22 @@ func (locationLoadPath *Install_SoftwareInventory_Inactive_Summary_LocationLoadP
     locationLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locationLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    locationLoadPath.EntityData.Children = make(map[string]types.YChild)
-    locationLoadPath.EntityData.Children["load-path"] = types.YChild{"LoadPath", nil}
+    locationLoadPath.EntityData.Children = types.NewOrderedMap()
+    locationLoadPath.EntityData.Children.Append("load-path", types.YChild{"LoadPath", nil})
     for i := range locationLoadPath.LoadPath {
-        locationLoadPath.EntityData.Children[types.GetSegmentPath(&locationLoadPath.LoadPath[i])] = types.YChild{"LoadPath", &locationLoadPath.LoadPath[i]}
+        locationLoadPath.EntityData.Children.Append(types.GetSegmentPath(locationLoadPath.LoadPath[i]), types.YChild{"LoadPath", locationLoadPath.LoadPath[i]})
     }
-    locationLoadPath.EntityData.Children["standby-load-path"] = types.YChild{"StandbyLoadPath", nil}
+    locationLoadPath.EntityData.Children.Append("standby-load-path", types.YChild{"StandbyLoadPath", nil})
     for i := range locationLoadPath.StandbyLoadPath {
-        locationLoadPath.EntityData.Children[types.GetSegmentPath(&locationLoadPath.StandbyLoadPath[i])] = types.YChild{"StandbyLoadPath", &locationLoadPath.StandbyLoadPath[i]}
+        locationLoadPath.EntityData.Children.Append(types.GetSegmentPath(locationLoadPath.StandbyLoadPath[i]), types.YChild{"StandbyLoadPath", locationLoadPath.StandbyLoadPath[i]})
     }
-    locationLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    locationLoadPath.EntityData.Leafs["request-id"] = types.YLeaf{"RequestId", locationLoadPath.RequestId}
-    locationLoadPath.EntityData.Leafs["secure-domain-router-name"] = types.YLeaf{"SecureDomainRouterName", locationLoadPath.SecureDomainRouterName}
-    locationLoadPath.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", locationLoadPath.NodeName}
+    locationLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    locationLoadPath.EntityData.Leafs.Append("request-id", types.YLeaf{"RequestId", locationLoadPath.RequestId})
+    locationLoadPath.EntityData.Leafs.Append("secure-domain-router-name", types.YLeaf{"SecureDomainRouterName", locationLoadPath.SecureDomainRouterName})
+    locationLoadPath.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", locationLoadPath.NodeName})
+
+    locationLoadPath.EntityData.YListKeys = []string {}
+
     return &(locationLoadPath.EntityData)
 }
 
@@ -3475,7 +3700,7 @@ type Install_SoftwareInventory_Inactive_Summary_LocationLoadPath_LoadPath struct
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Inactive_Summary_LocationLoadPath_LoadPath_Package
+    Package Install_SoftwareInventory_Inactive_Summary_LocationLoadPath_LoadPath_Package
 }
 
 func (loadPath *Install_SoftwareInventory_Inactive_Summary_LocationLoadPath_LoadPath) GetEntityData() *types.CommonEntityData {
@@ -3488,11 +3713,14 @@ func (loadPath *Install_SoftwareInventory_Inactive_Summary_LocationLoadPath_Load
     loadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loadPath.EntityData.Children = make(map[string]types.YChild)
-    loadPath.EntityData.Children["package"] = types.YChild{"Package_", &loadPath.Package_}
-    loadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    loadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", loadPath.Version}
-    loadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", loadPath.BuildInformation}
+    loadPath.EntityData.Children = types.NewOrderedMap()
+    loadPath.EntityData.Children.Append("package", types.YChild{"Package", &loadPath.Package})
+    loadPath.EntityData.Leafs = types.NewOrderedMap()
+    loadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", loadPath.Version})
+    loadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", loadPath.BuildInformation})
+
+    loadPath.EntityData.YListKeys = []string {}
+
     return &(loadPath.EntityData)
 }
 
@@ -3519,10 +3747,13 @@ func (self *Install_SoftwareInventory_Inactive_Summary_LocationLoadPath_LoadPath
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -3539,7 +3770,7 @@ type Install_SoftwareInventory_Inactive_Summary_LocationLoadPath_StandbyLoadPath
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Inactive_Summary_LocationLoadPath_StandbyLoadPath_Package
+    Package Install_SoftwareInventory_Inactive_Summary_LocationLoadPath_StandbyLoadPath_Package
 }
 
 func (standbyLoadPath *Install_SoftwareInventory_Inactive_Summary_LocationLoadPath_StandbyLoadPath) GetEntityData() *types.CommonEntityData {
@@ -3552,11 +3783,14 @@ func (standbyLoadPath *Install_SoftwareInventory_Inactive_Summary_LocationLoadPa
     standbyLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standbyLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    standbyLoadPath.EntityData.Children = make(map[string]types.YChild)
-    standbyLoadPath.EntityData.Children["package"] = types.YChild{"Package_", &standbyLoadPath.Package_}
-    standbyLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    standbyLoadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", standbyLoadPath.Version}
-    standbyLoadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation}
+    standbyLoadPath.EntityData.Children = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Children.Append("package", types.YChild{"Package", &standbyLoadPath.Package})
+    standbyLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", standbyLoadPath.Version})
+    standbyLoadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation})
+
+    standbyLoadPath.EntityData.YListKeys = []string {}
+
     return &(standbyLoadPath.EntityData)
 }
 
@@ -3583,10 +3817,13 @@ func (self *Install_SoftwareInventory_Inactive_Summary_LocationLoadPath_StandbyL
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -3598,7 +3835,7 @@ type Install_SoftwareInventory_Inactive_Inventories struct {
 
     // Inventory information for specific node. The type is slice of
     // Install_SoftwareInventory_Inactive_Inventories_Inventory.
-    Inventory []Install_SoftwareInventory_Inactive_Inventories_Inventory
+    Inventory []*Install_SoftwareInventory_Inactive_Inventories_Inventory
 }
 
 func (inventories *Install_SoftwareInventory_Inactive_Inventories) GetEntityData() *types.CommonEntityData {
@@ -3611,12 +3848,15 @@ func (inventories *Install_SoftwareInventory_Inactive_Inventories) GetEntityData
     inventories.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventories.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inventories.EntityData.Children = make(map[string]types.YChild)
-    inventories.EntityData.Children["inventory"] = types.YChild{"Inventory", nil}
+    inventories.EntityData.Children = types.NewOrderedMap()
+    inventories.EntityData.Children.Append("inventory", types.YChild{"Inventory", nil})
     for i := range inventories.Inventory {
-        inventories.EntityData.Children[types.GetSegmentPath(&inventories.Inventory[i])] = types.YChild{"Inventory", &inventories.Inventory[i]}
+        inventories.EntityData.Children.Append(types.GetSegmentPath(inventories.Inventory[i]), types.YChild{"Inventory", inventories.Inventory[i]})
     }
-    inventories.EntityData.Leafs = make(map[string]types.YLeaf)
+    inventories.EntityData.Leafs = types.NewOrderedMap()
+
+    inventories.EntityData.YListKeys = []string {}
+
     return &(inventories.EntityData)
 }
 
@@ -3627,7 +3867,7 @@ type Install_SoftwareInventory_Inactive_Inventories_Inventory struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Major data version number. The type is interface{} with range:
@@ -3649,7 +3889,7 @@ type Install_SoftwareInventory_Inactive_Inventories_Inventory struct {
 
     // Load path. The type is slice of
     // Install_SoftwareInventory_Inactive_Inventories_Inventory_LoadPath.
-    LoadPath []Install_SoftwareInventory_Inactive_Inventories_Inventory_LoadPath
+    LoadPath []*Install_SoftwareInventory_Inactive_Inventories_Inventory_LoadPath
 }
 
 func (inventory *Install_SoftwareInventory_Inactive_Inventories_Inventory) GetEntityData() *types.CommonEntityData {
@@ -3657,23 +3897,26 @@ func (inventory *Install_SoftwareInventory_Inactive_Inventories_Inventory) GetEn
     inventory.EntityData.YangName = "inventory"
     inventory.EntityData.BundleName = "cisco_ios_xr"
     inventory.EntityData.ParentYangName = "inventories"
-    inventory.EntityData.SegmentPath = "inventory" + "[node-name='" + fmt.Sprintf("%v", inventory.NodeName) + "']"
+    inventory.EntityData.SegmentPath = "inventory" + types.AddKeyToken(inventory.NodeName, "node-name")
     inventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inventory.EntityData.Children = make(map[string]types.YChild)
-    inventory.EntityData.Children["load-path"] = types.YChild{"LoadPath", nil}
+    inventory.EntityData.Children = types.NewOrderedMap()
+    inventory.EntityData.Children.Append("load-path", types.YChild{"LoadPath", nil})
     for i := range inventory.LoadPath {
-        inventory.EntityData.Children[types.GetSegmentPath(&inventory.LoadPath[i])] = types.YChild{"LoadPath", &inventory.LoadPath[i]}
+        inventory.EntityData.Children.Append(types.GetSegmentPath(inventory.LoadPath[i]), types.YChild{"LoadPath", inventory.LoadPath[i]})
     }
-    inventory.EntityData.Leafs = make(map[string]types.YLeaf)
-    inventory.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", inventory.NodeName}
-    inventory.EntityData.Leafs["major"] = types.YLeaf{"Major", inventory.Major}
-    inventory.EntityData.Leafs["minor"] = types.YLeaf{"Minor", inventory.Minor}
-    inventory.EntityData.Leafs["boot-image-name"] = types.YLeaf{"BootImageName", inventory.BootImageName}
-    inventory.EntityData.Leafs["node-type"] = types.YLeaf{"NodeType", inventory.NodeType}
-    inventory.EntityData.Leafs["secure-domain-router-name"] = types.YLeaf{"SecureDomainRouterName", inventory.SecureDomainRouterName}
+    inventory.EntityData.Leafs = types.NewOrderedMap()
+    inventory.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", inventory.NodeName})
+    inventory.EntityData.Leafs.Append("major", types.YLeaf{"Major", inventory.Major})
+    inventory.EntityData.Leafs.Append("minor", types.YLeaf{"Minor", inventory.Minor})
+    inventory.EntityData.Leafs.Append("boot-image-name", types.YLeaf{"BootImageName", inventory.BootImageName})
+    inventory.EntityData.Leafs.Append("node-type", types.YLeaf{"NodeType", inventory.NodeType})
+    inventory.EntityData.Leafs.Append("secure-domain-router-name", types.YLeaf{"SecureDomainRouterName", inventory.SecureDomainRouterName})
+
+    inventory.EntityData.YListKeys = []string {"NodeName"}
+
     return &(inventory.EntityData)
 }
 
@@ -3690,7 +3933,7 @@ type Install_SoftwareInventory_Inactive_Inventories_Inventory_LoadPath struct {
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Inactive_Inventories_Inventory_LoadPath_Package
+    Package Install_SoftwareInventory_Inactive_Inventories_Inventory_LoadPath_Package
 }
 
 func (loadPath *Install_SoftwareInventory_Inactive_Inventories_Inventory_LoadPath) GetEntityData() *types.CommonEntityData {
@@ -3703,11 +3946,14 @@ func (loadPath *Install_SoftwareInventory_Inactive_Inventories_Inventory_LoadPat
     loadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loadPath.EntityData.Children = make(map[string]types.YChild)
-    loadPath.EntityData.Children["package"] = types.YChild{"Package_", &loadPath.Package_}
-    loadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    loadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", loadPath.Version}
-    loadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", loadPath.BuildInformation}
+    loadPath.EntityData.Children = types.NewOrderedMap()
+    loadPath.EntityData.Children.Append("package", types.YChild{"Package", &loadPath.Package})
+    loadPath.EntityData.Leafs = types.NewOrderedMap()
+    loadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", loadPath.Version})
+    loadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", loadPath.BuildInformation})
+
+    loadPath.EntityData.YListKeys = []string {}
+
     return &(loadPath.EntityData)
 }
 
@@ -3734,10 +3980,13 @@ func (self *Install_SoftwareInventory_Inactive_Inventories_Inventory_LoadPath_Pa
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -3748,7 +3997,7 @@ type Install_SoftwareInventory_Requests struct {
     YFilter yfilter.YFilter
 
     // Install operation request history.
-    Requests Install_SoftwareInventory_Requests_Requests_
+    Requests Install_SoftwareInventory_Requests_Requests
 }
 
 func (requests *Install_SoftwareInventory_Requests) GetEntityData() *types.CommonEntityData {
@@ -3761,45 +4010,51 @@ func (requests *Install_SoftwareInventory_Requests) GetEntityData() *types.Commo
     requests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    requests.EntityData.Children = make(map[string]types.YChild)
-    requests.EntityData.Children["requests"] = types.YChild{"Requests", &requests.Requests}
-    requests.EntityData.Leafs = make(map[string]types.YLeaf)
+    requests.EntityData.Children = types.NewOrderedMap()
+    requests.EntityData.Children.Append("requests", types.YChild{"Requests", &requests.Requests})
+    requests.EntityData.Leafs = types.NewOrderedMap()
+
+    requests.EntityData.YListKeys = []string {}
+
     return &(requests.EntityData)
 }
 
-// Install_SoftwareInventory_Requests_Requests_
+// Install_SoftwareInventory_Requests_Requests
 // Install operation request history
-type Install_SoftwareInventory_Requests_Requests_ struct {
+type Install_SoftwareInventory_Requests_Requests struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Install operation request information. The type is slice of
-    // Install_SoftwareInventory_Requests_Requests__Request.
-    Request []Install_SoftwareInventory_Requests_Requests__Request
+    // Install_SoftwareInventory_Requests_Requests_Request.
+    Request []*Install_SoftwareInventory_Requests_Requests_Request
 }
 
-func (requests_ *Install_SoftwareInventory_Requests_Requests_) GetEntityData() *types.CommonEntityData {
-    requests_.EntityData.YFilter = requests_.YFilter
-    requests_.EntityData.YangName = "requests"
-    requests_.EntityData.BundleName = "cisco_ios_xr"
-    requests_.EntityData.ParentYangName = "requests"
-    requests_.EntityData.SegmentPath = "requests"
-    requests_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    requests_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    requests_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (requests *Install_SoftwareInventory_Requests_Requests) GetEntityData() *types.CommonEntityData {
+    requests.EntityData.YFilter = requests.YFilter
+    requests.EntityData.YangName = "requests"
+    requests.EntityData.BundleName = "cisco_ios_xr"
+    requests.EntityData.ParentYangName = "requests"
+    requests.EntityData.SegmentPath = "requests"
+    requests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    requests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    requests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    requests_.EntityData.Children = make(map[string]types.YChild)
-    requests_.EntityData.Children["request"] = types.YChild{"Request", nil}
-    for i := range requests_.Request {
-        requests_.EntityData.Children[types.GetSegmentPath(&requests_.Request[i])] = types.YChild{"Request", &requests_.Request[i]}
+    requests.EntityData.Children = types.NewOrderedMap()
+    requests.EntityData.Children.Append("request", types.YChild{"Request", nil})
+    for i := range requests.Request {
+        requests.EntityData.Children.Append(types.GetSegmentPath(requests.Request[i]), types.YChild{"Request", requests.Request[i]})
     }
-    requests_.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(requests_.EntityData)
+    requests.EntityData.Leafs = types.NewOrderedMap()
+
+    requests.EntityData.YListKeys = []string {}
+
+    return &(requests.EntityData)
 }
 
-// Install_SoftwareInventory_Requests_Requests__Request
+// Install_SoftwareInventory_Requests_Requests_Request
 // Install operation request information
-type Install_SoftwareInventory_Requests_Requests__Request struct {
+type Install_SoftwareInventory_Requests_Requests_Request struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3808,39 +4063,42 @@ type Install_SoftwareInventory_Requests_Requests__Request struct {
     RequestId interface{}
 
     // Inventory information of install operation request.
-    Inventories Install_SoftwareInventory_Requests_Requests__Request_Inventories
+    Inventories Install_SoftwareInventory_Requests_Requests_Request_Inventories
 }
 
-func (request *Install_SoftwareInventory_Requests_Requests__Request) GetEntityData() *types.CommonEntityData {
+func (request *Install_SoftwareInventory_Requests_Requests_Request) GetEntityData() *types.CommonEntityData {
     request.EntityData.YFilter = request.YFilter
     request.EntityData.YangName = "request"
     request.EntityData.BundleName = "cisco_ios_xr"
     request.EntityData.ParentYangName = "requests"
-    request.EntityData.SegmentPath = "request" + "[request-id='" + fmt.Sprintf("%v", request.RequestId) + "']"
+    request.EntityData.SegmentPath = "request" + types.AddKeyToken(request.RequestId, "request-id")
     request.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     request.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     request.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    request.EntityData.Children = make(map[string]types.YChild)
-    request.EntityData.Children["inventories"] = types.YChild{"Inventories", &request.Inventories}
-    request.EntityData.Leafs = make(map[string]types.YLeaf)
-    request.EntityData.Leafs["request-id"] = types.YLeaf{"RequestId", request.RequestId}
+    request.EntityData.Children = types.NewOrderedMap()
+    request.EntityData.Children.Append("inventories", types.YChild{"Inventories", &request.Inventories})
+    request.EntityData.Leafs = types.NewOrderedMap()
+    request.EntityData.Leafs.Append("request-id", types.YLeaf{"RequestId", request.RequestId})
+
+    request.EntityData.YListKeys = []string {"RequestId"}
+
     return &(request.EntityData)
 }
 
-// Install_SoftwareInventory_Requests_Requests__Request_Inventories
+// Install_SoftwareInventory_Requests_Requests_Request_Inventories
 // Inventory information of install operation
 // request
-type Install_SoftwareInventory_Requests_Requests__Request_Inventories struct {
+type Install_SoftwareInventory_Requests_Requests_Request_Inventories struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Inventory information. The type is slice of
-    // Install_SoftwareInventory_Requests_Requests__Request_Inventories_Inventory.
-    Inventory []Install_SoftwareInventory_Requests_Requests__Request_Inventories_Inventory
+    // Install_SoftwareInventory_Requests_Requests_Request_Inventories_Inventory.
+    Inventory []*Install_SoftwareInventory_Requests_Requests_Request_Inventories_Inventory
 }
 
-func (inventories *Install_SoftwareInventory_Requests_Requests__Request_Inventories) GetEntityData() *types.CommonEntityData {
+func (inventories *Install_SoftwareInventory_Requests_Requests_Request_Inventories) GetEntityData() *types.CommonEntityData {
     inventories.EntityData.YFilter = inventories.YFilter
     inventories.EntityData.YangName = "inventories"
     inventories.EntityData.BundleName = "cisco_ios_xr"
@@ -3850,23 +4108,26 @@ func (inventories *Install_SoftwareInventory_Requests_Requests__Request_Inventor
     inventories.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventories.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inventories.EntityData.Children = make(map[string]types.YChild)
-    inventories.EntityData.Children["inventory"] = types.YChild{"Inventory", nil}
+    inventories.EntityData.Children = types.NewOrderedMap()
+    inventories.EntityData.Children.Append("inventory", types.YChild{"Inventory", nil})
     for i := range inventories.Inventory {
-        inventories.EntityData.Children[types.GetSegmentPath(&inventories.Inventory[i])] = types.YChild{"Inventory", &inventories.Inventory[i]}
+        inventories.EntityData.Children.Append(types.GetSegmentPath(inventories.Inventory[i]), types.YChild{"Inventory", inventories.Inventory[i]})
     }
-    inventories.EntityData.Leafs = make(map[string]types.YLeaf)
+    inventories.EntityData.Leafs = types.NewOrderedMap()
+
+    inventories.EntityData.YListKeys = []string {}
+
     return &(inventories.EntityData)
 }
 
-// Install_SoftwareInventory_Requests_Requests__Request_Inventories_Inventory
+// Install_SoftwareInventory_Requests_Requests_Request_Inventories_Inventory
 // Inventory information
-type Install_SoftwareInventory_Requests_Requests__Request_Inventories_Inventory struct {
+type Install_SoftwareInventory_Requests_Requests_Request_Inventories_Inventory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Major data version number. The type is interface{} with range:
@@ -3887,38 +4148,41 @@ type Install_SoftwareInventory_Requests_Requests__Request_Inventories_Inventory 
     SecureDomainRouterName interface{}
 
     // Load path. The type is slice of
-    // Install_SoftwareInventory_Requests_Requests__Request_Inventories_Inventory_LoadPath.
-    LoadPath []Install_SoftwareInventory_Requests_Requests__Request_Inventories_Inventory_LoadPath
+    // Install_SoftwareInventory_Requests_Requests_Request_Inventories_Inventory_LoadPath.
+    LoadPath []*Install_SoftwareInventory_Requests_Requests_Request_Inventories_Inventory_LoadPath
 }
 
-func (inventory *Install_SoftwareInventory_Requests_Requests__Request_Inventories_Inventory) GetEntityData() *types.CommonEntityData {
+func (inventory *Install_SoftwareInventory_Requests_Requests_Request_Inventories_Inventory) GetEntityData() *types.CommonEntityData {
     inventory.EntityData.YFilter = inventory.YFilter
     inventory.EntityData.YangName = "inventory"
     inventory.EntityData.BundleName = "cisco_ios_xr"
     inventory.EntityData.ParentYangName = "inventories"
-    inventory.EntityData.SegmentPath = "inventory" + "[node-name='" + fmt.Sprintf("%v", inventory.NodeName) + "']"
+    inventory.EntityData.SegmentPath = "inventory" + types.AddKeyToken(inventory.NodeName, "node-name")
     inventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inventory.EntityData.Children = make(map[string]types.YChild)
-    inventory.EntityData.Children["load-path"] = types.YChild{"LoadPath", nil}
+    inventory.EntityData.Children = types.NewOrderedMap()
+    inventory.EntityData.Children.Append("load-path", types.YChild{"LoadPath", nil})
     for i := range inventory.LoadPath {
-        inventory.EntityData.Children[types.GetSegmentPath(&inventory.LoadPath[i])] = types.YChild{"LoadPath", &inventory.LoadPath[i]}
+        inventory.EntityData.Children.Append(types.GetSegmentPath(inventory.LoadPath[i]), types.YChild{"LoadPath", inventory.LoadPath[i]})
     }
-    inventory.EntityData.Leafs = make(map[string]types.YLeaf)
-    inventory.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", inventory.NodeName}
-    inventory.EntityData.Leafs["major"] = types.YLeaf{"Major", inventory.Major}
-    inventory.EntityData.Leafs["minor"] = types.YLeaf{"Minor", inventory.Minor}
-    inventory.EntityData.Leafs["boot-image-name"] = types.YLeaf{"BootImageName", inventory.BootImageName}
-    inventory.EntityData.Leafs["node-type"] = types.YLeaf{"NodeType", inventory.NodeType}
-    inventory.EntityData.Leafs["secure-domain-router-name"] = types.YLeaf{"SecureDomainRouterName", inventory.SecureDomainRouterName}
+    inventory.EntityData.Leafs = types.NewOrderedMap()
+    inventory.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", inventory.NodeName})
+    inventory.EntityData.Leafs.Append("major", types.YLeaf{"Major", inventory.Major})
+    inventory.EntityData.Leafs.Append("minor", types.YLeaf{"Minor", inventory.Minor})
+    inventory.EntityData.Leafs.Append("boot-image-name", types.YLeaf{"BootImageName", inventory.BootImageName})
+    inventory.EntityData.Leafs.Append("node-type", types.YLeaf{"NodeType", inventory.NodeType})
+    inventory.EntityData.Leafs.Append("secure-domain-router-name", types.YLeaf{"SecureDomainRouterName", inventory.SecureDomainRouterName})
+
+    inventory.EntityData.YListKeys = []string {"NodeName"}
+
     return &(inventory.EntityData)
 }
 
-// Install_SoftwareInventory_Requests_Requests__Request_Inventories_Inventory_LoadPath
+// Install_SoftwareInventory_Requests_Requests_Request_Inventories_Inventory_LoadPath
 // Load path
-type Install_SoftwareInventory_Requests_Requests__Request_Inventories_Inventory_LoadPath struct {
+type Install_SoftwareInventory_Requests_Requests_Request_Inventories_Inventory_LoadPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3929,10 +4193,10 @@ type Install_SoftwareInventory_Requests_Requests__Request_Inventories_Inventory_
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Requests_Requests__Request_Inventories_Inventory_LoadPath_Package
+    Package Install_SoftwareInventory_Requests_Requests_Request_Inventories_Inventory_LoadPath_Package
 }
 
-func (loadPath *Install_SoftwareInventory_Requests_Requests__Request_Inventories_Inventory_LoadPath) GetEntityData() *types.CommonEntityData {
+func (loadPath *Install_SoftwareInventory_Requests_Requests_Request_Inventories_Inventory_LoadPath) GetEntityData() *types.CommonEntityData {
     loadPath.EntityData.YFilter = loadPath.YFilter
     loadPath.EntityData.YangName = "load-path"
     loadPath.EntityData.BundleName = "cisco_ios_xr"
@@ -3942,17 +4206,20 @@ func (loadPath *Install_SoftwareInventory_Requests_Requests__Request_Inventories
     loadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loadPath.EntityData.Children = make(map[string]types.YChild)
-    loadPath.EntityData.Children["package"] = types.YChild{"Package_", &loadPath.Package_}
-    loadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    loadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", loadPath.Version}
-    loadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", loadPath.BuildInformation}
+    loadPath.EntityData.Children = types.NewOrderedMap()
+    loadPath.EntityData.Children.Append("package", types.YChild{"Package", &loadPath.Package})
+    loadPath.EntityData.Leafs = types.NewOrderedMap()
+    loadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", loadPath.Version})
+    loadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", loadPath.BuildInformation})
+
+    loadPath.EntityData.YListKeys = []string {}
+
     return &(loadPath.EntityData)
 }
 
-// Install_SoftwareInventory_Requests_Requests__Request_Inventories_Inventory_LoadPath_Package
+// Install_SoftwareInventory_Requests_Requests_Request_Inventories_Inventory_LoadPath_Package
 // Package
-type Install_SoftwareInventory_Requests_Requests__Request_Inventories_Inventory_LoadPath_Package struct {
+type Install_SoftwareInventory_Requests_Requests_Request_Inventories_Inventory_LoadPath_Package struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3963,7 +4230,7 @@ type Install_SoftwareInventory_Requests_Requests__Request_Inventories_Inventory_
     Name interface{}
 }
 
-func (self *Install_SoftwareInventory_Requests_Requests__Request_Inventories_Inventory_LoadPath_Package) GetEntityData() *types.CommonEntityData {
+func (self *Install_SoftwareInventory_Requests_Requests_Request_Inventories_Inventory_LoadPath_Package) GetEntityData() *types.CommonEntityData {
     self.EntityData.YFilter = self.YFilter
     self.EntityData.YangName = "package"
     self.EntityData.BundleName = "cisco_ios_xr"
@@ -3973,10 +4240,13 @@ func (self *Install_SoftwareInventory_Requests_Requests__Request_Inventories_Inv
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -4003,10 +4273,13 @@ func (active *Install_SoftwareInventory_Active) GetEntityData() *types.CommonEnt
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    active.EntityData.Children = make(map[string]types.YChild)
-    active.EntityData.Children["summary"] = types.YChild{"Summary", &active.Summary}
-    active.EntityData.Children["inventories"] = types.YChild{"Inventories", &active.Inventories}
-    active.EntityData.Leafs = make(map[string]types.YLeaf)
+    active.EntityData.Children = types.NewOrderedMap()
+    active.EntityData.Children.Append("summary", types.YChild{"Summary", &active.Summary})
+    active.EntityData.Children.Append("inventories", types.YChild{"Inventories", &active.Inventories})
+    active.EntityData.Leafs = types.NewOrderedMap()
+
+    active.EntityData.YListKeys = []string {}
+
     return &(active.EntityData)
 }
 
@@ -4024,11 +4297,11 @@ type Install_SoftwareInventory_Active_Summary struct {
 
     // SDR load paths. The type is slice of
     // Install_SoftwareInventory_Active_Summary_SdrLoadPath.
-    SdrLoadPath []Install_SoftwareInventory_Active_Summary_SdrLoadPath
+    SdrLoadPath []*Install_SoftwareInventory_Active_Summary_SdrLoadPath
 
     // Location load paths. The type is slice of
     // Install_SoftwareInventory_Active_Summary_LocationLoadPath.
-    LocationLoadPath []Install_SoftwareInventory_Active_Summary_LocationLoadPath
+    LocationLoadPath []*Install_SoftwareInventory_Active_Summary_LocationLoadPath
 }
 
 func (summary *Install_SoftwareInventory_Active_Summary) GetEntityData() *types.CommonEntityData {
@@ -4041,18 +4314,21 @@ func (summary *Install_SoftwareInventory_Active_Summary) GetEntityData() *types.
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Children["default-load-path"] = types.YChild{"DefaultLoadPath", &summary.DefaultLoadPath}
-    summary.EntityData.Children["admin-load-path"] = types.YChild{"AdminLoadPath", &summary.AdminLoadPath}
-    summary.EntityData.Children["sdr-load-path"] = types.YChild{"SdrLoadPath", nil}
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Children.Append("default-load-path", types.YChild{"DefaultLoadPath", &summary.DefaultLoadPath})
+    summary.EntityData.Children.Append("admin-load-path", types.YChild{"AdminLoadPath", &summary.AdminLoadPath})
+    summary.EntityData.Children.Append("sdr-load-path", types.YChild{"SdrLoadPath", nil})
     for i := range summary.SdrLoadPath {
-        summary.EntityData.Children[types.GetSegmentPath(&summary.SdrLoadPath[i])] = types.YChild{"SdrLoadPath", &summary.SdrLoadPath[i]}
+        summary.EntityData.Children.Append(types.GetSegmentPath(summary.SdrLoadPath[i]), types.YChild{"SdrLoadPath", summary.SdrLoadPath[i]})
     }
-    summary.EntityData.Children["location-load-path"] = types.YChild{"LocationLoadPath", nil}
+    summary.EntityData.Children.Append("location-load-path", types.YChild{"LocationLoadPath", nil})
     for i := range summary.LocationLoadPath {
-        summary.EntityData.Children[types.GetSegmentPath(&summary.LocationLoadPath[i])] = types.YChild{"LocationLoadPath", &summary.LocationLoadPath[i]}
+        summary.EntityData.Children.Append(types.GetSegmentPath(summary.LocationLoadPath[i]), types.YChild{"LocationLoadPath", summary.LocationLoadPath[i]})
     }
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Leafs = types.NewOrderedMap()
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -4074,11 +4350,11 @@ type Install_SoftwareInventory_Active_Summary_DefaultLoadPath struct {
 
     // Default load path. The type is slice of
     // Install_SoftwareInventory_Active_Summary_DefaultLoadPath_LoadPath.
-    LoadPath []Install_SoftwareInventory_Active_Summary_DefaultLoadPath_LoadPath
+    LoadPath []*Install_SoftwareInventory_Active_Summary_DefaultLoadPath_LoadPath
 
     // Load paths for standby nodes. The type is slice of
     // Install_SoftwareInventory_Active_Summary_DefaultLoadPath_StandbyLoadPath.
-    StandbyLoadPath []Install_SoftwareInventory_Active_Summary_DefaultLoadPath_StandbyLoadPath
+    StandbyLoadPath []*Install_SoftwareInventory_Active_Summary_DefaultLoadPath_StandbyLoadPath
 }
 
 func (defaultLoadPath *Install_SoftwareInventory_Active_Summary_DefaultLoadPath) GetEntityData() *types.CommonEntityData {
@@ -4091,19 +4367,22 @@ func (defaultLoadPath *Install_SoftwareInventory_Active_Summary_DefaultLoadPath)
     defaultLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultLoadPath.EntityData.Children = make(map[string]types.YChild)
-    defaultLoadPath.EntityData.Children["load-path"] = types.YChild{"LoadPath", nil}
+    defaultLoadPath.EntityData.Children = types.NewOrderedMap()
+    defaultLoadPath.EntityData.Children.Append("load-path", types.YChild{"LoadPath", nil})
     for i := range defaultLoadPath.LoadPath {
-        defaultLoadPath.EntityData.Children[types.GetSegmentPath(&defaultLoadPath.LoadPath[i])] = types.YChild{"LoadPath", &defaultLoadPath.LoadPath[i]}
+        defaultLoadPath.EntityData.Children.Append(types.GetSegmentPath(defaultLoadPath.LoadPath[i]), types.YChild{"LoadPath", defaultLoadPath.LoadPath[i]})
     }
-    defaultLoadPath.EntityData.Children["standby-load-path"] = types.YChild{"StandbyLoadPath", nil}
+    defaultLoadPath.EntityData.Children.Append("standby-load-path", types.YChild{"StandbyLoadPath", nil})
     for i := range defaultLoadPath.StandbyLoadPath {
-        defaultLoadPath.EntityData.Children[types.GetSegmentPath(&defaultLoadPath.StandbyLoadPath[i])] = types.YChild{"StandbyLoadPath", &defaultLoadPath.StandbyLoadPath[i]}
+        defaultLoadPath.EntityData.Children.Append(types.GetSegmentPath(defaultLoadPath.StandbyLoadPath[i]), types.YChild{"StandbyLoadPath", defaultLoadPath.StandbyLoadPath[i]})
     }
-    defaultLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    defaultLoadPath.EntityData.Leafs["request-id"] = types.YLeaf{"RequestId", defaultLoadPath.RequestId}
-    defaultLoadPath.EntityData.Leafs["admin-match"] = types.YLeaf{"AdminMatch", defaultLoadPath.AdminMatch}
-    defaultLoadPath.EntityData.Leafs["secure-domain-router-name"] = types.YLeaf{"SecureDomainRouterName", defaultLoadPath.SecureDomainRouterName}
+    defaultLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    defaultLoadPath.EntityData.Leafs.Append("request-id", types.YLeaf{"RequestId", defaultLoadPath.RequestId})
+    defaultLoadPath.EntityData.Leafs.Append("admin-match", types.YLeaf{"AdminMatch", defaultLoadPath.AdminMatch})
+    defaultLoadPath.EntityData.Leafs.Append("secure-domain-router-name", types.YLeaf{"SecureDomainRouterName", defaultLoadPath.SecureDomainRouterName})
+
+    defaultLoadPath.EntityData.YListKeys = []string {}
+
     return &(defaultLoadPath.EntityData)
 }
 
@@ -4120,7 +4399,7 @@ type Install_SoftwareInventory_Active_Summary_DefaultLoadPath_LoadPath struct {
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Active_Summary_DefaultLoadPath_LoadPath_Package
+    Package Install_SoftwareInventory_Active_Summary_DefaultLoadPath_LoadPath_Package
 }
 
 func (loadPath *Install_SoftwareInventory_Active_Summary_DefaultLoadPath_LoadPath) GetEntityData() *types.CommonEntityData {
@@ -4133,11 +4412,14 @@ func (loadPath *Install_SoftwareInventory_Active_Summary_DefaultLoadPath_LoadPat
     loadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loadPath.EntityData.Children = make(map[string]types.YChild)
-    loadPath.EntityData.Children["package"] = types.YChild{"Package_", &loadPath.Package_}
-    loadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    loadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", loadPath.Version}
-    loadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", loadPath.BuildInformation}
+    loadPath.EntityData.Children = types.NewOrderedMap()
+    loadPath.EntityData.Children.Append("package", types.YChild{"Package", &loadPath.Package})
+    loadPath.EntityData.Leafs = types.NewOrderedMap()
+    loadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", loadPath.Version})
+    loadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", loadPath.BuildInformation})
+
+    loadPath.EntityData.YListKeys = []string {}
+
     return &(loadPath.EntityData)
 }
 
@@ -4164,10 +4446,13 @@ func (self *Install_SoftwareInventory_Active_Summary_DefaultLoadPath_LoadPath_Pa
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -4184,7 +4469,7 @@ type Install_SoftwareInventory_Active_Summary_DefaultLoadPath_StandbyLoadPath st
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Active_Summary_DefaultLoadPath_StandbyLoadPath_Package
+    Package Install_SoftwareInventory_Active_Summary_DefaultLoadPath_StandbyLoadPath_Package
 }
 
 func (standbyLoadPath *Install_SoftwareInventory_Active_Summary_DefaultLoadPath_StandbyLoadPath) GetEntityData() *types.CommonEntityData {
@@ -4197,11 +4482,14 @@ func (standbyLoadPath *Install_SoftwareInventory_Active_Summary_DefaultLoadPath_
     standbyLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standbyLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    standbyLoadPath.EntityData.Children = make(map[string]types.YChild)
-    standbyLoadPath.EntityData.Children["package"] = types.YChild{"Package_", &standbyLoadPath.Package_}
-    standbyLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    standbyLoadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", standbyLoadPath.Version}
-    standbyLoadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation}
+    standbyLoadPath.EntityData.Children = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Children.Append("package", types.YChild{"Package", &standbyLoadPath.Package})
+    standbyLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", standbyLoadPath.Version})
+    standbyLoadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation})
+
+    standbyLoadPath.EntityData.YListKeys = []string {}
+
     return &(standbyLoadPath.EntityData)
 }
 
@@ -4228,10 +4516,13 @@ func (self *Install_SoftwareInventory_Active_Summary_DefaultLoadPath_StandbyLoad
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -4247,11 +4538,11 @@ type Install_SoftwareInventory_Active_Summary_AdminLoadPath struct {
 
     // Admin Resources load path. The type is slice of
     // Install_SoftwareInventory_Active_Summary_AdminLoadPath_LoadPath.
-    LoadPath []Install_SoftwareInventory_Active_Summary_AdminLoadPath_LoadPath
+    LoadPath []*Install_SoftwareInventory_Active_Summary_AdminLoadPath_LoadPath
 
     // Load paths for standby nodes. The type is slice of
     // Install_SoftwareInventory_Active_Summary_AdminLoadPath_StandbyLoadPath.
-    StandbyLoadPath []Install_SoftwareInventory_Active_Summary_AdminLoadPath_StandbyLoadPath
+    StandbyLoadPath []*Install_SoftwareInventory_Active_Summary_AdminLoadPath_StandbyLoadPath
 }
 
 func (adminLoadPath *Install_SoftwareInventory_Active_Summary_AdminLoadPath) GetEntityData() *types.CommonEntityData {
@@ -4264,17 +4555,20 @@ func (adminLoadPath *Install_SoftwareInventory_Active_Summary_AdminLoadPath) Get
     adminLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adminLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    adminLoadPath.EntityData.Children = make(map[string]types.YChild)
-    adminLoadPath.EntityData.Children["load-path"] = types.YChild{"LoadPath", nil}
+    adminLoadPath.EntityData.Children = types.NewOrderedMap()
+    adminLoadPath.EntityData.Children.Append("load-path", types.YChild{"LoadPath", nil})
     for i := range adminLoadPath.LoadPath {
-        adminLoadPath.EntityData.Children[types.GetSegmentPath(&adminLoadPath.LoadPath[i])] = types.YChild{"LoadPath", &adminLoadPath.LoadPath[i]}
+        adminLoadPath.EntityData.Children.Append(types.GetSegmentPath(adminLoadPath.LoadPath[i]), types.YChild{"LoadPath", adminLoadPath.LoadPath[i]})
     }
-    adminLoadPath.EntityData.Children["standby-load-path"] = types.YChild{"StandbyLoadPath", nil}
+    adminLoadPath.EntityData.Children.Append("standby-load-path", types.YChild{"StandbyLoadPath", nil})
     for i := range adminLoadPath.StandbyLoadPath {
-        adminLoadPath.EntityData.Children[types.GetSegmentPath(&adminLoadPath.StandbyLoadPath[i])] = types.YChild{"StandbyLoadPath", &adminLoadPath.StandbyLoadPath[i]}
+        adminLoadPath.EntityData.Children.Append(types.GetSegmentPath(adminLoadPath.StandbyLoadPath[i]), types.YChild{"StandbyLoadPath", adminLoadPath.StandbyLoadPath[i]})
     }
-    adminLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    adminLoadPath.EntityData.Leafs["request-id"] = types.YLeaf{"RequestId", adminLoadPath.RequestId}
+    adminLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    adminLoadPath.EntityData.Leafs.Append("request-id", types.YLeaf{"RequestId", adminLoadPath.RequestId})
+
+    adminLoadPath.EntityData.YListKeys = []string {}
+
     return &(adminLoadPath.EntityData)
 }
 
@@ -4291,7 +4585,7 @@ type Install_SoftwareInventory_Active_Summary_AdminLoadPath_LoadPath struct {
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Active_Summary_AdminLoadPath_LoadPath_Package
+    Package Install_SoftwareInventory_Active_Summary_AdminLoadPath_LoadPath_Package
 }
 
 func (loadPath *Install_SoftwareInventory_Active_Summary_AdminLoadPath_LoadPath) GetEntityData() *types.CommonEntityData {
@@ -4304,11 +4598,14 @@ func (loadPath *Install_SoftwareInventory_Active_Summary_AdminLoadPath_LoadPath)
     loadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loadPath.EntityData.Children = make(map[string]types.YChild)
-    loadPath.EntityData.Children["package"] = types.YChild{"Package_", &loadPath.Package_}
-    loadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    loadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", loadPath.Version}
-    loadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", loadPath.BuildInformation}
+    loadPath.EntityData.Children = types.NewOrderedMap()
+    loadPath.EntityData.Children.Append("package", types.YChild{"Package", &loadPath.Package})
+    loadPath.EntityData.Leafs = types.NewOrderedMap()
+    loadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", loadPath.Version})
+    loadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", loadPath.BuildInformation})
+
+    loadPath.EntityData.YListKeys = []string {}
+
     return &(loadPath.EntityData)
 }
 
@@ -4335,10 +4632,13 @@ func (self *Install_SoftwareInventory_Active_Summary_AdminLoadPath_LoadPath_Pack
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -4355,7 +4655,7 @@ type Install_SoftwareInventory_Active_Summary_AdminLoadPath_StandbyLoadPath stru
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Active_Summary_AdminLoadPath_StandbyLoadPath_Package
+    Package Install_SoftwareInventory_Active_Summary_AdminLoadPath_StandbyLoadPath_Package
 }
 
 func (standbyLoadPath *Install_SoftwareInventory_Active_Summary_AdminLoadPath_StandbyLoadPath) GetEntityData() *types.CommonEntityData {
@@ -4368,11 +4668,14 @@ func (standbyLoadPath *Install_SoftwareInventory_Active_Summary_AdminLoadPath_St
     standbyLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standbyLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    standbyLoadPath.EntityData.Children = make(map[string]types.YChild)
-    standbyLoadPath.EntityData.Children["package"] = types.YChild{"Package_", &standbyLoadPath.Package_}
-    standbyLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    standbyLoadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", standbyLoadPath.Version}
-    standbyLoadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation}
+    standbyLoadPath.EntityData.Children = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Children.Append("package", types.YChild{"Package", &standbyLoadPath.Package})
+    standbyLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", standbyLoadPath.Version})
+    standbyLoadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation})
+
+    standbyLoadPath.EntityData.YListKeys = []string {}
+
     return &(standbyLoadPath.EntityData)
 }
 
@@ -4399,10 +4702,13 @@ func (self *Install_SoftwareInventory_Active_Summary_AdminLoadPath_StandbyLoadPa
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -4421,11 +4727,11 @@ type Install_SoftwareInventory_Active_Summary_SdrLoadPath struct {
 
     // Load path. The type is slice of
     // Install_SoftwareInventory_Active_Summary_SdrLoadPath_LoadPath.
-    LoadPath []Install_SoftwareInventory_Active_Summary_SdrLoadPath_LoadPath
+    LoadPath []*Install_SoftwareInventory_Active_Summary_SdrLoadPath_LoadPath
 
     // Load paths for standby nodes. The type is slice of
     // Install_SoftwareInventory_Active_Summary_SdrLoadPath_StandbyLoadPath.
-    StandbyLoadPath []Install_SoftwareInventory_Active_Summary_SdrLoadPath_StandbyLoadPath
+    StandbyLoadPath []*Install_SoftwareInventory_Active_Summary_SdrLoadPath_StandbyLoadPath
 }
 
 func (sdrLoadPath *Install_SoftwareInventory_Active_Summary_SdrLoadPath) GetEntityData() *types.CommonEntityData {
@@ -4438,18 +4744,21 @@ func (sdrLoadPath *Install_SoftwareInventory_Active_Summary_SdrLoadPath) GetEnti
     sdrLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sdrLoadPath.EntityData.Children = make(map[string]types.YChild)
-    sdrLoadPath.EntityData.Children["load-path"] = types.YChild{"LoadPath", nil}
+    sdrLoadPath.EntityData.Children = types.NewOrderedMap()
+    sdrLoadPath.EntityData.Children.Append("load-path", types.YChild{"LoadPath", nil})
     for i := range sdrLoadPath.LoadPath {
-        sdrLoadPath.EntityData.Children[types.GetSegmentPath(&sdrLoadPath.LoadPath[i])] = types.YChild{"LoadPath", &sdrLoadPath.LoadPath[i]}
+        sdrLoadPath.EntityData.Children.Append(types.GetSegmentPath(sdrLoadPath.LoadPath[i]), types.YChild{"LoadPath", sdrLoadPath.LoadPath[i]})
     }
-    sdrLoadPath.EntityData.Children["standby-load-path"] = types.YChild{"StandbyLoadPath", nil}
+    sdrLoadPath.EntityData.Children.Append("standby-load-path", types.YChild{"StandbyLoadPath", nil})
     for i := range sdrLoadPath.StandbyLoadPath {
-        sdrLoadPath.EntityData.Children[types.GetSegmentPath(&sdrLoadPath.StandbyLoadPath[i])] = types.YChild{"StandbyLoadPath", &sdrLoadPath.StandbyLoadPath[i]}
+        sdrLoadPath.EntityData.Children.Append(types.GetSegmentPath(sdrLoadPath.StandbyLoadPath[i]), types.YChild{"StandbyLoadPath", sdrLoadPath.StandbyLoadPath[i]})
     }
-    sdrLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    sdrLoadPath.EntityData.Leafs["request-id"] = types.YLeaf{"RequestId", sdrLoadPath.RequestId}
-    sdrLoadPath.EntityData.Leafs["secure-domain-router-name"] = types.YLeaf{"SecureDomainRouterName", sdrLoadPath.SecureDomainRouterName}
+    sdrLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    sdrLoadPath.EntityData.Leafs.Append("request-id", types.YLeaf{"RequestId", sdrLoadPath.RequestId})
+    sdrLoadPath.EntityData.Leafs.Append("secure-domain-router-name", types.YLeaf{"SecureDomainRouterName", sdrLoadPath.SecureDomainRouterName})
+
+    sdrLoadPath.EntityData.YListKeys = []string {}
+
     return &(sdrLoadPath.EntityData)
 }
 
@@ -4466,7 +4775,7 @@ type Install_SoftwareInventory_Active_Summary_SdrLoadPath_LoadPath struct {
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Active_Summary_SdrLoadPath_LoadPath_Package
+    Package Install_SoftwareInventory_Active_Summary_SdrLoadPath_LoadPath_Package
 }
 
 func (loadPath *Install_SoftwareInventory_Active_Summary_SdrLoadPath_LoadPath) GetEntityData() *types.CommonEntityData {
@@ -4479,11 +4788,14 @@ func (loadPath *Install_SoftwareInventory_Active_Summary_SdrLoadPath_LoadPath) G
     loadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loadPath.EntityData.Children = make(map[string]types.YChild)
-    loadPath.EntityData.Children["package"] = types.YChild{"Package_", &loadPath.Package_}
-    loadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    loadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", loadPath.Version}
-    loadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", loadPath.BuildInformation}
+    loadPath.EntityData.Children = types.NewOrderedMap()
+    loadPath.EntityData.Children.Append("package", types.YChild{"Package", &loadPath.Package})
+    loadPath.EntityData.Leafs = types.NewOrderedMap()
+    loadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", loadPath.Version})
+    loadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", loadPath.BuildInformation})
+
+    loadPath.EntityData.YListKeys = []string {}
+
     return &(loadPath.EntityData)
 }
 
@@ -4510,10 +4822,13 @@ func (self *Install_SoftwareInventory_Active_Summary_SdrLoadPath_LoadPath_Packag
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -4530,7 +4845,7 @@ type Install_SoftwareInventory_Active_Summary_SdrLoadPath_StandbyLoadPath struct
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Active_Summary_SdrLoadPath_StandbyLoadPath_Package
+    Package Install_SoftwareInventory_Active_Summary_SdrLoadPath_StandbyLoadPath_Package
 }
 
 func (standbyLoadPath *Install_SoftwareInventory_Active_Summary_SdrLoadPath_StandbyLoadPath) GetEntityData() *types.CommonEntityData {
@@ -4543,11 +4858,14 @@ func (standbyLoadPath *Install_SoftwareInventory_Active_Summary_SdrLoadPath_Stan
     standbyLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standbyLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    standbyLoadPath.EntityData.Children = make(map[string]types.YChild)
-    standbyLoadPath.EntityData.Children["package"] = types.YChild{"Package_", &standbyLoadPath.Package_}
-    standbyLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    standbyLoadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", standbyLoadPath.Version}
-    standbyLoadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation}
+    standbyLoadPath.EntityData.Children = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Children.Append("package", types.YChild{"Package", &standbyLoadPath.Package})
+    standbyLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", standbyLoadPath.Version})
+    standbyLoadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation})
+
+    standbyLoadPath.EntityData.YListKeys = []string {}
+
     return &(standbyLoadPath.EntityData)
 }
 
@@ -4574,10 +4892,13 @@ func (self *Install_SoftwareInventory_Active_Summary_SdrLoadPath_StandbyLoadPath
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -4595,16 +4916,16 @@ type Install_SoftwareInventory_Active_Summary_LocationLoadPath struct {
     SecureDomainRouterName interface{}
 
     // Node identifier. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Load path. The type is slice of
     // Install_SoftwareInventory_Active_Summary_LocationLoadPath_LoadPath.
-    LoadPath []Install_SoftwareInventory_Active_Summary_LocationLoadPath_LoadPath
+    LoadPath []*Install_SoftwareInventory_Active_Summary_LocationLoadPath_LoadPath
 
     // Load paths for standby nodes. The type is slice of
     // Install_SoftwareInventory_Active_Summary_LocationLoadPath_StandbyLoadPath.
-    StandbyLoadPath []Install_SoftwareInventory_Active_Summary_LocationLoadPath_StandbyLoadPath
+    StandbyLoadPath []*Install_SoftwareInventory_Active_Summary_LocationLoadPath_StandbyLoadPath
 }
 
 func (locationLoadPath *Install_SoftwareInventory_Active_Summary_LocationLoadPath) GetEntityData() *types.CommonEntityData {
@@ -4617,19 +4938,22 @@ func (locationLoadPath *Install_SoftwareInventory_Active_Summary_LocationLoadPat
     locationLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locationLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    locationLoadPath.EntityData.Children = make(map[string]types.YChild)
-    locationLoadPath.EntityData.Children["load-path"] = types.YChild{"LoadPath", nil}
+    locationLoadPath.EntityData.Children = types.NewOrderedMap()
+    locationLoadPath.EntityData.Children.Append("load-path", types.YChild{"LoadPath", nil})
     for i := range locationLoadPath.LoadPath {
-        locationLoadPath.EntityData.Children[types.GetSegmentPath(&locationLoadPath.LoadPath[i])] = types.YChild{"LoadPath", &locationLoadPath.LoadPath[i]}
+        locationLoadPath.EntityData.Children.Append(types.GetSegmentPath(locationLoadPath.LoadPath[i]), types.YChild{"LoadPath", locationLoadPath.LoadPath[i]})
     }
-    locationLoadPath.EntityData.Children["standby-load-path"] = types.YChild{"StandbyLoadPath", nil}
+    locationLoadPath.EntityData.Children.Append("standby-load-path", types.YChild{"StandbyLoadPath", nil})
     for i := range locationLoadPath.StandbyLoadPath {
-        locationLoadPath.EntityData.Children[types.GetSegmentPath(&locationLoadPath.StandbyLoadPath[i])] = types.YChild{"StandbyLoadPath", &locationLoadPath.StandbyLoadPath[i]}
+        locationLoadPath.EntityData.Children.Append(types.GetSegmentPath(locationLoadPath.StandbyLoadPath[i]), types.YChild{"StandbyLoadPath", locationLoadPath.StandbyLoadPath[i]})
     }
-    locationLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    locationLoadPath.EntityData.Leafs["request-id"] = types.YLeaf{"RequestId", locationLoadPath.RequestId}
-    locationLoadPath.EntityData.Leafs["secure-domain-router-name"] = types.YLeaf{"SecureDomainRouterName", locationLoadPath.SecureDomainRouterName}
-    locationLoadPath.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", locationLoadPath.NodeName}
+    locationLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    locationLoadPath.EntityData.Leafs.Append("request-id", types.YLeaf{"RequestId", locationLoadPath.RequestId})
+    locationLoadPath.EntityData.Leafs.Append("secure-domain-router-name", types.YLeaf{"SecureDomainRouterName", locationLoadPath.SecureDomainRouterName})
+    locationLoadPath.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", locationLoadPath.NodeName})
+
+    locationLoadPath.EntityData.YListKeys = []string {}
+
     return &(locationLoadPath.EntityData)
 }
 
@@ -4646,7 +4970,7 @@ type Install_SoftwareInventory_Active_Summary_LocationLoadPath_LoadPath struct {
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Active_Summary_LocationLoadPath_LoadPath_Package
+    Package Install_SoftwareInventory_Active_Summary_LocationLoadPath_LoadPath_Package
 }
 
 func (loadPath *Install_SoftwareInventory_Active_Summary_LocationLoadPath_LoadPath) GetEntityData() *types.CommonEntityData {
@@ -4659,11 +4983,14 @@ func (loadPath *Install_SoftwareInventory_Active_Summary_LocationLoadPath_LoadPa
     loadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loadPath.EntityData.Children = make(map[string]types.YChild)
-    loadPath.EntityData.Children["package"] = types.YChild{"Package_", &loadPath.Package_}
-    loadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    loadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", loadPath.Version}
-    loadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", loadPath.BuildInformation}
+    loadPath.EntityData.Children = types.NewOrderedMap()
+    loadPath.EntityData.Children.Append("package", types.YChild{"Package", &loadPath.Package})
+    loadPath.EntityData.Leafs = types.NewOrderedMap()
+    loadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", loadPath.Version})
+    loadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", loadPath.BuildInformation})
+
+    loadPath.EntityData.YListKeys = []string {}
+
     return &(loadPath.EntityData)
 }
 
@@ -4690,10 +5017,13 @@ func (self *Install_SoftwareInventory_Active_Summary_LocationLoadPath_LoadPath_P
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -4710,7 +5040,7 @@ type Install_SoftwareInventory_Active_Summary_LocationLoadPath_StandbyLoadPath s
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Active_Summary_LocationLoadPath_StandbyLoadPath_Package
+    Package Install_SoftwareInventory_Active_Summary_LocationLoadPath_StandbyLoadPath_Package
 }
 
 func (standbyLoadPath *Install_SoftwareInventory_Active_Summary_LocationLoadPath_StandbyLoadPath) GetEntityData() *types.CommonEntityData {
@@ -4723,11 +5053,14 @@ func (standbyLoadPath *Install_SoftwareInventory_Active_Summary_LocationLoadPath
     standbyLoadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standbyLoadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    standbyLoadPath.EntityData.Children = make(map[string]types.YChild)
-    standbyLoadPath.EntityData.Children["package"] = types.YChild{"Package_", &standbyLoadPath.Package_}
-    standbyLoadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    standbyLoadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", standbyLoadPath.Version}
-    standbyLoadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation}
+    standbyLoadPath.EntityData.Children = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Children.Append("package", types.YChild{"Package", &standbyLoadPath.Package})
+    standbyLoadPath.EntityData.Leafs = types.NewOrderedMap()
+    standbyLoadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", standbyLoadPath.Version})
+    standbyLoadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", standbyLoadPath.BuildInformation})
+
+    standbyLoadPath.EntityData.YListKeys = []string {}
+
     return &(standbyLoadPath.EntityData)
 }
 
@@ -4754,10 +5087,13 @@ func (self *Install_SoftwareInventory_Active_Summary_LocationLoadPath_StandbyLoa
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -4769,7 +5105,7 @@ type Install_SoftwareInventory_Active_Inventories struct {
 
     // Inventory information for specific node. The type is slice of
     // Install_SoftwareInventory_Active_Inventories_Inventory.
-    Inventory []Install_SoftwareInventory_Active_Inventories_Inventory
+    Inventory []*Install_SoftwareInventory_Active_Inventories_Inventory
 }
 
 func (inventories *Install_SoftwareInventory_Active_Inventories) GetEntityData() *types.CommonEntityData {
@@ -4782,12 +5118,15 @@ func (inventories *Install_SoftwareInventory_Active_Inventories) GetEntityData()
     inventories.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventories.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inventories.EntityData.Children = make(map[string]types.YChild)
-    inventories.EntityData.Children["inventory"] = types.YChild{"Inventory", nil}
+    inventories.EntityData.Children = types.NewOrderedMap()
+    inventories.EntityData.Children.Append("inventory", types.YChild{"Inventory", nil})
     for i := range inventories.Inventory {
-        inventories.EntityData.Children[types.GetSegmentPath(&inventories.Inventory[i])] = types.YChild{"Inventory", &inventories.Inventory[i]}
+        inventories.EntityData.Children.Append(types.GetSegmentPath(inventories.Inventory[i]), types.YChild{"Inventory", inventories.Inventory[i]})
     }
-    inventories.EntityData.Leafs = make(map[string]types.YLeaf)
+    inventories.EntityData.Leafs = types.NewOrderedMap()
+
+    inventories.EntityData.YListKeys = []string {}
+
     return &(inventories.EntityData)
 }
 
@@ -4798,7 +5137,7 @@ type Install_SoftwareInventory_Active_Inventories_Inventory struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Major data version number. The type is interface{} with range:
@@ -4820,7 +5159,7 @@ type Install_SoftwareInventory_Active_Inventories_Inventory struct {
 
     // Load path. The type is slice of
     // Install_SoftwareInventory_Active_Inventories_Inventory_LoadPath.
-    LoadPath []Install_SoftwareInventory_Active_Inventories_Inventory_LoadPath
+    LoadPath []*Install_SoftwareInventory_Active_Inventories_Inventory_LoadPath
 }
 
 func (inventory *Install_SoftwareInventory_Active_Inventories_Inventory) GetEntityData() *types.CommonEntityData {
@@ -4828,23 +5167,26 @@ func (inventory *Install_SoftwareInventory_Active_Inventories_Inventory) GetEnti
     inventory.EntityData.YangName = "inventory"
     inventory.EntityData.BundleName = "cisco_ios_xr"
     inventory.EntityData.ParentYangName = "inventories"
-    inventory.EntityData.SegmentPath = "inventory" + "[node-name='" + fmt.Sprintf("%v", inventory.NodeName) + "']"
+    inventory.EntityData.SegmentPath = "inventory" + types.AddKeyToken(inventory.NodeName, "node-name")
     inventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inventory.EntityData.Children = make(map[string]types.YChild)
-    inventory.EntityData.Children["load-path"] = types.YChild{"LoadPath", nil}
+    inventory.EntityData.Children = types.NewOrderedMap()
+    inventory.EntityData.Children.Append("load-path", types.YChild{"LoadPath", nil})
     for i := range inventory.LoadPath {
-        inventory.EntityData.Children[types.GetSegmentPath(&inventory.LoadPath[i])] = types.YChild{"LoadPath", &inventory.LoadPath[i]}
+        inventory.EntityData.Children.Append(types.GetSegmentPath(inventory.LoadPath[i]), types.YChild{"LoadPath", inventory.LoadPath[i]})
     }
-    inventory.EntityData.Leafs = make(map[string]types.YLeaf)
-    inventory.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", inventory.NodeName}
-    inventory.EntityData.Leafs["major"] = types.YLeaf{"Major", inventory.Major}
-    inventory.EntityData.Leafs["minor"] = types.YLeaf{"Minor", inventory.Minor}
-    inventory.EntityData.Leafs["boot-image-name"] = types.YLeaf{"BootImageName", inventory.BootImageName}
-    inventory.EntityData.Leafs["node-type"] = types.YLeaf{"NodeType", inventory.NodeType}
-    inventory.EntityData.Leafs["secure-domain-router-name"] = types.YLeaf{"SecureDomainRouterName", inventory.SecureDomainRouterName}
+    inventory.EntityData.Leafs = types.NewOrderedMap()
+    inventory.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", inventory.NodeName})
+    inventory.EntityData.Leafs.Append("major", types.YLeaf{"Major", inventory.Major})
+    inventory.EntityData.Leafs.Append("minor", types.YLeaf{"Minor", inventory.Minor})
+    inventory.EntityData.Leafs.Append("boot-image-name", types.YLeaf{"BootImageName", inventory.BootImageName})
+    inventory.EntityData.Leafs.Append("node-type", types.YLeaf{"NodeType", inventory.NodeType})
+    inventory.EntityData.Leafs.Append("secure-domain-router-name", types.YLeaf{"SecureDomainRouterName", inventory.SecureDomainRouterName})
+
+    inventory.EntityData.YListKeys = []string {"NodeName"}
+
     return &(inventory.EntityData)
 }
 
@@ -4861,7 +5203,7 @@ type Install_SoftwareInventory_Active_Inventories_Inventory_LoadPath struct {
     BuildInformation interface{}
 
     // Package.
-    Package_ Install_SoftwareInventory_Active_Inventories_Inventory_LoadPath_Package
+    Package Install_SoftwareInventory_Active_Inventories_Inventory_LoadPath_Package
 }
 
 func (loadPath *Install_SoftwareInventory_Active_Inventories_Inventory_LoadPath) GetEntityData() *types.CommonEntityData {
@@ -4874,11 +5216,14 @@ func (loadPath *Install_SoftwareInventory_Active_Inventories_Inventory_LoadPath)
     loadPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    loadPath.EntityData.Children = make(map[string]types.YChild)
-    loadPath.EntityData.Children["package"] = types.YChild{"Package_", &loadPath.Package_}
-    loadPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    loadPath.EntityData.Leafs["version"] = types.YLeaf{"Version", loadPath.Version}
-    loadPath.EntityData.Leafs["build-information"] = types.YLeaf{"BuildInformation", loadPath.BuildInformation}
+    loadPath.EntityData.Children = types.NewOrderedMap()
+    loadPath.EntityData.Children.Append("package", types.YChild{"Package", &loadPath.Package})
+    loadPath.EntityData.Leafs = types.NewOrderedMap()
+    loadPath.EntityData.Leafs.Append("version", types.YLeaf{"Version", loadPath.Version})
+    loadPath.EntityData.Leafs.Append("build-information", types.YLeaf{"BuildInformation", loadPath.BuildInformation})
+
+    loadPath.EntityData.YListKeys = []string {}
+
     return &(loadPath.EntityData)
 }
 
@@ -4905,10 +5250,13 @@ func (self *Install_SoftwareInventory_Active_Inventories_Inventory_LoadPath_Pack
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", self.DeviceName}
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("device-name", types.YLeaf{"DeviceName", self.DeviceName})
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {}
+
     return &(self.EntityData)
 }
 
@@ -4935,10 +5283,13 @@ func (issu *Install_Issu) GetEntityData() *types.CommonEntityData {
     issu.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     issu.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    issu.EntityData.Children = make(map[string]types.YChild)
-    issu.EntityData.Children["card-inventories"] = types.YChild{"CardInventories", &issu.CardInventories}
-    issu.EntityData.Children["stage"] = types.YChild{"Stage", &issu.Stage}
-    issu.EntityData.Leafs = make(map[string]types.YLeaf)
+    issu.EntityData.Children = types.NewOrderedMap()
+    issu.EntityData.Children.Append("card-inventories", types.YChild{"CardInventories", &issu.CardInventories})
+    issu.EntityData.Children.Append("stage", types.YChild{"Stage", &issu.Stage})
+    issu.EntityData.Leafs = types.NewOrderedMap()
+
+    issu.EntityData.YListKeys = []string {}
+
     return &(issu.EntityData)
 }
 
@@ -4950,7 +5301,7 @@ type Install_Issu_CardInventories struct {
 
     // ISSU manager inventory summary of the same card type. The type is slice of
     // Install_Issu_CardInventories_CardInventory.
-    CardInventory []Install_Issu_CardInventories_CardInventory
+    CardInventory []*Install_Issu_CardInventories_CardInventory
 }
 
 func (cardInventories *Install_Issu_CardInventories) GetEntityData() *types.CommonEntityData {
@@ -4963,12 +5314,15 @@ func (cardInventories *Install_Issu_CardInventories) GetEntityData() *types.Comm
     cardInventories.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardInventories.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cardInventories.EntityData.Children = make(map[string]types.YChild)
-    cardInventories.EntityData.Children["card-inventory"] = types.YChild{"CardInventory", nil}
+    cardInventories.EntityData.Children = types.NewOrderedMap()
+    cardInventories.EntityData.Children.Append("card-inventory", types.YChild{"CardInventory", nil})
     for i := range cardInventories.CardInventory {
-        cardInventories.EntityData.Children[types.GetSegmentPath(&cardInventories.CardInventory[i])] = types.YChild{"CardInventory", &cardInventories.CardInventory[i]}
+        cardInventories.EntityData.Children.Append(types.GetSegmentPath(cardInventories.CardInventory[i]), types.YChild{"CardInventory", cardInventories.CardInventory[i]})
     }
-    cardInventories.EntityData.Leafs = make(map[string]types.YLeaf)
+    cardInventories.EntityData.Leafs = types.NewOrderedMap()
+
+    cardInventories.EntityData.YListKeys = []string {}
+
     return &(cardInventories.EntityData)
 }
 
@@ -4985,7 +5339,7 @@ type Install_Issu_CardInventories_CardInventory struct {
 
     // node state for all nodes. The type is slice of
     // Install_Issu_CardInventories_CardInventory_Summary.
-    Summary []Install_Issu_CardInventories_CardInventory_Summary
+    Summary []*Install_Issu_CardInventories_CardInventory_Summary
 }
 
 func (cardInventory *Install_Issu_CardInventories_CardInventory) GetEntityData() *types.CommonEntityData {
@@ -4993,18 +5347,21 @@ func (cardInventory *Install_Issu_CardInventories_CardInventory) GetEntityData()
     cardInventory.EntityData.YangName = "card-inventory"
     cardInventory.EntityData.BundleName = "cisco_ios_xr"
     cardInventory.EntityData.ParentYangName = "card-inventories"
-    cardInventory.EntityData.SegmentPath = "card-inventory" + "[card-type-id='" + fmt.Sprintf("%v", cardInventory.CardTypeId) + "']"
+    cardInventory.EntityData.SegmentPath = "card-inventory" + types.AddKeyToken(cardInventory.CardTypeId, "card-type-id")
     cardInventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardInventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardInventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cardInventory.EntityData.Children = make(map[string]types.YChild)
-    cardInventory.EntityData.Children["summary"] = types.YChild{"Summary", nil}
+    cardInventory.EntityData.Children = types.NewOrderedMap()
+    cardInventory.EntityData.Children.Append("summary", types.YChild{"Summary", nil})
     for i := range cardInventory.Summary {
-        cardInventory.EntityData.Children[types.GetSegmentPath(&cardInventory.Summary[i])] = types.YChild{"Summary", &cardInventory.Summary[i]}
+        cardInventory.EntityData.Children.Append(types.GetSegmentPath(cardInventory.Summary[i]), types.YChild{"Summary", cardInventory.Summary[i]})
     }
-    cardInventory.EntityData.Leafs = make(map[string]types.YLeaf)
-    cardInventory.EntityData.Leafs["card-type-id"] = types.YLeaf{"CardTypeId", cardInventory.CardTypeId}
+    cardInventory.EntityData.Leafs = types.NewOrderedMap()
+    cardInventory.EntityData.Leafs.Append("card-type-id", types.YLeaf{"CardTypeId", cardInventory.CardTypeId})
+
+    cardInventory.EntityData.YListKeys = []string {"CardTypeId"}
+
     return &(cardInventory.EntityData)
 }
 
@@ -5015,11 +5372,11 @@ type Install_Issu_CardInventories_CardInventory_Summary struct {
     YFilter yfilter.YFilter
 
     // Node identifier. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Partner Node IDs. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PartnerNodeName interface{}
 
     // Node state. The type is InstmgrCardState.
@@ -5063,20 +5420,23 @@ func (summary *Install_Issu_CardInventories_CardInventory_Summary) GetEntityData
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
-    summary.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", summary.NodeName}
-    summary.EntityData.Leafs["partner-node-name"] = types.YLeaf{"PartnerNodeName", summary.PartnerNodeName}
-    summary.EntityData.Leafs["node-state"] = types.YLeaf{"NodeState", summary.NodeState}
-    summary.EntityData.Leafs["node-role"] = types.YLeaf{"NodeRole", summary.NodeRole}
-    summary.EntityData.Leafs["node-type-pi"] = types.YLeaf{"NodeTypePi", summary.NodeTypePi}
-    summary.EntityData.Leafs["node-type-issu"] = types.YLeaf{"NodeTypeIssu", summary.NodeTypeIssu}
-    summary.EntityData.Leafs["node-current-state"] = types.YLeaf{"NodeCurrentState", summary.NodeCurrentState}
-    summary.EntityData.Leafs["node-expected-state"] = types.YLeaf{"NodeExpectedState", summary.NodeExpectedState}
-    summary.EntityData.Leafs["node-failure-reason"] = types.YLeaf{"NodeFailureReason", summary.NodeFailureReason}
-    summary.EntityData.Leafs["is-conforming-node"] = types.YLeaf{"IsConformingNode", summary.IsConformingNode}
-    summary.EntityData.Leafs["attempts"] = types.YLeaf{"Attempts", summary.Attempts}
-    summary.EntityData.Leafs["is-node-upgraded"] = types.YLeaf{"IsNodeUpgraded", summary.IsNodeUpgraded}
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Leafs = types.NewOrderedMap()
+    summary.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", summary.NodeName})
+    summary.EntityData.Leafs.Append("partner-node-name", types.YLeaf{"PartnerNodeName", summary.PartnerNodeName})
+    summary.EntityData.Leafs.Append("node-state", types.YLeaf{"NodeState", summary.NodeState})
+    summary.EntityData.Leafs.Append("node-role", types.YLeaf{"NodeRole", summary.NodeRole})
+    summary.EntityData.Leafs.Append("node-type-pi", types.YLeaf{"NodeTypePi", summary.NodeTypePi})
+    summary.EntityData.Leafs.Append("node-type-issu", types.YLeaf{"NodeTypeIssu", summary.NodeTypeIssu})
+    summary.EntityData.Leafs.Append("node-current-state", types.YLeaf{"NodeCurrentState", summary.NodeCurrentState})
+    summary.EntityData.Leafs.Append("node-expected-state", types.YLeaf{"NodeExpectedState", summary.NodeExpectedState})
+    summary.EntityData.Leafs.Append("node-failure-reason", types.YLeaf{"NodeFailureReason", summary.NodeFailureReason})
+    summary.EntityData.Leafs.Append("is-conforming-node", types.YLeaf{"IsConformingNode", summary.IsConformingNode})
+    summary.EntityData.Leafs.Append("attempts", types.YLeaf{"Attempts", summary.Attempts})
+    summary.EntityData.Leafs.Append("is-node-upgraded", types.YLeaf{"IsNodeUpgraded", summary.IsNodeUpgraded})
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -5148,23 +5508,26 @@ func (stage *Install_Issu_Stage) GetEntityData() *types.CommonEntityData {
     stage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stage.EntityData.Children = make(map[string]types.YChild)
-    stage.EntityData.Children["node-in-progress"] = types.YChild{"NodeInProgress", &stage.NodeInProgress}
-    stage.EntityData.Children["nodes-in-load"] = types.YChild{"NodesInLoad", &stage.NodesInLoad}
-    stage.EntityData.Children["nodes-in-run"] = types.YChild{"NodesInRun", &stage.NodesInRun}
-    stage.EntityData.Children["nc-nodes"] = types.YChild{"NcNodes", &stage.NcNodes}
-    stage.EntityData.Leafs = make(map[string]types.YLeaf)
-    stage.EntityData.Leafs["issu-state"] = types.YLeaf{"IssuState", stage.IssuState}
-    stage.EntityData.Leafs["issu-op-id"] = types.YLeaf{"IssuOpId", stage.IssuOpId}
-    stage.EntityData.Leafs["percentage"] = types.YLeaf{"Percentage", stage.Percentage}
-    stage.EntityData.Leafs["is-issu-aborted"] = types.YLeaf{"IsIssuAborted", stage.IsIssuAborted}
-    stage.EntityData.Leafs["is-issu-aborted-by-ism"] = types.YLeaf{"IsIssuAbortedByIsm", stage.IsIssuAbortedByIsm}
-    stage.EntityData.Leafs["issu-manager-fsm-state"] = types.YLeaf{"IssuManagerFsmState", stage.IssuManagerFsmState}
-    stage.EntityData.Leafs["participating-node-all"] = types.YLeaf{"ParticipatingNodeAll", stage.ParticipatingNodeAll}
-    stage.EntityData.Leafs["num-nodes-in-progress"] = types.YLeaf{"NumNodesInProgress", stage.NumNodesInProgress}
-    stage.EntityData.Leafs["num-of-nodes-in-load"] = types.YLeaf{"NumOfNodesInLoad", stage.NumOfNodesInLoad}
-    stage.EntityData.Leafs["num-of-nodes-in-run"] = types.YLeaf{"NumOfNodesInRun", stage.NumOfNodesInRun}
-    stage.EntityData.Leafs["numof-nc-nodes"] = types.YLeaf{"NumofNcNodes", stage.NumofNcNodes}
+    stage.EntityData.Children = types.NewOrderedMap()
+    stage.EntityData.Children.Append("node-in-progress", types.YChild{"NodeInProgress", &stage.NodeInProgress})
+    stage.EntityData.Children.Append("nodes-in-load", types.YChild{"NodesInLoad", &stage.NodesInLoad})
+    stage.EntityData.Children.Append("nodes-in-run", types.YChild{"NodesInRun", &stage.NodesInRun})
+    stage.EntityData.Children.Append("nc-nodes", types.YChild{"NcNodes", &stage.NcNodes})
+    stage.EntityData.Leafs = types.NewOrderedMap()
+    stage.EntityData.Leafs.Append("issu-state", types.YLeaf{"IssuState", stage.IssuState})
+    stage.EntityData.Leafs.Append("issu-op-id", types.YLeaf{"IssuOpId", stage.IssuOpId})
+    stage.EntityData.Leafs.Append("percentage", types.YLeaf{"Percentage", stage.Percentage})
+    stage.EntityData.Leafs.Append("is-issu-aborted", types.YLeaf{"IsIssuAborted", stage.IsIssuAborted})
+    stage.EntityData.Leafs.Append("is-issu-aborted-by-ism", types.YLeaf{"IsIssuAbortedByIsm", stage.IsIssuAbortedByIsm})
+    stage.EntityData.Leafs.Append("issu-manager-fsm-state", types.YLeaf{"IssuManagerFsmState", stage.IssuManagerFsmState})
+    stage.EntityData.Leafs.Append("participating-node-all", types.YLeaf{"ParticipatingNodeAll", stage.ParticipatingNodeAll})
+    stage.EntityData.Leafs.Append("num-nodes-in-progress", types.YLeaf{"NumNodesInProgress", stage.NumNodesInProgress})
+    stage.EntityData.Leafs.Append("num-of-nodes-in-load", types.YLeaf{"NumOfNodesInLoad", stage.NumOfNodesInLoad})
+    stage.EntityData.Leafs.Append("num-of-nodes-in-run", types.YLeaf{"NumOfNodesInRun", stage.NumOfNodesInRun})
+    stage.EntityData.Leafs.Append("numof-nc-nodes", types.YLeaf{"NumofNcNodes", stage.NumofNcNodes})
+
+    stage.EntityData.YListKeys = []string {}
+
     return &(stage.EntityData)
 }
 
@@ -5175,7 +5538,7 @@ type Install_Issu_Stage_NodeInProgress struct {
     YFilter yfilter.YFilter
 
     // node. The type is slice of string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node []interface{}
 }
 
@@ -5189,9 +5552,12 @@ func (nodeInProgress *Install_Issu_Stage_NodeInProgress) GetEntityData() *types.
     nodeInProgress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeInProgress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodeInProgress.EntityData.Children = make(map[string]types.YChild)
-    nodeInProgress.EntityData.Leafs = make(map[string]types.YLeaf)
-    nodeInProgress.EntityData.Leafs["node"] = types.YLeaf{"Node", nodeInProgress.Node}
+    nodeInProgress.EntityData.Children = types.NewOrderedMap()
+    nodeInProgress.EntityData.Leafs = types.NewOrderedMap()
+    nodeInProgress.EntityData.Leafs.Append("node", types.YLeaf{"Node", nodeInProgress.Node})
+
+    nodeInProgress.EntityData.YListKeys = []string {}
+
     return &(nodeInProgress.EntityData)
 }
 
@@ -5202,7 +5568,7 @@ type Install_Issu_Stage_NodesInLoad struct {
     YFilter yfilter.YFilter
 
     // node. The type is slice of string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node []interface{}
 }
 
@@ -5216,9 +5582,12 @@ func (nodesInLoad *Install_Issu_Stage_NodesInLoad) GetEntityData() *types.Common
     nodesInLoad.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodesInLoad.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodesInLoad.EntityData.Children = make(map[string]types.YChild)
-    nodesInLoad.EntityData.Leafs = make(map[string]types.YLeaf)
-    nodesInLoad.EntityData.Leafs["node"] = types.YLeaf{"Node", nodesInLoad.Node}
+    nodesInLoad.EntityData.Children = types.NewOrderedMap()
+    nodesInLoad.EntityData.Leafs = types.NewOrderedMap()
+    nodesInLoad.EntityData.Leafs.Append("node", types.YLeaf{"Node", nodesInLoad.Node})
+
+    nodesInLoad.EntityData.YListKeys = []string {}
+
     return &(nodesInLoad.EntityData)
 }
 
@@ -5229,7 +5598,7 @@ type Install_Issu_Stage_NodesInRun struct {
     YFilter yfilter.YFilter
 
     // node. The type is slice of string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node []interface{}
 }
 
@@ -5243,9 +5612,12 @@ func (nodesInRun *Install_Issu_Stage_NodesInRun) GetEntityData() *types.CommonEn
     nodesInRun.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodesInRun.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodesInRun.EntityData.Children = make(map[string]types.YChild)
-    nodesInRun.EntityData.Leafs = make(map[string]types.YLeaf)
-    nodesInRun.EntityData.Leafs["node"] = types.YLeaf{"Node", nodesInRun.Node}
+    nodesInRun.EntityData.Children = types.NewOrderedMap()
+    nodesInRun.EntityData.Leafs = types.NewOrderedMap()
+    nodesInRun.EntityData.Leafs.Append("node", types.YLeaf{"Node", nodesInRun.Node})
+
+    nodesInRun.EntityData.YListKeys = []string {}
+
     return &(nodesInRun.EntityData)
 }
 
@@ -5256,7 +5628,7 @@ type Install_Issu_Stage_NcNodes struct {
     YFilter yfilter.YFilter
 
     // node. The type is slice of string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node []interface{}
 }
 
@@ -5270,9 +5642,12 @@ func (ncNodes *Install_Issu_Stage_NcNodes) GetEntityData() *types.CommonEntityDa
     ncNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ncNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ncNodes.EntityData.Children = make(map[string]types.YChild)
-    ncNodes.EntityData.Leafs = make(map[string]types.YLeaf)
-    ncNodes.EntityData.Leafs["node"] = types.YLeaf{"Node", ncNodes.Node}
+    ncNodes.EntityData.Children = types.NewOrderedMap()
+    ncNodes.EntityData.Leafs = types.NewOrderedMap()
+    ncNodes.EntityData.Leafs.Append("node", types.YLeaf{"Node", ncNodes.Node})
+
+    ncNodes.EntityData.YListKeys = []string {}
+
     return &(ncNodes.EntityData)
 }
 
@@ -5296,9 +5671,12 @@ func (bootImage *Install_BootImage) GetEntityData() *types.CommonEntityData {
     bootImage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bootImage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bootImage.EntityData.Children = make(map[string]types.YChild)
-    bootImage.EntityData.Leafs = make(map[string]types.YLeaf)
-    bootImage.EntityData.Leafs["system-image-file"] = types.YLeaf{"SystemImageFile", bootImage.SystemImageFile}
+    bootImage.EntityData.Children = types.NewOrderedMap()
+    bootImage.EntityData.Leafs = types.NewOrderedMap()
+    bootImage.EntityData.Leafs.Append("system-image-file", types.YLeaf{"SystemImageFile", bootImage.SystemImageFile})
+
+    bootImage.EntityData.YListKeys = []string {}
+
     return &(bootImage.EntityData)
 }
 
@@ -5309,7 +5687,7 @@ type Install_Logs struct {
     YFilter yfilter.YFilter
 
     // Log information. The type is slice of Install_Logs_Log.
-    Log []Install_Logs_Log
+    Log []*Install_Logs_Log
 }
 
 func (logs *Install_Logs) GetEntityData() *types.CommonEntityData {
@@ -5322,12 +5700,15 @@ func (logs *Install_Logs) GetEntityData() *types.CommonEntityData {
     logs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logs.EntityData.Children = make(map[string]types.YChild)
-    logs.EntityData.Children["log"] = types.YChild{"Log", nil}
+    logs.EntityData.Children = types.NewOrderedMap()
+    logs.EntityData.Children.Append("log", types.YChild{"Log", nil})
     for i := range logs.Log {
-        logs.EntityData.Children[types.GetSegmentPath(&logs.Log[i])] = types.YChild{"Log", &logs.Log[i]}
+        logs.EntityData.Children.Append(types.GetSegmentPath(logs.Log[i]), types.YChild{"Log", logs.Log[i]})
     }
-    logs.EntityData.Leafs = make(map[string]types.YLeaf)
+    logs.EntityData.Leafs = types.NewOrderedMap()
+
+    logs.EntityData.YListKeys = []string {}
+
     return &(logs.EntityData)
 }
 
@@ -5342,23 +5723,23 @@ type Install_Logs_Log struct {
     RequestId interface{}
 
     // Header information. The type is slice of Install_Logs_Log_Header.
-    Header []Install_Logs_Log_Header
+    Header []*Install_Logs_Log_Header
 
     // Summary information. The type is slice of Install_Logs_Log_Summary.
-    Summary []Install_Logs_Log_Summary
+    Summary []*Install_Logs_Log_Summary
 
     // Status Information Logs. The type is slice of Install_Logs_Log_Message.
-    Message []Install_Logs_Log_Message
+    Message []*Install_Logs_Log_Message
 
     // Install changes. The type is slice of Install_Logs_Log_Change.
-    Change []Install_Logs_Log_Change
+    Change []*Install_Logs_Log_Change
 
     // Install details. The type is slice of Install_Logs_Log_Detail.
-    Detail []Install_Logs_Log_Detail
+    Detail []*Install_Logs_Log_Detail
 
     // Install communications. The type is slice of
     // Install_Logs_Log_Communication.
-    Communication []Install_Logs_Log_Communication
+    Communication []*Install_Logs_Log_Communication
 }
 
 func (log *Install_Logs_Log) GetEntityData() *types.CommonEntityData {
@@ -5366,38 +5747,41 @@ func (log *Install_Logs_Log) GetEntityData() *types.CommonEntityData {
     log.EntityData.YangName = "log"
     log.EntityData.BundleName = "cisco_ios_xr"
     log.EntityData.ParentYangName = "logs"
-    log.EntityData.SegmentPath = "log" + "[request-id='" + fmt.Sprintf("%v", log.RequestId) + "']"
+    log.EntityData.SegmentPath = "log" + types.AddKeyToken(log.RequestId, "request-id")
     log.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     log.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     log.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    log.EntityData.Children = make(map[string]types.YChild)
-    log.EntityData.Children["header"] = types.YChild{"Header", nil}
+    log.EntityData.Children = types.NewOrderedMap()
+    log.EntityData.Children.Append("header", types.YChild{"Header", nil})
     for i := range log.Header {
-        log.EntityData.Children[types.GetSegmentPath(&log.Header[i])] = types.YChild{"Header", &log.Header[i]}
+        log.EntityData.Children.Append(types.GetSegmentPath(log.Header[i]), types.YChild{"Header", log.Header[i]})
     }
-    log.EntityData.Children["summary"] = types.YChild{"Summary", nil}
+    log.EntityData.Children.Append("summary", types.YChild{"Summary", nil})
     for i := range log.Summary {
-        log.EntityData.Children[types.GetSegmentPath(&log.Summary[i])] = types.YChild{"Summary", &log.Summary[i]}
+        log.EntityData.Children.Append(types.GetSegmentPath(log.Summary[i]), types.YChild{"Summary", log.Summary[i]})
     }
-    log.EntityData.Children["message"] = types.YChild{"Message", nil}
+    log.EntityData.Children.Append("message", types.YChild{"Message", nil})
     for i := range log.Message {
-        log.EntityData.Children[types.GetSegmentPath(&log.Message[i])] = types.YChild{"Message", &log.Message[i]}
+        log.EntityData.Children.Append(types.GetSegmentPath(log.Message[i]), types.YChild{"Message", log.Message[i]})
     }
-    log.EntityData.Children["change"] = types.YChild{"Change", nil}
+    log.EntityData.Children.Append("change", types.YChild{"Change", nil})
     for i := range log.Change {
-        log.EntityData.Children[types.GetSegmentPath(&log.Change[i])] = types.YChild{"Change", &log.Change[i]}
+        log.EntityData.Children.Append(types.GetSegmentPath(log.Change[i]), types.YChild{"Change", log.Change[i]})
     }
-    log.EntityData.Children["detail"] = types.YChild{"Detail", nil}
+    log.EntityData.Children.Append("detail", types.YChild{"Detail", nil})
     for i := range log.Detail {
-        log.EntityData.Children[types.GetSegmentPath(&log.Detail[i])] = types.YChild{"Detail", &log.Detail[i]}
+        log.EntityData.Children.Append(types.GetSegmentPath(log.Detail[i]), types.YChild{"Detail", log.Detail[i]})
     }
-    log.EntityData.Children["communication"] = types.YChild{"Communication", nil}
+    log.EntityData.Children.Append("communication", types.YChild{"Communication", nil})
     for i := range log.Communication {
-        log.EntityData.Children[types.GetSegmentPath(&log.Communication[i])] = types.YChild{"Communication", &log.Communication[i]}
+        log.EntityData.Children.Append(types.GetSegmentPath(log.Communication[i]), types.YChild{"Communication", log.Communication[i]})
     }
-    log.EntityData.Leafs = make(map[string]types.YLeaf)
-    log.EntityData.Leafs["request-id"] = types.YLeaf{"RequestId", log.RequestId}
+    log.EntityData.Leafs = types.NewOrderedMap()
+    log.EntityData.Leafs.Append("request-id", types.YLeaf{"RequestId", log.RequestId})
+
+    log.EntityData.YListKeys = []string {"RequestId"}
+
     return &(log.EntityData)
 }
 
@@ -5421,9 +5805,12 @@ func (header *Install_Logs_Log_Header) GetEntityData() *types.CommonEntityData {
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    header.EntityData.Children = make(map[string]types.YChild)
-    header.EntityData.Children["log-contents"] = types.YChild{"LogContents", &header.LogContents}
-    header.EntityData.Leafs = make(map[string]types.YLeaf)
+    header.EntityData.Children = types.NewOrderedMap()
+    header.EntityData.Children.Append("log-contents", types.YChild{"LogContents", &header.LogContents})
+    header.EntityData.Leafs = types.NewOrderedMap()
+
+    header.EntityData.YListKeys = []string {}
+
     return &(header.EntityData)
 }
 
@@ -5450,10 +5837,13 @@ func (logContents *Install_Logs_Log_Header_LogContents) GetEntityData() *types.C
     logContents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logContents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logContents.EntityData.Children = make(map[string]types.YChild)
-    logContents.EntityData.Children["v3"] = types.YChild{"V3", &logContents.V3}
-    logContents.EntityData.Leafs = make(map[string]types.YLeaf)
-    logContents.EntityData.Leafs["version"] = types.YLeaf{"Version", logContents.Version}
+    logContents.EntityData.Children = types.NewOrderedMap()
+    logContents.EntityData.Children.Append("v3", types.YChild{"V3", &logContents.V3})
+    logContents.EntityData.Leafs = types.NewOrderedMap()
+    logContents.EntityData.Leafs.Append("version", types.YLeaf{"Version", logContents.Version})
+
+    logContents.EntityData.YListKeys = []string {}
+
     return &(logContents.EntityData)
 }
 
@@ -5483,11 +5873,14 @@ func (v3 *Install_Logs_Log_Header_LogContents_V3) GetEntityData() *types.CommonE
     v3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     v3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    v3.EntityData.Children = make(map[string]types.YChild)
-    v3.EntityData.Children["scope"] = types.YChild{"Scope", &v3.Scope}
-    v3.EntityData.Leafs = make(map[string]types.YLeaf)
-    v3.EntityData.Leafs["category"] = types.YLeaf{"Category", v3.Category}
-    v3.EntityData.Leafs["message"] = types.YLeaf{"Message", v3.Message}
+    v3.EntityData.Children = types.NewOrderedMap()
+    v3.EntityData.Children.Append("scope", types.YChild{"Scope", &v3.Scope})
+    v3.EntityData.Leafs = types.NewOrderedMap()
+    v3.EntityData.Leafs.Append("category", types.YLeaf{"Category", v3.Category})
+    v3.EntityData.Leafs.Append("message", types.YLeaf{"Message", v3.Message})
+
+    v3.EntityData.YListKeys = []string {}
+
     return &(v3.EntityData)
 }
 
@@ -5515,10 +5908,13 @@ func (scope *Install_Logs_Log_Header_LogContents_V3_Scope) GetEntityData() *type
     scope.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scope.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    scope.EntityData.Children = make(map[string]types.YChild)
-    scope.EntityData.Leafs = make(map[string]types.YLeaf)
-    scope.EntityData.Leafs["admin-read"] = types.YLeaf{"AdminRead", scope.AdminRead}
-    scope.EntityData.Leafs["affected-sd-rs"] = types.YLeaf{"AffectedSdRs", scope.AffectedSdRs}
+    scope.EntityData.Children = types.NewOrderedMap()
+    scope.EntityData.Leafs = types.NewOrderedMap()
+    scope.EntityData.Leafs.Append("admin-read", types.YLeaf{"AdminRead", scope.AdminRead})
+    scope.EntityData.Leafs.Append("affected-sd-rs", types.YLeaf{"AffectedSdRs", scope.AffectedSdRs})
+
+    scope.EntityData.YListKeys = []string {}
+
     return &(scope.EntityData)
 }
 
@@ -5542,9 +5938,12 @@ func (summary *Install_Logs_Log_Summary) GetEntityData() *types.CommonEntityData
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Children["log-contents"] = types.YChild{"LogContents", &summary.LogContents}
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Children.Append("log-contents", types.YChild{"LogContents", &summary.LogContents})
+    summary.EntityData.Leafs = types.NewOrderedMap()
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -5571,10 +5970,13 @@ func (logContents *Install_Logs_Log_Summary_LogContents) GetEntityData() *types.
     logContents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logContents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logContents.EntityData.Children = make(map[string]types.YChild)
-    logContents.EntityData.Children["v3"] = types.YChild{"V3", &logContents.V3}
-    logContents.EntityData.Leafs = make(map[string]types.YLeaf)
-    logContents.EntityData.Leafs["version"] = types.YLeaf{"Version", logContents.Version}
+    logContents.EntityData.Children = types.NewOrderedMap()
+    logContents.EntityData.Children.Append("v3", types.YChild{"V3", &logContents.V3})
+    logContents.EntityData.Leafs = types.NewOrderedMap()
+    logContents.EntityData.Leafs.Append("version", types.YLeaf{"Version", logContents.Version})
+
+    logContents.EntityData.YListKeys = []string {}
+
     return &(logContents.EntityData)
 }
 
@@ -5604,11 +6006,14 @@ func (v3 *Install_Logs_Log_Summary_LogContents_V3) GetEntityData() *types.Common
     v3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     v3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    v3.EntityData.Children = make(map[string]types.YChild)
-    v3.EntityData.Children["scope"] = types.YChild{"Scope", &v3.Scope}
-    v3.EntityData.Leafs = make(map[string]types.YLeaf)
-    v3.EntityData.Leafs["category"] = types.YLeaf{"Category", v3.Category}
-    v3.EntityData.Leafs["message"] = types.YLeaf{"Message", v3.Message}
+    v3.EntityData.Children = types.NewOrderedMap()
+    v3.EntityData.Children.Append("scope", types.YChild{"Scope", &v3.Scope})
+    v3.EntityData.Leafs = types.NewOrderedMap()
+    v3.EntityData.Leafs.Append("category", types.YLeaf{"Category", v3.Category})
+    v3.EntityData.Leafs.Append("message", types.YLeaf{"Message", v3.Message})
+
+    v3.EntityData.YListKeys = []string {}
+
     return &(v3.EntityData)
 }
 
@@ -5636,10 +6041,13 @@ func (scope *Install_Logs_Log_Summary_LogContents_V3_Scope) GetEntityData() *typ
     scope.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scope.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    scope.EntityData.Children = make(map[string]types.YChild)
-    scope.EntityData.Leafs = make(map[string]types.YLeaf)
-    scope.EntityData.Leafs["admin-read"] = types.YLeaf{"AdminRead", scope.AdminRead}
-    scope.EntityData.Leafs["affected-sd-rs"] = types.YLeaf{"AffectedSdRs", scope.AffectedSdRs}
+    scope.EntityData.Children = types.NewOrderedMap()
+    scope.EntityData.Leafs = types.NewOrderedMap()
+    scope.EntityData.Leafs.Append("admin-read", types.YLeaf{"AdminRead", scope.AdminRead})
+    scope.EntityData.Leafs.Append("affected-sd-rs", types.YLeaf{"AffectedSdRs", scope.AffectedSdRs})
+
+    scope.EntityData.YListKeys = []string {}
+
     return &(scope.EntityData)
 }
 
@@ -5663,9 +6071,12 @@ func (message *Install_Logs_Log_Message) GetEntityData() *types.CommonEntityData
     message.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     message.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    message.EntityData.Children = make(map[string]types.YChild)
-    message.EntityData.Children["log-contents"] = types.YChild{"LogContents", &message.LogContents}
-    message.EntityData.Leafs = make(map[string]types.YLeaf)
+    message.EntityData.Children = types.NewOrderedMap()
+    message.EntityData.Children.Append("log-contents", types.YChild{"LogContents", &message.LogContents})
+    message.EntityData.Leafs = types.NewOrderedMap()
+
+    message.EntityData.YListKeys = []string {}
+
     return &(message.EntityData)
 }
 
@@ -5692,10 +6103,13 @@ func (logContents *Install_Logs_Log_Message_LogContents) GetEntityData() *types.
     logContents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logContents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logContents.EntityData.Children = make(map[string]types.YChild)
-    logContents.EntityData.Children["v3"] = types.YChild{"V3", &logContents.V3}
-    logContents.EntityData.Leafs = make(map[string]types.YLeaf)
-    logContents.EntityData.Leafs["version"] = types.YLeaf{"Version", logContents.Version}
+    logContents.EntityData.Children = types.NewOrderedMap()
+    logContents.EntityData.Children.Append("v3", types.YChild{"V3", &logContents.V3})
+    logContents.EntityData.Leafs = types.NewOrderedMap()
+    logContents.EntityData.Leafs.Append("version", types.YLeaf{"Version", logContents.Version})
+
+    logContents.EntityData.YListKeys = []string {}
+
     return &(logContents.EntityData)
 }
 
@@ -5725,11 +6139,14 @@ func (v3 *Install_Logs_Log_Message_LogContents_V3) GetEntityData() *types.Common
     v3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     v3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    v3.EntityData.Children = make(map[string]types.YChild)
-    v3.EntityData.Children["scope"] = types.YChild{"Scope", &v3.Scope}
-    v3.EntityData.Leafs = make(map[string]types.YLeaf)
-    v3.EntityData.Leafs["category"] = types.YLeaf{"Category", v3.Category}
-    v3.EntityData.Leafs["message"] = types.YLeaf{"Message", v3.Message}
+    v3.EntityData.Children = types.NewOrderedMap()
+    v3.EntityData.Children.Append("scope", types.YChild{"Scope", &v3.Scope})
+    v3.EntityData.Leafs = types.NewOrderedMap()
+    v3.EntityData.Leafs.Append("category", types.YLeaf{"Category", v3.Category})
+    v3.EntityData.Leafs.Append("message", types.YLeaf{"Message", v3.Message})
+
+    v3.EntityData.YListKeys = []string {}
+
     return &(v3.EntityData)
 }
 
@@ -5757,10 +6174,13 @@ func (scope *Install_Logs_Log_Message_LogContents_V3_Scope) GetEntityData() *typ
     scope.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scope.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    scope.EntityData.Children = make(map[string]types.YChild)
-    scope.EntityData.Leafs = make(map[string]types.YLeaf)
-    scope.EntityData.Leafs["admin-read"] = types.YLeaf{"AdminRead", scope.AdminRead}
-    scope.EntityData.Leafs["affected-sd-rs"] = types.YLeaf{"AffectedSdRs", scope.AffectedSdRs}
+    scope.EntityData.Children = types.NewOrderedMap()
+    scope.EntityData.Leafs = types.NewOrderedMap()
+    scope.EntityData.Leafs.Append("admin-read", types.YLeaf{"AdminRead", scope.AdminRead})
+    scope.EntityData.Leafs.Append("affected-sd-rs", types.YLeaf{"AffectedSdRs", scope.AffectedSdRs})
+
+    scope.EntityData.YListKeys = []string {}
+
     return &(scope.EntityData)
 }
 
@@ -5784,9 +6204,12 @@ func (change *Install_Logs_Log_Change) GetEntityData() *types.CommonEntityData {
     change.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     change.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    change.EntityData.Children = make(map[string]types.YChild)
-    change.EntityData.Children["log-contents"] = types.YChild{"LogContents", &change.LogContents}
-    change.EntityData.Leafs = make(map[string]types.YLeaf)
+    change.EntityData.Children = types.NewOrderedMap()
+    change.EntityData.Children.Append("log-contents", types.YChild{"LogContents", &change.LogContents})
+    change.EntityData.Leafs = types.NewOrderedMap()
+
+    change.EntityData.YListKeys = []string {}
+
     return &(change.EntityData)
 }
 
@@ -5813,10 +6236,13 @@ func (logContents *Install_Logs_Log_Change_LogContents) GetEntityData() *types.C
     logContents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logContents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logContents.EntityData.Children = make(map[string]types.YChild)
-    logContents.EntityData.Children["v3"] = types.YChild{"V3", &logContents.V3}
-    logContents.EntityData.Leafs = make(map[string]types.YLeaf)
-    logContents.EntityData.Leafs["version"] = types.YLeaf{"Version", logContents.Version}
+    logContents.EntityData.Children = types.NewOrderedMap()
+    logContents.EntityData.Children.Append("v3", types.YChild{"V3", &logContents.V3})
+    logContents.EntityData.Leafs = types.NewOrderedMap()
+    logContents.EntityData.Leafs.Append("version", types.YLeaf{"Version", logContents.Version})
+
+    logContents.EntityData.YListKeys = []string {}
+
     return &(logContents.EntityData)
 }
 
@@ -5846,11 +6272,14 @@ func (v3 *Install_Logs_Log_Change_LogContents_V3) GetEntityData() *types.CommonE
     v3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     v3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    v3.EntityData.Children = make(map[string]types.YChild)
-    v3.EntityData.Children["scope"] = types.YChild{"Scope", &v3.Scope}
-    v3.EntityData.Leafs = make(map[string]types.YLeaf)
-    v3.EntityData.Leafs["category"] = types.YLeaf{"Category", v3.Category}
-    v3.EntityData.Leafs["message"] = types.YLeaf{"Message", v3.Message}
+    v3.EntityData.Children = types.NewOrderedMap()
+    v3.EntityData.Children.Append("scope", types.YChild{"Scope", &v3.Scope})
+    v3.EntityData.Leafs = types.NewOrderedMap()
+    v3.EntityData.Leafs.Append("category", types.YLeaf{"Category", v3.Category})
+    v3.EntityData.Leafs.Append("message", types.YLeaf{"Message", v3.Message})
+
+    v3.EntityData.YListKeys = []string {}
+
     return &(v3.EntityData)
 }
 
@@ -5878,10 +6307,13 @@ func (scope *Install_Logs_Log_Change_LogContents_V3_Scope) GetEntityData() *type
     scope.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scope.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    scope.EntityData.Children = make(map[string]types.YChild)
-    scope.EntityData.Leafs = make(map[string]types.YLeaf)
-    scope.EntityData.Leafs["admin-read"] = types.YLeaf{"AdminRead", scope.AdminRead}
-    scope.EntityData.Leafs["affected-sd-rs"] = types.YLeaf{"AffectedSdRs", scope.AffectedSdRs}
+    scope.EntityData.Children = types.NewOrderedMap()
+    scope.EntityData.Leafs = types.NewOrderedMap()
+    scope.EntityData.Leafs.Append("admin-read", types.YLeaf{"AdminRead", scope.AdminRead})
+    scope.EntityData.Leafs.Append("affected-sd-rs", types.YLeaf{"AffectedSdRs", scope.AffectedSdRs})
+
+    scope.EntityData.YListKeys = []string {}
+
     return &(scope.EntityData)
 }
 
@@ -5905,9 +6337,12 @@ func (detail *Install_Logs_Log_Detail) GetEntityData() *types.CommonEntityData {
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detail.EntityData.Children = make(map[string]types.YChild)
-    detail.EntityData.Children["log-contents"] = types.YChild{"LogContents", &detail.LogContents}
-    detail.EntityData.Leafs = make(map[string]types.YLeaf)
+    detail.EntityData.Children = types.NewOrderedMap()
+    detail.EntityData.Children.Append("log-contents", types.YChild{"LogContents", &detail.LogContents})
+    detail.EntityData.Leafs = types.NewOrderedMap()
+
+    detail.EntityData.YListKeys = []string {}
+
     return &(detail.EntityData)
 }
 
@@ -5934,10 +6369,13 @@ func (logContents *Install_Logs_Log_Detail_LogContents) GetEntityData() *types.C
     logContents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logContents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logContents.EntityData.Children = make(map[string]types.YChild)
-    logContents.EntityData.Children["v3"] = types.YChild{"V3", &logContents.V3}
-    logContents.EntityData.Leafs = make(map[string]types.YLeaf)
-    logContents.EntityData.Leafs["version"] = types.YLeaf{"Version", logContents.Version}
+    logContents.EntityData.Children = types.NewOrderedMap()
+    logContents.EntityData.Children.Append("v3", types.YChild{"V3", &logContents.V3})
+    logContents.EntityData.Leafs = types.NewOrderedMap()
+    logContents.EntityData.Leafs.Append("version", types.YLeaf{"Version", logContents.Version})
+
+    logContents.EntityData.YListKeys = []string {}
+
     return &(logContents.EntityData)
 }
 
@@ -5967,11 +6405,14 @@ func (v3 *Install_Logs_Log_Detail_LogContents_V3) GetEntityData() *types.CommonE
     v3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     v3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    v3.EntityData.Children = make(map[string]types.YChild)
-    v3.EntityData.Children["scope"] = types.YChild{"Scope", &v3.Scope}
-    v3.EntityData.Leafs = make(map[string]types.YLeaf)
-    v3.EntityData.Leafs["category"] = types.YLeaf{"Category", v3.Category}
-    v3.EntityData.Leafs["message"] = types.YLeaf{"Message", v3.Message}
+    v3.EntityData.Children = types.NewOrderedMap()
+    v3.EntityData.Children.Append("scope", types.YChild{"Scope", &v3.Scope})
+    v3.EntityData.Leafs = types.NewOrderedMap()
+    v3.EntityData.Leafs.Append("category", types.YLeaf{"Category", v3.Category})
+    v3.EntityData.Leafs.Append("message", types.YLeaf{"Message", v3.Message})
+
+    v3.EntityData.YListKeys = []string {}
+
     return &(v3.EntityData)
 }
 
@@ -5999,10 +6440,13 @@ func (scope *Install_Logs_Log_Detail_LogContents_V3_Scope) GetEntityData() *type
     scope.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scope.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    scope.EntityData.Children = make(map[string]types.YChild)
-    scope.EntityData.Leafs = make(map[string]types.YLeaf)
-    scope.EntityData.Leafs["admin-read"] = types.YLeaf{"AdminRead", scope.AdminRead}
-    scope.EntityData.Leafs["affected-sd-rs"] = types.YLeaf{"AffectedSdRs", scope.AffectedSdRs}
+    scope.EntityData.Children = types.NewOrderedMap()
+    scope.EntityData.Leafs = types.NewOrderedMap()
+    scope.EntityData.Leafs.Append("admin-read", types.YLeaf{"AdminRead", scope.AdminRead})
+    scope.EntityData.Leafs.Append("affected-sd-rs", types.YLeaf{"AffectedSdRs", scope.AffectedSdRs})
+
+    scope.EntityData.YListKeys = []string {}
+
     return &(scope.EntityData)
 }
 
@@ -6026,9 +6470,12 @@ func (communication *Install_Logs_Log_Communication) GetEntityData() *types.Comm
     communication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     communication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    communication.EntityData.Children = make(map[string]types.YChild)
-    communication.EntityData.Children["log-contents"] = types.YChild{"LogContents", &communication.LogContents}
-    communication.EntityData.Leafs = make(map[string]types.YLeaf)
+    communication.EntityData.Children = types.NewOrderedMap()
+    communication.EntityData.Children.Append("log-contents", types.YChild{"LogContents", &communication.LogContents})
+    communication.EntityData.Leafs = types.NewOrderedMap()
+
+    communication.EntityData.YListKeys = []string {}
+
     return &(communication.EntityData)
 }
 
@@ -6055,10 +6502,13 @@ func (logContents *Install_Logs_Log_Communication_LogContents) GetEntityData() *
     logContents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logContents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    logContents.EntityData.Children = make(map[string]types.YChild)
-    logContents.EntityData.Children["v3"] = types.YChild{"V3", &logContents.V3}
-    logContents.EntityData.Leafs = make(map[string]types.YLeaf)
-    logContents.EntityData.Leafs["version"] = types.YLeaf{"Version", logContents.Version}
+    logContents.EntityData.Children = types.NewOrderedMap()
+    logContents.EntityData.Children.Append("v3", types.YChild{"V3", &logContents.V3})
+    logContents.EntityData.Leafs = types.NewOrderedMap()
+    logContents.EntityData.Leafs.Append("version", types.YLeaf{"Version", logContents.Version})
+
+    logContents.EntityData.YListKeys = []string {}
+
     return &(logContents.EntityData)
 }
 
@@ -6088,11 +6538,14 @@ func (v3 *Install_Logs_Log_Communication_LogContents_V3) GetEntityData() *types.
     v3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     v3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    v3.EntityData.Children = make(map[string]types.YChild)
-    v3.EntityData.Children["scope"] = types.YChild{"Scope", &v3.Scope}
-    v3.EntityData.Leafs = make(map[string]types.YLeaf)
-    v3.EntityData.Leafs["category"] = types.YLeaf{"Category", v3.Category}
-    v3.EntityData.Leafs["message"] = types.YLeaf{"Message", v3.Message}
+    v3.EntityData.Children = types.NewOrderedMap()
+    v3.EntityData.Children.Append("scope", types.YChild{"Scope", &v3.Scope})
+    v3.EntityData.Leafs = types.NewOrderedMap()
+    v3.EntityData.Leafs.Append("category", types.YLeaf{"Category", v3.Category})
+    v3.EntityData.Leafs.Append("message", types.YLeaf{"Message", v3.Message})
+
+    v3.EntityData.YListKeys = []string {}
+
     return &(v3.EntityData)
 }
 
@@ -6120,10 +6573,13 @@ func (scope *Install_Logs_Log_Communication_LogContents_V3_Scope) GetEntityData(
     scope.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scope.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    scope.EntityData.Children = make(map[string]types.YChild)
-    scope.EntityData.Leafs = make(map[string]types.YLeaf)
-    scope.EntityData.Leafs["admin-read"] = types.YLeaf{"AdminRead", scope.AdminRead}
-    scope.EntityData.Leafs["affected-sd-rs"] = types.YLeaf{"AffectedSdRs", scope.AffectedSdRs}
+    scope.EntityData.Children = types.NewOrderedMap()
+    scope.EntityData.Leafs = types.NewOrderedMap()
+    scope.EntityData.Leafs.Append("admin-read", types.YLeaf{"AdminRead", scope.AdminRead})
+    scope.EntityData.Leafs.Append("affected-sd-rs", types.YLeaf{"AffectedSdRs", scope.AffectedSdRs})
+
+    scope.EntityData.YListKeys = []string {}
+
     return &(scope.EntityData)
 }
 

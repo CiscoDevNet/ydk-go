@@ -29,9 +29,13 @@ module Cisco-IOS-XR-policy-repository-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2017-05-01 {
+  revision 2017-09-07 {
     description
-      "Fixing backward compatibility error in module.";
+      "Fixing prepend/append/remove containers.";
+  }
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
   }
   revision 2015-08-27 {
     description
@@ -413,14 +417,14 @@ module Cisco-IOS-XR-policy-repository-cfg {
       description
         "Limits for Routing Policy";
       leaf maximum-lines-of-policy {
-        type int32;
+        type uint32;
         default "131072";
         description
           "Maximum number of lines of policy configuration
            that may be configured in total";
       }
       leaf maximum-number-of-policies {
-        type int32;
+        type uint32;
         default "5000";
         description
           "Maximum number of policies that may be

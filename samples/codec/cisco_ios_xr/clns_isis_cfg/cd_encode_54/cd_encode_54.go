@@ -75,8 +75,8 @@ func configIsis(isis *isisCfg.Isis) {
 
 	// loopback interface
 	instance.Interfaces = isisCfg.Isis_Instances_Instance_Interfaces{
-		Interface_: make([]isisCfg.Isis_Instances_Instance_Interfaces_Interface, 2) }
-	intrface := &instance.Interfaces.Interface_[0]
+		Interface: make([]isisCfg.Isis_Instances_Instance_Interfaces_Interface, 2) }
+	intrface := &instance.Interfaces.Interface[0]
 	intrface.InterfaceName = "Loopback0"
 	intrface.Running = types.Empty{}
 	intrface.State = isisCfg.IsisInterfaceState_passive
@@ -99,7 +99,7 @@ func configIsis(isis *isisCfg.Isis) {
 	prefixSID.NflagClear = isisCfg.NflagClear_disable
 
 	// gi0/0/0/0 interface
-	intrface = &instance.Interfaces.Interface_[1]
+	intrface = &instance.Interfaces.Interface[1]
 	intrface.InterfaceName = "GigabitEthernet0/0/0/0"
 	intrface.Running = types.Empty{}
 	intrface.PointToPoint = types.Empty{}

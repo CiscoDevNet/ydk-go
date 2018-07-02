@@ -35,7 +35,7 @@ type MPLSLDPGENERICSTDMIB struct {
     // generic labels, or a 'label range' for LDP Entities.  LDP Entities which
     // use Generic Labels must have at least one entry in this table.  In other
     // words, this table 'extends' the mpldLdpEntityTable for Generic Labels.
-    Mplsldpentitygenericlrtable MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable
+    MplsLdpEntityGenericLRTable MPLSLDPGENERICSTDMIB_MplsLdpEntityGenericLRTable
 }
 
 func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) GetEntityData() *types.CommonEntityData {
@@ -48,13 +48,16 @@ func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) GetEntityData() *types.CommonE
     mPLSLDPGENERICSTDMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mPLSLDPGENERICSTDMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mPLSLDPGENERICSTDMIB.EntityData.Children = make(map[string]types.YChild)
-    mPLSLDPGENERICSTDMIB.EntityData.Children["mplsLdpEntityGenericLRTable"] = types.YChild{"Mplsldpentitygenericlrtable", &mPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable}
-    mPLSLDPGENERICSTDMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    mPLSLDPGENERICSTDMIB.EntityData.Children = types.NewOrderedMap()
+    mPLSLDPGENERICSTDMIB.EntityData.Children.Append("mplsLdpEntityGenericLRTable", types.YChild{"MplsLdpEntityGenericLRTable", &mPLSLDPGENERICSTDMIB.MplsLdpEntityGenericLRTable})
+    mPLSLDPGENERICSTDMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    mPLSLDPGENERICSTDMIB.EntityData.YListKeys = []string {}
+
     return &(mPLSLDPGENERICSTDMIB.EntityData)
 }
 
-// MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable
+// MPLSLDPGENERICSTDMIB_MplsLdpEntityGenericLRTable
 // The MPLS LDP Entity Generic Label Range (LR)
 // Table.
 // 
@@ -65,7 +68,7 @@ func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) GetEntityData() *types.CommonE
 // LDP Entities which use Generic Labels must have at least
 // one entry in this table.  In other words, this table
 // 'extends' the mpldLdpEntityTable for Generic Labels.
-type MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable struct {
+type MPLSLDPGENERICSTDMIB_MplsLdpEntityGenericLRTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -77,30 +80,33 @@ type MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable struct {
     // NOTE:  The ranges for a specific LDP Entity are UNIQUE and non-overlapping.
     // A row will not be created unless a unique and non-overlapping range is
     // specified. The type is slice of
-    // MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry.
-    Mplsldpentitygenericlrentry []MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry
+    // MPLSLDPGENERICSTDMIB_MplsLdpEntityGenericLRTable_MplsLdpEntityGenericLREntry.
+    MplsLdpEntityGenericLREntry []*MPLSLDPGENERICSTDMIB_MplsLdpEntityGenericLRTable_MplsLdpEntityGenericLREntry
 }
 
-func (mplsldpentitygenericlrtable *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable) GetEntityData() *types.CommonEntityData {
-    mplsldpentitygenericlrtable.EntityData.YFilter = mplsldpentitygenericlrtable.YFilter
-    mplsldpentitygenericlrtable.EntityData.YangName = "mplsLdpEntityGenericLRTable"
-    mplsldpentitygenericlrtable.EntityData.BundleName = "cisco_ios_xe"
-    mplsldpentitygenericlrtable.EntityData.ParentYangName = "MPLS-LDP-GENERIC-STD-MIB"
-    mplsldpentitygenericlrtable.EntityData.SegmentPath = "mplsLdpEntityGenericLRTable"
-    mplsldpentitygenericlrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsldpentitygenericlrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsldpentitygenericlrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsLdpEntityGenericLRTable *MPLSLDPGENERICSTDMIB_MplsLdpEntityGenericLRTable) GetEntityData() *types.CommonEntityData {
+    mplsLdpEntityGenericLRTable.EntityData.YFilter = mplsLdpEntityGenericLRTable.YFilter
+    mplsLdpEntityGenericLRTable.EntityData.YangName = "mplsLdpEntityGenericLRTable"
+    mplsLdpEntityGenericLRTable.EntityData.BundleName = "cisco_ios_xe"
+    mplsLdpEntityGenericLRTable.EntityData.ParentYangName = "MPLS-LDP-GENERIC-STD-MIB"
+    mplsLdpEntityGenericLRTable.EntityData.SegmentPath = "mplsLdpEntityGenericLRTable"
+    mplsLdpEntityGenericLRTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsLdpEntityGenericLRTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsLdpEntityGenericLRTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsldpentitygenericlrtable.EntityData.Children = make(map[string]types.YChild)
-    mplsldpentitygenericlrtable.EntityData.Children["mplsLdpEntityGenericLREntry"] = types.YChild{"Mplsldpentitygenericlrentry", nil}
-    for i := range mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry {
-        mplsldpentitygenericlrtable.EntityData.Children[types.GetSegmentPath(&mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry[i])] = types.YChild{"Mplsldpentitygenericlrentry", &mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry[i]}
+    mplsLdpEntityGenericLRTable.EntityData.Children = types.NewOrderedMap()
+    mplsLdpEntityGenericLRTable.EntityData.Children.Append("mplsLdpEntityGenericLREntry", types.YChild{"MplsLdpEntityGenericLREntry", nil})
+    for i := range mplsLdpEntityGenericLRTable.MplsLdpEntityGenericLREntry {
+        mplsLdpEntityGenericLRTable.EntityData.Children.Append(types.GetSegmentPath(mplsLdpEntityGenericLRTable.MplsLdpEntityGenericLREntry[i]), types.YChild{"MplsLdpEntityGenericLREntry", mplsLdpEntityGenericLRTable.MplsLdpEntityGenericLREntry[i]})
     }
-    mplsldpentitygenericlrtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(mplsldpentitygenericlrtable.EntityData)
+    mplsLdpEntityGenericLRTable.EntityData.Leafs = types.NewOrderedMap()
+
+    mplsLdpEntityGenericLRTable.EntityData.YListKeys = []string {}
+
+    return &(mplsLdpEntityGenericLRTable.EntityData)
 }
 
-// MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry
+// MPLSLDPGENERICSTDMIB_MplsLdpEntityGenericLRTable_MplsLdpEntityGenericLREntry
 // A row in the LDP Entity Generic Label
 // Range (LR) Table.  One entry in this table contains
 // information on a single range of labels
@@ -116,32 +122,32 @@ func (mplsldpentitygenericlrtable *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrta
 // 
 // A row will not be created unless a unique and
 // non-overlapping range is specified.
-type MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry struct {
+type MPLSLDPGENERICSTDMIB_MplsLdpEntityGenericLRTable_MplsLdpEntityGenericLREntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string. Refers to
-    // mpls_ldp_std_mib.MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityldpid
-    Mplsldpentityldpid interface{}
+    // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityLdpId
+    MplsLdpEntityLdpId interface{}
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // mpls_ldp_std_mib.MPLSLDPSTDMIB_Mplsldpentitytable_Mplsldpentityentry_Mplsldpentityindex
-    Mplsldpentityindex interface{}
+    // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityIndex
+    MplsLdpEntityIndex interface{}
 
     // This attribute is a key. The minimum label configured for this range. The
     // type is interface{} with range: 0..1048575.
-    Mplsldpentitygenericlrmin interface{}
+    MplsLdpEntityGenericLRMin interface{}
 
     // This attribute is a key. The maximum label configured for this range. The
     // type is interface{} with range: 0..1048575.
-    Mplsldpentitygenericlrmax interface{}
+    MplsLdpEntityGenericLRMax interface{}
 
     // This value of this object is perPlatform(1), then this means that the label
     // space type is per platform.  If this object is perInterface(2), then this
     // means that the label space type is per Interface. The type is
-    // Mplsldpentitygenericlabelspace.
-    Mplsldpentitygenericlabelspace interface{}
+    // MplsLdpEntityGenericLabelSpace.
+    MplsLdpEntityGenericLabelSpace interface{}
 
     // This value represents either the InterfaceIndex of the 'ifLayer' where
     // these Generic Label would be created,   or 0 (zero).  The value of zero
@@ -151,12 +157,12 @@ type MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentr
     // responsible for this object MUST change the value from 0 (zero) to the
     // value of the InterfaceIndex. The type is interface{} with range:
     // 0..2147483647.
-    Mplsldpentitygenericifindexorzero interface{}
+    MplsLdpEntityGenericIfIndexOrZero interface{}
 
     // The storage type for this conceptual row. Conceptual rows having the value
     // 'permanent(4)' need not allow write-access to any columnar objects in the
     // row. The type is StorageType.
-    Mplsldpentitygenericlrstoragetype interface{}
+    MplsLdpEntityGenericLRStorageType interface{}
 
     // The status of this conceptual row.  All writable objects in this row may be
     // modified at any time, however, as described in  detail in the section
@@ -170,38 +176,41 @@ type MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentr
     // enables a new session to be initiated.  There must exist at least one entry
     // in this table for every LDP Entity that has a generic label configured. The
     // type is RowStatus.
-    Mplsldpentitygenericlrrowstatus interface{}
+    MplsLdpEntityGenericLRRowStatus interface{}
 }
 
-func (mplsldpentitygenericlrentry *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry) GetEntityData() *types.CommonEntityData {
-    mplsldpentitygenericlrentry.EntityData.YFilter = mplsldpentitygenericlrentry.YFilter
-    mplsldpentitygenericlrentry.EntityData.YangName = "mplsLdpEntityGenericLREntry"
-    mplsldpentitygenericlrentry.EntityData.BundleName = "cisco_ios_xe"
-    mplsldpentitygenericlrentry.EntityData.ParentYangName = "mplsLdpEntityGenericLRTable"
-    mplsldpentitygenericlrentry.EntityData.SegmentPath = "mplsLdpEntityGenericLREntry" + "[mplsLdpEntityLdpId='" + fmt.Sprintf("%v", mplsldpentitygenericlrentry.Mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + fmt.Sprintf("%v", mplsldpentitygenericlrentry.Mplsldpentityindex) + "']" + "[mplsLdpEntityGenericLRMin='" + fmt.Sprintf("%v", mplsldpentitygenericlrentry.Mplsldpentitygenericlrmin) + "']" + "[mplsLdpEntityGenericLRMax='" + fmt.Sprintf("%v", mplsldpentitygenericlrentry.Mplsldpentitygenericlrmax) + "']"
-    mplsldpentitygenericlrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mplsldpentitygenericlrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mplsldpentitygenericlrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mplsLdpEntityGenericLREntry *MPLSLDPGENERICSTDMIB_MplsLdpEntityGenericLRTable_MplsLdpEntityGenericLREntry) GetEntityData() *types.CommonEntityData {
+    mplsLdpEntityGenericLREntry.EntityData.YFilter = mplsLdpEntityGenericLREntry.YFilter
+    mplsLdpEntityGenericLREntry.EntityData.YangName = "mplsLdpEntityGenericLREntry"
+    mplsLdpEntityGenericLREntry.EntityData.BundleName = "cisco_ios_xe"
+    mplsLdpEntityGenericLREntry.EntityData.ParentYangName = "mplsLdpEntityGenericLRTable"
+    mplsLdpEntityGenericLREntry.EntityData.SegmentPath = "mplsLdpEntityGenericLREntry" + types.AddKeyToken(mplsLdpEntityGenericLREntry.MplsLdpEntityLdpId, "mplsLdpEntityLdpId") + types.AddKeyToken(mplsLdpEntityGenericLREntry.MplsLdpEntityIndex, "mplsLdpEntityIndex") + types.AddKeyToken(mplsLdpEntityGenericLREntry.MplsLdpEntityGenericLRMin, "mplsLdpEntityGenericLRMin") + types.AddKeyToken(mplsLdpEntityGenericLREntry.MplsLdpEntityGenericLRMax, "mplsLdpEntityGenericLRMax")
+    mplsLdpEntityGenericLREntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsLdpEntityGenericLREntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsLdpEntityGenericLREntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mplsldpentitygenericlrentry.EntityData.Children = make(map[string]types.YChild)
-    mplsldpentitygenericlrentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    mplsldpentitygenericlrentry.EntityData.Leafs["mplsLdpEntityLdpId"] = types.YLeaf{"Mplsldpentityldpid", mplsldpentitygenericlrentry.Mplsldpentityldpid}
-    mplsldpentitygenericlrentry.EntityData.Leafs["mplsLdpEntityIndex"] = types.YLeaf{"Mplsldpentityindex", mplsldpentitygenericlrentry.Mplsldpentityindex}
-    mplsldpentitygenericlrentry.EntityData.Leafs["mplsLdpEntityGenericLRMin"] = types.YLeaf{"Mplsldpentitygenericlrmin", mplsldpentitygenericlrentry.Mplsldpentitygenericlrmin}
-    mplsldpentitygenericlrentry.EntityData.Leafs["mplsLdpEntityGenericLRMax"] = types.YLeaf{"Mplsldpentitygenericlrmax", mplsldpentitygenericlrentry.Mplsldpentitygenericlrmax}
-    mplsldpentitygenericlrentry.EntityData.Leafs["mplsLdpEntityGenericLabelSpace"] = types.YLeaf{"Mplsldpentitygenericlabelspace", mplsldpentitygenericlrentry.Mplsldpentitygenericlabelspace}
-    mplsldpentitygenericlrentry.EntityData.Leafs["mplsLdpEntityGenericIfIndexOrZero"] = types.YLeaf{"Mplsldpentitygenericifindexorzero", mplsldpentitygenericlrentry.Mplsldpentitygenericifindexorzero}
-    mplsldpentitygenericlrentry.EntityData.Leafs["mplsLdpEntityGenericLRStorageType"] = types.YLeaf{"Mplsldpentitygenericlrstoragetype", mplsldpentitygenericlrentry.Mplsldpentitygenericlrstoragetype}
-    mplsldpentitygenericlrentry.EntityData.Leafs["mplsLdpEntityGenericLRRowStatus"] = types.YLeaf{"Mplsldpentitygenericlrrowstatus", mplsldpentitygenericlrentry.Mplsldpentitygenericlrrowstatus}
-    return &(mplsldpentitygenericlrentry.EntityData)
+    mplsLdpEntityGenericLREntry.EntityData.Children = types.NewOrderedMap()
+    mplsLdpEntityGenericLREntry.EntityData.Leafs = types.NewOrderedMap()
+    mplsLdpEntityGenericLREntry.EntityData.Leafs.Append("mplsLdpEntityLdpId", types.YLeaf{"MplsLdpEntityLdpId", mplsLdpEntityGenericLREntry.MplsLdpEntityLdpId})
+    mplsLdpEntityGenericLREntry.EntityData.Leafs.Append("mplsLdpEntityIndex", types.YLeaf{"MplsLdpEntityIndex", mplsLdpEntityGenericLREntry.MplsLdpEntityIndex})
+    mplsLdpEntityGenericLREntry.EntityData.Leafs.Append("mplsLdpEntityGenericLRMin", types.YLeaf{"MplsLdpEntityGenericLRMin", mplsLdpEntityGenericLREntry.MplsLdpEntityGenericLRMin})
+    mplsLdpEntityGenericLREntry.EntityData.Leafs.Append("mplsLdpEntityGenericLRMax", types.YLeaf{"MplsLdpEntityGenericLRMax", mplsLdpEntityGenericLREntry.MplsLdpEntityGenericLRMax})
+    mplsLdpEntityGenericLREntry.EntityData.Leafs.Append("mplsLdpEntityGenericLabelSpace", types.YLeaf{"MplsLdpEntityGenericLabelSpace", mplsLdpEntityGenericLREntry.MplsLdpEntityGenericLabelSpace})
+    mplsLdpEntityGenericLREntry.EntityData.Leafs.Append("mplsLdpEntityGenericIfIndexOrZero", types.YLeaf{"MplsLdpEntityGenericIfIndexOrZero", mplsLdpEntityGenericLREntry.MplsLdpEntityGenericIfIndexOrZero})
+    mplsLdpEntityGenericLREntry.EntityData.Leafs.Append("mplsLdpEntityGenericLRStorageType", types.YLeaf{"MplsLdpEntityGenericLRStorageType", mplsLdpEntityGenericLREntry.MplsLdpEntityGenericLRStorageType})
+    mplsLdpEntityGenericLREntry.EntityData.Leafs.Append("mplsLdpEntityGenericLRRowStatus", types.YLeaf{"MplsLdpEntityGenericLRRowStatus", mplsLdpEntityGenericLREntry.MplsLdpEntityGenericLRRowStatus})
+
+    mplsLdpEntityGenericLREntry.EntityData.YListKeys = []string {"MplsLdpEntityLdpId", "MplsLdpEntityIndex", "MplsLdpEntityGenericLRMin", "MplsLdpEntityGenericLRMax"}
+
+    return &(mplsLdpEntityGenericLREntry.EntityData)
 }
 
-// MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry_Mplsldpentitygenericlabelspace represents means that the label space type is per Interface.
-type MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry_Mplsldpentitygenericlabelspace string
+// MPLSLDPGENERICSTDMIB_MplsLdpEntityGenericLRTable_MplsLdpEntityGenericLREntry_MplsLdpEntityGenericLabelSpace represents means that the label space type is per Interface.
+type MPLSLDPGENERICSTDMIB_MplsLdpEntityGenericLRTable_MplsLdpEntityGenericLREntry_MplsLdpEntityGenericLabelSpace string
 
 const (
-    MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry_Mplsldpentitygenericlabelspace_perPlatform MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry_Mplsldpentitygenericlabelspace = "perPlatform"
+    MPLSLDPGENERICSTDMIB_MplsLdpEntityGenericLRTable_MplsLdpEntityGenericLREntry_MplsLdpEntityGenericLabelSpace_perPlatform MPLSLDPGENERICSTDMIB_MplsLdpEntityGenericLRTable_MplsLdpEntityGenericLREntry_MplsLdpEntityGenericLabelSpace = "perPlatform"
 
-    MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry_Mplsldpentitygenericlabelspace_perInterface MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry_Mplsldpentitygenericlabelspace = "perInterface"
+    MPLSLDPGENERICSTDMIB_MplsLdpEntityGenericLRTable_MplsLdpEntityGenericLREntry_MplsLdpEntityGenericLabelSpace_perInterface MPLSLDPGENERICSTDMIB_MplsLdpEntityGenericLRTable_MplsLdpEntityGenericLREntry_MplsLdpEntityGenericLabelSpace = "perInterface"
 )
 

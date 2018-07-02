@@ -48,6 +48,55 @@ module Cisco-IOS-XR-freqsync-datatypes {
       "Fsync ql option";
   }
 
+  typedef Gnss1pps-polarity {
+    type enumeration {
+      enum "positive" {
+        value 0;
+        description
+          "Positive 1PPS polarity";
+      }
+      enum "negative" {
+        value 1;
+        description
+          "Negative 1PPS polarity";
+      }
+    }
+    description
+      "Gnss1pps polarity";
+  }
+
+  typedef Gnss-constellation {
+    type enumeration {
+      enum "auto" {
+        value 0;
+        description
+          "Unicast communication";
+      }
+      enum "gps" {
+        value 1;
+        description
+          "GPS constellation";
+      }
+      enum "galileo" {
+        value 2;
+        description
+          "Galileo constellation";
+      }
+      enum "bei-dou" {
+        value 3;
+        description
+          "BeiDou constellation";
+      }
+      enum "qzss" {
+        value 4;
+        description
+          "QZSS constellation";
+      }
+    }
+    description
+      "Gnss constellation";
+  }
+
   typedef Fsync-clock {
     type enumeration {
       enum "sync" {
@@ -59,6 +108,11 @@ module Cisco-IOS-XR-freqsync-datatypes {
         value 4;
         description
           "Internal clock";
+      }
+      enum "gnss" {
+        value 8;
+        description
+          "GNSS receiver";
       }
     }
     description

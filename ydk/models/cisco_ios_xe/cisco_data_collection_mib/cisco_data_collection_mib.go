@@ -162,17 +162,6 @@ func init() {
     ydk.RegisterEntity("CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB", reflect.TypeOf(CISCODATACOLLECTIONMIB{}))
 }
 
-// CdcFileFormat represents  immediately precedes the next tag or the end of file.
-type CdcFileFormat string
-
-const (
-    CdcFileFormat_cdcBulkASCII CdcFileFormat = "cdcBulkASCII"
-
-    CdcFileFormat_cdcBulkBinary CdcFileFormat = "cdcBulkBinary"
-
-    CdcFileFormat_cdcSchemaASCII CdcFileFormat = "cdcSchemaASCII"
-)
-
 // CdcFileXferStatus represents                        of FTP(File Transfer Protocol).
 type CdcFileXferStatus string
 
@@ -196,33 +185,44 @@ const (
     CdcFileXferStatus_authFailed CdcFileXferStatus = "authFailed"
 )
 
+// CdcFileFormat represents  immediately precedes the next tag or the end of file.
+type CdcFileFormat string
+
+const (
+    CdcFileFormat_cdcBulkASCII CdcFileFormat = "cdcBulkASCII"
+
+    CdcFileFormat_cdcBulkBinary CdcFileFormat = "cdcBulkBinary"
+
+    CdcFileFormat_cdcSchemaASCII CdcFileFormat = "cdcSchemaASCII"
+)
+
 // CISCODATACOLLECTIONMIB
 type CISCODATACOLLECTIONMIB struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
-    Cdcvfile CISCODATACOLLECTIONMIB_Cdcvfile
+    CdcVFile CISCODATACOLLECTIONMIB_CdcVFile
 
     // A table for setting up VFiles for collecting data.
-    Cdcvfiletable CISCODATACOLLECTIONMIB_Cdcvfiletable
+    CdcVFileTable CISCODATACOLLECTIONMIB_CdcVFileTable
 
     // A table to manage frozen VFiles.
-    Cdcvfilemgmttable CISCODATACOLLECTIONMIB_Cdcvfilemgmttable
+    CdcVFileMgmtTable CISCODATACOLLECTIONMIB_CdcVFileMgmtTable
 
     // A table for specifying data groups.
-    Cdcdgtable CISCODATACOLLECTIONMIB_Cdcdgtable
+    CdcDGTable CISCODATACOLLECTIONMIB_CdcDGTable
 
     // A table specifying the base objects of a 'table' type data group.
-    Cdcdgbaseobjecttable CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable
+    CdcDGBaseObjectTable CISCODATACOLLECTIONMIB_CdcDGBaseObjectTable
 
     // Identifies the instances of the base objects that need to be fetched for a
     // 'table' type data group.  The agent is not responsible for verifying that
     // the instances specified for a data group do not overlap.
-    Cdcdginstancetable CISCODATACOLLECTIONMIB_Cdcdginstancetable
+    CdcDGInstanceTable CISCODATACOLLECTIONMIB_CdcDGInstanceTable
 
     // A table for configuring file transfer operations.
-    Cdcfilexferconftable CISCODATACOLLECTIONMIB_Cdcfilexferconftable
+    CdcFileXferConfTable CISCODATACOLLECTIONMIB_CdcFileXferConfTable
 }
 
 func (cISCODATACOLLECTIONMIB *CISCODATACOLLECTIONMIB) GetEntityData() *types.CommonEntityData {
@@ -235,55 +235,61 @@ func (cISCODATACOLLECTIONMIB *CISCODATACOLLECTIONMIB) GetEntityData() *types.Com
     cISCODATACOLLECTIONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCODATACOLLECTIONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCODATACOLLECTIONMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCODATACOLLECTIONMIB.EntityData.Children["cdcVFile"] = types.YChild{"Cdcvfile", &cISCODATACOLLECTIONMIB.Cdcvfile}
-    cISCODATACOLLECTIONMIB.EntityData.Children["cdcVFileTable"] = types.YChild{"Cdcvfiletable", &cISCODATACOLLECTIONMIB.Cdcvfiletable}
-    cISCODATACOLLECTIONMIB.EntityData.Children["cdcVFileMgmtTable"] = types.YChild{"Cdcvfilemgmttable", &cISCODATACOLLECTIONMIB.Cdcvfilemgmttable}
-    cISCODATACOLLECTIONMIB.EntityData.Children["cdcDGTable"] = types.YChild{"Cdcdgtable", &cISCODATACOLLECTIONMIB.Cdcdgtable}
-    cISCODATACOLLECTIONMIB.EntityData.Children["cdcDGBaseObjectTable"] = types.YChild{"Cdcdgbaseobjecttable", &cISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable}
-    cISCODATACOLLECTIONMIB.EntityData.Children["cdcDGInstanceTable"] = types.YChild{"Cdcdginstancetable", &cISCODATACOLLECTIONMIB.Cdcdginstancetable}
-    cISCODATACOLLECTIONMIB.EntityData.Children["cdcFileXferConfTable"] = types.YChild{"Cdcfilexferconftable", &cISCODATACOLLECTIONMIB.Cdcfilexferconftable}
-    cISCODATACOLLECTIONMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCODATACOLLECTIONMIB.EntityData.Children = types.NewOrderedMap()
+    cISCODATACOLLECTIONMIB.EntityData.Children.Append("cdcVFile", types.YChild{"CdcVFile", &cISCODATACOLLECTIONMIB.CdcVFile})
+    cISCODATACOLLECTIONMIB.EntityData.Children.Append("cdcVFileTable", types.YChild{"CdcVFileTable", &cISCODATACOLLECTIONMIB.CdcVFileTable})
+    cISCODATACOLLECTIONMIB.EntityData.Children.Append("cdcVFileMgmtTable", types.YChild{"CdcVFileMgmtTable", &cISCODATACOLLECTIONMIB.CdcVFileMgmtTable})
+    cISCODATACOLLECTIONMIB.EntityData.Children.Append("cdcDGTable", types.YChild{"CdcDGTable", &cISCODATACOLLECTIONMIB.CdcDGTable})
+    cISCODATACOLLECTIONMIB.EntityData.Children.Append("cdcDGBaseObjectTable", types.YChild{"CdcDGBaseObjectTable", &cISCODATACOLLECTIONMIB.CdcDGBaseObjectTable})
+    cISCODATACOLLECTIONMIB.EntityData.Children.Append("cdcDGInstanceTable", types.YChild{"CdcDGInstanceTable", &cISCODATACOLLECTIONMIB.CdcDGInstanceTable})
+    cISCODATACOLLECTIONMIB.EntityData.Children.Append("cdcFileXferConfTable", types.YChild{"CdcFileXferConfTable", &cISCODATACOLLECTIONMIB.CdcFileXferConfTable})
+    cISCODATACOLLECTIONMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCODATACOLLECTIONMIB.EntityData.YListKeys = []string {}
+
     return &(cISCODATACOLLECTIONMIB.EntityData)
 }
 
-// CISCODATACOLLECTIONMIB_Cdcvfile
-type CISCODATACOLLECTIONMIB_Cdcvfile struct {
+// CISCODATACOLLECTIONMIB_CdcVFile
+type CISCODATACOLLECTIONMIB_CdcVFile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object's value reads 'true', if the agent implementation of this MIB
     // supports placement of VFiles in application specified persistent storage
     // locations. Otherwise  the value is 'false'. The type is bool.
-    Cdcvfilepersistentstorage interface{}
+    CdcVFilePersistentStorage interface{}
 
     // A global limit for the number of consecutive times the maximum VFile size
     // (cdcVFileMaxSize) is exceeded for a given VFile. When this limit is
     // exceeded the offending cdcVFileEntry is moved to the error state (see
     // cdcVFileOperStatus). The type is interface{} with range: 1..4294967295.
-    Cdcvfilemaxsizehitslimit interface{}
+    CdcVFileMaxSizeHitsLimit interface{}
 }
 
-func (cdcvfile *CISCODATACOLLECTIONMIB_Cdcvfile) GetEntityData() *types.CommonEntityData {
-    cdcvfile.EntityData.YFilter = cdcvfile.YFilter
-    cdcvfile.EntityData.YangName = "cdcVFile"
-    cdcvfile.EntityData.BundleName = "cisco_ios_xe"
-    cdcvfile.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
-    cdcvfile.EntityData.SegmentPath = "cdcVFile"
-    cdcvfile.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdcvfile.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdcvfile.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdcVFile *CISCODATACOLLECTIONMIB_CdcVFile) GetEntityData() *types.CommonEntityData {
+    cdcVFile.EntityData.YFilter = cdcVFile.YFilter
+    cdcVFile.EntityData.YangName = "cdcVFile"
+    cdcVFile.EntityData.BundleName = "cisco_ios_xe"
+    cdcVFile.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
+    cdcVFile.EntityData.SegmentPath = "cdcVFile"
+    cdcVFile.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcVFile.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcVFile.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdcvfile.EntityData.Children = make(map[string]types.YChild)
-    cdcvfile.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdcvfile.EntityData.Leafs["cdcVFilePersistentStorage"] = types.YLeaf{"Cdcvfilepersistentstorage", cdcvfile.Cdcvfilepersistentstorage}
-    cdcvfile.EntityData.Leafs["cdcVFileMaxSizeHitsLimit"] = types.YLeaf{"Cdcvfilemaxsizehitslimit", cdcvfile.Cdcvfilemaxsizehitslimit}
-    return &(cdcvfile.EntityData)
+    cdcVFile.EntityData.Children = types.NewOrderedMap()
+    cdcVFile.EntityData.Leafs = types.NewOrderedMap()
+    cdcVFile.EntityData.Leafs.Append("cdcVFilePersistentStorage", types.YLeaf{"CdcVFilePersistentStorage", cdcVFile.CdcVFilePersistentStorage})
+    cdcVFile.EntityData.Leafs.Append("cdcVFileMaxSizeHitsLimit", types.YLeaf{"CdcVFileMaxSizeHitsLimit", cdcVFile.CdcVFileMaxSizeHitsLimit})
+
+    cdcVFile.EntityData.YListKeys = []string {}
+
+    return &(cdcVFile.EntityData)
 }
 
-// CISCODATACOLLECTIONMIB_Cdcvfiletable
+// CISCODATACOLLECTIONMIB_CdcVFileTable
 // A table for setting up VFiles for collecting data.
-type CISCODATACOLLECTIONMIB_Cdcvfiletable struct {
+type CISCODATACOLLECTIONMIB_CdcVFileTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -297,30 +303,33 @@ type CISCODATACOLLECTIONMIB_Cdcvfiletable struct {
     // the condition evaluates to 'true' is called the activation time of the
     // entry. The activation time for each entry is maintained internally by the
     // agent. The type is slice of
-    // CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry.
-    Cdcvfileentry []CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry
+    // CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry.
+    CdcVFileEntry []*CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry
 }
 
-func (cdcvfiletable *CISCODATACOLLECTIONMIB_Cdcvfiletable) GetEntityData() *types.CommonEntityData {
-    cdcvfiletable.EntityData.YFilter = cdcvfiletable.YFilter
-    cdcvfiletable.EntityData.YangName = "cdcVFileTable"
-    cdcvfiletable.EntityData.BundleName = "cisco_ios_xe"
-    cdcvfiletable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
-    cdcvfiletable.EntityData.SegmentPath = "cdcVFileTable"
-    cdcvfiletable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdcvfiletable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdcvfiletable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdcVFileTable *CISCODATACOLLECTIONMIB_CdcVFileTable) GetEntityData() *types.CommonEntityData {
+    cdcVFileTable.EntityData.YFilter = cdcVFileTable.YFilter
+    cdcVFileTable.EntityData.YangName = "cdcVFileTable"
+    cdcVFileTable.EntityData.BundleName = "cisco_ios_xe"
+    cdcVFileTable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
+    cdcVFileTable.EntityData.SegmentPath = "cdcVFileTable"
+    cdcVFileTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcVFileTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcVFileTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdcvfiletable.EntityData.Children = make(map[string]types.YChild)
-    cdcvfiletable.EntityData.Children["cdcVFileEntry"] = types.YChild{"Cdcvfileentry", nil}
-    for i := range cdcvfiletable.Cdcvfileentry {
-        cdcvfiletable.EntityData.Children[types.GetSegmentPath(&cdcvfiletable.Cdcvfileentry[i])] = types.YChild{"Cdcvfileentry", &cdcvfiletable.Cdcvfileentry[i]}
+    cdcVFileTable.EntityData.Children = types.NewOrderedMap()
+    cdcVFileTable.EntityData.Children.Append("cdcVFileEntry", types.YChild{"CdcVFileEntry", nil})
+    for i := range cdcVFileTable.CdcVFileEntry {
+        cdcVFileTable.EntityData.Children.Append(types.GetSegmentPath(cdcVFileTable.CdcVFileEntry[i]), types.YChild{"CdcVFileEntry", cdcVFileTable.CdcVFileEntry[i]})
     }
-    cdcvfiletable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cdcvfiletable.EntityData)
+    cdcVFileTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cdcVFileTable.EntityData.YListKeys = []string {}
+
+    return &(cdcVFileTable.EntityData)
 }
 
-// CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry
+// CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry
 // An entry in the cdcVFileTable. Each entry contains
 // application specified configuration that is used to create
 //  virtual files (VFile) and start data collection operations.
@@ -335,7 +344,7 @@ func (cdcvfiletable *CISCODATACOLLECTIONMIB_Cdcvfiletable) GetEntityData() *type
 // the condition evaluates to 'true' is called the activation
 // time of the entry. The activation time for each entry is
 // maintained internally by the agent.
-type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry struct {
+type CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -344,7 +353,7 @@ type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry struct {
     // If the configuration in this entry is persisted across system/agent
     // restarts then the same value of cdcVFileIndex must be assigned to this
     // entry after the restart. The type is interface{} with range: 1..4294967295.
-    Cdcvfileindex interface{}
+    CdcVFileIndex interface{}
 
     // The base-name of the VFiles (created by data collection operations
     // corresponding to this entry) into which data is to be collected.   When a
@@ -363,11 +372,11 @@ type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry struct {
     // be modified at any time. However the new name will be used only when the
     // next VFile is created for this entry. The type is string with length:
     // 0..255.
-    Cdcvfilename interface{}
+    CdcVFileName interface{}
 
     // A string that can be used for administrative purposes.  This object's value
     // may be modified at any time. The type is string.
-    Cdcvfiledescription interface{}
+    CdcVFileDescription interface{}
 
     // An object for controlling collection of data.  'idle'            Indicates
     // that no command is in progress.  'swapToNewFile'   When written, the
@@ -380,8 +389,8 @@ type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry struct {
     // all associated data groups are fetched                    and stored into
     // the current VFile. This                   value can only be written when
     // the                   collection mode is 'manual' (see                   
-    // cdcVFileCollectMode). The type is Cdcvfilecommand.
-    Cdcvfilecommand interface{}
+    // cdcVFileCollectMode). The type is CdcVFileCommand.
+    CdcVFileCommand interface{}
 
     // The maximum size of a VFile.   The agent maintains an internal counter for
     // each cdcVFileEntry. This counter counts the number of consecutive times the
@@ -396,16 +405,16 @@ type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry struct {
     // checked against the size of the current VFile at the time of modification,
     // and appropriate action taken. The type is interface{} with range:
     // 512..4294967295. Units are bytes.
-    Cdcvfilemaxsize interface{}
+    CdcVFileMaxSize interface{}
 
     // The size of the current VFile. The type is interface{} with range:
     // 0..4294967295. Units are bytes.
-    Cdcvfilecurrentsize interface{}
+    CdcVFileCurrentSize interface{}
 
     // The format in which data is stored into the current VFile.  This object's
     // value cannot be modified while the entry is in the 'activated' state. The
     // type is CdcFileFormat.
-    Cdcvfileformat interface{}
+    CdcVFileFormat interface{}
 
     // Determines the mode of data collection.  'auto'         Data is
     // periodically fetched for all data                groups associated with
@@ -418,8 +427,8 @@ type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry struct {
     // is fetched and                collected into the current VFile only when   
     // cdcVFileCommand is set to 'collectNow'.   This object's value cannot be
     // modified while the entry is in the 'activated' state. The type is
-    // Cdcvfilecollectmode.
-    Cdcvfilecollectmode interface{}
+    // CdcVFileCollectMode.
+    CdcVFileCollectMode interface{}
 
     // Specifies the period of a collection interval. The value of this object is
     // used only when the data collection mode is  automatic (see
@@ -435,7 +444,7 @@ type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry struct {
     // effect immediately. i.e setting a new  value can cause the current
     // collection interval to terminate  and a new collection interval to start.
     // The type is interface{} with range: 60..604800. Units are seconds.
-    Cdcvfilecollectionperiod interface{}
+    CdcVFileCollectionPeriod interface{}
 
     // The time for which a frozen VFile is retained by the agent. When a VFile is
     // frozen, a timer (one per frozen VFile) is started to keep track of the
@@ -445,7 +454,7 @@ type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry struct {
     // modified at any time, however the new value will take effect only for new
     // frozen VFiles. The type is interface{} with range: 60..86400. Units are
     // seconds.
-    Cdcvfileretentionperiod interface{}
+    CdcVFileRetentionPeriod interface{}
 
     // A control object to indicate the administratively desired state of data
     // collection for this entry. On setting the value to 'disabled' data
@@ -453,8 +462,8 @@ type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry struct {
     // frozen and it's  transfer is initiated.   Modifying the value of
     // cdcVFileAdminStatus to 'disabled' does not remove or change the current
     // configuration as represented by the active rows in this table. The type is
-    // Cdcvfileadminstatus.
-    Cdcvfileadminstatus interface{}
+    // CdcVFileAdminStatus.
+    CdcVFileAdminStatus interface{}
 
     // A status object to indicate the operational state of collection for this
     // entry.  When the value of cdcVFileAdminStatus is modified to be 'enabled',
@@ -466,8 +475,8 @@ type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry struct {
     // obtained by retrieving the value of cdcVFileErrorCode.   When the value of
     // cdcVFileAdminStatus is modified to be 'disabled', the value of this object
     // will change to 'disabled' and data collection operations are stopped for
-    // this entry. The type is Cdcvfileoperstatus.
-    Cdcvfileoperstatus interface{}
+    // this entry. The type is CdcVFileOperStatus.
+    CdcVFileOperStatus interface{}
 
     // A value indicating the type of error that has occurred during data
     // collection operations for this entry.  noError                The value is
@@ -487,12 +496,12 @@ type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry struct {
     // cdcVFileMaxSizeHitsLimit                        has been exceeded.  
     // noResource             Some kind of resource was unavailable               
     // while collecting data. For                        e.g. unavailability of
-    // dynamic memory. The type is Cdcvfileerrorcode.
-    Cdcvfileerrorcode interface{}
+    // dynamic memory. The type is CdcVFileErrorCode.
+    CdcVFileErrorCode interface{}
 
     // When set to 'true', cdcVFileCollectionError notification will be sent out
     // in the event of a data collection error. The type is bool.
-    Cdcvfilecollectionerrorenable interface{}
+    CdcVFileCollectionErrorEnable interface{}
 
     // The status of this conceptual row.  A valid cdcVFileName is only mandatory
     // object for setting this object to 'active'. But collection of data in to
@@ -500,101 +509,104 @@ type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry struct {
     // Setting this object to 'destroy' stops all data collection operations for
     // this entry, deletes all VFiles and removes this entry from cdcVFileTable.
     // The type is RowStatus.
-    Cdcvfilerowstatus interface{}
+    CdcVFileRowStatus interface{}
 }
 
-func (cdcvfileentry *CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry) GetEntityData() *types.CommonEntityData {
-    cdcvfileentry.EntityData.YFilter = cdcvfileentry.YFilter
-    cdcvfileentry.EntityData.YangName = "cdcVFileEntry"
-    cdcvfileentry.EntityData.BundleName = "cisco_ios_xe"
-    cdcvfileentry.EntityData.ParentYangName = "cdcVFileTable"
-    cdcvfileentry.EntityData.SegmentPath = "cdcVFileEntry" + "[cdcVFileIndex='" + fmt.Sprintf("%v", cdcvfileentry.Cdcvfileindex) + "']"
-    cdcvfileentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdcvfileentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdcvfileentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdcVFileEntry *CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry) GetEntityData() *types.CommonEntityData {
+    cdcVFileEntry.EntityData.YFilter = cdcVFileEntry.YFilter
+    cdcVFileEntry.EntityData.YangName = "cdcVFileEntry"
+    cdcVFileEntry.EntityData.BundleName = "cisco_ios_xe"
+    cdcVFileEntry.EntityData.ParentYangName = "cdcVFileTable"
+    cdcVFileEntry.EntityData.SegmentPath = "cdcVFileEntry" + types.AddKeyToken(cdcVFileEntry.CdcVFileIndex, "cdcVFileIndex")
+    cdcVFileEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcVFileEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcVFileEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdcvfileentry.EntityData.Children = make(map[string]types.YChild)
-    cdcvfileentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdcvfileentry.EntityData.Leafs["cdcVFileIndex"] = types.YLeaf{"Cdcvfileindex", cdcvfileentry.Cdcvfileindex}
-    cdcvfileentry.EntityData.Leafs["cdcVFileName"] = types.YLeaf{"Cdcvfilename", cdcvfileentry.Cdcvfilename}
-    cdcvfileentry.EntityData.Leafs["cdcVFileDescription"] = types.YLeaf{"Cdcvfiledescription", cdcvfileentry.Cdcvfiledescription}
-    cdcvfileentry.EntityData.Leafs["cdcVFileCommand"] = types.YLeaf{"Cdcvfilecommand", cdcvfileentry.Cdcvfilecommand}
-    cdcvfileentry.EntityData.Leafs["cdcVFileMaxSize"] = types.YLeaf{"Cdcvfilemaxsize", cdcvfileentry.Cdcvfilemaxsize}
-    cdcvfileentry.EntityData.Leafs["cdcVFileCurrentSize"] = types.YLeaf{"Cdcvfilecurrentsize", cdcvfileentry.Cdcvfilecurrentsize}
-    cdcvfileentry.EntityData.Leafs["cdcVFileFormat"] = types.YLeaf{"Cdcvfileformat", cdcvfileentry.Cdcvfileformat}
-    cdcvfileentry.EntityData.Leafs["cdcVFileCollectMode"] = types.YLeaf{"Cdcvfilecollectmode", cdcvfileentry.Cdcvfilecollectmode}
-    cdcvfileentry.EntityData.Leafs["cdcVFileCollectionPeriod"] = types.YLeaf{"Cdcvfilecollectionperiod", cdcvfileentry.Cdcvfilecollectionperiod}
-    cdcvfileentry.EntityData.Leafs["cdcVFileRetentionPeriod"] = types.YLeaf{"Cdcvfileretentionperiod", cdcvfileentry.Cdcvfileretentionperiod}
-    cdcvfileentry.EntityData.Leafs["cdcVFileAdminStatus"] = types.YLeaf{"Cdcvfileadminstatus", cdcvfileentry.Cdcvfileadminstatus}
-    cdcvfileentry.EntityData.Leafs["cdcVFileOperStatus"] = types.YLeaf{"Cdcvfileoperstatus", cdcvfileentry.Cdcvfileoperstatus}
-    cdcvfileentry.EntityData.Leafs["cdcVFileErrorCode"] = types.YLeaf{"Cdcvfileerrorcode", cdcvfileentry.Cdcvfileerrorcode}
-    cdcvfileentry.EntityData.Leafs["cdcVFileCollectionErrorEnable"] = types.YLeaf{"Cdcvfilecollectionerrorenable", cdcvfileentry.Cdcvfilecollectionerrorenable}
-    cdcvfileentry.EntityData.Leafs["cdcVFileRowStatus"] = types.YLeaf{"Cdcvfilerowstatus", cdcvfileentry.Cdcvfilerowstatus}
-    return &(cdcvfileentry.EntityData)
+    cdcVFileEntry.EntityData.Children = types.NewOrderedMap()
+    cdcVFileEntry.EntityData.Leafs = types.NewOrderedMap()
+    cdcVFileEntry.EntityData.Leafs.Append("cdcVFileIndex", types.YLeaf{"CdcVFileIndex", cdcVFileEntry.CdcVFileIndex})
+    cdcVFileEntry.EntityData.Leafs.Append("cdcVFileName", types.YLeaf{"CdcVFileName", cdcVFileEntry.CdcVFileName})
+    cdcVFileEntry.EntityData.Leafs.Append("cdcVFileDescription", types.YLeaf{"CdcVFileDescription", cdcVFileEntry.CdcVFileDescription})
+    cdcVFileEntry.EntityData.Leafs.Append("cdcVFileCommand", types.YLeaf{"CdcVFileCommand", cdcVFileEntry.CdcVFileCommand})
+    cdcVFileEntry.EntityData.Leafs.Append("cdcVFileMaxSize", types.YLeaf{"CdcVFileMaxSize", cdcVFileEntry.CdcVFileMaxSize})
+    cdcVFileEntry.EntityData.Leafs.Append("cdcVFileCurrentSize", types.YLeaf{"CdcVFileCurrentSize", cdcVFileEntry.CdcVFileCurrentSize})
+    cdcVFileEntry.EntityData.Leafs.Append("cdcVFileFormat", types.YLeaf{"CdcVFileFormat", cdcVFileEntry.CdcVFileFormat})
+    cdcVFileEntry.EntityData.Leafs.Append("cdcVFileCollectMode", types.YLeaf{"CdcVFileCollectMode", cdcVFileEntry.CdcVFileCollectMode})
+    cdcVFileEntry.EntityData.Leafs.Append("cdcVFileCollectionPeriod", types.YLeaf{"CdcVFileCollectionPeriod", cdcVFileEntry.CdcVFileCollectionPeriod})
+    cdcVFileEntry.EntityData.Leafs.Append("cdcVFileRetentionPeriod", types.YLeaf{"CdcVFileRetentionPeriod", cdcVFileEntry.CdcVFileRetentionPeriod})
+    cdcVFileEntry.EntityData.Leafs.Append("cdcVFileAdminStatus", types.YLeaf{"CdcVFileAdminStatus", cdcVFileEntry.CdcVFileAdminStatus})
+    cdcVFileEntry.EntityData.Leafs.Append("cdcVFileOperStatus", types.YLeaf{"CdcVFileOperStatus", cdcVFileEntry.CdcVFileOperStatus})
+    cdcVFileEntry.EntityData.Leafs.Append("cdcVFileErrorCode", types.YLeaf{"CdcVFileErrorCode", cdcVFileEntry.CdcVFileErrorCode})
+    cdcVFileEntry.EntityData.Leafs.Append("cdcVFileCollectionErrorEnable", types.YLeaf{"CdcVFileCollectionErrorEnable", cdcVFileEntry.CdcVFileCollectionErrorEnable})
+    cdcVFileEntry.EntityData.Leafs.Append("cdcVFileRowStatus", types.YLeaf{"CdcVFileRowStatus", cdcVFileEntry.CdcVFileRowStatus})
+
+    cdcVFileEntry.EntityData.YListKeys = []string {"CdcVFileIndex"}
+
+    return &(cdcVFileEntry.EntityData)
 }
 
-// CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileadminstatus represents by the active rows in this table.
-type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileadminstatus string
+// CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileAdminStatus represents by the active rows in this table.
+type CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileAdminStatus string
 
 const (
-    CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileadminstatus_enabled CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileadminstatus = "enabled"
+    CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileAdminStatus_enabled CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileAdminStatus = "enabled"
 
-    CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileadminstatus_disabled CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileadminstatus = "disabled"
+    CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileAdminStatus_disabled CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileAdminStatus = "disabled"
 )
 
-// CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfilecollectmode represents is in the 'activated' state.
-type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfilecollectmode string
+// CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileCollectMode represents is in the 'activated' state.
+type CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileCollectMode string
 
 const (
-    CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfilecollectmode_auto CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfilecollectmode = "auto"
+    CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileCollectMode_auto CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileCollectMode = "auto"
 
-    CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfilecollectmode_manual CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfilecollectmode = "manual"
+    CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileCollectMode_manual CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileCollectMode = "manual"
 )
 
-// CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfilecommand represents                   cdcVFileCollectMode).
-type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfilecommand string
+// CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileCommand represents                   cdcVFileCollectMode).
+type CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileCommand string
 
 const (
-    CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfilecommand_idle CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfilecommand = "idle"
+    CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileCommand_idle CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileCommand = "idle"
 
-    CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfilecommand_swapToNewFile CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfilecommand = "swapToNewFile"
+    CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileCommand_swapToNewFile CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileCommand = "swapToNewFile"
 
-    CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfilecommand_collectNow CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfilecommand = "collectNow"
+    CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileCommand_collectNow CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileCommand = "collectNow"
 )
 
-// CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileerrorcode represents                        e.g. unavailability of dynamic memory.
-type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileerrorcode string
+// CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileErrorCode represents                        e.g. unavailability of dynamic memory.
+type CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileErrorCode string
 
 const (
-    CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileerrorcode_noError CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileerrorcode = "noError"
+    CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileErrorCode_noError CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileErrorCode = "noError"
 
-    CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileerrorcode_otherError CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileerrorcode = "otherError"
+    CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileErrorCode_otherError CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileErrorCode = "otherError"
 
-    CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileerrorcode_noSpace CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileerrorcode = "noSpace"
+    CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileErrorCode_noSpace CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileErrorCode = "noSpace"
 
-    CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileerrorcode_openError CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileerrorcode = "openError"
+    CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileErrorCode_openError CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileErrorCode = "openError"
 
-    CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileerrorcode_tooSmallMaxSize CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileerrorcode = "tooSmallMaxSize"
+    CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileErrorCode_tooSmallMaxSize CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileErrorCode = "tooSmallMaxSize"
 
-    CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileerrorcode_tooManyMaxSizeHits CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileerrorcode = "tooManyMaxSizeHits"
+    CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileErrorCode_tooManyMaxSizeHits CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileErrorCode = "tooManyMaxSizeHits"
 
-    CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileerrorcode_noResource CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileerrorcode = "noResource"
+    CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileErrorCode_noResource CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileErrorCode = "noResource"
 )
 
-// CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileoperstatus represents this entry.
-type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileoperstatus string
+// CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileOperStatus represents this entry.
+type CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileOperStatus string
 
 const (
-    CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileoperstatus_enabled CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileoperstatus = "enabled"
+    CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileOperStatus_enabled CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileOperStatus = "enabled"
 
-    CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileoperstatus_disabled CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileoperstatus = "disabled"
+    CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileOperStatus_disabled CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileOperStatus = "disabled"
 
-    CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileoperstatus_error CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileoperstatus = "error"
+    CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileOperStatus_error_ CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileOperStatus = "error"
 )
 
-// CISCODATACOLLECTIONMIB_Cdcvfilemgmttable
+// CISCODATACOLLECTIONMIB_CdcVFileMgmtTable
 // A table to manage frozen VFiles.
-type CISCODATACOLLECTIONMIB_Cdcvfilemgmttable struct {
+type CISCODATACOLLECTIONMIB_CdcVFileMgmtTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -608,30 +620,33 @@ type CISCODATACOLLECTIONMIB_Cdcvfilemgmttable struct {
     // populated with entries corresponding to those persisted VFiles. However any
     // state related to an entry, like time to live etc. need not be maintained
     // across restarts. The type is slice of
-    // CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry.
-    Cdcvfilemgmtentry []CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry
+    // CISCODATACOLLECTIONMIB_CdcVFileMgmtTable_CdcVFileMgmtEntry.
+    CdcVFileMgmtEntry []*CISCODATACOLLECTIONMIB_CdcVFileMgmtTable_CdcVFileMgmtEntry
 }
 
-func (cdcvfilemgmttable *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable) GetEntityData() *types.CommonEntityData {
-    cdcvfilemgmttable.EntityData.YFilter = cdcvfilemgmttable.YFilter
-    cdcvfilemgmttable.EntityData.YangName = "cdcVFileMgmtTable"
-    cdcvfilemgmttable.EntityData.BundleName = "cisco_ios_xe"
-    cdcvfilemgmttable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
-    cdcvfilemgmttable.EntityData.SegmentPath = "cdcVFileMgmtTable"
-    cdcvfilemgmttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdcvfilemgmttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdcvfilemgmttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdcVFileMgmtTable *CISCODATACOLLECTIONMIB_CdcVFileMgmtTable) GetEntityData() *types.CommonEntityData {
+    cdcVFileMgmtTable.EntityData.YFilter = cdcVFileMgmtTable.YFilter
+    cdcVFileMgmtTable.EntityData.YangName = "cdcVFileMgmtTable"
+    cdcVFileMgmtTable.EntityData.BundleName = "cisco_ios_xe"
+    cdcVFileMgmtTable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
+    cdcVFileMgmtTable.EntityData.SegmentPath = "cdcVFileMgmtTable"
+    cdcVFileMgmtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcVFileMgmtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcVFileMgmtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdcvfilemgmttable.EntityData.Children = make(map[string]types.YChild)
-    cdcvfilemgmttable.EntityData.Children["cdcVFileMgmtEntry"] = types.YChild{"Cdcvfilemgmtentry", nil}
-    for i := range cdcvfilemgmttable.Cdcvfilemgmtentry {
-        cdcvfilemgmttable.EntityData.Children[types.GetSegmentPath(&cdcvfilemgmttable.Cdcvfilemgmtentry[i])] = types.YChild{"Cdcvfilemgmtentry", &cdcvfilemgmttable.Cdcvfilemgmtentry[i]}
+    cdcVFileMgmtTable.EntityData.Children = types.NewOrderedMap()
+    cdcVFileMgmtTable.EntityData.Children.Append("cdcVFileMgmtEntry", types.YChild{"CdcVFileMgmtEntry", nil})
+    for i := range cdcVFileMgmtTable.CdcVFileMgmtEntry {
+        cdcVFileMgmtTable.EntityData.Children.Append(types.GetSegmentPath(cdcVFileMgmtTable.CdcVFileMgmtEntry[i]), types.YChild{"CdcVFileMgmtEntry", cdcVFileMgmtTable.CdcVFileMgmtEntry[i]})
     }
-    cdcvfilemgmttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cdcvfilemgmttable.EntityData)
+    cdcVFileMgmtTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cdcVFileMgmtTable.EntityData.YListKeys = []string {}
+
+    return &(cdcVFileMgmtTable.EntityData)
 }
 
-// CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry
+// CISCODATACOLLECTIONMIB_CdcVFileMgmtTable_CdcVFileMgmtEntry
 // An entry in cdcVFileMgmtTable. Each entry corresponds to a
 // frozen VFile. An entry is created in this table, whenever a
 // VFile is frozen. An entry is removed from this table whenever
@@ -645,14 +660,14 @@ func (cdcvfilemgmttable *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable) GetEntityData
 // to those persisted VFiles. However any state related to an
 // entry, like time to live etc. need not be maintained
 // across restarts.
-type CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry struct {
+type CISCODATACOLLECTIONMIB_CdcVFileMgmtTable_CdcVFileMgmtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // cisco_data_collection_mib.CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileindex
-    Cdcvfileindex interface{}
+    // cisco_data_collection_mib.CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileIndex
+    CdcVFileIndex interface{}
 
     // This attribute is a key. This value is a running counter starting at 1,
     // generated by the agent so that the combination of  cdcVFileIndex and
@@ -661,20 +676,20 @@ type CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry struct {
     // across the set of frozen VFiles corresponding to a cdcVFileEntry
     // (identified by cdcVFileIndex). The type is interface{} with range:
     // 1..4294967295.
-    Cdcvfilemgmtindex interface{}
+    CdcVFileMgmtIndex interface{}
 
     // The full name of the VFile. If the VFile is stored as a file in the agent's
     // filesystem, then this value also contains the absolute path of the file.
     // The type is string.
-    Cdcvfilemgmtname interface{}
+    CdcVFileMgmtName interface{}
 
     // The timestamp when this VFile was created, in the date-time format. The
     // type is string.
-    Cdcvfilemgmttimestamp interface{}
+    CdcVFileMgmtTimestamp interface{}
 
     // The time left before this VFile is deleted (see cdcVFileRetentionPeriod).
     // The type is interface{} with range: 60..86400. Units are seconds.
-    Cdcvfilemgmttimetolive interface{}
+    CdcVFileMgmtTimeToLive interface{}
 
     // A control to manage VFiles.   idle           This value can be only be
     // read. It indicates                that no management action is currently
@@ -686,8 +701,8 @@ type CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry struct {
     // process of being transferred. When written, it                initiates a
     // transfer for the VFile.  abortTransfer  This value can only be written, and
     // is used                to abort an ongoing transfer. The type is
-    // Cdcvfilemgmtcommand.
-    Cdcvfilemgmtcommand interface{}
+    // CdcVFileMgmtCommand.
+    CdcVFileMgmtCommand interface{}
 
     // The complete URL of the destination to which this VFile will be transferred
     // in the next attempt. The URL also includes the complete filename of the
@@ -698,57 +713,60 @@ type CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry struct {
     // will be transferred to this new URL the next time transfer is initiated.  
     // This object's value may be modified at any time. The type is string with
     // length: 0..255.
-    Cdcvfilemgmtxferurl interface{}
+    CdcVFileMgmtXferURL interface{}
 
     // Indicates the status of the last completed transfer. The type is
     // CdcFileXferStatus.
-    Cdcvfilemgmtlastxferstatus interface{}
+    CdcVFileMgmtLastXferStatus interface{}
 
     // Indicates the URL of the destination to which the last (completed) transfer
     // was initiated. The type is string with length: 0..255.
-    Cdcvfilemgmtlastxferurl interface{}
+    CdcVFileMgmtLastXferURL interface{}
 }
 
-func (cdcvfilemgmtentry *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry) GetEntityData() *types.CommonEntityData {
-    cdcvfilemgmtentry.EntityData.YFilter = cdcvfilemgmtentry.YFilter
-    cdcvfilemgmtentry.EntityData.YangName = "cdcVFileMgmtEntry"
-    cdcvfilemgmtentry.EntityData.BundleName = "cisco_ios_xe"
-    cdcvfilemgmtentry.EntityData.ParentYangName = "cdcVFileMgmtTable"
-    cdcvfilemgmtentry.EntityData.SegmentPath = "cdcVFileMgmtEntry" + "[cdcVFileIndex='" + fmt.Sprintf("%v", cdcvfilemgmtentry.Cdcvfileindex) + "']" + "[cdcVFileMgmtIndex='" + fmt.Sprintf("%v", cdcvfilemgmtentry.Cdcvfilemgmtindex) + "']"
-    cdcvfilemgmtentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdcvfilemgmtentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdcvfilemgmtentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdcVFileMgmtEntry *CISCODATACOLLECTIONMIB_CdcVFileMgmtTable_CdcVFileMgmtEntry) GetEntityData() *types.CommonEntityData {
+    cdcVFileMgmtEntry.EntityData.YFilter = cdcVFileMgmtEntry.YFilter
+    cdcVFileMgmtEntry.EntityData.YangName = "cdcVFileMgmtEntry"
+    cdcVFileMgmtEntry.EntityData.BundleName = "cisco_ios_xe"
+    cdcVFileMgmtEntry.EntityData.ParentYangName = "cdcVFileMgmtTable"
+    cdcVFileMgmtEntry.EntityData.SegmentPath = "cdcVFileMgmtEntry" + types.AddKeyToken(cdcVFileMgmtEntry.CdcVFileIndex, "cdcVFileIndex") + types.AddKeyToken(cdcVFileMgmtEntry.CdcVFileMgmtIndex, "cdcVFileMgmtIndex")
+    cdcVFileMgmtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcVFileMgmtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcVFileMgmtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdcvfilemgmtentry.EntityData.Children = make(map[string]types.YChild)
-    cdcvfilemgmtentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdcvfilemgmtentry.EntityData.Leafs["cdcVFileIndex"] = types.YLeaf{"Cdcvfileindex", cdcvfilemgmtentry.Cdcvfileindex}
-    cdcvfilemgmtentry.EntityData.Leafs["cdcVFileMgmtIndex"] = types.YLeaf{"Cdcvfilemgmtindex", cdcvfilemgmtentry.Cdcvfilemgmtindex}
-    cdcvfilemgmtentry.EntityData.Leafs["cdcVFileMgmtName"] = types.YLeaf{"Cdcvfilemgmtname", cdcvfilemgmtentry.Cdcvfilemgmtname}
-    cdcvfilemgmtentry.EntityData.Leafs["cdcVFileMgmtTimestamp"] = types.YLeaf{"Cdcvfilemgmttimestamp", cdcvfilemgmtentry.Cdcvfilemgmttimestamp}
-    cdcvfilemgmtentry.EntityData.Leafs["cdcVFileMgmtTimeToLive"] = types.YLeaf{"Cdcvfilemgmttimetolive", cdcvfilemgmtentry.Cdcvfilemgmttimetolive}
-    cdcvfilemgmtentry.EntityData.Leafs["cdcVFileMgmtCommand"] = types.YLeaf{"Cdcvfilemgmtcommand", cdcvfilemgmtentry.Cdcvfilemgmtcommand}
-    cdcvfilemgmtentry.EntityData.Leafs["cdcVFileMgmtXferURL"] = types.YLeaf{"Cdcvfilemgmtxferurl", cdcvfilemgmtentry.Cdcvfilemgmtxferurl}
-    cdcvfilemgmtentry.EntityData.Leafs["cdcVFileMgmtLastXferStatus"] = types.YLeaf{"Cdcvfilemgmtlastxferstatus", cdcvfilemgmtentry.Cdcvfilemgmtlastxferstatus}
-    cdcvfilemgmtentry.EntityData.Leafs["cdcVFileMgmtLastXferURL"] = types.YLeaf{"Cdcvfilemgmtlastxferurl", cdcvfilemgmtentry.Cdcvfilemgmtlastxferurl}
-    return &(cdcvfilemgmtentry.EntityData)
+    cdcVFileMgmtEntry.EntityData.Children = types.NewOrderedMap()
+    cdcVFileMgmtEntry.EntityData.Leafs = types.NewOrderedMap()
+    cdcVFileMgmtEntry.EntityData.Leafs.Append("cdcVFileIndex", types.YLeaf{"CdcVFileIndex", cdcVFileMgmtEntry.CdcVFileIndex})
+    cdcVFileMgmtEntry.EntityData.Leafs.Append("cdcVFileMgmtIndex", types.YLeaf{"CdcVFileMgmtIndex", cdcVFileMgmtEntry.CdcVFileMgmtIndex})
+    cdcVFileMgmtEntry.EntityData.Leafs.Append("cdcVFileMgmtName", types.YLeaf{"CdcVFileMgmtName", cdcVFileMgmtEntry.CdcVFileMgmtName})
+    cdcVFileMgmtEntry.EntityData.Leafs.Append("cdcVFileMgmtTimestamp", types.YLeaf{"CdcVFileMgmtTimestamp", cdcVFileMgmtEntry.CdcVFileMgmtTimestamp})
+    cdcVFileMgmtEntry.EntityData.Leafs.Append("cdcVFileMgmtTimeToLive", types.YLeaf{"CdcVFileMgmtTimeToLive", cdcVFileMgmtEntry.CdcVFileMgmtTimeToLive})
+    cdcVFileMgmtEntry.EntityData.Leafs.Append("cdcVFileMgmtCommand", types.YLeaf{"CdcVFileMgmtCommand", cdcVFileMgmtEntry.CdcVFileMgmtCommand})
+    cdcVFileMgmtEntry.EntityData.Leafs.Append("cdcVFileMgmtXferURL", types.YLeaf{"CdcVFileMgmtXferURL", cdcVFileMgmtEntry.CdcVFileMgmtXferURL})
+    cdcVFileMgmtEntry.EntityData.Leafs.Append("cdcVFileMgmtLastXferStatus", types.YLeaf{"CdcVFileMgmtLastXferStatus", cdcVFileMgmtEntry.CdcVFileMgmtLastXferStatus})
+    cdcVFileMgmtEntry.EntityData.Leafs.Append("cdcVFileMgmtLastXferURL", types.YLeaf{"CdcVFileMgmtLastXferURL", cdcVFileMgmtEntry.CdcVFileMgmtLastXferURL})
+
+    cdcVFileMgmtEntry.EntityData.YListKeys = []string {"CdcVFileIndex", "CdcVFileMgmtIndex"}
+
+    return &(cdcVFileMgmtEntry.EntityData)
 }
 
-// CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry_Cdcvfilemgmtcommand represents                to abort an ongoing transfer.
-type CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry_Cdcvfilemgmtcommand string
+// CISCODATACOLLECTIONMIB_CdcVFileMgmtTable_CdcVFileMgmtEntry_CdcVFileMgmtCommand represents                to abort an ongoing transfer.
+type CISCODATACOLLECTIONMIB_CdcVFileMgmtTable_CdcVFileMgmtEntry_CdcVFileMgmtCommand string
 
 const (
-    CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry_Cdcvfilemgmtcommand_idle CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry_Cdcvfilemgmtcommand = "idle"
+    CISCODATACOLLECTIONMIB_CdcVFileMgmtTable_CdcVFileMgmtEntry_CdcVFileMgmtCommand_idle CISCODATACOLLECTIONMIB_CdcVFileMgmtTable_CdcVFileMgmtEntry_CdcVFileMgmtCommand = "idle"
 
-    CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry_Cdcvfilemgmtcommand_delete CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry_Cdcvfilemgmtcommand = "delete"
+    CISCODATACOLLECTIONMIB_CdcVFileMgmtTable_CdcVFileMgmtEntry_CdcVFileMgmtCommand_delete_ CISCODATACOLLECTIONMIB_CdcVFileMgmtTable_CdcVFileMgmtEntry_CdcVFileMgmtCommand = "delete"
 
-    CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry_Cdcvfilemgmtcommand_transfer CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry_Cdcvfilemgmtcommand = "transfer"
+    CISCODATACOLLECTIONMIB_CdcVFileMgmtTable_CdcVFileMgmtEntry_CdcVFileMgmtCommand_transfer CISCODATACOLLECTIONMIB_CdcVFileMgmtTable_CdcVFileMgmtEntry_CdcVFileMgmtCommand = "transfer"
 
-    CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry_Cdcvfilemgmtcommand_abortTransfer CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry_Cdcvfilemgmtcommand = "abortTransfer"
+    CISCODATACOLLECTIONMIB_CdcVFileMgmtTable_CdcVFileMgmtEntry_CdcVFileMgmtCommand_abortTransfer CISCODATACOLLECTIONMIB_CdcVFileMgmtTable_CdcVFileMgmtEntry_CdcVFileMgmtCommand = "abortTransfer"
 )
 
-// CISCODATACOLLECTIONMIB_Cdcdgtable
+// CISCODATACOLLECTIONMIB_CdcDGTable
 // A table for specifying data groups.
-type CISCODATACOLLECTIONMIB_Cdcdgtable struct {
+type CISCODATACOLLECTIONMIB_CdcDGTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -762,30 +780,33 @@ type CISCODATACOLLECTIONMIB_Cdcdgtable struct {
     // collection mode of the associated cdcVFileEntry is automatic, then data is
     // fetched and stored into the current VFile of the associated cdcVFileEntry
     // at periodic intervals (cdcDGPollPeriod). The type is slice of
-    // CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry.
-    Cdcdgentry []CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry
+    // CISCODATACOLLECTIONMIB_CdcDGTable_CdcDGEntry.
+    CdcDGEntry []*CISCODATACOLLECTIONMIB_CdcDGTable_CdcDGEntry
 }
 
-func (cdcdgtable *CISCODATACOLLECTIONMIB_Cdcdgtable) GetEntityData() *types.CommonEntityData {
-    cdcdgtable.EntityData.YFilter = cdcdgtable.YFilter
-    cdcdgtable.EntityData.YangName = "cdcDGTable"
-    cdcdgtable.EntityData.BundleName = "cisco_ios_xe"
-    cdcdgtable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
-    cdcdgtable.EntityData.SegmentPath = "cdcDGTable"
-    cdcdgtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdcdgtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdcdgtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdcDGTable *CISCODATACOLLECTIONMIB_CdcDGTable) GetEntityData() *types.CommonEntityData {
+    cdcDGTable.EntityData.YFilter = cdcDGTable.YFilter
+    cdcDGTable.EntityData.YangName = "cdcDGTable"
+    cdcDGTable.EntityData.BundleName = "cisco_ios_xe"
+    cdcDGTable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
+    cdcDGTable.EntityData.SegmentPath = "cdcDGTable"
+    cdcDGTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcDGTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcDGTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdcdgtable.EntityData.Children = make(map[string]types.YChild)
-    cdcdgtable.EntityData.Children["cdcDGEntry"] = types.YChild{"Cdcdgentry", nil}
-    for i := range cdcdgtable.Cdcdgentry {
-        cdcdgtable.EntityData.Children[types.GetSegmentPath(&cdcdgtable.Cdcdgentry[i])] = types.YChild{"Cdcdgentry", &cdcdgtable.Cdcdgentry[i]}
+    cdcDGTable.EntityData.Children = types.NewOrderedMap()
+    cdcDGTable.EntityData.Children.Append("cdcDGEntry", types.YChild{"CdcDGEntry", nil})
+    for i := range cdcDGTable.CdcDGEntry {
+        cdcDGTable.EntityData.Children.Append(types.GetSegmentPath(cdcDGTable.CdcDGEntry[i]), types.YChild{"CdcDGEntry", cdcDGTable.CdcDGEntry[i]})
     }
-    cdcdgtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cdcdgtable.EntityData)
+    cdcDGTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cdcDGTable.EntityData.YListKeys = []string {}
+
+    return &(cdcDGTable.EntityData)
 }
 
-// CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry
+// CISCODATACOLLECTIONMIB_CdcDGTable_CdcDGEntry
 // An entry in this table. Each entry corresponds to a data
 // group. A data group is used to select data that needs to be
 // collected into VFiles. The selection is done by specifying
@@ -802,18 +823,18 @@ func (cdcdgtable *CISCODATACOLLECTIONMIB_Cdcdgtable) GetEntityData() *types.Comm
 // automatic, then data is fetched and stored into the current
 // VFile of the associated cdcVFileEntry at periodic
 // intervals (cdcDGPollPeriod).
-type CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry struct {
+type CISCODATACOLLECTIONMIB_CdcDGTable_CdcDGEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An arbitrary integer used to uniquely identify
     // this entry. When creating an entry, a management application should pick a
     // random number. The type is interface{} with range: 1..4294967295.
-    Cdcdgindex interface{}
+    CdcDGIndex interface{}
 
     // A descriptive string. This object's value may be modified at any time. The
     // type is string.
-    Cdcdgcomment interface{}
+    CdcDGComment interface{}
 
     // Identifies the type of this data group. object         Data is a single MIB
     // object. The fully                instantiated OID is specified in          
@@ -822,8 +843,8 @@ type CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry struct {
     // cdcDGBaseObjectTable, and the                rows correspond to the values
     // of the instances                specified in cdcDGInstanceTable.  This
     // object's value cannot be modified while the value of cdcDGRowStatus is
-    // 'active'. The type is Cdcdgtype.
-    Cdcdgtype interface{}
+    // 'active'. The type is CdcDGType.
+    CdcDGType interface{}
 
     // Corresponds to a value of cdcVFileIndex. It is used to associate this data
     // group with a cdcVFileEntry. The values of the base objects for  this data
@@ -831,7 +852,7 @@ type CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry struct {
     // This object's value may be modified at any time. The change takes effect
     // the next time data is fetched for this data group. The type is interface{}
     // with range: 1..4294967295.
-    Cdcdgvfileindex interface{}
+    CdcDGVFileIndex interface{}
 
     // The tag for the target from which to obtain the data for this data group. 
     // A length of 0 indicates the local system.  In this case, access to the
@@ -845,20 +866,20 @@ type CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry struct {
     // criteria, are passed as input parameters for isAccessAllowed.   This
     // object's value may be modified at any time. The change takes effect the
     // next time data is fetched for this data group. The type is string.
-    Cdcdgtargettag interface{}
+    CdcDGTargetTag interface{}
 
     // The management context from which to obtain data for this data group.  This
     // object's value may be modified at any time. The change takes effect the
     // next time data is fetched for this data group. The type is string.
-    Cdcdgcontextname interface{}
+    CdcDGContextName interface{}
 
     // The fully instantiated name of the MIB object whose value needs to be
     // fetched. This object's value is used only when cdcDGType is of type
     // 'object'.   This object's value may be modified at any time. The change
     // takes effect the next time data is fetched for this data group. The type is
     // string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Cdcdgobject interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    CdcDGObject interface{}
 
     // Corresponds to a value of cdcDGBaseObjectGrpIndex, thus identifying a set
     // of entries in cdcDGBaseObjectTable, having this value of
@@ -868,7 +889,7 @@ type CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry struct {
     // 'table' type data group.     This object's value may be modified at any
     // time. The change takes effect the next time data is fetched for this data
     // group. The type is interface{} with range: 1..4294967295.
-    Cdcdgobjectgrpindex interface{}
+    CdcDGObjectGrpIndex interface{}
 
     // Corresponds to a value of cdcDGInstanceGrpIndex, thus identifying a set of
     // entries in cdcDGInstanceTable, having this value of cdcDGInstanceGrpIndex.
@@ -879,7 +900,7 @@ type CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry struct {
     // object's value may be modified at any time. The change takes effect the
     // next time data is fetched for this data group. The type is interface{} with
     // range: 0..4294967295.
-    Cdcdginstgrpindex interface{}
+    CdcDGInstGrpIndex interface{}
 
     // Specifies the time intervals at which the data should be fetched for this
     // data group. This object's value is used only when the collection mode of
@@ -898,87 +919,93 @@ type CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry struct {
     // take effect immediately. i.e. if the periodic timer has been started, it's
     // expiry time may need to be re-adjusted. The type is interface{} with range:
     // 1..86400. Units are seconds.
-    Cdcdgpollperiod interface{}
+    CdcDGPollPeriod interface{}
 
     // The status of this conceptual row.  This object cannot be set to 'active'
     // until values have been assigned to  cdcDGVFileIndex & cdcDGColGrpIndex. The
     // type is RowStatus.
-    Cdcdgrowstatus interface{}
+    CdcDGRowStatus interface{}
 }
 
-func (cdcdgentry *CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry) GetEntityData() *types.CommonEntityData {
-    cdcdgentry.EntityData.YFilter = cdcdgentry.YFilter
-    cdcdgentry.EntityData.YangName = "cdcDGEntry"
-    cdcdgentry.EntityData.BundleName = "cisco_ios_xe"
-    cdcdgentry.EntityData.ParentYangName = "cdcDGTable"
-    cdcdgentry.EntityData.SegmentPath = "cdcDGEntry" + "[cdcDGIndex='" + fmt.Sprintf("%v", cdcdgentry.Cdcdgindex) + "']"
-    cdcdgentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdcdgentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdcdgentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdcDGEntry *CISCODATACOLLECTIONMIB_CdcDGTable_CdcDGEntry) GetEntityData() *types.CommonEntityData {
+    cdcDGEntry.EntityData.YFilter = cdcDGEntry.YFilter
+    cdcDGEntry.EntityData.YangName = "cdcDGEntry"
+    cdcDGEntry.EntityData.BundleName = "cisco_ios_xe"
+    cdcDGEntry.EntityData.ParentYangName = "cdcDGTable"
+    cdcDGEntry.EntityData.SegmentPath = "cdcDGEntry" + types.AddKeyToken(cdcDGEntry.CdcDGIndex, "cdcDGIndex")
+    cdcDGEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcDGEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcDGEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdcdgentry.EntityData.Children = make(map[string]types.YChild)
-    cdcdgentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdcdgentry.EntityData.Leafs["cdcDGIndex"] = types.YLeaf{"Cdcdgindex", cdcdgentry.Cdcdgindex}
-    cdcdgentry.EntityData.Leafs["cdcDGComment"] = types.YLeaf{"Cdcdgcomment", cdcdgentry.Cdcdgcomment}
-    cdcdgentry.EntityData.Leafs["cdcDGType"] = types.YLeaf{"Cdcdgtype", cdcdgentry.Cdcdgtype}
-    cdcdgentry.EntityData.Leafs["cdcDGVFileIndex"] = types.YLeaf{"Cdcdgvfileindex", cdcdgentry.Cdcdgvfileindex}
-    cdcdgentry.EntityData.Leafs["cdcDGTargetTag"] = types.YLeaf{"Cdcdgtargettag", cdcdgentry.Cdcdgtargettag}
-    cdcdgentry.EntityData.Leafs["cdcDGContextName"] = types.YLeaf{"Cdcdgcontextname", cdcdgentry.Cdcdgcontextname}
-    cdcdgentry.EntityData.Leafs["cdcDGObject"] = types.YLeaf{"Cdcdgobject", cdcdgentry.Cdcdgobject}
-    cdcdgentry.EntityData.Leafs["cdcDGObjectGrpIndex"] = types.YLeaf{"Cdcdgobjectgrpindex", cdcdgentry.Cdcdgobjectgrpindex}
-    cdcdgentry.EntityData.Leafs["cdcDGInstGrpIndex"] = types.YLeaf{"Cdcdginstgrpindex", cdcdgentry.Cdcdginstgrpindex}
-    cdcdgentry.EntityData.Leafs["cdcDGPollPeriod"] = types.YLeaf{"Cdcdgpollperiod", cdcdgentry.Cdcdgpollperiod}
-    cdcdgentry.EntityData.Leafs["cdcDGRowStatus"] = types.YLeaf{"Cdcdgrowstatus", cdcdgentry.Cdcdgrowstatus}
-    return &(cdcdgentry.EntityData)
+    cdcDGEntry.EntityData.Children = types.NewOrderedMap()
+    cdcDGEntry.EntityData.Leafs = types.NewOrderedMap()
+    cdcDGEntry.EntityData.Leafs.Append("cdcDGIndex", types.YLeaf{"CdcDGIndex", cdcDGEntry.CdcDGIndex})
+    cdcDGEntry.EntityData.Leafs.Append("cdcDGComment", types.YLeaf{"CdcDGComment", cdcDGEntry.CdcDGComment})
+    cdcDGEntry.EntityData.Leafs.Append("cdcDGType", types.YLeaf{"CdcDGType", cdcDGEntry.CdcDGType})
+    cdcDGEntry.EntityData.Leafs.Append("cdcDGVFileIndex", types.YLeaf{"CdcDGVFileIndex", cdcDGEntry.CdcDGVFileIndex})
+    cdcDGEntry.EntityData.Leafs.Append("cdcDGTargetTag", types.YLeaf{"CdcDGTargetTag", cdcDGEntry.CdcDGTargetTag})
+    cdcDGEntry.EntityData.Leafs.Append("cdcDGContextName", types.YLeaf{"CdcDGContextName", cdcDGEntry.CdcDGContextName})
+    cdcDGEntry.EntityData.Leafs.Append("cdcDGObject", types.YLeaf{"CdcDGObject", cdcDGEntry.CdcDGObject})
+    cdcDGEntry.EntityData.Leafs.Append("cdcDGObjectGrpIndex", types.YLeaf{"CdcDGObjectGrpIndex", cdcDGEntry.CdcDGObjectGrpIndex})
+    cdcDGEntry.EntityData.Leafs.Append("cdcDGInstGrpIndex", types.YLeaf{"CdcDGInstGrpIndex", cdcDGEntry.CdcDGInstGrpIndex})
+    cdcDGEntry.EntityData.Leafs.Append("cdcDGPollPeriod", types.YLeaf{"CdcDGPollPeriod", cdcDGEntry.CdcDGPollPeriod})
+    cdcDGEntry.EntityData.Leafs.Append("cdcDGRowStatus", types.YLeaf{"CdcDGRowStatus", cdcDGEntry.CdcDGRowStatus})
+
+    cdcDGEntry.EntityData.YListKeys = []string {"CdcDGIndex"}
+
+    return &(cdcDGEntry.EntityData)
 }
 
-// CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry_Cdcdgtype represents cdcDGRowStatus is 'active'.
-type CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry_Cdcdgtype string
+// CISCODATACOLLECTIONMIB_CdcDGTable_CdcDGEntry_CdcDGType represents cdcDGRowStatus is 'active'.
+type CISCODATACOLLECTIONMIB_CdcDGTable_CdcDGEntry_CdcDGType string
 
 const (
-    CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry_Cdcdgtype_object CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry_Cdcdgtype = "object"
+    CISCODATACOLLECTIONMIB_CdcDGTable_CdcDGEntry_CdcDGType_object CISCODATACOLLECTIONMIB_CdcDGTable_CdcDGEntry_CdcDGType = "object"
 
-    CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry_Cdcdgtype_table CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry_Cdcdgtype = "table"
+    CISCODATACOLLECTIONMIB_CdcDGTable_CdcDGEntry_CdcDGType_table CISCODATACOLLECTIONMIB_CdcDGTable_CdcDGEntry_CdcDGType = "table"
 )
 
-// CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable
+// CISCODATACOLLECTIONMIB_CdcDGBaseObjectTable
 // A table specifying the base objects of a 'table' type
 // data group.
-type CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable struct {
+type CISCODATACOLLECTIONMIB_CdcDGBaseObjectTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An individual entry in this table. Each entry is a  {subtree, list} tuple.
     // Each tuple identifies a set of  base objects for the associated data group.
     // The type is slice of
-    // CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry.
-    Cdcdgbaseobjectentry []CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry
+    // CISCODATACOLLECTIONMIB_CdcDGBaseObjectTable_CdcDGBaseObjectEntry.
+    CdcDGBaseObjectEntry []*CISCODATACOLLECTIONMIB_CdcDGBaseObjectTable_CdcDGBaseObjectEntry
 }
 
-func (cdcdgbaseobjecttable *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable) GetEntityData() *types.CommonEntityData {
-    cdcdgbaseobjecttable.EntityData.YFilter = cdcdgbaseobjecttable.YFilter
-    cdcdgbaseobjecttable.EntityData.YangName = "cdcDGBaseObjectTable"
-    cdcdgbaseobjecttable.EntityData.BundleName = "cisco_ios_xe"
-    cdcdgbaseobjecttable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
-    cdcdgbaseobjecttable.EntityData.SegmentPath = "cdcDGBaseObjectTable"
-    cdcdgbaseobjecttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdcdgbaseobjecttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdcdgbaseobjecttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdcDGBaseObjectTable *CISCODATACOLLECTIONMIB_CdcDGBaseObjectTable) GetEntityData() *types.CommonEntityData {
+    cdcDGBaseObjectTable.EntityData.YFilter = cdcDGBaseObjectTable.YFilter
+    cdcDGBaseObjectTable.EntityData.YangName = "cdcDGBaseObjectTable"
+    cdcDGBaseObjectTable.EntityData.BundleName = "cisco_ios_xe"
+    cdcDGBaseObjectTable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
+    cdcDGBaseObjectTable.EntityData.SegmentPath = "cdcDGBaseObjectTable"
+    cdcDGBaseObjectTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcDGBaseObjectTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcDGBaseObjectTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdcdgbaseobjecttable.EntityData.Children = make(map[string]types.YChild)
-    cdcdgbaseobjecttable.EntityData.Children["cdcDGBaseObjectEntry"] = types.YChild{"Cdcdgbaseobjectentry", nil}
-    for i := range cdcdgbaseobjecttable.Cdcdgbaseobjectentry {
-        cdcdgbaseobjecttable.EntityData.Children[types.GetSegmentPath(&cdcdgbaseobjecttable.Cdcdgbaseobjectentry[i])] = types.YChild{"Cdcdgbaseobjectentry", &cdcdgbaseobjecttable.Cdcdgbaseobjectentry[i]}
+    cdcDGBaseObjectTable.EntityData.Children = types.NewOrderedMap()
+    cdcDGBaseObjectTable.EntityData.Children.Append("cdcDGBaseObjectEntry", types.YChild{"CdcDGBaseObjectEntry", nil})
+    for i := range cdcDGBaseObjectTable.CdcDGBaseObjectEntry {
+        cdcDGBaseObjectTable.EntityData.Children.Append(types.GetSegmentPath(cdcDGBaseObjectTable.CdcDGBaseObjectEntry[i]), types.YChild{"CdcDGBaseObjectEntry", cdcDGBaseObjectTable.CdcDGBaseObjectEntry[i]})
     }
-    cdcdgbaseobjecttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cdcdgbaseobjecttable.EntityData)
+    cdcDGBaseObjectTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cdcDGBaseObjectTable.EntityData.YListKeys = []string {}
+
+    return &(cdcDGBaseObjectTable.EntityData)
 }
 
-// CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry
+// CISCODATACOLLECTIONMIB_CdcDGBaseObjectTable_CdcDGBaseObjectEntry
 // An individual entry in this table. Each entry is a 
 // {subtree, list} tuple. Each tuple identifies a set of 
 // base objects for the associated data group.
-type CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry struct {
+type CISCODATACOLLECTIONMIB_CdcDGBaseObjectTable_CdcDGBaseObjectEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -988,7 +1015,7 @@ type CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry struct {
     // object while creating a group of entries that collectively identifies the
     // set of base objects for a data group. The type is interface{} with range:
     // 1..4294967295.
-    Cdcdgbaseobjectgrpindex interface{}
+    CdcDGBaseObjectGrpIndex interface{}
 
     // This attribute is a key. This object's value when combined with the value
     // of cdcDGBaseObjectGrpIndex uniquely identifies an entry in this table.  A
@@ -996,86 +1023,92 @@ type CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry struct {
     // creating each entry in a group of entries (as identified by the value of
     // cdcDGBaseObjectGrpIndex). The type is interface{} with range:
     // 1..4294967295.
-    Cdcdgbaseobjectindex interface{}
+    CdcDGBaseObjectIndex interface{}
 
     // The subtree component of a {subtree, list} tuple.  This object's value may
     // be modified at any time. The change takes effect the next time data is
     // fetched for this data group. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Cdcdgbaseobjectsubtree interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    CdcDGBaseObjectSubtree interface{}
 
     // The list component of a {subtree, list} tuple.  This object's value may be
     // modified at any time. The change takes effect the next time data is fetched
     // for this data group. The type is string with length: 0..16.
-    Cdcdgbaseobjectlist interface{}
+    CdcDGBaseObjectList interface{}
 
     // The status of this conceptual row.  This object cannot be set to 'active'
     // until values have been assigned to cdcDGBaseObjectSubtree &
     // cdcDGBaseObjectList. The type is RowStatus.
-    Cdcdgbaseobjectrowstatus interface{}
+    CdcDGBaseObjectRowStatus interface{}
 }
 
-func (cdcdgbaseobjectentry *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry) GetEntityData() *types.CommonEntityData {
-    cdcdgbaseobjectentry.EntityData.YFilter = cdcdgbaseobjectentry.YFilter
-    cdcdgbaseobjectentry.EntityData.YangName = "cdcDGBaseObjectEntry"
-    cdcdgbaseobjectentry.EntityData.BundleName = "cisco_ios_xe"
-    cdcdgbaseobjectentry.EntityData.ParentYangName = "cdcDGBaseObjectTable"
-    cdcdgbaseobjectentry.EntityData.SegmentPath = "cdcDGBaseObjectEntry" + "[cdcDGBaseObjectGrpIndex='" + fmt.Sprintf("%v", cdcdgbaseobjectentry.Cdcdgbaseobjectgrpindex) + "']" + "[cdcDGBaseObjectIndex='" + fmt.Sprintf("%v", cdcdgbaseobjectentry.Cdcdgbaseobjectindex) + "']"
-    cdcdgbaseobjectentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdcdgbaseobjectentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdcdgbaseobjectentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdcDGBaseObjectEntry *CISCODATACOLLECTIONMIB_CdcDGBaseObjectTable_CdcDGBaseObjectEntry) GetEntityData() *types.CommonEntityData {
+    cdcDGBaseObjectEntry.EntityData.YFilter = cdcDGBaseObjectEntry.YFilter
+    cdcDGBaseObjectEntry.EntityData.YangName = "cdcDGBaseObjectEntry"
+    cdcDGBaseObjectEntry.EntityData.BundleName = "cisco_ios_xe"
+    cdcDGBaseObjectEntry.EntityData.ParentYangName = "cdcDGBaseObjectTable"
+    cdcDGBaseObjectEntry.EntityData.SegmentPath = "cdcDGBaseObjectEntry" + types.AddKeyToken(cdcDGBaseObjectEntry.CdcDGBaseObjectGrpIndex, "cdcDGBaseObjectGrpIndex") + types.AddKeyToken(cdcDGBaseObjectEntry.CdcDGBaseObjectIndex, "cdcDGBaseObjectIndex")
+    cdcDGBaseObjectEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcDGBaseObjectEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcDGBaseObjectEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdcdgbaseobjectentry.EntityData.Children = make(map[string]types.YChild)
-    cdcdgbaseobjectentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdcdgbaseobjectentry.EntityData.Leafs["cdcDGBaseObjectGrpIndex"] = types.YLeaf{"Cdcdgbaseobjectgrpindex", cdcdgbaseobjectentry.Cdcdgbaseobjectgrpindex}
-    cdcdgbaseobjectentry.EntityData.Leafs["cdcDGBaseObjectIndex"] = types.YLeaf{"Cdcdgbaseobjectindex", cdcdgbaseobjectentry.Cdcdgbaseobjectindex}
-    cdcdgbaseobjectentry.EntityData.Leafs["cdcDGBaseObjectSubtree"] = types.YLeaf{"Cdcdgbaseobjectsubtree", cdcdgbaseobjectentry.Cdcdgbaseobjectsubtree}
-    cdcdgbaseobjectentry.EntityData.Leafs["cdcDGBaseObjectList"] = types.YLeaf{"Cdcdgbaseobjectlist", cdcdgbaseobjectentry.Cdcdgbaseobjectlist}
-    cdcdgbaseobjectentry.EntityData.Leafs["cdcDGBaseObjectRowStatus"] = types.YLeaf{"Cdcdgbaseobjectrowstatus", cdcdgbaseobjectentry.Cdcdgbaseobjectrowstatus}
-    return &(cdcdgbaseobjectentry.EntityData)
+    cdcDGBaseObjectEntry.EntityData.Children = types.NewOrderedMap()
+    cdcDGBaseObjectEntry.EntityData.Leafs = types.NewOrderedMap()
+    cdcDGBaseObjectEntry.EntityData.Leafs.Append("cdcDGBaseObjectGrpIndex", types.YLeaf{"CdcDGBaseObjectGrpIndex", cdcDGBaseObjectEntry.CdcDGBaseObjectGrpIndex})
+    cdcDGBaseObjectEntry.EntityData.Leafs.Append("cdcDGBaseObjectIndex", types.YLeaf{"CdcDGBaseObjectIndex", cdcDGBaseObjectEntry.CdcDGBaseObjectIndex})
+    cdcDGBaseObjectEntry.EntityData.Leafs.Append("cdcDGBaseObjectSubtree", types.YLeaf{"CdcDGBaseObjectSubtree", cdcDGBaseObjectEntry.CdcDGBaseObjectSubtree})
+    cdcDGBaseObjectEntry.EntityData.Leafs.Append("cdcDGBaseObjectList", types.YLeaf{"CdcDGBaseObjectList", cdcDGBaseObjectEntry.CdcDGBaseObjectList})
+    cdcDGBaseObjectEntry.EntityData.Leafs.Append("cdcDGBaseObjectRowStatus", types.YLeaf{"CdcDGBaseObjectRowStatus", cdcDGBaseObjectEntry.CdcDGBaseObjectRowStatus})
+
+    cdcDGBaseObjectEntry.EntityData.YListKeys = []string {"CdcDGBaseObjectGrpIndex", "CdcDGBaseObjectIndex"}
+
+    return &(cdcDGBaseObjectEntry.EntityData)
 }
 
-// CISCODATACOLLECTIONMIB_Cdcdginstancetable
+// CISCODATACOLLECTIONMIB_CdcDGInstanceTable
 // Identifies the instances of the base objects that need to
 // be fetched for a 'table' type data group.
 // 
 // The agent is not responsible for verifying that the instances
 // specified for a data group do not overlap.
-type CISCODATACOLLECTIONMIB_Cdcdginstancetable struct {
+type CISCODATACOLLECTIONMIB_CdcDGInstanceTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table. Each entry identifies one or more instances of the
     // base objects that need to be fetched. An instance is represented by an OID
     // fragment. The type is slice of
-    // CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry.
-    Cdcdginstanceentry []CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry
+    // CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry.
+    CdcDGInstanceEntry []*CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry
 }
 
-func (cdcdginstancetable *CISCODATACOLLECTIONMIB_Cdcdginstancetable) GetEntityData() *types.CommonEntityData {
-    cdcdginstancetable.EntityData.YFilter = cdcdginstancetable.YFilter
-    cdcdginstancetable.EntityData.YangName = "cdcDGInstanceTable"
-    cdcdginstancetable.EntityData.BundleName = "cisco_ios_xe"
-    cdcdginstancetable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
-    cdcdginstancetable.EntityData.SegmentPath = "cdcDGInstanceTable"
-    cdcdginstancetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdcdginstancetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdcdginstancetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdcDGInstanceTable *CISCODATACOLLECTIONMIB_CdcDGInstanceTable) GetEntityData() *types.CommonEntityData {
+    cdcDGInstanceTable.EntityData.YFilter = cdcDGInstanceTable.YFilter
+    cdcDGInstanceTable.EntityData.YangName = "cdcDGInstanceTable"
+    cdcDGInstanceTable.EntityData.BundleName = "cisco_ios_xe"
+    cdcDGInstanceTable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
+    cdcDGInstanceTable.EntityData.SegmentPath = "cdcDGInstanceTable"
+    cdcDGInstanceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcDGInstanceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcDGInstanceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdcdginstancetable.EntityData.Children = make(map[string]types.YChild)
-    cdcdginstancetable.EntityData.Children["cdcDGInstanceEntry"] = types.YChild{"Cdcdginstanceentry", nil}
-    for i := range cdcdginstancetable.Cdcdginstanceentry {
-        cdcdginstancetable.EntityData.Children[types.GetSegmentPath(&cdcdginstancetable.Cdcdginstanceentry[i])] = types.YChild{"Cdcdginstanceentry", &cdcdginstancetable.Cdcdginstanceentry[i]}
+    cdcDGInstanceTable.EntityData.Children = types.NewOrderedMap()
+    cdcDGInstanceTable.EntityData.Children.Append("cdcDGInstanceEntry", types.YChild{"CdcDGInstanceEntry", nil})
+    for i := range cdcDGInstanceTable.CdcDGInstanceEntry {
+        cdcDGInstanceTable.EntityData.Children.Append(types.GetSegmentPath(cdcDGInstanceTable.CdcDGInstanceEntry[i]), types.YChild{"CdcDGInstanceEntry", cdcDGInstanceTable.CdcDGInstanceEntry[i]})
     }
-    cdcdginstancetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cdcdginstancetable.EntityData)
+    cdcDGInstanceTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cdcDGInstanceTable.EntityData.YListKeys = []string {}
+
+    return &(cdcDGInstanceTable.EntityData)
 }
 
-// CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry
+// CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry
 // An entry in this table. Each entry identifies one or more
 // instances of the base objects that need to be fetched.
 // An instance is represented by an OID fragment.
-type CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry struct {
+type CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1085,7 +1118,7 @@ type CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry struct {
     // object while creating a group of entries that collectively identifies the
     // set of instances for a data group. The type is interface{} with range:
     // 1..4294967295.
-    Cdcdginstancegrpindex interface{}
+    CdcDGInstanceGrpIndex interface{}
 
     // This attribute is a key. This object's value when combined with the value
     // of cdcDGInstanceGrpIndex uniquely identifies an entry in this table.  A
@@ -1093,7 +1126,7 @@ type CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry struct {
     // creating each entry within a group of entries (as identified by the value
     // of cdcDGInstanceGrpIndex). The type is interface{} with range:
     // 1..4294967295.
-    Cdcdginstanceindex interface{}
+    CdcDGInstanceIndex interface{}
 
     // Specifies the way in which the instances are to be used while collecting
     // data.   individual     The value of cdcDGInstanceOid is               
@@ -1117,8 +1150,8 @@ type CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry struct {
     // that contains MIB                specific instance selection criteria. A
     // MIB                defined for such purposes should describe               
     // the selection criteria.  This object's value cannot be modified while the
-    // value of cdcDGInstanceStatus is 'active'. The type is Cdcdginstancetype.
-    Cdcdginstancetype interface{}
+    // value of cdcDGInstanceStatus is 'active'. The type is CdcDGInstanceType.
+    CdcDGInstanceType interface{}
 
     // Contains the OBJECT IDENTIFIER fragment that identifies the instances of
     // the base objects that need to be collected.  If cdcDGInstanceType is
@@ -1132,78 +1165,80 @@ type CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry struct {
     // to be fetched.  This object's value may be modified at any time. The change
     // takes effect the next time data is fetched for this data group. The type is
     // string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Cdcdginstanceoid interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    CdcDGInstanceOid interface{}
 
     // Contains the OID fragment that, when appended to each base object gives the
     // end of the range of object instances that needs to be fetched.  This value
     // is used only when the value of cdcDGInstanceType is of type 'range'.   This
     // object's value may be modified at any time. The change takes effect the
     // next time data is fetched for this data group. The type is string with
-    // pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Cdcdginstanceoidend interface{}
+    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    CdcDGInstanceOidEnd interface{}
 
     // Specifies the number of lexicographically consecutive object instances to
     // fetch.  This value is used only when the value of cdcDGInstanceType is of
     // type 'repititions'.    This object's value may be modified at any time. The
     // change takes effect the next time data is fetched for this data group. The
     // type is interface{} with range: 0..4294967295.
-    Cdcdginstancenumrepititions interface{}
+    CdcDGInstanceNumRepititions interface{}
 
     // Contains a pointer to a row in another MIB table that contains MIB specific
     // criteria for selecting instances.  This value is used only when the value
     // of cdcDGInstanceType is of type 'other'.   This object's value may be
     // modified at any time. The change takes effect the next time data is fetched
     // for this data group. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Cdcdginstanceotherptr interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    CdcDGInstanceOtherPtr interface{}
 
     // The status of this conceptual row. The type is RowStatus.
-    Cdcdginstancerowstatus interface{}
+    CdcDGInstanceRowStatus interface{}
 }
 
-func (cdcdginstanceentry *CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry) GetEntityData() *types.CommonEntityData {
-    cdcdginstanceentry.EntityData.YFilter = cdcdginstanceentry.YFilter
-    cdcdginstanceentry.EntityData.YangName = "cdcDGInstanceEntry"
-    cdcdginstanceentry.EntityData.BundleName = "cisco_ios_xe"
-    cdcdginstanceentry.EntityData.ParentYangName = "cdcDGInstanceTable"
-    cdcdginstanceentry.EntityData.SegmentPath = "cdcDGInstanceEntry" + "[cdcDGInstanceGrpIndex='" + fmt.Sprintf("%v", cdcdginstanceentry.Cdcdginstancegrpindex) + "']" + "[cdcDGInstanceIndex='" + fmt.Sprintf("%v", cdcdginstanceentry.Cdcdginstanceindex) + "']"
-    cdcdginstanceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdcdginstanceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdcdginstanceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdcDGInstanceEntry *CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry) GetEntityData() *types.CommonEntityData {
+    cdcDGInstanceEntry.EntityData.YFilter = cdcDGInstanceEntry.YFilter
+    cdcDGInstanceEntry.EntityData.YangName = "cdcDGInstanceEntry"
+    cdcDGInstanceEntry.EntityData.BundleName = "cisco_ios_xe"
+    cdcDGInstanceEntry.EntityData.ParentYangName = "cdcDGInstanceTable"
+    cdcDGInstanceEntry.EntityData.SegmentPath = "cdcDGInstanceEntry" + types.AddKeyToken(cdcDGInstanceEntry.CdcDGInstanceGrpIndex, "cdcDGInstanceGrpIndex") + types.AddKeyToken(cdcDGInstanceEntry.CdcDGInstanceIndex, "cdcDGInstanceIndex")
+    cdcDGInstanceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcDGInstanceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcDGInstanceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdcdginstanceentry.EntityData.Children = make(map[string]types.YChild)
-    cdcdginstanceentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdcdginstanceentry.EntityData.Leafs["cdcDGInstanceGrpIndex"] = types.YLeaf{"Cdcdginstancegrpindex", cdcdginstanceentry.Cdcdginstancegrpindex}
-    cdcdginstanceentry.EntityData.Leafs["cdcDGInstanceIndex"] = types.YLeaf{"Cdcdginstanceindex", cdcdginstanceentry.Cdcdginstanceindex}
-    cdcdginstanceentry.EntityData.Leafs["cdcDGInstanceType"] = types.YLeaf{"Cdcdginstancetype", cdcdginstanceentry.Cdcdginstancetype}
-    cdcdginstanceentry.EntityData.Leafs["cdcDGInstanceOid"] = types.YLeaf{"Cdcdginstanceoid", cdcdginstanceentry.Cdcdginstanceoid}
-    cdcdginstanceentry.EntityData.Leafs["cdcDGInstanceOidEnd"] = types.YLeaf{"Cdcdginstanceoidend", cdcdginstanceentry.Cdcdginstanceoidend}
-    cdcdginstanceentry.EntityData.Leafs["cdcDGInstanceNumRepititions"] = types.YLeaf{"Cdcdginstancenumrepititions", cdcdginstanceentry.Cdcdginstancenumrepititions}
-    cdcdginstanceentry.EntityData.Leafs["cdcDGInstanceOtherPtr"] = types.YLeaf{"Cdcdginstanceotherptr", cdcdginstanceentry.Cdcdginstanceotherptr}
-    cdcdginstanceentry.EntityData.Leafs["cdcDGInstanceRowStatus"] = types.YLeaf{"Cdcdginstancerowstatus", cdcdginstanceentry.Cdcdginstancerowstatus}
-    return &(cdcdginstanceentry.EntityData)
+    cdcDGInstanceEntry.EntityData.Children = types.NewOrderedMap()
+    cdcDGInstanceEntry.EntityData.Leafs = types.NewOrderedMap()
+    cdcDGInstanceEntry.EntityData.Leafs.Append("cdcDGInstanceGrpIndex", types.YLeaf{"CdcDGInstanceGrpIndex", cdcDGInstanceEntry.CdcDGInstanceGrpIndex})
+    cdcDGInstanceEntry.EntityData.Leafs.Append("cdcDGInstanceIndex", types.YLeaf{"CdcDGInstanceIndex", cdcDGInstanceEntry.CdcDGInstanceIndex})
+    cdcDGInstanceEntry.EntityData.Leafs.Append("cdcDGInstanceType", types.YLeaf{"CdcDGInstanceType", cdcDGInstanceEntry.CdcDGInstanceType})
+    cdcDGInstanceEntry.EntityData.Leafs.Append("cdcDGInstanceOid", types.YLeaf{"CdcDGInstanceOid", cdcDGInstanceEntry.CdcDGInstanceOid})
+    cdcDGInstanceEntry.EntityData.Leafs.Append("cdcDGInstanceOidEnd", types.YLeaf{"CdcDGInstanceOidEnd", cdcDGInstanceEntry.CdcDGInstanceOidEnd})
+    cdcDGInstanceEntry.EntityData.Leafs.Append("cdcDGInstanceNumRepititions", types.YLeaf{"CdcDGInstanceNumRepititions", cdcDGInstanceEntry.CdcDGInstanceNumRepititions})
+    cdcDGInstanceEntry.EntityData.Leafs.Append("cdcDGInstanceOtherPtr", types.YLeaf{"CdcDGInstanceOtherPtr", cdcDGInstanceEntry.CdcDGInstanceOtherPtr})
+    cdcDGInstanceEntry.EntityData.Leafs.Append("cdcDGInstanceRowStatus", types.YLeaf{"CdcDGInstanceRowStatus", cdcDGInstanceEntry.CdcDGInstanceRowStatus})
+
+    cdcDGInstanceEntry.EntityData.YListKeys = []string {"CdcDGInstanceGrpIndex", "CdcDGInstanceIndex"}
+
+    return &(cdcDGInstanceEntry.EntityData)
 }
 
-// CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry_Cdcdginstancetype represents cdcDGInstanceStatus is 'active'.
-type CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry_Cdcdginstancetype string
+// CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry_CdcDGInstanceType represents cdcDGInstanceStatus is 'active'.
+type CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry_CdcDGInstanceType string
 
 const (
-    CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry_Cdcdginstancetype_individual CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry_Cdcdginstancetype = "individual"
+    CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry_CdcDGInstanceType_individual CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry_CdcDGInstanceType = "individual"
 
-    CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry_Cdcdginstancetype_range_ CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry_Cdcdginstancetype = "range"
+    CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry_CdcDGInstanceType_range_ CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry_CdcDGInstanceType = "range"
 
-    CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry_Cdcdginstancetype_repititions CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry_Cdcdginstancetype = "repititions"
+    CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry_CdcDGInstanceType_repititions CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry_CdcDGInstanceType = "repititions"
 
-    CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry_Cdcdginstancetype_subTree CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry_Cdcdginstancetype = "subTree"
+    CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry_CdcDGInstanceType_subTree CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry_CdcDGInstanceType = "subTree"
 
-    CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry_Cdcdginstancetype_other CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry_Cdcdginstancetype = "other"
+    CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry_CdcDGInstanceType_other CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry_CdcDGInstanceType = "other"
 )
 
-// CISCODATACOLLECTIONMIB_Cdcfilexferconftable
+// CISCODATACOLLECTIONMIB_CdcFileXferConfTable
 // A table for configuring file transfer operations.
-type CISCODATACOLLECTIONMIB_Cdcfilexferconftable struct {
+type CISCODATACOLLECTIONMIB_CdcFileXferConfTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1216,30 +1251,33 @@ type CISCODATACOLLECTIONMIB_Cdcfilexferconftable struct {
     // transfer is initiated to the secondary destination. If this too fails, then
     // the cycle is repeated again after a specified time period (value of
     // cdcFileXferConfRetryPeriod) elapses. The type is slice of
-    // CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry.
-    Cdcfilexferconfentry []CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry
+    // CISCODATACOLLECTIONMIB_CdcFileXferConfTable_CdcFileXferConfEntry.
+    CdcFileXferConfEntry []*CISCODATACOLLECTIONMIB_CdcFileXferConfTable_CdcFileXferConfEntry
 }
 
-func (cdcfilexferconftable *CISCODATACOLLECTIONMIB_Cdcfilexferconftable) GetEntityData() *types.CommonEntityData {
-    cdcfilexferconftable.EntityData.YFilter = cdcfilexferconftable.YFilter
-    cdcfilexferconftable.EntityData.YangName = "cdcFileXferConfTable"
-    cdcfilexferconftable.EntityData.BundleName = "cisco_ios_xe"
-    cdcfilexferconftable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
-    cdcfilexferconftable.EntityData.SegmentPath = "cdcFileXferConfTable"
-    cdcfilexferconftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdcfilexferconftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdcfilexferconftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdcFileXferConfTable *CISCODATACOLLECTIONMIB_CdcFileXferConfTable) GetEntityData() *types.CommonEntityData {
+    cdcFileXferConfTable.EntityData.YFilter = cdcFileXferConfTable.YFilter
+    cdcFileXferConfTable.EntityData.YangName = "cdcFileXferConfTable"
+    cdcFileXferConfTable.EntityData.BundleName = "cisco_ios_xe"
+    cdcFileXferConfTable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
+    cdcFileXferConfTable.EntityData.SegmentPath = "cdcFileXferConfTable"
+    cdcFileXferConfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcFileXferConfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcFileXferConfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdcfilexferconftable.EntityData.Children = make(map[string]types.YChild)
-    cdcfilexferconftable.EntityData.Children["cdcFileXferConfEntry"] = types.YChild{"Cdcfilexferconfentry", nil}
-    for i := range cdcfilexferconftable.Cdcfilexferconfentry {
-        cdcfilexferconftable.EntityData.Children[types.GetSegmentPath(&cdcfilexferconftable.Cdcfilexferconfentry[i])] = types.YChild{"Cdcfilexferconfentry", &cdcfilexferconftable.Cdcfilexferconfentry[i]}
+    cdcFileXferConfTable.EntityData.Children = types.NewOrderedMap()
+    cdcFileXferConfTable.EntityData.Children.Append("cdcFileXferConfEntry", types.YChild{"CdcFileXferConfEntry", nil})
+    for i := range cdcFileXferConfTable.CdcFileXferConfEntry {
+        cdcFileXferConfTable.EntityData.Children.Append(types.GetSegmentPath(cdcFileXferConfTable.CdcFileXferConfEntry[i]), types.YChild{"CdcFileXferConfEntry", cdcFileXferConfTable.CdcFileXferConfEntry[i]})
     }
-    cdcfilexferconftable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cdcfilexferconftable.EntityData)
+    cdcFileXferConfTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cdcFileXferConfTable.EntityData.YListKeys = []string {}
+
+    return &(cdcFileXferConfTable.EntityData)
 }
 
-// CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry
+// CISCODATACOLLECTIONMIB_CdcFileXferConfTable_CdcFileXferConfEntry
 // An individual entry in the cdcFileXferConfTable. Each entry
 // identifies a primary and an optional secondary destination.
 // 
@@ -1253,21 +1291,21 @@ func (cdcfilexferconftable *CISCODATACOLLECTIONMIB_Cdcfilexferconftable) GetEnti
 // is initiated to the secondary destination. If this too fails,
 // then the cycle is repeated again after a specified time
 // period (value of cdcFileXferConfRetryPeriod) elapses.
-type CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry struct {
+type CISCODATACOLLECTIONMIB_CdcFileXferConfTable_CdcFileXferConfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
-    // cisco_data_collection_mib.CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileindex
-    Cdcvfileindex interface{}
+    // cisco_data_collection_mib.CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry_CdcVFileIndex
+    CdcVFileIndex interface{}
 
     // The URL which specifies the primary destination to which the file has to be
     // transferred. The URL should contain the base-name of the remote file, the
     // suffix will be carried over from the name of the VFile being tranferred,
     // and will be automatically appended by the agent.  This object's value may
     // be modified at any time. The type is string with length: 0..255.
-    Cdcfilexferconfpriurl interface{}
+    CdcFileXferConfPriUrl interface{}
 
     // The URL which specifies the secondary destination to which the file has to
     // be transferred if the transfer to the  primary destination fails. Failure
@@ -1278,49 +1316,52 @@ type CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry struct {
     // from the name of the VFile being tranferred, and will be automatically
     // appended by the agent.   This object's value may be modified at any time.
     // The type is string with length: 0..255.
-    Cdcfilexferconfsecurl interface{}
+    CdcFileXferConfSecUrl interface{}
 
     // Specifies the time interval after which transfer has to be retried.
     // Transfer needs to be retried only if in a previous  attempt the file could
     // not be successfully transferred to  either the primary destination or the
     // secondary destination.  This object's value may be modified at any time.
     // The type is interface{} with range: 60..86400. Units are seconds.
-    Cdcfilexferconfretryperiod interface{}
+    CdcFileXferConfRetryPeriod interface{}
 
     // Maximum number of times, transfer has to be retried. If the retry count
     // exceeds this value, then no further attempts will be made.   This object's
     // value may be modified at any time. The type is interface{} with range:
     // 0..256. Units are seconds.
-    Cdcfilexferconfretrycount interface{}
+    CdcFileXferConfRetryCount interface{}
 
     // When set to 'true', cdcFileXferComplete notification will be sent out in
     // the event of a successful file transfer. The type is bool.
-    Cdcfilexferconfsuccessenable interface{}
+    CdcFileXferConfSuccessEnable interface{}
 
     // When set to 'true', cdcFileXferComplete notification will be sent out in
     // the event of a file transfer failure. The type is bool.
-    Cdcfilexferconffailureenable interface{}
+    CdcFileXferConfFailureEnable interface{}
 }
 
-func (cdcfilexferconfentry *CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry) GetEntityData() *types.CommonEntityData {
-    cdcfilexferconfentry.EntityData.YFilter = cdcfilexferconfentry.YFilter
-    cdcfilexferconfentry.EntityData.YangName = "cdcFileXferConfEntry"
-    cdcfilexferconfentry.EntityData.BundleName = "cisco_ios_xe"
-    cdcfilexferconfentry.EntityData.ParentYangName = "cdcFileXferConfTable"
-    cdcfilexferconfentry.EntityData.SegmentPath = "cdcFileXferConfEntry" + "[cdcVFileIndex='" + fmt.Sprintf("%v", cdcfilexferconfentry.Cdcvfileindex) + "']"
-    cdcfilexferconfentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cdcfilexferconfentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cdcfilexferconfentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cdcFileXferConfEntry *CISCODATACOLLECTIONMIB_CdcFileXferConfTable_CdcFileXferConfEntry) GetEntityData() *types.CommonEntityData {
+    cdcFileXferConfEntry.EntityData.YFilter = cdcFileXferConfEntry.YFilter
+    cdcFileXferConfEntry.EntityData.YangName = "cdcFileXferConfEntry"
+    cdcFileXferConfEntry.EntityData.BundleName = "cisco_ios_xe"
+    cdcFileXferConfEntry.EntityData.ParentYangName = "cdcFileXferConfTable"
+    cdcFileXferConfEntry.EntityData.SegmentPath = "cdcFileXferConfEntry" + types.AddKeyToken(cdcFileXferConfEntry.CdcVFileIndex, "cdcVFileIndex")
+    cdcFileXferConfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcFileXferConfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcFileXferConfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cdcfilexferconfentry.EntityData.Children = make(map[string]types.YChild)
-    cdcfilexferconfentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cdcfilexferconfentry.EntityData.Leafs["cdcVFileIndex"] = types.YLeaf{"Cdcvfileindex", cdcfilexferconfentry.Cdcvfileindex}
-    cdcfilexferconfentry.EntityData.Leafs["cdcFileXferConfPriUrl"] = types.YLeaf{"Cdcfilexferconfpriurl", cdcfilexferconfentry.Cdcfilexferconfpriurl}
-    cdcfilexferconfentry.EntityData.Leafs["cdcFileXferConfSecUrl"] = types.YLeaf{"Cdcfilexferconfsecurl", cdcfilexferconfentry.Cdcfilexferconfsecurl}
-    cdcfilexferconfentry.EntityData.Leafs["cdcFileXferConfRetryPeriod"] = types.YLeaf{"Cdcfilexferconfretryperiod", cdcfilexferconfentry.Cdcfilexferconfretryperiod}
-    cdcfilexferconfentry.EntityData.Leafs["cdcFileXferConfRetryCount"] = types.YLeaf{"Cdcfilexferconfretrycount", cdcfilexferconfentry.Cdcfilexferconfretrycount}
-    cdcfilexferconfentry.EntityData.Leafs["cdcFileXferConfSuccessEnable"] = types.YLeaf{"Cdcfilexferconfsuccessenable", cdcfilexferconfentry.Cdcfilexferconfsuccessenable}
-    cdcfilexferconfentry.EntityData.Leafs["cdcFileXferConfFailureEnable"] = types.YLeaf{"Cdcfilexferconffailureenable", cdcfilexferconfentry.Cdcfilexferconffailureenable}
-    return &(cdcfilexferconfentry.EntityData)
+    cdcFileXferConfEntry.EntityData.Children = types.NewOrderedMap()
+    cdcFileXferConfEntry.EntityData.Leafs = types.NewOrderedMap()
+    cdcFileXferConfEntry.EntityData.Leafs.Append("cdcVFileIndex", types.YLeaf{"CdcVFileIndex", cdcFileXferConfEntry.CdcVFileIndex})
+    cdcFileXferConfEntry.EntityData.Leafs.Append("cdcFileXferConfPriUrl", types.YLeaf{"CdcFileXferConfPriUrl", cdcFileXferConfEntry.CdcFileXferConfPriUrl})
+    cdcFileXferConfEntry.EntityData.Leafs.Append("cdcFileXferConfSecUrl", types.YLeaf{"CdcFileXferConfSecUrl", cdcFileXferConfEntry.CdcFileXferConfSecUrl})
+    cdcFileXferConfEntry.EntityData.Leafs.Append("cdcFileXferConfRetryPeriod", types.YLeaf{"CdcFileXferConfRetryPeriod", cdcFileXferConfEntry.CdcFileXferConfRetryPeriod})
+    cdcFileXferConfEntry.EntityData.Leafs.Append("cdcFileXferConfRetryCount", types.YLeaf{"CdcFileXferConfRetryCount", cdcFileXferConfEntry.CdcFileXferConfRetryCount})
+    cdcFileXferConfEntry.EntityData.Leafs.Append("cdcFileXferConfSuccessEnable", types.YLeaf{"CdcFileXferConfSuccessEnable", cdcFileXferConfEntry.CdcFileXferConfSuccessEnable})
+    cdcFileXferConfEntry.EntityData.Leafs.Append("cdcFileXferConfFailureEnable", types.YLeaf{"CdcFileXferConfFailureEnable", cdcFileXferConfEntry.CdcFileXferConfFailureEnable})
+
+    cdcFileXferConfEntry.EntityData.YListKeys = []string {"CdcVFileIndex"}
+
+    return &(cdcFileXferConfEntry.EntityData)
 }
 

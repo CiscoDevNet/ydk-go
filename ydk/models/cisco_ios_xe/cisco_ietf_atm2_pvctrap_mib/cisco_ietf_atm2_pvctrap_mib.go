@@ -25,7 +25,7 @@ type CISCOIETFATM2PVCTRAPMIB struct {
     // A table indicating all VCLs for which there is an active row in the
     // atmVclTable having an atmVclConnKind value of `pvc' and an atmVclOperStatus
     // with a value other than `up'.
-    Atmcurrentlyfailingpvcltable CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable
+    AtmCurrentlyFailingPVclTable CISCOIETFATM2PVCTRAPMIB_AtmCurrentlyFailingPVclTable
 }
 
 func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) GetEntityData() *types.CommonEntityData {
@@ -38,93 +38,102 @@ func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) GetEntityData() *types.C
     cISCOIETFATM2PVCTRAPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIETFATM2PVCTRAPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOIETFATM2PVCTRAPMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOIETFATM2PVCTRAPMIB.EntityData.Children["atmCurrentlyFailingPVclTable"] = types.YChild{"Atmcurrentlyfailingpvcltable", &cISCOIETFATM2PVCTRAPMIB.Atmcurrentlyfailingpvcltable}
-    cISCOIETFATM2PVCTRAPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOIETFATM2PVCTRAPMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOIETFATM2PVCTRAPMIB.EntityData.Children.Append("atmCurrentlyFailingPVclTable", types.YChild{"AtmCurrentlyFailingPVclTable", &cISCOIETFATM2PVCTRAPMIB.AtmCurrentlyFailingPVclTable})
+    cISCOIETFATM2PVCTRAPMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOIETFATM2PVCTRAPMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOIETFATM2PVCTRAPMIB.EntityData)
 }
 
-// CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable
+// CISCOIETFATM2PVCTRAPMIB_AtmCurrentlyFailingPVclTable
 // A table indicating all VCLs for which there is an
 // active row in the atmVclTable having an atmVclConnKind
 // value of `pvc' and an atmVclOperStatus with a value
 // other than `up'.
-type CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable struct {
+type CISCOIETFATM2PVCTRAPMIB_AtmCurrentlyFailingPVclTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry in this table represents a VCL for which the atmVclRowStatus is
     // `active', the atmVclConnKind is `pvc', and the atmVclOperStatus is other
     // than `up'. The type is slice of
-    // CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry.
-    Atmcurrentlyfailingpvclentry []CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry
+    // CISCOIETFATM2PVCTRAPMIB_AtmCurrentlyFailingPVclTable_AtmCurrentlyFailingPVclEntry.
+    AtmCurrentlyFailingPVclEntry []*CISCOIETFATM2PVCTRAPMIB_AtmCurrentlyFailingPVclTable_AtmCurrentlyFailingPVclEntry
 }
 
-func (atmcurrentlyfailingpvcltable *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable) GetEntityData() *types.CommonEntityData {
-    atmcurrentlyfailingpvcltable.EntityData.YFilter = atmcurrentlyfailingpvcltable.YFilter
-    atmcurrentlyfailingpvcltable.EntityData.YangName = "atmCurrentlyFailingPVclTable"
-    atmcurrentlyfailingpvcltable.EntityData.BundleName = "cisco_ios_xe"
-    atmcurrentlyfailingpvcltable.EntityData.ParentYangName = "CISCO-IETF-ATM2-PVCTRAP-MIB"
-    atmcurrentlyfailingpvcltable.EntityData.SegmentPath = "atmCurrentlyFailingPVclTable"
-    atmcurrentlyfailingpvcltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atmcurrentlyfailingpvcltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atmcurrentlyfailingpvcltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmCurrentlyFailingPVclTable *CISCOIETFATM2PVCTRAPMIB_AtmCurrentlyFailingPVclTable) GetEntityData() *types.CommonEntityData {
+    atmCurrentlyFailingPVclTable.EntityData.YFilter = atmCurrentlyFailingPVclTable.YFilter
+    atmCurrentlyFailingPVclTable.EntityData.YangName = "atmCurrentlyFailingPVclTable"
+    atmCurrentlyFailingPVclTable.EntityData.BundleName = "cisco_ios_xe"
+    atmCurrentlyFailingPVclTable.EntityData.ParentYangName = "CISCO-IETF-ATM2-PVCTRAP-MIB"
+    atmCurrentlyFailingPVclTable.EntityData.SegmentPath = "atmCurrentlyFailingPVclTable"
+    atmCurrentlyFailingPVclTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmCurrentlyFailingPVclTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmCurrentlyFailingPVclTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atmcurrentlyfailingpvcltable.EntityData.Children = make(map[string]types.YChild)
-    atmcurrentlyfailingpvcltable.EntityData.Children["atmCurrentlyFailingPVclEntry"] = types.YChild{"Atmcurrentlyfailingpvclentry", nil}
-    for i := range atmcurrentlyfailingpvcltable.Atmcurrentlyfailingpvclentry {
-        atmcurrentlyfailingpvcltable.EntityData.Children[types.GetSegmentPath(&atmcurrentlyfailingpvcltable.Atmcurrentlyfailingpvclentry[i])] = types.YChild{"Atmcurrentlyfailingpvclentry", &atmcurrentlyfailingpvcltable.Atmcurrentlyfailingpvclentry[i]}
+    atmCurrentlyFailingPVclTable.EntityData.Children = types.NewOrderedMap()
+    atmCurrentlyFailingPVclTable.EntityData.Children.Append("atmCurrentlyFailingPVclEntry", types.YChild{"AtmCurrentlyFailingPVclEntry", nil})
+    for i := range atmCurrentlyFailingPVclTable.AtmCurrentlyFailingPVclEntry {
+        atmCurrentlyFailingPVclTable.EntityData.Children.Append(types.GetSegmentPath(atmCurrentlyFailingPVclTable.AtmCurrentlyFailingPVclEntry[i]), types.YChild{"AtmCurrentlyFailingPVclEntry", atmCurrentlyFailingPVclTable.AtmCurrentlyFailingPVclEntry[i]})
     }
-    atmcurrentlyfailingpvcltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(atmcurrentlyfailingpvcltable.EntityData)
+    atmCurrentlyFailingPVclTable.EntityData.Leafs = types.NewOrderedMap()
+
+    atmCurrentlyFailingPVclTable.EntityData.YListKeys = []string {}
+
+    return &(atmCurrentlyFailingPVclTable.EntityData)
 }
 
-// CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry
+// CISCOIETFATM2PVCTRAPMIB_AtmCurrentlyFailingPVclTable_AtmCurrentlyFailingPVclEntry
 // Each entry in this table represents a VCL for which
 // the atmVclRowStatus is `active', the atmVclConnKind is
 // `pvc', and the atmVclOperStatus is other than `up'.
-type CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry struct {
+type CISCOIETFATM2PVCTRAPMIB_AtmCurrentlyFailingPVclTable_AtmCurrentlyFailingPVclEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvpi
-    Atmvclvpi interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVpi
+    AtmVclVpi interface{}
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvci
-    Atmvclvci interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVci
+    AtmVclVci interface{}
 
     // The time at which this PVCL began to fail. The type is interface{} with
     // range: 0..4294967295.
-    Atmcurrentlyfailingpvcltimestamp interface{}
+    AtmCurrentlyFailingPVclTimeStamp interface{}
 
     // The time at which this PVCL began to fail during the PVC Notification
     // interval. The type is interface{} with range: 0..4294967295.
-    Atmpreviouslyfailedpvcltimestamp interface{}
+    AtmPreviouslyFailedPVclTimeStamp interface{}
 }
 
-func (atmcurrentlyfailingpvclentry *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry) GetEntityData() *types.CommonEntityData {
-    atmcurrentlyfailingpvclentry.EntityData.YFilter = atmcurrentlyfailingpvclentry.YFilter
-    atmcurrentlyfailingpvclentry.EntityData.YangName = "atmCurrentlyFailingPVclEntry"
-    atmcurrentlyfailingpvclentry.EntityData.BundleName = "cisco_ios_xe"
-    atmcurrentlyfailingpvclentry.EntityData.ParentYangName = "atmCurrentlyFailingPVclTable"
-    atmcurrentlyfailingpvclentry.EntityData.SegmentPath = "atmCurrentlyFailingPVclEntry" + "[ifIndex='" + fmt.Sprintf("%v", atmcurrentlyfailingpvclentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", atmcurrentlyfailingpvclentry.Atmvclvpi) + "']" + "[atmVclVci='" + fmt.Sprintf("%v", atmcurrentlyfailingpvclentry.Atmvclvci) + "']"
-    atmcurrentlyfailingpvclentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    atmcurrentlyfailingpvclentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    atmcurrentlyfailingpvclentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (atmCurrentlyFailingPVclEntry *CISCOIETFATM2PVCTRAPMIB_AtmCurrentlyFailingPVclTable_AtmCurrentlyFailingPVclEntry) GetEntityData() *types.CommonEntityData {
+    atmCurrentlyFailingPVclEntry.EntityData.YFilter = atmCurrentlyFailingPVclEntry.YFilter
+    atmCurrentlyFailingPVclEntry.EntityData.YangName = "atmCurrentlyFailingPVclEntry"
+    atmCurrentlyFailingPVclEntry.EntityData.BundleName = "cisco_ios_xe"
+    atmCurrentlyFailingPVclEntry.EntityData.ParentYangName = "atmCurrentlyFailingPVclTable"
+    atmCurrentlyFailingPVclEntry.EntityData.SegmentPath = "atmCurrentlyFailingPVclEntry" + types.AddKeyToken(atmCurrentlyFailingPVclEntry.IfIndex, "ifIndex") + types.AddKeyToken(atmCurrentlyFailingPVclEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(atmCurrentlyFailingPVclEntry.AtmVclVci, "atmVclVci")
+    atmCurrentlyFailingPVclEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmCurrentlyFailingPVclEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmCurrentlyFailingPVclEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    atmcurrentlyfailingpvclentry.EntityData.Children = make(map[string]types.YChild)
-    atmcurrentlyfailingpvclentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    atmcurrentlyfailingpvclentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", atmcurrentlyfailingpvclentry.Ifindex}
-    atmcurrentlyfailingpvclentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", atmcurrentlyfailingpvclentry.Atmvclvpi}
-    atmcurrentlyfailingpvclentry.EntityData.Leafs["atmVclVci"] = types.YLeaf{"Atmvclvci", atmcurrentlyfailingpvclentry.Atmvclvci}
-    atmcurrentlyfailingpvclentry.EntityData.Leafs["atmCurrentlyFailingPVclTimeStamp"] = types.YLeaf{"Atmcurrentlyfailingpvcltimestamp", atmcurrentlyfailingpvclentry.Atmcurrentlyfailingpvcltimestamp}
-    atmcurrentlyfailingpvclentry.EntityData.Leafs["atmPreviouslyFailedPVclTimeStamp"] = types.YLeaf{"Atmpreviouslyfailedpvcltimestamp", atmcurrentlyfailingpvclentry.Atmpreviouslyfailedpvcltimestamp}
-    return &(atmcurrentlyfailingpvclentry.EntityData)
+    atmCurrentlyFailingPVclEntry.EntityData.Children = types.NewOrderedMap()
+    atmCurrentlyFailingPVclEntry.EntityData.Leafs = types.NewOrderedMap()
+    atmCurrentlyFailingPVclEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", atmCurrentlyFailingPVclEntry.IfIndex})
+    atmCurrentlyFailingPVclEntry.EntityData.Leafs.Append("atmVclVpi", types.YLeaf{"AtmVclVpi", atmCurrentlyFailingPVclEntry.AtmVclVpi})
+    atmCurrentlyFailingPVclEntry.EntityData.Leafs.Append("atmVclVci", types.YLeaf{"AtmVclVci", atmCurrentlyFailingPVclEntry.AtmVclVci})
+    atmCurrentlyFailingPVclEntry.EntityData.Leafs.Append("atmCurrentlyFailingPVclTimeStamp", types.YLeaf{"AtmCurrentlyFailingPVclTimeStamp", atmCurrentlyFailingPVclEntry.AtmCurrentlyFailingPVclTimeStamp})
+    atmCurrentlyFailingPVclEntry.EntityData.Leafs.Append("atmPreviouslyFailedPVclTimeStamp", types.YLeaf{"AtmPreviouslyFailedPVclTimeStamp", atmCurrentlyFailingPVclEntry.AtmPreviouslyFailedPVclTimeStamp})
+
+    atmCurrentlyFailingPVclEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVclVpi", "AtmVclVci"}
+
+    return &(atmCurrentlyFailingPVclEntry.EntityData)
 }
 

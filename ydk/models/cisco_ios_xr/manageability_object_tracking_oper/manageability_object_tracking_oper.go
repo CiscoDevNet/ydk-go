@@ -97,16 +97,19 @@ func (objectTracking *ObjectTracking) GetEntityData() *types.CommonEntityData {
     objectTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    objectTracking.EntityData.Children = make(map[string]types.YChild)
-    objectTracking.EntityData.Children["track-type-interface"] = types.YChild{"TrackTypeInterface", &objectTracking.TrackTypeInterface}
-    objectTracking.EntityData.Children["track-briefs"] = types.YChild{"TrackBriefs", &objectTracking.TrackBriefs}
-    objectTracking.EntityData.Children["track-type-rtr-reachability"] = types.YChild{"TrackTypeRtrReachability", &objectTracking.TrackTypeRtrReachability}
-    objectTracking.EntityData.Children["track-type-rtr-reachability-brief"] = types.YChild{"TrackTypeRtrReachabilityBrief", &objectTracking.TrackTypeRtrReachabilityBrief}
-    objectTracking.EntityData.Children["tracks"] = types.YChild{"Tracks", &objectTracking.Tracks}
-    objectTracking.EntityData.Children["track-type-ipv4-route-brief"] = types.YChild{"TrackTypeIpv4RouteBrief", &objectTracking.TrackTypeIpv4RouteBrief}
-    objectTracking.EntityData.Children["track-type-ipv4-route"] = types.YChild{"TrackTypeIpv4Route", &objectTracking.TrackTypeIpv4Route}
-    objectTracking.EntityData.Children["track-type-interface-brief"] = types.YChild{"TrackTypeInterfaceBrief", &objectTracking.TrackTypeInterfaceBrief}
-    objectTracking.EntityData.Leafs = make(map[string]types.YLeaf)
+    objectTracking.EntityData.Children = types.NewOrderedMap()
+    objectTracking.EntityData.Children.Append("track-type-interface", types.YChild{"TrackTypeInterface", &objectTracking.TrackTypeInterface})
+    objectTracking.EntityData.Children.Append("track-briefs", types.YChild{"TrackBriefs", &objectTracking.TrackBriefs})
+    objectTracking.EntityData.Children.Append("track-type-rtr-reachability", types.YChild{"TrackTypeRtrReachability", &objectTracking.TrackTypeRtrReachability})
+    objectTracking.EntityData.Children.Append("track-type-rtr-reachability-brief", types.YChild{"TrackTypeRtrReachabilityBrief", &objectTracking.TrackTypeRtrReachabilityBrief})
+    objectTracking.EntityData.Children.Append("tracks", types.YChild{"Tracks", &objectTracking.Tracks})
+    objectTracking.EntityData.Children.Append("track-type-ipv4-route-brief", types.YChild{"TrackTypeIpv4RouteBrief", &objectTracking.TrackTypeIpv4RouteBrief})
+    objectTracking.EntityData.Children.Append("track-type-ipv4-route", types.YChild{"TrackTypeIpv4Route", &objectTracking.TrackTypeIpv4Route})
+    objectTracking.EntityData.Children.Append("track-type-interface-brief", types.YChild{"TrackTypeInterfaceBrief", &objectTracking.TrackTypeInterfaceBrief})
+    objectTracking.EntityData.Leafs = types.NewOrderedMap()
+
+    objectTracking.EntityData.YListKeys = []string {}
+
     return &(objectTracking.EntityData)
 }
 
@@ -118,7 +121,7 @@ type ObjectTracking_TrackTypeInterface struct {
 
     // track info. The type is slice of
     // ObjectTracking_TrackTypeInterface_TrackInfo.
-    TrackInfo []ObjectTracking_TrackTypeInterface_TrackInfo
+    TrackInfo []*ObjectTracking_TrackTypeInterface_TrackInfo
 }
 
 func (trackTypeInterface *ObjectTracking_TrackTypeInterface) GetEntityData() *types.CommonEntityData {
@@ -131,12 +134,15 @@ func (trackTypeInterface *ObjectTracking_TrackTypeInterface) GetEntityData() *ty
     trackTypeInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackTypeInterface.EntityData.Children = make(map[string]types.YChild)
-    trackTypeInterface.EntityData.Children["track-info"] = types.YChild{"TrackInfo", nil}
+    trackTypeInterface.EntityData.Children = types.NewOrderedMap()
+    trackTypeInterface.EntityData.Children.Append("track-info", types.YChild{"TrackInfo", nil})
     for i := range trackTypeInterface.TrackInfo {
-        trackTypeInterface.EntityData.Children[types.GetSegmentPath(&trackTypeInterface.TrackInfo[i])] = types.YChild{"TrackInfo", &trackTypeInterface.TrackInfo[i]}
+        trackTypeInterface.EntityData.Children.Append(types.GetSegmentPath(trackTypeInterface.TrackInfo[i]), types.YChild{"TrackInfo", trackTypeInterface.TrackInfo[i]})
     }
-    trackTypeInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackTypeInterface.EntityData.Leafs = types.NewOrderedMap()
+
+    trackTypeInterface.EntityData.YListKeys = []string {}
+
     return &(trackTypeInterface.EntityData)
 }
 
@@ -150,7 +156,7 @@ type ObjectTracking_TrackTypeInterface_TrackInfo struct {
     TrackeName interface{}
 
     // Track type. The type is Track.
-    Type_ interface{}
+    Type interface{}
 
     // Track state. The type is bool.
     TrackState interface{}
@@ -196,20 +202,23 @@ func (trackInfo *ObjectTracking_TrackTypeInterface_TrackInfo) GetEntityData() *t
     trackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackInfo.EntityData.Children = make(map[string]types.YChild)
-    trackInfo.EntityData.Children["track-type-info"] = types.YChild{"TrackTypeInfo", &trackInfo.TrackTypeInfo}
-    trackInfo.EntityData.Children["bool-tracks"] = types.YChild{"BoolTracks", &trackInfo.BoolTracks}
-    trackInfo.EntityData.Children["threshold-tracks"] = types.YChild{"ThresholdTracks", &trackInfo.ThresholdTracks}
-    trackInfo.EntityData.Children["tracking-interaces"] = types.YChild{"TrackingInteraces", &trackInfo.TrackingInteraces}
-    trackInfo.EntityData.Children["delayed"] = types.YChild{"Delayed", &trackInfo.Delayed}
-    trackInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackInfo.EntityData.Leafs["tracke-name"] = types.YLeaf{"TrackeName", trackInfo.TrackeName}
-    trackInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", trackInfo.Type_}
-    trackInfo.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", trackInfo.TrackState}
-    trackInfo.EntityData.Leafs["state-change-counter"] = types.YLeaf{"StateChangeCounter", trackInfo.StateChangeCounter}
-    trackInfo.EntityData.Leafs["seconds-last-change"] = types.YLeaf{"SecondsLastChange", trackInfo.SecondsLastChange}
-    trackInfo.EntityData.Leafs["threshold-up"] = types.YLeaf{"ThresholdUp", trackInfo.ThresholdUp}
-    trackInfo.EntityData.Leafs["threshold-down"] = types.YLeaf{"ThresholdDown", trackInfo.ThresholdDown}
+    trackInfo.EntityData.Children = types.NewOrderedMap()
+    trackInfo.EntityData.Children.Append("track-type-info", types.YChild{"TrackTypeInfo", &trackInfo.TrackTypeInfo})
+    trackInfo.EntityData.Children.Append("bool-tracks", types.YChild{"BoolTracks", &trackInfo.BoolTracks})
+    trackInfo.EntityData.Children.Append("threshold-tracks", types.YChild{"ThresholdTracks", &trackInfo.ThresholdTracks})
+    trackInfo.EntityData.Children.Append("tracking-interaces", types.YChild{"TrackingInteraces", &trackInfo.TrackingInteraces})
+    trackInfo.EntityData.Children.Append("delayed", types.YChild{"Delayed", &trackInfo.Delayed})
+    trackInfo.EntityData.Leafs = types.NewOrderedMap()
+    trackInfo.EntityData.Leafs.Append("tracke-name", types.YLeaf{"TrackeName", trackInfo.TrackeName})
+    trackInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", trackInfo.Type})
+    trackInfo.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", trackInfo.TrackState})
+    trackInfo.EntityData.Leafs.Append("state-change-counter", types.YLeaf{"StateChangeCounter", trackInfo.StateChangeCounter})
+    trackInfo.EntityData.Leafs.Append("seconds-last-change", types.YLeaf{"SecondsLastChange", trackInfo.SecondsLastChange})
+    trackInfo.EntityData.Leafs.Append("threshold-up", types.YLeaf{"ThresholdUp", trackInfo.ThresholdUp})
+    trackInfo.EntityData.Leafs.Append("threshold-down", types.YLeaf{"ThresholdDown", trackInfo.ThresholdDown})
+
+    trackInfo.EntityData.YListKeys = []string {}
+
     return &(trackInfo.EntityData)
 }
 
@@ -245,13 +254,16 @@ func (trackTypeInfo *ObjectTracking_TrackTypeInterface_TrackInfo_TrackTypeInfo) 
     trackTypeInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackTypeInfo.EntityData.Children = make(map[string]types.YChild)
-    trackTypeInfo.EntityData.Children["interface-tracks"] = types.YChild{"InterfaceTracks", &trackTypeInfo.InterfaceTracks}
-    trackTypeInfo.EntityData.Children["route-tracks"] = types.YChild{"RouteTracks", &trackTypeInfo.RouteTracks}
-    trackTypeInfo.EntityData.Children["ipsla-tracks"] = types.YChild{"IpslaTracks", &trackTypeInfo.IpslaTracks}
-    trackTypeInfo.EntityData.Children["bfd-tracks"] = types.YChild{"BfdTracks", &trackTypeInfo.BfdTracks}
-    trackTypeInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackTypeInfo.EntityData.Leafs["discriminant"] = types.YLeaf{"Discriminant", trackTypeInfo.Discriminant}
+    trackTypeInfo.EntityData.Children = types.NewOrderedMap()
+    trackTypeInfo.EntityData.Children.Append("interface-tracks", types.YChild{"InterfaceTracks", &trackTypeInfo.InterfaceTracks})
+    trackTypeInfo.EntityData.Children.Append("route-tracks", types.YChild{"RouteTracks", &trackTypeInfo.RouteTracks})
+    trackTypeInfo.EntityData.Children.Append("ipsla-tracks", types.YChild{"IpslaTracks", &trackTypeInfo.IpslaTracks})
+    trackTypeInfo.EntityData.Children.Append("bfd-tracks", types.YChild{"BfdTracks", &trackTypeInfo.BfdTracks})
+    trackTypeInfo.EntityData.Leafs = types.NewOrderedMap()
+    trackTypeInfo.EntityData.Leafs.Append("discriminant", types.YLeaf{"Discriminant", trackTypeInfo.Discriminant})
+
+    trackTypeInfo.EntityData.YListKeys = []string {}
+
     return &(trackTypeInfo.EntityData)
 }
 
@@ -275,9 +287,12 @@ func (interfaceTracks *ObjectTracking_TrackTypeInterface_TrackInfo_TrackTypeInfo
     interfaceTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceTracks.EntityData.Children = make(map[string]types.YChild)
-    interfaceTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceTracks.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceTracks.InterfaceName}
+    interfaceTracks.EntityData.Children = types.NewOrderedMap()
+    interfaceTracks.EntityData.Leafs = types.NewOrderedMap()
+    interfaceTracks.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceTracks.InterfaceName})
+
+    interfaceTracks.EntityData.YListKeys = []string {}
+
     return &(interfaceTracks.EntityData)
 }
 
@@ -310,12 +325,15 @@ func (routeTracks *ObjectTracking_TrackTypeInterface_TrackInfo_TrackTypeInfo_Rou
     routeTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routeTracks.EntityData.Children = make(map[string]types.YChild)
-    routeTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    routeTracks.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", routeTracks.Prefix}
-    routeTracks.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", routeTracks.PrefixLength}
-    routeTracks.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", routeTracks.Vrf}
-    routeTracks.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", routeTracks.NextHop}
+    routeTracks.EntityData.Children = types.NewOrderedMap()
+    routeTracks.EntityData.Leafs = types.NewOrderedMap()
+    routeTracks.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", routeTracks.Prefix})
+    routeTracks.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", routeTracks.PrefixLength})
+    routeTracks.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", routeTracks.Vrf})
+    routeTracks.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", routeTracks.NextHop})
+
+    routeTracks.EntityData.YListKeys = []string {}
+
     return &(routeTracks.EntityData)
 }
 
@@ -345,11 +363,14 @@ func (ipslaTracks *ObjectTracking_TrackTypeInterface_TrackInfo_TrackTypeInfo_Ips
     ipslaTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipslaTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipslaTracks.EntityData.Children = make(map[string]types.YChild)
-    ipslaTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipslaTracks.EntityData.Leafs["ipsla-op-id"] = types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId}
-    ipslaTracks.EntityData.Leafs["rtt"] = types.YLeaf{"Rtt", ipslaTracks.Rtt}
-    ipslaTracks.EntityData.Leafs["return-code"] = types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode}
+    ipslaTracks.EntityData.Children = types.NewOrderedMap()
+    ipslaTracks.EntityData.Leafs = types.NewOrderedMap()
+    ipslaTracks.EntityData.Leafs.Append("ipsla-op-id", types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId})
+    ipslaTracks.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", ipslaTracks.Rtt})
+    ipslaTracks.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode})
+
+    ipslaTracks.EntityData.YListKeys = []string {}
+
     return &(ipslaTracks.EntityData)
 }
 
@@ -382,12 +403,15 @@ func (bfdTracks *ObjectTracking_TrackTypeInterface_TrackInfo_TrackTypeInfo_BfdTr
     bfdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfdTracks.EntityData.Children = make(map[string]types.YChild)
-    bfdTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfdTracks.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", bfdTracks.InterfaceName}
-    bfdTracks.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", bfdTracks.DestinationAddress}
-    bfdTracks.EntityData.Leafs["rate"] = types.YLeaf{"Rate", bfdTracks.Rate}
-    bfdTracks.EntityData.Leafs["debounce-count"] = types.YLeaf{"DebounceCount", bfdTracks.DebounceCount}
+    bfdTracks.EntityData.Children = types.NewOrderedMap()
+    bfdTracks.EntityData.Leafs = types.NewOrderedMap()
+    bfdTracks.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", bfdTracks.InterfaceName})
+    bfdTracks.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", bfdTracks.DestinationAddress})
+    bfdTracks.EntityData.Leafs.Append("rate", types.YLeaf{"Rate", bfdTracks.Rate})
+    bfdTracks.EntityData.Leafs.Append("debounce-count", types.YLeaf{"DebounceCount", bfdTracks.DebounceCount})
+
+    bfdTracks.EntityData.YListKeys = []string {}
+
     return &(bfdTracks.EntityData)
 }
 
@@ -399,7 +423,7 @@ type ObjectTracking_TrackTypeInterface_TrackInfo_BoolTracks struct {
 
     // bool track info. The type is slice of
     // ObjectTracking_TrackTypeInterface_TrackInfo_BoolTracks_BoolTrackInfo.
-    BoolTrackInfo []ObjectTracking_TrackTypeInterface_TrackInfo_BoolTracks_BoolTrackInfo
+    BoolTrackInfo []*ObjectTracking_TrackTypeInterface_TrackInfo_BoolTracks_BoolTrackInfo
 }
 
 func (boolTracks *ObjectTracking_TrackTypeInterface_TrackInfo_BoolTracks) GetEntityData() *types.CommonEntityData {
@@ -412,12 +436,15 @@ func (boolTracks *ObjectTracking_TrackTypeInterface_TrackInfo_BoolTracks) GetEnt
     boolTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     boolTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    boolTracks.EntityData.Children = make(map[string]types.YChild)
-    boolTracks.EntityData.Children["bool-track-info"] = types.YChild{"BoolTrackInfo", nil}
+    boolTracks.EntityData.Children = types.NewOrderedMap()
+    boolTracks.EntityData.Children.Append("bool-track-info", types.YChild{"BoolTrackInfo", nil})
     for i := range boolTracks.BoolTrackInfo {
-        boolTracks.EntityData.Children[types.GetSegmentPath(&boolTracks.BoolTrackInfo[i])] = types.YChild{"BoolTrackInfo", &boolTracks.BoolTrackInfo[i]}
+        boolTracks.EntityData.Children.Append(types.GetSegmentPath(boolTracks.BoolTrackInfo[i]), types.YChild{"BoolTrackInfo", boolTracks.BoolTrackInfo[i]})
     }
-    boolTracks.EntityData.Leafs = make(map[string]types.YLeaf)
+    boolTracks.EntityData.Leafs = types.NewOrderedMap()
+
+    boolTracks.EntityData.YListKeys = []string {}
+
     return &(boolTracks.EntityData)
 }
 
@@ -447,11 +474,14 @@ func (boolTrackInfo *ObjectTracking_TrackTypeInterface_TrackInfo_BoolTracks_Bool
     boolTrackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     boolTrackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    boolTrackInfo.EntityData.Children = make(map[string]types.YChild)
-    boolTrackInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    boolTrackInfo.EntityData.Leafs["object-name"] = types.YLeaf{"ObjectName", boolTrackInfo.ObjectName}
-    boolTrackInfo.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", boolTrackInfo.TrackState}
-    boolTrackInfo.EntityData.Leafs["with-not"] = types.YLeaf{"WithNot", boolTrackInfo.WithNot}
+    boolTrackInfo.EntityData.Children = types.NewOrderedMap()
+    boolTrackInfo.EntityData.Leafs = types.NewOrderedMap()
+    boolTrackInfo.EntityData.Leafs.Append("object-name", types.YLeaf{"ObjectName", boolTrackInfo.ObjectName})
+    boolTrackInfo.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", boolTrackInfo.TrackState})
+    boolTrackInfo.EntityData.Leafs.Append("with-not", types.YLeaf{"WithNot", boolTrackInfo.WithNot})
+
+    boolTrackInfo.EntityData.YListKeys = []string {}
+
     return &(boolTrackInfo.EntityData)
 }
 
@@ -463,7 +493,7 @@ type ObjectTracking_TrackTypeInterface_TrackInfo_ThresholdTracks struct {
 
     // threshold track info. The type is slice of
     // ObjectTracking_TrackTypeInterface_TrackInfo_ThresholdTracks_ThresholdTrackInfo.
-    ThresholdTrackInfo []ObjectTracking_TrackTypeInterface_TrackInfo_ThresholdTracks_ThresholdTrackInfo
+    ThresholdTrackInfo []*ObjectTracking_TrackTypeInterface_TrackInfo_ThresholdTracks_ThresholdTrackInfo
 }
 
 func (thresholdTracks *ObjectTracking_TrackTypeInterface_TrackInfo_ThresholdTracks) GetEntityData() *types.CommonEntityData {
@@ -476,12 +506,15 @@ func (thresholdTracks *ObjectTracking_TrackTypeInterface_TrackInfo_ThresholdTrac
     thresholdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdTracks.EntityData.Children = make(map[string]types.YChild)
-    thresholdTracks.EntityData.Children["threshold-track-info"] = types.YChild{"ThresholdTrackInfo", nil}
+    thresholdTracks.EntityData.Children = types.NewOrderedMap()
+    thresholdTracks.EntityData.Children.Append("threshold-track-info", types.YChild{"ThresholdTrackInfo", nil})
     for i := range thresholdTracks.ThresholdTrackInfo {
-        thresholdTracks.EntityData.Children[types.GetSegmentPath(&thresholdTracks.ThresholdTrackInfo[i])] = types.YChild{"ThresholdTrackInfo", &thresholdTracks.ThresholdTrackInfo[i]}
+        thresholdTracks.EntityData.Children.Append(types.GetSegmentPath(thresholdTracks.ThresholdTrackInfo[i]), types.YChild{"ThresholdTrackInfo", thresholdTracks.ThresholdTrackInfo[i]})
     }
-    thresholdTracks.EntityData.Leafs = make(map[string]types.YLeaf)
+    thresholdTracks.EntityData.Leafs = types.NewOrderedMap()
+
+    thresholdTracks.EntityData.YListKeys = []string {}
+
     return &(thresholdTracks.EntityData)
 }
 
@@ -517,11 +550,14 @@ func (thresholdTrackInfo *ObjectTracking_TrackTypeInterface_TrackInfo_ThresholdT
     thresholdTrackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdTrackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdTrackInfo.EntityData.Children = make(map[string]types.YChild)
-    thresholdTrackInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    thresholdTrackInfo.EntityData.Leafs["object-name"] = types.YLeaf{"ObjectName", thresholdTrackInfo.ObjectName}
-    thresholdTrackInfo.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", thresholdTrackInfo.TrackState}
-    thresholdTrackInfo.EntityData.Leafs["weight"] = types.YLeaf{"Weight", thresholdTrackInfo.Weight}
+    thresholdTrackInfo.EntityData.Children = types.NewOrderedMap()
+    thresholdTrackInfo.EntityData.Leafs = types.NewOrderedMap()
+    thresholdTrackInfo.EntityData.Leafs.Append("object-name", types.YLeaf{"ObjectName", thresholdTrackInfo.ObjectName})
+    thresholdTrackInfo.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", thresholdTrackInfo.TrackState})
+    thresholdTrackInfo.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", thresholdTrackInfo.Weight})
+
+    thresholdTrackInfo.EntityData.YListKeys = []string {}
+
     return &(thresholdTrackInfo.EntityData)
 }
 
@@ -533,7 +569,7 @@ type ObjectTracking_TrackTypeInterface_TrackInfo_TrackingInteraces struct {
 
     // interface tracking info. The type is slice of
     // ObjectTracking_TrackTypeInterface_TrackInfo_TrackingInteraces_InterfaceTrackingInfo.
-    InterfaceTrackingInfo []ObjectTracking_TrackTypeInterface_TrackInfo_TrackingInteraces_InterfaceTrackingInfo
+    InterfaceTrackingInfo []*ObjectTracking_TrackTypeInterface_TrackInfo_TrackingInteraces_InterfaceTrackingInfo
 }
 
 func (trackingInteraces *ObjectTracking_TrackTypeInterface_TrackInfo_TrackingInteraces) GetEntityData() *types.CommonEntityData {
@@ -546,12 +582,15 @@ func (trackingInteraces *ObjectTracking_TrackTypeInterface_TrackInfo_TrackingInt
     trackingInteraces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackingInteraces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackingInteraces.EntityData.Children = make(map[string]types.YChild)
-    trackingInteraces.EntityData.Children["interface-tracking-info"] = types.YChild{"InterfaceTrackingInfo", nil}
+    trackingInteraces.EntityData.Children = types.NewOrderedMap()
+    trackingInteraces.EntityData.Children.Append("interface-tracking-info", types.YChild{"InterfaceTrackingInfo", nil})
     for i := range trackingInteraces.InterfaceTrackingInfo {
-        trackingInteraces.EntityData.Children[types.GetSegmentPath(&trackingInteraces.InterfaceTrackingInfo[i])] = types.YChild{"InterfaceTrackingInfo", &trackingInteraces.InterfaceTrackingInfo[i]}
+        trackingInteraces.EntityData.Children.Append(types.GetSegmentPath(trackingInteraces.InterfaceTrackingInfo[i]), types.YChild{"InterfaceTrackingInfo", trackingInteraces.InterfaceTrackingInfo[i]})
     }
-    trackingInteraces.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackingInteraces.EntityData.Leafs = types.NewOrderedMap()
+
+    trackingInteraces.EntityData.YListKeys = []string {}
+
     return &(trackingInteraces.EntityData)
 }
 
@@ -575,9 +614,12 @@ func (interfaceTrackingInfo *ObjectTracking_TrackTypeInterface_TrackInfo_Trackin
     interfaceTrackingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTrackingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceTrackingInfo.EntityData.Children = make(map[string]types.YChild)
-    interfaceTrackingInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceTrackingInfo.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceTrackingInfo.InterfaceName}
+    interfaceTrackingInfo.EntityData.Children = types.NewOrderedMap()
+    interfaceTrackingInfo.EntityData.Leafs = types.NewOrderedMap()
+    interfaceTrackingInfo.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceTrackingInfo.InterfaceName})
+
+    interfaceTrackingInfo.EntityData.YListKeys = []string {}
+
     return &(interfaceTrackingInfo.EntityData)
 }
 
@@ -606,10 +648,13 @@ func (delayed *ObjectTracking_TrackTypeInterface_TrackInfo_Delayed) GetEntityDat
     delayed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delayed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    delayed.EntityData.Children = make(map[string]types.YChild)
-    delayed.EntityData.Leafs = make(map[string]types.YLeaf)
-    delayed.EntityData.Leafs["time-remaining"] = types.YLeaf{"TimeRemaining", delayed.TimeRemaining}
-    delayed.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", delayed.TrackState}
+    delayed.EntityData.Children = types.NewOrderedMap()
+    delayed.EntityData.Leafs = types.NewOrderedMap()
+    delayed.EntityData.Leafs.Append("time-remaining", types.YLeaf{"TimeRemaining", delayed.TimeRemaining})
+    delayed.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", delayed.TrackState})
+
+    delayed.EntityData.YListKeys = []string {}
+
     return &(delayed.EntityData)
 }
 
@@ -621,7 +666,7 @@ type ObjectTracking_TrackBriefs struct {
 
     // Track name - maximum 32 characters. The type is slice of
     // ObjectTracking_TrackBriefs_TrackBrief.
-    TrackBrief []ObjectTracking_TrackBriefs_TrackBrief
+    TrackBrief []*ObjectTracking_TrackBriefs_TrackBrief
 }
 
 func (trackBriefs *ObjectTracking_TrackBriefs) GetEntityData() *types.CommonEntityData {
@@ -634,12 +679,15 @@ func (trackBriefs *ObjectTracking_TrackBriefs) GetEntityData() *types.CommonEnti
     trackBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackBriefs.EntityData.Children = make(map[string]types.YChild)
-    trackBriefs.EntityData.Children["track-brief"] = types.YChild{"TrackBrief", nil}
+    trackBriefs.EntityData.Children = types.NewOrderedMap()
+    trackBriefs.EntityData.Children.Append("track-brief", types.YChild{"TrackBrief", nil})
     for i := range trackBriefs.TrackBrief {
-        trackBriefs.EntityData.Children[types.GetSegmentPath(&trackBriefs.TrackBrief[i])] = types.YChild{"TrackBrief", &trackBriefs.TrackBrief[i]}
+        trackBriefs.EntityData.Children.Append(types.GetSegmentPath(trackBriefs.TrackBrief[i]), types.YChild{"TrackBrief", trackBriefs.TrackBrief[i]})
     }
-    trackBriefs.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackBriefs.EntityData.Leafs = types.NewOrderedMap()
+
+    trackBriefs.EntityData.YListKeys = []string {}
+
     return &(trackBriefs.EntityData)
 }
 
@@ -654,7 +702,7 @@ type ObjectTracking_TrackBriefs_TrackBrief struct {
 
     // track info brief. The type is slice of
     // ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief.
-    TrackInfoBrief []ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief
+    TrackInfoBrief []*ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief
 }
 
 func (trackBrief *ObjectTracking_TrackBriefs_TrackBrief) GetEntityData() *types.CommonEntityData {
@@ -662,18 +710,21 @@ func (trackBrief *ObjectTracking_TrackBriefs_TrackBrief) GetEntityData() *types.
     trackBrief.EntityData.YangName = "track-brief"
     trackBrief.EntityData.BundleName = "cisco_ios_xr"
     trackBrief.EntityData.ParentYangName = "track-briefs"
-    trackBrief.EntityData.SegmentPath = "track-brief" + "[track-name='" + fmt.Sprintf("%v", trackBrief.TrackName) + "']"
+    trackBrief.EntityData.SegmentPath = "track-brief" + types.AddKeyToken(trackBrief.TrackName, "track-name")
     trackBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackBrief.EntityData.Children = make(map[string]types.YChild)
-    trackBrief.EntityData.Children["track-info-brief"] = types.YChild{"TrackInfoBrief", nil}
+    trackBrief.EntityData.Children = types.NewOrderedMap()
+    trackBrief.EntityData.Children.Append("track-info-brief", types.YChild{"TrackInfoBrief", nil})
     for i := range trackBrief.TrackInfoBrief {
-        trackBrief.EntityData.Children[types.GetSegmentPath(&trackBrief.TrackInfoBrief[i])] = types.YChild{"TrackInfoBrief", &trackBrief.TrackInfoBrief[i]}
+        trackBrief.EntityData.Children.Append(types.GetSegmentPath(trackBrief.TrackInfoBrief[i]), types.YChild{"TrackInfoBrief", trackBrief.TrackInfoBrief[i]})
     }
-    trackBrief.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackBrief.EntityData.Leafs["track-name"] = types.YLeaf{"TrackName", trackBrief.TrackName}
+    trackBrief.EntityData.Leafs = types.NewOrderedMap()
+    trackBrief.EntityData.Leafs.Append("track-name", types.YLeaf{"TrackName", trackBrief.TrackName})
+
+    trackBrief.EntityData.YListKeys = []string {"TrackName"}
+
     return &(trackBrief.EntityData)
 }
 
@@ -687,7 +738,7 @@ type ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief struct {
     TrackeName interface{}
 
     // Track type. The type is Track.
-    Type_ interface{}
+    Type interface{}
 
     // Track state. The type is bool.
     TrackState interface{}
@@ -706,12 +757,15 @@ func (trackInfoBrief *ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief) GetE
     trackInfoBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackInfoBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackInfoBrief.EntityData.Children = make(map[string]types.YChild)
-    trackInfoBrief.EntityData.Children["track-type-info"] = types.YChild{"TrackTypeInfo", &trackInfoBrief.TrackTypeInfo}
-    trackInfoBrief.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackInfoBrief.EntityData.Leafs["tracke-name"] = types.YLeaf{"TrackeName", trackInfoBrief.TrackeName}
-    trackInfoBrief.EntityData.Leafs["type"] = types.YLeaf{"Type_", trackInfoBrief.Type_}
-    trackInfoBrief.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", trackInfoBrief.TrackState}
+    trackInfoBrief.EntityData.Children = types.NewOrderedMap()
+    trackInfoBrief.EntityData.Children.Append("track-type-info", types.YChild{"TrackTypeInfo", &trackInfoBrief.TrackTypeInfo})
+    trackInfoBrief.EntityData.Leafs = types.NewOrderedMap()
+    trackInfoBrief.EntityData.Leafs.Append("tracke-name", types.YLeaf{"TrackeName", trackInfoBrief.TrackeName})
+    trackInfoBrief.EntityData.Leafs.Append("type", types.YLeaf{"Type", trackInfoBrief.Type})
+    trackInfoBrief.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", trackInfoBrief.TrackState})
+
+    trackInfoBrief.EntityData.YListKeys = []string {}
+
     return &(trackInfoBrief.EntityData)
 }
 
@@ -747,13 +801,16 @@ func (trackTypeInfo *ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief_TrackT
     trackTypeInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackTypeInfo.EntityData.Children = make(map[string]types.YChild)
-    trackTypeInfo.EntityData.Children["interface-tracks"] = types.YChild{"InterfaceTracks", &trackTypeInfo.InterfaceTracks}
-    trackTypeInfo.EntityData.Children["route-tracks"] = types.YChild{"RouteTracks", &trackTypeInfo.RouteTracks}
-    trackTypeInfo.EntityData.Children["ipsla-tracks"] = types.YChild{"IpslaTracks", &trackTypeInfo.IpslaTracks}
-    trackTypeInfo.EntityData.Children["bfd-tracks"] = types.YChild{"BfdTracks", &trackTypeInfo.BfdTracks}
-    trackTypeInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackTypeInfo.EntityData.Leafs["discriminant"] = types.YLeaf{"Discriminant", trackTypeInfo.Discriminant}
+    trackTypeInfo.EntityData.Children = types.NewOrderedMap()
+    trackTypeInfo.EntityData.Children.Append("interface-tracks", types.YChild{"InterfaceTracks", &trackTypeInfo.InterfaceTracks})
+    trackTypeInfo.EntityData.Children.Append("route-tracks", types.YChild{"RouteTracks", &trackTypeInfo.RouteTracks})
+    trackTypeInfo.EntityData.Children.Append("ipsla-tracks", types.YChild{"IpslaTracks", &trackTypeInfo.IpslaTracks})
+    trackTypeInfo.EntityData.Children.Append("bfd-tracks", types.YChild{"BfdTracks", &trackTypeInfo.BfdTracks})
+    trackTypeInfo.EntityData.Leafs = types.NewOrderedMap()
+    trackTypeInfo.EntityData.Leafs.Append("discriminant", types.YLeaf{"Discriminant", trackTypeInfo.Discriminant})
+
+    trackTypeInfo.EntityData.YListKeys = []string {}
+
     return &(trackTypeInfo.EntityData)
 }
 
@@ -777,9 +834,12 @@ func (interfaceTracks *ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief_Trac
     interfaceTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceTracks.EntityData.Children = make(map[string]types.YChild)
-    interfaceTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceTracks.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceTracks.InterfaceName}
+    interfaceTracks.EntityData.Children = types.NewOrderedMap()
+    interfaceTracks.EntityData.Leafs = types.NewOrderedMap()
+    interfaceTracks.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceTracks.InterfaceName})
+
+    interfaceTracks.EntityData.YListKeys = []string {}
+
     return &(interfaceTracks.EntityData)
 }
 
@@ -812,12 +872,15 @@ func (routeTracks *ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief_TrackTyp
     routeTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routeTracks.EntityData.Children = make(map[string]types.YChild)
-    routeTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    routeTracks.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", routeTracks.Prefix}
-    routeTracks.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", routeTracks.PrefixLength}
-    routeTracks.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", routeTracks.Vrf}
-    routeTracks.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", routeTracks.NextHop}
+    routeTracks.EntityData.Children = types.NewOrderedMap()
+    routeTracks.EntityData.Leafs = types.NewOrderedMap()
+    routeTracks.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", routeTracks.Prefix})
+    routeTracks.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", routeTracks.PrefixLength})
+    routeTracks.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", routeTracks.Vrf})
+    routeTracks.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", routeTracks.NextHop})
+
+    routeTracks.EntityData.YListKeys = []string {}
+
     return &(routeTracks.EntityData)
 }
 
@@ -847,11 +910,14 @@ func (ipslaTracks *ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief_TrackTyp
     ipslaTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipslaTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipslaTracks.EntityData.Children = make(map[string]types.YChild)
-    ipslaTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipslaTracks.EntityData.Leafs["ipsla-op-id"] = types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId}
-    ipslaTracks.EntityData.Leafs["rtt"] = types.YLeaf{"Rtt", ipslaTracks.Rtt}
-    ipslaTracks.EntityData.Leafs["return-code"] = types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode}
+    ipslaTracks.EntityData.Children = types.NewOrderedMap()
+    ipslaTracks.EntityData.Leafs = types.NewOrderedMap()
+    ipslaTracks.EntityData.Leafs.Append("ipsla-op-id", types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId})
+    ipslaTracks.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", ipslaTracks.Rtt})
+    ipslaTracks.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode})
+
+    ipslaTracks.EntityData.YListKeys = []string {}
+
     return &(ipslaTracks.EntityData)
 }
 
@@ -884,12 +950,15 @@ func (bfdTracks *ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief_TrackTypeI
     bfdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfdTracks.EntityData.Children = make(map[string]types.YChild)
-    bfdTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfdTracks.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", bfdTracks.InterfaceName}
-    bfdTracks.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", bfdTracks.DestinationAddress}
-    bfdTracks.EntityData.Leafs["rate"] = types.YLeaf{"Rate", bfdTracks.Rate}
-    bfdTracks.EntityData.Leafs["debounce-count"] = types.YLeaf{"DebounceCount", bfdTracks.DebounceCount}
+    bfdTracks.EntityData.Children = types.NewOrderedMap()
+    bfdTracks.EntityData.Leafs = types.NewOrderedMap()
+    bfdTracks.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", bfdTracks.InterfaceName})
+    bfdTracks.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", bfdTracks.DestinationAddress})
+    bfdTracks.EntityData.Leafs.Append("rate", types.YLeaf{"Rate", bfdTracks.Rate})
+    bfdTracks.EntityData.Leafs.Append("debounce-count", types.YLeaf{"DebounceCount", bfdTracks.DebounceCount})
+
+    bfdTracks.EntityData.YListKeys = []string {}
+
     return &(bfdTracks.EntityData)
 }
 
@@ -901,7 +970,7 @@ type ObjectTracking_TrackTypeRtrReachability struct {
 
     // track info. The type is slice of
     // ObjectTracking_TrackTypeRtrReachability_TrackInfo.
-    TrackInfo []ObjectTracking_TrackTypeRtrReachability_TrackInfo
+    TrackInfo []*ObjectTracking_TrackTypeRtrReachability_TrackInfo
 }
 
 func (trackTypeRtrReachability *ObjectTracking_TrackTypeRtrReachability) GetEntityData() *types.CommonEntityData {
@@ -914,12 +983,15 @@ func (trackTypeRtrReachability *ObjectTracking_TrackTypeRtrReachability) GetEnti
     trackTypeRtrReachability.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeRtrReachability.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackTypeRtrReachability.EntityData.Children = make(map[string]types.YChild)
-    trackTypeRtrReachability.EntityData.Children["track-info"] = types.YChild{"TrackInfo", nil}
+    trackTypeRtrReachability.EntityData.Children = types.NewOrderedMap()
+    trackTypeRtrReachability.EntityData.Children.Append("track-info", types.YChild{"TrackInfo", nil})
     for i := range trackTypeRtrReachability.TrackInfo {
-        trackTypeRtrReachability.EntityData.Children[types.GetSegmentPath(&trackTypeRtrReachability.TrackInfo[i])] = types.YChild{"TrackInfo", &trackTypeRtrReachability.TrackInfo[i]}
+        trackTypeRtrReachability.EntityData.Children.Append(types.GetSegmentPath(trackTypeRtrReachability.TrackInfo[i]), types.YChild{"TrackInfo", trackTypeRtrReachability.TrackInfo[i]})
     }
-    trackTypeRtrReachability.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackTypeRtrReachability.EntityData.Leafs = types.NewOrderedMap()
+
+    trackTypeRtrReachability.EntityData.YListKeys = []string {}
+
     return &(trackTypeRtrReachability.EntityData)
 }
 
@@ -933,7 +1005,7 @@ type ObjectTracking_TrackTypeRtrReachability_TrackInfo struct {
     TrackeName interface{}
 
     // Track type. The type is Track.
-    Type_ interface{}
+    Type interface{}
 
     // Track state. The type is bool.
     TrackState interface{}
@@ -979,20 +1051,23 @@ func (trackInfo *ObjectTracking_TrackTypeRtrReachability_TrackInfo) GetEntityDat
     trackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackInfo.EntityData.Children = make(map[string]types.YChild)
-    trackInfo.EntityData.Children["track-type-info"] = types.YChild{"TrackTypeInfo", &trackInfo.TrackTypeInfo}
-    trackInfo.EntityData.Children["bool-tracks"] = types.YChild{"BoolTracks", &trackInfo.BoolTracks}
-    trackInfo.EntityData.Children["threshold-tracks"] = types.YChild{"ThresholdTracks", &trackInfo.ThresholdTracks}
-    trackInfo.EntityData.Children["tracking-interaces"] = types.YChild{"TrackingInteraces", &trackInfo.TrackingInteraces}
-    trackInfo.EntityData.Children["delayed"] = types.YChild{"Delayed", &trackInfo.Delayed}
-    trackInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackInfo.EntityData.Leafs["tracke-name"] = types.YLeaf{"TrackeName", trackInfo.TrackeName}
-    trackInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", trackInfo.Type_}
-    trackInfo.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", trackInfo.TrackState}
-    trackInfo.EntityData.Leafs["state-change-counter"] = types.YLeaf{"StateChangeCounter", trackInfo.StateChangeCounter}
-    trackInfo.EntityData.Leafs["seconds-last-change"] = types.YLeaf{"SecondsLastChange", trackInfo.SecondsLastChange}
-    trackInfo.EntityData.Leafs["threshold-up"] = types.YLeaf{"ThresholdUp", trackInfo.ThresholdUp}
-    trackInfo.EntityData.Leafs["threshold-down"] = types.YLeaf{"ThresholdDown", trackInfo.ThresholdDown}
+    trackInfo.EntityData.Children = types.NewOrderedMap()
+    trackInfo.EntityData.Children.Append("track-type-info", types.YChild{"TrackTypeInfo", &trackInfo.TrackTypeInfo})
+    trackInfo.EntityData.Children.Append("bool-tracks", types.YChild{"BoolTracks", &trackInfo.BoolTracks})
+    trackInfo.EntityData.Children.Append("threshold-tracks", types.YChild{"ThresholdTracks", &trackInfo.ThresholdTracks})
+    trackInfo.EntityData.Children.Append("tracking-interaces", types.YChild{"TrackingInteraces", &trackInfo.TrackingInteraces})
+    trackInfo.EntityData.Children.Append("delayed", types.YChild{"Delayed", &trackInfo.Delayed})
+    trackInfo.EntityData.Leafs = types.NewOrderedMap()
+    trackInfo.EntityData.Leafs.Append("tracke-name", types.YLeaf{"TrackeName", trackInfo.TrackeName})
+    trackInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", trackInfo.Type})
+    trackInfo.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", trackInfo.TrackState})
+    trackInfo.EntityData.Leafs.Append("state-change-counter", types.YLeaf{"StateChangeCounter", trackInfo.StateChangeCounter})
+    trackInfo.EntityData.Leafs.Append("seconds-last-change", types.YLeaf{"SecondsLastChange", trackInfo.SecondsLastChange})
+    trackInfo.EntityData.Leafs.Append("threshold-up", types.YLeaf{"ThresholdUp", trackInfo.ThresholdUp})
+    trackInfo.EntityData.Leafs.Append("threshold-down", types.YLeaf{"ThresholdDown", trackInfo.ThresholdDown})
+
+    trackInfo.EntityData.YListKeys = []string {}
+
     return &(trackInfo.EntityData)
 }
 
@@ -1028,13 +1103,16 @@ func (trackTypeInfo *ObjectTracking_TrackTypeRtrReachability_TrackInfo_TrackType
     trackTypeInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackTypeInfo.EntityData.Children = make(map[string]types.YChild)
-    trackTypeInfo.EntityData.Children["interface-tracks"] = types.YChild{"InterfaceTracks", &trackTypeInfo.InterfaceTracks}
-    trackTypeInfo.EntityData.Children["route-tracks"] = types.YChild{"RouteTracks", &trackTypeInfo.RouteTracks}
-    trackTypeInfo.EntityData.Children["ipsla-tracks"] = types.YChild{"IpslaTracks", &trackTypeInfo.IpslaTracks}
-    trackTypeInfo.EntityData.Children["bfd-tracks"] = types.YChild{"BfdTracks", &trackTypeInfo.BfdTracks}
-    trackTypeInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackTypeInfo.EntityData.Leafs["discriminant"] = types.YLeaf{"Discriminant", trackTypeInfo.Discriminant}
+    trackTypeInfo.EntityData.Children = types.NewOrderedMap()
+    trackTypeInfo.EntityData.Children.Append("interface-tracks", types.YChild{"InterfaceTracks", &trackTypeInfo.InterfaceTracks})
+    trackTypeInfo.EntityData.Children.Append("route-tracks", types.YChild{"RouteTracks", &trackTypeInfo.RouteTracks})
+    trackTypeInfo.EntityData.Children.Append("ipsla-tracks", types.YChild{"IpslaTracks", &trackTypeInfo.IpslaTracks})
+    trackTypeInfo.EntityData.Children.Append("bfd-tracks", types.YChild{"BfdTracks", &trackTypeInfo.BfdTracks})
+    trackTypeInfo.EntityData.Leafs = types.NewOrderedMap()
+    trackTypeInfo.EntityData.Leafs.Append("discriminant", types.YLeaf{"Discriminant", trackTypeInfo.Discriminant})
+
+    trackTypeInfo.EntityData.YListKeys = []string {}
+
     return &(trackTypeInfo.EntityData)
 }
 
@@ -1058,9 +1136,12 @@ func (interfaceTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_TrackTy
     interfaceTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceTracks.EntityData.Children = make(map[string]types.YChild)
-    interfaceTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceTracks.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceTracks.InterfaceName}
+    interfaceTracks.EntityData.Children = types.NewOrderedMap()
+    interfaceTracks.EntityData.Leafs = types.NewOrderedMap()
+    interfaceTracks.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceTracks.InterfaceName})
+
+    interfaceTracks.EntityData.YListKeys = []string {}
+
     return &(interfaceTracks.EntityData)
 }
 
@@ -1093,12 +1174,15 @@ func (routeTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_TrackTypeIn
     routeTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routeTracks.EntityData.Children = make(map[string]types.YChild)
-    routeTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    routeTracks.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", routeTracks.Prefix}
-    routeTracks.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", routeTracks.PrefixLength}
-    routeTracks.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", routeTracks.Vrf}
-    routeTracks.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", routeTracks.NextHop}
+    routeTracks.EntityData.Children = types.NewOrderedMap()
+    routeTracks.EntityData.Leafs = types.NewOrderedMap()
+    routeTracks.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", routeTracks.Prefix})
+    routeTracks.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", routeTracks.PrefixLength})
+    routeTracks.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", routeTracks.Vrf})
+    routeTracks.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", routeTracks.NextHop})
+
+    routeTracks.EntityData.YListKeys = []string {}
+
     return &(routeTracks.EntityData)
 }
 
@@ -1128,11 +1212,14 @@ func (ipslaTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_TrackTypeIn
     ipslaTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipslaTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipslaTracks.EntityData.Children = make(map[string]types.YChild)
-    ipslaTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipslaTracks.EntityData.Leafs["ipsla-op-id"] = types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId}
-    ipslaTracks.EntityData.Leafs["rtt"] = types.YLeaf{"Rtt", ipslaTracks.Rtt}
-    ipslaTracks.EntityData.Leafs["return-code"] = types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode}
+    ipslaTracks.EntityData.Children = types.NewOrderedMap()
+    ipslaTracks.EntityData.Leafs = types.NewOrderedMap()
+    ipslaTracks.EntityData.Leafs.Append("ipsla-op-id", types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId})
+    ipslaTracks.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", ipslaTracks.Rtt})
+    ipslaTracks.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode})
+
+    ipslaTracks.EntityData.YListKeys = []string {}
+
     return &(ipslaTracks.EntityData)
 }
 
@@ -1165,12 +1252,15 @@ func (bfdTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_TrackTypeInfo
     bfdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfdTracks.EntityData.Children = make(map[string]types.YChild)
-    bfdTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfdTracks.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", bfdTracks.InterfaceName}
-    bfdTracks.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", bfdTracks.DestinationAddress}
-    bfdTracks.EntityData.Leafs["rate"] = types.YLeaf{"Rate", bfdTracks.Rate}
-    bfdTracks.EntityData.Leafs["debounce-count"] = types.YLeaf{"DebounceCount", bfdTracks.DebounceCount}
+    bfdTracks.EntityData.Children = types.NewOrderedMap()
+    bfdTracks.EntityData.Leafs = types.NewOrderedMap()
+    bfdTracks.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", bfdTracks.InterfaceName})
+    bfdTracks.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", bfdTracks.DestinationAddress})
+    bfdTracks.EntityData.Leafs.Append("rate", types.YLeaf{"Rate", bfdTracks.Rate})
+    bfdTracks.EntityData.Leafs.Append("debounce-count", types.YLeaf{"DebounceCount", bfdTracks.DebounceCount})
+
+    bfdTracks.EntityData.YListKeys = []string {}
+
     return &(bfdTracks.EntityData)
 }
 
@@ -1182,7 +1272,7 @@ type ObjectTracking_TrackTypeRtrReachability_TrackInfo_BoolTracks struct {
 
     // bool track info. The type is slice of
     // ObjectTracking_TrackTypeRtrReachability_TrackInfo_BoolTracks_BoolTrackInfo.
-    BoolTrackInfo []ObjectTracking_TrackTypeRtrReachability_TrackInfo_BoolTracks_BoolTrackInfo
+    BoolTrackInfo []*ObjectTracking_TrackTypeRtrReachability_TrackInfo_BoolTracks_BoolTrackInfo
 }
 
 func (boolTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_BoolTracks) GetEntityData() *types.CommonEntityData {
@@ -1195,12 +1285,15 @@ func (boolTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_BoolTracks) 
     boolTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     boolTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    boolTracks.EntityData.Children = make(map[string]types.YChild)
-    boolTracks.EntityData.Children["bool-track-info"] = types.YChild{"BoolTrackInfo", nil}
+    boolTracks.EntityData.Children = types.NewOrderedMap()
+    boolTracks.EntityData.Children.Append("bool-track-info", types.YChild{"BoolTrackInfo", nil})
     for i := range boolTracks.BoolTrackInfo {
-        boolTracks.EntityData.Children[types.GetSegmentPath(&boolTracks.BoolTrackInfo[i])] = types.YChild{"BoolTrackInfo", &boolTracks.BoolTrackInfo[i]}
+        boolTracks.EntityData.Children.Append(types.GetSegmentPath(boolTracks.BoolTrackInfo[i]), types.YChild{"BoolTrackInfo", boolTracks.BoolTrackInfo[i]})
     }
-    boolTracks.EntityData.Leafs = make(map[string]types.YLeaf)
+    boolTracks.EntityData.Leafs = types.NewOrderedMap()
+
+    boolTracks.EntityData.YListKeys = []string {}
+
     return &(boolTracks.EntityData)
 }
 
@@ -1230,11 +1323,14 @@ func (boolTrackInfo *ObjectTracking_TrackTypeRtrReachability_TrackInfo_BoolTrack
     boolTrackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     boolTrackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    boolTrackInfo.EntityData.Children = make(map[string]types.YChild)
-    boolTrackInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    boolTrackInfo.EntityData.Leafs["object-name"] = types.YLeaf{"ObjectName", boolTrackInfo.ObjectName}
-    boolTrackInfo.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", boolTrackInfo.TrackState}
-    boolTrackInfo.EntityData.Leafs["with-not"] = types.YLeaf{"WithNot", boolTrackInfo.WithNot}
+    boolTrackInfo.EntityData.Children = types.NewOrderedMap()
+    boolTrackInfo.EntityData.Leafs = types.NewOrderedMap()
+    boolTrackInfo.EntityData.Leafs.Append("object-name", types.YLeaf{"ObjectName", boolTrackInfo.ObjectName})
+    boolTrackInfo.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", boolTrackInfo.TrackState})
+    boolTrackInfo.EntityData.Leafs.Append("with-not", types.YLeaf{"WithNot", boolTrackInfo.WithNot})
+
+    boolTrackInfo.EntityData.YListKeys = []string {}
+
     return &(boolTrackInfo.EntityData)
 }
 
@@ -1246,7 +1342,7 @@ type ObjectTracking_TrackTypeRtrReachability_TrackInfo_ThresholdTracks struct {
 
     // threshold track info. The type is slice of
     // ObjectTracking_TrackTypeRtrReachability_TrackInfo_ThresholdTracks_ThresholdTrackInfo.
-    ThresholdTrackInfo []ObjectTracking_TrackTypeRtrReachability_TrackInfo_ThresholdTracks_ThresholdTrackInfo
+    ThresholdTrackInfo []*ObjectTracking_TrackTypeRtrReachability_TrackInfo_ThresholdTracks_ThresholdTrackInfo
 }
 
 func (thresholdTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_ThresholdTracks) GetEntityData() *types.CommonEntityData {
@@ -1259,12 +1355,15 @@ func (thresholdTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_Thresho
     thresholdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdTracks.EntityData.Children = make(map[string]types.YChild)
-    thresholdTracks.EntityData.Children["threshold-track-info"] = types.YChild{"ThresholdTrackInfo", nil}
+    thresholdTracks.EntityData.Children = types.NewOrderedMap()
+    thresholdTracks.EntityData.Children.Append("threshold-track-info", types.YChild{"ThresholdTrackInfo", nil})
     for i := range thresholdTracks.ThresholdTrackInfo {
-        thresholdTracks.EntityData.Children[types.GetSegmentPath(&thresholdTracks.ThresholdTrackInfo[i])] = types.YChild{"ThresholdTrackInfo", &thresholdTracks.ThresholdTrackInfo[i]}
+        thresholdTracks.EntityData.Children.Append(types.GetSegmentPath(thresholdTracks.ThresholdTrackInfo[i]), types.YChild{"ThresholdTrackInfo", thresholdTracks.ThresholdTrackInfo[i]})
     }
-    thresholdTracks.EntityData.Leafs = make(map[string]types.YLeaf)
+    thresholdTracks.EntityData.Leafs = types.NewOrderedMap()
+
+    thresholdTracks.EntityData.YListKeys = []string {}
+
     return &(thresholdTracks.EntityData)
 }
 
@@ -1300,11 +1399,14 @@ func (thresholdTrackInfo *ObjectTracking_TrackTypeRtrReachability_TrackInfo_Thre
     thresholdTrackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdTrackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdTrackInfo.EntityData.Children = make(map[string]types.YChild)
-    thresholdTrackInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    thresholdTrackInfo.EntityData.Leafs["object-name"] = types.YLeaf{"ObjectName", thresholdTrackInfo.ObjectName}
-    thresholdTrackInfo.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", thresholdTrackInfo.TrackState}
-    thresholdTrackInfo.EntityData.Leafs["weight"] = types.YLeaf{"Weight", thresholdTrackInfo.Weight}
+    thresholdTrackInfo.EntityData.Children = types.NewOrderedMap()
+    thresholdTrackInfo.EntityData.Leafs = types.NewOrderedMap()
+    thresholdTrackInfo.EntityData.Leafs.Append("object-name", types.YLeaf{"ObjectName", thresholdTrackInfo.ObjectName})
+    thresholdTrackInfo.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", thresholdTrackInfo.TrackState})
+    thresholdTrackInfo.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", thresholdTrackInfo.Weight})
+
+    thresholdTrackInfo.EntityData.YListKeys = []string {}
+
     return &(thresholdTrackInfo.EntityData)
 }
 
@@ -1316,7 +1418,7 @@ type ObjectTracking_TrackTypeRtrReachability_TrackInfo_TrackingInteraces struct 
 
     // interface tracking info. The type is slice of
     // ObjectTracking_TrackTypeRtrReachability_TrackInfo_TrackingInteraces_InterfaceTrackingInfo.
-    InterfaceTrackingInfo []ObjectTracking_TrackTypeRtrReachability_TrackInfo_TrackingInteraces_InterfaceTrackingInfo
+    InterfaceTrackingInfo []*ObjectTracking_TrackTypeRtrReachability_TrackInfo_TrackingInteraces_InterfaceTrackingInfo
 }
 
 func (trackingInteraces *ObjectTracking_TrackTypeRtrReachability_TrackInfo_TrackingInteraces) GetEntityData() *types.CommonEntityData {
@@ -1329,12 +1431,15 @@ func (trackingInteraces *ObjectTracking_TrackTypeRtrReachability_TrackInfo_Track
     trackingInteraces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackingInteraces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackingInteraces.EntityData.Children = make(map[string]types.YChild)
-    trackingInteraces.EntityData.Children["interface-tracking-info"] = types.YChild{"InterfaceTrackingInfo", nil}
+    trackingInteraces.EntityData.Children = types.NewOrderedMap()
+    trackingInteraces.EntityData.Children.Append("interface-tracking-info", types.YChild{"InterfaceTrackingInfo", nil})
     for i := range trackingInteraces.InterfaceTrackingInfo {
-        trackingInteraces.EntityData.Children[types.GetSegmentPath(&trackingInteraces.InterfaceTrackingInfo[i])] = types.YChild{"InterfaceTrackingInfo", &trackingInteraces.InterfaceTrackingInfo[i]}
+        trackingInteraces.EntityData.Children.Append(types.GetSegmentPath(trackingInteraces.InterfaceTrackingInfo[i]), types.YChild{"InterfaceTrackingInfo", trackingInteraces.InterfaceTrackingInfo[i]})
     }
-    trackingInteraces.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackingInteraces.EntityData.Leafs = types.NewOrderedMap()
+
+    trackingInteraces.EntityData.YListKeys = []string {}
+
     return &(trackingInteraces.EntityData)
 }
 
@@ -1358,9 +1463,12 @@ func (interfaceTrackingInfo *ObjectTracking_TrackTypeRtrReachability_TrackInfo_T
     interfaceTrackingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTrackingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceTrackingInfo.EntityData.Children = make(map[string]types.YChild)
-    interfaceTrackingInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceTrackingInfo.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceTrackingInfo.InterfaceName}
+    interfaceTrackingInfo.EntityData.Children = types.NewOrderedMap()
+    interfaceTrackingInfo.EntityData.Leafs = types.NewOrderedMap()
+    interfaceTrackingInfo.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceTrackingInfo.InterfaceName})
+
+    interfaceTrackingInfo.EntityData.YListKeys = []string {}
+
     return &(interfaceTrackingInfo.EntityData)
 }
 
@@ -1389,10 +1497,13 @@ func (delayed *ObjectTracking_TrackTypeRtrReachability_TrackInfo_Delayed) GetEnt
     delayed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delayed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    delayed.EntityData.Children = make(map[string]types.YChild)
-    delayed.EntityData.Leafs = make(map[string]types.YLeaf)
-    delayed.EntityData.Leafs["time-remaining"] = types.YLeaf{"TimeRemaining", delayed.TimeRemaining}
-    delayed.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", delayed.TrackState}
+    delayed.EntityData.Children = types.NewOrderedMap()
+    delayed.EntityData.Leafs = types.NewOrderedMap()
+    delayed.EntityData.Leafs.Append("time-remaining", types.YLeaf{"TimeRemaining", delayed.TimeRemaining})
+    delayed.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", delayed.TrackState})
+
+    delayed.EntityData.YListKeys = []string {}
+
     return &(delayed.EntityData)
 }
 
@@ -1404,7 +1515,7 @@ type ObjectTracking_TrackTypeRtrReachabilityBrief struct {
 
     // track info brief. The type is slice of
     // ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBrief.
-    TrackInfoBrief []ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBrief
+    TrackInfoBrief []*ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBrief
 }
 
 func (trackTypeRtrReachabilityBrief *ObjectTracking_TrackTypeRtrReachabilityBrief) GetEntityData() *types.CommonEntityData {
@@ -1417,12 +1528,15 @@ func (trackTypeRtrReachabilityBrief *ObjectTracking_TrackTypeRtrReachabilityBrie
     trackTypeRtrReachabilityBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeRtrReachabilityBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackTypeRtrReachabilityBrief.EntityData.Children = make(map[string]types.YChild)
-    trackTypeRtrReachabilityBrief.EntityData.Children["track-info-brief"] = types.YChild{"TrackInfoBrief", nil}
+    trackTypeRtrReachabilityBrief.EntityData.Children = types.NewOrderedMap()
+    trackTypeRtrReachabilityBrief.EntityData.Children.Append("track-info-brief", types.YChild{"TrackInfoBrief", nil})
     for i := range trackTypeRtrReachabilityBrief.TrackInfoBrief {
-        trackTypeRtrReachabilityBrief.EntityData.Children[types.GetSegmentPath(&trackTypeRtrReachabilityBrief.TrackInfoBrief[i])] = types.YChild{"TrackInfoBrief", &trackTypeRtrReachabilityBrief.TrackInfoBrief[i]}
+        trackTypeRtrReachabilityBrief.EntityData.Children.Append(types.GetSegmentPath(trackTypeRtrReachabilityBrief.TrackInfoBrief[i]), types.YChild{"TrackInfoBrief", trackTypeRtrReachabilityBrief.TrackInfoBrief[i]})
     }
-    trackTypeRtrReachabilityBrief.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackTypeRtrReachabilityBrief.EntityData.Leafs = types.NewOrderedMap()
+
+    trackTypeRtrReachabilityBrief.EntityData.YListKeys = []string {}
+
     return &(trackTypeRtrReachabilityBrief.EntityData)
 }
 
@@ -1436,7 +1550,7 @@ type ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBrief struct {
     TrackeName interface{}
 
     // Track type. The type is Track.
-    Type_ interface{}
+    Type interface{}
 
     // Track state. The type is bool.
     TrackState interface{}
@@ -1455,12 +1569,15 @@ func (trackInfoBrief *ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBrie
     trackInfoBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackInfoBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackInfoBrief.EntityData.Children = make(map[string]types.YChild)
-    trackInfoBrief.EntityData.Children["track-type-info"] = types.YChild{"TrackTypeInfo", &trackInfoBrief.TrackTypeInfo}
-    trackInfoBrief.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackInfoBrief.EntityData.Leafs["tracke-name"] = types.YLeaf{"TrackeName", trackInfoBrief.TrackeName}
-    trackInfoBrief.EntityData.Leafs["type"] = types.YLeaf{"Type_", trackInfoBrief.Type_}
-    trackInfoBrief.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", trackInfoBrief.TrackState}
+    trackInfoBrief.EntityData.Children = types.NewOrderedMap()
+    trackInfoBrief.EntityData.Children.Append("track-type-info", types.YChild{"TrackTypeInfo", &trackInfoBrief.TrackTypeInfo})
+    trackInfoBrief.EntityData.Leafs = types.NewOrderedMap()
+    trackInfoBrief.EntityData.Leafs.Append("tracke-name", types.YLeaf{"TrackeName", trackInfoBrief.TrackeName})
+    trackInfoBrief.EntityData.Leafs.Append("type", types.YLeaf{"Type", trackInfoBrief.Type})
+    trackInfoBrief.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", trackInfoBrief.TrackState})
+
+    trackInfoBrief.EntityData.YListKeys = []string {}
+
     return &(trackInfoBrief.EntityData)
 }
 
@@ -1496,13 +1613,16 @@ func (trackTypeInfo *ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBrief
     trackTypeInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackTypeInfo.EntityData.Children = make(map[string]types.YChild)
-    trackTypeInfo.EntityData.Children["interface-tracks"] = types.YChild{"InterfaceTracks", &trackTypeInfo.InterfaceTracks}
-    trackTypeInfo.EntityData.Children["route-tracks"] = types.YChild{"RouteTracks", &trackTypeInfo.RouteTracks}
-    trackTypeInfo.EntityData.Children["ipsla-tracks"] = types.YChild{"IpslaTracks", &trackTypeInfo.IpslaTracks}
-    trackTypeInfo.EntityData.Children["bfd-tracks"] = types.YChild{"BfdTracks", &trackTypeInfo.BfdTracks}
-    trackTypeInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackTypeInfo.EntityData.Leafs["discriminant"] = types.YLeaf{"Discriminant", trackTypeInfo.Discriminant}
+    trackTypeInfo.EntityData.Children = types.NewOrderedMap()
+    trackTypeInfo.EntityData.Children.Append("interface-tracks", types.YChild{"InterfaceTracks", &trackTypeInfo.InterfaceTracks})
+    trackTypeInfo.EntityData.Children.Append("route-tracks", types.YChild{"RouteTracks", &trackTypeInfo.RouteTracks})
+    trackTypeInfo.EntityData.Children.Append("ipsla-tracks", types.YChild{"IpslaTracks", &trackTypeInfo.IpslaTracks})
+    trackTypeInfo.EntityData.Children.Append("bfd-tracks", types.YChild{"BfdTracks", &trackTypeInfo.BfdTracks})
+    trackTypeInfo.EntityData.Leafs = types.NewOrderedMap()
+    trackTypeInfo.EntityData.Leafs.Append("discriminant", types.YLeaf{"Discriminant", trackTypeInfo.Discriminant})
+
+    trackTypeInfo.EntityData.YListKeys = []string {}
+
     return &(trackTypeInfo.EntityData)
 }
 
@@ -1526,9 +1646,12 @@ func (interfaceTracks *ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBri
     interfaceTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceTracks.EntityData.Children = make(map[string]types.YChild)
-    interfaceTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceTracks.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceTracks.InterfaceName}
+    interfaceTracks.EntityData.Children = types.NewOrderedMap()
+    interfaceTracks.EntityData.Leafs = types.NewOrderedMap()
+    interfaceTracks.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceTracks.InterfaceName})
+
+    interfaceTracks.EntityData.YListKeys = []string {}
+
     return &(interfaceTracks.EntityData)
 }
 
@@ -1561,12 +1684,15 @@ func (routeTracks *ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBrief_T
     routeTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routeTracks.EntityData.Children = make(map[string]types.YChild)
-    routeTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    routeTracks.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", routeTracks.Prefix}
-    routeTracks.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", routeTracks.PrefixLength}
-    routeTracks.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", routeTracks.Vrf}
-    routeTracks.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", routeTracks.NextHop}
+    routeTracks.EntityData.Children = types.NewOrderedMap()
+    routeTracks.EntityData.Leafs = types.NewOrderedMap()
+    routeTracks.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", routeTracks.Prefix})
+    routeTracks.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", routeTracks.PrefixLength})
+    routeTracks.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", routeTracks.Vrf})
+    routeTracks.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", routeTracks.NextHop})
+
+    routeTracks.EntityData.YListKeys = []string {}
+
     return &(routeTracks.EntityData)
 }
 
@@ -1596,11 +1722,14 @@ func (ipslaTracks *ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBrief_T
     ipslaTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipslaTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipslaTracks.EntityData.Children = make(map[string]types.YChild)
-    ipslaTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipslaTracks.EntityData.Leafs["ipsla-op-id"] = types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId}
-    ipslaTracks.EntityData.Leafs["rtt"] = types.YLeaf{"Rtt", ipslaTracks.Rtt}
-    ipslaTracks.EntityData.Leafs["return-code"] = types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode}
+    ipslaTracks.EntityData.Children = types.NewOrderedMap()
+    ipslaTracks.EntityData.Leafs = types.NewOrderedMap()
+    ipslaTracks.EntityData.Leafs.Append("ipsla-op-id", types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId})
+    ipslaTracks.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", ipslaTracks.Rtt})
+    ipslaTracks.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode})
+
+    ipslaTracks.EntityData.YListKeys = []string {}
+
     return &(ipslaTracks.EntityData)
 }
 
@@ -1633,12 +1762,15 @@ func (bfdTracks *ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBrief_Tra
     bfdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfdTracks.EntityData.Children = make(map[string]types.YChild)
-    bfdTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfdTracks.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", bfdTracks.InterfaceName}
-    bfdTracks.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", bfdTracks.DestinationAddress}
-    bfdTracks.EntityData.Leafs["rate"] = types.YLeaf{"Rate", bfdTracks.Rate}
-    bfdTracks.EntityData.Leafs["debounce-count"] = types.YLeaf{"DebounceCount", bfdTracks.DebounceCount}
+    bfdTracks.EntityData.Children = types.NewOrderedMap()
+    bfdTracks.EntityData.Leafs = types.NewOrderedMap()
+    bfdTracks.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", bfdTracks.InterfaceName})
+    bfdTracks.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", bfdTracks.DestinationAddress})
+    bfdTracks.EntityData.Leafs.Append("rate", types.YLeaf{"Rate", bfdTracks.Rate})
+    bfdTracks.EntityData.Leafs.Append("debounce-count", types.YLeaf{"DebounceCount", bfdTracks.DebounceCount})
+
+    bfdTracks.EntityData.YListKeys = []string {}
+
     return &(bfdTracks.EntityData)
 }
 
@@ -1650,7 +1782,7 @@ type ObjectTracking_Tracks struct {
 
     // Track name - maximum 32 characters. The type is slice of
     // ObjectTracking_Tracks_Track.
-    Track []ObjectTracking_Tracks_Track
+    Track []*ObjectTracking_Tracks_Track
 }
 
 func (tracks *ObjectTracking_Tracks) GetEntityData() *types.CommonEntityData {
@@ -1663,12 +1795,15 @@ func (tracks *ObjectTracking_Tracks) GetEntityData() *types.CommonEntityData {
     tracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tracks.EntityData.Children = make(map[string]types.YChild)
-    tracks.EntityData.Children["track"] = types.YChild{"Track", nil}
+    tracks.EntityData.Children = types.NewOrderedMap()
+    tracks.EntityData.Children.Append("track", types.YChild{"Track", nil})
     for i := range tracks.Track {
-        tracks.EntityData.Children[types.GetSegmentPath(&tracks.Track[i])] = types.YChild{"Track", &tracks.Track[i]}
+        tracks.EntityData.Children.Append(types.GetSegmentPath(tracks.Track[i]), types.YChild{"Track", tracks.Track[i]})
     }
-    tracks.EntityData.Leafs = make(map[string]types.YLeaf)
+    tracks.EntityData.Leafs = types.NewOrderedMap()
+
+    tracks.EntityData.YListKeys = []string {}
+
     return &(tracks.EntityData)
 }
 
@@ -1682,7 +1817,7 @@ type ObjectTracking_Tracks_Track struct {
     TrackName interface{}
 
     // track info. The type is slice of ObjectTracking_Tracks_Track_TrackInfo.
-    TrackInfo []ObjectTracking_Tracks_Track_TrackInfo
+    TrackInfo []*ObjectTracking_Tracks_Track_TrackInfo
 }
 
 func (track *ObjectTracking_Tracks_Track) GetEntityData() *types.CommonEntityData {
@@ -1690,18 +1825,21 @@ func (track *ObjectTracking_Tracks_Track) GetEntityData() *types.CommonEntityDat
     track.EntityData.YangName = "track"
     track.EntityData.BundleName = "cisco_ios_xr"
     track.EntityData.ParentYangName = "tracks"
-    track.EntityData.SegmentPath = "track" + "[track-name='" + fmt.Sprintf("%v", track.TrackName) + "']"
+    track.EntityData.SegmentPath = "track" + types.AddKeyToken(track.TrackName, "track-name")
     track.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     track.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     track.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    track.EntityData.Children = make(map[string]types.YChild)
-    track.EntityData.Children["track-info"] = types.YChild{"TrackInfo", nil}
+    track.EntityData.Children = types.NewOrderedMap()
+    track.EntityData.Children.Append("track-info", types.YChild{"TrackInfo", nil})
     for i := range track.TrackInfo {
-        track.EntityData.Children[types.GetSegmentPath(&track.TrackInfo[i])] = types.YChild{"TrackInfo", &track.TrackInfo[i]}
+        track.EntityData.Children.Append(types.GetSegmentPath(track.TrackInfo[i]), types.YChild{"TrackInfo", track.TrackInfo[i]})
     }
-    track.EntityData.Leafs = make(map[string]types.YLeaf)
-    track.EntityData.Leafs["track-name"] = types.YLeaf{"TrackName", track.TrackName}
+    track.EntityData.Leafs = types.NewOrderedMap()
+    track.EntityData.Leafs.Append("track-name", types.YLeaf{"TrackName", track.TrackName})
+
+    track.EntityData.YListKeys = []string {"TrackName"}
+
     return &(track.EntityData)
 }
 
@@ -1715,7 +1853,7 @@ type ObjectTracking_Tracks_Track_TrackInfo struct {
     TrackeName interface{}
 
     // Track type. The type is Track.
-    Type_ interface{}
+    Type interface{}
 
     // Track state. The type is bool.
     TrackState interface{}
@@ -1761,20 +1899,23 @@ func (trackInfo *ObjectTracking_Tracks_Track_TrackInfo) GetEntityData() *types.C
     trackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackInfo.EntityData.Children = make(map[string]types.YChild)
-    trackInfo.EntityData.Children["track-type-info"] = types.YChild{"TrackTypeInfo", &trackInfo.TrackTypeInfo}
-    trackInfo.EntityData.Children["bool-tracks"] = types.YChild{"BoolTracks", &trackInfo.BoolTracks}
-    trackInfo.EntityData.Children["threshold-tracks"] = types.YChild{"ThresholdTracks", &trackInfo.ThresholdTracks}
-    trackInfo.EntityData.Children["tracking-interaces"] = types.YChild{"TrackingInteraces", &trackInfo.TrackingInteraces}
-    trackInfo.EntityData.Children["delayed"] = types.YChild{"Delayed", &trackInfo.Delayed}
-    trackInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackInfo.EntityData.Leafs["tracke-name"] = types.YLeaf{"TrackeName", trackInfo.TrackeName}
-    trackInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", trackInfo.Type_}
-    trackInfo.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", trackInfo.TrackState}
-    trackInfo.EntityData.Leafs["state-change-counter"] = types.YLeaf{"StateChangeCounter", trackInfo.StateChangeCounter}
-    trackInfo.EntityData.Leafs["seconds-last-change"] = types.YLeaf{"SecondsLastChange", trackInfo.SecondsLastChange}
-    trackInfo.EntityData.Leafs["threshold-up"] = types.YLeaf{"ThresholdUp", trackInfo.ThresholdUp}
-    trackInfo.EntityData.Leafs["threshold-down"] = types.YLeaf{"ThresholdDown", trackInfo.ThresholdDown}
+    trackInfo.EntityData.Children = types.NewOrderedMap()
+    trackInfo.EntityData.Children.Append("track-type-info", types.YChild{"TrackTypeInfo", &trackInfo.TrackTypeInfo})
+    trackInfo.EntityData.Children.Append("bool-tracks", types.YChild{"BoolTracks", &trackInfo.BoolTracks})
+    trackInfo.EntityData.Children.Append("threshold-tracks", types.YChild{"ThresholdTracks", &trackInfo.ThresholdTracks})
+    trackInfo.EntityData.Children.Append("tracking-interaces", types.YChild{"TrackingInteraces", &trackInfo.TrackingInteraces})
+    trackInfo.EntityData.Children.Append("delayed", types.YChild{"Delayed", &trackInfo.Delayed})
+    trackInfo.EntityData.Leafs = types.NewOrderedMap()
+    trackInfo.EntityData.Leafs.Append("tracke-name", types.YLeaf{"TrackeName", trackInfo.TrackeName})
+    trackInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", trackInfo.Type})
+    trackInfo.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", trackInfo.TrackState})
+    trackInfo.EntityData.Leafs.Append("state-change-counter", types.YLeaf{"StateChangeCounter", trackInfo.StateChangeCounter})
+    trackInfo.EntityData.Leafs.Append("seconds-last-change", types.YLeaf{"SecondsLastChange", trackInfo.SecondsLastChange})
+    trackInfo.EntityData.Leafs.Append("threshold-up", types.YLeaf{"ThresholdUp", trackInfo.ThresholdUp})
+    trackInfo.EntityData.Leafs.Append("threshold-down", types.YLeaf{"ThresholdDown", trackInfo.ThresholdDown})
+
+    trackInfo.EntityData.YListKeys = []string {}
+
     return &(trackInfo.EntityData)
 }
 
@@ -1810,13 +1951,16 @@ func (trackTypeInfo *ObjectTracking_Tracks_Track_TrackInfo_TrackTypeInfo) GetEnt
     trackTypeInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackTypeInfo.EntityData.Children = make(map[string]types.YChild)
-    trackTypeInfo.EntityData.Children["interface-tracks"] = types.YChild{"InterfaceTracks", &trackTypeInfo.InterfaceTracks}
-    trackTypeInfo.EntityData.Children["route-tracks"] = types.YChild{"RouteTracks", &trackTypeInfo.RouteTracks}
-    trackTypeInfo.EntityData.Children["ipsla-tracks"] = types.YChild{"IpslaTracks", &trackTypeInfo.IpslaTracks}
-    trackTypeInfo.EntityData.Children["bfd-tracks"] = types.YChild{"BfdTracks", &trackTypeInfo.BfdTracks}
-    trackTypeInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackTypeInfo.EntityData.Leafs["discriminant"] = types.YLeaf{"Discriminant", trackTypeInfo.Discriminant}
+    trackTypeInfo.EntityData.Children = types.NewOrderedMap()
+    trackTypeInfo.EntityData.Children.Append("interface-tracks", types.YChild{"InterfaceTracks", &trackTypeInfo.InterfaceTracks})
+    trackTypeInfo.EntityData.Children.Append("route-tracks", types.YChild{"RouteTracks", &trackTypeInfo.RouteTracks})
+    trackTypeInfo.EntityData.Children.Append("ipsla-tracks", types.YChild{"IpslaTracks", &trackTypeInfo.IpslaTracks})
+    trackTypeInfo.EntityData.Children.Append("bfd-tracks", types.YChild{"BfdTracks", &trackTypeInfo.BfdTracks})
+    trackTypeInfo.EntityData.Leafs = types.NewOrderedMap()
+    trackTypeInfo.EntityData.Leafs.Append("discriminant", types.YLeaf{"Discriminant", trackTypeInfo.Discriminant})
+
+    trackTypeInfo.EntityData.YListKeys = []string {}
+
     return &(trackTypeInfo.EntityData)
 }
 
@@ -1840,9 +1984,12 @@ func (interfaceTracks *ObjectTracking_Tracks_Track_TrackInfo_TrackTypeInfo_Inter
     interfaceTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceTracks.EntityData.Children = make(map[string]types.YChild)
-    interfaceTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceTracks.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceTracks.InterfaceName}
+    interfaceTracks.EntityData.Children = types.NewOrderedMap()
+    interfaceTracks.EntityData.Leafs = types.NewOrderedMap()
+    interfaceTracks.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceTracks.InterfaceName})
+
+    interfaceTracks.EntityData.YListKeys = []string {}
+
     return &(interfaceTracks.EntityData)
 }
 
@@ -1875,12 +2022,15 @@ func (routeTracks *ObjectTracking_Tracks_Track_TrackInfo_TrackTypeInfo_RouteTrac
     routeTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routeTracks.EntityData.Children = make(map[string]types.YChild)
-    routeTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    routeTracks.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", routeTracks.Prefix}
-    routeTracks.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", routeTracks.PrefixLength}
-    routeTracks.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", routeTracks.Vrf}
-    routeTracks.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", routeTracks.NextHop}
+    routeTracks.EntityData.Children = types.NewOrderedMap()
+    routeTracks.EntityData.Leafs = types.NewOrderedMap()
+    routeTracks.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", routeTracks.Prefix})
+    routeTracks.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", routeTracks.PrefixLength})
+    routeTracks.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", routeTracks.Vrf})
+    routeTracks.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", routeTracks.NextHop})
+
+    routeTracks.EntityData.YListKeys = []string {}
+
     return &(routeTracks.EntityData)
 }
 
@@ -1910,11 +2060,14 @@ func (ipslaTracks *ObjectTracking_Tracks_Track_TrackInfo_TrackTypeInfo_IpslaTrac
     ipslaTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipslaTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipslaTracks.EntityData.Children = make(map[string]types.YChild)
-    ipslaTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipslaTracks.EntityData.Leafs["ipsla-op-id"] = types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId}
-    ipslaTracks.EntityData.Leafs["rtt"] = types.YLeaf{"Rtt", ipslaTracks.Rtt}
-    ipslaTracks.EntityData.Leafs["return-code"] = types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode}
+    ipslaTracks.EntityData.Children = types.NewOrderedMap()
+    ipslaTracks.EntityData.Leafs = types.NewOrderedMap()
+    ipslaTracks.EntityData.Leafs.Append("ipsla-op-id", types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId})
+    ipslaTracks.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", ipslaTracks.Rtt})
+    ipslaTracks.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode})
+
+    ipslaTracks.EntityData.YListKeys = []string {}
+
     return &(ipslaTracks.EntityData)
 }
 
@@ -1947,12 +2100,15 @@ func (bfdTracks *ObjectTracking_Tracks_Track_TrackInfo_TrackTypeInfo_BfdTracks) 
     bfdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfdTracks.EntityData.Children = make(map[string]types.YChild)
-    bfdTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfdTracks.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", bfdTracks.InterfaceName}
-    bfdTracks.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", bfdTracks.DestinationAddress}
-    bfdTracks.EntityData.Leafs["rate"] = types.YLeaf{"Rate", bfdTracks.Rate}
-    bfdTracks.EntityData.Leafs["debounce-count"] = types.YLeaf{"DebounceCount", bfdTracks.DebounceCount}
+    bfdTracks.EntityData.Children = types.NewOrderedMap()
+    bfdTracks.EntityData.Leafs = types.NewOrderedMap()
+    bfdTracks.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", bfdTracks.InterfaceName})
+    bfdTracks.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", bfdTracks.DestinationAddress})
+    bfdTracks.EntityData.Leafs.Append("rate", types.YLeaf{"Rate", bfdTracks.Rate})
+    bfdTracks.EntityData.Leafs.Append("debounce-count", types.YLeaf{"DebounceCount", bfdTracks.DebounceCount})
+
+    bfdTracks.EntityData.YListKeys = []string {}
+
     return &(bfdTracks.EntityData)
 }
 
@@ -1964,7 +2120,7 @@ type ObjectTracking_Tracks_Track_TrackInfo_BoolTracks struct {
 
     // bool track info. The type is slice of
     // ObjectTracking_Tracks_Track_TrackInfo_BoolTracks_BoolTrackInfo.
-    BoolTrackInfo []ObjectTracking_Tracks_Track_TrackInfo_BoolTracks_BoolTrackInfo
+    BoolTrackInfo []*ObjectTracking_Tracks_Track_TrackInfo_BoolTracks_BoolTrackInfo
 }
 
 func (boolTracks *ObjectTracking_Tracks_Track_TrackInfo_BoolTracks) GetEntityData() *types.CommonEntityData {
@@ -1977,12 +2133,15 @@ func (boolTracks *ObjectTracking_Tracks_Track_TrackInfo_BoolTracks) GetEntityDat
     boolTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     boolTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    boolTracks.EntityData.Children = make(map[string]types.YChild)
-    boolTracks.EntityData.Children["bool-track-info"] = types.YChild{"BoolTrackInfo", nil}
+    boolTracks.EntityData.Children = types.NewOrderedMap()
+    boolTracks.EntityData.Children.Append("bool-track-info", types.YChild{"BoolTrackInfo", nil})
     for i := range boolTracks.BoolTrackInfo {
-        boolTracks.EntityData.Children[types.GetSegmentPath(&boolTracks.BoolTrackInfo[i])] = types.YChild{"BoolTrackInfo", &boolTracks.BoolTrackInfo[i]}
+        boolTracks.EntityData.Children.Append(types.GetSegmentPath(boolTracks.BoolTrackInfo[i]), types.YChild{"BoolTrackInfo", boolTracks.BoolTrackInfo[i]})
     }
-    boolTracks.EntityData.Leafs = make(map[string]types.YLeaf)
+    boolTracks.EntityData.Leafs = types.NewOrderedMap()
+
+    boolTracks.EntityData.YListKeys = []string {}
+
     return &(boolTracks.EntityData)
 }
 
@@ -2012,11 +2171,14 @@ func (boolTrackInfo *ObjectTracking_Tracks_Track_TrackInfo_BoolTracks_BoolTrackI
     boolTrackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     boolTrackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    boolTrackInfo.EntityData.Children = make(map[string]types.YChild)
-    boolTrackInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    boolTrackInfo.EntityData.Leafs["object-name"] = types.YLeaf{"ObjectName", boolTrackInfo.ObjectName}
-    boolTrackInfo.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", boolTrackInfo.TrackState}
-    boolTrackInfo.EntityData.Leafs["with-not"] = types.YLeaf{"WithNot", boolTrackInfo.WithNot}
+    boolTrackInfo.EntityData.Children = types.NewOrderedMap()
+    boolTrackInfo.EntityData.Leafs = types.NewOrderedMap()
+    boolTrackInfo.EntityData.Leafs.Append("object-name", types.YLeaf{"ObjectName", boolTrackInfo.ObjectName})
+    boolTrackInfo.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", boolTrackInfo.TrackState})
+    boolTrackInfo.EntityData.Leafs.Append("with-not", types.YLeaf{"WithNot", boolTrackInfo.WithNot})
+
+    boolTrackInfo.EntityData.YListKeys = []string {}
+
     return &(boolTrackInfo.EntityData)
 }
 
@@ -2028,7 +2190,7 @@ type ObjectTracking_Tracks_Track_TrackInfo_ThresholdTracks struct {
 
     // threshold track info. The type is slice of
     // ObjectTracking_Tracks_Track_TrackInfo_ThresholdTracks_ThresholdTrackInfo.
-    ThresholdTrackInfo []ObjectTracking_Tracks_Track_TrackInfo_ThresholdTracks_ThresholdTrackInfo
+    ThresholdTrackInfo []*ObjectTracking_Tracks_Track_TrackInfo_ThresholdTracks_ThresholdTrackInfo
 }
 
 func (thresholdTracks *ObjectTracking_Tracks_Track_TrackInfo_ThresholdTracks) GetEntityData() *types.CommonEntityData {
@@ -2041,12 +2203,15 @@ func (thresholdTracks *ObjectTracking_Tracks_Track_TrackInfo_ThresholdTracks) Ge
     thresholdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdTracks.EntityData.Children = make(map[string]types.YChild)
-    thresholdTracks.EntityData.Children["threshold-track-info"] = types.YChild{"ThresholdTrackInfo", nil}
+    thresholdTracks.EntityData.Children = types.NewOrderedMap()
+    thresholdTracks.EntityData.Children.Append("threshold-track-info", types.YChild{"ThresholdTrackInfo", nil})
     for i := range thresholdTracks.ThresholdTrackInfo {
-        thresholdTracks.EntityData.Children[types.GetSegmentPath(&thresholdTracks.ThresholdTrackInfo[i])] = types.YChild{"ThresholdTrackInfo", &thresholdTracks.ThresholdTrackInfo[i]}
+        thresholdTracks.EntityData.Children.Append(types.GetSegmentPath(thresholdTracks.ThresholdTrackInfo[i]), types.YChild{"ThresholdTrackInfo", thresholdTracks.ThresholdTrackInfo[i]})
     }
-    thresholdTracks.EntityData.Leafs = make(map[string]types.YLeaf)
+    thresholdTracks.EntityData.Leafs = types.NewOrderedMap()
+
+    thresholdTracks.EntityData.YListKeys = []string {}
+
     return &(thresholdTracks.EntityData)
 }
 
@@ -2082,11 +2247,14 @@ func (thresholdTrackInfo *ObjectTracking_Tracks_Track_TrackInfo_ThresholdTracks_
     thresholdTrackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdTrackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdTrackInfo.EntityData.Children = make(map[string]types.YChild)
-    thresholdTrackInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    thresholdTrackInfo.EntityData.Leafs["object-name"] = types.YLeaf{"ObjectName", thresholdTrackInfo.ObjectName}
-    thresholdTrackInfo.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", thresholdTrackInfo.TrackState}
-    thresholdTrackInfo.EntityData.Leafs["weight"] = types.YLeaf{"Weight", thresholdTrackInfo.Weight}
+    thresholdTrackInfo.EntityData.Children = types.NewOrderedMap()
+    thresholdTrackInfo.EntityData.Leafs = types.NewOrderedMap()
+    thresholdTrackInfo.EntityData.Leafs.Append("object-name", types.YLeaf{"ObjectName", thresholdTrackInfo.ObjectName})
+    thresholdTrackInfo.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", thresholdTrackInfo.TrackState})
+    thresholdTrackInfo.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", thresholdTrackInfo.Weight})
+
+    thresholdTrackInfo.EntityData.YListKeys = []string {}
+
     return &(thresholdTrackInfo.EntityData)
 }
 
@@ -2098,7 +2266,7 @@ type ObjectTracking_Tracks_Track_TrackInfo_TrackingInteraces struct {
 
     // interface tracking info. The type is slice of
     // ObjectTracking_Tracks_Track_TrackInfo_TrackingInteraces_InterfaceTrackingInfo.
-    InterfaceTrackingInfo []ObjectTracking_Tracks_Track_TrackInfo_TrackingInteraces_InterfaceTrackingInfo
+    InterfaceTrackingInfo []*ObjectTracking_Tracks_Track_TrackInfo_TrackingInteraces_InterfaceTrackingInfo
 }
 
 func (trackingInteraces *ObjectTracking_Tracks_Track_TrackInfo_TrackingInteraces) GetEntityData() *types.CommonEntityData {
@@ -2111,12 +2279,15 @@ func (trackingInteraces *ObjectTracking_Tracks_Track_TrackInfo_TrackingInteraces
     trackingInteraces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackingInteraces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackingInteraces.EntityData.Children = make(map[string]types.YChild)
-    trackingInteraces.EntityData.Children["interface-tracking-info"] = types.YChild{"InterfaceTrackingInfo", nil}
+    trackingInteraces.EntityData.Children = types.NewOrderedMap()
+    trackingInteraces.EntityData.Children.Append("interface-tracking-info", types.YChild{"InterfaceTrackingInfo", nil})
     for i := range trackingInteraces.InterfaceTrackingInfo {
-        trackingInteraces.EntityData.Children[types.GetSegmentPath(&trackingInteraces.InterfaceTrackingInfo[i])] = types.YChild{"InterfaceTrackingInfo", &trackingInteraces.InterfaceTrackingInfo[i]}
+        trackingInteraces.EntityData.Children.Append(types.GetSegmentPath(trackingInteraces.InterfaceTrackingInfo[i]), types.YChild{"InterfaceTrackingInfo", trackingInteraces.InterfaceTrackingInfo[i]})
     }
-    trackingInteraces.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackingInteraces.EntityData.Leafs = types.NewOrderedMap()
+
+    trackingInteraces.EntityData.YListKeys = []string {}
+
     return &(trackingInteraces.EntityData)
 }
 
@@ -2140,9 +2311,12 @@ func (interfaceTrackingInfo *ObjectTracking_Tracks_Track_TrackInfo_TrackingInter
     interfaceTrackingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTrackingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceTrackingInfo.EntityData.Children = make(map[string]types.YChild)
-    interfaceTrackingInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceTrackingInfo.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceTrackingInfo.InterfaceName}
+    interfaceTrackingInfo.EntityData.Children = types.NewOrderedMap()
+    interfaceTrackingInfo.EntityData.Leafs = types.NewOrderedMap()
+    interfaceTrackingInfo.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceTrackingInfo.InterfaceName})
+
+    interfaceTrackingInfo.EntityData.YListKeys = []string {}
+
     return &(interfaceTrackingInfo.EntityData)
 }
 
@@ -2171,10 +2345,13 @@ func (delayed *ObjectTracking_Tracks_Track_TrackInfo_Delayed) GetEntityData() *t
     delayed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delayed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    delayed.EntityData.Children = make(map[string]types.YChild)
-    delayed.EntityData.Leafs = make(map[string]types.YLeaf)
-    delayed.EntityData.Leafs["time-remaining"] = types.YLeaf{"TimeRemaining", delayed.TimeRemaining}
-    delayed.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", delayed.TrackState}
+    delayed.EntityData.Children = types.NewOrderedMap()
+    delayed.EntityData.Leafs = types.NewOrderedMap()
+    delayed.EntityData.Leafs.Append("time-remaining", types.YLeaf{"TimeRemaining", delayed.TimeRemaining})
+    delayed.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", delayed.TrackState})
+
+    delayed.EntityData.YListKeys = []string {}
+
     return &(delayed.EntityData)
 }
 
@@ -2186,7 +2363,7 @@ type ObjectTracking_TrackTypeIpv4RouteBrief struct {
 
     // track info brief. The type is slice of
     // ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief.
-    TrackInfoBrief []ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief
+    TrackInfoBrief []*ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief
 }
 
 func (trackTypeIpv4RouteBrief *ObjectTracking_TrackTypeIpv4RouteBrief) GetEntityData() *types.CommonEntityData {
@@ -2199,12 +2376,15 @@ func (trackTypeIpv4RouteBrief *ObjectTracking_TrackTypeIpv4RouteBrief) GetEntity
     trackTypeIpv4RouteBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeIpv4RouteBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackTypeIpv4RouteBrief.EntityData.Children = make(map[string]types.YChild)
-    trackTypeIpv4RouteBrief.EntityData.Children["track-info-brief"] = types.YChild{"TrackInfoBrief", nil}
+    trackTypeIpv4RouteBrief.EntityData.Children = types.NewOrderedMap()
+    trackTypeIpv4RouteBrief.EntityData.Children.Append("track-info-brief", types.YChild{"TrackInfoBrief", nil})
     for i := range trackTypeIpv4RouteBrief.TrackInfoBrief {
-        trackTypeIpv4RouteBrief.EntityData.Children[types.GetSegmentPath(&trackTypeIpv4RouteBrief.TrackInfoBrief[i])] = types.YChild{"TrackInfoBrief", &trackTypeIpv4RouteBrief.TrackInfoBrief[i]}
+        trackTypeIpv4RouteBrief.EntityData.Children.Append(types.GetSegmentPath(trackTypeIpv4RouteBrief.TrackInfoBrief[i]), types.YChild{"TrackInfoBrief", trackTypeIpv4RouteBrief.TrackInfoBrief[i]})
     }
-    trackTypeIpv4RouteBrief.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackTypeIpv4RouteBrief.EntityData.Leafs = types.NewOrderedMap()
+
+    trackTypeIpv4RouteBrief.EntityData.YListKeys = []string {}
+
     return &(trackTypeIpv4RouteBrief.EntityData)
 }
 
@@ -2218,7 +2398,7 @@ type ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief struct {
     TrackeName interface{}
 
     // Track type. The type is Track.
-    Type_ interface{}
+    Type interface{}
 
     // Track state. The type is bool.
     TrackState interface{}
@@ -2237,12 +2417,15 @@ func (trackInfoBrief *ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief) Get
     trackInfoBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackInfoBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackInfoBrief.EntityData.Children = make(map[string]types.YChild)
-    trackInfoBrief.EntityData.Children["track-type-info"] = types.YChild{"TrackTypeInfo", &trackInfoBrief.TrackTypeInfo}
-    trackInfoBrief.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackInfoBrief.EntityData.Leafs["tracke-name"] = types.YLeaf{"TrackeName", trackInfoBrief.TrackeName}
-    trackInfoBrief.EntityData.Leafs["type"] = types.YLeaf{"Type_", trackInfoBrief.Type_}
-    trackInfoBrief.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", trackInfoBrief.TrackState}
+    trackInfoBrief.EntityData.Children = types.NewOrderedMap()
+    trackInfoBrief.EntityData.Children.Append("track-type-info", types.YChild{"TrackTypeInfo", &trackInfoBrief.TrackTypeInfo})
+    trackInfoBrief.EntityData.Leafs = types.NewOrderedMap()
+    trackInfoBrief.EntityData.Leafs.Append("tracke-name", types.YLeaf{"TrackeName", trackInfoBrief.TrackeName})
+    trackInfoBrief.EntityData.Leafs.Append("type", types.YLeaf{"Type", trackInfoBrief.Type})
+    trackInfoBrief.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", trackInfoBrief.TrackState})
+
+    trackInfoBrief.EntityData.YListKeys = []string {}
+
     return &(trackInfoBrief.EntityData)
 }
 
@@ -2278,13 +2461,16 @@ func (trackTypeInfo *ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief_Track
     trackTypeInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackTypeInfo.EntityData.Children = make(map[string]types.YChild)
-    trackTypeInfo.EntityData.Children["interface-tracks"] = types.YChild{"InterfaceTracks", &trackTypeInfo.InterfaceTracks}
-    trackTypeInfo.EntityData.Children["route-tracks"] = types.YChild{"RouteTracks", &trackTypeInfo.RouteTracks}
-    trackTypeInfo.EntityData.Children["ipsla-tracks"] = types.YChild{"IpslaTracks", &trackTypeInfo.IpslaTracks}
-    trackTypeInfo.EntityData.Children["bfd-tracks"] = types.YChild{"BfdTracks", &trackTypeInfo.BfdTracks}
-    trackTypeInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackTypeInfo.EntityData.Leafs["discriminant"] = types.YLeaf{"Discriminant", trackTypeInfo.Discriminant}
+    trackTypeInfo.EntityData.Children = types.NewOrderedMap()
+    trackTypeInfo.EntityData.Children.Append("interface-tracks", types.YChild{"InterfaceTracks", &trackTypeInfo.InterfaceTracks})
+    trackTypeInfo.EntityData.Children.Append("route-tracks", types.YChild{"RouteTracks", &trackTypeInfo.RouteTracks})
+    trackTypeInfo.EntityData.Children.Append("ipsla-tracks", types.YChild{"IpslaTracks", &trackTypeInfo.IpslaTracks})
+    trackTypeInfo.EntityData.Children.Append("bfd-tracks", types.YChild{"BfdTracks", &trackTypeInfo.BfdTracks})
+    trackTypeInfo.EntityData.Leafs = types.NewOrderedMap()
+    trackTypeInfo.EntityData.Leafs.Append("discriminant", types.YLeaf{"Discriminant", trackTypeInfo.Discriminant})
+
+    trackTypeInfo.EntityData.YListKeys = []string {}
+
     return &(trackTypeInfo.EntityData)
 }
 
@@ -2308,9 +2494,12 @@ func (interfaceTracks *ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief_Tra
     interfaceTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceTracks.EntityData.Children = make(map[string]types.YChild)
-    interfaceTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceTracks.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceTracks.InterfaceName}
+    interfaceTracks.EntityData.Children = types.NewOrderedMap()
+    interfaceTracks.EntityData.Leafs = types.NewOrderedMap()
+    interfaceTracks.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceTracks.InterfaceName})
+
+    interfaceTracks.EntityData.YListKeys = []string {}
+
     return &(interfaceTracks.EntityData)
 }
 
@@ -2343,12 +2532,15 @@ func (routeTracks *ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief_TrackTy
     routeTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routeTracks.EntityData.Children = make(map[string]types.YChild)
-    routeTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    routeTracks.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", routeTracks.Prefix}
-    routeTracks.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", routeTracks.PrefixLength}
-    routeTracks.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", routeTracks.Vrf}
-    routeTracks.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", routeTracks.NextHop}
+    routeTracks.EntityData.Children = types.NewOrderedMap()
+    routeTracks.EntityData.Leafs = types.NewOrderedMap()
+    routeTracks.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", routeTracks.Prefix})
+    routeTracks.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", routeTracks.PrefixLength})
+    routeTracks.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", routeTracks.Vrf})
+    routeTracks.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", routeTracks.NextHop})
+
+    routeTracks.EntityData.YListKeys = []string {}
+
     return &(routeTracks.EntityData)
 }
 
@@ -2378,11 +2570,14 @@ func (ipslaTracks *ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief_TrackTy
     ipslaTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipslaTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipslaTracks.EntityData.Children = make(map[string]types.YChild)
-    ipslaTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipslaTracks.EntityData.Leafs["ipsla-op-id"] = types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId}
-    ipslaTracks.EntityData.Leafs["rtt"] = types.YLeaf{"Rtt", ipslaTracks.Rtt}
-    ipslaTracks.EntityData.Leafs["return-code"] = types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode}
+    ipslaTracks.EntityData.Children = types.NewOrderedMap()
+    ipslaTracks.EntityData.Leafs = types.NewOrderedMap()
+    ipslaTracks.EntityData.Leafs.Append("ipsla-op-id", types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId})
+    ipslaTracks.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", ipslaTracks.Rtt})
+    ipslaTracks.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode})
+
+    ipslaTracks.EntityData.YListKeys = []string {}
+
     return &(ipslaTracks.EntityData)
 }
 
@@ -2415,12 +2610,15 @@ func (bfdTracks *ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief_TrackType
     bfdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfdTracks.EntityData.Children = make(map[string]types.YChild)
-    bfdTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfdTracks.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", bfdTracks.InterfaceName}
-    bfdTracks.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", bfdTracks.DestinationAddress}
-    bfdTracks.EntityData.Leafs["rate"] = types.YLeaf{"Rate", bfdTracks.Rate}
-    bfdTracks.EntityData.Leafs["debounce-count"] = types.YLeaf{"DebounceCount", bfdTracks.DebounceCount}
+    bfdTracks.EntityData.Children = types.NewOrderedMap()
+    bfdTracks.EntityData.Leafs = types.NewOrderedMap()
+    bfdTracks.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", bfdTracks.InterfaceName})
+    bfdTracks.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", bfdTracks.DestinationAddress})
+    bfdTracks.EntityData.Leafs.Append("rate", types.YLeaf{"Rate", bfdTracks.Rate})
+    bfdTracks.EntityData.Leafs.Append("debounce-count", types.YLeaf{"DebounceCount", bfdTracks.DebounceCount})
+
+    bfdTracks.EntityData.YListKeys = []string {}
+
     return &(bfdTracks.EntityData)
 }
 
@@ -2432,7 +2630,7 @@ type ObjectTracking_TrackTypeIpv4Route struct {
 
     // track info. The type is slice of
     // ObjectTracking_TrackTypeIpv4Route_TrackInfo.
-    TrackInfo []ObjectTracking_TrackTypeIpv4Route_TrackInfo
+    TrackInfo []*ObjectTracking_TrackTypeIpv4Route_TrackInfo
 }
 
 func (trackTypeIpv4Route *ObjectTracking_TrackTypeIpv4Route) GetEntityData() *types.CommonEntityData {
@@ -2445,12 +2643,15 @@ func (trackTypeIpv4Route *ObjectTracking_TrackTypeIpv4Route) GetEntityData() *ty
     trackTypeIpv4Route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeIpv4Route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackTypeIpv4Route.EntityData.Children = make(map[string]types.YChild)
-    trackTypeIpv4Route.EntityData.Children["track-info"] = types.YChild{"TrackInfo", nil}
+    trackTypeIpv4Route.EntityData.Children = types.NewOrderedMap()
+    trackTypeIpv4Route.EntityData.Children.Append("track-info", types.YChild{"TrackInfo", nil})
     for i := range trackTypeIpv4Route.TrackInfo {
-        trackTypeIpv4Route.EntityData.Children[types.GetSegmentPath(&trackTypeIpv4Route.TrackInfo[i])] = types.YChild{"TrackInfo", &trackTypeIpv4Route.TrackInfo[i]}
+        trackTypeIpv4Route.EntityData.Children.Append(types.GetSegmentPath(trackTypeIpv4Route.TrackInfo[i]), types.YChild{"TrackInfo", trackTypeIpv4Route.TrackInfo[i]})
     }
-    trackTypeIpv4Route.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackTypeIpv4Route.EntityData.Leafs = types.NewOrderedMap()
+
+    trackTypeIpv4Route.EntityData.YListKeys = []string {}
+
     return &(trackTypeIpv4Route.EntityData)
 }
 
@@ -2464,7 +2665,7 @@ type ObjectTracking_TrackTypeIpv4Route_TrackInfo struct {
     TrackeName interface{}
 
     // Track type. The type is Track.
-    Type_ interface{}
+    Type interface{}
 
     // Track state. The type is bool.
     TrackState interface{}
@@ -2510,20 +2711,23 @@ func (trackInfo *ObjectTracking_TrackTypeIpv4Route_TrackInfo) GetEntityData() *t
     trackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackInfo.EntityData.Children = make(map[string]types.YChild)
-    trackInfo.EntityData.Children["track-type-info"] = types.YChild{"TrackTypeInfo", &trackInfo.TrackTypeInfo}
-    trackInfo.EntityData.Children["bool-tracks"] = types.YChild{"BoolTracks", &trackInfo.BoolTracks}
-    trackInfo.EntityData.Children["threshold-tracks"] = types.YChild{"ThresholdTracks", &trackInfo.ThresholdTracks}
-    trackInfo.EntityData.Children["tracking-interaces"] = types.YChild{"TrackingInteraces", &trackInfo.TrackingInteraces}
-    trackInfo.EntityData.Children["delayed"] = types.YChild{"Delayed", &trackInfo.Delayed}
-    trackInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackInfo.EntityData.Leafs["tracke-name"] = types.YLeaf{"TrackeName", trackInfo.TrackeName}
-    trackInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", trackInfo.Type_}
-    trackInfo.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", trackInfo.TrackState}
-    trackInfo.EntityData.Leafs["state-change-counter"] = types.YLeaf{"StateChangeCounter", trackInfo.StateChangeCounter}
-    trackInfo.EntityData.Leafs["seconds-last-change"] = types.YLeaf{"SecondsLastChange", trackInfo.SecondsLastChange}
-    trackInfo.EntityData.Leafs["threshold-up"] = types.YLeaf{"ThresholdUp", trackInfo.ThresholdUp}
-    trackInfo.EntityData.Leafs["threshold-down"] = types.YLeaf{"ThresholdDown", trackInfo.ThresholdDown}
+    trackInfo.EntityData.Children = types.NewOrderedMap()
+    trackInfo.EntityData.Children.Append("track-type-info", types.YChild{"TrackTypeInfo", &trackInfo.TrackTypeInfo})
+    trackInfo.EntityData.Children.Append("bool-tracks", types.YChild{"BoolTracks", &trackInfo.BoolTracks})
+    trackInfo.EntityData.Children.Append("threshold-tracks", types.YChild{"ThresholdTracks", &trackInfo.ThresholdTracks})
+    trackInfo.EntityData.Children.Append("tracking-interaces", types.YChild{"TrackingInteraces", &trackInfo.TrackingInteraces})
+    trackInfo.EntityData.Children.Append("delayed", types.YChild{"Delayed", &trackInfo.Delayed})
+    trackInfo.EntityData.Leafs = types.NewOrderedMap()
+    trackInfo.EntityData.Leafs.Append("tracke-name", types.YLeaf{"TrackeName", trackInfo.TrackeName})
+    trackInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", trackInfo.Type})
+    trackInfo.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", trackInfo.TrackState})
+    trackInfo.EntityData.Leafs.Append("state-change-counter", types.YLeaf{"StateChangeCounter", trackInfo.StateChangeCounter})
+    trackInfo.EntityData.Leafs.Append("seconds-last-change", types.YLeaf{"SecondsLastChange", trackInfo.SecondsLastChange})
+    trackInfo.EntityData.Leafs.Append("threshold-up", types.YLeaf{"ThresholdUp", trackInfo.ThresholdUp})
+    trackInfo.EntityData.Leafs.Append("threshold-down", types.YLeaf{"ThresholdDown", trackInfo.ThresholdDown})
+
+    trackInfo.EntityData.YListKeys = []string {}
+
     return &(trackInfo.EntityData)
 }
 
@@ -2559,13 +2763,16 @@ func (trackTypeInfo *ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackTypeInfo) 
     trackTypeInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackTypeInfo.EntityData.Children = make(map[string]types.YChild)
-    trackTypeInfo.EntityData.Children["interface-tracks"] = types.YChild{"InterfaceTracks", &trackTypeInfo.InterfaceTracks}
-    trackTypeInfo.EntityData.Children["route-tracks"] = types.YChild{"RouteTracks", &trackTypeInfo.RouteTracks}
-    trackTypeInfo.EntityData.Children["ipsla-tracks"] = types.YChild{"IpslaTracks", &trackTypeInfo.IpslaTracks}
-    trackTypeInfo.EntityData.Children["bfd-tracks"] = types.YChild{"BfdTracks", &trackTypeInfo.BfdTracks}
-    trackTypeInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackTypeInfo.EntityData.Leafs["discriminant"] = types.YLeaf{"Discriminant", trackTypeInfo.Discriminant}
+    trackTypeInfo.EntityData.Children = types.NewOrderedMap()
+    trackTypeInfo.EntityData.Children.Append("interface-tracks", types.YChild{"InterfaceTracks", &trackTypeInfo.InterfaceTracks})
+    trackTypeInfo.EntityData.Children.Append("route-tracks", types.YChild{"RouteTracks", &trackTypeInfo.RouteTracks})
+    trackTypeInfo.EntityData.Children.Append("ipsla-tracks", types.YChild{"IpslaTracks", &trackTypeInfo.IpslaTracks})
+    trackTypeInfo.EntityData.Children.Append("bfd-tracks", types.YChild{"BfdTracks", &trackTypeInfo.BfdTracks})
+    trackTypeInfo.EntityData.Leafs = types.NewOrderedMap()
+    trackTypeInfo.EntityData.Leafs.Append("discriminant", types.YLeaf{"Discriminant", trackTypeInfo.Discriminant})
+
+    trackTypeInfo.EntityData.YListKeys = []string {}
+
     return &(trackTypeInfo.EntityData)
 }
 
@@ -2589,9 +2796,12 @@ func (interfaceTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackTypeInfo
     interfaceTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceTracks.EntityData.Children = make(map[string]types.YChild)
-    interfaceTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceTracks.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceTracks.InterfaceName}
+    interfaceTracks.EntityData.Children = types.NewOrderedMap()
+    interfaceTracks.EntityData.Leafs = types.NewOrderedMap()
+    interfaceTracks.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceTracks.InterfaceName})
+
+    interfaceTracks.EntityData.YListKeys = []string {}
+
     return &(interfaceTracks.EntityData)
 }
 
@@ -2624,12 +2834,15 @@ func (routeTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackTypeInfo_Rou
     routeTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routeTracks.EntityData.Children = make(map[string]types.YChild)
-    routeTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    routeTracks.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", routeTracks.Prefix}
-    routeTracks.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", routeTracks.PrefixLength}
-    routeTracks.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", routeTracks.Vrf}
-    routeTracks.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", routeTracks.NextHop}
+    routeTracks.EntityData.Children = types.NewOrderedMap()
+    routeTracks.EntityData.Leafs = types.NewOrderedMap()
+    routeTracks.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", routeTracks.Prefix})
+    routeTracks.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", routeTracks.PrefixLength})
+    routeTracks.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", routeTracks.Vrf})
+    routeTracks.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", routeTracks.NextHop})
+
+    routeTracks.EntityData.YListKeys = []string {}
+
     return &(routeTracks.EntityData)
 }
 
@@ -2659,11 +2872,14 @@ func (ipslaTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackTypeInfo_Ips
     ipslaTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipslaTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipslaTracks.EntityData.Children = make(map[string]types.YChild)
-    ipslaTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipslaTracks.EntityData.Leafs["ipsla-op-id"] = types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId}
-    ipslaTracks.EntityData.Leafs["rtt"] = types.YLeaf{"Rtt", ipslaTracks.Rtt}
-    ipslaTracks.EntityData.Leafs["return-code"] = types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode}
+    ipslaTracks.EntityData.Children = types.NewOrderedMap()
+    ipslaTracks.EntityData.Leafs = types.NewOrderedMap()
+    ipslaTracks.EntityData.Leafs.Append("ipsla-op-id", types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId})
+    ipslaTracks.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", ipslaTracks.Rtt})
+    ipslaTracks.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode})
+
+    ipslaTracks.EntityData.YListKeys = []string {}
+
     return &(ipslaTracks.EntityData)
 }
 
@@ -2696,12 +2912,15 @@ func (bfdTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackTypeInfo_BfdTr
     bfdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfdTracks.EntityData.Children = make(map[string]types.YChild)
-    bfdTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfdTracks.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", bfdTracks.InterfaceName}
-    bfdTracks.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", bfdTracks.DestinationAddress}
-    bfdTracks.EntityData.Leafs["rate"] = types.YLeaf{"Rate", bfdTracks.Rate}
-    bfdTracks.EntityData.Leafs["debounce-count"] = types.YLeaf{"DebounceCount", bfdTracks.DebounceCount}
+    bfdTracks.EntityData.Children = types.NewOrderedMap()
+    bfdTracks.EntityData.Leafs = types.NewOrderedMap()
+    bfdTracks.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", bfdTracks.InterfaceName})
+    bfdTracks.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", bfdTracks.DestinationAddress})
+    bfdTracks.EntityData.Leafs.Append("rate", types.YLeaf{"Rate", bfdTracks.Rate})
+    bfdTracks.EntityData.Leafs.Append("debounce-count", types.YLeaf{"DebounceCount", bfdTracks.DebounceCount})
+
+    bfdTracks.EntityData.YListKeys = []string {}
+
     return &(bfdTracks.EntityData)
 }
 
@@ -2713,7 +2932,7 @@ type ObjectTracking_TrackTypeIpv4Route_TrackInfo_BoolTracks struct {
 
     // bool track info. The type is slice of
     // ObjectTracking_TrackTypeIpv4Route_TrackInfo_BoolTracks_BoolTrackInfo.
-    BoolTrackInfo []ObjectTracking_TrackTypeIpv4Route_TrackInfo_BoolTracks_BoolTrackInfo
+    BoolTrackInfo []*ObjectTracking_TrackTypeIpv4Route_TrackInfo_BoolTracks_BoolTrackInfo
 }
 
 func (boolTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_BoolTracks) GetEntityData() *types.CommonEntityData {
@@ -2726,12 +2945,15 @@ func (boolTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_BoolTracks) GetEnt
     boolTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     boolTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    boolTracks.EntityData.Children = make(map[string]types.YChild)
-    boolTracks.EntityData.Children["bool-track-info"] = types.YChild{"BoolTrackInfo", nil}
+    boolTracks.EntityData.Children = types.NewOrderedMap()
+    boolTracks.EntityData.Children.Append("bool-track-info", types.YChild{"BoolTrackInfo", nil})
     for i := range boolTracks.BoolTrackInfo {
-        boolTracks.EntityData.Children[types.GetSegmentPath(&boolTracks.BoolTrackInfo[i])] = types.YChild{"BoolTrackInfo", &boolTracks.BoolTrackInfo[i]}
+        boolTracks.EntityData.Children.Append(types.GetSegmentPath(boolTracks.BoolTrackInfo[i]), types.YChild{"BoolTrackInfo", boolTracks.BoolTrackInfo[i]})
     }
-    boolTracks.EntityData.Leafs = make(map[string]types.YLeaf)
+    boolTracks.EntityData.Leafs = types.NewOrderedMap()
+
+    boolTracks.EntityData.YListKeys = []string {}
+
     return &(boolTracks.EntityData)
 }
 
@@ -2761,11 +2983,14 @@ func (boolTrackInfo *ObjectTracking_TrackTypeIpv4Route_TrackInfo_BoolTracks_Bool
     boolTrackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     boolTrackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    boolTrackInfo.EntityData.Children = make(map[string]types.YChild)
-    boolTrackInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    boolTrackInfo.EntityData.Leafs["object-name"] = types.YLeaf{"ObjectName", boolTrackInfo.ObjectName}
-    boolTrackInfo.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", boolTrackInfo.TrackState}
-    boolTrackInfo.EntityData.Leafs["with-not"] = types.YLeaf{"WithNot", boolTrackInfo.WithNot}
+    boolTrackInfo.EntityData.Children = types.NewOrderedMap()
+    boolTrackInfo.EntityData.Leafs = types.NewOrderedMap()
+    boolTrackInfo.EntityData.Leafs.Append("object-name", types.YLeaf{"ObjectName", boolTrackInfo.ObjectName})
+    boolTrackInfo.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", boolTrackInfo.TrackState})
+    boolTrackInfo.EntityData.Leafs.Append("with-not", types.YLeaf{"WithNot", boolTrackInfo.WithNot})
+
+    boolTrackInfo.EntityData.YListKeys = []string {}
+
     return &(boolTrackInfo.EntityData)
 }
 
@@ -2777,7 +3002,7 @@ type ObjectTracking_TrackTypeIpv4Route_TrackInfo_ThresholdTracks struct {
 
     // threshold track info. The type is slice of
     // ObjectTracking_TrackTypeIpv4Route_TrackInfo_ThresholdTracks_ThresholdTrackInfo.
-    ThresholdTrackInfo []ObjectTracking_TrackTypeIpv4Route_TrackInfo_ThresholdTracks_ThresholdTrackInfo
+    ThresholdTrackInfo []*ObjectTracking_TrackTypeIpv4Route_TrackInfo_ThresholdTracks_ThresholdTrackInfo
 }
 
 func (thresholdTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_ThresholdTracks) GetEntityData() *types.CommonEntityData {
@@ -2790,12 +3015,15 @@ func (thresholdTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_ThresholdTrac
     thresholdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdTracks.EntityData.Children = make(map[string]types.YChild)
-    thresholdTracks.EntityData.Children["threshold-track-info"] = types.YChild{"ThresholdTrackInfo", nil}
+    thresholdTracks.EntityData.Children = types.NewOrderedMap()
+    thresholdTracks.EntityData.Children.Append("threshold-track-info", types.YChild{"ThresholdTrackInfo", nil})
     for i := range thresholdTracks.ThresholdTrackInfo {
-        thresholdTracks.EntityData.Children[types.GetSegmentPath(&thresholdTracks.ThresholdTrackInfo[i])] = types.YChild{"ThresholdTrackInfo", &thresholdTracks.ThresholdTrackInfo[i]}
+        thresholdTracks.EntityData.Children.Append(types.GetSegmentPath(thresholdTracks.ThresholdTrackInfo[i]), types.YChild{"ThresholdTrackInfo", thresholdTracks.ThresholdTrackInfo[i]})
     }
-    thresholdTracks.EntityData.Leafs = make(map[string]types.YLeaf)
+    thresholdTracks.EntityData.Leafs = types.NewOrderedMap()
+
+    thresholdTracks.EntityData.YListKeys = []string {}
+
     return &(thresholdTracks.EntityData)
 }
 
@@ -2831,11 +3059,14 @@ func (thresholdTrackInfo *ObjectTracking_TrackTypeIpv4Route_TrackInfo_ThresholdT
     thresholdTrackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdTrackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    thresholdTrackInfo.EntityData.Children = make(map[string]types.YChild)
-    thresholdTrackInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    thresholdTrackInfo.EntityData.Leafs["object-name"] = types.YLeaf{"ObjectName", thresholdTrackInfo.ObjectName}
-    thresholdTrackInfo.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", thresholdTrackInfo.TrackState}
-    thresholdTrackInfo.EntityData.Leafs["weight"] = types.YLeaf{"Weight", thresholdTrackInfo.Weight}
+    thresholdTrackInfo.EntityData.Children = types.NewOrderedMap()
+    thresholdTrackInfo.EntityData.Leafs = types.NewOrderedMap()
+    thresholdTrackInfo.EntityData.Leafs.Append("object-name", types.YLeaf{"ObjectName", thresholdTrackInfo.ObjectName})
+    thresholdTrackInfo.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", thresholdTrackInfo.TrackState})
+    thresholdTrackInfo.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", thresholdTrackInfo.Weight})
+
+    thresholdTrackInfo.EntityData.YListKeys = []string {}
+
     return &(thresholdTrackInfo.EntityData)
 }
 
@@ -2847,7 +3078,7 @@ type ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackingInteraces struct {
 
     // interface tracking info. The type is slice of
     // ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackingInteraces_InterfaceTrackingInfo.
-    InterfaceTrackingInfo []ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackingInteraces_InterfaceTrackingInfo
+    InterfaceTrackingInfo []*ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackingInteraces_InterfaceTrackingInfo
 }
 
 func (trackingInteraces *ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackingInteraces) GetEntityData() *types.CommonEntityData {
@@ -2860,12 +3091,15 @@ func (trackingInteraces *ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackingInt
     trackingInteraces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackingInteraces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackingInteraces.EntityData.Children = make(map[string]types.YChild)
-    trackingInteraces.EntityData.Children["interface-tracking-info"] = types.YChild{"InterfaceTrackingInfo", nil}
+    trackingInteraces.EntityData.Children = types.NewOrderedMap()
+    trackingInteraces.EntityData.Children.Append("interface-tracking-info", types.YChild{"InterfaceTrackingInfo", nil})
     for i := range trackingInteraces.InterfaceTrackingInfo {
-        trackingInteraces.EntityData.Children[types.GetSegmentPath(&trackingInteraces.InterfaceTrackingInfo[i])] = types.YChild{"InterfaceTrackingInfo", &trackingInteraces.InterfaceTrackingInfo[i]}
+        trackingInteraces.EntityData.Children.Append(types.GetSegmentPath(trackingInteraces.InterfaceTrackingInfo[i]), types.YChild{"InterfaceTrackingInfo", trackingInteraces.InterfaceTrackingInfo[i]})
     }
-    trackingInteraces.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackingInteraces.EntityData.Leafs = types.NewOrderedMap()
+
+    trackingInteraces.EntityData.YListKeys = []string {}
+
     return &(trackingInteraces.EntityData)
 }
 
@@ -2889,9 +3123,12 @@ func (interfaceTrackingInfo *ObjectTracking_TrackTypeIpv4Route_TrackInfo_Trackin
     interfaceTrackingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTrackingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceTrackingInfo.EntityData.Children = make(map[string]types.YChild)
-    interfaceTrackingInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceTrackingInfo.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceTrackingInfo.InterfaceName}
+    interfaceTrackingInfo.EntityData.Children = types.NewOrderedMap()
+    interfaceTrackingInfo.EntityData.Leafs = types.NewOrderedMap()
+    interfaceTrackingInfo.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceTrackingInfo.InterfaceName})
+
+    interfaceTrackingInfo.EntityData.YListKeys = []string {}
+
     return &(interfaceTrackingInfo.EntityData)
 }
 
@@ -2920,10 +3157,13 @@ func (delayed *ObjectTracking_TrackTypeIpv4Route_TrackInfo_Delayed) GetEntityDat
     delayed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delayed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    delayed.EntityData.Children = make(map[string]types.YChild)
-    delayed.EntityData.Leafs = make(map[string]types.YLeaf)
-    delayed.EntityData.Leafs["time-remaining"] = types.YLeaf{"TimeRemaining", delayed.TimeRemaining}
-    delayed.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", delayed.TrackState}
+    delayed.EntityData.Children = types.NewOrderedMap()
+    delayed.EntityData.Leafs = types.NewOrderedMap()
+    delayed.EntityData.Leafs.Append("time-remaining", types.YLeaf{"TimeRemaining", delayed.TimeRemaining})
+    delayed.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", delayed.TrackState})
+
+    delayed.EntityData.YListKeys = []string {}
+
     return &(delayed.EntityData)
 }
 
@@ -2935,7 +3175,7 @@ type ObjectTracking_TrackTypeInterfaceBrief struct {
 
     // track info brief. The type is slice of
     // ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief.
-    TrackInfoBrief []ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief
+    TrackInfoBrief []*ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief
 }
 
 func (trackTypeInterfaceBrief *ObjectTracking_TrackTypeInterfaceBrief) GetEntityData() *types.CommonEntityData {
@@ -2948,12 +3188,15 @@ func (trackTypeInterfaceBrief *ObjectTracking_TrackTypeInterfaceBrief) GetEntity
     trackTypeInterfaceBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInterfaceBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackTypeInterfaceBrief.EntityData.Children = make(map[string]types.YChild)
-    trackTypeInterfaceBrief.EntityData.Children["track-info-brief"] = types.YChild{"TrackInfoBrief", nil}
+    trackTypeInterfaceBrief.EntityData.Children = types.NewOrderedMap()
+    trackTypeInterfaceBrief.EntityData.Children.Append("track-info-brief", types.YChild{"TrackInfoBrief", nil})
     for i := range trackTypeInterfaceBrief.TrackInfoBrief {
-        trackTypeInterfaceBrief.EntityData.Children[types.GetSegmentPath(&trackTypeInterfaceBrief.TrackInfoBrief[i])] = types.YChild{"TrackInfoBrief", &trackTypeInterfaceBrief.TrackInfoBrief[i]}
+        trackTypeInterfaceBrief.EntityData.Children.Append(types.GetSegmentPath(trackTypeInterfaceBrief.TrackInfoBrief[i]), types.YChild{"TrackInfoBrief", trackTypeInterfaceBrief.TrackInfoBrief[i]})
     }
-    trackTypeInterfaceBrief.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackTypeInterfaceBrief.EntityData.Leafs = types.NewOrderedMap()
+
+    trackTypeInterfaceBrief.EntityData.YListKeys = []string {}
+
     return &(trackTypeInterfaceBrief.EntityData)
 }
 
@@ -2967,7 +3210,7 @@ type ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief struct {
     TrackeName interface{}
 
     // Track type. The type is Track.
-    Type_ interface{}
+    Type interface{}
 
     // Track state. The type is bool.
     TrackState interface{}
@@ -2986,12 +3229,15 @@ func (trackInfoBrief *ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief) Get
     trackInfoBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackInfoBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackInfoBrief.EntityData.Children = make(map[string]types.YChild)
-    trackInfoBrief.EntityData.Children["track-type-info"] = types.YChild{"TrackTypeInfo", &trackInfoBrief.TrackTypeInfo}
-    trackInfoBrief.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackInfoBrief.EntityData.Leafs["tracke-name"] = types.YLeaf{"TrackeName", trackInfoBrief.TrackeName}
-    trackInfoBrief.EntityData.Leafs["type"] = types.YLeaf{"Type_", trackInfoBrief.Type_}
-    trackInfoBrief.EntityData.Leafs["track-state"] = types.YLeaf{"TrackState", trackInfoBrief.TrackState}
+    trackInfoBrief.EntityData.Children = types.NewOrderedMap()
+    trackInfoBrief.EntityData.Children.Append("track-type-info", types.YChild{"TrackTypeInfo", &trackInfoBrief.TrackTypeInfo})
+    trackInfoBrief.EntityData.Leafs = types.NewOrderedMap()
+    trackInfoBrief.EntityData.Leafs.Append("tracke-name", types.YLeaf{"TrackeName", trackInfoBrief.TrackeName})
+    trackInfoBrief.EntityData.Leafs.Append("type", types.YLeaf{"Type", trackInfoBrief.Type})
+    trackInfoBrief.EntityData.Leafs.Append("track-state", types.YLeaf{"TrackState", trackInfoBrief.TrackState})
+
+    trackInfoBrief.EntityData.YListKeys = []string {}
+
     return &(trackInfoBrief.EntityData)
 }
 
@@ -3027,13 +3273,16 @@ func (trackTypeInfo *ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief_Track
     trackTypeInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackTypeInfo.EntityData.Children = make(map[string]types.YChild)
-    trackTypeInfo.EntityData.Children["interface-tracks"] = types.YChild{"InterfaceTracks", &trackTypeInfo.InterfaceTracks}
-    trackTypeInfo.EntityData.Children["route-tracks"] = types.YChild{"RouteTracks", &trackTypeInfo.RouteTracks}
-    trackTypeInfo.EntityData.Children["ipsla-tracks"] = types.YChild{"IpslaTracks", &trackTypeInfo.IpslaTracks}
-    trackTypeInfo.EntityData.Children["bfd-tracks"] = types.YChild{"BfdTracks", &trackTypeInfo.BfdTracks}
-    trackTypeInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackTypeInfo.EntityData.Leafs["discriminant"] = types.YLeaf{"Discriminant", trackTypeInfo.Discriminant}
+    trackTypeInfo.EntityData.Children = types.NewOrderedMap()
+    trackTypeInfo.EntityData.Children.Append("interface-tracks", types.YChild{"InterfaceTracks", &trackTypeInfo.InterfaceTracks})
+    trackTypeInfo.EntityData.Children.Append("route-tracks", types.YChild{"RouteTracks", &trackTypeInfo.RouteTracks})
+    trackTypeInfo.EntityData.Children.Append("ipsla-tracks", types.YChild{"IpslaTracks", &trackTypeInfo.IpslaTracks})
+    trackTypeInfo.EntityData.Children.Append("bfd-tracks", types.YChild{"BfdTracks", &trackTypeInfo.BfdTracks})
+    trackTypeInfo.EntityData.Leafs = types.NewOrderedMap()
+    trackTypeInfo.EntityData.Leafs.Append("discriminant", types.YLeaf{"Discriminant", trackTypeInfo.Discriminant})
+
+    trackTypeInfo.EntityData.YListKeys = []string {}
+
     return &(trackTypeInfo.EntityData)
 }
 
@@ -3057,9 +3306,12 @@ func (interfaceTracks *ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief_Tra
     interfaceTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceTracks.EntityData.Children = make(map[string]types.YChild)
-    interfaceTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceTracks.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceTracks.InterfaceName}
+    interfaceTracks.EntityData.Children = types.NewOrderedMap()
+    interfaceTracks.EntityData.Leafs = types.NewOrderedMap()
+    interfaceTracks.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceTracks.InterfaceName})
+
+    interfaceTracks.EntityData.YListKeys = []string {}
+
     return &(interfaceTracks.EntityData)
 }
 
@@ -3092,12 +3344,15 @@ func (routeTracks *ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief_TrackTy
     routeTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routeTracks.EntityData.Children = make(map[string]types.YChild)
-    routeTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    routeTracks.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", routeTracks.Prefix}
-    routeTracks.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", routeTracks.PrefixLength}
-    routeTracks.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", routeTracks.Vrf}
-    routeTracks.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", routeTracks.NextHop}
+    routeTracks.EntityData.Children = types.NewOrderedMap()
+    routeTracks.EntityData.Leafs = types.NewOrderedMap()
+    routeTracks.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", routeTracks.Prefix})
+    routeTracks.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", routeTracks.PrefixLength})
+    routeTracks.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", routeTracks.Vrf})
+    routeTracks.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", routeTracks.NextHop})
+
+    routeTracks.EntityData.YListKeys = []string {}
+
     return &(routeTracks.EntityData)
 }
 
@@ -3127,11 +3382,14 @@ func (ipslaTracks *ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief_TrackTy
     ipslaTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipslaTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipslaTracks.EntityData.Children = make(map[string]types.YChild)
-    ipslaTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipslaTracks.EntityData.Leafs["ipsla-op-id"] = types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId}
-    ipslaTracks.EntityData.Leafs["rtt"] = types.YLeaf{"Rtt", ipslaTracks.Rtt}
-    ipslaTracks.EntityData.Leafs["return-code"] = types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode}
+    ipslaTracks.EntityData.Children = types.NewOrderedMap()
+    ipslaTracks.EntityData.Leafs = types.NewOrderedMap()
+    ipslaTracks.EntityData.Leafs.Append("ipsla-op-id", types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId})
+    ipslaTracks.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", ipslaTracks.Rtt})
+    ipslaTracks.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode})
+
+    ipslaTracks.EntityData.YListKeys = []string {}
+
     return &(ipslaTracks.EntityData)
 }
 
@@ -3164,12 +3422,15 @@ func (bfdTracks *ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief_TrackType
     bfdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfdTracks.EntityData.Children = make(map[string]types.YChild)
-    bfdTracks.EntityData.Leafs = make(map[string]types.YLeaf)
-    bfdTracks.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", bfdTracks.InterfaceName}
-    bfdTracks.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", bfdTracks.DestinationAddress}
-    bfdTracks.EntityData.Leafs["rate"] = types.YLeaf{"Rate", bfdTracks.Rate}
-    bfdTracks.EntityData.Leafs["debounce-count"] = types.YLeaf{"DebounceCount", bfdTracks.DebounceCount}
+    bfdTracks.EntityData.Children = types.NewOrderedMap()
+    bfdTracks.EntityData.Leafs = types.NewOrderedMap()
+    bfdTracks.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", bfdTracks.InterfaceName})
+    bfdTracks.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", bfdTracks.DestinationAddress})
+    bfdTracks.EntityData.Leafs.Append("rate", types.YLeaf{"Rate", bfdTracks.Rate})
+    bfdTracks.EntityData.Leafs.Append("debounce-count", types.YLeaf{"DebounceCount", bfdTracks.DebounceCount})
+
+    bfdTracks.EntityData.YListKeys = []string {}
+
     return &(bfdTracks.EntityData)
 }
 

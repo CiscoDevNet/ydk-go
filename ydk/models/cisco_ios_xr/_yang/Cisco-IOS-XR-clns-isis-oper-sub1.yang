@@ -32,6 +32,10 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-08-08 {
+    description
+      "Add openconfig network instance model isis telemetry EDM function support.";
+  }
   revision 2017-06-26 {
     description
       "Change identifiers to be more readable.";
@@ -117,6 +121,17 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
         value 2;
         description
           "send/accept both forms of metric";
+      }
+      enum "isis-metric-style-narrow-transition" {
+        value 3;
+        description
+          "send old-style (ISO 10589) metrics but accept
+           both";
+      }
+      enum "isis-metric-style-wide-transition" {
+        value 4;
+        description
+          "send new-style 32-bit metrics but accept both";
       }
     }
     description
@@ -1366,6 +1381,14 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       enum "isis-lsp-trig-direct-gen" {
         description
           "Direct LSP generation";
+      }
+      enum "isis-lsp-trig-pm-delay-loss" {
+        description
+          "Link delay/loss changed";
+      }
+      enum "isis-lsp-trig-pm-bw-util" {
+        description
+          "Link bandwidth utilization changed";
       }
     }
     description
@@ -5180,6 +5203,11 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
         "Uloop Explicit List";
       uses ISIS-SH-REP-EL;
     }
+    list nnh {
+      description
+        "Next next hops";
+      uses ISIS-SH-NNH;
+    }
   }
 
   grouping ISIS-SH-IPV6-TOPO-REACHABLE-DETAILS {
@@ -5320,6 +5348,31 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       type xr:Isis-node-id;
       description
         "Pseudonode between system and its neighbor";
+    }
+  }
+
+  grouping ISIS-SH-NNH {
+    description
+      "Next next hops for a prefix";
+    leaf link-id-set {
+      type boolean;
+      description
+        "If link_id is given";
+    }
+    leaf ipv4-set {
+      type boolean;
+      description
+        "If ipv4 address is given";
+    }
+    leaf link-id {
+      type uint32;
+      description
+        "link ID of the next next hop";
+    }
+    leaf ipv4-address {
+      type Isis-ipv4-address;
+      description
+        "Ipv4 address of the next next hop";
     }
   }
 
@@ -5566,6 +5619,11 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       description
         "Uloop Explicit List";
       uses ISIS-SH-REP-EL;
+    }
+    list nnh {
+      description
+        "Next next hops";
+      uses ISIS-SH-NNH;
     }
   }
 
@@ -7302,8 +7360,8 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
   grouping ISIS-SH-INTF-DET {
     description
       "Interface Detail";
-    leaf interface-handle {
-      type xr:Interface-name;
+    leaf interface-index {
+      type uint32;
       description
         "Local interface handle";
     }

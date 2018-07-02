@@ -34,38 +34,38 @@ type TOKENRINGRMONMIB struct {
     YFilter yfilter.YFilter
 
     // A list of Mac-Layer Token Ring statistics      entries.
-    Tokenringmlstatstable TOKENRINGRMONMIB_Tokenringmlstatstable
+    TokenRingMLStatsTable TOKENRINGRMONMIB_TokenRingMLStatsTable
 
     // A list of promiscuous Token Ring statistics entries.
-    Tokenringpstatstable TOKENRINGRMONMIB_Tokenringpstatstable
+    TokenRingPStatsTable TOKENRINGRMONMIB_TokenRingPStatsTable
 
     // A list of Mac-Layer Token Ring statistics      entries.
-    Tokenringmlhistorytable TOKENRINGRMONMIB_Tokenringmlhistorytable
+    TokenRingMLHistoryTable TOKENRINGRMONMIB_TokenRingMLHistoryTable
 
     // A list of promiscuous Token Ring statistics entries.
-    Tokenringphistorytable TOKENRINGRMONMIB_Tokenringphistorytable
+    TokenRingPHistoryTable TOKENRINGRMONMIB_TokenRingPHistoryTable
 
     // A list of ringStation table control entries.
-    Ringstationcontroltable TOKENRINGRMONMIB_Ringstationcontroltable
+    RingStationControlTable TOKENRINGRMONMIB_RingStationControlTable
 
     // A list of ring station entries.  An entry will exist for each station that
     // is now or has      previously been detected as physically present on this
     // ring.
-    Ringstationtable TOKENRINGRMONMIB_Ringstationtable
+    RingStationTable TOKENRINGRMONMIB_RingStationTable
 
     // A list of ring station entries for stations in the ring poll, ordered by
     // their ring-order.
-    Ringstationordertable TOKENRINGRMONMIB_Ringstationordertable
+    RingStationOrderTable TOKENRINGRMONMIB_RingStationOrderTable
 
     // A list of ring station configuration control entries.
-    Ringstationconfigcontroltable TOKENRINGRMONMIB_Ringstationconfigcontroltable
+    RingStationConfigControlTable TOKENRINGRMONMIB_RingStationConfigControlTable
 
     // A list of configuration entries for stations on a ring monitored by this
     // probe.
-    Ringstationconfigtable TOKENRINGRMONMIB_Ringstationconfigtable
+    RingStationConfigTable TOKENRINGRMONMIB_RingStationConfigTable
 
     // A list of source routing statistics entries.
-    Sourceroutingstatstable TOKENRINGRMONMIB_Sourceroutingstatstable
+    SourceRoutingStatsTable TOKENRINGRMONMIB_SourceRoutingStatsTable
 }
 
 func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) GetEntityData() *types.CommonEntityData {
@@ -78,22 +78,25 @@ func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) GetEntityData() *types.CommonEntityDat
     tOKENRINGRMONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tOKENRINGRMONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tOKENRINGRMONMIB.EntityData.Children = make(map[string]types.YChild)
-    tOKENRINGRMONMIB.EntityData.Children["tokenRingMLStatsTable"] = types.YChild{"Tokenringmlstatstable", &tOKENRINGRMONMIB.Tokenringmlstatstable}
-    tOKENRINGRMONMIB.EntityData.Children["tokenRingPStatsTable"] = types.YChild{"Tokenringpstatstable", &tOKENRINGRMONMIB.Tokenringpstatstable}
-    tOKENRINGRMONMIB.EntityData.Children["tokenRingMLHistoryTable"] = types.YChild{"Tokenringmlhistorytable", &tOKENRINGRMONMIB.Tokenringmlhistorytable}
-    tOKENRINGRMONMIB.EntityData.Children["tokenRingPHistoryTable"] = types.YChild{"Tokenringphistorytable", &tOKENRINGRMONMIB.Tokenringphistorytable}
-    tOKENRINGRMONMIB.EntityData.Children["ringStationControlTable"] = types.YChild{"Ringstationcontroltable", &tOKENRINGRMONMIB.Ringstationcontroltable}
-    tOKENRINGRMONMIB.EntityData.Children["ringStationTable"] = types.YChild{"Ringstationtable", &tOKENRINGRMONMIB.Ringstationtable}
-    tOKENRINGRMONMIB.EntityData.Children["ringStationOrderTable"] = types.YChild{"Ringstationordertable", &tOKENRINGRMONMIB.Ringstationordertable}
-    tOKENRINGRMONMIB.EntityData.Children["ringStationConfigControlTable"] = types.YChild{"Ringstationconfigcontroltable", &tOKENRINGRMONMIB.Ringstationconfigcontroltable}
-    tOKENRINGRMONMIB.EntityData.Children["ringStationConfigTable"] = types.YChild{"Ringstationconfigtable", &tOKENRINGRMONMIB.Ringstationconfigtable}
-    tOKENRINGRMONMIB.EntityData.Children["sourceRoutingStatsTable"] = types.YChild{"Sourceroutingstatstable", &tOKENRINGRMONMIB.Sourceroutingstatstable}
-    tOKENRINGRMONMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    tOKENRINGRMONMIB.EntityData.Children = types.NewOrderedMap()
+    tOKENRINGRMONMIB.EntityData.Children.Append("tokenRingMLStatsTable", types.YChild{"TokenRingMLStatsTable", &tOKENRINGRMONMIB.TokenRingMLStatsTable})
+    tOKENRINGRMONMIB.EntityData.Children.Append("tokenRingPStatsTable", types.YChild{"TokenRingPStatsTable", &tOKENRINGRMONMIB.TokenRingPStatsTable})
+    tOKENRINGRMONMIB.EntityData.Children.Append("tokenRingMLHistoryTable", types.YChild{"TokenRingMLHistoryTable", &tOKENRINGRMONMIB.TokenRingMLHistoryTable})
+    tOKENRINGRMONMIB.EntityData.Children.Append("tokenRingPHistoryTable", types.YChild{"TokenRingPHistoryTable", &tOKENRINGRMONMIB.TokenRingPHistoryTable})
+    tOKENRINGRMONMIB.EntityData.Children.Append("ringStationControlTable", types.YChild{"RingStationControlTable", &tOKENRINGRMONMIB.RingStationControlTable})
+    tOKENRINGRMONMIB.EntityData.Children.Append("ringStationTable", types.YChild{"RingStationTable", &tOKENRINGRMONMIB.RingStationTable})
+    tOKENRINGRMONMIB.EntityData.Children.Append("ringStationOrderTable", types.YChild{"RingStationOrderTable", &tOKENRINGRMONMIB.RingStationOrderTable})
+    tOKENRINGRMONMIB.EntityData.Children.Append("ringStationConfigControlTable", types.YChild{"RingStationConfigControlTable", &tOKENRINGRMONMIB.RingStationConfigControlTable})
+    tOKENRINGRMONMIB.EntityData.Children.Append("ringStationConfigTable", types.YChild{"RingStationConfigTable", &tOKENRINGRMONMIB.RingStationConfigTable})
+    tOKENRINGRMONMIB.EntityData.Children.Append("sourceRoutingStatsTable", types.YChild{"SourceRoutingStatsTable", &tOKENRINGRMONMIB.SourceRoutingStatsTable})
+    tOKENRINGRMONMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    tOKENRINGRMONMIB.EntityData.YListKeys = []string {}
+
     return &(tOKENRINGRMONMIB.EntityData)
 }
 
-// TOKENRINGRMONMIB_Tokenringmlstatstable
+// TOKENRINGRMONMIB_TokenRingMLStatsTable
 // A list of Mac-Layer Token Ring statistics
 // 
 // 
@@ -101,45 +104,48 @@ func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) GetEntityData() *types.CommonEntityDat
 // 
 // 
 // entries.
-type TOKENRINGRMONMIB_Tokenringmlstatstable struct {
+type TOKENRINGRMONMIB_TokenRingMLStatsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of Mac-Layer statistics kept for a particular Token Ring
     // interface. The type is slice of
-    // TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry.
-    Tokenringmlstatsentry []TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry
+    // TOKENRINGRMONMIB_TokenRingMLStatsTable_TokenRingMLStatsEntry.
+    TokenRingMLStatsEntry []*TOKENRINGRMONMIB_TokenRingMLStatsTable_TokenRingMLStatsEntry
 }
 
-func (tokenringmlstatstable *TOKENRINGRMONMIB_Tokenringmlstatstable) GetEntityData() *types.CommonEntityData {
-    tokenringmlstatstable.EntityData.YFilter = tokenringmlstatstable.YFilter
-    tokenringmlstatstable.EntityData.YangName = "tokenRingMLStatsTable"
-    tokenringmlstatstable.EntityData.BundleName = "cisco_ios_xe"
-    tokenringmlstatstable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
-    tokenringmlstatstable.EntityData.SegmentPath = "tokenRingMLStatsTable"
-    tokenringmlstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    tokenringmlstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    tokenringmlstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (tokenRingMLStatsTable *TOKENRINGRMONMIB_TokenRingMLStatsTable) GetEntityData() *types.CommonEntityData {
+    tokenRingMLStatsTable.EntityData.YFilter = tokenRingMLStatsTable.YFilter
+    tokenRingMLStatsTable.EntityData.YangName = "tokenRingMLStatsTable"
+    tokenRingMLStatsTable.EntityData.BundleName = "cisco_ios_xe"
+    tokenRingMLStatsTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    tokenRingMLStatsTable.EntityData.SegmentPath = "tokenRingMLStatsTable"
+    tokenRingMLStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tokenRingMLStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tokenRingMLStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tokenringmlstatstable.EntityData.Children = make(map[string]types.YChild)
-    tokenringmlstatstable.EntityData.Children["tokenRingMLStatsEntry"] = types.YChild{"Tokenringmlstatsentry", nil}
-    for i := range tokenringmlstatstable.Tokenringmlstatsentry {
-        tokenringmlstatstable.EntityData.Children[types.GetSegmentPath(&tokenringmlstatstable.Tokenringmlstatsentry[i])] = types.YChild{"Tokenringmlstatsentry", &tokenringmlstatstable.Tokenringmlstatsentry[i]}
+    tokenRingMLStatsTable.EntityData.Children = types.NewOrderedMap()
+    tokenRingMLStatsTable.EntityData.Children.Append("tokenRingMLStatsEntry", types.YChild{"TokenRingMLStatsEntry", nil})
+    for i := range tokenRingMLStatsTable.TokenRingMLStatsEntry {
+        tokenRingMLStatsTable.EntityData.Children.Append(types.GetSegmentPath(tokenRingMLStatsTable.TokenRingMLStatsEntry[i]), types.YChild{"TokenRingMLStatsEntry", tokenRingMLStatsTable.TokenRingMLStatsEntry[i]})
     }
-    tokenringmlstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(tokenringmlstatstable.EntityData)
+    tokenRingMLStatsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    tokenRingMLStatsTable.EntityData.YListKeys = []string {}
+
+    return &(tokenRingMLStatsTable.EntityData)
 }
 
-// TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry
+// TOKENRINGRMONMIB_TokenRingMLStatsTable_TokenRingMLStatsEntry
 // A collection of Mac-Layer statistics kept for a
 // particular Token Ring interface.
-type TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry struct {
+type TOKENRINGRMONMIB_TokenRingMLStatsTable_TokenRingMLStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of this object uniquely identifies this
     // tokenRingMLStats entry. The type is interface{} with range: 1..65535.
-    Tokenringmlstatsindex interface{}
+    TokenRingMLStatsIndex interface{}
 
     // This object identifies the source of the data that this tokenRingMLStats
     // entry is configured to analyze.  This source can be any tokenRing interface
@@ -151,8 +157,8 @@ type TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry struct {
     // attached to the identified interface.  This object may not be modified if
     // the associated tokenRingMLStatsStatus object is equal to valid(1). The type
     // is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Tokenringmlstatsdatasource interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    TokenRingMLStatsDataSource interface{}
 
     // The total number of events in which packets were dropped by the probe due
     // to lack of resources. Note that this number is not necessarily the number
@@ -160,26 +166,26 @@ type TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry struct {
     // detected.  This value is the same as the corresponding
     // tokenRingPStatsDropEvents. The type is interface{} with range:
     // 0..4294967295.
-    Tokenringmlstatsdropevents interface{}
+    TokenRingMLStatsDropEvents interface{}
 
     // The total number of octets of data in MAC packets (excluding those that
     // were not good frames) received on the network (excluding framing bits but
     // including FCS octets). The type is interface{} with range: 0..4294967295.
-    Tokenringmlstatsmacoctets interface{}
+    TokenRingMLStatsMacOctets interface{}
 
     // The total number of MAC packets (excluding packets that were not good
     // frames) received. The type is interface{} with range: 0..4294967295.
-    Tokenringmlstatsmacpkts interface{}
+    TokenRingMLStatsMacPkts interface{}
 
     // The total number of times that the ring enters the ring purge state from
     // normal ring state.  The ring purge state that comes in response to the
     // claim token or beacon state is not counted. The type is interface{} with
     // range: 0..4294967295.
-    Tokenringmlstatsringpurgeevents interface{}
+    TokenRingMLStatsRingPurgeEvents interface{}
 
     // The total number of ring purge MAC packets detected by probe. The type is
     // interface{} with range: 0..4294967295.
-    Tokenringmlstatsringpurgepkts interface{}
+    TokenRingMLStatsRingPurgePkts interface{}
 
     // The total number of times that the ring enters a beaconing state
     // (beaconFrameStreamingState, beaconBitStreamingState,     
@@ -187,88 +193,88 @@ type TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry struct {
     // non-beaconing state.  Note that a change of the source address of the
     // beacon packet does not constitute a new beacon event. The type is
     // interface{} with range: 0..4294967295.
-    Tokenringmlstatsbeaconevents interface{}
+    TokenRingMLStatsBeaconEvents interface{}
 
     // The total amount of time that the ring has been in the beaconing state. The
     // type is interface{} with range: -2147483648..2147483647.
-    Tokenringmlstatsbeacontime interface{}
+    TokenRingMLStatsBeaconTime interface{}
 
     // The total number of beacon MAC packets detected by the probe. The type is
     // interface{} with range: 0..4294967295.
-    Tokenringmlstatsbeaconpkts interface{}
+    TokenRingMLStatsBeaconPkts interface{}
 
     // The total number of times that the ring enters the claim token state from
     // normal ring state or ring purge state.  The claim token state that comes in
     // response to a beacon state is not counted. The type is interface{} with
     // range: 0..4294967295.
-    Tokenringmlstatsclaimtokenevents interface{}
+    TokenRingMLStatsClaimTokenEvents interface{}
 
     // The total number of claim token MAC packets detected by the probe. The type
     // is interface{} with range: 0..4294967295.
-    Tokenringmlstatsclaimtokenpkts interface{}
+    TokenRingMLStatsClaimTokenPkts interface{}
 
     // The total number of NAUN changes detected by the probe. The type is
     // interface{} with range: 0..4294967295.
-    Tokenringmlstatsnaunchanges interface{}
+    TokenRingMLStatsNAUNChanges interface{}
 
     // The total number of line errors reported in error reporting packets
     // detected by the probe. The type is interface{} with range: 0..4294967295.
-    Tokenringmlstatslineerrors interface{}
+    TokenRingMLStatsLineErrors interface{}
 
     // The total number of adapter internal errors reported in error reporting
     // packets detected by the probe. The type is interface{} with range:
     // 0..4294967295.
-    Tokenringmlstatsinternalerrors interface{}
+    TokenRingMLStatsInternalErrors interface{}
 
     // The total number of burst errors reported in error reporting packets
     // detected by the probe. The type is interface{} with range: 0..4294967295.
-    Tokenringmlstatsbursterrors interface{}
+    TokenRingMLStatsBurstErrors interface{}
 
     // The total number of AC (Address Copied)  errors reported in error reporting
     // packets detected by the probe. The type is interface{} with range:
     // 0..4294967295.
-    Tokenringmlstatsacerrors interface{}
+    TokenRingMLStatsACErrors interface{}
 
     // The total number of abort delimiters reported in error reporting packets
     // detected by the probe. The type is interface{} with range: 0..4294967295.
-    Tokenringmlstatsaborterrors interface{}
+    TokenRingMLStatsAbortErrors interface{}
 
     // The total number of lost frame errors reported in error reporting packets
     // detected by the probe. The type is interface{} with range: 0..4294967295.
-    Tokenringmlstatslostframeerrors interface{}
+    TokenRingMLStatsLostFrameErrors interface{}
 
     // The total number of receive congestion errors reported in error reporting
     // packets detected by the probe. The type is interface{} with range:
     // 0..4294967295.
-    Tokenringmlstatscongestionerrors interface{}
+    TokenRingMLStatsCongestionErrors interface{}
 
     // The total number of frame copied errors reported in error reporting packets
     // detected by the probe. The type is interface{} with range: 0..4294967295.
-    Tokenringmlstatsframecopiederrors interface{}
+    TokenRingMLStatsFrameCopiedErrors interface{}
 
     // The total number of frequency errors reported in error reporting packets
     // detected by the probe. The type is interface{} with range: 0..4294967295.
-    Tokenringmlstatsfrequencyerrors interface{}
+    TokenRingMLStatsFrequencyErrors interface{}
 
     // The total number of token errors reported in error reporting packets
     // detected by the probe. The type is interface{} with range: 0..4294967295.
-    Tokenringmlstatstokenerrors interface{}
+    TokenRingMLStatsTokenErrors interface{}
 
     // The total number of soft error report frames detected by the probe. The
     // type is interface{} with range: 0..4294967295.
-    Tokenringmlstatssofterrorreports interface{}
+    TokenRingMLStatsSoftErrorReports interface{}
 
     // The total number of ring poll events detected by the probe (i.e. the number
     // of ring polls initiated by the active monitor that were detected). The type
     // is interface{} with range: 0..4294967295.
-    Tokenringmlstatsringpollevents interface{}
+    TokenRingMLStatsRingPollEvents interface{}
 
     // The entity that configured this entry and is therefore using the resources
     // assigned to it. The type is string.
-    Tokenringmlstatsowner interface{}
+    TokenRingMLStatsOwner interface{}
 
     // The status of this tokenRingMLStats entry. The type is EntryStatus.
-    Tokenringmlstatsstatus interface{}
+    TokenRingMLStatsStatus interface{}
 
     // The total number of frames which were received by the probe and therefore
     // not accounted for in the *StatsDropEvents, but for which the probe chose
@@ -278,102 +284,108 @@ type TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry struct {
     // counted because they had MAC-layer errors.  Note that, unlike the
     // dropEvents counter, this number is the exact number of frames dropped. The
     // type is interface{} with range: 0..4294967295.
-    Tokenringmlstatsdroppedframes interface{}
+    TokenRingMLStatsDroppedFrames interface{}
 
     // The value of sysUpTime when this control entry was last activated. This can
     // be used by the management station to ensure that the table has not been
     // deleted and recreated between polls. The type is interface{} with range:
     // 0..4294967295.
-    Tokenringmlstatscreatetime interface{}
+    TokenRingMLStatsCreateTime interface{}
 }
 
-func (tokenringmlstatsentry *TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry) GetEntityData() *types.CommonEntityData {
-    tokenringmlstatsentry.EntityData.YFilter = tokenringmlstatsentry.YFilter
-    tokenringmlstatsentry.EntityData.YangName = "tokenRingMLStatsEntry"
-    tokenringmlstatsentry.EntityData.BundleName = "cisco_ios_xe"
-    tokenringmlstatsentry.EntityData.ParentYangName = "tokenRingMLStatsTable"
-    tokenringmlstatsentry.EntityData.SegmentPath = "tokenRingMLStatsEntry" + "[tokenRingMLStatsIndex='" + fmt.Sprintf("%v", tokenringmlstatsentry.Tokenringmlstatsindex) + "']"
-    tokenringmlstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    tokenringmlstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    tokenringmlstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (tokenRingMLStatsEntry *TOKENRINGRMONMIB_TokenRingMLStatsTable_TokenRingMLStatsEntry) GetEntityData() *types.CommonEntityData {
+    tokenRingMLStatsEntry.EntityData.YFilter = tokenRingMLStatsEntry.YFilter
+    tokenRingMLStatsEntry.EntityData.YangName = "tokenRingMLStatsEntry"
+    tokenRingMLStatsEntry.EntityData.BundleName = "cisco_ios_xe"
+    tokenRingMLStatsEntry.EntityData.ParentYangName = "tokenRingMLStatsTable"
+    tokenRingMLStatsEntry.EntityData.SegmentPath = "tokenRingMLStatsEntry" + types.AddKeyToken(tokenRingMLStatsEntry.TokenRingMLStatsIndex, "tokenRingMLStatsIndex")
+    tokenRingMLStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tokenRingMLStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tokenRingMLStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tokenringmlstatsentry.EntityData.Children = make(map[string]types.YChild)
-    tokenringmlstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsIndex"] = types.YLeaf{"Tokenringmlstatsindex", tokenringmlstatsentry.Tokenringmlstatsindex}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsDataSource"] = types.YLeaf{"Tokenringmlstatsdatasource", tokenringmlstatsentry.Tokenringmlstatsdatasource}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsDropEvents"] = types.YLeaf{"Tokenringmlstatsdropevents", tokenringmlstatsentry.Tokenringmlstatsdropevents}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsMacOctets"] = types.YLeaf{"Tokenringmlstatsmacoctets", tokenringmlstatsentry.Tokenringmlstatsmacoctets}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsMacPkts"] = types.YLeaf{"Tokenringmlstatsmacpkts", tokenringmlstatsentry.Tokenringmlstatsmacpkts}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsRingPurgeEvents"] = types.YLeaf{"Tokenringmlstatsringpurgeevents", tokenringmlstatsentry.Tokenringmlstatsringpurgeevents}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsRingPurgePkts"] = types.YLeaf{"Tokenringmlstatsringpurgepkts", tokenringmlstatsentry.Tokenringmlstatsringpurgepkts}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsBeaconEvents"] = types.YLeaf{"Tokenringmlstatsbeaconevents", tokenringmlstatsentry.Tokenringmlstatsbeaconevents}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsBeaconTime"] = types.YLeaf{"Tokenringmlstatsbeacontime", tokenringmlstatsentry.Tokenringmlstatsbeacontime}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsBeaconPkts"] = types.YLeaf{"Tokenringmlstatsbeaconpkts", tokenringmlstatsentry.Tokenringmlstatsbeaconpkts}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsClaimTokenEvents"] = types.YLeaf{"Tokenringmlstatsclaimtokenevents", tokenringmlstatsentry.Tokenringmlstatsclaimtokenevents}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsClaimTokenPkts"] = types.YLeaf{"Tokenringmlstatsclaimtokenpkts", tokenringmlstatsentry.Tokenringmlstatsclaimtokenpkts}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsNAUNChanges"] = types.YLeaf{"Tokenringmlstatsnaunchanges", tokenringmlstatsentry.Tokenringmlstatsnaunchanges}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsLineErrors"] = types.YLeaf{"Tokenringmlstatslineerrors", tokenringmlstatsentry.Tokenringmlstatslineerrors}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsInternalErrors"] = types.YLeaf{"Tokenringmlstatsinternalerrors", tokenringmlstatsentry.Tokenringmlstatsinternalerrors}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsBurstErrors"] = types.YLeaf{"Tokenringmlstatsbursterrors", tokenringmlstatsentry.Tokenringmlstatsbursterrors}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsACErrors"] = types.YLeaf{"Tokenringmlstatsacerrors", tokenringmlstatsentry.Tokenringmlstatsacerrors}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsAbortErrors"] = types.YLeaf{"Tokenringmlstatsaborterrors", tokenringmlstatsentry.Tokenringmlstatsaborterrors}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsLostFrameErrors"] = types.YLeaf{"Tokenringmlstatslostframeerrors", tokenringmlstatsentry.Tokenringmlstatslostframeerrors}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsCongestionErrors"] = types.YLeaf{"Tokenringmlstatscongestionerrors", tokenringmlstatsentry.Tokenringmlstatscongestionerrors}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsFrameCopiedErrors"] = types.YLeaf{"Tokenringmlstatsframecopiederrors", tokenringmlstatsentry.Tokenringmlstatsframecopiederrors}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsFrequencyErrors"] = types.YLeaf{"Tokenringmlstatsfrequencyerrors", tokenringmlstatsentry.Tokenringmlstatsfrequencyerrors}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsTokenErrors"] = types.YLeaf{"Tokenringmlstatstokenerrors", tokenringmlstatsentry.Tokenringmlstatstokenerrors}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsSoftErrorReports"] = types.YLeaf{"Tokenringmlstatssofterrorreports", tokenringmlstatsentry.Tokenringmlstatssofterrorreports}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsRingPollEvents"] = types.YLeaf{"Tokenringmlstatsringpollevents", tokenringmlstatsentry.Tokenringmlstatsringpollevents}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsOwner"] = types.YLeaf{"Tokenringmlstatsowner", tokenringmlstatsentry.Tokenringmlstatsowner}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsStatus"] = types.YLeaf{"Tokenringmlstatsstatus", tokenringmlstatsentry.Tokenringmlstatsstatus}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsDroppedFrames"] = types.YLeaf{"Tokenringmlstatsdroppedframes", tokenringmlstatsentry.Tokenringmlstatsdroppedframes}
-    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsCreateTime"] = types.YLeaf{"Tokenringmlstatscreatetime", tokenringmlstatsentry.Tokenringmlstatscreatetime}
-    return &(tokenringmlstatsentry.EntityData)
+    tokenRingMLStatsEntry.EntityData.Children = types.NewOrderedMap()
+    tokenRingMLStatsEntry.EntityData.Leafs = types.NewOrderedMap()
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsIndex", types.YLeaf{"TokenRingMLStatsIndex", tokenRingMLStatsEntry.TokenRingMLStatsIndex})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsDataSource", types.YLeaf{"TokenRingMLStatsDataSource", tokenRingMLStatsEntry.TokenRingMLStatsDataSource})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsDropEvents", types.YLeaf{"TokenRingMLStatsDropEvents", tokenRingMLStatsEntry.TokenRingMLStatsDropEvents})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsMacOctets", types.YLeaf{"TokenRingMLStatsMacOctets", tokenRingMLStatsEntry.TokenRingMLStatsMacOctets})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsMacPkts", types.YLeaf{"TokenRingMLStatsMacPkts", tokenRingMLStatsEntry.TokenRingMLStatsMacPkts})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsRingPurgeEvents", types.YLeaf{"TokenRingMLStatsRingPurgeEvents", tokenRingMLStatsEntry.TokenRingMLStatsRingPurgeEvents})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsRingPurgePkts", types.YLeaf{"TokenRingMLStatsRingPurgePkts", tokenRingMLStatsEntry.TokenRingMLStatsRingPurgePkts})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsBeaconEvents", types.YLeaf{"TokenRingMLStatsBeaconEvents", tokenRingMLStatsEntry.TokenRingMLStatsBeaconEvents})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsBeaconTime", types.YLeaf{"TokenRingMLStatsBeaconTime", tokenRingMLStatsEntry.TokenRingMLStatsBeaconTime})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsBeaconPkts", types.YLeaf{"TokenRingMLStatsBeaconPkts", tokenRingMLStatsEntry.TokenRingMLStatsBeaconPkts})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsClaimTokenEvents", types.YLeaf{"TokenRingMLStatsClaimTokenEvents", tokenRingMLStatsEntry.TokenRingMLStatsClaimTokenEvents})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsClaimTokenPkts", types.YLeaf{"TokenRingMLStatsClaimTokenPkts", tokenRingMLStatsEntry.TokenRingMLStatsClaimTokenPkts})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsNAUNChanges", types.YLeaf{"TokenRingMLStatsNAUNChanges", tokenRingMLStatsEntry.TokenRingMLStatsNAUNChanges})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsLineErrors", types.YLeaf{"TokenRingMLStatsLineErrors", tokenRingMLStatsEntry.TokenRingMLStatsLineErrors})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsInternalErrors", types.YLeaf{"TokenRingMLStatsInternalErrors", tokenRingMLStatsEntry.TokenRingMLStatsInternalErrors})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsBurstErrors", types.YLeaf{"TokenRingMLStatsBurstErrors", tokenRingMLStatsEntry.TokenRingMLStatsBurstErrors})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsACErrors", types.YLeaf{"TokenRingMLStatsACErrors", tokenRingMLStatsEntry.TokenRingMLStatsACErrors})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsAbortErrors", types.YLeaf{"TokenRingMLStatsAbortErrors", tokenRingMLStatsEntry.TokenRingMLStatsAbortErrors})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsLostFrameErrors", types.YLeaf{"TokenRingMLStatsLostFrameErrors", tokenRingMLStatsEntry.TokenRingMLStatsLostFrameErrors})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsCongestionErrors", types.YLeaf{"TokenRingMLStatsCongestionErrors", tokenRingMLStatsEntry.TokenRingMLStatsCongestionErrors})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsFrameCopiedErrors", types.YLeaf{"TokenRingMLStatsFrameCopiedErrors", tokenRingMLStatsEntry.TokenRingMLStatsFrameCopiedErrors})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsFrequencyErrors", types.YLeaf{"TokenRingMLStatsFrequencyErrors", tokenRingMLStatsEntry.TokenRingMLStatsFrequencyErrors})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsTokenErrors", types.YLeaf{"TokenRingMLStatsTokenErrors", tokenRingMLStatsEntry.TokenRingMLStatsTokenErrors})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsSoftErrorReports", types.YLeaf{"TokenRingMLStatsSoftErrorReports", tokenRingMLStatsEntry.TokenRingMLStatsSoftErrorReports})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsRingPollEvents", types.YLeaf{"TokenRingMLStatsRingPollEvents", tokenRingMLStatsEntry.TokenRingMLStatsRingPollEvents})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsOwner", types.YLeaf{"TokenRingMLStatsOwner", tokenRingMLStatsEntry.TokenRingMLStatsOwner})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsStatus", types.YLeaf{"TokenRingMLStatsStatus", tokenRingMLStatsEntry.TokenRingMLStatsStatus})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsDroppedFrames", types.YLeaf{"TokenRingMLStatsDroppedFrames", tokenRingMLStatsEntry.TokenRingMLStatsDroppedFrames})
+    tokenRingMLStatsEntry.EntityData.Leafs.Append("tokenRingMLStatsCreateTime", types.YLeaf{"TokenRingMLStatsCreateTime", tokenRingMLStatsEntry.TokenRingMLStatsCreateTime})
+
+    tokenRingMLStatsEntry.EntityData.YListKeys = []string {"TokenRingMLStatsIndex"}
+
+    return &(tokenRingMLStatsEntry.EntityData)
 }
 
-// TOKENRINGRMONMIB_Tokenringpstatstable
+// TOKENRINGRMONMIB_TokenRingPStatsTable
 // A list of promiscuous Token Ring statistics
 // entries.
-type TOKENRINGRMONMIB_Tokenringpstatstable struct {
+type TOKENRINGRMONMIB_TokenRingPStatsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of promiscuous statistics kept for non-MAC packets on a
     // particular Token Ring interface. The type is slice of
-    // TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry.
-    Tokenringpstatsentry []TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry
+    // TOKENRINGRMONMIB_TokenRingPStatsTable_TokenRingPStatsEntry.
+    TokenRingPStatsEntry []*TOKENRINGRMONMIB_TokenRingPStatsTable_TokenRingPStatsEntry
 }
 
-func (tokenringpstatstable *TOKENRINGRMONMIB_Tokenringpstatstable) GetEntityData() *types.CommonEntityData {
-    tokenringpstatstable.EntityData.YFilter = tokenringpstatstable.YFilter
-    tokenringpstatstable.EntityData.YangName = "tokenRingPStatsTable"
-    tokenringpstatstable.EntityData.BundleName = "cisco_ios_xe"
-    tokenringpstatstable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
-    tokenringpstatstable.EntityData.SegmentPath = "tokenRingPStatsTable"
-    tokenringpstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    tokenringpstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    tokenringpstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (tokenRingPStatsTable *TOKENRINGRMONMIB_TokenRingPStatsTable) GetEntityData() *types.CommonEntityData {
+    tokenRingPStatsTable.EntityData.YFilter = tokenRingPStatsTable.YFilter
+    tokenRingPStatsTable.EntityData.YangName = "tokenRingPStatsTable"
+    tokenRingPStatsTable.EntityData.BundleName = "cisco_ios_xe"
+    tokenRingPStatsTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    tokenRingPStatsTable.EntityData.SegmentPath = "tokenRingPStatsTable"
+    tokenRingPStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tokenRingPStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tokenRingPStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tokenringpstatstable.EntityData.Children = make(map[string]types.YChild)
-    tokenringpstatstable.EntityData.Children["tokenRingPStatsEntry"] = types.YChild{"Tokenringpstatsentry", nil}
-    for i := range tokenringpstatstable.Tokenringpstatsentry {
-        tokenringpstatstable.EntityData.Children[types.GetSegmentPath(&tokenringpstatstable.Tokenringpstatsentry[i])] = types.YChild{"Tokenringpstatsentry", &tokenringpstatstable.Tokenringpstatsentry[i]}
+    tokenRingPStatsTable.EntityData.Children = types.NewOrderedMap()
+    tokenRingPStatsTable.EntityData.Children.Append("tokenRingPStatsEntry", types.YChild{"TokenRingPStatsEntry", nil})
+    for i := range tokenRingPStatsTable.TokenRingPStatsEntry {
+        tokenRingPStatsTable.EntityData.Children.Append(types.GetSegmentPath(tokenRingPStatsTable.TokenRingPStatsEntry[i]), types.YChild{"TokenRingPStatsEntry", tokenRingPStatsTable.TokenRingPStatsEntry[i]})
     }
-    tokenringpstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(tokenringpstatstable.EntityData)
+    tokenRingPStatsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    tokenRingPStatsTable.EntityData.YListKeys = []string {}
+
+    return &(tokenRingPStatsTable.EntityData)
 }
 
-// TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry
+// TOKENRINGRMONMIB_TokenRingPStatsTable_TokenRingPStatsEntry
 // A collection of promiscuous statistics kept for
 // non-MAC packets on a particular Token Ring
 // interface.
-type TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry struct {
+type TOKENRINGRMONMIB_TokenRingPStatsTable_TokenRingPStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of this object uniquely identifies this
     // tokenRingPStats entry. The type is interface{} with range: 1..65535.
-    Tokenringpstatsindex interface{}
+    TokenRingPStatsIndex interface{}
 
     // This object identifies the source of the data that this tokenRingPStats
     // entry is configured to analyze.  This source can be any tokenRing interface
@@ -385,8 +397,8 @@ type TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry struct {
     // attached to the identified interface.  This object may not be modified if
     // the associated tokenRingPStatsStatus object is equal to valid(1). The type
     // is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
-    Tokenringpstatsdatasource interface{}
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    TokenRingPStatsDataSource interface{}
 
     // The total number of events in which packets were dropped by the probe due
     // to lack of resources. Note that this number is not necessarily the number
@@ -394,84 +406,84 @@ type TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry struct {
     // detected.  This value is the same as the corresponding
     // tokenRingMLStatsDropEvents. The type is interface{} with range:
     // 0..4294967295.
-    Tokenringpstatsdropevents interface{}
+    TokenRingPStatsDropEvents interface{}
 
     // The total number of octets of data in good frames received on the network
     // (excluding framing bits but including FCS octets) in non-MAC packets. The
     // type is interface{} with range: 0..4294967295.
-    Tokenringpstatsdataoctets interface{}
+    TokenRingPStatsDataOctets interface{}
 
     // The total number of non-MAC packets in good frames.  received. The type is
     // interface{} with range: 0..4294967295.
-    Tokenringpstatsdatapkts interface{}
+    TokenRingPStatsDataPkts interface{}
 
     // The total number of good non-MAC frames received that were directed to an
     // LLC broadcast address (0xFFFFFFFFFFFF or 0xC000FFFFFFFF). The type is
     // interface{} with range: 0..4294967295.
-    Tokenringpstatsdatabroadcastpkts interface{}
+    TokenRingPStatsDataBroadcastPkts interface{}
 
     // The total number of good non-MAC frames received that were directed to a
     // local or global multicast or functional address.  Note that this number
     // does not include packets directed to the broadcast address. The type is
     // interface{} with range: 0..4294967295.
-    Tokenringpstatsdatamulticastpkts interface{}
+    TokenRingPStatsDataMulticastPkts interface{}
 
     // The total number of good non-MAC frames received that were between 18 and
     // 63 octets in length inclusive, excluding framing bits but including FCS
     // octets. The type is interface{} with range: 0..4294967295.
-    Tokenringpstatsdatapkts18To63Octets interface{}
+    TokenRingPStatsDataPkts18to63Octets interface{}
 
     // The total number of good non-MAC frames received that were between 64 and
     // 127 octets in length inclusive, excluding framing bits but including FCS
     // octets. The type is interface{} with range: 0..4294967295.
-    Tokenringpstatsdatapkts64To127Octets interface{}
+    TokenRingPStatsDataPkts64to127Octets interface{}
 
     // The total number of good non-MAC frames received that were between 128 and
     // 255 octets in length inclusive, excluding framing bits but including FCS
     // octets. The type is interface{} with range: 0..4294967295.
-    Tokenringpstatsdatapkts128To255Octets interface{}
+    TokenRingPStatsDataPkts128to255Octets interface{}
 
     // The total number of good non-MAC frames received that were between 256 and
     // 511 octets in length inclusive, excluding framing bits but including FCS
     // octets. The type is interface{} with range: 0..4294967295.
-    Tokenringpstatsdatapkts256To511Octets interface{}
+    TokenRingPStatsDataPkts256to511Octets interface{}
 
     // The total number of good non-MAC frames received that were between 512 and
     // 1023 octets in length inclusive, excluding framing bits but including FCS
     // octets. The type is interface{} with range: 0..4294967295.
-    Tokenringpstatsdatapkts512To1023Octets interface{}
+    TokenRingPStatsDataPkts512to1023Octets interface{}
 
     // The total number of good non-MAC frames received that were between 1024 and
     // 2047 octets in length inclusive, excluding framing bits but including FCS
     // octets. The type is interface{} with range: 0..4294967295.
-    Tokenringpstatsdatapkts1024To2047Octets interface{}
+    TokenRingPStatsDataPkts1024to2047Octets interface{}
 
     // The total number of good non-MAC frames received that were between 2048 and
     // 4095 octets in length inclusive, excluding framing bits but including FCS
     // octets. The type is interface{} with range: 0..4294967295.
-    Tokenringpstatsdatapkts2048To4095Octets interface{}
+    TokenRingPStatsDataPkts2048to4095Octets interface{}
 
     // The total number of good non-MAC frames received that were between 4096 and
     // 8191 octets in length inclusive, excluding framing bits but including FCS
     // octets. The type is interface{} with range: 0..4294967295.
-    Tokenringpstatsdatapkts4096To8191Octets interface{}
+    TokenRingPStatsDataPkts4096to8191Octets interface{}
 
     // The total number of good non-MAC frames received that were between 8192 and
     // 18000 octets in length inclusive, excluding framing bits but including FCS
     // octets. The type is interface{} with range: 0..4294967295.
-    Tokenringpstatsdatapkts8192To18000Octets interface{}
+    TokenRingPStatsDataPkts8192to18000Octets interface{}
 
     // The total number of good non-MAC frames received that were greater than
     // 18000 octets in length, excluding framing bits but including FCS octets.
     // The type is interface{} with range: 0..4294967295.
-    Tokenringpstatsdatapktsgreaterthan18000Octets interface{}
+    TokenRingPStatsDataPktsGreaterThan18000Octets interface{}
 
     // The entity that configured this entry and is therefore using the resources
     // assigned to it. The type is string.
-    Tokenringpstatsowner interface{}
+    TokenRingPStatsOwner interface{}
 
     // The status of this tokenRingPStats entry. The type is EntryStatus.
-    Tokenringpstatsstatus interface{}
+    TokenRingPStatsStatus interface{}
 
     // The total number of frames which were received by the probe and therefore
     // not accounted for in the *StatsDropEvents, but for which the probe chose
@@ -481,52 +493,55 @@ type TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry struct {
     // counted because they had MAC-layer errors.  Note that, unlike the
     // dropEvents counter, this number is the exact number of frames dropped. The
     // type is interface{} with range: 0..4294967295.
-    Tokenringpstatsdroppedframes interface{}
+    TokenRingPStatsDroppedFrames interface{}
 
     // The value of sysUpTime when this control entry was last activated. This can
     // be used by the management station to ensure that the table has not been
     // deleted and recreated between polls. The type is interface{} with range:
     // 0..4294967295.
-    Tokenringpstatscreatetime interface{}
+    TokenRingPStatsCreateTime interface{}
 }
 
-func (tokenringpstatsentry *TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry) GetEntityData() *types.CommonEntityData {
-    tokenringpstatsentry.EntityData.YFilter = tokenringpstatsentry.YFilter
-    tokenringpstatsentry.EntityData.YangName = "tokenRingPStatsEntry"
-    tokenringpstatsentry.EntityData.BundleName = "cisco_ios_xe"
-    tokenringpstatsentry.EntityData.ParentYangName = "tokenRingPStatsTable"
-    tokenringpstatsentry.EntityData.SegmentPath = "tokenRingPStatsEntry" + "[tokenRingPStatsIndex='" + fmt.Sprintf("%v", tokenringpstatsentry.Tokenringpstatsindex) + "']"
-    tokenringpstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    tokenringpstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    tokenringpstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (tokenRingPStatsEntry *TOKENRINGRMONMIB_TokenRingPStatsTable_TokenRingPStatsEntry) GetEntityData() *types.CommonEntityData {
+    tokenRingPStatsEntry.EntityData.YFilter = tokenRingPStatsEntry.YFilter
+    tokenRingPStatsEntry.EntityData.YangName = "tokenRingPStatsEntry"
+    tokenRingPStatsEntry.EntityData.BundleName = "cisco_ios_xe"
+    tokenRingPStatsEntry.EntityData.ParentYangName = "tokenRingPStatsTable"
+    tokenRingPStatsEntry.EntityData.SegmentPath = "tokenRingPStatsEntry" + types.AddKeyToken(tokenRingPStatsEntry.TokenRingPStatsIndex, "tokenRingPStatsIndex")
+    tokenRingPStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tokenRingPStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tokenRingPStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tokenringpstatsentry.EntityData.Children = make(map[string]types.YChild)
-    tokenringpstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsIndex"] = types.YLeaf{"Tokenringpstatsindex", tokenringpstatsentry.Tokenringpstatsindex}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataSource"] = types.YLeaf{"Tokenringpstatsdatasource", tokenringpstatsentry.Tokenringpstatsdatasource}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDropEvents"] = types.YLeaf{"Tokenringpstatsdropevents", tokenringpstatsentry.Tokenringpstatsdropevents}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataOctets"] = types.YLeaf{"Tokenringpstatsdataoctets", tokenringpstatsentry.Tokenringpstatsdataoctets}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts"] = types.YLeaf{"Tokenringpstatsdatapkts", tokenringpstatsentry.Tokenringpstatsdatapkts}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataBroadcastPkts"] = types.YLeaf{"Tokenringpstatsdatabroadcastpkts", tokenringpstatsentry.Tokenringpstatsdatabroadcastpkts}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataMulticastPkts"] = types.YLeaf{"Tokenringpstatsdatamulticastpkts", tokenringpstatsentry.Tokenringpstatsdatamulticastpkts}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts18to63Octets"] = types.YLeaf{"Tokenringpstatsdatapkts18To63Octets", tokenringpstatsentry.Tokenringpstatsdatapkts18To63Octets}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts64to127Octets"] = types.YLeaf{"Tokenringpstatsdatapkts64To127Octets", tokenringpstatsentry.Tokenringpstatsdatapkts64To127Octets}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts128to255Octets"] = types.YLeaf{"Tokenringpstatsdatapkts128To255Octets", tokenringpstatsentry.Tokenringpstatsdatapkts128To255Octets}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts256to511Octets"] = types.YLeaf{"Tokenringpstatsdatapkts256To511Octets", tokenringpstatsentry.Tokenringpstatsdatapkts256To511Octets}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts512to1023Octets"] = types.YLeaf{"Tokenringpstatsdatapkts512To1023Octets", tokenringpstatsentry.Tokenringpstatsdatapkts512To1023Octets}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts1024to2047Octets"] = types.YLeaf{"Tokenringpstatsdatapkts1024To2047Octets", tokenringpstatsentry.Tokenringpstatsdatapkts1024To2047Octets}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts2048to4095Octets"] = types.YLeaf{"Tokenringpstatsdatapkts2048To4095Octets", tokenringpstatsentry.Tokenringpstatsdatapkts2048To4095Octets}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts4096to8191Octets"] = types.YLeaf{"Tokenringpstatsdatapkts4096To8191Octets", tokenringpstatsentry.Tokenringpstatsdatapkts4096To8191Octets}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts8192to18000Octets"] = types.YLeaf{"Tokenringpstatsdatapkts8192To18000Octets", tokenringpstatsentry.Tokenringpstatsdatapkts8192To18000Octets}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPktsGreaterThan18000Octets"] = types.YLeaf{"Tokenringpstatsdatapktsgreaterthan18000Octets", tokenringpstatsentry.Tokenringpstatsdatapktsgreaterthan18000Octets}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsOwner"] = types.YLeaf{"Tokenringpstatsowner", tokenringpstatsentry.Tokenringpstatsowner}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsStatus"] = types.YLeaf{"Tokenringpstatsstatus", tokenringpstatsentry.Tokenringpstatsstatus}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDroppedFrames"] = types.YLeaf{"Tokenringpstatsdroppedframes", tokenringpstatsentry.Tokenringpstatsdroppedframes}
-    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsCreateTime"] = types.YLeaf{"Tokenringpstatscreatetime", tokenringpstatsentry.Tokenringpstatscreatetime}
-    return &(tokenringpstatsentry.EntityData)
+    tokenRingPStatsEntry.EntityData.Children = types.NewOrderedMap()
+    tokenRingPStatsEntry.EntityData.Leafs = types.NewOrderedMap()
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsIndex", types.YLeaf{"TokenRingPStatsIndex", tokenRingPStatsEntry.TokenRingPStatsIndex})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsDataSource", types.YLeaf{"TokenRingPStatsDataSource", tokenRingPStatsEntry.TokenRingPStatsDataSource})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsDropEvents", types.YLeaf{"TokenRingPStatsDropEvents", tokenRingPStatsEntry.TokenRingPStatsDropEvents})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsDataOctets", types.YLeaf{"TokenRingPStatsDataOctets", tokenRingPStatsEntry.TokenRingPStatsDataOctets})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsDataPkts", types.YLeaf{"TokenRingPStatsDataPkts", tokenRingPStatsEntry.TokenRingPStatsDataPkts})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsDataBroadcastPkts", types.YLeaf{"TokenRingPStatsDataBroadcastPkts", tokenRingPStatsEntry.TokenRingPStatsDataBroadcastPkts})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsDataMulticastPkts", types.YLeaf{"TokenRingPStatsDataMulticastPkts", tokenRingPStatsEntry.TokenRingPStatsDataMulticastPkts})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsDataPkts18to63Octets", types.YLeaf{"TokenRingPStatsDataPkts18to63Octets", tokenRingPStatsEntry.TokenRingPStatsDataPkts18to63Octets})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsDataPkts64to127Octets", types.YLeaf{"TokenRingPStatsDataPkts64to127Octets", tokenRingPStatsEntry.TokenRingPStatsDataPkts64to127Octets})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsDataPkts128to255Octets", types.YLeaf{"TokenRingPStatsDataPkts128to255Octets", tokenRingPStatsEntry.TokenRingPStatsDataPkts128to255Octets})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsDataPkts256to511Octets", types.YLeaf{"TokenRingPStatsDataPkts256to511Octets", tokenRingPStatsEntry.TokenRingPStatsDataPkts256to511Octets})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsDataPkts512to1023Octets", types.YLeaf{"TokenRingPStatsDataPkts512to1023Octets", tokenRingPStatsEntry.TokenRingPStatsDataPkts512to1023Octets})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsDataPkts1024to2047Octets", types.YLeaf{"TokenRingPStatsDataPkts1024to2047Octets", tokenRingPStatsEntry.TokenRingPStatsDataPkts1024to2047Octets})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsDataPkts2048to4095Octets", types.YLeaf{"TokenRingPStatsDataPkts2048to4095Octets", tokenRingPStatsEntry.TokenRingPStatsDataPkts2048to4095Octets})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsDataPkts4096to8191Octets", types.YLeaf{"TokenRingPStatsDataPkts4096to8191Octets", tokenRingPStatsEntry.TokenRingPStatsDataPkts4096to8191Octets})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsDataPkts8192to18000Octets", types.YLeaf{"TokenRingPStatsDataPkts8192to18000Octets", tokenRingPStatsEntry.TokenRingPStatsDataPkts8192to18000Octets})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsDataPktsGreaterThan18000Octets", types.YLeaf{"TokenRingPStatsDataPktsGreaterThan18000Octets", tokenRingPStatsEntry.TokenRingPStatsDataPktsGreaterThan18000Octets})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsOwner", types.YLeaf{"TokenRingPStatsOwner", tokenRingPStatsEntry.TokenRingPStatsOwner})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsStatus", types.YLeaf{"TokenRingPStatsStatus", tokenRingPStatsEntry.TokenRingPStatsStatus})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsDroppedFrames", types.YLeaf{"TokenRingPStatsDroppedFrames", tokenRingPStatsEntry.TokenRingPStatsDroppedFrames})
+    tokenRingPStatsEntry.EntityData.Leafs.Append("tokenRingPStatsCreateTime", types.YLeaf{"TokenRingPStatsCreateTime", tokenRingPStatsEntry.TokenRingPStatsCreateTime})
+
+    tokenRingPStatsEntry.EntityData.YListKeys = []string {"TokenRingPStatsIndex"}
+
+    return &(tokenRingPStatsEntry.EntityData)
 }
 
-// TOKENRINGRMONMIB_Tokenringmlhistorytable
+// TOKENRINGRMONMIB_TokenRingMLHistoryTable
 // A list of Mac-Layer Token Ring statistics
 // 
 // 
@@ -534,39 +549,42 @@ func (tokenringpstatsentry *TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstat
 // 
 // 
 // entries.
-type TOKENRINGRMONMIB_Tokenringmlhistorytable struct {
+type TOKENRINGRMONMIB_TokenRingMLHistoryTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of Mac-Layer statistics kept for a particular Token Ring
     // interface. The type is slice of
-    // TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry.
-    Tokenringmlhistoryentry []TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry
+    // TOKENRINGRMONMIB_TokenRingMLHistoryTable_TokenRingMLHistoryEntry.
+    TokenRingMLHistoryEntry []*TOKENRINGRMONMIB_TokenRingMLHistoryTable_TokenRingMLHistoryEntry
 }
 
-func (tokenringmlhistorytable *TOKENRINGRMONMIB_Tokenringmlhistorytable) GetEntityData() *types.CommonEntityData {
-    tokenringmlhistorytable.EntityData.YFilter = tokenringmlhistorytable.YFilter
-    tokenringmlhistorytable.EntityData.YangName = "tokenRingMLHistoryTable"
-    tokenringmlhistorytable.EntityData.BundleName = "cisco_ios_xe"
-    tokenringmlhistorytable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
-    tokenringmlhistorytable.EntityData.SegmentPath = "tokenRingMLHistoryTable"
-    tokenringmlhistorytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    tokenringmlhistorytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    tokenringmlhistorytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (tokenRingMLHistoryTable *TOKENRINGRMONMIB_TokenRingMLHistoryTable) GetEntityData() *types.CommonEntityData {
+    tokenRingMLHistoryTable.EntityData.YFilter = tokenRingMLHistoryTable.YFilter
+    tokenRingMLHistoryTable.EntityData.YangName = "tokenRingMLHistoryTable"
+    tokenRingMLHistoryTable.EntityData.BundleName = "cisco_ios_xe"
+    tokenRingMLHistoryTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    tokenRingMLHistoryTable.EntityData.SegmentPath = "tokenRingMLHistoryTable"
+    tokenRingMLHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tokenRingMLHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tokenRingMLHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tokenringmlhistorytable.EntityData.Children = make(map[string]types.YChild)
-    tokenringmlhistorytable.EntityData.Children["tokenRingMLHistoryEntry"] = types.YChild{"Tokenringmlhistoryentry", nil}
-    for i := range tokenringmlhistorytable.Tokenringmlhistoryentry {
-        tokenringmlhistorytable.EntityData.Children[types.GetSegmentPath(&tokenringmlhistorytable.Tokenringmlhistoryentry[i])] = types.YChild{"Tokenringmlhistoryentry", &tokenringmlhistorytable.Tokenringmlhistoryentry[i]}
+    tokenRingMLHistoryTable.EntityData.Children = types.NewOrderedMap()
+    tokenRingMLHistoryTable.EntityData.Children.Append("tokenRingMLHistoryEntry", types.YChild{"TokenRingMLHistoryEntry", nil})
+    for i := range tokenRingMLHistoryTable.TokenRingMLHistoryEntry {
+        tokenRingMLHistoryTable.EntityData.Children.Append(types.GetSegmentPath(tokenRingMLHistoryTable.TokenRingMLHistoryEntry[i]), types.YChild{"TokenRingMLHistoryEntry", tokenRingMLHistoryTable.TokenRingMLHistoryEntry[i]})
     }
-    tokenringmlhistorytable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(tokenringmlhistorytable.EntityData)
+    tokenRingMLHistoryTable.EntityData.Leafs = types.NewOrderedMap()
+
+    tokenRingMLHistoryTable.EntityData.YListKeys = []string {}
+
+    return &(tokenRingMLHistoryTable.EntityData)
 }
 
-// TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry
+// TOKENRINGRMONMIB_TokenRingMLHistoryTable_TokenRingMLHistoryEntry
 // A collection of Mac-Layer statistics kept for a
 // particular Token Ring interface.
-type TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry struct {
+type TOKENRINGRMONMIB_TokenRingMLHistoryTable_TokenRingMLHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -574,14 +592,14 @@ type TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry struct {
     // history identified by a particular value of this index is the same history
     // as identified by the same value of historyControlIndex. The type is
     // interface{} with range: 1..65535.
-    Tokenringmlhistoryindex interface{}
+    TokenRingMLHistoryIndex interface{}
 
     // This attribute is a key. An index that uniquely identifies the particular
     // Mac-Layer sample this entry represents among all Mac-Layer samples
     // associated with the same historyControlEntry.  This index starts at 1 and
     // increases by one as each new sample is taken. The type is interface{} with
     // range: -2147483648..2147483647.
-    Tokenringmlhistorysampleindex interface{}
+    TokenRingMLHistorySampleIndex interface{}
 
     // The value of sysUpTime at the start of the interval over which this sample
     // was measured.  If the probe keeps track of the time of day, it should start
@@ -592,36 +610,36 @@ type TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry struct {
     // sample which is currently being collected is not accessible in this table
     // until the end of its interval. The type is interface{} with range:
     // 0..4294967295.
-    Tokenringmlhistoryintervalstart interface{}
+    TokenRingMLHistoryIntervalStart interface{}
 
     // The total number of events in which packets were      dropped by the probe
     // due to lack of resources during this sampling interval.  Note that this
     // number is not necessarily the number of packets dropped, it is just the
     // number of times this condition has been detected. The type is interface{}
     // with range: 0..4294967295.
-    Tokenringmlhistorydropevents interface{}
+    TokenRingMLHistoryDropEvents interface{}
 
     // The total number of octets of data in MAC packets (excluding those that
     // were not good frames) received on the network during this sampling interval
     // (excluding framing bits but including FCS octets). The type is interface{}
     // with range: 0..4294967295.
-    Tokenringmlhistorymacoctets interface{}
+    TokenRingMLHistoryMacOctets interface{}
 
     // The total number of MAC packets (excluding those that were not good frames)
     // received during this sampling interval. The type is interface{} with range:
     // 0..4294967295.
-    Tokenringmlhistorymacpkts interface{}
+    TokenRingMLHistoryMacPkts interface{}
 
     // The total number of times that the ring entered the ring purge state from
     // normal ring state during this sampling interval.  The ring purge state that
     // comes from the claim token or beacon state is not counted. The type is
     // interface{} with range: 0..4294967295.
-    Tokenringmlhistoryringpurgeevents interface{}
+    TokenRingMLHistoryRingPurgeEvents interface{}
 
     // The total number of Ring Purge MAC packets detected by the probe during
     // this sampling      interval. The type is interface{} with range:
     // 0..4294967295.
-    Tokenringmlhistoryringpurgepkts interface{}
+    TokenRingMLHistoryRingPurgePkts interface{}
 
     // The total number of times that the ring enters a beaconing state
     // (beaconFrameStreamingState, beaconBitStreamingState,
@@ -629,173 +647,179 @@ type TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry struct {
     // sampling interval.  Note that a change of the source address of the beacon
     // packet does not constitute a new beacon event. The type is interface{} with
     // range: 0..4294967295.
-    Tokenringmlhistorybeaconevents interface{}
+    TokenRingMLHistoryBeaconEvents interface{}
 
     // The amount of time that the ring has been in the beaconing state during
     // this sampling interval. The type is interface{} with range:
     // -2147483648..2147483647.
-    Tokenringmlhistorybeacontime interface{}
+    TokenRingMLHistoryBeaconTime interface{}
 
     // The total number of beacon MAC packets detected by the probe during this
     // sampling interval. The type is interface{} with range: 0..4294967295.
-    Tokenringmlhistorybeaconpkts interface{}
+    TokenRingMLHistoryBeaconPkts interface{}
 
     // The total number of times that the ring enters the claim token state from
     // normal ring state or ring purge state during this sampling interval. The
     // claim token state that comes from the beacon state is not counted. The type
     // is interface{} with range: 0..4294967295.
-    Tokenringmlhistoryclaimtokenevents interface{}
+    TokenRingMLHistoryClaimTokenEvents interface{}
 
     // The total number of claim token MAC packets detected by the probe during
     // this sampling interval. The type is interface{} with range: 0..4294967295.
-    Tokenringmlhistoryclaimtokenpkts interface{}
+    TokenRingMLHistoryClaimTokenPkts interface{}
 
     // The total number of NAUN changes detected by the probe during this sampling
     // interval. The type is interface{} with range: 0..4294967295.
-    Tokenringmlhistorynaunchanges interface{}
+    TokenRingMLHistoryNAUNChanges interface{}
 
     // The total number of line errors reported in error reporting packets
     // detected by the probe during this sampling interval. The type is
     // interface{} with range: 0..4294967295.
-    Tokenringmlhistorylineerrors interface{}
+    TokenRingMLHistoryLineErrors interface{}
 
     // The total number of adapter internal errors reported in error reporting
     // packets detected by the probe during this sampling interval. The type is
     // interface{} with range: 0..4294967295.
-    Tokenringmlhistoryinternalerrors interface{}
+    TokenRingMLHistoryInternalErrors interface{}
 
     // The total number of burst errors reported in error reporting packets
     // detected by the probe during this sampling interval. The type is
     // interface{} with range: 0..4294967295.
-    Tokenringmlhistorybursterrors interface{}
+    TokenRingMLHistoryBurstErrors interface{}
 
     // The total number of AC (Address Copied) errors reported in error reporting
     // packets detected by the probe during this sampling interval. The type is
     // interface{} with range: 0..4294967295.
-    Tokenringmlhistoryacerrors interface{}
+    TokenRingMLHistoryACErrors interface{}
 
     // The total number of abort delimiters reported in error reporting packets
     // detected by the probe during this sampling interval. The type is
     // interface{} with range: 0..4294967295.
-    Tokenringmlhistoryaborterrors interface{}
+    TokenRingMLHistoryAbortErrors interface{}
 
     // The total number of lost frame errors reported in error reporting packets
     // detected by the probe during this sampling interval. The type is
     // interface{} with range: 0..4294967295.
-    Tokenringmlhistorylostframeerrors interface{}
+    TokenRingMLHistoryLostFrameErrors interface{}
 
     // The total number of receive congestion errors reported in error reporting
     // packets detected by the probe during this sampling interval. The type is
     // interface{} with range: 0..4294967295.
-    Tokenringmlhistorycongestionerrors interface{}
+    TokenRingMLHistoryCongestionErrors interface{}
 
     // The total number of frame copied errors reported in error reporting packets
     // detected by the probe during this sampling interval. The type is
     // interface{} with range: 0..4294967295.
-    Tokenringmlhistoryframecopiederrors interface{}
+    TokenRingMLHistoryFrameCopiedErrors interface{}
 
     // The total number of frequency errors reported in error reporting packets
     // detected by the probe during this sampling interval. The type is
     // interface{} with range: 0..4294967295.
-    Tokenringmlhistoryfrequencyerrors interface{}
+    TokenRingMLHistoryFrequencyErrors interface{}
 
     // The total number of token errors reported in error reporting packets
     // detected by the probe during this sampling interval. The type is
     // interface{} with range: 0..4294967295.
-    Tokenringmlhistorytokenerrors interface{}
+    TokenRingMLHistoryTokenErrors interface{}
 
     // The total number of soft error report frames detected by the probe during
     // this sampling interval. The type is interface{} with range: 0..4294967295.
-    Tokenringmlhistorysofterrorreports interface{}
+    TokenRingMLHistorySoftErrorReports interface{}
 
     // The total number of ring poll events detected by the probe during this
     // sampling interval. The type is interface{} with range: 0..4294967295.
-    Tokenringmlhistoryringpollevents interface{}
+    TokenRingMLHistoryRingPollEvents interface{}
 
     // The maximum number of active stations on the ring detected by the probe
     // during this sampling      interval. The type is interface{} with range:
     // -2147483648..2147483647.
-    Tokenringmlhistoryactivestations interface{}
+    TokenRingMLHistoryActiveStations interface{}
 }
 
-func (tokenringmlhistoryentry *TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry) GetEntityData() *types.CommonEntityData {
-    tokenringmlhistoryentry.EntityData.YFilter = tokenringmlhistoryentry.YFilter
-    tokenringmlhistoryentry.EntityData.YangName = "tokenRingMLHistoryEntry"
-    tokenringmlhistoryentry.EntityData.BundleName = "cisco_ios_xe"
-    tokenringmlhistoryentry.EntityData.ParentYangName = "tokenRingMLHistoryTable"
-    tokenringmlhistoryentry.EntityData.SegmentPath = "tokenRingMLHistoryEntry" + "[tokenRingMLHistoryIndex='" + fmt.Sprintf("%v", tokenringmlhistoryentry.Tokenringmlhistoryindex) + "']" + "[tokenRingMLHistorySampleIndex='" + fmt.Sprintf("%v", tokenringmlhistoryentry.Tokenringmlhistorysampleindex) + "']"
-    tokenringmlhistoryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    tokenringmlhistoryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    tokenringmlhistoryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (tokenRingMLHistoryEntry *TOKENRINGRMONMIB_TokenRingMLHistoryTable_TokenRingMLHistoryEntry) GetEntityData() *types.CommonEntityData {
+    tokenRingMLHistoryEntry.EntityData.YFilter = tokenRingMLHistoryEntry.YFilter
+    tokenRingMLHistoryEntry.EntityData.YangName = "tokenRingMLHistoryEntry"
+    tokenRingMLHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
+    tokenRingMLHistoryEntry.EntityData.ParentYangName = "tokenRingMLHistoryTable"
+    tokenRingMLHistoryEntry.EntityData.SegmentPath = "tokenRingMLHistoryEntry" + types.AddKeyToken(tokenRingMLHistoryEntry.TokenRingMLHistoryIndex, "tokenRingMLHistoryIndex") + types.AddKeyToken(tokenRingMLHistoryEntry.TokenRingMLHistorySampleIndex, "tokenRingMLHistorySampleIndex")
+    tokenRingMLHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tokenRingMLHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tokenRingMLHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tokenringmlhistoryentry.EntityData.Children = make(map[string]types.YChild)
-    tokenringmlhistoryentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryIndex"] = types.YLeaf{"Tokenringmlhistoryindex", tokenringmlhistoryentry.Tokenringmlhistoryindex}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistorySampleIndex"] = types.YLeaf{"Tokenringmlhistorysampleindex", tokenringmlhistoryentry.Tokenringmlhistorysampleindex}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryIntervalStart"] = types.YLeaf{"Tokenringmlhistoryintervalstart", tokenringmlhistoryentry.Tokenringmlhistoryintervalstart}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryDropEvents"] = types.YLeaf{"Tokenringmlhistorydropevents", tokenringmlhistoryentry.Tokenringmlhistorydropevents}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryMacOctets"] = types.YLeaf{"Tokenringmlhistorymacoctets", tokenringmlhistoryentry.Tokenringmlhistorymacoctets}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryMacPkts"] = types.YLeaf{"Tokenringmlhistorymacpkts", tokenringmlhistoryentry.Tokenringmlhistorymacpkts}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryRingPurgeEvents"] = types.YLeaf{"Tokenringmlhistoryringpurgeevents", tokenringmlhistoryentry.Tokenringmlhistoryringpurgeevents}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryRingPurgePkts"] = types.YLeaf{"Tokenringmlhistoryringpurgepkts", tokenringmlhistoryentry.Tokenringmlhistoryringpurgepkts}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryBeaconEvents"] = types.YLeaf{"Tokenringmlhistorybeaconevents", tokenringmlhistoryentry.Tokenringmlhistorybeaconevents}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryBeaconTime"] = types.YLeaf{"Tokenringmlhistorybeacontime", tokenringmlhistoryentry.Tokenringmlhistorybeacontime}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryBeaconPkts"] = types.YLeaf{"Tokenringmlhistorybeaconpkts", tokenringmlhistoryentry.Tokenringmlhistorybeaconpkts}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryClaimTokenEvents"] = types.YLeaf{"Tokenringmlhistoryclaimtokenevents", tokenringmlhistoryentry.Tokenringmlhistoryclaimtokenevents}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryClaimTokenPkts"] = types.YLeaf{"Tokenringmlhistoryclaimtokenpkts", tokenringmlhistoryentry.Tokenringmlhistoryclaimtokenpkts}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryNAUNChanges"] = types.YLeaf{"Tokenringmlhistorynaunchanges", tokenringmlhistoryentry.Tokenringmlhistorynaunchanges}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryLineErrors"] = types.YLeaf{"Tokenringmlhistorylineerrors", tokenringmlhistoryentry.Tokenringmlhistorylineerrors}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryInternalErrors"] = types.YLeaf{"Tokenringmlhistoryinternalerrors", tokenringmlhistoryentry.Tokenringmlhistoryinternalerrors}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryBurstErrors"] = types.YLeaf{"Tokenringmlhistorybursterrors", tokenringmlhistoryentry.Tokenringmlhistorybursterrors}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryACErrors"] = types.YLeaf{"Tokenringmlhistoryacerrors", tokenringmlhistoryentry.Tokenringmlhistoryacerrors}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryAbortErrors"] = types.YLeaf{"Tokenringmlhistoryaborterrors", tokenringmlhistoryentry.Tokenringmlhistoryaborterrors}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryLostFrameErrors"] = types.YLeaf{"Tokenringmlhistorylostframeerrors", tokenringmlhistoryentry.Tokenringmlhistorylostframeerrors}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryCongestionErrors"] = types.YLeaf{"Tokenringmlhistorycongestionerrors", tokenringmlhistoryentry.Tokenringmlhistorycongestionerrors}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryFrameCopiedErrors"] = types.YLeaf{"Tokenringmlhistoryframecopiederrors", tokenringmlhistoryentry.Tokenringmlhistoryframecopiederrors}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryFrequencyErrors"] = types.YLeaf{"Tokenringmlhistoryfrequencyerrors", tokenringmlhistoryentry.Tokenringmlhistoryfrequencyerrors}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryTokenErrors"] = types.YLeaf{"Tokenringmlhistorytokenerrors", tokenringmlhistoryentry.Tokenringmlhistorytokenerrors}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistorySoftErrorReports"] = types.YLeaf{"Tokenringmlhistorysofterrorreports", tokenringmlhistoryentry.Tokenringmlhistorysofterrorreports}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryRingPollEvents"] = types.YLeaf{"Tokenringmlhistoryringpollevents", tokenringmlhistoryentry.Tokenringmlhistoryringpollevents}
-    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryActiveStations"] = types.YLeaf{"Tokenringmlhistoryactivestations", tokenringmlhistoryentry.Tokenringmlhistoryactivestations}
-    return &(tokenringmlhistoryentry.EntityData)
+    tokenRingMLHistoryEntry.EntityData.Children = types.NewOrderedMap()
+    tokenRingMLHistoryEntry.EntityData.Leafs = types.NewOrderedMap()
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryIndex", types.YLeaf{"TokenRingMLHistoryIndex", tokenRingMLHistoryEntry.TokenRingMLHistoryIndex})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistorySampleIndex", types.YLeaf{"TokenRingMLHistorySampleIndex", tokenRingMLHistoryEntry.TokenRingMLHistorySampleIndex})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryIntervalStart", types.YLeaf{"TokenRingMLHistoryIntervalStart", tokenRingMLHistoryEntry.TokenRingMLHistoryIntervalStart})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryDropEvents", types.YLeaf{"TokenRingMLHistoryDropEvents", tokenRingMLHistoryEntry.TokenRingMLHistoryDropEvents})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryMacOctets", types.YLeaf{"TokenRingMLHistoryMacOctets", tokenRingMLHistoryEntry.TokenRingMLHistoryMacOctets})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryMacPkts", types.YLeaf{"TokenRingMLHistoryMacPkts", tokenRingMLHistoryEntry.TokenRingMLHistoryMacPkts})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryRingPurgeEvents", types.YLeaf{"TokenRingMLHistoryRingPurgeEvents", tokenRingMLHistoryEntry.TokenRingMLHistoryRingPurgeEvents})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryRingPurgePkts", types.YLeaf{"TokenRingMLHistoryRingPurgePkts", tokenRingMLHistoryEntry.TokenRingMLHistoryRingPurgePkts})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryBeaconEvents", types.YLeaf{"TokenRingMLHistoryBeaconEvents", tokenRingMLHistoryEntry.TokenRingMLHistoryBeaconEvents})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryBeaconTime", types.YLeaf{"TokenRingMLHistoryBeaconTime", tokenRingMLHistoryEntry.TokenRingMLHistoryBeaconTime})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryBeaconPkts", types.YLeaf{"TokenRingMLHistoryBeaconPkts", tokenRingMLHistoryEntry.TokenRingMLHistoryBeaconPkts})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryClaimTokenEvents", types.YLeaf{"TokenRingMLHistoryClaimTokenEvents", tokenRingMLHistoryEntry.TokenRingMLHistoryClaimTokenEvents})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryClaimTokenPkts", types.YLeaf{"TokenRingMLHistoryClaimTokenPkts", tokenRingMLHistoryEntry.TokenRingMLHistoryClaimTokenPkts})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryNAUNChanges", types.YLeaf{"TokenRingMLHistoryNAUNChanges", tokenRingMLHistoryEntry.TokenRingMLHistoryNAUNChanges})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryLineErrors", types.YLeaf{"TokenRingMLHistoryLineErrors", tokenRingMLHistoryEntry.TokenRingMLHistoryLineErrors})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryInternalErrors", types.YLeaf{"TokenRingMLHistoryInternalErrors", tokenRingMLHistoryEntry.TokenRingMLHistoryInternalErrors})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryBurstErrors", types.YLeaf{"TokenRingMLHistoryBurstErrors", tokenRingMLHistoryEntry.TokenRingMLHistoryBurstErrors})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryACErrors", types.YLeaf{"TokenRingMLHistoryACErrors", tokenRingMLHistoryEntry.TokenRingMLHistoryACErrors})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryAbortErrors", types.YLeaf{"TokenRingMLHistoryAbortErrors", tokenRingMLHistoryEntry.TokenRingMLHistoryAbortErrors})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryLostFrameErrors", types.YLeaf{"TokenRingMLHistoryLostFrameErrors", tokenRingMLHistoryEntry.TokenRingMLHistoryLostFrameErrors})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryCongestionErrors", types.YLeaf{"TokenRingMLHistoryCongestionErrors", tokenRingMLHistoryEntry.TokenRingMLHistoryCongestionErrors})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryFrameCopiedErrors", types.YLeaf{"TokenRingMLHistoryFrameCopiedErrors", tokenRingMLHistoryEntry.TokenRingMLHistoryFrameCopiedErrors})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryFrequencyErrors", types.YLeaf{"TokenRingMLHistoryFrequencyErrors", tokenRingMLHistoryEntry.TokenRingMLHistoryFrequencyErrors})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryTokenErrors", types.YLeaf{"TokenRingMLHistoryTokenErrors", tokenRingMLHistoryEntry.TokenRingMLHistoryTokenErrors})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistorySoftErrorReports", types.YLeaf{"TokenRingMLHistorySoftErrorReports", tokenRingMLHistoryEntry.TokenRingMLHistorySoftErrorReports})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryRingPollEvents", types.YLeaf{"TokenRingMLHistoryRingPollEvents", tokenRingMLHistoryEntry.TokenRingMLHistoryRingPollEvents})
+    tokenRingMLHistoryEntry.EntityData.Leafs.Append("tokenRingMLHistoryActiveStations", types.YLeaf{"TokenRingMLHistoryActiveStations", tokenRingMLHistoryEntry.TokenRingMLHistoryActiveStations})
+
+    tokenRingMLHistoryEntry.EntityData.YListKeys = []string {"TokenRingMLHistoryIndex", "TokenRingMLHistorySampleIndex"}
+
+    return &(tokenRingMLHistoryEntry.EntityData)
 }
 
-// TOKENRINGRMONMIB_Tokenringphistorytable
+// TOKENRINGRMONMIB_TokenRingPHistoryTable
 // A list of promiscuous Token Ring statistics
 // entries.
-type TOKENRINGRMONMIB_Tokenringphistorytable struct {
+type TOKENRINGRMONMIB_TokenRingPHistoryTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of promiscuous statistics kept for a particular Token Ring
     // interface. The type is slice of
-    // TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry.
-    Tokenringphistoryentry []TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry
+    // TOKENRINGRMONMIB_TokenRingPHistoryTable_TokenRingPHistoryEntry.
+    TokenRingPHistoryEntry []*TOKENRINGRMONMIB_TokenRingPHistoryTable_TokenRingPHistoryEntry
 }
 
-func (tokenringphistorytable *TOKENRINGRMONMIB_Tokenringphistorytable) GetEntityData() *types.CommonEntityData {
-    tokenringphistorytable.EntityData.YFilter = tokenringphistorytable.YFilter
-    tokenringphistorytable.EntityData.YangName = "tokenRingPHistoryTable"
-    tokenringphistorytable.EntityData.BundleName = "cisco_ios_xe"
-    tokenringphistorytable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
-    tokenringphistorytable.EntityData.SegmentPath = "tokenRingPHistoryTable"
-    tokenringphistorytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    tokenringphistorytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    tokenringphistorytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (tokenRingPHistoryTable *TOKENRINGRMONMIB_TokenRingPHistoryTable) GetEntityData() *types.CommonEntityData {
+    tokenRingPHistoryTable.EntityData.YFilter = tokenRingPHistoryTable.YFilter
+    tokenRingPHistoryTable.EntityData.YangName = "tokenRingPHistoryTable"
+    tokenRingPHistoryTable.EntityData.BundleName = "cisco_ios_xe"
+    tokenRingPHistoryTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    tokenRingPHistoryTable.EntityData.SegmentPath = "tokenRingPHistoryTable"
+    tokenRingPHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tokenRingPHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tokenRingPHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tokenringphistorytable.EntityData.Children = make(map[string]types.YChild)
-    tokenringphistorytable.EntityData.Children["tokenRingPHistoryEntry"] = types.YChild{"Tokenringphistoryentry", nil}
-    for i := range tokenringphistorytable.Tokenringphistoryentry {
-        tokenringphistorytable.EntityData.Children[types.GetSegmentPath(&tokenringphistorytable.Tokenringphistoryentry[i])] = types.YChild{"Tokenringphistoryentry", &tokenringphistorytable.Tokenringphistoryentry[i]}
+    tokenRingPHistoryTable.EntityData.Children = types.NewOrderedMap()
+    tokenRingPHistoryTable.EntityData.Children.Append("tokenRingPHistoryEntry", types.YChild{"TokenRingPHistoryEntry", nil})
+    for i := range tokenRingPHistoryTable.TokenRingPHistoryEntry {
+        tokenRingPHistoryTable.EntityData.Children.Append(types.GetSegmentPath(tokenRingPHistoryTable.TokenRingPHistoryEntry[i]), types.YChild{"TokenRingPHistoryEntry", tokenRingPHistoryTable.TokenRingPHistoryEntry[i]})
     }
-    tokenringphistorytable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(tokenringphistorytable.EntityData)
+    tokenRingPHistoryTable.EntityData.Leafs = types.NewOrderedMap()
+
+    tokenRingPHistoryTable.EntityData.YListKeys = []string {}
+
+    return &(tokenRingPHistoryTable.EntityData)
 }
 
-// TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry
+// TOKENRINGRMONMIB_TokenRingPHistoryTable_TokenRingPHistoryEntry
 // A collection of promiscuous statistics kept for a
 // particular Token Ring interface.
-type TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry struct {
+type TOKENRINGRMONMIB_TokenRingPHistoryTable_TokenRingPHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -803,14 +827,14 @@ type TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry struct {
     // history identified by a particular value of this index is the same history
     // as identified by the same value of historyControlIndex. The type is
     // interface{} with range: 1..65535.
-    Tokenringphistoryindex interface{}
+    TokenRingPHistoryIndex interface{}
 
     // This attribute is a key. An index that uniquely identifies the particular
     // sample this entry represents among all samples associated with the same
     // historyControlEntry. This index starts at 1 and increases by one as each
     // new sample is taken. The type is interface{} with range:
     // -2147483648..2147483647.
-    Tokenringphistorysampleindex interface{}
+    TokenRingPHistorySampleIndex interface{}
 
     // The value of sysUpTime at the start of the interval over which this sample
     // was measured.  If the probe keeps track of the time of day, it should start
@@ -821,166 +845,172 @@ type TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry struct {
     // sample which is currently being collected is not accessible in this table
     // until the end of its interval. The type is interface{} with range:
     // 0..4294967295.
-    Tokenringphistoryintervalstart interface{}
+    TokenRingPHistoryIntervalStart interface{}
 
     // The total number of events in which packets were dropped by the probe due
     // to lack of resources during this sampling interval.  Note that this number
     // is not necessarily the number of packets dropped, it is just the number of
     // times this condition has been detected. The type is interface{} with range:
     // 0..4294967295.
-    Tokenringphistorydropevents interface{}
+    TokenRingPHistoryDropEvents interface{}
 
     // The total number of octets of data in good frames received on the network
     // (excluding framing bits but including FCS octets) in non-MAC packets during
     // this sampling interval. The type is interface{} with range: 0..4294967295.
-    Tokenringphistorydataoctets interface{}
+    TokenRingPHistoryDataOctets interface{}
 
     // The total number of good non-MAC frames received during this sampling
     // interval. The type is interface{} with range: 0..4294967295.
-    Tokenringphistorydatapkts interface{}
+    TokenRingPHistoryDataPkts interface{}
 
     // The total number of good non-MAC frames received during this sampling
     // interval that were directed to an LLC broadcast address (0xFFFFFFFFFFFF or
     // 0xC000FFFFFFFF). The type is interface{} with range: 0..4294967295.
-    Tokenringphistorydatabroadcastpkts interface{}
+    TokenRingPHistoryDataBroadcastPkts interface{}
 
     // The total number of good non-MAC frames received during this sampling
     // interval that were directed to a local or global multicast or functional
     // address.  Note that this number does not include packets directed to the
     // broadcast address. The type is interface{} with range: 0..4294967295.
-    Tokenringphistorydatamulticastpkts interface{}
+    TokenRingPHistoryDataMulticastPkts interface{}
 
     // The total number of good non-MAC frames received during this sampling
     // interval that were between 18 and 63 octets in length inclusive, excluding
     // framing bits but including FCS octets. The type is interface{} with range:
     // 0..4294967295.
-    Tokenringphistorydatapkts18To63Octets interface{}
+    TokenRingPHistoryDataPkts18to63Octets interface{}
 
     // The total number of good non-MAC frames received during this sampling
     // interval that were between 64 and 127 octets in length inclusive, excluding
     // framing bits but including FCS octets. The type is interface{} with range:
     // 0..4294967295.
-    Tokenringphistorydatapkts64To127Octets interface{}
+    TokenRingPHistoryDataPkts64to127Octets interface{}
 
     // The total number of good non-MAC frames received during this sampling
     // interval that were between 128 and 255 octets in length inclusive,
     // excluding framing bits but including FCS octets. The type is interface{}
     // with range: 0..4294967295.
-    Tokenringphistorydatapkts128To255Octets interface{}
+    TokenRingPHistoryDataPkts128to255Octets interface{}
 
     // The total number of good non-MAC frames received during this sampling
     // interval that were between      256 and 511 octets in length inclusive,
     // excluding framing bits but including FCS octets. The type is interface{}
     // with range: 0..4294967295.
-    Tokenringphistorydatapkts256To511Octets interface{}
+    TokenRingPHistoryDataPkts256to511Octets interface{}
 
     // The total number of good non-MAC frames received during this sampling
     // interval that were between 512 and 1023 octets in length inclusive,
     // excluding framing bits but including FCS octets. The type is interface{}
     // with range: 0..4294967295.
-    Tokenringphistorydatapkts512To1023Octets interface{}
+    TokenRingPHistoryDataPkts512to1023Octets interface{}
 
     // The total number of good non-MAC frames received during this sampling
     // interval that were between 1024 and 2047 octets in length inclusive,
     // excluding framing bits but including FCS octets. The type is interface{}
     // with range: 0..4294967295.
-    Tokenringphistorydatapkts1024To2047Octets interface{}
+    TokenRingPHistoryDataPkts1024to2047Octets interface{}
 
     // The total number of good non-MAC frames received during this sampling
     // interval that were between 2048 and 4095 octets in length inclusive,
     // excluding framing bits but including FCS octets. The type is interface{}
     // with range: 0..4294967295.
-    Tokenringphistorydatapkts2048To4095Octets interface{}
+    TokenRingPHistoryDataPkts2048to4095Octets interface{}
 
     // The total number of good non-MAC frames received during this sampling
     // interval that were between 4096 and 8191 octets in length inclusive,
     // excluding framing bits but including FCS octets. The type is interface{}
     // with range: 0..4294967295.
-    Tokenringphistorydatapkts4096To8191Octets interface{}
+    TokenRingPHistoryDataPkts4096to8191Octets interface{}
 
     // The total number of good non-MAC frames received during this sampling
     // interval that were between 8192 and 18000 octets in length inclusive,
     // excluding framing bits but including FCS octets. The type is interface{}
     // with range: 0..4294967295.
-    Tokenringphistorydatapkts8192To18000Octets interface{}
+    TokenRingPHistoryDataPkts8192to18000Octets interface{}
 
     // The total number of good non-MAC frames received during this sampling
     // interval that were greater than 18000 octets in length, excluding framing
     // bits but including FCS octets. The type is interface{} with range:
     // 0..4294967295.
-    Tokenringphistorydatapktsgreaterthan18000Octets interface{}
+    TokenRingPHistoryDataPktsGreaterThan18000Octets interface{}
 }
 
-func (tokenringphistoryentry *TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry) GetEntityData() *types.CommonEntityData {
-    tokenringphistoryentry.EntityData.YFilter = tokenringphistoryentry.YFilter
-    tokenringphistoryentry.EntityData.YangName = "tokenRingPHistoryEntry"
-    tokenringphistoryentry.EntityData.BundleName = "cisco_ios_xe"
-    tokenringphistoryentry.EntityData.ParentYangName = "tokenRingPHistoryTable"
-    tokenringphistoryentry.EntityData.SegmentPath = "tokenRingPHistoryEntry" + "[tokenRingPHistoryIndex='" + fmt.Sprintf("%v", tokenringphistoryentry.Tokenringphistoryindex) + "']" + "[tokenRingPHistorySampleIndex='" + fmt.Sprintf("%v", tokenringphistoryentry.Tokenringphistorysampleindex) + "']"
-    tokenringphistoryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    tokenringphistoryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    tokenringphistoryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (tokenRingPHistoryEntry *TOKENRINGRMONMIB_TokenRingPHistoryTable_TokenRingPHistoryEntry) GetEntityData() *types.CommonEntityData {
+    tokenRingPHistoryEntry.EntityData.YFilter = tokenRingPHistoryEntry.YFilter
+    tokenRingPHistoryEntry.EntityData.YangName = "tokenRingPHistoryEntry"
+    tokenRingPHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
+    tokenRingPHistoryEntry.EntityData.ParentYangName = "tokenRingPHistoryTable"
+    tokenRingPHistoryEntry.EntityData.SegmentPath = "tokenRingPHistoryEntry" + types.AddKeyToken(tokenRingPHistoryEntry.TokenRingPHistoryIndex, "tokenRingPHistoryIndex") + types.AddKeyToken(tokenRingPHistoryEntry.TokenRingPHistorySampleIndex, "tokenRingPHistorySampleIndex")
+    tokenRingPHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tokenRingPHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tokenRingPHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tokenringphistoryentry.EntityData.Children = make(map[string]types.YChild)
-    tokenringphistoryentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryIndex"] = types.YLeaf{"Tokenringphistoryindex", tokenringphistoryentry.Tokenringphistoryindex}
-    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistorySampleIndex"] = types.YLeaf{"Tokenringphistorysampleindex", tokenringphistoryentry.Tokenringphistorysampleindex}
-    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryIntervalStart"] = types.YLeaf{"Tokenringphistoryintervalstart", tokenringphistoryentry.Tokenringphistoryintervalstart}
-    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDropEvents"] = types.YLeaf{"Tokenringphistorydropevents", tokenringphistoryentry.Tokenringphistorydropevents}
-    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataOctets"] = types.YLeaf{"Tokenringphistorydataoctets", tokenringphistoryentry.Tokenringphistorydataoctets}
-    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts"] = types.YLeaf{"Tokenringphistorydatapkts", tokenringphistoryentry.Tokenringphistorydatapkts}
-    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataBroadcastPkts"] = types.YLeaf{"Tokenringphistorydatabroadcastpkts", tokenringphistoryentry.Tokenringphistorydatabroadcastpkts}
-    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataMulticastPkts"] = types.YLeaf{"Tokenringphistorydatamulticastpkts", tokenringphistoryentry.Tokenringphistorydatamulticastpkts}
-    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts18to63Octets"] = types.YLeaf{"Tokenringphistorydatapkts18To63Octets", tokenringphistoryentry.Tokenringphistorydatapkts18To63Octets}
-    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts64to127Octets"] = types.YLeaf{"Tokenringphistorydatapkts64To127Octets", tokenringphistoryentry.Tokenringphistorydatapkts64To127Octets}
-    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts128to255Octets"] = types.YLeaf{"Tokenringphistorydatapkts128To255Octets", tokenringphistoryentry.Tokenringphistorydatapkts128To255Octets}
-    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts256to511Octets"] = types.YLeaf{"Tokenringphistorydatapkts256To511Octets", tokenringphistoryentry.Tokenringphistorydatapkts256To511Octets}
-    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts512to1023Octets"] = types.YLeaf{"Tokenringphistorydatapkts512To1023Octets", tokenringphistoryentry.Tokenringphistorydatapkts512To1023Octets}
-    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts1024to2047Octets"] = types.YLeaf{"Tokenringphistorydatapkts1024To2047Octets", tokenringphistoryentry.Tokenringphistorydatapkts1024To2047Octets}
-    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts2048to4095Octets"] = types.YLeaf{"Tokenringphistorydatapkts2048To4095Octets", tokenringphistoryentry.Tokenringphistorydatapkts2048To4095Octets}
-    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts4096to8191Octets"] = types.YLeaf{"Tokenringphistorydatapkts4096To8191Octets", tokenringphistoryentry.Tokenringphistorydatapkts4096To8191Octets}
-    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts8192to18000Octets"] = types.YLeaf{"Tokenringphistorydatapkts8192To18000Octets", tokenringphistoryentry.Tokenringphistorydatapkts8192To18000Octets}
-    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPktsGreaterThan18000Octets"] = types.YLeaf{"Tokenringphistorydatapktsgreaterthan18000Octets", tokenringphistoryentry.Tokenringphistorydatapktsgreaterthan18000Octets}
-    return &(tokenringphistoryentry.EntityData)
+    tokenRingPHistoryEntry.EntityData.Children = types.NewOrderedMap()
+    tokenRingPHistoryEntry.EntityData.Leafs = types.NewOrderedMap()
+    tokenRingPHistoryEntry.EntityData.Leafs.Append("tokenRingPHistoryIndex", types.YLeaf{"TokenRingPHistoryIndex", tokenRingPHistoryEntry.TokenRingPHistoryIndex})
+    tokenRingPHistoryEntry.EntityData.Leafs.Append("tokenRingPHistorySampleIndex", types.YLeaf{"TokenRingPHistorySampleIndex", tokenRingPHistoryEntry.TokenRingPHistorySampleIndex})
+    tokenRingPHistoryEntry.EntityData.Leafs.Append("tokenRingPHistoryIntervalStart", types.YLeaf{"TokenRingPHistoryIntervalStart", tokenRingPHistoryEntry.TokenRingPHistoryIntervalStart})
+    tokenRingPHistoryEntry.EntityData.Leafs.Append("tokenRingPHistoryDropEvents", types.YLeaf{"TokenRingPHistoryDropEvents", tokenRingPHistoryEntry.TokenRingPHistoryDropEvents})
+    tokenRingPHistoryEntry.EntityData.Leafs.Append("tokenRingPHistoryDataOctets", types.YLeaf{"TokenRingPHistoryDataOctets", tokenRingPHistoryEntry.TokenRingPHistoryDataOctets})
+    tokenRingPHistoryEntry.EntityData.Leafs.Append("tokenRingPHistoryDataPkts", types.YLeaf{"TokenRingPHistoryDataPkts", tokenRingPHistoryEntry.TokenRingPHistoryDataPkts})
+    tokenRingPHistoryEntry.EntityData.Leafs.Append("tokenRingPHistoryDataBroadcastPkts", types.YLeaf{"TokenRingPHistoryDataBroadcastPkts", tokenRingPHistoryEntry.TokenRingPHistoryDataBroadcastPkts})
+    tokenRingPHistoryEntry.EntityData.Leafs.Append("tokenRingPHistoryDataMulticastPkts", types.YLeaf{"TokenRingPHistoryDataMulticastPkts", tokenRingPHistoryEntry.TokenRingPHistoryDataMulticastPkts})
+    tokenRingPHistoryEntry.EntityData.Leafs.Append("tokenRingPHistoryDataPkts18to63Octets", types.YLeaf{"TokenRingPHistoryDataPkts18to63Octets", tokenRingPHistoryEntry.TokenRingPHistoryDataPkts18to63Octets})
+    tokenRingPHistoryEntry.EntityData.Leafs.Append("tokenRingPHistoryDataPkts64to127Octets", types.YLeaf{"TokenRingPHistoryDataPkts64to127Octets", tokenRingPHistoryEntry.TokenRingPHistoryDataPkts64to127Octets})
+    tokenRingPHistoryEntry.EntityData.Leafs.Append("tokenRingPHistoryDataPkts128to255Octets", types.YLeaf{"TokenRingPHistoryDataPkts128to255Octets", tokenRingPHistoryEntry.TokenRingPHistoryDataPkts128to255Octets})
+    tokenRingPHistoryEntry.EntityData.Leafs.Append("tokenRingPHistoryDataPkts256to511Octets", types.YLeaf{"TokenRingPHistoryDataPkts256to511Octets", tokenRingPHistoryEntry.TokenRingPHistoryDataPkts256to511Octets})
+    tokenRingPHistoryEntry.EntityData.Leafs.Append("tokenRingPHistoryDataPkts512to1023Octets", types.YLeaf{"TokenRingPHistoryDataPkts512to1023Octets", tokenRingPHistoryEntry.TokenRingPHistoryDataPkts512to1023Octets})
+    tokenRingPHistoryEntry.EntityData.Leafs.Append("tokenRingPHistoryDataPkts1024to2047Octets", types.YLeaf{"TokenRingPHistoryDataPkts1024to2047Octets", tokenRingPHistoryEntry.TokenRingPHistoryDataPkts1024to2047Octets})
+    tokenRingPHistoryEntry.EntityData.Leafs.Append("tokenRingPHistoryDataPkts2048to4095Octets", types.YLeaf{"TokenRingPHistoryDataPkts2048to4095Octets", tokenRingPHistoryEntry.TokenRingPHistoryDataPkts2048to4095Octets})
+    tokenRingPHistoryEntry.EntityData.Leafs.Append("tokenRingPHistoryDataPkts4096to8191Octets", types.YLeaf{"TokenRingPHistoryDataPkts4096to8191Octets", tokenRingPHistoryEntry.TokenRingPHistoryDataPkts4096to8191Octets})
+    tokenRingPHistoryEntry.EntityData.Leafs.Append("tokenRingPHistoryDataPkts8192to18000Octets", types.YLeaf{"TokenRingPHistoryDataPkts8192to18000Octets", tokenRingPHistoryEntry.TokenRingPHistoryDataPkts8192to18000Octets})
+    tokenRingPHistoryEntry.EntityData.Leafs.Append("tokenRingPHistoryDataPktsGreaterThan18000Octets", types.YLeaf{"TokenRingPHistoryDataPktsGreaterThan18000Octets", tokenRingPHistoryEntry.TokenRingPHistoryDataPktsGreaterThan18000Octets})
+
+    tokenRingPHistoryEntry.EntityData.YListKeys = []string {"TokenRingPHistoryIndex", "TokenRingPHistorySampleIndex"}
+
+    return &(tokenRingPHistoryEntry.EntityData)
 }
 
-// TOKENRINGRMONMIB_Ringstationcontroltable
+// TOKENRINGRMONMIB_RingStationControlTable
 // A list of ringStation table control entries.
-type TOKENRINGRMONMIB_Ringstationcontroltable struct {
+type TOKENRINGRMONMIB_RingStationControlTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of parameters that set up the discovery of stations on a particular
     // interface and the collection of statistics about these stations. The type
     // is slice of
-    // TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry.
-    Ringstationcontrolentry []TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry
+    // TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry.
+    RingStationControlEntry []*TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry
 }
 
-func (ringstationcontroltable *TOKENRINGRMONMIB_Ringstationcontroltable) GetEntityData() *types.CommonEntityData {
-    ringstationcontroltable.EntityData.YFilter = ringstationcontroltable.YFilter
-    ringstationcontroltable.EntityData.YangName = "ringStationControlTable"
-    ringstationcontroltable.EntityData.BundleName = "cisco_ios_xe"
-    ringstationcontroltable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
-    ringstationcontroltable.EntityData.SegmentPath = "ringStationControlTable"
-    ringstationcontroltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ringstationcontroltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ringstationcontroltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ringStationControlTable *TOKENRINGRMONMIB_RingStationControlTable) GetEntityData() *types.CommonEntityData {
+    ringStationControlTable.EntityData.YFilter = ringStationControlTable.YFilter
+    ringStationControlTable.EntityData.YangName = "ringStationControlTable"
+    ringStationControlTable.EntityData.BundleName = "cisco_ios_xe"
+    ringStationControlTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    ringStationControlTable.EntityData.SegmentPath = "ringStationControlTable"
+    ringStationControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringStationControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringStationControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ringstationcontroltable.EntityData.Children = make(map[string]types.YChild)
-    ringstationcontroltable.EntityData.Children["ringStationControlEntry"] = types.YChild{"Ringstationcontrolentry", nil}
-    for i := range ringstationcontroltable.Ringstationcontrolentry {
-        ringstationcontroltable.EntityData.Children[types.GetSegmentPath(&ringstationcontroltable.Ringstationcontrolentry[i])] = types.YChild{"Ringstationcontrolentry", &ringstationcontroltable.Ringstationcontrolentry[i]}
+    ringStationControlTable.EntityData.Children = types.NewOrderedMap()
+    ringStationControlTable.EntityData.Children.Append("ringStationControlEntry", types.YChild{"RingStationControlEntry", nil})
+    for i := range ringStationControlTable.RingStationControlEntry {
+        ringStationControlTable.EntityData.Children.Append(types.GetSegmentPath(ringStationControlTable.RingStationControlEntry[i]), types.YChild{"RingStationControlEntry", ringStationControlTable.RingStationControlEntry[i]})
     }
-    ringstationcontroltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ringstationcontroltable.EntityData)
+    ringStationControlTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ringStationControlTable.EntityData.YListKeys = []string {}
+
+    return &(ringStationControlTable.EntityData)
 }
 
-// TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry
+// TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry
 // A list of parameters that set up the discovery of
 // stations on a particular interface and the
 // collection of statistics about these stations.
-type TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry struct {
+type TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -990,49 +1020,49 @@ type TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry struct {
     // object is the same interface as identified by the same value of the ifIndex
     // object, defined in MIB- II [3]. The type is interface{} with range:
     // 1..65535.
-    Ringstationcontrolifindex interface{}
+    RingStationControlIfIndex interface{}
 
     // The number of ringStationEntries in the ringStationTable associated with
     // this ringStationControlEntry. The type is interface{} with range:
     // -2147483648..2147483647.
-    Ringstationcontroltablesize interface{}
+    RingStationControlTableSize interface{}
 
     // The number of active ringStationEntries in the ringStationTable associated
     // with this ringStationControlEntry. The type is interface{} with range:
     // -2147483648..2147483647.
-    Ringstationcontrolactivestations interface{}
+    RingStationControlActiveStations interface{}
 
-    // The current status of this ring. The type is Ringstationcontrolringstate.
-    Ringstationcontrolringstate interface{}
+    // The current status of this ring. The type is RingStationControlRingState.
+    RingStationControlRingState interface{}
 
     // The address of the sender of the last beacon frame received by the probe on
     // this ring.  If no beacon frames have been received, this object shall be
     // equal to six octets of zero. The type is string with length: 6.
-    Ringstationcontrolbeaconsender interface{}
+    RingStationControlBeaconSender interface{}
 
     // The address of the NAUN in the last beacon frame received by the probe on
     // this ring.  If no beacon frames have been received, this object shall be
     // equal to six octets of zero. The type is string with length: 6.
-    Ringstationcontrolbeaconnaun interface{}
+    RingStationControlBeaconNAUN interface{}
 
     // The address of the Active Monitor on this segment.  If this address is
     // unknown, this object shall be equal to six octets of zero. The type is
     // string with length: 6.
-    Ringstationcontrolactivemonitor interface{}
+    RingStationControlActiveMonitor interface{}
 
     // The number of add and delete events in the ringStationOrderTable optionally
     // associated with this ringStationControlEntry. The type is interface{} with
     // range: 0..4294967295.
-    Ringstationcontrolorderchanges interface{}
+    RingStationControlOrderChanges interface{}
 
     // The entity that configured this entry and is therefore using the resources
     // assigned to it. The type is string.
-    Ringstationcontrolowner interface{}
+    RingStationControlOwner interface{}
 
     // The status of this ringStationControl entry.  If this object is not equal
     // to valid(1), all associated entries in the ringStationTable shall be
     // deleted by the agent. The type is EntryStatus.
-    Ringstationcontrolstatus interface{}
+    RingStationControlStatus interface{}
 
     // The total number of frames which were received by the probe and therefore
     // not accounted for in the *StatsDropEvents, but for which the probe chose
@@ -1042,62 +1072,65 @@ type TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry struct {
     // counted because they had MAC-layer errors.  Note that, unlike the
     // dropEvents counter, this number is the exact number of frames dropped. The
     // type is interface{} with range: 0..4294967295.
-    Ringstationcontroldroppedframes interface{}
+    RingStationControlDroppedFrames interface{}
 
     // The value of sysUpTime when this control entry was last activated. This can
     // be used by the management station to ensure that the table has not been
     // deleted and recreated between polls. The type is interface{} with range:
     // 0..4294967295.
-    Ringstationcontrolcreatetime interface{}
+    RingStationControlCreateTime interface{}
 }
 
-func (ringstationcontrolentry *TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry) GetEntityData() *types.CommonEntityData {
-    ringstationcontrolentry.EntityData.YFilter = ringstationcontrolentry.YFilter
-    ringstationcontrolentry.EntityData.YangName = "ringStationControlEntry"
-    ringstationcontrolentry.EntityData.BundleName = "cisco_ios_xe"
-    ringstationcontrolentry.EntityData.ParentYangName = "ringStationControlTable"
-    ringstationcontrolentry.EntityData.SegmentPath = "ringStationControlEntry" + "[ringStationControlIfIndex='" + fmt.Sprintf("%v", ringstationcontrolentry.Ringstationcontrolifindex) + "']"
-    ringstationcontrolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ringstationcontrolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ringstationcontrolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ringStationControlEntry *TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry) GetEntityData() *types.CommonEntityData {
+    ringStationControlEntry.EntityData.YFilter = ringStationControlEntry.YFilter
+    ringStationControlEntry.EntityData.YangName = "ringStationControlEntry"
+    ringStationControlEntry.EntityData.BundleName = "cisco_ios_xe"
+    ringStationControlEntry.EntityData.ParentYangName = "ringStationControlTable"
+    ringStationControlEntry.EntityData.SegmentPath = "ringStationControlEntry" + types.AddKeyToken(ringStationControlEntry.RingStationControlIfIndex, "ringStationControlIfIndex")
+    ringStationControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringStationControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringStationControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ringstationcontrolentry.EntityData.Children = make(map[string]types.YChild)
-    ringstationcontrolentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ringstationcontrolentry.EntityData.Leafs["ringStationControlIfIndex"] = types.YLeaf{"Ringstationcontrolifindex", ringstationcontrolentry.Ringstationcontrolifindex}
-    ringstationcontrolentry.EntityData.Leafs["ringStationControlTableSize"] = types.YLeaf{"Ringstationcontroltablesize", ringstationcontrolentry.Ringstationcontroltablesize}
-    ringstationcontrolentry.EntityData.Leafs["ringStationControlActiveStations"] = types.YLeaf{"Ringstationcontrolactivestations", ringstationcontrolentry.Ringstationcontrolactivestations}
-    ringstationcontrolentry.EntityData.Leafs["ringStationControlRingState"] = types.YLeaf{"Ringstationcontrolringstate", ringstationcontrolentry.Ringstationcontrolringstate}
-    ringstationcontrolentry.EntityData.Leafs["ringStationControlBeaconSender"] = types.YLeaf{"Ringstationcontrolbeaconsender", ringstationcontrolentry.Ringstationcontrolbeaconsender}
-    ringstationcontrolentry.EntityData.Leafs["ringStationControlBeaconNAUN"] = types.YLeaf{"Ringstationcontrolbeaconnaun", ringstationcontrolentry.Ringstationcontrolbeaconnaun}
-    ringstationcontrolentry.EntityData.Leafs["ringStationControlActiveMonitor"] = types.YLeaf{"Ringstationcontrolactivemonitor", ringstationcontrolentry.Ringstationcontrolactivemonitor}
-    ringstationcontrolentry.EntityData.Leafs["ringStationControlOrderChanges"] = types.YLeaf{"Ringstationcontrolorderchanges", ringstationcontrolentry.Ringstationcontrolorderchanges}
-    ringstationcontrolentry.EntityData.Leafs["ringStationControlOwner"] = types.YLeaf{"Ringstationcontrolowner", ringstationcontrolentry.Ringstationcontrolowner}
-    ringstationcontrolentry.EntityData.Leafs["ringStationControlStatus"] = types.YLeaf{"Ringstationcontrolstatus", ringstationcontrolentry.Ringstationcontrolstatus}
-    ringstationcontrolentry.EntityData.Leafs["ringStationControlDroppedFrames"] = types.YLeaf{"Ringstationcontroldroppedframes", ringstationcontrolentry.Ringstationcontroldroppedframes}
-    ringstationcontrolentry.EntityData.Leafs["ringStationControlCreateTime"] = types.YLeaf{"Ringstationcontrolcreatetime", ringstationcontrolentry.Ringstationcontrolcreatetime}
-    return &(ringstationcontrolentry.EntityData)
+    ringStationControlEntry.EntityData.Children = types.NewOrderedMap()
+    ringStationControlEntry.EntityData.Leafs = types.NewOrderedMap()
+    ringStationControlEntry.EntityData.Leafs.Append("ringStationControlIfIndex", types.YLeaf{"RingStationControlIfIndex", ringStationControlEntry.RingStationControlIfIndex})
+    ringStationControlEntry.EntityData.Leafs.Append("ringStationControlTableSize", types.YLeaf{"RingStationControlTableSize", ringStationControlEntry.RingStationControlTableSize})
+    ringStationControlEntry.EntityData.Leafs.Append("ringStationControlActiveStations", types.YLeaf{"RingStationControlActiveStations", ringStationControlEntry.RingStationControlActiveStations})
+    ringStationControlEntry.EntityData.Leafs.Append("ringStationControlRingState", types.YLeaf{"RingStationControlRingState", ringStationControlEntry.RingStationControlRingState})
+    ringStationControlEntry.EntityData.Leafs.Append("ringStationControlBeaconSender", types.YLeaf{"RingStationControlBeaconSender", ringStationControlEntry.RingStationControlBeaconSender})
+    ringStationControlEntry.EntityData.Leafs.Append("ringStationControlBeaconNAUN", types.YLeaf{"RingStationControlBeaconNAUN", ringStationControlEntry.RingStationControlBeaconNAUN})
+    ringStationControlEntry.EntityData.Leafs.Append("ringStationControlActiveMonitor", types.YLeaf{"RingStationControlActiveMonitor", ringStationControlEntry.RingStationControlActiveMonitor})
+    ringStationControlEntry.EntityData.Leafs.Append("ringStationControlOrderChanges", types.YLeaf{"RingStationControlOrderChanges", ringStationControlEntry.RingStationControlOrderChanges})
+    ringStationControlEntry.EntityData.Leafs.Append("ringStationControlOwner", types.YLeaf{"RingStationControlOwner", ringStationControlEntry.RingStationControlOwner})
+    ringStationControlEntry.EntityData.Leafs.Append("ringStationControlStatus", types.YLeaf{"RingStationControlStatus", ringStationControlEntry.RingStationControlStatus})
+    ringStationControlEntry.EntityData.Leafs.Append("ringStationControlDroppedFrames", types.YLeaf{"RingStationControlDroppedFrames", ringStationControlEntry.RingStationControlDroppedFrames})
+    ringStationControlEntry.EntityData.Leafs.Append("ringStationControlCreateTime", types.YLeaf{"RingStationControlCreateTime", ringStationControlEntry.RingStationControlCreateTime})
+
+    ringStationControlEntry.EntityData.YListKeys = []string {"RingStationControlIfIndex"}
+
+    return &(ringStationControlEntry.EntityData)
 }
 
-// TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry_Ringstationcontrolringstate represents The current status of this ring.
-type TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry_Ringstationcontrolringstate string
+// TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry_RingStationControlRingState represents The current status of this ring.
+type TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry_RingStationControlRingState string
 
 const (
-    TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry_Ringstationcontrolringstate_normalOperation TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry_Ringstationcontrolringstate = "normalOperation"
+    TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry_RingStationControlRingState_normalOperation TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry_RingStationControlRingState = "normalOperation"
 
-    TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry_Ringstationcontrolringstate_ringPurgeState TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry_Ringstationcontrolringstate = "ringPurgeState"
+    TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry_RingStationControlRingState_ringPurgeState TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry_RingStationControlRingState = "ringPurgeState"
 
-    TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry_Ringstationcontrolringstate_claimTokenState TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry_Ringstationcontrolringstate = "claimTokenState"
+    TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry_RingStationControlRingState_claimTokenState TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry_RingStationControlRingState = "claimTokenState"
 
-    TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry_Ringstationcontrolringstate_beaconFrameStreamingState TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry_Ringstationcontrolringstate = "beaconFrameStreamingState"
+    TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry_RingStationControlRingState_beaconFrameStreamingState TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry_RingStationControlRingState = "beaconFrameStreamingState"
 
-    TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry_Ringstationcontrolringstate_beaconBitStreamingState TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry_Ringstationcontrolringstate = "beaconBitStreamingState"
+    TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry_RingStationControlRingState_beaconBitStreamingState TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry_RingStationControlRingState = "beaconBitStreamingState"
 
-    TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry_Ringstationcontrolringstate_beaconRingSignalLossState TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry_Ringstationcontrolringstate = "beaconRingSignalLossState"
+    TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry_RingStationControlRingState_beaconRingSignalLossState TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry_RingStationControlRingState = "beaconRingSignalLossState"
 
-    TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry_Ringstationcontrolringstate_beaconSetRecoveryModeState TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry_Ringstationcontrolringstate = "beaconSetRecoveryModeState"
+    TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry_RingStationControlRingState_beaconSetRecoveryModeState TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry_RingStationControlRingState = "beaconSetRecoveryModeState"
 )
 
-// TOKENRINGRMONMIB_Ringstationtable
+// TOKENRINGRMONMIB_RingStationTable
 // A list of ring station entries.  An entry will
 // exist for each station that is now or has
 // 
@@ -1107,40 +1140,43 @@ const (
 // 
 // previously been detected as physically present on
 // this ring.
-type TOKENRINGRMONMIB_Ringstationtable struct {
+type TOKENRINGRMONMIB_RingStationTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of statistics for a particular station that has been
     // discovered on a ring monitored by this device. The type is slice of
-    // TOKENRINGRMONMIB_Ringstationtable_Ringstationentry.
-    Ringstationentry []TOKENRINGRMONMIB_Ringstationtable_Ringstationentry
+    // TOKENRINGRMONMIB_RingStationTable_RingStationEntry.
+    RingStationEntry []*TOKENRINGRMONMIB_RingStationTable_RingStationEntry
 }
 
-func (ringstationtable *TOKENRINGRMONMIB_Ringstationtable) GetEntityData() *types.CommonEntityData {
-    ringstationtable.EntityData.YFilter = ringstationtable.YFilter
-    ringstationtable.EntityData.YangName = "ringStationTable"
-    ringstationtable.EntityData.BundleName = "cisco_ios_xe"
-    ringstationtable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
-    ringstationtable.EntityData.SegmentPath = "ringStationTable"
-    ringstationtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ringstationtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ringstationtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ringStationTable *TOKENRINGRMONMIB_RingStationTable) GetEntityData() *types.CommonEntityData {
+    ringStationTable.EntityData.YFilter = ringStationTable.YFilter
+    ringStationTable.EntityData.YangName = "ringStationTable"
+    ringStationTable.EntityData.BundleName = "cisco_ios_xe"
+    ringStationTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    ringStationTable.EntityData.SegmentPath = "ringStationTable"
+    ringStationTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringStationTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringStationTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ringstationtable.EntityData.Children = make(map[string]types.YChild)
-    ringstationtable.EntityData.Children["ringStationEntry"] = types.YChild{"Ringstationentry", nil}
-    for i := range ringstationtable.Ringstationentry {
-        ringstationtable.EntityData.Children[types.GetSegmentPath(&ringstationtable.Ringstationentry[i])] = types.YChild{"Ringstationentry", &ringstationtable.Ringstationentry[i]}
+    ringStationTable.EntityData.Children = types.NewOrderedMap()
+    ringStationTable.EntityData.Children.Append("ringStationEntry", types.YChild{"RingStationEntry", nil})
+    for i := range ringStationTable.RingStationEntry {
+        ringStationTable.EntityData.Children.Append(types.GetSegmentPath(ringStationTable.RingStationEntry[i]), types.YChild{"RingStationEntry", ringStationTable.RingStationEntry[i]})
     }
-    ringstationtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ringstationtable.EntityData)
+    ringStationTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ringStationTable.EntityData.YListKeys = []string {}
+
+    return &(ringStationTable.EntityData)
 }
 
-// TOKENRINGRMONMIB_Ringstationtable_Ringstationentry
+// TOKENRINGRMONMIB_RingStationTable_RingStationEntry
 // A collection of statistics for a particular
 // station that has been discovered on a ring
 // monitored by this device.
-type TOKENRINGRMONMIB_Ringstationtable_Ringstationentry struct {
+type TOKENRINGRMONMIB_RingStationTable_RingStationEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1150,159 +1186,162 @@ type TOKENRINGRMONMIB_Ringstationtable_Ringstationentry struct {
     // object is the same interface as identified by the same value of the ifIndex
     // object, defined in MIB-II [3]. The type is interface{} with range:
     // -2147483648..2147483647.
-    Ringstationifindex interface{}
+    RingStationIfIndex interface{}
 
     // This attribute is a key. The physical address of this station. The type is
     // string with length: 6.
-    Ringstationmacaddress interface{}
+    RingStationMacAddress interface{}
 
     // The physical address of last known NAUN of this station. The type is string
     // with length: 6.
-    Ringstationlastnaun interface{}
+    RingStationLastNAUN interface{}
 
     // The status of this station on the ring. The type is
-    // Ringstationstationstatus.
-    Ringstationstationstatus interface{}
+    // RingStationStationStatus.
+    RingStationStationStatus interface{}
 
     // The value of sysUpTime at the time this station last entered the ring.  If
     // the time is unknown, this value shall be zero. The type is interface{} with
     // range: 0..4294967295.
-    Ringstationlastentertime interface{}
+    RingStationLastEnterTime interface{}
 
     // The value of sysUpTime at the time the probe detected that this station
     // last exited the ring. If the time is unknown, this value shall be zero. The
     // type is interface{} with range: 0..4294967295.
-    Ringstationlastexittime interface{}
+    RingStationLastExitTime interface{}
 
     // The number of times this station experienced a duplicate address error. The
     // type is interface{} with range: 0..4294967295.
-    Ringstationduplicateaddresses interface{}
+    RingStationDuplicateAddresses interface{}
 
     // The total number of line errors reported by this station in error reporting
     // packets detected by the probe. The type is interface{} with range:
     // 0..4294967295.
-    Ringstationinlineerrors interface{}
+    RingStationInLineErrors interface{}
 
     // The total number of line errors reported in error reporting packets sent by
     // the nearest active downstream neighbor of this station and detected by the
     // probe. The type is interface{} with range: 0..4294967295.
-    Ringstationoutlineerrors interface{}
+    RingStationOutLineErrors interface{}
 
     // The total number of adapter internal errors reported by this station in
     // error reporting packets detected by the probe. The type is interface{} with
     // range: 0..4294967295.
-    Ringstationinternalerrors interface{}
+    RingStationInternalErrors interface{}
 
     // The total number of burst errors reported by this station in error
     // reporting packets detected by the probe. The type is interface{} with
     // range: 0..4294967295.
-    Ringstationinbursterrors interface{}
+    RingStationInBurstErrors interface{}
 
     // The total number of burst errors reported in error reporting packets sent
     // by the nearest active downstream neighbor of this station and detected by
     // the probe. The type is interface{} with range: 0..4294967295.
-    Ringstationoutbursterrors interface{}
+    RingStationOutBurstErrors interface{}
 
     // The total number of AC (Address Copied) errors reported in error reporting
     // packets sent by the nearest active downstream neighbor of this station and
     // detected by the probe. The type is interface{} with range: 0..4294967295.
-    Ringstationacerrors interface{}
+    RingStationACErrors interface{}
 
     // The total number of abort delimiters reported by this station in error
     // reporting packets detected by the probe. The type is interface{} with
     // range: 0..4294967295.
-    Ringstationaborterrors interface{}
+    RingStationAbortErrors interface{}
 
     // The total number of lost frame errors reported by this station in error
     // reporting packets detected by the probe. The type is interface{} with
     // range: 0..4294967295.
-    Ringstationlostframeerrors interface{}
+    RingStationLostFrameErrors interface{}
 
     // The total number of receive congestion errors reported by this station in
     // error reporting packets detected by the probe. The type is interface{} with
     // range: 0..4294967295.
-    Ringstationcongestionerrors interface{}
+    RingStationCongestionErrors interface{}
 
     // The total number of frame copied errors reported by this station in error
     // reporting packets detected by the probe. The type is interface{} with
     // range: 0..4294967295.
-    Ringstationframecopiederrors interface{}
+    RingStationFrameCopiedErrors interface{}
 
     // The total number of frequency errors reported by this station in error
     // reporting packets detected by the probe. The type is interface{} with
     // range: 0..4294967295.
-    Ringstationfrequencyerrors interface{}
+    RingStationFrequencyErrors interface{}
 
     // The total number of token errors reported by this station in error
     // reporting frames detected by the probe. The type is interface{} with range:
     // 0..4294967295.
-    Ringstationtokenerrors interface{}
+    RingStationTokenErrors interface{}
 
     // The total number of beacon frames sent by this station and detected by the
     // probe. The type is interface{} with range: 0..4294967295.
-    Ringstationinbeaconerrors interface{}
+    RingStationInBeaconErrors interface{}
 
     // The total number of beacon frames detected by the probe that name this
     // station as the NAUN. The type is interface{} with range: 0..4294967295.
-    Ringstationoutbeaconerrors interface{}
+    RingStationOutBeaconErrors interface{}
 
     // The number of times the probe detected this station inserting onto the
     // ring. The type is interface{} with range: 0..4294967295.
-    Ringstationinsertions interface{}
+    RingStationInsertions interface{}
 }
 
-func (ringstationentry *TOKENRINGRMONMIB_Ringstationtable_Ringstationentry) GetEntityData() *types.CommonEntityData {
-    ringstationentry.EntityData.YFilter = ringstationentry.YFilter
-    ringstationentry.EntityData.YangName = "ringStationEntry"
-    ringstationentry.EntityData.BundleName = "cisco_ios_xe"
-    ringstationentry.EntityData.ParentYangName = "ringStationTable"
-    ringstationentry.EntityData.SegmentPath = "ringStationEntry" + "[ringStationIfIndex='" + fmt.Sprintf("%v", ringstationentry.Ringstationifindex) + "']" + "[ringStationMacAddress='" + fmt.Sprintf("%v", ringstationentry.Ringstationmacaddress) + "']"
-    ringstationentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ringstationentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ringstationentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ringStationEntry *TOKENRINGRMONMIB_RingStationTable_RingStationEntry) GetEntityData() *types.CommonEntityData {
+    ringStationEntry.EntityData.YFilter = ringStationEntry.YFilter
+    ringStationEntry.EntityData.YangName = "ringStationEntry"
+    ringStationEntry.EntityData.BundleName = "cisco_ios_xe"
+    ringStationEntry.EntityData.ParentYangName = "ringStationTable"
+    ringStationEntry.EntityData.SegmentPath = "ringStationEntry" + types.AddKeyToken(ringStationEntry.RingStationIfIndex, "ringStationIfIndex") + types.AddKeyToken(ringStationEntry.RingStationMacAddress, "ringStationMacAddress")
+    ringStationEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringStationEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringStationEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ringstationentry.EntityData.Children = make(map[string]types.YChild)
-    ringstationentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ringstationentry.EntityData.Leafs["ringStationIfIndex"] = types.YLeaf{"Ringstationifindex", ringstationentry.Ringstationifindex}
-    ringstationentry.EntityData.Leafs["ringStationMacAddress"] = types.YLeaf{"Ringstationmacaddress", ringstationentry.Ringstationmacaddress}
-    ringstationentry.EntityData.Leafs["ringStationLastNAUN"] = types.YLeaf{"Ringstationlastnaun", ringstationentry.Ringstationlastnaun}
-    ringstationentry.EntityData.Leafs["ringStationStationStatus"] = types.YLeaf{"Ringstationstationstatus", ringstationentry.Ringstationstationstatus}
-    ringstationentry.EntityData.Leafs["ringStationLastEnterTime"] = types.YLeaf{"Ringstationlastentertime", ringstationentry.Ringstationlastentertime}
-    ringstationentry.EntityData.Leafs["ringStationLastExitTime"] = types.YLeaf{"Ringstationlastexittime", ringstationentry.Ringstationlastexittime}
-    ringstationentry.EntityData.Leafs["ringStationDuplicateAddresses"] = types.YLeaf{"Ringstationduplicateaddresses", ringstationentry.Ringstationduplicateaddresses}
-    ringstationentry.EntityData.Leafs["ringStationInLineErrors"] = types.YLeaf{"Ringstationinlineerrors", ringstationentry.Ringstationinlineerrors}
-    ringstationentry.EntityData.Leafs["ringStationOutLineErrors"] = types.YLeaf{"Ringstationoutlineerrors", ringstationentry.Ringstationoutlineerrors}
-    ringstationentry.EntityData.Leafs["ringStationInternalErrors"] = types.YLeaf{"Ringstationinternalerrors", ringstationentry.Ringstationinternalerrors}
-    ringstationentry.EntityData.Leafs["ringStationInBurstErrors"] = types.YLeaf{"Ringstationinbursterrors", ringstationentry.Ringstationinbursterrors}
-    ringstationentry.EntityData.Leafs["ringStationOutBurstErrors"] = types.YLeaf{"Ringstationoutbursterrors", ringstationentry.Ringstationoutbursterrors}
-    ringstationentry.EntityData.Leafs["ringStationACErrors"] = types.YLeaf{"Ringstationacerrors", ringstationentry.Ringstationacerrors}
-    ringstationentry.EntityData.Leafs["ringStationAbortErrors"] = types.YLeaf{"Ringstationaborterrors", ringstationentry.Ringstationaborterrors}
-    ringstationentry.EntityData.Leafs["ringStationLostFrameErrors"] = types.YLeaf{"Ringstationlostframeerrors", ringstationentry.Ringstationlostframeerrors}
-    ringstationentry.EntityData.Leafs["ringStationCongestionErrors"] = types.YLeaf{"Ringstationcongestionerrors", ringstationentry.Ringstationcongestionerrors}
-    ringstationentry.EntityData.Leafs["ringStationFrameCopiedErrors"] = types.YLeaf{"Ringstationframecopiederrors", ringstationentry.Ringstationframecopiederrors}
-    ringstationentry.EntityData.Leafs["ringStationFrequencyErrors"] = types.YLeaf{"Ringstationfrequencyerrors", ringstationentry.Ringstationfrequencyerrors}
-    ringstationentry.EntityData.Leafs["ringStationTokenErrors"] = types.YLeaf{"Ringstationtokenerrors", ringstationentry.Ringstationtokenerrors}
-    ringstationentry.EntityData.Leafs["ringStationInBeaconErrors"] = types.YLeaf{"Ringstationinbeaconerrors", ringstationentry.Ringstationinbeaconerrors}
-    ringstationentry.EntityData.Leafs["ringStationOutBeaconErrors"] = types.YLeaf{"Ringstationoutbeaconerrors", ringstationentry.Ringstationoutbeaconerrors}
-    ringstationentry.EntityData.Leafs["ringStationInsertions"] = types.YLeaf{"Ringstationinsertions", ringstationentry.Ringstationinsertions}
-    return &(ringstationentry.EntityData)
+    ringStationEntry.EntityData.Children = types.NewOrderedMap()
+    ringStationEntry.EntityData.Leafs = types.NewOrderedMap()
+    ringStationEntry.EntityData.Leafs.Append("ringStationIfIndex", types.YLeaf{"RingStationIfIndex", ringStationEntry.RingStationIfIndex})
+    ringStationEntry.EntityData.Leafs.Append("ringStationMacAddress", types.YLeaf{"RingStationMacAddress", ringStationEntry.RingStationMacAddress})
+    ringStationEntry.EntityData.Leafs.Append("ringStationLastNAUN", types.YLeaf{"RingStationLastNAUN", ringStationEntry.RingStationLastNAUN})
+    ringStationEntry.EntityData.Leafs.Append("ringStationStationStatus", types.YLeaf{"RingStationStationStatus", ringStationEntry.RingStationStationStatus})
+    ringStationEntry.EntityData.Leafs.Append("ringStationLastEnterTime", types.YLeaf{"RingStationLastEnterTime", ringStationEntry.RingStationLastEnterTime})
+    ringStationEntry.EntityData.Leafs.Append("ringStationLastExitTime", types.YLeaf{"RingStationLastExitTime", ringStationEntry.RingStationLastExitTime})
+    ringStationEntry.EntityData.Leafs.Append("ringStationDuplicateAddresses", types.YLeaf{"RingStationDuplicateAddresses", ringStationEntry.RingStationDuplicateAddresses})
+    ringStationEntry.EntityData.Leafs.Append("ringStationInLineErrors", types.YLeaf{"RingStationInLineErrors", ringStationEntry.RingStationInLineErrors})
+    ringStationEntry.EntityData.Leafs.Append("ringStationOutLineErrors", types.YLeaf{"RingStationOutLineErrors", ringStationEntry.RingStationOutLineErrors})
+    ringStationEntry.EntityData.Leafs.Append("ringStationInternalErrors", types.YLeaf{"RingStationInternalErrors", ringStationEntry.RingStationInternalErrors})
+    ringStationEntry.EntityData.Leafs.Append("ringStationInBurstErrors", types.YLeaf{"RingStationInBurstErrors", ringStationEntry.RingStationInBurstErrors})
+    ringStationEntry.EntityData.Leafs.Append("ringStationOutBurstErrors", types.YLeaf{"RingStationOutBurstErrors", ringStationEntry.RingStationOutBurstErrors})
+    ringStationEntry.EntityData.Leafs.Append("ringStationACErrors", types.YLeaf{"RingStationACErrors", ringStationEntry.RingStationACErrors})
+    ringStationEntry.EntityData.Leafs.Append("ringStationAbortErrors", types.YLeaf{"RingStationAbortErrors", ringStationEntry.RingStationAbortErrors})
+    ringStationEntry.EntityData.Leafs.Append("ringStationLostFrameErrors", types.YLeaf{"RingStationLostFrameErrors", ringStationEntry.RingStationLostFrameErrors})
+    ringStationEntry.EntityData.Leafs.Append("ringStationCongestionErrors", types.YLeaf{"RingStationCongestionErrors", ringStationEntry.RingStationCongestionErrors})
+    ringStationEntry.EntityData.Leafs.Append("ringStationFrameCopiedErrors", types.YLeaf{"RingStationFrameCopiedErrors", ringStationEntry.RingStationFrameCopiedErrors})
+    ringStationEntry.EntityData.Leafs.Append("ringStationFrequencyErrors", types.YLeaf{"RingStationFrequencyErrors", ringStationEntry.RingStationFrequencyErrors})
+    ringStationEntry.EntityData.Leafs.Append("ringStationTokenErrors", types.YLeaf{"RingStationTokenErrors", ringStationEntry.RingStationTokenErrors})
+    ringStationEntry.EntityData.Leafs.Append("ringStationInBeaconErrors", types.YLeaf{"RingStationInBeaconErrors", ringStationEntry.RingStationInBeaconErrors})
+    ringStationEntry.EntityData.Leafs.Append("ringStationOutBeaconErrors", types.YLeaf{"RingStationOutBeaconErrors", ringStationEntry.RingStationOutBeaconErrors})
+    ringStationEntry.EntityData.Leafs.Append("ringStationInsertions", types.YLeaf{"RingStationInsertions", ringStationEntry.RingStationInsertions})
+
+    ringStationEntry.EntityData.YListKeys = []string {"RingStationIfIndex", "RingStationMacAddress"}
+
+    return &(ringStationEntry.EntityData)
 }
 
-// TOKENRINGRMONMIB_Ringstationtable_Ringstationentry_Ringstationstationstatus represents The status of this station on the ring.
-type TOKENRINGRMONMIB_Ringstationtable_Ringstationentry_Ringstationstationstatus string
+// TOKENRINGRMONMIB_RingStationTable_RingStationEntry_RingStationStationStatus represents The status of this station on the ring.
+type TOKENRINGRMONMIB_RingStationTable_RingStationEntry_RingStationStationStatus string
 
 const (
-    TOKENRINGRMONMIB_Ringstationtable_Ringstationentry_Ringstationstationstatus_active TOKENRINGRMONMIB_Ringstationtable_Ringstationentry_Ringstationstationstatus = "active"
+    TOKENRINGRMONMIB_RingStationTable_RingStationEntry_RingStationStationStatus_active TOKENRINGRMONMIB_RingStationTable_RingStationEntry_RingStationStationStatus = "active"
 
-    TOKENRINGRMONMIB_Ringstationtable_Ringstationentry_Ringstationstationstatus_inactive TOKENRINGRMONMIB_Ringstationtable_Ringstationentry_Ringstationstationstatus = "inactive"
+    TOKENRINGRMONMIB_RingStationTable_RingStationEntry_RingStationStationStatus_inactive TOKENRINGRMONMIB_RingStationTable_RingStationEntry_RingStationStationStatus = "inactive"
 
-    TOKENRINGRMONMIB_Ringstationtable_Ringstationentry_Ringstationstationstatus_forcedRemoval TOKENRINGRMONMIB_Ringstationtable_Ringstationentry_Ringstationstationstatus = "forcedRemoval"
+    TOKENRINGRMONMIB_RingStationTable_RingStationEntry_RingStationStationStatus_forcedRemoval TOKENRINGRMONMIB_RingStationTable_RingStationEntry_RingStationStationStatus = "forcedRemoval"
 )
 
-// TOKENRINGRMONMIB_Ringstationordertable
+// TOKENRINGRMONMIB_RingStationOrderTable
 // A list of ring station entries for stations in
 // the ring poll, ordered by their ring-order.
-type TOKENRINGRMONMIB_Ringstationordertable struct {
+type TOKENRINGRMONMIB_RingStationOrderTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1310,30 +1349,33 @@ type TOKENRINGRMONMIB_Ringstationordertable struct {
     // a ring monitored by this device.  This table will contain information for
     // every interface that has a ringStationControlStatus equal to valid. The
     // type is slice of
-    // TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry.
-    Ringstationorderentry []TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry
+    // TOKENRINGRMONMIB_RingStationOrderTable_RingStationOrderEntry.
+    RingStationOrderEntry []*TOKENRINGRMONMIB_RingStationOrderTable_RingStationOrderEntry
 }
 
-func (ringstationordertable *TOKENRINGRMONMIB_Ringstationordertable) GetEntityData() *types.CommonEntityData {
-    ringstationordertable.EntityData.YFilter = ringstationordertable.YFilter
-    ringstationordertable.EntityData.YangName = "ringStationOrderTable"
-    ringstationordertable.EntityData.BundleName = "cisco_ios_xe"
-    ringstationordertable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
-    ringstationordertable.EntityData.SegmentPath = "ringStationOrderTable"
-    ringstationordertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ringstationordertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ringstationordertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ringStationOrderTable *TOKENRINGRMONMIB_RingStationOrderTable) GetEntityData() *types.CommonEntityData {
+    ringStationOrderTable.EntityData.YFilter = ringStationOrderTable.YFilter
+    ringStationOrderTable.EntityData.YangName = "ringStationOrderTable"
+    ringStationOrderTable.EntityData.BundleName = "cisco_ios_xe"
+    ringStationOrderTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    ringStationOrderTable.EntityData.SegmentPath = "ringStationOrderTable"
+    ringStationOrderTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringStationOrderTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringStationOrderTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ringstationordertable.EntityData.Children = make(map[string]types.YChild)
-    ringstationordertable.EntityData.Children["ringStationOrderEntry"] = types.YChild{"Ringstationorderentry", nil}
-    for i := range ringstationordertable.Ringstationorderentry {
-        ringstationordertable.EntityData.Children[types.GetSegmentPath(&ringstationordertable.Ringstationorderentry[i])] = types.YChild{"Ringstationorderentry", &ringstationordertable.Ringstationorderentry[i]}
+    ringStationOrderTable.EntityData.Children = types.NewOrderedMap()
+    ringStationOrderTable.EntityData.Children.Append("ringStationOrderEntry", types.YChild{"RingStationOrderEntry", nil})
+    for i := range ringStationOrderTable.RingStationOrderEntry {
+        ringStationOrderTable.EntityData.Children.Append(types.GetSegmentPath(ringStationOrderTable.RingStationOrderEntry[i]), types.YChild{"RingStationOrderEntry", ringStationOrderTable.RingStationOrderEntry[i]})
     }
-    ringstationordertable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ringstationordertable.EntityData)
+    ringStationOrderTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ringStationOrderTable.EntityData.YListKeys = []string {}
+
+    return &(ringStationOrderTable.EntityData)
 }
 
-// TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry
+// TOKENRINGRMONMIB_RingStationOrderTable_RingStationOrderEntry
 // A collection of statistics for a particular
 // 
 // 
@@ -1344,7 +1386,7 @@ func (ringstationordertable *TOKENRINGRMONMIB_Ringstationordertable) GetEntityDa
 // device.  This table will contain information for
 // every interface that has a
 // ringStationControlStatus equal to valid.
-type TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry struct {
+type TOKENRINGRMONMIB_RingStationOrderTable_RingStationOrderEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1354,75 +1396,81 @@ type TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry struct {
     // object is the same interface as identified by the same value of the ifIndex
     // object, defined in MIB-II [3]. The type is interface{} with range:
     // -2147483648..2147483647.
-    Ringstationorderifindex interface{}
+    RingStationOrderIfIndex interface{}
 
     // This attribute is a key. This index denotes the location of this station
     // with respect to other stations on the ring.  This index is one more than
     // the number of hops downstream that this station is from the rmon probe. 
     // The rmon probe itself gets the value one. The type is interface{} with
     // range: -2147483648..2147483647.
-    Ringstationorderorderindex interface{}
+    RingStationOrderOrderIndex interface{}
 
     // The physical address of this station. The type is string with length: 6.
-    Ringstationordermacaddress interface{}
+    RingStationOrderMacAddress interface{}
 }
 
-func (ringstationorderentry *TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry) GetEntityData() *types.CommonEntityData {
-    ringstationorderentry.EntityData.YFilter = ringstationorderentry.YFilter
-    ringstationorderentry.EntityData.YangName = "ringStationOrderEntry"
-    ringstationorderentry.EntityData.BundleName = "cisco_ios_xe"
-    ringstationorderentry.EntityData.ParentYangName = "ringStationOrderTable"
-    ringstationorderentry.EntityData.SegmentPath = "ringStationOrderEntry" + "[ringStationOrderIfIndex='" + fmt.Sprintf("%v", ringstationorderentry.Ringstationorderifindex) + "']" + "[ringStationOrderOrderIndex='" + fmt.Sprintf("%v", ringstationorderentry.Ringstationorderorderindex) + "']"
-    ringstationorderentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ringstationorderentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ringstationorderentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ringStationOrderEntry *TOKENRINGRMONMIB_RingStationOrderTable_RingStationOrderEntry) GetEntityData() *types.CommonEntityData {
+    ringStationOrderEntry.EntityData.YFilter = ringStationOrderEntry.YFilter
+    ringStationOrderEntry.EntityData.YangName = "ringStationOrderEntry"
+    ringStationOrderEntry.EntityData.BundleName = "cisco_ios_xe"
+    ringStationOrderEntry.EntityData.ParentYangName = "ringStationOrderTable"
+    ringStationOrderEntry.EntityData.SegmentPath = "ringStationOrderEntry" + types.AddKeyToken(ringStationOrderEntry.RingStationOrderIfIndex, "ringStationOrderIfIndex") + types.AddKeyToken(ringStationOrderEntry.RingStationOrderOrderIndex, "ringStationOrderOrderIndex")
+    ringStationOrderEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringStationOrderEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringStationOrderEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ringstationorderentry.EntityData.Children = make(map[string]types.YChild)
-    ringstationorderentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ringstationorderentry.EntityData.Leafs["ringStationOrderIfIndex"] = types.YLeaf{"Ringstationorderifindex", ringstationorderentry.Ringstationorderifindex}
-    ringstationorderentry.EntityData.Leafs["ringStationOrderOrderIndex"] = types.YLeaf{"Ringstationorderorderindex", ringstationorderentry.Ringstationorderorderindex}
-    ringstationorderentry.EntityData.Leafs["ringStationOrderMacAddress"] = types.YLeaf{"Ringstationordermacaddress", ringstationorderentry.Ringstationordermacaddress}
-    return &(ringstationorderentry.EntityData)
+    ringStationOrderEntry.EntityData.Children = types.NewOrderedMap()
+    ringStationOrderEntry.EntityData.Leafs = types.NewOrderedMap()
+    ringStationOrderEntry.EntityData.Leafs.Append("ringStationOrderIfIndex", types.YLeaf{"RingStationOrderIfIndex", ringStationOrderEntry.RingStationOrderIfIndex})
+    ringStationOrderEntry.EntityData.Leafs.Append("ringStationOrderOrderIndex", types.YLeaf{"RingStationOrderOrderIndex", ringStationOrderEntry.RingStationOrderOrderIndex})
+    ringStationOrderEntry.EntityData.Leafs.Append("ringStationOrderMacAddress", types.YLeaf{"RingStationOrderMacAddress", ringStationOrderEntry.RingStationOrderMacAddress})
+
+    ringStationOrderEntry.EntityData.YListKeys = []string {"RingStationOrderIfIndex", "RingStationOrderOrderIndex"}
+
+    return &(ringStationOrderEntry.EntityData)
 }
 
-// TOKENRINGRMONMIB_Ringstationconfigcontroltable
+// TOKENRINGRMONMIB_RingStationConfigControlTable
 // A list of ring station configuration control
 // entries.
-type TOKENRINGRMONMIB_Ringstationconfigcontroltable struct {
+type TOKENRINGRMONMIB_RingStationConfigControlTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This entry controls active management of stations by the probe.  One entry
     // exists in this table for each active station in the ringStationTable. The
     // type is slice of
-    // TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry.
-    Ringstationconfigcontrolentry []TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry
+    // TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntry.
+    RingStationConfigControlEntry []*TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntry
 }
 
-func (ringstationconfigcontroltable *TOKENRINGRMONMIB_Ringstationconfigcontroltable) GetEntityData() *types.CommonEntityData {
-    ringstationconfigcontroltable.EntityData.YFilter = ringstationconfigcontroltable.YFilter
-    ringstationconfigcontroltable.EntityData.YangName = "ringStationConfigControlTable"
-    ringstationconfigcontroltable.EntityData.BundleName = "cisco_ios_xe"
-    ringstationconfigcontroltable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
-    ringstationconfigcontroltable.EntityData.SegmentPath = "ringStationConfigControlTable"
-    ringstationconfigcontroltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ringstationconfigcontroltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ringstationconfigcontroltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ringStationConfigControlTable *TOKENRINGRMONMIB_RingStationConfigControlTable) GetEntityData() *types.CommonEntityData {
+    ringStationConfigControlTable.EntityData.YFilter = ringStationConfigControlTable.YFilter
+    ringStationConfigControlTable.EntityData.YangName = "ringStationConfigControlTable"
+    ringStationConfigControlTable.EntityData.BundleName = "cisco_ios_xe"
+    ringStationConfigControlTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    ringStationConfigControlTable.EntityData.SegmentPath = "ringStationConfigControlTable"
+    ringStationConfigControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringStationConfigControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringStationConfigControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ringstationconfigcontroltable.EntityData.Children = make(map[string]types.YChild)
-    ringstationconfigcontroltable.EntityData.Children["ringStationConfigControlEntry"] = types.YChild{"Ringstationconfigcontrolentry", nil}
-    for i := range ringstationconfigcontroltable.Ringstationconfigcontrolentry {
-        ringstationconfigcontroltable.EntityData.Children[types.GetSegmentPath(&ringstationconfigcontroltable.Ringstationconfigcontrolentry[i])] = types.YChild{"Ringstationconfigcontrolentry", &ringstationconfigcontroltable.Ringstationconfigcontrolentry[i]}
+    ringStationConfigControlTable.EntityData.Children = types.NewOrderedMap()
+    ringStationConfigControlTable.EntityData.Children.Append("ringStationConfigControlEntry", types.YChild{"RingStationConfigControlEntry", nil})
+    for i := range ringStationConfigControlTable.RingStationConfigControlEntry {
+        ringStationConfigControlTable.EntityData.Children.Append(types.GetSegmentPath(ringStationConfigControlTable.RingStationConfigControlEntry[i]), types.YChild{"RingStationConfigControlEntry", ringStationConfigControlTable.RingStationConfigControlEntry[i]})
     }
-    ringstationconfigcontroltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ringstationconfigcontroltable.EntityData)
+    ringStationConfigControlTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ringStationConfigControlTable.EntityData.YListKeys = []string {}
+
+    return &(ringStationConfigControlTable.EntityData)
 }
 
-// TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry
+// TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntry
 // This entry controls active management of stations
 // by the probe.  One entry exists in this table for
 // each active station in the ringStationTable.
-type TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry struct {
+type TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1432,98 +1480,104 @@ type TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentr
     // object is the same interface as identified by the same value of the ifIndex
     // object, defined in MIB-II [3]. The type is interface{} with range:
     // -2147483648..2147483647.
-    Ringstationconfigcontrolifindex interface{}
+    RingStationConfigControlIfIndex interface{}
 
     // This attribute is a key. The physical address of this station. The type is
     // string with length: 6.
-    Ringstationconfigcontrolmacaddress interface{}
+    RingStationConfigControlMacAddress interface{}
 
     // Setting this object to `removing(2)' causes a Remove Station MAC frame to
     // be sent.  The agent will set this object to `stable(1)' after processing
-    // the request. The type is Ringstationconfigcontrolremove.
-    Ringstationconfigcontrolremove interface{}
+    // the request. The type is RingStationConfigControlRemove.
+    RingStationConfigControlRemove interface{}
 
     // Setting this object to `updating(2)' causes the configuration information
     // associate with this entry to be updated.  The agent will set this object to
     // `stable(1)' after processing the request. The type is
-    // Ringstationconfigcontrolupdatestats.
-    Ringstationconfigcontrolupdatestats interface{}
+    // RingStationConfigControlUpdateStats.
+    RingStationConfigControlUpdateStats interface{}
 }
 
-func (ringstationconfigcontrolentry *TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry) GetEntityData() *types.CommonEntityData {
-    ringstationconfigcontrolentry.EntityData.YFilter = ringstationconfigcontrolentry.YFilter
-    ringstationconfigcontrolentry.EntityData.YangName = "ringStationConfigControlEntry"
-    ringstationconfigcontrolentry.EntityData.BundleName = "cisco_ios_xe"
-    ringstationconfigcontrolentry.EntityData.ParentYangName = "ringStationConfigControlTable"
-    ringstationconfigcontrolentry.EntityData.SegmentPath = "ringStationConfigControlEntry" + "[ringStationConfigControlIfIndex='" + fmt.Sprintf("%v", ringstationconfigcontrolentry.Ringstationconfigcontrolifindex) + "']" + "[ringStationConfigControlMacAddress='" + fmt.Sprintf("%v", ringstationconfigcontrolentry.Ringstationconfigcontrolmacaddress) + "']"
-    ringstationconfigcontrolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ringstationconfigcontrolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ringstationconfigcontrolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ringStationConfigControlEntry *TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntry) GetEntityData() *types.CommonEntityData {
+    ringStationConfigControlEntry.EntityData.YFilter = ringStationConfigControlEntry.YFilter
+    ringStationConfigControlEntry.EntityData.YangName = "ringStationConfigControlEntry"
+    ringStationConfigControlEntry.EntityData.BundleName = "cisco_ios_xe"
+    ringStationConfigControlEntry.EntityData.ParentYangName = "ringStationConfigControlTable"
+    ringStationConfigControlEntry.EntityData.SegmentPath = "ringStationConfigControlEntry" + types.AddKeyToken(ringStationConfigControlEntry.RingStationConfigControlIfIndex, "ringStationConfigControlIfIndex") + types.AddKeyToken(ringStationConfigControlEntry.RingStationConfigControlMacAddress, "ringStationConfigControlMacAddress")
+    ringStationConfigControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringStationConfigControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringStationConfigControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ringstationconfigcontrolentry.EntityData.Children = make(map[string]types.YChild)
-    ringstationconfigcontrolentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ringstationconfigcontrolentry.EntityData.Leafs["ringStationConfigControlIfIndex"] = types.YLeaf{"Ringstationconfigcontrolifindex", ringstationconfigcontrolentry.Ringstationconfigcontrolifindex}
-    ringstationconfigcontrolentry.EntityData.Leafs["ringStationConfigControlMacAddress"] = types.YLeaf{"Ringstationconfigcontrolmacaddress", ringstationconfigcontrolentry.Ringstationconfigcontrolmacaddress}
-    ringstationconfigcontrolentry.EntityData.Leafs["ringStationConfigControlRemove"] = types.YLeaf{"Ringstationconfigcontrolremove", ringstationconfigcontrolentry.Ringstationconfigcontrolremove}
-    ringstationconfigcontrolentry.EntityData.Leafs["ringStationConfigControlUpdateStats"] = types.YLeaf{"Ringstationconfigcontrolupdatestats", ringstationconfigcontrolentry.Ringstationconfigcontrolupdatestats}
-    return &(ringstationconfigcontrolentry.EntityData)
+    ringStationConfigControlEntry.EntityData.Children = types.NewOrderedMap()
+    ringStationConfigControlEntry.EntityData.Leafs = types.NewOrderedMap()
+    ringStationConfigControlEntry.EntityData.Leafs.Append("ringStationConfigControlIfIndex", types.YLeaf{"RingStationConfigControlIfIndex", ringStationConfigControlEntry.RingStationConfigControlIfIndex})
+    ringStationConfigControlEntry.EntityData.Leafs.Append("ringStationConfigControlMacAddress", types.YLeaf{"RingStationConfigControlMacAddress", ringStationConfigControlEntry.RingStationConfigControlMacAddress})
+    ringStationConfigControlEntry.EntityData.Leafs.Append("ringStationConfigControlRemove", types.YLeaf{"RingStationConfigControlRemove", ringStationConfigControlEntry.RingStationConfigControlRemove})
+    ringStationConfigControlEntry.EntityData.Leafs.Append("ringStationConfigControlUpdateStats", types.YLeaf{"RingStationConfigControlUpdateStats", ringStationConfigControlEntry.RingStationConfigControlUpdateStats})
+
+    ringStationConfigControlEntry.EntityData.YListKeys = []string {"RingStationConfigControlIfIndex", "RingStationConfigControlMacAddress"}
+
+    return &(ringStationConfigControlEntry.EntityData)
 }
 
-// TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry_Ringstationconfigcontrolremove represents processing the request.
-type TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry_Ringstationconfigcontrolremove string
+// TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntry_RingStationConfigControlRemove represents processing the request.
+type TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntry_RingStationConfigControlRemove string
 
 const (
-    TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry_Ringstationconfigcontrolremove_stable TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry_Ringstationconfigcontrolremove = "stable"
+    TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntry_RingStationConfigControlRemove_stable TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntry_RingStationConfigControlRemove = "stable"
 
-    TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry_Ringstationconfigcontrolremove_removing TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry_Ringstationconfigcontrolremove = "removing"
+    TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntry_RingStationConfigControlRemove_removing TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntry_RingStationConfigControlRemove = "removing"
 )
 
-// TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry_Ringstationconfigcontrolupdatestats represents request.
-type TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry_Ringstationconfigcontrolupdatestats string
+// TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntry_RingStationConfigControlUpdateStats represents request.
+type TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntry_RingStationConfigControlUpdateStats string
 
 const (
-    TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry_Ringstationconfigcontrolupdatestats_stable TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry_Ringstationconfigcontrolupdatestats = "stable"
+    TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntry_RingStationConfigControlUpdateStats_stable TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntry_RingStationConfigControlUpdateStats = "stable"
 
-    TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry_Ringstationconfigcontrolupdatestats_updating TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry_Ringstationconfigcontrolupdatestats = "updating"
+    TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntry_RingStationConfigControlUpdateStats_updating TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntry_RingStationConfigControlUpdateStats = "updating"
 )
 
-// TOKENRINGRMONMIB_Ringstationconfigtable
+// TOKENRINGRMONMIB_RingStationConfigTable
 // A list of configuration entries for stations on a
 // ring monitored by this probe.
-type TOKENRINGRMONMIB_Ringstationconfigtable struct {
+type TOKENRINGRMONMIB_RingStationConfigTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of statistics for a particular station that has been
     // discovered on a ring monitored by this probe. The type is slice of
-    // TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry.
-    Ringstationconfigentry []TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry
+    // TOKENRINGRMONMIB_RingStationConfigTable_RingStationConfigEntry.
+    RingStationConfigEntry []*TOKENRINGRMONMIB_RingStationConfigTable_RingStationConfigEntry
 }
 
-func (ringstationconfigtable *TOKENRINGRMONMIB_Ringstationconfigtable) GetEntityData() *types.CommonEntityData {
-    ringstationconfigtable.EntityData.YFilter = ringstationconfigtable.YFilter
-    ringstationconfigtable.EntityData.YangName = "ringStationConfigTable"
-    ringstationconfigtable.EntityData.BundleName = "cisco_ios_xe"
-    ringstationconfigtable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
-    ringstationconfigtable.EntityData.SegmentPath = "ringStationConfigTable"
-    ringstationconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ringstationconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ringstationconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ringStationConfigTable *TOKENRINGRMONMIB_RingStationConfigTable) GetEntityData() *types.CommonEntityData {
+    ringStationConfigTable.EntityData.YFilter = ringStationConfigTable.YFilter
+    ringStationConfigTable.EntityData.YangName = "ringStationConfigTable"
+    ringStationConfigTable.EntityData.BundleName = "cisco_ios_xe"
+    ringStationConfigTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    ringStationConfigTable.EntityData.SegmentPath = "ringStationConfigTable"
+    ringStationConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringStationConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringStationConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ringstationconfigtable.EntityData.Children = make(map[string]types.YChild)
-    ringstationconfigtable.EntityData.Children["ringStationConfigEntry"] = types.YChild{"Ringstationconfigentry", nil}
-    for i := range ringstationconfigtable.Ringstationconfigentry {
-        ringstationconfigtable.EntityData.Children[types.GetSegmentPath(&ringstationconfigtable.Ringstationconfigentry[i])] = types.YChild{"Ringstationconfigentry", &ringstationconfigtable.Ringstationconfigentry[i]}
+    ringStationConfigTable.EntityData.Children = types.NewOrderedMap()
+    ringStationConfigTable.EntityData.Children.Append("ringStationConfigEntry", types.YChild{"RingStationConfigEntry", nil})
+    for i := range ringStationConfigTable.RingStationConfigEntry {
+        ringStationConfigTable.EntityData.Children.Append(types.GetSegmentPath(ringStationConfigTable.RingStationConfigEntry[i]), types.YChild{"RingStationConfigEntry", ringStationConfigTable.RingStationConfigEntry[i]})
     }
-    ringstationconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ringstationconfigtable.EntityData)
+    ringStationConfigTable.EntityData.Leafs = types.NewOrderedMap()
+
+    ringStationConfigTable.EntityData.YListKeys = []string {}
+
+    return &(ringStationConfigTable.EntityData)
 }
 
-// TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry
+// TOKENRINGRMONMIB_RingStationConfigTable_RingStationConfigEntry
 // A collection of statistics for a particular
 // station that has been discovered on a ring
 // monitored by this probe.
-type TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry struct {
+type TOKENRINGRMONMIB_RingStationConfigTable_RingStationConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1533,89 +1587,95 @@ type TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry struct {
     // object is the same interface as identified by the same value of the ifIndex
     // object, defined in MIB-II [3]. The type is interface{} with range:
     // -2147483648..2147483647.
-    Ringstationconfigifindex interface{}
+    RingStationConfigIfIndex interface{}
 
     // This attribute is a key. The physical address of this station. The type is
     // string with length: 6.
-    Ringstationconfigmacaddress interface{}
+    RingStationConfigMacAddress interface{}
 
     // The value of sysUpTime at the time this configuration information was last
     // updated (completely). The type is interface{} with range: 0..4294967295.
-    Ringstationconfigupdatetime interface{}
+    RingStationConfigUpdateTime interface{}
 
     // The assigned physical location of this station. The type is string with
     // length: 4.
-    Ringstationconfiglocation interface{}
+    RingStationConfigLocation interface{}
 
     // The microcode EC level of this station. The type is string with length: 10.
-    Ringstationconfigmicrocode interface{}
+    RingStationConfigMicrocode interface{}
 
     // The low-order 4 octets of the group address recognized by this station. The
     // type is string with length: 4.
-    Ringstationconfiggroupaddress interface{}
+    RingStationConfigGroupAddress interface{}
 
     // the functional addresses recognized by this station. The type is string
     // with length: 4.
-    Ringstationconfigfunctionaladdress interface{}
+    RingStationConfigFunctionalAddress interface{}
 }
 
-func (ringstationconfigentry *TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry) GetEntityData() *types.CommonEntityData {
-    ringstationconfigentry.EntityData.YFilter = ringstationconfigentry.YFilter
-    ringstationconfigentry.EntityData.YangName = "ringStationConfigEntry"
-    ringstationconfigentry.EntityData.BundleName = "cisco_ios_xe"
-    ringstationconfigentry.EntityData.ParentYangName = "ringStationConfigTable"
-    ringstationconfigentry.EntityData.SegmentPath = "ringStationConfigEntry" + "[ringStationConfigIfIndex='" + fmt.Sprintf("%v", ringstationconfigentry.Ringstationconfigifindex) + "']" + "[ringStationConfigMacAddress='" + fmt.Sprintf("%v", ringstationconfigentry.Ringstationconfigmacaddress) + "']"
-    ringstationconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ringstationconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ringstationconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (ringStationConfigEntry *TOKENRINGRMONMIB_RingStationConfigTable_RingStationConfigEntry) GetEntityData() *types.CommonEntityData {
+    ringStationConfigEntry.EntityData.YFilter = ringStationConfigEntry.YFilter
+    ringStationConfigEntry.EntityData.YangName = "ringStationConfigEntry"
+    ringStationConfigEntry.EntityData.BundleName = "cisco_ios_xe"
+    ringStationConfigEntry.EntityData.ParentYangName = "ringStationConfigTable"
+    ringStationConfigEntry.EntityData.SegmentPath = "ringStationConfigEntry" + types.AddKeyToken(ringStationConfigEntry.RingStationConfigIfIndex, "ringStationConfigIfIndex") + types.AddKeyToken(ringStationConfigEntry.RingStationConfigMacAddress, "ringStationConfigMacAddress")
+    ringStationConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringStationConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringStationConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ringstationconfigentry.EntityData.Children = make(map[string]types.YChild)
-    ringstationconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ringstationconfigentry.EntityData.Leafs["ringStationConfigIfIndex"] = types.YLeaf{"Ringstationconfigifindex", ringstationconfigentry.Ringstationconfigifindex}
-    ringstationconfigentry.EntityData.Leafs["ringStationConfigMacAddress"] = types.YLeaf{"Ringstationconfigmacaddress", ringstationconfigentry.Ringstationconfigmacaddress}
-    ringstationconfigentry.EntityData.Leafs["ringStationConfigUpdateTime"] = types.YLeaf{"Ringstationconfigupdatetime", ringstationconfigentry.Ringstationconfigupdatetime}
-    ringstationconfigentry.EntityData.Leafs["ringStationConfigLocation"] = types.YLeaf{"Ringstationconfiglocation", ringstationconfigentry.Ringstationconfiglocation}
-    ringstationconfigentry.EntityData.Leafs["ringStationConfigMicrocode"] = types.YLeaf{"Ringstationconfigmicrocode", ringstationconfigentry.Ringstationconfigmicrocode}
-    ringstationconfigentry.EntityData.Leafs["ringStationConfigGroupAddress"] = types.YLeaf{"Ringstationconfiggroupaddress", ringstationconfigentry.Ringstationconfiggroupaddress}
-    ringstationconfigentry.EntityData.Leafs["ringStationConfigFunctionalAddress"] = types.YLeaf{"Ringstationconfigfunctionaladdress", ringstationconfigentry.Ringstationconfigfunctionaladdress}
-    return &(ringstationconfigentry.EntityData)
+    ringStationConfigEntry.EntityData.Children = types.NewOrderedMap()
+    ringStationConfigEntry.EntityData.Leafs = types.NewOrderedMap()
+    ringStationConfigEntry.EntityData.Leafs.Append("ringStationConfigIfIndex", types.YLeaf{"RingStationConfigIfIndex", ringStationConfigEntry.RingStationConfigIfIndex})
+    ringStationConfigEntry.EntityData.Leafs.Append("ringStationConfigMacAddress", types.YLeaf{"RingStationConfigMacAddress", ringStationConfigEntry.RingStationConfigMacAddress})
+    ringStationConfigEntry.EntityData.Leafs.Append("ringStationConfigUpdateTime", types.YLeaf{"RingStationConfigUpdateTime", ringStationConfigEntry.RingStationConfigUpdateTime})
+    ringStationConfigEntry.EntityData.Leafs.Append("ringStationConfigLocation", types.YLeaf{"RingStationConfigLocation", ringStationConfigEntry.RingStationConfigLocation})
+    ringStationConfigEntry.EntityData.Leafs.Append("ringStationConfigMicrocode", types.YLeaf{"RingStationConfigMicrocode", ringStationConfigEntry.RingStationConfigMicrocode})
+    ringStationConfigEntry.EntityData.Leafs.Append("ringStationConfigGroupAddress", types.YLeaf{"RingStationConfigGroupAddress", ringStationConfigEntry.RingStationConfigGroupAddress})
+    ringStationConfigEntry.EntityData.Leafs.Append("ringStationConfigFunctionalAddress", types.YLeaf{"RingStationConfigFunctionalAddress", ringStationConfigEntry.RingStationConfigFunctionalAddress})
+
+    ringStationConfigEntry.EntityData.YListKeys = []string {"RingStationConfigIfIndex", "RingStationConfigMacAddress"}
+
+    return &(ringStationConfigEntry.EntityData)
 }
 
-// TOKENRINGRMONMIB_Sourceroutingstatstable
+// TOKENRINGRMONMIB_SourceRoutingStatsTable
 // A list of source routing statistics entries.
-type TOKENRINGRMONMIB_Sourceroutingstatstable struct {
+type TOKENRINGRMONMIB_SourceRoutingStatsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of source routing statistics kept for a particular Token Ring
     // interface. The type is slice of
-    // TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry.
-    Sourceroutingstatsentry []TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry
+    // TOKENRINGRMONMIB_SourceRoutingStatsTable_SourceRoutingStatsEntry.
+    SourceRoutingStatsEntry []*TOKENRINGRMONMIB_SourceRoutingStatsTable_SourceRoutingStatsEntry
 }
 
-func (sourceroutingstatstable *TOKENRINGRMONMIB_Sourceroutingstatstable) GetEntityData() *types.CommonEntityData {
-    sourceroutingstatstable.EntityData.YFilter = sourceroutingstatstable.YFilter
-    sourceroutingstatstable.EntityData.YangName = "sourceRoutingStatsTable"
-    sourceroutingstatstable.EntityData.BundleName = "cisco_ios_xe"
-    sourceroutingstatstable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
-    sourceroutingstatstable.EntityData.SegmentPath = "sourceRoutingStatsTable"
-    sourceroutingstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sourceroutingstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sourceroutingstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sourceRoutingStatsTable *TOKENRINGRMONMIB_SourceRoutingStatsTable) GetEntityData() *types.CommonEntityData {
+    sourceRoutingStatsTable.EntityData.YFilter = sourceRoutingStatsTable.YFilter
+    sourceRoutingStatsTable.EntityData.YangName = "sourceRoutingStatsTable"
+    sourceRoutingStatsTable.EntityData.BundleName = "cisco_ios_xe"
+    sourceRoutingStatsTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    sourceRoutingStatsTable.EntityData.SegmentPath = "sourceRoutingStatsTable"
+    sourceRoutingStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sourceRoutingStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sourceRoutingStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sourceroutingstatstable.EntityData.Children = make(map[string]types.YChild)
-    sourceroutingstatstable.EntityData.Children["sourceRoutingStatsEntry"] = types.YChild{"Sourceroutingstatsentry", nil}
-    for i := range sourceroutingstatstable.Sourceroutingstatsentry {
-        sourceroutingstatstable.EntityData.Children[types.GetSegmentPath(&sourceroutingstatstable.Sourceroutingstatsentry[i])] = types.YChild{"Sourceroutingstatsentry", &sourceroutingstatstable.Sourceroutingstatsentry[i]}
+    sourceRoutingStatsTable.EntityData.Children = types.NewOrderedMap()
+    sourceRoutingStatsTable.EntityData.Children.Append("sourceRoutingStatsEntry", types.YChild{"SourceRoutingStatsEntry", nil})
+    for i := range sourceRoutingStatsTable.SourceRoutingStatsEntry {
+        sourceRoutingStatsTable.EntityData.Children.Append(types.GetSegmentPath(sourceRoutingStatsTable.SourceRoutingStatsEntry[i]), types.YChild{"SourceRoutingStatsEntry", sourceRoutingStatsTable.SourceRoutingStatsEntry[i]})
     }
-    sourceroutingstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(sourceroutingstatstable.EntityData)
+    sourceRoutingStatsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    sourceRoutingStatsTable.EntityData.YListKeys = []string {}
+
+    return &(sourceRoutingStatsTable.EntityData)
 }
 
-// TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry
+// TOKENRINGRMONMIB_SourceRoutingStatsTable_SourceRoutingStatsEntry
 // A collection of source routing statistics kept
 // for a particular Token Ring interface.
-type TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry struct {
+type TOKENRINGRMONMIB_SourceRoutingStatsTable_SourceRoutingStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1625,7 +1685,7 @@ type TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry struct {
     // value of this object is the same interface as identified by the same value
     // of the ifIndex object, defined in MIB-II [3]. The type is interface{} with
     // range: -2147483648..2147483647.
-    Sourceroutingstatsifindex interface{}
+    SourceRoutingStatsIfIndex interface{}
 
     // The ring number of the ring monitored by this entry.  When any object in
     // this entry is created, the probe will attempt to discover the ring number. 
@@ -1634,122 +1694,122 @@ type TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry struct {
     // this object to detect when it is created.  Only after this object is
     // created can the management station set the sourceRoutingStatsStatus entry
     // to valid(1). The type is interface{} with range: -2147483648..2147483647.
-    Sourceroutingstatsringnumber interface{}
+    SourceRoutingStatsRingNumber interface{}
 
     // The count of frames sent into this ring from another ring. The type is
     // interface{} with range: 0..4294967295.
-    Sourceroutingstatsinframes interface{}
+    SourceRoutingStatsInFrames interface{}
 
     // The count of frames sent from this ring to another ring. The type is
     // interface{} with range: 0..4294967295.
-    Sourceroutingstatsoutframes interface{}
+    SourceRoutingStatsOutFrames interface{}
 
     // The count of frames sent from another ring, through this ring, to another
     // ring. The type is interface{} with range: 0..4294967295.
-    Sourceroutingstatsthroughframes interface{}
+    SourceRoutingStatsThroughFrames interface{}
 
     // The total number of good frames received that were All Routes Broadcast.
     // The type is interface{} with range: 0..4294967295.
-    Sourceroutingstatsallroutesbroadcastframes interface{}
+    SourceRoutingStatsAllRoutesBroadcastFrames interface{}
 
     // The total number of good frames received that were Single Route Broadcast.
     // The type is interface{} with range: 0..4294967295.
-    Sourceroutingstatssingleroutebroadcastframes interface{}
+    SourceRoutingStatsSingleRouteBroadcastFrames interface{}
 
     // The count of octets in good frames sent into this ring from another ring.
     // The type is interface{} with range: 0..4294967295.
-    Sourceroutingstatsinoctets interface{}
+    SourceRoutingStatsInOctets interface{}
 
     // The count of octets in good frames sent from this ring to another ring. The
     // type is interface{} with range: 0..4294967295.
-    Sourceroutingstatsoutoctets interface{}
+    SourceRoutingStatsOutOctets interface{}
 
     // The count of octets in good frames sent another ring, through this ring, to
     // another ring. The type is interface{} with range: 0..4294967295.
-    Sourceroutingstatsthroughoctets interface{}
+    SourceRoutingStatsThroughOctets interface{}
 
     // The total number of octets in good frames received that were All Routes
     // Broadcast. The type is interface{} with range: 0..4294967295.
-    Sourceroutingstatsallroutesbroadcastoctets interface{}
+    SourceRoutingStatsAllRoutesBroadcastOctets interface{}
 
     // The total number of octets in good frames received that were Single Route
     // Broadcast. The type is interface{} with range: 0..4294967295.
-    Sourceroutingstatssingleroutesbroadcastoctets interface{}
+    SourceRoutingStatsSingleRoutesBroadcastOctets interface{}
 
     // The total number of frames received who had no RIF field (or had a RIF
     // field that only included the local ring's number) and were not All Route
     // Broadcast Frames. The type is interface{} with range: 0..4294967295.
-    Sourceroutingstatslocalllcframes interface{}
+    SourceRoutingStatsLocalLLCFrames interface{}
 
     // The total number of frames received whose route had 1 hop, were not All
     // Route Broadcast Frames, and whose source or destination were on this ring
     // (i.e. frames that had a RIF field and had this ring number in the first or
     // last entry of the RIF field). The type is interface{} with range:
     // 0..4294967295.
-    Sourceroutingstats1Hopframes interface{}
+    SourceRoutingStats1HopFrames interface{}
 
     // The total number of frames received whose route had 2 hops, were not All
     // Route Broadcast Frames, and whose source or destination were on this ring
     // (i.e. frames that had a RIF field and had this ring number in the first or
     // last entry of the RIF field). The type is interface{} with range:
     // 0..4294967295.
-    Sourceroutingstats2Hopsframes interface{}
+    SourceRoutingStats2HopsFrames interface{}
 
     // The total number of frames received whose route had 3 hops, were not All
     // Route Broadcast Frames, and whose source or destination were on this ring
     // (i.e. frames that had a RIF field and had this ring number in the first or
     // last entry of the RIF field). The type is interface{} with range:
     // 0..4294967295.
-    Sourceroutingstats3Hopsframes interface{}
+    SourceRoutingStats3HopsFrames interface{}
 
     // The total number of frames received whose route had 4 hops, were not All
     // Route Broadcast Frames, and whose source or destination were on this ring
     // (i.e. frames that had a RIF field and had this ring number in the first or
     // last entry of the RIF field). The type is interface{} with range:
     // 0..4294967295.
-    Sourceroutingstats4Hopsframes interface{}
+    SourceRoutingStats4HopsFrames interface{}
 
     // The total number of frames received whose route had 5 hops, were not All
     // Route Broadcast Frames, and whose source or destination were on this ring
     // (i.e. frames that had a RIF field and had this ring number in the first or
     // last entry of the RIF field). The type is interface{} with range:
     // 0..4294967295.
-    Sourceroutingstats5Hopsframes interface{}
+    SourceRoutingStats5HopsFrames interface{}
 
     // The total number of frames received whose route had 6 hops, were not All
     // Route Broadcast Frames, and whose source or destination were on this ring
     // (i.e. frames that had a RIF field and had this ring number in the first or
     // last entry of the RIF field). The type is interface{} with range:
     // 0..4294967295.
-    Sourceroutingstats6Hopsframes interface{}
+    SourceRoutingStats6HopsFrames interface{}
 
     // The total number of frames received whose route had 7 hops, were not All
     // Route Broadcast Frames, and whose source or destination were on this ring
     // (i.e. frames that had a RIF field and had this ring number in the first or
     // last entry of the RIF field). The type is interface{} with range:
     // 0..4294967295.
-    Sourceroutingstats7Hopsframes interface{}
+    SourceRoutingStats7HopsFrames interface{}
 
     // The total number of frames received whose route had 8 hops, were not All
     // Route Broadcast Frames, and whose source or destination were on this ring
     // (i.e. frames that had a RIF field and had this ring number in the first or
     // last entry of the RIF field). The type is interface{} with range:
     // 0..4294967295.
-    Sourceroutingstats8Hopsframes interface{}
+    SourceRoutingStats8HopsFrames interface{}
 
     // The total number of frames received whose route had more than 8 hops, were
     // not All Route Broadcast Frames, and whose source or destination were on
     // this ring (i.e. frames that had a RIF field and had this ring number in the
     // first or last entry of the RIF field). The type is interface{} with range:
     // 0..4294967295.
-    Sourceroutingstatsmorethan8Hopsframes interface{}
+    SourceRoutingStatsMoreThan8HopsFrames interface{}
 
     // The entity that configured this entry and is therefore using the resources
     // assigned to it. The type is string.
-    Sourceroutingstatsowner interface{}
+    SourceRoutingStatsOwner interface{}
 
     // The status of this sourceRoutingStats entry. The type is EntryStatus.
-    Sourceroutingstatsstatus interface{}
+    SourceRoutingStatsStatus interface{}
 
     // The total number of frames which were received by the probe and therefore
     // not accounted for in the *StatsDropEvents, but for which the probe chose
@@ -1759,53 +1819,56 @@ type TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry struct {
     // counted because they had MAC-layer errors.  Note that, unlike the
     // dropEvents counter, this number is the exact number of frames dropped. The
     // type is interface{} with range: 0..4294967295.
-    Sourceroutingstatsdroppedframes interface{}
+    SourceRoutingStatsDroppedFrames interface{}
 
     // The value of sysUpTime when this control entry was last activated. This can
     // be used by the management station to ensure that the table has not been
     // deleted and recreated between polls. The type is interface{} with range:
     // 0..4294967295.
-    Sourceroutingstatscreatetime interface{}
+    SourceRoutingStatsCreateTime interface{}
 }
 
-func (sourceroutingstatsentry *TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry) GetEntityData() *types.CommonEntityData {
-    sourceroutingstatsentry.EntityData.YFilter = sourceroutingstatsentry.YFilter
-    sourceroutingstatsentry.EntityData.YangName = "sourceRoutingStatsEntry"
-    sourceroutingstatsentry.EntityData.BundleName = "cisco_ios_xe"
-    sourceroutingstatsentry.EntityData.ParentYangName = "sourceRoutingStatsTable"
-    sourceroutingstatsentry.EntityData.SegmentPath = "sourceRoutingStatsEntry" + "[sourceRoutingStatsIfIndex='" + fmt.Sprintf("%v", sourceroutingstatsentry.Sourceroutingstatsifindex) + "']"
-    sourceroutingstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    sourceroutingstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    sourceroutingstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (sourceRoutingStatsEntry *TOKENRINGRMONMIB_SourceRoutingStatsTable_SourceRoutingStatsEntry) GetEntityData() *types.CommonEntityData {
+    sourceRoutingStatsEntry.EntityData.YFilter = sourceRoutingStatsEntry.YFilter
+    sourceRoutingStatsEntry.EntityData.YangName = "sourceRoutingStatsEntry"
+    sourceRoutingStatsEntry.EntityData.BundleName = "cisco_ios_xe"
+    sourceRoutingStatsEntry.EntityData.ParentYangName = "sourceRoutingStatsTable"
+    sourceRoutingStatsEntry.EntityData.SegmentPath = "sourceRoutingStatsEntry" + types.AddKeyToken(sourceRoutingStatsEntry.SourceRoutingStatsIfIndex, "sourceRoutingStatsIfIndex")
+    sourceRoutingStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sourceRoutingStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sourceRoutingStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    sourceroutingstatsentry.EntityData.Children = make(map[string]types.YChild)
-    sourceroutingstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsIfIndex"] = types.YLeaf{"Sourceroutingstatsifindex", sourceroutingstatsentry.Sourceroutingstatsifindex}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsRingNumber"] = types.YLeaf{"Sourceroutingstatsringnumber", sourceroutingstatsentry.Sourceroutingstatsringnumber}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsInFrames"] = types.YLeaf{"Sourceroutingstatsinframes", sourceroutingstatsentry.Sourceroutingstatsinframes}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsOutFrames"] = types.YLeaf{"Sourceroutingstatsoutframes", sourceroutingstatsentry.Sourceroutingstatsoutframes}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsThroughFrames"] = types.YLeaf{"Sourceroutingstatsthroughframes", sourceroutingstatsentry.Sourceroutingstatsthroughframes}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsAllRoutesBroadcastFrames"] = types.YLeaf{"Sourceroutingstatsallroutesbroadcastframes", sourceroutingstatsentry.Sourceroutingstatsallroutesbroadcastframes}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsSingleRouteBroadcastFrames"] = types.YLeaf{"Sourceroutingstatssingleroutebroadcastframes", sourceroutingstatsentry.Sourceroutingstatssingleroutebroadcastframes}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsInOctets"] = types.YLeaf{"Sourceroutingstatsinoctets", sourceroutingstatsentry.Sourceroutingstatsinoctets}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsOutOctets"] = types.YLeaf{"Sourceroutingstatsoutoctets", sourceroutingstatsentry.Sourceroutingstatsoutoctets}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsThroughOctets"] = types.YLeaf{"Sourceroutingstatsthroughoctets", sourceroutingstatsentry.Sourceroutingstatsthroughoctets}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsAllRoutesBroadcastOctets"] = types.YLeaf{"Sourceroutingstatsallroutesbroadcastoctets", sourceroutingstatsentry.Sourceroutingstatsallroutesbroadcastoctets}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsSingleRoutesBroadcastOctets"] = types.YLeaf{"Sourceroutingstatssingleroutesbroadcastoctets", sourceroutingstatsentry.Sourceroutingstatssingleroutesbroadcastoctets}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsLocalLLCFrames"] = types.YLeaf{"Sourceroutingstatslocalllcframes", sourceroutingstatsentry.Sourceroutingstatslocalllcframes}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStats1HopFrames"] = types.YLeaf{"Sourceroutingstats1Hopframes", sourceroutingstatsentry.Sourceroutingstats1Hopframes}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStats2HopsFrames"] = types.YLeaf{"Sourceroutingstats2Hopsframes", sourceroutingstatsentry.Sourceroutingstats2Hopsframes}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStats3HopsFrames"] = types.YLeaf{"Sourceroutingstats3Hopsframes", sourceroutingstatsentry.Sourceroutingstats3Hopsframes}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStats4HopsFrames"] = types.YLeaf{"Sourceroutingstats4Hopsframes", sourceroutingstatsentry.Sourceroutingstats4Hopsframes}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStats5HopsFrames"] = types.YLeaf{"Sourceroutingstats5Hopsframes", sourceroutingstatsentry.Sourceroutingstats5Hopsframes}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStats6HopsFrames"] = types.YLeaf{"Sourceroutingstats6Hopsframes", sourceroutingstatsentry.Sourceroutingstats6Hopsframes}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStats7HopsFrames"] = types.YLeaf{"Sourceroutingstats7Hopsframes", sourceroutingstatsentry.Sourceroutingstats7Hopsframes}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStats8HopsFrames"] = types.YLeaf{"Sourceroutingstats8Hopsframes", sourceroutingstatsentry.Sourceroutingstats8Hopsframes}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsMoreThan8HopsFrames"] = types.YLeaf{"Sourceroutingstatsmorethan8Hopsframes", sourceroutingstatsentry.Sourceroutingstatsmorethan8Hopsframes}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsOwner"] = types.YLeaf{"Sourceroutingstatsowner", sourceroutingstatsentry.Sourceroutingstatsowner}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsStatus"] = types.YLeaf{"Sourceroutingstatsstatus", sourceroutingstatsentry.Sourceroutingstatsstatus}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsDroppedFrames"] = types.YLeaf{"Sourceroutingstatsdroppedframes", sourceroutingstatsentry.Sourceroutingstatsdroppedframes}
-    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsCreateTime"] = types.YLeaf{"Sourceroutingstatscreatetime", sourceroutingstatsentry.Sourceroutingstatscreatetime}
-    return &(sourceroutingstatsentry.EntityData)
+    sourceRoutingStatsEntry.EntityData.Children = types.NewOrderedMap()
+    sourceRoutingStatsEntry.EntityData.Leafs = types.NewOrderedMap()
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStatsIfIndex", types.YLeaf{"SourceRoutingStatsIfIndex", sourceRoutingStatsEntry.SourceRoutingStatsIfIndex})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStatsRingNumber", types.YLeaf{"SourceRoutingStatsRingNumber", sourceRoutingStatsEntry.SourceRoutingStatsRingNumber})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStatsInFrames", types.YLeaf{"SourceRoutingStatsInFrames", sourceRoutingStatsEntry.SourceRoutingStatsInFrames})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStatsOutFrames", types.YLeaf{"SourceRoutingStatsOutFrames", sourceRoutingStatsEntry.SourceRoutingStatsOutFrames})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStatsThroughFrames", types.YLeaf{"SourceRoutingStatsThroughFrames", sourceRoutingStatsEntry.SourceRoutingStatsThroughFrames})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStatsAllRoutesBroadcastFrames", types.YLeaf{"SourceRoutingStatsAllRoutesBroadcastFrames", sourceRoutingStatsEntry.SourceRoutingStatsAllRoutesBroadcastFrames})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStatsSingleRouteBroadcastFrames", types.YLeaf{"SourceRoutingStatsSingleRouteBroadcastFrames", sourceRoutingStatsEntry.SourceRoutingStatsSingleRouteBroadcastFrames})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStatsInOctets", types.YLeaf{"SourceRoutingStatsInOctets", sourceRoutingStatsEntry.SourceRoutingStatsInOctets})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStatsOutOctets", types.YLeaf{"SourceRoutingStatsOutOctets", sourceRoutingStatsEntry.SourceRoutingStatsOutOctets})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStatsThroughOctets", types.YLeaf{"SourceRoutingStatsThroughOctets", sourceRoutingStatsEntry.SourceRoutingStatsThroughOctets})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStatsAllRoutesBroadcastOctets", types.YLeaf{"SourceRoutingStatsAllRoutesBroadcastOctets", sourceRoutingStatsEntry.SourceRoutingStatsAllRoutesBroadcastOctets})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStatsSingleRoutesBroadcastOctets", types.YLeaf{"SourceRoutingStatsSingleRoutesBroadcastOctets", sourceRoutingStatsEntry.SourceRoutingStatsSingleRoutesBroadcastOctets})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStatsLocalLLCFrames", types.YLeaf{"SourceRoutingStatsLocalLLCFrames", sourceRoutingStatsEntry.SourceRoutingStatsLocalLLCFrames})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStats1HopFrames", types.YLeaf{"SourceRoutingStats1HopFrames", sourceRoutingStatsEntry.SourceRoutingStats1HopFrames})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStats2HopsFrames", types.YLeaf{"SourceRoutingStats2HopsFrames", sourceRoutingStatsEntry.SourceRoutingStats2HopsFrames})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStats3HopsFrames", types.YLeaf{"SourceRoutingStats3HopsFrames", sourceRoutingStatsEntry.SourceRoutingStats3HopsFrames})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStats4HopsFrames", types.YLeaf{"SourceRoutingStats4HopsFrames", sourceRoutingStatsEntry.SourceRoutingStats4HopsFrames})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStats5HopsFrames", types.YLeaf{"SourceRoutingStats5HopsFrames", sourceRoutingStatsEntry.SourceRoutingStats5HopsFrames})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStats6HopsFrames", types.YLeaf{"SourceRoutingStats6HopsFrames", sourceRoutingStatsEntry.SourceRoutingStats6HopsFrames})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStats7HopsFrames", types.YLeaf{"SourceRoutingStats7HopsFrames", sourceRoutingStatsEntry.SourceRoutingStats7HopsFrames})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStats8HopsFrames", types.YLeaf{"SourceRoutingStats8HopsFrames", sourceRoutingStatsEntry.SourceRoutingStats8HopsFrames})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStatsMoreThan8HopsFrames", types.YLeaf{"SourceRoutingStatsMoreThan8HopsFrames", sourceRoutingStatsEntry.SourceRoutingStatsMoreThan8HopsFrames})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStatsOwner", types.YLeaf{"SourceRoutingStatsOwner", sourceRoutingStatsEntry.SourceRoutingStatsOwner})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStatsStatus", types.YLeaf{"SourceRoutingStatsStatus", sourceRoutingStatsEntry.SourceRoutingStatsStatus})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStatsDroppedFrames", types.YLeaf{"SourceRoutingStatsDroppedFrames", sourceRoutingStatsEntry.SourceRoutingStatsDroppedFrames})
+    sourceRoutingStatsEntry.EntityData.Leafs.Append("sourceRoutingStatsCreateTime", types.YLeaf{"SourceRoutingStatsCreateTime", sourceRoutingStatsEntry.SourceRoutingStatsCreateTime})
+
+    sourceRoutingStatsEntry.EntityData.YListKeys = []string {"SourceRoutingStatsIfIndex"}
+
+    return &(sourceRoutingStatsEntry.EntityData)
 }
 

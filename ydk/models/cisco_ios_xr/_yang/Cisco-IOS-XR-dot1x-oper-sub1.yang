@@ -138,6 +138,11 @@ submodule Cisco-IOS-XR-dot1x-oper-sub1 {
       description
         "Last Authenticated Timestamp (formatted)";
     }
+    leaf last-auth-server {
+      type string;
+      description
+        "Last Authenticated Server";
+    }
   }
 
   grouping DOT1X-AUTH-INFO {

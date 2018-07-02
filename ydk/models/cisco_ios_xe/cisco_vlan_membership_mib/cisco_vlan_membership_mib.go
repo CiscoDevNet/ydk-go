@@ -27,16 +27,16 @@ type CISCOVLANMEMBERSHIPMIB struct {
     YFilter yfilter.YFilter
 
     
-    Vmvmps CISCOVLANMEMBERSHIPMIB_Vmvmps
+    VmVmps CISCOVLANMEMBERSHIPMIB_VmVmps
 
     
-    Vmmembership CISCOVLANMEMBERSHIPMIB_Vmmembership
+    VmMembership CISCOVLANMEMBERSHIPMIB_VmMembership
 
     
-    Vmstatistics CISCOVLANMEMBERSHIPMIB_Vmstatistics
+    VmStatistics CISCOVLANMEMBERSHIPMIB_VmStatistics
 
     
-    Vmstatus CISCOVLANMEMBERSHIPMIB_Vmstatus
+    VmStatus CISCOVLANMEMBERSHIPMIB_VmStatus
 
     // A table of VMPS to use. The device will use the the primary VMPS by
     // default. If the device is unable to reach the primary server after
@@ -44,21 +44,21 @@ type CISCOVLANMEMBERSHIPMIB struct {
     // until it runs out of secondary servers, in which case it will return to
     // using the primary server. Entries in this table may be created and deleted
     // via this MIB or the management console on a device.
-    Vmvmpstable CISCOVLANMEMBERSHIPMIB_Vmvmpstable
+    VmVmpsTable CISCOVLANMEMBERSHIPMIB_VmVmpsTable
 
     // A summary of VLAN membership of non-trunk bridge ports. This is a
     // convenience table for retrieving VLAN membership information.  A row is
     // created for a VLAN if: a) the VLAN exists, or b) a port is assigned to a
     // non-existent VLAN.  VLAN membership can only be modified via the
     // vmMembershipTable.
-    Vmmembershipsummarytable CISCOVLANMEMBERSHIPMIB_Vmmembershipsummarytable
+    VmMembershipSummaryTable CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryTable
 
     // A table for configuring VLAN port membership. There is one row for each
     // bridge port that is assigned to a static or dynamic access port. Trunk
     // ports are not  represented in this table.  An entry may be created and
     // deleted when ports are created or deleted via SNMP or the management
     // console on a  device.
-    Vmmembershiptable CISCOVLANMEMBERSHIPMIB_Vmmembershiptable
+    VmMembershipTable CISCOVLANMEMBERSHIPMIB_VmMembershipTable
 
     // A summary of VLAN membership of non-trunk bridge ports. This table is used
     // for  retrieving VLAN membership information for the device which supports
@@ -66,11 +66,11 @@ type CISCOVLANMEMBERSHIPMIB struct {
     // and a particular bridge port range, where at least one port  in the range
     // is assigned to this VLAN.  VLAN membership can only be modified via the
     // vmMembershipTable.
-    Vmmembershipsummaryexttable CISCOVLANMEMBERSHIPMIB_Vmmembershipsummaryexttable
+    VmMembershipSummaryExtTable CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryExtTable
 
     // A table for configuring the Voice VLAN-ID for the ports. An entry will
     // exist for each interface which supports Voice Vlan feature.
-    Vmvoicevlantable CISCOVLANMEMBERSHIPMIB_Vmvoicevlantable
+    VmVoiceVlanTable CISCOVLANMEMBERSHIPMIB_VmVoiceVlanTable
 }
 
 func (cISCOVLANMEMBERSHIPMIB *CISCOVLANMEMBERSHIPMIB) GetEntityData() *types.CommonEntityData {
@@ -83,22 +83,25 @@ func (cISCOVLANMEMBERSHIPMIB *CISCOVLANMEMBERSHIPMIB) GetEntityData() *types.Com
     cISCOVLANMEMBERSHIPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOVLANMEMBERSHIPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOVLANMEMBERSHIPMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOVLANMEMBERSHIPMIB.EntityData.Children["vmVmps"] = types.YChild{"Vmvmps", &cISCOVLANMEMBERSHIPMIB.Vmvmps}
-    cISCOVLANMEMBERSHIPMIB.EntityData.Children["vmMembership"] = types.YChild{"Vmmembership", &cISCOVLANMEMBERSHIPMIB.Vmmembership}
-    cISCOVLANMEMBERSHIPMIB.EntityData.Children["vmStatistics"] = types.YChild{"Vmstatistics", &cISCOVLANMEMBERSHIPMIB.Vmstatistics}
-    cISCOVLANMEMBERSHIPMIB.EntityData.Children["vmStatus"] = types.YChild{"Vmstatus", &cISCOVLANMEMBERSHIPMIB.Vmstatus}
-    cISCOVLANMEMBERSHIPMIB.EntityData.Children["vmVmpsTable"] = types.YChild{"Vmvmpstable", &cISCOVLANMEMBERSHIPMIB.Vmvmpstable}
-    cISCOVLANMEMBERSHIPMIB.EntityData.Children["vmMembershipSummaryTable"] = types.YChild{"Vmmembershipsummarytable", &cISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable}
-    cISCOVLANMEMBERSHIPMIB.EntityData.Children["vmMembershipTable"] = types.YChild{"Vmmembershiptable", &cISCOVLANMEMBERSHIPMIB.Vmmembershiptable}
-    cISCOVLANMEMBERSHIPMIB.EntityData.Children["vmMembershipSummaryExtTable"] = types.YChild{"Vmmembershipsummaryexttable", &cISCOVLANMEMBERSHIPMIB.Vmmembershipsummaryexttable}
-    cISCOVLANMEMBERSHIPMIB.EntityData.Children["vmVoiceVlanTable"] = types.YChild{"Vmvoicevlantable", &cISCOVLANMEMBERSHIPMIB.Vmvoicevlantable}
-    cISCOVLANMEMBERSHIPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOVLANMEMBERSHIPMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOVLANMEMBERSHIPMIB.EntityData.Children.Append("vmVmps", types.YChild{"VmVmps", &cISCOVLANMEMBERSHIPMIB.VmVmps})
+    cISCOVLANMEMBERSHIPMIB.EntityData.Children.Append("vmMembership", types.YChild{"VmMembership", &cISCOVLANMEMBERSHIPMIB.VmMembership})
+    cISCOVLANMEMBERSHIPMIB.EntityData.Children.Append("vmStatistics", types.YChild{"VmStatistics", &cISCOVLANMEMBERSHIPMIB.VmStatistics})
+    cISCOVLANMEMBERSHIPMIB.EntityData.Children.Append("vmStatus", types.YChild{"VmStatus", &cISCOVLANMEMBERSHIPMIB.VmStatus})
+    cISCOVLANMEMBERSHIPMIB.EntityData.Children.Append("vmVmpsTable", types.YChild{"VmVmpsTable", &cISCOVLANMEMBERSHIPMIB.VmVmpsTable})
+    cISCOVLANMEMBERSHIPMIB.EntityData.Children.Append("vmMembershipSummaryTable", types.YChild{"VmMembershipSummaryTable", &cISCOVLANMEMBERSHIPMIB.VmMembershipSummaryTable})
+    cISCOVLANMEMBERSHIPMIB.EntityData.Children.Append("vmMembershipTable", types.YChild{"VmMembershipTable", &cISCOVLANMEMBERSHIPMIB.VmMembershipTable})
+    cISCOVLANMEMBERSHIPMIB.EntityData.Children.Append("vmMembershipSummaryExtTable", types.YChild{"VmMembershipSummaryExtTable", &cISCOVLANMEMBERSHIPMIB.VmMembershipSummaryExtTable})
+    cISCOVLANMEMBERSHIPMIB.EntityData.Children.Append("vmVoiceVlanTable", types.YChild{"VmVoiceVlanTable", &cISCOVLANMEMBERSHIPMIB.VmVoiceVlanTable})
+    cISCOVLANMEMBERSHIPMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOVLANMEMBERSHIPMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOVLANMEMBERSHIPMIB.EntityData)
 }
 
-// CISCOVLANMEMBERSHIPMIB_Vmvmps
-type CISCOVLANMEMBERSHIPMIB_Vmvmps struct {
+// CISCOVLANMEMBERSHIPMIB_VmVmps
+type CISCOVLANMEMBERSHIPMIB_VmVmps struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -107,22 +110,22 @@ type CISCOVLANMEMBERSHIPMIB_Vmvmps struct {
     // membership assignments of dynamic VLAN ports. A VMPS provides VLAN
     // membership policy assignments based on the content of the packets received
     // on a port. The type is interface{} with range: -2147483648..2147483647.
-    Vmvmpsvqpversion interface{}
+    VmVmpsVQPVersion interface{}
 
     // The number of retries for VQP requests to a VMPS before using the next
     // available VMPS. The type is interface{} with range: 1..10.
-    Vmvmpsretries interface{}
+    VmVmpsRetries interface{}
 
     // The switch will reconfirm membership of addresses on each port with VMPS
     // periodically. This object specifies the interval to perform reconfirmation.
     // If the value is set to 0, the switch does not reconfirm membership with
     // VMPS. The type is interface{} with range: 0..120. Units are Minutes.
-    Vmvmpsreconfirminterval interface{}
+    VmVmpsReconfirmInterval interface{}
 
     // Setting this object to execute(2) causes the switch to reconfirm membership
     // of every dynamic port. Reading this object always return ready(1). The type
-    // is Vmvmpsreconfirm.
-    Vmvmpsreconfirm interface{}
+    // is VmVmpsReconfirm.
+    VmVmpsReconfirm interface{}
 
     // This object returns the result of the last request that sets
     // vmVmpsReconfirm to execute(2). The semantics of the possible results are as
@@ -131,66 +134,69 @@ type CISCOVLANMEMBERSHIPMIB_Vmvmps struct {
     // successfully      noResponse(4)      - reconfirm failed because no         
     // VMPS responded      noVmps(5)          - No VMPS configured     
     // noDynamicPort(6)   - No dynamic ports configured      noHostConnected(7) -
-    // No hosts on dynamic ports. The type is Vmvmpsreconfirmresult.
-    Vmvmpsreconfirmresult interface{}
+    // No hosts on dynamic ports. The type is VmVmpsReconfirmResult.
+    VmVmpsReconfirmResult interface{}
 
     // This is the IpAddress of the current VMPS used. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Vmvmpscurrent interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    VmVmpsCurrent interface{}
 }
 
-func (vmvmps *CISCOVLANMEMBERSHIPMIB_Vmvmps) GetEntityData() *types.CommonEntityData {
-    vmvmps.EntityData.YFilter = vmvmps.YFilter
-    vmvmps.EntityData.YangName = "vmVmps"
-    vmvmps.EntityData.BundleName = "cisco_ios_xe"
-    vmvmps.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
-    vmvmps.EntityData.SegmentPath = "vmVmps"
-    vmvmps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    vmvmps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    vmvmps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (vmVmps *CISCOVLANMEMBERSHIPMIB_VmVmps) GetEntityData() *types.CommonEntityData {
+    vmVmps.EntityData.YFilter = vmVmps.YFilter
+    vmVmps.EntityData.YangName = "vmVmps"
+    vmVmps.EntityData.BundleName = "cisco_ios_xe"
+    vmVmps.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
+    vmVmps.EntityData.SegmentPath = "vmVmps"
+    vmVmps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    vmVmps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    vmVmps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vmvmps.EntityData.Children = make(map[string]types.YChild)
-    vmvmps.EntityData.Leafs = make(map[string]types.YLeaf)
-    vmvmps.EntityData.Leafs["vmVmpsVQPVersion"] = types.YLeaf{"Vmvmpsvqpversion", vmvmps.Vmvmpsvqpversion}
-    vmvmps.EntityData.Leafs["vmVmpsRetries"] = types.YLeaf{"Vmvmpsretries", vmvmps.Vmvmpsretries}
-    vmvmps.EntityData.Leafs["vmVmpsReconfirmInterval"] = types.YLeaf{"Vmvmpsreconfirminterval", vmvmps.Vmvmpsreconfirminterval}
-    vmvmps.EntityData.Leafs["vmVmpsReconfirm"] = types.YLeaf{"Vmvmpsreconfirm", vmvmps.Vmvmpsreconfirm}
-    vmvmps.EntityData.Leafs["vmVmpsReconfirmResult"] = types.YLeaf{"Vmvmpsreconfirmresult", vmvmps.Vmvmpsreconfirmresult}
-    vmvmps.EntityData.Leafs["vmVmpsCurrent"] = types.YLeaf{"Vmvmpscurrent", vmvmps.Vmvmpscurrent}
-    return &(vmvmps.EntityData)
+    vmVmps.EntityData.Children = types.NewOrderedMap()
+    vmVmps.EntityData.Leafs = types.NewOrderedMap()
+    vmVmps.EntityData.Leafs.Append("vmVmpsVQPVersion", types.YLeaf{"VmVmpsVQPVersion", vmVmps.VmVmpsVQPVersion})
+    vmVmps.EntityData.Leafs.Append("vmVmpsRetries", types.YLeaf{"VmVmpsRetries", vmVmps.VmVmpsRetries})
+    vmVmps.EntityData.Leafs.Append("vmVmpsReconfirmInterval", types.YLeaf{"VmVmpsReconfirmInterval", vmVmps.VmVmpsReconfirmInterval})
+    vmVmps.EntityData.Leafs.Append("vmVmpsReconfirm", types.YLeaf{"VmVmpsReconfirm", vmVmps.VmVmpsReconfirm})
+    vmVmps.EntityData.Leafs.Append("vmVmpsReconfirmResult", types.YLeaf{"VmVmpsReconfirmResult", vmVmps.VmVmpsReconfirmResult})
+    vmVmps.EntityData.Leafs.Append("vmVmpsCurrent", types.YLeaf{"VmVmpsCurrent", vmVmps.VmVmpsCurrent})
+
+    vmVmps.EntityData.YListKeys = []string {}
+
+    return &(vmVmps.EntityData)
 }
 
-// CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirm represents Reading this object always return ready(1).
-type CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirm string
+// CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirm represents Reading this object always return ready(1).
+type CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirm string
 
 const (
-    CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirm_ready CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirm = "ready"
+    CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirm_ready CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirm = "ready"
 
-    CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirm_execute CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirm = "execute"
+    CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirm_execute CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirm = "execute"
 )
 
-// CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirmresult represents      noHostConnected(7) - No hosts on dynamic ports
-type CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirmresult string
+// CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirmResult represents      noHostConnected(7) - No hosts on dynamic ports
+type CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirmResult string
 
 const (
-    CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirmresult_other CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirmresult = "other"
+    CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirmResult_other CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirmResult = "other"
 
-    CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirmresult_inProgress CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirmresult = "inProgress"
+    CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirmResult_inProgress CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirmResult = "inProgress"
 
-    CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirmresult_success CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirmresult = "success"
+    CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirmResult_success CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirmResult = "success"
 
-    CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirmresult_noResponse CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirmresult = "noResponse"
+    CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirmResult_noResponse CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirmResult = "noResponse"
 
-    CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirmresult_noVmps CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirmresult = "noVmps"
+    CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirmResult_noVmps CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirmResult = "noVmps"
 
-    CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirmresult_noDynamicPort CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirmresult = "noDynamicPort"
+    CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirmResult_noDynamicPort CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirmResult = "noDynamicPort"
 
-    CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirmresult_noHostConnected CISCOVLANMEMBERSHIPMIB_Vmvmps_Vmvmpsreconfirmresult = "noHostConnected"
+    CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirmResult_noHostConnected CISCOVLANMEMBERSHIPMIB_VmVmps_VmVmpsReconfirmResult = "noHostConnected"
 )
 
-// CISCOVLANMEMBERSHIPMIB_Vmmembership
-type CISCOVLANMEMBERSHIPMIB_Vmmembership struct {
+// CISCOVLANMEMBERSHIPMIB_VmMembership
+type CISCOVLANMEMBERSHIPMIB_VmMembership struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -201,139 +207,148 @@ type CISCOVLANMEMBERSHIPMIB_Vmmembership struct {
     // manual(2):     a non-existing VLAN will not be created               
     // automatically by the system and need to be                manually created
     // by the users after assigned                to a port. The type is
-    // Vmvlancreationmode.
-    Vmvlancreationmode interface{}
+    // VmVlanCreationMode.
+    VmVlanCreationMode interface{}
 }
 
-func (vmmembership *CISCOVLANMEMBERSHIPMIB_Vmmembership) GetEntityData() *types.CommonEntityData {
-    vmmembership.EntityData.YFilter = vmmembership.YFilter
-    vmmembership.EntityData.YangName = "vmMembership"
-    vmmembership.EntityData.BundleName = "cisco_ios_xe"
-    vmmembership.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
-    vmmembership.EntityData.SegmentPath = "vmMembership"
-    vmmembership.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    vmmembership.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    vmmembership.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (vmMembership *CISCOVLANMEMBERSHIPMIB_VmMembership) GetEntityData() *types.CommonEntityData {
+    vmMembership.EntityData.YFilter = vmMembership.YFilter
+    vmMembership.EntityData.YangName = "vmMembership"
+    vmMembership.EntityData.BundleName = "cisco_ios_xe"
+    vmMembership.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
+    vmMembership.EntityData.SegmentPath = "vmMembership"
+    vmMembership.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    vmMembership.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    vmMembership.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vmmembership.EntityData.Children = make(map[string]types.YChild)
-    vmmembership.EntityData.Leafs = make(map[string]types.YLeaf)
-    vmmembership.EntityData.Leafs["vmVlanCreationMode"] = types.YLeaf{"Vmvlancreationmode", vmmembership.Vmvlancreationmode}
-    return &(vmmembership.EntityData)
+    vmMembership.EntityData.Children = types.NewOrderedMap()
+    vmMembership.EntityData.Leafs = types.NewOrderedMap()
+    vmMembership.EntityData.Leafs.Append("vmVlanCreationMode", types.YLeaf{"VmVlanCreationMode", vmMembership.VmVlanCreationMode})
+
+    vmMembership.EntityData.YListKeys = []string {}
+
+    return &(vmMembership.EntityData)
 }
 
-// CISCOVLANMEMBERSHIPMIB_Vmmembership_Vmvlancreationmode represents                to a port.
-type CISCOVLANMEMBERSHIPMIB_Vmmembership_Vmvlancreationmode string
+// CISCOVLANMEMBERSHIPMIB_VmMembership_VmVlanCreationMode represents                to a port.
+type CISCOVLANMEMBERSHIPMIB_VmMembership_VmVlanCreationMode string
 
 const (
-    CISCOVLANMEMBERSHIPMIB_Vmmembership_Vmvlancreationmode_automatic CISCOVLANMEMBERSHIPMIB_Vmmembership_Vmvlancreationmode = "automatic"
+    CISCOVLANMEMBERSHIPMIB_VmMembership_VmVlanCreationMode_automatic CISCOVLANMEMBERSHIPMIB_VmMembership_VmVlanCreationMode = "automatic"
 
-    CISCOVLANMEMBERSHIPMIB_Vmmembership_Vmvlancreationmode_manual CISCOVLANMEMBERSHIPMIB_Vmmembership_Vmvlancreationmode = "manual"
+    CISCOVLANMEMBERSHIPMIB_VmMembership_VmVlanCreationMode_manual CISCOVLANMEMBERSHIPMIB_VmMembership_VmVlanCreationMode = "manual"
 )
 
-// CISCOVLANMEMBERSHIPMIB_Vmstatistics
-type CISCOVLANMEMBERSHIPMIB_Vmstatistics struct {
+// CISCOVLANMEMBERSHIPMIB_VmStatistics
+type CISCOVLANMEMBERSHIPMIB_VmStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The total number of VQP requests sent by this device to all VMPS since last
     // system re-initialization. The type is interface{} with range:
     // 0..4294967295.
-    Vmvqpqueries interface{}
+    VmVQPQueries interface{}
 
     // The number of VQP responses received by this device from all VMPS since
     // last system re-initialization. The type is interface{} with range:
     // 0..4294967295.
-    Vmvqpresponses interface{}
+    VmVQPResponses interface{}
 
     // The number of times, since last system re-initialization, the current VMPS
     // was changed. The current VMPS is changed whenever the VMPS fails to 
     // response after vmVmpsRetries of a VQP request. The type is interface{} with
     // range: 0..4294967295.
-    Vmvmpschanges interface{}
+    VmVmpsChanges interface{}
 
     // The number of times, since last system re-initialization, a VQP response
     // indicates  'shutdown'. A 'shutdown' response is a result of  the membership
     // policy configured at a VMPS by the administrator. The type is interface{}
     // with range: 0..4294967295.
-    Vmvqpshutdown interface{}
+    VmVQPShutdown interface{}
 
     // The number of times, since last system re-initialization, a VQP response
     // indicates  'denied'. A 'denied' response is a result of  the membership
     // policy configured at a VMPS by the administrator. The type is interface{}
     // with range: 0..4294967295.
-    Vmvqpdenied interface{}
+    VmVQPDenied interface{}
 
     // The number of times, since last system re-initialization, a VQP response
     // indicates wrong  management domain. A wrong management domain  response
     // indicates that the VMPS used serves a  management domain that is different
     // from the device's management domain. The type is interface{} with range:
     // 0..4294967295.
-    Vmvqpwrongdomain interface{}
+    VmVQPWrongDomain interface{}
 
     // The number of times, since last system re-initialization, a VQP response
     // indicates wrong  VQP version. A wrong VQP version response  indicates that
     // the VMPS used supports a VQP  version that is different from the device's 
     // VQP version. The type is interface{} with range: 0..4294967295.
-    Vmvqpwrongversion interface{}
+    VmVQPWrongVersion interface{}
 
     // The number of times, since last system re-initialization, a VQP response
     // indicates  insufficient resources. An insufficient resources  response
     // indicates that the VMPS used does not  have the required resources to
     // verify the membership assignment requested. The type is interface{} with
     // range: 0..4294967295.
-    Vminsufficientresources interface{}
+    VmInsufficientResources interface{}
 }
 
-func (vmstatistics *CISCOVLANMEMBERSHIPMIB_Vmstatistics) GetEntityData() *types.CommonEntityData {
-    vmstatistics.EntityData.YFilter = vmstatistics.YFilter
-    vmstatistics.EntityData.YangName = "vmStatistics"
-    vmstatistics.EntityData.BundleName = "cisco_ios_xe"
-    vmstatistics.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
-    vmstatistics.EntityData.SegmentPath = "vmStatistics"
-    vmstatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    vmstatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    vmstatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (vmStatistics *CISCOVLANMEMBERSHIPMIB_VmStatistics) GetEntityData() *types.CommonEntityData {
+    vmStatistics.EntityData.YFilter = vmStatistics.YFilter
+    vmStatistics.EntityData.YangName = "vmStatistics"
+    vmStatistics.EntityData.BundleName = "cisco_ios_xe"
+    vmStatistics.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
+    vmStatistics.EntityData.SegmentPath = "vmStatistics"
+    vmStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    vmStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    vmStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vmstatistics.EntityData.Children = make(map[string]types.YChild)
-    vmstatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    vmstatistics.EntityData.Leafs["vmVQPQueries"] = types.YLeaf{"Vmvqpqueries", vmstatistics.Vmvqpqueries}
-    vmstatistics.EntityData.Leafs["vmVQPResponses"] = types.YLeaf{"Vmvqpresponses", vmstatistics.Vmvqpresponses}
-    vmstatistics.EntityData.Leafs["vmVmpsChanges"] = types.YLeaf{"Vmvmpschanges", vmstatistics.Vmvmpschanges}
-    vmstatistics.EntityData.Leafs["vmVQPShutdown"] = types.YLeaf{"Vmvqpshutdown", vmstatistics.Vmvqpshutdown}
-    vmstatistics.EntityData.Leafs["vmVQPDenied"] = types.YLeaf{"Vmvqpdenied", vmstatistics.Vmvqpdenied}
-    vmstatistics.EntityData.Leafs["vmVQPWrongDomain"] = types.YLeaf{"Vmvqpwrongdomain", vmstatistics.Vmvqpwrongdomain}
-    vmstatistics.EntityData.Leafs["vmVQPWrongVersion"] = types.YLeaf{"Vmvqpwrongversion", vmstatistics.Vmvqpwrongversion}
-    vmstatistics.EntityData.Leafs["vmInsufficientResources"] = types.YLeaf{"Vminsufficientresources", vmstatistics.Vminsufficientresources}
-    return &(vmstatistics.EntityData)
+    vmStatistics.EntityData.Children = types.NewOrderedMap()
+    vmStatistics.EntityData.Leafs = types.NewOrderedMap()
+    vmStatistics.EntityData.Leafs.Append("vmVQPQueries", types.YLeaf{"VmVQPQueries", vmStatistics.VmVQPQueries})
+    vmStatistics.EntityData.Leafs.Append("vmVQPResponses", types.YLeaf{"VmVQPResponses", vmStatistics.VmVQPResponses})
+    vmStatistics.EntityData.Leafs.Append("vmVmpsChanges", types.YLeaf{"VmVmpsChanges", vmStatistics.VmVmpsChanges})
+    vmStatistics.EntityData.Leafs.Append("vmVQPShutdown", types.YLeaf{"VmVQPShutdown", vmStatistics.VmVQPShutdown})
+    vmStatistics.EntityData.Leafs.Append("vmVQPDenied", types.YLeaf{"VmVQPDenied", vmStatistics.VmVQPDenied})
+    vmStatistics.EntityData.Leafs.Append("vmVQPWrongDomain", types.YLeaf{"VmVQPWrongDomain", vmStatistics.VmVQPWrongDomain})
+    vmStatistics.EntityData.Leafs.Append("vmVQPWrongVersion", types.YLeaf{"VmVQPWrongVersion", vmStatistics.VmVQPWrongVersion})
+    vmStatistics.EntityData.Leafs.Append("vmInsufficientResources", types.YLeaf{"VmInsufficientResources", vmStatistics.VmInsufficientResources})
+
+    vmStatistics.EntityData.YListKeys = []string {}
+
+    return &(vmStatistics.EntityData)
 }
 
-// CISCOVLANMEMBERSHIPMIB_Vmstatus
-type CISCOVLANMEMBERSHIPMIB_Vmstatus struct {
+// CISCOVLANMEMBERSHIPMIB_VmStatus
+type CISCOVLANMEMBERSHIPMIB_VmStatus struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An indication of whether the notifications/traps defined in this MIB are
     // enabled. The type is bool.
-    Vmnotificationsenabled interface{}
+    VmNotificationsEnabled interface{}
 }
 
-func (vmstatus *CISCOVLANMEMBERSHIPMIB_Vmstatus) GetEntityData() *types.CommonEntityData {
-    vmstatus.EntityData.YFilter = vmstatus.YFilter
-    vmstatus.EntityData.YangName = "vmStatus"
-    vmstatus.EntityData.BundleName = "cisco_ios_xe"
-    vmstatus.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
-    vmstatus.EntityData.SegmentPath = "vmStatus"
-    vmstatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    vmstatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    vmstatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (vmStatus *CISCOVLANMEMBERSHIPMIB_VmStatus) GetEntityData() *types.CommonEntityData {
+    vmStatus.EntityData.YFilter = vmStatus.YFilter
+    vmStatus.EntityData.YangName = "vmStatus"
+    vmStatus.EntityData.BundleName = "cisco_ios_xe"
+    vmStatus.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
+    vmStatus.EntityData.SegmentPath = "vmStatus"
+    vmStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    vmStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    vmStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vmstatus.EntityData.Children = make(map[string]types.YChild)
-    vmstatus.EntityData.Leafs = make(map[string]types.YLeaf)
-    vmstatus.EntityData.Leafs["vmNotificationsEnabled"] = types.YLeaf{"Vmnotificationsenabled", vmstatus.Vmnotificationsenabled}
-    return &(vmstatus.EntityData)
+    vmStatus.EntityData.Children = types.NewOrderedMap()
+    vmStatus.EntityData.Leafs = types.NewOrderedMap()
+    vmStatus.EntityData.Leafs.Append("vmNotificationsEnabled", types.YLeaf{"VmNotificationsEnabled", vmStatus.VmNotificationsEnabled})
+
+    vmStatus.EntityData.YListKeys = []string {}
+
+    return &(vmStatus.EntityData)
 }
 
-// CISCOVLANMEMBERSHIPMIB_Vmvmpstable
+// CISCOVLANMEMBERSHIPMIB_VmVmpsTable
 // A table of VMPS to use. The device will use
 // the the primary VMPS by default. If the
 // device is unable to reach the primary server
@@ -343,44 +358,47 @@ func (vmstatus *CISCOVLANMEMBERSHIPMIB_Vmstatus) GetEntityData() *types.CommonEn
 // to using the primary server. Entries in this table
 // may be created and deleted via this MIB or
 // the management console on a device.
-type CISCOVLANMEMBERSHIPMIB_Vmvmpstable struct {
+type CISCOVLANMEMBERSHIPMIB_VmVmpsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the vmVmpsTable. The type is slice of
-    // CISCOVLANMEMBERSHIPMIB_Vmvmpstable_Vmvmpsentry.
-    Vmvmpsentry []CISCOVLANMEMBERSHIPMIB_Vmvmpstable_Vmvmpsentry
+    // CISCOVLANMEMBERSHIPMIB_VmVmpsTable_VmVmpsEntry.
+    VmVmpsEntry []*CISCOVLANMEMBERSHIPMIB_VmVmpsTable_VmVmpsEntry
 }
 
-func (vmvmpstable *CISCOVLANMEMBERSHIPMIB_Vmvmpstable) GetEntityData() *types.CommonEntityData {
-    vmvmpstable.EntityData.YFilter = vmvmpstable.YFilter
-    vmvmpstable.EntityData.YangName = "vmVmpsTable"
-    vmvmpstable.EntityData.BundleName = "cisco_ios_xe"
-    vmvmpstable.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
-    vmvmpstable.EntityData.SegmentPath = "vmVmpsTable"
-    vmvmpstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    vmvmpstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    vmvmpstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (vmVmpsTable *CISCOVLANMEMBERSHIPMIB_VmVmpsTable) GetEntityData() *types.CommonEntityData {
+    vmVmpsTable.EntityData.YFilter = vmVmpsTable.YFilter
+    vmVmpsTable.EntityData.YangName = "vmVmpsTable"
+    vmVmpsTable.EntityData.BundleName = "cisco_ios_xe"
+    vmVmpsTable.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
+    vmVmpsTable.EntityData.SegmentPath = "vmVmpsTable"
+    vmVmpsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    vmVmpsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    vmVmpsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vmvmpstable.EntityData.Children = make(map[string]types.YChild)
-    vmvmpstable.EntityData.Children["vmVmpsEntry"] = types.YChild{"Vmvmpsentry", nil}
-    for i := range vmvmpstable.Vmvmpsentry {
-        vmvmpstable.EntityData.Children[types.GetSegmentPath(&vmvmpstable.Vmvmpsentry[i])] = types.YChild{"Vmvmpsentry", &vmvmpstable.Vmvmpsentry[i]}
+    vmVmpsTable.EntityData.Children = types.NewOrderedMap()
+    vmVmpsTable.EntityData.Children.Append("vmVmpsEntry", types.YChild{"VmVmpsEntry", nil})
+    for i := range vmVmpsTable.VmVmpsEntry {
+        vmVmpsTable.EntityData.Children.Append(types.GetSegmentPath(vmVmpsTable.VmVmpsEntry[i]), types.YChild{"VmVmpsEntry", vmVmpsTable.VmVmpsEntry[i]})
     }
-    vmvmpstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(vmvmpstable.EntityData)
+    vmVmpsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    vmVmpsTable.EntityData.YListKeys = []string {}
+
+    return &(vmVmpsTable.EntityData)
 }
 
-// CISCOVLANMEMBERSHIPMIB_Vmvmpstable_Vmvmpsentry
+// CISCOVLANMEMBERSHIPMIB_VmVmpsTable_VmVmpsEntry
 // An entry (conceptual row) in the vmVmpsTable.
-type CISCOVLANMEMBERSHIPMIB_Vmvmpstable_Vmvmpsentry struct {
+type CISCOVLANMEMBERSHIPMIB_VmVmpsTable_VmVmpsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Ip Address of the VMPS. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Vmvmpsipaddress interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    VmVmpsIpAddress interface{}
 
     // The status of the VMPS. Setting this value to true will make this VMPS the
     // primary server and make the switch use this as the current server. Setting
@@ -388,31 +406,34 @@ type CISCOVLANMEMBERSHIPMIB_Vmvmpstable_Vmvmpsentry struct {
     // write a value of false after creation will result in a return of bad value.
     // Deleting an entry whose value is true will result in the first entry in the
     // table being set to true. The type is bool.
-    Vmvmpsprimary interface{}
+    VmVmpsPrimary interface{}
 
     // The status of this conceptual row. The type is RowStatus.
-    Vmvmpsrowstatus interface{}
+    VmVmpsRowStatus interface{}
 }
 
-func (vmvmpsentry *CISCOVLANMEMBERSHIPMIB_Vmvmpstable_Vmvmpsentry) GetEntityData() *types.CommonEntityData {
-    vmvmpsentry.EntityData.YFilter = vmvmpsentry.YFilter
-    vmvmpsentry.EntityData.YangName = "vmVmpsEntry"
-    vmvmpsentry.EntityData.BundleName = "cisco_ios_xe"
-    vmvmpsentry.EntityData.ParentYangName = "vmVmpsTable"
-    vmvmpsentry.EntityData.SegmentPath = "vmVmpsEntry" + "[vmVmpsIpAddress='" + fmt.Sprintf("%v", vmvmpsentry.Vmvmpsipaddress) + "']"
-    vmvmpsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    vmvmpsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    vmvmpsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (vmVmpsEntry *CISCOVLANMEMBERSHIPMIB_VmVmpsTable_VmVmpsEntry) GetEntityData() *types.CommonEntityData {
+    vmVmpsEntry.EntityData.YFilter = vmVmpsEntry.YFilter
+    vmVmpsEntry.EntityData.YangName = "vmVmpsEntry"
+    vmVmpsEntry.EntityData.BundleName = "cisco_ios_xe"
+    vmVmpsEntry.EntityData.ParentYangName = "vmVmpsTable"
+    vmVmpsEntry.EntityData.SegmentPath = "vmVmpsEntry" + types.AddKeyToken(vmVmpsEntry.VmVmpsIpAddress, "vmVmpsIpAddress")
+    vmVmpsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    vmVmpsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    vmVmpsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vmvmpsentry.EntityData.Children = make(map[string]types.YChild)
-    vmvmpsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    vmvmpsentry.EntityData.Leafs["vmVmpsIpAddress"] = types.YLeaf{"Vmvmpsipaddress", vmvmpsentry.Vmvmpsipaddress}
-    vmvmpsentry.EntityData.Leafs["vmVmpsPrimary"] = types.YLeaf{"Vmvmpsprimary", vmvmpsentry.Vmvmpsprimary}
-    vmvmpsentry.EntityData.Leafs["vmVmpsRowStatus"] = types.YLeaf{"Vmvmpsrowstatus", vmvmpsentry.Vmvmpsrowstatus}
-    return &(vmvmpsentry.EntityData)
+    vmVmpsEntry.EntityData.Children = types.NewOrderedMap()
+    vmVmpsEntry.EntityData.Leafs = types.NewOrderedMap()
+    vmVmpsEntry.EntityData.Leafs.Append("vmVmpsIpAddress", types.YLeaf{"VmVmpsIpAddress", vmVmpsEntry.VmVmpsIpAddress})
+    vmVmpsEntry.EntityData.Leafs.Append("vmVmpsPrimary", types.YLeaf{"VmVmpsPrimary", vmVmpsEntry.VmVmpsPrimary})
+    vmVmpsEntry.EntityData.Leafs.Append("vmVmpsRowStatus", types.YLeaf{"VmVmpsRowStatus", vmVmpsEntry.VmVmpsRowStatus})
+
+    vmVmpsEntry.EntityData.YListKeys = []string {"VmVmpsIpAddress"}
+
+    return &(vmVmpsEntry.EntityData)
 }
 
-// CISCOVLANMEMBERSHIPMIB_Vmmembershipsummarytable
+// CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryTable
 // A summary of VLAN membership of non-trunk
 // bridge ports. This is a convenience table
 // for retrieving VLAN membership information.
@@ -423,45 +444,48 @@ func (vmvmpsentry *CISCOVLANMEMBERSHIPMIB_Vmvmpstable_Vmvmpsentry) GetEntityData
 // 
 // VLAN membership can only be modified via the
 // vmMembershipTable.
-type CISCOVLANMEMBERSHIPMIB_Vmmembershipsummarytable struct {
+type CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the vmMembershipSummaryTable. The type is
     // slice of
-    // CISCOVLANMEMBERSHIPMIB_Vmmembershipsummarytable_Vmmembershipsummaryentry.
-    Vmmembershipsummaryentry []CISCOVLANMEMBERSHIPMIB_Vmmembershipsummarytable_Vmmembershipsummaryentry
+    // CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryTable_VmMembershipSummaryEntry.
+    VmMembershipSummaryEntry []*CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryTable_VmMembershipSummaryEntry
 }
 
-func (vmmembershipsummarytable *CISCOVLANMEMBERSHIPMIB_Vmmembershipsummarytable) GetEntityData() *types.CommonEntityData {
-    vmmembershipsummarytable.EntityData.YFilter = vmmembershipsummarytable.YFilter
-    vmmembershipsummarytable.EntityData.YangName = "vmMembershipSummaryTable"
-    vmmembershipsummarytable.EntityData.BundleName = "cisco_ios_xe"
-    vmmembershipsummarytable.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
-    vmmembershipsummarytable.EntityData.SegmentPath = "vmMembershipSummaryTable"
-    vmmembershipsummarytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    vmmembershipsummarytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    vmmembershipsummarytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (vmMembershipSummaryTable *CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryTable) GetEntityData() *types.CommonEntityData {
+    vmMembershipSummaryTable.EntityData.YFilter = vmMembershipSummaryTable.YFilter
+    vmMembershipSummaryTable.EntityData.YangName = "vmMembershipSummaryTable"
+    vmMembershipSummaryTable.EntityData.BundleName = "cisco_ios_xe"
+    vmMembershipSummaryTable.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
+    vmMembershipSummaryTable.EntityData.SegmentPath = "vmMembershipSummaryTable"
+    vmMembershipSummaryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    vmMembershipSummaryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    vmMembershipSummaryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vmmembershipsummarytable.EntityData.Children = make(map[string]types.YChild)
-    vmmembershipsummarytable.EntityData.Children["vmMembershipSummaryEntry"] = types.YChild{"Vmmembershipsummaryentry", nil}
-    for i := range vmmembershipsummarytable.Vmmembershipsummaryentry {
-        vmmembershipsummarytable.EntityData.Children[types.GetSegmentPath(&vmmembershipsummarytable.Vmmembershipsummaryentry[i])] = types.YChild{"Vmmembershipsummaryentry", &vmmembershipsummarytable.Vmmembershipsummaryentry[i]}
+    vmMembershipSummaryTable.EntityData.Children = types.NewOrderedMap()
+    vmMembershipSummaryTable.EntityData.Children.Append("vmMembershipSummaryEntry", types.YChild{"VmMembershipSummaryEntry", nil})
+    for i := range vmMembershipSummaryTable.VmMembershipSummaryEntry {
+        vmMembershipSummaryTable.EntityData.Children.Append(types.GetSegmentPath(vmMembershipSummaryTable.VmMembershipSummaryEntry[i]), types.YChild{"VmMembershipSummaryEntry", vmMembershipSummaryTable.VmMembershipSummaryEntry[i]})
     }
-    vmmembershipsummarytable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(vmmembershipsummarytable.EntityData)
+    vmMembershipSummaryTable.EntityData.Leafs = types.NewOrderedMap()
+
+    vmMembershipSummaryTable.EntityData.YListKeys = []string {}
+
+    return &(vmMembershipSummaryTable.EntityData)
 }
 
-// CISCOVLANMEMBERSHIPMIB_Vmmembershipsummarytable_Vmmembershipsummaryentry
+// CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryTable_VmMembershipSummaryEntry
 // An entry (conceptual row) in the
 // vmMembershipSummaryTable.
-type CISCOVLANMEMBERSHIPMIB_Vmmembershipsummarytable_Vmmembershipsummaryentry struct {
+type CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryTable_VmMembershipSummaryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The VLAN id of the VLAN. The type is interface{}
     // with range: 0..4095.
-    Vmmembershipsummaryvlanindex interface{}
+    VmMembershipSummaryVlanIndex interface{}
 
     // The set of the device's member ports that belong to the VLAN.  Each octet
     // within the value of this object specifies a set of eight ports, with the
@@ -474,7 +498,7 @@ type CISCOVLANMEMBERSHIPMIB_Vmmembershipsummarytable_Vmmembershipsummaryentry st
     // its bit has a value of '0'.  A port number is the value of dot1dBasePort
     // for the port in the BRIDGE-MIB (RFC 1493). The type is string with length:
     // 0..128.
-    Vmmembershipsummarymemberports interface{}
+    VmMembershipSummaryMemberPorts interface{}
 
     // The set of the device's member ports that belong to the VLAN. It has the
     // VLAN membership information of up to 2048 ports with the port number from 1
@@ -488,28 +512,31 @@ type CISCOVLANMEMBERSHIPMIB_Vmmembershipsummarytable_Vmmembershipsummaryentry st
     // ports; the port is not included if its bit has a value of '0'.  A port
     // number is the value of dot1dBasePort for the port in the BRIDGE-MIB (RFC
     // 1493). The type is string with length: 0..256.
-    Vmmembershipsummarymember2Kports interface{}
+    VmMembershipSummaryMember2kPorts interface{}
 }
 
-func (vmmembershipsummaryentry *CISCOVLANMEMBERSHIPMIB_Vmmembershipsummarytable_Vmmembershipsummaryentry) GetEntityData() *types.CommonEntityData {
-    vmmembershipsummaryentry.EntityData.YFilter = vmmembershipsummaryentry.YFilter
-    vmmembershipsummaryentry.EntityData.YangName = "vmMembershipSummaryEntry"
-    vmmembershipsummaryentry.EntityData.BundleName = "cisco_ios_xe"
-    vmmembershipsummaryentry.EntityData.ParentYangName = "vmMembershipSummaryTable"
-    vmmembershipsummaryentry.EntityData.SegmentPath = "vmMembershipSummaryEntry" + "[vmMembershipSummaryVlanIndex='" + fmt.Sprintf("%v", vmmembershipsummaryentry.Vmmembershipsummaryvlanindex) + "']"
-    vmmembershipsummaryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    vmmembershipsummaryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    vmmembershipsummaryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (vmMembershipSummaryEntry *CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryTable_VmMembershipSummaryEntry) GetEntityData() *types.CommonEntityData {
+    vmMembershipSummaryEntry.EntityData.YFilter = vmMembershipSummaryEntry.YFilter
+    vmMembershipSummaryEntry.EntityData.YangName = "vmMembershipSummaryEntry"
+    vmMembershipSummaryEntry.EntityData.BundleName = "cisco_ios_xe"
+    vmMembershipSummaryEntry.EntityData.ParentYangName = "vmMembershipSummaryTable"
+    vmMembershipSummaryEntry.EntityData.SegmentPath = "vmMembershipSummaryEntry" + types.AddKeyToken(vmMembershipSummaryEntry.VmMembershipSummaryVlanIndex, "vmMembershipSummaryVlanIndex")
+    vmMembershipSummaryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    vmMembershipSummaryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    vmMembershipSummaryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vmmembershipsummaryentry.EntityData.Children = make(map[string]types.YChild)
-    vmmembershipsummaryentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    vmmembershipsummaryentry.EntityData.Leafs["vmMembershipSummaryVlanIndex"] = types.YLeaf{"Vmmembershipsummaryvlanindex", vmmembershipsummaryentry.Vmmembershipsummaryvlanindex}
-    vmmembershipsummaryentry.EntityData.Leafs["vmMembershipSummaryMemberPorts"] = types.YLeaf{"Vmmembershipsummarymemberports", vmmembershipsummaryentry.Vmmembershipsummarymemberports}
-    vmmembershipsummaryentry.EntityData.Leafs["vmMembershipSummaryMember2kPorts"] = types.YLeaf{"Vmmembershipsummarymember2Kports", vmmembershipsummaryentry.Vmmembershipsummarymember2Kports}
-    return &(vmmembershipsummaryentry.EntityData)
+    vmMembershipSummaryEntry.EntityData.Children = types.NewOrderedMap()
+    vmMembershipSummaryEntry.EntityData.Leafs = types.NewOrderedMap()
+    vmMembershipSummaryEntry.EntityData.Leafs.Append("vmMembershipSummaryVlanIndex", types.YLeaf{"VmMembershipSummaryVlanIndex", vmMembershipSummaryEntry.VmMembershipSummaryVlanIndex})
+    vmMembershipSummaryEntry.EntityData.Leafs.Append("vmMembershipSummaryMemberPorts", types.YLeaf{"VmMembershipSummaryMemberPorts", vmMembershipSummaryEntry.VmMembershipSummaryMemberPorts})
+    vmMembershipSummaryEntry.EntityData.Leafs.Append("vmMembershipSummaryMember2kPorts", types.YLeaf{"VmMembershipSummaryMember2kPorts", vmMembershipSummaryEntry.VmMembershipSummaryMember2kPorts})
+
+    vmMembershipSummaryEntry.EntityData.YListKeys = []string {"VmMembershipSummaryVlanIndex"}
+
+    return &(vmMembershipSummaryEntry.EntityData)
 }
 
-// CISCOVLANMEMBERSHIPMIB_Vmmembershiptable
+// CISCOVLANMEMBERSHIPMIB_VmMembershipTable
 // A table for configuring VLAN port membership.
 // There is one row for each bridge port that is
 // assigned to a static or dynamic access port. Trunk
@@ -517,43 +544,46 @@ func (vmmembershipsummaryentry *CISCOVLANMEMBERSHIPMIB_Vmmembershipsummarytable_
 // may be created and deleted when ports are created or
 // deleted via SNMP or the management console on a 
 // device.
-type CISCOVLANMEMBERSHIPMIB_Vmmembershiptable struct {
+type CISCOVLANMEMBERSHIPMIB_VmMembershipTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the vmMembershipTable. The type is slice of
-    // CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry.
-    Vmmembershipentry []CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry
+    // CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry.
+    VmMembershipEntry []*CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry
 }
 
-func (vmmembershiptable *CISCOVLANMEMBERSHIPMIB_Vmmembershiptable) GetEntityData() *types.CommonEntityData {
-    vmmembershiptable.EntityData.YFilter = vmmembershiptable.YFilter
-    vmmembershiptable.EntityData.YangName = "vmMembershipTable"
-    vmmembershiptable.EntityData.BundleName = "cisco_ios_xe"
-    vmmembershiptable.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
-    vmmembershiptable.EntityData.SegmentPath = "vmMembershipTable"
-    vmmembershiptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    vmmembershiptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    vmmembershiptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (vmMembershipTable *CISCOVLANMEMBERSHIPMIB_VmMembershipTable) GetEntityData() *types.CommonEntityData {
+    vmMembershipTable.EntityData.YFilter = vmMembershipTable.YFilter
+    vmMembershipTable.EntityData.YangName = "vmMembershipTable"
+    vmMembershipTable.EntityData.BundleName = "cisco_ios_xe"
+    vmMembershipTable.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
+    vmMembershipTable.EntityData.SegmentPath = "vmMembershipTable"
+    vmMembershipTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    vmMembershipTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    vmMembershipTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vmmembershiptable.EntityData.Children = make(map[string]types.YChild)
-    vmmembershiptable.EntityData.Children["vmMembershipEntry"] = types.YChild{"Vmmembershipentry", nil}
-    for i := range vmmembershiptable.Vmmembershipentry {
-        vmmembershiptable.EntityData.Children[types.GetSegmentPath(&vmmembershiptable.Vmmembershipentry[i])] = types.YChild{"Vmmembershipentry", &vmmembershiptable.Vmmembershipentry[i]}
+    vmMembershipTable.EntityData.Children = types.NewOrderedMap()
+    vmMembershipTable.EntityData.Children.Append("vmMembershipEntry", types.YChild{"VmMembershipEntry", nil})
+    for i := range vmMembershipTable.VmMembershipEntry {
+        vmMembershipTable.EntityData.Children.Append(types.GetSegmentPath(vmMembershipTable.VmMembershipEntry[i]), types.YChild{"VmMembershipEntry", vmMembershipTable.VmMembershipEntry[i]})
     }
-    vmmembershiptable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(vmmembershiptable.EntityData)
+    vmMembershipTable.EntityData.Leafs = types.NewOrderedMap()
+
+    vmMembershipTable.EntityData.YListKeys = []string {}
+
+    return &(vmMembershipTable.EntityData)
 }
 
-// CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry
+// CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry
 // An entry (conceptual row) in the vmMembershipTable.
-type CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry struct {
+type CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // The type of VLAN membership assigned to this port. A port with static vlan
     // membership is assigned to a single VLAN directly. A port with dynamic
@@ -561,8 +591,8 @@ type CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry struct {
     // on the port and via VQP queries to VMPS. A port with multiVlan membership
     // may be assigned to one or more VLANs directly.  A static or dynamic port
     // membership is specified by the value of vmVlan. A multiVlan port membership
-    // is specified by the value of vmVlans. The type is Vmvlantype.
-    Vmvlantype interface{}
+    // is specified by the value of vmVlans. The type is VmVlanType.
+    VmVlanType interface{}
 
     // The VLAN id of the VLAN the port is assigned to when vmVlanType is set to
     // static or dynamic. This object is not instantiated if not applicable.  The
@@ -571,15 +601,15 @@ type CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry struct {
     // to 0.  If vmVlanType is dynamic the object's value is 0 if the port is
     // currently not assigned to a VLAN. In addition, the object may be set to 0
     // only. The type is interface{} with range: 0..4095.
-    Vmvlan interface{}
+    VmVlan interface{}
 
     // An indication of the current VLAN status of the port. A status of
     // inactive(1) indicates that a dynamic port does not yet have a VLAN
     // assigned, or a port is  assigned to a VLAN that is currently not active. A 
     // status of active(2) indicates that the currently  assigned VLAN is active.
     // A status of shutdown(3)  indicates that the port has been disabled as a
-    // result of VQP shutdown response. The type is Vmportstatus.
-    Vmportstatus interface{}
+    // result of VQP shutdown response. The type is VmPortStatus.
+    VmPortStatus interface{}
 
     // The VLAN(s) the port is assigned to when the port's vmVlanType is set to
     // multiVlan. This object is not instantiated if not applicable.  The port is
@@ -593,7 +623,7 @@ type CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry struct {
     // of this object.  If that bit has a value of '1' then that VLAN is included
     // in the set of VLANs; the VLAN is not included if its bit has a value of
     // '0'. The type is string with length: 0..128.
-    Vmvlans interface{}
+    VmVlans interface{}
 
     // The VLAN(s) the port is assigned to when the port's vmVlanType is set to
     // multiVlan. This object is not instantiated if not applicable.  The port is
@@ -607,7 +637,7 @@ type CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry struct {
     // bit within the value of this object.  If that bit has a value of '1' then
     // that VLAN is included in the set of VLANs; the VLAN is not included if its
     // bit has a value of '0'. The type is string with length: 0..128.
-    Vmvlans2K interface{}
+    VmVlans2k interface{}
 
     // The VLAN(s) the port is assigned to when the port's vmVlanType is set to
     // multiVlan. This object is not instantiated if not applicable.  The port is
@@ -621,7 +651,7 @@ type CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry struct {
     // bit within the value of this object.  If that bit has a value of '1' then
     // that VLAN is included in the set of VLANs; the VLAN is not included if its
     // bit has a value of '0'. The type is string with length: 0..128.
-    Vmvlans3K interface{}
+    VmVlans3k interface{}
 
     // The VLAN(s) the port is assigned to when the port's vmVlanType is set to
     // multiVlan. This object is not instantiated if not applicable.  The port is
@@ -635,55 +665,58 @@ type CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry struct {
     // bit within the value of this object.  If that bit has a value of '1' then
     // that VLAN is included in the set of VLANs; the VLAN is not included if its
     // bit has a value of '0'. The type is string with length: 0..128.
-    Vmvlans4K interface{}
+    VmVlans4k interface{}
 }
 
-func (vmmembershipentry *CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry) GetEntityData() *types.CommonEntityData {
-    vmmembershipentry.EntityData.YFilter = vmmembershipentry.YFilter
-    vmmembershipentry.EntityData.YangName = "vmMembershipEntry"
-    vmmembershipentry.EntityData.BundleName = "cisco_ios_xe"
-    vmmembershipentry.EntityData.ParentYangName = "vmMembershipTable"
-    vmmembershipentry.EntityData.SegmentPath = "vmMembershipEntry" + "[ifIndex='" + fmt.Sprintf("%v", vmmembershipentry.Ifindex) + "']"
-    vmmembershipentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    vmmembershipentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    vmmembershipentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (vmMembershipEntry *CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry) GetEntityData() *types.CommonEntityData {
+    vmMembershipEntry.EntityData.YFilter = vmMembershipEntry.YFilter
+    vmMembershipEntry.EntityData.YangName = "vmMembershipEntry"
+    vmMembershipEntry.EntityData.BundleName = "cisco_ios_xe"
+    vmMembershipEntry.EntityData.ParentYangName = "vmMembershipTable"
+    vmMembershipEntry.EntityData.SegmentPath = "vmMembershipEntry" + types.AddKeyToken(vmMembershipEntry.IfIndex, "ifIndex")
+    vmMembershipEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    vmMembershipEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    vmMembershipEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vmmembershipentry.EntityData.Children = make(map[string]types.YChild)
-    vmmembershipentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    vmmembershipentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", vmmembershipentry.Ifindex}
-    vmmembershipentry.EntityData.Leafs["vmVlanType"] = types.YLeaf{"Vmvlantype", vmmembershipentry.Vmvlantype}
-    vmmembershipentry.EntityData.Leafs["vmVlan"] = types.YLeaf{"Vmvlan", vmmembershipentry.Vmvlan}
-    vmmembershipentry.EntityData.Leafs["vmPortStatus"] = types.YLeaf{"Vmportstatus", vmmembershipentry.Vmportstatus}
-    vmmembershipentry.EntityData.Leafs["vmVlans"] = types.YLeaf{"Vmvlans", vmmembershipentry.Vmvlans}
-    vmmembershipentry.EntityData.Leafs["vmVlans2k"] = types.YLeaf{"Vmvlans2K", vmmembershipentry.Vmvlans2K}
-    vmmembershipentry.EntityData.Leafs["vmVlans3k"] = types.YLeaf{"Vmvlans3K", vmmembershipentry.Vmvlans3K}
-    vmmembershipentry.EntityData.Leafs["vmVlans4k"] = types.YLeaf{"Vmvlans4K", vmmembershipentry.Vmvlans4K}
-    return &(vmmembershipentry.EntityData)
+    vmMembershipEntry.EntityData.Children = types.NewOrderedMap()
+    vmMembershipEntry.EntityData.Leafs = types.NewOrderedMap()
+    vmMembershipEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", vmMembershipEntry.IfIndex})
+    vmMembershipEntry.EntityData.Leafs.Append("vmVlanType", types.YLeaf{"VmVlanType", vmMembershipEntry.VmVlanType})
+    vmMembershipEntry.EntityData.Leafs.Append("vmVlan", types.YLeaf{"VmVlan", vmMembershipEntry.VmVlan})
+    vmMembershipEntry.EntityData.Leafs.Append("vmPortStatus", types.YLeaf{"VmPortStatus", vmMembershipEntry.VmPortStatus})
+    vmMembershipEntry.EntityData.Leafs.Append("vmVlans", types.YLeaf{"VmVlans", vmMembershipEntry.VmVlans})
+    vmMembershipEntry.EntityData.Leafs.Append("vmVlans2k", types.YLeaf{"VmVlans2k", vmMembershipEntry.VmVlans2k})
+    vmMembershipEntry.EntityData.Leafs.Append("vmVlans3k", types.YLeaf{"VmVlans3k", vmMembershipEntry.VmVlans3k})
+    vmMembershipEntry.EntityData.Leafs.Append("vmVlans4k", types.YLeaf{"VmVlans4k", vmMembershipEntry.VmVlans4k})
+
+    vmMembershipEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(vmMembershipEntry.EntityData)
 }
 
-// CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry_Vmportstatus represents of VQP shutdown response.
-type CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry_Vmportstatus string
+// CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry_VmPortStatus represents of VQP shutdown response.
+type CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry_VmPortStatus string
 
 const (
-    CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry_Vmportstatus_inactive CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry_Vmportstatus = "inactive"
+    CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry_VmPortStatus_inactive CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry_VmPortStatus = "inactive"
 
-    CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry_Vmportstatus_active CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry_Vmportstatus = "active"
+    CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry_VmPortStatus_active CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry_VmPortStatus = "active"
 
-    CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry_Vmportstatus_shutdown CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry_Vmportstatus = "shutdown"
+    CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry_VmPortStatus_shutdown CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry_VmPortStatus = "shutdown"
 )
 
-// CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry_Vmvlantype represents specified by the value of vmVlans.
-type CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry_Vmvlantype string
+// CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry_VmVlanType represents specified by the value of vmVlans.
+type CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry_VmVlanType string
 
 const (
-    CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry_Vmvlantype_static CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry_Vmvlantype = "static"
+    CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry_VmVlanType_static CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry_VmVlanType = "static"
 
-    CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry_Vmvlantype_dynamic CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry_Vmvlantype = "dynamic"
+    CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry_VmVlanType_dynamic CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry_VmVlanType = "dynamic"
 
-    CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry_Vmvlantype_multiVlan CISCOVLANMEMBERSHIPMIB_Vmmembershiptable_Vmmembershipentry_Vmvlantype = "multiVlan"
+    CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry_VmVlanType_multiVlan CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry_VmVlanType = "multiVlan"
 )
 
-// CISCOVLANMEMBERSHIPMIB_Vmmembershipsummaryexttable
+// CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryExtTable
 // A summary of VLAN membership of non-trunk
 // bridge ports. This table is used for 
 // retrieving VLAN membership information
@@ -696,49 +729,52 @@ const (
 // 
 // VLAN membership can only be modified via the
 // vmMembershipTable.
-type CISCOVLANMEMBERSHIPMIB_Vmmembershipsummaryexttable struct {
+type CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryExtTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the vmMembershipSummaryExtTable. The type is
     // slice of
-    // CISCOVLANMEMBERSHIPMIB_Vmmembershipsummaryexttable_Vmmembershipsummaryextentry.
-    Vmmembershipsummaryextentry []CISCOVLANMEMBERSHIPMIB_Vmmembershipsummaryexttable_Vmmembershipsummaryextentry
+    // CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryExtTable_VmMembershipSummaryExtEntry.
+    VmMembershipSummaryExtEntry []*CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryExtTable_VmMembershipSummaryExtEntry
 }
 
-func (vmmembershipsummaryexttable *CISCOVLANMEMBERSHIPMIB_Vmmembershipsummaryexttable) GetEntityData() *types.CommonEntityData {
-    vmmembershipsummaryexttable.EntityData.YFilter = vmmembershipsummaryexttable.YFilter
-    vmmembershipsummaryexttable.EntityData.YangName = "vmMembershipSummaryExtTable"
-    vmmembershipsummaryexttable.EntityData.BundleName = "cisco_ios_xe"
-    vmmembershipsummaryexttable.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
-    vmmembershipsummaryexttable.EntityData.SegmentPath = "vmMembershipSummaryExtTable"
-    vmmembershipsummaryexttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    vmmembershipsummaryexttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    vmmembershipsummaryexttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (vmMembershipSummaryExtTable *CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryExtTable) GetEntityData() *types.CommonEntityData {
+    vmMembershipSummaryExtTable.EntityData.YFilter = vmMembershipSummaryExtTable.YFilter
+    vmMembershipSummaryExtTable.EntityData.YangName = "vmMembershipSummaryExtTable"
+    vmMembershipSummaryExtTable.EntityData.BundleName = "cisco_ios_xe"
+    vmMembershipSummaryExtTable.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
+    vmMembershipSummaryExtTable.EntityData.SegmentPath = "vmMembershipSummaryExtTable"
+    vmMembershipSummaryExtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    vmMembershipSummaryExtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    vmMembershipSummaryExtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vmmembershipsummaryexttable.EntityData.Children = make(map[string]types.YChild)
-    vmmembershipsummaryexttable.EntityData.Children["vmMembershipSummaryExtEntry"] = types.YChild{"Vmmembershipsummaryextentry", nil}
-    for i := range vmmembershipsummaryexttable.Vmmembershipsummaryextentry {
-        vmmembershipsummaryexttable.EntityData.Children[types.GetSegmentPath(&vmmembershipsummaryexttable.Vmmembershipsummaryextentry[i])] = types.YChild{"Vmmembershipsummaryextentry", &vmmembershipsummaryexttable.Vmmembershipsummaryextentry[i]}
+    vmMembershipSummaryExtTable.EntityData.Children = types.NewOrderedMap()
+    vmMembershipSummaryExtTable.EntityData.Children.Append("vmMembershipSummaryExtEntry", types.YChild{"VmMembershipSummaryExtEntry", nil})
+    for i := range vmMembershipSummaryExtTable.VmMembershipSummaryExtEntry {
+        vmMembershipSummaryExtTable.EntityData.Children.Append(types.GetSegmentPath(vmMembershipSummaryExtTable.VmMembershipSummaryExtEntry[i]), types.YChild{"VmMembershipSummaryExtEntry", vmMembershipSummaryExtTable.VmMembershipSummaryExtEntry[i]})
     }
-    vmmembershipsummaryexttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(vmmembershipsummaryexttable.EntityData)
+    vmMembershipSummaryExtTable.EntityData.Leafs = types.NewOrderedMap()
+
+    vmMembershipSummaryExtTable.EntityData.YListKeys = []string {}
+
+    return &(vmMembershipSummaryExtTable.EntityData)
 }
 
-// CISCOVLANMEMBERSHIPMIB_Vmmembershipsummaryexttable_Vmmembershipsummaryextentry
+// CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryExtTable_VmMembershipSummaryExtEntry
 // An entry (conceptual row) in the
 // vmMembershipSummaryExtTable.
-type CISCOVLANMEMBERSHIPMIB_Vmmembershipsummaryexttable_Vmmembershipsummaryextentry struct {
+type CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryExtTable_VmMembershipSummaryExtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // cisco_vlan_membership_mib.CISCOVLANMEMBERSHIPMIB_Vmmembershipsummarytable_Vmmembershipsummaryentry_Vmmembershipsummaryvlanindex
-    Vmmembershipsummaryvlanindex interface{}
+    // cisco_vlan_membership_mib.CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryTable_VmMembershipSummaryEntry_VmMembershipSummaryVlanIndex
+    VmMembershipSummaryVlanIndex interface{}
 
     // This attribute is a key. The bridge port range index of this row. The type
     // is CiscoPortListRange.
-    Vmmembershipportrangeindex interface{}
+    VmMembershipPortRangeIndex interface{}
 
     // The set of the device's member ports that belong to the VLAN. It has the
     // VLAN membership information of up to 2k ports with the port number starting
@@ -747,71 +783,77 @@ type CISCOVLANMEMBERSHIPMIB_Vmmembershipsummaryexttable_Vmmembershipsummaryexten
     // 'twoKto4K', the port number indicated in this object starting from 2049 and
     // ending to 4096.   A port number is the value of dot1dBasePort for the port
     // in the BRIDGE-MIB (RFC 1493). The type is string with length: 0..256.
-    Vmmembershipsummaryextports interface{}
+    VmMembershipSummaryExtPorts interface{}
 }
 
-func (vmmembershipsummaryextentry *CISCOVLANMEMBERSHIPMIB_Vmmembershipsummaryexttable_Vmmembershipsummaryextentry) GetEntityData() *types.CommonEntityData {
-    vmmembershipsummaryextentry.EntityData.YFilter = vmmembershipsummaryextentry.YFilter
-    vmmembershipsummaryextentry.EntityData.YangName = "vmMembershipSummaryExtEntry"
-    vmmembershipsummaryextentry.EntityData.BundleName = "cisco_ios_xe"
-    vmmembershipsummaryextentry.EntityData.ParentYangName = "vmMembershipSummaryExtTable"
-    vmmembershipsummaryextentry.EntityData.SegmentPath = "vmMembershipSummaryExtEntry" + "[vmMembershipSummaryVlanIndex='" + fmt.Sprintf("%v", vmmembershipsummaryextentry.Vmmembershipsummaryvlanindex) + "']" + "[vmMembershipPortRangeIndex='" + fmt.Sprintf("%v", vmmembershipsummaryextentry.Vmmembershipportrangeindex) + "']"
-    vmmembershipsummaryextentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    vmmembershipsummaryextentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    vmmembershipsummaryextentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (vmMembershipSummaryExtEntry *CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryExtTable_VmMembershipSummaryExtEntry) GetEntityData() *types.CommonEntityData {
+    vmMembershipSummaryExtEntry.EntityData.YFilter = vmMembershipSummaryExtEntry.YFilter
+    vmMembershipSummaryExtEntry.EntityData.YangName = "vmMembershipSummaryExtEntry"
+    vmMembershipSummaryExtEntry.EntityData.BundleName = "cisco_ios_xe"
+    vmMembershipSummaryExtEntry.EntityData.ParentYangName = "vmMembershipSummaryExtTable"
+    vmMembershipSummaryExtEntry.EntityData.SegmentPath = "vmMembershipSummaryExtEntry" + types.AddKeyToken(vmMembershipSummaryExtEntry.VmMembershipSummaryVlanIndex, "vmMembershipSummaryVlanIndex") + types.AddKeyToken(vmMembershipSummaryExtEntry.VmMembershipPortRangeIndex, "vmMembershipPortRangeIndex")
+    vmMembershipSummaryExtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    vmMembershipSummaryExtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    vmMembershipSummaryExtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vmmembershipsummaryextentry.EntityData.Children = make(map[string]types.YChild)
-    vmmembershipsummaryextentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    vmmembershipsummaryextentry.EntityData.Leafs["vmMembershipSummaryVlanIndex"] = types.YLeaf{"Vmmembershipsummaryvlanindex", vmmembershipsummaryextentry.Vmmembershipsummaryvlanindex}
-    vmmembershipsummaryextentry.EntityData.Leafs["vmMembershipPortRangeIndex"] = types.YLeaf{"Vmmembershipportrangeindex", vmmembershipsummaryextentry.Vmmembershipportrangeindex}
-    vmmembershipsummaryextentry.EntityData.Leafs["vmMembershipSummaryExtPorts"] = types.YLeaf{"Vmmembershipsummaryextports", vmmembershipsummaryextentry.Vmmembershipsummaryextports}
-    return &(vmmembershipsummaryextentry.EntityData)
+    vmMembershipSummaryExtEntry.EntityData.Children = types.NewOrderedMap()
+    vmMembershipSummaryExtEntry.EntityData.Leafs = types.NewOrderedMap()
+    vmMembershipSummaryExtEntry.EntityData.Leafs.Append("vmMembershipSummaryVlanIndex", types.YLeaf{"VmMembershipSummaryVlanIndex", vmMembershipSummaryExtEntry.VmMembershipSummaryVlanIndex})
+    vmMembershipSummaryExtEntry.EntityData.Leafs.Append("vmMembershipPortRangeIndex", types.YLeaf{"VmMembershipPortRangeIndex", vmMembershipSummaryExtEntry.VmMembershipPortRangeIndex})
+    vmMembershipSummaryExtEntry.EntityData.Leafs.Append("vmMembershipSummaryExtPorts", types.YLeaf{"VmMembershipSummaryExtPorts", vmMembershipSummaryExtEntry.VmMembershipSummaryExtPorts})
+
+    vmMembershipSummaryExtEntry.EntityData.YListKeys = []string {"VmMembershipSummaryVlanIndex", "VmMembershipPortRangeIndex"}
+
+    return &(vmMembershipSummaryExtEntry.EntityData)
 }
 
-// CISCOVLANMEMBERSHIPMIB_Vmvoicevlantable
+// CISCOVLANMEMBERSHIPMIB_VmVoiceVlanTable
 // A table for configuring the Voice VLAN-ID
 // for the ports. An entry will exist for each
 // interface which supports Voice Vlan feature.
-type CISCOVLANMEMBERSHIPMIB_Vmvoicevlantable struct {
+type CISCOVLANMEMBERSHIPMIB_VmVoiceVlanTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the vmVoiceVlanTable. Only interfaces which
     // support Voice Vlan feature are shown. The type is slice of
-    // CISCOVLANMEMBERSHIPMIB_Vmvoicevlantable_Vmvoicevlanentry.
-    Vmvoicevlanentry []CISCOVLANMEMBERSHIPMIB_Vmvoicevlantable_Vmvoicevlanentry
+    // CISCOVLANMEMBERSHIPMIB_VmVoiceVlanTable_VmVoiceVlanEntry.
+    VmVoiceVlanEntry []*CISCOVLANMEMBERSHIPMIB_VmVoiceVlanTable_VmVoiceVlanEntry
 }
 
-func (vmvoicevlantable *CISCOVLANMEMBERSHIPMIB_Vmvoicevlantable) GetEntityData() *types.CommonEntityData {
-    vmvoicevlantable.EntityData.YFilter = vmvoicevlantable.YFilter
-    vmvoicevlantable.EntityData.YangName = "vmVoiceVlanTable"
-    vmvoicevlantable.EntityData.BundleName = "cisco_ios_xe"
-    vmvoicevlantable.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
-    vmvoicevlantable.EntityData.SegmentPath = "vmVoiceVlanTable"
-    vmvoicevlantable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    vmvoicevlantable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    vmvoicevlantable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (vmVoiceVlanTable *CISCOVLANMEMBERSHIPMIB_VmVoiceVlanTable) GetEntityData() *types.CommonEntityData {
+    vmVoiceVlanTable.EntityData.YFilter = vmVoiceVlanTable.YFilter
+    vmVoiceVlanTable.EntityData.YangName = "vmVoiceVlanTable"
+    vmVoiceVlanTable.EntityData.BundleName = "cisco_ios_xe"
+    vmVoiceVlanTable.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
+    vmVoiceVlanTable.EntityData.SegmentPath = "vmVoiceVlanTable"
+    vmVoiceVlanTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    vmVoiceVlanTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    vmVoiceVlanTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vmvoicevlantable.EntityData.Children = make(map[string]types.YChild)
-    vmvoicevlantable.EntityData.Children["vmVoiceVlanEntry"] = types.YChild{"Vmvoicevlanentry", nil}
-    for i := range vmvoicevlantable.Vmvoicevlanentry {
-        vmvoicevlantable.EntityData.Children[types.GetSegmentPath(&vmvoicevlantable.Vmvoicevlanentry[i])] = types.YChild{"Vmvoicevlanentry", &vmvoicevlantable.Vmvoicevlanentry[i]}
+    vmVoiceVlanTable.EntityData.Children = types.NewOrderedMap()
+    vmVoiceVlanTable.EntityData.Children.Append("vmVoiceVlanEntry", types.YChild{"VmVoiceVlanEntry", nil})
+    for i := range vmVoiceVlanTable.VmVoiceVlanEntry {
+        vmVoiceVlanTable.EntityData.Children.Append(types.GetSegmentPath(vmVoiceVlanTable.VmVoiceVlanEntry[i]), types.YChild{"VmVoiceVlanEntry", vmVoiceVlanTable.VmVoiceVlanEntry[i]})
     }
-    vmvoicevlantable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(vmvoicevlantable.EntityData)
+    vmVoiceVlanTable.EntityData.Leafs = types.NewOrderedMap()
+
+    vmVoiceVlanTable.EntityData.YListKeys = []string {}
+
+    return &(vmVoiceVlanTable.EntityData)
 }
 
-// CISCOVLANMEMBERSHIPMIB_Vmvoicevlantable_Vmvoicevlanentry
+// CISCOVLANMEMBERSHIPMIB_VmVoiceVlanTable_VmVoiceVlanEntry
 // An entry (conceptual row) in the vmVoiceVlanTable.
 // Only interfaces which support Voice Vlan feature
 // are shown.
-type CISCOVLANMEMBERSHIPMIB_Vmvoicevlantable_Vmvoicevlanentry struct {
+type CISCOVLANMEMBERSHIPMIB_VmVoiceVlanTable_VmVoiceVlanEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // The Voice Vlan ID (VVID) to which this port belongs to.  0    -    The CDP
     // packets transmitting            through this port would contain          
@@ -829,7 +871,7 @@ type CISCOVLANMEMBERSHIPMIB_Vmvoicevlantable_Vmvoicevlanentry struct {
     // or, if the VVID is not supported            on the port, this MIB object
     // will           not be configurable and will            return 4096. The
     // type is interface{} with range: 0..4096.
-    Vmvoicevlanid interface{}
+    VmVoiceVlanId interface{}
 
     // Enable or Disable the feature of CDP message verification of voice VLANs. 
     // true   - The voice VLAN vmVoiceVlan is enabled           only after CDP
@@ -837,24 +879,27 @@ type CISCOVLANMEMBERSHIPMIB_Vmvoicevlantable_Vmvoicevlanentry struct {
     // vmVoiceVlan is enabled          as soon as the IP phone interface is       
     // up. There is no verification needed           from CDP messages from the IP
     // phone. The type is bool.
-    Vmvoicevlancdpverifyenable interface{}
+    VmVoiceVlanCdpVerifyEnable interface{}
 }
 
-func (vmvoicevlanentry *CISCOVLANMEMBERSHIPMIB_Vmvoicevlantable_Vmvoicevlanentry) GetEntityData() *types.CommonEntityData {
-    vmvoicevlanentry.EntityData.YFilter = vmvoicevlanentry.YFilter
-    vmvoicevlanentry.EntityData.YangName = "vmVoiceVlanEntry"
-    vmvoicevlanentry.EntityData.BundleName = "cisco_ios_xe"
-    vmvoicevlanentry.EntityData.ParentYangName = "vmVoiceVlanTable"
-    vmvoicevlanentry.EntityData.SegmentPath = "vmVoiceVlanEntry" + "[ifIndex='" + fmt.Sprintf("%v", vmvoicevlanentry.Ifindex) + "']"
-    vmvoicevlanentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    vmvoicevlanentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    vmvoicevlanentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (vmVoiceVlanEntry *CISCOVLANMEMBERSHIPMIB_VmVoiceVlanTable_VmVoiceVlanEntry) GetEntityData() *types.CommonEntityData {
+    vmVoiceVlanEntry.EntityData.YFilter = vmVoiceVlanEntry.YFilter
+    vmVoiceVlanEntry.EntityData.YangName = "vmVoiceVlanEntry"
+    vmVoiceVlanEntry.EntityData.BundleName = "cisco_ios_xe"
+    vmVoiceVlanEntry.EntityData.ParentYangName = "vmVoiceVlanTable"
+    vmVoiceVlanEntry.EntityData.SegmentPath = "vmVoiceVlanEntry" + types.AddKeyToken(vmVoiceVlanEntry.IfIndex, "ifIndex")
+    vmVoiceVlanEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    vmVoiceVlanEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    vmVoiceVlanEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    vmvoicevlanentry.EntityData.Children = make(map[string]types.YChild)
-    vmvoicevlanentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    vmvoicevlanentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", vmvoicevlanentry.Ifindex}
-    vmvoicevlanentry.EntityData.Leafs["vmVoiceVlanId"] = types.YLeaf{"Vmvoicevlanid", vmvoicevlanentry.Vmvoicevlanid}
-    vmvoicevlanentry.EntityData.Leafs["vmVoiceVlanCdpVerifyEnable"] = types.YLeaf{"Vmvoicevlancdpverifyenable", vmvoicevlanentry.Vmvoicevlancdpverifyenable}
-    return &(vmvoicevlanentry.EntityData)
+    vmVoiceVlanEntry.EntityData.Children = types.NewOrderedMap()
+    vmVoiceVlanEntry.EntityData.Leafs = types.NewOrderedMap()
+    vmVoiceVlanEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", vmVoiceVlanEntry.IfIndex})
+    vmVoiceVlanEntry.EntityData.Leafs.Append("vmVoiceVlanId", types.YLeaf{"VmVoiceVlanId", vmVoiceVlanEntry.VmVoiceVlanId})
+    vmVoiceVlanEntry.EntityData.Leafs.Append("vmVoiceVlanCdpVerifyEnable", types.YLeaf{"VmVoiceVlanCdpVerifyEnable", vmVoiceVlanEntry.VmVoiceVlanCdpVerifyEnable})
+
+    vmVoiceVlanEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(vmVoiceVlanEntry.EntityData)
 }
 

@@ -77,6 +77,31 @@ module Cisco-IOS-XR-crypto-act {
       }
     }
   }
+  rpc key-generate-ecdsa {
+    description
+      "Generate a ECDSA key of curve type nistp256 | nistp384 | nistp521";
+    input {
+      leaf key-modulus {
+        type enumeration {
+          enum "nistp256" {
+            value 0;
+          }
+          enum "nistp384" {
+            value 1;
+          }
+          enum "nistp521" {
+            value 2;
+          }
+        }
+        mandatory true;
+      }
+      leaf key-label {
+        type string;
+        description
+          "ECDSA key label";
+      }
+    }
+  }
   rpc key-zeroize-rsa {
     description
       "Remove RSA keys";
@@ -91,6 +116,31 @@ module Cisco-IOS-XR-crypto-act {
   rpc key-zeroize-dsa {
     description
       "Remove DSA keys";
+  }
+  rpc key-zeroize-ecdsa {
+    description
+      "Remove ECDSA key of curve type nistp256 | nistp384 | nistp521";
+    input {
+      leaf key-modulus {
+        type enumeration {
+          enum "nistp256" {
+            value 0;
+          }
+          enum "nistp384" {
+            value 1;
+          }
+          enum "nistp521" {
+            value 2;
+          }
+        }
+        mandatory true;
+      }
+      leaf key-label {
+        type string;
+        description
+          "ECDSA key label";
+      }
+    }
   }
   rpc key-zeroize-authentication-rsa {
     description

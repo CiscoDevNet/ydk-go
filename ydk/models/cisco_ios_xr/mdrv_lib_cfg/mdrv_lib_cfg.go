@@ -48,9 +48,12 @@ func (fastShutdown *FastShutdown) GetEntityData() *types.CommonEntityData {
     fastShutdown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fastShutdown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fastShutdown.EntityData.Children = make(map[string]types.YChild)
-    fastShutdown.EntityData.Leafs = make(map[string]types.YLeaf)
-    fastShutdown.EntityData.Leafs["ethernet"] = types.YLeaf{"Ethernet", fastShutdown.Ethernet}
+    fastShutdown.EntityData.Children = types.NewOrderedMap()
+    fastShutdown.EntityData.Leafs = types.NewOrderedMap()
+    fastShutdown.EntityData.Leafs.Append("ethernet", types.YLeaf{"Ethernet", fastShutdown.Ethernet})
+
+    fastShutdown.EntityData.YListKeys = []string {}
+
     return &(fastShutdown.EntityData)
 }
 

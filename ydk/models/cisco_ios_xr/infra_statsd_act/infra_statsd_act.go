@@ -45,9 +45,12 @@ func (clearCountersController *ClearCountersController) GetEntityData() *types.C
     clearCountersController.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearCountersController.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clearCountersController.EntityData.Children = make(map[string]types.YChild)
-    clearCountersController.EntityData.Children["input"] = types.YChild{"Input", &clearCountersController.Input}
-    clearCountersController.EntityData.Leafs = make(map[string]types.YLeaf)
+    clearCountersController.EntityData.Children = types.NewOrderedMap()
+    clearCountersController.EntityData.Children.Append("input", types.YChild{"Input", &clearCountersController.Input})
+    clearCountersController.EntityData.Leafs = types.NewOrderedMap()
+
+    clearCountersController.EntityData.YListKeys = []string {}
+
     return &(clearCountersController.EntityData)
 }
 
@@ -56,7 +59,7 @@ type ClearCountersController_Input struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Controller name. The type is string with pattern: b'[a-zA-Z0-9./-]+'. This
+    // Controller name. The type is string with pattern: [a-zA-Z0-9./-]+. This
     // attribute is mandatory.
     ControllerName interface{}
 }
@@ -71,9 +74,12 @@ func (input *ClearCountersController_Input) GetEntityData() *types.CommonEntityD
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["controller-name"] = types.YLeaf{"ControllerName", input.ControllerName}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("controller-name", types.YLeaf{"ControllerName", input.ControllerName})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -95,8 +101,11 @@ func (clearCountersAll *ClearCountersAll) GetEntityData() *types.CommonEntityDat
     clearCountersAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearCountersAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clearCountersAll.EntityData.Children = make(map[string]types.YChild)
-    clearCountersAll.EntityData.Leafs = make(map[string]types.YLeaf)
+    clearCountersAll.EntityData.Children = types.NewOrderedMap()
+    clearCountersAll.EntityData.Leafs = types.NewOrderedMap()
+
+    clearCountersAll.EntityData.YListKeys = []string {}
+
     return &(clearCountersAll.EntityData)
 }
 
@@ -121,9 +130,12 @@ func (clearCountersInterface *ClearCountersInterface) GetEntityData() *types.Com
     clearCountersInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearCountersInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clearCountersInterface.EntityData.Children = make(map[string]types.YChild)
-    clearCountersInterface.EntityData.Children["input"] = types.YChild{"Input", &clearCountersInterface.Input}
-    clearCountersInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    clearCountersInterface.EntityData.Children = types.NewOrderedMap()
+    clearCountersInterface.EntityData.Children.Append("input", types.YChild{"Input", &clearCountersInterface.Input})
+    clearCountersInterface.EntityData.Leafs = types.NewOrderedMap()
+
+    clearCountersInterface.EntityData.YListKeys = []string {}
+
     return &(clearCountersInterface.EntityData)
 }
 
@@ -132,7 +144,7 @@ type ClearCountersInterface_Input struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'. This
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+. This
     // attribute is mandatory.
     InterfaceName interface{}
 }
@@ -147,9 +159,12 @@ func (input *ClearCountersInterface_Input) GetEntityData() *types.CommonEntityDa
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", input.InterfaceName}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", input.InterfaceName})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 

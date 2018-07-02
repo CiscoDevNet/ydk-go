@@ -39,9 +39,9 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2018-01-15 {
+  revision 2017-11-05 {
     description
-      "Added naming-union to create sublist for distribute-out.";
+      "Corrected boolean values in when statements.";
   }
   revision 2017-11-01 {
     description
@@ -1684,6 +1684,12 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
           description
             "Specify router priority";
         }
+        leaf type7-translate-always {
+          type boolean;
+          description
+            "Translate Type 7 to Type 5, even if not
+             elected NSSA translator";
+        }
         leaf prefix-suppression {
           type boolean;
           description
@@ -2575,6 +2581,31 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
     }
   }
 
+  grouping CAPABILITY {
+    description
+      "Common node of vrf, default-vrf";
+    container capability {
+      description
+        "OSPFv3 Capability";
+      leaf type7-prefer {
+        type boolean;
+        description
+          "NSSA capability to prefer Type 7 over Type 5";
+      }
+      leaf vrf-lite {
+        type boolean;
+        description
+          "Enable VRF Lite";
+      }
+      leaf type7-translate-zero-forwarding-addr {
+        type boolean;
+        description
+          "Enable capability to translate LSAs with fwd
+           addr";
+      }
+    }
+  }
+
   grouping MTU-IGNORE {
     description
       "Common node of default-vrf, vrf";
@@ -2715,9 +2746,9 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
            default VRF)";
       }
       leaf wait-time {
-        when "../wait-for-bgp = 0" {
+        when "../wait-for-bgp = 'false'" {
           description
-            "../WaitForBGP = <expr>";
+            "../WaitForBGP = 'false'";
         }
         type uint32 {
           range "5..86400";
@@ -2975,6 +3006,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
           uses SPF-PREFIX-PRIORITY-POLICY;
           uses DATABASE-FILTER;
           uses ROUTER-ID;
+          uses CAPABILITY;
           uses NETWORK;
           uses MTU-IGNORE;
           uses LOG-ADJACENCY-CHANGES;
@@ -2994,15 +3026,6 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
             key "vrf-name";
             description
               "Configuration for a particular OSPF VRF";
-            container capability {
-              description
-                "OSPFv3 Capability";
-              leaf vrf-lite {
-                type boolean;
-                description
-                  "Enable VRF Lite";
-              }
-            }
             container domain-id {
               description
                 "OSPFv3 Domain ID";
@@ -3087,6 +3110,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
             uses SPF-PREFIX-PRIORITY-POLICY;
             uses DATABASE-FILTER;
             uses ROUTER-ID;
+            uses CAPABILITY;
             uses NETWORK;
             uses MTU-IGNORE;
             uses LOG-ADJACENCY-CHANGES;

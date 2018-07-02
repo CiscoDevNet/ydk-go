@@ -35,6 +35,10 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-30 {
+    description
+      "Ensure propagation of MDA mandatory state to YANG model.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -44,6 +48,7 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg {
     description
       "Common node of ip-subscriber, ppp";
     container dhcpv6 {
+      presence "Indicates a dhcpv6 node is configured.";
       description
         "Interface dhcpv6 configuration data";
       container delegated-prefix {
@@ -65,6 +70,7 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg {
       }
       leaf dns-ipv6address {
         type inet:ipv6-address-no-zone;
+        mandatory true;
         description
           "Dns IPv6 Address";
       }
@@ -73,6 +79,18 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg {
         description
           "Select proxy/server profile based on mode class
            name";
+      }
+      leaf dhcpv6-iplease {
+        type string;
+        description
+          "Cisco VSA to configure any dhcpv6 ip lease per
+           subscriber";
+      }
+      leaf dhcpv6-option {
+        type string;
+        description
+          "Cisco VSA to configure any dhcpv6 option per
+           subscriber";
       }
       leaf address-pool {
         type string;
@@ -91,6 +109,7 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg {
       }
       leaf stateful-address {
         type inet:ipv6-address-no-zone;
+        mandatory true;
         description
           "Stateful IPv6 Address";
       }

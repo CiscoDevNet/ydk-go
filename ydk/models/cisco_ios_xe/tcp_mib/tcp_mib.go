@@ -31,12 +31,12 @@ type TCPMIB struct {
     // A table containing information about existing IPv4-specific TCP connections
     // or listeners.  This table has been deprecated in favor of the version
     // neutral tcpConnectionTable.
-    Tcpconntable TCPMIB_Tcpconntable
+    TcpConnTable TCPMIB_TcpConnTable
 
     // A table containing information about existing TCP connections.  Note that
     // unlike earlier TCP MIBs, there is a separate table for connections in the
     // LISTEN state.
-    Tcpconnectiontable TCPMIB_Tcpconnectiontable
+    TcpConnectionTable TCPMIB_TcpConnectionTable
 
     // A table containing information about TCP listeners.  A listening
     // application can be represented in three possible ways:  1. An application
@@ -54,7 +54,7 @@ type TCPMIB struct {
     // irrespective of the higher-layer abstraction.  For example, an application
     // using IPv6 'sockets' to communicate via IPv4 between ::ffff:10.0.0.1 and
     // ::ffff:10.0.0.2 would use InetAddressType ipv4(1)).
-    Tcplistenertable TCPMIB_Tcplistenertable
+    TcpListenerTable TCPMIB_TcpListenerTable
 }
 
 func (tCPMIB *TCPMIB) GetEntityData() *types.CommonEntityData {
@@ -67,12 +67,15 @@ func (tCPMIB *TCPMIB) GetEntityData() *types.CommonEntityData {
     tCPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tCPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tCPMIB.EntityData.Children = make(map[string]types.YChild)
-    tCPMIB.EntityData.Children["tcp"] = types.YChild{"Tcp", &tCPMIB.Tcp}
-    tCPMIB.EntityData.Children["tcpConnTable"] = types.YChild{"Tcpconntable", &tCPMIB.Tcpconntable}
-    tCPMIB.EntityData.Children["tcpConnectionTable"] = types.YChild{"Tcpconnectiontable", &tCPMIB.Tcpconnectiontable}
-    tCPMIB.EntityData.Children["tcpListenerTable"] = types.YChild{"Tcplistenertable", &tCPMIB.Tcplistenertable}
-    tCPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    tCPMIB.EntityData.Children = types.NewOrderedMap()
+    tCPMIB.EntityData.Children.Append("tcp", types.YChild{"Tcp", &tCPMIB.Tcp})
+    tCPMIB.EntityData.Children.Append("tcpConnTable", types.YChild{"TcpConnTable", &tCPMIB.TcpConnTable})
+    tCPMIB.EntityData.Children.Append("tcpConnectionTable", types.YChild{"TcpConnectionTable", &tCPMIB.TcpConnectionTable})
+    tCPMIB.EntityData.Children.Append("tcpListenerTable", types.YChild{"TcpListenerTable", &tCPMIB.TcpListenerTable})
+    tCPMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    tCPMIB.EntityData.YListKeys = []string {}
+
     return &(tCPMIB.EntityData)
 }
 
@@ -82,8 +85,8 @@ type TCPMIB_Tcp struct {
     YFilter yfilter.YFilter
 
     // The algorithm used to determine the timeout value used for retransmitting
-    // unacknowledged octets. The type is Tcprtoalgorithm.
-    Tcprtoalgorithm interface{}
+    // unacknowledged octets. The type is TcpRtoAlgorithm.
+    TcpRtoAlgorithm interface{}
 
     // The minimum value permitted by a TCP implementation for the retransmission
     // timeout, measured in milliseconds. More refined semantics for objects of
@@ -91,7 +94,7 @@ type TCPMIB_Tcp struct {
     // timeout; in particular, the IETF standard algorithm rfc2988(5) provides a
     // minimum value. The type is interface{} with range: 0..2147483647. Units are
     // milliseconds.
-    Tcprtomin interface{}
+    TcpRtoMin interface{}
 
     // The maximum value permitted by a TCP implementation for the retransmission
     // timeout, measured in milliseconds. More refined semantics for objects of
@@ -99,25 +102,25 @@ type TCPMIB_Tcp struct {
     // timeout; in particular, the IETF standard algorithm rfc2988(5) provides an
     // upper bound (as part of an adaptive backoff algorithm). The type is
     // interface{} with range: 0..2147483647. Units are milliseconds.
-    Tcprtomax interface{}
+    TcpRtoMax interface{}
 
     // The limit on the total number of TCP connections the entity can support. 
     // In entities where the maximum number of connections is dynamic, this object
     // should contain the value -1. The type is interface{} with range:
     // -1..2147483647.
-    Tcpmaxconn interface{}
+    TcpMaxConn interface{}
 
     // The number of times that TCP connections have made a direct transition to
     // the SYN-SENT state from the CLOSED state.  Discontinuities in the value of
     // this counter are indicated via discontinuities in the value of sysUpTime.
     // The type is interface{} with range: 0..4294967295.
-    Tcpactiveopens interface{}
+    TcpActiveOpens interface{}
 
     // The number of times TCP connections have made a direct transition to the
     // SYN-RCVD state from the LISTEN state.  Discontinuities in the value of this
     // counter are indicated via discontinuities in the value of sysUpTime. The
     // type is interface{} with range: 0..4294967295.
-    Tcppassiveopens interface{}
+    TcpPassiveOpens interface{}
 
     // The number of times that TCP connections have made a direct transition to
     // the CLOSED state from either the SYN-SENT state or the SYN-RCVD state, plus
@@ -125,50 +128,50 @@ type TCPMIB_Tcp struct {
     // the LISTEN state from the SYN-RCVD state.  Discontinuities in the value of
     // this counter are indicated via discontinuities in the value of sysUpTime.
     // The type is interface{} with range: 0..4294967295.
-    Tcpattemptfails interface{}
+    TcpAttemptFails interface{}
 
     // The number of times that TCP connections have made a direct transition to
     // the CLOSED state from either the ESTABLISHED state or the CLOSE-WAIT state.
     // Discontinuities in the value of this counter are indicated via
     // discontinuities in the value of sysUpTime. The type is interface{} with
     // range: 0..4294967295.
-    Tcpestabresets interface{}
+    TcpEstabResets interface{}
 
     // The number of TCP connections for which the current state is either
     // ESTABLISHED or CLOSE-WAIT. The type is interface{} with range:
     // 0..4294967295.
-    Tcpcurrestab interface{}
+    TcpCurrEstab interface{}
 
     // The total number of segments received, including those received in error. 
     // This count includes segments received on currently established connections.
     // Discontinuities in the value of this counter are indicated via
     // discontinuities in the value of sysUpTime. The type is interface{} with
     // range: 0..4294967295.
-    Tcpinsegs interface{}
+    TcpInSegs interface{}
 
     // The total number of segments sent, including those on current connections
     // but excluding those containing only retransmitted octets.  Discontinuities
     // in the value of this counter are indicated via discontinuities in the value
     // of sysUpTime. The type is interface{} with range: 0..4294967295.
-    Tcpoutsegs interface{}
+    TcpOutSegs interface{}
 
     // The total number of segments retransmitted; that is, the number of TCP
     // segments transmitted containing one or more previously transmitted octets. 
     // Discontinuities in the value of this counter are indicated via
     // discontinuities in the value of sysUpTime. The type is interface{} with
     // range: 0..4294967295.
-    Tcpretranssegs interface{}
+    TcpRetransSegs interface{}
 
     // The total number of segments received in error (e.g., bad TCP checksums). 
     // Discontinuities in the value of this counter are indicated via
     // discontinuities in the value of sysUpTime. The type is interface{} with
     // range: 0..4294967295.
-    Tcpinerrs interface{}
+    TcpInErrs interface{}
 
     // The number of TCP segments sent containing the RST flag.  Discontinuities
     // in the value of this counter are indicated via discontinuities in the value
     // of sysUpTime. The type is interface{} with range: 0..4294967295.
-    Tcpoutrsts interface{}
+    TcpOutRsts interface{}
 
     // The total number of segments received, including those received in error. 
     // This count includes segments received  on currently established
@@ -176,14 +179,14 @@ type TCPMIB_Tcp struct {
     // Discontinuities in the value of this counter are indicated via
     // discontinuities in the value of sysUpTime. The type is interface{} with
     // range: 0..18446744073709551615.
-    Tcphcinsegs interface{}
+    TcpHCInSegs interface{}
 
     // The total number of segments sent, including those on current connections
     // but excluding those containing only retransmitted octets.  This object is
     // the 64-bit equivalent of tcpOutSegs.  Discontinuities in the value of this
     // counter are indicated via discontinuities in the value of sysUpTime. The
     // type is interface{} with range: 0..18446744073709551615.
-    Tcphcoutsegs interface{}
+    TcpHCOutSegs interface{}
 }
 
 func (tcp *TCPMIB_Tcp) GetEntityData() *types.CommonEntityData {
@@ -196,48 +199,51 @@ func (tcp *TCPMIB_Tcp) GetEntityData() *types.CommonEntityData {
     tcp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tcp.EntityData.Children = make(map[string]types.YChild)
-    tcp.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcp.EntityData.Leafs["tcpRtoAlgorithm"] = types.YLeaf{"Tcprtoalgorithm", tcp.Tcprtoalgorithm}
-    tcp.EntityData.Leafs["tcpRtoMin"] = types.YLeaf{"Tcprtomin", tcp.Tcprtomin}
-    tcp.EntityData.Leafs["tcpRtoMax"] = types.YLeaf{"Tcprtomax", tcp.Tcprtomax}
-    tcp.EntityData.Leafs["tcpMaxConn"] = types.YLeaf{"Tcpmaxconn", tcp.Tcpmaxconn}
-    tcp.EntityData.Leafs["tcpActiveOpens"] = types.YLeaf{"Tcpactiveopens", tcp.Tcpactiveopens}
-    tcp.EntityData.Leafs["tcpPassiveOpens"] = types.YLeaf{"Tcppassiveopens", tcp.Tcppassiveopens}
-    tcp.EntityData.Leafs["tcpAttemptFails"] = types.YLeaf{"Tcpattemptfails", tcp.Tcpattemptfails}
-    tcp.EntityData.Leafs["tcpEstabResets"] = types.YLeaf{"Tcpestabresets", tcp.Tcpestabresets}
-    tcp.EntityData.Leafs["tcpCurrEstab"] = types.YLeaf{"Tcpcurrestab", tcp.Tcpcurrestab}
-    tcp.EntityData.Leafs["tcpInSegs"] = types.YLeaf{"Tcpinsegs", tcp.Tcpinsegs}
-    tcp.EntityData.Leafs["tcpOutSegs"] = types.YLeaf{"Tcpoutsegs", tcp.Tcpoutsegs}
-    tcp.EntityData.Leafs["tcpRetransSegs"] = types.YLeaf{"Tcpretranssegs", tcp.Tcpretranssegs}
-    tcp.EntityData.Leafs["tcpInErrs"] = types.YLeaf{"Tcpinerrs", tcp.Tcpinerrs}
-    tcp.EntityData.Leafs["tcpOutRsts"] = types.YLeaf{"Tcpoutrsts", tcp.Tcpoutrsts}
-    tcp.EntityData.Leafs["tcpHCInSegs"] = types.YLeaf{"Tcphcinsegs", tcp.Tcphcinsegs}
-    tcp.EntityData.Leafs["tcpHCOutSegs"] = types.YLeaf{"Tcphcoutsegs", tcp.Tcphcoutsegs}
+    tcp.EntityData.Children = types.NewOrderedMap()
+    tcp.EntityData.Leafs = types.NewOrderedMap()
+    tcp.EntityData.Leafs.Append("tcpRtoAlgorithm", types.YLeaf{"TcpRtoAlgorithm", tcp.TcpRtoAlgorithm})
+    tcp.EntityData.Leafs.Append("tcpRtoMin", types.YLeaf{"TcpRtoMin", tcp.TcpRtoMin})
+    tcp.EntityData.Leafs.Append("tcpRtoMax", types.YLeaf{"TcpRtoMax", tcp.TcpRtoMax})
+    tcp.EntityData.Leafs.Append("tcpMaxConn", types.YLeaf{"TcpMaxConn", tcp.TcpMaxConn})
+    tcp.EntityData.Leafs.Append("tcpActiveOpens", types.YLeaf{"TcpActiveOpens", tcp.TcpActiveOpens})
+    tcp.EntityData.Leafs.Append("tcpPassiveOpens", types.YLeaf{"TcpPassiveOpens", tcp.TcpPassiveOpens})
+    tcp.EntityData.Leafs.Append("tcpAttemptFails", types.YLeaf{"TcpAttemptFails", tcp.TcpAttemptFails})
+    tcp.EntityData.Leafs.Append("tcpEstabResets", types.YLeaf{"TcpEstabResets", tcp.TcpEstabResets})
+    tcp.EntityData.Leafs.Append("tcpCurrEstab", types.YLeaf{"TcpCurrEstab", tcp.TcpCurrEstab})
+    tcp.EntityData.Leafs.Append("tcpInSegs", types.YLeaf{"TcpInSegs", tcp.TcpInSegs})
+    tcp.EntityData.Leafs.Append("tcpOutSegs", types.YLeaf{"TcpOutSegs", tcp.TcpOutSegs})
+    tcp.EntityData.Leafs.Append("tcpRetransSegs", types.YLeaf{"TcpRetransSegs", tcp.TcpRetransSegs})
+    tcp.EntityData.Leafs.Append("tcpInErrs", types.YLeaf{"TcpInErrs", tcp.TcpInErrs})
+    tcp.EntityData.Leafs.Append("tcpOutRsts", types.YLeaf{"TcpOutRsts", tcp.TcpOutRsts})
+    tcp.EntityData.Leafs.Append("tcpHCInSegs", types.YLeaf{"TcpHCInSegs", tcp.TcpHCInSegs})
+    tcp.EntityData.Leafs.Append("tcpHCOutSegs", types.YLeaf{"TcpHCOutSegs", tcp.TcpHCOutSegs})
+
+    tcp.EntityData.YListKeys = []string {}
+
     return &(tcp.EntityData)
 }
 
-// TCPMIB_Tcp_Tcprtoalgorithm represents retransmitting unacknowledged octets.
-type TCPMIB_Tcp_Tcprtoalgorithm string
+// TCPMIB_Tcp_TcpRtoAlgorithm represents retransmitting unacknowledged octets.
+type TCPMIB_Tcp_TcpRtoAlgorithm string
 
 const (
-    TCPMIB_Tcp_Tcprtoalgorithm_other TCPMIB_Tcp_Tcprtoalgorithm = "other"
+    TCPMIB_Tcp_TcpRtoAlgorithm_other TCPMIB_Tcp_TcpRtoAlgorithm = "other"
 
-    TCPMIB_Tcp_Tcprtoalgorithm_constant TCPMIB_Tcp_Tcprtoalgorithm = "constant"
+    TCPMIB_Tcp_TcpRtoAlgorithm_constant TCPMIB_Tcp_TcpRtoAlgorithm = "constant"
 
-    TCPMIB_Tcp_Tcprtoalgorithm_rsre TCPMIB_Tcp_Tcprtoalgorithm = "rsre"
+    TCPMIB_Tcp_TcpRtoAlgorithm_rsre TCPMIB_Tcp_TcpRtoAlgorithm = "rsre"
 
-    TCPMIB_Tcp_Tcprtoalgorithm_vanj TCPMIB_Tcp_Tcprtoalgorithm = "vanj"
+    TCPMIB_Tcp_TcpRtoAlgorithm_vanj TCPMIB_Tcp_TcpRtoAlgorithm = "vanj"
 
-    TCPMIB_Tcp_Tcprtoalgorithm_rfc2988 TCPMIB_Tcp_Tcprtoalgorithm = "rfc2988"
+    TCPMIB_Tcp_TcpRtoAlgorithm_rfc2988 TCPMIB_Tcp_TcpRtoAlgorithm = "rfc2988"
 )
 
-// TCPMIB_Tcpconntable
+// TCPMIB_TcpConnTable
 // A table containing information about existing IPv4-specific
 // TCP connections or listeners.  This table has been
 // deprecated in favor of the version neutral
 // tcpConnectionTable.
-type TCPMIB_Tcpconntable struct {
+type TCPMIB_TcpConnTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -245,36 +251,39 @@ type TCPMIB_Tcpconntable struct {
     // particular current IPv4 TCP connection.  Each row of this table is
     // transient in that it ceases to exist when (or soon after) the connection
     // makes the transition to the CLOSED state. The type is slice of
-    // TCPMIB_Tcpconntable_Tcpconnentry.
-    Tcpconnentry []TCPMIB_Tcpconntable_Tcpconnentry
+    // TCPMIB_TcpConnTable_TcpConnEntry.
+    TcpConnEntry []*TCPMIB_TcpConnTable_TcpConnEntry
 }
 
-func (tcpconntable *TCPMIB_Tcpconntable) GetEntityData() *types.CommonEntityData {
-    tcpconntable.EntityData.YFilter = tcpconntable.YFilter
-    tcpconntable.EntityData.YangName = "tcpConnTable"
-    tcpconntable.EntityData.BundleName = "cisco_ios_xe"
-    tcpconntable.EntityData.ParentYangName = "TCP-MIB"
-    tcpconntable.EntityData.SegmentPath = "tcpConnTable"
-    tcpconntable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    tcpconntable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    tcpconntable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (tcpConnTable *TCPMIB_TcpConnTable) GetEntityData() *types.CommonEntityData {
+    tcpConnTable.EntityData.YFilter = tcpConnTable.YFilter
+    tcpConnTable.EntityData.YangName = "tcpConnTable"
+    tcpConnTable.EntityData.BundleName = "cisco_ios_xe"
+    tcpConnTable.EntityData.ParentYangName = "TCP-MIB"
+    tcpConnTable.EntityData.SegmentPath = "tcpConnTable"
+    tcpConnTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tcpConnTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tcpConnTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tcpconntable.EntityData.Children = make(map[string]types.YChild)
-    tcpconntable.EntityData.Children["tcpConnEntry"] = types.YChild{"Tcpconnentry", nil}
-    for i := range tcpconntable.Tcpconnentry {
-        tcpconntable.EntityData.Children[types.GetSegmentPath(&tcpconntable.Tcpconnentry[i])] = types.YChild{"Tcpconnentry", &tcpconntable.Tcpconnentry[i]}
+    tcpConnTable.EntityData.Children = types.NewOrderedMap()
+    tcpConnTable.EntityData.Children.Append("tcpConnEntry", types.YChild{"TcpConnEntry", nil})
+    for i := range tcpConnTable.TcpConnEntry {
+        tcpConnTable.EntityData.Children.Append(types.GetSegmentPath(tcpConnTable.TcpConnEntry[i]), types.YChild{"TcpConnEntry", tcpConnTable.TcpConnEntry[i]})
     }
-    tcpconntable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(tcpconntable.EntityData)
+    tcpConnTable.EntityData.Leafs = types.NewOrderedMap()
+
+    tcpConnTable.EntityData.YListKeys = []string {}
+
+    return &(tcpConnTable.EntityData)
 }
 
-// TCPMIB_Tcpconntable_Tcpconnentry
+// TCPMIB_TcpConnTable_TcpConnEntry
 // A conceptual row of the tcpConnTable containing information
 // about a particular current IPv4 TCP connection.  Each row
 // of this table is transient in that it ceases to exist when
 // (or soon after) the connection makes the transition to the
 // CLOSED state.
-type TCPMIB_Tcpconntable_Tcpconnentry struct {
+type TCPMIB_TcpConnTable_TcpConnEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -282,21 +291,21 @@ type TCPMIB_Tcpconntable_Tcpconnentry struct {
     // the case of a connection in the listen state willing to accept connections
     // for any IP interface associated with the node, the value 0.0.0.0 is used.
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Tcpconnlocaladdress interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    TcpConnLocalAddress interface{}
 
     // This attribute is a key. The local port number for this TCP connection. The
     // type is interface{} with range: 0..65535.
-    Tcpconnlocalport interface{}
+    TcpConnLocalPort interface{}
 
     // This attribute is a key. The remote IP address for this TCP connection. The
     // type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Tcpconnremaddress interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    TcpConnRemAddress interface{}
 
     // This attribute is a key. The remote port number for this TCP connection.
     // The type is interface{} with range: 0..65535.
-    Tcpconnremport interface{}
+    TcpConnRemPort interface{}
 
     // The state of this TCP connection.  The only value that may be set by a
     // management station is deleteTCB(12).  Accordingly, it is appropriate for an
@@ -307,64 +316,67 @@ type TCPMIB_Tcpconntable_Tcpconnentry struct {
     // immediate termination of the connection.  As an implementation-specific
     // option, a RST segment may be sent from the managed node to the other TCP
     // endpoint (note, however, that RST segments are not sent reliably). The type
-    // is Tcpconnstate.
-    Tcpconnstate interface{}
+    // is TcpConnState.
+    TcpConnState interface{}
 }
 
-func (tcpconnentry *TCPMIB_Tcpconntable_Tcpconnentry) GetEntityData() *types.CommonEntityData {
-    tcpconnentry.EntityData.YFilter = tcpconnentry.YFilter
-    tcpconnentry.EntityData.YangName = "tcpConnEntry"
-    tcpconnentry.EntityData.BundleName = "cisco_ios_xe"
-    tcpconnentry.EntityData.ParentYangName = "tcpConnTable"
-    tcpconnentry.EntityData.SegmentPath = "tcpConnEntry" + "[tcpConnLocalAddress='" + fmt.Sprintf("%v", tcpconnentry.Tcpconnlocaladdress) + "']" + "[tcpConnLocalPort='" + fmt.Sprintf("%v", tcpconnentry.Tcpconnlocalport) + "']" + "[tcpConnRemAddress='" + fmt.Sprintf("%v", tcpconnentry.Tcpconnremaddress) + "']" + "[tcpConnRemPort='" + fmt.Sprintf("%v", tcpconnentry.Tcpconnremport) + "']"
-    tcpconnentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    tcpconnentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    tcpconnentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (tcpConnEntry *TCPMIB_TcpConnTable_TcpConnEntry) GetEntityData() *types.CommonEntityData {
+    tcpConnEntry.EntityData.YFilter = tcpConnEntry.YFilter
+    tcpConnEntry.EntityData.YangName = "tcpConnEntry"
+    tcpConnEntry.EntityData.BundleName = "cisco_ios_xe"
+    tcpConnEntry.EntityData.ParentYangName = "tcpConnTable"
+    tcpConnEntry.EntityData.SegmentPath = "tcpConnEntry" + types.AddKeyToken(tcpConnEntry.TcpConnLocalAddress, "tcpConnLocalAddress") + types.AddKeyToken(tcpConnEntry.TcpConnLocalPort, "tcpConnLocalPort") + types.AddKeyToken(tcpConnEntry.TcpConnRemAddress, "tcpConnRemAddress") + types.AddKeyToken(tcpConnEntry.TcpConnRemPort, "tcpConnRemPort")
+    tcpConnEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tcpConnEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tcpConnEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tcpconnentry.EntityData.Children = make(map[string]types.YChild)
-    tcpconnentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcpconnentry.EntityData.Leafs["tcpConnLocalAddress"] = types.YLeaf{"Tcpconnlocaladdress", tcpconnentry.Tcpconnlocaladdress}
-    tcpconnentry.EntityData.Leafs["tcpConnLocalPort"] = types.YLeaf{"Tcpconnlocalport", tcpconnentry.Tcpconnlocalport}
-    tcpconnentry.EntityData.Leafs["tcpConnRemAddress"] = types.YLeaf{"Tcpconnremaddress", tcpconnentry.Tcpconnremaddress}
-    tcpconnentry.EntityData.Leafs["tcpConnRemPort"] = types.YLeaf{"Tcpconnremport", tcpconnentry.Tcpconnremport}
-    tcpconnentry.EntityData.Leafs["tcpConnState"] = types.YLeaf{"Tcpconnstate", tcpconnentry.Tcpconnstate}
-    return &(tcpconnentry.EntityData)
+    tcpConnEntry.EntityData.Children = types.NewOrderedMap()
+    tcpConnEntry.EntityData.Leafs = types.NewOrderedMap()
+    tcpConnEntry.EntityData.Leafs.Append("tcpConnLocalAddress", types.YLeaf{"TcpConnLocalAddress", tcpConnEntry.TcpConnLocalAddress})
+    tcpConnEntry.EntityData.Leafs.Append("tcpConnLocalPort", types.YLeaf{"TcpConnLocalPort", tcpConnEntry.TcpConnLocalPort})
+    tcpConnEntry.EntityData.Leafs.Append("tcpConnRemAddress", types.YLeaf{"TcpConnRemAddress", tcpConnEntry.TcpConnRemAddress})
+    tcpConnEntry.EntityData.Leafs.Append("tcpConnRemPort", types.YLeaf{"TcpConnRemPort", tcpConnEntry.TcpConnRemPort})
+    tcpConnEntry.EntityData.Leafs.Append("tcpConnState", types.YLeaf{"TcpConnState", tcpConnEntry.TcpConnState})
+
+    tcpConnEntry.EntityData.YListKeys = []string {"TcpConnLocalAddress", "TcpConnLocalPort", "TcpConnRemAddress", "TcpConnRemPort"}
+
+    return &(tcpConnEntry.EntityData)
 }
 
-// TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate represents however, that RST segments are not sent reliably).
-type TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate string
+// TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState represents however, that RST segments are not sent reliably).
+type TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState string
 
 const (
-    TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate_closed TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "closed"
+    TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState_closed TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState = "closed"
 
-    TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate_listen TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "listen"
+    TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState_listen TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState = "listen"
 
-    TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate_synSent TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "synSent"
+    TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState_synSent TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState = "synSent"
 
-    TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate_synReceived TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "synReceived"
+    TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState_synReceived TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState = "synReceived"
 
-    TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate_established TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "established"
+    TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState_established TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState = "established"
 
-    TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate_finWait1 TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "finWait1"
+    TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState_finWait1 TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState = "finWait1"
 
-    TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate_finWait2 TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "finWait2"
+    TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState_finWait2 TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState = "finWait2"
 
-    TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate_closeWait TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "closeWait"
+    TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState_closeWait TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState = "closeWait"
 
-    TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate_lastAck TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "lastAck"
+    TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState_lastAck TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState = "lastAck"
 
-    TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate_closing TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "closing"
+    TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState_closing TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState = "closing"
 
-    TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate_timeWait TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "timeWait"
+    TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState_timeWait TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState = "timeWait"
 
-    TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate_deleteTCB TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate = "deleteTCB"
+    TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState_deleteTCB TCPMIB_TcpConnTable_TcpConnEntry_TcpConnState = "deleteTCB"
 )
 
-// TCPMIB_Tcpconnectiontable
+// TCPMIB_TcpConnectionTable
 // A table containing information about existing TCP
 // connections.  Note that unlike earlier TCP MIBs, there
 // is a separate table for connections in the LISTEN state.
-type TCPMIB_Tcpconnectiontable struct {
+type TCPMIB_TcpConnectionTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -372,42 +384,45 @@ type TCPMIB_Tcpconnectiontable struct {
     // particular current TCP connection. Each row of this table is transient in
     // that it ceases to exist when (or soon after) the connection makes the
     // transition to the CLOSED state. The type is slice of
-    // TCPMIB_Tcpconnectiontable_Tcpconnectionentry.
-    Tcpconnectionentry []TCPMIB_Tcpconnectiontable_Tcpconnectionentry
+    // TCPMIB_TcpConnectionTable_TcpConnectionEntry.
+    TcpConnectionEntry []*TCPMIB_TcpConnectionTable_TcpConnectionEntry
 }
 
-func (tcpconnectiontable *TCPMIB_Tcpconnectiontable) GetEntityData() *types.CommonEntityData {
-    tcpconnectiontable.EntityData.YFilter = tcpconnectiontable.YFilter
-    tcpconnectiontable.EntityData.YangName = "tcpConnectionTable"
-    tcpconnectiontable.EntityData.BundleName = "cisco_ios_xe"
-    tcpconnectiontable.EntityData.ParentYangName = "TCP-MIB"
-    tcpconnectiontable.EntityData.SegmentPath = "tcpConnectionTable"
-    tcpconnectiontable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    tcpconnectiontable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    tcpconnectiontable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (tcpConnectionTable *TCPMIB_TcpConnectionTable) GetEntityData() *types.CommonEntityData {
+    tcpConnectionTable.EntityData.YFilter = tcpConnectionTable.YFilter
+    tcpConnectionTable.EntityData.YangName = "tcpConnectionTable"
+    tcpConnectionTable.EntityData.BundleName = "cisco_ios_xe"
+    tcpConnectionTable.EntityData.ParentYangName = "TCP-MIB"
+    tcpConnectionTable.EntityData.SegmentPath = "tcpConnectionTable"
+    tcpConnectionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tcpConnectionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tcpConnectionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tcpconnectiontable.EntityData.Children = make(map[string]types.YChild)
-    tcpconnectiontable.EntityData.Children["tcpConnectionEntry"] = types.YChild{"Tcpconnectionentry", nil}
-    for i := range tcpconnectiontable.Tcpconnectionentry {
-        tcpconnectiontable.EntityData.Children[types.GetSegmentPath(&tcpconnectiontable.Tcpconnectionentry[i])] = types.YChild{"Tcpconnectionentry", &tcpconnectiontable.Tcpconnectionentry[i]}
+    tcpConnectionTable.EntityData.Children = types.NewOrderedMap()
+    tcpConnectionTable.EntityData.Children.Append("tcpConnectionEntry", types.YChild{"TcpConnectionEntry", nil})
+    for i := range tcpConnectionTable.TcpConnectionEntry {
+        tcpConnectionTable.EntityData.Children.Append(types.GetSegmentPath(tcpConnectionTable.TcpConnectionEntry[i]), types.YChild{"TcpConnectionEntry", tcpConnectionTable.TcpConnectionEntry[i]})
     }
-    tcpconnectiontable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(tcpconnectiontable.EntityData)
+    tcpConnectionTable.EntityData.Leafs = types.NewOrderedMap()
+
+    tcpConnectionTable.EntityData.YListKeys = []string {}
+
+    return &(tcpConnectionTable.EntityData)
 }
 
-// TCPMIB_Tcpconnectiontable_Tcpconnectionentry
+// TCPMIB_TcpConnectionTable_TcpConnectionEntry
 // A conceptual row of the tcpConnectionTable containing
 // information about a particular current TCP connection.
 // Each row of this table is transient in that it ceases to
 // exist when (or soon after) the connection makes the
 // transition to the CLOSED state.
-type TCPMIB_Tcpconnectiontable_Tcpconnectionentry struct {
+type TCPMIB_TcpConnectionTable_TcpConnectionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The address type of tcpConnectionLocalAddress. The
     // type is InetAddressType.
-    Tcpconnectionlocaladdresstype interface{}
+    TcpConnectionLocalAddressType interface{}
 
     // This attribute is a key. The local IP address for this TCP connection.  The
     // type of this address is determined by the value of
@@ -416,15 +431,15 @@ type TCPMIB_Tcpconnectiontable_Tcpconnectionentry struct {
     // that would result in OIDs with more than 128 subidentifiers; otherwise the
     // information cannot be accessed by using SNMPv1, SNMPv2c, or SNMPv3. The
     // type is string with length: 0..255.
-    Tcpconnectionlocaladdress interface{}
+    TcpConnectionLocalAddress interface{}
 
     // This attribute is a key. The local port number for this TCP connection. The
     // type is interface{} with range: 0..65535.
-    Tcpconnectionlocalport interface{}
+    TcpConnectionLocalPort interface{}
 
     // This attribute is a key. The address type of tcpConnectionRemAddress. The
     // type is InetAddressType.
-    Tcpconnectionremaddresstype interface{}
+    TcpConnectionRemAddressType interface{}
 
     // This attribute is a key. The remote IP address for this TCP connection. 
     // The type of this address is determined by the value of
@@ -433,11 +448,11 @@ type TCPMIB_Tcpconnectiontable_Tcpconnectionentry struct {
     // that would result in OIDs with more than 128 subidentifiers; otherwise the
     // information cannot be accessed by using SNMPv1, SNMPv2c, or SNMPv3. The
     // type is string with length: 0..255.
-    Tcpconnectionremaddress interface{}
+    TcpConnectionRemAddress interface{}
 
     // This attribute is a key. The remote port number for this TCP connection.
     // The type is interface{} with range: 0..65535.
-    Tcpconnectionremport interface{}
+    TcpConnectionRemPort interface{}
 
     // The state of this TCP connection.  The value listen(2) is included only for
     // parallelism to the old tcpConnTable and should not be used.  A connection
@@ -450,70 +465,73 @@ type TCPMIB_Tcpconnectiontable_Tcpconnectionentry struct {
     // deleted, resulting in immediate termination of the connection.  As an
     // implementation-specific option, a RST segment may be sent from the managed
     // node to the other TCP endpoint (note, however, that RST segments are not
-    // sent reliably). The type is Tcpconnectionstate.
-    Tcpconnectionstate interface{}
+    // sent reliably). The type is TcpConnectionState.
+    TcpConnectionState interface{}
 
     // The system's process ID for the process associated with this connection, or
     // zero if there is no such process.  This value is expected to be the same as
     // HOST-RESOURCES-MIB:: hrSWRunIndex or SYSAPPL-MIB::sysApplElmtRunIndex for
     // some row in the appropriate tables. The type is interface{} with range:
     // 0..4294967295.
-    Tcpconnectionprocess interface{}
+    TcpConnectionProcess interface{}
 }
 
-func (tcpconnectionentry *TCPMIB_Tcpconnectiontable_Tcpconnectionentry) GetEntityData() *types.CommonEntityData {
-    tcpconnectionentry.EntityData.YFilter = tcpconnectionentry.YFilter
-    tcpconnectionentry.EntityData.YangName = "tcpConnectionEntry"
-    tcpconnectionentry.EntityData.BundleName = "cisco_ios_xe"
-    tcpconnectionentry.EntityData.ParentYangName = "tcpConnectionTable"
-    tcpconnectionentry.EntityData.SegmentPath = "tcpConnectionEntry" + "[tcpConnectionLocalAddressType='" + fmt.Sprintf("%v", tcpconnectionentry.Tcpconnectionlocaladdresstype) + "']" + "[tcpConnectionLocalAddress='" + fmt.Sprintf("%v", tcpconnectionentry.Tcpconnectionlocaladdress) + "']" + "[tcpConnectionLocalPort='" + fmt.Sprintf("%v", tcpconnectionentry.Tcpconnectionlocalport) + "']" + "[tcpConnectionRemAddressType='" + fmt.Sprintf("%v", tcpconnectionentry.Tcpconnectionremaddresstype) + "']" + "[tcpConnectionRemAddress='" + fmt.Sprintf("%v", tcpconnectionentry.Tcpconnectionremaddress) + "']" + "[tcpConnectionRemPort='" + fmt.Sprintf("%v", tcpconnectionentry.Tcpconnectionremport) + "']"
-    tcpconnectionentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    tcpconnectionentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    tcpconnectionentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (tcpConnectionEntry *TCPMIB_TcpConnectionTable_TcpConnectionEntry) GetEntityData() *types.CommonEntityData {
+    tcpConnectionEntry.EntityData.YFilter = tcpConnectionEntry.YFilter
+    tcpConnectionEntry.EntityData.YangName = "tcpConnectionEntry"
+    tcpConnectionEntry.EntityData.BundleName = "cisco_ios_xe"
+    tcpConnectionEntry.EntityData.ParentYangName = "tcpConnectionTable"
+    tcpConnectionEntry.EntityData.SegmentPath = "tcpConnectionEntry" + types.AddKeyToken(tcpConnectionEntry.TcpConnectionLocalAddressType, "tcpConnectionLocalAddressType") + types.AddKeyToken(tcpConnectionEntry.TcpConnectionLocalAddress, "tcpConnectionLocalAddress") + types.AddKeyToken(tcpConnectionEntry.TcpConnectionLocalPort, "tcpConnectionLocalPort") + types.AddKeyToken(tcpConnectionEntry.TcpConnectionRemAddressType, "tcpConnectionRemAddressType") + types.AddKeyToken(tcpConnectionEntry.TcpConnectionRemAddress, "tcpConnectionRemAddress") + types.AddKeyToken(tcpConnectionEntry.TcpConnectionRemPort, "tcpConnectionRemPort")
+    tcpConnectionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tcpConnectionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tcpConnectionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tcpconnectionentry.EntityData.Children = make(map[string]types.YChild)
-    tcpconnectionentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcpconnectionentry.EntityData.Leafs["tcpConnectionLocalAddressType"] = types.YLeaf{"Tcpconnectionlocaladdresstype", tcpconnectionentry.Tcpconnectionlocaladdresstype}
-    tcpconnectionentry.EntityData.Leafs["tcpConnectionLocalAddress"] = types.YLeaf{"Tcpconnectionlocaladdress", tcpconnectionentry.Tcpconnectionlocaladdress}
-    tcpconnectionentry.EntityData.Leafs["tcpConnectionLocalPort"] = types.YLeaf{"Tcpconnectionlocalport", tcpconnectionentry.Tcpconnectionlocalport}
-    tcpconnectionentry.EntityData.Leafs["tcpConnectionRemAddressType"] = types.YLeaf{"Tcpconnectionremaddresstype", tcpconnectionentry.Tcpconnectionremaddresstype}
-    tcpconnectionentry.EntityData.Leafs["tcpConnectionRemAddress"] = types.YLeaf{"Tcpconnectionremaddress", tcpconnectionentry.Tcpconnectionremaddress}
-    tcpconnectionentry.EntityData.Leafs["tcpConnectionRemPort"] = types.YLeaf{"Tcpconnectionremport", tcpconnectionentry.Tcpconnectionremport}
-    tcpconnectionentry.EntityData.Leafs["tcpConnectionState"] = types.YLeaf{"Tcpconnectionstate", tcpconnectionentry.Tcpconnectionstate}
-    tcpconnectionentry.EntityData.Leafs["tcpConnectionProcess"] = types.YLeaf{"Tcpconnectionprocess", tcpconnectionentry.Tcpconnectionprocess}
-    return &(tcpconnectionentry.EntityData)
+    tcpConnectionEntry.EntityData.Children = types.NewOrderedMap()
+    tcpConnectionEntry.EntityData.Leafs = types.NewOrderedMap()
+    tcpConnectionEntry.EntityData.Leafs.Append("tcpConnectionLocalAddressType", types.YLeaf{"TcpConnectionLocalAddressType", tcpConnectionEntry.TcpConnectionLocalAddressType})
+    tcpConnectionEntry.EntityData.Leafs.Append("tcpConnectionLocalAddress", types.YLeaf{"TcpConnectionLocalAddress", tcpConnectionEntry.TcpConnectionLocalAddress})
+    tcpConnectionEntry.EntityData.Leafs.Append("tcpConnectionLocalPort", types.YLeaf{"TcpConnectionLocalPort", tcpConnectionEntry.TcpConnectionLocalPort})
+    tcpConnectionEntry.EntityData.Leafs.Append("tcpConnectionRemAddressType", types.YLeaf{"TcpConnectionRemAddressType", tcpConnectionEntry.TcpConnectionRemAddressType})
+    tcpConnectionEntry.EntityData.Leafs.Append("tcpConnectionRemAddress", types.YLeaf{"TcpConnectionRemAddress", tcpConnectionEntry.TcpConnectionRemAddress})
+    tcpConnectionEntry.EntityData.Leafs.Append("tcpConnectionRemPort", types.YLeaf{"TcpConnectionRemPort", tcpConnectionEntry.TcpConnectionRemPort})
+    tcpConnectionEntry.EntityData.Leafs.Append("tcpConnectionState", types.YLeaf{"TcpConnectionState", tcpConnectionEntry.TcpConnectionState})
+    tcpConnectionEntry.EntityData.Leafs.Append("tcpConnectionProcess", types.YLeaf{"TcpConnectionProcess", tcpConnectionEntry.TcpConnectionProcess})
+
+    tcpConnectionEntry.EntityData.YListKeys = []string {"TcpConnectionLocalAddressType", "TcpConnectionLocalAddress", "TcpConnectionLocalPort", "TcpConnectionRemAddressType", "TcpConnectionRemAddress", "TcpConnectionRemPort"}
+
+    return &(tcpConnectionEntry.EntityData)
 }
 
-// TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate represents however, that RST segments are not sent reliably).
-type TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate string
+// TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState represents however, that RST segments are not sent reliably).
+type TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState string
 
 const (
-    TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate_closed TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate = "closed"
+    TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState_closed TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState = "closed"
 
-    TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate_listen TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate = "listen"
+    TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState_listen TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState = "listen"
 
-    TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate_synSent TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate = "synSent"
+    TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState_synSent TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState = "synSent"
 
-    TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate_synReceived TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate = "synReceived"
+    TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState_synReceived TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState = "synReceived"
 
-    TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate_established TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate = "established"
+    TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState_established TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState = "established"
 
-    TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate_finWait1 TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate = "finWait1"
+    TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState_finWait1 TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState = "finWait1"
 
-    TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate_finWait2 TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate = "finWait2"
+    TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState_finWait2 TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState = "finWait2"
 
-    TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate_closeWait TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate = "closeWait"
+    TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState_closeWait TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState = "closeWait"
 
-    TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate_lastAck TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate = "lastAck"
+    TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState_lastAck TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState = "lastAck"
 
-    TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate_closing TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate = "closing"
+    TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState_closing TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState = "closing"
 
-    TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate_timeWait TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate = "timeWait"
+    TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState_timeWait TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState = "timeWait"
 
-    TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate_deleteTCB TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate = "deleteTCB"
+    TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState_deleteTCB TCPMIB_TcpConnectionTable_TcpConnectionEntry_TcpConnectionState = "deleteTCB"
 )
 
-// TCPMIB_Tcplistenertable
+// TCPMIB_TcpListenerTable
 // A table containing information about TCP listeners.  A
 // listening application can be represented in three
 // possible ways:
@@ -543,46 +561,49 @@ const (
 // application using IPv6 'sockets' to communicate via
 // IPv4 between ::ffff:10.0.0.1 and ::ffff:10.0.0.2 would
 // use InetAddressType ipv4(1)).
-type TCPMIB_Tcplistenertable struct {
+type TCPMIB_TcpListenerTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row of the tcpListenerTable containing information about a
     // particular TCP listener. The type is slice of
-    // TCPMIB_Tcplistenertable_Tcplistenerentry.
-    Tcplistenerentry []TCPMIB_Tcplistenertable_Tcplistenerentry
+    // TCPMIB_TcpListenerTable_TcpListenerEntry.
+    TcpListenerEntry []*TCPMIB_TcpListenerTable_TcpListenerEntry
 }
 
-func (tcplistenertable *TCPMIB_Tcplistenertable) GetEntityData() *types.CommonEntityData {
-    tcplistenertable.EntityData.YFilter = tcplistenertable.YFilter
-    tcplistenertable.EntityData.YangName = "tcpListenerTable"
-    tcplistenertable.EntityData.BundleName = "cisco_ios_xe"
-    tcplistenertable.EntityData.ParentYangName = "TCP-MIB"
-    tcplistenertable.EntityData.SegmentPath = "tcpListenerTable"
-    tcplistenertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    tcplistenertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    tcplistenertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (tcpListenerTable *TCPMIB_TcpListenerTable) GetEntityData() *types.CommonEntityData {
+    tcpListenerTable.EntityData.YFilter = tcpListenerTable.YFilter
+    tcpListenerTable.EntityData.YangName = "tcpListenerTable"
+    tcpListenerTable.EntityData.BundleName = "cisco_ios_xe"
+    tcpListenerTable.EntityData.ParentYangName = "TCP-MIB"
+    tcpListenerTable.EntityData.SegmentPath = "tcpListenerTable"
+    tcpListenerTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tcpListenerTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tcpListenerTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tcplistenertable.EntityData.Children = make(map[string]types.YChild)
-    tcplistenertable.EntityData.Children["tcpListenerEntry"] = types.YChild{"Tcplistenerentry", nil}
-    for i := range tcplistenertable.Tcplistenerentry {
-        tcplistenertable.EntityData.Children[types.GetSegmentPath(&tcplistenertable.Tcplistenerentry[i])] = types.YChild{"Tcplistenerentry", &tcplistenertable.Tcplistenerentry[i]}
+    tcpListenerTable.EntityData.Children = types.NewOrderedMap()
+    tcpListenerTable.EntityData.Children.Append("tcpListenerEntry", types.YChild{"TcpListenerEntry", nil})
+    for i := range tcpListenerTable.TcpListenerEntry {
+        tcpListenerTable.EntityData.Children.Append(types.GetSegmentPath(tcpListenerTable.TcpListenerEntry[i]), types.YChild{"TcpListenerEntry", tcpListenerTable.TcpListenerEntry[i]})
     }
-    tcplistenertable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(tcplistenertable.EntityData)
+    tcpListenerTable.EntityData.Leafs = types.NewOrderedMap()
+
+    tcpListenerTable.EntityData.YListKeys = []string {}
+
+    return &(tcpListenerTable.EntityData)
 }
 
-// TCPMIB_Tcplistenertable_Tcplistenerentry
+// TCPMIB_TcpListenerTable_TcpListenerEntry
 // A conceptual row of the tcpListenerTable containing
 // information about a particular TCP listener.
-type TCPMIB_Tcplistenertable_Tcplistenerentry struct {
+type TCPMIB_TcpListenerTable_TcpListenerEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The address type of tcpListenerLocalAddress.  The
     // value should be unknown (0) if connection initiations to all local IP
     // addresses are accepted. The type is InetAddressType.
-    Tcplistenerlocaladdresstype interface{}
+    TcpListenerLocalAddressType interface{}
 
     // This attribute is a key. The local IP address for this TCP connection.  The
     // value of this object can be represented in three possible ways, depending
@@ -601,36 +622,39 @@ type TCPMIB_Tcplistenertable_Tcplistenerentry struct {
     // would result in OIDs with more than 128 subidentifiers; otherwise the
     // information cannot be accessed, using SNMPv1, SNMPv2c, or SNMPv3. The type
     // is string with length: 0..255.
-    Tcplistenerlocaladdress interface{}
+    TcpListenerLocalAddress interface{}
 
     // This attribute is a key. The local port number for this TCP connection. The
     // type is interface{} with range: 0..65535.
-    Tcplistenerlocalport interface{}
+    TcpListenerLocalPort interface{}
 
     // The system's process ID for the process associated with this listener, or
     // zero if there is no such process.  This value is expected to be the same as
     // HOST-RESOURCES-MIB:: hrSWRunIndex or SYSAPPL-MIB::sysApplElmtRunIndex for
     // some row in the appropriate tables. The type is interface{} with range:
     // 0..4294967295.
-    Tcplistenerprocess interface{}
+    TcpListenerProcess interface{}
 }
 
-func (tcplistenerentry *TCPMIB_Tcplistenertable_Tcplistenerentry) GetEntityData() *types.CommonEntityData {
-    tcplistenerentry.EntityData.YFilter = tcplistenerentry.YFilter
-    tcplistenerentry.EntityData.YangName = "tcpListenerEntry"
-    tcplistenerentry.EntityData.BundleName = "cisco_ios_xe"
-    tcplistenerentry.EntityData.ParentYangName = "tcpListenerTable"
-    tcplistenerentry.EntityData.SegmentPath = "tcpListenerEntry" + "[tcpListenerLocalAddressType='" + fmt.Sprintf("%v", tcplistenerentry.Tcplistenerlocaladdresstype) + "']" + "[tcpListenerLocalAddress='" + fmt.Sprintf("%v", tcplistenerentry.Tcplistenerlocaladdress) + "']" + "[tcpListenerLocalPort='" + fmt.Sprintf("%v", tcplistenerentry.Tcplistenerlocalport) + "']"
-    tcplistenerentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    tcplistenerentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    tcplistenerentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (tcpListenerEntry *TCPMIB_TcpListenerTable_TcpListenerEntry) GetEntityData() *types.CommonEntityData {
+    tcpListenerEntry.EntityData.YFilter = tcpListenerEntry.YFilter
+    tcpListenerEntry.EntityData.YangName = "tcpListenerEntry"
+    tcpListenerEntry.EntityData.BundleName = "cisco_ios_xe"
+    tcpListenerEntry.EntityData.ParentYangName = "tcpListenerTable"
+    tcpListenerEntry.EntityData.SegmentPath = "tcpListenerEntry" + types.AddKeyToken(tcpListenerEntry.TcpListenerLocalAddressType, "tcpListenerLocalAddressType") + types.AddKeyToken(tcpListenerEntry.TcpListenerLocalAddress, "tcpListenerLocalAddress") + types.AddKeyToken(tcpListenerEntry.TcpListenerLocalPort, "tcpListenerLocalPort")
+    tcpListenerEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tcpListenerEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tcpListenerEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    tcplistenerentry.EntityData.Children = make(map[string]types.YChild)
-    tcplistenerentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    tcplistenerentry.EntityData.Leafs["tcpListenerLocalAddressType"] = types.YLeaf{"Tcplistenerlocaladdresstype", tcplistenerentry.Tcplistenerlocaladdresstype}
-    tcplistenerentry.EntityData.Leafs["tcpListenerLocalAddress"] = types.YLeaf{"Tcplistenerlocaladdress", tcplistenerentry.Tcplistenerlocaladdress}
-    tcplistenerentry.EntityData.Leafs["tcpListenerLocalPort"] = types.YLeaf{"Tcplistenerlocalport", tcplistenerentry.Tcplistenerlocalport}
-    tcplistenerentry.EntityData.Leafs["tcpListenerProcess"] = types.YLeaf{"Tcplistenerprocess", tcplistenerentry.Tcplistenerprocess}
-    return &(tcplistenerentry.EntityData)
+    tcpListenerEntry.EntityData.Children = types.NewOrderedMap()
+    tcpListenerEntry.EntityData.Leafs = types.NewOrderedMap()
+    tcpListenerEntry.EntityData.Leafs.Append("tcpListenerLocalAddressType", types.YLeaf{"TcpListenerLocalAddressType", tcpListenerEntry.TcpListenerLocalAddressType})
+    tcpListenerEntry.EntityData.Leafs.Append("tcpListenerLocalAddress", types.YLeaf{"TcpListenerLocalAddress", tcpListenerEntry.TcpListenerLocalAddress})
+    tcpListenerEntry.EntityData.Leafs.Append("tcpListenerLocalPort", types.YLeaf{"TcpListenerLocalPort", tcpListenerEntry.TcpListenerLocalPort})
+    tcpListenerEntry.EntityData.Leafs.Append("tcpListenerProcess", types.YLeaf{"TcpListenerProcess", tcpListenerEntry.TcpListenerProcess})
+
+    tcpListenerEntry.EntityData.YListKeys = []string {"TcpListenerLocalAddressType", "TcpListenerLocalAddress", "TcpListenerLocalPort"}
+
+    return &(tcpListenerEntry.EntityData)
 }
 

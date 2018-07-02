@@ -23,22 +23,22 @@ type DIALCONTROLMIB struct {
     YFilter yfilter.YFilter
 
     
-    Dialctlconfiguration DIALCONTROLMIB_Dialctlconfiguration
+    DialCtlConfiguration DIALCONTROLMIB_DialCtlConfiguration
 
     
-    Callhistory DIALCONTROLMIB_Callhistory
+    CallHistory DIALCONTROLMIB_CallHistory
 
     // The list of peers from which the managed device will accept calls or to
     // which it will place them.
-    Dialctlpeercfgtable DIALCONTROLMIB_Dialctlpeercfgtable
+    DialCtlPeerCfgTable DIALCONTROLMIB_DialCtlPeerCfgTable
 
     // A table containing information about active calls to a specific
     // destination.
-    Callactivetable DIALCONTROLMIB_Callactivetable
+    CallActiveTable DIALCONTROLMIB_CallActiveTable
 
     // A table containing information about specific calls to a specific
     // destination.
-    Callhistorytable DIALCONTROLMIB_Callhistorytable
+    CallHistoryTable DIALCONTROLMIB_CallHistoryTable
 }
 
 func (dIALCONTROLMIB *DIALCONTROLMIB) GetEntityData() *types.CommonEntityData {
@@ -51,18 +51,21 @@ func (dIALCONTROLMIB *DIALCONTROLMIB) GetEntityData() *types.CommonEntityData {
     dIALCONTROLMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dIALCONTROLMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dIALCONTROLMIB.EntityData.Children = make(map[string]types.YChild)
-    dIALCONTROLMIB.EntityData.Children["dialCtlConfiguration"] = types.YChild{"Dialctlconfiguration", &dIALCONTROLMIB.Dialctlconfiguration}
-    dIALCONTROLMIB.EntityData.Children["callHistory"] = types.YChild{"Callhistory", &dIALCONTROLMIB.Callhistory}
-    dIALCONTROLMIB.EntityData.Children["dialCtlPeerCfgTable"] = types.YChild{"Dialctlpeercfgtable", &dIALCONTROLMIB.Dialctlpeercfgtable}
-    dIALCONTROLMIB.EntityData.Children["callActiveTable"] = types.YChild{"Callactivetable", &dIALCONTROLMIB.Callactivetable}
-    dIALCONTROLMIB.EntityData.Children["callHistoryTable"] = types.YChild{"Callhistorytable", &dIALCONTROLMIB.Callhistorytable}
-    dIALCONTROLMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    dIALCONTROLMIB.EntityData.Children = types.NewOrderedMap()
+    dIALCONTROLMIB.EntityData.Children.Append("dialCtlConfiguration", types.YChild{"DialCtlConfiguration", &dIALCONTROLMIB.DialCtlConfiguration})
+    dIALCONTROLMIB.EntityData.Children.Append("callHistory", types.YChild{"CallHistory", &dIALCONTROLMIB.CallHistory})
+    dIALCONTROLMIB.EntityData.Children.Append("dialCtlPeerCfgTable", types.YChild{"DialCtlPeerCfgTable", &dIALCONTROLMIB.DialCtlPeerCfgTable})
+    dIALCONTROLMIB.EntityData.Children.Append("callActiveTable", types.YChild{"CallActiveTable", &dIALCONTROLMIB.CallActiveTable})
+    dIALCONTROLMIB.EntityData.Children.Append("callHistoryTable", types.YChild{"CallHistoryTable", &dIALCONTROLMIB.CallHistoryTable})
+    dIALCONTROLMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    dIALCONTROLMIB.EntityData.YListKeys = []string {}
+
     return &(dIALCONTROLMIB.EntityData)
 }
 
-// DIALCONTROLMIB_Dialctlconfiguration
-type DIALCONTROLMIB_Dialctlconfiguration struct {
+// DIALCONTROLMIB_DialCtlConfiguration
+type DIALCONTROLMIB_DialCtlConfiguration struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -71,57 +74,60 @@ type DIALCONTROLMIB_Dialctlconfiguration struct {
     // accepted,                  even if there is no matching entry              
     // in the dialCtlPeerCfgTable acceptKnown(3) - incoming calls will be accepted
     // only                  if there is a matching entry in the                 
-    // dialCtlPeerCfgTable. The type is Dialctlacceptmode.
-    Dialctlacceptmode interface{}
+    // dialCtlPeerCfgTable. The type is DialCtlAcceptMode.
+    DialCtlAcceptMode interface{}
 
     // This object indicates whether dialCtlPeerCallInformation and
     // dialCtlPeerCallSetup traps should be generated for all peers. If the value
     // of this object is enabled(1), traps will be generated for all peers. If the
     // value of this object is disabled(2), traps will be generated only for peers
     // having dialCtlPeerCfgTrapEnable set to enabled(1). The type is
-    // Dialctltrapenable.
-    Dialctltrapenable interface{}
+    // DialCtlTrapEnable.
+    DialCtlTrapEnable interface{}
 }
 
-func (dialctlconfiguration *DIALCONTROLMIB_Dialctlconfiguration) GetEntityData() *types.CommonEntityData {
-    dialctlconfiguration.EntityData.YFilter = dialctlconfiguration.YFilter
-    dialctlconfiguration.EntityData.YangName = "dialCtlConfiguration"
-    dialctlconfiguration.EntityData.BundleName = "cisco_ios_xe"
-    dialctlconfiguration.EntityData.ParentYangName = "DIAL-CONTROL-MIB"
-    dialctlconfiguration.EntityData.SegmentPath = "dialCtlConfiguration"
-    dialctlconfiguration.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dialctlconfiguration.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dialctlconfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dialCtlConfiguration *DIALCONTROLMIB_DialCtlConfiguration) GetEntityData() *types.CommonEntityData {
+    dialCtlConfiguration.EntityData.YFilter = dialCtlConfiguration.YFilter
+    dialCtlConfiguration.EntityData.YangName = "dialCtlConfiguration"
+    dialCtlConfiguration.EntityData.BundleName = "cisco_ios_xe"
+    dialCtlConfiguration.EntityData.ParentYangName = "DIAL-CONTROL-MIB"
+    dialCtlConfiguration.EntityData.SegmentPath = "dialCtlConfiguration"
+    dialCtlConfiguration.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dialCtlConfiguration.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dialCtlConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dialctlconfiguration.EntityData.Children = make(map[string]types.YChild)
-    dialctlconfiguration.EntityData.Leafs = make(map[string]types.YLeaf)
-    dialctlconfiguration.EntityData.Leafs["dialCtlAcceptMode"] = types.YLeaf{"Dialctlacceptmode", dialctlconfiguration.Dialctlacceptmode}
-    dialctlconfiguration.EntityData.Leafs["dialCtlTrapEnable"] = types.YLeaf{"Dialctltrapenable", dialctlconfiguration.Dialctltrapenable}
-    return &(dialctlconfiguration.EntityData)
+    dialCtlConfiguration.EntityData.Children = types.NewOrderedMap()
+    dialCtlConfiguration.EntityData.Leafs = types.NewOrderedMap()
+    dialCtlConfiguration.EntityData.Leafs.Append("dialCtlAcceptMode", types.YLeaf{"DialCtlAcceptMode", dialCtlConfiguration.DialCtlAcceptMode})
+    dialCtlConfiguration.EntityData.Leafs.Append("dialCtlTrapEnable", types.YLeaf{"DialCtlTrapEnable", dialCtlConfiguration.DialCtlTrapEnable})
+
+    dialCtlConfiguration.EntityData.YListKeys = []string {}
+
+    return &(dialCtlConfiguration.EntityData)
 }
 
-// DIALCONTROLMIB_Dialctlconfiguration_Dialctlacceptmode represents                  dialCtlPeerCfgTable
-type DIALCONTROLMIB_Dialctlconfiguration_Dialctlacceptmode string
+// DIALCONTROLMIB_DialCtlConfiguration_DialCtlAcceptMode represents                  dialCtlPeerCfgTable
+type DIALCONTROLMIB_DialCtlConfiguration_DialCtlAcceptMode string
 
 const (
-    DIALCONTROLMIB_Dialctlconfiguration_Dialctlacceptmode_acceptNone DIALCONTROLMIB_Dialctlconfiguration_Dialctlacceptmode = "acceptNone"
+    DIALCONTROLMIB_DialCtlConfiguration_DialCtlAcceptMode_acceptNone DIALCONTROLMIB_DialCtlConfiguration_DialCtlAcceptMode = "acceptNone"
 
-    DIALCONTROLMIB_Dialctlconfiguration_Dialctlacceptmode_acceptAll DIALCONTROLMIB_Dialctlconfiguration_Dialctlacceptmode = "acceptAll"
+    DIALCONTROLMIB_DialCtlConfiguration_DialCtlAcceptMode_acceptAll DIALCONTROLMIB_DialCtlConfiguration_DialCtlAcceptMode = "acceptAll"
 
-    DIALCONTROLMIB_Dialctlconfiguration_Dialctlacceptmode_acceptKnown DIALCONTROLMIB_Dialctlconfiguration_Dialctlacceptmode = "acceptKnown"
+    DIALCONTROLMIB_DialCtlConfiguration_DialCtlAcceptMode_acceptKnown DIALCONTROLMIB_DialCtlConfiguration_DialCtlAcceptMode = "acceptKnown"
 )
 
-// DIALCONTROLMIB_Dialctlconfiguration_Dialctltrapenable represents to enabled(1).
-type DIALCONTROLMIB_Dialctlconfiguration_Dialctltrapenable string
+// DIALCONTROLMIB_DialCtlConfiguration_DialCtlTrapEnable represents to enabled(1).
+type DIALCONTROLMIB_DialCtlConfiguration_DialCtlTrapEnable string
 
 const (
-    DIALCONTROLMIB_Dialctlconfiguration_Dialctltrapenable_enabled DIALCONTROLMIB_Dialctlconfiguration_Dialctltrapenable = "enabled"
+    DIALCONTROLMIB_DialCtlConfiguration_DialCtlTrapEnable_enabled DIALCONTROLMIB_DialCtlConfiguration_DialCtlTrapEnable = "enabled"
 
-    DIALCONTROLMIB_Dialctlconfiguration_Dialctltrapenable_disabled DIALCONTROLMIB_Dialctlconfiguration_Dialctltrapenable = "disabled"
+    DIALCONTROLMIB_DialCtlConfiguration_DialCtlTrapEnable_disabled DIALCONTROLMIB_DialCtlConfiguration_DialCtlTrapEnable = "disabled"
 )
 
-// DIALCONTROLMIB_Callhistory
-type DIALCONTROLMIB_Callhistory struct {
+// DIALCONTROLMIB_CallHistory
+type DIALCONTROLMIB_CallHistory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -129,37 +135,40 @@ type DIALCONTROLMIB_Callhistory struct {
     // contain.  A value of 0 will prevent any history from being retained. When
     // this table is full, the oldest entry will be deleted and the new one will
     // be created. The type is interface{} with range: 0..2147483647.
-    Callhistorytablemaxlength interface{}
+    CallHistoryTableMaxLength interface{}
 
     // The minimum amount of time that an callHistoryEntry will be maintained
     // before being deleted. A value of 0 will prevent any history from being
     // retained in the callHistoryTable, but will neither prevent callCompletion
     // traps being generated nor affect other tables. The type is interface{} with
     // range: 0..2147483647. Units are minutes.
-    Callhistoryretaintimer interface{}
+    CallHistoryRetainTimer interface{}
 }
 
-func (callhistory *DIALCONTROLMIB_Callhistory) GetEntityData() *types.CommonEntityData {
-    callhistory.EntityData.YFilter = callhistory.YFilter
-    callhistory.EntityData.YangName = "callHistory"
-    callhistory.EntityData.BundleName = "cisco_ios_xe"
-    callhistory.EntityData.ParentYangName = "DIAL-CONTROL-MIB"
-    callhistory.EntityData.SegmentPath = "callHistory"
-    callhistory.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    callhistory.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    callhistory.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (callHistory *DIALCONTROLMIB_CallHistory) GetEntityData() *types.CommonEntityData {
+    callHistory.EntityData.YFilter = callHistory.YFilter
+    callHistory.EntityData.YangName = "callHistory"
+    callHistory.EntityData.BundleName = "cisco_ios_xe"
+    callHistory.EntityData.ParentYangName = "DIAL-CONTROL-MIB"
+    callHistory.EntityData.SegmentPath = "callHistory"
+    callHistory.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    callHistory.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    callHistory.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    callhistory.EntityData.Children = make(map[string]types.YChild)
-    callhistory.EntityData.Leafs = make(map[string]types.YLeaf)
-    callhistory.EntityData.Leafs["callHistoryTableMaxLength"] = types.YLeaf{"Callhistorytablemaxlength", callhistory.Callhistorytablemaxlength}
-    callhistory.EntityData.Leafs["callHistoryRetainTimer"] = types.YLeaf{"Callhistoryretaintimer", callhistory.Callhistoryretaintimer}
-    return &(callhistory.EntityData)
+    callHistory.EntityData.Children = types.NewOrderedMap()
+    callHistory.EntityData.Leafs = types.NewOrderedMap()
+    callHistory.EntityData.Leafs.Append("callHistoryTableMaxLength", types.YLeaf{"CallHistoryTableMaxLength", callHistory.CallHistoryTableMaxLength})
+    callHistory.EntityData.Leafs.Append("callHistoryRetainTimer", types.YLeaf{"CallHistoryRetainTimer", callHistory.CallHistoryRetainTimer})
+
+    callHistory.EntityData.YListKeys = []string {}
+
+    return &(callHistory.EntityData)
 }
 
-// DIALCONTROLMIB_Dialctlpeercfgtable
+// DIALCONTROLMIB_DialCtlPeerCfgTable
 // The list of peers from which the managed device
 // will accept calls or to which it will place them.
-type DIALCONTROLMIB_Dialctlpeercfgtable struct {
+type DIALCONTROLMIB_DialCtlPeerCfgTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -172,30 +181,33 @@ type DIALCONTROLMIB_Dialctlpeercfgtable struct {
     // effect when the peer in question will be called the next time. An entry in
     // this table can only be created if the associated ifEntry already exists.
     // The type is slice of
-    // DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry.
-    Dialctlpeercfgentry []DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry
+    // DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry.
+    DialCtlPeerCfgEntry []*DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry
 }
 
-func (dialctlpeercfgtable *DIALCONTROLMIB_Dialctlpeercfgtable) GetEntityData() *types.CommonEntityData {
-    dialctlpeercfgtable.EntityData.YFilter = dialctlpeercfgtable.YFilter
-    dialctlpeercfgtable.EntityData.YangName = "dialCtlPeerCfgTable"
-    dialctlpeercfgtable.EntityData.BundleName = "cisco_ios_xe"
-    dialctlpeercfgtable.EntityData.ParentYangName = "DIAL-CONTROL-MIB"
-    dialctlpeercfgtable.EntityData.SegmentPath = "dialCtlPeerCfgTable"
-    dialctlpeercfgtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dialctlpeercfgtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dialctlpeercfgtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dialCtlPeerCfgTable *DIALCONTROLMIB_DialCtlPeerCfgTable) GetEntityData() *types.CommonEntityData {
+    dialCtlPeerCfgTable.EntityData.YFilter = dialCtlPeerCfgTable.YFilter
+    dialCtlPeerCfgTable.EntityData.YangName = "dialCtlPeerCfgTable"
+    dialCtlPeerCfgTable.EntityData.BundleName = "cisco_ios_xe"
+    dialCtlPeerCfgTable.EntityData.ParentYangName = "DIAL-CONTROL-MIB"
+    dialCtlPeerCfgTable.EntityData.SegmentPath = "dialCtlPeerCfgTable"
+    dialCtlPeerCfgTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dialCtlPeerCfgTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dialCtlPeerCfgTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dialctlpeercfgtable.EntityData.Children = make(map[string]types.YChild)
-    dialctlpeercfgtable.EntityData.Children["dialCtlPeerCfgEntry"] = types.YChild{"Dialctlpeercfgentry", nil}
-    for i := range dialctlpeercfgtable.Dialctlpeercfgentry {
-        dialctlpeercfgtable.EntityData.Children[types.GetSegmentPath(&dialctlpeercfgtable.Dialctlpeercfgentry[i])] = types.YChild{"Dialctlpeercfgentry", &dialctlpeercfgtable.Dialctlpeercfgentry[i]}
+    dialCtlPeerCfgTable.EntityData.Children = types.NewOrderedMap()
+    dialCtlPeerCfgTable.EntityData.Children.Append("dialCtlPeerCfgEntry", types.YChild{"DialCtlPeerCfgEntry", nil})
+    for i := range dialCtlPeerCfgTable.DialCtlPeerCfgEntry {
+        dialCtlPeerCfgTable.EntityData.Children.Append(types.GetSegmentPath(dialCtlPeerCfgTable.DialCtlPeerCfgEntry[i]), types.YChild{"DialCtlPeerCfgEntry", dialCtlPeerCfgTable.DialCtlPeerCfgEntry[i]})
     }
-    dialctlpeercfgtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(dialctlpeercfgtable.EntityData)
+    dialCtlPeerCfgTable.EntityData.Leafs = types.NewOrderedMap()
+
+    dialCtlPeerCfgTable.EntityData.YListKeys = []string {}
+
+    return &(dialCtlPeerCfgTable.EntityData)
 }
 
-// DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry
+// DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry
 // Configuration data for a single Peer. This entry is
 // effectively permanent, and contains information
 // to identify the peer, how to connect to the peer,
@@ -208,7 +220,7 @@ func (dialctlpeercfgtable *DIALCONTROLMIB_Dialctlpeercfgtable) GetEntityData() *
 // called the next time.
 // An entry in this table can only be created if the
 // associated ifEntry already exists.
-type DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry struct {
+type DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -221,15 +233,15 @@ type DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry struct {
     // MUST have the same value of dialCtlPeerCfgId, but different ifEntries and
     // thus different values of ifIndex. The type is interface{} with range:
     // 1..2147483647.
-    Dialctlpeercfgid interface{}
+    DialCtlPeerCfgId interface{}
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // The interface type to be used for calling this peer. In case of ISDN, the
     // value of isdn(63) is to be used. The type is IANAifType.
-    Dialctlpeercfgiftype interface{}
+    DialCtlPeerCfgIfType interface{}
 
     // ifIndex value of an interface the peer will have to be called on. For
     // example, on an ISDN interface, this can be the ifIndex value of a D channel
@@ -239,7 +251,7 @@ type DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry struct {
     // channel ifIndex has to be specified. If the interface can be dynamically
     // assigned, this object has a value of zero. The type is interface{} with
     // range: 0..2147483647.
-    Dialctlpeercfglowerif interface{}
+    DialCtlPeerCfgLowerIf interface{}
 
     // Call Address at which the peer will be called. Think of this as the set of
     // characters following 'ATDT ' or the 'phone number' included in a D channel
@@ -247,24 +259,24 @@ type DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry struct {
     // specific. If there is no address information required for reaching the
     // peer, i.e., for leased lines, this object will be a zero length string. The
     // type is string.
-    Dialctlpeercfgoriginateaddress interface{}
+    DialCtlPeerCfgOriginateAddress interface{}
 
     // Calling Party Number information element, as for example passed in an ISDN
     // SETUP message by a PBX or switch, for incoming calls. This address can be
     // used to identify the peer. If this address is either unknown or identical
     // to dialCtlPeerCfgOriginateAddress, this object will be a zero length
     // string. The type is string.
-    Dialctlpeercfgansweraddress interface{}
+    DialCtlPeerCfgAnswerAddress interface{}
 
     // Subaddress at which the peer will be called. If the subaddress is undefined
     // for the given media or unused, this is a zero length string. The type is
     // string.
-    Dialctlpeercfgsubaddress interface{}
+    DialCtlPeerCfgSubAddress interface{}
 
     // Closed User Group at which the peer will be called. If the Closed User
     // Group is undefined for the given media or unused, this is a zero length
     // string. The type is string.
-    Dialctlpeercfgclosedusergroup interface{}
+    DialCtlPeerCfgClosedUserGroup interface{}
 
     // The desired information transfer speed in bits/second when calling this
     // peer. The detailed media specific information, e.g. information type and
@@ -272,20 +284,20 @@ type DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry struct {
     // object. If the transfer speed to be used is unknown or the default speed
     // for this type of interfaces, the value of this object may be zero. The type
     // is interface{} with range: 0..2147483647.
-    Dialctlpeercfgspeed interface{}
+    DialCtlPeerCfgSpeed interface{}
 
     // The Information Transfer Capability to be used when calling this peer. 
     // speech(2) refers to a non-data connection, whereas audio31(6) and audio7(7)
-    // refer to data mode connections. The type is Dialctlpeercfginfotype.
-    Dialctlpeercfginfotype interface{}
+    // refer to data mode connections. The type is DialCtlPeerCfgInfoType.
+    DialCtlPeerCfgInfoType interface{}
 
     // Applicable permissions. callback(4) either rejects the call and then calls
     // back, or uses the 'Reverse charging' information element if it is
     // available. Note that callback(4) is supposed to control charging, not
     // security, and applies to callback prior to accepting a call. Callback for
     // security reasons can be handled using PPP callback. The type is
-    // Dialctlpeercfgpermission.
-    Dialctlpeercfgpermission interface{}
+    // DialCtlPeerCfgPermission.
+    DialCtlPeerCfgPermission interface{}
 
     // The connection will be automatically disconnected if no longer carrying
     // useful data for a time period, in seconds, specified in this object. Useful
@@ -294,35 +306,35 @@ type DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry struct {
     // zero means the connection will not be automatically taken down due to
     // inactivity, which implies that it is a dedicated circuit. The type is
     // interface{} with range: 0..2147483647. Units are seconds.
-    Dialctlpeercfginactivitytimer interface{}
+    DialCtlPeerCfgInactivityTimer interface{}
 
     // Minimum duration of a call in seconds, starting from the time the call is
     // connected until the call is disconnected. This is to accomplish the fact
     // that in most countries charging applies to units of time, which should be
     // matched as closely as possible. The type is interface{} with range:
     // 0..2147483647.
-    Dialctlpeercfgminduration interface{}
+    DialCtlPeerCfgMinDuration interface{}
 
     // Maximum call duration in seconds. Zero means 'unlimited'. The type is
     // interface{} with range: 0..2147483647.
-    Dialctlpeercfgmaxduration interface{}
+    DialCtlPeerCfgMaxDuration interface{}
 
     // The call timeout time in seconds. The default value of zero means that the
     // call timeout as specified for the media in question will apply. The type is
     // interface{} with range: 0..2147483647. Units are seconds.
-    Dialctlpeercfgcarrierdelay interface{}
+    DialCtlPeerCfgCarrierDelay interface{}
 
     // The number of calls to a non-responding address that may be made. A retry
     // count of zero means there is no bound. The intent is to bound the number of
     // successive calls to an address which is inaccessible, or which refuses
     // those calls.  Some countries regulate the number of call retries to a given
     // peer that can be made. The type is interface{} with range: 0..2147483647.
-    Dialctlpeercfgcallretries interface{}
+    DialCtlPeerCfgCallRetries interface{}
 
     // The time in seconds between call retries if a peer cannot be reached. A
     // value of zero means that call retries may be done without any delay. The
     // type is interface{} with range: 0..2147483647. Units are seconds.
-    Dialctlpeercfgretrydelay interface{}
+    DialCtlPeerCfgRetryDelay interface{}
 
     // The time in seconds after which call attempts are to be placed again after
     // a peer has been noticed to be unreachable, i.e. after
@@ -330,50 +342,50 @@ type DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry struct {
     // that a peer will not be called again after dialCtlPeerCfgCallRetries
     // unsuccessful call attempts. The type is interface{} with range:
     // 0..2147483647. Units are seconds.
-    Dialctlpeercfgfailuredelay interface{}
+    DialCtlPeerCfgFailureDelay interface{}
 
     // This object indicates whether dialCtlPeerCallInformation and
     // dialCtlPeerCallSetup traps should be generated for this peer. The type is
-    // Dialctlpeercfgtrapenable.
-    Dialctlpeercfgtrapenable interface{}
+    // DialCtlPeerCfgTrapEnable.
+    DialCtlPeerCfgTrapEnable interface{}
 
     // Status of one row in this table. The type is RowStatus.
-    Dialctlpeercfgstatus interface{}
+    DialCtlPeerCfgStatus interface{}
 
     // Accumulated connect time to the peer since system startup. This is the
     // total connect time, i.e. the connect time for outgoing calls plus the time
     // for incoming calls. The type is interface{} with range: 0..4294967295.
     // Units are seconds.
-    Dialctlpeerstatsconnecttime interface{}
+    DialCtlPeerStatsConnectTime interface{}
 
     // The total number of charging units applying to this peer since system
     // startup. Only the charging units applying to the local interface, i.e. for
     // originated calls or for calls with 'Reverse charging' being active, will be
     // counted here. The type is interface{} with range: 0..4294967295.
-    Dialctlpeerstatschargedunits interface{}
+    DialCtlPeerStatsChargedUnits interface{}
 
     // Number of completed calls to this peer. The type is interface{} with range:
     // 0..4294967295.
-    Dialctlpeerstatssuccesscalls interface{}
+    DialCtlPeerStatsSuccessCalls interface{}
 
     // Number of failed call attempts to this peer since system startup. The type
     // is interface{} with range: 0..4294967295.
-    Dialctlpeerstatsfailcalls interface{}
+    DialCtlPeerStatsFailCalls interface{}
 
     // Number of calls from this peer accepted since system startup. The type is
     // interface{} with range: 0..4294967295.
-    Dialctlpeerstatsacceptcalls interface{}
+    DialCtlPeerStatsAcceptCalls interface{}
 
     // Number of calls from this peer refused since system startup. The type is
     // interface{} with range: 0..4294967295.
-    Dialctlpeerstatsrefusecalls interface{}
+    DialCtlPeerStatsRefuseCalls interface{}
 
     // The encoded network cause value associated with the last call. This object
     // will be updated whenever a call is started or cleared. The value of this
     // object will depend on the interface type as well as on the protocol and
     // protocol version being used on this interface. Some references for possible
     // cause values are given below. The type is string with length: 0..4.
-    Dialctlpeerstatslastdisconnectcause interface{}
+    DialCtlPeerStatsLastDisconnectCause interface{}
 
     // ASCII text describing the reason for the last call termination.  This
     // object exists because it would be impossible for a management station to
@@ -381,147 +393,153 @@ type DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry struct {
     // used only if a management station is unable to decode the value of
     // dialCtlPeerStatsLastDisconnectCause.  This object will be updated whenever
     // a call is started or cleared. The type is string.
-    Dialctlpeerstatslastdisconnecttext interface{}
+    DialCtlPeerStatsLastDisconnectText interface{}
 
     // The value of sysUpTime when the last call to this peer was started. For
     // ISDN media, this will be the time when the setup message was received from
     // or sent to the network. This object will be updated whenever a call is
     // started or cleared. The type is interface{} with range: 0..4294967295.
-    Dialctlpeerstatslastsetuptime interface{}
+    DialCtlPeerStatsLastSetupTime interface{}
 }
 
-func (dialctlpeercfgentry *DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry) GetEntityData() *types.CommonEntityData {
-    dialctlpeercfgentry.EntityData.YFilter = dialctlpeercfgentry.YFilter
-    dialctlpeercfgentry.EntityData.YangName = "dialCtlPeerCfgEntry"
-    dialctlpeercfgentry.EntityData.BundleName = "cisco_ios_xe"
-    dialctlpeercfgentry.EntityData.ParentYangName = "dialCtlPeerCfgTable"
-    dialctlpeercfgentry.EntityData.SegmentPath = "dialCtlPeerCfgEntry" + "[dialCtlPeerCfgId='" + fmt.Sprintf("%v", dialctlpeercfgentry.Dialctlpeercfgid) + "']" + "[ifIndex='" + fmt.Sprintf("%v", dialctlpeercfgentry.Ifindex) + "']"
-    dialctlpeercfgentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    dialctlpeercfgentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    dialctlpeercfgentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (dialCtlPeerCfgEntry *DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry) GetEntityData() *types.CommonEntityData {
+    dialCtlPeerCfgEntry.EntityData.YFilter = dialCtlPeerCfgEntry.YFilter
+    dialCtlPeerCfgEntry.EntityData.YangName = "dialCtlPeerCfgEntry"
+    dialCtlPeerCfgEntry.EntityData.BundleName = "cisco_ios_xe"
+    dialCtlPeerCfgEntry.EntityData.ParentYangName = "dialCtlPeerCfgTable"
+    dialCtlPeerCfgEntry.EntityData.SegmentPath = "dialCtlPeerCfgEntry" + types.AddKeyToken(dialCtlPeerCfgEntry.DialCtlPeerCfgId, "dialCtlPeerCfgId") + types.AddKeyToken(dialCtlPeerCfgEntry.IfIndex, "ifIndex")
+    dialCtlPeerCfgEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dialCtlPeerCfgEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dialCtlPeerCfgEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    dialctlpeercfgentry.EntityData.Children = make(map[string]types.YChild)
-    dialctlpeercfgentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerCfgId"] = types.YLeaf{"Dialctlpeercfgid", dialctlpeercfgentry.Dialctlpeercfgid}
-    dialctlpeercfgentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", dialctlpeercfgentry.Ifindex}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerCfgIfType"] = types.YLeaf{"Dialctlpeercfgiftype", dialctlpeercfgentry.Dialctlpeercfgiftype}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerCfgLowerIf"] = types.YLeaf{"Dialctlpeercfglowerif", dialctlpeercfgentry.Dialctlpeercfglowerif}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerCfgOriginateAddress"] = types.YLeaf{"Dialctlpeercfgoriginateaddress", dialctlpeercfgentry.Dialctlpeercfgoriginateaddress}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerCfgAnswerAddress"] = types.YLeaf{"Dialctlpeercfgansweraddress", dialctlpeercfgentry.Dialctlpeercfgansweraddress}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerCfgSubAddress"] = types.YLeaf{"Dialctlpeercfgsubaddress", dialctlpeercfgentry.Dialctlpeercfgsubaddress}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerCfgClosedUserGroup"] = types.YLeaf{"Dialctlpeercfgclosedusergroup", dialctlpeercfgentry.Dialctlpeercfgclosedusergroup}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerCfgSpeed"] = types.YLeaf{"Dialctlpeercfgspeed", dialctlpeercfgentry.Dialctlpeercfgspeed}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerCfgInfoType"] = types.YLeaf{"Dialctlpeercfginfotype", dialctlpeercfgentry.Dialctlpeercfginfotype}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerCfgPermission"] = types.YLeaf{"Dialctlpeercfgpermission", dialctlpeercfgentry.Dialctlpeercfgpermission}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerCfgInactivityTimer"] = types.YLeaf{"Dialctlpeercfginactivitytimer", dialctlpeercfgentry.Dialctlpeercfginactivitytimer}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerCfgMinDuration"] = types.YLeaf{"Dialctlpeercfgminduration", dialctlpeercfgentry.Dialctlpeercfgminduration}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerCfgMaxDuration"] = types.YLeaf{"Dialctlpeercfgmaxduration", dialctlpeercfgentry.Dialctlpeercfgmaxduration}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerCfgCarrierDelay"] = types.YLeaf{"Dialctlpeercfgcarrierdelay", dialctlpeercfgentry.Dialctlpeercfgcarrierdelay}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerCfgCallRetries"] = types.YLeaf{"Dialctlpeercfgcallretries", dialctlpeercfgentry.Dialctlpeercfgcallretries}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerCfgRetryDelay"] = types.YLeaf{"Dialctlpeercfgretrydelay", dialctlpeercfgentry.Dialctlpeercfgretrydelay}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerCfgFailureDelay"] = types.YLeaf{"Dialctlpeercfgfailuredelay", dialctlpeercfgentry.Dialctlpeercfgfailuredelay}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerCfgTrapEnable"] = types.YLeaf{"Dialctlpeercfgtrapenable", dialctlpeercfgentry.Dialctlpeercfgtrapenable}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerCfgStatus"] = types.YLeaf{"Dialctlpeercfgstatus", dialctlpeercfgentry.Dialctlpeercfgstatus}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerStatsConnectTime"] = types.YLeaf{"Dialctlpeerstatsconnecttime", dialctlpeercfgentry.Dialctlpeerstatsconnecttime}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerStatsChargedUnits"] = types.YLeaf{"Dialctlpeerstatschargedunits", dialctlpeercfgentry.Dialctlpeerstatschargedunits}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerStatsSuccessCalls"] = types.YLeaf{"Dialctlpeerstatssuccesscalls", dialctlpeercfgentry.Dialctlpeerstatssuccesscalls}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerStatsFailCalls"] = types.YLeaf{"Dialctlpeerstatsfailcalls", dialctlpeercfgentry.Dialctlpeerstatsfailcalls}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerStatsAcceptCalls"] = types.YLeaf{"Dialctlpeerstatsacceptcalls", dialctlpeercfgentry.Dialctlpeerstatsacceptcalls}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerStatsRefuseCalls"] = types.YLeaf{"Dialctlpeerstatsrefusecalls", dialctlpeercfgentry.Dialctlpeerstatsrefusecalls}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerStatsLastDisconnectCause"] = types.YLeaf{"Dialctlpeerstatslastdisconnectcause", dialctlpeercfgentry.Dialctlpeerstatslastdisconnectcause}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerStatsLastDisconnectText"] = types.YLeaf{"Dialctlpeerstatslastdisconnecttext", dialctlpeercfgentry.Dialctlpeerstatslastdisconnecttext}
-    dialctlpeercfgentry.EntityData.Leafs["dialCtlPeerStatsLastSetupTime"] = types.YLeaf{"Dialctlpeerstatslastsetuptime", dialctlpeercfgentry.Dialctlpeerstatslastsetuptime}
-    return &(dialctlpeercfgentry.EntityData)
+    dialCtlPeerCfgEntry.EntityData.Children = types.NewOrderedMap()
+    dialCtlPeerCfgEntry.EntityData.Leafs = types.NewOrderedMap()
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerCfgId", types.YLeaf{"DialCtlPeerCfgId", dialCtlPeerCfgEntry.DialCtlPeerCfgId})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", dialCtlPeerCfgEntry.IfIndex})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerCfgIfType", types.YLeaf{"DialCtlPeerCfgIfType", dialCtlPeerCfgEntry.DialCtlPeerCfgIfType})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerCfgLowerIf", types.YLeaf{"DialCtlPeerCfgLowerIf", dialCtlPeerCfgEntry.DialCtlPeerCfgLowerIf})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerCfgOriginateAddress", types.YLeaf{"DialCtlPeerCfgOriginateAddress", dialCtlPeerCfgEntry.DialCtlPeerCfgOriginateAddress})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerCfgAnswerAddress", types.YLeaf{"DialCtlPeerCfgAnswerAddress", dialCtlPeerCfgEntry.DialCtlPeerCfgAnswerAddress})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerCfgSubAddress", types.YLeaf{"DialCtlPeerCfgSubAddress", dialCtlPeerCfgEntry.DialCtlPeerCfgSubAddress})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerCfgClosedUserGroup", types.YLeaf{"DialCtlPeerCfgClosedUserGroup", dialCtlPeerCfgEntry.DialCtlPeerCfgClosedUserGroup})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerCfgSpeed", types.YLeaf{"DialCtlPeerCfgSpeed", dialCtlPeerCfgEntry.DialCtlPeerCfgSpeed})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerCfgInfoType", types.YLeaf{"DialCtlPeerCfgInfoType", dialCtlPeerCfgEntry.DialCtlPeerCfgInfoType})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerCfgPermission", types.YLeaf{"DialCtlPeerCfgPermission", dialCtlPeerCfgEntry.DialCtlPeerCfgPermission})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerCfgInactivityTimer", types.YLeaf{"DialCtlPeerCfgInactivityTimer", dialCtlPeerCfgEntry.DialCtlPeerCfgInactivityTimer})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerCfgMinDuration", types.YLeaf{"DialCtlPeerCfgMinDuration", dialCtlPeerCfgEntry.DialCtlPeerCfgMinDuration})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerCfgMaxDuration", types.YLeaf{"DialCtlPeerCfgMaxDuration", dialCtlPeerCfgEntry.DialCtlPeerCfgMaxDuration})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerCfgCarrierDelay", types.YLeaf{"DialCtlPeerCfgCarrierDelay", dialCtlPeerCfgEntry.DialCtlPeerCfgCarrierDelay})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerCfgCallRetries", types.YLeaf{"DialCtlPeerCfgCallRetries", dialCtlPeerCfgEntry.DialCtlPeerCfgCallRetries})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerCfgRetryDelay", types.YLeaf{"DialCtlPeerCfgRetryDelay", dialCtlPeerCfgEntry.DialCtlPeerCfgRetryDelay})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerCfgFailureDelay", types.YLeaf{"DialCtlPeerCfgFailureDelay", dialCtlPeerCfgEntry.DialCtlPeerCfgFailureDelay})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerCfgTrapEnable", types.YLeaf{"DialCtlPeerCfgTrapEnable", dialCtlPeerCfgEntry.DialCtlPeerCfgTrapEnable})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerCfgStatus", types.YLeaf{"DialCtlPeerCfgStatus", dialCtlPeerCfgEntry.DialCtlPeerCfgStatus})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerStatsConnectTime", types.YLeaf{"DialCtlPeerStatsConnectTime", dialCtlPeerCfgEntry.DialCtlPeerStatsConnectTime})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerStatsChargedUnits", types.YLeaf{"DialCtlPeerStatsChargedUnits", dialCtlPeerCfgEntry.DialCtlPeerStatsChargedUnits})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerStatsSuccessCalls", types.YLeaf{"DialCtlPeerStatsSuccessCalls", dialCtlPeerCfgEntry.DialCtlPeerStatsSuccessCalls})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerStatsFailCalls", types.YLeaf{"DialCtlPeerStatsFailCalls", dialCtlPeerCfgEntry.DialCtlPeerStatsFailCalls})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerStatsAcceptCalls", types.YLeaf{"DialCtlPeerStatsAcceptCalls", dialCtlPeerCfgEntry.DialCtlPeerStatsAcceptCalls})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerStatsRefuseCalls", types.YLeaf{"DialCtlPeerStatsRefuseCalls", dialCtlPeerCfgEntry.DialCtlPeerStatsRefuseCalls})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerStatsLastDisconnectCause", types.YLeaf{"DialCtlPeerStatsLastDisconnectCause", dialCtlPeerCfgEntry.DialCtlPeerStatsLastDisconnectCause})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerStatsLastDisconnectText", types.YLeaf{"DialCtlPeerStatsLastDisconnectText", dialCtlPeerCfgEntry.DialCtlPeerStatsLastDisconnectText})
+    dialCtlPeerCfgEntry.EntityData.Leafs.Append("dialCtlPeerStatsLastSetupTime", types.YLeaf{"DialCtlPeerStatsLastSetupTime", dialCtlPeerCfgEntry.DialCtlPeerStatsLastSetupTime})
+
+    dialCtlPeerCfgEntry.EntityData.YListKeys = []string {"DialCtlPeerCfgId", "IfIndex"}
+
+    return &(dialCtlPeerCfgEntry.EntityData)
 }
 
-// DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype represents connections.
-type DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype string
+// DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType represents connections.
+type DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType string
 
 const (
-    DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype_other DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype = "other"
+    DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType_other DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType = "other"
 
-    DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype_speech DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype = "speech"
+    DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType_speech DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType = "speech"
 
-    DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype_unrestrictedDigital DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype = "unrestrictedDigital"
+    DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType_unrestrictedDigital DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType = "unrestrictedDigital"
 
-    DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype_unrestrictedDigital56 DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype = "unrestrictedDigital56"
+    DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType_unrestrictedDigital56 DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType = "unrestrictedDigital56"
 
-    DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype_restrictedDigital DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype = "restrictedDigital"
+    DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType_restrictedDigital DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType = "restrictedDigital"
 
-    DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype_audio31 DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype = "audio31"
+    DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType_audio31 DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType = "audio31"
 
-    DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype_audio7 DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype = "audio7"
+    DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType_audio7 DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType = "audio7"
 
-    DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype_video DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype = "video"
+    DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType_video DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType = "video"
 
-    DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype_packetSwitched DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype = "packetSwitched"
+    DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType_packetSwitched DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType = "packetSwitched"
 
-    DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype_fax DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfginfotype = "fax"
+    DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType_fax DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgInfoType = "fax"
 )
 
-// DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfgpermission represents PPP callback.
-type DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfgpermission string
+// DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgPermission represents PPP callback.
+type DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgPermission string
 
 const (
-    DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfgpermission_originate DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfgpermission = "originate"
+    DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgPermission_originate DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgPermission = "originate"
 
-    DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfgpermission_answer DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfgpermission = "answer"
+    DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgPermission_answer DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgPermission = "answer"
 
-    DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfgpermission_both DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfgpermission = "both"
+    DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgPermission_both DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgPermission = "both"
 
-    DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfgpermission_callback DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfgpermission = "callback"
+    DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgPermission_callback DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgPermission = "callback"
 
-    DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfgpermission_none DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfgpermission = "none"
+    DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgPermission_none DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgPermission = "none"
 )
 
-// DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfgtrapenable represents this peer.
-type DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfgtrapenable string
+// DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgTrapEnable represents this peer.
+type DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgTrapEnable string
 
 const (
-    DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfgtrapenable_enabled DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfgtrapenable = "enabled"
+    DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgTrapEnable_enabled DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgTrapEnable = "enabled"
 
-    DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfgtrapenable_disabled DIALCONTROLMIB_Dialctlpeercfgtable_Dialctlpeercfgentry_Dialctlpeercfgtrapenable = "disabled"
+    DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgTrapEnable_disabled DIALCONTROLMIB_DialCtlPeerCfgTable_DialCtlPeerCfgEntry_DialCtlPeerCfgTrapEnable = "disabled"
 )
 
-// DIALCONTROLMIB_Callactivetable
+// DIALCONTROLMIB_CallActiveTable
 // A table containing information about active
 // calls to a specific destination.
-type DIALCONTROLMIB_Callactivetable struct {
+type DIALCONTROLMIB_CallActiveTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The information regarding a single active Connection. An entry in this
     // table will be created when a call is started. An entry in this table will
     // be deleted when an active call clears. The type is slice of
-    // DIALCONTROLMIB_Callactivetable_Callactiveentry.
-    Callactiveentry []DIALCONTROLMIB_Callactivetable_Callactiveentry
+    // DIALCONTROLMIB_CallActiveTable_CallActiveEntry.
+    CallActiveEntry []*DIALCONTROLMIB_CallActiveTable_CallActiveEntry
 }
 
-func (callactivetable *DIALCONTROLMIB_Callactivetable) GetEntityData() *types.CommonEntityData {
-    callactivetable.EntityData.YFilter = callactivetable.YFilter
-    callactivetable.EntityData.YangName = "callActiveTable"
-    callactivetable.EntityData.BundleName = "cisco_ios_xe"
-    callactivetable.EntityData.ParentYangName = "DIAL-CONTROL-MIB"
-    callactivetable.EntityData.SegmentPath = "callActiveTable"
-    callactivetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    callactivetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    callactivetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (callActiveTable *DIALCONTROLMIB_CallActiveTable) GetEntityData() *types.CommonEntityData {
+    callActiveTable.EntityData.YFilter = callActiveTable.YFilter
+    callActiveTable.EntityData.YangName = "callActiveTable"
+    callActiveTable.EntityData.BundleName = "cisco_ios_xe"
+    callActiveTable.EntityData.ParentYangName = "DIAL-CONTROL-MIB"
+    callActiveTable.EntityData.SegmentPath = "callActiveTable"
+    callActiveTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    callActiveTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    callActiveTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    callactivetable.EntityData.Children = make(map[string]types.YChild)
-    callactivetable.EntityData.Children["callActiveEntry"] = types.YChild{"Callactiveentry", nil}
-    for i := range callactivetable.Callactiveentry {
-        callactivetable.EntityData.Children[types.GetSegmentPath(&callactivetable.Callactiveentry[i])] = types.YChild{"Callactiveentry", &callactivetable.Callactiveentry[i]}
+    callActiveTable.EntityData.Children = types.NewOrderedMap()
+    callActiveTable.EntityData.Children.Append("callActiveEntry", types.YChild{"CallActiveEntry", nil})
+    for i := range callActiveTable.CallActiveEntry {
+        callActiveTable.EntityData.Children.Append(types.GetSegmentPath(callActiveTable.CallActiveEntry[i]), types.YChild{"CallActiveEntry", callActiveTable.CallActiveEntry[i]})
     }
-    callactivetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(callactivetable.EntityData)
+    callActiveTable.EntityData.Leafs = types.NewOrderedMap()
+
+    callActiveTable.EntityData.YListKeys = []string {}
+
+    return &(callActiveTable.EntityData)
 }
 
-// DIALCONTROLMIB_Callactivetable_Callactiveentry
+// DIALCONTROLMIB_CallActiveTable_CallActiveEntry
 // The information regarding a single active Connection.
 // An entry in this table will be created when a call is
 // started. An entry in this table will be deleted when
 // an active call clears.
-type DIALCONTROLMIB_Callactivetable_Callactiveentry struct {
+type DIALCONTROLMIB_CallActiveTable_CallActiveEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -532,345 +550,354 @@ type DIALCONTROLMIB_Callactivetable_Callactiveentry struct {
     // was connected. For ISDN media, this will be the time when the setup message
     // was received from or sent to the network. The type is interface{} with
     // range: 0..4294967295.
-    Callactivesetuptime interface{}
+    CallActiveSetupTime interface{}
 
     // This attribute is a key. Small index variable to distinguish calls that
     // start in the same hundredth of a second. The type is interface{} with
     // range: 1..2147483647.
-    Callactiveindex interface{}
+    CallActiveIndex interface{}
 
     // The number this call is connected to. If the number is not available, then
     // it will have a length of zero. The type is string.
-    Callactivepeeraddress interface{}
+    CallActivePeerAddress interface{}
 
     // The subaddress this call is connected to. If the subaddress is undefined or
     // not available, this will be a zero length string. The type is string.
-    Callactivepeersubaddress interface{}
+    CallActivePeerSubAddress interface{}
 
     // This is the Id value of the peer table entry to which this call was made.
     // If a peer table entry for this call does not exist or is unknown, the value
     // of this object will be zero. The type is interface{} with range:
     // 0..2147483647.
-    Callactivepeerid interface{}
+    CallActivePeerId interface{}
 
     // This is the ifIndex value of the peer table entry to which this call was
     // made. If a peer table entry for this call does not exist or is unknown, the
     // value of this object will be zero. The type is interface{} with range:
     // 0..2147483647.
-    Callactivepeerifindex interface{}
+    CallActivePeerIfIndex interface{}
 
     // This is the ifIndex value of the logical interface through which this call
     // was made. For ISDN media, this would be the ifIndex of the B channel which
     // was used for this call. If the ifIndex value is unknown, the value of this
     // object will be zero. The type is interface{} with range: 0..2147483647.
-    Callactivelogicalifindex interface{}
+    CallActiveLogicalIfIndex interface{}
 
     // The value of sysUpTime when the call was connected. If the call is not
     // connected, this object will have a value of zero. The type is interface{}
     // with range: 0..4294967295.
-    Callactiveconnecttime interface{}
+    CallActiveConnectTime interface{}
 
     // The current call state. unknown(1)     - The call state is unknown.
     // connecting(2)  - A connection attempt (outgoing call)                  is
     // being made. connected(3)   - An incoming call is in the process            
     // of validation. active(4)      - The call is active. The type is
-    // Callactivecallstate.
-    Callactivecallstate interface{}
+    // CallActiveCallState.
+    CallActiveCallState interface{}
 
-    // The call origin. The type is Callactivecallorigin.
-    Callactivecallorigin interface{}
+    // The call origin. The type is CallActiveCallOrigin.
+    CallActiveCallOrigin interface{}
 
     // The number of charged units for this connection. For incoming calls or if
     // charging information is not supplied by the switch, the value of this
     // object will be zero. The type is interface{} with range: 0..4294967295.
-    Callactivechargedunits interface{}
+    CallActiveChargedUnits interface{}
 
-    // The information type for this call. The type is Callactiveinfotype.
-    Callactiveinfotype interface{}
+    // The information type for this call. The type is CallActiveInfoType.
+    CallActiveInfoType interface{}
 
     // The number of packets which were transmitted for this call. The type is
     // interface{} with range: 0..4294967295.
-    Callactivetransmitpackets interface{}
+    CallActiveTransmitPackets interface{}
 
     // The number of bytes which were transmitted for this call. The type is
     // interface{} with range: 0..4294967295.
-    Callactivetransmitbytes interface{}
+    CallActiveTransmitBytes interface{}
 
     // The number of packets which were received for this call. The type is
     // interface{} with range: 0..4294967295.
-    Callactivereceivepackets interface{}
+    CallActiveReceivePackets interface{}
 
     // The number of bytes which were received for this call. The type is
     // interface{} with range: 0..4294967295.
-    Callactivereceivebytes interface{}
+    CallActiveReceiveBytes interface{}
 }
 
-func (callactiveentry *DIALCONTROLMIB_Callactivetable_Callactiveentry) GetEntityData() *types.CommonEntityData {
-    callactiveentry.EntityData.YFilter = callactiveentry.YFilter
-    callactiveentry.EntityData.YangName = "callActiveEntry"
-    callactiveentry.EntityData.BundleName = "cisco_ios_xe"
-    callactiveentry.EntityData.ParentYangName = "callActiveTable"
-    callactiveentry.EntityData.SegmentPath = "callActiveEntry" + "[callActiveSetupTime='" + fmt.Sprintf("%v", callactiveentry.Callactivesetuptime) + "']" + "[callActiveIndex='" + fmt.Sprintf("%v", callactiveentry.Callactiveindex) + "']"
-    callactiveentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    callactiveentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    callactiveentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (callActiveEntry *DIALCONTROLMIB_CallActiveTable_CallActiveEntry) GetEntityData() *types.CommonEntityData {
+    callActiveEntry.EntityData.YFilter = callActiveEntry.YFilter
+    callActiveEntry.EntityData.YangName = "callActiveEntry"
+    callActiveEntry.EntityData.BundleName = "cisco_ios_xe"
+    callActiveEntry.EntityData.ParentYangName = "callActiveTable"
+    callActiveEntry.EntityData.SegmentPath = "callActiveEntry" + types.AddKeyToken(callActiveEntry.CallActiveSetupTime, "callActiveSetupTime") + types.AddKeyToken(callActiveEntry.CallActiveIndex, "callActiveIndex")
+    callActiveEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    callActiveEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    callActiveEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    callactiveentry.EntityData.Children = make(map[string]types.YChild)
-    callactiveentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    callactiveentry.EntityData.Leafs["callActiveSetupTime"] = types.YLeaf{"Callactivesetuptime", callactiveentry.Callactivesetuptime}
-    callactiveentry.EntityData.Leafs["callActiveIndex"] = types.YLeaf{"Callactiveindex", callactiveentry.Callactiveindex}
-    callactiveentry.EntityData.Leafs["callActivePeerAddress"] = types.YLeaf{"Callactivepeeraddress", callactiveentry.Callactivepeeraddress}
-    callactiveentry.EntityData.Leafs["callActivePeerSubAddress"] = types.YLeaf{"Callactivepeersubaddress", callactiveentry.Callactivepeersubaddress}
-    callactiveentry.EntityData.Leafs["callActivePeerId"] = types.YLeaf{"Callactivepeerid", callactiveentry.Callactivepeerid}
-    callactiveentry.EntityData.Leafs["callActivePeerIfIndex"] = types.YLeaf{"Callactivepeerifindex", callactiveentry.Callactivepeerifindex}
-    callactiveentry.EntityData.Leafs["callActiveLogicalIfIndex"] = types.YLeaf{"Callactivelogicalifindex", callactiveentry.Callactivelogicalifindex}
-    callactiveentry.EntityData.Leafs["callActiveConnectTime"] = types.YLeaf{"Callactiveconnecttime", callactiveentry.Callactiveconnecttime}
-    callactiveentry.EntityData.Leafs["callActiveCallState"] = types.YLeaf{"Callactivecallstate", callactiveentry.Callactivecallstate}
-    callactiveentry.EntityData.Leafs["callActiveCallOrigin"] = types.YLeaf{"Callactivecallorigin", callactiveentry.Callactivecallorigin}
-    callactiveentry.EntityData.Leafs["callActiveChargedUnits"] = types.YLeaf{"Callactivechargedunits", callactiveentry.Callactivechargedunits}
-    callactiveentry.EntityData.Leafs["callActiveInfoType"] = types.YLeaf{"Callactiveinfotype", callactiveentry.Callactiveinfotype}
-    callactiveentry.EntityData.Leafs["callActiveTransmitPackets"] = types.YLeaf{"Callactivetransmitpackets", callactiveentry.Callactivetransmitpackets}
-    callactiveentry.EntityData.Leafs["callActiveTransmitBytes"] = types.YLeaf{"Callactivetransmitbytes", callactiveentry.Callactivetransmitbytes}
-    callactiveentry.EntityData.Leafs["callActiveReceivePackets"] = types.YLeaf{"Callactivereceivepackets", callactiveentry.Callactivereceivepackets}
-    callactiveentry.EntityData.Leafs["callActiveReceiveBytes"] = types.YLeaf{"Callactivereceivebytes", callactiveentry.Callactivereceivebytes}
-    return &(callactiveentry.EntityData)
+    callActiveEntry.EntityData.Children = types.NewOrderedMap()
+    callActiveEntry.EntityData.Leafs = types.NewOrderedMap()
+    callActiveEntry.EntityData.Leafs.Append("callActiveSetupTime", types.YLeaf{"CallActiveSetupTime", callActiveEntry.CallActiveSetupTime})
+    callActiveEntry.EntityData.Leafs.Append("callActiveIndex", types.YLeaf{"CallActiveIndex", callActiveEntry.CallActiveIndex})
+    callActiveEntry.EntityData.Leafs.Append("callActivePeerAddress", types.YLeaf{"CallActivePeerAddress", callActiveEntry.CallActivePeerAddress})
+    callActiveEntry.EntityData.Leafs.Append("callActivePeerSubAddress", types.YLeaf{"CallActivePeerSubAddress", callActiveEntry.CallActivePeerSubAddress})
+    callActiveEntry.EntityData.Leafs.Append("callActivePeerId", types.YLeaf{"CallActivePeerId", callActiveEntry.CallActivePeerId})
+    callActiveEntry.EntityData.Leafs.Append("callActivePeerIfIndex", types.YLeaf{"CallActivePeerIfIndex", callActiveEntry.CallActivePeerIfIndex})
+    callActiveEntry.EntityData.Leafs.Append("callActiveLogicalIfIndex", types.YLeaf{"CallActiveLogicalIfIndex", callActiveEntry.CallActiveLogicalIfIndex})
+    callActiveEntry.EntityData.Leafs.Append("callActiveConnectTime", types.YLeaf{"CallActiveConnectTime", callActiveEntry.CallActiveConnectTime})
+    callActiveEntry.EntityData.Leafs.Append("callActiveCallState", types.YLeaf{"CallActiveCallState", callActiveEntry.CallActiveCallState})
+    callActiveEntry.EntityData.Leafs.Append("callActiveCallOrigin", types.YLeaf{"CallActiveCallOrigin", callActiveEntry.CallActiveCallOrigin})
+    callActiveEntry.EntityData.Leafs.Append("callActiveChargedUnits", types.YLeaf{"CallActiveChargedUnits", callActiveEntry.CallActiveChargedUnits})
+    callActiveEntry.EntityData.Leafs.Append("callActiveInfoType", types.YLeaf{"CallActiveInfoType", callActiveEntry.CallActiveInfoType})
+    callActiveEntry.EntityData.Leafs.Append("callActiveTransmitPackets", types.YLeaf{"CallActiveTransmitPackets", callActiveEntry.CallActiveTransmitPackets})
+    callActiveEntry.EntityData.Leafs.Append("callActiveTransmitBytes", types.YLeaf{"CallActiveTransmitBytes", callActiveEntry.CallActiveTransmitBytes})
+    callActiveEntry.EntityData.Leafs.Append("callActiveReceivePackets", types.YLeaf{"CallActiveReceivePackets", callActiveEntry.CallActiveReceivePackets})
+    callActiveEntry.EntityData.Leafs.Append("callActiveReceiveBytes", types.YLeaf{"CallActiveReceiveBytes", callActiveEntry.CallActiveReceiveBytes})
+
+    callActiveEntry.EntityData.YListKeys = []string {"CallActiveSetupTime", "CallActiveIndex"}
+
+    return &(callActiveEntry.EntityData)
 }
 
-// DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivecallorigin represents The call origin.
-type DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivecallorigin string
+// DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveCallOrigin represents The call origin.
+type DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveCallOrigin string
 
 const (
-    DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivecallorigin_originate DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivecallorigin = "originate"
+    DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveCallOrigin_originate DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveCallOrigin = "originate"
 
-    DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivecallorigin_answer DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivecallorigin = "answer"
+    DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveCallOrigin_answer DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveCallOrigin = "answer"
 
-    DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivecallorigin_callback DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivecallorigin = "callback"
+    DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveCallOrigin_callback DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveCallOrigin = "callback"
 )
 
-// DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivecallstate represents active(4)      - The call is active.
-type DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivecallstate string
+// DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveCallState represents active(4)      - The call is active.
+type DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveCallState string
 
 const (
-    DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivecallstate_unknown DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivecallstate = "unknown"
+    DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveCallState_unknown DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveCallState = "unknown"
 
-    DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivecallstate_connecting DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivecallstate = "connecting"
+    DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveCallState_connecting DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveCallState = "connecting"
 
-    DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivecallstate_connected DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivecallstate = "connected"
+    DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveCallState_connected DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveCallState = "connected"
 
-    DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivecallstate_active DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivecallstate = "active"
+    DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveCallState_active DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveCallState = "active"
 )
 
-// DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype represents The information type for this call.
-type DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype string
+// DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType represents The information type for this call.
+type DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType string
 
 const (
-    DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype_other DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype = "other"
+    DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType_other DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType = "other"
 
-    DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype_speech DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype = "speech"
+    DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType_speech DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType = "speech"
 
-    DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype_unrestrictedDigital DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype = "unrestrictedDigital"
+    DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType_unrestrictedDigital DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType = "unrestrictedDigital"
 
-    DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype_unrestrictedDigital56 DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype = "unrestrictedDigital56"
+    DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType_unrestrictedDigital56 DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType = "unrestrictedDigital56"
 
-    DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype_restrictedDigital DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype = "restrictedDigital"
+    DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType_restrictedDigital DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType = "restrictedDigital"
 
-    DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype_audio31 DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype = "audio31"
+    DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType_audio31 DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType = "audio31"
 
-    DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype_audio7 DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype = "audio7"
+    DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType_audio7 DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType = "audio7"
 
-    DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype_video DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype = "video"
+    DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType_video DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType = "video"
 
-    DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype_packetSwitched DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype = "packetSwitched"
+    DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType_packetSwitched DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType = "packetSwitched"
 
-    DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype_fax DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveinfotype = "fax"
+    DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType_fax DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveInfoType = "fax"
 )
 
-// DIALCONTROLMIB_Callhistorytable
+// DIALCONTROLMIB_CallHistoryTable
 // A table containing information about specific
 // calls to a specific destination.
-type DIALCONTROLMIB_Callhistorytable struct {
+type DIALCONTROLMIB_CallHistoryTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The information regarding a single Connection. The type is slice of
-    // DIALCONTROLMIB_Callhistorytable_Callhistoryentry.
-    Callhistoryentry []DIALCONTROLMIB_Callhistorytable_Callhistoryentry
+    // DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry.
+    CallHistoryEntry []*DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry
 }
 
-func (callhistorytable *DIALCONTROLMIB_Callhistorytable) GetEntityData() *types.CommonEntityData {
-    callhistorytable.EntityData.YFilter = callhistorytable.YFilter
-    callhistorytable.EntityData.YangName = "callHistoryTable"
-    callhistorytable.EntityData.BundleName = "cisco_ios_xe"
-    callhistorytable.EntityData.ParentYangName = "DIAL-CONTROL-MIB"
-    callhistorytable.EntityData.SegmentPath = "callHistoryTable"
-    callhistorytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    callhistorytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    callhistorytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (callHistoryTable *DIALCONTROLMIB_CallHistoryTable) GetEntityData() *types.CommonEntityData {
+    callHistoryTable.EntityData.YFilter = callHistoryTable.YFilter
+    callHistoryTable.EntityData.YangName = "callHistoryTable"
+    callHistoryTable.EntityData.BundleName = "cisco_ios_xe"
+    callHistoryTable.EntityData.ParentYangName = "DIAL-CONTROL-MIB"
+    callHistoryTable.EntityData.SegmentPath = "callHistoryTable"
+    callHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    callHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    callHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    callhistorytable.EntityData.Children = make(map[string]types.YChild)
-    callhistorytable.EntityData.Children["callHistoryEntry"] = types.YChild{"Callhistoryentry", nil}
-    for i := range callhistorytable.Callhistoryentry {
-        callhistorytable.EntityData.Children[types.GetSegmentPath(&callhistorytable.Callhistoryentry[i])] = types.YChild{"Callhistoryentry", &callhistorytable.Callhistoryentry[i]}
+    callHistoryTable.EntityData.Children = types.NewOrderedMap()
+    callHistoryTable.EntityData.Children.Append("callHistoryEntry", types.YChild{"CallHistoryEntry", nil})
+    for i := range callHistoryTable.CallHistoryEntry {
+        callHistoryTable.EntityData.Children.Append(types.GetSegmentPath(callHistoryTable.CallHistoryEntry[i]), types.YChild{"CallHistoryEntry", callHistoryTable.CallHistoryEntry[i]})
     }
-    callhistorytable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(callhistorytable.EntityData)
+    callHistoryTable.EntityData.Leafs = types.NewOrderedMap()
+
+    callHistoryTable.EntityData.YListKeys = []string {}
+
+    return &(callHistoryTable.EntityData)
 }
 
-// DIALCONTROLMIB_Callhistorytable_Callhistoryentry
+// DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry
 // The information regarding a single Connection.
-type DIALCONTROLMIB_Callhistorytable_Callhistoryentry struct {
+type DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // dial_control_mib.DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactivesetuptime
-    Callactivesetuptime interface{}
+    // dial_control_mib.DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveSetupTime
+    CallActiveSetupTime interface{}
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // dial_control_mib.DIALCONTROLMIB_Callactivetable_Callactiveentry_Callactiveindex
-    Callactiveindex interface{}
+    // dial_control_mib.DIALCONTROLMIB_CallActiveTable_CallActiveEntry_CallActiveIndex
+    CallActiveIndex interface{}
 
     // The number this call was connected to. If the number is not available, then
     // it will have a length of zero. The type is string.
-    Callhistorypeeraddress interface{}
+    CallHistoryPeerAddress interface{}
 
     // The subaddress this call was connected to. If the subaddress is undefined
     // or not available, this will be a zero length string. The type is string.
-    Callhistorypeersubaddress interface{}
+    CallHistoryPeerSubAddress interface{}
 
     // This is the Id value of the peer table entry to which this call was made.
     // If a peer table entry for this call does not exist, the value of this
     // object will be zero. The type is interface{} with range: 0..2147483647.
-    Callhistorypeerid interface{}
+    CallHistoryPeerId interface{}
 
     // This is the ifIndex value of the peer table entry to which this call was
     // made. If a peer table entry for this call does not exist, the value of this
     // object will be zero. The type is interface{} with range: 0..2147483647.
-    Callhistorypeerifindex interface{}
+    CallHistoryPeerIfIndex interface{}
 
     // This is the ifIndex value of the logical interface through which this call
     // was made. For ISDN media, this would be the ifIndex of the B channel which
     // was used for this call. The type is interface{} with range: 1..2147483647.
-    Callhistorylogicalifindex interface{}
+    CallHistoryLogicalIfIndex interface{}
 
     // The encoded network cause value associated with this call.  The value of
     // this object will depend on the interface type as well as on the protocol
     // and protocol version being used on this interface. Some references for
     // possible cause values are given below. The type is string with length:
     // 0..4.
-    Callhistorydisconnectcause interface{}
+    CallHistoryDisconnectCause interface{}
 
     // ASCII text describing the reason for call termination.  This object exists
     // because it would be impossible for a management station to store all
     // possible cause values for all types of interfaces. It should be used only
     // if a management station is unable to decode the value of
     // dialCtlPeerStatsLastDisconnectCause. The type is string.
-    Callhistorydisconnecttext interface{}
+    CallHistoryDisconnectText interface{}
 
     // The value of sysUpTime when the call was connected. The type is interface{}
     // with range: 0..4294967295.
-    Callhistoryconnecttime interface{}
+    CallHistoryConnectTime interface{}
 
     // The value of sysUpTime when the call was disconnected. The type is
     // interface{} with range: 0..4294967295.
-    Callhistorydisconnecttime interface{}
+    CallHistoryDisconnectTime interface{}
 
-    // The call origin. The type is Callhistorycallorigin.
-    Callhistorycallorigin interface{}
+    // The call origin. The type is CallHistoryCallOrigin.
+    CallHistoryCallOrigin interface{}
 
     // The number of charged units for this connection. For incoming calls or if
     // charging information is not supplied by the switch, the value of this
     // object will be zero. The type is interface{} with range: 0..4294967295.
-    Callhistorychargedunits interface{}
+    CallHistoryChargedUnits interface{}
 
-    // The information type for this call. The type is Callhistoryinfotype.
-    Callhistoryinfotype interface{}
+    // The information type for this call. The type is CallHistoryInfoType.
+    CallHistoryInfoType interface{}
 
     // The number of packets which were transmitted while this call was active.
     // The type is interface{} with range: 0..4294967295.
-    Callhistorytransmitpackets interface{}
+    CallHistoryTransmitPackets interface{}
 
     // The number of bytes which were transmitted while this call was active. The
     // type is interface{} with range: 0..4294967295.
-    Callhistorytransmitbytes interface{}
+    CallHistoryTransmitBytes interface{}
 
     // The number of packets which were received while this call was active. The
     // type is interface{} with range: 0..4294967295.
-    Callhistoryreceivepackets interface{}
+    CallHistoryReceivePackets interface{}
 
     // The number of bytes which were received while this call was active. The
     // type is interface{} with range: 0..4294967295.
-    Callhistoryreceivebytes interface{}
+    CallHistoryReceiveBytes interface{}
 }
 
-func (callhistoryentry *DIALCONTROLMIB_Callhistorytable_Callhistoryentry) GetEntityData() *types.CommonEntityData {
-    callhistoryentry.EntityData.YFilter = callhistoryentry.YFilter
-    callhistoryentry.EntityData.YangName = "callHistoryEntry"
-    callhistoryentry.EntityData.BundleName = "cisco_ios_xe"
-    callhistoryentry.EntityData.ParentYangName = "callHistoryTable"
-    callhistoryentry.EntityData.SegmentPath = "callHistoryEntry" + "[callActiveSetupTime='" + fmt.Sprintf("%v", callhistoryentry.Callactivesetuptime) + "']" + "[callActiveIndex='" + fmt.Sprintf("%v", callhistoryentry.Callactiveindex) + "']"
-    callhistoryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    callhistoryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    callhistoryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (callHistoryEntry *DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry) GetEntityData() *types.CommonEntityData {
+    callHistoryEntry.EntityData.YFilter = callHistoryEntry.YFilter
+    callHistoryEntry.EntityData.YangName = "callHistoryEntry"
+    callHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
+    callHistoryEntry.EntityData.ParentYangName = "callHistoryTable"
+    callHistoryEntry.EntityData.SegmentPath = "callHistoryEntry" + types.AddKeyToken(callHistoryEntry.CallActiveSetupTime, "callActiveSetupTime") + types.AddKeyToken(callHistoryEntry.CallActiveIndex, "callActiveIndex")
+    callHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    callHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    callHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    callhistoryentry.EntityData.Children = make(map[string]types.YChild)
-    callhistoryentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    callhistoryentry.EntityData.Leafs["callActiveSetupTime"] = types.YLeaf{"Callactivesetuptime", callhistoryentry.Callactivesetuptime}
-    callhistoryentry.EntityData.Leafs["callActiveIndex"] = types.YLeaf{"Callactiveindex", callhistoryentry.Callactiveindex}
-    callhistoryentry.EntityData.Leafs["callHistoryPeerAddress"] = types.YLeaf{"Callhistorypeeraddress", callhistoryentry.Callhistorypeeraddress}
-    callhistoryentry.EntityData.Leafs["callHistoryPeerSubAddress"] = types.YLeaf{"Callhistorypeersubaddress", callhistoryentry.Callhistorypeersubaddress}
-    callhistoryentry.EntityData.Leafs["callHistoryPeerId"] = types.YLeaf{"Callhistorypeerid", callhistoryentry.Callhistorypeerid}
-    callhistoryentry.EntityData.Leafs["callHistoryPeerIfIndex"] = types.YLeaf{"Callhistorypeerifindex", callhistoryentry.Callhistorypeerifindex}
-    callhistoryentry.EntityData.Leafs["callHistoryLogicalIfIndex"] = types.YLeaf{"Callhistorylogicalifindex", callhistoryentry.Callhistorylogicalifindex}
-    callhistoryentry.EntityData.Leafs["callHistoryDisconnectCause"] = types.YLeaf{"Callhistorydisconnectcause", callhistoryentry.Callhistorydisconnectcause}
-    callhistoryentry.EntityData.Leafs["callHistoryDisconnectText"] = types.YLeaf{"Callhistorydisconnecttext", callhistoryentry.Callhistorydisconnecttext}
-    callhistoryentry.EntityData.Leafs["callHistoryConnectTime"] = types.YLeaf{"Callhistoryconnecttime", callhistoryentry.Callhistoryconnecttime}
-    callhistoryentry.EntityData.Leafs["callHistoryDisconnectTime"] = types.YLeaf{"Callhistorydisconnecttime", callhistoryentry.Callhistorydisconnecttime}
-    callhistoryentry.EntityData.Leafs["callHistoryCallOrigin"] = types.YLeaf{"Callhistorycallorigin", callhistoryentry.Callhistorycallorigin}
-    callhistoryentry.EntityData.Leafs["callHistoryChargedUnits"] = types.YLeaf{"Callhistorychargedunits", callhistoryentry.Callhistorychargedunits}
-    callhistoryentry.EntityData.Leafs["callHistoryInfoType"] = types.YLeaf{"Callhistoryinfotype", callhistoryentry.Callhistoryinfotype}
-    callhistoryentry.EntityData.Leafs["callHistoryTransmitPackets"] = types.YLeaf{"Callhistorytransmitpackets", callhistoryentry.Callhistorytransmitpackets}
-    callhistoryentry.EntityData.Leafs["callHistoryTransmitBytes"] = types.YLeaf{"Callhistorytransmitbytes", callhistoryentry.Callhistorytransmitbytes}
-    callhistoryentry.EntityData.Leafs["callHistoryReceivePackets"] = types.YLeaf{"Callhistoryreceivepackets", callhistoryentry.Callhistoryreceivepackets}
-    callhistoryentry.EntityData.Leafs["callHistoryReceiveBytes"] = types.YLeaf{"Callhistoryreceivebytes", callhistoryentry.Callhistoryreceivebytes}
-    return &(callhistoryentry.EntityData)
+    callHistoryEntry.EntityData.Children = types.NewOrderedMap()
+    callHistoryEntry.EntityData.Leafs = types.NewOrderedMap()
+    callHistoryEntry.EntityData.Leafs.Append("callActiveSetupTime", types.YLeaf{"CallActiveSetupTime", callHistoryEntry.CallActiveSetupTime})
+    callHistoryEntry.EntityData.Leafs.Append("callActiveIndex", types.YLeaf{"CallActiveIndex", callHistoryEntry.CallActiveIndex})
+    callHistoryEntry.EntityData.Leafs.Append("callHistoryPeerAddress", types.YLeaf{"CallHistoryPeerAddress", callHistoryEntry.CallHistoryPeerAddress})
+    callHistoryEntry.EntityData.Leafs.Append("callHistoryPeerSubAddress", types.YLeaf{"CallHistoryPeerSubAddress", callHistoryEntry.CallHistoryPeerSubAddress})
+    callHistoryEntry.EntityData.Leafs.Append("callHistoryPeerId", types.YLeaf{"CallHistoryPeerId", callHistoryEntry.CallHistoryPeerId})
+    callHistoryEntry.EntityData.Leafs.Append("callHistoryPeerIfIndex", types.YLeaf{"CallHistoryPeerIfIndex", callHistoryEntry.CallHistoryPeerIfIndex})
+    callHistoryEntry.EntityData.Leafs.Append("callHistoryLogicalIfIndex", types.YLeaf{"CallHistoryLogicalIfIndex", callHistoryEntry.CallHistoryLogicalIfIndex})
+    callHistoryEntry.EntityData.Leafs.Append("callHistoryDisconnectCause", types.YLeaf{"CallHistoryDisconnectCause", callHistoryEntry.CallHistoryDisconnectCause})
+    callHistoryEntry.EntityData.Leafs.Append("callHistoryDisconnectText", types.YLeaf{"CallHistoryDisconnectText", callHistoryEntry.CallHistoryDisconnectText})
+    callHistoryEntry.EntityData.Leafs.Append("callHistoryConnectTime", types.YLeaf{"CallHistoryConnectTime", callHistoryEntry.CallHistoryConnectTime})
+    callHistoryEntry.EntityData.Leafs.Append("callHistoryDisconnectTime", types.YLeaf{"CallHistoryDisconnectTime", callHistoryEntry.CallHistoryDisconnectTime})
+    callHistoryEntry.EntityData.Leafs.Append("callHistoryCallOrigin", types.YLeaf{"CallHistoryCallOrigin", callHistoryEntry.CallHistoryCallOrigin})
+    callHistoryEntry.EntityData.Leafs.Append("callHistoryChargedUnits", types.YLeaf{"CallHistoryChargedUnits", callHistoryEntry.CallHistoryChargedUnits})
+    callHistoryEntry.EntityData.Leafs.Append("callHistoryInfoType", types.YLeaf{"CallHistoryInfoType", callHistoryEntry.CallHistoryInfoType})
+    callHistoryEntry.EntityData.Leafs.Append("callHistoryTransmitPackets", types.YLeaf{"CallHistoryTransmitPackets", callHistoryEntry.CallHistoryTransmitPackets})
+    callHistoryEntry.EntityData.Leafs.Append("callHistoryTransmitBytes", types.YLeaf{"CallHistoryTransmitBytes", callHistoryEntry.CallHistoryTransmitBytes})
+    callHistoryEntry.EntityData.Leafs.Append("callHistoryReceivePackets", types.YLeaf{"CallHistoryReceivePackets", callHistoryEntry.CallHistoryReceivePackets})
+    callHistoryEntry.EntityData.Leafs.Append("callHistoryReceiveBytes", types.YLeaf{"CallHistoryReceiveBytes", callHistoryEntry.CallHistoryReceiveBytes})
+
+    callHistoryEntry.EntityData.YListKeys = []string {"CallActiveSetupTime", "CallActiveIndex"}
+
+    return &(callHistoryEntry.EntityData)
 }
 
-// DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistorycallorigin represents The call origin.
-type DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistorycallorigin string
+// DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryCallOrigin represents The call origin.
+type DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryCallOrigin string
 
 const (
-    DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistorycallorigin_originate DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistorycallorigin = "originate"
+    DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryCallOrigin_originate DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryCallOrigin = "originate"
 
-    DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistorycallorigin_answer DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistorycallorigin = "answer"
+    DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryCallOrigin_answer DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryCallOrigin = "answer"
 
-    DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistorycallorigin_callback DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistorycallorigin = "callback"
+    DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryCallOrigin_callback DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryCallOrigin = "callback"
 )
 
-// DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype represents The information type for this call.
-type DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype string
+// DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType represents The information type for this call.
+type DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType string
 
 const (
-    DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype_other DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype = "other"
+    DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType_other DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType = "other"
 
-    DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype_speech DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype = "speech"
+    DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType_speech DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType = "speech"
 
-    DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype_unrestrictedDigital DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype = "unrestrictedDigital"
+    DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType_unrestrictedDigital DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType = "unrestrictedDigital"
 
-    DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype_unrestrictedDigital56 DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype = "unrestrictedDigital56"
+    DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType_unrestrictedDigital56 DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType = "unrestrictedDigital56"
 
-    DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype_restrictedDigital DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype = "restrictedDigital"
+    DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType_restrictedDigital DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType = "restrictedDigital"
 
-    DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype_audio31 DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype = "audio31"
+    DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType_audio31 DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType = "audio31"
 
-    DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype_audio7 DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype = "audio7"
+    DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType_audio7 DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType = "audio7"
 
-    DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype_video DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype = "video"
+    DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType_video DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType = "video"
 
-    DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype_packetSwitched DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype = "packetSwitched"
+    DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType_packetSwitched DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType = "packetSwitched"
 
-    DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype_fax DIALCONTROLMIB_Callhistorytable_Callhistoryentry_Callhistoryinfotype = "fax"
+    DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType_fax DIALCONTROLMIB_CallHistoryTable_CallHistoryEntry_CallHistoryInfoType = "fax"
 )
 

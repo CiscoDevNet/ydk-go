@@ -24,6 +24,52 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-bfd-oper:bfd", reflect.TypeOf(Bfd{}))
 }
 
+// BfdSession represents BFD session type
+type BfdSession string
+
+const (
+    // Session type is undefined
+    BfdSession_undefined BfdSession = "undefined"
+
+    // Session type is bundle member
+    BfdSession_bundle_member BfdSession = "bundle-member"
+
+    // Session type is bundle interface
+    BfdSession_bundle_interface BfdSession = "bundle-interface"
+
+    // Session type is state inheriting
+    BfdSession_state_inheriting BfdSession = "state-inheriting"
+
+    // Session type is bundle vlan
+    BfdSession_bundle_vlan BfdSession = "bundle-vlan"
+
+    // Session type is MPLS-TP
+    BfdSession_mpls_tp BfdSession = "mpls-tp"
+
+    // Session type is GRE tunnel
+    BfdSession_gre BfdSession = "gre"
+
+    // Session type is PW-HE
+    BfdSession_pseudowire_headend BfdSession = "pseudowire-headend"
+
+    // Session type is IP single hop
+    BfdSession_ip_single_hop BfdSession = "ip-single-hop"
+)
+
+// BfdAfId represents Bfd af id
+type BfdAfId string
+
+const (
+    // No Address
+    BfdAfId_bfd_af_id_none BfdAfId = "bfd-af-id-none"
+
+    // IPv4 AFI
+    BfdAfId_bfd_af_id_ipv4 BfdAfId = "bfd-af-id-ipv4"
+
+    // IPv6 AFI
+    BfdAfId_bfd_af_id_ipv6 BfdAfId = "bfd-af-id-ipv6"
+)
+
 // BfdMpDownloadState represents Bfd mp download state
 type BfdMpDownloadState string
 
@@ -45,6 +91,29 @@ const (
 
     // bfd mp download delete
     BfdMpDownloadState_bfd_mp_download_delete BfdMpDownloadState = "bfd-mp-download-delete"
+)
+
+// BfdMgmtSessionState represents BFD session states
+type BfdMgmtSessionState string
+
+const (
+    // Session in Administratively Shutdown State
+    BfdMgmtSessionState_bfd_mgmt_session_state_admin_down BfdMgmtSessionState = "bfd-mgmt-session-state-admin-down"
+
+    // Session in Down State
+    BfdMgmtSessionState_bfd_mgmt_session_state_down BfdMgmtSessionState = "bfd-mgmt-session-state-down"
+
+    // Session in Initializing State
+    BfdMgmtSessionState_bfd_mgmt_session_state_init BfdMgmtSessionState = "bfd-mgmt-session-state-init"
+
+    // Session in Up State
+    BfdMgmtSessionState_bfd_mgmt_session_state_up BfdMgmtSessionState = "bfd-mgmt-session-state-up"
+
+    // Session in Failing State
+    BfdMgmtSessionState_bfd_mgmt_session_state_failing BfdMgmtSessionState = "bfd-mgmt-session-state-failing"
+
+    // Session in Unknown State
+    BfdMgmtSessionState_bfd_mgmt_session_state_unknown BfdMgmtSessionState = "bfd-mgmt-session-state-unknown"
 )
 
 // BfdMgmtSessionDiag represents BFD session diagnostic
@@ -82,20 +151,6 @@ const (
     BfdMgmtSessionDiag_bfd_mgmt_session_diag_num BfdMgmtSessionDiag = "bfd-mgmt-session-diag-num"
 )
 
-// BfdAfId represents Bfd af id
-type BfdAfId string
-
-const (
-    // No Address
-    BfdAfId_bfd_af_id_none BfdAfId = "bfd-af-id-none"
-
-    // IPv4 AFI
-    BfdAfId_bfd_af_id_ipv4 BfdAfId = "bfd-af-id-ipv4"
-
-    // IPv6 AFI
-    BfdAfId_bfd_af_id_ipv6 BfdAfId = "bfd-af-id-ipv6"
-)
-
 // BfdMgmtPktDisplay represents BFD session type
 type BfdMgmtPktDisplay string
 
@@ -110,61 +165,6 @@ const (
     BfdMgmtPktDisplay_bfd_mgmt_pkt_display_type_max BfdMgmtPktDisplay = "bfd-mgmt-pkt-display-type-max"
 )
 
-// BfdSession represents BFD session type
-type BfdSession string
-
-const (
-    // Session type is undefined
-    BfdSession_undefined BfdSession = "undefined"
-
-    // Session type is bundle member
-    BfdSession_bundle_member BfdSession = "bundle-member"
-
-    // Session type is bundle interface
-    BfdSession_bundle_interface BfdSession = "bundle-interface"
-
-    // Session type is state inheriting
-    BfdSession_state_inheriting BfdSession = "state-inheriting"
-
-    // Session type is bundle vlan
-    BfdSession_bundle_vlan BfdSession = "bundle-vlan"
-
-    // Session type is MPLS-TP
-    BfdSession_mpls_tp BfdSession = "mpls-tp"
-
-    // Session type is GRE tunnel
-    BfdSession_gre BfdSession = "gre"
-
-    // Session type is PW-HE
-    BfdSession_pseudowire_headend BfdSession = "pseudowire-headend"
-
-    // Session type is IP single hop
-    BfdSession_ip_single_hop BfdSession = "ip-single-hop"
-)
-
-// BfdMgmtSessionState represents BFD session states
-type BfdMgmtSessionState string
-
-const (
-    // Session in Administratively Shutdown State
-    BfdMgmtSessionState_bfd_mgmt_session_state_admin_down BfdMgmtSessionState = "bfd-mgmt-session-state-admin-down"
-
-    // Session in Down State
-    BfdMgmtSessionState_bfd_mgmt_session_state_down BfdMgmtSessionState = "bfd-mgmt-session-state-down"
-
-    // Session in Initializing State
-    BfdMgmtSessionState_bfd_mgmt_session_state_init BfdMgmtSessionState = "bfd-mgmt-session-state-init"
-
-    // Session in Up State
-    BfdMgmtSessionState_bfd_mgmt_session_state_up BfdMgmtSessionState = "bfd-mgmt-session-state-up"
-
-    // Session in Failing State
-    BfdMgmtSessionState_bfd_mgmt_session_state_failing BfdMgmtSessionState = "bfd-mgmt-session-state-failing"
-
-    // Session in Unknown State
-    BfdMgmtSessionState_bfd_mgmt_session_state_unknown BfdMgmtSessionState = "bfd-mgmt-session-state-unknown"
-)
-
 // Bfd
 // Bidirectional Forwarding Detection(BFD)
 // operational data
@@ -176,7 +176,7 @@ type Bfd struct {
     LabelSessionBriefs Bfd_LabelSessionBriefs
 
     // Summary information of IPv4 BFD over MPLS-TE Tail.
-    Ipv4BfDoMplsteTailSummary Bfd_Ipv4BfDoMplsteTailSummary
+    Ipv4bfDoMplsteTailSummary Bfd_Ipv4bfDoMplsteTailSummary
 
     // IPv6 single hop Counters.
     Ipv6SingleHopCounters Bfd_Ipv6SingleHopCounters
@@ -223,18 +223,18 @@ type Bfd struct {
 
     // Table of brief information about all IPv4 BFD over MPLS-TE Head sessions in
     // the System.
-    Ipv4BfDoMplsteHeadSessionBriefs Bfd_Ipv4BfDoMplsteHeadSessionBriefs
+    Ipv4bfDoMplsteHeadSessionBriefs Bfd_Ipv4bfDoMplsteHeadSessionBriefs
 
     // Table of detailed information about all IPv4 BFD over MPLS-TE Tail sessions
     // in the System.
-    Ipv4BfDoMplsteTailSessionDetails Bfd_Ipv4BfDoMplsteTailSessionDetails
+    Ipv4bfDoMplsteTailSessionDetails Bfd_Ipv4bfDoMplsteTailSessionDetails
 
     // Table of summary information about BFD IPv4 multihop sessions per location.
     Ipv4MultiHopNodeLocationSummaries Bfd_Ipv4MultiHopNodeLocationSummaries
 
     // Table of brief information about all IPv4 BFD over MPLS-TE Tail sessions in
     // the System.
-    Ipv4BfDoMplsteTailSessionBriefs Bfd_Ipv4BfDoMplsteTailSessionBriefs
+    Ipv4bfDoMplsteTailSessionBriefs Bfd_Ipv4bfDoMplsteTailSessionBriefs
 
     // Table of summary information about BFD IPv6 multihop sessions per location.
     Ipv6MultiHopNodeLocationSummaries Bfd_Ipv6MultiHopNodeLocationSummaries
@@ -253,7 +253,7 @@ type Bfd struct {
     Ipv6MultiHopMultiPaths Bfd_Ipv6MultiHopMultiPaths
 
     // IPv4 BFD over MPLS-TE Counters.
-    Ipv4BfDoMplsteHeadCounters Bfd_Ipv4BfDoMplsteHeadCounters
+    Ipv4bfDoMplsteHeadCounters Bfd_Ipv4bfDoMplsteHeadCounters
 
     // BFD session MIB database.
     SessionMibs Bfd_SessionMibs
@@ -279,14 +279,14 @@ type Bfd struct {
     Summary Bfd_Summary
 
     // Table of summary about IPv4 TE tail BFD sessions for location.
-    Ipv4BfdMplsteTailNodeSummaries Bfd_Ipv4BfdMplsteTailNodeSummaries
+    Ipv4bfdMplsteTailNodeSummaries Bfd_Ipv4bfdMplsteTailNodeSummaries
 
     // Table of summary information about IPv4 singlehop BFD sessions for
     // location.
     Ipv4SingleHopLocationSummaries Bfd_Ipv4SingleHopLocationSummaries
 
     // Table of summary about IPv4 TE head BFD sessions for location.
-    Ipv4BfdMplsteHeadSummaryNodes Bfd_Ipv4BfdMplsteHeadSummaryNodes
+    Ipv4bfdMplsteHeadSummaryNodes Bfd_Ipv4bfdMplsteHeadSummaryNodes
 
     // Table of detailed information about all Label BFD sessions in the System .
     LabelSessionDetails Bfd_LabelSessionDetails
@@ -321,7 +321,7 @@ type Bfd struct {
 
     // Table of detailed information about all IPv4 BFD over MPLS-TE Head sessions
     // in the System.
-    Ipv4BfDoMplsteHeadSessionDetails Bfd_Ipv4BfDoMplsteHeadSessionDetails
+    Ipv4bfDoMplsteHeadSessionDetails Bfd_Ipv4bfDoMplsteHeadSessionDetails
 
     // Table of brief information about all BFD relations in the System.
     RelationBriefs Bfd_RelationBriefs
@@ -330,26 +330,26 @@ type Bfd struct {
     ClientBriefs Bfd_ClientBriefs
 
     // IPv4 BFD over MPLS-TE Head multipath.
-    Ipv4BfDoMplsteHeadMultiPaths Bfd_Ipv4BfDoMplsteHeadMultiPaths
+    Ipv4bfDoMplsteHeadMultiPaths Bfd_Ipv4bfDoMplsteHeadMultiPaths
 
     // Table of detail information about all BFD relations in the System.
     RelationDetails Bfd_RelationDetails
 
     // IPv4 BFD over MPLS-TE Counters.
-    Ipv4BfDoMplsteTailCounters Bfd_Ipv4BfDoMplsteTailCounters
+    Ipv4bfDoMplsteTailCounters Bfd_Ipv4bfDoMplsteTailCounters
 
     // Table of brief information about all IPv6 singlehop BFD sessions in the
     // System.
     Ipv6SingleHopSessionBriefs Bfd_Ipv6SingleHopSessionBriefs
 
     // IPv4 BFD over MPLS-TE Tail multipath.
-    Ipv4BfDoMplsteTailMultiPaths Bfd_Ipv4BfDoMplsteTailMultiPaths
+    Ipv4bfDoMplsteTailMultiPaths Bfd_Ipv4bfDoMplsteTailMultiPaths
 
     // IPv4 multi-hop multipath.
     Ipv4MultiHopMultiPaths Bfd_Ipv4MultiHopMultiPaths
 
     // Summary information of IPv4 BFD over MPLS-TE Head.
-    Ipv4BfDoMplsteHeadSummary Bfd_Ipv4BfDoMplsteHeadSummary
+    Ipv4bfDoMplsteHeadSummary Bfd_Ipv4bfDoMplsteHeadSummary
 }
 
 func (bfd *Bfd) GetEntityData() *types.CommonEntityData {
@@ -362,62 +362,65 @@ func (bfd *Bfd) GetEntityData() *types.CommonEntityData {
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    bfd.EntityData.Children = make(map[string]types.YChild)
-    bfd.EntityData.Children["label-session-briefs"] = types.YChild{"LabelSessionBriefs", &bfd.LabelSessionBriefs}
-    bfd.EntityData.Children["ipv4bf-do-mplste-tail-summary"] = types.YChild{"Ipv4BfDoMplsteTailSummary", &bfd.Ipv4BfDoMplsteTailSummary}
-    bfd.EntityData.Children["ipv6-single-hop-counters"] = types.YChild{"Ipv6SingleHopCounters", &bfd.Ipv6SingleHopCounters}
-    bfd.EntityData.Children["counters"] = types.YChild{"Counters", &bfd.Counters}
-    bfd.EntityData.Children["client-details"] = types.YChild{"ClientDetails", &bfd.ClientDetails}
-    bfd.EntityData.Children["ipv4-single-hop-summary"] = types.YChild{"Ipv4SingleHopSummary", &bfd.Ipv4SingleHopSummary}
-    bfd.EntityData.Children["ipv6-single-hop-summary"] = types.YChild{"Ipv6SingleHopSummary", &bfd.Ipv6SingleHopSummary}
-    bfd.EntityData.Children["label-multi-paths"] = types.YChild{"LabelMultiPaths", &bfd.LabelMultiPaths}
-    bfd.EntityData.Children["ipv4-multi-hop-session-details"] = types.YChild{"Ipv4MultiHopSessionDetails", &bfd.Ipv4MultiHopSessionDetails}
-    bfd.EntityData.Children["ipv4-single-hop-session-details"] = types.YChild{"Ipv4SingleHopSessionDetails", &bfd.Ipv4SingleHopSessionDetails}
-    bfd.EntityData.Children["ipv4-multi-hop-session-briefs"] = types.YChild{"Ipv4MultiHopSessionBriefs", &bfd.Ipv4MultiHopSessionBriefs}
-    bfd.EntityData.Children["generic-summaries"] = types.YChild{"GenericSummaries", &bfd.GenericSummaries}
-    bfd.EntityData.Children["ipv6-single-hop-multi-paths"] = types.YChild{"Ipv6SingleHopMultiPaths", &bfd.Ipv6SingleHopMultiPaths}
-    bfd.EntityData.Children["ipv4-single-hop-node-location-summaries"] = types.YChild{"Ipv4SingleHopNodeLocationSummaries", &bfd.Ipv4SingleHopNodeLocationSummaries}
-    bfd.EntityData.Children["label-summary"] = types.YChild{"LabelSummary", &bfd.LabelSummary}
-    bfd.EntityData.Children["ipv4bf-do-mplste-head-session-briefs"] = types.YChild{"Ipv4BfDoMplsteHeadSessionBriefs", &bfd.Ipv4BfDoMplsteHeadSessionBriefs}
-    bfd.EntityData.Children["ipv4bf-do-mplste-tail-session-details"] = types.YChild{"Ipv4BfDoMplsteTailSessionDetails", &bfd.Ipv4BfDoMplsteTailSessionDetails}
-    bfd.EntityData.Children["ipv4-multi-hop-node-location-summaries"] = types.YChild{"Ipv4MultiHopNodeLocationSummaries", &bfd.Ipv4MultiHopNodeLocationSummaries}
-    bfd.EntityData.Children["ipv4bf-do-mplste-tail-session-briefs"] = types.YChild{"Ipv4BfDoMplsteTailSessionBriefs", &bfd.Ipv4BfDoMplsteTailSessionBriefs}
-    bfd.EntityData.Children["ipv6-multi-hop-node-location-summaries"] = types.YChild{"Ipv6MultiHopNodeLocationSummaries", &bfd.Ipv6MultiHopNodeLocationSummaries}
-    bfd.EntityData.Children["ipv4-multi-hop-summary"] = types.YChild{"Ipv4MultiHopSummary", &bfd.Ipv4MultiHopSummary}
-    bfd.EntityData.Children["ipv4-single-hop-counters"] = types.YChild{"Ipv4SingleHopCounters", &bfd.Ipv4SingleHopCounters}
-    bfd.EntityData.Children["ipv6-multi-hop-session-details"] = types.YChild{"Ipv6MultiHopSessionDetails", &bfd.Ipv6MultiHopSessionDetails}
-    bfd.EntityData.Children["ipv6-multi-hop-multi-paths"] = types.YChild{"Ipv6MultiHopMultiPaths", &bfd.Ipv6MultiHopMultiPaths}
-    bfd.EntityData.Children["ipv4bf-do-mplste-head-counters"] = types.YChild{"Ipv4BfDoMplsteHeadCounters", &bfd.Ipv4BfDoMplsteHeadCounters}
-    bfd.EntityData.Children["session-mibs"] = types.YChild{"SessionMibs", &bfd.SessionMibs}
-    bfd.EntityData.Children["ipv6-multi-hop-summary"] = types.YChild{"Ipv6MultiHopSummary", &bfd.Ipv6MultiHopSummary}
-    bfd.EntityData.Children["label-summary-nodes"] = types.YChild{"LabelSummaryNodes", &bfd.LabelSummaryNodes}
-    bfd.EntityData.Children["ipv6-multi-hop-session-briefs"] = types.YChild{"Ipv6MultiHopSessionBriefs", &bfd.Ipv6MultiHopSessionBriefs}
-    bfd.EntityData.Children["session-briefs"] = types.YChild{"SessionBriefs", &bfd.SessionBriefs}
-    bfd.EntityData.Children["ipv6-single-hop-node-location-summaries"] = types.YChild{"Ipv6SingleHopNodeLocationSummaries", &bfd.Ipv6SingleHopNodeLocationSummaries}
-    bfd.EntityData.Children["summary"] = types.YChild{"Summary", &bfd.Summary}
-    bfd.EntityData.Children["ipv4bfd-mplste-tail-node-summaries"] = types.YChild{"Ipv4BfdMplsteTailNodeSummaries", &bfd.Ipv4BfdMplsteTailNodeSummaries}
-    bfd.EntityData.Children["ipv4-single-hop-location-summaries"] = types.YChild{"Ipv4SingleHopLocationSummaries", &bfd.Ipv4SingleHopLocationSummaries}
-    bfd.EntityData.Children["ipv4bfd-mplste-head-summary-nodes"] = types.YChild{"Ipv4BfdMplsteHeadSummaryNodes", &bfd.Ipv4BfdMplsteHeadSummaryNodes}
-    bfd.EntityData.Children["label-session-details"] = types.YChild{"LabelSessionDetails", &bfd.LabelSessionDetails}
-    bfd.EntityData.Children["ipv6-single-hop-session-details"] = types.YChild{"Ipv6SingleHopSessionDetails", &bfd.Ipv6SingleHopSessionDetails}
-    bfd.EntityData.Children["ipv4-multi-hop-counters"] = types.YChild{"Ipv4MultiHopCounters", &bfd.Ipv4MultiHopCounters}
-    bfd.EntityData.Children["session-details"] = types.YChild{"SessionDetails", &bfd.SessionDetails}
-    bfd.EntityData.Children["ipv4-single-hop-multi-paths"] = types.YChild{"Ipv4SingleHopMultiPaths", &bfd.Ipv4SingleHopMultiPaths}
-    bfd.EntityData.Children["ipv4-single-hop-session-briefs"] = types.YChild{"Ipv4SingleHopSessionBriefs", &bfd.Ipv4SingleHopSessionBriefs}
-    bfd.EntityData.Children["ipv6-multi-hop-counters"] = types.YChild{"Ipv6MultiHopCounters", &bfd.Ipv6MultiHopCounters}
-    bfd.EntityData.Children["ipv6-single-hop-location-summaries"] = types.YChild{"Ipv6SingleHopLocationSummaries", &bfd.Ipv6SingleHopLocationSummaries}
-    bfd.EntityData.Children["label-counters"] = types.YChild{"LabelCounters", &bfd.LabelCounters}
-    bfd.EntityData.Children["ipv4bf-do-mplste-head-session-details"] = types.YChild{"Ipv4BfDoMplsteHeadSessionDetails", &bfd.Ipv4BfDoMplsteHeadSessionDetails}
-    bfd.EntityData.Children["relation-briefs"] = types.YChild{"RelationBriefs", &bfd.RelationBriefs}
-    bfd.EntityData.Children["client-briefs"] = types.YChild{"ClientBriefs", &bfd.ClientBriefs}
-    bfd.EntityData.Children["ipv4bf-do-mplste-head-multi-paths"] = types.YChild{"Ipv4BfDoMplsteHeadMultiPaths", &bfd.Ipv4BfDoMplsteHeadMultiPaths}
-    bfd.EntityData.Children["relation-details"] = types.YChild{"RelationDetails", &bfd.RelationDetails}
-    bfd.EntityData.Children["ipv4bf-do-mplste-tail-counters"] = types.YChild{"Ipv4BfDoMplsteTailCounters", &bfd.Ipv4BfDoMplsteTailCounters}
-    bfd.EntityData.Children["ipv6-single-hop-session-briefs"] = types.YChild{"Ipv6SingleHopSessionBriefs", &bfd.Ipv6SingleHopSessionBriefs}
-    bfd.EntityData.Children["ipv4bf-do-mplste-tail-multi-paths"] = types.YChild{"Ipv4BfDoMplsteTailMultiPaths", &bfd.Ipv4BfDoMplsteTailMultiPaths}
-    bfd.EntityData.Children["ipv4-multi-hop-multi-paths"] = types.YChild{"Ipv4MultiHopMultiPaths", &bfd.Ipv4MultiHopMultiPaths}
-    bfd.EntityData.Children["ipv4bf-do-mplste-head-summary"] = types.YChild{"Ipv4BfDoMplsteHeadSummary", &bfd.Ipv4BfDoMplsteHeadSummary}
-    bfd.EntityData.Leafs = make(map[string]types.YLeaf)
+    bfd.EntityData.Children = types.NewOrderedMap()
+    bfd.EntityData.Children.Append("label-session-briefs", types.YChild{"LabelSessionBriefs", &bfd.LabelSessionBriefs})
+    bfd.EntityData.Children.Append("ipv4bf-do-mplste-tail-summary", types.YChild{"Ipv4bfDoMplsteTailSummary", &bfd.Ipv4bfDoMplsteTailSummary})
+    bfd.EntityData.Children.Append("ipv6-single-hop-counters", types.YChild{"Ipv6SingleHopCounters", &bfd.Ipv6SingleHopCounters})
+    bfd.EntityData.Children.Append("counters", types.YChild{"Counters", &bfd.Counters})
+    bfd.EntityData.Children.Append("client-details", types.YChild{"ClientDetails", &bfd.ClientDetails})
+    bfd.EntityData.Children.Append("ipv4-single-hop-summary", types.YChild{"Ipv4SingleHopSummary", &bfd.Ipv4SingleHopSummary})
+    bfd.EntityData.Children.Append("ipv6-single-hop-summary", types.YChild{"Ipv6SingleHopSummary", &bfd.Ipv6SingleHopSummary})
+    bfd.EntityData.Children.Append("label-multi-paths", types.YChild{"LabelMultiPaths", &bfd.LabelMultiPaths})
+    bfd.EntityData.Children.Append("ipv4-multi-hop-session-details", types.YChild{"Ipv4MultiHopSessionDetails", &bfd.Ipv4MultiHopSessionDetails})
+    bfd.EntityData.Children.Append("ipv4-single-hop-session-details", types.YChild{"Ipv4SingleHopSessionDetails", &bfd.Ipv4SingleHopSessionDetails})
+    bfd.EntityData.Children.Append("ipv4-multi-hop-session-briefs", types.YChild{"Ipv4MultiHopSessionBriefs", &bfd.Ipv4MultiHopSessionBriefs})
+    bfd.EntityData.Children.Append("generic-summaries", types.YChild{"GenericSummaries", &bfd.GenericSummaries})
+    bfd.EntityData.Children.Append("ipv6-single-hop-multi-paths", types.YChild{"Ipv6SingleHopMultiPaths", &bfd.Ipv6SingleHopMultiPaths})
+    bfd.EntityData.Children.Append("ipv4-single-hop-node-location-summaries", types.YChild{"Ipv4SingleHopNodeLocationSummaries", &bfd.Ipv4SingleHopNodeLocationSummaries})
+    bfd.EntityData.Children.Append("label-summary", types.YChild{"LabelSummary", &bfd.LabelSummary})
+    bfd.EntityData.Children.Append("ipv4bf-do-mplste-head-session-briefs", types.YChild{"Ipv4bfDoMplsteHeadSessionBriefs", &bfd.Ipv4bfDoMplsteHeadSessionBriefs})
+    bfd.EntityData.Children.Append("ipv4bf-do-mplste-tail-session-details", types.YChild{"Ipv4bfDoMplsteTailSessionDetails", &bfd.Ipv4bfDoMplsteTailSessionDetails})
+    bfd.EntityData.Children.Append("ipv4-multi-hop-node-location-summaries", types.YChild{"Ipv4MultiHopNodeLocationSummaries", &bfd.Ipv4MultiHopNodeLocationSummaries})
+    bfd.EntityData.Children.Append("ipv4bf-do-mplste-tail-session-briefs", types.YChild{"Ipv4bfDoMplsteTailSessionBriefs", &bfd.Ipv4bfDoMplsteTailSessionBriefs})
+    bfd.EntityData.Children.Append("ipv6-multi-hop-node-location-summaries", types.YChild{"Ipv6MultiHopNodeLocationSummaries", &bfd.Ipv6MultiHopNodeLocationSummaries})
+    bfd.EntityData.Children.Append("ipv4-multi-hop-summary", types.YChild{"Ipv4MultiHopSummary", &bfd.Ipv4MultiHopSummary})
+    bfd.EntityData.Children.Append("ipv4-single-hop-counters", types.YChild{"Ipv4SingleHopCounters", &bfd.Ipv4SingleHopCounters})
+    bfd.EntityData.Children.Append("ipv6-multi-hop-session-details", types.YChild{"Ipv6MultiHopSessionDetails", &bfd.Ipv6MultiHopSessionDetails})
+    bfd.EntityData.Children.Append("ipv6-multi-hop-multi-paths", types.YChild{"Ipv6MultiHopMultiPaths", &bfd.Ipv6MultiHopMultiPaths})
+    bfd.EntityData.Children.Append("ipv4bf-do-mplste-head-counters", types.YChild{"Ipv4bfDoMplsteHeadCounters", &bfd.Ipv4bfDoMplsteHeadCounters})
+    bfd.EntityData.Children.Append("session-mibs", types.YChild{"SessionMibs", &bfd.SessionMibs})
+    bfd.EntityData.Children.Append("ipv6-multi-hop-summary", types.YChild{"Ipv6MultiHopSummary", &bfd.Ipv6MultiHopSummary})
+    bfd.EntityData.Children.Append("label-summary-nodes", types.YChild{"LabelSummaryNodes", &bfd.LabelSummaryNodes})
+    bfd.EntityData.Children.Append("ipv6-multi-hop-session-briefs", types.YChild{"Ipv6MultiHopSessionBriefs", &bfd.Ipv6MultiHopSessionBriefs})
+    bfd.EntityData.Children.Append("session-briefs", types.YChild{"SessionBriefs", &bfd.SessionBriefs})
+    bfd.EntityData.Children.Append("ipv6-single-hop-node-location-summaries", types.YChild{"Ipv6SingleHopNodeLocationSummaries", &bfd.Ipv6SingleHopNodeLocationSummaries})
+    bfd.EntityData.Children.Append("summary", types.YChild{"Summary", &bfd.Summary})
+    bfd.EntityData.Children.Append("ipv4bfd-mplste-tail-node-summaries", types.YChild{"Ipv4bfdMplsteTailNodeSummaries", &bfd.Ipv4bfdMplsteTailNodeSummaries})
+    bfd.EntityData.Children.Append("ipv4-single-hop-location-summaries", types.YChild{"Ipv4SingleHopLocationSummaries", &bfd.Ipv4SingleHopLocationSummaries})
+    bfd.EntityData.Children.Append("ipv4bfd-mplste-head-summary-nodes", types.YChild{"Ipv4bfdMplsteHeadSummaryNodes", &bfd.Ipv4bfdMplsteHeadSummaryNodes})
+    bfd.EntityData.Children.Append("label-session-details", types.YChild{"LabelSessionDetails", &bfd.LabelSessionDetails})
+    bfd.EntityData.Children.Append("ipv6-single-hop-session-details", types.YChild{"Ipv6SingleHopSessionDetails", &bfd.Ipv6SingleHopSessionDetails})
+    bfd.EntityData.Children.Append("ipv4-multi-hop-counters", types.YChild{"Ipv4MultiHopCounters", &bfd.Ipv4MultiHopCounters})
+    bfd.EntityData.Children.Append("session-details", types.YChild{"SessionDetails", &bfd.SessionDetails})
+    bfd.EntityData.Children.Append("ipv4-single-hop-multi-paths", types.YChild{"Ipv4SingleHopMultiPaths", &bfd.Ipv4SingleHopMultiPaths})
+    bfd.EntityData.Children.Append("ipv4-single-hop-session-briefs", types.YChild{"Ipv4SingleHopSessionBriefs", &bfd.Ipv4SingleHopSessionBriefs})
+    bfd.EntityData.Children.Append("ipv6-multi-hop-counters", types.YChild{"Ipv6MultiHopCounters", &bfd.Ipv6MultiHopCounters})
+    bfd.EntityData.Children.Append("ipv6-single-hop-location-summaries", types.YChild{"Ipv6SingleHopLocationSummaries", &bfd.Ipv6SingleHopLocationSummaries})
+    bfd.EntityData.Children.Append("label-counters", types.YChild{"LabelCounters", &bfd.LabelCounters})
+    bfd.EntityData.Children.Append("ipv4bf-do-mplste-head-session-details", types.YChild{"Ipv4bfDoMplsteHeadSessionDetails", &bfd.Ipv4bfDoMplsteHeadSessionDetails})
+    bfd.EntityData.Children.Append("relation-briefs", types.YChild{"RelationBriefs", &bfd.RelationBriefs})
+    bfd.EntityData.Children.Append("client-briefs", types.YChild{"ClientBriefs", &bfd.ClientBriefs})
+    bfd.EntityData.Children.Append("ipv4bf-do-mplste-head-multi-paths", types.YChild{"Ipv4bfDoMplsteHeadMultiPaths", &bfd.Ipv4bfDoMplsteHeadMultiPaths})
+    bfd.EntityData.Children.Append("relation-details", types.YChild{"RelationDetails", &bfd.RelationDetails})
+    bfd.EntityData.Children.Append("ipv4bf-do-mplste-tail-counters", types.YChild{"Ipv4bfDoMplsteTailCounters", &bfd.Ipv4bfDoMplsteTailCounters})
+    bfd.EntityData.Children.Append("ipv6-single-hop-session-briefs", types.YChild{"Ipv6SingleHopSessionBriefs", &bfd.Ipv6SingleHopSessionBriefs})
+    bfd.EntityData.Children.Append("ipv4bf-do-mplste-tail-multi-paths", types.YChild{"Ipv4bfDoMplsteTailMultiPaths", &bfd.Ipv4bfDoMplsteTailMultiPaths})
+    bfd.EntityData.Children.Append("ipv4-multi-hop-multi-paths", types.YChild{"Ipv4MultiHopMultiPaths", &bfd.Ipv4MultiHopMultiPaths})
+    bfd.EntityData.Children.Append("ipv4bf-do-mplste-head-summary", types.YChild{"Ipv4bfDoMplsteHeadSummary", &bfd.Ipv4bfDoMplsteHeadSummary})
+    bfd.EntityData.Leafs = types.NewOrderedMap()
+
+    bfd.EntityData.YListKeys = []string {}
+
     return &(bfd.EntityData)
 }
 
@@ -430,7 +433,7 @@ type Bfd_LabelSessionBriefs struct {
 
     // Brief information for a single Label BFD session. The type is slice of
     // Bfd_LabelSessionBriefs_LabelSessionBrief.
-    LabelSessionBrief []Bfd_LabelSessionBriefs_LabelSessionBrief
+    LabelSessionBrief []*Bfd_LabelSessionBriefs_LabelSessionBrief
 }
 
 func (labelSessionBriefs *Bfd_LabelSessionBriefs) GetEntityData() *types.CommonEntityData {
@@ -443,12 +446,15 @@ func (labelSessionBriefs *Bfd_LabelSessionBriefs) GetEntityData() *types.CommonE
     labelSessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelSessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelSessionBriefs.EntityData.Children = make(map[string]types.YChild)
-    labelSessionBriefs.EntityData.Children["label-session-brief"] = types.YChild{"LabelSessionBrief", nil}
+    labelSessionBriefs.EntityData.Children = types.NewOrderedMap()
+    labelSessionBriefs.EntityData.Children.Append("label-session-brief", types.YChild{"LabelSessionBrief", nil})
     for i := range labelSessionBriefs.LabelSessionBrief {
-        labelSessionBriefs.EntityData.Children[types.GetSegmentPath(&labelSessionBriefs.LabelSessionBrief[i])] = types.YChild{"LabelSessionBrief", &labelSessionBriefs.LabelSessionBrief[i]}
+        labelSessionBriefs.EntityData.Children.Append(types.GetSegmentPath(labelSessionBriefs.LabelSessionBrief[i]), types.YChild{"LabelSessionBrief", labelSessionBriefs.LabelSessionBrief[i]})
     }
-    labelSessionBriefs.EntityData.Leafs = make(map[string]types.YLeaf)
+    labelSessionBriefs.EntityData.Leafs = types.NewOrderedMap()
+
+    labelSessionBriefs.EntityData.YListKeys = []string {}
+
     return &(labelSessionBriefs.EntityData)
 }
 
@@ -459,19 +465,18 @@ type Bfd_LabelSessionBriefs_LabelSessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
-    // Incoming Label. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabel interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // State. The type is BfdMgmtSessionState.
@@ -500,17 +505,20 @@ func (labelSessionBrief *Bfd_LabelSessionBriefs_LabelSessionBrief) GetEntityData
     labelSessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelSessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelSessionBrief.EntityData.Children = make(map[string]types.YChild)
-    labelSessionBrief.EntityData.Children["status-brief-information"] = types.YChild{"StatusBriefInformation", &labelSessionBrief.StatusBriefInformation}
-    labelSessionBrief.EntityData.Leafs = make(map[string]types.YLeaf)
-    labelSessionBrief.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", labelSessionBrief.InterfaceName}
-    labelSessionBrief.EntityData.Leafs["incoming-label"] = types.YLeaf{"IncomingLabel", labelSessionBrief.IncomingLabel}
-    labelSessionBrief.EntityData.Leafs["location"] = types.YLeaf{"Location", labelSessionBrief.Location}
-    labelSessionBrief.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", labelSessionBrief.NodeId}
-    labelSessionBrief.EntityData.Leafs["state"] = types.YLeaf{"State", labelSessionBrief.State}
-    labelSessionBrief.EntityData.Leafs["session-type"] = types.YLeaf{"SessionType", labelSessionBrief.SessionType}
-    labelSessionBrief.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", labelSessionBrief.SessionSubtype}
-    labelSessionBrief.EntityData.Leafs["session-flags"] = types.YLeaf{"SessionFlags", labelSessionBrief.SessionFlags}
+    labelSessionBrief.EntityData.Children = types.NewOrderedMap()
+    labelSessionBrief.EntityData.Children.Append("status-brief-information", types.YChild{"StatusBriefInformation", &labelSessionBrief.StatusBriefInformation})
+    labelSessionBrief.EntityData.Leafs = types.NewOrderedMap()
+    labelSessionBrief.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", labelSessionBrief.InterfaceName})
+    labelSessionBrief.EntityData.Leafs.Append("incoming-label", types.YLeaf{"IncomingLabel", labelSessionBrief.IncomingLabel})
+    labelSessionBrief.EntityData.Leafs.Append("location", types.YLeaf{"Location", labelSessionBrief.Location})
+    labelSessionBrief.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", labelSessionBrief.NodeId})
+    labelSessionBrief.EntityData.Leafs.Append("state", types.YLeaf{"State", labelSessionBrief.State})
+    labelSessionBrief.EntityData.Leafs.Append("session-type", types.YLeaf{"SessionType", labelSessionBrief.SessionType})
+    labelSessionBrief.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", labelSessionBrief.SessionSubtype})
+    labelSessionBrief.EntityData.Leafs.Append("session-flags", types.YLeaf{"SessionFlags", labelSessionBrief.SessionFlags})
+
+    labelSessionBrief.EntityData.YListKeys = []string {}
+
     return &(labelSessionBrief.EntityData)
 }
 
@@ -537,10 +545,13 @@ func (statusBriefInformation *Bfd_LabelSessionBriefs_LabelSessionBrief_StatusBri
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusBriefInformation.EntityData.Children = make(map[string]types.YChild)
-    statusBriefInformation.EntityData.Children["async-interval-multiplier"] = types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier}
-    statusBriefInformation.EntityData.Children["echo-interval-multiplier"] = types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier}
-    statusBriefInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    statusBriefInformation.EntityData.Children = types.NewOrderedMap()
+    statusBriefInformation.EntityData.Children.Append("async-interval-multiplier", types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier})
+    statusBriefInformation.EntityData.Children.Append("echo-interval-multiplier", types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier})
+    statusBriefInformation.EntityData.Leafs = types.NewOrderedMap()
+
+    statusBriefInformation.EntityData.YListKeys = []string {}
+
     return &(statusBriefInformation.EntityData)
 }
 
@@ -576,12 +587,15 @@ func (asyncIntervalMultiplier *Bfd_LabelSessionBriefs_LabelSessionBrief_StatusBr
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    asyncIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-remote-transmit-interval"] = types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-local-transmit-interval"] = types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier}
+    asyncIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-remote-transmit-interval", types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-local-transmit-interval", types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier})
+
+    asyncIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(asyncIntervalMultiplier.EntityData)
 }
 
@@ -613,44 +627,50 @@ func (echoIntervalMultiplier *Bfd_LabelSessionBriefs_LabelSessionBrief_StatusBri
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    echoIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoIntervalMultiplier.EntityData.Leafs["negotiated-transmit-interval"] = types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval}
-    echoIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime}
-    echoIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier}
+    echoIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs.Append("negotiated-transmit-interval", types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier})
+
+    echoIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(echoIntervalMultiplier.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSummary
+// Bfd_Ipv4bfDoMplsteTailSummary
 // Summary information of IPv4 BFD over MPLS-TE
 // Tail
-type Bfd_Ipv4BfDoMplsteTailSummary struct {
+type Bfd_Ipv4bfDoMplsteTailSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Statistics of states for sessions.
-    SessionState Bfd_Ipv4BfDoMplsteTailSummary_SessionState
+    SessionState Bfd_Ipv4bfDoMplsteTailSummary_SessionState
 }
 
-func (ipv4BfDoMplsteTailSummary *Bfd_Ipv4BfDoMplsteTailSummary) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteTailSummary.EntityData.YFilter = ipv4BfDoMplsteTailSummary.YFilter
-    ipv4BfDoMplsteTailSummary.EntityData.YangName = "ipv4bf-do-mplste-tail-summary"
-    ipv4BfDoMplsteTailSummary.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteTailSummary.EntityData.ParentYangName = "bfd"
-    ipv4BfDoMplsteTailSummary.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-summary"
-    ipv4BfDoMplsteTailSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteTailSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteTailSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteTailSummary *Bfd_Ipv4bfDoMplsteTailSummary) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteTailSummary.EntityData.YFilter = ipv4bfDoMplsteTailSummary.YFilter
+    ipv4bfDoMplsteTailSummary.EntityData.YangName = "ipv4bf-do-mplste-tail-summary"
+    ipv4bfDoMplsteTailSummary.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteTailSummary.EntityData.ParentYangName = "bfd"
+    ipv4bfDoMplsteTailSummary.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-summary"
+    ipv4bfDoMplsteTailSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteTailSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteTailSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteTailSummary.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteTailSummary.EntityData.Children["session-state"] = types.YChild{"SessionState", &ipv4BfDoMplsteTailSummary.SessionState}
-    ipv4BfDoMplsteTailSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipv4BfDoMplsteTailSummary.EntityData)
+    ipv4bfDoMplsteTailSummary.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteTailSummary.EntityData.Children.Append("session-state", types.YChild{"SessionState", &ipv4bfDoMplsteTailSummary.SessionState})
+    ipv4bfDoMplsteTailSummary.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4bfDoMplsteTailSummary.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteTailSummary.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSummary_SessionState
+// Bfd_Ipv4bfDoMplsteTailSummary_SessionState
 // Statistics of states for sessions
-type Bfd_Ipv4BfDoMplsteTailSummary_SessionState struct {
+type Bfd_Ipv4bfDoMplsteTailSummary_SessionState struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -671,7 +691,7 @@ type Bfd_Ipv4BfDoMplsteTailSummary_SessionState struct {
     UnknownCount interface{}
 }
 
-func (sessionState *Bfd_Ipv4BfDoMplsteTailSummary_SessionState) GetEntityData() *types.CommonEntityData {
+func (sessionState *Bfd_Ipv4bfDoMplsteTailSummary_SessionState) GetEntityData() *types.CommonEntityData {
     sessionState.EntityData.YFilter = sessionState.YFilter
     sessionState.EntityData.YangName = "session-state"
     sessionState.EntityData.BundleName = "cisco_ios_xr"
@@ -681,12 +701,15 @@ func (sessionState *Bfd_Ipv4BfDoMplsteTailSummary_SessionState) GetEntityData() 
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionState.EntityData.Children = make(map[string]types.YChild)
-    sessionState.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionState.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", sessionState.TotalCount}
-    sessionState.EntityData.Leafs["down-count"] = types.YLeaf{"DownCount", sessionState.DownCount}
-    sessionState.EntityData.Leafs["up-count"] = types.YLeaf{"UpCount", sessionState.UpCount}
-    sessionState.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", sessionState.UnknownCount}
+    sessionState.EntityData.Children = types.NewOrderedMap()
+    sessionState.EntityData.Leafs = types.NewOrderedMap()
+    sessionState.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", sessionState.TotalCount})
+    sessionState.EntityData.Leafs.Append("down-count", types.YLeaf{"DownCount", sessionState.DownCount})
+    sessionState.EntityData.Leafs.Append("up-count", types.YLeaf{"UpCount", sessionState.UpCount})
+    sessionState.EntityData.Leafs.Append("unknown-count", types.YLeaf{"UnknownCount", sessionState.UnknownCount})
+
+    sessionState.EntityData.YListKeys = []string {}
+
     return &(sessionState.EntityData)
 }
 
@@ -710,9 +733,12 @@ func (ipv6SingleHopCounters *Bfd_Ipv6SingleHopCounters) GetEntityData() *types.C
     ipv6SingleHopCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6SingleHopCounters.EntityData.Children = make(map[string]types.YChild)
-    ipv6SingleHopCounters.EntityData.Children["ipv6-single-hop-packet-counters"] = types.YChild{"Ipv6SingleHopPacketCounters", &ipv6SingleHopCounters.Ipv6SingleHopPacketCounters}
-    ipv6SingleHopCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6SingleHopCounters.EntityData.Children = types.NewOrderedMap()
+    ipv6SingleHopCounters.EntityData.Children.Append("ipv6-single-hop-packet-counters", types.YChild{"Ipv6SingleHopPacketCounters", &ipv6SingleHopCounters.Ipv6SingleHopPacketCounters})
+    ipv6SingleHopCounters.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6SingleHopCounters.EntityData.YListKeys = []string {}
+
     return &(ipv6SingleHopCounters.EntityData)
 }
 
@@ -724,7 +750,7 @@ type Bfd_Ipv6SingleHopCounters_Ipv6SingleHopPacketCounters struct {
 
     // Interface IPv6 single hop Packet counters. The type is slice of
     // Bfd_Ipv6SingleHopCounters_Ipv6SingleHopPacketCounters_Ipv6SingleHopPacketCounter.
-    Ipv6SingleHopPacketCounter []Bfd_Ipv6SingleHopCounters_Ipv6SingleHopPacketCounters_Ipv6SingleHopPacketCounter
+    Ipv6SingleHopPacketCounter []*Bfd_Ipv6SingleHopCounters_Ipv6SingleHopPacketCounters_Ipv6SingleHopPacketCounter
 }
 
 func (ipv6SingleHopPacketCounters *Bfd_Ipv6SingleHopCounters_Ipv6SingleHopPacketCounters) GetEntityData() *types.CommonEntityData {
@@ -737,12 +763,15 @@ func (ipv6SingleHopPacketCounters *Bfd_Ipv6SingleHopCounters_Ipv6SingleHopPacket
     ipv6SingleHopPacketCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopPacketCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6SingleHopPacketCounters.EntityData.Children = make(map[string]types.YChild)
-    ipv6SingleHopPacketCounters.EntityData.Children["ipv6-single-hop-packet-counter"] = types.YChild{"Ipv6SingleHopPacketCounter", nil}
+    ipv6SingleHopPacketCounters.EntityData.Children = types.NewOrderedMap()
+    ipv6SingleHopPacketCounters.EntityData.Children.Append("ipv6-single-hop-packet-counter", types.YChild{"Ipv6SingleHopPacketCounter", nil})
     for i := range ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter {
-        ipv6SingleHopPacketCounters.EntityData.Children[types.GetSegmentPath(&ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter[i])] = types.YChild{"Ipv6SingleHopPacketCounter", &ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter[i]}
+        ipv6SingleHopPacketCounters.EntityData.Children.Append(types.GetSegmentPath(ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter[i]), types.YChild{"Ipv6SingleHopPacketCounter", ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter[i]})
     }
-    ipv6SingleHopPacketCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6SingleHopPacketCounters.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6SingleHopPacketCounters.EntityData.YListKeys = []string {}
+
     return &(ipv6SingleHopPacketCounters.EntityData)
 }
 
@@ -753,7 +782,7 @@ type Bfd_Ipv6SingleHopCounters_Ipv6SingleHopPacketCounters_Ipv6SingleHopPacketCo
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Number of Hellos transmitted. The type is interface{} with range:
@@ -781,19 +810,22 @@ func (ipv6SingleHopPacketCounter *Bfd_Ipv6SingleHopCounters_Ipv6SingleHopPacketC
     ipv6SingleHopPacketCounter.EntityData.YangName = "ipv6-single-hop-packet-counter"
     ipv6SingleHopPacketCounter.EntityData.BundleName = "cisco_ios_xr"
     ipv6SingleHopPacketCounter.EntityData.ParentYangName = "ipv6-single-hop-packet-counters"
-    ipv6SingleHopPacketCounter.EntityData.SegmentPath = "ipv6-single-hop-packet-counter" + "[interface-name='" + fmt.Sprintf("%v", ipv6SingleHopPacketCounter.InterfaceName) + "']"
+    ipv6SingleHopPacketCounter.EntityData.SegmentPath = "ipv6-single-hop-packet-counter" + types.AddKeyToken(ipv6SingleHopPacketCounter.InterfaceName, "interface-name")
     ipv6SingleHopPacketCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6SingleHopPacketCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopPacketCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6SingleHopPacketCounter.EntityData.Children = make(map[string]types.YChild)
-    ipv6SingleHopPacketCounter.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6SingleHopPacketCounter.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", ipv6SingleHopPacketCounter.InterfaceName}
-    ipv6SingleHopPacketCounter.EntityData.Leafs["hello-transmit-count"] = types.YLeaf{"HelloTransmitCount", ipv6SingleHopPacketCounter.HelloTransmitCount}
-    ipv6SingleHopPacketCounter.EntityData.Leafs["hello-receive-count"] = types.YLeaf{"HelloReceiveCount", ipv6SingleHopPacketCounter.HelloReceiveCount}
-    ipv6SingleHopPacketCounter.EntityData.Leafs["echo-transmit-count"] = types.YLeaf{"EchoTransmitCount", ipv6SingleHopPacketCounter.EchoTransmitCount}
-    ipv6SingleHopPacketCounter.EntityData.Leafs["echo-receive-count"] = types.YLeaf{"EchoReceiveCount", ipv6SingleHopPacketCounter.EchoReceiveCount}
-    ipv6SingleHopPacketCounter.EntityData.Leafs["display-type"] = types.YLeaf{"DisplayType", ipv6SingleHopPacketCounter.DisplayType}
+    ipv6SingleHopPacketCounter.EntityData.Children = types.NewOrderedMap()
+    ipv6SingleHopPacketCounter.EntityData.Leafs = types.NewOrderedMap()
+    ipv6SingleHopPacketCounter.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", ipv6SingleHopPacketCounter.InterfaceName})
+    ipv6SingleHopPacketCounter.EntityData.Leafs.Append("hello-transmit-count", types.YLeaf{"HelloTransmitCount", ipv6SingleHopPacketCounter.HelloTransmitCount})
+    ipv6SingleHopPacketCounter.EntityData.Leafs.Append("hello-receive-count", types.YLeaf{"HelloReceiveCount", ipv6SingleHopPacketCounter.HelloReceiveCount})
+    ipv6SingleHopPacketCounter.EntityData.Leafs.Append("echo-transmit-count", types.YLeaf{"EchoTransmitCount", ipv6SingleHopPacketCounter.EchoTransmitCount})
+    ipv6SingleHopPacketCounter.EntityData.Leafs.Append("echo-receive-count", types.YLeaf{"EchoReceiveCount", ipv6SingleHopPacketCounter.EchoReceiveCount})
+    ipv6SingleHopPacketCounter.EntityData.Leafs.Append("display-type", types.YLeaf{"DisplayType", ipv6SingleHopPacketCounter.DisplayType})
+
+    ipv6SingleHopPacketCounter.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(ipv6SingleHopPacketCounter.EntityData)
 }
 
@@ -817,9 +849,12 @@ func (counters *Bfd_Counters) GetEntityData() *types.CommonEntityData {
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    counters.EntityData.Children = make(map[string]types.YChild)
-    counters.EntityData.Children["packet-counters"] = types.YChild{"PacketCounters", &counters.PacketCounters}
-    counters.EntityData.Leafs = make(map[string]types.YLeaf)
+    counters.EntityData.Children = types.NewOrderedMap()
+    counters.EntityData.Children.Append("packet-counters", types.YChild{"PacketCounters", &counters.PacketCounters})
+    counters.EntityData.Leafs = types.NewOrderedMap()
+
+    counters.EntityData.YListKeys = []string {}
+
     return &(counters.EntityData)
 }
 
@@ -831,7 +866,7 @@ type Bfd_Counters_PacketCounters struct {
 
     // Interface Packet counters. The type is slice of
     // Bfd_Counters_PacketCounters_PacketCounter.
-    PacketCounter []Bfd_Counters_PacketCounters_PacketCounter
+    PacketCounter []*Bfd_Counters_PacketCounters_PacketCounter
 }
 
 func (packetCounters *Bfd_Counters_PacketCounters) GetEntityData() *types.CommonEntityData {
@@ -844,12 +879,15 @@ func (packetCounters *Bfd_Counters_PacketCounters) GetEntityData() *types.Common
     packetCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    packetCounters.EntityData.Children = make(map[string]types.YChild)
-    packetCounters.EntityData.Children["packet-counter"] = types.YChild{"PacketCounter", nil}
+    packetCounters.EntityData.Children = types.NewOrderedMap()
+    packetCounters.EntityData.Children.Append("packet-counter", types.YChild{"PacketCounter", nil})
     for i := range packetCounters.PacketCounter {
-        packetCounters.EntityData.Children[types.GetSegmentPath(&packetCounters.PacketCounter[i])] = types.YChild{"PacketCounter", &packetCounters.PacketCounter[i]}
+        packetCounters.EntityData.Children.Append(types.GetSegmentPath(packetCounters.PacketCounter[i]), types.YChild{"PacketCounter", packetCounters.PacketCounter[i]})
     }
-    packetCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    packetCounters.EntityData.Leafs = types.NewOrderedMap()
+
+    packetCounters.EntityData.YListKeys = []string {}
+
     return &(packetCounters.EntityData)
 }
 
@@ -860,7 +898,7 @@ type Bfd_Counters_PacketCounters_PacketCounter struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Number of Hellos transmitted. The type is interface{} with range:
@@ -888,19 +926,22 @@ func (packetCounter *Bfd_Counters_PacketCounters_PacketCounter) GetEntityData() 
     packetCounter.EntityData.YangName = "packet-counter"
     packetCounter.EntityData.BundleName = "cisco_ios_xr"
     packetCounter.EntityData.ParentYangName = "packet-counters"
-    packetCounter.EntityData.SegmentPath = "packet-counter" + "[interface-name='" + fmt.Sprintf("%v", packetCounter.InterfaceName) + "']"
+    packetCounter.EntityData.SegmentPath = "packet-counter" + types.AddKeyToken(packetCounter.InterfaceName, "interface-name")
     packetCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    packetCounter.EntityData.Children = make(map[string]types.YChild)
-    packetCounter.EntityData.Leafs = make(map[string]types.YLeaf)
-    packetCounter.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", packetCounter.InterfaceName}
-    packetCounter.EntityData.Leafs["hello-transmit-count"] = types.YLeaf{"HelloTransmitCount", packetCounter.HelloTransmitCount}
-    packetCounter.EntityData.Leafs["hello-receive-count"] = types.YLeaf{"HelloReceiveCount", packetCounter.HelloReceiveCount}
-    packetCounter.EntityData.Leafs["echo-transmit-count"] = types.YLeaf{"EchoTransmitCount", packetCounter.EchoTransmitCount}
-    packetCounter.EntityData.Leafs["echo-receive-count"] = types.YLeaf{"EchoReceiveCount", packetCounter.EchoReceiveCount}
-    packetCounter.EntityData.Leafs["display-type"] = types.YLeaf{"DisplayType", packetCounter.DisplayType}
+    packetCounter.EntityData.Children = types.NewOrderedMap()
+    packetCounter.EntityData.Leafs = types.NewOrderedMap()
+    packetCounter.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", packetCounter.InterfaceName})
+    packetCounter.EntityData.Leafs.Append("hello-transmit-count", types.YLeaf{"HelloTransmitCount", packetCounter.HelloTransmitCount})
+    packetCounter.EntityData.Leafs.Append("hello-receive-count", types.YLeaf{"HelloReceiveCount", packetCounter.HelloReceiveCount})
+    packetCounter.EntityData.Leafs.Append("echo-transmit-count", types.YLeaf{"EchoTransmitCount", packetCounter.EchoTransmitCount})
+    packetCounter.EntityData.Leafs.Append("echo-receive-count", types.YLeaf{"EchoReceiveCount", packetCounter.EchoReceiveCount})
+    packetCounter.EntityData.Leafs.Append("display-type", types.YLeaf{"DisplayType", packetCounter.DisplayType})
+
+    packetCounter.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(packetCounter.EntityData)
 }
 
@@ -912,7 +953,7 @@ type Bfd_ClientDetails struct {
 
     // Detailed information of client. The type is slice of
     // Bfd_ClientDetails_ClientDetail.
-    ClientDetail []Bfd_ClientDetails_ClientDetail
+    ClientDetail []*Bfd_ClientDetails_ClientDetail
 }
 
 func (clientDetails *Bfd_ClientDetails) GetEntityData() *types.CommonEntityData {
@@ -925,12 +966,15 @@ func (clientDetails *Bfd_ClientDetails) GetEntityData() *types.CommonEntityData 
     clientDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clientDetails.EntityData.Children = make(map[string]types.YChild)
-    clientDetails.EntityData.Children["client-detail"] = types.YChild{"ClientDetail", nil}
+    clientDetails.EntityData.Children = types.NewOrderedMap()
+    clientDetails.EntityData.Children.Append("client-detail", types.YChild{"ClientDetail", nil})
     for i := range clientDetails.ClientDetail {
-        clientDetails.EntityData.Children[types.GetSegmentPath(&clientDetails.ClientDetail[i])] = types.YChild{"ClientDetail", &clientDetails.ClientDetail[i]}
+        clientDetails.EntityData.Children.Append(types.GetSegmentPath(clientDetails.ClientDetail[i]), types.YChild{"ClientDetail", clientDetails.ClientDetail[i]})
     }
-    clientDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    clientDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    clientDetails.EntityData.YListKeys = []string {}
+
     return &(clientDetails.EntityData)
 }
 
@@ -941,7 +985,7 @@ type Bfd_ClientDetails_ClientDetail struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Client Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ClientName interface{}
 
     // Recreate Time in Seconds. The type is interface{} with range:
@@ -960,17 +1004,20 @@ func (clientDetail *Bfd_ClientDetails_ClientDetail) GetEntityData() *types.Commo
     clientDetail.EntityData.YangName = "client-detail"
     clientDetail.EntityData.BundleName = "cisco_ios_xr"
     clientDetail.EntityData.ParentYangName = "client-details"
-    clientDetail.EntityData.SegmentPath = "client-detail" + "[client-name='" + fmt.Sprintf("%v", clientDetail.ClientName) + "']"
+    clientDetail.EntityData.SegmentPath = "client-detail" + types.AddKeyToken(clientDetail.ClientName, "client-name")
     clientDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clientDetail.EntityData.Children = make(map[string]types.YChild)
-    clientDetail.EntityData.Children["brief"] = types.YChild{"Brief", &clientDetail.Brief}
-    clientDetail.EntityData.Children["flags"] = types.YChild{"Flags", &clientDetail.Flags}
-    clientDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    clientDetail.EntityData.Leafs["client-name"] = types.YLeaf{"ClientName", clientDetail.ClientName}
-    clientDetail.EntityData.Leafs["recreate-time"] = types.YLeaf{"RecreateTime", clientDetail.RecreateTime}
+    clientDetail.EntityData.Children = types.NewOrderedMap()
+    clientDetail.EntityData.Children.Append("brief", types.YChild{"Brief", &clientDetail.Brief})
+    clientDetail.EntityData.Children.Append("flags", types.YChild{"Flags", &clientDetail.Flags})
+    clientDetail.EntityData.Leafs = types.NewOrderedMap()
+    clientDetail.EntityData.Leafs.Append("client-name", types.YLeaf{"ClientName", clientDetail.ClientName})
+    clientDetail.EntityData.Leafs.Append("recreate-time", types.YLeaf{"RecreateTime", clientDetail.RecreateTime})
+
+    clientDetail.EntityData.YListKeys = []string {"ClientName"}
+
     return &(clientDetail.EntityData)
 }
 
@@ -984,7 +1031,7 @@ type Bfd_ClientDetails_ClientDetail_Brief struct {
     NameXr interface{}
 
     // Location where client resides. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Number of sessions created by this client. The type is interface{} with
@@ -1002,11 +1049,14 @@ func (brief *Bfd_ClientDetails_ClientDetail_Brief) GetEntityData() *types.Common
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    brief.EntityData.Children = make(map[string]types.YChild)
-    brief.EntityData.Leafs = make(map[string]types.YLeaf)
-    brief.EntityData.Leafs["name-xr"] = types.YLeaf{"NameXr", brief.NameXr}
-    brief.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", brief.NodeId}
-    brief.EntityData.Leafs["session-count"] = types.YLeaf{"SessionCount", brief.SessionCount}
+    brief.EntityData.Children = types.NewOrderedMap()
+    brief.EntityData.Leafs = types.NewOrderedMap()
+    brief.EntityData.Leafs.Append("name-xr", types.YLeaf{"NameXr", brief.NameXr})
+    brief.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", brief.NodeId})
+    brief.EntityData.Leafs.Append("session-count", types.YLeaf{"SessionCount", brief.SessionCount})
+
+    brief.EntityData.YListKeys = []string {}
+
     return &(brief.EntityData)
 }
 
@@ -1035,10 +1085,13 @@ func (flags *Bfd_ClientDetails_ClientDetail_Flags) GetEntityData() *types.Common
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    flags.EntityData.Children = make(map[string]types.YChild)
-    flags.EntityData.Leafs = make(map[string]types.YLeaf)
-    flags.EntityData.Leafs["is-zombie-state"] = types.YLeaf{"IsZombieState", flags.IsZombieState}
-    flags.EntityData.Leafs["is-recreate-state"] = types.YLeaf{"IsRecreateState", flags.IsRecreateState}
+    flags.EntityData.Children = types.NewOrderedMap()
+    flags.EntityData.Leafs = types.NewOrderedMap()
+    flags.EntityData.Leafs.Append("is-zombie-state", types.YLeaf{"IsZombieState", flags.IsZombieState})
+    flags.EntityData.Leafs.Append("is-recreate-state", types.YLeaf{"IsRecreateState", flags.IsRecreateState})
+
+    flags.EntityData.YListKeys = []string {}
+
     return &(flags.EntityData)
 }
 
@@ -1063,9 +1116,12 @@ func (ipv4SingleHopSummary *Bfd_Ipv4SingleHopSummary) GetEntityData() *types.Com
     ipv4SingleHopSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4SingleHopSummary.EntityData.Children = make(map[string]types.YChild)
-    ipv4SingleHopSummary.EntityData.Children["session-state"] = types.YChild{"SessionState", &ipv4SingleHopSummary.SessionState}
-    ipv4SingleHopSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4SingleHopSummary.EntityData.Children = types.NewOrderedMap()
+    ipv4SingleHopSummary.EntityData.Children.Append("session-state", types.YChild{"SessionState", &ipv4SingleHopSummary.SessionState})
+    ipv4SingleHopSummary.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4SingleHopSummary.EntityData.YListKeys = []string {}
+
     return &(ipv4SingleHopSummary.EntityData)
 }
 
@@ -1102,12 +1158,15 @@ func (sessionState *Bfd_Ipv4SingleHopSummary_SessionState) GetEntityData() *type
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionState.EntityData.Children = make(map[string]types.YChild)
-    sessionState.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionState.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", sessionState.TotalCount}
-    sessionState.EntityData.Leafs["down-count"] = types.YLeaf{"DownCount", sessionState.DownCount}
-    sessionState.EntityData.Leafs["up-count"] = types.YLeaf{"UpCount", sessionState.UpCount}
-    sessionState.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", sessionState.UnknownCount}
+    sessionState.EntityData.Children = types.NewOrderedMap()
+    sessionState.EntityData.Leafs = types.NewOrderedMap()
+    sessionState.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", sessionState.TotalCount})
+    sessionState.EntityData.Leafs.Append("down-count", types.YLeaf{"DownCount", sessionState.DownCount})
+    sessionState.EntityData.Leafs.Append("up-count", types.YLeaf{"UpCount", sessionState.UpCount})
+    sessionState.EntityData.Leafs.Append("unknown-count", types.YLeaf{"UnknownCount", sessionState.UnknownCount})
+
+    sessionState.EntityData.YListKeys = []string {}
+
     return &(sessionState.EntityData)
 }
 
@@ -1132,9 +1191,12 @@ func (ipv6SingleHopSummary *Bfd_Ipv6SingleHopSummary) GetEntityData() *types.Com
     ipv6SingleHopSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6SingleHopSummary.EntityData.Children = make(map[string]types.YChild)
-    ipv6SingleHopSummary.EntityData.Children["session-state"] = types.YChild{"SessionState", &ipv6SingleHopSummary.SessionState}
-    ipv6SingleHopSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6SingleHopSummary.EntityData.Children = types.NewOrderedMap()
+    ipv6SingleHopSummary.EntityData.Children.Append("session-state", types.YChild{"SessionState", &ipv6SingleHopSummary.SessionState})
+    ipv6SingleHopSummary.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6SingleHopSummary.EntityData.YListKeys = []string {}
+
     return &(ipv6SingleHopSummary.EntityData)
 }
 
@@ -1171,12 +1233,15 @@ func (sessionState *Bfd_Ipv6SingleHopSummary_SessionState) GetEntityData() *type
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionState.EntityData.Children = make(map[string]types.YChild)
-    sessionState.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionState.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", sessionState.TotalCount}
-    sessionState.EntityData.Leafs["down-count"] = types.YLeaf{"DownCount", sessionState.DownCount}
-    sessionState.EntityData.Leafs["up-count"] = types.YLeaf{"UpCount", sessionState.UpCount}
-    sessionState.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", sessionState.UnknownCount}
+    sessionState.EntityData.Children = types.NewOrderedMap()
+    sessionState.EntityData.Leafs = types.NewOrderedMap()
+    sessionState.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", sessionState.TotalCount})
+    sessionState.EntityData.Leafs.Append("down-count", types.YLeaf{"DownCount", sessionState.DownCount})
+    sessionState.EntityData.Leafs.Append("up-count", types.YLeaf{"UpCount", sessionState.UpCount})
+    sessionState.EntityData.Leafs.Append("unknown-count", types.YLeaf{"UnknownCount", sessionState.UnknownCount})
+
+    sessionState.EntityData.YListKeys = []string {}
+
     return &(sessionState.EntityData)
 }
 
@@ -1188,7 +1253,7 @@ type Bfd_LabelMultiPaths struct {
 
     // Label multipath table. The type is slice of
     // Bfd_LabelMultiPaths_LabelMultiPath.
-    LabelMultiPath []Bfd_LabelMultiPaths_LabelMultiPath
+    LabelMultiPath []*Bfd_LabelMultiPaths_LabelMultiPath
 }
 
 func (labelMultiPaths *Bfd_LabelMultiPaths) GetEntityData() *types.CommonEntityData {
@@ -1201,12 +1266,15 @@ func (labelMultiPaths *Bfd_LabelMultiPaths) GetEntityData() *types.CommonEntityD
     labelMultiPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelMultiPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelMultiPaths.EntityData.Children = make(map[string]types.YChild)
-    labelMultiPaths.EntityData.Children["label-multi-path"] = types.YChild{"LabelMultiPath", nil}
+    labelMultiPaths.EntityData.Children = types.NewOrderedMap()
+    labelMultiPaths.EntityData.Children.Append("label-multi-path", types.YChild{"LabelMultiPath", nil})
     for i := range labelMultiPaths.LabelMultiPath {
-        labelMultiPaths.EntityData.Children[types.GetSegmentPath(&labelMultiPaths.LabelMultiPath[i])] = types.YChild{"LabelMultiPath", &labelMultiPaths.LabelMultiPath[i]}
+        labelMultiPaths.EntityData.Children.Append(types.GetSegmentPath(labelMultiPaths.LabelMultiPath[i]), types.YChild{"LabelMultiPath", labelMultiPaths.LabelMultiPath[i]})
     }
-    labelMultiPaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    labelMultiPaths.EntityData.Leafs = types.NewOrderedMap()
+
+    labelMultiPaths.EntityData.YListKeys = []string {}
+
     return &(labelMultiPaths.EntityData)
 }
 
@@ -1216,15 +1284,14 @@ type Bfd_LabelMultiPaths_LabelMultiPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
-    // Incoming Label. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabel interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Session subtype. The type is string.
@@ -1238,13 +1305,13 @@ type Bfd_LabelMultiPaths_LabelMultiPath struct {
     LocalDiscriminator interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabelXr interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     SessionInterfaceName interface{}
 }
 
@@ -1258,17 +1325,20 @@ func (labelMultiPath *Bfd_LabelMultiPaths_LabelMultiPath) GetEntityData() *types
     labelMultiPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelMultiPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelMultiPath.EntityData.Children = make(map[string]types.YChild)
-    labelMultiPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    labelMultiPath.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", labelMultiPath.InterfaceName}
-    labelMultiPath.EntityData.Leafs["incoming-label"] = types.YLeaf{"IncomingLabel", labelMultiPath.IncomingLabel}
-    labelMultiPath.EntityData.Leafs["location"] = types.YLeaf{"Location", labelMultiPath.Location}
-    labelMultiPath.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", labelMultiPath.SessionSubtype}
-    labelMultiPath.EntityData.Leafs["state"] = types.YLeaf{"State", labelMultiPath.State}
-    labelMultiPath.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", labelMultiPath.LocalDiscriminator}
-    labelMultiPath.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", labelMultiPath.NodeId}
-    labelMultiPath.EntityData.Leafs["incoming-label-xr"] = types.YLeaf{"IncomingLabelXr", labelMultiPath.IncomingLabelXr}
-    labelMultiPath.EntityData.Leafs["session-interface-name"] = types.YLeaf{"SessionInterfaceName", labelMultiPath.SessionInterfaceName}
+    labelMultiPath.EntityData.Children = types.NewOrderedMap()
+    labelMultiPath.EntityData.Leafs = types.NewOrderedMap()
+    labelMultiPath.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", labelMultiPath.InterfaceName})
+    labelMultiPath.EntityData.Leafs.Append("incoming-label", types.YLeaf{"IncomingLabel", labelMultiPath.IncomingLabel})
+    labelMultiPath.EntityData.Leafs.Append("location", types.YLeaf{"Location", labelMultiPath.Location})
+    labelMultiPath.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", labelMultiPath.SessionSubtype})
+    labelMultiPath.EntityData.Leafs.Append("state", types.YLeaf{"State", labelMultiPath.State})
+    labelMultiPath.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", labelMultiPath.LocalDiscriminator})
+    labelMultiPath.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", labelMultiPath.NodeId})
+    labelMultiPath.EntityData.Leafs.Append("incoming-label-xr", types.YLeaf{"IncomingLabelXr", labelMultiPath.IncomingLabelXr})
+    labelMultiPath.EntityData.Leafs.Append("session-interface-name", types.YLeaf{"SessionInterfaceName", labelMultiPath.SessionInterfaceName})
+
+    labelMultiPath.EntityData.YListKeys = []string {}
+
     return &(labelMultiPath.EntityData)
 }
 
@@ -1281,7 +1351,7 @@ type Bfd_Ipv4MultiHopSessionDetails struct {
 
     // Detailed information for a single IPv4 multihop BFD session. The type is
     // slice of Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail.
-    Ipv4MultiHopSessionDetail []Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail
+    Ipv4MultiHopSessionDetail []*Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail
 }
 
 func (ipv4MultiHopSessionDetails *Bfd_Ipv4MultiHopSessionDetails) GetEntityData() *types.CommonEntityData {
@@ -1294,12 +1364,15 @@ func (ipv4MultiHopSessionDetails *Bfd_Ipv4MultiHopSessionDetails) GetEntityData(
     ipv4MultiHopSessionDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopSessionDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4MultiHopSessionDetails.EntityData.Children = make(map[string]types.YChild)
-    ipv4MultiHopSessionDetails.EntityData.Children["ipv4-multi-hop-session-detail"] = types.YChild{"Ipv4MultiHopSessionDetail", nil}
+    ipv4MultiHopSessionDetails.EntityData.Children = types.NewOrderedMap()
+    ipv4MultiHopSessionDetails.EntityData.Children.Append("ipv4-multi-hop-session-detail", types.YChild{"Ipv4MultiHopSessionDetail", nil})
     for i := range ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail {
-        ipv4MultiHopSessionDetails.EntityData.Children[types.GetSegmentPath(&ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail[i])] = types.YChild{"Ipv4MultiHopSessionDetail", &ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail[i]}
+        ipv4MultiHopSessionDetails.EntityData.Children.Append(types.GetSegmentPath(ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail[i]), types.YChild{"Ipv4MultiHopSessionDetail", ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail[i]})
     }
-    ipv4MultiHopSessionDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4MultiHopSessionDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4MultiHopSessionDetails.EntityData.YListKeys = []string {}
+
     return &(ipv4MultiHopSessionDetails.EntityData)
 }
 
@@ -1312,23 +1385,23 @@ type Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail struct {
 
     // Source Address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Destination Address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
-    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Session status information.
@@ -1342,11 +1415,11 @@ type Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail struct {
 
     // Client applications owning the session. The type is slice of
     // Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_OwnerInformation.
-    OwnerInformation []Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_OwnerInformation
+    OwnerInformation []*Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_OwnerInformation
 
     // Association session information. The type is slice of
     // Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_AssociationInformation.
-    AssociationInformation []Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_AssociationInformation
+    AssociationInformation []*Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_AssociationInformation
 }
 
 func (ipv4MultiHopSessionDetail *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail) GetEntityData() *types.CommonEntityData {
@@ -1359,23 +1432,26 @@ func (ipv4MultiHopSessionDetail *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSess
     ipv4MultiHopSessionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopSessionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4MultiHopSessionDetail.EntityData.Children = make(map[string]types.YChild)
-    ipv4MultiHopSessionDetail.EntityData.Children["status-information"] = types.YChild{"StatusInformation", &ipv4MultiHopSessionDetail.StatusInformation}
-    ipv4MultiHopSessionDetail.EntityData.Children["mp-download-state"] = types.YChild{"MpDownloadState", &ipv4MultiHopSessionDetail.MpDownloadState}
-    ipv4MultiHopSessionDetail.EntityData.Children["lsp-ping-info"] = types.YChild{"LspPingInfo", &ipv4MultiHopSessionDetail.LspPingInfo}
-    ipv4MultiHopSessionDetail.EntityData.Children["owner-information"] = types.YChild{"OwnerInformation", nil}
+    ipv4MultiHopSessionDetail.EntityData.Children = types.NewOrderedMap()
+    ipv4MultiHopSessionDetail.EntityData.Children.Append("status-information", types.YChild{"StatusInformation", &ipv4MultiHopSessionDetail.StatusInformation})
+    ipv4MultiHopSessionDetail.EntityData.Children.Append("mp-download-state", types.YChild{"MpDownloadState", &ipv4MultiHopSessionDetail.MpDownloadState})
+    ipv4MultiHopSessionDetail.EntityData.Children.Append("lsp-ping-info", types.YChild{"LspPingInfo", &ipv4MultiHopSessionDetail.LspPingInfo})
+    ipv4MultiHopSessionDetail.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range ipv4MultiHopSessionDetail.OwnerInformation {
-        ipv4MultiHopSessionDetail.EntityData.Children[types.GetSegmentPath(&ipv4MultiHopSessionDetail.OwnerInformation[i])] = types.YChild{"OwnerInformation", &ipv4MultiHopSessionDetail.OwnerInformation[i]}
+        ipv4MultiHopSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv4MultiHopSessionDetail.OwnerInformation[i]), types.YChild{"OwnerInformation", ipv4MultiHopSessionDetail.OwnerInformation[i]})
     }
-    ipv4MultiHopSessionDetail.EntityData.Children["association-information"] = types.YChild{"AssociationInformation", nil}
+    ipv4MultiHopSessionDetail.EntityData.Children.Append("association-information", types.YChild{"AssociationInformation", nil})
     for i := range ipv4MultiHopSessionDetail.AssociationInformation {
-        ipv4MultiHopSessionDetail.EntityData.Children[types.GetSegmentPath(&ipv4MultiHopSessionDetail.AssociationInformation[i])] = types.YChild{"AssociationInformation", &ipv4MultiHopSessionDetail.AssociationInformation[i]}
+        ipv4MultiHopSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv4MultiHopSessionDetail.AssociationInformation[i]), types.YChild{"AssociationInformation", ipv4MultiHopSessionDetail.AssociationInformation[i]})
     }
-    ipv4MultiHopSessionDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4MultiHopSessionDetail.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", ipv4MultiHopSessionDetail.SourceAddress}
-    ipv4MultiHopSessionDetail.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", ipv4MultiHopSessionDetail.DestinationAddress}
-    ipv4MultiHopSessionDetail.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv4MultiHopSessionDetail.Location}
-    ipv4MultiHopSessionDetail.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4MultiHopSessionDetail.VrfName}
+    ipv4MultiHopSessionDetail.EntityData.Leafs = types.NewOrderedMap()
+    ipv4MultiHopSessionDetail.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", ipv4MultiHopSessionDetail.SourceAddress})
+    ipv4MultiHopSessionDetail.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", ipv4MultiHopSessionDetail.DestinationAddress})
+    ipv4MultiHopSessionDetail.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv4MultiHopSessionDetail.Location})
+    ipv4MultiHopSessionDetail.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4MultiHopSessionDetail.VrfName})
+
+    ipv4MultiHopSessionDetail.EntityData.YListKeys = []string {}
+
     return &(ipv4MultiHopSessionDetail.EntityData)
 }
 
@@ -1431,7 +1507,7 @@ type Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_StatusInformation 
     LatencyAverage interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Internal Label. The type is interface{} with range: 0..4294967295.
@@ -1476,31 +1552,34 @@ func (statusInformation *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetai
     statusInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusInformation.EntityData.Children = make(map[string]types.YChild)
-    statusInformation.EntityData.Children["source-address"] = types.YChild{"SourceAddress", &statusInformation.SourceAddress}
-    statusInformation.EntityData.Children["last-state-change"] = types.YChild{"LastStateChange", &statusInformation.LastStateChange}
-    statusInformation.EntityData.Children["transmit-packet"] = types.YChild{"TransmitPacket", &statusInformation.TransmitPacket}
-    statusInformation.EntityData.Children["receive-packet"] = types.YChild{"ReceivePacket", &statusInformation.ReceivePacket}
-    statusInformation.EntityData.Children["status-brief-information"] = types.YChild{"StatusBriefInformation", &statusInformation.StatusBriefInformation}
-    statusInformation.EntityData.Children["async-transmit-statistics"] = types.YChild{"AsyncTransmitStatistics", &statusInformation.AsyncTransmitStatistics}
-    statusInformation.EntityData.Children["async-receive-statistics"] = types.YChild{"AsyncReceiveStatistics", &statusInformation.AsyncReceiveStatistics}
-    statusInformation.EntityData.Children["echo-transmit-statistics"] = types.YChild{"EchoTransmitStatistics", &statusInformation.EchoTransmitStatistics}
-    statusInformation.EntityData.Children["echo-received-statistics"] = types.YChild{"EchoReceivedStatistics", &statusInformation.EchoReceivedStatistics}
-    statusInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    statusInformation.EntityData.Leafs["sessiontype"] = types.YLeaf{"Sessiontype", statusInformation.Sessiontype}
-    statusInformation.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", statusInformation.SessionSubtype}
-    statusInformation.EntityData.Leafs["state"] = types.YLeaf{"State", statusInformation.State}
-    statusInformation.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", statusInformation.LocalDiscriminator}
-    statusInformation.EntityData.Leafs["remote-discriminator"] = types.YLeaf{"RemoteDiscriminator", statusInformation.RemoteDiscriminator}
-    statusInformation.EntityData.Leafs["to-up-state-count"] = types.YLeaf{"ToUpStateCount", statusInformation.ToUpStateCount}
-    statusInformation.EntityData.Leafs["desired-minimum-echo-transmit-interval"] = types.YLeaf{"DesiredMinimumEchoTransmitInterval", statusInformation.DesiredMinimumEchoTransmitInterval}
-    statusInformation.EntityData.Leafs["remote-negotiated-interval"] = types.YLeaf{"RemoteNegotiatedInterval", statusInformation.RemoteNegotiatedInterval}
-    statusInformation.EntityData.Leafs["latency-number"] = types.YLeaf{"LatencyNumber", statusInformation.LatencyNumber}
-    statusInformation.EntityData.Leafs["latency-minimum"] = types.YLeaf{"LatencyMinimum", statusInformation.LatencyMinimum}
-    statusInformation.EntityData.Leafs["latency-maximum"] = types.YLeaf{"LatencyMaximum", statusInformation.LatencyMaximum}
-    statusInformation.EntityData.Leafs["latency-average"] = types.YLeaf{"LatencyAverage", statusInformation.LatencyAverage}
-    statusInformation.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", statusInformation.NodeId}
-    statusInformation.EntityData.Leafs["internal-label"] = types.YLeaf{"InternalLabel", statusInformation.InternalLabel}
+    statusInformation.EntityData.Children = types.NewOrderedMap()
+    statusInformation.EntityData.Children.Append("source-address", types.YChild{"SourceAddress", &statusInformation.SourceAddress})
+    statusInformation.EntityData.Children.Append("last-state-change", types.YChild{"LastStateChange", &statusInformation.LastStateChange})
+    statusInformation.EntityData.Children.Append("transmit-packet", types.YChild{"TransmitPacket", &statusInformation.TransmitPacket})
+    statusInformation.EntityData.Children.Append("receive-packet", types.YChild{"ReceivePacket", &statusInformation.ReceivePacket})
+    statusInformation.EntityData.Children.Append("status-brief-information", types.YChild{"StatusBriefInformation", &statusInformation.StatusBriefInformation})
+    statusInformation.EntityData.Children.Append("async-transmit-statistics", types.YChild{"AsyncTransmitStatistics", &statusInformation.AsyncTransmitStatistics})
+    statusInformation.EntityData.Children.Append("async-receive-statistics", types.YChild{"AsyncReceiveStatistics", &statusInformation.AsyncReceiveStatistics})
+    statusInformation.EntityData.Children.Append("echo-transmit-statistics", types.YChild{"EchoTransmitStatistics", &statusInformation.EchoTransmitStatistics})
+    statusInformation.EntityData.Children.Append("echo-received-statistics", types.YChild{"EchoReceivedStatistics", &statusInformation.EchoReceivedStatistics})
+    statusInformation.EntityData.Leafs = types.NewOrderedMap()
+    statusInformation.EntityData.Leafs.Append("sessiontype", types.YLeaf{"Sessiontype", statusInformation.Sessiontype})
+    statusInformation.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", statusInformation.SessionSubtype})
+    statusInformation.EntityData.Leafs.Append("state", types.YLeaf{"State", statusInformation.State})
+    statusInformation.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", statusInformation.LocalDiscriminator})
+    statusInformation.EntityData.Leafs.Append("remote-discriminator", types.YLeaf{"RemoteDiscriminator", statusInformation.RemoteDiscriminator})
+    statusInformation.EntityData.Leafs.Append("to-up-state-count", types.YLeaf{"ToUpStateCount", statusInformation.ToUpStateCount})
+    statusInformation.EntityData.Leafs.Append("desired-minimum-echo-transmit-interval", types.YLeaf{"DesiredMinimumEchoTransmitInterval", statusInformation.DesiredMinimumEchoTransmitInterval})
+    statusInformation.EntityData.Leafs.Append("remote-negotiated-interval", types.YLeaf{"RemoteNegotiatedInterval", statusInformation.RemoteNegotiatedInterval})
+    statusInformation.EntityData.Leafs.Append("latency-number", types.YLeaf{"LatencyNumber", statusInformation.LatencyNumber})
+    statusInformation.EntityData.Leafs.Append("latency-minimum", types.YLeaf{"LatencyMinimum", statusInformation.LatencyMinimum})
+    statusInformation.EntityData.Leafs.Append("latency-maximum", types.YLeaf{"LatencyMaximum", statusInformation.LatencyMaximum})
+    statusInformation.EntityData.Leafs.Append("latency-average", types.YLeaf{"LatencyAverage", statusInformation.LatencyAverage})
+    statusInformation.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", statusInformation.NodeId})
+    statusInformation.EntityData.Leafs.Append("internal-label", types.YLeaf{"InternalLabel", statusInformation.InternalLabel})
+
+    statusInformation.EntityData.YListKeys = []string {}
+
     return &(statusInformation.EntityData)
 }
 
@@ -1517,11 +1596,11 @@ type Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_StatusInformation_
     Dummy interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -1535,12 +1614,15 @@ func (sourceAddress *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_St
     sourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourceAddress.EntityData.Children = make(map[string]types.YChild)
-    sourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    sourceAddress.EntityData.Leafs["afi"] = types.YLeaf{"Afi", sourceAddress.Afi}
-    sourceAddress.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", sourceAddress.Dummy}
-    sourceAddress.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", sourceAddress.Ipv4}
-    sourceAddress.EntityData.Leafs["ipv6"] = types.YLeaf{"Ipv6", sourceAddress.Ipv6}
+    sourceAddress.EntityData.Children = types.NewOrderedMap()
+    sourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    sourceAddress.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", sourceAddress.Afi})
+    sourceAddress.EntityData.Leafs.Append("dummy", types.YLeaf{"Dummy", sourceAddress.Dummy})
+    sourceAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", sourceAddress.Ipv4})
+    sourceAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", sourceAddress.Ipv6})
+
+    sourceAddress.EntityData.YListKeys = []string {}
+
     return &(sourceAddress.EntityData)
 }
 
@@ -1577,12 +1659,15 @@ func (lastStateChange *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_
     lastStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastStateChange.EntityData.Leafs["days"] = types.YLeaf{"Days", lastStateChange.Days}
-    lastStateChange.EntityData.Leafs["hours"] = types.YLeaf{"Hours", lastStateChange.Hours}
-    lastStateChange.EntityData.Leafs["minutes"] = types.YLeaf{"Minutes", lastStateChange.Minutes}
-    lastStateChange.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lastStateChange.Seconds}
+    lastStateChange.EntityData.Children = types.NewOrderedMap()
+    lastStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastStateChange.EntityData.Leafs.Append("days", types.YLeaf{"Days", lastStateChange.Days})
+    lastStateChange.EntityData.Leafs.Append("hours", types.YLeaf{"Hours", lastStateChange.Hours})
+    lastStateChange.EntityData.Leafs.Append("minutes", types.YLeaf{"Minutes", lastStateChange.Minutes})
+    lastStateChange.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lastStateChange.Seconds})
+
+    lastStateChange.EntityData.YListKeys = []string {}
+
     return &(lastStateChange.EntityData)
 }
 
@@ -1657,24 +1742,27 @@ func (transmitPacket *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_S
     transmitPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitPacket.EntityData.Children = make(map[string]types.YChild)
-    transmitPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitPacket.EntityData.Leafs["version"] = types.YLeaf{"Version", transmitPacket.Version}
-    transmitPacket.EntityData.Leafs["diagnostic"] = types.YLeaf{"Diagnostic", transmitPacket.Diagnostic}
-    transmitPacket.EntityData.Leafs["ihear-you"] = types.YLeaf{"IhearYou", transmitPacket.IhearYou}
-    transmitPacket.EntityData.Leafs["state"] = types.YLeaf{"State", transmitPacket.State}
-    transmitPacket.EntityData.Leafs["demand"] = types.YLeaf{"Demand", transmitPacket.Demand}
-    transmitPacket.EntityData.Leafs["poll"] = types.YLeaf{"Poll", transmitPacket.Poll}
-    transmitPacket.EntityData.Leafs["final"] = types.YLeaf{"Final", transmitPacket.Final}
-    transmitPacket.EntityData.Leafs["control-plane-independent"] = types.YLeaf{"ControlPlaneIndependent", transmitPacket.ControlPlaneIndependent}
-    transmitPacket.EntityData.Leafs["authentication-present"] = types.YLeaf{"AuthenticationPresent", transmitPacket.AuthenticationPresent}
-    transmitPacket.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", transmitPacket.DetectionMultiplier}
-    transmitPacket.EntityData.Leafs["length"] = types.YLeaf{"Length", transmitPacket.Length}
-    transmitPacket.EntityData.Leafs["my-discriminator"] = types.YLeaf{"MyDiscriminator", transmitPacket.MyDiscriminator}
-    transmitPacket.EntityData.Leafs["your-discriminator"] = types.YLeaf{"YourDiscriminator", transmitPacket.YourDiscriminator}
-    transmitPacket.EntityData.Leafs["desired-minimum-transmit-interval"] = types.YLeaf{"DesiredMinimumTransmitInterval", transmitPacket.DesiredMinimumTransmitInterval}
-    transmitPacket.EntityData.Leafs["required-minimum-receive-interval"] = types.YLeaf{"RequiredMinimumReceiveInterval", transmitPacket.RequiredMinimumReceiveInterval}
-    transmitPacket.EntityData.Leafs["required-minimum-echo-receive-interval"] = types.YLeaf{"RequiredMinimumEchoReceiveInterval", transmitPacket.RequiredMinimumEchoReceiveInterval}
+    transmitPacket.EntityData.Children = types.NewOrderedMap()
+    transmitPacket.EntityData.Leafs = types.NewOrderedMap()
+    transmitPacket.EntityData.Leafs.Append("version", types.YLeaf{"Version", transmitPacket.Version})
+    transmitPacket.EntityData.Leafs.Append("diagnostic", types.YLeaf{"Diagnostic", transmitPacket.Diagnostic})
+    transmitPacket.EntityData.Leafs.Append("ihear-you", types.YLeaf{"IhearYou", transmitPacket.IhearYou})
+    transmitPacket.EntityData.Leafs.Append("state", types.YLeaf{"State", transmitPacket.State})
+    transmitPacket.EntityData.Leafs.Append("demand", types.YLeaf{"Demand", transmitPacket.Demand})
+    transmitPacket.EntityData.Leafs.Append("poll", types.YLeaf{"Poll", transmitPacket.Poll})
+    transmitPacket.EntityData.Leafs.Append("final", types.YLeaf{"Final", transmitPacket.Final})
+    transmitPacket.EntityData.Leafs.Append("control-plane-independent", types.YLeaf{"ControlPlaneIndependent", transmitPacket.ControlPlaneIndependent})
+    transmitPacket.EntityData.Leafs.Append("authentication-present", types.YLeaf{"AuthenticationPresent", transmitPacket.AuthenticationPresent})
+    transmitPacket.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", transmitPacket.DetectionMultiplier})
+    transmitPacket.EntityData.Leafs.Append("length", types.YLeaf{"Length", transmitPacket.Length})
+    transmitPacket.EntityData.Leafs.Append("my-discriminator", types.YLeaf{"MyDiscriminator", transmitPacket.MyDiscriminator})
+    transmitPacket.EntityData.Leafs.Append("your-discriminator", types.YLeaf{"YourDiscriminator", transmitPacket.YourDiscriminator})
+    transmitPacket.EntityData.Leafs.Append("desired-minimum-transmit-interval", types.YLeaf{"DesiredMinimumTransmitInterval", transmitPacket.DesiredMinimumTransmitInterval})
+    transmitPacket.EntityData.Leafs.Append("required-minimum-receive-interval", types.YLeaf{"RequiredMinimumReceiveInterval", transmitPacket.RequiredMinimumReceiveInterval})
+    transmitPacket.EntityData.Leafs.Append("required-minimum-echo-receive-interval", types.YLeaf{"RequiredMinimumEchoReceiveInterval", transmitPacket.RequiredMinimumEchoReceiveInterval})
+
+    transmitPacket.EntityData.YListKeys = []string {}
+
     return &(transmitPacket.EntityData)
 }
 
@@ -1749,24 +1837,27 @@ func (receivePacket *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_St
     receivePacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivePacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivePacket.EntityData.Children = make(map[string]types.YChild)
-    receivePacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivePacket.EntityData.Leafs["version"] = types.YLeaf{"Version", receivePacket.Version}
-    receivePacket.EntityData.Leafs["diagnostic"] = types.YLeaf{"Diagnostic", receivePacket.Diagnostic}
-    receivePacket.EntityData.Leafs["ihear-you"] = types.YLeaf{"IhearYou", receivePacket.IhearYou}
-    receivePacket.EntityData.Leafs["state"] = types.YLeaf{"State", receivePacket.State}
-    receivePacket.EntityData.Leafs["demand"] = types.YLeaf{"Demand", receivePacket.Demand}
-    receivePacket.EntityData.Leafs["poll"] = types.YLeaf{"Poll", receivePacket.Poll}
-    receivePacket.EntityData.Leafs["final"] = types.YLeaf{"Final", receivePacket.Final}
-    receivePacket.EntityData.Leafs["control-plane-independent"] = types.YLeaf{"ControlPlaneIndependent", receivePacket.ControlPlaneIndependent}
-    receivePacket.EntityData.Leafs["authentication-present"] = types.YLeaf{"AuthenticationPresent", receivePacket.AuthenticationPresent}
-    receivePacket.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", receivePacket.DetectionMultiplier}
-    receivePacket.EntityData.Leafs["length"] = types.YLeaf{"Length", receivePacket.Length}
-    receivePacket.EntityData.Leafs["my-discriminator"] = types.YLeaf{"MyDiscriminator", receivePacket.MyDiscriminator}
-    receivePacket.EntityData.Leafs["your-discriminator"] = types.YLeaf{"YourDiscriminator", receivePacket.YourDiscriminator}
-    receivePacket.EntityData.Leafs["desired-minimum-transmit-interval"] = types.YLeaf{"DesiredMinimumTransmitInterval", receivePacket.DesiredMinimumTransmitInterval}
-    receivePacket.EntityData.Leafs["required-minimum-receive-interval"] = types.YLeaf{"RequiredMinimumReceiveInterval", receivePacket.RequiredMinimumReceiveInterval}
-    receivePacket.EntityData.Leafs["required-minimum-echo-receive-interval"] = types.YLeaf{"RequiredMinimumEchoReceiveInterval", receivePacket.RequiredMinimumEchoReceiveInterval}
+    receivePacket.EntityData.Children = types.NewOrderedMap()
+    receivePacket.EntityData.Leafs = types.NewOrderedMap()
+    receivePacket.EntityData.Leafs.Append("version", types.YLeaf{"Version", receivePacket.Version})
+    receivePacket.EntityData.Leafs.Append("diagnostic", types.YLeaf{"Diagnostic", receivePacket.Diagnostic})
+    receivePacket.EntityData.Leafs.Append("ihear-you", types.YLeaf{"IhearYou", receivePacket.IhearYou})
+    receivePacket.EntityData.Leafs.Append("state", types.YLeaf{"State", receivePacket.State})
+    receivePacket.EntityData.Leafs.Append("demand", types.YLeaf{"Demand", receivePacket.Demand})
+    receivePacket.EntityData.Leafs.Append("poll", types.YLeaf{"Poll", receivePacket.Poll})
+    receivePacket.EntityData.Leafs.Append("final", types.YLeaf{"Final", receivePacket.Final})
+    receivePacket.EntityData.Leafs.Append("control-plane-independent", types.YLeaf{"ControlPlaneIndependent", receivePacket.ControlPlaneIndependent})
+    receivePacket.EntityData.Leafs.Append("authentication-present", types.YLeaf{"AuthenticationPresent", receivePacket.AuthenticationPresent})
+    receivePacket.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", receivePacket.DetectionMultiplier})
+    receivePacket.EntityData.Leafs.Append("length", types.YLeaf{"Length", receivePacket.Length})
+    receivePacket.EntityData.Leafs.Append("my-discriminator", types.YLeaf{"MyDiscriminator", receivePacket.MyDiscriminator})
+    receivePacket.EntityData.Leafs.Append("your-discriminator", types.YLeaf{"YourDiscriminator", receivePacket.YourDiscriminator})
+    receivePacket.EntityData.Leafs.Append("desired-minimum-transmit-interval", types.YLeaf{"DesiredMinimumTransmitInterval", receivePacket.DesiredMinimumTransmitInterval})
+    receivePacket.EntityData.Leafs.Append("required-minimum-receive-interval", types.YLeaf{"RequiredMinimumReceiveInterval", receivePacket.RequiredMinimumReceiveInterval})
+    receivePacket.EntityData.Leafs.Append("required-minimum-echo-receive-interval", types.YLeaf{"RequiredMinimumEchoReceiveInterval", receivePacket.RequiredMinimumEchoReceiveInterval})
+
+    receivePacket.EntityData.YListKeys = []string {}
+
     return &(receivePacket.EntityData)
 }
 
@@ -1793,10 +1884,13 @@ func (statusBriefInformation *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSession
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusBriefInformation.EntityData.Children = make(map[string]types.YChild)
-    statusBriefInformation.EntityData.Children["async-interval-multiplier"] = types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier}
-    statusBriefInformation.EntityData.Children["echo-interval-multiplier"] = types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier}
-    statusBriefInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    statusBriefInformation.EntityData.Children = types.NewOrderedMap()
+    statusBriefInformation.EntityData.Children.Append("async-interval-multiplier", types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier})
+    statusBriefInformation.EntityData.Children.Append("echo-interval-multiplier", types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier})
+    statusBriefInformation.EntityData.Leafs = types.NewOrderedMap()
+
+    statusBriefInformation.EntityData.YListKeys = []string {}
+
     return &(statusBriefInformation.EntityData)
 }
 
@@ -1832,12 +1926,15 @@ func (asyncIntervalMultiplier *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessio
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    asyncIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-remote-transmit-interval"] = types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-local-transmit-interval"] = types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier}
+    asyncIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-remote-transmit-interval", types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-local-transmit-interval", types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier})
+
+    asyncIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(asyncIntervalMultiplier.EntityData)
 }
 
@@ -1869,11 +1966,14 @@ func (echoIntervalMultiplier *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSession
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    echoIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoIntervalMultiplier.EntityData.Leafs["negotiated-transmit-interval"] = types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval}
-    echoIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime}
-    echoIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier}
+    echoIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs.Append("negotiated-transmit-interval", types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier})
+
+    echoIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(echoIntervalMultiplier.EntityData)
 }
 
@@ -1915,13 +2015,16 @@ func (asyncTransmitStatistics *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessio
     asyncTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncTransmitStatistics.EntityData.Children = make(map[string]types.YChild)
-    asyncTransmitStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncTransmitStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", asyncTransmitStatistics.Number}
-    asyncTransmitStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", asyncTransmitStatistics.Minimum}
-    asyncTransmitStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", asyncTransmitStatistics.Maximum}
-    asyncTransmitStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", asyncTransmitStatistics.Average}
-    asyncTransmitStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", asyncTransmitStatistics.Last}
+    asyncTransmitStatistics.EntityData.Children = types.NewOrderedMap()
+    asyncTransmitStatistics.EntityData.Leafs = types.NewOrderedMap()
+    asyncTransmitStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", asyncTransmitStatistics.Number})
+    asyncTransmitStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", asyncTransmitStatistics.Minimum})
+    asyncTransmitStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", asyncTransmitStatistics.Maximum})
+    asyncTransmitStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", asyncTransmitStatistics.Average})
+    asyncTransmitStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", asyncTransmitStatistics.Last})
+
+    asyncTransmitStatistics.EntityData.YListKeys = []string {}
+
     return &(asyncTransmitStatistics.EntityData)
 }
 
@@ -1963,13 +2066,16 @@ func (asyncReceiveStatistics *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSession
     asyncReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncReceiveStatistics.EntityData.Children = make(map[string]types.YChild)
-    asyncReceiveStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncReceiveStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", asyncReceiveStatistics.Number}
-    asyncReceiveStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", asyncReceiveStatistics.Minimum}
-    asyncReceiveStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", asyncReceiveStatistics.Maximum}
-    asyncReceiveStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", asyncReceiveStatistics.Average}
-    asyncReceiveStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", asyncReceiveStatistics.Last}
+    asyncReceiveStatistics.EntityData.Children = types.NewOrderedMap()
+    asyncReceiveStatistics.EntityData.Leafs = types.NewOrderedMap()
+    asyncReceiveStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", asyncReceiveStatistics.Number})
+    asyncReceiveStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", asyncReceiveStatistics.Minimum})
+    asyncReceiveStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", asyncReceiveStatistics.Maximum})
+    asyncReceiveStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", asyncReceiveStatistics.Average})
+    asyncReceiveStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", asyncReceiveStatistics.Last})
+
+    asyncReceiveStatistics.EntityData.YListKeys = []string {}
+
     return &(asyncReceiveStatistics.EntityData)
 }
 
@@ -2011,13 +2117,16 @@ func (echoTransmitStatistics *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSession
     echoTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoTransmitStatistics.EntityData.Children = make(map[string]types.YChild)
-    echoTransmitStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoTransmitStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", echoTransmitStatistics.Number}
-    echoTransmitStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", echoTransmitStatistics.Minimum}
-    echoTransmitStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", echoTransmitStatistics.Maximum}
-    echoTransmitStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", echoTransmitStatistics.Average}
-    echoTransmitStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", echoTransmitStatistics.Last}
+    echoTransmitStatistics.EntityData.Children = types.NewOrderedMap()
+    echoTransmitStatistics.EntityData.Leafs = types.NewOrderedMap()
+    echoTransmitStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", echoTransmitStatistics.Number})
+    echoTransmitStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", echoTransmitStatistics.Minimum})
+    echoTransmitStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", echoTransmitStatistics.Maximum})
+    echoTransmitStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", echoTransmitStatistics.Average})
+    echoTransmitStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", echoTransmitStatistics.Last})
+
+    echoTransmitStatistics.EntityData.YListKeys = []string {}
+
     return &(echoTransmitStatistics.EntityData)
 }
 
@@ -2059,13 +2168,16 @@ func (echoReceivedStatistics *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSession
     echoReceivedStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoReceivedStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoReceivedStatistics.EntityData.Children = make(map[string]types.YChild)
-    echoReceivedStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoReceivedStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", echoReceivedStatistics.Number}
-    echoReceivedStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", echoReceivedStatistics.Minimum}
-    echoReceivedStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", echoReceivedStatistics.Maximum}
-    echoReceivedStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", echoReceivedStatistics.Average}
-    echoReceivedStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", echoReceivedStatistics.Last}
+    echoReceivedStatistics.EntityData.Children = types.NewOrderedMap()
+    echoReceivedStatistics.EntityData.Leafs = types.NewOrderedMap()
+    echoReceivedStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", echoReceivedStatistics.Number})
+    echoReceivedStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", echoReceivedStatistics.Minimum})
+    echoReceivedStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", echoReceivedStatistics.Maximum})
+    echoReceivedStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", echoReceivedStatistics.Average})
+    echoReceivedStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", echoReceivedStatistics.Last})
+
+    echoReceivedStatistics.EntityData.YListKeys = []string {}
+
     return &(echoReceivedStatistics.EntityData)
 }
 
@@ -2092,10 +2204,13 @@ func (mpDownloadState *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_
     mpDownloadState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpDownloadState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mpDownloadState.EntityData.Children = make(map[string]types.YChild)
-    mpDownloadState.EntityData.Children["change-time"] = types.YChild{"ChangeTime", &mpDownloadState.ChangeTime}
-    mpDownloadState.EntityData.Leafs = make(map[string]types.YLeaf)
-    mpDownloadState.EntityData.Leafs["mp-download-state"] = types.YLeaf{"MpDownloadState", mpDownloadState.MpDownloadState}
+    mpDownloadState.EntityData.Children = types.NewOrderedMap()
+    mpDownloadState.EntityData.Children.Append("change-time", types.YChild{"ChangeTime", &mpDownloadState.ChangeTime})
+    mpDownloadState.EntityData.Leafs = types.NewOrderedMap()
+    mpDownloadState.EntityData.Leafs.Append("mp-download-state", types.YLeaf{"MpDownloadState", mpDownloadState.MpDownloadState})
+
+    mpDownloadState.EntityData.YListKeys = []string {}
+
     return &(mpDownloadState.EntityData)
 }
 
@@ -2124,10 +2239,13 @@ func (changeTime *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_MpDow
     changeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    changeTime.EntityData.Children = make(map[string]types.YChild)
-    changeTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    changeTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", changeTime.Seconds}
-    changeTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", changeTime.Nanoseconds}
+    changeTime.EntityData.Children = types.NewOrderedMap()
+    changeTime.EntityData.Leafs = types.NewOrderedMap()
+    changeTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", changeTime.Seconds})
+    changeTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", changeTime.Nanoseconds})
+
+    changeTime.EntityData.YListKeys = []string {}
+
     return &(changeTime.EntityData)
 }
 
@@ -2186,20 +2304,23 @@ func (lspPingInfo *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_LspP
     lspPingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingInfo.EntityData.Children = make(map[string]types.YChild)
-    lspPingInfo.EntityData.Children["lsp-ping-tx-last-time"] = types.YChild{"LspPingTxLastTime", &lspPingInfo.LspPingTxLastTime}
-    lspPingInfo.EntityData.Children["lsp-ping-tx-last-error-time"] = types.YChild{"LspPingTxLastErrorTime", &lspPingInfo.LspPingTxLastErrorTime}
-    lspPingInfo.EntityData.Children["lsp-ping-rx-last-time"] = types.YChild{"LspPingRxLastTime", &lspPingInfo.LspPingRxLastTime}
-    lspPingInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-count"] = types.YLeaf{"LspPingTxCount", lspPingInfo.LspPingTxCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-error-count"] = types.YLeaf{"LspPingTxErrorCount", lspPingInfo.LspPingTxErrorCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-last-rc"] = types.YLeaf{"LspPingTxLastRc", lspPingInfo.LspPingTxLastRc}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-last-error-rc"] = types.YLeaf{"LspPingTxLastErrorRc", lspPingInfo.LspPingTxLastErrorRc}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-discr"] = types.YLeaf{"LspPingRxLastDiscr", lspPingInfo.LspPingRxLastDiscr}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-count"] = types.YLeaf{"LspPingRxCount", lspPingInfo.LspPingRxCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-code"] = types.YLeaf{"LspPingRxLastCode", lspPingInfo.LspPingRxLastCode}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-subcode"] = types.YLeaf{"LspPingRxLastSubcode", lspPingInfo.LspPingRxLastSubcode}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-output"] = types.YLeaf{"LspPingRxLastOutput", lspPingInfo.LspPingRxLastOutput}
+    lspPingInfo.EntityData.Children = types.NewOrderedMap()
+    lspPingInfo.EntityData.Children.Append("lsp-ping-tx-last-time", types.YChild{"LspPingTxLastTime", &lspPingInfo.LspPingTxLastTime})
+    lspPingInfo.EntityData.Children.Append("lsp-ping-tx-last-error-time", types.YChild{"LspPingTxLastErrorTime", &lspPingInfo.LspPingTxLastErrorTime})
+    lspPingInfo.EntityData.Children.Append("lsp-ping-rx-last-time", types.YChild{"LspPingRxLastTime", &lspPingInfo.LspPingRxLastTime})
+    lspPingInfo.EntityData.Leafs = types.NewOrderedMap()
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-count", types.YLeaf{"LspPingTxCount", lspPingInfo.LspPingTxCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-error-count", types.YLeaf{"LspPingTxErrorCount", lspPingInfo.LspPingTxErrorCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-last-rc", types.YLeaf{"LspPingTxLastRc", lspPingInfo.LspPingTxLastRc})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-last-error-rc", types.YLeaf{"LspPingTxLastErrorRc", lspPingInfo.LspPingTxLastErrorRc})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-discr", types.YLeaf{"LspPingRxLastDiscr", lspPingInfo.LspPingRxLastDiscr})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-count", types.YLeaf{"LspPingRxCount", lspPingInfo.LspPingRxCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-code", types.YLeaf{"LspPingRxLastCode", lspPingInfo.LspPingRxLastCode})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-subcode", types.YLeaf{"LspPingRxLastSubcode", lspPingInfo.LspPingRxLastSubcode})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-output", types.YLeaf{"LspPingRxLastOutput", lspPingInfo.LspPingRxLastOutput})
+
+    lspPingInfo.EntityData.YListKeys = []string {}
+
     return &(lspPingInfo.EntityData)
 }
 
@@ -2228,10 +2349,13 @@ func (lspPingTxLastTime *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetai
     lspPingTxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingTxLastTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingTxLastTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingTxLastTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingTxLastTime.Seconds}
-    lspPingTxLastTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingTxLastTime.Nanoseconds}
+    lspPingTxLastTime.EntityData.Children = types.NewOrderedMap()
+    lspPingTxLastTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingTxLastTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingTxLastTime.Seconds})
+    lspPingTxLastTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingTxLastTime.Nanoseconds})
+
+    lspPingTxLastTime.EntityData.YListKeys = []string {}
+
     return &(lspPingTxLastTime.EntityData)
 }
 
@@ -2260,10 +2384,13 @@ func (lspPingTxLastErrorTime *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSession
     lspPingTxLastErrorTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastErrorTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingTxLastErrorTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingTxLastErrorTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingTxLastErrorTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingTxLastErrorTime.Seconds}
-    lspPingTxLastErrorTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingTxLastErrorTime.Nanoseconds}
+    lspPingTxLastErrorTime.EntityData.Children = types.NewOrderedMap()
+    lspPingTxLastErrorTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingTxLastErrorTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingTxLastErrorTime.Seconds})
+    lspPingTxLastErrorTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingTxLastErrorTime.Nanoseconds})
+
+    lspPingTxLastErrorTime.EntityData.YListKeys = []string {}
+
     return &(lspPingTxLastErrorTime.EntityData)
 }
 
@@ -2292,10 +2419,13 @@ func (lspPingRxLastTime *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetai
     lspPingRxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingRxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingRxLastTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingRxLastTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingRxLastTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingRxLastTime.Seconds}
-    lspPingRxLastTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingRxLastTime.Nanoseconds}
+    lspPingRxLastTime.EntityData.Children = types.NewOrderedMap()
+    lspPingRxLastTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingRxLastTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingRxLastTime.Seconds})
+    lspPingRxLastTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingRxLastTime.Nanoseconds})
+
+    lspPingRxLastTime.EntityData.YListKeys = []string {}
+
     return &(lspPingRxLastTime.EntityData)
 }
 
@@ -2335,13 +2465,16 @@ func (ownerInformation *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ownerInformation.EntityData.Children = make(map[string]types.YChild)
-    ownerInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    ownerInformation.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ownerInformation.Interval}
-    ownerInformation.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier}
-    ownerInformation.EntityData.Leafs["adjusted-interval"] = types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval}
-    ownerInformation.EntityData.Leafs["adjusted-detection-multiplier"] = types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier}
-    ownerInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", ownerInformation.Name}
+    ownerInformation.EntityData.Children = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ownerInformation.Interval})
+    ownerInformation.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("adjusted-interval", types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval})
+    ownerInformation.EntityData.Leafs.Append("adjusted-detection-multiplier", types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", ownerInformation.Name})
+
+    ownerInformation.EntityData.YListKeys = []string {}
+
     return &(ownerInformation.EntityData)
 }
 
@@ -2366,7 +2499,7 @@ type Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_AssociationInforma
 
     // Client applications owning the session. The type is slice of
     // Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_AssociationInformation_OwnerInformation.
-    OwnerInformation []Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_AssociationInformation_OwnerInformation
+    OwnerInformation []*Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_AssociationInformation_OwnerInformation
 }
 
 func (associationInformation *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_AssociationInformation) GetEntityData() *types.CommonEntityData {
@@ -2379,16 +2512,19 @@ func (associationInformation *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSession
     associationInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    associationInformation.EntityData.Children = make(map[string]types.YChild)
-    associationInformation.EntityData.Children["ip-destination-address"] = types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress}
-    associationInformation.EntityData.Children["owner-information"] = types.YChild{"OwnerInformation", nil}
+    associationInformation.EntityData.Children = types.NewOrderedMap()
+    associationInformation.EntityData.Children.Append("ip-destination-address", types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress})
+    associationInformation.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range associationInformation.OwnerInformation {
-        associationInformation.EntityData.Children[types.GetSegmentPath(&associationInformation.OwnerInformation[i])] = types.YChild{"OwnerInformation", &associationInformation.OwnerInformation[i]}
+        associationInformation.EntityData.Children.Append(types.GetSegmentPath(associationInformation.OwnerInformation[i]), types.YChild{"OwnerInformation", associationInformation.OwnerInformation[i]})
     }
-    associationInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    associationInformation.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", associationInformation.InterfaceName}
-    associationInformation.EntityData.Leafs["sessiontype"] = types.YLeaf{"Sessiontype", associationInformation.Sessiontype}
-    associationInformation.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", associationInformation.LocalDiscriminator}
+    associationInformation.EntityData.Leafs = types.NewOrderedMap()
+    associationInformation.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", associationInformation.InterfaceName})
+    associationInformation.EntityData.Leafs.Append("sessiontype", types.YLeaf{"Sessiontype", associationInformation.Sessiontype})
+    associationInformation.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", associationInformation.LocalDiscriminator})
+
+    associationInformation.EntityData.YListKeys = []string {}
+
     return &(associationInformation.EntityData)
 }
 
@@ -2405,11 +2541,11 @@ type Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_AssociationInforma
     Dummy interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -2423,12 +2559,15 @@ func (ipDestinationAddress *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDe
     ipDestinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDestinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipDestinationAddress.EntityData.Children = make(map[string]types.YChild)
-    ipDestinationAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipDestinationAddress.EntityData.Leafs["afi"] = types.YLeaf{"Afi", ipDestinationAddress.Afi}
-    ipDestinationAddress.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", ipDestinationAddress.Dummy}
-    ipDestinationAddress.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", ipDestinationAddress.Ipv4}
-    ipDestinationAddress.EntityData.Leafs["ipv6"] = types.YLeaf{"Ipv6", ipDestinationAddress.Ipv6}
+    ipDestinationAddress.EntityData.Children = types.NewOrderedMap()
+    ipDestinationAddress.EntityData.Leafs = types.NewOrderedMap()
+    ipDestinationAddress.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", ipDestinationAddress.Afi})
+    ipDestinationAddress.EntityData.Leafs.Append("dummy", types.YLeaf{"Dummy", ipDestinationAddress.Dummy})
+    ipDestinationAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", ipDestinationAddress.Ipv4})
+    ipDestinationAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", ipDestinationAddress.Ipv6})
+
+    ipDestinationAddress.EntityData.YListKeys = []string {}
+
     return &(ipDestinationAddress.EntityData)
 }
 
@@ -2468,13 +2607,16 @@ func (ownerInformation *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ownerInformation.EntityData.Children = make(map[string]types.YChild)
-    ownerInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    ownerInformation.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ownerInformation.Interval}
-    ownerInformation.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier}
-    ownerInformation.EntityData.Leafs["adjusted-interval"] = types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval}
-    ownerInformation.EntityData.Leafs["adjusted-detection-multiplier"] = types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier}
-    ownerInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", ownerInformation.Name}
+    ownerInformation.EntityData.Children = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ownerInformation.Interval})
+    ownerInformation.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("adjusted-interval", types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval})
+    ownerInformation.EntityData.Leafs.Append("adjusted-detection-multiplier", types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", ownerInformation.Name})
+
+    ownerInformation.EntityData.YListKeys = []string {}
+
     return &(ownerInformation.EntityData)
 }
 
@@ -2487,7 +2629,7 @@ type Bfd_Ipv4SingleHopSessionDetails struct {
 
     // Detailed information for a single IPv4 singlehop BFD session. The type is
     // slice of Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail.
-    Ipv4SingleHopSessionDetail []Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail
+    Ipv4SingleHopSessionDetail []*Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail
 }
 
 func (ipv4SingleHopSessionDetails *Bfd_Ipv4SingleHopSessionDetails) GetEntityData() *types.CommonEntityData {
@@ -2500,12 +2642,15 @@ func (ipv4SingleHopSessionDetails *Bfd_Ipv4SingleHopSessionDetails) GetEntityDat
     ipv4SingleHopSessionDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopSessionDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4SingleHopSessionDetails.EntityData.Children = make(map[string]types.YChild)
-    ipv4SingleHopSessionDetails.EntityData.Children["ipv4-single-hop-session-detail"] = types.YChild{"Ipv4SingleHopSessionDetail", nil}
+    ipv4SingleHopSessionDetails.EntityData.Children = types.NewOrderedMap()
+    ipv4SingleHopSessionDetails.EntityData.Children.Append("ipv4-single-hop-session-detail", types.YChild{"Ipv4SingleHopSessionDetail", nil})
     for i := range ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail {
-        ipv4SingleHopSessionDetails.EntityData.Children[types.GetSegmentPath(&ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail[i])] = types.YChild{"Ipv4SingleHopSessionDetail", &ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail[i]}
+        ipv4SingleHopSessionDetails.EntityData.Children.Append(types.GetSegmentPath(ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail[i]), types.YChild{"Ipv4SingleHopSessionDetail", ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail[i]})
     }
-    ipv4SingleHopSessionDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4SingleHopSessionDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4SingleHopSessionDetails.EntityData.YListKeys = []string {}
+
     return &(ipv4SingleHopSessionDetails.EntityData)
 }
 
@@ -2516,15 +2661,15 @@ type Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Session status information.
@@ -2538,11 +2683,11 @@ type Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail struct {
 
     // Client applications owning the session. The type is slice of
     // Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_OwnerInformation.
-    OwnerInformation []Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_OwnerInformation
+    OwnerInformation []*Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_OwnerInformation
 
     // Association session information. The type is slice of
     // Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_AssociationInformation.
-    AssociationInformation []Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_AssociationInformation
+    AssociationInformation []*Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_AssociationInformation
 }
 
 func (ipv4SingleHopSessionDetail *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail) GetEntityData() *types.CommonEntityData {
@@ -2555,22 +2700,25 @@ func (ipv4SingleHopSessionDetail *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopS
     ipv4SingleHopSessionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopSessionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4SingleHopSessionDetail.EntityData.Children = make(map[string]types.YChild)
-    ipv4SingleHopSessionDetail.EntityData.Children["status-information"] = types.YChild{"StatusInformation", &ipv4SingleHopSessionDetail.StatusInformation}
-    ipv4SingleHopSessionDetail.EntityData.Children["mp-download-state"] = types.YChild{"MpDownloadState", &ipv4SingleHopSessionDetail.MpDownloadState}
-    ipv4SingleHopSessionDetail.EntityData.Children["lsp-ping-info"] = types.YChild{"LspPingInfo", &ipv4SingleHopSessionDetail.LspPingInfo}
-    ipv4SingleHopSessionDetail.EntityData.Children["owner-information"] = types.YChild{"OwnerInformation", nil}
+    ipv4SingleHopSessionDetail.EntityData.Children = types.NewOrderedMap()
+    ipv4SingleHopSessionDetail.EntityData.Children.Append("status-information", types.YChild{"StatusInformation", &ipv4SingleHopSessionDetail.StatusInformation})
+    ipv4SingleHopSessionDetail.EntityData.Children.Append("mp-download-state", types.YChild{"MpDownloadState", &ipv4SingleHopSessionDetail.MpDownloadState})
+    ipv4SingleHopSessionDetail.EntityData.Children.Append("lsp-ping-info", types.YChild{"LspPingInfo", &ipv4SingleHopSessionDetail.LspPingInfo})
+    ipv4SingleHopSessionDetail.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range ipv4SingleHopSessionDetail.OwnerInformation {
-        ipv4SingleHopSessionDetail.EntityData.Children[types.GetSegmentPath(&ipv4SingleHopSessionDetail.OwnerInformation[i])] = types.YChild{"OwnerInformation", &ipv4SingleHopSessionDetail.OwnerInformation[i]}
+        ipv4SingleHopSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv4SingleHopSessionDetail.OwnerInformation[i]), types.YChild{"OwnerInformation", ipv4SingleHopSessionDetail.OwnerInformation[i]})
     }
-    ipv4SingleHopSessionDetail.EntityData.Children["association-information"] = types.YChild{"AssociationInformation", nil}
+    ipv4SingleHopSessionDetail.EntityData.Children.Append("association-information", types.YChild{"AssociationInformation", nil})
     for i := range ipv4SingleHopSessionDetail.AssociationInformation {
-        ipv4SingleHopSessionDetail.EntityData.Children[types.GetSegmentPath(&ipv4SingleHopSessionDetail.AssociationInformation[i])] = types.YChild{"AssociationInformation", &ipv4SingleHopSessionDetail.AssociationInformation[i]}
+        ipv4SingleHopSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv4SingleHopSessionDetail.AssociationInformation[i]), types.YChild{"AssociationInformation", ipv4SingleHopSessionDetail.AssociationInformation[i]})
     }
-    ipv4SingleHopSessionDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4SingleHopSessionDetail.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", ipv4SingleHopSessionDetail.InterfaceName}
-    ipv4SingleHopSessionDetail.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", ipv4SingleHopSessionDetail.DestinationAddress}
-    ipv4SingleHopSessionDetail.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv4SingleHopSessionDetail.Location}
+    ipv4SingleHopSessionDetail.EntityData.Leafs = types.NewOrderedMap()
+    ipv4SingleHopSessionDetail.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", ipv4SingleHopSessionDetail.InterfaceName})
+    ipv4SingleHopSessionDetail.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", ipv4SingleHopSessionDetail.DestinationAddress})
+    ipv4SingleHopSessionDetail.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv4SingleHopSessionDetail.Location})
+
+    ipv4SingleHopSessionDetail.EntityData.YListKeys = []string {}
+
     return &(ipv4SingleHopSessionDetail.EntityData)
 }
 
@@ -2626,7 +2774,7 @@ type Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_StatusInformatio
     LatencyAverage interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Internal Label. The type is interface{} with range: 0..4294967295.
@@ -2671,31 +2819,34 @@ func (statusInformation *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDet
     statusInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusInformation.EntityData.Children = make(map[string]types.YChild)
-    statusInformation.EntityData.Children["source-address"] = types.YChild{"SourceAddress", &statusInformation.SourceAddress}
-    statusInformation.EntityData.Children["last-state-change"] = types.YChild{"LastStateChange", &statusInformation.LastStateChange}
-    statusInformation.EntityData.Children["transmit-packet"] = types.YChild{"TransmitPacket", &statusInformation.TransmitPacket}
-    statusInformation.EntityData.Children["receive-packet"] = types.YChild{"ReceivePacket", &statusInformation.ReceivePacket}
-    statusInformation.EntityData.Children["status-brief-information"] = types.YChild{"StatusBriefInformation", &statusInformation.StatusBriefInformation}
-    statusInformation.EntityData.Children["async-transmit-statistics"] = types.YChild{"AsyncTransmitStatistics", &statusInformation.AsyncTransmitStatistics}
-    statusInformation.EntityData.Children["async-receive-statistics"] = types.YChild{"AsyncReceiveStatistics", &statusInformation.AsyncReceiveStatistics}
-    statusInformation.EntityData.Children["echo-transmit-statistics"] = types.YChild{"EchoTransmitStatistics", &statusInformation.EchoTransmitStatistics}
-    statusInformation.EntityData.Children["echo-received-statistics"] = types.YChild{"EchoReceivedStatistics", &statusInformation.EchoReceivedStatistics}
-    statusInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    statusInformation.EntityData.Leafs["sessiontype"] = types.YLeaf{"Sessiontype", statusInformation.Sessiontype}
-    statusInformation.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", statusInformation.SessionSubtype}
-    statusInformation.EntityData.Leafs["state"] = types.YLeaf{"State", statusInformation.State}
-    statusInformation.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", statusInformation.LocalDiscriminator}
-    statusInformation.EntityData.Leafs["remote-discriminator"] = types.YLeaf{"RemoteDiscriminator", statusInformation.RemoteDiscriminator}
-    statusInformation.EntityData.Leafs["to-up-state-count"] = types.YLeaf{"ToUpStateCount", statusInformation.ToUpStateCount}
-    statusInformation.EntityData.Leafs["desired-minimum-echo-transmit-interval"] = types.YLeaf{"DesiredMinimumEchoTransmitInterval", statusInformation.DesiredMinimumEchoTransmitInterval}
-    statusInformation.EntityData.Leafs["remote-negotiated-interval"] = types.YLeaf{"RemoteNegotiatedInterval", statusInformation.RemoteNegotiatedInterval}
-    statusInformation.EntityData.Leafs["latency-number"] = types.YLeaf{"LatencyNumber", statusInformation.LatencyNumber}
-    statusInformation.EntityData.Leafs["latency-minimum"] = types.YLeaf{"LatencyMinimum", statusInformation.LatencyMinimum}
-    statusInformation.EntityData.Leafs["latency-maximum"] = types.YLeaf{"LatencyMaximum", statusInformation.LatencyMaximum}
-    statusInformation.EntityData.Leafs["latency-average"] = types.YLeaf{"LatencyAverage", statusInformation.LatencyAverage}
-    statusInformation.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", statusInformation.NodeId}
-    statusInformation.EntityData.Leafs["internal-label"] = types.YLeaf{"InternalLabel", statusInformation.InternalLabel}
+    statusInformation.EntityData.Children = types.NewOrderedMap()
+    statusInformation.EntityData.Children.Append("source-address", types.YChild{"SourceAddress", &statusInformation.SourceAddress})
+    statusInformation.EntityData.Children.Append("last-state-change", types.YChild{"LastStateChange", &statusInformation.LastStateChange})
+    statusInformation.EntityData.Children.Append("transmit-packet", types.YChild{"TransmitPacket", &statusInformation.TransmitPacket})
+    statusInformation.EntityData.Children.Append("receive-packet", types.YChild{"ReceivePacket", &statusInformation.ReceivePacket})
+    statusInformation.EntityData.Children.Append("status-brief-information", types.YChild{"StatusBriefInformation", &statusInformation.StatusBriefInformation})
+    statusInformation.EntityData.Children.Append("async-transmit-statistics", types.YChild{"AsyncTransmitStatistics", &statusInformation.AsyncTransmitStatistics})
+    statusInformation.EntityData.Children.Append("async-receive-statistics", types.YChild{"AsyncReceiveStatistics", &statusInformation.AsyncReceiveStatistics})
+    statusInformation.EntityData.Children.Append("echo-transmit-statistics", types.YChild{"EchoTransmitStatistics", &statusInformation.EchoTransmitStatistics})
+    statusInformation.EntityData.Children.Append("echo-received-statistics", types.YChild{"EchoReceivedStatistics", &statusInformation.EchoReceivedStatistics})
+    statusInformation.EntityData.Leafs = types.NewOrderedMap()
+    statusInformation.EntityData.Leafs.Append("sessiontype", types.YLeaf{"Sessiontype", statusInformation.Sessiontype})
+    statusInformation.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", statusInformation.SessionSubtype})
+    statusInformation.EntityData.Leafs.Append("state", types.YLeaf{"State", statusInformation.State})
+    statusInformation.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", statusInformation.LocalDiscriminator})
+    statusInformation.EntityData.Leafs.Append("remote-discriminator", types.YLeaf{"RemoteDiscriminator", statusInformation.RemoteDiscriminator})
+    statusInformation.EntityData.Leafs.Append("to-up-state-count", types.YLeaf{"ToUpStateCount", statusInformation.ToUpStateCount})
+    statusInformation.EntityData.Leafs.Append("desired-minimum-echo-transmit-interval", types.YLeaf{"DesiredMinimumEchoTransmitInterval", statusInformation.DesiredMinimumEchoTransmitInterval})
+    statusInformation.EntityData.Leafs.Append("remote-negotiated-interval", types.YLeaf{"RemoteNegotiatedInterval", statusInformation.RemoteNegotiatedInterval})
+    statusInformation.EntityData.Leafs.Append("latency-number", types.YLeaf{"LatencyNumber", statusInformation.LatencyNumber})
+    statusInformation.EntityData.Leafs.Append("latency-minimum", types.YLeaf{"LatencyMinimum", statusInformation.LatencyMinimum})
+    statusInformation.EntityData.Leafs.Append("latency-maximum", types.YLeaf{"LatencyMaximum", statusInformation.LatencyMaximum})
+    statusInformation.EntityData.Leafs.Append("latency-average", types.YLeaf{"LatencyAverage", statusInformation.LatencyAverage})
+    statusInformation.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", statusInformation.NodeId})
+    statusInformation.EntityData.Leafs.Append("internal-label", types.YLeaf{"InternalLabel", statusInformation.InternalLabel})
+
+    statusInformation.EntityData.YListKeys = []string {}
+
     return &(statusInformation.EntityData)
 }
 
@@ -2712,11 +2863,11 @@ type Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_StatusInformatio
     Dummy interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -2730,12 +2881,15 @@ func (sourceAddress *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_
     sourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourceAddress.EntityData.Children = make(map[string]types.YChild)
-    sourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    sourceAddress.EntityData.Leafs["afi"] = types.YLeaf{"Afi", sourceAddress.Afi}
-    sourceAddress.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", sourceAddress.Dummy}
-    sourceAddress.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", sourceAddress.Ipv4}
-    sourceAddress.EntityData.Leafs["ipv6"] = types.YLeaf{"Ipv6", sourceAddress.Ipv6}
+    sourceAddress.EntityData.Children = types.NewOrderedMap()
+    sourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    sourceAddress.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", sourceAddress.Afi})
+    sourceAddress.EntityData.Leafs.Append("dummy", types.YLeaf{"Dummy", sourceAddress.Dummy})
+    sourceAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", sourceAddress.Ipv4})
+    sourceAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", sourceAddress.Ipv6})
+
+    sourceAddress.EntityData.YListKeys = []string {}
+
     return &(sourceAddress.EntityData)
 }
 
@@ -2772,12 +2926,15 @@ func (lastStateChange *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetai
     lastStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastStateChange.EntityData.Leafs["days"] = types.YLeaf{"Days", lastStateChange.Days}
-    lastStateChange.EntityData.Leafs["hours"] = types.YLeaf{"Hours", lastStateChange.Hours}
-    lastStateChange.EntityData.Leafs["minutes"] = types.YLeaf{"Minutes", lastStateChange.Minutes}
-    lastStateChange.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lastStateChange.Seconds}
+    lastStateChange.EntityData.Children = types.NewOrderedMap()
+    lastStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastStateChange.EntityData.Leafs.Append("days", types.YLeaf{"Days", lastStateChange.Days})
+    lastStateChange.EntityData.Leafs.Append("hours", types.YLeaf{"Hours", lastStateChange.Hours})
+    lastStateChange.EntityData.Leafs.Append("minutes", types.YLeaf{"Minutes", lastStateChange.Minutes})
+    lastStateChange.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lastStateChange.Seconds})
+
+    lastStateChange.EntityData.YListKeys = []string {}
+
     return &(lastStateChange.EntityData)
 }
 
@@ -2852,24 +3009,27 @@ func (transmitPacket *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail
     transmitPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitPacket.EntityData.Children = make(map[string]types.YChild)
-    transmitPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitPacket.EntityData.Leafs["version"] = types.YLeaf{"Version", transmitPacket.Version}
-    transmitPacket.EntityData.Leafs["diagnostic"] = types.YLeaf{"Diagnostic", transmitPacket.Diagnostic}
-    transmitPacket.EntityData.Leafs["ihear-you"] = types.YLeaf{"IhearYou", transmitPacket.IhearYou}
-    transmitPacket.EntityData.Leafs["state"] = types.YLeaf{"State", transmitPacket.State}
-    transmitPacket.EntityData.Leafs["demand"] = types.YLeaf{"Demand", transmitPacket.Demand}
-    transmitPacket.EntityData.Leafs["poll"] = types.YLeaf{"Poll", transmitPacket.Poll}
-    transmitPacket.EntityData.Leafs["final"] = types.YLeaf{"Final", transmitPacket.Final}
-    transmitPacket.EntityData.Leafs["control-plane-independent"] = types.YLeaf{"ControlPlaneIndependent", transmitPacket.ControlPlaneIndependent}
-    transmitPacket.EntityData.Leafs["authentication-present"] = types.YLeaf{"AuthenticationPresent", transmitPacket.AuthenticationPresent}
-    transmitPacket.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", transmitPacket.DetectionMultiplier}
-    transmitPacket.EntityData.Leafs["length"] = types.YLeaf{"Length", transmitPacket.Length}
-    transmitPacket.EntityData.Leafs["my-discriminator"] = types.YLeaf{"MyDiscriminator", transmitPacket.MyDiscriminator}
-    transmitPacket.EntityData.Leafs["your-discriminator"] = types.YLeaf{"YourDiscriminator", transmitPacket.YourDiscriminator}
-    transmitPacket.EntityData.Leafs["desired-minimum-transmit-interval"] = types.YLeaf{"DesiredMinimumTransmitInterval", transmitPacket.DesiredMinimumTransmitInterval}
-    transmitPacket.EntityData.Leafs["required-minimum-receive-interval"] = types.YLeaf{"RequiredMinimumReceiveInterval", transmitPacket.RequiredMinimumReceiveInterval}
-    transmitPacket.EntityData.Leafs["required-minimum-echo-receive-interval"] = types.YLeaf{"RequiredMinimumEchoReceiveInterval", transmitPacket.RequiredMinimumEchoReceiveInterval}
+    transmitPacket.EntityData.Children = types.NewOrderedMap()
+    transmitPacket.EntityData.Leafs = types.NewOrderedMap()
+    transmitPacket.EntityData.Leafs.Append("version", types.YLeaf{"Version", transmitPacket.Version})
+    transmitPacket.EntityData.Leafs.Append("diagnostic", types.YLeaf{"Diagnostic", transmitPacket.Diagnostic})
+    transmitPacket.EntityData.Leafs.Append("ihear-you", types.YLeaf{"IhearYou", transmitPacket.IhearYou})
+    transmitPacket.EntityData.Leafs.Append("state", types.YLeaf{"State", transmitPacket.State})
+    transmitPacket.EntityData.Leafs.Append("demand", types.YLeaf{"Demand", transmitPacket.Demand})
+    transmitPacket.EntityData.Leafs.Append("poll", types.YLeaf{"Poll", transmitPacket.Poll})
+    transmitPacket.EntityData.Leafs.Append("final", types.YLeaf{"Final", transmitPacket.Final})
+    transmitPacket.EntityData.Leafs.Append("control-plane-independent", types.YLeaf{"ControlPlaneIndependent", transmitPacket.ControlPlaneIndependent})
+    transmitPacket.EntityData.Leafs.Append("authentication-present", types.YLeaf{"AuthenticationPresent", transmitPacket.AuthenticationPresent})
+    transmitPacket.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", transmitPacket.DetectionMultiplier})
+    transmitPacket.EntityData.Leafs.Append("length", types.YLeaf{"Length", transmitPacket.Length})
+    transmitPacket.EntityData.Leafs.Append("my-discriminator", types.YLeaf{"MyDiscriminator", transmitPacket.MyDiscriminator})
+    transmitPacket.EntityData.Leafs.Append("your-discriminator", types.YLeaf{"YourDiscriminator", transmitPacket.YourDiscriminator})
+    transmitPacket.EntityData.Leafs.Append("desired-minimum-transmit-interval", types.YLeaf{"DesiredMinimumTransmitInterval", transmitPacket.DesiredMinimumTransmitInterval})
+    transmitPacket.EntityData.Leafs.Append("required-minimum-receive-interval", types.YLeaf{"RequiredMinimumReceiveInterval", transmitPacket.RequiredMinimumReceiveInterval})
+    transmitPacket.EntityData.Leafs.Append("required-minimum-echo-receive-interval", types.YLeaf{"RequiredMinimumEchoReceiveInterval", transmitPacket.RequiredMinimumEchoReceiveInterval})
+
+    transmitPacket.EntityData.YListKeys = []string {}
+
     return &(transmitPacket.EntityData)
 }
 
@@ -2944,24 +3104,27 @@ func (receivePacket *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_
     receivePacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivePacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivePacket.EntityData.Children = make(map[string]types.YChild)
-    receivePacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivePacket.EntityData.Leafs["version"] = types.YLeaf{"Version", receivePacket.Version}
-    receivePacket.EntityData.Leafs["diagnostic"] = types.YLeaf{"Diagnostic", receivePacket.Diagnostic}
-    receivePacket.EntityData.Leafs["ihear-you"] = types.YLeaf{"IhearYou", receivePacket.IhearYou}
-    receivePacket.EntityData.Leafs["state"] = types.YLeaf{"State", receivePacket.State}
-    receivePacket.EntityData.Leafs["demand"] = types.YLeaf{"Demand", receivePacket.Demand}
-    receivePacket.EntityData.Leafs["poll"] = types.YLeaf{"Poll", receivePacket.Poll}
-    receivePacket.EntityData.Leafs["final"] = types.YLeaf{"Final", receivePacket.Final}
-    receivePacket.EntityData.Leafs["control-plane-independent"] = types.YLeaf{"ControlPlaneIndependent", receivePacket.ControlPlaneIndependent}
-    receivePacket.EntityData.Leafs["authentication-present"] = types.YLeaf{"AuthenticationPresent", receivePacket.AuthenticationPresent}
-    receivePacket.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", receivePacket.DetectionMultiplier}
-    receivePacket.EntityData.Leafs["length"] = types.YLeaf{"Length", receivePacket.Length}
-    receivePacket.EntityData.Leafs["my-discriminator"] = types.YLeaf{"MyDiscriminator", receivePacket.MyDiscriminator}
-    receivePacket.EntityData.Leafs["your-discriminator"] = types.YLeaf{"YourDiscriminator", receivePacket.YourDiscriminator}
-    receivePacket.EntityData.Leafs["desired-minimum-transmit-interval"] = types.YLeaf{"DesiredMinimumTransmitInterval", receivePacket.DesiredMinimumTransmitInterval}
-    receivePacket.EntityData.Leafs["required-minimum-receive-interval"] = types.YLeaf{"RequiredMinimumReceiveInterval", receivePacket.RequiredMinimumReceiveInterval}
-    receivePacket.EntityData.Leafs["required-minimum-echo-receive-interval"] = types.YLeaf{"RequiredMinimumEchoReceiveInterval", receivePacket.RequiredMinimumEchoReceiveInterval}
+    receivePacket.EntityData.Children = types.NewOrderedMap()
+    receivePacket.EntityData.Leafs = types.NewOrderedMap()
+    receivePacket.EntityData.Leafs.Append("version", types.YLeaf{"Version", receivePacket.Version})
+    receivePacket.EntityData.Leafs.Append("diagnostic", types.YLeaf{"Diagnostic", receivePacket.Diagnostic})
+    receivePacket.EntityData.Leafs.Append("ihear-you", types.YLeaf{"IhearYou", receivePacket.IhearYou})
+    receivePacket.EntityData.Leafs.Append("state", types.YLeaf{"State", receivePacket.State})
+    receivePacket.EntityData.Leafs.Append("demand", types.YLeaf{"Demand", receivePacket.Demand})
+    receivePacket.EntityData.Leafs.Append("poll", types.YLeaf{"Poll", receivePacket.Poll})
+    receivePacket.EntityData.Leafs.Append("final", types.YLeaf{"Final", receivePacket.Final})
+    receivePacket.EntityData.Leafs.Append("control-plane-independent", types.YLeaf{"ControlPlaneIndependent", receivePacket.ControlPlaneIndependent})
+    receivePacket.EntityData.Leafs.Append("authentication-present", types.YLeaf{"AuthenticationPresent", receivePacket.AuthenticationPresent})
+    receivePacket.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", receivePacket.DetectionMultiplier})
+    receivePacket.EntityData.Leafs.Append("length", types.YLeaf{"Length", receivePacket.Length})
+    receivePacket.EntityData.Leafs.Append("my-discriminator", types.YLeaf{"MyDiscriminator", receivePacket.MyDiscriminator})
+    receivePacket.EntityData.Leafs.Append("your-discriminator", types.YLeaf{"YourDiscriminator", receivePacket.YourDiscriminator})
+    receivePacket.EntityData.Leafs.Append("desired-minimum-transmit-interval", types.YLeaf{"DesiredMinimumTransmitInterval", receivePacket.DesiredMinimumTransmitInterval})
+    receivePacket.EntityData.Leafs.Append("required-minimum-receive-interval", types.YLeaf{"RequiredMinimumReceiveInterval", receivePacket.RequiredMinimumReceiveInterval})
+    receivePacket.EntityData.Leafs.Append("required-minimum-echo-receive-interval", types.YLeaf{"RequiredMinimumEchoReceiveInterval", receivePacket.RequiredMinimumEchoReceiveInterval})
+
+    receivePacket.EntityData.YListKeys = []string {}
+
     return &(receivePacket.EntityData)
 }
 
@@ -2988,10 +3151,13 @@ func (statusBriefInformation *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessi
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusBriefInformation.EntityData.Children = make(map[string]types.YChild)
-    statusBriefInformation.EntityData.Children["async-interval-multiplier"] = types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier}
-    statusBriefInformation.EntityData.Children["echo-interval-multiplier"] = types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier}
-    statusBriefInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    statusBriefInformation.EntityData.Children = types.NewOrderedMap()
+    statusBriefInformation.EntityData.Children.Append("async-interval-multiplier", types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier})
+    statusBriefInformation.EntityData.Children.Append("echo-interval-multiplier", types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier})
+    statusBriefInformation.EntityData.Leafs = types.NewOrderedMap()
+
+    statusBriefInformation.EntityData.YListKeys = []string {}
+
     return &(statusBriefInformation.EntityData)
 }
 
@@ -3027,12 +3193,15 @@ func (asyncIntervalMultiplier *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSess
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    asyncIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-remote-transmit-interval"] = types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-local-transmit-interval"] = types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier}
+    asyncIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-remote-transmit-interval", types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-local-transmit-interval", types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier})
+
+    asyncIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(asyncIntervalMultiplier.EntityData)
 }
 
@@ -3064,11 +3233,14 @@ func (echoIntervalMultiplier *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessi
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    echoIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoIntervalMultiplier.EntityData.Leafs["negotiated-transmit-interval"] = types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval}
-    echoIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime}
-    echoIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier}
+    echoIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs.Append("negotiated-transmit-interval", types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier})
+
+    echoIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(echoIntervalMultiplier.EntityData)
 }
 
@@ -3110,13 +3282,16 @@ func (asyncTransmitStatistics *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSess
     asyncTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncTransmitStatistics.EntityData.Children = make(map[string]types.YChild)
-    asyncTransmitStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncTransmitStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", asyncTransmitStatistics.Number}
-    asyncTransmitStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", asyncTransmitStatistics.Minimum}
-    asyncTransmitStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", asyncTransmitStatistics.Maximum}
-    asyncTransmitStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", asyncTransmitStatistics.Average}
-    asyncTransmitStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", asyncTransmitStatistics.Last}
+    asyncTransmitStatistics.EntityData.Children = types.NewOrderedMap()
+    asyncTransmitStatistics.EntityData.Leafs = types.NewOrderedMap()
+    asyncTransmitStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", asyncTransmitStatistics.Number})
+    asyncTransmitStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", asyncTransmitStatistics.Minimum})
+    asyncTransmitStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", asyncTransmitStatistics.Maximum})
+    asyncTransmitStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", asyncTransmitStatistics.Average})
+    asyncTransmitStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", asyncTransmitStatistics.Last})
+
+    asyncTransmitStatistics.EntityData.YListKeys = []string {}
+
     return &(asyncTransmitStatistics.EntityData)
 }
 
@@ -3158,13 +3333,16 @@ func (asyncReceiveStatistics *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessi
     asyncReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncReceiveStatistics.EntityData.Children = make(map[string]types.YChild)
-    asyncReceiveStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncReceiveStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", asyncReceiveStatistics.Number}
-    asyncReceiveStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", asyncReceiveStatistics.Minimum}
-    asyncReceiveStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", asyncReceiveStatistics.Maximum}
-    asyncReceiveStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", asyncReceiveStatistics.Average}
-    asyncReceiveStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", asyncReceiveStatistics.Last}
+    asyncReceiveStatistics.EntityData.Children = types.NewOrderedMap()
+    asyncReceiveStatistics.EntityData.Leafs = types.NewOrderedMap()
+    asyncReceiveStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", asyncReceiveStatistics.Number})
+    asyncReceiveStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", asyncReceiveStatistics.Minimum})
+    asyncReceiveStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", asyncReceiveStatistics.Maximum})
+    asyncReceiveStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", asyncReceiveStatistics.Average})
+    asyncReceiveStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", asyncReceiveStatistics.Last})
+
+    asyncReceiveStatistics.EntityData.YListKeys = []string {}
+
     return &(asyncReceiveStatistics.EntityData)
 }
 
@@ -3206,13 +3384,16 @@ func (echoTransmitStatistics *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessi
     echoTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoTransmitStatistics.EntityData.Children = make(map[string]types.YChild)
-    echoTransmitStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoTransmitStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", echoTransmitStatistics.Number}
-    echoTransmitStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", echoTransmitStatistics.Minimum}
-    echoTransmitStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", echoTransmitStatistics.Maximum}
-    echoTransmitStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", echoTransmitStatistics.Average}
-    echoTransmitStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", echoTransmitStatistics.Last}
+    echoTransmitStatistics.EntityData.Children = types.NewOrderedMap()
+    echoTransmitStatistics.EntityData.Leafs = types.NewOrderedMap()
+    echoTransmitStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", echoTransmitStatistics.Number})
+    echoTransmitStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", echoTransmitStatistics.Minimum})
+    echoTransmitStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", echoTransmitStatistics.Maximum})
+    echoTransmitStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", echoTransmitStatistics.Average})
+    echoTransmitStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", echoTransmitStatistics.Last})
+
+    echoTransmitStatistics.EntityData.YListKeys = []string {}
+
     return &(echoTransmitStatistics.EntityData)
 }
 
@@ -3254,13 +3435,16 @@ func (echoReceivedStatistics *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessi
     echoReceivedStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoReceivedStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoReceivedStatistics.EntityData.Children = make(map[string]types.YChild)
-    echoReceivedStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoReceivedStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", echoReceivedStatistics.Number}
-    echoReceivedStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", echoReceivedStatistics.Minimum}
-    echoReceivedStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", echoReceivedStatistics.Maximum}
-    echoReceivedStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", echoReceivedStatistics.Average}
-    echoReceivedStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", echoReceivedStatistics.Last}
+    echoReceivedStatistics.EntityData.Children = types.NewOrderedMap()
+    echoReceivedStatistics.EntityData.Leafs = types.NewOrderedMap()
+    echoReceivedStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", echoReceivedStatistics.Number})
+    echoReceivedStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", echoReceivedStatistics.Minimum})
+    echoReceivedStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", echoReceivedStatistics.Maximum})
+    echoReceivedStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", echoReceivedStatistics.Average})
+    echoReceivedStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", echoReceivedStatistics.Last})
+
+    echoReceivedStatistics.EntityData.YListKeys = []string {}
+
     return &(echoReceivedStatistics.EntityData)
 }
 
@@ -3287,10 +3471,13 @@ func (mpDownloadState *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetai
     mpDownloadState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpDownloadState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mpDownloadState.EntityData.Children = make(map[string]types.YChild)
-    mpDownloadState.EntityData.Children["change-time"] = types.YChild{"ChangeTime", &mpDownloadState.ChangeTime}
-    mpDownloadState.EntityData.Leafs = make(map[string]types.YLeaf)
-    mpDownloadState.EntityData.Leafs["mp-download-state"] = types.YLeaf{"MpDownloadState", mpDownloadState.MpDownloadState}
+    mpDownloadState.EntityData.Children = types.NewOrderedMap()
+    mpDownloadState.EntityData.Children.Append("change-time", types.YChild{"ChangeTime", &mpDownloadState.ChangeTime})
+    mpDownloadState.EntityData.Leafs = types.NewOrderedMap()
+    mpDownloadState.EntityData.Leafs.Append("mp-download-state", types.YLeaf{"MpDownloadState", mpDownloadState.MpDownloadState})
+
+    mpDownloadState.EntityData.YListKeys = []string {}
+
     return &(mpDownloadState.EntityData)
 }
 
@@ -3319,10 +3506,13 @@ func (changeTime *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_MpD
     changeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    changeTime.EntityData.Children = make(map[string]types.YChild)
-    changeTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    changeTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", changeTime.Seconds}
-    changeTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", changeTime.Nanoseconds}
+    changeTime.EntityData.Children = types.NewOrderedMap()
+    changeTime.EntityData.Leafs = types.NewOrderedMap()
+    changeTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", changeTime.Seconds})
+    changeTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", changeTime.Nanoseconds})
+
+    changeTime.EntityData.YListKeys = []string {}
+
     return &(changeTime.EntityData)
 }
 
@@ -3381,20 +3571,23 @@ func (lspPingInfo *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_Ls
     lspPingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingInfo.EntityData.Children = make(map[string]types.YChild)
-    lspPingInfo.EntityData.Children["lsp-ping-tx-last-time"] = types.YChild{"LspPingTxLastTime", &lspPingInfo.LspPingTxLastTime}
-    lspPingInfo.EntityData.Children["lsp-ping-tx-last-error-time"] = types.YChild{"LspPingTxLastErrorTime", &lspPingInfo.LspPingTxLastErrorTime}
-    lspPingInfo.EntityData.Children["lsp-ping-rx-last-time"] = types.YChild{"LspPingRxLastTime", &lspPingInfo.LspPingRxLastTime}
-    lspPingInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-count"] = types.YLeaf{"LspPingTxCount", lspPingInfo.LspPingTxCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-error-count"] = types.YLeaf{"LspPingTxErrorCount", lspPingInfo.LspPingTxErrorCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-last-rc"] = types.YLeaf{"LspPingTxLastRc", lspPingInfo.LspPingTxLastRc}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-last-error-rc"] = types.YLeaf{"LspPingTxLastErrorRc", lspPingInfo.LspPingTxLastErrorRc}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-discr"] = types.YLeaf{"LspPingRxLastDiscr", lspPingInfo.LspPingRxLastDiscr}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-count"] = types.YLeaf{"LspPingRxCount", lspPingInfo.LspPingRxCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-code"] = types.YLeaf{"LspPingRxLastCode", lspPingInfo.LspPingRxLastCode}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-subcode"] = types.YLeaf{"LspPingRxLastSubcode", lspPingInfo.LspPingRxLastSubcode}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-output"] = types.YLeaf{"LspPingRxLastOutput", lspPingInfo.LspPingRxLastOutput}
+    lspPingInfo.EntityData.Children = types.NewOrderedMap()
+    lspPingInfo.EntityData.Children.Append("lsp-ping-tx-last-time", types.YChild{"LspPingTxLastTime", &lspPingInfo.LspPingTxLastTime})
+    lspPingInfo.EntityData.Children.Append("lsp-ping-tx-last-error-time", types.YChild{"LspPingTxLastErrorTime", &lspPingInfo.LspPingTxLastErrorTime})
+    lspPingInfo.EntityData.Children.Append("lsp-ping-rx-last-time", types.YChild{"LspPingRxLastTime", &lspPingInfo.LspPingRxLastTime})
+    lspPingInfo.EntityData.Leafs = types.NewOrderedMap()
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-count", types.YLeaf{"LspPingTxCount", lspPingInfo.LspPingTxCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-error-count", types.YLeaf{"LspPingTxErrorCount", lspPingInfo.LspPingTxErrorCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-last-rc", types.YLeaf{"LspPingTxLastRc", lspPingInfo.LspPingTxLastRc})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-last-error-rc", types.YLeaf{"LspPingTxLastErrorRc", lspPingInfo.LspPingTxLastErrorRc})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-discr", types.YLeaf{"LspPingRxLastDiscr", lspPingInfo.LspPingRxLastDiscr})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-count", types.YLeaf{"LspPingRxCount", lspPingInfo.LspPingRxCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-code", types.YLeaf{"LspPingRxLastCode", lspPingInfo.LspPingRxLastCode})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-subcode", types.YLeaf{"LspPingRxLastSubcode", lspPingInfo.LspPingRxLastSubcode})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-output", types.YLeaf{"LspPingRxLastOutput", lspPingInfo.LspPingRxLastOutput})
+
+    lspPingInfo.EntityData.YListKeys = []string {}
+
     return &(lspPingInfo.EntityData)
 }
 
@@ -3423,10 +3616,13 @@ func (lspPingTxLastTime *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDet
     lspPingTxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingTxLastTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingTxLastTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingTxLastTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingTxLastTime.Seconds}
-    lspPingTxLastTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingTxLastTime.Nanoseconds}
+    lspPingTxLastTime.EntityData.Children = types.NewOrderedMap()
+    lspPingTxLastTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingTxLastTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingTxLastTime.Seconds})
+    lspPingTxLastTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingTxLastTime.Nanoseconds})
+
+    lspPingTxLastTime.EntityData.YListKeys = []string {}
+
     return &(lspPingTxLastTime.EntityData)
 }
 
@@ -3455,10 +3651,13 @@ func (lspPingTxLastErrorTime *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessi
     lspPingTxLastErrorTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastErrorTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingTxLastErrorTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingTxLastErrorTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingTxLastErrorTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingTxLastErrorTime.Seconds}
-    lspPingTxLastErrorTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingTxLastErrorTime.Nanoseconds}
+    lspPingTxLastErrorTime.EntityData.Children = types.NewOrderedMap()
+    lspPingTxLastErrorTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingTxLastErrorTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingTxLastErrorTime.Seconds})
+    lspPingTxLastErrorTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingTxLastErrorTime.Nanoseconds})
+
+    lspPingTxLastErrorTime.EntityData.YListKeys = []string {}
+
     return &(lspPingTxLastErrorTime.EntityData)
 }
 
@@ -3487,10 +3686,13 @@ func (lspPingRxLastTime *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDet
     lspPingRxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingRxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingRxLastTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingRxLastTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingRxLastTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingRxLastTime.Seconds}
-    lspPingRxLastTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingRxLastTime.Nanoseconds}
+    lspPingRxLastTime.EntityData.Children = types.NewOrderedMap()
+    lspPingRxLastTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingRxLastTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingRxLastTime.Seconds})
+    lspPingRxLastTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingRxLastTime.Nanoseconds})
+
+    lspPingRxLastTime.EntityData.YListKeys = []string {}
+
     return &(lspPingRxLastTime.EntityData)
 }
 
@@ -3530,13 +3732,16 @@ func (ownerInformation *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDeta
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ownerInformation.EntityData.Children = make(map[string]types.YChild)
-    ownerInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    ownerInformation.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ownerInformation.Interval}
-    ownerInformation.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier}
-    ownerInformation.EntityData.Leafs["adjusted-interval"] = types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval}
-    ownerInformation.EntityData.Leafs["adjusted-detection-multiplier"] = types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier}
-    ownerInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", ownerInformation.Name}
+    ownerInformation.EntityData.Children = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ownerInformation.Interval})
+    ownerInformation.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("adjusted-interval", types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval})
+    ownerInformation.EntityData.Leafs.Append("adjusted-detection-multiplier", types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", ownerInformation.Name})
+
+    ownerInformation.EntityData.YListKeys = []string {}
+
     return &(ownerInformation.EntityData)
 }
 
@@ -3561,7 +3766,7 @@ type Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_AssociationInfor
 
     // Client applications owning the session. The type is slice of
     // Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_AssociationInformation_OwnerInformation.
-    OwnerInformation []Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_AssociationInformation_OwnerInformation
+    OwnerInformation []*Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_AssociationInformation_OwnerInformation
 }
 
 func (associationInformation *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_AssociationInformation) GetEntityData() *types.CommonEntityData {
@@ -3574,16 +3779,19 @@ func (associationInformation *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessi
     associationInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    associationInformation.EntityData.Children = make(map[string]types.YChild)
-    associationInformation.EntityData.Children["ip-destination-address"] = types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress}
-    associationInformation.EntityData.Children["owner-information"] = types.YChild{"OwnerInformation", nil}
+    associationInformation.EntityData.Children = types.NewOrderedMap()
+    associationInformation.EntityData.Children.Append("ip-destination-address", types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress})
+    associationInformation.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range associationInformation.OwnerInformation {
-        associationInformation.EntityData.Children[types.GetSegmentPath(&associationInformation.OwnerInformation[i])] = types.YChild{"OwnerInformation", &associationInformation.OwnerInformation[i]}
+        associationInformation.EntityData.Children.Append(types.GetSegmentPath(associationInformation.OwnerInformation[i]), types.YChild{"OwnerInformation", associationInformation.OwnerInformation[i]})
     }
-    associationInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    associationInformation.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", associationInformation.InterfaceName}
-    associationInformation.EntityData.Leafs["sessiontype"] = types.YLeaf{"Sessiontype", associationInformation.Sessiontype}
-    associationInformation.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", associationInformation.LocalDiscriminator}
+    associationInformation.EntityData.Leafs = types.NewOrderedMap()
+    associationInformation.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", associationInformation.InterfaceName})
+    associationInformation.EntityData.Leafs.Append("sessiontype", types.YLeaf{"Sessiontype", associationInformation.Sessiontype})
+    associationInformation.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", associationInformation.LocalDiscriminator})
+
+    associationInformation.EntityData.YListKeys = []string {}
+
     return &(associationInformation.EntityData)
 }
 
@@ -3600,11 +3808,11 @@ type Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_AssociationInfor
     Dummy interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -3618,12 +3826,15 @@ func (ipDestinationAddress *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSession
     ipDestinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDestinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipDestinationAddress.EntityData.Children = make(map[string]types.YChild)
-    ipDestinationAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipDestinationAddress.EntityData.Leafs["afi"] = types.YLeaf{"Afi", ipDestinationAddress.Afi}
-    ipDestinationAddress.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", ipDestinationAddress.Dummy}
-    ipDestinationAddress.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", ipDestinationAddress.Ipv4}
-    ipDestinationAddress.EntityData.Leafs["ipv6"] = types.YLeaf{"Ipv6", ipDestinationAddress.Ipv6}
+    ipDestinationAddress.EntityData.Children = types.NewOrderedMap()
+    ipDestinationAddress.EntityData.Leafs = types.NewOrderedMap()
+    ipDestinationAddress.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", ipDestinationAddress.Afi})
+    ipDestinationAddress.EntityData.Leafs.Append("dummy", types.YLeaf{"Dummy", ipDestinationAddress.Dummy})
+    ipDestinationAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", ipDestinationAddress.Ipv4})
+    ipDestinationAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", ipDestinationAddress.Ipv6})
+
+    ipDestinationAddress.EntityData.YListKeys = []string {}
+
     return &(ipDestinationAddress.EntityData)
 }
 
@@ -3663,13 +3874,16 @@ func (ownerInformation *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDeta
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ownerInformation.EntityData.Children = make(map[string]types.YChild)
-    ownerInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    ownerInformation.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ownerInformation.Interval}
-    ownerInformation.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier}
-    ownerInformation.EntityData.Leafs["adjusted-interval"] = types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval}
-    ownerInformation.EntityData.Leafs["adjusted-detection-multiplier"] = types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier}
-    ownerInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", ownerInformation.Name}
+    ownerInformation.EntityData.Children = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ownerInformation.Interval})
+    ownerInformation.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("adjusted-interval", types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval})
+    ownerInformation.EntityData.Leafs.Append("adjusted-detection-multiplier", types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", ownerInformation.Name})
+
+    ownerInformation.EntityData.YListKeys = []string {}
+
     return &(ownerInformation.EntityData)
 }
 
@@ -3682,7 +3896,7 @@ type Bfd_Ipv4MultiHopSessionBriefs struct {
 
     // Brief information for a single IPv4 multihop BFD session. The type is slice
     // of Bfd_Ipv4MultiHopSessionBriefs_Ipv4MultiHopSessionBrief.
-    Ipv4MultiHopSessionBrief []Bfd_Ipv4MultiHopSessionBriefs_Ipv4MultiHopSessionBrief
+    Ipv4MultiHopSessionBrief []*Bfd_Ipv4MultiHopSessionBriefs_Ipv4MultiHopSessionBrief
 }
 
 func (ipv4MultiHopSessionBriefs *Bfd_Ipv4MultiHopSessionBriefs) GetEntityData() *types.CommonEntityData {
@@ -3695,12 +3909,15 @@ func (ipv4MultiHopSessionBriefs *Bfd_Ipv4MultiHopSessionBriefs) GetEntityData() 
     ipv4MultiHopSessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopSessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4MultiHopSessionBriefs.EntityData.Children = make(map[string]types.YChild)
-    ipv4MultiHopSessionBriefs.EntityData.Children["ipv4-multi-hop-session-brief"] = types.YChild{"Ipv4MultiHopSessionBrief", nil}
+    ipv4MultiHopSessionBriefs.EntityData.Children = types.NewOrderedMap()
+    ipv4MultiHopSessionBriefs.EntityData.Children.Append("ipv4-multi-hop-session-brief", types.YChild{"Ipv4MultiHopSessionBrief", nil})
     for i := range ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief {
-        ipv4MultiHopSessionBriefs.EntityData.Children[types.GetSegmentPath(&ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief[i])] = types.YChild{"Ipv4MultiHopSessionBrief", &ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief[i]}
+        ipv4MultiHopSessionBriefs.EntityData.Children.Append(types.GetSegmentPath(ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief[i]), types.YChild{"Ipv4MultiHopSessionBrief", ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief[i]})
     }
-    ipv4MultiHopSessionBriefs.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4MultiHopSessionBriefs.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4MultiHopSessionBriefs.EntityData.YListKeys = []string {}
+
     return &(ipv4MultiHopSessionBriefs.EntityData)
 }
 
@@ -3712,22 +3929,22 @@ type Bfd_Ipv4MultiHopSessionBriefs_Ipv4MultiHopSessionBrief struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
-    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // State. The type is BfdMgmtSessionState.
@@ -3756,18 +3973,21 @@ func (ipv4MultiHopSessionBrief *Bfd_Ipv4MultiHopSessionBriefs_Ipv4MultiHopSessio
     ipv4MultiHopSessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopSessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4MultiHopSessionBrief.EntityData.Children = make(map[string]types.YChild)
-    ipv4MultiHopSessionBrief.EntityData.Children["status-brief-information"] = types.YChild{"StatusBriefInformation", &ipv4MultiHopSessionBrief.StatusBriefInformation}
-    ipv4MultiHopSessionBrief.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4MultiHopSessionBrief.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", ipv4MultiHopSessionBrief.SourceAddress}
-    ipv4MultiHopSessionBrief.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", ipv4MultiHopSessionBrief.DestinationAddress}
-    ipv4MultiHopSessionBrief.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv4MultiHopSessionBrief.Location}
-    ipv4MultiHopSessionBrief.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4MultiHopSessionBrief.VrfName}
-    ipv4MultiHopSessionBrief.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", ipv4MultiHopSessionBrief.NodeId}
-    ipv4MultiHopSessionBrief.EntityData.Leafs["state"] = types.YLeaf{"State", ipv4MultiHopSessionBrief.State}
-    ipv4MultiHopSessionBrief.EntityData.Leafs["session-type"] = types.YLeaf{"SessionType", ipv4MultiHopSessionBrief.SessionType}
-    ipv4MultiHopSessionBrief.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", ipv4MultiHopSessionBrief.SessionSubtype}
-    ipv4MultiHopSessionBrief.EntityData.Leafs["session-flags"] = types.YLeaf{"SessionFlags", ipv4MultiHopSessionBrief.SessionFlags}
+    ipv4MultiHopSessionBrief.EntityData.Children = types.NewOrderedMap()
+    ipv4MultiHopSessionBrief.EntityData.Children.Append("status-brief-information", types.YChild{"StatusBriefInformation", &ipv4MultiHopSessionBrief.StatusBriefInformation})
+    ipv4MultiHopSessionBrief.EntityData.Leafs = types.NewOrderedMap()
+    ipv4MultiHopSessionBrief.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", ipv4MultiHopSessionBrief.SourceAddress})
+    ipv4MultiHopSessionBrief.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", ipv4MultiHopSessionBrief.DestinationAddress})
+    ipv4MultiHopSessionBrief.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv4MultiHopSessionBrief.Location})
+    ipv4MultiHopSessionBrief.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4MultiHopSessionBrief.VrfName})
+    ipv4MultiHopSessionBrief.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", ipv4MultiHopSessionBrief.NodeId})
+    ipv4MultiHopSessionBrief.EntityData.Leafs.Append("state", types.YLeaf{"State", ipv4MultiHopSessionBrief.State})
+    ipv4MultiHopSessionBrief.EntityData.Leafs.Append("session-type", types.YLeaf{"SessionType", ipv4MultiHopSessionBrief.SessionType})
+    ipv4MultiHopSessionBrief.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", ipv4MultiHopSessionBrief.SessionSubtype})
+    ipv4MultiHopSessionBrief.EntityData.Leafs.Append("session-flags", types.YLeaf{"SessionFlags", ipv4MultiHopSessionBrief.SessionFlags})
+
+    ipv4MultiHopSessionBrief.EntityData.YListKeys = []string {}
+
     return &(ipv4MultiHopSessionBrief.EntityData)
 }
 
@@ -3794,10 +4014,13 @@ func (statusBriefInformation *Bfd_Ipv4MultiHopSessionBriefs_Ipv4MultiHopSessionB
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusBriefInformation.EntityData.Children = make(map[string]types.YChild)
-    statusBriefInformation.EntityData.Children["async-interval-multiplier"] = types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier}
-    statusBriefInformation.EntityData.Children["echo-interval-multiplier"] = types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier}
-    statusBriefInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    statusBriefInformation.EntityData.Children = types.NewOrderedMap()
+    statusBriefInformation.EntityData.Children.Append("async-interval-multiplier", types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier})
+    statusBriefInformation.EntityData.Children.Append("echo-interval-multiplier", types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier})
+    statusBriefInformation.EntityData.Leafs = types.NewOrderedMap()
+
+    statusBriefInformation.EntityData.YListKeys = []string {}
+
     return &(statusBriefInformation.EntityData)
 }
 
@@ -3833,12 +4056,15 @@ func (asyncIntervalMultiplier *Bfd_Ipv4MultiHopSessionBriefs_Ipv4MultiHopSession
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    asyncIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-remote-transmit-interval"] = types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-local-transmit-interval"] = types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier}
+    asyncIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-remote-transmit-interval", types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-local-transmit-interval", types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier})
+
+    asyncIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(asyncIntervalMultiplier.EntityData)
 }
 
@@ -3870,11 +4096,14 @@ func (echoIntervalMultiplier *Bfd_Ipv4MultiHopSessionBriefs_Ipv4MultiHopSessionB
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    echoIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoIntervalMultiplier.EntityData.Leafs["negotiated-transmit-interval"] = types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval}
-    echoIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime}
-    echoIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier}
+    echoIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs.Append("negotiated-transmit-interval", types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier})
+
+    echoIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(echoIntervalMultiplier.EntityData)
 }
 
@@ -3886,7 +4115,7 @@ type Bfd_GenericSummaries struct {
 
     // Generic summary information for bfd location table. The type is slice of
     // Bfd_GenericSummaries_GenericSummary.
-    GenericSummary []Bfd_GenericSummaries_GenericSummary
+    GenericSummary []*Bfd_GenericSummaries_GenericSummary
 }
 
 func (genericSummaries *Bfd_GenericSummaries) GetEntityData() *types.CommonEntityData {
@@ -3899,12 +4128,15 @@ func (genericSummaries *Bfd_GenericSummaries) GetEntityData() *types.CommonEntit
     genericSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    genericSummaries.EntityData.Children = make(map[string]types.YChild)
-    genericSummaries.EntityData.Children["generic-summary"] = types.YChild{"GenericSummary", nil}
+    genericSummaries.EntityData.Children = types.NewOrderedMap()
+    genericSummaries.EntityData.Children.Append("generic-summary", types.YChild{"GenericSummary", nil})
     for i := range genericSummaries.GenericSummary {
-        genericSummaries.EntityData.Children[types.GetSegmentPath(&genericSummaries.GenericSummary[i])] = types.YChild{"GenericSummary", &genericSummaries.GenericSummary[i]}
+        genericSummaries.EntityData.Children.Append(types.GetSegmentPath(genericSummaries.GenericSummary[i]), types.YChild{"GenericSummary", genericSummaries.GenericSummary[i]})
     }
-    genericSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    genericSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    genericSummaries.EntityData.YListKeys = []string {}
+
     return &(genericSummaries.EntityData)
 }
 
@@ -3916,11 +4148,11 @@ type Bfd_GenericSummaries_GenericSummary struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Allocated PPS value. The type is interface{} with range: 0..4294967295.
@@ -3958,24 +4190,27 @@ func (genericSummary *Bfd_GenericSummaries_GenericSummary) GetEntityData() *type
     genericSummary.EntityData.YangName = "generic-summary"
     genericSummary.EntityData.BundleName = "cisco_ios_xr"
     genericSummary.EntityData.ParentYangName = "generic-summaries"
-    genericSummary.EntityData.SegmentPath = "generic-summary" + "[location='" + fmt.Sprintf("%v", genericSummary.Location) + "']"
+    genericSummary.EntityData.SegmentPath = "generic-summary" + types.AddKeyToken(genericSummary.Location, "location")
     genericSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    genericSummary.EntityData.Children = make(map[string]types.YChild)
-    genericSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    genericSummary.EntityData.Leafs["location"] = types.YLeaf{"Location", genericSummary.Location}
-    genericSummary.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", genericSummary.NodeId}
-    genericSummary.EntityData.Leafs["pps-allocated-value"] = types.YLeaf{"PpsAllocatedValue", genericSummary.PpsAllocatedValue}
-    genericSummary.EntityData.Leafs["ppsmp-allocated-value"] = types.YLeaf{"PpsmpAllocatedValue", genericSummary.PpsmpAllocatedValue}
-    genericSummary.EntityData.Leafs["pps-max-value"] = types.YLeaf{"PpsMaxValue", genericSummary.PpsMaxValue}
-    genericSummary.EntityData.Leafs["ppsmp-max-value"] = types.YLeaf{"PpsmpMaxValue", genericSummary.PpsmpMaxValue}
-    genericSummary.EntityData.Leafs["total-session-number"] = types.YLeaf{"TotalSessionNumber", genericSummary.TotalSessionNumber}
-    genericSummary.EntityData.Leafs["mp-session-number"] = types.YLeaf{"MpSessionNumber", genericSummary.MpSessionNumber}
-    genericSummary.EntityData.Leafs["max-session-number"] = types.YLeaf{"MaxSessionNumber", genericSummary.MaxSessionNumber}
-    genericSummary.EntityData.Leafs["pps-all-percentage"] = types.YLeaf{"PpsAllPercentage", genericSummary.PpsAllPercentage}
-    genericSummary.EntityData.Leafs["ppsmp-percentage"] = types.YLeaf{"PpsmpPercentage", genericSummary.PpsmpPercentage}
+    genericSummary.EntityData.Children = types.NewOrderedMap()
+    genericSummary.EntityData.Leafs = types.NewOrderedMap()
+    genericSummary.EntityData.Leafs.Append("location", types.YLeaf{"Location", genericSummary.Location})
+    genericSummary.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", genericSummary.NodeId})
+    genericSummary.EntityData.Leafs.Append("pps-allocated-value", types.YLeaf{"PpsAllocatedValue", genericSummary.PpsAllocatedValue})
+    genericSummary.EntityData.Leafs.Append("ppsmp-allocated-value", types.YLeaf{"PpsmpAllocatedValue", genericSummary.PpsmpAllocatedValue})
+    genericSummary.EntityData.Leafs.Append("pps-max-value", types.YLeaf{"PpsMaxValue", genericSummary.PpsMaxValue})
+    genericSummary.EntityData.Leafs.Append("ppsmp-max-value", types.YLeaf{"PpsmpMaxValue", genericSummary.PpsmpMaxValue})
+    genericSummary.EntityData.Leafs.Append("total-session-number", types.YLeaf{"TotalSessionNumber", genericSummary.TotalSessionNumber})
+    genericSummary.EntityData.Leafs.Append("mp-session-number", types.YLeaf{"MpSessionNumber", genericSummary.MpSessionNumber})
+    genericSummary.EntityData.Leafs.Append("max-session-number", types.YLeaf{"MaxSessionNumber", genericSummary.MaxSessionNumber})
+    genericSummary.EntityData.Leafs.Append("pps-all-percentage", types.YLeaf{"PpsAllPercentage", genericSummary.PpsAllPercentage})
+    genericSummary.EntityData.Leafs.Append("ppsmp-percentage", types.YLeaf{"PpsmpPercentage", genericSummary.PpsmpPercentage})
+
+    genericSummary.EntityData.YListKeys = []string {"Location"}
+
     return &(genericSummary.EntityData)
 }
 
@@ -3987,7 +4222,7 @@ type Bfd_Ipv6SingleHopMultiPaths struct {
 
     // IPv6 single hop multipath table. The type is slice of
     // Bfd_Ipv6SingleHopMultiPaths_Ipv6SingleHopMultiPath.
-    Ipv6SingleHopMultiPath []Bfd_Ipv6SingleHopMultiPaths_Ipv6SingleHopMultiPath
+    Ipv6SingleHopMultiPath []*Bfd_Ipv6SingleHopMultiPaths_Ipv6SingleHopMultiPath
 }
 
 func (ipv6SingleHopMultiPaths *Bfd_Ipv6SingleHopMultiPaths) GetEntityData() *types.CommonEntityData {
@@ -4000,12 +4235,15 @@ func (ipv6SingleHopMultiPaths *Bfd_Ipv6SingleHopMultiPaths) GetEntityData() *typ
     ipv6SingleHopMultiPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopMultiPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6SingleHopMultiPaths.EntityData.Children = make(map[string]types.YChild)
-    ipv6SingleHopMultiPaths.EntityData.Children["ipv6-single-hop-multi-path"] = types.YChild{"Ipv6SingleHopMultiPath", nil}
+    ipv6SingleHopMultiPaths.EntityData.Children = types.NewOrderedMap()
+    ipv6SingleHopMultiPaths.EntityData.Children.Append("ipv6-single-hop-multi-path", types.YChild{"Ipv6SingleHopMultiPath", nil})
     for i := range ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath {
-        ipv6SingleHopMultiPaths.EntityData.Children[types.GetSegmentPath(&ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath[i])] = types.YChild{"Ipv6SingleHopMultiPath", &ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath[i]}
+        ipv6SingleHopMultiPaths.EntityData.Children.Append(types.GetSegmentPath(ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath[i]), types.YChild{"Ipv6SingleHopMultiPath", ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath[i]})
     }
-    ipv6SingleHopMultiPaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6SingleHopMultiPaths.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6SingleHopMultiPaths.EntityData.YListKeys = []string {}
+
     return &(ipv6SingleHopMultiPaths.EntityData)
 }
 
@@ -4015,18 +4253,18 @@ type Bfd_Ipv6SingleHopMultiPaths_Ipv6SingleHopMultiPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Destination address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Session subtype. The type is string.
@@ -4040,13 +4278,13 @@ type Bfd_Ipv6SingleHopMultiPaths_Ipv6SingleHopMultiPath struct {
     LocalDiscriminator interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabelXr interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     SessionInterfaceName interface{}
 }
 
@@ -4060,17 +4298,20 @@ func (ipv6SingleHopMultiPath *Bfd_Ipv6SingleHopMultiPaths_Ipv6SingleHopMultiPath
     ipv6SingleHopMultiPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopMultiPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6SingleHopMultiPath.EntityData.Children = make(map[string]types.YChild)
-    ipv6SingleHopMultiPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6SingleHopMultiPath.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", ipv6SingleHopMultiPath.InterfaceName}
-    ipv6SingleHopMultiPath.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", ipv6SingleHopMultiPath.DestinationAddress}
-    ipv6SingleHopMultiPath.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv6SingleHopMultiPath.Location}
-    ipv6SingleHopMultiPath.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", ipv6SingleHopMultiPath.SessionSubtype}
-    ipv6SingleHopMultiPath.EntityData.Leafs["state"] = types.YLeaf{"State", ipv6SingleHopMultiPath.State}
-    ipv6SingleHopMultiPath.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", ipv6SingleHopMultiPath.LocalDiscriminator}
-    ipv6SingleHopMultiPath.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", ipv6SingleHopMultiPath.NodeId}
-    ipv6SingleHopMultiPath.EntityData.Leafs["incoming-label-xr"] = types.YLeaf{"IncomingLabelXr", ipv6SingleHopMultiPath.IncomingLabelXr}
-    ipv6SingleHopMultiPath.EntityData.Leafs["session-interface-name"] = types.YLeaf{"SessionInterfaceName", ipv6SingleHopMultiPath.SessionInterfaceName}
+    ipv6SingleHopMultiPath.EntityData.Children = types.NewOrderedMap()
+    ipv6SingleHopMultiPath.EntityData.Leafs = types.NewOrderedMap()
+    ipv6SingleHopMultiPath.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", ipv6SingleHopMultiPath.InterfaceName})
+    ipv6SingleHopMultiPath.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", ipv6SingleHopMultiPath.DestinationAddress})
+    ipv6SingleHopMultiPath.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv6SingleHopMultiPath.Location})
+    ipv6SingleHopMultiPath.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", ipv6SingleHopMultiPath.SessionSubtype})
+    ipv6SingleHopMultiPath.EntityData.Leafs.Append("state", types.YLeaf{"State", ipv6SingleHopMultiPath.State})
+    ipv6SingleHopMultiPath.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", ipv6SingleHopMultiPath.LocalDiscriminator})
+    ipv6SingleHopMultiPath.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", ipv6SingleHopMultiPath.NodeId})
+    ipv6SingleHopMultiPath.EntityData.Leafs.Append("incoming-label-xr", types.YLeaf{"IncomingLabelXr", ipv6SingleHopMultiPath.IncomingLabelXr})
+    ipv6SingleHopMultiPath.EntityData.Leafs.Append("session-interface-name", types.YLeaf{"SessionInterfaceName", ipv6SingleHopMultiPath.SessionInterfaceName})
+
+    ipv6SingleHopMultiPath.EntityData.YListKeys = []string {}
+
     return &(ipv6SingleHopMultiPath.EntityData)
 }
 
@@ -4084,7 +4325,7 @@ type Bfd_Ipv4SingleHopNodeLocationSummaries struct {
     // Summary information for BFD IPv4 singlehop sessions for location. The type
     // is slice of
     // Bfd_Ipv4SingleHopNodeLocationSummaries_Ipv4SingleHopNodeLocationSummary.
-    Ipv4SingleHopNodeLocationSummary []Bfd_Ipv4SingleHopNodeLocationSummaries_Ipv4SingleHopNodeLocationSummary
+    Ipv4SingleHopNodeLocationSummary []*Bfd_Ipv4SingleHopNodeLocationSummaries_Ipv4SingleHopNodeLocationSummary
 }
 
 func (ipv4SingleHopNodeLocationSummaries *Bfd_Ipv4SingleHopNodeLocationSummaries) GetEntityData() *types.CommonEntityData {
@@ -4097,12 +4338,15 @@ func (ipv4SingleHopNodeLocationSummaries *Bfd_Ipv4SingleHopNodeLocationSummaries
     ipv4SingleHopNodeLocationSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopNodeLocationSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4SingleHopNodeLocationSummaries.EntityData.Children = make(map[string]types.YChild)
-    ipv4SingleHopNodeLocationSummaries.EntityData.Children["ipv4-single-hop-node-location-summary"] = types.YChild{"Ipv4SingleHopNodeLocationSummary", nil}
+    ipv4SingleHopNodeLocationSummaries.EntityData.Children = types.NewOrderedMap()
+    ipv4SingleHopNodeLocationSummaries.EntityData.Children.Append("ipv4-single-hop-node-location-summary", types.YChild{"Ipv4SingleHopNodeLocationSummary", nil})
     for i := range ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary {
-        ipv4SingleHopNodeLocationSummaries.EntityData.Children[types.GetSegmentPath(&ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary[i])] = types.YChild{"Ipv4SingleHopNodeLocationSummary", &ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary[i]}
+        ipv4SingleHopNodeLocationSummaries.EntityData.Children.Append(types.GetSegmentPath(ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary[i]), types.YChild{"Ipv4SingleHopNodeLocationSummary", ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary[i]})
     }
-    ipv4SingleHopNodeLocationSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4SingleHopNodeLocationSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4SingleHopNodeLocationSummaries.EntityData.YListKeys = []string {}
+
     return &(ipv4SingleHopNodeLocationSummaries.EntityData)
 }
 
@@ -4114,7 +4358,7 @@ type Bfd_Ipv4SingleHopNodeLocationSummaries_Ipv4SingleHopNodeLocationSummary str
     YFilter yfilter.YFilter
 
     // This attribute is a key. Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Statistics of states for sessions.
@@ -4126,15 +4370,18 @@ func (ipv4SingleHopNodeLocationSummary *Bfd_Ipv4SingleHopNodeLocationSummaries_I
     ipv4SingleHopNodeLocationSummary.EntityData.YangName = "ipv4-single-hop-node-location-summary"
     ipv4SingleHopNodeLocationSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv4SingleHopNodeLocationSummary.EntityData.ParentYangName = "ipv4-single-hop-node-location-summaries"
-    ipv4SingleHopNodeLocationSummary.EntityData.SegmentPath = "ipv4-single-hop-node-location-summary" + "[location='" + fmt.Sprintf("%v", ipv4SingleHopNodeLocationSummary.Location) + "']"
+    ipv4SingleHopNodeLocationSummary.EntityData.SegmentPath = "ipv4-single-hop-node-location-summary" + types.AddKeyToken(ipv4SingleHopNodeLocationSummary.Location, "location")
     ipv4SingleHopNodeLocationSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SingleHopNodeLocationSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopNodeLocationSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4SingleHopNodeLocationSummary.EntityData.Children = make(map[string]types.YChild)
-    ipv4SingleHopNodeLocationSummary.EntityData.Children["session-state"] = types.YChild{"SessionState", &ipv4SingleHopNodeLocationSummary.SessionState}
-    ipv4SingleHopNodeLocationSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4SingleHopNodeLocationSummary.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv4SingleHopNodeLocationSummary.Location}
+    ipv4SingleHopNodeLocationSummary.EntityData.Children = types.NewOrderedMap()
+    ipv4SingleHopNodeLocationSummary.EntityData.Children.Append("session-state", types.YChild{"SessionState", &ipv4SingleHopNodeLocationSummary.SessionState})
+    ipv4SingleHopNodeLocationSummary.EntityData.Leafs = types.NewOrderedMap()
+    ipv4SingleHopNodeLocationSummary.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv4SingleHopNodeLocationSummary.Location})
+
+    ipv4SingleHopNodeLocationSummary.EntityData.YListKeys = []string {"Location"}
+
     return &(ipv4SingleHopNodeLocationSummary.EntityData)
 }
 
@@ -4179,14 +4426,17 @@ func (sessionState *Bfd_Ipv4SingleHopNodeLocationSummaries_Ipv4SingleHopNodeLoca
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionState.EntityData.Children = make(map[string]types.YChild)
-    sessionState.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionState.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", sessionState.TotalCount}
-    sessionState.EntityData.Leafs["up-count"] = types.YLeaf{"UpCount", sessionState.UpCount}
-    sessionState.EntityData.Leafs["down-count"] = types.YLeaf{"DownCount", sessionState.DownCount}
-    sessionState.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", sessionState.UnknownCount}
-    sessionState.EntityData.Leafs["retry-count"] = types.YLeaf{"RetryCount", sessionState.RetryCount}
-    sessionState.EntityData.Leafs["standby-count"] = types.YLeaf{"StandbyCount", sessionState.StandbyCount}
+    sessionState.EntityData.Children = types.NewOrderedMap()
+    sessionState.EntityData.Leafs = types.NewOrderedMap()
+    sessionState.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", sessionState.TotalCount})
+    sessionState.EntityData.Leafs.Append("up-count", types.YLeaf{"UpCount", sessionState.UpCount})
+    sessionState.EntityData.Leafs.Append("down-count", types.YLeaf{"DownCount", sessionState.DownCount})
+    sessionState.EntityData.Leafs.Append("unknown-count", types.YLeaf{"UnknownCount", sessionState.UnknownCount})
+    sessionState.EntityData.Leafs.Append("retry-count", types.YLeaf{"RetryCount", sessionState.RetryCount})
+    sessionState.EntityData.Leafs.Append("standby-count", types.YLeaf{"StandbyCount", sessionState.StandbyCount})
+
+    sessionState.EntityData.YListKeys = []string {}
+
     return &(sessionState.EntityData)
 }
 
@@ -4210,9 +4460,12 @@ func (labelSummary *Bfd_LabelSummary) GetEntityData() *types.CommonEntityData {
     labelSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelSummary.EntityData.Children = make(map[string]types.YChild)
-    labelSummary.EntityData.Children["session-state"] = types.YChild{"SessionState", &labelSummary.SessionState}
-    labelSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    labelSummary.EntityData.Children = types.NewOrderedMap()
+    labelSummary.EntityData.Children.Append("session-state", types.YChild{"SessionState", &labelSummary.SessionState})
+    labelSummary.EntityData.Leafs = types.NewOrderedMap()
+
+    labelSummary.EntityData.YListKeys = []string {}
+
     return &(labelSummary.EntityData)
 }
 
@@ -4249,105 +4502,109 @@ func (sessionState *Bfd_LabelSummary_SessionState) GetEntityData() *types.Common
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionState.EntityData.Children = make(map[string]types.YChild)
-    sessionState.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionState.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", sessionState.TotalCount}
-    sessionState.EntityData.Leafs["down-count"] = types.YLeaf{"DownCount", sessionState.DownCount}
-    sessionState.EntityData.Leafs["up-count"] = types.YLeaf{"UpCount", sessionState.UpCount}
-    sessionState.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", sessionState.UnknownCount}
+    sessionState.EntityData.Children = types.NewOrderedMap()
+    sessionState.EntityData.Leafs = types.NewOrderedMap()
+    sessionState.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", sessionState.TotalCount})
+    sessionState.EntityData.Leafs.Append("down-count", types.YLeaf{"DownCount", sessionState.DownCount})
+    sessionState.EntityData.Leafs.Append("up-count", types.YLeaf{"UpCount", sessionState.UpCount})
+    sessionState.EntityData.Leafs.Append("unknown-count", types.YLeaf{"UnknownCount", sessionState.UnknownCount})
+
+    sessionState.EntityData.YListKeys = []string {}
+
     return &(sessionState.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionBriefs
+// Bfd_Ipv4bfDoMplsteHeadSessionBriefs
 // Table of brief information about all IPv4 BFD
 // over MPLS-TE Head sessions in the System
-type Bfd_Ipv4BfDoMplsteHeadSessionBriefs struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionBriefs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Brief information for a single IPv4 BFD over MPLS-TE Head session. The type
     // is slice of
-    // Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief.
-    Ipv4BfDoMplsteHeadSessionBrief []Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief
+    // Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplsteHeadSessionBrief.
+    Ipv4bfDoMplsteHeadSessionBrief []*Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplsteHeadSessionBrief
 }
 
-func (ipv4BfDoMplsteHeadSessionBriefs *Bfd_Ipv4BfDoMplsteHeadSessionBriefs) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteHeadSessionBriefs.EntityData.YFilter = ipv4BfDoMplsteHeadSessionBriefs.YFilter
-    ipv4BfDoMplsteHeadSessionBriefs.EntityData.YangName = "ipv4bf-do-mplste-head-session-briefs"
-    ipv4BfDoMplsteHeadSessionBriefs.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteHeadSessionBriefs.EntityData.ParentYangName = "bfd"
-    ipv4BfDoMplsteHeadSessionBriefs.EntityData.SegmentPath = "ipv4bf-do-mplste-head-session-briefs"
-    ipv4BfDoMplsteHeadSessionBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteHeadSessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteHeadSessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteHeadSessionBriefs *Bfd_Ipv4bfDoMplsteHeadSessionBriefs) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteHeadSessionBriefs.EntityData.YFilter = ipv4bfDoMplsteHeadSessionBriefs.YFilter
+    ipv4bfDoMplsteHeadSessionBriefs.EntityData.YangName = "ipv4bf-do-mplste-head-session-briefs"
+    ipv4bfDoMplsteHeadSessionBriefs.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteHeadSessionBriefs.EntityData.ParentYangName = "bfd"
+    ipv4bfDoMplsteHeadSessionBriefs.EntityData.SegmentPath = "ipv4bf-do-mplste-head-session-briefs"
+    ipv4bfDoMplsteHeadSessionBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteHeadSessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteHeadSessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteHeadSessionBriefs.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteHeadSessionBriefs.EntityData.Children["ipv4bf-do-mplste-head-session-brief"] = types.YChild{"Ipv4BfDoMplsteHeadSessionBrief", nil}
-    for i := range ipv4BfDoMplsteHeadSessionBriefs.Ipv4BfDoMplsteHeadSessionBrief {
-        ipv4BfDoMplsteHeadSessionBriefs.EntityData.Children[types.GetSegmentPath(&ipv4BfDoMplsteHeadSessionBriefs.Ipv4BfDoMplsteHeadSessionBrief[i])] = types.YChild{"Ipv4BfDoMplsteHeadSessionBrief", &ipv4BfDoMplsteHeadSessionBriefs.Ipv4BfDoMplsteHeadSessionBrief[i]}
+    ipv4bfDoMplsteHeadSessionBriefs.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteHeadSessionBriefs.EntityData.Children.Append("ipv4bf-do-mplste-head-session-brief", types.YChild{"Ipv4bfDoMplsteHeadSessionBrief", nil})
+    for i := range ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief {
+        ipv4bfDoMplsteHeadSessionBriefs.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief[i]), types.YChild{"Ipv4bfDoMplsteHeadSessionBrief", ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief[i]})
     }
-    ipv4BfDoMplsteHeadSessionBriefs.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipv4BfDoMplsteHeadSessionBriefs.EntityData)
+    ipv4bfDoMplsteHeadSessionBriefs.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4bfDoMplsteHeadSessionBriefs.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteHeadSessionBriefs.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief
+// Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplsteHeadSessionBrief
 // Brief information for a single IPv4 BFD over
 // MPLS-TE Head session
-type Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplsteHeadSessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
-    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
-    // Incoming Label. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabel interface{}
 
-    // FEC Type. The type is interface{} with range: -2147483648..2147483647.
+    // FEC Type. The type is interface{} with range: 0..4294967295.
     FeCtype interface{}
 
-    // FEC Subgroup ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // FEC Subgroup ID. The type is interface{} with range: 0..4294967295.
     FecSubgroupId interface{}
 
-    // FEC LSP ID. The type is interface{} with range: -2147483648..2147483647.
+    // FEC LSP ID. The type is interface{} with range: 0..4294967295.
     Feclspid interface{}
 
-    // FEC Tunnel ID. The type is interface{} with range: -2147483648..2147483647.
+    // FEC Tunnel ID. The type is interface{} with range: 0..4294967295.
     FecTunnelId interface{}
 
     // FEC Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecExtendedTunnelId interface{}
 
     // FEC Source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecSource interface{}
 
     // FEC Destination. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecDestination interface{}
 
-    // FEC P2MP ID. The type is interface{} with range: -2147483648..2147483647.
-    Fecp2Mpid interface{}
+    // FEC P2MP ID. The type is interface{} with range: 0..4294967295.
+    Fecp2mpid interface{}
 
     // FEC Subgroup originator. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecSubgroupOriginator interface{}
 
-    // FEC C Type. The type is interface{} with range: -2147483648..2147483647.
+    // FEC C Type. The type is interface{} with range: 0..4294967295.
     FecCtype interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // State. The type is BfdMgmtSessionState.
@@ -4363,58 +4620,61 @@ type Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief struct {
     SessionFlags interface{}
 
     // Brief Status Information.
-    StatusBriefInformation Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief_StatusBriefInformation
+    StatusBriefInformation Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplsteHeadSessionBrief_StatusBriefInformation
 }
 
-func (ipv4BfDoMplsteHeadSessionBrief *Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.YFilter = ipv4BfDoMplsteHeadSessionBrief.YFilter
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.YangName = "ipv4bf-do-mplste-head-session-brief"
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.ParentYangName = "ipv4bf-do-mplste-head-session-briefs"
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.SegmentPath = "ipv4bf-do-mplste-head-session-brief"
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteHeadSessionBrief *Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplsteHeadSessionBrief) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.YFilter = ipv4bfDoMplsteHeadSessionBrief.YFilter
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.YangName = "ipv4bf-do-mplste-head-session-brief"
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.ParentYangName = "ipv4bf-do-mplste-head-session-briefs"
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.SegmentPath = "ipv4bf-do-mplste-head-session-brief"
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Children["status-brief-information"] = types.YChild{"StatusBriefInformation", &ipv4BfDoMplsteHeadSessionBrief.StatusBriefInformation}
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", ipv4BfDoMplsteHeadSessionBrief.InterfaceName}
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4BfDoMplsteHeadSessionBrief.VrfName}
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs["incoming-label"] = types.YLeaf{"IncomingLabel", ipv4BfDoMplsteHeadSessionBrief.IncomingLabel}
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs["fe-ctype"] = types.YLeaf{"FeCtype", ipv4BfDoMplsteHeadSessionBrief.FeCtype}
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs["fec-subgroup-id"] = types.YLeaf{"FecSubgroupId", ipv4BfDoMplsteHeadSessionBrief.FecSubgroupId}
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs["feclspid"] = types.YLeaf{"Feclspid", ipv4BfDoMplsteHeadSessionBrief.Feclspid}
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs["fec-tunnel-id"] = types.YLeaf{"FecTunnelId", ipv4BfDoMplsteHeadSessionBrief.FecTunnelId}
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs["fec-extended-tunnel-id"] = types.YLeaf{"FecExtendedTunnelId", ipv4BfDoMplsteHeadSessionBrief.FecExtendedTunnelId}
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs["fec-source"] = types.YLeaf{"FecSource", ipv4BfDoMplsteHeadSessionBrief.FecSource}
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs["fec-destination"] = types.YLeaf{"FecDestination", ipv4BfDoMplsteHeadSessionBrief.FecDestination}
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs["fecp2mpid"] = types.YLeaf{"Fecp2Mpid", ipv4BfDoMplsteHeadSessionBrief.Fecp2Mpid}
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs["fec-subgroup-originator"] = types.YLeaf{"FecSubgroupOriginator", ipv4BfDoMplsteHeadSessionBrief.FecSubgroupOriginator}
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs["fec-ctype"] = types.YLeaf{"FecCtype", ipv4BfDoMplsteHeadSessionBrief.FecCtype}
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv4BfDoMplsteHeadSessionBrief.Location}
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", ipv4BfDoMplsteHeadSessionBrief.NodeId}
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs["state"] = types.YLeaf{"State", ipv4BfDoMplsteHeadSessionBrief.State}
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs["session-type"] = types.YLeaf{"SessionType", ipv4BfDoMplsteHeadSessionBrief.SessionType}
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", ipv4BfDoMplsteHeadSessionBrief.SessionSubtype}
-    ipv4BfDoMplsteHeadSessionBrief.EntityData.Leafs["session-flags"] = types.YLeaf{"SessionFlags", ipv4BfDoMplsteHeadSessionBrief.SessionFlags}
-    return &(ipv4BfDoMplsteHeadSessionBrief.EntityData)
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Children.Append("status-brief-information", types.YChild{"StatusBriefInformation", &ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation})
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs = types.NewOrderedMap()
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", ipv4bfDoMplsteHeadSessionBrief.InterfaceName})
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4bfDoMplsteHeadSessionBrief.VrfName})
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs.Append("incoming-label", types.YLeaf{"IncomingLabel", ipv4bfDoMplsteHeadSessionBrief.IncomingLabel})
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs.Append("fe-ctype", types.YLeaf{"FeCtype", ipv4bfDoMplsteHeadSessionBrief.FeCtype})
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs.Append("fec-subgroup-id", types.YLeaf{"FecSubgroupId", ipv4bfDoMplsteHeadSessionBrief.FecSubgroupId})
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs.Append("feclspid", types.YLeaf{"Feclspid", ipv4bfDoMplsteHeadSessionBrief.Feclspid})
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs.Append("fec-tunnel-id", types.YLeaf{"FecTunnelId", ipv4bfDoMplsteHeadSessionBrief.FecTunnelId})
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs.Append("fec-extended-tunnel-id", types.YLeaf{"FecExtendedTunnelId", ipv4bfDoMplsteHeadSessionBrief.FecExtendedTunnelId})
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs.Append("fec-source", types.YLeaf{"FecSource", ipv4bfDoMplsteHeadSessionBrief.FecSource})
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs.Append("fec-destination", types.YLeaf{"FecDestination", ipv4bfDoMplsteHeadSessionBrief.FecDestination})
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs.Append("fecp2mpid", types.YLeaf{"Fecp2mpid", ipv4bfDoMplsteHeadSessionBrief.Fecp2mpid})
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs.Append("fec-subgroup-originator", types.YLeaf{"FecSubgroupOriginator", ipv4bfDoMplsteHeadSessionBrief.FecSubgroupOriginator})
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs.Append("fec-ctype", types.YLeaf{"FecCtype", ipv4bfDoMplsteHeadSessionBrief.FecCtype})
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv4bfDoMplsteHeadSessionBrief.Location})
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", ipv4bfDoMplsteHeadSessionBrief.NodeId})
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs.Append("state", types.YLeaf{"State", ipv4bfDoMplsteHeadSessionBrief.State})
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs.Append("session-type", types.YLeaf{"SessionType", ipv4bfDoMplsteHeadSessionBrief.SessionType})
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", ipv4bfDoMplsteHeadSessionBrief.SessionSubtype})
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.Leafs.Append("session-flags", types.YLeaf{"SessionFlags", ipv4bfDoMplsteHeadSessionBrief.SessionFlags})
+
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteHeadSessionBrief.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief_StatusBriefInformation
+// Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplsteHeadSessionBrief_StatusBriefInformation
 // Brief Status Information
-type Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief_StatusBriefInformation struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplsteHeadSessionBrief_StatusBriefInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Async Interval and Detect Multiplier Information.
-    AsyncIntervalMultiplier Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief_StatusBriefInformation_AsyncIntervalMultiplier
+    AsyncIntervalMultiplier Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplsteHeadSessionBrief_StatusBriefInformation_AsyncIntervalMultiplier
 
     // Echo Interval and Detect Multiplier Information.
-    EchoIntervalMultiplier Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief_StatusBriefInformation_EchoIntervalMultiplier
+    EchoIntervalMultiplier Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplsteHeadSessionBrief_StatusBriefInformation_EchoIntervalMultiplier
 }
 
-func (statusBriefInformation *Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief_StatusBriefInformation) GetEntityData() *types.CommonEntityData {
+func (statusBriefInformation *Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplsteHeadSessionBrief_StatusBriefInformation) GetEntityData() *types.CommonEntityData {
     statusBriefInformation.EntityData.YFilter = statusBriefInformation.YFilter
     statusBriefInformation.EntityData.YangName = "status-brief-information"
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
@@ -4424,16 +4684,19 @@ func (statusBriefInformation *Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplste
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusBriefInformation.EntityData.Children = make(map[string]types.YChild)
-    statusBriefInformation.EntityData.Children["async-interval-multiplier"] = types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier}
-    statusBriefInformation.EntityData.Children["echo-interval-multiplier"] = types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier}
-    statusBriefInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    statusBriefInformation.EntityData.Children = types.NewOrderedMap()
+    statusBriefInformation.EntityData.Children.Append("async-interval-multiplier", types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier})
+    statusBriefInformation.EntityData.Children.Append("echo-interval-multiplier", types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier})
+    statusBriefInformation.EntityData.Leafs = types.NewOrderedMap()
+
+    statusBriefInformation.EntityData.YListKeys = []string {}
+
     return &(statusBriefInformation.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief_StatusBriefInformation_AsyncIntervalMultiplier
+// Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplsteHeadSessionBrief_StatusBriefInformation_AsyncIntervalMultiplier
 // Async Interval and Detect Multiplier Information
-type Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief_StatusBriefInformation_AsyncIntervalMultiplier struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplsteHeadSessionBrief_StatusBriefInformation_AsyncIntervalMultiplier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4453,7 +4716,7 @@ type Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief_StatusBr
     DetectionMultiplier interface{}
 }
 
-func (asyncIntervalMultiplier *Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief_StatusBriefInformation_AsyncIntervalMultiplier) GetEntityData() *types.CommonEntityData {
+func (asyncIntervalMultiplier *Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplsteHeadSessionBrief_StatusBriefInformation_AsyncIntervalMultiplier) GetEntityData() *types.CommonEntityData {
     asyncIntervalMultiplier.EntityData.YFilter = asyncIntervalMultiplier.YFilter
     asyncIntervalMultiplier.EntityData.YangName = "async-interval-multiplier"
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
@@ -4463,18 +4726,21 @@ func (asyncIntervalMultiplier *Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplst
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    asyncIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-remote-transmit-interval"] = types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-local-transmit-interval"] = types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier}
+    asyncIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-remote-transmit-interval", types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-local-transmit-interval", types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier})
+
+    asyncIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(asyncIntervalMultiplier.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief_StatusBriefInformation_EchoIntervalMultiplier
+// Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplsteHeadSessionBrief_StatusBriefInformation_EchoIntervalMultiplier
 // Echo Interval and Detect Multiplier Information
-type Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief_StatusBriefInformation_EchoIntervalMultiplier struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplsteHeadSessionBrief_StatusBriefInformation_EchoIntervalMultiplier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4490,7 +4756,7 @@ type Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief_StatusBr
     DetectionMultiplier interface{}
 }
 
-func (echoIntervalMultiplier *Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplsteHeadSessionBrief_StatusBriefInformation_EchoIntervalMultiplier) GetEntityData() *types.CommonEntityData {
+func (echoIntervalMultiplier *Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplsteHeadSessionBrief_StatusBriefInformation_EchoIntervalMultiplier) GetEntityData() *types.CommonEntityData {
     echoIntervalMultiplier.EntityData.YFilter = echoIntervalMultiplier.YFilter
     echoIntervalMultiplier.EntityData.YangName = "echo-interval-multiplier"
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
@@ -4500,159 +4766,166 @@ func (echoIntervalMultiplier *Bfd_Ipv4BfDoMplsteHeadSessionBriefs_Ipv4BfDoMplste
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    echoIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoIntervalMultiplier.EntityData.Leafs["negotiated-transmit-interval"] = types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval}
-    echoIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime}
-    echoIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier}
+    echoIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs.Append("negotiated-transmit-interval", types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier})
+
+    echoIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(echoIntervalMultiplier.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails
+// Bfd_Ipv4bfDoMplsteTailSessionDetails
 // Table of detailed information about all IPv4 BFD
 // over MPLS-TE Tail sessions in the System
-type Bfd_Ipv4BfDoMplsteTailSessionDetails struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Detailed information for a single IPv4 BFD over MPLS-TE Tail session. The
     // type is slice of
-    // Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail.
-    Ipv4BfDoMplsteTailSessionDetail []Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail
+    // Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail.
+    Ipv4bfDoMplsteTailSessionDetail []*Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail
 }
 
-func (ipv4BfDoMplsteTailSessionDetails *Bfd_Ipv4BfDoMplsteTailSessionDetails) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteTailSessionDetails.EntityData.YFilter = ipv4BfDoMplsteTailSessionDetails.YFilter
-    ipv4BfDoMplsteTailSessionDetails.EntityData.YangName = "ipv4bf-do-mplste-tail-session-details"
-    ipv4BfDoMplsteTailSessionDetails.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteTailSessionDetails.EntityData.ParentYangName = "bfd"
-    ipv4BfDoMplsteTailSessionDetails.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-session-details"
-    ipv4BfDoMplsteTailSessionDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteTailSessionDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteTailSessionDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteTailSessionDetails *Bfd_Ipv4bfDoMplsteTailSessionDetails) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteTailSessionDetails.EntityData.YFilter = ipv4bfDoMplsteTailSessionDetails.YFilter
+    ipv4bfDoMplsteTailSessionDetails.EntityData.YangName = "ipv4bf-do-mplste-tail-session-details"
+    ipv4bfDoMplsteTailSessionDetails.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteTailSessionDetails.EntityData.ParentYangName = "bfd"
+    ipv4bfDoMplsteTailSessionDetails.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-session-details"
+    ipv4bfDoMplsteTailSessionDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteTailSessionDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteTailSessionDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteTailSessionDetails.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteTailSessionDetails.EntityData.Children["ipv4bf-do-mplste-tail-session-detail"] = types.YChild{"Ipv4BfDoMplsteTailSessionDetail", nil}
-    for i := range ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail {
-        ipv4BfDoMplsteTailSessionDetails.EntityData.Children[types.GetSegmentPath(&ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail[i])] = types.YChild{"Ipv4BfDoMplsteTailSessionDetail", &ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail[i]}
+    ipv4bfDoMplsteTailSessionDetails.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteTailSessionDetails.EntityData.Children.Append("ipv4bf-do-mplste-tail-session-detail", types.YChild{"Ipv4bfDoMplsteTailSessionDetail", nil})
+    for i := range ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail {
+        ipv4bfDoMplsteTailSessionDetails.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail[i]), types.YChild{"Ipv4bfDoMplsteTailSessionDetail", ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail[i]})
     }
-    ipv4BfDoMplsteTailSessionDetails.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipv4BfDoMplsteTailSessionDetails.EntityData)
+    ipv4bfDoMplsteTailSessionDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4bfDoMplsteTailSessionDetails.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteTailSessionDetails.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail
 // Detailed information for a single IPv4 BFD over
 // MPLS-TE Tail session
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
-    // Incoming Label. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabel interface{}
 
-    // FEC Type. The type is interface{} with range: -2147483648..2147483647.
+    // FEC Type. The type is interface{} with range: 0..4294967295.
     FeCtype interface{}
 
-    // FEC Subgroup ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // FEC Subgroup ID. The type is interface{} with range: 0..4294967295.
     FecSubgroupId interface{}
 
-    // FEC LSP ID. The type is interface{} with range: -2147483648..2147483647.
+    // FEC LSP ID. The type is interface{} with range: 0..4294967295.
     Feclspid interface{}
 
-    // FEC Tunnel ID. The type is interface{} with range: -2147483648..2147483647.
+    // FEC Tunnel ID. The type is interface{} with range: 0..4294967295.
     FecTunnelId interface{}
 
     // FEC Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecExtendedTunnelId interface{}
 
     // FEC Source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecSource interface{}
 
     // FEC Destination. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecDestination interface{}
 
-    // FEC P2MP ID. The type is interface{} with range: -2147483648..2147483647.
-    Fecp2Mpid interface{}
+    // FEC P2MP ID. The type is interface{} with range: 0..4294967295.
+    Fecp2mpid interface{}
 
     // FEC Subgroup originator. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecSubgroupOriginator interface{}
 
-    // FEC C Type. The type is interface{} with range: -2147483648..2147483647.
+    // FEC C Type. The type is interface{} with range: 0..4294967295.
     FecCtype interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Session status information.
-    StatusInformation Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation
+    StatusInformation Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation
 
     // MP Dowload State.
-    MpDownloadState Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_MpDownloadState
+    MpDownloadState Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_MpDownloadState
 
     // LSP Ping Info.
-    LspPingInfo Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPingInfo
+    LspPingInfo Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_LspPingInfo
 
     // Client applications owning the session. The type is slice of
-    // Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_OwnerInformation.
-    OwnerInformation []Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_OwnerInformation
+    // Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_OwnerInformation.
+    OwnerInformation []*Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_OwnerInformation
 
     // Association session information. The type is slice of
-    // Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_AssociationInformation.
-    AssociationInformation []Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_AssociationInformation
+    // Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_AssociationInformation.
+    AssociationInformation []*Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_AssociationInformation
 }
 
-func (ipv4BfDoMplsteTailSessionDetail *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteTailSessionDetail.EntityData.YFilter = ipv4BfDoMplsteTailSessionDetail.YFilter
-    ipv4BfDoMplsteTailSessionDetail.EntityData.YangName = "ipv4bf-do-mplste-tail-session-detail"
-    ipv4BfDoMplsteTailSessionDetail.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteTailSessionDetail.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-session-details"
-    ipv4BfDoMplsteTailSessionDetail.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-session-detail"
-    ipv4BfDoMplsteTailSessionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteTailSessionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteTailSessionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteTailSessionDetail *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteTailSessionDetail.EntityData.YFilter = ipv4bfDoMplsteTailSessionDetail.YFilter
+    ipv4bfDoMplsteTailSessionDetail.EntityData.YangName = "ipv4bf-do-mplste-tail-session-detail"
+    ipv4bfDoMplsteTailSessionDetail.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteTailSessionDetail.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-session-details"
+    ipv4bfDoMplsteTailSessionDetail.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-session-detail"
+    ipv4bfDoMplsteTailSessionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteTailSessionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteTailSessionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Children["status-information"] = types.YChild{"StatusInformation", &ipv4BfDoMplsteTailSessionDetail.StatusInformation}
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Children["mp-download-state"] = types.YChild{"MpDownloadState", &ipv4BfDoMplsteTailSessionDetail.MpDownloadState}
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Children["lsp-ping-info"] = types.YChild{"LspPingInfo", &ipv4BfDoMplsteTailSessionDetail.LspPingInfo}
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Children["owner-information"] = types.YChild{"OwnerInformation", nil}
-    for i := range ipv4BfDoMplsteTailSessionDetail.OwnerInformation {
-        ipv4BfDoMplsteTailSessionDetail.EntityData.Children[types.GetSegmentPath(&ipv4BfDoMplsteTailSessionDetail.OwnerInformation[i])] = types.YChild{"OwnerInformation", &ipv4BfDoMplsteTailSessionDetail.OwnerInformation[i]}
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Children.Append("status-information", types.YChild{"StatusInformation", &ipv4bfDoMplsteTailSessionDetail.StatusInformation})
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Children.Append("mp-download-state", types.YChild{"MpDownloadState", &ipv4bfDoMplsteTailSessionDetail.MpDownloadState})
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Children.Append("lsp-ping-info", types.YChild{"LspPingInfo", &ipv4bfDoMplsteTailSessionDetail.LspPingInfo})
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
+    for i := range ipv4bfDoMplsteTailSessionDetail.OwnerInformation {
+        ipv4bfDoMplsteTailSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteTailSessionDetail.OwnerInformation[i]), types.YChild{"OwnerInformation", ipv4bfDoMplsteTailSessionDetail.OwnerInformation[i]})
     }
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Children["association-information"] = types.YChild{"AssociationInformation", nil}
-    for i := range ipv4BfDoMplsteTailSessionDetail.AssociationInformation {
-        ipv4BfDoMplsteTailSessionDetail.EntityData.Children[types.GetSegmentPath(&ipv4BfDoMplsteTailSessionDetail.AssociationInformation[i])] = types.YChild{"AssociationInformation", &ipv4BfDoMplsteTailSessionDetail.AssociationInformation[i]}
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Children.Append("association-information", types.YChild{"AssociationInformation", nil})
+    for i := range ipv4bfDoMplsteTailSessionDetail.AssociationInformation {
+        ipv4bfDoMplsteTailSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteTailSessionDetail.AssociationInformation[i]), types.YChild{"AssociationInformation", ipv4bfDoMplsteTailSessionDetail.AssociationInformation[i]})
     }
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4BfDoMplsteTailSessionDetail.VrfName}
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Leafs["incoming-label"] = types.YLeaf{"IncomingLabel", ipv4BfDoMplsteTailSessionDetail.IncomingLabel}
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Leafs["fe-ctype"] = types.YLeaf{"FeCtype", ipv4BfDoMplsteTailSessionDetail.FeCtype}
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Leafs["fec-subgroup-id"] = types.YLeaf{"FecSubgroupId", ipv4BfDoMplsteTailSessionDetail.FecSubgroupId}
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Leafs["feclspid"] = types.YLeaf{"Feclspid", ipv4BfDoMplsteTailSessionDetail.Feclspid}
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Leafs["fec-tunnel-id"] = types.YLeaf{"FecTunnelId", ipv4BfDoMplsteTailSessionDetail.FecTunnelId}
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Leafs["fec-extended-tunnel-id"] = types.YLeaf{"FecExtendedTunnelId", ipv4BfDoMplsteTailSessionDetail.FecExtendedTunnelId}
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Leafs["fec-source"] = types.YLeaf{"FecSource", ipv4BfDoMplsteTailSessionDetail.FecSource}
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Leafs["fec-destination"] = types.YLeaf{"FecDestination", ipv4BfDoMplsteTailSessionDetail.FecDestination}
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Leafs["fecp2mpid"] = types.YLeaf{"Fecp2Mpid", ipv4BfDoMplsteTailSessionDetail.Fecp2Mpid}
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Leafs["fec-subgroup-originator"] = types.YLeaf{"FecSubgroupOriginator", ipv4BfDoMplsteTailSessionDetail.FecSubgroupOriginator}
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Leafs["fec-ctype"] = types.YLeaf{"FecCtype", ipv4BfDoMplsteTailSessionDetail.FecCtype}
-    ipv4BfDoMplsteTailSessionDetail.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv4BfDoMplsteTailSessionDetail.Location}
-    return &(ipv4BfDoMplsteTailSessionDetail.EntityData)
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Leafs = types.NewOrderedMap()
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4bfDoMplsteTailSessionDetail.VrfName})
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Leafs.Append("incoming-label", types.YLeaf{"IncomingLabel", ipv4bfDoMplsteTailSessionDetail.IncomingLabel})
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Leafs.Append("fe-ctype", types.YLeaf{"FeCtype", ipv4bfDoMplsteTailSessionDetail.FeCtype})
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Leafs.Append("fec-subgroup-id", types.YLeaf{"FecSubgroupId", ipv4bfDoMplsteTailSessionDetail.FecSubgroupId})
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Leafs.Append("feclspid", types.YLeaf{"Feclspid", ipv4bfDoMplsteTailSessionDetail.Feclspid})
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Leafs.Append("fec-tunnel-id", types.YLeaf{"FecTunnelId", ipv4bfDoMplsteTailSessionDetail.FecTunnelId})
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Leafs.Append("fec-extended-tunnel-id", types.YLeaf{"FecExtendedTunnelId", ipv4bfDoMplsteTailSessionDetail.FecExtendedTunnelId})
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Leafs.Append("fec-source", types.YLeaf{"FecSource", ipv4bfDoMplsteTailSessionDetail.FecSource})
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Leafs.Append("fec-destination", types.YLeaf{"FecDestination", ipv4bfDoMplsteTailSessionDetail.FecDestination})
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Leafs.Append("fecp2mpid", types.YLeaf{"Fecp2mpid", ipv4bfDoMplsteTailSessionDetail.Fecp2mpid})
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Leafs.Append("fec-subgroup-originator", types.YLeaf{"FecSubgroupOriginator", ipv4bfDoMplsteTailSessionDetail.FecSubgroupOriginator})
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Leafs.Append("fec-ctype", types.YLeaf{"FecCtype", ipv4bfDoMplsteTailSessionDetail.FecCtype})
+    ipv4bfDoMplsteTailSessionDetail.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv4bfDoMplsteTailSessionDetail.Location})
+
+    ipv4bfDoMplsteTailSessionDetail.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteTailSessionDetail.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation
 // Session status information
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4702,42 +4975,42 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_Status
     LatencyAverage interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Internal Label. The type is interface{} with range: 0..4294967295.
     InternalLabel interface{}
 
     // Source address.
-    SourceAddress Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_SourceAddress
+    SourceAddress Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_SourceAddress
 
     // Time since last state change.
-    LastStateChange Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_LastStateChange
+    LastStateChange Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_LastStateChange
 
     // Transmit Packet.
-    TransmitPacket Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_TransmitPacket
+    TransmitPacket Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_TransmitPacket
 
     // Receive Packet.
-    ReceivePacket Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_ReceivePacket
+    ReceivePacket Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_ReceivePacket
 
     // Brief Status Information.
-    StatusBriefInformation Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation
+    StatusBriefInformation Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation
 
     // Statistics of Interval between Async Packets Transmitted (in
     // milli-seconds).
-    AsyncTransmitStatistics Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_AsyncTransmitStatistics
+    AsyncTransmitStatistics Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_AsyncTransmitStatistics
 
     // Statistics of Interval between Async Packets Received (in milli-seconds).
-    AsyncReceiveStatistics Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_AsyncReceiveStatistics
+    AsyncReceiveStatistics Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_AsyncReceiveStatistics
 
     // Statistics of Interval between Echo Packets Transmitted (in milli-seconds).
-    EchoTransmitStatistics Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_EchoTransmitStatistics
+    EchoTransmitStatistics Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_EchoTransmitStatistics
 
     // Statistics of Interval between Echo Packets Received (in milli-seconds).
-    EchoReceivedStatistics Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_EchoReceivedStatistics
+    EchoReceivedStatistics Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_EchoReceivedStatistics
 }
 
-func (statusInformation *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation) GetEntityData() *types.CommonEntityData {
+func (statusInformation *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation) GetEntityData() *types.CommonEntityData {
     statusInformation.EntityData.YFilter = statusInformation.YFilter
     statusInformation.EntityData.YangName = "status-information"
     statusInformation.EntityData.BundleName = "cisco_ios_xr"
@@ -4747,37 +5020,40 @@ func (statusInformation *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTail
     statusInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusInformation.EntityData.Children = make(map[string]types.YChild)
-    statusInformation.EntityData.Children["source-address"] = types.YChild{"SourceAddress", &statusInformation.SourceAddress}
-    statusInformation.EntityData.Children["last-state-change"] = types.YChild{"LastStateChange", &statusInformation.LastStateChange}
-    statusInformation.EntityData.Children["transmit-packet"] = types.YChild{"TransmitPacket", &statusInformation.TransmitPacket}
-    statusInformation.EntityData.Children["receive-packet"] = types.YChild{"ReceivePacket", &statusInformation.ReceivePacket}
-    statusInformation.EntityData.Children["status-brief-information"] = types.YChild{"StatusBriefInformation", &statusInformation.StatusBriefInformation}
-    statusInformation.EntityData.Children["async-transmit-statistics"] = types.YChild{"AsyncTransmitStatistics", &statusInformation.AsyncTransmitStatistics}
-    statusInformation.EntityData.Children["async-receive-statistics"] = types.YChild{"AsyncReceiveStatistics", &statusInformation.AsyncReceiveStatistics}
-    statusInformation.EntityData.Children["echo-transmit-statistics"] = types.YChild{"EchoTransmitStatistics", &statusInformation.EchoTransmitStatistics}
-    statusInformation.EntityData.Children["echo-received-statistics"] = types.YChild{"EchoReceivedStatistics", &statusInformation.EchoReceivedStatistics}
-    statusInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    statusInformation.EntityData.Leafs["sessiontype"] = types.YLeaf{"Sessiontype", statusInformation.Sessiontype}
-    statusInformation.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", statusInformation.SessionSubtype}
-    statusInformation.EntityData.Leafs["state"] = types.YLeaf{"State", statusInformation.State}
-    statusInformation.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", statusInformation.LocalDiscriminator}
-    statusInformation.EntityData.Leafs["remote-discriminator"] = types.YLeaf{"RemoteDiscriminator", statusInformation.RemoteDiscriminator}
-    statusInformation.EntityData.Leafs["to-up-state-count"] = types.YLeaf{"ToUpStateCount", statusInformation.ToUpStateCount}
-    statusInformation.EntityData.Leafs["desired-minimum-echo-transmit-interval"] = types.YLeaf{"DesiredMinimumEchoTransmitInterval", statusInformation.DesiredMinimumEchoTransmitInterval}
-    statusInformation.EntityData.Leafs["remote-negotiated-interval"] = types.YLeaf{"RemoteNegotiatedInterval", statusInformation.RemoteNegotiatedInterval}
-    statusInformation.EntityData.Leafs["latency-number"] = types.YLeaf{"LatencyNumber", statusInformation.LatencyNumber}
-    statusInformation.EntityData.Leafs["latency-minimum"] = types.YLeaf{"LatencyMinimum", statusInformation.LatencyMinimum}
-    statusInformation.EntityData.Leafs["latency-maximum"] = types.YLeaf{"LatencyMaximum", statusInformation.LatencyMaximum}
-    statusInformation.EntityData.Leafs["latency-average"] = types.YLeaf{"LatencyAverage", statusInformation.LatencyAverage}
-    statusInformation.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", statusInformation.NodeId}
-    statusInformation.EntityData.Leafs["internal-label"] = types.YLeaf{"InternalLabel", statusInformation.InternalLabel}
+    statusInformation.EntityData.Children = types.NewOrderedMap()
+    statusInformation.EntityData.Children.Append("source-address", types.YChild{"SourceAddress", &statusInformation.SourceAddress})
+    statusInformation.EntityData.Children.Append("last-state-change", types.YChild{"LastStateChange", &statusInformation.LastStateChange})
+    statusInformation.EntityData.Children.Append("transmit-packet", types.YChild{"TransmitPacket", &statusInformation.TransmitPacket})
+    statusInformation.EntityData.Children.Append("receive-packet", types.YChild{"ReceivePacket", &statusInformation.ReceivePacket})
+    statusInformation.EntityData.Children.Append("status-brief-information", types.YChild{"StatusBriefInformation", &statusInformation.StatusBriefInformation})
+    statusInformation.EntityData.Children.Append("async-transmit-statistics", types.YChild{"AsyncTransmitStatistics", &statusInformation.AsyncTransmitStatistics})
+    statusInformation.EntityData.Children.Append("async-receive-statistics", types.YChild{"AsyncReceiveStatistics", &statusInformation.AsyncReceiveStatistics})
+    statusInformation.EntityData.Children.Append("echo-transmit-statistics", types.YChild{"EchoTransmitStatistics", &statusInformation.EchoTransmitStatistics})
+    statusInformation.EntityData.Children.Append("echo-received-statistics", types.YChild{"EchoReceivedStatistics", &statusInformation.EchoReceivedStatistics})
+    statusInformation.EntityData.Leafs = types.NewOrderedMap()
+    statusInformation.EntityData.Leafs.Append("sessiontype", types.YLeaf{"Sessiontype", statusInformation.Sessiontype})
+    statusInformation.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", statusInformation.SessionSubtype})
+    statusInformation.EntityData.Leafs.Append("state", types.YLeaf{"State", statusInformation.State})
+    statusInformation.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", statusInformation.LocalDiscriminator})
+    statusInformation.EntityData.Leafs.Append("remote-discriminator", types.YLeaf{"RemoteDiscriminator", statusInformation.RemoteDiscriminator})
+    statusInformation.EntityData.Leafs.Append("to-up-state-count", types.YLeaf{"ToUpStateCount", statusInformation.ToUpStateCount})
+    statusInformation.EntityData.Leafs.Append("desired-minimum-echo-transmit-interval", types.YLeaf{"DesiredMinimumEchoTransmitInterval", statusInformation.DesiredMinimumEchoTransmitInterval})
+    statusInformation.EntityData.Leafs.Append("remote-negotiated-interval", types.YLeaf{"RemoteNegotiatedInterval", statusInformation.RemoteNegotiatedInterval})
+    statusInformation.EntityData.Leafs.Append("latency-number", types.YLeaf{"LatencyNumber", statusInformation.LatencyNumber})
+    statusInformation.EntityData.Leafs.Append("latency-minimum", types.YLeaf{"LatencyMinimum", statusInformation.LatencyMinimum})
+    statusInformation.EntityData.Leafs.Append("latency-maximum", types.YLeaf{"LatencyMaximum", statusInformation.LatencyMaximum})
+    statusInformation.EntityData.Leafs.Append("latency-average", types.YLeaf{"LatencyAverage", statusInformation.LatencyAverage})
+    statusInformation.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", statusInformation.NodeId})
+    statusInformation.EntityData.Leafs.Append("internal-label", types.YLeaf{"InternalLabel", statusInformation.InternalLabel})
+
+    statusInformation.EntityData.YListKeys = []string {}
+
     return &(statusInformation.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_SourceAddress
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_SourceAddress
 // Source address
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_SourceAddress struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_SourceAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4788,15 +5064,15 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_Status
     Dummy interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
-func (sourceAddress *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_SourceAddress) GetEntityData() *types.CommonEntityData {
+func (sourceAddress *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_SourceAddress) GetEntityData() *types.CommonEntityData {
     sourceAddress.EntityData.YFilter = sourceAddress.YFilter
     sourceAddress.EntityData.YangName = "source-address"
     sourceAddress.EntityData.BundleName = "cisco_ios_xr"
@@ -4806,18 +5082,21 @@ func (sourceAddress *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSess
     sourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourceAddress.EntityData.Children = make(map[string]types.YChild)
-    sourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    sourceAddress.EntityData.Leafs["afi"] = types.YLeaf{"Afi", sourceAddress.Afi}
-    sourceAddress.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", sourceAddress.Dummy}
-    sourceAddress.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", sourceAddress.Ipv4}
-    sourceAddress.EntityData.Leafs["ipv6"] = types.YLeaf{"Ipv6", sourceAddress.Ipv6}
+    sourceAddress.EntityData.Children = types.NewOrderedMap()
+    sourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    sourceAddress.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", sourceAddress.Afi})
+    sourceAddress.EntityData.Leafs.Append("dummy", types.YLeaf{"Dummy", sourceAddress.Dummy})
+    sourceAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", sourceAddress.Ipv4})
+    sourceAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", sourceAddress.Ipv6})
+
+    sourceAddress.EntityData.YListKeys = []string {}
+
     return &(sourceAddress.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_LastStateChange
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_LastStateChange
 // Time since last state change
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_LastStateChange struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_LastStateChange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4838,7 +5117,7 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_Status
     Seconds interface{}
 }
 
-func (lastStateChange *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_LastStateChange) GetEntityData() *types.CommonEntityData {
+func (lastStateChange *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_LastStateChange) GetEntityData() *types.CommonEntityData {
     lastStateChange.EntityData.YFilter = lastStateChange.YFilter
     lastStateChange.EntityData.YangName = "last-state-change"
     lastStateChange.EntityData.BundleName = "cisco_ios_xr"
@@ -4848,18 +5127,21 @@ func (lastStateChange *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSe
     lastStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastStateChange.EntityData.Leafs["days"] = types.YLeaf{"Days", lastStateChange.Days}
-    lastStateChange.EntityData.Leafs["hours"] = types.YLeaf{"Hours", lastStateChange.Hours}
-    lastStateChange.EntityData.Leafs["minutes"] = types.YLeaf{"Minutes", lastStateChange.Minutes}
-    lastStateChange.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lastStateChange.Seconds}
+    lastStateChange.EntityData.Children = types.NewOrderedMap()
+    lastStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastStateChange.EntityData.Leafs.Append("days", types.YLeaf{"Days", lastStateChange.Days})
+    lastStateChange.EntityData.Leafs.Append("hours", types.YLeaf{"Hours", lastStateChange.Hours})
+    lastStateChange.EntityData.Leafs.Append("minutes", types.YLeaf{"Minutes", lastStateChange.Minutes})
+    lastStateChange.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lastStateChange.Seconds})
+
+    lastStateChange.EntityData.YListKeys = []string {}
+
     return &(lastStateChange.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_TransmitPacket
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_TransmitPacket
 // Transmit Packet
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_TransmitPacket struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_TransmitPacket struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4918,7 +5200,7 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_Status
     RequiredMinimumEchoReceiveInterval interface{}
 }
 
-func (transmitPacket *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_TransmitPacket) GetEntityData() *types.CommonEntityData {
+func (transmitPacket *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_TransmitPacket) GetEntityData() *types.CommonEntityData {
     transmitPacket.EntityData.YFilter = transmitPacket.YFilter
     transmitPacket.EntityData.YangName = "transmit-packet"
     transmitPacket.EntityData.BundleName = "cisco_ios_xr"
@@ -4928,30 +5210,33 @@ func (transmitPacket *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSes
     transmitPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitPacket.EntityData.Children = make(map[string]types.YChild)
-    transmitPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitPacket.EntityData.Leafs["version"] = types.YLeaf{"Version", transmitPacket.Version}
-    transmitPacket.EntityData.Leafs["diagnostic"] = types.YLeaf{"Diagnostic", transmitPacket.Diagnostic}
-    transmitPacket.EntityData.Leafs["ihear-you"] = types.YLeaf{"IhearYou", transmitPacket.IhearYou}
-    transmitPacket.EntityData.Leafs["state"] = types.YLeaf{"State", transmitPacket.State}
-    transmitPacket.EntityData.Leafs["demand"] = types.YLeaf{"Demand", transmitPacket.Demand}
-    transmitPacket.EntityData.Leafs["poll"] = types.YLeaf{"Poll", transmitPacket.Poll}
-    transmitPacket.EntityData.Leafs["final"] = types.YLeaf{"Final", transmitPacket.Final}
-    transmitPacket.EntityData.Leafs["control-plane-independent"] = types.YLeaf{"ControlPlaneIndependent", transmitPacket.ControlPlaneIndependent}
-    transmitPacket.EntityData.Leafs["authentication-present"] = types.YLeaf{"AuthenticationPresent", transmitPacket.AuthenticationPresent}
-    transmitPacket.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", transmitPacket.DetectionMultiplier}
-    transmitPacket.EntityData.Leafs["length"] = types.YLeaf{"Length", transmitPacket.Length}
-    transmitPacket.EntityData.Leafs["my-discriminator"] = types.YLeaf{"MyDiscriminator", transmitPacket.MyDiscriminator}
-    transmitPacket.EntityData.Leafs["your-discriminator"] = types.YLeaf{"YourDiscriminator", transmitPacket.YourDiscriminator}
-    transmitPacket.EntityData.Leafs["desired-minimum-transmit-interval"] = types.YLeaf{"DesiredMinimumTransmitInterval", transmitPacket.DesiredMinimumTransmitInterval}
-    transmitPacket.EntityData.Leafs["required-minimum-receive-interval"] = types.YLeaf{"RequiredMinimumReceiveInterval", transmitPacket.RequiredMinimumReceiveInterval}
-    transmitPacket.EntityData.Leafs["required-minimum-echo-receive-interval"] = types.YLeaf{"RequiredMinimumEchoReceiveInterval", transmitPacket.RequiredMinimumEchoReceiveInterval}
+    transmitPacket.EntityData.Children = types.NewOrderedMap()
+    transmitPacket.EntityData.Leafs = types.NewOrderedMap()
+    transmitPacket.EntityData.Leafs.Append("version", types.YLeaf{"Version", transmitPacket.Version})
+    transmitPacket.EntityData.Leafs.Append("diagnostic", types.YLeaf{"Diagnostic", transmitPacket.Diagnostic})
+    transmitPacket.EntityData.Leafs.Append("ihear-you", types.YLeaf{"IhearYou", transmitPacket.IhearYou})
+    transmitPacket.EntityData.Leafs.Append("state", types.YLeaf{"State", transmitPacket.State})
+    transmitPacket.EntityData.Leafs.Append("demand", types.YLeaf{"Demand", transmitPacket.Demand})
+    transmitPacket.EntityData.Leafs.Append("poll", types.YLeaf{"Poll", transmitPacket.Poll})
+    transmitPacket.EntityData.Leafs.Append("final", types.YLeaf{"Final", transmitPacket.Final})
+    transmitPacket.EntityData.Leafs.Append("control-plane-independent", types.YLeaf{"ControlPlaneIndependent", transmitPacket.ControlPlaneIndependent})
+    transmitPacket.EntityData.Leafs.Append("authentication-present", types.YLeaf{"AuthenticationPresent", transmitPacket.AuthenticationPresent})
+    transmitPacket.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", transmitPacket.DetectionMultiplier})
+    transmitPacket.EntityData.Leafs.Append("length", types.YLeaf{"Length", transmitPacket.Length})
+    transmitPacket.EntityData.Leafs.Append("my-discriminator", types.YLeaf{"MyDiscriminator", transmitPacket.MyDiscriminator})
+    transmitPacket.EntityData.Leafs.Append("your-discriminator", types.YLeaf{"YourDiscriminator", transmitPacket.YourDiscriminator})
+    transmitPacket.EntityData.Leafs.Append("desired-minimum-transmit-interval", types.YLeaf{"DesiredMinimumTransmitInterval", transmitPacket.DesiredMinimumTransmitInterval})
+    transmitPacket.EntityData.Leafs.Append("required-minimum-receive-interval", types.YLeaf{"RequiredMinimumReceiveInterval", transmitPacket.RequiredMinimumReceiveInterval})
+    transmitPacket.EntityData.Leafs.Append("required-minimum-echo-receive-interval", types.YLeaf{"RequiredMinimumEchoReceiveInterval", transmitPacket.RequiredMinimumEchoReceiveInterval})
+
+    transmitPacket.EntityData.YListKeys = []string {}
+
     return &(transmitPacket.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_ReceivePacket
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_ReceivePacket
 // Receive Packet
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_ReceivePacket struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_ReceivePacket struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5010,7 +5295,7 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_Status
     RequiredMinimumEchoReceiveInterval interface{}
 }
 
-func (receivePacket *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_ReceivePacket) GetEntityData() *types.CommonEntityData {
+func (receivePacket *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_ReceivePacket) GetEntityData() *types.CommonEntityData {
     receivePacket.EntityData.YFilter = receivePacket.YFilter
     receivePacket.EntityData.YangName = "receive-packet"
     receivePacket.EntityData.BundleName = "cisco_ios_xr"
@@ -5020,41 +5305,44 @@ func (receivePacket *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSess
     receivePacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivePacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivePacket.EntityData.Children = make(map[string]types.YChild)
-    receivePacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivePacket.EntityData.Leafs["version"] = types.YLeaf{"Version", receivePacket.Version}
-    receivePacket.EntityData.Leafs["diagnostic"] = types.YLeaf{"Diagnostic", receivePacket.Diagnostic}
-    receivePacket.EntityData.Leafs["ihear-you"] = types.YLeaf{"IhearYou", receivePacket.IhearYou}
-    receivePacket.EntityData.Leafs["state"] = types.YLeaf{"State", receivePacket.State}
-    receivePacket.EntityData.Leafs["demand"] = types.YLeaf{"Demand", receivePacket.Demand}
-    receivePacket.EntityData.Leafs["poll"] = types.YLeaf{"Poll", receivePacket.Poll}
-    receivePacket.EntityData.Leafs["final"] = types.YLeaf{"Final", receivePacket.Final}
-    receivePacket.EntityData.Leafs["control-plane-independent"] = types.YLeaf{"ControlPlaneIndependent", receivePacket.ControlPlaneIndependent}
-    receivePacket.EntityData.Leafs["authentication-present"] = types.YLeaf{"AuthenticationPresent", receivePacket.AuthenticationPresent}
-    receivePacket.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", receivePacket.DetectionMultiplier}
-    receivePacket.EntityData.Leafs["length"] = types.YLeaf{"Length", receivePacket.Length}
-    receivePacket.EntityData.Leafs["my-discriminator"] = types.YLeaf{"MyDiscriminator", receivePacket.MyDiscriminator}
-    receivePacket.EntityData.Leafs["your-discriminator"] = types.YLeaf{"YourDiscriminator", receivePacket.YourDiscriminator}
-    receivePacket.EntityData.Leafs["desired-minimum-transmit-interval"] = types.YLeaf{"DesiredMinimumTransmitInterval", receivePacket.DesiredMinimumTransmitInterval}
-    receivePacket.EntityData.Leafs["required-minimum-receive-interval"] = types.YLeaf{"RequiredMinimumReceiveInterval", receivePacket.RequiredMinimumReceiveInterval}
-    receivePacket.EntityData.Leafs["required-minimum-echo-receive-interval"] = types.YLeaf{"RequiredMinimumEchoReceiveInterval", receivePacket.RequiredMinimumEchoReceiveInterval}
+    receivePacket.EntityData.Children = types.NewOrderedMap()
+    receivePacket.EntityData.Leafs = types.NewOrderedMap()
+    receivePacket.EntityData.Leafs.Append("version", types.YLeaf{"Version", receivePacket.Version})
+    receivePacket.EntityData.Leafs.Append("diagnostic", types.YLeaf{"Diagnostic", receivePacket.Diagnostic})
+    receivePacket.EntityData.Leafs.Append("ihear-you", types.YLeaf{"IhearYou", receivePacket.IhearYou})
+    receivePacket.EntityData.Leafs.Append("state", types.YLeaf{"State", receivePacket.State})
+    receivePacket.EntityData.Leafs.Append("demand", types.YLeaf{"Demand", receivePacket.Demand})
+    receivePacket.EntityData.Leafs.Append("poll", types.YLeaf{"Poll", receivePacket.Poll})
+    receivePacket.EntityData.Leafs.Append("final", types.YLeaf{"Final", receivePacket.Final})
+    receivePacket.EntityData.Leafs.Append("control-plane-independent", types.YLeaf{"ControlPlaneIndependent", receivePacket.ControlPlaneIndependent})
+    receivePacket.EntityData.Leafs.Append("authentication-present", types.YLeaf{"AuthenticationPresent", receivePacket.AuthenticationPresent})
+    receivePacket.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", receivePacket.DetectionMultiplier})
+    receivePacket.EntityData.Leafs.Append("length", types.YLeaf{"Length", receivePacket.Length})
+    receivePacket.EntityData.Leafs.Append("my-discriminator", types.YLeaf{"MyDiscriminator", receivePacket.MyDiscriminator})
+    receivePacket.EntityData.Leafs.Append("your-discriminator", types.YLeaf{"YourDiscriminator", receivePacket.YourDiscriminator})
+    receivePacket.EntityData.Leafs.Append("desired-minimum-transmit-interval", types.YLeaf{"DesiredMinimumTransmitInterval", receivePacket.DesiredMinimumTransmitInterval})
+    receivePacket.EntityData.Leafs.Append("required-minimum-receive-interval", types.YLeaf{"RequiredMinimumReceiveInterval", receivePacket.RequiredMinimumReceiveInterval})
+    receivePacket.EntityData.Leafs.Append("required-minimum-echo-receive-interval", types.YLeaf{"RequiredMinimumEchoReceiveInterval", receivePacket.RequiredMinimumEchoReceiveInterval})
+
+    receivePacket.EntityData.YListKeys = []string {}
+
     return &(receivePacket.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation
 // Brief Status Information
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Async Interval and Detect Multiplier Information.
-    AsyncIntervalMultiplier Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation_AsyncIntervalMultiplier
+    AsyncIntervalMultiplier Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation_AsyncIntervalMultiplier
 
     // Echo Interval and Detect Multiplier Information.
-    EchoIntervalMultiplier Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation_EchoIntervalMultiplier
+    EchoIntervalMultiplier Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation_EchoIntervalMultiplier
 }
 
-func (statusBriefInformation *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation) GetEntityData() *types.CommonEntityData {
+func (statusBriefInformation *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation) GetEntityData() *types.CommonEntityData {
     statusBriefInformation.EntityData.YFilter = statusBriefInformation.YFilter
     statusBriefInformation.EntityData.YangName = "status-brief-information"
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
@@ -5064,16 +5352,19 @@ func (statusBriefInformation *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplst
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusBriefInformation.EntityData.Children = make(map[string]types.YChild)
-    statusBriefInformation.EntityData.Children["async-interval-multiplier"] = types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier}
-    statusBriefInformation.EntityData.Children["echo-interval-multiplier"] = types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier}
-    statusBriefInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    statusBriefInformation.EntityData.Children = types.NewOrderedMap()
+    statusBriefInformation.EntityData.Children.Append("async-interval-multiplier", types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier})
+    statusBriefInformation.EntityData.Children.Append("echo-interval-multiplier", types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier})
+    statusBriefInformation.EntityData.Leafs = types.NewOrderedMap()
+
+    statusBriefInformation.EntityData.YListKeys = []string {}
+
     return &(statusBriefInformation.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation_AsyncIntervalMultiplier
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation_AsyncIntervalMultiplier
 // Async Interval and Detect Multiplier Information
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation_AsyncIntervalMultiplier struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation_AsyncIntervalMultiplier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5093,7 +5384,7 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_Status
     DetectionMultiplier interface{}
 }
 
-func (asyncIntervalMultiplier *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation_AsyncIntervalMultiplier) GetEntityData() *types.CommonEntityData {
+func (asyncIntervalMultiplier *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation_AsyncIntervalMultiplier) GetEntityData() *types.CommonEntityData {
     asyncIntervalMultiplier.EntityData.YFilter = asyncIntervalMultiplier.YFilter
     asyncIntervalMultiplier.EntityData.YangName = "async-interval-multiplier"
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
@@ -5103,18 +5394,21 @@ func (asyncIntervalMultiplier *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMpls
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    asyncIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-remote-transmit-interval"] = types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-local-transmit-interval"] = types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier}
+    asyncIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-remote-transmit-interval", types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-local-transmit-interval", types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier})
+
+    asyncIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(asyncIntervalMultiplier.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation_EchoIntervalMultiplier
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation_EchoIntervalMultiplier
 // Echo Interval and Detect Multiplier Information
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation_EchoIntervalMultiplier struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation_EchoIntervalMultiplier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5130,7 +5424,7 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_Status
     DetectionMultiplier interface{}
 }
 
-func (echoIntervalMultiplier *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation_EchoIntervalMultiplier) GetEntityData() *types.CommonEntityData {
+func (echoIntervalMultiplier *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_StatusBriefInformation_EchoIntervalMultiplier) GetEntityData() *types.CommonEntityData {
     echoIntervalMultiplier.EntityData.YFilter = echoIntervalMultiplier.YFilter
     echoIntervalMultiplier.EntityData.YangName = "echo-interval-multiplier"
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
@@ -5140,18 +5434,21 @@ func (echoIntervalMultiplier *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplst
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    echoIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoIntervalMultiplier.EntityData.Leafs["negotiated-transmit-interval"] = types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval}
-    echoIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime}
-    echoIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier}
+    echoIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs.Append("negotiated-transmit-interval", types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier})
+
+    echoIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(echoIntervalMultiplier.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_AsyncTransmitStatistics
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_AsyncTransmitStatistics
 // Statistics of Interval between Async Packets
 // Transmitted (in milli-seconds)
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_AsyncTransmitStatistics struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_AsyncTransmitStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5176,7 +5473,7 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_Status
     Last interface{}
 }
 
-func (asyncTransmitStatistics *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_AsyncTransmitStatistics) GetEntityData() *types.CommonEntityData {
+func (asyncTransmitStatistics *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_AsyncTransmitStatistics) GetEntityData() *types.CommonEntityData {
     asyncTransmitStatistics.EntityData.YFilter = asyncTransmitStatistics.YFilter
     asyncTransmitStatistics.EntityData.YangName = "async-transmit-statistics"
     asyncTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
@@ -5186,20 +5483,23 @@ func (asyncTransmitStatistics *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMpls
     asyncTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncTransmitStatistics.EntityData.Children = make(map[string]types.YChild)
-    asyncTransmitStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncTransmitStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", asyncTransmitStatistics.Number}
-    asyncTransmitStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", asyncTransmitStatistics.Minimum}
-    asyncTransmitStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", asyncTransmitStatistics.Maximum}
-    asyncTransmitStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", asyncTransmitStatistics.Average}
-    asyncTransmitStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", asyncTransmitStatistics.Last}
+    asyncTransmitStatistics.EntityData.Children = types.NewOrderedMap()
+    asyncTransmitStatistics.EntityData.Leafs = types.NewOrderedMap()
+    asyncTransmitStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", asyncTransmitStatistics.Number})
+    asyncTransmitStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", asyncTransmitStatistics.Minimum})
+    asyncTransmitStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", asyncTransmitStatistics.Maximum})
+    asyncTransmitStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", asyncTransmitStatistics.Average})
+    asyncTransmitStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", asyncTransmitStatistics.Last})
+
+    asyncTransmitStatistics.EntityData.YListKeys = []string {}
+
     return &(asyncTransmitStatistics.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_AsyncReceiveStatistics
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_AsyncReceiveStatistics
 // Statistics of Interval between Async Packets
 // Received (in milli-seconds)
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_AsyncReceiveStatistics struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_AsyncReceiveStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5224,7 +5524,7 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_Status
     Last interface{}
 }
 
-func (asyncReceiveStatistics *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_AsyncReceiveStatistics) GetEntityData() *types.CommonEntityData {
+func (asyncReceiveStatistics *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_AsyncReceiveStatistics) GetEntityData() *types.CommonEntityData {
     asyncReceiveStatistics.EntityData.YFilter = asyncReceiveStatistics.YFilter
     asyncReceiveStatistics.EntityData.YangName = "async-receive-statistics"
     asyncReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
@@ -5234,20 +5534,23 @@ func (asyncReceiveStatistics *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplst
     asyncReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncReceiveStatistics.EntityData.Children = make(map[string]types.YChild)
-    asyncReceiveStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncReceiveStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", asyncReceiveStatistics.Number}
-    asyncReceiveStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", asyncReceiveStatistics.Minimum}
-    asyncReceiveStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", asyncReceiveStatistics.Maximum}
-    asyncReceiveStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", asyncReceiveStatistics.Average}
-    asyncReceiveStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", asyncReceiveStatistics.Last}
+    asyncReceiveStatistics.EntityData.Children = types.NewOrderedMap()
+    asyncReceiveStatistics.EntityData.Leafs = types.NewOrderedMap()
+    asyncReceiveStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", asyncReceiveStatistics.Number})
+    asyncReceiveStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", asyncReceiveStatistics.Minimum})
+    asyncReceiveStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", asyncReceiveStatistics.Maximum})
+    asyncReceiveStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", asyncReceiveStatistics.Average})
+    asyncReceiveStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", asyncReceiveStatistics.Last})
+
+    asyncReceiveStatistics.EntityData.YListKeys = []string {}
+
     return &(asyncReceiveStatistics.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_EchoTransmitStatistics
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_EchoTransmitStatistics
 // Statistics of Interval between Echo Packets
 // Transmitted (in milli-seconds)
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_EchoTransmitStatistics struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_EchoTransmitStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5272,7 +5575,7 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_Status
     Last interface{}
 }
 
-func (echoTransmitStatistics *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_EchoTransmitStatistics) GetEntityData() *types.CommonEntityData {
+func (echoTransmitStatistics *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_EchoTransmitStatistics) GetEntityData() *types.CommonEntityData {
     echoTransmitStatistics.EntityData.YFilter = echoTransmitStatistics.YFilter
     echoTransmitStatistics.EntityData.YangName = "echo-transmit-statistics"
     echoTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
@@ -5282,20 +5585,23 @@ func (echoTransmitStatistics *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplst
     echoTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoTransmitStatistics.EntityData.Children = make(map[string]types.YChild)
-    echoTransmitStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoTransmitStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", echoTransmitStatistics.Number}
-    echoTransmitStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", echoTransmitStatistics.Minimum}
-    echoTransmitStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", echoTransmitStatistics.Maximum}
-    echoTransmitStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", echoTransmitStatistics.Average}
-    echoTransmitStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", echoTransmitStatistics.Last}
+    echoTransmitStatistics.EntityData.Children = types.NewOrderedMap()
+    echoTransmitStatistics.EntityData.Leafs = types.NewOrderedMap()
+    echoTransmitStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", echoTransmitStatistics.Number})
+    echoTransmitStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", echoTransmitStatistics.Minimum})
+    echoTransmitStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", echoTransmitStatistics.Maximum})
+    echoTransmitStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", echoTransmitStatistics.Average})
+    echoTransmitStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", echoTransmitStatistics.Last})
+
+    echoTransmitStatistics.EntityData.YListKeys = []string {}
+
     return &(echoTransmitStatistics.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_EchoReceivedStatistics
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_EchoReceivedStatistics
 // Statistics of Interval between Echo Packets
 // Received (in milli-seconds)
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_EchoReceivedStatistics struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_EchoReceivedStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5320,7 +5626,7 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_Status
     Last interface{}
 }
 
-func (echoReceivedStatistics *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_StatusInformation_EchoReceivedStatistics) GetEntityData() *types.CommonEntityData {
+func (echoReceivedStatistics *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_StatusInformation_EchoReceivedStatistics) GetEntityData() *types.CommonEntityData {
     echoReceivedStatistics.EntityData.YFilter = echoReceivedStatistics.YFilter
     echoReceivedStatistics.EntityData.YangName = "echo-received-statistics"
     echoReceivedStatistics.EntityData.BundleName = "cisco_ios_xr"
@@ -5330,19 +5636,22 @@ func (echoReceivedStatistics *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplst
     echoReceivedStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoReceivedStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoReceivedStatistics.EntityData.Children = make(map[string]types.YChild)
-    echoReceivedStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoReceivedStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", echoReceivedStatistics.Number}
-    echoReceivedStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", echoReceivedStatistics.Minimum}
-    echoReceivedStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", echoReceivedStatistics.Maximum}
-    echoReceivedStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", echoReceivedStatistics.Average}
-    echoReceivedStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", echoReceivedStatistics.Last}
+    echoReceivedStatistics.EntityData.Children = types.NewOrderedMap()
+    echoReceivedStatistics.EntityData.Leafs = types.NewOrderedMap()
+    echoReceivedStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", echoReceivedStatistics.Number})
+    echoReceivedStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", echoReceivedStatistics.Minimum})
+    echoReceivedStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", echoReceivedStatistics.Maximum})
+    echoReceivedStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", echoReceivedStatistics.Average})
+    echoReceivedStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", echoReceivedStatistics.Last})
+
+    echoReceivedStatistics.EntityData.YListKeys = []string {}
+
     return &(echoReceivedStatistics.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_MpDownloadState
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_MpDownloadState
 // MP Dowload State
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_MpDownloadState struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_MpDownloadState struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5350,10 +5659,10 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_MpDown
     MpDownloadState interface{}
 
     // Change time.
-    ChangeTime Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_MpDownloadState_ChangeTime
+    ChangeTime Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_MpDownloadState_ChangeTime
 }
 
-func (mpDownloadState *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_MpDownloadState) GetEntityData() *types.CommonEntityData {
+func (mpDownloadState *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_MpDownloadState) GetEntityData() *types.CommonEntityData {
     mpDownloadState.EntityData.YFilter = mpDownloadState.YFilter
     mpDownloadState.EntityData.YangName = "mp-download-state"
     mpDownloadState.EntityData.BundleName = "cisco_ios_xr"
@@ -5363,16 +5672,19 @@ func (mpDownloadState *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSe
     mpDownloadState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpDownloadState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mpDownloadState.EntityData.Children = make(map[string]types.YChild)
-    mpDownloadState.EntityData.Children["change-time"] = types.YChild{"ChangeTime", &mpDownloadState.ChangeTime}
-    mpDownloadState.EntityData.Leafs = make(map[string]types.YLeaf)
-    mpDownloadState.EntityData.Leafs["mp-download-state"] = types.YLeaf{"MpDownloadState", mpDownloadState.MpDownloadState}
+    mpDownloadState.EntityData.Children = types.NewOrderedMap()
+    mpDownloadState.EntityData.Children.Append("change-time", types.YChild{"ChangeTime", &mpDownloadState.ChangeTime})
+    mpDownloadState.EntityData.Leafs = types.NewOrderedMap()
+    mpDownloadState.EntityData.Leafs.Append("mp-download-state", types.YLeaf{"MpDownloadState", mpDownloadState.MpDownloadState})
+
+    mpDownloadState.EntityData.YListKeys = []string {}
+
     return &(mpDownloadState.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_MpDownloadState_ChangeTime
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_MpDownloadState_ChangeTime
 // Change time
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_MpDownloadState_ChangeTime struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_MpDownloadState_ChangeTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5385,7 +5697,7 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_MpDown
     Nanoseconds interface{}
 }
 
-func (changeTime *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_MpDownloadState_ChangeTime) GetEntityData() *types.CommonEntityData {
+func (changeTime *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_MpDownloadState_ChangeTime) GetEntityData() *types.CommonEntityData {
     changeTime.EntityData.YFilter = changeTime.YFilter
     changeTime.EntityData.YangName = "change-time"
     changeTime.EntityData.BundleName = "cisco_ios_xr"
@@ -5395,16 +5707,19 @@ func (changeTime *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSession
     changeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    changeTime.EntityData.Children = make(map[string]types.YChild)
-    changeTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    changeTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", changeTime.Seconds}
-    changeTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", changeTime.Nanoseconds}
+    changeTime.EntityData.Children = types.NewOrderedMap()
+    changeTime.EntityData.Leafs = types.NewOrderedMap()
+    changeTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", changeTime.Seconds})
+    changeTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", changeTime.Nanoseconds})
+
+    changeTime.EntityData.YListKeys = []string {}
+
     return &(changeTime.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPingInfo
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_LspPingInfo
 // LSP Ping Info
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPingInfo struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_LspPingInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5438,16 +5753,16 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPin
     LspPingRxLastOutput interface{}
 
     // LSP Ping last sent time.
-    LspPingTxLastTime Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPingInfo_LspPingTxLastTime
+    LspPingTxLastTime Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_LspPingInfo_LspPingTxLastTime
 
     // LSP Ping last error time.
-    LspPingTxLastErrorTime Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPingInfo_LspPingTxLastErrorTime
+    LspPingTxLastErrorTime Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_LspPingInfo_LspPingTxLastErrorTime
 
     // LSP Ping last received time.
-    LspPingRxLastTime Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPingInfo_LspPingRxLastTime
+    LspPingRxLastTime Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_LspPingInfo_LspPingRxLastTime
 }
 
-func (lspPingInfo *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPingInfo) GetEntityData() *types.CommonEntityData {
+func (lspPingInfo *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_LspPingInfo) GetEntityData() *types.CommonEntityData {
     lspPingInfo.EntityData.YFilter = lspPingInfo.YFilter
     lspPingInfo.EntityData.YangName = "lsp-ping-info"
     lspPingInfo.EntityData.BundleName = "cisco_ios_xr"
@@ -5457,26 +5772,29 @@ func (lspPingInfo *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessio
     lspPingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingInfo.EntityData.Children = make(map[string]types.YChild)
-    lspPingInfo.EntityData.Children["lsp-ping-tx-last-time"] = types.YChild{"LspPingTxLastTime", &lspPingInfo.LspPingTxLastTime}
-    lspPingInfo.EntityData.Children["lsp-ping-tx-last-error-time"] = types.YChild{"LspPingTxLastErrorTime", &lspPingInfo.LspPingTxLastErrorTime}
-    lspPingInfo.EntityData.Children["lsp-ping-rx-last-time"] = types.YChild{"LspPingRxLastTime", &lspPingInfo.LspPingRxLastTime}
-    lspPingInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-count"] = types.YLeaf{"LspPingTxCount", lspPingInfo.LspPingTxCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-error-count"] = types.YLeaf{"LspPingTxErrorCount", lspPingInfo.LspPingTxErrorCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-last-rc"] = types.YLeaf{"LspPingTxLastRc", lspPingInfo.LspPingTxLastRc}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-last-error-rc"] = types.YLeaf{"LspPingTxLastErrorRc", lspPingInfo.LspPingTxLastErrorRc}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-discr"] = types.YLeaf{"LspPingRxLastDiscr", lspPingInfo.LspPingRxLastDiscr}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-count"] = types.YLeaf{"LspPingRxCount", lspPingInfo.LspPingRxCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-code"] = types.YLeaf{"LspPingRxLastCode", lspPingInfo.LspPingRxLastCode}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-subcode"] = types.YLeaf{"LspPingRxLastSubcode", lspPingInfo.LspPingRxLastSubcode}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-output"] = types.YLeaf{"LspPingRxLastOutput", lspPingInfo.LspPingRxLastOutput}
+    lspPingInfo.EntityData.Children = types.NewOrderedMap()
+    lspPingInfo.EntityData.Children.Append("lsp-ping-tx-last-time", types.YChild{"LspPingTxLastTime", &lspPingInfo.LspPingTxLastTime})
+    lspPingInfo.EntityData.Children.Append("lsp-ping-tx-last-error-time", types.YChild{"LspPingTxLastErrorTime", &lspPingInfo.LspPingTxLastErrorTime})
+    lspPingInfo.EntityData.Children.Append("lsp-ping-rx-last-time", types.YChild{"LspPingRxLastTime", &lspPingInfo.LspPingRxLastTime})
+    lspPingInfo.EntityData.Leafs = types.NewOrderedMap()
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-count", types.YLeaf{"LspPingTxCount", lspPingInfo.LspPingTxCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-error-count", types.YLeaf{"LspPingTxErrorCount", lspPingInfo.LspPingTxErrorCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-last-rc", types.YLeaf{"LspPingTxLastRc", lspPingInfo.LspPingTxLastRc})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-last-error-rc", types.YLeaf{"LspPingTxLastErrorRc", lspPingInfo.LspPingTxLastErrorRc})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-discr", types.YLeaf{"LspPingRxLastDiscr", lspPingInfo.LspPingRxLastDiscr})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-count", types.YLeaf{"LspPingRxCount", lspPingInfo.LspPingRxCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-code", types.YLeaf{"LspPingRxLastCode", lspPingInfo.LspPingRxLastCode})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-subcode", types.YLeaf{"LspPingRxLastSubcode", lspPingInfo.LspPingRxLastSubcode})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-output", types.YLeaf{"LspPingRxLastOutput", lspPingInfo.LspPingRxLastOutput})
+
+    lspPingInfo.EntityData.YListKeys = []string {}
+
     return &(lspPingInfo.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPingInfo_LspPingTxLastTime
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_LspPingInfo_LspPingTxLastTime
 // LSP Ping last sent time
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPingInfo_LspPingTxLastTime struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_LspPingInfo_LspPingTxLastTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5489,7 +5807,7 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPin
     Nanoseconds interface{}
 }
 
-func (lspPingTxLastTime *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPingInfo_LspPingTxLastTime) GetEntityData() *types.CommonEntityData {
+func (lspPingTxLastTime *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_LspPingInfo_LspPingTxLastTime) GetEntityData() *types.CommonEntityData {
     lspPingTxLastTime.EntityData.YFilter = lspPingTxLastTime.YFilter
     lspPingTxLastTime.EntityData.YangName = "lsp-ping-tx-last-time"
     lspPingTxLastTime.EntityData.BundleName = "cisco_ios_xr"
@@ -5499,16 +5817,19 @@ func (lspPingTxLastTime *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTail
     lspPingTxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingTxLastTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingTxLastTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingTxLastTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingTxLastTime.Seconds}
-    lspPingTxLastTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingTxLastTime.Nanoseconds}
+    lspPingTxLastTime.EntityData.Children = types.NewOrderedMap()
+    lspPingTxLastTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingTxLastTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingTxLastTime.Seconds})
+    lspPingTxLastTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingTxLastTime.Nanoseconds})
+
+    lspPingTxLastTime.EntityData.YListKeys = []string {}
+
     return &(lspPingTxLastTime.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPingInfo_LspPingTxLastErrorTime
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_LspPingInfo_LspPingTxLastErrorTime
 // LSP Ping last error time
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPingInfo_LspPingTxLastErrorTime struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_LspPingInfo_LspPingTxLastErrorTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5521,7 +5842,7 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPin
     Nanoseconds interface{}
 }
 
-func (lspPingTxLastErrorTime *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPingInfo_LspPingTxLastErrorTime) GetEntityData() *types.CommonEntityData {
+func (lspPingTxLastErrorTime *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_LspPingInfo_LspPingTxLastErrorTime) GetEntityData() *types.CommonEntityData {
     lspPingTxLastErrorTime.EntityData.YFilter = lspPingTxLastErrorTime.YFilter
     lspPingTxLastErrorTime.EntityData.YangName = "lsp-ping-tx-last-error-time"
     lspPingTxLastErrorTime.EntityData.BundleName = "cisco_ios_xr"
@@ -5531,16 +5852,19 @@ func (lspPingTxLastErrorTime *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplst
     lspPingTxLastErrorTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastErrorTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingTxLastErrorTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingTxLastErrorTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingTxLastErrorTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingTxLastErrorTime.Seconds}
-    lspPingTxLastErrorTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingTxLastErrorTime.Nanoseconds}
+    lspPingTxLastErrorTime.EntityData.Children = types.NewOrderedMap()
+    lspPingTxLastErrorTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingTxLastErrorTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingTxLastErrorTime.Seconds})
+    lspPingTxLastErrorTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingTxLastErrorTime.Nanoseconds})
+
+    lspPingTxLastErrorTime.EntityData.YListKeys = []string {}
+
     return &(lspPingTxLastErrorTime.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPingInfo_LspPingRxLastTime
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_LspPingInfo_LspPingRxLastTime
 // LSP Ping last received time
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPingInfo_LspPingRxLastTime struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_LspPingInfo_LspPingRxLastTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5553,7 +5877,7 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPin
     Nanoseconds interface{}
 }
 
-func (lspPingRxLastTime *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_LspPingInfo_LspPingRxLastTime) GetEntityData() *types.CommonEntityData {
+func (lspPingRxLastTime *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_LspPingInfo_LspPingRxLastTime) GetEntityData() *types.CommonEntityData {
     lspPingRxLastTime.EntityData.YFilter = lspPingRxLastTime.YFilter
     lspPingRxLastTime.EntityData.YangName = "lsp-ping-rx-last-time"
     lspPingRxLastTime.EntityData.BundleName = "cisco_ios_xr"
@@ -5563,16 +5887,19 @@ func (lspPingRxLastTime *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTail
     lspPingRxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingRxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingRxLastTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingRxLastTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingRxLastTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingRxLastTime.Seconds}
-    lspPingRxLastTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingRxLastTime.Nanoseconds}
+    lspPingRxLastTime.EntityData.Children = types.NewOrderedMap()
+    lspPingRxLastTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingRxLastTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingRxLastTime.Seconds})
+    lspPingRxLastTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingRxLastTime.Nanoseconds})
+
+    lspPingRxLastTime.EntityData.YListKeys = []string {}
+
     return &(lspPingRxLastTime.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_OwnerInformation
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_OwnerInformation
 // Client applications owning the session
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_OwnerInformation struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5596,7 +5923,7 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_OwnerI
     Name interface{}
 }
 
-func (ownerInformation *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_OwnerInformation) GetEntityData() *types.CommonEntityData {
+func (ownerInformation *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_OwnerInformation) GetEntityData() *types.CommonEntityData {
     ownerInformation.EntityData.YFilter = ownerInformation.YFilter
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
@@ -5606,19 +5933,22 @@ func (ownerInformation *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailS
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ownerInformation.EntityData.Children = make(map[string]types.YChild)
-    ownerInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    ownerInformation.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ownerInformation.Interval}
-    ownerInformation.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier}
-    ownerInformation.EntityData.Leafs["adjusted-interval"] = types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval}
-    ownerInformation.EntityData.Leafs["adjusted-detection-multiplier"] = types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier}
-    ownerInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", ownerInformation.Name}
+    ownerInformation.EntityData.Children = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ownerInformation.Interval})
+    ownerInformation.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("adjusted-interval", types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval})
+    ownerInformation.EntityData.Leafs.Append("adjusted-detection-multiplier", types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", ownerInformation.Name})
+
+    ownerInformation.EntityData.YListKeys = []string {}
+
     return &(ownerInformation.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_AssociationInformation
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_AssociationInformation
 // Association session information
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_AssociationInformation struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_AssociationInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5633,14 +5963,14 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_Associ
     LocalDiscriminator interface{}
 
     // IPv4/v6 dest address.
-    IpDestinationAddress Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_AssociationInformation_IpDestinationAddress
+    IpDestinationAddress Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_AssociationInformation_IpDestinationAddress
 
     // Client applications owning the session. The type is slice of
-    // Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_AssociationInformation_OwnerInformation.
-    OwnerInformation []Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_AssociationInformation_OwnerInformation
+    // Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_AssociationInformation_OwnerInformation.
+    OwnerInformation []*Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_AssociationInformation_OwnerInformation
 }
 
-func (associationInformation *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_AssociationInformation) GetEntityData() *types.CommonEntityData {
+func (associationInformation *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_AssociationInformation) GetEntityData() *types.CommonEntityData {
     associationInformation.EntityData.YFilter = associationInformation.YFilter
     associationInformation.EntityData.YangName = "association-information"
     associationInformation.EntityData.BundleName = "cisco_ios_xr"
@@ -5650,22 +5980,25 @@ func (associationInformation *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplst
     associationInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    associationInformation.EntityData.Children = make(map[string]types.YChild)
-    associationInformation.EntityData.Children["ip-destination-address"] = types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress}
-    associationInformation.EntityData.Children["owner-information"] = types.YChild{"OwnerInformation", nil}
+    associationInformation.EntityData.Children = types.NewOrderedMap()
+    associationInformation.EntityData.Children.Append("ip-destination-address", types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress})
+    associationInformation.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range associationInformation.OwnerInformation {
-        associationInformation.EntityData.Children[types.GetSegmentPath(&associationInformation.OwnerInformation[i])] = types.YChild{"OwnerInformation", &associationInformation.OwnerInformation[i]}
+        associationInformation.EntityData.Children.Append(types.GetSegmentPath(associationInformation.OwnerInformation[i]), types.YChild{"OwnerInformation", associationInformation.OwnerInformation[i]})
     }
-    associationInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    associationInformation.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", associationInformation.InterfaceName}
-    associationInformation.EntityData.Leafs["sessiontype"] = types.YLeaf{"Sessiontype", associationInformation.Sessiontype}
-    associationInformation.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", associationInformation.LocalDiscriminator}
+    associationInformation.EntityData.Leafs = types.NewOrderedMap()
+    associationInformation.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", associationInformation.InterfaceName})
+    associationInformation.EntityData.Leafs.Append("sessiontype", types.YLeaf{"Sessiontype", associationInformation.Sessiontype})
+    associationInformation.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", associationInformation.LocalDiscriminator})
+
+    associationInformation.EntityData.YListKeys = []string {}
+
     return &(associationInformation.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_AssociationInformation_IpDestinationAddress
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_AssociationInformation_IpDestinationAddress
 // IPv4/v6 dest address
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_AssociationInformation_IpDestinationAddress struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_AssociationInformation_IpDestinationAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5676,15 +6009,15 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_Associ
     Dummy interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
-func (ipDestinationAddress *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_AssociationInformation_IpDestinationAddress) GetEntityData() *types.CommonEntityData {
+func (ipDestinationAddress *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_AssociationInformation_IpDestinationAddress) GetEntityData() *types.CommonEntityData {
     ipDestinationAddress.EntityData.YFilter = ipDestinationAddress.YFilter
     ipDestinationAddress.EntityData.YangName = "ip-destination-address"
     ipDestinationAddress.EntityData.BundleName = "cisco_ios_xr"
@@ -5694,18 +6027,21 @@ func (ipDestinationAddress *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteT
     ipDestinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDestinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipDestinationAddress.EntityData.Children = make(map[string]types.YChild)
-    ipDestinationAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipDestinationAddress.EntityData.Leafs["afi"] = types.YLeaf{"Afi", ipDestinationAddress.Afi}
-    ipDestinationAddress.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", ipDestinationAddress.Dummy}
-    ipDestinationAddress.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", ipDestinationAddress.Ipv4}
-    ipDestinationAddress.EntityData.Leafs["ipv6"] = types.YLeaf{"Ipv6", ipDestinationAddress.Ipv6}
+    ipDestinationAddress.EntityData.Children = types.NewOrderedMap()
+    ipDestinationAddress.EntityData.Leafs = types.NewOrderedMap()
+    ipDestinationAddress.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", ipDestinationAddress.Afi})
+    ipDestinationAddress.EntityData.Leafs.Append("dummy", types.YLeaf{"Dummy", ipDestinationAddress.Dummy})
+    ipDestinationAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", ipDestinationAddress.Ipv4})
+    ipDestinationAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", ipDestinationAddress.Ipv6})
+
+    ipDestinationAddress.EntityData.YListKeys = []string {}
+
     return &(ipDestinationAddress.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_AssociationInformation_OwnerInformation
+// Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_AssociationInformation_OwnerInformation
 // Client applications owning the session
-type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_AssociationInformation_OwnerInformation struct {
+type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_AssociationInformation_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5729,7 +6065,7 @@ type Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_Associ
     Name interface{}
 }
 
-func (ownerInformation *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailSessionDetail_AssociationInformation_OwnerInformation) GetEntityData() *types.CommonEntityData {
+func (ownerInformation *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_AssociationInformation_OwnerInformation) GetEntityData() *types.CommonEntityData {
     ownerInformation.EntityData.YFilter = ownerInformation.YFilter
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
@@ -5739,13 +6075,16 @@ func (ownerInformation *Bfd_Ipv4BfDoMplsteTailSessionDetails_Ipv4BfDoMplsteTailS
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ownerInformation.EntityData.Children = make(map[string]types.YChild)
-    ownerInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    ownerInformation.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ownerInformation.Interval}
-    ownerInformation.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier}
-    ownerInformation.EntityData.Leafs["adjusted-interval"] = types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval}
-    ownerInformation.EntityData.Leafs["adjusted-detection-multiplier"] = types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier}
-    ownerInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", ownerInformation.Name}
+    ownerInformation.EntityData.Children = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ownerInformation.Interval})
+    ownerInformation.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("adjusted-interval", types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval})
+    ownerInformation.EntityData.Leafs.Append("adjusted-detection-multiplier", types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", ownerInformation.Name})
+
+    ownerInformation.EntityData.YListKeys = []string {}
+
     return &(ownerInformation.EntityData)
 }
 
@@ -5759,7 +6098,7 @@ type Bfd_Ipv4MultiHopNodeLocationSummaries struct {
     // Summary information for BFD IPv4 multihop sessions for location. The type
     // is slice of
     // Bfd_Ipv4MultiHopNodeLocationSummaries_Ipv4MultiHopNodeLocationSummary.
-    Ipv4MultiHopNodeLocationSummary []Bfd_Ipv4MultiHopNodeLocationSummaries_Ipv4MultiHopNodeLocationSummary
+    Ipv4MultiHopNodeLocationSummary []*Bfd_Ipv4MultiHopNodeLocationSummaries_Ipv4MultiHopNodeLocationSummary
 }
 
 func (ipv4MultiHopNodeLocationSummaries *Bfd_Ipv4MultiHopNodeLocationSummaries) GetEntityData() *types.CommonEntityData {
@@ -5772,12 +6111,15 @@ func (ipv4MultiHopNodeLocationSummaries *Bfd_Ipv4MultiHopNodeLocationSummaries) 
     ipv4MultiHopNodeLocationSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopNodeLocationSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4MultiHopNodeLocationSummaries.EntityData.Children = make(map[string]types.YChild)
-    ipv4MultiHopNodeLocationSummaries.EntityData.Children["ipv4-multi-hop-node-location-summary"] = types.YChild{"Ipv4MultiHopNodeLocationSummary", nil}
+    ipv4MultiHopNodeLocationSummaries.EntityData.Children = types.NewOrderedMap()
+    ipv4MultiHopNodeLocationSummaries.EntityData.Children.Append("ipv4-multi-hop-node-location-summary", types.YChild{"Ipv4MultiHopNodeLocationSummary", nil})
     for i := range ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary {
-        ipv4MultiHopNodeLocationSummaries.EntityData.Children[types.GetSegmentPath(&ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary[i])] = types.YChild{"Ipv4MultiHopNodeLocationSummary", &ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary[i]}
+        ipv4MultiHopNodeLocationSummaries.EntityData.Children.Append(types.GetSegmentPath(ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary[i]), types.YChild{"Ipv4MultiHopNodeLocationSummary", ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary[i]})
     }
-    ipv4MultiHopNodeLocationSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4MultiHopNodeLocationSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4MultiHopNodeLocationSummaries.EntityData.YListKeys = []string {}
+
     return &(ipv4MultiHopNodeLocationSummaries.EntityData)
 }
 
@@ -5789,7 +6131,7 @@ type Bfd_Ipv4MultiHopNodeLocationSummaries_Ipv4MultiHopNodeLocationSummary struc
     YFilter yfilter.YFilter
 
     // This attribute is a key. Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Statistics of states for sessions.
@@ -5801,15 +6143,18 @@ func (ipv4MultiHopNodeLocationSummary *Bfd_Ipv4MultiHopNodeLocationSummaries_Ipv
     ipv4MultiHopNodeLocationSummary.EntityData.YangName = "ipv4-multi-hop-node-location-summary"
     ipv4MultiHopNodeLocationSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv4MultiHopNodeLocationSummary.EntityData.ParentYangName = "ipv4-multi-hop-node-location-summaries"
-    ipv4MultiHopNodeLocationSummary.EntityData.SegmentPath = "ipv4-multi-hop-node-location-summary" + "[location='" + fmt.Sprintf("%v", ipv4MultiHopNodeLocationSummary.Location) + "']"
+    ipv4MultiHopNodeLocationSummary.EntityData.SegmentPath = "ipv4-multi-hop-node-location-summary" + types.AddKeyToken(ipv4MultiHopNodeLocationSummary.Location, "location")
     ipv4MultiHopNodeLocationSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4MultiHopNodeLocationSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopNodeLocationSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4MultiHopNodeLocationSummary.EntityData.Children = make(map[string]types.YChild)
-    ipv4MultiHopNodeLocationSummary.EntityData.Children["session-state"] = types.YChild{"SessionState", &ipv4MultiHopNodeLocationSummary.SessionState}
-    ipv4MultiHopNodeLocationSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4MultiHopNodeLocationSummary.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv4MultiHopNodeLocationSummary.Location}
+    ipv4MultiHopNodeLocationSummary.EntityData.Children = types.NewOrderedMap()
+    ipv4MultiHopNodeLocationSummary.EntityData.Children.Append("session-state", types.YChild{"SessionState", &ipv4MultiHopNodeLocationSummary.SessionState})
+    ipv4MultiHopNodeLocationSummary.EntityData.Leafs = types.NewOrderedMap()
+    ipv4MultiHopNodeLocationSummary.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv4MultiHopNodeLocationSummary.Location})
+
+    ipv4MultiHopNodeLocationSummary.EntityData.YListKeys = []string {"Location"}
+
     return &(ipv4MultiHopNodeLocationSummary.EntityData)
 }
 
@@ -5854,104 +6199,108 @@ func (sessionState *Bfd_Ipv4MultiHopNodeLocationSummaries_Ipv4MultiHopNodeLocati
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionState.EntityData.Children = make(map[string]types.YChild)
-    sessionState.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionState.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", sessionState.TotalCount}
-    sessionState.EntityData.Leafs["up-count"] = types.YLeaf{"UpCount", sessionState.UpCount}
-    sessionState.EntityData.Leafs["down-count"] = types.YLeaf{"DownCount", sessionState.DownCount}
-    sessionState.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", sessionState.UnknownCount}
-    sessionState.EntityData.Leafs["retry-count"] = types.YLeaf{"RetryCount", sessionState.RetryCount}
-    sessionState.EntityData.Leafs["standby-count"] = types.YLeaf{"StandbyCount", sessionState.StandbyCount}
+    sessionState.EntityData.Children = types.NewOrderedMap()
+    sessionState.EntityData.Leafs = types.NewOrderedMap()
+    sessionState.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", sessionState.TotalCount})
+    sessionState.EntityData.Leafs.Append("up-count", types.YLeaf{"UpCount", sessionState.UpCount})
+    sessionState.EntityData.Leafs.Append("down-count", types.YLeaf{"DownCount", sessionState.DownCount})
+    sessionState.EntityData.Leafs.Append("unknown-count", types.YLeaf{"UnknownCount", sessionState.UnknownCount})
+    sessionState.EntityData.Leafs.Append("retry-count", types.YLeaf{"RetryCount", sessionState.RetryCount})
+    sessionState.EntityData.Leafs.Append("standby-count", types.YLeaf{"StandbyCount", sessionState.StandbyCount})
+
+    sessionState.EntityData.YListKeys = []string {}
+
     return &(sessionState.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionBriefs
+// Bfd_Ipv4bfDoMplsteTailSessionBriefs
 // Table of brief information about all IPv4 BFD
 // over MPLS-TE Tail sessions in the System
-type Bfd_Ipv4BfDoMplsteTailSessionBriefs struct {
+type Bfd_Ipv4bfDoMplsteTailSessionBriefs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Brief information for a single IPv4 BFD over MPLS-TE session. The type is
     // slice of
-    // Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief.
-    Ipv4BfDoMplsteTailSessionBrief []Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief
+    // Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplsteTailSessionBrief.
+    Ipv4bfDoMplsteTailSessionBrief []*Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplsteTailSessionBrief
 }
 
-func (ipv4BfDoMplsteTailSessionBriefs *Bfd_Ipv4BfDoMplsteTailSessionBriefs) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteTailSessionBriefs.EntityData.YFilter = ipv4BfDoMplsteTailSessionBriefs.YFilter
-    ipv4BfDoMplsteTailSessionBriefs.EntityData.YangName = "ipv4bf-do-mplste-tail-session-briefs"
-    ipv4BfDoMplsteTailSessionBriefs.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteTailSessionBriefs.EntityData.ParentYangName = "bfd"
-    ipv4BfDoMplsteTailSessionBriefs.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-session-briefs"
-    ipv4BfDoMplsteTailSessionBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteTailSessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteTailSessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteTailSessionBriefs *Bfd_Ipv4bfDoMplsteTailSessionBriefs) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteTailSessionBriefs.EntityData.YFilter = ipv4bfDoMplsteTailSessionBriefs.YFilter
+    ipv4bfDoMplsteTailSessionBriefs.EntityData.YangName = "ipv4bf-do-mplste-tail-session-briefs"
+    ipv4bfDoMplsteTailSessionBriefs.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteTailSessionBriefs.EntityData.ParentYangName = "bfd"
+    ipv4bfDoMplsteTailSessionBriefs.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-session-briefs"
+    ipv4bfDoMplsteTailSessionBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteTailSessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteTailSessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteTailSessionBriefs.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteTailSessionBriefs.EntityData.Children["ipv4bf-do-mplste-tail-session-brief"] = types.YChild{"Ipv4BfDoMplsteTailSessionBrief", nil}
-    for i := range ipv4BfDoMplsteTailSessionBriefs.Ipv4BfDoMplsteTailSessionBrief {
-        ipv4BfDoMplsteTailSessionBriefs.EntityData.Children[types.GetSegmentPath(&ipv4BfDoMplsteTailSessionBriefs.Ipv4BfDoMplsteTailSessionBrief[i])] = types.YChild{"Ipv4BfDoMplsteTailSessionBrief", &ipv4BfDoMplsteTailSessionBriefs.Ipv4BfDoMplsteTailSessionBrief[i]}
+    ipv4bfDoMplsteTailSessionBriefs.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteTailSessionBriefs.EntityData.Children.Append("ipv4bf-do-mplste-tail-session-brief", types.YChild{"Ipv4bfDoMplsteTailSessionBrief", nil})
+    for i := range ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief {
+        ipv4bfDoMplsteTailSessionBriefs.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief[i]), types.YChild{"Ipv4bfDoMplsteTailSessionBrief", ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief[i]})
     }
-    ipv4BfDoMplsteTailSessionBriefs.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipv4BfDoMplsteTailSessionBriefs.EntityData)
+    ipv4bfDoMplsteTailSessionBriefs.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4bfDoMplsteTailSessionBriefs.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteTailSessionBriefs.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief
+// Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplsteTailSessionBrief
 // Brief information for a single IPv4 BFD over
 // MPLS-TE session
-type Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief struct {
+type Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplsteTailSessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
-    // Incoming Label. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabel interface{}
 
-    // FEC Type. The type is interface{} with range: -2147483648..2147483647.
+    // FEC Type. The type is interface{} with range: 0..4294967295.
     FeCtype interface{}
 
-    // FEC Subgroup ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // FEC Subgroup ID. The type is interface{} with range: 0..4294967295.
     FecSubgroupId interface{}
 
-    // FEC LSP ID. The type is interface{} with range: -2147483648..2147483647.
+    // FEC LSP ID. The type is interface{} with range: 0..4294967295.
     Feclspid interface{}
 
-    // FEC Tunnel ID. The type is interface{} with range: -2147483648..2147483647.
+    // FEC Tunnel ID. The type is interface{} with range: 0..4294967295.
     FecTunnelId interface{}
 
     // FEC Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecExtendedTunnelId interface{}
 
     // FEC Source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecSource interface{}
 
     // FEC Destination. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecDestination interface{}
 
-    // FEC P2MP ID. The type is interface{} with range: -2147483648..2147483647.
-    Fecp2Mpid interface{}
+    // FEC P2MP ID. The type is interface{} with range: 0..4294967295.
+    Fecp2mpid interface{}
 
     // FEC Subgroup originator. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecSubgroupOriginator interface{}
 
-    // FEC C Type. The type is interface{} with range: -2147483648..2147483647.
+    // FEC C Type. The type is interface{} with range: 0..4294967295.
     FecCtype interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // State. The type is BfdMgmtSessionState.
@@ -5967,57 +6316,60 @@ type Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief struct {
     SessionFlags interface{}
 
     // Brief Status Information.
-    StatusBriefInformation Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief_StatusBriefInformation
+    StatusBriefInformation Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplsteTailSessionBrief_StatusBriefInformation
 }
 
-func (ipv4BfDoMplsteTailSessionBrief *Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteTailSessionBrief.EntityData.YFilter = ipv4BfDoMplsteTailSessionBrief.YFilter
-    ipv4BfDoMplsteTailSessionBrief.EntityData.YangName = "ipv4bf-do-mplste-tail-session-brief"
-    ipv4BfDoMplsteTailSessionBrief.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteTailSessionBrief.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-session-briefs"
-    ipv4BfDoMplsteTailSessionBrief.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-session-brief"
-    ipv4BfDoMplsteTailSessionBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteTailSessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteTailSessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteTailSessionBrief *Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplsteTailSessionBrief) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteTailSessionBrief.EntityData.YFilter = ipv4bfDoMplsteTailSessionBrief.YFilter
+    ipv4bfDoMplsteTailSessionBrief.EntityData.YangName = "ipv4bf-do-mplste-tail-session-brief"
+    ipv4bfDoMplsteTailSessionBrief.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteTailSessionBrief.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-session-briefs"
+    ipv4bfDoMplsteTailSessionBrief.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-session-brief"
+    ipv4bfDoMplsteTailSessionBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteTailSessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteTailSessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Children["status-brief-information"] = types.YChild{"StatusBriefInformation", &ipv4BfDoMplsteTailSessionBrief.StatusBriefInformation}
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4BfDoMplsteTailSessionBrief.VrfName}
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Leafs["incoming-label"] = types.YLeaf{"IncomingLabel", ipv4BfDoMplsteTailSessionBrief.IncomingLabel}
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Leafs["fe-ctype"] = types.YLeaf{"FeCtype", ipv4BfDoMplsteTailSessionBrief.FeCtype}
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Leafs["fec-subgroup-id"] = types.YLeaf{"FecSubgroupId", ipv4BfDoMplsteTailSessionBrief.FecSubgroupId}
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Leafs["feclspid"] = types.YLeaf{"Feclspid", ipv4BfDoMplsteTailSessionBrief.Feclspid}
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Leafs["fec-tunnel-id"] = types.YLeaf{"FecTunnelId", ipv4BfDoMplsteTailSessionBrief.FecTunnelId}
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Leafs["fec-extended-tunnel-id"] = types.YLeaf{"FecExtendedTunnelId", ipv4BfDoMplsteTailSessionBrief.FecExtendedTunnelId}
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Leafs["fec-source"] = types.YLeaf{"FecSource", ipv4BfDoMplsteTailSessionBrief.FecSource}
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Leafs["fec-destination"] = types.YLeaf{"FecDestination", ipv4BfDoMplsteTailSessionBrief.FecDestination}
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Leafs["fecp2mpid"] = types.YLeaf{"Fecp2Mpid", ipv4BfDoMplsteTailSessionBrief.Fecp2Mpid}
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Leafs["fec-subgroup-originator"] = types.YLeaf{"FecSubgroupOriginator", ipv4BfDoMplsteTailSessionBrief.FecSubgroupOriginator}
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Leafs["fec-ctype"] = types.YLeaf{"FecCtype", ipv4BfDoMplsteTailSessionBrief.FecCtype}
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv4BfDoMplsteTailSessionBrief.Location}
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", ipv4BfDoMplsteTailSessionBrief.NodeId}
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Leafs["state"] = types.YLeaf{"State", ipv4BfDoMplsteTailSessionBrief.State}
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Leafs["session-type"] = types.YLeaf{"SessionType", ipv4BfDoMplsteTailSessionBrief.SessionType}
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", ipv4BfDoMplsteTailSessionBrief.SessionSubtype}
-    ipv4BfDoMplsteTailSessionBrief.EntityData.Leafs["session-flags"] = types.YLeaf{"SessionFlags", ipv4BfDoMplsteTailSessionBrief.SessionFlags}
-    return &(ipv4BfDoMplsteTailSessionBrief.EntityData)
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Children.Append("status-brief-information", types.YChild{"StatusBriefInformation", &ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation})
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Leafs = types.NewOrderedMap()
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4bfDoMplsteTailSessionBrief.VrfName})
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Leafs.Append("incoming-label", types.YLeaf{"IncomingLabel", ipv4bfDoMplsteTailSessionBrief.IncomingLabel})
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Leafs.Append("fe-ctype", types.YLeaf{"FeCtype", ipv4bfDoMplsteTailSessionBrief.FeCtype})
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Leafs.Append("fec-subgroup-id", types.YLeaf{"FecSubgroupId", ipv4bfDoMplsteTailSessionBrief.FecSubgroupId})
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Leafs.Append("feclspid", types.YLeaf{"Feclspid", ipv4bfDoMplsteTailSessionBrief.Feclspid})
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Leafs.Append("fec-tunnel-id", types.YLeaf{"FecTunnelId", ipv4bfDoMplsteTailSessionBrief.FecTunnelId})
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Leafs.Append("fec-extended-tunnel-id", types.YLeaf{"FecExtendedTunnelId", ipv4bfDoMplsteTailSessionBrief.FecExtendedTunnelId})
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Leafs.Append("fec-source", types.YLeaf{"FecSource", ipv4bfDoMplsteTailSessionBrief.FecSource})
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Leafs.Append("fec-destination", types.YLeaf{"FecDestination", ipv4bfDoMplsteTailSessionBrief.FecDestination})
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Leafs.Append("fecp2mpid", types.YLeaf{"Fecp2mpid", ipv4bfDoMplsteTailSessionBrief.Fecp2mpid})
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Leafs.Append("fec-subgroup-originator", types.YLeaf{"FecSubgroupOriginator", ipv4bfDoMplsteTailSessionBrief.FecSubgroupOriginator})
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Leafs.Append("fec-ctype", types.YLeaf{"FecCtype", ipv4bfDoMplsteTailSessionBrief.FecCtype})
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv4bfDoMplsteTailSessionBrief.Location})
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", ipv4bfDoMplsteTailSessionBrief.NodeId})
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Leafs.Append("state", types.YLeaf{"State", ipv4bfDoMplsteTailSessionBrief.State})
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Leafs.Append("session-type", types.YLeaf{"SessionType", ipv4bfDoMplsteTailSessionBrief.SessionType})
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", ipv4bfDoMplsteTailSessionBrief.SessionSubtype})
+    ipv4bfDoMplsteTailSessionBrief.EntityData.Leafs.Append("session-flags", types.YLeaf{"SessionFlags", ipv4bfDoMplsteTailSessionBrief.SessionFlags})
+
+    ipv4bfDoMplsteTailSessionBrief.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteTailSessionBrief.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief_StatusBriefInformation
+// Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplsteTailSessionBrief_StatusBriefInformation
 // Brief Status Information
-type Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief_StatusBriefInformation struct {
+type Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplsteTailSessionBrief_StatusBriefInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Async Interval and Detect Multiplier Information.
-    AsyncIntervalMultiplier Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief_StatusBriefInformation_AsyncIntervalMultiplier
+    AsyncIntervalMultiplier Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplsteTailSessionBrief_StatusBriefInformation_AsyncIntervalMultiplier
 
     // Echo Interval and Detect Multiplier Information.
-    EchoIntervalMultiplier Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief_StatusBriefInformation_EchoIntervalMultiplier
+    EchoIntervalMultiplier Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplsteTailSessionBrief_StatusBriefInformation_EchoIntervalMultiplier
 }
 
-func (statusBriefInformation *Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief_StatusBriefInformation) GetEntityData() *types.CommonEntityData {
+func (statusBriefInformation *Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplsteTailSessionBrief_StatusBriefInformation) GetEntityData() *types.CommonEntityData {
     statusBriefInformation.EntityData.YFilter = statusBriefInformation.YFilter
     statusBriefInformation.EntityData.YangName = "status-brief-information"
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
@@ -6027,16 +6379,19 @@ func (statusBriefInformation *Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplste
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusBriefInformation.EntityData.Children = make(map[string]types.YChild)
-    statusBriefInformation.EntityData.Children["async-interval-multiplier"] = types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier}
-    statusBriefInformation.EntityData.Children["echo-interval-multiplier"] = types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier}
-    statusBriefInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    statusBriefInformation.EntityData.Children = types.NewOrderedMap()
+    statusBriefInformation.EntityData.Children.Append("async-interval-multiplier", types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier})
+    statusBriefInformation.EntityData.Children.Append("echo-interval-multiplier", types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier})
+    statusBriefInformation.EntityData.Leafs = types.NewOrderedMap()
+
+    statusBriefInformation.EntityData.YListKeys = []string {}
+
     return &(statusBriefInformation.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief_StatusBriefInformation_AsyncIntervalMultiplier
+// Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplsteTailSessionBrief_StatusBriefInformation_AsyncIntervalMultiplier
 // Async Interval and Detect Multiplier Information
-type Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief_StatusBriefInformation_AsyncIntervalMultiplier struct {
+type Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplsteTailSessionBrief_StatusBriefInformation_AsyncIntervalMultiplier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -6056,7 +6411,7 @@ type Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief_StatusBr
     DetectionMultiplier interface{}
 }
 
-func (asyncIntervalMultiplier *Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief_StatusBriefInformation_AsyncIntervalMultiplier) GetEntityData() *types.CommonEntityData {
+func (asyncIntervalMultiplier *Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplsteTailSessionBrief_StatusBriefInformation_AsyncIntervalMultiplier) GetEntityData() *types.CommonEntityData {
     asyncIntervalMultiplier.EntityData.YFilter = asyncIntervalMultiplier.YFilter
     asyncIntervalMultiplier.EntityData.YangName = "async-interval-multiplier"
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
@@ -6066,18 +6421,21 @@ func (asyncIntervalMultiplier *Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplst
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    asyncIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-remote-transmit-interval"] = types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-local-transmit-interval"] = types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier}
+    asyncIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-remote-transmit-interval", types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-local-transmit-interval", types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier})
+
+    asyncIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(asyncIntervalMultiplier.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief_StatusBriefInformation_EchoIntervalMultiplier
+// Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplsteTailSessionBrief_StatusBriefInformation_EchoIntervalMultiplier
 // Echo Interval and Detect Multiplier Information
-type Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief_StatusBriefInformation_EchoIntervalMultiplier struct {
+type Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplsteTailSessionBrief_StatusBriefInformation_EchoIntervalMultiplier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -6093,7 +6451,7 @@ type Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief_StatusBr
     DetectionMultiplier interface{}
 }
 
-func (echoIntervalMultiplier *Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplsteTailSessionBrief_StatusBriefInformation_EchoIntervalMultiplier) GetEntityData() *types.CommonEntityData {
+func (echoIntervalMultiplier *Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplsteTailSessionBrief_StatusBriefInformation_EchoIntervalMultiplier) GetEntityData() *types.CommonEntityData {
     echoIntervalMultiplier.EntityData.YFilter = echoIntervalMultiplier.YFilter
     echoIntervalMultiplier.EntityData.YangName = "echo-interval-multiplier"
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
@@ -6103,11 +6461,14 @@ func (echoIntervalMultiplier *Bfd_Ipv4BfDoMplsteTailSessionBriefs_Ipv4BfDoMplste
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    echoIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoIntervalMultiplier.EntityData.Leafs["negotiated-transmit-interval"] = types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval}
-    echoIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime}
-    echoIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier}
+    echoIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs.Append("negotiated-transmit-interval", types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier})
+
+    echoIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(echoIntervalMultiplier.EntityData)
 }
 
@@ -6121,7 +6482,7 @@ type Bfd_Ipv6MultiHopNodeLocationSummaries struct {
     // Summary information for BFD IPv6 multihop sessions for location. The type
     // is slice of
     // Bfd_Ipv6MultiHopNodeLocationSummaries_Ipv6MultiHopNodeLocationSummary.
-    Ipv6MultiHopNodeLocationSummary []Bfd_Ipv6MultiHopNodeLocationSummaries_Ipv6MultiHopNodeLocationSummary
+    Ipv6MultiHopNodeLocationSummary []*Bfd_Ipv6MultiHopNodeLocationSummaries_Ipv6MultiHopNodeLocationSummary
 }
 
 func (ipv6MultiHopNodeLocationSummaries *Bfd_Ipv6MultiHopNodeLocationSummaries) GetEntityData() *types.CommonEntityData {
@@ -6134,12 +6495,15 @@ func (ipv6MultiHopNodeLocationSummaries *Bfd_Ipv6MultiHopNodeLocationSummaries) 
     ipv6MultiHopNodeLocationSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopNodeLocationSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6MultiHopNodeLocationSummaries.EntityData.Children = make(map[string]types.YChild)
-    ipv6MultiHopNodeLocationSummaries.EntityData.Children["ipv6-multi-hop-node-location-summary"] = types.YChild{"Ipv6MultiHopNodeLocationSummary", nil}
+    ipv6MultiHopNodeLocationSummaries.EntityData.Children = types.NewOrderedMap()
+    ipv6MultiHopNodeLocationSummaries.EntityData.Children.Append("ipv6-multi-hop-node-location-summary", types.YChild{"Ipv6MultiHopNodeLocationSummary", nil})
     for i := range ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary {
-        ipv6MultiHopNodeLocationSummaries.EntityData.Children[types.GetSegmentPath(&ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary[i])] = types.YChild{"Ipv6MultiHopNodeLocationSummary", &ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary[i]}
+        ipv6MultiHopNodeLocationSummaries.EntityData.Children.Append(types.GetSegmentPath(ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary[i]), types.YChild{"Ipv6MultiHopNodeLocationSummary", ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary[i]})
     }
-    ipv6MultiHopNodeLocationSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6MultiHopNodeLocationSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6MultiHopNodeLocationSummaries.EntityData.YListKeys = []string {}
+
     return &(ipv6MultiHopNodeLocationSummaries.EntityData)
 }
 
@@ -6151,7 +6515,7 @@ type Bfd_Ipv6MultiHopNodeLocationSummaries_Ipv6MultiHopNodeLocationSummary struc
     YFilter yfilter.YFilter
 
     // This attribute is a key. Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Statistics of states for sessions.
@@ -6163,15 +6527,18 @@ func (ipv6MultiHopNodeLocationSummary *Bfd_Ipv6MultiHopNodeLocationSummaries_Ipv
     ipv6MultiHopNodeLocationSummary.EntityData.YangName = "ipv6-multi-hop-node-location-summary"
     ipv6MultiHopNodeLocationSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv6MultiHopNodeLocationSummary.EntityData.ParentYangName = "ipv6-multi-hop-node-location-summaries"
-    ipv6MultiHopNodeLocationSummary.EntityData.SegmentPath = "ipv6-multi-hop-node-location-summary" + "[location='" + fmt.Sprintf("%v", ipv6MultiHopNodeLocationSummary.Location) + "']"
+    ipv6MultiHopNodeLocationSummary.EntityData.SegmentPath = "ipv6-multi-hop-node-location-summary" + types.AddKeyToken(ipv6MultiHopNodeLocationSummary.Location, "location")
     ipv6MultiHopNodeLocationSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6MultiHopNodeLocationSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopNodeLocationSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6MultiHopNodeLocationSummary.EntityData.Children = make(map[string]types.YChild)
-    ipv6MultiHopNodeLocationSummary.EntityData.Children["session-state"] = types.YChild{"SessionState", &ipv6MultiHopNodeLocationSummary.SessionState}
-    ipv6MultiHopNodeLocationSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6MultiHopNodeLocationSummary.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv6MultiHopNodeLocationSummary.Location}
+    ipv6MultiHopNodeLocationSummary.EntityData.Children = types.NewOrderedMap()
+    ipv6MultiHopNodeLocationSummary.EntityData.Children.Append("session-state", types.YChild{"SessionState", &ipv6MultiHopNodeLocationSummary.SessionState})
+    ipv6MultiHopNodeLocationSummary.EntityData.Leafs = types.NewOrderedMap()
+    ipv6MultiHopNodeLocationSummary.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv6MultiHopNodeLocationSummary.Location})
+
+    ipv6MultiHopNodeLocationSummary.EntityData.YListKeys = []string {"Location"}
+
     return &(ipv6MultiHopNodeLocationSummary.EntityData)
 }
 
@@ -6216,14 +6583,17 @@ func (sessionState *Bfd_Ipv6MultiHopNodeLocationSummaries_Ipv6MultiHopNodeLocati
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionState.EntityData.Children = make(map[string]types.YChild)
-    sessionState.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionState.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", sessionState.TotalCount}
-    sessionState.EntityData.Leafs["up-count"] = types.YLeaf{"UpCount", sessionState.UpCount}
-    sessionState.EntityData.Leafs["down-count"] = types.YLeaf{"DownCount", sessionState.DownCount}
-    sessionState.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", sessionState.UnknownCount}
-    sessionState.EntityData.Leafs["retry-count"] = types.YLeaf{"RetryCount", sessionState.RetryCount}
-    sessionState.EntityData.Leafs["standby-count"] = types.YLeaf{"StandbyCount", sessionState.StandbyCount}
+    sessionState.EntityData.Children = types.NewOrderedMap()
+    sessionState.EntityData.Leafs = types.NewOrderedMap()
+    sessionState.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", sessionState.TotalCount})
+    sessionState.EntityData.Leafs.Append("up-count", types.YLeaf{"UpCount", sessionState.UpCount})
+    sessionState.EntityData.Leafs.Append("down-count", types.YLeaf{"DownCount", sessionState.DownCount})
+    sessionState.EntityData.Leafs.Append("unknown-count", types.YLeaf{"UnknownCount", sessionState.UnknownCount})
+    sessionState.EntityData.Leafs.Append("retry-count", types.YLeaf{"RetryCount", sessionState.RetryCount})
+    sessionState.EntityData.Leafs.Append("standby-count", types.YLeaf{"StandbyCount", sessionState.StandbyCount})
+
+    sessionState.EntityData.YListKeys = []string {}
+
     return &(sessionState.EntityData)
 }
 
@@ -6248,9 +6618,12 @@ func (ipv4MultiHopSummary *Bfd_Ipv4MultiHopSummary) GetEntityData() *types.Commo
     ipv4MultiHopSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4MultiHopSummary.EntityData.Children = make(map[string]types.YChild)
-    ipv4MultiHopSummary.EntityData.Children["session-state"] = types.YChild{"SessionState", &ipv4MultiHopSummary.SessionState}
-    ipv4MultiHopSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4MultiHopSummary.EntityData.Children = types.NewOrderedMap()
+    ipv4MultiHopSummary.EntityData.Children.Append("session-state", types.YChild{"SessionState", &ipv4MultiHopSummary.SessionState})
+    ipv4MultiHopSummary.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4MultiHopSummary.EntityData.YListKeys = []string {}
+
     return &(ipv4MultiHopSummary.EntityData)
 }
 
@@ -6287,12 +6660,15 @@ func (sessionState *Bfd_Ipv4MultiHopSummary_SessionState) GetEntityData() *types
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionState.EntityData.Children = make(map[string]types.YChild)
-    sessionState.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionState.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", sessionState.TotalCount}
-    sessionState.EntityData.Leafs["down-count"] = types.YLeaf{"DownCount", sessionState.DownCount}
-    sessionState.EntityData.Leafs["up-count"] = types.YLeaf{"UpCount", sessionState.UpCount}
-    sessionState.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", sessionState.UnknownCount}
+    sessionState.EntityData.Children = types.NewOrderedMap()
+    sessionState.EntityData.Leafs = types.NewOrderedMap()
+    sessionState.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", sessionState.TotalCount})
+    sessionState.EntityData.Leafs.Append("down-count", types.YLeaf{"DownCount", sessionState.DownCount})
+    sessionState.EntityData.Leafs.Append("up-count", types.YLeaf{"UpCount", sessionState.UpCount})
+    sessionState.EntityData.Leafs.Append("unknown-count", types.YLeaf{"UnknownCount", sessionState.UnknownCount})
+
+    sessionState.EntityData.YListKeys = []string {}
+
     return &(sessionState.EntityData)
 }
 
@@ -6316,9 +6692,12 @@ func (ipv4SingleHopCounters *Bfd_Ipv4SingleHopCounters) GetEntityData() *types.C
     ipv4SingleHopCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4SingleHopCounters.EntityData.Children = make(map[string]types.YChild)
-    ipv4SingleHopCounters.EntityData.Children["ipv4-single-hop-packet-counters"] = types.YChild{"Ipv4SingleHopPacketCounters", &ipv4SingleHopCounters.Ipv4SingleHopPacketCounters}
-    ipv4SingleHopCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4SingleHopCounters.EntityData.Children = types.NewOrderedMap()
+    ipv4SingleHopCounters.EntityData.Children.Append("ipv4-single-hop-packet-counters", types.YChild{"Ipv4SingleHopPacketCounters", &ipv4SingleHopCounters.Ipv4SingleHopPacketCounters})
+    ipv4SingleHopCounters.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4SingleHopCounters.EntityData.YListKeys = []string {}
+
     return &(ipv4SingleHopCounters.EntityData)
 }
 
@@ -6330,7 +6709,7 @@ type Bfd_Ipv4SingleHopCounters_Ipv4SingleHopPacketCounters struct {
 
     // Interface IPv4 single hop Packet counters. The type is slice of
     // Bfd_Ipv4SingleHopCounters_Ipv4SingleHopPacketCounters_Ipv4SingleHopPacketCounter.
-    Ipv4SingleHopPacketCounter []Bfd_Ipv4SingleHopCounters_Ipv4SingleHopPacketCounters_Ipv4SingleHopPacketCounter
+    Ipv4SingleHopPacketCounter []*Bfd_Ipv4SingleHopCounters_Ipv4SingleHopPacketCounters_Ipv4SingleHopPacketCounter
 }
 
 func (ipv4SingleHopPacketCounters *Bfd_Ipv4SingleHopCounters_Ipv4SingleHopPacketCounters) GetEntityData() *types.CommonEntityData {
@@ -6343,12 +6722,15 @@ func (ipv4SingleHopPacketCounters *Bfd_Ipv4SingleHopCounters_Ipv4SingleHopPacket
     ipv4SingleHopPacketCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopPacketCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4SingleHopPacketCounters.EntityData.Children = make(map[string]types.YChild)
-    ipv4SingleHopPacketCounters.EntityData.Children["ipv4-single-hop-packet-counter"] = types.YChild{"Ipv4SingleHopPacketCounter", nil}
+    ipv4SingleHopPacketCounters.EntityData.Children = types.NewOrderedMap()
+    ipv4SingleHopPacketCounters.EntityData.Children.Append("ipv4-single-hop-packet-counter", types.YChild{"Ipv4SingleHopPacketCounter", nil})
     for i := range ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter {
-        ipv4SingleHopPacketCounters.EntityData.Children[types.GetSegmentPath(&ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter[i])] = types.YChild{"Ipv4SingleHopPacketCounter", &ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter[i]}
+        ipv4SingleHopPacketCounters.EntityData.Children.Append(types.GetSegmentPath(ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter[i]), types.YChild{"Ipv4SingleHopPacketCounter", ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter[i]})
     }
-    ipv4SingleHopPacketCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4SingleHopPacketCounters.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4SingleHopPacketCounters.EntityData.YListKeys = []string {}
+
     return &(ipv4SingleHopPacketCounters.EntityData)
 }
 
@@ -6359,7 +6741,7 @@ type Bfd_Ipv4SingleHopCounters_Ipv4SingleHopPacketCounters_Ipv4SingleHopPacketCo
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Number of Hellos transmitted. The type is interface{} with range:
@@ -6387,19 +6769,22 @@ func (ipv4SingleHopPacketCounter *Bfd_Ipv4SingleHopCounters_Ipv4SingleHopPacketC
     ipv4SingleHopPacketCounter.EntityData.YangName = "ipv4-single-hop-packet-counter"
     ipv4SingleHopPacketCounter.EntityData.BundleName = "cisco_ios_xr"
     ipv4SingleHopPacketCounter.EntityData.ParentYangName = "ipv4-single-hop-packet-counters"
-    ipv4SingleHopPacketCounter.EntityData.SegmentPath = "ipv4-single-hop-packet-counter" + "[interface-name='" + fmt.Sprintf("%v", ipv4SingleHopPacketCounter.InterfaceName) + "']"
+    ipv4SingleHopPacketCounter.EntityData.SegmentPath = "ipv4-single-hop-packet-counter" + types.AddKeyToken(ipv4SingleHopPacketCounter.InterfaceName, "interface-name")
     ipv4SingleHopPacketCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SingleHopPacketCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopPacketCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4SingleHopPacketCounter.EntityData.Children = make(map[string]types.YChild)
-    ipv4SingleHopPacketCounter.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4SingleHopPacketCounter.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", ipv4SingleHopPacketCounter.InterfaceName}
-    ipv4SingleHopPacketCounter.EntityData.Leafs["hello-transmit-count"] = types.YLeaf{"HelloTransmitCount", ipv4SingleHopPacketCounter.HelloTransmitCount}
-    ipv4SingleHopPacketCounter.EntityData.Leafs["hello-receive-count"] = types.YLeaf{"HelloReceiveCount", ipv4SingleHopPacketCounter.HelloReceiveCount}
-    ipv4SingleHopPacketCounter.EntityData.Leafs["echo-transmit-count"] = types.YLeaf{"EchoTransmitCount", ipv4SingleHopPacketCounter.EchoTransmitCount}
-    ipv4SingleHopPacketCounter.EntityData.Leafs["echo-receive-count"] = types.YLeaf{"EchoReceiveCount", ipv4SingleHopPacketCounter.EchoReceiveCount}
-    ipv4SingleHopPacketCounter.EntityData.Leafs["display-type"] = types.YLeaf{"DisplayType", ipv4SingleHopPacketCounter.DisplayType}
+    ipv4SingleHopPacketCounter.EntityData.Children = types.NewOrderedMap()
+    ipv4SingleHopPacketCounter.EntityData.Leafs = types.NewOrderedMap()
+    ipv4SingleHopPacketCounter.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", ipv4SingleHopPacketCounter.InterfaceName})
+    ipv4SingleHopPacketCounter.EntityData.Leafs.Append("hello-transmit-count", types.YLeaf{"HelloTransmitCount", ipv4SingleHopPacketCounter.HelloTransmitCount})
+    ipv4SingleHopPacketCounter.EntityData.Leafs.Append("hello-receive-count", types.YLeaf{"HelloReceiveCount", ipv4SingleHopPacketCounter.HelloReceiveCount})
+    ipv4SingleHopPacketCounter.EntityData.Leafs.Append("echo-transmit-count", types.YLeaf{"EchoTransmitCount", ipv4SingleHopPacketCounter.EchoTransmitCount})
+    ipv4SingleHopPacketCounter.EntityData.Leafs.Append("echo-receive-count", types.YLeaf{"EchoReceiveCount", ipv4SingleHopPacketCounter.EchoReceiveCount})
+    ipv4SingleHopPacketCounter.EntityData.Leafs.Append("display-type", types.YLeaf{"DisplayType", ipv4SingleHopPacketCounter.DisplayType})
+
+    ipv4SingleHopPacketCounter.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(ipv4SingleHopPacketCounter.EntityData)
 }
 
@@ -6412,7 +6797,7 @@ type Bfd_Ipv6MultiHopSessionDetails struct {
 
     // Detailed information for a single IPv6 multihop BFD session. The type is
     // slice of Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail.
-    Ipv6MultiHopSessionDetail []Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail
+    Ipv6MultiHopSessionDetail []*Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail
 }
 
 func (ipv6MultiHopSessionDetails *Bfd_Ipv6MultiHopSessionDetails) GetEntityData() *types.CommonEntityData {
@@ -6425,12 +6810,15 @@ func (ipv6MultiHopSessionDetails *Bfd_Ipv6MultiHopSessionDetails) GetEntityData(
     ipv6MultiHopSessionDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopSessionDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6MultiHopSessionDetails.EntityData.Children = make(map[string]types.YChild)
-    ipv6MultiHopSessionDetails.EntityData.Children["ipv6-multi-hop-session-detail"] = types.YChild{"Ipv6MultiHopSessionDetail", nil}
+    ipv6MultiHopSessionDetails.EntityData.Children = types.NewOrderedMap()
+    ipv6MultiHopSessionDetails.EntityData.Children.Append("ipv6-multi-hop-session-detail", types.YChild{"Ipv6MultiHopSessionDetail", nil})
     for i := range ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail {
-        ipv6MultiHopSessionDetails.EntityData.Children[types.GetSegmentPath(&ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail[i])] = types.YChild{"Ipv6MultiHopSessionDetail", &ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail[i]}
+        ipv6MultiHopSessionDetails.EntityData.Children.Append(types.GetSegmentPath(ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail[i]), types.YChild{"Ipv6MultiHopSessionDetail", ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail[i]})
     }
-    ipv6MultiHopSessionDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6MultiHopSessionDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6MultiHopSessionDetails.EntityData.YListKeys = []string {}
+
     return &(ipv6MultiHopSessionDetails.EntityData)
 }
 
@@ -6443,23 +6831,23 @@ type Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail struct {
 
     // Source Address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Destination Address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
-    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Session status information.
@@ -6473,11 +6861,11 @@ type Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail struct {
 
     // Client applications owning the session. The type is slice of
     // Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_OwnerInformation.
-    OwnerInformation []Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_OwnerInformation
+    OwnerInformation []*Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_OwnerInformation
 
     // Association session information. The type is slice of
     // Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_AssociationInformation.
-    AssociationInformation []Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_AssociationInformation
+    AssociationInformation []*Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_AssociationInformation
 }
 
 func (ipv6MultiHopSessionDetail *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail) GetEntityData() *types.CommonEntityData {
@@ -6490,23 +6878,26 @@ func (ipv6MultiHopSessionDetail *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSess
     ipv6MultiHopSessionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopSessionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6MultiHopSessionDetail.EntityData.Children = make(map[string]types.YChild)
-    ipv6MultiHopSessionDetail.EntityData.Children["status-information"] = types.YChild{"StatusInformation", &ipv6MultiHopSessionDetail.StatusInformation}
-    ipv6MultiHopSessionDetail.EntityData.Children["mp-download-state"] = types.YChild{"MpDownloadState", &ipv6MultiHopSessionDetail.MpDownloadState}
-    ipv6MultiHopSessionDetail.EntityData.Children["lsp-ping-info"] = types.YChild{"LspPingInfo", &ipv6MultiHopSessionDetail.LspPingInfo}
-    ipv6MultiHopSessionDetail.EntityData.Children["owner-information"] = types.YChild{"OwnerInformation", nil}
+    ipv6MultiHopSessionDetail.EntityData.Children = types.NewOrderedMap()
+    ipv6MultiHopSessionDetail.EntityData.Children.Append("status-information", types.YChild{"StatusInformation", &ipv6MultiHopSessionDetail.StatusInformation})
+    ipv6MultiHopSessionDetail.EntityData.Children.Append("mp-download-state", types.YChild{"MpDownloadState", &ipv6MultiHopSessionDetail.MpDownloadState})
+    ipv6MultiHopSessionDetail.EntityData.Children.Append("lsp-ping-info", types.YChild{"LspPingInfo", &ipv6MultiHopSessionDetail.LspPingInfo})
+    ipv6MultiHopSessionDetail.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range ipv6MultiHopSessionDetail.OwnerInformation {
-        ipv6MultiHopSessionDetail.EntityData.Children[types.GetSegmentPath(&ipv6MultiHopSessionDetail.OwnerInformation[i])] = types.YChild{"OwnerInformation", &ipv6MultiHopSessionDetail.OwnerInformation[i]}
+        ipv6MultiHopSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv6MultiHopSessionDetail.OwnerInformation[i]), types.YChild{"OwnerInformation", ipv6MultiHopSessionDetail.OwnerInformation[i]})
     }
-    ipv6MultiHopSessionDetail.EntityData.Children["association-information"] = types.YChild{"AssociationInformation", nil}
+    ipv6MultiHopSessionDetail.EntityData.Children.Append("association-information", types.YChild{"AssociationInformation", nil})
     for i := range ipv6MultiHopSessionDetail.AssociationInformation {
-        ipv6MultiHopSessionDetail.EntityData.Children[types.GetSegmentPath(&ipv6MultiHopSessionDetail.AssociationInformation[i])] = types.YChild{"AssociationInformation", &ipv6MultiHopSessionDetail.AssociationInformation[i]}
+        ipv6MultiHopSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv6MultiHopSessionDetail.AssociationInformation[i]), types.YChild{"AssociationInformation", ipv6MultiHopSessionDetail.AssociationInformation[i]})
     }
-    ipv6MultiHopSessionDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6MultiHopSessionDetail.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", ipv6MultiHopSessionDetail.SourceAddress}
-    ipv6MultiHopSessionDetail.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", ipv6MultiHopSessionDetail.DestinationAddress}
-    ipv6MultiHopSessionDetail.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv6MultiHopSessionDetail.Location}
-    ipv6MultiHopSessionDetail.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv6MultiHopSessionDetail.VrfName}
+    ipv6MultiHopSessionDetail.EntityData.Leafs = types.NewOrderedMap()
+    ipv6MultiHopSessionDetail.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", ipv6MultiHopSessionDetail.SourceAddress})
+    ipv6MultiHopSessionDetail.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", ipv6MultiHopSessionDetail.DestinationAddress})
+    ipv6MultiHopSessionDetail.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv6MultiHopSessionDetail.Location})
+    ipv6MultiHopSessionDetail.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv6MultiHopSessionDetail.VrfName})
+
+    ipv6MultiHopSessionDetail.EntityData.YListKeys = []string {}
+
     return &(ipv6MultiHopSessionDetail.EntityData)
 }
 
@@ -6562,7 +6953,7 @@ type Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_StatusInformation 
     LatencyAverage interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Internal Label. The type is interface{} with range: 0..4294967295.
@@ -6607,31 +6998,34 @@ func (statusInformation *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetai
     statusInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusInformation.EntityData.Children = make(map[string]types.YChild)
-    statusInformation.EntityData.Children["source-address"] = types.YChild{"SourceAddress", &statusInformation.SourceAddress}
-    statusInformation.EntityData.Children["last-state-change"] = types.YChild{"LastStateChange", &statusInformation.LastStateChange}
-    statusInformation.EntityData.Children["transmit-packet"] = types.YChild{"TransmitPacket", &statusInformation.TransmitPacket}
-    statusInformation.EntityData.Children["receive-packet"] = types.YChild{"ReceivePacket", &statusInformation.ReceivePacket}
-    statusInformation.EntityData.Children["status-brief-information"] = types.YChild{"StatusBriefInformation", &statusInformation.StatusBriefInformation}
-    statusInformation.EntityData.Children["async-transmit-statistics"] = types.YChild{"AsyncTransmitStatistics", &statusInformation.AsyncTransmitStatistics}
-    statusInformation.EntityData.Children["async-receive-statistics"] = types.YChild{"AsyncReceiveStatistics", &statusInformation.AsyncReceiveStatistics}
-    statusInformation.EntityData.Children["echo-transmit-statistics"] = types.YChild{"EchoTransmitStatistics", &statusInformation.EchoTransmitStatistics}
-    statusInformation.EntityData.Children["echo-received-statistics"] = types.YChild{"EchoReceivedStatistics", &statusInformation.EchoReceivedStatistics}
-    statusInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    statusInformation.EntityData.Leafs["sessiontype"] = types.YLeaf{"Sessiontype", statusInformation.Sessiontype}
-    statusInformation.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", statusInformation.SessionSubtype}
-    statusInformation.EntityData.Leafs["state"] = types.YLeaf{"State", statusInformation.State}
-    statusInformation.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", statusInformation.LocalDiscriminator}
-    statusInformation.EntityData.Leafs["remote-discriminator"] = types.YLeaf{"RemoteDiscriminator", statusInformation.RemoteDiscriminator}
-    statusInformation.EntityData.Leafs["to-up-state-count"] = types.YLeaf{"ToUpStateCount", statusInformation.ToUpStateCount}
-    statusInformation.EntityData.Leafs["desired-minimum-echo-transmit-interval"] = types.YLeaf{"DesiredMinimumEchoTransmitInterval", statusInformation.DesiredMinimumEchoTransmitInterval}
-    statusInformation.EntityData.Leafs["remote-negotiated-interval"] = types.YLeaf{"RemoteNegotiatedInterval", statusInformation.RemoteNegotiatedInterval}
-    statusInformation.EntityData.Leafs["latency-number"] = types.YLeaf{"LatencyNumber", statusInformation.LatencyNumber}
-    statusInformation.EntityData.Leafs["latency-minimum"] = types.YLeaf{"LatencyMinimum", statusInformation.LatencyMinimum}
-    statusInformation.EntityData.Leafs["latency-maximum"] = types.YLeaf{"LatencyMaximum", statusInformation.LatencyMaximum}
-    statusInformation.EntityData.Leafs["latency-average"] = types.YLeaf{"LatencyAverage", statusInformation.LatencyAverage}
-    statusInformation.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", statusInformation.NodeId}
-    statusInformation.EntityData.Leafs["internal-label"] = types.YLeaf{"InternalLabel", statusInformation.InternalLabel}
+    statusInformation.EntityData.Children = types.NewOrderedMap()
+    statusInformation.EntityData.Children.Append("source-address", types.YChild{"SourceAddress", &statusInformation.SourceAddress})
+    statusInformation.EntityData.Children.Append("last-state-change", types.YChild{"LastStateChange", &statusInformation.LastStateChange})
+    statusInformation.EntityData.Children.Append("transmit-packet", types.YChild{"TransmitPacket", &statusInformation.TransmitPacket})
+    statusInformation.EntityData.Children.Append("receive-packet", types.YChild{"ReceivePacket", &statusInformation.ReceivePacket})
+    statusInformation.EntityData.Children.Append("status-brief-information", types.YChild{"StatusBriefInformation", &statusInformation.StatusBriefInformation})
+    statusInformation.EntityData.Children.Append("async-transmit-statistics", types.YChild{"AsyncTransmitStatistics", &statusInformation.AsyncTransmitStatistics})
+    statusInformation.EntityData.Children.Append("async-receive-statistics", types.YChild{"AsyncReceiveStatistics", &statusInformation.AsyncReceiveStatistics})
+    statusInformation.EntityData.Children.Append("echo-transmit-statistics", types.YChild{"EchoTransmitStatistics", &statusInformation.EchoTransmitStatistics})
+    statusInformation.EntityData.Children.Append("echo-received-statistics", types.YChild{"EchoReceivedStatistics", &statusInformation.EchoReceivedStatistics})
+    statusInformation.EntityData.Leafs = types.NewOrderedMap()
+    statusInformation.EntityData.Leafs.Append("sessiontype", types.YLeaf{"Sessiontype", statusInformation.Sessiontype})
+    statusInformation.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", statusInformation.SessionSubtype})
+    statusInformation.EntityData.Leafs.Append("state", types.YLeaf{"State", statusInformation.State})
+    statusInformation.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", statusInformation.LocalDiscriminator})
+    statusInformation.EntityData.Leafs.Append("remote-discriminator", types.YLeaf{"RemoteDiscriminator", statusInformation.RemoteDiscriminator})
+    statusInformation.EntityData.Leafs.Append("to-up-state-count", types.YLeaf{"ToUpStateCount", statusInformation.ToUpStateCount})
+    statusInformation.EntityData.Leafs.Append("desired-minimum-echo-transmit-interval", types.YLeaf{"DesiredMinimumEchoTransmitInterval", statusInformation.DesiredMinimumEchoTransmitInterval})
+    statusInformation.EntityData.Leafs.Append("remote-negotiated-interval", types.YLeaf{"RemoteNegotiatedInterval", statusInformation.RemoteNegotiatedInterval})
+    statusInformation.EntityData.Leafs.Append("latency-number", types.YLeaf{"LatencyNumber", statusInformation.LatencyNumber})
+    statusInformation.EntityData.Leafs.Append("latency-minimum", types.YLeaf{"LatencyMinimum", statusInformation.LatencyMinimum})
+    statusInformation.EntityData.Leafs.Append("latency-maximum", types.YLeaf{"LatencyMaximum", statusInformation.LatencyMaximum})
+    statusInformation.EntityData.Leafs.Append("latency-average", types.YLeaf{"LatencyAverage", statusInformation.LatencyAverage})
+    statusInformation.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", statusInformation.NodeId})
+    statusInformation.EntityData.Leafs.Append("internal-label", types.YLeaf{"InternalLabel", statusInformation.InternalLabel})
+
+    statusInformation.EntityData.YListKeys = []string {}
+
     return &(statusInformation.EntityData)
 }
 
@@ -6648,11 +7042,11 @@ type Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_StatusInformation_
     Dummy interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -6666,12 +7060,15 @@ func (sourceAddress *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_St
     sourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourceAddress.EntityData.Children = make(map[string]types.YChild)
-    sourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    sourceAddress.EntityData.Leafs["afi"] = types.YLeaf{"Afi", sourceAddress.Afi}
-    sourceAddress.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", sourceAddress.Dummy}
-    sourceAddress.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", sourceAddress.Ipv4}
-    sourceAddress.EntityData.Leafs["ipv6"] = types.YLeaf{"Ipv6", sourceAddress.Ipv6}
+    sourceAddress.EntityData.Children = types.NewOrderedMap()
+    sourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    sourceAddress.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", sourceAddress.Afi})
+    sourceAddress.EntityData.Leafs.Append("dummy", types.YLeaf{"Dummy", sourceAddress.Dummy})
+    sourceAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", sourceAddress.Ipv4})
+    sourceAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", sourceAddress.Ipv6})
+
+    sourceAddress.EntityData.YListKeys = []string {}
+
     return &(sourceAddress.EntityData)
 }
 
@@ -6708,12 +7105,15 @@ func (lastStateChange *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_
     lastStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastStateChange.EntityData.Leafs["days"] = types.YLeaf{"Days", lastStateChange.Days}
-    lastStateChange.EntityData.Leafs["hours"] = types.YLeaf{"Hours", lastStateChange.Hours}
-    lastStateChange.EntityData.Leafs["minutes"] = types.YLeaf{"Minutes", lastStateChange.Minutes}
-    lastStateChange.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lastStateChange.Seconds}
+    lastStateChange.EntityData.Children = types.NewOrderedMap()
+    lastStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastStateChange.EntityData.Leafs.Append("days", types.YLeaf{"Days", lastStateChange.Days})
+    lastStateChange.EntityData.Leafs.Append("hours", types.YLeaf{"Hours", lastStateChange.Hours})
+    lastStateChange.EntityData.Leafs.Append("minutes", types.YLeaf{"Minutes", lastStateChange.Minutes})
+    lastStateChange.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lastStateChange.Seconds})
+
+    lastStateChange.EntityData.YListKeys = []string {}
+
     return &(lastStateChange.EntityData)
 }
 
@@ -6788,24 +7188,27 @@ func (transmitPacket *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_S
     transmitPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitPacket.EntityData.Children = make(map[string]types.YChild)
-    transmitPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitPacket.EntityData.Leafs["version"] = types.YLeaf{"Version", transmitPacket.Version}
-    transmitPacket.EntityData.Leafs["diagnostic"] = types.YLeaf{"Diagnostic", transmitPacket.Diagnostic}
-    transmitPacket.EntityData.Leafs["ihear-you"] = types.YLeaf{"IhearYou", transmitPacket.IhearYou}
-    transmitPacket.EntityData.Leafs["state"] = types.YLeaf{"State", transmitPacket.State}
-    transmitPacket.EntityData.Leafs["demand"] = types.YLeaf{"Demand", transmitPacket.Demand}
-    transmitPacket.EntityData.Leafs["poll"] = types.YLeaf{"Poll", transmitPacket.Poll}
-    transmitPacket.EntityData.Leafs["final"] = types.YLeaf{"Final", transmitPacket.Final}
-    transmitPacket.EntityData.Leafs["control-plane-independent"] = types.YLeaf{"ControlPlaneIndependent", transmitPacket.ControlPlaneIndependent}
-    transmitPacket.EntityData.Leafs["authentication-present"] = types.YLeaf{"AuthenticationPresent", transmitPacket.AuthenticationPresent}
-    transmitPacket.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", transmitPacket.DetectionMultiplier}
-    transmitPacket.EntityData.Leafs["length"] = types.YLeaf{"Length", transmitPacket.Length}
-    transmitPacket.EntityData.Leafs["my-discriminator"] = types.YLeaf{"MyDiscriminator", transmitPacket.MyDiscriminator}
-    transmitPacket.EntityData.Leafs["your-discriminator"] = types.YLeaf{"YourDiscriminator", transmitPacket.YourDiscriminator}
-    transmitPacket.EntityData.Leafs["desired-minimum-transmit-interval"] = types.YLeaf{"DesiredMinimumTransmitInterval", transmitPacket.DesiredMinimumTransmitInterval}
-    transmitPacket.EntityData.Leafs["required-minimum-receive-interval"] = types.YLeaf{"RequiredMinimumReceiveInterval", transmitPacket.RequiredMinimumReceiveInterval}
-    transmitPacket.EntityData.Leafs["required-minimum-echo-receive-interval"] = types.YLeaf{"RequiredMinimumEchoReceiveInterval", transmitPacket.RequiredMinimumEchoReceiveInterval}
+    transmitPacket.EntityData.Children = types.NewOrderedMap()
+    transmitPacket.EntityData.Leafs = types.NewOrderedMap()
+    transmitPacket.EntityData.Leafs.Append("version", types.YLeaf{"Version", transmitPacket.Version})
+    transmitPacket.EntityData.Leafs.Append("diagnostic", types.YLeaf{"Diagnostic", transmitPacket.Diagnostic})
+    transmitPacket.EntityData.Leafs.Append("ihear-you", types.YLeaf{"IhearYou", transmitPacket.IhearYou})
+    transmitPacket.EntityData.Leafs.Append("state", types.YLeaf{"State", transmitPacket.State})
+    transmitPacket.EntityData.Leafs.Append("demand", types.YLeaf{"Demand", transmitPacket.Demand})
+    transmitPacket.EntityData.Leafs.Append("poll", types.YLeaf{"Poll", transmitPacket.Poll})
+    transmitPacket.EntityData.Leafs.Append("final", types.YLeaf{"Final", transmitPacket.Final})
+    transmitPacket.EntityData.Leafs.Append("control-plane-independent", types.YLeaf{"ControlPlaneIndependent", transmitPacket.ControlPlaneIndependent})
+    transmitPacket.EntityData.Leafs.Append("authentication-present", types.YLeaf{"AuthenticationPresent", transmitPacket.AuthenticationPresent})
+    transmitPacket.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", transmitPacket.DetectionMultiplier})
+    transmitPacket.EntityData.Leafs.Append("length", types.YLeaf{"Length", transmitPacket.Length})
+    transmitPacket.EntityData.Leafs.Append("my-discriminator", types.YLeaf{"MyDiscriminator", transmitPacket.MyDiscriminator})
+    transmitPacket.EntityData.Leafs.Append("your-discriminator", types.YLeaf{"YourDiscriminator", transmitPacket.YourDiscriminator})
+    transmitPacket.EntityData.Leafs.Append("desired-minimum-transmit-interval", types.YLeaf{"DesiredMinimumTransmitInterval", transmitPacket.DesiredMinimumTransmitInterval})
+    transmitPacket.EntityData.Leafs.Append("required-minimum-receive-interval", types.YLeaf{"RequiredMinimumReceiveInterval", transmitPacket.RequiredMinimumReceiveInterval})
+    transmitPacket.EntityData.Leafs.Append("required-minimum-echo-receive-interval", types.YLeaf{"RequiredMinimumEchoReceiveInterval", transmitPacket.RequiredMinimumEchoReceiveInterval})
+
+    transmitPacket.EntityData.YListKeys = []string {}
+
     return &(transmitPacket.EntityData)
 }
 
@@ -6880,24 +7283,27 @@ func (receivePacket *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_St
     receivePacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivePacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivePacket.EntityData.Children = make(map[string]types.YChild)
-    receivePacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivePacket.EntityData.Leafs["version"] = types.YLeaf{"Version", receivePacket.Version}
-    receivePacket.EntityData.Leafs["diagnostic"] = types.YLeaf{"Diagnostic", receivePacket.Diagnostic}
-    receivePacket.EntityData.Leafs["ihear-you"] = types.YLeaf{"IhearYou", receivePacket.IhearYou}
-    receivePacket.EntityData.Leafs["state"] = types.YLeaf{"State", receivePacket.State}
-    receivePacket.EntityData.Leafs["demand"] = types.YLeaf{"Demand", receivePacket.Demand}
-    receivePacket.EntityData.Leafs["poll"] = types.YLeaf{"Poll", receivePacket.Poll}
-    receivePacket.EntityData.Leafs["final"] = types.YLeaf{"Final", receivePacket.Final}
-    receivePacket.EntityData.Leafs["control-plane-independent"] = types.YLeaf{"ControlPlaneIndependent", receivePacket.ControlPlaneIndependent}
-    receivePacket.EntityData.Leafs["authentication-present"] = types.YLeaf{"AuthenticationPresent", receivePacket.AuthenticationPresent}
-    receivePacket.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", receivePacket.DetectionMultiplier}
-    receivePacket.EntityData.Leafs["length"] = types.YLeaf{"Length", receivePacket.Length}
-    receivePacket.EntityData.Leafs["my-discriminator"] = types.YLeaf{"MyDiscriminator", receivePacket.MyDiscriminator}
-    receivePacket.EntityData.Leafs["your-discriminator"] = types.YLeaf{"YourDiscriminator", receivePacket.YourDiscriminator}
-    receivePacket.EntityData.Leafs["desired-minimum-transmit-interval"] = types.YLeaf{"DesiredMinimumTransmitInterval", receivePacket.DesiredMinimumTransmitInterval}
-    receivePacket.EntityData.Leafs["required-minimum-receive-interval"] = types.YLeaf{"RequiredMinimumReceiveInterval", receivePacket.RequiredMinimumReceiveInterval}
-    receivePacket.EntityData.Leafs["required-minimum-echo-receive-interval"] = types.YLeaf{"RequiredMinimumEchoReceiveInterval", receivePacket.RequiredMinimumEchoReceiveInterval}
+    receivePacket.EntityData.Children = types.NewOrderedMap()
+    receivePacket.EntityData.Leafs = types.NewOrderedMap()
+    receivePacket.EntityData.Leafs.Append("version", types.YLeaf{"Version", receivePacket.Version})
+    receivePacket.EntityData.Leafs.Append("diagnostic", types.YLeaf{"Diagnostic", receivePacket.Diagnostic})
+    receivePacket.EntityData.Leafs.Append("ihear-you", types.YLeaf{"IhearYou", receivePacket.IhearYou})
+    receivePacket.EntityData.Leafs.Append("state", types.YLeaf{"State", receivePacket.State})
+    receivePacket.EntityData.Leafs.Append("demand", types.YLeaf{"Demand", receivePacket.Demand})
+    receivePacket.EntityData.Leafs.Append("poll", types.YLeaf{"Poll", receivePacket.Poll})
+    receivePacket.EntityData.Leafs.Append("final", types.YLeaf{"Final", receivePacket.Final})
+    receivePacket.EntityData.Leafs.Append("control-plane-independent", types.YLeaf{"ControlPlaneIndependent", receivePacket.ControlPlaneIndependent})
+    receivePacket.EntityData.Leafs.Append("authentication-present", types.YLeaf{"AuthenticationPresent", receivePacket.AuthenticationPresent})
+    receivePacket.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", receivePacket.DetectionMultiplier})
+    receivePacket.EntityData.Leafs.Append("length", types.YLeaf{"Length", receivePacket.Length})
+    receivePacket.EntityData.Leafs.Append("my-discriminator", types.YLeaf{"MyDiscriminator", receivePacket.MyDiscriminator})
+    receivePacket.EntityData.Leafs.Append("your-discriminator", types.YLeaf{"YourDiscriminator", receivePacket.YourDiscriminator})
+    receivePacket.EntityData.Leafs.Append("desired-minimum-transmit-interval", types.YLeaf{"DesiredMinimumTransmitInterval", receivePacket.DesiredMinimumTransmitInterval})
+    receivePacket.EntityData.Leafs.Append("required-minimum-receive-interval", types.YLeaf{"RequiredMinimumReceiveInterval", receivePacket.RequiredMinimumReceiveInterval})
+    receivePacket.EntityData.Leafs.Append("required-minimum-echo-receive-interval", types.YLeaf{"RequiredMinimumEchoReceiveInterval", receivePacket.RequiredMinimumEchoReceiveInterval})
+
+    receivePacket.EntityData.YListKeys = []string {}
+
     return &(receivePacket.EntityData)
 }
 
@@ -6924,10 +7330,13 @@ func (statusBriefInformation *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSession
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusBriefInformation.EntityData.Children = make(map[string]types.YChild)
-    statusBriefInformation.EntityData.Children["async-interval-multiplier"] = types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier}
-    statusBriefInformation.EntityData.Children["echo-interval-multiplier"] = types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier}
-    statusBriefInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    statusBriefInformation.EntityData.Children = types.NewOrderedMap()
+    statusBriefInformation.EntityData.Children.Append("async-interval-multiplier", types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier})
+    statusBriefInformation.EntityData.Children.Append("echo-interval-multiplier", types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier})
+    statusBriefInformation.EntityData.Leafs = types.NewOrderedMap()
+
+    statusBriefInformation.EntityData.YListKeys = []string {}
+
     return &(statusBriefInformation.EntityData)
 }
 
@@ -6963,12 +7372,15 @@ func (asyncIntervalMultiplier *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessio
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    asyncIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-remote-transmit-interval"] = types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-local-transmit-interval"] = types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier}
+    asyncIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-remote-transmit-interval", types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-local-transmit-interval", types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier})
+
+    asyncIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(asyncIntervalMultiplier.EntityData)
 }
 
@@ -7000,11 +7412,14 @@ func (echoIntervalMultiplier *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSession
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    echoIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoIntervalMultiplier.EntityData.Leafs["negotiated-transmit-interval"] = types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval}
-    echoIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime}
-    echoIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier}
+    echoIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs.Append("negotiated-transmit-interval", types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier})
+
+    echoIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(echoIntervalMultiplier.EntityData)
 }
 
@@ -7046,13 +7461,16 @@ func (asyncTransmitStatistics *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessio
     asyncTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncTransmitStatistics.EntityData.Children = make(map[string]types.YChild)
-    asyncTransmitStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncTransmitStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", asyncTransmitStatistics.Number}
-    asyncTransmitStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", asyncTransmitStatistics.Minimum}
-    asyncTransmitStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", asyncTransmitStatistics.Maximum}
-    asyncTransmitStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", asyncTransmitStatistics.Average}
-    asyncTransmitStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", asyncTransmitStatistics.Last}
+    asyncTransmitStatistics.EntityData.Children = types.NewOrderedMap()
+    asyncTransmitStatistics.EntityData.Leafs = types.NewOrderedMap()
+    asyncTransmitStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", asyncTransmitStatistics.Number})
+    asyncTransmitStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", asyncTransmitStatistics.Minimum})
+    asyncTransmitStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", asyncTransmitStatistics.Maximum})
+    asyncTransmitStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", asyncTransmitStatistics.Average})
+    asyncTransmitStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", asyncTransmitStatistics.Last})
+
+    asyncTransmitStatistics.EntityData.YListKeys = []string {}
+
     return &(asyncTransmitStatistics.EntityData)
 }
 
@@ -7094,13 +7512,16 @@ func (asyncReceiveStatistics *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSession
     asyncReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncReceiveStatistics.EntityData.Children = make(map[string]types.YChild)
-    asyncReceiveStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncReceiveStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", asyncReceiveStatistics.Number}
-    asyncReceiveStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", asyncReceiveStatistics.Minimum}
-    asyncReceiveStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", asyncReceiveStatistics.Maximum}
-    asyncReceiveStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", asyncReceiveStatistics.Average}
-    asyncReceiveStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", asyncReceiveStatistics.Last}
+    asyncReceiveStatistics.EntityData.Children = types.NewOrderedMap()
+    asyncReceiveStatistics.EntityData.Leafs = types.NewOrderedMap()
+    asyncReceiveStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", asyncReceiveStatistics.Number})
+    asyncReceiveStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", asyncReceiveStatistics.Minimum})
+    asyncReceiveStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", asyncReceiveStatistics.Maximum})
+    asyncReceiveStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", asyncReceiveStatistics.Average})
+    asyncReceiveStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", asyncReceiveStatistics.Last})
+
+    asyncReceiveStatistics.EntityData.YListKeys = []string {}
+
     return &(asyncReceiveStatistics.EntityData)
 }
 
@@ -7142,13 +7563,16 @@ func (echoTransmitStatistics *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSession
     echoTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoTransmitStatistics.EntityData.Children = make(map[string]types.YChild)
-    echoTransmitStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoTransmitStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", echoTransmitStatistics.Number}
-    echoTransmitStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", echoTransmitStatistics.Minimum}
-    echoTransmitStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", echoTransmitStatistics.Maximum}
-    echoTransmitStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", echoTransmitStatistics.Average}
-    echoTransmitStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", echoTransmitStatistics.Last}
+    echoTransmitStatistics.EntityData.Children = types.NewOrderedMap()
+    echoTransmitStatistics.EntityData.Leafs = types.NewOrderedMap()
+    echoTransmitStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", echoTransmitStatistics.Number})
+    echoTransmitStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", echoTransmitStatistics.Minimum})
+    echoTransmitStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", echoTransmitStatistics.Maximum})
+    echoTransmitStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", echoTransmitStatistics.Average})
+    echoTransmitStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", echoTransmitStatistics.Last})
+
+    echoTransmitStatistics.EntityData.YListKeys = []string {}
+
     return &(echoTransmitStatistics.EntityData)
 }
 
@@ -7190,13 +7614,16 @@ func (echoReceivedStatistics *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSession
     echoReceivedStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoReceivedStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoReceivedStatistics.EntityData.Children = make(map[string]types.YChild)
-    echoReceivedStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoReceivedStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", echoReceivedStatistics.Number}
-    echoReceivedStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", echoReceivedStatistics.Minimum}
-    echoReceivedStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", echoReceivedStatistics.Maximum}
-    echoReceivedStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", echoReceivedStatistics.Average}
-    echoReceivedStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", echoReceivedStatistics.Last}
+    echoReceivedStatistics.EntityData.Children = types.NewOrderedMap()
+    echoReceivedStatistics.EntityData.Leafs = types.NewOrderedMap()
+    echoReceivedStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", echoReceivedStatistics.Number})
+    echoReceivedStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", echoReceivedStatistics.Minimum})
+    echoReceivedStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", echoReceivedStatistics.Maximum})
+    echoReceivedStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", echoReceivedStatistics.Average})
+    echoReceivedStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", echoReceivedStatistics.Last})
+
+    echoReceivedStatistics.EntityData.YListKeys = []string {}
+
     return &(echoReceivedStatistics.EntityData)
 }
 
@@ -7223,10 +7650,13 @@ func (mpDownloadState *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_
     mpDownloadState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpDownloadState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mpDownloadState.EntityData.Children = make(map[string]types.YChild)
-    mpDownloadState.EntityData.Children["change-time"] = types.YChild{"ChangeTime", &mpDownloadState.ChangeTime}
-    mpDownloadState.EntityData.Leafs = make(map[string]types.YLeaf)
-    mpDownloadState.EntityData.Leafs["mp-download-state"] = types.YLeaf{"MpDownloadState", mpDownloadState.MpDownloadState}
+    mpDownloadState.EntityData.Children = types.NewOrderedMap()
+    mpDownloadState.EntityData.Children.Append("change-time", types.YChild{"ChangeTime", &mpDownloadState.ChangeTime})
+    mpDownloadState.EntityData.Leafs = types.NewOrderedMap()
+    mpDownloadState.EntityData.Leafs.Append("mp-download-state", types.YLeaf{"MpDownloadState", mpDownloadState.MpDownloadState})
+
+    mpDownloadState.EntityData.YListKeys = []string {}
+
     return &(mpDownloadState.EntityData)
 }
 
@@ -7255,10 +7685,13 @@ func (changeTime *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_MpDow
     changeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    changeTime.EntityData.Children = make(map[string]types.YChild)
-    changeTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    changeTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", changeTime.Seconds}
-    changeTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", changeTime.Nanoseconds}
+    changeTime.EntityData.Children = types.NewOrderedMap()
+    changeTime.EntityData.Leafs = types.NewOrderedMap()
+    changeTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", changeTime.Seconds})
+    changeTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", changeTime.Nanoseconds})
+
+    changeTime.EntityData.YListKeys = []string {}
+
     return &(changeTime.EntityData)
 }
 
@@ -7317,20 +7750,23 @@ func (lspPingInfo *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_LspP
     lspPingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingInfo.EntityData.Children = make(map[string]types.YChild)
-    lspPingInfo.EntityData.Children["lsp-ping-tx-last-time"] = types.YChild{"LspPingTxLastTime", &lspPingInfo.LspPingTxLastTime}
-    lspPingInfo.EntityData.Children["lsp-ping-tx-last-error-time"] = types.YChild{"LspPingTxLastErrorTime", &lspPingInfo.LspPingTxLastErrorTime}
-    lspPingInfo.EntityData.Children["lsp-ping-rx-last-time"] = types.YChild{"LspPingRxLastTime", &lspPingInfo.LspPingRxLastTime}
-    lspPingInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-count"] = types.YLeaf{"LspPingTxCount", lspPingInfo.LspPingTxCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-error-count"] = types.YLeaf{"LspPingTxErrorCount", lspPingInfo.LspPingTxErrorCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-last-rc"] = types.YLeaf{"LspPingTxLastRc", lspPingInfo.LspPingTxLastRc}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-last-error-rc"] = types.YLeaf{"LspPingTxLastErrorRc", lspPingInfo.LspPingTxLastErrorRc}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-discr"] = types.YLeaf{"LspPingRxLastDiscr", lspPingInfo.LspPingRxLastDiscr}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-count"] = types.YLeaf{"LspPingRxCount", lspPingInfo.LspPingRxCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-code"] = types.YLeaf{"LspPingRxLastCode", lspPingInfo.LspPingRxLastCode}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-subcode"] = types.YLeaf{"LspPingRxLastSubcode", lspPingInfo.LspPingRxLastSubcode}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-output"] = types.YLeaf{"LspPingRxLastOutput", lspPingInfo.LspPingRxLastOutput}
+    lspPingInfo.EntityData.Children = types.NewOrderedMap()
+    lspPingInfo.EntityData.Children.Append("lsp-ping-tx-last-time", types.YChild{"LspPingTxLastTime", &lspPingInfo.LspPingTxLastTime})
+    lspPingInfo.EntityData.Children.Append("lsp-ping-tx-last-error-time", types.YChild{"LspPingTxLastErrorTime", &lspPingInfo.LspPingTxLastErrorTime})
+    lspPingInfo.EntityData.Children.Append("lsp-ping-rx-last-time", types.YChild{"LspPingRxLastTime", &lspPingInfo.LspPingRxLastTime})
+    lspPingInfo.EntityData.Leafs = types.NewOrderedMap()
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-count", types.YLeaf{"LspPingTxCount", lspPingInfo.LspPingTxCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-error-count", types.YLeaf{"LspPingTxErrorCount", lspPingInfo.LspPingTxErrorCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-last-rc", types.YLeaf{"LspPingTxLastRc", lspPingInfo.LspPingTxLastRc})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-last-error-rc", types.YLeaf{"LspPingTxLastErrorRc", lspPingInfo.LspPingTxLastErrorRc})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-discr", types.YLeaf{"LspPingRxLastDiscr", lspPingInfo.LspPingRxLastDiscr})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-count", types.YLeaf{"LspPingRxCount", lspPingInfo.LspPingRxCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-code", types.YLeaf{"LspPingRxLastCode", lspPingInfo.LspPingRxLastCode})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-subcode", types.YLeaf{"LspPingRxLastSubcode", lspPingInfo.LspPingRxLastSubcode})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-output", types.YLeaf{"LspPingRxLastOutput", lspPingInfo.LspPingRxLastOutput})
+
+    lspPingInfo.EntityData.YListKeys = []string {}
+
     return &(lspPingInfo.EntityData)
 }
 
@@ -7359,10 +7795,13 @@ func (lspPingTxLastTime *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetai
     lspPingTxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingTxLastTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingTxLastTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingTxLastTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingTxLastTime.Seconds}
-    lspPingTxLastTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingTxLastTime.Nanoseconds}
+    lspPingTxLastTime.EntityData.Children = types.NewOrderedMap()
+    lspPingTxLastTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingTxLastTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingTxLastTime.Seconds})
+    lspPingTxLastTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingTxLastTime.Nanoseconds})
+
+    lspPingTxLastTime.EntityData.YListKeys = []string {}
+
     return &(lspPingTxLastTime.EntityData)
 }
 
@@ -7391,10 +7830,13 @@ func (lspPingTxLastErrorTime *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSession
     lspPingTxLastErrorTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastErrorTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingTxLastErrorTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingTxLastErrorTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingTxLastErrorTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingTxLastErrorTime.Seconds}
-    lspPingTxLastErrorTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingTxLastErrorTime.Nanoseconds}
+    lspPingTxLastErrorTime.EntityData.Children = types.NewOrderedMap()
+    lspPingTxLastErrorTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingTxLastErrorTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingTxLastErrorTime.Seconds})
+    lspPingTxLastErrorTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingTxLastErrorTime.Nanoseconds})
+
+    lspPingTxLastErrorTime.EntityData.YListKeys = []string {}
+
     return &(lspPingTxLastErrorTime.EntityData)
 }
 
@@ -7423,10 +7865,13 @@ func (lspPingRxLastTime *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetai
     lspPingRxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingRxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingRxLastTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingRxLastTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingRxLastTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingRxLastTime.Seconds}
-    lspPingRxLastTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingRxLastTime.Nanoseconds}
+    lspPingRxLastTime.EntityData.Children = types.NewOrderedMap()
+    lspPingRxLastTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingRxLastTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingRxLastTime.Seconds})
+    lspPingRxLastTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingRxLastTime.Nanoseconds})
+
+    lspPingRxLastTime.EntityData.YListKeys = []string {}
+
     return &(lspPingRxLastTime.EntityData)
 }
 
@@ -7466,13 +7911,16 @@ func (ownerInformation *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ownerInformation.EntityData.Children = make(map[string]types.YChild)
-    ownerInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    ownerInformation.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ownerInformation.Interval}
-    ownerInformation.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier}
-    ownerInformation.EntityData.Leafs["adjusted-interval"] = types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval}
-    ownerInformation.EntityData.Leafs["adjusted-detection-multiplier"] = types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier}
-    ownerInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", ownerInformation.Name}
+    ownerInformation.EntityData.Children = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ownerInformation.Interval})
+    ownerInformation.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("adjusted-interval", types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval})
+    ownerInformation.EntityData.Leafs.Append("adjusted-detection-multiplier", types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", ownerInformation.Name})
+
+    ownerInformation.EntityData.YListKeys = []string {}
+
     return &(ownerInformation.EntityData)
 }
 
@@ -7497,7 +7945,7 @@ type Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_AssociationInforma
 
     // Client applications owning the session. The type is slice of
     // Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_AssociationInformation_OwnerInformation.
-    OwnerInformation []Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_AssociationInformation_OwnerInformation
+    OwnerInformation []*Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_AssociationInformation_OwnerInformation
 }
 
 func (associationInformation *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_AssociationInformation) GetEntityData() *types.CommonEntityData {
@@ -7510,16 +7958,19 @@ func (associationInformation *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSession
     associationInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    associationInformation.EntityData.Children = make(map[string]types.YChild)
-    associationInformation.EntityData.Children["ip-destination-address"] = types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress}
-    associationInformation.EntityData.Children["owner-information"] = types.YChild{"OwnerInformation", nil}
+    associationInformation.EntityData.Children = types.NewOrderedMap()
+    associationInformation.EntityData.Children.Append("ip-destination-address", types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress})
+    associationInformation.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range associationInformation.OwnerInformation {
-        associationInformation.EntityData.Children[types.GetSegmentPath(&associationInformation.OwnerInformation[i])] = types.YChild{"OwnerInformation", &associationInformation.OwnerInformation[i]}
+        associationInformation.EntityData.Children.Append(types.GetSegmentPath(associationInformation.OwnerInformation[i]), types.YChild{"OwnerInformation", associationInformation.OwnerInformation[i]})
     }
-    associationInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    associationInformation.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", associationInformation.InterfaceName}
-    associationInformation.EntityData.Leafs["sessiontype"] = types.YLeaf{"Sessiontype", associationInformation.Sessiontype}
-    associationInformation.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", associationInformation.LocalDiscriminator}
+    associationInformation.EntityData.Leafs = types.NewOrderedMap()
+    associationInformation.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", associationInformation.InterfaceName})
+    associationInformation.EntityData.Leafs.Append("sessiontype", types.YLeaf{"Sessiontype", associationInformation.Sessiontype})
+    associationInformation.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", associationInformation.LocalDiscriminator})
+
+    associationInformation.EntityData.YListKeys = []string {}
+
     return &(associationInformation.EntityData)
 }
 
@@ -7536,11 +7987,11 @@ type Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_AssociationInforma
     Dummy interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -7554,12 +8005,15 @@ func (ipDestinationAddress *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDe
     ipDestinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDestinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipDestinationAddress.EntityData.Children = make(map[string]types.YChild)
-    ipDestinationAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipDestinationAddress.EntityData.Leafs["afi"] = types.YLeaf{"Afi", ipDestinationAddress.Afi}
-    ipDestinationAddress.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", ipDestinationAddress.Dummy}
-    ipDestinationAddress.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", ipDestinationAddress.Ipv4}
-    ipDestinationAddress.EntityData.Leafs["ipv6"] = types.YLeaf{"Ipv6", ipDestinationAddress.Ipv6}
+    ipDestinationAddress.EntityData.Children = types.NewOrderedMap()
+    ipDestinationAddress.EntityData.Leafs = types.NewOrderedMap()
+    ipDestinationAddress.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", ipDestinationAddress.Afi})
+    ipDestinationAddress.EntityData.Leafs.Append("dummy", types.YLeaf{"Dummy", ipDestinationAddress.Dummy})
+    ipDestinationAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", ipDestinationAddress.Ipv4})
+    ipDestinationAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", ipDestinationAddress.Ipv6})
+
+    ipDestinationAddress.EntityData.YListKeys = []string {}
+
     return &(ipDestinationAddress.EntityData)
 }
 
@@ -7599,13 +8053,16 @@ func (ownerInformation *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ownerInformation.EntityData.Children = make(map[string]types.YChild)
-    ownerInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    ownerInformation.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ownerInformation.Interval}
-    ownerInformation.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier}
-    ownerInformation.EntityData.Leafs["adjusted-interval"] = types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval}
-    ownerInformation.EntityData.Leafs["adjusted-detection-multiplier"] = types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier}
-    ownerInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", ownerInformation.Name}
+    ownerInformation.EntityData.Children = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ownerInformation.Interval})
+    ownerInformation.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("adjusted-interval", types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval})
+    ownerInformation.EntityData.Leafs.Append("adjusted-detection-multiplier", types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", ownerInformation.Name})
+
+    ownerInformation.EntityData.YListKeys = []string {}
+
     return &(ownerInformation.EntityData)
 }
 
@@ -7617,7 +8074,7 @@ type Bfd_Ipv6MultiHopMultiPaths struct {
 
     // IPv6 multihop multipath table. The type is slice of
     // Bfd_Ipv6MultiHopMultiPaths_Ipv6MultiHopMultiPath.
-    Ipv6MultiHopMultiPath []Bfd_Ipv6MultiHopMultiPaths_Ipv6MultiHopMultiPath
+    Ipv6MultiHopMultiPath []*Bfd_Ipv6MultiHopMultiPaths_Ipv6MultiHopMultiPath
 }
 
 func (ipv6MultiHopMultiPaths *Bfd_Ipv6MultiHopMultiPaths) GetEntityData() *types.CommonEntityData {
@@ -7630,12 +8087,15 @@ func (ipv6MultiHopMultiPaths *Bfd_Ipv6MultiHopMultiPaths) GetEntityData() *types
     ipv6MultiHopMultiPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopMultiPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6MultiHopMultiPaths.EntityData.Children = make(map[string]types.YChild)
-    ipv6MultiHopMultiPaths.EntityData.Children["ipv6-multi-hop-multi-path"] = types.YChild{"Ipv6MultiHopMultiPath", nil}
+    ipv6MultiHopMultiPaths.EntityData.Children = types.NewOrderedMap()
+    ipv6MultiHopMultiPaths.EntityData.Children.Append("ipv6-multi-hop-multi-path", types.YChild{"Ipv6MultiHopMultiPath", nil})
     for i := range ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath {
-        ipv6MultiHopMultiPaths.EntityData.Children[types.GetSegmentPath(&ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath[i])] = types.YChild{"Ipv6MultiHopMultiPath", &ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath[i]}
+        ipv6MultiHopMultiPaths.EntityData.Children.Append(types.GetSegmentPath(ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath[i]), types.YChild{"Ipv6MultiHopMultiPath", ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath[i]})
     }
-    ipv6MultiHopMultiPaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6MultiHopMultiPaths.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6MultiHopMultiPaths.EntityData.YListKeys = []string {}
+
     return &(ipv6MultiHopMultiPaths.EntityData)
 }
 
@@ -7647,23 +8107,23 @@ type Bfd_Ipv6MultiHopMultiPaths_Ipv6MultiHopMultiPath struct {
 
     // Source address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Destination address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
-    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Session subtype. The type is string.
@@ -7677,13 +8137,13 @@ type Bfd_Ipv6MultiHopMultiPaths_Ipv6MultiHopMultiPath struct {
     LocalDiscriminator interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabelXr interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     SessionInterfaceName interface{}
 }
 
@@ -7697,89 +8157,98 @@ func (ipv6MultiHopMultiPath *Bfd_Ipv6MultiHopMultiPaths_Ipv6MultiHopMultiPath) G
     ipv6MultiHopMultiPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopMultiPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6MultiHopMultiPath.EntityData.Children = make(map[string]types.YChild)
-    ipv6MultiHopMultiPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6MultiHopMultiPath.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", ipv6MultiHopMultiPath.SourceAddress}
-    ipv6MultiHopMultiPath.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", ipv6MultiHopMultiPath.DestinationAddress}
-    ipv6MultiHopMultiPath.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv6MultiHopMultiPath.Location}
-    ipv6MultiHopMultiPath.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv6MultiHopMultiPath.VrfName}
-    ipv6MultiHopMultiPath.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", ipv6MultiHopMultiPath.SessionSubtype}
-    ipv6MultiHopMultiPath.EntityData.Leafs["state"] = types.YLeaf{"State", ipv6MultiHopMultiPath.State}
-    ipv6MultiHopMultiPath.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", ipv6MultiHopMultiPath.LocalDiscriminator}
-    ipv6MultiHopMultiPath.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", ipv6MultiHopMultiPath.NodeId}
-    ipv6MultiHopMultiPath.EntityData.Leafs["incoming-label-xr"] = types.YLeaf{"IncomingLabelXr", ipv6MultiHopMultiPath.IncomingLabelXr}
-    ipv6MultiHopMultiPath.EntityData.Leafs["session-interface-name"] = types.YLeaf{"SessionInterfaceName", ipv6MultiHopMultiPath.SessionInterfaceName}
+    ipv6MultiHopMultiPath.EntityData.Children = types.NewOrderedMap()
+    ipv6MultiHopMultiPath.EntityData.Leafs = types.NewOrderedMap()
+    ipv6MultiHopMultiPath.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", ipv6MultiHopMultiPath.SourceAddress})
+    ipv6MultiHopMultiPath.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", ipv6MultiHopMultiPath.DestinationAddress})
+    ipv6MultiHopMultiPath.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv6MultiHopMultiPath.Location})
+    ipv6MultiHopMultiPath.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv6MultiHopMultiPath.VrfName})
+    ipv6MultiHopMultiPath.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", ipv6MultiHopMultiPath.SessionSubtype})
+    ipv6MultiHopMultiPath.EntityData.Leafs.Append("state", types.YLeaf{"State", ipv6MultiHopMultiPath.State})
+    ipv6MultiHopMultiPath.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", ipv6MultiHopMultiPath.LocalDiscriminator})
+    ipv6MultiHopMultiPath.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", ipv6MultiHopMultiPath.NodeId})
+    ipv6MultiHopMultiPath.EntityData.Leafs.Append("incoming-label-xr", types.YLeaf{"IncomingLabelXr", ipv6MultiHopMultiPath.IncomingLabelXr})
+    ipv6MultiHopMultiPath.EntityData.Leafs.Append("session-interface-name", types.YLeaf{"SessionInterfaceName", ipv6MultiHopMultiPath.SessionInterfaceName})
+
+    ipv6MultiHopMultiPath.EntityData.YListKeys = []string {}
+
     return &(ipv6MultiHopMultiPath.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadCounters
+// Bfd_Ipv4bfDoMplsteHeadCounters
 // IPv4 BFD over MPLS-TE Counters
-type Bfd_Ipv4BfDoMplsteHeadCounters struct {
+type Bfd_Ipv4bfDoMplsteHeadCounters struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of IPv4 BFD over MPLS-TE Packet counters.
-    Ipv4BfDoMplsteHeadPacketCounters Bfd_Ipv4BfDoMplsteHeadCounters_Ipv4BfDoMplsteHeadPacketCounters
+    Ipv4bfDoMplsteHeadPacketCounters Bfd_Ipv4bfDoMplsteHeadCounters_Ipv4bfDoMplsteHeadPacketCounters
 }
 
-func (ipv4BfDoMplsteHeadCounters *Bfd_Ipv4BfDoMplsteHeadCounters) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteHeadCounters.EntityData.YFilter = ipv4BfDoMplsteHeadCounters.YFilter
-    ipv4BfDoMplsteHeadCounters.EntityData.YangName = "ipv4bf-do-mplste-head-counters"
-    ipv4BfDoMplsteHeadCounters.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteHeadCounters.EntityData.ParentYangName = "bfd"
-    ipv4BfDoMplsteHeadCounters.EntityData.SegmentPath = "ipv4bf-do-mplste-head-counters"
-    ipv4BfDoMplsteHeadCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteHeadCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteHeadCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteHeadCounters *Bfd_Ipv4bfDoMplsteHeadCounters) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteHeadCounters.EntityData.YFilter = ipv4bfDoMplsteHeadCounters.YFilter
+    ipv4bfDoMplsteHeadCounters.EntityData.YangName = "ipv4bf-do-mplste-head-counters"
+    ipv4bfDoMplsteHeadCounters.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteHeadCounters.EntityData.ParentYangName = "bfd"
+    ipv4bfDoMplsteHeadCounters.EntityData.SegmentPath = "ipv4bf-do-mplste-head-counters"
+    ipv4bfDoMplsteHeadCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteHeadCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteHeadCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteHeadCounters.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteHeadCounters.EntityData.Children["ipv4bf-do-mplste-head-packet-counters"] = types.YChild{"Ipv4BfDoMplsteHeadPacketCounters", &ipv4BfDoMplsteHeadCounters.Ipv4BfDoMplsteHeadPacketCounters}
-    ipv4BfDoMplsteHeadCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipv4BfDoMplsteHeadCounters.EntityData)
+    ipv4bfDoMplsteHeadCounters.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteHeadCounters.EntityData.Children.Append("ipv4bf-do-mplste-head-packet-counters", types.YChild{"Ipv4bfDoMplsteHeadPacketCounters", &ipv4bfDoMplsteHeadCounters.Ipv4bfDoMplsteHeadPacketCounters})
+    ipv4bfDoMplsteHeadCounters.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4bfDoMplsteHeadCounters.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteHeadCounters.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadCounters_Ipv4BfDoMplsteHeadPacketCounters
+// Bfd_Ipv4bfDoMplsteHeadCounters_Ipv4bfDoMplsteHeadPacketCounters
 // Table of IPv4 BFD over MPLS-TE Packet counters
-type Bfd_Ipv4BfDoMplsteHeadCounters_Ipv4BfDoMplsteHeadPacketCounters struct {
+type Bfd_Ipv4bfDoMplsteHeadCounters_Ipv4bfDoMplsteHeadPacketCounters struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Interface  IPv4 BFD over MPLS-TE Packet counters. The type is slice of
-    // Bfd_Ipv4BfDoMplsteHeadCounters_Ipv4BfDoMplsteHeadPacketCounters_Ipv4BfDoMplsteHeadPacketCounter.
-    Ipv4BfDoMplsteHeadPacketCounter []Bfd_Ipv4BfDoMplsteHeadCounters_Ipv4BfDoMplsteHeadPacketCounters_Ipv4BfDoMplsteHeadPacketCounter
+    // Bfd_Ipv4bfDoMplsteHeadCounters_Ipv4bfDoMplsteHeadPacketCounters_Ipv4bfDoMplsteHeadPacketCounter.
+    Ipv4bfDoMplsteHeadPacketCounter []*Bfd_Ipv4bfDoMplsteHeadCounters_Ipv4bfDoMplsteHeadPacketCounters_Ipv4bfDoMplsteHeadPacketCounter
 }
 
-func (ipv4BfDoMplsteHeadPacketCounters *Bfd_Ipv4BfDoMplsteHeadCounters_Ipv4BfDoMplsteHeadPacketCounters) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteHeadPacketCounters.EntityData.YFilter = ipv4BfDoMplsteHeadPacketCounters.YFilter
-    ipv4BfDoMplsteHeadPacketCounters.EntityData.YangName = "ipv4bf-do-mplste-head-packet-counters"
-    ipv4BfDoMplsteHeadPacketCounters.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteHeadPacketCounters.EntityData.ParentYangName = "ipv4bf-do-mplste-head-counters"
-    ipv4BfDoMplsteHeadPacketCounters.EntityData.SegmentPath = "ipv4bf-do-mplste-head-packet-counters"
-    ipv4BfDoMplsteHeadPacketCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteHeadPacketCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteHeadPacketCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteHeadPacketCounters *Bfd_Ipv4bfDoMplsteHeadCounters_Ipv4bfDoMplsteHeadPacketCounters) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteHeadPacketCounters.EntityData.YFilter = ipv4bfDoMplsteHeadPacketCounters.YFilter
+    ipv4bfDoMplsteHeadPacketCounters.EntityData.YangName = "ipv4bf-do-mplste-head-packet-counters"
+    ipv4bfDoMplsteHeadPacketCounters.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteHeadPacketCounters.EntityData.ParentYangName = "ipv4bf-do-mplste-head-counters"
+    ipv4bfDoMplsteHeadPacketCounters.EntityData.SegmentPath = "ipv4bf-do-mplste-head-packet-counters"
+    ipv4bfDoMplsteHeadPacketCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteHeadPacketCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteHeadPacketCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteHeadPacketCounters.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteHeadPacketCounters.EntityData.Children["ipv4bf-do-mplste-head-packet-counter"] = types.YChild{"Ipv4BfDoMplsteHeadPacketCounter", nil}
-    for i := range ipv4BfDoMplsteHeadPacketCounters.Ipv4BfDoMplsteHeadPacketCounter {
-        ipv4BfDoMplsteHeadPacketCounters.EntityData.Children[types.GetSegmentPath(&ipv4BfDoMplsteHeadPacketCounters.Ipv4BfDoMplsteHeadPacketCounter[i])] = types.YChild{"Ipv4BfDoMplsteHeadPacketCounter", &ipv4BfDoMplsteHeadPacketCounters.Ipv4BfDoMplsteHeadPacketCounter[i]}
+    ipv4bfDoMplsteHeadPacketCounters.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteHeadPacketCounters.EntityData.Children.Append("ipv4bf-do-mplste-head-packet-counter", types.YChild{"Ipv4bfDoMplsteHeadPacketCounter", nil})
+    for i := range ipv4bfDoMplsteHeadPacketCounters.Ipv4bfDoMplsteHeadPacketCounter {
+        ipv4bfDoMplsteHeadPacketCounters.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteHeadPacketCounters.Ipv4bfDoMplsteHeadPacketCounter[i]), types.YChild{"Ipv4bfDoMplsteHeadPacketCounter", ipv4bfDoMplsteHeadPacketCounters.Ipv4bfDoMplsteHeadPacketCounter[i]})
     }
-    ipv4BfDoMplsteHeadPacketCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipv4BfDoMplsteHeadPacketCounters.EntityData)
+    ipv4bfDoMplsteHeadPacketCounters.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4bfDoMplsteHeadPacketCounters.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteHeadPacketCounters.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadCounters_Ipv4BfDoMplsteHeadPacketCounters_Ipv4BfDoMplsteHeadPacketCounter
+// Bfd_Ipv4bfDoMplsteHeadCounters_Ipv4bfDoMplsteHeadPacketCounters_Ipv4bfDoMplsteHeadPacketCounter
 // Interface  IPv4 BFD over MPLS-TE Packet
 // counters
-type Bfd_Ipv4BfDoMplsteHeadCounters_Ipv4BfDoMplsteHeadPacketCounters_Ipv4BfDoMplsteHeadPacketCounter struct {
+type Bfd_Ipv4bfDoMplsteHeadCounters_Ipv4bfDoMplsteHeadPacketCounters_Ipv4bfDoMplsteHeadPacketCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Number of Hellos transmitted. The type is interface{} with range:
@@ -7802,26 +8271,29 @@ type Bfd_Ipv4BfDoMplsteHeadCounters_Ipv4BfDoMplsteHeadPacketCounters_Ipv4BfDoMpl
     DisplayType interface{}
 }
 
-func (ipv4BfDoMplsteHeadPacketCounter *Bfd_Ipv4BfDoMplsteHeadCounters_Ipv4BfDoMplsteHeadPacketCounters_Ipv4BfDoMplsteHeadPacketCounter) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteHeadPacketCounter.EntityData.YFilter = ipv4BfDoMplsteHeadPacketCounter.YFilter
-    ipv4BfDoMplsteHeadPacketCounter.EntityData.YangName = "ipv4bf-do-mplste-head-packet-counter"
-    ipv4BfDoMplsteHeadPacketCounter.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteHeadPacketCounter.EntityData.ParentYangName = "ipv4bf-do-mplste-head-packet-counters"
-    ipv4BfDoMplsteHeadPacketCounter.EntityData.SegmentPath = "ipv4bf-do-mplste-head-packet-counter"
-    ipv4BfDoMplsteHeadPacketCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteHeadPacketCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteHeadPacketCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteHeadPacketCounter *Bfd_Ipv4bfDoMplsteHeadCounters_Ipv4bfDoMplsteHeadPacketCounters_Ipv4bfDoMplsteHeadPacketCounter) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.YFilter = ipv4bfDoMplsteHeadPacketCounter.YFilter
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.YangName = "ipv4bf-do-mplste-head-packet-counter"
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.ParentYangName = "ipv4bf-do-mplste-head-packet-counters"
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.SegmentPath = "ipv4bf-do-mplste-head-packet-counter"
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteHeadPacketCounter.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteHeadPacketCounter.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4BfDoMplsteHeadPacketCounter.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", ipv4BfDoMplsteHeadPacketCounter.InterfaceName}
-    ipv4BfDoMplsteHeadPacketCounter.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv4BfDoMplsteHeadPacketCounter.Location}
-    ipv4BfDoMplsteHeadPacketCounter.EntityData.Leafs["hello-transmit-count"] = types.YLeaf{"HelloTransmitCount", ipv4BfDoMplsteHeadPacketCounter.HelloTransmitCount}
-    ipv4BfDoMplsteHeadPacketCounter.EntityData.Leafs["hello-receive-count"] = types.YLeaf{"HelloReceiveCount", ipv4BfDoMplsteHeadPacketCounter.HelloReceiveCount}
-    ipv4BfDoMplsteHeadPacketCounter.EntityData.Leafs["echo-transmit-count"] = types.YLeaf{"EchoTransmitCount", ipv4BfDoMplsteHeadPacketCounter.EchoTransmitCount}
-    ipv4BfDoMplsteHeadPacketCounter.EntityData.Leafs["echo-receive-count"] = types.YLeaf{"EchoReceiveCount", ipv4BfDoMplsteHeadPacketCounter.EchoReceiveCount}
-    ipv4BfDoMplsteHeadPacketCounter.EntityData.Leafs["display-type"] = types.YLeaf{"DisplayType", ipv4BfDoMplsteHeadPacketCounter.DisplayType}
-    return &(ipv4BfDoMplsteHeadPacketCounter.EntityData)
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.Leafs = types.NewOrderedMap()
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", ipv4bfDoMplsteHeadPacketCounter.InterfaceName})
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv4bfDoMplsteHeadPacketCounter.Location})
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.Leafs.Append("hello-transmit-count", types.YLeaf{"HelloTransmitCount", ipv4bfDoMplsteHeadPacketCounter.HelloTransmitCount})
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.Leafs.Append("hello-receive-count", types.YLeaf{"HelloReceiveCount", ipv4bfDoMplsteHeadPacketCounter.HelloReceiveCount})
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.Leafs.Append("echo-transmit-count", types.YLeaf{"EchoTransmitCount", ipv4bfDoMplsteHeadPacketCounter.EchoTransmitCount})
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.Leafs.Append("echo-receive-count", types.YLeaf{"EchoReceiveCount", ipv4bfDoMplsteHeadPacketCounter.EchoReceiveCount})
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.Leafs.Append("display-type", types.YLeaf{"DisplayType", ipv4bfDoMplsteHeadPacketCounter.DisplayType})
+
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteHeadPacketCounter.EntityData)
 }
 
 // Bfd_SessionMibs
@@ -7832,7 +8304,7 @@ type Bfd_SessionMibs struct {
 
     // Brief information for BFD session MIB. The type is slice of
     // Bfd_SessionMibs_SessionMib.
-    SessionMib []Bfd_SessionMibs_SessionMib
+    SessionMib []*Bfd_SessionMibs_SessionMib
 }
 
 func (sessionMibs *Bfd_SessionMibs) GetEntityData() *types.CommonEntityData {
@@ -7845,12 +8317,15 @@ func (sessionMibs *Bfd_SessionMibs) GetEntityData() *types.CommonEntityData {
     sessionMibs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionMibs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionMibs.EntityData.Children = make(map[string]types.YChild)
-    sessionMibs.EntityData.Children["session-mib"] = types.YChild{"SessionMib", nil}
+    sessionMibs.EntityData.Children = types.NewOrderedMap()
+    sessionMibs.EntityData.Children.Append("session-mib", types.YChild{"SessionMib", nil})
     for i := range sessionMibs.SessionMib {
-        sessionMibs.EntityData.Children[types.GetSegmentPath(&sessionMibs.SessionMib[i])] = types.YChild{"SessionMib", &sessionMibs.SessionMib[i]}
+        sessionMibs.EntityData.Children.Append(types.GetSegmentPath(sessionMibs.SessionMib[i]), types.YChild{"SessionMib", sessionMibs.SessionMib[i]})
     }
-    sessionMibs.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessionMibs.EntityData.Leafs = types.NewOrderedMap()
+
+    sessionMibs.EntityData.YListKeys = []string {}
+
     return &(sessionMibs.EntityData)
 }
 
@@ -7905,8 +8380,27 @@ type Bfd_SessionMibs_SessionMib struct {
     // 0..4294967295. Units are nanosecond.
     LastDownTimeNsec interface{}
 
+    // Last IO EVM Schd Time (seconds). The type is interface{} with range:
+    // 0..18446744073709551615. Units are second.
+    LastIoEvmSchdTimeSec interface{}
+
+    // Last IO Evm Schd Time (nanoseconds). The type is interface{} with range:
+    // 0..4294967295. Units are nanosecond.
+    LastIoEvmSchdTimeNsec interface{}
+
+    // Last IO EVM Schd Comp Time (seconds). The type is interface{} with range:
+    // 0..18446744073709551615. Units are second.
+    LastIoEvmSchdCompTimeSec interface{}
+
+    // Last IO Evm Schd Comp Time (nanoseconds). The type is interface{} with
+    // range: 0..4294967295. Units are nanosecond.
+    LastIoEvmSchdCompTimeNsec interface{}
+
     // Last Session Down Diag. The type is BfdMgmtSessionDiag.
     LastDownDiag interface{}
+
+    // Last Rx Session Down Diag. The type is BfdMgmtSessionDiag.
+    LastRxDownDiag interface{}
 
     // Up Count. The type is interface{} with range: 0..4294967295.
     UpCounter interface{}
@@ -7945,35 +8439,43 @@ func (sessionMib *Bfd_SessionMibs_SessionMib) GetEntityData() *types.CommonEntit
     sessionMib.EntityData.YangName = "session-mib"
     sessionMib.EntityData.BundleName = "cisco_ios_xr"
     sessionMib.EntityData.ParentYangName = "session-mibs"
-    sessionMib.EntityData.SegmentPath = "session-mib" + "[discriminator='" + fmt.Sprintf("%v", sessionMib.Discriminator) + "']"
+    sessionMib.EntityData.SegmentPath = "session-mib" + types.AddKeyToken(sessionMib.Discriminator, "discriminator")
     sessionMib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionMib.EntityData.Children = make(map[string]types.YChild)
-    sessionMib.EntityData.Children["dest-address"] = types.YChild{"DestAddress", &sessionMib.DestAddress}
-    sessionMib.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionMib.EntityData.Leafs["discriminator"] = types.YLeaf{"Discriminator", sessionMib.Discriminator}
-    sessionMib.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", sessionMib.LocalDiscriminator}
-    sessionMib.EntityData.Leafs["remote-discriminator"] = types.YLeaf{"RemoteDiscriminator", sessionMib.RemoteDiscriminator}
-    sessionMib.EntityData.Leafs["sessionversion"] = types.YLeaf{"Sessionversion", sessionMib.Sessionversion}
-    sessionMib.EntityData.Leafs["session-state"] = types.YLeaf{"SessionState", sessionMib.SessionState}
-    sessionMib.EntityData.Leafs["trap-bitmap"] = types.YLeaf{"TrapBitmap", sessionMib.TrapBitmap}
-    sessionMib.EntityData.Leafs["pkt-in"] = types.YLeaf{"PktIn", sessionMib.PktIn}
-    sessionMib.EntityData.Leafs["pkt-out"] = types.YLeaf{"PktOut", sessionMib.PktOut}
-    sessionMib.EntityData.Leafs["last-up-time-sec"] = types.YLeaf{"LastUpTimeSec", sessionMib.LastUpTimeSec}
-    sessionMib.EntityData.Leafs["last-up-time-nsec"] = types.YLeaf{"LastUpTimeNsec", sessionMib.LastUpTimeNsec}
-    sessionMib.EntityData.Leafs["last-down-time-sec"] = types.YLeaf{"LastDownTimeSec", sessionMib.LastDownTimeSec}
-    sessionMib.EntityData.Leafs["last-down-time-nsec"] = types.YLeaf{"LastDownTimeNsec", sessionMib.LastDownTimeNsec}
-    sessionMib.EntityData.Leafs["last-down-diag"] = types.YLeaf{"LastDownDiag", sessionMib.LastDownDiag}
-    sessionMib.EntityData.Leafs["up-counter"] = types.YLeaf{"UpCounter", sessionMib.UpCounter}
-    sessionMib.EntityData.Leafs["last-time-cached"] = types.YLeaf{"LastTimeCached", sessionMib.LastTimeCached}
-    sessionMib.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", sessionMib.InterfaceName}
-    sessionMib.EntityData.Leafs["int-handle"] = types.YLeaf{"IntHandle", sessionMib.IntHandle}
-    sessionMib.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", sessionMib.DetectionMultiplier}
-    sessionMib.EntityData.Leafs["desired-min-tx-interval"] = types.YLeaf{"DesiredMinTxInterval", sessionMib.DesiredMinTxInterval}
-    sessionMib.EntityData.Leafs["required-min-rx-interval"] = types.YLeaf{"RequiredMinRxInterval", sessionMib.RequiredMinRxInterval}
-    sessionMib.EntityData.Leafs["required-min-rx-echo-interval"] = types.YLeaf{"RequiredMinRxEchoInterval", sessionMib.RequiredMinRxEchoInterval}
+    sessionMib.EntityData.Children = types.NewOrderedMap()
+    sessionMib.EntityData.Children.Append("dest-address", types.YChild{"DestAddress", &sessionMib.DestAddress})
+    sessionMib.EntityData.Leafs = types.NewOrderedMap()
+    sessionMib.EntityData.Leafs.Append("discriminator", types.YLeaf{"Discriminator", sessionMib.Discriminator})
+    sessionMib.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", sessionMib.LocalDiscriminator})
+    sessionMib.EntityData.Leafs.Append("remote-discriminator", types.YLeaf{"RemoteDiscriminator", sessionMib.RemoteDiscriminator})
+    sessionMib.EntityData.Leafs.Append("sessionversion", types.YLeaf{"Sessionversion", sessionMib.Sessionversion})
+    sessionMib.EntityData.Leafs.Append("session-state", types.YLeaf{"SessionState", sessionMib.SessionState})
+    sessionMib.EntityData.Leafs.Append("trap-bitmap", types.YLeaf{"TrapBitmap", sessionMib.TrapBitmap})
+    sessionMib.EntityData.Leafs.Append("pkt-in", types.YLeaf{"PktIn", sessionMib.PktIn})
+    sessionMib.EntityData.Leafs.Append("pkt-out", types.YLeaf{"PktOut", sessionMib.PktOut})
+    sessionMib.EntityData.Leafs.Append("last-up-time-sec", types.YLeaf{"LastUpTimeSec", sessionMib.LastUpTimeSec})
+    sessionMib.EntityData.Leafs.Append("last-up-time-nsec", types.YLeaf{"LastUpTimeNsec", sessionMib.LastUpTimeNsec})
+    sessionMib.EntityData.Leafs.Append("last-down-time-sec", types.YLeaf{"LastDownTimeSec", sessionMib.LastDownTimeSec})
+    sessionMib.EntityData.Leafs.Append("last-down-time-nsec", types.YLeaf{"LastDownTimeNsec", sessionMib.LastDownTimeNsec})
+    sessionMib.EntityData.Leafs.Append("last-io-evm-schd-time-sec", types.YLeaf{"LastIoEvmSchdTimeSec", sessionMib.LastIoEvmSchdTimeSec})
+    sessionMib.EntityData.Leafs.Append("last-io-evm-schd-time-nsec", types.YLeaf{"LastIoEvmSchdTimeNsec", sessionMib.LastIoEvmSchdTimeNsec})
+    sessionMib.EntityData.Leafs.Append("last-io-evm-schd-comp-time-sec", types.YLeaf{"LastIoEvmSchdCompTimeSec", sessionMib.LastIoEvmSchdCompTimeSec})
+    sessionMib.EntityData.Leafs.Append("last-io-evm-schd-comp-time-nsec", types.YLeaf{"LastIoEvmSchdCompTimeNsec", sessionMib.LastIoEvmSchdCompTimeNsec})
+    sessionMib.EntityData.Leafs.Append("last-down-diag", types.YLeaf{"LastDownDiag", sessionMib.LastDownDiag})
+    sessionMib.EntityData.Leafs.Append("last-rx-down-diag", types.YLeaf{"LastRxDownDiag", sessionMib.LastRxDownDiag})
+    sessionMib.EntityData.Leafs.Append("up-counter", types.YLeaf{"UpCounter", sessionMib.UpCounter})
+    sessionMib.EntityData.Leafs.Append("last-time-cached", types.YLeaf{"LastTimeCached", sessionMib.LastTimeCached})
+    sessionMib.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", sessionMib.InterfaceName})
+    sessionMib.EntityData.Leafs.Append("int-handle", types.YLeaf{"IntHandle", sessionMib.IntHandle})
+    sessionMib.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", sessionMib.DetectionMultiplier})
+    sessionMib.EntityData.Leafs.Append("desired-min-tx-interval", types.YLeaf{"DesiredMinTxInterval", sessionMib.DesiredMinTxInterval})
+    sessionMib.EntityData.Leafs.Append("required-min-rx-interval", types.YLeaf{"RequiredMinRxInterval", sessionMib.RequiredMinRxInterval})
+    sessionMib.EntityData.Leafs.Append("required-min-rx-echo-interval", types.YLeaf{"RequiredMinRxEchoInterval", sessionMib.RequiredMinRxEchoInterval})
+
+    sessionMib.EntityData.YListKeys = []string {"Discriminator"}
+
     return &(sessionMib.EntityData)
 }
 
@@ -7990,11 +8492,11 @@ type Bfd_SessionMibs_SessionMib_DestAddress struct {
     Dummy interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -8008,12 +8510,15 @@ func (destAddress *Bfd_SessionMibs_SessionMib_DestAddress) GetEntityData() *type
     destAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    destAddress.EntityData.Children = make(map[string]types.YChild)
-    destAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    destAddress.EntityData.Leafs["afi"] = types.YLeaf{"Afi", destAddress.Afi}
-    destAddress.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", destAddress.Dummy}
-    destAddress.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", destAddress.Ipv4}
-    destAddress.EntityData.Leafs["ipv6"] = types.YLeaf{"Ipv6", destAddress.Ipv6}
+    destAddress.EntityData.Children = types.NewOrderedMap()
+    destAddress.EntityData.Leafs = types.NewOrderedMap()
+    destAddress.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", destAddress.Afi})
+    destAddress.EntityData.Leafs.Append("dummy", types.YLeaf{"Dummy", destAddress.Dummy})
+    destAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", destAddress.Ipv4})
+    destAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", destAddress.Ipv6})
+
+    destAddress.EntityData.YListKeys = []string {}
+
     return &(destAddress.EntityData)
 }
 
@@ -8038,9 +8543,12 @@ func (ipv6MultiHopSummary *Bfd_Ipv6MultiHopSummary) GetEntityData() *types.Commo
     ipv6MultiHopSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6MultiHopSummary.EntityData.Children = make(map[string]types.YChild)
-    ipv6MultiHopSummary.EntityData.Children["session-state"] = types.YChild{"SessionState", &ipv6MultiHopSummary.SessionState}
-    ipv6MultiHopSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6MultiHopSummary.EntityData.Children = types.NewOrderedMap()
+    ipv6MultiHopSummary.EntityData.Children.Append("session-state", types.YChild{"SessionState", &ipv6MultiHopSummary.SessionState})
+    ipv6MultiHopSummary.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6MultiHopSummary.EntityData.YListKeys = []string {}
+
     return &(ipv6MultiHopSummary.EntityData)
 }
 
@@ -8077,12 +8585,15 @@ func (sessionState *Bfd_Ipv6MultiHopSummary_SessionState) GetEntityData() *types
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionState.EntityData.Children = make(map[string]types.YChild)
-    sessionState.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionState.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", sessionState.TotalCount}
-    sessionState.EntityData.Leafs["down-count"] = types.YLeaf{"DownCount", sessionState.DownCount}
-    sessionState.EntityData.Leafs["up-count"] = types.YLeaf{"UpCount", sessionState.UpCount}
-    sessionState.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", sessionState.UnknownCount}
+    sessionState.EntityData.Children = types.NewOrderedMap()
+    sessionState.EntityData.Leafs = types.NewOrderedMap()
+    sessionState.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", sessionState.TotalCount})
+    sessionState.EntityData.Leafs.Append("down-count", types.YLeaf{"DownCount", sessionState.DownCount})
+    sessionState.EntityData.Leafs.Append("up-count", types.YLeaf{"UpCount", sessionState.UpCount})
+    sessionState.EntityData.Leafs.Append("unknown-count", types.YLeaf{"UnknownCount", sessionState.UnknownCount})
+
+    sessionState.EntityData.YListKeys = []string {}
+
     return &(sessionState.EntityData)
 }
 
@@ -8095,7 +8606,7 @@ type Bfd_LabelSummaryNodes struct {
 
     // Summary of Label BFD . The type is slice of
     // Bfd_LabelSummaryNodes_LabelSummaryNode.
-    LabelSummaryNode []Bfd_LabelSummaryNodes_LabelSummaryNode
+    LabelSummaryNode []*Bfd_LabelSummaryNodes_LabelSummaryNode
 }
 
 func (labelSummaryNodes *Bfd_LabelSummaryNodes) GetEntityData() *types.CommonEntityData {
@@ -8108,12 +8619,15 @@ func (labelSummaryNodes *Bfd_LabelSummaryNodes) GetEntityData() *types.CommonEnt
     labelSummaryNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelSummaryNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelSummaryNodes.EntityData.Children = make(map[string]types.YChild)
-    labelSummaryNodes.EntityData.Children["label-summary-node"] = types.YChild{"LabelSummaryNode", nil}
+    labelSummaryNodes.EntityData.Children = types.NewOrderedMap()
+    labelSummaryNodes.EntityData.Children.Append("label-summary-node", types.YChild{"LabelSummaryNode", nil})
     for i := range labelSummaryNodes.LabelSummaryNode {
-        labelSummaryNodes.EntityData.Children[types.GetSegmentPath(&labelSummaryNodes.LabelSummaryNode[i])] = types.YChild{"LabelSummaryNode", &labelSummaryNodes.LabelSummaryNode[i]}
+        labelSummaryNodes.EntityData.Children.Append(types.GetSegmentPath(labelSummaryNodes.LabelSummaryNode[i]), types.YChild{"LabelSummaryNode", labelSummaryNodes.LabelSummaryNode[i]})
     }
-    labelSummaryNodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    labelSummaryNodes.EntityData.Leafs = types.NewOrderedMap()
+
+    labelSummaryNodes.EntityData.YListKeys = []string {}
+
     return &(labelSummaryNodes.EntityData)
 }
 
@@ -8124,7 +8638,7 @@ type Bfd_LabelSummaryNodes_LabelSummaryNode struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Location name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     LocationName interface{}
 
     // Statistics of states for sessions.
@@ -8136,15 +8650,18 @@ func (labelSummaryNode *Bfd_LabelSummaryNodes_LabelSummaryNode) GetEntityData() 
     labelSummaryNode.EntityData.YangName = "label-summary-node"
     labelSummaryNode.EntityData.BundleName = "cisco_ios_xr"
     labelSummaryNode.EntityData.ParentYangName = "label-summary-nodes"
-    labelSummaryNode.EntityData.SegmentPath = "label-summary-node" + "[location-name='" + fmt.Sprintf("%v", labelSummaryNode.LocationName) + "']"
+    labelSummaryNode.EntityData.SegmentPath = "label-summary-node" + types.AddKeyToken(labelSummaryNode.LocationName, "location-name")
     labelSummaryNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelSummaryNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelSummaryNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelSummaryNode.EntityData.Children = make(map[string]types.YChild)
-    labelSummaryNode.EntityData.Children["session-state"] = types.YChild{"SessionState", &labelSummaryNode.SessionState}
-    labelSummaryNode.EntityData.Leafs = make(map[string]types.YLeaf)
-    labelSummaryNode.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", labelSummaryNode.LocationName}
+    labelSummaryNode.EntityData.Children = types.NewOrderedMap()
+    labelSummaryNode.EntityData.Children.Append("session-state", types.YChild{"SessionState", &labelSummaryNode.SessionState})
+    labelSummaryNode.EntityData.Leafs = types.NewOrderedMap()
+    labelSummaryNode.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", labelSummaryNode.LocationName})
+
+    labelSummaryNode.EntityData.YListKeys = []string {"LocationName"}
+
     return &(labelSummaryNode.EntityData)
 }
 
@@ -8189,14 +8706,17 @@ func (sessionState *Bfd_LabelSummaryNodes_LabelSummaryNode_SessionState) GetEnti
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionState.EntityData.Children = make(map[string]types.YChild)
-    sessionState.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionState.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", sessionState.TotalCount}
-    sessionState.EntityData.Leafs["up-count"] = types.YLeaf{"UpCount", sessionState.UpCount}
-    sessionState.EntityData.Leafs["down-count"] = types.YLeaf{"DownCount", sessionState.DownCount}
-    sessionState.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", sessionState.UnknownCount}
-    sessionState.EntityData.Leafs["retry-count"] = types.YLeaf{"RetryCount", sessionState.RetryCount}
-    sessionState.EntityData.Leafs["standby-count"] = types.YLeaf{"StandbyCount", sessionState.StandbyCount}
+    sessionState.EntityData.Children = types.NewOrderedMap()
+    sessionState.EntityData.Leafs = types.NewOrderedMap()
+    sessionState.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", sessionState.TotalCount})
+    sessionState.EntityData.Leafs.Append("up-count", types.YLeaf{"UpCount", sessionState.UpCount})
+    sessionState.EntityData.Leafs.Append("down-count", types.YLeaf{"DownCount", sessionState.DownCount})
+    sessionState.EntityData.Leafs.Append("unknown-count", types.YLeaf{"UnknownCount", sessionState.UnknownCount})
+    sessionState.EntityData.Leafs.Append("retry-count", types.YLeaf{"RetryCount", sessionState.RetryCount})
+    sessionState.EntityData.Leafs.Append("standby-count", types.YLeaf{"StandbyCount", sessionState.StandbyCount})
+
+    sessionState.EntityData.YListKeys = []string {}
+
     return &(sessionState.EntityData)
 }
 
@@ -8209,7 +8729,7 @@ type Bfd_Ipv6MultiHopSessionBriefs struct {
 
     // Brief information for a single IPv6 multihop BFD session. The type is slice
     // of Bfd_Ipv6MultiHopSessionBriefs_Ipv6MultiHopSessionBrief.
-    Ipv6MultiHopSessionBrief []Bfd_Ipv6MultiHopSessionBriefs_Ipv6MultiHopSessionBrief
+    Ipv6MultiHopSessionBrief []*Bfd_Ipv6MultiHopSessionBriefs_Ipv6MultiHopSessionBrief
 }
 
 func (ipv6MultiHopSessionBriefs *Bfd_Ipv6MultiHopSessionBriefs) GetEntityData() *types.CommonEntityData {
@@ -8222,12 +8742,15 @@ func (ipv6MultiHopSessionBriefs *Bfd_Ipv6MultiHopSessionBriefs) GetEntityData() 
     ipv6MultiHopSessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopSessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6MultiHopSessionBriefs.EntityData.Children = make(map[string]types.YChild)
-    ipv6MultiHopSessionBriefs.EntityData.Children["ipv6-multi-hop-session-brief"] = types.YChild{"Ipv6MultiHopSessionBrief", nil}
+    ipv6MultiHopSessionBriefs.EntityData.Children = types.NewOrderedMap()
+    ipv6MultiHopSessionBriefs.EntityData.Children.Append("ipv6-multi-hop-session-brief", types.YChild{"Ipv6MultiHopSessionBrief", nil})
     for i := range ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief {
-        ipv6MultiHopSessionBriefs.EntityData.Children[types.GetSegmentPath(&ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief[i])] = types.YChild{"Ipv6MultiHopSessionBrief", &ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief[i]}
+        ipv6MultiHopSessionBriefs.EntityData.Children.Append(types.GetSegmentPath(ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief[i]), types.YChild{"Ipv6MultiHopSessionBrief", ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief[i]})
     }
-    ipv6MultiHopSessionBriefs.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6MultiHopSessionBriefs.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6MultiHopSessionBriefs.EntityData.YListKeys = []string {}
+
     return &(ipv6MultiHopSessionBriefs.EntityData)
 }
 
@@ -8240,27 +8763,27 @@ type Bfd_Ipv6MultiHopSessionBriefs_Ipv6MultiHopSessionBrief struct {
 
     // Source Address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Destination Address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
-    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // State. The type is BfdMgmtSessionState.
@@ -8289,18 +8812,21 @@ func (ipv6MultiHopSessionBrief *Bfd_Ipv6MultiHopSessionBriefs_Ipv6MultiHopSessio
     ipv6MultiHopSessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopSessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6MultiHopSessionBrief.EntityData.Children = make(map[string]types.YChild)
-    ipv6MultiHopSessionBrief.EntityData.Children["status-brief-information"] = types.YChild{"StatusBriefInformation", &ipv6MultiHopSessionBrief.StatusBriefInformation}
-    ipv6MultiHopSessionBrief.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6MultiHopSessionBrief.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", ipv6MultiHopSessionBrief.SourceAddress}
-    ipv6MultiHopSessionBrief.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", ipv6MultiHopSessionBrief.DestinationAddress}
-    ipv6MultiHopSessionBrief.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv6MultiHopSessionBrief.Location}
-    ipv6MultiHopSessionBrief.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv6MultiHopSessionBrief.VrfName}
-    ipv6MultiHopSessionBrief.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", ipv6MultiHopSessionBrief.NodeId}
-    ipv6MultiHopSessionBrief.EntityData.Leafs["state"] = types.YLeaf{"State", ipv6MultiHopSessionBrief.State}
-    ipv6MultiHopSessionBrief.EntityData.Leafs["session-type"] = types.YLeaf{"SessionType", ipv6MultiHopSessionBrief.SessionType}
-    ipv6MultiHopSessionBrief.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", ipv6MultiHopSessionBrief.SessionSubtype}
-    ipv6MultiHopSessionBrief.EntityData.Leafs["session-flags"] = types.YLeaf{"SessionFlags", ipv6MultiHopSessionBrief.SessionFlags}
+    ipv6MultiHopSessionBrief.EntityData.Children = types.NewOrderedMap()
+    ipv6MultiHopSessionBrief.EntityData.Children.Append("status-brief-information", types.YChild{"StatusBriefInformation", &ipv6MultiHopSessionBrief.StatusBriefInformation})
+    ipv6MultiHopSessionBrief.EntityData.Leafs = types.NewOrderedMap()
+    ipv6MultiHopSessionBrief.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", ipv6MultiHopSessionBrief.SourceAddress})
+    ipv6MultiHopSessionBrief.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", ipv6MultiHopSessionBrief.DestinationAddress})
+    ipv6MultiHopSessionBrief.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv6MultiHopSessionBrief.Location})
+    ipv6MultiHopSessionBrief.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv6MultiHopSessionBrief.VrfName})
+    ipv6MultiHopSessionBrief.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", ipv6MultiHopSessionBrief.NodeId})
+    ipv6MultiHopSessionBrief.EntityData.Leafs.Append("state", types.YLeaf{"State", ipv6MultiHopSessionBrief.State})
+    ipv6MultiHopSessionBrief.EntityData.Leafs.Append("session-type", types.YLeaf{"SessionType", ipv6MultiHopSessionBrief.SessionType})
+    ipv6MultiHopSessionBrief.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", ipv6MultiHopSessionBrief.SessionSubtype})
+    ipv6MultiHopSessionBrief.EntityData.Leafs.Append("session-flags", types.YLeaf{"SessionFlags", ipv6MultiHopSessionBrief.SessionFlags})
+
+    ipv6MultiHopSessionBrief.EntityData.YListKeys = []string {}
+
     return &(ipv6MultiHopSessionBrief.EntityData)
 }
 
@@ -8327,10 +8853,13 @@ func (statusBriefInformation *Bfd_Ipv6MultiHopSessionBriefs_Ipv6MultiHopSessionB
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusBriefInformation.EntityData.Children = make(map[string]types.YChild)
-    statusBriefInformation.EntityData.Children["async-interval-multiplier"] = types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier}
-    statusBriefInformation.EntityData.Children["echo-interval-multiplier"] = types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier}
-    statusBriefInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    statusBriefInformation.EntityData.Children = types.NewOrderedMap()
+    statusBriefInformation.EntityData.Children.Append("async-interval-multiplier", types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier})
+    statusBriefInformation.EntityData.Children.Append("echo-interval-multiplier", types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier})
+    statusBriefInformation.EntityData.Leafs = types.NewOrderedMap()
+
+    statusBriefInformation.EntityData.YListKeys = []string {}
+
     return &(statusBriefInformation.EntityData)
 }
 
@@ -8366,12 +8895,15 @@ func (asyncIntervalMultiplier *Bfd_Ipv6MultiHopSessionBriefs_Ipv6MultiHopSession
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    asyncIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-remote-transmit-interval"] = types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-local-transmit-interval"] = types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier}
+    asyncIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-remote-transmit-interval", types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-local-transmit-interval", types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier})
+
+    asyncIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(asyncIntervalMultiplier.EntityData)
 }
 
@@ -8403,11 +8935,14 @@ func (echoIntervalMultiplier *Bfd_Ipv6MultiHopSessionBriefs_Ipv6MultiHopSessionB
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    echoIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoIntervalMultiplier.EntityData.Leafs["negotiated-transmit-interval"] = types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval}
-    echoIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime}
-    echoIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier}
+    echoIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs.Append("negotiated-transmit-interval", types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier})
+
+    echoIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(echoIntervalMultiplier.EntityData)
 }
 
@@ -8420,7 +8955,7 @@ type Bfd_SessionBriefs struct {
 
     // Brief information for a single IPv4 singlehop BFD session. The type is
     // slice of Bfd_SessionBriefs_SessionBrief.
-    SessionBrief []Bfd_SessionBriefs_SessionBrief
+    SessionBrief []*Bfd_SessionBriefs_SessionBrief
 }
 
 func (sessionBriefs *Bfd_SessionBriefs) GetEntityData() *types.CommonEntityData {
@@ -8433,12 +8968,15 @@ func (sessionBriefs *Bfd_SessionBriefs) GetEntityData() *types.CommonEntityData 
     sessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionBriefs.EntityData.Children = make(map[string]types.YChild)
-    sessionBriefs.EntityData.Children["session-brief"] = types.YChild{"SessionBrief", nil}
+    sessionBriefs.EntityData.Children = types.NewOrderedMap()
+    sessionBriefs.EntityData.Children.Append("session-brief", types.YChild{"SessionBrief", nil})
     for i := range sessionBriefs.SessionBrief {
-        sessionBriefs.EntityData.Children[types.GetSegmentPath(&sessionBriefs.SessionBrief[i])] = types.YChild{"SessionBrief", &sessionBriefs.SessionBrief[i]}
+        sessionBriefs.EntityData.Children.Append(types.GetSegmentPath(sessionBriefs.SessionBrief[i]), types.YChild{"SessionBrief", sessionBriefs.SessionBrief[i]})
     }
-    sessionBriefs.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessionBriefs.EntityData.Leafs = types.NewOrderedMap()
+
+    sessionBriefs.EntityData.YListKeys = []string {}
+
     return &(sessionBriefs.EntityData)
 }
 
@@ -8449,19 +8987,19 @@ type Bfd_SessionBriefs_SessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // State. The type is BfdMgmtSessionState.
@@ -8490,17 +9028,20 @@ func (sessionBrief *Bfd_SessionBriefs_SessionBrief) GetEntityData() *types.Commo
     sessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionBrief.EntityData.Children = make(map[string]types.YChild)
-    sessionBrief.EntityData.Children["status-brief-information"] = types.YChild{"StatusBriefInformation", &sessionBrief.StatusBriefInformation}
-    sessionBrief.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionBrief.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", sessionBrief.InterfaceName}
-    sessionBrief.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", sessionBrief.DestinationAddress}
-    sessionBrief.EntityData.Leafs["location"] = types.YLeaf{"Location", sessionBrief.Location}
-    sessionBrief.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", sessionBrief.NodeId}
-    sessionBrief.EntityData.Leafs["state"] = types.YLeaf{"State", sessionBrief.State}
-    sessionBrief.EntityData.Leafs["session-type"] = types.YLeaf{"SessionType", sessionBrief.SessionType}
-    sessionBrief.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", sessionBrief.SessionSubtype}
-    sessionBrief.EntityData.Leafs["session-flags"] = types.YLeaf{"SessionFlags", sessionBrief.SessionFlags}
+    sessionBrief.EntityData.Children = types.NewOrderedMap()
+    sessionBrief.EntityData.Children.Append("status-brief-information", types.YChild{"StatusBriefInformation", &sessionBrief.StatusBriefInformation})
+    sessionBrief.EntityData.Leafs = types.NewOrderedMap()
+    sessionBrief.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", sessionBrief.InterfaceName})
+    sessionBrief.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", sessionBrief.DestinationAddress})
+    sessionBrief.EntityData.Leafs.Append("location", types.YLeaf{"Location", sessionBrief.Location})
+    sessionBrief.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", sessionBrief.NodeId})
+    sessionBrief.EntityData.Leafs.Append("state", types.YLeaf{"State", sessionBrief.State})
+    sessionBrief.EntityData.Leafs.Append("session-type", types.YLeaf{"SessionType", sessionBrief.SessionType})
+    sessionBrief.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", sessionBrief.SessionSubtype})
+    sessionBrief.EntityData.Leafs.Append("session-flags", types.YLeaf{"SessionFlags", sessionBrief.SessionFlags})
+
+    sessionBrief.EntityData.YListKeys = []string {}
+
     return &(sessionBrief.EntityData)
 }
 
@@ -8527,10 +9068,13 @@ func (statusBriefInformation *Bfd_SessionBriefs_SessionBrief_StatusBriefInformat
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusBriefInformation.EntityData.Children = make(map[string]types.YChild)
-    statusBriefInformation.EntityData.Children["async-interval-multiplier"] = types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier}
-    statusBriefInformation.EntityData.Children["echo-interval-multiplier"] = types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier}
-    statusBriefInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    statusBriefInformation.EntityData.Children = types.NewOrderedMap()
+    statusBriefInformation.EntityData.Children.Append("async-interval-multiplier", types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier})
+    statusBriefInformation.EntityData.Children.Append("echo-interval-multiplier", types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier})
+    statusBriefInformation.EntityData.Leafs = types.NewOrderedMap()
+
+    statusBriefInformation.EntityData.YListKeys = []string {}
+
     return &(statusBriefInformation.EntityData)
 }
 
@@ -8566,12 +9110,15 @@ func (asyncIntervalMultiplier *Bfd_SessionBriefs_SessionBrief_StatusBriefInforma
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    asyncIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-remote-transmit-interval"] = types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-local-transmit-interval"] = types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier}
+    asyncIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-remote-transmit-interval", types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-local-transmit-interval", types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier})
+
+    asyncIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(asyncIntervalMultiplier.EntityData)
 }
 
@@ -8603,11 +9150,14 @@ func (echoIntervalMultiplier *Bfd_SessionBriefs_SessionBrief_StatusBriefInformat
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    echoIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoIntervalMultiplier.EntityData.Leafs["negotiated-transmit-interval"] = types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval}
-    echoIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime}
-    echoIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier}
+    echoIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs.Append("negotiated-transmit-interval", types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier})
+
+    echoIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(echoIntervalMultiplier.EntityData)
 }
 
@@ -8621,7 +9171,7 @@ type Bfd_Ipv6SingleHopNodeLocationSummaries struct {
     // Summary information for BFD IPv6 singlehop sessions for location. The type
     // is slice of
     // Bfd_Ipv6SingleHopNodeLocationSummaries_Ipv6SingleHopNodeLocationSummary.
-    Ipv6SingleHopNodeLocationSummary []Bfd_Ipv6SingleHopNodeLocationSummaries_Ipv6SingleHopNodeLocationSummary
+    Ipv6SingleHopNodeLocationSummary []*Bfd_Ipv6SingleHopNodeLocationSummaries_Ipv6SingleHopNodeLocationSummary
 }
 
 func (ipv6SingleHopNodeLocationSummaries *Bfd_Ipv6SingleHopNodeLocationSummaries) GetEntityData() *types.CommonEntityData {
@@ -8634,12 +9184,15 @@ func (ipv6SingleHopNodeLocationSummaries *Bfd_Ipv6SingleHopNodeLocationSummaries
     ipv6SingleHopNodeLocationSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopNodeLocationSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6SingleHopNodeLocationSummaries.EntityData.Children = make(map[string]types.YChild)
-    ipv6SingleHopNodeLocationSummaries.EntityData.Children["ipv6-single-hop-node-location-summary"] = types.YChild{"Ipv6SingleHopNodeLocationSummary", nil}
+    ipv6SingleHopNodeLocationSummaries.EntityData.Children = types.NewOrderedMap()
+    ipv6SingleHopNodeLocationSummaries.EntityData.Children.Append("ipv6-single-hop-node-location-summary", types.YChild{"Ipv6SingleHopNodeLocationSummary", nil})
     for i := range ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary {
-        ipv6SingleHopNodeLocationSummaries.EntityData.Children[types.GetSegmentPath(&ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary[i])] = types.YChild{"Ipv6SingleHopNodeLocationSummary", &ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary[i]}
+        ipv6SingleHopNodeLocationSummaries.EntityData.Children.Append(types.GetSegmentPath(ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary[i]), types.YChild{"Ipv6SingleHopNodeLocationSummary", ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary[i]})
     }
-    ipv6SingleHopNodeLocationSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6SingleHopNodeLocationSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6SingleHopNodeLocationSummaries.EntityData.YListKeys = []string {}
+
     return &(ipv6SingleHopNodeLocationSummaries.EntityData)
 }
 
@@ -8651,7 +9204,7 @@ type Bfd_Ipv6SingleHopNodeLocationSummaries_Ipv6SingleHopNodeLocationSummary str
     YFilter yfilter.YFilter
 
     // This attribute is a key. Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Statistics of states for sessions.
@@ -8663,15 +9216,18 @@ func (ipv6SingleHopNodeLocationSummary *Bfd_Ipv6SingleHopNodeLocationSummaries_I
     ipv6SingleHopNodeLocationSummary.EntityData.YangName = "ipv6-single-hop-node-location-summary"
     ipv6SingleHopNodeLocationSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv6SingleHopNodeLocationSummary.EntityData.ParentYangName = "ipv6-single-hop-node-location-summaries"
-    ipv6SingleHopNodeLocationSummary.EntityData.SegmentPath = "ipv6-single-hop-node-location-summary" + "[location='" + fmt.Sprintf("%v", ipv6SingleHopNodeLocationSummary.Location) + "']"
+    ipv6SingleHopNodeLocationSummary.EntityData.SegmentPath = "ipv6-single-hop-node-location-summary" + types.AddKeyToken(ipv6SingleHopNodeLocationSummary.Location, "location")
     ipv6SingleHopNodeLocationSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6SingleHopNodeLocationSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopNodeLocationSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6SingleHopNodeLocationSummary.EntityData.Children = make(map[string]types.YChild)
-    ipv6SingleHopNodeLocationSummary.EntityData.Children["session-state"] = types.YChild{"SessionState", &ipv6SingleHopNodeLocationSummary.SessionState}
-    ipv6SingleHopNodeLocationSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6SingleHopNodeLocationSummary.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv6SingleHopNodeLocationSummary.Location}
+    ipv6SingleHopNodeLocationSummary.EntityData.Children = types.NewOrderedMap()
+    ipv6SingleHopNodeLocationSummary.EntityData.Children.Append("session-state", types.YChild{"SessionState", &ipv6SingleHopNodeLocationSummary.SessionState})
+    ipv6SingleHopNodeLocationSummary.EntityData.Leafs = types.NewOrderedMap()
+    ipv6SingleHopNodeLocationSummary.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv6SingleHopNodeLocationSummary.Location})
+
+    ipv6SingleHopNodeLocationSummary.EntityData.YListKeys = []string {"Location"}
+
     return &(ipv6SingleHopNodeLocationSummary.EntityData)
 }
 
@@ -8716,14 +9272,17 @@ func (sessionState *Bfd_Ipv6SingleHopNodeLocationSummaries_Ipv6SingleHopNodeLoca
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionState.EntityData.Children = make(map[string]types.YChild)
-    sessionState.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionState.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", sessionState.TotalCount}
-    sessionState.EntityData.Leafs["up-count"] = types.YLeaf{"UpCount", sessionState.UpCount}
-    sessionState.EntityData.Leafs["down-count"] = types.YLeaf{"DownCount", sessionState.DownCount}
-    sessionState.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", sessionState.UnknownCount}
-    sessionState.EntityData.Leafs["retry-count"] = types.YLeaf{"RetryCount", sessionState.RetryCount}
-    sessionState.EntityData.Leafs["standby-count"] = types.YLeaf{"StandbyCount", sessionState.StandbyCount}
+    sessionState.EntityData.Children = types.NewOrderedMap()
+    sessionState.EntityData.Leafs = types.NewOrderedMap()
+    sessionState.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", sessionState.TotalCount})
+    sessionState.EntityData.Leafs.Append("up-count", types.YLeaf{"UpCount", sessionState.UpCount})
+    sessionState.EntityData.Leafs.Append("down-count", types.YLeaf{"DownCount", sessionState.DownCount})
+    sessionState.EntityData.Leafs.Append("unknown-count", types.YLeaf{"UnknownCount", sessionState.UnknownCount})
+    sessionState.EntityData.Leafs.Append("retry-count", types.YLeaf{"RetryCount", sessionState.RetryCount})
+    sessionState.EntityData.Leafs.Append("standby-count", types.YLeaf{"StandbyCount", sessionState.StandbyCount})
+
+    sessionState.EntityData.YListKeys = []string {}
+
     return &(sessionState.EntityData)
 }
 
@@ -8748,9 +9307,12 @@ func (summary *Bfd_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Children["session-state"] = types.YChild{"SessionState", &summary.SessionState}
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Children.Append("session-state", types.YChild{"SessionState", &summary.SessionState})
+    summary.EntityData.Leafs = types.NewOrderedMap()
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -8787,80 +9349,89 @@ func (sessionState *Bfd_Summary_SessionState) GetEntityData() *types.CommonEntit
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionState.EntityData.Children = make(map[string]types.YChild)
-    sessionState.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionState.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", sessionState.TotalCount}
-    sessionState.EntityData.Leafs["down-count"] = types.YLeaf{"DownCount", sessionState.DownCount}
-    sessionState.EntityData.Leafs["up-count"] = types.YLeaf{"UpCount", sessionState.UpCount}
-    sessionState.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", sessionState.UnknownCount}
+    sessionState.EntityData.Children = types.NewOrderedMap()
+    sessionState.EntityData.Leafs = types.NewOrderedMap()
+    sessionState.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", sessionState.TotalCount})
+    sessionState.EntityData.Leafs.Append("down-count", types.YLeaf{"DownCount", sessionState.DownCount})
+    sessionState.EntityData.Leafs.Append("up-count", types.YLeaf{"UpCount", sessionState.UpCount})
+    sessionState.EntityData.Leafs.Append("unknown-count", types.YLeaf{"UnknownCount", sessionState.UnknownCount})
+
+    sessionState.EntityData.YListKeys = []string {}
+
     return &(sessionState.EntityData)
 }
 
-// Bfd_Ipv4BfdMplsteTailNodeSummaries
+// Bfd_Ipv4bfdMplsteTailNodeSummaries
 // Table of summary about IPv4 TE tail BFD sessions
 // for location
-type Bfd_Ipv4BfdMplsteTailNodeSummaries struct {
+type Bfd_Ipv4bfdMplsteTailNodeSummaries struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Summary of IPv4 BFD over MPLS-TE tail. The type is slice of
-    // Bfd_Ipv4BfdMplsteTailNodeSummaries_Ipv4BfdMplsteTailNodeSummary.
-    Ipv4BfdMplsteTailNodeSummary []Bfd_Ipv4BfdMplsteTailNodeSummaries_Ipv4BfdMplsteTailNodeSummary
+    // Bfd_Ipv4bfdMplsteTailNodeSummaries_Ipv4bfdMplsteTailNodeSummary.
+    Ipv4bfdMplsteTailNodeSummary []*Bfd_Ipv4bfdMplsteTailNodeSummaries_Ipv4bfdMplsteTailNodeSummary
 }
 
-func (ipv4BfdMplsteTailNodeSummaries *Bfd_Ipv4BfdMplsteTailNodeSummaries) GetEntityData() *types.CommonEntityData {
-    ipv4BfdMplsteTailNodeSummaries.EntityData.YFilter = ipv4BfdMplsteTailNodeSummaries.YFilter
-    ipv4BfdMplsteTailNodeSummaries.EntityData.YangName = "ipv4bfd-mplste-tail-node-summaries"
-    ipv4BfdMplsteTailNodeSummaries.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfdMplsteTailNodeSummaries.EntityData.ParentYangName = "bfd"
-    ipv4BfdMplsteTailNodeSummaries.EntityData.SegmentPath = "ipv4bfd-mplste-tail-node-summaries"
-    ipv4BfdMplsteTailNodeSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfdMplsteTailNodeSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfdMplsteTailNodeSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfdMplsteTailNodeSummaries *Bfd_Ipv4bfdMplsteTailNodeSummaries) GetEntityData() *types.CommonEntityData {
+    ipv4bfdMplsteTailNodeSummaries.EntityData.YFilter = ipv4bfdMplsteTailNodeSummaries.YFilter
+    ipv4bfdMplsteTailNodeSummaries.EntityData.YangName = "ipv4bfd-mplste-tail-node-summaries"
+    ipv4bfdMplsteTailNodeSummaries.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfdMplsteTailNodeSummaries.EntityData.ParentYangName = "bfd"
+    ipv4bfdMplsteTailNodeSummaries.EntityData.SegmentPath = "ipv4bfd-mplste-tail-node-summaries"
+    ipv4bfdMplsteTailNodeSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfdMplsteTailNodeSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfdMplsteTailNodeSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfdMplsteTailNodeSummaries.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfdMplsteTailNodeSummaries.EntityData.Children["ipv4bfd-mplste-tail-node-summary"] = types.YChild{"Ipv4BfdMplsteTailNodeSummary", nil}
-    for i := range ipv4BfdMplsteTailNodeSummaries.Ipv4BfdMplsteTailNodeSummary {
-        ipv4BfdMplsteTailNodeSummaries.EntityData.Children[types.GetSegmentPath(&ipv4BfdMplsteTailNodeSummaries.Ipv4BfdMplsteTailNodeSummary[i])] = types.YChild{"Ipv4BfdMplsteTailNodeSummary", &ipv4BfdMplsteTailNodeSummaries.Ipv4BfdMplsteTailNodeSummary[i]}
+    ipv4bfdMplsteTailNodeSummaries.EntityData.Children = types.NewOrderedMap()
+    ipv4bfdMplsteTailNodeSummaries.EntityData.Children.Append("ipv4bfd-mplste-tail-node-summary", types.YChild{"Ipv4bfdMplsteTailNodeSummary", nil})
+    for i := range ipv4bfdMplsteTailNodeSummaries.Ipv4bfdMplsteTailNodeSummary {
+        ipv4bfdMplsteTailNodeSummaries.EntityData.Children.Append(types.GetSegmentPath(ipv4bfdMplsteTailNodeSummaries.Ipv4bfdMplsteTailNodeSummary[i]), types.YChild{"Ipv4bfdMplsteTailNodeSummary", ipv4bfdMplsteTailNodeSummaries.Ipv4bfdMplsteTailNodeSummary[i]})
     }
-    ipv4BfdMplsteTailNodeSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipv4BfdMplsteTailNodeSummaries.EntityData)
+    ipv4bfdMplsteTailNodeSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4bfdMplsteTailNodeSummaries.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfdMplsteTailNodeSummaries.EntityData)
 }
 
-// Bfd_Ipv4BfdMplsteTailNodeSummaries_Ipv4BfdMplsteTailNodeSummary
+// Bfd_Ipv4bfdMplsteTailNodeSummaries_Ipv4bfdMplsteTailNodeSummary
 // Summary of IPv4 BFD over MPLS-TE tail
-type Bfd_Ipv4BfdMplsteTailNodeSummaries_Ipv4BfdMplsteTailNodeSummary struct {
+type Bfd_Ipv4bfdMplsteTailNodeSummaries_Ipv4bfdMplsteTailNodeSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Location name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     LocationName interface{}
 
     // Statistics of states for sessions.
-    SessionState Bfd_Ipv4BfdMplsteTailNodeSummaries_Ipv4BfdMplsteTailNodeSummary_SessionState
+    SessionState Bfd_Ipv4bfdMplsteTailNodeSummaries_Ipv4bfdMplsteTailNodeSummary_SessionState
 }
 
-func (ipv4BfdMplsteTailNodeSummary *Bfd_Ipv4BfdMplsteTailNodeSummaries_Ipv4BfdMplsteTailNodeSummary) GetEntityData() *types.CommonEntityData {
-    ipv4BfdMplsteTailNodeSummary.EntityData.YFilter = ipv4BfdMplsteTailNodeSummary.YFilter
-    ipv4BfdMplsteTailNodeSummary.EntityData.YangName = "ipv4bfd-mplste-tail-node-summary"
-    ipv4BfdMplsteTailNodeSummary.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfdMplsteTailNodeSummary.EntityData.ParentYangName = "ipv4bfd-mplste-tail-node-summaries"
-    ipv4BfdMplsteTailNodeSummary.EntityData.SegmentPath = "ipv4bfd-mplste-tail-node-summary" + "[location-name='" + fmt.Sprintf("%v", ipv4BfdMplsteTailNodeSummary.LocationName) + "']"
-    ipv4BfdMplsteTailNodeSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfdMplsteTailNodeSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfdMplsteTailNodeSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfdMplsteTailNodeSummary *Bfd_Ipv4bfdMplsteTailNodeSummaries_Ipv4bfdMplsteTailNodeSummary) GetEntityData() *types.CommonEntityData {
+    ipv4bfdMplsteTailNodeSummary.EntityData.YFilter = ipv4bfdMplsteTailNodeSummary.YFilter
+    ipv4bfdMplsteTailNodeSummary.EntityData.YangName = "ipv4bfd-mplste-tail-node-summary"
+    ipv4bfdMplsteTailNodeSummary.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfdMplsteTailNodeSummary.EntityData.ParentYangName = "ipv4bfd-mplste-tail-node-summaries"
+    ipv4bfdMplsteTailNodeSummary.EntityData.SegmentPath = "ipv4bfd-mplste-tail-node-summary" + types.AddKeyToken(ipv4bfdMplsteTailNodeSummary.LocationName, "location-name")
+    ipv4bfdMplsteTailNodeSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfdMplsteTailNodeSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfdMplsteTailNodeSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfdMplsteTailNodeSummary.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfdMplsteTailNodeSummary.EntityData.Children["session-state"] = types.YChild{"SessionState", &ipv4BfdMplsteTailNodeSummary.SessionState}
-    ipv4BfdMplsteTailNodeSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4BfdMplsteTailNodeSummary.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", ipv4BfdMplsteTailNodeSummary.LocationName}
-    return &(ipv4BfdMplsteTailNodeSummary.EntityData)
+    ipv4bfdMplsteTailNodeSummary.EntityData.Children = types.NewOrderedMap()
+    ipv4bfdMplsteTailNodeSummary.EntityData.Children.Append("session-state", types.YChild{"SessionState", &ipv4bfdMplsteTailNodeSummary.SessionState})
+    ipv4bfdMplsteTailNodeSummary.EntityData.Leafs = types.NewOrderedMap()
+    ipv4bfdMplsteTailNodeSummary.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", ipv4bfdMplsteTailNodeSummary.LocationName})
+
+    ipv4bfdMplsteTailNodeSummary.EntityData.YListKeys = []string {"LocationName"}
+
+    return &(ipv4bfdMplsteTailNodeSummary.EntityData)
 }
 
-// Bfd_Ipv4BfdMplsteTailNodeSummaries_Ipv4BfdMplsteTailNodeSummary_SessionState
+// Bfd_Ipv4bfdMplsteTailNodeSummaries_Ipv4bfdMplsteTailNodeSummary_SessionState
 // Statistics of states for sessions
-type Bfd_Ipv4BfdMplsteTailNodeSummaries_Ipv4BfdMplsteTailNodeSummary_SessionState struct {
+type Bfd_Ipv4bfdMplsteTailNodeSummaries_Ipv4bfdMplsteTailNodeSummary_SessionState struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8889,7 +9460,7 @@ type Bfd_Ipv4BfdMplsteTailNodeSummaries_Ipv4BfdMplsteTailNodeSummary_SessionStat
     StandbyCount interface{}
 }
 
-func (sessionState *Bfd_Ipv4BfdMplsteTailNodeSummaries_Ipv4BfdMplsteTailNodeSummary_SessionState) GetEntityData() *types.CommonEntityData {
+func (sessionState *Bfd_Ipv4bfdMplsteTailNodeSummaries_Ipv4bfdMplsteTailNodeSummary_SessionState) GetEntityData() *types.CommonEntityData {
     sessionState.EntityData.YFilter = sessionState.YFilter
     sessionState.EntityData.YangName = "session-state"
     sessionState.EntityData.BundleName = "cisco_ios_xr"
@@ -8899,14 +9470,17 @@ func (sessionState *Bfd_Ipv4BfdMplsteTailNodeSummaries_Ipv4BfdMplsteTailNodeSumm
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionState.EntityData.Children = make(map[string]types.YChild)
-    sessionState.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionState.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", sessionState.TotalCount}
-    sessionState.EntityData.Leafs["up-count"] = types.YLeaf{"UpCount", sessionState.UpCount}
-    sessionState.EntityData.Leafs["down-count"] = types.YLeaf{"DownCount", sessionState.DownCount}
-    sessionState.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", sessionState.UnknownCount}
-    sessionState.EntityData.Leafs["retry-count"] = types.YLeaf{"RetryCount", sessionState.RetryCount}
-    sessionState.EntityData.Leafs["standby-count"] = types.YLeaf{"StandbyCount", sessionState.StandbyCount}
+    sessionState.EntityData.Children = types.NewOrderedMap()
+    sessionState.EntityData.Leafs = types.NewOrderedMap()
+    sessionState.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", sessionState.TotalCount})
+    sessionState.EntityData.Leafs.Append("up-count", types.YLeaf{"UpCount", sessionState.UpCount})
+    sessionState.EntityData.Leafs.Append("down-count", types.YLeaf{"DownCount", sessionState.DownCount})
+    sessionState.EntityData.Leafs.Append("unknown-count", types.YLeaf{"UnknownCount", sessionState.UnknownCount})
+    sessionState.EntityData.Leafs.Append("retry-count", types.YLeaf{"RetryCount", sessionState.RetryCount})
+    sessionState.EntityData.Leafs.Append("standby-count", types.YLeaf{"StandbyCount", sessionState.StandbyCount})
+
+    sessionState.EntityData.YListKeys = []string {}
+
     return &(sessionState.EntityData)
 }
 
@@ -8920,7 +9494,7 @@ type Bfd_Ipv4SingleHopLocationSummaries struct {
     // Summary information for BFD IPv4 singlehop sessions for location. The type
     // is slice of
     // Bfd_Ipv4SingleHopLocationSummaries_Ipv4SingleHopLocationSummary.
-    Ipv4SingleHopLocationSummary []Bfd_Ipv4SingleHopLocationSummaries_Ipv4SingleHopLocationSummary
+    Ipv4SingleHopLocationSummary []*Bfd_Ipv4SingleHopLocationSummaries_Ipv4SingleHopLocationSummary
 }
 
 func (ipv4SingleHopLocationSummaries *Bfd_Ipv4SingleHopLocationSummaries) GetEntityData() *types.CommonEntityData {
@@ -8933,12 +9507,15 @@ func (ipv4SingleHopLocationSummaries *Bfd_Ipv4SingleHopLocationSummaries) GetEnt
     ipv4SingleHopLocationSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopLocationSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4SingleHopLocationSummaries.EntityData.Children = make(map[string]types.YChild)
-    ipv4SingleHopLocationSummaries.EntityData.Children["ipv4-single-hop-location-summary"] = types.YChild{"Ipv4SingleHopLocationSummary", nil}
+    ipv4SingleHopLocationSummaries.EntityData.Children = types.NewOrderedMap()
+    ipv4SingleHopLocationSummaries.EntityData.Children.Append("ipv4-single-hop-location-summary", types.YChild{"Ipv4SingleHopLocationSummary", nil})
     for i := range ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary {
-        ipv4SingleHopLocationSummaries.EntityData.Children[types.GetSegmentPath(&ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary[i])] = types.YChild{"Ipv4SingleHopLocationSummary", &ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary[i]}
+        ipv4SingleHopLocationSummaries.EntityData.Children.Append(types.GetSegmentPath(ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary[i]), types.YChild{"Ipv4SingleHopLocationSummary", ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary[i]})
     }
-    ipv4SingleHopLocationSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4SingleHopLocationSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4SingleHopLocationSummaries.EntityData.YListKeys = []string {}
+
     return &(ipv4SingleHopLocationSummaries.EntityData)
 }
 
@@ -8950,7 +9527,7 @@ type Bfd_Ipv4SingleHopLocationSummaries_Ipv4SingleHopLocationSummary struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Location Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     LocationName interface{}
 
     // Statistics of states for sessions.
@@ -8962,15 +9539,18 @@ func (ipv4SingleHopLocationSummary *Bfd_Ipv4SingleHopLocationSummaries_Ipv4Singl
     ipv4SingleHopLocationSummary.EntityData.YangName = "ipv4-single-hop-location-summary"
     ipv4SingleHopLocationSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv4SingleHopLocationSummary.EntityData.ParentYangName = "ipv4-single-hop-location-summaries"
-    ipv4SingleHopLocationSummary.EntityData.SegmentPath = "ipv4-single-hop-location-summary" + "[location-name='" + fmt.Sprintf("%v", ipv4SingleHopLocationSummary.LocationName) + "']"
+    ipv4SingleHopLocationSummary.EntityData.SegmentPath = "ipv4-single-hop-location-summary" + types.AddKeyToken(ipv4SingleHopLocationSummary.LocationName, "location-name")
     ipv4SingleHopLocationSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SingleHopLocationSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopLocationSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4SingleHopLocationSummary.EntityData.Children = make(map[string]types.YChild)
-    ipv4SingleHopLocationSummary.EntityData.Children["session-state"] = types.YChild{"SessionState", &ipv4SingleHopLocationSummary.SessionState}
-    ipv4SingleHopLocationSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4SingleHopLocationSummary.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", ipv4SingleHopLocationSummary.LocationName}
+    ipv4SingleHopLocationSummary.EntityData.Children = types.NewOrderedMap()
+    ipv4SingleHopLocationSummary.EntityData.Children.Append("session-state", types.YChild{"SessionState", &ipv4SingleHopLocationSummary.SessionState})
+    ipv4SingleHopLocationSummary.EntityData.Leafs = types.NewOrderedMap()
+    ipv4SingleHopLocationSummary.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", ipv4SingleHopLocationSummary.LocationName})
+
+    ipv4SingleHopLocationSummary.EntityData.YListKeys = []string {"LocationName"}
+
     return &(ipv4SingleHopLocationSummary.EntityData)
 }
 
@@ -9015,82 +9595,91 @@ func (sessionState *Bfd_Ipv4SingleHopLocationSummaries_Ipv4SingleHopLocationSumm
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionState.EntityData.Children = make(map[string]types.YChild)
-    sessionState.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionState.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", sessionState.TotalCount}
-    sessionState.EntityData.Leafs["up-count"] = types.YLeaf{"UpCount", sessionState.UpCount}
-    sessionState.EntityData.Leafs["down-count"] = types.YLeaf{"DownCount", sessionState.DownCount}
-    sessionState.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", sessionState.UnknownCount}
-    sessionState.EntityData.Leafs["retry-count"] = types.YLeaf{"RetryCount", sessionState.RetryCount}
-    sessionState.EntityData.Leafs["standby-count"] = types.YLeaf{"StandbyCount", sessionState.StandbyCount}
+    sessionState.EntityData.Children = types.NewOrderedMap()
+    sessionState.EntityData.Leafs = types.NewOrderedMap()
+    sessionState.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", sessionState.TotalCount})
+    sessionState.EntityData.Leafs.Append("up-count", types.YLeaf{"UpCount", sessionState.UpCount})
+    sessionState.EntityData.Leafs.Append("down-count", types.YLeaf{"DownCount", sessionState.DownCount})
+    sessionState.EntityData.Leafs.Append("unknown-count", types.YLeaf{"UnknownCount", sessionState.UnknownCount})
+    sessionState.EntityData.Leafs.Append("retry-count", types.YLeaf{"RetryCount", sessionState.RetryCount})
+    sessionState.EntityData.Leafs.Append("standby-count", types.YLeaf{"StandbyCount", sessionState.StandbyCount})
+
+    sessionState.EntityData.YListKeys = []string {}
+
     return &(sessionState.EntityData)
 }
 
-// Bfd_Ipv4BfdMplsteHeadSummaryNodes
+// Bfd_Ipv4bfdMplsteHeadSummaryNodes
 // Table of summary about IPv4 TE head BFD sessions
 // for location
-type Bfd_Ipv4BfdMplsteHeadSummaryNodes struct {
+type Bfd_Ipv4bfdMplsteHeadSummaryNodes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Summary of IPv4 BFD over MPLS-TE head. The type is slice of
-    // Bfd_Ipv4BfdMplsteHeadSummaryNodes_Ipv4BfdMplsteHeadSummaryNode.
-    Ipv4BfdMplsteHeadSummaryNode []Bfd_Ipv4BfdMplsteHeadSummaryNodes_Ipv4BfdMplsteHeadSummaryNode
+    // Bfd_Ipv4bfdMplsteHeadSummaryNodes_Ipv4bfdMplsteHeadSummaryNode.
+    Ipv4bfdMplsteHeadSummaryNode []*Bfd_Ipv4bfdMplsteHeadSummaryNodes_Ipv4bfdMplsteHeadSummaryNode
 }
 
-func (ipv4BfdMplsteHeadSummaryNodes *Bfd_Ipv4BfdMplsteHeadSummaryNodes) GetEntityData() *types.CommonEntityData {
-    ipv4BfdMplsteHeadSummaryNodes.EntityData.YFilter = ipv4BfdMplsteHeadSummaryNodes.YFilter
-    ipv4BfdMplsteHeadSummaryNodes.EntityData.YangName = "ipv4bfd-mplste-head-summary-nodes"
-    ipv4BfdMplsteHeadSummaryNodes.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfdMplsteHeadSummaryNodes.EntityData.ParentYangName = "bfd"
-    ipv4BfdMplsteHeadSummaryNodes.EntityData.SegmentPath = "ipv4bfd-mplste-head-summary-nodes"
-    ipv4BfdMplsteHeadSummaryNodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfdMplsteHeadSummaryNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfdMplsteHeadSummaryNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfdMplsteHeadSummaryNodes *Bfd_Ipv4bfdMplsteHeadSummaryNodes) GetEntityData() *types.CommonEntityData {
+    ipv4bfdMplsteHeadSummaryNodes.EntityData.YFilter = ipv4bfdMplsteHeadSummaryNodes.YFilter
+    ipv4bfdMplsteHeadSummaryNodes.EntityData.YangName = "ipv4bfd-mplste-head-summary-nodes"
+    ipv4bfdMplsteHeadSummaryNodes.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfdMplsteHeadSummaryNodes.EntityData.ParentYangName = "bfd"
+    ipv4bfdMplsteHeadSummaryNodes.EntityData.SegmentPath = "ipv4bfd-mplste-head-summary-nodes"
+    ipv4bfdMplsteHeadSummaryNodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfdMplsteHeadSummaryNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfdMplsteHeadSummaryNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfdMplsteHeadSummaryNodes.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfdMplsteHeadSummaryNodes.EntityData.Children["ipv4bfd-mplste-head-summary-node"] = types.YChild{"Ipv4BfdMplsteHeadSummaryNode", nil}
-    for i := range ipv4BfdMplsteHeadSummaryNodes.Ipv4BfdMplsteHeadSummaryNode {
-        ipv4BfdMplsteHeadSummaryNodes.EntityData.Children[types.GetSegmentPath(&ipv4BfdMplsteHeadSummaryNodes.Ipv4BfdMplsteHeadSummaryNode[i])] = types.YChild{"Ipv4BfdMplsteHeadSummaryNode", &ipv4BfdMplsteHeadSummaryNodes.Ipv4BfdMplsteHeadSummaryNode[i]}
+    ipv4bfdMplsteHeadSummaryNodes.EntityData.Children = types.NewOrderedMap()
+    ipv4bfdMplsteHeadSummaryNodes.EntityData.Children.Append("ipv4bfd-mplste-head-summary-node", types.YChild{"Ipv4bfdMplsteHeadSummaryNode", nil})
+    for i := range ipv4bfdMplsteHeadSummaryNodes.Ipv4bfdMplsteHeadSummaryNode {
+        ipv4bfdMplsteHeadSummaryNodes.EntityData.Children.Append(types.GetSegmentPath(ipv4bfdMplsteHeadSummaryNodes.Ipv4bfdMplsteHeadSummaryNode[i]), types.YChild{"Ipv4bfdMplsteHeadSummaryNode", ipv4bfdMplsteHeadSummaryNodes.Ipv4bfdMplsteHeadSummaryNode[i]})
     }
-    ipv4BfdMplsteHeadSummaryNodes.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipv4BfdMplsteHeadSummaryNodes.EntityData)
+    ipv4bfdMplsteHeadSummaryNodes.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4bfdMplsteHeadSummaryNodes.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfdMplsteHeadSummaryNodes.EntityData)
 }
 
-// Bfd_Ipv4BfdMplsteHeadSummaryNodes_Ipv4BfdMplsteHeadSummaryNode
+// Bfd_Ipv4bfdMplsteHeadSummaryNodes_Ipv4bfdMplsteHeadSummaryNode
 // Summary of IPv4 BFD over MPLS-TE head
-type Bfd_Ipv4BfdMplsteHeadSummaryNodes_Ipv4BfdMplsteHeadSummaryNode struct {
+type Bfd_Ipv4bfdMplsteHeadSummaryNodes_Ipv4bfdMplsteHeadSummaryNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Location name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     LocationName interface{}
 
     // Statistics of states for sessions.
-    SessionState Bfd_Ipv4BfdMplsteHeadSummaryNodes_Ipv4BfdMplsteHeadSummaryNode_SessionState
+    SessionState Bfd_Ipv4bfdMplsteHeadSummaryNodes_Ipv4bfdMplsteHeadSummaryNode_SessionState
 }
 
-func (ipv4BfdMplsteHeadSummaryNode *Bfd_Ipv4BfdMplsteHeadSummaryNodes_Ipv4BfdMplsteHeadSummaryNode) GetEntityData() *types.CommonEntityData {
-    ipv4BfdMplsteHeadSummaryNode.EntityData.YFilter = ipv4BfdMplsteHeadSummaryNode.YFilter
-    ipv4BfdMplsteHeadSummaryNode.EntityData.YangName = "ipv4bfd-mplste-head-summary-node"
-    ipv4BfdMplsteHeadSummaryNode.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfdMplsteHeadSummaryNode.EntityData.ParentYangName = "ipv4bfd-mplste-head-summary-nodes"
-    ipv4BfdMplsteHeadSummaryNode.EntityData.SegmentPath = "ipv4bfd-mplste-head-summary-node" + "[location-name='" + fmt.Sprintf("%v", ipv4BfdMplsteHeadSummaryNode.LocationName) + "']"
-    ipv4BfdMplsteHeadSummaryNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfdMplsteHeadSummaryNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfdMplsteHeadSummaryNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfdMplsteHeadSummaryNode *Bfd_Ipv4bfdMplsteHeadSummaryNodes_Ipv4bfdMplsteHeadSummaryNode) GetEntityData() *types.CommonEntityData {
+    ipv4bfdMplsteHeadSummaryNode.EntityData.YFilter = ipv4bfdMplsteHeadSummaryNode.YFilter
+    ipv4bfdMplsteHeadSummaryNode.EntityData.YangName = "ipv4bfd-mplste-head-summary-node"
+    ipv4bfdMplsteHeadSummaryNode.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfdMplsteHeadSummaryNode.EntityData.ParentYangName = "ipv4bfd-mplste-head-summary-nodes"
+    ipv4bfdMplsteHeadSummaryNode.EntityData.SegmentPath = "ipv4bfd-mplste-head-summary-node" + types.AddKeyToken(ipv4bfdMplsteHeadSummaryNode.LocationName, "location-name")
+    ipv4bfdMplsteHeadSummaryNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfdMplsteHeadSummaryNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfdMplsteHeadSummaryNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfdMplsteHeadSummaryNode.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfdMplsteHeadSummaryNode.EntityData.Children["session-state"] = types.YChild{"SessionState", &ipv4BfdMplsteHeadSummaryNode.SessionState}
-    ipv4BfdMplsteHeadSummaryNode.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4BfdMplsteHeadSummaryNode.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", ipv4BfdMplsteHeadSummaryNode.LocationName}
-    return &(ipv4BfdMplsteHeadSummaryNode.EntityData)
+    ipv4bfdMplsteHeadSummaryNode.EntityData.Children = types.NewOrderedMap()
+    ipv4bfdMplsteHeadSummaryNode.EntityData.Children.Append("session-state", types.YChild{"SessionState", &ipv4bfdMplsteHeadSummaryNode.SessionState})
+    ipv4bfdMplsteHeadSummaryNode.EntityData.Leafs = types.NewOrderedMap()
+    ipv4bfdMplsteHeadSummaryNode.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", ipv4bfdMplsteHeadSummaryNode.LocationName})
+
+    ipv4bfdMplsteHeadSummaryNode.EntityData.YListKeys = []string {"LocationName"}
+
+    return &(ipv4bfdMplsteHeadSummaryNode.EntityData)
 }
 
-// Bfd_Ipv4BfdMplsteHeadSummaryNodes_Ipv4BfdMplsteHeadSummaryNode_SessionState
+// Bfd_Ipv4bfdMplsteHeadSummaryNodes_Ipv4bfdMplsteHeadSummaryNode_SessionState
 // Statistics of states for sessions
-type Bfd_Ipv4BfdMplsteHeadSummaryNodes_Ipv4BfdMplsteHeadSummaryNode_SessionState struct {
+type Bfd_Ipv4bfdMplsteHeadSummaryNodes_Ipv4bfdMplsteHeadSummaryNode_SessionState struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -9119,7 +9708,7 @@ type Bfd_Ipv4BfdMplsteHeadSummaryNodes_Ipv4BfdMplsteHeadSummaryNode_SessionState
     StandbyCount interface{}
 }
 
-func (sessionState *Bfd_Ipv4BfdMplsteHeadSummaryNodes_Ipv4BfdMplsteHeadSummaryNode_SessionState) GetEntityData() *types.CommonEntityData {
+func (sessionState *Bfd_Ipv4bfdMplsteHeadSummaryNodes_Ipv4bfdMplsteHeadSummaryNode_SessionState) GetEntityData() *types.CommonEntityData {
     sessionState.EntityData.YFilter = sessionState.YFilter
     sessionState.EntityData.YangName = "session-state"
     sessionState.EntityData.BundleName = "cisco_ios_xr"
@@ -9129,14 +9718,17 @@ func (sessionState *Bfd_Ipv4BfdMplsteHeadSummaryNodes_Ipv4BfdMplsteHeadSummaryNo
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionState.EntityData.Children = make(map[string]types.YChild)
-    sessionState.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionState.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", sessionState.TotalCount}
-    sessionState.EntityData.Leafs["up-count"] = types.YLeaf{"UpCount", sessionState.UpCount}
-    sessionState.EntityData.Leafs["down-count"] = types.YLeaf{"DownCount", sessionState.DownCount}
-    sessionState.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", sessionState.UnknownCount}
-    sessionState.EntityData.Leafs["retry-count"] = types.YLeaf{"RetryCount", sessionState.RetryCount}
-    sessionState.EntityData.Leafs["standby-count"] = types.YLeaf{"StandbyCount", sessionState.StandbyCount}
+    sessionState.EntityData.Children = types.NewOrderedMap()
+    sessionState.EntityData.Leafs = types.NewOrderedMap()
+    sessionState.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", sessionState.TotalCount})
+    sessionState.EntityData.Leafs.Append("up-count", types.YLeaf{"UpCount", sessionState.UpCount})
+    sessionState.EntityData.Leafs.Append("down-count", types.YLeaf{"DownCount", sessionState.DownCount})
+    sessionState.EntityData.Leafs.Append("unknown-count", types.YLeaf{"UnknownCount", sessionState.UnknownCount})
+    sessionState.EntityData.Leafs.Append("retry-count", types.YLeaf{"RetryCount", sessionState.RetryCount})
+    sessionState.EntityData.Leafs.Append("standby-count", types.YLeaf{"StandbyCount", sessionState.StandbyCount})
+
+    sessionState.EntityData.YListKeys = []string {}
+
     return &(sessionState.EntityData)
 }
 
@@ -9149,7 +9741,7 @@ type Bfd_LabelSessionDetails struct {
 
     // Detailed information for a single BFD session. The type is slice of
     // Bfd_LabelSessionDetails_LabelSessionDetail.
-    LabelSessionDetail []Bfd_LabelSessionDetails_LabelSessionDetail
+    LabelSessionDetail []*Bfd_LabelSessionDetails_LabelSessionDetail
 }
 
 func (labelSessionDetails *Bfd_LabelSessionDetails) GetEntityData() *types.CommonEntityData {
@@ -9162,12 +9754,15 @@ func (labelSessionDetails *Bfd_LabelSessionDetails) GetEntityData() *types.Commo
     labelSessionDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelSessionDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelSessionDetails.EntityData.Children = make(map[string]types.YChild)
-    labelSessionDetails.EntityData.Children["label-session-detail"] = types.YChild{"LabelSessionDetail", nil}
+    labelSessionDetails.EntityData.Children = types.NewOrderedMap()
+    labelSessionDetails.EntityData.Children.Append("label-session-detail", types.YChild{"LabelSessionDetail", nil})
     for i := range labelSessionDetails.LabelSessionDetail {
-        labelSessionDetails.EntityData.Children[types.GetSegmentPath(&labelSessionDetails.LabelSessionDetail[i])] = types.YChild{"LabelSessionDetail", &labelSessionDetails.LabelSessionDetail[i]}
+        labelSessionDetails.EntityData.Children.Append(types.GetSegmentPath(labelSessionDetails.LabelSessionDetail[i]), types.YChild{"LabelSessionDetail", labelSessionDetails.LabelSessionDetail[i]})
     }
-    labelSessionDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    labelSessionDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    labelSessionDetails.EntityData.YListKeys = []string {}
+
     return &(labelSessionDetails.EntityData)
 }
 
@@ -9177,15 +9772,14 @@ type Bfd_LabelSessionDetails_LabelSessionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
-    // Incoming Label. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabel interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Session status information.
@@ -9199,11 +9793,11 @@ type Bfd_LabelSessionDetails_LabelSessionDetail struct {
 
     // Client applications owning the session. The type is slice of
     // Bfd_LabelSessionDetails_LabelSessionDetail_OwnerInformation.
-    OwnerInformation []Bfd_LabelSessionDetails_LabelSessionDetail_OwnerInformation
+    OwnerInformation []*Bfd_LabelSessionDetails_LabelSessionDetail_OwnerInformation
 
     // Association session information. The type is slice of
     // Bfd_LabelSessionDetails_LabelSessionDetail_AssociationInformation.
-    AssociationInformation []Bfd_LabelSessionDetails_LabelSessionDetail_AssociationInformation
+    AssociationInformation []*Bfd_LabelSessionDetails_LabelSessionDetail_AssociationInformation
 }
 
 func (labelSessionDetail *Bfd_LabelSessionDetails_LabelSessionDetail) GetEntityData() *types.CommonEntityData {
@@ -9216,22 +9810,25 @@ func (labelSessionDetail *Bfd_LabelSessionDetails_LabelSessionDetail) GetEntityD
     labelSessionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelSessionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelSessionDetail.EntityData.Children = make(map[string]types.YChild)
-    labelSessionDetail.EntityData.Children["status-information"] = types.YChild{"StatusInformation", &labelSessionDetail.StatusInformation}
-    labelSessionDetail.EntityData.Children["mp-download-state"] = types.YChild{"MpDownloadState", &labelSessionDetail.MpDownloadState}
-    labelSessionDetail.EntityData.Children["lsp-ping-info"] = types.YChild{"LspPingInfo", &labelSessionDetail.LspPingInfo}
-    labelSessionDetail.EntityData.Children["owner-information"] = types.YChild{"OwnerInformation", nil}
+    labelSessionDetail.EntityData.Children = types.NewOrderedMap()
+    labelSessionDetail.EntityData.Children.Append("status-information", types.YChild{"StatusInformation", &labelSessionDetail.StatusInformation})
+    labelSessionDetail.EntityData.Children.Append("mp-download-state", types.YChild{"MpDownloadState", &labelSessionDetail.MpDownloadState})
+    labelSessionDetail.EntityData.Children.Append("lsp-ping-info", types.YChild{"LspPingInfo", &labelSessionDetail.LspPingInfo})
+    labelSessionDetail.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range labelSessionDetail.OwnerInformation {
-        labelSessionDetail.EntityData.Children[types.GetSegmentPath(&labelSessionDetail.OwnerInformation[i])] = types.YChild{"OwnerInformation", &labelSessionDetail.OwnerInformation[i]}
+        labelSessionDetail.EntityData.Children.Append(types.GetSegmentPath(labelSessionDetail.OwnerInformation[i]), types.YChild{"OwnerInformation", labelSessionDetail.OwnerInformation[i]})
     }
-    labelSessionDetail.EntityData.Children["association-information"] = types.YChild{"AssociationInformation", nil}
+    labelSessionDetail.EntityData.Children.Append("association-information", types.YChild{"AssociationInformation", nil})
     for i := range labelSessionDetail.AssociationInformation {
-        labelSessionDetail.EntityData.Children[types.GetSegmentPath(&labelSessionDetail.AssociationInformation[i])] = types.YChild{"AssociationInformation", &labelSessionDetail.AssociationInformation[i]}
+        labelSessionDetail.EntityData.Children.Append(types.GetSegmentPath(labelSessionDetail.AssociationInformation[i]), types.YChild{"AssociationInformation", labelSessionDetail.AssociationInformation[i]})
     }
-    labelSessionDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    labelSessionDetail.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", labelSessionDetail.InterfaceName}
-    labelSessionDetail.EntityData.Leafs["incoming-label"] = types.YLeaf{"IncomingLabel", labelSessionDetail.IncomingLabel}
-    labelSessionDetail.EntityData.Leafs["location"] = types.YLeaf{"Location", labelSessionDetail.Location}
+    labelSessionDetail.EntityData.Leafs = types.NewOrderedMap()
+    labelSessionDetail.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", labelSessionDetail.InterfaceName})
+    labelSessionDetail.EntityData.Leafs.Append("incoming-label", types.YLeaf{"IncomingLabel", labelSessionDetail.IncomingLabel})
+    labelSessionDetail.EntityData.Leafs.Append("location", types.YLeaf{"Location", labelSessionDetail.Location})
+
+    labelSessionDetail.EntityData.YListKeys = []string {}
+
     return &(labelSessionDetail.EntityData)
 }
 
@@ -9287,7 +9884,7 @@ type Bfd_LabelSessionDetails_LabelSessionDetail_StatusInformation struct {
     LatencyAverage interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Internal Label. The type is interface{} with range: 0..4294967295.
@@ -9332,31 +9929,34 @@ func (statusInformation *Bfd_LabelSessionDetails_LabelSessionDetail_StatusInform
     statusInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusInformation.EntityData.Children = make(map[string]types.YChild)
-    statusInformation.EntityData.Children["source-address"] = types.YChild{"SourceAddress", &statusInformation.SourceAddress}
-    statusInformation.EntityData.Children["last-state-change"] = types.YChild{"LastStateChange", &statusInformation.LastStateChange}
-    statusInformation.EntityData.Children["transmit-packet"] = types.YChild{"TransmitPacket", &statusInformation.TransmitPacket}
-    statusInformation.EntityData.Children["receive-packet"] = types.YChild{"ReceivePacket", &statusInformation.ReceivePacket}
-    statusInformation.EntityData.Children["status-brief-information"] = types.YChild{"StatusBriefInformation", &statusInformation.StatusBriefInformation}
-    statusInformation.EntityData.Children["async-transmit-statistics"] = types.YChild{"AsyncTransmitStatistics", &statusInformation.AsyncTransmitStatistics}
-    statusInformation.EntityData.Children["async-receive-statistics"] = types.YChild{"AsyncReceiveStatistics", &statusInformation.AsyncReceiveStatistics}
-    statusInformation.EntityData.Children["echo-transmit-statistics"] = types.YChild{"EchoTransmitStatistics", &statusInformation.EchoTransmitStatistics}
-    statusInformation.EntityData.Children["echo-received-statistics"] = types.YChild{"EchoReceivedStatistics", &statusInformation.EchoReceivedStatistics}
-    statusInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    statusInformation.EntityData.Leafs["sessiontype"] = types.YLeaf{"Sessiontype", statusInformation.Sessiontype}
-    statusInformation.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", statusInformation.SessionSubtype}
-    statusInformation.EntityData.Leafs["state"] = types.YLeaf{"State", statusInformation.State}
-    statusInformation.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", statusInformation.LocalDiscriminator}
-    statusInformation.EntityData.Leafs["remote-discriminator"] = types.YLeaf{"RemoteDiscriminator", statusInformation.RemoteDiscriminator}
-    statusInformation.EntityData.Leafs["to-up-state-count"] = types.YLeaf{"ToUpStateCount", statusInformation.ToUpStateCount}
-    statusInformation.EntityData.Leafs["desired-minimum-echo-transmit-interval"] = types.YLeaf{"DesiredMinimumEchoTransmitInterval", statusInformation.DesiredMinimumEchoTransmitInterval}
-    statusInformation.EntityData.Leafs["remote-negotiated-interval"] = types.YLeaf{"RemoteNegotiatedInterval", statusInformation.RemoteNegotiatedInterval}
-    statusInformation.EntityData.Leafs["latency-number"] = types.YLeaf{"LatencyNumber", statusInformation.LatencyNumber}
-    statusInformation.EntityData.Leafs["latency-minimum"] = types.YLeaf{"LatencyMinimum", statusInformation.LatencyMinimum}
-    statusInformation.EntityData.Leafs["latency-maximum"] = types.YLeaf{"LatencyMaximum", statusInformation.LatencyMaximum}
-    statusInformation.EntityData.Leafs["latency-average"] = types.YLeaf{"LatencyAverage", statusInformation.LatencyAverage}
-    statusInformation.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", statusInformation.NodeId}
-    statusInformation.EntityData.Leafs["internal-label"] = types.YLeaf{"InternalLabel", statusInformation.InternalLabel}
+    statusInformation.EntityData.Children = types.NewOrderedMap()
+    statusInformation.EntityData.Children.Append("source-address", types.YChild{"SourceAddress", &statusInformation.SourceAddress})
+    statusInformation.EntityData.Children.Append("last-state-change", types.YChild{"LastStateChange", &statusInformation.LastStateChange})
+    statusInformation.EntityData.Children.Append("transmit-packet", types.YChild{"TransmitPacket", &statusInformation.TransmitPacket})
+    statusInformation.EntityData.Children.Append("receive-packet", types.YChild{"ReceivePacket", &statusInformation.ReceivePacket})
+    statusInformation.EntityData.Children.Append("status-brief-information", types.YChild{"StatusBriefInformation", &statusInformation.StatusBriefInformation})
+    statusInformation.EntityData.Children.Append("async-transmit-statistics", types.YChild{"AsyncTransmitStatistics", &statusInformation.AsyncTransmitStatistics})
+    statusInformation.EntityData.Children.Append("async-receive-statistics", types.YChild{"AsyncReceiveStatistics", &statusInformation.AsyncReceiveStatistics})
+    statusInformation.EntityData.Children.Append("echo-transmit-statistics", types.YChild{"EchoTransmitStatistics", &statusInformation.EchoTransmitStatistics})
+    statusInformation.EntityData.Children.Append("echo-received-statistics", types.YChild{"EchoReceivedStatistics", &statusInformation.EchoReceivedStatistics})
+    statusInformation.EntityData.Leafs = types.NewOrderedMap()
+    statusInformation.EntityData.Leafs.Append("sessiontype", types.YLeaf{"Sessiontype", statusInformation.Sessiontype})
+    statusInformation.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", statusInformation.SessionSubtype})
+    statusInformation.EntityData.Leafs.Append("state", types.YLeaf{"State", statusInformation.State})
+    statusInformation.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", statusInformation.LocalDiscriminator})
+    statusInformation.EntityData.Leafs.Append("remote-discriminator", types.YLeaf{"RemoteDiscriminator", statusInformation.RemoteDiscriminator})
+    statusInformation.EntityData.Leafs.Append("to-up-state-count", types.YLeaf{"ToUpStateCount", statusInformation.ToUpStateCount})
+    statusInformation.EntityData.Leafs.Append("desired-minimum-echo-transmit-interval", types.YLeaf{"DesiredMinimumEchoTransmitInterval", statusInformation.DesiredMinimumEchoTransmitInterval})
+    statusInformation.EntityData.Leafs.Append("remote-negotiated-interval", types.YLeaf{"RemoteNegotiatedInterval", statusInformation.RemoteNegotiatedInterval})
+    statusInformation.EntityData.Leafs.Append("latency-number", types.YLeaf{"LatencyNumber", statusInformation.LatencyNumber})
+    statusInformation.EntityData.Leafs.Append("latency-minimum", types.YLeaf{"LatencyMinimum", statusInformation.LatencyMinimum})
+    statusInformation.EntityData.Leafs.Append("latency-maximum", types.YLeaf{"LatencyMaximum", statusInformation.LatencyMaximum})
+    statusInformation.EntityData.Leafs.Append("latency-average", types.YLeaf{"LatencyAverage", statusInformation.LatencyAverage})
+    statusInformation.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", statusInformation.NodeId})
+    statusInformation.EntityData.Leafs.Append("internal-label", types.YLeaf{"InternalLabel", statusInformation.InternalLabel})
+
+    statusInformation.EntityData.YListKeys = []string {}
+
     return &(statusInformation.EntityData)
 }
 
@@ -9373,11 +9973,11 @@ type Bfd_LabelSessionDetails_LabelSessionDetail_StatusInformation_SourceAddress 
     Dummy interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -9391,12 +9991,15 @@ func (sourceAddress *Bfd_LabelSessionDetails_LabelSessionDetail_StatusInformatio
     sourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourceAddress.EntityData.Children = make(map[string]types.YChild)
-    sourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    sourceAddress.EntityData.Leafs["afi"] = types.YLeaf{"Afi", sourceAddress.Afi}
-    sourceAddress.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", sourceAddress.Dummy}
-    sourceAddress.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", sourceAddress.Ipv4}
-    sourceAddress.EntityData.Leafs["ipv6"] = types.YLeaf{"Ipv6", sourceAddress.Ipv6}
+    sourceAddress.EntityData.Children = types.NewOrderedMap()
+    sourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    sourceAddress.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", sourceAddress.Afi})
+    sourceAddress.EntityData.Leafs.Append("dummy", types.YLeaf{"Dummy", sourceAddress.Dummy})
+    sourceAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", sourceAddress.Ipv4})
+    sourceAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", sourceAddress.Ipv6})
+
+    sourceAddress.EntityData.YListKeys = []string {}
+
     return &(sourceAddress.EntityData)
 }
 
@@ -9433,12 +10036,15 @@ func (lastStateChange *Bfd_LabelSessionDetails_LabelSessionDetail_StatusInformat
     lastStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastStateChange.EntityData.Leafs["days"] = types.YLeaf{"Days", lastStateChange.Days}
-    lastStateChange.EntityData.Leafs["hours"] = types.YLeaf{"Hours", lastStateChange.Hours}
-    lastStateChange.EntityData.Leafs["minutes"] = types.YLeaf{"Minutes", lastStateChange.Minutes}
-    lastStateChange.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lastStateChange.Seconds}
+    lastStateChange.EntityData.Children = types.NewOrderedMap()
+    lastStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastStateChange.EntityData.Leafs.Append("days", types.YLeaf{"Days", lastStateChange.Days})
+    lastStateChange.EntityData.Leafs.Append("hours", types.YLeaf{"Hours", lastStateChange.Hours})
+    lastStateChange.EntityData.Leafs.Append("minutes", types.YLeaf{"Minutes", lastStateChange.Minutes})
+    lastStateChange.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lastStateChange.Seconds})
+
+    lastStateChange.EntityData.YListKeys = []string {}
+
     return &(lastStateChange.EntityData)
 }
 
@@ -9513,24 +10119,27 @@ func (transmitPacket *Bfd_LabelSessionDetails_LabelSessionDetail_StatusInformati
     transmitPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitPacket.EntityData.Children = make(map[string]types.YChild)
-    transmitPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitPacket.EntityData.Leafs["version"] = types.YLeaf{"Version", transmitPacket.Version}
-    transmitPacket.EntityData.Leafs["diagnostic"] = types.YLeaf{"Diagnostic", transmitPacket.Diagnostic}
-    transmitPacket.EntityData.Leafs["ihear-you"] = types.YLeaf{"IhearYou", transmitPacket.IhearYou}
-    transmitPacket.EntityData.Leafs["state"] = types.YLeaf{"State", transmitPacket.State}
-    transmitPacket.EntityData.Leafs["demand"] = types.YLeaf{"Demand", transmitPacket.Demand}
-    transmitPacket.EntityData.Leafs["poll"] = types.YLeaf{"Poll", transmitPacket.Poll}
-    transmitPacket.EntityData.Leafs["final"] = types.YLeaf{"Final", transmitPacket.Final}
-    transmitPacket.EntityData.Leafs["control-plane-independent"] = types.YLeaf{"ControlPlaneIndependent", transmitPacket.ControlPlaneIndependent}
-    transmitPacket.EntityData.Leafs["authentication-present"] = types.YLeaf{"AuthenticationPresent", transmitPacket.AuthenticationPresent}
-    transmitPacket.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", transmitPacket.DetectionMultiplier}
-    transmitPacket.EntityData.Leafs["length"] = types.YLeaf{"Length", transmitPacket.Length}
-    transmitPacket.EntityData.Leafs["my-discriminator"] = types.YLeaf{"MyDiscriminator", transmitPacket.MyDiscriminator}
-    transmitPacket.EntityData.Leafs["your-discriminator"] = types.YLeaf{"YourDiscriminator", transmitPacket.YourDiscriminator}
-    transmitPacket.EntityData.Leafs["desired-minimum-transmit-interval"] = types.YLeaf{"DesiredMinimumTransmitInterval", transmitPacket.DesiredMinimumTransmitInterval}
-    transmitPacket.EntityData.Leafs["required-minimum-receive-interval"] = types.YLeaf{"RequiredMinimumReceiveInterval", transmitPacket.RequiredMinimumReceiveInterval}
-    transmitPacket.EntityData.Leafs["required-minimum-echo-receive-interval"] = types.YLeaf{"RequiredMinimumEchoReceiveInterval", transmitPacket.RequiredMinimumEchoReceiveInterval}
+    transmitPacket.EntityData.Children = types.NewOrderedMap()
+    transmitPacket.EntityData.Leafs = types.NewOrderedMap()
+    transmitPacket.EntityData.Leafs.Append("version", types.YLeaf{"Version", transmitPacket.Version})
+    transmitPacket.EntityData.Leafs.Append("diagnostic", types.YLeaf{"Diagnostic", transmitPacket.Diagnostic})
+    transmitPacket.EntityData.Leafs.Append("ihear-you", types.YLeaf{"IhearYou", transmitPacket.IhearYou})
+    transmitPacket.EntityData.Leafs.Append("state", types.YLeaf{"State", transmitPacket.State})
+    transmitPacket.EntityData.Leafs.Append("demand", types.YLeaf{"Demand", transmitPacket.Demand})
+    transmitPacket.EntityData.Leafs.Append("poll", types.YLeaf{"Poll", transmitPacket.Poll})
+    transmitPacket.EntityData.Leafs.Append("final", types.YLeaf{"Final", transmitPacket.Final})
+    transmitPacket.EntityData.Leafs.Append("control-plane-independent", types.YLeaf{"ControlPlaneIndependent", transmitPacket.ControlPlaneIndependent})
+    transmitPacket.EntityData.Leafs.Append("authentication-present", types.YLeaf{"AuthenticationPresent", transmitPacket.AuthenticationPresent})
+    transmitPacket.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", transmitPacket.DetectionMultiplier})
+    transmitPacket.EntityData.Leafs.Append("length", types.YLeaf{"Length", transmitPacket.Length})
+    transmitPacket.EntityData.Leafs.Append("my-discriminator", types.YLeaf{"MyDiscriminator", transmitPacket.MyDiscriminator})
+    transmitPacket.EntityData.Leafs.Append("your-discriminator", types.YLeaf{"YourDiscriminator", transmitPacket.YourDiscriminator})
+    transmitPacket.EntityData.Leafs.Append("desired-minimum-transmit-interval", types.YLeaf{"DesiredMinimumTransmitInterval", transmitPacket.DesiredMinimumTransmitInterval})
+    transmitPacket.EntityData.Leafs.Append("required-minimum-receive-interval", types.YLeaf{"RequiredMinimumReceiveInterval", transmitPacket.RequiredMinimumReceiveInterval})
+    transmitPacket.EntityData.Leafs.Append("required-minimum-echo-receive-interval", types.YLeaf{"RequiredMinimumEchoReceiveInterval", transmitPacket.RequiredMinimumEchoReceiveInterval})
+
+    transmitPacket.EntityData.YListKeys = []string {}
+
     return &(transmitPacket.EntityData)
 }
 
@@ -9605,24 +10214,27 @@ func (receivePacket *Bfd_LabelSessionDetails_LabelSessionDetail_StatusInformatio
     receivePacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivePacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivePacket.EntityData.Children = make(map[string]types.YChild)
-    receivePacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivePacket.EntityData.Leafs["version"] = types.YLeaf{"Version", receivePacket.Version}
-    receivePacket.EntityData.Leafs["diagnostic"] = types.YLeaf{"Diagnostic", receivePacket.Diagnostic}
-    receivePacket.EntityData.Leafs["ihear-you"] = types.YLeaf{"IhearYou", receivePacket.IhearYou}
-    receivePacket.EntityData.Leafs["state"] = types.YLeaf{"State", receivePacket.State}
-    receivePacket.EntityData.Leafs["demand"] = types.YLeaf{"Demand", receivePacket.Demand}
-    receivePacket.EntityData.Leafs["poll"] = types.YLeaf{"Poll", receivePacket.Poll}
-    receivePacket.EntityData.Leafs["final"] = types.YLeaf{"Final", receivePacket.Final}
-    receivePacket.EntityData.Leafs["control-plane-independent"] = types.YLeaf{"ControlPlaneIndependent", receivePacket.ControlPlaneIndependent}
-    receivePacket.EntityData.Leafs["authentication-present"] = types.YLeaf{"AuthenticationPresent", receivePacket.AuthenticationPresent}
-    receivePacket.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", receivePacket.DetectionMultiplier}
-    receivePacket.EntityData.Leafs["length"] = types.YLeaf{"Length", receivePacket.Length}
-    receivePacket.EntityData.Leafs["my-discriminator"] = types.YLeaf{"MyDiscriminator", receivePacket.MyDiscriminator}
-    receivePacket.EntityData.Leafs["your-discriminator"] = types.YLeaf{"YourDiscriminator", receivePacket.YourDiscriminator}
-    receivePacket.EntityData.Leafs["desired-minimum-transmit-interval"] = types.YLeaf{"DesiredMinimumTransmitInterval", receivePacket.DesiredMinimumTransmitInterval}
-    receivePacket.EntityData.Leafs["required-minimum-receive-interval"] = types.YLeaf{"RequiredMinimumReceiveInterval", receivePacket.RequiredMinimumReceiveInterval}
-    receivePacket.EntityData.Leafs["required-minimum-echo-receive-interval"] = types.YLeaf{"RequiredMinimumEchoReceiveInterval", receivePacket.RequiredMinimumEchoReceiveInterval}
+    receivePacket.EntityData.Children = types.NewOrderedMap()
+    receivePacket.EntityData.Leafs = types.NewOrderedMap()
+    receivePacket.EntityData.Leafs.Append("version", types.YLeaf{"Version", receivePacket.Version})
+    receivePacket.EntityData.Leafs.Append("diagnostic", types.YLeaf{"Diagnostic", receivePacket.Diagnostic})
+    receivePacket.EntityData.Leafs.Append("ihear-you", types.YLeaf{"IhearYou", receivePacket.IhearYou})
+    receivePacket.EntityData.Leafs.Append("state", types.YLeaf{"State", receivePacket.State})
+    receivePacket.EntityData.Leafs.Append("demand", types.YLeaf{"Demand", receivePacket.Demand})
+    receivePacket.EntityData.Leafs.Append("poll", types.YLeaf{"Poll", receivePacket.Poll})
+    receivePacket.EntityData.Leafs.Append("final", types.YLeaf{"Final", receivePacket.Final})
+    receivePacket.EntityData.Leafs.Append("control-plane-independent", types.YLeaf{"ControlPlaneIndependent", receivePacket.ControlPlaneIndependent})
+    receivePacket.EntityData.Leafs.Append("authentication-present", types.YLeaf{"AuthenticationPresent", receivePacket.AuthenticationPresent})
+    receivePacket.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", receivePacket.DetectionMultiplier})
+    receivePacket.EntityData.Leafs.Append("length", types.YLeaf{"Length", receivePacket.Length})
+    receivePacket.EntityData.Leafs.Append("my-discriminator", types.YLeaf{"MyDiscriminator", receivePacket.MyDiscriminator})
+    receivePacket.EntityData.Leafs.Append("your-discriminator", types.YLeaf{"YourDiscriminator", receivePacket.YourDiscriminator})
+    receivePacket.EntityData.Leafs.Append("desired-minimum-transmit-interval", types.YLeaf{"DesiredMinimumTransmitInterval", receivePacket.DesiredMinimumTransmitInterval})
+    receivePacket.EntityData.Leafs.Append("required-minimum-receive-interval", types.YLeaf{"RequiredMinimumReceiveInterval", receivePacket.RequiredMinimumReceiveInterval})
+    receivePacket.EntityData.Leafs.Append("required-minimum-echo-receive-interval", types.YLeaf{"RequiredMinimumEchoReceiveInterval", receivePacket.RequiredMinimumEchoReceiveInterval})
+
+    receivePacket.EntityData.YListKeys = []string {}
+
     return &(receivePacket.EntityData)
 }
 
@@ -9649,10 +10261,13 @@ func (statusBriefInformation *Bfd_LabelSessionDetails_LabelSessionDetail_StatusI
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusBriefInformation.EntityData.Children = make(map[string]types.YChild)
-    statusBriefInformation.EntityData.Children["async-interval-multiplier"] = types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier}
-    statusBriefInformation.EntityData.Children["echo-interval-multiplier"] = types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier}
-    statusBriefInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    statusBriefInformation.EntityData.Children = types.NewOrderedMap()
+    statusBriefInformation.EntityData.Children.Append("async-interval-multiplier", types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier})
+    statusBriefInformation.EntityData.Children.Append("echo-interval-multiplier", types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier})
+    statusBriefInformation.EntityData.Leafs = types.NewOrderedMap()
+
+    statusBriefInformation.EntityData.YListKeys = []string {}
+
     return &(statusBriefInformation.EntityData)
 }
 
@@ -9688,12 +10303,15 @@ func (asyncIntervalMultiplier *Bfd_LabelSessionDetails_LabelSessionDetail_Status
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    asyncIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-remote-transmit-interval"] = types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-local-transmit-interval"] = types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier}
+    asyncIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-remote-transmit-interval", types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-local-transmit-interval", types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier})
+
+    asyncIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(asyncIntervalMultiplier.EntityData)
 }
 
@@ -9725,11 +10343,14 @@ func (echoIntervalMultiplier *Bfd_LabelSessionDetails_LabelSessionDetail_StatusI
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    echoIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoIntervalMultiplier.EntityData.Leafs["negotiated-transmit-interval"] = types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval}
-    echoIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime}
-    echoIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier}
+    echoIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs.Append("negotiated-transmit-interval", types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier})
+
+    echoIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(echoIntervalMultiplier.EntityData)
 }
 
@@ -9771,13 +10392,16 @@ func (asyncTransmitStatistics *Bfd_LabelSessionDetails_LabelSessionDetail_Status
     asyncTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncTransmitStatistics.EntityData.Children = make(map[string]types.YChild)
-    asyncTransmitStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncTransmitStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", asyncTransmitStatistics.Number}
-    asyncTransmitStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", asyncTransmitStatistics.Minimum}
-    asyncTransmitStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", asyncTransmitStatistics.Maximum}
-    asyncTransmitStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", asyncTransmitStatistics.Average}
-    asyncTransmitStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", asyncTransmitStatistics.Last}
+    asyncTransmitStatistics.EntityData.Children = types.NewOrderedMap()
+    asyncTransmitStatistics.EntityData.Leafs = types.NewOrderedMap()
+    asyncTransmitStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", asyncTransmitStatistics.Number})
+    asyncTransmitStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", asyncTransmitStatistics.Minimum})
+    asyncTransmitStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", asyncTransmitStatistics.Maximum})
+    asyncTransmitStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", asyncTransmitStatistics.Average})
+    asyncTransmitStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", asyncTransmitStatistics.Last})
+
+    asyncTransmitStatistics.EntityData.YListKeys = []string {}
+
     return &(asyncTransmitStatistics.EntityData)
 }
 
@@ -9819,13 +10443,16 @@ func (asyncReceiveStatistics *Bfd_LabelSessionDetails_LabelSessionDetail_StatusI
     asyncReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncReceiveStatistics.EntityData.Children = make(map[string]types.YChild)
-    asyncReceiveStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncReceiveStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", asyncReceiveStatistics.Number}
-    asyncReceiveStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", asyncReceiveStatistics.Minimum}
-    asyncReceiveStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", asyncReceiveStatistics.Maximum}
-    asyncReceiveStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", asyncReceiveStatistics.Average}
-    asyncReceiveStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", asyncReceiveStatistics.Last}
+    asyncReceiveStatistics.EntityData.Children = types.NewOrderedMap()
+    asyncReceiveStatistics.EntityData.Leafs = types.NewOrderedMap()
+    asyncReceiveStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", asyncReceiveStatistics.Number})
+    asyncReceiveStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", asyncReceiveStatistics.Minimum})
+    asyncReceiveStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", asyncReceiveStatistics.Maximum})
+    asyncReceiveStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", asyncReceiveStatistics.Average})
+    asyncReceiveStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", asyncReceiveStatistics.Last})
+
+    asyncReceiveStatistics.EntityData.YListKeys = []string {}
+
     return &(asyncReceiveStatistics.EntityData)
 }
 
@@ -9867,13 +10494,16 @@ func (echoTransmitStatistics *Bfd_LabelSessionDetails_LabelSessionDetail_StatusI
     echoTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoTransmitStatistics.EntityData.Children = make(map[string]types.YChild)
-    echoTransmitStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoTransmitStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", echoTransmitStatistics.Number}
-    echoTransmitStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", echoTransmitStatistics.Minimum}
-    echoTransmitStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", echoTransmitStatistics.Maximum}
-    echoTransmitStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", echoTransmitStatistics.Average}
-    echoTransmitStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", echoTransmitStatistics.Last}
+    echoTransmitStatistics.EntityData.Children = types.NewOrderedMap()
+    echoTransmitStatistics.EntityData.Leafs = types.NewOrderedMap()
+    echoTransmitStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", echoTransmitStatistics.Number})
+    echoTransmitStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", echoTransmitStatistics.Minimum})
+    echoTransmitStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", echoTransmitStatistics.Maximum})
+    echoTransmitStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", echoTransmitStatistics.Average})
+    echoTransmitStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", echoTransmitStatistics.Last})
+
+    echoTransmitStatistics.EntityData.YListKeys = []string {}
+
     return &(echoTransmitStatistics.EntityData)
 }
 
@@ -9915,13 +10545,16 @@ func (echoReceivedStatistics *Bfd_LabelSessionDetails_LabelSessionDetail_StatusI
     echoReceivedStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoReceivedStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoReceivedStatistics.EntityData.Children = make(map[string]types.YChild)
-    echoReceivedStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoReceivedStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", echoReceivedStatistics.Number}
-    echoReceivedStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", echoReceivedStatistics.Minimum}
-    echoReceivedStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", echoReceivedStatistics.Maximum}
-    echoReceivedStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", echoReceivedStatistics.Average}
-    echoReceivedStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", echoReceivedStatistics.Last}
+    echoReceivedStatistics.EntityData.Children = types.NewOrderedMap()
+    echoReceivedStatistics.EntityData.Leafs = types.NewOrderedMap()
+    echoReceivedStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", echoReceivedStatistics.Number})
+    echoReceivedStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", echoReceivedStatistics.Minimum})
+    echoReceivedStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", echoReceivedStatistics.Maximum})
+    echoReceivedStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", echoReceivedStatistics.Average})
+    echoReceivedStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", echoReceivedStatistics.Last})
+
+    echoReceivedStatistics.EntityData.YListKeys = []string {}
+
     return &(echoReceivedStatistics.EntityData)
 }
 
@@ -9948,10 +10581,13 @@ func (mpDownloadState *Bfd_LabelSessionDetails_LabelSessionDetail_MpDownloadStat
     mpDownloadState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpDownloadState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mpDownloadState.EntityData.Children = make(map[string]types.YChild)
-    mpDownloadState.EntityData.Children["change-time"] = types.YChild{"ChangeTime", &mpDownloadState.ChangeTime}
-    mpDownloadState.EntityData.Leafs = make(map[string]types.YLeaf)
-    mpDownloadState.EntityData.Leafs["mp-download-state"] = types.YLeaf{"MpDownloadState", mpDownloadState.MpDownloadState}
+    mpDownloadState.EntityData.Children = types.NewOrderedMap()
+    mpDownloadState.EntityData.Children.Append("change-time", types.YChild{"ChangeTime", &mpDownloadState.ChangeTime})
+    mpDownloadState.EntityData.Leafs = types.NewOrderedMap()
+    mpDownloadState.EntityData.Leafs.Append("mp-download-state", types.YLeaf{"MpDownloadState", mpDownloadState.MpDownloadState})
+
+    mpDownloadState.EntityData.YListKeys = []string {}
+
     return &(mpDownloadState.EntityData)
 }
 
@@ -9980,10 +10616,13 @@ func (changeTime *Bfd_LabelSessionDetails_LabelSessionDetail_MpDownloadState_Cha
     changeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    changeTime.EntityData.Children = make(map[string]types.YChild)
-    changeTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    changeTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", changeTime.Seconds}
-    changeTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", changeTime.Nanoseconds}
+    changeTime.EntityData.Children = types.NewOrderedMap()
+    changeTime.EntityData.Leafs = types.NewOrderedMap()
+    changeTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", changeTime.Seconds})
+    changeTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", changeTime.Nanoseconds})
+
+    changeTime.EntityData.YListKeys = []string {}
+
     return &(changeTime.EntityData)
 }
 
@@ -10042,20 +10681,23 @@ func (lspPingInfo *Bfd_LabelSessionDetails_LabelSessionDetail_LspPingInfo) GetEn
     lspPingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingInfo.EntityData.Children = make(map[string]types.YChild)
-    lspPingInfo.EntityData.Children["lsp-ping-tx-last-time"] = types.YChild{"LspPingTxLastTime", &lspPingInfo.LspPingTxLastTime}
-    lspPingInfo.EntityData.Children["lsp-ping-tx-last-error-time"] = types.YChild{"LspPingTxLastErrorTime", &lspPingInfo.LspPingTxLastErrorTime}
-    lspPingInfo.EntityData.Children["lsp-ping-rx-last-time"] = types.YChild{"LspPingRxLastTime", &lspPingInfo.LspPingRxLastTime}
-    lspPingInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-count"] = types.YLeaf{"LspPingTxCount", lspPingInfo.LspPingTxCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-error-count"] = types.YLeaf{"LspPingTxErrorCount", lspPingInfo.LspPingTxErrorCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-last-rc"] = types.YLeaf{"LspPingTxLastRc", lspPingInfo.LspPingTxLastRc}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-last-error-rc"] = types.YLeaf{"LspPingTxLastErrorRc", lspPingInfo.LspPingTxLastErrorRc}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-discr"] = types.YLeaf{"LspPingRxLastDiscr", lspPingInfo.LspPingRxLastDiscr}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-count"] = types.YLeaf{"LspPingRxCount", lspPingInfo.LspPingRxCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-code"] = types.YLeaf{"LspPingRxLastCode", lspPingInfo.LspPingRxLastCode}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-subcode"] = types.YLeaf{"LspPingRxLastSubcode", lspPingInfo.LspPingRxLastSubcode}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-output"] = types.YLeaf{"LspPingRxLastOutput", lspPingInfo.LspPingRxLastOutput}
+    lspPingInfo.EntityData.Children = types.NewOrderedMap()
+    lspPingInfo.EntityData.Children.Append("lsp-ping-tx-last-time", types.YChild{"LspPingTxLastTime", &lspPingInfo.LspPingTxLastTime})
+    lspPingInfo.EntityData.Children.Append("lsp-ping-tx-last-error-time", types.YChild{"LspPingTxLastErrorTime", &lspPingInfo.LspPingTxLastErrorTime})
+    lspPingInfo.EntityData.Children.Append("lsp-ping-rx-last-time", types.YChild{"LspPingRxLastTime", &lspPingInfo.LspPingRxLastTime})
+    lspPingInfo.EntityData.Leafs = types.NewOrderedMap()
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-count", types.YLeaf{"LspPingTxCount", lspPingInfo.LspPingTxCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-error-count", types.YLeaf{"LspPingTxErrorCount", lspPingInfo.LspPingTxErrorCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-last-rc", types.YLeaf{"LspPingTxLastRc", lspPingInfo.LspPingTxLastRc})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-last-error-rc", types.YLeaf{"LspPingTxLastErrorRc", lspPingInfo.LspPingTxLastErrorRc})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-discr", types.YLeaf{"LspPingRxLastDiscr", lspPingInfo.LspPingRxLastDiscr})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-count", types.YLeaf{"LspPingRxCount", lspPingInfo.LspPingRxCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-code", types.YLeaf{"LspPingRxLastCode", lspPingInfo.LspPingRxLastCode})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-subcode", types.YLeaf{"LspPingRxLastSubcode", lspPingInfo.LspPingRxLastSubcode})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-output", types.YLeaf{"LspPingRxLastOutput", lspPingInfo.LspPingRxLastOutput})
+
+    lspPingInfo.EntityData.YListKeys = []string {}
+
     return &(lspPingInfo.EntityData)
 }
 
@@ -10084,10 +10726,13 @@ func (lspPingTxLastTime *Bfd_LabelSessionDetails_LabelSessionDetail_LspPingInfo_
     lspPingTxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingTxLastTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingTxLastTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingTxLastTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingTxLastTime.Seconds}
-    lspPingTxLastTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingTxLastTime.Nanoseconds}
+    lspPingTxLastTime.EntityData.Children = types.NewOrderedMap()
+    lspPingTxLastTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingTxLastTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingTxLastTime.Seconds})
+    lspPingTxLastTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingTxLastTime.Nanoseconds})
+
+    lspPingTxLastTime.EntityData.YListKeys = []string {}
+
     return &(lspPingTxLastTime.EntityData)
 }
 
@@ -10116,10 +10761,13 @@ func (lspPingTxLastErrorTime *Bfd_LabelSessionDetails_LabelSessionDetail_LspPing
     lspPingTxLastErrorTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastErrorTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingTxLastErrorTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingTxLastErrorTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingTxLastErrorTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingTxLastErrorTime.Seconds}
-    lspPingTxLastErrorTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingTxLastErrorTime.Nanoseconds}
+    lspPingTxLastErrorTime.EntityData.Children = types.NewOrderedMap()
+    lspPingTxLastErrorTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingTxLastErrorTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingTxLastErrorTime.Seconds})
+    lspPingTxLastErrorTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingTxLastErrorTime.Nanoseconds})
+
+    lspPingTxLastErrorTime.EntityData.YListKeys = []string {}
+
     return &(lspPingTxLastErrorTime.EntityData)
 }
 
@@ -10148,10 +10796,13 @@ func (lspPingRxLastTime *Bfd_LabelSessionDetails_LabelSessionDetail_LspPingInfo_
     lspPingRxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingRxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingRxLastTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingRxLastTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingRxLastTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingRxLastTime.Seconds}
-    lspPingRxLastTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingRxLastTime.Nanoseconds}
+    lspPingRxLastTime.EntityData.Children = types.NewOrderedMap()
+    lspPingRxLastTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingRxLastTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingRxLastTime.Seconds})
+    lspPingRxLastTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingRxLastTime.Nanoseconds})
+
+    lspPingRxLastTime.EntityData.YListKeys = []string {}
+
     return &(lspPingRxLastTime.EntityData)
 }
 
@@ -10191,13 +10842,16 @@ func (ownerInformation *Bfd_LabelSessionDetails_LabelSessionDetail_OwnerInformat
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ownerInformation.EntityData.Children = make(map[string]types.YChild)
-    ownerInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    ownerInformation.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ownerInformation.Interval}
-    ownerInformation.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier}
-    ownerInformation.EntityData.Leafs["adjusted-interval"] = types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval}
-    ownerInformation.EntityData.Leafs["adjusted-detection-multiplier"] = types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier}
-    ownerInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", ownerInformation.Name}
+    ownerInformation.EntityData.Children = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ownerInformation.Interval})
+    ownerInformation.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("adjusted-interval", types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval})
+    ownerInformation.EntityData.Leafs.Append("adjusted-detection-multiplier", types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", ownerInformation.Name})
+
+    ownerInformation.EntityData.YListKeys = []string {}
+
     return &(ownerInformation.EntityData)
 }
 
@@ -10222,7 +10876,7 @@ type Bfd_LabelSessionDetails_LabelSessionDetail_AssociationInformation struct {
 
     // Client applications owning the session. The type is slice of
     // Bfd_LabelSessionDetails_LabelSessionDetail_AssociationInformation_OwnerInformation.
-    OwnerInformation []Bfd_LabelSessionDetails_LabelSessionDetail_AssociationInformation_OwnerInformation
+    OwnerInformation []*Bfd_LabelSessionDetails_LabelSessionDetail_AssociationInformation_OwnerInformation
 }
 
 func (associationInformation *Bfd_LabelSessionDetails_LabelSessionDetail_AssociationInformation) GetEntityData() *types.CommonEntityData {
@@ -10235,16 +10889,19 @@ func (associationInformation *Bfd_LabelSessionDetails_LabelSessionDetail_Associa
     associationInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    associationInformation.EntityData.Children = make(map[string]types.YChild)
-    associationInformation.EntityData.Children["ip-destination-address"] = types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress}
-    associationInformation.EntityData.Children["owner-information"] = types.YChild{"OwnerInformation", nil}
+    associationInformation.EntityData.Children = types.NewOrderedMap()
+    associationInformation.EntityData.Children.Append("ip-destination-address", types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress})
+    associationInformation.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range associationInformation.OwnerInformation {
-        associationInformation.EntityData.Children[types.GetSegmentPath(&associationInformation.OwnerInformation[i])] = types.YChild{"OwnerInformation", &associationInformation.OwnerInformation[i]}
+        associationInformation.EntityData.Children.Append(types.GetSegmentPath(associationInformation.OwnerInformation[i]), types.YChild{"OwnerInformation", associationInformation.OwnerInformation[i]})
     }
-    associationInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    associationInformation.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", associationInformation.InterfaceName}
-    associationInformation.EntityData.Leafs["sessiontype"] = types.YLeaf{"Sessiontype", associationInformation.Sessiontype}
-    associationInformation.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", associationInformation.LocalDiscriminator}
+    associationInformation.EntityData.Leafs = types.NewOrderedMap()
+    associationInformation.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", associationInformation.InterfaceName})
+    associationInformation.EntityData.Leafs.Append("sessiontype", types.YLeaf{"Sessiontype", associationInformation.Sessiontype})
+    associationInformation.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", associationInformation.LocalDiscriminator})
+
+    associationInformation.EntityData.YListKeys = []string {}
+
     return &(associationInformation.EntityData)
 }
 
@@ -10261,11 +10918,11 @@ type Bfd_LabelSessionDetails_LabelSessionDetail_AssociationInformation_IpDestina
     Dummy interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -10279,12 +10936,15 @@ func (ipDestinationAddress *Bfd_LabelSessionDetails_LabelSessionDetail_Associati
     ipDestinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDestinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipDestinationAddress.EntityData.Children = make(map[string]types.YChild)
-    ipDestinationAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipDestinationAddress.EntityData.Leafs["afi"] = types.YLeaf{"Afi", ipDestinationAddress.Afi}
-    ipDestinationAddress.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", ipDestinationAddress.Dummy}
-    ipDestinationAddress.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", ipDestinationAddress.Ipv4}
-    ipDestinationAddress.EntityData.Leafs["ipv6"] = types.YLeaf{"Ipv6", ipDestinationAddress.Ipv6}
+    ipDestinationAddress.EntityData.Children = types.NewOrderedMap()
+    ipDestinationAddress.EntityData.Leafs = types.NewOrderedMap()
+    ipDestinationAddress.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", ipDestinationAddress.Afi})
+    ipDestinationAddress.EntityData.Leafs.Append("dummy", types.YLeaf{"Dummy", ipDestinationAddress.Dummy})
+    ipDestinationAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", ipDestinationAddress.Ipv4})
+    ipDestinationAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", ipDestinationAddress.Ipv6})
+
+    ipDestinationAddress.EntityData.YListKeys = []string {}
+
     return &(ipDestinationAddress.EntityData)
 }
 
@@ -10324,13 +10984,16 @@ func (ownerInformation *Bfd_LabelSessionDetails_LabelSessionDetail_AssociationIn
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ownerInformation.EntityData.Children = make(map[string]types.YChild)
-    ownerInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    ownerInformation.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ownerInformation.Interval}
-    ownerInformation.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier}
-    ownerInformation.EntityData.Leafs["adjusted-interval"] = types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval}
-    ownerInformation.EntityData.Leafs["adjusted-detection-multiplier"] = types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier}
-    ownerInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", ownerInformation.Name}
+    ownerInformation.EntityData.Children = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ownerInformation.Interval})
+    ownerInformation.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("adjusted-interval", types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval})
+    ownerInformation.EntityData.Leafs.Append("adjusted-detection-multiplier", types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", ownerInformation.Name})
+
+    ownerInformation.EntityData.YListKeys = []string {}
+
     return &(ownerInformation.EntityData)
 }
 
@@ -10343,7 +11006,7 @@ type Bfd_Ipv6SingleHopSessionDetails struct {
 
     // Detailed information for a single IPv6 singlehop BFD session. The type is
     // slice of Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail.
-    Ipv6SingleHopSessionDetail []Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail
+    Ipv6SingleHopSessionDetail []*Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail
 }
 
 func (ipv6SingleHopSessionDetails *Bfd_Ipv6SingleHopSessionDetails) GetEntityData() *types.CommonEntityData {
@@ -10356,12 +11019,15 @@ func (ipv6SingleHopSessionDetails *Bfd_Ipv6SingleHopSessionDetails) GetEntityDat
     ipv6SingleHopSessionDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopSessionDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6SingleHopSessionDetails.EntityData.Children = make(map[string]types.YChild)
-    ipv6SingleHopSessionDetails.EntityData.Children["ipv6-single-hop-session-detail"] = types.YChild{"Ipv6SingleHopSessionDetail", nil}
+    ipv6SingleHopSessionDetails.EntityData.Children = types.NewOrderedMap()
+    ipv6SingleHopSessionDetails.EntityData.Children.Append("ipv6-single-hop-session-detail", types.YChild{"Ipv6SingleHopSessionDetail", nil})
     for i := range ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail {
-        ipv6SingleHopSessionDetails.EntityData.Children[types.GetSegmentPath(&ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail[i])] = types.YChild{"Ipv6SingleHopSessionDetail", &ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail[i]}
+        ipv6SingleHopSessionDetails.EntityData.Children.Append(types.GetSegmentPath(ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail[i]), types.YChild{"Ipv6SingleHopSessionDetail", ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail[i]})
     }
-    ipv6SingleHopSessionDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6SingleHopSessionDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6SingleHopSessionDetails.EntityData.YListKeys = []string {}
+
     return &(ipv6SingleHopSessionDetails.EntityData)
 }
 
@@ -10372,18 +11038,18 @@ type Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Destination Address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Session status information.
@@ -10397,11 +11063,11 @@ type Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail struct {
 
     // Client applications owning the session. The type is slice of
     // Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_OwnerInformation.
-    OwnerInformation []Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_OwnerInformation
+    OwnerInformation []*Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_OwnerInformation
 
     // Association session information. The type is slice of
     // Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_AssociationInformation.
-    AssociationInformation []Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_AssociationInformation
+    AssociationInformation []*Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_AssociationInformation
 }
 
 func (ipv6SingleHopSessionDetail *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail) GetEntityData() *types.CommonEntityData {
@@ -10414,22 +11080,25 @@ func (ipv6SingleHopSessionDetail *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopS
     ipv6SingleHopSessionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopSessionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6SingleHopSessionDetail.EntityData.Children = make(map[string]types.YChild)
-    ipv6SingleHopSessionDetail.EntityData.Children["status-information"] = types.YChild{"StatusInformation", &ipv6SingleHopSessionDetail.StatusInformation}
-    ipv6SingleHopSessionDetail.EntityData.Children["mp-download-state"] = types.YChild{"MpDownloadState", &ipv6SingleHopSessionDetail.MpDownloadState}
-    ipv6SingleHopSessionDetail.EntityData.Children["lsp-ping-info"] = types.YChild{"LspPingInfo", &ipv6SingleHopSessionDetail.LspPingInfo}
-    ipv6SingleHopSessionDetail.EntityData.Children["owner-information"] = types.YChild{"OwnerInformation", nil}
+    ipv6SingleHopSessionDetail.EntityData.Children = types.NewOrderedMap()
+    ipv6SingleHopSessionDetail.EntityData.Children.Append("status-information", types.YChild{"StatusInformation", &ipv6SingleHopSessionDetail.StatusInformation})
+    ipv6SingleHopSessionDetail.EntityData.Children.Append("mp-download-state", types.YChild{"MpDownloadState", &ipv6SingleHopSessionDetail.MpDownloadState})
+    ipv6SingleHopSessionDetail.EntityData.Children.Append("lsp-ping-info", types.YChild{"LspPingInfo", &ipv6SingleHopSessionDetail.LspPingInfo})
+    ipv6SingleHopSessionDetail.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range ipv6SingleHopSessionDetail.OwnerInformation {
-        ipv6SingleHopSessionDetail.EntityData.Children[types.GetSegmentPath(&ipv6SingleHopSessionDetail.OwnerInformation[i])] = types.YChild{"OwnerInformation", &ipv6SingleHopSessionDetail.OwnerInformation[i]}
+        ipv6SingleHopSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv6SingleHopSessionDetail.OwnerInformation[i]), types.YChild{"OwnerInformation", ipv6SingleHopSessionDetail.OwnerInformation[i]})
     }
-    ipv6SingleHopSessionDetail.EntityData.Children["association-information"] = types.YChild{"AssociationInformation", nil}
+    ipv6SingleHopSessionDetail.EntityData.Children.Append("association-information", types.YChild{"AssociationInformation", nil})
     for i := range ipv6SingleHopSessionDetail.AssociationInformation {
-        ipv6SingleHopSessionDetail.EntityData.Children[types.GetSegmentPath(&ipv6SingleHopSessionDetail.AssociationInformation[i])] = types.YChild{"AssociationInformation", &ipv6SingleHopSessionDetail.AssociationInformation[i]}
+        ipv6SingleHopSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv6SingleHopSessionDetail.AssociationInformation[i]), types.YChild{"AssociationInformation", ipv6SingleHopSessionDetail.AssociationInformation[i]})
     }
-    ipv6SingleHopSessionDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6SingleHopSessionDetail.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", ipv6SingleHopSessionDetail.InterfaceName}
-    ipv6SingleHopSessionDetail.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", ipv6SingleHopSessionDetail.DestinationAddress}
-    ipv6SingleHopSessionDetail.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv6SingleHopSessionDetail.Location}
+    ipv6SingleHopSessionDetail.EntityData.Leafs = types.NewOrderedMap()
+    ipv6SingleHopSessionDetail.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", ipv6SingleHopSessionDetail.InterfaceName})
+    ipv6SingleHopSessionDetail.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", ipv6SingleHopSessionDetail.DestinationAddress})
+    ipv6SingleHopSessionDetail.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv6SingleHopSessionDetail.Location})
+
+    ipv6SingleHopSessionDetail.EntityData.YListKeys = []string {}
+
     return &(ipv6SingleHopSessionDetail.EntityData)
 }
 
@@ -10485,7 +11154,7 @@ type Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_StatusInformatio
     LatencyAverage interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Internal Label. The type is interface{} with range: 0..4294967295.
@@ -10530,31 +11199,34 @@ func (statusInformation *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDet
     statusInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusInformation.EntityData.Children = make(map[string]types.YChild)
-    statusInformation.EntityData.Children["source-address"] = types.YChild{"SourceAddress", &statusInformation.SourceAddress}
-    statusInformation.EntityData.Children["last-state-change"] = types.YChild{"LastStateChange", &statusInformation.LastStateChange}
-    statusInformation.EntityData.Children["transmit-packet"] = types.YChild{"TransmitPacket", &statusInformation.TransmitPacket}
-    statusInformation.EntityData.Children["receive-packet"] = types.YChild{"ReceivePacket", &statusInformation.ReceivePacket}
-    statusInformation.EntityData.Children["status-brief-information"] = types.YChild{"StatusBriefInformation", &statusInformation.StatusBriefInformation}
-    statusInformation.EntityData.Children["async-transmit-statistics"] = types.YChild{"AsyncTransmitStatistics", &statusInformation.AsyncTransmitStatistics}
-    statusInformation.EntityData.Children["async-receive-statistics"] = types.YChild{"AsyncReceiveStatistics", &statusInformation.AsyncReceiveStatistics}
-    statusInformation.EntityData.Children["echo-transmit-statistics"] = types.YChild{"EchoTransmitStatistics", &statusInformation.EchoTransmitStatistics}
-    statusInformation.EntityData.Children["echo-received-statistics"] = types.YChild{"EchoReceivedStatistics", &statusInformation.EchoReceivedStatistics}
-    statusInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    statusInformation.EntityData.Leafs["sessiontype"] = types.YLeaf{"Sessiontype", statusInformation.Sessiontype}
-    statusInformation.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", statusInformation.SessionSubtype}
-    statusInformation.EntityData.Leafs["state"] = types.YLeaf{"State", statusInformation.State}
-    statusInformation.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", statusInformation.LocalDiscriminator}
-    statusInformation.EntityData.Leafs["remote-discriminator"] = types.YLeaf{"RemoteDiscriminator", statusInformation.RemoteDiscriminator}
-    statusInformation.EntityData.Leafs["to-up-state-count"] = types.YLeaf{"ToUpStateCount", statusInformation.ToUpStateCount}
-    statusInformation.EntityData.Leafs["desired-minimum-echo-transmit-interval"] = types.YLeaf{"DesiredMinimumEchoTransmitInterval", statusInformation.DesiredMinimumEchoTransmitInterval}
-    statusInformation.EntityData.Leafs["remote-negotiated-interval"] = types.YLeaf{"RemoteNegotiatedInterval", statusInformation.RemoteNegotiatedInterval}
-    statusInformation.EntityData.Leafs["latency-number"] = types.YLeaf{"LatencyNumber", statusInformation.LatencyNumber}
-    statusInformation.EntityData.Leafs["latency-minimum"] = types.YLeaf{"LatencyMinimum", statusInformation.LatencyMinimum}
-    statusInformation.EntityData.Leafs["latency-maximum"] = types.YLeaf{"LatencyMaximum", statusInformation.LatencyMaximum}
-    statusInformation.EntityData.Leafs["latency-average"] = types.YLeaf{"LatencyAverage", statusInformation.LatencyAverage}
-    statusInformation.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", statusInformation.NodeId}
-    statusInformation.EntityData.Leafs["internal-label"] = types.YLeaf{"InternalLabel", statusInformation.InternalLabel}
+    statusInformation.EntityData.Children = types.NewOrderedMap()
+    statusInformation.EntityData.Children.Append("source-address", types.YChild{"SourceAddress", &statusInformation.SourceAddress})
+    statusInformation.EntityData.Children.Append("last-state-change", types.YChild{"LastStateChange", &statusInformation.LastStateChange})
+    statusInformation.EntityData.Children.Append("transmit-packet", types.YChild{"TransmitPacket", &statusInformation.TransmitPacket})
+    statusInformation.EntityData.Children.Append("receive-packet", types.YChild{"ReceivePacket", &statusInformation.ReceivePacket})
+    statusInformation.EntityData.Children.Append("status-brief-information", types.YChild{"StatusBriefInformation", &statusInformation.StatusBriefInformation})
+    statusInformation.EntityData.Children.Append("async-transmit-statistics", types.YChild{"AsyncTransmitStatistics", &statusInformation.AsyncTransmitStatistics})
+    statusInformation.EntityData.Children.Append("async-receive-statistics", types.YChild{"AsyncReceiveStatistics", &statusInformation.AsyncReceiveStatistics})
+    statusInformation.EntityData.Children.Append("echo-transmit-statistics", types.YChild{"EchoTransmitStatistics", &statusInformation.EchoTransmitStatistics})
+    statusInformation.EntityData.Children.Append("echo-received-statistics", types.YChild{"EchoReceivedStatistics", &statusInformation.EchoReceivedStatistics})
+    statusInformation.EntityData.Leafs = types.NewOrderedMap()
+    statusInformation.EntityData.Leafs.Append("sessiontype", types.YLeaf{"Sessiontype", statusInformation.Sessiontype})
+    statusInformation.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", statusInformation.SessionSubtype})
+    statusInformation.EntityData.Leafs.Append("state", types.YLeaf{"State", statusInformation.State})
+    statusInformation.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", statusInformation.LocalDiscriminator})
+    statusInformation.EntityData.Leafs.Append("remote-discriminator", types.YLeaf{"RemoteDiscriminator", statusInformation.RemoteDiscriminator})
+    statusInformation.EntityData.Leafs.Append("to-up-state-count", types.YLeaf{"ToUpStateCount", statusInformation.ToUpStateCount})
+    statusInformation.EntityData.Leafs.Append("desired-minimum-echo-transmit-interval", types.YLeaf{"DesiredMinimumEchoTransmitInterval", statusInformation.DesiredMinimumEchoTransmitInterval})
+    statusInformation.EntityData.Leafs.Append("remote-negotiated-interval", types.YLeaf{"RemoteNegotiatedInterval", statusInformation.RemoteNegotiatedInterval})
+    statusInformation.EntityData.Leafs.Append("latency-number", types.YLeaf{"LatencyNumber", statusInformation.LatencyNumber})
+    statusInformation.EntityData.Leafs.Append("latency-minimum", types.YLeaf{"LatencyMinimum", statusInformation.LatencyMinimum})
+    statusInformation.EntityData.Leafs.Append("latency-maximum", types.YLeaf{"LatencyMaximum", statusInformation.LatencyMaximum})
+    statusInformation.EntityData.Leafs.Append("latency-average", types.YLeaf{"LatencyAverage", statusInformation.LatencyAverage})
+    statusInformation.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", statusInformation.NodeId})
+    statusInformation.EntityData.Leafs.Append("internal-label", types.YLeaf{"InternalLabel", statusInformation.InternalLabel})
+
+    statusInformation.EntityData.YListKeys = []string {}
+
     return &(statusInformation.EntityData)
 }
 
@@ -10571,11 +11243,11 @@ type Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_StatusInformatio
     Dummy interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -10589,12 +11261,15 @@ func (sourceAddress *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_
     sourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourceAddress.EntityData.Children = make(map[string]types.YChild)
-    sourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    sourceAddress.EntityData.Leafs["afi"] = types.YLeaf{"Afi", sourceAddress.Afi}
-    sourceAddress.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", sourceAddress.Dummy}
-    sourceAddress.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", sourceAddress.Ipv4}
-    sourceAddress.EntityData.Leafs["ipv6"] = types.YLeaf{"Ipv6", sourceAddress.Ipv6}
+    sourceAddress.EntityData.Children = types.NewOrderedMap()
+    sourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    sourceAddress.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", sourceAddress.Afi})
+    sourceAddress.EntityData.Leafs.Append("dummy", types.YLeaf{"Dummy", sourceAddress.Dummy})
+    sourceAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", sourceAddress.Ipv4})
+    sourceAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", sourceAddress.Ipv6})
+
+    sourceAddress.EntityData.YListKeys = []string {}
+
     return &(sourceAddress.EntityData)
 }
 
@@ -10631,12 +11306,15 @@ func (lastStateChange *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetai
     lastStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastStateChange.EntityData.Leafs["days"] = types.YLeaf{"Days", lastStateChange.Days}
-    lastStateChange.EntityData.Leafs["hours"] = types.YLeaf{"Hours", lastStateChange.Hours}
-    lastStateChange.EntityData.Leafs["minutes"] = types.YLeaf{"Minutes", lastStateChange.Minutes}
-    lastStateChange.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lastStateChange.Seconds}
+    lastStateChange.EntityData.Children = types.NewOrderedMap()
+    lastStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastStateChange.EntityData.Leafs.Append("days", types.YLeaf{"Days", lastStateChange.Days})
+    lastStateChange.EntityData.Leafs.Append("hours", types.YLeaf{"Hours", lastStateChange.Hours})
+    lastStateChange.EntityData.Leafs.Append("minutes", types.YLeaf{"Minutes", lastStateChange.Minutes})
+    lastStateChange.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lastStateChange.Seconds})
+
+    lastStateChange.EntityData.YListKeys = []string {}
+
     return &(lastStateChange.EntityData)
 }
 
@@ -10711,24 +11389,27 @@ func (transmitPacket *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail
     transmitPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitPacket.EntityData.Children = make(map[string]types.YChild)
-    transmitPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitPacket.EntityData.Leafs["version"] = types.YLeaf{"Version", transmitPacket.Version}
-    transmitPacket.EntityData.Leafs["diagnostic"] = types.YLeaf{"Diagnostic", transmitPacket.Diagnostic}
-    transmitPacket.EntityData.Leafs["ihear-you"] = types.YLeaf{"IhearYou", transmitPacket.IhearYou}
-    transmitPacket.EntityData.Leafs["state"] = types.YLeaf{"State", transmitPacket.State}
-    transmitPacket.EntityData.Leafs["demand"] = types.YLeaf{"Demand", transmitPacket.Demand}
-    transmitPacket.EntityData.Leafs["poll"] = types.YLeaf{"Poll", transmitPacket.Poll}
-    transmitPacket.EntityData.Leafs["final"] = types.YLeaf{"Final", transmitPacket.Final}
-    transmitPacket.EntityData.Leafs["control-plane-independent"] = types.YLeaf{"ControlPlaneIndependent", transmitPacket.ControlPlaneIndependent}
-    transmitPacket.EntityData.Leafs["authentication-present"] = types.YLeaf{"AuthenticationPresent", transmitPacket.AuthenticationPresent}
-    transmitPacket.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", transmitPacket.DetectionMultiplier}
-    transmitPacket.EntityData.Leafs["length"] = types.YLeaf{"Length", transmitPacket.Length}
-    transmitPacket.EntityData.Leafs["my-discriminator"] = types.YLeaf{"MyDiscriminator", transmitPacket.MyDiscriminator}
-    transmitPacket.EntityData.Leafs["your-discriminator"] = types.YLeaf{"YourDiscriminator", transmitPacket.YourDiscriminator}
-    transmitPacket.EntityData.Leafs["desired-minimum-transmit-interval"] = types.YLeaf{"DesiredMinimumTransmitInterval", transmitPacket.DesiredMinimumTransmitInterval}
-    transmitPacket.EntityData.Leafs["required-minimum-receive-interval"] = types.YLeaf{"RequiredMinimumReceiveInterval", transmitPacket.RequiredMinimumReceiveInterval}
-    transmitPacket.EntityData.Leafs["required-minimum-echo-receive-interval"] = types.YLeaf{"RequiredMinimumEchoReceiveInterval", transmitPacket.RequiredMinimumEchoReceiveInterval}
+    transmitPacket.EntityData.Children = types.NewOrderedMap()
+    transmitPacket.EntityData.Leafs = types.NewOrderedMap()
+    transmitPacket.EntityData.Leafs.Append("version", types.YLeaf{"Version", transmitPacket.Version})
+    transmitPacket.EntityData.Leafs.Append("diagnostic", types.YLeaf{"Diagnostic", transmitPacket.Diagnostic})
+    transmitPacket.EntityData.Leafs.Append("ihear-you", types.YLeaf{"IhearYou", transmitPacket.IhearYou})
+    transmitPacket.EntityData.Leafs.Append("state", types.YLeaf{"State", transmitPacket.State})
+    transmitPacket.EntityData.Leafs.Append("demand", types.YLeaf{"Demand", transmitPacket.Demand})
+    transmitPacket.EntityData.Leafs.Append("poll", types.YLeaf{"Poll", transmitPacket.Poll})
+    transmitPacket.EntityData.Leafs.Append("final", types.YLeaf{"Final", transmitPacket.Final})
+    transmitPacket.EntityData.Leafs.Append("control-plane-independent", types.YLeaf{"ControlPlaneIndependent", transmitPacket.ControlPlaneIndependent})
+    transmitPacket.EntityData.Leafs.Append("authentication-present", types.YLeaf{"AuthenticationPresent", transmitPacket.AuthenticationPresent})
+    transmitPacket.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", transmitPacket.DetectionMultiplier})
+    transmitPacket.EntityData.Leafs.Append("length", types.YLeaf{"Length", transmitPacket.Length})
+    transmitPacket.EntityData.Leafs.Append("my-discriminator", types.YLeaf{"MyDiscriminator", transmitPacket.MyDiscriminator})
+    transmitPacket.EntityData.Leafs.Append("your-discriminator", types.YLeaf{"YourDiscriminator", transmitPacket.YourDiscriminator})
+    transmitPacket.EntityData.Leafs.Append("desired-minimum-transmit-interval", types.YLeaf{"DesiredMinimumTransmitInterval", transmitPacket.DesiredMinimumTransmitInterval})
+    transmitPacket.EntityData.Leafs.Append("required-minimum-receive-interval", types.YLeaf{"RequiredMinimumReceiveInterval", transmitPacket.RequiredMinimumReceiveInterval})
+    transmitPacket.EntityData.Leafs.Append("required-minimum-echo-receive-interval", types.YLeaf{"RequiredMinimumEchoReceiveInterval", transmitPacket.RequiredMinimumEchoReceiveInterval})
+
+    transmitPacket.EntityData.YListKeys = []string {}
+
     return &(transmitPacket.EntityData)
 }
 
@@ -10803,24 +11484,27 @@ func (receivePacket *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_
     receivePacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivePacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivePacket.EntityData.Children = make(map[string]types.YChild)
-    receivePacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivePacket.EntityData.Leafs["version"] = types.YLeaf{"Version", receivePacket.Version}
-    receivePacket.EntityData.Leafs["diagnostic"] = types.YLeaf{"Diagnostic", receivePacket.Diagnostic}
-    receivePacket.EntityData.Leafs["ihear-you"] = types.YLeaf{"IhearYou", receivePacket.IhearYou}
-    receivePacket.EntityData.Leafs["state"] = types.YLeaf{"State", receivePacket.State}
-    receivePacket.EntityData.Leafs["demand"] = types.YLeaf{"Demand", receivePacket.Demand}
-    receivePacket.EntityData.Leafs["poll"] = types.YLeaf{"Poll", receivePacket.Poll}
-    receivePacket.EntityData.Leafs["final"] = types.YLeaf{"Final", receivePacket.Final}
-    receivePacket.EntityData.Leafs["control-plane-independent"] = types.YLeaf{"ControlPlaneIndependent", receivePacket.ControlPlaneIndependent}
-    receivePacket.EntityData.Leafs["authentication-present"] = types.YLeaf{"AuthenticationPresent", receivePacket.AuthenticationPresent}
-    receivePacket.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", receivePacket.DetectionMultiplier}
-    receivePacket.EntityData.Leafs["length"] = types.YLeaf{"Length", receivePacket.Length}
-    receivePacket.EntityData.Leafs["my-discriminator"] = types.YLeaf{"MyDiscriminator", receivePacket.MyDiscriminator}
-    receivePacket.EntityData.Leafs["your-discriminator"] = types.YLeaf{"YourDiscriminator", receivePacket.YourDiscriminator}
-    receivePacket.EntityData.Leafs["desired-minimum-transmit-interval"] = types.YLeaf{"DesiredMinimumTransmitInterval", receivePacket.DesiredMinimumTransmitInterval}
-    receivePacket.EntityData.Leafs["required-minimum-receive-interval"] = types.YLeaf{"RequiredMinimumReceiveInterval", receivePacket.RequiredMinimumReceiveInterval}
-    receivePacket.EntityData.Leafs["required-minimum-echo-receive-interval"] = types.YLeaf{"RequiredMinimumEchoReceiveInterval", receivePacket.RequiredMinimumEchoReceiveInterval}
+    receivePacket.EntityData.Children = types.NewOrderedMap()
+    receivePacket.EntityData.Leafs = types.NewOrderedMap()
+    receivePacket.EntityData.Leafs.Append("version", types.YLeaf{"Version", receivePacket.Version})
+    receivePacket.EntityData.Leafs.Append("diagnostic", types.YLeaf{"Diagnostic", receivePacket.Diagnostic})
+    receivePacket.EntityData.Leafs.Append("ihear-you", types.YLeaf{"IhearYou", receivePacket.IhearYou})
+    receivePacket.EntityData.Leafs.Append("state", types.YLeaf{"State", receivePacket.State})
+    receivePacket.EntityData.Leafs.Append("demand", types.YLeaf{"Demand", receivePacket.Demand})
+    receivePacket.EntityData.Leafs.Append("poll", types.YLeaf{"Poll", receivePacket.Poll})
+    receivePacket.EntityData.Leafs.Append("final", types.YLeaf{"Final", receivePacket.Final})
+    receivePacket.EntityData.Leafs.Append("control-plane-independent", types.YLeaf{"ControlPlaneIndependent", receivePacket.ControlPlaneIndependent})
+    receivePacket.EntityData.Leafs.Append("authentication-present", types.YLeaf{"AuthenticationPresent", receivePacket.AuthenticationPresent})
+    receivePacket.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", receivePacket.DetectionMultiplier})
+    receivePacket.EntityData.Leafs.Append("length", types.YLeaf{"Length", receivePacket.Length})
+    receivePacket.EntityData.Leafs.Append("my-discriminator", types.YLeaf{"MyDiscriminator", receivePacket.MyDiscriminator})
+    receivePacket.EntityData.Leafs.Append("your-discriminator", types.YLeaf{"YourDiscriminator", receivePacket.YourDiscriminator})
+    receivePacket.EntityData.Leafs.Append("desired-minimum-transmit-interval", types.YLeaf{"DesiredMinimumTransmitInterval", receivePacket.DesiredMinimumTransmitInterval})
+    receivePacket.EntityData.Leafs.Append("required-minimum-receive-interval", types.YLeaf{"RequiredMinimumReceiveInterval", receivePacket.RequiredMinimumReceiveInterval})
+    receivePacket.EntityData.Leafs.Append("required-minimum-echo-receive-interval", types.YLeaf{"RequiredMinimumEchoReceiveInterval", receivePacket.RequiredMinimumEchoReceiveInterval})
+
+    receivePacket.EntityData.YListKeys = []string {}
+
     return &(receivePacket.EntityData)
 }
 
@@ -10847,10 +11531,13 @@ func (statusBriefInformation *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessi
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusBriefInformation.EntityData.Children = make(map[string]types.YChild)
-    statusBriefInformation.EntityData.Children["async-interval-multiplier"] = types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier}
-    statusBriefInformation.EntityData.Children["echo-interval-multiplier"] = types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier}
-    statusBriefInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    statusBriefInformation.EntityData.Children = types.NewOrderedMap()
+    statusBriefInformation.EntityData.Children.Append("async-interval-multiplier", types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier})
+    statusBriefInformation.EntityData.Children.Append("echo-interval-multiplier", types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier})
+    statusBriefInformation.EntityData.Leafs = types.NewOrderedMap()
+
+    statusBriefInformation.EntityData.YListKeys = []string {}
+
     return &(statusBriefInformation.EntityData)
 }
 
@@ -10886,12 +11573,15 @@ func (asyncIntervalMultiplier *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSess
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    asyncIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-remote-transmit-interval"] = types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-local-transmit-interval"] = types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier}
+    asyncIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-remote-transmit-interval", types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-local-transmit-interval", types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier})
+
+    asyncIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(asyncIntervalMultiplier.EntityData)
 }
 
@@ -10923,11 +11613,14 @@ func (echoIntervalMultiplier *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessi
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    echoIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoIntervalMultiplier.EntityData.Leafs["negotiated-transmit-interval"] = types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval}
-    echoIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime}
-    echoIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier}
+    echoIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs.Append("negotiated-transmit-interval", types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier})
+
+    echoIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(echoIntervalMultiplier.EntityData)
 }
 
@@ -10969,13 +11662,16 @@ func (asyncTransmitStatistics *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSess
     asyncTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncTransmitStatistics.EntityData.Children = make(map[string]types.YChild)
-    asyncTransmitStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncTransmitStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", asyncTransmitStatistics.Number}
-    asyncTransmitStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", asyncTransmitStatistics.Minimum}
-    asyncTransmitStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", asyncTransmitStatistics.Maximum}
-    asyncTransmitStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", asyncTransmitStatistics.Average}
-    asyncTransmitStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", asyncTransmitStatistics.Last}
+    asyncTransmitStatistics.EntityData.Children = types.NewOrderedMap()
+    asyncTransmitStatistics.EntityData.Leafs = types.NewOrderedMap()
+    asyncTransmitStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", asyncTransmitStatistics.Number})
+    asyncTransmitStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", asyncTransmitStatistics.Minimum})
+    asyncTransmitStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", asyncTransmitStatistics.Maximum})
+    asyncTransmitStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", asyncTransmitStatistics.Average})
+    asyncTransmitStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", asyncTransmitStatistics.Last})
+
+    asyncTransmitStatistics.EntityData.YListKeys = []string {}
+
     return &(asyncTransmitStatistics.EntityData)
 }
 
@@ -11017,13 +11713,16 @@ func (asyncReceiveStatistics *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessi
     asyncReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncReceiveStatistics.EntityData.Children = make(map[string]types.YChild)
-    asyncReceiveStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncReceiveStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", asyncReceiveStatistics.Number}
-    asyncReceiveStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", asyncReceiveStatistics.Minimum}
-    asyncReceiveStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", asyncReceiveStatistics.Maximum}
-    asyncReceiveStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", asyncReceiveStatistics.Average}
-    asyncReceiveStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", asyncReceiveStatistics.Last}
+    asyncReceiveStatistics.EntityData.Children = types.NewOrderedMap()
+    asyncReceiveStatistics.EntityData.Leafs = types.NewOrderedMap()
+    asyncReceiveStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", asyncReceiveStatistics.Number})
+    asyncReceiveStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", asyncReceiveStatistics.Minimum})
+    asyncReceiveStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", asyncReceiveStatistics.Maximum})
+    asyncReceiveStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", asyncReceiveStatistics.Average})
+    asyncReceiveStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", asyncReceiveStatistics.Last})
+
+    asyncReceiveStatistics.EntityData.YListKeys = []string {}
+
     return &(asyncReceiveStatistics.EntityData)
 }
 
@@ -11065,13 +11764,16 @@ func (echoTransmitStatistics *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessi
     echoTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoTransmitStatistics.EntityData.Children = make(map[string]types.YChild)
-    echoTransmitStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoTransmitStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", echoTransmitStatistics.Number}
-    echoTransmitStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", echoTransmitStatistics.Minimum}
-    echoTransmitStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", echoTransmitStatistics.Maximum}
-    echoTransmitStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", echoTransmitStatistics.Average}
-    echoTransmitStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", echoTransmitStatistics.Last}
+    echoTransmitStatistics.EntityData.Children = types.NewOrderedMap()
+    echoTransmitStatistics.EntityData.Leafs = types.NewOrderedMap()
+    echoTransmitStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", echoTransmitStatistics.Number})
+    echoTransmitStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", echoTransmitStatistics.Minimum})
+    echoTransmitStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", echoTransmitStatistics.Maximum})
+    echoTransmitStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", echoTransmitStatistics.Average})
+    echoTransmitStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", echoTransmitStatistics.Last})
+
+    echoTransmitStatistics.EntityData.YListKeys = []string {}
+
     return &(echoTransmitStatistics.EntityData)
 }
 
@@ -11113,13 +11815,16 @@ func (echoReceivedStatistics *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessi
     echoReceivedStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoReceivedStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoReceivedStatistics.EntityData.Children = make(map[string]types.YChild)
-    echoReceivedStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoReceivedStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", echoReceivedStatistics.Number}
-    echoReceivedStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", echoReceivedStatistics.Minimum}
-    echoReceivedStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", echoReceivedStatistics.Maximum}
-    echoReceivedStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", echoReceivedStatistics.Average}
-    echoReceivedStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", echoReceivedStatistics.Last}
+    echoReceivedStatistics.EntityData.Children = types.NewOrderedMap()
+    echoReceivedStatistics.EntityData.Leafs = types.NewOrderedMap()
+    echoReceivedStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", echoReceivedStatistics.Number})
+    echoReceivedStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", echoReceivedStatistics.Minimum})
+    echoReceivedStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", echoReceivedStatistics.Maximum})
+    echoReceivedStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", echoReceivedStatistics.Average})
+    echoReceivedStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", echoReceivedStatistics.Last})
+
+    echoReceivedStatistics.EntityData.YListKeys = []string {}
+
     return &(echoReceivedStatistics.EntityData)
 }
 
@@ -11146,10 +11851,13 @@ func (mpDownloadState *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetai
     mpDownloadState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpDownloadState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mpDownloadState.EntityData.Children = make(map[string]types.YChild)
-    mpDownloadState.EntityData.Children["change-time"] = types.YChild{"ChangeTime", &mpDownloadState.ChangeTime}
-    mpDownloadState.EntityData.Leafs = make(map[string]types.YLeaf)
-    mpDownloadState.EntityData.Leafs["mp-download-state"] = types.YLeaf{"MpDownloadState", mpDownloadState.MpDownloadState}
+    mpDownloadState.EntityData.Children = types.NewOrderedMap()
+    mpDownloadState.EntityData.Children.Append("change-time", types.YChild{"ChangeTime", &mpDownloadState.ChangeTime})
+    mpDownloadState.EntityData.Leafs = types.NewOrderedMap()
+    mpDownloadState.EntityData.Leafs.Append("mp-download-state", types.YLeaf{"MpDownloadState", mpDownloadState.MpDownloadState})
+
+    mpDownloadState.EntityData.YListKeys = []string {}
+
     return &(mpDownloadState.EntityData)
 }
 
@@ -11178,10 +11886,13 @@ func (changeTime *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_MpD
     changeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    changeTime.EntityData.Children = make(map[string]types.YChild)
-    changeTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    changeTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", changeTime.Seconds}
-    changeTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", changeTime.Nanoseconds}
+    changeTime.EntityData.Children = types.NewOrderedMap()
+    changeTime.EntityData.Leafs = types.NewOrderedMap()
+    changeTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", changeTime.Seconds})
+    changeTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", changeTime.Nanoseconds})
+
+    changeTime.EntityData.YListKeys = []string {}
+
     return &(changeTime.EntityData)
 }
 
@@ -11240,20 +11951,23 @@ func (lspPingInfo *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_Ls
     lspPingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingInfo.EntityData.Children = make(map[string]types.YChild)
-    lspPingInfo.EntityData.Children["lsp-ping-tx-last-time"] = types.YChild{"LspPingTxLastTime", &lspPingInfo.LspPingTxLastTime}
-    lspPingInfo.EntityData.Children["lsp-ping-tx-last-error-time"] = types.YChild{"LspPingTxLastErrorTime", &lspPingInfo.LspPingTxLastErrorTime}
-    lspPingInfo.EntityData.Children["lsp-ping-rx-last-time"] = types.YChild{"LspPingRxLastTime", &lspPingInfo.LspPingRxLastTime}
-    lspPingInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-count"] = types.YLeaf{"LspPingTxCount", lspPingInfo.LspPingTxCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-error-count"] = types.YLeaf{"LspPingTxErrorCount", lspPingInfo.LspPingTxErrorCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-last-rc"] = types.YLeaf{"LspPingTxLastRc", lspPingInfo.LspPingTxLastRc}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-last-error-rc"] = types.YLeaf{"LspPingTxLastErrorRc", lspPingInfo.LspPingTxLastErrorRc}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-discr"] = types.YLeaf{"LspPingRxLastDiscr", lspPingInfo.LspPingRxLastDiscr}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-count"] = types.YLeaf{"LspPingRxCount", lspPingInfo.LspPingRxCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-code"] = types.YLeaf{"LspPingRxLastCode", lspPingInfo.LspPingRxLastCode}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-subcode"] = types.YLeaf{"LspPingRxLastSubcode", lspPingInfo.LspPingRxLastSubcode}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-output"] = types.YLeaf{"LspPingRxLastOutput", lspPingInfo.LspPingRxLastOutput}
+    lspPingInfo.EntityData.Children = types.NewOrderedMap()
+    lspPingInfo.EntityData.Children.Append("lsp-ping-tx-last-time", types.YChild{"LspPingTxLastTime", &lspPingInfo.LspPingTxLastTime})
+    lspPingInfo.EntityData.Children.Append("lsp-ping-tx-last-error-time", types.YChild{"LspPingTxLastErrorTime", &lspPingInfo.LspPingTxLastErrorTime})
+    lspPingInfo.EntityData.Children.Append("lsp-ping-rx-last-time", types.YChild{"LspPingRxLastTime", &lspPingInfo.LspPingRxLastTime})
+    lspPingInfo.EntityData.Leafs = types.NewOrderedMap()
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-count", types.YLeaf{"LspPingTxCount", lspPingInfo.LspPingTxCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-error-count", types.YLeaf{"LspPingTxErrorCount", lspPingInfo.LspPingTxErrorCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-last-rc", types.YLeaf{"LspPingTxLastRc", lspPingInfo.LspPingTxLastRc})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-last-error-rc", types.YLeaf{"LspPingTxLastErrorRc", lspPingInfo.LspPingTxLastErrorRc})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-discr", types.YLeaf{"LspPingRxLastDiscr", lspPingInfo.LspPingRxLastDiscr})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-count", types.YLeaf{"LspPingRxCount", lspPingInfo.LspPingRxCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-code", types.YLeaf{"LspPingRxLastCode", lspPingInfo.LspPingRxLastCode})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-subcode", types.YLeaf{"LspPingRxLastSubcode", lspPingInfo.LspPingRxLastSubcode})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-output", types.YLeaf{"LspPingRxLastOutput", lspPingInfo.LspPingRxLastOutput})
+
+    lspPingInfo.EntityData.YListKeys = []string {}
+
     return &(lspPingInfo.EntityData)
 }
 
@@ -11282,10 +11996,13 @@ func (lspPingTxLastTime *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDet
     lspPingTxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingTxLastTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingTxLastTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingTxLastTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingTxLastTime.Seconds}
-    lspPingTxLastTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingTxLastTime.Nanoseconds}
+    lspPingTxLastTime.EntityData.Children = types.NewOrderedMap()
+    lspPingTxLastTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingTxLastTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingTxLastTime.Seconds})
+    lspPingTxLastTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingTxLastTime.Nanoseconds})
+
+    lspPingTxLastTime.EntityData.YListKeys = []string {}
+
     return &(lspPingTxLastTime.EntityData)
 }
 
@@ -11314,10 +12031,13 @@ func (lspPingTxLastErrorTime *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessi
     lspPingTxLastErrorTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastErrorTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingTxLastErrorTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingTxLastErrorTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingTxLastErrorTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingTxLastErrorTime.Seconds}
-    lspPingTxLastErrorTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingTxLastErrorTime.Nanoseconds}
+    lspPingTxLastErrorTime.EntityData.Children = types.NewOrderedMap()
+    lspPingTxLastErrorTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingTxLastErrorTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingTxLastErrorTime.Seconds})
+    lspPingTxLastErrorTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingTxLastErrorTime.Nanoseconds})
+
+    lspPingTxLastErrorTime.EntityData.YListKeys = []string {}
+
     return &(lspPingTxLastErrorTime.EntityData)
 }
 
@@ -11346,10 +12066,13 @@ func (lspPingRxLastTime *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDet
     lspPingRxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingRxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingRxLastTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingRxLastTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingRxLastTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingRxLastTime.Seconds}
-    lspPingRxLastTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingRxLastTime.Nanoseconds}
+    lspPingRxLastTime.EntityData.Children = types.NewOrderedMap()
+    lspPingRxLastTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingRxLastTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingRxLastTime.Seconds})
+    lspPingRxLastTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingRxLastTime.Nanoseconds})
+
+    lspPingRxLastTime.EntityData.YListKeys = []string {}
+
     return &(lspPingRxLastTime.EntityData)
 }
 
@@ -11389,13 +12112,16 @@ func (ownerInformation *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDeta
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ownerInformation.EntityData.Children = make(map[string]types.YChild)
-    ownerInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    ownerInformation.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ownerInformation.Interval}
-    ownerInformation.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier}
-    ownerInformation.EntityData.Leafs["adjusted-interval"] = types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval}
-    ownerInformation.EntityData.Leafs["adjusted-detection-multiplier"] = types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier}
-    ownerInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", ownerInformation.Name}
+    ownerInformation.EntityData.Children = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ownerInformation.Interval})
+    ownerInformation.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("adjusted-interval", types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval})
+    ownerInformation.EntityData.Leafs.Append("adjusted-detection-multiplier", types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", ownerInformation.Name})
+
+    ownerInformation.EntityData.YListKeys = []string {}
+
     return &(ownerInformation.EntityData)
 }
 
@@ -11420,7 +12146,7 @@ type Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_AssociationInfor
 
     // Client applications owning the session. The type is slice of
     // Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_AssociationInformation_OwnerInformation.
-    OwnerInformation []Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_AssociationInformation_OwnerInformation
+    OwnerInformation []*Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_AssociationInformation_OwnerInformation
 }
 
 func (associationInformation *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_AssociationInformation) GetEntityData() *types.CommonEntityData {
@@ -11433,16 +12159,19 @@ func (associationInformation *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessi
     associationInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    associationInformation.EntityData.Children = make(map[string]types.YChild)
-    associationInformation.EntityData.Children["ip-destination-address"] = types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress}
-    associationInformation.EntityData.Children["owner-information"] = types.YChild{"OwnerInformation", nil}
+    associationInformation.EntityData.Children = types.NewOrderedMap()
+    associationInformation.EntityData.Children.Append("ip-destination-address", types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress})
+    associationInformation.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range associationInformation.OwnerInformation {
-        associationInformation.EntityData.Children[types.GetSegmentPath(&associationInformation.OwnerInformation[i])] = types.YChild{"OwnerInformation", &associationInformation.OwnerInformation[i]}
+        associationInformation.EntityData.Children.Append(types.GetSegmentPath(associationInformation.OwnerInformation[i]), types.YChild{"OwnerInformation", associationInformation.OwnerInformation[i]})
     }
-    associationInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    associationInformation.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", associationInformation.InterfaceName}
-    associationInformation.EntityData.Leafs["sessiontype"] = types.YLeaf{"Sessiontype", associationInformation.Sessiontype}
-    associationInformation.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", associationInformation.LocalDiscriminator}
+    associationInformation.EntityData.Leafs = types.NewOrderedMap()
+    associationInformation.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", associationInformation.InterfaceName})
+    associationInformation.EntityData.Leafs.Append("sessiontype", types.YLeaf{"Sessiontype", associationInformation.Sessiontype})
+    associationInformation.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", associationInformation.LocalDiscriminator})
+
+    associationInformation.EntityData.YListKeys = []string {}
+
     return &(associationInformation.EntityData)
 }
 
@@ -11459,11 +12188,11 @@ type Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_AssociationInfor
     Dummy interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -11477,12 +12206,15 @@ func (ipDestinationAddress *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSession
     ipDestinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDestinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipDestinationAddress.EntityData.Children = make(map[string]types.YChild)
-    ipDestinationAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipDestinationAddress.EntityData.Leafs["afi"] = types.YLeaf{"Afi", ipDestinationAddress.Afi}
-    ipDestinationAddress.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", ipDestinationAddress.Dummy}
-    ipDestinationAddress.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", ipDestinationAddress.Ipv4}
-    ipDestinationAddress.EntityData.Leafs["ipv6"] = types.YLeaf{"Ipv6", ipDestinationAddress.Ipv6}
+    ipDestinationAddress.EntityData.Children = types.NewOrderedMap()
+    ipDestinationAddress.EntityData.Leafs = types.NewOrderedMap()
+    ipDestinationAddress.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", ipDestinationAddress.Afi})
+    ipDestinationAddress.EntityData.Leafs.Append("dummy", types.YLeaf{"Dummy", ipDestinationAddress.Dummy})
+    ipDestinationAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", ipDestinationAddress.Ipv4})
+    ipDestinationAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", ipDestinationAddress.Ipv6})
+
+    ipDestinationAddress.EntityData.YListKeys = []string {}
+
     return &(ipDestinationAddress.EntityData)
 }
 
@@ -11522,13 +12254,16 @@ func (ownerInformation *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDeta
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ownerInformation.EntityData.Children = make(map[string]types.YChild)
-    ownerInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    ownerInformation.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ownerInformation.Interval}
-    ownerInformation.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier}
-    ownerInformation.EntityData.Leafs["adjusted-interval"] = types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval}
-    ownerInformation.EntityData.Leafs["adjusted-detection-multiplier"] = types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier}
-    ownerInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", ownerInformation.Name}
+    ownerInformation.EntityData.Children = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ownerInformation.Interval})
+    ownerInformation.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("adjusted-interval", types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval})
+    ownerInformation.EntityData.Leafs.Append("adjusted-detection-multiplier", types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", ownerInformation.Name})
+
+    ownerInformation.EntityData.YListKeys = []string {}
+
     return &(ownerInformation.EntityData)
 }
 
@@ -11552,9 +12287,12 @@ func (ipv4MultiHopCounters *Bfd_Ipv4MultiHopCounters) GetEntityData() *types.Com
     ipv4MultiHopCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4MultiHopCounters.EntityData.Children = make(map[string]types.YChild)
-    ipv4MultiHopCounters.EntityData.Children["ipv4-multi-hop-packet-counters"] = types.YChild{"Ipv4MultiHopPacketCounters", &ipv4MultiHopCounters.Ipv4MultiHopPacketCounters}
-    ipv4MultiHopCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4MultiHopCounters.EntityData.Children = types.NewOrderedMap()
+    ipv4MultiHopCounters.EntityData.Children.Append("ipv4-multi-hop-packet-counters", types.YChild{"Ipv4MultiHopPacketCounters", &ipv4MultiHopCounters.Ipv4MultiHopPacketCounters})
+    ipv4MultiHopCounters.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4MultiHopCounters.EntityData.YListKeys = []string {}
+
     return &(ipv4MultiHopCounters.EntityData)
 }
 
@@ -11566,7 +12304,7 @@ type Bfd_Ipv4MultiHopCounters_Ipv4MultiHopPacketCounters struct {
 
     // IPv4 multiple hop Packet counters. The type is slice of
     // Bfd_Ipv4MultiHopCounters_Ipv4MultiHopPacketCounters_Ipv4MultiHopPacketCounter.
-    Ipv4MultiHopPacketCounter []Bfd_Ipv4MultiHopCounters_Ipv4MultiHopPacketCounters_Ipv4MultiHopPacketCounter
+    Ipv4MultiHopPacketCounter []*Bfd_Ipv4MultiHopCounters_Ipv4MultiHopPacketCounters_Ipv4MultiHopPacketCounter
 }
 
 func (ipv4MultiHopPacketCounters *Bfd_Ipv4MultiHopCounters_Ipv4MultiHopPacketCounters) GetEntityData() *types.CommonEntityData {
@@ -11579,12 +12317,15 @@ func (ipv4MultiHopPacketCounters *Bfd_Ipv4MultiHopCounters_Ipv4MultiHopPacketCou
     ipv4MultiHopPacketCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopPacketCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4MultiHopPacketCounters.EntityData.Children = make(map[string]types.YChild)
-    ipv4MultiHopPacketCounters.EntityData.Children["ipv4-multi-hop-packet-counter"] = types.YChild{"Ipv4MultiHopPacketCounter", nil}
+    ipv4MultiHopPacketCounters.EntityData.Children = types.NewOrderedMap()
+    ipv4MultiHopPacketCounters.EntityData.Children.Append("ipv4-multi-hop-packet-counter", types.YChild{"Ipv4MultiHopPacketCounter", nil})
     for i := range ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter {
-        ipv4MultiHopPacketCounters.EntityData.Children[types.GetSegmentPath(&ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter[i])] = types.YChild{"Ipv4MultiHopPacketCounter", &ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter[i]}
+        ipv4MultiHopPacketCounters.EntityData.Children.Append(types.GetSegmentPath(ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter[i]), types.YChild{"Ipv4MultiHopPacketCounter", ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter[i]})
     }
-    ipv4MultiHopPacketCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4MultiHopPacketCounters.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4MultiHopPacketCounters.EntityData.YListKeys = []string {}
+
     return &(ipv4MultiHopPacketCounters.EntityData)
 }
 
@@ -11596,23 +12337,23 @@ type Bfd_Ipv4MultiHopCounters_Ipv4MultiHopPacketCounters_Ipv4MultiHopPacketCount
 
     // Source Address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Destination Address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
-    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Number of Hellos transmitted. The type is interface{} with range:
@@ -11645,17 +12386,20 @@ func (ipv4MultiHopPacketCounter *Bfd_Ipv4MultiHopCounters_Ipv4MultiHopPacketCoun
     ipv4MultiHopPacketCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopPacketCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4MultiHopPacketCounter.EntityData.Children = make(map[string]types.YChild)
-    ipv4MultiHopPacketCounter.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4MultiHopPacketCounter.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", ipv4MultiHopPacketCounter.SourceAddress}
-    ipv4MultiHopPacketCounter.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", ipv4MultiHopPacketCounter.DestinationAddress}
-    ipv4MultiHopPacketCounter.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv4MultiHopPacketCounter.Location}
-    ipv4MultiHopPacketCounter.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4MultiHopPacketCounter.VrfName}
-    ipv4MultiHopPacketCounter.EntityData.Leafs["hello-transmit-count"] = types.YLeaf{"HelloTransmitCount", ipv4MultiHopPacketCounter.HelloTransmitCount}
-    ipv4MultiHopPacketCounter.EntityData.Leafs["hello-receive-count"] = types.YLeaf{"HelloReceiveCount", ipv4MultiHopPacketCounter.HelloReceiveCount}
-    ipv4MultiHopPacketCounter.EntityData.Leafs["echo-transmit-count"] = types.YLeaf{"EchoTransmitCount", ipv4MultiHopPacketCounter.EchoTransmitCount}
-    ipv4MultiHopPacketCounter.EntityData.Leafs["echo-receive-count"] = types.YLeaf{"EchoReceiveCount", ipv4MultiHopPacketCounter.EchoReceiveCount}
-    ipv4MultiHopPacketCounter.EntityData.Leafs["display-type"] = types.YLeaf{"DisplayType", ipv4MultiHopPacketCounter.DisplayType}
+    ipv4MultiHopPacketCounter.EntityData.Children = types.NewOrderedMap()
+    ipv4MultiHopPacketCounter.EntityData.Leafs = types.NewOrderedMap()
+    ipv4MultiHopPacketCounter.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", ipv4MultiHopPacketCounter.SourceAddress})
+    ipv4MultiHopPacketCounter.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", ipv4MultiHopPacketCounter.DestinationAddress})
+    ipv4MultiHopPacketCounter.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv4MultiHopPacketCounter.Location})
+    ipv4MultiHopPacketCounter.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4MultiHopPacketCounter.VrfName})
+    ipv4MultiHopPacketCounter.EntityData.Leafs.Append("hello-transmit-count", types.YLeaf{"HelloTransmitCount", ipv4MultiHopPacketCounter.HelloTransmitCount})
+    ipv4MultiHopPacketCounter.EntityData.Leafs.Append("hello-receive-count", types.YLeaf{"HelloReceiveCount", ipv4MultiHopPacketCounter.HelloReceiveCount})
+    ipv4MultiHopPacketCounter.EntityData.Leafs.Append("echo-transmit-count", types.YLeaf{"EchoTransmitCount", ipv4MultiHopPacketCounter.EchoTransmitCount})
+    ipv4MultiHopPacketCounter.EntityData.Leafs.Append("echo-receive-count", types.YLeaf{"EchoReceiveCount", ipv4MultiHopPacketCounter.EchoReceiveCount})
+    ipv4MultiHopPacketCounter.EntityData.Leafs.Append("display-type", types.YLeaf{"DisplayType", ipv4MultiHopPacketCounter.DisplayType})
+
+    ipv4MultiHopPacketCounter.EntityData.YListKeys = []string {}
+
     return &(ipv4MultiHopPacketCounter.EntityData)
 }
 
@@ -11668,7 +12412,7 @@ type Bfd_SessionDetails struct {
 
     // Detailed information for a single IPv4 singlehop BFD session. The type is
     // slice of Bfd_SessionDetails_SessionDetail.
-    SessionDetail []Bfd_SessionDetails_SessionDetail
+    SessionDetail []*Bfd_SessionDetails_SessionDetail
 }
 
 func (sessionDetails *Bfd_SessionDetails) GetEntityData() *types.CommonEntityData {
@@ -11681,12 +12425,15 @@ func (sessionDetails *Bfd_SessionDetails) GetEntityData() *types.CommonEntityDat
     sessionDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionDetails.EntityData.Children = make(map[string]types.YChild)
-    sessionDetails.EntityData.Children["session-detail"] = types.YChild{"SessionDetail", nil}
+    sessionDetails.EntityData.Children = types.NewOrderedMap()
+    sessionDetails.EntityData.Children.Append("session-detail", types.YChild{"SessionDetail", nil})
     for i := range sessionDetails.SessionDetail {
-        sessionDetails.EntityData.Children[types.GetSegmentPath(&sessionDetails.SessionDetail[i])] = types.YChild{"SessionDetail", &sessionDetails.SessionDetail[i]}
+        sessionDetails.EntityData.Children.Append(types.GetSegmentPath(sessionDetails.SessionDetail[i]), types.YChild{"SessionDetail", sessionDetails.SessionDetail[i]})
     }
-    sessionDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessionDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    sessionDetails.EntityData.YListKeys = []string {}
+
     return &(sessionDetails.EntityData)
 }
 
@@ -11697,15 +12444,15 @@ type Bfd_SessionDetails_SessionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Session status information.
@@ -11719,11 +12466,11 @@ type Bfd_SessionDetails_SessionDetail struct {
 
     // Client applications owning the session. The type is slice of
     // Bfd_SessionDetails_SessionDetail_OwnerInformation.
-    OwnerInformation []Bfd_SessionDetails_SessionDetail_OwnerInformation
+    OwnerInformation []*Bfd_SessionDetails_SessionDetail_OwnerInformation
 
     // Association session information. The type is slice of
     // Bfd_SessionDetails_SessionDetail_AssociationInformation.
-    AssociationInformation []Bfd_SessionDetails_SessionDetail_AssociationInformation
+    AssociationInformation []*Bfd_SessionDetails_SessionDetail_AssociationInformation
 }
 
 func (sessionDetail *Bfd_SessionDetails_SessionDetail) GetEntityData() *types.CommonEntityData {
@@ -11736,22 +12483,25 @@ func (sessionDetail *Bfd_SessionDetails_SessionDetail) GetEntityData() *types.Co
     sessionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionDetail.EntityData.Children = make(map[string]types.YChild)
-    sessionDetail.EntityData.Children["status-information"] = types.YChild{"StatusInformation", &sessionDetail.StatusInformation}
-    sessionDetail.EntityData.Children["mp-download-state"] = types.YChild{"MpDownloadState", &sessionDetail.MpDownloadState}
-    sessionDetail.EntityData.Children["lsp-ping-info"] = types.YChild{"LspPingInfo", &sessionDetail.LspPingInfo}
-    sessionDetail.EntityData.Children["owner-information"] = types.YChild{"OwnerInformation", nil}
+    sessionDetail.EntityData.Children = types.NewOrderedMap()
+    sessionDetail.EntityData.Children.Append("status-information", types.YChild{"StatusInformation", &sessionDetail.StatusInformation})
+    sessionDetail.EntityData.Children.Append("mp-download-state", types.YChild{"MpDownloadState", &sessionDetail.MpDownloadState})
+    sessionDetail.EntityData.Children.Append("lsp-ping-info", types.YChild{"LspPingInfo", &sessionDetail.LspPingInfo})
+    sessionDetail.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range sessionDetail.OwnerInformation {
-        sessionDetail.EntityData.Children[types.GetSegmentPath(&sessionDetail.OwnerInformation[i])] = types.YChild{"OwnerInformation", &sessionDetail.OwnerInformation[i]}
+        sessionDetail.EntityData.Children.Append(types.GetSegmentPath(sessionDetail.OwnerInformation[i]), types.YChild{"OwnerInformation", sessionDetail.OwnerInformation[i]})
     }
-    sessionDetail.EntityData.Children["association-information"] = types.YChild{"AssociationInformation", nil}
+    sessionDetail.EntityData.Children.Append("association-information", types.YChild{"AssociationInformation", nil})
     for i := range sessionDetail.AssociationInformation {
-        sessionDetail.EntityData.Children[types.GetSegmentPath(&sessionDetail.AssociationInformation[i])] = types.YChild{"AssociationInformation", &sessionDetail.AssociationInformation[i]}
+        sessionDetail.EntityData.Children.Append(types.GetSegmentPath(sessionDetail.AssociationInformation[i]), types.YChild{"AssociationInformation", sessionDetail.AssociationInformation[i]})
     }
-    sessionDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionDetail.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", sessionDetail.InterfaceName}
-    sessionDetail.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", sessionDetail.DestinationAddress}
-    sessionDetail.EntityData.Leafs["location"] = types.YLeaf{"Location", sessionDetail.Location}
+    sessionDetail.EntityData.Leafs = types.NewOrderedMap()
+    sessionDetail.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", sessionDetail.InterfaceName})
+    sessionDetail.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", sessionDetail.DestinationAddress})
+    sessionDetail.EntityData.Leafs.Append("location", types.YLeaf{"Location", sessionDetail.Location})
+
+    sessionDetail.EntityData.YListKeys = []string {}
+
     return &(sessionDetail.EntityData)
 }
 
@@ -11807,7 +12557,7 @@ type Bfd_SessionDetails_SessionDetail_StatusInformation struct {
     LatencyAverage interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Internal Label. The type is interface{} with range: 0..4294967295.
@@ -11852,31 +12602,34 @@ func (statusInformation *Bfd_SessionDetails_SessionDetail_StatusInformation) Get
     statusInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusInformation.EntityData.Children = make(map[string]types.YChild)
-    statusInformation.EntityData.Children["source-address"] = types.YChild{"SourceAddress", &statusInformation.SourceAddress}
-    statusInformation.EntityData.Children["last-state-change"] = types.YChild{"LastStateChange", &statusInformation.LastStateChange}
-    statusInformation.EntityData.Children["transmit-packet"] = types.YChild{"TransmitPacket", &statusInformation.TransmitPacket}
-    statusInformation.EntityData.Children["receive-packet"] = types.YChild{"ReceivePacket", &statusInformation.ReceivePacket}
-    statusInformation.EntityData.Children["status-brief-information"] = types.YChild{"StatusBriefInformation", &statusInformation.StatusBriefInformation}
-    statusInformation.EntityData.Children["async-transmit-statistics"] = types.YChild{"AsyncTransmitStatistics", &statusInformation.AsyncTransmitStatistics}
-    statusInformation.EntityData.Children["async-receive-statistics"] = types.YChild{"AsyncReceiveStatistics", &statusInformation.AsyncReceiveStatistics}
-    statusInformation.EntityData.Children["echo-transmit-statistics"] = types.YChild{"EchoTransmitStatistics", &statusInformation.EchoTransmitStatistics}
-    statusInformation.EntityData.Children["echo-received-statistics"] = types.YChild{"EchoReceivedStatistics", &statusInformation.EchoReceivedStatistics}
-    statusInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    statusInformation.EntityData.Leafs["sessiontype"] = types.YLeaf{"Sessiontype", statusInformation.Sessiontype}
-    statusInformation.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", statusInformation.SessionSubtype}
-    statusInformation.EntityData.Leafs["state"] = types.YLeaf{"State", statusInformation.State}
-    statusInformation.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", statusInformation.LocalDiscriminator}
-    statusInformation.EntityData.Leafs["remote-discriminator"] = types.YLeaf{"RemoteDiscriminator", statusInformation.RemoteDiscriminator}
-    statusInformation.EntityData.Leafs["to-up-state-count"] = types.YLeaf{"ToUpStateCount", statusInformation.ToUpStateCount}
-    statusInformation.EntityData.Leafs["desired-minimum-echo-transmit-interval"] = types.YLeaf{"DesiredMinimumEchoTransmitInterval", statusInformation.DesiredMinimumEchoTransmitInterval}
-    statusInformation.EntityData.Leafs["remote-negotiated-interval"] = types.YLeaf{"RemoteNegotiatedInterval", statusInformation.RemoteNegotiatedInterval}
-    statusInformation.EntityData.Leafs["latency-number"] = types.YLeaf{"LatencyNumber", statusInformation.LatencyNumber}
-    statusInformation.EntityData.Leafs["latency-minimum"] = types.YLeaf{"LatencyMinimum", statusInformation.LatencyMinimum}
-    statusInformation.EntityData.Leafs["latency-maximum"] = types.YLeaf{"LatencyMaximum", statusInformation.LatencyMaximum}
-    statusInformation.EntityData.Leafs["latency-average"] = types.YLeaf{"LatencyAverage", statusInformation.LatencyAverage}
-    statusInformation.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", statusInformation.NodeId}
-    statusInformation.EntityData.Leafs["internal-label"] = types.YLeaf{"InternalLabel", statusInformation.InternalLabel}
+    statusInformation.EntityData.Children = types.NewOrderedMap()
+    statusInformation.EntityData.Children.Append("source-address", types.YChild{"SourceAddress", &statusInformation.SourceAddress})
+    statusInformation.EntityData.Children.Append("last-state-change", types.YChild{"LastStateChange", &statusInformation.LastStateChange})
+    statusInformation.EntityData.Children.Append("transmit-packet", types.YChild{"TransmitPacket", &statusInformation.TransmitPacket})
+    statusInformation.EntityData.Children.Append("receive-packet", types.YChild{"ReceivePacket", &statusInformation.ReceivePacket})
+    statusInformation.EntityData.Children.Append("status-brief-information", types.YChild{"StatusBriefInformation", &statusInformation.StatusBriefInformation})
+    statusInformation.EntityData.Children.Append("async-transmit-statistics", types.YChild{"AsyncTransmitStatistics", &statusInformation.AsyncTransmitStatistics})
+    statusInformation.EntityData.Children.Append("async-receive-statistics", types.YChild{"AsyncReceiveStatistics", &statusInformation.AsyncReceiveStatistics})
+    statusInformation.EntityData.Children.Append("echo-transmit-statistics", types.YChild{"EchoTransmitStatistics", &statusInformation.EchoTransmitStatistics})
+    statusInformation.EntityData.Children.Append("echo-received-statistics", types.YChild{"EchoReceivedStatistics", &statusInformation.EchoReceivedStatistics})
+    statusInformation.EntityData.Leafs = types.NewOrderedMap()
+    statusInformation.EntityData.Leafs.Append("sessiontype", types.YLeaf{"Sessiontype", statusInformation.Sessiontype})
+    statusInformation.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", statusInformation.SessionSubtype})
+    statusInformation.EntityData.Leafs.Append("state", types.YLeaf{"State", statusInformation.State})
+    statusInformation.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", statusInformation.LocalDiscriminator})
+    statusInformation.EntityData.Leafs.Append("remote-discriminator", types.YLeaf{"RemoteDiscriminator", statusInformation.RemoteDiscriminator})
+    statusInformation.EntityData.Leafs.Append("to-up-state-count", types.YLeaf{"ToUpStateCount", statusInformation.ToUpStateCount})
+    statusInformation.EntityData.Leafs.Append("desired-minimum-echo-transmit-interval", types.YLeaf{"DesiredMinimumEchoTransmitInterval", statusInformation.DesiredMinimumEchoTransmitInterval})
+    statusInformation.EntityData.Leafs.Append("remote-negotiated-interval", types.YLeaf{"RemoteNegotiatedInterval", statusInformation.RemoteNegotiatedInterval})
+    statusInformation.EntityData.Leafs.Append("latency-number", types.YLeaf{"LatencyNumber", statusInformation.LatencyNumber})
+    statusInformation.EntityData.Leafs.Append("latency-minimum", types.YLeaf{"LatencyMinimum", statusInformation.LatencyMinimum})
+    statusInformation.EntityData.Leafs.Append("latency-maximum", types.YLeaf{"LatencyMaximum", statusInformation.LatencyMaximum})
+    statusInformation.EntityData.Leafs.Append("latency-average", types.YLeaf{"LatencyAverage", statusInformation.LatencyAverage})
+    statusInformation.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", statusInformation.NodeId})
+    statusInformation.EntityData.Leafs.Append("internal-label", types.YLeaf{"InternalLabel", statusInformation.InternalLabel})
+
+    statusInformation.EntityData.YListKeys = []string {}
+
     return &(statusInformation.EntityData)
 }
 
@@ -11893,11 +12646,11 @@ type Bfd_SessionDetails_SessionDetail_StatusInformation_SourceAddress struct {
     Dummy interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -11911,12 +12664,15 @@ func (sourceAddress *Bfd_SessionDetails_SessionDetail_StatusInformation_SourceAd
     sourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourceAddress.EntityData.Children = make(map[string]types.YChild)
-    sourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    sourceAddress.EntityData.Leafs["afi"] = types.YLeaf{"Afi", sourceAddress.Afi}
-    sourceAddress.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", sourceAddress.Dummy}
-    sourceAddress.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", sourceAddress.Ipv4}
-    sourceAddress.EntityData.Leafs["ipv6"] = types.YLeaf{"Ipv6", sourceAddress.Ipv6}
+    sourceAddress.EntityData.Children = types.NewOrderedMap()
+    sourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    sourceAddress.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", sourceAddress.Afi})
+    sourceAddress.EntityData.Leafs.Append("dummy", types.YLeaf{"Dummy", sourceAddress.Dummy})
+    sourceAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", sourceAddress.Ipv4})
+    sourceAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", sourceAddress.Ipv6})
+
+    sourceAddress.EntityData.YListKeys = []string {}
+
     return &(sourceAddress.EntityData)
 }
 
@@ -11953,12 +12709,15 @@ func (lastStateChange *Bfd_SessionDetails_SessionDetail_StatusInformation_LastSt
     lastStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastStateChange.EntityData.Leafs["days"] = types.YLeaf{"Days", lastStateChange.Days}
-    lastStateChange.EntityData.Leafs["hours"] = types.YLeaf{"Hours", lastStateChange.Hours}
-    lastStateChange.EntityData.Leafs["minutes"] = types.YLeaf{"Minutes", lastStateChange.Minutes}
-    lastStateChange.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lastStateChange.Seconds}
+    lastStateChange.EntityData.Children = types.NewOrderedMap()
+    lastStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastStateChange.EntityData.Leafs.Append("days", types.YLeaf{"Days", lastStateChange.Days})
+    lastStateChange.EntityData.Leafs.Append("hours", types.YLeaf{"Hours", lastStateChange.Hours})
+    lastStateChange.EntityData.Leafs.Append("minutes", types.YLeaf{"Minutes", lastStateChange.Minutes})
+    lastStateChange.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lastStateChange.Seconds})
+
+    lastStateChange.EntityData.YListKeys = []string {}
+
     return &(lastStateChange.EntityData)
 }
 
@@ -12033,24 +12792,27 @@ func (transmitPacket *Bfd_SessionDetails_SessionDetail_StatusInformation_Transmi
     transmitPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitPacket.EntityData.Children = make(map[string]types.YChild)
-    transmitPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitPacket.EntityData.Leafs["version"] = types.YLeaf{"Version", transmitPacket.Version}
-    transmitPacket.EntityData.Leafs["diagnostic"] = types.YLeaf{"Diagnostic", transmitPacket.Diagnostic}
-    transmitPacket.EntityData.Leafs["ihear-you"] = types.YLeaf{"IhearYou", transmitPacket.IhearYou}
-    transmitPacket.EntityData.Leafs["state"] = types.YLeaf{"State", transmitPacket.State}
-    transmitPacket.EntityData.Leafs["demand"] = types.YLeaf{"Demand", transmitPacket.Demand}
-    transmitPacket.EntityData.Leafs["poll"] = types.YLeaf{"Poll", transmitPacket.Poll}
-    transmitPacket.EntityData.Leafs["final"] = types.YLeaf{"Final", transmitPacket.Final}
-    transmitPacket.EntityData.Leafs["control-plane-independent"] = types.YLeaf{"ControlPlaneIndependent", transmitPacket.ControlPlaneIndependent}
-    transmitPacket.EntityData.Leafs["authentication-present"] = types.YLeaf{"AuthenticationPresent", transmitPacket.AuthenticationPresent}
-    transmitPacket.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", transmitPacket.DetectionMultiplier}
-    transmitPacket.EntityData.Leafs["length"] = types.YLeaf{"Length", transmitPacket.Length}
-    transmitPacket.EntityData.Leafs["my-discriminator"] = types.YLeaf{"MyDiscriminator", transmitPacket.MyDiscriminator}
-    transmitPacket.EntityData.Leafs["your-discriminator"] = types.YLeaf{"YourDiscriminator", transmitPacket.YourDiscriminator}
-    transmitPacket.EntityData.Leafs["desired-minimum-transmit-interval"] = types.YLeaf{"DesiredMinimumTransmitInterval", transmitPacket.DesiredMinimumTransmitInterval}
-    transmitPacket.EntityData.Leafs["required-minimum-receive-interval"] = types.YLeaf{"RequiredMinimumReceiveInterval", transmitPacket.RequiredMinimumReceiveInterval}
-    transmitPacket.EntityData.Leafs["required-minimum-echo-receive-interval"] = types.YLeaf{"RequiredMinimumEchoReceiveInterval", transmitPacket.RequiredMinimumEchoReceiveInterval}
+    transmitPacket.EntityData.Children = types.NewOrderedMap()
+    transmitPacket.EntityData.Leafs = types.NewOrderedMap()
+    transmitPacket.EntityData.Leafs.Append("version", types.YLeaf{"Version", transmitPacket.Version})
+    transmitPacket.EntityData.Leafs.Append("diagnostic", types.YLeaf{"Diagnostic", transmitPacket.Diagnostic})
+    transmitPacket.EntityData.Leafs.Append("ihear-you", types.YLeaf{"IhearYou", transmitPacket.IhearYou})
+    transmitPacket.EntityData.Leafs.Append("state", types.YLeaf{"State", transmitPacket.State})
+    transmitPacket.EntityData.Leafs.Append("demand", types.YLeaf{"Demand", transmitPacket.Demand})
+    transmitPacket.EntityData.Leafs.Append("poll", types.YLeaf{"Poll", transmitPacket.Poll})
+    transmitPacket.EntityData.Leafs.Append("final", types.YLeaf{"Final", transmitPacket.Final})
+    transmitPacket.EntityData.Leafs.Append("control-plane-independent", types.YLeaf{"ControlPlaneIndependent", transmitPacket.ControlPlaneIndependent})
+    transmitPacket.EntityData.Leafs.Append("authentication-present", types.YLeaf{"AuthenticationPresent", transmitPacket.AuthenticationPresent})
+    transmitPacket.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", transmitPacket.DetectionMultiplier})
+    transmitPacket.EntityData.Leafs.Append("length", types.YLeaf{"Length", transmitPacket.Length})
+    transmitPacket.EntityData.Leafs.Append("my-discriminator", types.YLeaf{"MyDiscriminator", transmitPacket.MyDiscriminator})
+    transmitPacket.EntityData.Leafs.Append("your-discriminator", types.YLeaf{"YourDiscriminator", transmitPacket.YourDiscriminator})
+    transmitPacket.EntityData.Leafs.Append("desired-minimum-transmit-interval", types.YLeaf{"DesiredMinimumTransmitInterval", transmitPacket.DesiredMinimumTransmitInterval})
+    transmitPacket.EntityData.Leafs.Append("required-minimum-receive-interval", types.YLeaf{"RequiredMinimumReceiveInterval", transmitPacket.RequiredMinimumReceiveInterval})
+    transmitPacket.EntityData.Leafs.Append("required-minimum-echo-receive-interval", types.YLeaf{"RequiredMinimumEchoReceiveInterval", transmitPacket.RequiredMinimumEchoReceiveInterval})
+
+    transmitPacket.EntityData.YListKeys = []string {}
+
     return &(transmitPacket.EntityData)
 }
 
@@ -12125,24 +12887,27 @@ func (receivePacket *Bfd_SessionDetails_SessionDetail_StatusInformation_ReceiveP
     receivePacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivePacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivePacket.EntityData.Children = make(map[string]types.YChild)
-    receivePacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivePacket.EntityData.Leafs["version"] = types.YLeaf{"Version", receivePacket.Version}
-    receivePacket.EntityData.Leafs["diagnostic"] = types.YLeaf{"Diagnostic", receivePacket.Diagnostic}
-    receivePacket.EntityData.Leafs["ihear-you"] = types.YLeaf{"IhearYou", receivePacket.IhearYou}
-    receivePacket.EntityData.Leafs["state"] = types.YLeaf{"State", receivePacket.State}
-    receivePacket.EntityData.Leafs["demand"] = types.YLeaf{"Demand", receivePacket.Demand}
-    receivePacket.EntityData.Leafs["poll"] = types.YLeaf{"Poll", receivePacket.Poll}
-    receivePacket.EntityData.Leafs["final"] = types.YLeaf{"Final", receivePacket.Final}
-    receivePacket.EntityData.Leafs["control-plane-independent"] = types.YLeaf{"ControlPlaneIndependent", receivePacket.ControlPlaneIndependent}
-    receivePacket.EntityData.Leafs["authentication-present"] = types.YLeaf{"AuthenticationPresent", receivePacket.AuthenticationPresent}
-    receivePacket.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", receivePacket.DetectionMultiplier}
-    receivePacket.EntityData.Leafs["length"] = types.YLeaf{"Length", receivePacket.Length}
-    receivePacket.EntityData.Leafs["my-discriminator"] = types.YLeaf{"MyDiscriminator", receivePacket.MyDiscriminator}
-    receivePacket.EntityData.Leafs["your-discriminator"] = types.YLeaf{"YourDiscriminator", receivePacket.YourDiscriminator}
-    receivePacket.EntityData.Leafs["desired-minimum-transmit-interval"] = types.YLeaf{"DesiredMinimumTransmitInterval", receivePacket.DesiredMinimumTransmitInterval}
-    receivePacket.EntityData.Leafs["required-minimum-receive-interval"] = types.YLeaf{"RequiredMinimumReceiveInterval", receivePacket.RequiredMinimumReceiveInterval}
-    receivePacket.EntityData.Leafs["required-minimum-echo-receive-interval"] = types.YLeaf{"RequiredMinimumEchoReceiveInterval", receivePacket.RequiredMinimumEchoReceiveInterval}
+    receivePacket.EntityData.Children = types.NewOrderedMap()
+    receivePacket.EntityData.Leafs = types.NewOrderedMap()
+    receivePacket.EntityData.Leafs.Append("version", types.YLeaf{"Version", receivePacket.Version})
+    receivePacket.EntityData.Leafs.Append("diagnostic", types.YLeaf{"Diagnostic", receivePacket.Diagnostic})
+    receivePacket.EntityData.Leafs.Append("ihear-you", types.YLeaf{"IhearYou", receivePacket.IhearYou})
+    receivePacket.EntityData.Leafs.Append("state", types.YLeaf{"State", receivePacket.State})
+    receivePacket.EntityData.Leafs.Append("demand", types.YLeaf{"Demand", receivePacket.Demand})
+    receivePacket.EntityData.Leafs.Append("poll", types.YLeaf{"Poll", receivePacket.Poll})
+    receivePacket.EntityData.Leafs.Append("final", types.YLeaf{"Final", receivePacket.Final})
+    receivePacket.EntityData.Leafs.Append("control-plane-independent", types.YLeaf{"ControlPlaneIndependent", receivePacket.ControlPlaneIndependent})
+    receivePacket.EntityData.Leafs.Append("authentication-present", types.YLeaf{"AuthenticationPresent", receivePacket.AuthenticationPresent})
+    receivePacket.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", receivePacket.DetectionMultiplier})
+    receivePacket.EntityData.Leafs.Append("length", types.YLeaf{"Length", receivePacket.Length})
+    receivePacket.EntityData.Leafs.Append("my-discriminator", types.YLeaf{"MyDiscriminator", receivePacket.MyDiscriminator})
+    receivePacket.EntityData.Leafs.Append("your-discriminator", types.YLeaf{"YourDiscriminator", receivePacket.YourDiscriminator})
+    receivePacket.EntityData.Leafs.Append("desired-minimum-transmit-interval", types.YLeaf{"DesiredMinimumTransmitInterval", receivePacket.DesiredMinimumTransmitInterval})
+    receivePacket.EntityData.Leafs.Append("required-minimum-receive-interval", types.YLeaf{"RequiredMinimumReceiveInterval", receivePacket.RequiredMinimumReceiveInterval})
+    receivePacket.EntityData.Leafs.Append("required-minimum-echo-receive-interval", types.YLeaf{"RequiredMinimumEchoReceiveInterval", receivePacket.RequiredMinimumEchoReceiveInterval})
+
+    receivePacket.EntityData.YListKeys = []string {}
+
     return &(receivePacket.EntityData)
 }
 
@@ -12169,10 +12934,13 @@ func (statusBriefInformation *Bfd_SessionDetails_SessionDetail_StatusInformation
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusBriefInformation.EntityData.Children = make(map[string]types.YChild)
-    statusBriefInformation.EntityData.Children["async-interval-multiplier"] = types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier}
-    statusBriefInformation.EntityData.Children["echo-interval-multiplier"] = types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier}
-    statusBriefInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    statusBriefInformation.EntityData.Children = types.NewOrderedMap()
+    statusBriefInformation.EntityData.Children.Append("async-interval-multiplier", types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier})
+    statusBriefInformation.EntityData.Children.Append("echo-interval-multiplier", types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier})
+    statusBriefInformation.EntityData.Leafs = types.NewOrderedMap()
+
+    statusBriefInformation.EntityData.YListKeys = []string {}
+
     return &(statusBriefInformation.EntityData)
 }
 
@@ -12208,12 +12976,15 @@ func (asyncIntervalMultiplier *Bfd_SessionDetails_SessionDetail_StatusInformatio
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    asyncIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-remote-transmit-interval"] = types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-local-transmit-interval"] = types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier}
+    asyncIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-remote-transmit-interval", types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-local-transmit-interval", types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier})
+
+    asyncIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(asyncIntervalMultiplier.EntityData)
 }
 
@@ -12245,11 +13016,14 @@ func (echoIntervalMultiplier *Bfd_SessionDetails_SessionDetail_StatusInformation
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    echoIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoIntervalMultiplier.EntityData.Leafs["negotiated-transmit-interval"] = types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval}
-    echoIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime}
-    echoIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier}
+    echoIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs.Append("negotiated-transmit-interval", types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier})
+
+    echoIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(echoIntervalMultiplier.EntityData)
 }
 
@@ -12291,13 +13065,16 @@ func (asyncTransmitStatistics *Bfd_SessionDetails_SessionDetail_StatusInformatio
     asyncTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncTransmitStatistics.EntityData.Children = make(map[string]types.YChild)
-    asyncTransmitStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncTransmitStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", asyncTransmitStatistics.Number}
-    asyncTransmitStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", asyncTransmitStatistics.Minimum}
-    asyncTransmitStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", asyncTransmitStatistics.Maximum}
-    asyncTransmitStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", asyncTransmitStatistics.Average}
-    asyncTransmitStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", asyncTransmitStatistics.Last}
+    asyncTransmitStatistics.EntityData.Children = types.NewOrderedMap()
+    asyncTransmitStatistics.EntityData.Leafs = types.NewOrderedMap()
+    asyncTransmitStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", asyncTransmitStatistics.Number})
+    asyncTransmitStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", asyncTransmitStatistics.Minimum})
+    asyncTransmitStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", asyncTransmitStatistics.Maximum})
+    asyncTransmitStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", asyncTransmitStatistics.Average})
+    asyncTransmitStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", asyncTransmitStatistics.Last})
+
+    asyncTransmitStatistics.EntityData.YListKeys = []string {}
+
     return &(asyncTransmitStatistics.EntityData)
 }
 
@@ -12339,13 +13116,16 @@ func (asyncReceiveStatistics *Bfd_SessionDetails_SessionDetail_StatusInformation
     asyncReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncReceiveStatistics.EntityData.Children = make(map[string]types.YChild)
-    asyncReceiveStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncReceiveStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", asyncReceiveStatistics.Number}
-    asyncReceiveStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", asyncReceiveStatistics.Minimum}
-    asyncReceiveStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", asyncReceiveStatistics.Maximum}
-    asyncReceiveStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", asyncReceiveStatistics.Average}
-    asyncReceiveStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", asyncReceiveStatistics.Last}
+    asyncReceiveStatistics.EntityData.Children = types.NewOrderedMap()
+    asyncReceiveStatistics.EntityData.Leafs = types.NewOrderedMap()
+    asyncReceiveStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", asyncReceiveStatistics.Number})
+    asyncReceiveStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", asyncReceiveStatistics.Minimum})
+    asyncReceiveStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", asyncReceiveStatistics.Maximum})
+    asyncReceiveStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", asyncReceiveStatistics.Average})
+    asyncReceiveStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", asyncReceiveStatistics.Last})
+
+    asyncReceiveStatistics.EntityData.YListKeys = []string {}
+
     return &(asyncReceiveStatistics.EntityData)
 }
 
@@ -12387,13 +13167,16 @@ func (echoTransmitStatistics *Bfd_SessionDetails_SessionDetail_StatusInformation
     echoTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoTransmitStatistics.EntityData.Children = make(map[string]types.YChild)
-    echoTransmitStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoTransmitStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", echoTransmitStatistics.Number}
-    echoTransmitStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", echoTransmitStatistics.Minimum}
-    echoTransmitStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", echoTransmitStatistics.Maximum}
-    echoTransmitStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", echoTransmitStatistics.Average}
-    echoTransmitStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", echoTransmitStatistics.Last}
+    echoTransmitStatistics.EntityData.Children = types.NewOrderedMap()
+    echoTransmitStatistics.EntityData.Leafs = types.NewOrderedMap()
+    echoTransmitStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", echoTransmitStatistics.Number})
+    echoTransmitStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", echoTransmitStatistics.Minimum})
+    echoTransmitStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", echoTransmitStatistics.Maximum})
+    echoTransmitStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", echoTransmitStatistics.Average})
+    echoTransmitStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", echoTransmitStatistics.Last})
+
+    echoTransmitStatistics.EntityData.YListKeys = []string {}
+
     return &(echoTransmitStatistics.EntityData)
 }
 
@@ -12435,13 +13218,16 @@ func (echoReceivedStatistics *Bfd_SessionDetails_SessionDetail_StatusInformation
     echoReceivedStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoReceivedStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoReceivedStatistics.EntityData.Children = make(map[string]types.YChild)
-    echoReceivedStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoReceivedStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", echoReceivedStatistics.Number}
-    echoReceivedStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", echoReceivedStatistics.Minimum}
-    echoReceivedStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", echoReceivedStatistics.Maximum}
-    echoReceivedStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", echoReceivedStatistics.Average}
-    echoReceivedStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", echoReceivedStatistics.Last}
+    echoReceivedStatistics.EntityData.Children = types.NewOrderedMap()
+    echoReceivedStatistics.EntityData.Leafs = types.NewOrderedMap()
+    echoReceivedStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", echoReceivedStatistics.Number})
+    echoReceivedStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", echoReceivedStatistics.Minimum})
+    echoReceivedStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", echoReceivedStatistics.Maximum})
+    echoReceivedStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", echoReceivedStatistics.Average})
+    echoReceivedStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", echoReceivedStatistics.Last})
+
+    echoReceivedStatistics.EntityData.YListKeys = []string {}
+
     return &(echoReceivedStatistics.EntityData)
 }
 
@@ -12468,10 +13254,13 @@ func (mpDownloadState *Bfd_SessionDetails_SessionDetail_MpDownloadState) GetEnti
     mpDownloadState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpDownloadState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mpDownloadState.EntityData.Children = make(map[string]types.YChild)
-    mpDownloadState.EntityData.Children["change-time"] = types.YChild{"ChangeTime", &mpDownloadState.ChangeTime}
-    mpDownloadState.EntityData.Leafs = make(map[string]types.YLeaf)
-    mpDownloadState.EntityData.Leafs["mp-download-state"] = types.YLeaf{"MpDownloadState", mpDownloadState.MpDownloadState}
+    mpDownloadState.EntityData.Children = types.NewOrderedMap()
+    mpDownloadState.EntityData.Children.Append("change-time", types.YChild{"ChangeTime", &mpDownloadState.ChangeTime})
+    mpDownloadState.EntityData.Leafs = types.NewOrderedMap()
+    mpDownloadState.EntityData.Leafs.Append("mp-download-state", types.YLeaf{"MpDownloadState", mpDownloadState.MpDownloadState})
+
+    mpDownloadState.EntityData.YListKeys = []string {}
+
     return &(mpDownloadState.EntityData)
 }
 
@@ -12500,10 +13289,13 @@ func (changeTime *Bfd_SessionDetails_SessionDetail_MpDownloadState_ChangeTime) G
     changeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    changeTime.EntityData.Children = make(map[string]types.YChild)
-    changeTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    changeTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", changeTime.Seconds}
-    changeTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", changeTime.Nanoseconds}
+    changeTime.EntityData.Children = types.NewOrderedMap()
+    changeTime.EntityData.Leafs = types.NewOrderedMap()
+    changeTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", changeTime.Seconds})
+    changeTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", changeTime.Nanoseconds})
+
+    changeTime.EntityData.YListKeys = []string {}
+
     return &(changeTime.EntityData)
 }
 
@@ -12562,20 +13354,23 @@ func (lspPingInfo *Bfd_SessionDetails_SessionDetail_LspPingInfo) GetEntityData()
     lspPingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingInfo.EntityData.Children = make(map[string]types.YChild)
-    lspPingInfo.EntityData.Children["lsp-ping-tx-last-time"] = types.YChild{"LspPingTxLastTime", &lspPingInfo.LspPingTxLastTime}
-    lspPingInfo.EntityData.Children["lsp-ping-tx-last-error-time"] = types.YChild{"LspPingTxLastErrorTime", &lspPingInfo.LspPingTxLastErrorTime}
-    lspPingInfo.EntityData.Children["lsp-ping-rx-last-time"] = types.YChild{"LspPingRxLastTime", &lspPingInfo.LspPingRxLastTime}
-    lspPingInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-count"] = types.YLeaf{"LspPingTxCount", lspPingInfo.LspPingTxCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-error-count"] = types.YLeaf{"LspPingTxErrorCount", lspPingInfo.LspPingTxErrorCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-last-rc"] = types.YLeaf{"LspPingTxLastRc", lspPingInfo.LspPingTxLastRc}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-last-error-rc"] = types.YLeaf{"LspPingTxLastErrorRc", lspPingInfo.LspPingTxLastErrorRc}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-discr"] = types.YLeaf{"LspPingRxLastDiscr", lspPingInfo.LspPingRxLastDiscr}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-count"] = types.YLeaf{"LspPingRxCount", lspPingInfo.LspPingRxCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-code"] = types.YLeaf{"LspPingRxLastCode", lspPingInfo.LspPingRxLastCode}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-subcode"] = types.YLeaf{"LspPingRxLastSubcode", lspPingInfo.LspPingRxLastSubcode}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-output"] = types.YLeaf{"LspPingRxLastOutput", lspPingInfo.LspPingRxLastOutput}
+    lspPingInfo.EntityData.Children = types.NewOrderedMap()
+    lspPingInfo.EntityData.Children.Append("lsp-ping-tx-last-time", types.YChild{"LspPingTxLastTime", &lspPingInfo.LspPingTxLastTime})
+    lspPingInfo.EntityData.Children.Append("lsp-ping-tx-last-error-time", types.YChild{"LspPingTxLastErrorTime", &lspPingInfo.LspPingTxLastErrorTime})
+    lspPingInfo.EntityData.Children.Append("lsp-ping-rx-last-time", types.YChild{"LspPingRxLastTime", &lspPingInfo.LspPingRxLastTime})
+    lspPingInfo.EntityData.Leafs = types.NewOrderedMap()
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-count", types.YLeaf{"LspPingTxCount", lspPingInfo.LspPingTxCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-error-count", types.YLeaf{"LspPingTxErrorCount", lspPingInfo.LspPingTxErrorCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-last-rc", types.YLeaf{"LspPingTxLastRc", lspPingInfo.LspPingTxLastRc})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-last-error-rc", types.YLeaf{"LspPingTxLastErrorRc", lspPingInfo.LspPingTxLastErrorRc})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-discr", types.YLeaf{"LspPingRxLastDiscr", lspPingInfo.LspPingRxLastDiscr})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-count", types.YLeaf{"LspPingRxCount", lspPingInfo.LspPingRxCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-code", types.YLeaf{"LspPingRxLastCode", lspPingInfo.LspPingRxLastCode})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-subcode", types.YLeaf{"LspPingRxLastSubcode", lspPingInfo.LspPingRxLastSubcode})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-output", types.YLeaf{"LspPingRxLastOutput", lspPingInfo.LspPingRxLastOutput})
+
+    lspPingInfo.EntityData.YListKeys = []string {}
+
     return &(lspPingInfo.EntityData)
 }
 
@@ -12604,10 +13399,13 @@ func (lspPingTxLastTime *Bfd_SessionDetails_SessionDetail_LspPingInfo_LspPingTxL
     lspPingTxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingTxLastTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingTxLastTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingTxLastTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingTxLastTime.Seconds}
-    lspPingTxLastTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingTxLastTime.Nanoseconds}
+    lspPingTxLastTime.EntityData.Children = types.NewOrderedMap()
+    lspPingTxLastTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingTxLastTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingTxLastTime.Seconds})
+    lspPingTxLastTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingTxLastTime.Nanoseconds})
+
+    lspPingTxLastTime.EntityData.YListKeys = []string {}
+
     return &(lspPingTxLastTime.EntityData)
 }
 
@@ -12636,10 +13434,13 @@ func (lspPingTxLastErrorTime *Bfd_SessionDetails_SessionDetail_LspPingInfo_LspPi
     lspPingTxLastErrorTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastErrorTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingTxLastErrorTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingTxLastErrorTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingTxLastErrorTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingTxLastErrorTime.Seconds}
-    lspPingTxLastErrorTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingTxLastErrorTime.Nanoseconds}
+    lspPingTxLastErrorTime.EntityData.Children = types.NewOrderedMap()
+    lspPingTxLastErrorTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingTxLastErrorTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingTxLastErrorTime.Seconds})
+    lspPingTxLastErrorTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingTxLastErrorTime.Nanoseconds})
+
+    lspPingTxLastErrorTime.EntityData.YListKeys = []string {}
+
     return &(lspPingTxLastErrorTime.EntityData)
 }
 
@@ -12668,10 +13469,13 @@ func (lspPingRxLastTime *Bfd_SessionDetails_SessionDetail_LspPingInfo_LspPingRxL
     lspPingRxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingRxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingRxLastTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingRxLastTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingRxLastTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingRxLastTime.Seconds}
-    lspPingRxLastTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingRxLastTime.Nanoseconds}
+    lspPingRxLastTime.EntityData.Children = types.NewOrderedMap()
+    lspPingRxLastTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingRxLastTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingRxLastTime.Seconds})
+    lspPingRxLastTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingRxLastTime.Nanoseconds})
+
+    lspPingRxLastTime.EntityData.YListKeys = []string {}
+
     return &(lspPingRxLastTime.EntityData)
 }
 
@@ -12711,13 +13515,16 @@ func (ownerInformation *Bfd_SessionDetails_SessionDetail_OwnerInformation) GetEn
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ownerInformation.EntityData.Children = make(map[string]types.YChild)
-    ownerInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    ownerInformation.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ownerInformation.Interval}
-    ownerInformation.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier}
-    ownerInformation.EntityData.Leafs["adjusted-interval"] = types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval}
-    ownerInformation.EntityData.Leafs["adjusted-detection-multiplier"] = types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier}
-    ownerInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", ownerInformation.Name}
+    ownerInformation.EntityData.Children = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ownerInformation.Interval})
+    ownerInformation.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("adjusted-interval", types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval})
+    ownerInformation.EntityData.Leafs.Append("adjusted-detection-multiplier", types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", ownerInformation.Name})
+
+    ownerInformation.EntityData.YListKeys = []string {}
+
     return &(ownerInformation.EntityData)
 }
 
@@ -12742,7 +13549,7 @@ type Bfd_SessionDetails_SessionDetail_AssociationInformation struct {
 
     // Client applications owning the session. The type is slice of
     // Bfd_SessionDetails_SessionDetail_AssociationInformation_OwnerInformation.
-    OwnerInformation []Bfd_SessionDetails_SessionDetail_AssociationInformation_OwnerInformation
+    OwnerInformation []*Bfd_SessionDetails_SessionDetail_AssociationInformation_OwnerInformation
 }
 
 func (associationInformation *Bfd_SessionDetails_SessionDetail_AssociationInformation) GetEntityData() *types.CommonEntityData {
@@ -12755,16 +13562,19 @@ func (associationInformation *Bfd_SessionDetails_SessionDetail_AssociationInform
     associationInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    associationInformation.EntityData.Children = make(map[string]types.YChild)
-    associationInformation.EntityData.Children["ip-destination-address"] = types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress}
-    associationInformation.EntityData.Children["owner-information"] = types.YChild{"OwnerInformation", nil}
+    associationInformation.EntityData.Children = types.NewOrderedMap()
+    associationInformation.EntityData.Children.Append("ip-destination-address", types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress})
+    associationInformation.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range associationInformation.OwnerInformation {
-        associationInformation.EntityData.Children[types.GetSegmentPath(&associationInformation.OwnerInformation[i])] = types.YChild{"OwnerInformation", &associationInformation.OwnerInformation[i]}
+        associationInformation.EntityData.Children.Append(types.GetSegmentPath(associationInformation.OwnerInformation[i]), types.YChild{"OwnerInformation", associationInformation.OwnerInformation[i]})
     }
-    associationInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    associationInformation.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", associationInformation.InterfaceName}
-    associationInformation.EntityData.Leafs["sessiontype"] = types.YLeaf{"Sessiontype", associationInformation.Sessiontype}
-    associationInformation.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", associationInformation.LocalDiscriminator}
+    associationInformation.EntityData.Leafs = types.NewOrderedMap()
+    associationInformation.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", associationInformation.InterfaceName})
+    associationInformation.EntityData.Leafs.Append("sessiontype", types.YLeaf{"Sessiontype", associationInformation.Sessiontype})
+    associationInformation.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", associationInformation.LocalDiscriminator})
+
+    associationInformation.EntityData.YListKeys = []string {}
+
     return &(associationInformation.EntityData)
 }
 
@@ -12781,11 +13591,11 @@ type Bfd_SessionDetails_SessionDetail_AssociationInformation_IpDestinationAddres
     Dummy interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -12799,12 +13609,15 @@ func (ipDestinationAddress *Bfd_SessionDetails_SessionDetail_AssociationInformat
     ipDestinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDestinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipDestinationAddress.EntityData.Children = make(map[string]types.YChild)
-    ipDestinationAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipDestinationAddress.EntityData.Leafs["afi"] = types.YLeaf{"Afi", ipDestinationAddress.Afi}
-    ipDestinationAddress.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", ipDestinationAddress.Dummy}
-    ipDestinationAddress.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", ipDestinationAddress.Ipv4}
-    ipDestinationAddress.EntityData.Leafs["ipv6"] = types.YLeaf{"Ipv6", ipDestinationAddress.Ipv6}
+    ipDestinationAddress.EntityData.Children = types.NewOrderedMap()
+    ipDestinationAddress.EntityData.Leafs = types.NewOrderedMap()
+    ipDestinationAddress.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", ipDestinationAddress.Afi})
+    ipDestinationAddress.EntityData.Leafs.Append("dummy", types.YLeaf{"Dummy", ipDestinationAddress.Dummy})
+    ipDestinationAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", ipDestinationAddress.Ipv4})
+    ipDestinationAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", ipDestinationAddress.Ipv6})
+
+    ipDestinationAddress.EntityData.YListKeys = []string {}
+
     return &(ipDestinationAddress.EntityData)
 }
 
@@ -12844,13 +13657,16 @@ func (ownerInformation *Bfd_SessionDetails_SessionDetail_AssociationInformation_
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ownerInformation.EntityData.Children = make(map[string]types.YChild)
-    ownerInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    ownerInformation.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ownerInformation.Interval}
-    ownerInformation.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier}
-    ownerInformation.EntityData.Leafs["adjusted-interval"] = types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval}
-    ownerInformation.EntityData.Leafs["adjusted-detection-multiplier"] = types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier}
-    ownerInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", ownerInformation.Name}
+    ownerInformation.EntityData.Children = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ownerInformation.Interval})
+    ownerInformation.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("adjusted-interval", types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval})
+    ownerInformation.EntityData.Leafs.Append("adjusted-detection-multiplier", types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", ownerInformation.Name})
+
+    ownerInformation.EntityData.YListKeys = []string {}
+
     return &(ownerInformation.EntityData)
 }
 
@@ -12862,7 +13678,7 @@ type Bfd_Ipv4SingleHopMultiPaths struct {
 
     // IPv4 single hop multipath table. The type is slice of
     // Bfd_Ipv4SingleHopMultiPaths_Ipv4SingleHopMultiPath.
-    Ipv4SingleHopMultiPath []Bfd_Ipv4SingleHopMultiPaths_Ipv4SingleHopMultiPath
+    Ipv4SingleHopMultiPath []*Bfd_Ipv4SingleHopMultiPaths_Ipv4SingleHopMultiPath
 }
 
 func (ipv4SingleHopMultiPaths *Bfd_Ipv4SingleHopMultiPaths) GetEntityData() *types.CommonEntityData {
@@ -12875,12 +13691,15 @@ func (ipv4SingleHopMultiPaths *Bfd_Ipv4SingleHopMultiPaths) GetEntityData() *typ
     ipv4SingleHopMultiPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopMultiPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4SingleHopMultiPaths.EntityData.Children = make(map[string]types.YChild)
-    ipv4SingleHopMultiPaths.EntityData.Children["ipv4-single-hop-multi-path"] = types.YChild{"Ipv4SingleHopMultiPath", nil}
+    ipv4SingleHopMultiPaths.EntityData.Children = types.NewOrderedMap()
+    ipv4SingleHopMultiPaths.EntityData.Children.Append("ipv4-single-hop-multi-path", types.YChild{"Ipv4SingleHopMultiPath", nil})
     for i := range ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath {
-        ipv4SingleHopMultiPaths.EntityData.Children[types.GetSegmentPath(&ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath[i])] = types.YChild{"Ipv4SingleHopMultiPath", &ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath[i]}
+        ipv4SingleHopMultiPaths.EntityData.Children.Append(types.GetSegmentPath(ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath[i]), types.YChild{"Ipv4SingleHopMultiPath", ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath[i]})
     }
-    ipv4SingleHopMultiPaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4SingleHopMultiPaths.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4SingleHopMultiPaths.EntityData.YListKeys = []string {}
+
     return &(ipv4SingleHopMultiPaths.EntityData)
 }
 
@@ -12890,15 +13709,15 @@ type Bfd_Ipv4SingleHopMultiPaths_Ipv4SingleHopMultiPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Session subtype. The type is string.
@@ -12912,13 +13731,13 @@ type Bfd_Ipv4SingleHopMultiPaths_Ipv4SingleHopMultiPath struct {
     LocalDiscriminator interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabelXr interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     SessionInterfaceName interface{}
 }
 
@@ -12932,17 +13751,20 @@ func (ipv4SingleHopMultiPath *Bfd_Ipv4SingleHopMultiPaths_Ipv4SingleHopMultiPath
     ipv4SingleHopMultiPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopMultiPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4SingleHopMultiPath.EntityData.Children = make(map[string]types.YChild)
-    ipv4SingleHopMultiPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4SingleHopMultiPath.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", ipv4SingleHopMultiPath.InterfaceName}
-    ipv4SingleHopMultiPath.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", ipv4SingleHopMultiPath.DestinationAddress}
-    ipv4SingleHopMultiPath.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv4SingleHopMultiPath.Location}
-    ipv4SingleHopMultiPath.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", ipv4SingleHopMultiPath.SessionSubtype}
-    ipv4SingleHopMultiPath.EntityData.Leafs["state"] = types.YLeaf{"State", ipv4SingleHopMultiPath.State}
-    ipv4SingleHopMultiPath.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", ipv4SingleHopMultiPath.LocalDiscriminator}
-    ipv4SingleHopMultiPath.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", ipv4SingleHopMultiPath.NodeId}
-    ipv4SingleHopMultiPath.EntityData.Leafs["incoming-label-xr"] = types.YLeaf{"IncomingLabelXr", ipv4SingleHopMultiPath.IncomingLabelXr}
-    ipv4SingleHopMultiPath.EntityData.Leafs["session-interface-name"] = types.YLeaf{"SessionInterfaceName", ipv4SingleHopMultiPath.SessionInterfaceName}
+    ipv4SingleHopMultiPath.EntityData.Children = types.NewOrderedMap()
+    ipv4SingleHopMultiPath.EntityData.Leafs = types.NewOrderedMap()
+    ipv4SingleHopMultiPath.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", ipv4SingleHopMultiPath.InterfaceName})
+    ipv4SingleHopMultiPath.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", ipv4SingleHopMultiPath.DestinationAddress})
+    ipv4SingleHopMultiPath.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv4SingleHopMultiPath.Location})
+    ipv4SingleHopMultiPath.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", ipv4SingleHopMultiPath.SessionSubtype})
+    ipv4SingleHopMultiPath.EntityData.Leafs.Append("state", types.YLeaf{"State", ipv4SingleHopMultiPath.State})
+    ipv4SingleHopMultiPath.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", ipv4SingleHopMultiPath.LocalDiscriminator})
+    ipv4SingleHopMultiPath.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", ipv4SingleHopMultiPath.NodeId})
+    ipv4SingleHopMultiPath.EntityData.Leafs.Append("incoming-label-xr", types.YLeaf{"IncomingLabelXr", ipv4SingleHopMultiPath.IncomingLabelXr})
+    ipv4SingleHopMultiPath.EntityData.Leafs.Append("session-interface-name", types.YLeaf{"SessionInterfaceName", ipv4SingleHopMultiPath.SessionInterfaceName})
+
+    ipv4SingleHopMultiPath.EntityData.YListKeys = []string {}
+
     return &(ipv4SingleHopMultiPath.EntityData)
 }
 
@@ -12955,7 +13777,7 @@ type Bfd_Ipv4SingleHopSessionBriefs struct {
 
     // Brief information for a single IPv4 singlehop BFD session. The type is
     // slice of Bfd_Ipv4SingleHopSessionBriefs_Ipv4SingleHopSessionBrief.
-    Ipv4SingleHopSessionBrief []Bfd_Ipv4SingleHopSessionBriefs_Ipv4SingleHopSessionBrief
+    Ipv4SingleHopSessionBrief []*Bfd_Ipv4SingleHopSessionBriefs_Ipv4SingleHopSessionBrief
 }
 
 func (ipv4SingleHopSessionBriefs *Bfd_Ipv4SingleHopSessionBriefs) GetEntityData() *types.CommonEntityData {
@@ -12968,12 +13790,15 @@ func (ipv4SingleHopSessionBriefs *Bfd_Ipv4SingleHopSessionBriefs) GetEntityData(
     ipv4SingleHopSessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopSessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4SingleHopSessionBriefs.EntityData.Children = make(map[string]types.YChild)
-    ipv4SingleHopSessionBriefs.EntityData.Children["ipv4-single-hop-session-brief"] = types.YChild{"Ipv4SingleHopSessionBrief", nil}
+    ipv4SingleHopSessionBriefs.EntityData.Children = types.NewOrderedMap()
+    ipv4SingleHopSessionBriefs.EntityData.Children.Append("ipv4-single-hop-session-brief", types.YChild{"Ipv4SingleHopSessionBrief", nil})
     for i := range ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief {
-        ipv4SingleHopSessionBriefs.EntityData.Children[types.GetSegmentPath(&ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief[i])] = types.YChild{"Ipv4SingleHopSessionBrief", &ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief[i]}
+        ipv4SingleHopSessionBriefs.EntityData.Children.Append(types.GetSegmentPath(ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief[i]), types.YChild{"Ipv4SingleHopSessionBrief", ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief[i]})
     }
-    ipv4SingleHopSessionBriefs.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4SingleHopSessionBriefs.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4SingleHopSessionBriefs.EntityData.YListKeys = []string {}
+
     return &(ipv4SingleHopSessionBriefs.EntityData)
 }
 
@@ -12984,19 +13809,19 @@ type Bfd_Ipv4SingleHopSessionBriefs_Ipv4SingleHopSessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // State. The type is BfdMgmtSessionState.
@@ -13025,17 +13850,20 @@ func (ipv4SingleHopSessionBrief *Bfd_Ipv4SingleHopSessionBriefs_Ipv4SingleHopSes
     ipv4SingleHopSessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopSessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4SingleHopSessionBrief.EntityData.Children = make(map[string]types.YChild)
-    ipv4SingleHopSessionBrief.EntityData.Children["status-brief-information"] = types.YChild{"StatusBriefInformation", &ipv4SingleHopSessionBrief.StatusBriefInformation}
-    ipv4SingleHopSessionBrief.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4SingleHopSessionBrief.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", ipv4SingleHopSessionBrief.InterfaceName}
-    ipv4SingleHopSessionBrief.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", ipv4SingleHopSessionBrief.DestinationAddress}
-    ipv4SingleHopSessionBrief.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv4SingleHopSessionBrief.Location}
-    ipv4SingleHopSessionBrief.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", ipv4SingleHopSessionBrief.NodeId}
-    ipv4SingleHopSessionBrief.EntityData.Leafs["state"] = types.YLeaf{"State", ipv4SingleHopSessionBrief.State}
-    ipv4SingleHopSessionBrief.EntityData.Leafs["session-type"] = types.YLeaf{"SessionType", ipv4SingleHopSessionBrief.SessionType}
-    ipv4SingleHopSessionBrief.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", ipv4SingleHopSessionBrief.SessionSubtype}
-    ipv4SingleHopSessionBrief.EntityData.Leafs["session-flags"] = types.YLeaf{"SessionFlags", ipv4SingleHopSessionBrief.SessionFlags}
+    ipv4SingleHopSessionBrief.EntityData.Children = types.NewOrderedMap()
+    ipv4SingleHopSessionBrief.EntityData.Children.Append("status-brief-information", types.YChild{"StatusBriefInformation", &ipv4SingleHopSessionBrief.StatusBriefInformation})
+    ipv4SingleHopSessionBrief.EntityData.Leafs = types.NewOrderedMap()
+    ipv4SingleHopSessionBrief.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", ipv4SingleHopSessionBrief.InterfaceName})
+    ipv4SingleHopSessionBrief.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", ipv4SingleHopSessionBrief.DestinationAddress})
+    ipv4SingleHopSessionBrief.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv4SingleHopSessionBrief.Location})
+    ipv4SingleHopSessionBrief.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", ipv4SingleHopSessionBrief.NodeId})
+    ipv4SingleHopSessionBrief.EntityData.Leafs.Append("state", types.YLeaf{"State", ipv4SingleHopSessionBrief.State})
+    ipv4SingleHopSessionBrief.EntityData.Leafs.Append("session-type", types.YLeaf{"SessionType", ipv4SingleHopSessionBrief.SessionType})
+    ipv4SingleHopSessionBrief.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", ipv4SingleHopSessionBrief.SessionSubtype})
+    ipv4SingleHopSessionBrief.EntityData.Leafs.Append("session-flags", types.YLeaf{"SessionFlags", ipv4SingleHopSessionBrief.SessionFlags})
+
+    ipv4SingleHopSessionBrief.EntityData.YListKeys = []string {}
+
     return &(ipv4SingleHopSessionBrief.EntityData)
 }
 
@@ -13062,10 +13890,13 @@ func (statusBriefInformation *Bfd_Ipv4SingleHopSessionBriefs_Ipv4SingleHopSessio
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusBriefInformation.EntityData.Children = make(map[string]types.YChild)
-    statusBriefInformation.EntityData.Children["async-interval-multiplier"] = types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier}
-    statusBriefInformation.EntityData.Children["echo-interval-multiplier"] = types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier}
-    statusBriefInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    statusBriefInformation.EntityData.Children = types.NewOrderedMap()
+    statusBriefInformation.EntityData.Children.Append("async-interval-multiplier", types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier})
+    statusBriefInformation.EntityData.Children.Append("echo-interval-multiplier", types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier})
+    statusBriefInformation.EntityData.Leafs = types.NewOrderedMap()
+
+    statusBriefInformation.EntityData.YListKeys = []string {}
+
     return &(statusBriefInformation.EntityData)
 }
 
@@ -13101,12 +13932,15 @@ func (asyncIntervalMultiplier *Bfd_Ipv4SingleHopSessionBriefs_Ipv4SingleHopSessi
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    asyncIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-remote-transmit-interval"] = types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-local-transmit-interval"] = types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier}
+    asyncIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-remote-transmit-interval", types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-local-transmit-interval", types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier})
+
+    asyncIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(asyncIntervalMultiplier.EntityData)
 }
 
@@ -13138,11 +13972,14 @@ func (echoIntervalMultiplier *Bfd_Ipv4SingleHopSessionBriefs_Ipv4SingleHopSessio
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    echoIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoIntervalMultiplier.EntityData.Leafs["negotiated-transmit-interval"] = types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval}
-    echoIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime}
-    echoIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier}
+    echoIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs.Append("negotiated-transmit-interval", types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier})
+
+    echoIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(echoIntervalMultiplier.EntityData)
 }
 
@@ -13166,9 +14003,12 @@ func (ipv6MultiHopCounters *Bfd_Ipv6MultiHopCounters) GetEntityData() *types.Com
     ipv6MultiHopCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6MultiHopCounters.EntityData.Children = make(map[string]types.YChild)
-    ipv6MultiHopCounters.EntityData.Children["ipv6-multi-hop-packet-counters"] = types.YChild{"Ipv6MultiHopPacketCounters", &ipv6MultiHopCounters.Ipv6MultiHopPacketCounters}
-    ipv6MultiHopCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6MultiHopCounters.EntityData.Children = types.NewOrderedMap()
+    ipv6MultiHopCounters.EntityData.Children.Append("ipv6-multi-hop-packet-counters", types.YChild{"Ipv6MultiHopPacketCounters", &ipv6MultiHopCounters.Ipv6MultiHopPacketCounters})
+    ipv6MultiHopCounters.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6MultiHopCounters.EntityData.YListKeys = []string {}
+
     return &(ipv6MultiHopCounters.EntityData)
 }
 
@@ -13180,7 +14020,7 @@ type Bfd_Ipv6MultiHopCounters_Ipv6MultiHopPacketCounters struct {
 
     // IPv4 multiple hop Packet counters. The type is slice of
     // Bfd_Ipv6MultiHopCounters_Ipv6MultiHopPacketCounters_Ipv6MultiHopPacketCounter.
-    Ipv6MultiHopPacketCounter []Bfd_Ipv6MultiHopCounters_Ipv6MultiHopPacketCounters_Ipv6MultiHopPacketCounter
+    Ipv6MultiHopPacketCounter []*Bfd_Ipv6MultiHopCounters_Ipv6MultiHopPacketCounters_Ipv6MultiHopPacketCounter
 }
 
 func (ipv6MultiHopPacketCounters *Bfd_Ipv6MultiHopCounters_Ipv6MultiHopPacketCounters) GetEntityData() *types.CommonEntityData {
@@ -13193,12 +14033,15 @@ func (ipv6MultiHopPacketCounters *Bfd_Ipv6MultiHopCounters_Ipv6MultiHopPacketCou
     ipv6MultiHopPacketCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopPacketCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6MultiHopPacketCounters.EntityData.Children = make(map[string]types.YChild)
-    ipv6MultiHopPacketCounters.EntityData.Children["ipv6-multi-hop-packet-counter"] = types.YChild{"Ipv6MultiHopPacketCounter", nil}
+    ipv6MultiHopPacketCounters.EntityData.Children = types.NewOrderedMap()
+    ipv6MultiHopPacketCounters.EntityData.Children.Append("ipv6-multi-hop-packet-counter", types.YChild{"Ipv6MultiHopPacketCounter", nil})
     for i := range ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter {
-        ipv6MultiHopPacketCounters.EntityData.Children[types.GetSegmentPath(&ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter[i])] = types.YChild{"Ipv6MultiHopPacketCounter", &ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter[i]}
+        ipv6MultiHopPacketCounters.EntityData.Children.Append(types.GetSegmentPath(ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter[i]), types.YChild{"Ipv6MultiHopPacketCounter", ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter[i]})
     }
-    ipv6MultiHopPacketCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6MultiHopPacketCounters.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6MultiHopPacketCounters.EntityData.YListKeys = []string {}
+
     return &(ipv6MultiHopPacketCounters.EntityData)
 }
 
@@ -13210,23 +14053,23 @@ type Bfd_Ipv6MultiHopCounters_Ipv6MultiHopPacketCounters_Ipv6MultiHopPacketCount
 
     // Source Address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Destination Address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
-    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Number of Hellos transmitted. The type is interface{} with range:
@@ -13259,17 +14102,20 @@ func (ipv6MultiHopPacketCounter *Bfd_Ipv6MultiHopCounters_Ipv6MultiHopPacketCoun
     ipv6MultiHopPacketCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopPacketCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6MultiHopPacketCounter.EntityData.Children = make(map[string]types.YChild)
-    ipv6MultiHopPacketCounter.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6MultiHopPacketCounter.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", ipv6MultiHopPacketCounter.SourceAddress}
-    ipv6MultiHopPacketCounter.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", ipv6MultiHopPacketCounter.DestinationAddress}
-    ipv6MultiHopPacketCounter.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv6MultiHopPacketCounter.Location}
-    ipv6MultiHopPacketCounter.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv6MultiHopPacketCounter.VrfName}
-    ipv6MultiHopPacketCounter.EntityData.Leafs["hello-transmit-count"] = types.YLeaf{"HelloTransmitCount", ipv6MultiHopPacketCounter.HelloTransmitCount}
-    ipv6MultiHopPacketCounter.EntityData.Leafs["hello-receive-count"] = types.YLeaf{"HelloReceiveCount", ipv6MultiHopPacketCounter.HelloReceiveCount}
-    ipv6MultiHopPacketCounter.EntityData.Leafs["echo-transmit-count"] = types.YLeaf{"EchoTransmitCount", ipv6MultiHopPacketCounter.EchoTransmitCount}
-    ipv6MultiHopPacketCounter.EntityData.Leafs["echo-receive-count"] = types.YLeaf{"EchoReceiveCount", ipv6MultiHopPacketCounter.EchoReceiveCount}
-    ipv6MultiHopPacketCounter.EntityData.Leafs["display-type"] = types.YLeaf{"DisplayType", ipv6MultiHopPacketCounter.DisplayType}
+    ipv6MultiHopPacketCounter.EntityData.Children = types.NewOrderedMap()
+    ipv6MultiHopPacketCounter.EntityData.Leafs = types.NewOrderedMap()
+    ipv6MultiHopPacketCounter.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", ipv6MultiHopPacketCounter.SourceAddress})
+    ipv6MultiHopPacketCounter.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", ipv6MultiHopPacketCounter.DestinationAddress})
+    ipv6MultiHopPacketCounter.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv6MultiHopPacketCounter.Location})
+    ipv6MultiHopPacketCounter.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv6MultiHopPacketCounter.VrfName})
+    ipv6MultiHopPacketCounter.EntityData.Leafs.Append("hello-transmit-count", types.YLeaf{"HelloTransmitCount", ipv6MultiHopPacketCounter.HelloTransmitCount})
+    ipv6MultiHopPacketCounter.EntityData.Leafs.Append("hello-receive-count", types.YLeaf{"HelloReceiveCount", ipv6MultiHopPacketCounter.HelloReceiveCount})
+    ipv6MultiHopPacketCounter.EntityData.Leafs.Append("echo-transmit-count", types.YLeaf{"EchoTransmitCount", ipv6MultiHopPacketCounter.EchoTransmitCount})
+    ipv6MultiHopPacketCounter.EntityData.Leafs.Append("echo-receive-count", types.YLeaf{"EchoReceiveCount", ipv6MultiHopPacketCounter.EchoReceiveCount})
+    ipv6MultiHopPacketCounter.EntityData.Leafs.Append("display-type", types.YLeaf{"DisplayType", ipv6MultiHopPacketCounter.DisplayType})
+
+    ipv6MultiHopPacketCounter.EntityData.YListKeys = []string {}
+
     return &(ipv6MultiHopPacketCounter.EntityData)
 }
 
@@ -13283,7 +14129,7 @@ type Bfd_Ipv6SingleHopLocationSummaries struct {
     // Summary information for BFD IPv6 singlehop sessions for location. The type
     // is slice of
     // Bfd_Ipv6SingleHopLocationSummaries_Ipv6SingleHopLocationSummary.
-    Ipv6SingleHopLocationSummary []Bfd_Ipv6SingleHopLocationSummaries_Ipv6SingleHopLocationSummary
+    Ipv6SingleHopLocationSummary []*Bfd_Ipv6SingleHopLocationSummaries_Ipv6SingleHopLocationSummary
 }
 
 func (ipv6SingleHopLocationSummaries *Bfd_Ipv6SingleHopLocationSummaries) GetEntityData() *types.CommonEntityData {
@@ -13296,12 +14142,15 @@ func (ipv6SingleHopLocationSummaries *Bfd_Ipv6SingleHopLocationSummaries) GetEnt
     ipv6SingleHopLocationSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopLocationSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6SingleHopLocationSummaries.EntityData.Children = make(map[string]types.YChild)
-    ipv6SingleHopLocationSummaries.EntityData.Children["ipv6-single-hop-location-summary"] = types.YChild{"Ipv6SingleHopLocationSummary", nil}
+    ipv6SingleHopLocationSummaries.EntityData.Children = types.NewOrderedMap()
+    ipv6SingleHopLocationSummaries.EntityData.Children.Append("ipv6-single-hop-location-summary", types.YChild{"Ipv6SingleHopLocationSummary", nil})
     for i := range ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary {
-        ipv6SingleHopLocationSummaries.EntityData.Children[types.GetSegmentPath(&ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary[i])] = types.YChild{"Ipv6SingleHopLocationSummary", &ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary[i]}
+        ipv6SingleHopLocationSummaries.EntityData.Children.Append(types.GetSegmentPath(ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary[i]), types.YChild{"Ipv6SingleHopLocationSummary", ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary[i]})
     }
-    ipv6SingleHopLocationSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6SingleHopLocationSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6SingleHopLocationSummaries.EntityData.YListKeys = []string {}
+
     return &(ipv6SingleHopLocationSummaries.EntityData)
 }
 
@@ -13313,7 +14162,7 @@ type Bfd_Ipv6SingleHopLocationSummaries_Ipv6SingleHopLocationSummary struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Location Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     LocationName interface{}
 
     // Statistics of states for sessions.
@@ -13325,15 +14174,18 @@ func (ipv6SingleHopLocationSummary *Bfd_Ipv6SingleHopLocationSummaries_Ipv6Singl
     ipv6SingleHopLocationSummary.EntityData.YangName = "ipv6-single-hop-location-summary"
     ipv6SingleHopLocationSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv6SingleHopLocationSummary.EntityData.ParentYangName = "ipv6-single-hop-location-summaries"
-    ipv6SingleHopLocationSummary.EntityData.SegmentPath = "ipv6-single-hop-location-summary" + "[location-name='" + fmt.Sprintf("%v", ipv6SingleHopLocationSummary.LocationName) + "']"
+    ipv6SingleHopLocationSummary.EntityData.SegmentPath = "ipv6-single-hop-location-summary" + types.AddKeyToken(ipv6SingleHopLocationSummary.LocationName, "location-name")
     ipv6SingleHopLocationSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6SingleHopLocationSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopLocationSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6SingleHopLocationSummary.EntityData.Children = make(map[string]types.YChild)
-    ipv6SingleHopLocationSummary.EntityData.Children["session-state"] = types.YChild{"SessionState", &ipv6SingleHopLocationSummary.SessionState}
-    ipv6SingleHopLocationSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6SingleHopLocationSummary.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", ipv6SingleHopLocationSummary.LocationName}
+    ipv6SingleHopLocationSummary.EntityData.Children = types.NewOrderedMap()
+    ipv6SingleHopLocationSummary.EntityData.Children.Append("session-state", types.YChild{"SessionState", &ipv6SingleHopLocationSummary.SessionState})
+    ipv6SingleHopLocationSummary.EntityData.Leafs = types.NewOrderedMap()
+    ipv6SingleHopLocationSummary.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", ipv6SingleHopLocationSummary.LocationName})
+
+    ipv6SingleHopLocationSummary.EntityData.YListKeys = []string {"LocationName"}
+
     return &(ipv6SingleHopLocationSummary.EntityData)
 }
 
@@ -13378,14 +14230,17 @@ func (sessionState *Bfd_Ipv6SingleHopLocationSummaries_Ipv6SingleHopLocationSumm
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionState.EntityData.Children = make(map[string]types.YChild)
-    sessionState.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionState.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", sessionState.TotalCount}
-    sessionState.EntityData.Leafs["up-count"] = types.YLeaf{"UpCount", sessionState.UpCount}
-    sessionState.EntityData.Leafs["down-count"] = types.YLeaf{"DownCount", sessionState.DownCount}
-    sessionState.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", sessionState.UnknownCount}
-    sessionState.EntityData.Leafs["retry-count"] = types.YLeaf{"RetryCount", sessionState.RetryCount}
-    sessionState.EntityData.Leafs["standby-count"] = types.YLeaf{"StandbyCount", sessionState.StandbyCount}
+    sessionState.EntityData.Children = types.NewOrderedMap()
+    sessionState.EntityData.Leafs = types.NewOrderedMap()
+    sessionState.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", sessionState.TotalCount})
+    sessionState.EntityData.Leafs.Append("up-count", types.YLeaf{"UpCount", sessionState.UpCount})
+    sessionState.EntityData.Leafs.Append("down-count", types.YLeaf{"DownCount", sessionState.DownCount})
+    sessionState.EntityData.Leafs.Append("unknown-count", types.YLeaf{"UnknownCount", sessionState.UnknownCount})
+    sessionState.EntityData.Leafs.Append("retry-count", types.YLeaf{"RetryCount", sessionState.RetryCount})
+    sessionState.EntityData.Leafs.Append("standby-count", types.YLeaf{"StandbyCount", sessionState.StandbyCount})
+
+    sessionState.EntityData.YListKeys = []string {}
+
     return &(sessionState.EntityData)
 }
 
@@ -13409,9 +14264,12 @@ func (labelCounters *Bfd_LabelCounters) GetEntityData() *types.CommonEntityData 
     labelCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelCounters.EntityData.Children = make(map[string]types.YChild)
-    labelCounters.EntityData.Children["label-packet-counters"] = types.YChild{"LabelPacketCounters", &labelCounters.LabelPacketCounters}
-    labelCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    labelCounters.EntityData.Children = types.NewOrderedMap()
+    labelCounters.EntityData.Children.Append("label-packet-counters", types.YChild{"LabelPacketCounters", &labelCounters.LabelPacketCounters})
+    labelCounters.EntityData.Leafs = types.NewOrderedMap()
+
+    labelCounters.EntityData.YListKeys = []string {}
+
     return &(labelCounters.EntityData)
 }
 
@@ -13423,7 +14281,7 @@ type Bfd_LabelCounters_LabelPacketCounters struct {
 
     // Interface Label Packet counters. The type is slice of
     // Bfd_LabelCounters_LabelPacketCounters_LabelPacketCounter.
-    LabelPacketCounter []Bfd_LabelCounters_LabelPacketCounters_LabelPacketCounter
+    LabelPacketCounter []*Bfd_LabelCounters_LabelPacketCounters_LabelPacketCounter
 }
 
 func (labelPacketCounters *Bfd_LabelCounters_LabelPacketCounters) GetEntityData() *types.CommonEntityData {
@@ -13436,12 +14294,15 @@ func (labelPacketCounters *Bfd_LabelCounters_LabelPacketCounters) GetEntityData(
     labelPacketCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelPacketCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelPacketCounters.EntityData.Children = make(map[string]types.YChild)
-    labelPacketCounters.EntityData.Children["label-packet-counter"] = types.YChild{"LabelPacketCounter", nil}
+    labelPacketCounters.EntityData.Children = types.NewOrderedMap()
+    labelPacketCounters.EntityData.Children.Append("label-packet-counter", types.YChild{"LabelPacketCounter", nil})
     for i := range labelPacketCounters.LabelPacketCounter {
-        labelPacketCounters.EntityData.Children[types.GetSegmentPath(&labelPacketCounters.LabelPacketCounter[i])] = types.YChild{"LabelPacketCounter", &labelPacketCounters.LabelPacketCounter[i]}
+        labelPacketCounters.EntityData.Children.Append(types.GetSegmentPath(labelPacketCounters.LabelPacketCounter[i]), types.YChild{"LabelPacketCounter", labelPacketCounters.LabelPacketCounter[i]})
     }
-    labelPacketCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    labelPacketCounters.EntityData.Leafs = types.NewOrderedMap()
+
+    labelPacketCounters.EntityData.YListKeys = []string {}
+
     return &(labelPacketCounters.EntityData)
 }
 
@@ -13451,11 +14312,11 @@ type Bfd_LabelCounters_LabelPacketCounters_LabelPacketCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Number of Hellos transmitted. The type is interface{} with range:
@@ -13488,167 +14349,174 @@ func (labelPacketCounter *Bfd_LabelCounters_LabelPacketCounters_LabelPacketCount
     labelPacketCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelPacketCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelPacketCounter.EntityData.Children = make(map[string]types.YChild)
-    labelPacketCounter.EntityData.Leafs = make(map[string]types.YLeaf)
-    labelPacketCounter.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", labelPacketCounter.InterfaceName}
-    labelPacketCounter.EntityData.Leafs["location"] = types.YLeaf{"Location", labelPacketCounter.Location}
-    labelPacketCounter.EntityData.Leafs["hello-transmit-count"] = types.YLeaf{"HelloTransmitCount", labelPacketCounter.HelloTransmitCount}
-    labelPacketCounter.EntityData.Leafs["hello-receive-count"] = types.YLeaf{"HelloReceiveCount", labelPacketCounter.HelloReceiveCount}
-    labelPacketCounter.EntityData.Leafs["echo-transmit-count"] = types.YLeaf{"EchoTransmitCount", labelPacketCounter.EchoTransmitCount}
-    labelPacketCounter.EntityData.Leafs["echo-receive-count"] = types.YLeaf{"EchoReceiveCount", labelPacketCounter.EchoReceiveCount}
-    labelPacketCounter.EntityData.Leafs["display-type"] = types.YLeaf{"DisplayType", labelPacketCounter.DisplayType}
+    labelPacketCounter.EntityData.Children = types.NewOrderedMap()
+    labelPacketCounter.EntityData.Leafs = types.NewOrderedMap()
+    labelPacketCounter.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", labelPacketCounter.InterfaceName})
+    labelPacketCounter.EntityData.Leafs.Append("location", types.YLeaf{"Location", labelPacketCounter.Location})
+    labelPacketCounter.EntityData.Leafs.Append("hello-transmit-count", types.YLeaf{"HelloTransmitCount", labelPacketCounter.HelloTransmitCount})
+    labelPacketCounter.EntityData.Leafs.Append("hello-receive-count", types.YLeaf{"HelloReceiveCount", labelPacketCounter.HelloReceiveCount})
+    labelPacketCounter.EntityData.Leafs.Append("echo-transmit-count", types.YLeaf{"EchoTransmitCount", labelPacketCounter.EchoTransmitCount})
+    labelPacketCounter.EntityData.Leafs.Append("echo-receive-count", types.YLeaf{"EchoReceiveCount", labelPacketCounter.EchoReceiveCount})
+    labelPacketCounter.EntityData.Leafs.Append("display-type", types.YLeaf{"DisplayType", labelPacketCounter.DisplayType})
+
+    labelPacketCounter.EntityData.YListKeys = []string {}
+
     return &(labelPacketCounter.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails
 // Table of detailed information about all IPv4 BFD
 // over MPLS-TE Head sessions in the System
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Detailed information for a single IPv4 BFD over MPLS-TE head session. The
     // type is slice of
-    // Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail.
-    Ipv4BfDoMplsteHeadSessionDetail []Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail
+    // Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail.
+    Ipv4bfDoMplsteHeadSessionDetail []*Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail
 }
 
-func (ipv4BfDoMplsteHeadSessionDetails *Bfd_Ipv4BfDoMplsteHeadSessionDetails) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteHeadSessionDetails.EntityData.YFilter = ipv4BfDoMplsteHeadSessionDetails.YFilter
-    ipv4BfDoMplsteHeadSessionDetails.EntityData.YangName = "ipv4bf-do-mplste-head-session-details"
-    ipv4BfDoMplsteHeadSessionDetails.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteHeadSessionDetails.EntityData.ParentYangName = "bfd"
-    ipv4BfDoMplsteHeadSessionDetails.EntityData.SegmentPath = "ipv4bf-do-mplste-head-session-details"
-    ipv4BfDoMplsteHeadSessionDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteHeadSessionDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteHeadSessionDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteHeadSessionDetails *Bfd_Ipv4bfDoMplsteHeadSessionDetails) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteHeadSessionDetails.EntityData.YFilter = ipv4bfDoMplsteHeadSessionDetails.YFilter
+    ipv4bfDoMplsteHeadSessionDetails.EntityData.YangName = "ipv4bf-do-mplste-head-session-details"
+    ipv4bfDoMplsteHeadSessionDetails.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteHeadSessionDetails.EntityData.ParentYangName = "bfd"
+    ipv4bfDoMplsteHeadSessionDetails.EntityData.SegmentPath = "ipv4bf-do-mplste-head-session-details"
+    ipv4bfDoMplsteHeadSessionDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteHeadSessionDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteHeadSessionDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteHeadSessionDetails.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteHeadSessionDetails.EntityData.Children["ipv4bf-do-mplste-head-session-detail"] = types.YChild{"Ipv4BfDoMplsteHeadSessionDetail", nil}
-    for i := range ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail {
-        ipv4BfDoMplsteHeadSessionDetails.EntityData.Children[types.GetSegmentPath(&ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail[i])] = types.YChild{"Ipv4BfDoMplsteHeadSessionDetail", &ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail[i]}
+    ipv4bfDoMplsteHeadSessionDetails.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteHeadSessionDetails.EntityData.Children.Append("ipv4bf-do-mplste-head-session-detail", types.YChild{"Ipv4bfDoMplsteHeadSessionDetail", nil})
+    for i := range ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail {
+        ipv4bfDoMplsteHeadSessionDetails.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail[i]), types.YChild{"Ipv4bfDoMplsteHeadSessionDetail", ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail[i]})
     }
-    ipv4BfDoMplsteHeadSessionDetails.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipv4BfDoMplsteHeadSessionDetails.EntityData)
+    ipv4bfDoMplsteHeadSessionDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4bfDoMplsteHeadSessionDetails.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteHeadSessionDetails.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail
 // Detailed information for a single IPv4 BFD over
 // MPLS-TE head session
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
-    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
-    // Incoming Label. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabel interface{}
 
-    // FEC Type. The type is interface{} with range: -2147483648..2147483647.
+    // FEC Type. The type is interface{} with range: 0..4294967295.
     FeCtype interface{}
 
-    // FEC Subgroup ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // FEC Subgroup ID. The type is interface{} with range: 0..4294967295.
     FecSubgroupId interface{}
 
-    // FEC LSP ID. The type is interface{} with range: -2147483648..2147483647.
+    // FEC LSP ID. The type is interface{} with range: 0..4294967295.
     Feclspid interface{}
 
-    // FEC Tunnel ID. The type is interface{} with range: -2147483648..2147483647.
+    // FEC Tunnel ID. The type is interface{} with range: 0..4294967295.
     FecTunnelId interface{}
 
     // FEC Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecExtendedTunnelId interface{}
 
     // FEC Source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecSource interface{}
 
     // FEC Destination. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecDestination interface{}
 
-    // FEC P2MP ID. The type is interface{} with range: -2147483648..2147483647.
-    Fecp2Mpid interface{}
+    // FEC P2MP ID. The type is interface{} with range: 0..4294967295.
+    Fecp2mpid interface{}
 
     // FEC Subgroup originator. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecSubgroupOriginator interface{}
 
-    // FEC C Type. The type is interface{} with range: -2147483648..2147483647.
+    // FEC C Type. The type is interface{} with range: 0..4294967295.
     FecCtype interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Session status information.
-    StatusInformation Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation
+    StatusInformation Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation
 
     // MP Dowload State.
-    MpDownloadState Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_MpDownloadState
+    MpDownloadState Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_MpDownloadState
 
     // LSP Ping Info.
-    LspPingInfo Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPingInfo
+    LspPingInfo Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_LspPingInfo
 
     // Client applications owning the session. The type is slice of
-    // Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_OwnerInformation.
-    OwnerInformation []Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_OwnerInformation
+    // Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_OwnerInformation.
+    OwnerInformation []*Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_OwnerInformation
 
     // Association session information. The type is slice of
-    // Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_AssociationInformation.
-    AssociationInformation []Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_AssociationInformation
+    // Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_AssociationInformation.
+    AssociationInformation []*Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_AssociationInformation
 }
 
-func (ipv4BfDoMplsteHeadSessionDetail *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.YFilter = ipv4BfDoMplsteHeadSessionDetail.YFilter
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.YangName = "ipv4bf-do-mplste-head-session-detail"
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.ParentYangName = "ipv4bf-do-mplste-head-session-details"
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.SegmentPath = "ipv4bf-do-mplste-head-session-detail"
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteHeadSessionDetail *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.YFilter = ipv4bfDoMplsteHeadSessionDetail.YFilter
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.YangName = "ipv4bf-do-mplste-head-session-detail"
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.ParentYangName = "ipv4bf-do-mplste-head-session-details"
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.SegmentPath = "ipv4bf-do-mplste-head-session-detail"
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Children["status-information"] = types.YChild{"StatusInformation", &ipv4BfDoMplsteHeadSessionDetail.StatusInformation}
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Children["mp-download-state"] = types.YChild{"MpDownloadState", &ipv4BfDoMplsteHeadSessionDetail.MpDownloadState}
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Children["lsp-ping-info"] = types.YChild{"LspPingInfo", &ipv4BfDoMplsteHeadSessionDetail.LspPingInfo}
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Children["owner-information"] = types.YChild{"OwnerInformation", nil}
-    for i := range ipv4BfDoMplsteHeadSessionDetail.OwnerInformation {
-        ipv4BfDoMplsteHeadSessionDetail.EntityData.Children[types.GetSegmentPath(&ipv4BfDoMplsteHeadSessionDetail.OwnerInformation[i])] = types.YChild{"OwnerInformation", &ipv4BfDoMplsteHeadSessionDetail.OwnerInformation[i]}
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Children.Append("status-information", types.YChild{"StatusInformation", &ipv4bfDoMplsteHeadSessionDetail.StatusInformation})
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Children.Append("mp-download-state", types.YChild{"MpDownloadState", &ipv4bfDoMplsteHeadSessionDetail.MpDownloadState})
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Children.Append("lsp-ping-info", types.YChild{"LspPingInfo", &ipv4bfDoMplsteHeadSessionDetail.LspPingInfo})
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
+    for i := range ipv4bfDoMplsteHeadSessionDetail.OwnerInformation {
+        ipv4bfDoMplsteHeadSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteHeadSessionDetail.OwnerInformation[i]), types.YChild{"OwnerInformation", ipv4bfDoMplsteHeadSessionDetail.OwnerInformation[i]})
     }
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Children["association-information"] = types.YChild{"AssociationInformation", nil}
-    for i := range ipv4BfDoMplsteHeadSessionDetail.AssociationInformation {
-        ipv4BfDoMplsteHeadSessionDetail.EntityData.Children[types.GetSegmentPath(&ipv4BfDoMplsteHeadSessionDetail.AssociationInformation[i])] = types.YChild{"AssociationInformation", &ipv4BfDoMplsteHeadSessionDetail.AssociationInformation[i]}
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Children.Append("association-information", types.YChild{"AssociationInformation", nil})
+    for i := range ipv4bfDoMplsteHeadSessionDetail.AssociationInformation {
+        ipv4bfDoMplsteHeadSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteHeadSessionDetail.AssociationInformation[i]), types.YChild{"AssociationInformation", ipv4bfDoMplsteHeadSessionDetail.AssociationInformation[i]})
     }
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", ipv4BfDoMplsteHeadSessionDetail.InterfaceName}
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4BfDoMplsteHeadSessionDetail.VrfName}
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Leafs["incoming-label"] = types.YLeaf{"IncomingLabel", ipv4BfDoMplsteHeadSessionDetail.IncomingLabel}
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Leafs["fe-ctype"] = types.YLeaf{"FeCtype", ipv4BfDoMplsteHeadSessionDetail.FeCtype}
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Leafs["fec-subgroup-id"] = types.YLeaf{"FecSubgroupId", ipv4BfDoMplsteHeadSessionDetail.FecSubgroupId}
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Leafs["feclspid"] = types.YLeaf{"Feclspid", ipv4BfDoMplsteHeadSessionDetail.Feclspid}
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Leafs["fec-tunnel-id"] = types.YLeaf{"FecTunnelId", ipv4BfDoMplsteHeadSessionDetail.FecTunnelId}
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Leafs["fec-extended-tunnel-id"] = types.YLeaf{"FecExtendedTunnelId", ipv4BfDoMplsteHeadSessionDetail.FecExtendedTunnelId}
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Leafs["fec-source"] = types.YLeaf{"FecSource", ipv4BfDoMplsteHeadSessionDetail.FecSource}
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Leafs["fec-destination"] = types.YLeaf{"FecDestination", ipv4BfDoMplsteHeadSessionDetail.FecDestination}
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Leafs["fecp2mpid"] = types.YLeaf{"Fecp2Mpid", ipv4BfDoMplsteHeadSessionDetail.Fecp2Mpid}
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Leafs["fec-subgroup-originator"] = types.YLeaf{"FecSubgroupOriginator", ipv4BfDoMplsteHeadSessionDetail.FecSubgroupOriginator}
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Leafs["fec-ctype"] = types.YLeaf{"FecCtype", ipv4BfDoMplsteHeadSessionDetail.FecCtype}
-    ipv4BfDoMplsteHeadSessionDetail.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv4BfDoMplsteHeadSessionDetail.Location}
-    return &(ipv4BfDoMplsteHeadSessionDetail.EntityData)
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Leafs = types.NewOrderedMap()
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", ipv4bfDoMplsteHeadSessionDetail.InterfaceName})
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4bfDoMplsteHeadSessionDetail.VrfName})
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Leafs.Append("incoming-label", types.YLeaf{"IncomingLabel", ipv4bfDoMplsteHeadSessionDetail.IncomingLabel})
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Leafs.Append("fe-ctype", types.YLeaf{"FeCtype", ipv4bfDoMplsteHeadSessionDetail.FeCtype})
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Leafs.Append("fec-subgroup-id", types.YLeaf{"FecSubgroupId", ipv4bfDoMplsteHeadSessionDetail.FecSubgroupId})
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Leafs.Append("feclspid", types.YLeaf{"Feclspid", ipv4bfDoMplsteHeadSessionDetail.Feclspid})
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Leafs.Append("fec-tunnel-id", types.YLeaf{"FecTunnelId", ipv4bfDoMplsteHeadSessionDetail.FecTunnelId})
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Leafs.Append("fec-extended-tunnel-id", types.YLeaf{"FecExtendedTunnelId", ipv4bfDoMplsteHeadSessionDetail.FecExtendedTunnelId})
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Leafs.Append("fec-source", types.YLeaf{"FecSource", ipv4bfDoMplsteHeadSessionDetail.FecSource})
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Leafs.Append("fec-destination", types.YLeaf{"FecDestination", ipv4bfDoMplsteHeadSessionDetail.FecDestination})
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Leafs.Append("fecp2mpid", types.YLeaf{"Fecp2mpid", ipv4bfDoMplsteHeadSessionDetail.Fecp2mpid})
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Leafs.Append("fec-subgroup-originator", types.YLeaf{"FecSubgroupOriginator", ipv4bfDoMplsteHeadSessionDetail.FecSubgroupOriginator})
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Leafs.Append("fec-ctype", types.YLeaf{"FecCtype", ipv4bfDoMplsteHeadSessionDetail.FecCtype})
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv4bfDoMplsteHeadSessionDetail.Location})
+
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteHeadSessionDetail.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation
 // Session status information
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -13698,42 +14566,42 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_Status
     LatencyAverage interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Internal Label. The type is interface{} with range: 0..4294967295.
     InternalLabel interface{}
 
     // Source address.
-    SourceAddress Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_SourceAddress
+    SourceAddress Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_SourceAddress
 
     // Time since last state change.
-    LastStateChange Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_LastStateChange
+    LastStateChange Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_LastStateChange
 
     // Transmit Packet.
-    TransmitPacket Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_TransmitPacket
+    TransmitPacket Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_TransmitPacket
 
     // Receive Packet.
-    ReceivePacket Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_ReceivePacket
+    ReceivePacket Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_ReceivePacket
 
     // Brief Status Information.
-    StatusBriefInformation Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation
+    StatusBriefInformation Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation
 
     // Statistics of Interval between Async Packets Transmitted (in
     // milli-seconds).
-    AsyncTransmitStatistics Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_AsyncTransmitStatistics
+    AsyncTransmitStatistics Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_AsyncTransmitStatistics
 
     // Statistics of Interval between Async Packets Received (in milli-seconds).
-    AsyncReceiveStatistics Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_AsyncReceiveStatistics
+    AsyncReceiveStatistics Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_AsyncReceiveStatistics
 
     // Statistics of Interval between Echo Packets Transmitted (in milli-seconds).
-    EchoTransmitStatistics Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_EchoTransmitStatistics
+    EchoTransmitStatistics Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_EchoTransmitStatistics
 
     // Statistics of Interval between Echo Packets Received (in milli-seconds).
-    EchoReceivedStatistics Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_EchoReceivedStatistics
+    EchoReceivedStatistics Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_EchoReceivedStatistics
 }
 
-func (statusInformation *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation) GetEntityData() *types.CommonEntityData {
+func (statusInformation *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation) GetEntityData() *types.CommonEntityData {
     statusInformation.EntityData.YFilter = statusInformation.YFilter
     statusInformation.EntityData.YangName = "status-information"
     statusInformation.EntityData.BundleName = "cisco_ios_xr"
@@ -13743,37 +14611,40 @@ func (statusInformation *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHead
     statusInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusInformation.EntityData.Children = make(map[string]types.YChild)
-    statusInformation.EntityData.Children["source-address"] = types.YChild{"SourceAddress", &statusInformation.SourceAddress}
-    statusInformation.EntityData.Children["last-state-change"] = types.YChild{"LastStateChange", &statusInformation.LastStateChange}
-    statusInformation.EntityData.Children["transmit-packet"] = types.YChild{"TransmitPacket", &statusInformation.TransmitPacket}
-    statusInformation.EntityData.Children["receive-packet"] = types.YChild{"ReceivePacket", &statusInformation.ReceivePacket}
-    statusInformation.EntityData.Children["status-brief-information"] = types.YChild{"StatusBriefInformation", &statusInformation.StatusBriefInformation}
-    statusInformation.EntityData.Children["async-transmit-statistics"] = types.YChild{"AsyncTransmitStatistics", &statusInformation.AsyncTransmitStatistics}
-    statusInformation.EntityData.Children["async-receive-statistics"] = types.YChild{"AsyncReceiveStatistics", &statusInformation.AsyncReceiveStatistics}
-    statusInformation.EntityData.Children["echo-transmit-statistics"] = types.YChild{"EchoTransmitStatistics", &statusInformation.EchoTransmitStatistics}
-    statusInformation.EntityData.Children["echo-received-statistics"] = types.YChild{"EchoReceivedStatistics", &statusInformation.EchoReceivedStatistics}
-    statusInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    statusInformation.EntityData.Leafs["sessiontype"] = types.YLeaf{"Sessiontype", statusInformation.Sessiontype}
-    statusInformation.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", statusInformation.SessionSubtype}
-    statusInformation.EntityData.Leafs["state"] = types.YLeaf{"State", statusInformation.State}
-    statusInformation.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", statusInformation.LocalDiscriminator}
-    statusInformation.EntityData.Leafs["remote-discriminator"] = types.YLeaf{"RemoteDiscriminator", statusInformation.RemoteDiscriminator}
-    statusInformation.EntityData.Leafs["to-up-state-count"] = types.YLeaf{"ToUpStateCount", statusInformation.ToUpStateCount}
-    statusInformation.EntityData.Leafs["desired-minimum-echo-transmit-interval"] = types.YLeaf{"DesiredMinimumEchoTransmitInterval", statusInformation.DesiredMinimumEchoTransmitInterval}
-    statusInformation.EntityData.Leafs["remote-negotiated-interval"] = types.YLeaf{"RemoteNegotiatedInterval", statusInformation.RemoteNegotiatedInterval}
-    statusInformation.EntityData.Leafs["latency-number"] = types.YLeaf{"LatencyNumber", statusInformation.LatencyNumber}
-    statusInformation.EntityData.Leafs["latency-minimum"] = types.YLeaf{"LatencyMinimum", statusInformation.LatencyMinimum}
-    statusInformation.EntityData.Leafs["latency-maximum"] = types.YLeaf{"LatencyMaximum", statusInformation.LatencyMaximum}
-    statusInformation.EntityData.Leafs["latency-average"] = types.YLeaf{"LatencyAverage", statusInformation.LatencyAverage}
-    statusInformation.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", statusInformation.NodeId}
-    statusInformation.EntityData.Leafs["internal-label"] = types.YLeaf{"InternalLabel", statusInformation.InternalLabel}
+    statusInformation.EntityData.Children = types.NewOrderedMap()
+    statusInformation.EntityData.Children.Append("source-address", types.YChild{"SourceAddress", &statusInformation.SourceAddress})
+    statusInformation.EntityData.Children.Append("last-state-change", types.YChild{"LastStateChange", &statusInformation.LastStateChange})
+    statusInformation.EntityData.Children.Append("transmit-packet", types.YChild{"TransmitPacket", &statusInformation.TransmitPacket})
+    statusInformation.EntityData.Children.Append("receive-packet", types.YChild{"ReceivePacket", &statusInformation.ReceivePacket})
+    statusInformation.EntityData.Children.Append("status-brief-information", types.YChild{"StatusBriefInformation", &statusInformation.StatusBriefInformation})
+    statusInformation.EntityData.Children.Append("async-transmit-statistics", types.YChild{"AsyncTransmitStatistics", &statusInformation.AsyncTransmitStatistics})
+    statusInformation.EntityData.Children.Append("async-receive-statistics", types.YChild{"AsyncReceiveStatistics", &statusInformation.AsyncReceiveStatistics})
+    statusInformation.EntityData.Children.Append("echo-transmit-statistics", types.YChild{"EchoTransmitStatistics", &statusInformation.EchoTransmitStatistics})
+    statusInformation.EntityData.Children.Append("echo-received-statistics", types.YChild{"EchoReceivedStatistics", &statusInformation.EchoReceivedStatistics})
+    statusInformation.EntityData.Leafs = types.NewOrderedMap()
+    statusInformation.EntityData.Leafs.Append("sessiontype", types.YLeaf{"Sessiontype", statusInformation.Sessiontype})
+    statusInformation.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", statusInformation.SessionSubtype})
+    statusInformation.EntityData.Leafs.Append("state", types.YLeaf{"State", statusInformation.State})
+    statusInformation.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", statusInformation.LocalDiscriminator})
+    statusInformation.EntityData.Leafs.Append("remote-discriminator", types.YLeaf{"RemoteDiscriminator", statusInformation.RemoteDiscriminator})
+    statusInformation.EntityData.Leafs.Append("to-up-state-count", types.YLeaf{"ToUpStateCount", statusInformation.ToUpStateCount})
+    statusInformation.EntityData.Leafs.Append("desired-minimum-echo-transmit-interval", types.YLeaf{"DesiredMinimumEchoTransmitInterval", statusInformation.DesiredMinimumEchoTransmitInterval})
+    statusInformation.EntityData.Leafs.Append("remote-negotiated-interval", types.YLeaf{"RemoteNegotiatedInterval", statusInformation.RemoteNegotiatedInterval})
+    statusInformation.EntityData.Leafs.Append("latency-number", types.YLeaf{"LatencyNumber", statusInformation.LatencyNumber})
+    statusInformation.EntityData.Leafs.Append("latency-minimum", types.YLeaf{"LatencyMinimum", statusInformation.LatencyMinimum})
+    statusInformation.EntityData.Leafs.Append("latency-maximum", types.YLeaf{"LatencyMaximum", statusInformation.LatencyMaximum})
+    statusInformation.EntityData.Leafs.Append("latency-average", types.YLeaf{"LatencyAverage", statusInformation.LatencyAverage})
+    statusInformation.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", statusInformation.NodeId})
+    statusInformation.EntityData.Leafs.Append("internal-label", types.YLeaf{"InternalLabel", statusInformation.InternalLabel})
+
+    statusInformation.EntityData.YListKeys = []string {}
+
     return &(statusInformation.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_SourceAddress
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_SourceAddress
 // Source address
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_SourceAddress struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_SourceAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -13784,15 +14655,15 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_Status
     Dummy interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
-func (sourceAddress *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_SourceAddress) GetEntityData() *types.CommonEntityData {
+func (sourceAddress *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_SourceAddress) GetEntityData() *types.CommonEntityData {
     sourceAddress.EntityData.YFilter = sourceAddress.YFilter
     sourceAddress.EntityData.YangName = "source-address"
     sourceAddress.EntityData.BundleName = "cisco_ios_xr"
@@ -13802,18 +14673,21 @@ func (sourceAddress *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSess
     sourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourceAddress.EntityData.Children = make(map[string]types.YChild)
-    sourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    sourceAddress.EntityData.Leafs["afi"] = types.YLeaf{"Afi", sourceAddress.Afi}
-    sourceAddress.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", sourceAddress.Dummy}
-    sourceAddress.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", sourceAddress.Ipv4}
-    sourceAddress.EntityData.Leafs["ipv6"] = types.YLeaf{"Ipv6", sourceAddress.Ipv6}
+    sourceAddress.EntityData.Children = types.NewOrderedMap()
+    sourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    sourceAddress.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", sourceAddress.Afi})
+    sourceAddress.EntityData.Leafs.Append("dummy", types.YLeaf{"Dummy", sourceAddress.Dummy})
+    sourceAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", sourceAddress.Ipv4})
+    sourceAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", sourceAddress.Ipv6})
+
+    sourceAddress.EntityData.YListKeys = []string {}
+
     return &(sourceAddress.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_LastStateChange
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_LastStateChange
 // Time since last state change
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_LastStateChange struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_LastStateChange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -13834,7 +14708,7 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_Status
     Seconds interface{}
 }
 
-func (lastStateChange *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_LastStateChange) GetEntityData() *types.CommonEntityData {
+func (lastStateChange *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_LastStateChange) GetEntityData() *types.CommonEntityData {
     lastStateChange.EntityData.YFilter = lastStateChange.YFilter
     lastStateChange.EntityData.YangName = "last-state-change"
     lastStateChange.EntityData.BundleName = "cisco_ios_xr"
@@ -13844,18 +14718,21 @@ func (lastStateChange *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSe
     lastStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lastStateChange.EntityData.Children = make(map[string]types.YChild)
-    lastStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
-    lastStateChange.EntityData.Leafs["days"] = types.YLeaf{"Days", lastStateChange.Days}
-    lastStateChange.EntityData.Leafs["hours"] = types.YLeaf{"Hours", lastStateChange.Hours}
-    lastStateChange.EntityData.Leafs["minutes"] = types.YLeaf{"Minutes", lastStateChange.Minutes}
-    lastStateChange.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lastStateChange.Seconds}
+    lastStateChange.EntityData.Children = types.NewOrderedMap()
+    lastStateChange.EntityData.Leafs = types.NewOrderedMap()
+    lastStateChange.EntityData.Leafs.Append("days", types.YLeaf{"Days", lastStateChange.Days})
+    lastStateChange.EntityData.Leafs.Append("hours", types.YLeaf{"Hours", lastStateChange.Hours})
+    lastStateChange.EntityData.Leafs.Append("minutes", types.YLeaf{"Minutes", lastStateChange.Minutes})
+    lastStateChange.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lastStateChange.Seconds})
+
+    lastStateChange.EntityData.YListKeys = []string {}
+
     return &(lastStateChange.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_TransmitPacket
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_TransmitPacket
 // Transmit Packet
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_TransmitPacket struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_TransmitPacket struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -13914,7 +14791,7 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_Status
     RequiredMinimumEchoReceiveInterval interface{}
 }
 
-func (transmitPacket *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_TransmitPacket) GetEntityData() *types.CommonEntityData {
+func (transmitPacket *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_TransmitPacket) GetEntityData() *types.CommonEntityData {
     transmitPacket.EntityData.YFilter = transmitPacket.YFilter
     transmitPacket.EntityData.YangName = "transmit-packet"
     transmitPacket.EntityData.BundleName = "cisco_ios_xr"
@@ -13924,30 +14801,33 @@ func (transmitPacket *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSes
     transmitPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    transmitPacket.EntityData.Children = make(map[string]types.YChild)
-    transmitPacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    transmitPacket.EntityData.Leafs["version"] = types.YLeaf{"Version", transmitPacket.Version}
-    transmitPacket.EntityData.Leafs["diagnostic"] = types.YLeaf{"Diagnostic", transmitPacket.Diagnostic}
-    transmitPacket.EntityData.Leafs["ihear-you"] = types.YLeaf{"IhearYou", transmitPacket.IhearYou}
-    transmitPacket.EntityData.Leafs["state"] = types.YLeaf{"State", transmitPacket.State}
-    transmitPacket.EntityData.Leafs["demand"] = types.YLeaf{"Demand", transmitPacket.Demand}
-    transmitPacket.EntityData.Leafs["poll"] = types.YLeaf{"Poll", transmitPacket.Poll}
-    transmitPacket.EntityData.Leafs["final"] = types.YLeaf{"Final", transmitPacket.Final}
-    transmitPacket.EntityData.Leafs["control-plane-independent"] = types.YLeaf{"ControlPlaneIndependent", transmitPacket.ControlPlaneIndependent}
-    transmitPacket.EntityData.Leafs["authentication-present"] = types.YLeaf{"AuthenticationPresent", transmitPacket.AuthenticationPresent}
-    transmitPacket.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", transmitPacket.DetectionMultiplier}
-    transmitPacket.EntityData.Leafs["length"] = types.YLeaf{"Length", transmitPacket.Length}
-    transmitPacket.EntityData.Leafs["my-discriminator"] = types.YLeaf{"MyDiscriminator", transmitPacket.MyDiscriminator}
-    transmitPacket.EntityData.Leafs["your-discriminator"] = types.YLeaf{"YourDiscriminator", transmitPacket.YourDiscriminator}
-    transmitPacket.EntityData.Leafs["desired-minimum-transmit-interval"] = types.YLeaf{"DesiredMinimumTransmitInterval", transmitPacket.DesiredMinimumTransmitInterval}
-    transmitPacket.EntityData.Leafs["required-minimum-receive-interval"] = types.YLeaf{"RequiredMinimumReceiveInterval", transmitPacket.RequiredMinimumReceiveInterval}
-    transmitPacket.EntityData.Leafs["required-minimum-echo-receive-interval"] = types.YLeaf{"RequiredMinimumEchoReceiveInterval", transmitPacket.RequiredMinimumEchoReceiveInterval}
+    transmitPacket.EntityData.Children = types.NewOrderedMap()
+    transmitPacket.EntityData.Leafs = types.NewOrderedMap()
+    transmitPacket.EntityData.Leafs.Append("version", types.YLeaf{"Version", transmitPacket.Version})
+    transmitPacket.EntityData.Leafs.Append("diagnostic", types.YLeaf{"Diagnostic", transmitPacket.Diagnostic})
+    transmitPacket.EntityData.Leafs.Append("ihear-you", types.YLeaf{"IhearYou", transmitPacket.IhearYou})
+    transmitPacket.EntityData.Leafs.Append("state", types.YLeaf{"State", transmitPacket.State})
+    transmitPacket.EntityData.Leafs.Append("demand", types.YLeaf{"Demand", transmitPacket.Demand})
+    transmitPacket.EntityData.Leafs.Append("poll", types.YLeaf{"Poll", transmitPacket.Poll})
+    transmitPacket.EntityData.Leafs.Append("final", types.YLeaf{"Final", transmitPacket.Final})
+    transmitPacket.EntityData.Leafs.Append("control-plane-independent", types.YLeaf{"ControlPlaneIndependent", transmitPacket.ControlPlaneIndependent})
+    transmitPacket.EntityData.Leafs.Append("authentication-present", types.YLeaf{"AuthenticationPresent", transmitPacket.AuthenticationPresent})
+    transmitPacket.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", transmitPacket.DetectionMultiplier})
+    transmitPacket.EntityData.Leafs.Append("length", types.YLeaf{"Length", transmitPacket.Length})
+    transmitPacket.EntityData.Leafs.Append("my-discriminator", types.YLeaf{"MyDiscriminator", transmitPacket.MyDiscriminator})
+    transmitPacket.EntityData.Leafs.Append("your-discriminator", types.YLeaf{"YourDiscriminator", transmitPacket.YourDiscriminator})
+    transmitPacket.EntityData.Leafs.Append("desired-minimum-transmit-interval", types.YLeaf{"DesiredMinimumTransmitInterval", transmitPacket.DesiredMinimumTransmitInterval})
+    transmitPacket.EntityData.Leafs.Append("required-minimum-receive-interval", types.YLeaf{"RequiredMinimumReceiveInterval", transmitPacket.RequiredMinimumReceiveInterval})
+    transmitPacket.EntityData.Leafs.Append("required-minimum-echo-receive-interval", types.YLeaf{"RequiredMinimumEchoReceiveInterval", transmitPacket.RequiredMinimumEchoReceiveInterval})
+
+    transmitPacket.EntityData.YListKeys = []string {}
+
     return &(transmitPacket.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_ReceivePacket
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_ReceivePacket
 // Receive Packet
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_ReceivePacket struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_ReceivePacket struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14006,7 +14886,7 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_Status
     RequiredMinimumEchoReceiveInterval interface{}
 }
 
-func (receivePacket *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_ReceivePacket) GetEntityData() *types.CommonEntityData {
+func (receivePacket *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_ReceivePacket) GetEntityData() *types.CommonEntityData {
     receivePacket.EntityData.YFilter = receivePacket.YFilter
     receivePacket.EntityData.YangName = "receive-packet"
     receivePacket.EntityData.BundleName = "cisco_ios_xr"
@@ -14016,41 +14896,44 @@ func (receivePacket *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSess
     receivePacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivePacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    receivePacket.EntityData.Children = make(map[string]types.YChild)
-    receivePacket.EntityData.Leafs = make(map[string]types.YLeaf)
-    receivePacket.EntityData.Leafs["version"] = types.YLeaf{"Version", receivePacket.Version}
-    receivePacket.EntityData.Leafs["diagnostic"] = types.YLeaf{"Diagnostic", receivePacket.Diagnostic}
-    receivePacket.EntityData.Leafs["ihear-you"] = types.YLeaf{"IhearYou", receivePacket.IhearYou}
-    receivePacket.EntityData.Leafs["state"] = types.YLeaf{"State", receivePacket.State}
-    receivePacket.EntityData.Leafs["demand"] = types.YLeaf{"Demand", receivePacket.Demand}
-    receivePacket.EntityData.Leafs["poll"] = types.YLeaf{"Poll", receivePacket.Poll}
-    receivePacket.EntityData.Leafs["final"] = types.YLeaf{"Final", receivePacket.Final}
-    receivePacket.EntityData.Leafs["control-plane-independent"] = types.YLeaf{"ControlPlaneIndependent", receivePacket.ControlPlaneIndependent}
-    receivePacket.EntityData.Leafs["authentication-present"] = types.YLeaf{"AuthenticationPresent", receivePacket.AuthenticationPresent}
-    receivePacket.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", receivePacket.DetectionMultiplier}
-    receivePacket.EntityData.Leafs["length"] = types.YLeaf{"Length", receivePacket.Length}
-    receivePacket.EntityData.Leafs["my-discriminator"] = types.YLeaf{"MyDiscriminator", receivePacket.MyDiscriminator}
-    receivePacket.EntityData.Leafs["your-discriminator"] = types.YLeaf{"YourDiscriminator", receivePacket.YourDiscriminator}
-    receivePacket.EntityData.Leafs["desired-minimum-transmit-interval"] = types.YLeaf{"DesiredMinimumTransmitInterval", receivePacket.DesiredMinimumTransmitInterval}
-    receivePacket.EntityData.Leafs["required-minimum-receive-interval"] = types.YLeaf{"RequiredMinimumReceiveInterval", receivePacket.RequiredMinimumReceiveInterval}
-    receivePacket.EntityData.Leafs["required-minimum-echo-receive-interval"] = types.YLeaf{"RequiredMinimumEchoReceiveInterval", receivePacket.RequiredMinimumEchoReceiveInterval}
+    receivePacket.EntityData.Children = types.NewOrderedMap()
+    receivePacket.EntityData.Leafs = types.NewOrderedMap()
+    receivePacket.EntityData.Leafs.Append("version", types.YLeaf{"Version", receivePacket.Version})
+    receivePacket.EntityData.Leafs.Append("diagnostic", types.YLeaf{"Diagnostic", receivePacket.Diagnostic})
+    receivePacket.EntityData.Leafs.Append("ihear-you", types.YLeaf{"IhearYou", receivePacket.IhearYou})
+    receivePacket.EntityData.Leafs.Append("state", types.YLeaf{"State", receivePacket.State})
+    receivePacket.EntityData.Leafs.Append("demand", types.YLeaf{"Demand", receivePacket.Demand})
+    receivePacket.EntityData.Leafs.Append("poll", types.YLeaf{"Poll", receivePacket.Poll})
+    receivePacket.EntityData.Leafs.Append("final", types.YLeaf{"Final", receivePacket.Final})
+    receivePacket.EntityData.Leafs.Append("control-plane-independent", types.YLeaf{"ControlPlaneIndependent", receivePacket.ControlPlaneIndependent})
+    receivePacket.EntityData.Leafs.Append("authentication-present", types.YLeaf{"AuthenticationPresent", receivePacket.AuthenticationPresent})
+    receivePacket.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", receivePacket.DetectionMultiplier})
+    receivePacket.EntityData.Leafs.Append("length", types.YLeaf{"Length", receivePacket.Length})
+    receivePacket.EntityData.Leafs.Append("my-discriminator", types.YLeaf{"MyDiscriminator", receivePacket.MyDiscriminator})
+    receivePacket.EntityData.Leafs.Append("your-discriminator", types.YLeaf{"YourDiscriminator", receivePacket.YourDiscriminator})
+    receivePacket.EntityData.Leafs.Append("desired-minimum-transmit-interval", types.YLeaf{"DesiredMinimumTransmitInterval", receivePacket.DesiredMinimumTransmitInterval})
+    receivePacket.EntityData.Leafs.Append("required-minimum-receive-interval", types.YLeaf{"RequiredMinimumReceiveInterval", receivePacket.RequiredMinimumReceiveInterval})
+    receivePacket.EntityData.Leafs.Append("required-minimum-echo-receive-interval", types.YLeaf{"RequiredMinimumEchoReceiveInterval", receivePacket.RequiredMinimumEchoReceiveInterval})
+
+    receivePacket.EntityData.YListKeys = []string {}
+
     return &(receivePacket.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation
 // Brief Status Information
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Async Interval and Detect Multiplier Information.
-    AsyncIntervalMultiplier Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation_AsyncIntervalMultiplier
+    AsyncIntervalMultiplier Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation_AsyncIntervalMultiplier
 
     // Echo Interval and Detect Multiplier Information.
-    EchoIntervalMultiplier Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation_EchoIntervalMultiplier
+    EchoIntervalMultiplier Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation_EchoIntervalMultiplier
 }
 
-func (statusBriefInformation *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation) GetEntityData() *types.CommonEntityData {
+func (statusBriefInformation *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation) GetEntityData() *types.CommonEntityData {
     statusBriefInformation.EntityData.YFilter = statusBriefInformation.YFilter
     statusBriefInformation.EntityData.YangName = "status-brief-information"
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
@@ -14060,16 +14943,19 @@ func (statusBriefInformation *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplst
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusBriefInformation.EntityData.Children = make(map[string]types.YChild)
-    statusBriefInformation.EntityData.Children["async-interval-multiplier"] = types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier}
-    statusBriefInformation.EntityData.Children["echo-interval-multiplier"] = types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier}
-    statusBriefInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    statusBriefInformation.EntityData.Children = types.NewOrderedMap()
+    statusBriefInformation.EntityData.Children.Append("async-interval-multiplier", types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier})
+    statusBriefInformation.EntityData.Children.Append("echo-interval-multiplier", types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier})
+    statusBriefInformation.EntityData.Leafs = types.NewOrderedMap()
+
+    statusBriefInformation.EntityData.YListKeys = []string {}
+
     return &(statusBriefInformation.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation_AsyncIntervalMultiplier
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation_AsyncIntervalMultiplier
 // Async Interval and Detect Multiplier Information
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation_AsyncIntervalMultiplier struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation_AsyncIntervalMultiplier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14089,7 +14975,7 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_Status
     DetectionMultiplier interface{}
 }
 
-func (asyncIntervalMultiplier *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation_AsyncIntervalMultiplier) GetEntityData() *types.CommonEntityData {
+func (asyncIntervalMultiplier *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation_AsyncIntervalMultiplier) GetEntityData() *types.CommonEntityData {
     asyncIntervalMultiplier.EntityData.YFilter = asyncIntervalMultiplier.YFilter
     asyncIntervalMultiplier.EntityData.YangName = "async-interval-multiplier"
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
@@ -14099,18 +14985,21 @@ func (asyncIntervalMultiplier *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMpls
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    asyncIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-remote-transmit-interval"] = types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-local-transmit-interval"] = types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier}
+    asyncIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-remote-transmit-interval", types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-local-transmit-interval", types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier})
+
+    asyncIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(asyncIntervalMultiplier.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation_EchoIntervalMultiplier
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation_EchoIntervalMultiplier
 // Echo Interval and Detect Multiplier Information
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation_EchoIntervalMultiplier struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation_EchoIntervalMultiplier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14126,7 +15015,7 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_Status
     DetectionMultiplier interface{}
 }
 
-func (echoIntervalMultiplier *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation_EchoIntervalMultiplier) GetEntityData() *types.CommonEntityData {
+func (echoIntervalMultiplier *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_StatusBriefInformation_EchoIntervalMultiplier) GetEntityData() *types.CommonEntityData {
     echoIntervalMultiplier.EntityData.YFilter = echoIntervalMultiplier.YFilter
     echoIntervalMultiplier.EntityData.YangName = "echo-interval-multiplier"
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
@@ -14136,18 +15025,21 @@ func (echoIntervalMultiplier *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplst
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    echoIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoIntervalMultiplier.EntityData.Leafs["negotiated-transmit-interval"] = types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval}
-    echoIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime}
-    echoIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier}
+    echoIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs.Append("negotiated-transmit-interval", types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier})
+
+    echoIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(echoIntervalMultiplier.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_AsyncTransmitStatistics
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_AsyncTransmitStatistics
 // Statistics of Interval between Async Packets
 // Transmitted (in milli-seconds)
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_AsyncTransmitStatistics struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_AsyncTransmitStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14172,7 +15064,7 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_Status
     Last interface{}
 }
 
-func (asyncTransmitStatistics *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_AsyncTransmitStatistics) GetEntityData() *types.CommonEntityData {
+func (asyncTransmitStatistics *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_AsyncTransmitStatistics) GetEntityData() *types.CommonEntityData {
     asyncTransmitStatistics.EntityData.YFilter = asyncTransmitStatistics.YFilter
     asyncTransmitStatistics.EntityData.YangName = "async-transmit-statistics"
     asyncTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
@@ -14182,20 +15074,23 @@ func (asyncTransmitStatistics *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMpls
     asyncTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncTransmitStatistics.EntityData.Children = make(map[string]types.YChild)
-    asyncTransmitStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncTransmitStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", asyncTransmitStatistics.Number}
-    asyncTransmitStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", asyncTransmitStatistics.Minimum}
-    asyncTransmitStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", asyncTransmitStatistics.Maximum}
-    asyncTransmitStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", asyncTransmitStatistics.Average}
-    asyncTransmitStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", asyncTransmitStatistics.Last}
+    asyncTransmitStatistics.EntityData.Children = types.NewOrderedMap()
+    asyncTransmitStatistics.EntityData.Leafs = types.NewOrderedMap()
+    asyncTransmitStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", asyncTransmitStatistics.Number})
+    asyncTransmitStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", asyncTransmitStatistics.Minimum})
+    asyncTransmitStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", asyncTransmitStatistics.Maximum})
+    asyncTransmitStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", asyncTransmitStatistics.Average})
+    asyncTransmitStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", asyncTransmitStatistics.Last})
+
+    asyncTransmitStatistics.EntityData.YListKeys = []string {}
+
     return &(asyncTransmitStatistics.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_AsyncReceiveStatistics
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_AsyncReceiveStatistics
 // Statistics of Interval between Async Packets
 // Received (in milli-seconds)
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_AsyncReceiveStatistics struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_AsyncReceiveStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14220,7 +15115,7 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_Status
     Last interface{}
 }
 
-func (asyncReceiveStatistics *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_AsyncReceiveStatistics) GetEntityData() *types.CommonEntityData {
+func (asyncReceiveStatistics *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_AsyncReceiveStatistics) GetEntityData() *types.CommonEntityData {
     asyncReceiveStatistics.EntityData.YFilter = asyncReceiveStatistics.YFilter
     asyncReceiveStatistics.EntityData.YangName = "async-receive-statistics"
     asyncReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
@@ -14230,20 +15125,23 @@ func (asyncReceiveStatistics *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplst
     asyncReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncReceiveStatistics.EntityData.Children = make(map[string]types.YChild)
-    asyncReceiveStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncReceiveStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", asyncReceiveStatistics.Number}
-    asyncReceiveStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", asyncReceiveStatistics.Minimum}
-    asyncReceiveStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", asyncReceiveStatistics.Maximum}
-    asyncReceiveStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", asyncReceiveStatistics.Average}
-    asyncReceiveStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", asyncReceiveStatistics.Last}
+    asyncReceiveStatistics.EntityData.Children = types.NewOrderedMap()
+    asyncReceiveStatistics.EntityData.Leafs = types.NewOrderedMap()
+    asyncReceiveStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", asyncReceiveStatistics.Number})
+    asyncReceiveStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", asyncReceiveStatistics.Minimum})
+    asyncReceiveStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", asyncReceiveStatistics.Maximum})
+    asyncReceiveStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", asyncReceiveStatistics.Average})
+    asyncReceiveStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", asyncReceiveStatistics.Last})
+
+    asyncReceiveStatistics.EntityData.YListKeys = []string {}
+
     return &(asyncReceiveStatistics.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_EchoTransmitStatistics
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_EchoTransmitStatistics
 // Statistics of Interval between Echo Packets
 // Transmitted (in milli-seconds)
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_EchoTransmitStatistics struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_EchoTransmitStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14268,7 +15166,7 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_Status
     Last interface{}
 }
 
-func (echoTransmitStatistics *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_EchoTransmitStatistics) GetEntityData() *types.CommonEntityData {
+func (echoTransmitStatistics *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_EchoTransmitStatistics) GetEntityData() *types.CommonEntityData {
     echoTransmitStatistics.EntityData.YFilter = echoTransmitStatistics.YFilter
     echoTransmitStatistics.EntityData.YangName = "echo-transmit-statistics"
     echoTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
@@ -14278,20 +15176,23 @@ func (echoTransmitStatistics *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplst
     echoTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoTransmitStatistics.EntityData.Children = make(map[string]types.YChild)
-    echoTransmitStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoTransmitStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", echoTransmitStatistics.Number}
-    echoTransmitStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", echoTransmitStatistics.Minimum}
-    echoTransmitStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", echoTransmitStatistics.Maximum}
-    echoTransmitStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", echoTransmitStatistics.Average}
-    echoTransmitStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", echoTransmitStatistics.Last}
+    echoTransmitStatistics.EntityData.Children = types.NewOrderedMap()
+    echoTransmitStatistics.EntityData.Leafs = types.NewOrderedMap()
+    echoTransmitStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", echoTransmitStatistics.Number})
+    echoTransmitStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", echoTransmitStatistics.Minimum})
+    echoTransmitStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", echoTransmitStatistics.Maximum})
+    echoTransmitStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", echoTransmitStatistics.Average})
+    echoTransmitStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", echoTransmitStatistics.Last})
+
+    echoTransmitStatistics.EntityData.YListKeys = []string {}
+
     return &(echoTransmitStatistics.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_EchoReceivedStatistics
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_EchoReceivedStatistics
 // Statistics of Interval between Echo Packets
 // Received (in milli-seconds)
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_EchoReceivedStatistics struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_EchoReceivedStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14316,7 +15217,7 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_Status
     Last interface{}
 }
 
-func (echoReceivedStatistics *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_StatusInformation_EchoReceivedStatistics) GetEntityData() *types.CommonEntityData {
+func (echoReceivedStatistics *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_StatusInformation_EchoReceivedStatistics) GetEntityData() *types.CommonEntityData {
     echoReceivedStatistics.EntityData.YFilter = echoReceivedStatistics.YFilter
     echoReceivedStatistics.EntityData.YangName = "echo-received-statistics"
     echoReceivedStatistics.EntityData.BundleName = "cisco_ios_xr"
@@ -14326,19 +15227,22 @@ func (echoReceivedStatistics *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplst
     echoReceivedStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoReceivedStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoReceivedStatistics.EntityData.Children = make(map[string]types.YChild)
-    echoReceivedStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoReceivedStatistics.EntityData.Leafs["number"] = types.YLeaf{"Number", echoReceivedStatistics.Number}
-    echoReceivedStatistics.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", echoReceivedStatistics.Minimum}
-    echoReceivedStatistics.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", echoReceivedStatistics.Maximum}
-    echoReceivedStatistics.EntityData.Leafs["average"] = types.YLeaf{"Average", echoReceivedStatistics.Average}
-    echoReceivedStatistics.EntityData.Leafs["last"] = types.YLeaf{"Last", echoReceivedStatistics.Last}
+    echoReceivedStatistics.EntityData.Children = types.NewOrderedMap()
+    echoReceivedStatistics.EntityData.Leafs = types.NewOrderedMap()
+    echoReceivedStatistics.EntityData.Leafs.Append("number", types.YLeaf{"Number", echoReceivedStatistics.Number})
+    echoReceivedStatistics.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", echoReceivedStatistics.Minimum})
+    echoReceivedStatistics.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", echoReceivedStatistics.Maximum})
+    echoReceivedStatistics.EntityData.Leafs.Append("average", types.YLeaf{"Average", echoReceivedStatistics.Average})
+    echoReceivedStatistics.EntityData.Leafs.Append("last", types.YLeaf{"Last", echoReceivedStatistics.Last})
+
+    echoReceivedStatistics.EntityData.YListKeys = []string {}
+
     return &(echoReceivedStatistics.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_MpDownloadState
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_MpDownloadState
 // MP Dowload State
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_MpDownloadState struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_MpDownloadState struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14346,10 +15250,10 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_MpDown
     MpDownloadState interface{}
 
     // Change time.
-    ChangeTime Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_MpDownloadState_ChangeTime
+    ChangeTime Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_MpDownloadState_ChangeTime
 }
 
-func (mpDownloadState *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_MpDownloadState) GetEntityData() *types.CommonEntityData {
+func (mpDownloadState *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_MpDownloadState) GetEntityData() *types.CommonEntityData {
     mpDownloadState.EntityData.YFilter = mpDownloadState.YFilter
     mpDownloadState.EntityData.YangName = "mp-download-state"
     mpDownloadState.EntityData.BundleName = "cisco_ios_xr"
@@ -14359,16 +15263,19 @@ func (mpDownloadState *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSe
     mpDownloadState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpDownloadState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mpDownloadState.EntityData.Children = make(map[string]types.YChild)
-    mpDownloadState.EntityData.Children["change-time"] = types.YChild{"ChangeTime", &mpDownloadState.ChangeTime}
-    mpDownloadState.EntityData.Leafs = make(map[string]types.YLeaf)
-    mpDownloadState.EntityData.Leafs["mp-download-state"] = types.YLeaf{"MpDownloadState", mpDownloadState.MpDownloadState}
+    mpDownloadState.EntityData.Children = types.NewOrderedMap()
+    mpDownloadState.EntityData.Children.Append("change-time", types.YChild{"ChangeTime", &mpDownloadState.ChangeTime})
+    mpDownloadState.EntityData.Leafs = types.NewOrderedMap()
+    mpDownloadState.EntityData.Leafs.Append("mp-download-state", types.YLeaf{"MpDownloadState", mpDownloadState.MpDownloadState})
+
+    mpDownloadState.EntityData.YListKeys = []string {}
+
     return &(mpDownloadState.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_MpDownloadState_ChangeTime
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_MpDownloadState_ChangeTime
 // Change time
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_MpDownloadState_ChangeTime struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_MpDownloadState_ChangeTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14381,7 +15288,7 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_MpDown
     Nanoseconds interface{}
 }
 
-func (changeTime *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_MpDownloadState_ChangeTime) GetEntityData() *types.CommonEntityData {
+func (changeTime *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_MpDownloadState_ChangeTime) GetEntityData() *types.CommonEntityData {
     changeTime.EntityData.YFilter = changeTime.YFilter
     changeTime.EntityData.YangName = "change-time"
     changeTime.EntityData.BundleName = "cisco_ios_xr"
@@ -14391,16 +15298,19 @@ func (changeTime *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSession
     changeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    changeTime.EntityData.Children = make(map[string]types.YChild)
-    changeTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    changeTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", changeTime.Seconds}
-    changeTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", changeTime.Nanoseconds}
+    changeTime.EntityData.Children = types.NewOrderedMap()
+    changeTime.EntityData.Leafs = types.NewOrderedMap()
+    changeTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", changeTime.Seconds})
+    changeTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", changeTime.Nanoseconds})
+
+    changeTime.EntityData.YListKeys = []string {}
+
     return &(changeTime.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPingInfo
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_LspPingInfo
 // LSP Ping Info
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPingInfo struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_LspPingInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14434,16 +15344,16 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPin
     LspPingRxLastOutput interface{}
 
     // LSP Ping last sent time.
-    LspPingTxLastTime Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPingInfo_LspPingTxLastTime
+    LspPingTxLastTime Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_LspPingInfo_LspPingTxLastTime
 
     // LSP Ping last error time.
-    LspPingTxLastErrorTime Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPingInfo_LspPingTxLastErrorTime
+    LspPingTxLastErrorTime Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_LspPingInfo_LspPingTxLastErrorTime
 
     // LSP Ping last received time.
-    LspPingRxLastTime Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPingInfo_LspPingRxLastTime
+    LspPingRxLastTime Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_LspPingInfo_LspPingRxLastTime
 }
 
-func (lspPingInfo *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPingInfo) GetEntityData() *types.CommonEntityData {
+func (lspPingInfo *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_LspPingInfo) GetEntityData() *types.CommonEntityData {
     lspPingInfo.EntityData.YFilter = lspPingInfo.YFilter
     lspPingInfo.EntityData.YangName = "lsp-ping-info"
     lspPingInfo.EntityData.BundleName = "cisco_ios_xr"
@@ -14453,26 +15363,29 @@ func (lspPingInfo *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessio
     lspPingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingInfo.EntityData.Children = make(map[string]types.YChild)
-    lspPingInfo.EntityData.Children["lsp-ping-tx-last-time"] = types.YChild{"LspPingTxLastTime", &lspPingInfo.LspPingTxLastTime}
-    lspPingInfo.EntityData.Children["lsp-ping-tx-last-error-time"] = types.YChild{"LspPingTxLastErrorTime", &lspPingInfo.LspPingTxLastErrorTime}
-    lspPingInfo.EntityData.Children["lsp-ping-rx-last-time"] = types.YChild{"LspPingRxLastTime", &lspPingInfo.LspPingRxLastTime}
-    lspPingInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-count"] = types.YLeaf{"LspPingTxCount", lspPingInfo.LspPingTxCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-error-count"] = types.YLeaf{"LspPingTxErrorCount", lspPingInfo.LspPingTxErrorCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-last-rc"] = types.YLeaf{"LspPingTxLastRc", lspPingInfo.LspPingTxLastRc}
-    lspPingInfo.EntityData.Leafs["lsp-ping-tx-last-error-rc"] = types.YLeaf{"LspPingTxLastErrorRc", lspPingInfo.LspPingTxLastErrorRc}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-discr"] = types.YLeaf{"LspPingRxLastDiscr", lspPingInfo.LspPingRxLastDiscr}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-count"] = types.YLeaf{"LspPingRxCount", lspPingInfo.LspPingRxCount}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-code"] = types.YLeaf{"LspPingRxLastCode", lspPingInfo.LspPingRxLastCode}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-subcode"] = types.YLeaf{"LspPingRxLastSubcode", lspPingInfo.LspPingRxLastSubcode}
-    lspPingInfo.EntityData.Leafs["lsp-ping-rx-last-output"] = types.YLeaf{"LspPingRxLastOutput", lspPingInfo.LspPingRxLastOutput}
+    lspPingInfo.EntityData.Children = types.NewOrderedMap()
+    lspPingInfo.EntityData.Children.Append("lsp-ping-tx-last-time", types.YChild{"LspPingTxLastTime", &lspPingInfo.LspPingTxLastTime})
+    lspPingInfo.EntityData.Children.Append("lsp-ping-tx-last-error-time", types.YChild{"LspPingTxLastErrorTime", &lspPingInfo.LspPingTxLastErrorTime})
+    lspPingInfo.EntityData.Children.Append("lsp-ping-rx-last-time", types.YChild{"LspPingRxLastTime", &lspPingInfo.LspPingRxLastTime})
+    lspPingInfo.EntityData.Leafs = types.NewOrderedMap()
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-count", types.YLeaf{"LspPingTxCount", lspPingInfo.LspPingTxCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-error-count", types.YLeaf{"LspPingTxErrorCount", lspPingInfo.LspPingTxErrorCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-last-rc", types.YLeaf{"LspPingTxLastRc", lspPingInfo.LspPingTxLastRc})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-tx-last-error-rc", types.YLeaf{"LspPingTxLastErrorRc", lspPingInfo.LspPingTxLastErrorRc})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-discr", types.YLeaf{"LspPingRxLastDiscr", lspPingInfo.LspPingRxLastDiscr})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-count", types.YLeaf{"LspPingRxCount", lspPingInfo.LspPingRxCount})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-code", types.YLeaf{"LspPingRxLastCode", lspPingInfo.LspPingRxLastCode})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-subcode", types.YLeaf{"LspPingRxLastSubcode", lspPingInfo.LspPingRxLastSubcode})
+    lspPingInfo.EntityData.Leafs.Append("lsp-ping-rx-last-output", types.YLeaf{"LspPingRxLastOutput", lspPingInfo.LspPingRxLastOutput})
+
+    lspPingInfo.EntityData.YListKeys = []string {}
+
     return &(lspPingInfo.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPingInfo_LspPingTxLastTime
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_LspPingInfo_LspPingTxLastTime
 // LSP Ping last sent time
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPingInfo_LspPingTxLastTime struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_LspPingInfo_LspPingTxLastTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14485,7 +15398,7 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPin
     Nanoseconds interface{}
 }
 
-func (lspPingTxLastTime *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPingInfo_LspPingTxLastTime) GetEntityData() *types.CommonEntityData {
+func (lspPingTxLastTime *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_LspPingInfo_LspPingTxLastTime) GetEntityData() *types.CommonEntityData {
     lspPingTxLastTime.EntityData.YFilter = lspPingTxLastTime.YFilter
     lspPingTxLastTime.EntityData.YangName = "lsp-ping-tx-last-time"
     lspPingTxLastTime.EntityData.BundleName = "cisco_ios_xr"
@@ -14495,16 +15408,19 @@ func (lspPingTxLastTime *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHead
     lspPingTxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingTxLastTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingTxLastTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingTxLastTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingTxLastTime.Seconds}
-    lspPingTxLastTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingTxLastTime.Nanoseconds}
+    lspPingTxLastTime.EntityData.Children = types.NewOrderedMap()
+    lspPingTxLastTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingTxLastTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingTxLastTime.Seconds})
+    lspPingTxLastTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingTxLastTime.Nanoseconds})
+
+    lspPingTxLastTime.EntityData.YListKeys = []string {}
+
     return &(lspPingTxLastTime.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPingInfo_LspPingTxLastErrorTime
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_LspPingInfo_LspPingTxLastErrorTime
 // LSP Ping last error time
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPingInfo_LspPingTxLastErrorTime struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_LspPingInfo_LspPingTxLastErrorTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14517,7 +15433,7 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPin
     Nanoseconds interface{}
 }
 
-func (lspPingTxLastErrorTime *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPingInfo_LspPingTxLastErrorTime) GetEntityData() *types.CommonEntityData {
+func (lspPingTxLastErrorTime *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_LspPingInfo_LspPingTxLastErrorTime) GetEntityData() *types.CommonEntityData {
     lspPingTxLastErrorTime.EntityData.YFilter = lspPingTxLastErrorTime.YFilter
     lspPingTxLastErrorTime.EntityData.YangName = "lsp-ping-tx-last-error-time"
     lspPingTxLastErrorTime.EntityData.BundleName = "cisco_ios_xr"
@@ -14527,16 +15443,19 @@ func (lspPingTxLastErrorTime *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplst
     lspPingTxLastErrorTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastErrorTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingTxLastErrorTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingTxLastErrorTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingTxLastErrorTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingTxLastErrorTime.Seconds}
-    lspPingTxLastErrorTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingTxLastErrorTime.Nanoseconds}
+    lspPingTxLastErrorTime.EntityData.Children = types.NewOrderedMap()
+    lspPingTxLastErrorTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingTxLastErrorTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingTxLastErrorTime.Seconds})
+    lspPingTxLastErrorTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingTxLastErrorTime.Nanoseconds})
+
+    lspPingTxLastErrorTime.EntityData.YListKeys = []string {}
+
     return &(lspPingTxLastErrorTime.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPingInfo_LspPingRxLastTime
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_LspPingInfo_LspPingRxLastTime
 // LSP Ping last received time
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPingInfo_LspPingRxLastTime struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_LspPingInfo_LspPingRxLastTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14549,7 +15468,7 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPin
     Nanoseconds interface{}
 }
 
-func (lspPingRxLastTime *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_LspPingInfo_LspPingRxLastTime) GetEntityData() *types.CommonEntityData {
+func (lspPingRxLastTime *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_LspPingInfo_LspPingRxLastTime) GetEntityData() *types.CommonEntityData {
     lspPingRxLastTime.EntityData.YFilter = lspPingRxLastTime.YFilter
     lspPingRxLastTime.EntityData.YangName = "lsp-ping-rx-last-time"
     lspPingRxLastTime.EntityData.BundleName = "cisco_ios_xr"
@@ -14559,16 +15478,19 @@ func (lspPingRxLastTime *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHead
     lspPingRxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingRxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lspPingRxLastTime.EntityData.Children = make(map[string]types.YChild)
-    lspPingRxLastTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    lspPingRxLastTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lspPingRxLastTime.Seconds}
-    lspPingRxLastTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", lspPingRxLastTime.Nanoseconds}
+    lspPingRxLastTime.EntityData.Children = types.NewOrderedMap()
+    lspPingRxLastTime.EntityData.Leafs = types.NewOrderedMap()
+    lspPingRxLastTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", lspPingRxLastTime.Seconds})
+    lspPingRxLastTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", lspPingRxLastTime.Nanoseconds})
+
+    lspPingRxLastTime.EntityData.YListKeys = []string {}
+
     return &(lspPingRxLastTime.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_OwnerInformation
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_OwnerInformation
 // Client applications owning the session
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_OwnerInformation struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14592,7 +15514,7 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_OwnerI
     Name interface{}
 }
 
-func (ownerInformation *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_OwnerInformation) GetEntityData() *types.CommonEntityData {
+func (ownerInformation *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_OwnerInformation) GetEntityData() *types.CommonEntityData {
     ownerInformation.EntityData.YFilter = ownerInformation.YFilter
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
@@ -14602,19 +15524,22 @@ func (ownerInformation *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadS
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ownerInformation.EntityData.Children = make(map[string]types.YChild)
-    ownerInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    ownerInformation.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ownerInformation.Interval}
-    ownerInformation.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier}
-    ownerInformation.EntityData.Leafs["adjusted-interval"] = types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval}
-    ownerInformation.EntityData.Leafs["adjusted-detection-multiplier"] = types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier}
-    ownerInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", ownerInformation.Name}
+    ownerInformation.EntityData.Children = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ownerInformation.Interval})
+    ownerInformation.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("adjusted-interval", types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval})
+    ownerInformation.EntityData.Leafs.Append("adjusted-detection-multiplier", types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", ownerInformation.Name})
+
+    ownerInformation.EntityData.YListKeys = []string {}
+
     return &(ownerInformation.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_AssociationInformation
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_AssociationInformation
 // Association session information
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_AssociationInformation struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_AssociationInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14629,14 +15554,14 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_Associ
     LocalDiscriminator interface{}
 
     // IPv4/v6 dest address.
-    IpDestinationAddress Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_AssociationInformation_IpDestinationAddress
+    IpDestinationAddress Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_AssociationInformation_IpDestinationAddress
 
     // Client applications owning the session. The type is slice of
-    // Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_AssociationInformation_OwnerInformation.
-    OwnerInformation []Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_AssociationInformation_OwnerInformation
+    // Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_AssociationInformation_OwnerInformation.
+    OwnerInformation []*Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_AssociationInformation_OwnerInformation
 }
 
-func (associationInformation *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_AssociationInformation) GetEntityData() *types.CommonEntityData {
+func (associationInformation *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_AssociationInformation) GetEntityData() *types.CommonEntityData {
     associationInformation.EntityData.YFilter = associationInformation.YFilter
     associationInformation.EntityData.YangName = "association-information"
     associationInformation.EntityData.BundleName = "cisco_ios_xr"
@@ -14646,22 +15571,25 @@ func (associationInformation *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplst
     associationInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    associationInformation.EntityData.Children = make(map[string]types.YChild)
-    associationInformation.EntityData.Children["ip-destination-address"] = types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress}
-    associationInformation.EntityData.Children["owner-information"] = types.YChild{"OwnerInformation", nil}
+    associationInformation.EntityData.Children = types.NewOrderedMap()
+    associationInformation.EntityData.Children.Append("ip-destination-address", types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress})
+    associationInformation.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range associationInformation.OwnerInformation {
-        associationInformation.EntityData.Children[types.GetSegmentPath(&associationInformation.OwnerInformation[i])] = types.YChild{"OwnerInformation", &associationInformation.OwnerInformation[i]}
+        associationInformation.EntityData.Children.Append(types.GetSegmentPath(associationInformation.OwnerInformation[i]), types.YChild{"OwnerInformation", associationInformation.OwnerInformation[i]})
     }
-    associationInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    associationInformation.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", associationInformation.InterfaceName}
-    associationInformation.EntityData.Leafs["sessiontype"] = types.YLeaf{"Sessiontype", associationInformation.Sessiontype}
-    associationInformation.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", associationInformation.LocalDiscriminator}
+    associationInformation.EntityData.Leafs = types.NewOrderedMap()
+    associationInformation.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", associationInformation.InterfaceName})
+    associationInformation.EntityData.Leafs.Append("sessiontype", types.YLeaf{"Sessiontype", associationInformation.Sessiontype})
+    associationInformation.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", associationInformation.LocalDiscriminator})
+
+    associationInformation.EntityData.YListKeys = []string {}
+
     return &(associationInformation.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_AssociationInformation_IpDestinationAddress
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_AssociationInformation_IpDestinationAddress
 // IPv4/v6 dest address
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_AssociationInformation_IpDestinationAddress struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_AssociationInformation_IpDestinationAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14672,15 +15600,15 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_Associ
     Dummy interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
-func (ipDestinationAddress *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_AssociationInformation_IpDestinationAddress) GetEntityData() *types.CommonEntityData {
+func (ipDestinationAddress *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_AssociationInformation_IpDestinationAddress) GetEntityData() *types.CommonEntityData {
     ipDestinationAddress.EntityData.YFilter = ipDestinationAddress.YFilter
     ipDestinationAddress.EntityData.YangName = "ip-destination-address"
     ipDestinationAddress.EntityData.BundleName = "cisco_ios_xr"
@@ -14690,18 +15618,21 @@ func (ipDestinationAddress *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteH
     ipDestinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDestinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipDestinationAddress.EntityData.Children = make(map[string]types.YChild)
-    ipDestinationAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipDestinationAddress.EntityData.Leafs["afi"] = types.YLeaf{"Afi", ipDestinationAddress.Afi}
-    ipDestinationAddress.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", ipDestinationAddress.Dummy}
-    ipDestinationAddress.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", ipDestinationAddress.Ipv4}
-    ipDestinationAddress.EntityData.Leafs["ipv6"] = types.YLeaf{"Ipv6", ipDestinationAddress.Ipv6}
+    ipDestinationAddress.EntityData.Children = types.NewOrderedMap()
+    ipDestinationAddress.EntityData.Leafs = types.NewOrderedMap()
+    ipDestinationAddress.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", ipDestinationAddress.Afi})
+    ipDestinationAddress.EntityData.Leafs.Append("dummy", types.YLeaf{"Dummy", ipDestinationAddress.Dummy})
+    ipDestinationAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", ipDestinationAddress.Ipv4})
+    ipDestinationAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", ipDestinationAddress.Ipv6})
+
+    ipDestinationAddress.EntityData.YListKeys = []string {}
+
     return &(ipDestinationAddress.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_AssociationInformation_OwnerInformation
+// Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_AssociationInformation_OwnerInformation
 // Client applications owning the session
-type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_AssociationInformation_OwnerInformation struct {
+type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_AssociationInformation_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14725,7 +15656,7 @@ type Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_Associ
     Name interface{}
 }
 
-func (ownerInformation *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadSessionDetail_AssociationInformation_OwnerInformation) GetEntityData() *types.CommonEntityData {
+func (ownerInformation *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_AssociationInformation_OwnerInformation) GetEntityData() *types.CommonEntityData {
     ownerInformation.EntityData.YFilter = ownerInformation.YFilter
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
@@ -14735,13 +15666,16 @@ func (ownerInformation *Bfd_Ipv4BfDoMplsteHeadSessionDetails_Ipv4BfDoMplsteHeadS
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ownerInformation.EntityData.Children = make(map[string]types.YChild)
-    ownerInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    ownerInformation.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ownerInformation.Interval}
-    ownerInformation.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier}
-    ownerInformation.EntityData.Leafs["adjusted-interval"] = types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval}
-    ownerInformation.EntityData.Leafs["adjusted-detection-multiplier"] = types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier}
-    ownerInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", ownerInformation.Name}
+    ownerInformation.EntityData.Children = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ownerInformation.Interval})
+    ownerInformation.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("adjusted-interval", types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval})
+    ownerInformation.EntityData.Leafs.Append("adjusted-detection-multiplier", types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", ownerInformation.Name})
+
+    ownerInformation.EntityData.YListKeys = []string {}
+
     return &(ownerInformation.EntityData)
 }
 
@@ -14754,7 +15688,7 @@ type Bfd_RelationBriefs struct {
 
     // Brief information for relation of a single BFD session. The type is slice
     // of Bfd_RelationBriefs_RelationBrief.
-    RelationBrief []Bfd_RelationBriefs_RelationBrief
+    RelationBrief []*Bfd_RelationBriefs_RelationBrief
 }
 
 func (relationBriefs *Bfd_RelationBriefs) GetEntityData() *types.CommonEntityData {
@@ -14767,12 +15701,15 @@ func (relationBriefs *Bfd_RelationBriefs) GetEntityData() *types.CommonEntityDat
     relationBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relationBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    relationBriefs.EntityData.Children = make(map[string]types.YChild)
-    relationBriefs.EntityData.Children["relation-brief"] = types.YChild{"RelationBrief", nil}
+    relationBriefs.EntityData.Children = types.NewOrderedMap()
+    relationBriefs.EntityData.Children.Append("relation-brief", types.YChild{"RelationBrief", nil})
     for i := range relationBriefs.RelationBrief {
-        relationBriefs.EntityData.Children[types.GetSegmentPath(&relationBriefs.RelationBrief[i])] = types.YChild{"RelationBrief", &relationBriefs.RelationBrief[i]}
+        relationBriefs.EntityData.Children.Append(types.GetSegmentPath(relationBriefs.RelationBrief[i]), types.YChild{"RelationBrief", relationBriefs.RelationBrief[i]})
     }
-    relationBriefs.EntityData.Leafs = make(map[string]types.YLeaf)
+    relationBriefs.EntityData.Leafs = types.NewOrderedMap()
+
+    relationBriefs.EntityData.YListKeys = []string {}
+
     return &(relationBriefs.EntityData)
 }
 
@@ -14783,14 +15720,14 @@ type Bfd_RelationBriefs_RelationBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Destination Address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // State. The type is BfdMgmtSessionState.
@@ -14798,7 +15735,7 @@ type Bfd_RelationBriefs_RelationBrief struct {
 
     // Brief Member Link Information. The type is slice of
     // Bfd_RelationBriefs_RelationBrief_LinkInformation.
-    LinkInformation []Bfd_RelationBriefs_RelationBrief_LinkInformation
+    LinkInformation []*Bfd_RelationBriefs_RelationBrief_LinkInformation
 }
 
 func (relationBrief *Bfd_RelationBriefs_RelationBrief) GetEntityData() *types.CommonEntityData {
@@ -14811,15 +15748,18 @@ func (relationBrief *Bfd_RelationBriefs_RelationBrief) GetEntityData() *types.Co
     relationBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relationBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    relationBrief.EntityData.Children = make(map[string]types.YChild)
-    relationBrief.EntityData.Children["link-information"] = types.YChild{"LinkInformation", nil}
+    relationBrief.EntityData.Children = types.NewOrderedMap()
+    relationBrief.EntityData.Children.Append("link-information", types.YChild{"LinkInformation", nil})
     for i := range relationBrief.LinkInformation {
-        relationBrief.EntityData.Children[types.GetSegmentPath(&relationBrief.LinkInformation[i])] = types.YChild{"LinkInformation", &relationBrief.LinkInformation[i]}
+        relationBrief.EntityData.Children.Append(types.GetSegmentPath(relationBrief.LinkInformation[i]), types.YChild{"LinkInformation", relationBrief.LinkInformation[i]})
     }
-    relationBrief.EntityData.Leafs = make(map[string]types.YLeaf)
-    relationBrief.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", relationBrief.InterfaceName}
-    relationBrief.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", relationBrief.DestinationAddress}
-    relationBrief.EntityData.Leafs["state"] = types.YLeaf{"State", relationBrief.State}
+    relationBrief.EntityData.Leafs = types.NewOrderedMap()
+    relationBrief.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", relationBrief.InterfaceName})
+    relationBrief.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", relationBrief.DestinationAddress})
+    relationBrief.EntityData.Leafs.Append("state", types.YLeaf{"State", relationBrief.State})
+
+    relationBrief.EntityData.YListKeys = []string {}
+
     return &(relationBrief.EntityData)
 }
 
@@ -14846,10 +15786,13 @@ func (linkInformation *Bfd_RelationBriefs_RelationBrief_LinkInformation) GetEnti
     linkInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    linkInformation.EntityData.Children = make(map[string]types.YChild)
-    linkInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    linkInformation.EntityData.Leafs["state"] = types.YLeaf{"State", linkInformation.State}
-    linkInformation.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", linkInformation.InterfaceName}
+    linkInformation.EntityData.Children = types.NewOrderedMap()
+    linkInformation.EntityData.Leafs = types.NewOrderedMap()
+    linkInformation.EntityData.Leafs.Append("state", types.YLeaf{"State", linkInformation.State})
+    linkInformation.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", linkInformation.InterfaceName})
+
+    linkInformation.EntityData.YListKeys = []string {}
+
     return &(linkInformation.EntityData)
 }
 
@@ -14861,7 +15804,7 @@ type Bfd_ClientBriefs struct {
 
     // Brief information of client. The type is slice of
     // Bfd_ClientBriefs_ClientBrief.
-    ClientBrief []Bfd_ClientBriefs_ClientBrief
+    ClientBrief []*Bfd_ClientBriefs_ClientBrief
 }
 
 func (clientBriefs *Bfd_ClientBriefs) GetEntityData() *types.CommonEntityData {
@@ -14874,12 +15817,15 @@ func (clientBriefs *Bfd_ClientBriefs) GetEntityData() *types.CommonEntityData {
     clientBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clientBriefs.EntityData.Children = make(map[string]types.YChild)
-    clientBriefs.EntityData.Children["client-brief"] = types.YChild{"ClientBrief", nil}
+    clientBriefs.EntityData.Children = types.NewOrderedMap()
+    clientBriefs.EntityData.Children.Append("client-brief", types.YChild{"ClientBrief", nil})
     for i := range clientBriefs.ClientBrief {
-        clientBriefs.EntityData.Children[types.GetSegmentPath(&clientBriefs.ClientBrief[i])] = types.YChild{"ClientBrief", &clientBriefs.ClientBrief[i]}
+        clientBriefs.EntityData.Children.Append(types.GetSegmentPath(clientBriefs.ClientBrief[i]), types.YChild{"ClientBrief", clientBriefs.ClientBrief[i]})
     }
-    clientBriefs.EntityData.Leafs = make(map[string]types.YLeaf)
+    clientBriefs.EntityData.Leafs = types.NewOrderedMap()
+
+    clientBriefs.EntityData.YListKeys = []string {}
+
     return &(clientBriefs.EntityData)
 }
 
@@ -14890,14 +15836,14 @@ type Bfd_ClientBriefs_ClientBrief struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Client Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Client process name. The type is string with length: 0..257.
     NameXr interface{}
 
     // Location where client resides. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Number of sessions created by this client. The type is interface{} with
@@ -14910,103 +15856,107 @@ func (clientBrief *Bfd_ClientBriefs_ClientBrief) GetEntityData() *types.CommonEn
     clientBrief.EntityData.YangName = "client-brief"
     clientBrief.EntityData.BundleName = "cisco_ios_xr"
     clientBrief.EntityData.ParentYangName = "client-briefs"
-    clientBrief.EntityData.SegmentPath = "client-brief" + "[name='" + fmt.Sprintf("%v", clientBrief.Name) + "']"
+    clientBrief.EntityData.SegmentPath = "client-brief" + types.AddKeyToken(clientBrief.Name, "name")
     clientBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clientBrief.EntityData.Children = make(map[string]types.YChild)
-    clientBrief.EntityData.Leafs = make(map[string]types.YLeaf)
-    clientBrief.EntityData.Leafs["name"] = types.YLeaf{"Name", clientBrief.Name}
-    clientBrief.EntityData.Leafs["name-xr"] = types.YLeaf{"NameXr", clientBrief.NameXr}
-    clientBrief.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", clientBrief.NodeId}
-    clientBrief.EntityData.Leafs["session-count"] = types.YLeaf{"SessionCount", clientBrief.SessionCount}
+    clientBrief.EntityData.Children = types.NewOrderedMap()
+    clientBrief.EntityData.Leafs = types.NewOrderedMap()
+    clientBrief.EntityData.Leafs.Append("name", types.YLeaf{"Name", clientBrief.Name})
+    clientBrief.EntityData.Leafs.Append("name-xr", types.YLeaf{"NameXr", clientBrief.NameXr})
+    clientBrief.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", clientBrief.NodeId})
+    clientBrief.EntityData.Leafs.Append("session-count", types.YLeaf{"SessionCount", clientBrief.SessionCount})
+
+    clientBrief.EntityData.YListKeys = []string {"Name"}
+
     return &(clientBrief.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadMultiPaths
+// Bfd_Ipv4bfDoMplsteHeadMultiPaths
 // IPv4 BFD over MPLS-TE Head multipath
-type Bfd_Ipv4BfDoMplsteHeadMultiPaths struct {
+type Bfd_Ipv4bfDoMplsteHeadMultiPaths struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Label multipath table. The type is slice of
-    // Bfd_Ipv4BfDoMplsteHeadMultiPaths_Ipv4BfDoMplsteHeadMultiPath.
-    Ipv4BfDoMplsteHeadMultiPath []Bfd_Ipv4BfDoMplsteHeadMultiPaths_Ipv4BfDoMplsteHeadMultiPath
+    // Bfd_Ipv4bfDoMplsteHeadMultiPaths_Ipv4bfDoMplsteHeadMultiPath.
+    Ipv4bfDoMplsteHeadMultiPath []*Bfd_Ipv4bfDoMplsteHeadMultiPaths_Ipv4bfDoMplsteHeadMultiPath
 }
 
-func (ipv4BfDoMplsteHeadMultiPaths *Bfd_Ipv4BfDoMplsteHeadMultiPaths) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteHeadMultiPaths.EntityData.YFilter = ipv4BfDoMplsteHeadMultiPaths.YFilter
-    ipv4BfDoMplsteHeadMultiPaths.EntityData.YangName = "ipv4bf-do-mplste-head-multi-paths"
-    ipv4BfDoMplsteHeadMultiPaths.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteHeadMultiPaths.EntityData.ParentYangName = "bfd"
-    ipv4BfDoMplsteHeadMultiPaths.EntityData.SegmentPath = "ipv4bf-do-mplste-head-multi-paths"
-    ipv4BfDoMplsteHeadMultiPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteHeadMultiPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteHeadMultiPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteHeadMultiPaths *Bfd_Ipv4bfDoMplsteHeadMultiPaths) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteHeadMultiPaths.EntityData.YFilter = ipv4bfDoMplsteHeadMultiPaths.YFilter
+    ipv4bfDoMplsteHeadMultiPaths.EntityData.YangName = "ipv4bf-do-mplste-head-multi-paths"
+    ipv4bfDoMplsteHeadMultiPaths.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteHeadMultiPaths.EntityData.ParentYangName = "bfd"
+    ipv4bfDoMplsteHeadMultiPaths.EntityData.SegmentPath = "ipv4bf-do-mplste-head-multi-paths"
+    ipv4bfDoMplsteHeadMultiPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteHeadMultiPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteHeadMultiPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteHeadMultiPaths.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteHeadMultiPaths.EntityData.Children["ipv4bf-do-mplste-head-multi-path"] = types.YChild{"Ipv4BfDoMplsteHeadMultiPath", nil}
-    for i := range ipv4BfDoMplsteHeadMultiPaths.Ipv4BfDoMplsteHeadMultiPath {
-        ipv4BfDoMplsteHeadMultiPaths.EntityData.Children[types.GetSegmentPath(&ipv4BfDoMplsteHeadMultiPaths.Ipv4BfDoMplsteHeadMultiPath[i])] = types.YChild{"Ipv4BfDoMplsteHeadMultiPath", &ipv4BfDoMplsteHeadMultiPaths.Ipv4BfDoMplsteHeadMultiPath[i]}
+    ipv4bfDoMplsteHeadMultiPaths.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteHeadMultiPaths.EntityData.Children.Append("ipv4bf-do-mplste-head-multi-path", types.YChild{"Ipv4bfDoMplsteHeadMultiPath", nil})
+    for i := range ipv4bfDoMplsteHeadMultiPaths.Ipv4bfDoMplsteHeadMultiPath {
+        ipv4bfDoMplsteHeadMultiPaths.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteHeadMultiPaths.Ipv4bfDoMplsteHeadMultiPath[i]), types.YChild{"Ipv4bfDoMplsteHeadMultiPath", ipv4bfDoMplsteHeadMultiPaths.Ipv4bfDoMplsteHeadMultiPath[i]})
     }
-    ipv4BfDoMplsteHeadMultiPaths.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipv4BfDoMplsteHeadMultiPaths.EntityData)
+    ipv4bfDoMplsteHeadMultiPaths.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4bfDoMplsteHeadMultiPaths.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteHeadMultiPaths.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadMultiPaths_Ipv4BfDoMplsteHeadMultiPath
+// Bfd_Ipv4bfDoMplsteHeadMultiPaths_Ipv4bfDoMplsteHeadMultiPath
 // Label multipath table
-type Bfd_Ipv4BfDoMplsteHeadMultiPaths_Ipv4BfDoMplsteHeadMultiPath struct {
+type Bfd_Ipv4bfDoMplsteHeadMultiPaths_Ipv4bfDoMplsteHeadMultiPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
-    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
-    // Incoming Label. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabel interface{}
 
-    // FEC Type. The type is interface{} with range: -2147483648..2147483647.
+    // FEC Type. The type is interface{} with range: 0..4294967295.
     FeCtype interface{}
 
-    // FEC Subgroup ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // FEC Subgroup ID. The type is interface{} with range: 0..4294967295.
     FecSubgroupId interface{}
 
-    // FEC LSP ID. The type is interface{} with range: -2147483648..2147483647.
+    // FEC LSP ID. The type is interface{} with range: 0..4294967295.
     Feclspid interface{}
 
-    // FEC Tunnel ID. The type is interface{} with range: -2147483648..2147483647.
+    // FEC Tunnel ID. The type is interface{} with range: 0..4294967295.
     FecTunnelId interface{}
 
     // FEC Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecExtendedTunnelId interface{}
 
     // FEC Source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecSource interface{}
 
     // FEC Destination. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecDestination interface{}
 
-    // FEC P2MP ID. The type is interface{} with range: -2147483648..2147483647.
-    Fecp2Mpid interface{}
+    // FEC P2MP ID. The type is interface{} with range: 0..4294967295.
+    Fecp2mpid interface{}
 
     // FEC Subgroup originator. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecSubgroupOriginator interface{}
 
-    // FEC C Type. The type is interface{} with range: -2147483648..2147483647.
+    // FEC C Type. The type is interface{} with range: 0..4294967295.
     FecCtype interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Session subtype. The type is string.
@@ -15020,49 +15970,52 @@ type Bfd_Ipv4BfDoMplsteHeadMultiPaths_Ipv4BfDoMplsteHeadMultiPath struct {
     LocalDiscriminator interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabelXr interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     SessionInterfaceName interface{}
 }
 
-func (ipv4BfDoMplsteHeadMultiPath *Bfd_Ipv4BfDoMplsteHeadMultiPaths_Ipv4BfDoMplsteHeadMultiPath) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteHeadMultiPath.EntityData.YFilter = ipv4BfDoMplsteHeadMultiPath.YFilter
-    ipv4BfDoMplsteHeadMultiPath.EntityData.YangName = "ipv4bf-do-mplste-head-multi-path"
-    ipv4BfDoMplsteHeadMultiPath.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteHeadMultiPath.EntityData.ParentYangName = "ipv4bf-do-mplste-head-multi-paths"
-    ipv4BfDoMplsteHeadMultiPath.EntityData.SegmentPath = "ipv4bf-do-mplste-head-multi-path"
-    ipv4BfDoMplsteHeadMultiPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteHeadMultiPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteHeadMultiPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteHeadMultiPath *Bfd_Ipv4bfDoMplsteHeadMultiPaths_Ipv4bfDoMplsteHeadMultiPath) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteHeadMultiPath.EntityData.YFilter = ipv4bfDoMplsteHeadMultiPath.YFilter
+    ipv4bfDoMplsteHeadMultiPath.EntityData.YangName = "ipv4bf-do-mplste-head-multi-path"
+    ipv4bfDoMplsteHeadMultiPath.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteHeadMultiPath.EntityData.ParentYangName = "ipv4bf-do-mplste-head-multi-paths"
+    ipv4bfDoMplsteHeadMultiPath.EntityData.SegmentPath = "ipv4bf-do-mplste-head-multi-path"
+    ipv4bfDoMplsteHeadMultiPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteHeadMultiPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteHeadMultiPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", ipv4BfDoMplsteHeadMultiPath.InterfaceName}
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4BfDoMplsteHeadMultiPath.VrfName}
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["incoming-label"] = types.YLeaf{"IncomingLabel", ipv4BfDoMplsteHeadMultiPath.IncomingLabel}
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["fe-ctype"] = types.YLeaf{"FeCtype", ipv4BfDoMplsteHeadMultiPath.FeCtype}
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["fec-subgroup-id"] = types.YLeaf{"FecSubgroupId", ipv4BfDoMplsteHeadMultiPath.FecSubgroupId}
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["feclspid"] = types.YLeaf{"Feclspid", ipv4BfDoMplsteHeadMultiPath.Feclspid}
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["fec-tunnel-id"] = types.YLeaf{"FecTunnelId", ipv4BfDoMplsteHeadMultiPath.FecTunnelId}
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["fec-extended-tunnel-id"] = types.YLeaf{"FecExtendedTunnelId", ipv4BfDoMplsteHeadMultiPath.FecExtendedTunnelId}
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["fec-source"] = types.YLeaf{"FecSource", ipv4BfDoMplsteHeadMultiPath.FecSource}
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["fec-destination"] = types.YLeaf{"FecDestination", ipv4BfDoMplsteHeadMultiPath.FecDestination}
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["fecp2mpid"] = types.YLeaf{"Fecp2Mpid", ipv4BfDoMplsteHeadMultiPath.Fecp2Mpid}
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["fec-subgroup-originator"] = types.YLeaf{"FecSubgroupOriginator", ipv4BfDoMplsteHeadMultiPath.FecSubgroupOriginator}
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["fec-ctype"] = types.YLeaf{"FecCtype", ipv4BfDoMplsteHeadMultiPath.FecCtype}
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv4BfDoMplsteHeadMultiPath.Location}
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", ipv4BfDoMplsteHeadMultiPath.SessionSubtype}
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["state"] = types.YLeaf{"State", ipv4BfDoMplsteHeadMultiPath.State}
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", ipv4BfDoMplsteHeadMultiPath.LocalDiscriminator}
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", ipv4BfDoMplsteHeadMultiPath.NodeId}
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["incoming-label-xr"] = types.YLeaf{"IncomingLabelXr", ipv4BfDoMplsteHeadMultiPath.IncomingLabelXr}
-    ipv4BfDoMplsteHeadMultiPath.EntityData.Leafs["session-interface-name"] = types.YLeaf{"SessionInterfaceName", ipv4BfDoMplsteHeadMultiPath.SessionInterfaceName}
-    return &(ipv4BfDoMplsteHeadMultiPath.EntityData)
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs = types.NewOrderedMap()
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", ipv4bfDoMplsteHeadMultiPath.InterfaceName})
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4bfDoMplsteHeadMultiPath.VrfName})
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("incoming-label", types.YLeaf{"IncomingLabel", ipv4bfDoMplsteHeadMultiPath.IncomingLabel})
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("fe-ctype", types.YLeaf{"FeCtype", ipv4bfDoMplsteHeadMultiPath.FeCtype})
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("fec-subgroup-id", types.YLeaf{"FecSubgroupId", ipv4bfDoMplsteHeadMultiPath.FecSubgroupId})
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("feclspid", types.YLeaf{"Feclspid", ipv4bfDoMplsteHeadMultiPath.Feclspid})
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("fec-tunnel-id", types.YLeaf{"FecTunnelId", ipv4bfDoMplsteHeadMultiPath.FecTunnelId})
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("fec-extended-tunnel-id", types.YLeaf{"FecExtendedTunnelId", ipv4bfDoMplsteHeadMultiPath.FecExtendedTunnelId})
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("fec-source", types.YLeaf{"FecSource", ipv4bfDoMplsteHeadMultiPath.FecSource})
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("fec-destination", types.YLeaf{"FecDestination", ipv4bfDoMplsteHeadMultiPath.FecDestination})
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("fecp2mpid", types.YLeaf{"Fecp2mpid", ipv4bfDoMplsteHeadMultiPath.Fecp2mpid})
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("fec-subgroup-originator", types.YLeaf{"FecSubgroupOriginator", ipv4bfDoMplsteHeadMultiPath.FecSubgroupOriginator})
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("fec-ctype", types.YLeaf{"FecCtype", ipv4bfDoMplsteHeadMultiPath.FecCtype})
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv4bfDoMplsteHeadMultiPath.Location})
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", ipv4bfDoMplsteHeadMultiPath.SessionSubtype})
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("state", types.YLeaf{"State", ipv4bfDoMplsteHeadMultiPath.State})
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", ipv4bfDoMplsteHeadMultiPath.LocalDiscriminator})
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", ipv4bfDoMplsteHeadMultiPath.NodeId})
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("incoming-label-xr", types.YLeaf{"IncomingLabelXr", ipv4bfDoMplsteHeadMultiPath.IncomingLabelXr})
+    ipv4bfDoMplsteHeadMultiPath.EntityData.Leafs.Append("session-interface-name", types.YLeaf{"SessionInterfaceName", ipv4bfDoMplsteHeadMultiPath.SessionInterfaceName})
+
+    ipv4bfDoMplsteHeadMultiPath.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteHeadMultiPath.EntityData)
 }
 
 // Bfd_RelationDetails
@@ -15074,7 +16027,7 @@ type Bfd_RelationDetails struct {
 
     // Detail information for relation of a single BFD session. The type is slice
     // of Bfd_RelationDetails_RelationDetail.
-    RelationDetail []Bfd_RelationDetails_RelationDetail
+    RelationDetail []*Bfd_RelationDetails_RelationDetail
 }
 
 func (relationDetails *Bfd_RelationDetails) GetEntityData() *types.CommonEntityData {
@@ -15087,12 +16040,15 @@ func (relationDetails *Bfd_RelationDetails) GetEntityData() *types.CommonEntityD
     relationDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relationDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    relationDetails.EntityData.Children = make(map[string]types.YChild)
-    relationDetails.EntityData.Children["relation-detail"] = types.YChild{"RelationDetail", nil}
+    relationDetails.EntityData.Children = types.NewOrderedMap()
+    relationDetails.EntityData.Children.Append("relation-detail", types.YChild{"RelationDetail", nil})
     for i := range relationDetails.RelationDetail {
-        relationDetails.EntityData.Children[types.GetSegmentPath(&relationDetails.RelationDetail[i])] = types.YChild{"RelationDetail", &relationDetails.RelationDetail[i]}
+        relationDetails.EntityData.Children.Append(types.GetSegmentPath(relationDetails.RelationDetail[i]), types.YChild{"RelationDetail", relationDetails.RelationDetail[i]})
     }
-    relationDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    relationDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    relationDetails.EntityData.YListKeys = []string {}
+
     return &(relationDetails.EntityData)
 }
 
@@ -15103,14 +16059,14 @@ type Bfd_RelationDetails_RelationDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Destination Address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // State. The type is BfdMgmtSessionState.
@@ -15122,11 +16078,11 @@ type Bfd_RelationDetails_RelationDetail struct {
 
     // Detail Member Link Information. The type is slice of
     // Bfd_RelationDetails_RelationDetail_LinkInformation.
-    LinkInformation []Bfd_RelationDetails_RelationDetail_LinkInformation
+    LinkInformation []*Bfd_RelationDetails_RelationDetail_LinkInformation
 
     // Association session information. The type is slice of
     // Bfd_RelationDetails_RelationDetail_AssociationInformation.
-    AssociationInformation []Bfd_RelationDetails_RelationDetail_AssociationInformation
+    AssociationInformation []*Bfd_RelationDetails_RelationDetail_AssociationInformation
 }
 
 func (relationDetail *Bfd_RelationDetails_RelationDetail) GetEntityData() *types.CommonEntityData {
@@ -15139,20 +16095,23 @@ func (relationDetail *Bfd_RelationDetails_RelationDetail) GetEntityData() *types
     relationDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relationDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    relationDetail.EntityData.Children = make(map[string]types.YChild)
-    relationDetail.EntityData.Children["link-information"] = types.YChild{"LinkInformation", nil}
+    relationDetail.EntityData.Children = types.NewOrderedMap()
+    relationDetail.EntityData.Children.Append("link-information", types.YChild{"LinkInformation", nil})
     for i := range relationDetail.LinkInformation {
-        relationDetail.EntityData.Children[types.GetSegmentPath(&relationDetail.LinkInformation[i])] = types.YChild{"LinkInformation", &relationDetail.LinkInformation[i]}
+        relationDetail.EntityData.Children.Append(types.GetSegmentPath(relationDetail.LinkInformation[i]), types.YChild{"LinkInformation", relationDetail.LinkInformation[i]})
     }
-    relationDetail.EntityData.Children["association-information"] = types.YChild{"AssociationInformation", nil}
+    relationDetail.EntityData.Children.Append("association-information", types.YChild{"AssociationInformation", nil})
     for i := range relationDetail.AssociationInformation {
-        relationDetail.EntityData.Children[types.GetSegmentPath(&relationDetail.AssociationInformation[i])] = types.YChild{"AssociationInformation", &relationDetail.AssociationInformation[i]}
+        relationDetail.EntityData.Children.Append(types.GetSegmentPath(relationDetail.AssociationInformation[i]), types.YChild{"AssociationInformation", relationDetail.AssociationInformation[i]})
     }
-    relationDetail.EntityData.Leafs = make(map[string]types.YLeaf)
-    relationDetail.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", relationDetail.InterfaceName}
-    relationDetail.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", relationDetail.DestinationAddress}
-    relationDetail.EntityData.Leafs["state"] = types.YLeaf{"State", relationDetail.State}
-    relationDetail.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", relationDetail.LocalDiscriminator}
+    relationDetail.EntityData.Leafs = types.NewOrderedMap()
+    relationDetail.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", relationDetail.InterfaceName})
+    relationDetail.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", relationDetail.DestinationAddress})
+    relationDetail.EntityData.Leafs.Append("state", types.YLeaf{"State", relationDetail.State})
+    relationDetail.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", relationDetail.LocalDiscriminator})
+
+    relationDetail.EntityData.YListKeys = []string {}
+
     return &(relationDetail.EntityData)
 }
 
@@ -15183,11 +16142,14 @@ func (linkInformation *Bfd_RelationDetails_RelationDetail_LinkInformation) GetEn
     linkInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    linkInformation.EntityData.Children = make(map[string]types.YChild)
-    linkInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    linkInformation.EntityData.Leafs["state"] = types.YLeaf{"State", linkInformation.State}
-    linkInformation.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", linkInformation.InterfaceName}
-    linkInformation.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", linkInformation.LocalDiscriminator}
+    linkInformation.EntityData.Children = types.NewOrderedMap()
+    linkInformation.EntityData.Leafs = types.NewOrderedMap()
+    linkInformation.EntityData.Leafs.Append("state", types.YLeaf{"State", linkInformation.State})
+    linkInformation.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", linkInformation.InterfaceName})
+    linkInformation.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", linkInformation.LocalDiscriminator})
+
+    linkInformation.EntityData.YListKeys = []string {}
+
     return &(linkInformation.EntityData)
 }
 
@@ -15212,7 +16174,7 @@ type Bfd_RelationDetails_RelationDetail_AssociationInformation struct {
 
     // Client applications owning the session. The type is slice of
     // Bfd_RelationDetails_RelationDetail_AssociationInformation_OwnerInformation.
-    OwnerInformation []Bfd_RelationDetails_RelationDetail_AssociationInformation_OwnerInformation
+    OwnerInformation []*Bfd_RelationDetails_RelationDetail_AssociationInformation_OwnerInformation
 }
 
 func (associationInformation *Bfd_RelationDetails_RelationDetail_AssociationInformation) GetEntityData() *types.CommonEntityData {
@@ -15225,16 +16187,19 @@ func (associationInformation *Bfd_RelationDetails_RelationDetail_AssociationInfo
     associationInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    associationInformation.EntityData.Children = make(map[string]types.YChild)
-    associationInformation.EntityData.Children["ip-destination-address"] = types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress}
-    associationInformation.EntityData.Children["owner-information"] = types.YChild{"OwnerInformation", nil}
+    associationInformation.EntityData.Children = types.NewOrderedMap()
+    associationInformation.EntityData.Children.Append("ip-destination-address", types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress})
+    associationInformation.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range associationInformation.OwnerInformation {
-        associationInformation.EntityData.Children[types.GetSegmentPath(&associationInformation.OwnerInformation[i])] = types.YChild{"OwnerInformation", &associationInformation.OwnerInformation[i]}
+        associationInformation.EntityData.Children.Append(types.GetSegmentPath(associationInformation.OwnerInformation[i]), types.YChild{"OwnerInformation", associationInformation.OwnerInformation[i]})
     }
-    associationInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    associationInformation.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", associationInformation.InterfaceName}
-    associationInformation.EntityData.Leafs["sessiontype"] = types.YLeaf{"Sessiontype", associationInformation.Sessiontype}
-    associationInformation.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", associationInformation.LocalDiscriminator}
+    associationInformation.EntityData.Leafs = types.NewOrderedMap()
+    associationInformation.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", associationInformation.InterfaceName})
+    associationInformation.EntityData.Leafs.Append("sessiontype", types.YLeaf{"Sessiontype", associationInformation.Sessiontype})
+    associationInformation.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", associationInformation.LocalDiscriminator})
+
+    associationInformation.EntityData.YListKeys = []string {}
+
     return &(associationInformation.EntityData)
 }
 
@@ -15251,11 +16216,11 @@ type Bfd_RelationDetails_RelationDetail_AssociationInformation_IpDestinationAddr
     Dummy interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -15269,12 +16234,15 @@ func (ipDestinationAddress *Bfd_RelationDetails_RelationDetail_AssociationInform
     ipDestinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDestinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipDestinationAddress.EntityData.Children = make(map[string]types.YChild)
-    ipDestinationAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipDestinationAddress.EntityData.Leafs["afi"] = types.YLeaf{"Afi", ipDestinationAddress.Afi}
-    ipDestinationAddress.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", ipDestinationAddress.Dummy}
-    ipDestinationAddress.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", ipDestinationAddress.Ipv4}
-    ipDestinationAddress.EntityData.Leafs["ipv6"] = types.YLeaf{"Ipv6", ipDestinationAddress.Ipv6}
+    ipDestinationAddress.EntityData.Children = types.NewOrderedMap()
+    ipDestinationAddress.EntityData.Leafs = types.NewOrderedMap()
+    ipDestinationAddress.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", ipDestinationAddress.Afi})
+    ipDestinationAddress.EntityData.Leafs.Append("dummy", types.YLeaf{"Dummy", ipDestinationAddress.Dummy})
+    ipDestinationAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", ipDestinationAddress.Ipv4})
+    ipDestinationAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", ipDestinationAddress.Ipv6})
+
+    ipDestinationAddress.EntityData.YListKeys = []string {}
+
     return &(ipDestinationAddress.EntityData)
 }
 
@@ -15314,123 +16282,130 @@ func (ownerInformation *Bfd_RelationDetails_RelationDetail_AssociationInformatio
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ownerInformation.EntityData.Children = make(map[string]types.YChild)
-    ownerInformation.EntityData.Leafs = make(map[string]types.YLeaf)
-    ownerInformation.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ownerInformation.Interval}
-    ownerInformation.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier}
-    ownerInformation.EntityData.Leafs["adjusted-interval"] = types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval}
-    ownerInformation.EntityData.Leafs["adjusted-detection-multiplier"] = types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier}
-    ownerInformation.EntityData.Leafs["name"] = types.YLeaf{"Name", ownerInformation.Name}
+    ownerInformation.EntityData.Children = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs = types.NewOrderedMap()
+    ownerInformation.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", ownerInformation.Interval})
+    ownerInformation.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", ownerInformation.DetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("adjusted-interval", types.YLeaf{"AdjustedInterval", ownerInformation.AdjustedInterval})
+    ownerInformation.EntityData.Leafs.Append("adjusted-detection-multiplier", types.YLeaf{"AdjustedDetectionMultiplier", ownerInformation.AdjustedDetectionMultiplier})
+    ownerInformation.EntityData.Leafs.Append("name", types.YLeaf{"Name", ownerInformation.Name})
+
+    ownerInformation.EntityData.YListKeys = []string {}
+
     return &(ownerInformation.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailCounters
+// Bfd_Ipv4bfDoMplsteTailCounters
 // IPv4 BFD over MPLS-TE Counters
-type Bfd_Ipv4BfDoMplsteTailCounters struct {
+type Bfd_Ipv4bfDoMplsteTailCounters struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of IPv4 BFD over MPLS-TE Packet counters.
-    Ipv4BfDoMplsteTailPacketCounters Bfd_Ipv4BfDoMplsteTailCounters_Ipv4BfDoMplsteTailPacketCounters
+    Ipv4bfDoMplsteTailPacketCounters Bfd_Ipv4bfDoMplsteTailCounters_Ipv4bfDoMplsteTailPacketCounters
 }
 
-func (ipv4BfDoMplsteTailCounters *Bfd_Ipv4BfDoMplsteTailCounters) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteTailCounters.EntityData.YFilter = ipv4BfDoMplsteTailCounters.YFilter
-    ipv4BfDoMplsteTailCounters.EntityData.YangName = "ipv4bf-do-mplste-tail-counters"
-    ipv4BfDoMplsteTailCounters.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteTailCounters.EntityData.ParentYangName = "bfd"
-    ipv4BfDoMplsteTailCounters.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-counters"
-    ipv4BfDoMplsteTailCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteTailCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteTailCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteTailCounters *Bfd_Ipv4bfDoMplsteTailCounters) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteTailCounters.EntityData.YFilter = ipv4bfDoMplsteTailCounters.YFilter
+    ipv4bfDoMplsteTailCounters.EntityData.YangName = "ipv4bf-do-mplste-tail-counters"
+    ipv4bfDoMplsteTailCounters.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteTailCounters.EntityData.ParentYangName = "bfd"
+    ipv4bfDoMplsteTailCounters.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-counters"
+    ipv4bfDoMplsteTailCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteTailCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteTailCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteTailCounters.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteTailCounters.EntityData.Children["ipv4bf-do-mplste-tail-packet-counters"] = types.YChild{"Ipv4BfDoMplsteTailPacketCounters", &ipv4BfDoMplsteTailCounters.Ipv4BfDoMplsteTailPacketCounters}
-    ipv4BfDoMplsteTailCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipv4BfDoMplsteTailCounters.EntityData)
+    ipv4bfDoMplsteTailCounters.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteTailCounters.EntityData.Children.Append("ipv4bf-do-mplste-tail-packet-counters", types.YChild{"Ipv4bfDoMplsteTailPacketCounters", &ipv4bfDoMplsteTailCounters.Ipv4bfDoMplsteTailPacketCounters})
+    ipv4bfDoMplsteTailCounters.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4bfDoMplsteTailCounters.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteTailCounters.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailCounters_Ipv4BfDoMplsteTailPacketCounters
+// Bfd_Ipv4bfDoMplsteTailCounters_Ipv4bfDoMplsteTailPacketCounters
 // Table of IPv4 BFD over MPLS-TE Packet counters
-type Bfd_Ipv4BfDoMplsteTailCounters_Ipv4BfDoMplsteTailPacketCounters struct {
+type Bfd_Ipv4bfDoMplsteTailCounters_Ipv4bfDoMplsteTailPacketCounters struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Interface  IPv4 BFD over MPLS-TE Packet counters. The type is slice of
-    // Bfd_Ipv4BfDoMplsteTailCounters_Ipv4BfDoMplsteTailPacketCounters_Ipv4BfDoMplsteTailPacketCounter.
-    Ipv4BfDoMplsteTailPacketCounter []Bfd_Ipv4BfDoMplsteTailCounters_Ipv4BfDoMplsteTailPacketCounters_Ipv4BfDoMplsteTailPacketCounter
+    // Bfd_Ipv4bfDoMplsteTailCounters_Ipv4bfDoMplsteTailPacketCounters_Ipv4bfDoMplsteTailPacketCounter.
+    Ipv4bfDoMplsteTailPacketCounter []*Bfd_Ipv4bfDoMplsteTailCounters_Ipv4bfDoMplsteTailPacketCounters_Ipv4bfDoMplsteTailPacketCounter
 }
 
-func (ipv4BfDoMplsteTailPacketCounters *Bfd_Ipv4BfDoMplsteTailCounters_Ipv4BfDoMplsteTailPacketCounters) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteTailPacketCounters.EntityData.YFilter = ipv4BfDoMplsteTailPacketCounters.YFilter
-    ipv4BfDoMplsteTailPacketCounters.EntityData.YangName = "ipv4bf-do-mplste-tail-packet-counters"
-    ipv4BfDoMplsteTailPacketCounters.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteTailPacketCounters.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-counters"
-    ipv4BfDoMplsteTailPacketCounters.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-packet-counters"
-    ipv4BfDoMplsteTailPacketCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteTailPacketCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteTailPacketCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteTailPacketCounters *Bfd_Ipv4bfDoMplsteTailCounters_Ipv4bfDoMplsteTailPacketCounters) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteTailPacketCounters.EntityData.YFilter = ipv4bfDoMplsteTailPacketCounters.YFilter
+    ipv4bfDoMplsteTailPacketCounters.EntityData.YangName = "ipv4bf-do-mplste-tail-packet-counters"
+    ipv4bfDoMplsteTailPacketCounters.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteTailPacketCounters.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-counters"
+    ipv4bfDoMplsteTailPacketCounters.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-packet-counters"
+    ipv4bfDoMplsteTailPacketCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteTailPacketCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteTailPacketCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteTailPacketCounters.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteTailPacketCounters.EntityData.Children["ipv4bf-do-mplste-tail-packet-counter"] = types.YChild{"Ipv4BfDoMplsteTailPacketCounter", nil}
-    for i := range ipv4BfDoMplsteTailPacketCounters.Ipv4BfDoMplsteTailPacketCounter {
-        ipv4BfDoMplsteTailPacketCounters.EntityData.Children[types.GetSegmentPath(&ipv4BfDoMplsteTailPacketCounters.Ipv4BfDoMplsteTailPacketCounter[i])] = types.YChild{"Ipv4BfDoMplsteTailPacketCounter", &ipv4BfDoMplsteTailPacketCounters.Ipv4BfDoMplsteTailPacketCounter[i]}
+    ipv4bfDoMplsteTailPacketCounters.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteTailPacketCounters.EntityData.Children.Append("ipv4bf-do-mplste-tail-packet-counter", types.YChild{"Ipv4bfDoMplsteTailPacketCounter", nil})
+    for i := range ipv4bfDoMplsteTailPacketCounters.Ipv4bfDoMplsteTailPacketCounter {
+        ipv4bfDoMplsteTailPacketCounters.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteTailPacketCounters.Ipv4bfDoMplsteTailPacketCounter[i]), types.YChild{"Ipv4bfDoMplsteTailPacketCounter", ipv4bfDoMplsteTailPacketCounters.Ipv4bfDoMplsteTailPacketCounter[i]})
     }
-    ipv4BfDoMplsteTailPacketCounters.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipv4BfDoMplsteTailPacketCounters.EntityData)
+    ipv4bfDoMplsteTailPacketCounters.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4bfDoMplsteTailPacketCounters.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteTailPacketCounters.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailCounters_Ipv4BfDoMplsteTailPacketCounters_Ipv4BfDoMplsteTailPacketCounter
+// Bfd_Ipv4bfDoMplsteTailCounters_Ipv4bfDoMplsteTailPacketCounters_Ipv4bfDoMplsteTailPacketCounter
 // Interface  IPv4 BFD over MPLS-TE Packet
 // counters
-type Bfd_Ipv4BfDoMplsteTailCounters_Ipv4BfDoMplsteTailPacketCounters_Ipv4BfDoMplsteTailPacketCounter struct {
+type Bfd_Ipv4bfDoMplsteTailCounters_Ipv4bfDoMplsteTailPacketCounters_Ipv4bfDoMplsteTailPacketCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
-    // Incoming Label. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabel interface{}
 
-    // FEC Type. The type is interface{} with range: -2147483648..2147483647.
+    // FEC Type. The type is interface{} with range: 0..4294967295.
     FeCtype interface{}
 
-    // FEC Subgroup ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // FEC Subgroup ID. The type is interface{} with range: 0..4294967295.
     FecSubgroupId interface{}
 
-    // FEC LSP ID. The type is interface{} with range: -2147483648..2147483647.
+    // FEC LSP ID. The type is interface{} with range: 0..4294967295.
     Feclspid interface{}
 
-    // FEC Tunnel ID. The type is interface{} with range: -2147483648..2147483647.
+    // FEC Tunnel ID. The type is interface{} with range: 0..4294967295.
     FecTunnelId interface{}
 
     // FEC Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecExtendedTunnelId interface{}
 
     // FEC Source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecSource interface{}
 
     // FEC Destination. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecDestination interface{}
 
-    // FEC P2MP ID. The type is interface{} with range: -2147483648..2147483647.
-    Fecp2Mpid interface{}
+    // FEC P2MP ID. The type is interface{} with range: 0..4294967295.
+    Fecp2mpid interface{}
 
     // FEC Subgroup originator. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecSubgroupOriginator interface{}
 
-    // FEC C Type. The type is interface{} with range: -2147483648..2147483647.
+    // FEC C Type. The type is interface{} with range: 0..4294967295.
     FecCtype interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Number of Hellos transmitted. The type is interface{} with range:
@@ -15453,37 +16428,40 @@ type Bfd_Ipv4BfDoMplsteTailCounters_Ipv4BfDoMplsteTailPacketCounters_Ipv4BfDoMpl
     DisplayType interface{}
 }
 
-func (ipv4BfDoMplsteTailPacketCounter *Bfd_Ipv4BfDoMplsteTailCounters_Ipv4BfDoMplsteTailPacketCounters_Ipv4BfDoMplsteTailPacketCounter) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteTailPacketCounter.EntityData.YFilter = ipv4BfDoMplsteTailPacketCounter.YFilter
-    ipv4BfDoMplsteTailPacketCounter.EntityData.YangName = "ipv4bf-do-mplste-tail-packet-counter"
-    ipv4BfDoMplsteTailPacketCounter.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteTailPacketCounter.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-packet-counters"
-    ipv4BfDoMplsteTailPacketCounter.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-packet-counter"
-    ipv4BfDoMplsteTailPacketCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteTailPacketCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteTailPacketCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteTailPacketCounter *Bfd_Ipv4bfDoMplsteTailCounters_Ipv4bfDoMplsteTailPacketCounters_Ipv4bfDoMplsteTailPacketCounter) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteTailPacketCounter.EntityData.YFilter = ipv4bfDoMplsteTailPacketCounter.YFilter
+    ipv4bfDoMplsteTailPacketCounter.EntityData.YangName = "ipv4bf-do-mplste-tail-packet-counter"
+    ipv4bfDoMplsteTailPacketCounter.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteTailPacketCounter.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-packet-counters"
+    ipv4bfDoMplsteTailPacketCounter.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-packet-counter"
+    ipv4bfDoMplsteTailPacketCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteTailPacketCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteTailPacketCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4BfDoMplsteTailPacketCounter.VrfName}
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Leafs["incoming-label"] = types.YLeaf{"IncomingLabel", ipv4BfDoMplsteTailPacketCounter.IncomingLabel}
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Leafs["fe-ctype"] = types.YLeaf{"FeCtype", ipv4BfDoMplsteTailPacketCounter.FeCtype}
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Leafs["fec-subgroup-id"] = types.YLeaf{"FecSubgroupId", ipv4BfDoMplsteTailPacketCounter.FecSubgroupId}
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Leafs["feclspid"] = types.YLeaf{"Feclspid", ipv4BfDoMplsteTailPacketCounter.Feclspid}
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Leafs["fec-tunnel-id"] = types.YLeaf{"FecTunnelId", ipv4BfDoMplsteTailPacketCounter.FecTunnelId}
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Leafs["fec-extended-tunnel-id"] = types.YLeaf{"FecExtendedTunnelId", ipv4BfDoMplsteTailPacketCounter.FecExtendedTunnelId}
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Leafs["fec-source"] = types.YLeaf{"FecSource", ipv4BfDoMplsteTailPacketCounter.FecSource}
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Leafs["fec-destination"] = types.YLeaf{"FecDestination", ipv4BfDoMplsteTailPacketCounter.FecDestination}
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Leafs["fecp2mpid"] = types.YLeaf{"Fecp2Mpid", ipv4BfDoMplsteTailPacketCounter.Fecp2Mpid}
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Leafs["fec-subgroup-originator"] = types.YLeaf{"FecSubgroupOriginator", ipv4BfDoMplsteTailPacketCounter.FecSubgroupOriginator}
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Leafs["fec-ctype"] = types.YLeaf{"FecCtype", ipv4BfDoMplsteTailPacketCounter.FecCtype}
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv4BfDoMplsteTailPacketCounter.Location}
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Leafs["hello-transmit-count"] = types.YLeaf{"HelloTransmitCount", ipv4BfDoMplsteTailPacketCounter.HelloTransmitCount}
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Leafs["hello-receive-count"] = types.YLeaf{"HelloReceiveCount", ipv4BfDoMplsteTailPacketCounter.HelloReceiveCount}
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Leafs["echo-transmit-count"] = types.YLeaf{"EchoTransmitCount", ipv4BfDoMplsteTailPacketCounter.EchoTransmitCount}
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Leafs["echo-receive-count"] = types.YLeaf{"EchoReceiveCount", ipv4BfDoMplsteTailPacketCounter.EchoReceiveCount}
-    ipv4BfDoMplsteTailPacketCounter.EntityData.Leafs["display-type"] = types.YLeaf{"DisplayType", ipv4BfDoMplsteTailPacketCounter.DisplayType}
-    return &(ipv4BfDoMplsteTailPacketCounter.EntityData)
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Leafs = types.NewOrderedMap()
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4bfDoMplsteTailPacketCounter.VrfName})
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Leafs.Append("incoming-label", types.YLeaf{"IncomingLabel", ipv4bfDoMplsteTailPacketCounter.IncomingLabel})
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Leafs.Append("fe-ctype", types.YLeaf{"FeCtype", ipv4bfDoMplsteTailPacketCounter.FeCtype})
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Leafs.Append("fec-subgroup-id", types.YLeaf{"FecSubgroupId", ipv4bfDoMplsteTailPacketCounter.FecSubgroupId})
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Leafs.Append("feclspid", types.YLeaf{"Feclspid", ipv4bfDoMplsteTailPacketCounter.Feclspid})
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Leafs.Append("fec-tunnel-id", types.YLeaf{"FecTunnelId", ipv4bfDoMplsteTailPacketCounter.FecTunnelId})
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Leafs.Append("fec-extended-tunnel-id", types.YLeaf{"FecExtendedTunnelId", ipv4bfDoMplsteTailPacketCounter.FecExtendedTunnelId})
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Leafs.Append("fec-source", types.YLeaf{"FecSource", ipv4bfDoMplsteTailPacketCounter.FecSource})
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Leafs.Append("fec-destination", types.YLeaf{"FecDestination", ipv4bfDoMplsteTailPacketCounter.FecDestination})
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Leafs.Append("fecp2mpid", types.YLeaf{"Fecp2mpid", ipv4bfDoMplsteTailPacketCounter.Fecp2mpid})
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Leafs.Append("fec-subgroup-originator", types.YLeaf{"FecSubgroupOriginator", ipv4bfDoMplsteTailPacketCounter.FecSubgroupOriginator})
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Leafs.Append("fec-ctype", types.YLeaf{"FecCtype", ipv4bfDoMplsteTailPacketCounter.FecCtype})
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv4bfDoMplsteTailPacketCounter.Location})
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Leafs.Append("hello-transmit-count", types.YLeaf{"HelloTransmitCount", ipv4bfDoMplsteTailPacketCounter.HelloTransmitCount})
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Leafs.Append("hello-receive-count", types.YLeaf{"HelloReceiveCount", ipv4bfDoMplsteTailPacketCounter.HelloReceiveCount})
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Leafs.Append("echo-transmit-count", types.YLeaf{"EchoTransmitCount", ipv4bfDoMplsteTailPacketCounter.EchoTransmitCount})
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Leafs.Append("echo-receive-count", types.YLeaf{"EchoReceiveCount", ipv4bfDoMplsteTailPacketCounter.EchoReceiveCount})
+    ipv4bfDoMplsteTailPacketCounter.EntityData.Leafs.Append("display-type", types.YLeaf{"DisplayType", ipv4bfDoMplsteTailPacketCounter.DisplayType})
+
+    ipv4bfDoMplsteTailPacketCounter.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteTailPacketCounter.EntityData)
 }
 
 // Bfd_Ipv6SingleHopSessionBriefs
@@ -15495,7 +16473,7 @@ type Bfd_Ipv6SingleHopSessionBriefs struct {
 
     // Brief information for a single IPv6 singlehop BFD session. The type is
     // slice of Bfd_Ipv6SingleHopSessionBriefs_Ipv6SingleHopSessionBrief.
-    Ipv6SingleHopSessionBrief []Bfd_Ipv6SingleHopSessionBriefs_Ipv6SingleHopSessionBrief
+    Ipv6SingleHopSessionBrief []*Bfd_Ipv6SingleHopSessionBriefs_Ipv6SingleHopSessionBrief
 }
 
 func (ipv6SingleHopSessionBriefs *Bfd_Ipv6SingleHopSessionBriefs) GetEntityData() *types.CommonEntityData {
@@ -15508,12 +16486,15 @@ func (ipv6SingleHopSessionBriefs *Bfd_Ipv6SingleHopSessionBriefs) GetEntityData(
     ipv6SingleHopSessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopSessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6SingleHopSessionBriefs.EntityData.Children = make(map[string]types.YChild)
-    ipv6SingleHopSessionBriefs.EntityData.Children["ipv6-single-hop-session-brief"] = types.YChild{"Ipv6SingleHopSessionBrief", nil}
+    ipv6SingleHopSessionBriefs.EntityData.Children = types.NewOrderedMap()
+    ipv6SingleHopSessionBriefs.EntityData.Children.Append("ipv6-single-hop-session-brief", types.YChild{"Ipv6SingleHopSessionBrief", nil})
     for i := range ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief {
-        ipv6SingleHopSessionBriefs.EntityData.Children[types.GetSegmentPath(&ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief[i])] = types.YChild{"Ipv6SingleHopSessionBrief", &ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief[i]}
+        ipv6SingleHopSessionBriefs.EntityData.Children.Append(types.GetSegmentPath(ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief[i]), types.YChild{"Ipv6SingleHopSessionBrief", ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief[i]})
     }
-    ipv6SingleHopSessionBriefs.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6SingleHopSessionBriefs.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6SingleHopSessionBriefs.EntityData.YListKeys = []string {}
+
     return &(ipv6SingleHopSessionBriefs.EntityData)
 }
 
@@ -15524,22 +16505,22 @@ type Bfd_Ipv6SingleHopSessionBriefs_Ipv6SingleHopSessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Destination Address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // State. The type is BfdMgmtSessionState.
@@ -15568,17 +16549,20 @@ func (ipv6SingleHopSessionBrief *Bfd_Ipv6SingleHopSessionBriefs_Ipv6SingleHopSes
     ipv6SingleHopSessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopSessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6SingleHopSessionBrief.EntityData.Children = make(map[string]types.YChild)
-    ipv6SingleHopSessionBrief.EntityData.Children["status-brief-information"] = types.YChild{"StatusBriefInformation", &ipv6SingleHopSessionBrief.StatusBriefInformation}
-    ipv6SingleHopSessionBrief.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6SingleHopSessionBrief.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", ipv6SingleHopSessionBrief.InterfaceName}
-    ipv6SingleHopSessionBrief.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", ipv6SingleHopSessionBrief.DestinationAddress}
-    ipv6SingleHopSessionBrief.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv6SingleHopSessionBrief.Location}
-    ipv6SingleHopSessionBrief.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", ipv6SingleHopSessionBrief.NodeId}
-    ipv6SingleHopSessionBrief.EntityData.Leafs["state"] = types.YLeaf{"State", ipv6SingleHopSessionBrief.State}
-    ipv6SingleHopSessionBrief.EntityData.Leafs["session-type"] = types.YLeaf{"SessionType", ipv6SingleHopSessionBrief.SessionType}
-    ipv6SingleHopSessionBrief.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", ipv6SingleHopSessionBrief.SessionSubtype}
-    ipv6SingleHopSessionBrief.EntityData.Leafs["session-flags"] = types.YLeaf{"SessionFlags", ipv6SingleHopSessionBrief.SessionFlags}
+    ipv6SingleHopSessionBrief.EntityData.Children = types.NewOrderedMap()
+    ipv6SingleHopSessionBrief.EntityData.Children.Append("status-brief-information", types.YChild{"StatusBriefInformation", &ipv6SingleHopSessionBrief.StatusBriefInformation})
+    ipv6SingleHopSessionBrief.EntityData.Leafs = types.NewOrderedMap()
+    ipv6SingleHopSessionBrief.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", ipv6SingleHopSessionBrief.InterfaceName})
+    ipv6SingleHopSessionBrief.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", ipv6SingleHopSessionBrief.DestinationAddress})
+    ipv6SingleHopSessionBrief.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv6SingleHopSessionBrief.Location})
+    ipv6SingleHopSessionBrief.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", ipv6SingleHopSessionBrief.NodeId})
+    ipv6SingleHopSessionBrief.EntityData.Leafs.Append("state", types.YLeaf{"State", ipv6SingleHopSessionBrief.State})
+    ipv6SingleHopSessionBrief.EntityData.Leafs.Append("session-type", types.YLeaf{"SessionType", ipv6SingleHopSessionBrief.SessionType})
+    ipv6SingleHopSessionBrief.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", ipv6SingleHopSessionBrief.SessionSubtype})
+    ipv6SingleHopSessionBrief.EntityData.Leafs.Append("session-flags", types.YLeaf{"SessionFlags", ipv6SingleHopSessionBrief.SessionFlags})
+
+    ipv6SingleHopSessionBrief.EntityData.YListKeys = []string {}
+
     return &(ipv6SingleHopSessionBrief.EntityData)
 }
 
@@ -15605,10 +16589,13 @@ func (statusBriefInformation *Bfd_Ipv6SingleHopSessionBriefs_Ipv6SingleHopSessio
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statusBriefInformation.EntityData.Children = make(map[string]types.YChild)
-    statusBriefInformation.EntityData.Children["async-interval-multiplier"] = types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier}
-    statusBriefInformation.EntityData.Children["echo-interval-multiplier"] = types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier}
-    statusBriefInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    statusBriefInformation.EntityData.Children = types.NewOrderedMap()
+    statusBriefInformation.EntityData.Children.Append("async-interval-multiplier", types.YChild{"AsyncIntervalMultiplier", &statusBriefInformation.AsyncIntervalMultiplier})
+    statusBriefInformation.EntityData.Children.Append("echo-interval-multiplier", types.YChild{"EchoIntervalMultiplier", &statusBriefInformation.EchoIntervalMultiplier})
+    statusBriefInformation.EntityData.Leafs = types.NewOrderedMap()
+
+    statusBriefInformation.EntityData.YListKeys = []string {}
+
     return &(statusBriefInformation.EntityData)
 }
 
@@ -15644,12 +16631,15 @@ func (asyncIntervalMultiplier *Bfd_Ipv6SingleHopSessionBriefs_Ipv6SingleHopSessi
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asyncIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    asyncIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-remote-transmit-interval"] = types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["negotiated-local-transmit-interval"] = types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime}
-    asyncIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier}
+    asyncIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-remote-transmit-interval", types.YLeaf{"NegotiatedRemoteTransmitInterval", asyncIntervalMultiplier.NegotiatedRemoteTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("negotiated-local-transmit-interval", types.YLeaf{"NegotiatedLocalTransmitInterval", asyncIntervalMultiplier.NegotiatedLocalTransmitInterval})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", asyncIntervalMultiplier.DetectionTime})
+    asyncIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", asyncIntervalMultiplier.DetectionMultiplier})
+
+    asyncIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(asyncIntervalMultiplier.EntityData)
 }
 
@@ -15681,94 +16671,98 @@ func (echoIntervalMultiplier *Bfd_Ipv6SingleHopSessionBriefs_Ipv6SingleHopSessio
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    echoIntervalMultiplier.EntityData.Children = make(map[string]types.YChild)
-    echoIntervalMultiplier.EntityData.Leafs = make(map[string]types.YLeaf)
-    echoIntervalMultiplier.EntityData.Leafs["negotiated-transmit-interval"] = types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval}
-    echoIntervalMultiplier.EntityData.Leafs["detection-time"] = types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime}
-    echoIntervalMultiplier.EntityData.Leafs["detection-multiplier"] = types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier}
+    echoIntervalMultiplier.EntityData.Children = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs = types.NewOrderedMap()
+    echoIntervalMultiplier.EntityData.Leafs.Append("negotiated-transmit-interval", types.YLeaf{"NegotiatedTransmitInterval", echoIntervalMultiplier.NegotiatedTransmitInterval})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-time", types.YLeaf{"DetectionTime", echoIntervalMultiplier.DetectionTime})
+    echoIntervalMultiplier.EntityData.Leafs.Append("detection-multiplier", types.YLeaf{"DetectionMultiplier", echoIntervalMultiplier.DetectionMultiplier})
+
+    echoIntervalMultiplier.EntityData.YListKeys = []string {}
+
     return &(echoIntervalMultiplier.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailMultiPaths
+// Bfd_Ipv4bfDoMplsteTailMultiPaths
 // IPv4 BFD over MPLS-TE Tail multipath
-type Bfd_Ipv4BfDoMplsteTailMultiPaths struct {
+type Bfd_Ipv4bfDoMplsteTailMultiPaths struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Label multipath table. The type is slice of
-    // Bfd_Ipv4BfDoMplsteTailMultiPaths_Ipv4BfDoMplsteTailMultiPath.
-    Ipv4BfDoMplsteTailMultiPath []Bfd_Ipv4BfDoMplsteTailMultiPaths_Ipv4BfDoMplsteTailMultiPath
+    // Bfd_Ipv4bfDoMplsteTailMultiPaths_Ipv4bfDoMplsteTailMultiPath.
+    Ipv4bfDoMplsteTailMultiPath []*Bfd_Ipv4bfDoMplsteTailMultiPaths_Ipv4bfDoMplsteTailMultiPath
 }
 
-func (ipv4BfDoMplsteTailMultiPaths *Bfd_Ipv4BfDoMplsteTailMultiPaths) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteTailMultiPaths.EntityData.YFilter = ipv4BfDoMplsteTailMultiPaths.YFilter
-    ipv4BfDoMplsteTailMultiPaths.EntityData.YangName = "ipv4bf-do-mplste-tail-multi-paths"
-    ipv4BfDoMplsteTailMultiPaths.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteTailMultiPaths.EntityData.ParentYangName = "bfd"
-    ipv4BfDoMplsteTailMultiPaths.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-multi-paths"
-    ipv4BfDoMplsteTailMultiPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteTailMultiPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteTailMultiPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteTailMultiPaths *Bfd_Ipv4bfDoMplsteTailMultiPaths) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteTailMultiPaths.EntityData.YFilter = ipv4bfDoMplsteTailMultiPaths.YFilter
+    ipv4bfDoMplsteTailMultiPaths.EntityData.YangName = "ipv4bf-do-mplste-tail-multi-paths"
+    ipv4bfDoMplsteTailMultiPaths.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteTailMultiPaths.EntityData.ParentYangName = "bfd"
+    ipv4bfDoMplsteTailMultiPaths.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-multi-paths"
+    ipv4bfDoMplsteTailMultiPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteTailMultiPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteTailMultiPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteTailMultiPaths.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteTailMultiPaths.EntityData.Children["ipv4bf-do-mplste-tail-multi-path"] = types.YChild{"Ipv4BfDoMplsteTailMultiPath", nil}
-    for i := range ipv4BfDoMplsteTailMultiPaths.Ipv4BfDoMplsteTailMultiPath {
-        ipv4BfDoMplsteTailMultiPaths.EntityData.Children[types.GetSegmentPath(&ipv4BfDoMplsteTailMultiPaths.Ipv4BfDoMplsteTailMultiPath[i])] = types.YChild{"Ipv4BfDoMplsteTailMultiPath", &ipv4BfDoMplsteTailMultiPaths.Ipv4BfDoMplsteTailMultiPath[i]}
+    ipv4bfDoMplsteTailMultiPaths.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteTailMultiPaths.EntityData.Children.Append("ipv4bf-do-mplste-tail-multi-path", types.YChild{"Ipv4bfDoMplsteTailMultiPath", nil})
+    for i := range ipv4bfDoMplsteTailMultiPaths.Ipv4bfDoMplsteTailMultiPath {
+        ipv4bfDoMplsteTailMultiPaths.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteTailMultiPaths.Ipv4bfDoMplsteTailMultiPath[i]), types.YChild{"Ipv4bfDoMplsteTailMultiPath", ipv4bfDoMplsteTailMultiPaths.Ipv4bfDoMplsteTailMultiPath[i]})
     }
-    ipv4BfDoMplsteTailMultiPaths.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipv4BfDoMplsteTailMultiPaths.EntityData)
+    ipv4bfDoMplsteTailMultiPaths.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4bfDoMplsteTailMultiPaths.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteTailMultiPaths.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteTailMultiPaths_Ipv4BfDoMplsteTailMultiPath
+// Bfd_Ipv4bfDoMplsteTailMultiPaths_Ipv4bfDoMplsteTailMultiPath
 // Label multipath table
-type Bfd_Ipv4BfDoMplsteTailMultiPaths_Ipv4BfDoMplsteTailMultiPath struct {
+type Bfd_Ipv4bfDoMplsteTailMultiPaths_Ipv4bfDoMplsteTailMultiPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
-    // Incoming Label. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabel interface{}
 
-    // FEC Type. The type is interface{} with range: -2147483648..2147483647.
+    // FEC Type. The type is interface{} with range: 0..4294967295.
     FeCtype interface{}
 
-    // FEC Subgroup ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // FEC Subgroup ID. The type is interface{} with range: 0..4294967295.
     FecSubgroupId interface{}
 
-    // FEC LSP ID. The type is interface{} with range: -2147483648..2147483647.
+    // FEC LSP ID. The type is interface{} with range: 0..4294967295.
     Feclspid interface{}
 
-    // FEC Tunnel ID. The type is interface{} with range: -2147483648..2147483647.
+    // FEC Tunnel ID. The type is interface{} with range: 0..4294967295.
     FecTunnelId interface{}
 
     // FEC Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecExtendedTunnelId interface{}
 
     // FEC Source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecSource interface{}
 
     // FEC Destination. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecDestination interface{}
 
-    // FEC P2MP ID. The type is interface{} with range: -2147483648..2147483647.
-    Fecp2Mpid interface{}
+    // FEC P2MP ID. The type is interface{} with range: 0..4294967295.
+    Fecp2mpid interface{}
 
     // FEC Subgroup originator. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     FecSubgroupOriginator interface{}
 
-    // FEC C Type. The type is interface{} with range: -2147483648..2147483647.
+    // FEC C Type. The type is interface{} with range: 0..4294967295.
     FecCtype interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
     // Session subtype. The type is string.
@@ -15782,48 +16776,51 @@ type Bfd_Ipv4BfDoMplsteTailMultiPaths_Ipv4BfDoMplsteTailMultiPath struct {
     LocalDiscriminator interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabelXr interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     SessionInterfaceName interface{}
 }
 
-func (ipv4BfDoMplsteTailMultiPath *Bfd_Ipv4BfDoMplsteTailMultiPaths_Ipv4BfDoMplsteTailMultiPath) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteTailMultiPath.EntityData.YFilter = ipv4BfDoMplsteTailMultiPath.YFilter
-    ipv4BfDoMplsteTailMultiPath.EntityData.YangName = "ipv4bf-do-mplste-tail-multi-path"
-    ipv4BfDoMplsteTailMultiPath.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteTailMultiPath.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-multi-paths"
-    ipv4BfDoMplsteTailMultiPath.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-multi-path"
-    ipv4BfDoMplsteTailMultiPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteTailMultiPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteTailMultiPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteTailMultiPath *Bfd_Ipv4bfDoMplsteTailMultiPaths_Ipv4bfDoMplsteTailMultiPath) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteTailMultiPath.EntityData.YFilter = ipv4bfDoMplsteTailMultiPath.YFilter
+    ipv4bfDoMplsteTailMultiPath.EntityData.YangName = "ipv4bf-do-mplste-tail-multi-path"
+    ipv4bfDoMplsteTailMultiPath.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteTailMultiPath.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-multi-paths"
+    ipv4bfDoMplsteTailMultiPath.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-multi-path"
+    ipv4bfDoMplsteTailMultiPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteTailMultiPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteTailMultiPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteTailMultiPath.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4BfDoMplsteTailMultiPath.VrfName}
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs["incoming-label"] = types.YLeaf{"IncomingLabel", ipv4BfDoMplsteTailMultiPath.IncomingLabel}
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs["fe-ctype"] = types.YLeaf{"FeCtype", ipv4BfDoMplsteTailMultiPath.FeCtype}
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs["fec-subgroup-id"] = types.YLeaf{"FecSubgroupId", ipv4BfDoMplsteTailMultiPath.FecSubgroupId}
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs["feclspid"] = types.YLeaf{"Feclspid", ipv4BfDoMplsteTailMultiPath.Feclspid}
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs["fec-tunnel-id"] = types.YLeaf{"FecTunnelId", ipv4BfDoMplsteTailMultiPath.FecTunnelId}
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs["fec-extended-tunnel-id"] = types.YLeaf{"FecExtendedTunnelId", ipv4BfDoMplsteTailMultiPath.FecExtendedTunnelId}
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs["fec-source"] = types.YLeaf{"FecSource", ipv4BfDoMplsteTailMultiPath.FecSource}
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs["fec-destination"] = types.YLeaf{"FecDestination", ipv4BfDoMplsteTailMultiPath.FecDestination}
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs["fecp2mpid"] = types.YLeaf{"Fecp2Mpid", ipv4BfDoMplsteTailMultiPath.Fecp2Mpid}
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs["fec-subgroup-originator"] = types.YLeaf{"FecSubgroupOriginator", ipv4BfDoMplsteTailMultiPath.FecSubgroupOriginator}
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs["fec-ctype"] = types.YLeaf{"FecCtype", ipv4BfDoMplsteTailMultiPath.FecCtype}
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv4BfDoMplsteTailMultiPath.Location}
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", ipv4BfDoMplsteTailMultiPath.SessionSubtype}
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs["state"] = types.YLeaf{"State", ipv4BfDoMplsteTailMultiPath.State}
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", ipv4BfDoMplsteTailMultiPath.LocalDiscriminator}
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", ipv4BfDoMplsteTailMultiPath.NodeId}
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs["incoming-label-xr"] = types.YLeaf{"IncomingLabelXr", ipv4BfDoMplsteTailMultiPath.IncomingLabelXr}
-    ipv4BfDoMplsteTailMultiPath.EntityData.Leafs["session-interface-name"] = types.YLeaf{"SessionInterfaceName", ipv4BfDoMplsteTailMultiPath.SessionInterfaceName}
-    return &(ipv4BfDoMplsteTailMultiPath.EntityData)
+    ipv4bfDoMplsteTailMultiPath.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs = types.NewOrderedMap()
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4bfDoMplsteTailMultiPath.VrfName})
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs.Append("incoming-label", types.YLeaf{"IncomingLabel", ipv4bfDoMplsteTailMultiPath.IncomingLabel})
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs.Append("fe-ctype", types.YLeaf{"FeCtype", ipv4bfDoMplsteTailMultiPath.FeCtype})
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs.Append("fec-subgroup-id", types.YLeaf{"FecSubgroupId", ipv4bfDoMplsteTailMultiPath.FecSubgroupId})
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs.Append("feclspid", types.YLeaf{"Feclspid", ipv4bfDoMplsteTailMultiPath.Feclspid})
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs.Append("fec-tunnel-id", types.YLeaf{"FecTunnelId", ipv4bfDoMplsteTailMultiPath.FecTunnelId})
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs.Append("fec-extended-tunnel-id", types.YLeaf{"FecExtendedTunnelId", ipv4bfDoMplsteTailMultiPath.FecExtendedTunnelId})
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs.Append("fec-source", types.YLeaf{"FecSource", ipv4bfDoMplsteTailMultiPath.FecSource})
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs.Append("fec-destination", types.YLeaf{"FecDestination", ipv4bfDoMplsteTailMultiPath.FecDestination})
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs.Append("fecp2mpid", types.YLeaf{"Fecp2mpid", ipv4bfDoMplsteTailMultiPath.Fecp2mpid})
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs.Append("fec-subgroup-originator", types.YLeaf{"FecSubgroupOriginator", ipv4bfDoMplsteTailMultiPath.FecSubgroupOriginator})
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs.Append("fec-ctype", types.YLeaf{"FecCtype", ipv4bfDoMplsteTailMultiPath.FecCtype})
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv4bfDoMplsteTailMultiPath.Location})
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", ipv4bfDoMplsteTailMultiPath.SessionSubtype})
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs.Append("state", types.YLeaf{"State", ipv4bfDoMplsteTailMultiPath.State})
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", ipv4bfDoMplsteTailMultiPath.LocalDiscriminator})
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", ipv4bfDoMplsteTailMultiPath.NodeId})
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs.Append("incoming-label-xr", types.YLeaf{"IncomingLabelXr", ipv4bfDoMplsteTailMultiPath.IncomingLabelXr})
+    ipv4bfDoMplsteTailMultiPath.EntityData.Leafs.Append("session-interface-name", types.YLeaf{"SessionInterfaceName", ipv4bfDoMplsteTailMultiPath.SessionInterfaceName})
+
+    ipv4bfDoMplsteTailMultiPath.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteTailMultiPath.EntityData)
 }
 
 // Bfd_Ipv4MultiHopMultiPaths
@@ -15834,7 +16831,7 @@ type Bfd_Ipv4MultiHopMultiPaths struct {
 
     // IPv4 multi hop multipath table. The type is slice of
     // Bfd_Ipv4MultiHopMultiPaths_Ipv4MultiHopMultiPath.
-    Ipv4MultiHopMultiPath []Bfd_Ipv4MultiHopMultiPaths_Ipv4MultiHopMultiPath
+    Ipv4MultiHopMultiPath []*Bfd_Ipv4MultiHopMultiPaths_Ipv4MultiHopMultiPath
 }
 
 func (ipv4MultiHopMultiPaths *Bfd_Ipv4MultiHopMultiPaths) GetEntityData() *types.CommonEntityData {
@@ -15847,12 +16844,15 @@ func (ipv4MultiHopMultiPaths *Bfd_Ipv4MultiHopMultiPaths) GetEntityData() *types
     ipv4MultiHopMultiPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopMultiPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4MultiHopMultiPaths.EntityData.Children = make(map[string]types.YChild)
-    ipv4MultiHopMultiPaths.EntityData.Children["ipv4-multi-hop-multi-path"] = types.YChild{"Ipv4MultiHopMultiPath", nil}
+    ipv4MultiHopMultiPaths.EntityData.Children = types.NewOrderedMap()
+    ipv4MultiHopMultiPaths.EntityData.Children.Append("ipv4-multi-hop-multi-path", types.YChild{"Ipv4MultiHopMultiPath", nil})
     for i := range ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath {
-        ipv4MultiHopMultiPaths.EntityData.Children[types.GetSegmentPath(&ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath[i])] = types.YChild{"Ipv4MultiHopMultiPath", &ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath[i]}
+        ipv4MultiHopMultiPaths.EntityData.Children.Append(types.GetSegmentPath(ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath[i]), types.YChild{"Ipv4MultiHopMultiPath", ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath[i]})
     }
-    ipv4MultiHopMultiPaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4MultiHopMultiPaths.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4MultiHopMultiPaths.EntityData.YListKeys = []string {}
+
     return &(ipv4MultiHopMultiPaths.EntityData)
 }
 
@@ -15864,23 +16864,23 @@ type Bfd_Ipv4MultiHopMultiPaths_Ipv4MultiHopMultiPath struct {
 
     // Source Address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Destination Address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 
-    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Session subtype. The type is string.
@@ -15894,13 +16894,13 @@ type Bfd_Ipv4MultiHopMultiPaths_Ipv4MultiHopMultiPath struct {
     LocalDiscriminator interface{}
 
     // Location where session is housed. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabelXr interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     SessionInterfaceName interface{}
 }
 
@@ -15914,51 +16914,57 @@ func (ipv4MultiHopMultiPath *Bfd_Ipv4MultiHopMultiPaths_Ipv4MultiHopMultiPath) G
     ipv4MultiHopMultiPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopMultiPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4MultiHopMultiPath.EntityData.Children = make(map[string]types.YChild)
-    ipv4MultiHopMultiPath.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4MultiHopMultiPath.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", ipv4MultiHopMultiPath.SourceAddress}
-    ipv4MultiHopMultiPath.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", ipv4MultiHopMultiPath.DestinationAddress}
-    ipv4MultiHopMultiPath.EntityData.Leafs["location"] = types.YLeaf{"Location", ipv4MultiHopMultiPath.Location}
-    ipv4MultiHopMultiPath.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4MultiHopMultiPath.VrfName}
-    ipv4MultiHopMultiPath.EntityData.Leafs["session-subtype"] = types.YLeaf{"SessionSubtype", ipv4MultiHopMultiPath.SessionSubtype}
-    ipv4MultiHopMultiPath.EntityData.Leafs["state"] = types.YLeaf{"State", ipv4MultiHopMultiPath.State}
-    ipv4MultiHopMultiPath.EntityData.Leafs["local-discriminator"] = types.YLeaf{"LocalDiscriminator", ipv4MultiHopMultiPath.LocalDiscriminator}
-    ipv4MultiHopMultiPath.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", ipv4MultiHopMultiPath.NodeId}
-    ipv4MultiHopMultiPath.EntityData.Leafs["incoming-label-xr"] = types.YLeaf{"IncomingLabelXr", ipv4MultiHopMultiPath.IncomingLabelXr}
-    ipv4MultiHopMultiPath.EntityData.Leafs["session-interface-name"] = types.YLeaf{"SessionInterfaceName", ipv4MultiHopMultiPath.SessionInterfaceName}
+    ipv4MultiHopMultiPath.EntityData.Children = types.NewOrderedMap()
+    ipv4MultiHopMultiPath.EntityData.Leafs = types.NewOrderedMap()
+    ipv4MultiHopMultiPath.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", ipv4MultiHopMultiPath.SourceAddress})
+    ipv4MultiHopMultiPath.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", ipv4MultiHopMultiPath.DestinationAddress})
+    ipv4MultiHopMultiPath.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv4MultiHopMultiPath.Location})
+    ipv4MultiHopMultiPath.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4MultiHopMultiPath.VrfName})
+    ipv4MultiHopMultiPath.EntityData.Leafs.Append("session-subtype", types.YLeaf{"SessionSubtype", ipv4MultiHopMultiPath.SessionSubtype})
+    ipv4MultiHopMultiPath.EntityData.Leafs.Append("state", types.YLeaf{"State", ipv4MultiHopMultiPath.State})
+    ipv4MultiHopMultiPath.EntityData.Leafs.Append("local-discriminator", types.YLeaf{"LocalDiscriminator", ipv4MultiHopMultiPath.LocalDiscriminator})
+    ipv4MultiHopMultiPath.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", ipv4MultiHopMultiPath.NodeId})
+    ipv4MultiHopMultiPath.EntityData.Leafs.Append("incoming-label-xr", types.YLeaf{"IncomingLabelXr", ipv4MultiHopMultiPath.IncomingLabelXr})
+    ipv4MultiHopMultiPath.EntityData.Leafs.Append("session-interface-name", types.YLeaf{"SessionInterfaceName", ipv4MultiHopMultiPath.SessionInterfaceName})
+
+    ipv4MultiHopMultiPath.EntityData.YListKeys = []string {}
+
     return &(ipv4MultiHopMultiPath.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSummary
+// Bfd_Ipv4bfDoMplsteHeadSummary
 // Summary information of IPv4 BFD over MPLS-TE
 // Head
-type Bfd_Ipv4BfDoMplsteHeadSummary struct {
+type Bfd_Ipv4bfDoMplsteHeadSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Statistics of states for sessions.
-    SessionState Bfd_Ipv4BfDoMplsteHeadSummary_SessionState
+    SessionState Bfd_Ipv4bfDoMplsteHeadSummary_SessionState
 }
 
-func (ipv4BfDoMplsteHeadSummary *Bfd_Ipv4BfDoMplsteHeadSummary) GetEntityData() *types.CommonEntityData {
-    ipv4BfDoMplsteHeadSummary.EntityData.YFilter = ipv4BfDoMplsteHeadSummary.YFilter
-    ipv4BfDoMplsteHeadSummary.EntityData.YangName = "ipv4bf-do-mplste-head-summary"
-    ipv4BfDoMplsteHeadSummary.EntityData.BundleName = "cisco_ios_xr"
-    ipv4BfDoMplsteHeadSummary.EntityData.ParentYangName = "bfd"
-    ipv4BfDoMplsteHeadSummary.EntityData.SegmentPath = "ipv4bf-do-mplste-head-summary"
-    ipv4BfDoMplsteHeadSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4BfDoMplsteHeadSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4BfDoMplsteHeadSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv4bfDoMplsteHeadSummary *Bfd_Ipv4bfDoMplsteHeadSummary) GetEntityData() *types.CommonEntityData {
+    ipv4bfDoMplsteHeadSummary.EntityData.YFilter = ipv4bfDoMplsteHeadSummary.YFilter
+    ipv4bfDoMplsteHeadSummary.EntityData.YangName = "ipv4bf-do-mplste-head-summary"
+    ipv4bfDoMplsteHeadSummary.EntityData.BundleName = "cisco_ios_xr"
+    ipv4bfDoMplsteHeadSummary.EntityData.ParentYangName = "bfd"
+    ipv4bfDoMplsteHeadSummary.EntityData.SegmentPath = "ipv4bf-do-mplste-head-summary"
+    ipv4bfDoMplsteHeadSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4bfDoMplsteHeadSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4bfDoMplsteHeadSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4BfDoMplsteHeadSummary.EntityData.Children = make(map[string]types.YChild)
-    ipv4BfDoMplsteHeadSummary.EntityData.Children["session-state"] = types.YChild{"SessionState", &ipv4BfDoMplsteHeadSummary.SessionState}
-    ipv4BfDoMplsteHeadSummary.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipv4BfDoMplsteHeadSummary.EntityData)
+    ipv4bfDoMplsteHeadSummary.EntityData.Children = types.NewOrderedMap()
+    ipv4bfDoMplsteHeadSummary.EntityData.Children.Append("session-state", types.YChild{"SessionState", &ipv4bfDoMplsteHeadSummary.SessionState})
+    ipv4bfDoMplsteHeadSummary.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4bfDoMplsteHeadSummary.EntityData.YListKeys = []string {}
+
+    return &(ipv4bfDoMplsteHeadSummary.EntityData)
 }
 
-// Bfd_Ipv4BfDoMplsteHeadSummary_SessionState
+// Bfd_Ipv4bfDoMplsteHeadSummary_SessionState
 // Statistics of states for sessions
-type Bfd_Ipv4BfDoMplsteHeadSummary_SessionState struct {
+type Bfd_Ipv4bfDoMplsteHeadSummary_SessionState struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -15979,7 +16985,7 @@ type Bfd_Ipv4BfDoMplsteHeadSummary_SessionState struct {
     UnknownCount interface{}
 }
 
-func (sessionState *Bfd_Ipv4BfDoMplsteHeadSummary_SessionState) GetEntityData() *types.CommonEntityData {
+func (sessionState *Bfd_Ipv4bfDoMplsteHeadSummary_SessionState) GetEntityData() *types.CommonEntityData {
     sessionState.EntityData.YFilter = sessionState.YFilter
     sessionState.EntityData.YangName = "session-state"
     sessionState.EntityData.BundleName = "cisco_ios_xr"
@@ -15989,12 +16995,15 @@ func (sessionState *Bfd_Ipv4BfDoMplsteHeadSummary_SessionState) GetEntityData() 
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sessionState.EntityData.Children = make(map[string]types.YChild)
-    sessionState.EntityData.Leafs = make(map[string]types.YLeaf)
-    sessionState.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", sessionState.TotalCount}
-    sessionState.EntityData.Leafs["down-count"] = types.YLeaf{"DownCount", sessionState.DownCount}
-    sessionState.EntityData.Leafs["up-count"] = types.YLeaf{"UpCount", sessionState.UpCount}
-    sessionState.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", sessionState.UnknownCount}
+    sessionState.EntityData.Children = types.NewOrderedMap()
+    sessionState.EntityData.Leafs = types.NewOrderedMap()
+    sessionState.EntityData.Leafs.Append("total-count", types.YLeaf{"TotalCount", sessionState.TotalCount})
+    sessionState.EntityData.Leafs.Append("down-count", types.YLeaf{"DownCount", sessionState.DownCount})
+    sessionState.EntityData.Leafs.Append("up-count", types.YLeaf{"UpCount", sessionState.UpCount})
+    sessionState.EntityData.Leafs.Append("unknown-count", types.YLeaf{"UnknownCount", sessionState.UnknownCount})
+
+    sessionState.EntityData.YListKeys = []string {}
+
     return &(sessionState.EntityData)
 }
 

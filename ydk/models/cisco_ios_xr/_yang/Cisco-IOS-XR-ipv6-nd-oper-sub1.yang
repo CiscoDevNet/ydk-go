@@ -401,6 +401,16 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
       description
         "IPv6 address";
     }
+    leaf valid-lifetime {
+      type uint32;
+      description
+        "Valid lifetime of a Prefix";
+    }
+    leaf pref-lifetime {
+      type uint32;
+      description
+        "Preffered lifetime of a Prefix";
+    }
   }
 
   grouping IPV6-ND-IF-PARAMS {

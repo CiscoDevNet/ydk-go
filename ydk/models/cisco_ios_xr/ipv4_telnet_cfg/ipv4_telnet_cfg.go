@@ -47,9 +47,12 @@ func (ipv6Telnet *Ipv6Telnet) GetEntityData() *types.CommonEntityData {
     ipv6Telnet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Telnet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6Telnet.EntityData.Children = make(map[string]types.YChild)
-    ipv6Telnet.EntityData.Children["client"] = types.YChild{"Client", &ipv6Telnet.Client}
-    ipv6Telnet.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Telnet.EntityData.Children = types.NewOrderedMap()
+    ipv6Telnet.EntityData.Children.Append("client", types.YChild{"Client", &ipv6Telnet.Client})
+    ipv6Telnet.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Telnet.EntityData.YListKeys = []string {}
+
     return &(ipv6Telnet.EntityData)
 }
 
@@ -60,7 +63,7 @@ type Ipv6Telnet_Client struct {
     YFilter yfilter.YFilter
 
     // Source interface for telnet sessions. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     SourceInterface interface{}
 }
 
@@ -74,9 +77,12 @@ func (client *Ipv6Telnet_Client) GetEntityData() *types.CommonEntityData {
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    client.EntityData.Children = make(map[string]types.YChild)
-    client.EntityData.Leafs = make(map[string]types.YLeaf)
-    client.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", client.SourceInterface}
+    client.EntityData.Children = types.NewOrderedMap()
+    client.EntityData.Leafs = types.NewOrderedMap()
+    client.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", client.SourceInterface})
+
+    client.EntityData.YListKeys = []string {}
+
     return &(client.EntityData)
 }
 
@@ -100,9 +106,12 @@ func (ipv4Telnet *Ipv4Telnet) GetEntityData() *types.CommonEntityData {
     ipv4Telnet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Telnet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4Telnet.EntityData.Children = make(map[string]types.YChild)
-    ipv4Telnet.EntityData.Children["client"] = types.YChild{"Client", &ipv4Telnet.Client}
-    ipv4Telnet.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4Telnet.EntityData.Children = types.NewOrderedMap()
+    ipv4Telnet.EntityData.Children.Append("client", types.YChild{"Client", &ipv4Telnet.Client})
+    ipv4Telnet.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4Telnet.EntityData.YListKeys = []string {}
+
     return &(ipv4Telnet.EntityData)
 }
 
@@ -113,7 +122,7 @@ type Ipv4Telnet_Client struct {
     YFilter yfilter.YFilter
 
     // Source interface for telnet sessions. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     SourceInterface interface{}
 }
 
@@ -127,9 +136,12 @@ func (client *Ipv4Telnet_Client) GetEntityData() *types.CommonEntityData {
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    client.EntityData.Children = make(map[string]types.YChild)
-    client.EntityData.Leafs = make(map[string]types.YLeaf)
-    client.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", client.SourceInterface}
+    client.EntityData.Children = types.NewOrderedMap()
+    client.EntityData.Leafs = types.NewOrderedMap()
+    client.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", client.SourceInterface})
+
+    client.EntityData.YListKeys = []string {}
+
     return &(client.EntityData)
 }
 

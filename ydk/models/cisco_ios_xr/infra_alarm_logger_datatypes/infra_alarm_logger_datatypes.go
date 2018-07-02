@@ -28,7 +28,7 @@ const (
     AlarmLoggerSeverityLevel_critical AlarmLoggerSeverityLevel = "critical"
 
     // Error
-    AlarmLoggerSeverityLevel_error AlarmLoggerSeverityLevel = "error"
+    AlarmLoggerSeverityLevel_error_ AlarmLoggerSeverityLevel = "error"
 
     // Warning
     AlarmLoggerSeverityLevel_warning AlarmLoggerSeverityLevel = "warning"

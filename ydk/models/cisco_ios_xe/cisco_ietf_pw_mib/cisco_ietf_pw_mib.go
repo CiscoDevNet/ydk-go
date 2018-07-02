@@ -44,31 +44,31 @@ type CISCOIETFPWMIB struct {
     YFilter yfilter.YFilter
 
     
-    Cpwvcobjects CISCOIETFPWMIB_Cpwvcobjects
+    CpwVcObjects CISCOIETFPWMIB_CpwVcObjects
 
     // This table specifies information for connecting various  emulated services
     // to various tunnel type.
-    Cpwvctable CISCOIETFPWMIB_Cpwvctable
+    CpwVcTable CISCOIETFPWMIB_CpwVcTable
 
     // This table provides per-VC performance information for the   current
     // interval.
-    Cpwvcperfcurrenttable CISCOIETFPWMIB_Cpwvcperfcurrenttable
+    CpwVcPerfCurrentTable CISCOIETFPWMIB_CpwVcPerfCurrentTable
 
     // This table provides per-VC performance information for   each interval.
-    Cpwvcperfintervaltable CISCOIETFPWMIB_Cpwvcperfintervaltable
+    CpwVcPerfIntervalTable CISCOIETFPWMIB_CpwVcPerfIntervalTable
 
     // This table provides per-VC Performance information from VC   start time.
-    Cpwvcperftotaltable CISCOIETFPWMIB_Cpwvcperftotaltable
+    CpwVcPerfTotalTable CISCOIETFPWMIB_CpwVcPerfTotalTable
 
     // This table provides reverse mapping of the existing VCs   based on vc type
     // and VC ID ordering. This table is   typically useful for EMS ordered query
     // of existing VCs.
-    Cpwvcidmappingtable CISCOIETFPWMIB_Cpwvcidmappingtable
+    CpwVcIdMappingTable CISCOIETFPWMIB_CpwVcIdMappingTable
 
     // This table provides reverse mapping of the existing VCs   based on vc type
     // and VC ID ordering. This table is   typically useful for EMS ordered query
     // of existing VCs.
-    Cpwvcpeermappingtable CISCOIETFPWMIB_Cpwvcpeermappingtable
+    CpwVcPeerMappingTable CISCOIETFPWMIB_CpwVcPeerMappingTable
 }
 
 func (cISCOIETFPWMIB *CISCOIETFPWMIB) GetEntityData() *types.CommonEntityData {
@@ -81,20 +81,23 @@ func (cISCOIETFPWMIB *CISCOIETFPWMIB) GetEntityData() *types.CommonEntityData {
     cISCOIETFPWMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIETFPWMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOIETFPWMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOIETFPWMIB.EntityData.Children["cpwVcObjects"] = types.YChild{"Cpwvcobjects", &cISCOIETFPWMIB.Cpwvcobjects}
-    cISCOIETFPWMIB.EntityData.Children["cpwVcTable"] = types.YChild{"Cpwvctable", &cISCOIETFPWMIB.Cpwvctable}
-    cISCOIETFPWMIB.EntityData.Children["cpwVcPerfCurrentTable"] = types.YChild{"Cpwvcperfcurrenttable", &cISCOIETFPWMIB.Cpwvcperfcurrenttable}
-    cISCOIETFPWMIB.EntityData.Children["cpwVcPerfIntervalTable"] = types.YChild{"Cpwvcperfintervaltable", &cISCOIETFPWMIB.Cpwvcperfintervaltable}
-    cISCOIETFPWMIB.EntityData.Children["cpwVcPerfTotalTable"] = types.YChild{"Cpwvcperftotaltable", &cISCOIETFPWMIB.Cpwvcperftotaltable}
-    cISCOIETFPWMIB.EntityData.Children["cpwVcIdMappingTable"] = types.YChild{"Cpwvcidmappingtable", &cISCOIETFPWMIB.Cpwvcidmappingtable}
-    cISCOIETFPWMIB.EntityData.Children["cpwVcPeerMappingTable"] = types.YChild{"Cpwvcpeermappingtable", &cISCOIETFPWMIB.Cpwvcpeermappingtable}
-    cISCOIETFPWMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOIETFPWMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOIETFPWMIB.EntityData.Children.Append("cpwVcObjects", types.YChild{"CpwVcObjects", &cISCOIETFPWMIB.CpwVcObjects})
+    cISCOIETFPWMIB.EntityData.Children.Append("cpwVcTable", types.YChild{"CpwVcTable", &cISCOIETFPWMIB.CpwVcTable})
+    cISCOIETFPWMIB.EntityData.Children.Append("cpwVcPerfCurrentTable", types.YChild{"CpwVcPerfCurrentTable", &cISCOIETFPWMIB.CpwVcPerfCurrentTable})
+    cISCOIETFPWMIB.EntityData.Children.Append("cpwVcPerfIntervalTable", types.YChild{"CpwVcPerfIntervalTable", &cISCOIETFPWMIB.CpwVcPerfIntervalTable})
+    cISCOIETFPWMIB.EntityData.Children.Append("cpwVcPerfTotalTable", types.YChild{"CpwVcPerfTotalTable", &cISCOIETFPWMIB.CpwVcPerfTotalTable})
+    cISCOIETFPWMIB.EntityData.Children.Append("cpwVcIdMappingTable", types.YChild{"CpwVcIdMappingTable", &cISCOIETFPWMIB.CpwVcIdMappingTable})
+    cISCOIETFPWMIB.EntityData.Children.Append("cpwVcPeerMappingTable", types.YChild{"CpwVcPeerMappingTable", &cISCOIETFPWMIB.CpwVcPeerMappingTable})
+    cISCOIETFPWMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOIETFPWMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOIETFPWMIB.EntityData)
 }
 
-// CISCOIETFPWMIB_Cpwvcobjects
-type CISCOIETFPWMIB_Cpwvcobjects struct {
+// CISCOIETFPWMIB_CpwVcObjects
+type CISCOIETFPWMIB_CpwVcObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -107,94 +110,100 @@ type CISCOIETFPWMIB_Cpwvcobjects struct {
     // next unassigned index.  After a manager  retrieves a value the agent will
     // determine through  its local policy when this index value will be made 
     // available for reuse. The type is interface{} with range: 0..4294967295.
-    Cpwvcindexnext interface{}
+    CpwVcIndexNext interface{}
 
     // Counter for number of error at VC level processing, for   example packets
     // received with unknown VC label. The type is interface{} with range:
     // 0..18446744073709551615.
-    Cpwvcperftotalerrorpackets interface{}
+    CpwVcPerfTotalErrorPackets interface{}
 
     // If this object is set to true(1), then it enables the emission of cpwVcUp
     // and cpwVcDown notifications; otherwise these notifications are not emitted.
     // The type is bool.
-    Cpwvcupdownnotifenable interface{}
+    CpwVcUpDownNotifEnable interface{}
 
     // This object defines the maximum number of PW VC notifications that can be
     // emitted from the device per second. The type is interface{} with range:
     // 0..4294967295.
-    Cpwvcnotifrate interface{}
+    CpwVcNotifRate interface{}
 }
 
-func (cpwvcobjects *CISCOIETFPWMIB_Cpwvcobjects) GetEntityData() *types.CommonEntityData {
-    cpwvcobjects.EntityData.YFilter = cpwvcobjects.YFilter
-    cpwvcobjects.EntityData.YangName = "cpwVcObjects"
-    cpwvcobjects.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcobjects.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
-    cpwvcobjects.EntityData.SegmentPath = "cpwVcObjects"
-    cpwvcobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcObjects *CISCOIETFPWMIB_CpwVcObjects) GetEntityData() *types.CommonEntityData {
+    cpwVcObjects.EntityData.YFilter = cpwVcObjects.YFilter
+    cpwVcObjects.EntityData.YangName = "cpwVcObjects"
+    cpwVcObjects.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcObjects.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
+    cpwVcObjects.EntityData.SegmentPath = "cpwVcObjects"
+    cpwVcObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcobjects.EntityData.Children = make(map[string]types.YChild)
-    cpwvcobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwvcobjects.EntityData.Leafs["cpwVcIndexNext"] = types.YLeaf{"Cpwvcindexnext", cpwvcobjects.Cpwvcindexnext}
-    cpwvcobjects.EntityData.Leafs["cpwVcPerfTotalErrorPackets"] = types.YLeaf{"Cpwvcperftotalerrorpackets", cpwvcobjects.Cpwvcperftotalerrorpackets}
-    cpwvcobjects.EntityData.Leafs["cpwVcUpDownNotifEnable"] = types.YLeaf{"Cpwvcupdownnotifenable", cpwvcobjects.Cpwvcupdownnotifenable}
-    cpwvcobjects.EntityData.Leafs["cpwVcNotifRate"] = types.YLeaf{"Cpwvcnotifrate", cpwvcobjects.Cpwvcnotifrate}
-    return &(cpwvcobjects.EntityData)
+    cpwVcObjects.EntityData.Children = types.NewOrderedMap()
+    cpwVcObjects.EntityData.Leafs = types.NewOrderedMap()
+    cpwVcObjects.EntityData.Leafs.Append("cpwVcIndexNext", types.YLeaf{"CpwVcIndexNext", cpwVcObjects.CpwVcIndexNext})
+    cpwVcObjects.EntityData.Leafs.Append("cpwVcPerfTotalErrorPackets", types.YLeaf{"CpwVcPerfTotalErrorPackets", cpwVcObjects.CpwVcPerfTotalErrorPackets})
+    cpwVcObjects.EntityData.Leafs.Append("cpwVcUpDownNotifEnable", types.YLeaf{"CpwVcUpDownNotifEnable", cpwVcObjects.CpwVcUpDownNotifEnable})
+    cpwVcObjects.EntityData.Leafs.Append("cpwVcNotifRate", types.YLeaf{"CpwVcNotifRate", cpwVcObjects.CpwVcNotifRate})
+
+    cpwVcObjects.EntityData.YListKeys = []string {}
+
+    return &(cpwVcObjects.EntityData)
 }
 
-// CISCOIETFPWMIB_Cpwvctable
+// CISCOIETFPWMIB_CpwVcTable
 // This table specifies information for connecting various 
 // emulated services to various tunnel type.
-type CISCOIETFPWMIB_Cpwvctable struct {
+type CISCOIETFPWMIB_CpwVcTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row in this table represents an emulated virtual  connection (VC) across
     // a packet network. It is indexed by  cpwVcIndex, which uniquely identifying
     // a singular   connection. . The type is slice of
-    // CISCOIETFPWMIB_Cpwvctable_Cpwvcentry.
-    Cpwvcentry []CISCOIETFPWMIB_Cpwvctable_Cpwvcentry
+    // CISCOIETFPWMIB_CpwVcTable_CpwVcEntry.
+    CpwVcEntry []*CISCOIETFPWMIB_CpwVcTable_CpwVcEntry
 }
 
-func (cpwvctable *CISCOIETFPWMIB_Cpwvctable) GetEntityData() *types.CommonEntityData {
-    cpwvctable.EntityData.YFilter = cpwvctable.YFilter
-    cpwvctable.EntityData.YangName = "cpwVcTable"
-    cpwvctable.EntityData.BundleName = "cisco_ios_xe"
-    cpwvctable.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
-    cpwvctable.EntityData.SegmentPath = "cpwVcTable"
-    cpwvctable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvctable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvctable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcTable *CISCOIETFPWMIB_CpwVcTable) GetEntityData() *types.CommonEntityData {
+    cpwVcTable.EntityData.YFilter = cpwVcTable.YFilter
+    cpwVcTable.EntityData.YangName = "cpwVcTable"
+    cpwVcTable.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcTable.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
+    cpwVcTable.EntityData.SegmentPath = "cpwVcTable"
+    cpwVcTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvctable.EntityData.Children = make(map[string]types.YChild)
-    cpwvctable.EntityData.Children["cpwVcEntry"] = types.YChild{"Cpwvcentry", nil}
-    for i := range cpwvctable.Cpwvcentry {
-        cpwvctable.EntityData.Children[types.GetSegmentPath(&cpwvctable.Cpwvcentry[i])] = types.YChild{"Cpwvcentry", &cpwvctable.Cpwvcentry[i]}
+    cpwVcTable.EntityData.Children = types.NewOrderedMap()
+    cpwVcTable.EntityData.Children.Append("cpwVcEntry", types.YChild{"CpwVcEntry", nil})
+    for i := range cpwVcTable.CpwVcEntry {
+        cpwVcTable.EntityData.Children.Append(types.GetSegmentPath(cpwVcTable.CpwVcEntry[i]), types.YChild{"CpwVcEntry", cpwVcTable.CpwVcEntry[i]})
     }
-    cpwvctable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpwvctable.EntityData)
+    cpwVcTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpwVcTable.EntityData.YListKeys = []string {}
+
+    return &(cpwVcTable.EntityData)
 }
 
-// CISCOIETFPWMIB_Cpwvctable_Cpwvcentry
+// CISCOIETFPWMIB_CpwVcTable_CpwVcEntry
 // A row in this table represents an emulated virtual 
 // connection (VC) across a packet network. It is indexed by 
 // cpwVcIndex, which uniquely identifying a singular  
 // connection. 
-type CISCOIETFPWMIB_Cpwvctable_Cpwvcentry struct {
+type CISCOIETFPWMIB_CpwVcTable_CpwVcEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Index for the conceptual row identifying a VC
     // within   this PW Emulation VC table. The type is interface{} with range:
     // 0..4294967295.
-    Cpwvcindex interface{}
+    CpwVcIndex interface{}
 
     // This value indicate the service to be carried over  this VC.   Note: the
     // exact set of VC types is yet to be worked   out by the WG. . The type is
     // CpwVcType.
-    Cpwvctype interface{}
+    CpwVcType interface{}
 
     // Set by the operator to indicate the protocol responsible   for establishing
     // this VC. Value 'manual' is used in all  cases where no maintenance protocol
@@ -203,16 +212,16 @@ type CISCOIETFPWMIB_Cpwvctable_Cpwvcentry struct {
     // 'maintenanceProtocol' is used in case of standard  signaling of the VC for
     // the specific PSN, for example LDP  for MPLS PSN as specified in <draft-
     // draft-martini-  l2circuit-trans-mpls> or L2TP control protocol.   Value
-    // 'other' is used for other types of signaling. The type is Cpwvcowner.
-    Cpwvcowner interface{}
+    // 'other' is used for other types of signaling. The type is CpwVcOwner.
+    CpwVcOwner interface{}
 
     // Set by the operator to indicate the PSN type on which this   VC will be
     // carried. Based on this object, the relevant PSN   table entries are created
     // in the in the PSN specific MIB   modules. For example, if mpls(1) is
     // defined, the agent   create an entry in cpwVcMplsTable, which further
     // define the   MPLS PSN configuration.  Note: the exact set of PSN types is
-    // yet to be worked   out by the WG. . The type is Cpwvcpsntype.
-    Cpwvcpsntype interface{}
+    // yet to be worked   out by the WG. . The type is CpwVcPsnType.
+    CpwVcPsnType interface{}
 
     // This object define the relative set-up priority of the VC    in a
     // lowest-to-highest fashion, where 0 is the highest   priority. VCs with the
@@ -221,7 +230,7 @@ type CISCOIETFPWMIB_Cpwvctable_Cpwvcentry struct {
     // there are competing resources  between VCs and the implementation support
     // this feature.  If not supported or not relevant, the value of zero MUST  be
     // used. The type is interface{} with range: 0..7.
-    Cpwvcsetuppriority interface{}
+    CpwVcSetUpPriority interface{}
 
     // This object define the relative holding priority of the VC    in a
     // lowest-to-highest fashion, where 0 is the highest   priority. VCs with the
@@ -230,7 +239,7 @@ type CISCOIETFPWMIB_Cpwvctable_Cpwvcentry struct {
     // there are competing resources  between VCs and the implementation support
     // this feature.  If not supported or not relevant, the value of zero MUST  be
     // used. The type is interface{} with range: 0..7.
-    Cpwvcholdingpriority interface{}
+    CpwVcHoldingPriority interface{}
 
     // This object is used to enable greater security for   implementation that
     // use per platform VC label space. In   strict mode, packets coming from the
@@ -242,40 +251,40 @@ type CISCOIETFPWMIB_Cpwvctable_Cpwvcentry struct {
     // known, not configured or not   desired, loose mode should be configured,
     // and the node   should accept the packet based on the VC label only  
     // regardless of the outer tunnel used to carry the VC. The type is
-    // Cpwvcinboundmode.
-    Cpwvcinboundmode interface{}
+    // CpwVcInboundMode.
+    CpwVcInboundMode interface{}
 
     // Denotes the address type of the peer node maintenance  protocol (signaling)
     // address if PW maintenance protocol is  used for the VC creation. It should
     // be set to   'unknown' if PE/PW maintenance protocol is not used,   i.e.
     // cpwVcOwner is set to 'manual'. . The type is InetAddressType.
-    Cpwvcpeeraddrtype interface{}
+    CpwVcPeerAddrType interface{}
 
     // This object contains the value of of the peer node address  of the PW/PE
     // maintenance protocol entity. This object   should contain a value of 0 if
     // not relevant (manual   configuration of the VC). The type is string with
     // length: 0..255.
-    Cpwvcpeeraddr interface{}
+    CpwVcPeerAddr interface{}
 
     // Used in the outgoing VC ID field within the 'Virtual  Circuit FEC Element'
     // when LDP signaling is used or PW ID   AVP for L2TP. The type is interface{}
     // with range: 0..4294967295.
-    Cpwvcid interface{}
+    CpwVcID interface{}
 
     // Used in the Group ID field sent to the peer PWES   within the maintenance
     // protocol used for VC setup,   zero if not used. The type is interface{}
     // with range: 0..4294967295.
-    Cpwvclocalgroupid interface{}
+    CpwVcLocalGroupID interface{}
 
     // Define if the control word will be sent with each packet by   the local
     // node. The type is bool.
-    Cpwvccontrolword interface{}
+    CpwVcControlWord interface{}
 
     // If not equal zero, the optional IfMtu object in the   maintenance protocol
     // will be sent with this value,   representing the locally supported MTU size
     // over the   interface (or the virtual interface) associated with the   VC.
     // The type is interface{} with range: 0..65535.
-    Cpwvclocalifmtu interface{}
+    CpwVcLocalIfMtu interface{}
 
     // Each VC is associated to an interface (or a virtual   interface) in the
     // ifTable of the node as part of the  service configuration. This object
@@ -283,13 +292,13 @@ type CISCOIETFPWMIB_Cpwvctable_Cpwvcentry struct {
     // appears on the ifTable in the name object as part of the  maintenance
     // protocol. If set to false, the optional element  will not be sent. The type
     // is bool.
-    Cpwvclocalifstring interface{}
+    CpwVcLocalIfString interface{}
 
     // Obtained from the Group ID field as received via the   maintenance protocol
     // used for VC setup, zero if not used.   Value of 0xFFFF shall be used if the
     // object is yet to be   defined by the VC maintenance protocol. The type is
     // interface{} with range: 0..4294967295.
-    Cpwvcremotegroupid interface{}
+    CpwVcRemoteGroupID interface{}
 
     // If maintenance protocol is used for VC establishment, this   parameter
     // indicates the received status of the control word   usage, i.e. if packets
@@ -297,18 +306,18 @@ type CISCOIETFPWMIB_Cpwvctable_Cpwvcentry struct {
     // used while the  maintenance protocol has not yet received the indication  
     // from the remote node.  In manual configuration of the VC this parameters
     // indicate   to the local node what is the expected encapsulation for  the
-    // received packets. . The type is Cpwvcremotecontrolword.
-    Cpwvcremotecontrolword interface{}
+    // received packets. . The type is CpwVcRemoteControlWord.
+    CpwVcRemoteControlWord interface{}
 
     // The remote interface MTU as (optionally) received from the  remote node via
     // the maintenance protocol. Should be zero if  this parameter is not
     // available or not used. The type is interface{} with range: 0..4294967295.
-    Cpwvcremoteifmtu interface{}
+    CpwVcRemoteIfMtu interface{}
 
     // Indicate the interface description string as received by  the maintenance
     // protocol, MUST be NULL string if not   applicable or not known yet. The
     // type is string with length: 0..80.
-    Cpwvcremoteifstring interface{}
+    CpwVcRemoteIfString interface{}
 
     // The VC label used in the outbound direction (i.e. toward   the PSN). It may
     // be set up manually if owner is 'manual' or   automatically otherwise.
@@ -316,7 +325,7 @@ type CISCOIETFPWMIB_Cpwvctable_Cpwvcentry struct {
     // represent the  32 bits Session ID.  If the label is not yet known
     // (signaling in process), the   object should return a value of 0xFFFF. The
     // type is interface{} with range: 0..4294967295.
-    Cpwvcoutboundvclabel interface{}
+    CpwVcOutboundVcLabel interface{}
 
     // The VC label used in the inbound direction (i.e. packets   received from
     // the PSN. It may be set up manually if owner  is 'manual' or automatically
@@ -324,26 +333,26 @@ type CISCOIETFPWMIB_Cpwvctable_Cpwvcentry struct {
     // for L2TP it represent the 32 bits Session ID.  If the label is not yet
     // known (signaling in process), the   object should return a value of 0xFFFF.
     // The type is interface{} with range: 0..4294967295.
-    Cpwvcinboundvclabel interface{}
+    CpwVcInboundVcLabel interface{}
 
     // The canonical name assigned to the VC. The type is string.
-    Cpwvcname interface{}
+    CpwVcName interface{}
 
     // A textual string containing information about the VC.   If there is no
     // description this object contains a zero  length string. The type is string.
-    Cpwvcdescr interface{}
+    CpwVcDescr interface{}
 
     // System time when this VC was created. The type is interface{} with range:
     // 0..4294967295.
-    Cpwvccreatetime interface{}
+    CpwVcCreateTime interface{}
 
     // Number of consecutive ticks this VC has been 'up' in  both directions
     // together (i.e. 'up' is observed in   cpwVcOperStatus.). The type is
     // interface{} with range: 0..4294967295.
-    Cpwvcuptime interface{}
+    CpwVcUpTime interface{}
 
-    // The desired operational status of this VC. The type is Cpwvcadminstatus.
-    Cpwvcadminstatus interface{}
+    // The desired operational status of this VC. The type is CpwVcAdminStatus.
+    CpwVcAdminStatus interface{}
 
     // Indicates the actual combined operational status of this   VC. It is 'up'
     // if both cpwVcInboundOperStatus and   cpwVcOutboundOperStatus are in 'up'
@@ -353,7 +362,7 @@ type CISCOIETFPWMIB_Cpwvctable_Cpwvcentry struct {
     // to less severe is: unknown,   notPresent, down, lowerLayerDown, dormant,
     // testing, up.  The operator may consult the per direction OperStatus for 
     // fault isolation per direction. The type is CpwOperStatus.
-    Cpwvcoperstatus interface{}
+    CpwVcOperStatus interface{}
 
     // Indicates the actual operational status of this VC in the   inbound
     // direction.   - down:           if PW signaling has not yet finished, or    
@@ -365,7 +374,7 @@ type CISCOIETFPWMIB_Cpwvctable_Cpwvcentry struct {
     // VCs .  - notPresent:     Some component is missing to accomplish           
     // the set up of the VC.  - lowerLayerDown: The underlying PSN is not in
     // OperStatus                     'up'.  . The type is CpwOperStatus.
-    Cpwvcinboundoperstatus interface{}
+    CpwVcInboundOperStatus interface{}
 
     // Indicates the actual operational status of this VC in the   outbound
     // direction  - down:           if PW signaling has not yet finished, or      
@@ -377,14 +386,14 @@ type CISCOIETFPWMIB_Cpwvctable_Cpwvcentry struct {
     // VCs .  - notPresent:     Some component is missing to accomplish           
     // the set up of the VC.  - lowerLayerDown: The underlying PSN is not in
     // OperStatus                     'up'.  . The type is CpwOperStatus.
-    Cpwvcoutboundoperstatus interface{}
+    CpwVcOutboundOperStatus interface{}
 
     // The number of seconds, including partial seconds,  that have elapsed since
     // the beginning of the current  measurement period. If, for some reason, such
     // as an  adjustment in the system's time-of-day clock, the  current interval
     // exceeds the maximum value, the  agent will return the maximum value. The
     // type is interface{} with range: 1..900.
-    Cpwvctimeelapsed interface{}
+    CpwVcTimeElapsed interface{}
 
     // The number of previous 15-minute intervals  for which data was collected.  
     // An agent with PW capability must be capable of supporting at   least n
@@ -396,245 +405,257 @@ type CISCOIETFPWMIB_Cpwvctable_Cpwvcentry struct {
     // agent is a proxy) it is   possible that some intervals are unavailable.  In
     // this case,   this interval is the maximum interval number for which data  
     // is available. . The type is interface{} with range: 0..96.
-    Cpwvcvalidintervals interface{}
+    CpwVcValidIntervals interface{}
 
     // For creating, modifying, and deleting this row. The type is RowStatus.
-    Cpwvcrowstatus interface{}
+    CpwVcRowStatus interface{}
 
     // This variable indicates the storage type for this  object. The type is
     // StorageType.
-    Cpwvcstoragetype interface{}
+    CpwVcStorageType interface{}
 }
 
-func (cpwvcentry *CISCOIETFPWMIB_Cpwvctable_Cpwvcentry) GetEntityData() *types.CommonEntityData {
-    cpwvcentry.EntityData.YFilter = cpwvcentry.YFilter
-    cpwvcentry.EntityData.YangName = "cpwVcEntry"
-    cpwvcentry.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcentry.EntityData.ParentYangName = "cpwVcTable"
-    cpwvcentry.EntityData.SegmentPath = "cpwVcEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwvcentry.Cpwvcindex) + "']"
-    cpwvcentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcEntry *CISCOIETFPWMIB_CpwVcTable_CpwVcEntry) GetEntityData() *types.CommonEntityData {
+    cpwVcEntry.EntityData.YFilter = cpwVcEntry.YFilter
+    cpwVcEntry.EntityData.YangName = "cpwVcEntry"
+    cpwVcEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcEntry.EntityData.ParentYangName = "cpwVcTable"
+    cpwVcEntry.EntityData.SegmentPath = "cpwVcEntry" + types.AddKeyToken(cpwVcEntry.CpwVcIndex, "cpwVcIndex")
+    cpwVcEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcentry.EntityData.Children = make(map[string]types.YChild)
-    cpwvcentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwvcentry.EntityData.Leafs["cpwVcIndex"] = types.YLeaf{"Cpwvcindex", cpwvcentry.Cpwvcindex}
-    cpwvcentry.EntityData.Leafs["cpwVcType"] = types.YLeaf{"Cpwvctype", cpwvcentry.Cpwvctype}
-    cpwvcentry.EntityData.Leafs["cpwVcOwner"] = types.YLeaf{"Cpwvcowner", cpwvcentry.Cpwvcowner}
-    cpwvcentry.EntityData.Leafs["cpwVcPsnType"] = types.YLeaf{"Cpwvcpsntype", cpwvcentry.Cpwvcpsntype}
-    cpwvcentry.EntityData.Leafs["cpwVcSetUpPriority"] = types.YLeaf{"Cpwvcsetuppriority", cpwvcentry.Cpwvcsetuppriority}
-    cpwvcentry.EntityData.Leafs["cpwVcHoldingPriority"] = types.YLeaf{"Cpwvcholdingpriority", cpwvcentry.Cpwvcholdingpriority}
-    cpwvcentry.EntityData.Leafs["cpwVcInboundMode"] = types.YLeaf{"Cpwvcinboundmode", cpwvcentry.Cpwvcinboundmode}
-    cpwvcentry.EntityData.Leafs["cpwVcPeerAddrType"] = types.YLeaf{"Cpwvcpeeraddrtype", cpwvcentry.Cpwvcpeeraddrtype}
-    cpwvcentry.EntityData.Leafs["cpwVcPeerAddr"] = types.YLeaf{"Cpwvcpeeraddr", cpwvcentry.Cpwvcpeeraddr}
-    cpwvcentry.EntityData.Leafs["cpwVcID"] = types.YLeaf{"Cpwvcid", cpwvcentry.Cpwvcid}
-    cpwvcentry.EntityData.Leafs["cpwVcLocalGroupID"] = types.YLeaf{"Cpwvclocalgroupid", cpwvcentry.Cpwvclocalgroupid}
-    cpwvcentry.EntityData.Leafs["cpwVcControlWord"] = types.YLeaf{"Cpwvccontrolword", cpwvcentry.Cpwvccontrolword}
-    cpwvcentry.EntityData.Leafs["cpwVcLocalIfMtu"] = types.YLeaf{"Cpwvclocalifmtu", cpwvcentry.Cpwvclocalifmtu}
-    cpwvcentry.EntityData.Leafs["cpwVcLocalIfString"] = types.YLeaf{"Cpwvclocalifstring", cpwvcentry.Cpwvclocalifstring}
-    cpwvcentry.EntityData.Leafs["cpwVcRemoteGroupID"] = types.YLeaf{"Cpwvcremotegroupid", cpwvcentry.Cpwvcremotegroupid}
-    cpwvcentry.EntityData.Leafs["cpwVcRemoteControlWord"] = types.YLeaf{"Cpwvcremotecontrolword", cpwvcentry.Cpwvcremotecontrolword}
-    cpwvcentry.EntityData.Leafs["cpwVcRemoteIfMtu"] = types.YLeaf{"Cpwvcremoteifmtu", cpwvcentry.Cpwvcremoteifmtu}
-    cpwvcentry.EntityData.Leafs["cpwVcRemoteIfString"] = types.YLeaf{"Cpwvcremoteifstring", cpwvcentry.Cpwvcremoteifstring}
-    cpwvcentry.EntityData.Leafs["cpwVcOutboundVcLabel"] = types.YLeaf{"Cpwvcoutboundvclabel", cpwvcentry.Cpwvcoutboundvclabel}
-    cpwvcentry.EntityData.Leafs["cpwVcInboundVcLabel"] = types.YLeaf{"Cpwvcinboundvclabel", cpwvcentry.Cpwvcinboundvclabel}
-    cpwvcentry.EntityData.Leafs["cpwVcName"] = types.YLeaf{"Cpwvcname", cpwvcentry.Cpwvcname}
-    cpwvcentry.EntityData.Leafs["cpwVcDescr"] = types.YLeaf{"Cpwvcdescr", cpwvcentry.Cpwvcdescr}
-    cpwvcentry.EntityData.Leafs["cpwVcCreateTime"] = types.YLeaf{"Cpwvccreatetime", cpwvcentry.Cpwvccreatetime}
-    cpwvcentry.EntityData.Leafs["cpwVcUpTime"] = types.YLeaf{"Cpwvcuptime", cpwvcentry.Cpwvcuptime}
-    cpwvcentry.EntityData.Leafs["cpwVcAdminStatus"] = types.YLeaf{"Cpwvcadminstatus", cpwvcentry.Cpwvcadminstatus}
-    cpwvcentry.EntityData.Leafs["cpwVcOperStatus"] = types.YLeaf{"Cpwvcoperstatus", cpwvcentry.Cpwvcoperstatus}
-    cpwvcentry.EntityData.Leafs["cpwVcInboundOperStatus"] = types.YLeaf{"Cpwvcinboundoperstatus", cpwvcentry.Cpwvcinboundoperstatus}
-    cpwvcentry.EntityData.Leafs["cpwVcOutboundOperStatus"] = types.YLeaf{"Cpwvcoutboundoperstatus", cpwvcentry.Cpwvcoutboundoperstatus}
-    cpwvcentry.EntityData.Leafs["cpwVcTimeElapsed"] = types.YLeaf{"Cpwvctimeelapsed", cpwvcentry.Cpwvctimeelapsed}
-    cpwvcentry.EntityData.Leafs["cpwVcValidIntervals"] = types.YLeaf{"Cpwvcvalidintervals", cpwvcentry.Cpwvcvalidintervals}
-    cpwvcentry.EntityData.Leafs["cpwVcRowStatus"] = types.YLeaf{"Cpwvcrowstatus", cpwvcentry.Cpwvcrowstatus}
-    cpwvcentry.EntityData.Leafs["cpwVcStorageType"] = types.YLeaf{"Cpwvcstoragetype", cpwvcentry.Cpwvcstoragetype}
-    return &(cpwvcentry.EntityData)
+    cpwVcEntry.EntityData.Children = types.NewOrderedMap()
+    cpwVcEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcIndex", types.YLeaf{"CpwVcIndex", cpwVcEntry.CpwVcIndex})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcType", types.YLeaf{"CpwVcType", cpwVcEntry.CpwVcType})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcOwner", types.YLeaf{"CpwVcOwner", cpwVcEntry.CpwVcOwner})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcPsnType", types.YLeaf{"CpwVcPsnType", cpwVcEntry.CpwVcPsnType})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcSetUpPriority", types.YLeaf{"CpwVcSetUpPriority", cpwVcEntry.CpwVcSetUpPriority})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcHoldingPriority", types.YLeaf{"CpwVcHoldingPriority", cpwVcEntry.CpwVcHoldingPriority})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcInboundMode", types.YLeaf{"CpwVcInboundMode", cpwVcEntry.CpwVcInboundMode})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcPeerAddrType", types.YLeaf{"CpwVcPeerAddrType", cpwVcEntry.CpwVcPeerAddrType})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcPeerAddr", types.YLeaf{"CpwVcPeerAddr", cpwVcEntry.CpwVcPeerAddr})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcID", types.YLeaf{"CpwVcID", cpwVcEntry.CpwVcID})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcLocalGroupID", types.YLeaf{"CpwVcLocalGroupID", cpwVcEntry.CpwVcLocalGroupID})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcControlWord", types.YLeaf{"CpwVcControlWord", cpwVcEntry.CpwVcControlWord})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcLocalIfMtu", types.YLeaf{"CpwVcLocalIfMtu", cpwVcEntry.CpwVcLocalIfMtu})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcLocalIfString", types.YLeaf{"CpwVcLocalIfString", cpwVcEntry.CpwVcLocalIfString})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcRemoteGroupID", types.YLeaf{"CpwVcRemoteGroupID", cpwVcEntry.CpwVcRemoteGroupID})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcRemoteControlWord", types.YLeaf{"CpwVcRemoteControlWord", cpwVcEntry.CpwVcRemoteControlWord})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcRemoteIfMtu", types.YLeaf{"CpwVcRemoteIfMtu", cpwVcEntry.CpwVcRemoteIfMtu})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcRemoteIfString", types.YLeaf{"CpwVcRemoteIfString", cpwVcEntry.CpwVcRemoteIfString})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcOutboundVcLabel", types.YLeaf{"CpwVcOutboundVcLabel", cpwVcEntry.CpwVcOutboundVcLabel})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcInboundVcLabel", types.YLeaf{"CpwVcInboundVcLabel", cpwVcEntry.CpwVcInboundVcLabel})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcName", types.YLeaf{"CpwVcName", cpwVcEntry.CpwVcName})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcDescr", types.YLeaf{"CpwVcDescr", cpwVcEntry.CpwVcDescr})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcCreateTime", types.YLeaf{"CpwVcCreateTime", cpwVcEntry.CpwVcCreateTime})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcUpTime", types.YLeaf{"CpwVcUpTime", cpwVcEntry.CpwVcUpTime})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcAdminStatus", types.YLeaf{"CpwVcAdminStatus", cpwVcEntry.CpwVcAdminStatus})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcOperStatus", types.YLeaf{"CpwVcOperStatus", cpwVcEntry.CpwVcOperStatus})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcInboundOperStatus", types.YLeaf{"CpwVcInboundOperStatus", cpwVcEntry.CpwVcInboundOperStatus})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcOutboundOperStatus", types.YLeaf{"CpwVcOutboundOperStatus", cpwVcEntry.CpwVcOutboundOperStatus})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcTimeElapsed", types.YLeaf{"CpwVcTimeElapsed", cpwVcEntry.CpwVcTimeElapsed})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcValidIntervals", types.YLeaf{"CpwVcValidIntervals", cpwVcEntry.CpwVcValidIntervals})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcRowStatus", types.YLeaf{"CpwVcRowStatus", cpwVcEntry.CpwVcRowStatus})
+    cpwVcEntry.EntityData.Leafs.Append("cpwVcStorageType", types.YLeaf{"CpwVcStorageType", cpwVcEntry.CpwVcStorageType})
+
+    cpwVcEntry.EntityData.YListKeys = []string {"CpwVcIndex"}
+
+    return &(cpwVcEntry.EntityData)
 }
 
-// CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcadminstatus represents The desired operational status of this VC.
-type CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcadminstatus string
+// CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcAdminStatus represents The desired operational status of this VC.
+type CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcAdminStatus string
 
 const (
-    CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcadminstatus_up CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcadminstatus = "up"
+    CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcAdminStatus_up CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcAdminStatus = "up"
 
-    CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcadminstatus_down CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcadminstatus = "down"
+    CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcAdminStatus_down CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcAdminStatus = "down"
 
-    CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcadminstatus_testing CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcadminstatus = "testing"
+    CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcAdminStatus_testing CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcAdminStatus = "testing"
 )
 
-// CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcinboundmode represents regardless of the outer tunnel used to carry the VC.
-type CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcinboundmode string
+// CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcInboundMode represents regardless of the outer tunnel used to carry the VC.
+type CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcInboundMode string
 
 const (
-    CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcinboundmode_loose CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcinboundmode = "loose"
+    CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcInboundMode_loose CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcInboundMode = "loose"
 
-    CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcinboundmode_strict CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcinboundmode = "strict"
+    CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcInboundMode_strict CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcInboundMode = "strict"
 )
 
-// CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcowner represents Value 'other' is used for other types of signaling.
-type CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcowner string
+// CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcOwner represents Value 'other' is used for other types of signaling.
+type CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcOwner string
 
 const (
-    CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcowner_manual CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcowner = "manual"
+    CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcOwner_manual CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcOwner = "manual"
 
-    CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcowner_maintenanceProtocol CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcowner = "maintenanceProtocol"
+    CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcOwner_maintenanceProtocol CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcOwner = "maintenanceProtocol"
 
-    CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcowner_other CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcowner = "other"
+    CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcOwner_other CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcOwner = "other"
 )
 
-// CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcpsntype represents out by the WG. 
-type CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcpsntype string
+// CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcPsnType represents out by the WG. 
+type CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcPsnType string
 
 const (
-    CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcpsntype_mpls CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcpsntype = "mpls"
+    CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcPsnType_mpls CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcPsnType = "mpls"
 
-    CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcpsntype_l2tp CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcpsntype = "l2tp"
+    CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcPsnType_l2tp CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcPsnType = "l2tp"
 
-    CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcpsntype_ip CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcpsntype = "ip"
+    CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcPsnType_ip CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcPsnType = "ip"
 
-    CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcpsntype_mplsOverIp CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcpsntype = "mplsOverIp"
+    CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcPsnType_mplsOverIp CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcPsnType = "mplsOverIp"
 
-    CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcpsntype_gre CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcpsntype = "gre"
+    CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcPsnType_gre CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcPsnType = "gre"
 
-    CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcpsntype_other CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcpsntype = "other"
+    CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcPsnType_other CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcPsnType = "other"
 )
 
-// CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcremotecontrolword represents the received packets. 
-type CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcremotecontrolword string
+// CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcRemoteControlWord represents the received packets. 
+type CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcRemoteControlWord string
 
 const (
-    CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcremotecontrolword_noControlWord CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcremotecontrolword = "noControlWord"
+    CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcRemoteControlWord_noControlWord CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcRemoteControlWord = "noControlWord"
 
-    CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcremotecontrolword_withControlWord CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcremotecontrolword = "withControlWord"
+    CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcRemoteControlWord_withControlWord CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcRemoteControlWord = "withControlWord"
 
-    CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcremotecontrolword_notYetKnown CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcremotecontrolword = "notYetKnown"
+    CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcRemoteControlWord_notYetKnown CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcRemoteControlWord = "notYetKnown"
 )
 
-// CISCOIETFPWMIB_Cpwvcperfcurrenttable
+// CISCOIETFPWMIB_CpwVcPerfCurrentTable
 // This table provides per-VC performance information for the  
 // current interval.
-type CISCOIETFPWMIB_Cpwvcperfcurrenttable struct {
+type CISCOIETFPWMIB_CpwVcPerfCurrentTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table is created by the agent for  every VC. The type is
-    // slice of CISCOIETFPWMIB_Cpwvcperfcurrenttable_Cpwvcperfcurrententry.
-    Cpwvcperfcurrententry []CISCOIETFPWMIB_Cpwvcperfcurrenttable_Cpwvcperfcurrententry
+    // slice of CISCOIETFPWMIB_CpwVcPerfCurrentTable_CpwVcPerfCurrentEntry.
+    CpwVcPerfCurrentEntry []*CISCOIETFPWMIB_CpwVcPerfCurrentTable_CpwVcPerfCurrentEntry
 }
 
-func (cpwvcperfcurrenttable *CISCOIETFPWMIB_Cpwvcperfcurrenttable) GetEntityData() *types.CommonEntityData {
-    cpwvcperfcurrenttable.EntityData.YFilter = cpwvcperfcurrenttable.YFilter
-    cpwvcperfcurrenttable.EntityData.YangName = "cpwVcPerfCurrentTable"
-    cpwvcperfcurrenttable.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcperfcurrenttable.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
-    cpwvcperfcurrenttable.EntityData.SegmentPath = "cpwVcPerfCurrentTable"
-    cpwvcperfcurrenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcperfcurrenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcperfcurrenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcPerfCurrentTable *CISCOIETFPWMIB_CpwVcPerfCurrentTable) GetEntityData() *types.CommonEntityData {
+    cpwVcPerfCurrentTable.EntityData.YFilter = cpwVcPerfCurrentTable.YFilter
+    cpwVcPerfCurrentTable.EntityData.YangName = "cpwVcPerfCurrentTable"
+    cpwVcPerfCurrentTable.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcPerfCurrentTable.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
+    cpwVcPerfCurrentTable.EntityData.SegmentPath = "cpwVcPerfCurrentTable"
+    cpwVcPerfCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcPerfCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcPerfCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcperfcurrenttable.EntityData.Children = make(map[string]types.YChild)
-    cpwvcperfcurrenttable.EntityData.Children["cpwVcPerfCurrentEntry"] = types.YChild{"Cpwvcperfcurrententry", nil}
-    for i := range cpwvcperfcurrenttable.Cpwvcperfcurrententry {
-        cpwvcperfcurrenttable.EntityData.Children[types.GetSegmentPath(&cpwvcperfcurrenttable.Cpwvcperfcurrententry[i])] = types.YChild{"Cpwvcperfcurrententry", &cpwvcperfcurrenttable.Cpwvcperfcurrententry[i]}
+    cpwVcPerfCurrentTable.EntityData.Children = types.NewOrderedMap()
+    cpwVcPerfCurrentTable.EntityData.Children.Append("cpwVcPerfCurrentEntry", types.YChild{"CpwVcPerfCurrentEntry", nil})
+    for i := range cpwVcPerfCurrentTable.CpwVcPerfCurrentEntry {
+        cpwVcPerfCurrentTable.EntityData.Children.Append(types.GetSegmentPath(cpwVcPerfCurrentTable.CpwVcPerfCurrentEntry[i]), types.YChild{"CpwVcPerfCurrentEntry", cpwVcPerfCurrentTable.CpwVcPerfCurrentEntry[i]})
     }
-    cpwvcperfcurrenttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpwvcperfcurrenttable.EntityData)
+    cpwVcPerfCurrentTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpwVcPerfCurrentTable.EntityData.YListKeys = []string {}
+
+    return &(cpwVcPerfCurrentTable.EntityData)
 }
 
-// CISCOIETFPWMIB_Cpwvcperfcurrenttable_Cpwvcperfcurrententry
+// CISCOIETFPWMIB_CpwVcPerfCurrentTable_CpwVcPerfCurrentEntry
 // An entry in this table is created by the agent for 
 // every VC.
-type CISCOIETFPWMIB_Cpwvcperfcurrenttable_Cpwvcperfcurrententry struct {
+type CISCOIETFPWMIB_CpwVcPerfCurrentTable_CpwVcPerfCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
-    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcindex
-    Cpwvcindex interface{}
+    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
+    CpwVcIndex interface{}
 
     // High capacity counter for number of packets received  by the VC (from the
     // PSN) in the current 15 minute  interval. The type is interface{} with
     // range: 0..18446744073709551615.
-    Cpwvcperfcurrentinhcpackets interface{}
+    CpwVcPerfCurrentInHCPackets interface{}
 
     // High capacity counter for number of bytes received  by the VC (from the
     // PSN) in the current 15 minute  interval. The type is interface{} with
     // range: 0..18446744073709551615.
-    Cpwvcperfcurrentinhcbytes interface{}
+    CpwVcPerfCurrentInHCBytes interface{}
 
     // High capacity counter for number of packets forwarded  by the VC (to the
     // PSN) in the current 15 minute interval. The type is interface{} with range:
     // 0..18446744073709551615.
-    Cpwvcperfcurrentouthcpackets interface{}
+    CpwVcPerfCurrentOutHCPackets interface{}
 
     // High capacity counter for number of bytes forwarded  by the VC (to the PSN)
     // in the current 15 minute interval. The type is interface{} with range:
     // 0..18446744073709551615.
-    Cpwvcperfcurrentouthcbytes interface{}
+    CpwVcPerfCurrentOutHCBytes interface{}
 }
 
-func (cpwvcperfcurrententry *CISCOIETFPWMIB_Cpwvcperfcurrenttable_Cpwvcperfcurrententry) GetEntityData() *types.CommonEntityData {
-    cpwvcperfcurrententry.EntityData.YFilter = cpwvcperfcurrententry.YFilter
-    cpwvcperfcurrententry.EntityData.YangName = "cpwVcPerfCurrentEntry"
-    cpwvcperfcurrententry.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcperfcurrententry.EntityData.ParentYangName = "cpwVcPerfCurrentTable"
-    cpwvcperfcurrententry.EntityData.SegmentPath = "cpwVcPerfCurrentEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwvcperfcurrententry.Cpwvcindex) + "']"
-    cpwvcperfcurrententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcperfcurrententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcperfcurrententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcPerfCurrentEntry *CISCOIETFPWMIB_CpwVcPerfCurrentTable_CpwVcPerfCurrentEntry) GetEntityData() *types.CommonEntityData {
+    cpwVcPerfCurrentEntry.EntityData.YFilter = cpwVcPerfCurrentEntry.YFilter
+    cpwVcPerfCurrentEntry.EntityData.YangName = "cpwVcPerfCurrentEntry"
+    cpwVcPerfCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcPerfCurrentEntry.EntityData.ParentYangName = "cpwVcPerfCurrentTable"
+    cpwVcPerfCurrentEntry.EntityData.SegmentPath = "cpwVcPerfCurrentEntry" + types.AddKeyToken(cpwVcPerfCurrentEntry.CpwVcIndex, "cpwVcIndex")
+    cpwVcPerfCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcPerfCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcPerfCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcperfcurrententry.EntityData.Children = make(map[string]types.YChild)
-    cpwvcperfcurrententry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwvcperfcurrententry.EntityData.Leafs["cpwVcIndex"] = types.YLeaf{"Cpwvcindex", cpwvcperfcurrententry.Cpwvcindex}
-    cpwvcperfcurrententry.EntityData.Leafs["cpwVcPerfCurrentInHCPackets"] = types.YLeaf{"Cpwvcperfcurrentinhcpackets", cpwvcperfcurrententry.Cpwvcperfcurrentinhcpackets}
-    cpwvcperfcurrententry.EntityData.Leafs["cpwVcPerfCurrentInHCBytes"] = types.YLeaf{"Cpwvcperfcurrentinhcbytes", cpwvcperfcurrententry.Cpwvcperfcurrentinhcbytes}
-    cpwvcperfcurrententry.EntityData.Leafs["cpwVcPerfCurrentOutHCPackets"] = types.YLeaf{"Cpwvcperfcurrentouthcpackets", cpwvcperfcurrententry.Cpwvcperfcurrentouthcpackets}
-    cpwvcperfcurrententry.EntityData.Leafs["cpwVcPerfCurrentOutHCBytes"] = types.YLeaf{"Cpwvcperfcurrentouthcbytes", cpwvcperfcurrententry.Cpwvcperfcurrentouthcbytes}
-    return &(cpwvcperfcurrententry.EntityData)
+    cpwVcPerfCurrentEntry.EntityData.Children = types.NewOrderedMap()
+    cpwVcPerfCurrentEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpwVcPerfCurrentEntry.EntityData.Leafs.Append("cpwVcIndex", types.YLeaf{"CpwVcIndex", cpwVcPerfCurrentEntry.CpwVcIndex})
+    cpwVcPerfCurrentEntry.EntityData.Leafs.Append("cpwVcPerfCurrentInHCPackets", types.YLeaf{"CpwVcPerfCurrentInHCPackets", cpwVcPerfCurrentEntry.CpwVcPerfCurrentInHCPackets})
+    cpwVcPerfCurrentEntry.EntityData.Leafs.Append("cpwVcPerfCurrentInHCBytes", types.YLeaf{"CpwVcPerfCurrentInHCBytes", cpwVcPerfCurrentEntry.CpwVcPerfCurrentInHCBytes})
+    cpwVcPerfCurrentEntry.EntityData.Leafs.Append("cpwVcPerfCurrentOutHCPackets", types.YLeaf{"CpwVcPerfCurrentOutHCPackets", cpwVcPerfCurrentEntry.CpwVcPerfCurrentOutHCPackets})
+    cpwVcPerfCurrentEntry.EntityData.Leafs.Append("cpwVcPerfCurrentOutHCBytes", types.YLeaf{"CpwVcPerfCurrentOutHCBytes", cpwVcPerfCurrentEntry.CpwVcPerfCurrentOutHCBytes})
+
+    cpwVcPerfCurrentEntry.EntityData.YListKeys = []string {"CpwVcIndex"}
+
+    return &(cpwVcPerfCurrentEntry.EntityData)
 }
 
-// CISCOIETFPWMIB_Cpwvcperfintervaltable
+// CISCOIETFPWMIB_CpwVcPerfIntervalTable
 // This table provides per-VC performance information for  
 // each interval.
-type CISCOIETFPWMIB_Cpwvcperfintervaltable struct {
+type CISCOIETFPWMIB_CpwVcPerfIntervalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table is created agent for every VC. The type is slice of
-    // CISCOIETFPWMIB_Cpwvcperfintervaltable_Cpwvcperfintervalentry.
-    Cpwvcperfintervalentry []CISCOIETFPWMIB_Cpwvcperfintervaltable_Cpwvcperfintervalentry
+    // CISCOIETFPWMIB_CpwVcPerfIntervalTable_CpwVcPerfIntervalEntry.
+    CpwVcPerfIntervalEntry []*CISCOIETFPWMIB_CpwVcPerfIntervalTable_CpwVcPerfIntervalEntry
 }
 
-func (cpwvcperfintervaltable *CISCOIETFPWMIB_Cpwvcperfintervaltable) GetEntityData() *types.CommonEntityData {
-    cpwvcperfintervaltable.EntityData.YFilter = cpwvcperfintervaltable.YFilter
-    cpwvcperfintervaltable.EntityData.YangName = "cpwVcPerfIntervalTable"
-    cpwvcperfintervaltable.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcperfintervaltable.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
-    cpwvcperfintervaltable.EntityData.SegmentPath = "cpwVcPerfIntervalTable"
-    cpwvcperfintervaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcperfintervaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcperfintervaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcPerfIntervalTable *CISCOIETFPWMIB_CpwVcPerfIntervalTable) GetEntityData() *types.CommonEntityData {
+    cpwVcPerfIntervalTable.EntityData.YFilter = cpwVcPerfIntervalTable.YFilter
+    cpwVcPerfIntervalTable.EntityData.YangName = "cpwVcPerfIntervalTable"
+    cpwVcPerfIntervalTable.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcPerfIntervalTable.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
+    cpwVcPerfIntervalTable.EntityData.SegmentPath = "cpwVcPerfIntervalTable"
+    cpwVcPerfIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcPerfIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcPerfIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcperfintervaltable.EntityData.Children = make(map[string]types.YChild)
-    cpwvcperfintervaltable.EntityData.Children["cpwVcPerfIntervalEntry"] = types.YChild{"Cpwvcperfintervalentry", nil}
-    for i := range cpwvcperfintervaltable.Cpwvcperfintervalentry {
-        cpwvcperfintervaltable.EntityData.Children[types.GetSegmentPath(&cpwvcperfintervaltable.Cpwvcperfintervalentry[i])] = types.YChild{"Cpwvcperfintervalentry", &cpwvcperfintervaltable.Cpwvcperfintervalentry[i]}
+    cpwVcPerfIntervalTable.EntityData.Children = types.NewOrderedMap()
+    cpwVcPerfIntervalTable.EntityData.Children.Append("cpwVcPerfIntervalEntry", types.YChild{"CpwVcPerfIntervalEntry", nil})
+    for i := range cpwVcPerfIntervalTable.CpwVcPerfIntervalEntry {
+        cpwVcPerfIntervalTable.EntityData.Children.Append(types.GetSegmentPath(cpwVcPerfIntervalTable.CpwVcPerfIntervalEntry[i]), types.YChild{"CpwVcPerfIntervalEntry", cpwVcPerfIntervalTable.CpwVcPerfIntervalEntry[i]})
     }
-    cpwvcperfintervaltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpwvcperfintervaltable.EntityData)
+    cpwVcPerfIntervalTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpwVcPerfIntervalTable.EntityData.YListKeys = []string {}
+
+    return &(cpwVcPerfIntervalTable.EntityData)
 }
 
-// CISCOIETFPWMIB_Cpwvcperfintervaltable_Cpwvcperfintervalentry
+// CISCOIETFPWMIB_CpwVcPerfIntervalTable_CpwVcPerfIntervalEntry
 // An entry in this table is created agent for every VC.
-type CISCOIETFPWMIB_Cpwvcperfintervaltable_Cpwvcperfintervalentry struct {
+type CISCOIETFPWMIB_CpwVcPerfIntervalTable_CpwVcPerfIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
-    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcindex
-    Cpwvcindex interface{}
+    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
+    CpwVcIndex interface{}
 
     // This attribute is a key. A number N, between 1 and 96, which identifies the
     // interval for which the set of statistics is available.  The interval
@@ -643,307 +664,328 @@ type CISCOIETFPWMIB_Cpwvcperfintervaltable_Cpwvcperfintervalentry struct {
     // identified by N-1.  The minimum range of N is 1 through 4. The default
     // range  is 1 to 32. The maximum range of N is 1 through 96. . The type is
     // interface{} with range: 1..96.
-    Cpwvcperfintervalnumber interface{}
+    CpwVcPerfIntervalNumber interface{}
 
     // This variable indicates if the data for this interval  is valid. The type
     // is bool.
-    Cpwvcperfintervalvaliddata interface{}
+    CpwVcPerfIntervalValidData interface{}
 
     // The duration of a particular interval in seconds.  Adjustments in the
     // system's time-of-day clock, may  cause the interval to be greater or less
     // than the  normal value. Therefore this actual interval value  is provided.
     // The type is interface{} with range: -2147483648..2147483647.
-    Cpwvcperfintervaltimeelapsed interface{}
+    CpwVcPerfIntervalTimeElapsed interface{}
 
     // High capacity counter for number of packets received by  the VC (from the
     // PSN) in a particular 15-minute interval. The type is interface{} with
     // range: 0..18446744073709551615.
-    Cpwvcperfintervalinhcpackets interface{}
+    CpwVcPerfIntervalInHCPackets interface{}
 
     // High capacity counter for number of bytes received by the   VC (from the
     // PSN) in a particular 15-minute interval. The type is interface{} with
     // range: 0..18446744073709551615.
-    Cpwvcperfintervalinhcbytes interface{}
+    CpwVcPerfIntervalInHCBytes interface{}
 
     // High capacity counter for number of packets forwarded by   the VC (to the
     // PSN) in a particular 15-minute interval. The type is interface{} with
     // range: 0..18446744073709551615.
-    Cpwvcperfintervalouthcpackets interface{}
+    CpwVcPerfIntervalOutHCPackets interface{}
 
     // High capacity counter for number of bytes forwarded by the   VC (to the
     // PSN) in a particular 15-minute interval. The type is interface{} with
     // range: 0..18446744073709551615.
-    Cpwvcperfintervalouthcbytes interface{}
+    CpwVcPerfIntervalOutHCBytes interface{}
 }
 
-func (cpwvcperfintervalentry *CISCOIETFPWMIB_Cpwvcperfintervaltable_Cpwvcperfintervalentry) GetEntityData() *types.CommonEntityData {
-    cpwvcperfintervalentry.EntityData.YFilter = cpwvcperfintervalentry.YFilter
-    cpwvcperfintervalentry.EntityData.YangName = "cpwVcPerfIntervalEntry"
-    cpwvcperfintervalentry.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcperfintervalentry.EntityData.ParentYangName = "cpwVcPerfIntervalTable"
-    cpwvcperfintervalentry.EntityData.SegmentPath = "cpwVcPerfIntervalEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwvcperfintervalentry.Cpwvcindex) + "']" + "[cpwVcPerfIntervalNumber='" + fmt.Sprintf("%v", cpwvcperfintervalentry.Cpwvcperfintervalnumber) + "']"
-    cpwvcperfintervalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcperfintervalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcperfintervalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcPerfIntervalEntry *CISCOIETFPWMIB_CpwVcPerfIntervalTable_CpwVcPerfIntervalEntry) GetEntityData() *types.CommonEntityData {
+    cpwVcPerfIntervalEntry.EntityData.YFilter = cpwVcPerfIntervalEntry.YFilter
+    cpwVcPerfIntervalEntry.EntityData.YangName = "cpwVcPerfIntervalEntry"
+    cpwVcPerfIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcPerfIntervalEntry.EntityData.ParentYangName = "cpwVcPerfIntervalTable"
+    cpwVcPerfIntervalEntry.EntityData.SegmentPath = "cpwVcPerfIntervalEntry" + types.AddKeyToken(cpwVcPerfIntervalEntry.CpwVcIndex, "cpwVcIndex") + types.AddKeyToken(cpwVcPerfIntervalEntry.CpwVcPerfIntervalNumber, "cpwVcPerfIntervalNumber")
+    cpwVcPerfIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcPerfIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcPerfIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcperfintervalentry.EntityData.Children = make(map[string]types.YChild)
-    cpwvcperfintervalentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwvcperfintervalentry.EntityData.Leafs["cpwVcIndex"] = types.YLeaf{"Cpwvcindex", cpwvcperfintervalentry.Cpwvcindex}
-    cpwvcperfintervalentry.EntityData.Leafs["cpwVcPerfIntervalNumber"] = types.YLeaf{"Cpwvcperfintervalnumber", cpwvcperfintervalentry.Cpwvcperfintervalnumber}
-    cpwvcperfintervalentry.EntityData.Leafs["cpwVcPerfIntervalValidData"] = types.YLeaf{"Cpwvcperfintervalvaliddata", cpwvcperfintervalentry.Cpwvcperfintervalvaliddata}
-    cpwvcperfintervalentry.EntityData.Leafs["cpwVcPerfIntervalTimeElapsed"] = types.YLeaf{"Cpwvcperfintervaltimeelapsed", cpwvcperfintervalentry.Cpwvcperfintervaltimeelapsed}
-    cpwvcperfintervalentry.EntityData.Leafs["cpwVcPerfIntervalInHCPackets"] = types.YLeaf{"Cpwvcperfintervalinhcpackets", cpwvcperfintervalentry.Cpwvcperfintervalinhcpackets}
-    cpwvcperfintervalentry.EntityData.Leafs["cpwVcPerfIntervalInHCBytes"] = types.YLeaf{"Cpwvcperfintervalinhcbytes", cpwvcperfintervalentry.Cpwvcperfintervalinhcbytes}
-    cpwvcperfintervalentry.EntityData.Leafs["cpwVcPerfIntervalOutHCPackets"] = types.YLeaf{"Cpwvcperfintervalouthcpackets", cpwvcperfintervalentry.Cpwvcperfintervalouthcpackets}
-    cpwvcperfintervalentry.EntityData.Leafs["cpwVcPerfIntervalOutHCBytes"] = types.YLeaf{"Cpwvcperfintervalouthcbytes", cpwvcperfintervalentry.Cpwvcperfintervalouthcbytes}
-    return &(cpwvcperfintervalentry.EntityData)
+    cpwVcPerfIntervalEntry.EntityData.Children = types.NewOrderedMap()
+    cpwVcPerfIntervalEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpwVcPerfIntervalEntry.EntityData.Leafs.Append("cpwVcIndex", types.YLeaf{"CpwVcIndex", cpwVcPerfIntervalEntry.CpwVcIndex})
+    cpwVcPerfIntervalEntry.EntityData.Leafs.Append("cpwVcPerfIntervalNumber", types.YLeaf{"CpwVcPerfIntervalNumber", cpwVcPerfIntervalEntry.CpwVcPerfIntervalNumber})
+    cpwVcPerfIntervalEntry.EntityData.Leafs.Append("cpwVcPerfIntervalValidData", types.YLeaf{"CpwVcPerfIntervalValidData", cpwVcPerfIntervalEntry.CpwVcPerfIntervalValidData})
+    cpwVcPerfIntervalEntry.EntityData.Leafs.Append("cpwVcPerfIntervalTimeElapsed", types.YLeaf{"CpwVcPerfIntervalTimeElapsed", cpwVcPerfIntervalEntry.CpwVcPerfIntervalTimeElapsed})
+    cpwVcPerfIntervalEntry.EntityData.Leafs.Append("cpwVcPerfIntervalInHCPackets", types.YLeaf{"CpwVcPerfIntervalInHCPackets", cpwVcPerfIntervalEntry.CpwVcPerfIntervalInHCPackets})
+    cpwVcPerfIntervalEntry.EntityData.Leafs.Append("cpwVcPerfIntervalInHCBytes", types.YLeaf{"CpwVcPerfIntervalInHCBytes", cpwVcPerfIntervalEntry.CpwVcPerfIntervalInHCBytes})
+    cpwVcPerfIntervalEntry.EntityData.Leafs.Append("cpwVcPerfIntervalOutHCPackets", types.YLeaf{"CpwVcPerfIntervalOutHCPackets", cpwVcPerfIntervalEntry.CpwVcPerfIntervalOutHCPackets})
+    cpwVcPerfIntervalEntry.EntityData.Leafs.Append("cpwVcPerfIntervalOutHCBytes", types.YLeaf{"CpwVcPerfIntervalOutHCBytes", cpwVcPerfIntervalEntry.CpwVcPerfIntervalOutHCBytes})
+
+    cpwVcPerfIntervalEntry.EntityData.YListKeys = []string {"CpwVcIndex", "CpwVcPerfIntervalNumber"}
+
+    return &(cpwVcPerfIntervalEntry.EntityData)
 }
 
-// CISCOIETFPWMIB_Cpwvcperftotaltable
+// CISCOIETFPWMIB_CpwVcPerfTotalTable
 // This table provides per-VC Performance information from VC  
 // start time.
-type CISCOIETFPWMIB_Cpwvcperftotaltable struct {
+type CISCOIETFPWMIB_CpwVcPerfTotalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table is created agent for every VC. The type is slice of
-    // CISCOIETFPWMIB_Cpwvcperftotaltable_Cpwvcperftotalentry.
-    Cpwvcperftotalentry []CISCOIETFPWMIB_Cpwvcperftotaltable_Cpwvcperftotalentry
+    // CISCOIETFPWMIB_CpwVcPerfTotalTable_CpwVcPerfTotalEntry.
+    CpwVcPerfTotalEntry []*CISCOIETFPWMIB_CpwVcPerfTotalTable_CpwVcPerfTotalEntry
 }
 
-func (cpwvcperftotaltable *CISCOIETFPWMIB_Cpwvcperftotaltable) GetEntityData() *types.CommonEntityData {
-    cpwvcperftotaltable.EntityData.YFilter = cpwvcperftotaltable.YFilter
-    cpwvcperftotaltable.EntityData.YangName = "cpwVcPerfTotalTable"
-    cpwvcperftotaltable.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcperftotaltable.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
-    cpwvcperftotaltable.EntityData.SegmentPath = "cpwVcPerfTotalTable"
-    cpwvcperftotaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcperftotaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcperftotaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcPerfTotalTable *CISCOIETFPWMIB_CpwVcPerfTotalTable) GetEntityData() *types.CommonEntityData {
+    cpwVcPerfTotalTable.EntityData.YFilter = cpwVcPerfTotalTable.YFilter
+    cpwVcPerfTotalTable.EntityData.YangName = "cpwVcPerfTotalTable"
+    cpwVcPerfTotalTable.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcPerfTotalTable.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
+    cpwVcPerfTotalTable.EntityData.SegmentPath = "cpwVcPerfTotalTable"
+    cpwVcPerfTotalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcPerfTotalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcPerfTotalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcperftotaltable.EntityData.Children = make(map[string]types.YChild)
-    cpwvcperftotaltable.EntityData.Children["cpwVcPerfTotalEntry"] = types.YChild{"Cpwvcperftotalentry", nil}
-    for i := range cpwvcperftotaltable.Cpwvcperftotalentry {
-        cpwvcperftotaltable.EntityData.Children[types.GetSegmentPath(&cpwvcperftotaltable.Cpwvcperftotalentry[i])] = types.YChild{"Cpwvcperftotalentry", &cpwvcperftotaltable.Cpwvcperftotalentry[i]}
+    cpwVcPerfTotalTable.EntityData.Children = types.NewOrderedMap()
+    cpwVcPerfTotalTable.EntityData.Children.Append("cpwVcPerfTotalEntry", types.YChild{"CpwVcPerfTotalEntry", nil})
+    for i := range cpwVcPerfTotalTable.CpwVcPerfTotalEntry {
+        cpwVcPerfTotalTable.EntityData.Children.Append(types.GetSegmentPath(cpwVcPerfTotalTable.CpwVcPerfTotalEntry[i]), types.YChild{"CpwVcPerfTotalEntry", cpwVcPerfTotalTable.CpwVcPerfTotalEntry[i]})
     }
-    cpwvcperftotaltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpwvcperftotaltable.EntityData)
+    cpwVcPerfTotalTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpwVcPerfTotalTable.EntityData.YListKeys = []string {}
+
+    return &(cpwVcPerfTotalTable.EntityData)
 }
 
-// CISCOIETFPWMIB_Cpwvcperftotaltable_Cpwvcperftotalentry
+// CISCOIETFPWMIB_CpwVcPerfTotalTable_CpwVcPerfTotalEntry
 // An entry in this table is created agent for every VC.
-type CISCOIETFPWMIB_Cpwvcperftotaltable_Cpwvcperftotalentry struct {
+type CISCOIETFPWMIB_CpwVcPerfTotalTable_CpwVcPerfTotalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
-    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_Cpwvctable_Cpwvcentry_Cpwvcindex
-    Cpwvcindex interface{}
+    // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
+    CpwVcIndex interface{}
 
     // High capacity counter for number of packets received by the   VC (from the
     // PSN). The type is interface{} with range: 0..18446744073709551615.
-    Cpwvcperftotalinhcpackets interface{}
+    CpwVcPerfTotalInHCPackets interface{}
 
     // High capacity counter for number of bytes received by the   VC (from the
     // PSN). The type is interface{} with range: 0..18446744073709551615.
-    Cpwvcperftotalinhcbytes interface{}
+    CpwVcPerfTotalInHCBytes interface{}
 
     // High capacity counter for number of packets forwarded by   the VC (to the
     // PSN). The type is interface{} with range: 0..18446744073709551615.
-    Cpwvcperftotalouthcpackets interface{}
+    CpwVcPerfTotalOutHCPackets interface{}
 
     // High capacity counter for number of bytes forwarded by the   VC (to the
     // PSN). The type is interface{} with range: 0..18446744073709551615.
-    Cpwvcperftotalouthcbytes interface{}
+    CpwVcPerfTotalOutHCBytes interface{}
 
     // The value of sysUpTime on the most recent occasion at  which any one or
     // more of this row Counter32 or  Counter64 suffered a discontinuity. If no
     // such  discontinuities have occurred since the last re-  initialization of
     // the local management subsystem, then  this object contains a zero value.
     // The type is interface{} with range: 0..4294967295.
-    Cpwvcperftotaldiscontinuitytime interface{}
+    CpwVcPerfTotalDiscontinuityTime interface{}
 }
 
-func (cpwvcperftotalentry *CISCOIETFPWMIB_Cpwvcperftotaltable_Cpwvcperftotalentry) GetEntityData() *types.CommonEntityData {
-    cpwvcperftotalentry.EntityData.YFilter = cpwvcperftotalentry.YFilter
-    cpwvcperftotalentry.EntityData.YangName = "cpwVcPerfTotalEntry"
-    cpwvcperftotalentry.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcperftotalentry.EntityData.ParentYangName = "cpwVcPerfTotalTable"
-    cpwvcperftotalentry.EntityData.SegmentPath = "cpwVcPerfTotalEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwvcperftotalentry.Cpwvcindex) + "']"
-    cpwvcperftotalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcperftotalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcperftotalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcPerfTotalEntry *CISCOIETFPWMIB_CpwVcPerfTotalTable_CpwVcPerfTotalEntry) GetEntityData() *types.CommonEntityData {
+    cpwVcPerfTotalEntry.EntityData.YFilter = cpwVcPerfTotalEntry.YFilter
+    cpwVcPerfTotalEntry.EntityData.YangName = "cpwVcPerfTotalEntry"
+    cpwVcPerfTotalEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcPerfTotalEntry.EntityData.ParentYangName = "cpwVcPerfTotalTable"
+    cpwVcPerfTotalEntry.EntityData.SegmentPath = "cpwVcPerfTotalEntry" + types.AddKeyToken(cpwVcPerfTotalEntry.CpwVcIndex, "cpwVcIndex")
+    cpwVcPerfTotalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcPerfTotalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcPerfTotalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcperftotalentry.EntityData.Children = make(map[string]types.YChild)
-    cpwvcperftotalentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwvcperftotalentry.EntityData.Leafs["cpwVcIndex"] = types.YLeaf{"Cpwvcindex", cpwvcperftotalentry.Cpwvcindex}
-    cpwvcperftotalentry.EntityData.Leafs["cpwVcPerfTotalInHCPackets"] = types.YLeaf{"Cpwvcperftotalinhcpackets", cpwvcperftotalentry.Cpwvcperftotalinhcpackets}
-    cpwvcperftotalentry.EntityData.Leafs["cpwVcPerfTotalInHCBytes"] = types.YLeaf{"Cpwvcperftotalinhcbytes", cpwvcperftotalentry.Cpwvcperftotalinhcbytes}
-    cpwvcperftotalentry.EntityData.Leafs["cpwVcPerfTotalOutHCPackets"] = types.YLeaf{"Cpwvcperftotalouthcpackets", cpwvcperftotalentry.Cpwvcperftotalouthcpackets}
-    cpwvcperftotalentry.EntityData.Leafs["cpwVcPerfTotalOutHCBytes"] = types.YLeaf{"Cpwvcperftotalouthcbytes", cpwvcperftotalentry.Cpwvcperftotalouthcbytes}
-    cpwvcperftotalentry.EntityData.Leafs["cpwVcPerfTotalDiscontinuityTime"] = types.YLeaf{"Cpwvcperftotaldiscontinuitytime", cpwvcperftotalentry.Cpwvcperftotaldiscontinuitytime}
-    return &(cpwvcperftotalentry.EntityData)
+    cpwVcPerfTotalEntry.EntityData.Children = types.NewOrderedMap()
+    cpwVcPerfTotalEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpwVcPerfTotalEntry.EntityData.Leafs.Append("cpwVcIndex", types.YLeaf{"CpwVcIndex", cpwVcPerfTotalEntry.CpwVcIndex})
+    cpwVcPerfTotalEntry.EntityData.Leafs.Append("cpwVcPerfTotalInHCPackets", types.YLeaf{"CpwVcPerfTotalInHCPackets", cpwVcPerfTotalEntry.CpwVcPerfTotalInHCPackets})
+    cpwVcPerfTotalEntry.EntityData.Leafs.Append("cpwVcPerfTotalInHCBytes", types.YLeaf{"CpwVcPerfTotalInHCBytes", cpwVcPerfTotalEntry.CpwVcPerfTotalInHCBytes})
+    cpwVcPerfTotalEntry.EntityData.Leafs.Append("cpwVcPerfTotalOutHCPackets", types.YLeaf{"CpwVcPerfTotalOutHCPackets", cpwVcPerfTotalEntry.CpwVcPerfTotalOutHCPackets})
+    cpwVcPerfTotalEntry.EntityData.Leafs.Append("cpwVcPerfTotalOutHCBytes", types.YLeaf{"CpwVcPerfTotalOutHCBytes", cpwVcPerfTotalEntry.CpwVcPerfTotalOutHCBytes})
+    cpwVcPerfTotalEntry.EntityData.Leafs.Append("cpwVcPerfTotalDiscontinuityTime", types.YLeaf{"CpwVcPerfTotalDiscontinuityTime", cpwVcPerfTotalEntry.CpwVcPerfTotalDiscontinuityTime})
+
+    cpwVcPerfTotalEntry.EntityData.YListKeys = []string {"CpwVcIndex"}
+
+    return &(cpwVcPerfTotalEntry.EntityData)
 }
 
-// CISCOIETFPWMIB_Cpwvcidmappingtable
+// CISCOIETFPWMIB_CpwVcIdMappingTable
 // This table provides reverse mapping of the existing VCs  
 // based on vc type and VC ID ordering. This table is  
 // typically useful for EMS ordered query of existing VCs.
-type CISCOIETFPWMIB_Cpwvcidmappingtable struct {
+type CISCOIETFPWMIB_CpwVcIdMappingTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table is created by the agent for every   VC configured by
     // the cpwVcTable. The type is slice of
-    // CISCOIETFPWMIB_Cpwvcidmappingtable_Cpwvcidmappingentry.
-    Cpwvcidmappingentry []CISCOIETFPWMIB_Cpwvcidmappingtable_Cpwvcidmappingentry
+    // CISCOIETFPWMIB_CpwVcIdMappingTable_CpwVcIdMappingEntry.
+    CpwVcIdMappingEntry []*CISCOIETFPWMIB_CpwVcIdMappingTable_CpwVcIdMappingEntry
 }
 
-func (cpwvcidmappingtable *CISCOIETFPWMIB_Cpwvcidmappingtable) GetEntityData() *types.CommonEntityData {
-    cpwvcidmappingtable.EntityData.YFilter = cpwvcidmappingtable.YFilter
-    cpwvcidmappingtable.EntityData.YangName = "cpwVcIdMappingTable"
-    cpwvcidmappingtable.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcidmappingtable.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
-    cpwvcidmappingtable.EntityData.SegmentPath = "cpwVcIdMappingTable"
-    cpwvcidmappingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcidmappingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcidmappingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcIdMappingTable *CISCOIETFPWMIB_CpwVcIdMappingTable) GetEntityData() *types.CommonEntityData {
+    cpwVcIdMappingTable.EntityData.YFilter = cpwVcIdMappingTable.YFilter
+    cpwVcIdMappingTable.EntityData.YangName = "cpwVcIdMappingTable"
+    cpwVcIdMappingTable.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcIdMappingTable.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
+    cpwVcIdMappingTable.EntityData.SegmentPath = "cpwVcIdMappingTable"
+    cpwVcIdMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcIdMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcIdMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcidmappingtable.EntityData.Children = make(map[string]types.YChild)
-    cpwvcidmappingtable.EntityData.Children["cpwVcIdMappingEntry"] = types.YChild{"Cpwvcidmappingentry", nil}
-    for i := range cpwvcidmappingtable.Cpwvcidmappingentry {
-        cpwvcidmappingtable.EntityData.Children[types.GetSegmentPath(&cpwvcidmappingtable.Cpwvcidmappingentry[i])] = types.YChild{"Cpwvcidmappingentry", &cpwvcidmappingtable.Cpwvcidmappingentry[i]}
+    cpwVcIdMappingTable.EntityData.Children = types.NewOrderedMap()
+    cpwVcIdMappingTable.EntityData.Children.Append("cpwVcIdMappingEntry", types.YChild{"CpwVcIdMappingEntry", nil})
+    for i := range cpwVcIdMappingTable.CpwVcIdMappingEntry {
+        cpwVcIdMappingTable.EntityData.Children.Append(types.GetSegmentPath(cpwVcIdMappingTable.CpwVcIdMappingEntry[i]), types.YChild{"CpwVcIdMappingEntry", cpwVcIdMappingTable.CpwVcIdMappingEntry[i]})
     }
-    cpwvcidmappingtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpwvcidmappingtable.EntityData)
+    cpwVcIdMappingTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpwVcIdMappingTable.EntityData.YListKeys = []string {}
+
+    return &(cpwVcIdMappingTable.EntityData)
 }
 
-// CISCOIETFPWMIB_Cpwvcidmappingtable_Cpwvcidmappingentry
+// CISCOIETFPWMIB_CpwVcIdMappingTable_CpwVcIdMappingEntry
 // An entry in this table is created by the agent for every  
 // VC configured by the cpwVcTable.
-type CISCOIETFPWMIB_Cpwvcidmappingtable_Cpwvcidmappingentry struct {
+type CISCOIETFPWMIB_CpwVcIdMappingTable_CpwVcIdMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The VC type (indicate the service) of this VC. The
     // type is CpwVcType.
-    Cpwvcidmappingvctype interface{}
+    CpwVcIdMappingVcType interface{}
 
     // This attribute is a key. The VC ID of this VC. Zero if the VC is configured
     // manually. The type is interface{} with range: 0..4294967295.
-    Cpwvcidmappingvcid interface{}
+    CpwVcIdMappingVcID interface{}
 
     // This attribute is a key. IP address type of the peer node. The type is
     // InetAddressType.
-    Cpwvcidmappingpeeraddrtype interface{}
+    CpwVcIdMappingPeerAddrType interface{}
 
     // This attribute is a key. IP address type of the peer node. The type is
     // string with length: 0..255.
-    Cpwvcidmappingpeeraddr interface{}
+    CpwVcIdMappingPeerAddr interface{}
 
     // This attribute is a key. The value that represent the VC in the cpwVcTable.
     // The type is interface{} with range: 0..4294967295.
-    Cpwvcidmappingvcindex interface{}
+    CpwVcIdMappingVcIndex interface{}
 }
 
-func (cpwvcidmappingentry *CISCOIETFPWMIB_Cpwvcidmappingtable_Cpwvcidmappingentry) GetEntityData() *types.CommonEntityData {
-    cpwvcidmappingentry.EntityData.YFilter = cpwvcidmappingentry.YFilter
-    cpwvcidmappingentry.EntityData.YangName = "cpwVcIdMappingEntry"
-    cpwvcidmappingentry.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcidmappingentry.EntityData.ParentYangName = "cpwVcIdMappingTable"
-    cpwvcidmappingentry.EntityData.SegmentPath = "cpwVcIdMappingEntry" + "[cpwVcIdMappingVcType='" + fmt.Sprintf("%v", cpwvcidmappingentry.Cpwvcidmappingvctype) + "']" + "[cpwVcIdMappingVcID='" + fmt.Sprintf("%v", cpwvcidmappingentry.Cpwvcidmappingvcid) + "']" + "[cpwVcIdMappingPeerAddrType='" + fmt.Sprintf("%v", cpwvcidmappingentry.Cpwvcidmappingpeeraddrtype) + "']" + "[cpwVcIdMappingPeerAddr='" + fmt.Sprintf("%v", cpwvcidmappingentry.Cpwvcidmappingpeeraddr) + "']" + "[cpwVcIdMappingVcIndex='" + fmt.Sprintf("%v", cpwvcidmappingentry.Cpwvcidmappingvcindex) + "']"
-    cpwvcidmappingentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcidmappingentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcidmappingentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcIdMappingEntry *CISCOIETFPWMIB_CpwVcIdMappingTable_CpwVcIdMappingEntry) GetEntityData() *types.CommonEntityData {
+    cpwVcIdMappingEntry.EntityData.YFilter = cpwVcIdMappingEntry.YFilter
+    cpwVcIdMappingEntry.EntityData.YangName = "cpwVcIdMappingEntry"
+    cpwVcIdMappingEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcIdMappingEntry.EntityData.ParentYangName = "cpwVcIdMappingTable"
+    cpwVcIdMappingEntry.EntityData.SegmentPath = "cpwVcIdMappingEntry" + types.AddKeyToken(cpwVcIdMappingEntry.CpwVcIdMappingVcType, "cpwVcIdMappingVcType") + types.AddKeyToken(cpwVcIdMappingEntry.CpwVcIdMappingVcID, "cpwVcIdMappingVcID") + types.AddKeyToken(cpwVcIdMappingEntry.CpwVcIdMappingPeerAddrType, "cpwVcIdMappingPeerAddrType") + types.AddKeyToken(cpwVcIdMappingEntry.CpwVcIdMappingPeerAddr, "cpwVcIdMappingPeerAddr") + types.AddKeyToken(cpwVcIdMappingEntry.CpwVcIdMappingVcIndex, "cpwVcIdMappingVcIndex")
+    cpwVcIdMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcIdMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcIdMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcidmappingentry.EntityData.Children = make(map[string]types.YChild)
-    cpwvcidmappingentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwvcidmappingentry.EntityData.Leafs["cpwVcIdMappingVcType"] = types.YLeaf{"Cpwvcidmappingvctype", cpwvcidmappingentry.Cpwvcidmappingvctype}
-    cpwvcidmappingentry.EntityData.Leafs["cpwVcIdMappingVcID"] = types.YLeaf{"Cpwvcidmappingvcid", cpwvcidmappingentry.Cpwvcidmappingvcid}
-    cpwvcidmappingentry.EntityData.Leafs["cpwVcIdMappingPeerAddrType"] = types.YLeaf{"Cpwvcidmappingpeeraddrtype", cpwvcidmappingentry.Cpwvcidmappingpeeraddrtype}
-    cpwvcidmappingentry.EntityData.Leafs["cpwVcIdMappingPeerAddr"] = types.YLeaf{"Cpwvcidmappingpeeraddr", cpwvcidmappingentry.Cpwvcidmappingpeeraddr}
-    cpwvcidmappingentry.EntityData.Leafs["cpwVcIdMappingVcIndex"] = types.YLeaf{"Cpwvcidmappingvcindex", cpwvcidmappingentry.Cpwvcidmappingvcindex}
-    return &(cpwvcidmappingentry.EntityData)
+    cpwVcIdMappingEntry.EntityData.Children = types.NewOrderedMap()
+    cpwVcIdMappingEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpwVcIdMappingEntry.EntityData.Leafs.Append("cpwVcIdMappingVcType", types.YLeaf{"CpwVcIdMappingVcType", cpwVcIdMappingEntry.CpwVcIdMappingVcType})
+    cpwVcIdMappingEntry.EntityData.Leafs.Append("cpwVcIdMappingVcID", types.YLeaf{"CpwVcIdMappingVcID", cpwVcIdMappingEntry.CpwVcIdMappingVcID})
+    cpwVcIdMappingEntry.EntityData.Leafs.Append("cpwVcIdMappingPeerAddrType", types.YLeaf{"CpwVcIdMappingPeerAddrType", cpwVcIdMappingEntry.CpwVcIdMappingPeerAddrType})
+    cpwVcIdMappingEntry.EntityData.Leafs.Append("cpwVcIdMappingPeerAddr", types.YLeaf{"CpwVcIdMappingPeerAddr", cpwVcIdMappingEntry.CpwVcIdMappingPeerAddr})
+    cpwVcIdMappingEntry.EntityData.Leafs.Append("cpwVcIdMappingVcIndex", types.YLeaf{"CpwVcIdMappingVcIndex", cpwVcIdMappingEntry.CpwVcIdMappingVcIndex})
+
+    cpwVcIdMappingEntry.EntityData.YListKeys = []string {"CpwVcIdMappingVcType", "CpwVcIdMappingVcID", "CpwVcIdMappingPeerAddrType", "CpwVcIdMappingPeerAddr", "CpwVcIdMappingVcIndex"}
+
+    return &(cpwVcIdMappingEntry.EntityData)
 }
 
-// CISCOIETFPWMIB_Cpwvcpeermappingtable
+// CISCOIETFPWMIB_CpwVcPeerMappingTable
 // This table provides reverse mapping of the existing VCs  
 // based on vc type and VC ID ordering. This table is  
 // typically useful for EMS ordered query of existing VCs.
-type CISCOIETFPWMIB_Cpwvcpeermappingtable struct {
+type CISCOIETFPWMIB_CpwVcPeerMappingTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table is created by the agent for every   VC configured in
     // cpwVcTable. The type is slice of
-    // CISCOIETFPWMIB_Cpwvcpeermappingtable_Cpwvcpeermappingentry.
-    Cpwvcpeermappingentry []CISCOIETFPWMIB_Cpwvcpeermappingtable_Cpwvcpeermappingentry
+    // CISCOIETFPWMIB_CpwVcPeerMappingTable_CpwVcPeerMappingEntry.
+    CpwVcPeerMappingEntry []*CISCOIETFPWMIB_CpwVcPeerMappingTable_CpwVcPeerMappingEntry
 }
 
-func (cpwvcpeermappingtable *CISCOIETFPWMIB_Cpwvcpeermappingtable) GetEntityData() *types.CommonEntityData {
-    cpwvcpeermappingtable.EntityData.YFilter = cpwvcpeermappingtable.YFilter
-    cpwvcpeermappingtable.EntityData.YangName = "cpwVcPeerMappingTable"
-    cpwvcpeermappingtable.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcpeermappingtable.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
-    cpwvcpeermappingtable.EntityData.SegmentPath = "cpwVcPeerMappingTable"
-    cpwvcpeermappingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcpeermappingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcpeermappingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcPeerMappingTable *CISCOIETFPWMIB_CpwVcPeerMappingTable) GetEntityData() *types.CommonEntityData {
+    cpwVcPeerMappingTable.EntityData.YFilter = cpwVcPeerMappingTable.YFilter
+    cpwVcPeerMappingTable.EntityData.YangName = "cpwVcPeerMappingTable"
+    cpwVcPeerMappingTable.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcPeerMappingTable.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
+    cpwVcPeerMappingTable.EntityData.SegmentPath = "cpwVcPeerMappingTable"
+    cpwVcPeerMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcPeerMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcPeerMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcpeermappingtable.EntityData.Children = make(map[string]types.YChild)
-    cpwvcpeermappingtable.EntityData.Children["cpwVcPeerMappingEntry"] = types.YChild{"Cpwvcpeermappingentry", nil}
-    for i := range cpwvcpeermappingtable.Cpwvcpeermappingentry {
-        cpwvcpeermappingtable.EntityData.Children[types.GetSegmentPath(&cpwvcpeermappingtable.Cpwvcpeermappingentry[i])] = types.YChild{"Cpwvcpeermappingentry", &cpwvcpeermappingtable.Cpwvcpeermappingentry[i]}
+    cpwVcPeerMappingTable.EntityData.Children = types.NewOrderedMap()
+    cpwVcPeerMappingTable.EntityData.Children.Append("cpwVcPeerMappingEntry", types.YChild{"CpwVcPeerMappingEntry", nil})
+    for i := range cpwVcPeerMappingTable.CpwVcPeerMappingEntry {
+        cpwVcPeerMappingTable.EntityData.Children.Append(types.GetSegmentPath(cpwVcPeerMappingTable.CpwVcPeerMappingEntry[i]), types.YChild{"CpwVcPeerMappingEntry", cpwVcPeerMappingTable.CpwVcPeerMappingEntry[i]})
     }
-    cpwvcpeermappingtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cpwvcpeermappingtable.EntityData)
+    cpwVcPeerMappingTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cpwVcPeerMappingTable.EntityData.YListKeys = []string {}
+
+    return &(cpwVcPeerMappingTable.EntityData)
 }
 
-// CISCOIETFPWMIB_Cpwvcpeermappingtable_Cpwvcpeermappingentry
+// CISCOIETFPWMIB_CpwVcPeerMappingTable_CpwVcPeerMappingEntry
 // An entry in this table is created by the agent for every  
 // VC configured in cpwVcTable.
-type CISCOIETFPWMIB_Cpwvcpeermappingtable_Cpwvcpeermappingentry struct {
+type CISCOIETFPWMIB_CpwVcPeerMappingTable_CpwVcPeerMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. IP address type of the peer node. The type is
     // InetAddressType.
-    Cpwvcpeermappingpeeraddrtype interface{}
+    CpwVcPeerMappingPeerAddrType interface{}
 
     // This attribute is a key. IP address type of the peer node. The type is
     // string with length: 0..255.
-    Cpwvcpeermappingpeeraddr interface{}
+    CpwVcPeerMappingPeerAddr interface{}
 
     // This attribute is a key. The VC type (indicate the service) of this VC. The
     // type is CpwVcType.
-    Cpwvcpeermappingvctype interface{}
+    CpwVcPeerMappingVcType interface{}
 
     // This attribute is a key. The VC ID of this VC. Zero if the VC is configured
     // manually. The type is interface{} with range: 0..4294967295.
-    Cpwvcpeermappingvcid interface{}
+    CpwVcPeerMappingVcID interface{}
 
     // This attribute is a key. The value that represent the VC in the cpwVcTable.
     // The type is interface{} with range: 0..4294967295.
-    Cpwvcpeermappingvcindex interface{}
+    CpwVcPeerMappingVcIndex interface{}
 }
 
-func (cpwvcpeermappingentry *CISCOIETFPWMIB_Cpwvcpeermappingtable_Cpwvcpeermappingentry) GetEntityData() *types.CommonEntityData {
-    cpwvcpeermappingentry.EntityData.YFilter = cpwvcpeermappingentry.YFilter
-    cpwvcpeermappingentry.EntityData.YangName = "cpwVcPeerMappingEntry"
-    cpwvcpeermappingentry.EntityData.BundleName = "cisco_ios_xe"
-    cpwvcpeermappingentry.EntityData.ParentYangName = "cpwVcPeerMappingTable"
-    cpwvcpeermappingentry.EntityData.SegmentPath = "cpwVcPeerMappingEntry" + "[cpwVcPeerMappingPeerAddrType='" + fmt.Sprintf("%v", cpwvcpeermappingentry.Cpwvcpeermappingpeeraddrtype) + "']" + "[cpwVcPeerMappingPeerAddr='" + fmt.Sprintf("%v", cpwvcpeermappingentry.Cpwvcpeermappingpeeraddr) + "']" + "[cpwVcPeerMappingVcType='" + fmt.Sprintf("%v", cpwvcpeermappingentry.Cpwvcpeermappingvctype) + "']" + "[cpwVcPeerMappingVcID='" + fmt.Sprintf("%v", cpwvcpeermappingentry.Cpwvcpeermappingvcid) + "']" + "[cpwVcPeerMappingVcIndex='" + fmt.Sprintf("%v", cpwvcpeermappingentry.Cpwvcpeermappingvcindex) + "']"
-    cpwvcpeermappingentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cpwvcpeermappingentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cpwvcpeermappingentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cpwVcPeerMappingEntry *CISCOIETFPWMIB_CpwVcPeerMappingTable_CpwVcPeerMappingEntry) GetEntityData() *types.CommonEntityData {
+    cpwVcPeerMappingEntry.EntityData.YFilter = cpwVcPeerMappingEntry.YFilter
+    cpwVcPeerMappingEntry.EntityData.YangName = "cpwVcPeerMappingEntry"
+    cpwVcPeerMappingEntry.EntityData.BundleName = "cisco_ios_xe"
+    cpwVcPeerMappingEntry.EntityData.ParentYangName = "cpwVcPeerMappingTable"
+    cpwVcPeerMappingEntry.EntityData.SegmentPath = "cpwVcPeerMappingEntry" + types.AddKeyToken(cpwVcPeerMappingEntry.CpwVcPeerMappingPeerAddrType, "cpwVcPeerMappingPeerAddrType") + types.AddKeyToken(cpwVcPeerMappingEntry.CpwVcPeerMappingPeerAddr, "cpwVcPeerMappingPeerAddr") + types.AddKeyToken(cpwVcPeerMappingEntry.CpwVcPeerMappingVcType, "cpwVcPeerMappingVcType") + types.AddKeyToken(cpwVcPeerMappingEntry.CpwVcPeerMappingVcID, "cpwVcPeerMappingVcID") + types.AddKeyToken(cpwVcPeerMappingEntry.CpwVcPeerMappingVcIndex, "cpwVcPeerMappingVcIndex")
+    cpwVcPeerMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwVcPeerMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwVcPeerMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cpwvcpeermappingentry.EntityData.Children = make(map[string]types.YChild)
-    cpwvcpeermappingentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cpwvcpeermappingentry.EntityData.Leafs["cpwVcPeerMappingPeerAddrType"] = types.YLeaf{"Cpwvcpeermappingpeeraddrtype", cpwvcpeermappingentry.Cpwvcpeermappingpeeraddrtype}
-    cpwvcpeermappingentry.EntityData.Leafs["cpwVcPeerMappingPeerAddr"] = types.YLeaf{"Cpwvcpeermappingpeeraddr", cpwvcpeermappingentry.Cpwvcpeermappingpeeraddr}
-    cpwvcpeermappingentry.EntityData.Leafs["cpwVcPeerMappingVcType"] = types.YLeaf{"Cpwvcpeermappingvctype", cpwvcpeermappingentry.Cpwvcpeermappingvctype}
-    cpwvcpeermappingentry.EntityData.Leafs["cpwVcPeerMappingVcID"] = types.YLeaf{"Cpwvcpeermappingvcid", cpwvcpeermappingentry.Cpwvcpeermappingvcid}
-    cpwvcpeermappingentry.EntityData.Leafs["cpwVcPeerMappingVcIndex"] = types.YLeaf{"Cpwvcpeermappingvcindex", cpwvcpeermappingentry.Cpwvcpeermappingvcindex}
-    return &(cpwvcpeermappingentry.EntityData)
+    cpwVcPeerMappingEntry.EntityData.Children = types.NewOrderedMap()
+    cpwVcPeerMappingEntry.EntityData.Leafs = types.NewOrderedMap()
+    cpwVcPeerMappingEntry.EntityData.Leafs.Append("cpwVcPeerMappingPeerAddrType", types.YLeaf{"CpwVcPeerMappingPeerAddrType", cpwVcPeerMappingEntry.CpwVcPeerMappingPeerAddrType})
+    cpwVcPeerMappingEntry.EntityData.Leafs.Append("cpwVcPeerMappingPeerAddr", types.YLeaf{"CpwVcPeerMappingPeerAddr", cpwVcPeerMappingEntry.CpwVcPeerMappingPeerAddr})
+    cpwVcPeerMappingEntry.EntityData.Leafs.Append("cpwVcPeerMappingVcType", types.YLeaf{"CpwVcPeerMappingVcType", cpwVcPeerMappingEntry.CpwVcPeerMappingVcType})
+    cpwVcPeerMappingEntry.EntityData.Leafs.Append("cpwVcPeerMappingVcID", types.YLeaf{"CpwVcPeerMappingVcID", cpwVcPeerMappingEntry.CpwVcPeerMappingVcID})
+    cpwVcPeerMappingEntry.EntityData.Leafs.Append("cpwVcPeerMappingVcIndex", types.YLeaf{"CpwVcPeerMappingVcIndex", cpwVcPeerMappingEntry.CpwVcPeerMappingVcIndex})
+
+    cpwVcPeerMappingEntry.EntityData.YListKeys = []string {"CpwVcPeerMappingPeerAddrType", "CpwVcPeerMappingPeerAddr", "CpwVcPeerMappingVcType", "CpwVcPeerMappingVcID", "CpwVcPeerMappingVcIndex"}
+
+    return &(cpwVcPeerMappingEntry.EntityData)
 }
 

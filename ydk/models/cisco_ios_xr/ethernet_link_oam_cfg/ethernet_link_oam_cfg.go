@@ -20,21 +20,54 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package ethernet_link_oam_cfg"))
 }
 
-// EtherLinkOamThresholdWindowMultiplierEnum represents Ether link oam threshold window multiplier enum
-type EtherLinkOamThresholdWindowMultiplierEnum string
+// EtherLinkOamEventActionEnum represents Ether link oam event action enum
+type EtherLinkOamEventActionEnum string
 
 const (
-    // Do not use a multiplier
-    EtherLinkOamThresholdWindowMultiplierEnum_none EtherLinkOamThresholdWindowMultiplierEnum = "none"
+    // Perform no action
+    EtherLinkOamEventActionEnum_disable EtherLinkOamEventActionEnum = "disable"
 
-    // Use multiplier of 1000
-    EtherLinkOamThresholdWindowMultiplierEnum_thousand EtherLinkOamThresholdWindowMultiplierEnum = "thousand"
+    // Disable the interface
+    EtherLinkOamEventActionEnum_error_disable EtherLinkOamEventActionEnum = "error-disable"
 
-    // Use multiplier of 1,000,000
-    EtherLinkOamThresholdWindowMultiplierEnum_million EtherLinkOamThresholdWindowMultiplierEnum = "million"
+    // Log the event
+    EtherLinkOamEventActionEnum_log EtherLinkOamEventActionEnum = "log"
+)
 
-    // Use multiplier of 1,000,000,000
-    EtherLinkOamThresholdWindowMultiplierEnum_billion EtherLinkOamThresholdWindowMultiplierEnum = "billion"
+// EtherLinkOamEventActionPrimEnum represents Ether link oam event action prim enum
+type EtherLinkOamEventActionPrimEnum string
+
+const (
+    // Perform no action
+    EtherLinkOamEventActionPrimEnum_disable EtherLinkOamEventActionPrimEnum = "disable"
+
+    // Log the event
+    EtherLinkOamEventActionPrimEnum_log EtherLinkOamEventActionPrimEnum = "log"
+)
+
+// EtherLinkOamRequireModeEnum represents Ether link oam require mode enum
+type EtherLinkOamRequireModeEnum string
+
+const (
+    // Ethernet Link OAM Passive mode
+    EtherLinkOamRequireModeEnum_passive EtherLinkOamRequireModeEnum = "passive"
+
+    // Ethernet Link OAM Active mode
+    EtherLinkOamRequireModeEnum_active EtherLinkOamRequireModeEnum = "active"
+
+    // Ethernet Link OAM mode not required
+    EtherLinkOamRequireModeEnum_dont_care EtherLinkOamRequireModeEnum = "dont-care"
+)
+
+// EtherLinkOamWindowUnitsSymbolsEnum represents Ether link oam window units symbols enum
+type EtherLinkOamWindowUnitsSymbolsEnum string
+
+const (
+    // Define window in milliseconds
+    EtherLinkOamWindowUnitsSymbolsEnum_milliseconds EtherLinkOamWindowUnitsSymbolsEnum = "milliseconds"
+
+    // Define window in symbols
+    EtherLinkOamWindowUnitsSymbolsEnum_symbols EtherLinkOamWindowUnitsSymbolsEnum = "symbols"
 )
 
 // EtherLinkOamThresholdUnitsFramesEnum represents Ether link oam threshold units frames enum
@@ -59,40 +92,26 @@ const (
     EtherLinkOamThresholdUnitsSymbolsEnum_ppm EtherLinkOamThresholdUnitsSymbolsEnum = "ppm"
 )
 
-// EtherLinkOamWindowUnitsSymbolsEnum represents Ether link oam window units symbols enum
-type EtherLinkOamWindowUnitsSymbolsEnum string
+// EtherLinkOamHelloIntervalEnum represents Ether link oam hello interval enum
+type EtherLinkOamHelloIntervalEnum string
 
 const (
-    // Define window in milliseconds
-    EtherLinkOamWindowUnitsSymbolsEnum_milliseconds EtherLinkOamWindowUnitsSymbolsEnum = "milliseconds"
+    // 1 s OAM hello interval
+    EtherLinkOamHelloIntervalEnum_Y_1s EtherLinkOamHelloIntervalEnum = "1s"
 
-    // Define window in symbols
-    EtherLinkOamWindowUnitsSymbolsEnum_symbols EtherLinkOamWindowUnitsSymbolsEnum = "symbols"
+    // 100 ms OAM hello interval
+    EtherLinkOamHelloIntervalEnum_Y_100ms EtherLinkOamHelloIntervalEnum = "100ms"
 )
 
-// EtherLinkOamWindowUnitsFramesEnum represents Ether link oam window units frames enum
-type EtherLinkOamWindowUnitsFramesEnum string
-
-const (
-    // Define window in milliseconds
-    EtherLinkOamWindowUnitsFramesEnum_milliseconds EtherLinkOamWindowUnitsFramesEnum = "milliseconds"
-
-    // Define window in frames
-    EtherLinkOamWindowUnitsFramesEnum_frames EtherLinkOamWindowUnitsFramesEnum = "frames"
-)
-
-// EtherLinkOamRequireModeEnum represents Ether link oam require mode enum
-type EtherLinkOamRequireModeEnum string
+// EtherLinkOamModeEnum represents Ether link oam mode enum
+type EtherLinkOamModeEnum string
 
 const (
     // Ethernet Link OAM Passive mode
-    EtherLinkOamRequireModeEnum_passive EtherLinkOamRequireModeEnum = "passive"
+    EtherLinkOamModeEnum_passive EtherLinkOamModeEnum = "passive"
 
     // Ethernet Link OAM Active mode
-    EtherLinkOamRequireModeEnum_active EtherLinkOamRequireModeEnum = "active"
-
-    // Ethernet Link OAM mode not required
-    EtherLinkOamRequireModeEnum_dont_care EtherLinkOamRequireModeEnum = "dont-care"
+    EtherLinkOamModeEnum_active EtherLinkOamModeEnum = "active"
 )
 
 // EtherLinkOamEventActionEnumEfd represents Ether link oam event action enum efd
@@ -112,50 +131,31 @@ const (
     EtherLinkOamEventActionEnumEfd_efd EtherLinkOamEventActionEnumEfd = "efd"
 )
 
-// EtherLinkOamEventActionPrimEnum represents Ether link oam event action prim enum
-type EtherLinkOamEventActionPrimEnum string
+// EtherLinkOamWindowUnitsFramesEnum represents Ether link oam window units frames enum
+type EtherLinkOamWindowUnitsFramesEnum string
 
 const (
-    // Perform no action
-    EtherLinkOamEventActionPrimEnum_disable EtherLinkOamEventActionPrimEnum = "disable"
+    // Define window in milliseconds
+    EtherLinkOamWindowUnitsFramesEnum_milliseconds EtherLinkOamWindowUnitsFramesEnum = "milliseconds"
 
-    // Log the event
-    EtherLinkOamEventActionPrimEnum_log EtherLinkOamEventActionPrimEnum = "log"
+    // Define window in frames
+    EtherLinkOamWindowUnitsFramesEnum_frames EtherLinkOamWindowUnitsFramesEnum = "frames"
 )
 
-// EtherLinkOamModeEnum represents Ether link oam mode enum
-type EtherLinkOamModeEnum string
+// EtherLinkOamThresholdWindowMultiplierEnum represents Ether link oam threshold window multiplier enum
+type EtherLinkOamThresholdWindowMultiplierEnum string
 
 const (
-    // Ethernet Link OAM Passive mode
-    EtherLinkOamModeEnum_passive EtherLinkOamModeEnum = "passive"
+    // Do not use a multiplier
+    EtherLinkOamThresholdWindowMultiplierEnum_none EtherLinkOamThresholdWindowMultiplierEnum = "none"
 
-    // Ethernet Link OAM Active mode
-    EtherLinkOamModeEnum_active EtherLinkOamModeEnum = "active"
-)
+    // Use multiplier of 1000
+    EtherLinkOamThresholdWindowMultiplierEnum_thousand EtherLinkOamThresholdWindowMultiplierEnum = "thousand"
 
-// EtherLinkOamEventActionEnum represents Ether link oam event action enum
-type EtherLinkOamEventActionEnum string
+    // Use multiplier of 1,000,000
+    EtherLinkOamThresholdWindowMultiplierEnum_million EtherLinkOamThresholdWindowMultiplierEnum = "million"
 
-const (
-    // Perform no action
-    EtherLinkOamEventActionEnum_disable EtherLinkOamEventActionEnum = "disable"
-
-    // Disable the interface
-    EtherLinkOamEventActionEnum_error_disable EtherLinkOamEventActionEnum = "error-disable"
-
-    // Log the event
-    EtherLinkOamEventActionEnum_log EtherLinkOamEventActionEnum = "log"
-)
-
-// EtherLinkOamHelloIntervalEnum represents Ether link oam hello interval enum
-type EtherLinkOamHelloIntervalEnum string
-
-const (
-    // 1 s OAM hello interval
-    EtherLinkOamHelloIntervalEnum_Y_1s EtherLinkOamHelloIntervalEnum = "1s"
-
-    // 100 ms OAM hello interval
-    EtherLinkOamHelloIntervalEnum_Y_100ms EtherLinkOamHelloIntervalEnum = "100ms"
+    // Use multiplier of 1,000,000,000
+    EtherLinkOamThresholdWindowMultiplierEnum_billion EtherLinkOamThresholdWindowMultiplierEnum = "billion"
 )
 

@@ -3,7 +3,7 @@ module Cisco-IOS-XR-infra-alarm-logger-oper {
   prefix infra-alarm-logger-oper;
 
   include Cisco-IOS-XR-infra-alarm-logger-oper-sub1 {
-    revision-date 2015-01-07;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -29,6 +29,10 @@ module Cisco-IOS-XR-infra-alarm-logger-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-01-07 {
     description
       "IOS XR 5.3.1 revision.";
@@ -53,7 +57,7 @@ module Cisco-IOS-XR-infra-alarm-logger-oper {
         description
           "One of the logged alarms";
         leaf event-id {
-          type int32;
+          type uint32;
           description
             "Event ID";
         }

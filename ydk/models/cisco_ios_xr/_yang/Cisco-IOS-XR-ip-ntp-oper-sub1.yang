@@ -314,6 +314,11 @@ submodule Cisco-IOS-XR-ip-ntp-oper-sub1 {
       description
         "Last Update";
     }
+    leaf is-auth-enabled {
+      type boolean;
+      description
+        "Is NTP Authenticate enabled";
+    }
   }
 
   grouping FILTER-DETAILS {

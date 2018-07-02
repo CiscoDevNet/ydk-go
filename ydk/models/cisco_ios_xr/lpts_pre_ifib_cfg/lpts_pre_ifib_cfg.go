@@ -19,17 +19,6 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package lpts_pre_ifib_cfg"))
 }
 
-// LptsDynamicFlowConfig represents Lpts dynamic flow config
-type LptsDynamicFlowConfig string
-
-const (
-    // LPTS Flows Limit
-    LptsDynamicFlowConfig_flows_config LptsDynamicFlowConfig = "flows-config"
-
-    // Platform Limit
-    LptsDynamicFlowConfig_platform_config LptsDynamicFlowConfig = "platform-config"
-)
-
 // LptsPreIFibPrecedenceNumber represents Lpts pre i fib precedence number
 type LptsPreIFibPrecedenceNumber string
 
@@ -58,6 +47,17 @@ const (
 
     // Match packets with routine precedence
     LptsPreIFibPrecedenceNumber_routine LptsPreIFibPrecedenceNumber = "routine"
+)
+
+// Lptsafi represents Lptsafi
+type Lptsafi string
+
+const (
+    // IPv4 type
+    Lptsafi_ipv4 Lptsafi = "ipv4"
+
+    // IPv6 type
+    Lptsafi_ipv6 Lptsafi = "ipv6"
 )
 
 // LptsFlow represents Lpts flow
@@ -394,5 +394,16 @@ const (
 
     // Platform Limit.
     LptsFlow_platform_limit LptsFlow = "platform-limit"
+)
+
+// LptsDynamicFlowConfig represents Lpts dynamic flow config
+type LptsDynamicFlowConfig string
+
+const (
+    // LPTS Flows Limit
+    LptsDynamicFlowConfig_flows_config LptsDynamicFlowConfig = "flows-config"
+
+    // Platform Limit
+    LptsDynamicFlowConfig_platform_config LptsDynamicFlowConfig = "platform-config"
 )
 

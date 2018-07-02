@@ -20,130 +20,9 @@ import (
 
 func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package upgrade_fpd_oper"))
-    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-upgrade-fpd-oper fpd}", reflect.TypeOf(Fpd_{}))
-    ydk.RegisterEntity("Cisco-IOS-XR-upgrade-fpd-oper:fpd", reflect.TypeOf(Fpd_{}))
+    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-upgrade-fpd-oper fpd}", reflect.TypeOf(Fpd{}))
+    ydk.RegisterEntity("Cisco-IOS-XR-upgrade-fpd-oper:fpd", reflect.TypeOf(Fpd{}))
 }
-
-// FpdSub represents Fpd sub
-type FpdSub string
-
-const (
-    // FPGA device
-    FpdSub_fpga1 FpdSub = "fpga1"
-
-    // ROMMON device
-    FpdSub_rommon FpdSub = "rommon"
-
-    // ROMMON device #A
-    FpdSub_rommona FpdSub = "rommona"
-
-    // Fabric loader
-    FpdSub_fabldr FpdSub = "fabldr"
-
-    // FPGA device #2
-    FpdSub_fpga2 FpdSub = "fpga2"
-
-    // FPGA device #3
-    FpdSub_fpga3 FpdSub = "fpga3"
-
-    // FPGA device #4
-    FpdSub_fpga4 FpdSub = "fpga4"
-
-    // FPGA device #5
-    FpdSub_fpga5 FpdSub = "fpga5"
-
-    // FPGA device #6
-    FpdSub_fpga6 FpdSub = "fpga6"
-
-    // FPGA device #7
-    FpdSub_fpga7 FpdSub = "fpga7"
-
-    // FPGA device #8
-    FpdSub_fpga8 FpdSub = "fpga8"
-
-    // FPGA device #9
-    FpdSub_fpga9 FpdSub = "fpga9"
-
-    // FPGA device #10
-    FpdSub_fpga10 FpdSub = "fpga10"
-
-    // FPGA device #11
-    FpdSub_fpga11 FpdSub = "fpga11"
-
-    // FPGA device #12
-    FpdSub_fpga12 FpdSub = "fpga12"
-
-    // FPGA device #13
-    FpdSub_fpga13 FpdSub = "fpga13"
-
-    // FPGA device #14
-    FpdSub_fpga14 FpdSub = "fpga14"
-
-    // CPLD device #1
-    FpdSub_cpld1 FpdSub = "cpld1"
-
-    // CPLD device #2
-    FpdSub_cpld2 FpdSub = "cpld2"
-
-    // CPLD device #3
-    FpdSub_cpld3 FpdSub = "cpld3"
-
-    // CPLD device #4
-    FpdSub_cpld4 FpdSub = "cpld4"
-
-    // CPLD device #5
-    FpdSub_cpld5 FpdSub = "cpld5"
-
-    // CPLD device #6
-    FpdSub_cpld6 FpdSub = "cpld6"
-
-    // Can bus controller
-    FpdSub_cbc FpdSub = "cbc"
-
-    // HSBI image
-    FpdSub_hsbi FpdSub = "hsbi"
-
-    // Fabric Tx POD
-    FpdSub_txpod FpdSub = "txpod"
-
-    // Fabric Rx POD
-    FpdSub_rxpod FpdSub = "rxpod"
-
-    // IBMC
-    FpdSub_ibmc FpdSub = "ibmc"
-
-    // FSBL
-    FpdSub_fsbl FpdSub = "fsbl"
-
-    // Linux firmware
-    FpdSub_lnx FpdSub = "lnx"
-
-    // FPGA device #15
-    FpdSub_fpga15 FpdSub = "fpga15"
-
-    // FPGA device #16
-    FpdSub_fpga16 FpdSub = "fpga16"
-
-    // FC FSBL
-    FpdSub_fc_fsbl FpdSub = "fc-fsbl"
-
-    // FC linux firmware
-    FpdSub_fc_lnx FpdSub = "fc-lnx"
-)
-
-// Fpd represents Fpd
-type Fpd string
-
-const (
-    // SPA class of fpd
-    Fpd_spa Fpd = "spa"
-
-    // Linecard class of fpd
-    Fpd_lc Fpd = "lc"
-
-    // SAM class of fpd
-    Fpd_sam Fpd = "sam"
-)
 
 // FpdSub1 represents FPD sub types
 type FpdSub1 string
@@ -252,6 +131,20 @@ const (
     FpdSub1_fc_lnx FpdSub1 = "fc-lnx"
 )
 
+// Fpd represents Fpd
+type Fpd string
+
+const (
+    // SPA class of fpd
+    Fpd_spa Fpd = "spa"
+
+    // Linecard class of fpd
+    Fpd_lc Fpd = "lc"
+
+    // SAM class of fpd
+    Fpd_sam Fpd = "sam"
+)
+
 // Fpd1 represents FPD types
 type Fpd1 string
 
@@ -266,47 +159,157 @@ const (
     Fpd1_sam Fpd1 = "sam"
 )
 
-// Fpd_
+// FpdSub represents Fpd sub
+type FpdSub string
+
+const (
+    // FPGA device
+    FpdSub_fpga1 FpdSub = "fpga1"
+
+    // ROMMON device
+    FpdSub_rommon FpdSub = "rommon"
+
+    // ROMMON device #A
+    FpdSub_rommona FpdSub = "rommona"
+
+    // Fabric loader
+    FpdSub_fabldr FpdSub = "fabldr"
+
+    // FPGA device #2
+    FpdSub_fpga2 FpdSub = "fpga2"
+
+    // FPGA device #3
+    FpdSub_fpga3 FpdSub = "fpga3"
+
+    // FPGA device #4
+    FpdSub_fpga4 FpdSub = "fpga4"
+
+    // FPGA device #5
+    FpdSub_fpga5 FpdSub = "fpga5"
+
+    // FPGA device #6
+    FpdSub_fpga6 FpdSub = "fpga6"
+
+    // FPGA device #7
+    FpdSub_fpga7 FpdSub = "fpga7"
+
+    // FPGA device #8
+    FpdSub_fpga8 FpdSub = "fpga8"
+
+    // FPGA device #9
+    FpdSub_fpga9 FpdSub = "fpga9"
+
+    // FPGA device #10
+    FpdSub_fpga10 FpdSub = "fpga10"
+
+    // FPGA device #11
+    FpdSub_fpga11 FpdSub = "fpga11"
+
+    // FPGA device #12
+    FpdSub_fpga12 FpdSub = "fpga12"
+
+    // FPGA device #13
+    FpdSub_fpga13 FpdSub = "fpga13"
+
+    // FPGA device #14
+    FpdSub_fpga14 FpdSub = "fpga14"
+
+    // CPLD device #1
+    FpdSub_cpld1 FpdSub = "cpld1"
+
+    // CPLD device #2
+    FpdSub_cpld2 FpdSub = "cpld2"
+
+    // CPLD device #3
+    FpdSub_cpld3 FpdSub = "cpld3"
+
+    // CPLD device #4
+    FpdSub_cpld4 FpdSub = "cpld4"
+
+    // CPLD device #5
+    FpdSub_cpld5 FpdSub = "cpld5"
+
+    // CPLD device #6
+    FpdSub_cpld6 FpdSub = "cpld6"
+
+    // Can bus controller
+    FpdSub_cbc FpdSub = "cbc"
+
+    // HSBI image
+    FpdSub_hsbi FpdSub = "hsbi"
+
+    // Fabric Tx POD
+    FpdSub_txpod FpdSub = "txpod"
+
+    // Fabric Rx POD
+    FpdSub_rxpod FpdSub = "rxpod"
+
+    // IBMC
+    FpdSub_ibmc FpdSub = "ibmc"
+
+    // FSBL
+    FpdSub_fsbl FpdSub = "fsbl"
+
+    // Linux firmware
+    FpdSub_lnx FpdSub = "lnx"
+
+    // FPGA device #15
+    FpdSub_fpga15 FpdSub = "fpga15"
+
+    // FPGA device #16
+    FpdSub_fpga16 FpdSub = "fpga16"
+
+    // FC FSBL
+    FpdSub_fc_fsbl FpdSub = "fc-fsbl"
+
+    // FC linux firmware
+    FpdSub_fc_lnx FpdSub = "fc-lnx"
+)
+
+// Fpd
 // Field programmable device (FPD) operational data
-type Fpd_ struct {
+type Fpd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of FPD supported nodes.
-    Nodes Fpd__Nodes
+    Nodes Fpd_Nodes
 
     // FPD packages information.
-    Packages Fpd__Packages
+    Packages Fpd_Packages
 }
 
-func (fpd_ *Fpd_) GetEntityData() *types.CommonEntityData {
-    fpd_.EntityData.YFilter = fpd_.YFilter
-    fpd_.EntityData.YangName = "fpd"
-    fpd_.EntityData.BundleName = "cisco_ios_xr"
-    fpd_.EntityData.ParentYangName = "Cisco-IOS-XR-upgrade-fpd-oper"
-    fpd_.EntityData.SegmentPath = "Cisco-IOS-XR-upgrade-fpd-oper:fpd"
-    fpd_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    fpd_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    fpd_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (fpd *Fpd) GetEntityData() *types.CommonEntityData {
+    fpd.EntityData.YFilter = fpd.YFilter
+    fpd.EntityData.YangName = "fpd"
+    fpd.EntityData.BundleName = "cisco_ios_xr"
+    fpd.EntityData.ParentYangName = "Cisco-IOS-XR-upgrade-fpd-oper"
+    fpd.EntityData.SegmentPath = "Cisco-IOS-XR-upgrade-fpd-oper:fpd"
+    fpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fpd_.EntityData.Children = make(map[string]types.YChild)
-    fpd_.EntityData.Children["nodes"] = types.YChild{"Nodes", &fpd_.Nodes}
-    fpd_.EntityData.Children["packages"] = types.YChild{"Packages", &fpd_.Packages}
-    fpd_.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(fpd_.EntityData)
+    fpd.EntityData.Children = types.NewOrderedMap()
+    fpd.EntityData.Children.Append("nodes", types.YChild{"Nodes", &fpd.Nodes})
+    fpd.EntityData.Children.Append("packages", types.YChild{"Packages", &fpd.Packages})
+    fpd.EntityData.Leafs = types.NewOrderedMap()
+
+    fpd.EntityData.YListKeys = []string {}
+
+    return &(fpd.EntityData)
 }
 
-// Fpd__Nodes
+// Fpd_Nodes
 // List of FPD supported nodes
-type Fpd__Nodes struct {
+type Fpd_Nodes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Information about a particular node. The type is slice of Fpd__Nodes_Node.
-    Node []Fpd__Nodes_Node
+    // Information about a particular node. The type is slice of Fpd_Nodes_Node.
+    Node []*Fpd_Nodes_Node
 }
 
-func (nodes *Fpd__Nodes) GetEntityData() *types.CommonEntityData {
+func (nodes *Fpd_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.YFilter = nodes.YFilter
     nodes.EntityData.YangName = "nodes"
     nodes.EntityData.BundleName = "cisco_ios_xr"
@@ -316,58 +319,64 @@ func (nodes *Fpd__Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
-// Fpd__Nodes_Node
+// Fpd_Nodes_Node
 // Information about a particular node
-type Fpd__Nodes_Node struct {
+type Fpd_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // FPD information table.
-    Devices Fpd__Nodes_Node_Devices
+    Devices Fpd_Nodes_Node_Devices
 }
 
-func (node *Fpd__Nodes_Node) GetEntityData() *types.CommonEntityData {
+func (node *Fpd_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YFilter = node.YFilter
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["devices"] = types.YChild{"Devices", &node.Devices}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("devices", types.YChild{"Devices", &node.Devices})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
-// Fpd__Nodes_Node_Devices
+// Fpd_Nodes_Node_Devices
 // FPD information table
-type Fpd__Nodes_Node_Devices struct {
+type Fpd_Nodes_Node_Devices struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // FPD information for a particular fpd type. The type is slice of
-    // Fpd__Nodes_Node_Devices_Device.
-    Device []Fpd__Nodes_Node_Devices_Device
+    // Fpd_Nodes_Node_Devices_Device.
+    Device []*Fpd_Nodes_Node_Devices_Device
 }
 
-func (devices *Fpd__Nodes_Node_Devices) GetEntityData() *types.CommonEntityData {
+func (devices *Fpd_Nodes_Node_Devices) GetEntityData() *types.CommonEntityData {
     devices.EntityData.YFilter = devices.YFilter
     devices.EntityData.YangName = "devices"
     devices.EntityData.BundleName = "cisco_ios_xr"
@@ -377,25 +386,28 @@ func (devices *Fpd__Nodes_Node_Devices) GetEntityData() *types.CommonEntityData 
     devices.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     devices.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    devices.EntityData.Children = make(map[string]types.YChild)
-    devices.EntityData.Children["device"] = types.YChild{"Device", nil}
+    devices.EntityData.Children = types.NewOrderedMap()
+    devices.EntityData.Children.Append("device", types.YChild{"Device", nil})
     for i := range devices.Device {
-        devices.EntityData.Children[types.GetSegmentPath(&devices.Device[i])] = types.YChild{"Device", &devices.Device[i]}
+        devices.EntityData.Children.Append(types.GetSegmentPath(devices.Device[i]), types.YChild{"Device", devices.Device[i]})
     }
-    devices.EntityData.Leafs = make(map[string]types.YLeaf)
+    devices.EntityData.Leafs = types.NewOrderedMap()
+
+    devices.EntityData.YListKeys = []string {}
+
     return &(devices.EntityData)
 }
 
-// Fpd__Nodes_Node_Devices_Device
+// Fpd_Nodes_Node_Devices_Device
 // FPD information for a particular fpd type
-type Fpd__Nodes_Node_Devices_Device struct {
+type Fpd_Nodes_Node_Devices_Device struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // FPD type. The type is Fpd.
     FpdType interface{}
 
-    // Instance. The type is interface{} with range: -2147483648..2147483647.
+    // Instance. The type is interface{} with range: 0..4294967295.
     Instance interface{}
 
     // FPD sub type. The type is FpdSub.
@@ -417,7 +429,7 @@ type Fpd__Nodes_Node_Devices_Device struct {
     IsUpgradeDowngrade interface{}
 }
 
-func (device *Fpd__Nodes_Node_Devices_Device) GetEntityData() *types.CommonEntityData {
+func (device *Fpd_Nodes_Node_Devices_Device) GetEntityData() *types.CommonEntityData {
     device.EntityData.YFilter = device.YFilter
     device.EntityData.YangName = "device"
     device.EntityData.BundleName = "cisco_ios_xr"
@@ -427,29 +439,32 @@ func (device *Fpd__Nodes_Node_Devices_Device) GetEntityData() *types.CommonEntit
     device.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     device.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    device.EntityData.Children = make(map[string]types.YChild)
-    device.EntityData.Leafs = make(map[string]types.YLeaf)
-    device.EntityData.Leafs["fpd-type"] = types.YLeaf{"FpdType", device.FpdType}
-    device.EntityData.Leafs["instance"] = types.YLeaf{"Instance", device.Instance}
-    device.EntityData.Leafs["sub-type"] = types.YLeaf{"SubType", device.SubType}
-    device.EntityData.Leafs["card-type"] = types.YLeaf{"CardType", device.CardType}
-    device.EntityData.Leafs["hardware-version"] = types.YLeaf{"HardwareVersion", device.HardwareVersion}
-    device.EntityData.Leafs["software-version"] = types.YLeaf{"SoftwareVersion", device.SoftwareVersion}
-    device.EntityData.Leafs["is-upgrade-downgrade"] = types.YLeaf{"IsUpgradeDowngrade", device.IsUpgradeDowngrade}
+    device.EntityData.Children = types.NewOrderedMap()
+    device.EntityData.Leafs = types.NewOrderedMap()
+    device.EntityData.Leafs.Append("fpd-type", types.YLeaf{"FpdType", device.FpdType})
+    device.EntityData.Leafs.Append("instance", types.YLeaf{"Instance", device.Instance})
+    device.EntityData.Leafs.Append("sub-type", types.YLeaf{"SubType", device.SubType})
+    device.EntityData.Leafs.Append("card-type", types.YLeaf{"CardType", device.CardType})
+    device.EntityData.Leafs.Append("hardware-version", types.YLeaf{"HardwareVersion", device.HardwareVersion})
+    device.EntityData.Leafs.Append("software-version", types.YLeaf{"SoftwareVersion", device.SoftwareVersion})
+    device.EntityData.Leafs.Append("is-upgrade-downgrade", types.YLeaf{"IsUpgradeDowngrade", device.IsUpgradeDowngrade})
+
+    device.EntityData.YListKeys = []string {}
+
     return &(device.EntityData)
 }
 
-// Fpd__Packages
+// Fpd_Packages
 // FPD packages information
-type Fpd__Packages struct {
+type Fpd_Packages struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // List of packages. The type is slice of Fpd__Packages_AllPackage.
-    AllPackage []Fpd__Packages_AllPackage
+    // List of packages. The type is slice of Fpd_Packages_AllPackage.
+    AllPackage []*Fpd_Packages_AllPackage
 }
 
-func (packages *Fpd__Packages) GetEntityData() *types.CommonEntityData {
+func (packages *Fpd_Packages) GetEntityData() *types.CommonEntityData {
     packages.EntityData.YFilter = packages.YFilter
     packages.EntityData.YangName = "packages"
     packages.EntityData.BundleName = "cisco_ios_xr"
@@ -459,18 +474,21 @@ func (packages *Fpd__Packages) GetEntityData() *types.CommonEntityData {
     packages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    packages.EntityData.Children = make(map[string]types.YChild)
-    packages.EntityData.Children["all-package"] = types.YChild{"AllPackage", nil}
+    packages.EntityData.Children = types.NewOrderedMap()
+    packages.EntityData.Children.Append("all-package", types.YChild{"AllPackage", nil})
     for i := range packages.AllPackage {
-        packages.EntityData.Children[types.GetSegmentPath(&packages.AllPackage[i])] = types.YChild{"AllPackage", &packages.AllPackage[i]}
+        packages.EntityData.Children.Append(types.GetSegmentPath(packages.AllPackage[i]), types.YChild{"AllPackage", packages.AllPackage[i]})
     }
-    packages.EntityData.Leafs = make(map[string]types.YLeaf)
+    packages.EntityData.Leafs = types.NewOrderedMap()
+
+    packages.EntityData.YListKeys = []string {}
+
     return &(packages.EntityData)
 }
 
-// Fpd__Packages_AllPackage
+// Fpd_Packages_AllPackage
 // List of packages
-type Fpd__Packages_AllPackage struct {
+type Fpd_Packages_AllPackage struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -501,7 +519,7 @@ type Fpd__Packages_AllPackage struct {
     MinimumRequiredHardwareVersion interface{}
 }
 
-func (allPackage *Fpd__Packages_AllPackage) GetEntityData() *types.CommonEntityData {
+func (allPackage *Fpd_Packages_AllPackage) GetEntityData() *types.CommonEntityData {
     allPackage.EntityData.YFilter = allPackage.YFilter
     allPackage.EntityData.YangName = "all-package"
     allPackage.EntityData.BundleName = "cisco_ios_xr"
@@ -511,15 +529,18 @@ func (allPackage *Fpd__Packages_AllPackage) GetEntityData() *types.CommonEntityD
     allPackage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allPackage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    allPackage.EntityData.Children = make(map[string]types.YChild)
-    allPackage.EntityData.Leafs = make(map[string]types.YLeaf)
-    allPackage.EntityData.Leafs["card-type"] = types.YLeaf{"CardType", allPackage.CardType}
-    allPackage.EntityData.Leafs["card-description"] = types.YLeaf{"CardDescription", allPackage.CardDescription}
-    allPackage.EntityData.Leafs["fpd-type"] = types.YLeaf{"FpdType", allPackage.FpdType}
-    allPackage.EntityData.Leafs["fpd-sub-type"] = types.YLeaf{"FpdSubType", allPackage.FpdSubType}
-    allPackage.EntityData.Leafs["software-version"] = types.YLeaf{"SoftwareVersion", allPackage.SoftwareVersion}
-    allPackage.EntityData.Leafs["minimum-required-software-version"] = types.YLeaf{"MinimumRequiredSoftwareVersion", allPackage.MinimumRequiredSoftwareVersion}
-    allPackage.EntityData.Leafs["minimum-required-hardware-version"] = types.YLeaf{"MinimumRequiredHardwareVersion", allPackage.MinimumRequiredHardwareVersion}
+    allPackage.EntityData.Children = types.NewOrderedMap()
+    allPackage.EntityData.Leafs = types.NewOrderedMap()
+    allPackage.EntityData.Leafs.Append("card-type", types.YLeaf{"CardType", allPackage.CardType})
+    allPackage.EntityData.Leafs.Append("card-description", types.YLeaf{"CardDescription", allPackage.CardDescription})
+    allPackage.EntityData.Leafs.Append("fpd-type", types.YLeaf{"FpdType", allPackage.FpdType})
+    allPackage.EntityData.Leafs.Append("fpd-sub-type", types.YLeaf{"FpdSubType", allPackage.FpdSubType})
+    allPackage.EntityData.Leafs.Append("software-version", types.YLeaf{"SoftwareVersion", allPackage.SoftwareVersion})
+    allPackage.EntityData.Leafs.Append("minimum-required-software-version", types.YLeaf{"MinimumRequiredSoftwareVersion", allPackage.MinimumRequiredSoftwareVersion})
+    allPackage.EntityData.Leafs.Append("minimum-required-hardware-version", types.YLeaf{"MinimumRequiredHardwareVersion", allPackage.MinimumRequiredHardwareVersion})
+
+    allPackage.EntityData.YListKeys = []string {}
+
     return &(allPackage.EntityData)
 }
 

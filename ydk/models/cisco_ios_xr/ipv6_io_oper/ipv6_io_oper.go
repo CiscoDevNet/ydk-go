@@ -44,9 +44,12 @@ func (ipv6Io *Ipv6Io) GetEntityData() *types.CommonEntityData {
     ipv6Io.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Io.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6Io.EntityData.Children = make(map[string]types.YChild)
-    ipv6Io.EntityData.Children["nodes"] = types.YChild{"Nodes", &ipv6Io.Nodes}
-    ipv6Io.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Io.EntityData.Children = types.NewOrderedMap()
+    ipv6Io.EntityData.Children.Append("nodes", types.YChild{"Nodes", &ipv6Io.Nodes})
+    ipv6Io.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Io.EntityData.YListKeys = []string {}
+
     return &(ipv6Io.EntityData)
 }
 
@@ -58,7 +61,7 @@ type Ipv6Io_Nodes struct {
 
     // IPv6 network operational data for a particular node. The type is slice of
     // Ipv6Io_Nodes_Node.
-    Node []Ipv6Io_Nodes_Node
+    Node []*Ipv6Io_Nodes_Node
 }
 
 func (nodes *Ipv6Io_Nodes) GetEntityData() *types.CommonEntityData {
@@ -71,12 +74,15 @@ func (nodes *Ipv6Io_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -88,7 +94,7 @@ type Ipv6Io_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Statistical IPv6 network operational data for a node.
@@ -100,15 +106,18 @@ func (node *Ipv6Io_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["statistics"] = types.YChild{"Statistics", &node.Statistics}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("statistics", types.YChild{"Statistics", &node.Statistics})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -133,9 +142,12 @@ func (statistics *Ipv6Io_Nodes_Node_Statistics) GetEntityData() *types.CommonEnt
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statistics.EntityData.Children = make(map[string]types.YChild)
-    statistics.EntityData.Children["traffic"] = types.YChild{"Traffic", &statistics.Traffic}
-    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistics.EntityData.Children = types.NewOrderedMap()
+    statistics.EntityData.Children.Append("traffic", types.YChild{"Traffic", &statistics.Traffic})
+    statistics.EntityData.Leafs = types.NewOrderedMap()
+
+    statistics.EntityData.YListKeys = []string {}
+
     return &(statistics.EntityData)
 }
 
@@ -165,11 +177,14 @@ func (traffic *Ipv6Io_Nodes_Node_Statistics_Traffic) GetEntityData() *types.Comm
     traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    traffic.EntityData.Children = make(map[string]types.YChild)
-    traffic.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &traffic.Ipv6}
-    traffic.EntityData.Children["icmp"] = types.YChild{"Icmp", &traffic.Icmp}
-    traffic.EntityData.Children["ipv6-node-discovery"] = types.YChild{"Ipv6NodeDiscovery", &traffic.Ipv6NodeDiscovery}
-    traffic.EntityData.Leafs = make(map[string]types.YLeaf)
+    traffic.EntityData.Children = types.NewOrderedMap()
+    traffic.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &traffic.Ipv6})
+    traffic.EntityData.Children.Append("icmp", types.YChild{"Icmp", &traffic.Icmp})
+    traffic.EntityData.Children.Append("ipv6-node-discovery", types.YChild{"Ipv6NodeDiscovery", &traffic.Ipv6NodeDiscovery})
+    traffic.EntityData.Leafs = types.NewOrderedMap()
+
+    traffic.EntityData.YListKeys = []string {}
+
     return &(traffic.EntityData)
 }
 
@@ -293,39 +308,42 @@ func (ipv6 *Ipv6Io_Nodes_Node_Statistics_Traffic_Ipv6) GetEntityData() *types.Co
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6.EntityData.Leafs["total-packets"] = types.YLeaf{"TotalPackets", ipv6.TotalPackets}
-    ipv6.EntityData.Leafs["local-destination-packets"] = types.YLeaf{"LocalDestinationPackets", ipv6.LocalDestinationPackets}
-    ipv6.EntityData.Leafs["format-errors"] = types.YLeaf{"FormatErrors", ipv6.FormatErrors}
-    ipv6.EntityData.Leafs["truncated-packets"] = types.YLeaf{"TruncatedPackets", ipv6.TruncatedPackets}
-    ipv6.EntityData.Leafs["hop-count-exceeded-packets"] = types.YLeaf{"HopCountExceededPackets", ipv6.HopCountExceededPackets}
-    ipv6.EntityData.Leafs["bad-source-address-packets"] = types.YLeaf{"BadSourceAddressPackets", ipv6.BadSourceAddressPackets}
-    ipv6.EntityData.Leafs["bad-header-packets"] = types.YLeaf{"BadHeaderPackets", ipv6.BadHeaderPackets}
-    ipv6.EntityData.Leafs["unknown-option-type-packets"] = types.YLeaf{"UnknownOptionTypePackets", ipv6.UnknownOptionTypePackets}
-    ipv6.EntityData.Leafs["unknown-protocol-packets"] = types.YLeaf{"UnknownProtocolPackets", ipv6.UnknownProtocolPackets}
-    ipv6.EntityData.Leafs["fragments"] = types.YLeaf{"Fragments", ipv6.Fragments}
-    ipv6.EntityData.Leafs["reassembled-packets"] = types.YLeaf{"ReassembledPackets", ipv6.ReassembledPackets}
-    ipv6.EntityData.Leafs["reassembly-timeouts"] = types.YLeaf{"ReassemblyTimeouts", ipv6.ReassemblyTimeouts}
-    ipv6.EntityData.Leafs["reassembly-failures"] = types.YLeaf{"ReassemblyFailures", ipv6.ReassemblyFailures}
-    ipv6.EntityData.Leafs["reassembly-maximum-drops"] = types.YLeaf{"ReassemblyMaximumDrops", ipv6.ReassemblyMaximumDrops}
-    ipv6.EntityData.Leafs["generated-packets"] = types.YLeaf{"GeneratedPackets", ipv6.GeneratedPackets}
-    ipv6.EntityData.Leafs["forwarded-packets"] = types.YLeaf{"ForwardedPackets", ipv6.ForwardedPackets}
-    ipv6.EntityData.Leafs["source-routed-packets"] = types.YLeaf{"SourceRoutedPackets", ipv6.SourceRoutedPackets}
-    ipv6.EntityData.Leafs["fragmented-packets"] = types.YLeaf{"FragmentedPackets", ipv6.FragmentedPackets}
-    ipv6.EntityData.Leafs["fragment-count"] = types.YLeaf{"FragmentCount", ipv6.FragmentCount}
-    ipv6.EntityData.Leafs["fragment-failures"] = types.YLeaf{"FragmentFailures", ipv6.FragmentFailures}
-    ipv6.EntityData.Leafs["no-route-packets"] = types.YLeaf{"NoRoutePackets", ipv6.NoRoutePackets}
-    ipv6.EntityData.Leafs["too-big-packets"] = types.YLeaf{"TooBigPackets", ipv6.TooBigPackets}
-    ipv6.EntityData.Leafs["received-multicast-packets"] = types.YLeaf{"ReceivedMulticastPackets", ipv6.ReceivedMulticastPackets}
-    ipv6.EntityData.Leafs["sent-multicast-packets"] = types.YLeaf{"SentMulticastPackets", ipv6.SentMulticastPackets}
-    ipv6.EntityData.Leafs["miscellaneous-drops"] = types.YLeaf{"MiscellaneousDrops", ipv6.MiscellaneousDrops}
-    ipv6.EntityData.Leafs["lisp-v4-encap-packets"] = types.YLeaf{"LispV4EncapPackets", ipv6.LispV4EncapPackets}
-    ipv6.EntityData.Leafs["lisp-v4-decap-packets"] = types.YLeaf{"LispV4DecapPackets", ipv6.LispV4DecapPackets}
-    ipv6.EntityData.Leafs["lisp-v6-encap-packets"] = types.YLeaf{"LispV6EncapPackets", ipv6.LispV6EncapPackets}
-    ipv6.EntityData.Leafs["lisp-v6-decap-packets"] = types.YLeaf{"LispV6DecapPackets", ipv6.LispV6DecapPackets}
-    ipv6.EntityData.Leafs["lisp-encap-errors"] = types.YLeaf{"LispEncapErrors", ipv6.LispEncapErrors}
-    ipv6.EntityData.Leafs["lisp-decap-errors"] = types.YLeaf{"LispDecapErrors", ipv6.LispDecapErrors}
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+    ipv6.EntityData.Leafs.Append("total-packets", types.YLeaf{"TotalPackets", ipv6.TotalPackets})
+    ipv6.EntityData.Leafs.Append("local-destination-packets", types.YLeaf{"LocalDestinationPackets", ipv6.LocalDestinationPackets})
+    ipv6.EntityData.Leafs.Append("format-errors", types.YLeaf{"FormatErrors", ipv6.FormatErrors})
+    ipv6.EntityData.Leafs.Append("truncated-packets", types.YLeaf{"TruncatedPackets", ipv6.TruncatedPackets})
+    ipv6.EntityData.Leafs.Append("hop-count-exceeded-packets", types.YLeaf{"HopCountExceededPackets", ipv6.HopCountExceededPackets})
+    ipv6.EntityData.Leafs.Append("bad-source-address-packets", types.YLeaf{"BadSourceAddressPackets", ipv6.BadSourceAddressPackets})
+    ipv6.EntityData.Leafs.Append("bad-header-packets", types.YLeaf{"BadHeaderPackets", ipv6.BadHeaderPackets})
+    ipv6.EntityData.Leafs.Append("unknown-option-type-packets", types.YLeaf{"UnknownOptionTypePackets", ipv6.UnknownOptionTypePackets})
+    ipv6.EntityData.Leafs.Append("unknown-protocol-packets", types.YLeaf{"UnknownProtocolPackets", ipv6.UnknownProtocolPackets})
+    ipv6.EntityData.Leafs.Append("fragments", types.YLeaf{"Fragments", ipv6.Fragments})
+    ipv6.EntityData.Leafs.Append("reassembled-packets", types.YLeaf{"ReassembledPackets", ipv6.ReassembledPackets})
+    ipv6.EntityData.Leafs.Append("reassembly-timeouts", types.YLeaf{"ReassemblyTimeouts", ipv6.ReassemblyTimeouts})
+    ipv6.EntityData.Leafs.Append("reassembly-failures", types.YLeaf{"ReassemblyFailures", ipv6.ReassemblyFailures})
+    ipv6.EntityData.Leafs.Append("reassembly-maximum-drops", types.YLeaf{"ReassemblyMaximumDrops", ipv6.ReassemblyMaximumDrops})
+    ipv6.EntityData.Leafs.Append("generated-packets", types.YLeaf{"GeneratedPackets", ipv6.GeneratedPackets})
+    ipv6.EntityData.Leafs.Append("forwarded-packets", types.YLeaf{"ForwardedPackets", ipv6.ForwardedPackets})
+    ipv6.EntityData.Leafs.Append("source-routed-packets", types.YLeaf{"SourceRoutedPackets", ipv6.SourceRoutedPackets})
+    ipv6.EntityData.Leafs.Append("fragmented-packets", types.YLeaf{"FragmentedPackets", ipv6.FragmentedPackets})
+    ipv6.EntityData.Leafs.Append("fragment-count", types.YLeaf{"FragmentCount", ipv6.FragmentCount})
+    ipv6.EntityData.Leafs.Append("fragment-failures", types.YLeaf{"FragmentFailures", ipv6.FragmentFailures})
+    ipv6.EntityData.Leafs.Append("no-route-packets", types.YLeaf{"NoRoutePackets", ipv6.NoRoutePackets})
+    ipv6.EntityData.Leafs.Append("too-big-packets", types.YLeaf{"TooBigPackets", ipv6.TooBigPackets})
+    ipv6.EntityData.Leafs.Append("received-multicast-packets", types.YLeaf{"ReceivedMulticastPackets", ipv6.ReceivedMulticastPackets})
+    ipv6.EntityData.Leafs.Append("sent-multicast-packets", types.YLeaf{"SentMulticastPackets", ipv6.SentMulticastPackets})
+    ipv6.EntityData.Leafs.Append("miscellaneous-drops", types.YLeaf{"MiscellaneousDrops", ipv6.MiscellaneousDrops})
+    ipv6.EntityData.Leafs.Append("lisp-v4-encap-packets", types.YLeaf{"LispV4EncapPackets", ipv6.LispV4EncapPackets})
+    ipv6.EntityData.Leafs.Append("lisp-v4-decap-packets", types.YLeaf{"LispV4DecapPackets", ipv6.LispV4DecapPackets})
+    ipv6.EntityData.Leafs.Append("lisp-v6-encap-packets", types.YLeaf{"LispV6EncapPackets", ipv6.LispV6EncapPackets})
+    ipv6.EntityData.Leafs.Append("lisp-v6-decap-packets", types.YLeaf{"LispV6DecapPackets", ipv6.LispV6DecapPackets})
+    ipv6.EntityData.Leafs.Append("lisp-encap-errors", types.YLeaf{"LispEncapErrors", ipv6.LispEncapErrors})
+    ipv6.EntityData.Leafs.Append("lisp-decap-errors", types.YLeaf{"LispDecapErrors", ipv6.LispDecapErrors})
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -491,46 +509,49 @@ func (icmp *Ipv6Io_Nodes_Node_Statistics_Traffic_Icmp) GetEntityData() *types.Co
     icmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     icmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    icmp.EntityData.Children = make(map[string]types.YChild)
-    icmp.EntityData.Leafs = make(map[string]types.YLeaf)
-    icmp.EntityData.Leafs["total-messages"] = types.YLeaf{"TotalMessages", icmp.TotalMessages}
-    icmp.EntityData.Leafs["too-short-error-messages"] = types.YLeaf{"TooShortErrorMessages", icmp.TooShortErrorMessages}
-    icmp.EntityData.Leafs["checksum-error-messages"] = types.YLeaf{"ChecksumErrorMessages", icmp.ChecksumErrorMessages}
-    icmp.EntityData.Leafs["unknown-error-type-messages"] = types.YLeaf{"UnknownErrorTypeMessages", icmp.UnknownErrorTypeMessages}
-    icmp.EntityData.Leafs["output-messages"] = types.YLeaf{"OutputMessages", icmp.OutputMessages}
-    icmp.EntityData.Leafs["sent-rate-limited-packets"] = types.YLeaf{"SentRateLimitedPackets", icmp.SentRateLimitedPackets}
-    icmp.EntityData.Leafs["sent-unreachable-routing-messages"] = types.YLeaf{"SentUnreachableRoutingMessages", icmp.SentUnreachableRoutingMessages}
-    icmp.EntityData.Leafs["sent-unreachable-admin-messages"] = types.YLeaf{"SentUnreachableAdminMessages", icmp.SentUnreachableAdminMessages}
-    icmp.EntityData.Leafs["sent-unreachable-neighbor-messages"] = types.YLeaf{"SentUnreachableNeighborMessages", icmp.SentUnreachableNeighborMessages}
-    icmp.EntityData.Leafs["sent-unreachable-address-messages"] = types.YLeaf{"SentUnreachableAddressMessages", icmp.SentUnreachableAddressMessages}
-    icmp.EntityData.Leafs["sent-unreachable-port-messages"] = types.YLeaf{"SentUnreachablePortMessages", icmp.SentUnreachablePortMessages}
-    icmp.EntityData.Leafs["received-unreachable-routing-messages"] = types.YLeaf{"ReceivedUnreachableRoutingMessages", icmp.ReceivedUnreachableRoutingMessages}
-    icmp.EntityData.Leafs["received-unreachable-admin-messages"] = types.YLeaf{"ReceivedUnreachableAdminMessages", icmp.ReceivedUnreachableAdminMessages}
-    icmp.EntityData.Leafs["received-unreachable-neighbor-messages"] = types.YLeaf{"ReceivedUnreachableNeighborMessages", icmp.ReceivedUnreachableNeighborMessages}
-    icmp.EntityData.Leafs["received-unreachable-address-messages"] = types.YLeaf{"ReceivedUnreachableAddressMessages", icmp.ReceivedUnreachableAddressMessages}
-    icmp.EntityData.Leafs["received-unreachable-port-messages"] = types.YLeaf{"ReceivedUnreachablePortMessages", icmp.ReceivedUnreachablePortMessages}
-    icmp.EntityData.Leafs["sent-hop-count-expired-messages"] = types.YLeaf{"SentHopCountExpiredMessages", icmp.SentHopCountExpiredMessages}
-    icmp.EntityData.Leafs["sent-reassembly-timeouts"] = types.YLeaf{"SentReassemblyTimeouts", icmp.SentReassemblyTimeouts}
-    icmp.EntityData.Leafs["received-hop-count-expired-messages"] = types.YLeaf{"ReceivedHopCountExpiredMessages", icmp.ReceivedHopCountExpiredMessages}
-    icmp.EntityData.Leafs["received-reassembly-timeouts"] = types.YLeaf{"ReceivedReassemblyTimeouts", icmp.ReceivedReassemblyTimeouts}
-    icmp.EntityData.Leafs["sent-too-big-messages"] = types.YLeaf{"SentTooBigMessages", icmp.SentTooBigMessages}
-    icmp.EntityData.Leafs["received-too-big-messages"] = types.YLeaf{"ReceivedTooBigMessages", icmp.ReceivedTooBigMessages}
-    icmp.EntityData.Leafs["sent-parameter-error-messages"] = types.YLeaf{"SentParameterErrorMessages", icmp.SentParameterErrorMessages}
-    icmp.EntityData.Leafs["sent-parameter-header-messages"] = types.YLeaf{"SentParameterHeaderMessages", icmp.SentParameterHeaderMessages}
-    icmp.EntityData.Leafs["sent-parameter-option-messages"] = types.YLeaf{"SentParameterOptionMessages", icmp.SentParameterOptionMessages}
-    icmp.EntityData.Leafs["received-parameter-error-messages"] = types.YLeaf{"ReceivedParameterErrorMessages", icmp.ReceivedParameterErrorMessages}
-    icmp.EntityData.Leafs["received-parameter-header-messages"] = types.YLeaf{"ReceivedParameterHeaderMessages", icmp.ReceivedParameterHeaderMessages}
-    icmp.EntityData.Leafs["received-parameter-option-messages"] = types.YLeaf{"ReceivedParameterOptionMessages", icmp.ReceivedParameterOptionMessages}
-    icmp.EntityData.Leafs["sent-echo-request-messages"] = types.YLeaf{"SentEchoRequestMessages", icmp.SentEchoRequestMessages}
-    icmp.EntityData.Leafs["sent-echo-reply-messages"] = types.YLeaf{"SentEchoReplyMessages", icmp.SentEchoReplyMessages}
-    icmp.EntityData.Leafs["received-echo-request-messages"] = types.YLeaf{"ReceivedEchoRequestMessages", icmp.ReceivedEchoRequestMessages}
-    icmp.EntityData.Leafs["received-echo-reply-messages"] = types.YLeaf{"ReceivedEchoReplyMessages", icmp.ReceivedEchoReplyMessages}
-    icmp.EntityData.Leafs["sent-unknown-timeout-messages"] = types.YLeaf{"SentUnknownTimeoutMessages", icmp.SentUnknownTimeoutMessages}
-    icmp.EntityData.Leafs["received-unknown-timeout-messages"] = types.YLeaf{"ReceivedUnknownTimeoutMessages", icmp.ReceivedUnknownTimeoutMessages}
-    icmp.EntityData.Leafs["sent-parameter-unknown-type-messages"] = types.YLeaf{"SentParameterUnknownTypeMessages", icmp.SentParameterUnknownTypeMessages}
-    icmp.EntityData.Leafs["received-parameter-unknown-type-messages"] = types.YLeaf{"ReceivedParameterUnknownTypeMessages", icmp.ReceivedParameterUnknownTypeMessages}
-    icmp.EntityData.Leafs["sent-unreachable-unknown-type-messages"] = types.YLeaf{"SentUnreachableUnknownTypeMessages", icmp.SentUnreachableUnknownTypeMessages}
-    icmp.EntityData.Leafs["received-unreachable-unknown-type-messages"] = types.YLeaf{"ReceivedUnreachableUnknownTypeMessages", icmp.ReceivedUnreachableUnknownTypeMessages}
+    icmp.EntityData.Children = types.NewOrderedMap()
+    icmp.EntityData.Leafs = types.NewOrderedMap()
+    icmp.EntityData.Leafs.Append("total-messages", types.YLeaf{"TotalMessages", icmp.TotalMessages})
+    icmp.EntityData.Leafs.Append("too-short-error-messages", types.YLeaf{"TooShortErrorMessages", icmp.TooShortErrorMessages})
+    icmp.EntityData.Leafs.Append("checksum-error-messages", types.YLeaf{"ChecksumErrorMessages", icmp.ChecksumErrorMessages})
+    icmp.EntityData.Leafs.Append("unknown-error-type-messages", types.YLeaf{"UnknownErrorTypeMessages", icmp.UnknownErrorTypeMessages})
+    icmp.EntityData.Leafs.Append("output-messages", types.YLeaf{"OutputMessages", icmp.OutputMessages})
+    icmp.EntityData.Leafs.Append("sent-rate-limited-packets", types.YLeaf{"SentRateLimitedPackets", icmp.SentRateLimitedPackets})
+    icmp.EntityData.Leafs.Append("sent-unreachable-routing-messages", types.YLeaf{"SentUnreachableRoutingMessages", icmp.SentUnreachableRoutingMessages})
+    icmp.EntityData.Leafs.Append("sent-unreachable-admin-messages", types.YLeaf{"SentUnreachableAdminMessages", icmp.SentUnreachableAdminMessages})
+    icmp.EntityData.Leafs.Append("sent-unreachable-neighbor-messages", types.YLeaf{"SentUnreachableNeighborMessages", icmp.SentUnreachableNeighborMessages})
+    icmp.EntityData.Leafs.Append("sent-unreachable-address-messages", types.YLeaf{"SentUnreachableAddressMessages", icmp.SentUnreachableAddressMessages})
+    icmp.EntityData.Leafs.Append("sent-unreachable-port-messages", types.YLeaf{"SentUnreachablePortMessages", icmp.SentUnreachablePortMessages})
+    icmp.EntityData.Leafs.Append("received-unreachable-routing-messages", types.YLeaf{"ReceivedUnreachableRoutingMessages", icmp.ReceivedUnreachableRoutingMessages})
+    icmp.EntityData.Leafs.Append("received-unreachable-admin-messages", types.YLeaf{"ReceivedUnreachableAdminMessages", icmp.ReceivedUnreachableAdminMessages})
+    icmp.EntityData.Leafs.Append("received-unreachable-neighbor-messages", types.YLeaf{"ReceivedUnreachableNeighborMessages", icmp.ReceivedUnreachableNeighborMessages})
+    icmp.EntityData.Leafs.Append("received-unreachable-address-messages", types.YLeaf{"ReceivedUnreachableAddressMessages", icmp.ReceivedUnreachableAddressMessages})
+    icmp.EntityData.Leafs.Append("received-unreachable-port-messages", types.YLeaf{"ReceivedUnreachablePortMessages", icmp.ReceivedUnreachablePortMessages})
+    icmp.EntityData.Leafs.Append("sent-hop-count-expired-messages", types.YLeaf{"SentHopCountExpiredMessages", icmp.SentHopCountExpiredMessages})
+    icmp.EntityData.Leafs.Append("sent-reassembly-timeouts", types.YLeaf{"SentReassemblyTimeouts", icmp.SentReassemblyTimeouts})
+    icmp.EntityData.Leafs.Append("received-hop-count-expired-messages", types.YLeaf{"ReceivedHopCountExpiredMessages", icmp.ReceivedHopCountExpiredMessages})
+    icmp.EntityData.Leafs.Append("received-reassembly-timeouts", types.YLeaf{"ReceivedReassemblyTimeouts", icmp.ReceivedReassemblyTimeouts})
+    icmp.EntityData.Leafs.Append("sent-too-big-messages", types.YLeaf{"SentTooBigMessages", icmp.SentTooBigMessages})
+    icmp.EntityData.Leafs.Append("received-too-big-messages", types.YLeaf{"ReceivedTooBigMessages", icmp.ReceivedTooBigMessages})
+    icmp.EntityData.Leafs.Append("sent-parameter-error-messages", types.YLeaf{"SentParameterErrorMessages", icmp.SentParameterErrorMessages})
+    icmp.EntityData.Leafs.Append("sent-parameter-header-messages", types.YLeaf{"SentParameterHeaderMessages", icmp.SentParameterHeaderMessages})
+    icmp.EntityData.Leafs.Append("sent-parameter-option-messages", types.YLeaf{"SentParameterOptionMessages", icmp.SentParameterOptionMessages})
+    icmp.EntityData.Leafs.Append("received-parameter-error-messages", types.YLeaf{"ReceivedParameterErrorMessages", icmp.ReceivedParameterErrorMessages})
+    icmp.EntityData.Leafs.Append("received-parameter-header-messages", types.YLeaf{"ReceivedParameterHeaderMessages", icmp.ReceivedParameterHeaderMessages})
+    icmp.EntityData.Leafs.Append("received-parameter-option-messages", types.YLeaf{"ReceivedParameterOptionMessages", icmp.ReceivedParameterOptionMessages})
+    icmp.EntityData.Leafs.Append("sent-echo-request-messages", types.YLeaf{"SentEchoRequestMessages", icmp.SentEchoRequestMessages})
+    icmp.EntityData.Leafs.Append("sent-echo-reply-messages", types.YLeaf{"SentEchoReplyMessages", icmp.SentEchoReplyMessages})
+    icmp.EntityData.Leafs.Append("received-echo-request-messages", types.YLeaf{"ReceivedEchoRequestMessages", icmp.ReceivedEchoRequestMessages})
+    icmp.EntityData.Leafs.Append("received-echo-reply-messages", types.YLeaf{"ReceivedEchoReplyMessages", icmp.ReceivedEchoReplyMessages})
+    icmp.EntityData.Leafs.Append("sent-unknown-timeout-messages", types.YLeaf{"SentUnknownTimeoutMessages", icmp.SentUnknownTimeoutMessages})
+    icmp.EntityData.Leafs.Append("received-unknown-timeout-messages", types.YLeaf{"ReceivedUnknownTimeoutMessages", icmp.ReceivedUnknownTimeoutMessages})
+    icmp.EntityData.Leafs.Append("sent-parameter-unknown-type-messages", types.YLeaf{"SentParameterUnknownTypeMessages", icmp.SentParameterUnknownTypeMessages})
+    icmp.EntityData.Leafs.Append("received-parameter-unknown-type-messages", types.YLeaf{"ReceivedParameterUnknownTypeMessages", icmp.ReceivedParameterUnknownTypeMessages})
+    icmp.EntityData.Leafs.Append("sent-unreachable-unknown-type-messages", types.YLeaf{"SentUnreachableUnknownTypeMessages", icmp.SentUnreachableUnknownTypeMessages})
+    icmp.EntityData.Leafs.Append("received-unreachable-unknown-type-messages", types.YLeaf{"ReceivedUnreachableUnknownTypeMessages", icmp.ReceivedUnreachableUnknownTypeMessages})
+
+    icmp.EntityData.YListKeys = []string {}
+
     return &(icmp.EntityData)
 }
 
@@ -589,18 +610,21 @@ func (ipv6NodeDiscovery *Ipv6Io_Nodes_Node_Statistics_Traffic_Ipv6NodeDiscovery)
     ipv6NodeDiscovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6NodeDiscovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6NodeDiscovery.EntityData.Children = make(map[string]types.YChild)
-    ipv6NodeDiscovery.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6NodeDiscovery.EntityData.Leafs["sent-router-solicitation-messages"] = types.YLeaf{"SentRouterSolicitationMessages", ipv6NodeDiscovery.SentRouterSolicitationMessages}
-    ipv6NodeDiscovery.EntityData.Leafs["sent-router-advertisement-messages"] = types.YLeaf{"SentRouterAdvertisementMessages", ipv6NodeDiscovery.SentRouterAdvertisementMessages}
-    ipv6NodeDiscovery.EntityData.Leafs["sent-neighbor-solicitation-messages"] = types.YLeaf{"SentNeighborSolicitationMessages", ipv6NodeDiscovery.SentNeighborSolicitationMessages}
-    ipv6NodeDiscovery.EntityData.Leafs["sent-neighbor-advertisement-messages"] = types.YLeaf{"SentNeighborAdvertisementMessages", ipv6NodeDiscovery.SentNeighborAdvertisementMessages}
-    ipv6NodeDiscovery.EntityData.Leafs["sent-redirect-messages"] = types.YLeaf{"SentRedirectMessages", ipv6NodeDiscovery.SentRedirectMessages}
-    ipv6NodeDiscovery.EntityData.Leafs["received-router-solicitation-messages"] = types.YLeaf{"ReceivedRouterSolicitationMessages", ipv6NodeDiscovery.ReceivedRouterSolicitationMessages}
-    ipv6NodeDiscovery.EntityData.Leafs["received-router-advertisement-messages"] = types.YLeaf{"ReceivedRouterAdvertisementMessages", ipv6NodeDiscovery.ReceivedRouterAdvertisementMessages}
-    ipv6NodeDiscovery.EntityData.Leafs["received-neighbor-solicitation-messages"] = types.YLeaf{"ReceivedNeighborSolicitationMessages", ipv6NodeDiscovery.ReceivedNeighborSolicitationMessages}
-    ipv6NodeDiscovery.EntityData.Leafs["received-neighbor-advertisement-messages"] = types.YLeaf{"ReceivedNeighborAdvertisementMessages", ipv6NodeDiscovery.ReceivedNeighborAdvertisementMessages}
-    ipv6NodeDiscovery.EntityData.Leafs["received-redirect-messages"] = types.YLeaf{"ReceivedRedirectMessages", ipv6NodeDiscovery.ReceivedRedirectMessages}
+    ipv6NodeDiscovery.EntityData.Children = types.NewOrderedMap()
+    ipv6NodeDiscovery.EntityData.Leafs = types.NewOrderedMap()
+    ipv6NodeDiscovery.EntityData.Leafs.Append("sent-router-solicitation-messages", types.YLeaf{"SentRouterSolicitationMessages", ipv6NodeDiscovery.SentRouterSolicitationMessages})
+    ipv6NodeDiscovery.EntityData.Leafs.Append("sent-router-advertisement-messages", types.YLeaf{"SentRouterAdvertisementMessages", ipv6NodeDiscovery.SentRouterAdvertisementMessages})
+    ipv6NodeDiscovery.EntityData.Leafs.Append("sent-neighbor-solicitation-messages", types.YLeaf{"SentNeighborSolicitationMessages", ipv6NodeDiscovery.SentNeighborSolicitationMessages})
+    ipv6NodeDiscovery.EntityData.Leafs.Append("sent-neighbor-advertisement-messages", types.YLeaf{"SentNeighborAdvertisementMessages", ipv6NodeDiscovery.SentNeighborAdvertisementMessages})
+    ipv6NodeDiscovery.EntityData.Leafs.Append("sent-redirect-messages", types.YLeaf{"SentRedirectMessages", ipv6NodeDiscovery.SentRedirectMessages})
+    ipv6NodeDiscovery.EntityData.Leafs.Append("received-router-solicitation-messages", types.YLeaf{"ReceivedRouterSolicitationMessages", ipv6NodeDiscovery.ReceivedRouterSolicitationMessages})
+    ipv6NodeDiscovery.EntityData.Leafs.Append("received-router-advertisement-messages", types.YLeaf{"ReceivedRouterAdvertisementMessages", ipv6NodeDiscovery.ReceivedRouterAdvertisementMessages})
+    ipv6NodeDiscovery.EntityData.Leafs.Append("received-neighbor-solicitation-messages", types.YLeaf{"ReceivedNeighborSolicitationMessages", ipv6NodeDiscovery.ReceivedNeighborSolicitationMessages})
+    ipv6NodeDiscovery.EntityData.Leafs.Append("received-neighbor-advertisement-messages", types.YLeaf{"ReceivedNeighborAdvertisementMessages", ipv6NodeDiscovery.ReceivedNeighborAdvertisementMessages})
+    ipv6NodeDiscovery.EntityData.Leafs.Append("received-redirect-messages", types.YLeaf{"ReceivedRedirectMessages", ipv6NodeDiscovery.ReceivedRedirectMessages})
+
+    ipv6NodeDiscovery.EntityData.YListKeys = []string {}
+
     return &(ipv6NodeDiscovery.EntityData)
 }
 

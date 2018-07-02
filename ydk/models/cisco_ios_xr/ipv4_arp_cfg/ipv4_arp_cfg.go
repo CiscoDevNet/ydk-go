@@ -94,11 +94,14 @@ func (arp *Arp) GetEntityData() *types.CommonEntityData {
     arp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     arp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    arp.EntityData.Children = make(map[string]types.YChild)
-    arp.EntityData.Leafs = make(map[string]types.YLeaf)
-    arp.EntityData.Leafs["max-entries"] = types.YLeaf{"MaxEntries", arp.MaxEntries}
-    arp.EntityData.Leafs["inner-cos"] = types.YLeaf{"InnerCos", arp.InnerCos}
-    arp.EntityData.Leafs["outer-cos"] = types.YLeaf{"OuterCos", arp.OuterCos}
+    arp.EntityData.Children = types.NewOrderedMap()
+    arp.EntityData.Leafs = types.NewOrderedMap()
+    arp.EntityData.Leafs.Append("max-entries", types.YLeaf{"MaxEntries", arp.MaxEntries})
+    arp.EntityData.Leafs.Append("inner-cos", types.YLeaf{"InnerCos", arp.InnerCos})
+    arp.EntityData.Leafs.Append("outer-cos", types.YLeaf{"OuterCos", arp.OuterCos})
+
+    arp.EntityData.YListKeys = []string {}
+
     return &(arp.EntityData)
 }
 
@@ -125,10 +128,13 @@ func (iedgeCfg *IedgeCfg) GetEntityData() *types.CommonEntityData {
     iedgeCfg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iedgeCfg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    iedgeCfg.EntityData.Children = make(map[string]types.YChild)
-    iedgeCfg.EntityData.Leafs = make(map[string]types.YLeaf)
-    iedgeCfg.EntityData.Leafs["subscriber-uncond-proxy"] = types.YLeaf{"SubscriberUncondProxy", iedgeCfg.SubscriberUncondProxy}
-    iedgeCfg.EntityData.Leafs["subscriber-scale-mode"] = types.YLeaf{"SubscriberScaleMode", iedgeCfg.SubscriberScaleMode}
+    iedgeCfg.EntityData.Children = types.NewOrderedMap()
+    iedgeCfg.EntityData.Leafs = types.NewOrderedMap()
+    iedgeCfg.EntityData.Leafs.Append("subscriber-uncond-proxy", types.YLeaf{"SubscriberUncondProxy", iedgeCfg.SubscriberUncondProxy})
+    iedgeCfg.EntityData.Leafs.Append("subscriber-scale-mode", types.YLeaf{"SubscriberScaleMode", iedgeCfg.SubscriberScaleMode})
+
+    iedgeCfg.EntityData.YListKeys = []string {}
+
     return &(iedgeCfg.EntityData)
 }
 
@@ -140,7 +146,7 @@ type Arpgmp struct {
 
     // Per VRF configuration, for the default VRF use 'default'. The type is slice
     // of Arpgmp_Vrf.
-    Vrf []Arpgmp_Vrf
+    Vrf []*Arpgmp_Vrf
 }
 
 func (arpgmp *Arpgmp) GetEntityData() *types.CommonEntityData {
@@ -153,12 +159,15 @@ func (arpgmp *Arpgmp) GetEntityData() *types.CommonEntityData {
     arpgmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     arpgmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    arpgmp.EntityData.Children = make(map[string]types.YChild)
-    arpgmp.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    arpgmp.EntityData.Children = types.NewOrderedMap()
+    arpgmp.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range arpgmp.Vrf {
-        arpgmp.EntityData.Children[types.GetSegmentPath(&arpgmp.Vrf[i])] = types.YChild{"Vrf", &arpgmp.Vrf[i]}
+        arpgmp.EntityData.Children.Append(types.GetSegmentPath(arpgmp.Vrf[i]), types.YChild{"Vrf", arpgmp.Vrf[i]})
     }
-    arpgmp.EntityData.Leafs = make(map[string]types.YLeaf)
+    arpgmp.EntityData.Leafs = types.NewOrderedMap()
+
+    arpgmp.EntityData.YListKeys = []string {}
+
     return &(arpgmp.EntityData)
 }
 
@@ -170,7 +179,7 @@ type Arpgmp_Vrf struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // ARP static and alias entry configuration.
@@ -182,15 +191,18 @@ func (vrf *Arpgmp_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "arpgmp"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["entries"] = types.YChild{"Entries", &vrf.Entries}
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("entries", types.YChild{"Entries", &vrf.Entries})
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -202,7 +214,7 @@ type Arpgmp_Vrf_Entries struct {
 
     // ARP static and alias entry configuration item. The type is slice of
     // Arpgmp_Vrf_Entries_Entry.
-    Entry []Arpgmp_Vrf_Entries_Entry
+    Entry []*Arpgmp_Vrf_Entries_Entry
 }
 
 func (entries *Arpgmp_Vrf_Entries) GetEntityData() *types.CommonEntityData {
@@ -215,12 +227,15 @@ func (entries *Arpgmp_Vrf_Entries) GetEntityData() *types.CommonEntityData {
     entries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entries.EntityData.Children = make(map[string]types.YChild)
-    entries.EntityData.Children["entry"] = types.YChild{"Entry", nil}
+    entries.EntityData.Children = types.NewOrderedMap()
+    entries.EntityData.Children.Append("entry", types.YChild{"Entry", nil})
     for i := range entries.Entry {
-        entries.EntityData.Children[types.GetSegmentPath(&entries.Entry[i])] = types.YChild{"Entry", &entries.Entry[i]}
+        entries.EntityData.Children.Append(types.GetSegmentPath(entries.Entry[i]), types.YChild{"Entry", entries.Entry[i]})
     }
-    entries.EntityData.Leafs = make(map[string]types.YLeaf)
+    entries.EntityData.Leafs = types.NewOrderedMap()
+
+    entries.EntityData.YListKeys = []string {}
+
     return &(entries.EntityData)
 }
 
@@ -231,11 +246,11 @@ type Arpgmp_Vrf_Entries_Entry struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. IP Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Encapsulation type. The type is ArpEncap.
@@ -244,8 +259,8 @@ type Arpgmp_Vrf_Entries_Entry struct {
     // Entry type. The type is ArpEntry.
     EntryType interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    Interface interface{}
 }
 
 func (entry *Arpgmp_Vrf_Entries_Entry) GetEntityData() *types.CommonEntityData {
@@ -253,18 +268,21 @@ func (entry *Arpgmp_Vrf_Entries_Entry) GetEntityData() *types.CommonEntityData {
     entry.EntityData.YangName = "entry"
     entry.EntityData.BundleName = "cisco_ios_xr"
     entry.EntityData.ParentYangName = "entries"
-    entry.EntityData.SegmentPath = "entry" + "[address='" + fmt.Sprintf("%v", entry.Address) + "']"
+    entry.EntityData.SegmentPath = "entry" + types.AddKeyToken(entry.Address, "address")
     entry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entry.EntityData.Children = make(map[string]types.YChild)
-    entry.EntityData.Leafs = make(map[string]types.YLeaf)
-    entry.EntityData.Leafs["address"] = types.YLeaf{"Address", entry.Address}
-    entry.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", entry.MacAddress}
-    entry.EntityData.Leafs["encapsulation"] = types.YLeaf{"Encapsulation", entry.Encapsulation}
-    entry.EntityData.Leafs["entry-type"] = types.YLeaf{"EntryType", entry.EntryType}
-    entry.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", entry.Interface_}
+    entry.EntityData.Children = types.NewOrderedMap()
+    entry.EntityData.Leafs = types.NewOrderedMap()
+    entry.EntityData.Leafs.Append("address", types.YLeaf{"Address", entry.Address})
+    entry.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", entry.MacAddress})
+    entry.EntityData.Leafs.Append("encapsulation", types.YLeaf{"Encapsulation", entry.Encapsulation})
+    entry.EntityData.Leafs.Append("entry-type", types.YLeaf{"EntryType", entry.EntryType})
+    entry.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", entry.Interface})
+
+    entry.EntityData.YListKeys = []string {"Address"}
+
     return &(entry.EntityData)
 }
 
@@ -288,9 +306,12 @@ func (arpRedundancy *ArpRedundancy) GetEntityData() *types.CommonEntityData {
     arpRedundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     arpRedundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    arpRedundancy.EntityData.Children = make(map[string]types.YChild)
-    arpRedundancy.EntityData.Children["redundancy"] = types.YChild{"Redundancy", &arpRedundancy.Redundancy}
-    arpRedundancy.EntityData.Leafs = make(map[string]types.YLeaf)
+    arpRedundancy.EntityData.Children = types.NewOrderedMap()
+    arpRedundancy.EntityData.Children.Append("redundancy", types.YChild{"Redundancy", &arpRedundancy.Redundancy})
+    arpRedundancy.EntityData.Leafs = types.NewOrderedMap()
+
+    arpRedundancy.EntityData.YListKeys = []string {}
+
     return &(arpRedundancy.EntityData)
 }
 
@@ -300,6 +321,7 @@ func (arpRedundancy *ArpRedundancy) GetEntityData() *types.CommonEntityData {
 type ArpRedundancy_Redundancy struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Enable Configure parameter for ARP Geo redundancy. Deletion of this object
     // also causes deletion of all associated objects under ArpRedundancy. The
@@ -320,10 +342,13 @@ func (redundancy *ArpRedundancy_Redundancy) GetEntityData() *types.CommonEntityD
     redundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    redundancy.EntityData.Children = make(map[string]types.YChild)
-    redundancy.EntityData.Children["groups"] = types.YChild{"Groups", &redundancy.Groups}
-    redundancy.EntityData.Leafs = make(map[string]types.YLeaf)
-    redundancy.EntityData.Leafs["enable"] = types.YLeaf{"Enable", redundancy.Enable}
+    redundancy.EntityData.Children = types.NewOrderedMap()
+    redundancy.EntityData.Children.Append("groups", types.YChild{"Groups", &redundancy.Groups})
+    redundancy.EntityData.Leafs = types.NewOrderedMap()
+    redundancy.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", redundancy.Enable})
+
+    redundancy.EntityData.YListKeys = []string {}
+
     return &(redundancy.EntityData)
 }
 
@@ -334,7 +359,7 @@ type ArpRedundancy_Redundancy_Groups struct {
     YFilter yfilter.YFilter
 
     // None. The type is slice of ArpRedundancy_Redundancy_Groups_Group.
-    Group []ArpRedundancy_Redundancy_Groups_Group
+    Group []*ArpRedundancy_Redundancy_Groups_Group
 }
 
 func (groups *ArpRedundancy_Redundancy_Groups) GetEntityData() *types.CommonEntityData {
@@ -347,12 +372,15 @@ func (groups *ArpRedundancy_Redundancy_Groups) GetEntityData() *types.CommonEnti
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groups.EntityData.Children = make(map[string]types.YChild)
-    groups.EntityData.Children["group"] = types.YChild{"Group", nil}
+    groups.EntityData.Children = types.NewOrderedMap()
+    groups.EntityData.Children.Append("group", types.YChild{"Group", nil})
     for i := range groups.Group {
-        groups.EntityData.Children[types.GetSegmentPath(&groups.Group[i])] = types.YChild{"Group", &groups.Group[i]}
+        groups.EntityData.Children.Append(types.GetSegmentPath(groups.Group[i]), types.YChild{"Group", groups.Group[i]})
     }
-    groups.EntityData.Leafs = make(map[string]types.YLeaf)
+    groups.EntityData.Leafs = types.NewOrderedMap()
+
+    groups.EntityData.YListKeys = []string {}
+
     return &(groups.EntityData)
 }
 
@@ -366,7 +394,7 @@ type ArpRedundancy_Redundancy_Groups_Group struct {
     // 1..32.
     GroupId interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     SourceInterface interface{}
 
     // Table of Peer.
@@ -381,17 +409,20 @@ func (group *ArpRedundancy_Redundancy_Groups_Group) GetEntityData() *types.Commo
     group.EntityData.YangName = "group"
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
-    group.EntityData.SegmentPath = "group" + "[group-id='" + fmt.Sprintf("%v", group.GroupId) + "']"
+    group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupId, "group-id")
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    group.EntityData.Children = make(map[string]types.YChild)
-    group.EntityData.Children["peers"] = types.YChild{"Peers", &group.Peers}
-    group.EntityData.Children["interface-list"] = types.YChild{"InterfaceList", &group.InterfaceList}
-    group.EntityData.Leafs = make(map[string]types.YLeaf)
-    group.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", group.GroupId}
-    group.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", group.SourceInterface}
+    group.EntityData.Children = types.NewOrderedMap()
+    group.EntityData.Children.Append("peers", types.YChild{"Peers", &group.Peers})
+    group.EntityData.Children.Append("interface-list", types.YChild{"InterfaceList", &group.InterfaceList})
+    group.EntityData.Leafs = types.NewOrderedMap()
+    group.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", group.GroupId})
+    group.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", group.SourceInterface})
+
+    group.EntityData.YListKeys = []string {"GroupId"}
+
     return &(group.EntityData)
 }
 
@@ -403,7 +434,7 @@ type ArpRedundancy_Redundancy_Groups_Group_Peers struct {
 
     // None. The type is slice of
     // ArpRedundancy_Redundancy_Groups_Group_Peers_Peer.
-    Peer []ArpRedundancy_Redundancy_Groups_Group_Peers_Peer
+    Peer []*ArpRedundancy_Redundancy_Groups_Group_Peers_Peer
 }
 
 func (peers *ArpRedundancy_Redundancy_Groups_Group_Peers) GetEntityData() *types.CommonEntityData {
@@ -416,12 +447,15 @@ func (peers *ArpRedundancy_Redundancy_Groups_Group_Peers) GetEntityData() *types
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peers.EntityData.Children = make(map[string]types.YChild)
-    peers.EntityData.Children["peer"] = types.YChild{"Peer", nil}
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peers.Peer {
-        peers.EntityData.Children[types.GetSegmentPath(&peers.Peer[i])] = types.YChild{"Peer", &peers.Peer[i]}
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
     }
-    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
     return &(peers.EntityData)
 }
 
@@ -433,9 +467,9 @@ type ArpRedundancy_Redundancy_Groups_Group_Peers_Peer struct {
 
     // This attribute is a key. Neighbor IPv4 address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PrefixString interface{}
 }
 
@@ -444,14 +478,17 @@ func (peer *ArpRedundancy_Redundancy_Groups_Group_Peers_Peer) GetEntityData() *t
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
-    peer.EntityData.SegmentPath = "peer" + "[prefix-string='" + fmt.Sprintf("%v", peer.PrefixString) + "']"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.PrefixString, "prefix-string")
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["prefix-string"] = types.YLeaf{"PrefixString", peer.PrefixString}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("prefix-string", types.YLeaf{"PrefixString", peer.PrefixString})
+
+    peer.EntityData.YListKeys = []string {"PrefixString"}
+
     return &(peer.EntityData)
 }
 
@@ -461,6 +498,7 @@ func (peer *ArpRedundancy_Redundancy_Groups_Group_Peers_Peer) GetEntityData() *t
 type ArpRedundancy_Redundancy_Groups_Group_InterfaceList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Enable List of Interfaces for this Group. Deletion of this object also
     // causes deletion of all associated objects under InterfaceList. The type is
@@ -481,10 +519,13 @@ func (interfaceList *ArpRedundancy_Redundancy_Groups_Group_InterfaceList) GetEnt
     interfaceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceList.EntityData.Children = make(map[string]types.YChild)
-    interfaceList.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &interfaceList.Interfaces}
-    interfaceList.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceList.EntityData.Leafs["enable"] = types.YLeaf{"Enable", interfaceList.Enable}
+    interfaceList.EntityData.Children = types.NewOrderedMap()
+    interfaceList.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &interfaceList.Interfaces})
+    interfaceList.EntityData.Leafs = types.NewOrderedMap()
+    interfaceList.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", interfaceList.Enable})
+
+    interfaceList.EntityData.YListKeys = []string {}
+
     return &(interfaceList.EntityData)
 }
 
@@ -495,8 +536,8 @@ type ArpRedundancy_Redundancy_Groups_Group_InterfaceList_Interfaces struct {
     YFilter yfilter.YFilter
 
     // Interface for this Group. The type is slice of
-    // ArpRedundancy_Redundancy_Groups_Group_InterfaceList_Interfaces_Interface_.
-    Interface_ []ArpRedundancy_Redundancy_Groups_Group_InterfaceList_Interfaces_Interface
+    // ArpRedundancy_Redundancy_Groups_Group_InterfaceList_Interfaces_Interface.
+    Interface []*ArpRedundancy_Redundancy_Groups_Group_InterfaceList_Interfaces_Interface
 }
 
 func (interfaces *ArpRedundancy_Redundancy_Groups_Group_InterfaceList_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -509,12 +550,15 @@ func (interfaces *ArpRedundancy_Redundancy_Groups_Group_InterfaceList_Interfaces
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -525,7 +569,7 @@ type ArpRedundancy_Redundancy_Groups_Group_InterfaceList_Interfaces_Interface st
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Interface Id for the interface. The type is interface{} with range:
@@ -538,15 +582,18 @@ func (self *ArpRedundancy_Redundancy_Groups_Group_InterfaceList_Interfaces_Inter
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["interface-id"] = types.YLeaf{"InterfaceId", self.InterfaceId}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("interface-id", types.YLeaf{"InterfaceId", self.InterfaceId})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 

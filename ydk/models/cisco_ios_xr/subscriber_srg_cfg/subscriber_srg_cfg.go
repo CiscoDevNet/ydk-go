@@ -35,17 +35,6 @@ const (
     SubscriberRedundancyGroupSlaveMode_hot SubscriberRedundancyGroupSlaveMode = "hot"
 )
 
-// SubscriberRedundancyGroupRole represents Subscriber redundancy group role
-type SubscriberRedundancyGroupRole string
-
-const (
-    // Master Role
-    SubscriberRedundancyGroupRole_master SubscriberRedundancyGroupRole = "master"
-
-    // Slave Role
-    SubscriberRedundancyGroupRole_slave SubscriberRedundancyGroupRole = "slave"
-)
-
 // SrgAddrFamily represents Srg addr family
 type SrgAddrFamily string
 
@@ -55,6 +44,17 @@ const (
 
     // IPv6
     SrgAddrFamily_ipv6 SrgAddrFamily = "ipv6"
+)
+
+// SubscriberRedundancyGroupRole represents Subscriber redundancy group role
+type SubscriberRedundancyGroupRole string
+
+const (
+    // Master Role
+    SubscriberRedundancyGroupRole_master SubscriberRedundancyGroupRole = "master"
+
+    // Slave Role
+    SubscriberRedundancyGroupRole_slave SubscriberRedundancyGroupRole = "slave"
 )
 
 // SubscriberRedundancy
@@ -69,14 +69,14 @@ type SubscriberRedundancy struct {
     Enable interface{}
 
     // Virtual MAC Prefix for Subscriber Redundancy. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     VirtualMacPrefix interface{}
 
     // Set preferred role. The type is SubscriberRedundancyGroupRole.
     PreferredRole interface{}
 
     // Source Interface for Redundancy Peer Communication. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     SourceInterface interface{}
 
     // Set slave. The type is SubscriberRedundancyGroupSlaveMode.
@@ -106,17 +106,20 @@ func (subscriberRedundancy *SubscriberRedundancy) GetEntityData() *types.CommonE
     subscriberRedundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberRedundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    subscriberRedundancy.EntityData.Children = make(map[string]types.YChild)
-    subscriberRedundancy.EntityData.Children["groups"] = types.YChild{"Groups", &subscriberRedundancy.Groups}
-    subscriberRedundancy.EntityData.Children["revertive-timer"] = types.YChild{"RevertiveTimer", &subscriberRedundancy.RevertiveTimer}
-    subscriberRedundancy.EntityData.Leafs = make(map[string]types.YLeaf)
-    subscriberRedundancy.EntityData.Leafs["enable"] = types.YLeaf{"Enable", subscriberRedundancy.Enable}
-    subscriberRedundancy.EntityData.Leafs["virtual-mac-prefix"] = types.YLeaf{"VirtualMacPrefix", subscriberRedundancy.VirtualMacPrefix}
-    subscriberRedundancy.EntityData.Leafs["preferred-role"] = types.YLeaf{"PreferredRole", subscriberRedundancy.PreferredRole}
-    subscriberRedundancy.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", subscriberRedundancy.SourceInterface}
-    subscriberRedundancy.EntityData.Leafs["slave-mode"] = types.YLeaf{"SlaveMode", subscriberRedundancy.SlaveMode}
-    subscriberRedundancy.EntityData.Leafs["hold-timer"] = types.YLeaf{"HoldTimer", subscriberRedundancy.HoldTimer}
-    subscriberRedundancy.EntityData.Leafs["redundancy-disable"] = types.YLeaf{"RedundancyDisable", subscriberRedundancy.RedundancyDisable}
+    subscriberRedundancy.EntityData.Children = types.NewOrderedMap()
+    subscriberRedundancy.EntityData.Children.Append("groups", types.YChild{"Groups", &subscriberRedundancy.Groups})
+    subscriberRedundancy.EntityData.Children.Append("revertive-timer", types.YChild{"RevertiveTimer", &subscriberRedundancy.RevertiveTimer})
+    subscriberRedundancy.EntityData.Leafs = types.NewOrderedMap()
+    subscriberRedundancy.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", subscriberRedundancy.Enable})
+    subscriberRedundancy.EntityData.Leafs.Append("virtual-mac-prefix", types.YLeaf{"VirtualMacPrefix", subscriberRedundancy.VirtualMacPrefix})
+    subscriberRedundancy.EntityData.Leafs.Append("preferred-role", types.YLeaf{"PreferredRole", subscriberRedundancy.PreferredRole})
+    subscriberRedundancy.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", subscriberRedundancy.SourceInterface})
+    subscriberRedundancy.EntityData.Leafs.Append("slave-mode", types.YLeaf{"SlaveMode", subscriberRedundancy.SlaveMode})
+    subscriberRedundancy.EntityData.Leafs.Append("hold-timer", types.YLeaf{"HoldTimer", subscriberRedundancy.HoldTimer})
+    subscriberRedundancy.EntityData.Leafs.Append("redundancy-disable", types.YLeaf{"RedundancyDisable", subscriberRedundancy.RedundancyDisable})
+
+    subscriberRedundancy.EntityData.YListKeys = []string {}
+
     return &(subscriberRedundancy.EntityData)
 }
 
@@ -128,7 +131,7 @@ type SubscriberRedundancy_Groups struct {
 
     // Redundancy Group configuration. The type is slice of
     // SubscriberRedundancy_Groups_Group.
-    Group []SubscriberRedundancy_Groups_Group
+    Group []*SubscriberRedundancy_Groups_Group
 }
 
 func (groups *SubscriberRedundancy_Groups) GetEntityData() *types.CommonEntityData {
@@ -141,12 +144,15 @@ func (groups *SubscriberRedundancy_Groups) GetEntityData() *types.CommonEntityDa
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    groups.EntityData.Children = make(map[string]types.YChild)
-    groups.EntityData.Children["group"] = types.YChild{"Group", nil}
+    groups.EntityData.Children = types.NewOrderedMap()
+    groups.EntityData.Children.Append("group", types.YChild{"Group", nil})
     for i := range groups.Group {
-        groups.EntityData.Children[types.GetSegmentPath(&groups.Group[i])] = types.YChild{"Group", &groups.Group[i]}
+        groups.EntityData.Children.Append(types.GetSegmentPath(groups.Group[i]), types.YChild{"Group", groups.Group[i]})
     }
-    groups.EntityData.Leafs = make(map[string]types.YLeaf)
+    groups.EntityData.Leafs = types.NewOrderedMap()
+
+    groups.EntityData.YListKeys = []string {}
+
     return &(groups.EntityData)
 }
 
@@ -177,8 +183,8 @@ type SubscriberRedundancy_Groups_Group struct {
     Description interface{}
 
     // Enter an IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    L2TpSourceIpAddress interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    L2tpSourceIpAddress interface{}
 
     // Set Slave Mode. The type is SubscriberRedundancyGroupSlaveMode.
     SlaveMode interface{}
@@ -217,30 +223,33 @@ func (group *SubscriberRedundancy_Groups_Group) GetEntityData() *types.CommonEnt
     group.EntityData.YangName = "group"
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
-    group.EntityData.SegmentPath = "group" + "[group-id='" + fmt.Sprintf("%v", group.GroupId) + "']"
+    group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupId, "group-id")
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    group.EntityData.Children = make(map[string]types.YChild)
-    group.EntityData.Children["interface-list"] = types.YChild{"InterfaceList", &group.InterfaceList}
-    group.EntityData.Children["peer"] = types.YChild{"Peer", &group.Peer}
-    group.EntityData.Children["revertive-timer"] = types.YChild{"RevertiveTimer", &group.RevertiveTimer}
-    group.EntityData.Children["virtual-mac"] = types.YChild{"VirtualMac", &group.VirtualMac}
-    group.EntityData.Children["state-control-route"] = types.YChild{"StateControlRoute", &group.StateControlRoute}
-    group.EntityData.Leafs = make(map[string]types.YLeaf)
-    group.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", group.GroupId}
-    group.EntityData.Leafs["disable-tracking-object"] = types.YLeaf{"DisableTrackingObject", group.DisableTrackingObject}
-    group.EntityData.Leafs["core-tracking-object"] = types.YLeaf{"CoreTrackingObject", group.CoreTrackingObject}
-    group.EntityData.Leafs["enable"] = types.YLeaf{"Enable", group.Enable}
-    group.EntityData.Leafs["preferred-role"] = types.YLeaf{"PreferredRole", group.PreferredRole}
-    group.EntityData.Leafs["description"] = types.YLeaf{"Description", group.Description}
-    group.EntityData.Leafs["l2tp-source-ip-address"] = types.YLeaf{"L2TpSourceIpAddress", group.L2TpSourceIpAddress}
-    group.EntityData.Leafs["slave-mode"] = types.YLeaf{"SlaveMode", group.SlaveMode}
-    group.EntityData.Leafs["hold-timer"] = types.YLeaf{"HoldTimer", group.HoldTimer}
-    group.EntityData.Leafs["access-tracking-object"] = types.YLeaf{"AccessTrackingObject", group.AccessTrackingObject}
-    group.EntityData.Leafs["enable-fast-switchover"] = types.YLeaf{"EnableFastSwitchover", group.EnableFastSwitchover}
-    group.EntityData.Leafs["redundancy-disable"] = types.YLeaf{"RedundancyDisable", group.RedundancyDisable}
+    group.EntityData.Children = types.NewOrderedMap()
+    group.EntityData.Children.Append("interface-list", types.YChild{"InterfaceList", &group.InterfaceList})
+    group.EntityData.Children.Append("peer", types.YChild{"Peer", &group.Peer})
+    group.EntityData.Children.Append("revertive-timer", types.YChild{"RevertiveTimer", &group.RevertiveTimer})
+    group.EntityData.Children.Append("virtual-mac", types.YChild{"VirtualMac", &group.VirtualMac})
+    group.EntityData.Children.Append("state-control-route", types.YChild{"StateControlRoute", &group.StateControlRoute})
+    group.EntityData.Leafs = types.NewOrderedMap()
+    group.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", group.GroupId})
+    group.EntityData.Leafs.Append("disable-tracking-object", types.YLeaf{"DisableTrackingObject", group.DisableTrackingObject})
+    group.EntityData.Leafs.Append("core-tracking-object", types.YLeaf{"CoreTrackingObject", group.CoreTrackingObject})
+    group.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", group.Enable})
+    group.EntityData.Leafs.Append("preferred-role", types.YLeaf{"PreferredRole", group.PreferredRole})
+    group.EntityData.Leafs.Append("description", types.YLeaf{"Description", group.Description})
+    group.EntityData.Leafs.Append("l2tp-source-ip-address", types.YLeaf{"L2tpSourceIpAddress", group.L2tpSourceIpAddress})
+    group.EntityData.Leafs.Append("slave-mode", types.YLeaf{"SlaveMode", group.SlaveMode})
+    group.EntityData.Leafs.Append("hold-timer", types.YLeaf{"HoldTimer", group.HoldTimer})
+    group.EntityData.Leafs.Append("access-tracking-object", types.YLeaf{"AccessTrackingObject", group.AccessTrackingObject})
+    group.EntityData.Leafs.Append("enable-fast-switchover", types.YLeaf{"EnableFastSwitchover", group.EnableFastSwitchover})
+    group.EntityData.Leafs.Append("redundancy-disable", types.YLeaf{"RedundancyDisable", group.RedundancyDisable})
+
+    group.EntityData.YListKeys = []string {"GroupId"}
+
     return &(group.EntityData)
 }
 
@@ -272,11 +281,14 @@ func (interfaceList *SubscriberRedundancy_Groups_Group_InterfaceList) GetEntityD
     interfaceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceList.EntityData.Children = make(map[string]types.YChild)
-    interfaceList.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &interfaceList.Interfaces}
-    interfaceList.EntityData.Children["interface-ranges"] = types.YChild{"InterfaceRanges", &interfaceList.InterfaceRanges}
-    interfaceList.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceList.EntityData.Leafs["enable"] = types.YLeaf{"Enable", interfaceList.Enable}
+    interfaceList.EntityData.Children = types.NewOrderedMap()
+    interfaceList.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &interfaceList.Interfaces})
+    interfaceList.EntityData.Children.Append("interface-ranges", types.YChild{"InterfaceRanges", &interfaceList.InterfaceRanges})
+    interfaceList.EntityData.Leafs = types.NewOrderedMap()
+    interfaceList.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", interfaceList.Enable})
+
+    interfaceList.EntityData.YListKeys = []string {}
+
     return &(interfaceList.EntityData)
 }
 
@@ -287,8 +299,8 @@ type SubscriberRedundancy_Groups_Group_InterfaceList_Interfaces struct {
     YFilter yfilter.YFilter
 
     // Interface for this Group. The type is slice of
-    // SubscriberRedundancy_Groups_Group_InterfaceList_Interfaces_Interface_.
-    Interface_ []SubscriberRedundancy_Groups_Group_InterfaceList_Interfaces_Interface
+    // SubscriberRedundancy_Groups_Group_InterfaceList_Interfaces_Interface.
+    Interface []*SubscriberRedundancy_Groups_Group_InterfaceList_Interfaces_Interface
 }
 
 func (interfaces *SubscriberRedundancy_Groups_Group_InterfaceList_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -301,12 +313,15 @@ func (interfaces *SubscriberRedundancy_Groups_Group_InterfaceList_Interfaces) Ge
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -317,7 +332,7 @@ type SubscriberRedundancy_Groups_Group_InterfaceList_Interfaces_Interface struct
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Interface Id for the interface. The type is interface{} with range:
@@ -330,15 +345,18 @@ func (self *SubscriberRedundancy_Groups_Group_InterfaceList_Interfaces_Interface
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["interface-id"] = types.YLeaf{"InterfaceId", self.InterfaceId}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("interface-id", types.YLeaf{"InterfaceId", self.InterfaceId})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -350,7 +368,7 @@ type SubscriberRedundancy_Groups_Group_InterfaceList_InterfaceRanges struct {
 
     // Interface for this Group. The type is slice of
     // SubscriberRedundancy_Groups_Group_InterfaceList_InterfaceRanges_InterfaceRange.
-    InterfaceRange []SubscriberRedundancy_Groups_Group_InterfaceList_InterfaceRanges_InterfaceRange
+    InterfaceRange []*SubscriberRedundancy_Groups_Group_InterfaceList_InterfaceRanges_InterfaceRange
 }
 
 func (interfaceRanges *SubscriberRedundancy_Groups_Group_InterfaceList_InterfaceRanges) GetEntityData() *types.CommonEntityData {
@@ -363,12 +381,15 @@ func (interfaceRanges *SubscriberRedundancy_Groups_Group_InterfaceList_Interface
     interfaceRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceRanges.EntityData.Children = make(map[string]types.YChild)
-    interfaceRanges.EntityData.Children["interface-range"] = types.YChild{"InterfaceRange", nil}
+    interfaceRanges.EntityData.Children = types.NewOrderedMap()
+    interfaceRanges.EntityData.Children.Append("interface-range", types.YChild{"InterfaceRange", nil})
     for i := range interfaceRanges.InterfaceRange {
-        interfaceRanges.EntityData.Children[types.GetSegmentPath(&interfaceRanges.InterfaceRange[i])] = types.YChild{"InterfaceRange", &interfaceRanges.InterfaceRange[i]}
+        interfaceRanges.EntityData.Children.Append(types.GetSegmentPath(interfaceRanges.InterfaceRange[i]), types.YChild{"InterfaceRange", interfaceRanges.InterfaceRange[i]})
     }
-    interfaceRanges.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceRanges.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceRanges.EntityData.YListKeys = []string {}
+
     return &(interfaceRanges.EntityData)
 }
 
@@ -379,7 +400,7 @@ type SubscriberRedundancy_Groups_Group_InterfaceList_InterfaceRanges_InterfaceRa
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Sub Interface Start Range. The type is interface{}
@@ -402,18 +423,21 @@ func (interfaceRange *SubscriberRedundancy_Groups_Group_InterfaceList_InterfaceR
     interfaceRange.EntityData.YangName = "interface-range"
     interfaceRange.EntityData.BundleName = "cisco_ios_xr"
     interfaceRange.EntityData.ParentYangName = "interface-ranges"
-    interfaceRange.EntityData.SegmentPath = "interface-range" + "[interface-name='" + fmt.Sprintf("%v", interfaceRange.InterfaceName) + "']" + "[sub-interface-range-start='" + fmt.Sprintf("%v", interfaceRange.SubInterfaceRangeStart) + "']" + "[sub-interface-range-end='" + fmt.Sprintf("%v", interfaceRange.SubInterfaceRangeEnd) + "']"
+    interfaceRange.EntityData.SegmentPath = "interface-range" + types.AddKeyToken(interfaceRange.InterfaceName, "interface-name") + types.AddKeyToken(interfaceRange.SubInterfaceRangeStart, "sub-interface-range-start") + types.AddKeyToken(interfaceRange.SubInterfaceRangeEnd, "sub-interface-range-end")
     interfaceRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaceRange.EntityData.Children = make(map[string]types.YChild)
-    interfaceRange.EntityData.Leafs = make(map[string]types.YLeaf)
-    interfaceRange.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceRange.InterfaceName}
-    interfaceRange.EntityData.Leafs["sub-interface-range-start"] = types.YLeaf{"SubInterfaceRangeStart", interfaceRange.SubInterfaceRangeStart}
-    interfaceRange.EntityData.Leafs["sub-interface-range-end"] = types.YLeaf{"SubInterfaceRangeEnd", interfaceRange.SubInterfaceRangeEnd}
-    interfaceRange.EntityData.Leafs["interface-id-range-start"] = types.YLeaf{"InterfaceIdRangeStart", interfaceRange.InterfaceIdRangeStart}
-    interfaceRange.EntityData.Leafs["interface-id-range-end"] = types.YLeaf{"InterfaceIdRangeEnd", interfaceRange.InterfaceIdRangeEnd}
+    interfaceRange.EntityData.Children = types.NewOrderedMap()
+    interfaceRange.EntityData.Leafs = types.NewOrderedMap()
+    interfaceRange.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceRange.InterfaceName})
+    interfaceRange.EntityData.Leafs.Append("sub-interface-range-start", types.YLeaf{"SubInterfaceRangeStart", interfaceRange.SubInterfaceRangeStart})
+    interfaceRange.EntityData.Leafs.Append("sub-interface-range-end", types.YLeaf{"SubInterfaceRangeEnd", interfaceRange.SubInterfaceRangeEnd})
+    interfaceRange.EntityData.Leafs.Append("interface-id-range-start", types.YLeaf{"InterfaceIdRangeStart", interfaceRange.InterfaceIdRangeStart})
+    interfaceRange.EntityData.Leafs.Append("interface-id-range-end", types.YLeaf{"InterfaceIdRangeEnd", interfaceRange.InterfaceIdRangeEnd})
+
+    interfaceRange.EntityData.YListKeys = []string {"InterfaceName", "SubInterfaceRangeStart", "SubInterfaceRangeEnd"}
+
     return &(interfaceRange.EntityData)
 }
 
@@ -440,10 +464,13 @@ func (peer *SubscriberRedundancy_Groups_Group_Peer) GetEntityData() *types.Commo
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    peer.EntityData.Children = make(map[string]types.YChild)
-    peer.EntityData.Children["ipaddress"] = types.YChild{"Ipaddress", &peer.Ipaddress}
-    peer.EntityData.Leafs = make(map[string]types.YLeaf)
-    peer.EntityData.Leafs["route-add-disable"] = types.YLeaf{"RouteAddDisable", peer.RouteAddDisable}
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Children.Append("ipaddress", types.YChild{"Ipaddress", &peer.Ipaddress})
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("route-add-disable", types.YLeaf{"RouteAddDisable", peer.RouteAddDisable})
+
+    peer.EntityData.YListKeys = []string {}
+
     return &(peer.EntityData)
 }
 
@@ -458,9 +485,9 @@ type SubscriberRedundancy_Groups_Group_Peer_Ipaddress struct {
 
     // IPv4/IPv6 address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PrefixString interface{}
 }
 
@@ -474,10 +501,13 @@ func (ipaddress *SubscriberRedundancy_Groups_Group_Peer_Ipaddress) GetEntityData
     ipaddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipaddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipaddress.EntityData.Children = make(map[string]types.YChild)
-    ipaddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipaddress.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", ipaddress.AddressFamily}
-    ipaddress.EntityData.Leafs["prefix-string"] = types.YLeaf{"PrefixString", ipaddress.PrefixString}
+    ipaddress.EntityData.Children = types.NewOrderedMap()
+    ipaddress.EntityData.Leafs = types.NewOrderedMap()
+    ipaddress.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", ipaddress.AddressFamily})
+    ipaddress.EntityData.Leafs.Append("prefix-string", types.YLeaf{"PrefixString", ipaddress.PrefixString})
+
+    ipaddress.EntityData.YListKeys = []string {}
+
     return &(ipaddress.EntityData)
 }
 
@@ -505,10 +535,13 @@ func (revertiveTimer *SubscriberRedundancy_Groups_Group_RevertiveTimer) GetEntit
     revertiveTimer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     revertiveTimer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    revertiveTimer.EntityData.Children = make(map[string]types.YChild)
-    revertiveTimer.EntityData.Leafs = make(map[string]types.YLeaf)
-    revertiveTimer.EntityData.Leafs["max-value"] = types.YLeaf{"MaxValue", revertiveTimer.MaxValue}
-    revertiveTimer.EntityData.Leafs["value"] = types.YLeaf{"Value", revertiveTimer.Value}
+    revertiveTimer.EntityData.Children = types.NewOrderedMap()
+    revertiveTimer.EntityData.Leafs = types.NewOrderedMap()
+    revertiveTimer.EntityData.Leafs.Append("max-value", types.YLeaf{"MaxValue", revertiveTimer.MaxValue})
+    revertiveTimer.EntityData.Leafs.Append("value", types.YLeaf{"Value", revertiveTimer.Value})
+
+    revertiveTimer.EntityData.YListKeys = []string {}
+
     return &(revertiveTimer.EntityData)
 }
 
@@ -519,7 +552,7 @@ type SubscriberRedundancy_Groups_Group_VirtualMac struct {
     YFilter yfilter.YFilter
 
     // Virtual MAC Address for this Group. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 
     // Disable Virtual MAC Address for this Group. The type is interface{}.
@@ -536,10 +569,13 @@ func (virtualMac *SubscriberRedundancy_Groups_Group_VirtualMac) GetEntityData() 
     virtualMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    virtualMac.EntityData.Children = make(map[string]types.YChild)
-    virtualMac.EntityData.Leafs = make(map[string]types.YLeaf)
-    virtualMac.EntityData.Leafs["address"] = types.YLeaf{"Address", virtualMac.Address}
-    virtualMac.EntityData.Leafs["disable"] = types.YLeaf{"Disable", virtualMac.Disable}
+    virtualMac.EntityData.Children = types.NewOrderedMap()
+    virtualMac.EntityData.Leafs = types.NewOrderedMap()
+    virtualMac.EntityData.Leafs.Append("address", types.YLeaf{"Address", virtualMac.Address})
+    virtualMac.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", virtualMac.Disable})
+
+    virtualMac.EntityData.YListKeys = []string {}
+
     return &(virtualMac.EntityData)
 }
 
@@ -566,10 +602,13 @@ func (stateControlRoute *SubscriberRedundancy_Groups_Group_StateControlRoute) Ge
     stateControlRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateControlRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateControlRoute.EntityData.Children = make(map[string]types.YChild)
-    stateControlRoute.EntityData.Children["ipv4-routes"] = types.YChild{"Ipv4Routes", &stateControlRoute.Ipv4Routes}
-    stateControlRoute.EntityData.Children["ipv6-route"] = types.YChild{"Ipv6Route", &stateControlRoute.Ipv6Route}
-    stateControlRoute.EntityData.Leafs = make(map[string]types.YLeaf)
+    stateControlRoute.EntityData.Children = types.NewOrderedMap()
+    stateControlRoute.EntityData.Children.Append("ipv4-routes", types.YChild{"Ipv4Routes", &stateControlRoute.Ipv4Routes})
+    stateControlRoute.EntityData.Children.Append("ipv6-route", types.YChild{"Ipv6Route", &stateControlRoute.Ipv6Route})
+    stateControlRoute.EntityData.Leafs = types.NewOrderedMap()
+
+    stateControlRoute.EntityData.YListKeys = []string {}
+
     return &(stateControlRoute.EntityData)
 }
 
@@ -581,7 +620,7 @@ type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes struct {
 
     // None. The type is slice of
     // SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route.
-    Ipv4Route []SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route
+    Ipv4Route []*SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route
 }
 
 func (ipv4Routes *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes) GetEntityData() *types.CommonEntityData {
@@ -594,12 +633,15 @@ func (ipv4Routes *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes
     ipv4Routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4Routes.EntityData.Children = make(map[string]types.YChild)
-    ipv4Routes.EntityData.Children["ipv4-route"] = types.YChild{"Ipv4Route", nil}
+    ipv4Routes.EntityData.Children = types.NewOrderedMap()
+    ipv4Routes.EntityData.Children.Append("ipv4-route", types.YChild{"Ipv4Route", nil})
     for i := range ipv4Routes.Ipv4Route {
-        ipv4Routes.EntityData.Children[types.GetSegmentPath(&ipv4Routes.Ipv4Route[i])] = types.YChild{"Ipv4Route", &ipv4Routes.Ipv4Route[i]}
+        ipv4Routes.EntityData.Children.Append(types.GetSegmentPath(ipv4Routes.Ipv4Route[i]), types.YChild{"Ipv4Route", ipv4Routes.Ipv4Route[i]})
     }
-    ipv4Routes.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4Routes.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4Routes.EntityData.YListKeys = []string {}
+
     return &(ipv4Routes.EntityData)
 }
 
@@ -611,13 +653,13 @@ type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route st
 
     // This attribute is a key. IPv4 address with prefix-length. The type is one
     // of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PrefixString interface{}
 
     // This attribute is a key. Prefix of the IP Address. The type is interface{}
-    // with range: -2147483648..2147483647.
+    // with range: 0..4294967295.
     PrefixLength interface{}
 
     // Data container.
@@ -625,7 +667,7 @@ type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route st
 
     // keys: vrfname. The type is slice of
     // SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route_Vrfname.
-    Vrfname []SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route_Vrfname
+    Vrfname []*SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route_Vrfname
 }
 
 func (ipv4Route *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route) GetEntityData() *types.CommonEntityData {
@@ -633,20 +675,23 @@ func (ipv4Route *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_
     ipv4Route.EntityData.YangName = "ipv4-route"
     ipv4Route.EntityData.BundleName = "cisco_ios_xr"
     ipv4Route.EntityData.ParentYangName = "ipv4-routes"
-    ipv4Route.EntityData.SegmentPath = "ipv4-route" + "[prefix-string='" + fmt.Sprintf("%v", ipv4Route.PrefixString) + "']" + "[prefix-length='" + fmt.Sprintf("%v", ipv4Route.PrefixLength) + "']"
+    ipv4Route.EntityData.SegmentPath = "ipv4-route" + types.AddKeyToken(ipv4Route.PrefixString, "prefix-string") + types.AddKeyToken(ipv4Route.PrefixLength, "prefix-length")
     ipv4Route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4Route.EntityData.Children = make(map[string]types.YChild)
-    ipv4Route.EntityData.Children["ipv4-route-data"] = types.YChild{"Ipv4RouteData", &ipv4Route.Ipv4RouteData}
-    ipv4Route.EntityData.Children["vrfname"] = types.YChild{"Vrfname", nil}
+    ipv4Route.EntityData.Children = types.NewOrderedMap()
+    ipv4Route.EntityData.Children.Append("ipv4-route-data", types.YChild{"Ipv4RouteData", &ipv4Route.Ipv4RouteData})
+    ipv4Route.EntityData.Children.Append("vrfname", types.YChild{"Vrfname", nil})
     for i := range ipv4Route.Vrfname {
-        ipv4Route.EntityData.Children[types.GetSegmentPath(&ipv4Route.Vrfname[i])] = types.YChild{"Vrfname", &ipv4Route.Vrfname[i]}
+        ipv4Route.EntityData.Children.Append(types.GetSegmentPath(ipv4Route.Vrfname[i]), types.YChild{"Vrfname", ipv4Route.Vrfname[i]})
     }
-    ipv4Route.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4Route.EntityData.Leafs["prefix-string"] = types.YLeaf{"PrefixString", ipv4Route.PrefixString}
-    ipv4Route.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", ipv4Route.PrefixLength}
+    ipv4Route.EntityData.Leafs = types.NewOrderedMap()
+    ipv4Route.EntityData.Leafs.Append("prefix-string", types.YLeaf{"PrefixString", ipv4Route.PrefixString})
+    ipv4Route.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", ipv4Route.PrefixLength})
+
+    ipv4Route.EntityData.YListKeys = []string {"PrefixString", "PrefixLength"}
+
     return &(ipv4Route.EntityData)
 }
 
@@ -671,9 +716,12 @@ func (ipv4RouteData *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Rou
     ipv4RouteData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RouteData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4RouteData.EntityData.Children = make(map[string]types.YChild)
-    ipv4RouteData.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv4RouteData.EntityData.Leafs["tagvalue"] = types.YLeaf{"Tagvalue", ipv4RouteData.Tagvalue}
+    ipv4RouteData.EntityData.Children = types.NewOrderedMap()
+    ipv4RouteData.EntityData.Leafs = types.NewOrderedMap()
+    ipv4RouteData.EntityData.Leafs.Append("tagvalue", types.YLeaf{"Tagvalue", ipv4RouteData.Tagvalue})
+
+    ipv4RouteData.EntityData.YListKeys = []string {}
+
     return &(ipv4RouteData.EntityData)
 }
 
@@ -684,7 +732,7 @@ type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Vrfname interface{}
 
     // Tag value. The type is interface{} with range: 1..4294967295. This
@@ -697,15 +745,18 @@ func (vrfname *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ip
     vrfname.EntityData.YangName = "vrfname"
     vrfname.EntityData.BundleName = "cisco_ios_xr"
     vrfname.EntityData.ParentYangName = "ipv4-route"
-    vrfname.EntityData.SegmentPath = "vrfname" + "[vrfname='" + fmt.Sprintf("%v", vrfname.Vrfname) + "']"
+    vrfname.EntityData.SegmentPath = "vrfname" + types.AddKeyToken(vrfname.Vrfname, "vrfname")
     vrfname.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfname.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfname.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfname.EntityData.Children = make(map[string]types.YChild)
-    vrfname.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrfname.EntityData.Leafs["vrfname"] = types.YLeaf{"Vrfname", vrfname.Vrfname}
-    vrfname.EntityData.Leafs["tagvalue"] = types.YLeaf{"Tagvalue", vrfname.Tagvalue}
+    vrfname.EntityData.Children = types.NewOrderedMap()
+    vrfname.EntityData.Leafs = types.NewOrderedMap()
+    vrfname.EntityData.Leafs.Append("vrfname", types.YLeaf{"Vrfname", vrfname.Vrfname})
+    vrfname.EntityData.Leafs.Append("tagvalue", types.YLeaf{"Tagvalue", vrfname.Tagvalue})
+
+    vrfname.EntityData.YListKeys = []string {"Vrfname"}
+
     return &(vrfname.EntityData)
 }
 
@@ -716,10 +767,10 @@ type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route struct {
     YFilter yfilter.YFilter
 
     // Table of IPv6NARoute.
-    Ipv6NaRoutes SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6NaRoutes
+    Ipv6naRoutes SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6naRoutes
 
     // Table of IPv6PDRoute.
-    Ipv6PdRoutes SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6PdRoutes
+    Ipv6pdRoutes SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6pdRoutes
 }
 
 func (ipv6Route *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route) GetEntityData() *types.CommonEntityData {
@@ -732,62 +783,68 @@ func (ipv6Route *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route) 
     ipv6Route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6Route.EntityData.Children = make(map[string]types.YChild)
-    ipv6Route.EntityData.Children["ipv6na-routes"] = types.YChild{"Ipv6NaRoutes", &ipv6Route.Ipv6NaRoutes}
-    ipv6Route.EntityData.Children["ipv6pd-routes"] = types.YChild{"Ipv6PdRoutes", &ipv6Route.Ipv6PdRoutes}
-    ipv6Route.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Route.EntityData.Children = types.NewOrderedMap()
+    ipv6Route.EntityData.Children.Append("ipv6na-routes", types.YChild{"Ipv6naRoutes", &ipv6Route.Ipv6naRoutes})
+    ipv6Route.EntityData.Children.Append("ipv6pd-routes", types.YChild{"Ipv6pdRoutes", &ipv6Route.Ipv6pdRoutes})
+    ipv6Route.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Route.EntityData.YListKeys = []string {}
+
     return &(ipv6Route.EntityData)
 }
 
-// SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6NaRoutes
+// SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6naRoutes
 // Table of IPv6NARoute
-type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6NaRoutes struct {
+type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6naRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // None. The type is slice of
-    // SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6NaRoutes_Ipv6NaRoute.
-    Ipv6NaRoute []SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6NaRoutes_Ipv6NaRoute
+    // SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6naRoutes_Ipv6naRoute.
+    Ipv6naRoute []*SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6naRoutes_Ipv6naRoute
 }
 
-func (ipv6NaRoutes *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6NaRoutes) GetEntityData() *types.CommonEntityData {
-    ipv6NaRoutes.EntityData.YFilter = ipv6NaRoutes.YFilter
-    ipv6NaRoutes.EntityData.YangName = "ipv6na-routes"
-    ipv6NaRoutes.EntityData.BundleName = "cisco_ios_xr"
-    ipv6NaRoutes.EntityData.ParentYangName = "ipv6-route"
-    ipv6NaRoutes.EntityData.SegmentPath = "ipv6na-routes"
-    ipv6NaRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv6NaRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv6NaRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv6naRoutes *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6naRoutes) GetEntityData() *types.CommonEntityData {
+    ipv6naRoutes.EntityData.YFilter = ipv6naRoutes.YFilter
+    ipv6naRoutes.EntityData.YangName = "ipv6na-routes"
+    ipv6naRoutes.EntityData.BundleName = "cisco_ios_xr"
+    ipv6naRoutes.EntityData.ParentYangName = "ipv6-route"
+    ipv6naRoutes.EntityData.SegmentPath = "ipv6na-routes"
+    ipv6naRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6naRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6naRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6NaRoutes.EntityData.Children = make(map[string]types.YChild)
-    ipv6NaRoutes.EntityData.Children["ipv6na-route"] = types.YChild{"Ipv6NaRoute", nil}
-    for i := range ipv6NaRoutes.Ipv6NaRoute {
-        ipv6NaRoutes.EntityData.Children[types.GetSegmentPath(&ipv6NaRoutes.Ipv6NaRoute[i])] = types.YChild{"Ipv6NaRoute", &ipv6NaRoutes.Ipv6NaRoute[i]}
+    ipv6naRoutes.EntityData.Children = types.NewOrderedMap()
+    ipv6naRoutes.EntityData.Children.Append("ipv6na-route", types.YChild{"Ipv6naRoute", nil})
+    for i := range ipv6naRoutes.Ipv6naRoute {
+        ipv6naRoutes.EntityData.Children.Append(types.GetSegmentPath(ipv6naRoutes.Ipv6naRoute[i]), types.YChild{"Ipv6naRoute", ipv6naRoutes.Ipv6naRoute[i]})
     }
-    ipv6NaRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipv6NaRoutes.EntityData)
+    ipv6naRoutes.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6naRoutes.EntityData.YListKeys = []string {}
+
+    return &(ipv6naRoutes.EntityData)
 }
 
-// SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6NaRoutes_Ipv6NaRoute
+// SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6naRoutes_Ipv6naRoute
 // None
-type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6NaRoutes_Ipv6NaRoute struct {
+type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6naRoutes_Ipv6naRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Vrfname interface{}
 
     // This attribute is a key. Prefix of the IP Address. The type is interface{}
-    // with range: -2147483648..2147483647.
+    // with range: 0..4294967295.
     PrefixLength interface{}
 
     // This attribute is a key. IPv6 address with prefix-length. The type is one
     // of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PrefixString interface{}
 
     // Tag value. The type is interface{} with range: 1..4294967295. This
@@ -795,74 +852,80 @@ type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6NaRoutes_
     Tagvalue interface{}
 }
 
-func (ipv6NaRoute *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6NaRoutes_Ipv6NaRoute) GetEntityData() *types.CommonEntityData {
-    ipv6NaRoute.EntityData.YFilter = ipv6NaRoute.YFilter
-    ipv6NaRoute.EntityData.YangName = "ipv6na-route"
-    ipv6NaRoute.EntityData.BundleName = "cisco_ios_xr"
-    ipv6NaRoute.EntityData.ParentYangName = "ipv6na-routes"
-    ipv6NaRoute.EntityData.SegmentPath = "ipv6na-route" + "[vrfname='" + fmt.Sprintf("%v", ipv6NaRoute.Vrfname) + "']" + "[prefix-length='" + fmt.Sprintf("%v", ipv6NaRoute.PrefixLength) + "']" + "[prefix-string='" + fmt.Sprintf("%v", ipv6NaRoute.PrefixString) + "']"
-    ipv6NaRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv6NaRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv6NaRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv6naRoute *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6naRoutes_Ipv6naRoute) GetEntityData() *types.CommonEntityData {
+    ipv6naRoute.EntityData.YFilter = ipv6naRoute.YFilter
+    ipv6naRoute.EntityData.YangName = "ipv6na-route"
+    ipv6naRoute.EntityData.BundleName = "cisco_ios_xr"
+    ipv6naRoute.EntityData.ParentYangName = "ipv6na-routes"
+    ipv6naRoute.EntityData.SegmentPath = "ipv6na-route" + types.AddKeyToken(ipv6naRoute.Vrfname, "vrfname") + types.AddKeyToken(ipv6naRoute.PrefixLength, "prefix-length") + types.AddKeyToken(ipv6naRoute.PrefixString, "prefix-string")
+    ipv6naRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6naRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6naRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6NaRoute.EntityData.Children = make(map[string]types.YChild)
-    ipv6NaRoute.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6NaRoute.EntityData.Leafs["vrfname"] = types.YLeaf{"Vrfname", ipv6NaRoute.Vrfname}
-    ipv6NaRoute.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", ipv6NaRoute.PrefixLength}
-    ipv6NaRoute.EntityData.Leafs["prefix-string"] = types.YLeaf{"PrefixString", ipv6NaRoute.PrefixString}
-    ipv6NaRoute.EntityData.Leafs["tagvalue"] = types.YLeaf{"Tagvalue", ipv6NaRoute.Tagvalue}
-    return &(ipv6NaRoute.EntityData)
+    ipv6naRoute.EntityData.Children = types.NewOrderedMap()
+    ipv6naRoute.EntityData.Leafs = types.NewOrderedMap()
+    ipv6naRoute.EntityData.Leafs.Append("vrfname", types.YLeaf{"Vrfname", ipv6naRoute.Vrfname})
+    ipv6naRoute.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", ipv6naRoute.PrefixLength})
+    ipv6naRoute.EntityData.Leafs.Append("prefix-string", types.YLeaf{"PrefixString", ipv6naRoute.PrefixString})
+    ipv6naRoute.EntityData.Leafs.Append("tagvalue", types.YLeaf{"Tagvalue", ipv6naRoute.Tagvalue})
+
+    ipv6naRoute.EntityData.YListKeys = []string {"Vrfname", "PrefixLength", "PrefixString"}
+
+    return &(ipv6naRoute.EntityData)
 }
 
-// SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6PdRoutes
+// SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6pdRoutes
 // Table of IPv6PDRoute
-type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6PdRoutes struct {
+type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6pdRoutes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // None. The type is slice of
-    // SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6PdRoutes_Ipv6PdRoute.
-    Ipv6PdRoute []SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6PdRoutes_Ipv6PdRoute
+    // SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6pdRoutes_Ipv6pdRoute.
+    Ipv6pdRoute []*SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6pdRoutes_Ipv6pdRoute
 }
 
-func (ipv6PdRoutes *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6PdRoutes) GetEntityData() *types.CommonEntityData {
-    ipv6PdRoutes.EntityData.YFilter = ipv6PdRoutes.YFilter
-    ipv6PdRoutes.EntityData.YangName = "ipv6pd-routes"
-    ipv6PdRoutes.EntityData.BundleName = "cisco_ios_xr"
-    ipv6PdRoutes.EntityData.ParentYangName = "ipv6-route"
-    ipv6PdRoutes.EntityData.SegmentPath = "ipv6pd-routes"
-    ipv6PdRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv6PdRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv6PdRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv6pdRoutes *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6pdRoutes) GetEntityData() *types.CommonEntityData {
+    ipv6pdRoutes.EntityData.YFilter = ipv6pdRoutes.YFilter
+    ipv6pdRoutes.EntityData.YangName = "ipv6pd-routes"
+    ipv6pdRoutes.EntityData.BundleName = "cisco_ios_xr"
+    ipv6pdRoutes.EntityData.ParentYangName = "ipv6-route"
+    ipv6pdRoutes.EntityData.SegmentPath = "ipv6pd-routes"
+    ipv6pdRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6pdRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6pdRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6PdRoutes.EntityData.Children = make(map[string]types.YChild)
-    ipv6PdRoutes.EntityData.Children["ipv6pd-route"] = types.YChild{"Ipv6PdRoute", nil}
-    for i := range ipv6PdRoutes.Ipv6PdRoute {
-        ipv6PdRoutes.EntityData.Children[types.GetSegmentPath(&ipv6PdRoutes.Ipv6PdRoute[i])] = types.YChild{"Ipv6PdRoute", &ipv6PdRoutes.Ipv6PdRoute[i]}
+    ipv6pdRoutes.EntityData.Children = types.NewOrderedMap()
+    ipv6pdRoutes.EntityData.Children.Append("ipv6pd-route", types.YChild{"Ipv6pdRoute", nil})
+    for i := range ipv6pdRoutes.Ipv6pdRoute {
+        ipv6pdRoutes.EntityData.Children.Append(types.GetSegmentPath(ipv6pdRoutes.Ipv6pdRoute[i]), types.YChild{"Ipv6pdRoute", ipv6pdRoutes.Ipv6pdRoute[i]})
     }
-    ipv6PdRoutes.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ipv6PdRoutes.EntityData)
+    ipv6pdRoutes.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6pdRoutes.EntityData.YListKeys = []string {}
+
+    return &(ipv6pdRoutes.EntityData)
 }
 
-// SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6PdRoutes_Ipv6PdRoute
+// SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6pdRoutes_Ipv6pdRoute
 // None
-type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6PdRoutes_Ipv6PdRoute struct {
+type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6pdRoutes_Ipv6pdRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Vrfname interface{}
 
     // This attribute is a key. Prefix of the IP Address. The type is interface{}
-    // with range: -2147483648..2147483647.
+    // with range: 0..4294967295.
     PrefixLength interface{}
 
     // This attribute is a key. IPv6 address with prefix-length. The type is one
     // of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PrefixString interface{}
 
     // Tag value. The type is interface{} with range: 1..4294967295. This
@@ -870,23 +933,26 @@ type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6PdRoutes_
     Tagvalue interface{}
 }
 
-func (ipv6PdRoute *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6PdRoutes_Ipv6PdRoute) GetEntityData() *types.CommonEntityData {
-    ipv6PdRoute.EntityData.YFilter = ipv6PdRoute.YFilter
-    ipv6PdRoute.EntityData.YangName = "ipv6pd-route"
-    ipv6PdRoute.EntityData.BundleName = "cisco_ios_xr"
-    ipv6PdRoute.EntityData.ParentYangName = "ipv6pd-routes"
-    ipv6PdRoute.EntityData.SegmentPath = "ipv6pd-route" + "[vrfname='" + fmt.Sprintf("%v", ipv6PdRoute.Vrfname) + "']" + "[prefix-length='" + fmt.Sprintf("%v", ipv6PdRoute.PrefixLength) + "']" + "[prefix-string='" + fmt.Sprintf("%v", ipv6PdRoute.PrefixString) + "']"
-    ipv6PdRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv6PdRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv6PdRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ipv6pdRoute *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6pdRoutes_Ipv6pdRoute) GetEntityData() *types.CommonEntityData {
+    ipv6pdRoute.EntityData.YFilter = ipv6pdRoute.YFilter
+    ipv6pdRoute.EntityData.YangName = "ipv6pd-route"
+    ipv6pdRoute.EntityData.BundleName = "cisco_ios_xr"
+    ipv6pdRoute.EntityData.ParentYangName = "ipv6pd-routes"
+    ipv6pdRoute.EntityData.SegmentPath = "ipv6pd-route" + types.AddKeyToken(ipv6pdRoute.Vrfname, "vrfname") + types.AddKeyToken(ipv6pdRoute.PrefixLength, "prefix-length") + types.AddKeyToken(ipv6pdRoute.PrefixString, "prefix-string")
+    ipv6pdRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6pdRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6pdRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6PdRoute.EntityData.Children = make(map[string]types.YChild)
-    ipv6PdRoute.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6PdRoute.EntityData.Leafs["vrfname"] = types.YLeaf{"Vrfname", ipv6PdRoute.Vrfname}
-    ipv6PdRoute.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", ipv6PdRoute.PrefixLength}
-    ipv6PdRoute.EntityData.Leafs["prefix-string"] = types.YLeaf{"PrefixString", ipv6PdRoute.PrefixString}
-    ipv6PdRoute.EntityData.Leafs["tagvalue"] = types.YLeaf{"Tagvalue", ipv6PdRoute.Tagvalue}
-    return &(ipv6PdRoute.EntityData)
+    ipv6pdRoute.EntityData.Children = types.NewOrderedMap()
+    ipv6pdRoute.EntityData.Leafs = types.NewOrderedMap()
+    ipv6pdRoute.EntityData.Leafs.Append("vrfname", types.YLeaf{"Vrfname", ipv6pdRoute.Vrfname})
+    ipv6pdRoute.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", ipv6pdRoute.PrefixLength})
+    ipv6pdRoute.EntityData.Leafs.Append("prefix-string", types.YLeaf{"PrefixString", ipv6pdRoute.PrefixString})
+    ipv6pdRoute.EntityData.Leafs.Append("tagvalue", types.YLeaf{"Tagvalue", ipv6pdRoute.Tagvalue})
+
+    ipv6pdRoute.EntityData.YListKeys = []string {"Vrfname", "PrefixLength", "PrefixString"}
+
+    return &(ipv6pdRoute.EntityData)
 }
 
 // SubscriberRedundancy_RevertiveTimer
@@ -913,10 +979,13 @@ func (revertiveTimer *SubscriberRedundancy_RevertiveTimer) GetEntityData() *type
     revertiveTimer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     revertiveTimer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    revertiveTimer.EntityData.Children = make(map[string]types.YChild)
-    revertiveTimer.EntityData.Leafs = make(map[string]types.YLeaf)
-    revertiveTimer.EntityData.Leafs["max-value"] = types.YLeaf{"MaxValue", revertiveTimer.MaxValue}
-    revertiveTimer.EntityData.Leafs["value"] = types.YLeaf{"Value", revertiveTimer.Value}
+    revertiveTimer.EntityData.Children = types.NewOrderedMap()
+    revertiveTimer.EntityData.Leafs = types.NewOrderedMap()
+    revertiveTimer.EntityData.Leafs.Append("max-value", types.YLeaf{"MaxValue", revertiveTimer.MaxValue})
+    revertiveTimer.EntityData.Leafs.Append("value", types.YLeaf{"Value", revertiveTimer.Value})
+
+    revertiveTimer.EntityData.YListKeys = []string {}
+
     return &(revertiveTimer.EntityData)
 }
 

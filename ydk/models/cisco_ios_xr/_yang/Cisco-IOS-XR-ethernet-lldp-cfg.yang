@@ -164,13 +164,6 @@ module Cisco-IOS-XR-ethernet-lldp-cfg {
         "Enable or disable LLDP on Sub-interfaces as well
          globally";
     }
-    leaf enable-mgmtintf {
-      type boolean;
-      default "false";
-      description
-        "Enable or disable LLDP on Mgmt interfaces as
-         well globally";
-    }
     leaf timer {
       type uint32 {
         range "5..65534";

@@ -58,7 +58,7 @@ type Components struct {
 
     // List of components, keyed by component name. The type is slice of
     // Components_Component.
-    Component []Components_Component
+    Component []*Components_Component
 }
 
 func (components *Components) GetEntityData() *types.CommonEntityData {
@@ -71,12 +71,15 @@ func (components *Components) GetEntityData() *types.CommonEntityData {
     components.EntityData.NamespaceTable = openconfig.GetNamespaces()
     components.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    components.EntityData.Children = make(map[string]types.YChild)
-    components.EntityData.Children["component"] = types.YChild{"Component", nil}
+    components.EntityData.Children = types.NewOrderedMap()
+    components.EntityData.Children.Append("component", types.YChild{"Component", nil})
     for i := range components.Component {
-        components.EntityData.Children[types.GetSegmentPath(&components.Component[i])] = types.YChild{"Component", &components.Component[i]}
+        components.EntityData.Children.Append(types.GetSegmentPath(components.Component[i]), types.YChild{"Component", components.Component[i]})
     }
-    components.EntityData.Leafs = make(map[string]types.YLeaf)
+    components.EntityData.Leafs = types.NewOrderedMap()
+
+    components.EntityData.YListKeys = []string {}
+
     return &(components.EntityData)
 }
 
@@ -102,14 +105,14 @@ type Components_Component struct {
     // Enclosing container for subcomponent references.
     Subcomponents Components_Component_Subcomponents
 
-    // Top-level container .
-    OpticalPort Components_Component_OpticalPort
-
     // Top-level container for client port transceiver data.
     Transceiver Components_Component_Transceiver
 
     // Enclosing container for the list of optical channels.
     OpticalChannel Components_Component_OpticalChannel
+
+    // Top-level container .
+    OpticalPort Components_Component_OpticalPort
 }
 
 func (component *Components_Component) GetEntityData() *types.CommonEntityData {
@@ -117,21 +120,24 @@ func (component *Components_Component) GetEntityData() *types.CommonEntityData {
     component.EntityData.YangName = "component"
     component.EntityData.BundleName = "openconfig"
     component.EntityData.ParentYangName = "components"
-    component.EntityData.SegmentPath = "component" + "[name='" + fmt.Sprintf("%v", component.Name) + "']"
+    component.EntityData.SegmentPath = "component" + types.AddKeyToken(component.Name, "name")
     component.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     component.EntityData.NamespaceTable = openconfig.GetNamespaces()
     component.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    component.EntityData.Children = make(map[string]types.YChild)
-    component.EntityData.Children["config"] = types.YChild{"Config", &component.Config}
-    component.EntityData.Children["state"] = types.YChild{"State", &component.State}
-    component.EntityData.Children["properties"] = types.YChild{"Properties", &component.Properties}
-    component.EntityData.Children["subcomponents"] = types.YChild{"Subcomponents", &component.Subcomponents}
-    component.EntityData.Children["openconfig-transport-line-common:optical-port"] = types.YChild{"OpticalPort", &component.OpticalPort}
-    component.EntityData.Children["openconfig-platform-transceiver:transceiver"] = types.YChild{"Transceiver", &component.Transceiver}
-    component.EntityData.Children["openconfig-terminal-device:optical-channel"] = types.YChild{"OpticalChannel", &component.OpticalChannel}
-    component.EntityData.Leafs = make(map[string]types.YLeaf)
-    component.EntityData.Leafs["name"] = types.YLeaf{"Name", component.Name}
+    component.EntityData.Children = types.NewOrderedMap()
+    component.EntityData.Children.Append("config", types.YChild{"Config", &component.Config})
+    component.EntityData.Children.Append("state", types.YChild{"State", &component.State})
+    component.EntityData.Children.Append("properties", types.YChild{"Properties", &component.Properties})
+    component.EntityData.Children.Append("subcomponents", types.YChild{"Subcomponents", &component.Subcomponents})
+    component.EntityData.Children.Append("openconfig-platform-transceiver:transceiver", types.YChild{"Transceiver", &component.Transceiver})
+    component.EntityData.Children.Append("openconfig-terminal-device:optical-channel", types.YChild{"OpticalChannel", &component.OpticalChannel})
+    component.EntityData.Children.Append("openconfig-transport-line-common:optical-port", types.YChild{"OpticalPort", &component.OpticalPort})
+    component.EntityData.Leafs = types.NewOrderedMap()
+    component.EntityData.Leafs.Append("name", types.YLeaf{"Name", component.Name})
+
+    component.EntityData.YListKeys = []string {"Name"}
+
     return &(component.EntityData)
 }
 
@@ -156,9 +162,12 @@ func (config *Components_Component_Config) GetEntityData() *types.CommonEntityDa
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["name"] = types.YLeaf{"Name", config.Name}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("name", types.YLeaf{"Name", config.Name})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -177,7 +186,7 @@ type Components_Component_State struct {
     // <ydk/models/platform_types/OPENCONFIGHARDWARECOMPONENT>`, or
     // :go:struct:`OPENCONFIGSOFTWARECOMPONENT
     // <ydk/models/platform_types/OPENCONFIGSOFTWARECOMPONENT>`.
-    Type_ interface{}
+    Type interface{}
 
     // Unique identifier assigned by the system for the component. The type is
     // string.
@@ -214,16 +223,19 @@ func (state *Components_Component_State) GetEntityData() *types.CommonEntityData
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["name"] = types.YLeaf{"Name", state.Name}
-    state.EntityData.Leafs["type"] = types.YLeaf{"Type_", state.Type_}
-    state.EntityData.Leafs["id"] = types.YLeaf{"Id", state.Id}
-    state.EntityData.Leafs["description"] = types.YLeaf{"Description", state.Description}
-    state.EntityData.Leafs["mfg-name"] = types.YLeaf{"MfgName", state.MfgName}
-    state.EntityData.Leafs["version"] = types.YLeaf{"Version", state.Version}
-    state.EntityData.Leafs["serial-no"] = types.YLeaf{"SerialNo", state.SerialNo}
-    state.EntityData.Leafs["part-no"] = types.YLeaf{"PartNo", state.PartNo}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("name", types.YLeaf{"Name", state.Name})
+    state.EntityData.Leafs.Append("type", types.YLeaf{"Type", state.Type})
+    state.EntityData.Leafs.Append("id", types.YLeaf{"Id", state.Id})
+    state.EntityData.Leafs.Append("description", types.YLeaf{"Description", state.Description})
+    state.EntityData.Leafs.Append("mfg-name", types.YLeaf{"MfgName", state.MfgName})
+    state.EntityData.Leafs.Append("version", types.YLeaf{"Version", state.Version})
+    state.EntityData.Leafs.Append("serial-no", types.YLeaf{"SerialNo", state.SerialNo})
+    state.EntityData.Leafs.Append("part-no", types.YLeaf{"PartNo", state.PartNo})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -235,7 +247,7 @@ type Components_Component_Properties struct {
 
     // List of system properties for the component. The type is slice of
     // Components_Component_Properties_Property.
-    Property []Components_Component_Properties_Property
+    Property []*Components_Component_Properties_Property
 }
 
 func (properties *Components_Component_Properties) GetEntityData() *types.CommonEntityData {
@@ -248,12 +260,15 @@ func (properties *Components_Component_Properties) GetEntityData() *types.Common
     properties.EntityData.NamespaceTable = openconfig.GetNamespaces()
     properties.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    properties.EntityData.Children = make(map[string]types.YChild)
-    properties.EntityData.Children["property"] = types.YChild{"Property", nil}
+    properties.EntityData.Children = types.NewOrderedMap()
+    properties.EntityData.Children.Append("property", types.YChild{"Property", nil})
     for i := range properties.Property {
-        properties.EntityData.Children[types.GetSegmentPath(&properties.Property[i])] = types.YChild{"Property", &properties.Property[i]}
+        properties.EntityData.Children.Append(types.GetSegmentPath(properties.Property[i]), types.YChild{"Property", properties.Property[i]})
     }
-    properties.EntityData.Leafs = make(map[string]types.YLeaf)
+    properties.EntityData.Leafs = types.NewOrderedMap()
+
+    properties.EntityData.YListKeys = []string {}
+
     return &(properties.EntityData)
 }
 
@@ -280,16 +295,19 @@ func (property *Components_Component_Properties_Property) GetEntityData() *types
     property.EntityData.YangName = "property"
     property.EntityData.BundleName = "openconfig"
     property.EntityData.ParentYangName = "properties"
-    property.EntityData.SegmentPath = "property" + "[name='" + fmt.Sprintf("%v", property.Name) + "']"
+    property.EntityData.SegmentPath = "property" + types.AddKeyToken(property.Name, "name")
     property.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     property.EntityData.NamespaceTable = openconfig.GetNamespaces()
     property.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    property.EntityData.Children = make(map[string]types.YChild)
-    property.EntityData.Children["config"] = types.YChild{"Config", &property.Config}
-    property.EntityData.Children["state"] = types.YChild{"State", &property.State}
-    property.EntityData.Leafs = make(map[string]types.YLeaf)
-    property.EntityData.Leafs["name"] = types.YLeaf{"Name", property.Name}
+    property.EntityData.Children = types.NewOrderedMap()
+    property.EntityData.Children.Append("config", types.YChild{"Config", &property.Config})
+    property.EntityData.Children.Append("state", types.YChild{"State", &property.State})
+    property.EntityData.Leafs = types.NewOrderedMap()
+    property.EntityData.Leafs.Append("name", types.YLeaf{"Name", property.Name})
+
+    property.EntityData.YListKeys = []string {"Name"}
+
     return &(property.EntityData)
 }
 
@@ -322,10 +340,13 @@ func (config *Components_Component_Properties_Property_Config) GetEntityData() *
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["name"] = types.YLeaf{"Name", config.Name}
-    config.EntityData.Leafs["value"] = types.YLeaf{"Value", config.Value}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("name", types.YLeaf{"Name", config.Name})
+    config.EntityData.Leafs.Append("value", types.YLeaf{"Value", config.Value})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -361,11 +382,14 @@ func (state *Components_Component_Properties_Property_State) GetEntityData() *ty
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["name"] = types.YLeaf{"Name", state.Name}
-    state.EntityData.Leafs["value"] = types.YLeaf{"Value", state.Value}
-    state.EntityData.Leafs["configurable"] = types.YLeaf{"Configurable", state.Configurable}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("name", types.YLeaf{"Name", state.Name})
+    state.EntityData.Leafs.Append("value", types.YLeaf{"Value", state.Value})
+    state.EntityData.Leafs.Append("configurable", types.YLeaf{"Configurable", state.Configurable})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -377,7 +401,7 @@ type Components_Component_Subcomponents struct {
 
     // List of subcomponent references. The type is slice of
     // Components_Component_Subcomponents_Subcomponent.
-    Subcomponent []Components_Component_Subcomponents_Subcomponent
+    Subcomponent []*Components_Component_Subcomponents_Subcomponent
 }
 
 func (subcomponents *Components_Component_Subcomponents) GetEntityData() *types.CommonEntityData {
@@ -390,12 +414,15 @@ func (subcomponents *Components_Component_Subcomponents) GetEntityData() *types.
     subcomponents.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subcomponents.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    subcomponents.EntityData.Children = make(map[string]types.YChild)
-    subcomponents.EntityData.Children["subcomponent"] = types.YChild{"Subcomponent", nil}
+    subcomponents.EntityData.Children = types.NewOrderedMap()
+    subcomponents.EntityData.Children.Append("subcomponent", types.YChild{"Subcomponent", nil})
     for i := range subcomponents.Subcomponent {
-        subcomponents.EntityData.Children[types.GetSegmentPath(&subcomponents.Subcomponent[i])] = types.YChild{"Subcomponent", &subcomponents.Subcomponent[i]}
+        subcomponents.EntityData.Children.Append(types.GetSegmentPath(subcomponents.Subcomponent[i]), types.YChild{"Subcomponent", subcomponents.Subcomponent[i]})
     }
-    subcomponents.EntityData.Leafs = make(map[string]types.YLeaf)
+    subcomponents.EntityData.Leafs = types.NewOrderedMap()
+
+    subcomponents.EntityData.YListKeys = []string {}
+
     return &(subcomponents.EntityData)
 }
 
@@ -422,16 +449,19 @@ func (subcomponent *Components_Component_Subcomponents_Subcomponent) GetEntityDa
     subcomponent.EntityData.YangName = "subcomponent"
     subcomponent.EntityData.BundleName = "openconfig"
     subcomponent.EntityData.ParentYangName = "subcomponents"
-    subcomponent.EntityData.SegmentPath = "subcomponent" + "[name='" + fmt.Sprintf("%v", subcomponent.Name) + "']"
+    subcomponent.EntityData.SegmentPath = "subcomponent" + types.AddKeyToken(subcomponent.Name, "name")
     subcomponent.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subcomponent.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subcomponent.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    subcomponent.EntityData.Children = make(map[string]types.YChild)
-    subcomponent.EntityData.Children["config"] = types.YChild{"Config", &subcomponent.Config}
-    subcomponent.EntityData.Children["state"] = types.YChild{"State", &subcomponent.State}
-    subcomponent.EntityData.Leafs = make(map[string]types.YLeaf)
-    subcomponent.EntityData.Leafs["name"] = types.YLeaf{"Name", subcomponent.Name}
+    subcomponent.EntityData.Children = types.NewOrderedMap()
+    subcomponent.EntityData.Children.Append("config", types.YChild{"Config", &subcomponent.Config})
+    subcomponent.EntityData.Children.Append("state", types.YChild{"State", &subcomponent.State})
+    subcomponent.EntityData.Leafs = types.NewOrderedMap()
+    subcomponent.EntityData.Leafs.Append("name", types.YLeaf{"Name", subcomponent.Name})
+
+    subcomponent.EntityData.YListKeys = []string {"Name"}
+
     return &(subcomponent.EntityData)
 }
 
@@ -456,9 +486,12 @@ func (config *Components_Component_Subcomponents_Subcomponent_Config) GetEntityD
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["name"] = types.YLeaf{"Name", config.Name}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("name", types.YLeaf{"Name", config.Name})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -483,203 +516,13 @@ func (state *Components_Component_Subcomponents_Subcomponent_State) GetEntityDat
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["name"] = types.YLeaf{"Name", state.Name}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("name", types.YLeaf{"Name", state.Name})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
-}
-
-// Components_Component_OpticalPort
-// Top-level container 
-type Components_Component_OpticalPort struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Operational config data for optical line ports.
-    Config Components_Component_OpticalPort_Config
-
-    // Operational state data for optical line ports.
-    State Components_Component_OpticalPort_State
-}
-
-func (opticalPort *Components_Component_OpticalPort) GetEntityData() *types.CommonEntityData {
-    opticalPort.EntityData.YFilter = opticalPort.YFilter
-    opticalPort.EntityData.YangName = "optical-port"
-    opticalPort.EntityData.BundleName = "openconfig"
-    opticalPort.EntityData.ParentYangName = "component"
-    opticalPort.EntityData.SegmentPath = "openconfig-transport-line-common:optical-port"
-    opticalPort.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    opticalPort.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    opticalPort.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    opticalPort.EntityData.Children = make(map[string]types.YChild)
-    opticalPort.EntityData.Children["config"] = types.YChild{"Config", &opticalPort.Config}
-    opticalPort.EntityData.Children["state"] = types.YChild{"State", &opticalPort.State}
-    opticalPort.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(opticalPort.EntityData)
-}
-
-// Components_Component_OpticalPort_Config
-// Operational config data for optical line ports
-type Components_Component_OpticalPort_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Sets the admin state of the optical-port. The type is AdminStateType.
-    AdminState interface{}
-}
-
-func (config *Components_Component_OpticalPort_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "optical-port"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", config.AdminState}
-    return &(config.EntityData)
-}
-
-// Components_Component_OpticalPort_State
-// Operational state data for optical line ports
-type Components_Component_OpticalPort_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Sets the admin state of the optical-port. The type is AdminStateType.
-    AdminState interface{}
-
-    // Indicates the type of transport line port.  This is an informational field
-    // that should be made available by the device (e.g., in the
-    // openconfig-platform model). The type is one of the following:
-    // INGRESSEGRESSADDDROPMONITOR.
-    OpticalPortType interface{}
-
-    // The total input optical power of this port in units of 0.01dBm. If
-    // avg/min/max statistics are not supported, just supply the instant value.
-    InputPower Components_Component_OpticalPort_State_InputPower
-
-    // The total output optical power of this port in units of 0.01dBm. If
-    // avg/min/max statistics are not supported, just supply the instant value.
-    OutputPower Components_Component_OpticalPort_State_OutputPower
-}
-
-func (state *Components_Component_OpticalPort_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "optical-port"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["input-power"] = types.YChild{"InputPower", &state.InputPower}
-    state.EntityData.Children["output-power"] = types.YChild{"OutputPower", &state.OutputPower}
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", state.AdminState}
-    state.EntityData.Leafs["optical-port-type"] = types.YLeaf{"OpticalPortType", state.OpticalPortType}
-    return &(state.EntityData)
-}
-
-// Components_Component_OpticalPort_State_InputPower
-// The total input optical power of this port in units
-// of 0.01dBm. If avg/min/max statistics are not supported,
-// just supply the instant value
-type Components_Component_OpticalPort_State_InputPower struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The instantaneous value of the statistic. The type is string with range:
-    // -92233720368547758.08..92233720368547758.07. Units are dBm.
-    Instant interface{}
-
-    // The arithmetic mean value of the statistic over the sampling period. The
-    // type is string with range: -92233720368547758.08..92233720368547758.07.
-    // Units are dBm.
-    Avg interface{}
-
-    // The minimum value of the statistic over the sampling period. The type is
-    // string with range: -92233720368547758.08..92233720368547758.07. Units are
-    // dBm.
-    Min interface{}
-
-    // The maximum value of the statistic over the sampling period. The type is
-    // string with range: -92233720368547758.08..92233720368547758.07. Units are
-    // dBm.
-    Max interface{}
-}
-
-func (inputPower *Components_Component_OpticalPort_State_InputPower) GetEntityData() *types.CommonEntityData {
-    inputPower.EntityData.YFilter = inputPower.YFilter
-    inputPower.EntityData.YangName = "input-power"
-    inputPower.EntityData.BundleName = "openconfig"
-    inputPower.EntityData.ParentYangName = "state"
-    inputPower.EntityData.SegmentPath = "input-power"
-    inputPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    inputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    inputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    inputPower.EntityData.Children = make(map[string]types.YChild)
-    inputPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputPower.EntityData.Leafs["instant"] = types.YLeaf{"Instant", inputPower.Instant}
-    inputPower.EntityData.Leafs["avg"] = types.YLeaf{"Avg", inputPower.Avg}
-    inputPower.EntityData.Leafs["min"] = types.YLeaf{"Min", inputPower.Min}
-    inputPower.EntityData.Leafs["max"] = types.YLeaf{"Max", inputPower.Max}
-    return &(inputPower.EntityData)
-}
-
-// Components_Component_OpticalPort_State_OutputPower
-// The total output optical power of this port in units
-// of 0.01dBm. If avg/min/max statistics are not supported,
-// just supply the instant value
-type Components_Component_OpticalPort_State_OutputPower struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The instantaneous value of the statistic. The type is string with range:
-    // -92233720368547758.08..92233720368547758.07. Units are dBm.
-    Instant interface{}
-
-    // The arithmetic mean value of the statistic over the sampling period. The
-    // type is string with range: -92233720368547758.08..92233720368547758.07.
-    // Units are dBm.
-    Avg interface{}
-
-    // The minimum value of the statistic over the sampling period. The type is
-    // string with range: -92233720368547758.08..92233720368547758.07. Units are
-    // dBm.
-    Min interface{}
-
-    // The maximum value of the statistic over the sampling period. The type is
-    // string with range: -92233720368547758.08..92233720368547758.07. Units are
-    // dBm.
-    Max interface{}
-}
-
-func (outputPower *Components_Component_OpticalPort_State_OutputPower) GetEntityData() *types.CommonEntityData {
-    outputPower.EntityData.YFilter = outputPower.YFilter
-    outputPower.EntityData.YangName = "output-power"
-    outputPower.EntityData.BundleName = "openconfig"
-    outputPower.EntityData.ParentYangName = "state"
-    outputPower.EntityData.SegmentPath = "output-power"
-    outputPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    outputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    outputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    outputPower.EntityData.Children = make(map[string]types.YChild)
-    outputPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputPower.EntityData.Leafs["instant"] = types.YLeaf{"Instant", outputPower.Instant}
-    outputPower.EntityData.Leafs["avg"] = types.YLeaf{"Avg", outputPower.Avg}
-    outputPower.EntityData.Leafs["min"] = types.YLeaf{"Min", outputPower.Min}
-    outputPower.EntityData.Leafs["max"] = types.YLeaf{"Max", outputPower.Max}
-    return &(outputPower.EntityData)
 }
 
 // Components_Component_Transceiver
@@ -708,11 +551,14 @@ func (transceiver *Components_Component_Transceiver) GetEntityData() *types.Comm
     transceiver.EntityData.NamespaceTable = openconfig.GetNamespaces()
     transceiver.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    transceiver.EntityData.Children = make(map[string]types.YChild)
-    transceiver.EntityData.Children["config"] = types.YChild{"Config", &transceiver.Config}
-    transceiver.EntityData.Children["state"] = types.YChild{"State", &transceiver.State}
-    transceiver.EntityData.Children["physical-channels"] = types.YChild{"PhysicalChannels", &transceiver.PhysicalChannels}
-    transceiver.EntityData.Leafs = make(map[string]types.YLeaf)
+    transceiver.EntityData.Children = types.NewOrderedMap()
+    transceiver.EntityData.Children.Append("config", types.YChild{"Config", &transceiver.Config})
+    transceiver.EntityData.Children.Append("state", types.YChild{"State", &transceiver.State})
+    transceiver.EntityData.Children.Append("physical-channels", types.YChild{"PhysicalChannels", &transceiver.PhysicalChannels})
+    transceiver.EntityData.Leafs = types.NewOrderedMap()
+
+    transceiver.EntityData.YListKeys = []string {}
+
     return &(transceiver.EntityData)
 }
 
@@ -739,7 +585,7 @@ type Components_Component_Transceiver_Config struct {
     // expected type of transceiver ahead of deployment.  The corresponding state
     // leaf should reflect the actual transceiver type plugged into the system.
     // The type is one of the following:
-    // CFPCFP2CFP2ACOCFP4QSFPQSFP28SFPSFPPLUSXFPX2NONPLUGGABLEOTHER.
+    // CFP2QSFP28CFP4CFP2ACOX2XFPSFPPLUSNONPLUGGABLEOTHERQSFPSFPCFP.
     FormFactor interface{}
 }
 
@@ -753,10 +599,13 @@ func (config *Components_Component_Transceiver_Config) GetEntityData() *types.Co
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
-    config.EntityData.Leafs["form-factor"] = types.YLeaf{"FormFactor", config.FormFactor}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+    config.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", config.FormFactor})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -783,7 +632,7 @@ type Components_Component_Transceiver_State struct {
     // expected type of transceiver ahead of deployment.  The corresponding state
     // leaf should reflect the actual transceiver type plugged into the system.
     // The type is one of the following:
-    // CFPCFP2CFP2ACOCFP4QSFPQSFP28SFPSFPPLUSXFPX2NONPLUGGABLEOTHER.
+    // CFP2QSFP28CFP4CFP2ACOX2XFPSFPPLUSNONPLUGGABLEOTHERQSFPSFPCFP.
     FormFactor interface{}
 
     // Indicates whether a transceiver is present in the specified client port.
@@ -791,7 +640,7 @@ type Components_Component_Transceiver_State struct {
     Present interface{}
 
     // Connector type used on this port. The type is one of the following:
-    // SCCONNECTORLCCONNECTORMPOCONNECTOR.
+    // SCCONNECTORMPOCONNECTORLCCONNECTOR.
     ConnectorType interface{}
 
     // Internally measured temperature in degrees Celsius. MSA valid range is
@@ -818,15 +667,15 @@ type Components_Component_Transceiver_State struct {
     // Ethernet PMD that the transceiver supports. The SFF/QSFP MSAs have
     // registers for this and CFP MSA has similar. The type is one of the
     // following:
-    // ETH10GBASELRMETH10GBASELRETH10GBASEZRETH10GBASEERETH10GBASESRETH40GBASECR4ETH40GBASESR4ETH40GBASELR4ETH40GBASEER4ETH40GBASEPSM4ETH4X10GBASELRETH4X10GBASESRETH100GAOCETH100GACCETH100GBASESR10ETH100GBASESR4ETH100GBASELR4ETH100GBASEER4ETH100GBASECWDM4ETH100GBASECLR4ETH100GBASEPSM4ETH100GBASECR4ETHUNDEFINED.
+    // ETH40GBASESR4ETH10GBASELRMETH4X10GBASESRETH100GAOCETH100GBASESR4ETH10GBASEZRETH100GBASEER4ETH40GBASEER4ETH100GACCETHUNDEFINEDETH40GBASELR4ETH40GBASEPSM4ETH10GBASELRETH100GBASESR10ETH4X10GBASELRETH100GBASELR4ETH100GBASECLR4ETH10GBASESRETH100GBASECWDM4ETH100GBASEPSM4ETH40GBASECR4ETH100GBASECR4ETH10GBASEER.
     EthernetComplianceCode interface{}
 
     // SONET/SDH application code supported by the port. The type is one of the
-    // following: VSR20003R2VSR20003R3VSR20003R5SONETUNDEFINED.
+    // following: SONETUNDEFINEDVSR20003R3VSR20003R2VSR20003R5.
     SonetSdhComplianceCode interface{}
 
     // OTN application code supported by the port. The type is one of the
-    // following: P1L12D1P1S12D2P1L12D2OTNUNDEFINED.
+    // following: P1L12D2P1L12D1OTNUNDEFINEDP1S12D2.
     OtnComplianceCode interface{}
 
     // Transceiver serial number. 16-octet field that contains ASCII characters,
@@ -838,7 +687,7 @@ type Components_Component_Transceiver_State struct {
     // Representation of the transceiver date code, typically stored as YYMMDD. 
     // The time portion of the value is undefined and not intended to be read. The
     // type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     DateCode interface{}
 
     // Indicates if a fault condition exists in the transceiver. The type is bool.
@@ -855,22 +704,25 @@ func (state *Components_Component_Transceiver_State) GetEntityData() *types.Comm
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["form-factor"] = types.YLeaf{"FormFactor", state.FormFactor}
-    state.EntityData.Leafs["present"] = types.YLeaf{"Present", state.Present}
-    state.EntityData.Leafs["connector-type"] = types.YLeaf{"ConnectorType", state.ConnectorType}
-    state.EntityData.Leafs["internal-temp"] = types.YLeaf{"InternalTemp", state.InternalTemp}
-    state.EntityData.Leafs["vendor"] = types.YLeaf{"Vendor", state.Vendor}
-    state.EntityData.Leafs["vendor-part"] = types.YLeaf{"VendorPart", state.VendorPart}
-    state.EntityData.Leafs["vendor-rev"] = types.YLeaf{"VendorRev", state.VendorRev}
-    state.EntityData.Leafs["ethernet-compliance-code"] = types.YLeaf{"EthernetComplianceCode", state.EthernetComplianceCode}
-    state.EntityData.Leafs["sonet-sdh-compliance-code"] = types.YLeaf{"SonetSdhComplianceCode", state.SonetSdhComplianceCode}
-    state.EntityData.Leafs["otn-compliance-code"] = types.YLeaf{"OtnComplianceCode", state.OtnComplianceCode}
-    state.EntityData.Leafs["serial-no"] = types.YLeaf{"SerialNo", state.SerialNo}
-    state.EntityData.Leafs["date-code"] = types.YLeaf{"DateCode", state.DateCode}
-    state.EntityData.Leafs["fault-condition"] = types.YLeaf{"FaultCondition", state.FaultCondition}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", state.FormFactor})
+    state.EntityData.Leafs.Append("present", types.YLeaf{"Present", state.Present})
+    state.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", state.ConnectorType})
+    state.EntityData.Leafs.Append("internal-temp", types.YLeaf{"InternalTemp", state.InternalTemp})
+    state.EntityData.Leafs.Append("vendor", types.YLeaf{"Vendor", state.Vendor})
+    state.EntityData.Leafs.Append("vendor-part", types.YLeaf{"VendorPart", state.VendorPart})
+    state.EntityData.Leafs.Append("vendor-rev", types.YLeaf{"VendorRev", state.VendorRev})
+    state.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", state.EthernetComplianceCode})
+    state.EntityData.Leafs.Append("sonet-sdh-compliance-code", types.YLeaf{"SonetSdhComplianceCode", state.SonetSdhComplianceCode})
+    state.EntityData.Leafs.Append("otn-compliance-code", types.YLeaf{"OtnComplianceCode", state.OtnComplianceCode})
+    state.EntityData.Leafs.Append("serial-no", types.YLeaf{"SerialNo", state.SerialNo})
+    state.EntityData.Leafs.Append("date-code", types.YLeaf{"DateCode", state.DateCode})
+    state.EntityData.Leafs.Append("fault-condition", types.YLeaf{"FaultCondition", state.FaultCondition})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -895,7 +747,7 @@ type Components_Component_Transceiver_PhysicalChannels struct {
     // physical port with a single channel would have a single zero-indexed
     // element. The type is slice of
     // Components_Component_Transceiver_PhysicalChannels_Channel.
-    Channel []Components_Component_Transceiver_PhysicalChannels_Channel
+    Channel []*Components_Component_Transceiver_PhysicalChannels_Channel
 }
 
 func (physicalChannels *Components_Component_Transceiver_PhysicalChannels) GetEntityData() *types.CommonEntityData {
@@ -908,12 +760,15 @@ func (physicalChannels *Components_Component_Transceiver_PhysicalChannels) GetEn
     physicalChannels.EntityData.NamespaceTable = openconfig.GetNamespaces()
     physicalChannels.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    physicalChannels.EntityData.Children = make(map[string]types.YChild)
-    physicalChannels.EntityData.Children["channel"] = types.YChild{"Channel", nil}
+    physicalChannels.EntityData.Children = types.NewOrderedMap()
+    physicalChannels.EntityData.Children.Append("channel", types.YChild{"Channel", nil})
     for i := range physicalChannels.Channel {
-        physicalChannels.EntityData.Children[types.GetSegmentPath(&physicalChannels.Channel[i])] = types.YChild{"Channel", &physicalChannels.Channel[i]}
+        physicalChannels.EntityData.Children.Append(types.GetSegmentPath(physicalChannels.Channel[i]), types.YChild{"Channel", physicalChannels.Channel[i]})
     }
-    physicalChannels.EntityData.Leafs = make(map[string]types.YLeaf)
+    physicalChannels.EntityData.Leafs = types.NewOrderedMap()
+
+    physicalChannels.EntityData.YListKeys = []string {}
+
     return &(physicalChannels.EntityData)
 }
 
@@ -942,16 +797,19 @@ func (channel *Components_Component_Transceiver_PhysicalChannels_Channel) GetEnt
     channel.EntityData.YangName = "channel"
     channel.EntityData.BundleName = "openconfig"
     channel.EntityData.ParentYangName = "physical-channels"
-    channel.EntityData.SegmentPath = "channel" + "[index='" + fmt.Sprintf("%v", channel.Index) + "']"
+    channel.EntityData.SegmentPath = "channel" + types.AddKeyToken(channel.Index, "index")
     channel.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     channel.EntityData.NamespaceTable = openconfig.GetNamespaces()
     channel.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    channel.EntityData.Children = make(map[string]types.YChild)
-    channel.EntityData.Children["config"] = types.YChild{"Config", &channel.Config}
-    channel.EntityData.Children["state"] = types.YChild{"State", &channel.State}
-    channel.EntityData.Leafs = make(map[string]types.YLeaf)
-    channel.EntityData.Leafs["index"] = types.YLeaf{"Index", channel.Index}
+    channel.EntityData.Children = types.NewOrderedMap()
+    channel.EntityData.Children.Append("config", types.YChild{"Config", &channel.Config})
+    channel.EntityData.Children.Append("state", types.YChild{"State", &channel.State})
+    channel.EntityData.Leafs = types.NewOrderedMap()
+    channel.EntityData.Leafs.Append("index", types.YLeaf{"Index", channel.Index})
+
+    channel.EntityData.YListKeys = []string {"Index"}
+
     return &(channel.EntityData)
 }
 
@@ -988,12 +846,15 @@ func (config *Components_Component_Transceiver_PhysicalChannels_Channel_Config) 
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["index"] = types.YLeaf{"Index", config.Index}
-    config.EntityData.Leafs["description"] = types.YLeaf{"Description", config.Description}
-    config.EntityData.Leafs["tx-laser"] = types.YLeaf{"TxLaser", config.TxLaser}
-    config.EntityData.Leafs["target-output-power"] = types.YLeaf{"TargetOutputPower", config.TargetOutputPower}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("index", types.YLeaf{"Index", config.Index})
+    config.EntityData.Leafs.Append("description", types.YLeaf{"Description", config.Description})
+    config.EntityData.Leafs.Append("tx-laser", types.YLeaf{"TxLaser", config.TxLaser})
+    config.EntityData.Leafs.Append("target-output-power", types.YLeaf{"TargetOutputPower", config.TargetOutputPower})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1054,16 +915,19 @@ func (state *Components_Component_Transceiver_PhysicalChannels_Channel_State) Ge
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["output-power"] = types.YChild{"OutputPower", &state.OutputPower}
-    state.EntityData.Children["input-power"] = types.YChild{"InputPower", &state.InputPower}
-    state.EntityData.Children["laser-bias-current"] = types.YChild{"LaserBiasCurrent", &state.LaserBiasCurrent}
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["index"] = types.YLeaf{"Index", state.Index}
-    state.EntityData.Leafs["description"] = types.YLeaf{"Description", state.Description}
-    state.EntityData.Leafs["tx-laser"] = types.YLeaf{"TxLaser", state.TxLaser}
-    state.EntityData.Leafs["target-output-power"] = types.YLeaf{"TargetOutputPower", state.TargetOutputPower}
-    state.EntityData.Leafs["output-frequency"] = types.YLeaf{"OutputFrequency", state.OutputFrequency}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("output-power", types.YChild{"OutputPower", &state.OutputPower})
+    state.EntityData.Children.Append("input-power", types.YChild{"InputPower", &state.InputPower})
+    state.EntityData.Children.Append("laser-bias-current", types.YChild{"LaserBiasCurrent", &state.LaserBiasCurrent})
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("index", types.YLeaf{"Index", state.Index})
+    state.EntityData.Leafs.Append("description", types.YLeaf{"Description", state.Description})
+    state.EntityData.Leafs.Append("tx-laser", types.YLeaf{"TxLaser", state.TxLaser})
+    state.EntityData.Leafs.Append("target-output-power", types.YLeaf{"TargetOutputPower", state.TargetOutputPower})
+    state.EntityData.Leafs.Append("output-frequency", types.YLeaf{"OutputFrequency", state.OutputFrequency})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1104,12 +968,15 @@ func (outputPower *Components_Component_Transceiver_PhysicalChannels_Channel_Sta
     outputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
     outputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    outputPower.EntityData.Children = make(map[string]types.YChild)
-    outputPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputPower.EntityData.Leafs["instant"] = types.YLeaf{"Instant", outputPower.Instant}
-    outputPower.EntityData.Leafs["avg"] = types.YLeaf{"Avg", outputPower.Avg}
-    outputPower.EntityData.Leafs["min"] = types.YLeaf{"Min", outputPower.Min}
-    outputPower.EntityData.Leafs["max"] = types.YLeaf{"Max", outputPower.Max}
+    outputPower.EntityData.Children = types.NewOrderedMap()
+    outputPower.EntityData.Leafs = types.NewOrderedMap()
+    outputPower.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", outputPower.Instant})
+    outputPower.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", outputPower.Avg})
+    outputPower.EntityData.Leafs.Append("min", types.YLeaf{"Min", outputPower.Min})
+    outputPower.EntityData.Leafs.Append("max", types.YLeaf{"Max", outputPower.Max})
+
+    outputPower.EntityData.YListKeys = []string {}
+
     return &(outputPower.EntityData)
 }
 
@@ -1150,12 +1017,15 @@ func (inputPower *Components_Component_Transceiver_PhysicalChannels_Channel_Stat
     inputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
     inputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    inputPower.EntityData.Children = make(map[string]types.YChild)
-    inputPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputPower.EntityData.Leafs["instant"] = types.YLeaf{"Instant", inputPower.Instant}
-    inputPower.EntityData.Leafs["avg"] = types.YLeaf{"Avg", inputPower.Avg}
-    inputPower.EntityData.Leafs["min"] = types.YLeaf{"Min", inputPower.Min}
-    inputPower.EntityData.Leafs["max"] = types.YLeaf{"Max", inputPower.Max}
+    inputPower.EntityData.Children = types.NewOrderedMap()
+    inputPower.EntityData.Leafs = types.NewOrderedMap()
+    inputPower.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", inputPower.Instant})
+    inputPower.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", inputPower.Avg})
+    inputPower.EntityData.Leafs.Append("min", types.YLeaf{"Min", inputPower.Min})
+    inputPower.EntityData.Leafs.Append("max", types.YLeaf{"Max", inputPower.Max})
+
+    inputPower.EntityData.YListKeys = []string {}
+
     return &(inputPower.EntityData)
 }
 
@@ -1196,12 +1066,15 @@ func (laserBiasCurrent *Components_Component_Transceiver_PhysicalChannels_Channe
     laserBiasCurrent.EntityData.NamespaceTable = openconfig.GetNamespaces()
     laserBiasCurrent.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    laserBiasCurrent.EntityData.Children = make(map[string]types.YChild)
-    laserBiasCurrent.EntityData.Leafs = make(map[string]types.YLeaf)
-    laserBiasCurrent.EntityData.Leafs["instant"] = types.YLeaf{"Instant", laserBiasCurrent.Instant}
-    laserBiasCurrent.EntityData.Leafs["avg"] = types.YLeaf{"Avg", laserBiasCurrent.Avg}
-    laserBiasCurrent.EntityData.Leafs["min"] = types.YLeaf{"Min", laserBiasCurrent.Min}
-    laserBiasCurrent.EntityData.Leafs["max"] = types.YLeaf{"Max", laserBiasCurrent.Max}
+    laserBiasCurrent.EntityData.Children = types.NewOrderedMap()
+    laserBiasCurrent.EntityData.Leafs = types.NewOrderedMap()
+    laserBiasCurrent.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", laserBiasCurrent.Instant})
+    laserBiasCurrent.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", laserBiasCurrent.Avg})
+    laserBiasCurrent.EntityData.Leafs.Append("min", types.YLeaf{"Min", laserBiasCurrent.Min})
+    laserBiasCurrent.EntityData.Leafs.Append("max", types.YLeaf{"Max", laserBiasCurrent.Max})
+
+    laserBiasCurrent.EntityData.YListKeys = []string {}
+
     return &(laserBiasCurrent.EntityData)
 }
 
@@ -1228,10 +1101,13 @@ func (opticalChannel *Components_Component_OpticalChannel) GetEntityData() *type
     opticalChannel.EntityData.NamespaceTable = openconfig.GetNamespaces()
     opticalChannel.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    opticalChannel.EntityData.Children = make(map[string]types.YChild)
-    opticalChannel.EntityData.Children["config"] = types.YChild{"Config", &opticalChannel.Config}
-    opticalChannel.EntityData.Children["state"] = types.YChild{"State", &opticalChannel.State}
-    opticalChannel.EntityData.Leafs = make(map[string]types.YLeaf)
+    opticalChannel.EntityData.Children = types.NewOrderedMap()
+    opticalChannel.EntityData.Children.Append("config", types.YChild{"Config", &opticalChannel.Config})
+    opticalChannel.EntityData.Children.Append("state", types.YChild{"State", &opticalChannel.State})
+    opticalChannel.EntityData.Leafs = types.NewOrderedMap()
+
+    opticalChannel.EntityData.YListKeys = []string {}
+
     return &(opticalChannel.EntityData)
 }
 
@@ -1270,12 +1146,15 @@ func (config *Components_Component_OpticalChannel_Config) GetEntityData() *types
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["frequency"] = types.YLeaf{"Frequency", config.Frequency}
-    config.EntityData.Leafs["target-output-power"] = types.YLeaf{"TargetOutputPower", config.TargetOutputPower}
-    config.EntityData.Leafs["operational-mode"] = types.YLeaf{"OperationalMode", config.OperationalMode}
-    config.EntityData.Leafs["line-port"] = types.YLeaf{"LinePort", config.LinePort}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("frequency", types.YLeaf{"Frequency", config.Frequency})
+    config.EntityData.Leafs.Append("target-output-power", types.YLeaf{"TargetOutputPower", config.TargetOutputPower})
+    config.EntityData.Leafs.Append("operational-mode", types.YLeaf{"OperationalMode", config.OperationalMode})
+    config.EntityData.Leafs.Append("line-port", types.YLeaf{"LinePort", config.LinePort})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1354,20 +1233,23 @@ func (state *Components_Component_OpticalChannel_State) GetEntityData() *types.C
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["output-power"] = types.YChild{"OutputPower", &state.OutputPower}
-    state.EntityData.Children["input-power"] = types.YChild{"InputPower", &state.InputPower}
-    state.EntityData.Children["laser-bias-current"] = types.YChild{"LaserBiasCurrent", &state.LaserBiasCurrent}
-    state.EntityData.Children["chromatic-dispersion"] = types.YChild{"ChromaticDispersion", &state.ChromaticDispersion}
-    state.EntityData.Children["polarization-mode-dispersion"] = types.YChild{"PolarizationModeDispersion", &state.PolarizationModeDispersion}
-    state.EntityData.Children["second-order-polarization-mode-dispersion"] = types.YChild{"SecondOrderPolarizationModeDispersion", &state.SecondOrderPolarizationModeDispersion}
-    state.EntityData.Children["polarization-dependent-loss"] = types.YChild{"PolarizationDependentLoss", &state.PolarizationDependentLoss}
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["frequency"] = types.YLeaf{"Frequency", state.Frequency}
-    state.EntityData.Leafs["target-output-power"] = types.YLeaf{"TargetOutputPower", state.TargetOutputPower}
-    state.EntityData.Leafs["operational-mode"] = types.YLeaf{"OperationalMode", state.OperationalMode}
-    state.EntityData.Leafs["line-port"] = types.YLeaf{"LinePort", state.LinePort}
-    state.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", state.GroupId}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("output-power", types.YChild{"OutputPower", &state.OutputPower})
+    state.EntityData.Children.Append("input-power", types.YChild{"InputPower", &state.InputPower})
+    state.EntityData.Children.Append("laser-bias-current", types.YChild{"LaserBiasCurrent", &state.LaserBiasCurrent})
+    state.EntityData.Children.Append("chromatic-dispersion", types.YChild{"ChromaticDispersion", &state.ChromaticDispersion})
+    state.EntityData.Children.Append("polarization-mode-dispersion", types.YChild{"PolarizationModeDispersion", &state.PolarizationModeDispersion})
+    state.EntityData.Children.Append("second-order-polarization-mode-dispersion", types.YChild{"SecondOrderPolarizationModeDispersion", &state.SecondOrderPolarizationModeDispersion})
+    state.EntityData.Children.Append("polarization-dependent-loss", types.YChild{"PolarizationDependentLoss", &state.PolarizationDependentLoss})
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("frequency", types.YLeaf{"Frequency", state.Frequency})
+    state.EntityData.Leafs.Append("target-output-power", types.YLeaf{"TargetOutputPower", state.TargetOutputPower})
+    state.EntityData.Leafs.Append("operational-mode", types.YLeaf{"OperationalMode", state.OperationalMode})
+    state.EntityData.Leafs.Append("line-port", types.YLeaf{"LinePort", state.LinePort})
+    state.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", state.GroupId})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1408,12 +1290,15 @@ func (outputPower *Components_Component_OpticalChannel_State_OutputPower) GetEnt
     outputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
     outputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    outputPower.EntityData.Children = make(map[string]types.YChild)
-    outputPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    outputPower.EntityData.Leafs["instant"] = types.YLeaf{"Instant", outputPower.Instant}
-    outputPower.EntityData.Leafs["avg"] = types.YLeaf{"Avg", outputPower.Avg}
-    outputPower.EntityData.Leafs["min"] = types.YLeaf{"Min", outputPower.Min}
-    outputPower.EntityData.Leafs["max"] = types.YLeaf{"Max", outputPower.Max}
+    outputPower.EntityData.Children = types.NewOrderedMap()
+    outputPower.EntityData.Leafs = types.NewOrderedMap()
+    outputPower.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", outputPower.Instant})
+    outputPower.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", outputPower.Avg})
+    outputPower.EntityData.Leafs.Append("min", types.YLeaf{"Min", outputPower.Min})
+    outputPower.EntityData.Leafs.Append("max", types.YLeaf{"Max", outputPower.Max})
+
+    outputPower.EntityData.YListKeys = []string {}
+
     return &(outputPower.EntityData)
 }
 
@@ -1454,12 +1339,15 @@ func (inputPower *Components_Component_OpticalChannel_State_InputPower) GetEntit
     inputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
     inputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    inputPower.EntityData.Children = make(map[string]types.YChild)
-    inputPower.EntityData.Leafs = make(map[string]types.YLeaf)
-    inputPower.EntityData.Leafs["instant"] = types.YLeaf{"Instant", inputPower.Instant}
-    inputPower.EntityData.Leafs["avg"] = types.YLeaf{"Avg", inputPower.Avg}
-    inputPower.EntityData.Leafs["min"] = types.YLeaf{"Min", inputPower.Min}
-    inputPower.EntityData.Leafs["max"] = types.YLeaf{"Max", inputPower.Max}
+    inputPower.EntityData.Children = types.NewOrderedMap()
+    inputPower.EntityData.Leafs = types.NewOrderedMap()
+    inputPower.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", inputPower.Instant})
+    inputPower.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", inputPower.Avg})
+    inputPower.EntityData.Leafs.Append("min", types.YLeaf{"Min", inputPower.Min})
+    inputPower.EntityData.Leafs.Append("max", types.YLeaf{"Max", inputPower.Max})
+
+    inputPower.EntityData.YListKeys = []string {}
+
     return &(inputPower.EntityData)
 }
 
@@ -1500,12 +1388,15 @@ func (laserBiasCurrent *Components_Component_OpticalChannel_State_LaserBiasCurre
     laserBiasCurrent.EntityData.NamespaceTable = openconfig.GetNamespaces()
     laserBiasCurrent.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    laserBiasCurrent.EntityData.Children = make(map[string]types.YChild)
-    laserBiasCurrent.EntityData.Leafs = make(map[string]types.YLeaf)
-    laserBiasCurrent.EntityData.Leafs["instant"] = types.YLeaf{"Instant", laserBiasCurrent.Instant}
-    laserBiasCurrent.EntityData.Leafs["avg"] = types.YLeaf{"Avg", laserBiasCurrent.Avg}
-    laserBiasCurrent.EntityData.Leafs["min"] = types.YLeaf{"Min", laserBiasCurrent.Min}
-    laserBiasCurrent.EntityData.Leafs["max"] = types.YLeaf{"Max", laserBiasCurrent.Max}
+    laserBiasCurrent.EntityData.Children = types.NewOrderedMap()
+    laserBiasCurrent.EntityData.Leafs = types.NewOrderedMap()
+    laserBiasCurrent.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", laserBiasCurrent.Instant})
+    laserBiasCurrent.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", laserBiasCurrent.Avg})
+    laserBiasCurrent.EntityData.Leafs.Append("min", types.YLeaf{"Min", laserBiasCurrent.Min})
+    laserBiasCurrent.EntityData.Leafs.Append("max", types.YLeaf{"Max", laserBiasCurrent.Max})
+
+    laserBiasCurrent.EntityData.YListKeys = []string {}
+
     return &(laserBiasCurrent.EntityData)
 }
 
@@ -1543,12 +1434,15 @@ func (chromaticDispersion *Components_Component_OpticalChannel_State_ChromaticDi
     chromaticDispersion.EntityData.NamespaceTable = openconfig.GetNamespaces()
     chromaticDispersion.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    chromaticDispersion.EntityData.Children = make(map[string]types.YChild)
-    chromaticDispersion.EntityData.Leafs = make(map[string]types.YLeaf)
-    chromaticDispersion.EntityData.Leafs["instant"] = types.YLeaf{"Instant", chromaticDispersion.Instant}
-    chromaticDispersion.EntityData.Leafs["avg"] = types.YLeaf{"Avg", chromaticDispersion.Avg}
-    chromaticDispersion.EntityData.Leafs["min"] = types.YLeaf{"Min", chromaticDispersion.Min}
-    chromaticDispersion.EntityData.Leafs["max"] = types.YLeaf{"Max", chromaticDispersion.Max}
+    chromaticDispersion.EntityData.Children = types.NewOrderedMap()
+    chromaticDispersion.EntityData.Leafs = types.NewOrderedMap()
+    chromaticDispersion.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", chromaticDispersion.Instant})
+    chromaticDispersion.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", chromaticDispersion.Avg})
+    chromaticDispersion.EntityData.Leafs.Append("min", types.YLeaf{"Min", chromaticDispersion.Min})
+    chromaticDispersion.EntityData.Leafs.Append("max", types.YLeaf{"Max", chromaticDispersion.Max})
+
+    chromaticDispersion.EntityData.YListKeys = []string {}
+
     return &(chromaticDispersion.EntityData)
 }
 
@@ -1586,12 +1480,15 @@ func (polarizationModeDispersion *Components_Component_OpticalChannel_State_Pola
     polarizationModeDispersion.EntityData.NamespaceTable = openconfig.GetNamespaces()
     polarizationModeDispersion.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    polarizationModeDispersion.EntityData.Children = make(map[string]types.YChild)
-    polarizationModeDispersion.EntityData.Leafs = make(map[string]types.YLeaf)
-    polarizationModeDispersion.EntityData.Leafs["instant"] = types.YLeaf{"Instant", polarizationModeDispersion.Instant}
-    polarizationModeDispersion.EntityData.Leafs["avg"] = types.YLeaf{"Avg", polarizationModeDispersion.Avg}
-    polarizationModeDispersion.EntityData.Leafs["min"] = types.YLeaf{"Min", polarizationModeDispersion.Min}
-    polarizationModeDispersion.EntityData.Leafs["max"] = types.YLeaf{"Max", polarizationModeDispersion.Max}
+    polarizationModeDispersion.EntityData.Children = types.NewOrderedMap()
+    polarizationModeDispersion.EntityData.Leafs = types.NewOrderedMap()
+    polarizationModeDispersion.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", polarizationModeDispersion.Instant})
+    polarizationModeDispersion.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", polarizationModeDispersion.Avg})
+    polarizationModeDispersion.EntityData.Leafs.Append("min", types.YLeaf{"Min", polarizationModeDispersion.Min})
+    polarizationModeDispersion.EntityData.Leafs.Append("max", types.YLeaf{"Max", polarizationModeDispersion.Max})
+
+    polarizationModeDispersion.EntityData.YListKeys = []string {}
+
     return &(polarizationModeDispersion.EntityData)
 }
 
@@ -1629,12 +1526,15 @@ func (secondOrderPolarizationModeDispersion *Components_Component_OpticalChannel
     secondOrderPolarizationModeDispersion.EntityData.NamespaceTable = openconfig.GetNamespaces()
     secondOrderPolarizationModeDispersion.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    secondOrderPolarizationModeDispersion.EntityData.Children = make(map[string]types.YChild)
-    secondOrderPolarizationModeDispersion.EntityData.Leafs = make(map[string]types.YLeaf)
-    secondOrderPolarizationModeDispersion.EntityData.Leafs["instant"] = types.YLeaf{"Instant", secondOrderPolarizationModeDispersion.Instant}
-    secondOrderPolarizationModeDispersion.EntityData.Leafs["avg"] = types.YLeaf{"Avg", secondOrderPolarizationModeDispersion.Avg}
-    secondOrderPolarizationModeDispersion.EntityData.Leafs["min"] = types.YLeaf{"Min", secondOrderPolarizationModeDispersion.Min}
-    secondOrderPolarizationModeDispersion.EntityData.Leafs["max"] = types.YLeaf{"Max", secondOrderPolarizationModeDispersion.Max}
+    secondOrderPolarizationModeDispersion.EntityData.Children = types.NewOrderedMap()
+    secondOrderPolarizationModeDispersion.EntityData.Leafs = types.NewOrderedMap()
+    secondOrderPolarizationModeDispersion.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", secondOrderPolarizationModeDispersion.Instant})
+    secondOrderPolarizationModeDispersion.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", secondOrderPolarizationModeDispersion.Avg})
+    secondOrderPolarizationModeDispersion.EntityData.Leafs.Append("min", types.YLeaf{"Min", secondOrderPolarizationModeDispersion.Min})
+    secondOrderPolarizationModeDispersion.EntityData.Leafs.Append("max", types.YLeaf{"Max", secondOrderPolarizationModeDispersion.Max})
+
+    secondOrderPolarizationModeDispersion.EntityData.YListKeys = []string {}
+
     return &(secondOrderPolarizationModeDispersion.EntityData)
 }
 
@@ -1672,12 +1572,223 @@ func (polarizationDependentLoss *Components_Component_OpticalChannel_State_Polar
     polarizationDependentLoss.EntityData.NamespaceTable = openconfig.GetNamespaces()
     polarizationDependentLoss.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    polarizationDependentLoss.EntityData.Children = make(map[string]types.YChild)
-    polarizationDependentLoss.EntityData.Leafs = make(map[string]types.YLeaf)
-    polarizationDependentLoss.EntityData.Leafs["instant"] = types.YLeaf{"Instant", polarizationDependentLoss.Instant}
-    polarizationDependentLoss.EntityData.Leafs["avg"] = types.YLeaf{"Avg", polarizationDependentLoss.Avg}
-    polarizationDependentLoss.EntityData.Leafs["min"] = types.YLeaf{"Min", polarizationDependentLoss.Min}
-    polarizationDependentLoss.EntityData.Leafs["max"] = types.YLeaf{"Max", polarizationDependentLoss.Max}
+    polarizationDependentLoss.EntityData.Children = types.NewOrderedMap()
+    polarizationDependentLoss.EntityData.Leafs = types.NewOrderedMap()
+    polarizationDependentLoss.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", polarizationDependentLoss.Instant})
+    polarizationDependentLoss.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", polarizationDependentLoss.Avg})
+    polarizationDependentLoss.EntityData.Leafs.Append("min", types.YLeaf{"Min", polarizationDependentLoss.Min})
+    polarizationDependentLoss.EntityData.Leafs.Append("max", types.YLeaf{"Max", polarizationDependentLoss.Max})
+
+    polarizationDependentLoss.EntityData.YListKeys = []string {}
+
     return &(polarizationDependentLoss.EntityData)
+}
+
+// Components_Component_OpticalPort
+// Top-level container 
+type Components_Component_OpticalPort struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Operational config data for optical line ports.
+    Config Components_Component_OpticalPort_Config
+
+    // Operational state data for optical line ports.
+    State Components_Component_OpticalPort_State
+}
+
+func (opticalPort *Components_Component_OpticalPort) GetEntityData() *types.CommonEntityData {
+    opticalPort.EntityData.YFilter = opticalPort.YFilter
+    opticalPort.EntityData.YangName = "optical-port"
+    opticalPort.EntityData.BundleName = "openconfig"
+    opticalPort.EntityData.ParentYangName = "component"
+    opticalPort.EntityData.SegmentPath = "openconfig-transport-line-common:optical-port"
+    opticalPort.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    opticalPort.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    opticalPort.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    opticalPort.EntityData.Children = types.NewOrderedMap()
+    opticalPort.EntityData.Children.Append("config", types.YChild{"Config", &opticalPort.Config})
+    opticalPort.EntityData.Children.Append("state", types.YChild{"State", &opticalPort.State})
+    opticalPort.EntityData.Leafs = types.NewOrderedMap()
+
+    opticalPort.EntityData.YListKeys = []string {}
+
+    return &(opticalPort.EntityData)
+}
+
+// Components_Component_OpticalPort_Config
+// Operational config data for optical line ports
+type Components_Component_OpticalPort_Config struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sets the admin state of the optical-port. The type is AdminStateType.
+    AdminState interface{}
+}
+
+func (config *Components_Component_OpticalPort_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "optical-port"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("admin-state", types.YLeaf{"AdminState", config.AdminState})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// Components_Component_OpticalPort_State
+// Operational state data for optical line ports
+type Components_Component_OpticalPort_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sets the admin state of the optical-port. The type is AdminStateType.
+    AdminState interface{}
+
+    // Indicates the type of transport line port.  This is an informational field
+    // that should be made available by the device (e.g., in the
+    // openconfig-platform model). The type is one of the following:
+    // INGRESSMONITORDROPADDEGRESS.
+    OpticalPortType interface{}
+
+    // The total input optical power of this port in units of 0.01dBm. If
+    // avg/min/max statistics are not supported, just supply the instant value.
+    InputPower Components_Component_OpticalPort_State_InputPower
+
+    // The total output optical power of this port in units of 0.01dBm. If
+    // avg/min/max statistics are not supported, just supply the instant value.
+    OutputPower Components_Component_OpticalPort_State_OutputPower
+}
+
+func (state *Components_Component_OpticalPort_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "optical-port"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("input-power", types.YChild{"InputPower", &state.InputPower})
+    state.EntityData.Children.Append("output-power", types.YChild{"OutputPower", &state.OutputPower})
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("admin-state", types.YLeaf{"AdminState", state.AdminState})
+    state.EntityData.Leafs.Append("optical-port-type", types.YLeaf{"OpticalPortType", state.OpticalPortType})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
+// Components_Component_OpticalPort_State_InputPower
+// The total input optical power of this port in units
+// of 0.01dBm. If avg/min/max statistics are not supported,
+// just supply the instant value
+type Components_Component_OpticalPort_State_InputPower struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The instantaneous value of the statistic. The type is string with range:
+    // -92233720368547758.08..92233720368547758.07. Units are dBm.
+    Instant interface{}
+
+    // The arithmetic mean value of the statistic over the sampling period. The
+    // type is string with range: -92233720368547758.08..92233720368547758.07.
+    // Units are dBm.
+    Avg interface{}
+
+    // The minimum value of the statistic over the sampling period. The type is
+    // string with range: -92233720368547758.08..92233720368547758.07. Units are
+    // dBm.
+    Min interface{}
+
+    // The maximum value of the statistic over the sampling period. The type is
+    // string with range: -92233720368547758.08..92233720368547758.07. Units are
+    // dBm.
+    Max interface{}
+}
+
+func (inputPower *Components_Component_OpticalPort_State_InputPower) GetEntityData() *types.CommonEntityData {
+    inputPower.EntityData.YFilter = inputPower.YFilter
+    inputPower.EntityData.YangName = "input-power"
+    inputPower.EntityData.BundleName = "openconfig"
+    inputPower.EntityData.ParentYangName = "state"
+    inputPower.EntityData.SegmentPath = "input-power"
+    inputPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    inputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    inputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    inputPower.EntityData.Children = types.NewOrderedMap()
+    inputPower.EntityData.Leafs = types.NewOrderedMap()
+    inputPower.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", inputPower.Instant})
+    inputPower.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", inputPower.Avg})
+    inputPower.EntityData.Leafs.Append("min", types.YLeaf{"Min", inputPower.Min})
+    inputPower.EntityData.Leafs.Append("max", types.YLeaf{"Max", inputPower.Max})
+
+    inputPower.EntityData.YListKeys = []string {}
+
+    return &(inputPower.EntityData)
+}
+
+// Components_Component_OpticalPort_State_OutputPower
+// The total output optical power of this port in units
+// of 0.01dBm. If avg/min/max statistics are not supported,
+// just supply the instant value
+type Components_Component_OpticalPort_State_OutputPower struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The instantaneous value of the statistic. The type is string with range:
+    // -92233720368547758.08..92233720368547758.07. Units are dBm.
+    Instant interface{}
+
+    // The arithmetic mean value of the statistic over the sampling period. The
+    // type is string with range: -92233720368547758.08..92233720368547758.07.
+    // Units are dBm.
+    Avg interface{}
+
+    // The minimum value of the statistic over the sampling period. The type is
+    // string with range: -92233720368547758.08..92233720368547758.07. Units are
+    // dBm.
+    Min interface{}
+
+    // The maximum value of the statistic over the sampling period. The type is
+    // string with range: -92233720368547758.08..92233720368547758.07. Units are
+    // dBm.
+    Max interface{}
+}
+
+func (outputPower *Components_Component_OpticalPort_State_OutputPower) GetEntityData() *types.CommonEntityData {
+    outputPower.EntityData.YFilter = outputPower.YFilter
+    outputPower.EntityData.YangName = "output-power"
+    outputPower.EntityData.BundleName = "openconfig"
+    outputPower.EntityData.ParentYangName = "state"
+    outputPower.EntityData.SegmentPath = "output-power"
+    outputPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    outputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    outputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    outputPower.EntityData.Children = types.NewOrderedMap()
+    outputPower.EntityData.Leafs = types.NewOrderedMap()
+    outputPower.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", outputPower.Instant})
+    outputPower.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", outputPower.Avg})
+    outputPower.EntityData.Leafs.Append("min", types.YLeaf{"Min", outputPower.Min})
+    outputPower.EntityData.Leafs.Append("max", types.YLeaf{"Max", outputPower.Max})
+
+    outputPower.EntityData.YListKeys = []string {}
+
+    return &(outputPower.EntityData)
 }
 

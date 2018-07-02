@@ -42,9 +42,12 @@ func (console *Console) GetEntityData() *types.CommonEntityData {
     console.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     console.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    console.EntityData.Children = make(map[string]types.YChild)
-    console.EntityData.Children["config"] = types.YChild{"Config", &console.Config}
-    console.EntityData.Leafs = make(map[string]types.YLeaf)
+    console.EntityData.Children = types.NewOrderedMap()
+    console.EntityData.Children.Append("config", types.YChild{"Config", &console.Config})
+    console.EntityData.Leafs = types.NewOrderedMap()
+
+    console.EntityData.YListKeys = []string {}
+
     return &(console.EntityData)
 }
 
@@ -67,9 +70,12 @@ func (config *Console_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Children["attach-sdr"] = types.YChild{"AttachSdr", &config.AttachSdr}
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Children.Append("attach-sdr", types.YChild{"AttachSdr", &config.AttachSdr})
+    config.EntityData.Leafs = types.NewOrderedMap()
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -95,10 +101,13 @@ func (attachSdr *Console_Config_AttachSdr) GetEntityData() *types.CommonEntityDa
     attachSdr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attachSdr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    attachSdr.EntityData.Children = make(map[string]types.YChild)
-    attachSdr.EntityData.Children["runtime"] = types.YChild{"Runtime", &attachSdr.Runtime}
-    attachSdr.EntityData.Children["boot"] = types.YChild{"Boot", &attachSdr.Boot}
-    attachSdr.EntityData.Leafs = make(map[string]types.YLeaf)
+    attachSdr.EntityData.Children = types.NewOrderedMap()
+    attachSdr.EntityData.Children.Append("runtime", types.YChild{"Runtime", &attachSdr.Runtime})
+    attachSdr.EntityData.Children.Append("boot", types.YChild{"Boot", &attachSdr.Boot})
+    attachSdr.EntityData.Leafs = types.NewOrderedMap()
+
+    attachSdr.EntityData.YListKeys = []string {}
+
     return &(attachSdr.EntityData)
 }
 
@@ -108,7 +117,7 @@ type Console_Config_AttachSdr_Runtime struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Console_Config_AttachSdr_Runtime_Location.
-    Location []Console_Config_AttachSdr_Runtime_Location
+    Location []*Console_Config_AttachSdr_Runtime_Location
 }
 
 func (runtime *Console_Config_AttachSdr_Runtime) GetEntityData() *types.CommonEntityData {
@@ -121,12 +130,15 @@ func (runtime *Console_Config_AttachSdr_Runtime) GetEntityData() *types.CommonEn
     runtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     runtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    runtime.EntityData.Children = make(map[string]types.YChild)
-    runtime.EntityData.Children["location"] = types.YChild{"Location", nil}
+    runtime.EntityData.Children = types.NewOrderedMap()
+    runtime.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range runtime.Location {
-        runtime.EntityData.Children[types.GetSegmentPath(&runtime.Location[i])] = types.YChild{"Location", &runtime.Location[i]}
+        runtime.EntityData.Children.Append(types.GetSegmentPath(runtime.Location[i]), types.YChild{"Location", runtime.Location[i]})
     }
-    runtime.EntityData.Leafs = make(map[string]types.YLeaf)
+    runtime.EntityData.Leafs = types.NewOrderedMap()
+
+    runtime.EntityData.YListKeys = []string {}
+
     return &(runtime.EntityData)
 }
 
@@ -136,11 +148,11 @@ type Console_Config_AttachSdr_Runtime_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((0?[0-9]|1[1-5])/([rR][pP]\\d{1,2}))(/[cC][pP][uU]0)?'.
+    // ((0?[0-9]|1[1-5]|[bB]\d)/(([rR][pP]|[cC][bB])\d{1,2}))(/[cC][pP][uU]0)?.
     LocationRp interface{}
 
     // The type is slice of Console_Config_AttachSdr_Runtime_Location_TtyName.
-    TtyName []Console_Config_AttachSdr_Runtime_Location_TtyName
+    TtyName []*Console_Config_AttachSdr_Runtime_Location_TtyName
 }
 
 func (location *Console_Config_AttachSdr_Runtime_Location) GetEntityData() *types.CommonEntityData {
@@ -148,18 +160,21 @@ func (location *Console_Config_AttachSdr_Runtime_Location) GetEntityData() *type
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "runtime"
-    location.EntityData.SegmentPath = "location" + "[location-rp='" + fmt.Sprintf("%v", location.LocationRp) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationRp, "location-rp")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["tty-name"] = types.YChild{"TtyName", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("tty-name", types.YChild{"TtyName", nil})
     for i := range location.TtyName {
-        location.EntityData.Children[types.GetSegmentPath(&location.TtyName[i])] = types.YChild{"TtyName", &location.TtyName[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.TtyName[i]), types.YChild{"TtyName", location.TtyName[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-rp"] = types.YLeaf{"LocationRp", location.LocationRp}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-rp", types.YLeaf{"LocationRp", location.LocationRp})
+
+    location.EntityData.YListKeys = []string {"LocationRp"}
+
     return &(location.EntityData)
 }
 
@@ -169,10 +184,10 @@ type Console_Config_AttachSdr_Runtime_Location_TtyName struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'console1|console2'.
+    // console1|console2.
     Ttyname interface{}
 
-    // The type is string with pattern: b'[a-zA-Z0-9_.{}+-]+'.
+    // The type is string with pattern: [a-zA-Z0-9_.{}+-]+.
     SdrName interface{}
 }
 
@@ -181,15 +196,18 @@ func (ttyName *Console_Config_AttachSdr_Runtime_Location_TtyName) GetEntityData(
     ttyName.EntityData.YangName = "tty-name"
     ttyName.EntityData.BundleName = "cisco_ios_xr"
     ttyName.EntityData.ParentYangName = "location"
-    ttyName.EntityData.SegmentPath = "tty-name" + "[ttyname='" + fmt.Sprintf("%v", ttyName.Ttyname) + "']"
+    ttyName.EntityData.SegmentPath = "tty-name" + types.AddKeyToken(ttyName.Ttyname, "ttyname")
     ttyName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ttyName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ttyName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ttyName.EntityData.Children = make(map[string]types.YChild)
-    ttyName.EntityData.Leafs = make(map[string]types.YLeaf)
-    ttyName.EntityData.Leafs["ttyname"] = types.YLeaf{"Ttyname", ttyName.Ttyname}
-    ttyName.EntityData.Leafs["sdr-name"] = types.YLeaf{"SdrName", ttyName.SdrName}
+    ttyName.EntityData.Children = types.NewOrderedMap()
+    ttyName.EntityData.Leafs = types.NewOrderedMap()
+    ttyName.EntityData.Leafs.Append("ttyname", types.YLeaf{"Ttyname", ttyName.Ttyname})
+    ttyName.EntityData.Leafs.Append("sdr-name", types.YLeaf{"SdrName", ttyName.SdrName})
+
+    ttyName.EntityData.YListKeys = []string {"Ttyname"}
+
     return &(ttyName.EntityData)
 }
 
@@ -199,7 +217,7 @@ type Console_Config_AttachSdr_Boot struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Console_Config_AttachSdr_Boot_Location.
-    Location []Console_Config_AttachSdr_Boot_Location
+    Location []*Console_Config_AttachSdr_Boot_Location
 }
 
 func (boot *Console_Config_AttachSdr_Boot) GetEntityData() *types.CommonEntityData {
@@ -212,12 +230,15 @@ func (boot *Console_Config_AttachSdr_Boot) GetEntityData() *types.CommonEntityDa
     boot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     boot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    boot.EntityData.Children = make(map[string]types.YChild)
-    boot.EntityData.Children["location"] = types.YChild{"Location", nil}
+    boot.EntityData.Children = types.NewOrderedMap()
+    boot.EntityData.Children.Append("location", types.YChild{"Location", nil})
     for i := range boot.Location {
-        boot.EntityData.Children[types.GetSegmentPath(&boot.Location[i])] = types.YChild{"Location", &boot.Location[i]}
+        boot.EntityData.Children.Append(types.GetSegmentPath(boot.Location[i]), types.YChild{"Location", boot.Location[i]})
     }
-    boot.EntityData.Leafs = make(map[string]types.YLeaf)
+    boot.EntityData.Leafs = types.NewOrderedMap()
+
+    boot.EntityData.YListKeys = []string {}
+
     return &(boot.EntityData)
 }
 
@@ -227,10 +248,10 @@ type Console_Config_AttachSdr_Boot_Location struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'((0?[0-9]|1[1-5])/([rR][pP]\\d{1,2}))(/[cC][pP][uU]0)?'.
+    // ((0?[0-9]|1[1-5]|[bB]\d)/(([rR][pP]|[cC][bB])\d{1,2}))(/[cC][pP][uU]0)?.
     LocationRp interface{}
 
-    // The type is string with pattern: b'[a-zA-Z0-9_.{}+-]+'.
+    // The type is string with pattern: [a-zA-Z0-9_.{}+-]+.
     SdrName interface{}
 }
 
@@ -239,15 +260,18 @@ func (location *Console_Config_AttachSdr_Boot_Location) GetEntityData() *types.C
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "boot"
-    location.EntityData.SegmentPath = "location" + "[location-rp='" + fmt.Sprintf("%v", location.LocationRp) + "']"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationRp, "location-rp")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["location-rp"] = types.YLeaf{"LocationRp", location.LocationRp}
-    location.EntityData.Leafs["sdr-name"] = types.YLeaf{"SdrName", location.SdrName}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("location-rp", types.YLeaf{"LocationRp", location.LocationRp})
+    location.EntityData.Leafs.Append("sdr-name", types.YLeaf{"SdrName", location.SdrName})
+
+    location.EntityData.YListKeys = []string {"LocationRp"}
+
     return &(location.EntityData)
 }
 

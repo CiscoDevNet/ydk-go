@@ -65,28 +65,12 @@ module Cisco-IOS-XR-plat-chas-invmgr-oper {
         key "name";
         description
           "Port slot number";
-        container portses {
-          description
-            "Table of spirit port slots";
-          list ports {
-            key "name";
-            description
-              "Port number";
-            leaf name {
-              type xr:Cisco-ios-xr-string;
-              description
-                "Port name";
-            }
-            uses HW-COMPONENT-TABLE;
-            uses SENSOR-TABLE;
-            uses ATTRIBUTES;
-          }
-        }
         leaf name {
           type xr:Cisco-ios-xr-string;
           description
             "Port slot name";
         }
+        uses PORT-TABLE;
         uses SENSOR-TABLE;
         uses ATTRIBUTES;
       }
@@ -161,6 +145,7 @@ module Cisco-IOS-XR-plat-chas-invmgr-oper {
               description
                 "Card name";
             }
+            uses PORT-TABLE;
             uses PORT-SLOT-TABLE;
             uses HW-COMPONENT-TABLE;
             uses SENSOR-TABLE;
@@ -234,6 +219,28 @@ module Cisco-IOS-XR-plat-chas-invmgr-oper {
           description
             "Sensor name";
         }
+        uses ATTRIBUTES;
+      }
+    }
+  }
+
+  grouping PORT-TABLE {
+    description
+      "Common node of port-slot, card";
+    container portses {
+      description
+        "Table of port slots";
+      list ports {
+        key "name";
+        description
+          "Port number";
+        leaf name {
+          type xr:Cisco-ios-xr-string;
+          description
+            "Port name";
+        }
+        uses HW-COMPONENT-TABLE;
+        uses SENSOR-TABLE;
         uses ATTRIBUTES;
       }
     }

@@ -57,11 +57,14 @@ module Cisco-IOS-XR-sysadmin-types {
       enum "F1";
       enum "F2";
       enum "F3";
+      enum "B0";
+      enum "B1";
     }
     description
       "Identifies the rack number of FCC/LCC.
        LCC racks are identified by numbers rack0..7
-       FCC racks are identified by numbers F0..F3";
+       FCC racks are identified by numbers F0..F3
+       BSC racks are identified by numbers 128..129";
   }
 
   typedef slot-id {
@@ -133,7 +136,7 @@ module Cisco-IOS-XR-sysadmin-types {
 
   typedef location-id {
     type string {
-      pattern "((([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?";
+      pattern "((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?";
     }
     description
       "location identifier";

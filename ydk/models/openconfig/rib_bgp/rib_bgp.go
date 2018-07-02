@@ -61,9 +61,12 @@ func (bgpRib *BgpRib) GetEntityData() *types.CommonEntityData {
     bgpRib.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bgpRib.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    bgpRib.EntityData.Children = make(map[string]types.YChild)
-    bgpRib.EntityData.Children["afi-safis"] = types.YChild{"AfiSafis", &bgpRib.AfiSafis}
-    bgpRib.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpRib.EntityData.Children = types.NewOrderedMap()
+    bgpRib.EntityData.Children.Append("afi-safis", types.YChild{"AfiSafis", &bgpRib.AfiSafis})
+    bgpRib.EntityData.Leafs = types.NewOrderedMap()
+
+    bgpRib.EntityData.YListKeys = []string {}
+
     return &(bgpRib.EntityData)
 }
 
@@ -74,7 +77,7 @@ type BgpRib_AfiSafis struct {
     YFilter yfilter.YFilter
 
     // list of afi-safi types. The type is slice of BgpRib_AfiSafis_AfiSafi.
-    AfiSafi []BgpRib_AfiSafis_AfiSafi
+    AfiSafi []*BgpRib_AfiSafis_AfiSafi
 }
 
 func (afiSafis *BgpRib_AfiSafis) GetEntityData() *types.CommonEntityData {
@@ -87,12 +90,15 @@ func (afiSafis *BgpRib_AfiSafis) GetEntityData() *types.CommonEntityData {
     afiSafis.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafis.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    afiSafis.EntityData.Children = make(map[string]types.YChild)
-    afiSafis.EntityData.Children["afi-safi"] = types.YChild{"AfiSafi", nil}
+    afiSafis.EntityData.Children = types.NewOrderedMap()
+    afiSafis.EntityData.Children.Append("afi-safi", types.YChild{"AfiSafi", nil})
     for i := range afiSafis.AfiSafi {
-        afiSafis.EntityData.Children[types.GetSegmentPath(&afiSafis.AfiSafi[i])] = types.YChild{"AfiSafi", &afiSafis.AfiSafi[i]}
+        afiSafis.EntityData.Children.Append(types.GetSegmentPath(afiSafis.AfiSafi[i]), types.YChild{"AfiSafi", afiSafis.AfiSafi[i]})
     }
-    afiSafis.EntityData.Leafs = make(map[string]types.YLeaf)
+    afiSafis.EntityData.Leafs = types.NewOrderedMap()
+
+    afiSafis.EntityData.YListKeys = []string {}
+
     return &(afiSafis.EntityData)
 }
 
@@ -103,7 +109,7 @@ type BgpRib_AfiSafis_AfiSafi struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. AFI,SAFI. The type is one of the following:
-    // IPV4UNICASTIPV6UNICASTIPV4LABELEDUNICASTIPV6LABELEDUNICASTL3VPNIPV4UNICASTL3VPNIPV6UNICASTL3VPNIPV4MULTICASTL3VPNIPV6MULTICASTL2VPNVPLSL2VPNEVPN.
+    // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
     AfiSafiName interface{}
 
     // Routing tables for IPv4 unicast -- active when the afi-safi name is
@@ -120,16 +126,19 @@ func (afiSafi *BgpRib_AfiSafis_AfiSafi) GetEntityData() *types.CommonEntityData 
     afiSafi.EntityData.YangName = "afi-safi"
     afiSafi.EntityData.BundleName = "openconfig"
     afiSafi.EntityData.ParentYangName = "afi-safis"
-    afiSafi.EntityData.SegmentPath = "afi-safi" + "[afi-safi-name='" + fmt.Sprintf("%v", afiSafi.AfiSafiName) + "']"
+    afiSafi.EntityData.SegmentPath = "afi-safi" + types.AddKeyToken(afiSafi.AfiSafiName, "afi-safi-name")
     afiSafi.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafi.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafi.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    afiSafi.EntityData.Children = make(map[string]types.YChild)
-    afiSafi.EntityData.Children["ipv4-unicast"] = types.YChild{"Ipv4Unicast", &afiSafi.Ipv4Unicast}
-    afiSafi.EntityData.Children["ipv6-unicast"] = types.YChild{"Ipv6Unicast", &afiSafi.Ipv6Unicast}
-    afiSafi.EntityData.Leafs = make(map[string]types.YLeaf)
-    afiSafi.EntityData.Leafs["afi-safi-name"] = types.YLeaf{"AfiSafiName", afiSafi.AfiSafiName}
+    afiSafi.EntityData.Children = types.NewOrderedMap()
+    afiSafi.EntityData.Children.Append("ipv4-unicast", types.YChild{"Ipv4Unicast", &afiSafi.Ipv4Unicast})
+    afiSafi.EntityData.Children.Append("ipv6-unicast", types.YChild{"Ipv6Unicast", &afiSafi.Ipv6Unicast})
+    afiSafi.EntityData.Leafs = types.NewOrderedMap()
+    afiSafi.EntityData.Leafs.Append("afi-safi-name", types.YLeaf{"AfiSafiName", afiSafi.AfiSafiName})
+
+    afiSafi.EntityData.YListKeys = []string {"AfiSafiName"}
+
     return &(afiSafi.EntityData)
 }
 
@@ -164,10 +173,13 @@ func (ipv4Unicast *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast) GetEntityData() *types.C
     ipv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ipv4Unicast.EntityData.Children = make(map[string]types.YChild)
-    ipv4Unicast.EntityData.Children["loc-rib"] = types.YChild{"LocRib", &ipv4Unicast.LocRib}
-    ipv4Unicast.EntityData.Children["neighbors"] = types.YChild{"Neighbors", &ipv4Unicast.Neighbors}
-    ipv4Unicast.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4Unicast.EntityData.Children = types.NewOrderedMap()
+    ipv4Unicast.EntityData.Children.Append("loc-rib", types.YChild{"LocRib", &ipv4Unicast.LocRib})
+    ipv4Unicast.EntityData.Children.Append("neighbors", types.YChild{"Neighbors", &ipv4Unicast.Neighbors})
+    ipv4Unicast.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4Unicast.EntityData.YListKeys = []string {}
+
     return &(ipv4Unicast.EntityData)
 }
 
@@ -204,10 +216,13 @@ func (locRib *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib) GetEntityData() *types
     locRib.EntityData.NamespaceTable = openconfig.GetNamespaces()
     locRib.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    locRib.EntityData.Children = make(map[string]types.YChild)
-    locRib.EntityData.Children["routes"] = types.YChild{"Routes", &locRib.Routes}
-    locRib.EntityData.Leafs = make(map[string]types.YLeaf)
-    locRib.EntityData.Leafs["num-routes"] = types.YLeaf{"NumRoutes", locRib.NumRoutes}
+    locRib.EntityData.Children = types.NewOrderedMap()
+    locRib.EntityData.Children.Append("routes", types.YChild{"Routes", &locRib.Routes})
+    locRib.EntityData.Leafs = types.NewOrderedMap()
+    locRib.EntityData.Leafs.Append("num-routes", types.YLeaf{"NumRoutes", locRib.NumRoutes})
+
+    locRib.EntityData.YListKeys = []string {}
+
     return &(locRib.EntityData)
 }
 
@@ -220,7 +235,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes struct {
 
     // List of routes in the table. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route.
-    Route []BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route
+    Route []*BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route
 }
 
 func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes) GetEntityData() *types.CommonEntityData {
@@ -233,12 +248,15 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes) GetEntityData()
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    routes.EntityData.Children = make(map[string]types.YChild)
-    routes.EntityData.Children["route"] = types.YChild{"Route", nil}
+    routes.EntityData.Children = types.NewOrderedMap()
+    routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
-        routes.EntityData.Children[types.GetSegmentPath(&routes.Route[i])] = types.YChild{"Route", &routes.Route[i]}
+        routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
-    routes.EntityData.Leafs = make(map[string]types.YLeaf)
+    routes.EntityData.Leafs = types.NewOrderedMap()
+
+    routes.EntityData.YListKeys = []string {}
+
     return &(routes.EntityData)
 }
 
@@ -249,17 +267,16 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route struct {
     YFilter yfilter.YFilter
 
     // Prefix for the route. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
     Prefix interface{}
 
     // Timestamp of when this path was last changed. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastModifiedDate interface{}
 
     // Timestamp of when the last BGP update message was received for this path /
     // prefix. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastUpdateReceived interface{}
 
     // Indicates that the route is considered valid by the local router. The type
@@ -268,7 +285,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route struct {
 
     // If the route is rejected as invalid, this indicates the reason. The type is
     // one of the following:
-    // INVALIDCLUSTERLOOPINVALIDASLOOPINVALIDORIGINATORINVALIDCONFED.
+    // INVALIDORIGINATORINVALIDCLUSTERLOOPINVALIDASLOOPINVALIDCONFED.
     InvalidReason interface{}
 
     // Current path was selected as the best path. The type is bool.
@@ -291,16 +308,19 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route) GetEntityD
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    route.EntityData.Children = make(map[string]types.YChild)
-    route.EntityData.Children["attributes"] = types.YChild{"Attributes", &route.Attributes}
-    route.EntityData.Children["ext-attributes"] = types.YChild{"ExtAttributes", &route.ExtAttributes}
-    route.EntityData.Leafs = make(map[string]types.YLeaf)
-    route.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", route.Prefix}
-    route.EntityData.Leafs["last-modified-date"] = types.YLeaf{"LastModifiedDate", route.LastModifiedDate}
-    route.EntityData.Leafs["last-update-received"] = types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived}
-    route.EntityData.Leafs["valid-route"] = types.YLeaf{"ValidRoute", route.ValidRoute}
-    route.EntityData.Leafs["invalid-reason"] = types.YLeaf{"InvalidReason", route.InvalidReason}
-    route.EntityData.Leafs["best-path"] = types.YLeaf{"BestPath", route.BestPath}
+    route.EntityData.Children = types.NewOrderedMap()
+    route.EntityData.Children.Append("attributes", types.YChild{"Attributes", &route.Attributes})
+    route.EntityData.Children.Append("ext-attributes", types.YChild{"ExtAttributes", &route.ExtAttributes})
+    route.EntityData.Leafs = types.NewOrderedMap()
+    route.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", route.Prefix})
+    route.EntityData.Leafs.Append("last-modified-date", types.YLeaf{"LastModifiedDate", route.LastModifiedDate})
+    route.EntityData.Leafs.Append("last-update-received", types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived})
+    route.EntityData.Leafs.Append("valid-route", types.YLeaf{"ValidRoute", route.ValidRoute})
+    route.EntityData.Leafs.Append("invalid-reason", types.YLeaf{"InvalidReason", route.InvalidReason})
+    route.EntityData.Leafs.Append("best-path", types.YLeaf{"BestPath", route.BestPath})
+
+    route.EntityData.YListKeys = []string {}
+
     return &(route.EntityData)
 }
 
@@ -339,9 +359,9 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route_Attributes struct {
     // BGP next hop attribute defining the IP address of the router that should be
     // used as the next hop to the destination. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NextHop interface{}
 
     // BGP multi-exit discriminator attribute used in BGP route selection process.
@@ -359,7 +379,8 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route_Attributes struct {
 
     // List of standard BGP community attributes. The type is one of the following
     // types: slice of int with range: 65536..4294901759, or slice of string with
-    // pattern: b'([0-9]+:[0-9]+)'.
+    // pattern:
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     Community []interface{}
 
     // BGP attribute indicating the prefix has been aggregated by the specified AS
@@ -377,17 +398,20 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route_Attrib
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["aggregator"] = types.YChild{"Aggregator", &attributes.Aggregator}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    attributes.EntityData.Leafs["origin"] = types.YLeaf{"Origin", attributes.Origin}
-    attributes.EntityData.Leafs["as-path"] = types.YLeaf{"AsPath", attributes.AsPath}
-    attributes.EntityData.Leafs["as4-path"] = types.YLeaf{"As4Path", attributes.As4Path}
-    attributes.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", attributes.NextHop}
-    attributes.EntityData.Leafs["med"] = types.YLeaf{"Med", attributes.Med}
-    attributes.EntityData.Leafs["local-pref"] = types.YLeaf{"LocalPref", attributes.LocalPref}
-    attributes.EntityData.Leafs["atomic-aggr"] = types.YLeaf{"AtomicAggr", attributes.AtomicAggr}
-    attributes.EntityData.Leafs["community"] = types.YLeaf{"Community", attributes.Community}
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("aggregator", types.YChild{"Aggregator", &attributes.Aggregator})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+    attributes.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", attributes.Origin})
+    attributes.EntityData.Leafs.Append("as-path", types.YLeaf{"AsPath", attributes.AsPath})
+    attributes.EntityData.Leafs.Append("as4-path", types.YLeaf{"As4Path", attributes.As4Path})
+    attributes.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", attributes.NextHop})
+    attributes.EntityData.Leafs.Append("med", types.YLeaf{"Med", attributes.Med})
+    attributes.EntityData.Leafs.Append("local-pref", types.YLeaf{"LocalPref", attributes.LocalPref})
+    attributes.EntityData.Leafs.Append("atomic-aggr", types.YLeaf{"AtomicAggr", attributes.AtomicAggr})
+    attributes.EntityData.Leafs.Append("community", types.YLeaf{"Community", attributes.Community})
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -410,7 +434,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route_Attributes_Aggregat
 
     // IP address of the router that performed the aggregation. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -424,11 +448,14 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route_Attrib
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    aggregator.EntityData.Children = make(map[string]types.YChild)
-    aggregator.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggregator.EntityData.Leafs["as"] = types.YLeaf{"As", aggregator.As}
-    aggregator.EntityData.Leafs["as4"] = types.YLeaf{"As4", aggregator.As4}
-    aggregator.EntityData.Leafs["address"] = types.YLeaf{"Address", aggregator.Address}
+    aggregator.EntityData.Children = types.NewOrderedMap()
+    aggregator.EntityData.Leafs = types.NewOrderedMap()
+    aggregator.EntityData.Leafs.Append("as", types.YLeaf{"As", aggregator.As})
+    aggregator.EntityData.Leafs.Append("as4", types.YLeaf{"As4", aggregator.As4})
+    aggregator.EntityData.Leafs.Append("address", types.YLeaf{"Address", aggregator.Address})
+
+    aggregator.EntityData.YListKeys = []string {}
+
     return &(aggregator.EntityData)
 }
 
@@ -441,27 +468,33 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route_ExtAttributes struc
 
     // BGP attribute that provides the id as an IPv4 address of the route
     // reflector that created the announcement. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginatorId interface{}
 
     // Represents the reflection path that the route has passed. The type is slice
     // of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterList []interface{}
 
     // List of BGP extended community attributes. The type is one of the following
     // types: slice of string with pattern:
-    // b'(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^route\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^route\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'.
+    // ^route\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     ExtCommunity []interface{}
 
     // BGP path attribute representing the accumulated IGP metric for the path.
@@ -481,7 +514,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route_ExtAttributes struc
     // This list contains received attributes that are unrecognized or unsupported
     // by the local router.  The list may be empty. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route_ExtAttributes_UnknownAttribute.
-    UnknownAttribute []BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route_ExtAttributes_UnknownAttribute
+    UnknownAttribute []*BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route_ExtAttributes_UnknownAttribute
 }
 
 func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route_ExtAttributes) GetEntityData() *types.CommonEntityData {
@@ -494,17 +527,20 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route_Ext
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    extAttributes.EntityData.Children = make(map[string]types.YChild)
-    extAttributes.EntityData.Children["unknown-attribute"] = types.YChild{"UnknownAttribute", nil}
+    extAttributes.EntityData.Children = types.NewOrderedMap()
+    extAttributes.EntityData.Children.Append("unknown-attribute", types.YChild{"UnknownAttribute", nil})
     for i := range extAttributes.UnknownAttribute {
-        extAttributes.EntityData.Children[types.GetSegmentPath(&extAttributes.UnknownAttribute[i])] = types.YChild{"UnknownAttribute", &extAttributes.UnknownAttribute[i]}
+        extAttributes.EntityData.Children.Append(types.GetSegmentPath(extAttributes.UnknownAttribute[i]), types.YChild{"UnknownAttribute", extAttributes.UnknownAttribute[i]})
     }
-    extAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    extAttributes.EntityData.Leafs["originator-id"] = types.YLeaf{"OriginatorId", extAttributes.OriginatorId}
-    extAttributes.EntityData.Leafs["cluster-list"] = types.YLeaf{"ClusterList", extAttributes.ClusterList}
-    extAttributes.EntityData.Leafs["ext-community"] = types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity}
-    extAttributes.EntityData.Leafs["aigp"] = types.YLeaf{"Aigp", extAttributes.Aigp}
-    extAttributes.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", extAttributes.PathId}
+    extAttributes.EntityData.Leafs = types.NewOrderedMap()
+    extAttributes.EntityData.Leafs.Append("originator-id", types.YLeaf{"OriginatorId", extAttributes.OriginatorId})
+    extAttributes.EntityData.Leafs.Append("cluster-list", types.YLeaf{"ClusterList", extAttributes.ClusterList})
+    extAttributes.EntityData.Leafs.Append("ext-community", types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity})
+    extAttributes.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", extAttributes.Aigp})
+    extAttributes.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", extAttributes.PathId})
+
+    extAttributes.EntityData.YListKeys = []string {}
+
     return &(extAttributes.EntityData)
 }
 
@@ -537,16 +573,19 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route_
     unknownAttribute.EntityData.YangName = "unknown-attribute"
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
-    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + "[attr-type='" + fmt.Sprintf("%v", unknownAttribute.AttrType) + "']"
+    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    unknownAttribute.EntityData.Children = make(map[string]types.YChild)
-    unknownAttribute.EntityData.Leafs = make(map[string]types.YLeaf)
-    unknownAttribute.EntityData.Leafs["attr-type"] = types.YLeaf{"AttrType", unknownAttribute.AttrType}
-    unknownAttribute.EntityData.Leafs["attr-len"] = types.YLeaf{"AttrLen", unknownAttribute.AttrLen}
-    unknownAttribute.EntityData.Leafs["attr-value"] = types.YLeaf{"AttrValue", unknownAttribute.AttrValue}
+    unknownAttribute.EntityData.Children = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs.Append("attr-type", types.YLeaf{"AttrType", unknownAttribute.AttrType})
+    unknownAttribute.EntityData.Leafs.Append("attr-len", types.YLeaf{"AttrLen", unknownAttribute.AttrLen})
+    unknownAttribute.EntityData.Leafs.Append("attr-value", types.YLeaf{"AttrValue", unknownAttribute.AttrValue})
+
+    unknownAttribute.EntityData.YListKeys = []string {"AttrType"}
+
     return &(unknownAttribute.EntityData)
 }
 
@@ -558,7 +597,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors struct {
 
     // List of neighbors (peers) of the local BGP speaker. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor.
-    Neighbor []BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor
+    Neighbor []*BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor
 }
 
 func (neighbors *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors) GetEntityData() *types.CommonEntityData {
@@ -571,12 +610,15 @@ func (neighbors *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors) GetEntityData() 
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighbors.EntityData.Children = make(map[string]types.YChild)
-    neighbors.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    neighbors.EntityData.Children = types.NewOrderedMap()
+    neighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighbors.Neighbor {
-        neighbors.EntityData.Children[types.GetSegmentPath(&neighbors.Neighbor[i])] = types.YChild{"Neighbor", &neighbors.Neighbor[i]}
+        neighbors.EntityData.Children.Append(types.GetSegmentPath(neighbors.Neighbor[i]), types.YChild{"Neighbor", neighbors.Neighbor[i]})
     }
-    neighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    neighbors.EntityData.YListKeys = []string {}
+
     return &(neighbors.EntityData)
 }
 
@@ -588,9 +630,9 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor struct {
 
     // This attribute is a key. IP address of the BGP neighbor or peer. The type
     // is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Per-neighbor table containing the NLRI updates received from the neighbor
@@ -617,18 +659,21 @@ func (neighbor *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor) GetEntit
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[neighbor-address='" + fmt.Sprintf("%v", neighbor.NeighborAddress) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.NeighborAddress, "neighbor-address")
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Children["adj-rib-in-pre"] = types.YChild{"AdjRibInPre", &neighbor.AdjRibInPre}
-    neighbor.EntityData.Children["adj-rib-in-post"] = types.YChild{"AdjRibInPost", &neighbor.AdjRibInPost}
-    neighbor.EntityData.Children["adj-rib-out-pre"] = types.YChild{"AdjRibOutPre", &neighbor.AdjRibOutPre}
-    neighbor.EntityData.Children["adj-rib-out-post"] = types.YChild{"AdjRibOutPost", &neighbor.AdjRibOutPost}
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["neighbor-address"] = types.YLeaf{"NeighborAddress", neighbor.NeighborAddress}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Children.Append("adj-rib-in-pre", types.YChild{"AdjRibInPre", &neighbor.AdjRibInPre})
+    neighbor.EntityData.Children.Append("adj-rib-in-post", types.YChild{"AdjRibInPost", &neighbor.AdjRibInPost})
+    neighbor.EntityData.Children.Append("adj-rib-out-pre", types.YChild{"AdjRibOutPre", &neighbor.AdjRibOutPre})
+    neighbor.EntityData.Children.Append("adj-rib-out-post", types.YChild{"AdjRibOutPost", &neighbor.AdjRibOutPost})
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", neighbor.NeighborAddress})
+
+    neighbor.EntityData.YListKeys = []string {"NeighborAddress"}
+
     return &(neighbor.EntityData)
 }
 
@@ -659,10 +704,13 @@ func (adjRibInPre *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRib
     adjRibInPre.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjRibInPre.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    adjRibInPre.EntityData.Children = make(map[string]types.YChild)
-    adjRibInPre.EntityData.Children["routes"] = types.YChild{"Routes", &adjRibInPre.Routes}
-    adjRibInPre.EntityData.Leafs = make(map[string]types.YLeaf)
-    adjRibInPre.EntityData.Leafs["num-routes"] = types.YLeaf{"NumRoutes", adjRibInPre.NumRoutes}
+    adjRibInPre.EntityData.Children = types.NewOrderedMap()
+    adjRibInPre.EntityData.Children.Append("routes", types.YChild{"Routes", &adjRibInPre.Routes})
+    adjRibInPre.EntityData.Leafs = types.NewOrderedMap()
+    adjRibInPre.EntityData.Leafs.Append("num-routes", types.YLeaf{"NumRoutes", adjRibInPre.NumRoutes})
+
+    adjRibInPre.EntityData.YListKeys = []string {}
+
     return &(adjRibInPre.EntityData)
 }
 
@@ -675,7 +723,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_Routes s
 
     // List of routes in the table. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_Route.
-    Route []BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_Route
+    Route []*BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_Route
 }
 
 func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_Routes) GetEntityData() *types.CommonEntityData {
@@ -688,12 +736,15 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    routes.EntityData.Children = make(map[string]types.YChild)
-    routes.EntityData.Children["route"] = types.YChild{"Route", nil}
+    routes.EntityData.Children = types.NewOrderedMap()
+    routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
-        routes.EntityData.Children[types.GetSegmentPath(&routes.Route[i])] = types.YChild{"Route", &routes.Route[i]}
+        routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
-    routes.EntityData.Leafs = make(map[string]types.YLeaf)
+    routes.EntityData.Leafs = types.NewOrderedMap()
+
+    routes.EntityData.YListKeys = []string {}
+
     return &(routes.EntityData)
 }
 
@@ -704,17 +755,16 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_R
     YFilter yfilter.YFilter
 
     // Prefix for the route. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
     Prefix interface{}
 
     // Timestamp of when this path was last changed. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastModifiedDate interface{}
 
     // Timestamp of when the last BGP update message was received for this path /
     // prefix. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastUpdateReceived interface{}
 
     // Indicates that the route is considered valid by the local router. The type
@@ -723,7 +773,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_R
 
     // If the route is rejected as invalid, this indicates the reason. The type is
     // one of the following:
-    // INVALIDCLUSTERLOOPINVALIDASLOOPINVALIDORIGINATORINVALIDCONFED.
+    // INVALIDORIGINATORINVALIDCLUSTERLOOPINVALIDASLOOPINVALIDCONFED.
     InvalidReason interface{}
 
     // Current path was selected as the best path. The type is bool.
@@ -746,16 +796,19 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    route.EntityData.Children = make(map[string]types.YChild)
-    route.EntityData.Children["attributes"] = types.YChild{"Attributes", &route.Attributes}
-    route.EntityData.Children["ext-attributes"] = types.YChild{"ExtAttributes", &route.ExtAttributes}
-    route.EntityData.Leafs = make(map[string]types.YLeaf)
-    route.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", route.Prefix}
-    route.EntityData.Leafs["last-modified-date"] = types.YLeaf{"LastModifiedDate", route.LastModifiedDate}
-    route.EntityData.Leafs["last-update-received"] = types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived}
-    route.EntityData.Leafs["valid-route"] = types.YLeaf{"ValidRoute", route.ValidRoute}
-    route.EntityData.Leafs["invalid-reason"] = types.YLeaf{"InvalidReason", route.InvalidReason}
-    route.EntityData.Leafs["best-path"] = types.YLeaf{"BestPath", route.BestPath}
+    route.EntityData.Children = types.NewOrderedMap()
+    route.EntityData.Children.Append("attributes", types.YChild{"Attributes", &route.Attributes})
+    route.EntityData.Children.Append("ext-attributes", types.YChild{"ExtAttributes", &route.ExtAttributes})
+    route.EntityData.Leafs = types.NewOrderedMap()
+    route.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", route.Prefix})
+    route.EntityData.Leafs.Append("last-modified-date", types.YLeaf{"LastModifiedDate", route.LastModifiedDate})
+    route.EntityData.Leafs.Append("last-update-received", types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived})
+    route.EntityData.Leafs.Append("valid-route", types.YLeaf{"ValidRoute", route.ValidRoute})
+    route.EntityData.Leafs.Append("invalid-reason", types.YLeaf{"InvalidReason", route.InvalidReason})
+    route.EntityData.Leafs.Append("best-path", types.YLeaf{"BestPath", route.BestPath})
+
+    route.EntityData.YListKeys = []string {}
+
     return &(route.EntityData)
 }
 
@@ -794,9 +847,9 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_R
     // BGP next hop attribute defining the IP address of the router that should be
     // used as the next hop to the destination. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NextHop interface{}
 
     // BGP multi-exit discriminator attribute used in BGP route selection process.
@@ -814,7 +867,8 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_R
 
     // List of standard BGP community attributes. The type is one of the following
     // types: slice of int with range: 65536..4294901759, or slice of string with
-    // pattern: b'([0-9]+:[0-9]+)'.
+    // pattern:
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     Community []interface{}
 
     // BGP attribute indicating the prefix has been aggregated by the specified AS
@@ -832,17 +886,20 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibI
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["aggregator"] = types.YChild{"Aggregator", &attributes.Aggregator}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    attributes.EntityData.Leafs["origin"] = types.YLeaf{"Origin", attributes.Origin}
-    attributes.EntityData.Leafs["as-path"] = types.YLeaf{"AsPath", attributes.AsPath}
-    attributes.EntityData.Leafs["as4-path"] = types.YLeaf{"As4Path", attributes.As4Path}
-    attributes.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", attributes.NextHop}
-    attributes.EntityData.Leafs["med"] = types.YLeaf{"Med", attributes.Med}
-    attributes.EntityData.Leafs["local-pref"] = types.YLeaf{"LocalPref", attributes.LocalPref}
-    attributes.EntityData.Leafs["atomic-aggr"] = types.YLeaf{"AtomicAggr", attributes.AtomicAggr}
-    attributes.EntityData.Leafs["community"] = types.YLeaf{"Community", attributes.Community}
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("aggregator", types.YChild{"Aggregator", &attributes.Aggregator})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+    attributes.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", attributes.Origin})
+    attributes.EntityData.Leafs.Append("as-path", types.YLeaf{"AsPath", attributes.AsPath})
+    attributes.EntityData.Leafs.Append("as4-path", types.YLeaf{"As4Path", attributes.As4Path})
+    attributes.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", attributes.NextHop})
+    attributes.EntityData.Leafs.Append("med", types.YLeaf{"Med", attributes.Med})
+    attributes.EntityData.Leafs.Append("local-pref", types.YLeaf{"LocalPref", attributes.LocalPref})
+    attributes.EntityData.Leafs.Append("atomic-aggr", types.YLeaf{"AtomicAggr", attributes.AtomicAggr})
+    attributes.EntityData.Leafs.Append("community", types.YLeaf{"Community", attributes.Community})
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -865,7 +922,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_R
 
     // IP address of the router that performed the aggregation. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -879,11 +936,14 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibI
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    aggregator.EntityData.Children = make(map[string]types.YChild)
-    aggregator.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggregator.EntityData.Leafs["as"] = types.YLeaf{"As", aggregator.As}
-    aggregator.EntityData.Leafs["as4"] = types.YLeaf{"As4", aggregator.As4}
-    aggregator.EntityData.Leafs["address"] = types.YLeaf{"Address", aggregator.Address}
+    aggregator.EntityData.Children = types.NewOrderedMap()
+    aggregator.EntityData.Leafs = types.NewOrderedMap()
+    aggregator.EntityData.Leafs.Append("as", types.YLeaf{"As", aggregator.As})
+    aggregator.EntityData.Leafs.Append("as4", types.YLeaf{"As4", aggregator.As4})
+    aggregator.EntityData.Leafs.Append("address", types.YLeaf{"Address", aggregator.Address})
+
+    aggregator.EntityData.YListKeys = []string {}
+
     return &(aggregator.EntityData)
 }
 
@@ -896,27 +956,33 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_R
 
     // BGP attribute that provides the id as an IPv4 address of the route
     // reflector that created the announcement. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginatorId interface{}
 
     // Represents the reflection path that the route has passed. The type is slice
     // of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterList []interface{}
 
     // List of BGP extended community attributes. The type is one of the following
     // types: slice of string with pattern:
-    // b'(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^route\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^route\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'.
+    // ^route\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     ExtCommunity []interface{}
 
     // BGP path attribute representing the accumulated IGP metric for the path.
@@ -936,7 +1002,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_R
     // This list contains received attributes that are unrecognized or unsupported
     // by the local router.  The list may be empty. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_Route_ExtAttributes_UnknownAttribute.
-    UnknownAttribute []BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_Route_ExtAttributes_UnknownAttribute
+    UnknownAttribute []*BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_Route_ExtAttributes_UnknownAttribute
 }
 
 func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_Route_ExtAttributes) GetEntityData() *types.CommonEntityData {
@@ -949,17 +1015,20 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjR
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    extAttributes.EntityData.Children = make(map[string]types.YChild)
-    extAttributes.EntityData.Children["unknown-attribute"] = types.YChild{"UnknownAttribute", nil}
+    extAttributes.EntityData.Children = types.NewOrderedMap()
+    extAttributes.EntityData.Children.Append("unknown-attribute", types.YChild{"UnknownAttribute", nil})
     for i := range extAttributes.UnknownAttribute {
-        extAttributes.EntityData.Children[types.GetSegmentPath(&extAttributes.UnknownAttribute[i])] = types.YChild{"UnknownAttribute", &extAttributes.UnknownAttribute[i]}
+        extAttributes.EntityData.Children.Append(types.GetSegmentPath(extAttributes.UnknownAttribute[i]), types.YChild{"UnknownAttribute", extAttributes.UnknownAttribute[i]})
     }
-    extAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    extAttributes.EntityData.Leafs["originator-id"] = types.YLeaf{"OriginatorId", extAttributes.OriginatorId}
-    extAttributes.EntityData.Leafs["cluster-list"] = types.YLeaf{"ClusterList", extAttributes.ClusterList}
-    extAttributes.EntityData.Leafs["ext-community"] = types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity}
-    extAttributes.EntityData.Leafs["aigp"] = types.YLeaf{"Aigp", extAttributes.Aigp}
-    extAttributes.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", extAttributes.PathId}
+    extAttributes.EntityData.Leafs = types.NewOrderedMap()
+    extAttributes.EntityData.Leafs.Append("originator-id", types.YLeaf{"OriginatorId", extAttributes.OriginatorId})
+    extAttributes.EntityData.Leafs.Append("cluster-list", types.YLeaf{"ClusterList", extAttributes.ClusterList})
+    extAttributes.EntityData.Leafs.Append("ext-community", types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity})
+    extAttributes.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", extAttributes.Aigp})
+    extAttributes.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", extAttributes.PathId})
+
+    extAttributes.EntityData.YListKeys = []string {}
+
     return &(extAttributes.EntityData)
 }
 
@@ -992,16 +1061,19 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_A
     unknownAttribute.EntityData.YangName = "unknown-attribute"
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
-    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + "[attr-type='" + fmt.Sprintf("%v", unknownAttribute.AttrType) + "']"
+    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    unknownAttribute.EntityData.Children = make(map[string]types.YChild)
-    unknownAttribute.EntityData.Leafs = make(map[string]types.YLeaf)
-    unknownAttribute.EntityData.Leafs["attr-type"] = types.YLeaf{"AttrType", unknownAttribute.AttrType}
-    unknownAttribute.EntityData.Leafs["attr-len"] = types.YLeaf{"AttrLen", unknownAttribute.AttrLen}
-    unknownAttribute.EntityData.Leafs["attr-value"] = types.YLeaf{"AttrValue", unknownAttribute.AttrValue}
+    unknownAttribute.EntityData.Children = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs.Append("attr-type", types.YLeaf{"AttrType", unknownAttribute.AttrType})
+    unknownAttribute.EntityData.Leafs.Append("attr-len", types.YLeaf{"AttrLen", unknownAttribute.AttrLen})
+    unknownAttribute.EntityData.Leafs.Append("attr-value", types.YLeaf{"AttrValue", unknownAttribute.AttrValue})
+
+    unknownAttribute.EntityData.YListKeys = []string {"AttrType"}
+
     return &(unknownAttribute.EntityData)
 }
 
@@ -1031,10 +1103,13 @@ func (adjRibInPost *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRi
     adjRibInPost.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjRibInPost.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    adjRibInPost.EntityData.Children = make(map[string]types.YChild)
-    adjRibInPost.EntityData.Children["routes"] = types.YChild{"Routes", &adjRibInPost.Routes}
-    adjRibInPost.EntityData.Leafs = make(map[string]types.YLeaf)
-    adjRibInPost.EntityData.Leafs["num-routes"] = types.YLeaf{"NumRoutes", adjRibInPost.NumRoutes}
+    adjRibInPost.EntityData.Children = types.NewOrderedMap()
+    adjRibInPost.EntityData.Children.Append("routes", types.YChild{"Routes", &adjRibInPost.Routes})
+    adjRibInPost.EntityData.Leafs = types.NewOrderedMap()
+    adjRibInPost.EntityData.Leafs.Append("num-routes", types.YLeaf{"NumRoutes", adjRibInPost.NumRoutes})
+
+    adjRibInPost.EntityData.YListKeys = []string {}
+
     return &(adjRibInPost.EntityData)
 }
 
@@ -1047,7 +1122,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost_Routes 
 
     // List of routes in the table. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_Route.
-    Route []BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_Route
+    Route []*BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_Route
 }
 
 func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost_Routes) GetEntityData() *types.CommonEntityData {
@@ -1060,12 +1135,15 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPos
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    routes.EntityData.Children = make(map[string]types.YChild)
-    routes.EntityData.Children["route"] = types.YChild{"Route", nil}
+    routes.EntityData.Children = types.NewOrderedMap()
+    routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
-        routes.EntityData.Children[types.GetSegmentPath(&routes.Route[i])] = types.YChild{"Route", &routes.Route[i]}
+        routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
-    routes.EntityData.Leafs = make(map[string]types.YLeaf)
+    routes.EntityData.Leafs = types.NewOrderedMap()
+
+    routes.EntityData.YListKeys = []string {}
+
     return &(routes.EntityData)
 }
 
@@ -1076,17 +1154,16 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_
     YFilter yfilter.YFilter
 
     // Prefix for the route. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
     Prefix interface{}
 
     // Timestamp of when this path was last changed. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastModifiedDate interface{}
 
     // Timestamp of when the last BGP update message was received for this path /
     // prefix. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastUpdateReceived interface{}
 
     // Indicates that the route is considered valid by the local router. The type
@@ -1095,7 +1172,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_
 
     // If the route is rejected as invalid, this indicates the reason. The type is
     // one of the following:
-    // INVALIDCLUSTERLOOPINVALIDASLOOPINVALIDORIGINATORINVALIDCONFED.
+    // INVALIDORIGINATORINVALIDCLUSTERLOOPINVALIDASLOOPINVALIDCONFED.
     InvalidReason interface{}
 
     // Current path was selected as the best path. The type is bool.
@@ -1118,16 +1195,19 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    route.EntityData.Children = make(map[string]types.YChild)
-    route.EntityData.Children["attributes"] = types.YChild{"Attributes", &route.Attributes}
-    route.EntityData.Children["ext-attributes"] = types.YChild{"ExtAttributes", &route.ExtAttributes}
-    route.EntityData.Leafs = make(map[string]types.YLeaf)
-    route.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", route.Prefix}
-    route.EntityData.Leafs["last-modified-date"] = types.YLeaf{"LastModifiedDate", route.LastModifiedDate}
-    route.EntityData.Leafs["last-update-received"] = types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived}
-    route.EntityData.Leafs["valid-route"] = types.YLeaf{"ValidRoute", route.ValidRoute}
-    route.EntityData.Leafs["invalid-reason"] = types.YLeaf{"InvalidReason", route.InvalidReason}
-    route.EntityData.Leafs["best-path"] = types.YLeaf{"BestPath", route.BestPath}
+    route.EntityData.Children = types.NewOrderedMap()
+    route.EntityData.Children.Append("attributes", types.YChild{"Attributes", &route.Attributes})
+    route.EntityData.Children.Append("ext-attributes", types.YChild{"ExtAttributes", &route.ExtAttributes})
+    route.EntityData.Leafs = types.NewOrderedMap()
+    route.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", route.Prefix})
+    route.EntityData.Leafs.Append("last-modified-date", types.YLeaf{"LastModifiedDate", route.LastModifiedDate})
+    route.EntityData.Leafs.Append("last-update-received", types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived})
+    route.EntityData.Leafs.Append("valid-route", types.YLeaf{"ValidRoute", route.ValidRoute})
+    route.EntityData.Leafs.Append("invalid-reason", types.YLeaf{"InvalidReason", route.InvalidReason})
+    route.EntityData.Leafs.Append("best-path", types.YLeaf{"BestPath", route.BestPath})
+
+    route.EntityData.YListKeys = []string {}
+
     return &(route.EntityData)
 }
 
@@ -1166,9 +1246,9 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_
     // BGP next hop attribute defining the IP address of the router that should be
     // used as the next hop to the destination. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NextHop interface{}
 
     // BGP multi-exit discriminator attribute used in BGP route selection process.
@@ -1186,7 +1266,8 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_
 
     // List of standard BGP community attributes. The type is one of the following
     // types: slice of int with range: 65536..4294901759, or slice of string with
-    // pattern: b'([0-9]+:[0-9]+)'.
+    // pattern:
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     Community []interface{}
 
     // BGP attribute indicating the prefix has been aggregated by the specified AS
@@ -1204,17 +1285,20 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibI
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["aggregator"] = types.YChild{"Aggregator", &attributes.Aggregator}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    attributes.EntityData.Leafs["origin"] = types.YLeaf{"Origin", attributes.Origin}
-    attributes.EntityData.Leafs["as-path"] = types.YLeaf{"AsPath", attributes.AsPath}
-    attributes.EntityData.Leafs["as4-path"] = types.YLeaf{"As4Path", attributes.As4Path}
-    attributes.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", attributes.NextHop}
-    attributes.EntityData.Leafs["med"] = types.YLeaf{"Med", attributes.Med}
-    attributes.EntityData.Leafs["local-pref"] = types.YLeaf{"LocalPref", attributes.LocalPref}
-    attributes.EntityData.Leafs["atomic-aggr"] = types.YLeaf{"AtomicAggr", attributes.AtomicAggr}
-    attributes.EntityData.Leafs["community"] = types.YLeaf{"Community", attributes.Community}
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("aggregator", types.YChild{"Aggregator", &attributes.Aggregator})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+    attributes.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", attributes.Origin})
+    attributes.EntityData.Leafs.Append("as-path", types.YLeaf{"AsPath", attributes.AsPath})
+    attributes.EntityData.Leafs.Append("as4-path", types.YLeaf{"As4Path", attributes.As4Path})
+    attributes.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", attributes.NextHop})
+    attributes.EntityData.Leafs.Append("med", types.YLeaf{"Med", attributes.Med})
+    attributes.EntityData.Leafs.Append("local-pref", types.YLeaf{"LocalPref", attributes.LocalPref})
+    attributes.EntityData.Leafs.Append("atomic-aggr", types.YLeaf{"AtomicAggr", attributes.AtomicAggr})
+    attributes.EntityData.Leafs.Append("community", types.YLeaf{"Community", attributes.Community})
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -1237,7 +1321,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_
 
     // IP address of the router that performed the aggregation. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1251,11 +1335,14 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibI
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    aggregator.EntityData.Children = make(map[string]types.YChild)
-    aggregator.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggregator.EntityData.Leafs["as"] = types.YLeaf{"As", aggregator.As}
-    aggregator.EntityData.Leafs["as4"] = types.YLeaf{"As4", aggregator.As4}
-    aggregator.EntityData.Leafs["address"] = types.YLeaf{"Address", aggregator.Address}
+    aggregator.EntityData.Children = types.NewOrderedMap()
+    aggregator.EntityData.Leafs = types.NewOrderedMap()
+    aggregator.EntityData.Leafs.Append("as", types.YLeaf{"As", aggregator.As})
+    aggregator.EntityData.Leafs.Append("as4", types.YLeaf{"As4", aggregator.As4})
+    aggregator.EntityData.Leafs.Append("address", types.YLeaf{"Address", aggregator.Address})
+
+    aggregator.EntityData.YListKeys = []string {}
+
     return &(aggregator.EntityData)
 }
 
@@ -1268,27 +1355,33 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_
 
     // BGP attribute that provides the id as an IPv4 address of the route
     // reflector that created the announcement. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginatorId interface{}
 
     // Represents the reflection path that the route has passed. The type is slice
     // of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterList []interface{}
 
     // List of BGP extended community attributes. The type is one of the following
     // types: slice of string with pattern:
-    // b'(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^route\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^route\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'.
+    // ^route\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     ExtCommunity []interface{}
 
     // BGP path attribute representing the accumulated IGP metric for the path.
@@ -1308,7 +1401,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_
     // This list contains received attributes that are unrecognized or unsupported
     // by the local router.  The list may be empty. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_Route_ExtAttributes_UnknownAttribute.
-    UnknownAttribute []BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_Route_ExtAttributes_UnknownAttribute
+    UnknownAttribute []*BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_Route_ExtAttributes_UnknownAttribute
 }
 
 func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_Route_ExtAttributes) GetEntityData() *types.CommonEntityData {
@@ -1321,17 +1414,20 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjR
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    extAttributes.EntityData.Children = make(map[string]types.YChild)
-    extAttributes.EntityData.Children["unknown-attribute"] = types.YChild{"UnknownAttribute", nil}
+    extAttributes.EntityData.Children = types.NewOrderedMap()
+    extAttributes.EntityData.Children.Append("unknown-attribute", types.YChild{"UnknownAttribute", nil})
     for i := range extAttributes.UnknownAttribute {
-        extAttributes.EntityData.Children[types.GetSegmentPath(&extAttributes.UnknownAttribute[i])] = types.YChild{"UnknownAttribute", &extAttributes.UnknownAttribute[i]}
+        extAttributes.EntityData.Children.Append(types.GetSegmentPath(extAttributes.UnknownAttribute[i]), types.YChild{"UnknownAttribute", extAttributes.UnknownAttribute[i]})
     }
-    extAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    extAttributes.EntityData.Leafs["originator-id"] = types.YLeaf{"OriginatorId", extAttributes.OriginatorId}
-    extAttributes.EntityData.Leafs["cluster-list"] = types.YLeaf{"ClusterList", extAttributes.ClusterList}
-    extAttributes.EntityData.Leafs["ext-community"] = types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity}
-    extAttributes.EntityData.Leafs["aigp"] = types.YLeaf{"Aigp", extAttributes.Aigp}
-    extAttributes.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", extAttributes.PathId}
+    extAttributes.EntityData.Leafs = types.NewOrderedMap()
+    extAttributes.EntityData.Leafs.Append("originator-id", types.YLeaf{"OriginatorId", extAttributes.OriginatorId})
+    extAttributes.EntityData.Leafs.Append("cluster-list", types.YLeaf{"ClusterList", extAttributes.ClusterList})
+    extAttributes.EntityData.Leafs.Append("ext-community", types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity})
+    extAttributes.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", extAttributes.Aigp})
+    extAttributes.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", extAttributes.PathId})
+
+    extAttributes.EntityData.YListKeys = []string {}
+
     return &(extAttributes.EntityData)
 }
 
@@ -1364,16 +1460,19 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_A
     unknownAttribute.EntityData.YangName = "unknown-attribute"
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
-    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + "[attr-type='" + fmt.Sprintf("%v", unknownAttribute.AttrType) + "']"
+    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    unknownAttribute.EntityData.Children = make(map[string]types.YChild)
-    unknownAttribute.EntityData.Leafs = make(map[string]types.YLeaf)
-    unknownAttribute.EntityData.Leafs["attr-type"] = types.YLeaf{"AttrType", unknownAttribute.AttrType}
-    unknownAttribute.EntityData.Leafs["attr-len"] = types.YLeaf{"AttrLen", unknownAttribute.AttrLen}
-    unknownAttribute.EntityData.Leafs["attr-value"] = types.YLeaf{"AttrValue", unknownAttribute.AttrValue}
+    unknownAttribute.EntityData.Children = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs.Append("attr-type", types.YLeaf{"AttrType", unknownAttribute.AttrType})
+    unknownAttribute.EntityData.Leafs.Append("attr-len", types.YLeaf{"AttrLen", unknownAttribute.AttrLen})
+    unknownAttribute.EntityData.Leafs.Append("attr-value", types.YLeaf{"AttrValue", unknownAttribute.AttrValue})
+
+    unknownAttribute.EntityData.YListKeys = []string {"AttrType"}
+
     return &(unknownAttribute.EntityData)
 }
 
@@ -1403,10 +1502,13 @@ func (adjRibOutPre *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRi
     adjRibOutPre.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjRibOutPre.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    adjRibOutPre.EntityData.Children = make(map[string]types.YChild)
-    adjRibOutPre.EntityData.Children["routes"] = types.YChild{"Routes", &adjRibOutPre.Routes}
-    adjRibOutPre.EntityData.Leafs = make(map[string]types.YLeaf)
-    adjRibOutPre.EntityData.Leafs["num-routes"] = types.YLeaf{"NumRoutes", adjRibOutPre.NumRoutes}
+    adjRibOutPre.EntityData.Children = types.NewOrderedMap()
+    adjRibOutPre.EntityData.Children.Append("routes", types.YChild{"Routes", &adjRibOutPre.Routes})
+    adjRibOutPre.EntityData.Leafs = types.NewOrderedMap()
+    adjRibOutPre.EntityData.Leafs.Append("num-routes", types.YLeaf{"NumRoutes", adjRibOutPre.NumRoutes})
+
+    adjRibOutPre.EntityData.YListKeys = []string {}
+
     return &(adjRibOutPre.EntityData)
 }
 
@@ -1419,7 +1521,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes 
 
     // List of routes in the table. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_Route.
-    Route []BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_Route
+    Route []*BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_Route
 }
 
 func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes) GetEntityData() *types.CommonEntityData {
@@ -1432,12 +1534,15 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPr
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    routes.EntityData.Children = make(map[string]types.YChild)
-    routes.EntityData.Children["route"] = types.YChild{"Route", nil}
+    routes.EntityData.Children = types.NewOrderedMap()
+    routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
-        routes.EntityData.Children[types.GetSegmentPath(&routes.Route[i])] = types.YChild{"Route", &routes.Route[i]}
+        routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
-    routes.EntityData.Leafs = make(map[string]types.YLeaf)
+    routes.EntityData.Leafs = types.NewOrderedMap()
+
+    routes.EntityData.YListKeys = []string {}
+
     return &(routes.EntityData)
 }
 
@@ -1448,17 +1553,16 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_
     YFilter yfilter.YFilter
 
     // Prefix for the route. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
     Prefix interface{}
 
     // Timestamp of when this path was last changed. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastModifiedDate interface{}
 
     // Timestamp of when the last BGP update message was received for this path /
     // prefix. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastUpdateReceived interface{}
 
     // Indicates that the route is considered valid by the local router. The type
@@ -1467,7 +1571,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_
 
     // If the route is rejected as invalid, this indicates the reason. The type is
     // one of the following:
-    // INVALIDCLUSTERLOOPINVALIDASLOOPINVALIDORIGINATORINVALIDCONFED.
+    // INVALIDORIGINATORINVALIDCLUSTERLOOPINVALIDASLOOPINVALIDCONFED.
     InvalidReason interface{}
 
     // Current path was selected as the best path. The type is bool.
@@ -1490,16 +1594,19 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    route.EntityData.Children = make(map[string]types.YChild)
-    route.EntityData.Children["attributes"] = types.YChild{"Attributes", &route.Attributes}
-    route.EntityData.Children["ext-attributes"] = types.YChild{"ExtAttributes", &route.ExtAttributes}
-    route.EntityData.Leafs = make(map[string]types.YLeaf)
-    route.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", route.Prefix}
-    route.EntityData.Leafs["last-modified-date"] = types.YLeaf{"LastModifiedDate", route.LastModifiedDate}
-    route.EntityData.Leafs["last-update-received"] = types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived}
-    route.EntityData.Leafs["valid-route"] = types.YLeaf{"ValidRoute", route.ValidRoute}
-    route.EntityData.Leafs["invalid-reason"] = types.YLeaf{"InvalidReason", route.InvalidReason}
-    route.EntityData.Leafs["best-path"] = types.YLeaf{"BestPath", route.BestPath}
+    route.EntityData.Children = types.NewOrderedMap()
+    route.EntityData.Children.Append("attributes", types.YChild{"Attributes", &route.Attributes})
+    route.EntityData.Children.Append("ext-attributes", types.YChild{"ExtAttributes", &route.ExtAttributes})
+    route.EntityData.Leafs = types.NewOrderedMap()
+    route.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", route.Prefix})
+    route.EntityData.Leafs.Append("last-modified-date", types.YLeaf{"LastModifiedDate", route.LastModifiedDate})
+    route.EntityData.Leafs.Append("last-update-received", types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived})
+    route.EntityData.Leafs.Append("valid-route", types.YLeaf{"ValidRoute", route.ValidRoute})
+    route.EntityData.Leafs.Append("invalid-reason", types.YLeaf{"InvalidReason", route.InvalidReason})
+    route.EntityData.Leafs.Append("best-path", types.YLeaf{"BestPath", route.BestPath})
+
+    route.EntityData.YListKeys = []string {}
+
     return &(route.EntityData)
 }
 
@@ -1538,9 +1645,9 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_
     // BGP next hop attribute defining the IP address of the router that should be
     // used as the next hop to the destination. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NextHop interface{}
 
     // BGP multi-exit discriminator attribute used in BGP route selection process.
@@ -1558,7 +1665,8 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_
 
     // List of standard BGP community attributes. The type is one of the following
     // types: slice of int with range: 65536..4294901759, or slice of string with
-    // pattern: b'([0-9]+:[0-9]+)'.
+    // pattern:
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     Community []interface{}
 
     // BGP attribute indicating the prefix has been aggregated by the specified AS
@@ -1576,17 +1684,20 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibO
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["aggregator"] = types.YChild{"Aggregator", &attributes.Aggregator}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    attributes.EntityData.Leafs["origin"] = types.YLeaf{"Origin", attributes.Origin}
-    attributes.EntityData.Leafs["as-path"] = types.YLeaf{"AsPath", attributes.AsPath}
-    attributes.EntityData.Leafs["as4-path"] = types.YLeaf{"As4Path", attributes.As4Path}
-    attributes.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", attributes.NextHop}
-    attributes.EntityData.Leafs["med"] = types.YLeaf{"Med", attributes.Med}
-    attributes.EntityData.Leafs["local-pref"] = types.YLeaf{"LocalPref", attributes.LocalPref}
-    attributes.EntityData.Leafs["atomic-aggr"] = types.YLeaf{"AtomicAggr", attributes.AtomicAggr}
-    attributes.EntityData.Leafs["community"] = types.YLeaf{"Community", attributes.Community}
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("aggregator", types.YChild{"Aggregator", &attributes.Aggregator})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+    attributes.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", attributes.Origin})
+    attributes.EntityData.Leafs.Append("as-path", types.YLeaf{"AsPath", attributes.AsPath})
+    attributes.EntityData.Leafs.Append("as4-path", types.YLeaf{"As4Path", attributes.As4Path})
+    attributes.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", attributes.NextHop})
+    attributes.EntityData.Leafs.Append("med", types.YLeaf{"Med", attributes.Med})
+    attributes.EntityData.Leafs.Append("local-pref", types.YLeaf{"LocalPref", attributes.LocalPref})
+    attributes.EntityData.Leafs.Append("atomic-aggr", types.YLeaf{"AtomicAggr", attributes.AtomicAggr})
+    attributes.EntityData.Leafs.Append("community", types.YLeaf{"Community", attributes.Community})
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -1609,7 +1720,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_
 
     // IP address of the router that performed the aggregation. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1623,11 +1734,14 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibO
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    aggregator.EntityData.Children = make(map[string]types.YChild)
-    aggregator.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggregator.EntityData.Leafs["as"] = types.YLeaf{"As", aggregator.As}
-    aggregator.EntityData.Leafs["as4"] = types.YLeaf{"As4", aggregator.As4}
-    aggregator.EntityData.Leafs["address"] = types.YLeaf{"Address", aggregator.Address}
+    aggregator.EntityData.Children = types.NewOrderedMap()
+    aggregator.EntityData.Leafs = types.NewOrderedMap()
+    aggregator.EntityData.Leafs.Append("as", types.YLeaf{"As", aggregator.As})
+    aggregator.EntityData.Leafs.Append("as4", types.YLeaf{"As4", aggregator.As4})
+    aggregator.EntityData.Leafs.Append("address", types.YLeaf{"Address", aggregator.Address})
+
+    aggregator.EntityData.YListKeys = []string {}
+
     return &(aggregator.EntityData)
 }
 
@@ -1640,27 +1754,33 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_
 
     // BGP attribute that provides the id as an IPv4 address of the route
     // reflector that created the announcement. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginatorId interface{}
 
     // Represents the reflection path that the route has passed. The type is slice
     // of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterList []interface{}
 
     // List of BGP extended community attributes. The type is one of the following
     // types: slice of string with pattern:
-    // b'(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^route\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^route\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'.
+    // ^route\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     ExtCommunity []interface{}
 
     // BGP path attribute representing the accumulated IGP metric for the path.
@@ -1680,7 +1800,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_
     // This list contains received attributes that are unrecognized or unsupported
     // by the local router.  The list may be empty. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_Route_ExtAttributes_UnknownAttribute.
-    UnknownAttribute []BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_Route_ExtAttributes_UnknownAttribute
+    UnknownAttribute []*BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_Route_ExtAttributes_UnknownAttribute
 }
 
 func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_Route_ExtAttributes) GetEntityData() *types.CommonEntityData {
@@ -1693,17 +1813,20 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjR
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    extAttributes.EntityData.Children = make(map[string]types.YChild)
-    extAttributes.EntityData.Children["unknown-attribute"] = types.YChild{"UnknownAttribute", nil}
+    extAttributes.EntityData.Children = types.NewOrderedMap()
+    extAttributes.EntityData.Children.Append("unknown-attribute", types.YChild{"UnknownAttribute", nil})
     for i := range extAttributes.UnknownAttribute {
-        extAttributes.EntityData.Children[types.GetSegmentPath(&extAttributes.UnknownAttribute[i])] = types.YChild{"UnknownAttribute", &extAttributes.UnknownAttribute[i]}
+        extAttributes.EntityData.Children.Append(types.GetSegmentPath(extAttributes.UnknownAttribute[i]), types.YChild{"UnknownAttribute", extAttributes.UnknownAttribute[i]})
     }
-    extAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    extAttributes.EntityData.Leafs["originator-id"] = types.YLeaf{"OriginatorId", extAttributes.OriginatorId}
-    extAttributes.EntityData.Leafs["cluster-list"] = types.YLeaf{"ClusterList", extAttributes.ClusterList}
-    extAttributes.EntityData.Leafs["ext-community"] = types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity}
-    extAttributes.EntityData.Leafs["aigp"] = types.YLeaf{"Aigp", extAttributes.Aigp}
-    extAttributes.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", extAttributes.PathId}
+    extAttributes.EntityData.Leafs = types.NewOrderedMap()
+    extAttributes.EntityData.Leafs.Append("originator-id", types.YLeaf{"OriginatorId", extAttributes.OriginatorId})
+    extAttributes.EntityData.Leafs.Append("cluster-list", types.YLeaf{"ClusterList", extAttributes.ClusterList})
+    extAttributes.EntityData.Leafs.Append("ext-community", types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity})
+    extAttributes.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", extAttributes.Aigp})
+    extAttributes.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", extAttributes.PathId})
+
+    extAttributes.EntityData.YListKeys = []string {}
+
     return &(extAttributes.EntityData)
 }
 
@@ -1736,16 +1859,19 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_A
     unknownAttribute.EntityData.YangName = "unknown-attribute"
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
-    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + "[attr-type='" + fmt.Sprintf("%v", unknownAttribute.AttrType) + "']"
+    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    unknownAttribute.EntityData.Children = make(map[string]types.YChild)
-    unknownAttribute.EntityData.Leafs = make(map[string]types.YLeaf)
-    unknownAttribute.EntityData.Leafs["attr-type"] = types.YLeaf{"AttrType", unknownAttribute.AttrType}
-    unknownAttribute.EntityData.Leafs["attr-len"] = types.YLeaf{"AttrLen", unknownAttribute.AttrLen}
-    unknownAttribute.EntityData.Leafs["attr-value"] = types.YLeaf{"AttrValue", unknownAttribute.AttrValue}
+    unknownAttribute.EntityData.Children = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs.Append("attr-type", types.YLeaf{"AttrType", unknownAttribute.AttrType})
+    unknownAttribute.EntityData.Leafs.Append("attr-len", types.YLeaf{"AttrLen", unknownAttribute.AttrLen})
+    unknownAttribute.EntityData.Leafs.Append("attr-value", types.YLeaf{"AttrValue", unknownAttribute.AttrValue})
+
+    unknownAttribute.EntityData.YListKeys = []string {"AttrType"}
+
     return &(unknownAttribute.EntityData)
 }
 
@@ -1775,10 +1901,13 @@ func (adjRibOutPost *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjR
     adjRibOutPost.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjRibOutPost.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    adjRibOutPost.EntityData.Children = make(map[string]types.YChild)
-    adjRibOutPost.EntityData.Children["routes"] = types.YChild{"Routes", &adjRibOutPost.Routes}
-    adjRibOutPost.EntityData.Leafs = make(map[string]types.YLeaf)
-    adjRibOutPost.EntityData.Leafs["num-routes"] = types.YLeaf{"NumRoutes", adjRibOutPost.NumRoutes}
+    adjRibOutPost.EntityData.Children = types.NewOrderedMap()
+    adjRibOutPost.EntityData.Children.Append("routes", types.YChild{"Routes", &adjRibOutPost.Routes})
+    adjRibOutPost.EntityData.Leafs = types.NewOrderedMap()
+    adjRibOutPost.EntityData.Leafs.Append("num-routes", types.YLeaf{"NumRoutes", adjRibOutPost.NumRoutes})
+
+    adjRibOutPost.EntityData.YListKeys = []string {}
+
     return &(adjRibOutPost.EntityData)
 }
 
@@ -1791,7 +1920,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes
 
     // List of routes in the table. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes_Route.
-    Route []BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes_Route
+    Route []*BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes_Route
 }
 
 func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes) GetEntityData() *types.CommonEntityData {
@@ -1804,12 +1933,15 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPo
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    routes.EntityData.Children = make(map[string]types.YChild)
-    routes.EntityData.Children["route"] = types.YChild{"Route", nil}
+    routes.EntityData.Children = types.NewOrderedMap()
+    routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
-        routes.EntityData.Children[types.GetSegmentPath(&routes.Route[i])] = types.YChild{"Route", &routes.Route[i]}
+        routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
-    routes.EntityData.Leafs = make(map[string]types.YLeaf)
+    routes.EntityData.Leafs = types.NewOrderedMap()
+
+    routes.EntityData.YListKeys = []string {}
+
     return &(routes.EntityData)
 }
 
@@ -1820,17 +1952,16 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes
     YFilter yfilter.YFilter
 
     // Prefix for the route. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
     Prefix interface{}
 
     // Timestamp of when this path was last changed. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastModifiedDate interface{}
 
     // Timestamp of when the last BGP update message was received for this path /
     // prefix. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastUpdateReceived interface{}
 
     // Indicates that the route is considered valid by the local router. The type
@@ -1839,7 +1970,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes
 
     // If the route is rejected as invalid, this indicates the reason. The type is
     // one of the following:
-    // INVALIDCLUSTERLOOPINVALIDASLOOPINVALIDORIGINATORINVALIDCONFED.
+    // INVALIDORIGINATORINVALIDCLUSTERLOOPINVALIDASLOOPINVALIDCONFED.
     InvalidReason interface{}
 
     // Current path was selected as the best path. The type is bool.
@@ -1862,16 +1993,19 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPos
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    route.EntityData.Children = make(map[string]types.YChild)
-    route.EntityData.Children["attributes"] = types.YChild{"Attributes", &route.Attributes}
-    route.EntityData.Children["ext-attributes"] = types.YChild{"ExtAttributes", &route.ExtAttributes}
-    route.EntityData.Leafs = make(map[string]types.YLeaf)
-    route.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", route.Prefix}
-    route.EntityData.Leafs["last-modified-date"] = types.YLeaf{"LastModifiedDate", route.LastModifiedDate}
-    route.EntityData.Leafs["last-update-received"] = types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived}
-    route.EntityData.Leafs["valid-route"] = types.YLeaf{"ValidRoute", route.ValidRoute}
-    route.EntityData.Leafs["invalid-reason"] = types.YLeaf{"InvalidReason", route.InvalidReason}
-    route.EntityData.Leafs["best-path"] = types.YLeaf{"BestPath", route.BestPath}
+    route.EntityData.Children = types.NewOrderedMap()
+    route.EntityData.Children.Append("attributes", types.YChild{"Attributes", &route.Attributes})
+    route.EntityData.Children.Append("ext-attributes", types.YChild{"ExtAttributes", &route.ExtAttributes})
+    route.EntityData.Leafs = types.NewOrderedMap()
+    route.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", route.Prefix})
+    route.EntityData.Leafs.Append("last-modified-date", types.YLeaf{"LastModifiedDate", route.LastModifiedDate})
+    route.EntityData.Leafs.Append("last-update-received", types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived})
+    route.EntityData.Leafs.Append("valid-route", types.YLeaf{"ValidRoute", route.ValidRoute})
+    route.EntityData.Leafs.Append("invalid-reason", types.YLeaf{"InvalidReason", route.InvalidReason})
+    route.EntityData.Leafs.Append("best-path", types.YLeaf{"BestPath", route.BestPath})
+
+    route.EntityData.YListKeys = []string {}
+
     return &(route.EntityData)
 }
 
@@ -1910,9 +2044,9 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes
     // BGP next hop attribute defining the IP address of the router that should be
     // used as the next hop to the destination. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NextHop interface{}
 
     // BGP multi-exit discriminator attribute used in BGP route selection process.
@@ -1930,7 +2064,8 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes
 
     // List of standard BGP community attributes. The type is one of the following
     // types: slice of int with range: 65536..4294901759, or slice of string with
-    // pattern: b'([0-9]+:[0-9]+)'.
+    // pattern:
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     Community []interface{}
 
     // BGP attribute indicating the prefix has been aggregated by the specified AS
@@ -1948,17 +2083,20 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibO
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["aggregator"] = types.YChild{"Aggregator", &attributes.Aggregator}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    attributes.EntityData.Leafs["origin"] = types.YLeaf{"Origin", attributes.Origin}
-    attributes.EntityData.Leafs["as-path"] = types.YLeaf{"AsPath", attributes.AsPath}
-    attributes.EntityData.Leafs["as4-path"] = types.YLeaf{"As4Path", attributes.As4Path}
-    attributes.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", attributes.NextHop}
-    attributes.EntityData.Leafs["med"] = types.YLeaf{"Med", attributes.Med}
-    attributes.EntityData.Leafs["local-pref"] = types.YLeaf{"LocalPref", attributes.LocalPref}
-    attributes.EntityData.Leafs["atomic-aggr"] = types.YLeaf{"AtomicAggr", attributes.AtomicAggr}
-    attributes.EntityData.Leafs["community"] = types.YLeaf{"Community", attributes.Community}
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("aggregator", types.YChild{"Aggregator", &attributes.Aggregator})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+    attributes.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", attributes.Origin})
+    attributes.EntityData.Leafs.Append("as-path", types.YLeaf{"AsPath", attributes.AsPath})
+    attributes.EntityData.Leafs.Append("as4-path", types.YLeaf{"As4Path", attributes.As4Path})
+    attributes.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", attributes.NextHop})
+    attributes.EntityData.Leafs.Append("med", types.YLeaf{"Med", attributes.Med})
+    attributes.EntityData.Leafs.Append("local-pref", types.YLeaf{"LocalPref", attributes.LocalPref})
+    attributes.EntityData.Leafs.Append("atomic-aggr", types.YLeaf{"AtomicAggr", attributes.AtomicAggr})
+    attributes.EntityData.Leafs.Append("community", types.YLeaf{"Community", attributes.Community})
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -1981,7 +2119,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes
 
     // IP address of the router that performed the aggregation. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1995,11 +2133,14 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibO
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    aggregator.EntityData.Children = make(map[string]types.YChild)
-    aggregator.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggregator.EntityData.Leafs["as"] = types.YLeaf{"As", aggregator.As}
-    aggregator.EntityData.Leafs["as4"] = types.YLeaf{"As4", aggregator.As4}
-    aggregator.EntityData.Leafs["address"] = types.YLeaf{"Address", aggregator.Address}
+    aggregator.EntityData.Children = types.NewOrderedMap()
+    aggregator.EntityData.Leafs = types.NewOrderedMap()
+    aggregator.EntityData.Leafs.Append("as", types.YLeaf{"As", aggregator.As})
+    aggregator.EntityData.Leafs.Append("as4", types.YLeaf{"As4", aggregator.As4})
+    aggregator.EntityData.Leafs.Append("address", types.YLeaf{"Address", aggregator.Address})
+
+    aggregator.EntityData.YListKeys = []string {}
+
     return &(aggregator.EntityData)
 }
 
@@ -2012,27 +2153,33 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes
 
     // BGP attribute that provides the id as an IPv4 address of the route
     // reflector that created the announcement. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginatorId interface{}
 
     // Represents the reflection path that the route has passed. The type is slice
     // of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterList []interface{}
 
     // List of BGP extended community attributes. The type is one of the following
     // types: slice of string with pattern:
-    // b'(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^route\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^route\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'.
+    // ^route\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     ExtCommunity []interface{}
 
     // BGP path attribute representing the accumulated IGP metric for the path.
@@ -2052,7 +2199,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes
     // This list contains received attributes that are unrecognized or unsupported
     // by the local router.  The list may be empty. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes_Route_ExtAttributes_UnknownAttribute.
-    UnknownAttribute []BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes_Route_ExtAttributes_UnknownAttribute
+    UnknownAttribute []*BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes_Route_ExtAttributes_UnknownAttribute
 }
 
 func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes_Route_ExtAttributes) GetEntityData() *types.CommonEntityData {
@@ -2065,17 +2212,20 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjR
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    extAttributes.EntityData.Children = make(map[string]types.YChild)
-    extAttributes.EntityData.Children["unknown-attribute"] = types.YChild{"UnknownAttribute", nil}
+    extAttributes.EntityData.Children = types.NewOrderedMap()
+    extAttributes.EntityData.Children.Append("unknown-attribute", types.YChild{"UnknownAttribute", nil})
     for i := range extAttributes.UnknownAttribute {
-        extAttributes.EntityData.Children[types.GetSegmentPath(&extAttributes.UnknownAttribute[i])] = types.YChild{"UnknownAttribute", &extAttributes.UnknownAttribute[i]}
+        extAttributes.EntityData.Children.Append(types.GetSegmentPath(extAttributes.UnknownAttribute[i]), types.YChild{"UnknownAttribute", extAttributes.UnknownAttribute[i]})
     }
-    extAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    extAttributes.EntityData.Leafs["originator-id"] = types.YLeaf{"OriginatorId", extAttributes.OriginatorId}
-    extAttributes.EntityData.Leafs["cluster-list"] = types.YLeaf{"ClusterList", extAttributes.ClusterList}
-    extAttributes.EntityData.Leafs["ext-community"] = types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity}
-    extAttributes.EntityData.Leafs["aigp"] = types.YLeaf{"Aigp", extAttributes.Aigp}
-    extAttributes.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", extAttributes.PathId}
+    extAttributes.EntityData.Leafs = types.NewOrderedMap()
+    extAttributes.EntityData.Leafs.Append("originator-id", types.YLeaf{"OriginatorId", extAttributes.OriginatorId})
+    extAttributes.EntityData.Leafs.Append("cluster-list", types.YLeaf{"ClusterList", extAttributes.ClusterList})
+    extAttributes.EntityData.Leafs.Append("ext-community", types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity})
+    extAttributes.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", extAttributes.Aigp})
+    extAttributes.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", extAttributes.PathId})
+
+    extAttributes.EntityData.YListKeys = []string {}
+
     return &(extAttributes.EntityData)
 }
 
@@ -2108,16 +2258,19 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_A
     unknownAttribute.EntityData.YangName = "unknown-attribute"
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
-    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + "[attr-type='" + fmt.Sprintf("%v", unknownAttribute.AttrType) + "']"
+    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    unknownAttribute.EntityData.Children = make(map[string]types.YChild)
-    unknownAttribute.EntityData.Leafs = make(map[string]types.YLeaf)
-    unknownAttribute.EntityData.Leafs["attr-type"] = types.YLeaf{"AttrType", unknownAttribute.AttrType}
-    unknownAttribute.EntityData.Leafs["attr-len"] = types.YLeaf{"AttrLen", unknownAttribute.AttrLen}
-    unknownAttribute.EntityData.Leafs["attr-value"] = types.YLeaf{"AttrValue", unknownAttribute.AttrValue}
+    unknownAttribute.EntityData.Children = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs.Append("attr-type", types.YLeaf{"AttrType", unknownAttribute.AttrType})
+    unknownAttribute.EntityData.Leafs.Append("attr-len", types.YLeaf{"AttrLen", unknownAttribute.AttrLen})
+    unknownAttribute.EntityData.Leafs.Append("attr-value", types.YLeaf{"AttrValue", unknownAttribute.AttrValue})
+
+    unknownAttribute.EntityData.YListKeys = []string {"AttrType"}
+
     return &(unknownAttribute.EntityData)
 }
 
@@ -2152,10 +2305,13 @@ func (ipv6Unicast *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast) GetEntityData() *types.C
     ipv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ipv6Unicast.EntityData.Children = make(map[string]types.YChild)
-    ipv6Unicast.EntityData.Children["loc-rib"] = types.YChild{"LocRib", &ipv6Unicast.LocRib}
-    ipv6Unicast.EntityData.Children["neighbors"] = types.YChild{"Neighbors", &ipv6Unicast.Neighbors}
-    ipv6Unicast.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Unicast.EntityData.Children = types.NewOrderedMap()
+    ipv6Unicast.EntityData.Children.Append("loc-rib", types.YChild{"LocRib", &ipv6Unicast.LocRib})
+    ipv6Unicast.EntityData.Children.Append("neighbors", types.YChild{"Neighbors", &ipv6Unicast.Neighbors})
+    ipv6Unicast.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Unicast.EntityData.YListKeys = []string {}
+
     return &(ipv6Unicast.EntityData)
 }
 
@@ -2192,10 +2348,13 @@ func (locRib *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib) GetEntityData() *types
     locRib.EntityData.NamespaceTable = openconfig.GetNamespaces()
     locRib.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    locRib.EntityData.Children = make(map[string]types.YChild)
-    locRib.EntityData.Children["routes"] = types.YChild{"Routes", &locRib.Routes}
-    locRib.EntityData.Leafs = make(map[string]types.YLeaf)
-    locRib.EntityData.Leafs["num-routes"] = types.YLeaf{"NumRoutes", locRib.NumRoutes}
+    locRib.EntityData.Children = types.NewOrderedMap()
+    locRib.EntityData.Children.Append("routes", types.YChild{"Routes", &locRib.Routes})
+    locRib.EntityData.Leafs = types.NewOrderedMap()
+    locRib.EntityData.Leafs.Append("num-routes", types.YLeaf{"NumRoutes", locRib.NumRoutes})
+
+    locRib.EntityData.YListKeys = []string {}
+
     return &(locRib.EntityData)
 }
 
@@ -2208,7 +2367,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes struct {
 
     // List of routes in the table. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route.
-    Route []BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route
+    Route []*BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route
 }
 
 func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes) GetEntityData() *types.CommonEntityData {
@@ -2221,12 +2380,15 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes) GetEntityData()
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    routes.EntityData.Children = make(map[string]types.YChild)
-    routes.EntityData.Children["route"] = types.YChild{"Route", nil}
+    routes.EntityData.Children = types.NewOrderedMap()
+    routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
-        routes.EntityData.Children[types.GetSegmentPath(&routes.Route[i])] = types.YChild{"Route", &routes.Route[i]}
+        routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
-    routes.EntityData.Leafs = make(map[string]types.YLeaf)
+    routes.EntityData.Leafs = types.NewOrderedMap()
+
+    routes.EntityData.YListKeys = []string {}
+
     return &(routes.EntityData)
 }
 
@@ -2237,17 +2399,16 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route struct {
     YFilter yfilter.YFilter
 
     // Prefix for the route. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     Prefix interface{}
 
     // Timestamp of when this path was last changed. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastModifiedDate interface{}
 
     // Timestamp of when the last BGP update message was received for this path /
     // prefix. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastUpdateReceived interface{}
 
     // Indicates that the route is considered valid by the local router. The type
@@ -2256,7 +2417,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route struct {
 
     // If the route is rejected as invalid, this indicates the reason. The type is
     // one of the following:
-    // INVALIDCLUSTERLOOPINVALIDASLOOPINVALIDORIGINATORINVALIDCONFED.
+    // INVALIDORIGINATORINVALIDCLUSTERLOOPINVALIDASLOOPINVALIDCONFED.
     InvalidReason interface{}
 
     // Current path was selected as the best path. The type is bool.
@@ -2279,16 +2440,19 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route) GetEntityD
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    route.EntityData.Children = make(map[string]types.YChild)
-    route.EntityData.Children["attributes"] = types.YChild{"Attributes", &route.Attributes}
-    route.EntityData.Children["ext-attributes"] = types.YChild{"ExtAttributes", &route.ExtAttributes}
-    route.EntityData.Leafs = make(map[string]types.YLeaf)
-    route.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", route.Prefix}
-    route.EntityData.Leafs["last-modified-date"] = types.YLeaf{"LastModifiedDate", route.LastModifiedDate}
-    route.EntityData.Leafs["last-update-received"] = types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived}
-    route.EntityData.Leafs["valid-route"] = types.YLeaf{"ValidRoute", route.ValidRoute}
-    route.EntityData.Leafs["invalid-reason"] = types.YLeaf{"InvalidReason", route.InvalidReason}
-    route.EntityData.Leafs["best-path"] = types.YLeaf{"BestPath", route.BestPath}
+    route.EntityData.Children = types.NewOrderedMap()
+    route.EntityData.Children.Append("attributes", types.YChild{"Attributes", &route.Attributes})
+    route.EntityData.Children.Append("ext-attributes", types.YChild{"ExtAttributes", &route.ExtAttributes})
+    route.EntityData.Leafs = types.NewOrderedMap()
+    route.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", route.Prefix})
+    route.EntityData.Leafs.Append("last-modified-date", types.YLeaf{"LastModifiedDate", route.LastModifiedDate})
+    route.EntityData.Leafs.Append("last-update-received", types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived})
+    route.EntityData.Leafs.Append("valid-route", types.YLeaf{"ValidRoute", route.ValidRoute})
+    route.EntityData.Leafs.Append("invalid-reason", types.YLeaf{"InvalidReason", route.InvalidReason})
+    route.EntityData.Leafs.Append("best-path", types.YLeaf{"BestPath", route.BestPath})
+
+    route.EntityData.YListKeys = []string {}
+
     return &(route.EntityData)
 }
 
@@ -2327,9 +2491,9 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route_Attributes struct {
     // BGP next hop attribute defining the IP address of the router that should be
     // used as the next hop to the destination. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NextHop interface{}
 
     // BGP multi-exit discriminator attribute used in BGP route selection process.
@@ -2347,7 +2511,8 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route_Attributes struct {
 
     // List of standard BGP community attributes. The type is one of the following
     // types: slice of int with range: 65536..4294901759, or slice of string with
-    // pattern: b'([0-9]+:[0-9]+)'.
+    // pattern:
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     Community []interface{}
 
     // BGP attribute indicating the prefix has been aggregated by the specified AS
@@ -2365,17 +2530,20 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route_Attrib
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["aggregator"] = types.YChild{"Aggregator", &attributes.Aggregator}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    attributes.EntityData.Leafs["origin"] = types.YLeaf{"Origin", attributes.Origin}
-    attributes.EntityData.Leafs["as-path"] = types.YLeaf{"AsPath", attributes.AsPath}
-    attributes.EntityData.Leafs["as4-path"] = types.YLeaf{"As4Path", attributes.As4Path}
-    attributes.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", attributes.NextHop}
-    attributes.EntityData.Leafs["med"] = types.YLeaf{"Med", attributes.Med}
-    attributes.EntityData.Leafs["local-pref"] = types.YLeaf{"LocalPref", attributes.LocalPref}
-    attributes.EntityData.Leafs["atomic-aggr"] = types.YLeaf{"AtomicAggr", attributes.AtomicAggr}
-    attributes.EntityData.Leafs["community"] = types.YLeaf{"Community", attributes.Community}
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("aggregator", types.YChild{"Aggregator", &attributes.Aggregator})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+    attributes.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", attributes.Origin})
+    attributes.EntityData.Leafs.Append("as-path", types.YLeaf{"AsPath", attributes.AsPath})
+    attributes.EntityData.Leafs.Append("as4-path", types.YLeaf{"As4Path", attributes.As4Path})
+    attributes.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", attributes.NextHop})
+    attributes.EntityData.Leafs.Append("med", types.YLeaf{"Med", attributes.Med})
+    attributes.EntityData.Leafs.Append("local-pref", types.YLeaf{"LocalPref", attributes.LocalPref})
+    attributes.EntityData.Leafs.Append("atomic-aggr", types.YLeaf{"AtomicAggr", attributes.AtomicAggr})
+    attributes.EntityData.Leafs.Append("community", types.YLeaf{"Community", attributes.Community})
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -2398,7 +2566,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route_Attributes_Aggregat
 
     // IP address of the router that performed the aggregation. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -2412,11 +2580,14 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route_Attrib
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    aggregator.EntityData.Children = make(map[string]types.YChild)
-    aggregator.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggregator.EntityData.Leafs["as"] = types.YLeaf{"As", aggregator.As}
-    aggregator.EntityData.Leafs["as4"] = types.YLeaf{"As4", aggregator.As4}
-    aggregator.EntityData.Leafs["address"] = types.YLeaf{"Address", aggregator.Address}
+    aggregator.EntityData.Children = types.NewOrderedMap()
+    aggregator.EntityData.Leafs = types.NewOrderedMap()
+    aggregator.EntityData.Leafs.Append("as", types.YLeaf{"As", aggregator.As})
+    aggregator.EntityData.Leafs.Append("as4", types.YLeaf{"As4", aggregator.As4})
+    aggregator.EntityData.Leafs.Append("address", types.YLeaf{"Address", aggregator.Address})
+
+    aggregator.EntityData.YListKeys = []string {}
+
     return &(aggregator.EntityData)
 }
 
@@ -2429,27 +2600,33 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route_ExtAttributes struc
 
     // BGP attribute that provides the id as an IPv4 address of the route
     // reflector that created the announcement. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginatorId interface{}
 
     // Represents the reflection path that the route has passed. The type is slice
     // of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterList []interface{}
 
     // List of BGP extended community attributes. The type is one of the following
     // types: slice of string with pattern:
-    // b'(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^route\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^route\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'.
+    // ^route\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     ExtCommunity []interface{}
 
     // BGP path attribute representing the accumulated IGP metric for the path.
@@ -2469,7 +2646,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route_ExtAttributes struc
     // This list contains received attributes that are unrecognized or unsupported
     // by the local router.  The list may be empty. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route_ExtAttributes_UnknownAttribute.
-    UnknownAttribute []BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route_ExtAttributes_UnknownAttribute
+    UnknownAttribute []*BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route_ExtAttributes_UnknownAttribute
 }
 
 func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route_ExtAttributes) GetEntityData() *types.CommonEntityData {
@@ -2482,17 +2659,20 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route_Ext
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    extAttributes.EntityData.Children = make(map[string]types.YChild)
-    extAttributes.EntityData.Children["unknown-attribute"] = types.YChild{"UnknownAttribute", nil}
+    extAttributes.EntityData.Children = types.NewOrderedMap()
+    extAttributes.EntityData.Children.Append("unknown-attribute", types.YChild{"UnknownAttribute", nil})
     for i := range extAttributes.UnknownAttribute {
-        extAttributes.EntityData.Children[types.GetSegmentPath(&extAttributes.UnknownAttribute[i])] = types.YChild{"UnknownAttribute", &extAttributes.UnknownAttribute[i]}
+        extAttributes.EntityData.Children.Append(types.GetSegmentPath(extAttributes.UnknownAttribute[i]), types.YChild{"UnknownAttribute", extAttributes.UnknownAttribute[i]})
     }
-    extAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    extAttributes.EntityData.Leafs["originator-id"] = types.YLeaf{"OriginatorId", extAttributes.OriginatorId}
-    extAttributes.EntityData.Leafs["cluster-list"] = types.YLeaf{"ClusterList", extAttributes.ClusterList}
-    extAttributes.EntityData.Leafs["ext-community"] = types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity}
-    extAttributes.EntityData.Leafs["aigp"] = types.YLeaf{"Aigp", extAttributes.Aigp}
-    extAttributes.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", extAttributes.PathId}
+    extAttributes.EntityData.Leafs = types.NewOrderedMap()
+    extAttributes.EntityData.Leafs.Append("originator-id", types.YLeaf{"OriginatorId", extAttributes.OriginatorId})
+    extAttributes.EntityData.Leafs.Append("cluster-list", types.YLeaf{"ClusterList", extAttributes.ClusterList})
+    extAttributes.EntityData.Leafs.Append("ext-community", types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity})
+    extAttributes.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", extAttributes.Aigp})
+    extAttributes.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", extAttributes.PathId})
+
+    extAttributes.EntityData.YListKeys = []string {}
+
     return &(extAttributes.EntityData)
 }
 
@@ -2525,16 +2705,19 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route_
     unknownAttribute.EntityData.YangName = "unknown-attribute"
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
-    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + "[attr-type='" + fmt.Sprintf("%v", unknownAttribute.AttrType) + "']"
+    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    unknownAttribute.EntityData.Children = make(map[string]types.YChild)
-    unknownAttribute.EntityData.Leafs = make(map[string]types.YLeaf)
-    unknownAttribute.EntityData.Leafs["attr-type"] = types.YLeaf{"AttrType", unknownAttribute.AttrType}
-    unknownAttribute.EntityData.Leafs["attr-len"] = types.YLeaf{"AttrLen", unknownAttribute.AttrLen}
-    unknownAttribute.EntityData.Leafs["attr-value"] = types.YLeaf{"AttrValue", unknownAttribute.AttrValue}
+    unknownAttribute.EntityData.Children = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs.Append("attr-type", types.YLeaf{"AttrType", unknownAttribute.AttrType})
+    unknownAttribute.EntityData.Leafs.Append("attr-len", types.YLeaf{"AttrLen", unknownAttribute.AttrLen})
+    unknownAttribute.EntityData.Leafs.Append("attr-value", types.YLeaf{"AttrValue", unknownAttribute.AttrValue})
+
+    unknownAttribute.EntityData.YListKeys = []string {"AttrType"}
+
     return &(unknownAttribute.EntityData)
 }
 
@@ -2546,7 +2729,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors struct {
 
     // List of neighbors (peers) of the local BGP speaker. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor.
-    Neighbor []BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor
+    Neighbor []*BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor
 }
 
 func (neighbors *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors) GetEntityData() *types.CommonEntityData {
@@ -2559,12 +2742,15 @@ func (neighbors *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors) GetEntityData() 
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighbors.EntityData.Children = make(map[string]types.YChild)
-    neighbors.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    neighbors.EntityData.Children = types.NewOrderedMap()
+    neighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighbors.Neighbor {
-        neighbors.EntityData.Children[types.GetSegmentPath(&neighbors.Neighbor[i])] = types.YChild{"Neighbor", &neighbors.Neighbor[i]}
+        neighbors.EntityData.Children.Append(types.GetSegmentPath(neighbors.Neighbor[i]), types.YChild{"Neighbor", neighbors.Neighbor[i]})
     }
-    neighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    neighbors.EntityData.YListKeys = []string {}
+
     return &(neighbors.EntityData)
 }
 
@@ -2576,9 +2762,9 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor struct {
 
     // This attribute is a key. IP address of the BGP neighbor or peer. The type
     // is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Per-neighbor table containing the NLRI updates received from the neighbor
@@ -2605,18 +2791,21 @@ func (neighbor *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor) GetEntit
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[neighbor-address='" + fmt.Sprintf("%v", neighbor.NeighborAddress) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.NeighborAddress, "neighbor-address")
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Children["adj-rib-in-pre"] = types.YChild{"AdjRibInPre", &neighbor.AdjRibInPre}
-    neighbor.EntityData.Children["adj-rib-in-post"] = types.YChild{"AdjRibInPost", &neighbor.AdjRibInPost}
-    neighbor.EntityData.Children["adj-rib-out-pre"] = types.YChild{"AdjRibOutPre", &neighbor.AdjRibOutPre}
-    neighbor.EntityData.Children["adj-rib-out-post"] = types.YChild{"AdjRibOutPost", &neighbor.AdjRibOutPost}
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["neighbor-address"] = types.YLeaf{"NeighborAddress", neighbor.NeighborAddress}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Children.Append("adj-rib-in-pre", types.YChild{"AdjRibInPre", &neighbor.AdjRibInPre})
+    neighbor.EntityData.Children.Append("adj-rib-in-post", types.YChild{"AdjRibInPost", &neighbor.AdjRibInPost})
+    neighbor.EntityData.Children.Append("adj-rib-out-pre", types.YChild{"AdjRibOutPre", &neighbor.AdjRibOutPre})
+    neighbor.EntityData.Children.Append("adj-rib-out-post", types.YChild{"AdjRibOutPost", &neighbor.AdjRibOutPost})
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", neighbor.NeighborAddress})
+
+    neighbor.EntityData.YListKeys = []string {"NeighborAddress"}
+
     return &(neighbor.EntityData)
 }
 
@@ -2647,10 +2836,13 @@ func (adjRibInPre *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRib
     adjRibInPre.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjRibInPre.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    adjRibInPre.EntityData.Children = make(map[string]types.YChild)
-    adjRibInPre.EntityData.Children["routes"] = types.YChild{"Routes", &adjRibInPre.Routes}
-    adjRibInPre.EntityData.Leafs = make(map[string]types.YLeaf)
-    adjRibInPre.EntityData.Leafs["num-routes"] = types.YLeaf{"NumRoutes", adjRibInPre.NumRoutes}
+    adjRibInPre.EntityData.Children = types.NewOrderedMap()
+    adjRibInPre.EntityData.Children.Append("routes", types.YChild{"Routes", &adjRibInPre.Routes})
+    adjRibInPre.EntityData.Leafs = types.NewOrderedMap()
+    adjRibInPre.EntityData.Leafs.Append("num-routes", types.YLeaf{"NumRoutes", adjRibInPre.NumRoutes})
+
+    adjRibInPre.EntityData.YListKeys = []string {}
+
     return &(adjRibInPre.EntityData)
 }
 
@@ -2663,7 +2855,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_Routes s
 
     // List of routes in the table. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_Route.
-    Route []BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_Route
+    Route []*BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_Route
 }
 
 func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_Routes) GetEntityData() *types.CommonEntityData {
@@ -2676,12 +2868,15 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    routes.EntityData.Children = make(map[string]types.YChild)
-    routes.EntityData.Children["route"] = types.YChild{"Route", nil}
+    routes.EntityData.Children = types.NewOrderedMap()
+    routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
-        routes.EntityData.Children[types.GetSegmentPath(&routes.Route[i])] = types.YChild{"Route", &routes.Route[i]}
+        routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
-    routes.EntityData.Leafs = make(map[string]types.YLeaf)
+    routes.EntityData.Leafs = types.NewOrderedMap()
+
+    routes.EntityData.YListKeys = []string {}
+
     return &(routes.EntityData)
 }
 
@@ -2692,17 +2887,16 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_R
     YFilter yfilter.YFilter
 
     // Prefix for the route. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     Prefix interface{}
 
     // Timestamp of when this path was last changed. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastModifiedDate interface{}
 
     // Timestamp of when the last BGP update message was received for this path /
     // prefix. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastUpdateReceived interface{}
 
     // Indicates that the route is considered valid by the local router. The type
@@ -2711,7 +2905,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_R
 
     // If the route is rejected as invalid, this indicates the reason. The type is
     // one of the following:
-    // INVALIDCLUSTERLOOPINVALIDASLOOPINVALIDORIGINATORINVALIDCONFED.
+    // INVALIDORIGINATORINVALIDCLUSTERLOOPINVALIDASLOOPINVALIDCONFED.
     InvalidReason interface{}
 
     // Current path was selected as the best path. The type is bool.
@@ -2734,16 +2928,19 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    route.EntityData.Children = make(map[string]types.YChild)
-    route.EntityData.Children["attributes"] = types.YChild{"Attributes", &route.Attributes}
-    route.EntityData.Children["ext-attributes"] = types.YChild{"ExtAttributes", &route.ExtAttributes}
-    route.EntityData.Leafs = make(map[string]types.YLeaf)
-    route.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", route.Prefix}
-    route.EntityData.Leafs["last-modified-date"] = types.YLeaf{"LastModifiedDate", route.LastModifiedDate}
-    route.EntityData.Leafs["last-update-received"] = types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived}
-    route.EntityData.Leafs["valid-route"] = types.YLeaf{"ValidRoute", route.ValidRoute}
-    route.EntityData.Leafs["invalid-reason"] = types.YLeaf{"InvalidReason", route.InvalidReason}
-    route.EntityData.Leafs["best-path"] = types.YLeaf{"BestPath", route.BestPath}
+    route.EntityData.Children = types.NewOrderedMap()
+    route.EntityData.Children.Append("attributes", types.YChild{"Attributes", &route.Attributes})
+    route.EntityData.Children.Append("ext-attributes", types.YChild{"ExtAttributes", &route.ExtAttributes})
+    route.EntityData.Leafs = types.NewOrderedMap()
+    route.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", route.Prefix})
+    route.EntityData.Leafs.Append("last-modified-date", types.YLeaf{"LastModifiedDate", route.LastModifiedDate})
+    route.EntityData.Leafs.Append("last-update-received", types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived})
+    route.EntityData.Leafs.Append("valid-route", types.YLeaf{"ValidRoute", route.ValidRoute})
+    route.EntityData.Leafs.Append("invalid-reason", types.YLeaf{"InvalidReason", route.InvalidReason})
+    route.EntityData.Leafs.Append("best-path", types.YLeaf{"BestPath", route.BestPath})
+
+    route.EntityData.YListKeys = []string {}
+
     return &(route.EntityData)
 }
 
@@ -2782,9 +2979,9 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_R
     // BGP next hop attribute defining the IP address of the router that should be
     // used as the next hop to the destination. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NextHop interface{}
 
     // BGP multi-exit discriminator attribute used in BGP route selection process.
@@ -2802,7 +2999,8 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_R
 
     // List of standard BGP community attributes. The type is one of the following
     // types: slice of int with range: 65536..4294901759, or slice of string with
-    // pattern: b'([0-9]+:[0-9]+)'.
+    // pattern:
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     Community []interface{}
 
     // BGP attribute indicating the prefix has been aggregated by the specified AS
@@ -2820,17 +3018,20 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibI
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["aggregator"] = types.YChild{"Aggregator", &attributes.Aggregator}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    attributes.EntityData.Leafs["origin"] = types.YLeaf{"Origin", attributes.Origin}
-    attributes.EntityData.Leafs["as-path"] = types.YLeaf{"AsPath", attributes.AsPath}
-    attributes.EntityData.Leafs["as4-path"] = types.YLeaf{"As4Path", attributes.As4Path}
-    attributes.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", attributes.NextHop}
-    attributes.EntityData.Leafs["med"] = types.YLeaf{"Med", attributes.Med}
-    attributes.EntityData.Leafs["local-pref"] = types.YLeaf{"LocalPref", attributes.LocalPref}
-    attributes.EntityData.Leafs["atomic-aggr"] = types.YLeaf{"AtomicAggr", attributes.AtomicAggr}
-    attributes.EntityData.Leafs["community"] = types.YLeaf{"Community", attributes.Community}
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("aggregator", types.YChild{"Aggregator", &attributes.Aggregator})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+    attributes.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", attributes.Origin})
+    attributes.EntityData.Leafs.Append("as-path", types.YLeaf{"AsPath", attributes.AsPath})
+    attributes.EntityData.Leafs.Append("as4-path", types.YLeaf{"As4Path", attributes.As4Path})
+    attributes.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", attributes.NextHop})
+    attributes.EntityData.Leafs.Append("med", types.YLeaf{"Med", attributes.Med})
+    attributes.EntityData.Leafs.Append("local-pref", types.YLeaf{"LocalPref", attributes.LocalPref})
+    attributes.EntityData.Leafs.Append("atomic-aggr", types.YLeaf{"AtomicAggr", attributes.AtomicAggr})
+    attributes.EntityData.Leafs.Append("community", types.YLeaf{"Community", attributes.Community})
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -2853,7 +3054,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_R
 
     // IP address of the router that performed the aggregation. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -2867,11 +3068,14 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibI
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    aggregator.EntityData.Children = make(map[string]types.YChild)
-    aggregator.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggregator.EntityData.Leafs["as"] = types.YLeaf{"As", aggregator.As}
-    aggregator.EntityData.Leafs["as4"] = types.YLeaf{"As4", aggregator.As4}
-    aggregator.EntityData.Leafs["address"] = types.YLeaf{"Address", aggregator.Address}
+    aggregator.EntityData.Children = types.NewOrderedMap()
+    aggregator.EntityData.Leafs = types.NewOrderedMap()
+    aggregator.EntityData.Leafs.Append("as", types.YLeaf{"As", aggregator.As})
+    aggregator.EntityData.Leafs.Append("as4", types.YLeaf{"As4", aggregator.As4})
+    aggregator.EntityData.Leafs.Append("address", types.YLeaf{"Address", aggregator.Address})
+
+    aggregator.EntityData.YListKeys = []string {}
+
     return &(aggregator.EntityData)
 }
 
@@ -2884,27 +3088,33 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_R
 
     // BGP attribute that provides the id as an IPv4 address of the route
     // reflector that created the announcement. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginatorId interface{}
 
     // Represents the reflection path that the route has passed. The type is slice
     // of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterList []interface{}
 
     // List of BGP extended community attributes. The type is one of the following
     // types: slice of string with pattern:
-    // b'(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^route\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^route\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'.
+    // ^route\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     ExtCommunity []interface{}
 
     // BGP path attribute representing the accumulated IGP metric for the path.
@@ -2924,7 +3134,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_R
     // This list contains received attributes that are unrecognized or unsupported
     // by the local router.  The list may be empty. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_Route_ExtAttributes_UnknownAttribute.
-    UnknownAttribute []BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_Route_ExtAttributes_UnknownAttribute
+    UnknownAttribute []*BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_Route_ExtAttributes_UnknownAttribute
 }
 
 func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_Route_ExtAttributes) GetEntityData() *types.CommonEntityData {
@@ -2937,17 +3147,20 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjR
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    extAttributes.EntityData.Children = make(map[string]types.YChild)
-    extAttributes.EntityData.Children["unknown-attribute"] = types.YChild{"UnknownAttribute", nil}
+    extAttributes.EntityData.Children = types.NewOrderedMap()
+    extAttributes.EntityData.Children.Append("unknown-attribute", types.YChild{"UnknownAttribute", nil})
     for i := range extAttributes.UnknownAttribute {
-        extAttributes.EntityData.Children[types.GetSegmentPath(&extAttributes.UnknownAttribute[i])] = types.YChild{"UnknownAttribute", &extAttributes.UnknownAttribute[i]}
+        extAttributes.EntityData.Children.Append(types.GetSegmentPath(extAttributes.UnknownAttribute[i]), types.YChild{"UnknownAttribute", extAttributes.UnknownAttribute[i]})
     }
-    extAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    extAttributes.EntityData.Leafs["originator-id"] = types.YLeaf{"OriginatorId", extAttributes.OriginatorId}
-    extAttributes.EntityData.Leafs["cluster-list"] = types.YLeaf{"ClusterList", extAttributes.ClusterList}
-    extAttributes.EntityData.Leafs["ext-community"] = types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity}
-    extAttributes.EntityData.Leafs["aigp"] = types.YLeaf{"Aigp", extAttributes.Aigp}
-    extAttributes.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", extAttributes.PathId}
+    extAttributes.EntityData.Leafs = types.NewOrderedMap()
+    extAttributes.EntityData.Leafs.Append("originator-id", types.YLeaf{"OriginatorId", extAttributes.OriginatorId})
+    extAttributes.EntityData.Leafs.Append("cluster-list", types.YLeaf{"ClusterList", extAttributes.ClusterList})
+    extAttributes.EntityData.Leafs.Append("ext-community", types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity})
+    extAttributes.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", extAttributes.Aigp})
+    extAttributes.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", extAttributes.PathId})
+
+    extAttributes.EntityData.YListKeys = []string {}
+
     return &(extAttributes.EntityData)
 }
 
@@ -2980,16 +3193,19 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_A
     unknownAttribute.EntityData.YangName = "unknown-attribute"
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
-    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + "[attr-type='" + fmt.Sprintf("%v", unknownAttribute.AttrType) + "']"
+    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    unknownAttribute.EntityData.Children = make(map[string]types.YChild)
-    unknownAttribute.EntityData.Leafs = make(map[string]types.YLeaf)
-    unknownAttribute.EntityData.Leafs["attr-type"] = types.YLeaf{"AttrType", unknownAttribute.AttrType}
-    unknownAttribute.EntityData.Leafs["attr-len"] = types.YLeaf{"AttrLen", unknownAttribute.AttrLen}
-    unknownAttribute.EntityData.Leafs["attr-value"] = types.YLeaf{"AttrValue", unknownAttribute.AttrValue}
+    unknownAttribute.EntityData.Children = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs.Append("attr-type", types.YLeaf{"AttrType", unknownAttribute.AttrType})
+    unknownAttribute.EntityData.Leafs.Append("attr-len", types.YLeaf{"AttrLen", unknownAttribute.AttrLen})
+    unknownAttribute.EntityData.Leafs.Append("attr-value", types.YLeaf{"AttrValue", unknownAttribute.AttrValue})
+
+    unknownAttribute.EntityData.YListKeys = []string {"AttrType"}
+
     return &(unknownAttribute.EntityData)
 }
 
@@ -3019,10 +3235,13 @@ func (adjRibInPost *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRi
     adjRibInPost.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjRibInPost.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    adjRibInPost.EntityData.Children = make(map[string]types.YChild)
-    adjRibInPost.EntityData.Children["routes"] = types.YChild{"Routes", &adjRibInPost.Routes}
-    adjRibInPost.EntityData.Leafs = make(map[string]types.YLeaf)
-    adjRibInPost.EntityData.Leafs["num-routes"] = types.YLeaf{"NumRoutes", adjRibInPost.NumRoutes}
+    adjRibInPost.EntityData.Children = types.NewOrderedMap()
+    adjRibInPost.EntityData.Children.Append("routes", types.YChild{"Routes", &adjRibInPost.Routes})
+    adjRibInPost.EntityData.Leafs = types.NewOrderedMap()
+    adjRibInPost.EntityData.Leafs.Append("num-routes", types.YLeaf{"NumRoutes", adjRibInPost.NumRoutes})
+
+    adjRibInPost.EntityData.YListKeys = []string {}
+
     return &(adjRibInPost.EntityData)
 }
 
@@ -3035,7 +3254,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost_Routes 
 
     // List of routes in the table. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_Route.
-    Route []BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_Route
+    Route []*BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_Route
 }
 
 func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost_Routes) GetEntityData() *types.CommonEntityData {
@@ -3048,12 +3267,15 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPos
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    routes.EntityData.Children = make(map[string]types.YChild)
-    routes.EntityData.Children["route"] = types.YChild{"Route", nil}
+    routes.EntityData.Children = types.NewOrderedMap()
+    routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
-        routes.EntityData.Children[types.GetSegmentPath(&routes.Route[i])] = types.YChild{"Route", &routes.Route[i]}
+        routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
-    routes.EntityData.Leafs = make(map[string]types.YLeaf)
+    routes.EntityData.Leafs = types.NewOrderedMap()
+
+    routes.EntityData.YListKeys = []string {}
+
     return &(routes.EntityData)
 }
 
@@ -3064,17 +3286,16 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_
     YFilter yfilter.YFilter
 
     // Prefix for the route. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     Prefix interface{}
 
     // Timestamp of when this path was last changed. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastModifiedDate interface{}
 
     // Timestamp of when the last BGP update message was received for this path /
     // prefix. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastUpdateReceived interface{}
 
     // Indicates that the route is considered valid by the local router. The type
@@ -3083,7 +3304,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_
 
     // If the route is rejected as invalid, this indicates the reason. The type is
     // one of the following:
-    // INVALIDCLUSTERLOOPINVALIDASLOOPINVALIDORIGINATORINVALIDCONFED.
+    // INVALIDORIGINATORINVALIDCLUSTERLOOPINVALIDASLOOPINVALIDCONFED.
     InvalidReason interface{}
 
     // Current path was selected as the best path. The type is bool.
@@ -3106,16 +3327,19 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    route.EntityData.Children = make(map[string]types.YChild)
-    route.EntityData.Children["attributes"] = types.YChild{"Attributes", &route.Attributes}
-    route.EntityData.Children["ext-attributes"] = types.YChild{"ExtAttributes", &route.ExtAttributes}
-    route.EntityData.Leafs = make(map[string]types.YLeaf)
-    route.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", route.Prefix}
-    route.EntityData.Leafs["last-modified-date"] = types.YLeaf{"LastModifiedDate", route.LastModifiedDate}
-    route.EntityData.Leafs["last-update-received"] = types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived}
-    route.EntityData.Leafs["valid-route"] = types.YLeaf{"ValidRoute", route.ValidRoute}
-    route.EntityData.Leafs["invalid-reason"] = types.YLeaf{"InvalidReason", route.InvalidReason}
-    route.EntityData.Leafs["best-path"] = types.YLeaf{"BestPath", route.BestPath}
+    route.EntityData.Children = types.NewOrderedMap()
+    route.EntityData.Children.Append("attributes", types.YChild{"Attributes", &route.Attributes})
+    route.EntityData.Children.Append("ext-attributes", types.YChild{"ExtAttributes", &route.ExtAttributes})
+    route.EntityData.Leafs = types.NewOrderedMap()
+    route.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", route.Prefix})
+    route.EntityData.Leafs.Append("last-modified-date", types.YLeaf{"LastModifiedDate", route.LastModifiedDate})
+    route.EntityData.Leafs.Append("last-update-received", types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived})
+    route.EntityData.Leafs.Append("valid-route", types.YLeaf{"ValidRoute", route.ValidRoute})
+    route.EntityData.Leafs.Append("invalid-reason", types.YLeaf{"InvalidReason", route.InvalidReason})
+    route.EntityData.Leafs.Append("best-path", types.YLeaf{"BestPath", route.BestPath})
+
+    route.EntityData.YListKeys = []string {}
+
     return &(route.EntityData)
 }
 
@@ -3154,9 +3378,9 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_
     // BGP next hop attribute defining the IP address of the router that should be
     // used as the next hop to the destination. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NextHop interface{}
 
     // BGP multi-exit discriminator attribute used in BGP route selection process.
@@ -3174,7 +3398,8 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_
 
     // List of standard BGP community attributes. The type is one of the following
     // types: slice of int with range: 65536..4294901759, or slice of string with
-    // pattern: b'([0-9]+:[0-9]+)'.
+    // pattern:
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     Community []interface{}
 
     // BGP attribute indicating the prefix has been aggregated by the specified AS
@@ -3192,17 +3417,20 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibI
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["aggregator"] = types.YChild{"Aggregator", &attributes.Aggregator}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    attributes.EntityData.Leafs["origin"] = types.YLeaf{"Origin", attributes.Origin}
-    attributes.EntityData.Leafs["as-path"] = types.YLeaf{"AsPath", attributes.AsPath}
-    attributes.EntityData.Leafs["as4-path"] = types.YLeaf{"As4Path", attributes.As4Path}
-    attributes.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", attributes.NextHop}
-    attributes.EntityData.Leafs["med"] = types.YLeaf{"Med", attributes.Med}
-    attributes.EntityData.Leafs["local-pref"] = types.YLeaf{"LocalPref", attributes.LocalPref}
-    attributes.EntityData.Leafs["atomic-aggr"] = types.YLeaf{"AtomicAggr", attributes.AtomicAggr}
-    attributes.EntityData.Leafs["community"] = types.YLeaf{"Community", attributes.Community}
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("aggregator", types.YChild{"Aggregator", &attributes.Aggregator})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+    attributes.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", attributes.Origin})
+    attributes.EntityData.Leafs.Append("as-path", types.YLeaf{"AsPath", attributes.AsPath})
+    attributes.EntityData.Leafs.Append("as4-path", types.YLeaf{"As4Path", attributes.As4Path})
+    attributes.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", attributes.NextHop})
+    attributes.EntityData.Leafs.Append("med", types.YLeaf{"Med", attributes.Med})
+    attributes.EntityData.Leafs.Append("local-pref", types.YLeaf{"LocalPref", attributes.LocalPref})
+    attributes.EntityData.Leafs.Append("atomic-aggr", types.YLeaf{"AtomicAggr", attributes.AtomicAggr})
+    attributes.EntityData.Leafs.Append("community", types.YLeaf{"Community", attributes.Community})
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -3225,7 +3453,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_
 
     // IP address of the router that performed the aggregation. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -3239,11 +3467,14 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibI
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    aggregator.EntityData.Children = make(map[string]types.YChild)
-    aggregator.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggregator.EntityData.Leafs["as"] = types.YLeaf{"As", aggregator.As}
-    aggregator.EntityData.Leafs["as4"] = types.YLeaf{"As4", aggregator.As4}
-    aggregator.EntityData.Leafs["address"] = types.YLeaf{"Address", aggregator.Address}
+    aggregator.EntityData.Children = types.NewOrderedMap()
+    aggregator.EntityData.Leafs = types.NewOrderedMap()
+    aggregator.EntityData.Leafs.Append("as", types.YLeaf{"As", aggregator.As})
+    aggregator.EntityData.Leafs.Append("as4", types.YLeaf{"As4", aggregator.As4})
+    aggregator.EntityData.Leafs.Append("address", types.YLeaf{"Address", aggregator.Address})
+
+    aggregator.EntityData.YListKeys = []string {}
+
     return &(aggregator.EntityData)
 }
 
@@ -3256,27 +3487,33 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_
 
     // BGP attribute that provides the id as an IPv4 address of the route
     // reflector that created the announcement. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginatorId interface{}
 
     // Represents the reflection path that the route has passed. The type is slice
     // of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterList []interface{}
 
     // List of BGP extended community attributes. The type is one of the following
     // types: slice of string with pattern:
-    // b'(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^route\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^route\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'.
+    // ^route\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     ExtCommunity []interface{}
 
     // BGP path attribute representing the accumulated IGP metric for the path.
@@ -3296,7 +3533,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_
     // This list contains received attributes that are unrecognized or unsupported
     // by the local router.  The list may be empty. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_Route_ExtAttributes_UnknownAttribute.
-    UnknownAttribute []BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_Route_ExtAttributes_UnknownAttribute
+    UnknownAttribute []*BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_Route_ExtAttributes_UnknownAttribute
 }
 
 func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_Route_ExtAttributes) GetEntityData() *types.CommonEntityData {
@@ -3309,17 +3546,20 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjR
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    extAttributes.EntityData.Children = make(map[string]types.YChild)
-    extAttributes.EntityData.Children["unknown-attribute"] = types.YChild{"UnknownAttribute", nil}
+    extAttributes.EntityData.Children = types.NewOrderedMap()
+    extAttributes.EntityData.Children.Append("unknown-attribute", types.YChild{"UnknownAttribute", nil})
     for i := range extAttributes.UnknownAttribute {
-        extAttributes.EntityData.Children[types.GetSegmentPath(&extAttributes.UnknownAttribute[i])] = types.YChild{"UnknownAttribute", &extAttributes.UnknownAttribute[i]}
+        extAttributes.EntityData.Children.Append(types.GetSegmentPath(extAttributes.UnknownAttribute[i]), types.YChild{"UnknownAttribute", extAttributes.UnknownAttribute[i]})
     }
-    extAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    extAttributes.EntityData.Leafs["originator-id"] = types.YLeaf{"OriginatorId", extAttributes.OriginatorId}
-    extAttributes.EntityData.Leafs["cluster-list"] = types.YLeaf{"ClusterList", extAttributes.ClusterList}
-    extAttributes.EntityData.Leafs["ext-community"] = types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity}
-    extAttributes.EntityData.Leafs["aigp"] = types.YLeaf{"Aigp", extAttributes.Aigp}
-    extAttributes.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", extAttributes.PathId}
+    extAttributes.EntityData.Leafs = types.NewOrderedMap()
+    extAttributes.EntityData.Leafs.Append("originator-id", types.YLeaf{"OriginatorId", extAttributes.OriginatorId})
+    extAttributes.EntityData.Leafs.Append("cluster-list", types.YLeaf{"ClusterList", extAttributes.ClusterList})
+    extAttributes.EntityData.Leafs.Append("ext-community", types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity})
+    extAttributes.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", extAttributes.Aigp})
+    extAttributes.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", extAttributes.PathId})
+
+    extAttributes.EntityData.YListKeys = []string {}
+
     return &(extAttributes.EntityData)
 }
 
@@ -3352,16 +3592,19 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_A
     unknownAttribute.EntityData.YangName = "unknown-attribute"
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
-    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + "[attr-type='" + fmt.Sprintf("%v", unknownAttribute.AttrType) + "']"
+    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    unknownAttribute.EntityData.Children = make(map[string]types.YChild)
-    unknownAttribute.EntityData.Leafs = make(map[string]types.YLeaf)
-    unknownAttribute.EntityData.Leafs["attr-type"] = types.YLeaf{"AttrType", unknownAttribute.AttrType}
-    unknownAttribute.EntityData.Leafs["attr-len"] = types.YLeaf{"AttrLen", unknownAttribute.AttrLen}
-    unknownAttribute.EntityData.Leafs["attr-value"] = types.YLeaf{"AttrValue", unknownAttribute.AttrValue}
+    unknownAttribute.EntityData.Children = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs.Append("attr-type", types.YLeaf{"AttrType", unknownAttribute.AttrType})
+    unknownAttribute.EntityData.Leafs.Append("attr-len", types.YLeaf{"AttrLen", unknownAttribute.AttrLen})
+    unknownAttribute.EntityData.Leafs.Append("attr-value", types.YLeaf{"AttrValue", unknownAttribute.AttrValue})
+
+    unknownAttribute.EntityData.YListKeys = []string {"AttrType"}
+
     return &(unknownAttribute.EntityData)
 }
 
@@ -3391,10 +3634,13 @@ func (adjRibOutPre *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRi
     adjRibOutPre.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjRibOutPre.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    adjRibOutPre.EntityData.Children = make(map[string]types.YChild)
-    adjRibOutPre.EntityData.Children["routes"] = types.YChild{"Routes", &adjRibOutPre.Routes}
-    adjRibOutPre.EntityData.Leafs = make(map[string]types.YLeaf)
-    adjRibOutPre.EntityData.Leafs["num-routes"] = types.YLeaf{"NumRoutes", adjRibOutPre.NumRoutes}
+    adjRibOutPre.EntityData.Children = types.NewOrderedMap()
+    adjRibOutPre.EntityData.Children.Append("routes", types.YChild{"Routes", &adjRibOutPre.Routes})
+    adjRibOutPre.EntityData.Leafs = types.NewOrderedMap()
+    adjRibOutPre.EntityData.Leafs.Append("num-routes", types.YLeaf{"NumRoutes", adjRibOutPre.NumRoutes})
+
+    adjRibOutPre.EntityData.YListKeys = []string {}
+
     return &(adjRibOutPre.EntityData)
 }
 
@@ -3407,7 +3653,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes 
 
     // List of routes in the table. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_Route.
-    Route []BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_Route
+    Route []*BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_Route
 }
 
 func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes) GetEntityData() *types.CommonEntityData {
@@ -3420,12 +3666,15 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPr
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    routes.EntityData.Children = make(map[string]types.YChild)
-    routes.EntityData.Children["route"] = types.YChild{"Route", nil}
+    routes.EntityData.Children = types.NewOrderedMap()
+    routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
-        routes.EntityData.Children[types.GetSegmentPath(&routes.Route[i])] = types.YChild{"Route", &routes.Route[i]}
+        routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
-    routes.EntityData.Leafs = make(map[string]types.YLeaf)
+    routes.EntityData.Leafs = types.NewOrderedMap()
+
+    routes.EntityData.YListKeys = []string {}
+
     return &(routes.EntityData)
 }
 
@@ -3436,17 +3685,16 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_
     YFilter yfilter.YFilter
 
     // Prefix for the route. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     Prefix interface{}
 
     // Timestamp of when this path was last changed. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastModifiedDate interface{}
 
     // Timestamp of when the last BGP update message was received for this path /
     // prefix. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastUpdateReceived interface{}
 
     // Indicates that the route is considered valid by the local router. The type
@@ -3455,7 +3703,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_
 
     // If the route is rejected as invalid, this indicates the reason. The type is
     // one of the following:
-    // INVALIDCLUSTERLOOPINVALIDASLOOPINVALIDORIGINATORINVALIDCONFED.
+    // INVALIDORIGINATORINVALIDCLUSTERLOOPINVALIDASLOOPINVALIDCONFED.
     InvalidReason interface{}
 
     // Current path was selected as the best path. The type is bool.
@@ -3478,16 +3726,19 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    route.EntityData.Children = make(map[string]types.YChild)
-    route.EntityData.Children["attributes"] = types.YChild{"Attributes", &route.Attributes}
-    route.EntityData.Children["ext-attributes"] = types.YChild{"ExtAttributes", &route.ExtAttributes}
-    route.EntityData.Leafs = make(map[string]types.YLeaf)
-    route.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", route.Prefix}
-    route.EntityData.Leafs["last-modified-date"] = types.YLeaf{"LastModifiedDate", route.LastModifiedDate}
-    route.EntityData.Leafs["last-update-received"] = types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived}
-    route.EntityData.Leafs["valid-route"] = types.YLeaf{"ValidRoute", route.ValidRoute}
-    route.EntityData.Leafs["invalid-reason"] = types.YLeaf{"InvalidReason", route.InvalidReason}
-    route.EntityData.Leafs["best-path"] = types.YLeaf{"BestPath", route.BestPath}
+    route.EntityData.Children = types.NewOrderedMap()
+    route.EntityData.Children.Append("attributes", types.YChild{"Attributes", &route.Attributes})
+    route.EntityData.Children.Append("ext-attributes", types.YChild{"ExtAttributes", &route.ExtAttributes})
+    route.EntityData.Leafs = types.NewOrderedMap()
+    route.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", route.Prefix})
+    route.EntityData.Leafs.Append("last-modified-date", types.YLeaf{"LastModifiedDate", route.LastModifiedDate})
+    route.EntityData.Leafs.Append("last-update-received", types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived})
+    route.EntityData.Leafs.Append("valid-route", types.YLeaf{"ValidRoute", route.ValidRoute})
+    route.EntityData.Leafs.Append("invalid-reason", types.YLeaf{"InvalidReason", route.InvalidReason})
+    route.EntityData.Leafs.Append("best-path", types.YLeaf{"BestPath", route.BestPath})
+
+    route.EntityData.YListKeys = []string {}
+
     return &(route.EntityData)
 }
 
@@ -3526,9 +3777,9 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_
     // BGP next hop attribute defining the IP address of the router that should be
     // used as the next hop to the destination. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NextHop interface{}
 
     // BGP multi-exit discriminator attribute used in BGP route selection process.
@@ -3546,7 +3797,8 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_
 
     // List of standard BGP community attributes. The type is one of the following
     // types: slice of int with range: 65536..4294901759, or slice of string with
-    // pattern: b'([0-9]+:[0-9]+)'.
+    // pattern:
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     Community []interface{}
 
     // BGP attribute indicating the prefix has been aggregated by the specified AS
@@ -3564,17 +3816,20 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibO
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["aggregator"] = types.YChild{"Aggregator", &attributes.Aggregator}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    attributes.EntityData.Leafs["origin"] = types.YLeaf{"Origin", attributes.Origin}
-    attributes.EntityData.Leafs["as-path"] = types.YLeaf{"AsPath", attributes.AsPath}
-    attributes.EntityData.Leafs["as4-path"] = types.YLeaf{"As4Path", attributes.As4Path}
-    attributes.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", attributes.NextHop}
-    attributes.EntityData.Leafs["med"] = types.YLeaf{"Med", attributes.Med}
-    attributes.EntityData.Leafs["local-pref"] = types.YLeaf{"LocalPref", attributes.LocalPref}
-    attributes.EntityData.Leafs["atomic-aggr"] = types.YLeaf{"AtomicAggr", attributes.AtomicAggr}
-    attributes.EntityData.Leafs["community"] = types.YLeaf{"Community", attributes.Community}
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("aggregator", types.YChild{"Aggregator", &attributes.Aggregator})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+    attributes.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", attributes.Origin})
+    attributes.EntityData.Leafs.Append("as-path", types.YLeaf{"AsPath", attributes.AsPath})
+    attributes.EntityData.Leafs.Append("as4-path", types.YLeaf{"As4Path", attributes.As4Path})
+    attributes.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", attributes.NextHop})
+    attributes.EntityData.Leafs.Append("med", types.YLeaf{"Med", attributes.Med})
+    attributes.EntityData.Leafs.Append("local-pref", types.YLeaf{"LocalPref", attributes.LocalPref})
+    attributes.EntityData.Leafs.Append("atomic-aggr", types.YLeaf{"AtomicAggr", attributes.AtomicAggr})
+    attributes.EntityData.Leafs.Append("community", types.YLeaf{"Community", attributes.Community})
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -3597,7 +3852,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_
 
     // IP address of the router that performed the aggregation. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -3611,11 +3866,14 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibO
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    aggregator.EntityData.Children = make(map[string]types.YChild)
-    aggregator.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggregator.EntityData.Leafs["as"] = types.YLeaf{"As", aggregator.As}
-    aggregator.EntityData.Leafs["as4"] = types.YLeaf{"As4", aggregator.As4}
-    aggregator.EntityData.Leafs["address"] = types.YLeaf{"Address", aggregator.Address}
+    aggregator.EntityData.Children = types.NewOrderedMap()
+    aggregator.EntityData.Leafs = types.NewOrderedMap()
+    aggregator.EntityData.Leafs.Append("as", types.YLeaf{"As", aggregator.As})
+    aggregator.EntityData.Leafs.Append("as4", types.YLeaf{"As4", aggregator.As4})
+    aggregator.EntityData.Leafs.Append("address", types.YLeaf{"Address", aggregator.Address})
+
+    aggregator.EntityData.YListKeys = []string {}
+
     return &(aggregator.EntityData)
 }
 
@@ -3628,27 +3886,33 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_
 
     // BGP attribute that provides the id as an IPv4 address of the route
     // reflector that created the announcement. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginatorId interface{}
 
     // Represents the reflection path that the route has passed. The type is slice
     // of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterList []interface{}
 
     // List of BGP extended community attributes. The type is one of the following
     // types: slice of string with pattern:
-    // b'(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^route\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^route\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'.
+    // ^route\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     ExtCommunity []interface{}
 
     // BGP path attribute representing the accumulated IGP metric for the path.
@@ -3668,7 +3932,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_
     // This list contains received attributes that are unrecognized or unsupported
     // by the local router.  The list may be empty. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_Route_ExtAttributes_UnknownAttribute.
-    UnknownAttribute []BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_Route_ExtAttributes_UnknownAttribute
+    UnknownAttribute []*BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_Route_ExtAttributes_UnknownAttribute
 }
 
 func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_Route_ExtAttributes) GetEntityData() *types.CommonEntityData {
@@ -3681,17 +3945,20 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjR
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    extAttributes.EntityData.Children = make(map[string]types.YChild)
-    extAttributes.EntityData.Children["unknown-attribute"] = types.YChild{"UnknownAttribute", nil}
+    extAttributes.EntityData.Children = types.NewOrderedMap()
+    extAttributes.EntityData.Children.Append("unknown-attribute", types.YChild{"UnknownAttribute", nil})
     for i := range extAttributes.UnknownAttribute {
-        extAttributes.EntityData.Children[types.GetSegmentPath(&extAttributes.UnknownAttribute[i])] = types.YChild{"UnknownAttribute", &extAttributes.UnknownAttribute[i]}
+        extAttributes.EntityData.Children.Append(types.GetSegmentPath(extAttributes.UnknownAttribute[i]), types.YChild{"UnknownAttribute", extAttributes.UnknownAttribute[i]})
     }
-    extAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    extAttributes.EntityData.Leafs["originator-id"] = types.YLeaf{"OriginatorId", extAttributes.OriginatorId}
-    extAttributes.EntityData.Leafs["cluster-list"] = types.YLeaf{"ClusterList", extAttributes.ClusterList}
-    extAttributes.EntityData.Leafs["ext-community"] = types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity}
-    extAttributes.EntityData.Leafs["aigp"] = types.YLeaf{"Aigp", extAttributes.Aigp}
-    extAttributes.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", extAttributes.PathId}
+    extAttributes.EntityData.Leafs = types.NewOrderedMap()
+    extAttributes.EntityData.Leafs.Append("originator-id", types.YLeaf{"OriginatorId", extAttributes.OriginatorId})
+    extAttributes.EntityData.Leafs.Append("cluster-list", types.YLeaf{"ClusterList", extAttributes.ClusterList})
+    extAttributes.EntityData.Leafs.Append("ext-community", types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity})
+    extAttributes.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", extAttributes.Aigp})
+    extAttributes.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", extAttributes.PathId})
+
+    extAttributes.EntityData.YListKeys = []string {}
+
     return &(extAttributes.EntityData)
 }
 
@@ -3724,16 +3991,19 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_A
     unknownAttribute.EntityData.YangName = "unknown-attribute"
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
-    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + "[attr-type='" + fmt.Sprintf("%v", unknownAttribute.AttrType) + "']"
+    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    unknownAttribute.EntityData.Children = make(map[string]types.YChild)
-    unknownAttribute.EntityData.Leafs = make(map[string]types.YLeaf)
-    unknownAttribute.EntityData.Leafs["attr-type"] = types.YLeaf{"AttrType", unknownAttribute.AttrType}
-    unknownAttribute.EntityData.Leafs["attr-len"] = types.YLeaf{"AttrLen", unknownAttribute.AttrLen}
-    unknownAttribute.EntityData.Leafs["attr-value"] = types.YLeaf{"AttrValue", unknownAttribute.AttrValue}
+    unknownAttribute.EntityData.Children = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs.Append("attr-type", types.YLeaf{"AttrType", unknownAttribute.AttrType})
+    unknownAttribute.EntityData.Leafs.Append("attr-len", types.YLeaf{"AttrLen", unknownAttribute.AttrLen})
+    unknownAttribute.EntityData.Leafs.Append("attr-value", types.YLeaf{"AttrValue", unknownAttribute.AttrValue})
+
+    unknownAttribute.EntityData.YListKeys = []string {"AttrType"}
+
     return &(unknownAttribute.EntityData)
 }
 
@@ -3763,10 +4033,13 @@ func (adjRibOutPost *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjR
     adjRibOutPost.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjRibOutPost.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    adjRibOutPost.EntityData.Children = make(map[string]types.YChild)
-    adjRibOutPost.EntityData.Children["routes"] = types.YChild{"Routes", &adjRibOutPost.Routes}
-    adjRibOutPost.EntityData.Leafs = make(map[string]types.YLeaf)
-    adjRibOutPost.EntityData.Leafs["num-routes"] = types.YLeaf{"NumRoutes", adjRibOutPost.NumRoutes}
+    adjRibOutPost.EntityData.Children = types.NewOrderedMap()
+    adjRibOutPost.EntityData.Children.Append("routes", types.YChild{"Routes", &adjRibOutPost.Routes})
+    adjRibOutPost.EntityData.Leafs = types.NewOrderedMap()
+    adjRibOutPost.EntityData.Leafs.Append("num-routes", types.YLeaf{"NumRoutes", adjRibOutPost.NumRoutes})
+
+    adjRibOutPost.EntityData.YListKeys = []string {}
+
     return &(adjRibOutPost.EntityData)
 }
 
@@ -3779,7 +4052,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes
 
     // List of routes in the table. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes_Route.
-    Route []BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes_Route
+    Route []*BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes_Route
 }
 
 func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes) GetEntityData() *types.CommonEntityData {
@@ -3792,12 +4065,15 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPo
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    routes.EntityData.Children = make(map[string]types.YChild)
-    routes.EntityData.Children["route"] = types.YChild{"Route", nil}
+    routes.EntityData.Children = types.NewOrderedMap()
+    routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
-        routes.EntityData.Children[types.GetSegmentPath(&routes.Route[i])] = types.YChild{"Route", &routes.Route[i]}
+        routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
-    routes.EntityData.Leafs = make(map[string]types.YLeaf)
+    routes.EntityData.Leafs = types.NewOrderedMap()
+
+    routes.EntityData.YListKeys = []string {}
+
     return &(routes.EntityData)
 }
 
@@ -3808,17 +4084,16 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes
     YFilter yfilter.YFilter
 
     // Prefix for the route. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     Prefix interface{}
 
     // Timestamp of when this path was last changed. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastModifiedDate interface{}
 
     // Timestamp of when the last BGP update message was received for this path /
     // prefix. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastUpdateReceived interface{}
 
     // Indicates that the route is considered valid by the local router. The type
@@ -3827,7 +4102,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes
 
     // If the route is rejected as invalid, this indicates the reason. The type is
     // one of the following:
-    // INVALIDCLUSTERLOOPINVALIDASLOOPINVALIDORIGINATORINVALIDCONFED.
+    // INVALIDORIGINATORINVALIDCLUSTERLOOPINVALIDASLOOPINVALIDCONFED.
     InvalidReason interface{}
 
     // Current path was selected as the best path. The type is bool.
@@ -3850,16 +4125,19 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPos
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    route.EntityData.Children = make(map[string]types.YChild)
-    route.EntityData.Children["attributes"] = types.YChild{"Attributes", &route.Attributes}
-    route.EntityData.Children["ext-attributes"] = types.YChild{"ExtAttributes", &route.ExtAttributes}
-    route.EntityData.Leafs = make(map[string]types.YLeaf)
-    route.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", route.Prefix}
-    route.EntityData.Leafs["last-modified-date"] = types.YLeaf{"LastModifiedDate", route.LastModifiedDate}
-    route.EntityData.Leafs["last-update-received"] = types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived}
-    route.EntityData.Leafs["valid-route"] = types.YLeaf{"ValidRoute", route.ValidRoute}
-    route.EntityData.Leafs["invalid-reason"] = types.YLeaf{"InvalidReason", route.InvalidReason}
-    route.EntityData.Leafs["best-path"] = types.YLeaf{"BestPath", route.BestPath}
+    route.EntityData.Children = types.NewOrderedMap()
+    route.EntityData.Children.Append("attributes", types.YChild{"Attributes", &route.Attributes})
+    route.EntityData.Children.Append("ext-attributes", types.YChild{"ExtAttributes", &route.ExtAttributes})
+    route.EntityData.Leafs = types.NewOrderedMap()
+    route.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", route.Prefix})
+    route.EntityData.Leafs.Append("last-modified-date", types.YLeaf{"LastModifiedDate", route.LastModifiedDate})
+    route.EntityData.Leafs.Append("last-update-received", types.YLeaf{"LastUpdateReceived", route.LastUpdateReceived})
+    route.EntityData.Leafs.Append("valid-route", types.YLeaf{"ValidRoute", route.ValidRoute})
+    route.EntityData.Leafs.Append("invalid-reason", types.YLeaf{"InvalidReason", route.InvalidReason})
+    route.EntityData.Leafs.Append("best-path", types.YLeaf{"BestPath", route.BestPath})
+
+    route.EntityData.YListKeys = []string {}
+
     return &(route.EntityData)
 }
 
@@ -3898,9 +4176,9 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes
     // BGP next hop attribute defining the IP address of the router that should be
     // used as the next hop to the destination. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NextHop interface{}
 
     // BGP multi-exit discriminator attribute used in BGP route selection process.
@@ -3918,7 +4196,8 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes
 
     // List of standard BGP community attributes. The type is one of the following
     // types: slice of int with range: 65536..4294901759, or slice of string with
-    // pattern: b'([0-9]+:[0-9]+)'.
+    // pattern:
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     Community []interface{}
 
     // BGP attribute indicating the prefix has been aggregated by the specified AS
@@ -3936,17 +4215,20 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibO
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    attributes.EntityData.Children = make(map[string]types.YChild)
-    attributes.EntityData.Children["aggregator"] = types.YChild{"Aggregator", &attributes.Aggregator}
-    attributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    attributes.EntityData.Leafs["origin"] = types.YLeaf{"Origin", attributes.Origin}
-    attributes.EntityData.Leafs["as-path"] = types.YLeaf{"AsPath", attributes.AsPath}
-    attributes.EntityData.Leafs["as4-path"] = types.YLeaf{"As4Path", attributes.As4Path}
-    attributes.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", attributes.NextHop}
-    attributes.EntityData.Leafs["med"] = types.YLeaf{"Med", attributes.Med}
-    attributes.EntityData.Leafs["local-pref"] = types.YLeaf{"LocalPref", attributes.LocalPref}
-    attributes.EntityData.Leafs["atomic-aggr"] = types.YLeaf{"AtomicAggr", attributes.AtomicAggr}
-    attributes.EntityData.Leafs["community"] = types.YLeaf{"Community", attributes.Community}
+    attributes.EntityData.Children = types.NewOrderedMap()
+    attributes.EntityData.Children.Append("aggregator", types.YChild{"Aggregator", &attributes.Aggregator})
+    attributes.EntityData.Leafs = types.NewOrderedMap()
+    attributes.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", attributes.Origin})
+    attributes.EntityData.Leafs.Append("as-path", types.YLeaf{"AsPath", attributes.AsPath})
+    attributes.EntityData.Leafs.Append("as4-path", types.YLeaf{"As4Path", attributes.As4Path})
+    attributes.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", attributes.NextHop})
+    attributes.EntityData.Leafs.Append("med", types.YLeaf{"Med", attributes.Med})
+    attributes.EntityData.Leafs.Append("local-pref", types.YLeaf{"LocalPref", attributes.LocalPref})
+    attributes.EntityData.Leafs.Append("atomic-aggr", types.YLeaf{"AtomicAggr", attributes.AtomicAggr})
+    attributes.EntityData.Leafs.Append("community", types.YLeaf{"Community", attributes.Community})
+
+    attributes.EntityData.YListKeys = []string {}
+
     return &(attributes.EntityData)
 }
 
@@ -3969,7 +4251,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes
 
     // IP address of the router that performed the aggregation. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -3983,11 +4265,14 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibO
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    aggregator.EntityData.Children = make(map[string]types.YChild)
-    aggregator.EntityData.Leafs = make(map[string]types.YLeaf)
-    aggregator.EntityData.Leafs["as"] = types.YLeaf{"As", aggregator.As}
-    aggregator.EntityData.Leafs["as4"] = types.YLeaf{"As4", aggregator.As4}
-    aggregator.EntityData.Leafs["address"] = types.YLeaf{"Address", aggregator.Address}
+    aggregator.EntityData.Children = types.NewOrderedMap()
+    aggregator.EntityData.Leafs = types.NewOrderedMap()
+    aggregator.EntityData.Leafs.Append("as", types.YLeaf{"As", aggregator.As})
+    aggregator.EntityData.Leafs.Append("as4", types.YLeaf{"As4", aggregator.As4})
+    aggregator.EntityData.Leafs.Append("address", types.YLeaf{"Address", aggregator.Address})
+
+    aggregator.EntityData.YListKeys = []string {}
+
     return &(aggregator.EntityData)
 }
 
@@ -4000,27 +4285,33 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes
 
     // BGP attribute that provides the id as an IPv4 address of the route
     // reflector that created the announcement. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginatorId interface{}
 
     // Represents the reflection path that the route has passed. The type is slice
     // of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterList []interface{}
 
     // List of BGP extended community attributes. The type is one of the following
     // types: slice of string with pattern:
-    // b'(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])',
+    // ^route\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])',
+    // ^route\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
     // or slice of string with pattern:
-    // b'route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'.
+    // ^route\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // or slice of string with pattern:
+    // ^route\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.
     ExtCommunity []interface{}
 
     // BGP path attribute representing the accumulated IGP metric for the path.
@@ -4040,7 +4331,7 @@ type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes
     // This list contains received attributes that are unrecognized or unsupported
     // by the local router.  The list may be empty. The type is slice of
     // BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes_Route_ExtAttributes_UnknownAttribute.
-    UnknownAttribute []BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes_Route_ExtAttributes_UnknownAttribute
+    UnknownAttribute []*BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes_Route_ExtAttributes_UnknownAttribute
 }
 
 func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes_Route_ExtAttributes) GetEntityData() *types.CommonEntityData {
@@ -4053,17 +4344,20 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjR
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    extAttributes.EntityData.Children = make(map[string]types.YChild)
-    extAttributes.EntityData.Children["unknown-attribute"] = types.YChild{"UnknownAttribute", nil}
+    extAttributes.EntityData.Children = types.NewOrderedMap()
+    extAttributes.EntityData.Children.Append("unknown-attribute", types.YChild{"UnknownAttribute", nil})
     for i := range extAttributes.UnknownAttribute {
-        extAttributes.EntityData.Children[types.GetSegmentPath(&extAttributes.UnknownAttribute[i])] = types.YChild{"UnknownAttribute", &extAttributes.UnknownAttribute[i]}
+        extAttributes.EntityData.Children.Append(types.GetSegmentPath(extAttributes.UnknownAttribute[i]), types.YChild{"UnknownAttribute", extAttributes.UnknownAttribute[i]})
     }
-    extAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
-    extAttributes.EntityData.Leafs["originator-id"] = types.YLeaf{"OriginatorId", extAttributes.OriginatorId}
-    extAttributes.EntityData.Leafs["cluster-list"] = types.YLeaf{"ClusterList", extAttributes.ClusterList}
-    extAttributes.EntityData.Leafs["ext-community"] = types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity}
-    extAttributes.EntityData.Leafs["aigp"] = types.YLeaf{"Aigp", extAttributes.Aigp}
-    extAttributes.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", extAttributes.PathId}
+    extAttributes.EntityData.Leafs = types.NewOrderedMap()
+    extAttributes.EntityData.Leafs.Append("originator-id", types.YLeaf{"OriginatorId", extAttributes.OriginatorId})
+    extAttributes.EntityData.Leafs.Append("cluster-list", types.YLeaf{"ClusterList", extAttributes.ClusterList})
+    extAttributes.EntityData.Leafs.Append("ext-community", types.YLeaf{"ExtCommunity", extAttributes.ExtCommunity})
+    extAttributes.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", extAttributes.Aigp})
+    extAttributes.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", extAttributes.PathId})
+
+    extAttributes.EntityData.YListKeys = []string {}
+
     return &(extAttributes.EntityData)
 }
 
@@ -4096,16 +4390,19 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_A
     unknownAttribute.EntityData.YangName = "unknown-attribute"
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
-    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + "[attr-type='" + fmt.Sprintf("%v", unknownAttribute.AttrType) + "']"
+    unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    unknownAttribute.EntityData.Children = make(map[string]types.YChild)
-    unknownAttribute.EntityData.Leafs = make(map[string]types.YLeaf)
-    unknownAttribute.EntityData.Leafs["attr-type"] = types.YLeaf{"AttrType", unknownAttribute.AttrType}
-    unknownAttribute.EntityData.Leafs["attr-len"] = types.YLeaf{"AttrLen", unknownAttribute.AttrLen}
-    unknownAttribute.EntityData.Leafs["attr-value"] = types.YLeaf{"AttrValue", unknownAttribute.AttrValue}
+    unknownAttribute.EntityData.Children = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs = types.NewOrderedMap()
+    unknownAttribute.EntityData.Leafs.Append("attr-type", types.YLeaf{"AttrType", unknownAttribute.AttrType})
+    unknownAttribute.EntityData.Leafs.Append("attr-len", types.YLeaf{"AttrLen", unknownAttribute.AttrLen})
+    unknownAttribute.EntityData.Leafs.Append("attr-value", types.YLeaf{"AttrValue", unknownAttribute.AttrValue})
+
+    unknownAttribute.EntityData.YListKeys = []string {"AttrType"}
+
     return &(unknownAttribute.EntityData)
 }
 

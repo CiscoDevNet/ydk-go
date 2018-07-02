@@ -87,7 +87,7 @@ type CISCOBGP4MIB struct {
     YFilter yfilter.YFilter
 
     
-    Cbgpglobal CISCOBGP4MIB_Cbgpglobal
+    CbgpGlobal CISCOBGP4MIB_CbgpGlobal
 
     // This table contains information about routes to destination networks from
     // all BGP4 peers.  Since  BGP4 can carry routes for multiple Network Layer 
@@ -97,7 +97,7 @@ type CISCOBGP4MIB struct {
     // Identifiers(SAFI).  Hence that is used as the second index.  Conceptually
     // there is a separate Loc-RIB maintained by the BGP speaker for each
     // combination of  AFI and SAFI supported by it.
-    Cbgproutetable CISCOBGP4MIB_Cbgproutetable
+    CbgpRouteTable CISCOBGP4MIB_CbgpRouteTable
 
     // This table contains the capabilities that are supported by a peer.
     // Capabilities of a peer are  received during BGP connection establishment.
@@ -106,25 +106,25 @@ type CISCOBGP4MIB struct {
     // entry. When an existing capability is not received  during the latest
     // connection establishment, the  corresponding entry is deleted from the
     // table.
-    Cbgppeercapstable CISCOBGP4MIB_Cbgppeercapstable
+    CbgpPeerCapsTable CISCOBGP4MIB_CbgpPeerCapsTable
 
     // This table contains information related to address families supported by a
     // peer. Supported address families of a peer are known during BGP  connection
     // establishment. When a new supported  address family is known, this table is
     // updated  with a new entry. When an address family is not  supported any
     // more, corresponding entry is deleted  from the table.
-    Cbgppeeraddrfamilytable CISCOBGP4MIB_Cbgppeeraddrfamilytable
+    CbgpPeerAddrFamilyTable CISCOBGP4MIB_CbgpPeerAddrFamilyTable
 
     // This table contains prefix related information related to address families
     // supported by a peer.  Supported address families of a peer are known 
     // during BGP connection establishment. When a new  supported address family
     // is known, this table  is updated with a new entry. When an address  family
     // is not supported any more, corresponding  entry is deleted from the table.
-    Cbgppeeraddrfamilyprefixtable CISCOBGP4MIB_Cbgppeeraddrfamilyprefixtable
+    CbgpPeerAddrFamilyPrefixTable CISCOBGP4MIB_CbgpPeerAddrFamilyPrefixTable
 
     // BGP peer table.  This table contains, one entry per BGP peer, information
     // about the connections with BGP peers.
-    Cbgppeer2Table CISCOBGP4MIB_Cbgppeer2Table
+    CbgpPeer2Table CISCOBGP4MIB_CbgpPeer2Table
 
     // This table contains the capabilities that are supported by a peer.
     // Capabilities of a peer are received during BGP connection establishment.
@@ -132,21 +132,21 @@ type CISCOBGP4MIB struct {
     // When a new capability is received, this table is updated with a new entry.
     // When an existing capability is not received during the latest connection
     // establishment, the corresponding entry is deleted from the table.
-    Cbgppeer2Capstable CISCOBGP4MIB_Cbgppeer2Capstable
+    CbgpPeer2CapsTable CISCOBGP4MIB_CbgpPeer2CapsTable
 
     // This table contains information related to address families supported by a
     // peer. Supported address families of a peer are known during BGP connection
     // establishment. When a new supported address family is known, this table is
     // updated with a new entry. When an address family is not supported any more,
     // corresponding entry is deleted from the table.
-    Cbgppeer2Addrfamilytable CISCOBGP4MIB_Cbgppeer2Addrfamilytable
+    CbgpPeer2AddrFamilyTable CISCOBGP4MIB_CbgpPeer2AddrFamilyTable
 
     // This table contains prefix related information related to address families
     // supported by a peer. Supported address families of a peer are known during
     // BGP connection establishment. When a new supported address family is known,
     // this table is updated with a new entry. When an address family is not
     // supported any more, corresponding entry is deleted from the table.
-    Cbgppeer2Addrfamilyprefixtable CISCOBGP4MIB_Cbgppeer2Addrfamilyprefixtable
+    CbgpPeer2AddrFamilyPrefixTable CISCOBGP4MIB_CbgpPeer2AddrFamilyPrefixTable
 }
 
 func (cISCOBGP4MIB *CISCOBGP4MIB) GetEntityData() *types.CommonEntityData {
@@ -159,22 +159,25 @@ func (cISCOBGP4MIB *CISCOBGP4MIB) GetEntityData() *types.CommonEntityData {
     cISCOBGP4MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOBGP4MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOBGP4MIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOBGP4MIB.EntityData.Children["cbgpGlobal"] = types.YChild{"Cbgpglobal", &cISCOBGP4MIB.Cbgpglobal}
-    cISCOBGP4MIB.EntityData.Children["cbgpRouteTable"] = types.YChild{"Cbgproutetable", &cISCOBGP4MIB.Cbgproutetable}
-    cISCOBGP4MIB.EntityData.Children["cbgpPeerCapsTable"] = types.YChild{"Cbgppeercapstable", &cISCOBGP4MIB.Cbgppeercapstable}
-    cISCOBGP4MIB.EntityData.Children["cbgpPeerAddrFamilyTable"] = types.YChild{"Cbgppeeraddrfamilytable", &cISCOBGP4MIB.Cbgppeeraddrfamilytable}
-    cISCOBGP4MIB.EntityData.Children["cbgpPeerAddrFamilyPrefixTable"] = types.YChild{"Cbgppeeraddrfamilyprefixtable", &cISCOBGP4MIB.Cbgppeeraddrfamilyprefixtable}
-    cISCOBGP4MIB.EntityData.Children["cbgpPeer2Table"] = types.YChild{"Cbgppeer2Table", &cISCOBGP4MIB.Cbgppeer2Table}
-    cISCOBGP4MIB.EntityData.Children["cbgpPeer2CapsTable"] = types.YChild{"Cbgppeer2Capstable", &cISCOBGP4MIB.Cbgppeer2Capstable}
-    cISCOBGP4MIB.EntityData.Children["cbgpPeer2AddrFamilyTable"] = types.YChild{"Cbgppeer2Addrfamilytable", &cISCOBGP4MIB.Cbgppeer2Addrfamilytable}
-    cISCOBGP4MIB.EntityData.Children["cbgpPeer2AddrFamilyPrefixTable"] = types.YChild{"Cbgppeer2Addrfamilyprefixtable", &cISCOBGP4MIB.Cbgppeer2Addrfamilyprefixtable}
-    cISCOBGP4MIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOBGP4MIB.EntityData.Children = types.NewOrderedMap()
+    cISCOBGP4MIB.EntityData.Children.Append("cbgpGlobal", types.YChild{"CbgpGlobal", &cISCOBGP4MIB.CbgpGlobal})
+    cISCOBGP4MIB.EntityData.Children.Append("cbgpRouteTable", types.YChild{"CbgpRouteTable", &cISCOBGP4MIB.CbgpRouteTable})
+    cISCOBGP4MIB.EntityData.Children.Append("cbgpPeerCapsTable", types.YChild{"CbgpPeerCapsTable", &cISCOBGP4MIB.CbgpPeerCapsTable})
+    cISCOBGP4MIB.EntityData.Children.Append("cbgpPeerAddrFamilyTable", types.YChild{"CbgpPeerAddrFamilyTable", &cISCOBGP4MIB.CbgpPeerAddrFamilyTable})
+    cISCOBGP4MIB.EntityData.Children.Append("cbgpPeerAddrFamilyPrefixTable", types.YChild{"CbgpPeerAddrFamilyPrefixTable", &cISCOBGP4MIB.CbgpPeerAddrFamilyPrefixTable})
+    cISCOBGP4MIB.EntityData.Children.Append("cbgpPeer2Table", types.YChild{"CbgpPeer2Table", &cISCOBGP4MIB.CbgpPeer2Table})
+    cISCOBGP4MIB.EntityData.Children.Append("cbgpPeer2CapsTable", types.YChild{"CbgpPeer2CapsTable", &cISCOBGP4MIB.CbgpPeer2CapsTable})
+    cISCOBGP4MIB.EntityData.Children.Append("cbgpPeer2AddrFamilyTable", types.YChild{"CbgpPeer2AddrFamilyTable", &cISCOBGP4MIB.CbgpPeer2AddrFamilyTable})
+    cISCOBGP4MIB.EntityData.Children.Append("cbgpPeer2AddrFamilyPrefixTable", types.YChild{"CbgpPeer2AddrFamilyPrefixTable", &cISCOBGP4MIB.CbgpPeer2AddrFamilyPrefixTable})
+    cISCOBGP4MIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOBGP4MIB.EntityData.YListKeys = []string {}
+
     return &(cISCOBGP4MIB.EntityData)
 }
 
-// CISCOBGP4MIB_Cbgpglobal
-type CISCOBGP4MIB_Cbgpglobal struct {
+// CISCOBGP4MIB_CbgpGlobal
+type CISCOBGP4MIB_CbgpGlobal struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -183,31 +186,34 @@ type CISCOBGP4MIB_Cbgpglobal struct {
     // ciscoBgp4NotificationsGroup1 are enabled;  If notifsPeer2Enable(1) bit is
     // set to 1, then the notifications defined in
     // ciscoBgp4Peer2NotificationsGroup are enabled. The type is map[string]bool.
-    Cbgpnotifsenable interface{}
+    CbgpNotifsEnable interface{}
 
     // The local autonomous system (AS) number. The type is interface{} with
     // range: 0..4294967295.
-    Cbgplocalas interface{}
+    CbgpLocalAs interface{}
 }
 
-func (cbgpglobal *CISCOBGP4MIB_Cbgpglobal) GetEntityData() *types.CommonEntityData {
-    cbgpglobal.EntityData.YFilter = cbgpglobal.YFilter
-    cbgpglobal.EntityData.YangName = "cbgpGlobal"
-    cbgpglobal.EntityData.BundleName = "cisco_ios_xe"
-    cbgpglobal.EntityData.ParentYangName = "CISCO-BGP4-MIB"
-    cbgpglobal.EntityData.SegmentPath = "cbgpGlobal"
-    cbgpglobal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbgpglobal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbgpglobal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbgpGlobal *CISCOBGP4MIB_CbgpGlobal) GetEntityData() *types.CommonEntityData {
+    cbgpGlobal.EntityData.YFilter = cbgpGlobal.YFilter
+    cbgpGlobal.EntityData.YangName = "cbgpGlobal"
+    cbgpGlobal.EntityData.BundleName = "cisco_ios_xe"
+    cbgpGlobal.EntityData.ParentYangName = "CISCO-BGP4-MIB"
+    cbgpGlobal.EntityData.SegmentPath = "cbgpGlobal"
+    cbgpGlobal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbgpGlobal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbgpGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbgpglobal.EntityData.Children = make(map[string]types.YChild)
-    cbgpglobal.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbgpglobal.EntityData.Leafs["cbgpNotifsEnable"] = types.YLeaf{"Cbgpnotifsenable", cbgpglobal.Cbgpnotifsenable}
-    cbgpglobal.EntityData.Leafs["cbgpLocalAs"] = types.YLeaf{"Cbgplocalas", cbgpglobal.Cbgplocalas}
-    return &(cbgpglobal.EntityData)
+    cbgpGlobal.EntityData.Children = types.NewOrderedMap()
+    cbgpGlobal.EntityData.Leafs = types.NewOrderedMap()
+    cbgpGlobal.EntityData.Leafs.Append("cbgpNotifsEnable", types.YLeaf{"CbgpNotifsEnable", cbgpGlobal.CbgpNotifsEnable})
+    cbgpGlobal.EntityData.Leafs.Append("cbgpLocalAs", types.YLeaf{"CbgpLocalAs", cbgpGlobal.CbgpLocalAs})
+
+    cbgpGlobal.EntityData.YListKeys = []string {}
+
+    return &(cbgpGlobal.EntityData)
 }
 
-// CISCOBGP4MIB_Cbgproutetable
+// CISCOBGP4MIB_CbgpRouteTable
 // This table contains information about routes to
 // destination networks from all BGP4 peers.  Since 
 // BGP4 can carry routes for multiple Network Layer 
@@ -219,38 +225,41 @@ func (cbgpglobal *CISCOBGP4MIB_Cbgpglobal) GetEntityData() *types.CommonEntityDa
 // second index.  Conceptually there is a separate Loc-RIB
 // maintained by the BGP speaker for each combination of 
 // AFI and SAFI supported by it.
-type CISCOBGP4MIB_Cbgproutetable struct {
+type CISCOBGP4MIB_CbgpRouteTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a path to a network received from a peer. The type is
-    // slice of CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry.
-    Cbgprouteentry []CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry
+    // slice of CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry.
+    CbgpRouteEntry []*CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry
 }
 
-func (cbgproutetable *CISCOBGP4MIB_Cbgproutetable) GetEntityData() *types.CommonEntityData {
-    cbgproutetable.EntityData.YFilter = cbgproutetable.YFilter
-    cbgproutetable.EntityData.YangName = "cbgpRouteTable"
-    cbgproutetable.EntityData.BundleName = "cisco_ios_xe"
-    cbgproutetable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
-    cbgproutetable.EntityData.SegmentPath = "cbgpRouteTable"
-    cbgproutetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbgproutetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbgproutetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbgpRouteTable *CISCOBGP4MIB_CbgpRouteTable) GetEntityData() *types.CommonEntityData {
+    cbgpRouteTable.EntityData.YFilter = cbgpRouteTable.YFilter
+    cbgpRouteTable.EntityData.YangName = "cbgpRouteTable"
+    cbgpRouteTable.EntityData.BundleName = "cisco_ios_xe"
+    cbgpRouteTable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
+    cbgpRouteTable.EntityData.SegmentPath = "cbgpRouteTable"
+    cbgpRouteTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbgpRouteTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbgpRouteTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbgproutetable.EntityData.Children = make(map[string]types.YChild)
-    cbgproutetable.EntityData.Children["cbgpRouteEntry"] = types.YChild{"Cbgprouteentry", nil}
-    for i := range cbgproutetable.Cbgprouteentry {
-        cbgproutetable.EntityData.Children[types.GetSegmentPath(&cbgproutetable.Cbgprouteentry[i])] = types.YChild{"Cbgprouteentry", &cbgproutetable.Cbgprouteentry[i]}
+    cbgpRouteTable.EntityData.Children = types.NewOrderedMap()
+    cbgpRouteTable.EntityData.Children.Append("cbgpRouteEntry", types.YChild{"CbgpRouteEntry", nil})
+    for i := range cbgpRouteTable.CbgpRouteEntry {
+        cbgpRouteTable.EntityData.Children.Append(types.GetSegmentPath(cbgpRouteTable.CbgpRouteEntry[i]), types.YChild{"CbgpRouteEntry", cbgpRouteTable.CbgpRouteEntry[i]})
     }
-    cbgproutetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cbgproutetable.EntityData)
+    cbgpRouteTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cbgpRouteTable.EntityData.YListKeys = []string {}
+
+    return &(cbgpRouteTable.EntityData)
 }
 
-// CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry
+// CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry
 // Information about a path to a network received from
 // a peer.
-type CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry struct {
+type CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -258,39 +267,39 @@ type CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry struct {
     // Network Layer protocol associated with the route. An implementation is only
     // required to support IPv4 unicast and VPNv4 (Value - 1) address families.
     // The type is InetAddressType.
-    Cbgprouteafi interface{}
+    CbgpRouteAfi interface{}
 
     // This attribute is a key. Represents Subsequent Address Family
     // Identifier(SAFI) of the route. It gives additional information about the
     // type of the route. An implementation is only  required to support IPv4
     // unicast(Value - 1) and VPNv4( Value - 128) address families. The type is
     // CbgpSafi.
-    Cbgproutesafi interface{}
+    CbgpRouteSafi interface{}
 
     // This attribute is a key. Represents the type of Network Layer address
     // stored in cbgpRoutePeer. An implementation is only required to support IPv4
     // address type(Value - 1). The type is InetAddressType.
-    Cbgproutepeertype interface{}
+    CbgpRoutePeerType interface{}
 
     // This attribute is a key. The Network Layer address of the peer where the
     // route information was learned. An implementation is only  required to
     // support an IPv4 peer. The type is string with length: 0..255.
-    Cbgproutepeer interface{}
+    CbgpRoutePeer interface{}
 
     // This attribute is a key. A Network Address prefix in the Network Layer
     // Reachability Information field of BGP UPDATE message. This object is a
     // Network Address containing the prefix with length specified by
     // cbgpRouteAddrPrefixLen. Any bits beyond the length specified by
     // cbgpRouteAddrPrefixLen are zeroed. The type is string with length: 0..255.
-    Cbgprouteaddrprefix interface{}
+    CbgpRouteAddrPrefix interface{}
 
     // This attribute is a key. Length in bits of the Network Address prefix in
     // the Network Layer Reachability Information field. The type is interface{}
     // with range: 0..2040.
-    Cbgprouteaddrprefixlen interface{}
+    CbgpRouteAddrPrefixLen interface{}
 
-    // The ultimate origin of the route information. The type is Cbgprouteorigin.
-    Cbgprouteorigin interface{}
+    // The ultimate origin of the route information. The type is CbgpRouteOrigin.
+    CbgpRouteOrigin interface{}
 
     // The sequence of AS path segments.  Each AS path segment is represented by a
     // triple <type, length, value>.  The type is a 1-octet field which has two
@@ -302,53 +311,53 @@ type CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry struct {
     // as a pair of octets according to the following algorithm: 
     // first-byte-of-pair = ASNumber / 256; second-byte-of-pair = ASNumber & 255;.
     // The type is string with length: 0..255.
-    Cbgprouteaspathsegment interface{}
+    CbgpRouteASPathSegment interface{}
 
     // The Network Layer address of the border router that should be used for the
     // destination network. The type is string with length: 0..255.
-    Cbgproutenexthop interface{}
+    CbgpRouteNextHop interface{}
 
     // Indicates the presence/absence of MULTI_EXIT_DISC attribute for the route.
     // The type is bool.
-    Cbgproutemedpresent interface{}
+    CbgpRouteMedPresent interface{}
 
     // This metric is used to discriminate between multiple exit points to an
     // adjacent autonomous system.  The value of this object is irrelevant if the
     // value of of cbgpRouteMedPresent is false(2). The type is interface{} with
     // range: 0..4294967295.
-    Cbgproutemultiexitdisc interface{}
+    CbgpRouteMultiExitDisc interface{}
 
     // Indicates the presence/absence of LOCAL_PREF attribute for the route. The
     // type is bool.
-    Cbgproutelocalprefpresent interface{}
+    CbgpRouteLocalPrefPresent interface{}
 
     // The degree of preference calculated by the local BGP4 speaker for the
     // route. The value of this object is  irrelevant if the value of
     // cbgpRouteLocalPrefPresent  is false(2). The type is interface{} with range:
     // 0..4294967295.
-    Cbgproutelocalpref interface{}
+    CbgpRouteLocalPref interface{}
 
     // Whether or not the local system has selected a less specific route without
-    // selecting a more specific route. The type is Cbgprouteatomicaggregate.
-    Cbgprouteatomicaggregate interface{}
+    // selecting a more specific route. The type is CbgpRouteAtomicAggregate.
+    CbgpRouteAtomicAggregate interface{}
 
     // The AS number of the last BGP4 speaker that performed route aggregation.  A
     // value of zero (0) indicates the  absence of this attribute. The type is
     // interface{} with range: 0..65535.
-    Cbgprouteaggregatoras interface{}
+    CbgpRouteAggregatorAS interface{}
 
     // Represents the type of Network Layer address stored in
     // cbgpRouteAggregatorAddr. The type is InetAddressType.
-    Cbgprouteaggregatoraddrtype interface{}
+    CbgpRouteAggregatorAddrType interface{}
 
     // The Network Layer address of the last BGP4 speaker that performed route
     // aggregation.  A value of all zeros indicates the absence of this attribute.
     // The type is string with length: 0..255.
-    Cbgprouteaggregatoraddr interface{}
+    CbgpRouteAggregatorAddr interface{}
 
     // An indication of whether or not this route was chosen as the best BGP4
     // route. The type is bool.
-    Cbgproutebest interface{}
+    CbgpRouteBest interface{}
 
     // One or more path attributes not understood by this BGP4 speaker.  Size zero
     // (0) indicates the absence of such attribute(s).  Octets beyond the maximum
@@ -364,64 +373,67 @@ type CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry struct {
     // represent  the attribute value and are interpreted according to  the
     // Attribute Flags and the Attribute Type Code. The type is string with
     // length: 0..255.
-    Cbgprouteunknownattr interface{}
+    CbgpRouteUnknownAttr interface{}
 }
 
-func (cbgprouteentry *CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry) GetEntityData() *types.CommonEntityData {
-    cbgprouteentry.EntityData.YFilter = cbgprouteentry.YFilter
-    cbgprouteentry.EntityData.YangName = "cbgpRouteEntry"
-    cbgprouteentry.EntityData.BundleName = "cisco_ios_xe"
-    cbgprouteentry.EntityData.ParentYangName = "cbgpRouteTable"
-    cbgprouteentry.EntityData.SegmentPath = "cbgpRouteEntry" + "[cbgpRouteAfi='" + fmt.Sprintf("%v", cbgprouteentry.Cbgprouteafi) + "']" + "[cbgpRouteSafi='" + fmt.Sprintf("%v", cbgprouteentry.Cbgproutesafi) + "']" + "[cbgpRoutePeerType='" + fmt.Sprintf("%v", cbgprouteentry.Cbgproutepeertype) + "']" + "[cbgpRoutePeer='" + fmt.Sprintf("%v", cbgprouteentry.Cbgproutepeer) + "']" + "[cbgpRouteAddrPrefix='" + fmt.Sprintf("%v", cbgprouteentry.Cbgprouteaddrprefix) + "']" + "[cbgpRouteAddrPrefixLen='" + fmt.Sprintf("%v", cbgprouteentry.Cbgprouteaddrprefixlen) + "']"
-    cbgprouteentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbgprouteentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbgprouteentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbgpRouteEntry *CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry) GetEntityData() *types.CommonEntityData {
+    cbgpRouteEntry.EntityData.YFilter = cbgpRouteEntry.YFilter
+    cbgpRouteEntry.EntityData.YangName = "cbgpRouteEntry"
+    cbgpRouteEntry.EntityData.BundleName = "cisco_ios_xe"
+    cbgpRouteEntry.EntityData.ParentYangName = "cbgpRouteTable"
+    cbgpRouteEntry.EntityData.SegmentPath = "cbgpRouteEntry" + types.AddKeyToken(cbgpRouteEntry.CbgpRouteAfi, "cbgpRouteAfi") + types.AddKeyToken(cbgpRouteEntry.CbgpRouteSafi, "cbgpRouteSafi") + types.AddKeyToken(cbgpRouteEntry.CbgpRoutePeerType, "cbgpRoutePeerType") + types.AddKeyToken(cbgpRouteEntry.CbgpRoutePeer, "cbgpRoutePeer") + types.AddKeyToken(cbgpRouteEntry.CbgpRouteAddrPrefix, "cbgpRouteAddrPrefix") + types.AddKeyToken(cbgpRouteEntry.CbgpRouteAddrPrefixLen, "cbgpRouteAddrPrefixLen")
+    cbgpRouteEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbgpRouteEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbgpRouteEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbgprouteentry.EntityData.Children = make(map[string]types.YChild)
-    cbgprouteentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbgprouteentry.EntityData.Leafs["cbgpRouteAfi"] = types.YLeaf{"Cbgprouteafi", cbgprouteentry.Cbgprouteafi}
-    cbgprouteentry.EntityData.Leafs["cbgpRouteSafi"] = types.YLeaf{"Cbgproutesafi", cbgprouteentry.Cbgproutesafi}
-    cbgprouteentry.EntityData.Leafs["cbgpRoutePeerType"] = types.YLeaf{"Cbgproutepeertype", cbgprouteentry.Cbgproutepeertype}
-    cbgprouteentry.EntityData.Leafs["cbgpRoutePeer"] = types.YLeaf{"Cbgproutepeer", cbgprouteentry.Cbgproutepeer}
-    cbgprouteentry.EntityData.Leafs["cbgpRouteAddrPrefix"] = types.YLeaf{"Cbgprouteaddrprefix", cbgprouteentry.Cbgprouteaddrprefix}
-    cbgprouteentry.EntityData.Leafs["cbgpRouteAddrPrefixLen"] = types.YLeaf{"Cbgprouteaddrprefixlen", cbgprouteentry.Cbgprouteaddrprefixlen}
-    cbgprouteentry.EntityData.Leafs["cbgpRouteOrigin"] = types.YLeaf{"Cbgprouteorigin", cbgprouteentry.Cbgprouteorigin}
-    cbgprouteentry.EntityData.Leafs["cbgpRouteASPathSegment"] = types.YLeaf{"Cbgprouteaspathsegment", cbgprouteentry.Cbgprouteaspathsegment}
-    cbgprouteentry.EntityData.Leafs["cbgpRouteNextHop"] = types.YLeaf{"Cbgproutenexthop", cbgprouteentry.Cbgproutenexthop}
-    cbgprouteentry.EntityData.Leafs["cbgpRouteMedPresent"] = types.YLeaf{"Cbgproutemedpresent", cbgprouteentry.Cbgproutemedpresent}
-    cbgprouteentry.EntityData.Leafs["cbgpRouteMultiExitDisc"] = types.YLeaf{"Cbgproutemultiexitdisc", cbgprouteentry.Cbgproutemultiexitdisc}
-    cbgprouteentry.EntityData.Leafs["cbgpRouteLocalPrefPresent"] = types.YLeaf{"Cbgproutelocalprefpresent", cbgprouteentry.Cbgproutelocalprefpresent}
-    cbgprouteentry.EntityData.Leafs["cbgpRouteLocalPref"] = types.YLeaf{"Cbgproutelocalpref", cbgprouteentry.Cbgproutelocalpref}
-    cbgprouteentry.EntityData.Leafs["cbgpRouteAtomicAggregate"] = types.YLeaf{"Cbgprouteatomicaggregate", cbgprouteentry.Cbgprouteatomicaggregate}
-    cbgprouteentry.EntityData.Leafs["cbgpRouteAggregatorAS"] = types.YLeaf{"Cbgprouteaggregatoras", cbgprouteentry.Cbgprouteaggregatoras}
-    cbgprouteentry.EntityData.Leafs["cbgpRouteAggregatorAddrType"] = types.YLeaf{"Cbgprouteaggregatoraddrtype", cbgprouteentry.Cbgprouteaggregatoraddrtype}
-    cbgprouteentry.EntityData.Leafs["cbgpRouteAggregatorAddr"] = types.YLeaf{"Cbgprouteaggregatoraddr", cbgprouteentry.Cbgprouteaggregatoraddr}
-    cbgprouteentry.EntityData.Leafs["cbgpRouteBest"] = types.YLeaf{"Cbgproutebest", cbgprouteentry.Cbgproutebest}
-    cbgprouteentry.EntityData.Leafs["cbgpRouteUnknownAttr"] = types.YLeaf{"Cbgprouteunknownattr", cbgprouteentry.Cbgprouteunknownattr}
-    return &(cbgprouteentry.EntityData)
+    cbgpRouteEntry.EntityData.Children = types.NewOrderedMap()
+    cbgpRouteEntry.EntityData.Leafs = types.NewOrderedMap()
+    cbgpRouteEntry.EntityData.Leafs.Append("cbgpRouteAfi", types.YLeaf{"CbgpRouteAfi", cbgpRouteEntry.CbgpRouteAfi})
+    cbgpRouteEntry.EntityData.Leafs.Append("cbgpRouteSafi", types.YLeaf{"CbgpRouteSafi", cbgpRouteEntry.CbgpRouteSafi})
+    cbgpRouteEntry.EntityData.Leafs.Append("cbgpRoutePeerType", types.YLeaf{"CbgpRoutePeerType", cbgpRouteEntry.CbgpRoutePeerType})
+    cbgpRouteEntry.EntityData.Leafs.Append("cbgpRoutePeer", types.YLeaf{"CbgpRoutePeer", cbgpRouteEntry.CbgpRoutePeer})
+    cbgpRouteEntry.EntityData.Leafs.Append("cbgpRouteAddrPrefix", types.YLeaf{"CbgpRouteAddrPrefix", cbgpRouteEntry.CbgpRouteAddrPrefix})
+    cbgpRouteEntry.EntityData.Leafs.Append("cbgpRouteAddrPrefixLen", types.YLeaf{"CbgpRouteAddrPrefixLen", cbgpRouteEntry.CbgpRouteAddrPrefixLen})
+    cbgpRouteEntry.EntityData.Leafs.Append("cbgpRouteOrigin", types.YLeaf{"CbgpRouteOrigin", cbgpRouteEntry.CbgpRouteOrigin})
+    cbgpRouteEntry.EntityData.Leafs.Append("cbgpRouteASPathSegment", types.YLeaf{"CbgpRouteASPathSegment", cbgpRouteEntry.CbgpRouteASPathSegment})
+    cbgpRouteEntry.EntityData.Leafs.Append("cbgpRouteNextHop", types.YLeaf{"CbgpRouteNextHop", cbgpRouteEntry.CbgpRouteNextHop})
+    cbgpRouteEntry.EntityData.Leafs.Append("cbgpRouteMedPresent", types.YLeaf{"CbgpRouteMedPresent", cbgpRouteEntry.CbgpRouteMedPresent})
+    cbgpRouteEntry.EntityData.Leafs.Append("cbgpRouteMultiExitDisc", types.YLeaf{"CbgpRouteMultiExitDisc", cbgpRouteEntry.CbgpRouteMultiExitDisc})
+    cbgpRouteEntry.EntityData.Leafs.Append("cbgpRouteLocalPrefPresent", types.YLeaf{"CbgpRouteLocalPrefPresent", cbgpRouteEntry.CbgpRouteLocalPrefPresent})
+    cbgpRouteEntry.EntityData.Leafs.Append("cbgpRouteLocalPref", types.YLeaf{"CbgpRouteLocalPref", cbgpRouteEntry.CbgpRouteLocalPref})
+    cbgpRouteEntry.EntityData.Leafs.Append("cbgpRouteAtomicAggregate", types.YLeaf{"CbgpRouteAtomicAggregate", cbgpRouteEntry.CbgpRouteAtomicAggregate})
+    cbgpRouteEntry.EntityData.Leafs.Append("cbgpRouteAggregatorAS", types.YLeaf{"CbgpRouteAggregatorAS", cbgpRouteEntry.CbgpRouteAggregatorAS})
+    cbgpRouteEntry.EntityData.Leafs.Append("cbgpRouteAggregatorAddrType", types.YLeaf{"CbgpRouteAggregatorAddrType", cbgpRouteEntry.CbgpRouteAggregatorAddrType})
+    cbgpRouteEntry.EntityData.Leafs.Append("cbgpRouteAggregatorAddr", types.YLeaf{"CbgpRouteAggregatorAddr", cbgpRouteEntry.CbgpRouteAggregatorAddr})
+    cbgpRouteEntry.EntityData.Leafs.Append("cbgpRouteBest", types.YLeaf{"CbgpRouteBest", cbgpRouteEntry.CbgpRouteBest})
+    cbgpRouteEntry.EntityData.Leafs.Append("cbgpRouteUnknownAttr", types.YLeaf{"CbgpRouteUnknownAttr", cbgpRouteEntry.CbgpRouteUnknownAttr})
+
+    cbgpRouteEntry.EntityData.YListKeys = []string {"CbgpRouteAfi", "CbgpRouteSafi", "CbgpRoutePeerType", "CbgpRoutePeer", "CbgpRouteAddrPrefix", "CbgpRouteAddrPrefixLen"}
+
+    return &(cbgpRouteEntry.EntityData)
 }
 
-// CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry_Cbgprouteatomicaggregate represents route.
-type CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry_Cbgprouteatomicaggregate string
+// CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry_CbgpRouteAtomicAggregate represents route.
+type CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry_CbgpRouteAtomicAggregate string
 
 const (
-    CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry_Cbgprouteatomicaggregate_lessSpecificRouteNotSelected CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry_Cbgprouteatomicaggregate = "lessSpecificRouteNotSelected"
+    CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry_CbgpRouteAtomicAggregate_lessSpecificRouteNotSelected CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry_CbgpRouteAtomicAggregate = "lessSpecificRouteNotSelected"
 
-    CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry_Cbgprouteatomicaggregate_lessSpecificRouteSelected CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry_Cbgprouteatomicaggregate = "lessSpecificRouteSelected"
+    CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry_CbgpRouteAtomicAggregate_lessSpecificRouteSelected CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry_CbgpRouteAtomicAggregate = "lessSpecificRouteSelected"
 )
 
-// CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry_Cbgprouteorigin represents The ultimate origin of the route information.
-type CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry_Cbgprouteorigin string
+// CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry_CbgpRouteOrigin represents The ultimate origin of the route information.
+type CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry_CbgpRouteOrigin string
 
 const (
-    CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry_Cbgprouteorigin_igp CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry_Cbgprouteorigin = "igp"
+    CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry_CbgpRouteOrigin_igp CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry_CbgpRouteOrigin = "igp"
 
-    CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry_Cbgprouteorigin_egp CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry_Cbgprouteorigin = "egp"
+    CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry_CbgpRouteOrigin_egp CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry_CbgpRouteOrigin = "egp"
 
-    CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry_Cbgprouteorigin_incomplete CISCOBGP4MIB_Cbgproutetable_Cbgprouteentry_Cbgprouteorigin = "incomplete"
+    CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry_CbgpRouteOrigin_incomplete CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry_CbgpRouteOrigin = "incomplete"
 )
 
-// CISCOBGP4MIB_Cbgppeercapstable
+// CISCOBGP4MIB_CbgpPeerCapsTable
 // This table contains the capabilities that are
 // supported by a peer. Capabilities of a peer are 
 // received during BGP connection establishment.
@@ -431,7 +443,7 @@ const (
 // entry. When an existing capability is not received 
 // during the latest connection establishment, the 
 // corresponding entry is deleted from the table.
-type CISCOBGP4MIB_Cbgppeercapstable struct {
+type CISCOBGP4MIB_CbgpPeerCapsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -439,52 +451,55 @@ type CISCOBGP4MIB_Cbgppeercapstable struct {
     // code and an index. When a  capability is received multiple times with
     // different values during a BGP connection establishment,  corresponding
     // entries are differentiated with indices. The type is slice of
-    // CISCOBGP4MIB_Cbgppeercapstable_Cbgppeercapsentry.
-    Cbgppeercapsentry []CISCOBGP4MIB_Cbgppeercapstable_Cbgppeercapsentry
+    // CISCOBGP4MIB_CbgpPeerCapsTable_CbgpPeerCapsEntry.
+    CbgpPeerCapsEntry []*CISCOBGP4MIB_CbgpPeerCapsTable_CbgpPeerCapsEntry
 }
 
-func (cbgppeercapstable *CISCOBGP4MIB_Cbgppeercapstable) GetEntityData() *types.CommonEntityData {
-    cbgppeercapstable.EntityData.YFilter = cbgppeercapstable.YFilter
-    cbgppeercapstable.EntityData.YangName = "cbgpPeerCapsTable"
-    cbgppeercapstable.EntityData.BundleName = "cisco_ios_xe"
-    cbgppeercapstable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
-    cbgppeercapstable.EntityData.SegmentPath = "cbgpPeerCapsTable"
-    cbgppeercapstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbgppeercapstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbgppeercapstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbgpPeerCapsTable *CISCOBGP4MIB_CbgpPeerCapsTable) GetEntityData() *types.CommonEntityData {
+    cbgpPeerCapsTable.EntityData.YFilter = cbgpPeerCapsTable.YFilter
+    cbgpPeerCapsTable.EntityData.YangName = "cbgpPeerCapsTable"
+    cbgpPeerCapsTable.EntityData.BundleName = "cisco_ios_xe"
+    cbgpPeerCapsTable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
+    cbgpPeerCapsTable.EntityData.SegmentPath = "cbgpPeerCapsTable"
+    cbgpPeerCapsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbgpPeerCapsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbgpPeerCapsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbgppeercapstable.EntityData.Children = make(map[string]types.YChild)
-    cbgppeercapstable.EntityData.Children["cbgpPeerCapsEntry"] = types.YChild{"Cbgppeercapsentry", nil}
-    for i := range cbgppeercapstable.Cbgppeercapsentry {
-        cbgppeercapstable.EntityData.Children[types.GetSegmentPath(&cbgppeercapstable.Cbgppeercapsentry[i])] = types.YChild{"Cbgppeercapsentry", &cbgppeercapstable.Cbgppeercapsentry[i]}
+    cbgpPeerCapsTable.EntityData.Children = types.NewOrderedMap()
+    cbgpPeerCapsTable.EntityData.Children.Append("cbgpPeerCapsEntry", types.YChild{"CbgpPeerCapsEntry", nil})
+    for i := range cbgpPeerCapsTable.CbgpPeerCapsEntry {
+        cbgpPeerCapsTable.EntityData.Children.Append(types.GetSegmentPath(cbgpPeerCapsTable.CbgpPeerCapsEntry[i]), types.YChild{"CbgpPeerCapsEntry", cbgpPeerCapsTable.CbgpPeerCapsEntry[i]})
     }
-    cbgppeercapstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cbgppeercapstable.EntityData)
+    cbgpPeerCapsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cbgpPeerCapsTable.EntityData.YListKeys = []string {}
+
+    return &(cbgpPeerCapsTable.EntityData)
 }
 
-// CISCOBGP4MIB_Cbgppeercapstable_Cbgppeercapsentry
+// CISCOBGP4MIB_CbgpPeerCapsTable_CbgpPeerCapsEntry
 // Each entry represents a capability received from a
 // peer with a particular code and an index. When a 
 // capability is received multiple times with different
 // values during a BGP connection establishment, 
 // corresponding entries are differentiated with indices.
-type CISCOBGP4MIB_Cbgppeercapstable_Cbgppeercapsentry struct {
+type CISCOBGP4MIB_CbgpPeerCapsTable_CbgpPeerCapsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    // Refers to bgp4_mib.BGP4MIB_Bgppeertable_Bgppeerentry_Bgppeerremoteaddr
-    Bgppeerremoteaddr interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // Refers to bgp4_mib.BGP4MIB_BgpPeerTable_BgpPeerEntry_BgpPeerRemoteAddr
+    BgpPeerRemoteAddr interface{}
 
     // This attribute is a key. The BGP Capability Advertisement Capability Code.
-    // The type is Cbgppeercapcode.
-    Cbgppeercapcode interface{}
+    // The type is CbgpPeerCapCode.
+    CbgpPeerCapCode interface{}
 
     // This attribute is a key. Multiple instances of a given capability may be
     // sent by a BGP speaker.  This variable is used to index them. The type is
     // interface{} with range: 1..128.
-    Cbgppeercapindex interface{}
+    CbgpPeerCapIndex interface{}
 
     // The value of the announced capability. This MIB object value is organized
     // as given below,     Capability : Route Refresh Capability                 
@@ -504,42 +519,45 @@ type CISCOBGP4MIB_Cbgppeercapstable_Cbgppeercapsentry struct {
     // |       +----------------------------------+       | Flags for Address
     // Family (8 bits)|       +----------------------------------+. The type is
     // string with length: 0..255.
-    Cbgppeercapvalue interface{}
+    CbgpPeerCapValue interface{}
 }
 
-func (cbgppeercapsentry *CISCOBGP4MIB_Cbgppeercapstable_Cbgppeercapsentry) GetEntityData() *types.CommonEntityData {
-    cbgppeercapsentry.EntityData.YFilter = cbgppeercapsentry.YFilter
-    cbgppeercapsentry.EntityData.YangName = "cbgpPeerCapsEntry"
-    cbgppeercapsentry.EntityData.BundleName = "cisco_ios_xe"
-    cbgppeercapsentry.EntityData.ParentYangName = "cbgpPeerCapsTable"
-    cbgppeercapsentry.EntityData.SegmentPath = "cbgpPeerCapsEntry" + "[bgpPeerRemoteAddr='" + fmt.Sprintf("%v", cbgppeercapsentry.Bgppeerremoteaddr) + "']" + "[cbgpPeerCapCode='" + fmt.Sprintf("%v", cbgppeercapsentry.Cbgppeercapcode) + "']" + "[cbgpPeerCapIndex='" + fmt.Sprintf("%v", cbgppeercapsentry.Cbgppeercapindex) + "']"
-    cbgppeercapsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbgppeercapsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbgppeercapsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbgpPeerCapsEntry *CISCOBGP4MIB_CbgpPeerCapsTable_CbgpPeerCapsEntry) GetEntityData() *types.CommonEntityData {
+    cbgpPeerCapsEntry.EntityData.YFilter = cbgpPeerCapsEntry.YFilter
+    cbgpPeerCapsEntry.EntityData.YangName = "cbgpPeerCapsEntry"
+    cbgpPeerCapsEntry.EntityData.BundleName = "cisco_ios_xe"
+    cbgpPeerCapsEntry.EntityData.ParentYangName = "cbgpPeerCapsTable"
+    cbgpPeerCapsEntry.EntityData.SegmentPath = "cbgpPeerCapsEntry" + types.AddKeyToken(cbgpPeerCapsEntry.BgpPeerRemoteAddr, "bgpPeerRemoteAddr") + types.AddKeyToken(cbgpPeerCapsEntry.CbgpPeerCapCode, "cbgpPeerCapCode") + types.AddKeyToken(cbgpPeerCapsEntry.CbgpPeerCapIndex, "cbgpPeerCapIndex")
+    cbgpPeerCapsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbgpPeerCapsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbgpPeerCapsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbgppeercapsentry.EntityData.Children = make(map[string]types.YChild)
-    cbgppeercapsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbgppeercapsentry.EntityData.Leafs["bgpPeerRemoteAddr"] = types.YLeaf{"Bgppeerremoteaddr", cbgppeercapsentry.Bgppeerremoteaddr}
-    cbgppeercapsentry.EntityData.Leafs["cbgpPeerCapCode"] = types.YLeaf{"Cbgppeercapcode", cbgppeercapsentry.Cbgppeercapcode}
-    cbgppeercapsentry.EntityData.Leafs["cbgpPeerCapIndex"] = types.YLeaf{"Cbgppeercapindex", cbgppeercapsentry.Cbgppeercapindex}
-    cbgppeercapsentry.EntityData.Leafs["cbgpPeerCapValue"] = types.YLeaf{"Cbgppeercapvalue", cbgppeercapsentry.Cbgppeercapvalue}
-    return &(cbgppeercapsentry.EntityData)
+    cbgpPeerCapsEntry.EntityData.Children = types.NewOrderedMap()
+    cbgpPeerCapsEntry.EntityData.Leafs = types.NewOrderedMap()
+    cbgpPeerCapsEntry.EntityData.Leafs.Append("bgpPeerRemoteAddr", types.YLeaf{"BgpPeerRemoteAddr", cbgpPeerCapsEntry.BgpPeerRemoteAddr})
+    cbgpPeerCapsEntry.EntityData.Leafs.Append("cbgpPeerCapCode", types.YLeaf{"CbgpPeerCapCode", cbgpPeerCapsEntry.CbgpPeerCapCode})
+    cbgpPeerCapsEntry.EntityData.Leafs.Append("cbgpPeerCapIndex", types.YLeaf{"CbgpPeerCapIndex", cbgpPeerCapsEntry.CbgpPeerCapIndex})
+    cbgpPeerCapsEntry.EntityData.Leafs.Append("cbgpPeerCapValue", types.YLeaf{"CbgpPeerCapValue", cbgpPeerCapsEntry.CbgpPeerCapValue})
+
+    cbgpPeerCapsEntry.EntityData.YListKeys = []string {"BgpPeerRemoteAddr", "CbgpPeerCapCode", "CbgpPeerCapIndex"}
+
+    return &(cbgpPeerCapsEntry.EntityData)
 }
 
-// CISCOBGP4MIB_Cbgppeercapstable_Cbgppeercapsentry_Cbgppeercapcode represents The BGP Capability Advertisement Capability Code.
-type CISCOBGP4MIB_Cbgppeercapstable_Cbgppeercapsentry_Cbgppeercapcode string
+// CISCOBGP4MIB_CbgpPeerCapsTable_CbgpPeerCapsEntry_CbgpPeerCapCode represents The BGP Capability Advertisement Capability Code.
+type CISCOBGP4MIB_CbgpPeerCapsTable_CbgpPeerCapsEntry_CbgpPeerCapCode string
 
 const (
-    CISCOBGP4MIB_Cbgppeercapstable_Cbgppeercapsentry_Cbgppeercapcode_multiProtocol CISCOBGP4MIB_Cbgppeercapstable_Cbgppeercapsentry_Cbgppeercapcode = "multiProtocol"
+    CISCOBGP4MIB_CbgpPeerCapsTable_CbgpPeerCapsEntry_CbgpPeerCapCode_multiProtocol CISCOBGP4MIB_CbgpPeerCapsTable_CbgpPeerCapsEntry_CbgpPeerCapCode = "multiProtocol"
 
-    CISCOBGP4MIB_Cbgppeercapstable_Cbgppeercapsentry_Cbgppeercapcode_routeRefresh CISCOBGP4MIB_Cbgppeercapstable_Cbgppeercapsentry_Cbgppeercapcode = "routeRefresh"
+    CISCOBGP4MIB_CbgpPeerCapsTable_CbgpPeerCapsEntry_CbgpPeerCapCode_routeRefresh CISCOBGP4MIB_CbgpPeerCapsTable_CbgpPeerCapsEntry_CbgpPeerCapCode = "routeRefresh"
 
-    CISCOBGP4MIB_Cbgppeercapstable_Cbgppeercapsentry_Cbgppeercapcode_gracefulRestart CISCOBGP4MIB_Cbgppeercapstable_Cbgppeercapsentry_Cbgppeercapcode = "gracefulRestart"
+    CISCOBGP4MIB_CbgpPeerCapsTable_CbgpPeerCapsEntry_CbgpPeerCapCode_gracefulRestart CISCOBGP4MIB_CbgpPeerCapsTable_CbgpPeerCapsEntry_CbgpPeerCapCode = "gracefulRestart"
 
-    CISCOBGP4MIB_Cbgppeercapstable_Cbgppeercapsentry_Cbgppeercapcode_routeRefreshOld CISCOBGP4MIB_Cbgppeercapstable_Cbgppeercapsentry_Cbgppeercapcode = "routeRefreshOld"
+    CISCOBGP4MIB_CbgpPeerCapsTable_CbgpPeerCapsEntry_CbgpPeerCapCode_routeRefreshOld CISCOBGP4MIB_CbgpPeerCapsTable_CbgpPeerCapsEntry_CbgpPeerCapCode = "routeRefreshOld"
 )
 
-// CISCOBGP4MIB_Cbgppeeraddrfamilytable
+// CISCOBGP4MIB_CbgpPeerAddrFamilyTable
 // This table contains information related to
 // address families supported by a peer. Supported
 // address families of a peer are known during BGP 
@@ -548,82 +566,88 @@ const (
 // with a new entry. When an address family is not 
 // supported any more, corresponding entry is deleted 
 // from the table.
-type CISCOBGP4MIB_Cbgppeeraddrfamilytable struct {
+type CISCOBGP4MIB_CbgpPeerAddrFamilyTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry is identified by an AFI/SAFI pair and peer address. It contains
     // names associated with an address family. The type is slice of
-    // CISCOBGP4MIB_Cbgppeeraddrfamilytable_Cbgppeeraddrfamilyentry.
-    Cbgppeeraddrfamilyentry []CISCOBGP4MIB_Cbgppeeraddrfamilytable_Cbgppeeraddrfamilyentry
+    // CISCOBGP4MIB_CbgpPeerAddrFamilyTable_CbgpPeerAddrFamilyEntry.
+    CbgpPeerAddrFamilyEntry []*CISCOBGP4MIB_CbgpPeerAddrFamilyTable_CbgpPeerAddrFamilyEntry
 }
 
-func (cbgppeeraddrfamilytable *CISCOBGP4MIB_Cbgppeeraddrfamilytable) GetEntityData() *types.CommonEntityData {
-    cbgppeeraddrfamilytable.EntityData.YFilter = cbgppeeraddrfamilytable.YFilter
-    cbgppeeraddrfamilytable.EntityData.YangName = "cbgpPeerAddrFamilyTable"
-    cbgppeeraddrfamilytable.EntityData.BundleName = "cisco_ios_xe"
-    cbgppeeraddrfamilytable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
-    cbgppeeraddrfamilytable.EntityData.SegmentPath = "cbgpPeerAddrFamilyTable"
-    cbgppeeraddrfamilytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbgppeeraddrfamilytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbgppeeraddrfamilytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbgpPeerAddrFamilyTable *CISCOBGP4MIB_CbgpPeerAddrFamilyTable) GetEntityData() *types.CommonEntityData {
+    cbgpPeerAddrFamilyTable.EntityData.YFilter = cbgpPeerAddrFamilyTable.YFilter
+    cbgpPeerAddrFamilyTable.EntityData.YangName = "cbgpPeerAddrFamilyTable"
+    cbgpPeerAddrFamilyTable.EntityData.BundleName = "cisco_ios_xe"
+    cbgpPeerAddrFamilyTable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
+    cbgpPeerAddrFamilyTable.EntityData.SegmentPath = "cbgpPeerAddrFamilyTable"
+    cbgpPeerAddrFamilyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbgpPeerAddrFamilyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbgpPeerAddrFamilyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbgppeeraddrfamilytable.EntityData.Children = make(map[string]types.YChild)
-    cbgppeeraddrfamilytable.EntityData.Children["cbgpPeerAddrFamilyEntry"] = types.YChild{"Cbgppeeraddrfamilyentry", nil}
-    for i := range cbgppeeraddrfamilytable.Cbgppeeraddrfamilyentry {
-        cbgppeeraddrfamilytable.EntityData.Children[types.GetSegmentPath(&cbgppeeraddrfamilytable.Cbgppeeraddrfamilyentry[i])] = types.YChild{"Cbgppeeraddrfamilyentry", &cbgppeeraddrfamilytable.Cbgppeeraddrfamilyentry[i]}
+    cbgpPeerAddrFamilyTable.EntityData.Children = types.NewOrderedMap()
+    cbgpPeerAddrFamilyTable.EntityData.Children.Append("cbgpPeerAddrFamilyEntry", types.YChild{"CbgpPeerAddrFamilyEntry", nil})
+    for i := range cbgpPeerAddrFamilyTable.CbgpPeerAddrFamilyEntry {
+        cbgpPeerAddrFamilyTable.EntityData.Children.Append(types.GetSegmentPath(cbgpPeerAddrFamilyTable.CbgpPeerAddrFamilyEntry[i]), types.YChild{"CbgpPeerAddrFamilyEntry", cbgpPeerAddrFamilyTable.CbgpPeerAddrFamilyEntry[i]})
     }
-    cbgppeeraddrfamilytable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cbgppeeraddrfamilytable.EntityData)
+    cbgpPeerAddrFamilyTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cbgpPeerAddrFamilyTable.EntityData.YListKeys = []string {}
+
+    return &(cbgpPeerAddrFamilyTable.EntityData)
 }
 
-// CISCOBGP4MIB_Cbgppeeraddrfamilytable_Cbgppeeraddrfamilyentry
+// CISCOBGP4MIB_CbgpPeerAddrFamilyTable_CbgpPeerAddrFamilyEntry
 // An entry is identified by an AFI/SAFI pair and
 // peer address. It contains names associated with
 // an address family.
-type CISCOBGP4MIB_Cbgppeeraddrfamilytable_Cbgppeeraddrfamilyentry struct {
+type CISCOBGP4MIB_CbgpPeerAddrFamilyTable_CbgpPeerAddrFamilyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    // Refers to bgp4_mib.BGP4MIB_Bgppeertable_Bgppeerentry_Bgppeerremoteaddr
-    Bgppeerremoteaddr interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // Refers to bgp4_mib.BGP4MIB_BgpPeerTable_BgpPeerEntry_BgpPeerRemoteAddr
+    BgpPeerRemoteAddr interface{}
 
     // This attribute is a key. The AFI index of the entry. An implementation is
     // only required to support IPv4 unicast and  VPNv4 (Value - 1) address
     // families. The type is InetAddressType.
-    Cbgppeeraddrfamilyafi interface{}
+    CbgpPeerAddrFamilyAfi interface{}
 
     // This attribute is a key. The SAFI index of the entry. An implementation is
     // only required to support IPv4 unicast(Value  - 1) and VPNv4( Value - 128)
     // address families. The type is CbgpSafi.
-    Cbgppeeraddrfamilysafi interface{}
+    CbgpPeerAddrFamilySafi interface{}
 
     // Implementation specific Address Family name. The type is string.
-    Cbgppeeraddrfamilyname interface{}
+    CbgpPeerAddrFamilyName interface{}
 }
 
-func (cbgppeeraddrfamilyentry *CISCOBGP4MIB_Cbgppeeraddrfamilytable_Cbgppeeraddrfamilyentry) GetEntityData() *types.CommonEntityData {
-    cbgppeeraddrfamilyentry.EntityData.YFilter = cbgppeeraddrfamilyentry.YFilter
-    cbgppeeraddrfamilyentry.EntityData.YangName = "cbgpPeerAddrFamilyEntry"
-    cbgppeeraddrfamilyentry.EntityData.BundleName = "cisco_ios_xe"
-    cbgppeeraddrfamilyentry.EntityData.ParentYangName = "cbgpPeerAddrFamilyTable"
-    cbgppeeraddrfamilyentry.EntityData.SegmentPath = "cbgpPeerAddrFamilyEntry" + "[bgpPeerRemoteAddr='" + fmt.Sprintf("%v", cbgppeeraddrfamilyentry.Bgppeerremoteaddr) + "']" + "[cbgpPeerAddrFamilyAfi='" + fmt.Sprintf("%v", cbgppeeraddrfamilyentry.Cbgppeeraddrfamilyafi) + "']" + "[cbgpPeerAddrFamilySafi='" + fmt.Sprintf("%v", cbgppeeraddrfamilyentry.Cbgppeeraddrfamilysafi) + "']"
-    cbgppeeraddrfamilyentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbgppeeraddrfamilyentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbgppeeraddrfamilyentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbgpPeerAddrFamilyEntry *CISCOBGP4MIB_CbgpPeerAddrFamilyTable_CbgpPeerAddrFamilyEntry) GetEntityData() *types.CommonEntityData {
+    cbgpPeerAddrFamilyEntry.EntityData.YFilter = cbgpPeerAddrFamilyEntry.YFilter
+    cbgpPeerAddrFamilyEntry.EntityData.YangName = "cbgpPeerAddrFamilyEntry"
+    cbgpPeerAddrFamilyEntry.EntityData.BundleName = "cisco_ios_xe"
+    cbgpPeerAddrFamilyEntry.EntityData.ParentYangName = "cbgpPeerAddrFamilyTable"
+    cbgpPeerAddrFamilyEntry.EntityData.SegmentPath = "cbgpPeerAddrFamilyEntry" + types.AddKeyToken(cbgpPeerAddrFamilyEntry.BgpPeerRemoteAddr, "bgpPeerRemoteAddr") + types.AddKeyToken(cbgpPeerAddrFamilyEntry.CbgpPeerAddrFamilyAfi, "cbgpPeerAddrFamilyAfi") + types.AddKeyToken(cbgpPeerAddrFamilyEntry.CbgpPeerAddrFamilySafi, "cbgpPeerAddrFamilySafi")
+    cbgpPeerAddrFamilyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbgpPeerAddrFamilyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbgpPeerAddrFamilyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbgppeeraddrfamilyentry.EntityData.Children = make(map[string]types.YChild)
-    cbgppeeraddrfamilyentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbgppeeraddrfamilyentry.EntityData.Leafs["bgpPeerRemoteAddr"] = types.YLeaf{"Bgppeerremoteaddr", cbgppeeraddrfamilyentry.Bgppeerremoteaddr}
-    cbgppeeraddrfamilyentry.EntityData.Leafs["cbgpPeerAddrFamilyAfi"] = types.YLeaf{"Cbgppeeraddrfamilyafi", cbgppeeraddrfamilyentry.Cbgppeeraddrfamilyafi}
-    cbgppeeraddrfamilyentry.EntityData.Leafs["cbgpPeerAddrFamilySafi"] = types.YLeaf{"Cbgppeeraddrfamilysafi", cbgppeeraddrfamilyentry.Cbgppeeraddrfamilysafi}
-    cbgppeeraddrfamilyentry.EntityData.Leafs["cbgpPeerAddrFamilyName"] = types.YLeaf{"Cbgppeeraddrfamilyname", cbgppeeraddrfamilyentry.Cbgppeeraddrfamilyname}
-    return &(cbgppeeraddrfamilyentry.EntityData)
+    cbgpPeerAddrFamilyEntry.EntityData.Children = types.NewOrderedMap()
+    cbgpPeerAddrFamilyEntry.EntityData.Leafs = types.NewOrderedMap()
+    cbgpPeerAddrFamilyEntry.EntityData.Leafs.Append("bgpPeerRemoteAddr", types.YLeaf{"BgpPeerRemoteAddr", cbgpPeerAddrFamilyEntry.BgpPeerRemoteAddr})
+    cbgpPeerAddrFamilyEntry.EntityData.Leafs.Append("cbgpPeerAddrFamilyAfi", types.YLeaf{"CbgpPeerAddrFamilyAfi", cbgpPeerAddrFamilyEntry.CbgpPeerAddrFamilyAfi})
+    cbgpPeerAddrFamilyEntry.EntityData.Leafs.Append("cbgpPeerAddrFamilySafi", types.YLeaf{"CbgpPeerAddrFamilySafi", cbgpPeerAddrFamilyEntry.CbgpPeerAddrFamilySafi})
+    cbgpPeerAddrFamilyEntry.EntityData.Leafs.Append("cbgpPeerAddrFamilyName", types.YLeaf{"CbgpPeerAddrFamilyName", cbgpPeerAddrFamilyEntry.CbgpPeerAddrFamilyName})
+
+    cbgpPeerAddrFamilyEntry.EntityData.YListKeys = []string {"BgpPeerRemoteAddr", "CbgpPeerAddrFamilyAfi", "CbgpPeerAddrFamilySafi"}
+
+    return &(cbgpPeerAddrFamilyEntry.EntityData)
 }
 
-// CISCOBGP4MIB_Cbgppeeraddrfamilyprefixtable
+// CISCOBGP4MIB_CbgpPeerAddrFamilyPrefixTable
 // This table contains prefix related information
 // related to address families supported by a peer. 
 // Supported address families of a peer are known 
@@ -632,261 +656,270 @@ func (cbgppeeraddrfamilyentry *CISCOBGP4MIB_Cbgppeeraddrfamilytable_Cbgppeeraddr
 // is updated with a new entry. When an address 
 // family is not supported any more, corresponding 
 // entry is deleted from the table.
-type CISCOBGP4MIB_Cbgppeeraddrfamilyprefixtable struct {
+type CISCOBGP4MIB_CbgpPeerAddrFamilyPrefixTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry is identified by an AFI/SAFI pair and peer address. It contains
     // information associated  with route prefixes belonging to an address family.
     // The type is slice of
-    // CISCOBGP4MIB_Cbgppeeraddrfamilyprefixtable_Cbgppeeraddrfamilyprefixentry.
-    Cbgppeeraddrfamilyprefixentry []CISCOBGP4MIB_Cbgppeeraddrfamilyprefixtable_Cbgppeeraddrfamilyprefixentry
+    // CISCOBGP4MIB_CbgpPeerAddrFamilyPrefixTable_CbgpPeerAddrFamilyPrefixEntry.
+    CbgpPeerAddrFamilyPrefixEntry []*CISCOBGP4MIB_CbgpPeerAddrFamilyPrefixTable_CbgpPeerAddrFamilyPrefixEntry
 }
 
-func (cbgppeeraddrfamilyprefixtable *CISCOBGP4MIB_Cbgppeeraddrfamilyprefixtable) GetEntityData() *types.CommonEntityData {
-    cbgppeeraddrfamilyprefixtable.EntityData.YFilter = cbgppeeraddrfamilyprefixtable.YFilter
-    cbgppeeraddrfamilyprefixtable.EntityData.YangName = "cbgpPeerAddrFamilyPrefixTable"
-    cbgppeeraddrfamilyprefixtable.EntityData.BundleName = "cisco_ios_xe"
-    cbgppeeraddrfamilyprefixtable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
-    cbgppeeraddrfamilyprefixtable.EntityData.SegmentPath = "cbgpPeerAddrFamilyPrefixTable"
-    cbgppeeraddrfamilyprefixtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbgppeeraddrfamilyprefixtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbgppeeraddrfamilyprefixtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbgpPeerAddrFamilyPrefixTable *CISCOBGP4MIB_CbgpPeerAddrFamilyPrefixTable) GetEntityData() *types.CommonEntityData {
+    cbgpPeerAddrFamilyPrefixTable.EntityData.YFilter = cbgpPeerAddrFamilyPrefixTable.YFilter
+    cbgpPeerAddrFamilyPrefixTable.EntityData.YangName = "cbgpPeerAddrFamilyPrefixTable"
+    cbgpPeerAddrFamilyPrefixTable.EntityData.BundleName = "cisco_ios_xe"
+    cbgpPeerAddrFamilyPrefixTable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
+    cbgpPeerAddrFamilyPrefixTable.EntityData.SegmentPath = "cbgpPeerAddrFamilyPrefixTable"
+    cbgpPeerAddrFamilyPrefixTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbgpPeerAddrFamilyPrefixTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbgpPeerAddrFamilyPrefixTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbgppeeraddrfamilyprefixtable.EntityData.Children = make(map[string]types.YChild)
-    cbgppeeraddrfamilyprefixtable.EntityData.Children["cbgpPeerAddrFamilyPrefixEntry"] = types.YChild{"Cbgppeeraddrfamilyprefixentry", nil}
-    for i := range cbgppeeraddrfamilyprefixtable.Cbgppeeraddrfamilyprefixentry {
-        cbgppeeraddrfamilyprefixtable.EntityData.Children[types.GetSegmentPath(&cbgppeeraddrfamilyprefixtable.Cbgppeeraddrfamilyprefixentry[i])] = types.YChild{"Cbgppeeraddrfamilyprefixentry", &cbgppeeraddrfamilyprefixtable.Cbgppeeraddrfamilyprefixentry[i]}
+    cbgpPeerAddrFamilyPrefixTable.EntityData.Children = types.NewOrderedMap()
+    cbgpPeerAddrFamilyPrefixTable.EntityData.Children.Append("cbgpPeerAddrFamilyPrefixEntry", types.YChild{"CbgpPeerAddrFamilyPrefixEntry", nil})
+    for i := range cbgpPeerAddrFamilyPrefixTable.CbgpPeerAddrFamilyPrefixEntry {
+        cbgpPeerAddrFamilyPrefixTable.EntityData.Children.Append(types.GetSegmentPath(cbgpPeerAddrFamilyPrefixTable.CbgpPeerAddrFamilyPrefixEntry[i]), types.YChild{"CbgpPeerAddrFamilyPrefixEntry", cbgpPeerAddrFamilyPrefixTable.CbgpPeerAddrFamilyPrefixEntry[i]})
     }
-    cbgppeeraddrfamilyprefixtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cbgppeeraddrfamilyprefixtable.EntityData)
+    cbgpPeerAddrFamilyPrefixTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cbgpPeerAddrFamilyPrefixTable.EntityData.YListKeys = []string {}
+
+    return &(cbgpPeerAddrFamilyPrefixTable.EntityData)
 }
 
-// CISCOBGP4MIB_Cbgppeeraddrfamilyprefixtable_Cbgppeeraddrfamilyprefixentry
+// CISCOBGP4MIB_CbgpPeerAddrFamilyPrefixTable_CbgpPeerAddrFamilyPrefixEntry
 // An entry is identified by an AFI/SAFI pair and
 // peer address. It contains information associated 
 // with route prefixes belonging to an address family.
-type CISCOBGP4MIB_Cbgppeeraddrfamilyprefixtable_Cbgppeeraddrfamilyprefixentry struct {
+type CISCOBGP4MIB_CbgpPeerAddrFamilyPrefixTable_CbgpPeerAddrFamilyPrefixEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    // Refers to bgp4_mib.BGP4MIB_Bgppeertable_Bgppeerentry_Bgppeerremoteaddr
-    Bgppeerremoteaddr interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // Refers to bgp4_mib.BGP4MIB_BgpPeerTable_BgpPeerEntry_BgpPeerRemoteAddr
+    BgpPeerRemoteAddr interface{}
 
     // This attribute is a key. The type is InetAddressType. Refers to
-    // cisco_bgp4_mib.CISCOBGP4MIB_Cbgppeeraddrfamilytable_Cbgppeeraddrfamilyentry_Cbgppeeraddrfamilyafi
-    Cbgppeeraddrfamilyafi interface{}
+    // cisco_bgp4_mib.CISCOBGP4MIB_CbgpPeerAddrFamilyTable_CbgpPeerAddrFamilyEntry_CbgpPeerAddrFamilyAfi
+    CbgpPeerAddrFamilyAfi interface{}
 
     // This attribute is a key. The type is CbgpSafi. Refers to
-    // cisco_bgp4_mib.CISCOBGP4MIB_Cbgppeeraddrfamilytable_Cbgppeeraddrfamilyentry_Cbgppeeraddrfamilysafi
-    Cbgppeeraddrfamilysafi interface{}
+    // cisco_bgp4_mib.CISCOBGP4MIB_CbgpPeerAddrFamilyTable_CbgpPeerAddrFamilyEntry_CbgpPeerAddrFamilySafi
+    CbgpPeerAddrFamilySafi interface{}
 
     // Number of accepted route prefixes on this connection, which belong to an
     // address family. The type is interface{} with range: 0..4294967295.
-    Cbgppeeracceptedprefixes interface{}
+    CbgpPeerAcceptedPrefixes interface{}
 
     // This counter is incremented when a route prefix, which belongs to an
     // address family, received on this  connection is denied. It is initialized
     // to zero when  the connection is undergone a hard reset. The type is
     // interface{} with range: 0..4294967295.
-    Cbgppeerdeniedprefixes interface{}
+    CbgpPeerDeniedPrefixes interface{}
 
     // Max number of route prefixes accepted for an address family on this
     // connection. The type is interface{} with range: 1..4294967295.
-    Cbgppeerprefixadminlimit interface{}
+    CbgpPeerPrefixAdminLimit interface{}
 
     // Prefix threshold value (%) for an address family on this connection at
     // which warning message stating the prefix count is crossed the threshold or 
     // corresponding SNMP notification is generated. The type is interface{} with
     // range: 1..100.
-    Cbgppeerprefixthreshold interface{}
+    CbgpPeerPrefixThreshold interface{}
 
     // Prefix threshold value (%) for an address family on this connection at
     // which SNMP clear notification is generated if prefix threshold notification
     // is already generated. The type is interface{} with range: 1..100.
-    Cbgppeerprefixclearthreshold interface{}
+    CbgpPeerPrefixClearThreshold interface{}
 
     // This counter is incremented when a route prefix, which belongs to an
     // address family is advertised on this connection. It is initialized to zero
     // when  the connection is undergone a hard reset. The type is interface{}
     // with range: 0..4294967295.
-    Cbgppeeradvertisedprefixes interface{}
+    CbgpPeerAdvertisedPrefixes interface{}
 
     // This counter is incremented when a route prefix, which belongs to an
     // address family is suppressed from being sent on this connection. It is 
     // initialized to zero when the connection is undergone a hard reset. The type
     // is interface{} with range: 0..4294967295.
-    Cbgppeersuppressedprefixes interface{}
+    CbgpPeerSuppressedPrefixes interface{}
 
     // This counter is incremented when a route prefix, which belongs to an
     // address family, is withdrawn on this connection. It is initialized to zero
     // when the connection is undergone a hard reset. The type is interface{} with
     // range: 0..4294967295.
-    Cbgppeerwithdrawnprefixes interface{}
+    CbgpPeerWithdrawnPrefixes interface{}
 }
 
-func (cbgppeeraddrfamilyprefixentry *CISCOBGP4MIB_Cbgppeeraddrfamilyprefixtable_Cbgppeeraddrfamilyprefixentry) GetEntityData() *types.CommonEntityData {
-    cbgppeeraddrfamilyprefixentry.EntityData.YFilter = cbgppeeraddrfamilyprefixentry.YFilter
-    cbgppeeraddrfamilyprefixentry.EntityData.YangName = "cbgpPeerAddrFamilyPrefixEntry"
-    cbgppeeraddrfamilyprefixentry.EntityData.BundleName = "cisco_ios_xe"
-    cbgppeeraddrfamilyprefixentry.EntityData.ParentYangName = "cbgpPeerAddrFamilyPrefixTable"
-    cbgppeeraddrfamilyprefixentry.EntityData.SegmentPath = "cbgpPeerAddrFamilyPrefixEntry" + "[bgpPeerRemoteAddr='" + fmt.Sprintf("%v", cbgppeeraddrfamilyprefixentry.Bgppeerremoteaddr) + "']" + "[cbgpPeerAddrFamilyAfi='" + fmt.Sprintf("%v", cbgppeeraddrfamilyprefixentry.Cbgppeeraddrfamilyafi) + "']" + "[cbgpPeerAddrFamilySafi='" + fmt.Sprintf("%v", cbgppeeraddrfamilyprefixentry.Cbgppeeraddrfamilysafi) + "']"
-    cbgppeeraddrfamilyprefixentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbgppeeraddrfamilyprefixentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbgppeeraddrfamilyprefixentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbgpPeerAddrFamilyPrefixEntry *CISCOBGP4MIB_CbgpPeerAddrFamilyPrefixTable_CbgpPeerAddrFamilyPrefixEntry) GetEntityData() *types.CommonEntityData {
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.YFilter = cbgpPeerAddrFamilyPrefixEntry.YFilter
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.YangName = "cbgpPeerAddrFamilyPrefixEntry"
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.BundleName = "cisco_ios_xe"
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.ParentYangName = "cbgpPeerAddrFamilyPrefixTable"
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.SegmentPath = "cbgpPeerAddrFamilyPrefixEntry" + types.AddKeyToken(cbgpPeerAddrFamilyPrefixEntry.BgpPeerRemoteAddr, "bgpPeerRemoteAddr") + types.AddKeyToken(cbgpPeerAddrFamilyPrefixEntry.CbgpPeerAddrFamilyAfi, "cbgpPeerAddrFamilyAfi") + types.AddKeyToken(cbgpPeerAddrFamilyPrefixEntry.CbgpPeerAddrFamilySafi, "cbgpPeerAddrFamilySafi")
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbgppeeraddrfamilyprefixentry.EntityData.Children = make(map[string]types.YChild)
-    cbgppeeraddrfamilyprefixentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbgppeeraddrfamilyprefixentry.EntityData.Leafs["bgpPeerRemoteAddr"] = types.YLeaf{"Bgppeerremoteaddr", cbgppeeraddrfamilyprefixentry.Bgppeerremoteaddr}
-    cbgppeeraddrfamilyprefixentry.EntityData.Leafs["cbgpPeerAddrFamilyAfi"] = types.YLeaf{"Cbgppeeraddrfamilyafi", cbgppeeraddrfamilyprefixentry.Cbgppeeraddrfamilyafi}
-    cbgppeeraddrfamilyprefixentry.EntityData.Leafs["cbgpPeerAddrFamilySafi"] = types.YLeaf{"Cbgppeeraddrfamilysafi", cbgppeeraddrfamilyprefixentry.Cbgppeeraddrfamilysafi}
-    cbgppeeraddrfamilyprefixentry.EntityData.Leafs["cbgpPeerAcceptedPrefixes"] = types.YLeaf{"Cbgppeeracceptedprefixes", cbgppeeraddrfamilyprefixentry.Cbgppeeracceptedprefixes}
-    cbgppeeraddrfamilyprefixentry.EntityData.Leafs["cbgpPeerDeniedPrefixes"] = types.YLeaf{"Cbgppeerdeniedprefixes", cbgppeeraddrfamilyprefixentry.Cbgppeerdeniedprefixes}
-    cbgppeeraddrfamilyprefixentry.EntityData.Leafs["cbgpPeerPrefixAdminLimit"] = types.YLeaf{"Cbgppeerprefixadminlimit", cbgppeeraddrfamilyprefixentry.Cbgppeerprefixadminlimit}
-    cbgppeeraddrfamilyprefixentry.EntityData.Leafs["cbgpPeerPrefixThreshold"] = types.YLeaf{"Cbgppeerprefixthreshold", cbgppeeraddrfamilyprefixentry.Cbgppeerprefixthreshold}
-    cbgppeeraddrfamilyprefixentry.EntityData.Leafs["cbgpPeerPrefixClearThreshold"] = types.YLeaf{"Cbgppeerprefixclearthreshold", cbgppeeraddrfamilyprefixentry.Cbgppeerprefixclearthreshold}
-    cbgppeeraddrfamilyprefixentry.EntityData.Leafs["cbgpPeerAdvertisedPrefixes"] = types.YLeaf{"Cbgppeeradvertisedprefixes", cbgppeeraddrfamilyprefixentry.Cbgppeeradvertisedprefixes}
-    cbgppeeraddrfamilyprefixentry.EntityData.Leafs["cbgpPeerSuppressedPrefixes"] = types.YLeaf{"Cbgppeersuppressedprefixes", cbgppeeraddrfamilyprefixentry.Cbgppeersuppressedprefixes}
-    cbgppeeraddrfamilyprefixentry.EntityData.Leafs["cbgpPeerWithdrawnPrefixes"] = types.YLeaf{"Cbgppeerwithdrawnprefixes", cbgppeeraddrfamilyprefixentry.Cbgppeerwithdrawnprefixes}
-    return &(cbgppeeraddrfamilyprefixentry.EntityData)
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.Children = types.NewOrderedMap()
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.Leafs = types.NewOrderedMap()
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.Leafs.Append("bgpPeerRemoteAddr", types.YLeaf{"BgpPeerRemoteAddr", cbgpPeerAddrFamilyPrefixEntry.BgpPeerRemoteAddr})
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeerAddrFamilyAfi", types.YLeaf{"CbgpPeerAddrFamilyAfi", cbgpPeerAddrFamilyPrefixEntry.CbgpPeerAddrFamilyAfi})
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeerAddrFamilySafi", types.YLeaf{"CbgpPeerAddrFamilySafi", cbgpPeerAddrFamilyPrefixEntry.CbgpPeerAddrFamilySafi})
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeerAcceptedPrefixes", types.YLeaf{"CbgpPeerAcceptedPrefixes", cbgpPeerAddrFamilyPrefixEntry.CbgpPeerAcceptedPrefixes})
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeerDeniedPrefixes", types.YLeaf{"CbgpPeerDeniedPrefixes", cbgpPeerAddrFamilyPrefixEntry.CbgpPeerDeniedPrefixes})
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeerPrefixAdminLimit", types.YLeaf{"CbgpPeerPrefixAdminLimit", cbgpPeerAddrFamilyPrefixEntry.CbgpPeerPrefixAdminLimit})
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeerPrefixThreshold", types.YLeaf{"CbgpPeerPrefixThreshold", cbgpPeerAddrFamilyPrefixEntry.CbgpPeerPrefixThreshold})
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeerPrefixClearThreshold", types.YLeaf{"CbgpPeerPrefixClearThreshold", cbgpPeerAddrFamilyPrefixEntry.CbgpPeerPrefixClearThreshold})
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeerAdvertisedPrefixes", types.YLeaf{"CbgpPeerAdvertisedPrefixes", cbgpPeerAddrFamilyPrefixEntry.CbgpPeerAdvertisedPrefixes})
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeerSuppressedPrefixes", types.YLeaf{"CbgpPeerSuppressedPrefixes", cbgpPeerAddrFamilyPrefixEntry.CbgpPeerSuppressedPrefixes})
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeerWithdrawnPrefixes", types.YLeaf{"CbgpPeerWithdrawnPrefixes", cbgpPeerAddrFamilyPrefixEntry.CbgpPeerWithdrawnPrefixes})
+
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.YListKeys = []string {"BgpPeerRemoteAddr", "CbgpPeerAddrFamilyAfi", "CbgpPeerAddrFamilySafi"}
+
+    return &(cbgpPeerAddrFamilyPrefixEntry.EntityData)
 }
 
-// CISCOBGP4MIB_Cbgppeer2Table
+// CISCOBGP4MIB_CbgpPeer2Table
 // BGP peer table.  This table contains,
 // one entry per BGP peer, information about
 // the connections with BGP peers.
-type CISCOBGP4MIB_Cbgppeer2Table struct {
+type CISCOBGP4MIB_CbgpPeer2Table struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Entry containing information about the connection with a BGP peer. The type
-    // is slice of CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry.
-    Cbgppeer2Entry []CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry
+    // is slice of CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry.
+    CbgpPeer2Entry []*CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry
 }
 
-func (cbgppeer2Table *CISCOBGP4MIB_Cbgppeer2Table) GetEntityData() *types.CommonEntityData {
-    cbgppeer2Table.EntityData.YFilter = cbgppeer2Table.YFilter
-    cbgppeer2Table.EntityData.YangName = "cbgpPeer2Table"
-    cbgppeer2Table.EntityData.BundleName = "cisco_ios_xe"
-    cbgppeer2Table.EntityData.ParentYangName = "CISCO-BGP4-MIB"
-    cbgppeer2Table.EntityData.SegmentPath = "cbgpPeer2Table"
-    cbgppeer2Table.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbgppeer2Table.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbgppeer2Table.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbgpPeer2Table *CISCOBGP4MIB_CbgpPeer2Table) GetEntityData() *types.CommonEntityData {
+    cbgpPeer2Table.EntityData.YFilter = cbgpPeer2Table.YFilter
+    cbgpPeer2Table.EntityData.YangName = "cbgpPeer2Table"
+    cbgpPeer2Table.EntityData.BundleName = "cisco_ios_xe"
+    cbgpPeer2Table.EntityData.ParentYangName = "CISCO-BGP4-MIB"
+    cbgpPeer2Table.EntityData.SegmentPath = "cbgpPeer2Table"
+    cbgpPeer2Table.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbgpPeer2Table.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbgpPeer2Table.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbgppeer2Table.EntityData.Children = make(map[string]types.YChild)
-    cbgppeer2Table.EntityData.Children["cbgpPeer2Entry"] = types.YChild{"Cbgppeer2Entry", nil}
-    for i := range cbgppeer2Table.Cbgppeer2Entry {
-        cbgppeer2Table.EntityData.Children[types.GetSegmentPath(&cbgppeer2Table.Cbgppeer2Entry[i])] = types.YChild{"Cbgppeer2Entry", &cbgppeer2Table.Cbgppeer2Entry[i]}
+    cbgpPeer2Table.EntityData.Children = types.NewOrderedMap()
+    cbgpPeer2Table.EntityData.Children.Append("cbgpPeer2Entry", types.YChild{"CbgpPeer2Entry", nil})
+    for i := range cbgpPeer2Table.CbgpPeer2Entry {
+        cbgpPeer2Table.EntityData.Children.Append(types.GetSegmentPath(cbgpPeer2Table.CbgpPeer2Entry[i]), types.YChild{"CbgpPeer2Entry", cbgpPeer2Table.CbgpPeer2Entry[i]})
     }
-    cbgppeer2Table.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cbgppeer2Table.EntityData)
+    cbgpPeer2Table.EntityData.Leafs = types.NewOrderedMap()
+
+    cbgpPeer2Table.EntityData.YListKeys = []string {}
+
+    return &(cbgpPeer2Table.EntityData)
 }
 
-// CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry
+// CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry
 // Entry containing information about the
 // connection with a BGP peer.
-type CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry struct {
+type CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Represents the type of Peer address stored in
     // cbgpPeer2Entry. The type is InetAddressType.
-    Cbgppeer2Type interface{}
+    CbgpPeer2Type interface{}
 
     // This attribute is a key. The remote IP address of this entry's BGP peer.
     // The type is string with length: 0..255.
-    Cbgppeer2Remoteaddr interface{}
+    CbgpPeer2RemoteAddr interface{}
 
-    // The BGP peer connection state. The type is Cbgppeer2State.
-    Cbgppeer2State interface{}
+    // The BGP peer connection state. The type is CbgpPeer2State.
+    CbgpPeer2State interface{}
 
     // The desired state of the BGP connection. A transition from 'stop' to
     // 'start' will cause the BGP Manual Start Event to be generated. A transition
     // from 'start' to 'stop' will cause the BGP Manual Stop Event to be
     // generated. This parameter can be used to restart BGP peer connections. 
     // Care should be used in providing write access to this object without
-    // adequate authentication. The type is Cbgppeer2Adminstatus.
-    Cbgppeer2Adminstatus interface{}
+    // adequate authentication. The type is CbgpPeer2AdminStatus.
+    CbgpPeer2AdminStatus interface{}
 
     // The negotiated version of BGP running between the two peers.  This entry
     // MUST be zero (0) unless the cbgpPeer2State is in the openconfirm or the
     // established state.  Note that legal values for this object are between 0
     // and 255. The type is interface{} with range: -2147483648..2147483647.
-    Cbgppeer2Negotiatedversion interface{}
+    CbgpPeer2NegotiatedVersion interface{}
 
     // The local IP address of this entry's BGP connection. The type is string
     // with length: 0..255.
-    Cbgppeer2Localaddr interface{}
+    CbgpPeer2LocalAddr interface{}
 
     // The local port for the TCP connection between the BGP peers. The type is
     // interface{} with range: 0..65535.
-    Cbgppeer2Localport interface{}
+    CbgpPeer2LocalPort interface{}
 
     // The local AS number for this session. The type is interface{} with range:
     // 0..4294967295.
-    Cbgppeer2Localas interface{}
+    CbgpPeer2LocalAs interface{}
 
     // The BGP Identifier of this entry's BGP peer. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Cbgppeer2Localidentifier interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CbgpPeer2LocalIdentifier interface{}
 
     // The remote port for the TCP connection between the BGP peers.  Note that
     // the objects cbgpPeer2LocalAddr, cbgpPeer2LocalPort, cbgpPeer2RemoteAddr,
     // and cbgpPeer2RemotePort provide the appropriate reference to the standard
     // MIB TCP connection table. The type is interface{} with range: 0..65535.
-    Cbgppeer2Remoteport interface{}
+    CbgpPeer2RemotePort interface{}
 
     // The remote autonomous system number received in the BGP OPEN message. The
     // type is interface{} with range: 0..4294967295.
-    Cbgppeer2Remoteas interface{}
+    CbgpPeer2RemoteAs interface{}
 
     // The BGP Identifier of this entry's BGP peer. This entry MUST be 0.0.0.0
     // unless the cbgpPeer2State is in the openconfirm or the established state.
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Cbgppeer2Remoteidentifier interface{}
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CbgpPeer2RemoteIdentifier interface{}
 
     // The number of BGP UPDATE messages received on this connection. The type is
     // interface{} with range: 0..4294967295.
-    Cbgppeer2Inupdates interface{}
+    CbgpPeer2InUpdates interface{}
 
     // The number of BGP UPDATE messages transmitted on this connection. The type
     // is interface{} with range: 0..4294967295.
-    Cbgppeer2Outupdates interface{}
+    CbgpPeer2OutUpdates interface{}
 
     // The total number of messages received from the remote peer on this
     // connection. The type is interface{} with range: 0..4294967295.
-    Cbgppeer2Intotalmessages interface{}
+    CbgpPeer2InTotalMessages interface{}
 
     // The total number of messages transmitted to the remote peer on this
     // connection. The type is interface{} with range: 0..4294967295.
-    Cbgppeer2Outtotalmessages interface{}
+    CbgpPeer2OutTotalMessages interface{}
 
     // The last error code and subcode seen by this peer on this connection.  If
     // no error has occurred, this field is zero.  Otherwise, the first byte of
     // this two byte OCTET STRING contains the error code, and the second byte
     // contains the subcode. The type is string with length: 2.
-    Cbgppeer2Lasterror interface{}
+    CbgpPeer2LastError interface{}
 
     // The total number of times the BGP FSM transitioned into the established
     // state for this peer. The type is interface{} with range: 0..4294967295.
-    Cbgppeer2Fsmestablishedtransitions interface{}
+    CbgpPeer2FsmEstablishedTransitions interface{}
 
     // This timer indicates how long (in seconds) this peer has been in the
     // established state or how long since this peer was last in the established
     // state.  It is set to zero when a new peer is configured or when the router
     // is booted. The type is interface{} with range: 0..4294967295. Units are
     // seconds.
-    Cbgppeer2Fsmestablishedtime interface{}
+    CbgpPeer2FsmEstablishedTime interface{}
 
     // Time interval (in seconds) for the ConnectRetry timer.  The suggested value
     // for this timer is 120 seconds. The type is interface{} with range:
     // 1..65535. Units are seconds.
-    Cbgppeer2Connectretryinterval interface{}
+    CbgpPeer2ConnectRetryInterval interface{}
 
     // Time interval (in seconds) for the Hold Timer established with the peer. 
     // The value of this object is calculated by this BGP speaker, using the
@@ -897,7 +930,7 @@ type CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry struct {
     // cbgpPeer2HoldTimeConfigured object has a value of (0), then this object
     // MUST have a value of (0). The type is interface{} with range: 0..None |
     // 3..65535. Units are seconds.
-    Cbgppeer2Holdtime interface{}
+    CbgpPeer2HoldTime interface{}
 
     // Time interval (in seconds) for the KeepAlive timer established with the
     // peer.  The value of this object is calculated by this BGP speaker such
@@ -908,7 +941,7 @@ type CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry struct {
     // the of cbgpPeer2KeepAliveConfigured object has a value of (0), then this
     // object MUST have a value of (0). The type is interface{} with range:
     // 0..21845. Units are seconds.
-    Cbgppeer2Keepalive interface{}
+    CbgpPeer2KeepAlive interface{}
 
     // Time interval (in seconds) for the Hold Time configured for this BGP
     // speaker with this peer.  This value is placed in an OPEN message sent to
@@ -919,7 +952,7 @@ type CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry struct {
     // be established with the peer.  The suggested value for this timer is 90
     // seconds. The type is interface{} with range: 0..None | 3..65535. Units are
     // seconds.
-    Cbgppeer2Holdtimeconfigured interface{}
+    CbgpPeer2HoldTimeConfigured interface{}
 
     // Time interval (in seconds) for the KeepAlive timer configured for this BGP
     // speaker with this peer.  The value of this object will only determine the
@@ -931,123 +964,126 @@ type CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry struct {
     // are sent to the peer after the BGP connection has been established.  The
     // suggested value for this timer is 30 seconds. The type is interface{} with
     // range: 0..21845. Units are seconds.
-    Cbgppeer2Keepaliveconfigured interface{}
+    CbgpPeer2KeepAliveConfigured interface{}
 
     // Time interval (in seconds) for the MinASOriginationInterval timer. The
     // suggested value for this timer is 15 seconds. The type is interface{} with
     // range: 1..65535. Units are seconds.
-    Cbgppeer2Minasoriginationinterval interface{}
+    CbgpPeer2MinASOriginationInterval interface{}
 
     // Time interval (in seconds) for the MinRouteAdvertisementInterval timer. The
     // suggested value for this timer is 30 seconds for EBGP connections and 5
     // seconds for IBGP connections. The type is interface{} with range: 1..65535.
     // Units are seconds.
-    Cbgppeer2Minrouteadvertisementinterval interface{}
+    CbgpPeer2MinRouteAdvertisementInterval interface{}
 
     // Elapsed time (in seconds) since the last BGP UPDATE message was received
     // from the peer. Each time cbgpPeer2InUpdates is incremented, the value of
     // this object is set to zero (0). The type is interface{} with range:
     // 0..4294967295. Units are seconds.
-    Cbgppeer2Inupdateelapsedtime interface{}
+    CbgpPeer2InUpdateElapsedTime interface{}
 
     // Implementation specific error description for bgpPeerLastErrorReceived. The
     // type is string.
-    Cbgppeer2Lasterrortxt interface{}
+    CbgpPeer2LastErrorTxt interface{}
 
-    // The BGP peer connection previous state. The type is Cbgppeer2Prevstate.
-    Cbgppeer2Prevstate interface{}
+    // The BGP peer connection previous state. The type is CbgpPeer2PrevState.
+    CbgpPeer2PrevState interface{}
 }
 
-func (cbgppeer2Entry *CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry) GetEntityData() *types.CommonEntityData {
-    cbgppeer2Entry.EntityData.YFilter = cbgppeer2Entry.YFilter
-    cbgppeer2Entry.EntityData.YangName = "cbgpPeer2Entry"
-    cbgppeer2Entry.EntityData.BundleName = "cisco_ios_xe"
-    cbgppeer2Entry.EntityData.ParentYangName = "cbgpPeer2Table"
-    cbgppeer2Entry.EntityData.SegmentPath = "cbgpPeer2Entry" + "[cbgpPeer2Type='" + fmt.Sprintf("%v", cbgppeer2Entry.Cbgppeer2Type) + "']" + "[cbgpPeer2RemoteAddr='" + fmt.Sprintf("%v", cbgppeer2Entry.Cbgppeer2Remoteaddr) + "']"
-    cbgppeer2Entry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbgppeer2Entry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbgppeer2Entry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbgpPeer2Entry *CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry) GetEntityData() *types.CommonEntityData {
+    cbgpPeer2Entry.EntityData.YFilter = cbgpPeer2Entry.YFilter
+    cbgpPeer2Entry.EntityData.YangName = "cbgpPeer2Entry"
+    cbgpPeer2Entry.EntityData.BundleName = "cisco_ios_xe"
+    cbgpPeer2Entry.EntityData.ParentYangName = "cbgpPeer2Table"
+    cbgpPeer2Entry.EntityData.SegmentPath = "cbgpPeer2Entry" + types.AddKeyToken(cbgpPeer2Entry.CbgpPeer2Type, "cbgpPeer2Type") + types.AddKeyToken(cbgpPeer2Entry.CbgpPeer2RemoteAddr, "cbgpPeer2RemoteAddr")
+    cbgpPeer2Entry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbgpPeer2Entry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbgpPeer2Entry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbgppeer2Entry.EntityData.Children = make(map[string]types.YChild)
-    cbgppeer2Entry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2Type"] = types.YLeaf{"Cbgppeer2Type", cbgppeer2Entry.Cbgppeer2Type}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2RemoteAddr"] = types.YLeaf{"Cbgppeer2Remoteaddr", cbgppeer2Entry.Cbgppeer2Remoteaddr}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2State"] = types.YLeaf{"Cbgppeer2State", cbgppeer2Entry.Cbgppeer2State}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2AdminStatus"] = types.YLeaf{"Cbgppeer2Adminstatus", cbgppeer2Entry.Cbgppeer2Adminstatus}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2NegotiatedVersion"] = types.YLeaf{"Cbgppeer2Negotiatedversion", cbgppeer2Entry.Cbgppeer2Negotiatedversion}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2LocalAddr"] = types.YLeaf{"Cbgppeer2Localaddr", cbgppeer2Entry.Cbgppeer2Localaddr}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2LocalPort"] = types.YLeaf{"Cbgppeer2Localport", cbgppeer2Entry.Cbgppeer2Localport}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2LocalAs"] = types.YLeaf{"Cbgppeer2Localas", cbgppeer2Entry.Cbgppeer2Localas}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2LocalIdentifier"] = types.YLeaf{"Cbgppeer2Localidentifier", cbgppeer2Entry.Cbgppeer2Localidentifier}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2RemotePort"] = types.YLeaf{"Cbgppeer2Remoteport", cbgppeer2Entry.Cbgppeer2Remoteport}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2RemoteAs"] = types.YLeaf{"Cbgppeer2Remoteas", cbgppeer2Entry.Cbgppeer2Remoteas}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2RemoteIdentifier"] = types.YLeaf{"Cbgppeer2Remoteidentifier", cbgppeer2Entry.Cbgppeer2Remoteidentifier}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2InUpdates"] = types.YLeaf{"Cbgppeer2Inupdates", cbgppeer2Entry.Cbgppeer2Inupdates}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2OutUpdates"] = types.YLeaf{"Cbgppeer2Outupdates", cbgppeer2Entry.Cbgppeer2Outupdates}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2InTotalMessages"] = types.YLeaf{"Cbgppeer2Intotalmessages", cbgppeer2Entry.Cbgppeer2Intotalmessages}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2OutTotalMessages"] = types.YLeaf{"Cbgppeer2Outtotalmessages", cbgppeer2Entry.Cbgppeer2Outtotalmessages}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2LastError"] = types.YLeaf{"Cbgppeer2Lasterror", cbgppeer2Entry.Cbgppeer2Lasterror}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2FsmEstablishedTransitions"] = types.YLeaf{"Cbgppeer2Fsmestablishedtransitions", cbgppeer2Entry.Cbgppeer2Fsmestablishedtransitions}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2FsmEstablishedTime"] = types.YLeaf{"Cbgppeer2Fsmestablishedtime", cbgppeer2Entry.Cbgppeer2Fsmestablishedtime}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2ConnectRetryInterval"] = types.YLeaf{"Cbgppeer2Connectretryinterval", cbgppeer2Entry.Cbgppeer2Connectretryinterval}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2HoldTime"] = types.YLeaf{"Cbgppeer2Holdtime", cbgppeer2Entry.Cbgppeer2Holdtime}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2KeepAlive"] = types.YLeaf{"Cbgppeer2Keepalive", cbgppeer2Entry.Cbgppeer2Keepalive}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2HoldTimeConfigured"] = types.YLeaf{"Cbgppeer2Holdtimeconfigured", cbgppeer2Entry.Cbgppeer2Holdtimeconfigured}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2KeepAliveConfigured"] = types.YLeaf{"Cbgppeer2Keepaliveconfigured", cbgppeer2Entry.Cbgppeer2Keepaliveconfigured}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2MinASOriginationInterval"] = types.YLeaf{"Cbgppeer2Minasoriginationinterval", cbgppeer2Entry.Cbgppeer2Minasoriginationinterval}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2MinRouteAdvertisementInterval"] = types.YLeaf{"Cbgppeer2Minrouteadvertisementinterval", cbgppeer2Entry.Cbgppeer2Minrouteadvertisementinterval}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2InUpdateElapsedTime"] = types.YLeaf{"Cbgppeer2Inupdateelapsedtime", cbgppeer2Entry.Cbgppeer2Inupdateelapsedtime}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2LastErrorTxt"] = types.YLeaf{"Cbgppeer2Lasterrortxt", cbgppeer2Entry.Cbgppeer2Lasterrortxt}
-    cbgppeer2Entry.EntityData.Leafs["cbgpPeer2PrevState"] = types.YLeaf{"Cbgppeer2Prevstate", cbgppeer2Entry.Cbgppeer2Prevstate}
-    return &(cbgppeer2Entry.EntityData)
+    cbgpPeer2Entry.EntityData.Children = types.NewOrderedMap()
+    cbgpPeer2Entry.EntityData.Leafs = types.NewOrderedMap()
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2Type", types.YLeaf{"CbgpPeer2Type", cbgpPeer2Entry.CbgpPeer2Type})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2RemoteAddr", types.YLeaf{"CbgpPeer2RemoteAddr", cbgpPeer2Entry.CbgpPeer2RemoteAddr})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2State", types.YLeaf{"CbgpPeer2State", cbgpPeer2Entry.CbgpPeer2State})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2AdminStatus", types.YLeaf{"CbgpPeer2AdminStatus", cbgpPeer2Entry.CbgpPeer2AdminStatus})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2NegotiatedVersion", types.YLeaf{"CbgpPeer2NegotiatedVersion", cbgpPeer2Entry.CbgpPeer2NegotiatedVersion})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2LocalAddr", types.YLeaf{"CbgpPeer2LocalAddr", cbgpPeer2Entry.CbgpPeer2LocalAddr})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2LocalPort", types.YLeaf{"CbgpPeer2LocalPort", cbgpPeer2Entry.CbgpPeer2LocalPort})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2LocalAs", types.YLeaf{"CbgpPeer2LocalAs", cbgpPeer2Entry.CbgpPeer2LocalAs})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2LocalIdentifier", types.YLeaf{"CbgpPeer2LocalIdentifier", cbgpPeer2Entry.CbgpPeer2LocalIdentifier})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2RemotePort", types.YLeaf{"CbgpPeer2RemotePort", cbgpPeer2Entry.CbgpPeer2RemotePort})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2RemoteAs", types.YLeaf{"CbgpPeer2RemoteAs", cbgpPeer2Entry.CbgpPeer2RemoteAs})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2RemoteIdentifier", types.YLeaf{"CbgpPeer2RemoteIdentifier", cbgpPeer2Entry.CbgpPeer2RemoteIdentifier})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2InUpdates", types.YLeaf{"CbgpPeer2InUpdates", cbgpPeer2Entry.CbgpPeer2InUpdates})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2OutUpdates", types.YLeaf{"CbgpPeer2OutUpdates", cbgpPeer2Entry.CbgpPeer2OutUpdates})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2InTotalMessages", types.YLeaf{"CbgpPeer2InTotalMessages", cbgpPeer2Entry.CbgpPeer2InTotalMessages})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2OutTotalMessages", types.YLeaf{"CbgpPeer2OutTotalMessages", cbgpPeer2Entry.CbgpPeer2OutTotalMessages})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2LastError", types.YLeaf{"CbgpPeer2LastError", cbgpPeer2Entry.CbgpPeer2LastError})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2FsmEstablishedTransitions", types.YLeaf{"CbgpPeer2FsmEstablishedTransitions", cbgpPeer2Entry.CbgpPeer2FsmEstablishedTransitions})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2FsmEstablishedTime", types.YLeaf{"CbgpPeer2FsmEstablishedTime", cbgpPeer2Entry.CbgpPeer2FsmEstablishedTime})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2ConnectRetryInterval", types.YLeaf{"CbgpPeer2ConnectRetryInterval", cbgpPeer2Entry.CbgpPeer2ConnectRetryInterval})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2HoldTime", types.YLeaf{"CbgpPeer2HoldTime", cbgpPeer2Entry.CbgpPeer2HoldTime})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2KeepAlive", types.YLeaf{"CbgpPeer2KeepAlive", cbgpPeer2Entry.CbgpPeer2KeepAlive})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2HoldTimeConfigured", types.YLeaf{"CbgpPeer2HoldTimeConfigured", cbgpPeer2Entry.CbgpPeer2HoldTimeConfigured})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2KeepAliveConfigured", types.YLeaf{"CbgpPeer2KeepAliveConfigured", cbgpPeer2Entry.CbgpPeer2KeepAliveConfigured})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2MinASOriginationInterval", types.YLeaf{"CbgpPeer2MinASOriginationInterval", cbgpPeer2Entry.CbgpPeer2MinASOriginationInterval})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2MinRouteAdvertisementInterval", types.YLeaf{"CbgpPeer2MinRouteAdvertisementInterval", cbgpPeer2Entry.CbgpPeer2MinRouteAdvertisementInterval})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2InUpdateElapsedTime", types.YLeaf{"CbgpPeer2InUpdateElapsedTime", cbgpPeer2Entry.CbgpPeer2InUpdateElapsedTime})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2LastErrorTxt", types.YLeaf{"CbgpPeer2LastErrorTxt", cbgpPeer2Entry.CbgpPeer2LastErrorTxt})
+    cbgpPeer2Entry.EntityData.Leafs.Append("cbgpPeer2PrevState", types.YLeaf{"CbgpPeer2PrevState", cbgpPeer2Entry.CbgpPeer2PrevState})
+
+    cbgpPeer2Entry.EntityData.YListKeys = []string {"CbgpPeer2Type", "CbgpPeer2RemoteAddr"}
+
+    return &(cbgpPeer2Entry.EntityData)
 }
 
-// CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Adminstatus represents authentication.
-type CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Adminstatus string
+// CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2AdminStatus represents authentication.
+type CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2AdminStatus string
 
 const (
-    CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Adminstatus_stop CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Adminstatus = "stop"
+    CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2AdminStatus_stop CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2AdminStatus = "stop"
 
-    CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Adminstatus_start CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Adminstatus = "start"
+    CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2AdminStatus_start CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2AdminStatus = "start"
 )
 
-// CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Prevstate represents The BGP peer connection previous state.
-type CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Prevstate string
+// CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2PrevState represents The BGP peer connection previous state.
+type CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2PrevState string
 
 const (
-    CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Prevstate_none CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Prevstate = "none"
+    CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2PrevState_none CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2PrevState = "none"
 
-    CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Prevstate_idle CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Prevstate = "idle"
+    CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2PrevState_idle CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2PrevState = "idle"
 
-    CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Prevstate_connect CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Prevstate = "connect"
+    CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2PrevState_connect CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2PrevState = "connect"
 
-    CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Prevstate_active CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Prevstate = "active"
+    CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2PrevState_active CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2PrevState = "active"
 
-    CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Prevstate_opensent CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Prevstate = "opensent"
+    CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2PrevState_opensent CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2PrevState = "opensent"
 
-    CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Prevstate_openconfirm CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Prevstate = "openconfirm"
+    CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2PrevState_openconfirm CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2PrevState = "openconfirm"
 
-    CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Prevstate_established CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Prevstate = "established"
+    CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2PrevState_established CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2PrevState = "established"
 )
 
-// CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2State represents The BGP peer connection state.
-type CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2State string
+// CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2State represents The BGP peer connection state.
+type CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2State string
 
 const (
-    CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2State_idle CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2State = "idle"
+    CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2State_idle CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2State = "idle"
 
-    CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2State_connect CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2State = "connect"
+    CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2State_connect CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2State = "connect"
 
-    CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2State_active CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2State = "active"
+    CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2State_active CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2State = "active"
 
-    CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2State_opensent CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2State = "opensent"
+    CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2State_opensent CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2State = "opensent"
 
-    CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2State_openconfirm CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2State = "openconfirm"
+    CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2State_openconfirm CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2State = "openconfirm"
 
-    CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2State_established CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2State = "established"
+    CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2State_established CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2State = "established"
 )
 
-// CISCOBGP4MIB_Cbgppeer2Capstable
+// CISCOBGP4MIB_CbgpPeer2CapsTable
 // This table contains the capabilities that are
 // supported by a peer. Capabilities of a peer are
 // received during BGP connection establishment.
@@ -1057,7 +1093,7 @@ const (
 // entry. When an existing capability is not received
 // during the latest connection establishment, the
 // corresponding entry is deleted from the table.
-type CISCOBGP4MIB_Cbgppeer2Capstable struct {
+type CISCOBGP4MIB_CbgpPeer2CapsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1065,55 +1101,58 @@ type CISCOBGP4MIB_Cbgppeer2Capstable struct {
     // code and an index. When a capability is received multiple times with
     // different values during a BGP connection establishment, corresponding
     // entries are differentiated with indices. The type is slice of
-    // CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry.
-    Cbgppeer2Capsentry []CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry
+    // CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry.
+    CbgpPeer2CapsEntry []*CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry
 }
 
-func (cbgppeer2Capstable *CISCOBGP4MIB_Cbgppeer2Capstable) GetEntityData() *types.CommonEntityData {
-    cbgppeer2Capstable.EntityData.YFilter = cbgppeer2Capstable.YFilter
-    cbgppeer2Capstable.EntityData.YangName = "cbgpPeer2CapsTable"
-    cbgppeer2Capstable.EntityData.BundleName = "cisco_ios_xe"
-    cbgppeer2Capstable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
-    cbgppeer2Capstable.EntityData.SegmentPath = "cbgpPeer2CapsTable"
-    cbgppeer2Capstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbgppeer2Capstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbgppeer2Capstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbgpPeer2CapsTable *CISCOBGP4MIB_CbgpPeer2CapsTable) GetEntityData() *types.CommonEntityData {
+    cbgpPeer2CapsTable.EntityData.YFilter = cbgpPeer2CapsTable.YFilter
+    cbgpPeer2CapsTable.EntityData.YangName = "cbgpPeer2CapsTable"
+    cbgpPeer2CapsTable.EntityData.BundleName = "cisco_ios_xe"
+    cbgpPeer2CapsTable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
+    cbgpPeer2CapsTable.EntityData.SegmentPath = "cbgpPeer2CapsTable"
+    cbgpPeer2CapsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbgpPeer2CapsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbgpPeer2CapsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbgppeer2Capstable.EntityData.Children = make(map[string]types.YChild)
-    cbgppeer2Capstable.EntityData.Children["cbgpPeer2CapsEntry"] = types.YChild{"Cbgppeer2Capsentry", nil}
-    for i := range cbgppeer2Capstable.Cbgppeer2Capsentry {
-        cbgppeer2Capstable.EntityData.Children[types.GetSegmentPath(&cbgppeer2Capstable.Cbgppeer2Capsentry[i])] = types.YChild{"Cbgppeer2Capsentry", &cbgppeer2Capstable.Cbgppeer2Capsentry[i]}
+    cbgpPeer2CapsTable.EntityData.Children = types.NewOrderedMap()
+    cbgpPeer2CapsTable.EntityData.Children.Append("cbgpPeer2CapsEntry", types.YChild{"CbgpPeer2CapsEntry", nil})
+    for i := range cbgpPeer2CapsTable.CbgpPeer2CapsEntry {
+        cbgpPeer2CapsTable.EntityData.Children.Append(types.GetSegmentPath(cbgpPeer2CapsTable.CbgpPeer2CapsEntry[i]), types.YChild{"CbgpPeer2CapsEntry", cbgpPeer2CapsTable.CbgpPeer2CapsEntry[i]})
     }
-    cbgppeer2Capstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cbgppeer2Capstable.EntityData)
+    cbgpPeer2CapsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cbgpPeer2CapsTable.EntityData.YListKeys = []string {}
+
+    return &(cbgpPeer2CapsTable.EntityData)
 }
 
-// CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry
+// CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry
 // Each entry represents a capability received from a
 // peer with a particular code and an index. When a
 // capability is received multiple times with different
 // values during a BGP connection establishment,
 // corresponding entries are differentiated with indices.
-type CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry struct {
+type CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is InetAddressType. Refers to
-    // cisco_bgp4_mib.CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Type
-    Cbgppeer2Type interface{}
+    // cisco_bgp4_mib.CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2Type
+    CbgpPeer2Type interface{}
 
     // This attribute is a key. The type is string with length: 0..255. Refers to
-    // cisco_bgp4_mib.CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Remoteaddr
-    Cbgppeer2Remoteaddr interface{}
+    // cisco_bgp4_mib.CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2RemoteAddr
+    CbgpPeer2RemoteAddr interface{}
 
     // This attribute is a key. The BGP Capability Advertisement Capability Code.
-    // The type is Cbgppeer2Capcode.
-    Cbgppeer2Capcode interface{}
+    // The type is CbgpPeer2CapCode.
+    CbgpPeer2CapCode interface{}
 
     // This attribute is a key. Multiple instances of a given capability may be
     // sent by a BGP speaker.  This variable is used to index them. The type is
     // interface{} with range: 1..128.
-    Cbgppeer2Capindex interface{}
+    CbgpPeer2CapIndex interface{}
 
     // The value of the announced capability. This MIB object value is organized
     // as given below,     Capability : Route Refresh Capability                 
@@ -1139,47 +1178,50 @@ type CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry struct {
     // |       +----------------------------------+       | Send/Receive (8 bits) 
     // |       +----------------------------------+. The type is string with
     // length: 0..255.
-    Cbgppeer2Capvalue interface{}
+    CbgpPeer2CapValue interface{}
 }
 
-func (cbgppeer2Capsentry *CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry) GetEntityData() *types.CommonEntityData {
-    cbgppeer2Capsentry.EntityData.YFilter = cbgppeer2Capsentry.YFilter
-    cbgppeer2Capsentry.EntityData.YangName = "cbgpPeer2CapsEntry"
-    cbgppeer2Capsentry.EntityData.BundleName = "cisco_ios_xe"
-    cbgppeer2Capsentry.EntityData.ParentYangName = "cbgpPeer2CapsTable"
-    cbgppeer2Capsentry.EntityData.SegmentPath = "cbgpPeer2CapsEntry" + "[cbgpPeer2Type='" + fmt.Sprintf("%v", cbgppeer2Capsentry.Cbgppeer2Type) + "']" + "[cbgpPeer2RemoteAddr='" + fmt.Sprintf("%v", cbgppeer2Capsentry.Cbgppeer2Remoteaddr) + "']" + "[cbgpPeer2CapCode='" + fmt.Sprintf("%v", cbgppeer2Capsentry.Cbgppeer2Capcode) + "']" + "[cbgpPeer2CapIndex='" + fmt.Sprintf("%v", cbgppeer2Capsentry.Cbgppeer2Capindex) + "']"
-    cbgppeer2Capsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbgppeer2Capsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbgppeer2Capsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbgpPeer2CapsEntry *CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry) GetEntityData() *types.CommonEntityData {
+    cbgpPeer2CapsEntry.EntityData.YFilter = cbgpPeer2CapsEntry.YFilter
+    cbgpPeer2CapsEntry.EntityData.YangName = "cbgpPeer2CapsEntry"
+    cbgpPeer2CapsEntry.EntityData.BundleName = "cisco_ios_xe"
+    cbgpPeer2CapsEntry.EntityData.ParentYangName = "cbgpPeer2CapsTable"
+    cbgpPeer2CapsEntry.EntityData.SegmentPath = "cbgpPeer2CapsEntry" + types.AddKeyToken(cbgpPeer2CapsEntry.CbgpPeer2Type, "cbgpPeer2Type") + types.AddKeyToken(cbgpPeer2CapsEntry.CbgpPeer2RemoteAddr, "cbgpPeer2RemoteAddr") + types.AddKeyToken(cbgpPeer2CapsEntry.CbgpPeer2CapCode, "cbgpPeer2CapCode") + types.AddKeyToken(cbgpPeer2CapsEntry.CbgpPeer2CapIndex, "cbgpPeer2CapIndex")
+    cbgpPeer2CapsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbgpPeer2CapsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbgpPeer2CapsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbgppeer2Capsentry.EntityData.Children = make(map[string]types.YChild)
-    cbgppeer2Capsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbgppeer2Capsentry.EntityData.Leafs["cbgpPeer2Type"] = types.YLeaf{"Cbgppeer2Type", cbgppeer2Capsentry.Cbgppeer2Type}
-    cbgppeer2Capsentry.EntityData.Leafs["cbgpPeer2RemoteAddr"] = types.YLeaf{"Cbgppeer2Remoteaddr", cbgppeer2Capsentry.Cbgppeer2Remoteaddr}
-    cbgppeer2Capsentry.EntityData.Leafs["cbgpPeer2CapCode"] = types.YLeaf{"Cbgppeer2Capcode", cbgppeer2Capsentry.Cbgppeer2Capcode}
-    cbgppeer2Capsentry.EntityData.Leafs["cbgpPeer2CapIndex"] = types.YLeaf{"Cbgppeer2Capindex", cbgppeer2Capsentry.Cbgppeer2Capindex}
-    cbgppeer2Capsentry.EntityData.Leafs["cbgpPeer2CapValue"] = types.YLeaf{"Cbgppeer2Capvalue", cbgppeer2Capsentry.Cbgppeer2Capvalue}
-    return &(cbgppeer2Capsentry.EntityData)
+    cbgpPeer2CapsEntry.EntityData.Children = types.NewOrderedMap()
+    cbgpPeer2CapsEntry.EntityData.Leafs = types.NewOrderedMap()
+    cbgpPeer2CapsEntry.EntityData.Leafs.Append("cbgpPeer2Type", types.YLeaf{"CbgpPeer2Type", cbgpPeer2CapsEntry.CbgpPeer2Type})
+    cbgpPeer2CapsEntry.EntityData.Leafs.Append("cbgpPeer2RemoteAddr", types.YLeaf{"CbgpPeer2RemoteAddr", cbgpPeer2CapsEntry.CbgpPeer2RemoteAddr})
+    cbgpPeer2CapsEntry.EntityData.Leafs.Append("cbgpPeer2CapCode", types.YLeaf{"CbgpPeer2CapCode", cbgpPeer2CapsEntry.CbgpPeer2CapCode})
+    cbgpPeer2CapsEntry.EntityData.Leafs.Append("cbgpPeer2CapIndex", types.YLeaf{"CbgpPeer2CapIndex", cbgpPeer2CapsEntry.CbgpPeer2CapIndex})
+    cbgpPeer2CapsEntry.EntityData.Leafs.Append("cbgpPeer2CapValue", types.YLeaf{"CbgpPeer2CapValue", cbgpPeer2CapsEntry.CbgpPeer2CapValue})
+
+    cbgpPeer2CapsEntry.EntityData.YListKeys = []string {"CbgpPeer2Type", "CbgpPeer2RemoteAddr", "CbgpPeer2CapCode", "CbgpPeer2CapIndex"}
+
+    return &(cbgpPeer2CapsEntry.EntityData)
 }
 
-// CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry_Cbgppeer2Capcode represents The BGP Capability Advertisement Capability Code.
-type CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry_Cbgppeer2Capcode string
+// CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry_CbgpPeer2CapCode represents The BGP Capability Advertisement Capability Code.
+type CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry_CbgpPeer2CapCode string
 
 const (
-    CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry_Cbgppeer2Capcode_multiProtocol CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry_Cbgppeer2Capcode = "multiProtocol"
+    CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry_CbgpPeer2CapCode_multiProtocol CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry_CbgpPeer2CapCode = "multiProtocol"
 
-    CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry_Cbgppeer2Capcode_routeRefresh CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry_Cbgppeer2Capcode = "routeRefresh"
+    CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry_CbgpPeer2CapCode_routeRefresh CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry_CbgpPeer2CapCode = "routeRefresh"
 
-    CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry_Cbgppeer2Capcode_gracefulRestart CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry_Cbgppeer2Capcode = "gracefulRestart"
+    CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry_CbgpPeer2CapCode_gracefulRestart CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry_CbgpPeer2CapCode = "gracefulRestart"
 
-    CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry_Cbgppeer2Capcode_fourByteAs CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry_Cbgppeer2Capcode = "fourByteAs"
+    CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry_CbgpPeer2CapCode_fourByteAs CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry_CbgpPeer2CapCode = "fourByteAs"
 
-    CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry_Cbgppeer2Capcode_addPath CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry_Cbgppeer2Capcode = "addPath"
+    CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry_CbgpPeer2CapCode_addPath CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry_CbgpPeer2CapCode = "addPath"
 
-    CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry_Cbgppeer2Capcode_routeRefreshOld CISCOBGP4MIB_Cbgppeer2Capstable_Cbgppeer2Capsentry_Cbgppeer2Capcode = "routeRefreshOld"
+    CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry_CbgpPeer2CapCode_routeRefreshOld CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry_CbgpPeer2CapCode = "routeRefreshOld"
 )
 
-// CISCOBGP4MIB_Cbgppeer2Addrfamilytable
+// CISCOBGP4MIB_CbgpPeer2AddrFamilyTable
 // This table contains information related to
 // address families supported by a peer. Supported
 // address families of a peer are known during BGP
@@ -1188,86 +1230,92 @@ const (
 // with a new entry. When an address family is not
 // supported any more, corresponding entry is deleted
 // from the table.
-type CISCOBGP4MIB_Cbgppeer2Addrfamilytable struct {
+type CISCOBGP4MIB_CbgpPeer2AddrFamilyTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry is identified by an AFI/SAFI pair and peer address. It contains
     // names associated with an address family. The type is slice of
-    // CISCOBGP4MIB_Cbgppeer2Addrfamilytable_Cbgppeer2Addrfamilyentry.
-    Cbgppeer2Addrfamilyentry []CISCOBGP4MIB_Cbgppeer2Addrfamilytable_Cbgppeer2Addrfamilyentry
+    // CISCOBGP4MIB_CbgpPeer2AddrFamilyTable_CbgpPeer2AddrFamilyEntry.
+    CbgpPeer2AddrFamilyEntry []*CISCOBGP4MIB_CbgpPeer2AddrFamilyTable_CbgpPeer2AddrFamilyEntry
 }
 
-func (cbgppeer2Addrfamilytable *CISCOBGP4MIB_Cbgppeer2Addrfamilytable) GetEntityData() *types.CommonEntityData {
-    cbgppeer2Addrfamilytable.EntityData.YFilter = cbgppeer2Addrfamilytable.YFilter
-    cbgppeer2Addrfamilytable.EntityData.YangName = "cbgpPeer2AddrFamilyTable"
-    cbgppeer2Addrfamilytable.EntityData.BundleName = "cisco_ios_xe"
-    cbgppeer2Addrfamilytable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
-    cbgppeer2Addrfamilytable.EntityData.SegmentPath = "cbgpPeer2AddrFamilyTable"
-    cbgppeer2Addrfamilytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbgppeer2Addrfamilytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbgppeer2Addrfamilytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbgpPeer2AddrFamilyTable *CISCOBGP4MIB_CbgpPeer2AddrFamilyTable) GetEntityData() *types.CommonEntityData {
+    cbgpPeer2AddrFamilyTable.EntityData.YFilter = cbgpPeer2AddrFamilyTable.YFilter
+    cbgpPeer2AddrFamilyTable.EntityData.YangName = "cbgpPeer2AddrFamilyTable"
+    cbgpPeer2AddrFamilyTable.EntityData.BundleName = "cisco_ios_xe"
+    cbgpPeer2AddrFamilyTable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
+    cbgpPeer2AddrFamilyTable.EntityData.SegmentPath = "cbgpPeer2AddrFamilyTable"
+    cbgpPeer2AddrFamilyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbgpPeer2AddrFamilyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbgpPeer2AddrFamilyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbgppeer2Addrfamilytable.EntityData.Children = make(map[string]types.YChild)
-    cbgppeer2Addrfamilytable.EntityData.Children["cbgpPeer2AddrFamilyEntry"] = types.YChild{"Cbgppeer2Addrfamilyentry", nil}
-    for i := range cbgppeer2Addrfamilytable.Cbgppeer2Addrfamilyentry {
-        cbgppeer2Addrfamilytable.EntityData.Children[types.GetSegmentPath(&cbgppeer2Addrfamilytable.Cbgppeer2Addrfamilyentry[i])] = types.YChild{"Cbgppeer2Addrfamilyentry", &cbgppeer2Addrfamilytable.Cbgppeer2Addrfamilyentry[i]}
+    cbgpPeer2AddrFamilyTable.EntityData.Children = types.NewOrderedMap()
+    cbgpPeer2AddrFamilyTable.EntityData.Children.Append("cbgpPeer2AddrFamilyEntry", types.YChild{"CbgpPeer2AddrFamilyEntry", nil})
+    for i := range cbgpPeer2AddrFamilyTable.CbgpPeer2AddrFamilyEntry {
+        cbgpPeer2AddrFamilyTable.EntityData.Children.Append(types.GetSegmentPath(cbgpPeer2AddrFamilyTable.CbgpPeer2AddrFamilyEntry[i]), types.YChild{"CbgpPeer2AddrFamilyEntry", cbgpPeer2AddrFamilyTable.CbgpPeer2AddrFamilyEntry[i]})
     }
-    cbgppeer2Addrfamilytable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cbgppeer2Addrfamilytable.EntityData)
+    cbgpPeer2AddrFamilyTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cbgpPeer2AddrFamilyTable.EntityData.YListKeys = []string {}
+
+    return &(cbgpPeer2AddrFamilyTable.EntityData)
 }
 
-// CISCOBGP4MIB_Cbgppeer2Addrfamilytable_Cbgppeer2Addrfamilyentry
+// CISCOBGP4MIB_CbgpPeer2AddrFamilyTable_CbgpPeer2AddrFamilyEntry
 // An entry is identified by an AFI/SAFI pair and
 // peer address. It contains names associated with
 // an address family.
-type CISCOBGP4MIB_Cbgppeer2Addrfamilytable_Cbgppeer2Addrfamilyentry struct {
+type CISCOBGP4MIB_CbgpPeer2AddrFamilyTable_CbgpPeer2AddrFamilyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is InetAddressType. Refers to
-    // cisco_bgp4_mib.CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Type
-    Cbgppeer2Type interface{}
+    // cisco_bgp4_mib.CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2Type
+    CbgpPeer2Type interface{}
 
     // This attribute is a key. The type is string with length: 0..255. Refers to
-    // cisco_bgp4_mib.CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Remoteaddr
-    Cbgppeer2Remoteaddr interface{}
+    // cisco_bgp4_mib.CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2RemoteAddr
+    CbgpPeer2RemoteAddr interface{}
 
     // This attribute is a key. The AFI index of the entry. An implementation is
     // only required to support IPv4 unicast and VPNv4 (Value - 1) address
     // families. The type is InetAddressType.
-    Cbgppeer2Addrfamilyafi interface{}
+    CbgpPeer2AddrFamilyAfi interface{}
 
     // This attribute is a key. The SAFI index of the entry. An implementation is
     // only required to support IPv4 unicast(Value - 1) and VPNv4( Value - 128)
     // address families. The type is CbgpSafi.
-    Cbgppeer2Addrfamilysafi interface{}
+    CbgpPeer2AddrFamilySafi interface{}
 
     // Implementation specific Address Family name. The type is string.
-    Cbgppeer2Addrfamilyname interface{}
+    CbgpPeer2AddrFamilyName interface{}
 }
 
-func (cbgppeer2Addrfamilyentry *CISCOBGP4MIB_Cbgppeer2Addrfamilytable_Cbgppeer2Addrfamilyentry) GetEntityData() *types.CommonEntityData {
-    cbgppeer2Addrfamilyentry.EntityData.YFilter = cbgppeer2Addrfamilyentry.YFilter
-    cbgppeer2Addrfamilyentry.EntityData.YangName = "cbgpPeer2AddrFamilyEntry"
-    cbgppeer2Addrfamilyentry.EntityData.BundleName = "cisco_ios_xe"
-    cbgppeer2Addrfamilyentry.EntityData.ParentYangName = "cbgpPeer2AddrFamilyTable"
-    cbgppeer2Addrfamilyentry.EntityData.SegmentPath = "cbgpPeer2AddrFamilyEntry" + "[cbgpPeer2Type='" + fmt.Sprintf("%v", cbgppeer2Addrfamilyentry.Cbgppeer2Type) + "']" + "[cbgpPeer2RemoteAddr='" + fmt.Sprintf("%v", cbgppeer2Addrfamilyentry.Cbgppeer2Remoteaddr) + "']" + "[cbgpPeer2AddrFamilyAfi='" + fmt.Sprintf("%v", cbgppeer2Addrfamilyentry.Cbgppeer2Addrfamilyafi) + "']" + "[cbgpPeer2AddrFamilySafi='" + fmt.Sprintf("%v", cbgppeer2Addrfamilyentry.Cbgppeer2Addrfamilysafi) + "']"
-    cbgppeer2Addrfamilyentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbgppeer2Addrfamilyentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbgppeer2Addrfamilyentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbgpPeer2AddrFamilyEntry *CISCOBGP4MIB_CbgpPeer2AddrFamilyTable_CbgpPeer2AddrFamilyEntry) GetEntityData() *types.CommonEntityData {
+    cbgpPeer2AddrFamilyEntry.EntityData.YFilter = cbgpPeer2AddrFamilyEntry.YFilter
+    cbgpPeer2AddrFamilyEntry.EntityData.YangName = "cbgpPeer2AddrFamilyEntry"
+    cbgpPeer2AddrFamilyEntry.EntityData.BundleName = "cisco_ios_xe"
+    cbgpPeer2AddrFamilyEntry.EntityData.ParentYangName = "cbgpPeer2AddrFamilyTable"
+    cbgpPeer2AddrFamilyEntry.EntityData.SegmentPath = "cbgpPeer2AddrFamilyEntry" + types.AddKeyToken(cbgpPeer2AddrFamilyEntry.CbgpPeer2Type, "cbgpPeer2Type") + types.AddKeyToken(cbgpPeer2AddrFamilyEntry.CbgpPeer2RemoteAddr, "cbgpPeer2RemoteAddr") + types.AddKeyToken(cbgpPeer2AddrFamilyEntry.CbgpPeer2AddrFamilyAfi, "cbgpPeer2AddrFamilyAfi") + types.AddKeyToken(cbgpPeer2AddrFamilyEntry.CbgpPeer2AddrFamilySafi, "cbgpPeer2AddrFamilySafi")
+    cbgpPeer2AddrFamilyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbgpPeer2AddrFamilyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbgpPeer2AddrFamilyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbgppeer2Addrfamilyentry.EntityData.Children = make(map[string]types.YChild)
-    cbgppeer2Addrfamilyentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbgppeer2Addrfamilyentry.EntityData.Leafs["cbgpPeer2Type"] = types.YLeaf{"Cbgppeer2Type", cbgppeer2Addrfamilyentry.Cbgppeer2Type}
-    cbgppeer2Addrfamilyentry.EntityData.Leafs["cbgpPeer2RemoteAddr"] = types.YLeaf{"Cbgppeer2Remoteaddr", cbgppeer2Addrfamilyentry.Cbgppeer2Remoteaddr}
-    cbgppeer2Addrfamilyentry.EntityData.Leafs["cbgpPeer2AddrFamilyAfi"] = types.YLeaf{"Cbgppeer2Addrfamilyafi", cbgppeer2Addrfamilyentry.Cbgppeer2Addrfamilyafi}
-    cbgppeer2Addrfamilyentry.EntityData.Leafs["cbgpPeer2AddrFamilySafi"] = types.YLeaf{"Cbgppeer2Addrfamilysafi", cbgppeer2Addrfamilyentry.Cbgppeer2Addrfamilysafi}
-    cbgppeer2Addrfamilyentry.EntityData.Leafs["cbgpPeer2AddrFamilyName"] = types.YLeaf{"Cbgppeer2Addrfamilyname", cbgppeer2Addrfamilyentry.Cbgppeer2Addrfamilyname}
-    return &(cbgppeer2Addrfamilyentry.EntityData)
+    cbgpPeer2AddrFamilyEntry.EntityData.Children = types.NewOrderedMap()
+    cbgpPeer2AddrFamilyEntry.EntityData.Leafs = types.NewOrderedMap()
+    cbgpPeer2AddrFamilyEntry.EntityData.Leafs.Append("cbgpPeer2Type", types.YLeaf{"CbgpPeer2Type", cbgpPeer2AddrFamilyEntry.CbgpPeer2Type})
+    cbgpPeer2AddrFamilyEntry.EntityData.Leafs.Append("cbgpPeer2RemoteAddr", types.YLeaf{"CbgpPeer2RemoteAddr", cbgpPeer2AddrFamilyEntry.CbgpPeer2RemoteAddr})
+    cbgpPeer2AddrFamilyEntry.EntityData.Leafs.Append("cbgpPeer2AddrFamilyAfi", types.YLeaf{"CbgpPeer2AddrFamilyAfi", cbgpPeer2AddrFamilyEntry.CbgpPeer2AddrFamilyAfi})
+    cbgpPeer2AddrFamilyEntry.EntityData.Leafs.Append("cbgpPeer2AddrFamilySafi", types.YLeaf{"CbgpPeer2AddrFamilySafi", cbgpPeer2AddrFamilyEntry.CbgpPeer2AddrFamilySafi})
+    cbgpPeer2AddrFamilyEntry.EntityData.Leafs.Append("cbgpPeer2AddrFamilyName", types.YLeaf{"CbgpPeer2AddrFamilyName", cbgpPeer2AddrFamilyEntry.CbgpPeer2AddrFamilyName})
+
+    cbgpPeer2AddrFamilyEntry.EntityData.YListKeys = []string {"CbgpPeer2Type", "CbgpPeer2RemoteAddr", "CbgpPeer2AddrFamilyAfi", "CbgpPeer2AddrFamilySafi"}
+
+    return &(cbgpPeer2AddrFamilyEntry.EntityData)
 }
 
-// CISCOBGP4MIB_Cbgppeer2Addrfamilyprefixtable
+// CISCOBGP4MIB_CbgpPeer2AddrFamilyPrefixTable
 // This table contains prefix related information
 // related to address families supported by a peer.
 // Supported address families of a peer are known
@@ -1276,129 +1324,135 @@ func (cbgppeer2Addrfamilyentry *CISCOBGP4MIB_Cbgppeer2Addrfamilytable_Cbgppeer2A
 // is updated with a new entry. When an address
 // family is not supported any more, corresponding
 // entry is deleted from the table.
-type CISCOBGP4MIB_Cbgppeer2Addrfamilyprefixtable struct {
+type CISCOBGP4MIB_CbgpPeer2AddrFamilyPrefixTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry is identified by an AFI/SAFI pair and peer address. It contains
     // information associated with route prefixes belonging to an address family.
     // The type is slice of
-    // CISCOBGP4MIB_Cbgppeer2Addrfamilyprefixtable_Cbgppeer2Addrfamilyprefixentry.
-    Cbgppeer2Addrfamilyprefixentry []CISCOBGP4MIB_Cbgppeer2Addrfamilyprefixtable_Cbgppeer2Addrfamilyprefixentry
+    // CISCOBGP4MIB_CbgpPeer2AddrFamilyPrefixTable_CbgpPeer2AddrFamilyPrefixEntry.
+    CbgpPeer2AddrFamilyPrefixEntry []*CISCOBGP4MIB_CbgpPeer2AddrFamilyPrefixTable_CbgpPeer2AddrFamilyPrefixEntry
 }
 
-func (cbgppeer2Addrfamilyprefixtable *CISCOBGP4MIB_Cbgppeer2Addrfamilyprefixtable) GetEntityData() *types.CommonEntityData {
-    cbgppeer2Addrfamilyprefixtable.EntityData.YFilter = cbgppeer2Addrfamilyprefixtable.YFilter
-    cbgppeer2Addrfamilyprefixtable.EntityData.YangName = "cbgpPeer2AddrFamilyPrefixTable"
-    cbgppeer2Addrfamilyprefixtable.EntityData.BundleName = "cisco_ios_xe"
-    cbgppeer2Addrfamilyprefixtable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
-    cbgppeer2Addrfamilyprefixtable.EntityData.SegmentPath = "cbgpPeer2AddrFamilyPrefixTable"
-    cbgppeer2Addrfamilyprefixtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbgppeer2Addrfamilyprefixtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbgppeer2Addrfamilyprefixtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbgpPeer2AddrFamilyPrefixTable *CISCOBGP4MIB_CbgpPeer2AddrFamilyPrefixTable) GetEntityData() *types.CommonEntityData {
+    cbgpPeer2AddrFamilyPrefixTable.EntityData.YFilter = cbgpPeer2AddrFamilyPrefixTable.YFilter
+    cbgpPeer2AddrFamilyPrefixTable.EntityData.YangName = "cbgpPeer2AddrFamilyPrefixTable"
+    cbgpPeer2AddrFamilyPrefixTable.EntityData.BundleName = "cisco_ios_xe"
+    cbgpPeer2AddrFamilyPrefixTable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
+    cbgpPeer2AddrFamilyPrefixTable.EntityData.SegmentPath = "cbgpPeer2AddrFamilyPrefixTable"
+    cbgpPeer2AddrFamilyPrefixTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbgpPeer2AddrFamilyPrefixTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbgpPeer2AddrFamilyPrefixTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbgppeer2Addrfamilyprefixtable.EntityData.Children = make(map[string]types.YChild)
-    cbgppeer2Addrfamilyprefixtable.EntityData.Children["cbgpPeer2AddrFamilyPrefixEntry"] = types.YChild{"Cbgppeer2Addrfamilyprefixentry", nil}
-    for i := range cbgppeer2Addrfamilyprefixtable.Cbgppeer2Addrfamilyprefixentry {
-        cbgppeer2Addrfamilyprefixtable.EntityData.Children[types.GetSegmentPath(&cbgppeer2Addrfamilyprefixtable.Cbgppeer2Addrfamilyprefixentry[i])] = types.YChild{"Cbgppeer2Addrfamilyprefixentry", &cbgppeer2Addrfamilyprefixtable.Cbgppeer2Addrfamilyprefixentry[i]}
+    cbgpPeer2AddrFamilyPrefixTable.EntityData.Children = types.NewOrderedMap()
+    cbgpPeer2AddrFamilyPrefixTable.EntityData.Children.Append("cbgpPeer2AddrFamilyPrefixEntry", types.YChild{"CbgpPeer2AddrFamilyPrefixEntry", nil})
+    for i := range cbgpPeer2AddrFamilyPrefixTable.CbgpPeer2AddrFamilyPrefixEntry {
+        cbgpPeer2AddrFamilyPrefixTable.EntityData.Children.Append(types.GetSegmentPath(cbgpPeer2AddrFamilyPrefixTable.CbgpPeer2AddrFamilyPrefixEntry[i]), types.YChild{"CbgpPeer2AddrFamilyPrefixEntry", cbgpPeer2AddrFamilyPrefixTable.CbgpPeer2AddrFamilyPrefixEntry[i]})
     }
-    cbgppeer2Addrfamilyprefixtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cbgppeer2Addrfamilyprefixtable.EntityData)
+    cbgpPeer2AddrFamilyPrefixTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cbgpPeer2AddrFamilyPrefixTable.EntityData.YListKeys = []string {}
+
+    return &(cbgpPeer2AddrFamilyPrefixTable.EntityData)
 }
 
-// CISCOBGP4MIB_Cbgppeer2Addrfamilyprefixtable_Cbgppeer2Addrfamilyprefixentry
+// CISCOBGP4MIB_CbgpPeer2AddrFamilyPrefixTable_CbgpPeer2AddrFamilyPrefixEntry
 // An entry is identified by an AFI/SAFI pair and
 // peer address. It contains information associated
 // with route prefixes belonging to an address family.
-type CISCOBGP4MIB_Cbgppeer2Addrfamilyprefixtable_Cbgppeer2Addrfamilyprefixentry struct {
+type CISCOBGP4MIB_CbgpPeer2AddrFamilyPrefixTable_CbgpPeer2AddrFamilyPrefixEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is InetAddressType. Refers to
-    // cisco_bgp4_mib.CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Type
-    Cbgppeer2Type interface{}
+    // cisco_bgp4_mib.CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2Type
+    CbgpPeer2Type interface{}
 
     // This attribute is a key. The type is string with length: 0..255. Refers to
-    // cisco_bgp4_mib.CISCOBGP4MIB_Cbgppeer2Table_Cbgppeer2Entry_Cbgppeer2Remoteaddr
-    Cbgppeer2Remoteaddr interface{}
+    // cisco_bgp4_mib.CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2RemoteAddr
+    CbgpPeer2RemoteAddr interface{}
 
     // This attribute is a key. The type is InetAddressType. Refers to
-    // cisco_bgp4_mib.CISCOBGP4MIB_Cbgppeer2Addrfamilytable_Cbgppeer2Addrfamilyentry_Cbgppeer2Addrfamilyafi
-    Cbgppeer2Addrfamilyafi interface{}
+    // cisco_bgp4_mib.CISCOBGP4MIB_CbgpPeer2AddrFamilyTable_CbgpPeer2AddrFamilyEntry_CbgpPeer2AddrFamilyAfi
+    CbgpPeer2AddrFamilyAfi interface{}
 
     // This attribute is a key. The type is CbgpSafi. Refers to
-    // cisco_bgp4_mib.CISCOBGP4MIB_Cbgppeer2Addrfamilytable_Cbgppeer2Addrfamilyentry_Cbgppeer2Addrfamilysafi
-    Cbgppeer2Addrfamilysafi interface{}
+    // cisco_bgp4_mib.CISCOBGP4MIB_CbgpPeer2AddrFamilyTable_CbgpPeer2AddrFamilyEntry_CbgpPeer2AddrFamilySafi
+    CbgpPeer2AddrFamilySafi interface{}
 
     // Number of accepted route prefixes on this connection, which belong to an
     // address family. The type is interface{} with range: 0..4294967295.
-    Cbgppeer2Acceptedprefixes interface{}
+    CbgpPeer2AcceptedPrefixes interface{}
 
     // This counter is incremented when a route prefix, which belongs to an
     // address family, received on this connection is denied. It is initialized to
     // zero when the connection is undergone a hard reset. The type is interface{}
     // with range: 0..4294967295.
-    Cbgppeer2Deniedprefixes interface{}
+    CbgpPeer2DeniedPrefixes interface{}
 
     // Max number of route prefixes accepted for an address family on this
     // connection. The type is interface{} with range: 1..4294967295.
-    Cbgppeer2Prefixadminlimit interface{}
+    CbgpPeer2PrefixAdminLimit interface{}
 
     // Prefix threshold value (%) for an address family on this connection at
     // which warning message stating the prefix count is crossed the threshold or
     // corresponding SNMP notification is generated. The type is interface{} with
     // range: 1..100. Units are percent.
-    Cbgppeer2Prefixthreshold interface{}
+    CbgpPeer2PrefixThreshold interface{}
 
     // Prefix threshold value (%) for an address family on this connection at
     // which SNMP clear notification is generated if prefix threshold notification
     // is already generated. The type is interface{} with range: 1..100. Units are
     // percent.
-    Cbgppeer2Prefixclearthreshold interface{}
+    CbgpPeer2PrefixClearThreshold interface{}
 
     // This counter is incremented when a route prefix, which belongs to an
     // address family is advertised on this connection. It is initialized to zero
     // when the connection is undergone a hard reset. The type is interface{} with
     // range: 0..4294967295.
-    Cbgppeer2Advertisedprefixes interface{}
+    CbgpPeer2AdvertisedPrefixes interface{}
 
     // This counter is incremented when a route prefix, which belongs to an
     // address family is suppressed from being sent on this connection. It is
     // initialized to zero when the connection is undergone a hard reset. The type
     // is interface{} with range: 0..4294967295.
-    Cbgppeer2Suppressedprefixes interface{}
+    CbgpPeer2SuppressedPrefixes interface{}
 
     // This counter is incremented when a route prefix, which belongs to an
     // address family, is withdrawn on this connection. It is initialized to zero
     // when the connection is undergone a hard reset. The type is interface{} with
     // range: 0..4294967295.
-    Cbgppeer2Withdrawnprefixes interface{}
+    CbgpPeer2WithdrawnPrefixes interface{}
 }
 
-func (cbgppeer2Addrfamilyprefixentry *CISCOBGP4MIB_Cbgppeer2Addrfamilyprefixtable_Cbgppeer2Addrfamilyprefixentry) GetEntityData() *types.CommonEntityData {
-    cbgppeer2Addrfamilyprefixentry.EntityData.YFilter = cbgppeer2Addrfamilyprefixentry.YFilter
-    cbgppeer2Addrfamilyprefixentry.EntityData.YangName = "cbgpPeer2AddrFamilyPrefixEntry"
-    cbgppeer2Addrfamilyprefixentry.EntityData.BundleName = "cisco_ios_xe"
-    cbgppeer2Addrfamilyprefixentry.EntityData.ParentYangName = "cbgpPeer2AddrFamilyPrefixTable"
-    cbgppeer2Addrfamilyprefixentry.EntityData.SegmentPath = "cbgpPeer2AddrFamilyPrefixEntry" + "[cbgpPeer2Type='" + fmt.Sprintf("%v", cbgppeer2Addrfamilyprefixentry.Cbgppeer2Type) + "']" + "[cbgpPeer2RemoteAddr='" + fmt.Sprintf("%v", cbgppeer2Addrfamilyprefixentry.Cbgppeer2Remoteaddr) + "']" + "[cbgpPeer2AddrFamilyAfi='" + fmt.Sprintf("%v", cbgppeer2Addrfamilyprefixentry.Cbgppeer2Addrfamilyafi) + "']" + "[cbgpPeer2AddrFamilySafi='" + fmt.Sprintf("%v", cbgppeer2Addrfamilyprefixentry.Cbgppeer2Addrfamilysafi) + "']"
-    cbgppeer2Addrfamilyprefixentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cbgppeer2Addrfamilyprefixentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cbgppeer2Addrfamilyprefixentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cbgpPeer2AddrFamilyPrefixEntry *CISCOBGP4MIB_CbgpPeer2AddrFamilyPrefixTable_CbgpPeer2AddrFamilyPrefixEntry) GetEntityData() *types.CommonEntityData {
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.YFilter = cbgpPeer2AddrFamilyPrefixEntry.YFilter
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.YangName = "cbgpPeer2AddrFamilyPrefixEntry"
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.BundleName = "cisco_ios_xe"
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.ParentYangName = "cbgpPeer2AddrFamilyPrefixTable"
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.SegmentPath = "cbgpPeer2AddrFamilyPrefixEntry" + types.AddKeyToken(cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2Type, "cbgpPeer2Type") + types.AddKeyToken(cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2RemoteAddr, "cbgpPeer2RemoteAddr") + types.AddKeyToken(cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2AddrFamilyAfi, "cbgpPeer2AddrFamilyAfi") + types.AddKeyToken(cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2AddrFamilySafi, "cbgpPeer2AddrFamilySafi")
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cbgppeer2Addrfamilyprefixentry.EntityData.Children = make(map[string]types.YChild)
-    cbgppeer2Addrfamilyprefixentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cbgppeer2Addrfamilyprefixentry.EntityData.Leafs["cbgpPeer2Type"] = types.YLeaf{"Cbgppeer2Type", cbgppeer2Addrfamilyprefixentry.Cbgppeer2Type}
-    cbgppeer2Addrfamilyprefixentry.EntityData.Leafs["cbgpPeer2RemoteAddr"] = types.YLeaf{"Cbgppeer2Remoteaddr", cbgppeer2Addrfamilyprefixentry.Cbgppeer2Remoteaddr}
-    cbgppeer2Addrfamilyprefixentry.EntityData.Leafs["cbgpPeer2AddrFamilyAfi"] = types.YLeaf{"Cbgppeer2Addrfamilyafi", cbgppeer2Addrfamilyprefixentry.Cbgppeer2Addrfamilyafi}
-    cbgppeer2Addrfamilyprefixentry.EntityData.Leafs["cbgpPeer2AddrFamilySafi"] = types.YLeaf{"Cbgppeer2Addrfamilysafi", cbgppeer2Addrfamilyprefixentry.Cbgppeer2Addrfamilysafi}
-    cbgppeer2Addrfamilyprefixentry.EntityData.Leafs["cbgpPeer2AcceptedPrefixes"] = types.YLeaf{"Cbgppeer2Acceptedprefixes", cbgppeer2Addrfamilyprefixentry.Cbgppeer2Acceptedprefixes}
-    cbgppeer2Addrfamilyprefixentry.EntityData.Leafs["cbgpPeer2DeniedPrefixes"] = types.YLeaf{"Cbgppeer2Deniedprefixes", cbgppeer2Addrfamilyprefixentry.Cbgppeer2Deniedprefixes}
-    cbgppeer2Addrfamilyprefixentry.EntityData.Leafs["cbgpPeer2PrefixAdminLimit"] = types.YLeaf{"Cbgppeer2Prefixadminlimit", cbgppeer2Addrfamilyprefixentry.Cbgppeer2Prefixadminlimit}
-    cbgppeer2Addrfamilyprefixentry.EntityData.Leafs["cbgpPeer2PrefixThreshold"] = types.YLeaf{"Cbgppeer2Prefixthreshold", cbgppeer2Addrfamilyprefixentry.Cbgppeer2Prefixthreshold}
-    cbgppeer2Addrfamilyprefixentry.EntityData.Leafs["cbgpPeer2PrefixClearThreshold"] = types.YLeaf{"Cbgppeer2Prefixclearthreshold", cbgppeer2Addrfamilyprefixentry.Cbgppeer2Prefixclearthreshold}
-    cbgppeer2Addrfamilyprefixentry.EntityData.Leafs["cbgpPeer2AdvertisedPrefixes"] = types.YLeaf{"Cbgppeer2Advertisedprefixes", cbgppeer2Addrfamilyprefixentry.Cbgppeer2Advertisedprefixes}
-    cbgppeer2Addrfamilyprefixentry.EntityData.Leafs["cbgpPeer2SuppressedPrefixes"] = types.YLeaf{"Cbgppeer2Suppressedprefixes", cbgppeer2Addrfamilyprefixentry.Cbgppeer2Suppressedprefixes}
-    cbgppeer2Addrfamilyprefixentry.EntityData.Leafs["cbgpPeer2WithdrawnPrefixes"] = types.YLeaf{"Cbgppeer2Withdrawnprefixes", cbgppeer2Addrfamilyprefixentry.Cbgppeer2Withdrawnprefixes}
-    return &(cbgppeer2Addrfamilyprefixentry.EntityData)
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.Children = types.NewOrderedMap()
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.Leafs = types.NewOrderedMap()
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeer2Type", types.YLeaf{"CbgpPeer2Type", cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2Type})
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeer2RemoteAddr", types.YLeaf{"CbgpPeer2RemoteAddr", cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2RemoteAddr})
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeer2AddrFamilyAfi", types.YLeaf{"CbgpPeer2AddrFamilyAfi", cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2AddrFamilyAfi})
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeer2AddrFamilySafi", types.YLeaf{"CbgpPeer2AddrFamilySafi", cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2AddrFamilySafi})
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeer2AcceptedPrefixes", types.YLeaf{"CbgpPeer2AcceptedPrefixes", cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2AcceptedPrefixes})
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeer2DeniedPrefixes", types.YLeaf{"CbgpPeer2DeniedPrefixes", cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2DeniedPrefixes})
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeer2PrefixAdminLimit", types.YLeaf{"CbgpPeer2PrefixAdminLimit", cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2PrefixAdminLimit})
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeer2PrefixThreshold", types.YLeaf{"CbgpPeer2PrefixThreshold", cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2PrefixThreshold})
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeer2PrefixClearThreshold", types.YLeaf{"CbgpPeer2PrefixClearThreshold", cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2PrefixClearThreshold})
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeer2AdvertisedPrefixes", types.YLeaf{"CbgpPeer2AdvertisedPrefixes", cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2AdvertisedPrefixes})
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeer2SuppressedPrefixes", types.YLeaf{"CbgpPeer2SuppressedPrefixes", cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2SuppressedPrefixes})
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.Leafs.Append("cbgpPeer2WithdrawnPrefixes", types.YLeaf{"CbgpPeer2WithdrawnPrefixes", cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2WithdrawnPrefixes})
+
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.YListKeys = []string {"CbgpPeer2Type", "CbgpPeer2RemoteAddr", "CbgpPeer2AddrFamilyAfi", "CbgpPeer2AddrFamilySafi"}
+
+    return &(cbgpPeer2AddrFamilyPrefixEntry.EntityData)
 }
 

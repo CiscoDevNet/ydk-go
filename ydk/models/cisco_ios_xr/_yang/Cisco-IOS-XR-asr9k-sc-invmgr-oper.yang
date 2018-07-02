@@ -55,7 +55,7 @@ module Cisco-IOS-XR-asr9k-sc-invmgr-oper {
           uses BASIC-ATTRIBUTES;
         }
         leaf number {
-          type int32;
+          type uint32;
           description
             "portslot number";
         }
@@ -76,7 +76,7 @@ module Cisco-IOS-XR-asr9k-sc-invmgr-oper {
         description
           "Sensor number in the Module";
         leaf number {
-          type int32;
+          type uint32;
           description
             "sensor number";
         }
@@ -147,7 +147,7 @@ module Cisco-IOS-XR-asr9k-sc-invmgr-oper {
                       uses BASIC-ATTRIBUTES;
                     }
                     leaf number {
-                      type int32;
+                      type uint32;
                       description
                         "subslot number";
                     }
@@ -163,7 +163,7 @@ module Cisco-IOS-XR-asr9k-sc-invmgr-oper {
                     description
                       "HWComponent number";
                     leaf number {
-                      type int32;
+                      type uint32;
                       description
                         "node number";
                     }
@@ -172,7 +172,7 @@ module Cisco-IOS-XR-asr9k-sc-invmgr-oper {
                   }
                 }
                 leaf number {
-                  type int32;
+                  type uint32;
                   description
                     "card number";
                 }
@@ -182,7 +182,7 @@ module Cisco-IOS-XR-asr9k-sc-invmgr-oper {
               }
             }
             leaf number {
-              type int32;
+              type uint32;
               description
                 "Slot number";
             }
@@ -190,7 +190,7 @@ module Cisco-IOS-XR-asr9k-sc-invmgr-oper {
           }
         }
         leaf number {
-          type int32;
+          type uint32;
           description
             "Rack number";
         }

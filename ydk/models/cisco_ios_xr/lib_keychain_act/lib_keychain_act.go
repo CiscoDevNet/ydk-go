@@ -44,9 +44,12 @@ func (masterKeyAdd *MasterKeyAdd) GetEntityData() *types.CommonEntityData {
     masterKeyAdd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     masterKeyAdd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    masterKeyAdd.EntityData.Children = make(map[string]types.YChild)
-    masterKeyAdd.EntityData.Children["input"] = types.YChild{"Input", &masterKeyAdd.Input}
-    masterKeyAdd.EntityData.Leafs = make(map[string]types.YLeaf)
+    masterKeyAdd.EntityData.Children = types.NewOrderedMap()
+    masterKeyAdd.EntityData.Children.Append("input", types.YChild{"Input", &masterKeyAdd.Input})
+    masterKeyAdd.EntityData.Leafs = types.NewOrderedMap()
+
+    masterKeyAdd.EntityData.YListKeys = []string {}
+
     return &(masterKeyAdd.EntityData)
 }
 
@@ -69,9 +72,12 @@ func (input *MasterKeyAdd_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["new-key"] = types.YLeaf{"NewKey", input.NewKey}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("new-key", types.YLeaf{"NewKey", input.NewKey})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -92,8 +98,11 @@ func (masterKeyDelete *MasterKeyDelete) GetEntityData() *types.CommonEntityData 
     masterKeyDelete.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     masterKeyDelete.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    masterKeyDelete.EntityData.Children = make(map[string]types.YChild)
-    masterKeyDelete.EntityData.Leafs = make(map[string]types.YLeaf)
+    masterKeyDelete.EntityData.Children = types.NewOrderedMap()
+    masterKeyDelete.EntityData.Leafs = types.NewOrderedMap()
+
+    masterKeyDelete.EntityData.YListKeys = []string {}
+
     return &(masterKeyDelete.EntityData)
 }
 
@@ -117,9 +126,12 @@ func (masterKeyUpdate *MasterKeyUpdate) GetEntityData() *types.CommonEntityData 
     masterKeyUpdate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     masterKeyUpdate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    masterKeyUpdate.EntityData.Children = make(map[string]types.YChild)
-    masterKeyUpdate.EntityData.Children["input"] = types.YChild{"Input", &masterKeyUpdate.Input}
-    masterKeyUpdate.EntityData.Leafs = make(map[string]types.YLeaf)
+    masterKeyUpdate.EntityData.Children = types.NewOrderedMap()
+    masterKeyUpdate.EntityData.Children.Append("input", types.YChild{"Input", &masterKeyUpdate.Input})
+    masterKeyUpdate.EntityData.Leafs = types.NewOrderedMap()
+
+    masterKeyUpdate.EntityData.YListKeys = []string {}
+
     return &(masterKeyUpdate.EntityData)
 }
 
@@ -147,10 +159,13 @@ func (input *MasterKeyUpdate_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["old-key"] = types.YLeaf{"OldKey", input.OldKey}
-    input.EntityData.Leafs["new-key"] = types.YLeaf{"NewKey", input.NewKey}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("old-key", types.YLeaf{"OldKey", input.OldKey})
+    input.EntityData.Leafs.Append("new-key", types.YLeaf{"NewKey", input.NewKey})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 

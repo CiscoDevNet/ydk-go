@@ -46,10 +46,6 @@ type Lldp struct {
     // bool. The default value is false.
     EnableSubintf interface{}
 
-    // Enable or disable LLDP on Mgmt interfaces as well globally. The type is
-    // bool. The default value is false.
-    EnableMgmtintf interface{}
-
     // Specify the rate at which LLDP packets are sent (in sec). The type is
     // interface{} with range: 5..65534. The default value is 30.
     Timer interface{}
@@ -76,16 +72,18 @@ func (lldp *Lldp) GetEntityData() *types.CommonEntityData {
     lldp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lldp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lldp.EntityData.Children = make(map[string]types.YChild)
-    lldp.EntityData.Children["tlv-select"] = types.YChild{"TlvSelect", &lldp.TlvSelect}
-    lldp.EntityData.Leafs = make(map[string]types.YLeaf)
-    lldp.EntityData.Leafs["holdtime"] = types.YLeaf{"Holdtime", lldp.Holdtime}
-    lldp.EntityData.Leafs["extended-show-width"] = types.YLeaf{"ExtendedShowWidth", lldp.ExtendedShowWidth}
-    lldp.EntityData.Leafs["enable-subintf"] = types.YLeaf{"EnableSubintf", lldp.EnableSubintf}
-    lldp.EntityData.Leafs["enable-mgmtintf"] = types.YLeaf{"EnableMgmtintf", lldp.EnableMgmtintf}
-    lldp.EntityData.Leafs["timer"] = types.YLeaf{"Timer", lldp.Timer}
-    lldp.EntityData.Leafs["reinit"] = types.YLeaf{"Reinit", lldp.Reinit}
-    lldp.EntityData.Leafs["enable"] = types.YLeaf{"Enable", lldp.Enable}
+    lldp.EntityData.Children = types.NewOrderedMap()
+    lldp.EntityData.Children.Append("tlv-select", types.YChild{"TlvSelect", &lldp.TlvSelect})
+    lldp.EntityData.Leafs = types.NewOrderedMap()
+    lldp.EntityData.Leafs.Append("holdtime", types.YLeaf{"Holdtime", lldp.Holdtime})
+    lldp.EntityData.Leafs.Append("extended-show-width", types.YLeaf{"ExtendedShowWidth", lldp.ExtendedShowWidth})
+    lldp.EntityData.Leafs.Append("enable-subintf", types.YLeaf{"EnableSubintf", lldp.EnableSubintf})
+    lldp.EntityData.Leafs.Append("timer", types.YLeaf{"Timer", lldp.Timer})
+    lldp.EntityData.Leafs.Append("reinit", types.YLeaf{"Reinit", lldp.Reinit})
+    lldp.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", lldp.Enable})
+
+    lldp.EntityData.YListKeys = []string {}
+
     return &(lldp.EntityData)
 }
 
@@ -95,6 +93,7 @@ func (lldp *Lldp) GetEntityData() *types.CommonEntityData {
 type Lldp_TlvSelect struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // enter lldp tlv-select submode. The type is bool. This attribute is
     // mandatory.
@@ -126,14 +125,17 @@ func (tlvSelect *Lldp_TlvSelect) GetEntityData() *types.CommonEntityData {
     tlvSelect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tlvSelect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tlvSelect.EntityData.Children = make(map[string]types.YChild)
-    tlvSelect.EntityData.Children["system-name"] = types.YChild{"SystemName", &tlvSelect.SystemName}
-    tlvSelect.EntityData.Children["port-description"] = types.YChild{"PortDescription", &tlvSelect.PortDescription}
-    tlvSelect.EntityData.Children["system-description"] = types.YChild{"SystemDescription", &tlvSelect.SystemDescription}
-    tlvSelect.EntityData.Children["system-capabilities"] = types.YChild{"SystemCapabilities", &tlvSelect.SystemCapabilities}
-    tlvSelect.EntityData.Children["management-address"] = types.YChild{"ManagementAddress", &tlvSelect.ManagementAddress}
-    tlvSelect.EntityData.Leafs = make(map[string]types.YLeaf)
-    tlvSelect.EntityData.Leafs["tlv-select-enter"] = types.YLeaf{"TlvSelectEnter", tlvSelect.TlvSelectEnter}
+    tlvSelect.EntityData.Children = types.NewOrderedMap()
+    tlvSelect.EntityData.Children.Append("system-name", types.YChild{"SystemName", &tlvSelect.SystemName})
+    tlvSelect.EntityData.Children.Append("port-description", types.YChild{"PortDescription", &tlvSelect.PortDescription})
+    tlvSelect.EntityData.Children.Append("system-description", types.YChild{"SystemDescription", &tlvSelect.SystemDescription})
+    tlvSelect.EntityData.Children.Append("system-capabilities", types.YChild{"SystemCapabilities", &tlvSelect.SystemCapabilities})
+    tlvSelect.EntityData.Children.Append("management-address", types.YChild{"ManagementAddress", &tlvSelect.ManagementAddress})
+    tlvSelect.EntityData.Leafs = types.NewOrderedMap()
+    tlvSelect.EntityData.Leafs.Append("tlv-select-enter", types.YLeaf{"TlvSelectEnter", tlvSelect.TlvSelectEnter})
+
+    tlvSelect.EntityData.YListKeys = []string {}
+
     return &(tlvSelect.EntityData)
 }
 
@@ -157,9 +159,12 @@ func (systemName *Lldp_TlvSelect_SystemName) GetEntityData() *types.CommonEntity
     systemName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    systemName.EntityData.Children = make(map[string]types.YChild)
-    systemName.EntityData.Leafs = make(map[string]types.YLeaf)
-    systemName.EntityData.Leafs["disable"] = types.YLeaf{"Disable", systemName.Disable}
+    systemName.EntityData.Children = types.NewOrderedMap()
+    systemName.EntityData.Leafs = types.NewOrderedMap()
+    systemName.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", systemName.Disable})
+
+    systemName.EntityData.YListKeys = []string {}
+
     return &(systemName.EntityData)
 }
 
@@ -183,9 +188,12 @@ func (portDescription *Lldp_TlvSelect_PortDescription) GetEntityData() *types.Co
     portDescription.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portDescription.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    portDescription.EntityData.Children = make(map[string]types.YChild)
-    portDescription.EntityData.Leafs = make(map[string]types.YLeaf)
-    portDescription.EntityData.Leafs["disable"] = types.YLeaf{"Disable", portDescription.Disable}
+    portDescription.EntityData.Children = types.NewOrderedMap()
+    portDescription.EntityData.Leafs = types.NewOrderedMap()
+    portDescription.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", portDescription.Disable})
+
+    portDescription.EntityData.YListKeys = []string {}
+
     return &(portDescription.EntityData)
 }
 
@@ -210,9 +218,12 @@ func (systemDescription *Lldp_TlvSelect_SystemDescription) GetEntityData() *type
     systemDescription.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemDescription.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    systemDescription.EntityData.Children = make(map[string]types.YChild)
-    systemDescription.EntityData.Leafs = make(map[string]types.YLeaf)
-    systemDescription.EntityData.Leafs["disable"] = types.YLeaf{"Disable", systemDescription.Disable}
+    systemDescription.EntityData.Children = types.NewOrderedMap()
+    systemDescription.EntityData.Leafs = types.NewOrderedMap()
+    systemDescription.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", systemDescription.Disable})
+
+    systemDescription.EntityData.YListKeys = []string {}
+
     return &(systemDescription.EntityData)
 }
 
@@ -237,9 +248,12 @@ func (systemCapabilities *Lldp_TlvSelect_SystemCapabilities) GetEntityData() *ty
     systemCapabilities.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemCapabilities.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    systemCapabilities.EntityData.Children = make(map[string]types.YChild)
-    systemCapabilities.EntityData.Leafs = make(map[string]types.YLeaf)
-    systemCapabilities.EntityData.Leafs["disable"] = types.YLeaf{"Disable", systemCapabilities.Disable}
+    systemCapabilities.EntityData.Children = types.NewOrderedMap()
+    systemCapabilities.EntityData.Leafs = types.NewOrderedMap()
+    systemCapabilities.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", systemCapabilities.Disable})
+
+    systemCapabilities.EntityData.YListKeys = []string {}
+
     return &(systemCapabilities.EntityData)
 }
 
@@ -264,9 +278,12 @@ func (managementAddress *Lldp_TlvSelect_ManagementAddress) GetEntityData() *type
     managementAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     managementAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    managementAddress.EntityData.Children = make(map[string]types.YChild)
-    managementAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    managementAddress.EntityData.Leafs["disable"] = types.YLeaf{"Disable", managementAddress.Disable}
+    managementAddress.EntityData.Children = types.NewOrderedMap()
+    managementAddress.EntityData.Leafs = types.NewOrderedMap()
+    managementAddress.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", managementAddress.Disable})
+
+    managementAddress.EntityData.YListKeys = []string {}
+
     return &(managementAddress.EntityData)
 }
 

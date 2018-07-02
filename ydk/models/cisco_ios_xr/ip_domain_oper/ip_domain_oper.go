@@ -76,9 +76,12 @@ func (ipDomain *IpDomain) GetEntityData() *types.CommonEntityData {
     ipDomain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDomain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipDomain.EntityData.Children = make(map[string]types.YChild)
-    ipDomain.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &ipDomain.Vrfs}
-    ipDomain.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipDomain.EntityData.Children = types.NewOrderedMap()
+    ipDomain.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &ipDomain.Vrfs})
+    ipDomain.EntityData.Leafs = types.NewOrderedMap()
+
+    ipDomain.EntityData.YListKeys = []string {}
+
     return &(ipDomain.EntityData)
 }
 
@@ -89,7 +92,7 @@ type IpDomain_Vrfs struct {
     YFilter yfilter.YFilter
 
     // VRF instance. The type is slice of IpDomain_Vrfs_Vrf.
-    Vrf []IpDomain_Vrfs_Vrf
+    Vrf []*IpDomain_Vrfs_Vrf
 }
 
 func (vrfs *IpDomain_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -102,12 +105,15 @@ func (vrfs *IpDomain_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -118,7 +124,7 @@ type IpDomain_Vrfs_Vrf struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Domain server data.
@@ -133,16 +139,19 @@ func (vrf *IpDomain_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["server"] = types.YChild{"Server", &vrf.Server}
-    vrf.EntityData.Children["hosts"] = types.YChild{"Hosts", &vrf.Hosts}
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("server", types.YChild{"Server", &vrf.Server})
+    vrf.EntityData.Children.Append("hosts", types.YChild{"Hosts", &vrf.Hosts})
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -163,7 +172,7 @@ type IpDomain_Vrfs_Vrf_Server struct {
 
     // Server address list. The type is slice of
     // IpDomain_Vrfs_Vrf_Server_ServerAddress.
-    ServerAddress []IpDomain_Vrfs_Vrf_Server_ServerAddress
+    ServerAddress []*IpDomain_Vrfs_Vrf_Server_ServerAddress
 }
 
 func (server *IpDomain_Vrfs_Vrf_Server) GetEntityData() *types.CommonEntityData {
@@ -176,15 +185,18 @@ func (server *IpDomain_Vrfs_Vrf_Server) GetEntityData() *types.CommonEntityData 
     server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    server.EntityData.Children = make(map[string]types.YChild)
-    server.EntityData.Children["server-address"] = types.YChild{"ServerAddress", nil}
+    server.EntityData.Children = types.NewOrderedMap()
+    server.EntityData.Children.Append("server-address", types.YChild{"ServerAddress", nil})
     for i := range server.ServerAddress {
-        server.EntityData.Children[types.GetSegmentPath(&server.ServerAddress[i])] = types.YChild{"ServerAddress", &server.ServerAddress[i]}
+        server.EntityData.Children.Append(types.GetSegmentPath(server.ServerAddress[i]), types.YChild{"ServerAddress", server.ServerAddress[i]})
     }
-    server.EntityData.Leafs = make(map[string]types.YLeaf)
-    server.EntityData.Leafs["domain-lookup"] = types.YLeaf{"DomainLookup", server.DomainLookup}
-    server.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", server.DomainName}
-    server.EntityData.Leafs["domain"] = types.YLeaf{"Domain", server.Domain}
+    server.EntityData.Leafs = types.NewOrderedMap()
+    server.EntityData.Leafs.Append("domain-lookup", types.YLeaf{"DomainLookup", server.DomainLookup})
+    server.EntityData.Leafs.Append("domain-name", types.YLeaf{"DomainName", server.DomainName})
+    server.EntityData.Leafs.Append("domain", types.YLeaf{"Domain", server.Domain})
+
+    server.EntityData.YListKeys = []string {}
+
     return &(server.EntityData)
 }
 
@@ -198,11 +210,11 @@ type IpDomain_Vrfs_Vrf_Server_ServerAddress struct {
     AfName interface{}
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -216,11 +228,14 @@ func (serverAddress *IpDomain_Vrfs_Vrf_Server_ServerAddress) GetEntityData() *ty
     serverAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serverAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    serverAddress.EntityData.Children = make(map[string]types.YChild)
-    serverAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    serverAddress.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", serverAddress.AfName}
-    serverAddress.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", serverAddress.Ipv4Address}
-    serverAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", serverAddress.Ipv6Address}
+    serverAddress.EntityData.Children = types.NewOrderedMap()
+    serverAddress.EntityData.Leafs = types.NewOrderedMap()
+    serverAddress.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", serverAddress.AfName})
+    serverAddress.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", serverAddress.Ipv4Address})
+    serverAddress.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", serverAddress.Ipv6Address})
+
+    serverAddress.EntityData.YListKeys = []string {}
+
     return &(serverAddress.EntityData)
 }
 
@@ -232,7 +247,7 @@ type IpDomain_Vrfs_Vrf_Hosts struct {
 
     // IP domain-name, lookup style, nameservers for specific host. The type is
     // slice of IpDomain_Vrfs_Vrf_Hosts_Host.
-    Host []IpDomain_Vrfs_Vrf_Hosts_Host
+    Host []*IpDomain_Vrfs_Vrf_Hosts_Host
 }
 
 func (hosts *IpDomain_Vrfs_Vrf_Hosts) GetEntityData() *types.CommonEntityData {
@@ -245,12 +260,15 @@ func (hosts *IpDomain_Vrfs_Vrf_Hosts) GetEntityData() *types.CommonEntityData {
     hosts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hosts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hosts.EntityData.Children = make(map[string]types.YChild)
-    hosts.EntityData.Children["host"] = types.YChild{"Host", nil}
+    hosts.EntityData.Children = types.NewOrderedMap()
+    hosts.EntityData.Children.Append("host", types.YChild{"Host", nil})
     for i := range hosts.Host {
-        hosts.EntityData.Children[types.GetSegmentPath(&hosts.Host[i])] = types.YChild{"Host", &hosts.Host[i]}
+        hosts.EntityData.Children.Append(types.GetSegmentPath(hosts.Host[i]), types.YChild{"Host", hosts.Host[i]})
     }
-    hosts.EntityData.Leafs = make(map[string]types.YLeaf)
+    hosts.EntityData.Leafs = types.NewOrderedMap()
+
+    hosts.EntityData.YListKeys = []string {}
+
     return &(hosts.EntityData)
 }
 
@@ -275,7 +293,7 @@ type IpDomain_Vrfs_Vrf_Hosts_Host struct {
 
     // Host address list. The type is slice of
     // IpDomain_Vrfs_Vrf_Hosts_Host_HostAddress.
-    HostAddress []IpDomain_Vrfs_Vrf_Hosts_Host_HostAddress
+    HostAddress []*IpDomain_Vrfs_Vrf_Hosts_Host_HostAddress
 }
 
 func (host *IpDomain_Vrfs_Vrf_Hosts_Host) GetEntityData() *types.CommonEntityData {
@@ -283,21 +301,24 @@ func (host *IpDomain_Vrfs_Vrf_Hosts_Host) GetEntityData() *types.CommonEntityDat
     host.EntityData.YangName = "host"
     host.EntityData.BundleName = "cisco_ios_xr"
     host.EntityData.ParentYangName = "hosts"
-    host.EntityData.SegmentPath = "host" + "[host-name='" + fmt.Sprintf("%v", host.HostName) + "']"
+    host.EntityData.SegmentPath = "host" + types.AddKeyToken(host.HostName, "host-name")
     host.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     host.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     host.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    host.EntityData.Children = make(map[string]types.YChild)
-    host.EntityData.Children["host-alias-list"] = types.YChild{"HostAliasList", &host.HostAliasList}
-    host.EntityData.Children["host-address"] = types.YChild{"HostAddress", nil}
+    host.EntityData.Children = types.NewOrderedMap()
+    host.EntityData.Children.Append("host-alias-list", types.YChild{"HostAliasList", &host.HostAliasList})
+    host.EntityData.Children.Append("host-address", types.YChild{"HostAddress", nil})
     for i := range host.HostAddress {
-        host.EntityData.Children[types.GetSegmentPath(&host.HostAddress[i])] = types.YChild{"HostAddress", &host.HostAddress[i]}
+        host.EntityData.Children.Append(types.GetSegmentPath(host.HostAddress[i]), types.YChild{"HostAddress", host.HostAddress[i]})
     }
-    host.EntityData.Leafs = make(map[string]types.YLeaf)
-    host.EntityData.Leafs["host-name"] = types.YLeaf{"HostName", host.HostName}
-    host.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", host.AfName}
-    host.EntityData.Leafs["age"] = types.YLeaf{"Age", host.Age}
+    host.EntityData.Leafs = types.NewOrderedMap()
+    host.EntityData.Leafs.Append("host-name", types.YLeaf{"HostName", host.HostName})
+    host.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", host.AfName})
+    host.EntityData.Leafs.Append("age", types.YLeaf{"Age", host.Age})
+
+    host.EntityData.YListKeys = []string {"HostName"}
+
     return &(host.EntityData)
 }
 
@@ -321,9 +342,12 @@ func (hostAliasList *IpDomain_Vrfs_Vrf_Hosts_Host_HostAliasList) GetEntityData()
     hostAliasList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hostAliasList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hostAliasList.EntityData.Children = make(map[string]types.YChild)
-    hostAliasList.EntityData.Leafs = make(map[string]types.YLeaf)
-    hostAliasList.EntityData.Leafs["host-alias"] = types.YLeaf{"HostAlias", hostAliasList.HostAlias}
+    hostAliasList.EntityData.Children = types.NewOrderedMap()
+    hostAliasList.EntityData.Leafs = types.NewOrderedMap()
+    hostAliasList.EntityData.Leafs.Append("host-alias", types.YLeaf{"HostAlias", hostAliasList.HostAlias})
+
+    hostAliasList.EntityData.YListKeys = []string {}
+
     return &(hostAliasList.EntityData)
 }
 
@@ -337,11 +361,11 @@ type IpDomain_Vrfs_Vrf_Hosts_Host_HostAddress struct {
     AfName interface{}
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -355,11 +379,14 @@ func (hostAddress *IpDomain_Vrfs_Vrf_Hosts_Host_HostAddress) GetEntityData() *ty
     hostAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hostAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    hostAddress.EntityData.Children = make(map[string]types.YChild)
-    hostAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    hostAddress.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", hostAddress.AfName}
-    hostAddress.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", hostAddress.Ipv4Address}
-    hostAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", hostAddress.Ipv6Address}
+    hostAddress.EntityData.Children = types.NewOrderedMap()
+    hostAddress.EntityData.Leafs = types.NewOrderedMap()
+    hostAddress.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", hostAddress.AfName})
+    hostAddress.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", hostAddress.Ipv4Address})
+    hostAddress.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", hostAddress.Ipv6Address})
+
+    hostAddress.EntityData.YListKeys = []string {}
+
     return &(hostAddress.EntityData)
 }
 

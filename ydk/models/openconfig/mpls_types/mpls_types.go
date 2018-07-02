@@ -10,116 +10,11 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package mpls_types"))
 }
 
-type PathSetupProtocol struct {
+type LSPMETRICINHERITED struct {
 }
 
-func (id PathSetupProtocol) String() string {
-	return "openconfig-mpls-types:path-setup-protocol"
-}
-
-type PathSetupRsvp struct {
-}
-
-func (id PathSetupRsvp) String() string {
-	return "openconfig-mpls-types:path-setup-rsvp"
-}
-
-type PathSetupSr struct {
-}
-
-func (id PathSetupSr) String() string {
-	return "openconfig-mpls-types:path-setup-sr"
-}
-
-type PathSetupLdp struct {
-}
-
-func (id PathSetupLdp) String() string {
-	return "openconfig-mpls-types:path-setup-ldp"
-}
-
-type ProtectionType struct {
-}
-
-func (id ProtectionType) String() string {
-	return "openconfig-mpls-types:protection-type"
-}
-
-type Unprotected struct {
-}
-
-func (id Unprotected) String() string {
-	return "openconfig-mpls-types:unprotected"
-}
-
-type LinkProtectionRequested struct {
-}
-
-func (id LinkProtectionRequested) String() string {
-	return "openconfig-mpls-types:link-protection-requested"
-}
-
-type LinkNodeProtectionRequested struct {
-}
-
-func (id LinkNodeProtectionRequested) String() string {
-	return "openconfig-mpls-types:link-node-protection-requested"
-}
-
-type LspRole struct {
-}
-
-func (id LspRole) String() string {
-	return "openconfig-mpls-types:lsp-role"
-}
-
-type INGRESS struct {
-}
-
-func (id INGRESS) String() string {
-	return "openconfig-mpls-types:INGRESS"
-}
-
-type EGRESS struct {
-}
-
-func (id EGRESS) String() string {
-	return "openconfig-mpls-types:EGRESS"
-}
-
-type TRANSIT struct {
-}
-
-func (id TRANSIT) String() string {
-	return "openconfig-mpls-types:TRANSIT"
-}
-
-type TunnelType struct {
-}
-
-func (id TunnelType) String() string {
-	return "openconfig-mpls-types:tunnel-type"
-}
-
-type P2P struct {
-}
-
-func (id P2P) String() string {
-	return "openconfig-mpls-types:P2P"
-}
-
-type P2MP struct {
-}
-
-func (id P2MP) String() string {
-	return "openconfig-mpls-types:P2MP"
-}
-
-type LspOperStatus struct {
-}
-
-func (id LspOperStatus) String() string {
-	return "openconfig-mpls-types:lsp-oper-status"
+func (id LSPMETRICINHERITED) String() string {
+	return "openconfig-mpls-types:LSP_METRIC_INHERITED"
 }
 
 type DOWN struct {
@@ -129,39 +24,53 @@ func (id DOWN) String() string {
 	return "openconfig-mpls-types:DOWN"
 }
 
-type UP struct {
+type LOCALLYCOMPUTED struct {
 }
 
-func (id UP) String() string {
-	return "openconfig-mpls-types:UP"
+func (id LOCALLYCOMPUTED) String() string {
+	return "openconfig-mpls-types:LOCALLY_COMPUTED"
 }
 
-type TunnelAdminStatus struct {
+type PROTECTIONTYPE struct {
 }
 
-func (id TunnelAdminStatus) String() string {
-	return "openconfig-mpls-types:tunnel-admin-status"
+func (id PROTECTIONTYPE) String() string {
+	return "openconfig-mpls-types:PROTECTION_TYPE"
 }
 
-type ADMINDOWN struct {
+type P2P struct {
 }
 
-func (id ADMINDOWN) String() string {
-	return "openconfig-mpls-types:ADMIN_DOWN"
+func (id P2P) String() string {
+	return "openconfig-mpls-types:P2P"
 }
 
-type ADMINUP struct {
+type PATHSETUPSR struct {
 }
 
-func (id ADMINUP) String() string {
-	return "openconfig-mpls-types:ADMIN_UP"
+func (id PATHSETUPSR) String() string {
+	return "openconfig-mpls-types:PATH_SETUP_SR"
 }
 
-type NullLabelType struct {
+type INGRESS struct {
 }
 
-func (id NullLabelType) String() string {
-	return "openconfig-mpls-types:null-label-type"
+func (id INGRESS) String() string {
+	return "openconfig-mpls-types:INGRESS"
+}
+
+type PATHSETUPRSVP struct {
+}
+
+func (id PATHSETUPRSVP) String() string {
+	return "openconfig-mpls-types:PATH_SETUP_RSVP"
+}
+
+type PATHSETUPLDP struct {
+}
+
+func (id PATHSETUPLDP) String() string {
+	return "openconfig-mpls-types:PATH_SETUP_LDP"
 }
 
 type EXPLICIT struct {
@@ -171,11 +80,11 @@ func (id EXPLICIT) String() string {
 	return "openconfig-mpls-types:EXPLICIT"
 }
 
-type IMPLICIT struct {
+type ADMINUP struct {
 }
 
-func (id IMPLICIT) String() string {
-	return "openconfig-mpls-types:IMPLICIT"
+func (id ADMINUP) String() string {
+	return "openconfig-mpls-types:ADMIN_UP"
 }
 
 type PATHSETUPPROTOCOL struct {
@@ -184,6 +93,160 @@ type PATHSETUPPROTOCOL struct {
 func (id PATHSETUPPROTOCOL) String() string {
 	return "openconfig-mpls-types:PATH_SETUP_PROTOCOL"
 }
+
+type P2MP struct {
+}
+
+func (id P2MP) String() string {
+	return "openconfig-mpls-types:P2MP"
+}
+
+type PATHCOMPUTATIONMETHOD struct {
+}
+
+func (id PATHCOMPUTATIONMETHOD) String() string {
+	return "openconfig-mpls-types:PATH_COMPUTATION_METHOD"
+}
+
+type LINKPROTECTIONREQUIRED struct {
+}
+
+func (id LINKPROTECTIONREQUIRED) String() string {
+	return "openconfig-mpls-types:LINK_PROTECTION_REQUIRED"
+}
+
+type TUNNELADMINSTATUS struct {
+}
+
+func (id TUNNELADMINSTATUS) String() string {
+	return "openconfig-mpls-types:TUNNEL_ADMIN_STATUS"
+}
+
+type TUNNELTYPE struct {
+}
+
+func (id TUNNELTYPE) String() string {
+	return "openconfig-mpls-types:TUNNEL_TYPE"
+}
+
+type EGRESS struct {
+}
+
+func (id EGRESS) String() string {
+	return "openconfig-mpls-types:EGRESS"
+}
+
+type NULLLABELTYPE struct {
+}
+
+func (id NULLLABELTYPE) String() string {
+	return "openconfig-mpls-types:NULL_LABEL_TYPE"
+}
+
+type LSPOPERSTATUS struct {
+}
+
+func (id LSPOPERSTATUS) String() string {
+	return "openconfig-mpls-types:LSP_OPER_STATUS"
+}
+
+type LSPMETRICTYPE struct {
+}
+
+func (id LSPMETRICTYPE) String() string {
+	return "openconfig-mpls-types:LSP_METRIC_TYPE"
+}
+
+type IMPLICIT struct {
+}
+
+func (id IMPLICIT) String() string {
+	return "openconfig-mpls-types:IMPLICIT"
+}
+
+type LINKNODEPROTECTIONREQUESTED struct {
+}
+
+func (id LINKNODEPROTECTIONREQUESTED) String() string {
+	return "openconfig-mpls-types:LINK_NODE_PROTECTION_REQUESTED"
+}
+
+type LSPMETRICABSOLUTE struct {
+}
+
+func (id LSPMETRICABSOLUTE) String() string {
+	return "openconfig-mpls-types:LSP_METRIC_ABSOLUTE"
+}
+
+type EXTERNALLYQUERIED struct {
+}
+
+func (id EXTERNALLYQUERIED) String() string {
+	return "openconfig-mpls-types:EXTERNALLY_QUERIED"
+}
+
+type ADMINDOWN struct {
+}
+
+func (id ADMINDOWN) String() string {
+	return "openconfig-mpls-types:ADMIN_DOWN"
+}
+
+type EXPLICITLYDEFINED struct {
+}
+
+func (id EXPLICITLYDEFINED) String() string {
+	return "openconfig-mpls-types:EXPLICITLY_DEFINED"
+}
+
+type TRANSIT struct {
+}
+
+func (id TRANSIT) String() string {
+	return "openconfig-mpls-types:TRANSIT"
+}
+
+type UP struct {
+}
+
+func (id UP) String() string {
+	return "openconfig-mpls-types:UP"
+}
+
+type LSPMETRICRELATIVE struct {
+}
+
+func (id LSPMETRICRELATIVE) String() string {
+	return "openconfig-mpls-types:LSP_METRIC_RELATIVE"
+}
+
+type UNPROTECTED struct {
+}
+
+func (id UNPROTECTED) String() string {
+	return "openconfig-mpls-types:UNPROTECTED"
+}
+
+type LSPROLE struct {
+}
+
+func (id LSPROLE) String() string {
+	return "openconfig-mpls-types:LSP_ROLE"
+}
+
+// TunnelType represents defines the tunnel type for the LSP
+type TunnelType string
+
+const (
+    // point-to-point label-switched-path
+    TunnelType_P2P TunnelType = "P2P"
+
+    // point-to-multipoint label-switched-path
+    TunnelType_P2MP TunnelType = "P2MP"
+
+    // multipoint-to-multipoint label-switched-path
+    TunnelType_MP2MP TunnelType = "MP2MP"
+)
 
 // MplsLabel represents type for MPLS label value encoding
 type MplsLabel string
@@ -212,19 +275,11 @@ const (
     // to distinguish between entropy label and applicaiton
     // labels RFC 6790
     MplsLabel_ENTROPY_LABEL_INDICATOR MplsLabel = "ENTROPY_LABEL_INDICATOR"
-)
 
-// TunnelType_ represents defines the tunnel type for the LSP
-type TunnelType_ string
-
-const (
-    // point-to-point label-switched-path
-    TunnelType__P2P TunnelType_ = "P2P"
-
-    // point-to-multipoint label-switched-path
-    TunnelType__P2MP TunnelType_ = "P2MP"
-
-    // multipoint-to-multipoint label-switched-path
-    TunnelType__MP2MP TunnelType_ = "MP2MP"
+    // This value is utilised to indicate that the packet that
+    // is forwarded by the local system does not have an MPLS
+    // header applied to it. Typically, this is used at the
+    // egress of an LSP
+    MplsLabel_NO_LABEL MplsLabel = "NO_LABEL"
 )
 

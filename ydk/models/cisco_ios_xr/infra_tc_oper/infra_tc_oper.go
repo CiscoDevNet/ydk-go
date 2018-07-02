@@ -65,12 +65,15 @@ func (trafficCollector *TrafficCollector) GetEntityData() *types.CommonEntityDat
     trafficCollector.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficCollector.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trafficCollector.EntityData.Children = make(map[string]types.YChild)
-    trafficCollector.EntityData.Children["external-interfaces"] = types.YChild{"ExternalInterfaces", &trafficCollector.ExternalInterfaces}
-    trafficCollector.EntityData.Children["summary"] = types.YChild{"Summary", &trafficCollector.Summary}
-    trafficCollector.EntityData.Children["vrf-table"] = types.YChild{"VrfTable", &trafficCollector.VrfTable}
-    trafficCollector.EntityData.Children["afs"] = types.YChild{"Afs", &trafficCollector.Afs}
-    trafficCollector.EntityData.Leafs = make(map[string]types.YLeaf)
+    trafficCollector.EntityData.Children = types.NewOrderedMap()
+    trafficCollector.EntityData.Children.Append("external-interfaces", types.YChild{"ExternalInterfaces", &trafficCollector.ExternalInterfaces})
+    trafficCollector.EntityData.Children.Append("summary", types.YChild{"Summary", &trafficCollector.Summary})
+    trafficCollector.EntityData.Children.Append("vrf-table", types.YChild{"VrfTable", &trafficCollector.VrfTable})
+    trafficCollector.EntityData.Children.Append("afs", types.YChild{"Afs", &trafficCollector.Afs})
+    trafficCollector.EntityData.Leafs = types.NewOrderedMap()
+
+    trafficCollector.EntityData.YListKeys = []string {}
+
     return &(trafficCollector.EntityData)
 }
 
@@ -82,7 +85,7 @@ type TrafficCollector_ExternalInterfaces struct {
 
     // External Interface . The type is slice of
     // TrafficCollector_ExternalInterfaces_ExternalInterface.
-    ExternalInterface []TrafficCollector_ExternalInterfaces_ExternalInterface
+    ExternalInterface []*TrafficCollector_ExternalInterfaces_ExternalInterface
 }
 
 func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetEntityData() *types.CommonEntityData {
@@ -95,12 +98,15 @@ func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetEntityData() *
     externalInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    externalInterfaces.EntityData.Children = make(map[string]types.YChild)
-    externalInterfaces.EntityData.Children["external-interface"] = types.YChild{"ExternalInterface", nil}
+    externalInterfaces.EntityData.Children = types.NewOrderedMap()
+    externalInterfaces.EntityData.Children.Append("external-interface", types.YChild{"ExternalInterface", nil})
     for i := range externalInterfaces.ExternalInterface {
-        externalInterfaces.EntityData.Children[types.GetSegmentPath(&externalInterfaces.ExternalInterface[i])] = types.YChild{"ExternalInterface", &externalInterfaces.ExternalInterface[i]}
+        externalInterfaces.EntityData.Children.Append(types.GetSegmentPath(externalInterfaces.ExternalInterface[i]), types.YChild{"ExternalInterface", externalInterfaces.ExternalInterface[i]})
     }
-    externalInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    externalInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    externalInterfaces.EntityData.YListKeys = []string {}
+
     return &(externalInterfaces.EntityData)
 }
 
@@ -111,7 +117,7 @@ type TrafficCollector_ExternalInterfaces_ExternalInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Interface name in Display format. The type is string.
@@ -132,18 +138,21 @@ func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) 
     externalInterface.EntityData.YangName = "external-interface"
     externalInterface.EntityData.BundleName = "cisco_ios_xr"
     externalInterface.EntityData.ParentYangName = "external-interfaces"
-    externalInterface.EntityData.SegmentPath = "external-interface" + "[interface-name='" + fmt.Sprintf("%v", externalInterface.InterfaceName) + "']"
+    externalInterface.EntityData.SegmentPath = "external-interface" + types.AddKeyToken(externalInterface.InterfaceName, "interface-name")
     externalInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    externalInterface.EntityData.Children = make(map[string]types.YChild)
-    externalInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    externalInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", externalInterface.InterfaceName}
-    externalInterface.EntityData.Leafs["interface-name-xr"] = types.YLeaf{"InterfaceNameXr", externalInterface.InterfaceNameXr}
-    externalInterface.EntityData.Leafs["interface-handle"] = types.YLeaf{"InterfaceHandle", externalInterface.InterfaceHandle}
-    externalInterface.EntityData.Leafs["vrfid"] = types.YLeaf{"Vrfid", externalInterface.Vrfid}
-    externalInterface.EntityData.Leafs["is-interface-enabled"] = types.YLeaf{"IsInterfaceEnabled", externalInterface.IsInterfaceEnabled}
+    externalInterface.EntityData.Children = types.NewOrderedMap()
+    externalInterface.EntityData.Leafs = types.NewOrderedMap()
+    externalInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", externalInterface.InterfaceName})
+    externalInterface.EntityData.Leafs.Append("interface-name-xr", types.YLeaf{"InterfaceNameXr", externalInterface.InterfaceNameXr})
+    externalInterface.EntityData.Leafs.Append("interface-handle", types.YLeaf{"InterfaceHandle", externalInterface.InterfaceHandle})
+    externalInterface.EntityData.Leafs.Append("vrfid", types.YLeaf{"Vrfid", externalInterface.Vrfid})
+    externalInterface.EntityData.Leafs.Append("is-interface-enabled", types.YLeaf{"IsInterfaceEnabled", externalInterface.IsInterfaceEnabled})
+
+    externalInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(externalInterface.EntityData)
 }
 
@@ -175,15 +184,15 @@ type TrafficCollector_Summary struct {
 
     // VRF table statistics. The type is slice of
     // TrafficCollector_Summary_VrfStatistic.
-    VrfStatistic []TrafficCollector_Summary_VrfStatistic
+    VrfStatistic []*TrafficCollector_Summary_VrfStatistic
 
     // Statistics per message type for STAT collector. The type is slice of
     // TrafficCollector_Summary_CollectionMessageStatistic.
-    CollectionMessageStatistic []TrafficCollector_Summary_CollectionMessageStatistic
+    CollectionMessageStatistic []*TrafficCollector_Summary_CollectionMessageStatistic
 
     // Statistics per message type for Chkpt. The type is slice of
     // TrafficCollector_Summary_CheckpointMessageStatistic.
-    CheckpointMessageStatistic []TrafficCollector_Summary_CheckpointMessageStatistic
+    CheckpointMessageStatistic []*TrafficCollector_Summary_CheckpointMessageStatistic
 }
 
 func (summary *TrafficCollector_Summary) GetEntityData() *types.CommonEntityData {
@@ -196,26 +205,29 @@ func (summary *TrafficCollector_Summary) GetEntityData() *types.CommonEntityData
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Children["database-statistics-external-interface"] = types.YChild{"DatabaseStatisticsExternalInterface", &summary.DatabaseStatisticsExternalInterface}
-    summary.EntityData.Children["vrf-statistic"] = types.YChild{"VrfStatistic", nil}
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Children.Append("database-statistics-external-interface", types.YChild{"DatabaseStatisticsExternalInterface", &summary.DatabaseStatisticsExternalInterface})
+    summary.EntityData.Children.Append("vrf-statistic", types.YChild{"VrfStatistic", nil})
     for i := range summary.VrfStatistic {
-        summary.EntityData.Children[types.GetSegmentPath(&summary.VrfStatistic[i])] = types.YChild{"VrfStatistic", &summary.VrfStatistic[i]}
+        summary.EntityData.Children.Append(types.GetSegmentPath(summary.VrfStatistic[i]), types.YChild{"VrfStatistic", summary.VrfStatistic[i]})
     }
-    summary.EntityData.Children["collection-message-statistic"] = types.YChild{"CollectionMessageStatistic", nil}
+    summary.EntityData.Children.Append("collection-message-statistic", types.YChild{"CollectionMessageStatistic", nil})
     for i := range summary.CollectionMessageStatistic {
-        summary.EntityData.Children[types.GetSegmentPath(&summary.CollectionMessageStatistic[i])] = types.YChild{"CollectionMessageStatistic", &summary.CollectionMessageStatistic[i]}
+        summary.EntityData.Children.Append(types.GetSegmentPath(summary.CollectionMessageStatistic[i]), types.YChild{"CollectionMessageStatistic", summary.CollectionMessageStatistic[i]})
     }
-    summary.EntityData.Children["checkpoint-message-statistic"] = types.YChild{"CheckpointMessageStatistic", nil}
+    summary.EntityData.Children.Append("checkpoint-message-statistic", types.YChild{"CheckpointMessageStatistic", nil})
     for i := range summary.CheckpointMessageStatistic {
-        summary.EntityData.Children[types.GetSegmentPath(&summary.CheckpointMessageStatistic[i])] = types.YChild{"CheckpointMessageStatistic", &summary.CheckpointMessageStatistic[i]}
+        summary.EntityData.Children.Append(types.GetSegmentPath(summary.CheckpointMessageStatistic[i]), types.YChild{"CheckpointMessageStatistic", summary.CheckpointMessageStatistic[i]})
     }
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
-    summary.EntityData.Leafs["collection-interval"] = types.YLeaf{"CollectionInterval", summary.CollectionInterval}
-    summary.EntityData.Leafs["collection-timer-is-running"] = types.YLeaf{"CollectionTimerIsRunning", summary.CollectionTimerIsRunning}
-    summary.EntityData.Leafs["timeout-interval"] = types.YLeaf{"TimeoutInterval", summary.TimeoutInterval}
-    summary.EntityData.Leafs["timeout-timer-is-running"] = types.YLeaf{"TimeoutTimerIsRunning", summary.TimeoutTimerIsRunning}
-    summary.EntityData.Leafs["history-size"] = types.YLeaf{"HistorySize", summary.HistorySize}
+    summary.EntityData.Leafs = types.NewOrderedMap()
+    summary.EntityData.Leafs.Append("collection-interval", types.YLeaf{"CollectionInterval", summary.CollectionInterval})
+    summary.EntityData.Leafs.Append("collection-timer-is-running", types.YLeaf{"CollectionTimerIsRunning", summary.CollectionTimerIsRunning})
+    summary.EntityData.Leafs.Append("timeout-interval", types.YLeaf{"TimeoutInterval", summary.TimeoutInterval})
+    summary.EntityData.Leafs.Append("timeout-timer-is-running", types.YLeaf{"TimeoutTimerIsRunning", summary.TimeoutTimerIsRunning})
+    summary.EntityData.Leafs.Append("history-size", types.YLeaf{"HistorySize", summary.HistorySize})
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -251,12 +263,15 @@ func (databaseStatisticsExternalInterface *TrafficCollector_Summary_DatabaseStat
     databaseStatisticsExternalInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseStatisticsExternalInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    databaseStatisticsExternalInterface.EntityData.Children = make(map[string]types.YChild)
-    databaseStatisticsExternalInterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    databaseStatisticsExternalInterface.EntityData.Leafs["number-of-entries"] = types.YLeaf{"NumberOfEntries", databaseStatisticsExternalInterface.NumberOfEntries}
-    databaseStatisticsExternalInterface.EntityData.Leafs["number-of-stale-entries"] = types.YLeaf{"NumberOfStaleEntries", databaseStatisticsExternalInterface.NumberOfStaleEntries}
-    databaseStatisticsExternalInterface.EntityData.Leafs["number-of-add-o-perations"] = types.YLeaf{"NumberOfAddOPerations", databaseStatisticsExternalInterface.NumberOfAddOPerations}
-    databaseStatisticsExternalInterface.EntityData.Leafs["number-of-delete-o-perations"] = types.YLeaf{"NumberOfDeleteOPerations", databaseStatisticsExternalInterface.NumberOfDeleteOPerations}
+    databaseStatisticsExternalInterface.EntityData.Children = types.NewOrderedMap()
+    databaseStatisticsExternalInterface.EntityData.Leafs = types.NewOrderedMap()
+    databaseStatisticsExternalInterface.EntityData.Leafs.Append("number-of-entries", types.YLeaf{"NumberOfEntries", databaseStatisticsExternalInterface.NumberOfEntries})
+    databaseStatisticsExternalInterface.EntityData.Leafs.Append("number-of-stale-entries", types.YLeaf{"NumberOfStaleEntries", databaseStatisticsExternalInterface.NumberOfStaleEntries})
+    databaseStatisticsExternalInterface.EntityData.Leafs.Append("number-of-add-o-perations", types.YLeaf{"NumberOfAddOPerations", databaseStatisticsExternalInterface.NumberOfAddOPerations})
+    databaseStatisticsExternalInterface.EntityData.Leafs.Append("number-of-delete-o-perations", types.YLeaf{"NumberOfDeleteOPerations", databaseStatisticsExternalInterface.NumberOfDeleteOPerations})
+
+    databaseStatisticsExternalInterface.EntityData.YListKeys = []string {}
+
     return &(databaseStatisticsExternalInterface.EntityData)
 }
 
@@ -286,11 +301,14 @@ func (vrfStatistic *TrafficCollector_Summary_VrfStatistic) GetEntityData() *type
     vrfStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfStatistic.EntityData.Children = make(map[string]types.YChild)
-    vrfStatistic.EntityData.Children["database-statistics-ipv4"] = types.YChild{"DatabaseStatisticsIpv4", &vrfStatistic.DatabaseStatisticsIpv4}
-    vrfStatistic.EntityData.Children["database-statistics-tunnel"] = types.YChild{"DatabaseStatisticsTunnel", &vrfStatistic.DatabaseStatisticsTunnel}
-    vrfStatistic.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrfStatistic.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrfStatistic.VrfName}
+    vrfStatistic.EntityData.Children = types.NewOrderedMap()
+    vrfStatistic.EntityData.Children.Append("database-statistics-ipv4", types.YChild{"DatabaseStatisticsIpv4", &vrfStatistic.DatabaseStatisticsIpv4})
+    vrfStatistic.EntityData.Children.Append("database-statistics-tunnel", types.YChild{"DatabaseStatisticsTunnel", &vrfStatistic.DatabaseStatisticsTunnel})
+    vrfStatistic.EntityData.Leafs = types.NewOrderedMap()
+    vrfStatistic.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrfStatistic.VrfName})
+
+    vrfStatistic.EntityData.YListKeys = []string {}
+
     return &(vrfStatistic.EntityData)
 }
 
@@ -326,12 +344,15 @@ func (databaseStatisticsIpv4 *TrafficCollector_Summary_VrfStatistic_DatabaseStat
     databaseStatisticsIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseStatisticsIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    databaseStatisticsIpv4.EntityData.Children = make(map[string]types.YChild)
-    databaseStatisticsIpv4.EntityData.Leafs = make(map[string]types.YLeaf)
-    databaseStatisticsIpv4.EntityData.Leafs["number-of-entries"] = types.YLeaf{"NumberOfEntries", databaseStatisticsIpv4.NumberOfEntries}
-    databaseStatisticsIpv4.EntityData.Leafs["number-of-stale-entries"] = types.YLeaf{"NumberOfStaleEntries", databaseStatisticsIpv4.NumberOfStaleEntries}
-    databaseStatisticsIpv4.EntityData.Leafs["number-of-add-o-perations"] = types.YLeaf{"NumberOfAddOPerations", databaseStatisticsIpv4.NumberOfAddOPerations}
-    databaseStatisticsIpv4.EntityData.Leafs["number-of-delete-o-perations"] = types.YLeaf{"NumberOfDeleteOPerations", databaseStatisticsIpv4.NumberOfDeleteOPerations}
+    databaseStatisticsIpv4.EntityData.Children = types.NewOrderedMap()
+    databaseStatisticsIpv4.EntityData.Leafs = types.NewOrderedMap()
+    databaseStatisticsIpv4.EntityData.Leafs.Append("number-of-entries", types.YLeaf{"NumberOfEntries", databaseStatisticsIpv4.NumberOfEntries})
+    databaseStatisticsIpv4.EntityData.Leafs.Append("number-of-stale-entries", types.YLeaf{"NumberOfStaleEntries", databaseStatisticsIpv4.NumberOfStaleEntries})
+    databaseStatisticsIpv4.EntityData.Leafs.Append("number-of-add-o-perations", types.YLeaf{"NumberOfAddOPerations", databaseStatisticsIpv4.NumberOfAddOPerations})
+    databaseStatisticsIpv4.EntityData.Leafs.Append("number-of-delete-o-perations", types.YLeaf{"NumberOfDeleteOPerations", databaseStatisticsIpv4.NumberOfDeleteOPerations})
+
+    databaseStatisticsIpv4.EntityData.YListKeys = []string {}
+
     return &(databaseStatisticsIpv4.EntityData)
 }
 
@@ -367,12 +388,15 @@ func (databaseStatisticsTunnel *TrafficCollector_Summary_VrfStatistic_DatabaseSt
     databaseStatisticsTunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseStatisticsTunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    databaseStatisticsTunnel.EntityData.Children = make(map[string]types.YChild)
-    databaseStatisticsTunnel.EntityData.Leafs = make(map[string]types.YLeaf)
-    databaseStatisticsTunnel.EntityData.Leafs["number-of-entries"] = types.YLeaf{"NumberOfEntries", databaseStatisticsTunnel.NumberOfEntries}
-    databaseStatisticsTunnel.EntityData.Leafs["number-of-stale-entries"] = types.YLeaf{"NumberOfStaleEntries", databaseStatisticsTunnel.NumberOfStaleEntries}
-    databaseStatisticsTunnel.EntityData.Leafs["number-of-add-o-perations"] = types.YLeaf{"NumberOfAddOPerations", databaseStatisticsTunnel.NumberOfAddOPerations}
-    databaseStatisticsTunnel.EntityData.Leafs["number-of-delete-o-perations"] = types.YLeaf{"NumberOfDeleteOPerations", databaseStatisticsTunnel.NumberOfDeleteOPerations}
+    databaseStatisticsTunnel.EntityData.Children = types.NewOrderedMap()
+    databaseStatisticsTunnel.EntityData.Leafs = types.NewOrderedMap()
+    databaseStatisticsTunnel.EntityData.Leafs.Append("number-of-entries", types.YLeaf{"NumberOfEntries", databaseStatisticsTunnel.NumberOfEntries})
+    databaseStatisticsTunnel.EntityData.Leafs.Append("number-of-stale-entries", types.YLeaf{"NumberOfStaleEntries", databaseStatisticsTunnel.NumberOfStaleEntries})
+    databaseStatisticsTunnel.EntityData.Leafs.Append("number-of-add-o-perations", types.YLeaf{"NumberOfAddOPerations", databaseStatisticsTunnel.NumberOfAddOPerations})
+    databaseStatisticsTunnel.EntityData.Leafs.Append("number-of-delete-o-perations", types.YLeaf{"NumberOfDeleteOPerations", databaseStatisticsTunnel.NumberOfDeleteOPerations})
+
+    databaseStatisticsTunnel.EntityData.YListKeys = []string {}
+
     return &(databaseStatisticsTunnel.EntityData)
 }
 
@@ -417,14 +441,17 @@ func (collectionMessageStatistic *TrafficCollector_Summary_CollectionMessageStat
     collectionMessageStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collectionMessageStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    collectionMessageStatistic.EntityData.Children = make(map[string]types.YChild)
-    collectionMessageStatistic.EntityData.Leafs = make(map[string]types.YLeaf)
-    collectionMessageStatistic.EntityData.Leafs["packet-sent"] = types.YLeaf{"PacketSent", collectionMessageStatistic.PacketSent}
-    collectionMessageStatistic.EntityData.Leafs["byte-sent"] = types.YLeaf{"ByteSent", collectionMessageStatistic.ByteSent}
-    collectionMessageStatistic.EntityData.Leafs["packet-received"] = types.YLeaf{"PacketReceived", collectionMessageStatistic.PacketReceived}
-    collectionMessageStatistic.EntityData.Leafs["byte-received"] = types.YLeaf{"ByteReceived", collectionMessageStatistic.ByteReceived}
-    collectionMessageStatistic.EntityData.Leafs["maximum-roundtrip-latency"] = types.YLeaf{"MaximumRoundtripLatency", collectionMessageStatistic.MaximumRoundtripLatency}
-    collectionMessageStatistic.EntityData.Leafs["maimum-latency-timestamp"] = types.YLeaf{"MaimumLatencyTimestamp", collectionMessageStatistic.MaimumLatencyTimestamp}
+    collectionMessageStatistic.EntityData.Children = types.NewOrderedMap()
+    collectionMessageStatistic.EntityData.Leafs = types.NewOrderedMap()
+    collectionMessageStatistic.EntityData.Leafs.Append("packet-sent", types.YLeaf{"PacketSent", collectionMessageStatistic.PacketSent})
+    collectionMessageStatistic.EntityData.Leafs.Append("byte-sent", types.YLeaf{"ByteSent", collectionMessageStatistic.ByteSent})
+    collectionMessageStatistic.EntityData.Leafs.Append("packet-received", types.YLeaf{"PacketReceived", collectionMessageStatistic.PacketReceived})
+    collectionMessageStatistic.EntityData.Leafs.Append("byte-received", types.YLeaf{"ByteReceived", collectionMessageStatistic.ByteReceived})
+    collectionMessageStatistic.EntityData.Leafs.Append("maximum-roundtrip-latency", types.YLeaf{"MaximumRoundtripLatency", collectionMessageStatistic.MaximumRoundtripLatency})
+    collectionMessageStatistic.EntityData.Leafs.Append("maimum-latency-timestamp", types.YLeaf{"MaimumLatencyTimestamp", collectionMessageStatistic.MaimumLatencyTimestamp})
+
+    collectionMessageStatistic.EntityData.YListKeys = []string {}
+
     return &(collectionMessageStatistic.EntityData)
 }
 
@@ -469,14 +496,17 @@ func (checkpointMessageStatistic *TrafficCollector_Summary_CheckpointMessageStat
     checkpointMessageStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     checkpointMessageStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    checkpointMessageStatistic.EntityData.Children = make(map[string]types.YChild)
-    checkpointMessageStatistic.EntityData.Leafs = make(map[string]types.YLeaf)
-    checkpointMessageStatistic.EntityData.Leafs["packet-sent"] = types.YLeaf{"PacketSent", checkpointMessageStatistic.PacketSent}
-    checkpointMessageStatistic.EntityData.Leafs["byte-sent"] = types.YLeaf{"ByteSent", checkpointMessageStatistic.ByteSent}
-    checkpointMessageStatistic.EntityData.Leafs["packet-received"] = types.YLeaf{"PacketReceived", checkpointMessageStatistic.PacketReceived}
-    checkpointMessageStatistic.EntityData.Leafs["byte-received"] = types.YLeaf{"ByteReceived", checkpointMessageStatistic.ByteReceived}
-    checkpointMessageStatistic.EntityData.Leafs["maximum-roundtrip-latency"] = types.YLeaf{"MaximumRoundtripLatency", checkpointMessageStatistic.MaximumRoundtripLatency}
-    checkpointMessageStatistic.EntityData.Leafs["maimum-latency-timestamp"] = types.YLeaf{"MaimumLatencyTimestamp", checkpointMessageStatistic.MaimumLatencyTimestamp}
+    checkpointMessageStatistic.EntityData.Children = types.NewOrderedMap()
+    checkpointMessageStatistic.EntityData.Leafs = types.NewOrderedMap()
+    checkpointMessageStatistic.EntityData.Leafs.Append("packet-sent", types.YLeaf{"PacketSent", checkpointMessageStatistic.PacketSent})
+    checkpointMessageStatistic.EntityData.Leafs.Append("byte-sent", types.YLeaf{"ByteSent", checkpointMessageStatistic.ByteSent})
+    checkpointMessageStatistic.EntityData.Leafs.Append("packet-received", types.YLeaf{"PacketReceived", checkpointMessageStatistic.PacketReceived})
+    checkpointMessageStatistic.EntityData.Leafs.Append("byte-received", types.YLeaf{"ByteReceived", checkpointMessageStatistic.ByteReceived})
+    checkpointMessageStatistic.EntityData.Leafs.Append("maximum-roundtrip-latency", types.YLeaf{"MaximumRoundtripLatency", checkpointMessageStatistic.MaximumRoundtripLatency})
+    checkpointMessageStatistic.EntityData.Leafs.Append("maimum-latency-timestamp", types.YLeaf{"MaimumLatencyTimestamp", checkpointMessageStatistic.MaimumLatencyTimestamp})
+
+    checkpointMessageStatistic.EntityData.YListKeys = []string {}
+
     return &(checkpointMessageStatistic.EntityData)
 }
 
@@ -500,9 +530,12 @@ func (vrfTable *TrafficCollector_VrfTable) GetEntityData() *types.CommonEntityDa
     vrfTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfTable.EntityData.Children = make(map[string]types.YChild)
-    vrfTable.EntityData.Children["default-vrf"] = types.YChild{"DefaultVrf", &vrfTable.DefaultVrf}
-    vrfTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfTable.EntityData.Children = types.NewOrderedMap()
+    vrfTable.EntityData.Children.Append("default-vrf", types.YChild{"DefaultVrf", &vrfTable.DefaultVrf})
+    vrfTable.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfTable.EntityData.YListKeys = []string {}
+
     return &(vrfTable.EntityData)
 }
 
@@ -526,9 +559,12 @@ func (defaultVrf *TrafficCollector_VrfTable_DefaultVrf) GetEntityData() *types.C
     defaultVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultVrf.EntityData.Children = make(map[string]types.YChild)
-    defaultVrf.EntityData.Children["afs"] = types.YChild{"Afs", &defaultVrf.Afs}
-    defaultVrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    defaultVrf.EntityData.Children = types.NewOrderedMap()
+    defaultVrf.EntityData.Children.Append("afs", types.YChild{"Afs", &defaultVrf.Afs})
+    defaultVrf.EntityData.Leafs = types.NewOrderedMap()
+
+    defaultVrf.EntityData.YListKeys = []string {}
+
     return &(defaultVrf.EntityData)
 }
 
@@ -540,7 +576,7 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs struct {
 
     // Operational data for given Address Family. The type is slice of
     // TrafficCollector_VrfTable_DefaultVrf_Afs_Af.
-    Af []TrafficCollector_VrfTable_DefaultVrf_Afs_Af
+    Af []*TrafficCollector_VrfTable_DefaultVrf_Afs_Af
 }
 
 func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) GetEntityData() *types.CommonEntityData {
@@ -553,12 +589,15 @@ func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) GetEntityData() *types.Comm
     afs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    afs.EntityData.Children = make(map[string]types.YChild)
-    afs.EntityData.Children["af"] = types.YChild{"Af", nil}
+    afs.EntityData.Children = types.NewOrderedMap()
+    afs.EntityData.Children.Append("af", types.YChild{"Af", nil})
     for i := range afs.Af {
-        afs.EntityData.Children[types.GetSegmentPath(&afs.Af[i])] = types.YChild{"Af", &afs.Af[i]}
+        afs.EntityData.Children.Append(types.GetSegmentPath(afs.Af[i]), types.YChild{"Af", afs.Af[i]})
     }
-    afs.EntityData.Leafs = make(map[string]types.YLeaf)
+    afs.EntityData.Leafs = types.NewOrderedMap()
+
+    afs.EntityData.YListKeys = []string {}
+
     return &(afs.EntityData)
 }
 
@@ -580,15 +619,18 @@ func (af *TrafficCollector_VrfTable_DefaultVrf_Afs_Af) GetEntityData() *types.Co
     af.EntityData.YangName = "af"
     af.EntityData.BundleName = "cisco_ios_xr"
     af.EntityData.ParentYangName = "afs"
-    af.EntityData.SegmentPath = "af" + "[af-name='" + fmt.Sprintf("%v", af.AfName) + "']"
+    af.EntityData.SegmentPath = "af" + types.AddKeyToken(af.AfName, "af-name")
     af.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    af.EntityData.Children = make(map[string]types.YChild)
-    af.EntityData.Children["counters"] = types.YChild{"Counters", &af.Counters}
-    af.EntityData.Leafs = make(map[string]types.YLeaf)
-    af.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", af.AfName}
+    af.EntityData.Children = types.NewOrderedMap()
+    af.EntityData.Children.Append("counters", types.YChild{"Counters", &af.Counters})
+    af.EntityData.Leafs = types.NewOrderedMap()
+    af.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", af.AfName})
+
+    af.EntityData.YListKeys = []string {"AfName"}
+
     return &(af.EntityData)
 }
 
@@ -615,10 +657,13 @@ func (counters *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters) GetEntityD
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    counters.EntityData.Children = make(map[string]types.YChild)
-    counters.EntityData.Children["prefixes"] = types.YChild{"Prefixes", &counters.Prefixes}
-    counters.EntityData.Children["tunnels"] = types.YChild{"Tunnels", &counters.Tunnels}
-    counters.EntityData.Leafs = make(map[string]types.YLeaf)
+    counters.EntityData.Children = types.NewOrderedMap()
+    counters.EntityData.Children.Append("prefixes", types.YChild{"Prefixes", &counters.Prefixes})
+    counters.EntityData.Children.Append("tunnels", types.YChild{"Tunnels", &counters.Tunnels})
+    counters.EntityData.Leafs = types.NewOrderedMap()
+
+    counters.EntityData.YListKeys = []string {}
+
     return &(counters.EntityData)
 }
 
@@ -630,7 +675,7 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes struct {
 
     // Show Prefix Counter. The type is slice of
     // TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix.
-    Prefix []TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix
+    Prefix []*TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix
 }
 
 func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) GetEntityData() *types.CommonEntityData {
@@ -643,12 +688,15 @@ func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) G
     prefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefixes.EntityData.Children = make(map[string]types.YChild)
-    prefixes.EntityData.Children["prefix"] = types.YChild{"Prefix", nil}
+    prefixes.EntityData.Children = types.NewOrderedMap()
+    prefixes.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range prefixes.Prefix {
-        prefixes.EntityData.Children[types.GetSegmentPath(&prefixes.Prefix[i])] = types.YChild{"Prefix", &prefixes.Prefix[i]}
+        prefixes.EntityData.Children.Append(types.GetSegmentPath(prefixes.Prefix[i]), types.YChild{"Prefix", prefixes.Prefix[i]})
     }
-    prefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixes.EntityData.YListKeys = []string {}
+
     return &(prefixes.EntityData)
 }
 
@@ -658,12 +706,10 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix struct
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // IP Address. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // IP Address. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Ipaddr interface{}
 
-    // Prefix Mask. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Prefix Mask. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Mask interface{}
 
     // Local Label. The type is interface{} with range: 16..1048575.
@@ -695,16 +741,19 @@ func (prefix *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Pref
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefix.EntityData.Children = make(map[string]types.YChild)
-    prefix.EntityData.Children["base-counter-statistics"] = types.YChild{"BaseCounterStatistics", &prefix.BaseCounterStatistics}
-    prefix.EntityData.Children["traffic-matrix-counter-statistics"] = types.YChild{"TrafficMatrixCounterStatistics", &prefix.TrafficMatrixCounterStatistics}
-    prefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefix.EntityData.Leafs["ipaddr"] = types.YLeaf{"Ipaddr", prefix.Ipaddr}
-    prefix.EntityData.Leafs["mask"] = types.YLeaf{"Mask", prefix.Mask}
-    prefix.EntityData.Leafs["label"] = types.YLeaf{"Label", prefix.Label}
-    prefix.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", prefix.Prefix}
-    prefix.EntityData.Leafs["label-xr"] = types.YLeaf{"LabelXr", prefix.LabelXr}
-    prefix.EntityData.Leafs["is-active"] = types.YLeaf{"IsActive", prefix.IsActive}
+    prefix.EntityData.Children = types.NewOrderedMap()
+    prefix.EntityData.Children.Append("base-counter-statistics", types.YChild{"BaseCounterStatistics", &prefix.BaseCounterStatistics})
+    prefix.EntityData.Children.Append("traffic-matrix-counter-statistics", types.YChild{"TrafficMatrixCounterStatistics", &prefix.TrafficMatrixCounterStatistics})
+    prefix.EntityData.Leafs = types.NewOrderedMap()
+    prefix.EntityData.Leafs.Append("ipaddr", types.YLeaf{"Ipaddr", prefix.Ipaddr})
+    prefix.EntityData.Leafs.Append("mask", types.YLeaf{"Mask", prefix.Mask})
+    prefix.EntityData.Leafs.Append("label", types.YLeaf{"Label", prefix.Label})
+    prefix.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", prefix.Prefix})
+    prefix.EntityData.Leafs.Append("label-xr", types.YLeaf{"LabelXr", prefix.LabelXr})
+    prefix.EntityData.Leafs.Append("is-active", types.YLeaf{"IsActive", prefix.IsActive})
+
+    prefix.EntityData.YListKeys = []string {}
+
     return &(prefix.EntityData)
 }
 
@@ -724,7 +773,7 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCo
 
     // Counter History. The type is slice of
     // TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory.
-    CountHistory []TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory
+    CountHistory []*TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory
 }
 
 func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetEntityData() *types.CommonEntityData {
@@ -737,14 +786,17 @@ func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counter
     baseCounterStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     baseCounterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    baseCounterStatistics.EntityData.Children = make(map[string]types.YChild)
-    baseCounterStatistics.EntityData.Children["count-history"] = types.YChild{"CountHistory", nil}
+    baseCounterStatistics.EntityData.Children = types.NewOrderedMap()
+    baseCounterStatistics.EntityData.Children.Append("count-history", types.YChild{"CountHistory", nil})
     for i := range baseCounterStatistics.CountHistory {
-        baseCounterStatistics.EntityData.Children[types.GetSegmentPath(&baseCounterStatistics.CountHistory[i])] = types.YChild{"CountHistory", &baseCounterStatistics.CountHistory[i]}
+        baseCounterStatistics.EntityData.Children.Append(types.GetSegmentPath(baseCounterStatistics.CountHistory[i]), types.YChild{"CountHistory", baseCounterStatistics.CountHistory[i]})
     }
-    baseCounterStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    baseCounterStatistics.EntityData.Leafs["transmit-packets-per-second-switched"] = types.YLeaf{"TransmitPacketsPerSecondSwitched", baseCounterStatistics.TransmitPacketsPerSecondSwitched}
-    baseCounterStatistics.EntityData.Leafs["transmit-bytes-per-second-switched"] = types.YLeaf{"TransmitBytesPerSecondSwitched", baseCounterStatistics.TransmitBytesPerSecondSwitched}
+    baseCounterStatistics.EntityData.Leafs = types.NewOrderedMap()
+    baseCounterStatistics.EntityData.Leafs.Append("transmit-packets-per-second-switched", types.YLeaf{"TransmitPacketsPerSecondSwitched", baseCounterStatistics.TransmitPacketsPerSecondSwitched})
+    baseCounterStatistics.EntityData.Leafs.Append("transmit-bytes-per-second-switched", types.YLeaf{"TransmitBytesPerSecondSwitched", baseCounterStatistics.TransmitBytesPerSecondSwitched})
+
+    baseCounterStatistics.EntityData.YListKeys = []string {}
+
     return &(baseCounterStatistics.EntityData)
 }
 
@@ -784,13 +836,16 @@ func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixe
     countHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     countHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    countHistory.EntityData.Children = make(map[string]types.YChild)
-    countHistory.EntityData.Leafs = make(map[string]types.YLeaf)
-    countHistory.EntityData.Leafs["event-start-timestamp"] = types.YLeaf{"EventStartTimestamp", countHistory.EventStartTimestamp}
-    countHistory.EntityData.Leafs["event-end-timestamp"] = types.YLeaf{"EventEndTimestamp", countHistory.EventEndTimestamp}
-    countHistory.EntityData.Leafs["transmit-number-of-packets-switched"] = types.YLeaf{"TransmitNumberOfPacketsSwitched", countHistory.TransmitNumberOfPacketsSwitched}
-    countHistory.EntityData.Leafs["transmit-number-of-bytes-switched"] = types.YLeaf{"TransmitNumberOfBytesSwitched", countHistory.TransmitNumberOfBytesSwitched}
-    countHistory.EntityData.Leafs["is-valid"] = types.YLeaf{"IsValid", countHistory.IsValid}
+    countHistory.EntityData.Children = types.NewOrderedMap()
+    countHistory.EntityData.Leafs = types.NewOrderedMap()
+    countHistory.EntityData.Leafs.Append("event-start-timestamp", types.YLeaf{"EventStartTimestamp", countHistory.EventStartTimestamp})
+    countHistory.EntityData.Leafs.Append("event-end-timestamp", types.YLeaf{"EventEndTimestamp", countHistory.EventEndTimestamp})
+    countHistory.EntityData.Leafs.Append("transmit-number-of-packets-switched", types.YLeaf{"TransmitNumberOfPacketsSwitched", countHistory.TransmitNumberOfPacketsSwitched})
+    countHistory.EntityData.Leafs.Append("transmit-number-of-bytes-switched", types.YLeaf{"TransmitNumberOfBytesSwitched", countHistory.TransmitNumberOfBytesSwitched})
+    countHistory.EntityData.Leafs.Append("is-valid", types.YLeaf{"IsValid", countHistory.IsValid})
+
+    countHistory.EntityData.YListKeys = []string {}
+
     return &(countHistory.EntityData)
 }
 
@@ -810,7 +865,7 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_Traffi
 
     // Counter History. The type is slice of
     // TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory.
-    CountHistory []TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory
+    CountHistory []*TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory
 }
 
 func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetEntityData() *types.CommonEntityData {
@@ -823,14 +878,17 @@ func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_A
     trafficMatrixCounterStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficMatrixCounterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trafficMatrixCounterStatistics.EntityData.Children = make(map[string]types.YChild)
-    trafficMatrixCounterStatistics.EntityData.Children["count-history"] = types.YChild{"CountHistory", nil}
+    trafficMatrixCounterStatistics.EntityData.Children = types.NewOrderedMap()
+    trafficMatrixCounterStatistics.EntityData.Children.Append("count-history", types.YChild{"CountHistory", nil})
     for i := range trafficMatrixCounterStatistics.CountHistory {
-        trafficMatrixCounterStatistics.EntityData.Children[types.GetSegmentPath(&trafficMatrixCounterStatistics.CountHistory[i])] = types.YChild{"CountHistory", &trafficMatrixCounterStatistics.CountHistory[i]}
+        trafficMatrixCounterStatistics.EntityData.Children.Append(types.GetSegmentPath(trafficMatrixCounterStatistics.CountHistory[i]), types.YChild{"CountHistory", trafficMatrixCounterStatistics.CountHistory[i]})
     }
-    trafficMatrixCounterStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    trafficMatrixCounterStatistics.EntityData.Leafs["transmit-packets-per-second-switched"] = types.YLeaf{"TransmitPacketsPerSecondSwitched", trafficMatrixCounterStatistics.TransmitPacketsPerSecondSwitched}
-    trafficMatrixCounterStatistics.EntityData.Leafs["transmit-bytes-per-second-switched"] = types.YLeaf{"TransmitBytesPerSecondSwitched", trafficMatrixCounterStatistics.TransmitBytesPerSecondSwitched}
+    trafficMatrixCounterStatistics.EntityData.Leafs = types.NewOrderedMap()
+    trafficMatrixCounterStatistics.EntityData.Leafs.Append("transmit-packets-per-second-switched", types.YLeaf{"TransmitPacketsPerSecondSwitched", trafficMatrixCounterStatistics.TransmitPacketsPerSecondSwitched})
+    trafficMatrixCounterStatistics.EntityData.Leafs.Append("transmit-bytes-per-second-switched", types.YLeaf{"TransmitBytesPerSecondSwitched", trafficMatrixCounterStatistics.TransmitBytesPerSecondSwitched})
+
+    trafficMatrixCounterStatistics.EntityData.YListKeys = []string {}
+
     return &(trafficMatrixCounterStatistics.EntityData)
 }
 
@@ -870,13 +928,16 @@ func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixe
     countHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     countHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    countHistory.EntityData.Children = make(map[string]types.YChild)
-    countHistory.EntityData.Leafs = make(map[string]types.YLeaf)
-    countHistory.EntityData.Leafs["event-start-timestamp"] = types.YLeaf{"EventStartTimestamp", countHistory.EventStartTimestamp}
-    countHistory.EntityData.Leafs["event-end-timestamp"] = types.YLeaf{"EventEndTimestamp", countHistory.EventEndTimestamp}
-    countHistory.EntityData.Leafs["transmit-number-of-packets-switched"] = types.YLeaf{"TransmitNumberOfPacketsSwitched", countHistory.TransmitNumberOfPacketsSwitched}
-    countHistory.EntityData.Leafs["transmit-number-of-bytes-switched"] = types.YLeaf{"TransmitNumberOfBytesSwitched", countHistory.TransmitNumberOfBytesSwitched}
-    countHistory.EntityData.Leafs["is-valid"] = types.YLeaf{"IsValid", countHistory.IsValid}
+    countHistory.EntityData.Children = types.NewOrderedMap()
+    countHistory.EntityData.Leafs = types.NewOrderedMap()
+    countHistory.EntityData.Leafs.Append("event-start-timestamp", types.YLeaf{"EventStartTimestamp", countHistory.EventStartTimestamp})
+    countHistory.EntityData.Leafs.Append("event-end-timestamp", types.YLeaf{"EventEndTimestamp", countHistory.EventEndTimestamp})
+    countHistory.EntityData.Leafs.Append("transmit-number-of-packets-switched", types.YLeaf{"TransmitNumberOfPacketsSwitched", countHistory.TransmitNumberOfPacketsSwitched})
+    countHistory.EntityData.Leafs.Append("transmit-number-of-bytes-switched", types.YLeaf{"TransmitNumberOfBytesSwitched", countHistory.TransmitNumberOfBytesSwitched})
+    countHistory.EntityData.Leafs.Append("is-valid", types.YLeaf{"IsValid", countHistory.IsValid})
+
+    countHistory.EntityData.YListKeys = []string {}
+
     return &(countHistory.EntityData)
 }
 
@@ -888,7 +949,7 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels struct {
 
     // Tunnel information. The type is slice of
     // TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel.
-    Tunnel []TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel
+    Tunnel []*TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel
 }
 
 func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) GetEntityData() *types.CommonEntityData {
@@ -901,12 +962,15 @@ func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) Get
     tunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tunnels.EntityData.Children = make(map[string]types.YChild)
-    tunnels.EntityData.Children["tunnel"] = types.YChild{"Tunnel", nil}
+    tunnels.EntityData.Children = types.NewOrderedMap()
+    tunnels.EntityData.Children.Append("tunnel", types.YChild{"Tunnel", nil})
     for i := range tunnels.Tunnel {
-        tunnels.EntityData.Children[types.GetSegmentPath(&tunnels.Tunnel[i])] = types.YChild{"Tunnel", &tunnels.Tunnel[i]}
+        tunnels.EntityData.Children.Append(types.GetSegmentPath(tunnels.Tunnel[i]), types.YChild{"Tunnel", tunnels.Tunnel[i]})
     }
-    tunnels.EntityData.Leafs = make(map[string]types.YLeaf)
+    tunnels.EntityData.Leafs = types.NewOrderedMap()
+
+    tunnels.EntityData.YListKeys = []string {}
+
     return &(tunnels.EntityData)
 }
 
@@ -917,7 +981,7 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel struct 
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Interface name in Display format. The type is string.
@@ -941,19 +1005,22 @@ func (tunnel *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunne
     tunnel.EntityData.YangName = "tunnel"
     tunnel.EntityData.BundleName = "cisco_ios_xr"
     tunnel.EntityData.ParentYangName = "tunnels"
-    tunnel.EntityData.SegmentPath = "tunnel" + "[interface-name='" + fmt.Sprintf("%v", tunnel.InterfaceName) + "']"
+    tunnel.EntityData.SegmentPath = "tunnel" + types.AddKeyToken(tunnel.InterfaceName, "interface-name")
     tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tunnel.EntityData.Children = make(map[string]types.YChild)
-    tunnel.EntityData.Children["base-counter-statistics"] = types.YChild{"BaseCounterStatistics", &tunnel.BaseCounterStatistics}
-    tunnel.EntityData.Leafs = make(map[string]types.YLeaf)
-    tunnel.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", tunnel.InterfaceName}
-    tunnel.EntityData.Leafs["interface-name-xr"] = types.YLeaf{"InterfaceNameXr", tunnel.InterfaceNameXr}
-    tunnel.EntityData.Leafs["interface-handle"] = types.YLeaf{"InterfaceHandle", tunnel.InterfaceHandle}
-    tunnel.EntityData.Leafs["vrfid"] = types.YLeaf{"Vrfid", tunnel.Vrfid}
-    tunnel.EntityData.Leafs["is-active"] = types.YLeaf{"IsActive", tunnel.IsActive}
+    tunnel.EntityData.Children = types.NewOrderedMap()
+    tunnel.EntityData.Children.Append("base-counter-statistics", types.YChild{"BaseCounterStatistics", &tunnel.BaseCounterStatistics})
+    tunnel.EntityData.Leafs = types.NewOrderedMap()
+    tunnel.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", tunnel.InterfaceName})
+    tunnel.EntityData.Leafs.Append("interface-name-xr", types.YLeaf{"InterfaceNameXr", tunnel.InterfaceNameXr})
+    tunnel.EntityData.Leafs.Append("interface-handle", types.YLeaf{"InterfaceHandle", tunnel.InterfaceHandle})
+    tunnel.EntityData.Leafs.Append("vrfid", types.YLeaf{"Vrfid", tunnel.Vrfid})
+    tunnel.EntityData.Leafs.Append("is-active", types.YLeaf{"IsActive", tunnel.IsActive})
+
+    tunnel.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(tunnel.EntityData)
 }
 
@@ -973,7 +1040,7 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCou
 
     // Counter History. The type is slice of
     // TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory.
-    CountHistory []TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory
+    CountHistory []*TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory
 }
 
 func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetEntityData() *types.CommonEntityData {
@@ -986,14 +1053,17 @@ func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counter
     baseCounterStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     baseCounterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    baseCounterStatistics.EntityData.Children = make(map[string]types.YChild)
-    baseCounterStatistics.EntityData.Children["count-history"] = types.YChild{"CountHistory", nil}
+    baseCounterStatistics.EntityData.Children = types.NewOrderedMap()
+    baseCounterStatistics.EntityData.Children.Append("count-history", types.YChild{"CountHistory", nil})
     for i := range baseCounterStatistics.CountHistory {
-        baseCounterStatistics.EntityData.Children[types.GetSegmentPath(&baseCounterStatistics.CountHistory[i])] = types.YChild{"CountHistory", &baseCounterStatistics.CountHistory[i]}
+        baseCounterStatistics.EntityData.Children.Append(types.GetSegmentPath(baseCounterStatistics.CountHistory[i]), types.YChild{"CountHistory", baseCounterStatistics.CountHistory[i]})
     }
-    baseCounterStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    baseCounterStatistics.EntityData.Leafs["transmit-packets-per-second-switched"] = types.YLeaf{"TransmitPacketsPerSecondSwitched", baseCounterStatistics.TransmitPacketsPerSecondSwitched}
-    baseCounterStatistics.EntityData.Leafs["transmit-bytes-per-second-switched"] = types.YLeaf{"TransmitBytesPerSecondSwitched", baseCounterStatistics.TransmitBytesPerSecondSwitched}
+    baseCounterStatistics.EntityData.Leafs = types.NewOrderedMap()
+    baseCounterStatistics.EntityData.Leafs.Append("transmit-packets-per-second-switched", types.YLeaf{"TransmitPacketsPerSecondSwitched", baseCounterStatistics.TransmitPacketsPerSecondSwitched})
+    baseCounterStatistics.EntityData.Leafs.Append("transmit-bytes-per-second-switched", types.YLeaf{"TransmitBytesPerSecondSwitched", baseCounterStatistics.TransmitBytesPerSecondSwitched})
+
+    baseCounterStatistics.EntityData.YListKeys = []string {}
+
     return &(baseCounterStatistics.EntityData)
 }
 
@@ -1033,13 +1103,16 @@ func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels
     countHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     countHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    countHistory.EntityData.Children = make(map[string]types.YChild)
-    countHistory.EntityData.Leafs = make(map[string]types.YLeaf)
-    countHistory.EntityData.Leafs["event-start-timestamp"] = types.YLeaf{"EventStartTimestamp", countHistory.EventStartTimestamp}
-    countHistory.EntityData.Leafs["event-end-timestamp"] = types.YLeaf{"EventEndTimestamp", countHistory.EventEndTimestamp}
-    countHistory.EntityData.Leafs["transmit-number-of-packets-switched"] = types.YLeaf{"TransmitNumberOfPacketsSwitched", countHistory.TransmitNumberOfPacketsSwitched}
-    countHistory.EntityData.Leafs["transmit-number-of-bytes-switched"] = types.YLeaf{"TransmitNumberOfBytesSwitched", countHistory.TransmitNumberOfBytesSwitched}
-    countHistory.EntityData.Leafs["is-valid"] = types.YLeaf{"IsValid", countHistory.IsValid}
+    countHistory.EntityData.Children = types.NewOrderedMap()
+    countHistory.EntityData.Leafs = types.NewOrderedMap()
+    countHistory.EntityData.Leafs.Append("event-start-timestamp", types.YLeaf{"EventStartTimestamp", countHistory.EventStartTimestamp})
+    countHistory.EntityData.Leafs.Append("event-end-timestamp", types.YLeaf{"EventEndTimestamp", countHistory.EventEndTimestamp})
+    countHistory.EntityData.Leafs.Append("transmit-number-of-packets-switched", types.YLeaf{"TransmitNumberOfPacketsSwitched", countHistory.TransmitNumberOfPacketsSwitched})
+    countHistory.EntityData.Leafs.Append("transmit-number-of-bytes-switched", types.YLeaf{"TransmitNumberOfBytesSwitched", countHistory.TransmitNumberOfBytesSwitched})
+    countHistory.EntityData.Leafs.Append("is-valid", types.YLeaf{"IsValid", countHistory.IsValid})
+
+    countHistory.EntityData.YListKeys = []string {}
+
     return &(countHistory.EntityData)
 }
 
@@ -1051,7 +1124,7 @@ type TrafficCollector_Afs struct {
 
     // Operational data for given Address Family. The type is slice of
     // TrafficCollector_Afs_Af.
-    Af []TrafficCollector_Afs_Af
+    Af []*TrafficCollector_Afs_Af
 }
 
 func (afs *TrafficCollector_Afs) GetEntityData() *types.CommonEntityData {
@@ -1064,12 +1137,15 @@ func (afs *TrafficCollector_Afs) GetEntityData() *types.CommonEntityData {
     afs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    afs.EntityData.Children = make(map[string]types.YChild)
-    afs.EntityData.Children["af"] = types.YChild{"Af", nil}
+    afs.EntityData.Children = types.NewOrderedMap()
+    afs.EntityData.Children.Append("af", types.YChild{"Af", nil})
     for i := range afs.Af {
-        afs.EntityData.Children[types.GetSegmentPath(&afs.Af[i])] = types.YChild{"Af", &afs.Af[i]}
+        afs.EntityData.Children.Append(types.GetSegmentPath(afs.Af[i]), types.YChild{"Af", afs.Af[i]})
     }
-    afs.EntityData.Leafs = make(map[string]types.YLeaf)
+    afs.EntityData.Leafs = types.NewOrderedMap()
+
+    afs.EntityData.YListKeys = []string {}
+
     return &(afs.EntityData)
 }
 
@@ -1091,15 +1167,18 @@ func (af *TrafficCollector_Afs_Af) GetEntityData() *types.CommonEntityData {
     af.EntityData.YangName = "af"
     af.EntityData.BundleName = "cisco_ios_xr"
     af.EntityData.ParentYangName = "afs"
-    af.EntityData.SegmentPath = "af" + "[af-name='" + fmt.Sprintf("%v", af.AfName) + "']"
+    af.EntityData.SegmentPath = "af" + types.AddKeyToken(af.AfName, "af-name")
     af.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    af.EntityData.Children = make(map[string]types.YChild)
-    af.EntityData.Children["counters"] = types.YChild{"Counters", &af.Counters}
-    af.EntityData.Leafs = make(map[string]types.YLeaf)
-    af.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", af.AfName}
+    af.EntityData.Children = types.NewOrderedMap()
+    af.EntityData.Children.Append("counters", types.YChild{"Counters", &af.Counters})
+    af.EntityData.Leafs = types.NewOrderedMap()
+    af.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", af.AfName})
+
+    af.EntityData.YListKeys = []string {"AfName"}
+
     return &(af.EntityData)
 }
 
@@ -1126,10 +1205,13 @@ func (counters *TrafficCollector_Afs_Af_Counters) GetEntityData() *types.CommonE
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    counters.EntityData.Children = make(map[string]types.YChild)
-    counters.EntityData.Children["prefixes"] = types.YChild{"Prefixes", &counters.Prefixes}
-    counters.EntityData.Children["tunnels"] = types.YChild{"Tunnels", &counters.Tunnels}
-    counters.EntityData.Leafs = make(map[string]types.YLeaf)
+    counters.EntityData.Children = types.NewOrderedMap()
+    counters.EntityData.Children.Append("prefixes", types.YChild{"Prefixes", &counters.Prefixes})
+    counters.EntityData.Children.Append("tunnels", types.YChild{"Tunnels", &counters.Tunnels})
+    counters.EntityData.Leafs = types.NewOrderedMap()
+
+    counters.EntityData.YListKeys = []string {}
+
     return &(counters.EntityData)
 }
 
@@ -1141,7 +1223,7 @@ type TrafficCollector_Afs_Af_Counters_Prefixes struct {
 
     // Show Prefix Counter. The type is slice of
     // TrafficCollector_Afs_Af_Counters_Prefixes_Prefix.
-    Prefix []TrafficCollector_Afs_Af_Counters_Prefixes_Prefix
+    Prefix []*TrafficCollector_Afs_Af_Counters_Prefixes_Prefix
 }
 
 func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) GetEntityData() *types.CommonEntityData {
@@ -1154,12 +1236,15 @@ func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) GetEntityData() *type
     prefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefixes.EntityData.Children = make(map[string]types.YChild)
-    prefixes.EntityData.Children["prefix"] = types.YChild{"Prefix", nil}
+    prefixes.EntityData.Children = types.NewOrderedMap()
+    prefixes.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range prefixes.Prefix {
-        prefixes.EntityData.Children[types.GetSegmentPath(&prefixes.Prefix[i])] = types.YChild{"Prefix", &prefixes.Prefix[i]}
+        prefixes.EntityData.Children.Append(types.GetSegmentPath(prefixes.Prefix[i]), types.YChild{"Prefix", prefixes.Prefix[i]})
     }
-    prefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixes.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixes.EntityData.YListKeys = []string {}
+
     return &(prefixes.EntityData)
 }
 
@@ -1169,12 +1254,10 @@ type TrafficCollector_Afs_Af_Counters_Prefixes_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // IP Address. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // IP Address. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Ipaddr interface{}
 
-    // Prefix Mask. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Prefix Mask. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Mask interface{}
 
     // Local Label. The type is interface{} with range: 16..1048575.
@@ -1206,16 +1289,19 @@ func (prefix *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix) GetEntityData() 
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefix.EntityData.Children = make(map[string]types.YChild)
-    prefix.EntityData.Children["base-counter-statistics"] = types.YChild{"BaseCounterStatistics", &prefix.BaseCounterStatistics}
-    prefix.EntityData.Children["traffic-matrix-counter-statistics"] = types.YChild{"TrafficMatrixCounterStatistics", &prefix.TrafficMatrixCounterStatistics}
-    prefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefix.EntityData.Leafs["ipaddr"] = types.YLeaf{"Ipaddr", prefix.Ipaddr}
-    prefix.EntityData.Leafs["mask"] = types.YLeaf{"Mask", prefix.Mask}
-    prefix.EntityData.Leafs["label"] = types.YLeaf{"Label", prefix.Label}
-    prefix.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", prefix.Prefix}
-    prefix.EntityData.Leafs["label-xr"] = types.YLeaf{"LabelXr", prefix.LabelXr}
-    prefix.EntityData.Leafs["is-active"] = types.YLeaf{"IsActive", prefix.IsActive}
+    prefix.EntityData.Children = types.NewOrderedMap()
+    prefix.EntityData.Children.Append("base-counter-statistics", types.YChild{"BaseCounterStatistics", &prefix.BaseCounterStatistics})
+    prefix.EntityData.Children.Append("traffic-matrix-counter-statistics", types.YChild{"TrafficMatrixCounterStatistics", &prefix.TrafficMatrixCounterStatistics})
+    prefix.EntityData.Leafs = types.NewOrderedMap()
+    prefix.EntityData.Leafs.Append("ipaddr", types.YLeaf{"Ipaddr", prefix.Ipaddr})
+    prefix.EntityData.Leafs.Append("mask", types.YLeaf{"Mask", prefix.Mask})
+    prefix.EntityData.Leafs.Append("label", types.YLeaf{"Label", prefix.Label})
+    prefix.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", prefix.Prefix})
+    prefix.EntityData.Leafs.Append("label-xr", types.YLeaf{"LabelXr", prefix.LabelXr})
+    prefix.EntityData.Leafs.Append("is-active", types.YLeaf{"IsActive", prefix.IsActive})
+
+    prefix.EntityData.YListKeys = []string {}
+
     return &(prefix.EntityData)
 }
 
@@ -1235,7 +1321,7 @@ type TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics stru
 
     // Counter History. The type is slice of
     // TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory.
-    CountHistory []TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory
+    CountHistory []*TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory
 }
 
 func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetEntityData() *types.CommonEntityData {
@@ -1248,14 +1334,17 @@ func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_Ba
     baseCounterStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     baseCounterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    baseCounterStatistics.EntityData.Children = make(map[string]types.YChild)
-    baseCounterStatistics.EntityData.Children["count-history"] = types.YChild{"CountHistory", nil}
+    baseCounterStatistics.EntityData.Children = types.NewOrderedMap()
+    baseCounterStatistics.EntityData.Children.Append("count-history", types.YChild{"CountHistory", nil})
     for i := range baseCounterStatistics.CountHistory {
-        baseCounterStatistics.EntityData.Children[types.GetSegmentPath(&baseCounterStatistics.CountHistory[i])] = types.YChild{"CountHistory", &baseCounterStatistics.CountHistory[i]}
+        baseCounterStatistics.EntityData.Children.Append(types.GetSegmentPath(baseCounterStatistics.CountHistory[i]), types.YChild{"CountHistory", baseCounterStatistics.CountHistory[i]})
     }
-    baseCounterStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    baseCounterStatistics.EntityData.Leafs["transmit-packets-per-second-switched"] = types.YLeaf{"TransmitPacketsPerSecondSwitched", baseCounterStatistics.TransmitPacketsPerSecondSwitched}
-    baseCounterStatistics.EntityData.Leafs["transmit-bytes-per-second-switched"] = types.YLeaf{"TransmitBytesPerSecondSwitched", baseCounterStatistics.TransmitBytesPerSecondSwitched}
+    baseCounterStatistics.EntityData.Leafs = types.NewOrderedMap()
+    baseCounterStatistics.EntityData.Leafs.Append("transmit-packets-per-second-switched", types.YLeaf{"TransmitPacketsPerSecondSwitched", baseCounterStatistics.TransmitPacketsPerSecondSwitched})
+    baseCounterStatistics.EntityData.Leafs.Append("transmit-bytes-per-second-switched", types.YLeaf{"TransmitBytesPerSecondSwitched", baseCounterStatistics.TransmitBytesPerSecondSwitched})
+
+    baseCounterStatistics.EntityData.YListKeys = []string {}
+
     return &(baseCounterStatistics.EntityData)
 }
 
@@ -1295,13 +1384,16 @@ func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounter
     countHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     countHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    countHistory.EntityData.Children = make(map[string]types.YChild)
-    countHistory.EntityData.Leafs = make(map[string]types.YLeaf)
-    countHistory.EntityData.Leafs["event-start-timestamp"] = types.YLeaf{"EventStartTimestamp", countHistory.EventStartTimestamp}
-    countHistory.EntityData.Leafs["event-end-timestamp"] = types.YLeaf{"EventEndTimestamp", countHistory.EventEndTimestamp}
-    countHistory.EntityData.Leafs["transmit-number-of-packets-switched"] = types.YLeaf{"TransmitNumberOfPacketsSwitched", countHistory.TransmitNumberOfPacketsSwitched}
-    countHistory.EntityData.Leafs["transmit-number-of-bytes-switched"] = types.YLeaf{"TransmitNumberOfBytesSwitched", countHistory.TransmitNumberOfBytesSwitched}
-    countHistory.EntityData.Leafs["is-valid"] = types.YLeaf{"IsValid", countHistory.IsValid}
+    countHistory.EntityData.Children = types.NewOrderedMap()
+    countHistory.EntityData.Leafs = types.NewOrderedMap()
+    countHistory.EntityData.Leafs.Append("event-start-timestamp", types.YLeaf{"EventStartTimestamp", countHistory.EventStartTimestamp})
+    countHistory.EntityData.Leafs.Append("event-end-timestamp", types.YLeaf{"EventEndTimestamp", countHistory.EventEndTimestamp})
+    countHistory.EntityData.Leafs.Append("transmit-number-of-packets-switched", types.YLeaf{"TransmitNumberOfPacketsSwitched", countHistory.TransmitNumberOfPacketsSwitched})
+    countHistory.EntityData.Leafs.Append("transmit-number-of-bytes-switched", types.YLeaf{"TransmitNumberOfBytesSwitched", countHistory.TransmitNumberOfBytesSwitched})
+    countHistory.EntityData.Leafs.Append("is-valid", types.YLeaf{"IsValid", countHistory.IsValid})
+
+    countHistory.EntityData.YListKeys = []string {}
+
     return &(countHistory.EntityData)
 }
 
@@ -1321,7 +1413,7 @@ type TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatis
 
     // Counter History. The type is slice of
     // TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory.
-    CountHistory []TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory
+    CountHistory []*TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory
 }
 
 func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetEntityData() *types.CommonEntityData {
@@ -1334,14 +1426,17 @@ func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_
     trafficMatrixCounterStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficMatrixCounterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trafficMatrixCounterStatistics.EntityData.Children = make(map[string]types.YChild)
-    trafficMatrixCounterStatistics.EntityData.Children["count-history"] = types.YChild{"CountHistory", nil}
+    trafficMatrixCounterStatistics.EntityData.Children = types.NewOrderedMap()
+    trafficMatrixCounterStatistics.EntityData.Children.Append("count-history", types.YChild{"CountHistory", nil})
     for i := range trafficMatrixCounterStatistics.CountHistory {
-        trafficMatrixCounterStatistics.EntityData.Children[types.GetSegmentPath(&trafficMatrixCounterStatistics.CountHistory[i])] = types.YChild{"CountHistory", &trafficMatrixCounterStatistics.CountHistory[i]}
+        trafficMatrixCounterStatistics.EntityData.Children.Append(types.GetSegmentPath(trafficMatrixCounterStatistics.CountHistory[i]), types.YChild{"CountHistory", trafficMatrixCounterStatistics.CountHistory[i]})
     }
-    trafficMatrixCounterStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    trafficMatrixCounterStatistics.EntityData.Leafs["transmit-packets-per-second-switched"] = types.YLeaf{"TransmitPacketsPerSecondSwitched", trafficMatrixCounterStatistics.TransmitPacketsPerSecondSwitched}
-    trafficMatrixCounterStatistics.EntityData.Leafs["transmit-bytes-per-second-switched"] = types.YLeaf{"TransmitBytesPerSecondSwitched", trafficMatrixCounterStatistics.TransmitBytesPerSecondSwitched}
+    trafficMatrixCounterStatistics.EntityData.Leafs = types.NewOrderedMap()
+    trafficMatrixCounterStatistics.EntityData.Leafs.Append("transmit-packets-per-second-switched", types.YLeaf{"TransmitPacketsPerSecondSwitched", trafficMatrixCounterStatistics.TransmitPacketsPerSecondSwitched})
+    trafficMatrixCounterStatistics.EntityData.Leafs.Append("transmit-bytes-per-second-switched", types.YLeaf{"TransmitBytesPerSecondSwitched", trafficMatrixCounterStatistics.TransmitBytesPerSecondSwitched})
+
+    trafficMatrixCounterStatistics.EntityData.YListKeys = []string {}
+
     return &(trafficMatrixCounterStatistics.EntityData)
 }
 
@@ -1381,13 +1476,16 @@ func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatr
     countHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     countHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    countHistory.EntityData.Children = make(map[string]types.YChild)
-    countHistory.EntityData.Leafs = make(map[string]types.YLeaf)
-    countHistory.EntityData.Leafs["event-start-timestamp"] = types.YLeaf{"EventStartTimestamp", countHistory.EventStartTimestamp}
-    countHistory.EntityData.Leafs["event-end-timestamp"] = types.YLeaf{"EventEndTimestamp", countHistory.EventEndTimestamp}
-    countHistory.EntityData.Leafs["transmit-number-of-packets-switched"] = types.YLeaf{"TransmitNumberOfPacketsSwitched", countHistory.TransmitNumberOfPacketsSwitched}
-    countHistory.EntityData.Leafs["transmit-number-of-bytes-switched"] = types.YLeaf{"TransmitNumberOfBytesSwitched", countHistory.TransmitNumberOfBytesSwitched}
-    countHistory.EntityData.Leafs["is-valid"] = types.YLeaf{"IsValid", countHistory.IsValid}
+    countHistory.EntityData.Children = types.NewOrderedMap()
+    countHistory.EntityData.Leafs = types.NewOrderedMap()
+    countHistory.EntityData.Leafs.Append("event-start-timestamp", types.YLeaf{"EventStartTimestamp", countHistory.EventStartTimestamp})
+    countHistory.EntityData.Leafs.Append("event-end-timestamp", types.YLeaf{"EventEndTimestamp", countHistory.EventEndTimestamp})
+    countHistory.EntityData.Leafs.Append("transmit-number-of-packets-switched", types.YLeaf{"TransmitNumberOfPacketsSwitched", countHistory.TransmitNumberOfPacketsSwitched})
+    countHistory.EntityData.Leafs.Append("transmit-number-of-bytes-switched", types.YLeaf{"TransmitNumberOfBytesSwitched", countHistory.TransmitNumberOfBytesSwitched})
+    countHistory.EntityData.Leafs.Append("is-valid", types.YLeaf{"IsValid", countHistory.IsValid})
+
+    countHistory.EntityData.YListKeys = []string {}
+
     return &(countHistory.EntityData)
 }
 
@@ -1399,7 +1497,7 @@ type TrafficCollector_Afs_Af_Counters_Tunnels struct {
 
     // Tunnel information. The type is slice of
     // TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel.
-    Tunnel []TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel
+    Tunnel []*TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel
 }
 
 func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) GetEntityData() *types.CommonEntityData {
@@ -1412,12 +1510,15 @@ func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) GetEntityData() *types.
     tunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tunnels.EntityData.Children = make(map[string]types.YChild)
-    tunnels.EntityData.Children["tunnel"] = types.YChild{"Tunnel", nil}
+    tunnels.EntityData.Children = types.NewOrderedMap()
+    tunnels.EntityData.Children.Append("tunnel", types.YChild{"Tunnel", nil})
     for i := range tunnels.Tunnel {
-        tunnels.EntityData.Children[types.GetSegmentPath(&tunnels.Tunnel[i])] = types.YChild{"Tunnel", &tunnels.Tunnel[i]}
+        tunnels.EntityData.Children.Append(types.GetSegmentPath(tunnels.Tunnel[i]), types.YChild{"Tunnel", tunnels.Tunnel[i]})
     }
-    tunnels.EntityData.Leafs = make(map[string]types.YLeaf)
+    tunnels.EntityData.Leafs = types.NewOrderedMap()
+
+    tunnels.EntityData.YListKeys = []string {}
+
     return &(tunnels.EntityData)
 }
 
@@ -1428,7 +1529,7 @@ type TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // Interface name in Display format. The type is string.
@@ -1452,19 +1553,22 @@ func (tunnel *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel) GetEntityData() *
     tunnel.EntityData.YangName = "tunnel"
     tunnel.EntityData.BundleName = "cisco_ios_xr"
     tunnel.EntityData.ParentYangName = "tunnels"
-    tunnel.EntityData.SegmentPath = "tunnel" + "[interface-name='" + fmt.Sprintf("%v", tunnel.InterfaceName) + "']"
+    tunnel.EntityData.SegmentPath = "tunnel" + types.AddKeyToken(tunnel.InterfaceName, "interface-name")
     tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tunnel.EntityData.Children = make(map[string]types.YChild)
-    tunnel.EntityData.Children["base-counter-statistics"] = types.YChild{"BaseCounterStatistics", &tunnel.BaseCounterStatistics}
-    tunnel.EntityData.Leafs = make(map[string]types.YLeaf)
-    tunnel.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", tunnel.InterfaceName}
-    tunnel.EntityData.Leafs["interface-name-xr"] = types.YLeaf{"InterfaceNameXr", tunnel.InterfaceNameXr}
-    tunnel.EntityData.Leafs["interface-handle"] = types.YLeaf{"InterfaceHandle", tunnel.InterfaceHandle}
-    tunnel.EntityData.Leafs["vrfid"] = types.YLeaf{"Vrfid", tunnel.Vrfid}
-    tunnel.EntityData.Leafs["is-active"] = types.YLeaf{"IsActive", tunnel.IsActive}
+    tunnel.EntityData.Children = types.NewOrderedMap()
+    tunnel.EntityData.Children.Append("base-counter-statistics", types.YChild{"BaseCounterStatistics", &tunnel.BaseCounterStatistics})
+    tunnel.EntityData.Leafs = types.NewOrderedMap()
+    tunnel.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", tunnel.InterfaceName})
+    tunnel.EntityData.Leafs.Append("interface-name-xr", types.YLeaf{"InterfaceNameXr", tunnel.InterfaceNameXr})
+    tunnel.EntityData.Leafs.Append("interface-handle", types.YLeaf{"InterfaceHandle", tunnel.InterfaceHandle})
+    tunnel.EntityData.Leafs.Append("vrfid", types.YLeaf{"Vrfid", tunnel.Vrfid})
+    tunnel.EntityData.Leafs.Append("is-active", types.YLeaf{"IsActive", tunnel.IsActive})
+
+    tunnel.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(tunnel.EntityData)
 }
 
@@ -1484,7 +1588,7 @@ type TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics struc
 
     // Counter History. The type is slice of
     // TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory.
-    CountHistory []TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory
+    CountHistory []*TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory
 }
 
 func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetEntityData() *types.CommonEntityData {
@@ -1497,14 +1601,17 @@ func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_Bas
     baseCounterStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     baseCounterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    baseCounterStatistics.EntityData.Children = make(map[string]types.YChild)
-    baseCounterStatistics.EntityData.Children["count-history"] = types.YChild{"CountHistory", nil}
+    baseCounterStatistics.EntityData.Children = types.NewOrderedMap()
+    baseCounterStatistics.EntityData.Children.Append("count-history", types.YChild{"CountHistory", nil})
     for i := range baseCounterStatistics.CountHistory {
-        baseCounterStatistics.EntityData.Children[types.GetSegmentPath(&baseCounterStatistics.CountHistory[i])] = types.YChild{"CountHistory", &baseCounterStatistics.CountHistory[i]}
+        baseCounterStatistics.EntityData.Children.Append(types.GetSegmentPath(baseCounterStatistics.CountHistory[i]), types.YChild{"CountHistory", baseCounterStatistics.CountHistory[i]})
     }
-    baseCounterStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
-    baseCounterStatistics.EntityData.Leafs["transmit-packets-per-second-switched"] = types.YLeaf{"TransmitPacketsPerSecondSwitched", baseCounterStatistics.TransmitPacketsPerSecondSwitched}
-    baseCounterStatistics.EntityData.Leafs["transmit-bytes-per-second-switched"] = types.YLeaf{"TransmitBytesPerSecondSwitched", baseCounterStatistics.TransmitBytesPerSecondSwitched}
+    baseCounterStatistics.EntityData.Leafs = types.NewOrderedMap()
+    baseCounterStatistics.EntityData.Leafs.Append("transmit-packets-per-second-switched", types.YLeaf{"TransmitPacketsPerSecondSwitched", baseCounterStatistics.TransmitPacketsPerSecondSwitched})
+    baseCounterStatistics.EntityData.Leafs.Append("transmit-bytes-per-second-switched", types.YLeaf{"TransmitBytesPerSecondSwitched", baseCounterStatistics.TransmitBytesPerSecondSwitched})
+
+    baseCounterStatistics.EntityData.YListKeys = []string {}
+
     return &(baseCounterStatistics.EntityData)
 }
 
@@ -1544,13 +1651,16 @@ func (countHistory *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterS
     countHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     countHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    countHistory.EntityData.Children = make(map[string]types.YChild)
-    countHistory.EntityData.Leafs = make(map[string]types.YLeaf)
-    countHistory.EntityData.Leafs["event-start-timestamp"] = types.YLeaf{"EventStartTimestamp", countHistory.EventStartTimestamp}
-    countHistory.EntityData.Leafs["event-end-timestamp"] = types.YLeaf{"EventEndTimestamp", countHistory.EventEndTimestamp}
-    countHistory.EntityData.Leafs["transmit-number-of-packets-switched"] = types.YLeaf{"TransmitNumberOfPacketsSwitched", countHistory.TransmitNumberOfPacketsSwitched}
-    countHistory.EntityData.Leafs["transmit-number-of-bytes-switched"] = types.YLeaf{"TransmitNumberOfBytesSwitched", countHistory.TransmitNumberOfBytesSwitched}
-    countHistory.EntityData.Leafs["is-valid"] = types.YLeaf{"IsValid", countHistory.IsValid}
+    countHistory.EntityData.Children = types.NewOrderedMap()
+    countHistory.EntityData.Leafs = types.NewOrderedMap()
+    countHistory.EntityData.Leafs.Append("event-start-timestamp", types.YLeaf{"EventStartTimestamp", countHistory.EventStartTimestamp})
+    countHistory.EntityData.Leafs.Append("event-end-timestamp", types.YLeaf{"EventEndTimestamp", countHistory.EventEndTimestamp})
+    countHistory.EntityData.Leafs.Append("transmit-number-of-packets-switched", types.YLeaf{"TransmitNumberOfPacketsSwitched", countHistory.TransmitNumberOfPacketsSwitched})
+    countHistory.EntityData.Leafs.Append("transmit-number-of-bytes-switched", types.YLeaf{"TransmitNumberOfBytesSwitched", countHistory.TransmitNumberOfBytesSwitched})
+    countHistory.EntityData.Leafs.Append("is-valid", types.YLeaf{"IsValid", countHistory.IsValid})
+
+    countHistory.EntityData.YListKeys = []string {}
+
     return &(countHistory.EntityData)
 }
 

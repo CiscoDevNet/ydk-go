@@ -15,7 +15,7 @@ module Cisco-IOS-XR-ipv6-acl-cfg {
     prefix dt2;
   }
   include Cisco-IOS-XR-ipv6-ace-cfg {
-    revision-date 2017-12-04;
+    revision-date 2018-01-03;
   }
 
   organization
@@ -41,9 +41,9 @@ module Cisco-IOS-XR-ipv6-acl-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2017-12-04 {
+  revision 2018-01-03 {
     description
-      "6.3.2 revision. Updated the when statement for icmp constainer to match icmpv6 protocol.";
+      "6.4.1 revision. Fixed a few typos in the description.";
   }
   revision 2015-11-09 {
     description
@@ -61,7 +61,6 @@ module Cisco-IOS-XR-ipv6-acl-cfg {
         description
           "Name of a prefix list";
         container prefix-list-entries {
-          presence "Indicates a prefix-list-entries node is configured.";
           description
             "Sequence of entries forming a prefix list";
           list prefix-list-entry {

@@ -35,6 +35,10 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-10-15 {
+    description
+      "Removed presence statement generated from internal CLI data.";
+  }
   revision 2017-05-22 {
     description
       "Updated node naming to be consistent with the CLI";
@@ -1400,7 +1404,6 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
   }
 
   container pim {
-    presence "Indicates a pim node is configured.";
     description
       "PIM configuration";
     container vrfs {
@@ -1484,7 +1487,6 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
       }
     }
     container default-context {
-      presence "Indicates a default-context node is configured.";
       description
         "Default Context";
       container ipv6 {

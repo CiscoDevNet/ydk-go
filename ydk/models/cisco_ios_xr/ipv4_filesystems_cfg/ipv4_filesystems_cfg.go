@@ -50,9 +50,12 @@ func (rcp *Rcp) GetEntityData() *types.CommonEntityData {
     rcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rcp.EntityData.Children = make(map[string]types.YChild)
-    rcp.EntityData.Children["rcp-client"] = types.YChild{"RcpClient", &rcp.RcpClient}
-    rcp.EntityData.Leafs = make(map[string]types.YLeaf)
+    rcp.EntityData.Children = types.NewOrderedMap()
+    rcp.EntityData.Children.Append("rcp-client", types.YChild{"RcpClient", &rcp.RcpClient})
+    rcp.EntityData.Leafs = types.NewOrderedMap()
+
+    rcp.EntityData.YListKeys = []string {}
+
     return &(rcp.EntityData)
 }
 
@@ -66,7 +69,7 @@ type Rcp_RcpClient struct {
     Username interface{}
 
     // Specify interface for source address in connections. The type is string
-    // with pattern: b'[a-zA-Z0-9./-]+'.
+    // with pattern: [a-zA-Z0-9./-]+.
     SourceInterface interface{}
 }
 
@@ -80,10 +83,13 @@ func (rcpClient *Rcp_RcpClient) GetEntityData() *types.CommonEntityData {
     rcpClient.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rcpClient.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rcpClient.EntityData.Children = make(map[string]types.YChild)
-    rcpClient.EntityData.Leafs = make(map[string]types.YLeaf)
-    rcpClient.EntityData.Leafs["username"] = types.YLeaf{"Username", rcpClient.Username}
-    rcpClient.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", rcpClient.SourceInterface}
+    rcpClient.EntityData.Children = types.NewOrderedMap()
+    rcpClient.EntityData.Leafs = types.NewOrderedMap()
+    rcpClient.EntityData.Leafs.Append("username", types.YLeaf{"Username", rcpClient.Username})
+    rcpClient.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", rcpClient.SourceInterface})
+
+    rcpClient.EntityData.YListKeys = []string {}
+
     return &(rcpClient.EntityData)
 }
 
@@ -107,9 +113,12 @@ func (ftp *Ftp) GetEntityData() *types.CommonEntityData {
     ftp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ftp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ftp.EntityData.Children = make(map[string]types.YChild)
-    ftp.EntityData.Children["ftp-client"] = types.YChild{"FtpClient", &ftp.FtpClient}
-    ftp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ftp.EntityData.Children = types.NewOrderedMap()
+    ftp.EntityData.Children.Append("ftp-client", types.YChild{"FtpClient", &ftp.FtpClient})
+    ftp.EntityData.Leafs = types.NewOrderedMap()
+
+    ftp.EntityData.YListKeys = []string {}
+
     return &(ftp.EntityData)
 }
 
@@ -123,7 +132,7 @@ type Ftp_FtpClient struct {
     Passive interface{}
 
     // Specify password for ftp connnection. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Password interface{}
 
     // Password for anonymous user (ftp server dependent). The type is string.
@@ -133,7 +142,7 @@ type Ftp_FtpClient struct {
     Username interface{}
 
     // Specify interface for source address in connections. The type is string
-    // with pattern: b'[a-zA-Z0-9./-]+'.
+    // with pattern: [a-zA-Z0-9./-]+.
     SourceInterface interface{}
 
     // VRF table.
@@ -150,14 +159,17 @@ func (ftpClient *Ftp_FtpClient) GetEntityData() *types.CommonEntityData {
     ftpClient.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ftpClient.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ftpClient.EntityData.Children = make(map[string]types.YChild)
-    ftpClient.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &ftpClient.Vrfs}
-    ftpClient.EntityData.Leafs = make(map[string]types.YLeaf)
-    ftpClient.EntityData.Leafs["passive"] = types.YLeaf{"Passive", ftpClient.Passive}
-    ftpClient.EntityData.Leafs["password"] = types.YLeaf{"Password", ftpClient.Password}
-    ftpClient.EntityData.Leafs["anonymous-password"] = types.YLeaf{"AnonymousPassword", ftpClient.AnonymousPassword}
-    ftpClient.EntityData.Leafs["username"] = types.YLeaf{"Username", ftpClient.Username}
-    ftpClient.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", ftpClient.SourceInterface}
+    ftpClient.EntityData.Children = types.NewOrderedMap()
+    ftpClient.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &ftpClient.Vrfs})
+    ftpClient.EntityData.Leafs = types.NewOrderedMap()
+    ftpClient.EntityData.Leafs.Append("passive", types.YLeaf{"Passive", ftpClient.Passive})
+    ftpClient.EntityData.Leafs.Append("password", types.YLeaf{"Password", ftpClient.Password})
+    ftpClient.EntityData.Leafs.Append("anonymous-password", types.YLeaf{"AnonymousPassword", ftpClient.AnonymousPassword})
+    ftpClient.EntityData.Leafs.Append("username", types.YLeaf{"Username", ftpClient.Username})
+    ftpClient.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", ftpClient.SourceInterface})
+
+    ftpClient.EntityData.YListKeys = []string {}
+
     return &(ftpClient.EntityData)
 }
 
@@ -168,7 +180,7 @@ type Ftp_FtpClient_Vrfs struct {
     YFilter yfilter.YFilter
 
     // VRF specific data. The type is slice of Ftp_FtpClient_Vrfs_Vrf.
-    Vrf []Ftp_FtpClient_Vrfs_Vrf
+    Vrf []*Ftp_FtpClient_Vrfs_Vrf
 }
 
 func (vrfs *Ftp_FtpClient_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -181,12 +193,15 @@ func (vrfs *Ftp_FtpClient_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -197,11 +212,11 @@ type Ftp_FtpClient_Vrfs_Vrf struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the VRF instance. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Specify interface for source address in connections. The type is string
-    // with pattern: b'[a-zA-Z0-9./-]+'.
+    // with pattern: [a-zA-Z0-9./-]+.
     SourceInterface interface{}
 
     // Specify username for connections. The type is string.
@@ -211,7 +226,7 @@ type Ftp_FtpClient_Vrfs_Vrf struct {
     AnonymousPassword interface{}
 
     // Specify password for ftp connnection. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Password interface{}
 
     // Enable connect using passive mode. The type is interface{}.
@@ -223,19 +238,22 @@ func (vrf *Ftp_FtpClient_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
-    vrf.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", vrf.SourceInterface}
-    vrf.EntityData.Leafs["username"] = types.YLeaf{"Username", vrf.Username}
-    vrf.EntityData.Leafs["anonymous-password"] = types.YLeaf{"AnonymousPassword", vrf.AnonymousPassword}
-    vrf.EntityData.Leafs["password"] = types.YLeaf{"Password", vrf.Password}
-    vrf.EntityData.Leafs["passive"] = types.YLeaf{"Passive", vrf.Passive}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+    vrf.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", vrf.SourceInterface})
+    vrf.EntityData.Leafs.Append("username", types.YLeaf{"Username", vrf.Username})
+    vrf.EntityData.Leafs.Append("anonymous-password", types.YLeaf{"AnonymousPassword", vrf.AnonymousPassword})
+    vrf.EntityData.Leafs.Append("password", types.YLeaf{"Password", vrf.Password})
+    vrf.EntityData.Leafs.Append("passive", types.YLeaf{"Passive", vrf.Passive})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -259,9 +277,12 @@ func (tftp *Tftp) GetEntityData() *types.CommonEntityData {
     tftp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tftp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tftp.EntityData.Children = make(map[string]types.YChild)
-    tftp.EntityData.Children["tftp-client"] = types.YChild{"TftpClient", &tftp.TftpClient}
-    tftp.EntityData.Leafs = make(map[string]types.YLeaf)
+    tftp.EntityData.Children = types.NewOrderedMap()
+    tftp.EntityData.Children.Append("tftp-client", types.YChild{"TftpClient", &tftp.TftpClient})
+    tftp.EntityData.Leafs = types.NewOrderedMap()
+
+    tftp.EntityData.YListKeys = []string {}
+
     return &(tftp.EntityData)
 }
 
@@ -280,7 +301,7 @@ type Tftp_TftpClient struct {
     Timeout interface{}
 
     // Specify interface for source address in connections. The type is string
-    // with pattern: b'[a-zA-Z0-9./-]+'.
+    // with pattern: [a-zA-Z0-9./-]+.
     SourceInterface interface{}
 
     // VRF table.
@@ -297,12 +318,15 @@ func (tftpClient *Tftp_TftpClient) GetEntityData() *types.CommonEntityData {
     tftpClient.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tftpClient.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tftpClient.EntityData.Children = make(map[string]types.YChild)
-    tftpClient.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &tftpClient.Vrfs}
-    tftpClient.EntityData.Leafs = make(map[string]types.YLeaf)
-    tftpClient.EntityData.Leafs["retry"] = types.YLeaf{"Retry", tftpClient.Retry}
-    tftpClient.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", tftpClient.Timeout}
-    tftpClient.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", tftpClient.SourceInterface}
+    tftpClient.EntityData.Children = types.NewOrderedMap()
+    tftpClient.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &tftpClient.Vrfs})
+    tftpClient.EntityData.Leafs = types.NewOrderedMap()
+    tftpClient.EntityData.Leafs.Append("retry", types.YLeaf{"Retry", tftpClient.Retry})
+    tftpClient.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", tftpClient.Timeout})
+    tftpClient.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", tftpClient.SourceInterface})
+
+    tftpClient.EntityData.YListKeys = []string {}
+
     return &(tftpClient.EntityData)
 }
 
@@ -313,7 +337,7 @@ type Tftp_TftpClient_Vrfs struct {
     YFilter yfilter.YFilter
 
     // VRF specific data. The type is slice of Tftp_TftpClient_Vrfs_Vrf.
-    Vrf []Tftp_TftpClient_Vrfs_Vrf
+    Vrf []*Tftp_TftpClient_Vrfs_Vrf
 }
 
 func (vrfs *Tftp_TftpClient_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -326,12 +350,15 @@ func (vrfs *Tftp_TftpClient_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -342,11 +369,11 @@ type Tftp_TftpClient_Vrfs_Vrf struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the VRF instance. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Specify interface for source address in connections. The type is string
-    // with pattern: b'[a-zA-Z0-9./-]+'.
+    // with pattern: [a-zA-Z0-9./-]+.
     SourceInterface interface{}
 
     // Specify the number of retries when client requests TFTP connections. The
@@ -363,17 +390,20 @@ func (vrf *Tftp_TftpClient_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
-    vrf.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", vrf.SourceInterface}
-    vrf.EntityData.Leafs["retry"] = types.YLeaf{"Retry", vrf.Retry}
-    vrf.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", vrf.Timeout}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+    vrf.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", vrf.SourceInterface})
+    vrf.EntityData.Leafs.Append("retry", types.YLeaf{"Retry", vrf.Retry})
+    vrf.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", vrf.Timeout})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 

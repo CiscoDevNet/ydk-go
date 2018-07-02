@@ -56,13 +56,16 @@ func (routingPolicy *RoutingPolicy) GetEntityData() *types.CommonEntityData {
     routingPolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routingPolicy.EntityData.Children = make(map[string]types.YChild)
-    routingPolicy.EntityData.Children["route-policies"] = types.YChild{"RoutePolicies", &routingPolicy.RoutePolicies}
-    routingPolicy.EntityData.Children["sets"] = types.YChild{"Sets", &routingPolicy.Sets}
-    routingPolicy.EntityData.Children["limits"] = types.YChild{"Limits", &routingPolicy.Limits}
-    routingPolicy.EntityData.Leafs = make(map[string]types.YLeaf)
-    routingPolicy.EntityData.Leafs["set-exit-as-abort"] = types.YLeaf{"SetExitAsAbort", routingPolicy.SetExitAsAbort}
-    routingPolicy.EntityData.Leafs["editor"] = types.YLeaf{"Editor", routingPolicy.Editor}
+    routingPolicy.EntityData.Children = types.NewOrderedMap()
+    routingPolicy.EntityData.Children.Append("route-policies", types.YChild{"RoutePolicies", &routingPolicy.RoutePolicies})
+    routingPolicy.EntityData.Children.Append("sets", types.YChild{"Sets", &routingPolicy.Sets})
+    routingPolicy.EntityData.Children.Append("limits", types.YChild{"Limits", &routingPolicy.Limits})
+    routingPolicy.EntityData.Leafs = types.NewOrderedMap()
+    routingPolicy.EntityData.Leafs.Append("set-exit-as-abort", types.YLeaf{"SetExitAsAbort", routingPolicy.SetExitAsAbort})
+    routingPolicy.EntityData.Leafs.Append("editor", types.YLeaf{"Editor", routingPolicy.Editor})
+
+    routingPolicy.EntityData.YListKeys = []string {}
+
     return &(routingPolicy.EntityData)
 }
 
@@ -74,7 +77,7 @@ type RoutingPolicy_RoutePolicies struct {
 
     // Information about an individual policy. The type is slice of
     // RoutingPolicy_RoutePolicies_RoutePolicy.
-    RoutePolicy []RoutingPolicy_RoutePolicies_RoutePolicy
+    RoutePolicy []*RoutingPolicy_RoutePolicies_RoutePolicy
 }
 
 func (routePolicies *RoutingPolicy_RoutePolicies) GetEntityData() *types.CommonEntityData {
@@ -87,12 +90,15 @@ func (routePolicies *RoutingPolicy_RoutePolicies) GetEntityData() *types.CommonE
     routePolicies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePolicies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routePolicies.EntityData.Children = make(map[string]types.YChild)
-    routePolicies.EntityData.Children["route-policy"] = types.YChild{"RoutePolicy", nil}
+    routePolicies.EntityData.Children = types.NewOrderedMap()
+    routePolicies.EntityData.Children.Append("route-policy", types.YChild{"RoutePolicy", nil})
     for i := range routePolicies.RoutePolicy {
-        routePolicies.EntityData.Children[types.GetSegmentPath(&routePolicies.RoutePolicy[i])] = types.YChild{"RoutePolicy", &routePolicies.RoutePolicy[i]}
+        routePolicies.EntityData.Children.Append(types.GetSegmentPath(routePolicies.RoutePolicy[i]), types.YChild{"RoutePolicy", routePolicies.RoutePolicy[i]})
     }
-    routePolicies.EntityData.Leafs = make(map[string]types.YLeaf)
+    routePolicies.EntityData.Leafs = types.NewOrderedMap()
+
+    routePolicies.EntityData.YListKeys = []string {}
+
     return &(routePolicies.EntityData)
 }
 
@@ -103,7 +109,7 @@ type RoutingPolicy_RoutePolicies_RoutePolicy struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Route policy name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     RoutePolicyName interface{}
 
     // policy statements. The type is string. This attribute is mandatory.
@@ -115,15 +121,18 @@ func (routePolicy *RoutingPolicy_RoutePolicies_RoutePolicy) GetEntityData() *typ
     routePolicy.EntityData.YangName = "route-policy"
     routePolicy.EntityData.BundleName = "cisco_ios_xr"
     routePolicy.EntityData.ParentYangName = "route-policies"
-    routePolicy.EntityData.SegmentPath = "route-policy" + "[route-policy-name='" + fmt.Sprintf("%v", routePolicy.RoutePolicyName) + "']"
+    routePolicy.EntityData.SegmentPath = "route-policy" + types.AddKeyToken(routePolicy.RoutePolicyName, "route-policy-name")
     routePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    routePolicy.EntityData.Children = make(map[string]types.YChild)
-    routePolicy.EntityData.Leafs = make(map[string]types.YLeaf)
-    routePolicy.EntityData.Leafs["route-policy-name"] = types.YLeaf{"RoutePolicyName", routePolicy.RoutePolicyName}
-    routePolicy.EntityData.Leafs["rpl-route-policy"] = types.YLeaf{"RplRoutePolicy", routePolicy.RplRoutePolicy}
+    routePolicy.EntityData.Children = types.NewOrderedMap()
+    routePolicy.EntityData.Leafs = types.NewOrderedMap()
+    routePolicy.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", routePolicy.RoutePolicyName})
+    routePolicy.EntityData.Leafs.Append("rpl-route-policy", types.YLeaf{"RplRoutePolicy", routePolicy.RplRoutePolicy})
+
+    routePolicy.EntityData.YListKeys = []string {"RoutePolicyName"}
+
     return &(routePolicy.EntityData)
 }
 
@@ -195,25 +204,28 @@ func (sets *RoutingPolicy_Sets) GetEntityData() *types.CommonEntityData {
     sets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sets.EntityData.Children = make(map[string]types.YChild)
-    sets.EntityData.Children["prefix-sets"] = types.YChild{"PrefixSets", &sets.PrefixSets}
-    sets.EntityData.Children["large-community-sets"] = types.YChild{"LargeCommunitySets", &sets.LargeCommunitySets}
-    sets.EntityData.Children["mac-sets"] = types.YChild{"MacSets", &sets.MacSets}
-    sets.EntityData.Children["extended-community-opaque-sets"] = types.YChild{"ExtendedCommunityOpaqueSets", &sets.ExtendedCommunityOpaqueSets}
-    sets.EntityData.Children["ospf-area-sets"] = types.YChild{"OspfAreaSets", &sets.OspfAreaSets}
-    sets.EntityData.Children["extended-community-cost-sets"] = types.YChild{"ExtendedCommunityCostSets", &sets.ExtendedCommunityCostSets}
-    sets.EntityData.Children["extended-community-soo-sets"] = types.YChild{"ExtendedCommunitySooSets", &sets.ExtendedCommunitySooSets}
-    sets.EntityData.Children["esi-sets"] = types.YChild{"EsiSets", &sets.EsiSets}
-    sets.EntityData.Children["extended-community-seg-nh-sets"] = types.YChild{"ExtendedCommunitySegNhSets", &sets.ExtendedCommunitySegNhSets}
-    sets.EntityData.Children["rd-sets"] = types.YChild{"RdSets", &sets.RdSets}
-    sets.EntityData.Children["policy-global-set-table"] = types.YChild{"PolicyGlobalSetTable", &sets.PolicyGlobalSetTable}
-    sets.EntityData.Children["extended-community-bandwidth-sets"] = types.YChild{"ExtendedCommunityBandwidthSets", &sets.ExtendedCommunityBandwidthSets}
-    sets.EntityData.Children["community-sets"] = types.YChild{"CommunitySets", &sets.CommunitySets}
-    sets.EntityData.Children["as-path-sets"] = types.YChild{"AsPathSets", &sets.AsPathSets}
-    sets.EntityData.Children["tag-sets"] = types.YChild{"TagSets", &sets.TagSets}
-    sets.EntityData.Children["etag-sets"] = types.YChild{"EtagSets", &sets.EtagSets}
-    sets.EntityData.Children["extended-community-rt-sets"] = types.YChild{"ExtendedCommunityRtSets", &sets.ExtendedCommunityRtSets}
-    sets.EntityData.Leafs = make(map[string]types.YLeaf)
+    sets.EntityData.Children = types.NewOrderedMap()
+    sets.EntityData.Children.Append("prefix-sets", types.YChild{"PrefixSets", &sets.PrefixSets})
+    sets.EntityData.Children.Append("large-community-sets", types.YChild{"LargeCommunitySets", &sets.LargeCommunitySets})
+    sets.EntityData.Children.Append("mac-sets", types.YChild{"MacSets", &sets.MacSets})
+    sets.EntityData.Children.Append("extended-community-opaque-sets", types.YChild{"ExtendedCommunityOpaqueSets", &sets.ExtendedCommunityOpaqueSets})
+    sets.EntityData.Children.Append("ospf-area-sets", types.YChild{"OspfAreaSets", &sets.OspfAreaSets})
+    sets.EntityData.Children.Append("extended-community-cost-sets", types.YChild{"ExtendedCommunityCostSets", &sets.ExtendedCommunityCostSets})
+    sets.EntityData.Children.Append("extended-community-soo-sets", types.YChild{"ExtendedCommunitySooSets", &sets.ExtendedCommunitySooSets})
+    sets.EntityData.Children.Append("esi-sets", types.YChild{"EsiSets", &sets.EsiSets})
+    sets.EntityData.Children.Append("extended-community-seg-nh-sets", types.YChild{"ExtendedCommunitySegNhSets", &sets.ExtendedCommunitySegNhSets})
+    sets.EntityData.Children.Append("rd-sets", types.YChild{"RdSets", &sets.RdSets})
+    sets.EntityData.Children.Append("policy-global-set-table", types.YChild{"PolicyGlobalSetTable", &sets.PolicyGlobalSetTable})
+    sets.EntityData.Children.Append("extended-community-bandwidth-sets", types.YChild{"ExtendedCommunityBandwidthSets", &sets.ExtendedCommunityBandwidthSets})
+    sets.EntityData.Children.Append("community-sets", types.YChild{"CommunitySets", &sets.CommunitySets})
+    sets.EntityData.Children.Append("as-path-sets", types.YChild{"AsPathSets", &sets.AsPathSets})
+    sets.EntityData.Children.Append("tag-sets", types.YChild{"TagSets", &sets.TagSets})
+    sets.EntityData.Children.Append("etag-sets", types.YChild{"EtagSets", &sets.EtagSets})
+    sets.EntityData.Children.Append("extended-community-rt-sets", types.YChild{"ExtendedCommunityRtSets", &sets.ExtendedCommunityRtSets})
+    sets.EntityData.Leafs = types.NewOrderedMap()
+
+    sets.EntityData.YListKeys = []string {}
+
     return &(sets.EntityData)
 }
 
@@ -225,7 +237,7 @@ type RoutingPolicy_Sets_PrefixSets struct {
 
     // Information about an individual set. The type is slice of
     // RoutingPolicy_Sets_PrefixSets_PrefixSet.
-    PrefixSet []RoutingPolicy_Sets_PrefixSets_PrefixSet
+    PrefixSet []*RoutingPolicy_Sets_PrefixSets_PrefixSet
 }
 
 func (prefixSets *RoutingPolicy_Sets_PrefixSets) GetEntityData() *types.CommonEntityData {
@@ -238,12 +250,15 @@ func (prefixSets *RoutingPolicy_Sets_PrefixSets) GetEntityData() *types.CommonEn
     prefixSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefixSets.EntityData.Children = make(map[string]types.YChild)
-    prefixSets.EntityData.Children["prefix-set"] = types.YChild{"PrefixSet", nil}
+    prefixSets.EntityData.Children = types.NewOrderedMap()
+    prefixSets.EntityData.Children.Append("prefix-set", types.YChild{"PrefixSet", nil})
     for i := range prefixSets.PrefixSet {
-        prefixSets.EntityData.Children[types.GetSegmentPath(&prefixSets.PrefixSet[i])] = types.YChild{"PrefixSet", &prefixSets.PrefixSet[i]}
+        prefixSets.EntityData.Children.Append(types.GetSegmentPath(prefixSets.PrefixSet[i]), types.YChild{"PrefixSet", prefixSets.PrefixSet[i]})
     }
-    prefixSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixSets.EntityData.Leafs = types.NewOrderedMap()
+
+    prefixSets.EntityData.YListKeys = []string {}
+
     return &(prefixSets.EntityData)
 }
 
@@ -254,7 +269,7 @@ type RoutingPolicy_Sets_PrefixSets_PrefixSet struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // prefix statements. The type is string. This attribute is mandatory.
@@ -266,15 +281,18 @@ func (prefixSet *RoutingPolicy_Sets_PrefixSets_PrefixSet) GetEntityData() *types
     prefixSet.EntityData.YangName = "prefix-set"
     prefixSet.EntityData.BundleName = "cisco_ios_xr"
     prefixSet.EntityData.ParentYangName = "prefix-sets"
-    prefixSet.EntityData.SegmentPath = "prefix-set" + "[set-name='" + fmt.Sprintf("%v", prefixSet.SetName) + "']"
+    prefixSet.EntityData.SegmentPath = "prefix-set" + types.AddKeyToken(prefixSet.SetName, "set-name")
     prefixSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefixSet.EntityData.Children = make(map[string]types.YChild)
-    prefixSet.EntityData.Leafs = make(map[string]types.YLeaf)
-    prefixSet.EntityData.Leafs["set-name"] = types.YLeaf{"SetName", prefixSet.SetName}
-    prefixSet.EntityData.Leafs["rpl-prefix-set"] = types.YLeaf{"RplPrefixSet", prefixSet.RplPrefixSet}
+    prefixSet.EntityData.Children = types.NewOrderedMap()
+    prefixSet.EntityData.Leafs = types.NewOrderedMap()
+    prefixSet.EntityData.Leafs.Append("set-name", types.YLeaf{"SetName", prefixSet.SetName})
+    prefixSet.EntityData.Leafs.Append("rpl-prefix-set", types.YLeaf{"RplPrefixSet", prefixSet.RplPrefixSet})
+
+    prefixSet.EntityData.YListKeys = []string {"SetName"}
+
     return &(prefixSet.EntityData)
 }
 
@@ -286,7 +304,7 @@ type RoutingPolicy_Sets_LargeCommunitySets struct {
 
     // Information about an individual set. The type is slice of
     // RoutingPolicy_Sets_LargeCommunitySets_LargeCommunitySet.
-    LargeCommunitySet []RoutingPolicy_Sets_LargeCommunitySets_LargeCommunitySet
+    LargeCommunitySet []*RoutingPolicy_Sets_LargeCommunitySets_LargeCommunitySet
 }
 
 func (largeCommunitySets *RoutingPolicy_Sets_LargeCommunitySets) GetEntityData() *types.CommonEntityData {
@@ -299,12 +317,15 @@ func (largeCommunitySets *RoutingPolicy_Sets_LargeCommunitySets) GetEntityData()
     largeCommunitySets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     largeCommunitySets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    largeCommunitySets.EntityData.Children = make(map[string]types.YChild)
-    largeCommunitySets.EntityData.Children["large-community-set"] = types.YChild{"LargeCommunitySet", nil}
+    largeCommunitySets.EntityData.Children = types.NewOrderedMap()
+    largeCommunitySets.EntityData.Children.Append("large-community-set", types.YChild{"LargeCommunitySet", nil})
     for i := range largeCommunitySets.LargeCommunitySet {
-        largeCommunitySets.EntityData.Children[types.GetSegmentPath(&largeCommunitySets.LargeCommunitySet[i])] = types.YChild{"LargeCommunitySet", &largeCommunitySets.LargeCommunitySet[i]}
+        largeCommunitySets.EntityData.Children.Append(types.GetSegmentPath(largeCommunitySets.LargeCommunitySet[i]), types.YChild{"LargeCommunitySet", largeCommunitySets.LargeCommunitySet[i]})
     }
-    largeCommunitySets.EntityData.Leafs = make(map[string]types.YLeaf)
+    largeCommunitySets.EntityData.Leafs = types.NewOrderedMap()
+
+    largeCommunitySets.EntityData.YListKeys = []string {}
+
     return &(largeCommunitySets.EntityData)
 }
 
@@ -315,7 +336,7 @@ type RoutingPolicy_Sets_LargeCommunitySets_LargeCommunitySet struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Large Community Set. The type is string. This attribute is mandatory.
@@ -327,15 +348,18 @@ func (largeCommunitySet *RoutingPolicy_Sets_LargeCommunitySets_LargeCommunitySet
     largeCommunitySet.EntityData.YangName = "large-community-set"
     largeCommunitySet.EntityData.BundleName = "cisco_ios_xr"
     largeCommunitySet.EntityData.ParentYangName = "large-community-sets"
-    largeCommunitySet.EntityData.SegmentPath = "large-community-set" + "[set-name='" + fmt.Sprintf("%v", largeCommunitySet.SetName) + "']"
+    largeCommunitySet.EntityData.SegmentPath = "large-community-set" + types.AddKeyToken(largeCommunitySet.SetName, "set-name")
     largeCommunitySet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     largeCommunitySet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     largeCommunitySet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    largeCommunitySet.EntityData.Children = make(map[string]types.YChild)
-    largeCommunitySet.EntityData.Leafs = make(map[string]types.YLeaf)
-    largeCommunitySet.EntityData.Leafs["set-name"] = types.YLeaf{"SetName", largeCommunitySet.SetName}
-    largeCommunitySet.EntityData.Leafs["large-community-set-as-text"] = types.YLeaf{"LargeCommunitySetAsText", largeCommunitySet.LargeCommunitySetAsText}
+    largeCommunitySet.EntityData.Children = types.NewOrderedMap()
+    largeCommunitySet.EntityData.Leafs = types.NewOrderedMap()
+    largeCommunitySet.EntityData.Leafs.Append("set-name", types.YLeaf{"SetName", largeCommunitySet.SetName})
+    largeCommunitySet.EntityData.Leafs.Append("large-community-set-as-text", types.YLeaf{"LargeCommunitySetAsText", largeCommunitySet.LargeCommunitySetAsText})
+
+    largeCommunitySet.EntityData.YListKeys = []string {"SetName"}
+
     return &(largeCommunitySet.EntityData)
 }
 
@@ -347,7 +371,7 @@ type RoutingPolicy_Sets_MacSets struct {
 
     // Information about an individual set. The type is slice of
     // RoutingPolicy_Sets_MacSets_MacSet.
-    MacSet []RoutingPolicy_Sets_MacSets_MacSet
+    MacSet []*RoutingPolicy_Sets_MacSets_MacSet
 }
 
 func (macSets *RoutingPolicy_Sets_MacSets) GetEntityData() *types.CommonEntityData {
@@ -360,12 +384,15 @@ func (macSets *RoutingPolicy_Sets_MacSets) GetEntityData() *types.CommonEntityDa
     macSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    macSets.EntityData.Children = make(map[string]types.YChild)
-    macSets.EntityData.Children["mac-set"] = types.YChild{"MacSet", nil}
+    macSets.EntityData.Children = types.NewOrderedMap()
+    macSets.EntityData.Children.Append("mac-set", types.YChild{"MacSet", nil})
     for i := range macSets.MacSet {
-        macSets.EntityData.Children[types.GetSegmentPath(&macSets.MacSet[i])] = types.YChild{"MacSet", &macSets.MacSet[i]}
+        macSets.EntityData.Children.Append(types.GetSegmentPath(macSets.MacSet[i]), types.YChild{"MacSet", macSets.MacSet[i]})
     }
-    macSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    macSets.EntityData.Leafs = types.NewOrderedMap()
+
+    macSets.EntityData.YListKeys = []string {}
+
     return &(macSets.EntityData)
 }
 
@@ -376,7 +403,7 @@ type RoutingPolicy_Sets_MacSets_MacSet struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Mac Set. The type is string. This attribute is mandatory.
@@ -388,15 +415,18 @@ func (macSet *RoutingPolicy_Sets_MacSets_MacSet) GetEntityData() *types.CommonEn
     macSet.EntityData.YangName = "mac-set"
     macSet.EntityData.BundleName = "cisco_ios_xr"
     macSet.EntityData.ParentYangName = "mac-sets"
-    macSet.EntityData.SegmentPath = "mac-set" + "[set-name='" + fmt.Sprintf("%v", macSet.SetName) + "']"
+    macSet.EntityData.SegmentPath = "mac-set" + types.AddKeyToken(macSet.SetName, "set-name")
     macSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    macSet.EntityData.Children = make(map[string]types.YChild)
-    macSet.EntityData.Leafs = make(map[string]types.YLeaf)
-    macSet.EntityData.Leafs["set-name"] = types.YLeaf{"SetName", macSet.SetName}
-    macSet.EntityData.Leafs["mac-set-as-text"] = types.YLeaf{"MacSetAsText", macSet.MacSetAsText}
+    macSet.EntityData.Children = types.NewOrderedMap()
+    macSet.EntityData.Leafs = types.NewOrderedMap()
+    macSet.EntityData.Leafs.Append("set-name", types.YLeaf{"SetName", macSet.SetName})
+    macSet.EntityData.Leafs.Append("mac-set-as-text", types.YLeaf{"MacSetAsText", macSet.MacSetAsText})
+
+    macSet.EntityData.YListKeys = []string {"SetName"}
+
     return &(macSet.EntityData)
 }
 
@@ -408,7 +438,7 @@ type RoutingPolicy_Sets_ExtendedCommunityOpaqueSets struct {
 
     // Information about an individual set. The type is slice of
     // RoutingPolicy_Sets_ExtendedCommunityOpaqueSets_ExtendedCommunityOpaqueSet.
-    ExtendedCommunityOpaqueSet []RoutingPolicy_Sets_ExtendedCommunityOpaqueSets_ExtendedCommunityOpaqueSet
+    ExtendedCommunityOpaqueSet []*RoutingPolicy_Sets_ExtendedCommunityOpaqueSets_ExtendedCommunityOpaqueSet
 }
 
 func (extendedCommunityOpaqueSets *RoutingPolicy_Sets_ExtendedCommunityOpaqueSets) GetEntityData() *types.CommonEntityData {
@@ -421,12 +451,15 @@ func (extendedCommunityOpaqueSets *RoutingPolicy_Sets_ExtendedCommunityOpaqueSet
     extendedCommunityOpaqueSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunityOpaqueSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    extendedCommunityOpaqueSets.EntityData.Children = make(map[string]types.YChild)
-    extendedCommunityOpaqueSets.EntityData.Children["extended-community-opaque-set"] = types.YChild{"ExtendedCommunityOpaqueSet", nil}
+    extendedCommunityOpaqueSets.EntityData.Children = types.NewOrderedMap()
+    extendedCommunityOpaqueSets.EntityData.Children.Append("extended-community-opaque-set", types.YChild{"ExtendedCommunityOpaqueSet", nil})
     for i := range extendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet {
-        extendedCommunityOpaqueSets.EntityData.Children[types.GetSegmentPath(&extendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet[i])] = types.YChild{"ExtendedCommunityOpaqueSet", &extendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet[i]}
+        extendedCommunityOpaqueSets.EntityData.Children.Append(types.GetSegmentPath(extendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet[i]), types.YChild{"ExtendedCommunityOpaqueSet", extendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet[i]})
     }
-    extendedCommunityOpaqueSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    extendedCommunityOpaqueSets.EntityData.Leafs = types.NewOrderedMap()
+
+    extendedCommunityOpaqueSets.EntityData.YListKeys = []string {}
+
     return &(extendedCommunityOpaqueSets.EntityData)
 }
 
@@ -437,7 +470,7 @@ type RoutingPolicy_Sets_ExtendedCommunityOpaqueSets_ExtendedCommunityOpaqueSet s
     YFilter yfilter.YFilter
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Extended Community Opaque Set. The type is string. This attribute is
@@ -450,15 +483,18 @@ func (extendedCommunityOpaqueSet *RoutingPolicy_Sets_ExtendedCommunityOpaqueSets
     extendedCommunityOpaqueSet.EntityData.YangName = "extended-community-opaque-set"
     extendedCommunityOpaqueSet.EntityData.BundleName = "cisco_ios_xr"
     extendedCommunityOpaqueSet.EntityData.ParentYangName = "extended-community-opaque-sets"
-    extendedCommunityOpaqueSet.EntityData.SegmentPath = "extended-community-opaque-set" + "[set-name='" + fmt.Sprintf("%v", extendedCommunityOpaqueSet.SetName) + "']"
+    extendedCommunityOpaqueSet.EntityData.SegmentPath = "extended-community-opaque-set" + types.AddKeyToken(extendedCommunityOpaqueSet.SetName, "set-name")
     extendedCommunityOpaqueSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCommunityOpaqueSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunityOpaqueSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    extendedCommunityOpaqueSet.EntityData.Children = make(map[string]types.YChild)
-    extendedCommunityOpaqueSet.EntityData.Leafs = make(map[string]types.YLeaf)
-    extendedCommunityOpaqueSet.EntityData.Leafs["set-name"] = types.YLeaf{"SetName", extendedCommunityOpaqueSet.SetName}
-    extendedCommunityOpaqueSet.EntityData.Leafs["rpl-extended-community-opaque-set"] = types.YLeaf{"RplExtendedCommunityOpaqueSet", extendedCommunityOpaqueSet.RplExtendedCommunityOpaqueSet}
+    extendedCommunityOpaqueSet.EntityData.Children = types.NewOrderedMap()
+    extendedCommunityOpaqueSet.EntityData.Leafs = types.NewOrderedMap()
+    extendedCommunityOpaqueSet.EntityData.Leafs.Append("set-name", types.YLeaf{"SetName", extendedCommunityOpaqueSet.SetName})
+    extendedCommunityOpaqueSet.EntityData.Leafs.Append("rpl-extended-community-opaque-set", types.YLeaf{"RplExtendedCommunityOpaqueSet", extendedCommunityOpaqueSet.RplExtendedCommunityOpaqueSet})
+
+    extendedCommunityOpaqueSet.EntityData.YListKeys = []string {"SetName"}
+
     return &(extendedCommunityOpaqueSet.EntityData)
 }
 
@@ -478,7 +514,7 @@ type RoutingPolicy_Sets_OspfAreaSets struct {
     // listed in the set will be searched for             a match. In the example
     // these are areas 1 and                  192.168.1.255.                      
     // . The type is slice of RoutingPolicy_Sets_OspfAreaSets_OspfAreaSet.
-    OspfAreaSet []RoutingPolicy_Sets_OspfAreaSets_OspfAreaSet
+    OspfAreaSet []*RoutingPolicy_Sets_OspfAreaSets_OspfAreaSet
 }
 
 func (ospfAreaSets *RoutingPolicy_Sets_OspfAreaSets) GetEntityData() *types.CommonEntityData {
@@ -491,12 +527,15 @@ func (ospfAreaSets *RoutingPolicy_Sets_OspfAreaSets) GetEntityData() *types.Comm
     ospfAreaSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfAreaSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfAreaSets.EntityData.Children = make(map[string]types.YChild)
-    ospfAreaSets.EntityData.Children["ospf-area-set"] = types.YChild{"OspfAreaSet", nil}
+    ospfAreaSets.EntityData.Children = types.NewOrderedMap()
+    ospfAreaSets.EntityData.Children.Append("ospf-area-set", types.YChild{"OspfAreaSet", nil})
     for i := range ospfAreaSets.OspfAreaSet {
-        ospfAreaSets.EntityData.Children[types.GetSegmentPath(&ospfAreaSets.OspfAreaSet[i])] = types.YChild{"OspfAreaSet", &ospfAreaSets.OspfAreaSet[i]}
+        ospfAreaSets.EntityData.Children.Append(types.GetSegmentPath(ospfAreaSets.OspfAreaSet[i]), types.YChild{"OspfAreaSet", ospfAreaSets.OspfAreaSet[i]})
     }
-    ospfAreaSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfAreaSets.EntityData.Leafs = types.NewOrderedMap()
+
+    ospfAreaSets.EntityData.YListKeys = []string {}
+
     return &(ospfAreaSets.EntityData)
 }
 
@@ -522,7 +561,7 @@ type RoutingPolicy_Sets_OspfAreaSets_OspfAreaSet struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // OSPF Area Set. The type is string. This attribute is mandatory.
@@ -534,15 +573,18 @@ func (ospfAreaSet *RoutingPolicy_Sets_OspfAreaSets_OspfAreaSet) GetEntityData() 
     ospfAreaSet.EntityData.YangName = "ospf-area-set"
     ospfAreaSet.EntityData.BundleName = "cisco_ios_xr"
     ospfAreaSet.EntityData.ParentYangName = "ospf-area-sets"
-    ospfAreaSet.EntityData.SegmentPath = "ospf-area-set" + "[set-name='" + fmt.Sprintf("%v", ospfAreaSet.SetName) + "']"
+    ospfAreaSet.EntityData.SegmentPath = "ospf-area-set" + types.AddKeyToken(ospfAreaSet.SetName, "set-name")
     ospfAreaSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfAreaSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfAreaSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ospfAreaSet.EntityData.Children = make(map[string]types.YChild)
-    ospfAreaSet.EntityData.Leafs = make(map[string]types.YLeaf)
-    ospfAreaSet.EntityData.Leafs["set-name"] = types.YLeaf{"SetName", ospfAreaSet.SetName}
-    ospfAreaSet.EntityData.Leafs["rplospf-area-set"] = types.YLeaf{"RplospfAreaSet", ospfAreaSet.RplospfAreaSet}
+    ospfAreaSet.EntityData.Children = types.NewOrderedMap()
+    ospfAreaSet.EntityData.Leafs = types.NewOrderedMap()
+    ospfAreaSet.EntityData.Leafs.Append("set-name", types.YLeaf{"SetName", ospfAreaSet.SetName})
+    ospfAreaSet.EntityData.Leafs.Append("rplospf-area-set", types.YLeaf{"RplospfAreaSet", ospfAreaSet.RplospfAreaSet})
+
+    ospfAreaSet.EntityData.YListKeys = []string {"SetName"}
+
     return &(ospfAreaSet.EntityData)
 }
 
@@ -554,7 +596,7 @@ type RoutingPolicy_Sets_ExtendedCommunityCostSets struct {
 
     // Information about an individual set. The type is slice of
     // RoutingPolicy_Sets_ExtendedCommunityCostSets_ExtendedCommunityCostSet.
-    ExtendedCommunityCostSet []RoutingPolicy_Sets_ExtendedCommunityCostSets_ExtendedCommunityCostSet
+    ExtendedCommunityCostSet []*RoutingPolicy_Sets_ExtendedCommunityCostSets_ExtendedCommunityCostSet
 }
 
 func (extendedCommunityCostSets *RoutingPolicy_Sets_ExtendedCommunityCostSets) GetEntityData() *types.CommonEntityData {
@@ -567,12 +609,15 @@ func (extendedCommunityCostSets *RoutingPolicy_Sets_ExtendedCommunityCostSets) G
     extendedCommunityCostSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunityCostSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    extendedCommunityCostSets.EntityData.Children = make(map[string]types.YChild)
-    extendedCommunityCostSets.EntityData.Children["extended-community-cost-set"] = types.YChild{"ExtendedCommunityCostSet", nil}
+    extendedCommunityCostSets.EntityData.Children = types.NewOrderedMap()
+    extendedCommunityCostSets.EntityData.Children.Append("extended-community-cost-set", types.YChild{"ExtendedCommunityCostSet", nil})
     for i := range extendedCommunityCostSets.ExtendedCommunityCostSet {
-        extendedCommunityCostSets.EntityData.Children[types.GetSegmentPath(&extendedCommunityCostSets.ExtendedCommunityCostSet[i])] = types.YChild{"ExtendedCommunityCostSet", &extendedCommunityCostSets.ExtendedCommunityCostSet[i]}
+        extendedCommunityCostSets.EntityData.Children.Append(types.GetSegmentPath(extendedCommunityCostSets.ExtendedCommunityCostSet[i]), types.YChild{"ExtendedCommunityCostSet", extendedCommunityCostSets.ExtendedCommunityCostSet[i]})
     }
-    extendedCommunityCostSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    extendedCommunityCostSets.EntityData.Leafs = types.NewOrderedMap()
+
+    extendedCommunityCostSets.EntityData.YListKeys = []string {}
+
     return &(extendedCommunityCostSets.EntityData)
 }
 
@@ -583,7 +628,7 @@ type RoutingPolicy_Sets_ExtendedCommunityCostSets_ExtendedCommunityCostSet struc
     YFilter yfilter.YFilter
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Extended Community Cost Set. The type is string. This attribute is
@@ -596,15 +641,18 @@ func (extendedCommunityCostSet *RoutingPolicy_Sets_ExtendedCommunityCostSets_Ext
     extendedCommunityCostSet.EntityData.YangName = "extended-community-cost-set"
     extendedCommunityCostSet.EntityData.BundleName = "cisco_ios_xr"
     extendedCommunityCostSet.EntityData.ParentYangName = "extended-community-cost-sets"
-    extendedCommunityCostSet.EntityData.SegmentPath = "extended-community-cost-set" + "[set-name='" + fmt.Sprintf("%v", extendedCommunityCostSet.SetName) + "']"
+    extendedCommunityCostSet.EntityData.SegmentPath = "extended-community-cost-set" + types.AddKeyToken(extendedCommunityCostSet.SetName, "set-name")
     extendedCommunityCostSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCommunityCostSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunityCostSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    extendedCommunityCostSet.EntityData.Children = make(map[string]types.YChild)
-    extendedCommunityCostSet.EntityData.Leafs = make(map[string]types.YLeaf)
-    extendedCommunityCostSet.EntityData.Leafs["set-name"] = types.YLeaf{"SetName", extendedCommunityCostSet.SetName}
-    extendedCommunityCostSet.EntityData.Leafs["rpl-extended-community-cost-set"] = types.YLeaf{"RplExtendedCommunityCostSet", extendedCommunityCostSet.RplExtendedCommunityCostSet}
+    extendedCommunityCostSet.EntityData.Children = types.NewOrderedMap()
+    extendedCommunityCostSet.EntityData.Leafs = types.NewOrderedMap()
+    extendedCommunityCostSet.EntityData.Leafs.Append("set-name", types.YLeaf{"SetName", extendedCommunityCostSet.SetName})
+    extendedCommunityCostSet.EntityData.Leafs.Append("rpl-extended-community-cost-set", types.YLeaf{"RplExtendedCommunityCostSet", extendedCommunityCostSet.RplExtendedCommunityCostSet})
+
+    extendedCommunityCostSet.EntityData.YListKeys = []string {"SetName"}
+
     return &(extendedCommunityCostSet.EntityData)
 }
 
@@ -616,7 +664,7 @@ type RoutingPolicy_Sets_ExtendedCommunitySooSets struct {
 
     // Information about an individual set. The type is slice of
     // RoutingPolicy_Sets_ExtendedCommunitySooSets_ExtendedCommunitySooSet.
-    ExtendedCommunitySooSet []RoutingPolicy_Sets_ExtendedCommunitySooSets_ExtendedCommunitySooSet
+    ExtendedCommunitySooSet []*RoutingPolicy_Sets_ExtendedCommunitySooSets_ExtendedCommunitySooSet
 }
 
 func (extendedCommunitySooSets *RoutingPolicy_Sets_ExtendedCommunitySooSets) GetEntityData() *types.CommonEntityData {
@@ -629,12 +677,15 @@ func (extendedCommunitySooSets *RoutingPolicy_Sets_ExtendedCommunitySooSets) Get
     extendedCommunitySooSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunitySooSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    extendedCommunitySooSets.EntityData.Children = make(map[string]types.YChild)
-    extendedCommunitySooSets.EntityData.Children["extended-community-soo-set"] = types.YChild{"ExtendedCommunitySooSet", nil}
+    extendedCommunitySooSets.EntityData.Children = types.NewOrderedMap()
+    extendedCommunitySooSets.EntityData.Children.Append("extended-community-soo-set", types.YChild{"ExtendedCommunitySooSet", nil})
     for i := range extendedCommunitySooSets.ExtendedCommunitySooSet {
-        extendedCommunitySooSets.EntityData.Children[types.GetSegmentPath(&extendedCommunitySooSets.ExtendedCommunitySooSet[i])] = types.YChild{"ExtendedCommunitySooSet", &extendedCommunitySooSets.ExtendedCommunitySooSet[i]}
+        extendedCommunitySooSets.EntityData.Children.Append(types.GetSegmentPath(extendedCommunitySooSets.ExtendedCommunitySooSet[i]), types.YChild{"ExtendedCommunitySooSet", extendedCommunitySooSets.ExtendedCommunitySooSet[i]})
     }
-    extendedCommunitySooSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    extendedCommunitySooSets.EntityData.Leafs = types.NewOrderedMap()
+
+    extendedCommunitySooSets.EntityData.YListKeys = []string {}
+
     return &(extendedCommunitySooSets.EntityData)
 }
 
@@ -645,7 +696,7 @@ type RoutingPolicy_Sets_ExtendedCommunitySooSets_ExtendedCommunitySooSet struct 
     YFilter yfilter.YFilter
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Extended Community SOO Set. The type is string. This attribute is
@@ -658,15 +709,18 @@ func (extendedCommunitySooSet *RoutingPolicy_Sets_ExtendedCommunitySooSets_Exten
     extendedCommunitySooSet.EntityData.YangName = "extended-community-soo-set"
     extendedCommunitySooSet.EntityData.BundleName = "cisco_ios_xr"
     extendedCommunitySooSet.EntityData.ParentYangName = "extended-community-soo-sets"
-    extendedCommunitySooSet.EntityData.SegmentPath = "extended-community-soo-set" + "[set-name='" + fmt.Sprintf("%v", extendedCommunitySooSet.SetName) + "']"
+    extendedCommunitySooSet.EntityData.SegmentPath = "extended-community-soo-set" + types.AddKeyToken(extendedCommunitySooSet.SetName, "set-name")
     extendedCommunitySooSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCommunitySooSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunitySooSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    extendedCommunitySooSet.EntityData.Children = make(map[string]types.YChild)
-    extendedCommunitySooSet.EntityData.Leafs = make(map[string]types.YLeaf)
-    extendedCommunitySooSet.EntityData.Leafs["set-name"] = types.YLeaf{"SetName", extendedCommunitySooSet.SetName}
-    extendedCommunitySooSet.EntityData.Leafs["rpl-extended-community-soo-set"] = types.YLeaf{"RplExtendedCommunitySooSet", extendedCommunitySooSet.RplExtendedCommunitySooSet}
+    extendedCommunitySooSet.EntityData.Children = types.NewOrderedMap()
+    extendedCommunitySooSet.EntityData.Leafs = types.NewOrderedMap()
+    extendedCommunitySooSet.EntityData.Leafs.Append("set-name", types.YLeaf{"SetName", extendedCommunitySooSet.SetName})
+    extendedCommunitySooSet.EntityData.Leafs.Append("rpl-extended-community-soo-set", types.YLeaf{"RplExtendedCommunitySooSet", extendedCommunitySooSet.RplExtendedCommunitySooSet})
+
+    extendedCommunitySooSet.EntityData.YListKeys = []string {"SetName"}
+
     return &(extendedCommunitySooSet.EntityData)
 }
 
@@ -678,7 +732,7 @@ type RoutingPolicy_Sets_EsiSets struct {
 
     // Information about an individual set. The type is slice of
     // RoutingPolicy_Sets_EsiSets_EsiSet.
-    EsiSet []RoutingPolicy_Sets_EsiSets_EsiSet
+    EsiSet []*RoutingPolicy_Sets_EsiSets_EsiSet
 }
 
 func (esiSets *RoutingPolicy_Sets_EsiSets) GetEntityData() *types.CommonEntityData {
@@ -691,12 +745,15 @@ func (esiSets *RoutingPolicy_Sets_EsiSets) GetEntityData() *types.CommonEntityDa
     esiSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esiSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    esiSets.EntityData.Children = make(map[string]types.YChild)
-    esiSets.EntityData.Children["esi-set"] = types.YChild{"EsiSet", nil}
+    esiSets.EntityData.Children = types.NewOrderedMap()
+    esiSets.EntityData.Children.Append("esi-set", types.YChild{"EsiSet", nil})
     for i := range esiSets.EsiSet {
-        esiSets.EntityData.Children[types.GetSegmentPath(&esiSets.EsiSet[i])] = types.YChild{"EsiSet", &esiSets.EsiSet[i]}
+        esiSets.EntityData.Children.Append(types.GetSegmentPath(esiSets.EsiSet[i]), types.YChild{"EsiSet", esiSets.EsiSet[i]})
     }
-    esiSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    esiSets.EntityData.Leafs = types.NewOrderedMap()
+
+    esiSets.EntityData.YListKeys = []string {}
+
     return &(esiSets.EntityData)
 }
 
@@ -707,7 +764,7 @@ type RoutingPolicy_Sets_EsiSets_EsiSet struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Esi Set. The type is string. This attribute is mandatory.
@@ -719,15 +776,18 @@ func (esiSet *RoutingPolicy_Sets_EsiSets_EsiSet) GetEntityData() *types.CommonEn
     esiSet.EntityData.YangName = "esi-set"
     esiSet.EntityData.BundleName = "cisco_ios_xr"
     esiSet.EntityData.ParentYangName = "esi-sets"
-    esiSet.EntityData.SegmentPath = "esi-set" + "[set-name='" + fmt.Sprintf("%v", esiSet.SetName) + "']"
+    esiSet.EntityData.SegmentPath = "esi-set" + types.AddKeyToken(esiSet.SetName, "set-name")
     esiSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     esiSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esiSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    esiSet.EntityData.Children = make(map[string]types.YChild)
-    esiSet.EntityData.Leafs = make(map[string]types.YLeaf)
-    esiSet.EntityData.Leafs["set-name"] = types.YLeaf{"SetName", esiSet.SetName}
-    esiSet.EntityData.Leafs["esi-set-as-text"] = types.YLeaf{"EsiSetAsText", esiSet.EsiSetAsText}
+    esiSet.EntityData.Children = types.NewOrderedMap()
+    esiSet.EntityData.Leafs = types.NewOrderedMap()
+    esiSet.EntityData.Leafs.Append("set-name", types.YLeaf{"SetName", esiSet.SetName})
+    esiSet.EntityData.Leafs.Append("esi-set-as-text", types.YLeaf{"EsiSetAsText", esiSet.EsiSetAsText})
+
+    esiSet.EntityData.YListKeys = []string {"SetName"}
+
     return &(esiSet.EntityData)
 }
 
@@ -739,7 +799,7 @@ type RoutingPolicy_Sets_ExtendedCommunitySegNhSets struct {
 
     // Information about an individual set. The type is slice of
     // RoutingPolicy_Sets_ExtendedCommunitySegNhSets_ExtendedCommunitySegNhSet.
-    ExtendedCommunitySegNhSet []RoutingPolicy_Sets_ExtendedCommunitySegNhSets_ExtendedCommunitySegNhSet
+    ExtendedCommunitySegNhSet []*RoutingPolicy_Sets_ExtendedCommunitySegNhSets_ExtendedCommunitySegNhSet
 }
 
 func (extendedCommunitySegNhSets *RoutingPolicy_Sets_ExtendedCommunitySegNhSets) GetEntityData() *types.CommonEntityData {
@@ -752,12 +812,15 @@ func (extendedCommunitySegNhSets *RoutingPolicy_Sets_ExtendedCommunitySegNhSets)
     extendedCommunitySegNhSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunitySegNhSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    extendedCommunitySegNhSets.EntityData.Children = make(map[string]types.YChild)
-    extendedCommunitySegNhSets.EntityData.Children["extended-community-seg-nh-set"] = types.YChild{"ExtendedCommunitySegNhSet", nil}
+    extendedCommunitySegNhSets.EntityData.Children = types.NewOrderedMap()
+    extendedCommunitySegNhSets.EntityData.Children.Append("extended-community-seg-nh-set", types.YChild{"ExtendedCommunitySegNhSet", nil})
     for i := range extendedCommunitySegNhSets.ExtendedCommunitySegNhSet {
-        extendedCommunitySegNhSets.EntityData.Children[types.GetSegmentPath(&extendedCommunitySegNhSets.ExtendedCommunitySegNhSet[i])] = types.YChild{"ExtendedCommunitySegNhSet", &extendedCommunitySegNhSets.ExtendedCommunitySegNhSet[i]}
+        extendedCommunitySegNhSets.EntityData.Children.Append(types.GetSegmentPath(extendedCommunitySegNhSets.ExtendedCommunitySegNhSet[i]), types.YChild{"ExtendedCommunitySegNhSet", extendedCommunitySegNhSets.ExtendedCommunitySegNhSet[i]})
     }
-    extendedCommunitySegNhSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    extendedCommunitySegNhSets.EntityData.Leafs = types.NewOrderedMap()
+
+    extendedCommunitySegNhSets.EntityData.YListKeys = []string {}
+
     return &(extendedCommunitySegNhSets.EntityData)
 }
 
@@ -768,7 +831,7 @@ type RoutingPolicy_Sets_ExtendedCommunitySegNhSets_ExtendedCommunitySegNhSet str
     YFilter yfilter.YFilter
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Extended Community SegNH Set. The type is string. This attribute is
@@ -781,15 +844,18 @@ func (extendedCommunitySegNhSet *RoutingPolicy_Sets_ExtendedCommunitySegNhSets_E
     extendedCommunitySegNhSet.EntityData.YangName = "extended-community-seg-nh-set"
     extendedCommunitySegNhSet.EntityData.BundleName = "cisco_ios_xr"
     extendedCommunitySegNhSet.EntityData.ParentYangName = "extended-community-seg-nh-sets"
-    extendedCommunitySegNhSet.EntityData.SegmentPath = "extended-community-seg-nh-set" + "[set-name='" + fmt.Sprintf("%v", extendedCommunitySegNhSet.SetName) + "']"
+    extendedCommunitySegNhSet.EntityData.SegmentPath = "extended-community-seg-nh-set" + types.AddKeyToken(extendedCommunitySegNhSet.SetName, "set-name")
     extendedCommunitySegNhSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCommunitySegNhSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunitySegNhSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    extendedCommunitySegNhSet.EntityData.Children = make(map[string]types.YChild)
-    extendedCommunitySegNhSet.EntityData.Leafs = make(map[string]types.YLeaf)
-    extendedCommunitySegNhSet.EntityData.Leafs["set-name"] = types.YLeaf{"SetName", extendedCommunitySegNhSet.SetName}
-    extendedCommunitySegNhSet.EntityData.Leafs["rpl-extended-community-seg-nh-set"] = types.YLeaf{"RplExtendedCommunitySegNhSet", extendedCommunitySegNhSet.RplExtendedCommunitySegNhSet}
+    extendedCommunitySegNhSet.EntityData.Children = types.NewOrderedMap()
+    extendedCommunitySegNhSet.EntityData.Leafs = types.NewOrderedMap()
+    extendedCommunitySegNhSet.EntityData.Leafs.Append("set-name", types.YLeaf{"SetName", extendedCommunitySegNhSet.SetName})
+    extendedCommunitySegNhSet.EntityData.Leafs.Append("rpl-extended-community-seg-nh-set", types.YLeaf{"RplExtendedCommunitySegNhSet", extendedCommunitySegNhSet.RplExtendedCommunitySegNhSet})
+
+    extendedCommunitySegNhSet.EntityData.YListKeys = []string {"SetName"}
+
     return &(extendedCommunitySegNhSet.EntityData)
 }
 
@@ -801,7 +867,7 @@ type RoutingPolicy_Sets_RdSets struct {
 
     // Information about an individual set. The type is slice of
     // RoutingPolicy_Sets_RdSets_RdSet.
-    RdSet []RoutingPolicy_Sets_RdSets_RdSet
+    RdSet []*RoutingPolicy_Sets_RdSets_RdSet
 }
 
 func (rdSets *RoutingPolicy_Sets_RdSets) GetEntityData() *types.CommonEntityData {
@@ -814,12 +880,15 @@ func (rdSets *RoutingPolicy_Sets_RdSets) GetEntityData() *types.CommonEntityData
     rdSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rdSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rdSets.EntityData.Children = make(map[string]types.YChild)
-    rdSets.EntityData.Children["rd-set"] = types.YChild{"RdSet", nil}
+    rdSets.EntityData.Children = types.NewOrderedMap()
+    rdSets.EntityData.Children.Append("rd-set", types.YChild{"RdSet", nil})
     for i := range rdSets.RdSet {
-        rdSets.EntityData.Children[types.GetSegmentPath(&rdSets.RdSet[i])] = types.YChild{"RdSet", &rdSets.RdSet[i]}
+        rdSets.EntityData.Children.Append(types.GetSegmentPath(rdSets.RdSet[i]), types.YChild{"RdSet", rdSets.RdSet[i]})
     }
-    rdSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    rdSets.EntityData.Leafs = types.NewOrderedMap()
+
+    rdSets.EntityData.YListKeys = []string {}
+
     return &(rdSets.EntityData)
 }
 
@@ -830,7 +899,7 @@ type RoutingPolicy_Sets_RdSets_RdSet struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // RD Set. The type is string. This attribute is mandatory.
@@ -842,15 +911,18 @@ func (rdSet *RoutingPolicy_Sets_RdSets_RdSet) GetEntityData() *types.CommonEntit
     rdSet.EntityData.YangName = "rd-set"
     rdSet.EntityData.BundleName = "cisco_ios_xr"
     rdSet.EntityData.ParentYangName = "rd-sets"
-    rdSet.EntityData.SegmentPath = "rd-set" + "[set-name='" + fmt.Sprintf("%v", rdSet.SetName) + "']"
+    rdSet.EntityData.SegmentPath = "rd-set" + types.AddKeyToken(rdSet.SetName, "set-name")
     rdSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rdSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rdSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    rdSet.EntityData.Children = make(map[string]types.YChild)
-    rdSet.EntityData.Leafs = make(map[string]types.YLeaf)
-    rdSet.EntityData.Leafs["set-name"] = types.YLeaf{"SetName", rdSet.SetName}
-    rdSet.EntityData.Leafs["rplrd-set"] = types.YLeaf{"RplrdSet", rdSet.RplrdSet}
+    rdSet.EntityData.Children = types.NewOrderedMap()
+    rdSet.EntityData.Leafs = types.NewOrderedMap()
+    rdSet.EntityData.Leafs.Append("set-name", types.YLeaf{"SetName", rdSet.SetName})
+    rdSet.EntityData.Leafs.Append("rplrd-set", types.YLeaf{"RplrdSet", rdSet.RplrdSet})
+
+    rdSet.EntityData.YListKeys = []string {"SetName"}
+
     return &(rdSet.EntityData)
 }
 
@@ -874,9 +946,12 @@ func (policyGlobalSetTable *RoutingPolicy_Sets_PolicyGlobalSetTable) GetEntityDa
     policyGlobalSetTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyGlobalSetTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    policyGlobalSetTable.EntityData.Children = make(map[string]types.YChild)
-    policyGlobalSetTable.EntityData.Leafs = make(map[string]types.YLeaf)
-    policyGlobalSetTable.EntityData.Leafs["policy-global-set"] = types.YLeaf{"PolicyGlobalSet", policyGlobalSetTable.PolicyGlobalSet}
+    policyGlobalSetTable.EntityData.Children = types.NewOrderedMap()
+    policyGlobalSetTable.EntityData.Leafs = types.NewOrderedMap()
+    policyGlobalSetTable.EntityData.Leafs.Append("policy-global-set", types.YLeaf{"PolicyGlobalSet", policyGlobalSetTable.PolicyGlobalSet})
+
+    policyGlobalSetTable.EntityData.YListKeys = []string {}
+
     return &(policyGlobalSetTable.EntityData)
 }
 
@@ -888,7 +963,7 @@ type RoutingPolicy_Sets_ExtendedCommunityBandwidthSets struct {
 
     // Information about an individual set. The type is slice of
     // RoutingPolicy_Sets_ExtendedCommunityBandwidthSets_ExtendedCommunityBandwidthSet.
-    ExtendedCommunityBandwidthSet []RoutingPolicy_Sets_ExtendedCommunityBandwidthSets_ExtendedCommunityBandwidthSet
+    ExtendedCommunityBandwidthSet []*RoutingPolicy_Sets_ExtendedCommunityBandwidthSets_ExtendedCommunityBandwidthSet
 }
 
 func (extendedCommunityBandwidthSets *RoutingPolicy_Sets_ExtendedCommunityBandwidthSets) GetEntityData() *types.CommonEntityData {
@@ -901,12 +976,15 @@ func (extendedCommunityBandwidthSets *RoutingPolicy_Sets_ExtendedCommunityBandwi
     extendedCommunityBandwidthSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunityBandwidthSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    extendedCommunityBandwidthSets.EntityData.Children = make(map[string]types.YChild)
-    extendedCommunityBandwidthSets.EntityData.Children["extended-community-bandwidth-set"] = types.YChild{"ExtendedCommunityBandwidthSet", nil}
+    extendedCommunityBandwidthSets.EntityData.Children = types.NewOrderedMap()
+    extendedCommunityBandwidthSets.EntityData.Children.Append("extended-community-bandwidth-set", types.YChild{"ExtendedCommunityBandwidthSet", nil})
     for i := range extendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet {
-        extendedCommunityBandwidthSets.EntityData.Children[types.GetSegmentPath(&extendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet[i])] = types.YChild{"ExtendedCommunityBandwidthSet", &extendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet[i]}
+        extendedCommunityBandwidthSets.EntityData.Children.Append(types.GetSegmentPath(extendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet[i]), types.YChild{"ExtendedCommunityBandwidthSet", extendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet[i]})
     }
-    extendedCommunityBandwidthSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    extendedCommunityBandwidthSets.EntityData.Leafs = types.NewOrderedMap()
+
+    extendedCommunityBandwidthSets.EntityData.YListKeys = []string {}
+
     return &(extendedCommunityBandwidthSets.EntityData)
 }
 
@@ -917,7 +995,7 @@ type RoutingPolicy_Sets_ExtendedCommunityBandwidthSets_ExtendedCommunityBandwidt
     YFilter yfilter.YFilter
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Extended Community Bandwidth Set. The type is string. This attribute is
@@ -930,15 +1008,18 @@ func (extendedCommunityBandwidthSet *RoutingPolicy_Sets_ExtendedCommunityBandwid
     extendedCommunityBandwidthSet.EntityData.YangName = "extended-community-bandwidth-set"
     extendedCommunityBandwidthSet.EntityData.BundleName = "cisco_ios_xr"
     extendedCommunityBandwidthSet.EntityData.ParentYangName = "extended-community-bandwidth-sets"
-    extendedCommunityBandwidthSet.EntityData.SegmentPath = "extended-community-bandwidth-set" + "[set-name='" + fmt.Sprintf("%v", extendedCommunityBandwidthSet.SetName) + "']"
+    extendedCommunityBandwidthSet.EntityData.SegmentPath = "extended-community-bandwidth-set" + types.AddKeyToken(extendedCommunityBandwidthSet.SetName, "set-name")
     extendedCommunityBandwidthSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCommunityBandwidthSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunityBandwidthSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    extendedCommunityBandwidthSet.EntityData.Children = make(map[string]types.YChild)
-    extendedCommunityBandwidthSet.EntityData.Leafs = make(map[string]types.YLeaf)
-    extendedCommunityBandwidthSet.EntityData.Leafs["set-name"] = types.YLeaf{"SetName", extendedCommunityBandwidthSet.SetName}
-    extendedCommunityBandwidthSet.EntityData.Leafs["rpl-extended-community-bandwidth-set"] = types.YLeaf{"RplExtendedCommunityBandwidthSet", extendedCommunityBandwidthSet.RplExtendedCommunityBandwidthSet}
+    extendedCommunityBandwidthSet.EntityData.Children = types.NewOrderedMap()
+    extendedCommunityBandwidthSet.EntityData.Leafs = types.NewOrderedMap()
+    extendedCommunityBandwidthSet.EntityData.Leafs.Append("set-name", types.YLeaf{"SetName", extendedCommunityBandwidthSet.SetName})
+    extendedCommunityBandwidthSet.EntityData.Leafs.Append("rpl-extended-community-bandwidth-set", types.YLeaf{"RplExtendedCommunityBandwidthSet", extendedCommunityBandwidthSet.RplExtendedCommunityBandwidthSet})
+
+    extendedCommunityBandwidthSet.EntityData.YListKeys = []string {"SetName"}
+
     return &(extendedCommunityBandwidthSet.EntityData)
 }
 
@@ -950,7 +1031,7 @@ type RoutingPolicy_Sets_CommunitySets struct {
 
     // Information about an individual set. The type is slice of
     // RoutingPolicy_Sets_CommunitySets_CommunitySet.
-    CommunitySet []RoutingPolicy_Sets_CommunitySets_CommunitySet
+    CommunitySet []*RoutingPolicy_Sets_CommunitySets_CommunitySet
 }
 
 func (communitySets *RoutingPolicy_Sets_CommunitySets) GetEntityData() *types.CommonEntityData {
@@ -963,12 +1044,15 @@ func (communitySets *RoutingPolicy_Sets_CommunitySets) GetEntityData() *types.Co
     communitySets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     communitySets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    communitySets.EntityData.Children = make(map[string]types.YChild)
-    communitySets.EntityData.Children["community-set"] = types.YChild{"CommunitySet", nil}
+    communitySets.EntityData.Children = types.NewOrderedMap()
+    communitySets.EntityData.Children.Append("community-set", types.YChild{"CommunitySet", nil})
     for i := range communitySets.CommunitySet {
-        communitySets.EntityData.Children[types.GetSegmentPath(&communitySets.CommunitySet[i])] = types.YChild{"CommunitySet", &communitySets.CommunitySet[i]}
+        communitySets.EntityData.Children.Append(types.GetSegmentPath(communitySets.CommunitySet[i]), types.YChild{"CommunitySet", communitySets.CommunitySet[i]})
     }
-    communitySets.EntityData.Leafs = make(map[string]types.YLeaf)
+    communitySets.EntityData.Leafs = types.NewOrderedMap()
+
+    communitySets.EntityData.YListKeys = []string {}
+
     return &(communitySets.EntityData)
 }
 
@@ -979,7 +1063,7 @@ type RoutingPolicy_Sets_CommunitySets_CommunitySet struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Community Set. The type is string. This attribute is mandatory.
@@ -991,15 +1075,18 @@ func (communitySet *RoutingPolicy_Sets_CommunitySets_CommunitySet) GetEntityData
     communitySet.EntityData.YangName = "community-set"
     communitySet.EntityData.BundleName = "cisco_ios_xr"
     communitySet.EntityData.ParentYangName = "community-sets"
-    communitySet.EntityData.SegmentPath = "community-set" + "[set-name='" + fmt.Sprintf("%v", communitySet.SetName) + "']"
+    communitySet.EntityData.SegmentPath = "community-set" + types.AddKeyToken(communitySet.SetName, "set-name")
     communitySet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     communitySet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     communitySet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    communitySet.EntityData.Children = make(map[string]types.YChild)
-    communitySet.EntityData.Leafs = make(map[string]types.YLeaf)
-    communitySet.EntityData.Leafs["set-name"] = types.YLeaf{"SetName", communitySet.SetName}
-    communitySet.EntityData.Leafs["rpl-community-set"] = types.YLeaf{"RplCommunitySet", communitySet.RplCommunitySet}
+    communitySet.EntityData.Children = types.NewOrderedMap()
+    communitySet.EntityData.Leafs = types.NewOrderedMap()
+    communitySet.EntityData.Leafs.Append("set-name", types.YLeaf{"SetName", communitySet.SetName})
+    communitySet.EntityData.Leafs.Append("rpl-community-set", types.YLeaf{"RplCommunitySet", communitySet.RplCommunitySet})
+
+    communitySet.EntityData.YListKeys = []string {"SetName"}
+
     return &(communitySet.EntityData)
 }
 
@@ -1011,7 +1098,7 @@ type RoutingPolicy_Sets_AsPathSets struct {
 
     // Information about an individual set. The type is slice of
     // RoutingPolicy_Sets_AsPathSets_AsPathSet.
-    AsPathSet []RoutingPolicy_Sets_AsPathSets_AsPathSet
+    AsPathSet []*RoutingPolicy_Sets_AsPathSets_AsPathSet
 }
 
 func (asPathSets *RoutingPolicy_Sets_AsPathSets) GetEntityData() *types.CommonEntityData {
@@ -1024,12 +1111,15 @@ func (asPathSets *RoutingPolicy_Sets_AsPathSets) GetEntityData() *types.CommonEn
     asPathSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asPathSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asPathSets.EntityData.Children = make(map[string]types.YChild)
-    asPathSets.EntityData.Children["as-path-set"] = types.YChild{"AsPathSet", nil}
+    asPathSets.EntityData.Children = types.NewOrderedMap()
+    asPathSets.EntityData.Children.Append("as-path-set", types.YChild{"AsPathSet", nil})
     for i := range asPathSets.AsPathSet {
-        asPathSets.EntityData.Children[types.GetSegmentPath(&asPathSets.AsPathSet[i])] = types.YChild{"AsPathSet", &asPathSets.AsPathSet[i]}
+        asPathSets.EntityData.Children.Append(types.GetSegmentPath(asPathSets.AsPathSet[i]), types.YChild{"AsPathSet", asPathSets.AsPathSet[i]})
     }
-    asPathSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    asPathSets.EntityData.Leafs = types.NewOrderedMap()
+
+    asPathSets.EntityData.YListKeys = []string {}
+
     return &(asPathSets.EntityData)
 }
 
@@ -1040,7 +1130,7 @@ type RoutingPolicy_Sets_AsPathSets_AsPathSet struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // ASPath Set. The type is string. This attribute is mandatory.
@@ -1052,15 +1142,18 @@ func (asPathSet *RoutingPolicy_Sets_AsPathSets_AsPathSet) GetEntityData() *types
     asPathSet.EntityData.YangName = "as-path-set"
     asPathSet.EntityData.BundleName = "cisco_ios_xr"
     asPathSet.EntityData.ParentYangName = "as-path-sets"
-    asPathSet.EntityData.SegmentPath = "as-path-set" + "[set-name='" + fmt.Sprintf("%v", asPathSet.SetName) + "']"
+    asPathSet.EntityData.SegmentPath = "as-path-set" + types.AddKeyToken(asPathSet.SetName, "set-name")
     asPathSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asPathSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asPathSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    asPathSet.EntityData.Children = make(map[string]types.YChild)
-    asPathSet.EntityData.Leafs = make(map[string]types.YLeaf)
-    asPathSet.EntityData.Leafs["set-name"] = types.YLeaf{"SetName", asPathSet.SetName}
-    asPathSet.EntityData.Leafs["rplas-path-set"] = types.YLeaf{"RplasPathSet", asPathSet.RplasPathSet}
+    asPathSet.EntityData.Children = types.NewOrderedMap()
+    asPathSet.EntityData.Leafs = types.NewOrderedMap()
+    asPathSet.EntityData.Leafs.Append("set-name", types.YLeaf{"SetName", asPathSet.SetName})
+    asPathSet.EntityData.Leafs.Append("rplas-path-set", types.YLeaf{"RplasPathSet", asPathSet.RplasPathSet})
+
+    asPathSet.EntityData.YListKeys = []string {"SetName"}
+
     return &(asPathSet.EntityData)
 }
 
@@ -1072,7 +1165,7 @@ type RoutingPolicy_Sets_TagSets struct {
 
     // Information about an individual set. The type is slice of
     // RoutingPolicy_Sets_TagSets_TagSet.
-    TagSet []RoutingPolicy_Sets_TagSets_TagSet
+    TagSet []*RoutingPolicy_Sets_TagSets_TagSet
 }
 
 func (tagSets *RoutingPolicy_Sets_TagSets) GetEntityData() *types.CommonEntityData {
@@ -1085,12 +1178,15 @@ func (tagSets *RoutingPolicy_Sets_TagSets) GetEntityData() *types.CommonEntityDa
     tagSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tagSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tagSets.EntityData.Children = make(map[string]types.YChild)
-    tagSets.EntityData.Children["tag-set"] = types.YChild{"TagSet", nil}
+    tagSets.EntityData.Children = types.NewOrderedMap()
+    tagSets.EntityData.Children.Append("tag-set", types.YChild{"TagSet", nil})
     for i := range tagSets.TagSet {
-        tagSets.EntityData.Children[types.GetSegmentPath(&tagSets.TagSet[i])] = types.YChild{"TagSet", &tagSets.TagSet[i]}
+        tagSets.EntityData.Children.Append(types.GetSegmentPath(tagSets.TagSet[i]), types.YChild{"TagSet", tagSets.TagSet[i]})
     }
-    tagSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    tagSets.EntityData.Leafs = types.NewOrderedMap()
+
+    tagSets.EntityData.YListKeys = []string {}
+
     return &(tagSets.EntityData)
 }
 
@@ -1101,7 +1197,7 @@ type RoutingPolicy_Sets_TagSets_TagSet struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Tag Set. The type is string. This attribute is mandatory.
@@ -1113,15 +1209,18 @@ func (tagSet *RoutingPolicy_Sets_TagSets_TagSet) GetEntityData() *types.CommonEn
     tagSet.EntityData.YangName = "tag-set"
     tagSet.EntityData.BundleName = "cisco_ios_xr"
     tagSet.EntityData.ParentYangName = "tag-sets"
-    tagSet.EntityData.SegmentPath = "tag-set" + "[set-name='" + fmt.Sprintf("%v", tagSet.SetName) + "']"
+    tagSet.EntityData.SegmentPath = "tag-set" + types.AddKeyToken(tagSet.SetName, "set-name")
     tagSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tagSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tagSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    tagSet.EntityData.Children = make(map[string]types.YChild)
-    tagSet.EntityData.Leafs = make(map[string]types.YLeaf)
-    tagSet.EntityData.Leafs["set-name"] = types.YLeaf{"SetName", tagSet.SetName}
-    tagSet.EntityData.Leafs["rpl-tag-set"] = types.YLeaf{"RplTagSet", tagSet.RplTagSet}
+    tagSet.EntityData.Children = types.NewOrderedMap()
+    tagSet.EntityData.Leafs = types.NewOrderedMap()
+    tagSet.EntityData.Leafs.Append("set-name", types.YLeaf{"SetName", tagSet.SetName})
+    tagSet.EntityData.Leafs.Append("rpl-tag-set", types.YLeaf{"RplTagSet", tagSet.RplTagSet})
+
+    tagSet.EntityData.YListKeys = []string {"SetName"}
+
     return &(tagSet.EntityData)
 }
 
@@ -1133,7 +1232,7 @@ type RoutingPolicy_Sets_EtagSets struct {
 
     // Information about an individual set. The type is slice of
     // RoutingPolicy_Sets_EtagSets_EtagSet.
-    EtagSet []RoutingPolicy_Sets_EtagSets_EtagSet
+    EtagSet []*RoutingPolicy_Sets_EtagSets_EtagSet
 }
 
 func (etagSets *RoutingPolicy_Sets_EtagSets) GetEntityData() *types.CommonEntityData {
@@ -1146,12 +1245,15 @@ func (etagSets *RoutingPolicy_Sets_EtagSets) GetEntityData() *types.CommonEntity
     etagSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     etagSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    etagSets.EntityData.Children = make(map[string]types.YChild)
-    etagSets.EntityData.Children["etag-set"] = types.YChild{"EtagSet", nil}
+    etagSets.EntityData.Children = types.NewOrderedMap()
+    etagSets.EntityData.Children.Append("etag-set", types.YChild{"EtagSet", nil})
     for i := range etagSets.EtagSet {
-        etagSets.EntityData.Children[types.GetSegmentPath(&etagSets.EtagSet[i])] = types.YChild{"EtagSet", &etagSets.EtagSet[i]}
+        etagSets.EntityData.Children.Append(types.GetSegmentPath(etagSets.EtagSet[i]), types.YChild{"EtagSet", etagSets.EtagSet[i]})
     }
-    etagSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    etagSets.EntityData.Leafs = types.NewOrderedMap()
+
+    etagSets.EntityData.YListKeys = []string {}
+
     return &(etagSets.EntityData)
 }
 
@@ -1162,7 +1264,7 @@ type RoutingPolicy_Sets_EtagSets_EtagSet struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Etag Set. The type is string. This attribute is mandatory.
@@ -1174,15 +1276,18 @@ func (etagSet *RoutingPolicy_Sets_EtagSets_EtagSet) GetEntityData() *types.Commo
     etagSet.EntityData.YangName = "etag-set"
     etagSet.EntityData.BundleName = "cisco_ios_xr"
     etagSet.EntityData.ParentYangName = "etag-sets"
-    etagSet.EntityData.SegmentPath = "etag-set" + "[set-name='" + fmt.Sprintf("%v", etagSet.SetName) + "']"
+    etagSet.EntityData.SegmentPath = "etag-set" + types.AddKeyToken(etagSet.SetName, "set-name")
     etagSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     etagSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     etagSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    etagSet.EntityData.Children = make(map[string]types.YChild)
-    etagSet.EntityData.Leafs = make(map[string]types.YLeaf)
-    etagSet.EntityData.Leafs["set-name"] = types.YLeaf{"SetName", etagSet.SetName}
-    etagSet.EntityData.Leafs["etag-set-as-text"] = types.YLeaf{"EtagSetAsText", etagSet.EtagSetAsText}
+    etagSet.EntityData.Children = types.NewOrderedMap()
+    etagSet.EntityData.Leafs = types.NewOrderedMap()
+    etagSet.EntityData.Leafs.Append("set-name", types.YLeaf{"SetName", etagSet.SetName})
+    etagSet.EntityData.Leafs.Append("etag-set-as-text", types.YLeaf{"EtagSetAsText", etagSet.EtagSetAsText})
+
+    etagSet.EntityData.YListKeys = []string {"SetName"}
+
     return &(etagSet.EntityData)
 }
 
@@ -1194,7 +1299,7 @@ type RoutingPolicy_Sets_ExtendedCommunityRtSets struct {
 
     // Information about an individual set. The type is slice of
     // RoutingPolicy_Sets_ExtendedCommunityRtSets_ExtendedCommunityRtSet.
-    ExtendedCommunityRtSet []RoutingPolicy_Sets_ExtendedCommunityRtSets_ExtendedCommunityRtSet
+    ExtendedCommunityRtSet []*RoutingPolicy_Sets_ExtendedCommunityRtSets_ExtendedCommunityRtSet
 }
 
 func (extendedCommunityRtSets *RoutingPolicy_Sets_ExtendedCommunityRtSets) GetEntityData() *types.CommonEntityData {
@@ -1207,12 +1312,15 @@ func (extendedCommunityRtSets *RoutingPolicy_Sets_ExtendedCommunityRtSets) GetEn
     extendedCommunityRtSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunityRtSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    extendedCommunityRtSets.EntityData.Children = make(map[string]types.YChild)
-    extendedCommunityRtSets.EntityData.Children["extended-community-rt-set"] = types.YChild{"ExtendedCommunityRtSet", nil}
+    extendedCommunityRtSets.EntityData.Children = types.NewOrderedMap()
+    extendedCommunityRtSets.EntityData.Children.Append("extended-community-rt-set", types.YChild{"ExtendedCommunityRtSet", nil})
     for i := range extendedCommunityRtSets.ExtendedCommunityRtSet {
-        extendedCommunityRtSets.EntityData.Children[types.GetSegmentPath(&extendedCommunityRtSets.ExtendedCommunityRtSet[i])] = types.YChild{"ExtendedCommunityRtSet", &extendedCommunityRtSets.ExtendedCommunityRtSet[i]}
+        extendedCommunityRtSets.EntityData.Children.Append(types.GetSegmentPath(extendedCommunityRtSets.ExtendedCommunityRtSet[i]), types.YChild{"ExtendedCommunityRtSet", extendedCommunityRtSets.ExtendedCommunityRtSet[i]})
     }
-    extendedCommunityRtSets.EntityData.Leafs = make(map[string]types.YLeaf)
+    extendedCommunityRtSets.EntityData.Leafs = types.NewOrderedMap()
+
+    extendedCommunityRtSets.EntityData.YListKeys = []string {}
+
     return &(extendedCommunityRtSets.EntityData)
 }
 
@@ -1223,7 +1331,7 @@ type RoutingPolicy_Sets_ExtendedCommunityRtSets_ExtendedCommunityRtSet struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Extended Community RT Set. The type is string. This attribute is mandatory.
@@ -1235,15 +1343,18 @@ func (extendedCommunityRtSet *RoutingPolicy_Sets_ExtendedCommunityRtSets_Extende
     extendedCommunityRtSet.EntityData.YangName = "extended-community-rt-set"
     extendedCommunityRtSet.EntityData.BundleName = "cisco_ios_xr"
     extendedCommunityRtSet.EntityData.ParentYangName = "extended-community-rt-sets"
-    extendedCommunityRtSet.EntityData.SegmentPath = "extended-community-rt-set" + "[set-name='" + fmt.Sprintf("%v", extendedCommunityRtSet.SetName) + "']"
+    extendedCommunityRtSet.EntityData.SegmentPath = "extended-community-rt-set" + types.AddKeyToken(extendedCommunityRtSet.SetName, "set-name")
     extendedCommunityRtSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCommunityRtSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunityRtSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    extendedCommunityRtSet.EntityData.Children = make(map[string]types.YChild)
-    extendedCommunityRtSet.EntityData.Leafs = make(map[string]types.YLeaf)
-    extendedCommunityRtSet.EntityData.Leafs["set-name"] = types.YLeaf{"SetName", extendedCommunityRtSet.SetName}
-    extendedCommunityRtSet.EntityData.Leafs["rpl-extended-community-rt-set"] = types.YLeaf{"RplExtendedCommunityRtSet", extendedCommunityRtSet.RplExtendedCommunityRtSet}
+    extendedCommunityRtSet.EntityData.Children = types.NewOrderedMap()
+    extendedCommunityRtSet.EntityData.Leafs = types.NewOrderedMap()
+    extendedCommunityRtSet.EntityData.Leafs.Append("set-name", types.YLeaf{"SetName", extendedCommunityRtSet.SetName})
+    extendedCommunityRtSet.EntityData.Leafs.Append("rpl-extended-community-rt-set", types.YLeaf{"RplExtendedCommunityRtSet", extendedCommunityRtSet.RplExtendedCommunityRtSet})
+
+    extendedCommunityRtSet.EntityData.YListKeys = []string {"SetName"}
+
     return &(extendedCommunityRtSet.EntityData)
 }
 
@@ -1254,12 +1365,12 @@ type RoutingPolicy_Limits struct {
     YFilter yfilter.YFilter
 
     // Maximum number of lines of policy configuration that may be configured in
-    // total. The type is interface{} with range: -2147483648..2147483647. The
-    // default value is 131072.
+    // total. The type is interface{} with range: 0..4294967295. The default value
+    // is 131072.
     MaximumLinesOfPolicy interface{}
 
     // Maximum number of policies that may be configured. The type is interface{}
-    // with range: -2147483648..2147483647. The default value is 5000.
+    // with range: 0..4294967295. The default value is 5000.
     MaximumNumberOfPolicies interface{}
 }
 
@@ -1273,10 +1384,13 @@ func (limits *RoutingPolicy_Limits) GetEntityData() *types.CommonEntityData {
     limits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     limits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    limits.EntityData.Children = make(map[string]types.YChild)
-    limits.EntityData.Leafs = make(map[string]types.YLeaf)
-    limits.EntityData.Leafs["maximum-lines-of-policy"] = types.YLeaf{"MaximumLinesOfPolicy", limits.MaximumLinesOfPolicy}
-    limits.EntityData.Leafs["maximum-number-of-policies"] = types.YLeaf{"MaximumNumberOfPolicies", limits.MaximumNumberOfPolicies}
+    limits.EntityData.Children = types.NewOrderedMap()
+    limits.EntityData.Leafs = types.NewOrderedMap()
+    limits.EntityData.Leafs.Append("maximum-lines-of-policy", types.YLeaf{"MaximumLinesOfPolicy", limits.MaximumLinesOfPolicy})
+    limits.EntityData.Leafs.Append("maximum-number-of-policies", types.YLeaf{"MaximumNumberOfPolicies", limits.MaximumNumberOfPolicies})
+
+    limits.EntityData.YListKeys = []string {}
+
     return &(limits.EntityData)
 }
 

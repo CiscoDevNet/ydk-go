@@ -168,25 +168,25 @@ type CISCORTTMONMIB struct {
     YFilter yfilter.YFilter
 
     
-    Rttmonappl CISCORTTMONMIB_Rttmonappl
+    RttMonAppl CISCORTTMONMIB_RttMonAppl
 
     // A table of which contains the supported Rtt Monitor Types.  See the
     // RttMonRttType textual convention for the definition of each type.
-    Rttmonapplsupportedrtttypestable CISCORTTMONMIB_Rttmonapplsupportedrtttypestable
+    RttMonApplSupportedRttTypesTable CISCORTTMONMIB_RttMonApplSupportedRttTypesTable
 
     // A table of which contains the supported Rtt Monitor Protocols.  See the
     // RttMonProtocol textual convention  for the definition of each protocol.
-    Rttmonapplsupportedprotocolstable CISCORTTMONMIB_Rttmonapplsupportedprotocolstable
+    RttMonApplSupportedProtocolsTable CISCORTTMONMIB_RttMonApplSupportedProtocolsTable
 
     // A table of which contains the previously configured Script Names and File
     // IO targets.  These Script Names and File IO targets are installed via a
     // different mechanism than this application, and are specific to each
     // platform.
-    Rttmonapplpreconfigedtable CISCORTTMONMIB_Rttmonapplpreconfigedtable
+    RttMonApplPreConfigedTable CISCORTTMONMIB_RttMonApplPreConfigedTable
 
     // A table which contains the definitions for key-strings that will be used in
     // authenticating RTR Control Protocol.
-    Rttmonapplauthtable CISCORTTMONMIB_Rttmonapplauthtable
+    RttMonApplAuthTable CISCORTTMONMIB_RttMonApplAuthTable
 
     // A table of Round Trip Time (RTT) monitoring definitions.  The RTT
     // administration control is in multiple tables.   This first table, is used
@@ -197,24 +197,24 @@ type CISCORTTMONMIB struct {
     // own index.   This table is limited in size by the agent  implementation. 
     // The object rttMonApplNumCtrlAdminEntry will reflect this tables maximum
     // number of entries.
-    Rttmonctrladmintable CISCORTTMONMIB_Rttmonctrladmintable
+    RttMonCtrlAdminTable CISCORTTMONMIB_RttMonCtrlAdminTable
 
     // A table that contains Round Trip Time (RTT) specific definitions.  This
     // table is controlled via the  rttMonCtrlAdminTable.  Entries in this table
     // are created via the rttMonCtrlAdminStatus object.
-    Rttmonechoadmintable CISCORTTMONMIB_Rttmonechoadmintable
+    RttMonEchoAdminTable CISCORTTMONMIB_RttMonEchoAdminTable
 
     // A table of Round Trip Time (RTT) monitoring 'fileIO' specific definitions. 
     // When the RttMonRttType is not 'fileIO' this table is not valid.  This table
     // is controlled via the  rttMonCtrlAdminTable.  Entries in this table are
     // created via the rttMonCtrlAdminStatus object.
-    Rttmonfileioadmintable CISCORTTMONMIB_Rttmonfileioadmintable
+    RttMonFileIOAdminTable CISCORTTMONMIB_RttMonFileIOAdminTable
 
     // A table of Round Trip Time (RTT) monitoring 'script' specific definitions. 
     // When the RttMonRttType is not 'script' this table is not valid.  This table
     // is controlled via the rttMonCtrlAdminTable.  Entries in this table are
     // created via the rttMonCtrlAdminStatus object.
-    Rttmonscriptadmintable CISCORTTMONMIB_Rttmonscriptadmintable
+    RttMonScriptAdminTable CISCORTTMONMIB_RttMonScriptAdminTable
 
     // A table of which contains the list of conceptual RTT control rows that will
     // start to collect data when a  reaction condition is violated and when 
@@ -234,7 +234,7 @@ type CISCORTTMONMIB struct {
     // 'active'.  An entry in this table can only be triggered when it is not
     // currently in a triggered state.  The object rttMonReactTriggerOperState
     // will  reflect the state of each entry in this table.
-    Rttmonreacttriggeradmintable CISCORTTMONMIB_Rttmonreacttriggeradmintable
+    RttMonReactTriggerAdminTable CISCORTTMONMIB_RttMonReactTriggerAdminTable
 
     // A table to store the hop addresses in a Loose Source Routing path. Response
     // times are computed along the specified path using ping.  This maximum table
@@ -242,7 +242,7 @@ type CISCORTTMONMIB struct {
     // can fit in an IP header, which is 8. The object rttMonEchoPathAdminEntry
     // will reflect  this tables maximum number of entries.  This table is coupled
     // with rttMonCtrlAdminStatus.
-    Rttmonechopathadmintable CISCORTTMONMIB_Rttmonechopathadmintable
+    RttMonEchoPathAdminTable CISCORTTMONMIB_RttMonEchoPathAdminTable
 
     // A table of Round Trip Time (RTT) monitoring group scheduling specific
     // definitions. This table is used to create a conceptual group scheduling
@@ -250,7 +250,7 @@ type CISCORTTMONMIB struct {
     // group schedule configuration parameters.  The objects of this table will be
     // used to schedule a group of probes identified by the conceptual rows of the
     // rttMonCtrlAdminTable.
-    Rttmongrpscheduleadmintable CISCORTTMONMIB_Rttmongrpscheduleadmintable
+    RttMonGrpScheduleAdminTable CISCORTTMONMIB_RttMonGrpScheduleAdminTable
 
     // A table of Auto SAA L3 MPLS VPN definitions.  The Auto SAA L3 MPLS VPN
     // administration control is in multiple tables.  This first table, is used to
@@ -261,7 +261,7 @@ type CISCORTTMONMIB struct {
     // index.  In order to a row in this table to become active the following
     // objects must be defined.   rttMplsVpnMonCtrlRttType,  
     // rttMplsVpnMonCtrlVrfName and   rttMplsVpnMonSchedulePeriod.
-    Rttmplsvpnmonctrltable CISCORTTMONMIB_Rttmplsvpnmonctrltable
+    RttMplsVpnMonCtrlTable CISCORTTMONMIB_RttMplsVpnMonCtrlTable
 
     // A table that contains the reaction configurations. Each conceptual row in
     // rttMonReactTable corresponds to a reaction configured for the probe defined
@@ -269,14 +269,14 @@ type CISCORTTMONMIB struct {
     // an entry in the table.  Each Probe can have multiple reactions and hence
     // there can be multiple rows for a particular probe.  This table is coupled
     // with rttMonCtrlAdminTable.
-    Rttmonreacttable CISCORTTMONMIB_Rttmonreacttable
+    RttMonReactTable CISCORTTMONMIB_RttMonReactTable
 
     // This table contains information about the generated operation id as part of
     // a parent IP SLA operation. The parent operation id is pseudo-random number,
     // selected by the management  station based on an operation started by the
     // management  station,when creating a row via the rttMonCtrlAdminStatus
     // object in the rttMonCtrlAdminTable table.
-    Rttmongeneratedopertable CISCORTTMONMIB_Rttmongeneratedopertable
+    RttMonGeneratedOperTable CISCORTTMONMIB_RttMonGeneratedOperTable
 
     // The statistics capture database.  The statistics capture table contains
     // summarized  information of the results for a conceptual RTT control  row. 
@@ -312,18 +312,18 @@ type CISCORTTMONMIB struct {
     // matching data.   Also, the managing station can spread the data gathering 
     // over a longer period, which removes the need for a flood  of get requests
     // in a short period which otherwise would  occur.
-    Rttmonstatscapturetable CISCORTTMONMIB_Rttmonstatscapturetable
+    RttMonStatsCaptureTable CISCORTTMONMIB_RttMonStatsCaptureTable
 
     // The statistics collection database.  This table has the exact same behavior
     // as the rttMonStatsCaptureTable, except it does not keep statistical
     // distribution information.  For a complete table description see the
     // rttMonStatsCaptureTable object.
-    Rttmonstatscollecttable CISCORTTMONMIB_Rttmonstatscollecttable
+    RttMonStatsCollectTable CISCORTTMONMIB_RttMonStatsCollectTable
 
     // The statistics totals database.  This table has the exact same behavior as
     // the rttMonStatsCaptureTable, except it only keeps 60 minute group values. 
     // For a complete table description see the rttMonStatsCaptureTable object.
-    Rttmonstatstotalstable CISCORTTMONMIB_Rttmonstatstotalstable
+    RttMonStatsTotalsTable CISCORTTMONMIB_RttMonStatsTotalsTable
 
     // The HTTP statistics collection database.  The HTTP statistics table
     // contains summarized information of the results for a conceptual RTT control
@@ -331,7 +331,7 @@ type CISCORTTMONMIB struct {
     // series of hourly 'group(s)'.  The operation of this table is same as that
     // of  rttMonStatsCaptureTable, except that this table can only  store a
     // maximum of 2 hours of data.
-    Rttmonhttpstatstable CISCORTTMONMIB_Rttmonhttpstatstable
+    RttMonHTTPStatsTable CISCORTTMONMIB_RttMonHTTPStatsTable
 
     // The Jitter statistics collection database.  The Jitter statistics table
     // contains summarized information of the results for a conceptual RTT control
@@ -339,7 +339,7 @@ type CISCORTTMONMIB struct {
     // series of hourly 'group(s)'.  The operation of this table is same as that
     // of  rttMonStatsCaptureTable, except that this table will store  2 hours of
     // data.
-    Rttmonjitterstatstable CISCORTTMONMIB_Rttmonjitterstatstable
+    RttMonJitterStatsTable CISCORTTMONMIB_RttMonJitterStatsTable
 
     // The Auto SAA L3 MPLS VPN LPD Group Database.  The LPD Group statistics
     // table contains summarized performance statistics for the LPD group.  LPD
@@ -356,7 +356,7 @@ type CISCORTTMONMIB struct {
     // this point, the oldest group is discarded and is replaced by the newly
     // created one. The hourly group is uniquely identified by the
     // rttMonLpdGrpStatsStartTimeIndex object.
-    Rttmonlpdgrpstatstable CISCORTTMONMIB_Rttmonlpdgrpstatstable
+    RttMonLpdGrpStatsTable CISCORTTMONMIB_RttMonLpdGrpStatsTable
 
     // The history collection database.  The history table contains a point by
     // point rolling  history of the most recent RTT operations for each 
@@ -369,13 +369,13 @@ type CISCORTTMONMIB struct {
     // greater  than rttMonHistoryAdminNumLives the oldest life will be  discarded
     // and a new life will be created by incrementing the index.  The path
     // exploration RTT operation will be kept as an entry in this table.
-    Rttmonhistorycollectiontable CISCORTTMONMIB_Rttmonhistorycollectiontable
+    RttMonHistoryCollectionTable CISCORTTMONMIB_RttMonHistoryCollectionTable
 
     // A table which contains the status of latest HTTP RTT operation.
-    Rttmonlatesthttpopertable CISCORTTMONMIB_Rttmonlatesthttpopertable
+    RttMonLatestHTTPOperTable CISCORTTMONMIB_RttMonLatestHTTPOperTable
 
     // A table which contains the status of latest Jitter operation.
-    Rttmonlatestjitteropertable CISCORTTMONMIB_Rttmonlatestjitteropertable
+    RttMonLatestJitterOperTable CISCORTTMONMIB_RttMonLatestJitterOperTable
 }
 
 func (cISCORTTMONMIB *CISCORTTMONMIB) GetEntityData() *types.CommonEntityData {
@@ -388,44 +388,47 @@ func (cISCORTTMONMIB *CISCORTTMONMIB) GetEntityData() *types.CommonEntityData {
     cISCORTTMONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCORTTMONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCORTTMONMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCORTTMONMIB.EntityData.Children["rttMonAppl"] = types.YChild{"Rttmonappl", &cISCORTTMONMIB.Rttmonappl}
-    cISCORTTMONMIB.EntityData.Children["rttMonApplSupportedRttTypesTable"] = types.YChild{"Rttmonapplsupportedrtttypestable", &cISCORTTMONMIB.Rttmonapplsupportedrtttypestable}
-    cISCORTTMONMIB.EntityData.Children["rttMonApplSupportedProtocolsTable"] = types.YChild{"Rttmonapplsupportedprotocolstable", &cISCORTTMONMIB.Rttmonapplsupportedprotocolstable}
-    cISCORTTMONMIB.EntityData.Children["rttMonApplPreConfigedTable"] = types.YChild{"Rttmonapplpreconfigedtable", &cISCORTTMONMIB.Rttmonapplpreconfigedtable}
-    cISCORTTMONMIB.EntityData.Children["rttMonApplAuthTable"] = types.YChild{"Rttmonapplauthtable", &cISCORTTMONMIB.Rttmonapplauthtable}
-    cISCORTTMONMIB.EntityData.Children["rttMonCtrlAdminTable"] = types.YChild{"Rttmonctrladmintable", &cISCORTTMONMIB.Rttmonctrladmintable}
-    cISCORTTMONMIB.EntityData.Children["rttMonEchoAdminTable"] = types.YChild{"Rttmonechoadmintable", &cISCORTTMONMIB.Rttmonechoadmintable}
-    cISCORTTMONMIB.EntityData.Children["rttMonFileIOAdminTable"] = types.YChild{"Rttmonfileioadmintable", &cISCORTTMONMIB.Rttmonfileioadmintable}
-    cISCORTTMONMIB.EntityData.Children["rttMonScriptAdminTable"] = types.YChild{"Rttmonscriptadmintable", &cISCORTTMONMIB.Rttmonscriptadmintable}
-    cISCORTTMONMIB.EntityData.Children["rttMonReactTriggerAdminTable"] = types.YChild{"Rttmonreacttriggeradmintable", &cISCORTTMONMIB.Rttmonreacttriggeradmintable}
-    cISCORTTMONMIB.EntityData.Children["rttMonEchoPathAdminTable"] = types.YChild{"Rttmonechopathadmintable", &cISCORTTMONMIB.Rttmonechopathadmintable}
-    cISCORTTMONMIB.EntityData.Children["rttMonGrpScheduleAdminTable"] = types.YChild{"Rttmongrpscheduleadmintable", &cISCORTTMONMIB.Rttmongrpscheduleadmintable}
-    cISCORTTMONMIB.EntityData.Children["rttMplsVpnMonCtrlTable"] = types.YChild{"Rttmplsvpnmonctrltable", &cISCORTTMONMIB.Rttmplsvpnmonctrltable}
-    cISCORTTMONMIB.EntityData.Children["rttMonReactTable"] = types.YChild{"Rttmonreacttable", &cISCORTTMONMIB.Rttmonreacttable}
-    cISCORTTMONMIB.EntityData.Children["rttMonGeneratedOperTable"] = types.YChild{"Rttmongeneratedopertable", &cISCORTTMONMIB.Rttmongeneratedopertable}
-    cISCORTTMONMIB.EntityData.Children["rttMonStatsCaptureTable"] = types.YChild{"Rttmonstatscapturetable", &cISCORTTMONMIB.Rttmonstatscapturetable}
-    cISCORTTMONMIB.EntityData.Children["rttMonStatsCollectTable"] = types.YChild{"Rttmonstatscollecttable", &cISCORTTMONMIB.Rttmonstatscollecttable}
-    cISCORTTMONMIB.EntityData.Children["rttMonStatsTotalsTable"] = types.YChild{"Rttmonstatstotalstable", &cISCORTTMONMIB.Rttmonstatstotalstable}
-    cISCORTTMONMIB.EntityData.Children["rttMonHTTPStatsTable"] = types.YChild{"Rttmonhttpstatstable", &cISCORTTMONMIB.Rttmonhttpstatstable}
-    cISCORTTMONMIB.EntityData.Children["rttMonJitterStatsTable"] = types.YChild{"Rttmonjitterstatstable", &cISCORTTMONMIB.Rttmonjitterstatstable}
-    cISCORTTMONMIB.EntityData.Children["rttMonLpdGrpStatsTable"] = types.YChild{"Rttmonlpdgrpstatstable", &cISCORTTMONMIB.Rttmonlpdgrpstatstable}
-    cISCORTTMONMIB.EntityData.Children["rttMonHistoryCollectionTable"] = types.YChild{"Rttmonhistorycollectiontable", &cISCORTTMONMIB.Rttmonhistorycollectiontable}
-    cISCORTTMONMIB.EntityData.Children["rttMonLatestHTTPOperTable"] = types.YChild{"Rttmonlatesthttpopertable", &cISCORTTMONMIB.Rttmonlatesthttpopertable}
-    cISCORTTMONMIB.EntityData.Children["rttMonLatestJitterOperTable"] = types.YChild{"Rttmonlatestjitteropertable", &cISCORTTMONMIB.Rttmonlatestjitteropertable}
-    cISCORTTMONMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCORTTMONMIB.EntityData.Children = types.NewOrderedMap()
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonAppl", types.YChild{"RttMonAppl", &cISCORTTMONMIB.RttMonAppl})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonApplSupportedRttTypesTable", types.YChild{"RttMonApplSupportedRttTypesTable", &cISCORTTMONMIB.RttMonApplSupportedRttTypesTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonApplSupportedProtocolsTable", types.YChild{"RttMonApplSupportedProtocolsTable", &cISCORTTMONMIB.RttMonApplSupportedProtocolsTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonApplPreConfigedTable", types.YChild{"RttMonApplPreConfigedTable", &cISCORTTMONMIB.RttMonApplPreConfigedTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonApplAuthTable", types.YChild{"RttMonApplAuthTable", &cISCORTTMONMIB.RttMonApplAuthTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonCtrlAdminTable", types.YChild{"RttMonCtrlAdminTable", &cISCORTTMONMIB.RttMonCtrlAdminTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonEchoAdminTable", types.YChild{"RttMonEchoAdminTable", &cISCORTTMONMIB.RttMonEchoAdminTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonFileIOAdminTable", types.YChild{"RttMonFileIOAdminTable", &cISCORTTMONMIB.RttMonFileIOAdminTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonScriptAdminTable", types.YChild{"RttMonScriptAdminTable", &cISCORTTMONMIB.RttMonScriptAdminTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonReactTriggerAdminTable", types.YChild{"RttMonReactTriggerAdminTable", &cISCORTTMONMIB.RttMonReactTriggerAdminTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonEchoPathAdminTable", types.YChild{"RttMonEchoPathAdminTable", &cISCORTTMONMIB.RttMonEchoPathAdminTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonGrpScheduleAdminTable", types.YChild{"RttMonGrpScheduleAdminTable", &cISCORTTMONMIB.RttMonGrpScheduleAdminTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMplsVpnMonCtrlTable", types.YChild{"RttMplsVpnMonCtrlTable", &cISCORTTMONMIB.RttMplsVpnMonCtrlTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonReactTable", types.YChild{"RttMonReactTable", &cISCORTTMONMIB.RttMonReactTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonGeneratedOperTable", types.YChild{"RttMonGeneratedOperTable", &cISCORTTMONMIB.RttMonGeneratedOperTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonStatsCaptureTable", types.YChild{"RttMonStatsCaptureTable", &cISCORTTMONMIB.RttMonStatsCaptureTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonStatsCollectTable", types.YChild{"RttMonStatsCollectTable", &cISCORTTMONMIB.RttMonStatsCollectTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonStatsTotalsTable", types.YChild{"RttMonStatsTotalsTable", &cISCORTTMONMIB.RttMonStatsTotalsTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonHTTPStatsTable", types.YChild{"RttMonHTTPStatsTable", &cISCORTTMONMIB.RttMonHTTPStatsTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonJitterStatsTable", types.YChild{"RttMonJitterStatsTable", &cISCORTTMONMIB.RttMonJitterStatsTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonLpdGrpStatsTable", types.YChild{"RttMonLpdGrpStatsTable", &cISCORTTMONMIB.RttMonLpdGrpStatsTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonHistoryCollectionTable", types.YChild{"RttMonHistoryCollectionTable", &cISCORTTMONMIB.RttMonHistoryCollectionTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonLatestHTTPOperTable", types.YChild{"RttMonLatestHTTPOperTable", &cISCORTTMONMIB.RttMonLatestHTTPOperTable})
+    cISCORTTMONMIB.EntityData.Children.Append("rttMonLatestJitterOperTable", types.YChild{"RttMonLatestJitterOperTable", &cISCORTTMONMIB.RttMonLatestJitterOperTable})
+    cISCORTTMONMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCORTTMONMIB.EntityData.YListKeys = []string {}
+
     return &(cISCORTTMONMIB.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonappl
-type CISCORTTMONMIB_Rttmonappl struct {
+// CISCORTTMONMIB_RttMonAppl
+type CISCORTTMONMIB_RttMonAppl struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Round Trip Time monitoring application version string.  The format will be:
     // 'Version.Release.Patch-Level: Textual-Description'  For example:  '1.0.0:
     // Initial RTT Application'. The type is string.
-    Rttmonapplversion interface{}
+    RttMonApplVersion interface{}
 
     // The maximum size of the data portion an echo packet supported by this RTT
     // application.  This is the maximum value that can be specified by
@@ -434,7 +437,7 @@ type CISCORTTMONMIB_Rttmonappl struct {
     // rttMonCtrlAdminTable.  This object is undefined for conceptual RTT  control
     // rows when the RttMonRttType object is set to 'fileIO' or 'script'. The type
     // is interface{} with range: 0..16384. Units are octets.
-    Rttmonapplmaxpacketdatasize interface{}
+    RttMonApplMaxPacketDataSize interface{}
 
     // The last time at which a set operation occurred on any of the objects in
     // this MIB.  The managing  application can inspect this value in order to 
@@ -442,13 +445,13 @@ type CISCORTTMONMIB_Rttmonappl struct {
     // Administration portion of this MIB.  This object applies to all settable
     // objects in this MIB, including the 'Reset' objects that could clear saved
     // history/statistics. The type is interface{} with range: 0..4294967295.
-    Rttmonappltimeoflastset interface{}
+    RttMonApplTimeOfLastSet interface{}
 
     // This object defines the maximum number of entries that can be added to the
     // rttMonCtrlAdminTable. It is calculated at the system init time. The value
     // is impacted when rttMonApplFreeMemLowWaterMark is changed. The type is
     // interface{} with range: 1..2147483647.
-    Rttmonapplnumctrladminentry interface{}
+    RttMonApplNumCtrlAdminEntry interface{}
 
     // When set to 'reset' the entire RTT application goes through a reset
     // sequence, making a best  effort to revert to its startup condition.  Any 
@@ -457,14 +460,14 @@ type CISCORTTMONMIB_Rttmonappl struct {
     // History Collection Group.  All open connections  will also be closed. 
     // Finally the  rttMonApplPreConfigedTable will reset (see 
     // rttMonApplPreConfigedReset). The type is RttReset.
-    Rttmonapplreset interface{}
+    RttMonApplReset interface{}
 
     // When set to 'reset' the RTT application will reset the Application
     // Preconfigured MIB section.  This will force the RTT application to delete
     // all entries in the rttMonApplPreConfigedTable and then to repopulate the
     // table with the current configuration.  This provides a mechanism to load
     // and unload user scripts and file paths. The type is RttReset.
-    Rttmonapplpreconfigedreset interface{}
+    RttMonApplPreConfigedReset interface{}
 
     // This object defines the number of new probes that can be configured on a
     // router. The number depends on the value  of rttMonApplFreeMemLowWaterMark,
@@ -474,23 +477,23 @@ type CISCORTTMONMIB_Rttmonappl struct {
     // Memory_required_by_each_probe), rttMonApplNumCtrlAdminEntry - 
     // Num_of_Probes_already_configured)). The type is interface{} with range:
     // 1..2147483647.
-    Rttmonapplprobecapacity interface{}
+    RttMonApplProbeCapacity interface{}
 
     // This object defines the amount of free memory a router must have in order
     // to configure RTR. If RTR found out that the memory is falling below this
     // mark, it will not allow new probes to be configured.  This value should not
     // be set higher (or very close to) than  the free bytes available on the
     // router. The type is interface{} with range: 0..2147483647.
-    Rttmonapplfreememlowwatermark interface{}
+    RttMonApplFreeMemLowWaterMark interface{}
 
     // An error description for the last error message caused by set.  Currently,
     // it includes set error caused due to setting rttMonApplFreeMemLowWaterMark
     // greater than the available free memory on the router or not enough memory
     // left to create new probes. The type is string.
-    Rttmonappllatestseterror interface{}
+    RttMonApplLatestSetError interface{}
 
     // Enable or disable RTR responder on the router. The type is bool.
-    Rttmonapplresponder interface{}
+    RttMonApplResponder interface{}
 
     // This object is used to reset certain objects within the
     // rttMonLpdGrpStatsTable.  When the object is set to value of an active LPD
@@ -500,214 +503,232 @@ type CISCORTTMONMIB_Rttmonappl struct {
     // rttMonLpdGrpStatsGroupProbeIndex - rttMonLpdGrpStatsGroupIndex -
     // rttMonLpdGrpStatsStartTimeIndex. The type is interface{} with range:
     // 0..2147483647.
-    Rttmonappllpdgrpstatsreset interface{}
+    RttMonApplLpdGrpStatsReset interface{}
 }
 
-func (rttmonappl *CISCORTTMONMIB_Rttmonappl) GetEntityData() *types.CommonEntityData {
-    rttmonappl.EntityData.YFilter = rttmonappl.YFilter
-    rttmonappl.EntityData.YangName = "rttMonAppl"
-    rttmonappl.EntityData.BundleName = "cisco_ios_xe"
-    rttmonappl.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonappl.EntityData.SegmentPath = "rttMonAppl"
-    rttmonappl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonappl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonappl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonAppl *CISCORTTMONMIB_RttMonAppl) GetEntityData() *types.CommonEntityData {
+    rttMonAppl.EntityData.YFilter = rttMonAppl.YFilter
+    rttMonAppl.EntityData.YangName = "rttMonAppl"
+    rttMonAppl.EntityData.BundleName = "cisco_ios_xe"
+    rttMonAppl.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonAppl.EntityData.SegmentPath = "rttMonAppl"
+    rttMonAppl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonAppl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonAppl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonappl.EntityData.Children = make(map[string]types.YChild)
-    rttmonappl.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonappl.EntityData.Leafs["rttMonApplVersion"] = types.YLeaf{"Rttmonapplversion", rttmonappl.Rttmonapplversion}
-    rttmonappl.EntityData.Leafs["rttMonApplMaxPacketDataSize"] = types.YLeaf{"Rttmonapplmaxpacketdatasize", rttmonappl.Rttmonapplmaxpacketdatasize}
-    rttmonappl.EntityData.Leafs["rttMonApplTimeOfLastSet"] = types.YLeaf{"Rttmonappltimeoflastset", rttmonappl.Rttmonappltimeoflastset}
-    rttmonappl.EntityData.Leafs["rttMonApplNumCtrlAdminEntry"] = types.YLeaf{"Rttmonapplnumctrladminentry", rttmonappl.Rttmonapplnumctrladminentry}
-    rttmonappl.EntityData.Leafs["rttMonApplReset"] = types.YLeaf{"Rttmonapplreset", rttmonappl.Rttmonapplreset}
-    rttmonappl.EntityData.Leafs["rttMonApplPreConfigedReset"] = types.YLeaf{"Rttmonapplpreconfigedreset", rttmonappl.Rttmonapplpreconfigedreset}
-    rttmonappl.EntityData.Leafs["rttMonApplProbeCapacity"] = types.YLeaf{"Rttmonapplprobecapacity", rttmonappl.Rttmonapplprobecapacity}
-    rttmonappl.EntityData.Leafs["rttMonApplFreeMemLowWaterMark"] = types.YLeaf{"Rttmonapplfreememlowwatermark", rttmonappl.Rttmonapplfreememlowwatermark}
-    rttmonappl.EntityData.Leafs["rttMonApplLatestSetError"] = types.YLeaf{"Rttmonappllatestseterror", rttmonappl.Rttmonappllatestseterror}
-    rttmonappl.EntityData.Leafs["rttMonApplResponder"] = types.YLeaf{"Rttmonapplresponder", rttmonappl.Rttmonapplresponder}
-    rttmonappl.EntityData.Leafs["rttMonApplLpdGrpStatsReset"] = types.YLeaf{"Rttmonappllpdgrpstatsreset", rttmonappl.Rttmonappllpdgrpstatsreset}
-    return &(rttmonappl.EntityData)
+    rttMonAppl.EntityData.Children = types.NewOrderedMap()
+    rttMonAppl.EntityData.Leafs = types.NewOrderedMap()
+    rttMonAppl.EntityData.Leafs.Append("rttMonApplVersion", types.YLeaf{"RttMonApplVersion", rttMonAppl.RttMonApplVersion})
+    rttMonAppl.EntityData.Leafs.Append("rttMonApplMaxPacketDataSize", types.YLeaf{"RttMonApplMaxPacketDataSize", rttMonAppl.RttMonApplMaxPacketDataSize})
+    rttMonAppl.EntityData.Leafs.Append("rttMonApplTimeOfLastSet", types.YLeaf{"RttMonApplTimeOfLastSet", rttMonAppl.RttMonApplTimeOfLastSet})
+    rttMonAppl.EntityData.Leafs.Append("rttMonApplNumCtrlAdminEntry", types.YLeaf{"RttMonApplNumCtrlAdminEntry", rttMonAppl.RttMonApplNumCtrlAdminEntry})
+    rttMonAppl.EntityData.Leafs.Append("rttMonApplReset", types.YLeaf{"RttMonApplReset", rttMonAppl.RttMonApplReset})
+    rttMonAppl.EntityData.Leafs.Append("rttMonApplPreConfigedReset", types.YLeaf{"RttMonApplPreConfigedReset", rttMonAppl.RttMonApplPreConfigedReset})
+    rttMonAppl.EntityData.Leafs.Append("rttMonApplProbeCapacity", types.YLeaf{"RttMonApplProbeCapacity", rttMonAppl.RttMonApplProbeCapacity})
+    rttMonAppl.EntityData.Leafs.Append("rttMonApplFreeMemLowWaterMark", types.YLeaf{"RttMonApplFreeMemLowWaterMark", rttMonAppl.RttMonApplFreeMemLowWaterMark})
+    rttMonAppl.EntityData.Leafs.Append("rttMonApplLatestSetError", types.YLeaf{"RttMonApplLatestSetError", rttMonAppl.RttMonApplLatestSetError})
+    rttMonAppl.EntityData.Leafs.Append("rttMonApplResponder", types.YLeaf{"RttMonApplResponder", rttMonAppl.RttMonApplResponder})
+    rttMonAppl.EntityData.Leafs.Append("rttMonApplLpdGrpStatsReset", types.YLeaf{"RttMonApplLpdGrpStatsReset", rttMonAppl.RttMonApplLpdGrpStatsReset})
+
+    rttMonAppl.EntityData.YListKeys = []string {}
+
+    return &(rttMonAppl.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonapplsupportedrtttypestable
+// CISCORTTMONMIB_RttMonApplSupportedRttTypesTable
 // A table of which contains the supported Rtt
 // Monitor Types.
 // 
 // See the RttMonRttType textual convention for
 // the definition of each type.
-type CISCORTTMONMIB_Rttmonapplsupportedrtttypestable struct {
+type CISCORTTMONMIB_RttMonApplSupportedRttTypesTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list that presents the valid Rtt Monitor Types. The type is slice of
-    // CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry.
-    Rttmonapplsupportedrtttypesentry []CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry
+    // CISCORTTMONMIB_RttMonApplSupportedRttTypesTable_RttMonApplSupportedRttTypesEntry.
+    RttMonApplSupportedRttTypesEntry []*CISCORTTMONMIB_RttMonApplSupportedRttTypesTable_RttMonApplSupportedRttTypesEntry
 }
 
-func (rttmonapplsupportedrtttypestable *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable) GetEntityData() *types.CommonEntityData {
-    rttmonapplsupportedrtttypestable.EntityData.YFilter = rttmonapplsupportedrtttypestable.YFilter
-    rttmonapplsupportedrtttypestable.EntityData.YangName = "rttMonApplSupportedRttTypesTable"
-    rttmonapplsupportedrtttypestable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonapplsupportedrtttypestable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonapplsupportedrtttypestable.EntityData.SegmentPath = "rttMonApplSupportedRttTypesTable"
-    rttmonapplsupportedrtttypestable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonapplsupportedrtttypestable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonapplsupportedrtttypestable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonApplSupportedRttTypesTable *CISCORTTMONMIB_RttMonApplSupportedRttTypesTable) GetEntityData() *types.CommonEntityData {
+    rttMonApplSupportedRttTypesTable.EntityData.YFilter = rttMonApplSupportedRttTypesTable.YFilter
+    rttMonApplSupportedRttTypesTable.EntityData.YangName = "rttMonApplSupportedRttTypesTable"
+    rttMonApplSupportedRttTypesTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonApplSupportedRttTypesTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonApplSupportedRttTypesTable.EntityData.SegmentPath = "rttMonApplSupportedRttTypesTable"
+    rttMonApplSupportedRttTypesTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonApplSupportedRttTypesTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonApplSupportedRttTypesTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonapplsupportedrtttypestable.EntityData.Children = make(map[string]types.YChild)
-    rttmonapplsupportedrtttypestable.EntityData.Children["rttMonApplSupportedRttTypesEntry"] = types.YChild{"Rttmonapplsupportedrtttypesentry", nil}
-    for i := range rttmonapplsupportedrtttypestable.Rttmonapplsupportedrtttypesentry {
-        rttmonapplsupportedrtttypestable.EntityData.Children[types.GetSegmentPath(&rttmonapplsupportedrtttypestable.Rttmonapplsupportedrtttypesentry[i])] = types.YChild{"Rttmonapplsupportedrtttypesentry", &rttmonapplsupportedrtttypestable.Rttmonapplsupportedrtttypesentry[i]}
+    rttMonApplSupportedRttTypesTable.EntityData.Children = types.NewOrderedMap()
+    rttMonApplSupportedRttTypesTable.EntityData.Children.Append("rttMonApplSupportedRttTypesEntry", types.YChild{"RttMonApplSupportedRttTypesEntry", nil})
+    for i := range rttMonApplSupportedRttTypesTable.RttMonApplSupportedRttTypesEntry {
+        rttMonApplSupportedRttTypesTable.EntityData.Children.Append(types.GetSegmentPath(rttMonApplSupportedRttTypesTable.RttMonApplSupportedRttTypesEntry[i]), types.YChild{"RttMonApplSupportedRttTypesEntry", rttMonApplSupportedRttTypesTable.RttMonApplSupportedRttTypesEntry[i]})
     }
-    rttmonapplsupportedrtttypestable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonapplsupportedrtttypestable.EntityData)
+    rttMonApplSupportedRttTypesTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonApplSupportedRttTypesTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonApplSupportedRttTypesTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry
+// CISCORTTMONMIB_RttMonApplSupportedRttTypesTable_RttMonApplSupportedRttTypesEntry
 // A list that presents the valid Rtt Monitor
 // Types.
-type CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry struct {
+type CISCORTTMONMIB_RttMonApplSupportedRttTypesTable_RttMonApplSupportedRttTypesEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object indexes the supported 'RttMonRttType'
     // types. The type is RttMonRttType.
-    Rttmonapplsupportedrtttypes interface{}
+    RttMonApplSupportedRttTypes interface{}
 
     // This object defines the supported 'RttMonRttType' types. The type is bool.
-    Rttmonapplsupportedrtttypesvalid interface{}
+    RttMonApplSupportedRttTypesValid interface{}
 }
 
-func (rttmonapplsupportedrtttypesentry *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry) GetEntityData() *types.CommonEntityData {
-    rttmonapplsupportedrtttypesentry.EntityData.YFilter = rttmonapplsupportedrtttypesentry.YFilter
-    rttmonapplsupportedrtttypesentry.EntityData.YangName = "rttMonApplSupportedRttTypesEntry"
-    rttmonapplsupportedrtttypesentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonapplsupportedrtttypesentry.EntityData.ParentYangName = "rttMonApplSupportedRttTypesTable"
-    rttmonapplsupportedrtttypesentry.EntityData.SegmentPath = "rttMonApplSupportedRttTypesEntry" + "[rttMonApplSupportedRttTypes='" + fmt.Sprintf("%v", rttmonapplsupportedrtttypesentry.Rttmonapplsupportedrtttypes) + "']"
-    rttmonapplsupportedrtttypesentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonapplsupportedrtttypesentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonapplsupportedrtttypesentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonApplSupportedRttTypesEntry *CISCORTTMONMIB_RttMonApplSupportedRttTypesTable_RttMonApplSupportedRttTypesEntry) GetEntityData() *types.CommonEntityData {
+    rttMonApplSupportedRttTypesEntry.EntityData.YFilter = rttMonApplSupportedRttTypesEntry.YFilter
+    rttMonApplSupportedRttTypesEntry.EntityData.YangName = "rttMonApplSupportedRttTypesEntry"
+    rttMonApplSupportedRttTypesEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonApplSupportedRttTypesEntry.EntityData.ParentYangName = "rttMonApplSupportedRttTypesTable"
+    rttMonApplSupportedRttTypesEntry.EntityData.SegmentPath = "rttMonApplSupportedRttTypesEntry" + types.AddKeyToken(rttMonApplSupportedRttTypesEntry.RttMonApplSupportedRttTypes, "rttMonApplSupportedRttTypes")
+    rttMonApplSupportedRttTypesEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonApplSupportedRttTypesEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonApplSupportedRttTypesEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonapplsupportedrtttypesentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonapplsupportedrtttypesentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonapplsupportedrtttypesentry.EntityData.Leafs["rttMonApplSupportedRttTypes"] = types.YLeaf{"Rttmonapplsupportedrtttypes", rttmonapplsupportedrtttypesentry.Rttmonapplsupportedrtttypes}
-    rttmonapplsupportedrtttypesentry.EntityData.Leafs["rttMonApplSupportedRttTypesValid"] = types.YLeaf{"Rttmonapplsupportedrtttypesvalid", rttmonapplsupportedrtttypesentry.Rttmonapplsupportedrtttypesvalid}
-    return &(rttmonapplsupportedrtttypesentry.EntityData)
+    rttMonApplSupportedRttTypesEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonApplSupportedRttTypesEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonApplSupportedRttTypesEntry.EntityData.Leafs.Append("rttMonApplSupportedRttTypes", types.YLeaf{"RttMonApplSupportedRttTypes", rttMonApplSupportedRttTypesEntry.RttMonApplSupportedRttTypes})
+    rttMonApplSupportedRttTypesEntry.EntityData.Leafs.Append("rttMonApplSupportedRttTypesValid", types.YLeaf{"RttMonApplSupportedRttTypesValid", rttMonApplSupportedRttTypesEntry.RttMonApplSupportedRttTypesValid})
+
+    rttMonApplSupportedRttTypesEntry.EntityData.YListKeys = []string {"RttMonApplSupportedRttTypes"}
+
+    return &(rttMonApplSupportedRttTypesEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonapplsupportedprotocolstable
+// CISCORTTMONMIB_RttMonApplSupportedProtocolsTable
 // A table of which contains the supported Rtt
 // Monitor Protocols.
 // 
 // See the RttMonProtocol textual convention 
 // for the definition of each protocol.
-type CISCORTTMONMIB_Rttmonapplsupportedprotocolstable struct {
+type CISCORTTMONMIB_RttMonApplSupportedProtocolsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list that presents the valid Rtt Monitor Protocols. The type is slice of
-    // CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry.
-    Rttmonapplsupportedprotocolsentry []CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry
+    // CISCORTTMONMIB_RttMonApplSupportedProtocolsTable_RttMonApplSupportedProtocolsEntry.
+    RttMonApplSupportedProtocolsEntry []*CISCORTTMONMIB_RttMonApplSupportedProtocolsTable_RttMonApplSupportedProtocolsEntry
 }
 
-func (rttmonapplsupportedprotocolstable *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable) GetEntityData() *types.CommonEntityData {
-    rttmonapplsupportedprotocolstable.EntityData.YFilter = rttmonapplsupportedprotocolstable.YFilter
-    rttmonapplsupportedprotocolstable.EntityData.YangName = "rttMonApplSupportedProtocolsTable"
-    rttmonapplsupportedprotocolstable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonapplsupportedprotocolstable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonapplsupportedprotocolstable.EntityData.SegmentPath = "rttMonApplSupportedProtocolsTable"
-    rttmonapplsupportedprotocolstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonapplsupportedprotocolstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonapplsupportedprotocolstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonApplSupportedProtocolsTable *CISCORTTMONMIB_RttMonApplSupportedProtocolsTable) GetEntityData() *types.CommonEntityData {
+    rttMonApplSupportedProtocolsTable.EntityData.YFilter = rttMonApplSupportedProtocolsTable.YFilter
+    rttMonApplSupportedProtocolsTable.EntityData.YangName = "rttMonApplSupportedProtocolsTable"
+    rttMonApplSupportedProtocolsTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonApplSupportedProtocolsTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonApplSupportedProtocolsTable.EntityData.SegmentPath = "rttMonApplSupportedProtocolsTable"
+    rttMonApplSupportedProtocolsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonApplSupportedProtocolsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonApplSupportedProtocolsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonapplsupportedprotocolstable.EntityData.Children = make(map[string]types.YChild)
-    rttmonapplsupportedprotocolstable.EntityData.Children["rttMonApplSupportedProtocolsEntry"] = types.YChild{"Rttmonapplsupportedprotocolsentry", nil}
-    for i := range rttmonapplsupportedprotocolstable.Rttmonapplsupportedprotocolsentry {
-        rttmonapplsupportedprotocolstable.EntityData.Children[types.GetSegmentPath(&rttmonapplsupportedprotocolstable.Rttmonapplsupportedprotocolsentry[i])] = types.YChild{"Rttmonapplsupportedprotocolsentry", &rttmonapplsupportedprotocolstable.Rttmonapplsupportedprotocolsentry[i]}
+    rttMonApplSupportedProtocolsTable.EntityData.Children = types.NewOrderedMap()
+    rttMonApplSupportedProtocolsTable.EntityData.Children.Append("rttMonApplSupportedProtocolsEntry", types.YChild{"RttMonApplSupportedProtocolsEntry", nil})
+    for i := range rttMonApplSupportedProtocolsTable.RttMonApplSupportedProtocolsEntry {
+        rttMonApplSupportedProtocolsTable.EntityData.Children.Append(types.GetSegmentPath(rttMonApplSupportedProtocolsTable.RttMonApplSupportedProtocolsEntry[i]), types.YChild{"RttMonApplSupportedProtocolsEntry", rttMonApplSupportedProtocolsTable.RttMonApplSupportedProtocolsEntry[i]})
     }
-    rttmonapplsupportedprotocolstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonapplsupportedprotocolstable.EntityData)
+    rttMonApplSupportedProtocolsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonApplSupportedProtocolsTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonApplSupportedProtocolsTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry
+// CISCORTTMONMIB_RttMonApplSupportedProtocolsTable_RttMonApplSupportedProtocolsEntry
 // A list that presents the valid Rtt Monitor
 // Protocols.
-type CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry struct {
+type CISCORTTMONMIB_RttMonApplSupportedProtocolsTable_RttMonApplSupportedProtocolsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object indexes the supported 'RttMonProtocol'
     // protocols. The type is RttMonProtocol.
-    Rttmonapplsupportedprotocols interface{}
+    RttMonApplSupportedProtocols interface{}
 
     // This object defines the supported 'RttMonProtocol' protocols. The type is
     // bool.
-    Rttmonapplsupportedprotocolsvalid interface{}
+    RttMonApplSupportedProtocolsValid interface{}
 }
 
-func (rttmonapplsupportedprotocolsentry *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry) GetEntityData() *types.CommonEntityData {
-    rttmonapplsupportedprotocolsentry.EntityData.YFilter = rttmonapplsupportedprotocolsentry.YFilter
-    rttmonapplsupportedprotocolsentry.EntityData.YangName = "rttMonApplSupportedProtocolsEntry"
-    rttmonapplsupportedprotocolsentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonapplsupportedprotocolsentry.EntityData.ParentYangName = "rttMonApplSupportedProtocolsTable"
-    rttmonapplsupportedprotocolsentry.EntityData.SegmentPath = "rttMonApplSupportedProtocolsEntry" + "[rttMonApplSupportedProtocols='" + fmt.Sprintf("%v", rttmonapplsupportedprotocolsentry.Rttmonapplsupportedprotocols) + "']"
-    rttmonapplsupportedprotocolsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonapplsupportedprotocolsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonapplsupportedprotocolsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonApplSupportedProtocolsEntry *CISCORTTMONMIB_RttMonApplSupportedProtocolsTable_RttMonApplSupportedProtocolsEntry) GetEntityData() *types.CommonEntityData {
+    rttMonApplSupportedProtocolsEntry.EntityData.YFilter = rttMonApplSupportedProtocolsEntry.YFilter
+    rttMonApplSupportedProtocolsEntry.EntityData.YangName = "rttMonApplSupportedProtocolsEntry"
+    rttMonApplSupportedProtocolsEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonApplSupportedProtocolsEntry.EntityData.ParentYangName = "rttMonApplSupportedProtocolsTable"
+    rttMonApplSupportedProtocolsEntry.EntityData.SegmentPath = "rttMonApplSupportedProtocolsEntry" + types.AddKeyToken(rttMonApplSupportedProtocolsEntry.RttMonApplSupportedProtocols, "rttMonApplSupportedProtocols")
+    rttMonApplSupportedProtocolsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonApplSupportedProtocolsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonApplSupportedProtocolsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonapplsupportedprotocolsentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonapplsupportedprotocolsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonapplsupportedprotocolsentry.EntityData.Leafs["rttMonApplSupportedProtocols"] = types.YLeaf{"Rttmonapplsupportedprotocols", rttmonapplsupportedprotocolsentry.Rttmonapplsupportedprotocols}
-    rttmonapplsupportedprotocolsentry.EntityData.Leafs["rttMonApplSupportedProtocolsValid"] = types.YLeaf{"Rttmonapplsupportedprotocolsvalid", rttmonapplsupportedprotocolsentry.Rttmonapplsupportedprotocolsvalid}
-    return &(rttmonapplsupportedprotocolsentry.EntityData)
+    rttMonApplSupportedProtocolsEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonApplSupportedProtocolsEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonApplSupportedProtocolsEntry.EntityData.Leafs.Append("rttMonApplSupportedProtocols", types.YLeaf{"RttMonApplSupportedProtocols", rttMonApplSupportedProtocolsEntry.RttMonApplSupportedProtocols})
+    rttMonApplSupportedProtocolsEntry.EntityData.Leafs.Append("rttMonApplSupportedProtocolsValid", types.YLeaf{"RttMonApplSupportedProtocolsValid", rttMonApplSupportedProtocolsEntry.RttMonApplSupportedProtocolsValid})
+
+    rttMonApplSupportedProtocolsEntry.EntityData.YListKeys = []string {"RttMonApplSupportedProtocols"}
+
+    return &(rttMonApplSupportedProtocolsEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonapplpreconfigedtable
+// CISCORTTMONMIB_RttMonApplPreConfigedTable
 // A table of which contains the previously
 // configured Script Names and File IO targets.
 // 
 // These Script Names and File IO targets are installed
 // via a different mechanism than this application, and
 // are specific to each platform.
-type CISCORTTMONMIB_Rttmonapplpreconfigedtable struct {
+type CISCORTTMONMIB_RttMonApplPreConfigedTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects that describe the previously configured Script Names and
     // File IO targets. The type is slice of
-    // CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry.
-    Rttmonapplpreconfigedentry []CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry
+    // CISCORTTMONMIB_RttMonApplPreConfigedTable_RttMonApplPreConfigedEntry.
+    RttMonApplPreConfigedEntry []*CISCORTTMONMIB_RttMonApplPreConfigedTable_RttMonApplPreConfigedEntry
 }
 
-func (rttmonapplpreconfigedtable *CISCORTTMONMIB_Rttmonapplpreconfigedtable) GetEntityData() *types.CommonEntityData {
-    rttmonapplpreconfigedtable.EntityData.YFilter = rttmonapplpreconfigedtable.YFilter
-    rttmonapplpreconfigedtable.EntityData.YangName = "rttMonApplPreConfigedTable"
-    rttmonapplpreconfigedtable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonapplpreconfigedtable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonapplpreconfigedtable.EntityData.SegmentPath = "rttMonApplPreConfigedTable"
-    rttmonapplpreconfigedtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonapplpreconfigedtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonapplpreconfigedtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonApplPreConfigedTable *CISCORTTMONMIB_RttMonApplPreConfigedTable) GetEntityData() *types.CommonEntityData {
+    rttMonApplPreConfigedTable.EntityData.YFilter = rttMonApplPreConfigedTable.YFilter
+    rttMonApplPreConfigedTable.EntityData.YangName = "rttMonApplPreConfigedTable"
+    rttMonApplPreConfigedTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonApplPreConfigedTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonApplPreConfigedTable.EntityData.SegmentPath = "rttMonApplPreConfigedTable"
+    rttMonApplPreConfigedTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonApplPreConfigedTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonApplPreConfigedTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonapplpreconfigedtable.EntityData.Children = make(map[string]types.YChild)
-    rttmonapplpreconfigedtable.EntityData.Children["rttMonApplPreConfigedEntry"] = types.YChild{"Rttmonapplpreconfigedentry", nil}
-    for i := range rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry {
-        rttmonapplpreconfigedtable.EntityData.Children[types.GetSegmentPath(&rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry[i])] = types.YChild{"Rttmonapplpreconfigedentry", &rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry[i]}
+    rttMonApplPreConfigedTable.EntityData.Children = types.NewOrderedMap()
+    rttMonApplPreConfigedTable.EntityData.Children.Append("rttMonApplPreConfigedEntry", types.YChild{"RttMonApplPreConfigedEntry", nil})
+    for i := range rttMonApplPreConfigedTable.RttMonApplPreConfigedEntry {
+        rttMonApplPreConfigedTable.EntityData.Children.Append(types.GetSegmentPath(rttMonApplPreConfigedTable.RttMonApplPreConfigedEntry[i]), types.YChild{"RttMonApplPreConfigedEntry", rttMonApplPreConfigedTable.RttMonApplPreConfigedEntry[i]})
     }
-    rttmonapplpreconfigedtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonapplpreconfigedtable.EntityData)
+    rttMonApplPreConfigedTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonApplPreConfigedTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonApplPreConfigedTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry
+// CISCORTTMONMIB_RttMonApplPreConfigedTable_RttMonApplPreConfigedEntry
 // A list of objects that describe the previously
 // configured Script Names and File IO targets.
-type CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry struct {
+type CISCORTTMONMIB_RttMonApplPreConfigedTable_RttMonApplPreConfigedEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This is the type of value being stored in the
-    // rttMonApplPreConfigedName object. The type is Rttmonapplpreconfigedtype.
-    Rttmonapplpreconfigedtype interface{}
+    // rttMonApplPreConfigedName object. The type is RttMonApplPreConfigedType.
+    RttMonApplPreConfigedType interface{}
 
     // This attribute is a key. This is either one of the following depending on
     // the value of the rttMonApplPreConfigedType object:   - The file path to a
@@ -719,76 +740,82 @@ type CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry struct
     // 'script' as the value of the     rttMonCtrlAdminRttType object.  NOTE:  For
     // script names, command line parameters         can follow these names in the
     // rttMonScriptAdminTable table. The type is string.
-    Rttmonapplpreconfigedname interface{}
+    RttMonApplPreConfigedName interface{}
 
     // When this row exists, this value will be 'true'. This object exists only to
     // create a valid row in this  table. The type is bool.
-    Rttmonapplpreconfigedvalid interface{}
+    RttMonApplPreConfigedValid interface{}
 }
 
-func (rttmonapplpreconfigedentry *CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry) GetEntityData() *types.CommonEntityData {
-    rttmonapplpreconfigedentry.EntityData.YFilter = rttmonapplpreconfigedentry.YFilter
-    rttmonapplpreconfigedentry.EntityData.YangName = "rttMonApplPreConfigedEntry"
-    rttmonapplpreconfigedentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonapplpreconfigedentry.EntityData.ParentYangName = "rttMonApplPreConfigedTable"
-    rttmonapplpreconfigedentry.EntityData.SegmentPath = "rttMonApplPreConfigedEntry" + "[rttMonApplPreConfigedType='" + fmt.Sprintf("%v", rttmonapplpreconfigedentry.Rttmonapplpreconfigedtype) + "']" + "[rttMonApplPreConfigedName='" + fmt.Sprintf("%v", rttmonapplpreconfigedentry.Rttmonapplpreconfigedname) + "']"
-    rttmonapplpreconfigedentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonapplpreconfigedentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonapplpreconfigedentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonApplPreConfigedEntry *CISCORTTMONMIB_RttMonApplPreConfigedTable_RttMonApplPreConfigedEntry) GetEntityData() *types.CommonEntityData {
+    rttMonApplPreConfigedEntry.EntityData.YFilter = rttMonApplPreConfigedEntry.YFilter
+    rttMonApplPreConfigedEntry.EntityData.YangName = "rttMonApplPreConfigedEntry"
+    rttMonApplPreConfigedEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonApplPreConfigedEntry.EntityData.ParentYangName = "rttMonApplPreConfigedTable"
+    rttMonApplPreConfigedEntry.EntityData.SegmentPath = "rttMonApplPreConfigedEntry" + types.AddKeyToken(rttMonApplPreConfigedEntry.RttMonApplPreConfigedType, "rttMonApplPreConfigedType") + types.AddKeyToken(rttMonApplPreConfigedEntry.RttMonApplPreConfigedName, "rttMonApplPreConfigedName")
+    rttMonApplPreConfigedEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonApplPreConfigedEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonApplPreConfigedEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonapplpreconfigedentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonapplpreconfigedentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonapplpreconfigedentry.EntityData.Leafs["rttMonApplPreConfigedType"] = types.YLeaf{"Rttmonapplpreconfigedtype", rttmonapplpreconfigedentry.Rttmonapplpreconfigedtype}
-    rttmonapplpreconfigedentry.EntityData.Leafs["rttMonApplPreConfigedName"] = types.YLeaf{"Rttmonapplpreconfigedname", rttmonapplpreconfigedentry.Rttmonapplpreconfigedname}
-    rttmonapplpreconfigedentry.EntityData.Leafs["rttMonApplPreConfigedValid"] = types.YLeaf{"Rttmonapplpreconfigedvalid", rttmonapplpreconfigedentry.Rttmonapplpreconfigedvalid}
-    return &(rttmonapplpreconfigedentry.EntityData)
+    rttMonApplPreConfigedEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonApplPreConfigedEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonApplPreConfigedEntry.EntityData.Leafs.Append("rttMonApplPreConfigedType", types.YLeaf{"RttMonApplPreConfigedType", rttMonApplPreConfigedEntry.RttMonApplPreConfigedType})
+    rttMonApplPreConfigedEntry.EntityData.Leafs.Append("rttMonApplPreConfigedName", types.YLeaf{"RttMonApplPreConfigedName", rttMonApplPreConfigedEntry.RttMonApplPreConfigedName})
+    rttMonApplPreConfigedEntry.EntityData.Leafs.Append("rttMonApplPreConfigedValid", types.YLeaf{"RttMonApplPreConfigedValid", rttMonApplPreConfigedEntry.RttMonApplPreConfigedValid})
+
+    rttMonApplPreConfigedEntry.EntityData.YListKeys = []string {"RttMonApplPreConfigedType", "RttMonApplPreConfigedName"}
+
+    return &(rttMonApplPreConfigedEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry_Rttmonapplpreconfigedtype represents rttMonApplPreConfigedName object.
-type CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry_Rttmonapplpreconfigedtype string
+// CISCORTTMONMIB_RttMonApplPreConfigedTable_RttMonApplPreConfigedEntry_RttMonApplPreConfigedType represents rttMonApplPreConfigedName object.
+type CISCORTTMONMIB_RttMonApplPreConfigedTable_RttMonApplPreConfigedEntry_RttMonApplPreConfigedType string
 
 const (
-    CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry_Rttmonapplpreconfigedtype_filePath CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry_Rttmonapplpreconfigedtype = "filePath"
+    CISCORTTMONMIB_RttMonApplPreConfigedTable_RttMonApplPreConfigedEntry_RttMonApplPreConfigedType_filePath CISCORTTMONMIB_RttMonApplPreConfigedTable_RttMonApplPreConfigedEntry_RttMonApplPreConfigedType = "filePath"
 
-    CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry_Rttmonapplpreconfigedtype_scriptName CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry_Rttmonapplpreconfigedtype = "scriptName"
+    CISCORTTMONMIB_RttMonApplPreConfigedTable_RttMonApplPreConfigedEntry_RttMonApplPreConfigedType_scriptName CISCORTTMONMIB_RttMonApplPreConfigedTable_RttMonApplPreConfigedEntry_RttMonApplPreConfigedType = "scriptName"
 )
 
-// CISCORTTMONMIB_Rttmonapplauthtable
+// CISCORTTMONMIB_RttMonApplAuthTable
 // A table which contains the definitions for key-strings
 // that will be used in authenticating RTR Control Protocol.
-type CISCORTTMONMIB_Rttmonapplauthtable struct {
+type CISCORTTMONMIB_RttMonApplAuthTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list that presents the valid parameters for Authenticating RTR Control
     // Protocol. The type is slice of
-    // CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry.
-    Rttmonapplauthentry []CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry
+    // CISCORTTMONMIB_RttMonApplAuthTable_RttMonApplAuthEntry.
+    RttMonApplAuthEntry []*CISCORTTMONMIB_RttMonApplAuthTable_RttMonApplAuthEntry
 }
 
-func (rttmonapplauthtable *CISCORTTMONMIB_Rttmonapplauthtable) GetEntityData() *types.CommonEntityData {
-    rttmonapplauthtable.EntityData.YFilter = rttmonapplauthtable.YFilter
-    rttmonapplauthtable.EntityData.YangName = "rttMonApplAuthTable"
-    rttmonapplauthtable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonapplauthtable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonapplauthtable.EntityData.SegmentPath = "rttMonApplAuthTable"
-    rttmonapplauthtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonapplauthtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonapplauthtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonApplAuthTable *CISCORTTMONMIB_RttMonApplAuthTable) GetEntityData() *types.CommonEntityData {
+    rttMonApplAuthTable.EntityData.YFilter = rttMonApplAuthTable.YFilter
+    rttMonApplAuthTable.EntityData.YangName = "rttMonApplAuthTable"
+    rttMonApplAuthTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonApplAuthTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonApplAuthTable.EntityData.SegmentPath = "rttMonApplAuthTable"
+    rttMonApplAuthTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonApplAuthTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonApplAuthTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonapplauthtable.EntityData.Children = make(map[string]types.YChild)
-    rttmonapplauthtable.EntityData.Children["rttMonApplAuthEntry"] = types.YChild{"Rttmonapplauthentry", nil}
-    for i := range rttmonapplauthtable.Rttmonapplauthentry {
-        rttmonapplauthtable.EntityData.Children[types.GetSegmentPath(&rttmonapplauthtable.Rttmonapplauthentry[i])] = types.YChild{"Rttmonapplauthentry", &rttmonapplauthtable.Rttmonapplauthentry[i]}
+    rttMonApplAuthTable.EntityData.Children = types.NewOrderedMap()
+    rttMonApplAuthTable.EntityData.Children.Append("rttMonApplAuthEntry", types.YChild{"RttMonApplAuthEntry", nil})
+    for i := range rttMonApplAuthTable.RttMonApplAuthEntry {
+        rttMonApplAuthTable.EntityData.Children.Append(types.GetSegmentPath(rttMonApplAuthTable.RttMonApplAuthEntry[i]), types.YChild{"RttMonApplAuthEntry", rttMonApplAuthTable.RttMonApplAuthEntry[i]})
     }
-    rttmonapplauthtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonapplauthtable.EntityData)
+    rttMonApplAuthTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonApplAuthTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonApplAuthTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry
+// CISCORTTMONMIB_RttMonApplAuthTable_RttMonApplAuthEntry
 // A list that presents the valid parameters for Authenticating
 // RTR Control Protocol.
-type CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry struct {
+type CISCORTTMONMIB_RttMonApplAuthTable_RttMonApplAuthEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -798,61 +825,64 @@ type CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry struct {
     // object. If the pseudo-random number is already in use, an 
     // 'inconsistentValue' is returned. Currently, only one row  can be created.
     // The type is interface{} with range: 0..2147483647.
-    Rttmonapplauthindex interface{}
+    RttMonApplAuthIndex interface{}
 
     // A string which represents the key-chain name. If multiple key-strings are
     // specified, then the authenticator will  alternate between the specified
     // strings. The type is string with length: 1..48.
-    Rttmonapplauthkeychain interface{}
+    RttMonApplAuthKeyChain interface{}
 
     // A string which represents a key-string name whose id is 1. The type is
     // string with length: 1..48.
-    Rttmonapplauthkeystring1 interface{}
+    RttMonApplAuthKeyString1 interface{}
 
     // A string which represents a key-string name whose id is 2. The type is
     // string with length: 1..48.
-    Rttmonapplauthkeystring2 interface{}
+    RttMonApplAuthKeyString2 interface{}
 
     // A string which represents a key-string name whose id is 3. The type is
     // string with length: 1..48.
-    Rttmonapplauthkeystring3 interface{}
+    RttMonApplAuthKeyString3 interface{}
 
     // A string which represents a key-string name whose id is 4. The type is
     // string with length: 1..48.
-    Rttmonapplauthkeystring4 interface{}
+    RttMonApplAuthKeyString4 interface{}
 
     // A string which represents a key-string name whose id is 5. The type is
     // string with length: 1..48.
-    Rttmonapplauthkeystring5 interface{}
+    RttMonApplAuthKeyString5 interface{}
 
     // The status of the Authentication row. The type is RowStatus.
-    Rttmonapplauthstatus interface{}
+    RttMonApplAuthStatus interface{}
 }
 
-func (rttmonapplauthentry *CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry) GetEntityData() *types.CommonEntityData {
-    rttmonapplauthentry.EntityData.YFilter = rttmonapplauthentry.YFilter
-    rttmonapplauthentry.EntityData.YangName = "rttMonApplAuthEntry"
-    rttmonapplauthentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonapplauthentry.EntityData.ParentYangName = "rttMonApplAuthTable"
-    rttmonapplauthentry.EntityData.SegmentPath = "rttMonApplAuthEntry" + "[rttMonApplAuthIndex='" + fmt.Sprintf("%v", rttmonapplauthentry.Rttmonapplauthindex) + "']"
-    rttmonapplauthentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonapplauthentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonapplauthentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonApplAuthEntry *CISCORTTMONMIB_RttMonApplAuthTable_RttMonApplAuthEntry) GetEntityData() *types.CommonEntityData {
+    rttMonApplAuthEntry.EntityData.YFilter = rttMonApplAuthEntry.YFilter
+    rttMonApplAuthEntry.EntityData.YangName = "rttMonApplAuthEntry"
+    rttMonApplAuthEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonApplAuthEntry.EntityData.ParentYangName = "rttMonApplAuthTable"
+    rttMonApplAuthEntry.EntityData.SegmentPath = "rttMonApplAuthEntry" + types.AddKeyToken(rttMonApplAuthEntry.RttMonApplAuthIndex, "rttMonApplAuthIndex")
+    rttMonApplAuthEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonApplAuthEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonApplAuthEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonapplauthentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonapplauthentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonapplauthentry.EntityData.Leafs["rttMonApplAuthIndex"] = types.YLeaf{"Rttmonapplauthindex", rttmonapplauthentry.Rttmonapplauthindex}
-    rttmonapplauthentry.EntityData.Leafs["rttMonApplAuthKeyChain"] = types.YLeaf{"Rttmonapplauthkeychain", rttmonapplauthentry.Rttmonapplauthkeychain}
-    rttmonapplauthentry.EntityData.Leafs["rttMonApplAuthKeyString1"] = types.YLeaf{"Rttmonapplauthkeystring1", rttmonapplauthentry.Rttmonapplauthkeystring1}
-    rttmonapplauthentry.EntityData.Leafs["rttMonApplAuthKeyString2"] = types.YLeaf{"Rttmonapplauthkeystring2", rttmonapplauthentry.Rttmonapplauthkeystring2}
-    rttmonapplauthentry.EntityData.Leafs["rttMonApplAuthKeyString3"] = types.YLeaf{"Rttmonapplauthkeystring3", rttmonapplauthentry.Rttmonapplauthkeystring3}
-    rttmonapplauthentry.EntityData.Leafs["rttMonApplAuthKeyString4"] = types.YLeaf{"Rttmonapplauthkeystring4", rttmonapplauthentry.Rttmonapplauthkeystring4}
-    rttmonapplauthentry.EntityData.Leafs["rttMonApplAuthKeyString5"] = types.YLeaf{"Rttmonapplauthkeystring5", rttmonapplauthentry.Rttmonapplauthkeystring5}
-    rttmonapplauthentry.EntityData.Leafs["rttMonApplAuthStatus"] = types.YLeaf{"Rttmonapplauthstatus", rttmonapplauthentry.Rttmonapplauthstatus}
-    return &(rttmonapplauthentry.EntityData)
+    rttMonApplAuthEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonApplAuthEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonApplAuthEntry.EntityData.Leafs.Append("rttMonApplAuthIndex", types.YLeaf{"RttMonApplAuthIndex", rttMonApplAuthEntry.RttMonApplAuthIndex})
+    rttMonApplAuthEntry.EntityData.Leafs.Append("rttMonApplAuthKeyChain", types.YLeaf{"RttMonApplAuthKeyChain", rttMonApplAuthEntry.RttMonApplAuthKeyChain})
+    rttMonApplAuthEntry.EntityData.Leafs.Append("rttMonApplAuthKeyString1", types.YLeaf{"RttMonApplAuthKeyString1", rttMonApplAuthEntry.RttMonApplAuthKeyString1})
+    rttMonApplAuthEntry.EntityData.Leafs.Append("rttMonApplAuthKeyString2", types.YLeaf{"RttMonApplAuthKeyString2", rttMonApplAuthEntry.RttMonApplAuthKeyString2})
+    rttMonApplAuthEntry.EntityData.Leafs.Append("rttMonApplAuthKeyString3", types.YLeaf{"RttMonApplAuthKeyString3", rttMonApplAuthEntry.RttMonApplAuthKeyString3})
+    rttMonApplAuthEntry.EntityData.Leafs.Append("rttMonApplAuthKeyString4", types.YLeaf{"RttMonApplAuthKeyString4", rttMonApplAuthEntry.RttMonApplAuthKeyString4})
+    rttMonApplAuthEntry.EntityData.Leafs.Append("rttMonApplAuthKeyString5", types.YLeaf{"RttMonApplAuthKeyString5", rttMonApplAuthEntry.RttMonApplAuthKeyString5})
+    rttMonApplAuthEntry.EntityData.Leafs.Append("rttMonApplAuthStatus", types.YLeaf{"RttMonApplAuthStatus", rttMonApplAuthEntry.RttMonApplAuthStatus})
+
+    rttMonApplAuthEntry.EntityData.YListKeys = []string {"RttMonApplAuthIndex"}
+
+    return &(rttMonApplAuthEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonctrladmintable
+// CISCORTTMONMIB_RttMonCtrlAdminTable
 // A table of Round Trip Time (RTT) monitoring definitions.
 // 
 // The RTT administration control is in multiple tables.  
@@ -866,38 +896,41 @@ func (rttmonapplauthentry *CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentr
 // This table is limited in size by the agent 
 // implementation.  The object rttMonApplNumCtrlAdminEntry
 // will reflect this tables maximum number of entries.
-type CISCORTTMONMIB_Rttmonctrladmintable struct {
+type CISCORTTMONMIB_RttMonCtrlAdminTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A base list of objects that define a conceptual RTT control row. The type
-    // is slice of CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry.
-    Rttmonctrladminentry []CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry
+    // is slice of CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry.
+    RttMonCtrlAdminEntry []*CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry
 }
 
-func (rttmonctrladmintable *CISCORTTMONMIB_Rttmonctrladmintable) GetEntityData() *types.CommonEntityData {
-    rttmonctrladmintable.EntityData.YFilter = rttmonctrladmintable.YFilter
-    rttmonctrladmintable.EntityData.YangName = "rttMonCtrlAdminTable"
-    rttmonctrladmintable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonctrladmintable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonctrladmintable.EntityData.SegmentPath = "rttMonCtrlAdminTable"
-    rttmonctrladmintable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonctrladmintable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonctrladmintable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonCtrlAdminTable *CISCORTTMONMIB_RttMonCtrlAdminTable) GetEntityData() *types.CommonEntityData {
+    rttMonCtrlAdminTable.EntityData.YFilter = rttMonCtrlAdminTable.YFilter
+    rttMonCtrlAdminTable.EntityData.YangName = "rttMonCtrlAdminTable"
+    rttMonCtrlAdminTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonCtrlAdminTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonCtrlAdminTable.EntityData.SegmentPath = "rttMonCtrlAdminTable"
+    rttMonCtrlAdminTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonCtrlAdminTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonCtrlAdminTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonctrladmintable.EntityData.Children = make(map[string]types.YChild)
-    rttmonctrladmintable.EntityData.Children["rttMonCtrlAdminEntry"] = types.YChild{"Rttmonctrladminentry", nil}
-    for i := range rttmonctrladmintable.Rttmonctrladminentry {
-        rttmonctrladmintable.EntityData.Children[types.GetSegmentPath(&rttmonctrladmintable.Rttmonctrladminentry[i])] = types.YChild{"Rttmonctrladminentry", &rttmonctrladmintable.Rttmonctrladminentry[i]}
+    rttMonCtrlAdminTable.EntityData.Children = types.NewOrderedMap()
+    rttMonCtrlAdminTable.EntityData.Children.Append("rttMonCtrlAdminEntry", types.YChild{"RttMonCtrlAdminEntry", nil})
+    for i := range rttMonCtrlAdminTable.RttMonCtrlAdminEntry {
+        rttMonCtrlAdminTable.EntityData.Children.Append(types.GetSegmentPath(rttMonCtrlAdminTable.RttMonCtrlAdminEntry[i]), types.YChild{"RttMonCtrlAdminEntry", rttMonCtrlAdminTable.RttMonCtrlAdminEntry[i]})
     }
-    rttmonctrladmintable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonctrladmintable.EntityData)
+    rttMonCtrlAdminTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonCtrlAdminTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonCtrlAdminTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry
+// CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry
 // A base list of objects that define a conceptual RTT
 // control row.
-type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
+type CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -908,30 +941,30 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // object.  If the pseudo-random   number is already in use an
     // 'inconsistentValue' return code   will be returned when set operation is
     // attempted. The type is interface{} with range: 1..2147483647.
-    Rttmonctrladminindex interface{}
+    RttMonCtrlAdminIndex interface{}
 
     // Identifies the entity that created this table row. The type is string with
     // length: 0..255.
-    Rttmonctrladminowner interface{}
+    RttMonCtrlAdminOwner interface{}
 
     // A string which is used by a managing application to identify the RTT
     // target.  This string is inserted into trap notifications, but has no other
     // significance to the  agent. The type is string with length: 0..16.
-    Rttmonctrladmintag interface{}
+    RttMonCtrlAdminTag interface{}
 
     // The type of RTT operation to be performed.  This value must be set in the
     // same PDU or before setting any type specific configuration.  Note: The RTT
     // operation 'lspGroup' cannot be created via this control row. It will be
     // created automatically by Auto SAA L3 MPLS VPN when rttMplsVpnMonCtrlLpd is
     // 'true'. The type is RttMonRttType.
-    Rttmonctrladminrtttype interface{}
+    RttMonCtrlAdminRttType interface{}
 
     // This object defines an administrative threshold limit. If the RTT operation
     // time exceeds this limit and if the  conditions specified in
     // rttMonReactAdminThresholdType or  rttMonHistoryAdminFilter are satisfied, a
     // threshold is generated. The type is interface{} with range: 0..2147483647.
     // Units are milliseconds.
-    Rttmonctrladminthreshold interface{}
+    RttMonCtrlAdminThreshold interface{}
 
     // Specifies the duration between initiating each RTT operation.   This object
     // cannot be set to a value which would be a  shorter duration than
@@ -955,7 +988,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // allowed value for this        object is 10 seconds.  This restriction is
     // due to        protocol limitations described in RFC 2131. The type is
     // interface{} with range: 0..604800. Units are seconds.
-    Rttmonctrladminfrequency interface{}
+    RttMonCtrlAdminFrequency interface{}
 
     // Specifies the duration to wait for a RTT operation completion.  The value
     // of this object cannot be set to  a value which would specify a duration
@@ -965,7 +998,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // prevent unwanted closure of connections, be sure to set this value to a
     // realistic connection timeout. The type is interface{} with range:
     // 0..604800000. Units are milliseconds.
-    Rttmonctrladmintimeout interface{}
+    RttMonCtrlAdminTimeout interface{}
 
     // When set to true, the resulting data in each RTT operation is compared with
     // the expected data.  This includes checking header information (if possible)
@@ -974,7 +1007,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // this option.  When a type does not support this option, the agent will 
     // transition this object to false.  It is the management applications
     // responsibility to check for this  transition. The type is bool.
-    Rttmonctrladminverifydata interface{}
+    RttMonCtrlAdminVerifyData interface{}
 
     // The status of the conceptual RTT control row.  In order for this object to
     // become active, the following  row objects must be defined:    -
@@ -1001,16 +1034,16 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // 'active' state.  Thus the rttMonCtrlOperState  object must be transitioned
     // first.   This object can be set to 'destroy' from any value at any time.
     // The type is RowStatus.
-    Rttmonctrladminstatus interface{}
+    RttMonCtrlAdminStatus interface{}
 
     // When set to true, this entry will be shown in 'show running' command and
     // can be saved into Non-volatile memory. The type is bool.
-    Rttmonctrladminnvgen interface{}
+    RttMonCtrlAdminNvgen interface{}
 
     // If the operation is created through auto measure group creation, then this
     // string will specify the group name to which this operation is associated.
     // The type is string with length: 0..64.
-    Rttmonctrladmingroupname interface{}
+    RttMonCtrlAdminGroupName interface{}
 
     // This object value will be placed into the rttMonCtrlOperRttLife object when
     // the rttMonCtrlOperState object transitions to 'active' or 'pending'.  The
@@ -1018,7 +1051,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // 2147483647, the  rttMonCtrlOperRttLife object will not decrement.   And
     // thus the life time will never end. The type is interface{} with range:
     // 0..2147483647. Units are seconds.
-    Rttmonscheduleadminrttlife interface{}
+    RttMonScheduleAdminRttLife interface{}
 
     // This is the time when this conceptional row will activate.    This is the
     // value of MIB-II's sysUpTime in the future. When sysUpTime equals this value
@@ -1041,7 +1074,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // defined to be a value of this object  that, when initially set, is smaller
     // than the current sysUpTime. (With the exception of one, as defined in the
     // previous paragraph). The type is interface{} with range: 0..4294967295.
-    Rttmonscheduleadminrttstarttime interface{}
+    RttMonScheduleAdminRttStartTime interface{}
 
     // The amount of time this conceptual Rtt control row will exist when not in
     // an 'active' rttMonCtrlOperState.  When this conceptual Rtt control row
@@ -1054,7 +1087,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // rttMonScheduleAdminConceptRowAgeout object is superseded by
     // rttMonScheduleAdminConceptRowAgeoutV2. The type is interface{} with range:
     // 0..2073600. Units are seconds.
-    Rttmonscheduleadminconceptrowageout interface{}
+    RttMonScheduleAdminConceptRowAgeout interface{}
 
     // When set to true, this entry will be scheduled to run automatically for the
     // specified duration equal to the life configured, at the same time daily. 
@@ -1062,7 +1095,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // has value greater or    equal to 86400 seconds. (b) if sum of values of
     // rttMonScheduleAdminRttLife and    rttMonScheduleAdminConceptRowAgeout is
     // less or equal to    86400 seconds. The type is bool.
-    Rttmonscheduleadminrttrecurring interface{}
+    RttMonScheduleAdminRttRecurring interface{}
 
     // The amount of time this conceptual Rtt control row will exist when not in
     // an 'active' rttMonCtrlOperState.  When this conceptual Rtt control row
@@ -1073,7 +1106,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // consistent with CLI ageout        default.  When this value is set to zero,
     // this entry will never be aged out. The type is interface{} with range:
     // 0..2073600. Units are seconds.
-    Rttmonscheduleadminconceptrowageoutv2 interface{}
+    RttMonScheduleAdminConceptRowAgeoutV2 interface{}
 
     // If true, a reaction is generated when a RTT operation to a
     // rttMonEchoAdminTargetAddress (echo type) causes 
@@ -1081,7 +1114,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // connections to intermediate hops will  not cause this value to change.
     // rttMonReactAdminConnectionEnable object is superseded by rttMonReactVar.
     // The type is bool.
-    Rttmonreactadminconnectionenable interface{}
+    RttMonReactAdminConnectionEnable interface{}
 
     // If true, a reaction is generated when a RTT operation causes
     // rttMonCtrlOperTimeoutOccurred  to change its value.    When the
@@ -1089,7 +1122,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // rttMonCtrlOperTimeoutOccurred to change its value.
     // rttMonReactAdminTimeoutEnable object is superseded by rttMonReactVar. The
     // type is bool.
-    Rttmonreactadmintimeoutenable interface{}
+    RttMonReactAdminTimeoutEnable interface{}
 
     // This object specifies the conditions under which
     // rttMonCtrlOperOverThresholdOccurred is changed:  NOTE:  When the
@@ -1130,8 +1163,8 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // reaction is generated if the prior value of 
     // rttMonCtrlOperOverThresholdOccurred was true. rttMonReactAdminThresholdType
     // object is superseded by rttMonReactThresholdType. The type is
-    // Rttmonreactadminthresholdtype.
-    Rttmonreactadminthresholdtype interface{}
+    // RttMonReactAdminThresholdType.
+    RttMonReactAdminThresholdType interface{}
 
     // This object defines a threshold limit. If the RTT operation time falls
     // below this limit and if the conditions specified in
@@ -1139,19 +1172,19 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // rttMonReactAdminThresholdFalling object is superseded by
     // rttMonReactThresholdFalling. The type is interface{} with range:
     // 0..2147483647. Units are milliseconds.
-    Rttmonreactadminthresholdfalling interface{}
+    RttMonReactAdminThresholdFalling interface{}
 
     // This object defines the 'x' value of the xOfy condition specified in
     // rttMonReactAdminThresholdType. rttMonReactAdminThresholdCount object is
     // superseded by rttMonReactThresholdCountX. The type is interface{} with
     // range: 1..16.
-    Rttmonreactadminthresholdcount interface{}
+    RttMonReactAdminThresholdCount interface{}
 
     // This object defines the 'y' value of the xOfy condition specified in
     // rttMonReactAdminThresholdType. rttMonReactAdminThresholdCount2 object is
     // superseded by rttMonReactThresholdCountyY. The type is interface{} with
     // range: 1..16.
-    Rttmonreactadminthresholdcount2 interface{}
+    RttMonReactAdminThresholdCount2 interface{}
 
     // Specifies what type(s), if any, of reaction(s) to generate if an operation
     // violates one of the watched  conditions:  none               - no reaction
@@ -1165,14 +1198,14 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // are initiated  A trigger action is defined via the 
     // rttMonReactTriggerAdminTable. rttMonReactAdminActionType object is
     // superseded by rttMonReactActionType. The type is
-    // Rttmonreactadminactiontype.
-    Rttmonreactadminactiontype interface{}
+    // RttMonReactAdminActionType.
+    RttMonReactAdminActionType interface{}
 
     // If true, a reaction is generated when a RTT operation causes
     // rttMonCtrlOperVerifyErrorOccurred  to change its value.
     // rttMonReactAdminVerifyErrorEnable object is superseded by rttMonReactVar.
     // The type is bool.
-    Rttmonreactadminverifyerrorenable interface{}
+    RttMonReactAdminVerifyErrorEnable interface{}
 
     // The maximum number of groups of paths to record. Specifically this is the
     // number of hourly groups  to keep before rolling over.    The value of one
@@ -1183,7 +1216,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // HTTP and Jitter probes store only two hours of data.  When this object is
     // set to the value of zero all  rttMonStatsCaptureTable data capturing will
     // be shut off. The type is interface{} with range: 0..25.
-    Rttmonstatisticsadminnumhourgroups interface{}
+    RttMonStatisticsAdminNumHourGroups interface{}
 
     // When RttMonRttType is 'pathEcho' this is the maximum number of statistics
     // paths to record per hourly group.   This value directly represents the path
@@ -1194,7 +1227,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // value greater       than one.  Since this index does not rollover, only the
     // first rttMonStatisticsAdminNumPaths will be kept. The type is interface{}
     // with range: 1..128.
-    Rttmonstatisticsadminnumpaths interface{}
+    RttMonStatisticsAdminNumPaths interface{}
 
     // When RttMonRttType is 'pathEcho' this is the maximum number of statistics
     // hops to record per path group.   This value directly represents the number
@@ -1203,7 +1236,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // Since this index does not rollover, only the first
     // rttMonStatisticsAdminNumHops will be kept. This object  is applicable to
     // pathEcho probes only. The type is interface{} with range: 1..30.
-    Rttmonstatisticsadminnumhops interface{}
+    RttMonStatisticsAdminNumHops interface{}
 
     // The maximum number of statistical distribution Buckets to accumulate. 
     // Since this index does not rollover, only the first
@@ -1212,7 +1245,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // distribution interval start point to infinity. This object is not
     // applicable  to http and jitter probes. The type is interface{} with range:
     // 1..20.
-    Rttmonstatisticsadminnumdistbuckets interface{}
+    RttMonStatisticsAdminNumDistBuckets interface{}
 
     // The statistical distribution buckets interval.  Distribution Bucket
     // Example:  rttMonStatisticsAdminNumDistBuckets = 5 buckets
@@ -1225,7 +1258,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // rttMonStatisticsAdminNumDistBuckets is one. This object is not applicable
     // to http and jitter probes. The type is interface{} with range: 1..100.
     // Units are milliseconds.
-    Rttmonstatisticsadmindistinterval interface{}
+    RttMonStatisticsAdminDistInterval interface{}
 
     // The maximum number of history lives to record.  A life is defined by the
     // countdown (or transition) to zero  by the rttMonCtrlOperRttLife object.  A
@@ -1233,7 +1266,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // via the transition of the  rttMonCtrlOperRttLife object and its subsequent 
     // countdown.  The value of zero will shut off all  rttMonHistoryAdminTable
     // data collection. The type is interface{} with range: 0..2.
-    Rttmonhistoryadminnumlives interface{}
+    RttMonHistoryAdminNumLives interface{}
 
     // The maximum number of history buckets to record.  When the RttMonRttType is
     // 'pathEcho'  this value directly  represents a path to a target.  For all
@@ -1242,14 +1275,14 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // and the oldest entries are deleted and the most recent
     // rttMonHistoryAdminNumBuckets buckets are retained. The type is interface{}
     // with range: 1..60.
-    Rttmonhistoryadminnumbuckets interface{}
+    RttMonHistoryAdminNumBuckets interface{}
 
     // The maximum number of history samples to record per bucket.  When the
     // RttMonRttType is 'pathEcho' this  value directly represents the number of
     // hops along a  path to a target, thus we can only support 30 hops. For all
     // other RttMonRttTypes this value will be  forced to one by the agent. The
     // type is interface{} with range: 1..30.
-    Rttmonhistoryadminnumsamples interface{}
+    RttMonHistoryAdminNumSamples interface{}
 
     // Defines a filter for adding RTT results to the history buffer:  none       
     // - no history is recorded all           - the results of all completion
@@ -1257,12 +1290,12 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // the results of completion times                  over
     // rttMonCtrlAdminThreshold are                   recorded. failures      -
     // the results of failed operations (only)                   are recorded. The
-    // type is Rttmonhistoryadminfilter.
-    Rttmonhistoryadminfilter interface{}
+    // type is RttMonHistoryAdminFilter.
+    RttMonHistoryAdminFilter interface{}
 
     // This object is updated whenever an object in the conceptual RTT control row
     // is changed or updated. The type is interface{} with range: 0..4294967295.
-    Rttmonctrlopermodificationtime interface{}
+    RttMonCtrlOperModificationTime interface{}
 
     // A string which can be used as an aid in tracing problems. The content of
     // this field will depend on the type of  target (rttMonEchoAdminProtocol).  
@@ -1279,18 +1312,18 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // not one of the  previously mentioned values, this value will be null.  It
     // is primarily intended that this object contains  information which has
     // significance to a human operator. The type is string with length: 0..51.
-    Rttmonctrloperdiagtext interface{}
+    RttMonCtrlOperDiagText interface{}
 
     // This object is set when the rttMonCtrlOperState is set to reset. The type
     // is interface{} with range: 0..4294967295.
-    Rttmonctrloperresettime interface{}
+    RttMonCtrlOperResetTime interface{}
 
     // This object is the number of octets currently in use by this composite
     // conceptual RTT row.  A composite conceptual row include the control,
     // statistics, and  history conceptual rows combined.  (All octets that are
     // addressed via the rttMonCtrlAdminIndex in this mib.). The type is
     // interface{} with range: 0..4294967295.
-    Rttmonctrloperoctetsinuse interface{}
+    RttMonCtrlOperOctetsInUse interface{}
 
     // This object will only change its value when the RttMonRttType is 'echo' or
     // 'pathEcho'.  This object is set to true when the RTT connection fails  to
@@ -1304,7 +1337,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // value as 'connectionLoss(8)', a reaction may occur.  If a trap is sent it
     // is rttMonNotification with rttMonReactVar value of 'connectionLoss'. The
     // type is bool.
-    Rttmonctrloperconnectionlostoccurred interface{}
+    RttMonCtrlOperConnectionLostOccurred interface{}
 
     // This object will change its value for all RttMonRttTypes.  This object is
     // set to true when an operation times out,  and set to false when an
@@ -1317,7 +1350,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // rttMonReactTable row has rttMonReactVar object value as 'timeout(7)', a
     // reaction may occur.  If a trap is sent it is rttMonNotification with
     // rttMonReactVar value of 'timeout'. The type is bool.
-    Rttmonctrlopertimeoutoccurred interface{}
+    RttMonCtrlOperTimeoutOccurred interface{}
 
     // This object will change its value for all RttMonRttTypes.  This object is
     // changed by operation completion times over threshold, as defined by
@@ -1329,7 +1362,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // value changes, a reaction may occur, as defined by
     // rttMonReactThresholdType.  If a trap is sent it is rttMonNotification with
     // rttMonReactVar value of 'rtt'. The type is bool.
-    Rttmonctrloperoverthresholdoccurred interface{}
+    RttMonCtrlOperOverThresholdOccurred interface{}
 
     // This is the total number of probe operations that have been attempted.    
     // This value is incremented for each start of an RTT  operation.  Thus when
@@ -1338,7 +1371,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // special behavior as defined by the ROLLOVER NOTE in the DESCRIPTION of the
     // ciscoRttMonMIB object.  This value is not effected by the rollover of a
     // statistics hourly group. The type is interface{} with range: 0..2147483647.
-    Rttmonctrlopernumrtts interface{}
+    RttMonCtrlOperNumRtts interface{}
 
     // This object is decremented every second, until it reaches zero.  When the
     // value of this object is zero RTT operations for this row are suspended. 
@@ -1352,7 +1385,7 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // object transitions to  'active' this object will not be updated with the 
     // current value of rttMonCrtlAdminRttLife object. The type is interface{}
     // with range: 0..2147483647. Units are seconds.
-    Rttmonctrloperrttlife interface{}
+    RttMonCtrlOperRttLife interface{}
 
     // The RttMonOperStatus object is used to manage the 'state' of the probe that
     // is implementing  conceptual RTT control row.  This status object has six
@@ -1478,39 +1511,39 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // (3) - when this happens the rttMonCtrlOperRttLife will not be updated with
     // the rttMonCtrlAdminRttLife.  NOTE:  In order for all objects in a PDU to be
     // set        at the same time, this object can not be        part of a
-    // multi-bound PDU. The type is Rttmonctrloperstate.
-    Rttmonctrloperstate interface{}
+    // multi-bound PDU. The type is RttMonCtrlOperState.
+    RttMonCtrlOperState interface{}
 
     // This object is true if rttMonCtrlAdminVerifyData is set to true and data
     // corruption occurs. The type is bool.
-    Rttmonctrloperverifyerroroccurred interface{}
+    RttMonCtrlOperVerifyErrorOccurred interface{}
 
     // The completion time of the latest RTT operation successfully completed. 
     // The unit of this object will be microsecond when rttMonCtrlAdminRttType is
     // set to 'jitter' and  rttMonEchoAdminPrecision is set to 'microsecond'.
     // Otherwise, the unit of this object will be millisecond. The type is
     // interface{} with range: 0..4294967295. Units are milliseconds/microseconds.
-    Rttmonlatestrttopercompletiontime interface{}
+    RttMonLatestRttOperCompletionTime interface{}
 
     // A sense code for the completion status of the latest RTT operation. The
     // type is RttResponseSense.
-    Rttmonlatestrttopersense interface{}
+    RttMonLatestRttOperSense interface{}
 
     // An application specific sense code for the completion status of the latest
     // RTT operation.  This  object will only be valid when the 
     // rttMonLatestRttOperSense object is set to  'applicationSpecific'. 
     // Otherwise, this object's  value is not valid. The type is interface{} with
     // range: 0..2147483647.
-    Rttmonlatestrttoperapplspecificsense interface{}
+    RttMonLatestRttOperApplSpecificSense interface{}
 
     // A sense description for the completion status of the latest RTT operation
     // when the  rttMonLatestRttOperSense object is set to  'applicationSpecific'.
     // The type is string.
-    Rttmonlatestrttopersensedescription interface{}
+    RttMonLatestRttOperSenseDescription interface{}
 
     // The value of the agent system time at the time of the latest RTT operation.
     // The type is interface{} with range: 0..4294967295.
-    Rttmonlatestrttopertime interface{}
+    RttMonLatestRttOperTime interface{}
 
     // When the RttMonRttType is 'echo', 'pathEcho', 'udpEcho', 'tcpConnect',
     // 'dns' and 'dlsw' this is a string which specifies  the address of the
@@ -1524,189 +1557,195 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     // selected, as specified by the rttMonEchoAdminProtocol object.  See
     // rttMonEchoAdminTargetAddress for a complete description. The type is
     // string.
-    Rttmonlatestrttoperaddress interface{}
+    RttMonLatestRttOperAddress interface{}
 }
 
-func (rttmonctrladminentry *CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry) GetEntityData() *types.CommonEntityData {
-    rttmonctrladminentry.EntityData.YFilter = rttmonctrladminentry.YFilter
-    rttmonctrladminentry.EntityData.YangName = "rttMonCtrlAdminEntry"
-    rttmonctrladminentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonctrladminentry.EntityData.ParentYangName = "rttMonCtrlAdminTable"
-    rttmonctrladminentry.EntityData.SegmentPath = "rttMonCtrlAdminEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonctrladminentry.Rttmonctrladminindex) + "']"
-    rttmonctrladminentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonctrladminentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonctrladminentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonCtrlAdminEntry *CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry) GetEntityData() *types.CommonEntityData {
+    rttMonCtrlAdminEntry.EntityData.YFilter = rttMonCtrlAdminEntry.YFilter
+    rttMonCtrlAdminEntry.EntityData.YangName = "rttMonCtrlAdminEntry"
+    rttMonCtrlAdminEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonCtrlAdminEntry.EntityData.ParentYangName = "rttMonCtrlAdminTable"
+    rttMonCtrlAdminEntry.EntityData.SegmentPath = "rttMonCtrlAdminEntry" + types.AddKeyToken(rttMonCtrlAdminEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex")
+    rttMonCtrlAdminEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonCtrlAdminEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonCtrlAdminEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonctrladminentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonctrladminentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonctrladminentry.Rttmonctrladminindex}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminOwner"] = types.YLeaf{"Rttmonctrladminowner", rttmonctrladminentry.Rttmonctrladminowner}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminTag"] = types.YLeaf{"Rttmonctrladmintag", rttmonctrladminentry.Rttmonctrladmintag}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminRttType"] = types.YLeaf{"Rttmonctrladminrtttype", rttmonctrladminentry.Rttmonctrladminrtttype}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminThreshold"] = types.YLeaf{"Rttmonctrladminthreshold", rttmonctrladminentry.Rttmonctrladminthreshold}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminFrequency"] = types.YLeaf{"Rttmonctrladminfrequency", rttmonctrladminentry.Rttmonctrladminfrequency}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminTimeout"] = types.YLeaf{"Rttmonctrladmintimeout", rttmonctrladminentry.Rttmonctrladmintimeout}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminVerifyData"] = types.YLeaf{"Rttmonctrladminverifydata", rttmonctrladminentry.Rttmonctrladminverifydata}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminStatus"] = types.YLeaf{"Rttmonctrladminstatus", rttmonctrladminentry.Rttmonctrladminstatus}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminNvgen"] = types.YLeaf{"Rttmonctrladminnvgen", rttmonctrladminentry.Rttmonctrladminnvgen}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminGroupName"] = types.YLeaf{"Rttmonctrladmingroupname", rttmonctrladminentry.Rttmonctrladmingroupname}
-    rttmonctrladminentry.EntityData.Leafs["rttMonScheduleAdminRttLife"] = types.YLeaf{"Rttmonscheduleadminrttlife", rttmonctrladminentry.Rttmonscheduleadminrttlife}
-    rttmonctrladminentry.EntityData.Leafs["rttMonScheduleAdminRttStartTime"] = types.YLeaf{"Rttmonscheduleadminrttstarttime", rttmonctrladminentry.Rttmonscheduleadminrttstarttime}
-    rttmonctrladminentry.EntityData.Leafs["rttMonScheduleAdminConceptRowAgeout"] = types.YLeaf{"Rttmonscheduleadminconceptrowageout", rttmonctrladminentry.Rttmonscheduleadminconceptrowageout}
-    rttmonctrladminentry.EntityData.Leafs["rttMonScheduleAdminRttRecurring"] = types.YLeaf{"Rttmonscheduleadminrttrecurring", rttmonctrladminentry.Rttmonscheduleadminrttrecurring}
-    rttmonctrladminentry.EntityData.Leafs["rttMonScheduleAdminConceptRowAgeoutV2"] = types.YLeaf{"Rttmonscheduleadminconceptrowageoutv2", rttmonctrladminentry.Rttmonscheduleadminconceptrowageoutv2}
-    rttmonctrladminentry.EntityData.Leafs["rttMonReactAdminConnectionEnable"] = types.YLeaf{"Rttmonreactadminconnectionenable", rttmonctrladminentry.Rttmonreactadminconnectionenable}
-    rttmonctrladminentry.EntityData.Leafs["rttMonReactAdminTimeoutEnable"] = types.YLeaf{"Rttmonreactadmintimeoutenable", rttmonctrladminentry.Rttmonreactadmintimeoutenable}
-    rttmonctrladminentry.EntityData.Leafs["rttMonReactAdminThresholdType"] = types.YLeaf{"Rttmonreactadminthresholdtype", rttmonctrladminentry.Rttmonreactadminthresholdtype}
-    rttmonctrladminentry.EntityData.Leafs["rttMonReactAdminThresholdFalling"] = types.YLeaf{"Rttmonreactadminthresholdfalling", rttmonctrladminentry.Rttmonreactadminthresholdfalling}
-    rttmonctrladminentry.EntityData.Leafs["rttMonReactAdminThresholdCount"] = types.YLeaf{"Rttmonreactadminthresholdcount", rttmonctrladminentry.Rttmonreactadminthresholdcount}
-    rttmonctrladminentry.EntityData.Leafs["rttMonReactAdminThresholdCount2"] = types.YLeaf{"Rttmonreactadminthresholdcount2", rttmonctrladminentry.Rttmonreactadminthresholdcount2}
-    rttmonctrladminentry.EntityData.Leafs["rttMonReactAdminActionType"] = types.YLeaf{"Rttmonreactadminactiontype", rttmonctrladminentry.Rttmonreactadminactiontype}
-    rttmonctrladminentry.EntityData.Leafs["rttMonReactAdminVerifyErrorEnable"] = types.YLeaf{"Rttmonreactadminverifyerrorenable", rttmonctrladminentry.Rttmonreactadminverifyerrorenable}
-    rttmonctrladminentry.EntityData.Leafs["rttMonStatisticsAdminNumHourGroups"] = types.YLeaf{"Rttmonstatisticsadminnumhourgroups", rttmonctrladminentry.Rttmonstatisticsadminnumhourgroups}
-    rttmonctrladminentry.EntityData.Leafs["rttMonStatisticsAdminNumPaths"] = types.YLeaf{"Rttmonstatisticsadminnumpaths", rttmonctrladminentry.Rttmonstatisticsadminnumpaths}
-    rttmonctrladminentry.EntityData.Leafs["rttMonStatisticsAdminNumHops"] = types.YLeaf{"Rttmonstatisticsadminnumhops", rttmonctrladminentry.Rttmonstatisticsadminnumhops}
-    rttmonctrladminentry.EntityData.Leafs["rttMonStatisticsAdminNumDistBuckets"] = types.YLeaf{"Rttmonstatisticsadminnumdistbuckets", rttmonctrladminentry.Rttmonstatisticsadminnumdistbuckets}
-    rttmonctrladminentry.EntityData.Leafs["rttMonStatisticsAdminDistInterval"] = types.YLeaf{"Rttmonstatisticsadmindistinterval", rttmonctrladminentry.Rttmonstatisticsadmindistinterval}
-    rttmonctrladminentry.EntityData.Leafs["rttMonHistoryAdminNumLives"] = types.YLeaf{"Rttmonhistoryadminnumlives", rttmonctrladminentry.Rttmonhistoryadminnumlives}
-    rttmonctrladminentry.EntityData.Leafs["rttMonHistoryAdminNumBuckets"] = types.YLeaf{"Rttmonhistoryadminnumbuckets", rttmonctrladminentry.Rttmonhistoryadminnumbuckets}
-    rttmonctrladminentry.EntityData.Leafs["rttMonHistoryAdminNumSamples"] = types.YLeaf{"Rttmonhistoryadminnumsamples", rttmonctrladminentry.Rttmonhistoryadminnumsamples}
-    rttmonctrladminentry.EntityData.Leafs["rttMonHistoryAdminFilter"] = types.YLeaf{"Rttmonhistoryadminfilter", rttmonctrladminentry.Rttmonhistoryadminfilter}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperModificationTime"] = types.YLeaf{"Rttmonctrlopermodificationtime", rttmonctrladminentry.Rttmonctrlopermodificationtime}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperDiagText"] = types.YLeaf{"Rttmonctrloperdiagtext", rttmonctrladminentry.Rttmonctrloperdiagtext}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperResetTime"] = types.YLeaf{"Rttmonctrloperresettime", rttmonctrladminentry.Rttmonctrloperresettime}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperOctetsInUse"] = types.YLeaf{"Rttmonctrloperoctetsinuse", rttmonctrladminentry.Rttmonctrloperoctetsinuse}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperConnectionLostOccurred"] = types.YLeaf{"Rttmonctrloperconnectionlostoccurred", rttmonctrladminentry.Rttmonctrloperconnectionlostoccurred}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperTimeoutOccurred"] = types.YLeaf{"Rttmonctrlopertimeoutoccurred", rttmonctrladminentry.Rttmonctrlopertimeoutoccurred}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperOverThresholdOccurred"] = types.YLeaf{"Rttmonctrloperoverthresholdoccurred", rttmonctrladminentry.Rttmonctrloperoverthresholdoccurred}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperNumRtts"] = types.YLeaf{"Rttmonctrlopernumrtts", rttmonctrladminentry.Rttmonctrlopernumrtts}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperRttLife"] = types.YLeaf{"Rttmonctrloperrttlife", rttmonctrladminentry.Rttmonctrloperrttlife}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperState"] = types.YLeaf{"Rttmonctrloperstate", rttmonctrladminentry.Rttmonctrloperstate}
-    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperVerifyErrorOccurred"] = types.YLeaf{"Rttmonctrloperverifyerroroccurred", rttmonctrladminentry.Rttmonctrloperverifyerroroccurred}
-    rttmonctrladminentry.EntityData.Leafs["rttMonLatestRttOperCompletionTime"] = types.YLeaf{"Rttmonlatestrttopercompletiontime", rttmonctrladminentry.Rttmonlatestrttopercompletiontime}
-    rttmonctrladminentry.EntityData.Leafs["rttMonLatestRttOperSense"] = types.YLeaf{"Rttmonlatestrttopersense", rttmonctrladminentry.Rttmonlatestrttopersense}
-    rttmonctrladminentry.EntityData.Leafs["rttMonLatestRttOperApplSpecificSense"] = types.YLeaf{"Rttmonlatestrttoperapplspecificsense", rttmonctrladminentry.Rttmonlatestrttoperapplspecificsense}
-    rttmonctrladminentry.EntityData.Leafs["rttMonLatestRttOperSenseDescription"] = types.YLeaf{"Rttmonlatestrttopersensedescription", rttmonctrladminentry.Rttmonlatestrttopersensedescription}
-    rttmonctrladminentry.EntityData.Leafs["rttMonLatestRttOperTime"] = types.YLeaf{"Rttmonlatestrttopertime", rttmonctrladminentry.Rttmonlatestrttopertime}
-    rttmonctrladminentry.EntityData.Leafs["rttMonLatestRttOperAddress"] = types.YLeaf{"Rttmonlatestrttoperaddress", rttmonctrladminentry.Rttmonlatestrttoperaddress}
-    return &(rttmonctrladminentry.EntityData)
+    rttMonCtrlAdminEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonCtrlAdminEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlAdminIndex", types.YLeaf{"RttMonCtrlAdminIndex", rttMonCtrlAdminEntry.RttMonCtrlAdminIndex})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlAdminOwner", types.YLeaf{"RttMonCtrlAdminOwner", rttMonCtrlAdminEntry.RttMonCtrlAdminOwner})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlAdminTag", types.YLeaf{"RttMonCtrlAdminTag", rttMonCtrlAdminEntry.RttMonCtrlAdminTag})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlAdminRttType", types.YLeaf{"RttMonCtrlAdminRttType", rttMonCtrlAdminEntry.RttMonCtrlAdminRttType})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlAdminThreshold", types.YLeaf{"RttMonCtrlAdminThreshold", rttMonCtrlAdminEntry.RttMonCtrlAdminThreshold})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlAdminFrequency", types.YLeaf{"RttMonCtrlAdminFrequency", rttMonCtrlAdminEntry.RttMonCtrlAdminFrequency})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlAdminTimeout", types.YLeaf{"RttMonCtrlAdminTimeout", rttMonCtrlAdminEntry.RttMonCtrlAdminTimeout})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlAdminVerifyData", types.YLeaf{"RttMonCtrlAdminVerifyData", rttMonCtrlAdminEntry.RttMonCtrlAdminVerifyData})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlAdminStatus", types.YLeaf{"RttMonCtrlAdminStatus", rttMonCtrlAdminEntry.RttMonCtrlAdminStatus})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlAdminNvgen", types.YLeaf{"RttMonCtrlAdminNvgen", rttMonCtrlAdminEntry.RttMonCtrlAdminNvgen})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlAdminGroupName", types.YLeaf{"RttMonCtrlAdminGroupName", rttMonCtrlAdminEntry.RttMonCtrlAdminGroupName})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonScheduleAdminRttLife", types.YLeaf{"RttMonScheduleAdminRttLife", rttMonCtrlAdminEntry.RttMonScheduleAdminRttLife})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonScheduleAdminRttStartTime", types.YLeaf{"RttMonScheduleAdminRttStartTime", rttMonCtrlAdminEntry.RttMonScheduleAdminRttStartTime})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonScheduleAdminConceptRowAgeout", types.YLeaf{"RttMonScheduleAdminConceptRowAgeout", rttMonCtrlAdminEntry.RttMonScheduleAdminConceptRowAgeout})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonScheduleAdminRttRecurring", types.YLeaf{"RttMonScheduleAdminRttRecurring", rttMonCtrlAdminEntry.RttMonScheduleAdminRttRecurring})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonScheduleAdminConceptRowAgeoutV2", types.YLeaf{"RttMonScheduleAdminConceptRowAgeoutV2", rttMonCtrlAdminEntry.RttMonScheduleAdminConceptRowAgeoutV2})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonReactAdminConnectionEnable", types.YLeaf{"RttMonReactAdminConnectionEnable", rttMonCtrlAdminEntry.RttMonReactAdminConnectionEnable})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonReactAdminTimeoutEnable", types.YLeaf{"RttMonReactAdminTimeoutEnable", rttMonCtrlAdminEntry.RttMonReactAdminTimeoutEnable})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonReactAdminThresholdType", types.YLeaf{"RttMonReactAdminThresholdType", rttMonCtrlAdminEntry.RttMonReactAdminThresholdType})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonReactAdminThresholdFalling", types.YLeaf{"RttMonReactAdminThresholdFalling", rttMonCtrlAdminEntry.RttMonReactAdminThresholdFalling})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonReactAdminThresholdCount", types.YLeaf{"RttMonReactAdminThresholdCount", rttMonCtrlAdminEntry.RttMonReactAdminThresholdCount})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonReactAdminThresholdCount2", types.YLeaf{"RttMonReactAdminThresholdCount2", rttMonCtrlAdminEntry.RttMonReactAdminThresholdCount2})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonReactAdminActionType", types.YLeaf{"RttMonReactAdminActionType", rttMonCtrlAdminEntry.RttMonReactAdminActionType})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonReactAdminVerifyErrorEnable", types.YLeaf{"RttMonReactAdminVerifyErrorEnable", rttMonCtrlAdminEntry.RttMonReactAdminVerifyErrorEnable})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonStatisticsAdminNumHourGroups", types.YLeaf{"RttMonStatisticsAdminNumHourGroups", rttMonCtrlAdminEntry.RttMonStatisticsAdminNumHourGroups})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonStatisticsAdminNumPaths", types.YLeaf{"RttMonStatisticsAdminNumPaths", rttMonCtrlAdminEntry.RttMonStatisticsAdminNumPaths})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonStatisticsAdminNumHops", types.YLeaf{"RttMonStatisticsAdminNumHops", rttMonCtrlAdminEntry.RttMonStatisticsAdminNumHops})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonStatisticsAdminNumDistBuckets", types.YLeaf{"RttMonStatisticsAdminNumDistBuckets", rttMonCtrlAdminEntry.RttMonStatisticsAdminNumDistBuckets})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonStatisticsAdminDistInterval", types.YLeaf{"RttMonStatisticsAdminDistInterval", rttMonCtrlAdminEntry.RttMonStatisticsAdminDistInterval})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonHistoryAdminNumLives", types.YLeaf{"RttMonHistoryAdminNumLives", rttMonCtrlAdminEntry.RttMonHistoryAdminNumLives})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonHistoryAdminNumBuckets", types.YLeaf{"RttMonHistoryAdminNumBuckets", rttMonCtrlAdminEntry.RttMonHistoryAdminNumBuckets})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonHistoryAdminNumSamples", types.YLeaf{"RttMonHistoryAdminNumSamples", rttMonCtrlAdminEntry.RttMonHistoryAdminNumSamples})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonHistoryAdminFilter", types.YLeaf{"RttMonHistoryAdminFilter", rttMonCtrlAdminEntry.RttMonHistoryAdminFilter})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlOperModificationTime", types.YLeaf{"RttMonCtrlOperModificationTime", rttMonCtrlAdminEntry.RttMonCtrlOperModificationTime})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlOperDiagText", types.YLeaf{"RttMonCtrlOperDiagText", rttMonCtrlAdminEntry.RttMonCtrlOperDiagText})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlOperResetTime", types.YLeaf{"RttMonCtrlOperResetTime", rttMonCtrlAdminEntry.RttMonCtrlOperResetTime})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlOperOctetsInUse", types.YLeaf{"RttMonCtrlOperOctetsInUse", rttMonCtrlAdminEntry.RttMonCtrlOperOctetsInUse})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlOperConnectionLostOccurred", types.YLeaf{"RttMonCtrlOperConnectionLostOccurred", rttMonCtrlAdminEntry.RttMonCtrlOperConnectionLostOccurred})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlOperTimeoutOccurred", types.YLeaf{"RttMonCtrlOperTimeoutOccurred", rttMonCtrlAdminEntry.RttMonCtrlOperTimeoutOccurred})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlOperOverThresholdOccurred", types.YLeaf{"RttMonCtrlOperOverThresholdOccurred", rttMonCtrlAdminEntry.RttMonCtrlOperOverThresholdOccurred})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlOperNumRtts", types.YLeaf{"RttMonCtrlOperNumRtts", rttMonCtrlAdminEntry.RttMonCtrlOperNumRtts})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlOperRttLife", types.YLeaf{"RttMonCtrlOperRttLife", rttMonCtrlAdminEntry.RttMonCtrlOperRttLife})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlOperState", types.YLeaf{"RttMonCtrlOperState", rttMonCtrlAdminEntry.RttMonCtrlOperState})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonCtrlOperVerifyErrorOccurred", types.YLeaf{"RttMonCtrlOperVerifyErrorOccurred", rttMonCtrlAdminEntry.RttMonCtrlOperVerifyErrorOccurred})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonLatestRttOperCompletionTime", types.YLeaf{"RttMonLatestRttOperCompletionTime", rttMonCtrlAdminEntry.RttMonLatestRttOperCompletionTime})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonLatestRttOperSense", types.YLeaf{"RttMonLatestRttOperSense", rttMonCtrlAdminEntry.RttMonLatestRttOperSense})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonLatestRttOperApplSpecificSense", types.YLeaf{"RttMonLatestRttOperApplSpecificSense", rttMonCtrlAdminEntry.RttMonLatestRttOperApplSpecificSense})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonLatestRttOperSenseDescription", types.YLeaf{"RttMonLatestRttOperSenseDescription", rttMonCtrlAdminEntry.RttMonLatestRttOperSenseDescription})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonLatestRttOperTime", types.YLeaf{"RttMonLatestRttOperTime", rttMonCtrlAdminEntry.RttMonLatestRttOperTime})
+    rttMonCtrlAdminEntry.EntityData.Leafs.Append("rttMonLatestRttOperAddress", types.YLeaf{"RttMonLatestRttOperAddress", rttMonCtrlAdminEntry.RttMonLatestRttOperAddress})
+
+    rttMonCtrlAdminEntry.EntityData.YListKeys = []string {"RttMonCtrlAdminIndex"}
+
+    return &(rttMonCtrlAdminEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrloperstate represents        part of a multi-bound PDU.
-type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrloperstate string
+// CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlOperState represents        part of a multi-bound PDU.
+type CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlOperState string
 
 const (
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrloperstate_reset CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrloperstate = "reset"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlOperState_reset CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlOperState = "reset"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrloperstate_orderlyStop CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrloperstate = "orderlyStop"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlOperState_orderlyStop CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlOperState = "orderlyStop"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrloperstate_immediateStop CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrloperstate = "immediateStop"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlOperState_immediateStop CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlOperState = "immediateStop"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrloperstate_pending CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrloperstate = "pending"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlOperState_pending CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlOperState = "pending"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrloperstate_inactive CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrloperstate = "inactive"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlOperState_inactive CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlOperState = "inactive"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrloperstate_active CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrloperstate = "active"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlOperState_active CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlOperState = "active"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrloperstate_restart CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrloperstate = "restart"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlOperState_restart CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlOperState = "restart"
 )
 
-// CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonhistoryadminfilter represents                  are recorded.
-type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonhistoryadminfilter string
+// CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonHistoryAdminFilter represents                  are recorded.
+type CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonHistoryAdminFilter string
 
 const (
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonhistoryadminfilter_none CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonhistoryadminfilter = "none"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonHistoryAdminFilter_none CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonHistoryAdminFilter = "none"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonhistoryadminfilter_all CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonhistoryadminfilter = "all"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonHistoryAdminFilter_all CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonHistoryAdminFilter = "all"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonhistoryadminfilter_overThreshold CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonhistoryadminfilter = "overThreshold"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonHistoryAdminFilter_overThreshold CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonHistoryAdminFilter = "overThreshold"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonhistoryadminfilter_failures CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonhistoryadminfilter = "failures"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonHistoryAdminFilter_failures CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonHistoryAdminFilter = "failures"
 )
 
-// CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminactiontype represents rttMonReactActionType.
-type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminactiontype string
+// CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminActionType represents rttMonReactActionType.
+type CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminActionType string
 
 const (
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminactiontype_none CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminactiontype = "none"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminActionType_none CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminActionType = "none"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminactiontype_trapOnly CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminactiontype = "trapOnly"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminActionType_trapOnly CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminActionType = "trapOnly"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminactiontype_nmvtOnly CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminactiontype = "nmvtOnly"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminActionType_nmvtOnly CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminActionType = "nmvtOnly"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminactiontype_triggerOnly CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminactiontype = "triggerOnly"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminActionType_triggerOnly CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminActionType = "triggerOnly"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminactiontype_trapAndNmvt CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminactiontype = "trapAndNmvt"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminActionType_trapAndNmvt CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminActionType = "trapAndNmvt"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminactiontype_trapAndTrigger CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminactiontype = "trapAndTrigger"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminActionType_trapAndTrigger CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminActionType = "trapAndTrigger"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminactiontype_nmvtAndTrigger CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminactiontype = "nmvtAndTrigger"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminActionType_nmvtAndTrigger CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminActionType = "nmvtAndTrigger"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminactiontype_trapNmvtAndTrigger CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminactiontype = "trapNmvtAndTrigger"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminActionType_trapNmvtAndTrigger CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminActionType = "trapNmvtAndTrigger"
 )
 
-// CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminthresholdtype represents rttMonReactThresholdType.
-type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminthresholdtype string
+// CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminThresholdType represents rttMonReactThresholdType.
+type CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminThresholdType string
 
 const (
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminthresholdtype_never CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminthresholdtype = "never"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminThresholdType_never CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminThresholdType = "never"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminthresholdtype_immediate CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminthresholdtype = "immediate"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminThresholdType_immediate CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminThresholdType = "immediate"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminthresholdtype_consecutive CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminthresholdtype = "consecutive"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminThresholdType_consecutive CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminThresholdType = "consecutive"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminthresholdtype_xOfy CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminthresholdtype = "xOfy"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminThresholdType_xOfy CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminThresholdType = "xOfy"
 
-    CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminthresholdtype_average CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonreactadminthresholdtype = "average"
+    CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminThresholdType_average CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonReactAdminThresholdType = "average"
 )
 
-// CISCORTTMONMIB_Rttmonechoadmintable
+// CISCORTTMONMIB_RttMonEchoAdminTable
 // A table that contains Round Trip Time (RTT) specific
 // definitions.
 // 
 // This table is controlled via the 
 // rttMonCtrlAdminTable.  Entries in this table are
 // created via the rttMonCtrlAdminStatus object.
-type CISCORTTMONMIB_Rttmonechoadmintable struct {
+type CISCORTTMONMIB_RttMonEchoAdminTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects that define specific configuration for RttMonRttType
     // conceptual Rtt control rows. The type is slice of
-    // CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry.
-    Rttmonechoadminentry []CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry
+    // CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry.
+    RttMonEchoAdminEntry []*CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry
 }
 
-func (rttmonechoadmintable *CISCORTTMONMIB_Rttmonechoadmintable) GetEntityData() *types.CommonEntityData {
-    rttmonechoadmintable.EntityData.YFilter = rttmonechoadmintable.YFilter
-    rttmonechoadmintable.EntityData.YangName = "rttMonEchoAdminTable"
-    rttmonechoadmintable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonechoadmintable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonechoadmintable.EntityData.SegmentPath = "rttMonEchoAdminTable"
-    rttmonechoadmintable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonechoadmintable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonechoadmintable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonEchoAdminTable *CISCORTTMONMIB_RttMonEchoAdminTable) GetEntityData() *types.CommonEntityData {
+    rttMonEchoAdminTable.EntityData.YFilter = rttMonEchoAdminTable.YFilter
+    rttMonEchoAdminTable.EntityData.YangName = "rttMonEchoAdminTable"
+    rttMonEchoAdminTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonEchoAdminTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonEchoAdminTable.EntityData.SegmentPath = "rttMonEchoAdminTable"
+    rttMonEchoAdminTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonEchoAdminTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonEchoAdminTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonechoadmintable.EntityData.Children = make(map[string]types.YChild)
-    rttmonechoadmintable.EntityData.Children["rttMonEchoAdminEntry"] = types.YChild{"Rttmonechoadminentry", nil}
-    for i := range rttmonechoadmintable.Rttmonechoadminentry {
-        rttmonechoadmintable.EntityData.Children[types.GetSegmentPath(&rttmonechoadmintable.Rttmonechoadminentry[i])] = types.YChild{"Rttmonechoadminentry", &rttmonechoadmintable.Rttmonechoadminentry[i]}
+    rttMonEchoAdminTable.EntityData.Children = types.NewOrderedMap()
+    rttMonEchoAdminTable.EntityData.Children.Append("rttMonEchoAdminEntry", types.YChild{"RttMonEchoAdminEntry", nil})
+    for i := range rttMonEchoAdminTable.RttMonEchoAdminEntry {
+        rttMonEchoAdminTable.EntityData.Children.Append(types.GetSegmentPath(rttMonEchoAdminTable.RttMonEchoAdminEntry[i]), types.YChild{"RttMonEchoAdminEntry", rttMonEchoAdminTable.RttMonEchoAdminEntry[i]})
     }
-    rttmonechoadmintable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonechoadmintable.EntityData)
+    rttMonEchoAdminTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonEchoAdminTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonEchoAdminTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry
+// CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry
 // A list of objects that define specific configuration for
 // RttMonRttType conceptual Rtt control rows.
-type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry struct {
+type CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // cisco_rttmon_mib.CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrladminindex
-    Rttmonctrladminindex interface{}
+    // cisco_rttmon_mib.CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlAdminIndex
+    RttMonCtrlAdminIndex interface{}
 
     // Specifies the protocol to be used to perform the RTT operation. The
     // following list defines what protocol  should be used for each probe type: 
@@ -1717,10 +1756,10 @@ type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry struct {
     // voip             - voipAppl video            - videoAppl  When this
     // protocol does not support the type, a 'badValue' error will be returned.
     // The type is RttMonProtocol.
-    Rttmonechoadminprotocol interface{}
+    RttMonEchoAdminProtocol interface{}
 
     // A string which specifies the address of the target. The type is string.
-    Rttmonechoadmintargetaddress interface{}
+    RttMonEchoAdminTargetAddress interface{}
 
     // This object represents the number of octets to be placed into the ARR Data
     // portion of the request  message, when using SNA protocols.  For non-ARR
@@ -1735,7 +1774,7 @@ type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry struct {
     // 1500.  For ethernetPing the default request size is 66. For ethernetJitter
     // the default request size is 51. The type is interface{} with range:
     // 0..16384. Units are octets.
-    Rttmonechoadminpktdatarequestsize interface{}
+    RttMonEchoAdminPktDataRequestSize interface{}
 
     // This object represents the number of octets to be placed into the ARR Data
     // portion of the response message. This value is passed to the RTT Echo
@@ -1745,83 +1784,83 @@ type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry struct {
     // REMEMBER:  The ARR Header overhead is not included             in this
     // value.  This object is only supported by SNA protocols. The type is
     // interface{} with range: 0..16384.
-    Rttmonechoadminpktdataresponsesize interface{}
+    RttMonEchoAdminPktDataResponseSize interface{}
 
     // This object represents the target's port number. This object is applicable
     // to udpEcho, tcpConnect and jitter probes. The type is interface{} with
     // range: 0..65536.
-    Rttmonechoadmintargetport interface{}
+    RttMonEchoAdminTargetPort interface{}
 
     // A string which specifies the IP address of the source. This object is
     // applicable to all probes except dns, dlsw  and sna. The type is string.
-    Rttmonechoadminsourceaddress interface{}
+    RttMonEchoAdminSourceAddress interface{}
 
     // This object represents the source's port number. If this object is not
     // specified, the application will get a  port allocated by the system. This
     // object is applicable  to all probes except dns, dlsw and sna. The type is
     // interface{} with range: 0..65536.
-    Rttmonechoadminsourceport interface{}
+    RttMonEchoAdminSourcePort interface{}
 
     // If this object is enabled, then the RTR application will send control
     // messages to a responder, residing on the  target router to respond to the
     // data request packets being  sent by the source router. This object is not
     // applicable to  echo, pathEcho, dns and http probes. The type is bool.
-    Rttmonechoadmincontrolenable interface{}
+    RttMonEchoAdminControlEnable interface{}
 
     // This object represents the type of service octet in an IP header. This
     // object is not applicable to dhcp, dns,  ethernetPing and ethernetJitter.
     // The type is interface{} with range: 0..255.
-    Rttmonechoadmintos interface{}
+    RttMonEchoAdminTOS interface{}
 
     // If this object is enabled then it means that the application calculates
     // response time for a specific path, defined in rttMonEchoPathAdminEntry.
     // This object is applicable to echo  probe only. The type is bool.
-    Rttmonechoadminlsrenable interface{}
+    RttMonEchoAdminLSREnable interface{}
 
     // A string which specifies the address of the target. This string can be in
     // IP address format or a hostname. This object is applicable to dns probe
     // only. The type is string.
-    Rttmonechoadmintargetaddressstring interface{}
+    RttMonEchoAdminTargetAddressString interface{}
 
     // A string which specifies the ip address of the name-server. This object is
     // applicable to dns probe only. The type is string.
-    Rttmonechoadminnameserver interface{}
+    RttMonEchoAdminNameServer interface{}
 
     // A code that represents the specific type of RTT operation. This object is
     // applicable to http and ftp probe only. The type is RttMonOperation.
-    Rttmonechoadminoperation interface{}
+    RttMonEchoAdminOperation interface{}
 
     // A string which specifies the version number of the HTTP Server.  The syntax
     // for the version string is  <major number>.<minor number> An example would
     // be 1.0,  1.1 etc.,.  This object is applicable to http probe only. The type
     // is string with length: 3..10.
-    Rttmonechoadminhttpversion interface{}
+    RttMonEchoAdminHTTPVersion interface{}
 
     // A string which represents the URL to which a HTTP probe should communicate
     // with. This object is applicable to http probe only. The type is string.
-    Rttmonechoadminurl interface{}
+    RttMonEchoAdminURL interface{}
 
     // If this object is false then it means that HTTP request should not download
     // cached pages. This means that the request should  be forwarded to the
     // origin server. This object is applicable to http probe only. The type is
     // bool.
-    Rttmonechoadmincache interface{}
+    RttMonEchoAdminCache interface{}
 
     // This value represents the inter-packet delay between packets and is in
     // milliseconds. This value is currently used for  Jitter probe. This object
     // is applicable to jitter probe only. The type is interface{} with range:
     // 0..60000. Units are milliseconds.
-    Rttmonechoadmininterval interface{}
+    RttMonEchoAdminInterval interface{}
 
     // This value represents the number of packets that need to be transmitted.
     // This value is currently used for Jitter probe.  This object is applicable
     // to jitter probe only. The type is interface{} with range:
     // -2147483648..2147483647.
-    Rttmonechoadminnumpackets interface{}
+    RttMonEchoAdminNumPackets interface{}
 
     // This string represents the proxy server information. This object is
     // applicable to http probe only. The type is string.
-    Rttmonechoadminproxy interface{}
+    RttMonEchoAdminProxy interface{}
 
     // This string stores the content of HTTP raw request. If the request cannot
     // fit into String1 then it should  be split and put in Strings 1 through 5. 
@@ -1832,65 +1871,65 @@ type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry struct {
     // rttMonEchoAdminString1 is used for dhcp, Strings 1 through 5 are not used. 
     // This object is applicable to http and dhcp probe  types only. The type is
     // string.
-    Rttmonechoadminstring1 interface{}
+    RttMonEchoAdminString1 interface{}
 
     // This string stores the content of HTTP raw request.
     // rttMonEchoAdminString1-5 are concatenated to  form the HTTP raw request
     // used in the RTT operation. This object is applicable to http probe only.
     // The type is string.
-    Rttmonechoadminstring2 interface{}
+    RttMonEchoAdminString2 interface{}
 
     // This string stores the content of HTTP raw request.
     // rttMonEchoAdminString1-5 are concatenated to  form the HTTP raw request
     // used in the RTT operation. This object is applicable to http probe only.
     // The type is string.
-    Rttmonechoadminstring3 interface{}
+    RttMonEchoAdminString3 interface{}
 
     // This string stores the content of HTTP raw request.
     // rttMonEchoAdminString1-5 are concatenated to  form the HTTP raw request
     // used in the RTT operation. This object is applicable to http probe only.
     // The type is string.
-    Rttmonechoadminstring4 interface{}
+    RttMonEchoAdminString4 interface{}
 
     // This string stores the content of HTTP raw request.
     // rttMonEchoAdminString1-5 are concatenated to  form the HTTP raw request
     // used in the RTT operation. This object is applicable to http probe only.
     // The type is string.
-    Rttmonechoadminstring5 interface{}
+    RttMonEchoAdminString5 interface{}
 
     // A code that represents the specific type of RTT operation. This object is
     // applicable to ftp probe only. The type is RttMonOperation.
-    Rttmonechoadminmode interface{}
+    RttMonEchoAdminMode interface{}
 
     // This field is used to specify the VPN name in which the RTT operation will
     // be used. For regular RTT operation this field should not be configured. The
     // agent  will use this field to identify the VPN routing Table for this
     // operation. The type is string with length: 0..32.
-    Rttmonechoadminvrfname interface{}
+    RttMonEchoAdminVrfName interface{}
 
     // Specifies the codec type to be used with jitter probe. This is applicable
     // only for the jitter probe.  If codec-type is configured the following
     // parameters cannot be  configured. rttMonEchoAdminPktDataRequestSize
     // rttMonEchoAdminInterval rttMonEchoAdminNumPackets. The type is
     // RttMonCodecType.
-    Rttmonechoadmincodectype interface{}
+    RttMonEchoAdminCodecType interface{}
 
     // This field represents the inter-packet delay between packets and is in
     // milliseconds. This object is applicable only to jitter probe which uses
     // codec type. The type is interface{} with range: 0..60000. Units are
     // milliseconds.
-    Rttmonechoadmincodecinterval interface{}
+    RttMonEchoAdminCodecInterval interface{}
 
     // This object represents the number of octets that needs to be placed into
     // the Data portion of the message. This value is used only for jitter probe
     // which uses codec type. The type is interface{} with range: 0..16384. Units
     // are octets.
-    Rttmonechoadmincodecpayload interface{}
+    RttMonEchoAdminCodecPayload interface{}
 
     // This value represents the number of packets that need to be transmitted.
     // This value is used only for jitter probe which uses codec type. The type is
     // interface{} with range: 0..60000.
-    Rttmonechoadmincodecnumpackets interface{}
+    RttMonEchoAdminCodecNumPackets interface{}
 
     // The advantage factor is dependant on the type of access and how the service
     // is to be used. Conventional Wire-line     0 Mobility within Building    5
@@ -1898,22 +1937,22 @@ type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry struct {
     // This will be used while calculating the ICPIF values This valid only for
     // Jitter while calculating the ICPIF value. The type is interface{} with
     // range: 0..20.
-    Rttmonechoadminicpifadvfactor interface{}
+    RttMonEchoAdminICPIFAdvFactor interface{}
 
     // The type of the target FEC for the RTT 'echo' and 'pathEcho' operations
     // based on 'mplsLspPingAppl' RttMonProtocol.  ldpIpv4Prefix   - LDP IPv4
-    // prefix. The type is Rttmonechoadminlspfectype.
-    Rttmonechoadminlspfectype interface{}
+    // prefix. The type is RttMonEchoAdminLSPFECType.
+    RttMonEchoAdminLSPFECType interface{}
 
     // A string which specifies a valid 127/8 address. This address is of the form
     // 127.x.y.z. This address is not used to route the MPLS echo packet to the
     // destination but is used for load balancing in cases where the IP payload's
     // destination address is used for load balancing. The type is string.
-    Rttmonechoadminlspselector interface{}
+    RttMonEchoAdminLSPSelector interface{}
 
     // This object specifies the reply mode for the LSP Echo requests. The type is
     // RttMonLSPPingReplyMode.
-    Rttmonechoadminlspreplymode interface{}
+    RttMonEchoAdminLSPReplyMode interface{}
 
     // This object represents the TTL setting for MPLS echo request packets. For
     // ping operation this represents the TTL value to be set in the echo request
@@ -1924,23 +1963,23 @@ type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry struct {
     // cannot be set to the value of 0. The default value of 0 signifies the
     // default TTL values to be used for 'echo' and 'pathEcho' based on
     // 'mplsLspPingAppl'. The type is interface{} with range: 0..255.
-    Rttmonechoadminlspttl interface{}
+    RttMonEchoAdminLSPTTL interface{}
 
     // This object represents the EXP value that needs to be put as precedence bit
     // in the MPLS echo request IP header. The type is interface{} with range:
     // 0..7.
-    Rttmonechoadminlspexp interface{}
+    RttMonEchoAdminLSPExp interface{}
 
     // This object specifies the accuracy of statistics that needs to be
     // calculated milliseconds - The accuracy of stats will be of milliseconds
     // microseconds - The accuracy of stats will be in microseconds. This value
-    // can be set only for jitter operation. The type is Rttmonechoadminprecision.
-    Rttmonechoadminprecision interface{}
+    // can be set only for jitter operation. The type is RttMonEchoAdminPrecision.
+    RttMonEchoAdminPrecision interface{}
 
     // This object specifies the priority that will be assigned to probe packet. 
     // This value can be set only for jitter  operation. The type is
-    // Rttmonechoadminprobepakpriority.
-    Rttmonechoadminprobepakpriority interface{}
+    // RttMonEchoAdminProbePakPriority.
+    RttMonEchoAdminProbePakPriority interface{}
 
     // This object specifies the total clock synchronization error on source and
     // responder that is considered acceptable for  oneway measurement when NTP is
@@ -1949,7 +1988,7 @@ type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry struct {
     // microseconds. This value can be set only for jitter operation  with
     // precision of microsecond. The type is interface{} with range:
     // -2147483648..2147483647. Units are microseconds.
-    Rttmonechoadminowntpsynctolabs interface{}
+    RttMonEchoAdminOWNTPSyncTolAbs interface{}
 
     // This object specifies the total clock synchronization error on source and
     // responder that is considered acceptable for  oneway measurement when NTP is
@@ -1958,91 +1997,91 @@ type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry struct {
     // expressed  as the percentage of actual oneway latency that is measured. 
     // This value can be set only for jitter operation with precision  of
     // microsecond. The type is interface{} with range: 0..100.
-    Rttmonechoadminowntpsynctolpct interface{}
+    RttMonEchoAdminOWNTPSyncTolPct interface{}
 
     // This object specifies whether the value in specified for oneway NTP sync
     // tolerance is absolute value or percent value. The type is
-    // Rttmonechoadminowntpsynctoltype.
-    Rttmonechoadminowntpsynctoltype interface{}
+    // RttMonEchoAdminOWNTPSyncTolType.
+    RttMonEchoAdminOWNTPSyncTolType interface{}
 
     // This string stores the called number of post dial delay. This object is
     // applicable to voip post dial delay probe only. The number will be like the
     // one actualy the user could dial. It has the number required by the local
     // country dial plan, plus E.164 number. The maximum length is 24 digits. Only
     // digit (0-9) is allowed. The type is string with length: 0..24.
-    Rttmonechoadmincallednumber interface{}
+    RttMonEchoAdminCalledNumber interface{}
 
     // A code that represents the detect point of post dial delay. This object is
     // applicable to SAA post dial delay probe only. The type is RttMonOperation.
-    Rttmonechoadmindetectpoint interface{}
+    RttMonEchoAdminDetectPoint interface{}
 
     // A boolean that represents VoIP GK registration delay. This object is
     // applicable to SAA GK registration delay  probe only. The type is bool.
-    Rttmonechoadmingkregistration interface{}
+    RttMonEchoAdminGKRegistration interface{}
 
     // A string which specifies the voice-port on the source gateway. This object
     // is applicable to RTP probe only. The type is string.
-    Rttmonechoadminsourcevoiceport interface{}
+    RttMonEchoAdminSourceVoicePort interface{}
 
     // Duration of RTP/Video Probe session. This object is applicable to RTP and
     // Video probe. The type is interface{} with range: 1..600.
-    Rttmonechoadmincallduration interface{}
+    RttMonEchoAdminCallDuration interface{}
 
     // This object specifies the DSCP value to be set in the IP header of the LSP
     // echo reply packet. The value of this object will be in range of DiffServ
     // codepoint values between 0 to 63.  Note: This object cannot be set to value
     // of 255. This default value specifies that DSCP is not set for this row. The
     // type is interface{} with range: 0..63 | 255..None.
-    Rttmonechoadminlspreplydscp interface{}
+    RttMonEchoAdminLSPReplyDscp interface{}
 
     // This object specifies if the explicit-null label is to be added to LSP echo
     // requests which are sent while performing RTT operation. The type is bool.
-    Rttmonechoadminlspnullshim interface{}
+    RttMonEchoAdminLSPNullShim interface{}
 
     // This object specifies the destination maintenance point ID. It is only
     // applicable to ethernetPing and ethernetJitter  operation. It will be set to
     // 0 for other types of  operations. The type is interface{} with range:
     // 0..8191.
-    Rttmonechoadmintargetmpid interface{}
+    RttMonEchoAdminTargetMPID interface{}
 
     // This object specifies the name of the domain in which the destination
     // maintenance point lies. It is only applicable to  ethernetPing and
     // ethernetJitter operation. The type is string.
-    Rttmonechoadmintargetdomainname interface{}
+    RttMonEchoAdminTargetDomainName interface{}
 
     // This object specifies the ID of the VLAN in which the destination
     // maintenance point lies. It is only applicable to  ethernetPing and
     // ethernetJitter operation.  It will be set to 0 for other types of
     // operations. The type is interface{} with range: 1..4094.
-    Rttmonechoadmintargetvlan interface{}
+    RttMonEchoAdminTargetVLAN interface{}
 
     // This object specifies the class of service in an Ethernet packet header. It
     // is only applicable to ethernetPing and  ethernetJitter operation. The type
     // is interface{} with range: 0..7.
-    Rttmonechoadminethernetcos interface{}
+    RttMonEchoAdminEthernetCOS interface{}
 
     // This object specifies MPLS LSP pseudowire VCCV ID values between 1 to
     // 2147483647.  Note: This object cannot be set to value of 0. This default
     // value specifies that VCCV is not set for this row. The type is interface{}
     // with range: 0..2147483647.
-    Rttmonechoadminlspvccvid interface{}
+    RttMonEchoAdminLSPVccvID interface{}
 
     // This object specifies the Ethernet Virtual Connection in which the
     // destination maintenance point lies. It is only  applicable to ethernetPing
     // and ethernetJitter operation.  It will be set to NULL for other types of
     // operations. The type is string with length: 0..100.
-    Rttmonechoadmintargetevc interface{}
+    RttMonEchoAdminTargetEVC interface{}
 
     // This object specifies that Port Level CFM testing towards an Outward/Down
     // MEP will be used. It is only applicable to  ethernetPing and ethernetJitter
     // operation.  It will be set to NULL for other types of operations. The type
     // is bool.
-    Rttmonechoadmintargetmepport interface{}
+    RttMonEchoAdminTargetMEPPort interface{}
 
     // A string which represents the profile name to which a video probe should
     // use. This object is applicable to video probe only. The type is string with
     // length: 0..255.
-    Rttmonechoadminvideotrafficprofile interface{}
+    RttMonEchoAdminVideoTrafficProfile interface{}
 
     // This object represents the Differentiated Service Code Point (DSCP) QoS
     // marking in the generated synthetic packets.  Value - DiffServ Class     0 -
@@ -2051,13 +2090,13 @@ type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry struct {
     // - AF42    38 - AF43     8 - CS1    16 - CS2    24 - CS3    32 - CS4    40 -
     // CS5    48 - CS6    56 - CS7    46 - EF. The type is interface{} with range:
     // 0..63.
-    Rttmonechoadmindscp interface{}
+    RttMonEchoAdminDscp interface{}
 
     // This object represents the video traffic generation source.  be : best
     // effort using DSP but without reservation gs : guaranteed service using DSP
     // with reservation na : not applicable for not using DSP. The type is
-    // Rttmonechoadminreservedsp.
-    Rttmonechoadminreservedsp interface{}
+    // RttMonEchoAdminReserveDsp.
+    RttMonEchoAdminReserveDsp interface{}
 
     // This object represents the network input interface on the sender router
     // where the synthetic packets are received from the emulated endpoint source.
@@ -2067,241 +2106,244 @@ type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry struct {
     // the entry by the augmented table ifXTable which has ifName object which
     // matches the interface name used on the router or switch equipment console.
     // The type is interface{} with range: 0..2147483647.
-    Rttmonechoadmininputinterface interface{}
+    RttMonEchoAdminInputInterface interface{}
 
     // This object specifies the IP address of the emulated source from which the
     // synthetic packets would be generated. If this object is not specified, the
     // emulated source IP address will by default be the same as
     // rttMonEchoAdminSourceAddress. This object is applicable to video probes.
     // The type is string.
-    Rttmonechoadminemulatesourceaddress interface{}
+    RttMonEchoAdminEmulateSourceAddress interface{}
 
     // This object represents the port number of the emulated source from which
     // the synthetic packets would be generated. If this object is not specified,
     // the emulated source port number will by default be the same as
     // rttMonEchoAdminSourcePort. This object is applicable to video probes. The
     // type is interface{} with range: 0..65536.
-    Rttmonechoadminemulatesourceport interface{}
+    RttMonEchoAdminEmulateSourcePort interface{}
 
     // This object specifies the IP address of the emulated target by which the
     // synthetic packets would be received. If this object is not specified, the
     // emulated target IP address will by default be the same as
     // rttMonEchoAdminTargetAddress. This object is applicable to video probes.
     // The type is string.
-    Rttmonechoadminemulatetargetaddress interface{}
+    RttMonEchoAdminEmulateTargetAddress interface{}
 
     // This object represents the port number of the emulated target by which the
     // synthetic packets would be received. If this object is not specified, the
     // emulated target port number will by default be the same as
     // rttMonEchoAdminTargetPort. This object is applicable to video probes. The
     // type is interface{} with range: 0..65536.
-    Rttmonechoadminemulatetargetport interface{}
+    RttMonEchoAdminEmulateTargetPort interface{}
 
     // This object indicates the MAC address of the target device. This object is
     // only applicable for Y.1731 operations.  rttMonEchoAdminTargetMacAddress and
     // rttMonEchoAdminTargetMPID may not be used in conjunction. The type is
-    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
-    Rttmonechoadmintargetmacaddress interface{}
+    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    RttMonEchoAdminTargetMacAddress interface{}
 
     // This object indicates the MAC address of the source device. This object is
     // only applicable for Y.1731 operations.  rttMonEchoAdminSourceMacAddress and
     // rttMonEchoAdminSourceMPID may not be used in conjunction. The type is
-    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
-    Rttmonechoadminsourcemacaddress interface{}
+    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    RttMonEchoAdminSourceMacAddress interface{}
 
     // This object indicates the source maintenance point ID.  It is only
     // applicable to Y.1731 operation.  It will be set to zero for other types of
     // opearations.  rttMonEchoAdminSourceMPID and rttMonEchoAdminSourceMacAddress
     // may not be used in conjunction. The type is interface{} with range:
     // 0..8191.
-    Rttmonechoadminsourcempid interface{}
+    RttMonEchoAdminSourceMPID interface{}
 
     // This object specifies the name of endpoint list which a probe uses to
     // generate operations. The type is string with length: 1..64.
-    Rttmonechoadminendpointlistname interface{}
+    RttMonEchoAdminEndPointListName interface{}
 
     // This object specifies if Source Specific Multicast is to be added. This
     // object is applicable to multicast probe only. The type is bool.
-    Rttmonechoadminssm interface{}
+    RttMonEchoAdminSSM interface{}
 
     // This object specifies the maximum number of retries for control message.
     // The type is interface{} with range: 1..5.
-    Rttmonechoadmincontrolretry interface{}
+    RttMonEchoAdminControlRetry interface{}
 
     // This object specifies the wait duration before control message timeout. The
     // type is interface{} with range: 1..10000. Units are milliseconds.
-    Rttmonechoadmincontroltimeout interface{}
+    RttMonEchoAdminControlTimeout interface{}
 
     // This object specifies number of packets to be sent for multicast tree
     // setup. This object is applicable to multicast probe only. The type is
     // interface{} with range: 0..10.
-    Rttmonechoadminigmptreeinit interface{}
+    RttMonEchoAdminIgmpTreeInit interface{}
 
     // This object indicates that packets will be sent in burst. The type is bool.
-    Rttmonechoadminenableburst interface{}
+    RttMonEchoAdminEnableBurst interface{}
 
     // This object indicates the number of burst cycles to be sent during the
     // aggregate interval. This value is currently used for Y1731 SLM(Synthetic
     // Loss Measurment) probe. This object is applicable to Y1731 SLM probe only.
     // The type is interface{} with range: -2147483648..2147483647.
-    Rttmonechoadminaggburstcycles interface{}
+    RttMonEchoAdminAggBurstCycles interface{}
 
     // This object indicates the number of frames over which to calculate the
     // frame loss ratio. This object is applicable  to Y1731 SLM probe only. The
     // type is interface{} with range: -2147483648..2147483647.
-    Rttmonechoadminlossrationumframes interface{}
+    RttMonEchoAdminLossRatioNumFrames interface{}
 
     // This object indicates the number of frames over which to calculate the
     // availability. This object is applicable to Y1731 SLM probe only. The type
     // is interface{} with range: -2147483648..2147483647.
-    Rttmonechoadminavailnumframes interface{}
+    RttMonEchoAdminAvailNumFrames interface{}
 
     // This object specifies whether timestamp optimization is enabled.  When the
     // value is 'true' then timestamp optimization is enabled.  The probe will
     // utilize lower layer (Hardware/Packet Processor) timestamping values to
     // improve accuracy of statistics.  This value can be set only for udp jitter
     // operation with precision of microsecond. The type is bool.
-    Rttmonechoadmintstampoptimization interface{}
+    RttMonEchoAdminTstampOptimization interface{}
 }
 
-func (rttmonechoadminentry *CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry) GetEntityData() *types.CommonEntityData {
-    rttmonechoadminentry.EntityData.YFilter = rttmonechoadminentry.YFilter
-    rttmonechoadminentry.EntityData.YangName = "rttMonEchoAdminEntry"
-    rttmonechoadminentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonechoadminentry.EntityData.ParentYangName = "rttMonEchoAdminTable"
-    rttmonechoadminentry.EntityData.SegmentPath = "rttMonEchoAdminEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonechoadminentry.Rttmonctrladminindex) + "']"
-    rttmonechoadminentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonechoadminentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonechoadminentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonEchoAdminEntry *CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry) GetEntityData() *types.CommonEntityData {
+    rttMonEchoAdminEntry.EntityData.YFilter = rttMonEchoAdminEntry.YFilter
+    rttMonEchoAdminEntry.EntityData.YangName = "rttMonEchoAdminEntry"
+    rttMonEchoAdminEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonEchoAdminEntry.EntityData.ParentYangName = "rttMonEchoAdminTable"
+    rttMonEchoAdminEntry.EntityData.SegmentPath = "rttMonEchoAdminEntry" + types.AddKeyToken(rttMonEchoAdminEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex")
+    rttMonEchoAdminEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonEchoAdminEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonEchoAdminEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonechoadminentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonechoadminentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonechoadminentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonechoadminentry.Rttmonctrladminindex}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminProtocol"] = types.YLeaf{"Rttmonechoadminprotocol", rttmonechoadminentry.Rttmonechoadminprotocol}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTargetAddress"] = types.YLeaf{"Rttmonechoadmintargetaddress", rttmonechoadminentry.Rttmonechoadmintargetaddress}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminPktDataRequestSize"] = types.YLeaf{"Rttmonechoadminpktdatarequestsize", rttmonechoadminentry.Rttmonechoadminpktdatarequestsize}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminPktDataResponseSize"] = types.YLeaf{"Rttmonechoadminpktdataresponsesize", rttmonechoadminentry.Rttmonechoadminpktdataresponsesize}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTargetPort"] = types.YLeaf{"Rttmonechoadmintargetport", rttmonechoadminentry.Rttmonechoadmintargetport}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminSourceAddress"] = types.YLeaf{"Rttmonechoadminsourceaddress", rttmonechoadminentry.Rttmonechoadminsourceaddress}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminSourcePort"] = types.YLeaf{"Rttmonechoadminsourceport", rttmonechoadminentry.Rttmonechoadminsourceport}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminControlEnable"] = types.YLeaf{"Rttmonechoadmincontrolenable", rttmonechoadminentry.Rttmonechoadmincontrolenable}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTOS"] = types.YLeaf{"Rttmonechoadmintos", rttmonechoadminentry.Rttmonechoadmintos}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLSREnable"] = types.YLeaf{"Rttmonechoadminlsrenable", rttmonechoadminentry.Rttmonechoadminlsrenable}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTargetAddressString"] = types.YLeaf{"Rttmonechoadmintargetaddressstring", rttmonechoadminentry.Rttmonechoadmintargetaddressstring}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminNameServer"] = types.YLeaf{"Rttmonechoadminnameserver", rttmonechoadminentry.Rttmonechoadminnameserver}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminOperation"] = types.YLeaf{"Rttmonechoadminoperation", rttmonechoadminentry.Rttmonechoadminoperation}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminHTTPVersion"] = types.YLeaf{"Rttmonechoadminhttpversion", rttmonechoadminentry.Rttmonechoadminhttpversion}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminURL"] = types.YLeaf{"Rttmonechoadminurl", rttmonechoadminentry.Rttmonechoadminurl}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminCache"] = types.YLeaf{"Rttmonechoadmincache", rttmonechoadminentry.Rttmonechoadmincache}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminInterval"] = types.YLeaf{"Rttmonechoadmininterval", rttmonechoadminentry.Rttmonechoadmininterval}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminNumPackets"] = types.YLeaf{"Rttmonechoadminnumpackets", rttmonechoadminentry.Rttmonechoadminnumpackets}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminProxy"] = types.YLeaf{"Rttmonechoadminproxy", rttmonechoadminentry.Rttmonechoadminproxy}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminString1"] = types.YLeaf{"Rttmonechoadminstring1", rttmonechoadminentry.Rttmonechoadminstring1}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminString2"] = types.YLeaf{"Rttmonechoadminstring2", rttmonechoadminentry.Rttmonechoadminstring2}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminString3"] = types.YLeaf{"Rttmonechoadminstring3", rttmonechoadminentry.Rttmonechoadminstring3}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminString4"] = types.YLeaf{"Rttmonechoadminstring4", rttmonechoadminentry.Rttmonechoadminstring4}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminString5"] = types.YLeaf{"Rttmonechoadminstring5", rttmonechoadminentry.Rttmonechoadminstring5}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminMode"] = types.YLeaf{"Rttmonechoadminmode", rttmonechoadminentry.Rttmonechoadminmode}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminVrfName"] = types.YLeaf{"Rttmonechoadminvrfname", rttmonechoadminentry.Rttmonechoadminvrfname}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminCodecType"] = types.YLeaf{"Rttmonechoadmincodectype", rttmonechoadminentry.Rttmonechoadmincodectype}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminCodecInterval"] = types.YLeaf{"Rttmonechoadmincodecinterval", rttmonechoadminentry.Rttmonechoadmincodecinterval}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminCodecPayload"] = types.YLeaf{"Rttmonechoadmincodecpayload", rttmonechoadminentry.Rttmonechoadmincodecpayload}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminCodecNumPackets"] = types.YLeaf{"Rttmonechoadmincodecnumpackets", rttmonechoadminentry.Rttmonechoadmincodecnumpackets}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminICPIFAdvFactor"] = types.YLeaf{"Rttmonechoadminicpifadvfactor", rttmonechoadminentry.Rttmonechoadminicpifadvfactor}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLSPFECType"] = types.YLeaf{"Rttmonechoadminlspfectype", rttmonechoadminentry.Rttmonechoadminlspfectype}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLSPSelector"] = types.YLeaf{"Rttmonechoadminlspselector", rttmonechoadminentry.Rttmonechoadminlspselector}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLSPReplyMode"] = types.YLeaf{"Rttmonechoadminlspreplymode", rttmonechoadminentry.Rttmonechoadminlspreplymode}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLSPTTL"] = types.YLeaf{"Rttmonechoadminlspttl", rttmonechoadminentry.Rttmonechoadminlspttl}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLSPExp"] = types.YLeaf{"Rttmonechoadminlspexp", rttmonechoadminentry.Rttmonechoadminlspexp}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminPrecision"] = types.YLeaf{"Rttmonechoadminprecision", rttmonechoadminentry.Rttmonechoadminprecision}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminProbePakPriority"] = types.YLeaf{"Rttmonechoadminprobepakpriority", rttmonechoadminentry.Rttmonechoadminprobepakpriority}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminOWNTPSyncTolAbs"] = types.YLeaf{"Rttmonechoadminowntpsynctolabs", rttmonechoadminentry.Rttmonechoadminowntpsynctolabs}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminOWNTPSyncTolPct"] = types.YLeaf{"Rttmonechoadminowntpsynctolpct", rttmonechoadminentry.Rttmonechoadminowntpsynctolpct}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminOWNTPSyncTolType"] = types.YLeaf{"Rttmonechoadminowntpsynctoltype", rttmonechoadminentry.Rttmonechoadminowntpsynctoltype}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminCalledNumber"] = types.YLeaf{"Rttmonechoadmincallednumber", rttmonechoadminentry.Rttmonechoadmincallednumber}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminDetectPoint"] = types.YLeaf{"Rttmonechoadmindetectpoint", rttmonechoadminentry.Rttmonechoadmindetectpoint}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminGKRegistration"] = types.YLeaf{"Rttmonechoadmingkregistration", rttmonechoadminentry.Rttmonechoadmingkregistration}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminSourceVoicePort"] = types.YLeaf{"Rttmonechoadminsourcevoiceport", rttmonechoadminentry.Rttmonechoadminsourcevoiceport}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminCallDuration"] = types.YLeaf{"Rttmonechoadmincallduration", rttmonechoadminentry.Rttmonechoadmincallduration}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLSPReplyDscp"] = types.YLeaf{"Rttmonechoadminlspreplydscp", rttmonechoadminentry.Rttmonechoadminlspreplydscp}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLSPNullShim"] = types.YLeaf{"Rttmonechoadminlspnullshim", rttmonechoadminentry.Rttmonechoadminlspnullshim}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTargetMPID"] = types.YLeaf{"Rttmonechoadmintargetmpid", rttmonechoadminentry.Rttmonechoadmintargetmpid}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTargetDomainName"] = types.YLeaf{"Rttmonechoadmintargetdomainname", rttmonechoadminentry.Rttmonechoadmintargetdomainname}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTargetVLAN"] = types.YLeaf{"Rttmonechoadmintargetvlan", rttmonechoadminentry.Rttmonechoadmintargetvlan}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminEthernetCOS"] = types.YLeaf{"Rttmonechoadminethernetcos", rttmonechoadminentry.Rttmonechoadminethernetcos}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLSPVccvID"] = types.YLeaf{"Rttmonechoadminlspvccvid", rttmonechoadminentry.Rttmonechoadminlspvccvid}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTargetEVC"] = types.YLeaf{"Rttmonechoadmintargetevc", rttmonechoadminentry.Rttmonechoadmintargetevc}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTargetMEPPort"] = types.YLeaf{"Rttmonechoadmintargetmepport", rttmonechoadminentry.Rttmonechoadmintargetmepport}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminVideoTrafficProfile"] = types.YLeaf{"Rttmonechoadminvideotrafficprofile", rttmonechoadminentry.Rttmonechoadminvideotrafficprofile}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminDscp"] = types.YLeaf{"Rttmonechoadmindscp", rttmonechoadminentry.Rttmonechoadmindscp}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminReserveDsp"] = types.YLeaf{"Rttmonechoadminreservedsp", rttmonechoadminentry.Rttmonechoadminreservedsp}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminInputInterface"] = types.YLeaf{"Rttmonechoadmininputinterface", rttmonechoadminentry.Rttmonechoadmininputinterface}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminEmulateSourceAddress"] = types.YLeaf{"Rttmonechoadminemulatesourceaddress", rttmonechoadminentry.Rttmonechoadminemulatesourceaddress}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminEmulateSourcePort"] = types.YLeaf{"Rttmonechoadminemulatesourceport", rttmonechoadminentry.Rttmonechoadminemulatesourceport}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminEmulateTargetAddress"] = types.YLeaf{"Rttmonechoadminemulatetargetaddress", rttmonechoadminentry.Rttmonechoadminemulatetargetaddress}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminEmulateTargetPort"] = types.YLeaf{"Rttmonechoadminemulatetargetport", rttmonechoadminentry.Rttmonechoadminemulatetargetport}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTargetMacAddress"] = types.YLeaf{"Rttmonechoadmintargetmacaddress", rttmonechoadminentry.Rttmonechoadmintargetmacaddress}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminSourceMacAddress"] = types.YLeaf{"Rttmonechoadminsourcemacaddress", rttmonechoadminentry.Rttmonechoadminsourcemacaddress}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminSourceMPID"] = types.YLeaf{"Rttmonechoadminsourcempid", rttmonechoadminentry.Rttmonechoadminsourcempid}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminEndPointListName"] = types.YLeaf{"Rttmonechoadminendpointlistname", rttmonechoadminentry.Rttmonechoadminendpointlistname}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminSSM"] = types.YLeaf{"Rttmonechoadminssm", rttmonechoadminentry.Rttmonechoadminssm}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminControlRetry"] = types.YLeaf{"Rttmonechoadmincontrolretry", rttmonechoadminentry.Rttmonechoadmincontrolretry}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminControlTimeout"] = types.YLeaf{"Rttmonechoadmincontroltimeout", rttmonechoadminentry.Rttmonechoadmincontroltimeout}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminIgmpTreeInit"] = types.YLeaf{"Rttmonechoadminigmptreeinit", rttmonechoadminentry.Rttmonechoadminigmptreeinit}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminEnableBurst"] = types.YLeaf{"Rttmonechoadminenableburst", rttmonechoadminentry.Rttmonechoadminenableburst}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminAggBurstCycles"] = types.YLeaf{"Rttmonechoadminaggburstcycles", rttmonechoadminentry.Rttmonechoadminaggburstcycles}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLossRatioNumFrames"] = types.YLeaf{"Rttmonechoadminlossrationumframes", rttmonechoadminentry.Rttmonechoadminlossrationumframes}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminAvailNumFrames"] = types.YLeaf{"Rttmonechoadminavailnumframes", rttmonechoadminentry.Rttmonechoadminavailnumframes}
-    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTstampOptimization"] = types.YLeaf{"Rttmonechoadmintstampoptimization", rttmonechoadminentry.Rttmonechoadmintstampoptimization}
-    return &(rttmonechoadminentry.EntityData)
+    rttMonEchoAdminEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonEchoAdminEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonCtrlAdminIndex", types.YLeaf{"RttMonCtrlAdminIndex", rttMonEchoAdminEntry.RttMonCtrlAdminIndex})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminProtocol", types.YLeaf{"RttMonEchoAdminProtocol", rttMonEchoAdminEntry.RttMonEchoAdminProtocol})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminTargetAddress", types.YLeaf{"RttMonEchoAdminTargetAddress", rttMonEchoAdminEntry.RttMonEchoAdminTargetAddress})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminPktDataRequestSize", types.YLeaf{"RttMonEchoAdminPktDataRequestSize", rttMonEchoAdminEntry.RttMonEchoAdminPktDataRequestSize})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminPktDataResponseSize", types.YLeaf{"RttMonEchoAdminPktDataResponseSize", rttMonEchoAdminEntry.RttMonEchoAdminPktDataResponseSize})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminTargetPort", types.YLeaf{"RttMonEchoAdminTargetPort", rttMonEchoAdminEntry.RttMonEchoAdminTargetPort})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminSourceAddress", types.YLeaf{"RttMonEchoAdminSourceAddress", rttMonEchoAdminEntry.RttMonEchoAdminSourceAddress})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminSourcePort", types.YLeaf{"RttMonEchoAdminSourcePort", rttMonEchoAdminEntry.RttMonEchoAdminSourcePort})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminControlEnable", types.YLeaf{"RttMonEchoAdminControlEnable", rttMonEchoAdminEntry.RttMonEchoAdminControlEnable})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminTOS", types.YLeaf{"RttMonEchoAdminTOS", rttMonEchoAdminEntry.RttMonEchoAdminTOS})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminLSREnable", types.YLeaf{"RttMonEchoAdminLSREnable", rttMonEchoAdminEntry.RttMonEchoAdminLSREnable})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminTargetAddressString", types.YLeaf{"RttMonEchoAdminTargetAddressString", rttMonEchoAdminEntry.RttMonEchoAdminTargetAddressString})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminNameServer", types.YLeaf{"RttMonEchoAdminNameServer", rttMonEchoAdminEntry.RttMonEchoAdminNameServer})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminOperation", types.YLeaf{"RttMonEchoAdminOperation", rttMonEchoAdminEntry.RttMonEchoAdminOperation})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminHTTPVersion", types.YLeaf{"RttMonEchoAdminHTTPVersion", rttMonEchoAdminEntry.RttMonEchoAdminHTTPVersion})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminURL", types.YLeaf{"RttMonEchoAdminURL", rttMonEchoAdminEntry.RttMonEchoAdminURL})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminCache", types.YLeaf{"RttMonEchoAdminCache", rttMonEchoAdminEntry.RttMonEchoAdminCache})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminInterval", types.YLeaf{"RttMonEchoAdminInterval", rttMonEchoAdminEntry.RttMonEchoAdminInterval})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminNumPackets", types.YLeaf{"RttMonEchoAdminNumPackets", rttMonEchoAdminEntry.RttMonEchoAdminNumPackets})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminProxy", types.YLeaf{"RttMonEchoAdminProxy", rttMonEchoAdminEntry.RttMonEchoAdminProxy})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminString1", types.YLeaf{"RttMonEchoAdminString1", rttMonEchoAdminEntry.RttMonEchoAdminString1})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminString2", types.YLeaf{"RttMonEchoAdminString2", rttMonEchoAdminEntry.RttMonEchoAdminString2})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminString3", types.YLeaf{"RttMonEchoAdminString3", rttMonEchoAdminEntry.RttMonEchoAdminString3})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminString4", types.YLeaf{"RttMonEchoAdminString4", rttMonEchoAdminEntry.RttMonEchoAdminString4})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminString5", types.YLeaf{"RttMonEchoAdminString5", rttMonEchoAdminEntry.RttMonEchoAdminString5})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminMode", types.YLeaf{"RttMonEchoAdminMode", rttMonEchoAdminEntry.RttMonEchoAdminMode})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminVrfName", types.YLeaf{"RttMonEchoAdminVrfName", rttMonEchoAdminEntry.RttMonEchoAdminVrfName})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminCodecType", types.YLeaf{"RttMonEchoAdminCodecType", rttMonEchoAdminEntry.RttMonEchoAdminCodecType})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminCodecInterval", types.YLeaf{"RttMonEchoAdminCodecInterval", rttMonEchoAdminEntry.RttMonEchoAdminCodecInterval})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminCodecPayload", types.YLeaf{"RttMonEchoAdminCodecPayload", rttMonEchoAdminEntry.RttMonEchoAdminCodecPayload})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminCodecNumPackets", types.YLeaf{"RttMonEchoAdminCodecNumPackets", rttMonEchoAdminEntry.RttMonEchoAdminCodecNumPackets})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminICPIFAdvFactor", types.YLeaf{"RttMonEchoAdminICPIFAdvFactor", rttMonEchoAdminEntry.RttMonEchoAdminICPIFAdvFactor})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminLSPFECType", types.YLeaf{"RttMonEchoAdminLSPFECType", rttMonEchoAdminEntry.RttMonEchoAdminLSPFECType})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminLSPSelector", types.YLeaf{"RttMonEchoAdminLSPSelector", rttMonEchoAdminEntry.RttMonEchoAdminLSPSelector})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminLSPReplyMode", types.YLeaf{"RttMonEchoAdminLSPReplyMode", rttMonEchoAdminEntry.RttMonEchoAdminLSPReplyMode})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminLSPTTL", types.YLeaf{"RttMonEchoAdminLSPTTL", rttMonEchoAdminEntry.RttMonEchoAdminLSPTTL})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminLSPExp", types.YLeaf{"RttMonEchoAdminLSPExp", rttMonEchoAdminEntry.RttMonEchoAdminLSPExp})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminPrecision", types.YLeaf{"RttMonEchoAdminPrecision", rttMonEchoAdminEntry.RttMonEchoAdminPrecision})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminProbePakPriority", types.YLeaf{"RttMonEchoAdminProbePakPriority", rttMonEchoAdminEntry.RttMonEchoAdminProbePakPriority})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminOWNTPSyncTolAbs", types.YLeaf{"RttMonEchoAdminOWNTPSyncTolAbs", rttMonEchoAdminEntry.RttMonEchoAdminOWNTPSyncTolAbs})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminOWNTPSyncTolPct", types.YLeaf{"RttMonEchoAdminOWNTPSyncTolPct", rttMonEchoAdminEntry.RttMonEchoAdminOWNTPSyncTolPct})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminOWNTPSyncTolType", types.YLeaf{"RttMonEchoAdminOWNTPSyncTolType", rttMonEchoAdminEntry.RttMonEchoAdminOWNTPSyncTolType})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminCalledNumber", types.YLeaf{"RttMonEchoAdminCalledNumber", rttMonEchoAdminEntry.RttMonEchoAdminCalledNumber})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminDetectPoint", types.YLeaf{"RttMonEchoAdminDetectPoint", rttMonEchoAdminEntry.RttMonEchoAdminDetectPoint})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminGKRegistration", types.YLeaf{"RttMonEchoAdminGKRegistration", rttMonEchoAdminEntry.RttMonEchoAdminGKRegistration})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminSourceVoicePort", types.YLeaf{"RttMonEchoAdminSourceVoicePort", rttMonEchoAdminEntry.RttMonEchoAdminSourceVoicePort})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminCallDuration", types.YLeaf{"RttMonEchoAdminCallDuration", rttMonEchoAdminEntry.RttMonEchoAdminCallDuration})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminLSPReplyDscp", types.YLeaf{"RttMonEchoAdminLSPReplyDscp", rttMonEchoAdminEntry.RttMonEchoAdminLSPReplyDscp})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminLSPNullShim", types.YLeaf{"RttMonEchoAdminLSPNullShim", rttMonEchoAdminEntry.RttMonEchoAdminLSPNullShim})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminTargetMPID", types.YLeaf{"RttMonEchoAdminTargetMPID", rttMonEchoAdminEntry.RttMonEchoAdminTargetMPID})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminTargetDomainName", types.YLeaf{"RttMonEchoAdminTargetDomainName", rttMonEchoAdminEntry.RttMonEchoAdminTargetDomainName})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminTargetVLAN", types.YLeaf{"RttMonEchoAdminTargetVLAN", rttMonEchoAdminEntry.RttMonEchoAdminTargetVLAN})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminEthernetCOS", types.YLeaf{"RttMonEchoAdminEthernetCOS", rttMonEchoAdminEntry.RttMonEchoAdminEthernetCOS})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminLSPVccvID", types.YLeaf{"RttMonEchoAdminLSPVccvID", rttMonEchoAdminEntry.RttMonEchoAdminLSPVccvID})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminTargetEVC", types.YLeaf{"RttMonEchoAdminTargetEVC", rttMonEchoAdminEntry.RttMonEchoAdminTargetEVC})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminTargetMEPPort", types.YLeaf{"RttMonEchoAdminTargetMEPPort", rttMonEchoAdminEntry.RttMonEchoAdminTargetMEPPort})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminVideoTrafficProfile", types.YLeaf{"RttMonEchoAdminVideoTrafficProfile", rttMonEchoAdminEntry.RttMonEchoAdminVideoTrafficProfile})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminDscp", types.YLeaf{"RttMonEchoAdminDscp", rttMonEchoAdminEntry.RttMonEchoAdminDscp})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminReserveDsp", types.YLeaf{"RttMonEchoAdminReserveDsp", rttMonEchoAdminEntry.RttMonEchoAdminReserveDsp})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminInputInterface", types.YLeaf{"RttMonEchoAdminInputInterface", rttMonEchoAdminEntry.RttMonEchoAdminInputInterface})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminEmulateSourceAddress", types.YLeaf{"RttMonEchoAdminEmulateSourceAddress", rttMonEchoAdminEntry.RttMonEchoAdminEmulateSourceAddress})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminEmulateSourcePort", types.YLeaf{"RttMonEchoAdminEmulateSourcePort", rttMonEchoAdminEntry.RttMonEchoAdminEmulateSourcePort})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminEmulateTargetAddress", types.YLeaf{"RttMonEchoAdminEmulateTargetAddress", rttMonEchoAdminEntry.RttMonEchoAdminEmulateTargetAddress})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminEmulateTargetPort", types.YLeaf{"RttMonEchoAdminEmulateTargetPort", rttMonEchoAdminEntry.RttMonEchoAdminEmulateTargetPort})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminTargetMacAddress", types.YLeaf{"RttMonEchoAdminTargetMacAddress", rttMonEchoAdminEntry.RttMonEchoAdminTargetMacAddress})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminSourceMacAddress", types.YLeaf{"RttMonEchoAdminSourceMacAddress", rttMonEchoAdminEntry.RttMonEchoAdminSourceMacAddress})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminSourceMPID", types.YLeaf{"RttMonEchoAdminSourceMPID", rttMonEchoAdminEntry.RttMonEchoAdminSourceMPID})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminEndPointListName", types.YLeaf{"RttMonEchoAdminEndPointListName", rttMonEchoAdminEntry.RttMonEchoAdminEndPointListName})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminSSM", types.YLeaf{"RttMonEchoAdminSSM", rttMonEchoAdminEntry.RttMonEchoAdminSSM})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminControlRetry", types.YLeaf{"RttMonEchoAdminControlRetry", rttMonEchoAdminEntry.RttMonEchoAdminControlRetry})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminControlTimeout", types.YLeaf{"RttMonEchoAdminControlTimeout", rttMonEchoAdminEntry.RttMonEchoAdminControlTimeout})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminIgmpTreeInit", types.YLeaf{"RttMonEchoAdminIgmpTreeInit", rttMonEchoAdminEntry.RttMonEchoAdminIgmpTreeInit})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminEnableBurst", types.YLeaf{"RttMonEchoAdminEnableBurst", rttMonEchoAdminEntry.RttMonEchoAdminEnableBurst})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminAggBurstCycles", types.YLeaf{"RttMonEchoAdminAggBurstCycles", rttMonEchoAdminEntry.RttMonEchoAdminAggBurstCycles})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminLossRatioNumFrames", types.YLeaf{"RttMonEchoAdminLossRatioNumFrames", rttMonEchoAdminEntry.RttMonEchoAdminLossRatioNumFrames})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminAvailNumFrames", types.YLeaf{"RttMonEchoAdminAvailNumFrames", rttMonEchoAdminEntry.RttMonEchoAdminAvailNumFrames})
+    rttMonEchoAdminEntry.EntityData.Leafs.Append("rttMonEchoAdminTstampOptimization", types.YLeaf{"RttMonEchoAdminTstampOptimization", rttMonEchoAdminEntry.RttMonEchoAdminTstampOptimization})
+
+    rttMonEchoAdminEntry.EntityData.YListKeys = []string {"RttMonCtrlAdminIndex"}
+
+    return &(rttMonEchoAdminEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminlspfectype represents ldpIpv4Prefix   - LDP IPv4 prefix.
-type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminlspfectype string
+// CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminLSPFECType represents ldpIpv4Prefix   - LDP IPv4 prefix.
+type CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminLSPFECType string
 
 const (
-    CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminlspfectype_ldpIpv4Prefix CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminlspfectype = "ldpIpv4Prefix"
+    CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminLSPFECType_ldpIpv4Prefix CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminLSPFECType = "ldpIpv4Prefix"
 )
 
-// CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminowntpsynctoltype represents NTP sync tolerance is absolute value or percent value
-type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminowntpsynctoltype string
+// CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminOWNTPSyncTolType represents NTP sync tolerance is absolute value or percent value
+type CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminOWNTPSyncTolType string
 
 const (
-    CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminowntpsynctoltype_percent CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminowntpsynctoltype = "percent"
+    CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminOWNTPSyncTolType_percent CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminOWNTPSyncTolType = "percent"
 
-    CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminowntpsynctoltype_absolute CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminowntpsynctoltype = "absolute"
+    CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminOWNTPSyncTolType_absolute CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminOWNTPSyncTolType = "absolute"
 )
 
-// CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminprecision represents This value can be set only for jitter operation
-type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminprecision string
+// CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminPrecision represents This value can be set only for jitter operation
+type CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminPrecision string
 
 const (
-    CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminprecision_milliseconds CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminprecision = "milliseconds"
+    CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminPrecision_milliseconds CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminPrecision = "milliseconds"
 
-    CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminprecision_microseconds CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminprecision = "microseconds"
+    CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminPrecision_microseconds CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminPrecision = "microseconds"
 )
 
-// CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminprobepakpriority represents operation
-type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminprobepakpriority string
+// CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminProbePakPriority represents operation
+type CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminProbePakPriority string
 
 const (
-    CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminprobepakpriority_normal CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminprobepakpriority = "normal"
+    CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminProbePakPriority_normal CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminProbePakPriority = "normal"
 
-    CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminprobepakpriority_high CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminprobepakpriority = "high"
+    CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminProbePakPriority_high CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminProbePakPriority = "high"
 )
 
-// CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminreservedsp represents na : not applicable for not using DSP
-type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminreservedsp string
+// CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminReserveDsp represents na : not applicable for not using DSP
+type CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminReserveDsp string
 
 const (
-    CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminreservedsp_be CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminreservedsp = "be"
+    CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminReserveDsp_be CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminReserveDsp = "be"
 
-    CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminreservedsp_gs CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminreservedsp = "gs"
+    CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminReserveDsp_gs CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminReserveDsp = "gs"
 
-    CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminreservedsp_na CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminreservedsp = "na"
+    CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminReserveDsp_na CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry_RttMonEchoAdminReserveDsp = "na"
 )
 
-// CISCORTTMONMIB_Rttmonfileioadmintable
+// CISCORTTMONMIB_RttMonFileIOAdminTable
 // A table of Round Trip Time (RTT) monitoring 'fileIO'
 // specific definitions.
 // 
@@ -2311,106 +2353,112 @@ const (
 // This table is controlled via the 
 // rttMonCtrlAdminTable.  Entries in this table are
 // created via the rttMonCtrlAdminStatus object.
-type CISCORTTMONMIB_Rttmonfileioadmintable struct {
+type CISCORTTMONMIB_RttMonFileIOAdminTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects that define specific configuration for 'fileIO'
     // RttMonRttType conceptual Rtt control rows. The type is slice of
-    // CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry.
-    Rttmonfileioadminentry []CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry
+    // CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry.
+    RttMonFileIOAdminEntry []*CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry
 }
 
-func (rttmonfileioadmintable *CISCORTTMONMIB_Rttmonfileioadmintable) GetEntityData() *types.CommonEntityData {
-    rttmonfileioadmintable.EntityData.YFilter = rttmonfileioadmintable.YFilter
-    rttmonfileioadmintable.EntityData.YangName = "rttMonFileIOAdminTable"
-    rttmonfileioadmintable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonfileioadmintable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonfileioadmintable.EntityData.SegmentPath = "rttMonFileIOAdminTable"
-    rttmonfileioadmintable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonfileioadmintable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonfileioadmintable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonFileIOAdminTable *CISCORTTMONMIB_RttMonFileIOAdminTable) GetEntityData() *types.CommonEntityData {
+    rttMonFileIOAdminTable.EntityData.YFilter = rttMonFileIOAdminTable.YFilter
+    rttMonFileIOAdminTable.EntityData.YangName = "rttMonFileIOAdminTable"
+    rttMonFileIOAdminTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonFileIOAdminTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonFileIOAdminTable.EntityData.SegmentPath = "rttMonFileIOAdminTable"
+    rttMonFileIOAdminTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonFileIOAdminTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonFileIOAdminTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonfileioadmintable.EntityData.Children = make(map[string]types.YChild)
-    rttmonfileioadmintable.EntityData.Children["rttMonFileIOAdminEntry"] = types.YChild{"Rttmonfileioadminentry", nil}
-    for i := range rttmonfileioadmintable.Rttmonfileioadminentry {
-        rttmonfileioadmintable.EntityData.Children[types.GetSegmentPath(&rttmonfileioadmintable.Rttmonfileioadminentry[i])] = types.YChild{"Rttmonfileioadminentry", &rttmonfileioadmintable.Rttmonfileioadminentry[i]}
+    rttMonFileIOAdminTable.EntityData.Children = types.NewOrderedMap()
+    rttMonFileIOAdminTable.EntityData.Children.Append("rttMonFileIOAdminEntry", types.YChild{"RttMonFileIOAdminEntry", nil})
+    for i := range rttMonFileIOAdminTable.RttMonFileIOAdminEntry {
+        rttMonFileIOAdminTable.EntityData.Children.Append(types.GetSegmentPath(rttMonFileIOAdminTable.RttMonFileIOAdminEntry[i]), types.YChild{"RttMonFileIOAdminEntry", rttMonFileIOAdminTable.RttMonFileIOAdminEntry[i]})
     }
-    rttmonfileioadmintable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonfileioadmintable.EntityData)
+    rttMonFileIOAdminTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonFileIOAdminTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonFileIOAdminTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry
+// CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry
 // A list of objects that define specific configuration for
 // 'fileIO' RttMonRttType conceptual Rtt control rows.
-type CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry struct {
+type CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // cisco_rttmon_mib.CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrladminindex
-    Rttmonctrladminindex interface{}
+    // cisco_rttmon_mib.CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlAdminIndex
+    RttMonCtrlAdminIndex interface{}
 
     // The fully qualified file path that will be the target of the RTT operation.
     // This value must match one of the rttMonApplPreConfigedName entries. The
     // type is string.
-    Rttmonfileioadminfilepath interface{}
+    RttMonFileIOAdminFilePath interface{}
 
     // The size of the file to write/read from the File Server. The type is
-    // Rttmonfileioadminsize. Units are bytes.
-    Rttmonfileioadminsize interface{}
+    // RttMonFileIOAdminSize. Units are bytes.
+    RttMonFileIOAdminSize interface{}
 
-    // The File I/O action to be performed. The type is Rttmonfileioadminaction.
-    Rttmonfileioadminaction interface{}
+    // The File I/O action to be performed. The type is RttMonFileIOAdminAction.
+    RttMonFileIOAdminAction interface{}
 }
 
-func (rttmonfileioadminentry *CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry) GetEntityData() *types.CommonEntityData {
-    rttmonfileioadminentry.EntityData.YFilter = rttmonfileioadminentry.YFilter
-    rttmonfileioadminentry.EntityData.YangName = "rttMonFileIOAdminEntry"
-    rttmonfileioadminentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonfileioadminentry.EntityData.ParentYangName = "rttMonFileIOAdminTable"
-    rttmonfileioadminentry.EntityData.SegmentPath = "rttMonFileIOAdminEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonfileioadminentry.Rttmonctrladminindex) + "']"
-    rttmonfileioadminentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonfileioadminentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonfileioadminentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonFileIOAdminEntry *CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry) GetEntityData() *types.CommonEntityData {
+    rttMonFileIOAdminEntry.EntityData.YFilter = rttMonFileIOAdminEntry.YFilter
+    rttMonFileIOAdminEntry.EntityData.YangName = "rttMonFileIOAdminEntry"
+    rttMonFileIOAdminEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonFileIOAdminEntry.EntityData.ParentYangName = "rttMonFileIOAdminTable"
+    rttMonFileIOAdminEntry.EntityData.SegmentPath = "rttMonFileIOAdminEntry" + types.AddKeyToken(rttMonFileIOAdminEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex")
+    rttMonFileIOAdminEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonFileIOAdminEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonFileIOAdminEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonfileioadminentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonfileioadminentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonfileioadminentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonfileioadminentry.Rttmonctrladminindex}
-    rttmonfileioadminentry.EntityData.Leafs["rttMonFileIOAdminFilePath"] = types.YLeaf{"Rttmonfileioadminfilepath", rttmonfileioadminentry.Rttmonfileioadminfilepath}
-    rttmonfileioadminentry.EntityData.Leafs["rttMonFileIOAdminSize"] = types.YLeaf{"Rttmonfileioadminsize", rttmonfileioadminentry.Rttmonfileioadminsize}
-    rttmonfileioadminentry.EntityData.Leafs["rttMonFileIOAdminAction"] = types.YLeaf{"Rttmonfileioadminaction", rttmonfileioadminentry.Rttmonfileioadminaction}
-    return &(rttmonfileioadminentry.EntityData)
+    rttMonFileIOAdminEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonFileIOAdminEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonFileIOAdminEntry.EntityData.Leafs.Append("rttMonCtrlAdminIndex", types.YLeaf{"RttMonCtrlAdminIndex", rttMonFileIOAdminEntry.RttMonCtrlAdminIndex})
+    rttMonFileIOAdminEntry.EntityData.Leafs.Append("rttMonFileIOAdminFilePath", types.YLeaf{"RttMonFileIOAdminFilePath", rttMonFileIOAdminEntry.RttMonFileIOAdminFilePath})
+    rttMonFileIOAdminEntry.EntityData.Leafs.Append("rttMonFileIOAdminSize", types.YLeaf{"RttMonFileIOAdminSize", rttMonFileIOAdminEntry.RttMonFileIOAdminSize})
+    rttMonFileIOAdminEntry.EntityData.Leafs.Append("rttMonFileIOAdminAction", types.YLeaf{"RttMonFileIOAdminAction", rttMonFileIOAdminEntry.RttMonFileIOAdminAction})
+
+    rttMonFileIOAdminEntry.EntityData.YListKeys = []string {"RttMonCtrlAdminIndex"}
+
+    return &(rttMonFileIOAdminEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminaction represents The File I/O action to be performed.
-type CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminaction string
+// CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminAction represents The File I/O action to be performed.
+type CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminAction string
 
 const (
-    CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminaction_write CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminaction = "write"
+    CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminAction_write CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminAction = "write"
 
-    CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminaction_read CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminaction = "read"
+    CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminAction_read CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminAction = "read"
 
-    CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminaction_writeRead CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminaction = "writeRead"
+    CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminAction_writeRead CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminAction = "writeRead"
 )
 
-// CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminsize represents Server.
-type CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminsize string
+// CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminSize represents Server.
+type CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminSize string
 
 const (
-    CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminsize_n256 CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminsize = "n256"
+    CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminSize_n256 CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminSize = "n256"
 
-    CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminsize_n1k CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminsize = "n1k"
+    CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminSize_n1k CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminSize = "n1k"
 
-    CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminsize_n64k CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminsize = "n64k"
+    CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminSize_n64k CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminSize = "n64k"
 
-    CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminsize_n128k CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminsize = "n128k"
+    CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminSize_n128k CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminSize = "n128k"
 
-    CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminsize_n256k CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminsize = "n256k"
+    CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminSize_n256k CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry_RttMonFileIOAdminSize = "n256k"
 )
 
-// CISCORTTMONMIB_Rttmonscriptadmintable
+// CISCORTTMONMIB_RttMonScriptAdminTable
 // A table of Round Trip Time (RTT) monitoring 'script'
 // specific definitions.
 // 
@@ -2420,76 +2468,82 @@ const (
 // This table is controlled via the
 // rttMonCtrlAdminTable.  Entries in this table are
 // created via the rttMonCtrlAdminStatus object.
-type CISCORTTMONMIB_Rttmonscriptadmintable struct {
+type CISCORTTMONMIB_RttMonScriptAdminTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects that define specific configuration for 'script'
     // RttMonRttType conceptual Rtt control rows. The type is slice of
-    // CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry.
-    Rttmonscriptadminentry []CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry
+    // CISCORTTMONMIB_RttMonScriptAdminTable_RttMonScriptAdminEntry.
+    RttMonScriptAdminEntry []*CISCORTTMONMIB_RttMonScriptAdminTable_RttMonScriptAdminEntry
 }
 
-func (rttmonscriptadmintable *CISCORTTMONMIB_Rttmonscriptadmintable) GetEntityData() *types.CommonEntityData {
-    rttmonscriptadmintable.EntityData.YFilter = rttmonscriptadmintable.YFilter
-    rttmonscriptadmintable.EntityData.YangName = "rttMonScriptAdminTable"
-    rttmonscriptadmintable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonscriptadmintable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonscriptadmintable.EntityData.SegmentPath = "rttMonScriptAdminTable"
-    rttmonscriptadmintable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonscriptadmintable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonscriptadmintable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonScriptAdminTable *CISCORTTMONMIB_RttMonScriptAdminTable) GetEntityData() *types.CommonEntityData {
+    rttMonScriptAdminTable.EntityData.YFilter = rttMonScriptAdminTable.YFilter
+    rttMonScriptAdminTable.EntityData.YangName = "rttMonScriptAdminTable"
+    rttMonScriptAdminTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonScriptAdminTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonScriptAdminTable.EntityData.SegmentPath = "rttMonScriptAdminTable"
+    rttMonScriptAdminTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonScriptAdminTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonScriptAdminTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonscriptadmintable.EntityData.Children = make(map[string]types.YChild)
-    rttmonscriptadmintable.EntityData.Children["rttMonScriptAdminEntry"] = types.YChild{"Rttmonscriptadminentry", nil}
-    for i := range rttmonscriptadmintable.Rttmonscriptadminentry {
-        rttmonscriptadmintable.EntityData.Children[types.GetSegmentPath(&rttmonscriptadmintable.Rttmonscriptadminentry[i])] = types.YChild{"Rttmonscriptadminentry", &rttmonscriptadmintable.Rttmonscriptadminentry[i]}
+    rttMonScriptAdminTable.EntityData.Children = types.NewOrderedMap()
+    rttMonScriptAdminTable.EntityData.Children.Append("rttMonScriptAdminEntry", types.YChild{"RttMonScriptAdminEntry", nil})
+    for i := range rttMonScriptAdminTable.RttMonScriptAdminEntry {
+        rttMonScriptAdminTable.EntityData.Children.Append(types.GetSegmentPath(rttMonScriptAdminTable.RttMonScriptAdminEntry[i]), types.YChild{"RttMonScriptAdminEntry", rttMonScriptAdminTable.RttMonScriptAdminEntry[i]})
     }
-    rttmonscriptadmintable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonscriptadmintable.EntityData)
+    rttMonScriptAdminTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonScriptAdminTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonScriptAdminTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry
+// CISCORTTMONMIB_RttMonScriptAdminTable_RttMonScriptAdminEntry
 // A list of objects that define specific configuration for
 // 'script' RttMonRttType conceptual Rtt control rows.
-type CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry struct {
+type CISCORTTMONMIB_RttMonScriptAdminTable_RttMonScriptAdminEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // cisco_rttmon_mib.CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrladminindex
-    Rttmonctrladminindex interface{}
+    // cisco_rttmon_mib.CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlAdminIndex
+    RttMonCtrlAdminIndex interface{}
 
     // This will be the Name of the Script that will be used to generate RTT
     // operations.    This object must match one of the  rttMonApplPreConfigedName
     // entries. The type is string.
-    Rttmonscriptadminname interface{}
+    RttMonScriptAdminName interface{}
 
     // This will be the actual command line parameters passed to the
     // rttMonScriptAdminName when being executed. The type is string.
-    Rttmonscriptadmincmdlineparams interface{}
+    RttMonScriptAdminCmdLineParams interface{}
 }
 
-func (rttmonscriptadminentry *CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry) GetEntityData() *types.CommonEntityData {
-    rttmonscriptadminentry.EntityData.YFilter = rttmonscriptadminentry.YFilter
-    rttmonscriptadminentry.EntityData.YangName = "rttMonScriptAdminEntry"
-    rttmonscriptadminentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonscriptadminentry.EntityData.ParentYangName = "rttMonScriptAdminTable"
-    rttmonscriptadminentry.EntityData.SegmentPath = "rttMonScriptAdminEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonscriptadminentry.Rttmonctrladminindex) + "']"
-    rttmonscriptadminentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonscriptadminentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonscriptadminentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonScriptAdminEntry *CISCORTTMONMIB_RttMonScriptAdminTable_RttMonScriptAdminEntry) GetEntityData() *types.CommonEntityData {
+    rttMonScriptAdminEntry.EntityData.YFilter = rttMonScriptAdminEntry.YFilter
+    rttMonScriptAdminEntry.EntityData.YangName = "rttMonScriptAdminEntry"
+    rttMonScriptAdminEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonScriptAdminEntry.EntityData.ParentYangName = "rttMonScriptAdminTable"
+    rttMonScriptAdminEntry.EntityData.SegmentPath = "rttMonScriptAdminEntry" + types.AddKeyToken(rttMonScriptAdminEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex")
+    rttMonScriptAdminEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonScriptAdminEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonScriptAdminEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonscriptadminentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonscriptadminentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonscriptadminentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonscriptadminentry.Rttmonctrladminindex}
-    rttmonscriptadminentry.EntityData.Leafs["rttMonScriptAdminName"] = types.YLeaf{"Rttmonscriptadminname", rttmonscriptadminentry.Rttmonscriptadminname}
-    rttmonscriptadminentry.EntityData.Leafs["rttMonScriptAdminCmdLineParams"] = types.YLeaf{"Rttmonscriptadmincmdlineparams", rttmonscriptadminentry.Rttmonscriptadmincmdlineparams}
-    return &(rttmonscriptadminentry.EntityData)
+    rttMonScriptAdminEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonScriptAdminEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonScriptAdminEntry.EntityData.Leafs.Append("rttMonCtrlAdminIndex", types.YLeaf{"RttMonCtrlAdminIndex", rttMonScriptAdminEntry.RttMonCtrlAdminIndex})
+    rttMonScriptAdminEntry.EntityData.Leafs.Append("rttMonScriptAdminName", types.YLeaf{"RttMonScriptAdminName", rttMonScriptAdminEntry.RttMonScriptAdminName})
+    rttMonScriptAdminEntry.EntityData.Leafs.Append("rttMonScriptAdminCmdLineParams", types.YLeaf{"RttMonScriptAdminCmdLineParams", rttMonScriptAdminEntry.RttMonScriptAdminCmdLineParams})
+
+    rttMonScriptAdminEntry.EntityData.YListKeys = []string {"RttMonCtrlAdminIndex"}
+
+    return &(rttMonScriptAdminEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonreacttriggeradmintable
+// CISCORTTMONMIB_RttMonReactTriggerAdminTable
 // A table of which contains the list of conceptual RTT
 // control rows that will start to collect data when a 
 // reaction condition is violated and when 
@@ -2526,46 +2580,49 @@ func (rttmonscriptadminentry *CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscript
 // it is not currently in a triggered state.  The
 // object rttMonReactTriggerOperState will 
 // reflect the state of each entry in this table.
-type CISCORTTMONMIB_Rttmonreacttriggeradmintable struct {
+type CISCORTTMONMIB_RttMonReactTriggerAdminTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects that will be triggered when a reaction condition is
     // violated. The type is slice of
-    // CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry.
-    Rttmonreacttriggeradminentry []CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry
+    // CISCORTTMONMIB_RttMonReactTriggerAdminTable_RttMonReactTriggerAdminEntry.
+    RttMonReactTriggerAdminEntry []*CISCORTTMONMIB_RttMonReactTriggerAdminTable_RttMonReactTriggerAdminEntry
 }
 
-func (rttmonreacttriggeradmintable *CISCORTTMONMIB_Rttmonreacttriggeradmintable) GetEntityData() *types.CommonEntityData {
-    rttmonreacttriggeradmintable.EntityData.YFilter = rttmonreacttriggeradmintable.YFilter
-    rttmonreacttriggeradmintable.EntityData.YangName = "rttMonReactTriggerAdminTable"
-    rttmonreacttriggeradmintable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonreacttriggeradmintable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonreacttriggeradmintable.EntityData.SegmentPath = "rttMonReactTriggerAdminTable"
-    rttmonreacttriggeradmintable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonreacttriggeradmintable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonreacttriggeradmintable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonReactTriggerAdminTable *CISCORTTMONMIB_RttMonReactTriggerAdminTable) GetEntityData() *types.CommonEntityData {
+    rttMonReactTriggerAdminTable.EntityData.YFilter = rttMonReactTriggerAdminTable.YFilter
+    rttMonReactTriggerAdminTable.EntityData.YangName = "rttMonReactTriggerAdminTable"
+    rttMonReactTriggerAdminTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonReactTriggerAdminTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonReactTriggerAdminTable.EntityData.SegmentPath = "rttMonReactTriggerAdminTable"
+    rttMonReactTriggerAdminTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonReactTriggerAdminTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonReactTriggerAdminTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonreacttriggeradmintable.EntityData.Children = make(map[string]types.YChild)
-    rttmonreacttriggeradmintable.EntityData.Children["rttMonReactTriggerAdminEntry"] = types.YChild{"Rttmonreacttriggeradminentry", nil}
-    for i := range rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry {
-        rttmonreacttriggeradmintable.EntityData.Children[types.GetSegmentPath(&rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry[i])] = types.YChild{"Rttmonreacttriggeradminentry", &rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry[i]}
+    rttMonReactTriggerAdminTable.EntityData.Children = types.NewOrderedMap()
+    rttMonReactTriggerAdminTable.EntityData.Children.Append("rttMonReactTriggerAdminEntry", types.YChild{"RttMonReactTriggerAdminEntry", nil})
+    for i := range rttMonReactTriggerAdminTable.RttMonReactTriggerAdminEntry {
+        rttMonReactTriggerAdminTable.EntityData.Children.Append(types.GetSegmentPath(rttMonReactTriggerAdminTable.RttMonReactTriggerAdminEntry[i]), types.YChild{"RttMonReactTriggerAdminEntry", rttMonReactTriggerAdminTable.RttMonReactTriggerAdminEntry[i]})
     }
-    rttmonreacttriggeradmintable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonreacttriggeradmintable.EntityData)
+    rttMonReactTriggerAdminTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonReactTriggerAdminTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonReactTriggerAdminTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry
+// CISCORTTMONMIB_RttMonReactTriggerAdminTable_RttMonReactTriggerAdminEntry
 // A list of objects that will be triggered when
 // a reaction condition is violated.
-type CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry struct {
+type CISCORTTMONMIB_RttMonReactTriggerAdminTable_RttMonReactTriggerAdminEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // cisco_rttmon_mib.CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrladminindex
-    Rttmonctrladminindex interface{}
+    // cisco_rttmon_mib.CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlAdminIndex
+    RttMonCtrlAdminIndex interface{}
 
     // This attribute is a key. This object points to a single conceptual Rtt
     // control row.  If this row does not exist and this value is  triggered no
@@ -2574,48 +2631,51 @@ type CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry st
     // already active, rttMonCtrlOperRttLife will not be updated, and its life
     // will continue as previously  defined. The type is interface{} with range:
     // 1..2147483647.
-    Rttmonreacttriggeradminrttmonctrladminindex interface{}
+    RttMonReactTriggerAdminRttMonCtrlAdminIndex interface{}
 
     // This object is used to create Trigger entries. The type is RowStatus.
-    Rttmonreacttriggeradminstatus interface{}
+    RttMonReactTriggerAdminStatus interface{}
 
     // This object takes on the value active when its associated entry in the 
     // rttMonReactTriggerAdminTable has been triggered.  When the associated entry
     // in the rttMonReactTriggerAdminTable is not under a trigger state, this
     // object will be pending.  When this object is in the active state this entry
-    // can not be retriggered. The type is Rttmonreacttriggeroperstate.
-    Rttmonreacttriggeroperstate interface{}
+    // can not be retriggered. The type is RttMonReactTriggerOperState.
+    RttMonReactTriggerOperState interface{}
 }
 
-func (rttmonreacttriggeradminentry *CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry) GetEntityData() *types.CommonEntityData {
-    rttmonreacttriggeradminentry.EntityData.YFilter = rttmonreacttriggeradminentry.YFilter
-    rttmonreacttriggeradminentry.EntityData.YangName = "rttMonReactTriggerAdminEntry"
-    rttmonreacttriggeradminentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonreacttriggeradminentry.EntityData.ParentYangName = "rttMonReactTriggerAdminTable"
-    rttmonreacttriggeradminentry.EntityData.SegmentPath = "rttMonReactTriggerAdminEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonreacttriggeradminentry.Rttmonctrladminindex) + "']" + "[rttMonReactTriggerAdminRttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonreacttriggeradminentry.Rttmonreacttriggeradminrttmonctrladminindex) + "']"
-    rttmonreacttriggeradminentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonreacttriggeradminentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonreacttriggeradminentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonReactTriggerAdminEntry *CISCORTTMONMIB_RttMonReactTriggerAdminTable_RttMonReactTriggerAdminEntry) GetEntityData() *types.CommonEntityData {
+    rttMonReactTriggerAdminEntry.EntityData.YFilter = rttMonReactTriggerAdminEntry.YFilter
+    rttMonReactTriggerAdminEntry.EntityData.YangName = "rttMonReactTriggerAdminEntry"
+    rttMonReactTriggerAdminEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonReactTriggerAdminEntry.EntityData.ParentYangName = "rttMonReactTriggerAdminTable"
+    rttMonReactTriggerAdminEntry.EntityData.SegmentPath = "rttMonReactTriggerAdminEntry" + types.AddKeyToken(rttMonReactTriggerAdminEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonReactTriggerAdminEntry.RttMonReactTriggerAdminRttMonCtrlAdminIndex, "rttMonReactTriggerAdminRttMonCtrlAdminIndex")
+    rttMonReactTriggerAdminEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonReactTriggerAdminEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonReactTriggerAdminEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonreacttriggeradminentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonreacttriggeradminentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonreacttriggeradminentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonreacttriggeradminentry.Rttmonctrladminindex}
-    rttmonreacttriggeradminentry.EntityData.Leafs["rttMonReactTriggerAdminRttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonreacttriggeradminrttmonctrladminindex", rttmonreacttriggeradminentry.Rttmonreacttriggeradminrttmonctrladminindex}
-    rttmonreacttriggeradminentry.EntityData.Leafs["rttMonReactTriggerAdminStatus"] = types.YLeaf{"Rttmonreacttriggeradminstatus", rttmonreacttriggeradminentry.Rttmonreacttriggeradminstatus}
-    rttmonreacttriggeradminentry.EntityData.Leafs["rttMonReactTriggerOperState"] = types.YLeaf{"Rttmonreacttriggeroperstate", rttmonreacttriggeradminentry.Rttmonreacttriggeroperstate}
-    return &(rttmonreacttriggeradminentry.EntityData)
+    rttMonReactTriggerAdminEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonReactTriggerAdminEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonReactTriggerAdminEntry.EntityData.Leafs.Append("rttMonCtrlAdminIndex", types.YLeaf{"RttMonCtrlAdminIndex", rttMonReactTriggerAdminEntry.RttMonCtrlAdminIndex})
+    rttMonReactTriggerAdminEntry.EntityData.Leafs.Append("rttMonReactTriggerAdminRttMonCtrlAdminIndex", types.YLeaf{"RttMonReactTriggerAdminRttMonCtrlAdminIndex", rttMonReactTriggerAdminEntry.RttMonReactTriggerAdminRttMonCtrlAdminIndex})
+    rttMonReactTriggerAdminEntry.EntityData.Leafs.Append("rttMonReactTriggerAdminStatus", types.YLeaf{"RttMonReactTriggerAdminStatus", rttMonReactTriggerAdminEntry.RttMonReactTriggerAdminStatus})
+    rttMonReactTriggerAdminEntry.EntityData.Leafs.Append("rttMonReactTriggerOperState", types.YLeaf{"RttMonReactTriggerOperState", rttMonReactTriggerAdminEntry.RttMonReactTriggerOperState})
+
+    rttMonReactTriggerAdminEntry.EntityData.YListKeys = []string {"RttMonCtrlAdminIndex", "RttMonReactTriggerAdminRttMonCtrlAdminIndex"}
+
+    return &(rttMonReactTriggerAdminEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry_Rttmonreacttriggeroperstate represents this entry can not be retriggered.
-type CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry_Rttmonreacttriggeroperstate string
+// CISCORTTMONMIB_RttMonReactTriggerAdminTable_RttMonReactTriggerAdminEntry_RttMonReactTriggerOperState represents this entry can not be retriggered.
+type CISCORTTMONMIB_RttMonReactTriggerAdminTable_RttMonReactTriggerAdminEntry_RttMonReactTriggerOperState string
 
 const (
-    CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry_Rttmonreacttriggeroperstate_active CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry_Rttmonreacttriggeroperstate = "active"
+    CISCORTTMONMIB_RttMonReactTriggerAdminTable_RttMonReactTriggerAdminEntry_RttMonReactTriggerOperState_active CISCORTTMONMIB_RttMonReactTriggerAdminTable_RttMonReactTriggerAdminEntry_RttMonReactTriggerOperState = "active"
 
-    CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry_Rttmonreacttriggeroperstate_pending CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry_Rttmonreacttriggeroperstate = "pending"
+    CISCORTTMONMIB_RttMonReactTriggerAdminTable_RttMonReactTriggerAdminEntry_RttMonReactTriggerOperState_pending CISCORTTMONMIB_RttMonReactTriggerAdminTable_RttMonReactTriggerAdminEntry_RttMonReactTriggerOperState = "pending"
 )
 
-// CISCORTTMONMIB_Rttmonechopathadmintable
+// CISCORTTMONMIB_RttMonEchoPathAdminTable
 // A table to store the hop addresses in a Loose Source Routing
 // path. Response times are computed along the specified path
 // using ping.
@@ -2626,7 +2686,7 @@ const (
 // this tables maximum number of entries.
 // 
 // This table is coupled with rttMonCtrlAdminStatus.
-type CISCORTTMONMIB_Rttmonechopathadmintable struct {
+type CISCORTTMONMIB_RttMonEchoPathAdminTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2634,43 +2694,46 @@ type CISCORTTMONMIB_Rttmonechopathadmintable struct {
     // can be added only if the rttMonCtrlAdminRttType is 'echo'. The entry gets
     // deleted when the corresponding RTR entry, which has an index of
     // rttMonCtrlAdminIndex, is deleted. The type is slice of
-    // CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry.
-    Rttmonechopathadminentry []CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry
+    // CISCORTTMONMIB_RttMonEchoPathAdminTable_RttMonEchoPathAdminEntry.
+    RttMonEchoPathAdminEntry []*CISCORTTMONMIB_RttMonEchoPathAdminTable_RttMonEchoPathAdminEntry
 }
 
-func (rttmonechopathadmintable *CISCORTTMONMIB_Rttmonechopathadmintable) GetEntityData() *types.CommonEntityData {
-    rttmonechopathadmintable.EntityData.YFilter = rttmonechopathadmintable.YFilter
-    rttmonechopathadmintable.EntityData.YangName = "rttMonEchoPathAdminTable"
-    rttmonechopathadmintable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonechopathadmintable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonechopathadmintable.EntityData.SegmentPath = "rttMonEchoPathAdminTable"
-    rttmonechopathadmintable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonechopathadmintable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonechopathadmintable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonEchoPathAdminTable *CISCORTTMONMIB_RttMonEchoPathAdminTable) GetEntityData() *types.CommonEntityData {
+    rttMonEchoPathAdminTable.EntityData.YFilter = rttMonEchoPathAdminTable.YFilter
+    rttMonEchoPathAdminTable.EntityData.YangName = "rttMonEchoPathAdminTable"
+    rttMonEchoPathAdminTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonEchoPathAdminTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonEchoPathAdminTable.EntityData.SegmentPath = "rttMonEchoPathAdminTable"
+    rttMonEchoPathAdminTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonEchoPathAdminTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonEchoPathAdminTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonechopathadmintable.EntityData.Children = make(map[string]types.YChild)
-    rttmonechopathadmintable.EntityData.Children["rttMonEchoPathAdminEntry"] = types.YChild{"Rttmonechopathadminentry", nil}
-    for i := range rttmonechopathadmintable.Rttmonechopathadminentry {
-        rttmonechopathadmintable.EntityData.Children[types.GetSegmentPath(&rttmonechopathadmintable.Rttmonechopathadminentry[i])] = types.YChild{"Rttmonechopathadminentry", &rttmonechopathadmintable.Rttmonechopathadminentry[i]}
+    rttMonEchoPathAdminTable.EntityData.Children = types.NewOrderedMap()
+    rttMonEchoPathAdminTable.EntityData.Children.Append("rttMonEchoPathAdminEntry", types.YChild{"RttMonEchoPathAdminEntry", nil})
+    for i := range rttMonEchoPathAdminTable.RttMonEchoPathAdminEntry {
+        rttMonEchoPathAdminTable.EntityData.Children.Append(types.GetSegmentPath(rttMonEchoPathAdminTable.RttMonEchoPathAdminEntry[i]), types.YChild{"RttMonEchoPathAdminEntry", rttMonEchoPathAdminTable.RttMonEchoPathAdminEntry[i]})
     }
-    rttmonechopathadmintable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonechopathadmintable.EntityData)
+    rttMonEchoPathAdminTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonEchoPathAdminTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonEchoPathAdminTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry
+// CISCORTTMONMIB_RttMonEchoPathAdminTable_RttMonEchoPathAdminEntry
 // A list of objects that define intermediate hop's IP Address.
 // 
 // This entry can be added only if the rttMonCtrlAdminRttType is
 // 'echo'. The entry gets deleted when the corresponding RTR entry,
 // which has an index of rttMonCtrlAdminIndex, is deleted.
-type CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry struct {
+type CISCORTTMONMIB_RttMonEchoPathAdminTable_RttMonEchoPathAdminEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // cisco_rttmon_mib.CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrladminindex
-    Rttmonctrladminindex interface{}
+    // cisco_rttmon_mib.CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlAdminIndex
+    RttMonCtrlAdminIndex interface{}
 
     // This attribute is a key. Uniquely identifies a row in the
     // rttMonEchoPathAdminTable. This number represents the hop address number in
@@ -2678,32 +2741,35 @@ type CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry struct {
     // contiguous ie., entries should be  (say rttMonCtrlAdminIndex = 1)  1.1,
     // 1.2, 1.3, they cannot be 1.1, 1.2, 1.4. The type is interface{} with range:
     // 1..8.
-    Rttmonechopathadminhopindex interface{}
+    RttMonEchoPathAdminHopIndex interface{}
 
     // A string which specifies the address of an intermediate hop's IP Address
     // for a RTT 'echo' operation. The type is string.
-    Rttmonechopathadminhopaddress interface{}
+    RttMonEchoPathAdminHopAddress interface{}
 }
 
-func (rttmonechopathadminentry *CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry) GetEntityData() *types.CommonEntityData {
-    rttmonechopathadminentry.EntityData.YFilter = rttmonechopathadminentry.YFilter
-    rttmonechopathadminentry.EntityData.YangName = "rttMonEchoPathAdminEntry"
-    rttmonechopathadminentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonechopathadminentry.EntityData.ParentYangName = "rttMonEchoPathAdminTable"
-    rttmonechopathadminentry.EntityData.SegmentPath = "rttMonEchoPathAdminEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonechopathadminentry.Rttmonctrladminindex) + "']" + "[rttMonEchoPathAdminHopIndex='" + fmt.Sprintf("%v", rttmonechopathadminentry.Rttmonechopathadminhopindex) + "']"
-    rttmonechopathadminentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonechopathadminentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonechopathadminentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonEchoPathAdminEntry *CISCORTTMONMIB_RttMonEchoPathAdminTable_RttMonEchoPathAdminEntry) GetEntityData() *types.CommonEntityData {
+    rttMonEchoPathAdminEntry.EntityData.YFilter = rttMonEchoPathAdminEntry.YFilter
+    rttMonEchoPathAdminEntry.EntityData.YangName = "rttMonEchoPathAdminEntry"
+    rttMonEchoPathAdminEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonEchoPathAdminEntry.EntityData.ParentYangName = "rttMonEchoPathAdminTable"
+    rttMonEchoPathAdminEntry.EntityData.SegmentPath = "rttMonEchoPathAdminEntry" + types.AddKeyToken(rttMonEchoPathAdminEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonEchoPathAdminEntry.RttMonEchoPathAdminHopIndex, "rttMonEchoPathAdminHopIndex")
+    rttMonEchoPathAdminEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonEchoPathAdminEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonEchoPathAdminEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonechopathadminentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonechopathadminentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonechopathadminentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonechopathadminentry.Rttmonctrladminindex}
-    rttmonechopathadminentry.EntityData.Leafs["rttMonEchoPathAdminHopIndex"] = types.YLeaf{"Rttmonechopathadminhopindex", rttmonechopathadminentry.Rttmonechopathadminhopindex}
-    rttmonechopathadminentry.EntityData.Leafs["rttMonEchoPathAdminHopAddress"] = types.YLeaf{"Rttmonechopathadminhopaddress", rttmonechopathadminentry.Rttmonechopathadminhopaddress}
-    return &(rttmonechopathadminentry.EntityData)
+    rttMonEchoPathAdminEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonEchoPathAdminEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonEchoPathAdminEntry.EntityData.Leafs.Append("rttMonCtrlAdminIndex", types.YLeaf{"RttMonCtrlAdminIndex", rttMonEchoPathAdminEntry.RttMonCtrlAdminIndex})
+    rttMonEchoPathAdminEntry.EntityData.Leafs.Append("rttMonEchoPathAdminHopIndex", types.YLeaf{"RttMonEchoPathAdminHopIndex", rttMonEchoPathAdminEntry.RttMonEchoPathAdminHopIndex})
+    rttMonEchoPathAdminEntry.EntityData.Leafs.Append("rttMonEchoPathAdminHopAddress", types.YLeaf{"RttMonEchoPathAdminHopAddress", rttMonEchoPathAdminEntry.RttMonEchoPathAdminHopAddress})
+
+    rttMonEchoPathAdminEntry.EntityData.YListKeys = []string {"RttMonCtrlAdminIndex", "RttMonEchoPathAdminHopIndex"}
+
+    return &(rttMonEchoPathAdminEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmongrpscheduleadmintable
+// CISCORTTMONMIB_RttMonGrpScheduleAdminTable
 // A table of Round Trip Time (RTT) monitoring group scheduling
 // specific definitions.
 // This table is used to create a conceptual group scheduling
@@ -2713,39 +2779,42 @@ func (rttmonechopathadminentry *CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonec
 // The objects of this table will be used to schedule a group of
 // probes identified by the conceptual rows of the
 // rttMonCtrlAdminTable.
-type CISCORTTMONMIB_Rttmongrpscheduleadmintable struct {
+type CISCORTTMONMIB_RttMonGrpScheduleAdminTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects that define a conceptual group scheduling control row.
     // The type is slice of
-    // CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry.
-    Rttmongrpscheduleadminentry []CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry
+    // CISCORTTMONMIB_RttMonGrpScheduleAdminTable_RttMonGrpScheduleAdminEntry.
+    RttMonGrpScheduleAdminEntry []*CISCORTTMONMIB_RttMonGrpScheduleAdminTable_RttMonGrpScheduleAdminEntry
 }
 
-func (rttmongrpscheduleadmintable *CISCORTTMONMIB_Rttmongrpscheduleadmintable) GetEntityData() *types.CommonEntityData {
-    rttmongrpscheduleadmintable.EntityData.YFilter = rttmongrpscheduleadmintable.YFilter
-    rttmongrpscheduleadmintable.EntityData.YangName = "rttMonGrpScheduleAdminTable"
-    rttmongrpscheduleadmintable.EntityData.BundleName = "cisco_ios_xe"
-    rttmongrpscheduleadmintable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmongrpscheduleadmintable.EntityData.SegmentPath = "rttMonGrpScheduleAdminTable"
-    rttmongrpscheduleadmintable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmongrpscheduleadmintable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmongrpscheduleadmintable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonGrpScheduleAdminTable *CISCORTTMONMIB_RttMonGrpScheduleAdminTable) GetEntityData() *types.CommonEntityData {
+    rttMonGrpScheduleAdminTable.EntityData.YFilter = rttMonGrpScheduleAdminTable.YFilter
+    rttMonGrpScheduleAdminTable.EntityData.YangName = "rttMonGrpScheduleAdminTable"
+    rttMonGrpScheduleAdminTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonGrpScheduleAdminTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonGrpScheduleAdminTable.EntityData.SegmentPath = "rttMonGrpScheduleAdminTable"
+    rttMonGrpScheduleAdminTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonGrpScheduleAdminTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonGrpScheduleAdminTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmongrpscheduleadmintable.EntityData.Children = make(map[string]types.YChild)
-    rttmongrpscheduleadmintable.EntityData.Children["rttMonGrpScheduleAdminEntry"] = types.YChild{"Rttmongrpscheduleadminentry", nil}
-    for i := range rttmongrpscheduleadmintable.Rttmongrpscheduleadminentry {
-        rttmongrpscheduleadmintable.EntityData.Children[types.GetSegmentPath(&rttmongrpscheduleadmintable.Rttmongrpscheduleadminentry[i])] = types.YChild{"Rttmongrpscheduleadminentry", &rttmongrpscheduleadmintable.Rttmongrpscheduleadminentry[i]}
+    rttMonGrpScheduleAdminTable.EntityData.Children = types.NewOrderedMap()
+    rttMonGrpScheduleAdminTable.EntityData.Children.Append("rttMonGrpScheduleAdminEntry", types.YChild{"RttMonGrpScheduleAdminEntry", nil})
+    for i := range rttMonGrpScheduleAdminTable.RttMonGrpScheduleAdminEntry {
+        rttMonGrpScheduleAdminTable.EntityData.Children.Append(types.GetSegmentPath(rttMonGrpScheduleAdminTable.RttMonGrpScheduleAdminEntry[i]), types.YChild{"RttMonGrpScheduleAdminEntry", rttMonGrpScheduleAdminTable.RttMonGrpScheduleAdminEntry[i]})
     }
-    rttmongrpscheduleadmintable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmongrpscheduleadmintable.EntityData)
+    rttMonGrpScheduleAdminTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonGrpScheduleAdminTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonGrpScheduleAdminTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry
+// CISCORTTMONMIB_RttMonGrpScheduleAdminTable_RttMonGrpScheduleAdminEntry
 // A list of objects that define a conceptual group scheduling
 // control row.
-type CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry struct {
+type CISCORTTMONMIB_RttMonGrpScheduleAdminTable_RttMonGrpScheduleAdminEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2755,7 +2824,7 @@ type CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry stru
     // rttMonGrpScheduleAdminStatus object. If the pseudo-random number is already
     // in use an 'inconsistentValue' return code will be returned when set
     // operation is attempted. The type is interface{} with range: 1..2147483647.
-    Rttmongrpscheduleadminindex interface{}
+    RttMonGrpScheduleAdminIndex interface{}
 
     // A string which holds the different probes which are to be group scheduled.
     // The probes can be specified in the following forms. (a) Individual ID's
@@ -2768,18 +2837,18 @@ type CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry stru
     // it's treated as an error. The agent will not normalize the list e.g., it
     // will not change 1,2,1-10 or even 1,2,3,4,5,6.. to 1-10. The type is string
     // with length: 0..200.
-    Rttmongrpscheduleadminprobes interface{}
+    RttMonGrpScheduleAdminProbes interface{}
 
     // Specifies the time duration over which all the probes have to be scheduled.
     // The type is interface{} with range: 0..604800. Units are seconds.
-    Rttmongrpscheduleadminperiod interface{}
+    RttMonGrpScheduleAdminPeriod interface{}
 
     // Specifies the duration between initiating each RTT operation for all the
     // probes specified in the group.  The value of this object is only effective
     // when both rttMonGrpScheduleAdminFreqMax and rttMonGrpScheduleAdminFreqMin 
     // have zero values. The type is interface{} with range: 0..604800. Units are
     // seconds.
-    Rttmongrpscheduleadminfrequency interface{}
+    RttMonGrpScheduleAdminFrequency interface{}
 
     // This object specifies the life of all the probes included in the object
     // rttMonGrpScheduleAdminProbes, that are getting group scheduled. This value
@@ -2790,7 +2859,7 @@ type CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry stru
     // the probes listed in rttMonGrpScheduleAdminProbes,  will not decrement. And
     // thus the life time of the probes will never end. The type is interface{}
     // with range: 0..2147483647. Units are seconds.
-    Rttmongrpscheduleadminlife interface{}
+    RttMonGrpScheduleAdminLife interface{}
 
     // This object specifies the ageout value of all the probes included in the
     // object rttMonGrpScheduleAdminProbes, that are getting group scheduled. This
@@ -2799,7 +2868,7 @@ type CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry stru
     // conceptual control row becomes 'active'.  When this value is set to zero,
     // the probes listed in rttMonGrpScheduleAdminProbes, will never ageout. The
     // type is interface{} with range: 0..2073600. Units are seconds.
-    Rttmongrpscheduleadminageout interface{}
+    RttMonGrpScheduleAdminAgeout interface{}
 
     // The status of the conceptual RTT group schedule control row.  In order for
     // this object to become active, the following row objects must be defined:  -
@@ -2814,14 +2883,14 @@ type CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry stru
     // it will stop all the probes of the rttMonCtrlAdminTable, which had been
     // group scheduled by it earlier, before destroying the RTT group schedule
     // control row. The type is RowStatus.
-    Rttmongrpscheduleadminstatus interface{}
+    RttMonGrpScheduleAdminStatus interface{}
 
     // Specifies the max duration between initiating each RTT operation for all
     // the probes specified in the group.  If this is 0 and
     // rttMonGrpScheduleAdminFreqMin is also 0 then
     // rttMonGrpScheduleAdminFrequency becomes the fixed frequency. The type is
     // interface{} with range: 0..604800. Units are seconds.
-    Rttmongrpscheduleadminfreqmax interface{}
+    RttMonGrpScheduleAdminFreqMax interface{}
 
     // Specifies the min duration between initiating each RTT operation for all
     // the probes specified in the group.  The value of this object cannot be
@@ -2829,60 +2898,63 @@ type CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry stru
     // rttMonGrpScheduleAdminFreqMax is 0 then rttMonGrpScheduleAdminFrequency
     // becomes the fixed frequency. The type is interface{} with range: 0..604800.
     // Units are seconds.
-    Rttmongrpscheduleadminfreqmin interface{}
+    RttMonGrpScheduleAdminFreqMin interface{}
 
     // This is the time in seconds after which the member probes of this group
     // specified in rttMonGrpScheduleAdminProbes will transition to active state.
     // The type is interface{} with range: 0..604800. Units are seconds.
-    Rttmongrpscheduleadminstarttime interface{}
+    RttMonGrpScheduleAdminStartTime interface{}
 
     // Addition of members to an existing group will be allowed if this object is
     // set to TRUE (1). The members, IDs of which are mentioned in
     // rttMonGrpScheduleAdminProbes object are added to the existing group. The
     // type is bool.
-    Rttmongrpscheduleadminadd interface{}
+    RttMonGrpScheduleAdminAdd interface{}
 
     // Removal of members from an existing group will be allowed if this object is
     // set to TRUE (1). The members, IDs of which are mentioned in
     // rttMonGrpScheduleAdminProbes object are removed from the existing group.
     // The type is bool.
-    Rttmongrpscheduleadmindelete interface{}
+    RttMonGrpScheduleAdminDelete interface{}
 
     // When this is set to true then all members of this group will be stopped and
     // rescheduled using the previously set values of this group. The type is
     // bool.
-    Rttmongrpscheduleadminreset interface{}
+    RttMonGrpScheduleAdminReset interface{}
 }
 
-func (rttmongrpscheduleadminentry *CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry) GetEntityData() *types.CommonEntityData {
-    rttmongrpscheduleadminentry.EntityData.YFilter = rttmongrpscheduleadminentry.YFilter
-    rttmongrpscheduleadminentry.EntityData.YangName = "rttMonGrpScheduleAdminEntry"
-    rttmongrpscheduleadminentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmongrpscheduleadminentry.EntityData.ParentYangName = "rttMonGrpScheduleAdminTable"
-    rttmongrpscheduleadminentry.EntityData.SegmentPath = "rttMonGrpScheduleAdminEntry" + "[rttMonGrpScheduleAdminIndex='" + fmt.Sprintf("%v", rttmongrpscheduleadminentry.Rttmongrpscheduleadminindex) + "']"
-    rttmongrpscheduleadminentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmongrpscheduleadminentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmongrpscheduleadminentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonGrpScheduleAdminEntry *CISCORTTMONMIB_RttMonGrpScheduleAdminTable_RttMonGrpScheduleAdminEntry) GetEntityData() *types.CommonEntityData {
+    rttMonGrpScheduleAdminEntry.EntityData.YFilter = rttMonGrpScheduleAdminEntry.YFilter
+    rttMonGrpScheduleAdminEntry.EntityData.YangName = "rttMonGrpScheduleAdminEntry"
+    rttMonGrpScheduleAdminEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonGrpScheduleAdminEntry.EntityData.ParentYangName = "rttMonGrpScheduleAdminTable"
+    rttMonGrpScheduleAdminEntry.EntityData.SegmentPath = "rttMonGrpScheduleAdminEntry" + types.AddKeyToken(rttMonGrpScheduleAdminEntry.RttMonGrpScheduleAdminIndex, "rttMonGrpScheduleAdminIndex")
+    rttMonGrpScheduleAdminEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonGrpScheduleAdminEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonGrpScheduleAdminEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmongrpscheduleadminentry.EntityData.Children = make(map[string]types.YChild)
-    rttmongrpscheduleadminentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminIndex"] = types.YLeaf{"Rttmongrpscheduleadminindex", rttmongrpscheduleadminentry.Rttmongrpscheduleadminindex}
-    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminProbes"] = types.YLeaf{"Rttmongrpscheduleadminprobes", rttmongrpscheduleadminentry.Rttmongrpscheduleadminprobes}
-    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminPeriod"] = types.YLeaf{"Rttmongrpscheduleadminperiod", rttmongrpscheduleadminentry.Rttmongrpscheduleadminperiod}
-    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminFrequency"] = types.YLeaf{"Rttmongrpscheduleadminfrequency", rttmongrpscheduleadminentry.Rttmongrpscheduleadminfrequency}
-    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminLife"] = types.YLeaf{"Rttmongrpscheduleadminlife", rttmongrpscheduleadminentry.Rttmongrpscheduleadminlife}
-    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminAgeout"] = types.YLeaf{"Rttmongrpscheduleadminageout", rttmongrpscheduleadminentry.Rttmongrpscheduleadminageout}
-    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminStatus"] = types.YLeaf{"Rttmongrpscheduleadminstatus", rttmongrpscheduleadminentry.Rttmongrpscheduleadminstatus}
-    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminFreqMax"] = types.YLeaf{"Rttmongrpscheduleadminfreqmax", rttmongrpscheduleadminentry.Rttmongrpscheduleadminfreqmax}
-    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminFreqMin"] = types.YLeaf{"Rttmongrpscheduleadminfreqmin", rttmongrpscheduleadminentry.Rttmongrpscheduleadminfreqmin}
-    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminStartTime"] = types.YLeaf{"Rttmongrpscheduleadminstarttime", rttmongrpscheduleadminentry.Rttmongrpscheduleadminstarttime}
-    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminAdd"] = types.YLeaf{"Rttmongrpscheduleadminadd", rttmongrpscheduleadminentry.Rttmongrpscheduleadminadd}
-    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminDelete"] = types.YLeaf{"Rttmongrpscheduleadmindelete", rttmongrpscheduleadminentry.Rttmongrpscheduleadmindelete}
-    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminReset"] = types.YLeaf{"Rttmongrpscheduleadminreset", rttmongrpscheduleadminentry.Rttmongrpscheduleadminreset}
-    return &(rttmongrpscheduleadminentry.EntityData)
+    rttMonGrpScheduleAdminEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonGrpScheduleAdminEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonGrpScheduleAdminEntry.EntityData.Leafs.Append("rttMonGrpScheduleAdminIndex", types.YLeaf{"RttMonGrpScheduleAdminIndex", rttMonGrpScheduleAdminEntry.RttMonGrpScheduleAdminIndex})
+    rttMonGrpScheduleAdminEntry.EntityData.Leafs.Append("rttMonGrpScheduleAdminProbes", types.YLeaf{"RttMonGrpScheduleAdminProbes", rttMonGrpScheduleAdminEntry.RttMonGrpScheduleAdminProbes})
+    rttMonGrpScheduleAdminEntry.EntityData.Leafs.Append("rttMonGrpScheduleAdminPeriod", types.YLeaf{"RttMonGrpScheduleAdminPeriod", rttMonGrpScheduleAdminEntry.RttMonGrpScheduleAdminPeriod})
+    rttMonGrpScheduleAdminEntry.EntityData.Leafs.Append("rttMonGrpScheduleAdminFrequency", types.YLeaf{"RttMonGrpScheduleAdminFrequency", rttMonGrpScheduleAdminEntry.RttMonGrpScheduleAdminFrequency})
+    rttMonGrpScheduleAdminEntry.EntityData.Leafs.Append("rttMonGrpScheduleAdminLife", types.YLeaf{"RttMonGrpScheduleAdminLife", rttMonGrpScheduleAdminEntry.RttMonGrpScheduleAdminLife})
+    rttMonGrpScheduleAdminEntry.EntityData.Leafs.Append("rttMonGrpScheduleAdminAgeout", types.YLeaf{"RttMonGrpScheduleAdminAgeout", rttMonGrpScheduleAdminEntry.RttMonGrpScheduleAdminAgeout})
+    rttMonGrpScheduleAdminEntry.EntityData.Leafs.Append("rttMonGrpScheduleAdminStatus", types.YLeaf{"RttMonGrpScheduleAdminStatus", rttMonGrpScheduleAdminEntry.RttMonGrpScheduleAdminStatus})
+    rttMonGrpScheduleAdminEntry.EntityData.Leafs.Append("rttMonGrpScheduleAdminFreqMax", types.YLeaf{"RttMonGrpScheduleAdminFreqMax", rttMonGrpScheduleAdminEntry.RttMonGrpScheduleAdminFreqMax})
+    rttMonGrpScheduleAdminEntry.EntityData.Leafs.Append("rttMonGrpScheduleAdminFreqMin", types.YLeaf{"RttMonGrpScheduleAdminFreqMin", rttMonGrpScheduleAdminEntry.RttMonGrpScheduleAdminFreqMin})
+    rttMonGrpScheduleAdminEntry.EntityData.Leafs.Append("rttMonGrpScheduleAdminStartTime", types.YLeaf{"RttMonGrpScheduleAdminStartTime", rttMonGrpScheduleAdminEntry.RttMonGrpScheduleAdminStartTime})
+    rttMonGrpScheduleAdminEntry.EntityData.Leafs.Append("rttMonGrpScheduleAdminAdd", types.YLeaf{"RttMonGrpScheduleAdminAdd", rttMonGrpScheduleAdminEntry.RttMonGrpScheduleAdminAdd})
+    rttMonGrpScheduleAdminEntry.EntityData.Leafs.Append("rttMonGrpScheduleAdminDelete", types.YLeaf{"RttMonGrpScheduleAdminDelete", rttMonGrpScheduleAdminEntry.RttMonGrpScheduleAdminDelete})
+    rttMonGrpScheduleAdminEntry.EntityData.Leafs.Append("rttMonGrpScheduleAdminReset", types.YLeaf{"RttMonGrpScheduleAdminReset", rttMonGrpScheduleAdminEntry.RttMonGrpScheduleAdminReset})
+
+    rttMonGrpScheduleAdminEntry.EntityData.YListKeys = []string {"RttMonGrpScheduleAdminIndex"}
+
+    return &(rttMonGrpScheduleAdminEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmplsvpnmonctrltable
+// CISCORTTMONMIB_RttMplsVpnMonCtrlTable
 // A table of Auto SAA L3 MPLS VPN definitions.
 // 
 // The Auto SAA L3 MPLS VPN administration control is in multiple
@@ -2900,39 +2972,42 @@ func (rttmongrpscheduleadminentry *CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rt
 //   rttMplsVpnMonCtrlRttType,
 //   rttMplsVpnMonCtrlVrfName and
 //   rttMplsVpnMonSchedulePeriod.
-type CISCORTTMONMIB_Rttmplsvpnmonctrltable struct {
+type CISCORTTMONMIB_RttMplsVpnMonCtrlTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A base list of objects that define a conceptual Auto SAA L3 MPLS VPN
     // control row. The type is slice of
-    // CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry.
-    Rttmplsvpnmonctrlentry []CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry
+    // CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry.
+    RttMplsVpnMonCtrlEntry []*CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry
 }
 
-func (rttmplsvpnmonctrltable *CISCORTTMONMIB_Rttmplsvpnmonctrltable) GetEntityData() *types.CommonEntityData {
-    rttmplsvpnmonctrltable.EntityData.YFilter = rttmplsvpnmonctrltable.YFilter
-    rttmplsvpnmonctrltable.EntityData.YangName = "rttMplsVpnMonCtrlTable"
-    rttmplsvpnmonctrltable.EntityData.BundleName = "cisco_ios_xe"
-    rttmplsvpnmonctrltable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmplsvpnmonctrltable.EntityData.SegmentPath = "rttMplsVpnMonCtrlTable"
-    rttmplsvpnmonctrltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmplsvpnmonctrltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmplsvpnmonctrltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMplsVpnMonCtrlTable *CISCORTTMONMIB_RttMplsVpnMonCtrlTable) GetEntityData() *types.CommonEntityData {
+    rttMplsVpnMonCtrlTable.EntityData.YFilter = rttMplsVpnMonCtrlTable.YFilter
+    rttMplsVpnMonCtrlTable.EntityData.YangName = "rttMplsVpnMonCtrlTable"
+    rttMplsVpnMonCtrlTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMplsVpnMonCtrlTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMplsVpnMonCtrlTable.EntityData.SegmentPath = "rttMplsVpnMonCtrlTable"
+    rttMplsVpnMonCtrlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMplsVpnMonCtrlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMplsVpnMonCtrlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmplsvpnmonctrltable.EntityData.Children = make(map[string]types.YChild)
-    rttmplsvpnmonctrltable.EntityData.Children["rttMplsVpnMonCtrlEntry"] = types.YChild{"Rttmplsvpnmonctrlentry", nil}
-    for i := range rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry {
-        rttmplsvpnmonctrltable.EntityData.Children[types.GetSegmentPath(&rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry[i])] = types.YChild{"Rttmplsvpnmonctrlentry", &rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry[i]}
+    rttMplsVpnMonCtrlTable.EntityData.Children = types.NewOrderedMap()
+    rttMplsVpnMonCtrlTable.EntityData.Children.Append("rttMplsVpnMonCtrlEntry", types.YChild{"RttMplsVpnMonCtrlEntry", nil})
+    for i := range rttMplsVpnMonCtrlTable.RttMplsVpnMonCtrlEntry {
+        rttMplsVpnMonCtrlTable.EntityData.Children.Append(types.GetSegmentPath(rttMplsVpnMonCtrlTable.RttMplsVpnMonCtrlEntry[i]), types.YChild{"RttMplsVpnMonCtrlEntry", rttMplsVpnMonCtrlTable.RttMplsVpnMonCtrlEntry[i]})
     }
-    rttmplsvpnmonctrltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmplsvpnmonctrltable.EntityData)
+    rttMplsVpnMonCtrlTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMplsVpnMonCtrlTable.EntityData.YListKeys = []string {}
+
+    return &(rttMplsVpnMonCtrlTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry
+// CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry
 // A base list of objects that define a conceptual Auto SAA L3
 // MPLS VPN control row.
-type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
+type CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2942,13 +3017,13 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // object.  If the pseudo-random number is already in use an
     // 'inconsistentValue' return code will be returned when set operation is
     // attempted. The type is interface{} with range: 1..2147483647.
-    Rttmplsvpnmonctrlindex interface{}
+    RttMplsVpnMonCtrlIndex interface{}
 
     // The type of RTT operation to be performed for Auto SAA L3 MPLS VPN.  This
     // value must be set in the same PDU of rttMplsVpnMonCtrlStatus.  This value
     // must be set before setting any other parameter configuration of an Auto SAA
     // L3 MPLS VPN. The type is RttMplsVpnMonRttType.
-    Rttmplsvpnmonctrlrtttype interface{}
+    RttMplsVpnMonCtrlRttType interface{}
 
     // This field is used to specify the VPN name for which the Auto SAA L3 MPLS
     // VPN RTT operation will be used.  This value must be set in the same PDU of
@@ -2963,21 +3038,21 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // those operations.  So, the user should avoid using this string for a
     // particular VPN name when using this feature in order to avoid ambiguity.
     // The type is string with length: 0..32.
-    Rttmplsvpnmonctrlvrfname interface{}
+    RttMplsVpnMonCtrlVrfName interface{}
 
     // A string which is used by a managing application to identify the RTT
     // target.  This string will be configured as rttMonCtrlAdminTag for all the
     // operations configured by this Auto SAA L3 MPLS VPN.  The usage of this
     // value in Auto SAA L3 MPLS VPN is same as rttMonCtrlAdminTag in RTT
     // operation. The type is string with length: 0..255.
-    Rttmplsvpnmonctrltag interface{}
+    RttMplsVpnMonCtrlTag interface{}
 
     // This object defines an administrative threshold limit.  This value will be
     // configured as rttMonCtrlAdminThreshold for all the operations that will be
     // configured by the current Auto SAA L3 MPLS VPN.  The usage of this value in
     // Auto SAA L3 MPLS VPN is same as rttMonCtrlAdminThreshold. The type is
     // interface{} with range: 0..2147483647. Units are milliseconds.
-    Rttmplsvpnmonctrlthreshold interface{}
+    RttMplsVpnMonCtrlThreshold interface{}
 
     // Specifies the duration to wait for a RTT operation configured automatically
     // by the Auto SAA L3 MPLS VPN to complete.   The value of this object cannot
@@ -2985,14 +3060,14 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // rttMplsVpnMonScheduleFrequency.  The usage of this value in Auto SAA L3
     // MPLS VPN is similar to rttMonCtrlAdminTimeout. The type is interface{} with
     // range: 0..604800000. Units are milliseconds.
-    Rttmplsvpnmonctrltimeout interface{}
+    RttMplsVpnMonCtrlTimeout interface{}
 
     // Specifies the frequency at which the automatic PE addition should take
     // place if there is any for an Auto SAA L3 MPLS VPN.  New RTT operations
     // corresponding to the new PEs discovered will be created and scheduled.  The
     // default value for this object is 4 hours. The maximum value supported is 49
     // days. The type is interface{} with range: 1..70560. Units are minutes.
-    Rttmplsvpnmonctrlscaninterval interface{}
+    RttMplsVpnMonCtrlScanInterval interface{}
 
     // Specifies the frequency at which the automatic PE deletion should take
     // place.  This object specifies the number of times of
@@ -3001,11 +3076,11 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // doesn't directly specify the explicit value to wait before removing the PEs
     // that were down.  If this object set 0 the entries will never removed. The
     // type is interface{} with range: 0..2147483647.
-    Rttmplsvpnmonctrldelscanfactor interface{}
+    RttMplsVpnMonCtrlDelScanFactor interface{}
 
     // This object represents the EXP value that needs to be put as precedence bit
     // of an IP header. The type is interface{} with range: 0..7.
-    Rttmplsvpnmonctrlexp interface{}
+    RttMplsVpnMonCtrlEXP interface{}
 
     // This object represents the native payload size that needs to be put on the
     // packet.  This value will be configured as rttMonEchoAdminPktDataRequestSize
@@ -3015,7 +3090,7 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // and pathEcho default request size is 28. The minimum request size for echo
     // and pathEcho is 28 bytes. The type is interface{} with range: 0..16384.
     // Units are octets.
-    Rttmplsvpnmonctrlrequestsize interface{}
+    RttMplsVpnMonCtrlRequestSize interface{}
 
     // When set to true, the resulting data in each RTT operation created by the
     // current Auto SAA L3 MPLS VPN is compared with the expected data. This
@@ -3023,7 +3098,7 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // Any mismatch will be recorded in the rttMonStatsCollectVerifyErrors object
     // of each RTT operation created by the current Auto SAA L3 MPLS VPN. The type
     // is bool.
-    Rttmplsvpnmonctrlverifydata interface{}
+    RttMplsVpnMonCtrlVerifyData interface{}
 
     // The storage type of this conceptual row. When set to 'nonVolatile', this
     // entry will be shown in 'show running' command and can be saved into
@@ -3031,14 +3106,14 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // Non-volatile memory.  This object can be set to either 'volatile' or
     // 'nonVolatile'. Other values are not applicable for this conceptual row and
     // are not supported. The type is StorageType.
-    Rttmplsvpnmonctrlstoragetype interface{}
+    RttMplsVpnMonCtrlStorageType interface{}
 
     // This object holds the list of probes ID's that are created by the Auto SAA
     // L3 MPLS VPN.  The probes will be specified in the following form. (a)
     // Individual ID's with comma separated as 1,5,3. (b) Range form including
     // hyphens with multiple ranges being     separated by comma as 1-10,12-34.
     // (c) Mix of the above two forms as 1,2,4-10,12,15,19-25. The type is string.
-    Rttmplsvpnmonctrlprobelist interface{}
+    RttMplsVpnMonCtrlProbeList interface{}
 
     // The status of the conceptual Auto SAA L3 MPLS VPN control row.  In order
     // for this object to become active rttMplsVpnMonCtrlRttType, 
@@ -3064,7 +3139,7 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // value at any time. When this object is set to 'destroy' it will stop and
     // destroy all the probes created by this Auto SAA L3 MPLS VPN before
     // destroying Auto SAA L3 MPLS VPN control row. The type is RowStatus.
-    Rttmplsvpnmonctrlstatus interface{}
+    RttMplsVpnMonCtrlStatus interface{}
 
     // When set to true, this implies that LPD (LSP Path Discovery) is enabled for
     // this row.  The Auto SAA L3 MPLS VPN will find all the paths to each of the
@@ -3080,7 +3155,7 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // the 10 paths. When the 'lspGroup' probe will run it will sweep through the
     // set of information for 1st path, 2nd path, 3rd path and so on till it has
     // tested all the paths. The type is bool.
-    Rttmplsvpnmonctrllpd interface{}
+    RttMplsVpnMonCtrlLpd interface{}
 
     // This object holds the list of LPD Group IDs that are created for this Auto
     // SAA L3 MPLS VPN row.  This object will be applicable only when LSP Path
@@ -3089,26 +3164,26 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // Range form including hyphens with multiple ranges being     separated by
     // comma as 1-10,12-34. (c) Mix of the above two forms as
     // 1,2,4-10,12,15,19-25. The type is string.
-    Rttmplsvpnmonctrllpdgrplist interface{}
+    RttMplsVpnMonCtrlLpdGrpList interface{}
 
     // The completion time of the LSP Path Discovery for the entire set of PEs
     // which are discovered for this Auto SAA.  This object will be applicable
     // only when LSP Path Discovery is enabled for this row. The type is
     // interface{} with range: 1..65535. Units are minutes.
-    Rttmplsvpnmonctrllpdcomptime interface{}
+    RttMplsVpnMonCtrlLpdCompTime interface{}
 
     // This value represents the inter-packet delay between packets and is in
     // milliseconds. This value is currently used for Jitter probe. This object is
     // applicable to jitter probe only.  The usage of this value in RTT operation
     // is same as rttMonEchoAdminInterval. The type is interface{} with range:
     // 1..60000. Units are milliseconds.
-    Rttmplsvpnmontypeinterval interface{}
+    RttMplsVpnMonTypeInterval interface{}
 
     // This value represents the number of packets that need to be transmitted.
     // This value is currently used for Jitter probe. This object is applicable to
     // jitter probe only.  The usage of this value in RTT operation is same as
     // rttMonEchoAdminNumPackets. The type is interface{} with range: 1..60000.
-    Rttmplsvpnmontypenumpackets interface{}
+    RttMplsVpnMonTypeNumPackets interface{}
 
     // This object represents the target's port number to which the packets need
     // to be sent.  This value will be configured as target port for all the
@@ -3116,7 +3191,7 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // as rttMonEchoAdminTargetPort in RTT operation. This object is applicable to
     // jitter type.  If this object is not being set random port will be used as
     // destination port. The type is interface{} with range: 1..65536.
-    Rttmplsvpnmontypedestport interface{}
+    RttMplsVpnMonTypeDestPort interface{}
 
     // This object specifies the reaction type for which the
     // rttMplsVpnMonTypeSecFreqValue should be applied.  The Value 'timeout' will
@@ -3145,15 +3220,15 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // (timeout/connectionLoss/both).   2) rttMplsVpnMonReactLpdNotifyType object
     // must be set to   value of 'lpdGroupStatus' or 'lpdAll'.  The frequency of
     // the individual operations will be restored to original frequency once the
-    // trap is sent. The type is Rttmplsvpnmontypesecfreqtype.
-    Rttmplsvpnmontypesecfreqtype interface{}
+    // trap is sent. The type is RttMplsVpnMonTypeSecFreqType.
+    RttMplsVpnMonTypeSecFreqType interface{}
 
     // This object represents the value that needs to be applied to secondary
     // frequency of individual RTT operations configured by Auto SAA L3 MPLS VPN. 
     // Setting rttMplsVpnMonTypeSecFreqValue without setting
     // rttMplsVpnMonTypeSecFreqType will not have any effect. The type is
     // interface{} with range: 1..604800.
-    Rttmplsvpnmontypesecfreqvalue interface{}
+    RttMplsVpnMonTypeSecFreqValue interface{}
 
     // A string which specifies the address of the local host (127.X.X.X).  This
     // object will be used as lsp-selector in MPLS RTT operations configured by
@@ -3162,12 +3237,12 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // in the LSP Path Discovery.  This value of this object is significant in
     // MPLS load balancing scenario. This value will be used as one of the
     // parameter in that load balancing. The type is string.
-    Rttmplsvpnmontypelspselector interface{}
+    RttMplsVpnMonTypeLspSelector interface{}
 
     // This object specifies the reply mode for the LSP Echo requests originated
     // by the operations configured by the Auto SAA L3 MPLS VPN.  This object is
     // currently used by echo and pathEcho. The type is RttMonLSPPingReplyMode.
-    Rttmplsvpnmontypelspreplymode interface{}
+    RttMplsVpnMonTypeLSPReplyMode interface{}
 
     // This object represents the TTL setting for MPLS echo request packets
     // originated by the operations configured by the Auto SAA L3 MPLS VPN.  This
@@ -3176,14 +3251,14 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // This object cannot be set to the value of 0. The default value of 0
     // signifies the default TTL values will be used for 'echo' and 'pathEcho'.
     // The type is interface{} with range: 0..255.
-    Rttmplsvpnmontypelspttl interface{}
+    RttMplsVpnMonTypeLSPTTL interface{}
 
     // This object specifies the DSCP value to be set in the IP header of the LSP
     // echo reply packet. The value of this object will be in range of DiffServ
     // codepoint values between 0 to 63.  Note: This object cannot be set to value
     // of 255. This default value specifies that DSCP is not set for this row. The
     // type is interface{} with range: 0..63 | 255..None.
-    Rttmplsvpnmontypelspreplydscp interface{}
+    RttMplsVpnMonTypeLSPReplyDscp interface{}
 
     // This object represents the number of concurrent path discovery requests
     // that will be active at one time per MPLS VPN control row. This object is
@@ -3192,29 +3267,29 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // does not cause any performance impact.  Note: If the customer network has
     // low end routers in the Core it is recommended to keep this value low. The
     // type is interface{} with range: 1..15.
-    Rttmplsvpnmontypelpdmaxsessions interface{}
+    RttMplsVpnMonTypeLpdMaxSessions interface{}
 
     // This object specifies the maximum allowed duration of a particular tree
     // trace request.  If no response is received in configured time the request
     // will be considered a failure. The type is interface{} with range: 1..900.
     // Units are seconds.
-    Rttmplsvpnmontypelpdsesstimeout interface{}
+    RttMplsVpnMonTypeLpdSessTimeout interface{}
 
     // This object specifies the timeout value for the LSP echo requests which are
     // sent while performing the LSP Path  Discovery. The type is interface{} with
     // range: 0..604800000. Units are milliseconds.
-    Rttmplsvpnmontypelpdechotimeout interface{}
+    RttMplsVpnMonTypeLpdEchoTimeout interface{}
 
     // This object specifies the send interval between LSP echo requests which are
     // sent while performing the LSP Path  Discovery. The type is interface{} with
     // range: 0..3600000. Units are milliseconds.
-    Rttmplsvpnmontypelpdechointerval interface{}
+    RttMplsVpnMonTypeLpdEchoInterval interface{}
 
     // This object specifies if the explicit-null label is added to LSP echo
     // requests which are sent while performing the LSP Path Discovery.  If set to
     // TRUE all the probes configured as part of this control row will send the
     // LSP echo requests with the explicit-null label added. The type is bool.
-    Rttmplsvpnmontypelpdechonullshim interface{}
+    RttMplsVpnMonTypeLpdEchoNullShim interface{}
 
     // This object specifies the scan time for the completion of LSP Path
     // Discovery for all the PEs discovered for this control row. If the scan
@@ -3228,7 +3303,7 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // to a special value of '0', it will force immediate start of the next
     // discovery on all neighbours without any delay. The type is interface{} with
     // range: 0..7200. Units are minutes.
-    Rttmplsvpnmontypelpdscanperiod interface{}
+    RttMplsVpnMonTypeLpdScanPeriod interface{}
 
     // The maximum number of hours of data to be kept per LPD group. The LPD group
     // statistics will be kept in an hourly bucket. At the maximum there can be
@@ -3239,7 +3314,7 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // rttMonStatsCaptureStartTimeIndex.  Note: When this object is set to the
     // value of '0' all rttMplsVpnLpdGroupStatsTable data capturing will be shut
     // off. The type is interface{} with range: 0..2.
-    Rttmplsvpnmontypelpdstathours interface{}
+    RttMplsVpnMonTypeLpdStatHours interface{}
 
     // This is the time when this conceptual row will activate.
     // rttMplsVpnMonSchedulePeriod object must be specified before setting this
@@ -3251,52 +3326,52 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // VPN row at the intended time.  If this object has value as 1, this means
     // start the operation now itself. Value of 0 puts the operation in pending
     // state. The type is interface{} with range: 0..4294967295.
-    Rttmplsvpnmonschedulerttstarttime interface{}
+    RttMplsVpnMonScheduleRttStartTime interface{}
 
     // Specifies the time duration over which all the probes created by the
     // current Auto SAA L3 MPLS VPN have to be scheduled.  This object must be set
     // first before setting rttMplsVpnMonScheduleRttStartTime. The type is
     // interface{} with range: 1..604800. Units are seconds.
-    Rttmplsvpnmonscheduleperiod interface{}
+    RttMplsVpnMonSchedulePeriod interface{}
 
     // Specifies the duration between initiating each RTT operation configured by
     // the Auto SAA L3 MPLS VPN.  This object cannot be set to a value which would
     // be a shorter duration than rttMplsVpnMonCtrlTimeout.  The usage of this
     // value in RTT operation is same as rttMonCtrlAdminFrequency. The type is
     // interface{} with range: 1..604800. Units are seconds.
-    Rttmplsvpnmonschedulefrequency interface{}
+    RttMplsVpnMonScheduleFrequency interface{}
 
     // The value set for this will be applied as rttMonReactAdminConnectionEnable
     // for individual probes created by the Auto SAA L3 MPLS VPN.  When this
     // object is set to true, rttMonReactVar for individual probes created by the
     // Auto SAA L3 MPLS VPN will be set to 'connectionLoss(8)'. The type is bool.
-    Rttmplsvpnmonreactconnectionenable interface{}
+    RttMplsVpnMonReactConnectionEnable interface{}
 
     // The value set for this will be applied as rttMonReactAdminTimeoutEnable for
     // individual probes created by the Auto SAA L3 MPLS VPN.  When this object is
     // set to true, rttMonReactVar for individual probes created by the Auto SAA
     // L3 MPLS VPN will be set to 'timeout(7)'. The type is bool.
-    Rttmplsvpnmonreacttimeoutenable interface{}
+    RttMplsVpnMonReactTimeoutEnable interface{}
 
     // The value corresponding to this object will be applied as
     // rttMonReactAdminThresholdType for individual probes created by the Auto SAA
     // L3 MPLS VPN.  The value corresponding to this object will be applied as
     // rttMonReactThresholdType for individual probes created by the Auto SAA L3
-    // MPLS VPN. The type is Rttmplsvpnmonreactthresholdtype.
-    Rttmplsvpnmonreactthresholdtype interface{}
+    // MPLS VPN. The type is RttMplsVpnMonReactThresholdType.
+    RttMplsVpnMonReactThresholdType interface{}
 
     // This object value will be applied as rttMonReactAdminThresholdCount for
     // individual probes created by the Auto SAA L3 MPLS VPN.  This object value
     // will be applied as rttMonReactThresholdCountX for individual probes created
     // by the Auto SAA L3 MPLS VPN. The type is interface{} with range: 1..16.
-    Rttmplsvpnmonreactthresholdcount interface{}
+    RttMplsVpnMonReactThresholdCount interface{}
 
     // The value corresponding to this object will be applied as
     // rttMonReactAdminActionType of individual probes created by this Auto SAA L3
     // MPLS VPN.  The value corresponding to this object will be applied as
     // rttMonReactActionType of individual probes created by this Auto SAA L3 MPLS
-    // VPN. The type is Rttmplsvpnmonreactactiontype.
-    Rttmplsvpnmonreactactiontype interface{}
+    // VPN. The type is RttMplsVpnMonReactActionType.
+    RttMplsVpnMonReactActionType interface{}
 
     // This object specifies the type of LPD notifications to be generated for the
     // current Auto SAA L3 MPLS VPN control row.  This object will be applicable
@@ -3314,8 +3389,8 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // to be sent.  The Value 'lpdPathDiscovery' will cause (a) to be sent.  The
     // Value 'lpdGroupStatus' will cause (b) to be sent.  The Value 'lpdAll' will
     // cause both (a) and (b) to sent depending on the failure conditions. The
-    // type is Rttmplsvpnmonreactlpdnotifytype.
-    Rttmplsvpnmonreactlpdnotifytype interface{}
+    // type is RttMplsVpnMonReactLpdNotifyType.
+    RttMplsVpnMonReactLpdNotifyType interface{}
 
     // This object value specifies the number of attempts to be performed before
     // declaring the path as 'down'. Each 'single probe' which is part of
@@ -3340,114 +3415,117 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     // rttMplsVpnMonReactLpdRetryCount value, and     then marked as 'down' and
     // rttMonLpdGrpStatusNotification      will be sent if configured. The type is
     // interface{} with range: 1..16. Units are attempts.
-    Rttmplsvpnmonreactlpdretrycount interface{}
+    RttMplsVpnMonReactLpdRetryCount interface{}
 }
 
-func (rttmplsvpnmonctrlentry *CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry) GetEntityData() *types.CommonEntityData {
-    rttmplsvpnmonctrlentry.EntityData.YFilter = rttmplsvpnmonctrlentry.YFilter
-    rttmplsvpnmonctrlentry.EntityData.YangName = "rttMplsVpnMonCtrlEntry"
-    rttmplsvpnmonctrlentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmplsvpnmonctrlentry.EntityData.ParentYangName = "rttMplsVpnMonCtrlTable"
-    rttmplsvpnmonctrlentry.EntityData.SegmentPath = "rttMplsVpnMonCtrlEntry" + "[rttMplsVpnMonCtrlIndex='" + fmt.Sprintf("%v", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlindex) + "']"
-    rttmplsvpnmonctrlentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmplsvpnmonctrlentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmplsvpnmonctrlentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMplsVpnMonCtrlEntry *CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry) GetEntityData() *types.CommonEntityData {
+    rttMplsVpnMonCtrlEntry.EntityData.YFilter = rttMplsVpnMonCtrlEntry.YFilter
+    rttMplsVpnMonCtrlEntry.EntityData.YangName = "rttMplsVpnMonCtrlEntry"
+    rttMplsVpnMonCtrlEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMplsVpnMonCtrlEntry.EntityData.ParentYangName = "rttMplsVpnMonCtrlTable"
+    rttMplsVpnMonCtrlEntry.EntityData.SegmentPath = "rttMplsVpnMonCtrlEntry" + types.AddKeyToken(rttMplsVpnMonCtrlEntry.RttMplsVpnMonCtrlIndex, "rttMplsVpnMonCtrlIndex")
+    rttMplsVpnMonCtrlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMplsVpnMonCtrlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMplsVpnMonCtrlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmplsvpnmonctrlentry.EntityData.Children = make(map[string]types.YChild)
-    rttmplsvpnmonctrlentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlIndex"] = types.YLeaf{"Rttmplsvpnmonctrlindex", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlindex}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlRttType"] = types.YLeaf{"Rttmplsvpnmonctrlrtttype", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlrtttype}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlVrfName"] = types.YLeaf{"Rttmplsvpnmonctrlvrfname", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlvrfname}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlTag"] = types.YLeaf{"Rttmplsvpnmonctrltag", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrltag}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlThreshold"] = types.YLeaf{"Rttmplsvpnmonctrlthreshold", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlthreshold}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlTimeout"] = types.YLeaf{"Rttmplsvpnmonctrltimeout", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrltimeout}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlScanInterval"] = types.YLeaf{"Rttmplsvpnmonctrlscaninterval", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlscaninterval}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlDelScanFactor"] = types.YLeaf{"Rttmplsvpnmonctrldelscanfactor", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrldelscanfactor}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlEXP"] = types.YLeaf{"Rttmplsvpnmonctrlexp", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlexp}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlRequestSize"] = types.YLeaf{"Rttmplsvpnmonctrlrequestsize", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlrequestsize}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlVerifyData"] = types.YLeaf{"Rttmplsvpnmonctrlverifydata", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlverifydata}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlStorageType"] = types.YLeaf{"Rttmplsvpnmonctrlstoragetype", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlstoragetype}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlProbeList"] = types.YLeaf{"Rttmplsvpnmonctrlprobelist", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlprobelist}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlStatus"] = types.YLeaf{"Rttmplsvpnmonctrlstatus", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlstatus}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlLpd"] = types.YLeaf{"Rttmplsvpnmonctrllpd", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrllpd}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlLpdGrpList"] = types.YLeaf{"Rttmplsvpnmonctrllpdgrplist", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrllpdgrplist}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlLpdCompTime"] = types.YLeaf{"Rttmplsvpnmonctrllpdcomptime", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrllpdcomptime}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeInterval"] = types.YLeaf{"Rttmplsvpnmontypeinterval", rttmplsvpnmonctrlentry.Rttmplsvpnmontypeinterval}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeNumPackets"] = types.YLeaf{"Rttmplsvpnmontypenumpackets", rttmplsvpnmonctrlentry.Rttmplsvpnmontypenumpackets}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeDestPort"] = types.YLeaf{"Rttmplsvpnmontypedestport", rttmplsvpnmonctrlentry.Rttmplsvpnmontypedestport}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeSecFreqType"] = types.YLeaf{"Rttmplsvpnmontypesecfreqtype", rttmplsvpnmonctrlentry.Rttmplsvpnmontypesecfreqtype}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeSecFreqValue"] = types.YLeaf{"Rttmplsvpnmontypesecfreqvalue", rttmplsvpnmonctrlentry.Rttmplsvpnmontypesecfreqvalue}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLspSelector"] = types.YLeaf{"Rttmplsvpnmontypelspselector", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelspselector}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLSPReplyMode"] = types.YLeaf{"Rttmplsvpnmontypelspreplymode", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelspreplymode}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLSPTTL"] = types.YLeaf{"Rttmplsvpnmontypelspttl", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelspttl}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLSPReplyDscp"] = types.YLeaf{"Rttmplsvpnmontypelspreplydscp", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelspreplydscp}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLpdMaxSessions"] = types.YLeaf{"Rttmplsvpnmontypelpdmaxsessions", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdmaxsessions}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLpdSessTimeout"] = types.YLeaf{"Rttmplsvpnmontypelpdsesstimeout", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdsesstimeout}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLpdEchoTimeout"] = types.YLeaf{"Rttmplsvpnmontypelpdechotimeout", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdechotimeout}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLpdEchoInterval"] = types.YLeaf{"Rttmplsvpnmontypelpdechointerval", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdechointerval}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLpdEchoNullShim"] = types.YLeaf{"Rttmplsvpnmontypelpdechonullshim", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdechonullshim}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLpdScanPeriod"] = types.YLeaf{"Rttmplsvpnmontypelpdscanperiod", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdscanperiod}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLpdStatHours"] = types.YLeaf{"Rttmplsvpnmontypelpdstathours", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdstathours}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonScheduleRttStartTime"] = types.YLeaf{"Rttmplsvpnmonschedulerttstarttime", rttmplsvpnmonctrlentry.Rttmplsvpnmonschedulerttstarttime}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonSchedulePeriod"] = types.YLeaf{"Rttmplsvpnmonscheduleperiod", rttmplsvpnmonctrlentry.Rttmplsvpnmonscheduleperiod}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonScheduleFrequency"] = types.YLeaf{"Rttmplsvpnmonschedulefrequency", rttmplsvpnmonctrlentry.Rttmplsvpnmonschedulefrequency}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonReactConnectionEnable"] = types.YLeaf{"Rttmplsvpnmonreactconnectionenable", rttmplsvpnmonctrlentry.Rttmplsvpnmonreactconnectionenable}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonReactTimeoutEnable"] = types.YLeaf{"Rttmplsvpnmonreacttimeoutenable", rttmplsvpnmonctrlentry.Rttmplsvpnmonreacttimeoutenable}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonReactThresholdType"] = types.YLeaf{"Rttmplsvpnmonreactthresholdtype", rttmplsvpnmonctrlentry.Rttmplsvpnmonreactthresholdtype}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonReactThresholdCount"] = types.YLeaf{"Rttmplsvpnmonreactthresholdcount", rttmplsvpnmonctrlentry.Rttmplsvpnmonreactthresholdcount}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonReactActionType"] = types.YLeaf{"Rttmplsvpnmonreactactiontype", rttmplsvpnmonctrlentry.Rttmplsvpnmonreactactiontype}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonReactLpdNotifyType"] = types.YLeaf{"Rttmplsvpnmonreactlpdnotifytype", rttmplsvpnmonctrlentry.Rttmplsvpnmonreactlpdnotifytype}
-    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonReactLpdRetryCount"] = types.YLeaf{"Rttmplsvpnmonreactlpdretrycount", rttmplsvpnmonctrlentry.Rttmplsvpnmonreactlpdretrycount}
-    return &(rttmplsvpnmonctrlentry.EntityData)
+    rttMplsVpnMonCtrlEntry.EntityData.Children = types.NewOrderedMap()
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonCtrlIndex", types.YLeaf{"RttMplsVpnMonCtrlIndex", rttMplsVpnMonCtrlEntry.RttMplsVpnMonCtrlIndex})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonCtrlRttType", types.YLeaf{"RttMplsVpnMonCtrlRttType", rttMplsVpnMonCtrlEntry.RttMplsVpnMonCtrlRttType})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonCtrlVrfName", types.YLeaf{"RttMplsVpnMonCtrlVrfName", rttMplsVpnMonCtrlEntry.RttMplsVpnMonCtrlVrfName})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonCtrlTag", types.YLeaf{"RttMplsVpnMonCtrlTag", rttMplsVpnMonCtrlEntry.RttMplsVpnMonCtrlTag})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonCtrlThreshold", types.YLeaf{"RttMplsVpnMonCtrlThreshold", rttMplsVpnMonCtrlEntry.RttMplsVpnMonCtrlThreshold})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonCtrlTimeout", types.YLeaf{"RttMplsVpnMonCtrlTimeout", rttMplsVpnMonCtrlEntry.RttMplsVpnMonCtrlTimeout})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonCtrlScanInterval", types.YLeaf{"RttMplsVpnMonCtrlScanInterval", rttMplsVpnMonCtrlEntry.RttMplsVpnMonCtrlScanInterval})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonCtrlDelScanFactor", types.YLeaf{"RttMplsVpnMonCtrlDelScanFactor", rttMplsVpnMonCtrlEntry.RttMplsVpnMonCtrlDelScanFactor})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonCtrlEXP", types.YLeaf{"RttMplsVpnMonCtrlEXP", rttMplsVpnMonCtrlEntry.RttMplsVpnMonCtrlEXP})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonCtrlRequestSize", types.YLeaf{"RttMplsVpnMonCtrlRequestSize", rttMplsVpnMonCtrlEntry.RttMplsVpnMonCtrlRequestSize})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonCtrlVerifyData", types.YLeaf{"RttMplsVpnMonCtrlVerifyData", rttMplsVpnMonCtrlEntry.RttMplsVpnMonCtrlVerifyData})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonCtrlStorageType", types.YLeaf{"RttMplsVpnMonCtrlStorageType", rttMplsVpnMonCtrlEntry.RttMplsVpnMonCtrlStorageType})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonCtrlProbeList", types.YLeaf{"RttMplsVpnMonCtrlProbeList", rttMplsVpnMonCtrlEntry.RttMplsVpnMonCtrlProbeList})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonCtrlStatus", types.YLeaf{"RttMplsVpnMonCtrlStatus", rttMplsVpnMonCtrlEntry.RttMplsVpnMonCtrlStatus})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonCtrlLpd", types.YLeaf{"RttMplsVpnMonCtrlLpd", rttMplsVpnMonCtrlEntry.RttMplsVpnMonCtrlLpd})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonCtrlLpdGrpList", types.YLeaf{"RttMplsVpnMonCtrlLpdGrpList", rttMplsVpnMonCtrlEntry.RttMplsVpnMonCtrlLpdGrpList})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonCtrlLpdCompTime", types.YLeaf{"RttMplsVpnMonCtrlLpdCompTime", rttMplsVpnMonCtrlEntry.RttMplsVpnMonCtrlLpdCompTime})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonTypeInterval", types.YLeaf{"RttMplsVpnMonTypeInterval", rttMplsVpnMonCtrlEntry.RttMplsVpnMonTypeInterval})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonTypeNumPackets", types.YLeaf{"RttMplsVpnMonTypeNumPackets", rttMplsVpnMonCtrlEntry.RttMplsVpnMonTypeNumPackets})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonTypeDestPort", types.YLeaf{"RttMplsVpnMonTypeDestPort", rttMplsVpnMonCtrlEntry.RttMplsVpnMonTypeDestPort})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonTypeSecFreqType", types.YLeaf{"RttMplsVpnMonTypeSecFreqType", rttMplsVpnMonCtrlEntry.RttMplsVpnMonTypeSecFreqType})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonTypeSecFreqValue", types.YLeaf{"RttMplsVpnMonTypeSecFreqValue", rttMplsVpnMonCtrlEntry.RttMplsVpnMonTypeSecFreqValue})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonTypeLspSelector", types.YLeaf{"RttMplsVpnMonTypeLspSelector", rttMplsVpnMonCtrlEntry.RttMplsVpnMonTypeLspSelector})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonTypeLSPReplyMode", types.YLeaf{"RttMplsVpnMonTypeLSPReplyMode", rttMplsVpnMonCtrlEntry.RttMplsVpnMonTypeLSPReplyMode})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonTypeLSPTTL", types.YLeaf{"RttMplsVpnMonTypeLSPTTL", rttMplsVpnMonCtrlEntry.RttMplsVpnMonTypeLSPTTL})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonTypeLSPReplyDscp", types.YLeaf{"RttMplsVpnMonTypeLSPReplyDscp", rttMplsVpnMonCtrlEntry.RttMplsVpnMonTypeLSPReplyDscp})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonTypeLpdMaxSessions", types.YLeaf{"RttMplsVpnMonTypeLpdMaxSessions", rttMplsVpnMonCtrlEntry.RttMplsVpnMonTypeLpdMaxSessions})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonTypeLpdSessTimeout", types.YLeaf{"RttMplsVpnMonTypeLpdSessTimeout", rttMplsVpnMonCtrlEntry.RttMplsVpnMonTypeLpdSessTimeout})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonTypeLpdEchoTimeout", types.YLeaf{"RttMplsVpnMonTypeLpdEchoTimeout", rttMplsVpnMonCtrlEntry.RttMplsVpnMonTypeLpdEchoTimeout})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonTypeLpdEchoInterval", types.YLeaf{"RttMplsVpnMonTypeLpdEchoInterval", rttMplsVpnMonCtrlEntry.RttMplsVpnMonTypeLpdEchoInterval})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonTypeLpdEchoNullShim", types.YLeaf{"RttMplsVpnMonTypeLpdEchoNullShim", rttMplsVpnMonCtrlEntry.RttMplsVpnMonTypeLpdEchoNullShim})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonTypeLpdScanPeriod", types.YLeaf{"RttMplsVpnMonTypeLpdScanPeriod", rttMplsVpnMonCtrlEntry.RttMplsVpnMonTypeLpdScanPeriod})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonTypeLpdStatHours", types.YLeaf{"RttMplsVpnMonTypeLpdStatHours", rttMplsVpnMonCtrlEntry.RttMplsVpnMonTypeLpdStatHours})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonScheduleRttStartTime", types.YLeaf{"RttMplsVpnMonScheduleRttStartTime", rttMplsVpnMonCtrlEntry.RttMplsVpnMonScheduleRttStartTime})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonSchedulePeriod", types.YLeaf{"RttMplsVpnMonSchedulePeriod", rttMplsVpnMonCtrlEntry.RttMplsVpnMonSchedulePeriod})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonScheduleFrequency", types.YLeaf{"RttMplsVpnMonScheduleFrequency", rttMplsVpnMonCtrlEntry.RttMplsVpnMonScheduleFrequency})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonReactConnectionEnable", types.YLeaf{"RttMplsVpnMonReactConnectionEnable", rttMplsVpnMonCtrlEntry.RttMplsVpnMonReactConnectionEnable})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonReactTimeoutEnable", types.YLeaf{"RttMplsVpnMonReactTimeoutEnable", rttMplsVpnMonCtrlEntry.RttMplsVpnMonReactTimeoutEnable})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonReactThresholdType", types.YLeaf{"RttMplsVpnMonReactThresholdType", rttMplsVpnMonCtrlEntry.RttMplsVpnMonReactThresholdType})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonReactThresholdCount", types.YLeaf{"RttMplsVpnMonReactThresholdCount", rttMplsVpnMonCtrlEntry.RttMplsVpnMonReactThresholdCount})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonReactActionType", types.YLeaf{"RttMplsVpnMonReactActionType", rttMplsVpnMonCtrlEntry.RttMplsVpnMonReactActionType})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonReactLpdNotifyType", types.YLeaf{"RttMplsVpnMonReactLpdNotifyType", rttMplsVpnMonCtrlEntry.RttMplsVpnMonReactLpdNotifyType})
+    rttMplsVpnMonCtrlEntry.EntityData.Leafs.Append("rttMplsVpnMonReactLpdRetryCount", types.YLeaf{"RttMplsVpnMonReactLpdRetryCount", rttMplsVpnMonCtrlEntry.RttMplsVpnMonReactLpdRetryCount})
+
+    rttMplsVpnMonCtrlEntry.EntityData.YListKeys = []string {"RttMplsVpnMonCtrlIndex"}
+
+    return &(rttMplsVpnMonCtrlEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactactiontype represents this Auto SAA L3 MPLS VPN.
-type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactactiontype string
+// CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactActionType represents this Auto SAA L3 MPLS VPN.
+type CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactActionType string
 
 const (
-    CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactactiontype_none CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactactiontype = "none"
+    CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactActionType_none CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactActionType = "none"
 
-    CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactactiontype_trapOnly CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactactiontype = "trapOnly"
+    CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactActionType_trapOnly CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactActionType = "trapOnly"
 )
 
-// CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactlpdnotifytype represents depending on the failure conditions.
-type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactlpdnotifytype string
+// CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactLpdNotifyType represents depending on the failure conditions.
+type CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactLpdNotifyType string
 
 const (
-    CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactlpdnotifytype_none CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactlpdnotifytype = "none"
+    CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactLpdNotifyType_none CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactLpdNotifyType = "none"
 
-    CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactlpdnotifytype_lpdPathDiscovery CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactlpdnotifytype = "lpdPathDiscovery"
+    CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactLpdNotifyType_lpdPathDiscovery CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactLpdNotifyType = "lpdPathDiscovery"
 
-    CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactlpdnotifytype_lpdGroupStatus CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactlpdnotifytype = "lpdGroupStatus"
+    CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactLpdNotifyType_lpdGroupStatus CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactLpdNotifyType = "lpdGroupStatus"
 
-    CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactlpdnotifytype_lpdAll CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactlpdnotifytype = "lpdAll"
+    CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactLpdNotifyType_lpdAll CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactLpdNotifyType = "lpdAll"
 )
 
-// CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactthresholdtype represents the Auto SAA L3 MPLS VPN.
-type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactthresholdtype string
+// CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactThresholdType represents the Auto SAA L3 MPLS VPN.
+type CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactThresholdType string
 
 const (
-    CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactthresholdtype_never CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactthresholdtype = "never"
+    CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactThresholdType_never CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactThresholdType = "never"
 
-    CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactthresholdtype_immediate CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactthresholdtype = "immediate"
+    CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactThresholdType_immediate CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactThresholdType = "immediate"
 
-    CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactthresholdtype_consecutive CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactthresholdtype = "consecutive"
+    CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactThresholdType_consecutive CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonReactThresholdType = "consecutive"
 )
 
-// CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmontypesecfreqtype represents original frequency once the trap is sent.
-type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmontypesecfreqtype string
+// CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonTypeSecFreqType represents original frequency once the trap is sent.
+type CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonTypeSecFreqType string
 
 const (
-    CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmontypesecfreqtype_none CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmontypesecfreqtype = "none"
+    CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonTypeSecFreqType_none CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonTypeSecFreqType = "none"
 
-    CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmontypesecfreqtype_timeout CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmontypesecfreqtype = "timeout"
+    CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonTypeSecFreqType_timeout CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonTypeSecFreqType = "timeout"
 
-    CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmontypesecfreqtype_connectionLoss CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmontypesecfreqtype = "connectionLoss"
+    CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonTypeSecFreqType_connectionLoss CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonTypeSecFreqType = "connectionLoss"
 
-    CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmontypesecfreqtype_both CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmontypesecfreqtype = "both"
+    CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonTypeSecFreqType_both CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry_RttMplsVpnMonTypeSecFreqType = "both"
 )
 
-// CISCORTTMONMIB_Rttmonreacttable
+// CISCORTTMONMIB_RttMonReactTable
 // A table that contains the reaction configurations. Each
 // conceptual row in rttMonReactTable corresponds to a reaction
 // configured for the probe defined in rttMonCtrlAdminTable.
@@ -3459,46 +3537,49 @@ const (
 // multiple rows for a particular probe.
 // 
 // This table is coupled with rttMonCtrlAdminTable.
-type CISCORTTMONMIB_Rttmonreacttable struct {
+type CISCORTTMONMIB_RttMonReactTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A base list of objects that define a conceptual reaction configuration
     // control row. The type is slice of
-    // CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry.
-    Rttmonreactentry []CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry
+    // CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry.
+    RttMonReactEntry []*CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry
 }
 
-func (rttmonreacttable *CISCORTTMONMIB_Rttmonreacttable) GetEntityData() *types.CommonEntityData {
-    rttmonreacttable.EntityData.YFilter = rttmonreacttable.YFilter
-    rttmonreacttable.EntityData.YangName = "rttMonReactTable"
-    rttmonreacttable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonreacttable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonreacttable.EntityData.SegmentPath = "rttMonReactTable"
-    rttmonreacttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonreacttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonreacttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonReactTable *CISCORTTMONMIB_RttMonReactTable) GetEntityData() *types.CommonEntityData {
+    rttMonReactTable.EntityData.YFilter = rttMonReactTable.YFilter
+    rttMonReactTable.EntityData.YangName = "rttMonReactTable"
+    rttMonReactTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonReactTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonReactTable.EntityData.SegmentPath = "rttMonReactTable"
+    rttMonReactTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonReactTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonReactTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonreacttable.EntityData.Children = make(map[string]types.YChild)
-    rttmonreacttable.EntityData.Children["rttMonReactEntry"] = types.YChild{"Rttmonreactentry", nil}
-    for i := range rttmonreacttable.Rttmonreactentry {
-        rttmonreacttable.EntityData.Children[types.GetSegmentPath(&rttmonreacttable.Rttmonreactentry[i])] = types.YChild{"Rttmonreactentry", &rttmonreacttable.Rttmonreactentry[i]}
+    rttMonReactTable.EntityData.Children = types.NewOrderedMap()
+    rttMonReactTable.EntityData.Children.Append("rttMonReactEntry", types.YChild{"RttMonReactEntry", nil})
+    for i := range rttMonReactTable.RttMonReactEntry {
+        rttMonReactTable.EntityData.Children.Append(types.GetSegmentPath(rttMonReactTable.RttMonReactEntry[i]), types.YChild{"RttMonReactEntry", rttMonReactTable.RttMonReactEntry[i]})
     }
-    rttmonreacttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonreacttable.EntityData)
+    rttMonReactTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonReactTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonReactTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry
+// CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry
 // A base list of objects that define a conceptual reaction
 // configuration control row.
-type CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry struct {
+type CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // cisco_rttmon_mib.CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrladminindex
-    Rttmonctrladminindex interface{}
+    // cisco_rttmon_mib.CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlAdminIndex
+    RttMonCtrlAdminIndex interface{}
 
     // This attribute is a key. This object along with rttMonCtrlAdminIndex
     // identifies a particular reaction-configuration for a particular probe. This
@@ -3506,7 +3587,7 @@ type CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry struct {
     // a row via the rttMonReactStatus. If the pseudo-random number is already in
     // use an 'inconsistentValue' return code will be returned when set operation
     // is attempted. The type is interface{} with range: 1..2147483647.
-    Rttmonreactconfigindex interface{}
+    RttMonReactConfigIndex interface{}
 
     // This object specifies the type of reaction configured for a probe.  The
     // reaction types 'rtt', 'timeout', and 'connectionLoss'  can be configured
@@ -3524,7 +3605,7 @@ type CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry struct {
     // reaction types 'successivePacketLoss', 'maxOfLatencyDS',  'maxOfLatencySD',
     // 'latencyDSAvg', 'latencySDAvg' and  'packetLoss' can be configured for ICMP
     // jitter probe  type only. The type is RttMonReactVar.
-    Rttmonreactvar interface{}
+    RttMonReactVar interface{}
 
     // This object specifies the conditions under which the notification ( trap )
     // is sent.  never       - rttMonReactOccurred is never set  immediate   -
@@ -3559,8 +3640,8 @@ type CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry struct {
     // mos etc ) is below the threshold              limits.  If this value is
     // changed by a management station, rttMonReactOccurred is set to false, but
     // no reaction is generated if the prior value of rttMonReactOccurred was
-    // true. The type is Rttmonreactthresholdtype.
-    Rttmonreactthresholdtype interface{}
+    // true. The type is RttMonReactThresholdType.
+    RttMonReactThresholdType interface{}
 
     // Specifies what type(s), if any, of reaction(s) to generate if an operation
     // violates one of the watched ( reaction-configuration ) conditions:  none   
@@ -3568,8 +3649,8 @@ type CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry struct {
     // triggerOnly        - all trigger actions defined for this                  
     // entry are initiated trapAndTrigger     - both a trap and all trigger
     // actions                      are initiated A trigger action is defined via
-    // the rttMonReactTriggerAdminTable. The type is Rttmonreactactiontype.
-    Rttmonreactactiontype interface{}
+    // the rttMonReactTriggerAdminTable. The type is RttMonReactActionType.
+    RttMonReactActionType interface{}
 
     // This object defines the higher threshold limit. If the value ( e.g rtt,
     // jitterAvg, packetLossSD etc ) rises above this limit and if the condition
@@ -3589,7 +3670,7 @@ type CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry struct {
     // 'timeout', 'connectionLoss' and 'verifyError' default value of 
     // rttMonReactThresholdRising will be 0. The type is interface{} with range:
     // 0..2147483647.
-    Rttmonreactthresholdrising interface{}
+    RttMonReactThresholdRising interface{}
 
     // This object defines a lower threshold limit. If the value ( e.g rtt,
     // jitterAvg, packetLossSD etc ) falls below this limit and if the conditions
@@ -3610,7 +3691,7 @@ type CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry struct {
     // 'connectionLoss' and 'verifyError' default value of
     // rttMonReactThresholdFalling will be 0. The type is interface{} with range:
     // 0..2147483647.
-    Rttmonreactthresholdfalling interface{}
+    RttMonReactThresholdFalling interface{}
 
     // If rttMonReactThresholdType value is 'xOfy', this object defines the 'x'
     // value.  If rttMonReactThresholdType value is 'consecutive' this object
@@ -3620,13 +3701,13 @@ type CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry struct {
     // of samples that needs be considered for calculating average.  This object
     // has no meaning if rttMonReactThresholdType has value of 'never' and
     // 'immediate'. The type is interface{} with range: 1..16.
-    Rttmonreactthresholdcountx interface{}
+    RttMonReactThresholdCountX interface{}
 
     // This object defines the 'y' value of the xOfy condition if
     // rttMonReactThresholdType is 'xOfy'.  For other values of
     // rttMonReactThresholdType, this object is not applicable. The type is
     // interface{} with range: 1..16.
-    Rttmonreactthresholdcounty interface{}
+    RttMonReactThresholdCountY interface{}
 
     // This object will be set when the configured threshold condition is violated
     // as defined by rttMonReactThresholdType and holds the actual value that
@@ -3634,7 +3715,7 @@ type CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry struct {
     // following values of rttMonReactVar and It will be always 0:   - timeout   -
     // connectionLoss   - verifyError. The type is interface{} with range:
     // 0..2147483647.
-    Rttmonreactvalue interface{}
+    RttMonReactValue interface{}
 
     // This object is set to true when the configured threshold condition is
     // violated as defined by rttMonReactThresholdType. It will be again set to
@@ -3656,7 +3737,7 @@ type CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry struct {
     // 'pathJitter', this object is applied only to the 
     // rttMonEchoAdminTargetAddress and not to intermediate hops to the Target.
     // The type is bool.
-    Rttmonreactoccurred interface{}
+    RttMonReactOccurred interface{}
 
     // This objects indicates the status of the conceptual RTT Reaction Control
     // Row.Only CreateAndGo and destroy  operations are permitted on the row. 
@@ -3668,149 +3749,158 @@ type CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry struct {
     // value at any time. When this object is set to 'destroy' no reaction
     // configuration for the probes would exist. The reaction configuration for
     // the probe is removed. The type is RowStatus.
-    Rttmonreactstatus interface{}
+    RttMonReactStatus interface{}
 }
 
-func (rttmonreactentry *CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry) GetEntityData() *types.CommonEntityData {
-    rttmonreactentry.EntityData.YFilter = rttmonreactentry.YFilter
-    rttmonreactentry.EntityData.YangName = "rttMonReactEntry"
-    rttmonreactentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonreactentry.EntityData.ParentYangName = "rttMonReactTable"
-    rttmonreactentry.EntityData.SegmentPath = "rttMonReactEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonreactentry.Rttmonctrladminindex) + "']" + "[rttMonReactConfigIndex='" + fmt.Sprintf("%v", rttmonreactentry.Rttmonreactconfigindex) + "']"
-    rttmonreactentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonreactentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonreactentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonReactEntry *CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry) GetEntityData() *types.CommonEntityData {
+    rttMonReactEntry.EntityData.YFilter = rttMonReactEntry.YFilter
+    rttMonReactEntry.EntityData.YangName = "rttMonReactEntry"
+    rttMonReactEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonReactEntry.EntityData.ParentYangName = "rttMonReactTable"
+    rttMonReactEntry.EntityData.SegmentPath = "rttMonReactEntry" + types.AddKeyToken(rttMonReactEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonReactEntry.RttMonReactConfigIndex, "rttMonReactConfigIndex")
+    rttMonReactEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonReactEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonReactEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonreactentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonreactentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonreactentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonreactentry.Rttmonctrladminindex}
-    rttmonreactentry.EntityData.Leafs["rttMonReactConfigIndex"] = types.YLeaf{"Rttmonreactconfigindex", rttmonreactentry.Rttmonreactconfigindex}
-    rttmonreactentry.EntityData.Leafs["rttMonReactVar"] = types.YLeaf{"Rttmonreactvar", rttmonreactentry.Rttmonreactvar}
-    rttmonreactentry.EntityData.Leafs["rttMonReactThresholdType"] = types.YLeaf{"Rttmonreactthresholdtype", rttmonreactentry.Rttmonreactthresholdtype}
-    rttmonreactentry.EntityData.Leafs["rttMonReactActionType"] = types.YLeaf{"Rttmonreactactiontype", rttmonreactentry.Rttmonreactactiontype}
-    rttmonreactentry.EntityData.Leafs["rttMonReactThresholdRising"] = types.YLeaf{"Rttmonreactthresholdrising", rttmonreactentry.Rttmonreactthresholdrising}
-    rttmonreactentry.EntityData.Leafs["rttMonReactThresholdFalling"] = types.YLeaf{"Rttmonreactthresholdfalling", rttmonreactentry.Rttmonreactthresholdfalling}
-    rttmonreactentry.EntityData.Leafs["rttMonReactThresholdCountX"] = types.YLeaf{"Rttmonreactthresholdcountx", rttmonreactentry.Rttmonreactthresholdcountx}
-    rttmonreactentry.EntityData.Leafs["rttMonReactThresholdCountY"] = types.YLeaf{"Rttmonreactthresholdcounty", rttmonreactentry.Rttmonreactthresholdcounty}
-    rttmonreactentry.EntityData.Leafs["rttMonReactValue"] = types.YLeaf{"Rttmonreactvalue", rttmonreactentry.Rttmonreactvalue}
-    rttmonreactentry.EntityData.Leafs["rttMonReactOccurred"] = types.YLeaf{"Rttmonreactoccurred", rttmonreactentry.Rttmonreactoccurred}
-    rttmonreactentry.EntityData.Leafs["rttMonReactStatus"] = types.YLeaf{"Rttmonreactstatus", rttmonreactentry.Rttmonreactstatus}
-    return &(rttmonreactentry.EntityData)
+    rttMonReactEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonReactEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonReactEntry.EntityData.Leafs.Append("rttMonCtrlAdminIndex", types.YLeaf{"RttMonCtrlAdminIndex", rttMonReactEntry.RttMonCtrlAdminIndex})
+    rttMonReactEntry.EntityData.Leafs.Append("rttMonReactConfigIndex", types.YLeaf{"RttMonReactConfigIndex", rttMonReactEntry.RttMonReactConfigIndex})
+    rttMonReactEntry.EntityData.Leafs.Append("rttMonReactVar", types.YLeaf{"RttMonReactVar", rttMonReactEntry.RttMonReactVar})
+    rttMonReactEntry.EntityData.Leafs.Append("rttMonReactThresholdType", types.YLeaf{"RttMonReactThresholdType", rttMonReactEntry.RttMonReactThresholdType})
+    rttMonReactEntry.EntityData.Leafs.Append("rttMonReactActionType", types.YLeaf{"RttMonReactActionType", rttMonReactEntry.RttMonReactActionType})
+    rttMonReactEntry.EntityData.Leafs.Append("rttMonReactThresholdRising", types.YLeaf{"RttMonReactThresholdRising", rttMonReactEntry.RttMonReactThresholdRising})
+    rttMonReactEntry.EntityData.Leafs.Append("rttMonReactThresholdFalling", types.YLeaf{"RttMonReactThresholdFalling", rttMonReactEntry.RttMonReactThresholdFalling})
+    rttMonReactEntry.EntityData.Leafs.Append("rttMonReactThresholdCountX", types.YLeaf{"RttMonReactThresholdCountX", rttMonReactEntry.RttMonReactThresholdCountX})
+    rttMonReactEntry.EntityData.Leafs.Append("rttMonReactThresholdCountY", types.YLeaf{"RttMonReactThresholdCountY", rttMonReactEntry.RttMonReactThresholdCountY})
+    rttMonReactEntry.EntityData.Leafs.Append("rttMonReactValue", types.YLeaf{"RttMonReactValue", rttMonReactEntry.RttMonReactValue})
+    rttMonReactEntry.EntityData.Leafs.Append("rttMonReactOccurred", types.YLeaf{"RttMonReactOccurred", rttMonReactEntry.RttMonReactOccurred})
+    rttMonReactEntry.EntityData.Leafs.Append("rttMonReactStatus", types.YLeaf{"RttMonReactStatus", rttMonReactEntry.RttMonReactStatus})
+
+    rttMonReactEntry.EntityData.YListKeys = []string {"RttMonCtrlAdminIndex", "RttMonReactConfigIndex"}
+
+    return &(rttMonReactEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactactiontype represents rttMonReactTriggerAdminTable.
-type CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactactiontype string
+// CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactActionType represents rttMonReactTriggerAdminTable.
+type CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactActionType string
 
 const (
-    CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactactiontype_none CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactactiontype = "none"
+    CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactActionType_none CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactActionType = "none"
 
-    CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactactiontype_trapOnly CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactactiontype = "trapOnly"
+    CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactActionType_trapOnly CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactActionType = "trapOnly"
 
-    CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactactiontype_triggerOnly CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactactiontype = "triggerOnly"
+    CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactActionType_triggerOnly CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactActionType = "triggerOnly"
 
-    CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactactiontype_trapAndTrigger CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactactiontype = "trapAndTrigger"
+    CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactActionType_trapAndTrigger CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactActionType = "trapAndTrigger"
 )
 
-// CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactthresholdtype represents rttMonReactOccurred was true.
-type CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactthresholdtype string
+// CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactThresholdType represents rttMonReactOccurred was true.
+type CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactThresholdType string
 
 const (
-    CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactthresholdtype_never CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactthresholdtype = "never"
+    CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactThresholdType_never CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactThresholdType = "never"
 
-    CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactthresholdtype_immediate CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactthresholdtype = "immediate"
+    CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactThresholdType_immediate CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactThresholdType = "immediate"
 
-    CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactthresholdtype_consecutive CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactthresholdtype = "consecutive"
+    CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactThresholdType_consecutive CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactThresholdType = "consecutive"
 
-    CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactthresholdtype_xOfy CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactthresholdtype = "xOfy"
+    CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactThresholdType_xOfy CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactThresholdType = "xOfy"
 
-    CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactthresholdtype_average CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactthresholdtype = "average"
+    CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactThresholdType_average CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry_RttMonReactThresholdType = "average"
 )
 
-// CISCORTTMONMIB_Rttmongeneratedopertable
+// CISCORTTMONMIB_RttMonGeneratedOperTable
 // This table contains information about the generated
 // operation id as part of a parent IP SLA operation. The parent
 // operation id is pseudo-random number, selected by the management 
 // station based on an operation started by the management 
 // station,when creating a row via the rttMonCtrlAdminStatus
 // object in the rttMonCtrlAdminTable table.
-type CISCORTTMONMIB_Rttmongeneratedopertable struct {
+type CISCORTTMONMIB_RttMonGeneratedOperTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the Generated Oper table corresponding to a child or generated
     // operation as part of a parent IP SLA operation. The type is slice of
-    // CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry.
-    Rttmongeneratedoperentry []CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry
+    // CISCORTTMONMIB_RttMonGeneratedOperTable_RttMonGeneratedOperEntry.
+    RttMonGeneratedOperEntry []*CISCORTTMONMIB_RttMonGeneratedOperTable_RttMonGeneratedOperEntry
 }
 
-func (rttmongeneratedopertable *CISCORTTMONMIB_Rttmongeneratedopertable) GetEntityData() *types.CommonEntityData {
-    rttmongeneratedopertable.EntityData.YFilter = rttmongeneratedopertable.YFilter
-    rttmongeneratedopertable.EntityData.YangName = "rttMonGeneratedOperTable"
-    rttmongeneratedopertable.EntityData.BundleName = "cisco_ios_xe"
-    rttmongeneratedopertable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmongeneratedopertable.EntityData.SegmentPath = "rttMonGeneratedOperTable"
-    rttmongeneratedopertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmongeneratedopertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmongeneratedopertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonGeneratedOperTable *CISCORTTMONMIB_RttMonGeneratedOperTable) GetEntityData() *types.CommonEntityData {
+    rttMonGeneratedOperTable.EntityData.YFilter = rttMonGeneratedOperTable.YFilter
+    rttMonGeneratedOperTable.EntityData.YangName = "rttMonGeneratedOperTable"
+    rttMonGeneratedOperTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonGeneratedOperTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonGeneratedOperTable.EntityData.SegmentPath = "rttMonGeneratedOperTable"
+    rttMonGeneratedOperTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonGeneratedOperTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonGeneratedOperTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmongeneratedopertable.EntityData.Children = make(map[string]types.YChild)
-    rttmongeneratedopertable.EntityData.Children["rttMonGeneratedOperEntry"] = types.YChild{"Rttmongeneratedoperentry", nil}
-    for i := range rttmongeneratedopertable.Rttmongeneratedoperentry {
-        rttmongeneratedopertable.EntityData.Children[types.GetSegmentPath(&rttmongeneratedopertable.Rttmongeneratedoperentry[i])] = types.YChild{"Rttmongeneratedoperentry", &rttmongeneratedopertable.Rttmongeneratedoperentry[i]}
+    rttMonGeneratedOperTable.EntityData.Children = types.NewOrderedMap()
+    rttMonGeneratedOperTable.EntityData.Children.Append("rttMonGeneratedOperEntry", types.YChild{"RttMonGeneratedOperEntry", nil})
+    for i := range rttMonGeneratedOperTable.RttMonGeneratedOperEntry {
+        rttMonGeneratedOperTable.EntityData.Children.Append(types.GetSegmentPath(rttMonGeneratedOperTable.RttMonGeneratedOperEntry[i]), types.YChild{"RttMonGeneratedOperEntry", rttMonGeneratedOperTable.RttMonGeneratedOperEntry[i]})
     }
-    rttmongeneratedopertable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmongeneratedopertable.EntityData)
+    rttMonGeneratedOperTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonGeneratedOperTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonGeneratedOperTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry
+// CISCORTTMONMIB_RttMonGeneratedOperTable_RttMonGeneratedOperEntry
 // An entry in the Generated Oper table corresponding to
 // a child or generated operation as part of a parent
 // IP SLA operation.
-type CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry struct {
+type CISCORTTMONMIB_RttMonGeneratedOperTable_RttMonGeneratedOperEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // cisco_rttmon_mib.CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrladminindex
-    Rttmonctrladminindex interface{}
+    // cisco_rttmon_mib.CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlAdminIndex
+    RttMonCtrlAdminIndex interface{}
 
     // This attribute is a key. The type of Internet address, IPv4 or IPv6, of a
     // responder for an IP SLA operation. The type is InetAddressType.
-    Rttmongeneratedoperrespipaddrtype interface{}
+    RttMonGeneratedOperRespIpAddrType interface{}
 
     // This attribute is a key. The internet address of a responder for IP SLA
     // operation. The type of this address is determined by the value of
     // rttMonGeneratedOperRespIpAddrType. The type is string with length: 0..255.
-    Rttmongeneratedoperrespipaddr interface{}
+    RttMonGeneratedOperRespIpAddr interface{}
 
     // This is a pseudo-random number, auto-generated based to identify a child
     // operation based on a parent  operation started by the management
     // station,when  creating a row via the rttMonCtrlAdminStatus object. The type
     // is interface{} with range: 1..2147483647.
-    Rttmongeneratedoperctrladminindex interface{}
+    RttMonGeneratedOperCtrlAdminIndex interface{}
 }
 
-func (rttmongeneratedoperentry *CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry) GetEntityData() *types.CommonEntityData {
-    rttmongeneratedoperentry.EntityData.YFilter = rttmongeneratedoperentry.YFilter
-    rttmongeneratedoperentry.EntityData.YangName = "rttMonGeneratedOperEntry"
-    rttmongeneratedoperentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmongeneratedoperentry.EntityData.ParentYangName = "rttMonGeneratedOperTable"
-    rttmongeneratedoperentry.EntityData.SegmentPath = "rttMonGeneratedOperEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmongeneratedoperentry.Rttmonctrladminindex) + "']" + "[rttMonGeneratedOperRespIpAddrType='" + fmt.Sprintf("%v", rttmongeneratedoperentry.Rttmongeneratedoperrespipaddrtype) + "']" + "[rttMonGeneratedOperRespIpAddr='" + fmt.Sprintf("%v", rttmongeneratedoperentry.Rttmongeneratedoperrespipaddr) + "']"
-    rttmongeneratedoperentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmongeneratedoperentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmongeneratedoperentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonGeneratedOperEntry *CISCORTTMONMIB_RttMonGeneratedOperTable_RttMonGeneratedOperEntry) GetEntityData() *types.CommonEntityData {
+    rttMonGeneratedOperEntry.EntityData.YFilter = rttMonGeneratedOperEntry.YFilter
+    rttMonGeneratedOperEntry.EntityData.YangName = "rttMonGeneratedOperEntry"
+    rttMonGeneratedOperEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonGeneratedOperEntry.EntityData.ParentYangName = "rttMonGeneratedOperTable"
+    rttMonGeneratedOperEntry.EntityData.SegmentPath = "rttMonGeneratedOperEntry" + types.AddKeyToken(rttMonGeneratedOperEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonGeneratedOperEntry.RttMonGeneratedOperRespIpAddrType, "rttMonGeneratedOperRespIpAddrType") + types.AddKeyToken(rttMonGeneratedOperEntry.RttMonGeneratedOperRespIpAddr, "rttMonGeneratedOperRespIpAddr")
+    rttMonGeneratedOperEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonGeneratedOperEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonGeneratedOperEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmongeneratedoperentry.EntityData.Children = make(map[string]types.YChild)
-    rttmongeneratedoperentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmongeneratedoperentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmongeneratedoperentry.Rttmonctrladminindex}
-    rttmongeneratedoperentry.EntityData.Leafs["rttMonGeneratedOperRespIpAddrType"] = types.YLeaf{"Rttmongeneratedoperrespipaddrtype", rttmongeneratedoperentry.Rttmongeneratedoperrespipaddrtype}
-    rttmongeneratedoperentry.EntityData.Leafs["rttMonGeneratedOperRespIpAddr"] = types.YLeaf{"Rttmongeneratedoperrespipaddr", rttmongeneratedoperentry.Rttmongeneratedoperrespipaddr}
-    rttmongeneratedoperentry.EntityData.Leafs["rttMonGeneratedOperCtrlAdminIndex"] = types.YLeaf{"Rttmongeneratedoperctrladminindex", rttmongeneratedoperentry.Rttmongeneratedoperctrladminindex}
-    return &(rttmongeneratedoperentry.EntityData)
+    rttMonGeneratedOperEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonGeneratedOperEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonGeneratedOperEntry.EntityData.Leafs.Append("rttMonCtrlAdminIndex", types.YLeaf{"RttMonCtrlAdminIndex", rttMonGeneratedOperEntry.RttMonCtrlAdminIndex})
+    rttMonGeneratedOperEntry.EntityData.Leafs.Append("rttMonGeneratedOperRespIpAddrType", types.YLeaf{"RttMonGeneratedOperRespIpAddrType", rttMonGeneratedOperEntry.RttMonGeneratedOperRespIpAddrType})
+    rttMonGeneratedOperEntry.EntityData.Leafs.Append("rttMonGeneratedOperRespIpAddr", types.YLeaf{"RttMonGeneratedOperRespIpAddr", rttMonGeneratedOperEntry.RttMonGeneratedOperRespIpAddr})
+    rttMonGeneratedOperEntry.EntityData.Leafs.Append("rttMonGeneratedOperCtrlAdminIndex", types.YLeaf{"RttMonGeneratedOperCtrlAdminIndex", rttMonGeneratedOperEntry.RttMonGeneratedOperCtrlAdminIndex})
+
+    rttMonGeneratedOperEntry.EntityData.YListKeys = []string {"RttMonCtrlAdminIndex", "RttMonGeneratedOperRespIpAddrType", "RttMonGeneratedOperRespIpAddr"}
+
+    return &(rttMonGeneratedOperEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonstatscapturetable
+// CISCORTTMONMIB_RttMonStatsCaptureTable
 // The statistics capture database.
 // 
 // The statistics capture table contains summarized 
@@ -3866,7 +3956,7 @@ func (rttmongeneratedoperentry *CISCORTTMONMIB_Rttmongeneratedopertable_Rttmonge
 // over a longer period, which removes the need for a flood 
 // of get requests in a short period which otherwise would 
 // occur.
-type CISCORTTMONMIB_Rttmonstatscapturetable struct {
+type CISCORTTMONMIB_RttMonStatsCaptureTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3894,30 +3984,33 @@ type CISCORTTMONMIB_Rttmonstatscapturetable struct {
     // the order of the hops along the path to a        target.  For all other
     // values of RttMonRttType       this index will be one.   -  The fifth index
     // uniquely creates a statistical       distribution bucket. The type is slice
-    // of CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry.
-    Rttmonstatscaptureentry []CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry
+    // of CISCORTTMONMIB_RttMonStatsCaptureTable_RttMonStatsCaptureEntry.
+    RttMonStatsCaptureEntry []*CISCORTTMONMIB_RttMonStatsCaptureTable_RttMonStatsCaptureEntry
 }
 
-func (rttmonstatscapturetable *CISCORTTMONMIB_Rttmonstatscapturetable) GetEntityData() *types.CommonEntityData {
-    rttmonstatscapturetable.EntityData.YFilter = rttmonstatscapturetable.YFilter
-    rttmonstatscapturetable.EntityData.YangName = "rttMonStatsCaptureTable"
-    rttmonstatscapturetable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonstatscapturetable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonstatscapturetable.EntityData.SegmentPath = "rttMonStatsCaptureTable"
-    rttmonstatscapturetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonstatscapturetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonstatscapturetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonStatsCaptureTable *CISCORTTMONMIB_RttMonStatsCaptureTable) GetEntityData() *types.CommonEntityData {
+    rttMonStatsCaptureTable.EntityData.YFilter = rttMonStatsCaptureTable.YFilter
+    rttMonStatsCaptureTable.EntityData.YangName = "rttMonStatsCaptureTable"
+    rttMonStatsCaptureTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonStatsCaptureTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonStatsCaptureTable.EntityData.SegmentPath = "rttMonStatsCaptureTable"
+    rttMonStatsCaptureTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonStatsCaptureTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonStatsCaptureTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonstatscapturetable.EntityData.Children = make(map[string]types.YChild)
-    rttmonstatscapturetable.EntityData.Children["rttMonStatsCaptureEntry"] = types.YChild{"Rttmonstatscaptureentry", nil}
-    for i := range rttmonstatscapturetable.Rttmonstatscaptureentry {
-        rttmonstatscapturetable.EntityData.Children[types.GetSegmentPath(&rttmonstatscapturetable.Rttmonstatscaptureentry[i])] = types.YChild{"Rttmonstatscaptureentry", &rttmonstatscapturetable.Rttmonstatscaptureentry[i]}
+    rttMonStatsCaptureTable.EntityData.Children = types.NewOrderedMap()
+    rttMonStatsCaptureTable.EntityData.Children.Append("rttMonStatsCaptureEntry", types.YChild{"RttMonStatsCaptureEntry", nil})
+    for i := range rttMonStatsCaptureTable.RttMonStatsCaptureEntry {
+        rttMonStatsCaptureTable.EntityData.Children.Append(types.GetSegmentPath(rttMonStatsCaptureTable.RttMonStatsCaptureEntry[i]), types.YChild{"RttMonStatsCaptureEntry", rttMonStatsCaptureTable.RttMonStatsCaptureEntry[i]})
     }
-    rttmonstatscapturetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonstatscapturetable.EntityData)
+    rttMonStatsCaptureTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonStatsCaptureTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonStatsCaptureTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry
+// CISCORTTMONMIB_RttMonStatsCaptureTable_RttMonStatsCaptureEntry
 // A list of objects which accumulate the results of a
 // series of RTT operations over a 60 minute time period.
 // 
@@ -3958,14 +4051,14 @@ func (rttmonstatscapturetable *CISCORTTMONMIB_Rttmonstatscapturetable) GetEntity
 //       this index will be one.
 //   -  The fifth index uniquely creates a statistical
 //       distribution bucket.
-type CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry struct {
+type CISCORTTMONMIB_RttMonStatsCaptureTable_RttMonStatsCaptureEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // cisco_rttmon_mib.CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrladminindex
-    Rttmonctrladminindex interface{}
+    // cisco_rttmon_mib.CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlAdminIndex
+    RttMonCtrlAdminIndex interface{}
 
     // This attribute is a key. The time when this row was created.  This object
     // is the second index of the  rttMonStatsCaptureTable Table.  The the number
@@ -3975,7 +4068,7 @@ type CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry struct {
     // the new entry.  When the RttMonRttType is 'pathEcho', this object also 
     // uniquely defines a group of paths.  See the  rttMonStatsCaptureEntry
     // object. The type is interface{} with range: 0..4294967295.
-    Rttmonstatscapturestarttimeindex interface{}
+    RttMonStatsCaptureStartTimeIndex interface{}
 
     // This attribute is a key. When the RttMonRttType is 'pathEcho', this object
     // uniquely defines a path for a given value of 
@@ -3991,7 +4084,7 @@ type CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry struct {
     // a specific path or        connection has not be setup.  This value directly
     // represents the path to a target. We can only support 128 paths. The type is
     // interface{} with range: 1..128.
-    Rttmonstatscapturepathindex interface{}
+    RttMonStatsCapturePathIndex interface{}
 
     // This attribute is a key. When the RttMonRttType is 'pathEcho', this object
     // uniquely defines a hop for a given value of  rttMonStatsCapturePathIndex. 
@@ -4004,7 +4097,7 @@ type CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry struct {
     // hop along the path to a target, thus we can only support 30 hops.  This
     // value shows the order along the path to a target. The type is interface{}
     // with range: 1..30.
-    Rttmonstatscapturehopindex interface{}
+    RttMonStatsCaptureHopIndex interface{}
 
     // This attribute is a key. This object uniquely defines a statistical
     // distribution bucket for a given value of rttMonStatsCaptureHopIndex.  For a
@@ -4016,13 +4109,13 @@ type CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry struct {
     // last interval.  Each of these Statistics Distribution Buckets contain  the
     // results of each completion as defined by  rttMonStatisticsAdminDistInterval
     // object. The type is interface{} with range: 1..20.
-    Rttmonstatscapturedistindex interface{}
+    RttMonStatsCaptureDistIndex interface{}
 
     // The number of RTT operations that have completed without an error and
     // without timing out.  This object has the special behavior as defined by the
     // ROLLOVER NOTE in the DESCRIPTION of the ciscoRttMonMIB object. The type is
     // interface{} with range: 0..2147483647.
-    Rttmonstatscapturecompletions interface{}
+    RttMonStatsCaptureCompletions interface{}
 
     // The number of RTT operations successfully completed, but in excess of
     // rttMonCtrlAdminThreshold.  This number is a subset of the accumulation of
@@ -4030,12 +4123,12 @@ type CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry struct {
     // operations will be accumulated.  This object has the special behavior as
     // defined by the ROLLOVER NOTE in the DESCRIPTION of the ciscoRttMonMIB
     // object. The type is interface{} with range: 0..2147483647.
-    Rttmonstatscaptureoverthresholds interface{}
+    RttMonStatsCaptureOverThresholds interface{}
 
     // The accumulated completion time of RTT operations which complete
     // successfully. The type is interface{} with range: 0..4294967295. Units are
     // milliseconds.
-    Rttmonstatscapturesumcompletiontime interface{}
+    RttMonStatsCaptureSumCompletionTime interface{}
 
     // The low order 32 bits of the accumulated squares of completion times (in
     // milliseconds) of RTT  operations which complete successfully.  Low/High
@@ -4045,53 +4138,56 @@ type CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry struct {
     // For example the number 4294967296 would have all Low order bits as '0' and
     // the rightmost High order bit will be 1 (zeros,1). The type is interface{}
     // with range: 0..4294967295.
-    Rttmonstatscapturesumcompletiontime2Low interface{}
+    RttMonStatsCaptureSumCompletionTime2Low interface{}
 
     // The high order 32 bits of the accumulated squares of completion times (in
     // milliseconds) of RTT  operations which complete successfully.  See the
     // rttMonStatsCaptureSumCompletionTime2Low object for a definition of Low/High
     // Order. The type is interface{} with range: 0..4294967295.
-    Rttmonstatscapturesumcompletiontime2High interface{}
+    RttMonStatsCaptureSumCompletionTime2High interface{}
 
     // The maximum completion time of any RTT operation which completes
     // successfully. The type is interface{} with range: 0..4294967295. Units are
     // milliseconds.
-    Rttmonstatscapturecompletiontimemax interface{}
+    RttMonStatsCaptureCompletionTimeMax interface{}
 
     // The minimum completion time of any RTT operation which completes
     // successfully. The type is interface{} with range: 0..4294967295. Units are
     // milliseconds.
-    Rttmonstatscapturecompletiontimemin interface{}
+    RttMonStatsCaptureCompletionTimeMin interface{}
 }
 
-func (rttmonstatscaptureentry *CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry) GetEntityData() *types.CommonEntityData {
-    rttmonstatscaptureentry.EntityData.YFilter = rttmonstatscaptureentry.YFilter
-    rttmonstatscaptureentry.EntityData.YangName = "rttMonStatsCaptureEntry"
-    rttmonstatscaptureentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonstatscaptureentry.EntityData.ParentYangName = "rttMonStatsCaptureTable"
-    rttmonstatscaptureentry.EntityData.SegmentPath = "rttMonStatsCaptureEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonstatscaptureentry.Rttmonctrladminindex) + "']" + "[rttMonStatsCaptureStartTimeIndex='" + fmt.Sprintf("%v", rttmonstatscaptureentry.Rttmonstatscapturestarttimeindex) + "']" + "[rttMonStatsCapturePathIndex='" + fmt.Sprintf("%v", rttmonstatscaptureentry.Rttmonstatscapturepathindex) + "']" + "[rttMonStatsCaptureHopIndex='" + fmt.Sprintf("%v", rttmonstatscaptureentry.Rttmonstatscapturehopindex) + "']" + "[rttMonStatsCaptureDistIndex='" + fmt.Sprintf("%v", rttmonstatscaptureentry.Rttmonstatscapturedistindex) + "']"
-    rttmonstatscaptureentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonstatscaptureentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonstatscaptureentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonStatsCaptureEntry *CISCORTTMONMIB_RttMonStatsCaptureTable_RttMonStatsCaptureEntry) GetEntityData() *types.CommonEntityData {
+    rttMonStatsCaptureEntry.EntityData.YFilter = rttMonStatsCaptureEntry.YFilter
+    rttMonStatsCaptureEntry.EntityData.YangName = "rttMonStatsCaptureEntry"
+    rttMonStatsCaptureEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonStatsCaptureEntry.EntityData.ParentYangName = "rttMonStatsCaptureTable"
+    rttMonStatsCaptureEntry.EntityData.SegmentPath = "rttMonStatsCaptureEntry" + types.AddKeyToken(rttMonStatsCaptureEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonStatsCaptureEntry.RttMonStatsCaptureStartTimeIndex, "rttMonStatsCaptureStartTimeIndex") + types.AddKeyToken(rttMonStatsCaptureEntry.RttMonStatsCapturePathIndex, "rttMonStatsCapturePathIndex") + types.AddKeyToken(rttMonStatsCaptureEntry.RttMonStatsCaptureHopIndex, "rttMonStatsCaptureHopIndex") + types.AddKeyToken(rttMonStatsCaptureEntry.RttMonStatsCaptureDistIndex, "rttMonStatsCaptureDistIndex")
+    rttMonStatsCaptureEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonStatsCaptureEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonStatsCaptureEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonstatscaptureentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonstatscaptureentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonstatscaptureentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonstatscaptureentry.Rttmonctrladminindex}
-    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureStartTimeIndex"] = types.YLeaf{"Rttmonstatscapturestarttimeindex", rttmonstatscaptureentry.Rttmonstatscapturestarttimeindex}
-    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCapturePathIndex"] = types.YLeaf{"Rttmonstatscapturepathindex", rttmonstatscaptureentry.Rttmonstatscapturepathindex}
-    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureHopIndex"] = types.YLeaf{"Rttmonstatscapturehopindex", rttmonstatscaptureentry.Rttmonstatscapturehopindex}
-    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureDistIndex"] = types.YLeaf{"Rttmonstatscapturedistindex", rttmonstatscaptureentry.Rttmonstatscapturedistindex}
-    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureCompletions"] = types.YLeaf{"Rttmonstatscapturecompletions", rttmonstatscaptureentry.Rttmonstatscapturecompletions}
-    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureOverThresholds"] = types.YLeaf{"Rttmonstatscaptureoverthresholds", rttmonstatscaptureentry.Rttmonstatscaptureoverthresholds}
-    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureSumCompletionTime"] = types.YLeaf{"Rttmonstatscapturesumcompletiontime", rttmonstatscaptureentry.Rttmonstatscapturesumcompletiontime}
-    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureSumCompletionTime2Low"] = types.YLeaf{"Rttmonstatscapturesumcompletiontime2Low", rttmonstatscaptureentry.Rttmonstatscapturesumcompletiontime2Low}
-    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureSumCompletionTime2High"] = types.YLeaf{"Rttmonstatscapturesumcompletiontime2High", rttmonstatscaptureentry.Rttmonstatscapturesumcompletiontime2High}
-    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureCompletionTimeMax"] = types.YLeaf{"Rttmonstatscapturecompletiontimemax", rttmonstatscaptureentry.Rttmonstatscapturecompletiontimemax}
-    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureCompletionTimeMin"] = types.YLeaf{"Rttmonstatscapturecompletiontimemin", rttmonstatscaptureentry.Rttmonstatscapturecompletiontimemin}
-    return &(rttmonstatscaptureentry.EntityData)
+    rttMonStatsCaptureEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonStatsCaptureEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonStatsCaptureEntry.EntityData.Leafs.Append("rttMonCtrlAdminIndex", types.YLeaf{"RttMonCtrlAdminIndex", rttMonStatsCaptureEntry.RttMonCtrlAdminIndex})
+    rttMonStatsCaptureEntry.EntityData.Leafs.Append("rttMonStatsCaptureStartTimeIndex", types.YLeaf{"RttMonStatsCaptureStartTimeIndex", rttMonStatsCaptureEntry.RttMonStatsCaptureStartTimeIndex})
+    rttMonStatsCaptureEntry.EntityData.Leafs.Append("rttMonStatsCapturePathIndex", types.YLeaf{"RttMonStatsCapturePathIndex", rttMonStatsCaptureEntry.RttMonStatsCapturePathIndex})
+    rttMonStatsCaptureEntry.EntityData.Leafs.Append("rttMonStatsCaptureHopIndex", types.YLeaf{"RttMonStatsCaptureHopIndex", rttMonStatsCaptureEntry.RttMonStatsCaptureHopIndex})
+    rttMonStatsCaptureEntry.EntityData.Leafs.Append("rttMonStatsCaptureDistIndex", types.YLeaf{"RttMonStatsCaptureDistIndex", rttMonStatsCaptureEntry.RttMonStatsCaptureDistIndex})
+    rttMonStatsCaptureEntry.EntityData.Leafs.Append("rttMonStatsCaptureCompletions", types.YLeaf{"RttMonStatsCaptureCompletions", rttMonStatsCaptureEntry.RttMonStatsCaptureCompletions})
+    rttMonStatsCaptureEntry.EntityData.Leafs.Append("rttMonStatsCaptureOverThresholds", types.YLeaf{"RttMonStatsCaptureOverThresholds", rttMonStatsCaptureEntry.RttMonStatsCaptureOverThresholds})
+    rttMonStatsCaptureEntry.EntityData.Leafs.Append("rttMonStatsCaptureSumCompletionTime", types.YLeaf{"RttMonStatsCaptureSumCompletionTime", rttMonStatsCaptureEntry.RttMonStatsCaptureSumCompletionTime})
+    rttMonStatsCaptureEntry.EntityData.Leafs.Append("rttMonStatsCaptureSumCompletionTime2Low", types.YLeaf{"RttMonStatsCaptureSumCompletionTime2Low", rttMonStatsCaptureEntry.RttMonStatsCaptureSumCompletionTime2Low})
+    rttMonStatsCaptureEntry.EntityData.Leafs.Append("rttMonStatsCaptureSumCompletionTime2High", types.YLeaf{"RttMonStatsCaptureSumCompletionTime2High", rttMonStatsCaptureEntry.RttMonStatsCaptureSumCompletionTime2High})
+    rttMonStatsCaptureEntry.EntityData.Leafs.Append("rttMonStatsCaptureCompletionTimeMax", types.YLeaf{"RttMonStatsCaptureCompletionTimeMax", rttMonStatsCaptureEntry.RttMonStatsCaptureCompletionTimeMax})
+    rttMonStatsCaptureEntry.EntityData.Leafs.Append("rttMonStatsCaptureCompletionTimeMin", types.YLeaf{"RttMonStatsCaptureCompletionTimeMin", rttMonStatsCaptureEntry.RttMonStatsCaptureCompletionTimeMin})
+
+    rttMonStatsCaptureEntry.EntityData.YListKeys = []string {"RttMonCtrlAdminIndex", "RttMonStatsCaptureStartTimeIndex", "RttMonStatsCapturePathIndex", "RttMonStatsCaptureHopIndex", "RttMonStatsCaptureDistIndex"}
+
+    return &(rttMonStatsCaptureEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonstatscollecttable
+// CISCORTTMONMIB_RttMonStatsCollectTable
 // The statistics collection database.
 // 
 // This table has the exact same behavior as the
@@ -4100,7 +4196,7 @@ func (rttmonstatscaptureentry *CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstat
 // 
 // For a complete table description see
 // the rttMonStatsCaptureTable object.
-type CISCORTTMONMIB_Rttmonstatscollecttable struct {
+type CISCORTTMONMIB_RttMonStatsCollectTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4109,30 +4205,33 @@ type CISCORTTMONMIB_Rttmonstatscollecttable struct {
     // behavior as the  rttMonStatsCaptureEntry, except it does not keep
     // statistical distribution information.  For a complete entry description see
     // the rttMonStatsCaptureEntry object. The type is slice of
-    // CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry.
-    Rttmonstatscollectentry []CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry
+    // CISCORTTMONMIB_RttMonStatsCollectTable_RttMonStatsCollectEntry.
+    RttMonStatsCollectEntry []*CISCORTTMONMIB_RttMonStatsCollectTable_RttMonStatsCollectEntry
 }
 
-func (rttmonstatscollecttable *CISCORTTMONMIB_Rttmonstatscollecttable) GetEntityData() *types.CommonEntityData {
-    rttmonstatscollecttable.EntityData.YFilter = rttmonstatscollecttable.YFilter
-    rttmonstatscollecttable.EntityData.YangName = "rttMonStatsCollectTable"
-    rttmonstatscollecttable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonstatscollecttable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonstatscollecttable.EntityData.SegmentPath = "rttMonStatsCollectTable"
-    rttmonstatscollecttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonstatscollecttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonstatscollecttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonStatsCollectTable *CISCORTTMONMIB_RttMonStatsCollectTable) GetEntityData() *types.CommonEntityData {
+    rttMonStatsCollectTable.EntityData.YFilter = rttMonStatsCollectTable.YFilter
+    rttMonStatsCollectTable.EntityData.YangName = "rttMonStatsCollectTable"
+    rttMonStatsCollectTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonStatsCollectTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonStatsCollectTable.EntityData.SegmentPath = "rttMonStatsCollectTable"
+    rttMonStatsCollectTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonStatsCollectTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonStatsCollectTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonstatscollecttable.EntityData.Children = make(map[string]types.YChild)
-    rttmonstatscollecttable.EntityData.Children["rttMonStatsCollectEntry"] = types.YChild{"Rttmonstatscollectentry", nil}
-    for i := range rttmonstatscollecttable.Rttmonstatscollectentry {
-        rttmonstatscollecttable.EntityData.Children[types.GetSegmentPath(&rttmonstatscollecttable.Rttmonstatscollectentry[i])] = types.YChild{"Rttmonstatscollectentry", &rttmonstatscollecttable.Rttmonstatscollectentry[i]}
+    rttMonStatsCollectTable.EntityData.Children = types.NewOrderedMap()
+    rttMonStatsCollectTable.EntityData.Children.Append("rttMonStatsCollectEntry", types.YChild{"RttMonStatsCollectEntry", nil})
+    for i := range rttMonStatsCollectTable.RttMonStatsCollectEntry {
+        rttMonStatsCollectTable.EntityData.Children.Append(types.GetSegmentPath(rttMonStatsCollectTable.RttMonStatsCollectEntry[i]), types.YChild{"RttMonStatsCollectEntry", rttMonStatsCollectTable.RttMonStatsCollectEntry[i]})
     }
-    rttmonstatscollecttable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonstatscollecttable.EntityData)
+    rttMonStatsCollectTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonStatsCollectTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonStatsCollectTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry
+// CISCORTTMONMIB_RttMonStatsCollectTable_RttMonStatsCollectEntry
 // A list of objects which accumulate the results of a
 // series of RTT operations over a 60 minute time period.
 // 
@@ -4142,27 +4241,27 @@ func (rttmonstatscollecttable *CISCORTTMONMIB_Rttmonstatscollecttable) GetEntity
 // 
 // For a complete entry description see
 // the rttMonStatsCaptureEntry object.
-type CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry struct {
+type CISCORTTMONMIB_RttMonStatsCollectTable_RttMonStatsCollectEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // cisco_rttmon_mib.CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrladminindex
-    Rttmonctrladminindex interface{}
+    // cisco_rttmon_mib.CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlAdminIndex
+    RttMonCtrlAdminIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // cisco_rttmon_mib.CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry_Rttmonstatscapturestarttimeindex
-    Rttmonstatscapturestarttimeindex interface{}
+    // cisco_rttmon_mib.CISCORTTMONMIB_RttMonStatsCaptureTable_RttMonStatsCaptureEntry_RttMonStatsCaptureStartTimeIndex
+    RttMonStatsCaptureStartTimeIndex interface{}
 
     // This attribute is a key. The type is string with range: 1..128. Refers to
-    // cisco_rttmon_mib.CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry_Rttmonstatscapturepathindex
-    Rttmonstatscapturepathindex interface{}
+    // cisco_rttmon_mib.CISCORTTMONMIB_RttMonStatsCaptureTable_RttMonStatsCaptureEntry_RttMonStatsCapturePathIndex
+    RttMonStatsCapturePathIndex interface{}
 
     // This attribute is a key. The type is string with range: 1..30. Refers to
-    // cisco_rttmon_mib.CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry_Rttmonstatscapturehopindex
-    Rttmonstatscapturehopindex interface{}
+    // cisco_rttmon_mib.CISCORTTMONMIB_RttMonStatsCaptureTable_RttMonStatsCaptureEntry_RttMonStatsCaptureHopIndex
+    RttMonStatsCaptureHopIndex interface{}
 
     // When the RttMonRttType is 'echo' or pathEcho', this object represents the
     // number of times that the target or  hop along the path to a target became
@@ -4180,7 +4279,7 @@ type CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry struct {
     // object has the special behavior as defined by the ROLLOVER NOTE in the
     // DESCRIPTION of the ciscoRttMonMIB object. The type is interface{} with
     // range: 0..2147483647.
-    Rttmonstatscollectnumdisconnects interface{}
+    RttMonStatsCollectNumDisconnects interface{}
 
     // The number of occasions when a RTT operation was not completed before a
     // timeout occurred, i.e. rttMonCtrlAdminTimeout was exceeded.  Since the RTT
@@ -4189,7 +4288,7 @@ type CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry struct {
     // any of the statistics distribution buckets).  This object has the special
     // behavior as defined by the ROLLOVER NOTE in the DESCRIPTION of the
     // ciscoRttMonMIB object. The type is interface{} with range: 0..2147483647.
-    Rttmonstatscollecttimeouts interface{}
+    RttMonStatsCollectTimeouts interface{}
 
     // The number of occasions when a RTT operation could not be initiated because
     // a previous RTT operation has not  been completed.  When the RttMonRttType
@@ -4206,7 +4305,7 @@ type CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry struct {
     // that will always exist.  This object has the special behavior as defined by
     // the ROLLOVER NOTE in the DESCRIPTION of the ciscoRttMonMIB object. The type
     // is interface{} with range: 0..2147483647.
-    Rttmonstatscollectbusies interface{}
+    RttMonStatsCollectBusies interface{}
 
     // When the RttMonRttType is 'echo' or 'pathEcho' this is the number of
     // occasions when a RTT operation could not be initiated because the
@@ -4221,7 +4320,7 @@ type CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry struct {
     // object has the special behavior as defined by the ROLLOVER NOTE in the
     // DESCRIPTION of the ciscoRttMonMIB object. The type is interface{} with
     // range: 0..2147483647.
-    Rttmonstatscollectnoconnections interface{}
+    RttMonStatsCollectNoConnections interface{}
 
     // The number of occasions when a RTT operation could not be initiated because
     // some necessary internal resource  (for example memory, or SNA subsystem)
@@ -4235,7 +4334,7 @@ type CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry struct {
     // object has the special behavior as defined by the ROLLOVER NOTE in the
     // DESCRIPTION of the ciscoRttMonMIB object. The type is interface{} with
     // range: 0..2147483647.
-    Rttmonstatscollectdrops interface{}
+    RttMonStatsCollectDrops interface{}
 
     // When the RttMonRttType is 'echo' of 'pathEcho' this is the number of RTT
     // operation completions received with  an unexpected sequence identifier. 
@@ -4248,7 +4347,7 @@ type CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry struct {
     // object has the special behavior as defined by the ROLLOVER NOTE in the
     // DESCRIPTION of the ciscoRttMonMIB object. The type is interface{} with
     // range: 0..2147483647.
-    Rttmonstatscollectsequenceerrors interface{}
+    RttMonStatsCollectSequenceErrors interface{}
 
     // The number of RTT operation completions received with data that does not
     // compare with the expected data.  The  completion time of these operations
@@ -4256,7 +4355,7 @@ type CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry struct {
     // (in the expected Distribution Bucket).  This object has the special
     // behavior as defined by the ROLLOVER NOTE in the DESCRIPTION of the
     // ciscoRttMonMIB object. The type is interface{} with range: 0..2147483647.
-    Rttmonstatscollectverifyerrors interface{}
+    RttMonStatsCollectVerifyErrors interface{}
 
     // This object only applies when the RttMonRttType is 'echo', 'pathEcho',
     // 'dlsw', 'udpEcho', 'tcpConnect'.   For all other values of the
@@ -4270,7 +4369,7 @@ type CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry struct {
     // The interpretation of this string depends on the type  of RTT operation
     // selected, as specified by the  rttMonEchoAdminProtocol object. The type is
     // string.
-    Rttmonstatscollectaddress interface{}
+    RttMonStatsCollectAddress interface{}
 
     // The number of occasions when control enable request failed. Currently it is
     // used for multicast operation type.  This object has the special behavior as
@@ -4278,7 +4377,7 @@ type CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry struct {
     // object. rttMonControlEnableErrors object is superseded by
     // rttMonStatsCollectCtrlEnErrors. The type is interface{} with range:
     // 0..2147483647.
-    Rttmoncontrolenableerrors interface{}
+    RttMonControlEnableErrors interface{}
 
     // The number of occasions when stats retrieval request failed. Currently it
     // is used for multicast operation type.  This object has the special behavior
@@ -4286,55 +4385,58 @@ type CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry struct {
     // object. rttMonStatsRetrieveErrors object is superseded by
     // rttMonStatsCollectRetrieveErrors. The type is interface{} with range:
     // 0..2147483647.
-    Rttmonstatsretrieveerrors interface{}
+    RttMonStatsRetrieveErrors interface{}
 
     // The object is same as rttMonControlEnableErrors, with corrected name for
     // consistency.  The number of occasions when control enable request failed.
     // Currently it is used for multicast operation type.  This object has the
     // special behavior as defined by the ROLLOVER NOTE in the DESCRIPTION of the
     // ciscoRttMonMIB object. The type is interface{} with range: 0..2147483647.
-    Rttmonstatscollectctrlenerrors interface{}
+    RttMonStatsCollectCtrlEnErrors interface{}
 
     // The object is same as rttMonStatsRetrieveErrors, with corrected name for
     // consistency.  The number of occasions when stats retrieval request failed.
     // Currently it is used for multicast operation type.  This object has the
     // special behavior as defined by the ROLLOVER NOTE in the DESCRIPTION of the
     // ciscoRttMonMIB object. The type is interface{} with range: 0..2147483647.
-    Rttmonstatscollectretrieveerrors interface{}
+    RttMonStatsCollectRetrieveErrors interface{}
 }
 
-func (rttmonstatscollectentry *CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry) GetEntityData() *types.CommonEntityData {
-    rttmonstatscollectentry.EntityData.YFilter = rttmonstatscollectentry.YFilter
-    rttmonstatscollectentry.EntityData.YangName = "rttMonStatsCollectEntry"
-    rttmonstatscollectentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonstatscollectentry.EntityData.ParentYangName = "rttMonStatsCollectTable"
-    rttmonstatscollectentry.EntityData.SegmentPath = "rttMonStatsCollectEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonstatscollectentry.Rttmonctrladminindex) + "']" + "[rttMonStatsCaptureStartTimeIndex='" + fmt.Sprintf("%v", rttmonstatscollectentry.Rttmonstatscapturestarttimeindex) + "']" + "[rttMonStatsCapturePathIndex='" + fmt.Sprintf("%v", rttmonstatscollectentry.Rttmonstatscapturepathindex) + "']" + "[rttMonStatsCaptureHopIndex='" + fmt.Sprintf("%v", rttmonstatscollectentry.Rttmonstatscapturehopindex) + "']"
-    rttmonstatscollectentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonstatscollectentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonstatscollectentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonStatsCollectEntry *CISCORTTMONMIB_RttMonStatsCollectTable_RttMonStatsCollectEntry) GetEntityData() *types.CommonEntityData {
+    rttMonStatsCollectEntry.EntityData.YFilter = rttMonStatsCollectEntry.YFilter
+    rttMonStatsCollectEntry.EntityData.YangName = "rttMonStatsCollectEntry"
+    rttMonStatsCollectEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonStatsCollectEntry.EntityData.ParentYangName = "rttMonStatsCollectTable"
+    rttMonStatsCollectEntry.EntityData.SegmentPath = "rttMonStatsCollectEntry" + types.AddKeyToken(rttMonStatsCollectEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonStatsCollectEntry.RttMonStatsCaptureStartTimeIndex, "rttMonStatsCaptureStartTimeIndex") + types.AddKeyToken(rttMonStatsCollectEntry.RttMonStatsCapturePathIndex, "rttMonStatsCapturePathIndex") + types.AddKeyToken(rttMonStatsCollectEntry.RttMonStatsCaptureHopIndex, "rttMonStatsCaptureHopIndex")
+    rttMonStatsCollectEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonStatsCollectEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonStatsCollectEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonstatscollectentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonstatscollectentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonstatscollectentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonstatscollectentry.Rttmonctrladminindex}
-    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCaptureStartTimeIndex"] = types.YLeaf{"Rttmonstatscapturestarttimeindex", rttmonstatscollectentry.Rttmonstatscapturestarttimeindex}
-    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCapturePathIndex"] = types.YLeaf{"Rttmonstatscapturepathindex", rttmonstatscollectentry.Rttmonstatscapturepathindex}
-    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCaptureHopIndex"] = types.YLeaf{"Rttmonstatscapturehopindex", rttmonstatscollectentry.Rttmonstatscapturehopindex}
-    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectNumDisconnects"] = types.YLeaf{"Rttmonstatscollectnumdisconnects", rttmonstatscollectentry.Rttmonstatscollectnumdisconnects}
-    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectTimeouts"] = types.YLeaf{"Rttmonstatscollecttimeouts", rttmonstatscollectentry.Rttmonstatscollecttimeouts}
-    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectBusies"] = types.YLeaf{"Rttmonstatscollectbusies", rttmonstatscollectentry.Rttmonstatscollectbusies}
-    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectNoConnections"] = types.YLeaf{"Rttmonstatscollectnoconnections", rttmonstatscollectentry.Rttmonstatscollectnoconnections}
-    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectDrops"] = types.YLeaf{"Rttmonstatscollectdrops", rttmonstatscollectentry.Rttmonstatscollectdrops}
-    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectSequenceErrors"] = types.YLeaf{"Rttmonstatscollectsequenceerrors", rttmonstatscollectentry.Rttmonstatscollectsequenceerrors}
-    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectVerifyErrors"] = types.YLeaf{"Rttmonstatscollectverifyerrors", rttmonstatscollectentry.Rttmonstatscollectverifyerrors}
-    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectAddress"] = types.YLeaf{"Rttmonstatscollectaddress", rttmonstatscollectentry.Rttmonstatscollectaddress}
-    rttmonstatscollectentry.EntityData.Leafs["rttMonControlEnableErrors"] = types.YLeaf{"Rttmoncontrolenableerrors", rttmonstatscollectentry.Rttmoncontrolenableerrors}
-    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsRetrieveErrors"] = types.YLeaf{"Rttmonstatsretrieveerrors", rttmonstatscollectentry.Rttmonstatsretrieveerrors}
-    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectCtrlEnErrors"] = types.YLeaf{"Rttmonstatscollectctrlenerrors", rttmonstatscollectentry.Rttmonstatscollectctrlenerrors}
-    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectRetrieveErrors"] = types.YLeaf{"Rttmonstatscollectretrieveerrors", rttmonstatscollectentry.Rttmonstatscollectretrieveerrors}
-    return &(rttmonstatscollectentry.EntityData)
+    rttMonStatsCollectEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonStatsCollectEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonStatsCollectEntry.EntityData.Leafs.Append("rttMonCtrlAdminIndex", types.YLeaf{"RttMonCtrlAdminIndex", rttMonStatsCollectEntry.RttMonCtrlAdminIndex})
+    rttMonStatsCollectEntry.EntityData.Leafs.Append("rttMonStatsCaptureStartTimeIndex", types.YLeaf{"RttMonStatsCaptureStartTimeIndex", rttMonStatsCollectEntry.RttMonStatsCaptureStartTimeIndex})
+    rttMonStatsCollectEntry.EntityData.Leafs.Append("rttMonStatsCapturePathIndex", types.YLeaf{"RttMonStatsCapturePathIndex", rttMonStatsCollectEntry.RttMonStatsCapturePathIndex})
+    rttMonStatsCollectEntry.EntityData.Leafs.Append("rttMonStatsCaptureHopIndex", types.YLeaf{"RttMonStatsCaptureHopIndex", rttMonStatsCollectEntry.RttMonStatsCaptureHopIndex})
+    rttMonStatsCollectEntry.EntityData.Leafs.Append("rttMonStatsCollectNumDisconnects", types.YLeaf{"RttMonStatsCollectNumDisconnects", rttMonStatsCollectEntry.RttMonStatsCollectNumDisconnects})
+    rttMonStatsCollectEntry.EntityData.Leafs.Append("rttMonStatsCollectTimeouts", types.YLeaf{"RttMonStatsCollectTimeouts", rttMonStatsCollectEntry.RttMonStatsCollectTimeouts})
+    rttMonStatsCollectEntry.EntityData.Leafs.Append("rttMonStatsCollectBusies", types.YLeaf{"RttMonStatsCollectBusies", rttMonStatsCollectEntry.RttMonStatsCollectBusies})
+    rttMonStatsCollectEntry.EntityData.Leafs.Append("rttMonStatsCollectNoConnections", types.YLeaf{"RttMonStatsCollectNoConnections", rttMonStatsCollectEntry.RttMonStatsCollectNoConnections})
+    rttMonStatsCollectEntry.EntityData.Leafs.Append("rttMonStatsCollectDrops", types.YLeaf{"RttMonStatsCollectDrops", rttMonStatsCollectEntry.RttMonStatsCollectDrops})
+    rttMonStatsCollectEntry.EntityData.Leafs.Append("rttMonStatsCollectSequenceErrors", types.YLeaf{"RttMonStatsCollectSequenceErrors", rttMonStatsCollectEntry.RttMonStatsCollectSequenceErrors})
+    rttMonStatsCollectEntry.EntityData.Leafs.Append("rttMonStatsCollectVerifyErrors", types.YLeaf{"RttMonStatsCollectVerifyErrors", rttMonStatsCollectEntry.RttMonStatsCollectVerifyErrors})
+    rttMonStatsCollectEntry.EntityData.Leafs.Append("rttMonStatsCollectAddress", types.YLeaf{"RttMonStatsCollectAddress", rttMonStatsCollectEntry.RttMonStatsCollectAddress})
+    rttMonStatsCollectEntry.EntityData.Leafs.Append("rttMonControlEnableErrors", types.YLeaf{"RttMonControlEnableErrors", rttMonStatsCollectEntry.RttMonControlEnableErrors})
+    rttMonStatsCollectEntry.EntityData.Leafs.Append("rttMonStatsRetrieveErrors", types.YLeaf{"RttMonStatsRetrieveErrors", rttMonStatsCollectEntry.RttMonStatsRetrieveErrors})
+    rttMonStatsCollectEntry.EntityData.Leafs.Append("rttMonStatsCollectCtrlEnErrors", types.YLeaf{"RttMonStatsCollectCtrlEnErrors", rttMonStatsCollectEntry.RttMonStatsCollectCtrlEnErrors})
+    rttMonStatsCollectEntry.EntityData.Leafs.Append("rttMonStatsCollectRetrieveErrors", types.YLeaf{"RttMonStatsCollectRetrieveErrors", rttMonStatsCollectEntry.RttMonStatsCollectRetrieveErrors})
+
+    rttMonStatsCollectEntry.EntityData.YListKeys = []string {"RttMonCtrlAdminIndex", "RttMonStatsCaptureStartTimeIndex", "RttMonStatsCapturePathIndex", "RttMonStatsCaptureHopIndex"}
+
+    return &(rttMonStatsCollectEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonstatstotalstable
+// CISCORTTMONMIB_RttMonStatsTotalsTable
 // The statistics totals database.
 // 
 // This table has the exact same behavior as the
@@ -4343,7 +4445,7 @@ func (rttmonstatscollectentry *CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstat
 // 
 // For a complete table description see
 // the rttMonStatsCaptureTable object.
-type CISCORTTMONMIB_Rttmonstatstotalstable struct {
+type CISCORTTMONMIB_RttMonStatsTotalsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4352,30 +4454,33 @@ type CISCORTTMONMIB_Rttmonstatstotalstable struct {
     // behavior as the  rttMonStatsCaptureEntry, except it only keeps 60 minute
     // group values.  For a complete entry description see the
     // rttMonStatsCaptureEntry object. The type is slice of
-    // CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry.
-    Rttmonstatstotalsentry []CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry
+    // CISCORTTMONMIB_RttMonStatsTotalsTable_RttMonStatsTotalsEntry.
+    RttMonStatsTotalsEntry []*CISCORTTMONMIB_RttMonStatsTotalsTable_RttMonStatsTotalsEntry
 }
 
-func (rttmonstatstotalstable *CISCORTTMONMIB_Rttmonstatstotalstable) GetEntityData() *types.CommonEntityData {
-    rttmonstatstotalstable.EntityData.YFilter = rttmonstatstotalstable.YFilter
-    rttmonstatstotalstable.EntityData.YangName = "rttMonStatsTotalsTable"
-    rttmonstatstotalstable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonstatstotalstable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonstatstotalstable.EntityData.SegmentPath = "rttMonStatsTotalsTable"
-    rttmonstatstotalstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonstatstotalstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonstatstotalstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonStatsTotalsTable *CISCORTTMONMIB_RttMonStatsTotalsTable) GetEntityData() *types.CommonEntityData {
+    rttMonStatsTotalsTable.EntityData.YFilter = rttMonStatsTotalsTable.YFilter
+    rttMonStatsTotalsTable.EntityData.YangName = "rttMonStatsTotalsTable"
+    rttMonStatsTotalsTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonStatsTotalsTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonStatsTotalsTable.EntityData.SegmentPath = "rttMonStatsTotalsTable"
+    rttMonStatsTotalsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonStatsTotalsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonStatsTotalsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonstatstotalstable.EntityData.Children = make(map[string]types.YChild)
-    rttmonstatstotalstable.EntityData.Children["rttMonStatsTotalsEntry"] = types.YChild{"Rttmonstatstotalsentry", nil}
-    for i := range rttmonstatstotalstable.Rttmonstatstotalsentry {
-        rttmonstatstotalstable.EntityData.Children[types.GetSegmentPath(&rttmonstatstotalstable.Rttmonstatstotalsentry[i])] = types.YChild{"Rttmonstatstotalsentry", &rttmonstatstotalstable.Rttmonstatstotalsentry[i]}
+    rttMonStatsTotalsTable.EntityData.Children = types.NewOrderedMap()
+    rttMonStatsTotalsTable.EntityData.Children.Append("rttMonStatsTotalsEntry", types.YChild{"RttMonStatsTotalsEntry", nil})
+    for i := range rttMonStatsTotalsTable.RttMonStatsTotalsEntry {
+        rttMonStatsTotalsTable.EntityData.Children.Append(types.GetSegmentPath(rttMonStatsTotalsTable.RttMonStatsTotalsEntry[i]), types.YChild{"RttMonStatsTotalsEntry", rttMonStatsTotalsTable.RttMonStatsTotalsEntry[i]})
     }
-    rttmonstatstotalstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonstatstotalstable.EntityData)
+    rttMonStatsTotalsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonStatsTotalsTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonStatsTotalsTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry
+// CISCORTTMONMIB_RttMonStatsTotalsTable_RttMonStatsTotalsEntry
 // A list of objects which accumulate the results of a
 // series of RTT operations over a 60 minute time period.
 // 
@@ -4385,52 +4490,55 @@ func (rttmonstatstotalstable *CISCORTTMONMIB_Rttmonstatstotalstable) GetEntityDa
 // 
 // For a complete entry description see
 // the rttMonStatsCaptureEntry object.
-type CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry struct {
+type CISCORTTMONMIB_RttMonStatsTotalsTable_RttMonStatsTotalsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // cisco_rttmon_mib.CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrladminindex
-    Rttmonctrladminindex interface{}
+    // cisco_rttmon_mib.CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlAdminIndex
+    RttMonCtrlAdminIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
-    // cisco_rttmon_mib.CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry_Rttmonstatscapturestarttimeindex
-    Rttmonstatscapturestarttimeindex interface{}
+    // cisco_rttmon_mib.CISCORTTMONMIB_RttMonStatsCaptureTable_RttMonStatsCaptureEntry_RttMonStatsCaptureStartTimeIndex
+    RttMonStatsCaptureStartTimeIndex interface{}
 
     // The length of time since this conceptual statistics row was created. The
     // type is interface{} with range: 0..2147483647.
-    Rttmonstatstotalselapsedtime interface{}
+    RttMonStatsTotalsElapsedTime interface{}
 
     // The number of RTT operations that have been initiated.  This number
     // includes all RTT operations which succeed  or fail for whatever reason. 
     // This object has the special behavior as defined by the ROLLOVER NOTE in the
     // DESCRIPTION of the ciscoRttMonMIB object. The type is interface{} with
     // range: 0..2147483647.
-    Rttmonstatstotalsinitiations interface{}
+    RttMonStatsTotalsInitiations interface{}
 }
 
-func (rttmonstatstotalsentry *CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry) GetEntityData() *types.CommonEntityData {
-    rttmonstatstotalsentry.EntityData.YFilter = rttmonstatstotalsentry.YFilter
-    rttmonstatstotalsentry.EntityData.YangName = "rttMonStatsTotalsEntry"
-    rttmonstatstotalsentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonstatstotalsentry.EntityData.ParentYangName = "rttMonStatsTotalsTable"
-    rttmonstatstotalsentry.EntityData.SegmentPath = "rttMonStatsTotalsEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonstatstotalsentry.Rttmonctrladminindex) + "']" + "[rttMonStatsCaptureStartTimeIndex='" + fmt.Sprintf("%v", rttmonstatstotalsentry.Rttmonstatscapturestarttimeindex) + "']"
-    rttmonstatstotalsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonstatstotalsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonstatstotalsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonStatsTotalsEntry *CISCORTTMONMIB_RttMonStatsTotalsTable_RttMonStatsTotalsEntry) GetEntityData() *types.CommonEntityData {
+    rttMonStatsTotalsEntry.EntityData.YFilter = rttMonStatsTotalsEntry.YFilter
+    rttMonStatsTotalsEntry.EntityData.YangName = "rttMonStatsTotalsEntry"
+    rttMonStatsTotalsEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonStatsTotalsEntry.EntityData.ParentYangName = "rttMonStatsTotalsTable"
+    rttMonStatsTotalsEntry.EntityData.SegmentPath = "rttMonStatsTotalsEntry" + types.AddKeyToken(rttMonStatsTotalsEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonStatsTotalsEntry.RttMonStatsCaptureStartTimeIndex, "rttMonStatsCaptureStartTimeIndex")
+    rttMonStatsTotalsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonStatsTotalsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonStatsTotalsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonstatstotalsentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonstatstotalsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonstatstotalsentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonstatstotalsentry.Rttmonctrladminindex}
-    rttmonstatstotalsentry.EntityData.Leafs["rttMonStatsCaptureStartTimeIndex"] = types.YLeaf{"Rttmonstatscapturestarttimeindex", rttmonstatstotalsentry.Rttmonstatscapturestarttimeindex}
-    rttmonstatstotalsentry.EntityData.Leafs["rttMonStatsTotalsElapsedTime"] = types.YLeaf{"Rttmonstatstotalselapsedtime", rttmonstatstotalsentry.Rttmonstatstotalselapsedtime}
-    rttmonstatstotalsentry.EntityData.Leafs["rttMonStatsTotalsInitiations"] = types.YLeaf{"Rttmonstatstotalsinitiations", rttmonstatstotalsentry.Rttmonstatstotalsinitiations}
-    return &(rttmonstatstotalsentry.EntityData)
+    rttMonStatsTotalsEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonStatsTotalsEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonStatsTotalsEntry.EntityData.Leafs.Append("rttMonCtrlAdminIndex", types.YLeaf{"RttMonCtrlAdminIndex", rttMonStatsTotalsEntry.RttMonCtrlAdminIndex})
+    rttMonStatsTotalsEntry.EntityData.Leafs.Append("rttMonStatsCaptureStartTimeIndex", types.YLeaf{"RttMonStatsCaptureStartTimeIndex", rttMonStatsTotalsEntry.RttMonStatsCaptureStartTimeIndex})
+    rttMonStatsTotalsEntry.EntityData.Leafs.Append("rttMonStatsTotalsElapsedTime", types.YLeaf{"RttMonStatsTotalsElapsedTime", rttMonStatsTotalsEntry.RttMonStatsTotalsElapsedTime})
+    rttMonStatsTotalsEntry.EntityData.Leafs.Append("rttMonStatsTotalsInitiations", types.YLeaf{"RttMonStatsTotalsInitiations", rttMonStatsTotalsEntry.RttMonStatsTotalsInitiations})
+
+    rttMonStatsTotalsEntry.EntityData.YListKeys = []string {"RttMonCtrlAdminIndex", "RttMonStatsCaptureStartTimeIndex"}
+
+    return &(rttMonStatsTotalsEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonhttpstatstable
+// CISCORTTMONMIB_RttMonHTTPStatsTable
 // The HTTP statistics collection database.
 // 
 // The HTTP statistics table contains summarized information of
@@ -4441,7 +4549,7 @@ func (rttmonstatstotalsentry *CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatst
 // The operation of this table is same as that of 
 // rttMonStatsCaptureTable, except that this table can only 
 // store a maximum of 2 hours of data.
-type CISCORTTMONMIB_Rttmonhttpstatstable struct {
+type CISCORTTMONMIB_RttMonHTTPStatsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4449,161 +4557,167 @@ type CISCORTTMONMIB_Rttmonhttpstatstable struct {
     // operations over a 60 minute time period.  This entry is created only if the
     // rttMonCtrlAdminRttType  is http. The operation of this table is same as
     // that of rttMonStatsCaptureTable. The type is slice of
-    // CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry.
-    Rttmonhttpstatsentry []CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry
+    // CISCORTTMONMIB_RttMonHTTPStatsTable_RttMonHTTPStatsEntry.
+    RttMonHTTPStatsEntry []*CISCORTTMONMIB_RttMonHTTPStatsTable_RttMonHTTPStatsEntry
 }
 
-func (rttmonhttpstatstable *CISCORTTMONMIB_Rttmonhttpstatstable) GetEntityData() *types.CommonEntityData {
-    rttmonhttpstatstable.EntityData.YFilter = rttmonhttpstatstable.YFilter
-    rttmonhttpstatstable.EntityData.YangName = "rttMonHTTPStatsTable"
-    rttmonhttpstatstable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonhttpstatstable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonhttpstatstable.EntityData.SegmentPath = "rttMonHTTPStatsTable"
-    rttmonhttpstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonhttpstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonhttpstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonHTTPStatsTable *CISCORTTMONMIB_RttMonHTTPStatsTable) GetEntityData() *types.CommonEntityData {
+    rttMonHTTPStatsTable.EntityData.YFilter = rttMonHTTPStatsTable.YFilter
+    rttMonHTTPStatsTable.EntityData.YangName = "rttMonHTTPStatsTable"
+    rttMonHTTPStatsTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonHTTPStatsTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonHTTPStatsTable.EntityData.SegmentPath = "rttMonHTTPStatsTable"
+    rttMonHTTPStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonHTTPStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonHTTPStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonhttpstatstable.EntityData.Children = make(map[string]types.YChild)
-    rttmonhttpstatstable.EntityData.Children["rttMonHTTPStatsEntry"] = types.YChild{"Rttmonhttpstatsentry", nil}
-    for i := range rttmonhttpstatstable.Rttmonhttpstatsentry {
-        rttmonhttpstatstable.EntityData.Children[types.GetSegmentPath(&rttmonhttpstatstable.Rttmonhttpstatsentry[i])] = types.YChild{"Rttmonhttpstatsentry", &rttmonhttpstatstable.Rttmonhttpstatsentry[i]}
+    rttMonHTTPStatsTable.EntityData.Children = types.NewOrderedMap()
+    rttMonHTTPStatsTable.EntityData.Children.Append("rttMonHTTPStatsEntry", types.YChild{"RttMonHTTPStatsEntry", nil})
+    for i := range rttMonHTTPStatsTable.RttMonHTTPStatsEntry {
+        rttMonHTTPStatsTable.EntityData.Children.Append(types.GetSegmentPath(rttMonHTTPStatsTable.RttMonHTTPStatsEntry[i]), types.YChild{"RttMonHTTPStatsEntry", rttMonHTTPStatsTable.RttMonHTTPStatsEntry[i]})
     }
-    rttmonhttpstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonhttpstatstable.EntityData)
+    rttMonHTTPStatsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonHTTPStatsTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonHTTPStatsTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry
+// CISCORTTMONMIB_RttMonHTTPStatsTable_RttMonHTTPStatsEntry
 // A list of objects which accumulate the results of a
 // series of RTT operations over a 60 minute time period.
 // 
 // This entry is created only if the rttMonCtrlAdminRttType 
 // is http. The operation of this table is same as that of
 // rttMonStatsCaptureTable.
-type CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry struct {
+type CISCORTTMONMIB_RttMonHTTPStatsTable_RttMonHTTPStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // cisco_rttmon_mib.CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrladminindex
-    Rttmonctrladminindex interface{}
+    // cisco_rttmon_mib.CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlAdminIndex
+    RttMonCtrlAdminIndex interface{}
 
     // This attribute is a key. This is the time when this row was created. This
     // index uniquely identifies a HTTP Stats row in the  rttMonHTTPStatsTable.
     // The type is interface{} with range: 0..4294967295.
-    Rttmonhttpstatsstarttimeindex interface{}
+    RttMonHTTPStatsStartTimeIndex interface{}
 
     // The number of HTTP operations that have completed successfully. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonhttpstatscompletions interface{}
+    RttMonHTTPStatsCompletions interface{}
 
     // The number of HTTP operations that violate threshold. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonhttpstatsoverthresholds interface{}
+    RttMonHTTPStatsOverThresholds interface{}
 
     // The sum of HTTP operations that are successfully measured. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonhttpstatsrttsum interface{}
+    RttMonHTTPStatsRTTSum interface{}
 
     // The sum of squares of the RTT's that are successfully measured (low order
     // 32 bits). The type is interface{} with range: 0..4294967295.
-    Rttmonhttpstatsrttsum2Low interface{}
+    RttMonHTTPStatsRTTSum2Low interface{}
 
     // The sum of squares of the RTT's that are successfully measured (high order
     // 32 bits). The type is interface{} with range: 0..4294967295.
-    Rttmonhttpstatsrttsum2High interface{}
+    RttMonHTTPStatsRTTSum2High interface{}
 
     // The minimum RTT taken to perform HTTP operation. The type is interface{}
     // with range: 0..4294967295.
-    Rttmonhttpstatsrttmin interface{}
+    RttMonHTTPStatsRTTMin interface{}
 
     // The maximum RTT taken to perform HTTP operation. The type is interface{}
     // with range: 0..4294967295. Units are milliseconds.
-    Rttmonhttpstatsrttmax interface{}
+    RttMonHTTPStatsRTTMax interface{}
 
     // The sum of RTT taken to perform DNS query within the HTTP operation. The
     // type is interface{} with range: 0..4294967295.
-    Rttmonhttpstatsdnsrttsum interface{}
+    RttMonHTTPStatsDNSRTTSum interface{}
 
     // The sum of RTT taken to connect to the HTTP server. The type is interface{}
     // with range: 0..4294967295.
-    Rttmonhttpstatstcpconnectrttsum interface{}
+    RttMonHTTPStatsTCPConnectRTTSum interface{}
 
     // The sum of RTT taken to download the object specified by URL. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonhttpstatstransactionrttsum interface{}
+    RttMonHTTPStatsTransactionRTTSum interface{}
 
     // The sum of the size of the message body received as a response to the HTTP
     // request. The type is interface{} with range: 0..4294967295.
-    Rttmonhttpstatsmessagebodyoctetssum interface{}
+    RttMonHTTPStatsMessageBodyOctetsSum interface{}
 
     // The number of requests that could not connect to the DNS Server. The type
     // is interface{} with range: 0..4294967295.
-    Rttmonhttpstatsdnsservertimeout interface{}
+    RttMonHTTPStatsDNSServerTimeout interface{}
 
     // The number of requests that could not connect to the the HTTP Server. The
     // type is interface{} with range: 0..4294967295.
-    Rttmonhttpstatstcpconnecttimeout interface{}
+    RttMonHTTPStatsTCPConnectTimeout interface{}
 
     // The number of requests that timed out during HTTP transaction. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonhttpstatstransactiontimeout interface{}
+    RttMonHTTPStatsTransactionTimeout interface{}
 
     // The number of requests that had DNS Query errors. The type is interface{}
     // with range: 0..4294967295.
-    Rttmonhttpstatsdnsqueryerror interface{}
+    RttMonHTTPStatsDNSQueryError interface{}
 
     // The number of requests that had HTTP errors while downloading the base
     // page. The type is interface{} with range: 0..4294967295.
-    Rttmonhttpstatshttperror interface{}
+    RttMonHTTPStatsHTTPError interface{}
 
     // The number of occasions when a HTTP operation could not be initiated
     // because an internal error. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonhttpstatserror interface{}
+    RttMonHTTPStatsError interface{}
 
     // The number of occasions when an HTTP operation could not be initiated
     // because a previous HTTP operation has not been completed. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonhttpstatsbusies interface{}
+    RttMonHTTPStatsBusies interface{}
 }
 
-func (rttmonhttpstatsentry *CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry) GetEntityData() *types.CommonEntityData {
-    rttmonhttpstatsentry.EntityData.YFilter = rttmonhttpstatsentry.YFilter
-    rttmonhttpstatsentry.EntityData.YangName = "rttMonHTTPStatsEntry"
-    rttmonhttpstatsentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonhttpstatsentry.EntityData.ParentYangName = "rttMonHTTPStatsTable"
-    rttmonhttpstatsentry.EntityData.SegmentPath = "rttMonHTTPStatsEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonhttpstatsentry.Rttmonctrladminindex) + "']" + "[rttMonHTTPStatsStartTimeIndex='" + fmt.Sprintf("%v", rttmonhttpstatsentry.Rttmonhttpstatsstarttimeindex) + "']"
-    rttmonhttpstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonhttpstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonhttpstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonHTTPStatsEntry *CISCORTTMONMIB_RttMonHTTPStatsTable_RttMonHTTPStatsEntry) GetEntityData() *types.CommonEntityData {
+    rttMonHTTPStatsEntry.EntityData.YFilter = rttMonHTTPStatsEntry.YFilter
+    rttMonHTTPStatsEntry.EntityData.YangName = "rttMonHTTPStatsEntry"
+    rttMonHTTPStatsEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonHTTPStatsEntry.EntityData.ParentYangName = "rttMonHTTPStatsTable"
+    rttMonHTTPStatsEntry.EntityData.SegmentPath = "rttMonHTTPStatsEntry" + types.AddKeyToken(rttMonHTTPStatsEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonHTTPStatsEntry.RttMonHTTPStatsStartTimeIndex, "rttMonHTTPStatsStartTimeIndex")
+    rttMonHTTPStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonHTTPStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonHTTPStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonhttpstatsentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonhttpstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonhttpstatsentry.Rttmonctrladminindex}
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsStartTimeIndex"] = types.YLeaf{"Rttmonhttpstatsstarttimeindex", rttmonhttpstatsentry.Rttmonhttpstatsstarttimeindex}
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsCompletions"] = types.YLeaf{"Rttmonhttpstatscompletions", rttmonhttpstatsentry.Rttmonhttpstatscompletions}
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsOverThresholds"] = types.YLeaf{"Rttmonhttpstatsoverthresholds", rttmonhttpstatsentry.Rttmonhttpstatsoverthresholds}
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsRTTSum"] = types.YLeaf{"Rttmonhttpstatsrttsum", rttmonhttpstatsentry.Rttmonhttpstatsrttsum}
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsRTTSum2Low"] = types.YLeaf{"Rttmonhttpstatsrttsum2Low", rttmonhttpstatsentry.Rttmonhttpstatsrttsum2Low}
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsRTTSum2High"] = types.YLeaf{"Rttmonhttpstatsrttsum2High", rttmonhttpstatsentry.Rttmonhttpstatsrttsum2High}
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsRTTMin"] = types.YLeaf{"Rttmonhttpstatsrttmin", rttmonhttpstatsentry.Rttmonhttpstatsrttmin}
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsRTTMax"] = types.YLeaf{"Rttmonhttpstatsrttmax", rttmonhttpstatsentry.Rttmonhttpstatsrttmax}
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsDNSRTTSum"] = types.YLeaf{"Rttmonhttpstatsdnsrttsum", rttmonhttpstatsentry.Rttmonhttpstatsdnsrttsum}
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsTCPConnectRTTSum"] = types.YLeaf{"Rttmonhttpstatstcpconnectrttsum", rttmonhttpstatsentry.Rttmonhttpstatstcpconnectrttsum}
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsTransactionRTTSum"] = types.YLeaf{"Rttmonhttpstatstransactionrttsum", rttmonhttpstatsentry.Rttmonhttpstatstransactionrttsum}
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsMessageBodyOctetsSum"] = types.YLeaf{"Rttmonhttpstatsmessagebodyoctetssum", rttmonhttpstatsentry.Rttmonhttpstatsmessagebodyoctetssum}
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsDNSServerTimeout"] = types.YLeaf{"Rttmonhttpstatsdnsservertimeout", rttmonhttpstatsentry.Rttmonhttpstatsdnsservertimeout}
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsTCPConnectTimeout"] = types.YLeaf{"Rttmonhttpstatstcpconnecttimeout", rttmonhttpstatsentry.Rttmonhttpstatstcpconnecttimeout}
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsTransactionTimeout"] = types.YLeaf{"Rttmonhttpstatstransactiontimeout", rttmonhttpstatsentry.Rttmonhttpstatstransactiontimeout}
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsDNSQueryError"] = types.YLeaf{"Rttmonhttpstatsdnsqueryerror", rttmonhttpstatsentry.Rttmonhttpstatsdnsqueryerror}
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsHTTPError"] = types.YLeaf{"Rttmonhttpstatshttperror", rttmonhttpstatsentry.Rttmonhttpstatshttperror}
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsError"] = types.YLeaf{"Rttmonhttpstatserror", rttmonhttpstatsentry.Rttmonhttpstatserror}
-    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsBusies"] = types.YLeaf{"Rttmonhttpstatsbusies", rttmonhttpstatsentry.Rttmonhttpstatsbusies}
-    return &(rttmonhttpstatsentry.EntityData)
+    rttMonHTTPStatsEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonHTTPStatsEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonCtrlAdminIndex", types.YLeaf{"RttMonCtrlAdminIndex", rttMonHTTPStatsEntry.RttMonCtrlAdminIndex})
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonHTTPStatsStartTimeIndex", types.YLeaf{"RttMonHTTPStatsStartTimeIndex", rttMonHTTPStatsEntry.RttMonHTTPStatsStartTimeIndex})
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonHTTPStatsCompletions", types.YLeaf{"RttMonHTTPStatsCompletions", rttMonHTTPStatsEntry.RttMonHTTPStatsCompletions})
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonHTTPStatsOverThresholds", types.YLeaf{"RttMonHTTPStatsOverThresholds", rttMonHTTPStatsEntry.RttMonHTTPStatsOverThresholds})
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonHTTPStatsRTTSum", types.YLeaf{"RttMonHTTPStatsRTTSum", rttMonHTTPStatsEntry.RttMonHTTPStatsRTTSum})
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonHTTPStatsRTTSum2Low", types.YLeaf{"RttMonHTTPStatsRTTSum2Low", rttMonHTTPStatsEntry.RttMonHTTPStatsRTTSum2Low})
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonHTTPStatsRTTSum2High", types.YLeaf{"RttMonHTTPStatsRTTSum2High", rttMonHTTPStatsEntry.RttMonHTTPStatsRTTSum2High})
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonHTTPStatsRTTMin", types.YLeaf{"RttMonHTTPStatsRTTMin", rttMonHTTPStatsEntry.RttMonHTTPStatsRTTMin})
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonHTTPStatsRTTMax", types.YLeaf{"RttMonHTTPStatsRTTMax", rttMonHTTPStatsEntry.RttMonHTTPStatsRTTMax})
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonHTTPStatsDNSRTTSum", types.YLeaf{"RttMonHTTPStatsDNSRTTSum", rttMonHTTPStatsEntry.RttMonHTTPStatsDNSRTTSum})
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonHTTPStatsTCPConnectRTTSum", types.YLeaf{"RttMonHTTPStatsTCPConnectRTTSum", rttMonHTTPStatsEntry.RttMonHTTPStatsTCPConnectRTTSum})
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonHTTPStatsTransactionRTTSum", types.YLeaf{"RttMonHTTPStatsTransactionRTTSum", rttMonHTTPStatsEntry.RttMonHTTPStatsTransactionRTTSum})
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonHTTPStatsMessageBodyOctetsSum", types.YLeaf{"RttMonHTTPStatsMessageBodyOctetsSum", rttMonHTTPStatsEntry.RttMonHTTPStatsMessageBodyOctetsSum})
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonHTTPStatsDNSServerTimeout", types.YLeaf{"RttMonHTTPStatsDNSServerTimeout", rttMonHTTPStatsEntry.RttMonHTTPStatsDNSServerTimeout})
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonHTTPStatsTCPConnectTimeout", types.YLeaf{"RttMonHTTPStatsTCPConnectTimeout", rttMonHTTPStatsEntry.RttMonHTTPStatsTCPConnectTimeout})
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonHTTPStatsTransactionTimeout", types.YLeaf{"RttMonHTTPStatsTransactionTimeout", rttMonHTTPStatsEntry.RttMonHTTPStatsTransactionTimeout})
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonHTTPStatsDNSQueryError", types.YLeaf{"RttMonHTTPStatsDNSQueryError", rttMonHTTPStatsEntry.RttMonHTTPStatsDNSQueryError})
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonHTTPStatsHTTPError", types.YLeaf{"RttMonHTTPStatsHTTPError", rttMonHTTPStatsEntry.RttMonHTTPStatsHTTPError})
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonHTTPStatsError", types.YLeaf{"RttMonHTTPStatsError", rttMonHTTPStatsEntry.RttMonHTTPStatsError})
+    rttMonHTTPStatsEntry.EntityData.Leafs.Append("rttMonHTTPStatsBusies", types.YLeaf{"RttMonHTTPStatsBusies", rttMonHTTPStatsEntry.RttMonHTTPStatsBusies})
+
+    rttMonHTTPStatsEntry.EntityData.YListKeys = []string {"RttMonCtrlAdminIndex", "RttMonHTTPStatsStartTimeIndex"}
+
+    return &(rttMonHTTPStatsEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonjitterstatstable
+// CISCORTTMONMIB_RttMonJitterStatsTable
 // The Jitter statistics collection database.
 // 
 // The Jitter statistics table contains summarized information of
@@ -4614,7 +4728,7 @@ func (rttmonhttpstatsentry *CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatse
 // The operation of this table is same as that of 
 // rttMonStatsCaptureTable, except that this table will store 
 // 2 hours of data.
-type CISCORTTMONMIB_Rttmonjitterstatstable struct {
+type CISCORTTMONMIB_RttMonJitterStatsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4622,443 +4736,449 @@ type CISCORTTMONMIB_Rttmonjitterstatstable struct {
     // operations over a 60 minute time period.  This entry is created only if the
     // rttMonCtrlAdminRttType  is jitter. The operation of this table is same as
     // that of rttMonStatsCaptureTable. The type is slice of
-    // CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry.
-    Rttmonjitterstatsentry []CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry
+    // CISCORTTMONMIB_RttMonJitterStatsTable_RttMonJitterStatsEntry.
+    RttMonJitterStatsEntry []*CISCORTTMONMIB_RttMonJitterStatsTable_RttMonJitterStatsEntry
 }
 
-func (rttmonjitterstatstable *CISCORTTMONMIB_Rttmonjitterstatstable) GetEntityData() *types.CommonEntityData {
-    rttmonjitterstatstable.EntityData.YFilter = rttmonjitterstatstable.YFilter
-    rttmonjitterstatstable.EntityData.YangName = "rttMonJitterStatsTable"
-    rttmonjitterstatstable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonjitterstatstable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonjitterstatstable.EntityData.SegmentPath = "rttMonJitterStatsTable"
-    rttmonjitterstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonjitterstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonjitterstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonJitterStatsTable *CISCORTTMONMIB_RttMonJitterStatsTable) GetEntityData() *types.CommonEntityData {
+    rttMonJitterStatsTable.EntityData.YFilter = rttMonJitterStatsTable.YFilter
+    rttMonJitterStatsTable.EntityData.YangName = "rttMonJitterStatsTable"
+    rttMonJitterStatsTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonJitterStatsTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonJitterStatsTable.EntityData.SegmentPath = "rttMonJitterStatsTable"
+    rttMonJitterStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonJitterStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonJitterStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonjitterstatstable.EntityData.Children = make(map[string]types.YChild)
-    rttmonjitterstatstable.EntityData.Children["rttMonJitterStatsEntry"] = types.YChild{"Rttmonjitterstatsentry", nil}
-    for i := range rttmonjitterstatstable.Rttmonjitterstatsentry {
-        rttmonjitterstatstable.EntityData.Children[types.GetSegmentPath(&rttmonjitterstatstable.Rttmonjitterstatsentry[i])] = types.YChild{"Rttmonjitterstatsentry", &rttmonjitterstatstable.Rttmonjitterstatsentry[i]}
+    rttMonJitterStatsTable.EntityData.Children = types.NewOrderedMap()
+    rttMonJitterStatsTable.EntityData.Children.Append("rttMonJitterStatsEntry", types.YChild{"RttMonJitterStatsEntry", nil})
+    for i := range rttMonJitterStatsTable.RttMonJitterStatsEntry {
+        rttMonJitterStatsTable.EntityData.Children.Append(types.GetSegmentPath(rttMonJitterStatsTable.RttMonJitterStatsEntry[i]), types.YChild{"RttMonJitterStatsEntry", rttMonJitterStatsTable.RttMonJitterStatsEntry[i]})
     }
-    rttmonjitterstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonjitterstatstable.EntityData)
+    rttMonJitterStatsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonJitterStatsTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonJitterStatsTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry
+// CISCORTTMONMIB_RttMonJitterStatsTable_RttMonJitterStatsEntry
 // A list of objects which accumulate the results of a
 // series of RTT operations over a 60 minute time period.
 // 
 // This entry is created only if the rttMonCtrlAdminRttType 
 // is jitter. The operation of this table is same as that of
 // rttMonStatsCaptureTable.
-type CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry struct {
+type CISCORTTMONMIB_RttMonJitterStatsTable_RttMonJitterStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // cisco_rttmon_mib.CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrladminindex
-    Rttmonctrladminindex interface{}
+    // cisco_rttmon_mib.CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlAdminIndex
+    RttMonCtrlAdminIndex interface{}
 
     // This attribute is a key. The time when this row was created. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonjitterstatsstarttimeindex interface{}
+    RttMonJitterStatsStartTimeIndex interface{}
 
     // The number of jitter operation that have completed successfully. The type
     // is interface{} with range: 0..4294967295.
-    Rttmonjitterstatscompletions interface{}
+    RttMonJitterStatsCompletions interface{}
 
     // The number of jitter operations that violate threshold. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonjitterstatsoverthresholds interface{}
+    RttMonJitterStatsOverThresholds interface{}
 
     // The number of RTT's that are successfully measured. The type is interface{}
     // with range: 0..4294967295.
-    Rttmonjitterstatsnumofrtt interface{}
+    RttMonJitterStatsNumOfRTT interface{}
 
     // The sum of RTT's that are successfully measured (low order 32 bits). The
     // high order 32 bits are stored in rttMonJitterStatsRTTSumHigh. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonjitterstatsrttsum interface{}
+    RttMonJitterStatsRTTSum interface{}
 
     // The sum of squares of RTT's that are successfully measured (low order 32
     // bits). The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsrttsum2Low interface{}
+    RttMonJitterStatsRTTSum2Low interface{}
 
     // The sum of squares of RTT's that are successfully measured (high order 32
     // bits). The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsrttsum2High interface{}
+    RttMonJitterStatsRTTSum2High interface{}
 
     // The minimum of RTT's that were successfully measured. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonjitterstatsrttmin interface{}
+    RttMonJitterStatsRTTMin interface{}
 
     // The maximum of RTT's that were successfully measured. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonjitterstatsrttmax interface{}
+    RttMonJitterStatsRTTMax interface{}
 
     // The minimum of absolute values of all positive jitter values from packets
     // sent from source to destination. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonjitterstatsminofpositivessd interface{}
+    RttMonJitterStatsMinOfPositivesSD interface{}
 
     // The maximum of absolute values of all positive jitter values from packets
     // sent from source to destination. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonjitterstatsmaxofpositivessd interface{}
+    RttMonJitterStatsMaxOfPositivesSD interface{}
 
     // The sum of number of all positive jitter values from packets sent from
     // source to destination. The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsnumofpositivessd interface{}
+    RttMonJitterStatsNumOfPositivesSD interface{}
 
     // The sum of all positive jitter values from packets sent from source to
     // destination. The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatssumofpositivessd interface{}
+    RttMonJitterStatsSumOfPositivesSD interface{}
 
     // The sum of square of RTT's of all positive jitter values from packets sent
     // from source to destination (low order 32 bits). The type is interface{}
     // with range: 0..4294967295.
-    Rttmonjitterstatssum2Positivessdlow interface{}
+    RttMonJitterStatsSum2PositivesSDLow interface{}
 
     // The sum of square of RTT's of all positive jitter values from packets sent
     // from source to destination (high order 32 bits). The type is interface{}
     // with range: 0..4294967295.
-    Rttmonjitterstatssum2Positivessdhigh interface{}
+    RttMonJitterStatsSum2PositivesSDHigh interface{}
 
     // The minimum of all negative jitter values from packets sent from source to
     // destination. The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsminofnegativessd interface{}
+    RttMonJitterStatsMinOfNegativesSD interface{}
 
     // The maximum of all negative jitter values from packets sent from source to
     // destination. The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsmaxofnegativessd interface{}
+    RttMonJitterStatsMaxOfNegativesSD interface{}
 
     // The sum of number of all negative jitter values from packets sent from
     // source to destination. The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsnumofnegativessd interface{}
+    RttMonJitterStatsNumOfNegativesSD interface{}
 
     // The sum of RTT's of all negative jitter values from packets sent from
     // source to destination. The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatssumofnegativessd interface{}
+    RttMonJitterStatsSumOfNegativesSD interface{}
 
     // The sum of square of RTT's of all negative jitter values from packets sent
     // from source to destination (low order 32 bits). The type is interface{}
     // with range: 0..4294967295.
-    Rttmonjitterstatssum2Negativessdlow interface{}
+    RttMonJitterStatsSum2NegativesSDLow interface{}
 
     // The sum of square of RTT's of all negative jitter values from packets sent
     // from source to destination (high order 32 bits). The type is interface{}
     // with range: 0..4294967295.
-    Rttmonjitterstatssum2Negativessdhigh interface{}
+    RttMonJitterStatsSum2NegativesSDHigh interface{}
 
     // The minimum of all positive jitter values from packets sent from
     // destination to source. The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsminofpositivesds interface{}
+    RttMonJitterStatsMinOfPositivesDS interface{}
 
     // The maximum of all positive jitter values from packets sent from
     // destination to source. The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsmaxofpositivesds interface{}
+    RttMonJitterStatsMaxOfPositivesDS interface{}
 
     // The sum of number of all positive jitter values from packets sent from
     // destination to source. The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsnumofpositivesds interface{}
+    RttMonJitterStatsNumOfPositivesDS interface{}
 
     // The sum of RTT's of all positive jitter values from packets sent from
     // destination to source. The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatssumofpositivesds interface{}
+    RttMonJitterStatsSumOfPositivesDS interface{}
 
     // The sum of squares of RTT's of all positive jitter values from packets sent
     // from destination to source (low order 32 bits). The type is interface{}
     // with range: 0..4294967295.
-    Rttmonjitterstatssum2Positivesdslow interface{}
+    RttMonJitterStatsSum2PositivesDSLow interface{}
 
     // The sum of squares of RTT's of all positive jitter values from packets sent
     // from destination to source (high order 32 bits). The type is interface{}
     // with range: 0..4294967295.
-    Rttmonjitterstatssum2Positivesdshigh interface{}
+    RttMonJitterStatsSum2PositivesDSHigh interface{}
 
     // The minimum of all negative jitter values from packets sent from
     // destination to source. The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsminofnegativesds interface{}
+    RttMonJitterStatsMinOfNegativesDS interface{}
 
     // The maximum of all negative jitter values from packets sent from
     // destination to source. The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsmaxofnegativesds interface{}
+    RttMonJitterStatsMaxOfNegativesDS interface{}
 
     // The sum of number of all negative jitter values from packets sent from
     // destination to source. The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsnumofnegativesds interface{}
+    RttMonJitterStatsNumOfNegativesDS interface{}
 
     // The sum of RTT's of all negative jitter values from packets sent from
     // destination to source. The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatssumofnegativesds interface{}
+    RttMonJitterStatsSumOfNegativesDS interface{}
 
     // The sum of squares of RTT's of all negative jitter values from packets sent
     // from destination to source (low order 32 bits). The type is interface{}
     // with range: 0..4294967295.
-    Rttmonjitterstatssum2Negativesdslow interface{}
+    RttMonJitterStatsSum2NegativesDSLow interface{}
 
     // The sum of squares of RTT's of all negative jitter values from packets sent
     // from destination to source (high order 32 bits). The type is interface{}
     // with range: 0..4294967295.
-    Rttmonjitterstatssum2Negativesdshigh interface{}
+    RttMonJitterStatsSum2NegativesDSHigh interface{}
 
     // The number of packets lost when sent from source to destination. The type
     // is interface{} with range: 0..4294967295.
-    Rttmonjitterstatspacketlosssd interface{}
+    RttMonJitterStatsPacketLossSD interface{}
 
     // The number of packets lost when sent from destination to source. The type
     // is interface{} with range: 0..4294967295.
-    Rttmonjitterstatspacketlossds interface{}
+    RttMonJitterStatsPacketLossDS interface{}
 
     // The number of packets arrived out of sequence. The type is interface{} with
     // range: 0..4294967295.
-    Rttmonjitterstatspacketoutofsequence interface{}
+    RttMonJitterStatsPacketOutOfSequence interface{}
 
     // The number of packets that are lost for which we cannot determine the
     // direction. The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatspacketmia interface{}
+    RttMonJitterStatsPacketMIA interface{}
 
     // The number of packets that arrived after the timeout. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonjitterstatspacketlatearrival interface{}
+    RttMonJitterStatsPacketLateArrival interface{}
 
     // The number of occasions when a jitter operation could not be initiated
     // because an internal error. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonjitterstatserror interface{}
+    RttMonJitterStatsError interface{}
 
     // The number of occasions when a jitter operation could not be initiated
     // because a previous jitter operation has not been completed. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonjitterstatsbusies interface{}
+    RttMonJitterStatsBusies interface{}
 
     // The sum of one way times from source to destination (low order 32 bits).
     // The high order 32 bits are stored in rttMonJitterStatsOWSumSDHigh. The type
     // is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsowsumsd interface{}
+    RttMonJitterStatsOWSumSD interface{}
 
     // The sum of squares of one way times from source to destination (low order
     // 32 bits). The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsowsum2Sdlow interface{}
+    RttMonJitterStatsOWSum2SDLow interface{}
 
     // The sum of squares of one way times from source to destination (high order
     // 32 bits). The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsowsum2Sdhigh interface{}
+    RttMonJitterStatsOWSum2SDHigh interface{}
 
     // The minimum of all one way times from source to destination.
     // rttMonJitterStatsOWMinSD object is superseded by
     // rttMonJitterStatsOWMinSDNew. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonjitterstatsowminsd interface{}
+    RttMonJitterStatsOWMinSD interface{}
 
     // The maximum of all one way times from source to destination.
     // rttMonJitterStatsOWMaxSD object is superseded by
     // rttMonJitterStatsOWMaxSDNew. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonjitterstatsowmaxsd interface{}
+    RttMonJitterStatsOWMaxSD interface{}
 
     // The sum of one way times from destination to source (low order 32 bits).
     // The high order 32 bits are stored in rttMonJitterStatsOWSumDSHigh. The type
     // is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsowsumds interface{}
+    RttMonJitterStatsOWSumDS interface{}
 
     // The sum of squares of one way times from destination to source (low order
     // 32 bits). The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsowsum2Dslow interface{}
+    RttMonJitterStatsOWSum2DSLow interface{}
 
     // The sum of squares of one way times from destination to source (high order
     // 32 bits). The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsowsum2Dshigh interface{}
+    RttMonJitterStatsOWSum2DSHigh interface{}
 
     // The minimum of all one way times from destination to source.
     // rttMonJitterStatsOWMinDS object is superseded by
     // rttMonJitterStatsOWMinDSNew. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonjitterstatsowminds interface{}
+    RttMonJitterStatsOWMinDS interface{}
 
     // The maximum of all one way times from destination to source.
     // rttMonJitterStatsOWMaxDS object is superseded by
     // rttMonJitterStatsOWMaxDSNew. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonjitterstatsowmaxds interface{}
+    RttMonJitterStatsOWMaxDS interface{}
 
     // The number of one way times that are successfully measured. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonjitterstatsnumofow interface{}
+    RttMonJitterStatsNumOfOW interface{}
 
     // The minimum of all one way times from source to destination. Replaces
     // deprecated rttMonJitterStatsOWMinSD. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonjitterstatsowminsdnew interface{}
+    RttMonJitterStatsOWMinSDNew interface{}
 
     // The maximum of all one way times from source to destination. Replaces
     // deprecated rttMonJitterStatsOWMaxSD. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonjitterstatsowmaxsdnew interface{}
+    RttMonJitterStatsOWMaxSDNew interface{}
 
     // The minimum of all one way times from destination to source. Replaces
     // deprecated rttMonJitterStatsOWMinDS. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonjitterstatsowmindsnew interface{}
+    RttMonJitterStatsOWMinDSNew interface{}
 
     // The maximum of all one way times from destination to source. Replaces
     // deprecated rttMonJitterStatsOWMaxDS. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonjitterstatsowmaxdsnew interface{}
+    RttMonJitterStatsOWMaxDSNew interface{}
 
     // The minimum of all MOS values for the jitter operations in hundreds.  This
     // value will be 0 if   - rttMonEchoAdminCodecType of the operation is
     // notApplicable   - the operation is not started   - the operation is started
     // but failed This value will be 1 for packet loss of 10% or more. The type is
     // interface{} with range: 0..None | 100..500.
-    Rttmonjitterstatsminofmos interface{}
+    RttMonJitterStatsMinOfMOS interface{}
 
     // The maximum of all MOS values for the jitter operations in hunderds.  This
     // value will be 0 if   - rttMonEchoAdminCodecType of the operation is
     // notApplicable   - the operation is not started   - the operation is started
     // but failed This value will be 1 for packet loss of 10% or more. The type is
     // interface{} with range: 0..None | 100..500.
-    Rttmonjitterstatsmaxofmos interface{}
+    RttMonJitterStatsMaxOfMOS interface{}
 
     // The minimum of all ICPIF values for the jitter operations.  This value will
     // be 93 for packet loss of 10% or more. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonjitterstatsminoficpif interface{}
+    RttMonJitterStatsMinOfICPIF interface{}
 
     // The maximum of all ICPIF values for the jitter operations.  This value will
     // be 93 for packet loss of 10% or more. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonjitterstatsmaxoficpif interface{}
+    RttMonJitterStatsMaxOfICPIF interface{}
 
     // Interarrival Jitter (RFC 1889) at responder. The type is interface{} with
     // range: 0..4294967295.
-    Rttmonjitterstatsiajout interface{}
+    RttMonJitterStatsIAJOut interface{}
 
     // Interarrival Jitter (RFC 1889) at sender. The type is interface{} with
     // range: 0..4294967295.
-    Rttmonjitterstatsiajin interface{}
+    RttMonJitterStatsIAJIn interface{}
 
     // The average of positive and negative jitter values for SD and DS direction.
     // The type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsavgjitter interface{}
+    RttMonJitterStatsAvgJitter interface{}
 
     // The average of positive and negative jitter values in SD direction. The
     // type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsavgjittersd interface{}
+    RttMonJitterStatsAvgJitterSD interface{}
 
     // The average of positive and negative jitter values in DS direction. The
     // type is interface{} with range: 0..4294967295.
-    Rttmonjitterstatsavgjitterds interface{}
+    RttMonJitterStatsAvgJitterDS interface{}
 
     // The number of RTT operations that have completed with sender and responder
     // out of sync with NTP. The NTP sync means  the total of NTP offset on sender
     // and responder is within  configured tolerance level. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonjitterstatsunsyncrts interface{}
+    RttMonJitterStatsUnSyncRTs interface{}
 
     // The sum of RTT's that are successfully measured (high order 32 bits). The
     // low order 32 bits are  stored in rttMonJitterStatsRTTSum. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonjitterstatsrttsumhigh interface{}
+    RttMonJitterStatsRTTSumHigh interface{}
 
     // The sum of one way times from source to destination (high order 32 bits).
     // The low order 32 bits are  stored in rttMonJitterStatsOWSumSD. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonjitterstatsowsumsdhigh interface{}
+    RttMonJitterStatsOWSumSDHigh interface{}
 
     // The sum of one way times from destination to source (high order 32 bits).
     // The low order 32 bits are stored in rttMonJitterStatsOWSumDS. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonjitterstatsowsumdshigh interface{}
+    RttMonJitterStatsOWSumDSHigh interface{}
 }
 
-func (rttmonjitterstatsentry *CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry) GetEntityData() *types.CommonEntityData {
-    rttmonjitterstatsentry.EntityData.YFilter = rttmonjitterstatsentry.YFilter
-    rttmonjitterstatsentry.EntityData.YangName = "rttMonJitterStatsEntry"
-    rttmonjitterstatsentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonjitterstatsentry.EntityData.ParentYangName = "rttMonJitterStatsTable"
-    rttmonjitterstatsentry.EntityData.SegmentPath = "rttMonJitterStatsEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonjitterstatsentry.Rttmonctrladminindex) + "']" + "[rttMonJitterStatsStartTimeIndex='" + fmt.Sprintf("%v", rttmonjitterstatsentry.Rttmonjitterstatsstarttimeindex) + "']"
-    rttmonjitterstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonjitterstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonjitterstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonJitterStatsEntry *CISCORTTMONMIB_RttMonJitterStatsTable_RttMonJitterStatsEntry) GetEntityData() *types.CommonEntityData {
+    rttMonJitterStatsEntry.EntityData.YFilter = rttMonJitterStatsEntry.YFilter
+    rttMonJitterStatsEntry.EntityData.YangName = "rttMonJitterStatsEntry"
+    rttMonJitterStatsEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonJitterStatsEntry.EntityData.ParentYangName = "rttMonJitterStatsTable"
+    rttMonJitterStatsEntry.EntityData.SegmentPath = "rttMonJitterStatsEntry" + types.AddKeyToken(rttMonJitterStatsEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonJitterStatsEntry.RttMonJitterStatsStartTimeIndex, "rttMonJitterStatsStartTimeIndex")
+    rttMonJitterStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonJitterStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonJitterStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonjitterstatsentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonjitterstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonjitterstatsentry.Rttmonctrladminindex}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsStartTimeIndex"] = types.YLeaf{"Rttmonjitterstatsstarttimeindex", rttmonjitterstatsentry.Rttmonjitterstatsstarttimeindex}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsCompletions"] = types.YLeaf{"Rttmonjitterstatscompletions", rttmonjitterstatsentry.Rttmonjitterstatscompletions}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOverThresholds"] = types.YLeaf{"Rttmonjitterstatsoverthresholds", rttmonjitterstatsentry.Rttmonjitterstatsoverthresholds}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsNumOfRTT"] = types.YLeaf{"Rttmonjitterstatsnumofrtt", rttmonjitterstatsentry.Rttmonjitterstatsnumofrtt}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsRTTSum"] = types.YLeaf{"Rttmonjitterstatsrttsum", rttmonjitterstatsentry.Rttmonjitterstatsrttsum}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsRTTSum2Low"] = types.YLeaf{"Rttmonjitterstatsrttsum2Low", rttmonjitterstatsentry.Rttmonjitterstatsrttsum2Low}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsRTTSum2High"] = types.YLeaf{"Rttmonjitterstatsrttsum2High", rttmonjitterstatsentry.Rttmonjitterstatsrttsum2High}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsRTTMin"] = types.YLeaf{"Rttmonjitterstatsrttmin", rttmonjitterstatsentry.Rttmonjitterstatsrttmin}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsRTTMax"] = types.YLeaf{"Rttmonjitterstatsrttmax", rttmonjitterstatsentry.Rttmonjitterstatsrttmax}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMinOfPositivesSD"] = types.YLeaf{"Rttmonjitterstatsminofpositivessd", rttmonjitterstatsentry.Rttmonjitterstatsminofpositivessd}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMaxOfPositivesSD"] = types.YLeaf{"Rttmonjitterstatsmaxofpositivessd", rttmonjitterstatsentry.Rttmonjitterstatsmaxofpositivessd}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsNumOfPositivesSD"] = types.YLeaf{"Rttmonjitterstatsnumofpositivessd", rttmonjitterstatsentry.Rttmonjitterstatsnumofpositivessd}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSumOfPositivesSD"] = types.YLeaf{"Rttmonjitterstatssumofpositivessd", rttmonjitterstatsentry.Rttmonjitterstatssumofpositivessd}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSum2PositivesSDLow"] = types.YLeaf{"Rttmonjitterstatssum2Positivessdlow", rttmonjitterstatsentry.Rttmonjitterstatssum2Positivessdlow}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSum2PositivesSDHigh"] = types.YLeaf{"Rttmonjitterstatssum2Positivessdhigh", rttmonjitterstatsentry.Rttmonjitterstatssum2Positivessdhigh}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMinOfNegativesSD"] = types.YLeaf{"Rttmonjitterstatsminofnegativessd", rttmonjitterstatsentry.Rttmonjitterstatsminofnegativessd}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMaxOfNegativesSD"] = types.YLeaf{"Rttmonjitterstatsmaxofnegativessd", rttmonjitterstatsentry.Rttmonjitterstatsmaxofnegativessd}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsNumOfNegativesSD"] = types.YLeaf{"Rttmonjitterstatsnumofnegativessd", rttmonjitterstatsentry.Rttmonjitterstatsnumofnegativessd}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSumOfNegativesSD"] = types.YLeaf{"Rttmonjitterstatssumofnegativessd", rttmonjitterstatsentry.Rttmonjitterstatssumofnegativessd}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSum2NegativesSDLow"] = types.YLeaf{"Rttmonjitterstatssum2Negativessdlow", rttmonjitterstatsentry.Rttmonjitterstatssum2Negativessdlow}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSum2NegativesSDHigh"] = types.YLeaf{"Rttmonjitterstatssum2Negativessdhigh", rttmonjitterstatsentry.Rttmonjitterstatssum2Negativessdhigh}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMinOfPositivesDS"] = types.YLeaf{"Rttmonjitterstatsminofpositivesds", rttmonjitterstatsentry.Rttmonjitterstatsminofpositivesds}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMaxOfPositivesDS"] = types.YLeaf{"Rttmonjitterstatsmaxofpositivesds", rttmonjitterstatsentry.Rttmonjitterstatsmaxofpositivesds}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsNumOfPositivesDS"] = types.YLeaf{"Rttmonjitterstatsnumofpositivesds", rttmonjitterstatsentry.Rttmonjitterstatsnumofpositivesds}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSumOfPositivesDS"] = types.YLeaf{"Rttmonjitterstatssumofpositivesds", rttmonjitterstatsentry.Rttmonjitterstatssumofpositivesds}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSum2PositivesDSLow"] = types.YLeaf{"Rttmonjitterstatssum2Positivesdslow", rttmonjitterstatsentry.Rttmonjitterstatssum2Positivesdslow}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSum2PositivesDSHigh"] = types.YLeaf{"Rttmonjitterstatssum2Positivesdshigh", rttmonjitterstatsentry.Rttmonjitterstatssum2Positivesdshigh}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMinOfNegativesDS"] = types.YLeaf{"Rttmonjitterstatsminofnegativesds", rttmonjitterstatsentry.Rttmonjitterstatsminofnegativesds}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMaxOfNegativesDS"] = types.YLeaf{"Rttmonjitterstatsmaxofnegativesds", rttmonjitterstatsentry.Rttmonjitterstatsmaxofnegativesds}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsNumOfNegativesDS"] = types.YLeaf{"Rttmonjitterstatsnumofnegativesds", rttmonjitterstatsentry.Rttmonjitterstatsnumofnegativesds}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSumOfNegativesDS"] = types.YLeaf{"Rttmonjitterstatssumofnegativesds", rttmonjitterstatsentry.Rttmonjitterstatssumofnegativesds}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSum2NegativesDSLow"] = types.YLeaf{"Rttmonjitterstatssum2Negativesdslow", rttmonjitterstatsentry.Rttmonjitterstatssum2Negativesdslow}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSum2NegativesDSHigh"] = types.YLeaf{"Rttmonjitterstatssum2Negativesdshigh", rttmonjitterstatsentry.Rttmonjitterstatssum2Negativesdshigh}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsPacketLossSD"] = types.YLeaf{"Rttmonjitterstatspacketlosssd", rttmonjitterstatsentry.Rttmonjitterstatspacketlosssd}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsPacketLossDS"] = types.YLeaf{"Rttmonjitterstatspacketlossds", rttmonjitterstatsentry.Rttmonjitterstatspacketlossds}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsPacketOutOfSequence"] = types.YLeaf{"Rttmonjitterstatspacketoutofsequence", rttmonjitterstatsentry.Rttmonjitterstatspacketoutofsequence}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsPacketMIA"] = types.YLeaf{"Rttmonjitterstatspacketmia", rttmonjitterstatsentry.Rttmonjitterstatspacketmia}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsPacketLateArrival"] = types.YLeaf{"Rttmonjitterstatspacketlatearrival", rttmonjitterstatsentry.Rttmonjitterstatspacketlatearrival}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsError"] = types.YLeaf{"Rttmonjitterstatserror", rttmonjitterstatsentry.Rttmonjitterstatserror}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsBusies"] = types.YLeaf{"Rttmonjitterstatsbusies", rttmonjitterstatsentry.Rttmonjitterstatsbusies}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWSumSD"] = types.YLeaf{"Rttmonjitterstatsowsumsd", rttmonjitterstatsentry.Rttmonjitterstatsowsumsd}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWSum2SDLow"] = types.YLeaf{"Rttmonjitterstatsowsum2Sdlow", rttmonjitterstatsentry.Rttmonjitterstatsowsum2Sdlow}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWSum2SDHigh"] = types.YLeaf{"Rttmonjitterstatsowsum2Sdhigh", rttmonjitterstatsentry.Rttmonjitterstatsowsum2Sdhigh}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWMinSD"] = types.YLeaf{"Rttmonjitterstatsowminsd", rttmonjitterstatsentry.Rttmonjitterstatsowminsd}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWMaxSD"] = types.YLeaf{"Rttmonjitterstatsowmaxsd", rttmonjitterstatsentry.Rttmonjitterstatsowmaxsd}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWSumDS"] = types.YLeaf{"Rttmonjitterstatsowsumds", rttmonjitterstatsentry.Rttmonjitterstatsowsumds}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWSum2DSLow"] = types.YLeaf{"Rttmonjitterstatsowsum2Dslow", rttmonjitterstatsentry.Rttmonjitterstatsowsum2Dslow}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWSum2DSHigh"] = types.YLeaf{"Rttmonjitterstatsowsum2Dshigh", rttmonjitterstatsentry.Rttmonjitterstatsowsum2Dshigh}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWMinDS"] = types.YLeaf{"Rttmonjitterstatsowminds", rttmonjitterstatsentry.Rttmonjitterstatsowminds}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWMaxDS"] = types.YLeaf{"Rttmonjitterstatsowmaxds", rttmonjitterstatsentry.Rttmonjitterstatsowmaxds}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsNumOfOW"] = types.YLeaf{"Rttmonjitterstatsnumofow", rttmonjitterstatsentry.Rttmonjitterstatsnumofow}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWMinSDNew"] = types.YLeaf{"Rttmonjitterstatsowminsdnew", rttmonjitterstatsentry.Rttmonjitterstatsowminsdnew}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWMaxSDNew"] = types.YLeaf{"Rttmonjitterstatsowmaxsdnew", rttmonjitterstatsentry.Rttmonjitterstatsowmaxsdnew}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWMinDSNew"] = types.YLeaf{"Rttmonjitterstatsowmindsnew", rttmonjitterstatsentry.Rttmonjitterstatsowmindsnew}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWMaxDSNew"] = types.YLeaf{"Rttmonjitterstatsowmaxdsnew", rttmonjitterstatsentry.Rttmonjitterstatsowmaxdsnew}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMinOfMOS"] = types.YLeaf{"Rttmonjitterstatsminofmos", rttmonjitterstatsentry.Rttmonjitterstatsminofmos}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMaxOfMOS"] = types.YLeaf{"Rttmonjitterstatsmaxofmos", rttmonjitterstatsentry.Rttmonjitterstatsmaxofmos}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMinOfICPIF"] = types.YLeaf{"Rttmonjitterstatsminoficpif", rttmonjitterstatsentry.Rttmonjitterstatsminoficpif}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMaxOfICPIF"] = types.YLeaf{"Rttmonjitterstatsmaxoficpif", rttmonjitterstatsentry.Rttmonjitterstatsmaxoficpif}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsIAJOut"] = types.YLeaf{"Rttmonjitterstatsiajout", rttmonjitterstatsentry.Rttmonjitterstatsiajout}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsIAJIn"] = types.YLeaf{"Rttmonjitterstatsiajin", rttmonjitterstatsentry.Rttmonjitterstatsiajin}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsAvgJitter"] = types.YLeaf{"Rttmonjitterstatsavgjitter", rttmonjitterstatsentry.Rttmonjitterstatsavgjitter}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsAvgJitterSD"] = types.YLeaf{"Rttmonjitterstatsavgjittersd", rttmonjitterstatsentry.Rttmonjitterstatsavgjittersd}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsAvgJitterDS"] = types.YLeaf{"Rttmonjitterstatsavgjitterds", rttmonjitterstatsentry.Rttmonjitterstatsavgjitterds}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsUnSyncRTs"] = types.YLeaf{"Rttmonjitterstatsunsyncrts", rttmonjitterstatsentry.Rttmonjitterstatsunsyncrts}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsRTTSumHigh"] = types.YLeaf{"Rttmonjitterstatsrttsumhigh", rttmonjitterstatsentry.Rttmonjitterstatsrttsumhigh}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWSumSDHigh"] = types.YLeaf{"Rttmonjitterstatsowsumsdhigh", rttmonjitterstatsentry.Rttmonjitterstatsowsumsdhigh}
-    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWSumDSHigh"] = types.YLeaf{"Rttmonjitterstatsowsumdshigh", rttmonjitterstatsentry.Rttmonjitterstatsowsumdshigh}
-    return &(rttmonjitterstatsentry.EntityData)
+    rttMonJitterStatsEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonJitterStatsEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonCtrlAdminIndex", types.YLeaf{"RttMonCtrlAdminIndex", rttMonJitterStatsEntry.RttMonCtrlAdminIndex})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsStartTimeIndex", types.YLeaf{"RttMonJitterStatsStartTimeIndex", rttMonJitterStatsEntry.RttMonJitterStatsStartTimeIndex})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsCompletions", types.YLeaf{"RttMonJitterStatsCompletions", rttMonJitterStatsEntry.RttMonJitterStatsCompletions})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsOverThresholds", types.YLeaf{"RttMonJitterStatsOverThresholds", rttMonJitterStatsEntry.RttMonJitterStatsOverThresholds})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsNumOfRTT", types.YLeaf{"RttMonJitterStatsNumOfRTT", rttMonJitterStatsEntry.RttMonJitterStatsNumOfRTT})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsRTTSum", types.YLeaf{"RttMonJitterStatsRTTSum", rttMonJitterStatsEntry.RttMonJitterStatsRTTSum})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsRTTSum2Low", types.YLeaf{"RttMonJitterStatsRTTSum2Low", rttMonJitterStatsEntry.RttMonJitterStatsRTTSum2Low})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsRTTSum2High", types.YLeaf{"RttMonJitterStatsRTTSum2High", rttMonJitterStatsEntry.RttMonJitterStatsRTTSum2High})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsRTTMin", types.YLeaf{"RttMonJitterStatsRTTMin", rttMonJitterStatsEntry.RttMonJitterStatsRTTMin})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsRTTMax", types.YLeaf{"RttMonJitterStatsRTTMax", rttMonJitterStatsEntry.RttMonJitterStatsRTTMax})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsMinOfPositivesSD", types.YLeaf{"RttMonJitterStatsMinOfPositivesSD", rttMonJitterStatsEntry.RttMonJitterStatsMinOfPositivesSD})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsMaxOfPositivesSD", types.YLeaf{"RttMonJitterStatsMaxOfPositivesSD", rttMonJitterStatsEntry.RttMonJitterStatsMaxOfPositivesSD})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsNumOfPositivesSD", types.YLeaf{"RttMonJitterStatsNumOfPositivesSD", rttMonJitterStatsEntry.RttMonJitterStatsNumOfPositivesSD})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsSumOfPositivesSD", types.YLeaf{"RttMonJitterStatsSumOfPositivesSD", rttMonJitterStatsEntry.RttMonJitterStatsSumOfPositivesSD})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsSum2PositivesSDLow", types.YLeaf{"RttMonJitterStatsSum2PositivesSDLow", rttMonJitterStatsEntry.RttMonJitterStatsSum2PositivesSDLow})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsSum2PositivesSDHigh", types.YLeaf{"RttMonJitterStatsSum2PositivesSDHigh", rttMonJitterStatsEntry.RttMonJitterStatsSum2PositivesSDHigh})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsMinOfNegativesSD", types.YLeaf{"RttMonJitterStatsMinOfNegativesSD", rttMonJitterStatsEntry.RttMonJitterStatsMinOfNegativesSD})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsMaxOfNegativesSD", types.YLeaf{"RttMonJitterStatsMaxOfNegativesSD", rttMonJitterStatsEntry.RttMonJitterStatsMaxOfNegativesSD})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsNumOfNegativesSD", types.YLeaf{"RttMonJitterStatsNumOfNegativesSD", rttMonJitterStatsEntry.RttMonJitterStatsNumOfNegativesSD})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsSumOfNegativesSD", types.YLeaf{"RttMonJitterStatsSumOfNegativesSD", rttMonJitterStatsEntry.RttMonJitterStatsSumOfNegativesSD})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsSum2NegativesSDLow", types.YLeaf{"RttMonJitterStatsSum2NegativesSDLow", rttMonJitterStatsEntry.RttMonJitterStatsSum2NegativesSDLow})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsSum2NegativesSDHigh", types.YLeaf{"RttMonJitterStatsSum2NegativesSDHigh", rttMonJitterStatsEntry.RttMonJitterStatsSum2NegativesSDHigh})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsMinOfPositivesDS", types.YLeaf{"RttMonJitterStatsMinOfPositivesDS", rttMonJitterStatsEntry.RttMonJitterStatsMinOfPositivesDS})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsMaxOfPositivesDS", types.YLeaf{"RttMonJitterStatsMaxOfPositivesDS", rttMonJitterStatsEntry.RttMonJitterStatsMaxOfPositivesDS})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsNumOfPositivesDS", types.YLeaf{"RttMonJitterStatsNumOfPositivesDS", rttMonJitterStatsEntry.RttMonJitterStatsNumOfPositivesDS})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsSumOfPositivesDS", types.YLeaf{"RttMonJitterStatsSumOfPositivesDS", rttMonJitterStatsEntry.RttMonJitterStatsSumOfPositivesDS})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsSum2PositivesDSLow", types.YLeaf{"RttMonJitterStatsSum2PositivesDSLow", rttMonJitterStatsEntry.RttMonJitterStatsSum2PositivesDSLow})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsSum2PositivesDSHigh", types.YLeaf{"RttMonJitterStatsSum2PositivesDSHigh", rttMonJitterStatsEntry.RttMonJitterStatsSum2PositivesDSHigh})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsMinOfNegativesDS", types.YLeaf{"RttMonJitterStatsMinOfNegativesDS", rttMonJitterStatsEntry.RttMonJitterStatsMinOfNegativesDS})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsMaxOfNegativesDS", types.YLeaf{"RttMonJitterStatsMaxOfNegativesDS", rttMonJitterStatsEntry.RttMonJitterStatsMaxOfNegativesDS})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsNumOfNegativesDS", types.YLeaf{"RttMonJitterStatsNumOfNegativesDS", rttMonJitterStatsEntry.RttMonJitterStatsNumOfNegativesDS})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsSumOfNegativesDS", types.YLeaf{"RttMonJitterStatsSumOfNegativesDS", rttMonJitterStatsEntry.RttMonJitterStatsSumOfNegativesDS})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsSum2NegativesDSLow", types.YLeaf{"RttMonJitterStatsSum2NegativesDSLow", rttMonJitterStatsEntry.RttMonJitterStatsSum2NegativesDSLow})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsSum2NegativesDSHigh", types.YLeaf{"RttMonJitterStatsSum2NegativesDSHigh", rttMonJitterStatsEntry.RttMonJitterStatsSum2NegativesDSHigh})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsPacketLossSD", types.YLeaf{"RttMonJitterStatsPacketLossSD", rttMonJitterStatsEntry.RttMonJitterStatsPacketLossSD})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsPacketLossDS", types.YLeaf{"RttMonJitterStatsPacketLossDS", rttMonJitterStatsEntry.RttMonJitterStatsPacketLossDS})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsPacketOutOfSequence", types.YLeaf{"RttMonJitterStatsPacketOutOfSequence", rttMonJitterStatsEntry.RttMonJitterStatsPacketOutOfSequence})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsPacketMIA", types.YLeaf{"RttMonJitterStatsPacketMIA", rttMonJitterStatsEntry.RttMonJitterStatsPacketMIA})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsPacketLateArrival", types.YLeaf{"RttMonJitterStatsPacketLateArrival", rttMonJitterStatsEntry.RttMonJitterStatsPacketLateArrival})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsError", types.YLeaf{"RttMonJitterStatsError", rttMonJitterStatsEntry.RttMonJitterStatsError})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsBusies", types.YLeaf{"RttMonJitterStatsBusies", rttMonJitterStatsEntry.RttMonJitterStatsBusies})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsOWSumSD", types.YLeaf{"RttMonJitterStatsOWSumSD", rttMonJitterStatsEntry.RttMonJitterStatsOWSumSD})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsOWSum2SDLow", types.YLeaf{"RttMonJitterStatsOWSum2SDLow", rttMonJitterStatsEntry.RttMonJitterStatsOWSum2SDLow})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsOWSum2SDHigh", types.YLeaf{"RttMonJitterStatsOWSum2SDHigh", rttMonJitterStatsEntry.RttMonJitterStatsOWSum2SDHigh})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsOWMinSD", types.YLeaf{"RttMonJitterStatsOWMinSD", rttMonJitterStatsEntry.RttMonJitterStatsOWMinSD})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsOWMaxSD", types.YLeaf{"RttMonJitterStatsOWMaxSD", rttMonJitterStatsEntry.RttMonJitterStatsOWMaxSD})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsOWSumDS", types.YLeaf{"RttMonJitterStatsOWSumDS", rttMonJitterStatsEntry.RttMonJitterStatsOWSumDS})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsOWSum2DSLow", types.YLeaf{"RttMonJitterStatsOWSum2DSLow", rttMonJitterStatsEntry.RttMonJitterStatsOWSum2DSLow})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsOWSum2DSHigh", types.YLeaf{"RttMonJitterStatsOWSum2DSHigh", rttMonJitterStatsEntry.RttMonJitterStatsOWSum2DSHigh})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsOWMinDS", types.YLeaf{"RttMonJitterStatsOWMinDS", rttMonJitterStatsEntry.RttMonJitterStatsOWMinDS})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsOWMaxDS", types.YLeaf{"RttMonJitterStatsOWMaxDS", rttMonJitterStatsEntry.RttMonJitterStatsOWMaxDS})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsNumOfOW", types.YLeaf{"RttMonJitterStatsNumOfOW", rttMonJitterStatsEntry.RttMonJitterStatsNumOfOW})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsOWMinSDNew", types.YLeaf{"RttMonJitterStatsOWMinSDNew", rttMonJitterStatsEntry.RttMonJitterStatsOWMinSDNew})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsOWMaxSDNew", types.YLeaf{"RttMonJitterStatsOWMaxSDNew", rttMonJitterStatsEntry.RttMonJitterStatsOWMaxSDNew})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsOWMinDSNew", types.YLeaf{"RttMonJitterStatsOWMinDSNew", rttMonJitterStatsEntry.RttMonJitterStatsOWMinDSNew})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsOWMaxDSNew", types.YLeaf{"RttMonJitterStatsOWMaxDSNew", rttMonJitterStatsEntry.RttMonJitterStatsOWMaxDSNew})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsMinOfMOS", types.YLeaf{"RttMonJitterStatsMinOfMOS", rttMonJitterStatsEntry.RttMonJitterStatsMinOfMOS})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsMaxOfMOS", types.YLeaf{"RttMonJitterStatsMaxOfMOS", rttMonJitterStatsEntry.RttMonJitterStatsMaxOfMOS})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsMinOfICPIF", types.YLeaf{"RttMonJitterStatsMinOfICPIF", rttMonJitterStatsEntry.RttMonJitterStatsMinOfICPIF})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsMaxOfICPIF", types.YLeaf{"RttMonJitterStatsMaxOfICPIF", rttMonJitterStatsEntry.RttMonJitterStatsMaxOfICPIF})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsIAJOut", types.YLeaf{"RttMonJitterStatsIAJOut", rttMonJitterStatsEntry.RttMonJitterStatsIAJOut})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsIAJIn", types.YLeaf{"RttMonJitterStatsIAJIn", rttMonJitterStatsEntry.RttMonJitterStatsIAJIn})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsAvgJitter", types.YLeaf{"RttMonJitterStatsAvgJitter", rttMonJitterStatsEntry.RttMonJitterStatsAvgJitter})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsAvgJitterSD", types.YLeaf{"RttMonJitterStatsAvgJitterSD", rttMonJitterStatsEntry.RttMonJitterStatsAvgJitterSD})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsAvgJitterDS", types.YLeaf{"RttMonJitterStatsAvgJitterDS", rttMonJitterStatsEntry.RttMonJitterStatsAvgJitterDS})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsUnSyncRTs", types.YLeaf{"RttMonJitterStatsUnSyncRTs", rttMonJitterStatsEntry.RttMonJitterStatsUnSyncRTs})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsRTTSumHigh", types.YLeaf{"RttMonJitterStatsRTTSumHigh", rttMonJitterStatsEntry.RttMonJitterStatsRTTSumHigh})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsOWSumSDHigh", types.YLeaf{"RttMonJitterStatsOWSumSDHigh", rttMonJitterStatsEntry.RttMonJitterStatsOWSumSDHigh})
+    rttMonJitterStatsEntry.EntityData.Leafs.Append("rttMonJitterStatsOWSumDSHigh", types.YLeaf{"RttMonJitterStatsOWSumDSHigh", rttMonJitterStatsEntry.RttMonJitterStatsOWSumDSHigh})
+
+    rttMonJitterStatsEntry.EntityData.YListKeys = []string {"RttMonCtrlAdminIndex", "RttMonJitterStatsStartTimeIndex"}
+
+    return &(rttMonJitterStatsEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonlpdgrpstatstable
+// CISCORTTMONMIB_RttMonLpdGrpStatsTable
 // The Auto SAA L3 MPLS VPN LPD Group Database.
 // 
 // The LPD Group statistics table contains summarized performance
@@ -5082,7 +5202,7 @@ func (rttmonjitterstatsentry *CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitter
 // discarded and is replaced by the newly created one. The hourly
 // group is uniquely identified by the
 // rttMonLpdGrpStatsStartTimeIndex object.
-type CISCORTTMONMIB_Rttmonlpdgrpstatstable struct {
+type CISCORTTMONMIB_RttMonLpdGrpStatsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5098,30 +5218,33 @@ type CISCORTTMONMIB_Rttmonlpdgrpstatstable struct {
     // and it uniquely     identifies a 60 minute group. (The    
     // rttMonLpdGrpStatsStartTimeIndex is used to make this value     unique.).
     // The type is slice of
-    // CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry.
-    Rttmonlpdgrpstatsentry []CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry
+    // CISCORTTMONMIB_RttMonLpdGrpStatsTable_RttMonLpdGrpStatsEntry.
+    RttMonLpdGrpStatsEntry []*CISCORTTMONMIB_RttMonLpdGrpStatsTable_RttMonLpdGrpStatsEntry
 }
 
-func (rttmonlpdgrpstatstable *CISCORTTMONMIB_Rttmonlpdgrpstatstable) GetEntityData() *types.CommonEntityData {
-    rttmonlpdgrpstatstable.EntityData.YFilter = rttmonlpdgrpstatstable.YFilter
-    rttmonlpdgrpstatstable.EntityData.YangName = "rttMonLpdGrpStatsTable"
-    rttmonlpdgrpstatstable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonlpdgrpstatstable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonlpdgrpstatstable.EntityData.SegmentPath = "rttMonLpdGrpStatsTable"
-    rttmonlpdgrpstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonlpdgrpstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonlpdgrpstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonLpdGrpStatsTable *CISCORTTMONMIB_RttMonLpdGrpStatsTable) GetEntityData() *types.CommonEntityData {
+    rttMonLpdGrpStatsTable.EntityData.YFilter = rttMonLpdGrpStatsTable.YFilter
+    rttMonLpdGrpStatsTable.EntityData.YangName = "rttMonLpdGrpStatsTable"
+    rttMonLpdGrpStatsTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonLpdGrpStatsTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonLpdGrpStatsTable.EntityData.SegmentPath = "rttMonLpdGrpStatsTable"
+    rttMonLpdGrpStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonLpdGrpStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonLpdGrpStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonlpdgrpstatstable.EntityData.Children = make(map[string]types.YChild)
-    rttmonlpdgrpstatstable.EntityData.Children["rttMonLpdGrpStatsEntry"] = types.YChild{"Rttmonlpdgrpstatsentry", nil}
-    for i := range rttmonlpdgrpstatstable.Rttmonlpdgrpstatsentry {
-        rttmonlpdgrpstatstable.EntityData.Children[types.GetSegmentPath(&rttmonlpdgrpstatstable.Rttmonlpdgrpstatsentry[i])] = types.YChild{"Rttmonlpdgrpstatsentry", &rttmonlpdgrpstatstable.Rttmonlpdgrpstatsentry[i]}
+    rttMonLpdGrpStatsTable.EntityData.Children = types.NewOrderedMap()
+    rttMonLpdGrpStatsTable.EntityData.Children.Append("rttMonLpdGrpStatsEntry", types.YChild{"RttMonLpdGrpStatsEntry", nil})
+    for i := range rttMonLpdGrpStatsTable.RttMonLpdGrpStatsEntry {
+        rttMonLpdGrpStatsTable.EntityData.Children.Append(types.GetSegmentPath(rttMonLpdGrpStatsTable.RttMonLpdGrpStatsEntry[i]), types.YChild{"RttMonLpdGrpStatsEntry", rttMonLpdGrpStatsTable.RttMonLpdGrpStatsEntry[i]})
     }
-    rttmonlpdgrpstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonlpdgrpstatstable.EntityData)
+    rttMonLpdGrpStatsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonLpdGrpStatsTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonLpdGrpStatsTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry
+// CISCORTTMONMIB_RttMonLpdGrpStatsTable_RttMonLpdGrpStatsEntry
 // A list of objects which accumulate the results of a set of RTT
 // operations over a 60 minute time period.
 // 
@@ -5140,14 +5263,14 @@ func (rttmonlpdgrpstatstable *CISCORTTMONMIB_Rttmonlpdgrpstatstable) GetEntityDa
 //    identifies a 60 minute group. (The 
 //    rttMonLpdGrpStatsStartTimeIndex is used to make this value 
 //    unique.)
-type CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry struct {
+type CISCORTTMONMIB_RttMonLpdGrpStatsTable_RttMonLpdGrpStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Uniquely identifies a row in
     // rttMonLpdGrpStatsTable.  This is a pseudo-random number which identifies a
     // particular LPD group. The type is interface{} with range: 1..2147483647.
-    Rttmonlpdgrpstatsgroupindex interface{}
+    RttMonLpdGrpStatsGroupIndex interface{}
 
     // This attribute is a key. The time when this row was created.  This object
     // is the second index of the rttMonLpdGrpStatsTable. When the number of
@@ -5155,18 +5278,18 @@ type CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry struct {
     // rttMplsVpnMonTypeLpdStatHours value, the oldest
     // rttMonLpdGrpStatsStartTimeIndex group will be removed and replaced with the
     // new entry. The type is interface{} with range: 0..4294967295.
-    Rttmonlpdgrpstatsstarttimeindex interface{}
+    RttMonLpdGrpStatsStartTimeIndex interface{}
 
     // The object is a string that specifies the address of the target PE for this
     // LPD group. The type is string.
-    Rttmonlpdgrpstatstargetpe interface{}
+    RttMonLpdGrpStatsTargetPE interface{}
 
     // This object represents the number of successfull completions of 'single
     // probes' for all the set of paths in the LPD group.  Whenever the
     // rttMonLatestRttOperSense value is 'ok' for a particular probe in the LPD
     // Group this object will be incremented.  This object will be set to '0' on
     // reset. The type is interface{} with range: 0..2147483647. Units are passes.
-    Rttmonlpdgrpstatsnumofpass interface{}
+    RttMonLpdGrpStatsNumOfPass interface{}
 
     // This object represents the number of failed operations of 'single probes'
     // for all the set of paths in the LPD group.  Whenever the
@@ -5174,7 +5297,7 @@ type CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry struct {
     // particular probe in the LPD Group this object will be incremented.  This
     // object will be set to '0' on reset. The type is interface{} with range:
     // 0..2147483647. Units are failures.
-    Rttmonlpdgrpstatsnumoffail interface{}
+    RttMonLpdGrpStatsNumOfFail interface{}
 
     // This object represents the number of timed out operations of 'single
     // probes' for all the set of paths in the LPD group.  Whenever the
@@ -5182,37 +5305,37 @@ type CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry struct {
     // the LPD Group this object will be incremented.  This object will be set to
     // '0' on reset. The type is interface{} with range: 0..2147483647. Units are
     // timeouts.
-    Rttmonlpdgrpstatsnumoftimeout interface{}
+    RttMonLpdGrpStatsNumOfTimeout interface{}
 
     // The average RTT across all set of probes in the LPD group.  This object
     // will be set to '0' on reset. The type is interface{} with range:
     // 0..2147483647. Units are milliseconds.
-    Rttmonlpdgrpstatsavgrtt interface{}
+    RttMonLpdGrpStatsAvgRTT interface{}
 
     // The minimum of RTT's for all set of probes in the LPD group that were
     // successfully measured.  This object will be set to '0' on reset. The type
     // is interface{} with range: 0..2147483647. Units are milliseconds.
-    Rttmonlpdgrpstatsminrtt interface{}
+    RttMonLpdGrpStatsMinRTT interface{}
 
     // The maximum of RTT's for all set of probes in the LPD group that were
     // successfully measured.  This object will be set to '0' on reset. The type
     // is interface{} with range: 0..2147483647. Units are milliseconds.
-    Rttmonlpdgrpstatsmaxrtt interface{}
+    RttMonLpdGrpStatsMaxRTT interface{}
 
     // The minimum number of active paths discovered to the
     // rttMonLpdGrpStatsTargetPE target.  This object will be set to '0' on reset.
     // The type is interface{} with range: 0..2147483647. Units are paths.
-    Rttmonlpdgrpstatsminnumpaths interface{}
+    RttMonLpdGrpStatsMinNumPaths interface{}
 
     // The maximum number of active paths discovered to the
     // rttMonLpdGrpStatsTargetPE target.  This object will be set to '0' on reset.
     // The type is interface{} with range: 0..2147483647. Units are paths.
-    Rttmonlpdgrpstatsmaxnumpaths interface{}
+    RttMonLpdGrpStatsMaxNumPaths interface{}
 
     // The time when the last LSP Path Discovery to the group was attempted.  This
     // object will be set to '0' on reset. The type is interface{} with range:
     // 0..4294967295. Units are tenths of milliseconds.
-    Rttmonlpdgrpstatslpdstarttime interface{}
+    RttMonLpdGrpStatsLPDStartTime interface{}
 
     // This object is set to true when the LSP Path Discovery to the target PE
     // i.e. rttMonLpdGrpStatsTargetPE fails, and set to false when the LSP Path
@@ -5220,18 +5343,18 @@ type CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry struct {
     // rttMplsVpnMonReactLpdNotifyType is set to 'lpdPathDiscovery' or 'lpdAll' a
     // rttMonLpdDiscoveryNotification will be generated.  This object will be set
     // to 'FALSE' on reset. The type is bool.
-    Rttmonlpdgrpstatslpdfailoccurred interface{}
+    RttMonLpdGrpStatsLPDFailOccurred interface{}
 
     // This object identifies the cause of failure for the LSP Path Discovery last
     // attempted. It will be only valid if rttMonLpdGrpStatsLPDFailOccurred is set
     // to true.  This object will be set to 'unknown' on reset. The type is
     // RttMplsVpnMonLpdFailureSense.
-    Rttmonlpdgrpstatslpdfailcause interface{}
+    RttMonLpdGrpStatsLPDFailCause interface{}
 
     // The completion time of the last successfull LSP Path Discovery to the
     // target PE.  This object will be set to '0' on reset. The type is
     // interface{} with range: 0..65535. Units are seconds.
-    Rttmonlpdgrpstatslpdcomptime interface{}
+    RttMonLpdGrpStatsLPDCompTime interface{}
 
     // This object identifies the LPD Group status.  When the LPD Group status
     // changes and rttMplsVpnMonReactLpdNotifyType is set to 'lpdGroupStatus' or
@@ -5244,12 +5367,12 @@ type CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry struct {
     // the failure/restoration of an individual probe causes the state of the LPD
     // Group to change.  This object will be set to 'unknown' on reset. The type
     // is RttMplsVpnMonLpdGrpStatus.
-    Rttmonlpdgrpstatsgroupstatus interface{}
+    RttMonLpdGrpStatsGroupStatus interface{}
 
     // This object identifies 'lspGroup' probe uniquely created for this
     // particular LPD Group. The type is interface{} with range: 1..2147483647.
     // Units are identifier.
-    Rttmonlpdgrpstatsgroupprobeindex interface{}
+    RttMonLpdGrpStatsGroupProbeIndex interface{}
 
     // A string which holds the list of information to uniquely identify the paths
     // to the target PE. This information is used by the 'single probes' when
@@ -5264,7 +5387,7 @@ type CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry struct {
     // 127.0.0.2-Se3/0.1-20,127.0.0.3-Se3/0.1-20,127.0.0.4-Se3/0.1-20,
     // 127.0.0.5-Se3/0.1-20'.  This object will be set to '0' on reset. The type
     // is string.
-    Rttmonlpdgrpstatspathids interface{}
+    RttMonLpdGrpStatsPathIds interface{}
 
     // A string which holds the latest operation return code for all the set of
     // 'single probes' which are part of the LPD group. The return codes will be
@@ -5277,50 +5400,53 @@ type CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry struct {
     // is 'other'.  For example: If there are 5 paths in the LPD group then this
     // object output will look like 'ok,ok,ok,down,down'.  This object will be set
     // to '0' on reset. The type is string.
-    Rttmonlpdgrpstatsprobestatus interface{}
+    RttMonLpdGrpStatsProbeStatus interface{}
 
     // This object specifies the time when this statistics row was last reset
     // using the rttMonApplLpdGrpStatsReset object. The type is interface{} with
     // range: 0..4294967295.
-    Rttmonlpdgrpstatsresettime interface{}
+    RttMonLpdGrpStatsResetTime interface{}
 }
 
-func (rttmonlpdgrpstatsentry *CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry) GetEntityData() *types.CommonEntityData {
-    rttmonlpdgrpstatsentry.EntityData.YFilter = rttmonlpdgrpstatsentry.YFilter
-    rttmonlpdgrpstatsentry.EntityData.YangName = "rttMonLpdGrpStatsEntry"
-    rttmonlpdgrpstatsentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonlpdgrpstatsentry.EntityData.ParentYangName = "rttMonLpdGrpStatsTable"
-    rttmonlpdgrpstatsentry.EntityData.SegmentPath = "rttMonLpdGrpStatsEntry" + "[rttMonLpdGrpStatsGroupIndex='" + fmt.Sprintf("%v", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsgroupindex) + "']" + "[rttMonLpdGrpStatsStartTimeIndex='" + fmt.Sprintf("%v", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsstarttimeindex) + "']"
-    rttmonlpdgrpstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonlpdgrpstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonlpdgrpstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonLpdGrpStatsEntry *CISCORTTMONMIB_RttMonLpdGrpStatsTable_RttMonLpdGrpStatsEntry) GetEntityData() *types.CommonEntityData {
+    rttMonLpdGrpStatsEntry.EntityData.YFilter = rttMonLpdGrpStatsEntry.YFilter
+    rttMonLpdGrpStatsEntry.EntityData.YangName = "rttMonLpdGrpStatsEntry"
+    rttMonLpdGrpStatsEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonLpdGrpStatsEntry.EntityData.ParentYangName = "rttMonLpdGrpStatsTable"
+    rttMonLpdGrpStatsEntry.EntityData.SegmentPath = "rttMonLpdGrpStatsEntry" + types.AddKeyToken(rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsGroupIndex, "rttMonLpdGrpStatsGroupIndex") + types.AddKeyToken(rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsStartTimeIndex, "rttMonLpdGrpStatsStartTimeIndex")
+    rttMonLpdGrpStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonLpdGrpStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonLpdGrpStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonlpdgrpstatsentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonlpdgrpstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsGroupIndex"] = types.YLeaf{"Rttmonlpdgrpstatsgroupindex", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsgroupindex}
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsStartTimeIndex"] = types.YLeaf{"Rttmonlpdgrpstatsstarttimeindex", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsstarttimeindex}
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsTargetPE"] = types.YLeaf{"Rttmonlpdgrpstatstargetpe", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatstargetpe}
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsNumOfPass"] = types.YLeaf{"Rttmonlpdgrpstatsnumofpass", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsnumofpass}
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsNumOfFail"] = types.YLeaf{"Rttmonlpdgrpstatsnumoffail", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsnumoffail}
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsNumOfTimeout"] = types.YLeaf{"Rttmonlpdgrpstatsnumoftimeout", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsnumoftimeout}
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsAvgRTT"] = types.YLeaf{"Rttmonlpdgrpstatsavgrtt", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsavgrtt}
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsMinRTT"] = types.YLeaf{"Rttmonlpdgrpstatsminrtt", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsminrtt}
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsMaxRTT"] = types.YLeaf{"Rttmonlpdgrpstatsmaxrtt", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsmaxrtt}
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsMinNumPaths"] = types.YLeaf{"Rttmonlpdgrpstatsminnumpaths", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsminnumpaths}
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsMaxNumPaths"] = types.YLeaf{"Rttmonlpdgrpstatsmaxnumpaths", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsmaxnumpaths}
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsLPDStartTime"] = types.YLeaf{"Rttmonlpdgrpstatslpdstarttime", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatslpdstarttime}
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsLPDFailOccurred"] = types.YLeaf{"Rttmonlpdgrpstatslpdfailoccurred", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatslpdfailoccurred}
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsLPDFailCause"] = types.YLeaf{"Rttmonlpdgrpstatslpdfailcause", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatslpdfailcause}
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsLPDCompTime"] = types.YLeaf{"Rttmonlpdgrpstatslpdcomptime", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatslpdcomptime}
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsGroupStatus"] = types.YLeaf{"Rttmonlpdgrpstatsgroupstatus", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsgroupstatus}
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsGroupProbeIndex"] = types.YLeaf{"Rttmonlpdgrpstatsgroupprobeindex", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsgroupprobeindex}
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsPathIds"] = types.YLeaf{"Rttmonlpdgrpstatspathids", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatspathids}
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsProbeStatus"] = types.YLeaf{"Rttmonlpdgrpstatsprobestatus", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsprobestatus}
-    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsResetTime"] = types.YLeaf{"Rttmonlpdgrpstatsresettime", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsresettime}
-    return &(rttmonlpdgrpstatsentry.EntityData)
+    rttMonLpdGrpStatsEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonLpdGrpStatsEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsGroupIndex", types.YLeaf{"RttMonLpdGrpStatsGroupIndex", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsGroupIndex})
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsStartTimeIndex", types.YLeaf{"RttMonLpdGrpStatsStartTimeIndex", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsStartTimeIndex})
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsTargetPE", types.YLeaf{"RttMonLpdGrpStatsTargetPE", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsTargetPE})
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsNumOfPass", types.YLeaf{"RttMonLpdGrpStatsNumOfPass", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsNumOfPass})
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsNumOfFail", types.YLeaf{"RttMonLpdGrpStatsNumOfFail", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsNumOfFail})
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsNumOfTimeout", types.YLeaf{"RttMonLpdGrpStatsNumOfTimeout", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsNumOfTimeout})
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsAvgRTT", types.YLeaf{"RttMonLpdGrpStatsAvgRTT", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsAvgRTT})
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsMinRTT", types.YLeaf{"RttMonLpdGrpStatsMinRTT", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsMinRTT})
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsMaxRTT", types.YLeaf{"RttMonLpdGrpStatsMaxRTT", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsMaxRTT})
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsMinNumPaths", types.YLeaf{"RttMonLpdGrpStatsMinNumPaths", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsMinNumPaths})
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsMaxNumPaths", types.YLeaf{"RttMonLpdGrpStatsMaxNumPaths", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsMaxNumPaths})
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsLPDStartTime", types.YLeaf{"RttMonLpdGrpStatsLPDStartTime", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsLPDStartTime})
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsLPDFailOccurred", types.YLeaf{"RttMonLpdGrpStatsLPDFailOccurred", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsLPDFailOccurred})
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsLPDFailCause", types.YLeaf{"RttMonLpdGrpStatsLPDFailCause", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsLPDFailCause})
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsLPDCompTime", types.YLeaf{"RttMonLpdGrpStatsLPDCompTime", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsLPDCompTime})
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsGroupStatus", types.YLeaf{"RttMonLpdGrpStatsGroupStatus", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsGroupStatus})
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsGroupProbeIndex", types.YLeaf{"RttMonLpdGrpStatsGroupProbeIndex", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsGroupProbeIndex})
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsPathIds", types.YLeaf{"RttMonLpdGrpStatsPathIds", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsPathIds})
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsProbeStatus", types.YLeaf{"RttMonLpdGrpStatsProbeStatus", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsProbeStatus})
+    rttMonLpdGrpStatsEntry.EntityData.Leafs.Append("rttMonLpdGrpStatsResetTime", types.YLeaf{"RttMonLpdGrpStatsResetTime", rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsResetTime})
+
+    rttMonLpdGrpStatsEntry.EntityData.YListKeys = []string {"RttMonLpdGrpStatsGroupIndex", "RttMonLpdGrpStatsStartTimeIndex"}
+
+    return &(rttMonLpdGrpStatsEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonhistorycollectiontable
+// CISCORTTMONMIB_RttMonHistoryCollectionTable
 // The history collection database.
 // 
 // The history table contains a point by point rolling 
@@ -5340,7 +5466,7 @@ func (rttmonlpdgrpstatsentry *CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrp
 // 
 // The path exploration RTT operation will be kept as an
 // entry in this table.
-type CISCORTTMONMIB_Rttmonhistorycollectiontable struct {
+type CISCORTTMONMIB_RttMonHistoryCollectionTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5361,30 +5487,33 @@ type CISCORTTMONMIB_Rttmonhistorycollectiontable struct {
     // order, thus for the        first hop on a path, this index will be 1, the  
     // second will be 2 and so on.   For all other values       of
     // rttMonCtrlAdminRttType this will be 1. The type is slice of
-    // CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry.
-    Rttmonhistorycollectionentry []CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry
+    // CISCORTTMONMIB_RttMonHistoryCollectionTable_RttMonHistoryCollectionEntry.
+    RttMonHistoryCollectionEntry []*CISCORTTMONMIB_RttMonHistoryCollectionTable_RttMonHistoryCollectionEntry
 }
 
-func (rttmonhistorycollectiontable *CISCORTTMONMIB_Rttmonhistorycollectiontable) GetEntityData() *types.CommonEntityData {
-    rttmonhistorycollectiontable.EntityData.YFilter = rttmonhistorycollectiontable.YFilter
-    rttmonhistorycollectiontable.EntityData.YangName = "rttMonHistoryCollectionTable"
-    rttmonhistorycollectiontable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonhistorycollectiontable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonhistorycollectiontable.EntityData.SegmentPath = "rttMonHistoryCollectionTable"
-    rttmonhistorycollectiontable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonhistorycollectiontable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonhistorycollectiontable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonHistoryCollectionTable *CISCORTTMONMIB_RttMonHistoryCollectionTable) GetEntityData() *types.CommonEntityData {
+    rttMonHistoryCollectionTable.EntityData.YFilter = rttMonHistoryCollectionTable.YFilter
+    rttMonHistoryCollectionTable.EntityData.YangName = "rttMonHistoryCollectionTable"
+    rttMonHistoryCollectionTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonHistoryCollectionTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonHistoryCollectionTable.EntityData.SegmentPath = "rttMonHistoryCollectionTable"
+    rttMonHistoryCollectionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonHistoryCollectionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonHistoryCollectionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonhistorycollectiontable.EntityData.Children = make(map[string]types.YChild)
-    rttmonhistorycollectiontable.EntityData.Children["rttMonHistoryCollectionEntry"] = types.YChild{"Rttmonhistorycollectionentry", nil}
-    for i := range rttmonhistorycollectiontable.Rttmonhistorycollectionentry {
-        rttmonhistorycollectiontable.EntityData.Children[types.GetSegmentPath(&rttmonhistorycollectiontable.Rttmonhistorycollectionentry[i])] = types.YChild{"Rttmonhistorycollectionentry", &rttmonhistorycollectiontable.Rttmonhistorycollectionentry[i]}
+    rttMonHistoryCollectionTable.EntityData.Children = types.NewOrderedMap()
+    rttMonHistoryCollectionTable.EntityData.Children.Append("rttMonHistoryCollectionEntry", types.YChild{"RttMonHistoryCollectionEntry", nil})
+    for i := range rttMonHistoryCollectionTable.RttMonHistoryCollectionEntry {
+        rttMonHistoryCollectionTable.EntityData.Children.Append(types.GetSegmentPath(rttMonHistoryCollectionTable.RttMonHistoryCollectionEntry[i]), types.YChild{"RttMonHistoryCollectionEntry", rttMonHistoryCollectionTable.RttMonHistoryCollectionEntry[i]})
     }
-    rttmonhistorycollectiontable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonhistorycollectiontable.EntityData)
+    rttMonHistoryCollectionTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonHistoryCollectionTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonHistoryCollectionTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry
+// CISCORTTMONMIB_RttMonHistoryCollectionTable_RttMonHistoryCollectionEntry
 // A list of history objects that are recorded for each
 // RTT operation.
 // 
@@ -5413,21 +5542,21 @@ func (rttmonhistorycollectiontable *CISCORTTMONMIB_Rttmonhistorycollectiontable)
 //       first hop on a path, this index will be 1, the 
 //       second will be 2 and so on.   For all other values
 //       of rttMonCtrlAdminRttType this will be 1.
-type CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry struct {
+type CISCORTTMONMIB_RttMonHistoryCollectionTable_RttMonHistoryCollectionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // cisco_rttmon_mib.CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrladminindex
-    Rttmonctrladminindex interface{}
+    // cisco_rttmon_mib.CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlAdminIndex
+    RttMonCtrlAdminIndex interface{}
 
     // This attribute is a key. This uniquely defines a life for a conceptual
     // history row.  For a particular value of rttMonHistoryCollectionLifeIndex,
     // the agent assigns the first value of 1, the second value  of 2, and so on. 
     // The sequence keeps incrementing,  despite older (lower) values being
     // removed from the  table. The type is interface{} with range: 1..2147483647.
-    Rttmonhistorycollectionlifeindex interface{}
+    RttMonHistoryCollectionLifeIndex interface{}
 
     // This attribute is a key. When the RttMonRttType is 'pathEcho', this
     // uniquely defines a bucket for a given value of 
@@ -5439,7 +5568,7 @@ type CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry st
     // the number of buckets equals rttMonHistoryAdminNumBuckets, after which the
     // most recent rttMonHistoryAdminNumBuckets  buckets are retained (the index
     // is incremented though). The type is interface{} with range: 1..2147483647.
-    Rttmonhistorycollectionbucketindex interface{}
+    RttMonHistoryCollectionBucketIndex interface{}
 
     // This attribute is a key. This uniquely defines a row for a given value of
     // rttMonHistoryCollectionBucketIndex.  This object represents a hop along a
@@ -5452,11 +5581,11 @@ type CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry st
     // number of hops along a  path to a target, thus we can only support 512
     // hops. For all other values of RttMonRttType this object will be one. The
     // type is interface{} with range: 1..512.
-    Rttmonhistorycollectionsampleindex interface{}
+    RttMonHistoryCollectionSampleIndex interface{}
 
     // The time that the RTT operation was initiated. The type is interface{} with
     // range: 0..4294967295.
-    Rttmonhistorycollectionsampletime interface{}
+    RttMonHistoryCollectionSampleTime interface{}
 
     // When the RttMonRttType is 'echo' or 'pathEcho' this is a string which
     // specifies the address of the target for the this RTT operation.  For all
@@ -5470,60 +5599,63 @@ type CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry st
     // selected, as specified by the rttMonEchoAdminProtocol object.  See
     // rttMonEchoAdminTargetAddress for a complete description. The type is
     // string.
-    Rttmonhistorycollectionaddress interface{}
+    RttMonHistoryCollectionAddress interface{}
 
     // This is the operation completion time of the RTT operation.  If the RTT
     // operation fails  (rttMonHistoryCollectionSense is any  value other than
     // ok), this has a value of 0. The type is interface{} with range:
     // 0..4294967295. Units are milliseconds.
-    Rttmonhistorycollectioncompletiontime interface{}
+    RttMonHistoryCollectionCompletionTime interface{}
 
     // A sense code for the completion status of the RTT operation. The type is
     // RttResponseSense.
-    Rttmonhistorycollectionsense interface{}
+    RttMonHistoryCollectionSense interface{}
 
     // An application specific sense code for the completion status of the last
     // RTT operation.  This  object will only be valid when the 
     // rttMonHistoryCollectionSense object is set to  'applicationSpecific'. 
     // Otherwise, this object's  value is not valid. The type is interface{} with
     // range: 0..2147483647.
-    Rttmonhistorycollectionapplspecificsense interface{}
+    RttMonHistoryCollectionApplSpecificSense interface{}
 
     // A sense description for the completion status of the last RTT operation
     // when the  rttMonHistoryCollectionSense object is set to 
     // 'applicationSpecific'. The type is string.
-    Rttmonhistorycollectionsensedescription interface{}
+    RttMonHistoryCollectionSenseDescription interface{}
 }
 
-func (rttmonhistorycollectionentry *CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry) GetEntityData() *types.CommonEntityData {
-    rttmonhistorycollectionentry.EntityData.YFilter = rttmonhistorycollectionentry.YFilter
-    rttmonhistorycollectionentry.EntityData.YangName = "rttMonHistoryCollectionEntry"
-    rttmonhistorycollectionentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonhistorycollectionentry.EntityData.ParentYangName = "rttMonHistoryCollectionTable"
-    rttmonhistorycollectionentry.EntityData.SegmentPath = "rttMonHistoryCollectionEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonhistorycollectionentry.Rttmonctrladminindex) + "']" + "[rttMonHistoryCollectionLifeIndex='" + fmt.Sprintf("%v", rttmonhistorycollectionentry.Rttmonhistorycollectionlifeindex) + "']" + "[rttMonHistoryCollectionBucketIndex='" + fmt.Sprintf("%v", rttmonhistorycollectionentry.Rttmonhistorycollectionbucketindex) + "']" + "[rttMonHistoryCollectionSampleIndex='" + fmt.Sprintf("%v", rttmonhistorycollectionentry.Rttmonhistorycollectionsampleindex) + "']"
-    rttmonhistorycollectionentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonhistorycollectionentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonhistorycollectionentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonHistoryCollectionEntry *CISCORTTMONMIB_RttMonHistoryCollectionTable_RttMonHistoryCollectionEntry) GetEntityData() *types.CommonEntityData {
+    rttMonHistoryCollectionEntry.EntityData.YFilter = rttMonHistoryCollectionEntry.YFilter
+    rttMonHistoryCollectionEntry.EntityData.YangName = "rttMonHistoryCollectionEntry"
+    rttMonHistoryCollectionEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonHistoryCollectionEntry.EntityData.ParentYangName = "rttMonHistoryCollectionTable"
+    rttMonHistoryCollectionEntry.EntityData.SegmentPath = "rttMonHistoryCollectionEntry" + types.AddKeyToken(rttMonHistoryCollectionEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonHistoryCollectionEntry.RttMonHistoryCollectionLifeIndex, "rttMonHistoryCollectionLifeIndex") + types.AddKeyToken(rttMonHistoryCollectionEntry.RttMonHistoryCollectionBucketIndex, "rttMonHistoryCollectionBucketIndex") + types.AddKeyToken(rttMonHistoryCollectionEntry.RttMonHistoryCollectionSampleIndex, "rttMonHistoryCollectionSampleIndex")
+    rttMonHistoryCollectionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonHistoryCollectionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonHistoryCollectionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonhistorycollectionentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonhistorycollectionentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonhistorycollectionentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonhistorycollectionentry.Rttmonctrladminindex}
-    rttmonhistorycollectionentry.EntityData.Leafs["rttMonHistoryCollectionLifeIndex"] = types.YLeaf{"Rttmonhistorycollectionlifeindex", rttmonhistorycollectionentry.Rttmonhistorycollectionlifeindex}
-    rttmonhistorycollectionentry.EntityData.Leafs["rttMonHistoryCollectionBucketIndex"] = types.YLeaf{"Rttmonhistorycollectionbucketindex", rttmonhistorycollectionentry.Rttmonhistorycollectionbucketindex}
-    rttmonhistorycollectionentry.EntityData.Leafs["rttMonHistoryCollectionSampleIndex"] = types.YLeaf{"Rttmonhistorycollectionsampleindex", rttmonhistorycollectionentry.Rttmonhistorycollectionsampleindex}
-    rttmonhistorycollectionentry.EntityData.Leafs["rttMonHistoryCollectionSampleTime"] = types.YLeaf{"Rttmonhistorycollectionsampletime", rttmonhistorycollectionentry.Rttmonhistorycollectionsampletime}
-    rttmonhistorycollectionentry.EntityData.Leafs["rttMonHistoryCollectionAddress"] = types.YLeaf{"Rttmonhistorycollectionaddress", rttmonhistorycollectionentry.Rttmonhistorycollectionaddress}
-    rttmonhistorycollectionentry.EntityData.Leafs["rttMonHistoryCollectionCompletionTime"] = types.YLeaf{"Rttmonhistorycollectioncompletiontime", rttmonhistorycollectionentry.Rttmonhistorycollectioncompletiontime}
-    rttmonhistorycollectionentry.EntityData.Leafs["rttMonHistoryCollectionSense"] = types.YLeaf{"Rttmonhistorycollectionsense", rttmonhistorycollectionentry.Rttmonhistorycollectionsense}
-    rttmonhistorycollectionentry.EntityData.Leafs["rttMonHistoryCollectionApplSpecificSense"] = types.YLeaf{"Rttmonhistorycollectionapplspecificsense", rttmonhistorycollectionentry.Rttmonhistorycollectionapplspecificsense}
-    rttmonhistorycollectionentry.EntityData.Leafs["rttMonHistoryCollectionSenseDescription"] = types.YLeaf{"Rttmonhistorycollectionsensedescription", rttmonhistorycollectionentry.Rttmonhistorycollectionsensedescription}
-    return &(rttmonhistorycollectionentry.EntityData)
+    rttMonHistoryCollectionEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonHistoryCollectionEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonHistoryCollectionEntry.EntityData.Leafs.Append("rttMonCtrlAdminIndex", types.YLeaf{"RttMonCtrlAdminIndex", rttMonHistoryCollectionEntry.RttMonCtrlAdminIndex})
+    rttMonHistoryCollectionEntry.EntityData.Leafs.Append("rttMonHistoryCollectionLifeIndex", types.YLeaf{"RttMonHistoryCollectionLifeIndex", rttMonHistoryCollectionEntry.RttMonHistoryCollectionLifeIndex})
+    rttMonHistoryCollectionEntry.EntityData.Leafs.Append("rttMonHistoryCollectionBucketIndex", types.YLeaf{"RttMonHistoryCollectionBucketIndex", rttMonHistoryCollectionEntry.RttMonHistoryCollectionBucketIndex})
+    rttMonHistoryCollectionEntry.EntityData.Leafs.Append("rttMonHistoryCollectionSampleIndex", types.YLeaf{"RttMonHistoryCollectionSampleIndex", rttMonHistoryCollectionEntry.RttMonHistoryCollectionSampleIndex})
+    rttMonHistoryCollectionEntry.EntityData.Leafs.Append("rttMonHistoryCollectionSampleTime", types.YLeaf{"RttMonHistoryCollectionSampleTime", rttMonHistoryCollectionEntry.RttMonHistoryCollectionSampleTime})
+    rttMonHistoryCollectionEntry.EntityData.Leafs.Append("rttMonHistoryCollectionAddress", types.YLeaf{"RttMonHistoryCollectionAddress", rttMonHistoryCollectionEntry.RttMonHistoryCollectionAddress})
+    rttMonHistoryCollectionEntry.EntityData.Leafs.Append("rttMonHistoryCollectionCompletionTime", types.YLeaf{"RttMonHistoryCollectionCompletionTime", rttMonHistoryCollectionEntry.RttMonHistoryCollectionCompletionTime})
+    rttMonHistoryCollectionEntry.EntityData.Leafs.Append("rttMonHistoryCollectionSense", types.YLeaf{"RttMonHistoryCollectionSense", rttMonHistoryCollectionEntry.RttMonHistoryCollectionSense})
+    rttMonHistoryCollectionEntry.EntityData.Leafs.Append("rttMonHistoryCollectionApplSpecificSense", types.YLeaf{"RttMonHistoryCollectionApplSpecificSense", rttMonHistoryCollectionEntry.RttMonHistoryCollectionApplSpecificSense})
+    rttMonHistoryCollectionEntry.EntityData.Leafs.Append("rttMonHistoryCollectionSenseDescription", types.YLeaf{"RttMonHistoryCollectionSenseDescription", rttMonHistoryCollectionEntry.RttMonHistoryCollectionSenseDescription})
+
+    rttMonHistoryCollectionEntry.EntityData.YListKeys = []string {"RttMonCtrlAdminIndex", "RttMonHistoryCollectionLifeIndex", "RttMonHistoryCollectionBucketIndex", "RttMonHistoryCollectionSampleIndex"}
+
+    return &(rttMonHistoryCollectionEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonlatesthttpopertable
+// CISCORTTMONMIB_RttMonLatestHTTPOperTable
 // A table which contains the status of latest HTTP RTT
 // operation.
-type CISCORTTMONMIB_Rttmonlatesthttpopertable struct {
+type CISCORTTMONMIB_RttMonLatestHTTPOperTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5531,486 +5663,498 @@ type CISCORTTMONMIB_Rttmonlatesthttpopertable struct {
     // created automatically after the  rttMonCtrlAdminEntry is created. Also the
     // entry is  automatically deleted when rttMonCtrlAdminEntry is deleted. The
     // type is slice of
-    // CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry.
-    Rttmonlatesthttpoperentry []CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry
+    // CISCORTTMONMIB_RttMonLatestHTTPOperTable_RttMonLatestHTTPOperEntry.
+    RttMonLatestHTTPOperEntry []*CISCORTTMONMIB_RttMonLatestHTTPOperTable_RttMonLatestHTTPOperEntry
 }
 
-func (rttmonlatesthttpopertable *CISCORTTMONMIB_Rttmonlatesthttpopertable) GetEntityData() *types.CommonEntityData {
-    rttmonlatesthttpopertable.EntityData.YFilter = rttmonlatesthttpopertable.YFilter
-    rttmonlatesthttpopertable.EntityData.YangName = "rttMonLatestHTTPOperTable"
-    rttmonlatesthttpopertable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonlatesthttpopertable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonlatesthttpopertable.EntityData.SegmentPath = "rttMonLatestHTTPOperTable"
-    rttmonlatesthttpopertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonlatesthttpopertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonlatesthttpopertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonLatestHTTPOperTable *CISCORTTMONMIB_RttMonLatestHTTPOperTable) GetEntityData() *types.CommonEntityData {
+    rttMonLatestHTTPOperTable.EntityData.YFilter = rttMonLatestHTTPOperTable.YFilter
+    rttMonLatestHTTPOperTable.EntityData.YangName = "rttMonLatestHTTPOperTable"
+    rttMonLatestHTTPOperTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonLatestHTTPOperTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonLatestHTTPOperTable.EntityData.SegmentPath = "rttMonLatestHTTPOperTable"
+    rttMonLatestHTTPOperTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonLatestHTTPOperTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonLatestHTTPOperTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonlatesthttpopertable.EntityData.Children = make(map[string]types.YChild)
-    rttmonlatesthttpopertable.EntityData.Children["rttMonLatestHTTPOperEntry"] = types.YChild{"Rttmonlatesthttpoperentry", nil}
-    for i := range rttmonlatesthttpopertable.Rttmonlatesthttpoperentry {
-        rttmonlatesthttpopertable.EntityData.Children[types.GetSegmentPath(&rttmonlatesthttpopertable.Rttmonlatesthttpoperentry[i])] = types.YChild{"Rttmonlatesthttpoperentry", &rttmonlatesthttpopertable.Rttmonlatesthttpoperentry[i]}
+    rttMonLatestHTTPOperTable.EntityData.Children = types.NewOrderedMap()
+    rttMonLatestHTTPOperTable.EntityData.Children.Append("rttMonLatestHTTPOperEntry", types.YChild{"RttMonLatestHTTPOperEntry", nil})
+    for i := range rttMonLatestHTTPOperTable.RttMonLatestHTTPOperEntry {
+        rttMonLatestHTTPOperTable.EntityData.Children.Append(types.GetSegmentPath(rttMonLatestHTTPOperTable.RttMonLatestHTTPOperEntry[i]), types.YChild{"RttMonLatestHTTPOperEntry", rttMonLatestHTTPOperTable.RttMonLatestHTTPOperEntry[i]})
     }
-    rttmonlatesthttpopertable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonlatesthttpopertable.EntityData)
+    rttMonLatestHTTPOperTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonLatestHTTPOperTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonLatestHTTPOperTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry
+// CISCORTTMONMIB_RttMonLatestHTTPOperTable_RttMonLatestHTTPOperEntry
 // A list of objects that record the latest HTTP RTT
 // operation. This entry is created automatically after the 
 // rttMonCtrlAdminEntry is created. Also the entry is 
 // automatically deleted when rttMonCtrlAdminEntry is deleted.
-type CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry struct {
+type CISCORTTMONMIB_RttMonLatestHTTPOperTable_RttMonLatestHTTPOperEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // cisco_rttmon_mib.CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrladminindex
-    Rttmonctrladminindex interface{}
+    // cisco_rttmon_mib.CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlAdminIndex
+    RttMonCtrlAdminIndex interface{}
 
     // Round Trip Time taken to perform HTTP operation. This value is the sum of
     // DNSRTT, TCPConnectRTT and TransactionRTT. The type is interface{} with
     // range: 0..4294967295.
-    Rttmonlatesthttpoperrtt interface{}
+    RttMonLatestHTTPOperRTT interface{}
 
     // Round Trip Time taken to perform DNS query within the HTTP operation. If an
     // IP Address is specified in the URL,  then DNSRTT is 0. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonlatesthttpoperdnsrtt interface{}
+    RttMonLatestHTTPOperDNSRTT interface{}
 
     // Round Trip Time taken to connect to the HTTP server. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonlatesthttpopertcpconnectrtt interface{}
+    RttMonLatestHTTPOperTCPConnectRTT interface{}
 
     // Round Trip Time taken to download the object specified by the URL. The type
     // is interface{} with range: 0..4294967295.
-    Rttmonlatesthttpopertransactionrtt interface{}
+    RttMonLatestHTTPOperTransactionRTT interface{}
 
     // The size of the message body received as a response to the HTTP request.
     // The type is interface{} with range: 0..4294967295.
-    Rttmonlatesthttpopermessagebodyoctets interface{}
+    RttMonLatestHTTPOperMessageBodyOctets interface{}
 
     // An application specific sense code for the completion status of the latest
     // RTT operation. The type is RttResponseSense.
-    Rttmonlatesthttpopersense interface{}
+    RttMonLatestHTTPOperSense interface{}
 
     // An sense description for the completion status of the latest RTT operation.
     // The type is string.
-    Rttmonlatesthttperrorsensedescription interface{}
+    RttMonLatestHTTPErrorSenseDescription interface{}
 }
 
-func (rttmonlatesthttpoperentry *CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry) GetEntityData() *types.CommonEntityData {
-    rttmonlatesthttpoperentry.EntityData.YFilter = rttmonlatesthttpoperentry.YFilter
-    rttmonlatesthttpoperentry.EntityData.YangName = "rttMonLatestHTTPOperEntry"
-    rttmonlatesthttpoperentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonlatesthttpoperentry.EntityData.ParentYangName = "rttMonLatestHTTPOperTable"
-    rttmonlatesthttpoperentry.EntityData.SegmentPath = "rttMonLatestHTTPOperEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonlatesthttpoperentry.Rttmonctrladminindex) + "']"
-    rttmonlatesthttpoperentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonlatesthttpoperentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonlatesthttpoperentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonLatestHTTPOperEntry *CISCORTTMONMIB_RttMonLatestHTTPOperTable_RttMonLatestHTTPOperEntry) GetEntityData() *types.CommonEntityData {
+    rttMonLatestHTTPOperEntry.EntityData.YFilter = rttMonLatestHTTPOperEntry.YFilter
+    rttMonLatestHTTPOperEntry.EntityData.YangName = "rttMonLatestHTTPOperEntry"
+    rttMonLatestHTTPOperEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonLatestHTTPOperEntry.EntityData.ParentYangName = "rttMonLatestHTTPOperTable"
+    rttMonLatestHTTPOperEntry.EntityData.SegmentPath = "rttMonLatestHTTPOperEntry" + types.AddKeyToken(rttMonLatestHTTPOperEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex")
+    rttMonLatestHTTPOperEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonLatestHTTPOperEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonLatestHTTPOperEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonlatesthttpoperentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonlatesthttpoperentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonlatesthttpoperentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonlatesthttpoperentry.Rttmonctrladminindex}
-    rttmonlatesthttpoperentry.EntityData.Leafs["rttMonLatestHTTPOperRTT"] = types.YLeaf{"Rttmonlatesthttpoperrtt", rttmonlatesthttpoperentry.Rttmonlatesthttpoperrtt}
-    rttmonlatesthttpoperentry.EntityData.Leafs["rttMonLatestHTTPOperDNSRTT"] = types.YLeaf{"Rttmonlatesthttpoperdnsrtt", rttmonlatesthttpoperentry.Rttmonlatesthttpoperdnsrtt}
-    rttmonlatesthttpoperentry.EntityData.Leafs["rttMonLatestHTTPOperTCPConnectRTT"] = types.YLeaf{"Rttmonlatesthttpopertcpconnectrtt", rttmonlatesthttpoperentry.Rttmonlatesthttpopertcpconnectrtt}
-    rttmonlatesthttpoperentry.EntityData.Leafs["rttMonLatestHTTPOperTransactionRTT"] = types.YLeaf{"Rttmonlatesthttpopertransactionrtt", rttmonlatesthttpoperentry.Rttmonlatesthttpopertransactionrtt}
-    rttmonlatesthttpoperentry.EntityData.Leafs["rttMonLatestHTTPOperMessageBodyOctets"] = types.YLeaf{"Rttmonlatesthttpopermessagebodyoctets", rttmonlatesthttpoperentry.Rttmonlatesthttpopermessagebodyoctets}
-    rttmonlatesthttpoperentry.EntityData.Leafs["rttMonLatestHTTPOperSense"] = types.YLeaf{"Rttmonlatesthttpopersense", rttmonlatesthttpoperentry.Rttmonlatesthttpopersense}
-    rttmonlatesthttpoperentry.EntityData.Leafs["rttMonLatestHTTPErrorSenseDescription"] = types.YLeaf{"Rttmonlatesthttperrorsensedescription", rttmonlatesthttpoperentry.Rttmonlatesthttperrorsensedescription}
-    return &(rttmonlatesthttpoperentry.EntityData)
+    rttMonLatestHTTPOperEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonLatestHTTPOperEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonLatestHTTPOperEntry.EntityData.Leafs.Append("rttMonCtrlAdminIndex", types.YLeaf{"RttMonCtrlAdminIndex", rttMonLatestHTTPOperEntry.RttMonCtrlAdminIndex})
+    rttMonLatestHTTPOperEntry.EntityData.Leafs.Append("rttMonLatestHTTPOperRTT", types.YLeaf{"RttMonLatestHTTPOperRTT", rttMonLatestHTTPOperEntry.RttMonLatestHTTPOperRTT})
+    rttMonLatestHTTPOperEntry.EntityData.Leafs.Append("rttMonLatestHTTPOperDNSRTT", types.YLeaf{"RttMonLatestHTTPOperDNSRTT", rttMonLatestHTTPOperEntry.RttMonLatestHTTPOperDNSRTT})
+    rttMonLatestHTTPOperEntry.EntityData.Leafs.Append("rttMonLatestHTTPOperTCPConnectRTT", types.YLeaf{"RttMonLatestHTTPOperTCPConnectRTT", rttMonLatestHTTPOperEntry.RttMonLatestHTTPOperTCPConnectRTT})
+    rttMonLatestHTTPOperEntry.EntityData.Leafs.Append("rttMonLatestHTTPOperTransactionRTT", types.YLeaf{"RttMonLatestHTTPOperTransactionRTT", rttMonLatestHTTPOperEntry.RttMonLatestHTTPOperTransactionRTT})
+    rttMonLatestHTTPOperEntry.EntityData.Leafs.Append("rttMonLatestHTTPOperMessageBodyOctets", types.YLeaf{"RttMonLatestHTTPOperMessageBodyOctets", rttMonLatestHTTPOperEntry.RttMonLatestHTTPOperMessageBodyOctets})
+    rttMonLatestHTTPOperEntry.EntityData.Leafs.Append("rttMonLatestHTTPOperSense", types.YLeaf{"RttMonLatestHTTPOperSense", rttMonLatestHTTPOperEntry.RttMonLatestHTTPOperSense})
+    rttMonLatestHTTPOperEntry.EntityData.Leafs.Append("rttMonLatestHTTPErrorSenseDescription", types.YLeaf{"RttMonLatestHTTPErrorSenseDescription", rttMonLatestHTTPOperEntry.RttMonLatestHTTPErrorSenseDescription})
+
+    rttMonLatestHTTPOperEntry.EntityData.YListKeys = []string {"RttMonCtrlAdminIndex"}
+
+    return &(rttMonLatestHTTPOperEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonlatestjitteropertable
+// CISCORTTMONMIB_RttMonLatestJitterOperTable
 // A table which contains the status of latest Jitter
 // operation.
-type CISCORTTMONMIB_Rttmonlatestjitteropertable struct {
+type CISCORTTMONMIB_RttMonLatestJitterOperTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects that record the latest Jitter operation. The type is
     // slice of
-    // CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry.
-    Rttmonlatestjitteroperentry []CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry
+    // CISCORTTMONMIB_RttMonLatestJitterOperTable_RttMonLatestJitterOperEntry.
+    RttMonLatestJitterOperEntry []*CISCORTTMONMIB_RttMonLatestJitterOperTable_RttMonLatestJitterOperEntry
 }
 
-func (rttmonlatestjitteropertable *CISCORTTMONMIB_Rttmonlatestjitteropertable) GetEntityData() *types.CommonEntityData {
-    rttmonlatestjitteropertable.EntityData.YFilter = rttmonlatestjitteropertable.YFilter
-    rttmonlatestjitteropertable.EntityData.YangName = "rttMonLatestJitterOperTable"
-    rttmonlatestjitteropertable.EntityData.BundleName = "cisco_ios_xe"
-    rttmonlatestjitteropertable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
-    rttmonlatestjitteropertable.EntityData.SegmentPath = "rttMonLatestJitterOperTable"
-    rttmonlatestjitteropertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonlatestjitteropertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonlatestjitteropertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonLatestJitterOperTable *CISCORTTMONMIB_RttMonLatestJitterOperTable) GetEntityData() *types.CommonEntityData {
+    rttMonLatestJitterOperTable.EntityData.YFilter = rttMonLatestJitterOperTable.YFilter
+    rttMonLatestJitterOperTable.EntityData.YangName = "rttMonLatestJitterOperTable"
+    rttMonLatestJitterOperTable.EntityData.BundleName = "cisco_ios_xe"
+    rttMonLatestJitterOperTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttMonLatestJitterOperTable.EntityData.SegmentPath = "rttMonLatestJitterOperTable"
+    rttMonLatestJitterOperTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonLatestJitterOperTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonLatestJitterOperTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonlatestjitteropertable.EntityData.Children = make(map[string]types.YChild)
-    rttmonlatestjitteropertable.EntityData.Children["rttMonLatestJitterOperEntry"] = types.YChild{"Rttmonlatestjitteroperentry", nil}
-    for i := range rttmonlatestjitteropertable.Rttmonlatestjitteroperentry {
-        rttmonlatestjitteropertable.EntityData.Children[types.GetSegmentPath(&rttmonlatestjitteropertable.Rttmonlatestjitteroperentry[i])] = types.YChild{"Rttmonlatestjitteroperentry", &rttmonlatestjitteropertable.Rttmonlatestjitteroperentry[i]}
+    rttMonLatestJitterOperTable.EntityData.Children = types.NewOrderedMap()
+    rttMonLatestJitterOperTable.EntityData.Children.Append("rttMonLatestJitterOperEntry", types.YChild{"RttMonLatestJitterOperEntry", nil})
+    for i := range rttMonLatestJitterOperTable.RttMonLatestJitterOperEntry {
+        rttMonLatestJitterOperTable.EntityData.Children.Append(types.GetSegmentPath(rttMonLatestJitterOperTable.RttMonLatestJitterOperEntry[i]), types.YChild{"RttMonLatestJitterOperEntry", rttMonLatestJitterOperTable.RttMonLatestJitterOperEntry[i]})
     }
-    rttmonlatestjitteropertable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rttmonlatestjitteropertable.EntityData)
+    rttMonLatestJitterOperTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rttMonLatestJitterOperTable.EntityData.YListKeys = []string {}
+
+    return &(rttMonLatestJitterOperTable.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry
+// CISCORTTMONMIB_RttMonLatestJitterOperTable_RttMonLatestJitterOperEntry
 // A list of objects that record the latest Jitter
 // operation.
-type CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry struct {
+type CISCORTTMONMIB_RttMonLatestJitterOperTable_RttMonLatestJitterOperEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
-    // cisco_rttmon_mib.CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrladminindex
-    Rttmonctrladminindex interface{}
+    // cisco_rttmon_mib.CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry_RttMonCtrlAdminIndex
+    RttMonCtrlAdminIndex interface{}
 
     // The number of RTT's that were successfully measured. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonlatestjitteropernumofrtt interface{}
+    RttMonLatestJitterOperNumOfRTT interface{}
 
     // The sum of Jitter RTT's that are successfully measured (low order 32 bits).
     // The high order 32 bits are stored in rttMonLatestJitterOperRTTSumHigh. The
     // type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperrttsum interface{}
+    RttMonLatestJitterOperRTTSum interface{}
 
     // The sum of squares of RTT's that are successfully measured (low order 32
     // bits). The high order 32 bits are stored in
     // rttMonLatestJitterOperRTTSum2High. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonlatestjitteroperrttsum2 interface{}
+    RttMonLatestJitterOperRTTSum2 interface{}
 
     // The minimum of RTT's that were successfully measured. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperrttmin interface{}
+    RttMonLatestJitterOperRTTMin interface{}
 
     // The maximum of RTT's that were successfully measured. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperrttmax interface{}
+    RttMonLatestJitterOperRTTMax interface{}
 
     // The minimum of all positive jitter values from packets sent from source to
     // destination. The type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperminofpositivessd interface{}
+    RttMonLatestJitterOperMinOfPositivesSD interface{}
 
     // The maximum of all positive jitter values from packets sent from source to
     // destination. The type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteropermaxofpositivessd interface{}
+    RttMonLatestJitterOperMaxOfPositivesSD interface{}
 
     // The sum of all positive jitter values from packets sent from source to
     // destination. The type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteropernumofpositivessd interface{}
+    RttMonLatestJitterOperNumOfPositivesSD interface{}
 
     // The sum of RTT's of all positive jitter values from packets sent from
     // source to destination. The type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteropersumofpositivessd interface{}
+    RttMonLatestJitterOperSumOfPositivesSD interface{}
 
     // The sum of square of RTT's of all positive jitter values from packets sent
     // from source to destination. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonlatestjitteropersum2Positivessd interface{}
+    RttMonLatestJitterOperSum2PositivesSD interface{}
 
     // The minimum of absolute values of all negative jitter values from packets
     // sent from source to destination. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonlatestjitteroperminofnegativessd interface{}
+    RttMonLatestJitterOperMinOfNegativesSD interface{}
 
     // The maximum of absolute values of all negative jitter values from packets
     // sent from source to destination. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonlatestjitteropermaxofnegativessd interface{}
+    RttMonLatestJitterOperMaxOfNegativesSD interface{}
 
     // The sum of number of all negative jitter values from packets sent from
     // source to destination. The type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteropernumofnegativessd interface{}
+    RttMonLatestJitterOperNumOfNegativesSD interface{}
 
     // The sum of all negative jitter values from packets sent from source to
     // destination. The type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteropersumofnegativessd interface{}
+    RttMonLatestJitterOperSumOfNegativesSD interface{}
 
     // The sum of square of RTT's of all negative jitter values from packets sent
     // from source to destination. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonlatestjitteropersum2Negativessd interface{}
+    RttMonLatestJitterOperSum2NegativesSD interface{}
 
     // The minimum of all positive jitter values from packets sent from
     // destination to source. The type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperminofpositivesds interface{}
+    RttMonLatestJitterOperMinOfPositivesDS interface{}
 
     // The maximum of all positive jitter values from packets sent from
     // destination to source. The type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteropermaxofpositivesds interface{}
+    RttMonLatestJitterOperMaxOfPositivesDS interface{}
 
     // The sum of number of all positive jitter values from packets sent from
     // destination to source. The type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteropernumofpositivesds interface{}
+    RttMonLatestJitterOperNumOfPositivesDS interface{}
 
     // The sum of RTT's of all positive jitter values from packets sent from
     // destination to source. The type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteropersumofpositivesds interface{}
+    RttMonLatestJitterOperSumOfPositivesDS interface{}
 
     // The sum of squares of RTT's of all positive jitter values from packets sent
     // from destination to source. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonlatestjitteropersum2Positivesds interface{}
+    RttMonLatestJitterOperSum2PositivesDS interface{}
 
     // The minimum of all negative jitter values from packets sent from
     // destination to source. The type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperminofnegativesds interface{}
+    RttMonLatestJitterOperMinOfNegativesDS interface{}
 
     // The maximum of all negative jitter values from packets sent from
     // destination to source. The type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteropermaxofnegativesds interface{}
+    RttMonLatestJitterOperMaxOfNegativesDS interface{}
 
     // The sum of number of all negative jitter values from packets sent from
     // destination to source. The type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteropernumofnegativesds interface{}
+    RttMonLatestJitterOperNumOfNegativesDS interface{}
 
     // The sum of RTT's of all negative jitter values from packets sent from
     // destination to source. The type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteropersumofnegativesds interface{}
+    RttMonLatestJitterOperSumOfNegativesDS interface{}
 
     // The sum of squares of RTT's of all negative jitter values from packets sent
     // from destination to source. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonlatestjitteropersum2Negativesds interface{}
+    RttMonLatestJitterOperSum2NegativesDS interface{}
 
     // The number of packets lost when sent from source to destination. The type
     // is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperpacketlosssd interface{}
+    RttMonLatestJitterOperPacketLossSD interface{}
 
     // The number of packets lost when sent from destination to source. The type
     // is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperpacketlossds interface{}
+    RttMonLatestJitterOperPacketLossDS interface{}
 
     // The number of packets arrived out of sequence. The type is interface{} with
     // range: 0..4294967295.
-    Rttmonlatestjitteroperpacketoutofsequence interface{}
+    RttMonLatestJitterOperPacketOutOfSequence interface{}
 
     // The number of packets that are lost for which we cannot determine the
     // direction. The type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperpacketmia interface{}
+    RttMonLatestJitterOperPacketMIA interface{}
 
     // The number of packets that arrived after the timeout. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperpacketlatearrival interface{}
+    RttMonLatestJitterOperPacketLateArrival interface{}
 
     // An application specific sense code for the completion status of the latest
     // Jitter RTT operation. The type is RttResponseSense.
-    Rttmonlatestjitteropersense interface{}
+    RttMonLatestJitterOperSense interface{}
 
     // An sense description for the completion status of the latest Jitter RTT
     // operation. The type is string.
-    Rttmonlatestjittererrorsensedescription interface{}
+    RttMonLatestJitterErrorSenseDescription interface{}
 
     // The sum of one way latency from source to destination (low order 32 bits).
     // The high order 32 bits are stored in rttMonLatestJitterOperOWSumSDHigh. The
     // type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperowsumsd interface{}
+    RttMonLatestJitterOperOWSumSD interface{}
 
     // The sum of squares of one way latency from source to destination (low order
     // 32 bits). The high order 32 bits are stored in
     // rttMonLatestJitterOperOWSum2SDHigh. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonlatestjitteroperowsum2Sd interface{}
+    RttMonLatestJitterOperOWSum2SD interface{}
 
     // The minimum of all one way latency from source to destination. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperowminsd interface{}
+    RttMonLatestJitterOperOWMinSD interface{}
 
     // The maximum of all one way latency from source to destination. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperowmaxsd interface{}
+    RttMonLatestJitterOperOWMaxSD interface{}
 
     // The sum of one way latency from destination to source (low order 32 bits).
     // The high order 32 bits are stored in rttMonLatestJitterOperOWSumDSHigh. The
     // type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperowsumds interface{}
+    RttMonLatestJitterOperOWSumDS interface{}
 
     // The sum of squares of one way latency from destination to source (low order
     // 32 bits). The high order 32 bits are stored in
     // rttMonLatestJitterOperOWSum2DSHigh. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonlatestjitteroperowsum2Ds interface{}
+    RttMonLatestJitterOperOWSum2DS interface{}
 
     // The minimum of all one way latency from destination to source. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperowminds interface{}
+    RttMonLatestJitterOperOWMinDS interface{}
 
     // The maximum of all one way latency from destination to source. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperowmaxds interface{}
+    RttMonLatestJitterOperOWMaxDS interface{}
 
     // The number of successful one way latency measurements. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonlatestjitteropernumofow interface{}
+    RttMonLatestJitterOperNumOfOW interface{}
 
     // The MOS value for the latest jitter operation in hundreds. This value will
     // be 0 if   - rttMonEchoAdminCodecType of the operation is notApplicable   -
     // the operation is not started   - the operation is started but failed This
     // value will be 1 for packet loss of 10% or more. The type is interface{}
     // with range: 0..None | 100..500.
-    Rttmonlatestjitteropermos interface{}
+    RttMonLatestJitterOperMOS interface{}
 
     // Represents ICPIF value for the latest jitter operation.  This value will be
     // 93 for packet loss of 10% or more. The type is interface{} with range:
     // 0..2147483647.
-    Rttmonlatestjitteropericpif interface{}
+    RttMonLatestJitterOperICPIF interface{}
 
     // Interarrival Jitter (RC1889) at responder. The type is interface{} with
     // range: 0..2147483647.
-    Rttmonlatestjitteroperiajout interface{}
+    RttMonLatestJitterOperIAJOut interface{}
 
     // Interarrival Jitter (RFC1889) at source. The type is interface{} with
     // range: 0..2147483647.
-    Rttmonlatestjitteroperiajin interface{}
+    RttMonLatestJitterOperIAJIn interface{}
 
     // The average of positive and negative jitter values in SD and DS direction
     // for latest operation. The type is interface{} with range: 0..2147483647.
-    Rttmonlatestjitteroperavgjitter interface{}
+    RttMonLatestJitterOperAvgJitter interface{}
 
     // The average of positive and negative jitter values from source to
     // destination for latest operation. The type is interface{} with range:
     // 0..2147483647.
-    Rttmonlatestjitteroperavgsdj interface{}
+    RttMonLatestJitterOperAvgSDJ interface{}
 
     // The average of positive and negative jitter values from destination to
     // source for latest operation. The type is interface{} with range:
     // 0..2147483647.
-    Rttmonlatestjitteroperavgdsj interface{}
+    RttMonLatestJitterOperAvgDSJ interface{}
 
     // The average latency value from source to destination. The type is
     // interface{} with range: 0..2147483647.
-    Rttmonlatestjitteroperowavgsd interface{}
+    RttMonLatestJitterOperOWAvgSD interface{}
 
     // The average latency value from destination to source. The type is
     // interface{} with range: 0..2147483647.
-    Rttmonlatestjitteroperowavgds interface{}
+    RttMonLatestJitterOperOWAvgDS interface{}
 
     // A value of sync(1) means sender and responder was in sync with NTP. The NTP
     // sync means the total of NTP offset  on sender and responder is within
-    // configured tolerance level. The type is Rttmonlatestjitteroperntpstate.
-    Rttmonlatestjitteroperntpstate interface{}
+    // configured tolerance level. The type is RttMonLatestJitterOperNTPState.
+    RttMonLatestJitterOperNTPState interface{}
 
     // The number of RTT operations that have completed with sender and responder
     // out of sync with NTP. The NTP sync means  the total of NTP offset on sender
     // and responder is within  configured tolerance level. The type is
     // interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperunsyncrts interface{}
+    RttMonLatestJitterOperUnSyncRTs interface{}
 
     // The sum of Jitter RTT's that are successfully measured. (high order 32
     // bits). The low order 32 bits are stored in rttMonLatestJitterOperRTTSum.
     // The type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperrttsumhigh interface{}
+    RttMonLatestJitterOperRTTSumHigh interface{}
 
     // The sum of squares of RTT's that are successfully measured (high order 32
     // bits). The low order 32 bits are stored in rttMonLatestJitterOperRTTSum2.
     // The type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperrttsum2High interface{}
+    RttMonLatestJitterOperRTTSum2High interface{}
 
     // The sum of one way latency from source to destination (high order 32 bits).
     // The low order 32 bits are stored in rttMonLatestJitterOperOWSumSD. The type
     // is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperowsumsdhigh interface{}
+    RttMonLatestJitterOperOWSumSDHigh interface{}
 
     // The sum of squares of one way latency from source to destination (high
     // order 32 bits). The low order 32 bits are stored in
     // rttMonLatestJitterOperOWSum2SD. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonlatestjitteroperowsum2Sdhigh interface{}
+    RttMonLatestJitterOperOWSum2SDHigh interface{}
 
     // The sum of one way latency from destination to source (high order 32 bits).
     // The low order 32 bits are stored  in rttMonLatestJitterOperOWSumDS. The
     // type is interface{} with range: 0..4294967295.
-    Rttmonlatestjitteroperowsumdshigh interface{}
+    RttMonLatestJitterOperOWSumDSHigh interface{}
 
     // The sum of squares of one way latency from destination to source (high
     // order 32 bits). The low order 32 bits are stored in
     // rttMonLatestJitterOperOWSum2DS. The type is interface{} with range:
     // 0..4294967295.
-    Rttmonlatestjitteroperowsum2Dshigh interface{}
+    RttMonLatestJitterOperOWSum2DSHigh interface{}
 }
 
-func (rttmonlatestjitteroperentry *CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry) GetEntityData() *types.CommonEntityData {
-    rttmonlatestjitteroperentry.EntityData.YFilter = rttmonlatestjitteroperentry.YFilter
-    rttmonlatestjitteroperentry.EntityData.YangName = "rttMonLatestJitterOperEntry"
-    rttmonlatestjitteroperentry.EntityData.BundleName = "cisco_ios_xe"
-    rttmonlatestjitteroperentry.EntityData.ParentYangName = "rttMonLatestJitterOperTable"
-    rttmonlatestjitteroperentry.EntityData.SegmentPath = "rttMonLatestJitterOperEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonlatestjitteroperentry.Rttmonctrladminindex) + "']"
-    rttmonlatestjitteroperentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rttmonlatestjitteroperentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rttmonlatestjitteroperentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rttMonLatestJitterOperEntry *CISCORTTMONMIB_RttMonLatestJitterOperTable_RttMonLatestJitterOperEntry) GetEntityData() *types.CommonEntityData {
+    rttMonLatestJitterOperEntry.EntityData.YFilter = rttMonLatestJitterOperEntry.YFilter
+    rttMonLatestJitterOperEntry.EntityData.YangName = "rttMonLatestJitterOperEntry"
+    rttMonLatestJitterOperEntry.EntityData.BundleName = "cisco_ios_xe"
+    rttMonLatestJitterOperEntry.EntityData.ParentYangName = "rttMonLatestJitterOperTable"
+    rttMonLatestJitterOperEntry.EntityData.SegmentPath = "rttMonLatestJitterOperEntry" + types.AddKeyToken(rttMonLatestJitterOperEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex")
+    rttMonLatestJitterOperEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttMonLatestJitterOperEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttMonLatestJitterOperEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rttmonlatestjitteroperentry.EntityData.Children = make(map[string]types.YChild)
-    rttmonlatestjitteroperentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonlatestjitteroperentry.Rttmonctrladminindex}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperNumOfRTT"] = types.YLeaf{"Rttmonlatestjitteropernumofrtt", rttmonlatestjitteroperentry.Rttmonlatestjitteropernumofrtt}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperRTTSum"] = types.YLeaf{"Rttmonlatestjitteroperrttsum", rttmonlatestjitteroperentry.Rttmonlatestjitteroperrttsum}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperRTTSum2"] = types.YLeaf{"Rttmonlatestjitteroperrttsum2", rttmonlatestjitteroperentry.Rttmonlatestjitteroperrttsum2}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperRTTMin"] = types.YLeaf{"Rttmonlatestjitteroperrttmin", rttmonlatestjitteroperentry.Rttmonlatestjitteroperrttmin}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperRTTMax"] = types.YLeaf{"Rttmonlatestjitteroperrttmax", rttmonlatestjitteroperentry.Rttmonlatestjitteroperrttmax}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperMinOfPositivesSD"] = types.YLeaf{"Rttmonlatestjitteroperminofpositivessd", rttmonlatestjitteroperentry.Rttmonlatestjitteroperminofpositivessd}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperMaxOfPositivesSD"] = types.YLeaf{"Rttmonlatestjitteropermaxofpositivessd", rttmonlatestjitteroperentry.Rttmonlatestjitteropermaxofpositivessd}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperNumOfPositivesSD"] = types.YLeaf{"Rttmonlatestjitteropernumofpositivessd", rttmonlatestjitteroperentry.Rttmonlatestjitteropernumofpositivessd}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperSumOfPositivesSD"] = types.YLeaf{"Rttmonlatestjitteropersumofpositivessd", rttmonlatestjitteroperentry.Rttmonlatestjitteropersumofpositivessd}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperSum2PositivesSD"] = types.YLeaf{"Rttmonlatestjitteropersum2Positivessd", rttmonlatestjitteroperentry.Rttmonlatestjitteropersum2Positivessd}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperMinOfNegativesSD"] = types.YLeaf{"Rttmonlatestjitteroperminofnegativessd", rttmonlatestjitteroperentry.Rttmonlatestjitteroperminofnegativessd}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperMaxOfNegativesSD"] = types.YLeaf{"Rttmonlatestjitteropermaxofnegativessd", rttmonlatestjitteroperentry.Rttmonlatestjitteropermaxofnegativessd}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperNumOfNegativesSD"] = types.YLeaf{"Rttmonlatestjitteropernumofnegativessd", rttmonlatestjitteroperentry.Rttmonlatestjitteropernumofnegativessd}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperSumOfNegativesSD"] = types.YLeaf{"Rttmonlatestjitteropersumofnegativessd", rttmonlatestjitteroperentry.Rttmonlatestjitteropersumofnegativessd}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperSum2NegativesSD"] = types.YLeaf{"Rttmonlatestjitteropersum2Negativessd", rttmonlatestjitteroperentry.Rttmonlatestjitteropersum2Negativessd}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperMinOfPositivesDS"] = types.YLeaf{"Rttmonlatestjitteroperminofpositivesds", rttmonlatestjitteroperentry.Rttmonlatestjitteroperminofpositivesds}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperMaxOfPositivesDS"] = types.YLeaf{"Rttmonlatestjitteropermaxofpositivesds", rttmonlatestjitteroperentry.Rttmonlatestjitteropermaxofpositivesds}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperNumOfPositivesDS"] = types.YLeaf{"Rttmonlatestjitteropernumofpositivesds", rttmonlatestjitteroperentry.Rttmonlatestjitteropernumofpositivesds}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperSumOfPositivesDS"] = types.YLeaf{"Rttmonlatestjitteropersumofpositivesds", rttmonlatestjitteroperentry.Rttmonlatestjitteropersumofpositivesds}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperSum2PositivesDS"] = types.YLeaf{"Rttmonlatestjitteropersum2Positivesds", rttmonlatestjitteroperentry.Rttmonlatestjitteropersum2Positivesds}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperMinOfNegativesDS"] = types.YLeaf{"Rttmonlatestjitteroperminofnegativesds", rttmonlatestjitteroperentry.Rttmonlatestjitteroperminofnegativesds}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperMaxOfNegativesDS"] = types.YLeaf{"Rttmonlatestjitteropermaxofnegativesds", rttmonlatestjitteroperentry.Rttmonlatestjitteropermaxofnegativesds}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperNumOfNegativesDS"] = types.YLeaf{"Rttmonlatestjitteropernumofnegativesds", rttmonlatestjitteroperentry.Rttmonlatestjitteropernumofnegativesds}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperSumOfNegativesDS"] = types.YLeaf{"Rttmonlatestjitteropersumofnegativesds", rttmonlatestjitteroperentry.Rttmonlatestjitteropersumofnegativesds}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperSum2NegativesDS"] = types.YLeaf{"Rttmonlatestjitteropersum2Negativesds", rttmonlatestjitteroperentry.Rttmonlatestjitteropersum2Negativesds}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperPacketLossSD"] = types.YLeaf{"Rttmonlatestjitteroperpacketlosssd", rttmonlatestjitteroperentry.Rttmonlatestjitteroperpacketlosssd}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperPacketLossDS"] = types.YLeaf{"Rttmonlatestjitteroperpacketlossds", rttmonlatestjitteroperentry.Rttmonlatestjitteroperpacketlossds}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperPacketOutOfSequence"] = types.YLeaf{"Rttmonlatestjitteroperpacketoutofsequence", rttmonlatestjitteroperentry.Rttmonlatestjitteroperpacketoutofsequence}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperPacketMIA"] = types.YLeaf{"Rttmonlatestjitteroperpacketmia", rttmonlatestjitteroperentry.Rttmonlatestjitteroperpacketmia}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperPacketLateArrival"] = types.YLeaf{"Rttmonlatestjitteroperpacketlatearrival", rttmonlatestjitteroperentry.Rttmonlatestjitteroperpacketlatearrival}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperSense"] = types.YLeaf{"Rttmonlatestjitteropersense", rttmonlatestjitteroperentry.Rttmonlatestjitteropersense}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterErrorSenseDescription"] = types.YLeaf{"Rttmonlatestjittererrorsensedescription", rttmonlatestjitteroperentry.Rttmonlatestjittererrorsensedescription}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWSumSD"] = types.YLeaf{"Rttmonlatestjitteroperowsumsd", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsumsd}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWSum2SD"] = types.YLeaf{"Rttmonlatestjitteroperowsum2Sd", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsum2Sd}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWMinSD"] = types.YLeaf{"Rttmonlatestjitteroperowminsd", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowminsd}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWMaxSD"] = types.YLeaf{"Rttmonlatestjitteroperowmaxsd", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowmaxsd}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWSumDS"] = types.YLeaf{"Rttmonlatestjitteroperowsumds", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsumds}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWSum2DS"] = types.YLeaf{"Rttmonlatestjitteroperowsum2Ds", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsum2Ds}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWMinDS"] = types.YLeaf{"Rttmonlatestjitteroperowminds", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowminds}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWMaxDS"] = types.YLeaf{"Rttmonlatestjitteroperowmaxds", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowmaxds}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperNumOfOW"] = types.YLeaf{"Rttmonlatestjitteropernumofow", rttmonlatestjitteroperentry.Rttmonlatestjitteropernumofow}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperMOS"] = types.YLeaf{"Rttmonlatestjitteropermos", rttmonlatestjitteroperentry.Rttmonlatestjitteropermos}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperICPIF"] = types.YLeaf{"Rttmonlatestjitteropericpif", rttmonlatestjitteroperentry.Rttmonlatestjitteropericpif}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperIAJOut"] = types.YLeaf{"Rttmonlatestjitteroperiajout", rttmonlatestjitteroperentry.Rttmonlatestjitteroperiajout}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperIAJIn"] = types.YLeaf{"Rttmonlatestjitteroperiajin", rttmonlatestjitteroperentry.Rttmonlatestjitteroperiajin}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperAvgJitter"] = types.YLeaf{"Rttmonlatestjitteroperavgjitter", rttmonlatestjitteroperentry.Rttmonlatestjitteroperavgjitter}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperAvgSDJ"] = types.YLeaf{"Rttmonlatestjitteroperavgsdj", rttmonlatestjitteroperentry.Rttmonlatestjitteroperavgsdj}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperAvgDSJ"] = types.YLeaf{"Rttmonlatestjitteroperavgdsj", rttmonlatestjitteroperentry.Rttmonlatestjitteroperavgdsj}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWAvgSD"] = types.YLeaf{"Rttmonlatestjitteroperowavgsd", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowavgsd}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWAvgDS"] = types.YLeaf{"Rttmonlatestjitteroperowavgds", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowavgds}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperNTPState"] = types.YLeaf{"Rttmonlatestjitteroperntpstate", rttmonlatestjitteroperentry.Rttmonlatestjitteroperntpstate}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperUnSyncRTs"] = types.YLeaf{"Rttmonlatestjitteroperunsyncrts", rttmonlatestjitteroperentry.Rttmonlatestjitteroperunsyncrts}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperRTTSumHigh"] = types.YLeaf{"Rttmonlatestjitteroperrttsumhigh", rttmonlatestjitteroperentry.Rttmonlatestjitteroperrttsumhigh}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperRTTSum2High"] = types.YLeaf{"Rttmonlatestjitteroperrttsum2High", rttmonlatestjitteroperentry.Rttmonlatestjitteroperrttsum2High}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWSumSDHigh"] = types.YLeaf{"Rttmonlatestjitteroperowsumsdhigh", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsumsdhigh}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWSum2SDHigh"] = types.YLeaf{"Rttmonlatestjitteroperowsum2Sdhigh", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsum2Sdhigh}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWSumDSHigh"] = types.YLeaf{"Rttmonlatestjitteroperowsumdshigh", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsumdshigh}
-    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWSum2DSHigh"] = types.YLeaf{"Rttmonlatestjitteroperowsum2Dshigh", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsum2Dshigh}
-    return &(rttmonlatestjitteroperentry.EntityData)
+    rttMonLatestJitterOperEntry.EntityData.Children = types.NewOrderedMap()
+    rttMonLatestJitterOperEntry.EntityData.Leafs = types.NewOrderedMap()
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonCtrlAdminIndex", types.YLeaf{"RttMonCtrlAdminIndex", rttMonLatestJitterOperEntry.RttMonCtrlAdminIndex})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperNumOfRTT", types.YLeaf{"RttMonLatestJitterOperNumOfRTT", rttMonLatestJitterOperEntry.RttMonLatestJitterOperNumOfRTT})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperRTTSum", types.YLeaf{"RttMonLatestJitterOperRTTSum", rttMonLatestJitterOperEntry.RttMonLatestJitterOperRTTSum})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperRTTSum2", types.YLeaf{"RttMonLatestJitterOperRTTSum2", rttMonLatestJitterOperEntry.RttMonLatestJitterOperRTTSum2})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperRTTMin", types.YLeaf{"RttMonLatestJitterOperRTTMin", rttMonLatestJitterOperEntry.RttMonLatestJitterOperRTTMin})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperRTTMax", types.YLeaf{"RttMonLatestJitterOperRTTMax", rttMonLatestJitterOperEntry.RttMonLatestJitterOperRTTMax})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperMinOfPositivesSD", types.YLeaf{"RttMonLatestJitterOperMinOfPositivesSD", rttMonLatestJitterOperEntry.RttMonLatestJitterOperMinOfPositivesSD})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperMaxOfPositivesSD", types.YLeaf{"RttMonLatestJitterOperMaxOfPositivesSD", rttMonLatestJitterOperEntry.RttMonLatestJitterOperMaxOfPositivesSD})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperNumOfPositivesSD", types.YLeaf{"RttMonLatestJitterOperNumOfPositivesSD", rttMonLatestJitterOperEntry.RttMonLatestJitterOperNumOfPositivesSD})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperSumOfPositivesSD", types.YLeaf{"RttMonLatestJitterOperSumOfPositivesSD", rttMonLatestJitterOperEntry.RttMonLatestJitterOperSumOfPositivesSD})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperSum2PositivesSD", types.YLeaf{"RttMonLatestJitterOperSum2PositivesSD", rttMonLatestJitterOperEntry.RttMonLatestJitterOperSum2PositivesSD})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperMinOfNegativesSD", types.YLeaf{"RttMonLatestJitterOperMinOfNegativesSD", rttMonLatestJitterOperEntry.RttMonLatestJitterOperMinOfNegativesSD})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperMaxOfNegativesSD", types.YLeaf{"RttMonLatestJitterOperMaxOfNegativesSD", rttMonLatestJitterOperEntry.RttMonLatestJitterOperMaxOfNegativesSD})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperNumOfNegativesSD", types.YLeaf{"RttMonLatestJitterOperNumOfNegativesSD", rttMonLatestJitterOperEntry.RttMonLatestJitterOperNumOfNegativesSD})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperSumOfNegativesSD", types.YLeaf{"RttMonLatestJitterOperSumOfNegativesSD", rttMonLatestJitterOperEntry.RttMonLatestJitterOperSumOfNegativesSD})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperSum2NegativesSD", types.YLeaf{"RttMonLatestJitterOperSum2NegativesSD", rttMonLatestJitterOperEntry.RttMonLatestJitterOperSum2NegativesSD})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperMinOfPositivesDS", types.YLeaf{"RttMonLatestJitterOperMinOfPositivesDS", rttMonLatestJitterOperEntry.RttMonLatestJitterOperMinOfPositivesDS})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperMaxOfPositivesDS", types.YLeaf{"RttMonLatestJitterOperMaxOfPositivesDS", rttMonLatestJitterOperEntry.RttMonLatestJitterOperMaxOfPositivesDS})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperNumOfPositivesDS", types.YLeaf{"RttMonLatestJitterOperNumOfPositivesDS", rttMonLatestJitterOperEntry.RttMonLatestJitterOperNumOfPositivesDS})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperSumOfPositivesDS", types.YLeaf{"RttMonLatestJitterOperSumOfPositivesDS", rttMonLatestJitterOperEntry.RttMonLatestJitterOperSumOfPositivesDS})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperSum2PositivesDS", types.YLeaf{"RttMonLatestJitterOperSum2PositivesDS", rttMonLatestJitterOperEntry.RttMonLatestJitterOperSum2PositivesDS})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperMinOfNegativesDS", types.YLeaf{"RttMonLatestJitterOperMinOfNegativesDS", rttMonLatestJitterOperEntry.RttMonLatestJitterOperMinOfNegativesDS})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperMaxOfNegativesDS", types.YLeaf{"RttMonLatestJitterOperMaxOfNegativesDS", rttMonLatestJitterOperEntry.RttMonLatestJitterOperMaxOfNegativesDS})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperNumOfNegativesDS", types.YLeaf{"RttMonLatestJitterOperNumOfNegativesDS", rttMonLatestJitterOperEntry.RttMonLatestJitterOperNumOfNegativesDS})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperSumOfNegativesDS", types.YLeaf{"RttMonLatestJitterOperSumOfNegativesDS", rttMonLatestJitterOperEntry.RttMonLatestJitterOperSumOfNegativesDS})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperSum2NegativesDS", types.YLeaf{"RttMonLatestJitterOperSum2NegativesDS", rttMonLatestJitterOperEntry.RttMonLatestJitterOperSum2NegativesDS})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperPacketLossSD", types.YLeaf{"RttMonLatestJitterOperPacketLossSD", rttMonLatestJitterOperEntry.RttMonLatestJitterOperPacketLossSD})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperPacketLossDS", types.YLeaf{"RttMonLatestJitterOperPacketLossDS", rttMonLatestJitterOperEntry.RttMonLatestJitterOperPacketLossDS})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperPacketOutOfSequence", types.YLeaf{"RttMonLatestJitterOperPacketOutOfSequence", rttMonLatestJitterOperEntry.RttMonLatestJitterOperPacketOutOfSequence})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperPacketMIA", types.YLeaf{"RttMonLatestJitterOperPacketMIA", rttMonLatestJitterOperEntry.RttMonLatestJitterOperPacketMIA})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperPacketLateArrival", types.YLeaf{"RttMonLatestJitterOperPacketLateArrival", rttMonLatestJitterOperEntry.RttMonLatestJitterOperPacketLateArrival})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperSense", types.YLeaf{"RttMonLatestJitterOperSense", rttMonLatestJitterOperEntry.RttMonLatestJitterOperSense})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterErrorSenseDescription", types.YLeaf{"RttMonLatestJitterErrorSenseDescription", rttMonLatestJitterOperEntry.RttMonLatestJitterErrorSenseDescription})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperOWSumSD", types.YLeaf{"RttMonLatestJitterOperOWSumSD", rttMonLatestJitterOperEntry.RttMonLatestJitterOperOWSumSD})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperOWSum2SD", types.YLeaf{"RttMonLatestJitterOperOWSum2SD", rttMonLatestJitterOperEntry.RttMonLatestJitterOperOWSum2SD})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperOWMinSD", types.YLeaf{"RttMonLatestJitterOperOWMinSD", rttMonLatestJitterOperEntry.RttMonLatestJitterOperOWMinSD})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperOWMaxSD", types.YLeaf{"RttMonLatestJitterOperOWMaxSD", rttMonLatestJitterOperEntry.RttMonLatestJitterOperOWMaxSD})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperOWSumDS", types.YLeaf{"RttMonLatestJitterOperOWSumDS", rttMonLatestJitterOperEntry.RttMonLatestJitterOperOWSumDS})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperOWSum2DS", types.YLeaf{"RttMonLatestJitterOperOWSum2DS", rttMonLatestJitterOperEntry.RttMonLatestJitterOperOWSum2DS})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperOWMinDS", types.YLeaf{"RttMonLatestJitterOperOWMinDS", rttMonLatestJitterOperEntry.RttMonLatestJitterOperOWMinDS})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperOWMaxDS", types.YLeaf{"RttMonLatestJitterOperOWMaxDS", rttMonLatestJitterOperEntry.RttMonLatestJitterOperOWMaxDS})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperNumOfOW", types.YLeaf{"RttMonLatestJitterOperNumOfOW", rttMonLatestJitterOperEntry.RttMonLatestJitterOperNumOfOW})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperMOS", types.YLeaf{"RttMonLatestJitterOperMOS", rttMonLatestJitterOperEntry.RttMonLatestJitterOperMOS})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperICPIF", types.YLeaf{"RttMonLatestJitterOperICPIF", rttMonLatestJitterOperEntry.RttMonLatestJitterOperICPIF})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperIAJOut", types.YLeaf{"RttMonLatestJitterOperIAJOut", rttMonLatestJitterOperEntry.RttMonLatestJitterOperIAJOut})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperIAJIn", types.YLeaf{"RttMonLatestJitterOperIAJIn", rttMonLatestJitterOperEntry.RttMonLatestJitterOperIAJIn})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperAvgJitter", types.YLeaf{"RttMonLatestJitterOperAvgJitter", rttMonLatestJitterOperEntry.RttMonLatestJitterOperAvgJitter})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperAvgSDJ", types.YLeaf{"RttMonLatestJitterOperAvgSDJ", rttMonLatestJitterOperEntry.RttMonLatestJitterOperAvgSDJ})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperAvgDSJ", types.YLeaf{"RttMonLatestJitterOperAvgDSJ", rttMonLatestJitterOperEntry.RttMonLatestJitterOperAvgDSJ})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperOWAvgSD", types.YLeaf{"RttMonLatestJitterOperOWAvgSD", rttMonLatestJitterOperEntry.RttMonLatestJitterOperOWAvgSD})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperOWAvgDS", types.YLeaf{"RttMonLatestJitterOperOWAvgDS", rttMonLatestJitterOperEntry.RttMonLatestJitterOperOWAvgDS})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperNTPState", types.YLeaf{"RttMonLatestJitterOperNTPState", rttMonLatestJitterOperEntry.RttMonLatestJitterOperNTPState})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperUnSyncRTs", types.YLeaf{"RttMonLatestJitterOperUnSyncRTs", rttMonLatestJitterOperEntry.RttMonLatestJitterOperUnSyncRTs})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperRTTSumHigh", types.YLeaf{"RttMonLatestJitterOperRTTSumHigh", rttMonLatestJitterOperEntry.RttMonLatestJitterOperRTTSumHigh})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperRTTSum2High", types.YLeaf{"RttMonLatestJitterOperRTTSum2High", rttMonLatestJitterOperEntry.RttMonLatestJitterOperRTTSum2High})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperOWSumSDHigh", types.YLeaf{"RttMonLatestJitterOperOWSumSDHigh", rttMonLatestJitterOperEntry.RttMonLatestJitterOperOWSumSDHigh})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperOWSum2SDHigh", types.YLeaf{"RttMonLatestJitterOperOWSum2SDHigh", rttMonLatestJitterOperEntry.RttMonLatestJitterOperOWSum2SDHigh})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperOWSumDSHigh", types.YLeaf{"RttMonLatestJitterOperOWSumDSHigh", rttMonLatestJitterOperEntry.RttMonLatestJitterOperOWSumDSHigh})
+    rttMonLatestJitterOperEntry.EntityData.Leafs.Append("rttMonLatestJitterOperOWSum2DSHigh", types.YLeaf{"RttMonLatestJitterOperOWSum2DSHigh", rttMonLatestJitterOperEntry.RttMonLatestJitterOperOWSum2DSHigh})
+
+    rttMonLatestJitterOperEntry.EntityData.YListKeys = []string {"RttMonCtrlAdminIndex"}
+
+    return &(rttMonLatestJitterOperEntry.EntityData)
 }
 
-// CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry_Rttmonlatestjitteroperntpstate represents on sender and responder is within configured tolerance level.
-type CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry_Rttmonlatestjitteroperntpstate string
+// CISCORTTMONMIB_RttMonLatestJitterOperTable_RttMonLatestJitterOperEntry_RttMonLatestJitterOperNTPState represents on sender and responder is within configured tolerance level.
+type CISCORTTMONMIB_RttMonLatestJitterOperTable_RttMonLatestJitterOperEntry_RttMonLatestJitterOperNTPState string
 
 const (
-    CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry_Rttmonlatestjitteroperntpstate_sync CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry_Rttmonlatestjitteroperntpstate = "sync"
+    CISCORTTMONMIB_RttMonLatestJitterOperTable_RttMonLatestJitterOperEntry_RttMonLatestJitterOperNTPState_sync CISCORTTMONMIB_RttMonLatestJitterOperTable_RttMonLatestJitterOperEntry_RttMonLatestJitterOperNTPState = "sync"
 
-    CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry_Rttmonlatestjitteroperntpstate_outOfSync CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry_Rttmonlatestjitteroperntpstate = "outOfSync"
+    CISCORTTMONMIB_RttMonLatestJitterOperTable_RttMonLatestJitterOperEntry_RttMonLatestJitterOperNTPState_outOfSync CISCORTTMONMIB_RttMonLatestJitterOperTable_RttMonLatestJitterOperEntry_RttMonLatestJitterOperNTPState = "outOfSync"
 )
 

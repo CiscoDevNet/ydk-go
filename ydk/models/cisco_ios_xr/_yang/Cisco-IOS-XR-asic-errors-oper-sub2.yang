@@ -22,9 +22,28 @@ submodule Cisco-IOS-XR-asic-errors-oper-sub2 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
+  }
+
+  grouping COUNT-INFO-BG {
+    description
+      "COUNT INFO BG";
+    leaf name {
+      type string;
+      description
+        "name";
+    }
+    leaf count {
+      type uint32;
+      description
+        "count";
+    }
   }
 
   grouping SUMMARY-DATA-BG {
@@ -65,20 +84,20 @@ submodule Cisco-IOS-XR-asic-errors-oper-sub2 {
       description
         "reset err count";
     }
-    leaf-list err-count {
-      type uint32;
-      description
-        "err count";
-    }
-    leaf-list pcie-err-count {
-      type uint32;
-      description
-        "pcie err count";
-    }
     leaf-list node-key {
       type uint32;
       description
         "node key";
+    }
+    list err-count {
+      description
+        "err count";
+      uses COUNT-INFO-BG;
+    }
+    list pcie-err-count {
+      description
+        "pcie err count";
+      uses COUNT-INFO-BG;
     }
   }
 

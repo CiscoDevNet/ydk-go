@@ -9,7 +9,7 @@ module Cisco-IOS-XR-mpls-lsd-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-mpls-lsd-oper-sub1 {
-    revision-date 2017-05-01;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -36,6 +36,10 @@ module Cisco-IOS-XR-mpls-lsd-oper {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -76,7 +80,7 @@ module Cisco-IOS-XR-mpls-lsd-oper {
         description
           "Data for label";
         leaf label-id {
-          type int32;
+          type uint32;
           description
             "Label value";
         }
@@ -100,7 +104,7 @@ module Cisco-IOS-XR-mpls-lsd-oper {
           description
             "Data for FRR database entry - Tunnel midpoint";
           leaf label {
-            type int32;
+            type uint32;
             description
               "Label value";
           }
@@ -285,7 +289,7 @@ module Cisco-IOS-XR-mpls-lsd-oper {
           description
             "FPI rewrite for PW List";
           leaf pw-list-id {
-            type int32;
+            type uint32;
             description
               "PW List ID";
           }
@@ -314,7 +318,7 @@ module Cisco-IOS-XR-mpls-lsd-oper {
               "IPv4 Prefix";
           }
           leaf prefix-length {
-            type int32;
+            type uint32;
             description
               "Prefix length";
           }
@@ -344,7 +348,7 @@ module Cisco-IOS-XR-mpls-lsd-oper {
           description
             "FPI rewrite for label";
           leaf label-id {
-            type int32;
+            type uint32;
             description
               "Label value";
           }

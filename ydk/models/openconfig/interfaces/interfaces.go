@@ -37,8 +37,8 @@ type Interfaces struct {
     YFilter yfilter.YFilter
 
     // The list of named interfaces on the device. The type is slice of
-    // Interfaces_Interface_.
-    Interface_ []Interfaces_Interface
+    // Interfaces_Interface.
+    Interface []*Interfaces_Interface
 }
 
 func (interfaces *Interfaces) GetEntityData() *types.CommonEntityData {
@@ -51,12 +51,15 @@ func (interfaces *Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -104,22 +107,25 @@ func (self *Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "openconfig"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[name='" + fmt.Sprintf("%v", self.Name) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["config"] = types.YChild{"Config", &self.Config}
-    self.EntityData.Children["state"] = types.YChild{"State", &self.State}
-    self.EntityData.Children["hold-time"] = types.YChild{"HoldTime", &self.HoldTime}
-    self.EntityData.Children["subinterfaces"] = types.YChild{"Subinterfaces", &self.Subinterfaces}
-    self.EntityData.Children["openconfig-if-ethernet:ethernet"] = types.YChild{"Ethernet", &self.Ethernet}
-    self.EntityData.Children["openconfig-if-aggregate:aggregation"] = types.YChild{"Aggregation", &self.Aggregation}
-    self.EntityData.Children["openconfig-vlan:routed-vlan"] = types.YChild{"RoutedVlan", &self.RoutedVlan}
-    self.EntityData.Children["openconfig-transport-line-common:sonet"] = types.YChild{"Sonet", &self.Sonet}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("config", types.YChild{"Config", &self.Config})
+    self.EntityData.Children.Append("state", types.YChild{"State", &self.State})
+    self.EntityData.Children.Append("hold-time", types.YChild{"HoldTime", &self.HoldTime})
+    self.EntityData.Children.Append("subinterfaces", types.YChild{"Subinterfaces", &self.Subinterfaces})
+    self.EntityData.Children.Append("openconfig-if-ethernet:ethernet", types.YChild{"Ethernet", &self.Ethernet})
+    self.EntityData.Children.Append("openconfig-if-aggregate:aggregation", types.YChild{"Aggregation", &self.Aggregation})
+    self.EntityData.Children.Append("openconfig-vlan:routed-vlan", types.YChild{"RoutedVlan", &self.RoutedVlan})
+    self.EntityData.Children.Append("openconfig-transport-line-common:sonet", types.YChild{"Sonet", &self.Sonet})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+
+    self.EntityData.YListKeys = []string {"Name"}
+
     return &(self.EntityData)
 }
 
@@ -139,7 +145,7 @@ type Interfaces_Interface_Config struct {
     // server MUST reject the request. A NETCONF server MUST reply with an
     // rpc-error with the error-tag 'invalid-value' in this case. The type is one
     // of the following: InterfaceType. This attribute is mandatory.
-    Type_ interface{}
+    Type interface{}
 
     // Set the max transmission unit size in octets for the physical interface. 
     // If this is not set, the mtu is set to the operational default -- e.g., 1514
@@ -206,13 +212,16 @@ func (config *Interfaces_Interface_Config) GetEntityData() *types.CommonEntityDa
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["type"] = types.YLeaf{"Type_", config.Type_}
-    config.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", config.Mtu}
-    config.EntityData.Leafs["name"] = types.YLeaf{"Name", config.Name}
-    config.EntityData.Leafs["description"] = types.YLeaf{"Description", config.Description}
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("type", types.YLeaf{"Type", config.Type})
+    config.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", config.Mtu})
+    config.EntityData.Leafs.Append("name", types.YLeaf{"Name", config.Name})
+    config.EntityData.Leafs.Append("description", types.YLeaf{"Description", config.Description})
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -231,7 +240,7 @@ type Interfaces_Interface_State struct {
     // server MUST reject the request. A NETCONF server MUST reply with an
     // rpc-error with the error-tag 'invalid-value' in this case. The type is one
     // of the following: InterfaceType. This attribute is mandatory.
-    Type_ interface{}
+    Type interface{}
 
     // Set the max transmission unit size in octets for the physical interface. 
     // If this is not set, the mtu is set to the operational default -- e.g., 1514
@@ -326,19 +335,22 @@ func (state *Interfaces_Interface_State) GetEntityData() *types.CommonEntityData
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["counters"] = types.YChild{"Counters", &state.Counters}
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["type"] = types.YLeaf{"Type_", state.Type_}
-    state.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", state.Mtu}
-    state.EntityData.Leafs["name"] = types.YLeaf{"Name", state.Name}
-    state.EntityData.Leafs["description"] = types.YLeaf{"Description", state.Description}
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["ifindex"] = types.YLeaf{"Ifindex", state.Ifindex}
-    state.EntityData.Leafs["admin-status"] = types.YLeaf{"AdminStatus", state.AdminStatus}
-    state.EntityData.Leafs["oper-status"] = types.YLeaf{"OperStatus", state.OperStatus}
-    state.EntityData.Leafs["last-change"] = types.YLeaf{"LastChange", state.LastChange}
-    state.EntityData.Leafs["hardware-port"] = types.YLeaf{"HardwarePort", state.HardwarePort}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("counters", types.YChild{"Counters", &state.Counters})
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("type", types.YLeaf{"Type", state.Type})
+    state.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", state.Mtu})
+    state.EntityData.Leafs.Append("name", types.YLeaf{"Name", state.Name})
+    state.EntityData.Leafs.Append("description", types.YLeaf{"Description", state.Description})
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("ifindex", types.YLeaf{"Ifindex", state.Ifindex})
+    state.EntityData.Leafs.Append("admin-status", types.YLeaf{"AdminStatus", state.AdminStatus})
+    state.EntityData.Leafs.Append("oper-status", types.YLeaf{"OperStatus", state.OperStatus})
+    state.EntityData.Leafs.Append("last-change", types.YLeaf{"LastChange", state.LastChange})
+    state.EntityData.Leafs.Append("hardware-port", types.YLeaf{"HardwarePort", state.HardwarePort})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -477,7 +489,7 @@ type Interfaces_Interface_State_Counters struct {
 
     // Indicates the last time the interface counters were cleared. The type is
     // string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastClear interface{}
 }
 
@@ -491,22 +503,25 @@ func (counters *Interfaces_Interface_State_Counters) GetEntityData() *types.Comm
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    counters.EntityData.Children = make(map[string]types.YChild)
-    counters.EntityData.Leafs = make(map[string]types.YLeaf)
-    counters.EntityData.Leafs["in-octets"] = types.YLeaf{"InOctets", counters.InOctets}
-    counters.EntityData.Leafs["in-unicast-pkts"] = types.YLeaf{"InUnicastPkts", counters.InUnicastPkts}
-    counters.EntityData.Leafs["in-broadcast-pkts"] = types.YLeaf{"InBroadcastPkts", counters.InBroadcastPkts}
-    counters.EntityData.Leafs["in-multicast-pkts"] = types.YLeaf{"InMulticastPkts", counters.InMulticastPkts}
-    counters.EntityData.Leafs["in-discards"] = types.YLeaf{"InDiscards", counters.InDiscards}
-    counters.EntityData.Leafs["in-errors"] = types.YLeaf{"InErrors", counters.InErrors}
-    counters.EntityData.Leafs["in-unknown-protos"] = types.YLeaf{"InUnknownProtos", counters.InUnknownProtos}
-    counters.EntityData.Leafs["out-octets"] = types.YLeaf{"OutOctets", counters.OutOctets}
-    counters.EntityData.Leafs["out-unicast-pkts"] = types.YLeaf{"OutUnicastPkts", counters.OutUnicastPkts}
-    counters.EntityData.Leafs["out-broadcast-pkts"] = types.YLeaf{"OutBroadcastPkts", counters.OutBroadcastPkts}
-    counters.EntityData.Leafs["out-multicast-pkts"] = types.YLeaf{"OutMulticastPkts", counters.OutMulticastPkts}
-    counters.EntityData.Leafs["out-discards"] = types.YLeaf{"OutDiscards", counters.OutDiscards}
-    counters.EntityData.Leafs["out-errors"] = types.YLeaf{"OutErrors", counters.OutErrors}
-    counters.EntityData.Leafs["last-clear"] = types.YLeaf{"LastClear", counters.LastClear}
+    counters.EntityData.Children = types.NewOrderedMap()
+    counters.EntityData.Leafs = types.NewOrderedMap()
+    counters.EntityData.Leafs.Append("in-octets", types.YLeaf{"InOctets", counters.InOctets})
+    counters.EntityData.Leafs.Append("in-unicast-pkts", types.YLeaf{"InUnicastPkts", counters.InUnicastPkts})
+    counters.EntityData.Leafs.Append("in-broadcast-pkts", types.YLeaf{"InBroadcastPkts", counters.InBroadcastPkts})
+    counters.EntityData.Leafs.Append("in-multicast-pkts", types.YLeaf{"InMulticastPkts", counters.InMulticastPkts})
+    counters.EntityData.Leafs.Append("in-discards", types.YLeaf{"InDiscards", counters.InDiscards})
+    counters.EntityData.Leafs.Append("in-errors", types.YLeaf{"InErrors", counters.InErrors})
+    counters.EntityData.Leafs.Append("in-unknown-protos", types.YLeaf{"InUnknownProtos", counters.InUnknownProtos})
+    counters.EntityData.Leafs.Append("out-octets", types.YLeaf{"OutOctets", counters.OutOctets})
+    counters.EntityData.Leafs.Append("out-unicast-pkts", types.YLeaf{"OutUnicastPkts", counters.OutUnicastPkts})
+    counters.EntityData.Leafs.Append("out-broadcast-pkts", types.YLeaf{"OutBroadcastPkts", counters.OutBroadcastPkts})
+    counters.EntityData.Leafs.Append("out-multicast-pkts", types.YLeaf{"OutMulticastPkts", counters.OutMulticastPkts})
+    counters.EntityData.Leafs.Append("out-discards", types.YLeaf{"OutDiscards", counters.OutDiscards})
+    counters.EntityData.Leafs.Append("out-errors", types.YLeaf{"OutErrors", counters.OutErrors})
+    counters.EntityData.Leafs.Append("last-clear", types.YLeaf{"LastClear", counters.LastClear})
+
+    counters.EntityData.YListKeys = []string {}
+
     return &(counters.EntityData)
 }
 
@@ -575,10 +590,13 @@ func (holdTime *Interfaces_Interface_HoldTime) GetEntityData() *types.CommonEnti
     holdTime.EntityData.NamespaceTable = openconfig.GetNamespaces()
     holdTime.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    holdTime.EntityData.Children = make(map[string]types.YChild)
-    holdTime.EntityData.Children["config"] = types.YChild{"Config", &holdTime.Config}
-    holdTime.EntityData.Children["state"] = types.YChild{"State", &holdTime.State}
-    holdTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    holdTime.EntityData.Children = types.NewOrderedMap()
+    holdTime.EntityData.Children.Append("config", types.YChild{"Config", &holdTime.Config})
+    holdTime.EntityData.Children.Append("state", types.YChild{"State", &holdTime.State})
+    holdTime.EntityData.Leafs = types.NewOrderedMap()
+
+    holdTime.EntityData.YListKeys = []string {}
+
     return &(holdTime.EntityData)
 }
 
@@ -611,10 +629,13 @@ func (config *Interfaces_Interface_HoldTime_Config) GetEntityData() *types.Commo
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["up"] = types.YLeaf{"Up", config.Up}
-    config.EntityData.Leafs["down"] = types.YLeaf{"Down", config.Down}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("up", types.YLeaf{"Up", config.Up})
+    config.EntityData.Leafs.Append("down", types.YLeaf{"Down", config.Down})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -647,10 +668,13 @@ func (state *Interfaces_Interface_HoldTime_State) GetEntityData() *types.CommonE
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["up"] = types.YLeaf{"Up", state.Up}
-    state.EntityData.Leafs["down"] = types.YLeaf{"Down", state.Down}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("up", types.YLeaf{"Up", state.Up})
+    state.EntityData.Leafs.Append("down", types.YLeaf{"Down", state.Down})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -664,7 +688,7 @@ type Interfaces_Interface_Subinterfaces struct {
     // The list of subinterfaces (logical interfaces) associated with a physical
     // interface. The type is slice of
     // Interfaces_Interface_Subinterfaces_Subinterface.
-    Subinterface []Interfaces_Interface_Subinterfaces_Subinterface
+    Subinterface []*Interfaces_Interface_Subinterfaces_Subinterface
 }
 
 func (subinterfaces *Interfaces_Interface_Subinterfaces) GetEntityData() *types.CommonEntityData {
@@ -677,12 +701,15 @@ func (subinterfaces *Interfaces_Interface_Subinterfaces) GetEntityData() *types.
     subinterfaces.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subinterfaces.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    subinterfaces.EntityData.Children = make(map[string]types.YChild)
-    subinterfaces.EntityData.Children["subinterface"] = types.YChild{"Subinterface", nil}
+    subinterfaces.EntityData.Children = types.NewOrderedMap()
+    subinterfaces.EntityData.Children.Append("subinterface", types.YChild{"Subinterface", nil})
     for i := range subinterfaces.Subinterface {
-        subinterfaces.EntityData.Children[types.GetSegmentPath(&subinterfaces.Subinterface[i])] = types.YChild{"Subinterface", &subinterfaces.Subinterface[i]}
+        subinterfaces.EntityData.Children.Append(types.GetSegmentPath(subinterfaces.Subinterface[i]), types.YChild{"Subinterface", subinterfaces.Subinterface[i]})
     }
-    subinterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    subinterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    subinterfaces.EntityData.YListKeys = []string {}
+
     return &(subinterfaces.EntityData)
 }
 
@@ -720,19 +747,22 @@ func (subinterface *Interfaces_Interface_Subinterfaces_Subinterface) GetEntityDa
     subinterface.EntityData.YangName = "subinterface"
     subinterface.EntityData.BundleName = "openconfig"
     subinterface.EntityData.ParentYangName = "subinterfaces"
-    subinterface.EntityData.SegmentPath = "subinterface" + "[index='" + fmt.Sprintf("%v", subinterface.Index) + "']"
+    subinterface.EntityData.SegmentPath = "subinterface" + types.AddKeyToken(subinterface.Index, "index")
     subinterface.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subinterface.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subinterface.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    subinterface.EntityData.Children = make(map[string]types.YChild)
-    subinterface.EntityData.Children["config"] = types.YChild{"Config", &subinterface.Config}
-    subinterface.EntityData.Children["state"] = types.YChild{"State", &subinterface.State}
-    subinterface.EntityData.Children["openconfig-vlan:vlan"] = types.YChild{"Vlan", &subinterface.Vlan}
-    subinterface.EntityData.Children["openconfig-if-ip:ipv4"] = types.YChild{"Ipv4", &subinterface.Ipv4}
-    subinterface.EntityData.Children["openconfig-if-ip:ipv6"] = types.YChild{"Ipv6", &subinterface.Ipv6}
-    subinterface.EntityData.Leafs = make(map[string]types.YLeaf)
-    subinterface.EntityData.Leafs["index"] = types.YLeaf{"Index", subinterface.Index}
+    subinterface.EntityData.Children = types.NewOrderedMap()
+    subinterface.EntityData.Children.Append("config", types.YChild{"Config", &subinterface.Config})
+    subinterface.EntityData.Children.Append("state", types.YChild{"State", &subinterface.State})
+    subinterface.EntityData.Children.Append("openconfig-vlan:vlan", types.YChild{"Vlan", &subinterface.Vlan})
+    subinterface.EntityData.Children.Append("openconfig-if-ip:ipv4", types.YChild{"Ipv4", &subinterface.Ipv4})
+    subinterface.EntityData.Children.Append("openconfig-if-ip:ipv6", types.YChild{"Ipv6", &subinterface.Ipv6})
+    subinterface.EntityData.Leafs = types.NewOrderedMap()
+    subinterface.EntityData.Leafs.Append("index", types.YLeaf{"Index", subinterface.Index})
+
+    subinterface.EntityData.YListKeys = []string {"Index"}
+
     return &(subinterface.EntityData)
 }
 
@@ -807,12 +837,15 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Config) GetEntityD
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["index"] = types.YLeaf{"Index", config.Index}
-    config.EntityData.Leafs["name"] = types.YLeaf{"Name", config.Name}
-    config.EntityData.Leafs["description"] = types.YLeaf{"Description", config.Description}
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("index", types.YLeaf{"Index", config.Index})
+    config.EntityData.Leafs.Append("name", types.YLeaf{"Name", config.Name})
+    config.EntityData.Leafs.Append("description", types.YLeaf{"Description", config.Description})
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -911,17 +944,20 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_State) GetEntityDat
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["counters"] = types.YChild{"Counters", &state.Counters}
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["index"] = types.YLeaf{"Index", state.Index}
-    state.EntityData.Leafs["name"] = types.YLeaf{"Name", state.Name}
-    state.EntityData.Leafs["description"] = types.YLeaf{"Description", state.Description}
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["ifindex"] = types.YLeaf{"Ifindex", state.Ifindex}
-    state.EntityData.Leafs["admin-status"] = types.YLeaf{"AdminStatus", state.AdminStatus}
-    state.EntityData.Leafs["oper-status"] = types.YLeaf{"OperStatus", state.OperStatus}
-    state.EntityData.Leafs["last-change"] = types.YLeaf{"LastChange", state.LastChange}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("counters", types.YChild{"Counters", &state.Counters})
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("index", types.YLeaf{"Index", state.Index})
+    state.EntityData.Leafs.Append("name", types.YLeaf{"Name", state.Name})
+    state.EntityData.Leafs.Append("description", types.YLeaf{"Description", state.Description})
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("ifindex", types.YLeaf{"Ifindex", state.Ifindex})
+    state.EntityData.Leafs.Append("admin-status", types.YLeaf{"AdminStatus", state.AdminStatus})
+    state.EntityData.Leafs.Append("oper-status", types.YLeaf{"OperStatus", state.OperStatus})
+    state.EntityData.Leafs.Append("last-change", types.YLeaf{"LastChange", state.LastChange})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1060,7 +1096,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_State_Counters struct {
 
     // Indicates the last time the interface counters were cleared. The type is
     // string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastClear interface{}
 }
 
@@ -1074,22 +1110,25 @@ func (counters *Interfaces_Interface_Subinterfaces_Subinterface_State_Counters) 
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    counters.EntityData.Children = make(map[string]types.YChild)
-    counters.EntityData.Leafs = make(map[string]types.YLeaf)
-    counters.EntityData.Leafs["in-octets"] = types.YLeaf{"InOctets", counters.InOctets}
-    counters.EntityData.Leafs["in-unicast-pkts"] = types.YLeaf{"InUnicastPkts", counters.InUnicastPkts}
-    counters.EntityData.Leafs["in-broadcast-pkts"] = types.YLeaf{"InBroadcastPkts", counters.InBroadcastPkts}
-    counters.EntityData.Leafs["in-multicast-pkts"] = types.YLeaf{"InMulticastPkts", counters.InMulticastPkts}
-    counters.EntityData.Leafs["in-discards"] = types.YLeaf{"InDiscards", counters.InDiscards}
-    counters.EntityData.Leafs["in-errors"] = types.YLeaf{"InErrors", counters.InErrors}
-    counters.EntityData.Leafs["in-unknown-protos"] = types.YLeaf{"InUnknownProtos", counters.InUnknownProtos}
-    counters.EntityData.Leafs["out-octets"] = types.YLeaf{"OutOctets", counters.OutOctets}
-    counters.EntityData.Leafs["out-unicast-pkts"] = types.YLeaf{"OutUnicastPkts", counters.OutUnicastPkts}
-    counters.EntityData.Leafs["out-broadcast-pkts"] = types.YLeaf{"OutBroadcastPkts", counters.OutBroadcastPkts}
-    counters.EntityData.Leafs["out-multicast-pkts"] = types.YLeaf{"OutMulticastPkts", counters.OutMulticastPkts}
-    counters.EntityData.Leafs["out-discards"] = types.YLeaf{"OutDiscards", counters.OutDiscards}
-    counters.EntityData.Leafs["out-errors"] = types.YLeaf{"OutErrors", counters.OutErrors}
-    counters.EntityData.Leafs["last-clear"] = types.YLeaf{"LastClear", counters.LastClear}
+    counters.EntityData.Children = types.NewOrderedMap()
+    counters.EntityData.Leafs = types.NewOrderedMap()
+    counters.EntityData.Leafs.Append("in-octets", types.YLeaf{"InOctets", counters.InOctets})
+    counters.EntityData.Leafs.Append("in-unicast-pkts", types.YLeaf{"InUnicastPkts", counters.InUnicastPkts})
+    counters.EntityData.Leafs.Append("in-broadcast-pkts", types.YLeaf{"InBroadcastPkts", counters.InBroadcastPkts})
+    counters.EntityData.Leafs.Append("in-multicast-pkts", types.YLeaf{"InMulticastPkts", counters.InMulticastPkts})
+    counters.EntityData.Leafs.Append("in-discards", types.YLeaf{"InDiscards", counters.InDiscards})
+    counters.EntityData.Leafs.Append("in-errors", types.YLeaf{"InErrors", counters.InErrors})
+    counters.EntityData.Leafs.Append("in-unknown-protos", types.YLeaf{"InUnknownProtos", counters.InUnknownProtos})
+    counters.EntityData.Leafs.Append("out-octets", types.YLeaf{"OutOctets", counters.OutOctets})
+    counters.EntityData.Leafs.Append("out-unicast-pkts", types.YLeaf{"OutUnicastPkts", counters.OutUnicastPkts})
+    counters.EntityData.Leafs.Append("out-broadcast-pkts", types.YLeaf{"OutBroadcastPkts", counters.OutBroadcastPkts})
+    counters.EntityData.Leafs.Append("out-multicast-pkts", types.YLeaf{"OutMulticastPkts", counters.OutMulticastPkts})
+    counters.EntityData.Leafs.Append("out-discards", types.YLeaf{"OutDiscards", counters.OutDiscards})
+    counters.EntityData.Leafs.Append("out-errors", types.YLeaf{"OutErrors", counters.OutErrors})
+    counters.EntityData.Leafs.Append("last-clear", types.YLeaf{"LastClear", counters.LastClear})
+
+    counters.EntityData.YListKeys = []string {}
+
     return &(counters.EntityData)
 }
 
@@ -1158,10 +1197,13 @@ func (vlan *Interfaces_Interface_Subinterfaces_Subinterface_Vlan) GetEntityData(
     vlan.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vlan.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    vlan.EntityData.Children = make(map[string]types.YChild)
-    vlan.EntityData.Children["config"] = types.YChild{"Config", &vlan.Config}
-    vlan.EntityData.Children["state"] = types.YChild{"State", &vlan.State}
-    vlan.EntityData.Leafs = make(map[string]types.YLeaf)
+    vlan.EntityData.Children = types.NewOrderedMap()
+    vlan.EntityData.Children.Append("config", types.YChild{"Config", &vlan.Config})
+    vlan.EntityData.Children.Append("state", types.YChild{"State", &vlan.State})
+    vlan.EntityData.Leafs = types.NewOrderedMap()
+
+    vlan.EntityData.YListKeys = []string {}
+
     return &(vlan.EntityData)
 }
 
@@ -1175,7 +1217,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Vlan_Config struct {
     // VLAN.  The id is scoped to the subinterface, and could be repeated on
     // different subinterfaces. The type is one of the following types: int with
     // range: 1..4094, or string with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)$'.
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\*)$.
     VlanId interface{}
 }
 
@@ -1189,9 +1231,12 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Vlan_Config) GetEn
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["vlan-id"] = types.YLeaf{"VlanId", config.VlanId}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("vlan-id", types.YLeaf{"VlanId", config.VlanId})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1205,7 +1250,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Vlan_State struct {
     // VLAN.  The id is scoped to the subinterface, and could be repeated on
     // different subinterfaces. The type is one of the following types: int with
     // range: 1..4094, or string with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)$'.
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\*)$.
     VlanId interface{}
 }
 
@@ -1219,9 +1264,12 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Vlan_State) GetEnti
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["vlan-id"] = types.YLeaf{"VlanId", state.VlanId}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("vlan-id", types.YLeaf{"VlanId", state.VlanId})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1258,13 +1306,16 @@ func (ipv4 *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4) GetEntityData(
     ipv4.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["addresses"] = types.YChild{"Addresses", &ipv4.Addresses}
-    ipv4.EntityData.Children["neighbors"] = types.YChild{"Neighbors", &ipv4.Neighbors}
-    ipv4.EntityData.Children["unnumbered"] = types.YChild{"Unnumbered", &ipv4.Unnumbered}
-    ipv4.EntityData.Children["config"] = types.YChild{"Config", &ipv4.Config}
-    ipv4.EntityData.Children["state"] = types.YChild{"State", &ipv4.State}
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("addresses", types.YChild{"Addresses", &ipv4.Addresses})
+    ipv4.EntityData.Children.Append("neighbors", types.YChild{"Neighbors", &ipv4.Neighbors})
+    ipv4.EntityData.Children.Append("unnumbered", types.YChild{"Unnumbered", &ipv4.Unnumbered})
+    ipv4.EntityData.Children.Append("config", types.YChild{"Config", &ipv4.Config})
+    ipv4.EntityData.Children.Append("state", types.YChild{"State", &ipv4.State})
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -1276,7 +1327,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses struct {
 
     // The list of configured IPv4 addresses on the interface. The type is slice
     // of Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Address.
-    Address []Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Address
+    Address []*Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Address
 }
 
 func (addresses *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses) GetEntityData() *types.CommonEntityData {
@@ -1289,12 +1340,15 @@ func (addresses *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses)
     addresses.EntityData.NamespaceTable = openconfig.GetNamespaces()
     addresses.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    addresses.EntityData.Children = make(map[string]types.YChild)
-    addresses.EntityData.Children["address"] = types.YChild{"Address", nil}
+    addresses.EntityData.Children = types.NewOrderedMap()
+    addresses.EntityData.Children.Append("address", types.YChild{"Address", nil})
     for i := range addresses.Address {
-        addresses.EntityData.Children[types.GetSegmentPath(&addresses.Address[i])] = types.YChild{"Address", &addresses.Address[i]}
+        addresses.EntityData.Children.Append(types.GetSegmentPath(addresses.Address[i]), types.YChild{"Address", addresses.Address[i]})
     }
-    addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    addresses.EntityData.YListKeys = []string {}
+
     return &(addresses.EntityData)
 }
 
@@ -1306,7 +1360,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Address stru
 
     // This attribute is a key. References the configured IP address. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // Refers to
     // interfaces.Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Address_Config_Ip
     Ip interface{}
@@ -1326,17 +1380,20 @@ func (address *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Ad
     address.EntityData.YangName = "address"
     address.EntityData.BundleName = "openconfig"
     address.EntityData.ParentYangName = "addresses"
-    address.EntityData.SegmentPath = "address" + "[ip='" + fmt.Sprintf("%v", address.Ip) + "']"
+    address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
     address.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     address.EntityData.NamespaceTable = openconfig.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Children["config"] = types.YChild{"Config", &address.Config}
-    address.EntityData.Children["state"] = types.YChild{"State", &address.State}
-    address.EntityData.Children["vrrp"] = types.YChild{"Vrrp", &address.Vrrp}
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["ip"] = types.YLeaf{"Ip", address.Ip}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Children.Append("config", types.YChild{"Config", &address.Config})
+    address.EntityData.Children.Append("state", types.YChild{"State", &address.State})
+    address.EntityData.Children.Append("vrrp", types.YChild{"Vrrp", &address.Vrrp})
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", address.Ip})
+
+    address.EntityData.YListKeys = []string {"Ip"}
+
     return &(address.EntityData)
 }
 
@@ -1349,7 +1406,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Address_Conf
 
     // [adapted from IETF IP model RFC 7277]  The IPv4 address on the interface.
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // [adapted from IETF IP model RFC 7277]  The length of the subnet prefix. The
@@ -1367,10 +1424,13 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Add
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["ip"] = types.YLeaf{"Ip", config.Ip}
-    config.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", config.PrefixLength}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", config.Ip})
+    config.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", config.PrefixLength})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1383,7 +1443,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Address_Stat
 
     // [adapted from IETF IP model RFC 7277]  The IPv4 address on the interface.
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // [adapted from IETF IP model RFC 7277]  The length of the subnet prefix. The
@@ -1405,11 +1465,14 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Addr
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["ip"] = types.YLeaf{"Ip", state.Ip}
-    state.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", state.PrefixLength}
-    state.EntityData.Leafs["origin"] = types.YLeaf{"Origin", state.Origin}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", state.Ip})
+    state.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", state.PrefixLength})
+    state.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", state.Origin})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1422,7 +1485,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Address_Vrrp
 
     // List of VRRP groups, keyed by virtual router id. The type is slice of
     // Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Address_Vrrp_VrrpGroup.
-    VrrpGroup []Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Address_Vrrp_VrrpGroup
+    VrrpGroup []*Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Address_Vrrp_VrrpGroup
 }
 
 func (vrrp *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Address_Vrrp) GetEntityData() *types.CommonEntityData {
@@ -1435,12 +1498,15 @@ func (vrrp *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Addre
     vrrp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vrrp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    vrrp.EntityData.Children = make(map[string]types.YChild)
-    vrrp.EntityData.Children["vrrp-group"] = types.YChild{"VrrpGroup", nil}
+    vrrp.EntityData.Children = types.NewOrderedMap()
+    vrrp.EntityData.Children.Append("vrrp-group", types.YChild{"VrrpGroup", nil})
     for i := range vrrp.VrrpGroup {
-        vrrp.EntityData.Children[types.GetSegmentPath(&vrrp.VrrpGroup[i])] = types.YChild{"VrrpGroup", &vrrp.VrrpGroup[i]}
+        vrrp.EntityData.Children.Append(types.GetSegmentPath(vrrp.VrrpGroup[i]), types.YChild{"VrrpGroup", vrrp.VrrpGroup[i]})
     }
-    vrrp.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrrp.EntityData.Leafs = types.NewOrderedMap()
+
+    vrrp.EntityData.YListKeys = []string {}
+
     return &(vrrp.EntityData)
 }
 
@@ -1470,17 +1536,20 @@ func (vrrpGroup *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_
     vrrpGroup.EntityData.YangName = "vrrp-group"
     vrrpGroup.EntityData.BundleName = "openconfig"
     vrrpGroup.EntityData.ParentYangName = "vrrp"
-    vrrpGroup.EntityData.SegmentPath = "vrrp-group" + "[virtual-router-id='" + fmt.Sprintf("%v", vrrpGroup.VirtualRouterId) + "']"
+    vrrpGroup.EntityData.SegmentPath = "vrrp-group" + types.AddKeyToken(vrrpGroup.VirtualRouterId, "virtual-router-id")
     vrrpGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     vrrpGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vrrpGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    vrrpGroup.EntityData.Children = make(map[string]types.YChild)
-    vrrpGroup.EntityData.Children["config"] = types.YChild{"Config", &vrrpGroup.Config}
-    vrrpGroup.EntityData.Children["state"] = types.YChild{"State", &vrrpGroup.State}
-    vrrpGroup.EntityData.Children["interface-tracking"] = types.YChild{"InterfaceTracking", &vrrpGroup.InterfaceTracking}
-    vrrpGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrrpGroup.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", vrrpGroup.VirtualRouterId}
+    vrrpGroup.EntityData.Children = types.NewOrderedMap()
+    vrrpGroup.EntityData.Children.Append("config", types.YChild{"Config", &vrrpGroup.Config})
+    vrrpGroup.EntityData.Children.Append("state", types.YChild{"State", &vrrpGroup.State})
+    vrrpGroup.EntityData.Children.Append("interface-tracking", types.YChild{"InterfaceTracking", &vrrpGroup.InterfaceTracking})
+    vrrpGroup.EntityData.Leafs = types.NewOrderedMap()
+    vrrpGroup.EntityData.Leafs.Append("virtual-router-id", types.YLeaf{"VirtualRouterId", vrrpGroup.VirtualRouterId})
+
+    vrrpGroup.EntityData.YListKeys = []string {"VirtualRouterId"}
+
     return &(vrrpGroup.EntityData)
 }
 
@@ -1497,9 +1566,9 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Address_Vrrp
 
     // Configure one or more virtual addresses for the VRRP group. The type is one
     // of the following types: slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or slice of string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VirtualAddress []interface{}
 
     // Specifies the sending VRRP interface's priority for the virtual router. 
@@ -1539,15 +1608,18 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Add
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", config.VirtualRouterId}
-    config.EntityData.Leafs["virtual-address"] = types.YLeaf{"VirtualAddress", config.VirtualAddress}
-    config.EntityData.Leafs["priority"] = types.YLeaf{"Priority", config.Priority}
-    config.EntityData.Leafs["preempt"] = types.YLeaf{"Preempt", config.Preempt}
-    config.EntityData.Leafs["preempt-delay"] = types.YLeaf{"PreemptDelay", config.PreemptDelay}
-    config.EntityData.Leafs["accept-mode"] = types.YLeaf{"AcceptMode", config.AcceptMode}
-    config.EntityData.Leafs["advertisement-interval"] = types.YLeaf{"AdvertisementInterval", config.AdvertisementInterval}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("virtual-router-id", types.YLeaf{"VirtualRouterId", config.VirtualRouterId})
+    config.EntityData.Leafs.Append("virtual-address", types.YLeaf{"VirtualAddress", config.VirtualAddress})
+    config.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", config.Priority})
+    config.EntityData.Leafs.Append("preempt", types.YLeaf{"Preempt", config.Preempt})
+    config.EntityData.Leafs.Append("preempt-delay", types.YLeaf{"PreemptDelay", config.PreemptDelay})
+    config.EntityData.Leafs.Append("accept-mode", types.YLeaf{"AcceptMode", config.AcceptMode})
+    config.EntityData.Leafs.Append("advertisement-interval", types.YLeaf{"AdvertisementInterval", config.AdvertisementInterval})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1564,9 +1636,9 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Address_Vrrp
 
     // Configure one or more virtual addresses for the VRRP group. The type is one
     // of the following types: slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or slice of string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VirtualAddress []interface{}
 
     // Specifies the sending VRRP interface's priority for the virtual router. 
@@ -1610,16 +1682,19 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Addr
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", state.VirtualRouterId}
-    state.EntityData.Leafs["virtual-address"] = types.YLeaf{"VirtualAddress", state.VirtualAddress}
-    state.EntityData.Leafs["priority"] = types.YLeaf{"Priority", state.Priority}
-    state.EntityData.Leafs["preempt"] = types.YLeaf{"Preempt", state.Preempt}
-    state.EntityData.Leafs["preempt-delay"] = types.YLeaf{"PreemptDelay", state.PreemptDelay}
-    state.EntityData.Leafs["accept-mode"] = types.YLeaf{"AcceptMode", state.AcceptMode}
-    state.EntityData.Leafs["advertisement-interval"] = types.YLeaf{"AdvertisementInterval", state.AdvertisementInterval}
-    state.EntityData.Leafs["current-priority"] = types.YLeaf{"CurrentPriority", state.CurrentPriority}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("virtual-router-id", types.YLeaf{"VirtualRouterId", state.VirtualRouterId})
+    state.EntityData.Leafs.Append("virtual-address", types.YLeaf{"VirtualAddress", state.VirtualAddress})
+    state.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", state.Priority})
+    state.EntityData.Leafs.Append("preempt", types.YLeaf{"Preempt", state.Preempt})
+    state.EntityData.Leafs.Append("preempt-delay", types.YLeaf{"PreemptDelay", state.PreemptDelay})
+    state.EntityData.Leafs.Append("accept-mode", types.YLeaf{"AcceptMode", state.AcceptMode})
+    state.EntityData.Leafs.Append("advertisement-interval", types.YLeaf{"AdvertisementInterval", state.AdvertisementInterval})
+    state.EntityData.Leafs.Append("current-priority", types.YLeaf{"CurrentPriority", state.CurrentPriority})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1646,10 +1721,13 @@ func (interfaceTracking *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Ad
     interfaceTracking.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceTracking.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    interfaceTracking.EntityData.Children = make(map[string]types.YChild)
-    interfaceTracking.EntityData.Children["config"] = types.YChild{"Config", &interfaceTracking.Config}
-    interfaceTracking.EntityData.Children["state"] = types.YChild{"State", &interfaceTracking.State}
-    interfaceTracking.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceTracking.EntityData.Children = types.NewOrderedMap()
+    interfaceTracking.EntityData.Children.Append("config", types.YChild{"Config", &interfaceTracking.Config})
+    interfaceTracking.EntityData.Children.Append("state", types.YChild{"State", &interfaceTracking.State})
+    interfaceTracking.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceTracking.EntityData.YListKeys = []string {}
+
     return &(interfaceTracking.EntityData)
 }
 
@@ -1681,10 +1759,13 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Add
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["track-interface"] = types.YLeaf{"TrackInterface", config.TrackInterface}
-    config.EntityData.Leafs["priority-decrement"] = types.YLeaf{"PriorityDecrement", config.PriorityDecrement}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("track-interface", types.YLeaf{"TrackInterface", config.TrackInterface})
+    config.EntityData.Leafs.Append("priority-decrement", types.YLeaf{"PriorityDecrement", config.PriorityDecrement})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1716,10 +1797,13 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Addr
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["track-interface"] = types.YLeaf{"TrackInterface", state.TrackInterface}
-    state.EntityData.Leafs["priority-decrement"] = types.YLeaf{"PriorityDecrement", state.PriorityDecrement}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("track-interface", types.YLeaf{"TrackInterface", state.TrackInterface})
+    state.EntityData.Leafs.Append("priority-decrement", types.YLeaf{"PriorityDecrement", state.PriorityDecrement})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1732,7 +1816,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Neighbors struct {
     // A list of mappings from IPv4 addresses to link-layer addresses.  Entries in
     // this list are used as static entries in the ARP Cache. The type is slice of
     // Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Neighbors_Neighbor.
-    Neighbor []Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Neighbors_Neighbor
+    Neighbor []*Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Neighbors_Neighbor
 }
 
 func (neighbors *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Neighbors) GetEntityData() *types.CommonEntityData {
@@ -1745,12 +1829,15 @@ func (neighbors *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Neighbors)
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighbors.EntityData.Children = make(map[string]types.YChild)
-    neighbors.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    neighbors.EntityData.Children = types.NewOrderedMap()
+    neighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighbors.Neighbor {
-        neighbors.EntityData.Children[types.GetSegmentPath(&neighbors.Neighbor[i])] = types.YChild{"Neighbor", &neighbors.Neighbor[i]}
+        neighbors.EntityData.Children.Append(types.GetSegmentPath(neighbors.Neighbor[i]), types.YChild{"Neighbor", neighbors.Neighbor[i]})
     }
-    neighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    neighbors.EntityData.YListKeys = []string {}
+
     return &(neighbors.EntityData)
 }
 
@@ -1766,7 +1853,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Neighbors_Neighbor str
 
     // This attribute is a key. References the configured IP address. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // Refers to
     // interfaces.Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Neighbors_Neighbor_Config_Ip
     Ip interface{}
@@ -1783,16 +1870,19 @@ func (neighbor *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Neighbors_N
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[ip='" + fmt.Sprintf("%v", neighbor.Ip) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Children["config"] = types.YChild{"Config", &neighbor.Config}
-    neighbor.EntityData.Children["state"] = types.YChild{"State", &neighbor.State}
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["ip"] = types.YLeaf{"Ip", neighbor.Ip}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Children.Append("config", types.YChild{"Config", &neighbor.Config})
+    neighbor.EntityData.Children.Append("state", types.YChild{"State", &neighbor.State})
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", neighbor.Ip})
+
+    neighbor.EntityData.YListKeys = []string {"Ip"}
+
     return &(neighbor.EntityData)
 }
 
@@ -1804,12 +1894,11 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Neighbors_Neighbor_Con
     YFilter yfilter.YFilter
 
     // The IPv4 address of the neighbor node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The link-layer address of the neighbor node. The type is string with
-    // pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'. This attribute is
-    // mandatory.
+    // pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?. This attribute is mandatory.
     LinkLayerAddress interface{}
 }
 
@@ -1823,10 +1912,13 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Neighbors_Nei
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["ip"] = types.YLeaf{"Ip", config.Ip}
-    config.EntityData.Leafs["link-layer-address"] = types.YLeaf{"LinkLayerAddress", config.LinkLayerAddress}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", config.Ip})
+    config.EntityData.Leafs.Append("link-layer-address", types.YLeaf{"LinkLayerAddress", config.LinkLayerAddress})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1838,12 +1930,11 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Neighbors_Neighbor_Sta
     YFilter yfilter.YFilter
 
     // The IPv4 address of the neighbor node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The link-layer address of the neighbor node. The type is string with
-    // pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'. This attribute is
-    // mandatory.
+    // pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?. This attribute is mandatory.
     LinkLayerAddress interface{}
 
     // The origin of this neighbor entry, static or dynamic. The type is
@@ -1861,11 +1952,14 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Neighbors_Neig
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["ip"] = types.YLeaf{"Ip", state.Ip}
-    state.EntityData.Leafs["link-layer-address"] = types.YLeaf{"LinkLayerAddress", state.LinkLayerAddress}
-    state.EntityData.Leafs["origin"] = types.YLeaf{"Origin", state.Origin}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", state.Ip})
+    state.EntityData.Leafs.Append("link-layer-address", types.YLeaf{"LinkLayerAddress", state.LinkLayerAddress})
+    state.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", state.Origin})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1897,11 +1991,14 @@ func (unnumbered *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Unnumbere
     unnumbered.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unnumbered.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    unnumbered.EntityData.Children = make(map[string]types.YChild)
-    unnumbered.EntityData.Children["config"] = types.YChild{"Config", &unnumbered.Config}
-    unnumbered.EntityData.Children["state"] = types.YChild{"State", &unnumbered.State}
-    unnumbered.EntityData.Children["interface-ref"] = types.YChild{"InterfaceRef", &unnumbered.InterfaceRef}
-    unnumbered.EntityData.Leafs = make(map[string]types.YLeaf)
+    unnumbered.EntityData.Children = types.NewOrderedMap()
+    unnumbered.EntityData.Children.Append("config", types.YChild{"Config", &unnumbered.Config})
+    unnumbered.EntityData.Children.Append("state", types.YChild{"State", &unnumbered.State})
+    unnumbered.EntityData.Children.Append("interface-ref", types.YChild{"InterfaceRef", &unnumbered.InterfaceRef})
+    unnumbered.EntityData.Leafs = types.NewOrderedMap()
+
+    unnumbered.EntityData.YListKeys = []string {}
+
     return &(unnumbered.EntityData)
 }
 
@@ -1927,9 +2024,12 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Unnumbered_Co
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -1955,9 +2055,12 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Unnumbered_Sta
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -1984,10 +2087,13 @@ func (interfaceRef *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Unnumbe
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    interfaceRef.EntityData.Children = make(map[string]types.YChild)
-    interfaceRef.EntityData.Children["config"] = types.YChild{"Config", &interfaceRef.Config}
-    interfaceRef.EntityData.Children["state"] = types.YChild{"State", &interfaceRef.State}
-    interfaceRef.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceRef.EntityData.Children = types.NewOrderedMap()
+    interfaceRef.EntityData.Children.Append("config", types.YChild{"Config", &interfaceRef.Config})
+    interfaceRef.EntityData.Children.Append("state", types.YChild{"State", &interfaceRef.State})
+    interfaceRef.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceRef.EntityData.YListKeys = []string {}
+
     return &(interfaceRef.EntityData)
 }
 
@@ -2000,7 +2106,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Unnumbered_InterfaceRe
     // Reference to a base interface.  If a reference to a subinterface is
     // required, this leaf must be specified to indicate the base interface. The
     // type is string. Refers to interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // Reference to a subinterface -- this requires the base interface to be
     // specified using the interface leaf in this container.  If only a reference
@@ -2020,10 +2126,13 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Unnumbered_In
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", config.Interface_}
-    config.EntityData.Leafs["subinterface"] = types.YLeaf{"Subinterface", config.Subinterface}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", config.Interface})
+    config.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", config.Subinterface})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2036,7 +2145,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Unnumbered_InterfaceRe
     // Reference to a base interface.  If a reference to a subinterface is
     // required, this leaf must be specified to indicate the base interface. The
     // type is string. Refers to interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // Reference to a subinterface -- this requires the base interface to be
     // specified using the interface leaf in this container.  If only a reference
@@ -2056,10 +2165,13 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Unnumbered_Int
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", state.Interface_}
-    state.EntityData.Leafs["subinterface"] = types.YLeaf{"Subinterface", state.Subinterface}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", state.Interface})
+    state.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", state.Subinterface})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2093,10 +2205,13 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Config) GetEn
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
-    config.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", config.Mtu}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+    config.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", config.Mtu})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2130,10 +2245,13 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_State) GetEnti
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", state.Mtu}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", state.Mtu})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2158,9 +2276,6 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6 struct {
 
     // Top-level operational state data for the IPv6 interface.
     State Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_State
-
-    // Top-level container for IPv6 autoconf.
-    Autoconf Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Autoconf
 }
 
 func (ipv6 *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6) GetEntityData() *types.CommonEntityData {
@@ -2173,14 +2288,16 @@ func (ipv6 *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6) GetEntityData(
     ipv6.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["addresses"] = types.YChild{"Addresses", &ipv6.Addresses}
-    ipv6.EntityData.Children["neighbors"] = types.YChild{"Neighbors", &ipv6.Neighbors}
-    ipv6.EntityData.Children["unnumbered"] = types.YChild{"Unnumbered", &ipv6.Unnumbered}
-    ipv6.EntityData.Children["config"] = types.YChild{"Config", &ipv6.Config}
-    ipv6.EntityData.Children["state"] = types.YChild{"State", &ipv6.State}
-    ipv6.EntityData.Children["openconfig-if-ip-ext:autoconf"] = types.YChild{"Autoconf", &ipv6.Autoconf}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("addresses", types.YChild{"Addresses", &ipv6.Addresses})
+    ipv6.EntityData.Children.Append("neighbors", types.YChild{"Neighbors", &ipv6.Neighbors})
+    ipv6.EntityData.Children.Append("unnumbered", types.YChild{"Unnumbered", &ipv6.Unnumbered})
+    ipv6.EntityData.Children.Append("config", types.YChild{"Config", &ipv6.Config})
+    ipv6.EntityData.Children.Append("state", types.YChild{"State", &ipv6.State})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -2192,7 +2309,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses struct {
 
     // The list of configured IPv6 addresses on the interface. The type is slice
     // of Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Address.
-    Address []Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Address
+    Address []*Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Address
 }
 
 func (addresses *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses) GetEntityData() *types.CommonEntityData {
@@ -2205,12 +2322,15 @@ func (addresses *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses)
     addresses.EntityData.NamespaceTable = openconfig.GetNamespaces()
     addresses.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    addresses.EntityData.Children = make(map[string]types.YChild)
-    addresses.EntityData.Children["address"] = types.YChild{"Address", nil}
+    addresses.EntityData.Children = types.NewOrderedMap()
+    addresses.EntityData.Children.Append("address", types.YChild{"Address", nil})
     for i := range addresses.Address {
-        addresses.EntityData.Children[types.GetSegmentPath(&addresses.Address[i])] = types.YChild{"Address", &addresses.Address[i]}
+        addresses.EntityData.Children.Append(types.GetSegmentPath(addresses.Address[i]), types.YChild{"Address", addresses.Address[i]})
     }
-    addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    addresses.EntityData.YListKeys = []string {}
+
     return &(addresses.EntityData)
 }
 
@@ -2222,7 +2342,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Address stru
 
     // This attribute is a key. References the configured IP address. The type is
     // string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     // Refers to
     // interfaces.Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Address_Config_Ip
     Ip interface{}
@@ -2242,17 +2362,20 @@ func (address *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Ad
     address.EntityData.YangName = "address"
     address.EntityData.BundleName = "openconfig"
     address.EntityData.ParentYangName = "addresses"
-    address.EntityData.SegmentPath = "address" + "[ip='" + fmt.Sprintf("%v", address.Ip) + "']"
+    address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
     address.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     address.EntityData.NamespaceTable = openconfig.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Children["config"] = types.YChild{"Config", &address.Config}
-    address.EntityData.Children["state"] = types.YChild{"State", &address.State}
-    address.EntityData.Children["vrrp"] = types.YChild{"Vrrp", &address.Vrrp}
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["ip"] = types.YLeaf{"Ip", address.Ip}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Children.Append("config", types.YChild{"Config", &address.Config})
+    address.EntityData.Children.Append("state", types.YChild{"State", &address.State})
+    address.EntityData.Children.Append("vrrp", types.YChild{"Vrrp", &address.Vrrp})
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", address.Ip})
+
+    address.EntityData.YListKeys = []string {"Ip"}
+
     return &(address.EntityData)
 }
 
@@ -2265,7 +2388,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Address_Conf
 
     // [adapted from IETF IP model RFC 7277]  The IPv6 address on the interface.
     // The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // [adapted from IETF IP model RFC 7277]  The length of the subnet prefix. The
@@ -2283,10 +2406,13 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Add
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["ip"] = types.YLeaf{"Ip", config.Ip}
-    config.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", config.PrefixLength}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", config.Ip})
+    config.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", config.PrefixLength})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2299,7 +2425,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Address_Stat
 
     // [adapted from IETF IP model RFC 7277]  The IPv6 address on the interface.
     // The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // [adapted from IETF IP model RFC 7277]  The length of the subnet prefix. The
@@ -2326,12 +2452,15 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Addr
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["ip"] = types.YLeaf{"Ip", state.Ip}
-    state.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", state.PrefixLength}
-    state.EntityData.Leafs["origin"] = types.YLeaf{"Origin", state.Origin}
-    state.EntityData.Leafs["status"] = types.YLeaf{"Status", state.Status}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", state.Ip})
+    state.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", state.PrefixLength})
+    state.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", state.Origin})
+    state.EntityData.Leafs.Append("status", types.YLeaf{"Status", state.Status})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2386,7 +2515,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Address_Vrrp
 
     // List of VRRP groups, keyed by virtual router id. The type is slice of
     // Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Address_Vrrp_VrrpGroup.
-    VrrpGroup []Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Address_Vrrp_VrrpGroup
+    VrrpGroup []*Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Address_Vrrp_VrrpGroup
 }
 
 func (vrrp *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Address_Vrrp) GetEntityData() *types.CommonEntityData {
@@ -2399,12 +2528,15 @@ func (vrrp *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Addre
     vrrp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vrrp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    vrrp.EntityData.Children = make(map[string]types.YChild)
-    vrrp.EntityData.Children["vrrp-group"] = types.YChild{"VrrpGroup", nil}
+    vrrp.EntityData.Children = types.NewOrderedMap()
+    vrrp.EntityData.Children.Append("vrrp-group", types.YChild{"VrrpGroup", nil})
     for i := range vrrp.VrrpGroup {
-        vrrp.EntityData.Children[types.GetSegmentPath(&vrrp.VrrpGroup[i])] = types.YChild{"VrrpGroup", &vrrp.VrrpGroup[i]}
+        vrrp.EntityData.Children.Append(types.GetSegmentPath(vrrp.VrrpGroup[i]), types.YChild{"VrrpGroup", vrrp.VrrpGroup[i]})
     }
-    vrrp.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrrp.EntityData.Leafs = types.NewOrderedMap()
+
+    vrrp.EntityData.YListKeys = []string {}
+
     return &(vrrp.EntityData)
 }
 
@@ -2434,17 +2566,20 @@ func (vrrpGroup *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_
     vrrpGroup.EntityData.YangName = "vrrp-group"
     vrrpGroup.EntityData.BundleName = "openconfig"
     vrrpGroup.EntityData.ParentYangName = "vrrp"
-    vrrpGroup.EntityData.SegmentPath = "vrrp-group" + "[virtual-router-id='" + fmt.Sprintf("%v", vrrpGroup.VirtualRouterId) + "']"
+    vrrpGroup.EntityData.SegmentPath = "vrrp-group" + types.AddKeyToken(vrrpGroup.VirtualRouterId, "virtual-router-id")
     vrrpGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     vrrpGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vrrpGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    vrrpGroup.EntityData.Children = make(map[string]types.YChild)
-    vrrpGroup.EntityData.Children["config"] = types.YChild{"Config", &vrrpGroup.Config}
-    vrrpGroup.EntityData.Children["state"] = types.YChild{"State", &vrrpGroup.State}
-    vrrpGroup.EntityData.Children["interface-tracking"] = types.YChild{"InterfaceTracking", &vrrpGroup.InterfaceTracking}
-    vrrpGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrrpGroup.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", vrrpGroup.VirtualRouterId}
+    vrrpGroup.EntityData.Children = types.NewOrderedMap()
+    vrrpGroup.EntityData.Children.Append("config", types.YChild{"Config", &vrrpGroup.Config})
+    vrrpGroup.EntityData.Children.Append("state", types.YChild{"State", &vrrpGroup.State})
+    vrrpGroup.EntityData.Children.Append("interface-tracking", types.YChild{"InterfaceTracking", &vrrpGroup.InterfaceTracking})
+    vrrpGroup.EntityData.Leafs = types.NewOrderedMap()
+    vrrpGroup.EntityData.Leafs.Append("virtual-router-id", types.YLeaf{"VirtualRouterId", vrrpGroup.VirtualRouterId})
+
+    vrrpGroup.EntityData.YListKeys = []string {"VirtualRouterId"}
+
     return &(vrrpGroup.EntityData)
 }
 
@@ -2461,9 +2596,9 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Address_Vrrp
 
     // Configure one or more virtual addresses for the VRRP group. The type is one
     // of the following types: slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or slice of string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VirtualAddress []interface{}
 
     // Specifies the sending VRRP interface's priority for the virtual router. 
@@ -2494,9 +2629,9 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Address_Vrrp
 
     // For VRRP on IPv6 interfaces, sets the virtual link local address. The type
     // is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VirtualLinkLocal interface{}
 }
 
@@ -2510,16 +2645,19 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Add
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", config.VirtualRouterId}
-    config.EntityData.Leafs["virtual-address"] = types.YLeaf{"VirtualAddress", config.VirtualAddress}
-    config.EntityData.Leafs["priority"] = types.YLeaf{"Priority", config.Priority}
-    config.EntityData.Leafs["preempt"] = types.YLeaf{"Preempt", config.Preempt}
-    config.EntityData.Leafs["preempt-delay"] = types.YLeaf{"PreemptDelay", config.PreemptDelay}
-    config.EntityData.Leafs["accept-mode"] = types.YLeaf{"AcceptMode", config.AcceptMode}
-    config.EntityData.Leafs["advertisement-interval"] = types.YLeaf{"AdvertisementInterval", config.AdvertisementInterval}
-    config.EntityData.Leafs["virtual-link-local"] = types.YLeaf{"VirtualLinkLocal", config.VirtualLinkLocal}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("virtual-router-id", types.YLeaf{"VirtualRouterId", config.VirtualRouterId})
+    config.EntityData.Leafs.Append("virtual-address", types.YLeaf{"VirtualAddress", config.VirtualAddress})
+    config.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", config.Priority})
+    config.EntityData.Leafs.Append("preempt", types.YLeaf{"Preempt", config.Preempt})
+    config.EntityData.Leafs.Append("preempt-delay", types.YLeaf{"PreemptDelay", config.PreemptDelay})
+    config.EntityData.Leafs.Append("accept-mode", types.YLeaf{"AcceptMode", config.AcceptMode})
+    config.EntityData.Leafs.Append("advertisement-interval", types.YLeaf{"AdvertisementInterval", config.AdvertisementInterval})
+    config.EntityData.Leafs.Append("virtual-link-local", types.YLeaf{"VirtualLinkLocal", config.VirtualLinkLocal})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2536,9 +2674,9 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Address_Vrrp
 
     // Configure one or more virtual addresses for the VRRP group. The type is one
     // of the following types: slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or slice of string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VirtualAddress []interface{}
 
     // Specifies the sending VRRP interface's priority for the virtual router. 
@@ -2573,9 +2711,9 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Address_Vrrp
 
     // For VRRP on IPv6 interfaces, sets the virtual link local address. The type
     // is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VirtualLinkLocal interface{}
 }
 
@@ -2589,17 +2727,20 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Addr
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", state.VirtualRouterId}
-    state.EntityData.Leafs["virtual-address"] = types.YLeaf{"VirtualAddress", state.VirtualAddress}
-    state.EntityData.Leafs["priority"] = types.YLeaf{"Priority", state.Priority}
-    state.EntityData.Leafs["preempt"] = types.YLeaf{"Preempt", state.Preempt}
-    state.EntityData.Leafs["preempt-delay"] = types.YLeaf{"PreemptDelay", state.PreemptDelay}
-    state.EntityData.Leafs["accept-mode"] = types.YLeaf{"AcceptMode", state.AcceptMode}
-    state.EntityData.Leafs["advertisement-interval"] = types.YLeaf{"AdvertisementInterval", state.AdvertisementInterval}
-    state.EntityData.Leafs["current-priority"] = types.YLeaf{"CurrentPriority", state.CurrentPriority}
-    state.EntityData.Leafs["virtual-link-local"] = types.YLeaf{"VirtualLinkLocal", state.VirtualLinkLocal}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("virtual-router-id", types.YLeaf{"VirtualRouterId", state.VirtualRouterId})
+    state.EntityData.Leafs.Append("virtual-address", types.YLeaf{"VirtualAddress", state.VirtualAddress})
+    state.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", state.Priority})
+    state.EntityData.Leafs.Append("preempt", types.YLeaf{"Preempt", state.Preempt})
+    state.EntityData.Leafs.Append("preempt-delay", types.YLeaf{"PreemptDelay", state.PreemptDelay})
+    state.EntityData.Leafs.Append("accept-mode", types.YLeaf{"AcceptMode", state.AcceptMode})
+    state.EntityData.Leafs.Append("advertisement-interval", types.YLeaf{"AdvertisementInterval", state.AdvertisementInterval})
+    state.EntityData.Leafs.Append("current-priority", types.YLeaf{"CurrentPriority", state.CurrentPriority})
+    state.EntityData.Leafs.Append("virtual-link-local", types.YLeaf{"VirtualLinkLocal", state.VirtualLinkLocal})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2626,10 +2767,13 @@ func (interfaceTracking *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Ad
     interfaceTracking.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceTracking.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    interfaceTracking.EntityData.Children = make(map[string]types.YChild)
-    interfaceTracking.EntityData.Children["config"] = types.YChild{"Config", &interfaceTracking.Config}
-    interfaceTracking.EntityData.Children["state"] = types.YChild{"State", &interfaceTracking.State}
-    interfaceTracking.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceTracking.EntityData.Children = types.NewOrderedMap()
+    interfaceTracking.EntityData.Children.Append("config", types.YChild{"Config", &interfaceTracking.Config})
+    interfaceTracking.EntityData.Children.Append("state", types.YChild{"State", &interfaceTracking.State})
+    interfaceTracking.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceTracking.EntityData.YListKeys = []string {}
+
     return &(interfaceTracking.EntityData)
 }
 
@@ -2661,10 +2805,13 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Add
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["track-interface"] = types.YLeaf{"TrackInterface", config.TrackInterface}
-    config.EntityData.Leafs["priority-decrement"] = types.YLeaf{"PriorityDecrement", config.PriorityDecrement}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("track-interface", types.YLeaf{"TrackInterface", config.TrackInterface})
+    config.EntityData.Leafs.Append("priority-decrement", types.YLeaf{"PriorityDecrement", config.PriorityDecrement})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2696,10 +2843,13 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Addr
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["track-interface"] = types.YLeaf{"TrackInterface", state.TrackInterface}
-    state.EntityData.Leafs["priority-decrement"] = types.YLeaf{"PriorityDecrement", state.PriorityDecrement}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("track-interface", types.YLeaf{"TrackInterface", state.TrackInterface})
+    state.EntityData.Leafs.Append("priority-decrement", types.YLeaf{"PriorityDecrement", state.PriorityDecrement})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2711,7 +2861,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Neighbors struct {
 
     // List of IPv6 neighbors. The type is slice of
     // Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Neighbors_Neighbor.
-    Neighbor []Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Neighbors_Neighbor
+    Neighbor []*Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Neighbors_Neighbor
 }
 
 func (neighbors *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Neighbors) GetEntityData() *types.CommonEntityData {
@@ -2724,12 +2874,15 @@ func (neighbors *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Neighbors)
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighbors.EntityData.Children = make(map[string]types.YChild)
-    neighbors.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    neighbors.EntityData.Children = types.NewOrderedMap()
+    neighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighbors.Neighbor {
-        neighbors.EntityData.Children[types.GetSegmentPath(&neighbors.Neighbor[i])] = types.YChild{"Neighbor", &neighbors.Neighbor[i]}
+        neighbors.EntityData.Children.Append(types.GetSegmentPath(neighbors.Neighbor[i]), types.YChild{"Neighbor", neighbors.Neighbor[i]})
     }
-    neighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    neighbors.EntityData.YListKeys = []string {}
+
     return &(neighbors.EntityData)
 }
 
@@ -2741,7 +2894,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Neighbors_Neighbor str
 
     // This attribute is a key. References the configured IP neighbor address. The
     // type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     // Refers to
     // interfaces.Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Neighbors_Neighbor_Config_Ip
     Ip interface{}
@@ -2758,16 +2911,19 @@ func (neighbor *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Neighbors_N
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[ip='" + fmt.Sprintf("%v", neighbor.Ip) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Children["config"] = types.YChild{"Config", &neighbor.Config}
-    neighbor.EntityData.Children["state"] = types.YChild{"State", &neighbor.State}
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["ip"] = types.YLeaf{"Ip", neighbor.Ip}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Children.Append("config", types.YChild{"Config", &neighbor.Config})
+    neighbor.EntityData.Children.Append("state", types.YChild{"State", &neighbor.State})
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", neighbor.Ip})
+
+    neighbor.EntityData.YListKeys = []string {"Ip"}
+
     return &(neighbor.EntityData)
 }
 
@@ -2780,12 +2936,12 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Neighbors_Neighbor_Con
 
     // [adapted from IETF IP model RFC 7277]  The IPv6 address of the neighbor
     // node. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // [adapted from IETF IP model RFC 7277]  The link-layer address of the
     // neighbor node. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'. This attribute is mandatory.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?. This attribute is mandatory.
     LinkLayerAddress interface{}
 }
 
@@ -2799,10 +2955,13 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Neighbors_Nei
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["ip"] = types.YLeaf{"Ip", config.Ip}
-    config.EntityData.Leafs["link-layer-address"] = types.YLeaf{"LinkLayerAddress", config.LinkLayerAddress}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", config.Ip})
+    config.EntityData.Leafs.Append("link-layer-address", types.YLeaf{"LinkLayerAddress", config.LinkLayerAddress})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2815,12 +2974,12 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Neighbors_Neighbor_Sta
 
     // [adapted from IETF IP model RFC 7277]  The IPv6 address of the neighbor
     // node. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // [adapted from IETF IP model RFC 7277]  The link-layer address of the
     // neighbor node. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'. This attribute is mandatory.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?. This attribute is mandatory.
     LinkLayerAddress interface{}
 
     // [adapted from IETF IP model RFC 7277]  The origin of this neighbor entry.
@@ -2846,13 +3005,16 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Neighbors_Neig
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["ip"] = types.YLeaf{"Ip", state.Ip}
-    state.EntityData.Leafs["link-layer-address"] = types.YLeaf{"LinkLayerAddress", state.LinkLayerAddress}
-    state.EntityData.Leafs["origin"] = types.YLeaf{"Origin", state.Origin}
-    state.EntityData.Leafs["is-router"] = types.YLeaf{"IsRouter", state.IsRouter}
-    state.EntityData.Leafs["neighbor-state"] = types.YLeaf{"NeighborState", state.NeighborState}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", state.Ip})
+    state.EntityData.Leafs.Append("link-layer-address", types.YLeaf{"LinkLayerAddress", state.LinkLayerAddress})
+    state.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", state.Origin})
+    state.EntityData.Leafs.Append("is-router", types.YLeaf{"IsRouter", state.IsRouter})
+    state.EntityData.Leafs.Append("neighbor-state", types.YLeaf{"NeighborState", state.NeighborState})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -2916,11 +3078,14 @@ func (unnumbered *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Unnumbere
     unnumbered.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unnumbered.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    unnumbered.EntityData.Children = make(map[string]types.YChild)
-    unnumbered.EntityData.Children["config"] = types.YChild{"Config", &unnumbered.Config}
-    unnumbered.EntityData.Children["state"] = types.YChild{"State", &unnumbered.State}
-    unnumbered.EntityData.Children["interface-ref"] = types.YChild{"InterfaceRef", &unnumbered.InterfaceRef}
-    unnumbered.EntityData.Leafs = make(map[string]types.YLeaf)
+    unnumbered.EntityData.Children = types.NewOrderedMap()
+    unnumbered.EntityData.Children.Append("config", types.YChild{"Config", &unnumbered.Config})
+    unnumbered.EntityData.Children.Append("state", types.YChild{"State", &unnumbered.State})
+    unnumbered.EntityData.Children.Append("interface-ref", types.YChild{"InterfaceRef", &unnumbered.InterfaceRef})
+    unnumbered.EntityData.Leafs = types.NewOrderedMap()
+
+    unnumbered.EntityData.YListKeys = []string {}
+
     return &(unnumbered.EntityData)
 }
 
@@ -2946,9 +3111,12 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Unnumbered_Co
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -2974,9 +3142,12 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Unnumbered_Sta
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -3003,10 +3174,13 @@ func (interfaceRef *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Unnumbe
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    interfaceRef.EntityData.Children = make(map[string]types.YChild)
-    interfaceRef.EntityData.Children["config"] = types.YChild{"Config", &interfaceRef.Config}
-    interfaceRef.EntityData.Children["state"] = types.YChild{"State", &interfaceRef.State}
-    interfaceRef.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceRef.EntityData.Children = types.NewOrderedMap()
+    interfaceRef.EntityData.Children.Append("config", types.YChild{"Config", &interfaceRef.Config})
+    interfaceRef.EntityData.Children.Append("state", types.YChild{"State", &interfaceRef.State})
+    interfaceRef.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceRef.EntityData.YListKeys = []string {}
+
     return &(interfaceRef.EntityData)
 }
 
@@ -3019,7 +3193,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Unnumbered_InterfaceRe
     // Reference to a base interface.  If a reference to a subinterface is
     // required, this leaf must be specified to indicate the base interface. The
     // type is string. Refers to interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // Reference to a subinterface -- this requires the base interface to be
     // specified using the interface leaf in this container.  If only a reference
@@ -3039,10 +3213,13 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Unnumbered_In
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", config.Interface_}
-    config.EntityData.Leafs["subinterface"] = types.YLeaf{"Subinterface", config.Subinterface}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", config.Interface})
+    config.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", config.Subinterface})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3055,7 +3232,7 @@ type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Unnumbered_InterfaceRe
     // Reference to a base interface.  If a reference to a subinterface is
     // required, this leaf must be specified to indicate the base interface. The
     // type is string. Refers to interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // Reference to a subinterface -- this requires the base interface to be
     // specified using the interface leaf in this container.  If only a reference
@@ -3075,10 +3252,13 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Unnumbered_Int
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", state.Interface_}
-    state.EntityData.Leafs["subinterface"] = types.YLeaf{"Subinterface", state.Subinterface}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", state.Interface})
+    state.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", state.Subinterface})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -3121,11 +3301,14 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Config) GetEn
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
-    config.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", config.Mtu}
-    config.EntityData.Leafs["dup-addr-detect-transmits"] = types.YLeaf{"DupAddrDetectTransmits", config.DupAddrDetectTransmits}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+    config.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", config.Mtu})
+    config.EntityData.Leafs.Append("dup-addr-detect-transmits", types.YLeaf{"DupAddrDetectTransmits", config.DupAddrDetectTransmits})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3168,137 +3351,14 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_State) GetEnti
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", state.Mtu}
-    state.EntityData.Leafs["dup-addr-detect-transmits"] = types.YLeaf{"DupAddrDetectTransmits", state.DupAddrDetectTransmits}
-    return &(state.EntityData)
-}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", state.Mtu})
+    state.EntityData.Leafs.Append("dup-addr-detect-transmits", types.YLeaf{"DupAddrDetectTransmits", state.DupAddrDetectTransmits})
 
-// Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Autoconf
-// Top-level container for IPv6 autoconf
-type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Autoconf struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
+    state.EntityData.YListKeys = []string {}
 
-    // [adapted from IETF IP model RFC 7277]  Parameters to control the
-    // autoconfiguration of IPv6 addresses, as described in RFC 4862.
-    Config Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Autoconf_Config
-
-    // Operational state data .
-    State Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Autoconf_State
-}
-
-func (autoconf *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Autoconf) GetEntityData() *types.CommonEntityData {
-    autoconf.EntityData.YFilter = autoconf.YFilter
-    autoconf.EntityData.YangName = "autoconf"
-    autoconf.EntityData.BundleName = "openconfig"
-    autoconf.EntityData.ParentYangName = "ipv6"
-    autoconf.EntityData.SegmentPath = "openconfig-if-ip-ext:autoconf"
-    autoconf.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    autoconf.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    autoconf.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    autoconf.EntityData.Children = make(map[string]types.YChild)
-    autoconf.EntityData.Children["config"] = types.YChild{"Config", &autoconf.Config}
-    autoconf.EntityData.Children["state"] = types.YChild{"State", &autoconf.State}
-    autoconf.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(autoconf.EntityData)
-}
-
-// Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Autoconf_Config
-// [adapted from IETF IP model RFC 7277]
-// 
-// Parameters to control the autoconfiguration of IPv6
-// addresses, as described in RFC 4862.
-type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Autoconf_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // [adapted from IETF IP model RFC 7277]  If enabled, the host creates global
-    // addresses as described in RFC 4862. The type is bool. The default value is
-    // true.
-    CreateGlobalAddresses interface{}
-
-    // [adapted from IETF IP model RFC 7277]  If enabled, the host creates
-    // temporary addresses as described in RFC 4941. The type is bool. The default
-    // value is false.
-    CreateTemporaryAddresses interface{}
-
-    // [adapted from IETF IP model RFC 7277]  The time period during which the
-    // temporary address is valid. The type is interface{} with range:
-    // 0..4294967295. Units are seconds. The default value is 604800.
-    TemporaryValidLifetime interface{}
-
-    // [adapted from IETF IP model RFC 7277]  The time period during which the
-    // temporary address is preferred. The type is interface{} with range:
-    // 0..4294967295. Units are seconds. The default value is 86400.
-    TemporaryPreferredLifetime interface{}
-}
-
-func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Autoconf_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "autoconf"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["create-global-addresses"] = types.YLeaf{"CreateGlobalAddresses", config.CreateGlobalAddresses}
-    config.EntityData.Leafs["create-temporary-addresses"] = types.YLeaf{"CreateTemporaryAddresses", config.CreateTemporaryAddresses}
-    config.EntityData.Leafs["temporary-valid-lifetime"] = types.YLeaf{"TemporaryValidLifetime", config.TemporaryValidLifetime}
-    config.EntityData.Leafs["temporary-preferred-lifetime"] = types.YLeaf{"TemporaryPreferredLifetime", config.TemporaryPreferredLifetime}
-    return &(config.EntityData)
-}
-
-// Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Autoconf_State
-// Operational state data 
-type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Autoconf_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // [adapted from IETF IP model RFC 7277]  If enabled, the host creates global
-    // addresses as described in RFC 4862. The type is bool. The default value is
-    // true.
-    CreateGlobalAddresses interface{}
-
-    // [adapted from IETF IP model RFC 7277]  If enabled, the host creates
-    // temporary addresses as described in RFC 4941. The type is bool. The default
-    // value is false.
-    CreateTemporaryAddresses interface{}
-
-    // [adapted from IETF IP model RFC 7277]  The time period during which the
-    // temporary address is valid. The type is interface{} with range:
-    // 0..4294967295. Units are seconds. The default value is 604800.
-    TemporaryValidLifetime interface{}
-
-    // [adapted from IETF IP model RFC 7277]  The time period during which the
-    // temporary address is preferred. The type is interface{} with range:
-    // 0..4294967295. Units are seconds. The default value is 86400.
-    TemporaryPreferredLifetime interface{}
-}
-
-func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Autoconf_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "autoconf"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["create-global-addresses"] = types.YLeaf{"CreateGlobalAddresses", state.CreateGlobalAddresses}
-    state.EntityData.Leafs["create-temporary-addresses"] = types.YLeaf{"CreateTemporaryAddresses", state.CreateTemporaryAddresses}
-    state.EntityData.Leafs["temporary-valid-lifetime"] = types.YLeaf{"TemporaryValidLifetime", state.TemporaryValidLifetime}
-    state.EntityData.Leafs["temporary-preferred-lifetime"] = types.YLeaf{"TemporaryPreferredLifetime", state.TemporaryPreferredLifetime}
     return &(state.EntityData)
 }
 
@@ -3330,11 +3390,14 @@ func (ethernet *Interfaces_Interface_Ethernet) GetEntityData() *types.CommonEnti
     ethernet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ethernet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ethernet.EntityData.Children = make(map[string]types.YChild)
-    ethernet.EntityData.Children["config"] = types.YChild{"Config", &ethernet.Config}
-    ethernet.EntityData.Children["state"] = types.YChild{"State", &ethernet.State}
-    ethernet.EntityData.Children["openconfig-vlan:switched-vlan"] = types.YChild{"SwitchedVlan", &ethernet.SwitchedVlan}
-    ethernet.EntityData.Leafs = make(map[string]types.YLeaf)
+    ethernet.EntityData.Children = types.NewOrderedMap()
+    ethernet.EntityData.Children.Append("config", types.YChild{"Config", &ethernet.Config})
+    ethernet.EntityData.Children.Append("state", types.YChild{"State", &ethernet.State})
+    ethernet.EntityData.Children.Append("openconfig-vlan:switched-vlan", types.YChild{"SwitchedVlan", &ethernet.SwitchedVlan})
+    ethernet.EntityData.Leafs = types.NewOrderedMap()
+
+    ethernet.EntityData.YListKeys = []string {}
+
     return &(ethernet.EntityData)
 }
 
@@ -3347,7 +3410,7 @@ type Interfaces_Interface_Ethernet_Config struct {
     // Assigns a MAC address to the Ethernet interface.  If not specified, the
     // corresponding operational state leaf is expected to show the
     // system-assigned MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Set to TRUE to request the interface to auto-negotiate transmission
@@ -3369,7 +3432,7 @@ type Interfaces_Interface_Ethernet_Config struct {
     // on negotiation.  When auto-negotiate is set to FALSE, sets the link speed
     // to a fixed value -- supported values are defined by ETHERNET_SPEED
     // identities. The type is one of the following:
-    // SPEED10MBSPEED100MBSPEED1GBSPEED10GBSPEED25GBSPEED40GBSPEED50GBSPEED100GBSPEEDUNKNOWN.
+    // SPEED100GBSPEED1GBSPEED25GBSPEED10GBSPEED10MBSPEED40GBSPEEDUNKNOWNSPEED50GBSPEED100MB.
     PortSpeed interface{}
 
     // Enable or disable flow control for this interface. Ethernet flow control is
@@ -3395,14 +3458,17 @@ func (config *Interfaces_Interface_Ethernet_Config) GetEntityData() *types.Commo
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", config.MacAddress}
-    config.EntityData.Leafs["auto-negotiate"] = types.YLeaf{"AutoNegotiate", config.AutoNegotiate}
-    config.EntityData.Leafs["duplex-mode"] = types.YLeaf{"DuplexMode", config.DuplexMode}
-    config.EntityData.Leafs["port-speed"] = types.YLeaf{"PortSpeed", config.PortSpeed}
-    config.EntityData.Leafs["enable-flow-control"] = types.YLeaf{"EnableFlowControl", config.EnableFlowControl}
-    config.EntityData.Leafs["aggregate-id"] = types.YLeaf{"AggregateId", config.AggregateId}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", config.MacAddress})
+    config.EntityData.Leafs.Append("auto-negotiate", types.YLeaf{"AutoNegotiate", config.AutoNegotiate})
+    config.EntityData.Leafs.Append("duplex-mode", types.YLeaf{"DuplexMode", config.DuplexMode})
+    config.EntityData.Leafs.Append("port-speed", types.YLeaf{"PortSpeed", config.PortSpeed})
+    config.EntityData.Leafs.Append("enable-flow-control", types.YLeaf{"EnableFlowControl", config.EnableFlowControl})
+    config.EntityData.Leafs.Append("aggregate-id", types.YLeaf{"AggregateId", config.AggregateId})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3426,7 +3492,7 @@ type Interfaces_Interface_Ethernet_State struct {
     // Assigns a MAC address to the Ethernet interface.  If not specified, the
     // corresponding operational state leaf is expected to show the
     // system-assigned MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Set to TRUE to request the interface to auto-negotiate transmission
@@ -3448,7 +3514,7 @@ type Interfaces_Interface_Ethernet_State struct {
     // on negotiation.  When auto-negotiate is set to FALSE, sets the link speed
     // to a fixed value -- supported values are defined by ETHERNET_SPEED
     // identities. The type is one of the following:
-    // SPEED10MBSPEED100MBSPEED1GBSPEED10GBSPEED25GBSPEED40GBSPEED50GBSPEED100GBSPEEDUNKNOWN.
+    // SPEED100GBSPEED1GBSPEED25GBSPEED10GBSPEED10MBSPEED40GBSPEEDUNKNOWNSPEED50GBSPEED100MB.
     PortSpeed interface{}
 
     // Enable or disable flow control for this interface. Ethernet flow control is
@@ -3461,7 +3527,7 @@ type Interfaces_Interface_Ethernet_State struct {
 
     // Represenets the 'burned-in',  or system-assigned, MAC address for the
     // Ethernet interface. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     HwMacAddress interface{}
 
     // Reports the effective speed of the interface, e.g., the negotiated speed if
@@ -3487,17 +3553,20 @@ func (state *Interfaces_Interface_Ethernet_State) GetEntityData() *types.CommonE
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Children["counters"] = types.YChild{"Counters", &state.Counters}
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", state.MacAddress}
-    state.EntityData.Leafs["auto-negotiate"] = types.YLeaf{"AutoNegotiate", state.AutoNegotiate}
-    state.EntityData.Leafs["duplex-mode"] = types.YLeaf{"DuplexMode", state.DuplexMode}
-    state.EntityData.Leafs["port-speed"] = types.YLeaf{"PortSpeed", state.PortSpeed}
-    state.EntityData.Leafs["enable-flow-control"] = types.YLeaf{"EnableFlowControl", state.EnableFlowControl}
-    state.EntityData.Leafs["hw-mac-address"] = types.YLeaf{"HwMacAddress", state.HwMacAddress}
-    state.EntityData.Leafs["effective-speed"] = types.YLeaf{"EffectiveSpeed", state.EffectiveSpeed}
-    state.EntityData.Leafs["aggregate-id"] = types.YLeaf{"AggregateId", state.AggregateId}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("counters", types.YChild{"Counters", &state.Counters})
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", state.MacAddress})
+    state.EntityData.Leafs.Append("auto-negotiate", types.YLeaf{"AutoNegotiate", state.AutoNegotiate})
+    state.EntityData.Leafs.Append("duplex-mode", types.YLeaf{"DuplexMode", state.DuplexMode})
+    state.EntityData.Leafs.Append("port-speed", types.YLeaf{"PortSpeed", state.PortSpeed})
+    state.EntityData.Leafs.Append("enable-flow-control", types.YLeaf{"EnableFlowControl", state.EnableFlowControl})
+    state.EntityData.Leafs.Append("hw-mac-address", types.YLeaf{"HwMacAddress", state.HwMacAddress})
+    state.EntityData.Leafs.Append("effective-speed", types.YLeaf{"EffectiveSpeed", state.EffectiveSpeed})
+    state.EntityData.Leafs.Append("aggregate-id", types.YLeaf{"AggregateId", state.AggregateId})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -3532,7 +3601,7 @@ type Interfaces_Interface_Ethernet_State_Counters struct {
 
     // Number of 802.1q tagged frames received on the interface. The type is
     // interface{} with range: 0..18446744073709551615.
-    In8021QFrames interface{}
+    In8021qFrames interface{}
 
     // Number of receive error events due to FCS/CRC check failure. The type is
     // interface{} with range: 0..18446744073709551615.
@@ -3548,7 +3617,7 @@ type Interfaces_Interface_Ethernet_State_Counters struct {
 
     // Number of 802.1q tagged frames sent on the interface. The type is
     // interface{} with range: 0..18446744073709551615.
-    Out8021QFrames interface{}
+    Out8021qFrames interface{}
 }
 
 func (counters *Interfaces_Interface_Ethernet_State_Counters) GetEntityData() *types.CommonEntityData {
@@ -3561,18 +3630,21 @@ func (counters *Interfaces_Interface_Ethernet_State_Counters) GetEntityData() *t
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    counters.EntityData.Children = make(map[string]types.YChild)
-    counters.EntityData.Leafs = make(map[string]types.YLeaf)
-    counters.EntityData.Leafs["in-mac-control-frames"] = types.YLeaf{"InMacControlFrames", counters.InMacControlFrames}
-    counters.EntityData.Leafs["in-mac-pause-frames"] = types.YLeaf{"InMacPauseFrames", counters.InMacPauseFrames}
-    counters.EntityData.Leafs["in-oversize-frames"] = types.YLeaf{"InOversizeFrames", counters.InOversizeFrames}
-    counters.EntityData.Leafs["in-jabber-frames"] = types.YLeaf{"InJabberFrames", counters.InJabberFrames}
-    counters.EntityData.Leafs["in-fragment-frames"] = types.YLeaf{"InFragmentFrames", counters.InFragmentFrames}
-    counters.EntityData.Leafs["in-8021q-frames"] = types.YLeaf{"In8021QFrames", counters.In8021QFrames}
-    counters.EntityData.Leafs["in-crc-errors"] = types.YLeaf{"InCrcErrors", counters.InCrcErrors}
-    counters.EntityData.Leafs["out-mac-control-frames"] = types.YLeaf{"OutMacControlFrames", counters.OutMacControlFrames}
-    counters.EntityData.Leafs["out-mac-pause-frames"] = types.YLeaf{"OutMacPauseFrames", counters.OutMacPauseFrames}
-    counters.EntityData.Leafs["out-8021q-frames"] = types.YLeaf{"Out8021QFrames", counters.Out8021QFrames}
+    counters.EntityData.Children = types.NewOrderedMap()
+    counters.EntityData.Leafs = types.NewOrderedMap()
+    counters.EntityData.Leafs.Append("in-mac-control-frames", types.YLeaf{"InMacControlFrames", counters.InMacControlFrames})
+    counters.EntityData.Leafs.Append("in-mac-pause-frames", types.YLeaf{"InMacPauseFrames", counters.InMacPauseFrames})
+    counters.EntityData.Leafs.Append("in-oversize-frames", types.YLeaf{"InOversizeFrames", counters.InOversizeFrames})
+    counters.EntityData.Leafs.Append("in-jabber-frames", types.YLeaf{"InJabberFrames", counters.InJabberFrames})
+    counters.EntityData.Leafs.Append("in-fragment-frames", types.YLeaf{"InFragmentFrames", counters.InFragmentFrames})
+    counters.EntityData.Leafs.Append("in-8021q-frames", types.YLeaf{"In8021qFrames", counters.In8021qFrames})
+    counters.EntityData.Leafs.Append("in-crc-errors", types.YLeaf{"InCrcErrors", counters.InCrcErrors})
+    counters.EntityData.Leafs.Append("out-mac-control-frames", types.YLeaf{"OutMacControlFrames", counters.OutMacControlFrames})
+    counters.EntityData.Leafs.Append("out-mac-pause-frames", types.YLeaf{"OutMacPauseFrames", counters.OutMacPauseFrames})
+    counters.EntityData.Leafs.Append("out-8021q-frames", types.YLeaf{"Out8021qFrames", counters.Out8021qFrames})
+
+    counters.EntityData.YListKeys = []string {}
+
     return &(counters.EntityData)
 }
 
@@ -3612,10 +3684,13 @@ func (switchedVlan *Interfaces_Interface_Ethernet_SwitchedVlan) GetEntityData() 
     switchedVlan.EntityData.NamespaceTable = openconfig.GetNamespaces()
     switchedVlan.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    switchedVlan.EntityData.Children = make(map[string]types.YChild)
-    switchedVlan.EntityData.Children["config"] = types.YChild{"Config", &switchedVlan.Config}
-    switchedVlan.EntityData.Children["state"] = types.YChild{"State", &switchedVlan.State}
-    switchedVlan.EntityData.Leafs = make(map[string]types.YLeaf)
+    switchedVlan.EntityData.Children = types.NewOrderedMap()
+    switchedVlan.EntityData.Children.Append("config", types.YChild{"Config", &switchedVlan.Config})
+    switchedVlan.EntityData.Children.Append("state", types.YChild{"State", &switchedVlan.State})
+    switchedVlan.EntityData.Leafs = types.NewOrderedMap()
+
+    switchedVlan.EntityData.YListKeys = []string {}
+
     return &(switchedVlan.EntityData)
 }
 
@@ -3632,12 +3707,12 @@ type Interfaces_Interface_Ethernet_SwitchedVlan_Config struct {
     // Set the native VLAN id for untagged frames arriving on a trunk interface. 
     // This configuration is only valid on a trunk interface. The type is one of
     // the following types: int with range: 1..4094, or string with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)$'.
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\*)$.
     NativeVlan interface{}
 
     // Assign the access vlan to the access port. The type is one of the following
     // types: int with range: 1..4094, or string with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)$'.
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\*)$.
     AccessVlan interface{}
 
     // Specify VLANs, or ranges thereof, that the interface may carry when in
@@ -3646,13 +3721,13 @@ type Interfaces_Interface_Ethernet_SwitchedVlan_Config struct {
     // inclusive (such that the VLAN range is x <= range <= y. The type is one of
     // the following types: slice of int with range: 1..4094, or slice of string
     // with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])$',
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])$,
     // or slice of string with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)$',
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\*)$,
     // or slice of string with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)$',
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\*)$,
     // or slice of string with pattern:
-    // b'^(\\*|(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9]))\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])$'..
+    // ^(\*|(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9]))\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])$..
     TrunkVlans []interface{}
 }
 
@@ -3666,12 +3741,15 @@ func (config *Interfaces_Interface_Ethernet_SwitchedVlan_Config) GetEntityData()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["interface-mode"] = types.YLeaf{"InterfaceMode", config.InterfaceMode}
-    config.EntityData.Leafs["native-vlan"] = types.YLeaf{"NativeVlan", config.NativeVlan}
-    config.EntityData.Leafs["access-vlan"] = types.YLeaf{"AccessVlan", config.AccessVlan}
-    config.EntityData.Leafs["trunk-vlans"] = types.YLeaf{"TrunkVlans", config.TrunkVlans}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("interface-mode", types.YLeaf{"InterfaceMode", config.InterfaceMode})
+    config.EntityData.Leafs.Append("native-vlan", types.YLeaf{"NativeVlan", config.NativeVlan})
+    config.EntityData.Leafs.Append("access-vlan", types.YLeaf{"AccessVlan", config.AccessVlan})
+    config.EntityData.Leafs.Append("trunk-vlans", types.YLeaf{"TrunkVlans", config.TrunkVlans})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3688,12 +3766,12 @@ type Interfaces_Interface_Ethernet_SwitchedVlan_State struct {
     // Set the native VLAN id for untagged frames arriving on a trunk interface. 
     // This configuration is only valid on a trunk interface. The type is one of
     // the following types: int with range: 1..4094, or string with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)$'.
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\*)$.
     NativeVlan interface{}
 
     // Assign the access vlan to the access port. The type is one of the following
     // types: int with range: 1..4094, or string with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)$'.
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\*)$.
     AccessVlan interface{}
 
     // Specify VLANs, or ranges thereof, that the interface may carry when in
@@ -3702,13 +3780,13 @@ type Interfaces_Interface_Ethernet_SwitchedVlan_State struct {
     // inclusive (such that the VLAN range is x <= range <= y. The type is one of
     // the following types: slice of int with range: 1..4094, or slice of string
     // with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])$',
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])$,
     // or slice of string with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)$',
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\*)$,
     // or slice of string with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)$',
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\*)$,
     // or slice of string with pattern:
-    // b'^(\\*|(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9]))\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])$'..
+    // ^(\*|(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9]))\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])$..
     TrunkVlans []interface{}
 }
 
@@ -3722,12 +3800,15 @@ func (state *Interfaces_Interface_Ethernet_SwitchedVlan_State) GetEntityData() *
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["interface-mode"] = types.YLeaf{"InterfaceMode", state.InterfaceMode}
-    state.EntityData.Leafs["native-vlan"] = types.YLeaf{"NativeVlan", state.NativeVlan}
-    state.EntityData.Leafs["access-vlan"] = types.YLeaf{"AccessVlan", state.AccessVlan}
-    state.EntityData.Leafs["trunk-vlans"] = types.YLeaf{"TrunkVlans", state.TrunkVlans}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("interface-mode", types.YLeaf{"InterfaceMode", state.InterfaceMode})
+    state.EntityData.Leafs.Append("native-vlan", types.YLeaf{"NativeVlan", state.NativeVlan})
+    state.EntityData.Leafs.Append("access-vlan", types.YLeaf{"AccessVlan", state.AccessVlan})
+    state.EntityData.Leafs.Append("trunk-vlans", types.YLeaf{"TrunkVlans", state.TrunkVlans})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -3759,11 +3840,14 @@ func (aggregation *Interfaces_Interface_Aggregation) GetEntityData() *types.Comm
     aggregation.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregation.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    aggregation.EntityData.Children = make(map[string]types.YChild)
-    aggregation.EntityData.Children["config"] = types.YChild{"Config", &aggregation.Config}
-    aggregation.EntityData.Children["state"] = types.YChild{"State", &aggregation.State}
-    aggregation.EntityData.Children["openconfig-vlan:switched-vlan"] = types.YChild{"SwitchedVlan", &aggregation.SwitchedVlan}
-    aggregation.EntityData.Leafs = make(map[string]types.YLeaf)
+    aggregation.EntityData.Children = types.NewOrderedMap()
+    aggregation.EntityData.Children.Append("config", types.YChild{"Config", &aggregation.Config})
+    aggregation.EntityData.Children.Append("state", types.YChild{"State", &aggregation.State})
+    aggregation.EntityData.Children.Append("openconfig-vlan:switched-vlan", types.YChild{"SwitchedVlan", &aggregation.SwitchedVlan})
+    aggregation.EntityData.Leafs = types.NewOrderedMap()
+
+    aggregation.EntityData.YListKeys = []string {}
+
     return &(aggregation.EntityData)
 }
 
@@ -3794,10 +3878,13 @@ func (config *Interfaces_Interface_Aggregation_Config) GetEntityData() *types.Co
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["lag-type"] = types.YLeaf{"LagType", config.LagType}
-    config.EntityData.Leafs["min-links"] = types.YLeaf{"MinLinks", config.MinLinks}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("lag-type", types.YLeaf{"LagType", config.LagType})
+    config.EntityData.Leafs.Append("min-links", types.YLeaf{"MinLinks", config.MinLinks})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3838,12 +3925,15 @@ func (state *Interfaces_Interface_Aggregation_State) GetEntityData() *types.Comm
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["lag-type"] = types.YLeaf{"LagType", state.LagType}
-    state.EntityData.Leafs["min-links"] = types.YLeaf{"MinLinks", state.MinLinks}
-    state.EntityData.Leafs["lag-speed"] = types.YLeaf{"LagSpeed", state.LagSpeed}
-    state.EntityData.Leafs["member"] = types.YLeaf{"Member", state.Member}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("lag-type", types.YLeaf{"LagType", state.LagType})
+    state.EntityData.Leafs.Append("min-links", types.YLeaf{"MinLinks", state.MinLinks})
+    state.EntityData.Leafs.Append("lag-speed", types.YLeaf{"LagSpeed", state.LagSpeed})
+    state.EntityData.Leafs.Append("member", types.YLeaf{"Member", state.Member})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -3872,10 +3962,13 @@ func (switchedVlan *Interfaces_Interface_Aggregation_SwitchedVlan) GetEntityData
     switchedVlan.EntityData.NamespaceTable = openconfig.GetNamespaces()
     switchedVlan.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    switchedVlan.EntityData.Children = make(map[string]types.YChild)
-    switchedVlan.EntityData.Children["config"] = types.YChild{"Config", &switchedVlan.Config}
-    switchedVlan.EntityData.Children["state"] = types.YChild{"State", &switchedVlan.State}
-    switchedVlan.EntityData.Leafs = make(map[string]types.YLeaf)
+    switchedVlan.EntityData.Children = types.NewOrderedMap()
+    switchedVlan.EntityData.Children.Append("config", types.YChild{"Config", &switchedVlan.Config})
+    switchedVlan.EntityData.Children.Append("state", types.YChild{"State", &switchedVlan.State})
+    switchedVlan.EntityData.Leafs = types.NewOrderedMap()
+
+    switchedVlan.EntityData.YListKeys = []string {}
+
     return &(switchedVlan.EntityData)
 }
 
@@ -3892,12 +3985,12 @@ type Interfaces_Interface_Aggregation_SwitchedVlan_Config struct {
     // Set the native VLAN id for untagged frames arriving on a trunk interface. 
     // This configuration is only valid on a trunk interface. The type is one of
     // the following types: int with range: 1..4094, or string with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)$'.
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\*)$.
     NativeVlan interface{}
 
     // Assign the access vlan to the access port. The type is one of the following
     // types: int with range: 1..4094, or string with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)$'.
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\*)$.
     AccessVlan interface{}
 
     // Specify VLANs, or ranges thereof, that the interface may carry when in
@@ -3906,13 +3999,13 @@ type Interfaces_Interface_Aggregation_SwitchedVlan_Config struct {
     // inclusive (such that the VLAN range is x <= range <= y. The type is one of
     // the following types: slice of int with range: 1..4094, or slice of string
     // with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])$',
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])$,
     // or slice of string with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)$',
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\*)$,
     // or slice of string with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)$',
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\*)$,
     // or slice of string with pattern:
-    // b'^(\\*|(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9]))\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])$'..
+    // ^(\*|(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9]))\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])$..
     TrunkVlans []interface{}
 }
 
@@ -3926,12 +4019,15 @@ func (config *Interfaces_Interface_Aggregation_SwitchedVlan_Config) GetEntityDat
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["interface-mode"] = types.YLeaf{"InterfaceMode", config.InterfaceMode}
-    config.EntityData.Leafs["native-vlan"] = types.YLeaf{"NativeVlan", config.NativeVlan}
-    config.EntityData.Leafs["access-vlan"] = types.YLeaf{"AccessVlan", config.AccessVlan}
-    config.EntityData.Leafs["trunk-vlans"] = types.YLeaf{"TrunkVlans", config.TrunkVlans}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("interface-mode", types.YLeaf{"InterfaceMode", config.InterfaceMode})
+    config.EntityData.Leafs.Append("native-vlan", types.YLeaf{"NativeVlan", config.NativeVlan})
+    config.EntityData.Leafs.Append("access-vlan", types.YLeaf{"AccessVlan", config.AccessVlan})
+    config.EntityData.Leafs.Append("trunk-vlans", types.YLeaf{"TrunkVlans", config.TrunkVlans})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -3948,12 +4044,12 @@ type Interfaces_Interface_Aggregation_SwitchedVlan_State struct {
     // Set the native VLAN id for untagged frames arriving on a trunk interface. 
     // This configuration is only valid on a trunk interface. The type is one of
     // the following types: int with range: 1..4094, or string with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)$'.
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\*)$.
     NativeVlan interface{}
 
     // Assign the access vlan to the access port. The type is one of the following
     // types: int with range: 1..4094, or string with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)$'.
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\*)$.
     AccessVlan interface{}
 
     // Specify VLANs, or ranges thereof, that the interface may carry when in
@@ -3962,13 +4058,13 @@ type Interfaces_Interface_Aggregation_SwitchedVlan_State struct {
     // inclusive (such that the VLAN range is x <= range <= y. The type is one of
     // the following types: slice of int with range: 1..4094, or slice of string
     // with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])$',
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])$,
     // or slice of string with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)$',
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\*)$,
     // or slice of string with pattern:
-    // b'^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)$',
+    // ^(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\*)$,
     // or slice of string with pattern:
-    // b'^(\\*|(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9]))\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])$'..
+    // ^(\*|(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9]))\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\.\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])$..
     TrunkVlans []interface{}
 }
 
@@ -3982,12 +4078,15 @@ func (state *Interfaces_Interface_Aggregation_SwitchedVlan_State) GetEntityData(
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["interface-mode"] = types.YLeaf{"InterfaceMode", state.InterfaceMode}
-    state.EntityData.Leafs["native-vlan"] = types.YLeaf{"NativeVlan", state.NativeVlan}
-    state.EntityData.Leafs["access-vlan"] = types.YLeaf{"AccessVlan", state.AccessVlan}
-    state.EntityData.Leafs["trunk-vlans"] = types.YLeaf{"TrunkVlans", state.TrunkVlans}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("interface-mode", types.YLeaf{"InterfaceMode", state.InterfaceMode})
+    state.EntityData.Leafs.Append("native-vlan", types.YLeaf{"NativeVlan", state.NativeVlan})
+    state.EntityData.Leafs.Append("access-vlan", types.YLeaf{"AccessVlan", state.AccessVlan})
+    state.EntityData.Leafs.Append("trunk-vlans", types.YLeaf{"TrunkVlans", state.TrunkVlans})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -4023,12 +4122,15 @@ func (routedVlan *Interfaces_Interface_RoutedVlan) GetEntityData() *types.Common
     routedVlan.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routedVlan.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    routedVlan.EntityData.Children = make(map[string]types.YChild)
-    routedVlan.EntityData.Children["config"] = types.YChild{"Config", &routedVlan.Config}
-    routedVlan.EntityData.Children["state"] = types.YChild{"State", &routedVlan.State}
-    routedVlan.EntityData.Children["openconfig-if-ip:ipv4"] = types.YChild{"Ipv4", &routedVlan.Ipv4}
-    routedVlan.EntityData.Children["openconfig-if-ip:ipv6"] = types.YChild{"Ipv6", &routedVlan.Ipv6}
-    routedVlan.EntityData.Leafs = make(map[string]types.YLeaf)
+    routedVlan.EntityData.Children = types.NewOrderedMap()
+    routedVlan.EntityData.Children.Append("config", types.YChild{"Config", &routedVlan.Config})
+    routedVlan.EntityData.Children.Append("state", types.YChild{"State", &routedVlan.State})
+    routedVlan.EntityData.Children.Append("openconfig-if-ip:ipv4", types.YChild{"Ipv4", &routedVlan.Ipv4})
+    routedVlan.EntityData.Children.Append("openconfig-if-ip:ipv6", types.YChild{"Ipv6", &routedVlan.Ipv6})
+    routedVlan.EntityData.Leafs = types.NewOrderedMap()
+
+    routedVlan.EntityData.YListKeys = []string {}
+
     return &(routedVlan.EntityData)
 }
 
@@ -4055,9 +4157,12 @@ func (config *Interfaces_Interface_RoutedVlan_Config) GetEntityData() *types.Com
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["vlan"] = types.YLeaf{"Vlan", config.Vlan}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("vlan", types.YLeaf{"Vlan", config.Vlan})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -4084,9 +4189,12 @@ func (state *Interfaces_Interface_RoutedVlan_State) GetEntityData() *types.Commo
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["vlan"] = types.YLeaf{"Vlan", state.Vlan}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("vlan", types.YLeaf{"Vlan", state.Vlan})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -4123,13 +4231,16 @@ func (ipv4 *Interfaces_Interface_RoutedVlan_Ipv4) GetEntityData() *types.CommonE
     ipv4.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["addresses"] = types.YChild{"Addresses", &ipv4.Addresses}
-    ipv4.EntityData.Children["neighbors"] = types.YChild{"Neighbors", &ipv4.Neighbors}
-    ipv4.EntityData.Children["unnumbered"] = types.YChild{"Unnumbered", &ipv4.Unnumbered}
-    ipv4.EntityData.Children["config"] = types.YChild{"Config", &ipv4.Config}
-    ipv4.EntityData.Children["state"] = types.YChild{"State", &ipv4.State}
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("addresses", types.YChild{"Addresses", &ipv4.Addresses})
+    ipv4.EntityData.Children.Append("neighbors", types.YChild{"Neighbors", &ipv4.Neighbors})
+    ipv4.EntityData.Children.Append("unnumbered", types.YChild{"Unnumbered", &ipv4.Unnumbered})
+    ipv4.EntityData.Children.Append("config", types.YChild{"Config", &ipv4.Config})
+    ipv4.EntityData.Children.Append("state", types.YChild{"State", &ipv4.State})
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -4141,7 +4252,7 @@ type Interfaces_Interface_RoutedVlan_Ipv4_Addresses struct {
 
     // The list of configured IPv4 addresses on the interface. The type is slice
     // of Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address.
-    Address []Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address
+    Address []*Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address
 }
 
 func (addresses *Interfaces_Interface_RoutedVlan_Ipv4_Addresses) GetEntityData() *types.CommonEntityData {
@@ -4154,12 +4265,15 @@ func (addresses *Interfaces_Interface_RoutedVlan_Ipv4_Addresses) GetEntityData()
     addresses.EntityData.NamespaceTable = openconfig.GetNamespaces()
     addresses.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    addresses.EntityData.Children = make(map[string]types.YChild)
-    addresses.EntityData.Children["address"] = types.YChild{"Address", nil}
+    addresses.EntityData.Children = types.NewOrderedMap()
+    addresses.EntityData.Children.Append("address", types.YChild{"Address", nil})
     for i := range addresses.Address {
-        addresses.EntityData.Children[types.GetSegmentPath(&addresses.Address[i])] = types.YChild{"Address", &addresses.Address[i]}
+        addresses.EntityData.Children.Append(types.GetSegmentPath(addresses.Address[i]), types.YChild{"Address", addresses.Address[i]})
     }
-    addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    addresses.EntityData.YListKeys = []string {}
+
     return &(addresses.EntityData)
 }
 
@@ -4171,7 +4285,7 @@ type Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address struct {
 
     // This attribute is a key. References the configured IP address. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // Refers to
     // interfaces.Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Config_Ip
     Ip interface{}
@@ -4191,17 +4305,20 @@ func (address *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address) GetEntity
     address.EntityData.YangName = "address"
     address.EntityData.BundleName = "openconfig"
     address.EntityData.ParentYangName = "addresses"
-    address.EntityData.SegmentPath = "address" + "[ip='" + fmt.Sprintf("%v", address.Ip) + "']"
+    address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
     address.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     address.EntityData.NamespaceTable = openconfig.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Children["config"] = types.YChild{"Config", &address.Config}
-    address.EntityData.Children["state"] = types.YChild{"State", &address.State}
-    address.EntityData.Children["vrrp"] = types.YChild{"Vrrp", &address.Vrrp}
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["ip"] = types.YLeaf{"Ip", address.Ip}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Children.Append("config", types.YChild{"Config", &address.Config})
+    address.EntityData.Children.Append("state", types.YChild{"State", &address.State})
+    address.EntityData.Children.Append("vrrp", types.YChild{"Vrrp", &address.Vrrp})
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", address.Ip})
+
+    address.EntityData.YListKeys = []string {"Ip"}
+
     return &(address.EntityData)
 }
 
@@ -4214,7 +4331,7 @@ type Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Config struct {
 
     // [adapted from IETF IP model RFC 7277]  The IPv4 address on the interface.
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // [adapted from IETF IP model RFC 7277]  The length of the subnet prefix. The
@@ -4232,10 +4349,13 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Config) Get
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["ip"] = types.YLeaf{"Ip", config.Ip}
-    config.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", config.PrefixLength}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", config.Ip})
+    config.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", config.PrefixLength})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -4248,7 +4368,7 @@ type Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_State struct {
 
     // [adapted from IETF IP model RFC 7277]  The IPv4 address on the interface.
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // [adapted from IETF IP model RFC 7277]  The length of the subnet prefix. The
@@ -4270,11 +4390,14 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_State) GetEn
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["ip"] = types.YLeaf{"Ip", state.Ip}
-    state.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", state.PrefixLength}
-    state.EntityData.Leafs["origin"] = types.YLeaf{"Origin", state.Origin}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", state.Ip})
+    state.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", state.PrefixLength})
+    state.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", state.Origin})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -4287,7 +4410,7 @@ type Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp struct {
 
     // List of VRRP groups, keyed by virtual router id. The type is slice of
     // Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp_VrrpGroup.
-    VrrpGroup []Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp_VrrpGroup
+    VrrpGroup []*Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp_VrrpGroup
 }
 
 func (vrrp *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp) GetEntityData() *types.CommonEntityData {
@@ -4300,12 +4423,15 @@ func (vrrp *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp) GetEnti
     vrrp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vrrp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    vrrp.EntityData.Children = make(map[string]types.YChild)
-    vrrp.EntityData.Children["vrrp-group"] = types.YChild{"VrrpGroup", nil}
+    vrrp.EntityData.Children = types.NewOrderedMap()
+    vrrp.EntityData.Children.Append("vrrp-group", types.YChild{"VrrpGroup", nil})
     for i := range vrrp.VrrpGroup {
-        vrrp.EntityData.Children[types.GetSegmentPath(&vrrp.VrrpGroup[i])] = types.YChild{"VrrpGroup", &vrrp.VrrpGroup[i]}
+        vrrp.EntityData.Children.Append(types.GetSegmentPath(vrrp.VrrpGroup[i]), types.YChild{"VrrpGroup", vrrp.VrrpGroup[i]})
     }
-    vrrp.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrrp.EntityData.Leafs = types.NewOrderedMap()
+
+    vrrp.EntityData.YListKeys = []string {}
+
     return &(vrrp.EntityData)
 }
 
@@ -4335,17 +4461,20 @@ func (vrrpGroup *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp_Vrr
     vrrpGroup.EntityData.YangName = "vrrp-group"
     vrrpGroup.EntityData.BundleName = "openconfig"
     vrrpGroup.EntityData.ParentYangName = "vrrp"
-    vrrpGroup.EntityData.SegmentPath = "vrrp-group" + "[virtual-router-id='" + fmt.Sprintf("%v", vrrpGroup.VirtualRouterId) + "']"
+    vrrpGroup.EntityData.SegmentPath = "vrrp-group" + types.AddKeyToken(vrrpGroup.VirtualRouterId, "virtual-router-id")
     vrrpGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     vrrpGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vrrpGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    vrrpGroup.EntityData.Children = make(map[string]types.YChild)
-    vrrpGroup.EntityData.Children["config"] = types.YChild{"Config", &vrrpGroup.Config}
-    vrrpGroup.EntityData.Children["state"] = types.YChild{"State", &vrrpGroup.State}
-    vrrpGroup.EntityData.Children["interface-tracking"] = types.YChild{"InterfaceTracking", &vrrpGroup.InterfaceTracking}
-    vrrpGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrrpGroup.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", vrrpGroup.VirtualRouterId}
+    vrrpGroup.EntityData.Children = types.NewOrderedMap()
+    vrrpGroup.EntityData.Children.Append("config", types.YChild{"Config", &vrrpGroup.Config})
+    vrrpGroup.EntityData.Children.Append("state", types.YChild{"State", &vrrpGroup.State})
+    vrrpGroup.EntityData.Children.Append("interface-tracking", types.YChild{"InterfaceTracking", &vrrpGroup.InterfaceTracking})
+    vrrpGroup.EntityData.Leafs = types.NewOrderedMap()
+    vrrpGroup.EntityData.Leafs.Append("virtual-router-id", types.YLeaf{"VirtualRouterId", vrrpGroup.VirtualRouterId})
+
+    vrrpGroup.EntityData.YListKeys = []string {"VirtualRouterId"}
+
     return &(vrrpGroup.EntityData)
 }
 
@@ -4362,9 +4491,9 @@ type Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp_VrrpGroup_Confi
 
     // Configure one or more virtual addresses for the VRRP group. The type is one
     // of the following types: slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or slice of string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VirtualAddress []interface{}
 
     // Specifies the sending VRRP interface's priority for the virtual router. 
@@ -4404,15 +4533,18 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp_VrrpGr
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", config.VirtualRouterId}
-    config.EntityData.Leafs["virtual-address"] = types.YLeaf{"VirtualAddress", config.VirtualAddress}
-    config.EntityData.Leafs["priority"] = types.YLeaf{"Priority", config.Priority}
-    config.EntityData.Leafs["preempt"] = types.YLeaf{"Preempt", config.Preempt}
-    config.EntityData.Leafs["preempt-delay"] = types.YLeaf{"PreemptDelay", config.PreemptDelay}
-    config.EntityData.Leafs["accept-mode"] = types.YLeaf{"AcceptMode", config.AcceptMode}
-    config.EntityData.Leafs["advertisement-interval"] = types.YLeaf{"AdvertisementInterval", config.AdvertisementInterval}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("virtual-router-id", types.YLeaf{"VirtualRouterId", config.VirtualRouterId})
+    config.EntityData.Leafs.Append("virtual-address", types.YLeaf{"VirtualAddress", config.VirtualAddress})
+    config.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", config.Priority})
+    config.EntityData.Leafs.Append("preempt", types.YLeaf{"Preempt", config.Preempt})
+    config.EntityData.Leafs.Append("preempt-delay", types.YLeaf{"PreemptDelay", config.PreemptDelay})
+    config.EntityData.Leafs.Append("accept-mode", types.YLeaf{"AcceptMode", config.AcceptMode})
+    config.EntityData.Leafs.Append("advertisement-interval", types.YLeaf{"AdvertisementInterval", config.AdvertisementInterval})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -4429,9 +4561,9 @@ type Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp_VrrpGroup_State
 
     // Configure one or more virtual addresses for the VRRP group. The type is one
     // of the following types: slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or slice of string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VirtualAddress []interface{}
 
     // Specifies the sending VRRP interface's priority for the virtual router. 
@@ -4475,16 +4607,19 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp_VrrpGro
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", state.VirtualRouterId}
-    state.EntityData.Leafs["virtual-address"] = types.YLeaf{"VirtualAddress", state.VirtualAddress}
-    state.EntityData.Leafs["priority"] = types.YLeaf{"Priority", state.Priority}
-    state.EntityData.Leafs["preempt"] = types.YLeaf{"Preempt", state.Preempt}
-    state.EntityData.Leafs["preempt-delay"] = types.YLeaf{"PreemptDelay", state.PreemptDelay}
-    state.EntityData.Leafs["accept-mode"] = types.YLeaf{"AcceptMode", state.AcceptMode}
-    state.EntityData.Leafs["advertisement-interval"] = types.YLeaf{"AdvertisementInterval", state.AdvertisementInterval}
-    state.EntityData.Leafs["current-priority"] = types.YLeaf{"CurrentPriority", state.CurrentPriority}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("virtual-router-id", types.YLeaf{"VirtualRouterId", state.VirtualRouterId})
+    state.EntityData.Leafs.Append("virtual-address", types.YLeaf{"VirtualAddress", state.VirtualAddress})
+    state.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", state.Priority})
+    state.EntityData.Leafs.Append("preempt", types.YLeaf{"Preempt", state.Preempt})
+    state.EntityData.Leafs.Append("preempt-delay", types.YLeaf{"PreemptDelay", state.PreemptDelay})
+    state.EntityData.Leafs.Append("accept-mode", types.YLeaf{"AcceptMode", state.AcceptMode})
+    state.EntityData.Leafs.Append("advertisement-interval", types.YLeaf{"AdvertisementInterval", state.AdvertisementInterval})
+    state.EntityData.Leafs.Append("current-priority", types.YLeaf{"CurrentPriority", state.CurrentPriority})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -4511,10 +4646,13 @@ func (interfaceTracking *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_
     interfaceTracking.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceTracking.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    interfaceTracking.EntityData.Children = make(map[string]types.YChild)
-    interfaceTracking.EntityData.Children["config"] = types.YChild{"Config", &interfaceTracking.Config}
-    interfaceTracking.EntityData.Children["state"] = types.YChild{"State", &interfaceTracking.State}
-    interfaceTracking.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceTracking.EntityData.Children = types.NewOrderedMap()
+    interfaceTracking.EntityData.Children.Append("config", types.YChild{"Config", &interfaceTracking.Config})
+    interfaceTracking.EntityData.Children.Append("state", types.YChild{"State", &interfaceTracking.State})
+    interfaceTracking.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceTracking.EntityData.YListKeys = []string {}
+
     return &(interfaceTracking.EntityData)
 }
 
@@ -4546,10 +4684,13 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp_VrrpGr
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["track-interface"] = types.YLeaf{"TrackInterface", config.TrackInterface}
-    config.EntityData.Leafs["priority-decrement"] = types.YLeaf{"PriorityDecrement", config.PriorityDecrement}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("track-interface", types.YLeaf{"TrackInterface", config.TrackInterface})
+    config.EntityData.Leafs.Append("priority-decrement", types.YLeaf{"PriorityDecrement", config.PriorityDecrement})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -4581,10 +4722,13 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp_VrrpGro
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["track-interface"] = types.YLeaf{"TrackInterface", state.TrackInterface}
-    state.EntityData.Leafs["priority-decrement"] = types.YLeaf{"PriorityDecrement", state.PriorityDecrement}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("track-interface", types.YLeaf{"TrackInterface", state.TrackInterface})
+    state.EntityData.Leafs.Append("priority-decrement", types.YLeaf{"PriorityDecrement", state.PriorityDecrement})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -4597,7 +4741,7 @@ type Interfaces_Interface_RoutedVlan_Ipv4_Neighbors struct {
     // A list of mappings from IPv4 addresses to link-layer addresses.  Entries in
     // this list are used as static entries in the ARP Cache. The type is slice of
     // Interfaces_Interface_RoutedVlan_Ipv4_Neighbors_Neighbor.
-    Neighbor []Interfaces_Interface_RoutedVlan_Ipv4_Neighbors_Neighbor
+    Neighbor []*Interfaces_Interface_RoutedVlan_Ipv4_Neighbors_Neighbor
 }
 
 func (neighbors *Interfaces_Interface_RoutedVlan_Ipv4_Neighbors) GetEntityData() *types.CommonEntityData {
@@ -4610,12 +4754,15 @@ func (neighbors *Interfaces_Interface_RoutedVlan_Ipv4_Neighbors) GetEntityData()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighbors.EntityData.Children = make(map[string]types.YChild)
-    neighbors.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    neighbors.EntityData.Children = types.NewOrderedMap()
+    neighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighbors.Neighbor {
-        neighbors.EntityData.Children[types.GetSegmentPath(&neighbors.Neighbor[i])] = types.YChild{"Neighbor", &neighbors.Neighbor[i]}
+        neighbors.EntityData.Children.Append(types.GetSegmentPath(neighbors.Neighbor[i]), types.YChild{"Neighbor", neighbors.Neighbor[i]})
     }
-    neighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    neighbors.EntityData.YListKeys = []string {}
+
     return &(neighbors.EntityData)
 }
 
@@ -4631,7 +4778,7 @@ type Interfaces_Interface_RoutedVlan_Ipv4_Neighbors_Neighbor struct {
 
     // This attribute is a key. References the configured IP address. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // Refers to
     // interfaces.Interfaces_Interface_RoutedVlan_Ipv4_Neighbors_Neighbor_Config_Ip
     Ip interface{}
@@ -4648,16 +4795,19 @@ func (neighbor *Interfaces_Interface_RoutedVlan_Ipv4_Neighbors_Neighbor) GetEnti
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[ip='" + fmt.Sprintf("%v", neighbor.Ip) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Children["config"] = types.YChild{"Config", &neighbor.Config}
-    neighbor.EntityData.Children["state"] = types.YChild{"State", &neighbor.State}
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["ip"] = types.YLeaf{"Ip", neighbor.Ip}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Children.Append("config", types.YChild{"Config", &neighbor.Config})
+    neighbor.EntityData.Children.Append("state", types.YChild{"State", &neighbor.State})
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", neighbor.Ip})
+
+    neighbor.EntityData.YListKeys = []string {"Ip"}
+
     return &(neighbor.EntityData)
 }
 
@@ -4669,12 +4819,11 @@ type Interfaces_Interface_RoutedVlan_Ipv4_Neighbors_Neighbor_Config struct {
     YFilter yfilter.YFilter
 
     // The IPv4 address of the neighbor node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The link-layer address of the neighbor node. The type is string with
-    // pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'. This attribute is
-    // mandatory.
+    // pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?. This attribute is mandatory.
     LinkLayerAddress interface{}
 }
 
@@ -4688,10 +4837,13 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv4_Neighbors_Neighbor_Config) Ge
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["ip"] = types.YLeaf{"Ip", config.Ip}
-    config.EntityData.Leafs["link-layer-address"] = types.YLeaf{"LinkLayerAddress", config.LinkLayerAddress}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", config.Ip})
+    config.EntityData.Leafs.Append("link-layer-address", types.YLeaf{"LinkLayerAddress", config.LinkLayerAddress})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -4703,12 +4855,11 @@ type Interfaces_Interface_RoutedVlan_Ipv4_Neighbors_Neighbor_State struct {
     YFilter yfilter.YFilter
 
     // The IPv4 address of the neighbor node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The link-layer address of the neighbor node. The type is string with
-    // pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'. This attribute is
-    // mandatory.
+    // pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?. This attribute is mandatory.
     LinkLayerAddress interface{}
 
     // The origin of this neighbor entry, static or dynamic. The type is
@@ -4726,11 +4877,14 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv4_Neighbors_Neighbor_State) GetE
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["ip"] = types.YLeaf{"Ip", state.Ip}
-    state.EntityData.Leafs["link-layer-address"] = types.YLeaf{"LinkLayerAddress", state.LinkLayerAddress}
-    state.EntityData.Leafs["origin"] = types.YLeaf{"Origin", state.Origin}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", state.Ip})
+    state.EntityData.Leafs.Append("link-layer-address", types.YLeaf{"LinkLayerAddress", state.LinkLayerAddress})
+    state.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", state.Origin})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -4762,11 +4916,14 @@ func (unnumbered *Interfaces_Interface_RoutedVlan_Ipv4_Unnumbered) GetEntityData
     unnumbered.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unnumbered.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    unnumbered.EntityData.Children = make(map[string]types.YChild)
-    unnumbered.EntityData.Children["config"] = types.YChild{"Config", &unnumbered.Config}
-    unnumbered.EntityData.Children["state"] = types.YChild{"State", &unnumbered.State}
-    unnumbered.EntityData.Children["interface-ref"] = types.YChild{"InterfaceRef", &unnumbered.InterfaceRef}
-    unnumbered.EntityData.Leafs = make(map[string]types.YLeaf)
+    unnumbered.EntityData.Children = types.NewOrderedMap()
+    unnumbered.EntityData.Children.Append("config", types.YChild{"Config", &unnumbered.Config})
+    unnumbered.EntityData.Children.Append("state", types.YChild{"State", &unnumbered.State})
+    unnumbered.EntityData.Children.Append("interface-ref", types.YChild{"InterfaceRef", &unnumbered.InterfaceRef})
+    unnumbered.EntityData.Leafs = types.NewOrderedMap()
+
+    unnumbered.EntityData.YListKeys = []string {}
+
     return &(unnumbered.EntityData)
 }
 
@@ -4792,9 +4949,12 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv4_Unnumbered_Config) GetEntityD
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -4820,9 +4980,12 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv4_Unnumbered_State) GetEntityDat
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -4849,10 +5012,13 @@ func (interfaceRef *Interfaces_Interface_RoutedVlan_Ipv4_Unnumbered_InterfaceRef
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    interfaceRef.EntityData.Children = make(map[string]types.YChild)
-    interfaceRef.EntityData.Children["config"] = types.YChild{"Config", &interfaceRef.Config}
-    interfaceRef.EntityData.Children["state"] = types.YChild{"State", &interfaceRef.State}
-    interfaceRef.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceRef.EntityData.Children = types.NewOrderedMap()
+    interfaceRef.EntityData.Children.Append("config", types.YChild{"Config", &interfaceRef.Config})
+    interfaceRef.EntityData.Children.Append("state", types.YChild{"State", &interfaceRef.State})
+    interfaceRef.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceRef.EntityData.YListKeys = []string {}
+
     return &(interfaceRef.EntityData)
 }
 
@@ -4865,7 +5031,7 @@ type Interfaces_Interface_RoutedVlan_Ipv4_Unnumbered_InterfaceRef_Config struct 
     // Reference to a base interface.  If a reference to a subinterface is
     // required, this leaf must be specified to indicate the base interface. The
     // type is string. Refers to interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // Reference to a subinterface -- this requires the base interface to be
     // specified using the interface leaf in this container.  If only a reference
@@ -4885,10 +5051,13 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv4_Unnumbered_InterfaceRef_Confi
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", config.Interface_}
-    config.EntityData.Leafs["subinterface"] = types.YLeaf{"Subinterface", config.Subinterface}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", config.Interface})
+    config.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", config.Subinterface})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -4901,7 +5070,7 @@ type Interfaces_Interface_RoutedVlan_Ipv4_Unnumbered_InterfaceRef_State struct {
     // Reference to a base interface.  If a reference to a subinterface is
     // required, this leaf must be specified to indicate the base interface. The
     // type is string. Refers to interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // Reference to a subinterface -- this requires the base interface to be
     // specified using the interface leaf in this container.  If only a reference
@@ -4921,10 +5090,13 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv4_Unnumbered_InterfaceRef_State)
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", state.Interface_}
-    state.EntityData.Leafs["subinterface"] = types.YLeaf{"Subinterface", state.Subinterface}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", state.Interface})
+    state.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", state.Subinterface})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -4958,10 +5130,13 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv4_Config) GetEntityData() *type
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
-    config.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", config.Mtu}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+    config.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", config.Mtu})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -4995,10 +5170,13 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv4_State) GetEntityData() *types.
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", state.Mtu}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", state.Mtu})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -5035,13 +5213,16 @@ func (ipv6 *Interfaces_Interface_RoutedVlan_Ipv6) GetEntityData() *types.CommonE
     ipv6.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["addresses"] = types.YChild{"Addresses", &ipv6.Addresses}
-    ipv6.EntityData.Children["neighbors"] = types.YChild{"Neighbors", &ipv6.Neighbors}
-    ipv6.EntityData.Children["unnumbered"] = types.YChild{"Unnumbered", &ipv6.Unnumbered}
-    ipv6.EntityData.Children["config"] = types.YChild{"Config", &ipv6.Config}
-    ipv6.EntityData.Children["state"] = types.YChild{"State", &ipv6.State}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("addresses", types.YChild{"Addresses", &ipv6.Addresses})
+    ipv6.EntityData.Children.Append("neighbors", types.YChild{"Neighbors", &ipv6.Neighbors})
+    ipv6.EntityData.Children.Append("unnumbered", types.YChild{"Unnumbered", &ipv6.Unnumbered})
+    ipv6.EntityData.Children.Append("config", types.YChild{"Config", &ipv6.Config})
+    ipv6.EntityData.Children.Append("state", types.YChild{"State", &ipv6.State})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -5053,7 +5234,7 @@ type Interfaces_Interface_RoutedVlan_Ipv6_Addresses struct {
 
     // The list of configured IPv6 addresses on the interface. The type is slice
     // of Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address.
-    Address []Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address
+    Address []*Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address
 }
 
 func (addresses *Interfaces_Interface_RoutedVlan_Ipv6_Addresses) GetEntityData() *types.CommonEntityData {
@@ -5066,12 +5247,15 @@ func (addresses *Interfaces_Interface_RoutedVlan_Ipv6_Addresses) GetEntityData()
     addresses.EntityData.NamespaceTable = openconfig.GetNamespaces()
     addresses.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    addresses.EntityData.Children = make(map[string]types.YChild)
-    addresses.EntityData.Children["address"] = types.YChild{"Address", nil}
+    addresses.EntityData.Children = types.NewOrderedMap()
+    addresses.EntityData.Children.Append("address", types.YChild{"Address", nil})
     for i := range addresses.Address {
-        addresses.EntityData.Children[types.GetSegmentPath(&addresses.Address[i])] = types.YChild{"Address", &addresses.Address[i]}
+        addresses.EntityData.Children.Append(types.GetSegmentPath(addresses.Address[i]), types.YChild{"Address", addresses.Address[i]})
     }
-    addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    addresses.EntityData.YListKeys = []string {}
+
     return &(addresses.EntityData)
 }
 
@@ -5083,7 +5267,7 @@ type Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address struct {
 
     // This attribute is a key. References the configured IP address. The type is
     // string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     // Refers to
     // interfaces.Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Config_Ip
     Ip interface{}
@@ -5103,17 +5287,20 @@ func (address *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address) GetEntity
     address.EntityData.YangName = "address"
     address.EntityData.BundleName = "openconfig"
     address.EntityData.ParentYangName = "addresses"
-    address.EntityData.SegmentPath = "address" + "[ip='" + fmt.Sprintf("%v", address.Ip) + "']"
+    address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
     address.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     address.EntityData.NamespaceTable = openconfig.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    address.EntityData.Children = make(map[string]types.YChild)
-    address.EntityData.Children["config"] = types.YChild{"Config", &address.Config}
-    address.EntityData.Children["state"] = types.YChild{"State", &address.State}
-    address.EntityData.Children["vrrp"] = types.YChild{"Vrrp", &address.Vrrp}
-    address.EntityData.Leafs = make(map[string]types.YLeaf)
-    address.EntityData.Leafs["ip"] = types.YLeaf{"Ip", address.Ip}
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Children.Append("config", types.YChild{"Config", &address.Config})
+    address.EntityData.Children.Append("state", types.YChild{"State", &address.State})
+    address.EntityData.Children.Append("vrrp", types.YChild{"Vrrp", &address.Vrrp})
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", address.Ip})
+
+    address.EntityData.YListKeys = []string {"Ip"}
+
     return &(address.EntityData)
 }
 
@@ -5126,7 +5313,7 @@ type Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Config struct {
 
     // [adapted from IETF IP model RFC 7277]  The IPv6 address on the interface.
     // The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // [adapted from IETF IP model RFC 7277]  The length of the subnet prefix. The
@@ -5144,10 +5331,13 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Config) Get
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["ip"] = types.YLeaf{"Ip", config.Ip}
-    config.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", config.PrefixLength}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", config.Ip})
+    config.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", config.PrefixLength})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -5160,7 +5350,7 @@ type Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_State struct {
 
     // [adapted from IETF IP model RFC 7277]  The IPv6 address on the interface.
     // The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // [adapted from IETF IP model RFC 7277]  The length of the subnet prefix. The
@@ -5187,12 +5377,15 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_State) GetEn
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["ip"] = types.YLeaf{"Ip", state.Ip}
-    state.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", state.PrefixLength}
-    state.EntityData.Leafs["origin"] = types.YLeaf{"Origin", state.Origin}
-    state.EntityData.Leafs["status"] = types.YLeaf{"Status", state.Status}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", state.Ip})
+    state.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", state.PrefixLength})
+    state.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", state.Origin})
+    state.EntityData.Leafs.Append("status", types.YLeaf{"Status", state.Status})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -5247,7 +5440,7 @@ type Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp struct {
 
     // List of VRRP groups, keyed by virtual router id. The type is slice of
     // Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp_VrrpGroup.
-    VrrpGroup []Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp_VrrpGroup
+    VrrpGroup []*Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp_VrrpGroup
 }
 
 func (vrrp *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp) GetEntityData() *types.CommonEntityData {
@@ -5260,12 +5453,15 @@ func (vrrp *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp) GetEnti
     vrrp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vrrp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    vrrp.EntityData.Children = make(map[string]types.YChild)
-    vrrp.EntityData.Children["vrrp-group"] = types.YChild{"VrrpGroup", nil}
+    vrrp.EntityData.Children = types.NewOrderedMap()
+    vrrp.EntityData.Children.Append("vrrp-group", types.YChild{"VrrpGroup", nil})
     for i := range vrrp.VrrpGroup {
-        vrrp.EntityData.Children[types.GetSegmentPath(&vrrp.VrrpGroup[i])] = types.YChild{"VrrpGroup", &vrrp.VrrpGroup[i]}
+        vrrp.EntityData.Children.Append(types.GetSegmentPath(vrrp.VrrpGroup[i]), types.YChild{"VrrpGroup", vrrp.VrrpGroup[i]})
     }
-    vrrp.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrrp.EntityData.Leafs = types.NewOrderedMap()
+
+    vrrp.EntityData.YListKeys = []string {}
+
     return &(vrrp.EntityData)
 }
 
@@ -5295,17 +5491,20 @@ func (vrrpGroup *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp_Vrr
     vrrpGroup.EntityData.YangName = "vrrp-group"
     vrrpGroup.EntityData.BundleName = "openconfig"
     vrrpGroup.EntityData.ParentYangName = "vrrp"
-    vrrpGroup.EntityData.SegmentPath = "vrrp-group" + "[virtual-router-id='" + fmt.Sprintf("%v", vrrpGroup.VirtualRouterId) + "']"
+    vrrpGroup.EntityData.SegmentPath = "vrrp-group" + types.AddKeyToken(vrrpGroup.VirtualRouterId, "virtual-router-id")
     vrrpGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     vrrpGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vrrpGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    vrrpGroup.EntityData.Children = make(map[string]types.YChild)
-    vrrpGroup.EntityData.Children["config"] = types.YChild{"Config", &vrrpGroup.Config}
-    vrrpGroup.EntityData.Children["state"] = types.YChild{"State", &vrrpGroup.State}
-    vrrpGroup.EntityData.Children["interface-tracking"] = types.YChild{"InterfaceTracking", &vrrpGroup.InterfaceTracking}
-    vrrpGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrrpGroup.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", vrrpGroup.VirtualRouterId}
+    vrrpGroup.EntityData.Children = types.NewOrderedMap()
+    vrrpGroup.EntityData.Children.Append("config", types.YChild{"Config", &vrrpGroup.Config})
+    vrrpGroup.EntityData.Children.Append("state", types.YChild{"State", &vrrpGroup.State})
+    vrrpGroup.EntityData.Children.Append("interface-tracking", types.YChild{"InterfaceTracking", &vrrpGroup.InterfaceTracking})
+    vrrpGroup.EntityData.Leafs = types.NewOrderedMap()
+    vrrpGroup.EntityData.Leafs.Append("virtual-router-id", types.YLeaf{"VirtualRouterId", vrrpGroup.VirtualRouterId})
+
+    vrrpGroup.EntityData.YListKeys = []string {"VirtualRouterId"}
+
     return &(vrrpGroup.EntityData)
 }
 
@@ -5322,9 +5521,9 @@ type Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp_VrrpGroup_Confi
 
     // Configure one or more virtual addresses for the VRRP group. The type is one
     // of the following types: slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or slice of string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VirtualAddress []interface{}
 
     // Specifies the sending VRRP interface's priority for the virtual router. 
@@ -5355,9 +5554,9 @@ type Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp_VrrpGroup_Confi
 
     // For VRRP on IPv6 interfaces, sets the virtual link local address. The type
     // is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VirtualLinkLocal interface{}
 }
 
@@ -5371,16 +5570,19 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp_VrrpGr
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", config.VirtualRouterId}
-    config.EntityData.Leafs["virtual-address"] = types.YLeaf{"VirtualAddress", config.VirtualAddress}
-    config.EntityData.Leafs["priority"] = types.YLeaf{"Priority", config.Priority}
-    config.EntityData.Leafs["preempt"] = types.YLeaf{"Preempt", config.Preempt}
-    config.EntityData.Leafs["preempt-delay"] = types.YLeaf{"PreemptDelay", config.PreemptDelay}
-    config.EntityData.Leafs["accept-mode"] = types.YLeaf{"AcceptMode", config.AcceptMode}
-    config.EntityData.Leafs["advertisement-interval"] = types.YLeaf{"AdvertisementInterval", config.AdvertisementInterval}
-    config.EntityData.Leafs["virtual-link-local"] = types.YLeaf{"VirtualLinkLocal", config.VirtualLinkLocal}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("virtual-router-id", types.YLeaf{"VirtualRouterId", config.VirtualRouterId})
+    config.EntityData.Leafs.Append("virtual-address", types.YLeaf{"VirtualAddress", config.VirtualAddress})
+    config.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", config.Priority})
+    config.EntityData.Leafs.Append("preempt", types.YLeaf{"Preempt", config.Preempt})
+    config.EntityData.Leafs.Append("preempt-delay", types.YLeaf{"PreemptDelay", config.PreemptDelay})
+    config.EntityData.Leafs.Append("accept-mode", types.YLeaf{"AcceptMode", config.AcceptMode})
+    config.EntityData.Leafs.Append("advertisement-interval", types.YLeaf{"AdvertisementInterval", config.AdvertisementInterval})
+    config.EntityData.Leafs.Append("virtual-link-local", types.YLeaf{"VirtualLinkLocal", config.VirtualLinkLocal})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -5397,9 +5599,9 @@ type Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp_VrrpGroup_State
 
     // Configure one or more virtual addresses for the VRRP group. The type is one
     // of the following types: slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or slice of string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VirtualAddress []interface{}
 
     // Specifies the sending VRRP interface's priority for the virtual router. 
@@ -5434,9 +5636,9 @@ type Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp_VrrpGroup_State
 
     // For VRRP on IPv6 interfaces, sets the virtual link local address. The type
     // is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VirtualLinkLocal interface{}
 }
 
@@ -5450,17 +5652,20 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp_VrrpGro
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", state.VirtualRouterId}
-    state.EntityData.Leafs["virtual-address"] = types.YLeaf{"VirtualAddress", state.VirtualAddress}
-    state.EntityData.Leafs["priority"] = types.YLeaf{"Priority", state.Priority}
-    state.EntityData.Leafs["preempt"] = types.YLeaf{"Preempt", state.Preempt}
-    state.EntityData.Leafs["preempt-delay"] = types.YLeaf{"PreemptDelay", state.PreemptDelay}
-    state.EntityData.Leafs["accept-mode"] = types.YLeaf{"AcceptMode", state.AcceptMode}
-    state.EntityData.Leafs["advertisement-interval"] = types.YLeaf{"AdvertisementInterval", state.AdvertisementInterval}
-    state.EntityData.Leafs["current-priority"] = types.YLeaf{"CurrentPriority", state.CurrentPriority}
-    state.EntityData.Leafs["virtual-link-local"] = types.YLeaf{"VirtualLinkLocal", state.VirtualLinkLocal}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("virtual-router-id", types.YLeaf{"VirtualRouterId", state.VirtualRouterId})
+    state.EntityData.Leafs.Append("virtual-address", types.YLeaf{"VirtualAddress", state.VirtualAddress})
+    state.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", state.Priority})
+    state.EntityData.Leafs.Append("preempt", types.YLeaf{"Preempt", state.Preempt})
+    state.EntityData.Leafs.Append("preempt-delay", types.YLeaf{"PreemptDelay", state.PreemptDelay})
+    state.EntityData.Leafs.Append("accept-mode", types.YLeaf{"AcceptMode", state.AcceptMode})
+    state.EntityData.Leafs.Append("advertisement-interval", types.YLeaf{"AdvertisementInterval", state.AdvertisementInterval})
+    state.EntityData.Leafs.Append("current-priority", types.YLeaf{"CurrentPriority", state.CurrentPriority})
+    state.EntityData.Leafs.Append("virtual-link-local", types.YLeaf{"VirtualLinkLocal", state.VirtualLinkLocal})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -5487,10 +5692,13 @@ func (interfaceTracking *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_
     interfaceTracking.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceTracking.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    interfaceTracking.EntityData.Children = make(map[string]types.YChild)
-    interfaceTracking.EntityData.Children["config"] = types.YChild{"Config", &interfaceTracking.Config}
-    interfaceTracking.EntityData.Children["state"] = types.YChild{"State", &interfaceTracking.State}
-    interfaceTracking.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceTracking.EntityData.Children = types.NewOrderedMap()
+    interfaceTracking.EntityData.Children.Append("config", types.YChild{"Config", &interfaceTracking.Config})
+    interfaceTracking.EntityData.Children.Append("state", types.YChild{"State", &interfaceTracking.State})
+    interfaceTracking.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceTracking.EntityData.YListKeys = []string {}
+
     return &(interfaceTracking.EntityData)
 }
 
@@ -5522,10 +5730,13 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp_VrrpGr
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["track-interface"] = types.YLeaf{"TrackInterface", config.TrackInterface}
-    config.EntityData.Leafs["priority-decrement"] = types.YLeaf{"PriorityDecrement", config.PriorityDecrement}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("track-interface", types.YLeaf{"TrackInterface", config.TrackInterface})
+    config.EntityData.Leafs.Append("priority-decrement", types.YLeaf{"PriorityDecrement", config.PriorityDecrement})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -5557,10 +5768,13 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp_VrrpGro
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["track-interface"] = types.YLeaf{"TrackInterface", state.TrackInterface}
-    state.EntityData.Leafs["priority-decrement"] = types.YLeaf{"PriorityDecrement", state.PriorityDecrement}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("track-interface", types.YLeaf{"TrackInterface", state.TrackInterface})
+    state.EntityData.Leafs.Append("priority-decrement", types.YLeaf{"PriorityDecrement", state.PriorityDecrement})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -5572,7 +5786,7 @@ type Interfaces_Interface_RoutedVlan_Ipv6_Neighbors struct {
 
     // List of IPv6 neighbors. The type is slice of
     // Interfaces_Interface_RoutedVlan_Ipv6_Neighbors_Neighbor.
-    Neighbor []Interfaces_Interface_RoutedVlan_Ipv6_Neighbors_Neighbor
+    Neighbor []*Interfaces_Interface_RoutedVlan_Ipv6_Neighbors_Neighbor
 }
 
 func (neighbors *Interfaces_Interface_RoutedVlan_Ipv6_Neighbors) GetEntityData() *types.CommonEntityData {
@@ -5585,12 +5799,15 @@ func (neighbors *Interfaces_Interface_RoutedVlan_Ipv6_Neighbors) GetEntityData()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighbors.EntityData.Children = make(map[string]types.YChild)
-    neighbors.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
+    neighbors.EntityData.Children = types.NewOrderedMap()
+    neighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighbors.Neighbor {
-        neighbors.EntityData.Children[types.GetSegmentPath(&neighbors.Neighbor[i])] = types.YChild{"Neighbor", &neighbors.Neighbor[i]}
+        neighbors.EntityData.Children.Append(types.GetSegmentPath(neighbors.Neighbor[i]), types.YChild{"Neighbor", neighbors.Neighbor[i]})
     }
-    neighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighbors.EntityData.Leafs = types.NewOrderedMap()
+
+    neighbors.EntityData.YListKeys = []string {}
+
     return &(neighbors.EntityData)
 }
 
@@ -5602,7 +5819,7 @@ type Interfaces_Interface_RoutedVlan_Ipv6_Neighbors_Neighbor struct {
 
     // This attribute is a key. References the configured IP neighbor address. The
     // type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     // Refers to
     // interfaces.Interfaces_Interface_RoutedVlan_Ipv6_Neighbors_Neighbor_Config_Ip
     Ip interface{}
@@ -5619,16 +5836,19 @@ func (neighbor *Interfaces_Interface_RoutedVlan_Ipv6_Neighbors_Neighbor) GetEnti
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
-    neighbor.EntityData.SegmentPath = "neighbor" + "[ip='" + fmt.Sprintf("%v", neighbor.Ip) + "']"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    neighbor.EntityData.Children = make(map[string]types.YChild)
-    neighbor.EntityData.Children["config"] = types.YChild{"Config", &neighbor.Config}
-    neighbor.EntityData.Children["state"] = types.YChild{"State", &neighbor.State}
-    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
-    neighbor.EntityData.Leafs["ip"] = types.YLeaf{"Ip", neighbor.Ip}
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Children.Append("config", types.YChild{"Config", &neighbor.Config})
+    neighbor.EntityData.Children.Append("state", types.YChild{"State", &neighbor.State})
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", neighbor.Ip})
+
+    neighbor.EntityData.YListKeys = []string {"Ip"}
+
     return &(neighbor.EntityData)
 }
 
@@ -5641,12 +5861,12 @@ type Interfaces_Interface_RoutedVlan_Ipv6_Neighbors_Neighbor_Config struct {
 
     // [adapted from IETF IP model RFC 7277]  The IPv6 address of the neighbor
     // node. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // [adapted from IETF IP model RFC 7277]  The link-layer address of the
     // neighbor node. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'. This attribute is mandatory.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?. This attribute is mandatory.
     LinkLayerAddress interface{}
 }
 
@@ -5660,10 +5880,13 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv6_Neighbors_Neighbor_Config) Ge
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["ip"] = types.YLeaf{"Ip", config.Ip}
-    config.EntityData.Leafs["link-layer-address"] = types.YLeaf{"LinkLayerAddress", config.LinkLayerAddress}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", config.Ip})
+    config.EntityData.Leafs.Append("link-layer-address", types.YLeaf{"LinkLayerAddress", config.LinkLayerAddress})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -5676,12 +5899,12 @@ type Interfaces_Interface_RoutedVlan_Ipv6_Neighbors_Neighbor_State struct {
 
     // [adapted from IETF IP model RFC 7277]  The IPv6 address of the neighbor
     // node. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // [adapted from IETF IP model RFC 7277]  The link-layer address of the
     // neighbor node. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'. This attribute is mandatory.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?. This attribute is mandatory.
     LinkLayerAddress interface{}
 
     // [adapted from IETF IP model RFC 7277]  The origin of this neighbor entry.
@@ -5707,13 +5930,16 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv6_Neighbors_Neighbor_State) GetE
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["ip"] = types.YLeaf{"Ip", state.Ip}
-    state.EntityData.Leafs["link-layer-address"] = types.YLeaf{"LinkLayerAddress", state.LinkLayerAddress}
-    state.EntityData.Leafs["origin"] = types.YLeaf{"Origin", state.Origin}
-    state.EntityData.Leafs["is-router"] = types.YLeaf{"IsRouter", state.IsRouter}
-    state.EntityData.Leafs["neighbor-state"] = types.YLeaf{"NeighborState", state.NeighborState}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", state.Ip})
+    state.EntityData.Leafs.Append("link-layer-address", types.YLeaf{"LinkLayerAddress", state.LinkLayerAddress})
+    state.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", state.Origin})
+    state.EntityData.Leafs.Append("is-router", types.YLeaf{"IsRouter", state.IsRouter})
+    state.EntityData.Leafs.Append("neighbor-state", types.YLeaf{"NeighborState", state.NeighborState})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -5777,11 +6003,14 @@ func (unnumbered *Interfaces_Interface_RoutedVlan_Ipv6_Unnumbered) GetEntityData
     unnumbered.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unnumbered.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    unnumbered.EntityData.Children = make(map[string]types.YChild)
-    unnumbered.EntityData.Children["config"] = types.YChild{"Config", &unnumbered.Config}
-    unnumbered.EntityData.Children["state"] = types.YChild{"State", &unnumbered.State}
-    unnumbered.EntityData.Children["interface-ref"] = types.YChild{"InterfaceRef", &unnumbered.InterfaceRef}
-    unnumbered.EntityData.Leafs = make(map[string]types.YLeaf)
+    unnumbered.EntityData.Children = types.NewOrderedMap()
+    unnumbered.EntityData.Children.Append("config", types.YChild{"Config", &unnumbered.Config})
+    unnumbered.EntityData.Children.Append("state", types.YChild{"State", &unnumbered.State})
+    unnumbered.EntityData.Children.Append("interface-ref", types.YChild{"InterfaceRef", &unnumbered.InterfaceRef})
+    unnumbered.EntityData.Leafs = types.NewOrderedMap()
+
+    unnumbered.EntityData.YListKeys = []string {}
+
     return &(unnumbered.EntityData)
 }
 
@@ -5807,9 +6036,12 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv6_Unnumbered_Config) GetEntityD
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -5835,9 +6067,12 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv6_Unnumbered_State) GetEntityDat
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -5864,10 +6099,13 @@ func (interfaceRef *Interfaces_Interface_RoutedVlan_Ipv6_Unnumbered_InterfaceRef
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    interfaceRef.EntityData.Children = make(map[string]types.YChild)
-    interfaceRef.EntityData.Children["config"] = types.YChild{"Config", &interfaceRef.Config}
-    interfaceRef.EntityData.Children["state"] = types.YChild{"State", &interfaceRef.State}
-    interfaceRef.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceRef.EntityData.Children = types.NewOrderedMap()
+    interfaceRef.EntityData.Children.Append("config", types.YChild{"Config", &interfaceRef.Config})
+    interfaceRef.EntityData.Children.Append("state", types.YChild{"State", &interfaceRef.State})
+    interfaceRef.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceRef.EntityData.YListKeys = []string {}
+
     return &(interfaceRef.EntityData)
 }
 
@@ -5880,7 +6118,7 @@ type Interfaces_Interface_RoutedVlan_Ipv6_Unnumbered_InterfaceRef_Config struct 
     // Reference to a base interface.  If a reference to a subinterface is
     // required, this leaf must be specified to indicate the base interface. The
     // type is string. Refers to interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // Reference to a subinterface -- this requires the base interface to be
     // specified using the interface leaf in this container.  If only a reference
@@ -5900,10 +6138,13 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv6_Unnumbered_InterfaceRef_Confi
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", config.Interface_}
-    config.EntityData.Leafs["subinterface"] = types.YLeaf{"Subinterface", config.Subinterface}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", config.Interface})
+    config.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", config.Subinterface})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -5916,7 +6157,7 @@ type Interfaces_Interface_RoutedVlan_Ipv6_Unnumbered_InterfaceRef_State struct {
     // Reference to a base interface.  If a reference to a subinterface is
     // required, this leaf must be specified to indicate the base interface. The
     // type is string. Refers to interfaces.Interfaces_Interface_Name
-    Interface_ interface{}
+    Interface interface{}
 
     // Reference to a subinterface -- this requires the base interface to be
     // specified using the interface leaf in this container.  If only a reference
@@ -5936,10 +6177,13 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv6_Unnumbered_InterfaceRef_State)
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", state.Interface_}
-    state.EntityData.Leafs["subinterface"] = types.YLeaf{"Subinterface", state.Subinterface}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", state.Interface})
+    state.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", state.Subinterface})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -5982,11 +6226,14 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv6_Config) GetEntityData() *type
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    config.EntityData.Children = make(map[string]types.YChild)
-    config.EntityData.Leafs = make(map[string]types.YLeaf)
-    config.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", config.Enabled}
-    config.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", config.Mtu}
-    config.EntityData.Leafs["dup-addr-detect-transmits"] = types.YLeaf{"DupAddrDetectTransmits", config.DupAddrDetectTransmits}
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", config.Enabled})
+    config.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", config.Mtu})
+    config.EntityData.Leafs.Append("dup-addr-detect-transmits", types.YLeaf{"DupAddrDetectTransmits", config.DupAddrDetectTransmits})
+
+    config.EntityData.YListKeys = []string {}
+
     return &(config.EntityData)
 }
 
@@ -6029,11 +6276,14 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv6_State) GetEntityData() *types.
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    state.EntityData.Children = make(map[string]types.YChild)
-    state.EntityData.Leafs = make(map[string]types.YLeaf)
-    state.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", state.Enabled}
-    state.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", state.Mtu}
-    state.EntityData.Leafs["dup-addr-detect-transmits"] = types.YLeaf{"DupAddrDetectTransmits", state.DupAddrDetectTransmits}
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", state.Enabled})
+    state.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", state.Mtu})
+    state.EntityData.Leafs.Append("dup-addr-detect-transmits", types.YLeaf{"DupAddrDetectTransmits", state.DupAddrDetectTransmits})
+
+    state.EntityData.YListKeys = []string {}
+
     return &(state.EntityData)
 }
 
@@ -6054,8 +6304,11 @@ func (sonet *Interfaces_Interface_Sonet) GetEntityData() *types.CommonEntityData
     sonet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sonet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-    sonet.EntityData.Children = make(map[string]types.YChild)
-    sonet.EntityData.Leafs = make(map[string]types.YLeaf)
+    sonet.EntityData.Children = types.NewOrderedMap()
+    sonet.EntityData.Leafs = types.NewOrderedMap()
+
+    sonet.EntityData.YListKeys = []string {}
+
     return &(sonet.EntityData)
 }
 

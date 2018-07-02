@@ -38,13 +38,13 @@ type CISCOIPSLAECHOMIB struct {
     YFilter yfilter.YFilter
 
     // A table that contains ICMP echo template definitions.
-    Cipslaicmpechotmpltable CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable
+    CipslaIcmpEchoTmplTable CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable
 
     // A table that contains UDP echo template specific definitions.
-    Cipslaudpechotmpltable CISCOIPSLAECHOMIB_Cipslaudpechotmpltable
+    CipslaUdpEchoTmplTable CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable
 
     // A table that contains TCP connect template specific definitions.
-    Cipslatcpconntmpltable CISCOIPSLAECHOMIB_Cipslatcpconntmpltable
+    CipslaTcpConnTmplTable CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable
 }
 
 func (cISCOIPSLAECHOMIB *CISCOIPSLAECHOMIB) GetEntityData() *types.CommonEntityData {
@@ -57,66 +57,72 @@ func (cISCOIPSLAECHOMIB *CISCOIPSLAECHOMIB) GetEntityData() *types.CommonEntityD
     cISCOIPSLAECHOMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIPSLAECHOMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOIPSLAECHOMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOIPSLAECHOMIB.EntityData.Children["cipslaIcmpEchoTmplTable"] = types.YChild{"Cipslaicmpechotmpltable", &cISCOIPSLAECHOMIB.Cipslaicmpechotmpltable}
-    cISCOIPSLAECHOMIB.EntityData.Children["cipslaUdpEchoTmplTable"] = types.YChild{"Cipslaudpechotmpltable", &cISCOIPSLAECHOMIB.Cipslaudpechotmpltable}
-    cISCOIPSLAECHOMIB.EntityData.Children["cipslaTcpConnTmplTable"] = types.YChild{"Cipslatcpconntmpltable", &cISCOIPSLAECHOMIB.Cipslatcpconntmpltable}
-    cISCOIPSLAECHOMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOIPSLAECHOMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOIPSLAECHOMIB.EntityData.Children.Append("cipslaIcmpEchoTmplTable", types.YChild{"CipslaIcmpEchoTmplTable", &cISCOIPSLAECHOMIB.CipslaIcmpEchoTmplTable})
+    cISCOIPSLAECHOMIB.EntityData.Children.Append("cipslaUdpEchoTmplTable", types.YChild{"CipslaUdpEchoTmplTable", &cISCOIPSLAECHOMIB.CipslaUdpEchoTmplTable})
+    cISCOIPSLAECHOMIB.EntityData.Children.Append("cipslaTcpConnTmplTable", types.YChild{"CipslaTcpConnTmplTable", &cISCOIPSLAECHOMIB.CipslaTcpConnTmplTable})
+    cISCOIPSLAECHOMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOIPSLAECHOMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOIPSLAECHOMIB.EntityData)
 }
 
-// CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable
+// CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable
 // A table that contains ICMP echo template definitions.
-type CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable struct {
+type CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row entry representing an IPSLA ICMP echo template. The type is slice of
-    // CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry.
-    Cipslaicmpechotmplentry []CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry
+    // CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable_CipslaIcmpEchoTmplEntry.
+    CipslaIcmpEchoTmplEntry []*CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable_CipslaIcmpEchoTmplEntry
 }
 
-func (cipslaicmpechotmpltable *CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable) GetEntityData() *types.CommonEntityData {
-    cipslaicmpechotmpltable.EntityData.YFilter = cipslaicmpechotmpltable.YFilter
-    cipslaicmpechotmpltable.EntityData.YangName = "cipslaIcmpEchoTmplTable"
-    cipslaicmpechotmpltable.EntityData.BundleName = "cisco_ios_xe"
-    cipslaicmpechotmpltable.EntityData.ParentYangName = "CISCO-IPSLA-ECHO-MIB"
-    cipslaicmpechotmpltable.EntityData.SegmentPath = "cipslaIcmpEchoTmplTable"
-    cipslaicmpechotmpltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipslaicmpechotmpltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipslaicmpechotmpltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipslaIcmpEchoTmplTable *CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable) GetEntityData() *types.CommonEntityData {
+    cipslaIcmpEchoTmplTable.EntityData.YFilter = cipslaIcmpEchoTmplTable.YFilter
+    cipslaIcmpEchoTmplTable.EntityData.YangName = "cipslaIcmpEchoTmplTable"
+    cipslaIcmpEchoTmplTable.EntityData.BundleName = "cisco_ios_xe"
+    cipslaIcmpEchoTmplTable.EntityData.ParentYangName = "CISCO-IPSLA-ECHO-MIB"
+    cipslaIcmpEchoTmplTable.EntityData.SegmentPath = "cipslaIcmpEchoTmplTable"
+    cipslaIcmpEchoTmplTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaIcmpEchoTmplTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaIcmpEchoTmplTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipslaicmpechotmpltable.EntityData.Children = make(map[string]types.YChild)
-    cipslaicmpechotmpltable.EntityData.Children["cipslaIcmpEchoTmplEntry"] = types.YChild{"Cipslaicmpechotmplentry", nil}
-    for i := range cipslaicmpechotmpltable.Cipslaicmpechotmplentry {
-        cipslaicmpechotmpltable.EntityData.Children[types.GetSegmentPath(&cipslaicmpechotmpltable.Cipslaicmpechotmplentry[i])] = types.YChild{"Cipslaicmpechotmplentry", &cipslaicmpechotmpltable.Cipslaicmpechotmplentry[i]}
+    cipslaIcmpEchoTmplTable.EntityData.Children = types.NewOrderedMap()
+    cipslaIcmpEchoTmplTable.EntityData.Children.Append("cipslaIcmpEchoTmplEntry", types.YChild{"CipslaIcmpEchoTmplEntry", nil})
+    for i := range cipslaIcmpEchoTmplTable.CipslaIcmpEchoTmplEntry {
+        cipslaIcmpEchoTmplTable.EntityData.Children.Append(types.GetSegmentPath(cipslaIcmpEchoTmplTable.CipslaIcmpEchoTmplEntry[i]), types.YChild{"CipslaIcmpEchoTmplEntry", cipslaIcmpEchoTmplTable.CipslaIcmpEchoTmplEntry[i]})
     }
-    cipslaicmpechotmpltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cipslaicmpechotmpltable.EntityData)
+    cipslaIcmpEchoTmplTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cipslaIcmpEchoTmplTable.EntityData.YListKeys = []string {}
+
+    return &(cipslaIcmpEchoTmplTable.EntityData)
 }
 
-// CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry
+// CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable_CipslaIcmpEchoTmplEntry
 // A row entry representing an IPSLA ICMP echo template.
-type CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry struct {
+type CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable_CipslaIcmpEchoTmplEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This field is used to specify the ICMP echo
     // template name. The type is string with length: 1..64.
-    Cipslaicmpechotmplname interface{}
+    CipslaIcmpEchoTmplName interface{}
 
     // This field is used to provide description for the ICMP echo template. The
     // type is string with length: 0..128.
-    Cipslaicmpechotmpldescription interface{}
+    CipslaIcmpEchoTmplDescription interface{}
 
     // An enumerated value which specifies the IP address type of the source. It
     // must be used along with the cipslaIcmpEchoTmplSrcAddr object. The type is
     // InetAddressType.
-    Cipslaicmpechotmplsrcaddrtype interface{}
+    CipslaIcmpEchoTmplSrcAddrType interface{}
 
     // A string which specifies the IP address of the source. The type is string
     // with length: 0..255.
-    Cipslaicmpechotmplsrcaddr interface{}
+    CipslaIcmpEchoTmplSrcAddr interface{}
 
     // Specifies the duration to wait for a IP SLA operation completion.   For
     // connection oriented protocols, this may cause the connection to be closed
@@ -124,12 +130,12 @@ type CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry struct {
     // reestablishment will be performed.  To prevent unwanted closure of
     // connections, be sure to set this value to a realistic connection timeout.
     // The type is interface{} with range: 0..604800000. Units are milliseconds.
-    Cipslaicmpechotmpltimeout interface{}
+    CipslaIcmpEchoTmplTimeOut interface{}
 
     // When set to true, the resulting data in each IP SLA operation is compared
     // with the expected data.  This includes checking header information (if
     // possible) and exact packet size. The type is bool.
-    Cipslaicmpechotmplverifydata interface{}
+    CipslaIcmpEchoTmplVerifyData interface{}
 
     // This object represents the number of octets to be placed into the ARR Data
     // portion of the request message, when using SNA protocols.  For non-ARR
@@ -137,24 +143,24 @@ type CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry struct {
     // payload size.  REMEMBER:  The ARR Header overhead is not included          
     // in this value. The type is interface{} with range: 0..16384. Units are
     // octets.
-    Cipslaicmpechotmplreqdatasize interface{}
+    CipslaIcmpEchoTmplReqDataSize interface{}
 
     // This object represents the type of service octet in an IP header. The type
     // is interface{} with range: 0..255.
-    Cipslaicmpechotmpltos interface{}
+    CipslaIcmpEchoTmplTOS interface{}
 
     // This field is used to specify the VRF name with which the IP SLA operation
     // will be used. For regular IP SLA operation this field should not be
     // configured. The agent will use this field to identify the VRF routing table
     // for this operation. The type is string with length: 0..32.
-    Cipslaicmpechotmplvrfname interface{}
+    CipslaIcmpEchoTmplVrfName interface{}
 
     // This object defines an administrative threshold limit. If the IP SLA
     // operation time exceeds this limit and if the condition specified in
     // cipslaIcmpEchoTmplHistFilter is satisfied, one threshold crossing
     // occurrence will be counted. The type is interface{} with range:
     // 0..2147483647. Units are milliseconds.
-    Cipslaicmpechotmplthreshold interface{}
+    CipslaIcmpEchoTmplThreshold interface{}
 
     // The maximum number of history lives to record.  A life is defined by the
     // countdown (or transition) to zero  by the cipslaAutoGroupScheduleLife
@@ -162,14 +168,14 @@ type CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry struct {
     // restarted via the transition of the  cipslaAutoGroupScheduleLife object and
     // its subsequent  countdown.  The value of zero will shut off all data
     // collection. The type is interface{} with range: 0..2.
-    Cipslaicmpechotmplhistlives interface{}
+    CipslaIcmpEchoTmplHistLives interface{}
 
     // The maximum number of history buckets to record. This value is set to the
     // number of operations  to keep per lifetime.  After
     // cipslaIcmpEchoTmplHistBuckets are filled, the  oldest entries are deleted
     // and the most recent cipslaIcmpEchoTmplHistBuckets buckets are retained. The
     // type is interface{} with range: 1..60.
-    Cipslaicmpechotmplhistbuckets interface{}
+    CipslaIcmpEchoTmplHistBuckets interface{}
 
     // Defines a filter for adding RTT results to the history buffer:  none(1)    
     // - no history is recorded all(2)           - the results of all completion
@@ -177,8 +183,8 @@ type CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry struct {
     // overThreshold(3) - the results of completion times                    over
     // cipslaIcmpEchoTmplThreshold are                     recorded. failures(4)  
     // - the results of failed operations (only)                     are recorded.
-    // The type is Cipslaicmpechotmplhistfilter.
-    Cipslaicmpechotmplhistfilter interface{}
+    // The type is CipslaIcmpEchoTmplHistFilter.
+    CipslaIcmpEchoTmplHistFilter interface{}
 
     // The maximum number of hours for which statistics are maintained.
     // Specifically this is the number of hourly  groups to keep before rolling
@@ -187,7 +193,7 @@ type CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry struct {
     // have the opportunity to retrieve the statistics.  The value of zero will
     // shut off data collection. The type is interface{} with range: 0..25. Units
     // are hours.
-    Cipslaicmpechotmplstatshours interface{}
+    CipslaIcmpEchoTmplStatsHours interface{}
 
     // The maximum number of statistical distribution buckets to accumulate. 
     // Since this index does not rollover, only the first
@@ -195,7 +201,7 @@ type CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry struct {
     // cipslaIcmpEchoTmplStatsNumDistBucket will contain all entries from its
     // distribution interval start point to infinity. The type is interface{} with
     // range: 1..20.
-    Cipslaicmpechotmpldistbuckets interface{}
+    CipslaIcmpEchoTmplDistBuckets interface{}
 
     // The statistical distribution buckets interval.  Distribution Bucket
     // Example:  cipslaIcmpEchoTmplDistBuckets = 5 buckets
@@ -207,125 +213,131 @@ type CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry struct {
     // cipslaIcmpEchoTmplDistInterval does not apply when
     // cipslaIcmpEchoTmplDistBuckets is one. The type is interface{} with range:
     // 1..100. Units are milliseconds.
-    Cipslaicmpechotmpldistinterval interface{}
+    CipslaIcmpEchoTmplDistInterval interface{}
 
     // The storage type of this conceptual row. The type is StorageType.
-    Cipslaicmpechotmplstoragetype interface{}
+    CipslaIcmpEchoTmplStorageType interface{}
 
     // The status of the conceptual ICMP echo template control row. When the
     // status is active, all the read-create objects in that  row can be modified.
     // The type is RowStatus.
-    Cipslaicmpechotmplrowstatus interface{}
+    CipslaIcmpEchoTmplRowStatus interface{}
 }
 
-func (cipslaicmpechotmplentry *CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry) GetEntityData() *types.CommonEntityData {
-    cipslaicmpechotmplentry.EntityData.YFilter = cipslaicmpechotmplentry.YFilter
-    cipslaicmpechotmplentry.EntityData.YangName = "cipslaIcmpEchoTmplEntry"
-    cipslaicmpechotmplentry.EntityData.BundleName = "cisco_ios_xe"
-    cipslaicmpechotmplentry.EntityData.ParentYangName = "cipslaIcmpEchoTmplTable"
-    cipslaicmpechotmplentry.EntityData.SegmentPath = "cipslaIcmpEchoTmplEntry" + "[cipslaIcmpEchoTmplName='" + fmt.Sprintf("%v", cipslaicmpechotmplentry.Cipslaicmpechotmplname) + "']"
-    cipslaicmpechotmplentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipslaicmpechotmplentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipslaicmpechotmplentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipslaIcmpEchoTmplEntry *CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable_CipslaIcmpEchoTmplEntry) GetEntityData() *types.CommonEntityData {
+    cipslaIcmpEchoTmplEntry.EntityData.YFilter = cipslaIcmpEchoTmplEntry.YFilter
+    cipslaIcmpEchoTmplEntry.EntityData.YangName = "cipslaIcmpEchoTmplEntry"
+    cipslaIcmpEchoTmplEntry.EntityData.BundleName = "cisco_ios_xe"
+    cipslaIcmpEchoTmplEntry.EntityData.ParentYangName = "cipslaIcmpEchoTmplTable"
+    cipslaIcmpEchoTmplEntry.EntityData.SegmentPath = "cipslaIcmpEchoTmplEntry" + types.AddKeyToken(cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplName, "cipslaIcmpEchoTmplName")
+    cipslaIcmpEchoTmplEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaIcmpEchoTmplEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaIcmpEchoTmplEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipslaicmpechotmplentry.EntityData.Children = make(map[string]types.YChild)
-    cipslaicmpechotmplentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cipslaicmpechotmplentry.EntityData.Leafs["cipslaIcmpEchoTmplName"] = types.YLeaf{"Cipslaicmpechotmplname", cipslaicmpechotmplentry.Cipslaicmpechotmplname}
-    cipslaicmpechotmplentry.EntityData.Leafs["cipslaIcmpEchoTmplDescription"] = types.YLeaf{"Cipslaicmpechotmpldescription", cipslaicmpechotmplentry.Cipslaicmpechotmpldescription}
-    cipslaicmpechotmplentry.EntityData.Leafs["cipslaIcmpEchoTmplSrcAddrType"] = types.YLeaf{"Cipslaicmpechotmplsrcaddrtype", cipslaicmpechotmplentry.Cipslaicmpechotmplsrcaddrtype}
-    cipslaicmpechotmplentry.EntityData.Leafs["cipslaIcmpEchoTmplSrcAddr"] = types.YLeaf{"Cipslaicmpechotmplsrcaddr", cipslaicmpechotmplentry.Cipslaicmpechotmplsrcaddr}
-    cipslaicmpechotmplentry.EntityData.Leafs["cipslaIcmpEchoTmplTimeOut"] = types.YLeaf{"Cipslaicmpechotmpltimeout", cipslaicmpechotmplentry.Cipslaicmpechotmpltimeout}
-    cipslaicmpechotmplentry.EntityData.Leafs["cipslaIcmpEchoTmplVerifyData"] = types.YLeaf{"Cipslaicmpechotmplverifydata", cipslaicmpechotmplentry.Cipslaicmpechotmplverifydata}
-    cipslaicmpechotmplentry.EntityData.Leafs["cipslaIcmpEchoTmplReqDataSize"] = types.YLeaf{"Cipslaicmpechotmplreqdatasize", cipslaicmpechotmplentry.Cipslaicmpechotmplreqdatasize}
-    cipslaicmpechotmplentry.EntityData.Leafs["cipslaIcmpEchoTmplTOS"] = types.YLeaf{"Cipslaicmpechotmpltos", cipslaicmpechotmplentry.Cipslaicmpechotmpltos}
-    cipslaicmpechotmplentry.EntityData.Leafs["cipslaIcmpEchoTmplVrfName"] = types.YLeaf{"Cipslaicmpechotmplvrfname", cipslaicmpechotmplentry.Cipslaicmpechotmplvrfname}
-    cipslaicmpechotmplentry.EntityData.Leafs["cipslaIcmpEchoTmplThreshold"] = types.YLeaf{"Cipslaicmpechotmplthreshold", cipslaicmpechotmplentry.Cipslaicmpechotmplthreshold}
-    cipslaicmpechotmplentry.EntityData.Leafs["cipslaIcmpEchoTmplHistLives"] = types.YLeaf{"Cipslaicmpechotmplhistlives", cipslaicmpechotmplentry.Cipslaicmpechotmplhistlives}
-    cipslaicmpechotmplentry.EntityData.Leafs["cipslaIcmpEchoTmplHistBuckets"] = types.YLeaf{"Cipslaicmpechotmplhistbuckets", cipslaicmpechotmplentry.Cipslaicmpechotmplhistbuckets}
-    cipslaicmpechotmplentry.EntityData.Leafs["cipslaIcmpEchoTmplHistFilter"] = types.YLeaf{"Cipslaicmpechotmplhistfilter", cipslaicmpechotmplentry.Cipslaicmpechotmplhistfilter}
-    cipslaicmpechotmplentry.EntityData.Leafs["cipslaIcmpEchoTmplStatsHours"] = types.YLeaf{"Cipslaicmpechotmplstatshours", cipslaicmpechotmplentry.Cipslaicmpechotmplstatshours}
-    cipslaicmpechotmplentry.EntityData.Leafs["cipslaIcmpEchoTmplDistBuckets"] = types.YLeaf{"Cipslaicmpechotmpldistbuckets", cipslaicmpechotmplentry.Cipslaicmpechotmpldistbuckets}
-    cipslaicmpechotmplentry.EntityData.Leafs["cipslaIcmpEchoTmplDistInterval"] = types.YLeaf{"Cipslaicmpechotmpldistinterval", cipslaicmpechotmplentry.Cipslaicmpechotmpldistinterval}
-    cipslaicmpechotmplentry.EntityData.Leafs["cipslaIcmpEchoTmplStorageType"] = types.YLeaf{"Cipslaicmpechotmplstoragetype", cipslaicmpechotmplentry.Cipslaicmpechotmplstoragetype}
-    cipslaicmpechotmplentry.EntityData.Leafs["cipslaIcmpEchoTmplRowStatus"] = types.YLeaf{"Cipslaicmpechotmplrowstatus", cipslaicmpechotmplentry.Cipslaicmpechotmplrowstatus}
-    return &(cipslaicmpechotmplentry.EntityData)
+    cipslaIcmpEchoTmplEntry.EntityData.Children = types.NewOrderedMap()
+    cipslaIcmpEchoTmplEntry.EntityData.Leafs = types.NewOrderedMap()
+    cipslaIcmpEchoTmplEntry.EntityData.Leafs.Append("cipslaIcmpEchoTmplName", types.YLeaf{"CipslaIcmpEchoTmplName", cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplName})
+    cipslaIcmpEchoTmplEntry.EntityData.Leafs.Append("cipslaIcmpEchoTmplDescription", types.YLeaf{"CipslaIcmpEchoTmplDescription", cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplDescription})
+    cipslaIcmpEchoTmplEntry.EntityData.Leafs.Append("cipslaIcmpEchoTmplSrcAddrType", types.YLeaf{"CipslaIcmpEchoTmplSrcAddrType", cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplSrcAddrType})
+    cipslaIcmpEchoTmplEntry.EntityData.Leafs.Append("cipslaIcmpEchoTmplSrcAddr", types.YLeaf{"CipslaIcmpEchoTmplSrcAddr", cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplSrcAddr})
+    cipslaIcmpEchoTmplEntry.EntityData.Leafs.Append("cipslaIcmpEchoTmplTimeOut", types.YLeaf{"CipslaIcmpEchoTmplTimeOut", cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplTimeOut})
+    cipslaIcmpEchoTmplEntry.EntityData.Leafs.Append("cipslaIcmpEchoTmplVerifyData", types.YLeaf{"CipslaIcmpEchoTmplVerifyData", cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplVerifyData})
+    cipslaIcmpEchoTmplEntry.EntityData.Leafs.Append("cipslaIcmpEchoTmplReqDataSize", types.YLeaf{"CipslaIcmpEchoTmplReqDataSize", cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplReqDataSize})
+    cipslaIcmpEchoTmplEntry.EntityData.Leafs.Append("cipslaIcmpEchoTmplTOS", types.YLeaf{"CipslaIcmpEchoTmplTOS", cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplTOS})
+    cipslaIcmpEchoTmplEntry.EntityData.Leafs.Append("cipslaIcmpEchoTmplVrfName", types.YLeaf{"CipslaIcmpEchoTmplVrfName", cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplVrfName})
+    cipslaIcmpEchoTmplEntry.EntityData.Leafs.Append("cipslaIcmpEchoTmplThreshold", types.YLeaf{"CipslaIcmpEchoTmplThreshold", cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplThreshold})
+    cipslaIcmpEchoTmplEntry.EntityData.Leafs.Append("cipslaIcmpEchoTmplHistLives", types.YLeaf{"CipslaIcmpEchoTmplHistLives", cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplHistLives})
+    cipslaIcmpEchoTmplEntry.EntityData.Leafs.Append("cipslaIcmpEchoTmplHistBuckets", types.YLeaf{"CipslaIcmpEchoTmplHistBuckets", cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplHistBuckets})
+    cipslaIcmpEchoTmplEntry.EntityData.Leafs.Append("cipslaIcmpEchoTmplHistFilter", types.YLeaf{"CipslaIcmpEchoTmplHistFilter", cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplHistFilter})
+    cipslaIcmpEchoTmplEntry.EntityData.Leafs.Append("cipslaIcmpEchoTmplStatsHours", types.YLeaf{"CipslaIcmpEchoTmplStatsHours", cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplStatsHours})
+    cipslaIcmpEchoTmplEntry.EntityData.Leafs.Append("cipslaIcmpEchoTmplDistBuckets", types.YLeaf{"CipslaIcmpEchoTmplDistBuckets", cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplDistBuckets})
+    cipslaIcmpEchoTmplEntry.EntityData.Leafs.Append("cipslaIcmpEchoTmplDistInterval", types.YLeaf{"CipslaIcmpEchoTmplDistInterval", cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplDistInterval})
+    cipslaIcmpEchoTmplEntry.EntityData.Leafs.Append("cipslaIcmpEchoTmplStorageType", types.YLeaf{"CipslaIcmpEchoTmplStorageType", cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplStorageType})
+    cipslaIcmpEchoTmplEntry.EntityData.Leafs.Append("cipslaIcmpEchoTmplRowStatus", types.YLeaf{"CipslaIcmpEchoTmplRowStatus", cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplRowStatus})
+
+    cipslaIcmpEchoTmplEntry.EntityData.YListKeys = []string {"CipslaIcmpEchoTmplName"}
+
+    return &(cipslaIcmpEchoTmplEntry.EntityData)
 }
 
-// CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry_Cipslaicmpechotmplhistfilter represents                    are recorded.
-type CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry_Cipslaicmpechotmplhistfilter string
+// CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable_CipslaIcmpEchoTmplEntry_CipslaIcmpEchoTmplHistFilter represents                    are recorded.
+type CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable_CipslaIcmpEchoTmplEntry_CipslaIcmpEchoTmplHistFilter string
 
 const (
-    CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry_Cipslaicmpechotmplhistfilter_none CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry_Cipslaicmpechotmplhistfilter = "none"
+    CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable_CipslaIcmpEchoTmplEntry_CipslaIcmpEchoTmplHistFilter_none CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable_CipslaIcmpEchoTmplEntry_CipslaIcmpEchoTmplHistFilter = "none"
 
-    CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry_Cipslaicmpechotmplhistfilter_all CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry_Cipslaicmpechotmplhistfilter = "all"
+    CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable_CipslaIcmpEchoTmplEntry_CipslaIcmpEchoTmplHistFilter_all CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable_CipslaIcmpEchoTmplEntry_CipslaIcmpEchoTmplHistFilter = "all"
 
-    CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry_Cipslaicmpechotmplhistfilter_overThreshold CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry_Cipslaicmpechotmplhistfilter = "overThreshold"
+    CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable_CipslaIcmpEchoTmplEntry_CipslaIcmpEchoTmplHistFilter_overThreshold CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable_CipslaIcmpEchoTmplEntry_CipslaIcmpEchoTmplHistFilter = "overThreshold"
 
-    CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry_Cipslaicmpechotmplhistfilter_failures CISCOIPSLAECHOMIB_Cipslaicmpechotmpltable_Cipslaicmpechotmplentry_Cipslaicmpechotmplhistfilter = "failures"
+    CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable_CipslaIcmpEchoTmplEntry_CipslaIcmpEchoTmplHistFilter_failures CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable_CipslaIcmpEchoTmplEntry_CipslaIcmpEchoTmplHistFilter = "failures"
 )
 
-// CISCOIPSLAECHOMIB_Cipslaudpechotmpltable
+// CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable
 // A table that contains UDP echo template specific definitions.
-type CISCOIPSLAECHOMIB_Cipslaudpechotmpltable struct {
+type CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row entry representing an IPSLA UDP echo template. The type is slice of
-    // CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry.
-    Cipslaudpechotmplentry []CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry
+    // CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable_CipslaUdpEchoTmplEntry.
+    CipslaUdpEchoTmplEntry []*CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable_CipslaUdpEchoTmplEntry
 }
 
-func (cipslaudpechotmpltable *CISCOIPSLAECHOMIB_Cipslaudpechotmpltable) GetEntityData() *types.CommonEntityData {
-    cipslaudpechotmpltable.EntityData.YFilter = cipslaudpechotmpltable.YFilter
-    cipslaudpechotmpltable.EntityData.YangName = "cipslaUdpEchoTmplTable"
-    cipslaudpechotmpltable.EntityData.BundleName = "cisco_ios_xe"
-    cipslaudpechotmpltable.EntityData.ParentYangName = "CISCO-IPSLA-ECHO-MIB"
-    cipslaudpechotmpltable.EntityData.SegmentPath = "cipslaUdpEchoTmplTable"
-    cipslaudpechotmpltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipslaudpechotmpltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipslaudpechotmpltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipslaUdpEchoTmplTable *CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable) GetEntityData() *types.CommonEntityData {
+    cipslaUdpEchoTmplTable.EntityData.YFilter = cipslaUdpEchoTmplTable.YFilter
+    cipslaUdpEchoTmplTable.EntityData.YangName = "cipslaUdpEchoTmplTable"
+    cipslaUdpEchoTmplTable.EntityData.BundleName = "cisco_ios_xe"
+    cipslaUdpEchoTmplTable.EntityData.ParentYangName = "CISCO-IPSLA-ECHO-MIB"
+    cipslaUdpEchoTmplTable.EntityData.SegmentPath = "cipslaUdpEchoTmplTable"
+    cipslaUdpEchoTmplTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaUdpEchoTmplTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaUdpEchoTmplTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipslaudpechotmpltable.EntityData.Children = make(map[string]types.YChild)
-    cipslaudpechotmpltable.EntityData.Children["cipslaUdpEchoTmplEntry"] = types.YChild{"Cipslaudpechotmplentry", nil}
-    for i := range cipslaudpechotmpltable.Cipslaudpechotmplentry {
-        cipslaudpechotmpltable.EntityData.Children[types.GetSegmentPath(&cipslaudpechotmpltable.Cipslaudpechotmplentry[i])] = types.YChild{"Cipslaudpechotmplentry", &cipslaudpechotmpltable.Cipslaudpechotmplentry[i]}
+    cipslaUdpEchoTmplTable.EntityData.Children = types.NewOrderedMap()
+    cipslaUdpEchoTmplTable.EntityData.Children.Append("cipslaUdpEchoTmplEntry", types.YChild{"CipslaUdpEchoTmplEntry", nil})
+    for i := range cipslaUdpEchoTmplTable.CipslaUdpEchoTmplEntry {
+        cipslaUdpEchoTmplTable.EntityData.Children.Append(types.GetSegmentPath(cipslaUdpEchoTmplTable.CipslaUdpEchoTmplEntry[i]), types.YChild{"CipslaUdpEchoTmplEntry", cipslaUdpEchoTmplTable.CipslaUdpEchoTmplEntry[i]})
     }
-    cipslaudpechotmpltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cipslaudpechotmpltable.EntityData)
+    cipslaUdpEchoTmplTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cipslaUdpEchoTmplTable.EntityData.YListKeys = []string {}
+
+    return &(cipslaUdpEchoTmplTable.EntityData)
 }
 
-// CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry
+// CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable_CipslaUdpEchoTmplEntry
 // A row entry representing an IPSLA UDP echo template.
-type CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry struct {
+type CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable_CipslaUdpEchoTmplEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A string which specifies the UDP echo template
     // name. The type is string with length: 1..64.
-    Cipslaudpechotmplname interface{}
+    CipslaUdpEchoTmplName interface{}
 
     // A string which provides description to the UDP echo template. The type is
     // string with length: 0..128.
-    Cipslaudpechotmpldescription interface{}
+    CipslaUdpEchoTmplDescription interface{}
 
     // If this object is enabled, then the IP SLA application will send control
     // messages to a responder, residing on the target router to respond to the
     // data request packets being sent by the source router. The type is bool.
-    Cipslaudpechotmplcontrolenable interface{}
+    CipslaUdpEchoTmplControlEnable interface{}
 
     // An enumerated value which specifies the IP address type of the source. It
     // must be used along with the cipslaUdpEchoTmplSrcAddr object. The type is
     // InetAddressType.
-    Cipslaudpechotmplsrcaddrtype interface{}
+    CipslaUdpEchoTmplSrcAddrType interface{}
 
     // A string which specifies the IP address of the source. The type is string
     // with length: 0..255.
-    Cipslaudpechotmplsrcaddr interface{}
+    CipslaUdpEchoTmplSrcAddr interface{}
 
     // This object represents the source's port number. If this object is not
     // specified, the application will get a port allocated by the system. The
     // type is interface{} with range: 0..65535.
-    Cipslaudpechotmplsrcport interface{}
+    CipslaUdpEchoTmplSrcPort interface{}
 
     // Specifies the duration to wait for an IP SLA operation completion.  For
     // connection oriented protocols, this may cause the connection to be closed
@@ -333,36 +345,36 @@ type CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry struct {
     // reestablishment will be performed.  To prevent unwanted closure of
     // connections, be sure to set this value to a realistic connection timeout.
     // The type is interface{} with range: 0..604800000. Units are milliseconds.
-    Cipslaudpechotmpltimeout interface{}
+    CipslaUdpEchoTmplTimeOut interface{}
 
     // When set to true, the resulting data in each IP SLA operation is compared
     // with the expected data.  This includes checking header information (if
     // possible) and exact packet size. The type is bool.
-    Cipslaudpechotmplverifydata interface{}
+    CipslaUdpEchoTmplVerifyData interface{}
 
     // This object represents the number of octets to be placed into the ARR Data
     // portion of the request message, when using SNA protocols.  For non-ARR
     // protocols' RTT request/responses, this value represents the native payload
     // size.  REMEMBER:  The ARR Header overhead is not included            in
     // this value. The type is interface{} with range: 4..1500. Units are octets.
-    Cipslaudpechotmplreqdatasize interface{}
+    CipslaUdpEchoTmplReqDataSize interface{}
 
     // This object represents the type of service octet in an IP header. The type
     // is interface{} with range: 0..255.
-    Cipslaudpechotmpltos interface{}
+    CipslaUdpEchoTmplTOS interface{}
 
     // This field is used to specify the VRF name with which the IP SLA operation
     // will be used. For regular IP SLA operation this field should not be
     // configured. The agent will use this field to identify the VRF routing Table
     // for this operation. The type is string with length: 0..32.
-    Cipslaudpechotmplvrfname interface{}
+    CipslaUdpEchoTmplVrfName interface{}
 
     // This object defines an administrative threshold limit. If the IP SLA
     // operation time exceeds this limit and if the condition specified in
     // cipslaUdpEchoTmplHistFilter is  satisfied, one threshold crossing
     // occurrence will be counted. The type is interface{} with range:
     // 0..2147483647. Units are milliseconds.
-    Cipslaudpechotmplthreshold interface{}
+    CipslaUdpEchoTmplThreshold interface{}
 
     // The maximum number of history lives to record.  A life is defined by the
     // countdown (or transition) to zero  by the cipslaAutoGroupScheduleLife
@@ -370,14 +382,14 @@ type CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry struct {
     // restarted via the transition of the  cipslaAutoGroupScheduleLife object and
     // its subsequent  countdown.  The value of zero will shut off all data
     // collection. The type is interface{} with range: 0..2.
-    Cipslaudpechotmplhistlives interface{}
+    CipslaUdpEchoTmplHistLives interface{}
 
     // The maximum number of history buckets to record. This value should be set
     // to the number of operations  to keep per lifetime.  After
     // cipslaUdpEchoTmplHistBuckets are filled, the  oldest entries are deleted
     // and the most recent cipslaUdpEchoTmplHistBuckets buckets are retained. The
     // type is interface{} with range: 1..60.
-    Cipslaudpechotmplhistbuckets interface{}
+    CipslaUdpEchoTmplHistBuckets interface{}
 
     // Defines a filter for adding RTT results to the history buffer:  none(1)    
     // - no history is recorded all(2)           - the results of all completion
@@ -385,8 +397,8 @@ type CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry struct {
     // overThreshold(3) - the results of completion times                    over
     // cipslaUdpEchoTmplThreshold are                     recorded. failures(4)   
     // - the results of failed operations (only)                     are recorded.
-    // The type is Cipslaudpechotmplhistfilter.
-    Cipslaudpechotmplhistfilter interface{}
+    // The type is CipslaUdpEchoTmplHistFilter.
+    CipslaUdpEchoTmplHistFilter interface{}
 
     // The maximum number of hours for which statistics are maintained.
     // Specifically this is the number of hourly  groups to keep before rolling
@@ -395,7 +407,7 @@ type CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry struct {
     // have the opportunity to retrieve the statistics.  The value of zero will
     // shut off data collection. The type is interface{} with range: 0..25. Units
     // are hours.
-    Cipslaudpechotmplstatshours interface{}
+    CipslaUdpEchoTmplStatsHours interface{}
 
     // The maximum number of statistical distribution buckets to accumulate. 
     // Since this index does not rollover, only the first
@@ -403,7 +415,7 @@ type CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry struct {
     // cipslaUdpEchoTmplStatsNumDistBuckets will contain all entries from its
     // distribution interval start point to infinity. The type is interface{} with
     // range: 1..20.
-    Cipslaudpechotmpldistbuckets interface{}
+    CipslaUdpEchoTmplDistBuckets interface{}
 
     // The statistical distribution buckets interval.  Distribution Bucket
     // Example:  cipslaUdpEchoTmplDistBuckets = 5 buckets
@@ -415,127 +427,133 @@ type CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry struct {
     // cipslaUdpEchoTmplDistInterval does not apply when
     // cipslaUdpEchoTmplDistBuckets is one. The type is interface{} with range:
     // 1..100. Units are milliseconds.
-    Cipslaudpechotmpldistinterval interface{}
+    CipslaUdpEchoTmplDistInterval interface{}
 
     // The storage type of this conceptual row. The type is StorageType.
-    Cipslaudpechotmplstoragetype interface{}
+    CipslaUdpEchoTmplStorageType interface{}
 
     // The status of the conceptual UDP echo template control row. When the status
     // is active, all the read-create objects in  that row can be modified. The
     // type is RowStatus.
-    Cipslaudpechotmplrowstatus interface{}
+    CipslaUdpEchoTmplRowStatus interface{}
 }
 
-func (cipslaudpechotmplentry *CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry) GetEntityData() *types.CommonEntityData {
-    cipslaudpechotmplentry.EntityData.YFilter = cipslaudpechotmplentry.YFilter
-    cipslaudpechotmplentry.EntityData.YangName = "cipslaUdpEchoTmplEntry"
-    cipslaudpechotmplentry.EntityData.BundleName = "cisco_ios_xe"
-    cipslaudpechotmplentry.EntityData.ParentYangName = "cipslaUdpEchoTmplTable"
-    cipslaudpechotmplentry.EntityData.SegmentPath = "cipslaUdpEchoTmplEntry" + "[cipslaUdpEchoTmplName='" + fmt.Sprintf("%v", cipslaudpechotmplentry.Cipslaudpechotmplname) + "']"
-    cipslaudpechotmplentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipslaudpechotmplentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipslaudpechotmplentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipslaUdpEchoTmplEntry *CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable_CipslaUdpEchoTmplEntry) GetEntityData() *types.CommonEntityData {
+    cipslaUdpEchoTmplEntry.EntityData.YFilter = cipslaUdpEchoTmplEntry.YFilter
+    cipslaUdpEchoTmplEntry.EntityData.YangName = "cipslaUdpEchoTmplEntry"
+    cipslaUdpEchoTmplEntry.EntityData.BundleName = "cisco_ios_xe"
+    cipslaUdpEchoTmplEntry.EntityData.ParentYangName = "cipslaUdpEchoTmplTable"
+    cipslaUdpEchoTmplEntry.EntityData.SegmentPath = "cipslaUdpEchoTmplEntry" + types.AddKeyToken(cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplName, "cipslaUdpEchoTmplName")
+    cipslaUdpEchoTmplEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaUdpEchoTmplEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaUdpEchoTmplEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipslaudpechotmplentry.EntityData.Children = make(map[string]types.YChild)
-    cipslaudpechotmplentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplName"] = types.YLeaf{"Cipslaudpechotmplname", cipslaudpechotmplentry.Cipslaudpechotmplname}
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplDescription"] = types.YLeaf{"Cipslaudpechotmpldescription", cipslaudpechotmplentry.Cipslaudpechotmpldescription}
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplControlEnable"] = types.YLeaf{"Cipslaudpechotmplcontrolenable", cipslaudpechotmplentry.Cipslaudpechotmplcontrolenable}
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplSrcAddrType"] = types.YLeaf{"Cipslaudpechotmplsrcaddrtype", cipslaudpechotmplentry.Cipslaudpechotmplsrcaddrtype}
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplSrcAddr"] = types.YLeaf{"Cipslaudpechotmplsrcaddr", cipslaudpechotmplentry.Cipslaudpechotmplsrcaddr}
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplSrcPort"] = types.YLeaf{"Cipslaudpechotmplsrcport", cipslaudpechotmplentry.Cipslaudpechotmplsrcport}
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplTimeOut"] = types.YLeaf{"Cipslaudpechotmpltimeout", cipslaudpechotmplentry.Cipslaudpechotmpltimeout}
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplVerifyData"] = types.YLeaf{"Cipslaudpechotmplverifydata", cipslaudpechotmplentry.Cipslaudpechotmplverifydata}
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplReqDataSize"] = types.YLeaf{"Cipslaudpechotmplreqdatasize", cipslaudpechotmplentry.Cipslaudpechotmplreqdatasize}
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplTOS"] = types.YLeaf{"Cipslaudpechotmpltos", cipslaudpechotmplentry.Cipslaudpechotmpltos}
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplVrfName"] = types.YLeaf{"Cipslaudpechotmplvrfname", cipslaudpechotmplentry.Cipslaudpechotmplvrfname}
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplThreshold"] = types.YLeaf{"Cipslaudpechotmplthreshold", cipslaudpechotmplentry.Cipslaudpechotmplthreshold}
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplHistLives"] = types.YLeaf{"Cipslaudpechotmplhistlives", cipslaudpechotmplentry.Cipslaudpechotmplhistlives}
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplHistBuckets"] = types.YLeaf{"Cipslaudpechotmplhistbuckets", cipslaudpechotmplentry.Cipslaudpechotmplhistbuckets}
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplHistFilter"] = types.YLeaf{"Cipslaudpechotmplhistfilter", cipslaudpechotmplentry.Cipslaudpechotmplhistfilter}
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplStatsHours"] = types.YLeaf{"Cipslaudpechotmplstatshours", cipslaudpechotmplentry.Cipslaudpechotmplstatshours}
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplDistBuckets"] = types.YLeaf{"Cipslaudpechotmpldistbuckets", cipslaudpechotmplentry.Cipslaudpechotmpldistbuckets}
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplDistInterval"] = types.YLeaf{"Cipslaudpechotmpldistinterval", cipslaudpechotmplentry.Cipslaudpechotmpldistinterval}
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplStorageType"] = types.YLeaf{"Cipslaudpechotmplstoragetype", cipslaudpechotmplentry.Cipslaudpechotmplstoragetype}
-    cipslaudpechotmplentry.EntityData.Leafs["cipslaUdpEchoTmplRowStatus"] = types.YLeaf{"Cipslaudpechotmplrowstatus", cipslaudpechotmplentry.Cipslaudpechotmplrowstatus}
-    return &(cipslaudpechotmplentry.EntityData)
+    cipslaUdpEchoTmplEntry.EntityData.Children = types.NewOrderedMap()
+    cipslaUdpEchoTmplEntry.EntityData.Leafs = types.NewOrderedMap()
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplName", types.YLeaf{"CipslaUdpEchoTmplName", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplName})
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplDescription", types.YLeaf{"CipslaUdpEchoTmplDescription", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplDescription})
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplControlEnable", types.YLeaf{"CipslaUdpEchoTmplControlEnable", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplControlEnable})
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplSrcAddrType", types.YLeaf{"CipslaUdpEchoTmplSrcAddrType", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplSrcAddrType})
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplSrcAddr", types.YLeaf{"CipslaUdpEchoTmplSrcAddr", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplSrcAddr})
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplSrcPort", types.YLeaf{"CipslaUdpEchoTmplSrcPort", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplSrcPort})
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplTimeOut", types.YLeaf{"CipslaUdpEchoTmplTimeOut", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplTimeOut})
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplVerifyData", types.YLeaf{"CipslaUdpEchoTmplVerifyData", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplVerifyData})
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplReqDataSize", types.YLeaf{"CipslaUdpEchoTmplReqDataSize", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplReqDataSize})
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplTOS", types.YLeaf{"CipslaUdpEchoTmplTOS", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplTOS})
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplVrfName", types.YLeaf{"CipslaUdpEchoTmplVrfName", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplVrfName})
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplThreshold", types.YLeaf{"CipslaUdpEchoTmplThreshold", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplThreshold})
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplHistLives", types.YLeaf{"CipslaUdpEchoTmplHistLives", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplHistLives})
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplHistBuckets", types.YLeaf{"CipslaUdpEchoTmplHistBuckets", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplHistBuckets})
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplHistFilter", types.YLeaf{"CipslaUdpEchoTmplHistFilter", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplHistFilter})
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplStatsHours", types.YLeaf{"CipslaUdpEchoTmplStatsHours", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplStatsHours})
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplDistBuckets", types.YLeaf{"CipslaUdpEchoTmplDistBuckets", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplDistBuckets})
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplDistInterval", types.YLeaf{"CipslaUdpEchoTmplDistInterval", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplDistInterval})
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplStorageType", types.YLeaf{"CipslaUdpEchoTmplStorageType", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplStorageType})
+    cipslaUdpEchoTmplEntry.EntityData.Leafs.Append("cipslaUdpEchoTmplRowStatus", types.YLeaf{"CipslaUdpEchoTmplRowStatus", cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplRowStatus})
+
+    cipslaUdpEchoTmplEntry.EntityData.YListKeys = []string {"CipslaUdpEchoTmplName"}
+
+    return &(cipslaUdpEchoTmplEntry.EntityData)
 }
 
-// CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry_Cipslaudpechotmplhistfilter represents                    are recorded.
-type CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry_Cipslaudpechotmplhistfilter string
+// CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable_CipslaUdpEchoTmplEntry_CipslaUdpEchoTmplHistFilter represents                    are recorded.
+type CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable_CipslaUdpEchoTmplEntry_CipslaUdpEchoTmplHistFilter string
 
 const (
-    CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry_Cipslaudpechotmplhistfilter_none CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry_Cipslaudpechotmplhistfilter = "none"
+    CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable_CipslaUdpEchoTmplEntry_CipslaUdpEchoTmplHistFilter_none CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable_CipslaUdpEchoTmplEntry_CipslaUdpEchoTmplHistFilter = "none"
 
-    CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry_Cipslaudpechotmplhistfilter_all CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry_Cipslaudpechotmplhistfilter = "all"
+    CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable_CipslaUdpEchoTmplEntry_CipslaUdpEchoTmplHistFilter_all CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable_CipslaUdpEchoTmplEntry_CipslaUdpEchoTmplHistFilter = "all"
 
-    CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry_Cipslaudpechotmplhistfilter_overThreshold CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry_Cipslaudpechotmplhistfilter = "overThreshold"
+    CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable_CipslaUdpEchoTmplEntry_CipslaUdpEchoTmplHistFilter_overThreshold CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable_CipslaUdpEchoTmplEntry_CipslaUdpEchoTmplHistFilter = "overThreshold"
 
-    CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry_Cipslaudpechotmplhistfilter_failures CISCOIPSLAECHOMIB_Cipslaudpechotmpltable_Cipslaudpechotmplentry_Cipslaudpechotmplhistfilter = "failures"
+    CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable_CipslaUdpEchoTmplEntry_CipslaUdpEchoTmplHistFilter_failures CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable_CipslaUdpEchoTmplEntry_CipslaUdpEchoTmplHistFilter = "failures"
 )
 
-// CISCOIPSLAECHOMIB_Cipslatcpconntmpltable
+// CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable
 // A table that contains TCP connect template specific definitions.
-type CISCOIPSLAECHOMIB_Cipslatcpconntmpltable struct {
+type CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row entry representing an IPSLA TCP connect template. The type is slice
-    // of CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry.
-    Cipslatcpconntmplentry []CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry
+    // of CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable_CipslaTcpConnTmplEntry.
+    CipslaTcpConnTmplEntry []*CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable_CipslaTcpConnTmplEntry
 }
 
-func (cipslatcpconntmpltable *CISCOIPSLAECHOMIB_Cipslatcpconntmpltable) GetEntityData() *types.CommonEntityData {
-    cipslatcpconntmpltable.EntityData.YFilter = cipslatcpconntmpltable.YFilter
-    cipslatcpconntmpltable.EntityData.YangName = "cipslaTcpConnTmplTable"
-    cipslatcpconntmpltable.EntityData.BundleName = "cisco_ios_xe"
-    cipslatcpconntmpltable.EntityData.ParentYangName = "CISCO-IPSLA-ECHO-MIB"
-    cipslatcpconntmpltable.EntityData.SegmentPath = "cipslaTcpConnTmplTable"
-    cipslatcpconntmpltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipslatcpconntmpltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipslatcpconntmpltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipslaTcpConnTmplTable *CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable) GetEntityData() *types.CommonEntityData {
+    cipslaTcpConnTmplTable.EntityData.YFilter = cipslaTcpConnTmplTable.YFilter
+    cipslaTcpConnTmplTable.EntityData.YangName = "cipslaTcpConnTmplTable"
+    cipslaTcpConnTmplTable.EntityData.BundleName = "cisco_ios_xe"
+    cipslaTcpConnTmplTable.EntityData.ParentYangName = "CISCO-IPSLA-ECHO-MIB"
+    cipslaTcpConnTmplTable.EntityData.SegmentPath = "cipslaTcpConnTmplTable"
+    cipslaTcpConnTmplTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaTcpConnTmplTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaTcpConnTmplTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipslatcpconntmpltable.EntityData.Children = make(map[string]types.YChild)
-    cipslatcpconntmpltable.EntityData.Children["cipslaTcpConnTmplEntry"] = types.YChild{"Cipslatcpconntmplentry", nil}
-    for i := range cipslatcpconntmpltable.Cipslatcpconntmplentry {
-        cipslatcpconntmpltable.EntityData.Children[types.GetSegmentPath(&cipslatcpconntmpltable.Cipslatcpconntmplentry[i])] = types.YChild{"Cipslatcpconntmplentry", &cipslatcpconntmpltable.Cipslatcpconntmplentry[i]}
+    cipslaTcpConnTmplTable.EntityData.Children = types.NewOrderedMap()
+    cipslaTcpConnTmplTable.EntityData.Children.Append("cipslaTcpConnTmplEntry", types.YChild{"CipslaTcpConnTmplEntry", nil})
+    for i := range cipslaTcpConnTmplTable.CipslaTcpConnTmplEntry {
+        cipslaTcpConnTmplTable.EntityData.Children.Append(types.GetSegmentPath(cipslaTcpConnTmplTable.CipslaTcpConnTmplEntry[i]), types.YChild{"CipslaTcpConnTmplEntry", cipslaTcpConnTmplTable.CipslaTcpConnTmplEntry[i]})
     }
-    cipslatcpconntmpltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(cipslatcpconntmpltable.EntityData)
+    cipslaTcpConnTmplTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cipslaTcpConnTmplTable.EntityData.YListKeys = []string {}
+
+    return &(cipslaTcpConnTmplTable.EntityData)
 }
 
-// CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry
+// CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable_CipslaTcpConnTmplEntry
 // A row entry representing an IPSLA TCP connect template.
-type CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry struct {
+type CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable_CipslaTcpConnTmplEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A string which specifies the TCP connect template
     // name. The type is string with length: 1..64.
-    Cipslatcpconntmplname interface{}
+    CipslaTcpConnTmplName interface{}
 
     // A string which provides description for the TCP connect template. The type
     // is string with length: 0..128.
-    Cipslatcpconntmpldescription interface{}
+    CipslaTcpConnTmplDescription interface{}
 
     // If this object is enabled, then the IP SLA application will send control
     // messages to a responder, residing on the target router to respond to the
     // data request packets being sent by the source router. The type is bool.
-    Cipslatcpconntmplcontrolenable interface{}
+    CipslaTcpConnTmplControlEnable interface{}
 
     // An enumerated value which specifies the IP address type of the source. It
     // must be used along with the cipslaTcpConnTmplSrcAddr object. The type is
     // InetAddressType.
-    Cipslatcpconntmplsrcaddrtype interface{}
+    CipslaTcpConnTmplSrcAddrType interface{}
 
     // A string which specifies the IP address of the source. The type is string
     // with length: 0..255.
-    Cipslatcpconntmplsrcaddr interface{}
+    CipslaTcpConnTmplSrcAddr interface{}
 
     // This object represents the source's port number. If this object is not
     // specified, the application will get a port allocated by the system. The
     // type is interface{} with range: 0..65535.
-    Cipslatcpconntmplsrcport interface{}
+    CipslaTcpConnTmplSrcPort interface{}
 
     // Specifies the duration to wait for an IP SLA operation completion.  For
     // connection oriented protocols, this may cause the connection to be closed
@@ -543,23 +561,23 @@ type CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry struct {
     // reestablishment will be performed.  To prevent unwanted closure of
     // connections, be sure to set this value to a realistic connection timeout.
     // The type is interface{} with range: 0..604800000. Units are milliseconds.
-    Cipslatcpconntmpltimeout interface{}
+    CipslaTcpConnTmplTimeOut interface{}
 
     // When set to true, the resulting data in each IP SLA operation is compared
     // with the expected data.  This includes checking header information (if
     // possible) and exact packet size. The type is bool.
-    Cipslatcpconntmplverifydata interface{}
+    CipslaTcpConnTmplVerifyData interface{}
 
     // This object represents the type of service octet in an IP header. The type
     // is interface{} with range: 0..255.
-    Cipslatcpconntmpltos interface{}
+    CipslaTcpConnTmplTOS interface{}
 
     // This object defines an administrative threshold limit. If the IP SLA
     // operation time exceeds this limit and if the condition specified in
     // cipslaTcpConnTmplHistFilter is  satisfied, one threshold crossing
     // occurrence will be counted. The type is interface{} with range:
     // 0..2147483647. Units are milliseconds.
-    Cipslatcpconntmplthreshold interface{}
+    CipslaTcpConnTmplThreshold interface{}
 
     // The maximum number of history lives to record.  A life is defined by the
     // countdown (or transition) to zero  by the cipslaAutoGroupScheduleLife
@@ -567,14 +585,14 @@ type CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry struct {
     // restarted via the transition of the  cipslaAutoGroupScheduleLife object and
     // its subsequent  countdown.  The value of zero will shut off all data
     // collection. The type is interface{} with range: 0..2.
-    Cipslatcpconntmplhistlives interface{}
+    CipslaTcpConnTmplHistLives interface{}
 
     // The maximum number of history buckets to record. This value should be set
     // to the number of operations  to keep per lifetime.  After
     // cipslaTcpConnTmplHistBuckets are filled, the  oldest entries are deleted
     // and the most recent cipslaTcpConnTmplHistBuckets buckets are retained. The
     // type is interface{} with range: 1..60.
-    Cipslatcpconntmplhistbuckets interface{}
+    CipslaTcpConnTmplHistBuckets interface{}
 
     // Defines a filter for adding RTT results to the history buffer:  none(1)    
     // - no history is recorded all(2)           - the results of all completion
@@ -582,8 +600,8 @@ type CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry struct {
     // overThreshold(3) - the results of completion times                    over
     // cipslaTcpConnTmplThreshold are                     recorded. failures(4)   
     // - the results of failed operations (only)                     are recorded.
-    // The type is Cipslatcpconntmplhistfilter.
-    Cipslatcpconntmplhistfilter interface{}
+    // The type is CipslaTcpConnTmplHistFilter.
+    CipslaTcpConnTmplHistFilter interface{}
 
     // The maximum number of hours for which statistics are maintained.
     // Specifically this is the number of hourly  groups to keep before rolling
@@ -592,7 +610,7 @@ type CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry struct {
     // have the opportunity to retrieve the statistics.  The value of zero will
     // shut off data collection. The type is interface{} with range: 0..25. Units
     // are hours.
-    Cipslatcpconntmplstatshours interface{}
+    CipslaTcpConnTmplStatsHours interface{}
 
     // The maximum number of statistical distribution buckets to accumulate. 
     // Since this index does not rollover, only the first
@@ -600,7 +618,7 @@ type CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry struct {
     // cipslaTcpConnTmplDistBuckets will contain all entries from its distribution
     // interval start point to infinity. The type is interface{} with range:
     // 1..20.
-    Cipslatcpconntmpldistbuckets interface{}
+    CipslaTcpConnTmplDistBuckets interface{}
 
     // The statistical distribution buckets interval.  Distribution Bucket
     // Example:  cipslaTcpConnTmplDistBuckets = 5 buckets
@@ -612,60 +630,63 @@ type CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry struct {
     // cipslaTcpConnTmplDistInterval does not apply when
     // cipslaTcpConnTmplDistBuckets is one. The type is interface{} with range:
     // 1..100. Units are milliseconds.
-    Cipslatcpconntmpldistinterval interface{}
+    CipslaTcpConnTmplDistInterval interface{}
 
     // The storage type of this conceptual row. The type is StorageType.
-    Cipslatcpconntmplstoragetype interface{}
+    CipslaTcpConnTmplStorageType interface{}
 
     // The status of the conceptual tcp connect control row. When the status is
     // active, all the read-create objects  in that row can be modified. The type
     // is RowStatus.
-    Cipslatcpconntmplrowstatus interface{}
+    CipslaTcpConnTmplRowStatus interface{}
 }
 
-func (cipslatcpconntmplentry *CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry) GetEntityData() *types.CommonEntityData {
-    cipslatcpconntmplentry.EntityData.YFilter = cipslatcpconntmplentry.YFilter
-    cipslatcpconntmplentry.EntityData.YangName = "cipslaTcpConnTmplEntry"
-    cipslatcpconntmplentry.EntityData.BundleName = "cisco_ios_xe"
-    cipslatcpconntmplentry.EntityData.ParentYangName = "cipslaTcpConnTmplTable"
-    cipslatcpconntmplentry.EntityData.SegmentPath = "cipslaTcpConnTmplEntry" + "[cipslaTcpConnTmplName='" + fmt.Sprintf("%v", cipslatcpconntmplentry.Cipslatcpconntmplname) + "']"
-    cipslatcpconntmplentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    cipslatcpconntmplentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    cipslatcpconntmplentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cipslaTcpConnTmplEntry *CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable_CipslaTcpConnTmplEntry) GetEntityData() *types.CommonEntityData {
+    cipslaTcpConnTmplEntry.EntityData.YFilter = cipslaTcpConnTmplEntry.YFilter
+    cipslaTcpConnTmplEntry.EntityData.YangName = "cipslaTcpConnTmplEntry"
+    cipslaTcpConnTmplEntry.EntityData.BundleName = "cisco_ios_xe"
+    cipslaTcpConnTmplEntry.EntityData.ParentYangName = "cipslaTcpConnTmplTable"
+    cipslaTcpConnTmplEntry.EntityData.SegmentPath = "cipslaTcpConnTmplEntry" + types.AddKeyToken(cipslaTcpConnTmplEntry.CipslaTcpConnTmplName, "cipslaTcpConnTmplName")
+    cipslaTcpConnTmplEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaTcpConnTmplEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaTcpConnTmplEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cipslatcpconntmplentry.EntityData.Children = make(map[string]types.YChild)
-    cipslatcpconntmplentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    cipslatcpconntmplentry.EntityData.Leafs["cipslaTcpConnTmplName"] = types.YLeaf{"Cipslatcpconntmplname", cipslatcpconntmplentry.Cipslatcpconntmplname}
-    cipslatcpconntmplentry.EntityData.Leafs["cipslaTcpConnTmplDescription"] = types.YLeaf{"Cipslatcpconntmpldescription", cipslatcpconntmplentry.Cipslatcpconntmpldescription}
-    cipslatcpconntmplentry.EntityData.Leafs["cipslaTcpConnTmplControlEnable"] = types.YLeaf{"Cipslatcpconntmplcontrolenable", cipslatcpconntmplentry.Cipslatcpconntmplcontrolenable}
-    cipslatcpconntmplentry.EntityData.Leafs["cipslaTcpConnTmplSrcAddrType"] = types.YLeaf{"Cipslatcpconntmplsrcaddrtype", cipslatcpconntmplentry.Cipslatcpconntmplsrcaddrtype}
-    cipslatcpconntmplentry.EntityData.Leafs["cipslaTcpConnTmplSrcAddr"] = types.YLeaf{"Cipslatcpconntmplsrcaddr", cipslatcpconntmplentry.Cipslatcpconntmplsrcaddr}
-    cipslatcpconntmplentry.EntityData.Leafs["cipslaTcpConnTmplSrcPort"] = types.YLeaf{"Cipslatcpconntmplsrcport", cipslatcpconntmplentry.Cipslatcpconntmplsrcport}
-    cipslatcpconntmplentry.EntityData.Leafs["cipslaTcpConnTmplTimeOut"] = types.YLeaf{"Cipslatcpconntmpltimeout", cipslatcpconntmplentry.Cipslatcpconntmpltimeout}
-    cipslatcpconntmplentry.EntityData.Leafs["cipslaTcpConnTmplVerifyData"] = types.YLeaf{"Cipslatcpconntmplverifydata", cipslatcpconntmplentry.Cipslatcpconntmplverifydata}
-    cipslatcpconntmplentry.EntityData.Leafs["cipslaTcpConnTmplTOS"] = types.YLeaf{"Cipslatcpconntmpltos", cipslatcpconntmplentry.Cipslatcpconntmpltos}
-    cipslatcpconntmplentry.EntityData.Leafs["cipslaTcpConnTmplThreshold"] = types.YLeaf{"Cipslatcpconntmplthreshold", cipslatcpconntmplentry.Cipslatcpconntmplthreshold}
-    cipslatcpconntmplentry.EntityData.Leafs["cipslaTcpConnTmplHistLives"] = types.YLeaf{"Cipslatcpconntmplhistlives", cipslatcpconntmplentry.Cipslatcpconntmplhistlives}
-    cipslatcpconntmplentry.EntityData.Leafs["cipslaTcpConnTmplHistBuckets"] = types.YLeaf{"Cipslatcpconntmplhistbuckets", cipslatcpconntmplentry.Cipslatcpconntmplhistbuckets}
-    cipslatcpconntmplentry.EntityData.Leafs["cipslaTcpConnTmplHistFilter"] = types.YLeaf{"Cipslatcpconntmplhistfilter", cipslatcpconntmplentry.Cipslatcpconntmplhistfilter}
-    cipslatcpconntmplentry.EntityData.Leafs["cipslaTcpConnTmplStatsHours"] = types.YLeaf{"Cipslatcpconntmplstatshours", cipslatcpconntmplentry.Cipslatcpconntmplstatshours}
-    cipslatcpconntmplentry.EntityData.Leafs["cipslaTcpConnTmplDistBuckets"] = types.YLeaf{"Cipslatcpconntmpldistbuckets", cipslatcpconntmplentry.Cipslatcpconntmpldistbuckets}
-    cipslatcpconntmplentry.EntityData.Leafs["cipslaTcpConnTmplDistInterval"] = types.YLeaf{"Cipslatcpconntmpldistinterval", cipslatcpconntmplentry.Cipslatcpconntmpldistinterval}
-    cipslatcpconntmplentry.EntityData.Leafs["cipslaTcpConnTmplStorageType"] = types.YLeaf{"Cipslatcpconntmplstoragetype", cipslatcpconntmplentry.Cipslatcpconntmplstoragetype}
-    cipslatcpconntmplentry.EntityData.Leafs["cipslaTcpConnTmplRowStatus"] = types.YLeaf{"Cipslatcpconntmplrowstatus", cipslatcpconntmplentry.Cipslatcpconntmplrowstatus}
-    return &(cipslatcpconntmplentry.EntityData)
+    cipslaTcpConnTmplEntry.EntityData.Children = types.NewOrderedMap()
+    cipslaTcpConnTmplEntry.EntityData.Leafs = types.NewOrderedMap()
+    cipslaTcpConnTmplEntry.EntityData.Leafs.Append("cipslaTcpConnTmplName", types.YLeaf{"CipslaTcpConnTmplName", cipslaTcpConnTmplEntry.CipslaTcpConnTmplName})
+    cipslaTcpConnTmplEntry.EntityData.Leafs.Append("cipslaTcpConnTmplDescription", types.YLeaf{"CipslaTcpConnTmplDescription", cipslaTcpConnTmplEntry.CipslaTcpConnTmplDescription})
+    cipslaTcpConnTmplEntry.EntityData.Leafs.Append("cipslaTcpConnTmplControlEnable", types.YLeaf{"CipslaTcpConnTmplControlEnable", cipslaTcpConnTmplEntry.CipslaTcpConnTmplControlEnable})
+    cipslaTcpConnTmplEntry.EntityData.Leafs.Append("cipslaTcpConnTmplSrcAddrType", types.YLeaf{"CipslaTcpConnTmplSrcAddrType", cipslaTcpConnTmplEntry.CipslaTcpConnTmplSrcAddrType})
+    cipslaTcpConnTmplEntry.EntityData.Leafs.Append("cipslaTcpConnTmplSrcAddr", types.YLeaf{"CipslaTcpConnTmplSrcAddr", cipslaTcpConnTmplEntry.CipslaTcpConnTmplSrcAddr})
+    cipslaTcpConnTmplEntry.EntityData.Leafs.Append("cipslaTcpConnTmplSrcPort", types.YLeaf{"CipslaTcpConnTmplSrcPort", cipslaTcpConnTmplEntry.CipslaTcpConnTmplSrcPort})
+    cipslaTcpConnTmplEntry.EntityData.Leafs.Append("cipslaTcpConnTmplTimeOut", types.YLeaf{"CipslaTcpConnTmplTimeOut", cipslaTcpConnTmplEntry.CipslaTcpConnTmplTimeOut})
+    cipslaTcpConnTmplEntry.EntityData.Leafs.Append("cipslaTcpConnTmplVerifyData", types.YLeaf{"CipslaTcpConnTmplVerifyData", cipslaTcpConnTmplEntry.CipslaTcpConnTmplVerifyData})
+    cipslaTcpConnTmplEntry.EntityData.Leafs.Append("cipslaTcpConnTmplTOS", types.YLeaf{"CipslaTcpConnTmplTOS", cipslaTcpConnTmplEntry.CipslaTcpConnTmplTOS})
+    cipslaTcpConnTmplEntry.EntityData.Leafs.Append("cipslaTcpConnTmplThreshold", types.YLeaf{"CipslaTcpConnTmplThreshold", cipslaTcpConnTmplEntry.CipslaTcpConnTmplThreshold})
+    cipslaTcpConnTmplEntry.EntityData.Leafs.Append("cipslaTcpConnTmplHistLives", types.YLeaf{"CipslaTcpConnTmplHistLives", cipslaTcpConnTmplEntry.CipslaTcpConnTmplHistLives})
+    cipslaTcpConnTmplEntry.EntityData.Leafs.Append("cipslaTcpConnTmplHistBuckets", types.YLeaf{"CipslaTcpConnTmplHistBuckets", cipslaTcpConnTmplEntry.CipslaTcpConnTmplHistBuckets})
+    cipslaTcpConnTmplEntry.EntityData.Leafs.Append("cipslaTcpConnTmplHistFilter", types.YLeaf{"CipslaTcpConnTmplHistFilter", cipslaTcpConnTmplEntry.CipslaTcpConnTmplHistFilter})
+    cipslaTcpConnTmplEntry.EntityData.Leafs.Append("cipslaTcpConnTmplStatsHours", types.YLeaf{"CipslaTcpConnTmplStatsHours", cipslaTcpConnTmplEntry.CipslaTcpConnTmplStatsHours})
+    cipslaTcpConnTmplEntry.EntityData.Leafs.Append("cipslaTcpConnTmplDistBuckets", types.YLeaf{"CipslaTcpConnTmplDistBuckets", cipslaTcpConnTmplEntry.CipslaTcpConnTmplDistBuckets})
+    cipslaTcpConnTmplEntry.EntityData.Leafs.Append("cipslaTcpConnTmplDistInterval", types.YLeaf{"CipslaTcpConnTmplDistInterval", cipslaTcpConnTmplEntry.CipslaTcpConnTmplDistInterval})
+    cipslaTcpConnTmplEntry.EntityData.Leafs.Append("cipslaTcpConnTmplStorageType", types.YLeaf{"CipslaTcpConnTmplStorageType", cipslaTcpConnTmplEntry.CipslaTcpConnTmplStorageType})
+    cipslaTcpConnTmplEntry.EntityData.Leafs.Append("cipslaTcpConnTmplRowStatus", types.YLeaf{"CipslaTcpConnTmplRowStatus", cipslaTcpConnTmplEntry.CipslaTcpConnTmplRowStatus})
+
+    cipslaTcpConnTmplEntry.EntityData.YListKeys = []string {"CipslaTcpConnTmplName"}
+
+    return &(cipslaTcpConnTmplEntry.EntityData)
 }
 
-// CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry_Cipslatcpconntmplhistfilter represents                    are recorded.
-type CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry_Cipslatcpconntmplhistfilter string
+// CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable_CipslaTcpConnTmplEntry_CipslaTcpConnTmplHistFilter represents                    are recorded.
+type CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable_CipslaTcpConnTmplEntry_CipslaTcpConnTmplHistFilter string
 
 const (
-    CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry_Cipslatcpconntmplhistfilter_none CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry_Cipslatcpconntmplhistfilter = "none"
+    CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable_CipslaTcpConnTmplEntry_CipslaTcpConnTmplHistFilter_none CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable_CipslaTcpConnTmplEntry_CipslaTcpConnTmplHistFilter = "none"
 
-    CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry_Cipslatcpconntmplhistfilter_all CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry_Cipslatcpconntmplhistfilter = "all"
+    CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable_CipslaTcpConnTmplEntry_CipslaTcpConnTmplHistFilter_all CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable_CipslaTcpConnTmplEntry_CipslaTcpConnTmplHistFilter = "all"
 
-    CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry_Cipslatcpconntmplhistfilter_overThreshold CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry_Cipslatcpconntmplhistfilter = "overThreshold"
+    CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable_CipslaTcpConnTmplEntry_CipslaTcpConnTmplHistFilter_overThreshold CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable_CipslaTcpConnTmplEntry_CipslaTcpConnTmplHistFilter = "overThreshold"
 
-    CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry_Cipslatcpconntmplhistfilter_failures CISCOIPSLAECHOMIB_Cipslatcpconntmpltable_Cipslatcpconntmplentry_Cipslatcpconntmplhistfilter = "failures"
+    CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable_CipslaTcpConnTmplEntry_CipslaTcpConnTmplHistFilter_failures CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable_CipslaTcpConnTmplEntry_CipslaTcpConnTmplHistFilter = "failures"
 )
 

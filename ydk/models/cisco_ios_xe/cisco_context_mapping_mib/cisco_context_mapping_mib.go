@@ -82,7 +82,7 @@ type CISCOCONTEXTMAPPINGMIB struct {
     // a manager must set cContextMappingRowStatus to either 'createAndGo' or
     // 'createAndWait'.  To delete a row in this table, a manager must set
     // cContextMappingRowStatus to 'destroy'.
-    Ccontextmappingtable CISCOCONTEXTMAPPINGMIB_Ccontextmappingtable
+    CContextMappingTable CISCOCONTEXTMAPPINGMIB_CContextMappingTable
 
     // This table contains information on which cContextMappingVacmContextName is
     // mapped to which bridge domain.  A Bridge Domain is one of the means by
@@ -91,7 +91,7 @@ type CISCOCONTEXTMAPPINGMIB struct {
     // table helps the network management personnel to find  out the  details of
     // various broadcast domains configured  in the network.  An entry need to
     // exist in cContextMappingTable, to create  an entry in this table.
-    Ccontextmappingbridgedomaintable CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgedomaintable
+    CContextMappingBridgeDomainTable CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeDomainTable
 
     // This table contains information on mapping between
     // cContextMappingVacmContextName and bridge instance.  Bridge instance is an
@@ -99,12 +99,12 @@ type CISCOCONTEXTMAPPINGMIB struct {
     // an entry is deleted from cContextMappingTable, the corresponding entry in
     // this table will also get deleted.  If an entry needs to be created in this
     // table, the corresponding entry must exist in cContextMappingTable.
-    Ccontextmappingbridgeinstancetable CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgeinstancetable
+    CContextMappingBridgeInstanceTable CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeInstanceTable
 
     // This table contains information on which cContextMappingVacmContextName is
     // mapped to which License Group. Group level licensing is used where each
     // Technology Package is enabled via a License.
-    Ccontextmappinglicensegrouptable CISCOCONTEXTMAPPINGMIB_Ccontextmappinglicensegrouptable
+    CContextMappingLicenseGroupTable CISCOCONTEXTMAPPINGMIB_CContextMappingLicenseGroupTable
 }
 
 func (cISCOCONTEXTMAPPINGMIB *CISCOCONTEXTMAPPINGMIB) GetEntityData() *types.CommonEntityData {
@@ -117,16 +117,19 @@ func (cISCOCONTEXTMAPPINGMIB *CISCOCONTEXTMAPPINGMIB) GetEntityData() *types.Com
     cISCOCONTEXTMAPPINGMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOCONTEXTMAPPINGMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOCONTEXTMAPPINGMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOCONTEXTMAPPINGMIB.EntityData.Children["cContextMappingTable"] = types.YChild{"Ccontextmappingtable", &cISCOCONTEXTMAPPINGMIB.Ccontextmappingtable}
-    cISCOCONTEXTMAPPINGMIB.EntityData.Children["cContextMappingBridgeDomainTable"] = types.YChild{"Ccontextmappingbridgedomaintable", &cISCOCONTEXTMAPPINGMIB.Ccontextmappingbridgedomaintable}
-    cISCOCONTEXTMAPPINGMIB.EntityData.Children["cContextMappingBridgeInstanceTable"] = types.YChild{"Ccontextmappingbridgeinstancetable", &cISCOCONTEXTMAPPINGMIB.Ccontextmappingbridgeinstancetable}
-    cISCOCONTEXTMAPPINGMIB.EntityData.Children["cContextMappingLicenseGroupTable"] = types.YChild{"Ccontextmappinglicensegrouptable", &cISCOCONTEXTMAPPINGMIB.Ccontextmappinglicensegrouptable}
-    cISCOCONTEXTMAPPINGMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOCONTEXTMAPPINGMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOCONTEXTMAPPINGMIB.EntityData.Children.Append("cContextMappingTable", types.YChild{"CContextMappingTable", &cISCOCONTEXTMAPPINGMIB.CContextMappingTable})
+    cISCOCONTEXTMAPPINGMIB.EntityData.Children.Append("cContextMappingBridgeDomainTable", types.YChild{"CContextMappingBridgeDomainTable", &cISCOCONTEXTMAPPINGMIB.CContextMappingBridgeDomainTable})
+    cISCOCONTEXTMAPPINGMIB.EntityData.Children.Append("cContextMappingBridgeInstanceTable", types.YChild{"CContextMappingBridgeInstanceTable", &cISCOCONTEXTMAPPINGMIB.CContextMappingBridgeInstanceTable})
+    cISCOCONTEXTMAPPINGMIB.EntityData.Children.Append("cContextMappingLicenseGroupTable", types.YChild{"CContextMappingLicenseGroupTable", &cISCOCONTEXTMAPPINGMIB.CContextMappingLicenseGroupTable})
+    cISCOCONTEXTMAPPINGMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOCONTEXTMAPPINGMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOCONTEXTMAPPINGMIB.EntityData)
 }
 
-// CISCOCONTEXTMAPPINGMIB_Ccontextmappingtable
+// CISCOCONTEXTMAPPINGMIB_CContextMappingTable
 // This table contains information on which
 // cContextMappingVacmContextName is mapped to
 // which VRF, topology, and routing protocol instance.
@@ -145,42 +148,45 @@ func (cISCOCONTEXTMAPPINGMIB *CISCOCONTEXTMAPPINGMIB) GetEntityData() *types.Com
 // 
 // To delete a row in this table, a manager must set
 // cContextMappingRowStatus to 'destroy'.
-type CISCOCONTEXTMAPPINGMIB_Ccontextmappingtable struct {
+type CISCOCONTEXTMAPPINGMIB_CContextMappingTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information relating to a single mapping of cContextMappingVacmContextName
     // to the corresponding VRF, the corresponding topology, and the corresponding
     // routing protocol instance. The type is slice of
-    // CISCOCONTEXTMAPPINGMIB_Ccontextmappingtable_Ccontextmappingentry.
-    Ccontextmappingentry []CISCOCONTEXTMAPPINGMIB_Ccontextmappingtable_Ccontextmappingentry
+    // CISCOCONTEXTMAPPINGMIB_CContextMappingTable_CContextMappingEntry.
+    CContextMappingEntry []*CISCOCONTEXTMAPPINGMIB_CContextMappingTable_CContextMappingEntry
 }
 
-func (ccontextmappingtable *CISCOCONTEXTMAPPINGMIB_Ccontextmappingtable) GetEntityData() *types.CommonEntityData {
-    ccontextmappingtable.EntityData.YFilter = ccontextmappingtable.YFilter
-    ccontextmappingtable.EntityData.YangName = "cContextMappingTable"
-    ccontextmappingtable.EntityData.BundleName = "cisco_ios_xe"
-    ccontextmappingtable.EntityData.ParentYangName = "CISCO-CONTEXT-MAPPING-MIB"
-    ccontextmappingtable.EntityData.SegmentPath = "cContextMappingTable"
-    ccontextmappingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ccontextmappingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ccontextmappingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cContextMappingTable *CISCOCONTEXTMAPPINGMIB_CContextMappingTable) GetEntityData() *types.CommonEntityData {
+    cContextMappingTable.EntityData.YFilter = cContextMappingTable.YFilter
+    cContextMappingTable.EntityData.YangName = "cContextMappingTable"
+    cContextMappingTable.EntityData.BundleName = "cisco_ios_xe"
+    cContextMappingTable.EntityData.ParentYangName = "CISCO-CONTEXT-MAPPING-MIB"
+    cContextMappingTable.EntityData.SegmentPath = "cContextMappingTable"
+    cContextMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cContextMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cContextMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ccontextmappingtable.EntityData.Children = make(map[string]types.YChild)
-    ccontextmappingtable.EntityData.Children["cContextMappingEntry"] = types.YChild{"Ccontextmappingentry", nil}
-    for i := range ccontextmappingtable.Ccontextmappingentry {
-        ccontextmappingtable.EntityData.Children[types.GetSegmentPath(&ccontextmappingtable.Ccontextmappingentry[i])] = types.YChild{"Ccontextmappingentry", &ccontextmappingtable.Ccontextmappingentry[i]}
+    cContextMappingTable.EntityData.Children = types.NewOrderedMap()
+    cContextMappingTable.EntityData.Children.Append("cContextMappingEntry", types.YChild{"CContextMappingEntry", nil})
+    for i := range cContextMappingTable.CContextMappingEntry {
+        cContextMappingTable.EntityData.Children.Append(types.GetSegmentPath(cContextMappingTable.CContextMappingEntry[i]), types.YChild{"CContextMappingEntry", cContextMappingTable.CContextMappingEntry[i]})
     }
-    ccontextmappingtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ccontextmappingtable.EntityData)
+    cContextMappingTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cContextMappingTable.EntityData.YListKeys = []string {}
+
+    return &(cContextMappingTable.EntityData)
 }
 
-// CISCOCONTEXTMAPPINGMIB_Ccontextmappingtable_Ccontextmappingentry
+// CISCOCONTEXTMAPPINGMIB_CContextMappingTable_CContextMappingEntry
 // Information relating to a single mapping of
 // cContextMappingVacmContextName to the corresponding VRF,
 // the corresponding topology, and the corresponding routing
 // protocol instance.
-type CISCOCONTEXTMAPPINGMIB_Ccontextmappingtable_Ccontextmappingentry struct {
+type CISCOCONTEXTMAPPINGMIB_CContextMappingTable_CContextMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -188,7 +194,7 @@ type CISCOCONTEXTMAPPINGMIB_Ccontextmappingtable_Ccontextmappingentry struct {
     // This is a human readable name identifying a particular SNMP VACM context at
     // a particular SNMP entity. The empty contextName (zero length) represents
     // the default context. The type is string with length: 0..32.
-    Ccontextmappingvacmcontextname interface{}
+    CContextMappingVacmContextName interface{}
 
     // The value of an instance of this object identifies the name given to the
     // VRF to which the SNMP context is mapped to.  This is typically a
@@ -196,7 +202,7 @@ type CISCOCONTEXTMAPPINGMIB_Ccontextmappingtable_Ccontextmappingentry struct {
     // console interface to refer to this VRF.  When the value of this object is
     // the zero length string it indicates that the SNMP context is independent of
     // any VRF. The type is string with length: 0..32.
-    Ccontextmappingvrfname interface{}
+    CContextMappingVrfName interface{}
 
     // The value of an instance of this object identifies the name given to the
     // topology to which the SNMP context is mapped to.  This is typically a
@@ -204,7 +210,7 @@ type CISCOCONTEXTMAPPINGMIB_Ccontextmappingtable_Ccontextmappingentry struct {
     // console interface to refer to this topology.  When the value of this object
     // is the zero length string it indicates that the SNMP context is independent
     // of any topology. The type is string with length: 0..32.
-    Ccontextmappingtopologyname interface{}
+    CContextMappingTopologyName interface{}
 
     // The value of an instance of this object identifies the name given to the
     // protocol instance to which the SNMP context is mapped to.  This is
@@ -213,40 +219,43 @@ type CISCOCONTEXTMAPPINGMIB_Ccontextmappingtable_Ccontextmappingentry struct {
     // the value of this object is the zero length string it indicates that the
     // SNMP context is independent of any protocol instance. The type is string
     // with length: 0..32.
-    Ccontextmappingprotoinstname interface{}
+    CContextMappingProtoInstName interface{}
 
     // The storage type for this conceptual row.  Conceptual rows having the value
     // 'permanent' need not allow write-access to any columnar objects in the row.
     // The type is StorageType.
-    Ccontextmappingstoragetype interface{}
+    CContextMappingStorageType interface{}
 
     // This object facilitates the creation, modification, or deletion of a
     // conceptual row in this table. The type is RowStatus.
-    Ccontextmappingrowstatus interface{}
+    CContextMappingRowStatus interface{}
 }
 
-func (ccontextmappingentry *CISCOCONTEXTMAPPINGMIB_Ccontextmappingtable_Ccontextmappingentry) GetEntityData() *types.CommonEntityData {
-    ccontextmappingentry.EntityData.YFilter = ccontextmappingentry.YFilter
-    ccontextmappingentry.EntityData.YangName = "cContextMappingEntry"
-    ccontextmappingentry.EntityData.BundleName = "cisco_ios_xe"
-    ccontextmappingentry.EntityData.ParentYangName = "cContextMappingTable"
-    ccontextmappingentry.EntityData.SegmentPath = "cContextMappingEntry" + "[cContextMappingVacmContextName='" + fmt.Sprintf("%v", ccontextmappingentry.Ccontextmappingvacmcontextname) + "']"
-    ccontextmappingentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ccontextmappingentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ccontextmappingentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cContextMappingEntry *CISCOCONTEXTMAPPINGMIB_CContextMappingTable_CContextMappingEntry) GetEntityData() *types.CommonEntityData {
+    cContextMappingEntry.EntityData.YFilter = cContextMappingEntry.YFilter
+    cContextMappingEntry.EntityData.YangName = "cContextMappingEntry"
+    cContextMappingEntry.EntityData.BundleName = "cisco_ios_xe"
+    cContextMappingEntry.EntityData.ParentYangName = "cContextMappingTable"
+    cContextMappingEntry.EntityData.SegmentPath = "cContextMappingEntry" + types.AddKeyToken(cContextMappingEntry.CContextMappingVacmContextName, "cContextMappingVacmContextName")
+    cContextMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cContextMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cContextMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ccontextmappingentry.EntityData.Children = make(map[string]types.YChild)
-    ccontextmappingentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ccontextmappingentry.EntityData.Leafs["cContextMappingVacmContextName"] = types.YLeaf{"Ccontextmappingvacmcontextname", ccontextmappingentry.Ccontextmappingvacmcontextname}
-    ccontextmappingentry.EntityData.Leafs["cContextMappingVrfName"] = types.YLeaf{"Ccontextmappingvrfname", ccontextmappingentry.Ccontextmappingvrfname}
-    ccontextmappingentry.EntityData.Leafs["cContextMappingTopologyName"] = types.YLeaf{"Ccontextmappingtopologyname", ccontextmappingentry.Ccontextmappingtopologyname}
-    ccontextmappingentry.EntityData.Leafs["cContextMappingProtoInstName"] = types.YLeaf{"Ccontextmappingprotoinstname", ccontextmappingentry.Ccontextmappingprotoinstname}
-    ccontextmappingentry.EntityData.Leafs["cContextMappingStorageType"] = types.YLeaf{"Ccontextmappingstoragetype", ccontextmappingentry.Ccontextmappingstoragetype}
-    ccontextmappingentry.EntityData.Leafs["cContextMappingRowStatus"] = types.YLeaf{"Ccontextmappingrowstatus", ccontextmappingentry.Ccontextmappingrowstatus}
-    return &(ccontextmappingentry.EntityData)
+    cContextMappingEntry.EntityData.Children = types.NewOrderedMap()
+    cContextMappingEntry.EntityData.Leafs = types.NewOrderedMap()
+    cContextMappingEntry.EntityData.Leafs.Append("cContextMappingVacmContextName", types.YLeaf{"CContextMappingVacmContextName", cContextMappingEntry.CContextMappingVacmContextName})
+    cContextMappingEntry.EntityData.Leafs.Append("cContextMappingVrfName", types.YLeaf{"CContextMappingVrfName", cContextMappingEntry.CContextMappingVrfName})
+    cContextMappingEntry.EntityData.Leafs.Append("cContextMappingTopologyName", types.YLeaf{"CContextMappingTopologyName", cContextMappingEntry.CContextMappingTopologyName})
+    cContextMappingEntry.EntityData.Leafs.Append("cContextMappingProtoInstName", types.YLeaf{"CContextMappingProtoInstName", cContextMappingEntry.CContextMappingProtoInstName})
+    cContextMappingEntry.EntityData.Leafs.Append("cContextMappingStorageType", types.YLeaf{"CContextMappingStorageType", cContextMappingEntry.CContextMappingStorageType})
+    cContextMappingEntry.EntityData.Leafs.Append("cContextMappingRowStatus", types.YLeaf{"CContextMappingRowStatus", cContextMappingEntry.CContextMappingRowStatus})
+
+    cContextMappingEntry.EntityData.YListKeys = []string {"CContextMappingVacmContextName"}
+
+    return &(cContextMappingEntry.EntityData)
 }
 
-// CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgedomaintable
+// CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeDomainTable
 // This table contains information on which
 // cContextMappingVacmContextName is mapped to
 // which bridge domain.
@@ -260,7 +269,7 @@ func (ccontextmappingentry *CISCOCONTEXTMAPPINGMIB_Ccontextmappingtable_Ccontext
 // 
 // An entry need to exist in cContextMappingTable, to create 
 // an entry in this table.
-type CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgedomaintable struct {
+type CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeDomainTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -270,30 +279,33 @@ type CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgedomaintable struct {
     // 'createAndGo' or 'createAndWait'.  To delete a row in this table, a manager
     // must set cContextMappingBridgeDomainRowStatus to 'destroy'. The type is
     // slice of
-    // CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgedomaintable_Ccontextmappingbridgedomainentry.
-    Ccontextmappingbridgedomainentry []CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgedomaintable_Ccontextmappingbridgedomainentry
+    // CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeDomainTable_CContextMappingBridgeDomainEntry.
+    CContextMappingBridgeDomainEntry []*CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeDomainTable_CContextMappingBridgeDomainEntry
 }
 
-func (ccontextmappingbridgedomaintable *CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgedomaintable) GetEntityData() *types.CommonEntityData {
-    ccontextmappingbridgedomaintable.EntityData.YFilter = ccontextmappingbridgedomaintable.YFilter
-    ccontextmappingbridgedomaintable.EntityData.YangName = "cContextMappingBridgeDomainTable"
-    ccontextmappingbridgedomaintable.EntityData.BundleName = "cisco_ios_xe"
-    ccontextmappingbridgedomaintable.EntityData.ParentYangName = "CISCO-CONTEXT-MAPPING-MIB"
-    ccontextmappingbridgedomaintable.EntityData.SegmentPath = "cContextMappingBridgeDomainTable"
-    ccontextmappingbridgedomaintable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ccontextmappingbridgedomaintable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ccontextmappingbridgedomaintable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cContextMappingBridgeDomainTable *CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeDomainTable) GetEntityData() *types.CommonEntityData {
+    cContextMappingBridgeDomainTable.EntityData.YFilter = cContextMappingBridgeDomainTable.YFilter
+    cContextMappingBridgeDomainTable.EntityData.YangName = "cContextMappingBridgeDomainTable"
+    cContextMappingBridgeDomainTable.EntityData.BundleName = "cisco_ios_xe"
+    cContextMappingBridgeDomainTable.EntityData.ParentYangName = "CISCO-CONTEXT-MAPPING-MIB"
+    cContextMappingBridgeDomainTable.EntityData.SegmentPath = "cContextMappingBridgeDomainTable"
+    cContextMappingBridgeDomainTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cContextMappingBridgeDomainTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cContextMappingBridgeDomainTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ccontextmappingbridgedomaintable.EntityData.Children = make(map[string]types.YChild)
-    ccontextmappingbridgedomaintable.EntityData.Children["cContextMappingBridgeDomainEntry"] = types.YChild{"Ccontextmappingbridgedomainentry", nil}
-    for i := range ccontextmappingbridgedomaintable.Ccontextmappingbridgedomainentry {
-        ccontextmappingbridgedomaintable.EntityData.Children[types.GetSegmentPath(&ccontextmappingbridgedomaintable.Ccontextmappingbridgedomainentry[i])] = types.YChild{"Ccontextmappingbridgedomainentry", &ccontextmappingbridgedomaintable.Ccontextmappingbridgedomainentry[i]}
+    cContextMappingBridgeDomainTable.EntityData.Children = types.NewOrderedMap()
+    cContextMappingBridgeDomainTable.EntityData.Children.Append("cContextMappingBridgeDomainEntry", types.YChild{"CContextMappingBridgeDomainEntry", nil})
+    for i := range cContextMappingBridgeDomainTable.CContextMappingBridgeDomainEntry {
+        cContextMappingBridgeDomainTable.EntityData.Children.Append(types.GetSegmentPath(cContextMappingBridgeDomainTable.CContextMappingBridgeDomainEntry[i]), types.YChild{"CContextMappingBridgeDomainEntry", cContextMappingBridgeDomainTable.CContextMappingBridgeDomainEntry[i]})
     }
-    ccontextmappingbridgedomaintable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ccontextmappingbridgedomaintable.EntityData)
+    cContextMappingBridgeDomainTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cContextMappingBridgeDomainTable.EntityData.YListKeys = []string {}
+
+    return &(cContextMappingBridgeDomainTable.EntityData)
 }
 
-// CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgedomaintable_Ccontextmappingbridgedomainentry
+// CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeDomainTable_CContextMappingBridgeDomainEntry
 // Information relating to a single mapping of
 // cContextMappingVacmContextName to the 
 // corresponding bridge domain.
@@ -304,49 +316,52 @@ func (ccontextmappingbridgedomaintable *CISCOCONTEXTMAPPINGMIB_Ccontextmappingbr
 // 
 // To delete a row in this table, a manager must set
 // cContextMappingBridgeDomainRowStatus to 'destroy'.
-type CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgedomaintable_Ccontextmappingbridgedomainentry struct {
+type CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeDomainTable_CContextMappingBridgeDomainEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
-    // cisco_context_mapping_mib.CISCOCONTEXTMAPPINGMIB_Ccontextmappingtable_Ccontextmappingentry_Ccontextmappingvacmcontextname
-    Ccontextmappingvacmcontextname interface{}
+    // cisco_context_mapping_mib.CISCOCONTEXTMAPPINGMIB_CContextMappingTable_CContextMappingEntry_CContextMappingVacmContextName
+    CContextMappingVacmContextName interface{}
 
     // The value of an instance of this object identifies the bridge domain to
     // which the SNMP context is  mapped to. The type is interface{} with range:
     // 1..65535.
-    Ccontextmappingbridgedomainidentifier interface{}
+    CContextMappingBridgeDomainIdentifier interface{}
 
     // The storage type for this conceptual row.  Conceptual rows having the value
     // 'permanent' need not allow write-access to any columnar objects in the row.
     // The type is StorageType.
-    Ccontextmappingbridgedomainstoragetype interface{}
+    CContextMappingBridgeDomainStorageType interface{}
 
     // This object facilitates the creation, modification, or deletion of a
     // conceptual row in this table. The type is RowStatus.
-    Ccontextmappingbridgedomainrowstatus interface{}
+    CContextMappingBridgeDomainRowStatus interface{}
 }
 
-func (ccontextmappingbridgedomainentry *CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgedomaintable_Ccontextmappingbridgedomainentry) GetEntityData() *types.CommonEntityData {
-    ccontextmappingbridgedomainentry.EntityData.YFilter = ccontextmappingbridgedomainentry.YFilter
-    ccontextmappingbridgedomainentry.EntityData.YangName = "cContextMappingBridgeDomainEntry"
-    ccontextmappingbridgedomainentry.EntityData.BundleName = "cisco_ios_xe"
-    ccontextmappingbridgedomainentry.EntityData.ParentYangName = "cContextMappingBridgeDomainTable"
-    ccontextmappingbridgedomainentry.EntityData.SegmentPath = "cContextMappingBridgeDomainEntry" + "[cContextMappingVacmContextName='" + fmt.Sprintf("%v", ccontextmappingbridgedomainentry.Ccontextmappingvacmcontextname) + "']"
-    ccontextmappingbridgedomainentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ccontextmappingbridgedomainentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ccontextmappingbridgedomainentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cContextMappingBridgeDomainEntry *CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeDomainTable_CContextMappingBridgeDomainEntry) GetEntityData() *types.CommonEntityData {
+    cContextMappingBridgeDomainEntry.EntityData.YFilter = cContextMappingBridgeDomainEntry.YFilter
+    cContextMappingBridgeDomainEntry.EntityData.YangName = "cContextMappingBridgeDomainEntry"
+    cContextMappingBridgeDomainEntry.EntityData.BundleName = "cisco_ios_xe"
+    cContextMappingBridgeDomainEntry.EntityData.ParentYangName = "cContextMappingBridgeDomainTable"
+    cContextMappingBridgeDomainEntry.EntityData.SegmentPath = "cContextMappingBridgeDomainEntry" + types.AddKeyToken(cContextMappingBridgeDomainEntry.CContextMappingVacmContextName, "cContextMappingVacmContextName")
+    cContextMappingBridgeDomainEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cContextMappingBridgeDomainEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cContextMappingBridgeDomainEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ccontextmappingbridgedomainentry.EntityData.Children = make(map[string]types.YChild)
-    ccontextmappingbridgedomainentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ccontextmappingbridgedomainentry.EntityData.Leafs["cContextMappingVacmContextName"] = types.YLeaf{"Ccontextmappingvacmcontextname", ccontextmappingbridgedomainentry.Ccontextmappingvacmcontextname}
-    ccontextmappingbridgedomainentry.EntityData.Leafs["cContextMappingBridgeDomainIdentifier"] = types.YLeaf{"Ccontextmappingbridgedomainidentifier", ccontextmappingbridgedomainentry.Ccontextmappingbridgedomainidentifier}
-    ccontextmappingbridgedomainentry.EntityData.Leafs["cContextMappingBridgeDomainStorageType"] = types.YLeaf{"Ccontextmappingbridgedomainstoragetype", ccontextmappingbridgedomainentry.Ccontextmappingbridgedomainstoragetype}
-    ccontextmappingbridgedomainentry.EntityData.Leafs["cContextMappingBridgeDomainRowStatus"] = types.YLeaf{"Ccontextmappingbridgedomainrowstatus", ccontextmappingbridgedomainentry.Ccontextmappingbridgedomainrowstatus}
-    return &(ccontextmappingbridgedomainentry.EntityData)
+    cContextMappingBridgeDomainEntry.EntityData.Children = types.NewOrderedMap()
+    cContextMappingBridgeDomainEntry.EntityData.Leafs = types.NewOrderedMap()
+    cContextMappingBridgeDomainEntry.EntityData.Leafs.Append("cContextMappingVacmContextName", types.YLeaf{"CContextMappingVacmContextName", cContextMappingBridgeDomainEntry.CContextMappingVacmContextName})
+    cContextMappingBridgeDomainEntry.EntityData.Leafs.Append("cContextMappingBridgeDomainIdentifier", types.YLeaf{"CContextMappingBridgeDomainIdentifier", cContextMappingBridgeDomainEntry.CContextMappingBridgeDomainIdentifier})
+    cContextMappingBridgeDomainEntry.EntityData.Leafs.Append("cContextMappingBridgeDomainStorageType", types.YLeaf{"CContextMappingBridgeDomainStorageType", cContextMappingBridgeDomainEntry.CContextMappingBridgeDomainStorageType})
+    cContextMappingBridgeDomainEntry.EntityData.Leafs.Append("cContextMappingBridgeDomainRowStatus", types.YLeaf{"CContextMappingBridgeDomainRowStatus", cContextMappingBridgeDomainEntry.CContextMappingBridgeDomainRowStatus})
+
+    cContextMappingBridgeDomainEntry.EntityData.YListKeys = []string {"CContextMappingVacmContextName"}
+
+    return &(cContextMappingBridgeDomainEntry.EntityData)
 }
 
-// CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgeinstancetable
+// CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeInstanceTable
 // This table contains information on mapping between
 // cContextMappingVacmContextName and bridge instance.
 // 
@@ -358,7 +373,7 @@ func (ccontextmappingbridgedomainentry *CISCOCONTEXTMAPPINGMIB_Ccontextmappingbr
 // 
 // If an entry needs to be created in this table, the
 // corresponding entry must exist in cContextMappingTable.
-type CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgeinstancetable struct {
+type CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeInstanceTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -368,30 +383,33 @@ type CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgeinstancetable struct {
     // 'createAndGo' or 'createAndWait'.  To delete a row in this table, a manager
     // must set cContextMappingBridgeInstRowStatus to 'destroy'. The type is slice
     // of
-    // CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgeinstancetable_Ccontextmappingbridgeinstanceentry.
-    Ccontextmappingbridgeinstanceentry []CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgeinstancetable_Ccontextmappingbridgeinstanceentry
+    // CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeInstanceTable_CContextMappingBridgeInstanceEntry.
+    CContextMappingBridgeInstanceEntry []*CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeInstanceTable_CContextMappingBridgeInstanceEntry
 }
 
-func (ccontextmappingbridgeinstancetable *CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgeinstancetable) GetEntityData() *types.CommonEntityData {
-    ccontextmappingbridgeinstancetable.EntityData.YFilter = ccontextmappingbridgeinstancetable.YFilter
-    ccontextmappingbridgeinstancetable.EntityData.YangName = "cContextMappingBridgeInstanceTable"
-    ccontextmappingbridgeinstancetable.EntityData.BundleName = "cisco_ios_xe"
-    ccontextmappingbridgeinstancetable.EntityData.ParentYangName = "CISCO-CONTEXT-MAPPING-MIB"
-    ccontextmappingbridgeinstancetable.EntityData.SegmentPath = "cContextMappingBridgeInstanceTable"
-    ccontextmappingbridgeinstancetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ccontextmappingbridgeinstancetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ccontextmappingbridgeinstancetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cContextMappingBridgeInstanceTable *CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeInstanceTable) GetEntityData() *types.CommonEntityData {
+    cContextMappingBridgeInstanceTable.EntityData.YFilter = cContextMappingBridgeInstanceTable.YFilter
+    cContextMappingBridgeInstanceTable.EntityData.YangName = "cContextMappingBridgeInstanceTable"
+    cContextMappingBridgeInstanceTable.EntityData.BundleName = "cisco_ios_xe"
+    cContextMappingBridgeInstanceTable.EntityData.ParentYangName = "CISCO-CONTEXT-MAPPING-MIB"
+    cContextMappingBridgeInstanceTable.EntityData.SegmentPath = "cContextMappingBridgeInstanceTable"
+    cContextMappingBridgeInstanceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cContextMappingBridgeInstanceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cContextMappingBridgeInstanceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ccontextmappingbridgeinstancetable.EntityData.Children = make(map[string]types.YChild)
-    ccontextmappingbridgeinstancetable.EntityData.Children["cContextMappingBridgeInstanceEntry"] = types.YChild{"Ccontextmappingbridgeinstanceentry", nil}
-    for i := range ccontextmappingbridgeinstancetable.Ccontextmappingbridgeinstanceentry {
-        ccontextmappingbridgeinstancetable.EntityData.Children[types.GetSegmentPath(&ccontextmappingbridgeinstancetable.Ccontextmappingbridgeinstanceentry[i])] = types.YChild{"Ccontextmappingbridgeinstanceentry", &ccontextmappingbridgeinstancetable.Ccontextmappingbridgeinstanceentry[i]}
+    cContextMappingBridgeInstanceTable.EntityData.Children = types.NewOrderedMap()
+    cContextMappingBridgeInstanceTable.EntityData.Children.Append("cContextMappingBridgeInstanceEntry", types.YChild{"CContextMappingBridgeInstanceEntry", nil})
+    for i := range cContextMappingBridgeInstanceTable.CContextMappingBridgeInstanceEntry {
+        cContextMappingBridgeInstanceTable.EntityData.Children.Append(types.GetSegmentPath(cContextMappingBridgeInstanceTable.CContextMappingBridgeInstanceEntry[i]), types.YChild{"CContextMappingBridgeInstanceEntry", cContextMappingBridgeInstanceTable.CContextMappingBridgeInstanceEntry[i]})
     }
-    ccontextmappingbridgeinstancetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ccontextmappingbridgeinstancetable.EntityData)
+    cContextMappingBridgeInstanceTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cContextMappingBridgeInstanceTable.EntityData.YListKeys = []string {}
+
+    return &(cContextMappingBridgeInstanceTable.EntityData)
 }
 
-// CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgeinstancetable_Ccontextmappingbridgeinstanceentry
+// CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeInstanceTable_CContextMappingBridgeInstanceEntry
 // Information relating to a single mapping of
 // cContextMappingVacmContextName to the 
 // corresponding bridge instance.
@@ -402,13 +420,13 @@ func (ccontextmappingbridgeinstancetable *CISCOCONTEXTMAPPINGMIB_Ccontextmapping
 // 
 // To delete a row in this table, a manager must set
 // cContextMappingBridgeInstRowStatus to 'destroy'.
-type CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgeinstancetable_Ccontextmappingbridgeinstanceentry struct {
+type CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeInstanceTable_CContextMappingBridgeInstanceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
-    // cisco_context_mapping_mib.CISCOCONTEXTMAPPINGMIB_Ccontextmappingtable_Ccontextmappingentry_Ccontextmappingvacmcontextname
-    Ccontextmappingvacmcontextname interface{}
+    // cisco_context_mapping_mib.CISCOCONTEXTMAPPINGMIB_CContextMappingTable_CContextMappingEntry_CContextMappingVacmContextName
+    CContextMappingVacmContextName interface{}
 
     // The object identifies the name given to bridge instance to which the SNMP
     // context is mapped to.  Value of this object cannot be changed when the 
@@ -417,84 +435,90 @@ type CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgeinstancetable_Ccontextmappingbr
     // console interface to refer to this bridge instance.  When the value of this
     // object is a zero length string, it indicates that the SNMP context is
     // independent of any bridge instances. The type is string.
-    Ccontextmappingbridgeinstname interface{}
+    CContextMappingBridgeInstName interface{}
 
     // The storage type for this conceptual row.  Value of this object cannot be
     // changed when the  RowStatus object in the same row is 'active'.  Conceptual
     // rows having the value 'permanent' need not allow write-access to any
     // columnar objects in the row. The type is StorageType.
-    Ccontextmappingbridgeinststoragetype interface{}
+    CContextMappingBridgeInstStorageType interface{}
 
     // This object facilitates the creation, modification, or deletion of a
     // conceptual row in this table. The type is RowStatus.
-    Ccontextmappingbridgeinstrowstatus interface{}
+    CContextMappingBridgeInstRowStatus interface{}
 }
 
-func (ccontextmappingbridgeinstanceentry *CISCOCONTEXTMAPPINGMIB_Ccontextmappingbridgeinstancetable_Ccontextmappingbridgeinstanceentry) GetEntityData() *types.CommonEntityData {
-    ccontextmappingbridgeinstanceentry.EntityData.YFilter = ccontextmappingbridgeinstanceentry.YFilter
-    ccontextmappingbridgeinstanceentry.EntityData.YangName = "cContextMappingBridgeInstanceEntry"
-    ccontextmappingbridgeinstanceentry.EntityData.BundleName = "cisco_ios_xe"
-    ccontextmappingbridgeinstanceentry.EntityData.ParentYangName = "cContextMappingBridgeInstanceTable"
-    ccontextmappingbridgeinstanceentry.EntityData.SegmentPath = "cContextMappingBridgeInstanceEntry" + "[cContextMappingVacmContextName='" + fmt.Sprintf("%v", ccontextmappingbridgeinstanceentry.Ccontextmappingvacmcontextname) + "']"
-    ccontextmappingbridgeinstanceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ccontextmappingbridgeinstanceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ccontextmappingbridgeinstanceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cContextMappingBridgeInstanceEntry *CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeInstanceTable_CContextMappingBridgeInstanceEntry) GetEntityData() *types.CommonEntityData {
+    cContextMappingBridgeInstanceEntry.EntityData.YFilter = cContextMappingBridgeInstanceEntry.YFilter
+    cContextMappingBridgeInstanceEntry.EntityData.YangName = "cContextMappingBridgeInstanceEntry"
+    cContextMappingBridgeInstanceEntry.EntityData.BundleName = "cisco_ios_xe"
+    cContextMappingBridgeInstanceEntry.EntityData.ParentYangName = "cContextMappingBridgeInstanceTable"
+    cContextMappingBridgeInstanceEntry.EntityData.SegmentPath = "cContextMappingBridgeInstanceEntry" + types.AddKeyToken(cContextMappingBridgeInstanceEntry.CContextMappingVacmContextName, "cContextMappingVacmContextName")
+    cContextMappingBridgeInstanceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cContextMappingBridgeInstanceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cContextMappingBridgeInstanceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ccontextmappingbridgeinstanceentry.EntityData.Children = make(map[string]types.YChild)
-    ccontextmappingbridgeinstanceentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ccontextmappingbridgeinstanceentry.EntityData.Leafs["cContextMappingVacmContextName"] = types.YLeaf{"Ccontextmappingvacmcontextname", ccontextmappingbridgeinstanceentry.Ccontextmappingvacmcontextname}
-    ccontextmappingbridgeinstanceentry.EntityData.Leafs["cContextMappingBridgeInstName"] = types.YLeaf{"Ccontextmappingbridgeinstname", ccontextmappingbridgeinstanceentry.Ccontextmappingbridgeinstname}
-    ccontextmappingbridgeinstanceentry.EntityData.Leafs["cContextMappingBridgeInstStorageType"] = types.YLeaf{"Ccontextmappingbridgeinststoragetype", ccontextmappingbridgeinstanceentry.Ccontextmappingbridgeinststoragetype}
-    ccontextmappingbridgeinstanceentry.EntityData.Leafs["cContextMappingBridgeInstRowStatus"] = types.YLeaf{"Ccontextmappingbridgeinstrowstatus", ccontextmappingbridgeinstanceentry.Ccontextmappingbridgeinstrowstatus}
-    return &(ccontextmappingbridgeinstanceentry.EntityData)
+    cContextMappingBridgeInstanceEntry.EntityData.Children = types.NewOrderedMap()
+    cContextMappingBridgeInstanceEntry.EntityData.Leafs = types.NewOrderedMap()
+    cContextMappingBridgeInstanceEntry.EntityData.Leafs.Append("cContextMappingVacmContextName", types.YLeaf{"CContextMappingVacmContextName", cContextMappingBridgeInstanceEntry.CContextMappingVacmContextName})
+    cContextMappingBridgeInstanceEntry.EntityData.Leafs.Append("cContextMappingBridgeInstName", types.YLeaf{"CContextMappingBridgeInstName", cContextMappingBridgeInstanceEntry.CContextMappingBridgeInstName})
+    cContextMappingBridgeInstanceEntry.EntityData.Leafs.Append("cContextMappingBridgeInstStorageType", types.YLeaf{"CContextMappingBridgeInstStorageType", cContextMappingBridgeInstanceEntry.CContextMappingBridgeInstStorageType})
+    cContextMappingBridgeInstanceEntry.EntityData.Leafs.Append("cContextMappingBridgeInstRowStatus", types.YLeaf{"CContextMappingBridgeInstRowStatus", cContextMappingBridgeInstanceEntry.CContextMappingBridgeInstRowStatus})
+
+    cContextMappingBridgeInstanceEntry.EntityData.YListKeys = []string {"CContextMappingVacmContextName"}
+
+    return &(cContextMappingBridgeInstanceEntry.EntityData)
 }
 
-// CISCOCONTEXTMAPPINGMIB_Ccontextmappinglicensegrouptable
+// CISCOCONTEXTMAPPINGMIB_CContextMappingLicenseGroupTable
 // This table contains information on which
 // cContextMappingVacmContextName is mapped to
 // which License Group.
 // Group level licensing is used where each
 // Technology Package is enabled via a License.
-type CISCOCONTEXTMAPPINGMIB_Ccontextmappinglicensegrouptable struct {
+type CISCOCONTEXTMAPPINGMIB_CContextMappingLicenseGroupTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information relating to a single mapping of CContextMappingVacmContextName
     // to the corresponding License Group. The type is slice of
-    // CISCOCONTEXTMAPPINGMIB_Ccontextmappinglicensegrouptable_Ccontextmappinglicensegroupentry.
-    Ccontextmappinglicensegroupentry []CISCOCONTEXTMAPPINGMIB_Ccontextmappinglicensegrouptable_Ccontextmappinglicensegroupentry
+    // CISCOCONTEXTMAPPINGMIB_CContextMappingLicenseGroupTable_CContextMappingLicenseGroupEntry.
+    CContextMappingLicenseGroupEntry []*CISCOCONTEXTMAPPINGMIB_CContextMappingLicenseGroupTable_CContextMappingLicenseGroupEntry
 }
 
-func (ccontextmappinglicensegrouptable *CISCOCONTEXTMAPPINGMIB_Ccontextmappinglicensegrouptable) GetEntityData() *types.CommonEntityData {
-    ccontextmappinglicensegrouptable.EntityData.YFilter = ccontextmappinglicensegrouptable.YFilter
-    ccontextmappinglicensegrouptable.EntityData.YangName = "cContextMappingLicenseGroupTable"
-    ccontextmappinglicensegrouptable.EntityData.BundleName = "cisco_ios_xe"
-    ccontextmappinglicensegrouptable.EntityData.ParentYangName = "CISCO-CONTEXT-MAPPING-MIB"
-    ccontextmappinglicensegrouptable.EntityData.SegmentPath = "cContextMappingLicenseGroupTable"
-    ccontextmappinglicensegrouptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ccontextmappinglicensegrouptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ccontextmappinglicensegrouptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cContextMappingLicenseGroupTable *CISCOCONTEXTMAPPINGMIB_CContextMappingLicenseGroupTable) GetEntityData() *types.CommonEntityData {
+    cContextMappingLicenseGroupTable.EntityData.YFilter = cContextMappingLicenseGroupTable.YFilter
+    cContextMappingLicenseGroupTable.EntityData.YangName = "cContextMappingLicenseGroupTable"
+    cContextMappingLicenseGroupTable.EntityData.BundleName = "cisco_ios_xe"
+    cContextMappingLicenseGroupTable.EntityData.ParentYangName = "CISCO-CONTEXT-MAPPING-MIB"
+    cContextMappingLicenseGroupTable.EntityData.SegmentPath = "cContextMappingLicenseGroupTable"
+    cContextMappingLicenseGroupTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cContextMappingLicenseGroupTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cContextMappingLicenseGroupTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ccontextmappinglicensegrouptable.EntityData.Children = make(map[string]types.YChild)
-    ccontextmappinglicensegrouptable.EntityData.Children["cContextMappingLicenseGroupEntry"] = types.YChild{"Ccontextmappinglicensegroupentry", nil}
-    for i := range ccontextmappinglicensegrouptable.Ccontextmappinglicensegroupentry {
-        ccontextmappinglicensegrouptable.EntityData.Children[types.GetSegmentPath(&ccontextmappinglicensegrouptable.Ccontextmappinglicensegroupentry[i])] = types.YChild{"Ccontextmappinglicensegroupentry", &ccontextmappinglicensegrouptable.Ccontextmappinglicensegroupentry[i]}
+    cContextMappingLicenseGroupTable.EntityData.Children = types.NewOrderedMap()
+    cContextMappingLicenseGroupTable.EntityData.Children.Append("cContextMappingLicenseGroupEntry", types.YChild{"CContextMappingLicenseGroupEntry", nil})
+    for i := range cContextMappingLicenseGroupTable.CContextMappingLicenseGroupEntry {
+        cContextMappingLicenseGroupTable.EntityData.Children.Append(types.GetSegmentPath(cContextMappingLicenseGroupTable.CContextMappingLicenseGroupEntry[i]), types.YChild{"CContextMappingLicenseGroupEntry", cContextMappingLicenseGroupTable.CContextMappingLicenseGroupEntry[i]})
     }
-    ccontextmappinglicensegrouptable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(ccontextmappinglicensegrouptable.EntityData)
+    cContextMappingLicenseGroupTable.EntityData.Leafs = types.NewOrderedMap()
+
+    cContextMappingLicenseGroupTable.EntityData.YListKeys = []string {}
+
+    return &(cContextMappingLicenseGroupTable.EntityData)
 }
 
-// CISCOCONTEXTMAPPINGMIB_Ccontextmappinglicensegrouptable_Ccontextmappinglicensegroupentry
+// CISCOCONTEXTMAPPINGMIB_CContextMappingLicenseGroupTable_CContextMappingLicenseGroupEntry
 // Information relating to a single mapping of
 // CContextMappingVacmContextName to the
 // corresponding License Group.
-type CISCOCONTEXTMAPPINGMIB_Ccontextmappinglicensegrouptable_Ccontextmappinglicensegroupentry struct {
+type CISCOCONTEXTMAPPINGMIB_CContextMappingLicenseGroupTable_CContextMappingLicenseGroupEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
-    // cisco_context_mapping_mib.CISCOCONTEXTMAPPINGMIB_Ccontextmappingtable_Ccontextmappingentry_Ccontextmappingvacmcontextname
-    Ccontextmappingvacmcontextname interface{}
+    // cisco_context_mapping_mib.CISCOCONTEXTMAPPINGMIB_CContextMappingTable_CContextMappingEntry_CContextMappingVacmContextName
+    CContextMappingVacmContextName interface{}
 
     // The value of an instance of this object identifies the name given to the
     // Group to which the SNMP context is mapped.  Feature sets from all groups
@@ -508,34 +532,37 @@ type CISCOCONTEXTMAPPINGMIB_Ccontextmappinglicensegrouptable_Ccontextmappinglice
     // any license key.  The following are the different Technology Groups.
     // 1.crypto 2.data 3.ip 4.legacy 5.novpn-security 6.security 7.uc. The type is
     // string with length: 0..32.
-    Ccontextmappinglicensegroupname interface{}
+    CContextMappingLicenseGroupName interface{}
 
     // The storage type for this conceptual row.  Conceptual rows having the value
     // 'permanent' need not allow write-access to any columnar objects in the row.
     // The type is StorageType.
-    Ccontextmappinglicensegroupstoragetype interface{}
+    CContextMappingLicenseGroupStorageType interface{}
 
     // This object facilitates the creation, modification, or deletion of a
     // conceptual row in this table. The type is RowStatus.
-    Ccontextmappinglicensegrouprowstatus interface{}
+    CContextMappingLicenseGroupRowStatus interface{}
 }
 
-func (ccontextmappinglicensegroupentry *CISCOCONTEXTMAPPINGMIB_Ccontextmappinglicensegrouptable_Ccontextmappinglicensegroupentry) GetEntityData() *types.CommonEntityData {
-    ccontextmappinglicensegroupentry.EntityData.YFilter = ccontextmappinglicensegroupentry.YFilter
-    ccontextmappinglicensegroupentry.EntityData.YangName = "cContextMappingLicenseGroupEntry"
-    ccontextmappinglicensegroupentry.EntityData.BundleName = "cisco_ios_xe"
-    ccontextmappinglicensegroupentry.EntityData.ParentYangName = "cContextMappingLicenseGroupTable"
-    ccontextmappinglicensegroupentry.EntityData.SegmentPath = "cContextMappingLicenseGroupEntry" + "[cContextMappingVacmContextName='" + fmt.Sprintf("%v", ccontextmappinglicensegroupentry.Ccontextmappingvacmcontextname) + "']"
-    ccontextmappinglicensegroupentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ccontextmappinglicensegroupentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ccontextmappinglicensegroupentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (cContextMappingLicenseGroupEntry *CISCOCONTEXTMAPPINGMIB_CContextMappingLicenseGroupTable_CContextMappingLicenseGroupEntry) GetEntityData() *types.CommonEntityData {
+    cContextMappingLicenseGroupEntry.EntityData.YFilter = cContextMappingLicenseGroupEntry.YFilter
+    cContextMappingLicenseGroupEntry.EntityData.YangName = "cContextMappingLicenseGroupEntry"
+    cContextMappingLicenseGroupEntry.EntityData.BundleName = "cisco_ios_xe"
+    cContextMappingLicenseGroupEntry.EntityData.ParentYangName = "cContextMappingLicenseGroupTable"
+    cContextMappingLicenseGroupEntry.EntityData.SegmentPath = "cContextMappingLicenseGroupEntry" + types.AddKeyToken(cContextMappingLicenseGroupEntry.CContextMappingVacmContextName, "cContextMappingVacmContextName")
+    cContextMappingLicenseGroupEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cContextMappingLicenseGroupEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cContextMappingLicenseGroupEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ccontextmappinglicensegroupentry.EntityData.Children = make(map[string]types.YChild)
-    ccontextmappinglicensegroupentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    ccontextmappinglicensegroupentry.EntityData.Leafs["cContextMappingVacmContextName"] = types.YLeaf{"Ccontextmappingvacmcontextname", ccontextmappinglicensegroupentry.Ccontextmappingvacmcontextname}
-    ccontextmappinglicensegroupentry.EntityData.Leafs["cContextMappingLicenseGroupName"] = types.YLeaf{"Ccontextmappinglicensegroupname", ccontextmappinglicensegroupentry.Ccontextmappinglicensegroupname}
-    ccontextmappinglicensegroupentry.EntityData.Leafs["cContextMappingLicenseGroupStorageType"] = types.YLeaf{"Ccontextmappinglicensegroupstoragetype", ccontextmappinglicensegroupentry.Ccontextmappinglicensegroupstoragetype}
-    ccontextmappinglicensegroupentry.EntityData.Leafs["cContextMappingLicenseGroupRowStatus"] = types.YLeaf{"Ccontextmappinglicensegrouprowstatus", ccontextmappinglicensegroupentry.Ccontextmappinglicensegrouprowstatus}
-    return &(ccontextmappinglicensegroupentry.EntityData)
+    cContextMappingLicenseGroupEntry.EntityData.Children = types.NewOrderedMap()
+    cContextMappingLicenseGroupEntry.EntityData.Leafs = types.NewOrderedMap()
+    cContextMappingLicenseGroupEntry.EntityData.Leafs.Append("cContextMappingVacmContextName", types.YLeaf{"CContextMappingVacmContextName", cContextMappingLicenseGroupEntry.CContextMappingVacmContextName})
+    cContextMappingLicenseGroupEntry.EntityData.Leafs.Append("cContextMappingLicenseGroupName", types.YLeaf{"CContextMappingLicenseGroupName", cContextMappingLicenseGroupEntry.CContextMappingLicenseGroupName})
+    cContextMappingLicenseGroupEntry.EntityData.Leafs.Append("cContextMappingLicenseGroupStorageType", types.YLeaf{"CContextMappingLicenseGroupStorageType", cContextMappingLicenseGroupEntry.CContextMappingLicenseGroupStorageType})
+    cContextMappingLicenseGroupEntry.EntityData.Leafs.Append("cContextMappingLicenseGroupRowStatus", types.YLeaf{"CContextMappingLicenseGroupRowStatus", cContextMappingLicenseGroupEntry.CContextMappingLicenseGroupRowStatus})
+
+    cContextMappingLicenseGroupEntry.EntityData.YListKeys = []string {"CContextMappingVacmContextName"}
+
+    return &(cContextMappingLicenseGroupEntry.EntityData)
 }
 

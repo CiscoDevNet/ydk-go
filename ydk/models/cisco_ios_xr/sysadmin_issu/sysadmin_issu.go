@@ -16,63 +16,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-sysadmin-issu:issu", reflect.TypeOf(Issu{}))
 }
 
-// OpStartResult represents Enumeration of errors that can be encountered while attempting to begin an ISSU operation
-type OpStartResult string
-
-const (
-    // Operation was started successfully
-    OpStartResult_start_success OpStartResult = "start-success"
-
-    // Another ISSU operation is already in progress
-    OpStartResult_error_operation_in_progress OpStartResult = "error-operation-in-progress"
-
-    // A request to activate the prepared software was made, but there is no successfully prepared software
-    OpStartResult_activate_error_no_prepare OpStartResult = "activate-error-no-prepare"
-
-    // A request to prepare software was made, but previously prepared software exists
-    OpStartResult_prepare_error_previous_prepare OpStartResult = "prepare-error-previous-prepare"
-
-    // The system is in a state that makes in-service recovery impossible
-    OpStartResult_recover_error_unrecoverable OpStartResult = "recover-error-unrecoverable"
-
-    // An internal error occured while attempting to start the operation
-    OpStartResult_start_error_internal OpStartResult = "start-error-internal"
-)
-
-// OpResult represents Enumeration of errors that can be encountered during an ISSU operation
-type OpResult string
-
-const (
-    // Operation succeeded
-    OpResult_success OpResult = "success"
-
-    // Part or all of the input was invalid
-    OpResult_error_input OpResult = "error-input"
-
-    // An internal error occurred during ISSU orchestration
-    OpResult_error_orchestration OpResult = "error-orchestration"
-
-    // An error occured in the install infrastructure
-    OpResult_error_install OpResult = "error-install"
-
-    // Not all nodes in the system have the required redundancy to allow an ISSU to proceed
-    OpResult_error_node_redundancy OpResult = "error-node-redundancy"
-)
-
-// IssuNotif represents Enumeration of notifications that features can be registered for
-type IssuNotif string
-
-const (
-    // A sysadmin ISSU operation is beginning
-    IssuNotif_notif_sysadmin_op_start IssuNotif = "notif-sysadmin-op-start"
-
-    // A sysadmin ISSU phase is beginning
-    IssuNotif_notif_sysadmin_phase_start IssuNotif = "notif-sysadmin-phase-start"
-
-    // A sysadmin ISSU operation is ending
-    IssuNotif_notif_sysadmin_op_end IssuNotif = "notif-sysadmin-op-end"
-)
-
 // OpStage represents Enumeration of stages that the ISSU operation can be in
 type OpStage string
 
@@ -120,6 +63,63 @@ const (
     OpStage_activate_complete OpStage = "activate-complete"
 )
 
+// IssuNotif represents Enumeration of notifications that features can be registered for
+type IssuNotif string
+
+const (
+    // A sysadmin ISSU operation is beginning
+    IssuNotif_notif_sysadmin_op_start IssuNotif = "notif-sysadmin-op-start"
+
+    // A sysadmin ISSU phase is beginning
+    IssuNotif_notif_sysadmin_phase_start IssuNotif = "notif-sysadmin-phase-start"
+
+    // A sysadmin ISSU operation is ending
+    IssuNotif_notif_sysadmin_op_end IssuNotif = "notif-sysadmin-op-end"
+)
+
+// OpResult represents Enumeration of errors that can be encountered during an ISSU operation
+type OpResult string
+
+const (
+    // Operation succeeded
+    OpResult_success OpResult = "success"
+
+    // Part or all of the input was invalid
+    OpResult_error_input OpResult = "error-input"
+
+    // An internal error occurred during ISSU orchestration
+    OpResult_error_orchestration OpResult = "error-orchestration"
+
+    // An error occured in the install infrastructure
+    OpResult_error_install OpResult = "error-install"
+
+    // Not all nodes in the system have the required redundancy to allow an ISSU to proceed
+    OpResult_error_node_redundancy OpResult = "error-node-redundancy"
+)
+
+// OpStartResult represents Enumeration of errors that can be encountered while attempting to begin an ISSU operation
+type OpStartResult string
+
+const (
+    // Operation was started successfully
+    OpStartResult_start_success OpStartResult = "start-success"
+
+    // Another ISSU operation is already in progress
+    OpStartResult_error_operation_in_progress OpStartResult = "error-operation-in-progress"
+
+    // A request to activate the prepared software was made, but there is no successfully prepared software
+    OpStartResult_activate_error_no_prepare OpStartResult = "activate-error-no-prepare"
+
+    // A request to prepare software was made, but previously prepared software exists
+    OpStartResult_prepare_error_previous_prepare OpStartResult = "prepare-error-previous-prepare"
+
+    // The system is in a state that makes in-service recovery impossible
+    OpStartResult_recover_error_unrecoverable OpStartResult = "recover-error-unrecoverable"
+
+    // An internal error occured while attempting to start the operation
+    OpStartResult_start_error_internal OpStartResult = "start-error-internal"
+)
+
 // Issu
 // ISSU actions and operational state
 type Issu struct {
@@ -146,11 +146,14 @@ func (issu *Issu) GetEntityData() *types.CommonEntityData {
     issu.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     issu.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    issu.EntityData.Children = make(map[string]types.YChild)
-    issu.EntityData.Children["status"] = types.YChild{"Status", &issu.Status}
-    issu.EntityData.Children["clients"] = types.YChild{"Clients", &issu.Clients}
-    issu.EntityData.Children["internals"] = types.YChild{"Internals", &issu.Internals}
-    issu.EntityData.Leafs = make(map[string]types.YLeaf)
+    issu.EntityData.Children = types.NewOrderedMap()
+    issu.EntityData.Children.Append("status", types.YChild{"Status", &issu.Status})
+    issu.EntityData.Children.Append("clients", types.YChild{"Clients", &issu.Clients})
+    issu.EntityData.Children.Append("internals", types.YChild{"Internals", &issu.Internals})
+    issu.EntityData.Leafs = types.NewOrderedMap()
+
+    issu.EntityData.YListKeys = []string {}
+
     return &(issu.EntityData)
 }
 
@@ -217,20 +220,23 @@ func (status *Issu_Status) GetEntityData() *types.CommonEntityData {
     status.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    status.EntityData.Children = make(map[string]types.YChild)
-    status.EntityData.Children["prepare"] = types.YChild{"Prepare", &status.Prepare}
-    status.EntityData.Children["activate"] = types.YChild{"Activate", &status.Activate}
-    status.EntityData.Children["error"] = types.YChild{"Error", &status.Error}
-    status.EntityData.Leafs = make(map[string]types.YLeaf)
-    status.EntityData.Leafs["operation-type"] = types.YLeaf{"OperationType", status.OperationType}
-    status.EntityData.Leafs["id"] = types.YLeaf{"Id", status.Id}
-    status.EntityData.Leafs["prepare-id"] = types.YLeaf{"PrepareId", status.PrepareId}
-    status.EntityData.Leafs["activate-id"] = types.YLeaf{"ActivateId", status.ActivateId}
-    status.EntityData.Leafs["sysadmin-packages"] = types.YLeaf{"SysadminPackages", status.SysadminPackages}
-    status.EntityData.Leafs["host-packages"] = types.YLeaf{"HostPackages", status.HostPackages}
-    status.EntityData.Leafs["complete"] = types.YLeaf{"Complete", status.Complete}
-    status.EntityData.Leafs["result"] = types.YLeaf{"Result", status.Result}
-    status.EntityData.Leafs["recover-result"] = types.YLeaf{"RecoverResult", status.RecoverResult}
+    status.EntityData.Children = types.NewOrderedMap()
+    status.EntityData.Children.Append("prepare", types.YChild{"Prepare", &status.Prepare})
+    status.EntityData.Children.Append("activate", types.YChild{"Activate", &status.Activate})
+    status.EntityData.Children.Append("error", types.YChild{"Error", &status.Error})
+    status.EntityData.Leafs = types.NewOrderedMap()
+    status.EntityData.Leafs.Append("operation-type", types.YLeaf{"OperationType", status.OperationType})
+    status.EntityData.Leafs.Append("id", types.YLeaf{"Id", status.Id})
+    status.EntityData.Leafs.Append("prepare-id", types.YLeaf{"PrepareId", status.PrepareId})
+    status.EntityData.Leafs.Append("activate-id", types.YLeaf{"ActivateId", status.ActivateId})
+    status.EntityData.Leafs.Append("sysadmin-packages", types.YLeaf{"SysadminPackages", status.SysadminPackages})
+    status.EntityData.Leafs.Append("host-packages", types.YLeaf{"HostPackages", status.HostPackages})
+    status.EntityData.Leafs.Append("complete", types.YLeaf{"Complete", status.Complete})
+    status.EntityData.Leafs.Append("result", types.YLeaf{"Result", status.Result})
+    status.EntityData.Leafs.Append("recover-result", types.YLeaf{"RecoverResult", status.RecoverResult})
+
+    status.EntityData.YListKeys = []string {}
+
     return &(status.EntityData)
 }
 
@@ -244,7 +250,7 @@ type Issu_Status_Prepare struct {
     Stage interface{}
 
     // When this ehase was started. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartTime interface{}
 
     // A description of the current orchestration activity being executed. The
@@ -252,7 +258,7 @@ type Issu_Status_Prepare struct {
     Activity interface{}
 
     // When the current activity was started. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     ActivityStartTime interface{}
 }
 
@@ -266,12 +272,15 @@ func (prepare *Issu_Status_Prepare) GetEntityData() *types.CommonEntityData {
     prepare.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prepare.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prepare.EntityData.Children = make(map[string]types.YChild)
-    prepare.EntityData.Leafs = make(map[string]types.YLeaf)
-    prepare.EntityData.Leafs["stage"] = types.YLeaf{"Stage", prepare.Stage}
-    prepare.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", prepare.StartTime}
-    prepare.EntityData.Leafs["activity"] = types.YLeaf{"Activity", prepare.Activity}
-    prepare.EntityData.Leafs["activity-start-time"] = types.YLeaf{"ActivityStartTime", prepare.ActivityStartTime}
+    prepare.EntityData.Children = types.NewOrderedMap()
+    prepare.EntityData.Leafs = types.NewOrderedMap()
+    prepare.EntityData.Leafs.Append("stage", types.YLeaf{"Stage", prepare.Stage})
+    prepare.EntityData.Leafs.Append("start-time", types.YLeaf{"StartTime", prepare.StartTime})
+    prepare.EntityData.Leafs.Append("activity", types.YLeaf{"Activity", prepare.Activity})
+    prepare.EntityData.Leafs.Append("activity-start-time", types.YLeaf{"ActivityStartTime", prepare.ActivityStartTime})
+
+    prepare.EntityData.YListKeys = []string {}
+
     return &(prepare.EntityData)
 }
 
@@ -285,7 +294,7 @@ type Issu_Status_Activate struct {
     Stage interface{}
 
     // When this phase was started. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartTime interface{}
 
     // A description of the current orchestration activity being executed. The
@@ -301,7 +310,7 @@ type Issu_Status_Activate struct {
     ActivityWaitingFor interface{}
 
     // When the current activity was started. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     ActivityStartTime interface{}
 }
 
@@ -315,14 +324,17 @@ func (activate *Issu_Status_Activate) GetEntityData() *types.CommonEntityData {
     activate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     activate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    activate.EntityData.Children = make(map[string]types.YChild)
-    activate.EntityData.Leafs = make(map[string]types.YLeaf)
-    activate.EntityData.Leafs["stage"] = types.YLeaf{"Stage", activate.Stage}
-    activate.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", activate.StartTime}
-    activate.EntityData.Leafs["activity"] = types.YLeaf{"Activity", activate.Activity}
-    activate.EntityData.Leafs["activity-nodes"] = types.YLeaf{"ActivityNodes", activate.ActivityNodes}
-    activate.EntityData.Leafs["activity-waiting-for"] = types.YLeaf{"ActivityWaitingFor", activate.ActivityWaitingFor}
-    activate.EntityData.Leafs["activity-start-time"] = types.YLeaf{"ActivityStartTime", activate.ActivityStartTime}
+    activate.EntityData.Children = types.NewOrderedMap()
+    activate.EntityData.Leafs = types.NewOrderedMap()
+    activate.EntityData.Leafs.Append("stage", types.YLeaf{"Stage", activate.Stage})
+    activate.EntityData.Leafs.Append("start-time", types.YLeaf{"StartTime", activate.StartTime})
+    activate.EntityData.Leafs.Append("activity", types.YLeaf{"Activity", activate.Activity})
+    activate.EntityData.Leafs.Append("activity-nodes", types.YLeaf{"ActivityNodes", activate.ActivityNodes})
+    activate.EntityData.Leafs.Append("activity-waiting-for", types.YLeaf{"ActivityWaitingFor", activate.ActivityWaitingFor})
+    activate.EntityData.Leafs.Append("activity-start-time", types.YLeaf{"ActivityStartTime", activate.ActivityStartTime})
+
+    activate.EntityData.YListKeys = []string {}
+
     return &(activate.EntityData)
 }
 
@@ -347,23 +359,26 @@ type Issu_Status_Error struct {
     Details Issu_Status_Error_Details
 }
 
-func (error *Issu_Status_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "status"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *Issu_Status_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "status"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Children["details"] = types.YChild{"Details", &error.Details}
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["result"] = types.YLeaf{"Result", error.Result}
-    error.EntityData.Leafs["stage"] = types.YLeaf{"Stage", error.Stage}
-    error.EntityData.Leafs["error-message"] = types.YLeaf{"ErrorMessage", error.ErrorMessage}
-    return &(error.EntityData)
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("details", types.YChild{"Details", &self.Details})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("result", types.YLeaf{"Result", self.Result})
+    self.EntityData.Leafs.Append("stage", types.YLeaf{"Stage", self.Stage})
+    self.EntityData.Leafs.Append("error-message", types.YLeaf{"ErrorMessage", self.ErrorMessage})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // Issu_Status_Error_Details
@@ -399,12 +414,15 @@ func (details *Issu_Status_Error_Details) GetEntityData() *types.CommonEntityDat
     details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    details.EntityData.Children = make(map[string]types.YChild)
-    details.EntityData.Leafs = make(map[string]types.YLeaf)
-    details.EntityData.Leafs["nodes"] = types.YLeaf{"Nodes", details.Nodes}
-    details.EntityData.Leafs["clients"] = types.YLeaf{"Clients", details.Clients}
-    details.EntityData.Leafs["packages"] = types.YLeaf{"Packages", details.Packages}
-    details.EntityData.Leafs["operation-ids"] = types.YLeaf{"OperationIds", details.OperationIds}
+    details.EntityData.Children = types.NewOrderedMap()
+    details.EntityData.Leafs = types.NewOrderedMap()
+    details.EntityData.Leafs.Append("nodes", types.YLeaf{"Nodes", details.Nodes})
+    details.EntityData.Leafs.Append("clients", types.YLeaf{"Clients", details.Clients})
+    details.EntityData.Leafs.Append("packages", types.YLeaf{"Packages", details.Packages})
+    details.EntityData.Leafs.Append("operation-ids", types.YLeaf{"OperationIds", details.OperationIds})
+
+    details.EntityData.YListKeys = []string {}
+
     return &(details.EntityData)
 }
 
@@ -436,7 +454,7 @@ type Issu_Clients struct {
     AnnouncementStatus interface{}
 
     // The type is slice of Issu_Clients_Client.
-    Client []Issu_Clients_Client
+    Client []*Issu_Clients_Client
 }
 
 func (clients *Issu_Clients) GetEntityData() *types.CommonEntityData {
@@ -449,14 +467,17 @@ func (clients *Issu_Clients) GetEntityData() *types.CommonEntityData {
     clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clients.EntityData.Children = make(map[string]types.YChild)
-    clients.EntityData.Children["client"] = types.YChild{"Client", nil}
+    clients.EntityData.Children = types.NewOrderedMap()
+    clients.EntityData.Children.Append("client", types.YChild{"Client", nil})
     for i := range clients.Client {
-        clients.EntityData.Children[types.GetSegmentPath(&clients.Client[i])] = types.YChild{"Client", &clients.Client[i]}
+        clients.EntityData.Children.Append(types.GetSegmentPath(clients.Client[i]), types.YChild{"Client", clients.Client[i]})
     }
-    clients.EntityData.Leafs = make(map[string]types.YLeaf)
-    clients.EntityData.Leafs["announcement"] = types.YLeaf{"Announcement", clients.Announcement}
-    clients.EntityData.Leafs["announcement-status"] = types.YLeaf{"AnnouncementStatus", clients.AnnouncementStatus}
+    clients.EntityData.Leafs = types.NewOrderedMap()
+    clients.EntityData.Leafs.Append("announcement", types.YLeaf{"Announcement", clients.Announcement})
+    clients.EntityData.Leafs.Append("announcement-status", types.YLeaf{"AnnouncementStatus", clients.AnnouncementStatus})
+
+    clients.EntityData.YListKeys = []string {}
+
     return &(clients.EntityData)
 }
 
@@ -498,20 +519,23 @@ func (client *Issu_Clients_Client) GetEntityData() *types.CommonEntityData {
     client.EntityData.YangName = "client"
     client.EntityData.BundleName = "cisco_ios_xr"
     client.EntityData.ParentYangName = "clients"
-    client.EntityData.SegmentPath = "client" + "[name='" + fmt.Sprintf("%v", client.Name) + "']" + "[location='" + fmt.Sprintf("%v", client.Location) + "']"
+    client.EntityData.SegmentPath = "client" + types.AddKeyToken(client.Name, "name") + types.AddKeyToken(client.Location, "location")
     client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    client.EntityData.Children = make(map[string]types.YChild)
-    client.EntityData.Leafs = make(map[string]types.YLeaf)
-    client.EntityData.Leafs["name"] = types.YLeaf{"Name", client.Name}
-    client.EntityData.Leafs["location"] = types.YLeaf{"Location", client.Location}
-    client.EntityData.Leafs["registered-for"] = types.YLeaf{"RegisteredFor", client.RegisteredFor}
-    client.EntityData.Leafs["notif"] = types.YLeaf{"Notif", client.Notif}
-    client.EntityData.Leafs["response"] = types.YLeaf{"Response", client.Response}
-    client.EntityData.Leafs["aborted"] = types.YLeaf{"Aborted", client.Aborted}
-    client.EntityData.Leafs["abort-reason"] = types.YLeaf{"AbortReason", client.AbortReason}
+    client.EntityData.Children = types.NewOrderedMap()
+    client.EntityData.Leafs = types.NewOrderedMap()
+    client.EntityData.Leafs.Append("name", types.YLeaf{"Name", client.Name})
+    client.EntityData.Leafs.Append("location", types.YLeaf{"Location", client.Location})
+    client.EntityData.Leafs.Append("registered-for", types.YLeaf{"RegisteredFor", client.RegisteredFor})
+    client.EntityData.Leafs.Append("notif", types.YLeaf{"Notif", client.Notif})
+    client.EntityData.Leafs.Append("response", types.YLeaf{"Response", client.Response})
+    client.EntityData.Leafs.Append("aborted", types.YLeaf{"Aborted", client.Aborted})
+    client.EntityData.Leafs.Append("abort-reason", types.YLeaf{"AbortReason", client.AbortReason})
+
+    client.EntityData.YListKeys = []string {"Name", "Location"}
+
     return &(client.EntityData)
 }
 
@@ -602,11 +626,14 @@ func (internals *Issu_Internals) GetEntityData() *types.CommonEntityData {
     internals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    internals.EntityData.Children = make(map[string]types.YChild)
-    internals.EntityData.Children["orchestrator"] = types.YChild{"Orchestrator", &internals.Orchestrator}
-    internals.EntityData.Children["agents"] = types.YChild{"Agents", &internals.Agents}
-    internals.EntityData.Children["inventory-monitor"] = types.YChild{"InventoryMonitor", &internals.InventoryMonitor}
-    internals.EntityData.Leafs = make(map[string]types.YLeaf)
+    internals.EntityData.Children = types.NewOrderedMap()
+    internals.EntityData.Children.Append("orchestrator", types.YChild{"Orchestrator", &internals.Orchestrator})
+    internals.EntityData.Children.Append("agents", types.YChild{"Agents", &internals.Agents})
+    internals.EntityData.Children.Append("inventory-monitor", types.YChild{"InventoryMonitor", &internals.InventoryMonitor})
+    internals.EntityData.Leafs = types.NewOrderedMap()
+
+    internals.EntityData.YListKeys = []string {}
+
     return &(internals.EntityData)
 }
 
@@ -659,18 +686,21 @@ func (orchestrator *Issu_Internals_Orchestrator) GetEntityData() *types.CommonEn
     orchestrator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     orchestrator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    orchestrator.EntityData.Children = make(map[string]types.YChild)
-    orchestrator.EntityData.Children["operation-start-details"] = types.YChild{"OperationStartDetails", &orchestrator.OperationStartDetails}
-    orchestrator.EntityData.Children["internal-prepare"] = types.YChild{"InternalPrepare", &orchestrator.InternalPrepare}
-    orchestrator.EntityData.Children["internal-activate"] = types.YChild{"InternalActivate", &orchestrator.InternalActivate}
-    orchestrator.EntityData.Children["error"] = types.YChild{"Error", &orchestrator.Error}
-    orchestrator.EntityData.Leafs = make(map[string]types.YLeaf)
-    orchestrator.EntityData.Leafs["command"] = types.YLeaf{"Command", orchestrator.Command}
-    orchestrator.EntityData.Leafs["operation-type"] = types.YLeaf{"OperationType", orchestrator.OperationType}
-    orchestrator.EntityData.Leafs["current-operation"] = types.YLeaf{"CurrentOperation", orchestrator.CurrentOperation}
-    orchestrator.EntityData.Leafs["issu-completed"] = types.YLeaf{"IssuCompleted", orchestrator.IssuCompleted}
-    orchestrator.EntityData.Leafs["operation-id"] = types.YLeaf{"OperationId", orchestrator.OperationId}
-    orchestrator.EntityData.Leafs["in-progress"] = types.YLeaf{"InProgress", orchestrator.InProgress}
+    orchestrator.EntityData.Children = types.NewOrderedMap()
+    orchestrator.EntityData.Children.Append("operation-start-details", types.YChild{"OperationStartDetails", &orchestrator.OperationStartDetails})
+    orchestrator.EntityData.Children.Append("internal-prepare", types.YChild{"InternalPrepare", &orchestrator.InternalPrepare})
+    orchestrator.EntityData.Children.Append("internal-activate", types.YChild{"InternalActivate", &orchestrator.InternalActivate})
+    orchestrator.EntityData.Children.Append("error", types.YChild{"Error", &orchestrator.Error})
+    orchestrator.EntityData.Leafs = types.NewOrderedMap()
+    orchestrator.EntityData.Leafs.Append("command", types.YLeaf{"Command", orchestrator.Command})
+    orchestrator.EntityData.Leafs.Append("operation-type", types.YLeaf{"OperationType", orchestrator.OperationType})
+    orchestrator.EntityData.Leafs.Append("current-operation", types.YLeaf{"CurrentOperation", orchestrator.CurrentOperation})
+    orchestrator.EntityData.Leafs.Append("issu-completed", types.YLeaf{"IssuCompleted", orchestrator.IssuCompleted})
+    orchestrator.EntityData.Leafs.Append("operation-id", types.YLeaf{"OperationId", orchestrator.OperationId})
+    orchestrator.EntityData.Leafs.Append("in-progress", types.YLeaf{"InProgress", orchestrator.InProgress})
+
+    orchestrator.EntityData.YListKeys = []string {}
+
     return &(orchestrator.EntityData)
 }
 
@@ -697,10 +727,13 @@ func (operationStartDetails *Issu_Internals_Orchestrator_OperationStartDetails) 
     operationStartDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationStartDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    operationStartDetails.EntityData.Children = make(map[string]types.YChild)
-    operationStartDetails.EntityData.Leafs = make(map[string]types.YLeaf)
-    operationStartDetails.EntityData.Leafs["input-package"] = types.YLeaf{"InputPackage", operationStartDetails.InputPackage}
-    operationStartDetails.EntityData.Leafs["input-operation-id"] = types.YLeaf{"InputOperationId", operationStartDetails.InputOperationId}
+    operationStartDetails.EntityData.Children = types.NewOrderedMap()
+    operationStartDetails.EntityData.Leafs = types.NewOrderedMap()
+    operationStartDetails.EntityData.Leafs.Append("input-package", types.YLeaf{"InputPackage", operationStartDetails.InputPackage})
+    operationStartDetails.EntityData.Leafs.Append("input-operation-id", types.YLeaf{"InputOperationId", operationStartDetails.InputOperationId})
+
+    operationStartDetails.EntityData.YListKeys = []string {}
+
     return &(operationStartDetails.EntityData)
 }
 
@@ -739,14 +772,17 @@ func (internalPrepare *Issu_Internals_Orchestrator_InternalPrepare) GetEntityDat
     internalPrepare.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalPrepare.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    internalPrepare.EntityData.Children = make(map[string]types.YChild)
-    internalPrepare.EntityData.Children["prepare-stage-history"] = types.YChild{"PrepareStageHistory", &internalPrepare.PrepareStageHistory}
-    internalPrepare.EntityData.Leafs = make(map[string]types.YLeaf)
-    internalPrepare.EntityData.Leafs["operation-id"] = types.YLeaf{"OperationId", internalPrepare.OperationId}
-    internalPrepare.EntityData.Leafs["complete"] = types.YLeaf{"Complete", internalPrepare.Complete}
-    internalPrepare.EntityData.Leafs["current-stage"] = types.YLeaf{"CurrentStage", internalPrepare.CurrentStage}
-    internalPrepare.EntityData.Leafs["host-package"] = types.YLeaf{"HostPackage", internalPrepare.HostPackage}
-    internalPrepare.EntityData.Leafs["calvados-package"] = types.YLeaf{"CalvadosPackage", internalPrepare.CalvadosPackage}
+    internalPrepare.EntityData.Children = types.NewOrderedMap()
+    internalPrepare.EntityData.Children.Append("prepare-stage-history", types.YChild{"PrepareStageHistory", &internalPrepare.PrepareStageHistory})
+    internalPrepare.EntityData.Leafs = types.NewOrderedMap()
+    internalPrepare.EntityData.Leafs.Append("operation-id", types.YLeaf{"OperationId", internalPrepare.OperationId})
+    internalPrepare.EntityData.Leafs.Append("complete", types.YLeaf{"Complete", internalPrepare.Complete})
+    internalPrepare.EntityData.Leafs.Append("current-stage", types.YLeaf{"CurrentStage", internalPrepare.CurrentStage})
+    internalPrepare.EntityData.Leafs.Append("host-package", types.YLeaf{"HostPackage", internalPrepare.HostPackage})
+    internalPrepare.EntityData.Leafs.Append("calvados-package", types.YLeaf{"CalvadosPackage", internalPrepare.CalvadosPackage})
+
+    internalPrepare.EntityData.YListKeys = []string {}
+
     return &(internalPrepare.EntityData)
 }
 
@@ -757,7 +793,7 @@ type Issu_Internals_Orchestrator_InternalPrepare_PrepareStageHistory struct {
 
     // The type is slice of
     // Issu_Internals_Orchestrator_InternalPrepare_PrepareStageHistory_HistoricalStage.
-    HistoricalStage []Issu_Internals_Orchestrator_InternalPrepare_PrepareStageHistory_HistoricalStage
+    HistoricalStage []*Issu_Internals_Orchestrator_InternalPrepare_PrepareStageHistory_HistoricalStage
 }
 
 func (prepareStageHistory *Issu_Internals_Orchestrator_InternalPrepare_PrepareStageHistory) GetEntityData() *types.CommonEntityData {
@@ -770,12 +806,15 @@ func (prepareStageHistory *Issu_Internals_Orchestrator_InternalPrepare_PrepareSt
     prepareStageHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prepareStageHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prepareStageHistory.EntityData.Children = make(map[string]types.YChild)
-    prepareStageHistory.EntityData.Children["historical-stage"] = types.YChild{"HistoricalStage", nil}
+    prepareStageHistory.EntityData.Children = types.NewOrderedMap()
+    prepareStageHistory.EntityData.Children.Append("historical-stage", types.YChild{"HistoricalStage", nil})
     for i := range prepareStageHistory.HistoricalStage {
-        prepareStageHistory.EntityData.Children[types.GetSegmentPath(&prepareStageHistory.HistoricalStage[i])] = types.YChild{"HistoricalStage", &prepareStageHistory.HistoricalStage[i]}
+        prepareStageHistory.EntityData.Children.Append(types.GetSegmentPath(prepareStageHistory.HistoricalStage[i]), types.YChild{"HistoricalStage", prepareStageHistory.HistoricalStage[i]})
     }
-    prepareStageHistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    prepareStageHistory.EntityData.Leafs = types.NewOrderedMap()
+
+    prepareStageHistory.EntityData.YListKeys = []string {}
+
     return &(prepareStageHistory.EntityData)
 }
 
@@ -801,11 +840,11 @@ type Issu_Internals_Orchestrator_InternalPrepare_PrepareStageHistory_HistoricalS
     ErrorDetails interface{}
 
     // Start time of stage. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartTime interface{}
 
     // End time of stage. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     EndTime interface{}
 
     // Is the stage complete?. The type is bool.
@@ -817,21 +856,24 @@ func (historicalStage *Issu_Internals_Orchestrator_InternalPrepare_PrepareStageH
     historicalStage.EntityData.YangName = "historical-stage"
     historicalStage.EntityData.BundleName = "cisco_ios_xr"
     historicalStage.EntityData.ParentYangName = "prepare-stage-history"
-    historicalStage.EntityData.SegmentPath = "historical-stage" + "[stage-index='" + fmt.Sprintf("%v", historicalStage.StageIndex) + "']"
+    historicalStage.EntityData.SegmentPath = "historical-stage" + types.AddKeyToken(historicalStage.StageIndex, "stage-index")
     historicalStage.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     historicalStage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     historicalStage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    historicalStage.EntityData.Children = make(map[string]types.YChild)
-    historicalStage.EntityData.Leafs = make(map[string]types.YLeaf)
-    historicalStage.EntityData.Leafs["stage-index"] = types.YLeaf{"StageIndex", historicalStage.StageIndex}
-    historicalStage.EntityData.Leafs["external-stage"] = types.YLeaf{"ExternalStage", historicalStage.ExternalStage}
-    historicalStage.EntityData.Leafs["internal-stage-details"] = types.YLeaf{"InternalStageDetails", historicalStage.InternalStageDetails}
-    historicalStage.EntityData.Leafs["status"] = types.YLeaf{"Status", historicalStage.Status}
-    historicalStage.EntityData.Leafs["error-details"] = types.YLeaf{"ErrorDetails", historicalStage.ErrorDetails}
-    historicalStage.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", historicalStage.StartTime}
-    historicalStage.EntityData.Leafs["end-time"] = types.YLeaf{"EndTime", historicalStage.EndTime}
-    historicalStage.EntityData.Leafs["complete"] = types.YLeaf{"Complete", historicalStage.Complete}
+    historicalStage.EntityData.Children = types.NewOrderedMap()
+    historicalStage.EntityData.Leafs = types.NewOrderedMap()
+    historicalStage.EntityData.Leafs.Append("stage-index", types.YLeaf{"StageIndex", historicalStage.StageIndex})
+    historicalStage.EntityData.Leafs.Append("external-stage", types.YLeaf{"ExternalStage", historicalStage.ExternalStage})
+    historicalStage.EntityData.Leafs.Append("internal-stage-details", types.YLeaf{"InternalStageDetails", historicalStage.InternalStageDetails})
+    historicalStage.EntityData.Leafs.Append("status", types.YLeaf{"Status", historicalStage.Status})
+    historicalStage.EntityData.Leafs.Append("error-details", types.YLeaf{"ErrorDetails", historicalStage.ErrorDetails})
+    historicalStage.EntityData.Leafs.Append("start-time", types.YLeaf{"StartTime", historicalStage.StartTime})
+    historicalStage.EntityData.Leafs.Append("end-time", types.YLeaf{"EndTime", historicalStage.EndTime})
+    historicalStage.EntityData.Leafs.Append("complete", types.YLeaf{"Complete", historicalStage.Complete})
+
+    historicalStage.EntityData.YListKeys = []string {"StageIndex"}
+
     return &(historicalStage.EntityData)
 }
 
@@ -886,18 +928,21 @@ func (internalActivate *Issu_Internals_Orchestrator_InternalActivate) GetEntityD
     internalActivate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalActivate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    internalActivate.EntityData.Children = make(map[string]types.YChild)
-    internalActivate.EntityData.Children["activate-stage-history"] = types.YChild{"ActivateStageHistory", &internalActivate.ActivateStageHistory}
-    internalActivate.EntityData.Leafs = make(map[string]types.YLeaf)
-    internalActivate.EntityData.Leafs["operation-id"] = types.YLeaf{"OperationId", internalActivate.OperationId}
-    internalActivate.EntityData.Leafs["complete"] = types.YLeaf{"Complete", internalActivate.Complete}
-    internalActivate.EntityData.Leafs["current-stage"] = types.YLeaf{"CurrentStage", internalActivate.CurrentStage}
-    internalActivate.EntityData.Leafs["current-phase"] = types.YLeaf{"CurrentPhase", internalActivate.CurrentPhase}
-    internalActivate.EntityData.Leafs["host-prepared"] = types.YLeaf{"HostPrepared", internalActivate.HostPrepared}
-    internalActivate.EntityData.Leafs["calvados-prepared"] = types.YLeaf{"CalvadosPrepared", internalActivate.CalvadosPrepared}
-    internalActivate.EntityData.Leafs["host-node"] = types.YLeaf{"HostNode", internalActivate.HostNode}
-    internalActivate.EntityData.Leafs["calvados-phase-one-node"] = types.YLeaf{"CalvadosPhaseOneNode", internalActivate.CalvadosPhaseOneNode}
-    internalActivate.EntityData.Leafs["calvados-phase-two-node"] = types.YLeaf{"CalvadosPhaseTwoNode", internalActivate.CalvadosPhaseTwoNode}
+    internalActivate.EntityData.Children = types.NewOrderedMap()
+    internalActivate.EntityData.Children.Append("activate-stage-history", types.YChild{"ActivateStageHistory", &internalActivate.ActivateStageHistory})
+    internalActivate.EntityData.Leafs = types.NewOrderedMap()
+    internalActivate.EntityData.Leafs.Append("operation-id", types.YLeaf{"OperationId", internalActivate.OperationId})
+    internalActivate.EntityData.Leafs.Append("complete", types.YLeaf{"Complete", internalActivate.Complete})
+    internalActivate.EntityData.Leafs.Append("current-stage", types.YLeaf{"CurrentStage", internalActivate.CurrentStage})
+    internalActivate.EntityData.Leafs.Append("current-phase", types.YLeaf{"CurrentPhase", internalActivate.CurrentPhase})
+    internalActivate.EntityData.Leafs.Append("host-prepared", types.YLeaf{"HostPrepared", internalActivate.HostPrepared})
+    internalActivate.EntityData.Leafs.Append("calvados-prepared", types.YLeaf{"CalvadosPrepared", internalActivate.CalvadosPrepared})
+    internalActivate.EntityData.Leafs.Append("host-node", types.YLeaf{"HostNode", internalActivate.HostNode})
+    internalActivate.EntityData.Leafs.Append("calvados-phase-one-node", types.YLeaf{"CalvadosPhaseOneNode", internalActivate.CalvadosPhaseOneNode})
+    internalActivate.EntityData.Leafs.Append("calvados-phase-two-node", types.YLeaf{"CalvadosPhaseTwoNode", internalActivate.CalvadosPhaseTwoNode})
+
+    internalActivate.EntityData.YListKeys = []string {}
+
     return &(internalActivate.EntityData)
 }
 
@@ -908,7 +953,7 @@ type Issu_Internals_Orchestrator_InternalActivate_ActivateStageHistory struct {
 
     // The type is slice of
     // Issu_Internals_Orchestrator_InternalActivate_ActivateStageHistory_HistoricalStage.
-    HistoricalStage []Issu_Internals_Orchestrator_InternalActivate_ActivateStageHistory_HistoricalStage
+    HistoricalStage []*Issu_Internals_Orchestrator_InternalActivate_ActivateStageHistory_HistoricalStage
 }
 
 func (activateStageHistory *Issu_Internals_Orchestrator_InternalActivate_ActivateStageHistory) GetEntityData() *types.CommonEntityData {
@@ -921,12 +966,15 @@ func (activateStageHistory *Issu_Internals_Orchestrator_InternalActivate_Activat
     activateStageHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     activateStageHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    activateStageHistory.EntityData.Children = make(map[string]types.YChild)
-    activateStageHistory.EntityData.Children["historical-stage"] = types.YChild{"HistoricalStage", nil}
+    activateStageHistory.EntityData.Children = types.NewOrderedMap()
+    activateStageHistory.EntityData.Children.Append("historical-stage", types.YChild{"HistoricalStage", nil})
     for i := range activateStageHistory.HistoricalStage {
-        activateStageHistory.EntityData.Children[types.GetSegmentPath(&activateStageHistory.HistoricalStage[i])] = types.YChild{"HistoricalStage", &activateStageHistory.HistoricalStage[i]}
+        activateStageHistory.EntityData.Children.Append(types.GetSegmentPath(activateStageHistory.HistoricalStage[i]), types.YChild{"HistoricalStage", activateStageHistory.HistoricalStage[i]})
     }
-    activateStageHistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    activateStageHistory.EntityData.Leafs = types.NewOrderedMap()
+
+    activateStageHistory.EntityData.YListKeys = []string {}
+
     return &(activateStageHistory.EntityData)
 }
 
@@ -952,11 +1000,11 @@ type Issu_Internals_Orchestrator_InternalActivate_ActivateStageHistory_Historica
     ErrorDetails interface{}
 
     // Start time of stage. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartTime interface{}
 
     // End time of stage. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     EndTime interface{}
 
     // Is the stage complete?. The type is bool.
@@ -968,21 +1016,24 @@ func (historicalStage *Issu_Internals_Orchestrator_InternalActivate_ActivateStag
     historicalStage.EntityData.YangName = "historical-stage"
     historicalStage.EntityData.BundleName = "cisco_ios_xr"
     historicalStage.EntityData.ParentYangName = "activate-stage-history"
-    historicalStage.EntityData.SegmentPath = "historical-stage" + "[stage-index='" + fmt.Sprintf("%v", historicalStage.StageIndex) + "']"
+    historicalStage.EntityData.SegmentPath = "historical-stage" + types.AddKeyToken(historicalStage.StageIndex, "stage-index")
     historicalStage.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     historicalStage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     historicalStage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    historicalStage.EntityData.Children = make(map[string]types.YChild)
-    historicalStage.EntityData.Leafs = make(map[string]types.YLeaf)
-    historicalStage.EntityData.Leafs["stage-index"] = types.YLeaf{"StageIndex", historicalStage.StageIndex}
-    historicalStage.EntityData.Leafs["external-stage"] = types.YLeaf{"ExternalStage", historicalStage.ExternalStage}
-    historicalStage.EntityData.Leafs["internal-stage-details"] = types.YLeaf{"InternalStageDetails", historicalStage.InternalStageDetails}
-    historicalStage.EntityData.Leafs["status"] = types.YLeaf{"Status", historicalStage.Status}
-    historicalStage.EntityData.Leafs["error-details"] = types.YLeaf{"ErrorDetails", historicalStage.ErrorDetails}
-    historicalStage.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", historicalStage.StartTime}
-    historicalStage.EntityData.Leafs["end-time"] = types.YLeaf{"EndTime", historicalStage.EndTime}
-    historicalStage.EntityData.Leafs["complete"] = types.YLeaf{"Complete", historicalStage.Complete}
+    historicalStage.EntityData.Children = types.NewOrderedMap()
+    historicalStage.EntityData.Leafs = types.NewOrderedMap()
+    historicalStage.EntityData.Leafs.Append("stage-index", types.YLeaf{"StageIndex", historicalStage.StageIndex})
+    historicalStage.EntityData.Leafs.Append("external-stage", types.YLeaf{"ExternalStage", historicalStage.ExternalStage})
+    historicalStage.EntityData.Leafs.Append("internal-stage-details", types.YLeaf{"InternalStageDetails", historicalStage.InternalStageDetails})
+    historicalStage.EntityData.Leafs.Append("status", types.YLeaf{"Status", historicalStage.Status})
+    historicalStage.EntityData.Leafs.Append("error-details", types.YLeaf{"ErrorDetails", historicalStage.ErrorDetails})
+    historicalStage.EntityData.Leafs.Append("start-time", types.YLeaf{"StartTime", historicalStage.StartTime})
+    historicalStage.EntityData.Leafs.Append("end-time", types.YLeaf{"EndTime", historicalStage.EndTime})
+    historicalStage.EntityData.Leafs.Append("complete", types.YLeaf{"Complete", historicalStage.Complete})
+
+    historicalStage.EntityData.YListKeys = []string {"StageIndex"}
+
     return &(historicalStage.EntityData)
 }
 
@@ -1030,30 +1081,33 @@ type Issu_Internals_Orchestrator_Error struct {
     RecoveryStatus interface{}
 }
 
-func (error *Issu_Internals_Orchestrator_Error) GetEntityData() *types.CommonEntityData {
-    error.EntityData.YFilter = error.YFilter
-    error.EntityData.YangName = "error"
-    error.EntityData.BundleName = "cisco_ios_xr"
-    error.EntityData.ParentYangName = "orchestrator"
-    error.EntityData.SegmentPath = "error"
-    error.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    error.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    error.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *Issu_Internals_Orchestrator_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "orchestrator"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    error.EntityData.Children = make(map[string]types.YChild)
-    error.EntityData.Leafs = make(map[string]types.YLeaf)
-    error.EntityData.Leafs["operation-status"] = types.YLeaf{"OperationStatus", error.OperationStatus}
-    error.EntityData.Leafs["failure-operation"] = types.YLeaf{"FailureOperation", error.FailureOperation}
-    error.EntityData.Leafs["failure-external-stage"] = types.YLeaf{"FailureExternalStage", error.FailureExternalStage}
-    error.EntityData.Leafs["failure-internal-stage-details"] = types.YLeaf{"FailureInternalStageDetails", error.FailureInternalStageDetails}
-    error.EntityData.Leafs["error-details"] = types.YLeaf{"ErrorDetails", error.ErrorDetails}
-    error.EntityData.Leafs["failed-node"] = types.YLeaf{"FailedNode", error.FailedNode}
-    error.EntityData.Leafs["failed-package"] = types.YLeaf{"FailedPackage", error.FailedPackage}
-    error.EntityData.Leafs["failed-operation-id"] = types.YLeaf{"FailedOperationId", error.FailedOperationId}
-    error.EntityData.Leafs["failed-client"] = types.YLeaf{"FailedClient", error.FailedClient}
-    error.EntityData.Leafs["recovery-attempted"] = types.YLeaf{"RecoveryAttempted", error.RecoveryAttempted}
-    error.EntityData.Leafs["recovery-status"] = types.YLeaf{"RecoveryStatus", error.RecoveryStatus}
-    return &(error.EntityData)
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("operation-status", types.YLeaf{"OperationStatus", self.OperationStatus})
+    self.EntityData.Leafs.Append("failure-operation", types.YLeaf{"FailureOperation", self.FailureOperation})
+    self.EntityData.Leafs.Append("failure-external-stage", types.YLeaf{"FailureExternalStage", self.FailureExternalStage})
+    self.EntityData.Leafs.Append("failure-internal-stage-details", types.YLeaf{"FailureInternalStageDetails", self.FailureInternalStageDetails})
+    self.EntityData.Leafs.Append("error-details", types.YLeaf{"ErrorDetails", self.ErrorDetails})
+    self.EntityData.Leafs.Append("failed-node", types.YLeaf{"FailedNode", self.FailedNode})
+    self.EntityData.Leafs.Append("failed-package", types.YLeaf{"FailedPackage", self.FailedPackage})
+    self.EntityData.Leafs.Append("failed-operation-id", types.YLeaf{"FailedOperationId", self.FailedOperationId})
+    self.EntityData.Leafs.Append("failed-client", types.YLeaf{"FailedClient", self.FailedClient})
+    self.EntityData.Leafs.Append("recovery-attempted", types.YLeaf{"RecoveryAttempted", self.RecoveryAttempted})
+    self.EntityData.Leafs.Append("recovery-status", types.YLeaf{"RecoveryStatus", self.RecoveryStatus})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // Issu_Internals_Agents
@@ -1082,11 +1136,14 @@ func (agents *Issu_Internals_Agents) GetEntityData() *types.CommonEntityData {
     agents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     agents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    agents.EntityData.Children = make(map[string]types.YChild)
-    agents.EntityData.Children["requests"] = types.YChild{"Requests", &agents.Requests}
-    agents.EntityData.Children["inventory"] = types.YChild{"Inventory", &agents.Inventory}
-    agents.EntityData.Children["reload-tracking"] = types.YChild{"ReloadTracking", &agents.ReloadTracking}
-    agents.EntityData.Leafs = make(map[string]types.YLeaf)
+    agents.EntityData.Children = types.NewOrderedMap()
+    agents.EntityData.Children.Append("requests", types.YChild{"Requests", &agents.Requests})
+    agents.EntityData.Children.Append("inventory", types.YChild{"Inventory", &agents.Inventory})
+    agents.EntityData.Children.Append("reload-tracking", types.YChild{"ReloadTracking", &agents.ReloadTracking})
+    agents.EntityData.Leafs = types.NewOrderedMap()
+
+    agents.EntityData.YListKeys = []string {}
+
     return &(agents.EntityData)
 }
 
@@ -1097,7 +1154,7 @@ type Issu_Internals_Agents_Requests struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Issu_Internals_Agents_Requests_Request.
-    Request []Issu_Internals_Agents_Requests_Request
+    Request []*Issu_Internals_Agents_Requests_Request
 }
 
 func (requests *Issu_Internals_Agents_Requests) GetEntityData() *types.CommonEntityData {
@@ -1110,12 +1167,15 @@ func (requests *Issu_Internals_Agents_Requests) GetEntityData() *types.CommonEnt
     requests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    requests.EntityData.Children = make(map[string]types.YChild)
-    requests.EntityData.Children["request"] = types.YChild{"Request", nil}
+    requests.EntityData.Children = types.NewOrderedMap()
+    requests.EntityData.Children.Append("request", types.YChild{"Request", nil})
     for i := range requests.Request {
-        requests.EntityData.Children[types.GetSegmentPath(&requests.Request[i])] = types.YChild{"Request", &requests.Request[i]}
+        requests.EntityData.Children.Append(types.GetSegmentPath(requests.Request[i]), types.YChild{"Request", requests.Request[i]})
     }
-    requests.EntityData.Leafs = make(map[string]types.YLeaf)
+    requests.EntityData.Leafs = types.NewOrderedMap()
+
+    requests.EntityData.YListKeys = []string {}
+
     return &(requests.EntityData)
 }
 
@@ -1143,7 +1203,7 @@ type Issu_Internals_Agents_Requests_Request struct {
     Checkpoint Issu_Internals_Agents_Requests_Request_Checkpoint
 
     
-    Agents Issu_Internals_Agents_Requests_Request_Agents_
+    Agents Issu_Internals_Agents_Requests_Request_Agents
 }
 
 func (request *Issu_Internals_Agents_Requests_Request) GetEntityData() *types.CommonEntityData {
@@ -1151,19 +1211,22 @@ func (request *Issu_Internals_Agents_Requests_Request) GetEntityData() *types.Co
     request.EntityData.YangName = "request"
     request.EntityData.BundleName = "cisco_ios_xr"
     request.EntityData.ParentYangName = "requests"
-    request.EntityData.SegmentPath = "request" + "[request-index='" + fmt.Sprintf("%v", request.RequestIndex) + "']"
+    request.EntityData.SegmentPath = "request" + types.AddKeyToken(request.RequestIndex, "request-index")
     request.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     request.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     request.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    request.EntityData.Children = make(map[string]types.YChild)
-    request.EntityData.Children["checkpoint"] = types.YChild{"Checkpoint", &request.Checkpoint}
-    request.EntityData.Children["agents"] = types.YChild{"Agents", &request.Agents}
-    request.EntityData.Leafs = make(map[string]types.YLeaf)
-    request.EntityData.Leafs["request-index"] = types.YLeaf{"RequestIndex", request.RequestIndex}
-    request.EntityData.Leafs["request-type"] = types.YLeaf{"RequestType", request.RequestType}
-    request.EntityData.Leafs["requests-sent"] = types.YLeaf{"RequestsSent", request.RequestsSent}
-    request.EntityData.Leafs["responses-received"] = types.YLeaf{"ResponsesReceived", request.ResponsesReceived}
+    request.EntityData.Children = types.NewOrderedMap()
+    request.EntityData.Children.Append("checkpoint", types.YChild{"Checkpoint", &request.Checkpoint})
+    request.EntityData.Children.Append("agents", types.YChild{"Agents", &request.Agents})
+    request.EntityData.Leafs = types.NewOrderedMap()
+    request.EntityData.Leafs.Append("request-index", types.YLeaf{"RequestIndex", request.RequestIndex})
+    request.EntityData.Leafs.Append("request-type", types.YLeaf{"RequestType", request.RequestType})
+    request.EntityData.Leafs.Append("requests-sent", types.YLeaf{"RequestsSent", request.RequestsSent})
+    request.EntityData.Leafs.Append("responses-received", types.YLeaf{"ResponsesReceived", request.ResponsesReceived})
+
+    request.EntityData.YListKeys = []string {"RequestIndex"}
+
     return &(request.EntityData)
 }
 
@@ -1193,11 +1256,14 @@ func (checkpoint *Issu_Internals_Agents_Requests_Request_Checkpoint) GetEntityDa
     checkpoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     checkpoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    checkpoint.EntityData.Children = make(map[string]types.YChild)
-    checkpoint.EntityData.Leafs = make(map[string]types.YLeaf)
-    checkpoint.EntityData.Leafs["message-type"] = types.YLeaf{"MessageType", checkpoint.MessageType}
-    checkpoint.EntityData.Leafs["data-length"] = types.YLeaf{"DataLength", checkpoint.DataLength}
-    checkpoint.EntityData.Leafs["filename"] = types.YLeaf{"Filename", checkpoint.Filename}
+    checkpoint.EntityData.Children = types.NewOrderedMap()
+    checkpoint.EntityData.Leafs = types.NewOrderedMap()
+    checkpoint.EntityData.Leafs.Append("message-type", types.YLeaf{"MessageType", checkpoint.MessageType})
+    checkpoint.EntityData.Leafs.Append("data-length", types.YLeaf{"DataLength", checkpoint.DataLength})
+    checkpoint.EntityData.Leafs.Append("filename", types.YLeaf{"Filename", checkpoint.Filename})
+
+    checkpoint.EntityData.YListKeys = []string {}
+
     return &(checkpoint.EntityData)
 }
 
@@ -1215,36 +1281,39 @@ const (
     Issu_Internals_Agents_Requests_Request_Checkpoint_MessageType_requests_checkpoint_update Issu_Internals_Agents_Requests_Request_Checkpoint_MessageType = "requests-checkpoint-update"
 )
 
-// Issu_Internals_Agents_Requests_Request_Agents_
-type Issu_Internals_Agents_Requests_Request_Agents_ struct {
+// Issu_Internals_Agents_Requests_Request_Agents
+type Issu_Internals_Agents_Requests_Request_Agents struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The type is slice of Issu_Internals_Agents_Requests_Request_Agents__Agent.
-    Agent []Issu_Internals_Agents_Requests_Request_Agents__Agent
+    // The type is slice of Issu_Internals_Agents_Requests_Request_Agents_Agent.
+    Agent []*Issu_Internals_Agents_Requests_Request_Agents_Agent
 }
 
-func (agents_ *Issu_Internals_Agents_Requests_Request_Agents_) GetEntityData() *types.CommonEntityData {
-    agents_.EntityData.YFilter = agents_.YFilter
-    agents_.EntityData.YangName = "agents"
-    agents_.EntityData.BundleName = "cisco_ios_xr"
-    agents_.EntityData.ParentYangName = "request"
-    agents_.EntityData.SegmentPath = "agents"
-    agents_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    agents_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    agents_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (agents *Issu_Internals_Agents_Requests_Request_Agents) GetEntityData() *types.CommonEntityData {
+    agents.EntityData.YFilter = agents.YFilter
+    agents.EntityData.YangName = "agents"
+    agents.EntityData.BundleName = "cisco_ios_xr"
+    agents.EntityData.ParentYangName = "request"
+    agents.EntityData.SegmentPath = "agents"
+    agents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    agents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    agents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    agents_.EntityData.Children = make(map[string]types.YChild)
-    agents_.EntityData.Children["agent"] = types.YChild{"Agent", nil}
-    for i := range agents_.Agent {
-        agents_.EntityData.Children[types.GetSegmentPath(&agents_.Agent[i])] = types.YChild{"Agent", &agents_.Agent[i]}
+    agents.EntityData.Children = types.NewOrderedMap()
+    agents.EntityData.Children.Append("agent", types.YChild{"Agent", nil})
+    for i := range agents.Agent {
+        agents.EntityData.Children.Append(types.GetSegmentPath(agents.Agent[i]), types.YChild{"Agent", agents.Agent[i]})
     }
-    agents_.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(agents_.EntityData)
+    agents.EntityData.Leafs = types.NewOrderedMap()
+
+    agents.EntityData.YListKeys = []string {}
+
+    return &(agents.EntityData)
 }
 
-// Issu_Internals_Agents_Requests_Request_Agents__Agent
-type Issu_Internals_Agents_Requests_Request_Agents__Agent struct {
+// Issu_Internals_Agents_Requests_Request_Agents_Agent
+type Issu_Internals_Agents_Requests_Request_Agents_Agent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1259,30 +1328,33 @@ type Issu_Internals_Agents_Requests_Request_Agents__Agent struct {
     WaitingForResponse interface{}
 
     
-    ResponseContents Issu_Internals_Agents_Requests_Request_Agents__Agent_ResponseContents
+    ResponseContents Issu_Internals_Agents_Requests_Request_Agents_Agent_ResponseContents
 }
 
-func (agent *Issu_Internals_Agents_Requests_Request_Agents__Agent) GetEntityData() *types.CommonEntityData {
+func (agent *Issu_Internals_Agents_Requests_Request_Agents_Agent) GetEntityData() *types.CommonEntityData {
     agent.EntityData.YFilter = agent.YFilter
     agent.EntityData.YangName = "agent"
     agent.EntityData.BundleName = "cisco_ios_xr"
     agent.EntityData.ParentYangName = "agents"
-    agent.EntityData.SegmentPath = "agent" + "[agent-index='" + fmt.Sprintf("%v", agent.AgentIndex) + "']"
+    agent.EntityData.SegmentPath = "agent" + types.AddKeyToken(agent.AgentIndex, "agent-index")
     agent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     agent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     agent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    agent.EntityData.Children = make(map[string]types.YChild)
-    agent.EntityData.Children["response-contents"] = types.YChild{"ResponseContents", &agent.ResponseContents}
-    agent.EntityData.Leafs = make(map[string]types.YLeaf)
-    agent.EntityData.Leafs["agent-index"] = types.YLeaf{"AgentIndex", agent.AgentIndex}
-    agent.EntityData.Leafs["node"] = types.YLeaf{"Node", agent.Node}
-    agent.EntityData.Leafs["waiting-for-response"] = types.YLeaf{"WaitingForResponse", agent.WaitingForResponse}
+    agent.EntityData.Children = types.NewOrderedMap()
+    agent.EntityData.Children.Append("response-contents", types.YChild{"ResponseContents", &agent.ResponseContents})
+    agent.EntityData.Leafs = types.NewOrderedMap()
+    agent.EntityData.Leafs.Append("agent-index", types.YLeaf{"AgentIndex", agent.AgentIndex})
+    agent.EntityData.Leafs.Append("node", types.YLeaf{"Node", agent.Node})
+    agent.EntityData.Leafs.Append("waiting-for-response", types.YLeaf{"WaitingForResponse", agent.WaitingForResponse})
+
+    agent.EntityData.YListKeys = []string {"AgentIndex"}
+
     return &(agent.EntityData)
 }
 
-// Issu_Internals_Agents_Requests_Request_Agents__Agent_ResponseContents
-type Issu_Internals_Agents_Requests_Request_Agents__Agent_ResponseContents struct {
+// Issu_Internals_Agents_Requests_Request_Agents_Agent_ResponseContents
+type Issu_Internals_Agents_Requests_Request_Agents_Agent_ResponseContents struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1293,7 +1365,7 @@ type Issu_Internals_Agents_Requests_Request_Agents__Agent_ResponseContents struc
     ErrorDetails interface{}
 }
 
-func (responseContents *Issu_Internals_Agents_Requests_Request_Agents__Agent_ResponseContents) GetEntityData() *types.CommonEntityData {
+func (responseContents *Issu_Internals_Agents_Requests_Request_Agents_Agent_ResponseContents) GetEntityData() *types.CommonEntityData {
     responseContents.EntityData.YFilter = responseContents.YFilter
     responseContents.EntityData.YangName = "response-contents"
     responseContents.EntityData.BundleName = "cisco_ios_xr"
@@ -1303,28 +1375,31 @@ func (responseContents *Issu_Internals_Agents_Requests_Request_Agents__Agent_Res
     responseContents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     responseContents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    responseContents.EntityData.Children = make(map[string]types.YChild)
-    responseContents.EntityData.Leafs = make(map[string]types.YLeaf)
-    responseContents.EntityData.Leafs["agent-status"] = types.YLeaf{"AgentStatus", responseContents.AgentStatus}
-    responseContents.EntityData.Leafs["error-details"] = types.YLeaf{"ErrorDetails", responseContents.ErrorDetails}
+    responseContents.EntityData.Children = types.NewOrderedMap()
+    responseContents.EntityData.Leafs = types.NewOrderedMap()
+    responseContents.EntityData.Leafs.Append("agent-status", types.YLeaf{"AgentStatus", responseContents.AgentStatus})
+    responseContents.EntityData.Leafs.Append("error-details", types.YLeaf{"ErrorDetails", responseContents.ErrorDetails})
+
+    responseContents.EntityData.YListKeys = []string {}
+
     return &(responseContents.EntityData)
 }
 
-// Issu_Internals_Agents_Requests_Request_Agents__Agent_ResponseContents_AgentStatus represents Enum indicating node status
-type Issu_Internals_Agents_Requests_Request_Agents__Agent_ResponseContents_AgentStatus string
+// Issu_Internals_Agents_Requests_Request_Agents_Agent_ResponseContents_AgentStatus represents Enum indicating node status
+type Issu_Internals_Agents_Requests_Request_Agents_Agent_ResponseContents_AgentStatus string
 
 const (
     // Node is ready/operation successful
-    Issu_Internals_Agents_Requests_Request_Agents__Agent_ResponseContents_AgentStatus_agent_response_ok Issu_Internals_Agents_Requests_Request_Agents__Agent_ResponseContents_AgentStatus = "agent-response-ok"
+    Issu_Internals_Agents_Requests_Request_Agents_Agent_ResponseContents_AgentStatus_agent_response_ok Issu_Internals_Agents_Requests_Request_Agents_Agent_ResponseContents_AgentStatus = "agent-response-ok"
 
     // Otherwise undefined error
-    Issu_Internals_Agents_Requests_Request_Agents__Agent_ResponseContents_AgentStatus_agent_response_error Issu_Internals_Agents_Requests_Request_Agents__Agent_ResponseContents_AgentStatus = "agent-response-error"
+    Issu_Internals_Agents_Requests_Request_Agents_Agent_ResponseContents_AgentStatus_agent_response_error Issu_Internals_Agents_Requests_Request_Agents_Agent_ResponseContents_AgentStatus = "agent-response-error"
 
     // Timeout during request
-    Issu_Internals_Agents_Requests_Request_Agents__Agent_ResponseContents_AgentStatus_agent_response_timeout Issu_Internals_Agents_Requests_Request_Agents__Agent_ResponseContents_AgentStatus = "agent-response-timeout"
+    Issu_Internals_Agents_Requests_Request_Agents_Agent_ResponseContents_AgentStatus_agent_response_timeout Issu_Internals_Agents_Requests_Request_Agents_Agent_ResponseContents_AgentStatus = "agent-response-timeout"
 
     // Failed to send request
-    Issu_Internals_Agents_Requests_Request_Agents__Agent_ResponseContents_AgentStatus_agent_response_send_failure Issu_Internals_Agents_Requests_Request_Agents__Agent_ResponseContents_AgentStatus = "agent-response-send-failure"
+    Issu_Internals_Agents_Requests_Request_Agents_Agent_ResponseContents_AgentStatus_agent_response_send_failure Issu_Internals_Agents_Requests_Request_Agents_Agent_ResponseContents_AgentStatus = "agent-response-send-failure"
 )
 
 // Issu_Internals_Agents_Requests_Request_RequestType represents Type of request
@@ -1348,7 +1423,7 @@ type Issu_Internals_Agents_Inventory struct {
     YFilter yfilter.YFilter
 
     // The type is slice of Issu_Internals_Agents_Inventory_Agent.
-    Agent []Issu_Internals_Agents_Inventory_Agent
+    Agent []*Issu_Internals_Agents_Inventory_Agent
 }
 
 func (inventory *Issu_Internals_Agents_Inventory) GetEntityData() *types.CommonEntityData {
@@ -1361,12 +1436,15 @@ func (inventory *Issu_Internals_Agents_Inventory) GetEntityData() *types.CommonE
     inventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inventory.EntityData.Children = make(map[string]types.YChild)
-    inventory.EntityData.Children["agent"] = types.YChild{"Agent", nil}
+    inventory.EntityData.Children = types.NewOrderedMap()
+    inventory.EntityData.Children.Append("agent", types.YChild{"Agent", nil})
     for i := range inventory.Agent {
-        inventory.EntityData.Children[types.GetSegmentPath(&inventory.Agent[i])] = types.YChild{"Agent", &inventory.Agent[i]}
+        inventory.EntityData.Children.Append(types.GetSegmentPath(inventory.Agent[i]), types.YChild{"Agent", inventory.Agent[i]})
     }
-    inventory.EntityData.Leafs = make(map[string]types.YLeaf)
+    inventory.EntityData.Leafs = types.NewOrderedMap()
+
+    inventory.EntityData.YListKeys = []string {}
+
     return &(inventory.EntityData)
 }
 
@@ -1391,16 +1469,19 @@ func (agent *Issu_Internals_Agents_Inventory_Agent) GetEntityData() *types.Commo
     agent.EntityData.YangName = "agent"
     agent.EntityData.BundleName = "cisco_ios_xr"
     agent.EntityData.ParentYangName = "inventory"
-    agent.EntityData.SegmentPath = "agent" + "[agent-index='" + fmt.Sprintf("%v", agent.AgentIndex) + "']"
+    agent.EntityData.SegmentPath = "agent" + types.AddKeyToken(agent.AgentIndex, "agent-index")
     agent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     agent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     agent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    agent.EntityData.Children = make(map[string]types.YChild)
-    agent.EntityData.Leafs = make(map[string]types.YLeaf)
-    agent.EntityData.Leafs["agent-index"] = types.YLeaf{"AgentIndex", agent.AgentIndex}
-    agent.EntityData.Leafs["agent-node"] = types.YLeaf{"AgentNode", agent.AgentNode}
-    agent.EntityData.Leafs["reloaded"] = types.YLeaf{"Reloaded", agent.Reloaded}
+    agent.EntityData.Children = types.NewOrderedMap()
+    agent.EntityData.Leafs = types.NewOrderedMap()
+    agent.EntityData.Leafs.Append("agent-index", types.YLeaf{"AgentIndex", agent.AgentIndex})
+    agent.EntityData.Leafs.Append("agent-node", types.YLeaf{"AgentNode", agent.AgentNode})
+    agent.EntityData.Leafs.Append("reloaded", types.YLeaf{"Reloaded", agent.Reloaded})
+
+    agent.EntityData.YListKeys = []string {"AgentIndex"}
+
     return &(agent.EntityData)
 }
 
@@ -1418,7 +1499,7 @@ type Issu_Internals_Agents_ReloadTracking struct {
     RemainingNodesCount interface{}
 
     // The type is slice of Issu_Internals_Agents_ReloadTracking_Node.
-    Node []Issu_Internals_Agents_ReloadTracking_Node
+    Node []*Issu_Internals_Agents_ReloadTracking_Node
 }
 
 func (reloadTracking *Issu_Internals_Agents_ReloadTracking) GetEntityData() *types.CommonEntityData {
@@ -1431,14 +1512,17 @@ func (reloadTracking *Issu_Internals_Agents_ReloadTracking) GetEntityData() *typ
     reloadTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reloadTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    reloadTracking.EntityData.Children = make(map[string]types.YChild)
-    reloadTracking.EntityData.Children["node"] = types.YChild{"Node", nil}
+    reloadTracking.EntityData.Children = types.NewOrderedMap()
+    reloadTracking.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range reloadTracking.Node {
-        reloadTracking.EntityData.Children[types.GetSegmentPath(&reloadTracking.Node[i])] = types.YChild{"Node", &reloadTracking.Node[i]}
+        reloadTracking.EntityData.Children.Append(types.GetSegmentPath(reloadTracking.Node[i]), types.YChild{"Node", reloadTracking.Node[i]})
     }
-    reloadTracking.EntityData.Leafs = make(map[string]types.YLeaf)
-    reloadTracking.EntityData.Leafs["in-progress"] = types.YLeaf{"InProgress", reloadTracking.InProgress}
-    reloadTracking.EntityData.Leafs["remaining-nodes-count"] = types.YLeaf{"RemainingNodesCount", reloadTracking.RemainingNodesCount}
+    reloadTracking.EntityData.Leafs = types.NewOrderedMap()
+    reloadTracking.EntityData.Leafs.Append("in-progress", types.YLeaf{"InProgress", reloadTracking.InProgress})
+    reloadTracking.EntityData.Leafs.Append("remaining-nodes-count", types.YLeaf{"RemainingNodesCount", reloadTracking.RemainingNodesCount})
+
+    reloadTracking.EntityData.YListKeys = []string {}
+
     return &(reloadTracking.EntityData)
 }
 
@@ -1463,16 +1547,19 @@ func (node *Issu_Internals_Agents_ReloadTracking_Node) GetEntityData() *types.Co
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "reload-tracking"
-    node.EntityData.SegmentPath = "node" + "[node-index='" + fmt.Sprintf("%v", node.NodeIndex) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeIndex, "node-index")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-index"] = types.YLeaf{"NodeIndex", node.NodeIndex}
-    node.EntityData.Leafs["id"] = types.YLeaf{"Id", node.Id}
-    node.EntityData.Leafs["reloaded"] = types.YLeaf{"Reloaded", node.Reloaded}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-index", types.YLeaf{"NodeIndex", node.NodeIndex})
+    node.EntityData.Leafs.Append("id", types.YLeaf{"Id", node.Id})
+    node.EntityData.Leafs.Append("reloaded", types.YLeaf{"Reloaded", node.Reloaded})
+
+    node.EntityData.YListKeys = []string {"NodeIndex"}
+
     return &(node.EntityData)
 }
 
@@ -1496,9 +1583,12 @@ func (inventoryMonitor *Issu_Internals_InventoryMonitor) GetEntityData() *types.
     inventoryMonitor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventoryMonitor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inventoryMonitor.EntityData.Children = make(map[string]types.YChild)
-    inventoryMonitor.EntityData.Children["inventory"] = types.YChild{"Inventory", &inventoryMonitor.Inventory}
-    inventoryMonitor.EntityData.Leafs = make(map[string]types.YLeaf)
+    inventoryMonitor.EntityData.Children = types.NewOrderedMap()
+    inventoryMonitor.EntityData.Children.Append("inventory", types.YChild{"Inventory", &inventoryMonitor.Inventory})
+    inventoryMonitor.EntityData.Leafs = types.NewOrderedMap()
+
+    inventoryMonitor.EntityData.YListKeys = []string {}
+
     return &(inventoryMonitor.EntityData)
 }
 
@@ -1510,7 +1600,7 @@ type Issu_Internals_InventoryMonitor_Inventory struct {
 
     // The tree of nodes within the Inventory monitor module, keyed by node ID.
     // The type is slice of Issu_Internals_InventoryMonitor_Inventory_Node.
-    Node []Issu_Internals_InventoryMonitor_Inventory_Node
+    Node []*Issu_Internals_InventoryMonitor_Inventory_Node
 }
 
 func (inventory *Issu_Internals_InventoryMonitor_Inventory) GetEntityData() *types.CommonEntityData {
@@ -1523,12 +1613,15 @@ func (inventory *Issu_Internals_InventoryMonitor_Inventory) GetEntityData() *typ
     inventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inventory.EntityData.Children = make(map[string]types.YChild)
-    inventory.EntityData.Children["node"] = types.YChild{"Node", nil}
+    inventory.EntityData.Children = types.NewOrderedMap()
+    inventory.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range inventory.Node {
-        inventory.EntityData.Children[types.GetSegmentPath(&inventory.Node[i])] = types.YChild{"Node", &inventory.Node[i]}
+        inventory.EntityData.Children.Append(types.GetSegmentPath(inventory.Node[i]), types.YChild{"Node", inventory.Node[i]})
     }
-    inventory.EntityData.Leafs = make(map[string]types.YLeaf)
+    inventory.EntityData.Leafs = types.NewOrderedMap()
+
+    inventory.EntityData.YListKeys = []string {}
+
     return &(inventory.EntityData)
 }
 
@@ -1550,15 +1643,18 @@ func (node *Issu_Internals_InventoryMonitor_Inventory_Node) GetEntityData() *typ
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "inventory"
-    node.EntityData.SegmentPath = "node" + "[node='" + fmt.Sprintf("%v", node.Node) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Node, "node")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node"] = types.YLeaf{"Node", node.Node}
-    node.EntityData.Leafs["ip"] = types.YLeaf{"Ip", node.Ip}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node", types.YLeaf{"Node", node.Node})
+    node.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", node.Ip})
+
+    node.EntityData.YListKeys = []string {"Node"}
+
     return &(node.EntityData)
 }
 

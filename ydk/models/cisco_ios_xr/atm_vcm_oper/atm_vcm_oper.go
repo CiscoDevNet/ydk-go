@@ -24,18 +24,64 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-atm-vcm-oper:atm-vcm", reflect.TypeOf(AtmVcm{}))
 }
 
-// VcCellPackingMode represents ATM VC cell packing mode
-type VcCellPackingMode string
+// Vc represents  ATM VC type
+type Vc string
 
 const (
-    // VP mode
-    VcCellPackingMode_vp VcCellPackingMode = "vp"
+    //  ATM Layer 3 VC type
+    Vc_layer3_vc Vc = "layer3-vc"
 
-    // VC mode
-    VcCellPackingMode_vc VcCellPackingMode = "vc"
+    //  ATM Layer 2 VC type
+    Vc_layer2_vc Vc = "layer2-vc"
 
-    // Port mode
-    VcCellPackingMode_port_mode VcCellPackingMode = "port-mode"
+    //  ATM Layer 2 VP type
+    Vc_layer2_vp Vc = "layer2-vp"
+
+    //  ATM type unknown
+    Vc_vc_type_unknown Vc = "vc-type-unknown"
+)
+
+// VcEncap represents VC Encapsulation Type
+type VcEncap string
+
+const (
+    // ILMI Encapsulation
+    VcEncap_ilmi VcEncap = "ilmi"
+
+    // QSAAL Encapsulation
+    VcEncap_qsaal VcEncap = "qsaal"
+
+    // SNAP Encapsulation
+    VcEncap_snap VcEncap = "snap"
+
+    // MUX Encapsulation
+    VcEncap_mux VcEncap = "mux"
+
+    // NLPID Encapsulation
+    VcEncap_nlpid VcEncap = "nlpid"
+
+    // F4OAM Encapsulation
+    VcEncap_f4oam VcEncap = "f4oam"
+
+    // AAL0 Encapsulation
+    VcEncap_aal0 VcEncap = "aal0"
+
+    // AAL5 Encapsulation
+    VcEncap_aal5 VcEncap = "aal5"
+
+    // Uknown (invalid) Encapsulation
+    VcEncap_encap_unknown VcEncap = "encap-unknown"
+)
+
+// VcManageLevel represents ATM Class link manage level
+type VcManageLevel string
+
+const (
+    // Managed
+    VcManageLevel_manage VcManageLevel = "manage"
+
+    // Not managed
+    VcManageLevel_not_managed VcManageLevel = "not-managed"
 )
 
 // VcTestMode represents VC Test Mode Type
@@ -50,6 +96,33 @@ const (
 
     // VC in test mode Reserved
     VcTestMode_reserved VcTestMode = "reserved"
+)
+
+// VpTrafShaping represents VP-Tunnel traffic shaping type
+type VpTrafShaping string
+
+const (
+    // VP-Tunnel traffic shaping type CBR
+    VpTrafShaping_vp_cbr VpTrafShaping = "vp-cbr"
+
+    // VP-Tunnel traffic shaping type VBR-NR
+    VpTrafShaping_vp_vbr_nrt VpTrafShaping = "vp-vbr-nrt"
+
+    // VP-Tunnel traffic shaping type VBR-RT
+    VpTrafShaping_vp_vbr_rt VpTrafShaping = "vp-vbr-rt"
+
+    // VP-Tunnel traffic shaping type ABR
+    VpTrafShaping_vp_abr VpTrafShaping = "vp-abr"
+
+    // VP-Tunnel traffic shaping type UBR+
+    VpTrafShaping_vp_ubr_plus VpTrafShaping = "vp-ubr-plus"
+
+    // VP-Tunnel traffic shaping type UBR
+    VpTrafShaping_vp_ubr VpTrafShaping = "vp-ubr"
+
+    // VP-Tunnel traffic shaping type Unknown
+    // (invalid)
+    VpTrafShaping_vp_traf_shaping_unknown VpTrafShaping = "vp-traf-shaping-unknown"
 )
 
 // VcState represents VC State
@@ -96,108 +169,6 @@ const (
     VcState_state_unknown VcState = "state-unknown"
 )
 
-// VcInheritLevel represents ATM vc-class inheritence level
-type VcInheritLevel string
-
-const (
-    // ATM vc-class inherit level: Config of VC
-    VcInheritLevel_directly_configured_onvc VcInheritLevel = "directly-configured-onvc"
-
-    // ATM vc-class inherit level: Class of VC
-    VcInheritLevel_vc_class_configured_onvc VcInheritLevel = "vc-class-configured-onvc"
-
-    // ATM vc-class inherit level: Class of Sub-if
-    VcInheritLevel_vc_class_configured_on_sub_interface VcInheritLevel = "vc-class-configured-on-sub-interface"
-
-    // ATM vc-class inherit level: Class of Main-if
-    VcInheritLevel_vc_class_configured_on_main_interface VcInheritLevel = "vc-class-configured-on-main-interface"
-
-    // ATM vc-class inherit level: Global Default
-    VcInheritLevel_global_default VcInheritLevel = "global-default"
-
-    // ATM vc-class inherit level: Unknown (invalid)
-    VcInheritLevel_unknown VcInheritLevel = "unknown"
-
-    // ATM vc-class inherit level: Not supported on
-    // this VC class
-    VcInheritLevel_not_supported VcInheritLevel = "not-supported"
-)
-
-// VcTrafShaping represents VC traffic shaping type
-type VcTrafShaping string
-
-const (
-    // VC traffic shaping type CBR
-    VcTrafShaping_cbr VcTrafShaping = "cbr"
-
-    // VC traffic shaping type VBR-NR
-    VcTrafShaping_vbr_nrt VcTrafShaping = "vbr-nrt"
-
-    // VC traffic shaping type VBR-RT
-    VcTrafShaping_vbr_rt VcTrafShaping = "vbr-rt"
-
-    // VC traffic shaping type ABR
-    VcTrafShaping_abr VcTrafShaping = "abr"
-
-    // VC traffic shaping type UBR+
-    VcTrafShaping_ubr_plus VcTrafShaping = "ubr-plus"
-
-    // VC traffic shaping type UBR
-    VcTrafShaping_ubr VcTrafShaping = "ubr"
-
-    // VC traffic shaping type Unknown (invalid)
-    VcTrafShaping_traf_shaping_unknown VcTrafShaping = "traf-shaping-unknown"
-)
-
-// VcEncap represents VC Encapsulation Type
-type VcEncap string
-
-const (
-    // ILMI Encapsulation
-    VcEncap_ilmi VcEncap = "ilmi"
-
-    // QSAAL Encapsulation
-    VcEncap_qsaal VcEncap = "qsaal"
-
-    // SNAP Encapsulation
-    VcEncap_snap VcEncap = "snap"
-
-    // MUX Encapsulation
-    VcEncap_mux VcEncap = "mux"
-
-    // NLPID Encapsulation
-    VcEncap_nlpid VcEncap = "nlpid"
-
-    // F4OAM Encapsulation
-    VcEncap_f4oam VcEncap = "f4oam"
-
-    // AAL0 Encapsulation
-    VcEncap_aal0 VcEncap = "aal0"
-
-    // AAL5 Encapsulation
-    VcEncap_aal5 VcEncap = "aal5"
-
-    // Uknown (invalid) Encapsulation
-    VcEncap_encap_unknown VcEncap = "encap-unknown"
-)
-
-// Vc represents  ATM VC type
-type Vc string
-
-const (
-    //  ATM Layer 3 VC type
-    Vc_layer3_vc Vc = "layer3-vc"
-
-    //  ATM Layer 2 VC type
-    Vc_layer2_vc Vc = "layer2-vc"
-
-    //  ATM Layer 2 VP type
-    Vc_layer2_vp Vc = "layer2-vp"
-
-    //  ATM type unknown
-    Vc_vc_type_unknown Vc = "vc-type-unknown"
-)
-
 // ClassLinkOamInheritLevel represents ATM VC-class inheritence level for class-link
 type ClassLinkOamInheritLevel string
 
@@ -219,31 +190,6 @@ const (
 
     // Unknown (invalid)
     ClassLinkOamInheritLevel_vc_inherit_level_unknown ClassLinkOamInheritLevel = "vc-inherit-level-unknown"
-)
-
-// VcManageLevel represents ATM Class link manage level
-type VcManageLevel string
-
-const (
-    // Managed
-    VcManageLevel_manage VcManageLevel = "manage"
-
-    // Not managed
-    VcManageLevel_not_managed VcManageLevel = "not-managed"
-)
-
-// VcmPort represents ATM port type
-type VcmPort string
-
-const (
-    //  Layer 2 ATM port type 
-    VcmPort_port_type_layer_2 VcmPort = "port-type-layer-2"
-
-    //  Layer 3 ATM port type 
-    VcmPort_port_type_layer_3 VcmPort = "port-type-layer-3"
-
-    //  ATM port type unknown 
-    VcmPort_port_type_unknown VcmPort = "port-type-unknown"
 )
 
 // VpState represents VP-Tunnel State
@@ -272,31 +218,85 @@ const (
     VpState_vp_state_unknown VpState = "vp-state-unknown"
 )
 
-// VpTrafShaping represents VP-Tunnel traffic shaping type
-type VpTrafShaping string
+// VcTrafShaping represents VC traffic shaping type
+type VcTrafShaping string
 
 const (
-    // VP-Tunnel traffic shaping type CBR
-    VpTrafShaping_vp_cbr VpTrafShaping = "vp-cbr"
+    // VC traffic shaping type CBR
+    VcTrafShaping_cbr VcTrafShaping = "cbr"
 
-    // VP-Tunnel traffic shaping type VBR-NR
-    VpTrafShaping_vp_vbr_nrt VpTrafShaping = "vp-vbr-nrt"
+    // VC traffic shaping type VBR-NR
+    VcTrafShaping_vbr_nrt VcTrafShaping = "vbr-nrt"
 
-    // VP-Tunnel traffic shaping type VBR-RT
-    VpTrafShaping_vp_vbr_rt VpTrafShaping = "vp-vbr-rt"
+    // VC traffic shaping type VBR-RT
+    VcTrafShaping_vbr_rt VcTrafShaping = "vbr-rt"
 
-    // VP-Tunnel traffic shaping type ABR
-    VpTrafShaping_vp_abr VpTrafShaping = "vp-abr"
+    // VC traffic shaping type ABR
+    VcTrafShaping_abr VcTrafShaping = "abr"
 
-    // VP-Tunnel traffic shaping type UBR+
-    VpTrafShaping_vp_ubr_plus VpTrafShaping = "vp-ubr-plus"
+    // VC traffic shaping type UBR+
+    VcTrafShaping_ubr_plus VcTrafShaping = "ubr-plus"
 
-    // VP-Tunnel traffic shaping type UBR
-    VpTrafShaping_vp_ubr VpTrafShaping = "vp-ubr"
+    // VC traffic shaping type UBR
+    VcTrafShaping_ubr VcTrafShaping = "ubr"
 
-    // VP-Tunnel traffic shaping type Unknown
-    // (invalid)
-    VpTrafShaping_vp_traf_shaping_unknown VpTrafShaping = "vp-traf-shaping-unknown"
+    // VC traffic shaping type Unknown (invalid)
+    VcTrafShaping_traf_shaping_unknown VcTrafShaping = "traf-shaping-unknown"
+)
+
+// VcCellPackingMode represents ATM VC cell packing mode
+type VcCellPackingMode string
+
+const (
+    // VP mode
+    VcCellPackingMode_vp VcCellPackingMode = "vp"
+
+    // VC mode
+    VcCellPackingMode_vc VcCellPackingMode = "vc"
+
+    // Port mode
+    VcCellPackingMode_port_mode VcCellPackingMode = "port-mode"
+)
+
+// VcmPort represents ATM port type
+type VcmPort string
+
+const (
+    //  Layer 2 ATM port type 
+    VcmPort_port_type_layer_2 VcmPort = "port-type-layer-2"
+
+    //  Layer 3 ATM port type 
+    VcmPort_port_type_layer_3 VcmPort = "port-type-layer-3"
+
+    //  ATM port type unknown 
+    VcmPort_port_type_unknown VcmPort = "port-type-unknown"
+)
+
+// VcInheritLevel represents ATM vc-class inheritence level
+type VcInheritLevel string
+
+const (
+    // ATM vc-class inherit level: Config of VC
+    VcInheritLevel_directly_configured_onvc VcInheritLevel = "directly-configured-onvc"
+
+    // ATM vc-class inherit level: Class of VC
+    VcInheritLevel_vc_class_configured_onvc VcInheritLevel = "vc-class-configured-onvc"
+
+    // ATM vc-class inherit level: Class of Sub-if
+    VcInheritLevel_vc_class_configured_on_sub_interface VcInheritLevel = "vc-class-configured-on-sub-interface"
+
+    // ATM vc-class inherit level: Class of Main-if
+    VcInheritLevel_vc_class_configured_on_main_interface VcInheritLevel = "vc-class-configured-on-main-interface"
+
+    // ATM vc-class inherit level: Global Default
+    VcInheritLevel_global_default VcInheritLevel = "global-default"
+
+    // ATM vc-class inherit level: Unknown (invalid)
+    VcInheritLevel_unknown VcInheritLevel = "unknown"
+
+    // ATM vc-class inherit level: Not supported on
+    // this VC class
+    VcInheritLevel_not_supported VcInheritLevel = "not-supported"
 )
 
 // AtmVcm
@@ -319,9 +319,12 @@ func (atmVcm *AtmVcm) GetEntityData() *types.CommonEntityData {
     atmVcm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     atmVcm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    atmVcm.EntityData.Children = make(map[string]types.YChild)
-    atmVcm.EntityData.Children["nodes"] = types.YChild{"Nodes", &atmVcm.Nodes}
-    atmVcm.EntityData.Leafs = make(map[string]types.YLeaf)
+    atmVcm.EntityData.Children = types.NewOrderedMap()
+    atmVcm.EntityData.Children.Append("nodes", types.YChild{"Nodes", &atmVcm.Nodes})
+    atmVcm.EntityData.Leafs = types.NewOrderedMap()
+
+    atmVcm.EntityData.YListKeys = []string {}
+
     return &(atmVcm.EntityData)
 }
 
@@ -333,7 +336,7 @@ type AtmVcm_Nodes struct {
 
     // The node on which ATM Interfaces/VCs/VPs are located. The type is slice of
     // AtmVcm_Nodes_Node.
-    Node []AtmVcm_Nodes_Node
+    Node []*AtmVcm_Nodes_Node
 }
 
 func (nodes *AtmVcm_Nodes) GetEntityData() *types.CommonEntityData {
@@ -346,12 +349,15 @@ func (nodes *AtmVcm_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -363,7 +369,7 @@ type AtmVcm_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Contains all VC information for node.
@@ -390,20 +396,23 @@ func (node *AtmVcm_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["vcs"] = types.YChild{"Vcs", &node.Vcs}
-    node.EntityData.Children["cell-packs"] = types.YChild{"CellPacks", &node.CellPacks}
-    node.EntityData.Children["pvps"] = types.YChild{"Pvps", &node.Pvps}
-    node.EntityData.Children["class-links"] = types.YChild{"ClassLinks", &node.ClassLinks}
-    node.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &node.Interfaces}
-    node.EntityData.Children["vp-tunnels"] = types.YChild{"VpTunnels", &node.VpTunnels}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("vcs", types.YChild{"Vcs", &node.Vcs})
+    node.EntityData.Children.Append("cell-packs", types.YChild{"CellPacks", &node.CellPacks})
+    node.EntityData.Children.Append("pvps", types.YChild{"Pvps", &node.Pvps})
+    node.EntityData.Children.Append("class-links", types.YChild{"ClassLinks", &node.ClassLinks})
+    node.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &node.Interfaces})
+    node.EntityData.Children.Append("vp-tunnels", types.YChild{"VpTunnels", &node.VpTunnels})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -415,7 +424,7 @@ type AtmVcm_Nodes_Node_Vcs struct {
 
     // All VC information on a node. The type is slice of
     // AtmVcm_Nodes_Node_Vcs_Vc.
-    Vc []AtmVcm_Nodes_Node_Vcs_Vc
+    Vc []*AtmVcm_Nodes_Node_Vcs_Vc
 }
 
 func (vcs *AtmVcm_Nodes_Node_Vcs) GetEntityData() *types.CommonEntityData {
@@ -428,12 +437,15 @@ func (vcs *AtmVcm_Nodes_Node_Vcs) GetEntityData() *types.CommonEntityData {
     vcs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vcs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vcs.EntityData.Children = make(map[string]types.YChild)
-    vcs.EntityData.Children["vc"] = types.YChild{"Vc", nil}
+    vcs.EntityData.Children = types.NewOrderedMap()
+    vcs.EntityData.Children.Append("vc", types.YChild{"Vc", nil})
     for i := range vcs.Vc {
-        vcs.EntityData.Children[types.GetSegmentPath(&vcs.Vc[i])] = types.YChild{"Vc", &vcs.Vc[i]}
+        vcs.EntityData.Children.Append(types.GetSegmentPath(vcs.Vc[i]), types.YChild{"Vc", vcs.Vc[i]})
     }
-    vcs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vcs.EntityData.Leafs = types.NewOrderedMap()
+
+    vcs.EntityData.YListKeys = []string {}
+
     return &(vcs.EntityData)
 }
 
@@ -444,7 +456,7 @@ type AtmVcm_Nodes_Node_Vcs_Vc struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // VPI. The type is interface{} with range: 0..4095.
@@ -453,13 +465,13 @@ type AtmVcm_Nodes_Node_Vcs_Vc struct {
     // VCI. The type is interface{} with range: 1..65535.
     Vci interface{}
 
-    // Main Interface handle. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Main Interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
     MainInterface interface{}
 
-    // Subinterface handle. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Subinterface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
     SubInterface interface{}
 
-    // VC Interfcace handle. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // VC Interfcace handle. The type is string with pattern: [a-zA-Z0-9./-]+.
     VcInterface interface{}
 
     // VC VPI value. The type is interface{} with range: 0..65535.
@@ -469,7 +481,7 @@ type AtmVcm_Nodes_Node_Vcs_Vc struct {
     VciXr interface{}
 
     // VC Type. The type is Vc.
-    Type_ interface{}
+    Type interface{}
 
     // Encapsulation type. The type is VcEncap.
     Encapsulation interface{}
@@ -508,7 +520,7 @@ type AtmVcm_Nodes_Node_Vcs_Vc struct {
     VcOnvpTunnel interface{}
 
     // VC on Point-to-point Sub-interface. The type is bool.
-    VcOnP2PSubInterface interface{}
+    VcOnP2pSubInterface interface{}
 
     // TRUE value indicates that the VC is operationally UP. The type is bool.
     OperStatus interface{}
@@ -535,39 +547,42 @@ func (vc *AtmVcm_Nodes_Node_Vcs_Vc) GetEntityData() *types.CommonEntityData {
     vc.EntityData.YangName = "vc"
     vc.EntityData.BundleName = "cisco_ios_xr"
     vc.EntityData.ParentYangName = "vcs"
-    vc.EntityData.SegmentPath = "vc" + "[interface-name='" + fmt.Sprintf("%v", vc.InterfaceName) + "']"
+    vc.EntityData.SegmentPath = "vc" + types.AddKeyToken(vc.InterfaceName, "interface-name")
     vc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vc.EntityData.Children = make(map[string]types.YChild)
-    vc.EntityData.Children["cell-packing-data"] = types.YChild{"CellPackingData", &vc.CellPackingData}
-    vc.EntityData.Leafs = make(map[string]types.YLeaf)
-    vc.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", vc.InterfaceName}
-    vc.EntityData.Leafs["vpi"] = types.YLeaf{"Vpi", vc.Vpi}
-    vc.EntityData.Leafs["vci"] = types.YLeaf{"Vci", vc.Vci}
-    vc.EntityData.Leafs["main-interface"] = types.YLeaf{"MainInterface", vc.MainInterface}
-    vc.EntityData.Leafs["sub-interface"] = types.YLeaf{"SubInterface", vc.SubInterface}
-    vc.EntityData.Leafs["vc-interface"] = types.YLeaf{"VcInterface", vc.VcInterface}
-    vc.EntityData.Leafs["vpi-xr"] = types.YLeaf{"VpiXr", vc.VpiXr}
-    vc.EntityData.Leafs["vci-xr"] = types.YLeaf{"VciXr", vc.VciXr}
-    vc.EntityData.Leafs["type"] = types.YLeaf{"Type_", vc.Type_}
-    vc.EntityData.Leafs["encapsulation"] = types.YLeaf{"Encapsulation", vc.Encapsulation}
-    vc.EntityData.Leafs["shape"] = types.YLeaf{"Shape", vc.Shape}
-    vc.EntityData.Leafs["peak-cell-rate"] = types.YLeaf{"PeakCellRate", vc.PeakCellRate}
-    vc.EntityData.Leafs["sustained-cell-rate"] = types.YLeaf{"SustainedCellRate", vc.SustainedCellRate}
-    vc.EntityData.Leafs["burst-rate"] = types.YLeaf{"BurstRate", vc.BurstRate}
-    vc.EntityData.Leafs["encaps-inherit-level"] = types.YLeaf{"EncapsInheritLevel", vc.EncapsInheritLevel}
-    vc.EntityData.Leafs["qos-inherit-level"] = types.YLeaf{"QosInheritLevel", vc.QosInheritLevel}
-    vc.EntityData.Leafs["transmit-mtu"] = types.YLeaf{"TransmitMtu", vc.TransmitMtu}
-    vc.EntityData.Leafs["receive-mtu"] = types.YLeaf{"ReceiveMtu", vc.ReceiveMtu}
-    vc.EntityData.Leafs["vc-onvp-tunnel"] = types.YLeaf{"VcOnvpTunnel", vc.VcOnvpTunnel}
-    vc.EntityData.Leafs["vc-on-p2p-sub-interface"] = types.YLeaf{"VcOnP2PSubInterface", vc.VcOnP2PSubInterface}
-    vc.EntityData.Leafs["oper-status"] = types.YLeaf{"OperStatus", vc.OperStatus}
-    vc.EntityData.Leafs["amin-status"] = types.YLeaf{"AminStatus", vc.AminStatus}
-    vc.EntityData.Leafs["internal-state"] = types.YLeaf{"InternalState", vc.InternalState}
-    vc.EntityData.Leafs["last-state-change-time"] = types.YLeaf{"LastStateChangeTime", vc.LastStateChangeTime}
-    vc.EntityData.Leafs["test-mode"] = types.YLeaf{"TestMode", vc.TestMode}
+    vc.EntityData.Children = types.NewOrderedMap()
+    vc.EntityData.Children.Append("cell-packing-data", types.YChild{"CellPackingData", &vc.CellPackingData})
+    vc.EntityData.Leafs = types.NewOrderedMap()
+    vc.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", vc.InterfaceName})
+    vc.EntityData.Leafs.Append("vpi", types.YLeaf{"Vpi", vc.Vpi})
+    vc.EntityData.Leafs.Append("vci", types.YLeaf{"Vci", vc.Vci})
+    vc.EntityData.Leafs.Append("main-interface", types.YLeaf{"MainInterface", vc.MainInterface})
+    vc.EntityData.Leafs.Append("sub-interface", types.YLeaf{"SubInterface", vc.SubInterface})
+    vc.EntityData.Leafs.Append("vc-interface", types.YLeaf{"VcInterface", vc.VcInterface})
+    vc.EntityData.Leafs.Append("vpi-xr", types.YLeaf{"VpiXr", vc.VpiXr})
+    vc.EntityData.Leafs.Append("vci-xr", types.YLeaf{"VciXr", vc.VciXr})
+    vc.EntityData.Leafs.Append("type", types.YLeaf{"Type", vc.Type})
+    vc.EntityData.Leafs.Append("encapsulation", types.YLeaf{"Encapsulation", vc.Encapsulation})
+    vc.EntityData.Leafs.Append("shape", types.YLeaf{"Shape", vc.Shape})
+    vc.EntityData.Leafs.Append("peak-cell-rate", types.YLeaf{"PeakCellRate", vc.PeakCellRate})
+    vc.EntityData.Leafs.Append("sustained-cell-rate", types.YLeaf{"SustainedCellRate", vc.SustainedCellRate})
+    vc.EntityData.Leafs.Append("burst-rate", types.YLeaf{"BurstRate", vc.BurstRate})
+    vc.EntityData.Leafs.Append("encaps-inherit-level", types.YLeaf{"EncapsInheritLevel", vc.EncapsInheritLevel})
+    vc.EntityData.Leafs.Append("qos-inherit-level", types.YLeaf{"QosInheritLevel", vc.QosInheritLevel})
+    vc.EntityData.Leafs.Append("transmit-mtu", types.YLeaf{"TransmitMtu", vc.TransmitMtu})
+    vc.EntityData.Leafs.Append("receive-mtu", types.YLeaf{"ReceiveMtu", vc.ReceiveMtu})
+    vc.EntityData.Leafs.Append("vc-onvp-tunnel", types.YLeaf{"VcOnvpTunnel", vc.VcOnvpTunnel})
+    vc.EntityData.Leafs.Append("vc-on-p2p-sub-interface", types.YLeaf{"VcOnP2pSubInterface", vc.VcOnP2pSubInterface})
+    vc.EntityData.Leafs.Append("oper-status", types.YLeaf{"OperStatus", vc.OperStatus})
+    vc.EntityData.Leafs.Append("amin-status", types.YLeaf{"AminStatus", vc.AminStatus})
+    vc.EntityData.Leafs.Append("internal-state", types.YLeaf{"InternalState", vc.InternalState})
+    vc.EntityData.Leafs.Append("last-state-change-time", types.YLeaf{"LastStateChangeTime", vc.LastStateChangeTime})
+    vc.EntityData.Leafs.Append("test-mode", types.YLeaf{"TestMode", vc.TestMode})
+
+    vc.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(vc.EntityData)
 }
 
@@ -600,11 +615,14 @@ func (cellPackingData *AtmVcm_Nodes_Node_Vcs_Vc_CellPackingData) GetEntityData()
     cellPackingData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cellPackingData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cellPackingData.EntityData.Children = make(map[string]types.YChild)
-    cellPackingData.EntityData.Leafs = make(map[string]types.YLeaf)
-    cellPackingData.EntityData.Leafs["local-max-cells-packed-per-packet"] = types.YLeaf{"LocalMaxCellsPackedPerPacket", cellPackingData.LocalMaxCellsPackedPerPacket}
-    cellPackingData.EntityData.Leafs["negotiated-max-cells-packed-per-packet"] = types.YLeaf{"NegotiatedMaxCellsPackedPerPacket", cellPackingData.NegotiatedMaxCellsPackedPerPacket}
-    cellPackingData.EntityData.Leafs["max-cell-packed-timeout"] = types.YLeaf{"MaxCellPackedTimeout", cellPackingData.MaxCellPackedTimeout}
+    cellPackingData.EntityData.Children = types.NewOrderedMap()
+    cellPackingData.EntityData.Leafs = types.NewOrderedMap()
+    cellPackingData.EntityData.Leafs.Append("local-max-cells-packed-per-packet", types.YLeaf{"LocalMaxCellsPackedPerPacket", cellPackingData.LocalMaxCellsPackedPerPacket})
+    cellPackingData.EntityData.Leafs.Append("negotiated-max-cells-packed-per-packet", types.YLeaf{"NegotiatedMaxCellsPackedPerPacket", cellPackingData.NegotiatedMaxCellsPackedPerPacket})
+    cellPackingData.EntityData.Leafs.Append("max-cell-packed-timeout", types.YLeaf{"MaxCellPackedTimeout", cellPackingData.MaxCellPackedTimeout})
+
+    cellPackingData.EntityData.YListKeys = []string {}
+
     return &(cellPackingData.EntityData)
 }
 
@@ -616,7 +634,7 @@ type AtmVcm_Nodes_Node_CellPacks struct {
 
     // All cell packing information on a node. The type is slice of
     // AtmVcm_Nodes_Node_CellPacks_CellPack.
-    CellPack []AtmVcm_Nodes_Node_CellPacks_CellPack
+    CellPack []*AtmVcm_Nodes_Node_CellPacks_CellPack
 }
 
 func (cellPacks *AtmVcm_Nodes_Node_CellPacks) GetEntityData() *types.CommonEntityData {
@@ -629,12 +647,15 @@ func (cellPacks *AtmVcm_Nodes_Node_CellPacks) GetEntityData() *types.CommonEntit
     cellPacks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cellPacks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cellPacks.EntityData.Children = make(map[string]types.YChild)
-    cellPacks.EntityData.Children["cell-pack"] = types.YChild{"CellPack", nil}
+    cellPacks.EntityData.Children = types.NewOrderedMap()
+    cellPacks.EntityData.Children.Append("cell-pack", types.YChild{"CellPack", nil})
     for i := range cellPacks.CellPack {
-        cellPacks.EntityData.Children[types.GetSegmentPath(&cellPacks.CellPack[i])] = types.YChild{"CellPack", &cellPacks.CellPack[i]}
+        cellPacks.EntityData.Children.Append(types.GetSegmentPath(cellPacks.CellPack[i]), types.YChild{"CellPack", cellPacks.CellPack[i]})
     }
-    cellPacks.EntityData.Leafs = make(map[string]types.YLeaf)
+    cellPacks.EntityData.Leafs = types.NewOrderedMap()
+
+    cellPacks.EntityData.YListKeys = []string {}
+
     return &(cellPacks.EntityData)
 }
 
@@ -644,13 +665,13 @@ type AtmVcm_Nodes_Node_CellPacks_CellPack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
-    // PCI. The type is interface{} with range: -2147483648..2147483647.
+    // PCI. The type is interface{} with range: 0..4294967295.
     Pci interface{}
 
-    // Sub-interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Sub-interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
     SubInterfaceName interface{}
 
     // ATM cell packing mode. The type is VcCellPackingMode.
@@ -684,17 +705,20 @@ func (cellPack *AtmVcm_Nodes_Node_CellPacks_CellPack) GetEntityData() *types.Com
     cellPack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cellPack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cellPack.EntityData.Children = make(map[string]types.YChild)
-    cellPack.EntityData.Children["cell-packing"] = types.YChild{"CellPacking", &cellPack.CellPacking}
-    cellPack.EntityData.Leafs = make(map[string]types.YLeaf)
-    cellPack.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", cellPack.InterfaceName}
-    cellPack.EntityData.Leafs["pci"] = types.YLeaf{"Pci", cellPack.Pci}
-    cellPack.EntityData.Leafs["sub-interface-name"] = types.YLeaf{"SubInterfaceName", cellPack.SubInterfaceName}
-    cellPack.EntityData.Leafs["cell-packing-mode"] = types.YLeaf{"CellPackingMode", cellPack.CellPackingMode}
-    cellPack.EntityData.Leafs["vpi"] = types.YLeaf{"Vpi", cellPack.Vpi}
-    cellPack.EntityData.Leafs["vci"] = types.YLeaf{"Vci", cellPack.Vci}
-    cellPack.EntityData.Leafs["received-average-cells-packets"] = types.YLeaf{"ReceivedAverageCellsPackets", cellPack.ReceivedAverageCellsPackets}
-    cellPack.EntityData.Leafs["sent-cells-packets"] = types.YLeaf{"SentCellsPackets", cellPack.SentCellsPackets}
+    cellPack.EntityData.Children = types.NewOrderedMap()
+    cellPack.EntityData.Children.Append("cell-packing", types.YChild{"CellPacking", &cellPack.CellPacking})
+    cellPack.EntityData.Leafs = types.NewOrderedMap()
+    cellPack.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", cellPack.InterfaceName})
+    cellPack.EntityData.Leafs.Append("pci", types.YLeaf{"Pci", cellPack.Pci})
+    cellPack.EntityData.Leafs.Append("sub-interface-name", types.YLeaf{"SubInterfaceName", cellPack.SubInterfaceName})
+    cellPack.EntityData.Leafs.Append("cell-packing-mode", types.YLeaf{"CellPackingMode", cellPack.CellPackingMode})
+    cellPack.EntityData.Leafs.Append("vpi", types.YLeaf{"Vpi", cellPack.Vpi})
+    cellPack.EntityData.Leafs.Append("vci", types.YLeaf{"Vci", cellPack.Vci})
+    cellPack.EntityData.Leafs.Append("received-average-cells-packets", types.YLeaf{"ReceivedAverageCellsPackets", cellPack.ReceivedAverageCellsPackets})
+    cellPack.EntityData.Leafs.Append("sent-cells-packets", types.YLeaf{"SentCellsPackets", cellPack.SentCellsPackets})
+
+    cellPack.EntityData.YListKeys = []string {}
+
     return &(cellPack.EntityData)
 }
 
@@ -727,11 +751,14 @@ func (cellPacking *AtmVcm_Nodes_Node_CellPacks_CellPack_CellPacking) GetEntityDa
     cellPacking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cellPacking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cellPacking.EntityData.Children = make(map[string]types.YChild)
-    cellPacking.EntityData.Leafs = make(map[string]types.YLeaf)
-    cellPacking.EntityData.Leafs["local-max-cells-packed-per-packet"] = types.YLeaf{"LocalMaxCellsPackedPerPacket", cellPacking.LocalMaxCellsPackedPerPacket}
-    cellPacking.EntityData.Leafs["negotiated-max-cells-packed-per-packet"] = types.YLeaf{"NegotiatedMaxCellsPackedPerPacket", cellPacking.NegotiatedMaxCellsPackedPerPacket}
-    cellPacking.EntityData.Leafs["max-cell-packed-timeout"] = types.YLeaf{"MaxCellPackedTimeout", cellPacking.MaxCellPackedTimeout}
+    cellPacking.EntityData.Children = types.NewOrderedMap()
+    cellPacking.EntityData.Leafs = types.NewOrderedMap()
+    cellPacking.EntityData.Leafs.Append("local-max-cells-packed-per-packet", types.YLeaf{"LocalMaxCellsPackedPerPacket", cellPacking.LocalMaxCellsPackedPerPacket})
+    cellPacking.EntityData.Leafs.Append("negotiated-max-cells-packed-per-packet", types.YLeaf{"NegotiatedMaxCellsPackedPerPacket", cellPacking.NegotiatedMaxCellsPackedPerPacket})
+    cellPacking.EntityData.Leafs.Append("max-cell-packed-timeout", types.YLeaf{"MaxCellPackedTimeout", cellPacking.MaxCellPackedTimeout})
+
+    cellPacking.EntityData.YListKeys = []string {}
+
     return &(cellPacking.EntityData)
 }
 
@@ -743,7 +770,7 @@ type AtmVcm_Nodes_Node_Pvps struct {
 
     // All L2 PVP information on a node. The type is slice of
     // AtmVcm_Nodes_Node_Pvps_Pvp.
-    Pvp []AtmVcm_Nodes_Node_Pvps_Pvp
+    Pvp []*AtmVcm_Nodes_Node_Pvps_Pvp
 }
 
 func (pvps *AtmVcm_Nodes_Node_Pvps) GetEntityData() *types.CommonEntityData {
@@ -756,12 +783,15 @@ func (pvps *AtmVcm_Nodes_Node_Pvps) GetEntityData() *types.CommonEntityData {
     pvps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pvps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pvps.EntityData.Children = make(map[string]types.YChild)
-    pvps.EntityData.Children["pvp"] = types.YChild{"Pvp", nil}
+    pvps.EntityData.Children = types.NewOrderedMap()
+    pvps.EntityData.Children.Append("pvp", types.YChild{"Pvp", nil})
     for i := range pvps.Pvp {
-        pvps.EntityData.Children[types.GetSegmentPath(&pvps.Pvp[i])] = types.YChild{"Pvp", &pvps.Pvp[i]}
+        pvps.EntityData.Children.Append(types.GetSegmentPath(pvps.Pvp[i]), types.YChild{"Pvp", pvps.Pvp[i]})
     }
-    pvps.EntityData.Leafs = make(map[string]types.YLeaf)
+    pvps.EntityData.Leafs = types.NewOrderedMap()
+
+    pvps.EntityData.YListKeys = []string {}
+
     return &(pvps.EntityData)
 }
 
@@ -772,19 +802,19 @@ type AtmVcm_Nodes_Node_Pvps_Pvp struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
-    // VPI. The type is interface{} with range: -2147483648..2147483647.
+    // VPI. The type is interface{} with range: 0..4294967295.
     Vpi interface{}
 
-    // Main Interface handle. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Main Interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
     MainInterface interface{}
 
-    // Subinterface handle. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Subinterface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
     SubInterface interface{}
 
-    // VC Interfcace handle. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // VC Interfcace handle. The type is string with pattern: [a-zA-Z0-9./-]+.
     VcInterface interface{}
 
     // VC VPI value. The type is interface{} with range: 0..65535.
@@ -794,7 +824,7 @@ type AtmVcm_Nodes_Node_Pvps_Pvp struct {
     VciXr interface{}
 
     // VC Type. The type is Vc.
-    Type_ interface{}
+    Type interface{}
 
     // Encapsulation type. The type is VcEncap.
     Encapsulation interface{}
@@ -833,7 +863,7 @@ type AtmVcm_Nodes_Node_Pvps_Pvp struct {
     VcOnvpTunnel interface{}
 
     // VC on Point-to-point Sub-interface. The type is bool.
-    VcOnP2PSubInterface interface{}
+    VcOnP2pSubInterface interface{}
 
     // TRUE value indicates that the VC is operationally UP. The type is bool.
     OperStatus interface{}
@@ -860,38 +890,41 @@ func (pvp *AtmVcm_Nodes_Node_Pvps_Pvp) GetEntityData() *types.CommonEntityData {
     pvp.EntityData.YangName = "pvp"
     pvp.EntityData.BundleName = "cisco_ios_xr"
     pvp.EntityData.ParentYangName = "pvps"
-    pvp.EntityData.SegmentPath = "pvp" + "[interface-name='" + fmt.Sprintf("%v", pvp.InterfaceName) + "']"
+    pvp.EntityData.SegmentPath = "pvp" + types.AddKeyToken(pvp.InterfaceName, "interface-name")
     pvp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pvp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pvp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    pvp.EntityData.Children = make(map[string]types.YChild)
-    pvp.EntityData.Children["cell-packing-data"] = types.YChild{"CellPackingData", &pvp.CellPackingData}
-    pvp.EntityData.Leafs = make(map[string]types.YLeaf)
-    pvp.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", pvp.InterfaceName}
-    pvp.EntityData.Leafs["vpi"] = types.YLeaf{"Vpi", pvp.Vpi}
-    pvp.EntityData.Leafs["main-interface"] = types.YLeaf{"MainInterface", pvp.MainInterface}
-    pvp.EntityData.Leafs["sub-interface"] = types.YLeaf{"SubInterface", pvp.SubInterface}
-    pvp.EntityData.Leafs["vc-interface"] = types.YLeaf{"VcInterface", pvp.VcInterface}
-    pvp.EntityData.Leafs["vpi-xr"] = types.YLeaf{"VpiXr", pvp.VpiXr}
-    pvp.EntityData.Leafs["vci-xr"] = types.YLeaf{"VciXr", pvp.VciXr}
-    pvp.EntityData.Leafs["type"] = types.YLeaf{"Type_", pvp.Type_}
-    pvp.EntityData.Leafs["encapsulation"] = types.YLeaf{"Encapsulation", pvp.Encapsulation}
-    pvp.EntityData.Leafs["shape"] = types.YLeaf{"Shape", pvp.Shape}
-    pvp.EntityData.Leafs["peak-cell-rate"] = types.YLeaf{"PeakCellRate", pvp.PeakCellRate}
-    pvp.EntityData.Leafs["sustained-cell-rate"] = types.YLeaf{"SustainedCellRate", pvp.SustainedCellRate}
-    pvp.EntityData.Leafs["burst-rate"] = types.YLeaf{"BurstRate", pvp.BurstRate}
-    pvp.EntityData.Leafs["encaps-inherit-level"] = types.YLeaf{"EncapsInheritLevel", pvp.EncapsInheritLevel}
-    pvp.EntityData.Leafs["qos-inherit-level"] = types.YLeaf{"QosInheritLevel", pvp.QosInheritLevel}
-    pvp.EntityData.Leafs["transmit-mtu"] = types.YLeaf{"TransmitMtu", pvp.TransmitMtu}
-    pvp.EntityData.Leafs["receive-mtu"] = types.YLeaf{"ReceiveMtu", pvp.ReceiveMtu}
-    pvp.EntityData.Leafs["vc-onvp-tunnel"] = types.YLeaf{"VcOnvpTunnel", pvp.VcOnvpTunnel}
-    pvp.EntityData.Leafs["vc-on-p2p-sub-interface"] = types.YLeaf{"VcOnP2PSubInterface", pvp.VcOnP2PSubInterface}
-    pvp.EntityData.Leafs["oper-status"] = types.YLeaf{"OperStatus", pvp.OperStatus}
-    pvp.EntityData.Leafs["amin-status"] = types.YLeaf{"AminStatus", pvp.AminStatus}
-    pvp.EntityData.Leafs["internal-state"] = types.YLeaf{"InternalState", pvp.InternalState}
-    pvp.EntityData.Leafs["last-state-change-time"] = types.YLeaf{"LastStateChangeTime", pvp.LastStateChangeTime}
-    pvp.EntityData.Leafs["test-mode"] = types.YLeaf{"TestMode", pvp.TestMode}
+    pvp.EntityData.Children = types.NewOrderedMap()
+    pvp.EntityData.Children.Append("cell-packing-data", types.YChild{"CellPackingData", &pvp.CellPackingData})
+    pvp.EntityData.Leafs = types.NewOrderedMap()
+    pvp.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", pvp.InterfaceName})
+    pvp.EntityData.Leafs.Append("vpi", types.YLeaf{"Vpi", pvp.Vpi})
+    pvp.EntityData.Leafs.Append("main-interface", types.YLeaf{"MainInterface", pvp.MainInterface})
+    pvp.EntityData.Leafs.Append("sub-interface", types.YLeaf{"SubInterface", pvp.SubInterface})
+    pvp.EntityData.Leafs.Append("vc-interface", types.YLeaf{"VcInterface", pvp.VcInterface})
+    pvp.EntityData.Leafs.Append("vpi-xr", types.YLeaf{"VpiXr", pvp.VpiXr})
+    pvp.EntityData.Leafs.Append("vci-xr", types.YLeaf{"VciXr", pvp.VciXr})
+    pvp.EntityData.Leafs.Append("type", types.YLeaf{"Type", pvp.Type})
+    pvp.EntityData.Leafs.Append("encapsulation", types.YLeaf{"Encapsulation", pvp.Encapsulation})
+    pvp.EntityData.Leafs.Append("shape", types.YLeaf{"Shape", pvp.Shape})
+    pvp.EntityData.Leafs.Append("peak-cell-rate", types.YLeaf{"PeakCellRate", pvp.PeakCellRate})
+    pvp.EntityData.Leafs.Append("sustained-cell-rate", types.YLeaf{"SustainedCellRate", pvp.SustainedCellRate})
+    pvp.EntityData.Leafs.Append("burst-rate", types.YLeaf{"BurstRate", pvp.BurstRate})
+    pvp.EntityData.Leafs.Append("encaps-inherit-level", types.YLeaf{"EncapsInheritLevel", pvp.EncapsInheritLevel})
+    pvp.EntityData.Leafs.Append("qos-inherit-level", types.YLeaf{"QosInheritLevel", pvp.QosInheritLevel})
+    pvp.EntityData.Leafs.Append("transmit-mtu", types.YLeaf{"TransmitMtu", pvp.TransmitMtu})
+    pvp.EntityData.Leafs.Append("receive-mtu", types.YLeaf{"ReceiveMtu", pvp.ReceiveMtu})
+    pvp.EntityData.Leafs.Append("vc-onvp-tunnel", types.YLeaf{"VcOnvpTunnel", pvp.VcOnvpTunnel})
+    pvp.EntityData.Leafs.Append("vc-on-p2p-sub-interface", types.YLeaf{"VcOnP2pSubInterface", pvp.VcOnP2pSubInterface})
+    pvp.EntityData.Leafs.Append("oper-status", types.YLeaf{"OperStatus", pvp.OperStatus})
+    pvp.EntityData.Leafs.Append("amin-status", types.YLeaf{"AminStatus", pvp.AminStatus})
+    pvp.EntityData.Leafs.Append("internal-state", types.YLeaf{"InternalState", pvp.InternalState})
+    pvp.EntityData.Leafs.Append("last-state-change-time", types.YLeaf{"LastStateChangeTime", pvp.LastStateChangeTime})
+    pvp.EntityData.Leafs.Append("test-mode", types.YLeaf{"TestMode", pvp.TestMode})
+
+    pvp.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(pvp.EntityData)
 }
 
@@ -924,11 +957,14 @@ func (cellPackingData *AtmVcm_Nodes_Node_Pvps_Pvp_CellPackingData) GetEntityData
     cellPackingData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cellPackingData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cellPackingData.EntityData.Children = make(map[string]types.YChild)
-    cellPackingData.EntityData.Leafs = make(map[string]types.YLeaf)
-    cellPackingData.EntityData.Leafs["local-max-cells-packed-per-packet"] = types.YLeaf{"LocalMaxCellsPackedPerPacket", cellPackingData.LocalMaxCellsPackedPerPacket}
-    cellPackingData.EntityData.Leafs["negotiated-max-cells-packed-per-packet"] = types.YLeaf{"NegotiatedMaxCellsPackedPerPacket", cellPackingData.NegotiatedMaxCellsPackedPerPacket}
-    cellPackingData.EntityData.Leafs["max-cell-packed-timeout"] = types.YLeaf{"MaxCellPackedTimeout", cellPackingData.MaxCellPackedTimeout}
+    cellPackingData.EntityData.Children = types.NewOrderedMap()
+    cellPackingData.EntityData.Leafs = types.NewOrderedMap()
+    cellPackingData.EntityData.Leafs.Append("local-max-cells-packed-per-packet", types.YLeaf{"LocalMaxCellsPackedPerPacket", cellPackingData.LocalMaxCellsPackedPerPacket})
+    cellPackingData.EntityData.Leafs.Append("negotiated-max-cells-packed-per-packet", types.YLeaf{"NegotiatedMaxCellsPackedPerPacket", cellPackingData.NegotiatedMaxCellsPackedPerPacket})
+    cellPackingData.EntityData.Leafs.Append("max-cell-packed-timeout", types.YLeaf{"MaxCellPackedTimeout", cellPackingData.MaxCellPackedTimeout})
+
+    cellPackingData.EntityData.YListKeys = []string {}
+
     return &(cellPackingData.EntityData)
 }
 
@@ -940,7 +976,7 @@ type AtmVcm_Nodes_Node_ClassLinks struct {
 
     // All ATM VC information on a node. The type is slice of
     // AtmVcm_Nodes_Node_ClassLinks_ClassLink.
-    ClassLink []AtmVcm_Nodes_Node_ClassLinks_ClassLink
+    ClassLink []*AtmVcm_Nodes_Node_ClassLinks_ClassLink
 }
 
 func (classLinks *AtmVcm_Nodes_Node_ClassLinks) GetEntityData() *types.CommonEntityData {
@@ -953,12 +989,15 @@ func (classLinks *AtmVcm_Nodes_Node_ClassLinks) GetEntityData() *types.CommonEnt
     classLinks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classLinks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    classLinks.EntityData.Children = make(map[string]types.YChild)
-    classLinks.EntityData.Children["class-link"] = types.YChild{"ClassLink", nil}
+    classLinks.EntityData.Children = types.NewOrderedMap()
+    classLinks.EntityData.Children.Append("class-link", types.YChild{"ClassLink", nil})
     for i := range classLinks.ClassLink {
-        classLinks.EntityData.Children[types.GetSegmentPath(&classLinks.ClassLink[i])] = types.YChild{"ClassLink", &classLinks.ClassLink[i]}
+        classLinks.EntityData.Children.Append(types.GetSegmentPath(classLinks.ClassLink[i]), types.YChild{"ClassLink", classLinks.ClassLink[i]})
     }
-    classLinks.EntityData.Leafs = make(map[string]types.YLeaf)
+    classLinks.EntityData.Leafs = types.NewOrderedMap()
+
+    classLinks.EntityData.YListKeys = []string {}
+
     return &(classLinks.EntityData)
 }
 
@@ -969,13 +1008,13 @@ type AtmVcm_Nodes_Node_ClassLinks_ClassLink struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. VPI. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Vpi interface{}
 
-    // VCI. The type is interface{} with range: -2147483648..2147483647.
+    // VCI. The type is interface{} with range: 0..4294967295.
     Vci interface{}
 
-    // Sub-interface handle. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Sub-interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
     SubInterfaceName interface{}
 
     // Not supported VC class.
@@ -990,18 +1029,21 @@ func (classLink *AtmVcm_Nodes_Node_ClassLinks_ClassLink) GetEntityData() *types.
     classLink.EntityData.YangName = "class-link"
     classLink.EntityData.BundleName = "cisco_ios_xr"
     classLink.EntityData.ParentYangName = "class-links"
-    classLink.EntityData.SegmentPath = "class-link" + "[vpi='" + fmt.Sprintf("%v", classLink.Vpi) + "']"
+    classLink.EntityData.SegmentPath = "class-link" + types.AddKeyToken(classLink.Vpi, "vpi")
     classLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    classLink.EntityData.Children = make(map[string]types.YChild)
-    classLink.EntityData.Children["vc-class-not-supported"] = types.YChild{"VcClassNotSupported", &classLink.VcClassNotSupported}
-    classLink.EntityData.Children["oam-config"] = types.YChild{"OamConfig", &classLink.OamConfig}
-    classLink.EntityData.Leafs = make(map[string]types.YLeaf)
-    classLink.EntityData.Leafs["vpi"] = types.YLeaf{"Vpi", classLink.Vpi}
-    classLink.EntityData.Leafs["vci"] = types.YLeaf{"Vci", classLink.Vci}
-    classLink.EntityData.Leafs["sub-interface-name"] = types.YLeaf{"SubInterfaceName", classLink.SubInterfaceName}
+    classLink.EntityData.Children = types.NewOrderedMap()
+    classLink.EntityData.Children.Append("vc-class-not-supported", types.YChild{"VcClassNotSupported", &classLink.VcClassNotSupported})
+    classLink.EntityData.Children.Append("oam-config", types.YChild{"OamConfig", &classLink.OamConfig})
+    classLink.EntityData.Leafs = types.NewOrderedMap()
+    classLink.EntityData.Leafs.Append("vpi", types.YLeaf{"Vpi", classLink.Vpi})
+    classLink.EntityData.Leafs.Append("vci", types.YLeaf{"Vci", classLink.Vci})
+    classLink.EntityData.Leafs.Append("sub-interface-name", types.YLeaf{"SubInterfaceName", classLink.SubInterfaceName})
+
+    classLink.EntityData.YListKeys = []string {"Vpi"}
+
     return &(classLink.EntityData)
 }
 
@@ -1028,10 +1070,13 @@ func (vcClassNotSupported *AtmVcm_Nodes_Node_ClassLinks_ClassLink_VcClassNotSupp
     vcClassNotSupported.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vcClassNotSupported.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vcClassNotSupported.EntityData.Children = make(map[string]types.YChild)
-    vcClassNotSupported.EntityData.Leafs = make(map[string]types.YLeaf)
-    vcClassNotSupported.EntityData.Leafs["encapsulation-not-supported"] = types.YLeaf{"EncapsulationNotSupported", vcClassNotSupported.EncapsulationNotSupported}
-    vcClassNotSupported.EntityData.Leafs["not-supported-inherit-level"] = types.YLeaf{"NotSupportedInheritLevel", vcClassNotSupported.NotSupportedInheritLevel}
+    vcClassNotSupported.EntityData.Children = types.NewOrderedMap()
+    vcClassNotSupported.EntityData.Leafs = types.NewOrderedMap()
+    vcClassNotSupported.EntityData.Leafs.Append("encapsulation-not-supported", types.YLeaf{"EncapsulationNotSupported", vcClassNotSupported.EncapsulationNotSupported})
+    vcClassNotSupported.EntityData.Leafs.Append("not-supported-inherit-level", types.YLeaf{"NotSupportedInheritLevel", vcClassNotSupported.NotSupportedInheritLevel})
+
+    vcClassNotSupported.EntityData.YListKeys = []string {}
+
     return &(vcClassNotSupported.EntityData)
 }
 
@@ -1067,13 +1112,16 @@ func (oamConfig *AtmVcm_Nodes_Node_ClassLinks_ClassLink_OamConfig) GetEntityData
     oamConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oamConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oamConfig.EntityData.Children = make(map[string]types.YChild)
-    oamConfig.EntityData.Children["class-link-shaping"] = types.YChild{"ClassLinkShaping", &oamConfig.ClassLinkShaping}
-    oamConfig.EntityData.Children["class-link-encapsulation"] = types.YChild{"ClassLinkEncapsulation", &oamConfig.ClassLinkEncapsulation}
-    oamConfig.EntityData.Children["oam-pvc"] = types.YChild{"OamPvc", &oamConfig.OamPvc}
-    oamConfig.EntityData.Children["oam-retry"] = types.YChild{"OamRetry", &oamConfig.OamRetry}
-    oamConfig.EntityData.Children["ais-rdi"] = types.YChild{"AisRdi", &oamConfig.AisRdi}
-    oamConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    oamConfig.EntityData.Children = types.NewOrderedMap()
+    oamConfig.EntityData.Children.Append("class-link-shaping", types.YChild{"ClassLinkShaping", &oamConfig.ClassLinkShaping})
+    oamConfig.EntityData.Children.Append("class-link-encapsulation", types.YChild{"ClassLinkEncapsulation", &oamConfig.ClassLinkEncapsulation})
+    oamConfig.EntityData.Children.Append("oam-pvc", types.YChild{"OamPvc", &oamConfig.OamPvc})
+    oamConfig.EntityData.Children.Append("oam-retry", types.YChild{"OamRetry", &oamConfig.OamRetry})
+    oamConfig.EntityData.Children.Append("ais-rdi", types.YChild{"AisRdi", &oamConfig.AisRdi})
+    oamConfig.EntityData.Leafs = types.NewOrderedMap()
+
+    oamConfig.EntityData.YListKeys = []string {}
+
     return &(oamConfig.EntityData)
 }
 
@@ -1110,13 +1158,16 @@ func (classLinkShaping *AtmVcm_Nodes_Node_ClassLinks_ClassLink_OamConfig_ClassLi
     classLinkShaping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classLinkShaping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    classLinkShaping.EntityData.Children = make(map[string]types.YChild)
-    classLinkShaping.EntityData.Leafs = make(map[string]types.YLeaf)
-    classLinkShaping.EntityData.Leafs["shaping-type"] = types.YLeaf{"ShapingType", classLinkShaping.ShapingType}
-    classLinkShaping.EntityData.Leafs["peak-output-rate"] = types.YLeaf{"PeakOutputRate", classLinkShaping.PeakOutputRate}
-    classLinkShaping.EntityData.Leafs["average-output-rate"] = types.YLeaf{"AverageOutputRate", classLinkShaping.AverageOutputRate}
-    classLinkShaping.EntityData.Leafs["burst-output-rate"] = types.YLeaf{"BurstOutputRate", classLinkShaping.BurstOutputRate}
-    classLinkShaping.EntityData.Leafs["shaping-inherit-level"] = types.YLeaf{"ShapingInheritLevel", classLinkShaping.ShapingInheritLevel}
+    classLinkShaping.EntityData.Children = types.NewOrderedMap()
+    classLinkShaping.EntityData.Leafs = types.NewOrderedMap()
+    classLinkShaping.EntityData.Leafs.Append("shaping-type", types.YLeaf{"ShapingType", classLinkShaping.ShapingType})
+    classLinkShaping.EntityData.Leafs.Append("peak-output-rate", types.YLeaf{"PeakOutputRate", classLinkShaping.PeakOutputRate})
+    classLinkShaping.EntityData.Leafs.Append("average-output-rate", types.YLeaf{"AverageOutputRate", classLinkShaping.AverageOutputRate})
+    classLinkShaping.EntityData.Leafs.Append("burst-output-rate", types.YLeaf{"BurstOutputRate", classLinkShaping.BurstOutputRate})
+    classLinkShaping.EntityData.Leafs.Append("shaping-inherit-level", types.YLeaf{"ShapingInheritLevel", classLinkShaping.ShapingInheritLevel})
+
+    classLinkShaping.EntityData.YListKeys = []string {}
+
     return &(classLinkShaping.EntityData)
 }
 
@@ -1143,10 +1194,13 @@ func (classLinkEncapsulation *AtmVcm_Nodes_Node_ClassLinks_ClassLink_OamConfig_C
     classLinkEncapsulation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classLinkEncapsulation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    classLinkEncapsulation.EntityData.Children = make(map[string]types.YChild)
-    classLinkEncapsulation.EntityData.Leafs = make(map[string]types.YLeaf)
-    classLinkEncapsulation.EntityData.Leafs["encapsulation-type"] = types.YLeaf{"EncapsulationType", classLinkEncapsulation.EncapsulationType}
-    classLinkEncapsulation.EntityData.Leafs["encapsulation-inherit-level"] = types.YLeaf{"EncapsulationInheritLevel", classLinkEncapsulation.EncapsulationInheritLevel}
+    classLinkEncapsulation.EntityData.Children = types.NewOrderedMap()
+    classLinkEncapsulation.EntityData.Leafs = types.NewOrderedMap()
+    classLinkEncapsulation.EntityData.Leafs.Append("encapsulation-type", types.YLeaf{"EncapsulationType", classLinkEncapsulation.EncapsulationType})
+    classLinkEncapsulation.EntityData.Leafs.Append("encapsulation-inherit-level", types.YLeaf{"EncapsulationInheritLevel", classLinkEncapsulation.EncapsulationInheritLevel})
+
+    classLinkEncapsulation.EntityData.YListKeys = []string {}
+
     return &(classLinkEncapsulation.EntityData)
 }
 
@@ -1182,13 +1236,16 @@ func (oamPvc *AtmVcm_Nodes_Node_ClassLinks_ClassLink_OamConfig_OamPvc) GetEntity
     oamPvc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oamPvc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oamPvc.EntityData.Children = make(map[string]types.YChild)
-    oamPvc.EntityData.Leafs = make(map[string]types.YLeaf)
-    oamPvc.EntityData.Leafs["manage-level"] = types.YLeaf{"ManageLevel", oamPvc.ManageLevel}
-    oamPvc.EntityData.Leafs["pvc-frequency"] = types.YLeaf{"PvcFrequency", oamPvc.PvcFrequency}
-    oamPvc.EntityData.Leafs["keep-vc-up"] = types.YLeaf{"KeepVcUp", oamPvc.KeepVcUp}
-    oamPvc.EntityData.Leafs["ais-rdi-failure"] = types.YLeaf{"AisRdiFailure", oamPvc.AisRdiFailure}
-    oamPvc.EntityData.Leafs["manage-inherit-level"] = types.YLeaf{"ManageInheritLevel", oamPvc.ManageInheritLevel}
+    oamPvc.EntityData.Children = types.NewOrderedMap()
+    oamPvc.EntityData.Leafs = types.NewOrderedMap()
+    oamPvc.EntityData.Leafs.Append("manage-level", types.YLeaf{"ManageLevel", oamPvc.ManageLevel})
+    oamPvc.EntityData.Leafs.Append("pvc-frequency", types.YLeaf{"PvcFrequency", oamPvc.PvcFrequency})
+    oamPvc.EntityData.Leafs.Append("keep-vc-up", types.YLeaf{"KeepVcUp", oamPvc.KeepVcUp})
+    oamPvc.EntityData.Leafs.Append("ais-rdi-failure", types.YLeaf{"AisRdiFailure", oamPvc.AisRdiFailure})
+    oamPvc.EntityData.Leafs.Append("manage-inherit-level", types.YLeaf{"ManageInheritLevel", oamPvc.ManageInheritLevel})
+
+    oamPvc.EntityData.YListKeys = []string {}
+
     return &(oamPvc.EntityData)
 }
 
@@ -1221,12 +1278,15 @@ func (oamRetry *AtmVcm_Nodes_Node_ClassLinks_ClassLink_OamConfig_OamRetry) GetEn
     oamRetry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oamRetry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    oamRetry.EntityData.Children = make(map[string]types.YChild)
-    oamRetry.EntityData.Leafs = make(map[string]types.YLeaf)
-    oamRetry.EntityData.Leafs["retry-up-count"] = types.YLeaf{"RetryUpCount", oamRetry.RetryUpCount}
-    oamRetry.EntityData.Leafs["down-count"] = types.YLeaf{"DownCount", oamRetry.DownCount}
-    oamRetry.EntityData.Leafs["retry-frequency"] = types.YLeaf{"RetryFrequency", oamRetry.RetryFrequency}
-    oamRetry.EntityData.Leafs["retry-inherit-level"] = types.YLeaf{"RetryInheritLevel", oamRetry.RetryInheritLevel}
+    oamRetry.EntityData.Children = types.NewOrderedMap()
+    oamRetry.EntityData.Leafs = types.NewOrderedMap()
+    oamRetry.EntityData.Leafs.Append("retry-up-count", types.YLeaf{"RetryUpCount", oamRetry.RetryUpCount})
+    oamRetry.EntityData.Leafs.Append("down-count", types.YLeaf{"DownCount", oamRetry.DownCount})
+    oamRetry.EntityData.Leafs.Append("retry-frequency", types.YLeaf{"RetryFrequency", oamRetry.RetryFrequency})
+    oamRetry.EntityData.Leafs.Append("retry-inherit-level", types.YLeaf{"RetryInheritLevel", oamRetry.RetryInheritLevel})
+
+    oamRetry.EntityData.YListKeys = []string {}
+
     return &(oamRetry.EntityData)
 }
 
@@ -1257,11 +1317,14 @@ func (aisRdi *AtmVcm_Nodes_Node_ClassLinks_ClassLink_OamConfig_AisRdi) GetEntity
     aisRdi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aisRdi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    aisRdi.EntityData.Children = make(map[string]types.YChild)
-    aisRdi.EntityData.Leafs = make(map[string]types.YLeaf)
-    aisRdi.EntityData.Leafs["ais-rdi-up-count"] = types.YLeaf{"AisRdiUpCount", aisRdi.AisRdiUpCount}
-    aisRdi.EntityData.Leafs["ais-rdi-up-time"] = types.YLeaf{"AisRdiUpTime", aisRdi.AisRdiUpTime}
-    aisRdi.EntityData.Leafs["ais-rdi-inherit-level"] = types.YLeaf{"AisRdiInheritLevel", aisRdi.AisRdiInheritLevel}
+    aisRdi.EntityData.Children = types.NewOrderedMap()
+    aisRdi.EntityData.Leafs = types.NewOrderedMap()
+    aisRdi.EntityData.Leafs.Append("ais-rdi-up-count", types.YLeaf{"AisRdiUpCount", aisRdi.AisRdiUpCount})
+    aisRdi.EntityData.Leafs.Append("ais-rdi-up-time", types.YLeaf{"AisRdiUpTime", aisRdi.AisRdiUpTime})
+    aisRdi.EntityData.Leafs.Append("ais-rdi-inherit-level", types.YLeaf{"AisRdiInheritLevel", aisRdi.AisRdiInheritLevel})
+
+    aisRdi.EntityData.YListKeys = []string {}
+
     return &(aisRdi.EntityData)
 }
 
@@ -1272,8 +1335,8 @@ type AtmVcm_Nodes_Node_Interfaces struct {
     YFilter yfilter.YFilter
 
     // ATM Interface data. The type is slice of
-    // AtmVcm_Nodes_Node_Interfaces_Interface_.
-    Interface_ []AtmVcm_Nodes_Node_Interfaces_Interface
+    // AtmVcm_Nodes_Node_Interfaces_Interface.
+    Interface []*AtmVcm_Nodes_Node_Interfaces_Interface
 }
 
 func (interfaces *AtmVcm_Nodes_Node_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -1286,12 +1349,15 @@ func (interfaces *AtmVcm_Nodes_Node_Interfaces) GetEntityData() *types.CommonEnt
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -1302,7 +1368,7 @@ type AtmVcm_Nodes_Node_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // ILMI VPI. The type is interface{} with range: 0..4294967295.
@@ -1316,19 +1382,19 @@ type AtmVcm_Nodes_Node_Interfaces_Interface struct {
 
     // Number of currently failing Layer 2 PVPs. The type is interface{} with
     // range: 0..4294967295.
-    CurrentlyFailingLayer2PvPs interface{}
+    CurrentlyFailingLayer2pvPs interface{}
 
     // Number of currently failing Layer 2 PVCs. The type is interface{} with
     // range: 0..4294967295.
-    CurrentlyFailingLayer2PvCs interface{}
+    CurrentlyFailingLayer2pvCs interface{}
 
     // Number of currently failing Layer 3 VP tunnels. The type is interface{}
     // with range: 0..4294967295.
-    CurrentlyFailingLayer3VpTunnels interface{}
+    CurrentlyFailingLayer3vpTunnels interface{}
 
     // Number of currently failing Layer 3 PVCs. The type is interface{} with
     // range: 0..4294967295.
-    CurrentlyFailingLayer3PvCs interface{}
+    CurrentlyFailingLayer3pvCs interface{}
 
     // If true, PVC failures trap is enabled. The type is bool.
     PvcFailuresTrapEnable interface{}
@@ -1339,24 +1405,24 @@ type AtmVcm_Nodes_Node_Interfaces_Interface struct {
 
     // Number of Layer 2 PVPs configured. The type is interface{} with range:
     // 0..4294967295.
-    ConfiguredLayer2PvPs interface{}
+    ConfiguredLayer2pvPs interface{}
 
     // Number of Layer 2 PVCs configured. The type is interface{} with range:
     // 0..4294967295.
-    ConfiguredLayer2PvCs interface{}
+    ConfiguredLayer2pvCs interface{}
 
     // Number of Layer 3 VP tunnels configured. The type is interface{} with
     // range: 0..4294967295.
-    ConfiguredLayer3VpTunnels interface{}
+    ConfiguredLayer3vpTunnels interface{}
 
     // Number of Layer 3 PVCs configured. The type is interface{} with range:
     // 0..4294967295.
-    ConfiguredLayer3PvCs interface{}
+    ConfiguredLayer3pvCs interface{}
 
     // ATM interface port type. The type is VcmPort.
     PortType interface{}
 
-    // Main Interface handle. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Main Interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
     MainInterface interface{}
 
     // Number of L2 attachment circuits with the cell packing feature enabled on
@@ -1372,31 +1438,34 @@ func (self *AtmVcm_Nodes_Node_Interfaces_Interface) GetEntityData() *types.Commo
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["cell-packing-data"] = types.YChild{"CellPackingData", &self.CellPackingData}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["ilmi-vpi"] = types.YLeaf{"IlmiVpi", self.IlmiVpi}
-    self.EntityData.Leafs["ilmi-vci"] = types.YLeaf{"IlmiVci", self.IlmiVci}
-    self.EntityData.Leafs["pvc-failures"] = types.YLeaf{"PvcFailures", self.PvcFailures}
-    self.EntityData.Leafs["currently-failing-layer2pv-ps"] = types.YLeaf{"CurrentlyFailingLayer2PvPs", self.CurrentlyFailingLayer2PvPs}
-    self.EntityData.Leafs["currently-failing-layer2pv-cs"] = types.YLeaf{"CurrentlyFailingLayer2PvCs", self.CurrentlyFailingLayer2PvCs}
-    self.EntityData.Leafs["currently-failing-layer3vp-tunnels"] = types.YLeaf{"CurrentlyFailingLayer3VpTunnels", self.CurrentlyFailingLayer3VpTunnels}
-    self.EntityData.Leafs["currently-failing-layer3pv-cs"] = types.YLeaf{"CurrentlyFailingLayer3PvCs", self.CurrentlyFailingLayer3PvCs}
-    self.EntityData.Leafs["pvc-failures-trap-enable"] = types.YLeaf{"PvcFailuresTrapEnable", self.PvcFailuresTrapEnable}
-    self.EntityData.Leafs["pvc-notification-interval"] = types.YLeaf{"PvcNotificationInterval", self.PvcNotificationInterval}
-    self.EntityData.Leafs["configured-layer2pv-ps"] = types.YLeaf{"ConfiguredLayer2PvPs", self.ConfiguredLayer2PvPs}
-    self.EntityData.Leafs["configured-layer2pv-cs"] = types.YLeaf{"ConfiguredLayer2PvCs", self.ConfiguredLayer2PvCs}
-    self.EntityData.Leafs["configured-layer3vp-tunnels"] = types.YLeaf{"ConfiguredLayer3VpTunnels", self.ConfiguredLayer3VpTunnels}
-    self.EntityData.Leafs["configured-layer3pv-cs"] = types.YLeaf{"ConfiguredLayer3PvCs", self.ConfiguredLayer3PvCs}
-    self.EntityData.Leafs["port-type"] = types.YLeaf{"PortType", self.PortType}
-    self.EntityData.Leafs["main-interface"] = types.YLeaf{"MainInterface", self.MainInterface}
-    self.EntityData.Leafs["l2-cell-packing-count"] = types.YLeaf{"L2CellPackingCount", self.L2CellPackingCount}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("cell-packing-data", types.YChild{"CellPackingData", &self.CellPackingData})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("ilmi-vpi", types.YLeaf{"IlmiVpi", self.IlmiVpi})
+    self.EntityData.Leafs.Append("ilmi-vci", types.YLeaf{"IlmiVci", self.IlmiVci})
+    self.EntityData.Leafs.Append("pvc-failures", types.YLeaf{"PvcFailures", self.PvcFailures})
+    self.EntityData.Leafs.Append("currently-failing-layer2pv-ps", types.YLeaf{"CurrentlyFailingLayer2pvPs", self.CurrentlyFailingLayer2pvPs})
+    self.EntityData.Leafs.Append("currently-failing-layer2pv-cs", types.YLeaf{"CurrentlyFailingLayer2pvCs", self.CurrentlyFailingLayer2pvCs})
+    self.EntityData.Leafs.Append("currently-failing-layer3vp-tunnels", types.YLeaf{"CurrentlyFailingLayer3vpTunnels", self.CurrentlyFailingLayer3vpTunnels})
+    self.EntityData.Leafs.Append("currently-failing-layer3pv-cs", types.YLeaf{"CurrentlyFailingLayer3pvCs", self.CurrentlyFailingLayer3pvCs})
+    self.EntityData.Leafs.Append("pvc-failures-trap-enable", types.YLeaf{"PvcFailuresTrapEnable", self.PvcFailuresTrapEnable})
+    self.EntityData.Leafs.Append("pvc-notification-interval", types.YLeaf{"PvcNotificationInterval", self.PvcNotificationInterval})
+    self.EntityData.Leafs.Append("configured-layer2pv-ps", types.YLeaf{"ConfiguredLayer2pvPs", self.ConfiguredLayer2pvPs})
+    self.EntityData.Leafs.Append("configured-layer2pv-cs", types.YLeaf{"ConfiguredLayer2pvCs", self.ConfiguredLayer2pvCs})
+    self.EntityData.Leafs.Append("configured-layer3vp-tunnels", types.YLeaf{"ConfiguredLayer3vpTunnels", self.ConfiguredLayer3vpTunnels})
+    self.EntityData.Leafs.Append("configured-layer3pv-cs", types.YLeaf{"ConfiguredLayer3pvCs", self.ConfiguredLayer3pvCs})
+    self.EntityData.Leafs.Append("port-type", types.YLeaf{"PortType", self.PortType})
+    self.EntityData.Leafs.Append("main-interface", types.YLeaf{"MainInterface", self.MainInterface})
+    self.EntityData.Leafs.Append("l2-cell-packing-count", types.YLeaf{"L2CellPackingCount", self.L2CellPackingCount})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -1429,11 +1498,14 @@ func (cellPackingData *AtmVcm_Nodes_Node_Interfaces_Interface_CellPackingData) G
     cellPackingData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cellPackingData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    cellPackingData.EntityData.Children = make(map[string]types.YChild)
-    cellPackingData.EntityData.Leafs = make(map[string]types.YLeaf)
-    cellPackingData.EntityData.Leafs["local-max-cells-packed-per-packet"] = types.YLeaf{"LocalMaxCellsPackedPerPacket", cellPackingData.LocalMaxCellsPackedPerPacket}
-    cellPackingData.EntityData.Leafs["negotiated-max-cells-packed-per-packet"] = types.YLeaf{"NegotiatedMaxCellsPackedPerPacket", cellPackingData.NegotiatedMaxCellsPackedPerPacket}
-    cellPackingData.EntityData.Leafs["max-cell-packed-timeout"] = types.YLeaf{"MaxCellPackedTimeout", cellPackingData.MaxCellPackedTimeout}
+    cellPackingData.EntityData.Children = types.NewOrderedMap()
+    cellPackingData.EntityData.Leafs = types.NewOrderedMap()
+    cellPackingData.EntityData.Leafs.Append("local-max-cells-packed-per-packet", types.YLeaf{"LocalMaxCellsPackedPerPacket", cellPackingData.LocalMaxCellsPackedPerPacket})
+    cellPackingData.EntityData.Leafs.Append("negotiated-max-cells-packed-per-packet", types.YLeaf{"NegotiatedMaxCellsPackedPerPacket", cellPackingData.NegotiatedMaxCellsPackedPerPacket})
+    cellPackingData.EntityData.Leafs.Append("max-cell-packed-timeout", types.YLeaf{"MaxCellPackedTimeout", cellPackingData.MaxCellPackedTimeout})
+
+    cellPackingData.EntityData.YListKeys = []string {}
+
     return &(cellPackingData.EntityData)
 }
 
@@ -1445,7 +1517,7 @@ type AtmVcm_Nodes_Node_VpTunnels struct {
 
     // All VP-tunnel information on a node. The type is slice of
     // AtmVcm_Nodes_Node_VpTunnels_VpTunnel.
-    VpTunnel []AtmVcm_Nodes_Node_VpTunnels_VpTunnel
+    VpTunnel []*AtmVcm_Nodes_Node_VpTunnels_VpTunnel
 }
 
 func (vpTunnels *AtmVcm_Nodes_Node_VpTunnels) GetEntityData() *types.CommonEntityData {
@@ -1458,12 +1530,15 @@ func (vpTunnels *AtmVcm_Nodes_Node_VpTunnels) GetEntityData() *types.CommonEntit
     vpTunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpTunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vpTunnels.EntityData.Children = make(map[string]types.YChild)
-    vpTunnels.EntityData.Children["vp-tunnel"] = types.YChild{"VpTunnel", nil}
+    vpTunnels.EntityData.Children = types.NewOrderedMap()
+    vpTunnels.EntityData.Children.Append("vp-tunnel", types.YChild{"VpTunnel", nil})
     for i := range vpTunnels.VpTunnel {
-        vpTunnels.EntityData.Children[types.GetSegmentPath(&vpTunnels.VpTunnel[i])] = types.YChild{"VpTunnel", &vpTunnels.VpTunnel[i]}
+        vpTunnels.EntityData.Children.Append(types.GetSegmentPath(vpTunnels.VpTunnel[i]), types.YChild{"VpTunnel", vpTunnels.VpTunnel[i]})
     }
-    vpTunnels.EntityData.Leafs = make(map[string]types.YLeaf)
+    vpTunnels.EntityData.Leafs = types.NewOrderedMap()
+
+    vpTunnels.EntityData.YListKeys = []string {}
+
     return &(vpTunnels.EntityData)
 }
 
@@ -1474,16 +1549,16 @@ type AtmVcm_Nodes_Node_VpTunnels_VpTunnel struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
-    // VPI. The type is interface{} with range: -2147483648..2147483647.
+    // VPI. The type is interface{} with range: 0..4294967295.
     Vpi interface{}
 
-    // Main Interface handle. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // Main Interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
     MainInterface interface{}
 
-    // VP Interfcace handle. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    // VP Interfcace handle. The type is string with pattern: [a-zA-Z0-9./-]+.
     VpInterface interface{}
 
     // VP-Tunnel VPI value. The type is interface{} with range: 0..65535.
@@ -1504,7 +1579,7 @@ type AtmVcm_Nodes_Node_VpTunnels_VpTunnel struct {
     BurstRate interface{}
 
     // F4OAM Enabled flag. The type is bool.
-    F4OamEnabled interface{}
+    F4oamEnabled interface{}
 
     // Number of Data PVCs under this VP-tunnel. The type is interface{} with
     // range: 0..4294967295.
@@ -1529,28 +1604,31 @@ func (vpTunnel *AtmVcm_Nodes_Node_VpTunnels_VpTunnel) GetEntityData() *types.Com
     vpTunnel.EntityData.YangName = "vp-tunnel"
     vpTunnel.EntityData.BundleName = "cisco_ios_xr"
     vpTunnel.EntityData.ParentYangName = "vp-tunnels"
-    vpTunnel.EntityData.SegmentPath = "vp-tunnel" + "[interface-name='" + fmt.Sprintf("%v", vpTunnel.InterfaceName) + "']"
+    vpTunnel.EntityData.SegmentPath = "vp-tunnel" + types.AddKeyToken(vpTunnel.InterfaceName, "interface-name")
     vpTunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vpTunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpTunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vpTunnel.EntityData.Children = make(map[string]types.YChild)
-    vpTunnel.EntityData.Leafs = make(map[string]types.YLeaf)
-    vpTunnel.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", vpTunnel.InterfaceName}
-    vpTunnel.EntityData.Leafs["vpi"] = types.YLeaf{"Vpi", vpTunnel.Vpi}
-    vpTunnel.EntityData.Leafs["main-interface"] = types.YLeaf{"MainInterface", vpTunnel.MainInterface}
-    vpTunnel.EntityData.Leafs["vp-interface"] = types.YLeaf{"VpInterface", vpTunnel.VpInterface}
-    vpTunnel.EntityData.Leafs["vpi-xr"] = types.YLeaf{"VpiXr", vpTunnel.VpiXr}
-    vpTunnel.EntityData.Leafs["shape"] = types.YLeaf{"Shape", vpTunnel.Shape}
-    vpTunnel.EntityData.Leafs["peak-cell-rate"] = types.YLeaf{"PeakCellRate", vpTunnel.PeakCellRate}
-    vpTunnel.EntityData.Leafs["sustained-cell-rate"] = types.YLeaf{"SustainedCellRate", vpTunnel.SustainedCellRate}
-    vpTunnel.EntityData.Leafs["burst-rate"] = types.YLeaf{"BurstRate", vpTunnel.BurstRate}
-    vpTunnel.EntityData.Leafs["f4oam-enabled"] = types.YLeaf{"F4OamEnabled", vpTunnel.F4OamEnabled}
-    vpTunnel.EntityData.Leafs["data-vc-count"] = types.YLeaf{"DataVcCount", vpTunnel.DataVcCount}
-    vpTunnel.EntityData.Leafs["oper-status"] = types.YLeaf{"OperStatus", vpTunnel.OperStatus}
-    vpTunnel.EntityData.Leafs["amin-status"] = types.YLeaf{"AminStatus", vpTunnel.AminStatus}
-    vpTunnel.EntityData.Leafs["internal-state"] = types.YLeaf{"InternalState", vpTunnel.InternalState}
-    vpTunnel.EntityData.Leafs["last-vp-state-change-time"] = types.YLeaf{"LastVpStateChangeTime", vpTunnel.LastVpStateChangeTime}
+    vpTunnel.EntityData.Children = types.NewOrderedMap()
+    vpTunnel.EntityData.Leafs = types.NewOrderedMap()
+    vpTunnel.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", vpTunnel.InterfaceName})
+    vpTunnel.EntityData.Leafs.Append("vpi", types.YLeaf{"Vpi", vpTunnel.Vpi})
+    vpTunnel.EntityData.Leafs.Append("main-interface", types.YLeaf{"MainInterface", vpTunnel.MainInterface})
+    vpTunnel.EntityData.Leafs.Append("vp-interface", types.YLeaf{"VpInterface", vpTunnel.VpInterface})
+    vpTunnel.EntityData.Leafs.Append("vpi-xr", types.YLeaf{"VpiXr", vpTunnel.VpiXr})
+    vpTunnel.EntityData.Leafs.Append("shape", types.YLeaf{"Shape", vpTunnel.Shape})
+    vpTunnel.EntityData.Leafs.Append("peak-cell-rate", types.YLeaf{"PeakCellRate", vpTunnel.PeakCellRate})
+    vpTunnel.EntityData.Leafs.Append("sustained-cell-rate", types.YLeaf{"SustainedCellRate", vpTunnel.SustainedCellRate})
+    vpTunnel.EntityData.Leafs.Append("burst-rate", types.YLeaf{"BurstRate", vpTunnel.BurstRate})
+    vpTunnel.EntityData.Leafs.Append("f4oam-enabled", types.YLeaf{"F4oamEnabled", vpTunnel.F4oamEnabled})
+    vpTunnel.EntityData.Leafs.Append("data-vc-count", types.YLeaf{"DataVcCount", vpTunnel.DataVcCount})
+    vpTunnel.EntityData.Leafs.Append("oper-status", types.YLeaf{"OperStatus", vpTunnel.OperStatus})
+    vpTunnel.EntityData.Leafs.Append("amin-status", types.YLeaf{"AminStatus", vpTunnel.AminStatus})
+    vpTunnel.EntityData.Leafs.Append("internal-state", types.YLeaf{"InternalState", vpTunnel.InternalState})
+    vpTunnel.EntityData.Leafs.Append("last-vp-state-change-time", types.YLeaf{"LastVpStateChangeTime", vpTunnel.LastVpStateChangeTime})
+
+    vpTunnel.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(vpTunnel.EntityData)
 }
 

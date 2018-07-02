@@ -29,6 +29,10 @@ module Cisco-IOS-XR-mpls-vpn-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -42,7 +46,7 @@ module Cisco-IOS-XR-mpls-vpn-cfg {
       description
         "MPLS-L3VPN-STD-MIB notification configuration";
       leaf max-threshold-reissue-notification-time {
-        type int32;
+        type uint32;
         units "second";
         description
           "Time interval (secs) for re-issuing

@@ -44,6 +44,14 @@ module Cisco-IOS-XR-freqsync-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-30 {
+    description
+      "Ensure propagation of MDA mandatory state to YANG model.";
+  }
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -88,7 +96,7 @@ module Cisco-IOS-XR-freqsync-cfg {
       enum "changes" {
         value 1;
         description
-          "Log selection changes";
+          "Log both selection changes and errors";
       }
       enum "errors" {
         value 2;
@@ -213,7 +221,7 @@ module Cisco-IOS-XR-freqsync-cfg {
               "Clock type";
           }
           leaf port {
-            type int32;
+            type uint32;
             description
               "Clock port";
           }
@@ -353,6 +361,7 @@ module Cisco-IOS-XR-freqsync-cfg {
     uses NODE-CFG;
   }
   container frequency-synchronization {
+    presence "Indicates a frequency-synchronization node is configured.";
     description
       "frequency synchronization";
     leaf quality-level-option {
@@ -368,16 +377,19 @@ module Cisco-IOS-XR-freqsync-cfg {
     }
     leaf source-selection-logging {
       type Fsync-source-selection-logging;
+      mandatory true;
       description
         "Source selection logging option";
     }
     leaf clock-interface-source-type {
       type Fsync-clock-source;
+      mandatory true;
       description
         "Clock interface source type";
     }
     leaf system-timing-mode {
       type Fsync-system-timing-mode;
+      mandatory true;
       description
         "System timing mode";
     }

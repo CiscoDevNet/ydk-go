@@ -10,7 +10,7 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
     prefix xr;
   }
   include Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
-    revision-date 2017-05-01;
+    revision-date 2017-10-26;
   }
 
   organization
@@ -32,6 +32,14 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-10-26 {
+    description
+      "Fixed some field name and values for better interpretation";
+  }
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -43,6 +51,12 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
+  }
+
+  typedef Ospf-string-array {
+    type string;
+    description
+      "Ospf string array";
   }
 
   grouping OSPF-SH-IF-STATS-ENTRY {
@@ -577,21 +591,6 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
     }
   }
 
-  grouping BAG-TIMESPEC {
-    description
-      "BAG TIMESPEC";
-    leaf second {
-      type uint32;
-      description
-        "Second";
-    }
-    leaf nanosecond {
-      type uint32;
-      description
-        "Nanosecond";
-    }
-  }
-
   grouping OSPF-SH-STATS-RIB-THREAD {
     description
       "OSPF SH STATS RIB THREAD";
@@ -722,6 +721,76 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
       description
         "ribqueue";
       uses OSPF-SH-STATS-RIB-THREAD;
+    }
+  }
+
+  grouping BAG-TIMESPEC {
+    description
+      "BAG TIMESPEC";
+    leaf second {
+      type uint32;
+      description
+        "Second";
+    }
+    leaf nanosecond {
+      type uint32;
+      description
+        "Nanosecond";
+    }
+  }
+
+  grouping OSPF-NSR-ERR-INFO-BAG {
+    description
+      "OSPF NSR ERR INFO BAG";
+    container last-err-time {
+      description
+        "Time this error was last hit";
+      uses BAG-TIMESPEC;
+    }
+    leaf err-count {
+      type int32;
+      description
+        "Count this error hit during the Nsr Revision";
+    }
+    leaf err-info-string {
+      type string;
+      description
+        "Error Information";
+    }
+  }
+
+  grouping OSPF-NSR-ERR-BLOCK-BAG {
+    description
+      "OSPF NSR ERR BLOCK BAG";
+    leaf nsr-revisionversion {
+      type uint32;
+      description
+        "Nsr Revision version";
+    }
+    leaf total-errors {
+      type int32;
+      description
+        "Total errors for this nsr revision version";
+    }
+    list nsr-error-info {
+      description
+        "List of erros";
+      uses OSPF-NSR-ERR-INFO-BAG;
+    }
+  }
+
+  grouping OSPF-ISSU-MILESTONE-BAG {
+    description
+      "OSPF ISSU MILESTONE BAG";
+    leaf milestone-name {
+      type string;
+      description
+        "Milestone Name";
+    }
+    leaf milestone-status {
+      type string;
+      description
+        "Milestone Status";
     }
   }
 
@@ -869,10 +938,10 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
       description
         "nsr peer nodeid";
     }
-    leaf nsr-mtu {
+    leaf nsr-fabric-mtu {
       type uint32;
       description
-        "nsr mtu";
+        "nsr fabric mtu";
     }
     leaf nsr-nbr-qad-qid {
       type uint32;
@@ -943,6 +1012,30 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
       type uint64;
       description
         "nsr conn to active errors";
+    }
+    list nsr-fsm-flag {
+      description
+        "Nsr Fsm Flags information";
+      leaf entry {
+        type Ospf-string-array;
+      }
+    }
+    list nsr-fsm-running-timer {
+      description
+        "Nsr Fsm Running Timers";
+      leaf entry {
+        type Ospf-string-array;
+      }
+    }
+    list nsr-issu-milestone {
+      description
+        "Nsr Issu Milestones";
+      uses OSPF-ISSU-MILESTONE-BAG;
+    }
+    list nsr-err-history {
+      description
+        "Nsr Error History List";
+      uses OSPF-NSR-ERR-BLOCK-BAG;
     }
   }
 

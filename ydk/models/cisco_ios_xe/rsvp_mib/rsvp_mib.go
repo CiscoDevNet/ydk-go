@@ -33,32 +33,32 @@ type RSVPMIB struct {
     YFilter yfilter.YFilter
 
     
-    Rsvpgenobjects RSVPMIB_Rsvpgenobjects
+    RsvpGenObjects RSVPMIB_RsvpGenObjects
 
     // A table  of	 all  sessions	seen  by  a  given system.
-    Rsvpsessiontable RSVPMIB_Rsvpsessiontable
+    RsvpSessionTable RSVPMIB_RsvpSessionTable
 
     // Information	describing the	state  information displayed by	senders	in
     // PATH	messages.
-    Rsvpsendertable RSVPMIB_Rsvpsendertable
+    RsvpSenderTable RSVPMIB_RsvpSenderTable
 
     // List of outgoing interfaces	that PATH messages use.	 The  ifIndex  is the
     // ifIndex value of the egress interface.
-    Rsvpsenderoutinterfacetable RSVPMIB_Rsvpsenderoutinterfacetable
+    RsvpSenderOutInterfaceTable RSVPMIB_RsvpSenderOutInterfaceTable
 
     // Information	describing the	state  information displayed by	receivers in
     // RESV messages.
-    Rsvpresvtable RSVPMIB_Rsvpresvtable
+    RsvpResvTable RSVPMIB_RsvpResvTable
 
     // Information	describing the	state  information displayed upstream in RESV
     // messages.
-    Rsvpresvfwdtable RSVPMIB_Rsvpresvfwdtable
+    RsvpResvFwdTable RSVPMIB_RsvpResvFwdTable
 
     // The	RSVP-specific attributes of  the  system's interfaces.
-    Rsvpiftable RSVPMIB_Rsvpiftable
+    RsvpIfTable RSVPMIB_RsvpIfTable
 
     // Information	describing  the	 Neighbors  of	an RSVP	system.
-    Rsvpnbrtable RSVPMIB_Rsvpnbrtable
+    RsvpNbrTable RSVPMIB_RsvpNbrTable
 }
 
 func (rSVPMIB *RSVPMIB) GetEntityData() *types.CommonEntityData {
@@ -71,27 +71,30 @@ func (rSVPMIB *RSVPMIB) GetEntityData() *types.CommonEntityData {
     rSVPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rSVPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rSVPMIB.EntityData.Children = make(map[string]types.YChild)
-    rSVPMIB.EntityData.Children["rsvpGenObjects"] = types.YChild{"Rsvpgenobjects", &rSVPMIB.Rsvpgenobjects}
-    rSVPMIB.EntityData.Children["rsvpSessionTable"] = types.YChild{"Rsvpsessiontable", &rSVPMIB.Rsvpsessiontable}
-    rSVPMIB.EntityData.Children["rsvpSenderTable"] = types.YChild{"Rsvpsendertable", &rSVPMIB.Rsvpsendertable}
-    rSVPMIB.EntityData.Children["rsvpSenderOutInterfaceTable"] = types.YChild{"Rsvpsenderoutinterfacetable", &rSVPMIB.Rsvpsenderoutinterfacetable}
-    rSVPMIB.EntityData.Children["rsvpResvTable"] = types.YChild{"Rsvpresvtable", &rSVPMIB.Rsvpresvtable}
-    rSVPMIB.EntityData.Children["rsvpResvFwdTable"] = types.YChild{"Rsvpresvfwdtable", &rSVPMIB.Rsvpresvfwdtable}
-    rSVPMIB.EntityData.Children["rsvpIfTable"] = types.YChild{"Rsvpiftable", &rSVPMIB.Rsvpiftable}
-    rSVPMIB.EntityData.Children["rsvpNbrTable"] = types.YChild{"Rsvpnbrtable", &rSVPMIB.Rsvpnbrtable}
-    rSVPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    rSVPMIB.EntityData.Children = types.NewOrderedMap()
+    rSVPMIB.EntityData.Children.Append("rsvpGenObjects", types.YChild{"RsvpGenObjects", &rSVPMIB.RsvpGenObjects})
+    rSVPMIB.EntityData.Children.Append("rsvpSessionTable", types.YChild{"RsvpSessionTable", &rSVPMIB.RsvpSessionTable})
+    rSVPMIB.EntityData.Children.Append("rsvpSenderTable", types.YChild{"RsvpSenderTable", &rSVPMIB.RsvpSenderTable})
+    rSVPMIB.EntityData.Children.Append("rsvpSenderOutInterfaceTable", types.YChild{"RsvpSenderOutInterfaceTable", &rSVPMIB.RsvpSenderOutInterfaceTable})
+    rSVPMIB.EntityData.Children.Append("rsvpResvTable", types.YChild{"RsvpResvTable", &rSVPMIB.RsvpResvTable})
+    rSVPMIB.EntityData.Children.Append("rsvpResvFwdTable", types.YChild{"RsvpResvFwdTable", &rSVPMIB.RsvpResvFwdTable})
+    rSVPMIB.EntityData.Children.Append("rsvpIfTable", types.YChild{"RsvpIfTable", &rSVPMIB.RsvpIfTable})
+    rSVPMIB.EntityData.Children.Append("rsvpNbrTable", types.YChild{"RsvpNbrTable", &rSVPMIB.RsvpNbrTable})
+    rSVPMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    rSVPMIB.EntityData.YListKeys = []string {}
+
     return &(rSVPMIB.EntityData)
 }
 
-// RSVPMIB_Rsvpgenobjects
-type RSVPMIB_Rsvpgenobjects struct {
+// RSVPMIB_RsvpGenObjects
+type RSVPMIB_RsvpGenObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object	keeps a	count of the number of bad RSVP	packets	received. The
     // type is interface{} with range: 0..4294967295.
-    Rsvpbadpackets interface{}
+    RsvpBadPackets interface{}
 
     // This  object  is  used  to	assign	values	to rsvpSenderNumber   as  
     // described  in  'Textual Conventions for SNMPv2'.  The  network  manager
@@ -101,7 +104,7 @@ type RSVPMIB_Rsvpgenobjects struct {
     // SET	succeeds, then the object is incremented, and the new instance	is
     // created according to	the manager's directions. The type is interface{} with
     // range: 0..2147483647.
-    Rsvpsendernewindex interface{}
+    RsvpSenderNewIndex interface{}
 
     // This  object  is  used  to	assign	values	to rsvpResvNumber   as	 described 
     // in	  'Textual Conventions for SNMPv2'.  The  network  manager reads  the 
@@ -111,7 +114,7 @@ type RSVPMIB_Rsvpgenobjects struct {
     // succeeds, then	the object is incremented, and the new instance	is created
     // according to	the manager's directions. The type is interface{} with range:
     // 0..2147483647.
-    Rsvpresvnewindex interface{}
+    RsvpResvNewIndex interface{}
 
     // This  object  is  used  to	assign	values	to rsvpResvFwdNumber   as 
     // described  in  'Textual Conventions for SNMPv2'.  The  network  manager
@@ -121,7 +124,7 @@ type RSVPMIB_Rsvpgenobjects struct {
     // SET	succeeds, then the object is incremented, and the new instance	is
     // created according to	the manager's directions. The type is interface{} with
     // range: 0..2147483647.
-    Rsvpresvfwdnewindex interface{}
+    RsvpResvFwdNewIndex interface{}
 
     // This  object  is  used  to	assign	values	to rsvpSessionNumber   as 
     // described  in  'Textual Conventions for SNMPv2'.  The  network  manager
@@ -131,90 +134,96 @@ type RSVPMIB_Rsvpgenobjects struct {
     // SET	succeeds, then the object is incremented, and the new instance	is
     // created according to	the manager's directions. The type is interface{} with
     // range: 0..2147483647.
-    Rsvpsessionnewindex interface{}
+    RsvpSessionNewIndex interface{}
 }
 
-func (rsvpgenobjects *RSVPMIB_Rsvpgenobjects) GetEntityData() *types.CommonEntityData {
-    rsvpgenobjects.EntityData.YFilter = rsvpgenobjects.YFilter
-    rsvpgenobjects.EntityData.YangName = "rsvpGenObjects"
-    rsvpgenobjects.EntityData.BundleName = "cisco_ios_xe"
-    rsvpgenobjects.EntityData.ParentYangName = "RSVP-MIB"
-    rsvpgenobjects.EntityData.SegmentPath = "rsvpGenObjects"
-    rsvpgenobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rsvpgenobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rsvpgenobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rsvpGenObjects *RSVPMIB_RsvpGenObjects) GetEntityData() *types.CommonEntityData {
+    rsvpGenObjects.EntityData.YFilter = rsvpGenObjects.YFilter
+    rsvpGenObjects.EntityData.YangName = "rsvpGenObjects"
+    rsvpGenObjects.EntityData.BundleName = "cisco_ios_xe"
+    rsvpGenObjects.EntityData.ParentYangName = "RSVP-MIB"
+    rsvpGenObjects.EntityData.SegmentPath = "rsvpGenObjects"
+    rsvpGenObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpGenObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpGenObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rsvpgenobjects.EntityData.Children = make(map[string]types.YChild)
-    rsvpgenobjects.EntityData.Leafs = make(map[string]types.YLeaf)
-    rsvpgenobjects.EntityData.Leafs["rsvpBadPackets"] = types.YLeaf{"Rsvpbadpackets", rsvpgenobjects.Rsvpbadpackets}
-    rsvpgenobjects.EntityData.Leafs["rsvpSenderNewIndex"] = types.YLeaf{"Rsvpsendernewindex", rsvpgenobjects.Rsvpsendernewindex}
-    rsvpgenobjects.EntityData.Leafs["rsvpResvNewIndex"] = types.YLeaf{"Rsvpresvnewindex", rsvpgenobjects.Rsvpresvnewindex}
-    rsvpgenobjects.EntityData.Leafs["rsvpResvFwdNewIndex"] = types.YLeaf{"Rsvpresvfwdnewindex", rsvpgenobjects.Rsvpresvfwdnewindex}
-    rsvpgenobjects.EntityData.Leafs["rsvpSessionNewIndex"] = types.YLeaf{"Rsvpsessionnewindex", rsvpgenobjects.Rsvpsessionnewindex}
-    return &(rsvpgenobjects.EntityData)
+    rsvpGenObjects.EntityData.Children = types.NewOrderedMap()
+    rsvpGenObjects.EntityData.Leafs = types.NewOrderedMap()
+    rsvpGenObjects.EntityData.Leafs.Append("rsvpBadPackets", types.YLeaf{"RsvpBadPackets", rsvpGenObjects.RsvpBadPackets})
+    rsvpGenObjects.EntityData.Leafs.Append("rsvpSenderNewIndex", types.YLeaf{"RsvpSenderNewIndex", rsvpGenObjects.RsvpSenderNewIndex})
+    rsvpGenObjects.EntityData.Leafs.Append("rsvpResvNewIndex", types.YLeaf{"RsvpResvNewIndex", rsvpGenObjects.RsvpResvNewIndex})
+    rsvpGenObjects.EntityData.Leafs.Append("rsvpResvFwdNewIndex", types.YLeaf{"RsvpResvFwdNewIndex", rsvpGenObjects.RsvpResvFwdNewIndex})
+    rsvpGenObjects.EntityData.Leafs.Append("rsvpSessionNewIndex", types.YLeaf{"RsvpSessionNewIndex", rsvpGenObjects.RsvpSessionNewIndex})
+
+    rsvpGenObjects.EntityData.YListKeys = []string {}
+
+    return &(rsvpGenObjects.EntityData)
 }
 
-// RSVPMIB_Rsvpsessiontable
+// RSVPMIB_RsvpSessionTable
 // A table  of	 all  sessions	seen  by  a  given
 // system.
-type RSVPMIB_Rsvpsessiontable struct {
+type RSVPMIB_RsvpSessionTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single session seen by a given system. The type is slice of
-    // RSVPMIB_Rsvpsessiontable_Rsvpsessionentry.
-    Rsvpsessionentry []RSVPMIB_Rsvpsessiontable_Rsvpsessionentry
+    // RSVPMIB_RsvpSessionTable_RsvpSessionEntry.
+    RsvpSessionEntry []*RSVPMIB_RsvpSessionTable_RsvpSessionEntry
 }
 
-func (rsvpsessiontable *RSVPMIB_Rsvpsessiontable) GetEntityData() *types.CommonEntityData {
-    rsvpsessiontable.EntityData.YFilter = rsvpsessiontable.YFilter
-    rsvpsessiontable.EntityData.YangName = "rsvpSessionTable"
-    rsvpsessiontable.EntityData.BundleName = "cisco_ios_xe"
-    rsvpsessiontable.EntityData.ParentYangName = "RSVP-MIB"
-    rsvpsessiontable.EntityData.SegmentPath = "rsvpSessionTable"
-    rsvpsessiontable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rsvpsessiontable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rsvpsessiontable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rsvpSessionTable *RSVPMIB_RsvpSessionTable) GetEntityData() *types.CommonEntityData {
+    rsvpSessionTable.EntityData.YFilter = rsvpSessionTable.YFilter
+    rsvpSessionTable.EntityData.YangName = "rsvpSessionTable"
+    rsvpSessionTable.EntityData.BundleName = "cisco_ios_xe"
+    rsvpSessionTable.EntityData.ParentYangName = "RSVP-MIB"
+    rsvpSessionTable.EntityData.SegmentPath = "rsvpSessionTable"
+    rsvpSessionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpSessionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpSessionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rsvpsessiontable.EntityData.Children = make(map[string]types.YChild)
-    rsvpsessiontable.EntityData.Children["rsvpSessionEntry"] = types.YChild{"Rsvpsessionentry", nil}
-    for i := range rsvpsessiontable.Rsvpsessionentry {
-        rsvpsessiontable.EntityData.Children[types.GetSegmentPath(&rsvpsessiontable.Rsvpsessionentry[i])] = types.YChild{"Rsvpsessionentry", &rsvpsessiontable.Rsvpsessionentry[i]}
+    rsvpSessionTable.EntityData.Children = types.NewOrderedMap()
+    rsvpSessionTable.EntityData.Children.Append("rsvpSessionEntry", types.YChild{"RsvpSessionEntry", nil})
+    for i := range rsvpSessionTable.RsvpSessionEntry {
+        rsvpSessionTable.EntityData.Children.Append(types.GetSegmentPath(rsvpSessionTable.RsvpSessionEntry[i]), types.YChild{"RsvpSessionEntry", rsvpSessionTable.RsvpSessionEntry[i]})
     }
-    rsvpsessiontable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rsvpsessiontable.EntityData)
+    rsvpSessionTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rsvpSessionTable.EntityData.YListKeys = []string {}
+
+    return &(rsvpSessionTable.EntityData)
 }
 
-// RSVPMIB_Rsvpsessiontable_Rsvpsessionentry
+// RSVPMIB_RsvpSessionTable_RsvpSessionEntry
 // A single session seen by a given system.
-type RSVPMIB_Rsvpsessiontable_Rsvpsessionentry struct {
+type RSVPMIB_RsvpSessionTable_RsvpSessionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The	number of this session.	 This is for  SNMP
     // Indexing  purposes  only and	has no relation	to any protocol	value. The
     // type is interface{} with range: 0..2147483647.
-    Rsvpsessionnumber interface{}
+    RsvpSessionNumber interface{}
 
     // The	type of	session	(IP4, IP6, IP6	with  flow information,	etc). The type
     // is interface{} with range: 1..255.
-    Rsvpsessiontype interface{}
+    RsvpSessionType interface{}
 
     // The	destination address used by all	senders	in this	 session.   This
     // object	may not	be changed when	the  value  of	the  RowStatus	object	is
     // 'active'. The type is string with length: 4..16.
-    Rsvpsessiondestaddr interface{}
+    RsvpSessionDestAddr interface{}
 
     // The	CIDR prefix length of the session address, which   is	32  for	 IP4 
     // host  and	 multicast addresses, and 128  for  IP6	 addresses.   This object
     // may not be changed when the value of the RowStatus object is 'active'. The
     // type is interface{} with range: 0..128.
-    Rsvpsessiondestaddrlength interface{}
+    RsvpSessionDestAddrLength interface{}
 
     // The	IP Protocol used by  this  session.   This object may not be changed
     // when the value of the RowStatus object is 'active'. The type is interface{}
     // with range: 1..255.
-    Rsvpsessionprotocol interface{}
+    RsvpSessionProtocol interface{}
 
     // The	 UDP  or  TCP  port  number  used   as	 a destination	 port  for  all	
     // senders  in  this session.  If	the IP protocol	in use,	 specified by 
@@ -223,124 +232,130 @@ type RSVPMIB_Rsvpsessiontable_Rsvpsessionentry struct {
     // in use  does  not  have  ports.   This object may not be changed when the
     // value of the RowStatus object is 'active'. The type is string with length:
     // 2..4.
-    Rsvpsessionport interface{}
+    RsvpSessionPort interface{}
 
     // The	number of distinct senders currently known to be part of this session.
     // The type is interface{} with range: 0..4294967295.
-    Rsvpsessionsenders interface{}
+    RsvpSessionSenders interface{}
 
     // The	number of reservations being requested	of this	system for this	session.
     // The type is interface{} with range: 0..4294967295.
-    Rsvpsessionreceivers interface{}
+    RsvpSessionReceivers interface{}
 
     // The	number of reservation requests this system is sending upstream for
     // this	session. The type is interface{} with range: 0..4294967295.
-    Rsvpsessionrequests interface{}
+    RsvpSessionRequests interface{}
 }
 
-func (rsvpsessionentry *RSVPMIB_Rsvpsessiontable_Rsvpsessionentry) GetEntityData() *types.CommonEntityData {
-    rsvpsessionentry.EntityData.YFilter = rsvpsessionentry.YFilter
-    rsvpsessionentry.EntityData.YangName = "rsvpSessionEntry"
-    rsvpsessionentry.EntityData.BundleName = "cisco_ios_xe"
-    rsvpsessionentry.EntityData.ParentYangName = "rsvpSessionTable"
-    rsvpsessionentry.EntityData.SegmentPath = "rsvpSessionEntry" + "[rsvpSessionNumber='" + fmt.Sprintf("%v", rsvpsessionentry.Rsvpsessionnumber) + "']"
-    rsvpsessionentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rsvpsessionentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rsvpsessionentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rsvpSessionEntry *RSVPMIB_RsvpSessionTable_RsvpSessionEntry) GetEntityData() *types.CommonEntityData {
+    rsvpSessionEntry.EntityData.YFilter = rsvpSessionEntry.YFilter
+    rsvpSessionEntry.EntityData.YangName = "rsvpSessionEntry"
+    rsvpSessionEntry.EntityData.BundleName = "cisco_ios_xe"
+    rsvpSessionEntry.EntityData.ParentYangName = "rsvpSessionTable"
+    rsvpSessionEntry.EntityData.SegmentPath = "rsvpSessionEntry" + types.AddKeyToken(rsvpSessionEntry.RsvpSessionNumber, "rsvpSessionNumber")
+    rsvpSessionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpSessionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpSessionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rsvpsessionentry.EntityData.Children = make(map[string]types.YChild)
-    rsvpsessionentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rsvpsessionentry.EntityData.Leafs["rsvpSessionNumber"] = types.YLeaf{"Rsvpsessionnumber", rsvpsessionentry.Rsvpsessionnumber}
-    rsvpsessionentry.EntityData.Leafs["rsvpSessionType"] = types.YLeaf{"Rsvpsessiontype", rsvpsessionentry.Rsvpsessiontype}
-    rsvpsessionentry.EntityData.Leafs["rsvpSessionDestAddr"] = types.YLeaf{"Rsvpsessiondestaddr", rsvpsessionentry.Rsvpsessiondestaddr}
-    rsvpsessionentry.EntityData.Leafs["rsvpSessionDestAddrLength"] = types.YLeaf{"Rsvpsessiondestaddrlength", rsvpsessionentry.Rsvpsessiondestaddrlength}
-    rsvpsessionentry.EntityData.Leafs["rsvpSessionProtocol"] = types.YLeaf{"Rsvpsessionprotocol", rsvpsessionentry.Rsvpsessionprotocol}
-    rsvpsessionentry.EntityData.Leafs["rsvpSessionPort"] = types.YLeaf{"Rsvpsessionport", rsvpsessionentry.Rsvpsessionport}
-    rsvpsessionentry.EntityData.Leafs["rsvpSessionSenders"] = types.YLeaf{"Rsvpsessionsenders", rsvpsessionentry.Rsvpsessionsenders}
-    rsvpsessionentry.EntityData.Leafs["rsvpSessionReceivers"] = types.YLeaf{"Rsvpsessionreceivers", rsvpsessionentry.Rsvpsessionreceivers}
-    rsvpsessionentry.EntityData.Leafs["rsvpSessionRequests"] = types.YLeaf{"Rsvpsessionrequests", rsvpsessionentry.Rsvpsessionrequests}
-    return &(rsvpsessionentry.EntityData)
+    rsvpSessionEntry.EntityData.Children = types.NewOrderedMap()
+    rsvpSessionEntry.EntityData.Leafs = types.NewOrderedMap()
+    rsvpSessionEntry.EntityData.Leafs.Append("rsvpSessionNumber", types.YLeaf{"RsvpSessionNumber", rsvpSessionEntry.RsvpSessionNumber})
+    rsvpSessionEntry.EntityData.Leafs.Append("rsvpSessionType", types.YLeaf{"RsvpSessionType", rsvpSessionEntry.RsvpSessionType})
+    rsvpSessionEntry.EntityData.Leafs.Append("rsvpSessionDestAddr", types.YLeaf{"RsvpSessionDestAddr", rsvpSessionEntry.RsvpSessionDestAddr})
+    rsvpSessionEntry.EntityData.Leafs.Append("rsvpSessionDestAddrLength", types.YLeaf{"RsvpSessionDestAddrLength", rsvpSessionEntry.RsvpSessionDestAddrLength})
+    rsvpSessionEntry.EntityData.Leafs.Append("rsvpSessionProtocol", types.YLeaf{"RsvpSessionProtocol", rsvpSessionEntry.RsvpSessionProtocol})
+    rsvpSessionEntry.EntityData.Leafs.Append("rsvpSessionPort", types.YLeaf{"RsvpSessionPort", rsvpSessionEntry.RsvpSessionPort})
+    rsvpSessionEntry.EntityData.Leafs.Append("rsvpSessionSenders", types.YLeaf{"RsvpSessionSenders", rsvpSessionEntry.RsvpSessionSenders})
+    rsvpSessionEntry.EntityData.Leafs.Append("rsvpSessionReceivers", types.YLeaf{"RsvpSessionReceivers", rsvpSessionEntry.RsvpSessionReceivers})
+    rsvpSessionEntry.EntityData.Leafs.Append("rsvpSessionRequests", types.YLeaf{"RsvpSessionRequests", rsvpSessionEntry.RsvpSessionRequests})
+
+    rsvpSessionEntry.EntityData.YListKeys = []string {"RsvpSessionNumber"}
+
+    return &(rsvpSessionEntry.EntityData)
 }
 
-// RSVPMIB_Rsvpsendertable
+// RSVPMIB_RsvpSenderTable
 // Information	describing the	state  information
 // displayed by	senders	in PATH	messages.
-type RSVPMIB_Rsvpsendertable struct {
+type RSVPMIB_RsvpSenderTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information	describing the	state  information displayed by	a single
     // sender's PATH message. The type is slice of
-    // RSVPMIB_Rsvpsendertable_Rsvpsenderentry.
-    Rsvpsenderentry []RSVPMIB_Rsvpsendertable_Rsvpsenderentry
+    // RSVPMIB_RsvpSenderTable_RsvpSenderEntry.
+    RsvpSenderEntry []*RSVPMIB_RsvpSenderTable_RsvpSenderEntry
 }
 
-func (rsvpsendertable *RSVPMIB_Rsvpsendertable) GetEntityData() *types.CommonEntityData {
-    rsvpsendertable.EntityData.YFilter = rsvpsendertable.YFilter
-    rsvpsendertable.EntityData.YangName = "rsvpSenderTable"
-    rsvpsendertable.EntityData.BundleName = "cisco_ios_xe"
-    rsvpsendertable.EntityData.ParentYangName = "RSVP-MIB"
-    rsvpsendertable.EntityData.SegmentPath = "rsvpSenderTable"
-    rsvpsendertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rsvpsendertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rsvpsendertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rsvpSenderTable *RSVPMIB_RsvpSenderTable) GetEntityData() *types.CommonEntityData {
+    rsvpSenderTable.EntityData.YFilter = rsvpSenderTable.YFilter
+    rsvpSenderTable.EntityData.YangName = "rsvpSenderTable"
+    rsvpSenderTable.EntityData.BundleName = "cisco_ios_xe"
+    rsvpSenderTable.EntityData.ParentYangName = "RSVP-MIB"
+    rsvpSenderTable.EntityData.SegmentPath = "rsvpSenderTable"
+    rsvpSenderTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpSenderTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpSenderTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rsvpsendertable.EntityData.Children = make(map[string]types.YChild)
-    rsvpsendertable.EntityData.Children["rsvpSenderEntry"] = types.YChild{"Rsvpsenderentry", nil}
-    for i := range rsvpsendertable.Rsvpsenderentry {
-        rsvpsendertable.EntityData.Children[types.GetSegmentPath(&rsvpsendertable.Rsvpsenderentry[i])] = types.YChild{"Rsvpsenderentry", &rsvpsendertable.Rsvpsenderentry[i]}
+    rsvpSenderTable.EntityData.Children = types.NewOrderedMap()
+    rsvpSenderTable.EntityData.Children.Append("rsvpSenderEntry", types.YChild{"RsvpSenderEntry", nil})
+    for i := range rsvpSenderTable.RsvpSenderEntry {
+        rsvpSenderTable.EntityData.Children.Append(types.GetSegmentPath(rsvpSenderTable.RsvpSenderEntry[i]), types.YChild{"RsvpSenderEntry", rsvpSenderTable.RsvpSenderEntry[i]})
     }
-    rsvpsendertable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rsvpsendertable.EntityData)
+    rsvpSenderTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rsvpSenderTable.EntityData.YListKeys = []string {}
+
+    return &(rsvpSenderTable.EntityData)
 }
 
-// RSVPMIB_Rsvpsendertable_Rsvpsenderentry
+// RSVPMIB_RsvpSenderTable_RsvpSenderEntry
 // Information	describing the	state  information
 // displayed by	a single sender's PATH message.
-type RSVPMIB_Rsvpsendertable_Rsvpsenderentry struct {
+type RSVPMIB_RsvpSenderTable_RsvpSenderEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..2147483647.
     // Refers to
-    // rsvp_mib.RSVPMIB_Rsvpsessiontable_Rsvpsessionentry_Rsvpsessionnumber
-    Rsvpsessionnumber interface{}
+    // rsvp_mib.RSVPMIB_RsvpSessionTable_RsvpSessionEntry_RsvpSessionNumber
+    RsvpSessionNumber interface{}
 
     // This attribute is a key. The	number of this sender.	This is	 for  SNMP
     // Indexing  purposes  only and	has no relation	to any protocol	value. The
     // type is interface{} with range: 0..2147483647.
-    Rsvpsendernumber interface{}
+    RsvpSenderNumber interface{}
 
     // The	type of	session	(IP4, IP6, IP6	with  flow information,	etc). The type
     // is interface{} with range: 1..255.
-    Rsvpsendertype interface{}
+    RsvpSenderType interface{}
 
     // The	destination address used by all	senders	in this	 session.   This
     // object	may not	be changed when	the  value  of	the  RowStatus	object	is
     // 'active'. The type is string with length: 4..16.
-    Rsvpsenderdestaddr interface{}
+    RsvpSenderDestAddr interface{}
 
     // The	source address used by this sender in this session.   This  object may
     // not be changed when the value of	the RowStatus object is	'active'. The type
     // is string with length: 4..16.
-    Rsvpsenderaddr interface{}
+    RsvpSenderAddr interface{}
 
     // The	length of the destination address in bits. This	 is  the CIDR Prefix
     // Length, which for IP4 hosts and multicast addresses is 32 bits.  This
     // object may not be changed when the value of the RowStatus object is
     // 'active'. The type is interface{} with range: 0..128.
-    Rsvpsenderdestaddrlength interface{}
+    RsvpSenderDestAddrLength interface{}
 
     // The	length of the sender's	address	 in  bits. This	 is  the CIDR Prefix
     // Length, which for IP4 hosts and multicast addresses is 32 bits.  This
     // object may not be changed when the value of the RowStatus object is
     // 'active'. The type is interface{} with range: 0..128.
-    Rsvpsenderaddrlength interface{}
+    RsvpSenderAddrLength interface{}
 
     // The	IP Protocol used by  this  session.   This object may not be changed
     // when the value of the RowStatus object is 'active'. The type is interface{}
     // with range: 1..255.
-    Rsvpsenderprotocol interface{}
+    RsvpSenderProtocol interface{}
 
     // The	 UDP  or  TCP  port  number  used   as	 a destination	 port  for  all	
     // senders  in  this session.  If	the IP protocol	in use,	 specified by 
@@ -349,7 +364,7 @@ type RSVPMIB_Rsvpsendertable_Rsvpsenderentry struct {
     // in use  does  not  have  ports.   This object may not be changed when the
     // value of the RowStatus object is 'active'. The type is string with length:
     // 2..4.
-    Rsvpsenderdestport interface{}
+    RsvpSenderDestPort interface{}
 
     // The	UDP or TCP port	number used  as	 a  source port	 for  this sender in
     // this session.  If the IP	 protocol    in	   use,	   specified	by
@@ -357,24 +372,24 @@ type RSVPMIB_Rsvpsendertable_Rsvpsenderentry struct {
     // port identifier (GPI). A  value of zero indicates that the IP protocol in
     // use does not have	ports.	 This  object  may not	be changed when	the value
     // of the RowStatus object is 'active'. The type is string with length: 2..4.
-    Rsvpsenderport interface{}
+    RsvpSenderPort interface{}
 
     // The	flow ID	that  this  sender  is	using,	if this	 is  an	IPv6 session. The
     // type is interface{} with range: 0..16777215.
-    Rsvpsenderflowid interface{}
+    RsvpSenderFlowId interface{}
 
     // The	address	used  by  the  previous	 RSVP  hop (which may be the original
     // sender). The type is string with length: 4..16.
-    Rsvpsenderhopaddr interface{}
+    RsvpSenderHopAddr interface{}
 
     // The	 Logical  Interface  Handle  used  by  the previous  RSVP  hop	(which
     // may be the original sender). The type is interface{} with range:
     // -2147483648..2147483647.
-    Rsvpsenderhoplih interface{}
+    RsvpSenderHopLih interface{}
 
     // The	ifIndex	value of the  interface	 on  which this	PATH message was most
     // recently received. The type is interface{} with range: 1..2147483647.
-    Rsvpsenderinterface interface{}
+    RsvpSenderInterface interface{}
 
     // The	Average	Bit  Rate  of  the  sender's  data stream.    Within  a	
     // transmission  burst,  the arrival   rate    may    be	  as	fast	as
@@ -384,91 +399,91 @@ type RSVPMIB_Rsvpsendertable_Rsvpsenderentry struct {
     // the	general	 capability  of	a type of codec	or particular encoding;	the
     // measured average  rate may be significantly	lower. The type is interface{}
     // with range: 0..2147483647. Units are bits per second.
-    Rsvpsendertspecrate interface{}
+    RsvpSenderTSpecRate interface{}
 
     // The	Peak Bit Rate of the sender's data stream. Traffic  arrival is not
     // expected to exceed this rate	at any time, apart  from  the  effects	of
     // jitter in the network.  If not specified in the TSpec, this returns zero or
     // noSuchValue. The type is interface{} with range: 0..2147483647. Units are
     // bits per second.
-    Rsvpsendertspecpeakrate interface{}
+    RsvpSenderTSpecPeakRate interface{}
 
     // The	size of	the largest  burst  expected  from the sender at a time. The
     // type is interface{} with range: 0..2147483647. Units are bytes.
-    Rsvpsendertspecburst interface{}
+    RsvpSenderTSpecBurst interface{}
 
     // The	minimum	message	size for  this	flow.  The policing  algorithm will
     // treat smaller messages as though they are this size. The type is
     // interface{} with range: 0..2147483647.
-    Rsvpsendertspecmintu interface{}
+    RsvpSenderTSpecMinTU interface{}
 
     // The	maximum	message	size for  this	flow.  The admission  algorithm	 will 
     // reject TSpecs whose Maximum Transmission	Unit, plus  the	 interface
     // headers, exceed the interface MTU. The type is interface{} with range:
     // 0..2147483647.
-    Rsvpsendertspecmaxtu interface{}
+    RsvpSenderTSpecMaxTU interface{}
 
     // The	 interval  between  refresh  messages	as advertised by the Previous
     // Hop. The type is interface{} with range: 0..2147483647.
-    Rsvpsenderinterval interface{}
+    RsvpSenderInterval interface{}
 
     // If TRUE, the node believes that  the  previous IP  hop  is	an  RSVP 
     // hop.	If FALSE, the node believes that the previous IP hop may not be	an
     // RSVP	hop. The type is bool.
-    Rsvpsenderrsvphop interface{}
+    RsvpSenderRSVPHop interface{}
 
     // The	time of	 the  last  change  in	this  PATH message;  This  is either the
     // first time it was received or the time	of the most recent  change in
     // parameters. The type is interface{} with range: 0..4294967295.
-    Rsvpsenderlastchange interface{}
+    RsvpSenderLastChange interface{}
 
     // The	contents of the	policy	object,	 displayed as an uninterpreted string of
     // octets, including the object header.  In the absence of  such	an object,
     // this	should be of zero length. The type is string with length: 4..65536.
-    Rsvpsenderpolicy interface{}
+    RsvpSenderPolicy interface{}
 
     // The	global break bit general  characterization parameter  from 
     // the	ADSPEC.	 If TRUE, at least one non-IS hop was detected in  the	path.	If
     // FALSE, no non-IS hops were detected. The type is bool.
-    Rsvpsenderadspecbreak interface{}
+    RsvpSenderAdspecBreak interface{}
 
     // The	  hop	count	general	  characterization parameter from the ADSPEC.  A
     // return	of zero	or noSuchValue	indicates  one	of  the	 following conditions:
     // the invalid bit was set    the parameter was	not present. The type is
     // interface{} with range: 0..65535.
-    Rsvpsenderadspechopcount interface{}
+    RsvpSenderAdspecHopCount interface{}
 
     // The	  path	  bandwidth    estimate	   general characterization  parameter
     // from the	ADSPEC.	 A return of zero or noSuchValue indicates one	of the
     // following conditions:     the invalid bit was set    the parameter was	not
     // present. The type is interface{} with range: 0..2147483647. Units are bits
     // per second.
-    Rsvpsenderadspecpathbw interface{}
+    RsvpSenderAdspecPathBw interface{}
 
     // The	   minimum    path     latency	   general characterization  parameter
     // from the	ADSPEC.	 A return of zero or noSuchValue indicates one	of the
     // following conditions:     the invalid bit was set    the parameter was	not
     // present. The type is interface{} with range: -2147483648..2147483647. Units
     // are microseconds.
-    Rsvpsenderadspecminlatency interface{}
+    RsvpSenderAdspecMinLatency interface{}
 
     // The	composed Maximum Transmission Unit general characterization  parameter
     // from the	ADSPEC.	 A return of zero or noSuchValue indicates one	of the
     // following conditions:     the invalid bit was set    the parameter was	not
     // present. The type is interface{} with range: 0..65535. Units are bytes.
-    Rsvpsenderadspecmtu interface{}
+    RsvpSenderAdspecMtu interface{}
 
     // If TRUE,  the  ADSPEC  contains  a	Guaranteed Service  fragment.	If  FALSE,
     // the ADSPEC does not contain a Guaranteed Service fragment. The type is
     // bool.
-    Rsvpsenderadspecguaranteedsvc interface{}
+    RsvpSenderAdspecGuaranteedSvc interface{}
 
     // If TRUE, the Guaranteed Service  fragment  has its	'break'	 bit  set, 
     // indicating that one	or more	nodes along the	path do	 not  support  the
     // guaranteed	  service.     If    FALSE,    and rsvpSenderAdspecGuaranteedSvc
     // is   TRUE,   the 'break' bit is not set.  If rsvpSenderAdspecGuaranteedSvc
     // is FALSE, this returns FALSE or noSuchValue. The type is bool.
-    Rsvpsenderadspecguaranteedbreak interface{}
+    RsvpSenderAdspecGuaranteedBreak interface{}
 
     // If rsvpSenderAdspecGuaranteedSvc is	TRUE, this is	the  end-to-end	 composed
     // value  for  the guaranteed service 'C' parameter.  A	return	of zero	  or 
@@ -477,7 +492,7 @@ type RSVPMIB_Rsvpsendertable_Rsvpsenderentry struct {
     // rsvpSenderAdspecGuaranteedSvc is FALSE, this returns zero	or noSuchValue.
     // The type is interface{} with range: -2147483648..2147483647. Units are
     // bytes.
-    Rsvpsenderadspecguaranteedctot interface{}
+    RsvpSenderAdspecGuaranteedCtot interface{}
 
     // If rsvpSenderAdspecGuaranteedSvc is	TRUE, this is	the  end-to-end	 composed
     // value  for  the guaranteed service 'D' parameter.  A	return	of zero	  or 
@@ -486,7 +501,7 @@ type RSVPMIB_Rsvpsendertable_Rsvpsenderentry struct {
     // rsvpSenderAdspecGuaranteedSvc is FALSE, this returns zero	or noSuchValue.
     // The type is interface{} with range: -2147483648..2147483647. Units are
     // microseconds.
-    Rsvpsenderadspecguaranteeddtot interface{}
+    RsvpSenderAdspecGuaranteedDtot interface{}
 
     // If rsvpSenderAdspecGuaranteedSvc is	TRUE, this is	the  composed  value  for
     // the	guaranteed service 'C' parameter since the last	 reshaping point.    A	
@@ -495,7 +510,7 @@ type RSVPMIB_Rsvpsendertable_Rsvpsenderentry struct {
     // If rsvpSenderAdspecGuaranteedSvc is FALSE, this returns zero	or
     // noSuchValue. The type is interface{} with range: -2147483648..2147483647.
     // Units are bytes.
-    Rsvpsenderadspecguaranteedcsum interface{}
+    RsvpSenderAdspecGuaranteedCsum interface{}
 
     // If rsvpSenderAdspecGuaranteedSvc is	TRUE, this is	the  composed  value  for
     // the	guaranteed service 'D' parameter since the last	 reshaping point.    A	
@@ -504,7 +519,7 @@ type RSVPMIB_Rsvpsendertable_Rsvpsenderentry struct {
     // If rsvpSenderAdspecGuaranteedSvc is FALSE, this returns zero	or
     // noSuchValue. The type is interface{} with range: -2147483648..2147483647.
     // Units are microseconds.
-    Rsvpsenderadspecguaranteeddsum interface{}
+    RsvpSenderAdspecGuaranteedDsum interface{}
 
     // If rsvpSenderAdspecGuaranteedSvc is	TRUE, this is  the  service-specific 
     // override	of the hop count general characterization  parameter  from
@@ -512,7 +527,7 @@ type RSVPMIB_Rsvpsendertable_Rsvpsenderentry struct {
     // the	following conditions:     the invalid bit was set    the parameter
     // was	not present  If rsvpSenderAdspecGuaranteedSvc is FALSE, this returns
     // zero	or noSuchValue. The type is interface{} with range: 0..65535.
-    Rsvpsenderadspecguaranteedhopcount interface{}
+    RsvpSenderAdspecGuaranteedHopCount interface{}
 
     // If rsvpSenderAdspecGuaranteedSvc is	TRUE, this is  the  service-specific 
     // override of the path bandwidth  estimate	general	  characterization
@@ -521,7 +536,7 @@ type RSVPMIB_Rsvpsendertable_Rsvpsenderentry struct {
     // parameter was	not present  If rsvpSenderAdspecGuaranteedSvc is FALSE, this
     // returns zero	or noSuchValue. The type is interface{} with range:
     // 0..2147483647. Units are bits per second.
-    Rsvpsenderadspecguaranteedpathbw interface{}
+    RsvpSenderAdspecGuaranteedPathBw interface{}
 
     // If rsvpSenderAdspecGuaranteedSvc is	TRUE, this is the service-specific
     // override of the minimum path	latency	general	characterization parameter
@@ -530,7 +545,7 @@ type RSVPMIB_Rsvpsendertable_Rsvpsenderentry struct {
     // was	not present  If rsvpSenderAdspecGuaranteedSvc is FALSE, this returns
     // zero	or noSuchValue. The type is interface{} with range:
     // -2147483648..2147483647. Units are microseconds.
-    Rsvpsenderadspecguaranteedminlatency interface{}
+    RsvpSenderAdspecGuaranteedMinLatency interface{}
 
     // If rsvpSenderAdspecGuaranteedSvc is	TRUE, this is	the   service-specific	
     // override  of  the composed  Maximum  Transmission  Unit   general
@@ -539,19 +554,19 @@ type RSVPMIB_Rsvpsendertable_Rsvpsenderentry struct {
     // was set    the parameter was	not present  If rsvpSenderAdspecGuaranteedSvc
     // is FALSE, this returns zero	or noSuchValue. The type is interface{} with
     // range: 0..65535. Units are bytes.
-    Rsvpsenderadspecguaranteedmtu interface{}
+    RsvpSenderAdspecGuaranteedMtu interface{}
 
     // If TRUE, the ADSPEC	contains a Controlled Load Service  fragment.	If 
     // FALSE, the ADSPEC does not	 contain   a   Controlled   Load   Service
     // fragment. The type is bool.
-    Rsvpsenderadspecctrlloadsvc interface{}
+    RsvpSenderAdspecCtrlLoadSvc interface{}
 
     // If TRUE, the Controlled Load Service  fragment has its 'break' bit set,
     // indicating that one	or more	nodes along the	path do	 not  support  the
     // controlled	load   service.	   If  FALSE,  and rsvpSenderAdspecCtrlLoadSvc	
     // is   TRUE,    the 'break' bit is not set.  If rsvpSenderAdspecCtrlLoadSvc
     // is  FALSE,  this returns FALSE or noSuchValue. The type is bool.
-    Rsvpsenderadspecctrlloadbreak interface{}
+    RsvpSenderAdspecCtrlLoadBreak interface{}
 
     // If rsvpSenderAdspecCtrlLoadSvc is  TRUE,  this is  the  service-specific 
     // override	of the hop count general characterization  parameter  from
@@ -559,7 +574,7 @@ type RSVPMIB_Rsvpsendertable_Rsvpsenderentry struct {
     // the	following conditions:     the invalid bit was set    the parameter
     // was	not present  If rsvpSenderAdspecCtrlLoadSvc is  FALSE,  this returns
     // zero	or noSuchValue. The type is interface{} with range: 0..65535.
-    Rsvpsenderadspecctrlloadhopcount interface{}
+    RsvpSenderAdspecCtrlLoadHopCount interface{}
 
     // If rsvpSenderAdspecCtrlLoadSvc is  TRUE,  this is  the  service-specific 
     // override of the path bandwidth  estimate	general	  characterization
@@ -568,7 +583,7 @@ type RSVPMIB_Rsvpsendertable_Rsvpsenderentry struct {
     // parameter was	not present  If rsvpSenderAdspecCtrlLoadSvc is  FALSE,  this
     // returns zero	or noSuchValue. The type is interface{} with range:
     // 0..2147483647. Units are bits per second.
-    Rsvpsenderadspecctrlloadpathbw interface{}
+    RsvpSenderAdspecCtrlLoadPathBw interface{}
 
     // If rsvpSenderAdspecCtrlLoadSvc is  TRUE,  this is the service-specific
     // override of the minimum path	latency	general	characterization parameter
@@ -577,7 +592,7 @@ type RSVPMIB_Rsvpsendertable_Rsvpsenderentry struct {
     // was	not present  If rsvpSenderAdspecCtrlLoadSvc is  FALSE,  this returns
     // zero	or noSuchValue. The type is interface{} with range:
     // -2147483648..2147483647. Units are microseconds.
-    Rsvpsenderadspecctrlloadminlatency interface{}
+    RsvpSenderAdspecCtrlLoadMinLatency interface{}
 
     // If rsvpSenderAdspecCtrlLoadSvc is  TRUE,  this is	the   service-specific	
     // override  of  the composed  Maximum  Transmission  Unit   general
@@ -586,235 +601,247 @@ type RSVPMIB_Rsvpsendertable_Rsvpsenderentry struct {
     // was set    the parameter was	not present  If rsvpSenderAdspecCtrlLoadSvc is
     // FALSE,  this returns zero	or noSuchValue. The type is interface{} with
     // range: 0..65535. Units are bytes.
-    Rsvpsenderadspecctrlloadmtu interface{}
+    RsvpSenderAdspecCtrlLoadMtu interface{}
 
     // 'active' for all active PATH  messages.   This object  may	be  used  to 
     // install  static PATH information or delete PATH information. The type is
     // RowStatus.
-    Rsvpsenderstatus interface{}
+    RsvpSenderStatus interface{}
 
     // The	TTL value in the RSVP header that was last received. The type is
     // interface{} with range: 0..255.
-    Rsvpsenderttl interface{}
+    RsvpSenderTTL interface{}
 }
 
-func (rsvpsenderentry *RSVPMIB_Rsvpsendertable_Rsvpsenderentry) GetEntityData() *types.CommonEntityData {
-    rsvpsenderentry.EntityData.YFilter = rsvpsenderentry.YFilter
-    rsvpsenderentry.EntityData.YangName = "rsvpSenderEntry"
-    rsvpsenderentry.EntityData.BundleName = "cisco_ios_xe"
-    rsvpsenderentry.EntityData.ParentYangName = "rsvpSenderTable"
-    rsvpsenderentry.EntityData.SegmentPath = "rsvpSenderEntry" + "[rsvpSessionNumber='" + fmt.Sprintf("%v", rsvpsenderentry.Rsvpsessionnumber) + "']" + "[rsvpSenderNumber='" + fmt.Sprintf("%v", rsvpsenderentry.Rsvpsendernumber) + "']"
-    rsvpsenderentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rsvpsenderentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rsvpsenderentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rsvpSenderEntry *RSVPMIB_RsvpSenderTable_RsvpSenderEntry) GetEntityData() *types.CommonEntityData {
+    rsvpSenderEntry.EntityData.YFilter = rsvpSenderEntry.YFilter
+    rsvpSenderEntry.EntityData.YangName = "rsvpSenderEntry"
+    rsvpSenderEntry.EntityData.BundleName = "cisco_ios_xe"
+    rsvpSenderEntry.EntityData.ParentYangName = "rsvpSenderTable"
+    rsvpSenderEntry.EntityData.SegmentPath = "rsvpSenderEntry" + types.AddKeyToken(rsvpSenderEntry.RsvpSessionNumber, "rsvpSessionNumber") + types.AddKeyToken(rsvpSenderEntry.RsvpSenderNumber, "rsvpSenderNumber")
+    rsvpSenderEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpSenderEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpSenderEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rsvpsenderentry.EntityData.Children = make(map[string]types.YChild)
-    rsvpsenderentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rsvpsenderentry.EntityData.Leafs["rsvpSessionNumber"] = types.YLeaf{"Rsvpsessionnumber", rsvpsenderentry.Rsvpsessionnumber}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderNumber"] = types.YLeaf{"Rsvpsendernumber", rsvpsenderentry.Rsvpsendernumber}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderType"] = types.YLeaf{"Rsvpsendertype", rsvpsenderentry.Rsvpsendertype}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderDestAddr"] = types.YLeaf{"Rsvpsenderdestaddr", rsvpsenderentry.Rsvpsenderdestaddr}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAddr"] = types.YLeaf{"Rsvpsenderaddr", rsvpsenderentry.Rsvpsenderaddr}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderDestAddrLength"] = types.YLeaf{"Rsvpsenderdestaddrlength", rsvpsenderentry.Rsvpsenderdestaddrlength}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAddrLength"] = types.YLeaf{"Rsvpsenderaddrlength", rsvpsenderentry.Rsvpsenderaddrlength}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderProtocol"] = types.YLeaf{"Rsvpsenderprotocol", rsvpsenderentry.Rsvpsenderprotocol}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderDestPort"] = types.YLeaf{"Rsvpsenderdestport", rsvpsenderentry.Rsvpsenderdestport}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderPort"] = types.YLeaf{"Rsvpsenderport", rsvpsenderentry.Rsvpsenderport}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderFlowId"] = types.YLeaf{"Rsvpsenderflowid", rsvpsenderentry.Rsvpsenderflowid}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderHopAddr"] = types.YLeaf{"Rsvpsenderhopaddr", rsvpsenderentry.Rsvpsenderhopaddr}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderHopLih"] = types.YLeaf{"Rsvpsenderhoplih", rsvpsenderentry.Rsvpsenderhoplih}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderInterface"] = types.YLeaf{"Rsvpsenderinterface", rsvpsenderentry.Rsvpsenderinterface}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderTSpecRate"] = types.YLeaf{"Rsvpsendertspecrate", rsvpsenderentry.Rsvpsendertspecrate}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderTSpecPeakRate"] = types.YLeaf{"Rsvpsendertspecpeakrate", rsvpsenderentry.Rsvpsendertspecpeakrate}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderTSpecBurst"] = types.YLeaf{"Rsvpsendertspecburst", rsvpsenderentry.Rsvpsendertspecburst}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderTSpecMinTU"] = types.YLeaf{"Rsvpsendertspecmintu", rsvpsenderentry.Rsvpsendertspecmintu}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderTSpecMaxTU"] = types.YLeaf{"Rsvpsendertspecmaxtu", rsvpsenderentry.Rsvpsendertspecmaxtu}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderInterval"] = types.YLeaf{"Rsvpsenderinterval", rsvpsenderentry.Rsvpsenderinterval}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderRSVPHop"] = types.YLeaf{"Rsvpsenderrsvphop", rsvpsenderentry.Rsvpsenderrsvphop}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderLastChange"] = types.YLeaf{"Rsvpsenderlastchange", rsvpsenderentry.Rsvpsenderlastchange}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderPolicy"] = types.YLeaf{"Rsvpsenderpolicy", rsvpsenderentry.Rsvpsenderpolicy}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecBreak"] = types.YLeaf{"Rsvpsenderadspecbreak", rsvpsenderentry.Rsvpsenderadspecbreak}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecHopCount"] = types.YLeaf{"Rsvpsenderadspechopcount", rsvpsenderentry.Rsvpsenderadspechopcount}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecPathBw"] = types.YLeaf{"Rsvpsenderadspecpathbw", rsvpsenderentry.Rsvpsenderadspecpathbw}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecMinLatency"] = types.YLeaf{"Rsvpsenderadspecminlatency", rsvpsenderentry.Rsvpsenderadspecminlatency}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecMtu"] = types.YLeaf{"Rsvpsenderadspecmtu", rsvpsenderentry.Rsvpsenderadspecmtu}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedSvc"] = types.YLeaf{"Rsvpsenderadspecguaranteedsvc", rsvpsenderentry.Rsvpsenderadspecguaranteedsvc}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedBreak"] = types.YLeaf{"Rsvpsenderadspecguaranteedbreak", rsvpsenderentry.Rsvpsenderadspecguaranteedbreak}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedCtot"] = types.YLeaf{"Rsvpsenderadspecguaranteedctot", rsvpsenderentry.Rsvpsenderadspecguaranteedctot}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedDtot"] = types.YLeaf{"Rsvpsenderadspecguaranteeddtot", rsvpsenderentry.Rsvpsenderadspecguaranteeddtot}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedCsum"] = types.YLeaf{"Rsvpsenderadspecguaranteedcsum", rsvpsenderentry.Rsvpsenderadspecguaranteedcsum}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedDsum"] = types.YLeaf{"Rsvpsenderadspecguaranteeddsum", rsvpsenderentry.Rsvpsenderadspecguaranteeddsum}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedHopCount"] = types.YLeaf{"Rsvpsenderadspecguaranteedhopcount", rsvpsenderentry.Rsvpsenderadspecguaranteedhopcount}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedPathBw"] = types.YLeaf{"Rsvpsenderadspecguaranteedpathbw", rsvpsenderentry.Rsvpsenderadspecguaranteedpathbw}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedMinLatency"] = types.YLeaf{"Rsvpsenderadspecguaranteedminlatency", rsvpsenderentry.Rsvpsenderadspecguaranteedminlatency}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedMtu"] = types.YLeaf{"Rsvpsenderadspecguaranteedmtu", rsvpsenderentry.Rsvpsenderadspecguaranteedmtu}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecCtrlLoadSvc"] = types.YLeaf{"Rsvpsenderadspecctrlloadsvc", rsvpsenderentry.Rsvpsenderadspecctrlloadsvc}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecCtrlLoadBreak"] = types.YLeaf{"Rsvpsenderadspecctrlloadbreak", rsvpsenderentry.Rsvpsenderadspecctrlloadbreak}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecCtrlLoadHopCount"] = types.YLeaf{"Rsvpsenderadspecctrlloadhopcount", rsvpsenderentry.Rsvpsenderadspecctrlloadhopcount}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecCtrlLoadPathBw"] = types.YLeaf{"Rsvpsenderadspecctrlloadpathbw", rsvpsenderentry.Rsvpsenderadspecctrlloadpathbw}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecCtrlLoadMinLatency"] = types.YLeaf{"Rsvpsenderadspecctrlloadminlatency", rsvpsenderentry.Rsvpsenderadspecctrlloadminlatency}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecCtrlLoadMtu"] = types.YLeaf{"Rsvpsenderadspecctrlloadmtu", rsvpsenderentry.Rsvpsenderadspecctrlloadmtu}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderStatus"] = types.YLeaf{"Rsvpsenderstatus", rsvpsenderentry.Rsvpsenderstatus}
-    rsvpsenderentry.EntityData.Leafs["rsvpSenderTTL"] = types.YLeaf{"Rsvpsenderttl", rsvpsenderentry.Rsvpsenderttl}
-    return &(rsvpsenderentry.EntityData)
+    rsvpSenderEntry.EntityData.Children = types.NewOrderedMap()
+    rsvpSenderEntry.EntityData.Leafs = types.NewOrderedMap()
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSessionNumber", types.YLeaf{"RsvpSessionNumber", rsvpSenderEntry.RsvpSessionNumber})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderNumber", types.YLeaf{"RsvpSenderNumber", rsvpSenderEntry.RsvpSenderNumber})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderType", types.YLeaf{"RsvpSenderType", rsvpSenderEntry.RsvpSenderType})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderDestAddr", types.YLeaf{"RsvpSenderDestAddr", rsvpSenderEntry.RsvpSenderDestAddr})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAddr", types.YLeaf{"RsvpSenderAddr", rsvpSenderEntry.RsvpSenderAddr})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderDestAddrLength", types.YLeaf{"RsvpSenderDestAddrLength", rsvpSenderEntry.RsvpSenderDestAddrLength})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAddrLength", types.YLeaf{"RsvpSenderAddrLength", rsvpSenderEntry.RsvpSenderAddrLength})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderProtocol", types.YLeaf{"RsvpSenderProtocol", rsvpSenderEntry.RsvpSenderProtocol})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderDestPort", types.YLeaf{"RsvpSenderDestPort", rsvpSenderEntry.RsvpSenderDestPort})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderPort", types.YLeaf{"RsvpSenderPort", rsvpSenderEntry.RsvpSenderPort})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderFlowId", types.YLeaf{"RsvpSenderFlowId", rsvpSenderEntry.RsvpSenderFlowId})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderHopAddr", types.YLeaf{"RsvpSenderHopAddr", rsvpSenderEntry.RsvpSenderHopAddr})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderHopLih", types.YLeaf{"RsvpSenderHopLih", rsvpSenderEntry.RsvpSenderHopLih})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderInterface", types.YLeaf{"RsvpSenderInterface", rsvpSenderEntry.RsvpSenderInterface})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderTSpecRate", types.YLeaf{"RsvpSenderTSpecRate", rsvpSenderEntry.RsvpSenderTSpecRate})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderTSpecPeakRate", types.YLeaf{"RsvpSenderTSpecPeakRate", rsvpSenderEntry.RsvpSenderTSpecPeakRate})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderTSpecBurst", types.YLeaf{"RsvpSenderTSpecBurst", rsvpSenderEntry.RsvpSenderTSpecBurst})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderTSpecMinTU", types.YLeaf{"RsvpSenderTSpecMinTU", rsvpSenderEntry.RsvpSenderTSpecMinTU})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderTSpecMaxTU", types.YLeaf{"RsvpSenderTSpecMaxTU", rsvpSenderEntry.RsvpSenderTSpecMaxTU})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderInterval", types.YLeaf{"RsvpSenderInterval", rsvpSenderEntry.RsvpSenderInterval})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderRSVPHop", types.YLeaf{"RsvpSenderRSVPHop", rsvpSenderEntry.RsvpSenderRSVPHop})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderLastChange", types.YLeaf{"RsvpSenderLastChange", rsvpSenderEntry.RsvpSenderLastChange})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderPolicy", types.YLeaf{"RsvpSenderPolicy", rsvpSenderEntry.RsvpSenderPolicy})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecBreak", types.YLeaf{"RsvpSenderAdspecBreak", rsvpSenderEntry.RsvpSenderAdspecBreak})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecHopCount", types.YLeaf{"RsvpSenderAdspecHopCount", rsvpSenderEntry.RsvpSenderAdspecHopCount})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecPathBw", types.YLeaf{"RsvpSenderAdspecPathBw", rsvpSenderEntry.RsvpSenderAdspecPathBw})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecMinLatency", types.YLeaf{"RsvpSenderAdspecMinLatency", rsvpSenderEntry.RsvpSenderAdspecMinLatency})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecMtu", types.YLeaf{"RsvpSenderAdspecMtu", rsvpSenderEntry.RsvpSenderAdspecMtu})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecGuaranteedSvc", types.YLeaf{"RsvpSenderAdspecGuaranteedSvc", rsvpSenderEntry.RsvpSenderAdspecGuaranteedSvc})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecGuaranteedBreak", types.YLeaf{"RsvpSenderAdspecGuaranteedBreak", rsvpSenderEntry.RsvpSenderAdspecGuaranteedBreak})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecGuaranteedCtot", types.YLeaf{"RsvpSenderAdspecGuaranteedCtot", rsvpSenderEntry.RsvpSenderAdspecGuaranteedCtot})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecGuaranteedDtot", types.YLeaf{"RsvpSenderAdspecGuaranteedDtot", rsvpSenderEntry.RsvpSenderAdspecGuaranteedDtot})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecGuaranteedCsum", types.YLeaf{"RsvpSenderAdspecGuaranteedCsum", rsvpSenderEntry.RsvpSenderAdspecGuaranteedCsum})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecGuaranteedDsum", types.YLeaf{"RsvpSenderAdspecGuaranteedDsum", rsvpSenderEntry.RsvpSenderAdspecGuaranteedDsum})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecGuaranteedHopCount", types.YLeaf{"RsvpSenderAdspecGuaranteedHopCount", rsvpSenderEntry.RsvpSenderAdspecGuaranteedHopCount})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecGuaranteedPathBw", types.YLeaf{"RsvpSenderAdspecGuaranteedPathBw", rsvpSenderEntry.RsvpSenderAdspecGuaranteedPathBw})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecGuaranteedMinLatency", types.YLeaf{"RsvpSenderAdspecGuaranteedMinLatency", rsvpSenderEntry.RsvpSenderAdspecGuaranteedMinLatency})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecGuaranteedMtu", types.YLeaf{"RsvpSenderAdspecGuaranteedMtu", rsvpSenderEntry.RsvpSenderAdspecGuaranteedMtu})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecCtrlLoadSvc", types.YLeaf{"RsvpSenderAdspecCtrlLoadSvc", rsvpSenderEntry.RsvpSenderAdspecCtrlLoadSvc})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecCtrlLoadBreak", types.YLeaf{"RsvpSenderAdspecCtrlLoadBreak", rsvpSenderEntry.RsvpSenderAdspecCtrlLoadBreak})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecCtrlLoadHopCount", types.YLeaf{"RsvpSenderAdspecCtrlLoadHopCount", rsvpSenderEntry.RsvpSenderAdspecCtrlLoadHopCount})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecCtrlLoadPathBw", types.YLeaf{"RsvpSenderAdspecCtrlLoadPathBw", rsvpSenderEntry.RsvpSenderAdspecCtrlLoadPathBw})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecCtrlLoadMinLatency", types.YLeaf{"RsvpSenderAdspecCtrlLoadMinLatency", rsvpSenderEntry.RsvpSenderAdspecCtrlLoadMinLatency})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderAdspecCtrlLoadMtu", types.YLeaf{"RsvpSenderAdspecCtrlLoadMtu", rsvpSenderEntry.RsvpSenderAdspecCtrlLoadMtu})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderStatus", types.YLeaf{"RsvpSenderStatus", rsvpSenderEntry.RsvpSenderStatus})
+    rsvpSenderEntry.EntityData.Leafs.Append("rsvpSenderTTL", types.YLeaf{"RsvpSenderTTL", rsvpSenderEntry.RsvpSenderTTL})
+
+    rsvpSenderEntry.EntityData.YListKeys = []string {"RsvpSessionNumber", "RsvpSenderNumber"}
+
+    return &(rsvpSenderEntry.EntityData)
 }
 
-// RSVPMIB_Rsvpsenderoutinterfacetable
+// RSVPMIB_RsvpSenderOutInterfaceTable
 // List of outgoing interfaces	that PATH messages
 // use.	 The  ifIndex  is the ifIndex value of the
 // egress interface.
-type RSVPMIB_Rsvpsenderoutinterfacetable struct {
+type RSVPMIB_RsvpSenderOutInterfaceTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of outgoing interfaces	that a	particular PATH	message	has. The type is
-    // slice of RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry.
-    Rsvpsenderoutinterfaceentry []RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry
+    // slice of RSVPMIB_RsvpSenderOutInterfaceTable_RsvpSenderOutInterfaceEntry.
+    RsvpSenderOutInterfaceEntry []*RSVPMIB_RsvpSenderOutInterfaceTable_RsvpSenderOutInterfaceEntry
 }
 
-func (rsvpsenderoutinterfacetable *RSVPMIB_Rsvpsenderoutinterfacetable) GetEntityData() *types.CommonEntityData {
-    rsvpsenderoutinterfacetable.EntityData.YFilter = rsvpsenderoutinterfacetable.YFilter
-    rsvpsenderoutinterfacetable.EntityData.YangName = "rsvpSenderOutInterfaceTable"
-    rsvpsenderoutinterfacetable.EntityData.BundleName = "cisco_ios_xe"
-    rsvpsenderoutinterfacetable.EntityData.ParentYangName = "RSVP-MIB"
-    rsvpsenderoutinterfacetable.EntityData.SegmentPath = "rsvpSenderOutInterfaceTable"
-    rsvpsenderoutinterfacetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rsvpsenderoutinterfacetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rsvpsenderoutinterfacetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rsvpSenderOutInterfaceTable *RSVPMIB_RsvpSenderOutInterfaceTable) GetEntityData() *types.CommonEntityData {
+    rsvpSenderOutInterfaceTable.EntityData.YFilter = rsvpSenderOutInterfaceTable.YFilter
+    rsvpSenderOutInterfaceTable.EntityData.YangName = "rsvpSenderOutInterfaceTable"
+    rsvpSenderOutInterfaceTable.EntityData.BundleName = "cisco_ios_xe"
+    rsvpSenderOutInterfaceTable.EntityData.ParentYangName = "RSVP-MIB"
+    rsvpSenderOutInterfaceTable.EntityData.SegmentPath = "rsvpSenderOutInterfaceTable"
+    rsvpSenderOutInterfaceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpSenderOutInterfaceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpSenderOutInterfaceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rsvpsenderoutinterfacetable.EntityData.Children = make(map[string]types.YChild)
-    rsvpsenderoutinterfacetable.EntityData.Children["rsvpSenderOutInterfaceEntry"] = types.YChild{"Rsvpsenderoutinterfaceentry", nil}
-    for i := range rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry {
-        rsvpsenderoutinterfacetable.EntityData.Children[types.GetSegmentPath(&rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry[i])] = types.YChild{"Rsvpsenderoutinterfaceentry", &rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry[i]}
+    rsvpSenderOutInterfaceTable.EntityData.Children = types.NewOrderedMap()
+    rsvpSenderOutInterfaceTable.EntityData.Children.Append("rsvpSenderOutInterfaceEntry", types.YChild{"RsvpSenderOutInterfaceEntry", nil})
+    for i := range rsvpSenderOutInterfaceTable.RsvpSenderOutInterfaceEntry {
+        rsvpSenderOutInterfaceTable.EntityData.Children.Append(types.GetSegmentPath(rsvpSenderOutInterfaceTable.RsvpSenderOutInterfaceEntry[i]), types.YChild{"RsvpSenderOutInterfaceEntry", rsvpSenderOutInterfaceTable.RsvpSenderOutInterfaceEntry[i]})
     }
-    rsvpsenderoutinterfacetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rsvpsenderoutinterfacetable.EntityData)
+    rsvpSenderOutInterfaceTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rsvpSenderOutInterfaceTable.EntityData.YListKeys = []string {}
+
+    return &(rsvpSenderOutInterfaceTable.EntityData)
 }
 
-// RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry
+// RSVPMIB_RsvpSenderOutInterfaceTable_RsvpSenderOutInterfaceEntry
 // List of outgoing interfaces	that a	particular
 // PATH	message	has.
-type RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry struct {
+type RSVPMIB_RsvpSenderOutInterfaceTable_RsvpSenderOutInterfaceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..2147483647.
     // Refers to
-    // rsvp_mib.RSVPMIB_Rsvpsessiontable_Rsvpsessionentry_Rsvpsessionnumber
-    Rsvpsessionnumber interface{}
+    // rsvp_mib.RSVPMIB_RsvpSessionTable_RsvpSessionEntry_RsvpSessionNumber
+    RsvpSessionNumber interface{}
 
     // This attribute is a key. The type is string with range: 0..2147483647.
-    // Refers to rsvp_mib.RSVPMIB_Rsvpsendertable_Rsvpsenderentry_Rsvpsendernumber
-    Rsvpsendernumber interface{}
+    // Refers to rsvp_mib.RSVPMIB_RsvpSenderTable_RsvpSenderEntry_RsvpSenderNumber
+    RsvpSenderNumber interface{}
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // 'active' for all active PATH messages. The type is RowStatus.
-    Rsvpsenderoutinterfacestatus interface{}
+    RsvpSenderOutInterfaceStatus interface{}
 }
 
-func (rsvpsenderoutinterfaceentry *RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry) GetEntityData() *types.CommonEntityData {
-    rsvpsenderoutinterfaceentry.EntityData.YFilter = rsvpsenderoutinterfaceentry.YFilter
-    rsvpsenderoutinterfaceentry.EntityData.YangName = "rsvpSenderOutInterfaceEntry"
-    rsvpsenderoutinterfaceentry.EntityData.BundleName = "cisco_ios_xe"
-    rsvpsenderoutinterfaceentry.EntityData.ParentYangName = "rsvpSenderOutInterfaceTable"
-    rsvpsenderoutinterfaceentry.EntityData.SegmentPath = "rsvpSenderOutInterfaceEntry" + "[rsvpSessionNumber='" + fmt.Sprintf("%v", rsvpsenderoutinterfaceentry.Rsvpsessionnumber) + "']" + "[rsvpSenderNumber='" + fmt.Sprintf("%v", rsvpsenderoutinterfaceentry.Rsvpsendernumber) + "']" + "[ifIndex='" + fmt.Sprintf("%v", rsvpsenderoutinterfaceentry.Ifindex) + "']"
-    rsvpsenderoutinterfaceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rsvpsenderoutinterfaceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rsvpsenderoutinterfaceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rsvpSenderOutInterfaceEntry *RSVPMIB_RsvpSenderOutInterfaceTable_RsvpSenderOutInterfaceEntry) GetEntityData() *types.CommonEntityData {
+    rsvpSenderOutInterfaceEntry.EntityData.YFilter = rsvpSenderOutInterfaceEntry.YFilter
+    rsvpSenderOutInterfaceEntry.EntityData.YangName = "rsvpSenderOutInterfaceEntry"
+    rsvpSenderOutInterfaceEntry.EntityData.BundleName = "cisco_ios_xe"
+    rsvpSenderOutInterfaceEntry.EntityData.ParentYangName = "rsvpSenderOutInterfaceTable"
+    rsvpSenderOutInterfaceEntry.EntityData.SegmentPath = "rsvpSenderOutInterfaceEntry" + types.AddKeyToken(rsvpSenderOutInterfaceEntry.RsvpSessionNumber, "rsvpSessionNumber") + types.AddKeyToken(rsvpSenderOutInterfaceEntry.RsvpSenderNumber, "rsvpSenderNumber") + types.AddKeyToken(rsvpSenderOutInterfaceEntry.IfIndex, "ifIndex")
+    rsvpSenderOutInterfaceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpSenderOutInterfaceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpSenderOutInterfaceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rsvpsenderoutinterfaceentry.EntityData.Children = make(map[string]types.YChild)
-    rsvpsenderoutinterfaceentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rsvpsenderoutinterfaceentry.EntityData.Leafs["rsvpSessionNumber"] = types.YLeaf{"Rsvpsessionnumber", rsvpsenderoutinterfaceentry.Rsvpsessionnumber}
-    rsvpsenderoutinterfaceentry.EntityData.Leafs["rsvpSenderNumber"] = types.YLeaf{"Rsvpsendernumber", rsvpsenderoutinterfaceentry.Rsvpsendernumber}
-    rsvpsenderoutinterfaceentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", rsvpsenderoutinterfaceentry.Ifindex}
-    rsvpsenderoutinterfaceentry.EntityData.Leafs["rsvpSenderOutInterfaceStatus"] = types.YLeaf{"Rsvpsenderoutinterfacestatus", rsvpsenderoutinterfaceentry.Rsvpsenderoutinterfacestatus}
-    return &(rsvpsenderoutinterfaceentry.EntityData)
+    rsvpSenderOutInterfaceEntry.EntityData.Children = types.NewOrderedMap()
+    rsvpSenderOutInterfaceEntry.EntityData.Leafs = types.NewOrderedMap()
+    rsvpSenderOutInterfaceEntry.EntityData.Leafs.Append("rsvpSessionNumber", types.YLeaf{"RsvpSessionNumber", rsvpSenderOutInterfaceEntry.RsvpSessionNumber})
+    rsvpSenderOutInterfaceEntry.EntityData.Leafs.Append("rsvpSenderNumber", types.YLeaf{"RsvpSenderNumber", rsvpSenderOutInterfaceEntry.RsvpSenderNumber})
+    rsvpSenderOutInterfaceEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", rsvpSenderOutInterfaceEntry.IfIndex})
+    rsvpSenderOutInterfaceEntry.EntityData.Leafs.Append("rsvpSenderOutInterfaceStatus", types.YLeaf{"RsvpSenderOutInterfaceStatus", rsvpSenderOutInterfaceEntry.RsvpSenderOutInterfaceStatus})
+
+    rsvpSenderOutInterfaceEntry.EntityData.YListKeys = []string {"RsvpSessionNumber", "RsvpSenderNumber", "IfIndex"}
+
+    return &(rsvpSenderOutInterfaceEntry.EntityData)
 }
 
-// RSVPMIB_Rsvpresvtable
+// RSVPMIB_RsvpResvTable
 // Information	describing the	state  information
 // displayed by	receivers in RESV messages.
-type RSVPMIB_Rsvpresvtable struct {
+type RSVPMIB_RsvpResvTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information	describing the	state  information displayed  by  a single
     // receiver's RESV message concerning a	single sender. The type is slice of
-    // RSVPMIB_Rsvpresvtable_Rsvpresventry.
-    Rsvpresventry []RSVPMIB_Rsvpresvtable_Rsvpresventry
+    // RSVPMIB_RsvpResvTable_RsvpResvEntry.
+    RsvpResvEntry []*RSVPMIB_RsvpResvTable_RsvpResvEntry
 }
 
-func (rsvpresvtable *RSVPMIB_Rsvpresvtable) GetEntityData() *types.CommonEntityData {
-    rsvpresvtable.EntityData.YFilter = rsvpresvtable.YFilter
-    rsvpresvtable.EntityData.YangName = "rsvpResvTable"
-    rsvpresvtable.EntityData.BundleName = "cisco_ios_xe"
-    rsvpresvtable.EntityData.ParentYangName = "RSVP-MIB"
-    rsvpresvtable.EntityData.SegmentPath = "rsvpResvTable"
-    rsvpresvtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rsvpresvtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rsvpresvtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rsvpResvTable *RSVPMIB_RsvpResvTable) GetEntityData() *types.CommonEntityData {
+    rsvpResvTable.EntityData.YFilter = rsvpResvTable.YFilter
+    rsvpResvTable.EntityData.YangName = "rsvpResvTable"
+    rsvpResvTable.EntityData.BundleName = "cisco_ios_xe"
+    rsvpResvTable.EntityData.ParentYangName = "RSVP-MIB"
+    rsvpResvTable.EntityData.SegmentPath = "rsvpResvTable"
+    rsvpResvTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpResvTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpResvTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rsvpresvtable.EntityData.Children = make(map[string]types.YChild)
-    rsvpresvtable.EntityData.Children["rsvpResvEntry"] = types.YChild{"Rsvpresventry", nil}
-    for i := range rsvpresvtable.Rsvpresventry {
-        rsvpresvtable.EntityData.Children[types.GetSegmentPath(&rsvpresvtable.Rsvpresventry[i])] = types.YChild{"Rsvpresventry", &rsvpresvtable.Rsvpresventry[i]}
+    rsvpResvTable.EntityData.Children = types.NewOrderedMap()
+    rsvpResvTable.EntityData.Children.Append("rsvpResvEntry", types.YChild{"RsvpResvEntry", nil})
+    for i := range rsvpResvTable.RsvpResvEntry {
+        rsvpResvTable.EntityData.Children.Append(types.GetSegmentPath(rsvpResvTable.RsvpResvEntry[i]), types.YChild{"RsvpResvEntry", rsvpResvTable.RsvpResvEntry[i]})
     }
-    rsvpresvtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rsvpresvtable.EntityData)
+    rsvpResvTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rsvpResvTable.EntityData.YListKeys = []string {}
+
+    return &(rsvpResvTable.EntityData)
 }
 
-// RSVPMIB_Rsvpresvtable_Rsvpresventry
+// RSVPMIB_RsvpResvTable_RsvpResvEntry
 // Information	describing the	state  information
 // displayed  by  a single receiver's RESV message
 // concerning a	single sender.
-type RSVPMIB_Rsvpresvtable_Rsvpresventry struct {
+type RSVPMIB_RsvpResvTable_RsvpResvEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..2147483647.
     // Refers to
-    // rsvp_mib.RSVPMIB_Rsvpsessiontable_Rsvpsessionentry_Rsvpsessionnumber
-    Rsvpsessionnumber interface{}
+    // rsvp_mib.RSVPMIB_RsvpSessionTable_RsvpSessionEntry_RsvpSessionNumber
+    RsvpSessionNumber interface{}
 
     // This attribute is a key. The	number of this reservation request.   This is 
     // for  SNMP Indexing purposes only	and has	no relation to any protocol value.
     // The type is interface{} with range: 0..2147483647.
-    Rsvpresvnumber interface{}
+    RsvpResvNumber interface{}
 
     // The	type of	session	(IP4, IP6, IP6	with  flow information,	etc). The type
     // is interface{} with range: 1..255.
-    Rsvpresvtype interface{}
+    RsvpResvType interface{}
 
     // The	destination address used by all	senders	in this	 session.   This
     // object	may not	be changed when	the  value  of	the  RowStatus	object	is
     // 'active'. The type is string with length: 4..16.
-    Rsvpresvdestaddr interface{}
+    RsvpResvDestAddr interface{}
 
     // The	source address of the sender  selected	by this	 reservation.	The  value
     // of	all zeroes indicates 'all senders'.  This object  may  not be 
     // changed	when  the  value  of the RowStatus object is 'active'. The type is
     // string with length: 4..16.
-    Rsvpresvsenderaddr interface{}
+    RsvpResvSenderAddr interface{}
 
     // The	length of the destination address in bits. This	 is  the CIDR Prefix
     // Length, which for IP4 hosts and multicast addresses is 32 bits.  This
     // object may not be changed when the value of the RowStatus object is
     // 'active'. The type is interface{} with range: 0..128.
-    Rsvpresvdestaddrlength interface{}
+    RsvpResvDestAddrLength interface{}
 
     // The	length of the sender's	address	 in  bits. This	 is  the CIDR Prefix
     // Length, which for IP4 hosts and multicast addresses is 32 bits.  This
     // object may not be changed when the value of the RowStatus object is
     // 'active'. The type is interface{} with range: 0..128.
-    Rsvpresvsenderaddrlength interface{}
+    RsvpResvSenderAddrLength interface{}
 
     // The	IP Protocol used by  this  session.   This object may not be changed
     // when the value of the RowStatus object is 'active'. The type is interface{}
     // with range: 1..255.
-    Rsvpresvprotocol interface{}
+    RsvpResvProtocol interface{}
 
     // The	 UDP  or  TCP  port  number  used   as	 a destination	 port  for  all	
     // senders  in  this session.  If	the IP protocol	in use,	 specified by 
@@ -823,7 +850,7 @@ type RSVPMIB_Rsvpresvtable_Rsvpresventry struct {
     // in use  does  not  have  ports.   This object may not be changed when the
     // value of the RowStatus object is 'active'. The type is string with length:
     // 2..4.
-    Rsvpresvdestport interface{}
+    RsvpResvDestPort interface{}
 
     // The	UDP or TCP port	number used  as	 a  source port	 for  this sender in
     // this session.  If the IP	 protocol    in	   use,	   specified	by
@@ -831,24 +858,24 @@ type RSVPMIB_Rsvpresvtable_Rsvpresventry struct {
     // port identifier (GPI). A  value of zero indicates that the IP protocol in
     // use does not have	ports.	 This  object  may not	be changed when	the value
     // of the RowStatus object is 'active'. The type is string with length: 2..4.
-    Rsvpresvport interface{}
+    RsvpResvPort interface{}
 
     // The	address	used by	the next RSVP  hop  (which may be the ultimate
     // receiver). The type is string with length: 4..16.
-    Rsvpresvhopaddr interface{}
+    RsvpResvHopAddr interface{}
 
     // The	Logical	Interface Handle received from the previous  RSVP  hop	(which
     // may be the ultimate receiver). The type is interface{} with range:
     // -2147483648..2147483647.
-    Rsvpresvhoplih interface{}
+    RsvpResvHopLih interface{}
 
     // The	ifIndex	value of the  interface	 on  which this	RESV message was most
     // recently received. The type is interface{} with range: 1..2147483647.
-    Rsvpresvinterface interface{}
+    RsvpResvInterface interface{}
 
     // The	QoS Service  classification  requested	by the receiver. The type is
     // QosService.
-    Rsvpresvservice interface{}
+    RsvpResvService interface{}
 
     // The	Average	Bit  Rate  of  the  sender's  data stream.    Within  a	
     // transmission  burst,  the arrival   rate    may    be	  as	fast	as
@@ -858,222 +885,228 @@ type RSVPMIB_Rsvpresvtable_Rsvpresventry struct {
     // the	general	 capability  of	a type of codec	or particular encoding;	the
     // measured average  rate may be significantly	lower. The type is interface{}
     // with range: 0..2147483647. Units are bits per second.
-    Rsvpresvtspecrate interface{}
+    RsvpResvTSpecRate interface{}
 
     // The	Peak Bit Rate of the sender's data stream. Traffic  arrival is not
     // expected to exceed this rate	at any time, apart  from  the  effects	of
     // jitter in the network.  If not specified in the TSpec, this returns zero or
     // noSuchValue. The type is interface{} with range: 0..2147483647. Units are
     // bits per second.
-    Rsvpresvtspecpeakrate interface{}
+    RsvpResvTSpecPeakRate interface{}
 
     // The	size of	the largest  burst  expected  from the sender at a time.  If
     // this is less than	 the  sender's	advertised burst  size,	the receiver
     // is	asking the network to provide flow pacing  beyond  what	 would	be
     // provided   under   normal  circumstances.  Such pacing is at	the network's
     // option. The type is interface{} with range: 0..2147483647. Units are bytes.
-    Rsvpresvtspecburst interface{}
+    RsvpResvTSpecBurst interface{}
 
     // The	minimum	message	size for  this	flow.  The policing  algorithm will
     // treat smaller messages as though they are this size. The type is
     // interface{} with range: 0..2147483647.
-    Rsvpresvtspecmintu interface{}
+    RsvpResvTSpecMinTU interface{}
 
     // The	maximum	message	size for  this	flow.  The admission  algorithm	 will 
     // reject TSpecs whose Maximum Transmission	Unit, plus  the	 interface
     // headers, exceed the interface MTU. The type is interface{} with range:
     // 0..2147483647.
-    Rsvpresvtspecmaxtu interface{}
+    RsvpResvTSpecMaxTU interface{}
 
     // If the requested  service  is  Guaranteed,	as specified   by 
     // rsvpResvService,  this  is  the clearing  rate   that   is	being	requested.
     // Otherwise,  it is zero, or the agent	may return noSuchValue. The type is
     // interface{} with range: 0..2147483647. Units are bits per second.
-    Rsvpresvrspecrate interface{}
+    RsvpResvRSpecRate interface{}
 
     // If the requested  service  is  Guaranteed,	as specified by	rsvpResvService,
     // this is the delay slack.  Otherwise, it is zero, or the agent may return
     // noSuchValue. The type is interface{} with range: -2147483648..2147483647.
     // Units are microseconds.
-    Rsvpresvrspecslack interface{}
+    RsvpResvRSpecSlack interface{}
 
     // The	 interval  between  refresh  messages	as advertised by the Next Hop.
     // The type is interface{} with range: 0..2147483647.
-    Rsvpresvinterval interface{}
+    RsvpResvInterval interface{}
 
     // The	contents of the	scope object, displayed	as an  uninterpreted  string 
     // of octets, including the object header.  In the absence of  such	an object,
     // this	should be of zero length.  If the length  is  non-zero,	 this 
     // contains	 a series of IP4 or IP6	addresses. The type is string with length:
     // 0..65536.
-    Rsvpresvscope interface{}
+    RsvpResvScope interface{}
 
     // If TRUE, a reservation shared among	senders	is requested.  If FALSE, a
     // reservation specific	to this	sender is requested. The type is bool.
-    Rsvpresvshared interface{}
+    RsvpResvShared interface{}
 
     // If TRUE, individual	senders	are  listed  using Filter  Specifications.  
     // If	FALSE, all senders are implicitly selected.  The Scope Object will
     // contain  a list of senders that need	to receive this	reservation request 
     // for  the  purpose	of routing the RESV message. The type is bool.
-    Rsvpresvexplicit interface{}
+    RsvpResvExplicit interface{}
 
     // If TRUE, the node believes that  the  previous IP  hop  is	an  RSVP 
     // hop.	If FALSE, the node believes that the previous IP hop may not be	an
     // RSVP	hop. The type is bool.
-    Rsvpresvrsvphop interface{}
+    RsvpResvRSVPHop interface{}
 
     // The	 time  of  the	 last	change	 in   this reservation	request;  This is
     // either the first time	it was received	or the time  of	 the  most recent
     // change in parameters. The type is interface{} with range: 0..4294967295.
-    Rsvpresvlastchange interface{}
+    RsvpResvLastChange interface{}
 
     // The	contents of the	policy	object,	 displayed as an uninterpreted string of
     // octets, including the object header.  In the absence of  such	an object,
     // this	should be of zero length. The type is string with length: 0..65536.
-    Rsvpresvpolicy interface{}
+    RsvpResvPolicy interface{}
 
     // 'active' for all active RESV  messages.   This object  may	be  used  to 
     // install  static RESV information or delete RESV information. The type is
     // RowStatus.
-    Rsvpresvstatus interface{}
+    RsvpResvStatus interface{}
 
     // The	TTL value in the RSVP header that was last received. The type is
     // interface{} with range: 0..255.
-    Rsvpresvttl interface{}
+    RsvpResvTTL interface{}
 
     // The	flow ID	that this receiver  is	using,	if this	 is  an	IPv6 session. The
     // type is interface{} with range: 0..16777215.
-    Rsvpresvflowid interface{}
+    RsvpResvFlowId interface{}
 }
 
-func (rsvpresventry *RSVPMIB_Rsvpresvtable_Rsvpresventry) GetEntityData() *types.CommonEntityData {
-    rsvpresventry.EntityData.YFilter = rsvpresventry.YFilter
-    rsvpresventry.EntityData.YangName = "rsvpResvEntry"
-    rsvpresventry.EntityData.BundleName = "cisco_ios_xe"
-    rsvpresventry.EntityData.ParentYangName = "rsvpResvTable"
-    rsvpresventry.EntityData.SegmentPath = "rsvpResvEntry" + "[rsvpSessionNumber='" + fmt.Sprintf("%v", rsvpresventry.Rsvpsessionnumber) + "']" + "[rsvpResvNumber='" + fmt.Sprintf("%v", rsvpresventry.Rsvpresvnumber) + "']"
-    rsvpresventry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rsvpresventry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rsvpresventry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rsvpResvEntry *RSVPMIB_RsvpResvTable_RsvpResvEntry) GetEntityData() *types.CommonEntityData {
+    rsvpResvEntry.EntityData.YFilter = rsvpResvEntry.YFilter
+    rsvpResvEntry.EntityData.YangName = "rsvpResvEntry"
+    rsvpResvEntry.EntityData.BundleName = "cisco_ios_xe"
+    rsvpResvEntry.EntityData.ParentYangName = "rsvpResvTable"
+    rsvpResvEntry.EntityData.SegmentPath = "rsvpResvEntry" + types.AddKeyToken(rsvpResvEntry.RsvpSessionNumber, "rsvpSessionNumber") + types.AddKeyToken(rsvpResvEntry.RsvpResvNumber, "rsvpResvNumber")
+    rsvpResvEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpResvEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpResvEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rsvpresventry.EntityData.Children = make(map[string]types.YChild)
-    rsvpresventry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rsvpresventry.EntityData.Leafs["rsvpSessionNumber"] = types.YLeaf{"Rsvpsessionnumber", rsvpresventry.Rsvpsessionnumber}
-    rsvpresventry.EntityData.Leafs["rsvpResvNumber"] = types.YLeaf{"Rsvpresvnumber", rsvpresventry.Rsvpresvnumber}
-    rsvpresventry.EntityData.Leafs["rsvpResvType"] = types.YLeaf{"Rsvpresvtype", rsvpresventry.Rsvpresvtype}
-    rsvpresventry.EntityData.Leafs["rsvpResvDestAddr"] = types.YLeaf{"Rsvpresvdestaddr", rsvpresventry.Rsvpresvdestaddr}
-    rsvpresventry.EntityData.Leafs["rsvpResvSenderAddr"] = types.YLeaf{"Rsvpresvsenderaddr", rsvpresventry.Rsvpresvsenderaddr}
-    rsvpresventry.EntityData.Leafs["rsvpResvDestAddrLength"] = types.YLeaf{"Rsvpresvdestaddrlength", rsvpresventry.Rsvpresvdestaddrlength}
-    rsvpresventry.EntityData.Leafs["rsvpResvSenderAddrLength"] = types.YLeaf{"Rsvpresvsenderaddrlength", rsvpresventry.Rsvpresvsenderaddrlength}
-    rsvpresventry.EntityData.Leafs["rsvpResvProtocol"] = types.YLeaf{"Rsvpresvprotocol", rsvpresventry.Rsvpresvprotocol}
-    rsvpresventry.EntityData.Leafs["rsvpResvDestPort"] = types.YLeaf{"Rsvpresvdestport", rsvpresventry.Rsvpresvdestport}
-    rsvpresventry.EntityData.Leafs["rsvpResvPort"] = types.YLeaf{"Rsvpresvport", rsvpresventry.Rsvpresvport}
-    rsvpresventry.EntityData.Leafs["rsvpResvHopAddr"] = types.YLeaf{"Rsvpresvhopaddr", rsvpresventry.Rsvpresvhopaddr}
-    rsvpresventry.EntityData.Leafs["rsvpResvHopLih"] = types.YLeaf{"Rsvpresvhoplih", rsvpresventry.Rsvpresvhoplih}
-    rsvpresventry.EntityData.Leafs["rsvpResvInterface"] = types.YLeaf{"Rsvpresvinterface", rsvpresventry.Rsvpresvinterface}
-    rsvpresventry.EntityData.Leafs["rsvpResvService"] = types.YLeaf{"Rsvpresvservice", rsvpresventry.Rsvpresvservice}
-    rsvpresventry.EntityData.Leafs["rsvpResvTSpecRate"] = types.YLeaf{"Rsvpresvtspecrate", rsvpresventry.Rsvpresvtspecrate}
-    rsvpresventry.EntityData.Leafs["rsvpResvTSpecPeakRate"] = types.YLeaf{"Rsvpresvtspecpeakrate", rsvpresventry.Rsvpresvtspecpeakrate}
-    rsvpresventry.EntityData.Leafs["rsvpResvTSpecBurst"] = types.YLeaf{"Rsvpresvtspecburst", rsvpresventry.Rsvpresvtspecburst}
-    rsvpresventry.EntityData.Leafs["rsvpResvTSpecMinTU"] = types.YLeaf{"Rsvpresvtspecmintu", rsvpresventry.Rsvpresvtspecmintu}
-    rsvpresventry.EntityData.Leafs["rsvpResvTSpecMaxTU"] = types.YLeaf{"Rsvpresvtspecmaxtu", rsvpresventry.Rsvpresvtspecmaxtu}
-    rsvpresventry.EntityData.Leafs["rsvpResvRSpecRate"] = types.YLeaf{"Rsvpresvrspecrate", rsvpresventry.Rsvpresvrspecrate}
-    rsvpresventry.EntityData.Leafs["rsvpResvRSpecSlack"] = types.YLeaf{"Rsvpresvrspecslack", rsvpresventry.Rsvpresvrspecslack}
-    rsvpresventry.EntityData.Leafs["rsvpResvInterval"] = types.YLeaf{"Rsvpresvinterval", rsvpresventry.Rsvpresvinterval}
-    rsvpresventry.EntityData.Leafs["rsvpResvScope"] = types.YLeaf{"Rsvpresvscope", rsvpresventry.Rsvpresvscope}
-    rsvpresventry.EntityData.Leafs["rsvpResvShared"] = types.YLeaf{"Rsvpresvshared", rsvpresventry.Rsvpresvshared}
-    rsvpresventry.EntityData.Leafs["rsvpResvExplicit"] = types.YLeaf{"Rsvpresvexplicit", rsvpresventry.Rsvpresvexplicit}
-    rsvpresventry.EntityData.Leafs["rsvpResvRSVPHop"] = types.YLeaf{"Rsvpresvrsvphop", rsvpresventry.Rsvpresvrsvphop}
-    rsvpresventry.EntityData.Leafs["rsvpResvLastChange"] = types.YLeaf{"Rsvpresvlastchange", rsvpresventry.Rsvpresvlastchange}
-    rsvpresventry.EntityData.Leafs["rsvpResvPolicy"] = types.YLeaf{"Rsvpresvpolicy", rsvpresventry.Rsvpresvpolicy}
-    rsvpresventry.EntityData.Leafs["rsvpResvStatus"] = types.YLeaf{"Rsvpresvstatus", rsvpresventry.Rsvpresvstatus}
-    rsvpresventry.EntityData.Leafs["rsvpResvTTL"] = types.YLeaf{"Rsvpresvttl", rsvpresventry.Rsvpresvttl}
-    rsvpresventry.EntityData.Leafs["rsvpResvFlowId"] = types.YLeaf{"Rsvpresvflowid", rsvpresventry.Rsvpresvflowid}
-    return &(rsvpresventry.EntityData)
+    rsvpResvEntry.EntityData.Children = types.NewOrderedMap()
+    rsvpResvEntry.EntityData.Leafs = types.NewOrderedMap()
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpSessionNumber", types.YLeaf{"RsvpSessionNumber", rsvpResvEntry.RsvpSessionNumber})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvNumber", types.YLeaf{"RsvpResvNumber", rsvpResvEntry.RsvpResvNumber})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvType", types.YLeaf{"RsvpResvType", rsvpResvEntry.RsvpResvType})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvDestAddr", types.YLeaf{"RsvpResvDestAddr", rsvpResvEntry.RsvpResvDestAddr})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvSenderAddr", types.YLeaf{"RsvpResvSenderAddr", rsvpResvEntry.RsvpResvSenderAddr})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvDestAddrLength", types.YLeaf{"RsvpResvDestAddrLength", rsvpResvEntry.RsvpResvDestAddrLength})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvSenderAddrLength", types.YLeaf{"RsvpResvSenderAddrLength", rsvpResvEntry.RsvpResvSenderAddrLength})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvProtocol", types.YLeaf{"RsvpResvProtocol", rsvpResvEntry.RsvpResvProtocol})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvDestPort", types.YLeaf{"RsvpResvDestPort", rsvpResvEntry.RsvpResvDestPort})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvPort", types.YLeaf{"RsvpResvPort", rsvpResvEntry.RsvpResvPort})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvHopAddr", types.YLeaf{"RsvpResvHopAddr", rsvpResvEntry.RsvpResvHopAddr})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvHopLih", types.YLeaf{"RsvpResvHopLih", rsvpResvEntry.RsvpResvHopLih})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvInterface", types.YLeaf{"RsvpResvInterface", rsvpResvEntry.RsvpResvInterface})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvService", types.YLeaf{"RsvpResvService", rsvpResvEntry.RsvpResvService})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvTSpecRate", types.YLeaf{"RsvpResvTSpecRate", rsvpResvEntry.RsvpResvTSpecRate})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvTSpecPeakRate", types.YLeaf{"RsvpResvTSpecPeakRate", rsvpResvEntry.RsvpResvTSpecPeakRate})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvTSpecBurst", types.YLeaf{"RsvpResvTSpecBurst", rsvpResvEntry.RsvpResvTSpecBurst})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvTSpecMinTU", types.YLeaf{"RsvpResvTSpecMinTU", rsvpResvEntry.RsvpResvTSpecMinTU})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvTSpecMaxTU", types.YLeaf{"RsvpResvTSpecMaxTU", rsvpResvEntry.RsvpResvTSpecMaxTU})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvRSpecRate", types.YLeaf{"RsvpResvRSpecRate", rsvpResvEntry.RsvpResvRSpecRate})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvRSpecSlack", types.YLeaf{"RsvpResvRSpecSlack", rsvpResvEntry.RsvpResvRSpecSlack})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvInterval", types.YLeaf{"RsvpResvInterval", rsvpResvEntry.RsvpResvInterval})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvScope", types.YLeaf{"RsvpResvScope", rsvpResvEntry.RsvpResvScope})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvShared", types.YLeaf{"RsvpResvShared", rsvpResvEntry.RsvpResvShared})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvExplicit", types.YLeaf{"RsvpResvExplicit", rsvpResvEntry.RsvpResvExplicit})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvRSVPHop", types.YLeaf{"RsvpResvRSVPHop", rsvpResvEntry.RsvpResvRSVPHop})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvLastChange", types.YLeaf{"RsvpResvLastChange", rsvpResvEntry.RsvpResvLastChange})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvPolicy", types.YLeaf{"RsvpResvPolicy", rsvpResvEntry.RsvpResvPolicy})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvStatus", types.YLeaf{"RsvpResvStatus", rsvpResvEntry.RsvpResvStatus})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvTTL", types.YLeaf{"RsvpResvTTL", rsvpResvEntry.RsvpResvTTL})
+    rsvpResvEntry.EntityData.Leafs.Append("rsvpResvFlowId", types.YLeaf{"RsvpResvFlowId", rsvpResvEntry.RsvpResvFlowId})
+
+    rsvpResvEntry.EntityData.YListKeys = []string {"RsvpSessionNumber", "RsvpResvNumber"}
+
+    return &(rsvpResvEntry.EntityData)
 }
 
-// RSVPMIB_Rsvpresvfwdtable
+// RSVPMIB_RsvpResvFwdTable
 // Information	describing the	state  information
 // displayed upstream in RESV messages.
-type RSVPMIB_Rsvpresvfwdtable struct {
+type RSVPMIB_RsvpResvFwdTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information	describing the	state  information displayed   upstream	  in  
     // an   RESV   message concerning a	single sender. The type is slice of
-    // RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry.
-    Rsvpresvfwdentry []RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry
+    // RSVPMIB_RsvpResvFwdTable_RsvpResvFwdEntry.
+    RsvpResvFwdEntry []*RSVPMIB_RsvpResvFwdTable_RsvpResvFwdEntry
 }
 
-func (rsvpresvfwdtable *RSVPMIB_Rsvpresvfwdtable) GetEntityData() *types.CommonEntityData {
-    rsvpresvfwdtable.EntityData.YFilter = rsvpresvfwdtable.YFilter
-    rsvpresvfwdtable.EntityData.YangName = "rsvpResvFwdTable"
-    rsvpresvfwdtable.EntityData.BundleName = "cisco_ios_xe"
-    rsvpresvfwdtable.EntityData.ParentYangName = "RSVP-MIB"
-    rsvpresvfwdtable.EntityData.SegmentPath = "rsvpResvFwdTable"
-    rsvpresvfwdtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rsvpresvfwdtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rsvpresvfwdtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rsvpResvFwdTable *RSVPMIB_RsvpResvFwdTable) GetEntityData() *types.CommonEntityData {
+    rsvpResvFwdTable.EntityData.YFilter = rsvpResvFwdTable.YFilter
+    rsvpResvFwdTable.EntityData.YangName = "rsvpResvFwdTable"
+    rsvpResvFwdTable.EntityData.BundleName = "cisco_ios_xe"
+    rsvpResvFwdTable.EntityData.ParentYangName = "RSVP-MIB"
+    rsvpResvFwdTable.EntityData.SegmentPath = "rsvpResvFwdTable"
+    rsvpResvFwdTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpResvFwdTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpResvFwdTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rsvpresvfwdtable.EntityData.Children = make(map[string]types.YChild)
-    rsvpresvfwdtable.EntityData.Children["rsvpResvFwdEntry"] = types.YChild{"Rsvpresvfwdentry", nil}
-    for i := range rsvpresvfwdtable.Rsvpresvfwdentry {
-        rsvpresvfwdtable.EntityData.Children[types.GetSegmentPath(&rsvpresvfwdtable.Rsvpresvfwdentry[i])] = types.YChild{"Rsvpresvfwdentry", &rsvpresvfwdtable.Rsvpresvfwdentry[i]}
+    rsvpResvFwdTable.EntityData.Children = types.NewOrderedMap()
+    rsvpResvFwdTable.EntityData.Children.Append("rsvpResvFwdEntry", types.YChild{"RsvpResvFwdEntry", nil})
+    for i := range rsvpResvFwdTable.RsvpResvFwdEntry {
+        rsvpResvFwdTable.EntityData.Children.Append(types.GetSegmentPath(rsvpResvFwdTable.RsvpResvFwdEntry[i]), types.YChild{"RsvpResvFwdEntry", rsvpResvFwdTable.RsvpResvFwdEntry[i]})
     }
-    rsvpresvfwdtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rsvpresvfwdtable.EntityData)
+    rsvpResvFwdTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rsvpResvFwdTable.EntityData.YListKeys = []string {}
+
+    return &(rsvpResvFwdTable.EntityData)
 }
 
-// RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry
+// RSVPMIB_RsvpResvFwdTable_RsvpResvFwdEntry
 // Information	describing the	state  information
 // displayed   upstream	  in   an   RESV   message
 // concerning a	single sender.
-type RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry struct {
+type RSVPMIB_RsvpResvFwdTable_RsvpResvFwdEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..2147483647.
     // Refers to
-    // rsvp_mib.RSVPMIB_Rsvpsessiontable_Rsvpsessionentry_Rsvpsessionnumber
-    Rsvpsessionnumber interface{}
+    // rsvp_mib.RSVPMIB_RsvpSessionTable_RsvpSessionEntry_RsvpSessionNumber
+    RsvpSessionNumber interface{}
 
     // This attribute is a key. The	number of this reservation request.   This is 
     // for  SNMP Indexing purposes only	and has	no relation to any protocol value.
     // The type is interface{} with range: 0..2147483647.
-    Rsvpresvfwdnumber interface{}
+    RsvpResvFwdNumber interface{}
 
     // The	type of	session	(IP4, IP6, IP6	with  flow information,	etc). The type
     // is interface{} with range: 1..255.
-    Rsvpresvfwdtype interface{}
+    RsvpResvFwdType interface{}
 
     // The	destination address used by all	senders	in this	 session.   This
     // object	may not	be changed when	the  value  of	the  RowStatus	object	is
     // 'active'. The type is string with length: 4..16.
-    Rsvpresvfwddestaddr interface{}
+    RsvpResvFwdDestAddr interface{}
 
     // The	source address of the sender  selected	by this	 reservation.	The  value
     // of	all zeroes indicates 'all senders'.  This object  may  not be 
     // changed	when  the  value  of the RowStatus object is 'active'. The type is
     // string with length: 4..16.
-    Rsvpresvfwdsenderaddr interface{}
+    RsvpResvFwdSenderAddr interface{}
 
     // The	length of the destination address in bits. This	 is  the CIDR Prefix
     // Length, which for IP4 hosts and multicast addresses is 32 bits.  This
     // object may not be changed when the value of the RowStatus object is
     // 'active'. The type is interface{} with range: 0..128.
-    Rsvpresvfwddestaddrlength interface{}
+    RsvpResvFwdDestAddrLength interface{}
 
     // The	length of the sender's	address	 in  bits. This	 is  the CIDR Prefix
     // Length, which for IP4 hosts and multicast addresses is 32 bits.  This
     // object may not be changed when the value of the RowStatus object is
     // 'active'. The type is interface{} with range: 0..128.
-    Rsvpresvfwdsenderaddrlength interface{}
+    RsvpResvFwdSenderAddrLength interface{}
 
     // The	IP Protocol used by a session. for  secure sessions,  this  indicates 
     // IP  Security.  This object may not be changed when the value of the
     // RowStatus object is 'active'. The type is interface{} with range: 1..255.
-    Rsvpresvfwdprotocol interface{}
+    RsvpResvFwdProtocol interface{}
 
     // The	 UDP  or  TCP  port  number  used   as	 a destination	 port  for  all	
     // senders  in  this session.  If	the IP protocol	in use,	 specified by
@@ -1082,7 +1115,7 @@ type RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry struct {
     // in use  does  not  have  ports.   This object may not be changed when the
     // value of the RowStatus object is 'active'. The type is string with length:
     // 2..4.
-    Rsvpresvfwddestport interface{}
+    RsvpResvFwdDestPort interface{}
 
     // The	UDP or TCP port	number used  as	 a  source port	 for  this sender in
     // this session.  If the IP	 protocol    in	   use,	   specified	by
@@ -1091,23 +1124,23 @@ type RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry struct {
     // use  does  not  have  ports.   This object may not be changed when the
     // value of the RowStatus object is 'active'. The type is string with length:
     // 2..4.
-    Rsvpresvfwdport interface{}
+    RsvpResvFwdPort interface{}
 
     // The	address	of the (previous) RSVP	that  will receive this	message. The
     // type is string with length: 4..16.
-    Rsvpresvfwdhopaddr interface{}
+    RsvpResvFwdHopAddr interface{}
 
     // The	 Logical  Interface  Handle  sent  to  the (previous)	RSVP   that  
     // will   receive  this message. The type is interface{} with range:
     // -2147483648..2147483647.
-    Rsvpresvfwdhoplih interface{}
+    RsvpResvFwdHopLih interface{}
 
     // The	ifIndex	value of the  interface	 on  which this	RESV message was most
     // recently sent. The type is interface{} with range: 1..2147483647.
-    Rsvpresvfwdinterface interface{}
+    RsvpResvFwdInterface interface{}
 
     // The	QoS Service classification requested. The type is QosService.
-    Rsvpresvfwdservice interface{}
+    RsvpResvFwdService interface{}
 
     // The	Average	Bit  Rate  of  the  sender's  data stream.    Within  a	
     // transmission  burst,  the arrival   rate    may    be	  as	fast	as
@@ -1117,333 +1150,348 @@ type RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry struct {
     // based	on the	general	 capability  of	a type of codec	or particular
     // encoding;	the measured average  rate may be significantly	lower. The type
     // is interface{} with range: 0..2147483647. Units are bits per second.
-    Rsvpresvfwdtspecrate interface{}
+    RsvpResvFwdTSpecRate interface{}
 
     // The	Peak Bit Rate of the sender's data  stream Traffic  arrival is not
     // expected to exceed this rate	at any time, apart  from  the  effects	of
     // jitter in the network.  If not specified in the TSpec, this returns zero or
     // noSuchValue. The type is interface{} with range: 0..2147483647. Units are
     // bits per second.
-    Rsvpresvfwdtspecpeakrate interface{}
+    RsvpResvFwdTSpecPeakRate interface{}
 
     // The	size of	the largest  burst  expected  from the sender at a time.  If
     // this is less than	 the  sender's	advertised burst  size,	the receiver
     // is	asking the network to provide flow pacing  beyond  what	 would	be
     // provided   under   normal  circumstances.  Such pacing is at	the network's
     // option. The type is interface{} with range: 0..2147483647. Units are bytes.
-    Rsvpresvfwdtspecburst interface{}
+    RsvpResvFwdTSpecBurst interface{}
 
     // The	minimum	message	size for  this	flow.  The policing  algorithm will
     // treat smaller messages as though they are this size. The type is
     // interface{} with range: 0..2147483647.
-    Rsvpresvfwdtspecmintu interface{}
+    RsvpResvFwdTSpecMinTU interface{}
 
     // The	maximum	message	size for  this	flow.  The admission  algorithm	 will 
     // reject TSpecs whose Maximum Transmission	Unit, plus  the	 interface
     // headers, exceed the interface MTU. The type is interface{} with range:
     // 0..2147483647.
-    Rsvpresvfwdtspecmaxtu interface{}
+    RsvpResvFwdTSpecMaxTU interface{}
 
     // If the requested  service  is  Guaranteed,	as specified   by 
     // rsvpResvService,  this  is  the clearing  rate   that   is	being	requested.
     // Otherwise,  it is zero, or the agent	may return noSuchValue. The type is
     // interface{} with range: 0..2147483647. Units are bytes per second.
-    Rsvpresvfwdrspecrate interface{}
+    RsvpResvFwdRSpecRate interface{}
 
     // If the requested  service  is  Guaranteed,	as specified by	rsvpResvService,
     // this is the delay slack.  Otherwise, it is zero, or the agent may return
     // noSuchValue. The type is interface{} with range: -2147483648..2147483647.
     // Units are microseconds.
-    Rsvpresvfwdrspecslack interface{}
+    RsvpResvFwdRSpecSlack interface{}
 
     // The	  interval   between   refresh	  messages advertised to the Previous
     // Hop. The type is interface{} with range: 0..2147483647.
-    Rsvpresvfwdinterval interface{}
+    RsvpResvFwdInterval interface{}
 
     // The	contents of the	scope object, displayed	as an  uninterpreted  string 
     // of octets, including the object header.  In the absence of  such	an object,
     // this	should be of zero length. The type is string with length: 0..65536.
-    Rsvpresvfwdscope interface{}
+    RsvpResvFwdScope interface{}
 
     // If TRUE, a reservation shared among	senders	is requested.  If FALSE, a
     // reservation specific	to this	sender is requested. The type is bool.
-    Rsvpresvfwdshared interface{}
+    RsvpResvFwdShared interface{}
 
     // If TRUE, individual	senders	are  listed  using Filter  Specifications.  
     // If	FALSE, all senders are implicitly selected.  The Scope Object will
     // contain  a list of senders that need	to receive this	reservation request 
     // for  the  purpose	of routing the RESV message. The type is bool.
-    Rsvpresvfwdexplicit interface{}
+    RsvpResvFwdExplicit interface{}
 
     // If TRUE, the node believes that  the  next	IP hop	is  an	RSVP  hop.   If	
     // FALSE,	 the  node believes that the next IP hop  may  not  be	an RSVP	hop.
     // The type is bool.
-    Rsvpresvfwdrsvphop interface{}
+    RsvpResvFwdRSVPHop interface{}
 
     // The	time of	the last change	in  this  request; This	 is  either  the first
     // time it was sent	or the	time  of  the  most   recent   change	in
     // parameters. The type is interface{} with range: 0..4294967295.
-    Rsvpresvfwdlastchange interface{}
+    RsvpResvFwdLastChange interface{}
 
     // The	contents of the	policy	object,	 displayed as an uninterpreted string of
     // octets, including the object header.  In the absence of  such	an object,
     // this	should be of zero length. The type is string with length: 0..65536.
-    Rsvpresvfwdpolicy interface{}
+    RsvpResvFwdPolicy interface{}
 
     // 'active' for all active RESV  messages.   This object may be used to
     // delete	RESV information. The type is RowStatus.
-    Rsvpresvfwdstatus interface{}
+    RsvpResvFwdStatus interface{}
 
     // The	TTL value in the RSVP header that was last received. The type is
     // interface{} with range: 0..255.
-    Rsvpresvfwdttl interface{}
+    RsvpResvFwdTTL interface{}
 
     // The	flow ID	that this receiver  is	using,	if this	 is  an	IPv6 session. The
     // type is interface{} with range: 0..16777215.
-    Rsvpresvfwdflowid interface{}
+    RsvpResvFwdFlowId interface{}
 }
 
-func (rsvpresvfwdentry *RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry) GetEntityData() *types.CommonEntityData {
-    rsvpresvfwdentry.EntityData.YFilter = rsvpresvfwdentry.YFilter
-    rsvpresvfwdentry.EntityData.YangName = "rsvpResvFwdEntry"
-    rsvpresvfwdentry.EntityData.BundleName = "cisco_ios_xe"
-    rsvpresvfwdentry.EntityData.ParentYangName = "rsvpResvFwdTable"
-    rsvpresvfwdentry.EntityData.SegmentPath = "rsvpResvFwdEntry" + "[rsvpSessionNumber='" + fmt.Sprintf("%v", rsvpresvfwdentry.Rsvpsessionnumber) + "']" + "[rsvpResvFwdNumber='" + fmt.Sprintf("%v", rsvpresvfwdentry.Rsvpresvfwdnumber) + "']"
-    rsvpresvfwdentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rsvpresvfwdentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rsvpresvfwdentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rsvpResvFwdEntry *RSVPMIB_RsvpResvFwdTable_RsvpResvFwdEntry) GetEntityData() *types.CommonEntityData {
+    rsvpResvFwdEntry.EntityData.YFilter = rsvpResvFwdEntry.YFilter
+    rsvpResvFwdEntry.EntityData.YangName = "rsvpResvFwdEntry"
+    rsvpResvFwdEntry.EntityData.BundleName = "cisco_ios_xe"
+    rsvpResvFwdEntry.EntityData.ParentYangName = "rsvpResvFwdTable"
+    rsvpResvFwdEntry.EntityData.SegmentPath = "rsvpResvFwdEntry" + types.AddKeyToken(rsvpResvFwdEntry.RsvpSessionNumber, "rsvpSessionNumber") + types.AddKeyToken(rsvpResvFwdEntry.RsvpResvFwdNumber, "rsvpResvFwdNumber")
+    rsvpResvFwdEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpResvFwdEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpResvFwdEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rsvpresvfwdentry.EntityData.Children = make(map[string]types.YChild)
-    rsvpresvfwdentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rsvpresvfwdentry.EntityData.Leafs["rsvpSessionNumber"] = types.YLeaf{"Rsvpsessionnumber", rsvpresvfwdentry.Rsvpsessionnumber}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdNumber"] = types.YLeaf{"Rsvpresvfwdnumber", rsvpresvfwdentry.Rsvpresvfwdnumber}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdType"] = types.YLeaf{"Rsvpresvfwdtype", rsvpresvfwdentry.Rsvpresvfwdtype}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdDestAddr"] = types.YLeaf{"Rsvpresvfwddestaddr", rsvpresvfwdentry.Rsvpresvfwddestaddr}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdSenderAddr"] = types.YLeaf{"Rsvpresvfwdsenderaddr", rsvpresvfwdentry.Rsvpresvfwdsenderaddr}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdDestAddrLength"] = types.YLeaf{"Rsvpresvfwddestaddrlength", rsvpresvfwdentry.Rsvpresvfwddestaddrlength}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdSenderAddrLength"] = types.YLeaf{"Rsvpresvfwdsenderaddrlength", rsvpresvfwdentry.Rsvpresvfwdsenderaddrlength}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdProtocol"] = types.YLeaf{"Rsvpresvfwdprotocol", rsvpresvfwdentry.Rsvpresvfwdprotocol}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdDestPort"] = types.YLeaf{"Rsvpresvfwddestport", rsvpresvfwdentry.Rsvpresvfwddestport}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdPort"] = types.YLeaf{"Rsvpresvfwdport", rsvpresvfwdentry.Rsvpresvfwdport}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdHopAddr"] = types.YLeaf{"Rsvpresvfwdhopaddr", rsvpresvfwdentry.Rsvpresvfwdhopaddr}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdHopLih"] = types.YLeaf{"Rsvpresvfwdhoplih", rsvpresvfwdentry.Rsvpresvfwdhoplih}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdInterface"] = types.YLeaf{"Rsvpresvfwdinterface", rsvpresvfwdentry.Rsvpresvfwdinterface}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdService"] = types.YLeaf{"Rsvpresvfwdservice", rsvpresvfwdentry.Rsvpresvfwdservice}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdTSpecRate"] = types.YLeaf{"Rsvpresvfwdtspecrate", rsvpresvfwdentry.Rsvpresvfwdtspecrate}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdTSpecPeakRate"] = types.YLeaf{"Rsvpresvfwdtspecpeakrate", rsvpresvfwdentry.Rsvpresvfwdtspecpeakrate}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdTSpecBurst"] = types.YLeaf{"Rsvpresvfwdtspecburst", rsvpresvfwdentry.Rsvpresvfwdtspecburst}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdTSpecMinTU"] = types.YLeaf{"Rsvpresvfwdtspecmintu", rsvpresvfwdentry.Rsvpresvfwdtspecmintu}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdTSpecMaxTU"] = types.YLeaf{"Rsvpresvfwdtspecmaxtu", rsvpresvfwdentry.Rsvpresvfwdtspecmaxtu}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdRSpecRate"] = types.YLeaf{"Rsvpresvfwdrspecrate", rsvpresvfwdentry.Rsvpresvfwdrspecrate}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdRSpecSlack"] = types.YLeaf{"Rsvpresvfwdrspecslack", rsvpresvfwdentry.Rsvpresvfwdrspecslack}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdInterval"] = types.YLeaf{"Rsvpresvfwdinterval", rsvpresvfwdentry.Rsvpresvfwdinterval}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdScope"] = types.YLeaf{"Rsvpresvfwdscope", rsvpresvfwdentry.Rsvpresvfwdscope}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdShared"] = types.YLeaf{"Rsvpresvfwdshared", rsvpresvfwdentry.Rsvpresvfwdshared}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdExplicit"] = types.YLeaf{"Rsvpresvfwdexplicit", rsvpresvfwdentry.Rsvpresvfwdexplicit}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdRSVPHop"] = types.YLeaf{"Rsvpresvfwdrsvphop", rsvpresvfwdentry.Rsvpresvfwdrsvphop}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdLastChange"] = types.YLeaf{"Rsvpresvfwdlastchange", rsvpresvfwdentry.Rsvpresvfwdlastchange}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdPolicy"] = types.YLeaf{"Rsvpresvfwdpolicy", rsvpresvfwdentry.Rsvpresvfwdpolicy}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdStatus"] = types.YLeaf{"Rsvpresvfwdstatus", rsvpresvfwdentry.Rsvpresvfwdstatus}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdTTL"] = types.YLeaf{"Rsvpresvfwdttl", rsvpresvfwdentry.Rsvpresvfwdttl}
-    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdFlowId"] = types.YLeaf{"Rsvpresvfwdflowid", rsvpresvfwdentry.Rsvpresvfwdflowid}
-    return &(rsvpresvfwdentry.EntityData)
+    rsvpResvFwdEntry.EntityData.Children = types.NewOrderedMap()
+    rsvpResvFwdEntry.EntityData.Leafs = types.NewOrderedMap()
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpSessionNumber", types.YLeaf{"RsvpSessionNumber", rsvpResvFwdEntry.RsvpSessionNumber})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdNumber", types.YLeaf{"RsvpResvFwdNumber", rsvpResvFwdEntry.RsvpResvFwdNumber})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdType", types.YLeaf{"RsvpResvFwdType", rsvpResvFwdEntry.RsvpResvFwdType})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdDestAddr", types.YLeaf{"RsvpResvFwdDestAddr", rsvpResvFwdEntry.RsvpResvFwdDestAddr})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdSenderAddr", types.YLeaf{"RsvpResvFwdSenderAddr", rsvpResvFwdEntry.RsvpResvFwdSenderAddr})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdDestAddrLength", types.YLeaf{"RsvpResvFwdDestAddrLength", rsvpResvFwdEntry.RsvpResvFwdDestAddrLength})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdSenderAddrLength", types.YLeaf{"RsvpResvFwdSenderAddrLength", rsvpResvFwdEntry.RsvpResvFwdSenderAddrLength})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdProtocol", types.YLeaf{"RsvpResvFwdProtocol", rsvpResvFwdEntry.RsvpResvFwdProtocol})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdDestPort", types.YLeaf{"RsvpResvFwdDestPort", rsvpResvFwdEntry.RsvpResvFwdDestPort})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdPort", types.YLeaf{"RsvpResvFwdPort", rsvpResvFwdEntry.RsvpResvFwdPort})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdHopAddr", types.YLeaf{"RsvpResvFwdHopAddr", rsvpResvFwdEntry.RsvpResvFwdHopAddr})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdHopLih", types.YLeaf{"RsvpResvFwdHopLih", rsvpResvFwdEntry.RsvpResvFwdHopLih})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdInterface", types.YLeaf{"RsvpResvFwdInterface", rsvpResvFwdEntry.RsvpResvFwdInterface})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdService", types.YLeaf{"RsvpResvFwdService", rsvpResvFwdEntry.RsvpResvFwdService})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdTSpecRate", types.YLeaf{"RsvpResvFwdTSpecRate", rsvpResvFwdEntry.RsvpResvFwdTSpecRate})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdTSpecPeakRate", types.YLeaf{"RsvpResvFwdTSpecPeakRate", rsvpResvFwdEntry.RsvpResvFwdTSpecPeakRate})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdTSpecBurst", types.YLeaf{"RsvpResvFwdTSpecBurst", rsvpResvFwdEntry.RsvpResvFwdTSpecBurst})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdTSpecMinTU", types.YLeaf{"RsvpResvFwdTSpecMinTU", rsvpResvFwdEntry.RsvpResvFwdTSpecMinTU})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdTSpecMaxTU", types.YLeaf{"RsvpResvFwdTSpecMaxTU", rsvpResvFwdEntry.RsvpResvFwdTSpecMaxTU})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdRSpecRate", types.YLeaf{"RsvpResvFwdRSpecRate", rsvpResvFwdEntry.RsvpResvFwdRSpecRate})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdRSpecSlack", types.YLeaf{"RsvpResvFwdRSpecSlack", rsvpResvFwdEntry.RsvpResvFwdRSpecSlack})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdInterval", types.YLeaf{"RsvpResvFwdInterval", rsvpResvFwdEntry.RsvpResvFwdInterval})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdScope", types.YLeaf{"RsvpResvFwdScope", rsvpResvFwdEntry.RsvpResvFwdScope})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdShared", types.YLeaf{"RsvpResvFwdShared", rsvpResvFwdEntry.RsvpResvFwdShared})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdExplicit", types.YLeaf{"RsvpResvFwdExplicit", rsvpResvFwdEntry.RsvpResvFwdExplicit})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdRSVPHop", types.YLeaf{"RsvpResvFwdRSVPHop", rsvpResvFwdEntry.RsvpResvFwdRSVPHop})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdLastChange", types.YLeaf{"RsvpResvFwdLastChange", rsvpResvFwdEntry.RsvpResvFwdLastChange})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdPolicy", types.YLeaf{"RsvpResvFwdPolicy", rsvpResvFwdEntry.RsvpResvFwdPolicy})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdStatus", types.YLeaf{"RsvpResvFwdStatus", rsvpResvFwdEntry.RsvpResvFwdStatus})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdTTL", types.YLeaf{"RsvpResvFwdTTL", rsvpResvFwdEntry.RsvpResvFwdTTL})
+    rsvpResvFwdEntry.EntityData.Leafs.Append("rsvpResvFwdFlowId", types.YLeaf{"RsvpResvFwdFlowId", rsvpResvFwdEntry.RsvpResvFwdFlowId})
+
+    rsvpResvFwdEntry.EntityData.YListKeys = []string {"RsvpSessionNumber", "RsvpResvFwdNumber"}
+
+    return &(rsvpResvFwdEntry.EntityData)
 }
 
-// RSVPMIB_Rsvpiftable
+// RSVPMIB_RsvpIfTable
 // The	RSVP-specific attributes of  the  system's
 // interfaces.
-type RSVPMIB_Rsvpiftable struct {
+type RSVPMIB_RsvpIfTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The	RSVP-specific attributes of  the  a  given interface. The type is slice
-    // of RSVPMIB_Rsvpiftable_Rsvpifentry.
-    Rsvpifentry []RSVPMIB_Rsvpiftable_Rsvpifentry
+    // of RSVPMIB_RsvpIfTable_RsvpIfEntry.
+    RsvpIfEntry []*RSVPMIB_RsvpIfTable_RsvpIfEntry
 }
 
-func (rsvpiftable *RSVPMIB_Rsvpiftable) GetEntityData() *types.CommonEntityData {
-    rsvpiftable.EntityData.YFilter = rsvpiftable.YFilter
-    rsvpiftable.EntityData.YangName = "rsvpIfTable"
-    rsvpiftable.EntityData.BundleName = "cisco_ios_xe"
-    rsvpiftable.EntityData.ParentYangName = "RSVP-MIB"
-    rsvpiftable.EntityData.SegmentPath = "rsvpIfTable"
-    rsvpiftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rsvpiftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rsvpiftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rsvpIfTable *RSVPMIB_RsvpIfTable) GetEntityData() *types.CommonEntityData {
+    rsvpIfTable.EntityData.YFilter = rsvpIfTable.YFilter
+    rsvpIfTable.EntityData.YangName = "rsvpIfTable"
+    rsvpIfTable.EntityData.BundleName = "cisco_ios_xe"
+    rsvpIfTable.EntityData.ParentYangName = "RSVP-MIB"
+    rsvpIfTable.EntityData.SegmentPath = "rsvpIfTable"
+    rsvpIfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpIfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpIfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rsvpiftable.EntityData.Children = make(map[string]types.YChild)
-    rsvpiftable.EntityData.Children["rsvpIfEntry"] = types.YChild{"Rsvpifentry", nil}
-    for i := range rsvpiftable.Rsvpifentry {
-        rsvpiftable.EntityData.Children[types.GetSegmentPath(&rsvpiftable.Rsvpifentry[i])] = types.YChild{"Rsvpifentry", &rsvpiftable.Rsvpifentry[i]}
+    rsvpIfTable.EntityData.Children = types.NewOrderedMap()
+    rsvpIfTable.EntityData.Children.Append("rsvpIfEntry", types.YChild{"RsvpIfEntry", nil})
+    for i := range rsvpIfTable.RsvpIfEntry {
+        rsvpIfTable.EntityData.Children.Append(types.GetSegmentPath(rsvpIfTable.RsvpIfEntry[i]), types.YChild{"RsvpIfEntry", rsvpIfTable.RsvpIfEntry[i]})
     }
-    rsvpiftable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rsvpiftable.EntityData)
+    rsvpIfTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rsvpIfTable.EntityData.YListKeys = []string {}
+
+    return &(rsvpIfTable.EntityData)
 }
 
-// RSVPMIB_Rsvpiftable_Rsvpifentry
+// RSVPMIB_RsvpIfTable_RsvpIfEntry
 // The	RSVP-specific attributes of  the  a  given
 // interface.
-type RSVPMIB_Rsvpiftable_Rsvpifentry struct {
+type RSVPMIB_RsvpIfTable_RsvpIfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // The	number of neighbors perceived to be  using only	the RSVP UDP
     // Encapsulation. The type is interface{} with range: 0..4294967295.
-    Rsvpifudpnbrs interface{}
+    RsvpIfUdpNbrs interface{}
 
     // The	number of neighbors perceived to be  using only	the RSVP IP
     // Encapsulation. The type is interface{} with range: 0..4294967295.
-    Rsvpifipnbrs interface{}
+    RsvpIfIpNbrs interface{}
 
     // The	number of neighbors  currently	perceived; this	 will  exceed
     // rsvpIfIpNbrs + rsvpIfUdpNbrs by  the  number   of	  neighbors   using  
     // both encapsulations. The type is interface{} with range: 0..4294967295.
-    Rsvpifnbrs interface{}
+    RsvpIfNbrs interface{}
 
     // The	value of the RSVP value	'Kb', Which is the minimum   number   of 
     // refresh  intervals  that blockade state will last once entered. The type is
     // interface{} with range: 1..65536.
-    Rsvpifrefreshblockademultiple interface{}
+    RsvpIfRefreshBlockadeMultiple interface{}
 
     // The	value of the RSVP value	'K', which is  the number  of  refresh
     // intervals which must elapse (minimum) before a PATH or RESV  message  which
     // is not being	refreshed will be aged out. The type is interface{} with
     // range: 1..65536.
-    Rsvpifrefreshmultiple interface{}
+    RsvpIfRefreshMultiple interface{}
 
     // The	value of SEND_TTL used on  this	 interface for	messages  this node
     // originates.	 If set	to zero, the node determines  the  TTL	via  other
     // means. The type is interface{} with range: 0..255.
-    Rsvpifttl interface{}
+    RsvpIfTTL interface{}
 
     // The	value of the RSVP value	'R', which is  the minimum period between
     // refresh transmissions	of a given PATH	or RESV	message	on an interface. The
     // type is interface{} with range: 0..2147483647. Units are milliseconds.
-    Rsvpifrefreshinterval interface{}
+    RsvpIfRefreshInterval interface{}
 
     // The	approximate period from	the time  a  route is  changed	to  the	 time  a
     // resulting message appears on the interface. The type is interface{} with
     // range: 0..2147483647. Units are hundredths	of a second.
-    Rsvpifroutedelay interface{}
+    RsvpIfRouteDelay interface{}
 
     // If TRUE, RSVP is enabled  on  this	Interface. If	FALSE,	 RSVP	is  not	
     // enabled  on  this interface. The type is bool.
-    Rsvpifenabled interface{}
+    RsvpIfEnabled interface{}
 
     // If TRUE, manual configuration forces  the  use of  UDP  encapsulation  on 
     // the  interface.	If FALSE,  UDP	encapsulation  is  only	 used	if
     // rsvpIfUdpNbrs is not	zero. The type is bool.
-    Rsvpifudprequired interface{}
+    RsvpIfUdpRequired interface{}
 
     // 'active' on	interfaces that	are configured for RSVP. The type is RowStatus.
-    Rsvpifstatus interface{}
+    RsvpIfStatus interface{}
 }
 
-func (rsvpifentry *RSVPMIB_Rsvpiftable_Rsvpifentry) GetEntityData() *types.CommonEntityData {
-    rsvpifentry.EntityData.YFilter = rsvpifentry.YFilter
-    rsvpifentry.EntityData.YangName = "rsvpIfEntry"
-    rsvpifentry.EntityData.BundleName = "cisco_ios_xe"
-    rsvpifentry.EntityData.ParentYangName = "rsvpIfTable"
-    rsvpifentry.EntityData.SegmentPath = "rsvpIfEntry" + "[ifIndex='" + fmt.Sprintf("%v", rsvpifentry.Ifindex) + "']"
-    rsvpifentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rsvpifentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rsvpifentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rsvpIfEntry *RSVPMIB_RsvpIfTable_RsvpIfEntry) GetEntityData() *types.CommonEntityData {
+    rsvpIfEntry.EntityData.YFilter = rsvpIfEntry.YFilter
+    rsvpIfEntry.EntityData.YangName = "rsvpIfEntry"
+    rsvpIfEntry.EntityData.BundleName = "cisco_ios_xe"
+    rsvpIfEntry.EntityData.ParentYangName = "rsvpIfTable"
+    rsvpIfEntry.EntityData.SegmentPath = "rsvpIfEntry" + types.AddKeyToken(rsvpIfEntry.IfIndex, "ifIndex")
+    rsvpIfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpIfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpIfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rsvpifentry.EntityData.Children = make(map[string]types.YChild)
-    rsvpifentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rsvpifentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", rsvpifentry.Ifindex}
-    rsvpifentry.EntityData.Leafs["rsvpIfUdpNbrs"] = types.YLeaf{"Rsvpifudpnbrs", rsvpifentry.Rsvpifudpnbrs}
-    rsvpifentry.EntityData.Leafs["rsvpIfIpNbrs"] = types.YLeaf{"Rsvpifipnbrs", rsvpifentry.Rsvpifipnbrs}
-    rsvpifentry.EntityData.Leafs["rsvpIfNbrs"] = types.YLeaf{"Rsvpifnbrs", rsvpifentry.Rsvpifnbrs}
-    rsvpifentry.EntityData.Leafs["rsvpIfRefreshBlockadeMultiple"] = types.YLeaf{"Rsvpifrefreshblockademultiple", rsvpifentry.Rsvpifrefreshblockademultiple}
-    rsvpifentry.EntityData.Leafs["rsvpIfRefreshMultiple"] = types.YLeaf{"Rsvpifrefreshmultiple", rsvpifentry.Rsvpifrefreshmultiple}
-    rsvpifentry.EntityData.Leafs["rsvpIfTTL"] = types.YLeaf{"Rsvpifttl", rsvpifentry.Rsvpifttl}
-    rsvpifentry.EntityData.Leafs["rsvpIfRefreshInterval"] = types.YLeaf{"Rsvpifrefreshinterval", rsvpifentry.Rsvpifrefreshinterval}
-    rsvpifentry.EntityData.Leafs["rsvpIfRouteDelay"] = types.YLeaf{"Rsvpifroutedelay", rsvpifentry.Rsvpifroutedelay}
-    rsvpifentry.EntityData.Leafs["rsvpIfEnabled"] = types.YLeaf{"Rsvpifenabled", rsvpifentry.Rsvpifenabled}
-    rsvpifentry.EntityData.Leafs["rsvpIfUdpRequired"] = types.YLeaf{"Rsvpifudprequired", rsvpifentry.Rsvpifudprequired}
-    rsvpifentry.EntityData.Leafs["rsvpIfStatus"] = types.YLeaf{"Rsvpifstatus", rsvpifentry.Rsvpifstatus}
-    return &(rsvpifentry.EntityData)
+    rsvpIfEntry.EntityData.Children = types.NewOrderedMap()
+    rsvpIfEntry.EntityData.Leafs = types.NewOrderedMap()
+    rsvpIfEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", rsvpIfEntry.IfIndex})
+    rsvpIfEntry.EntityData.Leafs.Append("rsvpIfUdpNbrs", types.YLeaf{"RsvpIfUdpNbrs", rsvpIfEntry.RsvpIfUdpNbrs})
+    rsvpIfEntry.EntityData.Leafs.Append("rsvpIfIpNbrs", types.YLeaf{"RsvpIfIpNbrs", rsvpIfEntry.RsvpIfIpNbrs})
+    rsvpIfEntry.EntityData.Leafs.Append("rsvpIfNbrs", types.YLeaf{"RsvpIfNbrs", rsvpIfEntry.RsvpIfNbrs})
+    rsvpIfEntry.EntityData.Leafs.Append("rsvpIfRefreshBlockadeMultiple", types.YLeaf{"RsvpIfRefreshBlockadeMultiple", rsvpIfEntry.RsvpIfRefreshBlockadeMultiple})
+    rsvpIfEntry.EntityData.Leafs.Append("rsvpIfRefreshMultiple", types.YLeaf{"RsvpIfRefreshMultiple", rsvpIfEntry.RsvpIfRefreshMultiple})
+    rsvpIfEntry.EntityData.Leafs.Append("rsvpIfTTL", types.YLeaf{"RsvpIfTTL", rsvpIfEntry.RsvpIfTTL})
+    rsvpIfEntry.EntityData.Leafs.Append("rsvpIfRefreshInterval", types.YLeaf{"RsvpIfRefreshInterval", rsvpIfEntry.RsvpIfRefreshInterval})
+    rsvpIfEntry.EntityData.Leafs.Append("rsvpIfRouteDelay", types.YLeaf{"RsvpIfRouteDelay", rsvpIfEntry.RsvpIfRouteDelay})
+    rsvpIfEntry.EntityData.Leafs.Append("rsvpIfEnabled", types.YLeaf{"RsvpIfEnabled", rsvpIfEntry.RsvpIfEnabled})
+    rsvpIfEntry.EntityData.Leafs.Append("rsvpIfUdpRequired", types.YLeaf{"RsvpIfUdpRequired", rsvpIfEntry.RsvpIfUdpRequired})
+    rsvpIfEntry.EntityData.Leafs.Append("rsvpIfStatus", types.YLeaf{"RsvpIfStatus", rsvpIfEntry.RsvpIfStatus})
+
+    rsvpIfEntry.EntityData.YListKeys = []string {"IfIndex"}
+
+    return &(rsvpIfEntry.EntityData)
 }
 
-// RSVPMIB_Rsvpnbrtable
+// RSVPMIB_RsvpNbrTable
 // Information	describing  the	 Neighbors  of	an
 // RSVP	system.
-type RSVPMIB_Rsvpnbrtable struct {
+type RSVPMIB_RsvpNbrTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information	  describing   a    single    RSVP Neighbor. The type is slice
-    // of RSVPMIB_Rsvpnbrtable_Rsvpnbrentry.
-    Rsvpnbrentry []RSVPMIB_Rsvpnbrtable_Rsvpnbrentry
+    // of RSVPMIB_RsvpNbrTable_RsvpNbrEntry.
+    RsvpNbrEntry []*RSVPMIB_RsvpNbrTable_RsvpNbrEntry
 }
 
-func (rsvpnbrtable *RSVPMIB_Rsvpnbrtable) GetEntityData() *types.CommonEntityData {
-    rsvpnbrtable.EntityData.YFilter = rsvpnbrtable.YFilter
-    rsvpnbrtable.EntityData.YangName = "rsvpNbrTable"
-    rsvpnbrtable.EntityData.BundleName = "cisco_ios_xe"
-    rsvpnbrtable.EntityData.ParentYangName = "RSVP-MIB"
-    rsvpnbrtable.EntityData.SegmentPath = "rsvpNbrTable"
-    rsvpnbrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rsvpnbrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rsvpnbrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rsvpNbrTable *RSVPMIB_RsvpNbrTable) GetEntityData() *types.CommonEntityData {
+    rsvpNbrTable.EntityData.YFilter = rsvpNbrTable.YFilter
+    rsvpNbrTable.EntityData.YangName = "rsvpNbrTable"
+    rsvpNbrTable.EntityData.BundleName = "cisco_ios_xe"
+    rsvpNbrTable.EntityData.ParentYangName = "RSVP-MIB"
+    rsvpNbrTable.EntityData.SegmentPath = "rsvpNbrTable"
+    rsvpNbrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpNbrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpNbrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rsvpnbrtable.EntityData.Children = make(map[string]types.YChild)
-    rsvpnbrtable.EntityData.Children["rsvpNbrEntry"] = types.YChild{"Rsvpnbrentry", nil}
-    for i := range rsvpnbrtable.Rsvpnbrentry {
-        rsvpnbrtable.EntityData.Children[types.GetSegmentPath(&rsvpnbrtable.Rsvpnbrentry[i])] = types.YChild{"Rsvpnbrentry", &rsvpnbrtable.Rsvpnbrentry[i]}
+    rsvpNbrTable.EntityData.Children = types.NewOrderedMap()
+    rsvpNbrTable.EntityData.Children.Append("rsvpNbrEntry", types.YChild{"RsvpNbrEntry", nil})
+    for i := range rsvpNbrTable.RsvpNbrEntry {
+        rsvpNbrTable.EntityData.Children.Append(types.GetSegmentPath(rsvpNbrTable.RsvpNbrEntry[i]), types.YChild{"RsvpNbrEntry", rsvpNbrTable.RsvpNbrEntry[i]})
     }
-    rsvpnbrtable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(rsvpnbrtable.EntityData)
+    rsvpNbrTable.EntityData.Leafs = types.NewOrderedMap()
+
+    rsvpNbrTable.EntityData.YListKeys = []string {}
+
+    return &(rsvpNbrTable.EntityData)
 }
 
-// RSVPMIB_Rsvpnbrtable_Rsvpnbrentry
+// RSVPMIB_RsvpNbrTable_RsvpNbrEntry
 // Information	  describing   a    single    RSVP
 // Neighbor.
-type RSVPMIB_Rsvpnbrtable_Rsvpnbrentry struct {
+type RSVPMIB_RsvpNbrTable_RsvpNbrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The	IP4 or IP6 Address used	by this	 neighbor.
     // This	 object	 may not be changed when the value of the RowStatus object is
     // 'active'. The type is string with length: 4..16.
-    Rsvpnbraddress interface{}
+    RsvpNbrAddress interface{}
 
     // The	  encapsulation	  being	  used	 by   this neighbor. The type is
     // RsvpEncapsulation.
-    Rsvpnbrprotocol interface{}
+    RsvpNbrProtocol interface{}
 
     // 'active' for all neighbors.	 This  object  may be	used   to  configure 
     // neighbors.   In  the presence   of   configured	 neighbors,    the
     // implementation  may	(but  is  not required to) limit the  set  of  valid 
     // neighbors	 to  those configured. The type is RowStatus.
-    Rsvpnbrstatus interface{}
+    RsvpNbrStatus interface{}
 }
 
-func (rsvpnbrentry *RSVPMIB_Rsvpnbrtable_Rsvpnbrentry) GetEntityData() *types.CommonEntityData {
-    rsvpnbrentry.EntityData.YFilter = rsvpnbrentry.YFilter
-    rsvpnbrentry.EntityData.YangName = "rsvpNbrEntry"
-    rsvpnbrentry.EntityData.BundleName = "cisco_ios_xe"
-    rsvpnbrentry.EntityData.ParentYangName = "rsvpNbrTable"
-    rsvpnbrentry.EntityData.SegmentPath = "rsvpNbrEntry" + "[ifIndex='" + fmt.Sprintf("%v", rsvpnbrentry.Ifindex) + "']" + "[rsvpNbrAddress='" + fmt.Sprintf("%v", rsvpnbrentry.Rsvpnbraddress) + "']"
-    rsvpnbrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    rsvpnbrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    rsvpnbrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (rsvpNbrEntry *RSVPMIB_RsvpNbrTable_RsvpNbrEntry) GetEntityData() *types.CommonEntityData {
+    rsvpNbrEntry.EntityData.YFilter = rsvpNbrEntry.YFilter
+    rsvpNbrEntry.EntityData.YangName = "rsvpNbrEntry"
+    rsvpNbrEntry.EntityData.BundleName = "cisco_ios_xe"
+    rsvpNbrEntry.EntityData.ParentYangName = "rsvpNbrTable"
+    rsvpNbrEntry.EntityData.SegmentPath = "rsvpNbrEntry" + types.AddKeyToken(rsvpNbrEntry.IfIndex, "ifIndex") + types.AddKeyToken(rsvpNbrEntry.RsvpNbrAddress, "rsvpNbrAddress")
+    rsvpNbrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpNbrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpNbrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    rsvpnbrentry.EntityData.Children = make(map[string]types.YChild)
-    rsvpnbrentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    rsvpnbrentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", rsvpnbrentry.Ifindex}
-    rsvpnbrentry.EntityData.Leafs["rsvpNbrAddress"] = types.YLeaf{"Rsvpnbraddress", rsvpnbrentry.Rsvpnbraddress}
-    rsvpnbrentry.EntityData.Leafs["rsvpNbrProtocol"] = types.YLeaf{"Rsvpnbrprotocol", rsvpnbrentry.Rsvpnbrprotocol}
-    rsvpnbrentry.EntityData.Leafs["rsvpNbrStatus"] = types.YLeaf{"Rsvpnbrstatus", rsvpnbrentry.Rsvpnbrstatus}
-    return &(rsvpnbrentry.EntityData)
+    rsvpNbrEntry.EntityData.Children = types.NewOrderedMap()
+    rsvpNbrEntry.EntityData.Leafs = types.NewOrderedMap()
+    rsvpNbrEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", rsvpNbrEntry.IfIndex})
+    rsvpNbrEntry.EntityData.Leafs.Append("rsvpNbrAddress", types.YLeaf{"RsvpNbrAddress", rsvpNbrEntry.RsvpNbrAddress})
+    rsvpNbrEntry.EntityData.Leafs.Append("rsvpNbrProtocol", types.YLeaf{"RsvpNbrProtocol", rsvpNbrEntry.RsvpNbrProtocol})
+    rsvpNbrEntry.EntityData.Leafs.Append("rsvpNbrStatus", types.YLeaf{"RsvpNbrStatus", rsvpNbrEntry.RsvpNbrStatus})
+
+    rsvpNbrEntry.EntityData.YListKeys = []string {"IfIndex", "RsvpNbrAddress"}
+
+    return &(rsvpNbrEntry.EntityData)
 }
 

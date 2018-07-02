@@ -51,72 +51,72 @@ type CISCOATMPVCTRAPEXTNMIB struct {
     // A table indicating all VCLs for which there is an active row in the
     // atmVclTable having an atmVclConnKind value of `pvc' and atmVclOperStatus to
     // have changed in the last corresponding PVC notification.
-    Catmcurstatchangepvcltable CISCOATMPVCTRAPEXTNMIB_Catmcurstatchangepvcltable
+    CatmCurStatChangePVclTable CISCOATMPVCTRAPEXTNMIB_CatmCurStatChangePVclTable
 
     // A table indicating more than one VCLs in a consecutive  range and for each
     // VCL there is an active row in the  atmVclTable having an atmVclConnKind
     // value of `pvc' and atmVclOperStatus to have changed in the same direction
     // in the last corresponding PVC notification .
-    Catmstatuschangepvclrangetable CISCOATMPVCTRAPEXTNMIB_Catmstatuschangepvclrangetable
+    CatmStatusChangePVclRangeTable CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVclRangeTable
 
     // A table indicating more than one VCLs in a consecutive  range and for each
     // VCL there is an active row in the  atmVclTable having an atmVclConnKind
     // value of `pvc' and atmVclOperStatus to have changed due to segment CC 
     // failure in the same direction in the last PVC  corresponding notification .
-    Catmsegccstatuschpvclrangetable CISCOATMPVCTRAPEXTNMIB_Catmsegccstatuschpvclrangetable
+    CatmSegCCStatusChPVclRangeTable CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusChPVclRangeTable
 
     // A table indicating more than one VCLs in a consecutive  range and for each
     // VCL there is an active row in the  atmVclTable having an atmVclConnKind
     // value of `pvc' and atmVclOperStatus to have changed due to End CC failure
     // in the same direction in the last PVC notification  interval.
-    Catmendccstatuschpvclrangetable CISCOATMPVCTRAPEXTNMIB_Catmendccstatuschpvclrangetable
+    CatmEndCCStatusChPVclRangeTable CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusChPVclRangeTable
 
     // A table indicating more than one VCLs in a consecutive  range and for each
     // VCL there is an active row in the  atmVclTable having an atmVclConnKind
     // value of `pvc' and atmVclOperStatus to have changed due to AIS/RDI failure
     // in the same direction in the last corresponding PVC  notification.
-    Catmaisrdistatuschpvclrangetable CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatuschpvclrangetable
+    CatmAISRDIStatusChPVclRangeTable CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusChPVclRangeTable
 
     // A table indicating more than one VCLs in a consecutive  range and for each
     // VCL there is an active row in the  atmVclTable having an atmVclConnKind
     // value of `pvc' and atmVclOperStatus to have detected as Down in the last
     // corresponding PVC notification .
-    Catmdownpvclrangetable CISCOATMPVCTRAPEXTNMIB_Catmdownpvclrangetable
+    CatmDownPVclRangeTable CISCOATMPVCTRAPEXTNMIB_CatmDownPVclRangeTable
 
     // A table indicating all VCLs for which there is an active row in the
     // atmVclTable having an atmVclConnKind value of `pvc' and atmVclOperStatus to
     // have changed to UP in the last corresponding PVC notification .
-    Catmcurstatusuppvcltable CISCOATMPVCTRAPEXTNMIB_Catmcurstatusuppvcltable
+    CatmCurStatusUpPVclTable CISCOATMPVCTRAPEXTNMIB_CatmCurStatusUpPVclTable
 
     // A table indicating more than one VCLs in a consecutive  range and for each
     // VCL there is an active row in the  atmVclTable having an atmVclConnKind
     // value of `pvc' and loopback OAM status to have detected as recovered in the
     // last corresponding PVC notification .
-    Catmstatusuppvclrangetable CISCOATMPVCTRAPEXTNMIB_Catmstatusuppvclrangetable
+    CatmStatusUpPVclRangeTable CISCOATMPVCTRAPEXTNMIB_CatmStatusUpPVclRangeTable
 
     // A table indicating more than one VCLs in a consecutive range and for each
     // VCL there is an active row in the atmVclTable having an atmVclConnKind
     // value of `pvc' and Segment CC OAM status to have detected as recovered in
     // the last corresponding PVC notification .
-    Catmsegccstatusuppvclrangetable CISCOATMPVCTRAPEXTNMIB_Catmsegccstatusuppvclrangetable
+    CatmSegCCStatusUpPVclRangeTable CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusUpPVclRangeTable
 
     // A table indicating more than one VCLs in a consecutive range and for each
     // VCL there is an active row in the atmVclTable having an atmVclConnKind
     // value of `pvc' and End-to-End CC OAM status to have detected as recovered
     // in the last corresponding PVC notification .
-    Catmendccstatusuppvclrangetable CISCOATMPVCTRAPEXTNMIB_Catmendccstatusuppvclrangetable
+    CatmEndCCStatusUpPVclRangeTable CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusUpPVclRangeTable
 
     // A table indicating more than one VCLs in a consecutive range and for each
     // VCL there is an active row in the atmVclTable having an atmVclConnKind
     // value of `pvc' and AISRDI OAM status to have detected as recovered in the
     // last corresponding PVC notification .
-    Catmaisrdistatusuppvclrangetable CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatusuppvclrangetable
+    CatmAISRDIStatusUpPVclRangeTable CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusUpPVclRangeTable
 
     // A table indicating more than one VCLs in a consecutive  range and for each
     // VCL there is an active row in the  atmVclTable having an atmVclConnKind
     // value of `pvc' and atmVclOperStatus to have detected as Up in the last
     // corresponding PVC notification .
-    Catmuppvclrangetable CISCOATMPVCTRAPEXTNMIB_Catmuppvclrangetable
+    CatmUpPVclRangeTable CISCOATMPVCTRAPEXTNMIB_CatmUpPVclRangeTable
 }
 
 func (cISCOATMPVCTRAPEXTNMIB *CISCOATMPVCTRAPEXTNMIB) GetEntityData() *types.CommonEntityData {
@@ -129,29 +129,32 @@ func (cISCOATMPVCTRAPEXTNMIB *CISCOATMPVCTRAPEXTNMIB) GetEntityData() *types.Com
     cISCOATMPVCTRAPEXTNMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOATMPVCTRAPEXTNMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    cISCOATMPVCTRAPEXTNMIB.EntityData.Children = make(map[string]types.YChild)
-    cISCOATMPVCTRAPEXTNMIB.EntityData.Children["catmCurStatChangePVclTable"] = types.YChild{"Catmcurstatchangepvcltable", &cISCOATMPVCTRAPEXTNMIB.Catmcurstatchangepvcltable}
-    cISCOATMPVCTRAPEXTNMIB.EntityData.Children["catmStatusChangePVclRangeTable"] = types.YChild{"Catmstatuschangepvclrangetable", &cISCOATMPVCTRAPEXTNMIB.Catmstatuschangepvclrangetable}
-    cISCOATMPVCTRAPEXTNMIB.EntityData.Children["catmSegCCStatusChPVclRangeTable"] = types.YChild{"Catmsegccstatuschpvclrangetable", &cISCOATMPVCTRAPEXTNMIB.Catmsegccstatuschpvclrangetable}
-    cISCOATMPVCTRAPEXTNMIB.EntityData.Children["catmEndCCStatusChPVclRangeTable"] = types.YChild{"Catmendccstatuschpvclrangetable", &cISCOATMPVCTRAPEXTNMIB.Catmendccstatuschpvclrangetable}
-    cISCOATMPVCTRAPEXTNMIB.EntityData.Children["catmAISRDIStatusChPVclRangeTable"] = types.YChild{"Catmaisrdistatuschpvclrangetable", &cISCOATMPVCTRAPEXTNMIB.Catmaisrdistatuschpvclrangetable}
-    cISCOATMPVCTRAPEXTNMIB.EntityData.Children["catmDownPVclRangeTable"] = types.YChild{"Catmdownpvclrangetable", &cISCOATMPVCTRAPEXTNMIB.Catmdownpvclrangetable}
-    cISCOATMPVCTRAPEXTNMIB.EntityData.Children["catmCurStatusUpPVclTable"] = types.YChild{"Catmcurstatusuppvcltable", &cISCOATMPVCTRAPEXTNMIB.Catmcurstatusuppvcltable}
-    cISCOATMPVCTRAPEXTNMIB.EntityData.Children["catmStatusUpPVclRangeTable"] = types.YChild{"Catmstatusuppvclrangetable", &cISCOATMPVCTRAPEXTNMIB.Catmstatusuppvclrangetable}
-    cISCOATMPVCTRAPEXTNMIB.EntityData.Children["catmSegCCStatusUpPVclRangeTable"] = types.YChild{"Catmsegccstatusuppvclrangetable", &cISCOATMPVCTRAPEXTNMIB.Catmsegccstatusuppvclrangetable}
-    cISCOATMPVCTRAPEXTNMIB.EntityData.Children["catmEndCCStatusUpPVclRangeTable"] = types.YChild{"Catmendccstatusuppvclrangetable", &cISCOATMPVCTRAPEXTNMIB.Catmendccstatusuppvclrangetable}
-    cISCOATMPVCTRAPEXTNMIB.EntityData.Children["catmAISRDIStatusUpPVclRangeTable"] = types.YChild{"Catmaisrdistatusuppvclrangetable", &cISCOATMPVCTRAPEXTNMIB.Catmaisrdistatusuppvclrangetable}
-    cISCOATMPVCTRAPEXTNMIB.EntityData.Children["catmUpPVclRangeTable"] = types.YChild{"Catmuppvclrangetable", &cISCOATMPVCTRAPEXTNMIB.Catmuppvclrangetable}
-    cISCOATMPVCTRAPEXTNMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    cISCOATMPVCTRAPEXTNMIB.EntityData.Children = types.NewOrderedMap()
+    cISCOATMPVCTRAPEXTNMIB.EntityData.Children.Append("catmCurStatChangePVclTable", types.YChild{"CatmCurStatChangePVclTable", &cISCOATMPVCTRAPEXTNMIB.CatmCurStatChangePVclTable})
+    cISCOATMPVCTRAPEXTNMIB.EntityData.Children.Append("catmStatusChangePVclRangeTable", types.YChild{"CatmStatusChangePVclRangeTable", &cISCOATMPVCTRAPEXTNMIB.CatmStatusChangePVclRangeTable})
+    cISCOATMPVCTRAPEXTNMIB.EntityData.Children.Append("catmSegCCStatusChPVclRangeTable", types.YChild{"CatmSegCCStatusChPVclRangeTable", &cISCOATMPVCTRAPEXTNMIB.CatmSegCCStatusChPVclRangeTable})
+    cISCOATMPVCTRAPEXTNMIB.EntityData.Children.Append("catmEndCCStatusChPVclRangeTable", types.YChild{"CatmEndCCStatusChPVclRangeTable", &cISCOATMPVCTRAPEXTNMIB.CatmEndCCStatusChPVclRangeTable})
+    cISCOATMPVCTRAPEXTNMIB.EntityData.Children.Append("catmAISRDIStatusChPVclRangeTable", types.YChild{"CatmAISRDIStatusChPVclRangeTable", &cISCOATMPVCTRAPEXTNMIB.CatmAISRDIStatusChPVclRangeTable})
+    cISCOATMPVCTRAPEXTNMIB.EntityData.Children.Append("catmDownPVclRangeTable", types.YChild{"CatmDownPVclRangeTable", &cISCOATMPVCTRAPEXTNMIB.CatmDownPVclRangeTable})
+    cISCOATMPVCTRAPEXTNMIB.EntityData.Children.Append("catmCurStatusUpPVclTable", types.YChild{"CatmCurStatusUpPVclTable", &cISCOATMPVCTRAPEXTNMIB.CatmCurStatusUpPVclTable})
+    cISCOATMPVCTRAPEXTNMIB.EntityData.Children.Append("catmStatusUpPVclRangeTable", types.YChild{"CatmStatusUpPVclRangeTable", &cISCOATMPVCTRAPEXTNMIB.CatmStatusUpPVclRangeTable})
+    cISCOATMPVCTRAPEXTNMIB.EntityData.Children.Append("catmSegCCStatusUpPVclRangeTable", types.YChild{"CatmSegCCStatusUpPVclRangeTable", &cISCOATMPVCTRAPEXTNMIB.CatmSegCCStatusUpPVclRangeTable})
+    cISCOATMPVCTRAPEXTNMIB.EntityData.Children.Append("catmEndCCStatusUpPVclRangeTable", types.YChild{"CatmEndCCStatusUpPVclRangeTable", &cISCOATMPVCTRAPEXTNMIB.CatmEndCCStatusUpPVclRangeTable})
+    cISCOATMPVCTRAPEXTNMIB.EntityData.Children.Append("catmAISRDIStatusUpPVclRangeTable", types.YChild{"CatmAISRDIStatusUpPVclRangeTable", &cISCOATMPVCTRAPEXTNMIB.CatmAISRDIStatusUpPVclRangeTable})
+    cISCOATMPVCTRAPEXTNMIB.EntityData.Children.Append("catmUpPVclRangeTable", types.YChild{"CatmUpPVclRangeTable", &cISCOATMPVCTRAPEXTNMIB.CatmUpPVclRangeTable})
+    cISCOATMPVCTRAPEXTNMIB.EntityData.Leafs = types.NewOrderedMap()
+
+    cISCOATMPVCTRAPEXTNMIB.EntityData.YListKeys = []string {}
+
     return &(cISCOATMPVCTRAPEXTNMIB.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmcurstatchangepvcltable
+// CISCOATMPVCTRAPEXTNMIB_CatmCurStatChangePVclTable
 // A table indicating all VCLs for which there is an
 // active row in the atmVclTable having an atmVclConnKind
 // value of `pvc' and atmVclOperStatus to have changed in the
 // last corresponding PVC notification.
-type CISCOATMPVCTRAPEXTNMIB_Catmcurstatchangepvcltable struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmCurStatChangePVclTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -159,164 +162,170 @@ type CISCOATMPVCTRAPEXTNMIB_Catmcurstatchangepvcltable struct {
     // in the atmVclTable having an atmVclConnKind value of `pvc' and
     // atmVclOperStatus to have changed in the last corresponding PVC
     // notification. The type is slice of
-    // CISCOATMPVCTRAPEXTNMIB_Catmcurstatchangepvcltable_Catmcurstatchangepvclentry.
-    Catmcurstatchangepvclentry []CISCOATMPVCTRAPEXTNMIB_Catmcurstatchangepvcltable_Catmcurstatchangepvclentry
+    // CISCOATMPVCTRAPEXTNMIB_CatmCurStatChangePVclTable_CatmCurStatChangePVclEntry.
+    CatmCurStatChangePVclEntry []*CISCOATMPVCTRAPEXTNMIB_CatmCurStatChangePVclTable_CatmCurStatChangePVclEntry
 }
 
-func (catmcurstatchangepvcltable *CISCOATMPVCTRAPEXTNMIB_Catmcurstatchangepvcltable) GetEntityData() *types.CommonEntityData {
-    catmcurstatchangepvcltable.EntityData.YFilter = catmcurstatchangepvcltable.YFilter
-    catmcurstatchangepvcltable.EntityData.YangName = "catmCurStatChangePVclTable"
-    catmcurstatchangepvcltable.EntityData.BundleName = "cisco_ios_xe"
-    catmcurstatchangepvcltable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
-    catmcurstatchangepvcltable.EntityData.SegmentPath = "catmCurStatChangePVclTable"
-    catmcurstatchangepvcltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmcurstatchangepvcltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmcurstatchangepvcltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmCurStatChangePVclTable *CISCOATMPVCTRAPEXTNMIB_CatmCurStatChangePVclTable) GetEntityData() *types.CommonEntityData {
+    catmCurStatChangePVclTable.EntityData.YFilter = catmCurStatChangePVclTable.YFilter
+    catmCurStatChangePVclTable.EntityData.YangName = "catmCurStatChangePVclTable"
+    catmCurStatChangePVclTable.EntityData.BundleName = "cisco_ios_xe"
+    catmCurStatChangePVclTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+    catmCurStatChangePVclTable.EntityData.SegmentPath = "catmCurStatChangePVclTable"
+    catmCurStatChangePVclTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmCurStatChangePVclTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmCurStatChangePVclTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmcurstatchangepvcltable.EntityData.Children = make(map[string]types.YChild)
-    catmcurstatchangepvcltable.EntityData.Children["catmCurStatChangePVclEntry"] = types.YChild{"Catmcurstatchangepvclentry", nil}
-    for i := range catmcurstatchangepvcltable.Catmcurstatchangepvclentry {
-        catmcurstatchangepvcltable.EntityData.Children[types.GetSegmentPath(&catmcurstatchangepvcltable.Catmcurstatchangepvclentry[i])] = types.YChild{"Catmcurstatchangepvclentry", &catmcurstatchangepvcltable.Catmcurstatchangepvclentry[i]}
+    catmCurStatChangePVclTable.EntityData.Children = types.NewOrderedMap()
+    catmCurStatChangePVclTable.EntityData.Children.Append("catmCurStatChangePVclEntry", types.YChild{"CatmCurStatChangePVclEntry", nil})
+    for i := range catmCurStatChangePVclTable.CatmCurStatChangePVclEntry {
+        catmCurStatChangePVclTable.EntityData.Children.Append(types.GetSegmentPath(catmCurStatChangePVclTable.CatmCurStatChangePVclEntry[i]), types.YChild{"CatmCurStatChangePVclEntry", catmCurStatChangePVclTable.CatmCurStatChangePVclEntry[i]})
     }
-    catmcurstatchangepvcltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(catmcurstatchangepvcltable.EntityData)
+    catmCurStatChangePVclTable.EntityData.Leafs = types.NewOrderedMap()
+
+    catmCurStatChangePVclTable.EntityData.YListKeys = []string {}
+
+    return &(catmCurStatChangePVclTable.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmcurstatchangepvcltable_Catmcurstatchangepvclentry
+// CISCOATMPVCTRAPEXTNMIB_CatmCurStatChangePVclTable_CatmCurStatChangePVclEntry
 // Each entry in the table represents a VCL for which
 // there is an active row in the atmVclTable having an
 // atmVclConnKind value of `pvc' and atmVclOperStatus
 // to have changed in the last corresponding PVC notification.
-type CISCOATMPVCTRAPEXTNMIB_Catmcurstatchangepvcltable_Catmcurstatchangepvclentry struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmCurStatChangePVclTable_CatmCurStatChangePVclEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvpi
-    Atmvclvpi interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVpi
+    AtmVclVpi interface{}
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvci
-    Atmvclvci interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVci
+    AtmVclVci interface{}
 
     // The number of state transitions that has happened  on this PVCL in the last
     // corresponding notification. The type is interface{} with range:
     // 0..4294967295.
-    Catmpvclstatustransition interface{}
+    CatmPVclStatusTransition interface{}
 
     // The time stamp at which this PVCL changed state for the first time in  the
     // last corresponding notification. The type is interface{} with range:
     // 0..4294967295.
-    Catmpvclstatuschangestart interface{}
+    CatmPVclStatusChangeStart interface{}
 
     // The time stamp of the last state change of this PVCL in the last
     // corresponding notification. The type is interface{} with range:
     // 0..4294967295.
-    Catmpvclstatuschangeend interface{}
+    CatmPVclStatusChangeEnd interface{}
 
     // The number of state transitions that has happened  on this PVCL in the last
     // corresponding notification due to Segment CC OAM failure. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclsegccstatustransition interface{}
+    CatmPVclSegCCStatusTransition interface{}
 
     // The time stamp at which this PVCL changed state for the first time in  the
     // last corresponding notification due to Segment CC OAM failure. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclsegccstatuschangestart interface{}
+    CatmPVclSegCCStatusChangeStart interface{}
 
     // The time stamp of the last state change of this PVCL in the last
     // corresponding notification due to Segment CC OAM failure. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclsegccstatuschangeend interface{}
+    CatmPVclSegCCStatusChangeEnd interface{}
 
     // The number of state transitions that has happened  on this PVCL in the last
     // corresponding notification due to End CC OAM failure. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclendccstatustransition interface{}
+    CatmPVclEndCCStatusTransition interface{}
 
     // The time stamp at which this PVCL changed state for the first time in  the
     // last corresponding notification due to End CC OAM failure. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclendccstatuschangestart interface{}
+    CatmPVclEndCCStatusChangeStart interface{}
 
     // The time stamp of the last state change of this PVCL in the last
     // corresponding notification due to End CC OAM failure. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclendccstatuschangeend interface{}
+    CatmPVclEndCCStatusChangeEnd interface{}
 
     // The number of state transitions that has happened  on this PVCL in the last
     // corresponding notification due to AIS RDI OAM failure. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclaisrdistatustransition interface{}
+    CatmPVclAISRDIStatusTransition interface{}
 
     // The time stamp at which this PVCL changed state for the first time in  the
     // last corresponding notification due to AIS RDI OAM failure. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclaisrdistatuschangestart interface{}
+    CatmPVclAISRDIStatusChangeStart interface{}
 
     // The time stamp of the last state change of this PVCL in the last
     // corresponding notification due to AIS RDI OAM failure. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclaisrdistatuschangeend interface{}
+    CatmPVclAISRDIStatusChangeEnd interface{}
 
     // The time stamp at which this PVCL changed state to DOWN last time in the
     // last corresponding notification . The type is interface{} with range:
     // 0..4294967295.
-    Catmpvclcurfailtime interface{}
+    CatmPVclCurFailTime interface{}
 
     // The time stamp at which this PVCL changed state to UP last time in the
     // previous corresponding notification . The type is interface{} with range:
     // 0..4294967295.
-    Catmpvclprevrecovertime interface{}
+    CatmPVclPrevRecoverTime interface{}
 
     // Type of OAM failure. The type is CatmOAMFailureType.
-    Catmpvclfailurereason interface{}
+    CatmPVclFailureReason interface{}
 }
 
-func (catmcurstatchangepvclentry *CISCOATMPVCTRAPEXTNMIB_Catmcurstatchangepvcltable_Catmcurstatchangepvclentry) GetEntityData() *types.CommonEntityData {
-    catmcurstatchangepvclentry.EntityData.YFilter = catmcurstatchangepvclentry.YFilter
-    catmcurstatchangepvclentry.EntityData.YangName = "catmCurStatChangePVclEntry"
-    catmcurstatchangepvclentry.EntityData.BundleName = "cisco_ios_xe"
-    catmcurstatchangepvclentry.EntityData.ParentYangName = "catmCurStatChangePVclTable"
-    catmcurstatchangepvclentry.EntityData.SegmentPath = "catmCurStatChangePVclEntry" + "[ifIndex='" + fmt.Sprintf("%v", catmcurstatchangepvclentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", catmcurstatchangepvclentry.Atmvclvpi) + "']" + "[atmVclVci='" + fmt.Sprintf("%v", catmcurstatchangepvclentry.Atmvclvci) + "']"
-    catmcurstatchangepvclentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmcurstatchangepvclentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmcurstatchangepvclentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmCurStatChangePVclEntry *CISCOATMPVCTRAPEXTNMIB_CatmCurStatChangePVclTable_CatmCurStatChangePVclEntry) GetEntityData() *types.CommonEntityData {
+    catmCurStatChangePVclEntry.EntityData.YFilter = catmCurStatChangePVclEntry.YFilter
+    catmCurStatChangePVclEntry.EntityData.YangName = "catmCurStatChangePVclEntry"
+    catmCurStatChangePVclEntry.EntityData.BundleName = "cisco_ios_xe"
+    catmCurStatChangePVclEntry.EntityData.ParentYangName = "catmCurStatChangePVclTable"
+    catmCurStatChangePVclEntry.EntityData.SegmentPath = "catmCurStatChangePVclEntry" + types.AddKeyToken(catmCurStatChangePVclEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmCurStatChangePVclEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmCurStatChangePVclEntry.AtmVclVci, "atmVclVci")
+    catmCurStatChangePVclEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmCurStatChangePVclEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmCurStatChangePVclEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmcurstatchangepvclentry.EntityData.Children = make(map[string]types.YChild)
-    catmcurstatchangepvclentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    catmcurstatchangepvclentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", catmcurstatchangepvclentry.Ifindex}
-    catmcurstatchangepvclentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", catmcurstatchangepvclentry.Atmvclvpi}
-    catmcurstatchangepvclentry.EntityData.Leafs["atmVclVci"] = types.YLeaf{"Atmvclvci", catmcurstatchangepvclentry.Atmvclvci}
-    catmcurstatchangepvclentry.EntityData.Leafs["catmPVclStatusTransition"] = types.YLeaf{"Catmpvclstatustransition", catmcurstatchangepvclentry.Catmpvclstatustransition}
-    catmcurstatchangepvclentry.EntityData.Leafs["catmPVclStatusChangeStart"] = types.YLeaf{"Catmpvclstatuschangestart", catmcurstatchangepvclentry.Catmpvclstatuschangestart}
-    catmcurstatchangepvclentry.EntityData.Leafs["catmPVclStatusChangeEnd"] = types.YLeaf{"Catmpvclstatuschangeend", catmcurstatchangepvclentry.Catmpvclstatuschangeend}
-    catmcurstatchangepvclentry.EntityData.Leafs["catmPVclSegCCStatusTransition"] = types.YLeaf{"Catmpvclsegccstatustransition", catmcurstatchangepvclentry.Catmpvclsegccstatustransition}
-    catmcurstatchangepvclentry.EntityData.Leafs["catmPVclSegCCStatusChangeStart"] = types.YLeaf{"Catmpvclsegccstatuschangestart", catmcurstatchangepvclentry.Catmpvclsegccstatuschangestart}
-    catmcurstatchangepvclentry.EntityData.Leafs["catmPVclSegCCStatusChangeEnd"] = types.YLeaf{"Catmpvclsegccstatuschangeend", catmcurstatchangepvclentry.Catmpvclsegccstatuschangeend}
-    catmcurstatchangepvclentry.EntityData.Leafs["catmPVclEndCCStatusTransition"] = types.YLeaf{"Catmpvclendccstatustransition", catmcurstatchangepvclentry.Catmpvclendccstatustransition}
-    catmcurstatchangepvclentry.EntityData.Leafs["catmPVclEndCCStatusChangeStart"] = types.YLeaf{"Catmpvclendccstatuschangestart", catmcurstatchangepvclentry.Catmpvclendccstatuschangestart}
-    catmcurstatchangepvclentry.EntityData.Leafs["catmPVclEndCCStatusChangeEnd"] = types.YLeaf{"Catmpvclendccstatuschangeend", catmcurstatchangepvclentry.Catmpvclendccstatuschangeend}
-    catmcurstatchangepvclentry.EntityData.Leafs["catmPVclAISRDIStatusTransition"] = types.YLeaf{"Catmpvclaisrdistatustransition", catmcurstatchangepvclentry.Catmpvclaisrdistatustransition}
-    catmcurstatchangepvclentry.EntityData.Leafs["catmPVclAISRDIStatusChangeStart"] = types.YLeaf{"Catmpvclaisrdistatuschangestart", catmcurstatchangepvclentry.Catmpvclaisrdistatuschangestart}
-    catmcurstatchangepvclentry.EntityData.Leafs["catmPVclAISRDIStatusChangeEnd"] = types.YLeaf{"Catmpvclaisrdistatuschangeend", catmcurstatchangepvclentry.Catmpvclaisrdistatuschangeend}
-    catmcurstatchangepvclentry.EntityData.Leafs["catmPVclCurFailTime"] = types.YLeaf{"Catmpvclcurfailtime", catmcurstatchangepvclentry.Catmpvclcurfailtime}
-    catmcurstatchangepvclentry.EntityData.Leafs["catmPVclPrevRecoverTime"] = types.YLeaf{"Catmpvclprevrecovertime", catmcurstatchangepvclentry.Catmpvclprevrecovertime}
-    catmcurstatchangepvclentry.EntityData.Leafs["catmPVclFailureReason"] = types.YLeaf{"Catmpvclfailurereason", catmcurstatchangepvclentry.Catmpvclfailurereason}
-    return &(catmcurstatchangepvclentry.EntityData)
+    catmCurStatChangePVclEntry.EntityData.Children = types.NewOrderedMap()
+    catmCurStatChangePVclEntry.EntityData.Leafs = types.NewOrderedMap()
+    catmCurStatChangePVclEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", catmCurStatChangePVclEntry.IfIndex})
+    catmCurStatChangePVclEntry.EntityData.Leafs.Append("atmVclVpi", types.YLeaf{"AtmVclVpi", catmCurStatChangePVclEntry.AtmVclVpi})
+    catmCurStatChangePVclEntry.EntityData.Leafs.Append("atmVclVci", types.YLeaf{"AtmVclVci", catmCurStatChangePVclEntry.AtmVclVci})
+    catmCurStatChangePVclEntry.EntityData.Leafs.Append("catmPVclStatusTransition", types.YLeaf{"CatmPVclStatusTransition", catmCurStatChangePVclEntry.CatmPVclStatusTransition})
+    catmCurStatChangePVclEntry.EntityData.Leafs.Append("catmPVclStatusChangeStart", types.YLeaf{"CatmPVclStatusChangeStart", catmCurStatChangePVclEntry.CatmPVclStatusChangeStart})
+    catmCurStatChangePVclEntry.EntityData.Leafs.Append("catmPVclStatusChangeEnd", types.YLeaf{"CatmPVclStatusChangeEnd", catmCurStatChangePVclEntry.CatmPVclStatusChangeEnd})
+    catmCurStatChangePVclEntry.EntityData.Leafs.Append("catmPVclSegCCStatusTransition", types.YLeaf{"CatmPVclSegCCStatusTransition", catmCurStatChangePVclEntry.CatmPVclSegCCStatusTransition})
+    catmCurStatChangePVclEntry.EntityData.Leafs.Append("catmPVclSegCCStatusChangeStart", types.YLeaf{"CatmPVclSegCCStatusChangeStart", catmCurStatChangePVclEntry.CatmPVclSegCCStatusChangeStart})
+    catmCurStatChangePVclEntry.EntityData.Leafs.Append("catmPVclSegCCStatusChangeEnd", types.YLeaf{"CatmPVclSegCCStatusChangeEnd", catmCurStatChangePVclEntry.CatmPVclSegCCStatusChangeEnd})
+    catmCurStatChangePVclEntry.EntityData.Leafs.Append("catmPVclEndCCStatusTransition", types.YLeaf{"CatmPVclEndCCStatusTransition", catmCurStatChangePVclEntry.CatmPVclEndCCStatusTransition})
+    catmCurStatChangePVclEntry.EntityData.Leafs.Append("catmPVclEndCCStatusChangeStart", types.YLeaf{"CatmPVclEndCCStatusChangeStart", catmCurStatChangePVclEntry.CatmPVclEndCCStatusChangeStart})
+    catmCurStatChangePVclEntry.EntityData.Leafs.Append("catmPVclEndCCStatusChangeEnd", types.YLeaf{"CatmPVclEndCCStatusChangeEnd", catmCurStatChangePVclEntry.CatmPVclEndCCStatusChangeEnd})
+    catmCurStatChangePVclEntry.EntityData.Leafs.Append("catmPVclAISRDIStatusTransition", types.YLeaf{"CatmPVclAISRDIStatusTransition", catmCurStatChangePVclEntry.CatmPVclAISRDIStatusTransition})
+    catmCurStatChangePVclEntry.EntityData.Leafs.Append("catmPVclAISRDIStatusChangeStart", types.YLeaf{"CatmPVclAISRDIStatusChangeStart", catmCurStatChangePVclEntry.CatmPVclAISRDIStatusChangeStart})
+    catmCurStatChangePVclEntry.EntityData.Leafs.Append("catmPVclAISRDIStatusChangeEnd", types.YLeaf{"CatmPVclAISRDIStatusChangeEnd", catmCurStatChangePVclEntry.CatmPVclAISRDIStatusChangeEnd})
+    catmCurStatChangePVclEntry.EntityData.Leafs.Append("catmPVclCurFailTime", types.YLeaf{"CatmPVclCurFailTime", catmCurStatChangePVclEntry.CatmPVclCurFailTime})
+    catmCurStatChangePVclEntry.EntityData.Leafs.Append("catmPVclPrevRecoverTime", types.YLeaf{"CatmPVclPrevRecoverTime", catmCurStatChangePVclEntry.CatmPVclPrevRecoverTime})
+    catmCurStatChangePVclEntry.EntityData.Leafs.Append("catmPVclFailureReason", types.YLeaf{"CatmPVclFailureReason", catmCurStatChangePVclEntry.CatmPVclFailureReason})
+
+    catmCurStatChangePVclEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVclVpi", "AtmVclVci"}
+
+    return &(catmCurStatChangePVclEntry.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmstatuschangepvclrangetable
+// CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVclRangeTable
 // A table indicating more than one VCLs in a consecutive 
 // range and for each VCL there is an active row in the 
 // atmVclTable having an atmVclConnKind value of `pvc'
 // and atmVclOperStatus to have changed in the same
 // direction in the last corresponding PVC notification .
-type CISCOATMPVCTRAPEXTNMIB_Catmstatuschangepvclrangetable struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVclRangeTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -324,103 +333,109 @@ type CISCOATMPVCTRAPEXTNMIB_Catmstatuschangepvclrangetable struct {
     // is an active row in the atmVclTable having an atmVclConnKind value of 'pvc'
     // and atmVclOperStatus to have changed in the same direction in the last
     // notification  interval. The type is slice of
-    // CISCOATMPVCTRAPEXTNMIB_Catmstatuschangepvclrangetable_Catmstatuschangepvclrangeentry.
-    Catmstatuschangepvclrangeentry []CISCOATMPVCTRAPEXTNMIB_Catmstatuschangepvclrangetable_Catmstatuschangepvclrangeentry
+    // CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVclRangeTable_CatmStatusChangePVclRangeEntry.
+    CatmStatusChangePVclRangeEntry []*CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVclRangeTable_CatmStatusChangePVclRangeEntry
 }
 
-func (catmstatuschangepvclrangetable *CISCOATMPVCTRAPEXTNMIB_Catmstatuschangepvclrangetable) GetEntityData() *types.CommonEntityData {
-    catmstatuschangepvclrangetable.EntityData.YFilter = catmstatuschangepvclrangetable.YFilter
-    catmstatuschangepvclrangetable.EntityData.YangName = "catmStatusChangePVclRangeTable"
-    catmstatuschangepvclrangetable.EntityData.BundleName = "cisco_ios_xe"
-    catmstatuschangepvclrangetable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
-    catmstatuschangepvclrangetable.EntityData.SegmentPath = "catmStatusChangePVclRangeTable"
-    catmstatuschangepvclrangetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmstatuschangepvclrangetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmstatuschangepvclrangetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmStatusChangePVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVclRangeTable) GetEntityData() *types.CommonEntityData {
+    catmStatusChangePVclRangeTable.EntityData.YFilter = catmStatusChangePVclRangeTable.YFilter
+    catmStatusChangePVclRangeTable.EntityData.YangName = "catmStatusChangePVclRangeTable"
+    catmStatusChangePVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
+    catmStatusChangePVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+    catmStatusChangePVclRangeTable.EntityData.SegmentPath = "catmStatusChangePVclRangeTable"
+    catmStatusChangePVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmStatusChangePVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmStatusChangePVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmstatuschangepvclrangetable.EntityData.Children = make(map[string]types.YChild)
-    catmstatuschangepvclrangetable.EntityData.Children["catmStatusChangePVclRangeEntry"] = types.YChild{"Catmstatuschangepvclrangeentry", nil}
-    for i := range catmstatuschangepvclrangetable.Catmstatuschangepvclrangeentry {
-        catmstatuschangepvclrangetable.EntityData.Children[types.GetSegmentPath(&catmstatuschangepvclrangetable.Catmstatuschangepvclrangeentry[i])] = types.YChild{"Catmstatuschangepvclrangeentry", &catmstatuschangepvclrangetable.Catmstatuschangepvclrangeentry[i]}
+    catmStatusChangePVclRangeTable.EntityData.Children = types.NewOrderedMap()
+    catmStatusChangePVclRangeTable.EntityData.Children.Append("catmStatusChangePVclRangeEntry", types.YChild{"CatmStatusChangePVclRangeEntry", nil})
+    for i := range catmStatusChangePVclRangeTable.CatmStatusChangePVclRangeEntry {
+        catmStatusChangePVclRangeTable.EntityData.Children.Append(types.GetSegmentPath(catmStatusChangePVclRangeTable.CatmStatusChangePVclRangeEntry[i]), types.YChild{"CatmStatusChangePVclRangeEntry", catmStatusChangePVclRangeTable.CatmStatusChangePVclRangeEntry[i]})
     }
-    catmstatuschangepvclrangetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(catmstatuschangepvclrangetable.EntityData)
+    catmStatusChangePVclRangeTable.EntityData.Leafs = types.NewOrderedMap()
+
+    catmStatusChangePVclRangeTable.EntityData.YListKeys = []string {}
+
+    return &(catmStatusChangePVclRangeTable.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmstatuschangepvclrangetable_Catmstatuschangepvclrangeentry
+// CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVclRangeTable_CatmStatusChangePVclRangeEntry
 // Each entry in this table represents a range of VCLs and 
 // for each VCL there is an active row in the atmVclTable having
 // an atmVclConnKind value of 'pvc' and atmVclOperStatus to have
 // changed in the same direction in the last notification 
 // interval.
-type CISCOATMPVCTRAPEXTNMIB_Catmstatuschangepvclrangetable_Catmstatuschangepvclrangeentry struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVclRangeTable_CatmStatusChangePVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvpi
-    Atmvclvpi interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVpi
+    AtmVclVpi interface{}
 
     // This attribute is a key. Index to represent different ranges, the first
     // range is indexed by value 0, the second by 1 and so on... The type is
     // interface{} with range: 0..65535.
-    Catmstatuschangepvclrangeindex interface{}
+    CatmStatusChangePVclRangeIndex interface{}
 
     // The first PVCL in a range of PVCLs for which the  atmVclOperStatus to have
     // changed in the last  corresponding notification due to Loopback OAM
     // failure. The type is interface{} with range: 0..65536.
-    Catmpvcllowerrangevalue interface{}
+    CatmPVclLowerRangeValue interface{}
 
     // The last PVCL in a range of PVCLs for which the  atmOperStatus to have
     // changed in the last  corresponding notification due to Loopback OAM
     // failure. The type is interface{} with range: 0..65536.
-    Catmpvclhigherrangevalue interface{}
+    CatmPVclHigherRangeValue interface{}
 
     // The time stamp at which the first PVCL in the range changed state in the
     // last corresponding notification due  to Loopback OAM failure. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclrangestatuschangestart interface{}
+    CatmPVclRangeStatusChangeStart interface{}
 
     // The time stamp at which the last PVCL in the range changed state in the
     // last corresponding notification due  to Loopback OAM failure. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclrangestatuschangeend interface{}
+    CatmPVclRangeStatusChangeEnd interface{}
 }
 
-func (catmstatuschangepvclrangeentry *CISCOATMPVCTRAPEXTNMIB_Catmstatuschangepvclrangetable_Catmstatuschangepvclrangeentry) GetEntityData() *types.CommonEntityData {
-    catmstatuschangepvclrangeentry.EntityData.YFilter = catmstatuschangepvclrangeentry.YFilter
-    catmstatuschangepvclrangeentry.EntityData.YangName = "catmStatusChangePVclRangeEntry"
-    catmstatuschangepvclrangeentry.EntityData.BundleName = "cisco_ios_xe"
-    catmstatuschangepvclrangeentry.EntityData.ParentYangName = "catmStatusChangePVclRangeTable"
-    catmstatuschangepvclrangeentry.EntityData.SegmentPath = "catmStatusChangePVclRangeEntry" + "[ifIndex='" + fmt.Sprintf("%v", catmstatuschangepvclrangeentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", catmstatuschangepvclrangeentry.Atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + fmt.Sprintf("%v", catmstatuschangepvclrangeentry.Catmstatuschangepvclrangeindex) + "']"
-    catmstatuschangepvclrangeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmstatuschangepvclrangeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmstatuschangepvclrangeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmStatusChangePVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVclRangeTable_CatmStatusChangePVclRangeEntry) GetEntityData() *types.CommonEntityData {
+    catmStatusChangePVclRangeEntry.EntityData.YFilter = catmStatusChangePVclRangeEntry.YFilter
+    catmStatusChangePVclRangeEntry.EntityData.YangName = "catmStatusChangePVclRangeEntry"
+    catmStatusChangePVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
+    catmStatusChangePVclRangeEntry.EntityData.ParentYangName = "catmStatusChangePVclRangeTable"
+    catmStatusChangePVclRangeEntry.EntityData.SegmentPath = "catmStatusChangePVclRangeEntry" + types.AddKeyToken(catmStatusChangePVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmStatusChangePVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmStatusChangePVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmStatusChangePVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmStatusChangePVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmStatusChangePVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmstatuschangepvclrangeentry.EntityData.Children = make(map[string]types.YChild)
-    catmstatuschangepvclrangeentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    catmstatuschangepvclrangeentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", catmstatuschangepvclrangeentry.Ifindex}
-    catmstatuschangepvclrangeentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", catmstatuschangepvclrangeentry.Atmvclvpi}
-    catmstatuschangepvclrangeentry.EntityData.Leafs["catmStatusChangePVclRangeIndex"] = types.YLeaf{"Catmstatuschangepvclrangeindex", catmstatuschangepvclrangeentry.Catmstatuschangepvclrangeindex}
-    catmstatuschangepvclrangeentry.EntityData.Leafs["catmPVclLowerRangeValue"] = types.YLeaf{"Catmpvcllowerrangevalue", catmstatuschangepvclrangeentry.Catmpvcllowerrangevalue}
-    catmstatuschangepvclrangeentry.EntityData.Leafs["catmPVclHigherRangeValue"] = types.YLeaf{"Catmpvclhigherrangevalue", catmstatuschangepvclrangeentry.Catmpvclhigherrangevalue}
-    catmstatuschangepvclrangeentry.EntityData.Leafs["catmPVclRangeStatusChangeStart"] = types.YLeaf{"Catmpvclrangestatuschangestart", catmstatuschangepvclrangeentry.Catmpvclrangestatuschangestart}
-    catmstatuschangepvclrangeentry.EntityData.Leafs["catmPVclRangeStatusChangeEnd"] = types.YLeaf{"Catmpvclrangestatuschangeend", catmstatuschangepvclrangeentry.Catmpvclrangestatuschangeend}
-    return &(catmstatuschangepvclrangeentry.EntityData)
+    catmStatusChangePVclRangeEntry.EntityData.Children = types.NewOrderedMap()
+    catmStatusChangePVclRangeEntry.EntityData.Leafs = types.NewOrderedMap()
+    catmStatusChangePVclRangeEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", catmStatusChangePVclRangeEntry.IfIndex})
+    catmStatusChangePVclRangeEntry.EntityData.Leafs.Append("atmVclVpi", types.YLeaf{"AtmVclVpi", catmStatusChangePVclRangeEntry.AtmVclVpi})
+    catmStatusChangePVclRangeEntry.EntityData.Leafs.Append("catmStatusChangePVclRangeIndex", types.YLeaf{"CatmStatusChangePVclRangeIndex", catmStatusChangePVclRangeEntry.CatmStatusChangePVclRangeIndex})
+    catmStatusChangePVclRangeEntry.EntityData.Leafs.Append("catmPVclLowerRangeValue", types.YLeaf{"CatmPVclLowerRangeValue", catmStatusChangePVclRangeEntry.CatmPVclLowerRangeValue})
+    catmStatusChangePVclRangeEntry.EntityData.Leafs.Append("catmPVclHigherRangeValue", types.YLeaf{"CatmPVclHigherRangeValue", catmStatusChangePVclRangeEntry.CatmPVclHigherRangeValue})
+    catmStatusChangePVclRangeEntry.EntityData.Leafs.Append("catmPVclRangeStatusChangeStart", types.YLeaf{"CatmPVclRangeStatusChangeStart", catmStatusChangePVclRangeEntry.CatmPVclRangeStatusChangeStart})
+    catmStatusChangePVclRangeEntry.EntityData.Leafs.Append("catmPVclRangeStatusChangeEnd", types.YLeaf{"CatmPVclRangeStatusChangeEnd", catmStatusChangePVclRangeEntry.CatmPVclRangeStatusChangeEnd})
+
+    catmStatusChangePVclRangeEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVclVpi", "CatmStatusChangePVclRangeIndex"}
+
+    return &(catmStatusChangePVclRangeEntry.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmsegccstatuschpvclrangetable
+// CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusChPVclRangeTable
 // A table indicating more than one VCLs in a consecutive 
 // range and for each VCL there is an active row in the 
 // atmVclTable having an atmVclConnKind value of `pvc'
 // and atmVclOperStatus to have changed due to segment CC 
 // failure in the same direction in the last PVC 
 // corresponding notification .
-type CISCOATMPVCTRAPEXTNMIB_Catmsegccstatuschpvclrangetable struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusChPVclRangeTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -428,102 +443,108 @@ type CISCOATMPVCTRAPEXTNMIB_Catmsegccstatuschpvclrangetable struct {
     // is an active row in the atmVclTable having an atmVclConnKind value of 'pvc'
     // and atmVclOperStatus to have changed due to segment CC failure in the same
     // direction  in the last corresponding notification . The type is slice of
-    // CISCOATMPVCTRAPEXTNMIB_Catmsegccstatuschpvclrangetable_Catmsegccstatuschpvclrangeentry.
-    Catmsegccstatuschpvclrangeentry []CISCOATMPVCTRAPEXTNMIB_Catmsegccstatuschpvclrangetable_Catmsegccstatuschpvclrangeentry
+    // CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusChPVclRangeTable_CatmSegCCStatusChPVclRangeEntry.
+    CatmSegCCStatusChPVclRangeEntry []*CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusChPVclRangeTable_CatmSegCCStatusChPVclRangeEntry
 }
 
-func (catmsegccstatuschpvclrangetable *CISCOATMPVCTRAPEXTNMIB_Catmsegccstatuschpvclrangetable) GetEntityData() *types.CommonEntityData {
-    catmsegccstatuschpvclrangetable.EntityData.YFilter = catmsegccstatuschpvclrangetable.YFilter
-    catmsegccstatuschpvclrangetable.EntityData.YangName = "catmSegCCStatusChPVclRangeTable"
-    catmsegccstatuschpvclrangetable.EntityData.BundleName = "cisco_ios_xe"
-    catmsegccstatuschpvclrangetable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
-    catmsegccstatuschpvclrangetable.EntityData.SegmentPath = "catmSegCCStatusChPVclRangeTable"
-    catmsegccstatuschpvclrangetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmsegccstatuschpvclrangetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmsegccstatuschpvclrangetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmSegCCStatusChPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusChPVclRangeTable) GetEntityData() *types.CommonEntityData {
+    catmSegCCStatusChPVclRangeTable.EntityData.YFilter = catmSegCCStatusChPVclRangeTable.YFilter
+    catmSegCCStatusChPVclRangeTable.EntityData.YangName = "catmSegCCStatusChPVclRangeTable"
+    catmSegCCStatusChPVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
+    catmSegCCStatusChPVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+    catmSegCCStatusChPVclRangeTable.EntityData.SegmentPath = "catmSegCCStatusChPVclRangeTable"
+    catmSegCCStatusChPVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmSegCCStatusChPVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmSegCCStatusChPVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmsegccstatuschpvclrangetable.EntityData.Children = make(map[string]types.YChild)
-    catmsegccstatuschpvclrangetable.EntityData.Children["catmSegCCStatusChPVclRangeEntry"] = types.YChild{"Catmsegccstatuschpvclrangeentry", nil}
-    for i := range catmsegccstatuschpvclrangetable.Catmsegccstatuschpvclrangeentry {
-        catmsegccstatuschpvclrangetable.EntityData.Children[types.GetSegmentPath(&catmsegccstatuschpvclrangetable.Catmsegccstatuschpvclrangeentry[i])] = types.YChild{"Catmsegccstatuschpvclrangeentry", &catmsegccstatuschpvclrangetable.Catmsegccstatuschpvclrangeentry[i]}
+    catmSegCCStatusChPVclRangeTable.EntityData.Children = types.NewOrderedMap()
+    catmSegCCStatusChPVclRangeTable.EntityData.Children.Append("catmSegCCStatusChPVclRangeEntry", types.YChild{"CatmSegCCStatusChPVclRangeEntry", nil})
+    for i := range catmSegCCStatusChPVclRangeTable.CatmSegCCStatusChPVclRangeEntry {
+        catmSegCCStatusChPVclRangeTable.EntityData.Children.Append(types.GetSegmentPath(catmSegCCStatusChPVclRangeTable.CatmSegCCStatusChPVclRangeEntry[i]), types.YChild{"CatmSegCCStatusChPVclRangeEntry", catmSegCCStatusChPVclRangeTable.CatmSegCCStatusChPVclRangeEntry[i]})
     }
-    catmsegccstatuschpvclrangetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(catmsegccstatuschpvclrangetable.EntityData)
+    catmSegCCStatusChPVclRangeTable.EntityData.Leafs = types.NewOrderedMap()
+
+    catmSegCCStatusChPVclRangeTable.EntityData.YListKeys = []string {}
+
+    return &(catmSegCCStatusChPVclRangeTable.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmsegccstatuschpvclrangetable_Catmsegccstatuschpvclrangeentry
+// CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusChPVclRangeTable_CatmSegCCStatusChPVclRangeEntry
 // Each entry in this table represents a range of VCLs and 
 // for each VCL there is an active row in the atmVclTable having
 // an atmVclConnKind value of 'pvc' and atmVclOperStatus to have
 // changed due to segment CC failure in the same direction 
 // in the last corresponding notification .
-type CISCOATMPVCTRAPEXTNMIB_Catmsegccstatuschpvclrangetable_Catmsegccstatuschpvclrangeentry struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusChPVclRangeTable_CatmSegCCStatusChPVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvpi
-    Atmvclvpi interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVpi
+    AtmVclVpi interface{}
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
-    // cisco_atm_pvctrap_extn_mib.CISCOATMPVCTRAPEXTNMIB_Catmstatuschangepvclrangetable_Catmstatuschangepvclrangeentry_Catmstatuschangepvclrangeindex
-    Catmstatuschangepvclrangeindex interface{}
+    // cisco_atm_pvctrap_extn_mib.CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVclRangeTable_CatmStatusChangePVclRangeEntry_CatmStatusChangePVclRangeIndex
+    CatmStatusChangePVclRangeIndex interface{}
 
     // The first PVCL in a range of PVCLs for which the  atmVclOperStatus to have
     // changed in the last  corresponding notification due to Segment CC OAM
     // failure. The type is interface{} with range: 0..65536.
-    Catmpvclsegcclowerrangevalue interface{}
+    CatmPVclSegCCLowerRangeValue interface{}
 
     // The last PVCL in a range of PVCLs for which the  atmOperStatus to have
     // changed in the last  corresponding notification due to Segment CC OAM
     // failure. The type is interface{} with range: 0..65536.
-    Catmpvclsegcchigherrangevalue interface{}
+    CatmPVclSegCCHigherRangeValue interface{}
 
     // The time stamp at which the first PVCL in the range changed state in the
     // last corresponding notification due  to Segment CC OAM failure. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclsegccrangestatuschstart interface{}
+    CatmPVclSegCCRangeStatusChStart interface{}
 
     // The time stamp at which the last PVCL in the range changed state in the
     // last corresponding notification due  to Segment CC OAM failure. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclsegccrangestatuschend interface{}
+    CatmPVclSegCCRangeStatusChEnd interface{}
 }
 
-func (catmsegccstatuschpvclrangeentry *CISCOATMPVCTRAPEXTNMIB_Catmsegccstatuschpvclrangetable_Catmsegccstatuschpvclrangeentry) GetEntityData() *types.CommonEntityData {
-    catmsegccstatuschpvclrangeentry.EntityData.YFilter = catmsegccstatuschpvclrangeentry.YFilter
-    catmsegccstatuschpvclrangeentry.EntityData.YangName = "catmSegCCStatusChPVclRangeEntry"
-    catmsegccstatuschpvclrangeentry.EntityData.BundleName = "cisco_ios_xe"
-    catmsegccstatuschpvclrangeentry.EntityData.ParentYangName = "catmSegCCStatusChPVclRangeTable"
-    catmsegccstatuschpvclrangeentry.EntityData.SegmentPath = "catmSegCCStatusChPVclRangeEntry" + "[ifIndex='" + fmt.Sprintf("%v", catmsegccstatuschpvclrangeentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", catmsegccstatuschpvclrangeentry.Atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + fmt.Sprintf("%v", catmsegccstatuschpvclrangeentry.Catmstatuschangepvclrangeindex) + "']"
-    catmsegccstatuschpvclrangeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmsegccstatuschpvclrangeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmsegccstatuschpvclrangeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmSegCCStatusChPVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusChPVclRangeTable_CatmSegCCStatusChPVclRangeEntry) GetEntityData() *types.CommonEntityData {
+    catmSegCCStatusChPVclRangeEntry.EntityData.YFilter = catmSegCCStatusChPVclRangeEntry.YFilter
+    catmSegCCStatusChPVclRangeEntry.EntityData.YangName = "catmSegCCStatusChPVclRangeEntry"
+    catmSegCCStatusChPVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
+    catmSegCCStatusChPVclRangeEntry.EntityData.ParentYangName = "catmSegCCStatusChPVclRangeTable"
+    catmSegCCStatusChPVclRangeEntry.EntityData.SegmentPath = "catmSegCCStatusChPVclRangeEntry" + types.AddKeyToken(catmSegCCStatusChPVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmSegCCStatusChPVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmSegCCStatusChPVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmSegCCStatusChPVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmSegCCStatusChPVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmSegCCStatusChPVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmsegccstatuschpvclrangeentry.EntityData.Children = make(map[string]types.YChild)
-    catmsegccstatuschpvclrangeentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    catmsegccstatuschpvclrangeentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", catmsegccstatuschpvclrangeentry.Ifindex}
-    catmsegccstatuschpvclrangeentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", catmsegccstatuschpvclrangeentry.Atmvclvpi}
-    catmsegccstatuschpvclrangeentry.EntityData.Leafs["catmStatusChangePVclRangeIndex"] = types.YLeaf{"Catmstatuschangepvclrangeindex", catmsegccstatuschpvclrangeentry.Catmstatuschangepvclrangeindex}
-    catmsegccstatuschpvclrangeentry.EntityData.Leafs["catmPVclSegCCLowerRangeValue"] = types.YLeaf{"Catmpvclsegcclowerrangevalue", catmsegccstatuschpvclrangeentry.Catmpvclsegcclowerrangevalue}
-    catmsegccstatuschpvclrangeentry.EntityData.Leafs["catmPVclSegCCHigherRangeValue"] = types.YLeaf{"Catmpvclsegcchigherrangevalue", catmsegccstatuschpvclrangeentry.Catmpvclsegcchigherrangevalue}
-    catmsegccstatuschpvclrangeentry.EntityData.Leafs["catmPVclSegCCRangeStatusChStart"] = types.YLeaf{"Catmpvclsegccrangestatuschstart", catmsegccstatuschpvclrangeentry.Catmpvclsegccrangestatuschstart}
-    catmsegccstatuschpvclrangeentry.EntityData.Leafs["catmPVclSegCCRangeStatusChEnd"] = types.YLeaf{"Catmpvclsegccrangestatuschend", catmsegccstatuschpvclrangeentry.Catmpvclsegccrangestatuschend}
-    return &(catmsegccstatuschpvclrangeentry.EntityData)
+    catmSegCCStatusChPVclRangeEntry.EntityData.Children = types.NewOrderedMap()
+    catmSegCCStatusChPVclRangeEntry.EntityData.Leafs = types.NewOrderedMap()
+    catmSegCCStatusChPVclRangeEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", catmSegCCStatusChPVclRangeEntry.IfIndex})
+    catmSegCCStatusChPVclRangeEntry.EntityData.Leafs.Append("atmVclVpi", types.YLeaf{"AtmVclVpi", catmSegCCStatusChPVclRangeEntry.AtmVclVpi})
+    catmSegCCStatusChPVclRangeEntry.EntityData.Leafs.Append("catmStatusChangePVclRangeIndex", types.YLeaf{"CatmStatusChangePVclRangeIndex", catmSegCCStatusChPVclRangeEntry.CatmStatusChangePVclRangeIndex})
+    catmSegCCStatusChPVclRangeEntry.EntityData.Leafs.Append("catmPVclSegCCLowerRangeValue", types.YLeaf{"CatmPVclSegCCLowerRangeValue", catmSegCCStatusChPVclRangeEntry.CatmPVclSegCCLowerRangeValue})
+    catmSegCCStatusChPVclRangeEntry.EntityData.Leafs.Append("catmPVclSegCCHigherRangeValue", types.YLeaf{"CatmPVclSegCCHigherRangeValue", catmSegCCStatusChPVclRangeEntry.CatmPVclSegCCHigherRangeValue})
+    catmSegCCStatusChPVclRangeEntry.EntityData.Leafs.Append("catmPVclSegCCRangeStatusChStart", types.YLeaf{"CatmPVclSegCCRangeStatusChStart", catmSegCCStatusChPVclRangeEntry.CatmPVclSegCCRangeStatusChStart})
+    catmSegCCStatusChPVclRangeEntry.EntityData.Leafs.Append("catmPVclSegCCRangeStatusChEnd", types.YLeaf{"CatmPVclSegCCRangeStatusChEnd", catmSegCCStatusChPVclRangeEntry.CatmPVclSegCCRangeStatusChEnd})
+
+    catmSegCCStatusChPVclRangeEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVclVpi", "CatmStatusChangePVclRangeIndex"}
+
+    return &(catmSegCCStatusChPVclRangeEntry.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmendccstatuschpvclrangetable
+// CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusChPVclRangeTable
 // A table indicating more than one VCLs in a consecutive 
 // range and for each VCL there is an active row in the 
 // atmVclTable having an atmVclConnKind value of `pvc'
 // and atmVclOperStatus to have changed due to End CC failure
 // in the same direction in the last PVC notification 
 // interval.
-type CISCOATMPVCTRAPEXTNMIB_Catmendccstatuschpvclrangetable struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusChPVclRangeTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -531,102 +552,108 @@ type CISCOATMPVCTRAPEXTNMIB_Catmendccstatuschpvclrangetable struct {
     // is an active row in the atmVclTable having an atmVclConnKind value of 'pvc'
     // and atmVclOperStatus to have changed due to End CC failure in the same
     // direction in the  last corresponding notification . The type is slice of
-    // CISCOATMPVCTRAPEXTNMIB_Catmendccstatuschpvclrangetable_Catmendccstatuschpvclrangeentry.
-    Catmendccstatuschpvclrangeentry []CISCOATMPVCTRAPEXTNMIB_Catmendccstatuschpvclrangetable_Catmendccstatuschpvclrangeentry
+    // CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusChPVclRangeTable_CatmEndCCStatusChPVclRangeEntry.
+    CatmEndCCStatusChPVclRangeEntry []*CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusChPVclRangeTable_CatmEndCCStatusChPVclRangeEntry
 }
 
-func (catmendccstatuschpvclrangetable *CISCOATMPVCTRAPEXTNMIB_Catmendccstatuschpvclrangetable) GetEntityData() *types.CommonEntityData {
-    catmendccstatuschpvclrangetable.EntityData.YFilter = catmendccstatuschpvclrangetable.YFilter
-    catmendccstatuschpvclrangetable.EntityData.YangName = "catmEndCCStatusChPVclRangeTable"
-    catmendccstatuschpvclrangetable.EntityData.BundleName = "cisco_ios_xe"
-    catmendccstatuschpvclrangetable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
-    catmendccstatuschpvclrangetable.EntityData.SegmentPath = "catmEndCCStatusChPVclRangeTable"
-    catmendccstatuschpvclrangetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmendccstatuschpvclrangetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmendccstatuschpvclrangetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmEndCCStatusChPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusChPVclRangeTable) GetEntityData() *types.CommonEntityData {
+    catmEndCCStatusChPVclRangeTable.EntityData.YFilter = catmEndCCStatusChPVclRangeTable.YFilter
+    catmEndCCStatusChPVclRangeTable.EntityData.YangName = "catmEndCCStatusChPVclRangeTable"
+    catmEndCCStatusChPVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
+    catmEndCCStatusChPVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+    catmEndCCStatusChPVclRangeTable.EntityData.SegmentPath = "catmEndCCStatusChPVclRangeTable"
+    catmEndCCStatusChPVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmEndCCStatusChPVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmEndCCStatusChPVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmendccstatuschpvclrangetable.EntityData.Children = make(map[string]types.YChild)
-    catmendccstatuschpvclrangetable.EntityData.Children["catmEndCCStatusChPVclRangeEntry"] = types.YChild{"Catmendccstatuschpvclrangeentry", nil}
-    for i := range catmendccstatuschpvclrangetable.Catmendccstatuschpvclrangeentry {
-        catmendccstatuschpvclrangetable.EntityData.Children[types.GetSegmentPath(&catmendccstatuschpvclrangetable.Catmendccstatuschpvclrangeentry[i])] = types.YChild{"Catmendccstatuschpvclrangeentry", &catmendccstatuschpvclrangetable.Catmendccstatuschpvclrangeentry[i]}
+    catmEndCCStatusChPVclRangeTable.EntityData.Children = types.NewOrderedMap()
+    catmEndCCStatusChPVclRangeTable.EntityData.Children.Append("catmEndCCStatusChPVclRangeEntry", types.YChild{"CatmEndCCStatusChPVclRangeEntry", nil})
+    for i := range catmEndCCStatusChPVclRangeTable.CatmEndCCStatusChPVclRangeEntry {
+        catmEndCCStatusChPVclRangeTable.EntityData.Children.Append(types.GetSegmentPath(catmEndCCStatusChPVclRangeTable.CatmEndCCStatusChPVclRangeEntry[i]), types.YChild{"CatmEndCCStatusChPVclRangeEntry", catmEndCCStatusChPVclRangeTable.CatmEndCCStatusChPVclRangeEntry[i]})
     }
-    catmendccstatuschpvclrangetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(catmendccstatuschpvclrangetable.EntityData)
+    catmEndCCStatusChPVclRangeTable.EntityData.Leafs = types.NewOrderedMap()
+
+    catmEndCCStatusChPVclRangeTable.EntityData.YListKeys = []string {}
+
+    return &(catmEndCCStatusChPVclRangeTable.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmendccstatuschpvclrangetable_Catmendccstatuschpvclrangeentry
+// CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusChPVclRangeTable_CatmEndCCStatusChPVclRangeEntry
 // Each entry in this table represents a range of VCLs and 
 // for each VCL there is an active row in the atmVclTable having
 // an atmVclConnKind value of 'pvc' and atmVclOperStatus to have
 // changed due to End CC failure in the same direction in the 
 // last corresponding notification .
-type CISCOATMPVCTRAPEXTNMIB_Catmendccstatuschpvclrangetable_Catmendccstatuschpvclrangeentry struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusChPVclRangeTable_CatmEndCCStatusChPVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvpi
-    Atmvclvpi interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVpi
+    AtmVclVpi interface{}
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
-    // cisco_atm_pvctrap_extn_mib.CISCOATMPVCTRAPEXTNMIB_Catmstatuschangepvclrangetable_Catmstatuschangepvclrangeentry_Catmstatuschangepvclrangeindex
-    Catmstatuschangepvclrangeindex interface{}
+    // cisco_atm_pvctrap_extn_mib.CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVclRangeTable_CatmStatusChangePVclRangeEntry_CatmStatusChangePVclRangeIndex
+    CatmStatusChangePVclRangeIndex interface{}
 
     // The first PVCL in a range of PVCLs for which the  atmVclOperStatus to have
     // changed in the last  corresponding notification due to End CC OAM failure.
     // The type is interface{} with range: 0..65536.
-    Catmpvclendcclowerrangevalue interface{}
+    CatmPVclEndCCLowerRangeValue interface{}
 
     // The last PVCL in a range of PVCLs for which the  atmOperStatus to have
     // changed in the last  corresponding notification due to End CC OAM failure.
     // The type is interface{} with range: 0..65536.
-    Catmpvclendcchigherrangevalue interface{}
+    CatmPVclEndCCHigherRangeValue interface{}
 
     // The time stamp at which the first PVCL in the range changed state in the
     // last corresponding notification due  to End CC OAM failure. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclendccrangestatuschstart interface{}
+    CatmPVclEndCCRangeStatusChStart interface{}
 
     // The time stamp at which the last PVCL in the range changed state in the
     // last corresponding notification due  to End CC OAM failure. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclendccrangestatuschend interface{}
+    CatmPVclEndCCRangeStatusChEnd interface{}
 }
 
-func (catmendccstatuschpvclrangeentry *CISCOATMPVCTRAPEXTNMIB_Catmendccstatuschpvclrangetable_Catmendccstatuschpvclrangeentry) GetEntityData() *types.CommonEntityData {
-    catmendccstatuschpvclrangeentry.EntityData.YFilter = catmendccstatuschpvclrangeentry.YFilter
-    catmendccstatuschpvclrangeentry.EntityData.YangName = "catmEndCCStatusChPVclRangeEntry"
-    catmendccstatuschpvclrangeentry.EntityData.BundleName = "cisco_ios_xe"
-    catmendccstatuschpvclrangeentry.EntityData.ParentYangName = "catmEndCCStatusChPVclRangeTable"
-    catmendccstatuschpvclrangeentry.EntityData.SegmentPath = "catmEndCCStatusChPVclRangeEntry" + "[ifIndex='" + fmt.Sprintf("%v", catmendccstatuschpvclrangeentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", catmendccstatuschpvclrangeentry.Atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + fmt.Sprintf("%v", catmendccstatuschpvclrangeentry.Catmstatuschangepvclrangeindex) + "']"
-    catmendccstatuschpvclrangeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmendccstatuschpvclrangeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmendccstatuschpvclrangeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmEndCCStatusChPVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusChPVclRangeTable_CatmEndCCStatusChPVclRangeEntry) GetEntityData() *types.CommonEntityData {
+    catmEndCCStatusChPVclRangeEntry.EntityData.YFilter = catmEndCCStatusChPVclRangeEntry.YFilter
+    catmEndCCStatusChPVclRangeEntry.EntityData.YangName = "catmEndCCStatusChPVclRangeEntry"
+    catmEndCCStatusChPVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
+    catmEndCCStatusChPVclRangeEntry.EntityData.ParentYangName = "catmEndCCStatusChPVclRangeTable"
+    catmEndCCStatusChPVclRangeEntry.EntityData.SegmentPath = "catmEndCCStatusChPVclRangeEntry" + types.AddKeyToken(catmEndCCStatusChPVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmEndCCStatusChPVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmEndCCStatusChPVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmEndCCStatusChPVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmEndCCStatusChPVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmEndCCStatusChPVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmendccstatuschpvclrangeentry.EntityData.Children = make(map[string]types.YChild)
-    catmendccstatuschpvclrangeentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    catmendccstatuschpvclrangeentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", catmendccstatuschpvclrangeentry.Ifindex}
-    catmendccstatuschpvclrangeentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", catmendccstatuschpvclrangeentry.Atmvclvpi}
-    catmendccstatuschpvclrangeentry.EntityData.Leafs["catmStatusChangePVclRangeIndex"] = types.YLeaf{"Catmstatuschangepvclrangeindex", catmendccstatuschpvclrangeentry.Catmstatuschangepvclrangeindex}
-    catmendccstatuschpvclrangeentry.EntityData.Leafs["catmPVclEndCCLowerRangeValue"] = types.YLeaf{"Catmpvclendcclowerrangevalue", catmendccstatuschpvclrangeentry.Catmpvclendcclowerrangevalue}
-    catmendccstatuschpvclrangeentry.EntityData.Leafs["catmPVclEndCCHigherRangeValue"] = types.YLeaf{"Catmpvclendcchigherrangevalue", catmendccstatuschpvclrangeentry.Catmpvclendcchigherrangevalue}
-    catmendccstatuschpvclrangeentry.EntityData.Leafs["catmPVclEndCCRangeStatusChStart"] = types.YLeaf{"Catmpvclendccrangestatuschstart", catmendccstatuschpvclrangeentry.Catmpvclendccrangestatuschstart}
-    catmendccstatuschpvclrangeentry.EntityData.Leafs["catmPVclEndCCRangeStatusChEnd"] = types.YLeaf{"Catmpvclendccrangestatuschend", catmendccstatuschpvclrangeentry.Catmpvclendccrangestatuschend}
-    return &(catmendccstatuschpvclrangeentry.EntityData)
+    catmEndCCStatusChPVclRangeEntry.EntityData.Children = types.NewOrderedMap()
+    catmEndCCStatusChPVclRangeEntry.EntityData.Leafs = types.NewOrderedMap()
+    catmEndCCStatusChPVclRangeEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", catmEndCCStatusChPVclRangeEntry.IfIndex})
+    catmEndCCStatusChPVclRangeEntry.EntityData.Leafs.Append("atmVclVpi", types.YLeaf{"AtmVclVpi", catmEndCCStatusChPVclRangeEntry.AtmVclVpi})
+    catmEndCCStatusChPVclRangeEntry.EntityData.Leafs.Append("catmStatusChangePVclRangeIndex", types.YLeaf{"CatmStatusChangePVclRangeIndex", catmEndCCStatusChPVclRangeEntry.CatmStatusChangePVclRangeIndex})
+    catmEndCCStatusChPVclRangeEntry.EntityData.Leafs.Append("catmPVclEndCCLowerRangeValue", types.YLeaf{"CatmPVclEndCCLowerRangeValue", catmEndCCStatusChPVclRangeEntry.CatmPVclEndCCLowerRangeValue})
+    catmEndCCStatusChPVclRangeEntry.EntityData.Leafs.Append("catmPVclEndCCHigherRangeValue", types.YLeaf{"CatmPVclEndCCHigherRangeValue", catmEndCCStatusChPVclRangeEntry.CatmPVclEndCCHigherRangeValue})
+    catmEndCCStatusChPVclRangeEntry.EntityData.Leafs.Append("catmPVclEndCCRangeStatusChStart", types.YLeaf{"CatmPVclEndCCRangeStatusChStart", catmEndCCStatusChPVclRangeEntry.CatmPVclEndCCRangeStatusChStart})
+    catmEndCCStatusChPVclRangeEntry.EntityData.Leafs.Append("catmPVclEndCCRangeStatusChEnd", types.YLeaf{"CatmPVclEndCCRangeStatusChEnd", catmEndCCStatusChPVclRangeEntry.CatmPVclEndCCRangeStatusChEnd})
+
+    catmEndCCStatusChPVclRangeEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVclVpi", "CatmStatusChangePVclRangeIndex"}
+
+    return &(catmEndCCStatusChPVclRangeEntry.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatuschpvclrangetable
+// CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusChPVclRangeTable
 // A table indicating more than one VCLs in a consecutive 
 // range and for each VCL there is an active row in the 
 // atmVclTable having an atmVclConnKind value of `pvc'
 // and atmVclOperStatus to have changed due to AIS/RDI failure
 // in the same direction in the last corresponding PVC 
 // notification.
-type CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatuschpvclrangetable struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusChPVclRangeTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -634,101 +661,107 @@ type CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatuschpvclrangetable struct {
     // is an active row in the atmVclTable having an atmVclConnKind value of 'pvc'
     // and atmVclOperStatus to have changed due to AIS/RDI failure in the same
     // direction in the  last corresponding notification . The type is slice of
-    // CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatuschpvclrangetable_Catmaisrdistatuschpvclrangeentry.
-    Catmaisrdistatuschpvclrangeentry []CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatuschpvclrangetable_Catmaisrdistatuschpvclrangeentry
+    // CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusChPVclRangeTable_CatmAISRDIStatusChPVclRangeEntry.
+    CatmAISRDIStatusChPVclRangeEntry []*CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusChPVclRangeTable_CatmAISRDIStatusChPVclRangeEntry
 }
 
-func (catmaisrdistatuschpvclrangetable *CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatuschpvclrangetable) GetEntityData() *types.CommonEntityData {
-    catmaisrdistatuschpvclrangetable.EntityData.YFilter = catmaisrdistatuschpvclrangetable.YFilter
-    catmaisrdistatuschpvclrangetable.EntityData.YangName = "catmAISRDIStatusChPVclRangeTable"
-    catmaisrdistatuschpvclrangetable.EntityData.BundleName = "cisco_ios_xe"
-    catmaisrdistatuschpvclrangetable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
-    catmaisrdistatuschpvclrangetable.EntityData.SegmentPath = "catmAISRDIStatusChPVclRangeTable"
-    catmaisrdistatuschpvclrangetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmaisrdistatuschpvclrangetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmaisrdistatuschpvclrangetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmAISRDIStatusChPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusChPVclRangeTable) GetEntityData() *types.CommonEntityData {
+    catmAISRDIStatusChPVclRangeTable.EntityData.YFilter = catmAISRDIStatusChPVclRangeTable.YFilter
+    catmAISRDIStatusChPVclRangeTable.EntityData.YangName = "catmAISRDIStatusChPVclRangeTable"
+    catmAISRDIStatusChPVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
+    catmAISRDIStatusChPVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+    catmAISRDIStatusChPVclRangeTable.EntityData.SegmentPath = "catmAISRDIStatusChPVclRangeTable"
+    catmAISRDIStatusChPVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmAISRDIStatusChPVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmAISRDIStatusChPVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmaisrdistatuschpvclrangetable.EntityData.Children = make(map[string]types.YChild)
-    catmaisrdistatuschpvclrangetable.EntityData.Children["catmAISRDIStatusChPVclRangeEntry"] = types.YChild{"Catmaisrdistatuschpvclrangeentry", nil}
-    for i := range catmaisrdistatuschpvclrangetable.Catmaisrdistatuschpvclrangeentry {
-        catmaisrdistatuschpvclrangetable.EntityData.Children[types.GetSegmentPath(&catmaisrdistatuschpvclrangetable.Catmaisrdistatuschpvclrangeentry[i])] = types.YChild{"Catmaisrdistatuschpvclrangeentry", &catmaisrdistatuschpvclrangetable.Catmaisrdistatuschpvclrangeentry[i]}
+    catmAISRDIStatusChPVclRangeTable.EntityData.Children = types.NewOrderedMap()
+    catmAISRDIStatusChPVclRangeTable.EntityData.Children.Append("catmAISRDIStatusChPVclRangeEntry", types.YChild{"CatmAISRDIStatusChPVclRangeEntry", nil})
+    for i := range catmAISRDIStatusChPVclRangeTable.CatmAISRDIStatusChPVclRangeEntry {
+        catmAISRDIStatusChPVclRangeTable.EntityData.Children.Append(types.GetSegmentPath(catmAISRDIStatusChPVclRangeTable.CatmAISRDIStatusChPVclRangeEntry[i]), types.YChild{"CatmAISRDIStatusChPVclRangeEntry", catmAISRDIStatusChPVclRangeTable.CatmAISRDIStatusChPVclRangeEntry[i]})
     }
-    catmaisrdistatuschpvclrangetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(catmaisrdistatuschpvclrangetable.EntityData)
+    catmAISRDIStatusChPVclRangeTable.EntityData.Leafs = types.NewOrderedMap()
+
+    catmAISRDIStatusChPVclRangeTable.EntityData.YListKeys = []string {}
+
+    return &(catmAISRDIStatusChPVclRangeTable.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatuschpvclrangetable_Catmaisrdistatuschpvclrangeentry
+// CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusChPVclRangeTable_CatmAISRDIStatusChPVclRangeEntry
 // Each entry in this table represents a range of VCLs and 
 // for each VCL there is an active row in the atmVclTable having
 // an atmVclConnKind value of 'pvc' and atmVclOperStatus to have
 // changed due to AIS/RDI failure in the same direction in the 
 // last corresponding notification .
-type CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatuschpvclrangetable_Catmaisrdistatuschpvclrangeentry struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusChPVclRangeTable_CatmAISRDIStatusChPVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvpi
-    Atmvclvpi interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVpi
+    AtmVclVpi interface{}
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
-    // cisco_atm_pvctrap_extn_mib.CISCOATMPVCTRAPEXTNMIB_Catmstatuschangepvclrangetable_Catmstatuschangepvclrangeentry_Catmstatuschangepvclrangeindex
-    Catmstatuschangepvclrangeindex interface{}
+    // cisco_atm_pvctrap_extn_mib.CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVclRangeTable_CatmStatusChangePVclRangeEntry_CatmStatusChangePVclRangeIndex
+    CatmStatusChangePVclRangeIndex interface{}
 
     // The first PVCL in a range of PVCLs for which the  atmVclOperStatus to have
     // changed in the last  corresponding notification due to AISRDI OAM failure.
     // The type is interface{} with range: 0..65536.
-    Catmpvclaisrdilowerrangevalue interface{}
+    CatmPVclAISRDILowerRangeValue interface{}
 
     // The last PVCL in a range of PVCLs for which the  atmOperStatus to have
     // changed in the last  corresponding notification due to AISRDI OAM failure.
     // The type is interface{} with range: 0..65536.
-    Catmpvclaisrdihigherrangevalue interface{}
+    CatmPVclAISRDIHigherRangeValue interface{}
 
     // The time stamp at which the first PVCL in the range changed state in the
     // last corresponding notification due  to AISRDI OAM failure. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclaisrdirangestatuschstart interface{}
+    CatmPVclAISRDIRangeStatusChStart interface{}
 
     // The time stamp at which the last PVCL in the range changed state in the
     // last corresponding notification due  to AISRDI OAM failure. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclaisrdirangestatuschend interface{}
+    CatmPVclAISRDIRangeStatusChEnd interface{}
 }
 
-func (catmaisrdistatuschpvclrangeentry *CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatuschpvclrangetable_Catmaisrdistatuschpvclrangeentry) GetEntityData() *types.CommonEntityData {
-    catmaisrdistatuschpvclrangeentry.EntityData.YFilter = catmaisrdistatuschpvclrangeentry.YFilter
-    catmaisrdistatuschpvclrangeentry.EntityData.YangName = "catmAISRDIStatusChPVclRangeEntry"
-    catmaisrdistatuschpvclrangeentry.EntityData.BundleName = "cisco_ios_xe"
-    catmaisrdistatuschpvclrangeentry.EntityData.ParentYangName = "catmAISRDIStatusChPVclRangeTable"
-    catmaisrdistatuschpvclrangeentry.EntityData.SegmentPath = "catmAISRDIStatusChPVclRangeEntry" + "[ifIndex='" + fmt.Sprintf("%v", catmaisrdistatuschpvclrangeentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", catmaisrdistatuschpvclrangeentry.Atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + fmt.Sprintf("%v", catmaisrdistatuschpvclrangeentry.Catmstatuschangepvclrangeindex) + "']"
-    catmaisrdistatuschpvclrangeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmaisrdistatuschpvclrangeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmaisrdistatuschpvclrangeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmAISRDIStatusChPVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusChPVclRangeTable_CatmAISRDIStatusChPVclRangeEntry) GetEntityData() *types.CommonEntityData {
+    catmAISRDIStatusChPVclRangeEntry.EntityData.YFilter = catmAISRDIStatusChPVclRangeEntry.YFilter
+    catmAISRDIStatusChPVclRangeEntry.EntityData.YangName = "catmAISRDIStatusChPVclRangeEntry"
+    catmAISRDIStatusChPVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
+    catmAISRDIStatusChPVclRangeEntry.EntityData.ParentYangName = "catmAISRDIStatusChPVclRangeTable"
+    catmAISRDIStatusChPVclRangeEntry.EntityData.SegmentPath = "catmAISRDIStatusChPVclRangeEntry" + types.AddKeyToken(catmAISRDIStatusChPVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmAISRDIStatusChPVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmAISRDIStatusChPVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmAISRDIStatusChPVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmAISRDIStatusChPVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmAISRDIStatusChPVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmaisrdistatuschpvclrangeentry.EntityData.Children = make(map[string]types.YChild)
-    catmaisrdistatuschpvclrangeentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    catmaisrdistatuschpvclrangeentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", catmaisrdistatuschpvclrangeentry.Ifindex}
-    catmaisrdistatuschpvclrangeentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", catmaisrdistatuschpvclrangeentry.Atmvclvpi}
-    catmaisrdistatuschpvclrangeentry.EntityData.Leafs["catmStatusChangePVclRangeIndex"] = types.YLeaf{"Catmstatuschangepvclrangeindex", catmaisrdistatuschpvclrangeentry.Catmstatuschangepvclrangeindex}
-    catmaisrdistatuschpvclrangeentry.EntityData.Leafs["catmPVclAISRDILowerRangeValue"] = types.YLeaf{"Catmpvclaisrdilowerrangevalue", catmaisrdistatuschpvclrangeentry.Catmpvclaisrdilowerrangevalue}
-    catmaisrdistatuschpvclrangeentry.EntityData.Leafs["catmPVclAISRDIHigherRangeValue"] = types.YLeaf{"Catmpvclaisrdihigherrangevalue", catmaisrdistatuschpvclrangeentry.Catmpvclaisrdihigherrangevalue}
-    catmaisrdistatuschpvclrangeentry.EntityData.Leafs["catmPVclAISRDIRangeStatusChStart"] = types.YLeaf{"Catmpvclaisrdirangestatuschstart", catmaisrdistatuschpvclrangeentry.Catmpvclaisrdirangestatuschstart}
-    catmaisrdistatuschpvclrangeentry.EntityData.Leafs["catmPVclAISRDIRangeStatusChEnd"] = types.YLeaf{"Catmpvclaisrdirangestatuschend", catmaisrdistatuschpvclrangeentry.Catmpvclaisrdirangestatuschend}
-    return &(catmaisrdistatuschpvclrangeentry.EntityData)
+    catmAISRDIStatusChPVclRangeEntry.EntityData.Children = types.NewOrderedMap()
+    catmAISRDIStatusChPVclRangeEntry.EntityData.Leafs = types.NewOrderedMap()
+    catmAISRDIStatusChPVclRangeEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", catmAISRDIStatusChPVclRangeEntry.IfIndex})
+    catmAISRDIStatusChPVclRangeEntry.EntityData.Leafs.Append("atmVclVpi", types.YLeaf{"AtmVclVpi", catmAISRDIStatusChPVclRangeEntry.AtmVclVpi})
+    catmAISRDIStatusChPVclRangeEntry.EntityData.Leafs.Append("catmStatusChangePVclRangeIndex", types.YLeaf{"CatmStatusChangePVclRangeIndex", catmAISRDIStatusChPVclRangeEntry.CatmStatusChangePVclRangeIndex})
+    catmAISRDIStatusChPVclRangeEntry.EntityData.Leafs.Append("catmPVclAISRDILowerRangeValue", types.YLeaf{"CatmPVclAISRDILowerRangeValue", catmAISRDIStatusChPVclRangeEntry.CatmPVclAISRDILowerRangeValue})
+    catmAISRDIStatusChPVclRangeEntry.EntityData.Leafs.Append("catmPVclAISRDIHigherRangeValue", types.YLeaf{"CatmPVclAISRDIHigherRangeValue", catmAISRDIStatusChPVclRangeEntry.CatmPVclAISRDIHigherRangeValue})
+    catmAISRDIStatusChPVclRangeEntry.EntityData.Leafs.Append("catmPVclAISRDIRangeStatusChStart", types.YLeaf{"CatmPVclAISRDIRangeStatusChStart", catmAISRDIStatusChPVclRangeEntry.CatmPVclAISRDIRangeStatusChStart})
+    catmAISRDIStatusChPVclRangeEntry.EntityData.Leafs.Append("catmPVclAISRDIRangeStatusChEnd", types.YLeaf{"CatmPVclAISRDIRangeStatusChEnd", catmAISRDIStatusChPVclRangeEntry.CatmPVclAISRDIRangeStatusChEnd})
+
+    catmAISRDIStatusChPVclRangeEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVclVpi", "CatmStatusChangePVclRangeIndex"}
+
+    return &(catmAISRDIStatusChPVclRangeEntry.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmdownpvclrangetable
+// CISCOATMPVCTRAPEXTNMIB_CatmDownPVclRangeTable
 // A table indicating more than one VCLs in a consecutive 
 // range and for each VCL there is an active row in the 
 // atmVclTable having an atmVclConnKind value of `pvc'
 // and atmVclOperStatus to have detected as Down
 // in the last corresponding PVC notification .
-type CISCOATMPVCTRAPEXTNMIB_Catmdownpvclrangetable struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmDownPVclRangeTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -736,116 +769,122 @@ type CISCOATMPVCTRAPEXTNMIB_Catmdownpvclrangetable struct {
     // is an active row in the atmVclTable having an atmVclConnKind value of 'pvc'
     // and  atmVclOperStatus to  have detected as Down in the last notification 
     // interval. The type is slice of
-    // CISCOATMPVCTRAPEXTNMIB_Catmdownpvclrangetable_Catmdownpvclrangeentry.
-    Catmdownpvclrangeentry []CISCOATMPVCTRAPEXTNMIB_Catmdownpvclrangetable_Catmdownpvclrangeentry
+    // CISCOATMPVCTRAPEXTNMIB_CatmDownPVclRangeTable_CatmDownPVclRangeEntry.
+    CatmDownPVclRangeEntry []*CISCOATMPVCTRAPEXTNMIB_CatmDownPVclRangeTable_CatmDownPVclRangeEntry
 }
 
-func (catmdownpvclrangetable *CISCOATMPVCTRAPEXTNMIB_Catmdownpvclrangetable) GetEntityData() *types.CommonEntityData {
-    catmdownpvclrangetable.EntityData.YFilter = catmdownpvclrangetable.YFilter
-    catmdownpvclrangetable.EntityData.YangName = "catmDownPVclRangeTable"
-    catmdownpvclrangetable.EntityData.BundleName = "cisco_ios_xe"
-    catmdownpvclrangetable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
-    catmdownpvclrangetable.EntityData.SegmentPath = "catmDownPVclRangeTable"
-    catmdownpvclrangetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmdownpvclrangetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmdownpvclrangetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmDownPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmDownPVclRangeTable) GetEntityData() *types.CommonEntityData {
+    catmDownPVclRangeTable.EntityData.YFilter = catmDownPVclRangeTable.YFilter
+    catmDownPVclRangeTable.EntityData.YangName = "catmDownPVclRangeTable"
+    catmDownPVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
+    catmDownPVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+    catmDownPVclRangeTable.EntityData.SegmentPath = "catmDownPVclRangeTable"
+    catmDownPVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmDownPVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmDownPVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmdownpvclrangetable.EntityData.Children = make(map[string]types.YChild)
-    catmdownpvclrangetable.EntityData.Children["catmDownPVclRangeEntry"] = types.YChild{"Catmdownpvclrangeentry", nil}
-    for i := range catmdownpvclrangetable.Catmdownpvclrangeentry {
-        catmdownpvclrangetable.EntityData.Children[types.GetSegmentPath(&catmdownpvclrangetable.Catmdownpvclrangeentry[i])] = types.YChild{"Catmdownpvclrangeentry", &catmdownpvclrangetable.Catmdownpvclrangeentry[i]}
+    catmDownPVclRangeTable.EntityData.Children = types.NewOrderedMap()
+    catmDownPVclRangeTable.EntityData.Children.Append("catmDownPVclRangeEntry", types.YChild{"CatmDownPVclRangeEntry", nil})
+    for i := range catmDownPVclRangeTable.CatmDownPVclRangeEntry {
+        catmDownPVclRangeTable.EntityData.Children.Append(types.GetSegmentPath(catmDownPVclRangeTable.CatmDownPVclRangeEntry[i]), types.YChild{"CatmDownPVclRangeEntry", catmDownPVclRangeTable.CatmDownPVclRangeEntry[i]})
     }
-    catmdownpvclrangetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(catmdownpvclrangetable.EntityData)
+    catmDownPVclRangeTable.EntityData.Leafs = types.NewOrderedMap()
+
+    catmDownPVclRangeTable.EntityData.YListKeys = []string {}
+
+    return &(catmDownPVclRangeTable.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmdownpvclrangetable_Catmdownpvclrangeentry
+// CISCOATMPVCTRAPEXTNMIB_CatmDownPVclRangeTable_CatmDownPVclRangeEntry
 // Each entry in this table represents a range of VCLs and 
 // for each VCL there is an active row in the atmVclTable having
 // an atmVclConnKind value of 'pvc' and  atmVclOperStatus to 
 // have detected as Down in the last notification 
 // interval.
-type CISCOATMPVCTRAPEXTNMIB_Catmdownpvclrangetable_Catmdownpvclrangeentry struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmDownPVclRangeTable_CatmDownPVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvpi
-    Atmvclvpi interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVpi
+    AtmVclVpi interface{}
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
-    // cisco_atm_pvctrap_extn_mib.CISCOATMPVCTRAPEXTNMIB_Catmstatuschangepvclrangetable_Catmstatuschangepvclrangeentry_Catmstatuschangepvclrangeindex
-    Catmstatuschangepvclrangeindex interface{}
+    // cisco_atm_pvctrap_extn_mib.CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVclRangeTable_CatmStatusChangePVclRangeEntry_CatmStatusChangePVclRangeIndex
+    CatmStatusChangePVclRangeIndex interface{}
 
     // The first PVCL in a range of PVCLs for which the  atmVclOperStatus has been
     // detected as Down in the  corresponding notification . The type is
     // interface{} with range: 0..65536.
-    Catmdownpvcllowerrangevalue interface{}
+    CatmDownPVclLowerRangeValue interface{}
 
     // The last PVCL in a range of PVCLs for which the  atmVclOperStatus has been
     // detected as Down in the  corresponding notification . The type is
     // interface{} with range: 0..65536.
-    Catmdownpvclhigherrangevalue interface{}
+    CatmDownPVclHigherRangeValue interface{}
 
     // The time stamp at which the first atmVclOperStatus is detected as Down on
     // any of the PVCLs in the range in the corresponding notification . The type
     // is interface{} with range: 0..4294967295.
-    Catmdownpvclrangestart interface{}
+    CatmDownPVclRangeStart interface{}
 
     // The time stamp at which the last atmVclOperStatus is detected as Down on
     // any of the PVCLs in the range in the corresponding notification . The type
     // is interface{} with range: 0..4294967295.
-    Catmdownpvclrangeend interface{}
+    CatmDownPVclRangeEnd interface{}
 
     // The time stamp at which the first atmVclOperStatus is detected as Up on any
     // of the PVCLs in the range in the previous catmIntfPvcUp2Trap notification.
     // The type is interface{} with range: 0..4294967295.
-    Catmprevuppvclrangestart interface{}
+    CatmPrevUpPVclRangeStart interface{}
 
     // The time stamp at which the last atmVclOperStatus is detected as Up on any
     // of the PVCLs in the range in the previous catmIntfPvcUp2Trap notification.
     // The type is interface{} with range: 0..4294967295.
-    Catmprevuppvclrangeend interface{}
+    CatmPrevUpPVclRangeEnd interface{}
 
     // Type of OAM failure. The type is CatmOAMFailureType.
-    Catmpvclrangefailurereason interface{}
+    CatmPVclRangeFailureReason interface{}
 }
 
-func (catmdownpvclrangeentry *CISCOATMPVCTRAPEXTNMIB_Catmdownpvclrangetable_Catmdownpvclrangeentry) GetEntityData() *types.CommonEntityData {
-    catmdownpvclrangeentry.EntityData.YFilter = catmdownpvclrangeentry.YFilter
-    catmdownpvclrangeentry.EntityData.YangName = "catmDownPVclRangeEntry"
-    catmdownpvclrangeentry.EntityData.BundleName = "cisco_ios_xe"
-    catmdownpvclrangeentry.EntityData.ParentYangName = "catmDownPVclRangeTable"
-    catmdownpvclrangeentry.EntityData.SegmentPath = "catmDownPVclRangeEntry" + "[ifIndex='" + fmt.Sprintf("%v", catmdownpvclrangeentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", catmdownpvclrangeentry.Atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + fmt.Sprintf("%v", catmdownpvclrangeentry.Catmstatuschangepvclrangeindex) + "']"
-    catmdownpvclrangeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmdownpvclrangeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmdownpvclrangeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmDownPVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmDownPVclRangeTable_CatmDownPVclRangeEntry) GetEntityData() *types.CommonEntityData {
+    catmDownPVclRangeEntry.EntityData.YFilter = catmDownPVclRangeEntry.YFilter
+    catmDownPVclRangeEntry.EntityData.YangName = "catmDownPVclRangeEntry"
+    catmDownPVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
+    catmDownPVclRangeEntry.EntityData.ParentYangName = "catmDownPVclRangeTable"
+    catmDownPVclRangeEntry.EntityData.SegmentPath = "catmDownPVclRangeEntry" + types.AddKeyToken(catmDownPVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmDownPVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmDownPVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmDownPVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmDownPVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmDownPVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmdownpvclrangeentry.EntityData.Children = make(map[string]types.YChild)
-    catmdownpvclrangeentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    catmdownpvclrangeentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", catmdownpvclrangeentry.Ifindex}
-    catmdownpvclrangeentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", catmdownpvclrangeentry.Atmvclvpi}
-    catmdownpvclrangeentry.EntityData.Leafs["catmStatusChangePVclRangeIndex"] = types.YLeaf{"Catmstatuschangepvclrangeindex", catmdownpvclrangeentry.Catmstatuschangepvclrangeindex}
-    catmdownpvclrangeentry.EntityData.Leafs["catmDownPVclLowerRangeValue"] = types.YLeaf{"Catmdownpvcllowerrangevalue", catmdownpvclrangeentry.Catmdownpvcllowerrangevalue}
-    catmdownpvclrangeentry.EntityData.Leafs["catmDownPVclHigherRangeValue"] = types.YLeaf{"Catmdownpvclhigherrangevalue", catmdownpvclrangeentry.Catmdownpvclhigherrangevalue}
-    catmdownpvclrangeentry.EntityData.Leafs["catmDownPVclRangeStart"] = types.YLeaf{"Catmdownpvclrangestart", catmdownpvclrangeentry.Catmdownpvclrangestart}
-    catmdownpvclrangeentry.EntityData.Leafs["catmDownPVclRangeEnd"] = types.YLeaf{"Catmdownpvclrangeend", catmdownpvclrangeentry.Catmdownpvclrangeend}
-    catmdownpvclrangeentry.EntityData.Leafs["catmPrevUpPVclRangeStart"] = types.YLeaf{"Catmprevuppvclrangestart", catmdownpvclrangeentry.Catmprevuppvclrangestart}
-    catmdownpvclrangeentry.EntityData.Leafs["catmPrevUpPVclRangeEnd"] = types.YLeaf{"Catmprevuppvclrangeend", catmdownpvclrangeentry.Catmprevuppvclrangeend}
-    catmdownpvclrangeentry.EntityData.Leafs["catmPVclRangeFailureReason"] = types.YLeaf{"Catmpvclrangefailurereason", catmdownpvclrangeentry.Catmpvclrangefailurereason}
-    return &(catmdownpvclrangeentry.EntityData)
+    catmDownPVclRangeEntry.EntityData.Children = types.NewOrderedMap()
+    catmDownPVclRangeEntry.EntityData.Leafs = types.NewOrderedMap()
+    catmDownPVclRangeEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", catmDownPVclRangeEntry.IfIndex})
+    catmDownPVclRangeEntry.EntityData.Leafs.Append("atmVclVpi", types.YLeaf{"AtmVclVpi", catmDownPVclRangeEntry.AtmVclVpi})
+    catmDownPVclRangeEntry.EntityData.Leafs.Append("catmStatusChangePVclRangeIndex", types.YLeaf{"CatmStatusChangePVclRangeIndex", catmDownPVclRangeEntry.CatmStatusChangePVclRangeIndex})
+    catmDownPVclRangeEntry.EntityData.Leafs.Append("catmDownPVclLowerRangeValue", types.YLeaf{"CatmDownPVclLowerRangeValue", catmDownPVclRangeEntry.CatmDownPVclLowerRangeValue})
+    catmDownPVclRangeEntry.EntityData.Leafs.Append("catmDownPVclHigherRangeValue", types.YLeaf{"CatmDownPVclHigherRangeValue", catmDownPVclRangeEntry.CatmDownPVclHigherRangeValue})
+    catmDownPVclRangeEntry.EntityData.Leafs.Append("catmDownPVclRangeStart", types.YLeaf{"CatmDownPVclRangeStart", catmDownPVclRangeEntry.CatmDownPVclRangeStart})
+    catmDownPVclRangeEntry.EntityData.Leafs.Append("catmDownPVclRangeEnd", types.YLeaf{"CatmDownPVclRangeEnd", catmDownPVclRangeEntry.CatmDownPVclRangeEnd})
+    catmDownPVclRangeEntry.EntityData.Leafs.Append("catmPrevUpPVclRangeStart", types.YLeaf{"CatmPrevUpPVclRangeStart", catmDownPVclRangeEntry.CatmPrevUpPVclRangeStart})
+    catmDownPVclRangeEntry.EntityData.Leafs.Append("catmPrevUpPVclRangeEnd", types.YLeaf{"CatmPrevUpPVclRangeEnd", catmDownPVclRangeEntry.CatmPrevUpPVclRangeEnd})
+    catmDownPVclRangeEntry.EntityData.Leafs.Append("catmPVclRangeFailureReason", types.YLeaf{"CatmPVclRangeFailureReason", catmDownPVclRangeEntry.CatmPVclRangeFailureReason})
+
+    catmDownPVclRangeEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVclVpi", "CatmStatusChangePVclRangeIndex"}
+
+    return &(catmDownPVclRangeEntry.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmcurstatusuppvcltable
+// CISCOATMPVCTRAPEXTNMIB_CatmCurStatusUpPVclTable
 // A table indicating all VCLs for which there is an
 // active row in the atmVclTable having an atmVclConnKind
 // value of `pvc' and atmVclOperStatus to have changed to UP
 // in the last corresponding PVC notification .
-type CISCOATMPVCTRAPEXTNMIB_Catmcurstatusuppvcltable struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmCurStatusUpPVclTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -853,165 +892,171 @@ type CISCOATMPVCTRAPEXTNMIB_Catmcurstatusuppvcltable struct {
     // in the atmVclTable having an atmVclConnKind value of `pvc' and
     // atmVclOperStatus to have changed to UP in the last PVC notification 
     // interval. The type is slice of
-    // CISCOATMPVCTRAPEXTNMIB_Catmcurstatusuppvcltable_Catmcurstatusuppvclentry.
-    Catmcurstatusuppvclentry []CISCOATMPVCTRAPEXTNMIB_Catmcurstatusuppvcltable_Catmcurstatusuppvclentry
+    // CISCOATMPVCTRAPEXTNMIB_CatmCurStatusUpPVclTable_CatmCurStatusUpPVclEntry.
+    CatmCurStatusUpPVclEntry []*CISCOATMPVCTRAPEXTNMIB_CatmCurStatusUpPVclTable_CatmCurStatusUpPVclEntry
 }
 
-func (catmcurstatusuppvcltable *CISCOATMPVCTRAPEXTNMIB_Catmcurstatusuppvcltable) GetEntityData() *types.CommonEntityData {
-    catmcurstatusuppvcltable.EntityData.YFilter = catmcurstatusuppvcltable.YFilter
-    catmcurstatusuppvcltable.EntityData.YangName = "catmCurStatusUpPVclTable"
-    catmcurstatusuppvcltable.EntityData.BundleName = "cisco_ios_xe"
-    catmcurstatusuppvcltable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
-    catmcurstatusuppvcltable.EntityData.SegmentPath = "catmCurStatusUpPVclTable"
-    catmcurstatusuppvcltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmcurstatusuppvcltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmcurstatusuppvcltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmCurStatusUpPVclTable *CISCOATMPVCTRAPEXTNMIB_CatmCurStatusUpPVclTable) GetEntityData() *types.CommonEntityData {
+    catmCurStatusUpPVclTable.EntityData.YFilter = catmCurStatusUpPVclTable.YFilter
+    catmCurStatusUpPVclTable.EntityData.YangName = "catmCurStatusUpPVclTable"
+    catmCurStatusUpPVclTable.EntityData.BundleName = "cisco_ios_xe"
+    catmCurStatusUpPVclTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+    catmCurStatusUpPVclTable.EntityData.SegmentPath = "catmCurStatusUpPVclTable"
+    catmCurStatusUpPVclTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmCurStatusUpPVclTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmCurStatusUpPVclTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmcurstatusuppvcltable.EntityData.Children = make(map[string]types.YChild)
-    catmcurstatusuppvcltable.EntityData.Children["catmCurStatusUpPVclEntry"] = types.YChild{"Catmcurstatusuppvclentry", nil}
-    for i := range catmcurstatusuppvcltable.Catmcurstatusuppvclentry {
-        catmcurstatusuppvcltable.EntityData.Children[types.GetSegmentPath(&catmcurstatusuppvcltable.Catmcurstatusuppvclentry[i])] = types.YChild{"Catmcurstatusuppvclentry", &catmcurstatusuppvcltable.Catmcurstatusuppvclentry[i]}
+    catmCurStatusUpPVclTable.EntityData.Children = types.NewOrderedMap()
+    catmCurStatusUpPVclTable.EntityData.Children.Append("catmCurStatusUpPVclEntry", types.YChild{"CatmCurStatusUpPVclEntry", nil})
+    for i := range catmCurStatusUpPVclTable.CatmCurStatusUpPVclEntry {
+        catmCurStatusUpPVclTable.EntityData.Children.Append(types.GetSegmentPath(catmCurStatusUpPVclTable.CatmCurStatusUpPVclEntry[i]), types.YChild{"CatmCurStatusUpPVclEntry", catmCurStatusUpPVclTable.CatmCurStatusUpPVclEntry[i]})
     }
-    catmcurstatusuppvcltable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(catmcurstatusuppvcltable.EntityData)
+    catmCurStatusUpPVclTable.EntityData.Leafs = types.NewOrderedMap()
+
+    catmCurStatusUpPVclTable.EntityData.YListKeys = []string {}
+
+    return &(catmCurStatusUpPVclTable.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmcurstatusuppvcltable_Catmcurstatusuppvclentry
+// CISCOATMPVCTRAPEXTNMIB_CatmCurStatusUpPVclTable_CatmCurStatusUpPVclEntry
 // Each entry in the table represents a VCL for which
 // there is an active row in the atmVclTable having an
 // atmVclConnKind value of `pvc' and atmVclOperStatus
 // to have changed to UP in the last PVC notification 
 // interval.
-type CISCOATMPVCTRAPEXTNMIB_Catmcurstatusuppvcltable_Catmcurstatusuppvclentry struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmCurStatusUpPVclTable_CatmCurStatusUpPVclEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvpi
-    Atmvclvpi interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVpi
+    AtmVclVpi interface{}
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvci
-    Atmvclvci interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVci
+    AtmVclVci interface{}
 
     // The number of Down to Up state transitions due to OAM loopback recovery
     // that has happened on this PVCL  in the last corresponding notification .
     // The type is interface{} with range: 0..4294967295.
-    Catmpvclstatusuptransition interface{}
+    CatmPVclStatusUpTransition interface{}
 
     // The time stamp at which this PVCL changed state to UP  for the first time
     // due to OAM loopback recovery in the last corresponding notification . The
     // type is interface{} with range: 0..4294967295.
-    Catmpvclstatusupstart interface{}
+    CatmPVclStatusUpStart interface{}
 
     // The time stamp at which this PVCL changed state to UP  for the last time
     // due to OAM loopback recovery in the last corresponding notification . The
     // type is interface{} with range: 0..4294967295.
-    Catmpvclstatusupend interface{}
+    CatmPVclStatusUpEnd interface{}
 
     // The number of Down to Up state transitions that has  happened on this PVCL
     // in the last corresponding notification  due to Segment CC OAM recovery. The
     // type is interface{} with range: 0..4294967295.
-    Catmpvclsegccstatusuptransition interface{}
+    CatmPVclSegCCStatusUpTransition interface{}
 
     // The time stamp at which this PVCL changed state to Up for  the first time
     // in the last corresponding notification due to Segment CC OAM recovery. The
     // type is interface{} with range: 0..4294967295.
-    Catmpvclsegccstatusupstart interface{}
+    CatmPVclSegCCStatusUpStart interface{}
 
     // The time stamp of the last state change of this PVCL in the last
     // corresponding notification due to Segment CC  OAM recovery. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclsegccstatusupend interface{}
+    CatmPVclSegCCStatusUpEnd interface{}
 
     // The number of Down to UP state transitions that has  happened on this PVCL
     // in the last notification  interval due to End CC OAM recovery. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclendccstatusuptransition interface{}
+    CatmPVclEndCCStatusUpTransition interface{}
 
     // The time stamp at which this PVCL changed state to Up for the first time in
     // the last corresponding notification  due to End CC OAM recovery. The type
     // is interface{} with range: 0..4294967295.
-    Catmpvclendccstatusupstart interface{}
+    CatmPVclEndCCStatusUpStart interface{}
 
     // The time stamp at which this PVCL changed state to Up for the last time in
     // the last corresponding notification  due to End CC OAM recovery. The type
     // is interface{} with range: 0..4294967295.
-    Catmpvclendccstatusupend interface{}
+    CatmPVclEndCCStatusUpEnd interface{}
 
     // The number of Down to Up state transitions that  has happened on this PVCL
     // in the last notification  interval due to AIS RDI OAM recovery. The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclaisrdistatusuptransition interface{}
+    CatmPVclAISRDIStatusUpTransition interface{}
 
     // The time stamp at which this PVCL changed state to Up for the first time in
     // the last corresponding notification  due to AIS/RDI OAM recovery. The type
     // is interface{} with range: 0..4294967295.
-    Catmpvclaisrdistatusupstart interface{}
+    CatmPVclAISRDIStatusUpStart interface{}
 
     // The time stamp at which this PVCL changed state to Up for the last time in
     // the last corresponding notification  due to AIS/RDI OAM recovery. The type
     // is interface{} with range: 0..4294967295.
-    Catmpvclaisrdistatusupend interface{}
+    CatmPVclAISRDIStatusUpEnd interface{}
 
     // The time stamp at which this PVCL changed state to UP last time in the last
     // corresponding notification . The type is interface{} with range:
     // 0..4294967295.
-    Catmpvclcurrecovertime interface{}
+    CatmPVclCurRecoverTime interface{}
 
     // The time stamp at which this PVCL changed state to DOWN last time in the
     // previous corresponding notification . The type is interface{} with range:
     // 0..4294967295.
-    Catmpvclprevfailtime interface{}
+    CatmPVclPrevFailTime interface{}
 
     // Type of OAM Recovered. The type is CatmOAMRecoveryType.
-    Catmpvclrecoveryreason interface{}
+    CatmPVclRecoveryReason interface{}
 }
 
-func (catmcurstatusuppvclentry *CISCOATMPVCTRAPEXTNMIB_Catmcurstatusuppvcltable_Catmcurstatusuppvclentry) GetEntityData() *types.CommonEntityData {
-    catmcurstatusuppvclentry.EntityData.YFilter = catmcurstatusuppvclentry.YFilter
-    catmcurstatusuppvclentry.EntityData.YangName = "catmCurStatusUpPVclEntry"
-    catmcurstatusuppvclentry.EntityData.BundleName = "cisco_ios_xe"
-    catmcurstatusuppvclentry.EntityData.ParentYangName = "catmCurStatusUpPVclTable"
-    catmcurstatusuppvclentry.EntityData.SegmentPath = "catmCurStatusUpPVclEntry" + "[ifIndex='" + fmt.Sprintf("%v", catmcurstatusuppvclentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", catmcurstatusuppvclentry.Atmvclvpi) + "']" + "[atmVclVci='" + fmt.Sprintf("%v", catmcurstatusuppvclentry.Atmvclvci) + "']"
-    catmcurstatusuppvclentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmcurstatusuppvclentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmcurstatusuppvclentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmCurStatusUpPVclEntry *CISCOATMPVCTRAPEXTNMIB_CatmCurStatusUpPVclTable_CatmCurStatusUpPVclEntry) GetEntityData() *types.CommonEntityData {
+    catmCurStatusUpPVclEntry.EntityData.YFilter = catmCurStatusUpPVclEntry.YFilter
+    catmCurStatusUpPVclEntry.EntityData.YangName = "catmCurStatusUpPVclEntry"
+    catmCurStatusUpPVclEntry.EntityData.BundleName = "cisco_ios_xe"
+    catmCurStatusUpPVclEntry.EntityData.ParentYangName = "catmCurStatusUpPVclTable"
+    catmCurStatusUpPVclEntry.EntityData.SegmentPath = "catmCurStatusUpPVclEntry" + types.AddKeyToken(catmCurStatusUpPVclEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmCurStatusUpPVclEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmCurStatusUpPVclEntry.AtmVclVci, "atmVclVci")
+    catmCurStatusUpPVclEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmCurStatusUpPVclEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmCurStatusUpPVclEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmcurstatusuppvclentry.EntityData.Children = make(map[string]types.YChild)
-    catmcurstatusuppvclentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    catmcurstatusuppvclentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", catmcurstatusuppvclentry.Ifindex}
-    catmcurstatusuppvclentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", catmcurstatusuppvclentry.Atmvclvpi}
-    catmcurstatusuppvclentry.EntityData.Leafs["atmVclVci"] = types.YLeaf{"Atmvclvci", catmcurstatusuppvclentry.Atmvclvci}
-    catmcurstatusuppvclentry.EntityData.Leafs["catmPVclStatusUpTransition"] = types.YLeaf{"Catmpvclstatusuptransition", catmcurstatusuppvclentry.Catmpvclstatusuptransition}
-    catmcurstatusuppvclentry.EntityData.Leafs["catmPVclStatusUpStart"] = types.YLeaf{"Catmpvclstatusupstart", catmcurstatusuppvclentry.Catmpvclstatusupstart}
-    catmcurstatusuppvclentry.EntityData.Leafs["catmPVclStatusUpEnd"] = types.YLeaf{"Catmpvclstatusupend", catmcurstatusuppvclentry.Catmpvclstatusupend}
-    catmcurstatusuppvclentry.EntityData.Leafs["catmPVclSegCCStatusUpTransition"] = types.YLeaf{"Catmpvclsegccstatusuptransition", catmcurstatusuppvclentry.Catmpvclsegccstatusuptransition}
-    catmcurstatusuppvclentry.EntityData.Leafs["catmPVclSegCCStatusUpStart"] = types.YLeaf{"Catmpvclsegccstatusupstart", catmcurstatusuppvclentry.Catmpvclsegccstatusupstart}
-    catmcurstatusuppvclentry.EntityData.Leafs["catmPVclSegCCStatusUpEnd"] = types.YLeaf{"Catmpvclsegccstatusupend", catmcurstatusuppvclentry.Catmpvclsegccstatusupend}
-    catmcurstatusuppvclentry.EntityData.Leafs["catmPVclEndCCStatusUpTransition"] = types.YLeaf{"Catmpvclendccstatusuptransition", catmcurstatusuppvclentry.Catmpvclendccstatusuptransition}
-    catmcurstatusuppvclentry.EntityData.Leafs["catmPVclEndCCStatusUpStart"] = types.YLeaf{"Catmpvclendccstatusupstart", catmcurstatusuppvclentry.Catmpvclendccstatusupstart}
-    catmcurstatusuppvclentry.EntityData.Leafs["catmPVclEndCCStatusUpEnd"] = types.YLeaf{"Catmpvclendccstatusupend", catmcurstatusuppvclentry.Catmpvclendccstatusupend}
-    catmcurstatusuppvclentry.EntityData.Leafs["catmPVclAISRDIStatusUpTransition"] = types.YLeaf{"Catmpvclaisrdistatusuptransition", catmcurstatusuppvclentry.Catmpvclaisrdistatusuptransition}
-    catmcurstatusuppvclentry.EntityData.Leafs["catmPVclAISRDIStatusUpStart"] = types.YLeaf{"Catmpvclaisrdistatusupstart", catmcurstatusuppvclentry.Catmpvclaisrdistatusupstart}
-    catmcurstatusuppvclentry.EntityData.Leafs["catmPVclAISRDIStatusUpEnd"] = types.YLeaf{"Catmpvclaisrdistatusupend", catmcurstatusuppvclentry.Catmpvclaisrdistatusupend}
-    catmcurstatusuppvclentry.EntityData.Leafs["catmPVclCurRecoverTime"] = types.YLeaf{"Catmpvclcurrecovertime", catmcurstatusuppvclentry.Catmpvclcurrecovertime}
-    catmcurstatusuppvclentry.EntityData.Leafs["catmPVclPrevFailTime"] = types.YLeaf{"Catmpvclprevfailtime", catmcurstatusuppvclentry.Catmpvclprevfailtime}
-    catmcurstatusuppvclentry.EntityData.Leafs["catmPVclRecoveryReason"] = types.YLeaf{"Catmpvclrecoveryreason", catmcurstatusuppvclentry.Catmpvclrecoveryreason}
-    return &(catmcurstatusuppvclentry.EntityData)
+    catmCurStatusUpPVclEntry.EntityData.Children = types.NewOrderedMap()
+    catmCurStatusUpPVclEntry.EntityData.Leafs = types.NewOrderedMap()
+    catmCurStatusUpPVclEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", catmCurStatusUpPVclEntry.IfIndex})
+    catmCurStatusUpPVclEntry.EntityData.Leafs.Append("atmVclVpi", types.YLeaf{"AtmVclVpi", catmCurStatusUpPVclEntry.AtmVclVpi})
+    catmCurStatusUpPVclEntry.EntityData.Leafs.Append("atmVclVci", types.YLeaf{"AtmVclVci", catmCurStatusUpPVclEntry.AtmVclVci})
+    catmCurStatusUpPVclEntry.EntityData.Leafs.Append("catmPVclStatusUpTransition", types.YLeaf{"CatmPVclStatusUpTransition", catmCurStatusUpPVclEntry.CatmPVclStatusUpTransition})
+    catmCurStatusUpPVclEntry.EntityData.Leafs.Append("catmPVclStatusUpStart", types.YLeaf{"CatmPVclStatusUpStart", catmCurStatusUpPVclEntry.CatmPVclStatusUpStart})
+    catmCurStatusUpPVclEntry.EntityData.Leafs.Append("catmPVclStatusUpEnd", types.YLeaf{"CatmPVclStatusUpEnd", catmCurStatusUpPVclEntry.CatmPVclStatusUpEnd})
+    catmCurStatusUpPVclEntry.EntityData.Leafs.Append("catmPVclSegCCStatusUpTransition", types.YLeaf{"CatmPVclSegCCStatusUpTransition", catmCurStatusUpPVclEntry.CatmPVclSegCCStatusUpTransition})
+    catmCurStatusUpPVclEntry.EntityData.Leafs.Append("catmPVclSegCCStatusUpStart", types.YLeaf{"CatmPVclSegCCStatusUpStart", catmCurStatusUpPVclEntry.CatmPVclSegCCStatusUpStart})
+    catmCurStatusUpPVclEntry.EntityData.Leafs.Append("catmPVclSegCCStatusUpEnd", types.YLeaf{"CatmPVclSegCCStatusUpEnd", catmCurStatusUpPVclEntry.CatmPVclSegCCStatusUpEnd})
+    catmCurStatusUpPVclEntry.EntityData.Leafs.Append("catmPVclEndCCStatusUpTransition", types.YLeaf{"CatmPVclEndCCStatusUpTransition", catmCurStatusUpPVclEntry.CatmPVclEndCCStatusUpTransition})
+    catmCurStatusUpPVclEntry.EntityData.Leafs.Append("catmPVclEndCCStatusUpStart", types.YLeaf{"CatmPVclEndCCStatusUpStart", catmCurStatusUpPVclEntry.CatmPVclEndCCStatusUpStart})
+    catmCurStatusUpPVclEntry.EntityData.Leafs.Append("catmPVclEndCCStatusUpEnd", types.YLeaf{"CatmPVclEndCCStatusUpEnd", catmCurStatusUpPVclEntry.CatmPVclEndCCStatusUpEnd})
+    catmCurStatusUpPVclEntry.EntityData.Leafs.Append("catmPVclAISRDIStatusUpTransition", types.YLeaf{"CatmPVclAISRDIStatusUpTransition", catmCurStatusUpPVclEntry.CatmPVclAISRDIStatusUpTransition})
+    catmCurStatusUpPVclEntry.EntityData.Leafs.Append("catmPVclAISRDIStatusUpStart", types.YLeaf{"CatmPVclAISRDIStatusUpStart", catmCurStatusUpPVclEntry.CatmPVclAISRDIStatusUpStart})
+    catmCurStatusUpPVclEntry.EntityData.Leafs.Append("catmPVclAISRDIStatusUpEnd", types.YLeaf{"CatmPVclAISRDIStatusUpEnd", catmCurStatusUpPVclEntry.CatmPVclAISRDIStatusUpEnd})
+    catmCurStatusUpPVclEntry.EntityData.Leafs.Append("catmPVclCurRecoverTime", types.YLeaf{"CatmPVclCurRecoverTime", catmCurStatusUpPVclEntry.CatmPVclCurRecoverTime})
+    catmCurStatusUpPVclEntry.EntityData.Leafs.Append("catmPVclPrevFailTime", types.YLeaf{"CatmPVclPrevFailTime", catmCurStatusUpPVclEntry.CatmPVclPrevFailTime})
+    catmCurStatusUpPVclEntry.EntityData.Leafs.Append("catmPVclRecoveryReason", types.YLeaf{"CatmPVclRecoveryReason", catmCurStatusUpPVclEntry.CatmPVclRecoveryReason})
+
+    catmCurStatusUpPVclEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVclVpi", "AtmVclVci"}
+
+    return &(catmCurStatusUpPVclEntry.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmstatusuppvclrangetable
+// CISCOATMPVCTRAPEXTNMIB_CatmStatusUpPVclRangeTable
 // A table indicating more than one VCLs in a consecutive 
 // range and for each VCL there is an active row in the 
 // atmVclTable having an atmVclConnKind value of `pvc'
 // and loopback OAM status to have detected as recovered
 // in the last corresponding PVC notification .
-type CISCOATMPVCTRAPEXTNMIB_Catmstatusuppvclrangetable struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmStatusUpPVclRangeTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1019,101 +1064,107 @@ type CISCOATMPVCTRAPEXTNMIB_Catmstatusuppvclrangetable struct {
     // is an active row in the atmVclTable having an atmVclConnKind value of 'pvc'
     // and  loopback OAM status to  have detected as recovered in the last
     // notification  interval. The type is slice of
-    // CISCOATMPVCTRAPEXTNMIB_Catmstatusuppvclrangetable_Catmstatusuppvclrangeentry.
-    Catmstatusuppvclrangeentry []CISCOATMPVCTRAPEXTNMIB_Catmstatusuppvclrangetable_Catmstatusuppvclrangeentry
+    // CISCOATMPVCTRAPEXTNMIB_CatmStatusUpPVclRangeTable_CatmStatusUpPVclRangeEntry.
+    CatmStatusUpPVclRangeEntry []*CISCOATMPVCTRAPEXTNMIB_CatmStatusUpPVclRangeTable_CatmStatusUpPVclRangeEntry
 }
 
-func (catmstatusuppvclrangetable *CISCOATMPVCTRAPEXTNMIB_Catmstatusuppvclrangetable) GetEntityData() *types.CommonEntityData {
-    catmstatusuppvclrangetable.EntityData.YFilter = catmstatusuppvclrangetable.YFilter
-    catmstatusuppvclrangetable.EntityData.YangName = "catmStatusUpPVclRangeTable"
-    catmstatusuppvclrangetable.EntityData.BundleName = "cisco_ios_xe"
-    catmstatusuppvclrangetable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
-    catmstatusuppvclrangetable.EntityData.SegmentPath = "catmStatusUpPVclRangeTable"
-    catmstatusuppvclrangetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmstatusuppvclrangetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmstatusuppvclrangetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmStatusUpPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmStatusUpPVclRangeTable) GetEntityData() *types.CommonEntityData {
+    catmStatusUpPVclRangeTable.EntityData.YFilter = catmStatusUpPVclRangeTable.YFilter
+    catmStatusUpPVclRangeTable.EntityData.YangName = "catmStatusUpPVclRangeTable"
+    catmStatusUpPVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
+    catmStatusUpPVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+    catmStatusUpPVclRangeTable.EntityData.SegmentPath = "catmStatusUpPVclRangeTable"
+    catmStatusUpPVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmStatusUpPVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmStatusUpPVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmstatusuppvclrangetable.EntityData.Children = make(map[string]types.YChild)
-    catmstatusuppvclrangetable.EntityData.Children["catmStatusUpPVclRangeEntry"] = types.YChild{"Catmstatusuppvclrangeentry", nil}
-    for i := range catmstatusuppvclrangetable.Catmstatusuppvclrangeentry {
-        catmstatusuppvclrangetable.EntityData.Children[types.GetSegmentPath(&catmstatusuppvclrangetable.Catmstatusuppvclrangeentry[i])] = types.YChild{"Catmstatusuppvclrangeentry", &catmstatusuppvclrangetable.Catmstatusuppvclrangeentry[i]}
+    catmStatusUpPVclRangeTable.EntityData.Children = types.NewOrderedMap()
+    catmStatusUpPVclRangeTable.EntityData.Children.Append("catmStatusUpPVclRangeEntry", types.YChild{"CatmStatusUpPVclRangeEntry", nil})
+    for i := range catmStatusUpPVclRangeTable.CatmStatusUpPVclRangeEntry {
+        catmStatusUpPVclRangeTable.EntityData.Children.Append(types.GetSegmentPath(catmStatusUpPVclRangeTable.CatmStatusUpPVclRangeEntry[i]), types.YChild{"CatmStatusUpPVclRangeEntry", catmStatusUpPVclRangeTable.CatmStatusUpPVclRangeEntry[i]})
     }
-    catmstatusuppvclrangetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(catmstatusuppvclrangetable.EntityData)
+    catmStatusUpPVclRangeTable.EntityData.Leafs = types.NewOrderedMap()
+
+    catmStatusUpPVclRangeTable.EntityData.YListKeys = []string {}
+
+    return &(catmStatusUpPVclRangeTable.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmstatusuppvclrangetable_Catmstatusuppvclrangeentry
+// CISCOATMPVCTRAPEXTNMIB_CatmStatusUpPVclRangeTable_CatmStatusUpPVclRangeEntry
 // Each entry in this table represents a range of VCLs and 
 // for each VCL there is an active row in the atmVclTable having
 // an atmVclConnKind value of 'pvc' and  loopback OAM status to 
 // have detected as recovered in the last notification 
 // interval.
-type CISCOATMPVCTRAPEXTNMIB_Catmstatusuppvclrangetable_Catmstatusuppvclrangeentry struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmStatusUpPVclRangeTable_CatmStatusUpPVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvpi
-    Atmvclvpi interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVpi
+    AtmVclVpi interface{}
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
-    // cisco_atm_pvctrap_extn_mib.CISCOATMPVCTRAPEXTNMIB_Catmstatuschangepvclrangetable_Catmstatuschangepvclrangeentry_Catmstatuschangepvclrangeindex
-    Catmstatuschangepvclrangeindex interface{}
+    // cisco_atm_pvctrap_extn_mib.CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVclRangeTable_CatmStatusChangePVclRangeEntry_CatmStatusChangePVclRangeIndex
+    CatmStatusChangePVclRangeIndex interface{}
 
     // The first PVCL in a range of PVCLs for which the  Loopback OAM recovery has
     // been detected in the last  corresponding notification . The type is
     // interface{} with range: 0..65536.
-    Catmpvcluplowerrangevalue interface{}
+    CatmPVclUpLowerRangeValue interface{}
 
     // The last PVCL in a range of PVCLs for which the  Loopback OAM recovery has
     // been detected in the last  corresponding notification . The type is
     // interface{} with range: 0..65536.
-    Catmpvcluphigherrangevalue interface{}
+    CatmPVclUpHigherRangeValue interface{}
 
     // The time stamp at which the first Loopback OAM recovery is detected on any
     // of the PVCLs in the range in the last corresponding notification . The type
     // is interface{} with range: 0..4294967295.
-    Catmpvclrangestatusupstart interface{}
+    CatmPVclRangeStatusUpStart interface{}
 
     // The time stamp at which the last Loopback OAM recovery is detected on any
     // of the PVCLs in the range in the last corresponding notification . The type
     // is interface{} with range: 0..4294967295.
-    Catmpvclrangestatusupend interface{}
+    CatmPVclRangeStatusUpEnd interface{}
 }
 
-func (catmstatusuppvclrangeentry *CISCOATMPVCTRAPEXTNMIB_Catmstatusuppvclrangetable_Catmstatusuppvclrangeentry) GetEntityData() *types.CommonEntityData {
-    catmstatusuppvclrangeentry.EntityData.YFilter = catmstatusuppvclrangeentry.YFilter
-    catmstatusuppvclrangeentry.EntityData.YangName = "catmStatusUpPVclRangeEntry"
-    catmstatusuppvclrangeentry.EntityData.BundleName = "cisco_ios_xe"
-    catmstatusuppvclrangeentry.EntityData.ParentYangName = "catmStatusUpPVclRangeTable"
-    catmstatusuppvclrangeentry.EntityData.SegmentPath = "catmStatusUpPVclRangeEntry" + "[ifIndex='" + fmt.Sprintf("%v", catmstatusuppvclrangeentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", catmstatusuppvclrangeentry.Atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + fmt.Sprintf("%v", catmstatusuppvclrangeentry.Catmstatuschangepvclrangeindex) + "']"
-    catmstatusuppvclrangeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmstatusuppvclrangeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmstatusuppvclrangeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmStatusUpPVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmStatusUpPVclRangeTable_CatmStatusUpPVclRangeEntry) GetEntityData() *types.CommonEntityData {
+    catmStatusUpPVclRangeEntry.EntityData.YFilter = catmStatusUpPVclRangeEntry.YFilter
+    catmStatusUpPVclRangeEntry.EntityData.YangName = "catmStatusUpPVclRangeEntry"
+    catmStatusUpPVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
+    catmStatusUpPVclRangeEntry.EntityData.ParentYangName = "catmStatusUpPVclRangeTable"
+    catmStatusUpPVclRangeEntry.EntityData.SegmentPath = "catmStatusUpPVclRangeEntry" + types.AddKeyToken(catmStatusUpPVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmStatusUpPVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmStatusUpPVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmStatusUpPVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmStatusUpPVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmStatusUpPVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmstatusuppvclrangeentry.EntityData.Children = make(map[string]types.YChild)
-    catmstatusuppvclrangeentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    catmstatusuppvclrangeentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", catmstatusuppvclrangeentry.Ifindex}
-    catmstatusuppvclrangeentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", catmstatusuppvclrangeentry.Atmvclvpi}
-    catmstatusuppvclrangeentry.EntityData.Leafs["catmStatusChangePVclRangeIndex"] = types.YLeaf{"Catmstatuschangepvclrangeindex", catmstatusuppvclrangeentry.Catmstatuschangepvclrangeindex}
-    catmstatusuppvclrangeentry.EntityData.Leafs["catmPVclUpLowerRangeValue"] = types.YLeaf{"Catmpvcluplowerrangevalue", catmstatusuppvclrangeentry.Catmpvcluplowerrangevalue}
-    catmstatusuppvclrangeentry.EntityData.Leafs["catmPVclUpHigherRangeValue"] = types.YLeaf{"Catmpvcluphigherrangevalue", catmstatusuppvclrangeentry.Catmpvcluphigherrangevalue}
-    catmstatusuppvclrangeentry.EntityData.Leafs["catmPVclRangeStatusUpStart"] = types.YLeaf{"Catmpvclrangestatusupstart", catmstatusuppvclrangeentry.Catmpvclrangestatusupstart}
-    catmstatusuppvclrangeentry.EntityData.Leafs["catmPVclRangeStatusUpEnd"] = types.YLeaf{"Catmpvclrangestatusupend", catmstatusuppvclrangeentry.Catmpvclrangestatusupend}
-    return &(catmstatusuppvclrangeentry.EntityData)
+    catmStatusUpPVclRangeEntry.EntityData.Children = types.NewOrderedMap()
+    catmStatusUpPVclRangeEntry.EntityData.Leafs = types.NewOrderedMap()
+    catmStatusUpPVclRangeEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", catmStatusUpPVclRangeEntry.IfIndex})
+    catmStatusUpPVclRangeEntry.EntityData.Leafs.Append("atmVclVpi", types.YLeaf{"AtmVclVpi", catmStatusUpPVclRangeEntry.AtmVclVpi})
+    catmStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmStatusChangePVclRangeIndex", types.YLeaf{"CatmStatusChangePVclRangeIndex", catmStatusUpPVclRangeEntry.CatmStatusChangePVclRangeIndex})
+    catmStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmPVclUpLowerRangeValue", types.YLeaf{"CatmPVclUpLowerRangeValue", catmStatusUpPVclRangeEntry.CatmPVclUpLowerRangeValue})
+    catmStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmPVclUpHigherRangeValue", types.YLeaf{"CatmPVclUpHigherRangeValue", catmStatusUpPVclRangeEntry.CatmPVclUpHigherRangeValue})
+    catmStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmPVclRangeStatusUpStart", types.YLeaf{"CatmPVclRangeStatusUpStart", catmStatusUpPVclRangeEntry.CatmPVclRangeStatusUpStart})
+    catmStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmPVclRangeStatusUpEnd", types.YLeaf{"CatmPVclRangeStatusUpEnd", catmStatusUpPVclRangeEntry.CatmPVclRangeStatusUpEnd})
+
+    catmStatusUpPVclRangeEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVclVpi", "CatmStatusChangePVclRangeIndex"}
+
+    return &(catmStatusUpPVclRangeEntry.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmsegccstatusuppvclrangetable
+// CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusUpPVclRangeTable
 // A table indicating more than one VCLs in a consecutive
 // range and for each VCL there is an active row in the
 // atmVclTable having an atmVclConnKind value of `pvc'
 // and Segment CC OAM status to have detected as recovered
 // in the last corresponding PVC notification .
-type CISCOATMPVCTRAPEXTNMIB_Catmsegccstatusuppvclrangetable struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusUpPVclRangeTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1121,101 +1172,107 @@ type CISCOATMPVCTRAPEXTNMIB_Catmsegccstatusuppvclrangetable struct {
     // is an active row in the atmVclTable having an atmVclConnKind value of 'pvc'
     // and Segment CC OAM status to have detected as recovered in the last
     // notification interval. The type is slice of
-    // CISCOATMPVCTRAPEXTNMIB_Catmsegccstatusuppvclrangetable_Catmsegccstatusuppvclrangeentry.
-    Catmsegccstatusuppvclrangeentry []CISCOATMPVCTRAPEXTNMIB_Catmsegccstatusuppvclrangetable_Catmsegccstatusuppvclrangeentry
+    // CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusUpPVclRangeTable_CatmSegCCStatusUpPVclRangeEntry.
+    CatmSegCCStatusUpPVclRangeEntry []*CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusUpPVclRangeTable_CatmSegCCStatusUpPVclRangeEntry
 }
 
-func (catmsegccstatusuppvclrangetable *CISCOATMPVCTRAPEXTNMIB_Catmsegccstatusuppvclrangetable) GetEntityData() *types.CommonEntityData {
-    catmsegccstatusuppvclrangetable.EntityData.YFilter = catmsegccstatusuppvclrangetable.YFilter
-    catmsegccstatusuppvclrangetable.EntityData.YangName = "catmSegCCStatusUpPVclRangeTable"
-    catmsegccstatusuppvclrangetable.EntityData.BundleName = "cisco_ios_xe"
-    catmsegccstatusuppvclrangetable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
-    catmsegccstatusuppvclrangetable.EntityData.SegmentPath = "catmSegCCStatusUpPVclRangeTable"
-    catmsegccstatusuppvclrangetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmsegccstatusuppvclrangetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmsegccstatusuppvclrangetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmSegCCStatusUpPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusUpPVclRangeTable) GetEntityData() *types.CommonEntityData {
+    catmSegCCStatusUpPVclRangeTable.EntityData.YFilter = catmSegCCStatusUpPVclRangeTable.YFilter
+    catmSegCCStatusUpPVclRangeTable.EntityData.YangName = "catmSegCCStatusUpPVclRangeTable"
+    catmSegCCStatusUpPVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
+    catmSegCCStatusUpPVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+    catmSegCCStatusUpPVclRangeTable.EntityData.SegmentPath = "catmSegCCStatusUpPVclRangeTable"
+    catmSegCCStatusUpPVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmSegCCStatusUpPVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmSegCCStatusUpPVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmsegccstatusuppvclrangetable.EntityData.Children = make(map[string]types.YChild)
-    catmsegccstatusuppvclrangetable.EntityData.Children["catmSegCCStatusUpPVclRangeEntry"] = types.YChild{"Catmsegccstatusuppvclrangeentry", nil}
-    for i := range catmsegccstatusuppvclrangetable.Catmsegccstatusuppvclrangeentry {
-        catmsegccstatusuppvclrangetable.EntityData.Children[types.GetSegmentPath(&catmsegccstatusuppvclrangetable.Catmsegccstatusuppvclrangeentry[i])] = types.YChild{"Catmsegccstatusuppvclrangeentry", &catmsegccstatusuppvclrangetable.Catmsegccstatusuppvclrangeentry[i]}
+    catmSegCCStatusUpPVclRangeTable.EntityData.Children = types.NewOrderedMap()
+    catmSegCCStatusUpPVclRangeTable.EntityData.Children.Append("catmSegCCStatusUpPVclRangeEntry", types.YChild{"CatmSegCCStatusUpPVclRangeEntry", nil})
+    for i := range catmSegCCStatusUpPVclRangeTable.CatmSegCCStatusUpPVclRangeEntry {
+        catmSegCCStatusUpPVclRangeTable.EntityData.Children.Append(types.GetSegmentPath(catmSegCCStatusUpPVclRangeTable.CatmSegCCStatusUpPVclRangeEntry[i]), types.YChild{"CatmSegCCStatusUpPVclRangeEntry", catmSegCCStatusUpPVclRangeTable.CatmSegCCStatusUpPVclRangeEntry[i]})
     }
-    catmsegccstatusuppvclrangetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(catmsegccstatusuppvclrangetable.EntityData)
+    catmSegCCStatusUpPVclRangeTable.EntityData.Leafs = types.NewOrderedMap()
+
+    catmSegCCStatusUpPVclRangeTable.EntityData.YListKeys = []string {}
+
+    return &(catmSegCCStatusUpPVclRangeTable.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmsegccstatusuppvclrangetable_Catmsegccstatusuppvclrangeentry
+// CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusUpPVclRangeTable_CatmSegCCStatusUpPVclRangeEntry
 // Each entry in this table represents a range of VCLs and
 // for each VCL there is an active row in the atmVclTable having
 // an atmVclConnKind value of 'pvc' and Segment CC OAM status to
 // have detected as recovered in the last notification
 // interval.
-type CISCOATMPVCTRAPEXTNMIB_Catmsegccstatusuppvclrangetable_Catmsegccstatusuppvclrangeentry struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusUpPVclRangeTable_CatmSegCCStatusUpPVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvpi
-    Atmvclvpi interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVpi
+    AtmVclVpi interface{}
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
-    // cisco_atm_pvctrap_extn_mib.CISCOATMPVCTRAPEXTNMIB_Catmstatuschangepvclrangetable_Catmstatuschangepvclrangeentry_Catmstatuschangepvclrangeindex
-    Catmstatuschangepvclrangeindex interface{}
+    // cisco_atm_pvctrap_extn_mib.CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVclRangeTable_CatmStatusChangePVclRangeEntry_CatmStatusChangePVclRangeIndex
+    CatmStatusChangePVclRangeIndex interface{}
 
     // The first PVCL in a range of PVCLs for which the Segment CC OAM recovery
     // has been detected in the last corresponding notification . The type is
     // interface{} with range: 0..65536.
-    Catmpvclsegccuplowerrangevalue interface{}
+    CatmPVclSegCCUpLowerRangeValue interface{}
 
     // The last PVCL in a range of PVCLs for which the Segment CC OAM recovery has
     // been detected in the last corresponding notification . The type is
     // interface{} with range: 0..65536.
-    Catmpvclsegccuphigherrangevalue interface{}
+    CatmPVclSegCCUpHigherRangeValue interface{}
 
     // The time stamp at which the first Segment CC OAM recovery is detected on
     // any of the PVCLs in the range in the last corresponding notification . The
     // type is interface{} with range: 0..4294967295.
-    Catmpvclsegccrangestatusupstart interface{}
+    CatmPVclSegCCRangeStatusUpStart interface{}
 
     // The time stamp at which the last Segment CC OAM recovery is detected on any
     // of the PVCLs in the range in the last corresponding notification . The type
     // is interface{} with range: 0..4294967295.
-    Catmpvclsegccrangestatusupend interface{}
+    CatmPVclSegCCRangeStatusUpEnd interface{}
 }
 
-func (catmsegccstatusuppvclrangeentry *CISCOATMPVCTRAPEXTNMIB_Catmsegccstatusuppvclrangetable_Catmsegccstatusuppvclrangeentry) GetEntityData() *types.CommonEntityData {
-    catmsegccstatusuppvclrangeentry.EntityData.YFilter = catmsegccstatusuppvclrangeentry.YFilter
-    catmsegccstatusuppvclrangeentry.EntityData.YangName = "catmSegCCStatusUpPVclRangeEntry"
-    catmsegccstatusuppvclrangeentry.EntityData.BundleName = "cisco_ios_xe"
-    catmsegccstatusuppvclrangeentry.EntityData.ParentYangName = "catmSegCCStatusUpPVclRangeTable"
-    catmsegccstatusuppvclrangeentry.EntityData.SegmentPath = "catmSegCCStatusUpPVclRangeEntry" + "[ifIndex='" + fmt.Sprintf("%v", catmsegccstatusuppvclrangeentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", catmsegccstatusuppvclrangeentry.Atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + fmt.Sprintf("%v", catmsegccstatusuppvclrangeentry.Catmstatuschangepvclrangeindex) + "']"
-    catmsegccstatusuppvclrangeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmsegccstatusuppvclrangeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmsegccstatusuppvclrangeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmSegCCStatusUpPVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusUpPVclRangeTable_CatmSegCCStatusUpPVclRangeEntry) GetEntityData() *types.CommonEntityData {
+    catmSegCCStatusUpPVclRangeEntry.EntityData.YFilter = catmSegCCStatusUpPVclRangeEntry.YFilter
+    catmSegCCStatusUpPVclRangeEntry.EntityData.YangName = "catmSegCCStatusUpPVclRangeEntry"
+    catmSegCCStatusUpPVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
+    catmSegCCStatusUpPVclRangeEntry.EntityData.ParentYangName = "catmSegCCStatusUpPVclRangeTable"
+    catmSegCCStatusUpPVclRangeEntry.EntityData.SegmentPath = "catmSegCCStatusUpPVclRangeEntry" + types.AddKeyToken(catmSegCCStatusUpPVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmSegCCStatusUpPVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmSegCCStatusUpPVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmSegCCStatusUpPVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmSegCCStatusUpPVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmSegCCStatusUpPVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmsegccstatusuppvclrangeentry.EntityData.Children = make(map[string]types.YChild)
-    catmsegccstatusuppvclrangeentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    catmsegccstatusuppvclrangeentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", catmsegccstatusuppvclrangeentry.Ifindex}
-    catmsegccstatusuppvclrangeentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", catmsegccstatusuppvclrangeentry.Atmvclvpi}
-    catmsegccstatusuppvclrangeentry.EntityData.Leafs["catmStatusChangePVclRangeIndex"] = types.YLeaf{"Catmstatuschangepvclrangeindex", catmsegccstatusuppvclrangeentry.Catmstatuschangepvclrangeindex}
-    catmsegccstatusuppvclrangeentry.EntityData.Leafs["catmPVclSegCCUpLowerRangeValue"] = types.YLeaf{"Catmpvclsegccuplowerrangevalue", catmsegccstatusuppvclrangeentry.Catmpvclsegccuplowerrangevalue}
-    catmsegccstatusuppvclrangeentry.EntityData.Leafs["catmPVclSegCCUpHigherRangeValue"] = types.YLeaf{"Catmpvclsegccuphigherrangevalue", catmsegccstatusuppvclrangeentry.Catmpvclsegccuphigherrangevalue}
-    catmsegccstatusuppvclrangeentry.EntityData.Leafs["catmPVclSegCCRangeStatusUpStart"] = types.YLeaf{"Catmpvclsegccrangestatusupstart", catmsegccstatusuppvclrangeentry.Catmpvclsegccrangestatusupstart}
-    catmsegccstatusuppvclrangeentry.EntityData.Leafs["catmPVclSegCCRangeStatusUpEnd"] = types.YLeaf{"Catmpvclsegccrangestatusupend", catmsegccstatusuppvclrangeentry.Catmpvclsegccrangestatusupend}
-    return &(catmsegccstatusuppvclrangeentry.EntityData)
+    catmSegCCStatusUpPVclRangeEntry.EntityData.Children = types.NewOrderedMap()
+    catmSegCCStatusUpPVclRangeEntry.EntityData.Leafs = types.NewOrderedMap()
+    catmSegCCStatusUpPVclRangeEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", catmSegCCStatusUpPVclRangeEntry.IfIndex})
+    catmSegCCStatusUpPVclRangeEntry.EntityData.Leafs.Append("atmVclVpi", types.YLeaf{"AtmVclVpi", catmSegCCStatusUpPVclRangeEntry.AtmVclVpi})
+    catmSegCCStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmStatusChangePVclRangeIndex", types.YLeaf{"CatmStatusChangePVclRangeIndex", catmSegCCStatusUpPVclRangeEntry.CatmStatusChangePVclRangeIndex})
+    catmSegCCStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmPVclSegCCUpLowerRangeValue", types.YLeaf{"CatmPVclSegCCUpLowerRangeValue", catmSegCCStatusUpPVclRangeEntry.CatmPVclSegCCUpLowerRangeValue})
+    catmSegCCStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmPVclSegCCUpHigherRangeValue", types.YLeaf{"CatmPVclSegCCUpHigherRangeValue", catmSegCCStatusUpPVclRangeEntry.CatmPVclSegCCUpHigherRangeValue})
+    catmSegCCStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmPVclSegCCRangeStatusUpStart", types.YLeaf{"CatmPVclSegCCRangeStatusUpStart", catmSegCCStatusUpPVclRangeEntry.CatmPVclSegCCRangeStatusUpStart})
+    catmSegCCStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmPVclSegCCRangeStatusUpEnd", types.YLeaf{"CatmPVclSegCCRangeStatusUpEnd", catmSegCCStatusUpPVclRangeEntry.CatmPVclSegCCRangeStatusUpEnd})
+
+    catmSegCCStatusUpPVclRangeEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVclVpi", "CatmStatusChangePVclRangeIndex"}
+
+    return &(catmSegCCStatusUpPVclRangeEntry.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmendccstatusuppvclrangetable
+// CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusUpPVclRangeTable
 // A table indicating more than one VCLs in a consecutive
 // range and for each VCL there is an active row in the
 // atmVclTable having an atmVclConnKind value of `pvc'
 // and End-to-End CC OAM status to have detected as recovered
 // in the last corresponding PVC notification .
-type CISCOATMPVCTRAPEXTNMIB_Catmendccstatusuppvclrangetable struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusUpPVclRangeTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1223,101 +1280,107 @@ type CISCOATMPVCTRAPEXTNMIB_Catmendccstatusuppvclrangetable struct {
     // is an active row in the atmVclTable having an atmVclConnKind value of 'pvc'
     // and End-to-End CC OAM status  to have detected as recovered in the last
     // notification interval. The type is slice of
-    // CISCOATMPVCTRAPEXTNMIB_Catmendccstatusuppvclrangetable_Catmendccstatusuppvclrangeentry.
-    Catmendccstatusuppvclrangeentry []CISCOATMPVCTRAPEXTNMIB_Catmendccstatusuppvclrangetable_Catmendccstatusuppvclrangeentry
+    // CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusUpPVclRangeTable_CatmEndCCStatusUpPVclRangeEntry.
+    CatmEndCCStatusUpPVclRangeEntry []*CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusUpPVclRangeTable_CatmEndCCStatusUpPVclRangeEntry
 }
 
-func (catmendccstatusuppvclrangetable *CISCOATMPVCTRAPEXTNMIB_Catmendccstatusuppvclrangetable) GetEntityData() *types.CommonEntityData {
-    catmendccstatusuppvclrangetable.EntityData.YFilter = catmendccstatusuppvclrangetable.YFilter
-    catmendccstatusuppvclrangetable.EntityData.YangName = "catmEndCCStatusUpPVclRangeTable"
-    catmendccstatusuppvclrangetable.EntityData.BundleName = "cisco_ios_xe"
-    catmendccstatusuppvclrangetable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
-    catmendccstatusuppvclrangetable.EntityData.SegmentPath = "catmEndCCStatusUpPVclRangeTable"
-    catmendccstatusuppvclrangetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmendccstatusuppvclrangetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmendccstatusuppvclrangetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmEndCCStatusUpPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusUpPVclRangeTable) GetEntityData() *types.CommonEntityData {
+    catmEndCCStatusUpPVclRangeTable.EntityData.YFilter = catmEndCCStatusUpPVclRangeTable.YFilter
+    catmEndCCStatusUpPVclRangeTable.EntityData.YangName = "catmEndCCStatusUpPVclRangeTable"
+    catmEndCCStatusUpPVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
+    catmEndCCStatusUpPVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+    catmEndCCStatusUpPVclRangeTable.EntityData.SegmentPath = "catmEndCCStatusUpPVclRangeTable"
+    catmEndCCStatusUpPVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmEndCCStatusUpPVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmEndCCStatusUpPVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmendccstatusuppvclrangetable.EntityData.Children = make(map[string]types.YChild)
-    catmendccstatusuppvclrangetable.EntityData.Children["catmEndCCStatusUpPVclRangeEntry"] = types.YChild{"Catmendccstatusuppvclrangeentry", nil}
-    for i := range catmendccstatusuppvclrangetable.Catmendccstatusuppvclrangeentry {
-        catmendccstatusuppvclrangetable.EntityData.Children[types.GetSegmentPath(&catmendccstatusuppvclrangetable.Catmendccstatusuppvclrangeentry[i])] = types.YChild{"Catmendccstatusuppvclrangeentry", &catmendccstatusuppvclrangetable.Catmendccstatusuppvclrangeentry[i]}
+    catmEndCCStatusUpPVclRangeTable.EntityData.Children = types.NewOrderedMap()
+    catmEndCCStatusUpPVclRangeTable.EntityData.Children.Append("catmEndCCStatusUpPVclRangeEntry", types.YChild{"CatmEndCCStatusUpPVclRangeEntry", nil})
+    for i := range catmEndCCStatusUpPVclRangeTable.CatmEndCCStatusUpPVclRangeEntry {
+        catmEndCCStatusUpPVclRangeTable.EntityData.Children.Append(types.GetSegmentPath(catmEndCCStatusUpPVclRangeTable.CatmEndCCStatusUpPVclRangeEntry[i]), types.YChild{"CatmEndCCStatusUpPVclRangeEntry", catmEndCCStatusUpPVclRangeTable.CatmEndCCStatusUpPVclRangeEntry[i]})
     }
-    catmendccstatusuppvclrangetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(catmendccstatusuppvclrangetable.EntityData)
+    catmEndCCStatusUpPVclRangeTable.EntityData.Leafs = types.NewOrderedMap()
+
+    catmEndCCStatusUpPVclRangeTable.EntityData.YListKeys = []string {}
+
+    return &(catmEndCCStatusUpPVclRangeTable.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmendccstatusuppvclrangetable_Catmendccstatusuppvclrangeentry
+// CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusUpPVclRangeTable_CatmEndCCStatusUpPVclRangeEntry
 // Each entry in this table represents a range of VCLs and
 // for each VCL there is an active row in the atmVclTable having
 // an atmVclConnKind value of 'pvc' and End-to-End CC OAM status 
 // to have detected as recovered in the last notification
 // interval.
-type CISCOATMPVCTRAPEXTNMIB_Catmendccstatusuppvclrangetable_Catmendccstatusuppvclrangeentry struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusUpPVclRangeTable_CatmEndCCStatusUpPVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvpi
-    Atmvclvpi interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVpi
+    AtmVclVpi interface{}
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
-    // cisco_atm_pvctrap_extn_mib.CISCOATMPVCTRAPEXTNMIB_Catmstatuschangepvclrangetable_Catmstatuschangepvclrangeentry_Catmstatuschangepvclrangeindex
-    Catmstatuschangepvclrangeindex interface{}
+    // cisco_atm_pvctrap_extn_mib.CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVclRangeTable_CatmStatusChangePVclRangeEntry_CatmStatusChangePVclRangeIndex
+    CatmStatusChangePVclRangeIndex interface{}
 
     // The first PVCL in a range of PVCLs for which the End-to-End CC OAM recovery
     // has been detected in the last corresponding notification . The type is
     // interface{} with range: 0..65536.
-    Catmpvclendccuplowerrangevalue interface{}
+    CatmPVclEndCCUpLowerRangeValue interface{}
 
     // The last PVCL in a range of PVCLs for which the End-to-End CC OAM recovery
     // has been detected in the last corresponding notification . The type is
     // interface{} with range: 0..65536.
-    Catmpvclendccuphigherrangevalue interface{}
+    CatmPVclEndCCUpHigherRangeValue interface{}
 
     // The time stamp at which the first End-to-End CC OAM recovery is detected on
     // any of the PVCLs in the range in the last corresponding notification . The
     // type is interface{} with range: 0..4294967295.
-    Catmpvclendccrangestatusupstart interface{}
+    CatmPVclEndCCRangeStatusUpStart interface{}
 
     // The time stamp at which the last End-to-End CC OAM recovery is detected on
     // any of the PVCLs in the range in the last corresponding notification . The
     // type is interface{} with range: 0..4294967295.
-    Catmpvclendccrangestatusupend interface{}
+    CatmPVclEndCCRangeStatusUpEnd interface{}
 }
 
-func (catmendccstatusuppvclrangeentry *CISCOATMPVCTRAPEXTNMIB_Catmendccstatusuppvclrangetable_Catmendccstatusuppvclrangeentry) GetEntityData() *types.CommonEntityData {
-    catmendccstatusuppvclrangeentry.EntityData.YFilter = catmendccstatusuppvclrangeentry.YFilter
-    catmendccstatusuppvclrangeentry.EntityData.YangName = "catmEndCCStatusUpPVclRangeEntry"
-    catmendccstatusuppvclrangeentry.EntityData.BundleName = "cisco_ios_xe"
-    catmendccstatusuppvclrangeentry.EntityData.ParentYangName = "catmEndCCStatusUpPVclRangeTable"
-    catmendccstatusuppvclrangeentry.EntityData.SegmentPath = "catmEndCCStatusUpPVclRangeEntry" + "[ifIndex='" + fmt.Sprintf("%v", catmendccstatusuppvclrangeentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", catmendccstatusuppvclrangeentry.Atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + fmt.Sprintf("%v", catmendccstatusuppvclrangeentry.Catmstatuschangepvclrangeindex) + "']"
-    catmendccstatusuppvclrangeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmendccstatusuppvclrangeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmendccstatusuppvclrangeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmEndCCStatusUpPVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusUpPVclRangeTable_CatmEndCCStatusUpPVclRangeEntry) GetEntityData() *types.CommonEntityData {
+    catmEndCCStatusUpPVclRangeEntry.EntityData.YFilter = catmEndCCStatusUpPVclRangeEntry.YFilter
+    catmEndCCStatusUpPVclRangeEntry.EntityData.YangName = "catmEndCCStatusUpPVclRangeEntry"
+    catmEndCCStatusUpPVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
+    catmEndCCStatusUpPVclRangeEntry.EntityData.ParentYangName = "catmEndCCStatusUpPVclRangeTable"
+    catmEndCCStatusUpPVclRangeEntry.EntityData.SegmentPath = "catmEndCCStatusUpPVclRangeEntry" + types.AddKeyToken(catmEndCCStatusUpPVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmEndCCStatusUpPVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmEndCCStatusUpPVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmEndCCStatusUpPVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmEndCCStatusUpPVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmEndCCStatusUpPVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmendccstatusuppvclrangeentry.EntityData.Children = make(map[string]types.YChild)
-    catmendccstatusuppvclrangeentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    catmendccstatusuppvclrangeentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", catmendccstatusuppvclrangeentry.Ifindex}
-    catmendccstatusuppvclrangeentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", catmendccstatusuppvclrangeentry.Atmvclvpi}
-    catmendccstatusuppvclrangeentry.EntityData.Leafs["catmStatusChangePVclRangeIndex"] = types.YLeaf{"Catmstatuschangepvclrangeindex", catmendccstatusuppvclrangeentry.Catmstatuschangepvclrangeindex}
-    catmendccstatusuppvclrangeentry.EntityData.Leafs["catmPVclEndCCUpLowerRangeValue"] = types.YLeaf{"Catmpvclendccuplowerrangevalue", catmendccstatusuppvclrangeentry.Catmpvclendccuplowerrangevalue}
-    catmendccstatusuppvclrangeentry.EntityData.Leafs["catmPVclEndCCUpHigherRangeValue"] = types.YLeaf{"Catmpvclendccuphigherrangevalue", catmendccstatusuppvclrangeentry.Catmpvclendccuphigherrangevalue}
-    catmendccstatusuppvclrangeentry.EntityData.Leafs["catmPVclEndCCRangeStatusUpStart"] = types.YLeaf{"Catmpvclendccrangestatusupstart", catmendccstatusuppvclrangeentry.Catmpvclendccrangestatusupstart}
-    catmendccstatusuppvclrangeentry.EntityData.Leafs["catmPVclEndCCRangeStatusUpEnd"] = types.YLeaf{"Catmpvclendccrangestatusupend", catmendccstatusuppvclrangeentry.Catmpvclendccrangestatusupend}
-    return &(catmendccstatusuppvclrangeentry.EntityData)
+    catmEndCCStatusUpPVclRangeEntry.EntityData.Children = types.NewOrderedMap()
+    catmEndCCStatusUpPVclRangeEntry.EntityData.Leafs = types.NewOrderedMap()
+    catmEndCCStatusUpPVclRangeEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", catmEndCCStatusUpPVclRangeEntry.IfIndex})
+    catmEndCCStatusUpPVclRangeEntry.EntityData.Leafs.Append("atmVclVpi", types.YLeaf{"AtmVclVpi", catmEndCCStatusUpPVclRangeEntry.AtmVclVpi})
+    catmEndCCStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmStatusChangePVclRangeIndex", types.YLeaf{"CatmStatusChangePVclRangeIndex", catmEndCCStatusUpPVclRangeEntry.CatmStatusChangePVclRangeIndex})
+    catmEndCCStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmPVclEndCCUpLowerRangeValue", types.YLeaf{"CatmPVclEndCCUpLowerRangeValue", catmEndCCStatusUpPVclRangeEntry.CatmPVclEndCCUpLowerRangeValue})
+    catmEndCCStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmPVclEndCCUpHigherRangeValue", types.YLeaf{"CatmPVclEndCCUpHigherRangeValue", catmEndCCStatusUpPVclRangeEntry.CatmPVclEndCCUpHigherRangeValue})
+    catmEndCCStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmPVclEndCCRangeStatusUpStart", types.YLeaf{"CatmPVclEndCCRangeStatusUpStart", catmEndCCStatusUpPVclRangeEntry.CatmPVclEndCCRangeStatusUpStart})
+    catmEndCCStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmPVclEndCCRangeStatusUpEnd", types.YLeaf{"CatmPVclEndCCRangeStatusUpEnd", catmEndCCStatusUpPVclRangeEntry.CatmPVclEndCCRangeStatusUpEnd})
+
+    catmEndCCStatusUpPVclRangeEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVclVpi", "CatmStatusChangePVclRangeIndex"}
+
+    return &(catmEndCCStatusUpPVclRangeEntry.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatusuppvclrangetable
+// CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusUpPVclRangeTable
 // A table indicating more than one VCLs in a consecutive
 // range and for each VCL there is an active row in the
 // atmVclTable having an atmVclConnKind value of `pvc'
 // and AISRDI OAM status to have detected as recovered
 // in the last corresponding PVC notification .
-type CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatusuppvclrangetable struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusUpPVclRangeTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1325,101 +1388,107 @@ type CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatusuppvclrangetable struct {
     // is an active row in the atmVclTable having an atmVclConnKind value of 'pvc'
     // and AISRDI OAM status  to have detected as recovered in the last
     // notification interval. The type is slice of
-    // CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatusuppvclrangetable_Catmaisrdistatusuppvclrangeentry.
-    Catmaisrdistatusuppvclrangeentry []CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatusuppvclrangetable_Catmaisrdistatusuppvclrangeentry
+    // CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusUpPVclRangeTable_CatmAISRDIStatusUpPVclRangeEntry.
+    CatmAISRDIStatusUpPVclRangeEntry []*CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusUpPVclRangeTable_CatmAISRDIStatusUpPVclRangeEntry
 }
 
-func (catmaisrdistatusuppvclrangetable *CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatusuppvclrangetable) GetEntityData() *types.CommonEntityData {
-    catmaisrdistatusuppvclrangetable.EntityData.YFilter = catmaisrdistatusuppvclrangetable.YFilter
-    catmaisrdistatusuppvclrangetable.EntityData.YangName = "catmAISRDIStatusUpPVclRangeTable"
-    catmaisrdistatusuppvclrangetable.EntityData.BundleName = "cisco_ios_xe"
-    catmaisrdistatusuppvclrangetable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
-    catmaisrdistatusuppvclrangetable.EntityData.SegmentPath = "catmAISRDIStatusUpPVclRangeTable"
-    catmaisrdistatusuppvclrangetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmaisrdistatusuppvclrangetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmaisrdistatusuppvclrangetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmAISRDIStatusUpPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusUpPVclRangeTable) GetEntityData() *types.CommonEntityData {
+    catmAISRDIStatusUpPVclRangeTable.EntityData.YFilter = catmAISRDIStatusUpPVclRangeTable.YFilter
+    catmAISRDIStatusUpPVclRangeTable.EntityData.YangName = "catmAISRDIStatusUpPVclRangeTable"
+    catmAISRDIStatusUpPVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
+    catmAISRDIStatusUpPVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+    catmAISRDIStatusUpPVclRangeTable.EntityData.SegmentPath = "catmAISRDIStatusUpPVclRangeTable"
+    catmAISRDIStatusUpPVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmAISRDIStatusUpPVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmAISRDIStatusUpPVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmaisrdistatusuppvclrangetable.EntityData.Children = make(map[string]types.YChild)
-    catmaisrdistatusuppvclrangetable.EntityData.Children["catmAISRDIStatusUpPVclRangeEntry"] = types.YChild{"Catmaisrdistatusuppvclrangeentry", nil}
-    for i := range catmaisrdistatusuppvclrangetable.Catmaisrdistatusuppvclrangeentry {
-        catmaisrdistatusuppvclrangetable.EntityData.Children[types.GetSegmentPath(&catmaisrdistatusuppvclrangetable.Catmaisrdistatusuppvclrangeentry[i])] = types.YChild{"Catmaisrdistatusuppvclrangeentry", &catmaisrdistatusuppvclrangetable.Catmaisrdistatusuppvclrangeentry[i]}
+    catmAISRDIStatusUpPVclRangeTable.EntityData.Children = types.NewOrderedMap()
+    catmAISRDIStatusUpPVclRangeTable.EntityData.Children.Append("catmAISRDIStatusUpPVclRangeEntry", types.YChild{"CatmAISRDIStatusUpPVclRangeEntry", nil})
+    for i := range catmAISRDIStatusUpPVclRangeTable.CatmAISRDIStatusUpPVclRangeEntry {
+        catmAISRDIStatusUpPVclRangeTable.EntityData.Children.Append(types.GetSegmentPath(catmAISRDIStatusUpPVclRangeTable.CatmAISRDIStatusUpPVclRangeEntry[i]), types.YChild{"CatmAISRDIStatusUpPVclRangeEntry", catmAISRDIStatusUpPVclRangeTable.CatmAISRDIStatusUpPVclRangeEntry[i]})
     }
-    catmaisrdistatusuppvclrangetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(catmaisrdistatusuppvclrangetable.EntityData)
+    catmAISRDIStatusUpPVclRangeTable.EntityData.Leafs = types.NewOrderedMap()
+
+    catmAISRDIStatusUpPVclRangeTable.EntityData.YListKeys = []string {}
+
+    return &(catmAISRDIStatusUpPVclRangeTable.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatusuppvclrangetable_Catmaisrdistatusuppvclrangeentry
+// CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusUpPVclRangeTable_CatmAISRDIStatusUpPVclRangeEntry
 // Each entry in this table represents a range of VCLs and
 // for each VCL there is an active row in the atmVclTable having
 // an atmVclConnKind value of 'pvc' and AISRDI OAM status 
 // to have detected as recovered in the last notification
 // interval.
-type CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatusuppvclrangetable_Catmaisrdistatusuppvclrangeentry struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusUpPVclRangeTable_CatmAISRDIStatusUpPVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvpi
-    Atmvclvpi interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVpi
+    AtmVclVpi interface{}
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
-    // cisco_atm_pvctrap_extn_mib.CISCOATMPVCTRAPEXTNMIB_Catmstatuschangepvclrangetable_Catmstatuschangepvclrangeentry_Catmstatuschangepvclrangeindex
-    Catmstatuschangepvclrangeindex interface{}
+    // cisco_atm_pvctrap_extn_mib.CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVclRangeTable_CatmStatusChangePVclRangeEntry_CatmStatusChangePVclRangeIndex
+    CatmStatusChangePVclRangeIndex interface{}
 
     // The first PVCL in a range of PVCLs for which the AISRDI OAM recovery has
     // been detected in the last corresponding notification . The type is
     // interface{} with range: 0..65536.
-    Catmpvclaisrdiuplowerrangevalue interface{}
+    CatmPVclAISRDIUpLowerRangeValue interface{}
 
     // The last PVCL in a range of PVCLs for which the AISRDI OAM recovery has
     // been detected in the last corresponding notification . The type is
     // interface{} with range: 0..65536.
-    Catmpvclaisrdiuphigherrangevalue interface{}
+    CatmPVclAISRDIUpHigherRangeValue interface{}
 
     // The time stamp at which the first AISRDI OAM recovery is detected on any of
     // the PVCLs in the range in the last corresponding notification . The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclaisrdirangestatusupstart interface{}
+    CatmPVclAISRDIRangeStatusUpStart interface{}
 
     // The time stamp at which the last AISRDI OAM recovery is detected on any of
     // the PVCLs in the range in the last corresponding notification . The type is
     // interface{} with range: 0..4294967295.
-    Catmpvclaisrdirangestatusupend interface{}
+    CatmPVclAISRDIRangeStatusUpEnd interface{}
 }
 
-func (catmaisrdistatusuppvclrangeentry *CISCOATMPVCTRAPEXTNMIB_Catmaisrdistatusuppvclrangetable_Catmaisrdistatusuppvclrangeentry) GetEntityData() *types.CommonEntityData {
-    catmaisrdistatusuppvclrangeentry.EntityData.YFilter = catmaisrdistatusuppvclrangeentry.YFilter
-    catmaisrdistatusuppvclrangeentry.EntityData.YangName = "catmAISRDIStatusUpPVclRangeEntry"
-    catmaisrdistatusuppvclrangeentry.EntityData.BundleName = "cisco_ios_xe"
-    catmaisrdistatusuppvclrangeentry.EntityData.ParentYangName = "catmAISRDIStatusUpPVclRangeTable"
-    catmaisrdistatusuppvclrangeentry.EntityData.SegmentPath = "catmAISRDIStatusUpPVclRangeEntry" + "[ifIndex='" + fmt.Sprintf("%v", catmaisrdistatusuppvclrangeentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", catmaisrdistatusuppvclrangeentry.Atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + fmt.Sprintf("%v", catmaisrdistatusuppvclrangeentry.Catmstatuschangepvclrangeindex) + "']"
-    catmaisrdistatusuppvclrangeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmaisrdistatusuppvclrangeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmaisrdistatusuppvclrangeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmAISRDIStatusUpPVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusUpPVclRangeTable_CatmAISRDIStatusUpPVclRangeEntry) GetEntityData() *types.CommonEntityData {
+    catmAISRDIStatusUpPVclRangeEntry.EntityData.YFilter = catmAISRDIStatusUpPVclRangeEntry.YFilter
+    catmAISRDIStatusUpPVclRangeEntry.EntityData.YangName = "catmAISRDIStatusUpPVclRangeEntry"
+    catmAISRDIStatusUpPVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
+    catmAISRDIStatusUpPVclRangeEntry.EntityData.ParentYangName = "catmAISRDIStatusUpPVclRangeTable"
+    catmAISRDIStatusUpPVclRangeEntry.EntityData.SegmentPath = "catmAISRDIStatusUpPVclRangeEntry" + types.AddKeyToken(catmAISRDIStatusUpPVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmAISRDIStatusUpPVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmAISRDIStatusUpPVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmAISRDIStatusUpPVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmAISRDIStatusUpPVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmAISRDIStatusUpPVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmaisrdistatusuppvclrangeentry.EntityData.Children = make(map[string]types.YChild)
-    catmaisrdistatusuppvclrangeentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    catmaisrdistatusuppvclrangeentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", catmaisrdistatusuppvclrangeentry.Ifindex}
-    catmaisrdistatusuppvclrangeentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", catmaisrdistatusuppvclrangeentry.Atmvclvpi}
-    catmaisrdistatusuppvclrangeentry.EntityData.Leafs["catmStatusChangePVclRangeIndex"] = types.YLeaf{"Catmstatuschangepvclrangeindex", catmaisrdistatusuppvclrangeentry.Catmstatuschangepvclrangeindex}
-    catmaisrdistatusuppvclrangeentry.EntityData.Leafs["catmPVclAISRDIUpLowerRangeValue"] = types.YLeaf{"Catmpvclaisrdiuplowerrangevalue", catmaisrdistatusuppvclrangeentry.Catmpvclaisrdiuplowerrangevalue}
-    catmaisrdistatusuppvclrangeentry.EntityData.Leafs["catmPVclAISRDIUpHigherRangeValue"] = types.YLeaf{"Catmpvclaisrdiuphigherrangevalue", catmaisrdistatusuppvclrangeentry.Catmpvclaisrdiuphigherrangevalue}
-    catmaisrdistatusuppvclrangeentry.EntityData.Leafs["catmPVclAISRDIRangeStatusUpStart"] = types.YLeaf{"Catmpvclaisrdirangestatusupstart", catmaisrdistatusuppvclrangeentry.Catmpvclaisrdirangestatusupstart}
-    catmaisrdistatusuppvclrangeentry.EntityData.Leafs["catmPVclAISRDIRangeStatusUpEnd"] = types.YLeaf{"Catmpvclaisrdirangestatusupend", catmaisrdistatusuppvclrangeentry.Catmpvclaisrdirangestatusupend}
-    return &(catmaisrdistatusuppvclrangeentry.EntityData)
+    catmAISRDIStatusUpPVclRangeEntry.EntityData.Children = types.NewOrderedMap()
+    catmAISRDIStatusUpPVclRangeEntry.EntityData.Leafs = types.NewOrderedMap()
+    catmAISRDIStatusUpPVclRangeEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", catmAISRDIStatusUpPVclRangeEntry.IfIndex})
+    catmAISRDIStatusUpPVclRangeEntry.EntityData.Leafs.Append("atmVclVpi", types.YLeaf{"AtmVclVpi", catmAISRDIStatusUpPVclRangeEntry.AtmVclVpi})
+    catmAISRDIStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmStatusChangePVclRangeIndex", types.YLeaf{"CatmStatusChangePVclRangeIndex", catmAISRDIStatusUpPVclRangeEntry.CatmStatusChangePVclRangeIndex})
+    catmAISRDIStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmPVclAISRDIUpLowerRangeValue", types.YLeaf{"CatmPVclAISRDIUpLowerRangeValue", catmAISRDIStatusUpPVclRangeEntry.CatmPVclAISRDIUpLowerRangeValue})
+    catmAISRDIStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmPVclAISRDIUpHigherRangeValue", types.YLeaf{"CatmPVclAISRDIUpHigherRangeValue", catmAISRDIStatusUpPVclRangeEntry.CatmPVclAISRDIUpHigherRangeValue})
+    catmAISRDIStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmPVclAISRDIRangeStatusUpStart", types.YLeaf{"CatmPVclAISRDIRangeStatusUpStart", catmAISRDIStatusUpPVclRangeEntry.CatmPVclAISRDIRangeStatusUpStart})
+    catmAISRDIStatusUpPVclRangeEntry.EntityData.Leafs.Append("catmPVclAISRDIRangeStatusUpEnd", types.YLeaf{"CatmPVclAISRDIRangeStatusUpEnd", catmAISRDIStatusUpPVclRangeEntry.CatmPVclAISRDIRangeStatusUpEnd})
+
+    catmAISRDIStatusUpPVclRangeEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVclVpi", "CatmStatusChangePVclRangeIndex"}
+
+    return &(catmAISRDIStatusUpPVclRangeEntry.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmuppvclrangetable
+// CISCOATMPVCTRAPEXTNMIB_CatmUpPVclRangeTable
 // A table indicating more than one VCLs in a consecutive 
 // range and for each VCL there is an active row in the 
 // atmVclTable having an atmVclConnKind value of `pvc'
 // and atmVclOperStatus to have detected as Up
 // in the last corresponding PVC notification .
-type CISCOATMPVCTRAPEXTNMIB_Catmuppvclrangetable struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmUpPVclRangeTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1427,107 +1496,113 @@ type CISCOATMPVCTRAPEXTNMIB_Catmuppvclrangetable struct {
     // is an active row in the atmVclTable having an atmVclConnKind value of 'pvc'
     // and  atmVclOperStatus to  have detected as Up in the last notification 
     // interval. The type is slice of
-    // CISCOATMPVCTRAPEXTNMIB_Catmuppvclrangetable_Catmuppvclrangeentry.
-    Catmuppvclrangeentry []CISCOATMPVCTRAPEXTNMIB_Catmuppvclrangetable_Catmuppvclrangeentry
+    // CISCOATMPVCTRAPEXTNMIB_CatmUpPVclRangeTable_CatmUpPVclRangeEntry.
+    CatmUpPVclRangeEntry []*CISCOATMPVCTRAPEXTNMIB_CatmUpPVclRangeTable_CatmUpPVclRangeEntry
 }
 
-func (catmuppvclrangetable *CISCOATMPVCTRAPEXTNMIB_Catmuppvclrangetable) GetEntityData() *types.CommonEntityData {
-    catmuppvclrangetable.EntityData.YFilter = catmuppvclrangetable.YFilter
-    catmuppvclrangetable.EntityData.YangName = "catmUpPVclRangeTable"
-    catmuppvclrangetable.EntityData.BundleName = "cisco_ios_xe"
-    catmuppvclrangetable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
-    catmuppvclrangetable.EntityData.SegmentPath = "catmUpPVclRangeTable"
-    catmuppvclrangetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmuppvclrangetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmuppvclrangetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmUpPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmUpPVclRangeTable) GetEntityData() *types.CommonEntityData {
+    catmUpPVclRangeTable.EntityData.YFilter = catmUpPVclRangeTable.YFilter
+    catmUpPVclRangeTable.EntityData.YangName = "catmUpPVclRangeTable"
+    catmUpPVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
+    catmUpPVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
+    catmUpPVclRangeTable.EntityData.SegmentPath = "catmUpPVclRangeTable"
+    catmUpPVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmUpPVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmUpPVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmuppvclrangetable.EntityData.Children = make(map[string]types.YChild)
-    catmuppvclrangetable.EntityData.Children["catmUpPVclRangeEntry"] = types.YChild{"Catmuppvclrangeentry", nil}
-    for i := range catmuppvclrangetable.Catmuppvclrangeentry {
-        catmuppvclrangetable.EntityData.Children[types.GetSegmentPath(&catmuppvclrangetable.Catmuppvclrangeentry[i])] = types.YChild{"Catmuppvclrangeentry", &catmuppvclrangetable.Catmuppvclrangeentry[i]}
+    catmUpPVclRangeTable.EntityData.Children = types.NewOrderedMap()
+    catmUpPVclRangeTable.EntityData.Children.Append("catmUpPVclRangeEntry", types.YChild{"CatmUpPVclRangeEntry", nil})
+    for i := range catmUpPVclRangeTable.CatmUpPVclRangeEntry {
+        catmUpPVclRangeTable.EntityData.Children.Append(types.GetSegmentPath(catmUpPVclRangeTable.CatmUpPVclRangeEntry[i]), types.YChild{"CatmUpPVclRangeEntry", catmUpPVclRangeTable.CatmUpPVclRangeEntry[i]})
     }
-    catmuppvclrangetable.EntityData.Leafs = make(map[string]types.YLeaf)
-    return &(catmuppvclrangetable.EntityData)
+    catmUpPVclRangeTable.EntityData.Leafs = types.NewOrderedMap()
+
+    catmUpPVclRangeTable.EntityData.YListKeys = []string {}
+
+    return &(catmUpPVclRangeTable.EntityData)
 }
 
-// CISCOATMPVCTRAPEXTNMIB_Catmuppvclrangetable_Catmuppvclrangeentry
+// CISCOATMPVCTRAPEXTNMIB_CatmUpPVclRangeTable_CatmUpPVclRangeEntry
 // Each entry in this table represents a range of VCLs and 
 // for each VCL there is an active row in the atmVclTable having
 // an atmVclConnKind value of 'pvc' and  atmVclOperStatus to 
 // have detected as Up in the last notification 
 // interval.
-type CISCOATMPVCTRAPEXTNMIB_Catmuppvclrangetable_Catmuppvclrangeentry struct {
+type CISCOATMPVCTRAPEXTNMIB_CatmUpPVclRangeTable_CatmUpPVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
-    // Refers to if_mib.IFMIB_Iftable_Ifentry_Ifindex
-    Ifindex interface{}
+    // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
+    IfIndex interface{}
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
-    // atm_mib.ATMMIB_Atmvcltable_Atmvclentry_Atmvclvpi
-    Atmvclvpi interface{}
+    // atm_mib.ATMMIB_AtmVclTable_AtmVclEntry_AtmVclVpi
+    AtmVclVpi interface{}
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
-    // cisco_atm_pvctrap_extn_mib.CISCOATMPVCTRAPEXTNMIB_Catmstatuschangepvclrangetable_Catmstatuschangepvclrangeentry_Catmstatuschangepvclrangeindex
-    Catmstatuschangepvclrangeindex interface{}
+    // cisco_atm_pvctrap_extn_mib.CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVclRangeTable_CatmStatusChangePVclRangeEntry_CatmStatusChangePVclRangeIndex
+    CatmStatusChangePVclRangeIndex interface{}
 
     // The first PVCL in a range of PVCLs for which the  atmVclOperStatus has been
     // detected as Up in the  corresponding notification . The type is interface{}
     // with range: 0..65536.
-    Catmuppvcllowerrangevalue interface{}
+    CatmUpPVclLowerRangeValue interface{}
 
     // The last PVCL in a range of PVCLs for which the  atmVclOperStatus has been
     // detected as Up in the  corresponding notification . The type is interface{}
     // with range: 0..65536.
-    Catmuppvclhigherrangevalue interface{}
+    CatmUpPVclHigherRangeValue interface{}
 
     // The time stamp at which the first atmVclOperStatus is detected as Up on any
     // of the PVCLs in the range in the corresponding notification . The type is
     // interface{} with range: 0..4294967295.
-    Catmuppvclrangestart interface{}
+    CatmUpPVclRangeStart interface{}
 
     // The time stamp at which the last atmVclOperStatus is detected as Up on any
     // of the PVCLs in the range in the corresponding notification . The type is
     // interface{} with range: 0..4294967295.
-    Catmuppvclrangeend interface{}
+    CatmUpPVclRangeEnd interface{}
 
     // The time stamp at which the first atmVclOperStatus is detected as Down on
     // any of the PVCLs in the range in the previous catmIntfPvcDownTrap
     // notification. The type is interface{} with range: 0..4294967295.
-    Catmprevdownpvclrangestart interface{}
+    CatmPrevDownPVclRangeStart interface{}
 
     // The time stamp at which the last atmVclOperStatus is detected as Down on
     // any of the PVCLs in the range in the previous catmIntfPvcDownTrap
     // notification. The type is interface{} with range: 0..4294967295.
-    Catmprevdownpvclrangeend interface{}
+    CatmPrevDownPVclRangeEnd interface{}
 
     // Type of OAM Recovered. The type is CatmOAMRecoveryType.
-    Catmpvclrangerecoveryreason interface{}
+    CatmPVclRangeRecoveryReason interface{}
 }
 
-func (catmuppvclrangeentry *CISCOATMPVCTRAPEXTNMIB_Catmuppvclrangetable_Catmuppvclrangeentry) GetEntityData() *types.CommonEntityData {
-    catmuppvclrangeentry.EntityData.YFilter = catmuppvclrangeentry.YFilter
-    catmuppvclrangeentry.EntityData.YangName = "catmUpPVclRangeEntry"
-    catmuppvclrangeentry.EntityData.BundleName = "cisco_ios_xe"
-    catmuppvclrangeentry.EntityData.ParentYangName = "catmUpPVclRangeTable"
-    catmuppvclrangeentry.EntityData.SegmentPath = "catmUpPVclRangeEntry" + "[ifIndex='" + fmt.Sprintf("%v", catmuppvclrangeentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", catmuppvclrangeentry.Atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + fmt.Sprintf("%v", catmuppvclrangeentry.Catmstatuschangepvclrangeindex) + "']"
-    catmuppvclrangeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    catmuppvclrangeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    catmuppvclrangeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (catmUpPVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmUpPVclRangeTable_CatmUpPVclRangeEntry) GetEntityData() *types.CommonEntityData {
+    catmUpPVclRangeEntry.EntityData.YFilter = catmUpPVclRangeEntry.YFilter
+    catmUpPVclRangeEntry.EntityData.YangName = "catmUpPVclRangeEntry"
+    catmUpPVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
+    catmUpPVclRangeEntry.EntityData.ParentYangName = "catmUpPVclRangeTable"
+    catmUpPVclRangeEntry.EntityData.SegmentPath = "catmUpPVclRangeEntry" + types.AddKeyToken(catmUpPVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmUpPVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmUpPVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmUpPVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    catmUpPVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    catmUpPVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    catmuppvclrangeentry.EntityData.Children = make(map[string]types.YChild)
-    catmuppvclrangeentry.EntityData.Leafs = make(map[string]types.YLeaf)
-    catmuppvclrangeentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", catmuppvclrangeentry.Ifindex}
-    catmuppvclrangeentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", catmuppvclrangeentry.Atmvclvpi}
-    catmuppvclrangeentry.EntityData.Leafs["catmStatusChangePVclRangeIndex"] = types.YLeaf{"Catmstatuschangepvclrangeindex", catmuppvclrangeentry.Catmstatuschangepvclrangeindex}
-    catmuppvclrangeentry.EntityData.Leafs["catmUpPVclLowerRangeValue"] = types.YLeaf{"Catmuppvcllowerrangevalue", catmuppvclrangeentry.Catmuppvcllowerrangevalue}
-    catmuppvclrangeentry.EntityData.Leafs["catmUpPVclHigherRangeValue"] = types.YLeaf{"Catmuppvclhigherrangevalue", catmuppvclrangeentry.Catmuppvclhigherrangevalue}
-    catmuppvclrangeentry.EntityData.Leafs["catmUpPVclRangeStart"] = types.YLeaf{"Catmuppvclrangestart", catmuppvclrangeentry.Catmuppvclrangestart}
-    catmuppvclrangeentry.EntityData.Leafs["catmUpPVclRangeEnd"] = types.YLeaf{"Catmuppvclrangeend", catmuppvclrangeentry.Catmuppvclrangeend}
-    catmuppvclrangeentry.EntityData.Leafs["catmPrevDownPVclRangeStart"] = types.YLeaf{"Catmprevdownpvclrangestart", catmuppvclrangeentry.Catmprevdownpvclrangestart}
-    catmuppvclrangeentry.EntityData.Leafs["catmPrevDownPVclRangeEnd"] = types.YLeaf{"Catmprevdownpvclrangeend", catmuppvclrangeentry.Catmprevdownpvclrangeend}
-    catmuppvclrangeentry.EntityData.Leafs["catmPVclRangeRecoveryReason"] = types.YLeaf{"Catmpvclrangerecoveryreason", catmuppvclrangeentry.Catmpvclrangerecoveryreason}
-    return &(catmuppvclrangeentry.EntityData)
+    catmUpPVclRangeEntry.EntityData.Children = types.NewOrderedMap()
+    catmUpPVclRangeEntry.EntityData.Leafs = types.NewOrderedMap()
+    catmUpPVclRangeEntry.EntityData.Leafs.Append("ifIndex", types.YLeaf{"IfIndex", catmUpPVclRangeEntry.IfIndex})
+    catmUpPVclRangeEntry.EntityData.Leafs.Append("atmVclVpi", types.YLeaf{"AtmVclVpi", catmUpPVclRangeEntry.AtmVclVpi})
+    catmUpPVclRangeEntry.EntityData.Leafs.Append("catmStatusChangePVclRangeIndex", types.YLeaf{"CatmStatusChangePVclRangeIndex", catmUpPVclRangeEntry.CatmStatusChangePVclRangeIndex})
+    catmUpPVclRangeEntry.EntityData.Leafs.Append("catmUpPVclLowerRangeValue", types.YLeaf{"CatmUpPVclLowerRangeValue", catmUpPVclRangeEntry.CatmUpPVclLowerRangeValue})
+    catmUpPVclRangeEntry.EntityData.Leafs.Append("catmUpPVclHigherRangeValue", types.YLeaf{"CatmUpPVclHigherRangeValue", catmUpPVclRangeEntry.CatmUpPVclHigherRangeValue})
+    catmUpPVclRangeEntry.EntityData.Leafs.Append("catmUpPVclRangeStart", types.YLeaf{"CatmUpPVclRangeStart", catmUpPVclRangeEntry.CatmUpPVclRangeStart})
+    catmUpPVclRangeEntry.EntityData.Leafs.Append("catmUpPVclRangeEnd", types.YLeaf{"CatmUpPVclRangeEnd", catmUpPVclRangeEntry.CatmUpPVclRangeEnd})
+    catmUpPVclRangeEntry.EntityData.Leafs.Append("catmPrevDownPVclRangeStart", types.YLeaf{"CatmPrevDownPVclRangeStart", catmUpPVclRangeEntry.CatmPrevDownPVclRangeStart})
+    catmUpPVclRangeEntry.EntityData.Leafs.Append("catmPrevDownPVclRangeEnd", types.YLeaf{"CatmPrevDownPVclRangeEnd", catmUpPVclRangeEntry.CatmPrevDownPVclRangeEnd})
+    catmUpPVclRangeEntry.EntityData.Leafs.Append("catmPVclRangeRecoveryReason", types.YLeaf{"CatmPVclRangeRecoveryReason", catmUpPVclRangeEntry.CatmPVclRangeRecoveryReason})
+
+    catmUpPVclRangeEntry.EntityData.YListKeys = []string {"IfIndex", "AtmVclVpi", "CatmStatusChangePVclRangeIndex"}
+
+    return &(catmUpPVclRangeEntry.EntityData)
 }
 

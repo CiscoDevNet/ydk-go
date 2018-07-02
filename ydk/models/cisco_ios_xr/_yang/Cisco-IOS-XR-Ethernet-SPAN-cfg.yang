@@ -293,7 +293,7 @@ module Cisco-IOS-XR-Ethernet-SPAN-cfg {
           leaf destination-interface-name {
             when "../destination-type = 'interface'" {
               description
-                "../DestinationType = 0";
+                "../DestinationType = Interface";
             }
             type xr:Interface-name;
             description
@@ -302,7 +302,7 @@ module Cisco-IOS-XR-Ethernet-SPAN-cfg {
           leaf destination-ipv4-address {
             when "../destination-type = 'ipv4-address'" {
               description
-                "../DestinationType = 2";
+                "../DestinationType = IPv4Address";
             }
             type inet:ipv4-address-no-zone;
             description
@@ -311,7 +311,7 @@ module Cisco-IOS-XR-Ethernet-SPAN-cfg {
           leaf destination-ipv6-address {
             when "../destination-type = 'ipv6-address'" {
               description
-                "../DestinationType = 3";
+                "../DestinationType = IPv6Address";
             }
             type inet:ipv6-address-no-zone;
             description
@@ -324,6 +324,11 @@ module Cisco-IOS-XR-Ethernet-SPAN-cfg {
           description
             "Enable a Monitor Session.  Setting this item
              causes the Monitor Session to be created.";
+        }
+        leaf inject-interface {
+          type xr:Interface-name;
+          description
+            "Specify the inject interface name";
         }
         leaf session {
           type dt1:Span-session-name;

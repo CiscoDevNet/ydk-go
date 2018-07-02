@@ -44,9 +44,12 @@ func (fabricStats *FabricStats) GetEntityData() *types.CommonEntityData {
     fabricStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fabricStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fabricStats.EntityData.Children = make(map[string]types.YChild)
-    fabricStats.EntityData.Children["nodes"] = types.YChild{"Nodes", &fabricStats.Nodes}
-    fabricStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    fabricStats.EntityData.Children = types.NewOrderedMap()
+    fabricStats.EntityData.Children.Append("nodes", types.YChild{"Nodes", &fabricStats.Nodes})
+    fabricStats.EntityData.Leafs = types.NewOrderedMap()
+
+    fabricStats.EntityData.YListKeys = []string {}
+
     return &(fabricStats.EntityData)
 }
 
@@ -58,7 +61,7 @@ type FabricStats_Nodes struct {
 
     // Information about a particular node. The type is slice of
     // FabricStats_Nodes_Node.
-    Node []FabricStats_Nodes_Node
+    Node []*FabricStats_Nodes_Node
 }
 
 func (nodes *FabricStats_Nodes) GetEntityData() *types.CommonEntityData {
@@ -71,12 +74,15 @@ func (nodes *FabricStats_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nodes.EntityData.Children = make(map[string]types.YChild)
-    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
     for i := range nodes.Node {
-        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
     }
-    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
     return &(nodes.EntityData)
 }
 
@@ -87,7 +93,7 @@ type FabricStats_Nodes_Node struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Table of stats information.
@@ -99,15 +105,18 @@ func (node *FabricStats_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    node.EntityData.Children = make(map[string]types.YChild)
-    node.EntityData.Children["statses"] = types.YChild{"Statses", &node.Statses}
-    node.EntityData.Leafs = make(map[string]types.YLeaf)
-    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("statses", types.YChild{"Statses", &node.Statses})
+    node.EntityData.Leafs = types.NewOrderedMap()
+    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
+
+    node.EntityData.YListKeys = []string {"NodeName"}
+
     return &(node.EntityData)
 }
 
@@ -119,7 +128,7 @@ type FabricStats_Nodes_Node_Statses struct {
 
     // Stats information for a particular type. The type is slice of
     // FabricStats_Nodes_Node_Statses_Stats.
-    Stats []FabricStats_Nodes_Node_Statses_Stats
+    Stats []*FabricStats_Nodes_Node_Statses_Stats
 }
 
 func (statses *FabricStats_Nodes_Node_Statses) GetEntityData() *types.CommonEntityData {
@@ -132,12 +141,15 @@ func (statses *FabricStats_Nodes_Node_Statses) GetEntityData() *types.CommonEnti
     statses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statses.EntityData.Children = make(map[string]types.YChild)
-    statses.EntityData.Children["stats"] = types.YChild{"Stats", nil}
+    statses.EntityData.Children = types.NewOrderedMap()
+    statses.EntityData.Children.Append("stats", types.YChild{"Stats", nil})
     for i := range statses.Stats {
-        statses.EntityData.Children[types.GetSegmentPath(&statses.Stats[i])] = types.YChild{"Stats", &statses.Stats[i]}
+        statses.EntityData.Children.Append(types.GetSegmentPath(statses.Stats[i]), types.YChild{"Stats", statses.Stats[i]})
     }
-    statses.EntityData.Leafs = make(map[string]types.YLeaf)
+    statses.EntityData.Leafs = types.NewOrderedMap()
+
+    statses.EntityData.YListKeys = []string {}
+
     return &(statses.EntityData)
 }
 
@@ -148,8 +160,8 @@ type FabricStats_Nodes_Node_Statses_Stats struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Fabric asic type. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
-    Type_ interface{}
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    Type interface{}
 
     // Last Clear Time. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -160,7 +172,7 @@ type FabricStats_Nodes_Node_Statses_Stats struct {
 
     // Array of counters . The type is slice of
     // FabricStats_Nodes_Node_Statses_Stats_StatsTable.
-    StatsTable []FabricStats_Nodes_Node_Statses_Stats_StatsTable
+    StatsTable []*FabricStats_Nodes_Node_Statses_Stats_StatsTable
 }
 
 func (stats *FabricStats_Nodes_Node_Statses_Stats) GetEntityData() *types.CommonEntityData {
@@ -168,20 +180,23 @@ func (stats *FabricStats_Nodes_Node_Statses_Stats) GetEntityData() *types.Common
     stats.EntityData.YangName = "stats"
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "statses"
-    stats.EntityData.SegmentPath = "stats" + "[type='" + fmt.Sprintf("%v", stats.Type_) + "']"
+    stats.EntityData.SegmentPath = "stats" + types.AddKeyToken(stats.Type, "type")
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stats.EntityData.Children = make(map[string]types.YChild)
-    stats.EntityData.Children["stats-table"] = types.YChild{"StatsTable", nil}
+    stats.EntityData.Children = types.NewOrderedMap()
+    stats.EntityData.Children.Append("stats-table", types.YChild{"StatsTable", nil})
     for i := range stats.StatsTable {
-        stats.EntityData.Children[types.GetSegmentPath(&stats.StatsTable[i])] = types.YChild{"StatsTable", &stats.StatsTable[i]}
+        stats.EntityData.Children.Append(types.GetSegmentPath(stats.StatsTable[i]), types.YChild{"StatsTable", stats.StatsTable[i]})
     }
-    stats.EntityData.Leafs = make(map[string]types.YLeaf)
-    stats.EntityData.Leafs["type"] = types.YLeaf{"Type_", stats.Type_}
-    stats.EntityData.Leafs["last-clear-time"] = types.YLeaf{"LastClearTime", stats.LastClearTime}
-    stats.EntityData.Leafs["stat-table-name"] = types.YLeaf{"StatTableName", stats.StatTableName}
+    stats.EntityData.Leafs = types.NewOrderedMap()
+    stats.EntityData.Leafs.Append("type", types.YLeaf{"Type", stats.Type})
+    stats.EntityData.Leafs.Append("last-clear-time", types.YLeaf{"LastClearTime", stats.LastClearTime})
+    stats.EntityData.Leafs.Append("stat-table-name", types.YLeaf{"StatTableName", stats.StatTableName})
+
+    stats.EntityData.YListKeys = []string {"Type"}
+
     return &(stats.EntityData)
 }
 
@@ -193,7 +208,7 @@ type FabricStats_Nodes_Node_Statses_Stats_StatsTable struct {
 
     // Stats Table. The type is slice of
     // FabricStats_Nodes_Node_Statses_Stats_StatsTable_FsiStat.
-    FsiStat []FabricStats_Nodes_Node_Statses_Stats_StatsTable_FsiStat
+    FsiStat []*FabricStats_Nodes_Node_Statses_Stats_StatsTable_FsiStat
 }
 
 func (statsTable *FabricStats_Nodes_Node_Statses_Stats_StatsTable) GetEntityData() *types.CommonEntityData {
@@ -206,12 +221,15 @@ func (statsTable *FabricStats_Nodes_Node_Statses_Stats_StatsTable) GetEntityData
     statsTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statsTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    statsTable.EntityData.Children = make(map[string]types.YChild)
-    statsTable.EntityData.Children["fsi-stat"] = types.YChild{"FsiStat", nil}
+    statsTable.EntityData.Children = types.NewOrderedMap()
+    statsTable.EntityData.Children.Append("fsi-stat", types.YChild{"FsiStat", nil})
     for i := range statsTable.FsiStat {
-        statsTable.EntityData.Children[types.GetSegmentPath(&statsTable.FsiStat[i])] = types.YChild{"FsiStat", &statsTable.FsiStat[i]}
+        statsTable.EntityData.Children.Append(types.GetSegmentPath(statsTable.FsiStat[i]), types.YChild{"FsiStat", statsTable.FsiStat[i]})
     }
-    statsTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    statsTable.EntityData.Leafs = types.NewOrderedMap()
+
+    statsTable.EntityData.YListKeys = []string {}
+
     return &(statsTable.EntityData)
 }
 
@@ -238,10 +256,13 @@ func (fsiStat *FabricStats_Nodes_Node_Statses_Stats_StatsTable_FsiStat) GetEntit
     fsiStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fsiStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fsiStat.EntityData.Children = make(map[string]types.YChild)
-    fsiStat.EntityData.Leafs = make(map[string]types.YLeaf)
-    fsiStat.EntityData.Leafs["count"] = types.YLeaf{"Count", fsiStat.Count}
-    fsiStat.EntityData.Leafs["counter-name"] = types.YLeaf{"CounterName", fsiStat.CounterName}
+    fsiStat.EntityData.Children = types.NewOrderedMap()
+    fsiStat.EntityData.Leafs = types.NewOrderedMap()
+    fsiStat.EntityData.Leafs.Append("count", types.YLeaf{"Count", fsiStat.Count})
+    fsiStat.EntityData.Leafs.Append("counter-name", types.YLeaf{"CounterName", fsiStat.CounterName})
+
+    fsiStat.EntityData.YListKeys = []string {}
+
     return &(fsiStat.EntityData)
 }
 

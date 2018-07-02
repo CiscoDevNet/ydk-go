@@ -39,6 +39,10 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
     description
       "Added link information in grace LSA.";
   }
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -179,7 +183,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
             "Router ID";
         }
         leaf area-id {
-          type int32;
+          type uint32;
           description
             "AreaID";
         }
@@ -237,7 +241,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
           uses RETRANSMISSION-LIST;
         }
         leaf area-id {
-          type int32;
+          type uint32;
           description
             "Area ID";
         }
@@ -397,7 +401,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
       description
         "Database LSA information";
       leaf area-id {
-        type int32;
+        type uint32;
         description
           "Area ID";
       }
@@ -412,7 +416,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
           "Advertising Router ID";
       }
       leaf ls-id {
-        type int32;
+        type uint32;
         description
           "Link state ID";
       }
@@ -512,7 +516,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
         description
           "OSPFv3 area information";
         leaf area-id {
-          type int32;
+          type uint32;
           description
             "Area ID";
         }

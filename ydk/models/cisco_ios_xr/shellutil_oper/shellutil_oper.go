@@ -29,7 +29,7 @@ type TimeSource string
 
 const (
     // Error
-    TimeSource_error TimeSource = "error"
+    TimeSource_error_ TimeSource = "error"
 
     // Unsynchronized time
     TimeSource_none TimeSource = "none"
@@ -67,10 +67,13 @@ func (systemTime *SystemTime) GetEntityData() *types.CommonEntityData {
     systemTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    systemTime.EntityData.Children = make(map[string]types.YChild)
-    systemTime.EntityData.Children["clock"] = types.YChild{"Clock", &systemTime.Clock}
-    systemTime.EntityData.Children["uptime"] = types.YChild{"Uptime", &systemTime.Uptime}
-    systemTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    systemTime.EntityData.Children = types.NewOrderedMap()
+    systemTime.EntityData.Children.Append("clock", types.YChild{"Clock", &systemTime.Clock})
+    systemTime.EntityData.Children.Append("uptime", types.YChild{"Uptime", &systemTime.Uptime})
+    systemTime.EntityData.Leafs = types.NewOrderedMap()
+
+    systemTime.EntityData.YListKeys = []string {}
+
     return &(systemTime.EntityData)
 }
 
@@ -122,18 +125,21 @@ func (clock *SystemTime_Clock) GetEntityData() *types.CommonEntityData {
     clock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    clock.EntityData.Children = make(map[string]types.YChild)
-    clock.EntityData.Leafs = make(map[string]types.YLeaf)
-    clock.EntityData.Leafs["year"] = types.YLeaf{"Year", clock.Year}
-    clock.EntityData.Leafs["month"] = types.YLeaf{"Month", clock.Month}
-    clock.EntityData.Leafs["day"] = types.YLeaf{"Day", clock.Day}
-    clock.EntityData.Leafs["hour"] = types.YLeaf{"Hour", clock.Hour}
-    clock.EntityData.Leafs["minute"] = types.YLeaf{"Minute", clock.Minute}
-    clock.EntityData.Leafs["second"] = types.YLeaf{"Second", clock.Second}
-    clock.EntityData.Leafs["millisecond"] = types.YLeaf{"Millisecond", clock.Millisecond}
-    clock.EntityData.Leafs["wday"] = types.YLeaf{"Wday", clock.Wday}
-    clock.EntityData.Leafs["time-zone"] = types.YLeaf{"TimeZone", clock.TimeZone}
-    clock.EntityData.Leafs["time-source"] = types.YLeaf{"TimeSource", clock.TimeSource}
+    clock.EntityData.Children = types.NewOrderedMap()
+    clock.EntityData.Leafs = types.NewOrderedMap()
+    clock.EntityData.Leafs.Append("year", types.YLeaf{"Year", clock.Year})
+    clock.EntityData.Leafs.Append("month", types.YLeaf{"Month", clock.Month})
+    clock.EntityData.Leafs.Append("day", types.YLeaf{"Day", clock.Day})
+    clock.EntityData.Leafs.Append("hour", types.YLeaf{"Hour", clock.Hour})
+    clock.EntityData.Leafs.Append("minute", types.YLeaf{"Minute", clock.Minute})
+    clock.EntityData.Leafs.Append("second", types.YLeaf{"Second", clock.Second})
+    clock.EntityData.Leafs.Append("millisecond", types.YLeaf{"Millisecond", clock.Millisecond})
+    clock.EntityData.Leafs.Append("wday", types.YLeaf{"Wday", clock.Wday})
+    clock.EntityData.Leafs.Append("time-zone", types.YLeaf{"TimeZone", clock.TimeZone})
+    clock.EntityData.Leafs.Append("time-source", types.YLeaf{"TimeSource", clock.TimeSource})
+
+    clock.EntityData.YListKeys = []string {}
+
     return &(clock.EntityData)
 }
 
@@ -161,10 +167,13 @@ func (uptime *SystemTime_Uptime) GetEntityData() *types.CommonEntityData {
     uptime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     uptime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    uptime.EntityData.Children = make(map[string]types.YChild)
-    uptime.EntityData.Leafs = make(map[string]types.YLeaf)
-    uptime.EntityData.Leafs["host-name"] = types.YLeaf{"HostName", uptime.HostName}
-    uptime.EntityData.Leafs["uptime"] = types.YLeaf{"Uptime", uptime.Uptime}
+    uptime.EntityData.Children = types.NewOrderedMap()
+    uptime.EntityData.Leafs = types.NewOrderedMap()
+    uptime.EntityData.Leafs.Append("host-name", types.YLeaf{"HostName", uptime.HostName})
+    uptime.EntityData.Leafs.Append("uptime", types.YLeaf{"Uptime", uptime.Uptime})
+
+    uptime.EntityData.YListKeys = []string {}
+
     return &(uptime.EntityData)
 }
 

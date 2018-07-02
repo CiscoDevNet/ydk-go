@@ -46,6 +46,16 @@ submodule Cisco-IOS-XR-Ethernet-SPAN-oper-sub3 {
       "Destination name string";
   }
 
+  grouping INJECT-INTERFACE-DATA {
+    description
+      "Inject interface data";
+    leaf name {
+      type string;
+      description
+        "Interface Name";
+    }
+  }
+
   grouping DESTINATION-NEXT-HOP-IPV6-ADDRESS-DATA {
     description
       "Destination Next-hop IPv6 Address Data";
@@ -186,6 +196,11 @@ submodule Cisco-IOS-XR-Ethernet-SPAN-oper-sub3 {
       description
         "Destination ID";
       uses DESTINATION-ID;
+    }
+    container inject-interface {
+      description
+        "Inject interface data";
+      uses INJECT-INTERFACE-DATA;
     }
     leaf name {
       type string;

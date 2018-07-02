@@ -100,9 +100,12 @@ func (startTransaction *StartTransaction) GetEntityData() *types.CommonEntityDat
     startTransaction.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     startTransaction.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    startTransaction.EntityData.Children = make(map[string]types.YChild)
-    startTransaction.EntityData.Children["input"] = types.YChild{"Input", &startTransaction.Input}
-    startTransaction.EntityData.Leafs = make(map[string]types.YLeaf)
+    startTransaction.EntityData.Children = types.NewOrderedMap()
+    startTransaction.EntityData.Children.Append("input", types.YChild{"Input", &startTransaction.Input})
+    startTransaction.EntityData.Leafs = types.NewOrderedMap()
+
+    startTransaction.EntityData.YListKeys = []string {}
+
     return &(startTransaction.EntityData)
 }
 
@@ -133,10 +136,13 @@ func (input *StartTransaction_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    input.EntityData.Children = make(map[string]types.YChild)
-    input.EntityData.Children["target"] = types.YChild{"Target", &input.Target}
-    input.EntityData.Leafs = make(map[string]types.YLeaf)
-    input.EntityData.Leafs["with-inactive"] = types.YLeaf{"WithInactive", input.WithInactive}
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("target", types.YChild{"Target", &input.Target})
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("with-inactive", types.YLeaf{"WithInactive", input.WithInactive})
+
+    input.EntityData.YListKeys = []string {}
+
     return &(input.EntityData)
 }
 
@@ -167,11 +173,14 @@ func (target *StartTransaction_Input_Target) GetEntityData() *types.CommonEntity
     target.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     target.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    target.EntityData.Children = make(map[string]types.YChild)
-    target.EntityData.Leafs = make(map[string]types.YLeaf)
-    target.EntityData.Leafs["startup"] = types.YLeaf{"Startup", target.Startup}
-    target.EntityData.Leafs["running"] = types.YLeaf{"Running", target.Running}
-    target.EntityData.Leafs["candidate"] = types.YLeaf{"Candidate", target.Candidate}
+    target.EntityData.Children = types.NewOrderedMap()
+    target.EntityData.Leafs = types.NewOrderedMap()
+    target.EntityData.Leafs.Append("startup", types.YLeaf{"Startup", target.Startup})
+    target.EntityData.Leafs.Append("running", types.YLeaf{"Running", target.Running})
+    target.EntityData.Leafs.Append("candidate", types.YLeaf{"Candidate", target.Candidate})
+
+    target.EntityData.YListKeys = []string {}
+
     return &(target.EntityData)
 }
 
@@ -211,8 +220,11 @@ func (prepareTransaction *PrepareTransaction) GetEntityData() *types.CommonEntit
     prepareTransaction.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     prepareTransaction.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    prepareTransaction.EntityData.Children = make(map[string]types.YChild)
-    prepareTransaction.EntityData.Leafs = make(map[string]types.YLeaf)
+    prepareTransaction.EntityData.Children = types.NewOrderedMap()
+    prepareTransaction.EntityData.Leafs = types.NewOrderedMap()
+
+    prepareTransaction.EntityData.YListKeys = []string {}
+
     return &(prepareTransaction.EntityData)
 }
 
@@ -238,8 +250,11 @@ func (commitTransaction *CommitTransaction) GetEntityData() *types.CommonEntityD
     commitTransaction.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     commitTransaction.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    commitTransaction.EntityData.Children = make(map[string]types.YChild)
-    commitTransaction.EntityData.Leafs = make(map[string]types.YLeaf)
+    commitTransaction.EntityData.Children = types.NewOrderedMap()
+    commitTransaction.EntityData.Leafs = types.NewOrderedMap()
+
+    commitTransaction.EntityData.YListKeys = []string {}
+
     return &(commitTransaction.EntityData)
 }
 
@@ -265,8 +280,11 @@ func (abortTransaction *AbortTransaction) GetEntityData() *types.CommonEntityDat
     abortTransaction.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     abortTransaction.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    abortTransaction.EntityData.Children = make(map[string]types.YChild)
-    abortTransaction.EntityData.Leafs = make(map[string]types.YLeaf)
+    abortTransaction.EntityData.Children = types.NewOrderedMap()
+    abortTransaction.EntityData.Leafs = types.NewOrderedMap()
+
+    abortTransaction.EntityData.YListKeys = []string {}
+
     return &(abortTransaction.EntityData)
 }
 

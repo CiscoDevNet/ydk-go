@@ -32,6 +32,10 @@ module Cisco-IOS-XR-ip-pfilter-cfg {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-30 {
+    description
+      "Ensure propagation of MDA mandatory state to YANG model.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -55,7 +59,7 @@ module Cisco-IOS-XR-ip-pfilter-cfg {
            packets";
         leaf common-acl-name {
           type xr:Cisco-ios-xr-string {
-            length "1..65";
+            length "1..64";
           }
           description
             "Reserved for backward compatibility. IPv6
@@ -67,7 +71,7 @@ module Cisco-IOS-XR-ip-pfilter-cfg {
         }
         leaf name {
           type xr:Cisco-ios-xr-string {
-            length "1..65";
+            length "1..64";
           }
           description
             "Reserved for backward compatibility. IPv6
@@ -95,7 +99,7 @@ module Cisco-IOS-XR-ip-pfilter-cfg {
         }
         leaf-list acl-name-array {
           type xr:Cisco-ios-xr-string {
-            length "1..65";
+            length "1..64";
           }
           max-elements "5";
           description
@@ -117,14 +121,14 @@ module Cisco-IOS-XR-ip-pfilter-cfg {
            packets";
         leaf do-not-use {
           type string {
-            length "1..65";
+            length "1..64";
           }
           description
             "Reserved.  Error if specified.";
         }
         leaf name {
           type xr:Cisco-ios-xr-string {
-            length "1..65";
+            length "1..64";
           }
           description
             "Reserved for backward compatibility. IPv6
@@ -149,7 +153,7 @@ module Cisco-IOS-XR-ip-pfilter-cfg {
         }
         leaf-list acl-name-array {
           type xr:Cisco-ios-xr-string {
-            length "1..65";
+            length "1..64";
           }
           max-elements "5";
           description
@@ -177,7 +181,7 @@ module Cisco-IOS-XR-ip-pfilter-cfg {
          interface";
       leaf outbound {
         type xr:Cisco-ios-xr-string {
-          length "1..65";
+          length "1..64";
         }
         description
           "Name of filter to be applied to outbound
@@ -185,7 +189,7 @@ module Cisco-IOS-XR-ip-pfilter-cfg {
       }
       leaf inbound {
         type xr:Cisco-ios-xr-string {
-          length "1..65";
+          length "1..64";
         }
         description
           "Name of filter to be applied to inbound packets";
@@ -206,14 +210,14 @@ module Cisco-IOS-XR-ip-pfilter-cfg {
            packets";
         leaf do-not-use {
           type string {
-            length "1..65";
+            length "1..64";
           }
           description
             "Reserved.  Error if specified.";
         }
         leaf name {
           type xr:Cisco-ios-xr-string {
-            length "1..65";
+            length "1..64";
           }
           description
             "Reserved for backward compatibility. IPv4
@@ -246,7 +250,7 @@ module Cisco-IOS-XR-ip-pfilter-cfg {
         }
         leaf-list acl-name-array {
           type xr:Cisco-ios-xr-string {
-            length "1..65";
+            length "1..64";
           }
           max-elements "5";
           description
@@ -268,7 +272,7 @@ module Cisco-IOS-XR-ip-pfilter-cfg {
            packets";
         leaf common-acl-name {
           type xr:Cisco-ios-xr-string {
-            length "1..65";
+            length "1..64";
           }
           description
             "Reserved for backward compatibility. IPv4
@@ -280,7 +284,7 @@ module Cisco-IOS-XR-ip-pfilter-cfg {
         }
         leaf name {
           type xr:Cisco-ios-xr-string {
-            length "1..65";
+            length "1..64";
           }
           description
             "Reserved for backward compatibility. IPv4
@@ -316,7 +320,7 @@ module Cisco-IOS-XR-ip-pfilter-cfg {
         }
         leaf-list acl-name-array {
           type xr:Cisco-ios-xr-string {
-            length "1..65";
+            length "1..64";
           }
           max-elements "5";
           description

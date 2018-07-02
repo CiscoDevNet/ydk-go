@@ -32,6 +32,10 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-06-26 {
     description
       "Change identifiers to be more readable.";
@@ -1275,6 +1279,28 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       "BGP Binding SID type";
   }
 
+  typedef Bgp-prefix-sid {
+    type enumeration {
+      enum "prefix-sid-label-index" {
+        value 1;
+        description
+          "Label index type";
+      }
+      enum "prefix-sid-ipv6-sid" {
+        value 2;
+        description
+          "IPV6 SID type";
+      }
+      enum "prefix-sid-origin-at-or-srgb" {
+        value 3;
+        description
+          "SRGB type";
+      }
+    }
+    description
+      "Prefix SID type";
+  }
+
   typedef Bgp-bp-stage {
     type enumeration {
       enum "bgp-bp-comp-not-compared" {
@@ -1447,10 +1473,10 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         description
           "SR Policy";
       }
-      enum "odn-color" {
-        value 3;
+      enum "odn-policy" {
+        value 4;
         description
-          "ODN color";
+          "ODN  color";
       }
     }
     description
@@ -11838,6 +11864,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Route Target download is enabled";
     }
+    leaf srms-prefix-sid {
+      type boolean;
+      description
+        "SRMS Prefix SID is ";
+    }
     leaf add-path-install-enable {
       type boolean;
       description
@@ -12645,6 +12676,39 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     }
   }
 
+  grouping BGP-PSID-TLV-TYPE {
+    description
+      "BGP Prefix SID TLV type";
+    leaf type {
+      type Bgp-prefix-sid;
+      description
+        "Prefix SID TLV type field";
+    }
+    leaf len {
+      type uint16;
+      units "byte";
+      description
+        "Prefix SID TLV Length in bytes";
+    }
+    leaf val {
+      type string {
+        length "0..46";
+      }
+      description
+        "Prefix SID TLV value string";
+    }
+  }
+
+  grouping BGP-PSID-TYPE {
+    description
+      "BGP Prefix SID attribute type";
+    list prefix-sid-tlv {
+      description
+        "Prefix SID TLV array";
+      uses BGP-PSID-TLV-TYPE;
+    }
+  }
+
   grouping BGP-PEDISTLBL-ENTRY {
     description
       "PE distinguisher Label entry";
@@ -12663,6 +12727,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
   grouping BGP-COMMON-ATTR-ENTRY {
     description
       "Common Set of attribute entry";
+    container prefix-sid-attr {
+      description
+        "Prefix SID attribute";
+      uses BGP-PSID-TYPE;
+    }
     container tunnel-encap {
       description
         "Tunnel Encapsulation attribute";
@@ -12885,13 +12954,6 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     list ls-attr {
       description
         "BGP LS attribute";
-      leaf entry {
-        type uint8;
-      }
-    }
-    list label-index-attr {
-      description
-        "Label Index attribute";
       leaf entry {
         type uint8;
       }
@@ -13693,11 +13755,6 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Path was learnt by labeled-unicast SAFI";
     }
-    leaf vpn-path-flags {
-      type uint8;
-      description
-        "Vpn path flags";
-    }
     leaf has-vpn-nexthop-addr {
       type boolean;
       description
@@ -13717,16 +13774,6 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       type xr:Route-dist;
       description
         "Original Source Route Distinguisher";
-    }
-    leaf mac-ip-present {
-      type boolean;
-      description
-        "Mac IP Present  present";
-    }
-    leaf mac-ip {
-      type yang:mac-address;
-      description
-        "Mac associated with IP";
     }
     list rcvd-label {
       description

@@ -32,6 +32,14 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-10-26 {
+    description
+      "Fixed some field name and values for better interpretation";
+  }
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -210,6 +218,11 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         description
           "Bandwidth constraints";
       }
+      enum "mgmt-ospf-rrr-link-ext-admin-sub" {
+        value 26;
+        description
+          "Extended admin";
+      }
       enum "mgmt-ospf-rrr-link-uni-delay" {
         value 27;
         description
@@ -229,11 +242,6 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         value 32770;
         description
           "IGP Link Metric";
-      }
-      enum "mgmt-ospf-rrr-link-ext-admin-sub" {
-        value 32771;
-        description
-          "Extended admin";
       }
     }
     description
@@ -596,6 +604,23 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       "Sr uloop event";
   }
 
+  typedef Sr-dp {
+    type enumeration {
+      enum "mgmt-ospf-sr-dp-none" {
+        value 0;
+        description
+          "SR Disable";
+      }
+      enum "mgmt-ospf-sr-dp-mpls" {
+        value 1;
+        description
+          "SR MPLS";
+      }
+    }
+    description
+      "Sr dp";
+  }
+
   typedef Ospf-br {
     type enumeration {
       enum "mgmt-d-type-abr-asbr" {
@@ -853,6 +878,50 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     }
     description
       "Redist protocol";
+  }
+
+  typedef Ospf-sh-nnh-val-types {
+    type enumeration {
+      enum "mgmt-nnh-val-type-ip-addr" {
+        value 1;
+        description
+          "NNH IP Address";
+      }
+      enum "mgmt-nnh-val-type-if-index" {
+        value 2;
+        description
+          "NNH Interface Index";
+      }
+    }
+    description
+      "OSPF Neighbor Next Hop Value Types";
+  }
+
+  typedef Lfa {
+    type enumeration {
+      enum "mgmt-ospf-unknown-lfa" {
+        value 0;
+        description
+          "Unknown LFA";
+      }
+      enum "mgmt-ospf-direct-lfa" {
+        value 1;
+        description
+          "Direct LFA";
+      }
+      enum "mgmt-ospf-ti-lfa" {
+        value 2;
+        description
+          "TI LFA";
+      }
+      enum "mgmt-ospf-remote-lfa" {
+        value 3;
+        description
+          "Remote LFA";
+      }
+    }
+    description
+      "Lfa";
   }
 
   typedef Ospf-route {
@@ -1182,6 +1251,105 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     }
     description
       "Link subnet";
+  }
+
+  typedef Ospf-sr-endp-res-fail-reason {
+    type enumeration {
+      enum "ospf-se-res-fail-none" {
+        value 0;
+        description
+          "None";
+      }
+      enum "ospf-se-res-fail-no-route" {
+        value 1;
+        description
+          "No route";
+      }
+      enum "ospf-se-res-fail-inv-route-type" {
+        value 2;
+        description
+          "Route type is not valid";
+      }
+      enum "ospf-se-res-fail-default-route" {
+        value 3;
+        description
+          "Default route not used";
+      }
+      enum "ospf-se-res-fail-intra-multi-home-d" {
+        value 4;
+        description
+          "Multihomed intra prefix";
+      }
+      enum "ospf-se-res-fail-no-path" {
+        value 5;
+        description
+          "No path found";
+      }
+      enum "ospf-se-res-fail-no-epl" {
+        value 6;
+        description
+          "No EPL found";
+      }
+      enum "ospf-se-res-fail-area-not-sr-enable" {
+        value 7;
+        description
+          "Area not SR enabled";
+      }
+      enum "ospf-se-res-fail-epl-multi-home-d" {
+        value 8;
+        description
+          "Multihomed EPL origin";
+      }
+      enum "ospf-se-res-fail-no-n-bit-epl" {
+        value 9;
+        description
+          "No EPL with N-bit found";
+      }
+      enum "ospf-se-res-fail-no-na-bit-epl" {
+        value 10;
+        description
+          "No EPL with NA-bit found";
+      }
+      enum "ospf-se-res-fail-area-mismatch" {
+        value 11;
+        description
+          "Area mismatch";
+      }
+      enum "ospf-se-res-fail-rid-mismatch" {
+        value 12;
+        description
+          "Router ID mismatch";
+      }
+    }
+    description
+      "Ospf sr endp res fail reason";
+  }
+
+  typedef Ospf-sr-pol-metric-mode {
+    type enumeration {
+      enum "mgmt-ospf-metric-mode-none" {
+        value 0;
+        description
+          "Metric Mode None";
+      }
+      enum "mgmt-ospf-metric-mode-relative" {
+        value 1;
+        description
+          "Relative Metric";
+      }
+      enum "mgmt-ospf-metric-mode-constant" {
+        value 3;
+        description
+          "Constant Metric";
+      }
+      enum "mgmt-ospf-metric-mode-absolute" {
+        value 4;
+        description
+          "Absolute Metric";
+      }
+    }
+    description
+      "Ospf sr pol metric mode";
   }
 
   typedef Lsa {
@@ -1978,7 +2146,7 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "Length of top-level TLV";
     }
     leaf mpls-router-id {
-      type uint32;
+      type inet:ipv4-address;
       description
         "MPLS-TE Router ID";
     }
@@ -2921,6 +3089,11 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       description
         "If true, vrf lite is enabled";
     }
+    leaf capability-prefer-type7 {
+      type boolean;
+      description
+        "If true, prefer type 7 LSAs over type 5";
+    }
     leaf maximum-metric-start {
       type boolean;
       description
@@ -2956,37 +3129,16 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
          activity, to remain in max-metric ABR off state";
     }
     leaf spf-start-time {
-      type uint16;
-      description
-        "Scheduling delay for SPF (ms) This is valid if
-         configured below 64k Deprecated by
-         SPFStartTimeU32]";
-    }
-    leaf spf-hold-time {
-      type uint16;
-      description
-        "Minimum delay time between SPF runs (ms) This is
-         valid if configured below 64k Deprecated by
-         SPFHoldTimeU32]";
-    }
-    leaf spf-maximum-time {
-      type uint16;
-      description
-        "Maximum delay time between SPF runs (ms) This is
-         valid if configured below 64k Deprecated by
-         SPFMaximumTimeU32]";
-    }
-    leaf spf-start-time-u32 {
       type uint32;
       description
         "Scheduling delay for SPF (ms)";
     }
-    leaf spf-hold-time-u32 {
+    leaf spf-hold-time {
       type uint32;
       description
         "Minimum delay time between SPF runs (ms)";
     }
-    leaf spf-maximum-time-u32 {
+    leaf spf-maximum-time {
       type uint32;
       description
         "Maximum delay time between SPF runs (ms)";
@@ -3017,12 +3169,6 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "Maximum delay before generating an LSA (ms)";
     }
     leaf minimum-lsa-interval {
-      type uint16;
-      description
-        "Minimum time between LSA regeneration (ms) Rel 4
-         .0.1, deprecated by MinimumLSAIntervalU32]";
-    }
-    leaf minimum-lsa-interval-u32 {
       type uint32;
       description
         "Minimum time between LSA regeneration (ms)";
@@ -3033,12 +3179,6 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "LSA refresh interval (sec)";
     }
     leaf minimum-lsa-arrival-interval {
-      type uint16;
-      description
-        "Minimum time between accepting LSAs (ms) Rel 4.0
-         .1, deprecated by MinimumLSAArrivalIntervalU32]";
-    }
-    leaf minimum-lsa-arrival-interval-u32 {
       type uint32;
       description
         "Minimum time between accepting LSAs (ms)";
@@ -3434,6 +3574,11 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       description
         "If true, perform 7/5 translation";
     }
+    leaf nssa-translate-always {
+      type boolean;
+      description
+        "If true, perform 7/5 translation always";
+    }
     leaf nssa-default {
       type boolean;
       description
@@ -3462,7 +3607,7 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
          summary";
     }
     leaf segment-routing {
-      type uint32;
+      type Sr-dp;
       description
         "If true, Segment Routing enabled";
     }
@@ -4345,9 +4490,91 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       description
         "Max number of SRTE labels";
     }
+    leaf pm-delay-set {
+      type boolean;
+      description
+        "PerfMeas Delay values available";
+    }
+    leaf link-delay-avg {
+      type uint32;
+      description
+        "PerfMeas Average Link Delay";
+    }
+    leaf link-delay-min {
+      type uint32;
+      description
+        "PerfMeas Minimum Link Delay";
+    }
+    leaf link-delay-max {
+      type uint32;
+      description
+        "PerfMeas Maximum Link Delay";
+    }
+    leaf link-delay-var {
+      type uint32;
+      description
+        "PerfMeas Link Delay Variance";
+    }
+    leaf pm-loss-set {
+      type boolean;
+      description
+        "PerfMeas Link Loss values available";
+    }
+    leaf link-loss {
+      type uint32;
+      description
+        "PerfMeas Link Loss";
+    }
+    leaf pmbw-util-set {
+      type boolean;
+      description
+        "PerfMeas BW Util values available";
+    }
+    leaf total-bandwidth {
+      type uint32;
+      description
+        "PerfMeas Total Bandwidth";
+    }
+    leaf rsvpte-bandwidth {
+      type uint32;
+      description
+        "PerfMeas RSVP-TE Bandwidth";
+    }
+    leaf remote-lfa {
+      type uint8;
+      description
+        "Remote LFA";
+    }
+    leaf srte-metric-set {
+      type boolean;
+      description
+        "SRTE Metric available";
+    }
+    leaf srte-metric {
+      type uint32;
+      description
+        "SRTE Metric";
+    }
+    leaf srte-app-weight {
+      type uint32;
+      description
+        "SRTE App Weight";
+    }
+    leaf srte-ext-admin-group-set {
+      type boolean;
+      description
+        "SRTE Ext. Admin Group available";
+    }
     list srlg {
       description
         "SRLG Values";
+      leaf entry {
+        type uint32;
+      }
+    }
+    list srtete-ext-admin-group {
+      description
+        "SRTE Ext. Admin Group";
       leaf entry {
         type uint32;
       }
@@ -4881,6 +5108,36 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       description
         "Area format IP or uint32";
     }
+    leaf route-path-id {
+      type uint32;
+      description
+        "Path ID of path";
+    }
+    leaf route-path-is-rsvp-te-path {
+      type boolean;
+      description
+        "RSVP-TE path";
+    }
+    leaf route-path-is-sr-te-path {
+      type boolean;
+      description
+        "SR-TE path";
+    }
+    leaf route-path-is-sr-excl-path {
+      type boolean;
+      description
+        "SR Excl TE path";
+    }
+    leaf route-path-is-sr-te-sspf-path {
+      type boolean;
+      description
+        "SR-TE SSPF path";
+    }
+    list neighbor-next-hop {
+      description
+        "NeighborNextHop";
+      uses OSPF-SH-NNH-INFO;
+    }
   }
 
   grouping OSPF-SH-TOPOLOGY {
@@ -4920,6 +5177,36 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       description
         "List of paths to this route";
       uses OSPF-SH-TOP-PATH;
+    }
+  }
+
+  grouping OSPF-SH-NNH-INFO {
+    description
+      "OSPF Neighbor NextHop Information";
+    leaf neighbor-next-hop-value-type {
+      type Ospf-sh-nnh-val-types;
+      description
+        "NeighborNextHopValueType";
+    }
+    leaf neighbor-next-hop-ip-addr {
+      when "../neighbor-next-hop-value-type = 'mgmt-nnh-val-type-ip-addr'" {
+        description
+          "../NeighborNextHopValueType =
+           'MGMT_NNH_VAL_TYPE_IP_ADDR'";
+      }
+      type inet:ipv4-address;
+      description
+        "Neighbor NextHop IP Address";
+    }
+    leaf neighbor-next-hop-intf-index {
+      when "../neighbor-next-hop-value-type = 'mgmt-nnh-val-type-if-index'" {
+        description
+          "../NeighborNextHopValueType =
+           'MGMT_NNH_VAL_TYPE_IF_INDEX'";
+      }
+      type uint32;
+      description
+        "Neighbor NextHop Interface Index";
     }
   }
 
@@ -5017,6 +5304,11 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       description
         "SRLG Disjoint";
     }
+    leaf lfa-type {
+      type Lfa;
+      description
+        "LFA type";
+    }
     leaf backup-remote-lfa {
       type inet:ipv4-address;
       description
@@ -5031,6 +5323,11 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       type xr:Interface-name;
       description
         "Backup Tunnel Interface";
+    }
+    leaf interface-disjoint {
+      type boolean;
+      description
+        "Interface Disjoint";
     }
     list backup-repair {
       max-elements "10";
@@ -5089,7 +5386,7 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "Metric";
     }
     leaf route-path-id {
-      type uint16;
+      type uint32;
       description
         "Path ID of path";
     }
@@ -5097,6 +5394,41 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       type uint8;
       description
         "LSA type, see RFC2328 etc.";
+    }
+    leaf area-id {
+      type uint32;
+      description
+        "Area ID";
+    }
+    leaf area-format {
+      type boolean;
+      description
+        "Area format IP or uint32";
+    }
+    leaf route-path-is-rsvp-te-path {
+      type boolean;
+      description
+        "RSVP-TE path";
+    }
+    leaf route-path-is-sr-te-path {
+      type boolean;
+      description
+        "SR-TE path";
+    }
+    leaf route-path-is-sr-excl-path {
+      type boolean;
+      description
+        "SR Excl TE path";
+    }
+    leaf route-path-is-sr-te-sspf-path {
+      type boolean;
+      description
+        "SR-TE SSPF path";
+    }
+    list neighbor-next-hop {
+      description
+        "NeighborNextHop";
+      uses OSPF-SH-NNH-INFO;
     }
   }
 
@@ -5162,6 +5494,21 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       type uint16;
       description
         "SRTE registered neigbhor count on route";
+    }
+    leaf route-label-type {
+      type uint8;
+      description
+        "Type of route label";
+    }
+    leaf route-label {
+      type uint32;
+      description
+        "The route label";
+    }
+    leaf route-sspf-label {
+      type uint32;
+      description
+        "The route SSPF label";
     }
   }
 
@@ -6309,6 +6656,121 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       description
         "MPLS TE fragments in the area";
       uses OSPF-SH-MPLS-FRAGMENT;
+    }
+  }
+
+  grouping OSPF-SH-SR-POLICY {
+    description
+      "OSPF SH SR POLICY";
+    leaf policy-name {
+      type string;
+      description
+        "SR Policy Name";
+    }
+    leaf policy-if-handle {
+      type xr:Interface-name;
+      description
+        "SR Policy Interface handle";
+    }
+    leaf policy-metric {
+      type int32;
+      description
+        "SR Policy Metric";
+    }
+    leaf policy-metric-mode {
+      type Ospf-sr-pol-metric-mode;
+      description
+        "SR Policy Metric mode";
+    }
+    leaf policy-is-sspf {
+      type boolean;
+      description
+        "SR Policy is Strict SPF";
+    }
+    leaf policy-is-autoroute-include {
+      type boolean;
+      description
+        "SR Policy is autoroute Include";
+    }
+    leaf policy-state-is-valid {
+      type boolean;
+      description
+        "SR Policy State is valid";
+    }
+    leaf policy-state-is-stale {
+      type boolean;
+      description
+        "SR Policy State is stale";
+    }
+    leaf policy-state-is-ifh-error {
+      type boolean;
+      description
+        "SR Policy State is IF Handle error";
+    }
+    leaf policy-state-is-idb-pending {
+      type boolean;
+      description
+        "SR Policy State is IDB pending";
+    }
+    leaf policy-update-timestamp {
+      type uint32;
+      description
+        "SR Policy update time";
+    }
+  }
+
+  grouping OSPF-SH-SR-ENDPOINT {
+    description
+      "OSPF SH SR ENDPOINT";
+    leaf sr-endpoint {
+      type inet:ipv4-address;
+      description
+        "SR Endpoint";
+    }
+    leaf sr-router-id {
+      type uint32;
+      description
+        "SR Endpoint Router ID";
+    }
+    leaf sr-area-id-string {
+      type string;
+      description
+        "SR Endpoint Area ID";
+    }
+    leaf sr-policy-count {
+      type uint32;
+      description
+        "SR Policy count";
+    }
+    leaf sr-valid-policy-count {
+      type uint32;
+      description
+        "SR Valid Policy count";
+    }
+    leaf sr-endp-state-is-valid {
+      type boolean;
+      description
+        "SR Endpoint state is valid";
+    }
+    leaf sr-endp-state-is-stale {
+      type boolean;
+      description
+        "SR Endpoint state is stale";
+    }
+    leaf sr-endp-state-is-unres {
+      type boolean;
+      description
+        "SR Endpoint state is unresolved";
+    }
+    leaf sr-endp-resolution-fail-reason {
+      type Ospf-sr-endp-res-fail-reason;
+      description
+        "SR Endpoint resolution failed reason";
+    }
+    list sr-policy {
+      description
+        "SR Policy List";
+      uses OSPF-SH-SR-POLICY;
     }
   }
 

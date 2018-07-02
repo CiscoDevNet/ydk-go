@@ -24,23 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv4-vrrp-oper:vrrp", reflect.TypeOf(Vrrp{}))
 }
 
-// VrrpVmacState represents Vrrp vmac state
-type VrrpVmacState string
-
-const (
-    // VMAC stored locally
-    VrrpVmacState_stored VrrpVmacState = "stored"
-
-    // VMAC reserved in mac table
-    VrrpVmacState_reserved VrrpVmacState = "reserved"
-
-    // VMAC active in mac table
-    VrrpVmacState_active VrrpVmacState = "active"
-
-    // VMAC not yet reserved in mac table
-    VrrpVmacState_reserving VrrpVmacState = "reserving"
-)
-
 // VrrpStateChangeReason represents Vrrp state change reason
 type VrrpStateChangeReason string
 
@@ -85,6 +68,62 @@ const (
     VrrpStateChangeReason_state_change_issu_resync VrrpStateChangeReason = "state-change-issu-resync"
 )
 
+// VrrpVmacState represents Vrrp vmac state
+type VrrpVmacState string
+
+const (
+    // VMAC stored locally
+    VrrpVmacState_stored VrrpVmacState = "stored"
+
+    // VMAC reserved in mac table
+    VrrpVmacState_reserved VrrpVmacState = "reserved"
+
+    // VMAC active in mac table
+    VrrpVmacState_active VrrpVmacState = "active"
+
+    // VMAC not yet reserved in mac table
+    VrrpVmacState_reserving VrrpVmacState = "reserving"
+)
+
+// VrrpBAf represents Vrrp b af
+type VrrpBAf string
+
+const (
+    // IPv4 Address Family
+    VrrpBAf_address_family_ipv4 VrrpBAf = "address-family-ipv4"
+
+    // IPv6 Address Family
+    VrrpBAf_address_family_ipv6 VrrpBAf = "address-family-ipv6"
+
+    // Number of Adddress Families
+    VrrpBAf_vrrp_baf_count VrrpBAf = "vrrp-baf-count"
+)
+
+// VrrpVipState represents Vrrp vip state
+type VrrpVipState string
+
+const (
+    // Down
+    VrrpVipState_virtual_ip_state_down VrrpVipState = "virtual-ip-state-down"
+
+    // Up
+    VrrpVipState_virtual_ip_state_up VrrpVipState = "virtual-ip-state-up"
+)
+
+// VrrpProtAuth represents Vrrp prot auth
+type VrrpProtAuth string
+
+const (
+    // Down
+    VrrpProtAuth_authentication_none VrrpProtAuth = "authentication-none"
+
+    // Simple Text
+    VrrpProtAuth_authentication_text VrrpProtAuth = "authentication-text"
+
+    // IP header
+    VrrpProtAuth_authentication_ip VrrpProtAuth = "authentication-ip"
+)
+
 // VrrpBfdSessionState represents Vrrp bfd session state
 type VrrpBfdSessionState string
 
@@ -102,20 +141,6 @@ const (
     VrrpBfdSessionState_bfd_state_down VrrpBfdSessionState = "bfd-state-down"
 )
 
-// VrrpProtAuth represents Vrrp prot auth
-type VrrpProtAuth string
-
-const (
-    // Down
-    VrrpProtAuth_authentication_none VrrpProtAuth = "authentication-none"
-
-    // Simple Text
-    VrrpProtAuth_authentication_text VrrpProtAuth = "authentication-text"
-
-    // IP header
-    VrrpProtAuth_authentication_ip VrrpProtAuth = "authentication-ip"
-)
-
 // VrrpBagProtocolState represents VRRP protocol state
 type VrrpBagProtocolState string
 
@@ -128,31 +153,6 @@ const (
 
     // Master
     VrrpBagProtocolState_state_master VrrpBagProtocolState = "state-master"
-)
-
-// VrrpVipState represents Vrrp vip state
-type VrrpVipState string
-
-const (
-    // Down
-    VrrpVipState_virtual_ip_state_down VrrpVipState = "virtual-ip-state-down"
-
-    // Up
-    VrrpVipState_virtual_ip_state_up VrrpVipState = "virtual-ip-state-up"
-)
-
-// VrrpBAf represents Vrrp b af
-type VrrpBAf string
-
-const (
-    // IPv4 Address Family
-    VrrpBAf_address_family_ipv4 VrrpBAf = "address-family-ipv4"
-
-    // IPv6 Address Family
-    VrrpBAf_address_family_ipv6 VrrpBAf = "address-family-ipv6"
-
-    // Number of Adddress Families
-    VrrpBAf_vrrp_baf_count VrrpBAf = "vrrp-baf-count"
 )
 
 // Vrrp
@@ -184,12 +184,15 @@ func (vrrp *Vrrp) GetEntityData() *types.CommonEntityData {
     vrrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrrp.EntityData.Children = make(map[string]types.YChild)
-    vrrp.EntityData.Children["summary"] = types.YChild{"Summary", &vrrp.Summary}
-    vrrp.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &vrrp.Ipv6}
-    vrrp.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &vrrp.Ipv4}
-    vrrp.EntityData.Children["mgo-sessions"] = types.YChild{"MgoSessions", &vrrp.MgoSessions}
-    vrrp.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrrp.EntityData.Children = types.NewOrderedMap()
+    vrrp.EntityData.Children.Append("summary", types.YChild{"Summary", &vrrp.Summary})
+    vrrp.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &vrrp.Ipv6})
+    vrrp.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &vrrp.Ipv4})
+    vrrp.EntityData.Children.Append("mgo-sessions", types.YChild{"MgoSessions", &vrrp.MgoSessions})
+    vrrp.EntityData.Leafs = types.NewOrderedMap()
+
+    vrrp.EntityData.YListKeys = []string {}
+
     return &(vrrp.EntityData)
 }
 
@@ -373,15 +376,15 @@ type Vrrp_Summary struct {
 
     // Number of VRRP IPv6 BFD sessions in UP state. The type is interface{} with
     // range: 0..4294967295.
-    Ipv6BfdSessionsUp interface{}
+    Ipv6bfdSessionsUp interface{}
 
     // Number of VRRP IPv6 BFD sessions in DOWN state. The type is interface{}
     // with range: 0..4294967295.
-    Ipv6BfdSessionsDown interface{}
+    Ipv6bfdSessionsDown interface{}
 
     // Number of VRRP IPv6 BFD sessions in INACTIVE state. The type is interface{}
     // with range: 0..4294967295.
-    Ipv6BfdSessionInactive interface{}
+    Ipv6bfdSessionInactive interface{}
 }
 
 func (summary *Vrrp_Summary) GetEntityData() *types.CommonEntityData {
@@ -394,54 +397,57 @@ func (summary *Vrrp_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    summary.EntityData.Children = make(map[string]types.YChild)
-    summary.EntityData.Leafs = make(map[string]types.YLeaf)
-    summary.EntityData.Leafs["ipv4-sessions-master-owner"] = types.YLeaf{"Ipv4SessionsMasterOwner", summary.Ipv4SessionsMasterOwner}
-    summary.EntityData.Leafs["ipv4-sessions-master"] = types.YLeaf{"Ipv4SessionsMaster", summary.Ipv4SessionsMaster}
-    summary.EntityData.Leafs["ipv4-sessions-backup"] = types.YLeaf{"Ipv4SessionsBackup", summary.Ipv4SessionsBackup}
-    summary.EntityData.Leafs["ipv4-sessions-init"] = types.YLeaf{"Ipv4SessionsInit", summary.Ipv4SessionsInit}
-    summary.EntityData.Leafs["ipv4-slaves-master"] = types.YLeaf{"Ipv4SlavesMaster", summary.Ipv4SlavesMaster}
-    summary.EntityData.Leafs["ipv4-slaves-backup"] = types.YLeaf{"Ipv4SlavesBackup", summary.Ipv4SlavesBackup}
-    summary.EntityData.Leafs["ipv4-slaves-init"] = types.YLeaf{"Ipv4SlavesInit", summary.Ipv4SlavesInit}
-    summary.EntityData.Leafs["ipv4-virtual-ip-addresses-master-owner-up"] = types.YLeaf{"Ipv4VirtualIpAddressesMasterOwnerUp", summary.Ipv4VirtualIpAddressesMasterOwnerUp}
-    summary.EntityData.Leafs["ipv4-virtual-ip-addresses-master-owner-down"] = types.YLeaf{"Ipv4VirtualIpAddressesMasterOwnerDown", summary.Ipv4VirtualIpAddressesMasterOwnerDown}
-    summary.EntityData.Leafs["ipv4-virtual-ip-addresses-master-up"] = types.YLeaf{"Ipv4VirtualIpAddressesMasterUp", summary.Ipv4VirtualIpAddressesMasterUp}
-    summary.EntityData.Leafs["ipv4-virtual-ip-addresses-master-down"] = types.YLeaf{"Ipv4VirtualIpAddressesMasterDown", summary.Ipv4VirtualIpAddressesMasterDown}
-    summary.EntityData.Leafs["ipv4-virtual-ip-addresses-backup-up"] = types.YLeaf{"Ipv4VirtualIpAddressesBackupUp", summary.Ipv4VirtualIpAddressesBackupUp}
-    summary.EntityData.Leafs["ipv4-virtual-ip-addresses-backup-down"] = types.YLeaf{"Ipv4VirtualIpAddressesBackupDown", summary.Ipv4VirtualIpAddressesBackupDown}
-    summary.EntityData.Leafs["ipv4-virtual-ip-addresses-init-up"] = types.YLeaf{"Ipv4VirtualIpAddressesInitUp", summary.Ipv4VirtualIpAddressesInitUp}
-    summary.EntityData.Leafs["ipv4-virtual-ip-addresses-init-down"] = types.YLeaf{"Ipv4VirtualIpAddressesInitDown", summary.Ipv4VirtualIpAddressesInitDown}
-    summary.EntityData.Leafs["ipv6-sessions-master-owner"] = types.YLeaf{"Ipv6SessionsMasterOwner", summary.Ipv6SessionsMasterOwner}
-    summary.EntityData.Leafs["ipv6-sessions-master"] = types.YLeaf{"Ipv6SessionsMaster", summary.Ipv6SessionsMaster}
-    summary.EntityData.Leafs["ipv6-sessions-backup"] = types.YLeaf{"Ipv6SessionsBackup", summary.Ipv6SessionsBackup}
-    summary.EntityData.Leafs["ipv6-sessions-init"] = types.YLeaf{"Ipv6SessionsInit", summary.Ipv6SessionsInit}
-    summary.EntityData.Leafs["ipv6-slaves-master"] = types.YLeaf{"Ipv6SlavesMaster", summary.Ipv6SlavesMaster}
-    summary.EntityData.Leafs["ipv6-slaves-backup"] = types.YLeaf{"Ipv6SlavesBackup", summary.Ipv6SlavesBackup}
-    summary.EntityData.Leafs["ipv6-slaves-init"] = types.YLeaf{"Ipv6SlavesInit", summary.Ipv6SlavesInit}
-    summary.EntityData.Leafs["ipv6-virtual-ip-addresses-master-owner-up"] = types.YLeaf{"Ipv6VirtualIpAddressesMasterOwnerUp", summary.Ipv6VirtualIpAddressesMasterOwnerUp}
-    summary.EntityData.Leafs["ipv6-virtual-ip-addresses-master-owner-down"] = types.YLeaf{"Ipv6VirtualIpAddressesMasterOwnerDown", summary.Ipv6VirtualIpAddressesMasterOwnerDown}
-    summary.EntityData.Leafs["ipv6-virtual-ip-addresses-master-up"] = types.YLeaf{"Ipv6VirtualIpAddressesMasterUp", summary.Ipv6VirtualIpAddressesMasterUp}
-    summary.EntityData.Leafs["ipv6-virtual-ip-addresses-master-down"] = types.YLeaf{"Ipv6VirtualIpAddressesMasterDown", summary.Ipv6VirtualIpAddressesMasterDown}
-    summary.EntityData.Leafs["ipv6-virtual-ip-addresses-backup-up"] = types.YLeaf{"Ipv6VirtualIpAddressesBackupUp", summary.Ipv6VirtualIpAddressesBackupUp}
-    summary.EntityData.Leafs["ipv6-virtual-ip-addresses-backup-down"] = types.YLeaf{"Ipv6VirtualIpAddressesBackupDown", summary.Ipv6VirtualIpAddressesBackupDown}
-    summary.EntityData.Leafs["ipv6-virtual-ip-addresses-init-up"] = types.YLeaf{"Ipv6VirtualIpAddressesInitUp", summary.Ipv6VirtualIpAddressesInitUp}
-    summary.EntityData.Leafs["ipv6-virtual-ip-addresses-init-down"] = types.YLeaf{"Ipv6VirtualIpAddressesInitDown", summary.Ipv6VirtualIpAddressesInitDown}
-    summary.EntityData.Leafs["interfaces-ipv4-state-up"] = types.YLeaf{"InterfacesIpv4StateUp", summary.InterfacesIpv4StateUp}
-    summary.EntityData.Leafs["interfaces-ipv4-state-down"] = types.YLeaf{"InterfacesIpv4StateDown", summary.InterfacesIpv4StateDown}
-    summary.EntityData.Leafs["tracked-interfaces-ipv4-state-up"] = types.YLeaf{"TrackedInterfacesIpv4StateUp", summary.TrackedInterfacesIpv4StateUp}
-    summary.EntityData.Leafs["tracked-interfaces-ipv4-state-down"] = types.YLeaf{"TrackedInterfacesIpv4StateDown", summary.TrackedInterfacesIpv4StateDown}
-    summary.EntityData.Leafs["interfaces-ipv6-state-up"] = types.YLeaf{"InterfacesIpv6StateUp", summary.InterfacesIpv6StateUp}
-    summary.EntityData.Leafs["interfaces-ipv6-state-down"] = types.YLeaf{"InterfacesIpv6StateDown", summary.InterfacesIpv6StateDown}
-    summary.EntityData.Leafs["tracked-interfaces-ipv6-state-up"] = types.YLeaf{"TrackedInterfacesIpv6StateUp", summary.TrackedInterfacesIpv6StateUp}
-    summary.EntityData.Leafs["tracked-interfaces-ipv6-state-down"] = types.YLeaf{"TrackedInterfacesIpv6StateDown", summary.TrackedInterfacesIpv6StateDown}
-    summary.EntityData.Leafs["tracked-objects-state-up"] = types.YLeaf{"TrackedObjectsStateUp", summary.TrackedObjectsStateUp}
-    summary.EntityData.Leafs["tracked-objects-state-down"] = types.YLeaf{"TrackedObjectsStateDown", summary.TrackedObjectsStateDown}
-    summary.EntityData.Leafs["bfd-sessions-up"] = types.YLeaf{"BfdSessionsUp", summary.BfdSessionsUp}
-    summary.EntityData.Leafs["bfd-sessions-down"] = types.YLeaf{"BfdSessionsDown", summary.BfdSessionsDown}
-    summary.EntityData.Leafs["bfd-session-inactive"] = types.YLeaf{"BfdSessionInactive", summary.BfdSessionInactive}
-    summary.EntityData.Leafs["ipv6bfd-sessions-up"] = types.YLeaf{"Ipv6BfdSessionsUp", summary.Ipv6BfdSessionsUp}
-    summary.EntityData.Leafs["ipv6bfd-sessions-down"] = types.YLeaf{"Ipv6BfdSessionsDown", summary.Ipv6BfdSessionsDown}
-    summary.EntityData.Leafs["ipv6bfd-session-inactive"] = types.YLeaf{"Ipv6BfdSessionInactive", summary.Ipv6BfdSessionInactive}
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Leafs = types.NewOrderedMap()
+    summary.EntityData.Leafs.Append("ipv4-sessions-master-owner", types.YLeaf{"Ipv4SessionsMasterOwner", summary.Ipv4SessionsMasterOwner})
+    summary.EntityData.Leafs.Append("ipv4-sessions-master", types.YLeaf{"Ipv4SessionsMaster", summary.Ipv4SessionsMaster})
+    summary.EntityData.Leafs.Append("ipv4-sessions-backup", types.YLeaf{"Ipv4SessionsBackup", summary.Ipv4SessionsBackup})
+    summary.EntityData.Leafs.Append("ipv4-sessions-init", types.YLeaf{"Ipv4SessionsInit", summary.Ipv4SessionsInit})
+    summary.EntityData.Leafs.Append("ipv4-slaves-master", types.YLeaf{"Ipv4SlavesMaster", summary.Ipv4SlavesMaster})
+    summary.EntityData.Leafs.Append("ipv4-slaves-backup", types.YLeaf{"Ipv4SlavesBackup", summary.Ipv4SlavesBackup})
+    summary.EntityData.Leafs.Append("ipv4-slaves-init", types.YLeaf{"Ipv4SlavesInit", summary.Ipv4SlavesInit})
+    summary.EntityData.Leafs.Append("ipv4-virtual-ip-addresses-master-owner-up", types.YLeaf{"Ipv4VirtualIpAddressesMasterOwnerUp", summary.Ipv4VirtualIpAddressesMasterOwnerUp})
+    summary.EntityData.Leafs.Append("ipv4-virtual-ip-addresses-master-owner-down", types.YLeaf{"Ipv4VirtualIpAddressesMasterOwnerDown", summary.Ipv4VirtualIpAddressesMasterOwnerDown})
+    summary.EntityData.Leafs.Append("ipv4-virtual-ip-addresses-master-up", types.YLeaf{"Ipv4VirtualIpAddressesMasterUp", summary.Ipv4VirtualIpAddressesMasterUp})
+    summary.EntityData.Leafs.Append("ipv4-virtual-ip-addresses-master-down", types.YLeaf{"Ipv4VirtualIpAddressesMasterDown", summary.Ipv4VirtualIpAddressesMasterDown})
+    summary.EntityData.Leafs.Append("ipv4-virtual-ip-addresses-backup-up", types.YLeaf{"Ipv4VirtualIpAddressesBackupUp", summary.Ipv4VirtualIpAddressesBackupUp})
+    summary.EntityData.Leafs.Append("ipv4-virtual-ip-addresses-backup-down", types.YLeaf{"Ipv4VirtualIpAddressesBackupDown", summary.Ipv4VirtualIpAddressesBackupDown})
+    summary.EntityData.Leafs.Append("ipv4-virtual-ip-addresses-init-up", types.YLeaf{"Ipv4VirtualIpAddressesInitUp", summary.Ipv4VirtualIpAddressesInitUp})
+    summary.EntityData.Leafs.Append("ipv4-virtual-ip-addresses-init-down", types.YLeaf{"Ipv4VirtualIpAddressesInitDown", summary.Ipv4VirtualIpAddressesInitDown})
+    summary.EntityData.Leafs.Append("ipv6-sessions-master-owner", types.YLeaf{"Ipv6SessionsMasterOwner", summary.Ipv6SessionsMasterOwner})
+    summary.EntityData.Leafs.Append("ipv6-sessions-master", types.YLeaf{"Ipv6SessionsMaster", summary.Ipv6SessionsMaster})
+    summary.EntityData.Leafs.Append("ipv6-sessions-backup", types.YLeaf{"Ipv6SessionsBackup", summary.Ipv6SessionsBackup})
+    summary.EntityData.Leafs.Append("ipv6-sessions-init", types.YLeaf{"Ipv6SessionsInit", summary.Ipv6SessionsInit})
+    summary.EntityData.Leafs.Append("ipv6-slaves-master", types.YLeaf{"Ipv6SlavesMaster", summary.Ipv6SlavesMaster})
+    summary.EntityData.Leafs.Append("ipv6-slaves-backup", types.YLeaf{"Ipv6SlavesBackup", summary.Ipv6SlavesBackup})
+    summary.EntityData.Leafs.Append("ipv6-slaves-init", types.YLeaf{"Ipv6SlavesInit", summary.Ipv6SlavesInit})
+    summary.EntityData.Leafs.Append("ipv6-virtual-ip-addresses-master-owner-up", types.YLeaf{"Ipv6VirtualIpAddressesMasterOwnerUp", summary.Ipv6VirtualIpAddressesMasterOwnerUp})
+    summary.EntityData.Leafs.Append("ipv6-virtual-ip-addresses-master-owner-down", types.YLeaf{"Ipv6VirtualIpAddressesMasterOwnerDown", summary.Ipv6VirtualIpAddressesMasterOwnerDown})
+    summary.EntityData.Leafs.Append("ipv6-virtual-ip-addresses-master-up", types.YLeaf{"Ipv6VirtualIpAddressesMasterUp", summary.Ipv6VirtualIpAddressesMasterUp})
+    summary.EntityData.Leafs.Append("ipv6-virtual-ip-addresses-master-down", types.YLeaf{"Ipv6VirtualIpAddressesMasterDown", summary.Ipv6VirtualIpAddressesMasterDown})
+    summary.EntityData.Leafs.Append("ipv6-virtual-ip-addresses-backup-up", types.YLeaf{"Ipv6VirtualIpAddressesBackupUp", summary.Ipv6VirtualIpAddressesBackupUp})
+    summary.EntityData.Leafs.Append("ipv6-virtual-ip-addresses-backup-down", types.YLeaf{"Ipv6VirtualIpAddressesBackupDown", summary.Ipv6VirtualIpAddressesBackupDown})
+    summary.EntityData.Leafs.Append("ipv6-virtual-ip-addresses-init-up", types.YLeaf{"Ipv6VirtualIpAddressesInitUp", summary.Ipv6VirtualIpAddressesInitUp})
+    summary.EntityData.Leafs.Append("ipv6-virtual-ip-addresses-init-down", types.YLeaf{"Ipv6VirtualIpAddressesInitDown", summary.Ipv6VirtualIpAddressesInitDown})
+    summary.EntityData.Leafs.Append("interfaces-ipv4-state-up", types.YLeaf{"InterfacesIpv4StateUp", summary.InterfacesIpv4StateUp})
+    summary.EntityData.Leafs.Append("interfaces-ipv4-state-down", types.YLeaf{"InterfacesIpv4StateDown", summary.InterfacesIpv4StateDown})
+    summary.EntityData.Leafs.Append("tracked-interfaces-ipv4-state-up", types.YLeaf{"TrackedInterfacesIpv4StateUp", summary.TrackedInterfacesIpv4StateUp})
+    summary.EntityData.Leafs.Append("tracked-interfaces-ipv4-state-down", types.YLeaf{"TrackedInterfacesIpv4StateDown", summary.TrackedInterfacesIpv4StateDown})
+    summary.EntityData.Leafs.Append("interfaces-ipv6-state-up", types.YLeaf{"InterfacesIpv6StateUp", summary.InterfacesIpv6StateUp})
+    summary.EntityData.Leafs.Append("interfaces-ipv6-state-down", types.YLeaf{"InterfacesIpv6StateDown", summary.InterfacesIpv6StateDown})
+    summary.EntityData.Leafs.Append("tracked-interfaces-ipv6-state-up", types.YLeaf{"TrackedInterfacesIpv6StateUp", summary.TrackedInterfacesIpv6StateUp})
+    summary.EntityData.Leafs.Append("tracked-interfaces-ipv6-state-down", types.YLeaf{"TrackedInterfacesIpv6StateDown", summary.TrackedInterfacesIpv6StateDown})
+    summary.EntityData.Leafs.Append("tracked-objects-state-up", types.YLeaf{"TrackedObjectsStateUp", summary.TrackedObjectsStateUp})
+    summary.EntityData.Leafs.Append("tracked-objects-state-down", types.YLeaf{"TrackedObjectsStateDown", summary.TrackedObjectsStateDown})
+    summary.EntityData.Leafs.Append("bfd-sessions-up", types.YLeaf{"BfdSessionsUp", summary.BfdSessionsUp})
+    summary.EntityData.Leafs.Append("bfd-sessions-down", types.YLeaf{"BfdSessionsDown", summary.BfdSessionsDown})
+    summary.EntityData.Leafs.Append("bfd-session-inactive", types.YLeaf{"BfdSessionInactive", summary.BfdSessionInactive})
+    summary.EntityData.Leafs.Append("ipv6bfd-sessions-up", types.YLeaf{"Ipv6bfdSessionsUp", summary.Ipv6bfdSessionsUp})
+    summary.EntityData.Leafs.Append("ipv6bfd-sessions-down", types.YLeaf{"Ipv6bfdSessionsDown", summary.Ipv6bfdSessionsDown})
+    summary.EntityData.Leafs.Append("ipv6bfd-session-inactive", types.YLeaf{"Ipv6bfdSessionInactive", summary.Ipv6bfdSessionInactive})
+
+    summary.EntityData.YListKeys = []string {}
+
     return &(summary.EntityData)
 }
 
@@ -471,11 +477,14 @@ func (ipv6 *Vrrp_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6.EntityData.Children = make(map[string]types.YChild)
-    ipv6.EntityData.Children["track-items"] = types.YChild{"TrackItems", &ipv6.TrackItems}
-    ipv6.EntityData.Children["virtual-routers"] = types.YChild{"VirtualRouters", &ipv6.VirtualRouters}
-    ipv6.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &ipv6.Interfaces}
-    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("track-items", types.YChild{"TrackItems", &ipv6.TrackItems})
+    ipv6.EntityData.Children.Append("virtual-routers", types.YChild{"VirtualRouters", &ipv6.VirtualRouters})
+    ipv6.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &ipv6.Interfaces})
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6.EntityData.YListKeys = []string {}
+
     return &(ipv6.EntityData)
 }
 
@@ -487,7 +496,7 @@ type Vrrp_Ipv6_TrackItems struct {
 
     // A configured VRRP IP address entry. The type is slice of
     // Vrrp_Ipv6_TrackItems_TrackItem.
-    TrackItem []Vrrp_Ipv6_TrackItems_TrackItem
+    TrackItem []*Vrrp_Ipv6_TrackItems_TrackItem
 }
 
 func (trackItems *Vrrp_Ipv6_TrackItems) GetEntityData() *types.CommonEntityData {
@@ -500,12 +509,15 @@ func (trackItems *Vrrp_Ipv6_TrackItems) GetEntityData() *types.CommonEntityData 
     trackItems.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackItems.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackItems.EntityData.Children = make(map[string]types.YChild)
-    trackItems.EntityData.Children["track-item"] = types.YChild{"TrackItem", nil}
+    trackItems.EntityData.Children = types.NewOrderedMap()
+    trackItems.EntityData.Children.Append("track-item", types.YChild{"TrackItem", nil})
     for i := range trackItems.TrackItem {
-        trackItems.EntityData.Children[types.GetSegmentPath(&trackItems.TrackItem[i])] = types.YChild{"TrackItem", &trackItems.TrackItem[i]}
+        trackItems.EntityData.Children.Append(types.GetSegmentPath(trackItems.TrackItem[i]), types.YChild{"TrackItem", trackItems.TrackItem[i]})
     }
-    trackItems.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackItems.EntityData.Leafs = types.NewOrderedMap()
+
+    trackItems.EntityData.YListKeys = []string {}
+
     return &(trackItems.EntityData)
 }
 
@@ -516,19 +528,19 @@ type Vrrp_Ipv6_TrackItems_TrackItem struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The interface name to track. The type is string
-    // with pattern: b'[a-zA-Z0-9./-]+'.
+    // with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // This attribute is a key. The VRRP virtual router id. The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     VirtualRouterId interface{}
 
     // This attribute is a key. The name of the tracked interface. The type is
-    // string with pattern: b'[a-zA-Z0-9./-]+'.
+    // string with pattern: [a-zA-Z0-9./-]+.
     TrackedInterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    Interface interface{}
 
     // Virtual Router ID. The type is interface{} with range: 0..4294967295.
     VirtualRouterIdXr interface{}
@@ -551,22 +563,25 @@ func (trackItem *Vrrp_Ipv6_TrackItems_TrackItem) GetEntityData() *types.CommonEn
     trackItem.EntityData.YangName = "track-item"
     trackItem.EntityData.BundleName = "cisco_ios_xr"
     trackItem.EntityData.ParentYangName = "track-items"
-    trackItem.EntityData.SegmentPath = "track-item" + "[interface-name='" + fmt.Sprintf("%v", trackItem.InterfaceName) + "']" + "[virtual-router-id='" + fmt.Sprintf("%v", trackItem.VirtualRouterId) + "']" + "[tracked-interface-name='" + fmt.Sprintf("%v", trackItem.TrackedInterfaceName) + "']"
+    trackItem.EntityData.SegmentPath = "track-item" + types.AddKeyToken(trackItem.InterfaceName, "interface-name") + types.AddKeyToken(trackItem.VirtualRouterId, "virtual-router-id") + types.AddKeyToken(trackItem.TrackedInterfaceName, "tracked-interface-name")
     trackItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackItem.EntityData.Children = make(map[string]types.YChild)
-    trackItem.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackItem.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", trackItem.InterfaceName}
-    trackItem.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", trackItem.VirtualRouterId}
-    trackItem.EntityData.Leafs["tracked-interface-name"] = types.YLeaf{"TrackedInterfaceName", trackItem.TrackedInterfaceName}
-    trackItem.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", trackItem.Interface_}
-    trackItem.EntityData.Leafs["virtual-router-id-xr"] = types.YLeaf{"VirtualRouterIdXr", trackItem.VirtualRouterIdXr}
-    trackItem.EntityData.Leafs["tracked-item-type"] = types.YLeaf{"TrackedItemType", trackItem.TrackedItemType}
-    trackItem.EntityData.Leafs["tracked-item-index"] = types.YLeaf{"TrackedItemIndex", trackItem.TrackedItemIndex}
-    trackItem.EntityData.Leafs["state"] = types.YLeaf{"State", trackItem.State}
-    trackItem.EntityData.Leafs["priority"] = types.YLeaf{"Priority", trackItem.Priority}
+    trackItem.EntityData.Children = types.NewOrderedMap()
+    trackItem.EntityData.Leafs = types.NewOrderedMap()
+    trackItem.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", trackItem.InterfaceName})
+    trackItem.EntityData.Leafs.Append("virtual-router-id", types.YLeaf{"VirtualRouterId", trackItem.VirtualRouterId})
+    trackItem.EntityData.Leafs.Append("tracked-interface-name", types.YLeaf{"TrackedInterfaceName", trackItem.TrackedInterfaceName})
+    trackItem.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", trackItem.Interface})
+    trackItem.EntityData.Leafs.Append("virtual-router-id-xr", types.YLeaf{"VirtualRouterIdXr", trackItem.VirtualRouterIdXr})
+    trackItem.EntityData.Leafs.Append("tracked-item-type", types.YLeaf{"TrackedItemType", trackItem.TrackedItemType})
+    trackItem.EntityData.Leafs.Append("tracked-item-index", types.YLeaf{"TrackedItemIndex", trackItem.TrackedItemIndex})
+    trackItem.EntityData.Leafs.Append("state", types.YLeaf{"State", trackItem.State})
+    trackItem.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", trackItem.Priority})
+
+    trackItem.EntityData.YListKeys = []string {"InterfaceName", "VirtualRouterId", "TrackedInterfaceName"}
+
     return &(trackItem.EntityData)
 }
 
@@ -578,7 +593,7 @@ type Vrrp_Ipv6_VirtualRouters struct {
 
     // A VRRP virtual router. The type is slice of
     // Vrrp_Ipv6_VirtualRouters_VirtualRouter.
-    VirtualRouter []Vrrp_Ipv6_VirtualRouters_VirtualRouter
+    VirtualRouter []*Vrrp_Ipv6_VirtualRouters_VirtualRouter
 }
 
 func (virtualRouters *Vrrp_Ipv6_VirtualRouters) GetEntityData() *types.CommonEntityData {
@@ -591,12 +606,15 @@ func (virtualRouters *Vrrp_Ipv6_VirtualRouters) GetEntityData() *types.CommonEnt
     virtualRouters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualRouters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    virtualRouters.EntityData.Children = make(map[string]types.YChild)
-    virtualRouters.EntityData.Children["virtual-router"] = types.YChild{"VirtualRouter", nil}
+    virtualRouters.EntityData.Children = types.NewOrderedMap()
+    virtualRouters.EntityData.Children.Append("virtual-router", types.YChild{"VirtualRouter", nil})
     for i := range virtualRouters.VirtualRouter {
-        virtualRouters.EntityData.Children[types.GetSegmentPath(&virtualRouters.VirtualRouter[i])] = types.YChild{"VirtualRouter", &virtualRouters.VirtualRouter[i]}
+        virtualRouters.EntityData.Children.Append(types.GetSegmentPath(virtualRouters.VirtualRouter[i]), types.YChild{"VirtualRouter", virtualRouters.VirtualRouter[i]})
     }
-    virtualRouters.EntityData.Leafs = make(map[string]types.YLeaf)
+    virtualRouters.EntityData.Leafs = types.NewOrderedMap()
+
+    virtualRouters.EntityData.YListKeys = []string {}
+
     return &(virtualRouters.EntityData)
 }
 
@@ -607,11 +625,11 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // This attribute is a key. The VRRP virtual router id. The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     VirtualRouterId interface{}
 
     // IM Interface Name. The type is string with length: 0..64.
@@ -647,7 +665,7 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter struct {
     OperationalAddressCount interface{}
 
     // Configured IPv4 Primary address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PrimaryVirtualIp interface{}
 
     // Configured but Down VRRP address count. The type is interface{} with range:
@@ -655,18 +673,18 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter struct {
     ConfiguredDownAddressCount interface{}
 
     // Virtual linklocal IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VirtualLinklocalIpv6Address interface{}
 
     // State of primary IP address. The type is VrrpVipState.
     PrimaryState interface{}
 
     // Master router real IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     MasterIpAddress interface{}
 
     // Master router real IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     MasterIpv6Address interface{}
 
     // Master router priority. The type is interface{} with range: 0..255.
@@ -821,38 +839,38 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter struct {
     BfdMultiplier interface{}
 
     // BFD configured remote IP. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BfdCfgRemoteIp interface{}
 
     // BFD configured remote IPv6. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     BfdConfiguredRemoteIpv6Address interface{}
 
     // Whether state recovered from checkpoint. The type is bool.
     StateFromCheckpoint interface{}
 
     // The Interface Primary IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InterfaceIpv4Address interface{}
 
     // The Interface linklocal IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     InterfaceIpv6Address interface{}
 
     // Virtual mac address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     VirtualMacAddress interface{}
 
     // Virtual mac address state. The type is VrrpVmacState.
     VirtualMacAddressState interface{}
 
     // Operational IPv4 VRRP addresses. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OperationalAddress []interface{}
 
     // IPv4 Configured but Down VRRP addresses. The type is slice of string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4ConfiguredDownAddress []interface{}
 
     // Time last resign was sent.
@@ -863,19 +881,19 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter struct {
 
     // IPv6 Operational VRRP addresses. The type is slice of
     // Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress.
-    Ipv6OperationalAddress []Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress
+    Ipv6OperationalAddress []*Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress
 
     // IPv6 Configured but Down VRRP addresses. The type is slice of
     // Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress.
-    Ipv6ConfiguredDownAddress []Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress
+    Ipv6ConfiguredDownAddress []*Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress
 
     // Track Item Info. The type is slice of
     // Vrrp_Ipv6_VirtualRouters_VirtualRouter_TrackItemInfo.
-    TrackItemInfo []Vrrp_Ipv6_VirtualRouters_VirtualRouter_TrackItemInfo
+    TrackItemInfo []*Vrrp_Ipv6_VirtualRouters_VirtualRouter_TrackItemInfo
 
     // State change history. The type is slice of
     // Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory.
-    StateChangeHistory []Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory
+    StateChangeHistory []*Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory
 }
 
 func (virtualRouter *Vrrp_Ipv6_VirtualRouters_VirtualRouter) GetEntityData() *types.CommonEntityData {
@@ -883,102 +901,105 @@ func (virtualRouter *Vrrp_Ipv6_VirtualRouters_VirtualRouter) GetEntityData() *ty
     virtualRouter.EntityData.YangName = "virtual-router"
     virtualRouter.EntityData.BundleName = "cisco_ios_xr"
     virtualRouter.EntityData.ParentYangName = "virtual-routers"
-    virtualRouter.EntityData.SegmentPath = "virtual-router" + "[interface-name='" + fmt.Sprintf("%v", virtualRouter.InterfaceName) + "']" + "[virtual-router-id='" + fmt.Sprintf("%v", virtualRouter.VirtualRouterId) + "']"
+    virtualRouter.EntityData.SegmentPath = "virtual-router" + types.AddKeyToken(virtualRouter.InterfaceName, "interface-name") + types.AddKeyToken(virtualRouter.VirtualRouterId, "virtual-router-id")
     virtualRouter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     virtualRouter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualRouter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    virtualRouter.EntityData.Children = make(map[string]types.YChild)
-    virtualRouter.EntityData.Children["resign-sent-time"] = types.YChild{"ResignSentTime", &virtualRouter.ResignSentTime}
-    virtualRouter.EntityData.Children["resign-received-time"] = types.YChild{"ResignReceivedTime", &virtualRouter.ResignReceivedTime}
-    virtualRouter.EntityData.Children["ipv6-operational-address"] = types.YChild{"Ipv6OperationalAddress", nil}
+    virtualRouter.EntityData.Children = types.NewOrderedMap()
+    virtualRouter.EntityData.Children.Append("resign-sent-time", types.YChild{"ResignSentTime", &virtualRouter.ResignSentTime})
+    virtualRouter.EntityData.Children.Append("resign-received-time", types.YChild{"ResignReceivedTime", &virtualRouter.ResignReceivedTime})
+    virtualRouter.EntityData.Children.Append("ipv6-operational-address", types.YChild{"Ipv6OperationalAddress", nil})
     for i := range virtualRouter.Ipv6OperationalAddress {
-        virtualRouter.EntityData.Children[types.GetSegmentPath(&virtualRouter.Ipv6OperationalAddress[i])] = types.YChild{"Ipv6OperationalAddress", &virtualRouter.Ipv6OperationalAddress[i]}
+        virtualRouter.EntityData.Children.Append(types.GetSegmentPath(virtualRouter.Ipv6OperationalAddress[i]), types.YChild{"Ipv6OperationalAddress", virtualRouter.Ipv6OperationalAddress[i]})
     }
-    virtualRouter.EntityData.Children["ipv6-configured-down-address"] = types.YChild{"Ipv6ConfiguredDownAddress", nil}
+    virtualRouter.EntityData.Children.Append("ipv6-configured-down-address", types.YChild{"Ipv6ConfiguredDownAddress", nil})
     for i := range virtualRouter.Ipv6ConfiguredDownAddress {
-        virtualRouter.EntityData.Children[types.GetSegmentPath(&virtualRouter.Ipv6ConfiguredDownAddress[i])] = types.YChild{"Ipv6ConfiguredDownAddress", &virtualRouter.Ipv6ConfiguredDownAddress[i]}
+        virtualRouter.EntityData.Children.Append(types.GetSegmentPath(virtualRouter.Ipv6ConfiguredDownAddress[i]), types.YChild{"Ipv6ConfiguredDownAddress", virtualRouter.Ipv6ConfiguredDownAddress[i]})
     }
-    virtualRouter.EntityData.Children["track-item-info"] = types.YChild{"TrackItemInfo", nil}
+    virtualRouter.EntityData.Children.Append("track-item-info", types.YChild{"TrackItemInfo", nil})
     for i := range virtualRouter.TrackItemInfo {
-        virtualRouter.EntityData.Children[types.GetSegmentPath(&virtualRouter.TrackItemInfo[i])] = types.YChild{"TrackItemInfo", &virtualRouter.TrackItemInfo[i]}
+        virtualRouter.EntityData.Children.Append(types.GetSegmentPath(virtualRouter.TrackItemInfo[i]), types.YChild{"TrackItemInfo", virtualRouter.TrackItemInfo[i]})
     }
-    virtualRouter.EntityData.Children["state-change-history"] = types.YChild{"StateChangeHistory", nil}
+    virtualRouter.EntityData.Children.Append("state-change-history", types.YChild{"StateChangeHistory", nil})
     for i := range virtualRouter.StateChangeHistory {
-        virtualRouter.EntityData.Children[types.GetSegmentPath(&virtualRouter.StateChangeHistory[i])] = types.YChild{"StateChangeHistory", &virtualRouter.StateChangeHistory[i]}
+        virtualRouter.EntityData.Children.Append(types.GetSegmentPath(virtualRouter.StateChangeHistory[i]), types.YChild{"StateChangeHistory", virtualRouter.StateChangeHistory[i]})
     }
-    virtualRouter.EntityData.Leafs = make(map[string]types.YLeaf)
-    virtualRouter.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", virtualRouter.InterfaceName}
-    virtualRouter.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", virtualRouter.VirtualRouterId}
-    virtualRouter.EntityData.Leafs["interface-name-xr"] = types.YLeaf{"InterfaceNameXr", virtualRouter.InterfaceNameXr}
-    virtualRouter.EntityData.Leafs["virtual-router-id-xr"] = types.YLeaf{"VirtualRouterIdXr", virtualRouter.VirtualRouterIdXr}
-    virtualRouter.EntityData.Leafs["version"] = types.YLeaf{"Version", virtualRouter.Version}
-    virtualRouter.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", virtualRouter.AddressFamily}
-    virtualRouter.EntityData.Leafs["session-name"] = types.YLeaf{"SessionName", virtualRouter.SessionName}
-    virtualRouter.EntityData.Leafs["slaves"] = types.YLeaf{"Slaves", virtualRouter.Slaves}
-    virtualRouter.EntityData.Leafs["is-slave"] = types.YLeaf{"IsSlave", virtualRouter.IsSlave}
-    virtualRouter.EntityData.Leafs["followed-session-name"] = types.YLeaf{"FollowedSessionName", virtualRouter.FollowedSessionName}
-    virtualRouter.EntityData.Leafs["secondary-address-count"] = types.YLeaf{"SecondaryAddressCount", virtualRouter.SecondaryAddressCount}
-    virtualRouter.EntityData.Leafs["operational-address-count"] = types.YLeaf{"OperationalAddressCount", virtualRouter.OperationalAddressCount}
-    virtualRouter.EntityData.Leafs["primary-virtual-ip"] = types.YLeaf{"PrimaryVirtualIp", virtualRouter.PrimaryVirtualIp}
-    virtualRouter.EntityData.Leafs["configured-down-address-count"] = types.YLeaf{"ConfiguredDownAddressCount", virtualRouter.ConfiguredDownAddressCount}
-    virtualRouter.EntityData.Leafs["virtual-linklocal-ipv6-address"] = types.YLeaf{"VirtualLinklocalIpv6Address", virtualRouter.VirtualLinklocalIpv6Address}
-    virtualRouter.EntityData.Leafs["primary-state"] = types.YLeaf{"PrimaryState", virtualRouter.PrimaryState}
-    virtualRouter.EntityData.Leafs["master-ip-address"] = types.YLeaf{"MasterIpAddress", virtualRouter.MasterIpAddress}
-    virtualRouter.EntityData.Leafs["master-ipv6-address"] = types.YLeaf{"MasterIpv6Address", virtualRouter.MasterIpv6Address}
-    virtualRouter.EntityData.Leafs["master-priority"] = types.YLeaf{"MasterPriority", virtualRouter.MasterPriority}
-    virtualRouter.EntityData.Leafs["vrrp-state"] = types.YLeaf{"VrrpState", virtualRouter.VrrpState}
-    virtualRouter.EntityData.Leafs["authentication-type"] = types.YLeaf{"AuthenticationType", virtualRouter.AuthenticationType}
-    virtualRouter.EntityData.Leafs["authentication-string"] = types.YLeaf{"AuthenticationString", virtualRouter.AuthenticationString}
-    virtualRouter.EntityData.Leafs["configured-advertize-time"] = types.YLeaf{"ConfiguredAdvertizeTime", virtualRouter.ConfiguredAdvertizeTime}
-    virtualRouter.EntityData.Leafs["oper-advertize-time"] = types.YLeaf{"OperAdvertizeTime", virtualRouter.OperAdvertizeTime}
-    virtualRouter.EntityData.Leafs["min-delay-time"] = types.YLeaf{"MinDelayTime", virtualRouter.MinDelayTime}
-    virtualRouter.EntityData.Leafs["reload-delay-time"] = types.YLeaf{"ReloadDelayTime", virtualRouter.ReloadDelayTime}
-    virtualRouter.EntityData.Leafs["delay-timer-flag"] = types.YLeaf{"DelayTimerFlag", virtualRouter.DelayTimerFlag}
-    virtualRouter.EntityData.Leafs["delay-timer-secs"] = types.YLeaf{"DelayTimerSecs", virtualRouter.DelayTimerSecs}
-    virtualRouter.EntityData.Leafs["delay-timer-msecs"] = types.YLeaf{"DelayTimerMsecs", virtualRouter.DelayTimerMsecs}
-    virtualRouter.EntityData.Leafs["authentication-flag"] = types.YLeaf{"AuthenticationFlag", virtualRouter.AuthenticationFlag}
-    virtualRouter.EntityData.Leafs["force-timer-flag"] = types.YLeaf{"ForceTimerFlag", virtualRouter.ForceTimerFlag}
-    virtualRouter.EntityData.Leafs["preempt-flag"] = types.YLeaf{"PreemptFlag", virtualRouter.PreemptFlag}
-    virtualRouter.EntityData.Leafs["ip-address-owner-flag"] = types.YLeaf{"IpAddressOwnerFlag", virtualRouter.IpAddressOwnerFlag}
-    virtualRouter.EntityData.Leafs["is-accept-mode"] = types.YLeaf{"IsAcceptMode", virtualRouter.IsAcceptMode}
-    virtualRouter.EntityData.Leafs["preempt-delay-time"] = types.YLeaf{"PreemptDelayTime", virtualRouter.PreemptDelayTime}
-    virtualRouter.EntityData.Leafs["configured-priority"] = types.YLeaf{"ConfiguredPriority", virtualRouter.ConfiguredPriority}
-    virtualRouter.EntityData.Leafs["operational-priority"] = types.YLeaf{"OperationalPriority", virtualRouter.OperationalPriority}
-    virtualRouter.EntityData.Leafs["priority-decrement"] = types.YLeaf{"PriorityDecrement", virtualRouter.PriorityDecrement}
-    virtualRouter.EntityData.Leafs["tracked-interface-count"] = types.YLeaf{"TrackedInterfaceCount", virtualRouter.TrackedInterfaceCount}
-    virtualRouter.EntityData.Leafs["tracked-interface-up-count"] = types.YLeaf{"TrackedInterfaceUpCount", virtualRouter.TrackedInterfaceUpCount}
-    virtualRouter.EntityData.Leafs["tracked-item-count"] = types.YLeaf{"TrackedItemCount", virtualRouter.TrackedItemCount}
-    virtualRouter.EntityData.Leafs["tracked-item-up-count"] = types.YLeaf{"TrackedItemUpCount", virtualRouter.TrackedItemUpCount}
-    virtualRouter.EntityData.Leafs["time-in-current-state"] = types.YLeaf{"TimeInCurrentState", virtualRouter.TimeInCurrentState}
-    virtualRouter.EntityData.Leafs["state-change-count"] = types.YLeaf{"StateChangeCount", virtualRouter.StateChangeCount}
-    virtualRouter.EntityData.Leafs["time-vrouter-up"] = types.YLeaf{"TimeVrouterUp", virtualRouter.TimeVrouterUp}
-    virtualRouter.EntityData.Leafs["master-count"] = types.YLeaf{"MasterCount", virtualRouter.MasterCount}
-    virtualRouter.EntityData.Leafs["adverts-received-count"] = types.YLeaf{"AdvertsReceivedCount", virtualRouter.AdvertsReceivedCount}
-    virtualRouter.EntityData.Leafs["advert-interval-error-count"] = types.YLeaf{"AdvertIntervalErrorCount", virtualRouter.AdvertIntervalErrorCount}
-    virtualRouter.EntityData.Leafs["adverts-sent-count"] = types.YLeaf{"AdvertsSentCount", virtualRouter.AdvertsSentCount}
-    virtualRouter.EntityData.Leafs["authentication-fail-count"] = types.YLeaf{"AuthenticationFailCount", virtualRouter.AuthenticationFailCount}
-    virtualRouter.EntityData.Leafs["ttl-error-count"] = types.YLeaf{"TtlErrorCount", virtualRouter.TtlErrorCount}
-    virtualRouter.EntityData.Leafs["priority-zero-received-count"] = types.YLeaf{"PriorityZeroReceivedCount", virtualRouter.PriorityZeroReceivedCount}
-    virtualRouter.EntityData.Leafs["priority-zero-sent-count"] = types.YLeaf{"PriorityZeroSentCount", virtualRouter.PriorityZeroSentCount}
-    virtualRouter.EntityData.Leafs["invalid-packet-count"] = types.YLeaf{"InvalidPacketCount", virtualRouter.InvalidPacketCount}
-    virtualRouter.EntityData.Leafs["address-list-error-count"] = types.YLeaf{"AddressListErrorCount", virtualRouter.AddressListErrorCount}
-    virtualRouter.EntityData.Leafs["invalid-auth-type-count"] = types.YLeaf{"InvalidAuthTypeCount", virtualRouter.InvalidAuthTypeCount}
-    virtualRouter.EntityData.Leafs["auth-type-mismatch-count"] = types.YLeaf{"AuthTypeMismatchCount", virtualRouter.AuthTypeMismatchCount}
-    virtualRouter.EntityData.Leafs["pkt-length-errors-count"] = types.YLeaf{"PktLengthErrorsCount", virtualRouter.PktLengthErrorsCount}
-    virtualRouter.EntityData.Leafs["time-stats-discontinuity"] = types.YLeaf{"TimeStatsDiscontinuity", virtualRouter.TimeStatsDiscontinuity}
-    virtualRouter.EntityData.Leafs["bfd-session-state"] = types.YLeaf{"BfdSessionState", virtualRouter.BfdSessionState}
-    virtualRouter.EntityData.Leafs["bfd-interval"] = types.YLeaf{"BfdInterval", virtualRouter.BfdInterval}
-    virtualRouter.EntityData.Leafs["bfd-multiplier"] = types.YLeaf{"BfdMultiplier", virtualRouter.BfdMultiplier}
-    virtualRouter.EntityData.Leafs["bfd-cfg-remote-ip"] = types.YLeaf{"BfdCfgRemoteIp", virtualRouter.BfdCfgRemoteIp}
-    virtualRouter.EntityData.Leafs["bfd-configured-remote-ipv6-address"] = types.YLeaf{"BfdConfiguredRemoteIpv6Address", virtualRouter.BfdConfiguredRemoteIpv6Address}
-    virtualRouter.EntityData.Leafs["state-from-checkpoint"] = types.YLeaf{"StateFromCheckpoint", virtualRouter.StateFromCheckpoint}
-    virtualRouter.EntityData.Leafs["interface-ipv4-address"] = types.YLeaf{"InterfaceIpv4Address", virtualRouter.InterfaceIpv4Address}
-    virtualRouter.EntityData.Leafs["interface-ipv6-address"] = types.YLeaf{"InterfaceIpv6Address", virtualRouter.InterfaceIpv6Address}
-    virtualRouter.EntityData.Leafs["virtual-mac-address"] = types.YLeaf{"VirtualMacAddress", virtualRouter.VirtualMacAddress}
-    virtualRouter.EntityData.Leafs["virtual-mac-address-state"] = types.YLeaf{"VirtualMacAddressState", virtualRouter.VirtualMacAddressState}
-    virtualRouter.EntityData.Leafs["operational-address"] = types.YLeaf{"OperationalAddress", virtualRouter.OperationalAddress}
-    virtualRouter.EntityData.Leafs["ipv4-configured-down-address"] = types.YLeaf{"Ipv4ConfiguredDownAddress", virtualRouter.Ipv4ConfiguredDownAddress}
+    virtualRouter.EntityData.Leafs = types.NewOrderedMap()
+    virtualRouter.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", virtualRouter.InterfaceName})
+    virtualRouter.EntityData.Leafs.Append("virtual-router-id", types.YLeaf{"VirtualRouterId", virtualRouter.VirtualRouterId})
+    virtualRouter.EntityData.Leafs.Append("interface-name-xr", types.YLeaf{"InterfaceNameXr", virtualRouter.InterfaceNameXr})
+    virtualRouter.EntityData.Leafs.Append("virtual-router-id-xr", types.YLeaf{"VirtualRouterIdXr", virtualRouter.VirtualRouterIdXr})
+    virtualRouter.EntityData.Leafs.Append("version", types.YLeaf{"Version", virtualRouter.Version})
+    virtualRouter.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", virtualRouter.AddressFamily})
+    virtualRouter.EntityData.Leafs.Append("session-name", types.YLeaf{"SessionName", virtualRouter.SessionName})
+    virtualRouter.EntityData.Leafs.Append("slaves", types.YLeaf{"Slaves", virtualRouter.Slaves})
+    virtualRouter.EntityData.Leafs.Append("is-slave", types.YLeaf{"IsSlave", virtualRouter.IsSlave})
+    virtualRouter.EntityData.Leafs.Append("followed-session-name", types.YLeaf{"FollowedSessionName", virtualRouter.FollowedSessionName})
+    virtualRouter.EntityData.Leafs.Append("secondary-address-count", types.YLeaf{"SecondaryAddressCount", virtualRouter.SecondaryAddressCount})
+    virtualRouter.EntityData.Leafs.Append("operational-address-count", types.YLeaf{"OperationalAddressCount", virtualRouter.OperationalAddressCount})
+    virtualRouter.EntityData.Leafs.Append("primary-virtual-ip", types.YLeaf{"PrimaryVirtualIp", virtualRouter.PrimaryVirtualIp})
+    virtualRouter.EntityData.Leafs.Append("configured-down-address-count", types.YLeaf{"ConfiguredDownAddressCount", virtualRouter.ConfiguredDownAddressCount})
+    virtualRouter.EntityData.Leafs.Append("virtual-linklocal-ipv6-address", types.YLeaf{"VirtualLinklocalIpv6Address", virtualRouter.VirtualLinklocalIpv6Address})
+    virtualRouter.EntityData.Leafs.Append("primary-state", types.YLeaf{"PrimaryState", virtualRouter.PrimaryState})
+    virtualRouter.EntityData.Leafs.Append("master-ip-address", types.YLeaf{"MasterIpAddress", virtualRouter.MasterIpAddress})
+    virtualRouter.EntityData.Leafs.Append("master-ipv6-address", types.YLeaf{"MasterIpv6Address", virtualRouter.MasterIpv6Address})
+    virtualRouter.EntityData.Leafs.Append("master-priority", types.YLeaf{"MasterPriority", virtualRouter.MasterPriority})
+    virtualRouter.EntityData.Leafs.Append("vrrp-state", types.YLeaf{"VrrpState", virtualRouter.VrrpState})
+    virtualRouter.EntityData.Leafs.Append("authentication-type", types.YLeaf{"AuthenticationType", virtualRouter.AuthenticationType})
+    virtualRouter.EntityData.Leafs.Append("authentication-string", types.YLeaf{"AuthenticationString", virtualRouter.AuthenticationString})
+    virtualRouter.EntityData.Leafs.Append("configured-advertize-time", types.YLeaf{"ConfiguredAdvertizeTime", virtualRouter.ConfiguredAdvertizeTime})
+    virtualRouter.EntityData.Leafs.Append("oper-advertize-time", types.YLeaf{"OperAdvertizeTime", virtualRouter.OperAdvertizeTime})
+    virtualRouter.EntityData.Leafs.Append("min-delay-time", types.YLeaf{"MinDelayTime", virtualRouter.MinDelayTime})
+    virtualRouter.EntityData.Leafs.Append("reload-delay-time", types.YLeaf{"ReloadDelayTime", virtualRouter.ReloadDelayTime})
+    virtualRouter.EntityData.Leafs.Append("delay-timer-flag", types.YLeaf{"DelayTimerFlag", virtualRouter.DelayTimerFlag})
+    virtualRouter.EntityData.Leafs.Append("delay-timer-secs", types.YLeaf{"DelayTimerSecs", virtualRouter.DelayTimerSecs})
+    virtualRouter.EntityData.Leafs.Append("delay-timer-msecs", types.YLeaf{"DelayTimerMsecs", virtualRouter.DelayTimerMsecs})
+    virtualRouter.EntityData.Leafs.Append("authentication-flag", types.YLeaf{"AuthenticationFlag", virtualRouter.AuthenticationFlag})
+    virtualRouter.EntityData.Leafs.Append("force-timer-flag", types.YLeaf{"ForceTimerFlag", virtualRouter.ForceTimerFlag})
+    virtualRouter.EntityData.Leafs.Append("preempt-flag", types.YLeaf{"PreemptFlag", virtualRouter.PreemptFlag})
+    virtualRouter.EntityData.Leafs.Append("ip-address-owner-flag", types.YLeaf{"IpAddressOwnerFlag", virtualRouter.IpAddressOwnerFlag})
+    virtualRouter.EntityData.Leafs.Append("is-accept-mode", types.YLeaf{"IsAcceptMode", virtualRouter.IsAcceptMode})
+    virtualRouter.EntityData.Leafs.Append("preempt-delay-time", types.YLeaf{"PreemptDelayTime", virtualRouter.PreemptDelayTime})
+    virtualRouter.EntityData.Leafs.Append("configured-priority", types.YLeaf{"ConfiguredPriority", virtualRouter.ConfiguredPriority})
+    virtualRouter.EntityData.Leafs.Append("operational-priority", types.YLeaf{"OperationalPriority", virtualRouter.OperationalPriority})
+    virtualRouter.EntityData.Leafs.Append("priority-decrement", types.YLeaf{"PriorityDecrement", virtualRouter.PriorityDecrement})
+    virtualRouter.EntityData.Leafs.Append("tracked-interface-count", types.YLeaf{"TrackedInterfaceCount", virtualRouter.TrackedInterfaceCount})
+    virtualRouter.EntityData.Leafs.Append("tracked-interface-up-count", types.YLeaf{"TrackedInterfaceUpCount", virtualRouter.TrackedInterfaceUpCount})
+    virtualRouter.EntityData.Leafs.Append("tracked-item-count", types.YLeaf{"TrackedItemCount", virtualRouter.TrackedItemCount})
+    virtualRouter.EntityData.Leafs.Append("tracked-item-up-count", types.YLeaf{"TrackedItemUpCount", virtualRouter.TrackedItemUpCount})
+    virtualRouter.EntityData.Leafs.Append("time-in-current-state", types.YLeaf{"TimeInCurrentState", virtualRouter.TimeInCurrentState})
+    virtualRouter.EntityData.Leafs.Append("state-change-count", types.YLeaf{"StateChangeCount", virtualRouter.StateChangeCount})
+    virtualRouter.EntityData.Leafs.Append("time-vrouter-up", types.YLeaf{"TimeVrouterUp", virtualRouter.TimeVrouterUp})
+    virtualRouter.EntityData.Leafs.Append("master-count", types.YLeaf{"MasterCount", virtualRouter.MasterCount})
+    virtualRouter.EntityData.Leafs.Append("adverts-received-count", types.YLeaf{"AdvertsReceivedCount", virtualRouter.AdvertsReceivedCount})
+    virtualRouter.EntityData.Leafs.Append("advert-interval-error-count", types.YLeaf{"AdvertIntervalErrorCount", virtualRouter.AdvertIntervalErrorCount})
+    virtualRouter.EntityData.Leafs.Append("adverts-sent-count", types.YLeaf{"AdvertsSentCount", virtualRouter.AdvertsSentCount})
+    virtualRouter.EntityData.Leafs.Append("authentication-fail-count", types.YLeaf{"AuthenticationFailCount", virtualRouter.AuthenticationFailCount})
+    virtualRouter.EntityData.Leafs.Append("ttl-error-count", types.YLeaf{"TtlErrorCount", virtualRouter.TtlErrorCount})
+    virtualRouter.EntityData.Leafs.Append("priority-zero-received-count", types.YLeaf{"PriorityZeroReceivedCount", virtualRouter.PriorityZeroReceivedCount})
+    virtualRouter.EntityData.Leafs.Append("priority-zero-sent-count", types.YLeaf{"PriorityZeroSentCount", virtualRouter.PriorityZeroSentCount})
+    virtualRouter.EntityData.Leafs.Append("invalid-packet-count", types.YLeaf{"InvalidPacketCount", virtualRouter.InvalidPacketCount})
+    virtualRouter.EntityData.Leafs.Append("address-list-error-count", types.YLeaf{"AddressListErrorCount", virtualRouter.AddressListErrorCount})
+    virtualRouter.EntityData.Leafs.Append("invalid-auth-type-count", types.YLeaf{"InvalidAuthTypeCount", virtualRouter.InvalidAuthTypeCount})
+    virtualRouter.EntityData.Leafs.Append("auth-type-mismatch-count", types.YLeaf{"AuthTypeMismatchCount", virtualRouter.AuthTypeMismatchCount})
+    virtualRouter.EntityData.Leafs.Append("pkt-length-errors-count", types.YLeaf{"PktLengthErrorsCount", virtualRouter.PktLengthErrorsCount})
+    virtualRouter.EntityData.Leafs.Append("time-stats-discontinuity", types.YLeaf{"TimeStatsDiscontinuity", virtualRouter.TimeStatsDiscontinuity})
+    virtualRouter.EntityData.Leafs.Append("bfd-session-state", types.YLeaf{"BfdSessionState", virtualRouter.BfdSessionState})
+    virtualRouter.EntityData.Leafs.Append("bfd-interval", types.YLeaf{"BfdInterval", virtualRouter.BfdInterval})
+    virtualRouter.EntityData.Leafs.Append("bfd-multiplier", types.YLeaf{"BfdMultiplier", virtualRouter.BfdMultiplier})
+    virtualRouter.EntityData.Leafs.Append("bfd-cfg-remote-ip", types.YLeaf{"BfdCfgRemoteIp", virtualRouter.BfdCfgRemoteIp})
+    virtualRouter.EntityData.Leafs.Append("bfd-configured-remote-ipv6-address", types.YLeaf{"BfdConfiguredRemoteIpv6Address", virtualRouter.BfdConfiguredRemoteIpv6Address})
+    virtualRouter.EntityData.Leafs.Append("state-from-checkpoint", types.YLeaf{"StateFromCheckpoint", virtualRouter.StateFromCheckpoint})
+    virtualRouter.EntityData.Leafs.Append("interface-ipv4-address", types.YLeaf{"InterfaceIpv4Address", virtualRouter.InterfaceIpv4Address})
+    virtualRouter.EntityData.Leafs.Append("interface-ipv6-address", types.YLeaf{"InterfaceIpv6Address", virtualRouter.InterfaceIpv6Address})
+    virtualRouter.EntityData.Leafs.Append("virtual-mac-address", types.YLeaf{"VirtualMacAddress", virtualRouter.VirtualMacAddress})
+    virtualRouter.EntityData.Leafs.Append("virtual-mac-address-state", types.YLeaf{"VirtualMacAddressState", virtualRouter.VirtualMacAddressState})
+    virtualRouter.EntityData.Leafs.Append("operational-address", types.YLeaf{"OperationalAddress", virtualRouter.OperationalAddress})
+    virtualRouter.EntityData.Leafs.Append("ipv4-configured-down-address", types.YLeaf{"Ipv4ConfiguredDownAddress", virtualRouter.Ipv4ConfiguredDownAddress})
+
+    virtualRouter.EntityData.YListKeys = []string {"InterfaceName", "VirtualRouterId"}
+
     return &(virtualRouter.EntityData)
 }
 
@@ -1007,10 +1028,13 @@ func (resignSentTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime) Get
     resignSentTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resignSentTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    resignSentTime.EntityData.Children = make(map[string]types.YChild)
-    resignSentTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    resignSentTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", resignSentTime.Seconds}
-    resignSentTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", resignSentTime.Nanoseconds}
+    resignSentTime.EntityData.Children = types.NewOrderedMap()
+    resignSentTime.EntityData.Leafs = types.NewOrderedMap()
+    resignSentTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", resignSentTime.Seconds})
+    resignSentTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", resignSentTime.Nanoseconds})
+
+    resignSentTime.EntityData.YListKeys = []string {}
+
     return &(resignSentTime.EntityData)
 }
 
@@ -1039,10 +1063,13 @@ func (resignReceivedTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedT
     resignReceivedTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resignReceivedTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    resignReceivedTime.EntityData.Children = make(map[string]types.YChild)
-    resignReceivedTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    resignReceivedTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", resignReceivedTime.Seconds}
-    resignReceivedTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", resignReceivedTime.Nanoseconds}
+    resignReceivedTime.EntityData.Children = types.NewOrderedMap()
+    resignReceivedTime.EntityData.Leafs = types.NewOrderedMap()
+    resignReceivedTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", resignReceivedTime.Seconds})
+    resignReceivedTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", resignReceivedTime.Nanoseconds})
+
+    resignReceivedTime.EntityData.YListKeys = []string {}
+
     return &(resignReceivedTime.EntityData)
 }
 
@@ -1053,7 +1080,7 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress struct {
     YFilter yfilter.YFilter
 
     // IPV6Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -1067,9 +1094,12 @@ func (ipv6OperationalAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6Operati
     ipv6OperationalAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6OperationalAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6OperationalAddress.EntityData.Children = make(map[string]types.YChild)
-    ipv6OperationalAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6OperationalAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", ipv6OperationalAddress.Ipv6Address}
+    ipv6OperationalAddress.EntityData.Children = types.NewOrderedMap()
+    ipv6OperationalAddress.EntityData.Leafs = types.NewOrderedMap()
+    ipv6OperationalAddress.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", ipv6OperationalAddress.Ipv6Address})
+
+    ipv6OperationalAddress.EntityData.YListKeys = []string {}
+
     return &(ipv6OperationalAddress.EntityData)
 }
 
@@ -1080,7 +1110,7 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress struct {
     YFilter yfilter.YFilter
 
     // IPV6Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -1094,9 +1124,12 @@ func (ipv6ConfiguredDownAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6Conf
     ipv6ConfiguredDownAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6ConfiguredDownAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6ConfiguredDownAddress.EntityData.Children = make(map[string]types.YChild)
-    ipv6ConfiguredDownAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6ConfiguredDownAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", ipv6ConfiguredDownAddress.Ipv6Address}
+    ipv6ConfiguredDownAddress.EntityData.Children = types.NewOrderedMap()
+    ipv6ConfiguredDownAddress.EntityData.Leafs = types.NewOrderedMap()
+    ipv6ConfiguredDownAddress.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", ipv6ConfiguredDownAddress.Ipv6Address})
+
+    ipv6ConfiguredDownAddress.EntityData.YListKeys = []string {}
+
     return &(ipv6ConfiguredDownAddress.EntityData)
 }
 
@@ -1106,8 +1139,8 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter_TrackItemInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    Interface interface{}
 
     // Virtual Router ID. The type is interface{} with range: 0..4294967295.
     VirtualRouterIdXr interface{}
@@ -1135,14 +1168,17 @@ func (trackItemInfo *Vrrp_Ipv6_VirtualRouters_VirtualRouter_TrackItemInfo) GetEn
     trackItemInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackItemInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackItemInfo.EntityData.Children = make(map[string]types.YChild)
-    trackItemInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackItemInfo.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", trackItemInfo.Interface_}
-    trackItemInfo.EntityData.Leafs["virtual-router-id-xr"] = types.YLeaf{"VirtualRouterIdXr", trackItemInfo.VirtualRouterIdXr}
-    trackItemInfo.EntityData.Leafs["tracked-item-type"] = types.YLeaf{"TrackedItemType", trackItemInfo.TrackedItemType}
-    trackItemInfo.EntityData.Leafs["tracked-item-index"] = types.YLeaf{"TrackedItemIndex", trackItemInfo.TrackedItemIndex}
-    trackItemInfo.EntityData.Leafs["state"] = types.YLeaf{"State", trackItemInfo.State}
-    trackItemInfo.EntityData.Leafs["priority"] = types.YLeaf{"Priority", trackItemInfo.Priority}
+    trackItemInfo.EntityData.Children = types.NewOrderedMap()
+    trackItemInfo.EntityData.Leafs = types.NewOrderedMap()
+    trackItemInfo.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", trackItemInfo.Interface})
+    trackItemInfo.EntityData.Leafs.Append("virtual-router-id-xr", types.YLeaf{"VirtualRouterIdXr", trackItemInfo.VirtualRouterIdXr})
+    trackItemInfo.EntityData.Leafs.Append("tracked-item-type", types.YLeaf{"TrackedItemType", trackItemInfo.TrackedItemType})
+    trackItemInfo.EntityData.Leafs.Append("tracked-item-index", types.YLeaf{"TrackedItemIndex", trackItemInfo.TrackedItemIndex})
+    trackItemInfo.EntityData.Leafs.Append("state", types.YLeaf{"State", trackItemInfo.State})
+    trackItemInfo.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", trackItemInfo.Priority})
+
+    trackItemInfo.EntityData.YListKeys = []string {}
+
     return &(trackItemInfo.EntityData)
 }
 
@@ -1175,12 +1211,15 @@ func (stateChangeHistory *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHist
     stateChangeHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateChangeHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateChangeHistory.EntityData.Children = make(map[string]types.YChild)
-    stateChangeHistory.EntityData.Children["time"] = types.YChild{"Time", &stateChangeHistory.Time}
-    stateChangeHistory.EntityData.Leafs = make(map[string]types.YLeaf)
-    stateChangeHistory.EntityData.Leafs["old-state"] = types.YLeaf{"OldState", stateChangeHistory.OldState}
-    stateChangeHistory.EntityData.Leafs["new-state"] = types.YLeaf{"NewState", stateChangeHistory.NewState}
-    stateChangeHistory.EntityData.Leafs["reason"] = types.YLeaf{"Reason", stateChangeHistory.Reason}
+    stateChangeHistory.EntityData.Children = types.NewOrderedMap()
+    stateChangeHistory.EntityData.Children.Append("time", types.YChild{"Time", &stateChangeHistory.Time})
+    stateChangeHistory.EntityData.Leafs = types.NewOrderedMap()
+    stateChangeHistory.EntityData.Leafs.Append("old-state", types.YLeaf{"OldState", stateChangeHistory.OldState})
+    stateChangeHistory.EntityData.Leafs.Append("new-state", types.YLeaf{"NewState", stateChangeHistory.NewState})
+    stateChangeHistory.EntityData.Leafs.Append("reason", types.YLeaf{"Reason", stateChangeHistory.Reason})
+
+    stateChangeHistory.EntityData.YListKeys = []string {}
+
     return &(stateChangeHistory.EntityData)
 }
 
@@ -1209,10 +1248,13 @@ func (time *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetE
     time.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     time.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    time.EntityData.Children = make(map[string]types.YChild)
-    time.EntityData.Leafs = make(map[string]types.YLeaf)
-    time.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", time.Seconds}
-    time.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", time.Nanoseconds}
+    time.EntityData.Children = types.NewOrderedMap()
+    time.EntityData.Leafs = types.NewOrderedMap()
+    time.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", time.Seconds})
+    time.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", time.Nanoseconds})
+
+    time.EntityData.YListKeys = []string {}
+
     return &(time.EntityData)
 }
 
@@ -1223,8 +1265,8 @@ type Vrrp_Ipv6_Interfaces struct {
     YFilter yfilter.YFilter
 
     // A VRRP interface entry. The type is slice of
-    // Vrrp_Ipv6_Interfaces_Interface_.
-    Interface_ []Vrrp_Ipv6_Interfaces_Interface
+    // Vrrp_Ipv6_Interfaces_Interface.
+    Interface []*Vrrp_Ipv6_Interfaces_Interface
 }
 
 func (interfaces *Vrrp_Ipv6_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -1237,12 +1279,15 @@ func (interfaces *Vrrp_Ipv6_Interfaces) GetEntityData() *types.CommonEntityData 
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -1253,11 +1298,11 @@ type Vrrp_Ipv6_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    Interface interface{}
 
     // Invalid checksum. The type is interface{} with range: 0..4294967295.
     InvalidChecksumCount interface{}
@@ -1278,19 +1323,22 @@ func (self *Vrrp_Ipv6_Interfaces_Interface) GetEntityData() *types.CommonEntityD
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", self.Interface_}
-    self.EntityData.Leafs["invalid-checksum-count"] = types.YLeaf{"InvalidChecksumCount", self.InvalidChecksumCount}
-    self.EntityData.Leafs["invalid-version-count"] = types.YLeaf{"InvalidVersionCount", self.InvalidVersionCount}
-    self.EntityData.Leafs["invalid-vrid-count"] = types.YLeaf{"InvalidVridCount", self.InvalidVridCount}
-    self.EntityData.Leafs["invalid-packet-length-count"] = types.YLeaf{"InvalidPacketLengthCount", self.InvalidPacketLengthCount}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", self.Interface})
+    self.EntityData.Leafs.Append("invalid-checksum-count", types.YLeaf{"InvalidChecksumCount", self.InvalidChecksumCount})
+    self.EntityData.Leafs.Append("invalid-version-count", types.YLeaf{"InvalidVersionCount", self.InvalidVersionCount})
+    self.EntityData.Leafs.Append("invalid-vrid-count", types.YLeaf{"InvalidVridCount", self.InvalidVridCount})
+    self.EntityData.Leafs.Append("invalid-packet-length-count", types.YLeaf{"InvalidPacketLengthCount", self.InvalidPacketLengthCount})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -1320,11 +1368,14 @@ func (ipv4 *Vrrp_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv4.EntityData.Children = make(map[string]types.YChild)
-    ipv4.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &ipv4.Interfaces}
-    ipv4.EntityData.Children["track-items"] = types.YChild{"TrackItems", &ipv4.TrackItems}
-    ipv4.EntityData.Children["virtual-routers"] = types.YChild{"VirtualRouters", &ipv4.VirtualRouters}
-    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &ipv4.Interfaces})
+    ipv4.EntityData.Children.Append("track-items", types.YChild{"TrackItems", &ipv4.TrackItems})
+    ipv4.EntityData.Children.Append("virtual-routers", types.YChild{"VirtualRouters", &ipv4.VirtualRouters})
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4.EntityData.YListKeys = []string {}
+
     return &(ipv4.EntityData)
 }
 
@@ -1335,8 +1386,8 @@ type Vrrp_Ipv4_Interfaces struct {
     YFilter yfilter.YFilter
 
     // A VRRP interface entry. The type is slice of
-    // Vrrp_Ipv4_Interfaces_Interface_.
-    Interface_ []Vrrp_Ipv4_Interfaces_Interface
+    // Vrrp_Ipv4_Interfaces_Interface.
+    Interface []*Vrrp_Ipv4_Interfaces_Interface
 }
 
 func (interfaces *Vrrp_Ipv4_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -1349,12 +1400,15 @@ func (interfaces *Vrrp_Ipv4_Interfaces) GetEntityData() *types.CommonEntityData 
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -1365,11 +1419,11 @@ type Vrrp_Ipv4_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    Interface interface{}
 
     // Invalid checksum. The type is interface{} with range: 0..4294967295.
     InvalidChecksumCount interface{}
@@ -1390,19 +1444,22 @@ func (self *Vrrp_Ipv4_Interfaces_Interface) GetEntityData() *types.CommonEntityD
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", self.Interface_}
-    self.EntityData.Leafs["invalid-checksum-count"] = types.YLeaf{"InvalidChecksumCount", self.InvalidChecksumCount}
-    self.EntityData.Leafs["invalid-version-count"] = types.YLeaf{"InvalidVersionCount", self.InvalidVersionCount}
-    self.EntityData.Leafs["invalid-vrid-count"] = types.YLeaf{"InvalidVridCount", self.InvalidVridCount}
-    self.EntityData.Leafs["invalid-packet-length-count"] = types.YLeaf{"InvalidPacketLengthCount", self.InvalidPacketLengthCount}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", self.Interface})
+    self.EntityData.Leafs.Append("invalid-checksum-count", types.YLeaf{"InvalidChecksumCount", self.InvalidChecksumCount})
+    self.EntityData.Leafs.Append("invalid-version-count", types.YLeaf{"InvalidVersionCount", self.InvalidVersionCount})
+    self.EntityData.Leafs.Append("invalid-vrid-count", types.YLeaf{"InvalidVridCount", self.InvalidVridCount})
+    self.EntityData.Leafs.Append("invalid-packet-length-count", types.YLeaf{"InvalidPacketLengthCount", self.InvalidPacketLengthCount})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -1414,7 +1471,7 @@ type Vrrp_Ipv4_TrackItems struct {
 
     // A configured VRRP IP address entry. The type is slice of
     // Vrrp_Ipv4_TrackItems_TrackItem.
-    TrackItem []Vrrp_Ipv4_TrackItems_TrackItem
+    TrackItem []*Vrrp_Ipv4_TrackItems_TrackItem
 }
 
 func (trackItems *Vrrp_Ipv4_TrackItems) GetEntityData() *types.CommonEntityData {
@@ -1427,12 +1484,15 @@ func (trackItems *Vrrp_Ipv4_TrackItems) GetEntityData() *types.CommonEntityData 
     trackItems.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackItems.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackItems.EntityData.Children = make(map[string]types.YChild)
-    trackItems.EntityData.Children["track-item"] = types.YChild{"TrackItem", nil}
+    trackItems.EntityData.Children = types.NewOrderedMap()
+    trackItems.EntityData.Children.Append("track-item", types.YChild{"TrackItem", nil})
     for i := range trackItems.TrackItem {
-        trackItems.EntityData.Children[types.GetSegmentPath(&trackItems.TrackItem[i])] = types.YChild{"TrackItem", &trackItems.TrackItem[i]}
+        trackItems.EntityData.Children.Append(types.GetSegmentPath(trackItems.TrackItem[i]), types.YChild{"TrackItem", trackItems.TrackItem[i]})
     }
-    trackItems.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackItems.EntityData.Leafs = types.NewOrderedMap()
+
+    trackItems.EntityData.YListKeys = []string {}
+
     return &(trackItems.EntityData)
 }
 
@@ -1443,19 +1503,19 @@ type Vrrp_Ipv4_TrackItems_TrackItem struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The interface name to track. The type is string
-    // with pattern: b'[a-zA-Z0-9./-]+'.
+    // with pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // This attribute is a key. The VRRP virtual router id. The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     VirtualRouterId interface{}
 
     // This attribute is a key. The name of the tracked interface. The type is
-    // string with pattern: b'[a-zA-Z0-9./-]+'.
+    // string with pattern: [a-zA-Z0-9./-]+.
     TrackedInterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    Interface interface{}
 
     // Virtual Router ID. The type is interface{} with range: 0..4294967295.
     VirtualRouterIdXr interface{}
@@ -1478,22 +1538,25 @@ func (trackItem *Vrrp_Ipv4_TrackItems_TrackItem) GetEntityData() *types.CommonEn
     trackItem.EntityData.YangName = "track-item"
     trackItem.EntityData.BundleName = "cisco_ios_xr"
     trackItem.EntityData.ParentYangName = "track-items"
-    trackItem.EntityData.SegmentPath = "track-item" + "[interface-name='" + fmt.Sprintf("%v", trackItem.InterfaceName) + "']" + "[virtual-router-id='" + fmt.Sprintf("%v", trackItem.VirtualRouterId) + "']" + "[tracked-interface-name='" + fmt.Sprintf("%v", trackItem.TrackedInterfaceName) + "']"
+    trackItem.EntityData.SegmentPath = "track-item" + types.AddKeyToken(trackItem.InterfaceName, "interface-name") + types.AddKeyToken(trackItem.VirtualRouterId, "virtual-router-id") + types.AddKeyToken(trackItem.TrackedInterfaceName, "tracked-interface-name")
     trackItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackItem.EntityData.Children = make(map[string]types.YChild)
-    trackItem.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackItem.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", trackItem.InterfaceName}
-    trackItem.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", trackItem.VirtualRouterId}
-    trackItem.EntityData.Leafs["tracked-interface-name"] = types.YLeaf{"TrackedInterfaceName", trackItem.TrackedInterfaceName}
-    trackItem.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", trackItem.Interface_}
-    trackItem.EntityData.Leafs["virtual-router-id-xr"] = types.YLeaf{"VirtualRouterIdXr", trackItem.VirtualRouterIdXr}
-    trackItem.EntityData.Leafs["tracked-item-type"] = types.YLeaf{"TrackedItemType", trackItem.TrackedItemType}
-    trackItem.EntityData.Leafs["tracked-item-index"] = types.YLeaf{"TrackedItemIndex", trackItem.TrackedItemIndex}
-    trackItem.EntityData.Leafs["state"] = types.YLeaf{"State", trackItem.State}
-    trackItem.EntityData.Leafs["priority"] = types.YLeaf{"Priority", trackItem.Priority}
+    trackItem.EntityData.Children = types.NewOrderedMap()
+    trackItem.EntityData.Leafs = types.NewOrderedMap()
+    trackItem.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", trackItem.InterfaceName})
+    trackItem.EntityData.Leafs.Append("virtual-router-id", types.YLeaf{"VirtualRouterId", trackItem.VirtualRouterId})
+    trackItem.EntityData.Leafs.Append("tracked-interface-name", types.YLeaf{"TrackedInterfaceName", trackItem.TrackedInterfaceName})
+    trackItem.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", trackItem.Interface})
+    trackItem.EntityData.Leafs.Append("virtual-router-id-xr", types.YLeaf{"VirtualRouterIdXr", trackItem.VirtualRouterIdXr})
+    trackItem.EntityData.Leafs.Append("tracked-item-type", types.YLeaf{"TrackedItemType", trackItem.TrackedItemType})
+    trackItem.EntityData.Leafs.Append("tracked-item-index", types.YLeaf{"TrackedItemIndex", trackItem.TrackedItemIndex})
+    trackItem.EntityData.Leafs.Append("state", types.YLeaf{"State", trackItem.State})
+    trackItem.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", trackItem.Priority})
+
+    trackItem.EntityData.YListKeys = []string {"InterfaceName", "VirtualRouterId", "TrackedInterfaceName"}
+
     return &(trackItem.EntityData)
 }
 
@@ -1505,7 +1568,7 @@ type Vrrp_Ipv4_VirtualRouters struct {
 
     // A VRRP virtual router. The type is slice of
     // Vrrp_Ipv4_VirtualRouters_VirtualRouter.
-    VirtualRouter []Vrrp_Ipv4_VirtualRouters_VirtualRouter
+    VirtualRouter []*Vrrp_Ipv4_VirtualRouters_VirtualRouter
 }
 
 func (virtualRouters *Vrrp_Ipv4_VirtualRouters) GetEntityData() *types.CommonEntityData {
@@ -1518,12 +1581,15 @@ func (virtualRouters *Vrrp_Ipv4_VirtualRouters) GetEntityData() *types.CommonEnt
     virtualRouters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualRouters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    virtualRouters.EntityData.Children = make(map[string]types.YChild)
-    virtualRouters.EntityData.Children["virtual-router"] = types.YChild{"VirtualRouter", nil}
+    virtualRouters.EntityData.Children = types.NewOrderedMap()
+    virtualRouters.EntityData.Children.Append("virtual-router", types.YChild{"VirtualRouter", nil})
     for i := range virtualRouters.VirtualRouter {
-        virtualRouters.EntityData.Children[types.GetSegmentPath(&virtualRouters.VirtualRouter[i])] = types.YChild{"VirtualRouter", &virtualRouters.VirtualRouter[i]}
+        virtualRouters.EntityData.Children.Append(types.GetSegmentPath(virtualRouters.VirtualRouter[i]), types.YChild{"VirtualRouter", virtualRouters.VirtualRouter[i]})
     }
-    virtualRouters.EntityData.Leafs = make(map[string]types.YLeaf)
+    virtualRouters.EntityData.Leafs = types.NewOrderedMap()
+
+    virtualRouters.EntityData.YListKeys = []string {}
+
     return &(virtualRouters.EntityData)
 }
 
@@ -1534,11 +1600,11 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // This attribute is a key. The VRRP virtual router id. The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     VirtualRouterId interface{}
 
     // IM Interface Name. The type is string with length: 0..64.
@@ -1574,7 +1640,7 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter struct {
     OperationalAddressCount interface{}
 
     // Configured IPv4 Primary address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PrimaryVirtualIp interface{}
 
     // Configured but Down VRRP address count. The type is interface{} with range:
@@ -1582,18 +1648,18 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter struct {
     ConfiguredDownAddressCount interface{}
 
     // Virtual linklocal IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VirtualLinklocalIpv6Address interface{}
 
     // State of primary IP address. The type is VrrpVipState.
     PrimaryState interface{}
 
     // Master router real IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     MasterIpAddress interface{}
 
     // Master router real IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     MasterIpv6Address interface{}
 
     // Master router priority. The type is interface{} with range: 0..255.
@@ -1748,38 +1814,38 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter struct {
     BfdMultiplier interface{}
 
     // BFD configured remote IP. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BfdCfgRemoteIp interface{}
 
     // BFD configured remote IPv6. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     BfdConfiguredRemoteIpv6Address interface{}
 
     // Whether state recovered from checkpoint. The type is bool.
     StateFromCheckpoint interface{}
 
     // The Interface Primary IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InterfaceIpv4Address interface{}
 
     // The Interface linklocal IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     InterfaceIpv6Address interface{}
 
     // Virtual mac address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     VirtualMacAddress interface{}
 
     // Virtual mac address state. The type is VrrpVmacState.
     VirtualMacAddressState interface{}
 
     // Operational IPv4 VRRP addresses. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OperationalAddress []interface{}
 
     // IPv4 Configured but Down VRRP addresses. The type is slice of string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4ConfiguredDownAddress []interface{}
 
     // Time last resign was sent.
@@ -1790,19 +1856,19 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter struct {
 
     // IPv6 Operational VRRP addresses. The type is slice of
     // Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress.
-    Ipv6OperationalAddress []Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress
+    Ipv6OperationalAddress []*Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress
 
     // IPv6 Configured but Down VRRP addresses. The type is slice of
     // Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress.
-    Ipv6ConfiguredDownAddress []Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress
+    Ipv6ConfiguredDownAddress []*Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress
 
     // Track Item Info. The type is slice of
     // Vrrp_Ipv4_VirtualRouters_VirtualRouter_TrackItemInfo.
-    TrackItemInfo []Vrrp_Ipv4_VirtualRouters_VirtualRouter_TrackItemInfo
+    TrackItemInfo []*Vrrp_Ipv4_VirtualRouters_VirtualRouter_TrackItemInfo
 
     // State change history. The type is slice of
     // Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory.
-    StateChangeHistory []Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory
+    StateChangeHistory []*Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory
 }
 
 func (virtualRouter *Vrrp_Ipv4_VirtualRouters_VirtualRouter) GetEntityData() *types.CommonEntityData {
@@ -1810,102 +1876,105 @@ func (virtualRouter *Vrrp_Ipv4_VirtualRouters_VirtualRouter) GetEntityData() *ty
     virtualRouter.EntityData.YangName = "virtual-router"
     virtualRouter.EntityData.BundleName = "cisco_ios_xr"
     virtualRouter.EntityData.ParentYangName = "virtual-routers"
-    virtualRouter.EntityData.SegmentPath = "virtual-router" + "[interface-name='" + fmt.Sprintf("%v", virtualRouter.InterfaceName) + "']" + "[virtual-router-id='" + fmt.Sprintf("%v", virtualRouter.VirtualRouterId) + "']"
+    virtualRouter.EntityData.SegmentPath = "virtual-router" + types.AddKeyToken(virtualRouter.InterfaceName, "interface-name") + types.AddKeyToken(virtualRouter.VirtualRouterId, "virtual-router-id")
     virtualRouter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     virtualRouter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualRouter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    virtualRouter.EntityData.Children = make(map[string]types.YChild)
-    virtualRouter.EntityData.Children["resign-sent-time"] = types.YChild{"ResignSentTime", &virtualRouter.ResignSentTime}
-    virtualRouter.EntityData.Children["resign-received-time"] = types.YChild{"ResignReceivedTime", &virtualRouter.ResignReceivedTime}
-    virtualRouter.EntityData.Children["ipv6-operational-address"] = types.YChild{"Ipv6OperationalAddress", nil}
+    virtualRouter.EntityData.Children = types.NewOrderedMap()
+    virtualRouter.EntityData.Children.Append("resign-sent-time", types.YChild{"ResignSentTime", &virtualRouter.ResignSentTime})
+    virtualRouter.EntityData.Children.Append("resign-received-time", types.YChild{"ResignReceivedTime", &virtualRouter.ResignReceivedTime})
+    virtualRouter.EntityData.Children.Append("ipv6-operational-address", types.YChild{"Ipv6OperationalAddress", nil})
     for i := range virtualRouter.Ipv6OperationalAddress {
-        virtualRouter.EntityData.Children[types.GetSegmentPath(&virtualRouter.Ipv6OperationalAddress[i])] = types.YChild{"Ipv6OperationalAddress", &virtualRouter.Ipv6OperationalAddress[i]}
+        virtualRouter.EntityData.Children.Append(types.GetSegmentPath(virtualRouter.Ipv6OperationalAddress[i]), types.YChild{"Ipv6OperationalAddress", virtualRouter.Ipv6OperationalAddress[i]})
     }
-    virtualRouter.EntityData.Children["ipv6-configured-down-address"] = types.YChild{"Ipv6ConfiguredDownAddress", nil}
+    virtualRouter.EntityData.Children.Append("ipv6-configured-down-address", types.YChild{"Ipv6ConfiguredDownAddress", nil})
     for i := range virtualRouter.Ipv6ConfiguredDownAddress {
-        virtualRouter.EntityData.Children[types.GetSegmentPath(&virtualRouter.Ipv6ConfiguredDownAddress[i])] = types.YChild{"Ipv6ConfiguredDownAddress", &virtualRouter.Ipv6ConfiguredDownAddress[i]}
+        virtualRouter.EntityData.Children.Append(types.GetSegmentPath(virtualRouter.Ipv6ConfiguredDownAddress[i]), types.YChild{"Ipv6ConfiguredDownAddress", virtualRouter.Ipv6ConfiguredDownAddress[i]})
     }
-    virtualRouter.EntityData.Children["track-item-info"] = types.YChild{"TrackItemInfo", nil}
+    virtualRouter.EntityData.Children.Append("track-item-info", types.YChild{"TrackItemInfo", nil})
     for i := range virtualRouter.TrackItemInfo {
-        virtualRouter.EntityData.Children[types.GetSegmentPath(&virtualRouter.TrackItemInfo[i])] = types.YChild{"TrackItemInfo", &virtualRouter.TrackItemInfo[i]}
+        virtualRouter.EntityData.Children.Append(types.GetSegmentPath(virtualRouter.TrackItemInfo[i]), types.YChild{"TrackItemInfo", virtualRouter.TrackItemInfo[i]})
     }
-    virtualRouter.EntityData.Children["state-change-history"] = types.YChild{"StateChangeHistory", nil}
+    virtualRouter.EntityData.Children.Append("state-change-history", types.YChild{"StateChangeHistory", nil})
     for i := range virtualRouter.StateChangeHistory {
-        virtualRouter.EntityData.Children[types.GetSegmentPath(&virtualRouter.StateChangeHistory[i])] = types.YChild{"StateChangeHistory", &virtualRouter.StateChangeHistory[i]}
+        virtualRouter.EntityData.Children.Append(types.GetSegmentPath(virtualRouter.StateChangeHistory[i]), types.YChild{"StateChangeHistory", virtualRouter.StateChangeHistory[i]})
     }
-    virtualRouter.EntityData.Leafs = make(map[string]types.YLeaf)
-    virtualRouter.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", virtualRouter.InterfaceName}
-    virtualRouter.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", virtualRouter.VirtualRouterId}
-    virtualRouter.EntityData.Leafs["interface-name-xr"] = types.YLeaf{"InterfaceNameXr", virtualRouter.InterfaceNameXr}
-    virtualRouter.EntityData.Leafs["virtual-router-id-xr"] = types.YLeaf{"VirtualRouterIdXr", virtualRouter.VirtualRouterIdXr}
-    virtualRouter.EntityData.Leafs["version"] = types.YLeaf{"Version", virtualRouter.Version}
-    virtualRouter.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", virtualRouter.AddressFamily}
-    virtualRouter.EntityData.Leafs["session-name"] = types.YLeaf{"SessionName", virtualRouter.SessionName}
-    virtualRouter.EntityData.Leafs["slaves"] = types.YLeaf{"Slaves", virtualRouter.Slaves}
-    virtualRouter.EntityData.Leafs["is-slave"] = types.YLeaf{"IsSlave", virtualRouter.IsSlave}
-    virtualRouter.EntityData.Leafs["followed-session-name"] = types.YLeaf{"FollowedSessionName", virtualRouter.FollowedSessionName}
-    virtualRouter.EntityData.Leafs["secondary-address-count"] = types.YLeaf{"SecondaryAddressCount", virtualRouter.SecondaryAddressCount}
-    virtualRouter.EntityData.Leafs["operational-address-count"] = types.YLeaf{"OperationalAddressCount", virtualRouter.OperationalAddressCount}
-    virtualRouter.EntityData.Leafs["primary-virtual-ip"] = types.YLeaf{"PrimaryVirtualIp", virtualRouter.PrimaryVirtualIp}
-    virtualRouter.EntityData.Leafs["configured-down-address-count"] = types.YLeaf{"ConfiguredDownAddressCount", virtualRouter.ConfiguredDownAddressCount}
-    virtualRouter.EntityData.Leafs["virtual-linklocal-ipv6-address"] = types.YLeaf{"VirtualLinklocalIpv6Address", virtualRouter.VirtualLinklocalIpv6Address}
-    virtualRouter.EntityData.Leafs["primary-state"] = types.YLeaf{"PrimaryState", virtualRouter.PrimaryState}
-    virtualRouter.EntityData.Leafs["master-ip-address"] = types.YLeaf{"MasterIpAddress", virtualRouter.MasterIpAddress}
-    virtualRouter.EntityData.Leafs["master-ipv6-address"] = types.YLeaf{"MasterIpv6Address", virtualRouter.MasterIpv6Address}
-    virtualRouter.EntityData.Leafs["master-priority"] = types.YLeaf{"MasterPriority", virtualRouter.MasterPriority}
-    virtualRouter.EntityData.Leafs["vrrp-state"] = types.YLeaf{"VrrpState", virtualRouter.VrrpState}
-    virtualRouter.EntityData.Leafs["authentication-type"] = types.YLeaf{"AuthenticationType", virtualRouter.AuthenticationType}
-    virtualRouter.EntityData.Leafs["authentication-string"] = types.YLeaf{"AuthenticationString", virtualRouter.AuthenticationString}
-    virtualRouter.EntityData.Leafs["configured-advertize-time"] = types.YLeaf{"ConfiguredAdvertizeTime", virtualRouter.ConfiguredAdvertizeTime}
-    virtualRouter.EntityData.Leafs["oper-advertize-time"] = types.YLeaf{"OperAdvertizeTime", virtualRouter.OperAdvertizeTime}
-    virtualRouter.EntityData.Leafs["min-delay-time"] = types.YLeaf{"MinDelayTime", virtualRouter.MinDelayTime}
-    virtualRouter.EntityData.Leafs["reload-delay-time"] = types.YLeaf{"ReloadDelayTime", virtualRouter.ReloadDelayTime}
-    virtualRouter.EntityData.Leafs["delay-timer-flag"] = types.YLeaf{"DelayTimerFlag", virtualRouter.DelayTimerFlag}
-    virtualRouter.EntityData.Leafs["delay-timer-secs"] = types.YLeaf{"DelayTimerSecs", virtualRouter.DelayTimerSecs}
-    virtualRouter.EntityData.Leafs["delay-timer-msecs"] = types.YLeaf{"DelayTimerMsecs", virtualRouter.DelayTimerMsecs}
-    virtualRouter.EntityData.Leafs["authentication-flag"] = types.YLeaf{"AuthenticationFlag", virtualRouter.AuthenticationFlag}
-    virtualRouter.EntityData.Leafs["force-timer-flag"] = types.YLeaf{"ForceTimerFlag", virtualRouter.ForceTimerFlag}
-    virtualRouter.EntityData.Leafs["preempt-flag"] = types.YLeaf{"PreemptFlag", virtualRouter.PreemptFlag}
-    virtualRouter.EntityData.Leafs["ip-address-owner-flag"] = types.YLeaf{"IpAddressOwnerFlag", virtualRouter.IpAddressOwnerFlag}
-    virtualRouter.EntityData.Leafs["is-accept-mode"] = types.YLeaf{"IsAcceptMode", virtualRouter.IsAcceptMode}
-    virtualRouter.EntityData.Leafs["preempt-delay-time"] = types.YLeaf{"PreemptDelayTime", virtualRouter.PreemptDelayTime}
-    virtualRouter.EntityData.Leafs["configured-priority"] = types.YLeaf{"ConfiguredPriority", virtualRouter.ConfiguredPriority}
-    virtualRouter.EntityData.Leafs["operational-priority"] = types.YLeaf{"OperationalPriority", virtualRouter.OperationalPriority}
-    virtualRouter.EntityData.Leafs["priority-decrement"] = types.YLeaf{"PriorityDecrement", virtualRouter.PriorityDecrement}
-    virtualRouter.EntityData.Leafs["tracked-interface-count"] = types.YLeaf{"TrackedInterfaceCount", virtualRouter.TrackedInterfaceCount}
-    virtualRouter.EntityData.Leafs["tracked-interface-up-count"] = types.YLeaf{"TrackedInterfaceUpCount", virtualRouter.TrackedInterfaceUpCount}
-    virtualRouter.EntityData.Leafs["tracked-item-count"] = types.YLeaf{"TrackedItemCount", virtualRouter.TrackedItemCount}
-    virtualRouter.EntityData.Leafs["tracked-item-up-count"] = types.YLeaf{"TrackedItemUpCount", virtualRouter.TrackedItemUpCount}
-    virtualRouter.EntityData.Leafs["time-in-current-state"] = types.YLeaf{"TimeInCurrentState", virtualRouter.TimeInCurrentState}
-    virtualRouter.EntityData.Leafs["state-change-count"] = types.YLeaf{"StateChangeCount", virtualRouter.StateChangeCount}
-    virtualRouter.EntityData.Leafs["time-vrouter-up"] = types.YLeaf{"TimeVrouterUp", virtualRouter.TimeVrouterUp}
-    virtualRouter.EntityData.Leafs["master-count"] = types.YLeaf{"MasterCount", virtualRouter.MasterCount}
-    virtualRouter.EntityData.Leafs["adverts-received-count"] = types.YLeaf{"AdvertsReceivedCount", virtualRouter.AdvertsReceivedCount}
-    virtualRouter.EntityData.Leafs["advert-interval-error-count"] = types.YLeaf{"AdvertIntervalErrorCount", virtualRouter.AdvertIntervalErrorCount}
-    virtualRouter.EntityData.Leafs["adverts-sent-count"] = types.YLeaf{"AdvertsSentCount", virtualRouter.AdvertsSentCount}
-    virtualRouter.EntityData.Leafs["authentication-fail-count"] = types.YLeaf{"AuthenticationFailCount", virtualRouter.AuthenticationFailCount}
-    virtualRouter.EntityData.Leafs["ttl-error-count"] = types.YLeaf{"TtlErrorCount", virtualRouter.TtlErrorCount}
-    virtualRouter.EntityData.Leafs["priority-zero-received-count"] = types.YLeaf{"PriorityZeroReceivedCount", virtualRouter.PriorityZeroReceivedCount}
-    virtualRouter.EntityData.Leafs["priority-zero-sent-count"] = types.YLeaf{"PriorityZeroSentCount", virtualRouter.PriorityZeroSentCount}
-    virtualRouter.EntityData.Leafs["invalid-packet-count"] = types.YLeaf{"InvalidPacketCount", virtualRouter.InvalidPacketCount}
-    virtualRouter.EntityData.Leafs["address-list-error-count"] = types.YLeaf{"AddressListErrorCount", virtualRouter.AddressListErrorCount}
-    virtualRouter.EntityData.Leafs["invalid-auth-type-count"] = types.YLeaf{"InvalidAuthTypeCount", virtualRouter.InvalidAuthTypeCount}
-    virtualRouter.EntityData.Leafs["auth-type-mismatch-count"] = types.YLeaf{"AuthTypeMismatchCount", virtualRouter.AuthTypeMismatchCount}
-    virtualRouter.EntityData.Leafs["pkt-length-errors-count"] = types.YLeaf{"PktLengthErrorsCount", virtualRouter.PktLengthErrorsCount}
-    virtualRouter.EntityData.Leafs["time-stats-discontinuity"] = types.YLeaf{"TimeStatsDiscontinuity", virtualRouter.TimeStatsDiscontinuity}
-    virtualRouter.EntityData.Leafs["bfd-session-state"] = types.YLeaf{"BfdSessionState", virtualRouter.BfdSessionState}
-    virtualRouter.EntityData.Leafs["bfd-interval"] = types.YLeaf{"BfdInterval", virtualRouter.BfdInterval}
-    virtualRouter.EntityData.Leafs["bfd-multiplier"] = types.YLeaf{"BfdMultiplier", virtualRouter.BfdMultiplier}
-    virtualRouter.EntityData.Leafs["bfd-cfg-remote-ip"] = types.YLeaf{"BfdCfgRemoteIp", virtualRouter.BfdCfgRemoteIp}
-    virtualRouter.EntityData.Leafs["bfd-configured-remote-ipv6-address"] = types.YLeaf{"BfdConfiguredRemoteIpv6Address", virtualRouter.BfdConfiguredRemoteIpv6Address}
-    virtualRouter.EntityData.Leafs["state-from-checkpoint"] = types.YLeaf{"StateFromCheckpoint", virtualRouter.StateFromCheckpoint}
-    virtualRouter.EntityData.Leafs["interface-ipv4-address"] = types.YLeaf{"InterfaceIpv4Address", virtualRouter.InterfaceIpv4Address}
-    virtualRouter.EntityData.Leafs["interface-ipv6-address"] = types.YLeaf{"InterfaceIpv6Address", virtualRouter.InterfaceIpv6Address}
-    virtualRouter.EntityData.Leafs["virtual-mac-address"] = types.YLeaf{"VirtualMacAddress", virtualRouter.VirtualMacAddress}
-    virtualRouter.EntityData.Leafs["virtual-mac-address-state"] = types.YLeaf{"VirtualMacAddressState", virtualRouter.VirtualMacAddressState}
-    virtualRouter.EntityData.Leafs["operational-address"] = types.YLeaf{"OperationalAddress", virtualRouter.OperationalAddress}
-    virtualRouter.EntityData.Leafs["ipv4-configured-down-address"] = types.YLeaf{"Ipv4ConfiguredDownAddress", virtualRouter.Ipv4ConfiguredDownAddress}
+    virtualRouter.EntityData.Leafs = types.NewOrderedMap()
+    virtualRouter.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", virtualRouter.InterfaceName})
+    virtualRouter.EntityData.Leafs.Append("virtual-router-id", types.YLeaf{"VirtualRouterId", virtualRouter.VirtualRouterId})
+    virtualRouter.EntityData.Leafs.Append("interface-name-xr", types.YLeaf{"InterfaceNameXr", virtualRouter.InterfaceNameXr})
+    virtualRouter.EntityData.Leafs.Append("virtual-router-id-xr", types.YLeaf{"VirtualRouterIdXr", virtualRouter.VirtualRouterIdXr})
+    virtualRouter.EntityData.Leafs.Append("version", types.YLeaf{"Version", virtualRouter.Version})
+    virtualRouter.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", virtualRouter.AddressFamily})
+    virtualRouter.EntityData.Leafs.Append("session-name", types.YLeaf{"SessionName", virtualRouter.SessionName})
+    virtualRouter.EntityData.Leafs.Append("slaves", types.YLeaf{"Slaves", virtualRouter.Slaves})
+    virtualRouter.EntityData.Leafs.Append("is-slave", types.YLeaf{"IsSlave", virtualRouter.IsSlave})
+    virtualRouter.EntityData.Leafs.Append("followed-session-name", types.YLeaf{"FollowedSessionName", virtualRouter.FollowedSessionName})
+    virtualRouter.EntityData.Leafs.Append("secondary-address-count", types.YLeaf{"SecondaryAddressCount", virtualRouter.SecondaryAddressCount})
+    virtualRouter.EntityData.Leafs.Append("operational-address-count", types.YLeaf{"OperationalAddressCount", virtualRouter.OperationalAddressCount})
+    virtualRouter.EntityData.Leafs.Append("primary-virtual-ip", types.YLeaf{"PrimaryVirtualIp", virtualRouter.PrimaryVirtualIp})
+    virtualRouter.EntityData.Leafs.Append("configured-down-address-count", types.YLeaf{"ConfiguredDownAddressCount", virtualRouter.ConfiguredDownAddressCount})
+    virtualRouter.EntityData.Leafs.Append("virtual-linklocal-ipv6-address", types.YLeaf{"VirtualLinklocalIpv6Address", virtualRouter.VirtualLinklocalIpv6Address})
+    virtualRouter.EntityData.Leafs.Append("primary-state", types.YLeaf{"PrimaryState", virtualRouter.PrimaryState})
+    virtualRouter.EntityData.Leafs.Append("master-ip-address", types.YLeaf{"MasterIpAddress", virtualRouter.MasterIpAddress})
+    virtualRouter.EntityData.Leafs.Append("master-ipv6-address", types.YLeaf{"MasterIpv6Address", virtualRouter.MasterIpv6Address})
+    virtualRouter.EntityData.Leafs.Append("master-priority", types.YLeaf{"MasterPriority", virtualRouter.MasterPriority})
+    virtualRouter.EntityData.Leafs.Append("vrrp-state", types.YLeaf{"VrrpState", virtualRouter.VrrpState})
+    virtualRouter.EntityData.Leafs.Append("authentication-type", types.YLeaf{"AuthenticationType", virtualRouter.AuthenticationType})
+    virtualRouter.EntityData.Leafs.Append("authentication-string", types.YLeaf{"AuthenticationString", virtualRouter.AuthenticationString})
+    virtualRouter.EntityData.Leafs.Append("configured-advertize-time", types.YLeaf{"ConfiguredAdvertizeTime", virtualRouter.ConfiguredAdvertizeTime})
+    virtualRouter.EntityData.Leafs.Append("oper-advertize-time", types.YLeaf{"OperAdvertizeTime", virtualRouter.OperAdvertizeTime})
+    virtualRouter.EntityData.Leafs.Append("min-delay-time", types.YLeaf{"MinDelayTime", virtualRouter.MinDelayTime})
+    virtualRouter.EntityData.Leafs.Append("reload-delay-time", types.YLeaf{"ReloadDelayTime", virtualRouter.ReloadDelayTime})
+    virtualRouter.EntityData.Leafs.Append("delay-timer-flag", types.YLeaf{"DelayTimerFlag", virtualRouter.DelayTimerFlag})
+    virtualRouter.EntityData.Leafs.Append("delay-timer-secs", types.YLeaf{"DelayTimerSecs", virtualRouter.DelayTimerSecs})
+    virtualRouter.EntityData.Leafs.Append("delay-timer-msecs", types.YLeaf{"DelayTimerMsecs", virtualRouter.DelayTimerMsecs})
+    virtualRouter.EntityData.Leafs.Append("authentication-flag", types.YLeaf{"AuthenticationFlag", virtualRouter.AuthenticationFlag})
+    virtualRouter.EntityData.Leafs.Append("force-timer-flag", types.YLeaf{"ForceTimerFlag", virtualRouter.ForceTimerFlag})
+    virtualRouter.EntityData.Leafs.Append("preempt-flag", types.YLeaf{"PreemptFlag", virtualRouter.PreemptFlag})
+    virtualRouter.EntityData.Leafs.Append("ip-address-owner-flag", types.YLeaf{"IpAddressOwnerFlag", virtualRouter.IpAddressOwnerFlag})
+    virtualRouter.EntityData.Leafs.Append("is-accept-mode", types.YLeaf{"IsAcceptMode", virtualRouter.IsAcceptMode})
+    virtualRouter.EntityData.Leafs.Append("preempt-delay-time", types.YLeaf{"PreemptDelayTime", virtualRouter.PreemptDelayTime})
+    virtualRouter.EntityData.Leafs.Append("configured-priority", types.YLeaf{"ConfiguredPriority", virtualRouter.ConfiguredPriority})
+    virtualRouter.EntityData.Leafs.Append("operational-priority", types.YLeaf{"OperationalPriority", virtualRouter.OperationalPriority})
+    virtualRouter.EntityData.Leafs.Append("priority-decrement", types.YLeaf{"PriorityDecrement", virtualRouter.PriorityDecrement})
+    virtualRouter.EntityData.Leafs.Append("tracked-interface-count", types.YLeaf{"TrackedInterfaceCount", virtualRouter.TrackedInterfaceCount})
+    virtualRouter.EntityData.Leafs.Append("tracked-interface-up-count", types.YLeaf{"TrackedInterfaceUpCount", virtualRouter.TrackedInterfaceUpCount})
+    virtualRouter.EntityData.Leafs.Append("tracked-item-count", types.YLeaf{"TrackedItemCount", virtualRouter.TrackedItemCount})
+    virtualRouter.EntityData.Leafs.Append("tracked-item-up-count", types.YLeaf{"TrackedItemUpCount", virtualRouter.TrackedItemUpCount})
+    virtualRouter.EntityData.Leafs.Append("time-in-current-state", types.YLeaf{"TimeInCurrentState", virtualRouter.TimeInCurrentState})
+    virtualRouter.EntityData.Leafs.Append("state-change-count", types.YLeaf{"StateChangeCount", virtualRouter.StateChangeCount})
+    virtualRouter.EntityData.Leafs.Append("time-vrouter-up", types.YLeaf{"TimeVrouterUp", virtualRouter.TimeVrouterUp})
+    virtualRouter.EntityData.Leafs.Append("master-count", types.YLeaf{"MasterCount", virtualRouter.MasterCount})
+    virtualRouter.EntityData.Leafs.Append("adverts-received-count", types.YLeaf{"AdvertsReceivedCount", virtualRouter.AdvertsReceivedCount})
+    virtualRouter.EntityData.Leafs.Append("advert-interval-error-count", types.YLeaf{"AdvertIntervalErrorCount", virtualRouter.AdvertIntervalErrorCount})
+    virtualRouter.EntityData.Leafs.Append("adverts-sent-count", types.YLeaf{"AdvertsSentCount", virtualRouter.AdvertsSentCount})
+    virtualRouter.EntityData.Leafs.Append("authentication-fail-count", types.YLeaf{"AuthenticationFailCount", virtualRouter.AuthenticationFailCount})
+    virtualRouter.EntityData.Leafs.Append("ttl-error-count", types.YLeaf{"TtlErrorCount", virtualRouter.TtlErrorCount})
+    virtualRouter.EntityData.Leafs.Append("priority-zero-received-count", types.YLeaf{"PriorityZeroReceivedCount", virtualRouter.PriorityZeroReceivedCount})
+    virtualRouter.EntityData.Leafs.Append("priority-zero-sent-count", types.YLeaf{"PriorityZeroSentCount", virtualRouter.PriorityZeroSentCount})
+    virtualRouter.EntityData.Leafs.Append("invalid-packet-count", types.YLeaf{"InvalidPacketCount", virtualRouter.InvalidPacketCount})
+    virtualRouter.EntityData.Leafs.Append("address-list-error-count", types.YLeaf{"AddressListErrorCount", virtualRouter.AddressListErrorCount})
+    virtualRouter.EntityData.Leafs.Append("invalid-auth-type-count", types.YLeaf{"InvalidAuthTypeCount", virtualRouter.InvalidAuthTypeCount})
+    virtualRouter.EntityData.Leafs.Append("auth-type-mismatch-count", types.YLeaf{"AuthTypeMismatchCount", virtualRouter.AuthTypeMismatchCount})
+    virtualRouter.EntityData.Leafs.Append("pkt-length-errors-count", types.YLeaf{"PktLengthErrorsCount", virtualRouter.PktLengthErrorsCount})
+    virtualRouter.EntityData.Leafs.Append("time-stats-discontinuity", types.YLeaf{"TimeStatsDiscontinuity", virtualRouter.TimeStatsDiscontinuity})
+    virtualRouter.EntityData.Leafs.Append("bfd-session-state", types.YLeaf{"BfdSessionState", virtualRouter.BfdSessionState})
+    virtualRouter.EntityData.Leafs.Append("bfd-interval", types.YLeaf{"BfdInterval", virtualRouter.BfdInterval})
+    virtualRouter.EntityData.Leafs.Append("bfd-multiplier", types.YLeaf{"BfdMultiplier", virtualRouter.BfdMultiplier})
+    virtualRouter.EntityData.Leafs.Append("bfd-cfg-remote-ip", types.YLeaf{"BfdCfgRemoteIp", virtualRouter.BfdCfgRemoteIp})
+    virtualRouter.EntityData.Leafs.Append("bfd-configured-remote-ipv6-address", types.YLeaf{"BfdConfiguredRemoteIpv6Address", virtualRouter.BfdConfiguredRemoteIpv6Address})
+    virtualRouter.EntityData.Leafs.Append("state-from-checkpoint", types.YLeaf{"StateFromCheckpoint", virtualRouter.StateFromCheckpoint})
+    virtualRouter.EntityData.Leafs.Append("interface-ipv4-address", types.YLeaf{"InterfaceIpv4Address", virtualRouter.InterfaceIpv4Address})
+    virtualRouter.EntityData.Leafs.Append("interface-ipv6-address", types.YLeaf{"InterfaceIpv6Address", virtualRouter.InterfaceIpv6Address})
+    virtualRouter.EntityData.Leafs.Append("virtual-mac-address", types.YLeaf{"VirtualMacAddress", virtualRouter.VirtualMacAddress})
+    virtualRouter.EntityData.Leafs.Append("virtual-mac-address-state", types.YLeaf{"VirtualMacAddressState", virtualRouter.VirtualMacAddressState})
+    virtualRouter.EntityData.Leafs.Append("operational-address", types.YLeaf{"OperationalAddress", virtualRouter.OperationalAddress})
+    virtualRouter.EntityData.Leafs.Append("ipv4-configured-down-address", types.YLeaf{"Ipv4ConfiguredDownAddress", virtualRouter.Ipv4ConfiguredDownAddress})
+
+    virtualRouter.EntityData.YListKeys = []string {"InterfaceName", "VirtualRouterId"}
+
     return &(virtualRouter.EntityData)
 }
 
@@ -1934,10 +2003,13 @@ func (resignSentTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime) Get
     resignSentTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resignSentTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    resignSentTime.EntityData.Children = make(map[string]types.YChild)
-    resignSentTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    resignSentTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", resignSentTime.Seconds}
-    resignSentTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", resignSentTime.Nanoseconds}
+    resignSentTime.EntityData.Children = types.NewOrderedMap()
+    resignSentTime.EntityData.Leafs = types.NewOrderedMap()
+    resignSentTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", resignSentTime.Seconds})
+    resignSentTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", resignSentTime.Nanoseconds})
+
+    resignSentTime.EntityData.YListKeys = []string {}
+
     return &(resignSentTime.EntityData)
 }
 
@@ -1966,10 +2038,13 @@ func (resignReceivedTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedT
     resignReceivedTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resignReceivedTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    resignReceivedTime.EntityData.Children = make(map[string]types.YChild)
-    resignReceivedTime.EntityData.Leafs = make(map[string]types.YLeaf)
-    resignReceivedTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", resignReceivedTime.Seconds}
-    resignReceivedTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", resignReceivedTime.Nanoseconds}
+    resignReceivedTime.EntityData.Children = types.NewOrderedMap()
+    resignReceivedTime.EntityData.Leafs = types.NewOrderedMap()
+    resignReceivedTime.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", resignReceivedTime.Seconds})
+    resignReceivedTime.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", resignReceivedTime.Nanoseconds})
+
+    resignReceivedTime.EntityData.YListKeys = []string {}
+
     return &(resignReceivedTime.EntityData)
 }
 
@@ -1980,7 +2055,7 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress struct {
     YFilter yfilter.YFilter
 
     // IPV6Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -1994,9 +2069,12 @@ func (ipv6OperationalAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6Operati
     ipv6OperationalAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6OperationalAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6OperationalAddress.EntityData.Children = make(map[string]types.YChild)
-    ipv6OperationalAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6OperationalAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", ipv6OperationalAddress.Ipv6Address}
+    ipv6OperationalAddress.EntityData.Children = types.NewOrderedMap()
+    ipv6OperationalAddress.EntityData.Leafs = types.NewOrderedMap()
+    ipv6OperationalAddress.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", ipv6OperationalAddress.Ipv6Address})
+
+    ipv6OperationalAddress.EntityData.YListKeys = []string {}
+
     return &(ipv6OperationalAddress.EntityData)
 }
 
@@ -2007,7 +2085,7 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress struct {
     YFilter yfilter.YFilter
 
     // IPV6Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -2021,9 +2099,12 @@ func (ipv6ConfiguredDownAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6Conf
     ipv6ConfiguredDownAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6ConfiguredDownAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ipv6ConfiguredDownAddress.EntityData.Children = make(map[string]types.YChild)
-    ipv6ConfiguredDownAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    ipv6ConfiguredDownAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", ipv6ConfiguredDownAddress.Ipv6Address}
+    ipv6ConfiguredDownAddress.EntityData.Children = types.NewOrderedMap()
+    ipv6ConfiguredDownAddress.EntityData.Leafs = types.NewOrderedMap()
+    ipv6ConfiguredDownAddress.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", ipv6ConfiguredDownAddress.Ipv6Address})
+
+    ipv6ConfiguredDownAddress.EntityData.YListKeys = []string {}
+
     return &(ipv6ConfiguredDownAddress.EntityData)
 }
 
@@ -2033,8 +2114,8 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter_TrackItemInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    Interface interface{}
 
     // Virtual Router ID. The type is interface{} with range: 0..4294967295.
     VirtualRouterIdXr interface{}
@@ -2062,14 +2143,17 @@ func (trackItemInfo *Vrrp_Ipv4_VirtualRouters_VirtualRouter_TrackItemInfo) GetEn
     trackItemInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackItemInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trackItemInfo.EntityData.Children = make(map[string]types.YChild)
-    trackItemInfo.EntityData.Leafs = make(map[string]types.YLeaf)
-    trackItemInfo.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", trackItemInfo.Interface_}
-    trackItemInfo.EntityData.Leafs["virtual-router-id-xr"] = types.YLeaf{"VirtualRouterIdXr", trackItemInfo.VirtualRouterIdXr}
-    trackItemInfo.EntityData.Leafs["tracked-item-type"] = types.YLeaf{"TrackedItemType", trackItemInfo.TrackedItemType}
-    trackItemInfo.EntityData.Leafs["tracked-item-index"] = types.YLeaf{"TrackedItemIndex", trackItemInfo.TrackedItemIndex}
-    trackItemInfo.EntityData.Leafs["state"] = types.YLeaf{"State", trackItemInfo.State}
-    trackItemInfo.EntityData.Leafs["priority"] = types.YLeaf{"Priority", trackItemInfo.Priority}
+    trackItemInfo.EntityData.Children = types.NewOrderedMap()
+    trackItemInfo.EntityData.Leafs = types.NewOrderedMap()
+    trackItemInfo.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", trackItemInfo.Interface})
+    trackItemInfo.EntityData.Leafs.Append("virtual-router-id-xr", types.YLeaf{"VirtualRouterIdXr", trackItemInfo.VirtualRouterIdXr})
+    trackItemInfo.EntityData.Leafs.Append("tracked-item-type", types.YLeaf{"TrackedItemType", trackItemInfo.TrackedItemType})
+    trackItemInfo.EntityData.Leafs.Append("tracked-item-index", types.YLeaf{"TrackedItemIndex", trackItemInfo.TrackedItemIndex})
+    trackItemInfo.EntityData.Leafs.Append("state", types.YLeaf{"State", trackItemInfo.State})
+    trackItemInfo.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", trackItemInfo.Priority})
+
+    trackItemInfo.EntityData.YListKeys = []string {}
+
     return &(trackItemInfo.EntityData)
 }
 
@@ -2102,12 +2186,15 @@ func (stateChangeHistory *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHist
     stateChangeHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateChangeHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    stateChangeHistory.EntityData.Children = make(map[string]types.YChild)
-    stateChangeHistory.EntityData.Children["time"] = types.YChild{"Time", &stateChangeHistory.Time}
-    stateChangeHistory.EntityData.Leafs = make(map[string]types.YLeaf)
-    stateChangeHistory.EntityData.Leafs["old-state"] = types.YLeaf{"OldState", stateChangeHistory.OldState}
-    stateChangeHistory.EntityData.Leafs["new-state"] = types.YLeaf{"NewState", stateChangeHistory.NewState}
-    stateChangeHistory.EntityData.Leafs["reason"] = types.YLeaf{"Reason", stateChangeHistory.Reason}
+    stateChangeHistory.EntityData.Children = types.NewOrderedMap()
+    stateChangeHistory.EntityData.Children.Append("time", types.YChild{"Time", &stateChangeHistory.Time})
+    stateChangeHistory.EntityData.Leafs = types.NewOrderedMap()
+    stateChangeHistory.EntityData.Leafs.Append("old-state", types.YLeaf{"OldState", stateChangeHistory.OldState})
+    stateChangeHistory.EntityData.Leafs.Append("new-state", types.YLeaf{"NewState", stateChangeHistory.NewState})
+    stateChangeHistory.EntityData.Leafs.Append("reason", types.YLeaf{"Reason", stateChangeHistory.Reason})
+
+    stateChangeHistory.EntityData.YListKeys = []string {}
+
     return &(stateChangeHistory.EntityData)
 }
 
@@ -2136,10 +2223,13 @@ func (time *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetE
     time.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     time.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    time.EntityData.Children = make(map[string]types.YChild)
-    time.EntityData.Leafs = make(map[string]types.YLeaf)
-    time.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", time.Seconds}
-    time.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", time.Nanoseconds}
+    time.EntityData.Children = types.NewOrderedMap()
+    time.EntityData.Leafs = types.NewOrderedMap()
+    time.EntityData.Leafs.Append("seconds", types.YLeaf{"Seconds", time.Seconds})
+    time.EntityData.Leafs.Append("nanoseconds", types.YLeaf{"Nanoseconds", time.Nanoseconds})
+
+    time.EntityData.YListKeys = []string {}
+
     return &(time.EntityData)
 }
 
@@ -2150,7 +2240,7 @@ type Vrrp_MgoSessions struct {
     YFilter yfilter.YFilter
 
     // A VRRP MGO Session. The type is slice of Vrrp_MgoSessions_MgoSession.
-    MgoSession []Vrrp_MgoSessions_MgoSession
+    MgoSession []*Vrrp_MgoSessions_MgoSession
 }
 
 func (mgoSessions *Vrrp_MgoSessions) GetEntityData() *types.CommonEntityData {
@@ -2163,12 +2253,15 @@ func (mgoSessions *Vrrp_MgoSessions) GetEntityData() *types.CommonEntityData {
     mgoSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mgoSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mgoSessions.EntityData.Children = make(map[string]types.YChild)
-    mgoSessions.EntityData.Children["mgo-session"] = types.YChild{"MgoSession", nil}
+    mgoSessions.EntityData.Children = types.NewOrderedMap()
+    mgoSessions.EntityData.Children.Append("mgo-session", types.YChild{"MgoSession", nil})
     for i := range mgoSessions.MgoSession {
-        mgoSessions.EntityData.Children[types.GetSegmentPath(&mgoSessions.MgoSession[i])] = types.YChild{"MgoSession", &mgoSessions.MgoSession[i]}
+        mgoSessions.EntityData.Children.Append(types.GetSegmentPath(mgoSessions.MgoSession[i]), types.YChild{"MgoSession", mgoSessions.MgoSession[i]})
     }
-    mgoSessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    mgoSessions.EntityData.Leafs = types.NewOrderedMap()
+
+    mgoSessions.EntityData.YListKeys = []string {}
+
     return &(mgoSessions.EntityData)
 }
 
@@ -2179,14 +2272,14 @@ type Vrrp_MgoSessions_MgoSession struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the session. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     SessionName interface{}
 
     // Session Name. The type is string with length: 0..16.
     PrimarySessionName interface{}
 
     // Interface of primary session. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
+    // [a-zA-Z0-9./-]+.
     PrimarySessionInterface interface{}
 
     // Address family of primary session. The type is VrrpBAf.
@@ -2200,7 +2293,7 @@ type Vrrp_MgoSessions_MgoSession struct {
 
     // List of slaves following this primary session. The type is slice of
     // Vrrp_MgoSessions_MgoSession_Slave.
-    Slave []Vrrp_MgoSessions_MgoSession_Slave
+    Slave []*Vrrp_MgoSessions_MgoSession_Slave
 }
 
 func (mgoSession *Vrrp_MgoSessions_MgoSession) GetEntityData() *types.CommonEntityData {
@@ -2208,23 +2301,26 @@ func (mgoSession *Vrrp_MgoSessions_MgoSession) GetEntityData() *types.CommonEnti
     mgoSession.EntityData.YangName = "mgo-session"
     mgoSession.EntityData.BundleName = "cisco_ios_xr"
     mgoSession.EntityData.ParentYangName = "mgo-sessions"
-    mgoSession.EntityData.SegmentPath = "mgo-session" + "[session-name='" + fmt.Sprintf("%v", mgoSession.SessionName) + "']"
+    mgoSession.EntityData.SegmentPath = "mgo-session" + types.AddKeyToken(mgoSession.SessionName, "session-name")
     mgoSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mgoSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mgoSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mgoSession.EntityData.Children = make(map[string]types.YChild)
-    mgoSession.EntityData.Children["slave"] = types.YChild{"Slave", nil}
+    mgoSession.EntityData.Children = types.NewOrderedMap()
+    mgoSession.EntityData.Children.Append("slave", types.YChild{"Slave", nil})
     for i := range mgoSession.Slave {
-        mgoSession.EntityData.Children[types.GetSegmentPath(&mgoSession.Slave[i])] = types.YChild{"Slave", &mgoSession.Slave[i]}
+        mgoSession.EntityData.Children.Append(types.GetSegmentPath(mgoSession.Slave[i]), types.YChild{"Slave", mgoSession.Slave[i]})
     }
-    mgoSession.EntityData.Leafs = make(map[string]types.YLeaf)
-    mgoSession.EntityData.Leafs["session-name"] = types.YLeaf{"SessionName", mgoSession.SessionName}
-    mgoSession.EntityData.Leafs["primary-session-name"] = types.YLeaf{"PrimarySessionName", mgoSession.PrimarySessionName}
-    mgoSession.EntityData.Leafs["primary-session-interface"] = types.YLeaf{"PrimarySessionInterface", mgoSession.PrimarySessionInterface}
-    mgoSession.EntityData.Leafs["primary-af-name"] = types.YLeaf{"PrimaryAfName", mgoSession.PrimaryAfName}
-    mgoSession.EntityData.Leafs["primary-session-number"] = types.YLeaf{"PrimarySessionNumber", mgoSession.PrimarySessionNumber}
-    mgoSession.EntityData.Leafs["primary-session-state"] = types.YLeaf{"PrimarySessionState", mgoSession.PrimarySessionState}
+    mgoSession.EntityData.Leafs = types.NewOrderedMap()
+    mgoSession.EntityData.Leafs.Append("session-name", types.YLeaf{"SessionName", mgoSession.SessionName})
+    mgoSession.EntityData.Leafs.Append("primary-session-name", types.YLeaf{"PrimarySessionName", mgoSession.PrimarySessionName})
+    mgoSession.EntityData.Leafs.Append("primary-session-interface", types.YLeaf{"PrimarySessionInterface", mgoSession.PrimarySessionInterface})
+    mgoSession.EntityData.Leafs.Append("primary-af-name", types.YLeaf{"PrimaryAfName", mgoSession.PrimaryAfName})
+    mgoSession.EntityData.Leafs.Append("primary-session-number", types.YLeaf{"PrimarySessionNumber", mgoSession.PrimarySessionNumber})
+    mgoSession.EntityData.Leafs.Append("primary-session-state", types.YLeaf{"PrimarySessionState", mgoSession.PrimarySessionState})
+
+    mgoSession.EntityData.YListKeys = []string {"SessionName"}
+
     return &(mgoSession.EntityData)
 }
 
@@ -2251,10 +2347,13 @@ func (slave *Vrrp_MgoSessions_MgoSession_Slave) GetEntityData() *types.CommonEnt
     slave.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slave.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    slave.EntityData.Children = make(map[string]types.YChild)
-    slave.EntityData.Leafs = make(map[string]types.YLeaf)
-    slave.EntityData.Leafs["slave-interface"] = types.YLeaf{"SlaveInterface", slave.SlaveInterface}
-    slave.EntityData.Leafs["slave-virtual-router-id"] = types.YLeaf{"SlaveVirtualRouterId", slave.SlaveVirtualRouterId}
+    slave.EntityData.Children = types.NewOrderedMap()
+    slave.EntityData.Leafs = types.NewOrderedMap()
+    slave.EntityData.Leafs.Append("slave-interface", types.YLeaf{"SlaveInterface", slave.SlaveInterface})
+    slave.EntityData.Leafs.Append("slave-virtual-router-id", types.YLeaf{"SlaveVirtualRouterId", slave.SlaveVirtualRouterId})
+
+    slave.EntityData.YListKeys = []string {}
+
     return &(slave.EntityData)
 }
 

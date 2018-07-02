@@ -946,154 +946,134 @@ module Cisco-IOS-XR-pmengine-cfg {
   typedef Optics-threshold {
     type enumeration {
       enum "thresh-opt-min" {
-        value 65554;
+        value 65552;
         description
           "PM Optics opt min threshold in dbm or uW";
       }
       enum "thresh-opr-min" {
-        value 65555;
+        value 65553;
         description
           "PM Optics opr min threshold in dbm or uW";
       }
       enum "thresh-lbc-min" {
-        value 65556;
+        value 65554;
         description
           "PM Optics lbc min threshold";
       }
       enum "thresh-lbc-pc-min" {
-        value 65557;
+        value 65555;
         description
           "PM Optics lbcpc min threshold";
       }
       enum "thresh-cd-min" {
-        value 65561;
+        value 65559;
         description
           "PM Optics cd min threshold";
       }
       enum "thresh-dgd-min" {
-        value 65562;
+        value 65560;
         description
           "PM Optics dgd min threshold";
       }
       enum "thresh-pmd-min" {
-        value 65563;
+        value 65561;
         description
           "PM Optics sopmd min threshold";
       }
       enum "thresh-osnr-min" {
-        value 65564;
+        value 65562;
         description
           "PM Optics osnr min threshold";
       }
       enum "thresh-pdl-min" {
-        value 65565;
+        value 65563;
         description
           "PM Optics pdl min threshold";
       }
       enum "thresh-pcr-min" {
-        value 65566;
+        value 65564;
         description
           "PM Optics pcr min threshold";
       }
       enum "thresh-pn-min" {
-        value 65567;
+        value 65565;
         description
           "PM Optics pn min threshold";
       }
       enum "thresh-rx-sig-pow-min" {
-        value 65568;
+        value 65566;
         description
           "PM Optics rx sig pow min threshold";
       }
       enum "thresh-low-sig-freq-off-min" {
-        value 65569;
+        value 65567;
         description
           "PM Optics low sig freq off min threshold";
       }
-      enum "thresh-ampli-gain-min" {
-        value 65570;
-        description
-          "PM Optics ampli gain min threshold";
-      }
-      enum "thresh-ampli-gain-tilt-min" {
-        value 65571;
-        description
-          "PM Optics ampli gain tilt min threshold";
-      }
       enum "thresh-opt-max" {
-        value 65572;
+        value 65568;
         description
           "PM Optics opt max threshold in dbm or uW";
       }
       enum "thresh-opr-max" {
-        value 65573;
+        value 65569;
         description
           "PM Optics opr max threshold in dbm or uW";
       }
       enum "thresh-lbc-max" {
-        value 65574;
+        value 65570;
         description
           "PM Optics lbc max threshold";
       }
       enum "thresh-lbc-pc-max" {
-        value 65575;
+        value 65571;
         description
           "PM Optics lbcpc max threshold";
       }
       enum "thresh-cd-max" {
-        value 65579;
+        value 65575;
         description
           "PM Optics cd max threshold";
       }
       enum "thresh-dgd-max" {
-        value 65580;
+        value 65576;
         description
           "PM Optics dgd max threshold";
       }
       enum "thresh-pmd-max" {
-        value 65581;
+        value 65577;
         description
           "PM Optics sopmd max threshold";
       }
       enum "thresh-osnr-max" {
-        value 65582;
+        value 65578;
         description
           "PM Optics osnr max threshold";
       }
       enum "thresh-pdl-max" {
-        value 65583;
+        value 65579;
         description
           "PM Optics pdl max threshold";
       }
       enum "thresh-pcr-max" {
-        value 65584;
+        value 65580;
         description
           "PM Optics pcr max threshold";
       }
       enum "thresh-pn-max" {
-        value 65585;
+        value 65581;
         description
           "PM Optics pn max threshold";
       }
       enum "thresh-rx-sig-pow-max" {
-        value 65586;
+        value 65582;
         description
           "PM Optics rx sig pow max threshold";
       }
       enum "thresh-low-sig-freq-off-max" {
-        value 65587;
+        value 65583;
         description
           "PM Optics low sig freq off max threshold";
-      }
-      enum "thresh-ampli-gain-max" {
-        value 65588;
-        description
-          "PM Optics ampli gain max threshold";
-      }
-      enum "thresh-ampli-gain-tilt-max" {
-        value 65589;
-        description
-          "PM Optics ampli gain tilt max threshold";
       }
     }
     description
@@ -1180,154 +1160,134 @@ module Cisco-IOS-XR-pmengine-cfg {
   typedef Optics-report {
     type enumeration {
       enum "report-opt-min" {
-        value 65554;
+        value 65552;
         description
           "PM Optics opt min report";
       }
       enum "report-opr-min" {
-        value 65555;
+        value 65553;
         description
           "PM Optics opr min report";
       }
       enum "report-lbc-min" {
-        value 65556;
+        value 65554;
         description
           "PM Optics lbc min report";
       }
       enum "report-lbc-pc-min" {
-        value 65557;
+        value 65555;
         description
           "PM Optics lbcpc min report";
       }
       enum "report-cd-min" {
-        value 65561;
+        value 65559;
         description
           "PM Optics cd min report";
       }
       enum "report-dgd-min" {
-        value 65562;
+        value 65560;
         description
           "PM Optics dgd min report";
       }
       enum "report-pmd-min" {
-        value 65563;
+        value 65561;
         description
           "PM Optics sopmd min report";
       }
       enum "report-osnr-min" {
-        value 65564;
+        value 65562;
         description
           "PM Optics osnr min report";
       }
       enum "report-pdl-min" {
-        value 65565;
+        value 65563;
         description
           "PM Optics pdl min report";
       }
       enum "report-pcr-min" {
-        value 65566;
+        value 65564;
         description
           "PM Optics pcr min report";
       }
       enum "report-pn-min" {
-        value 65567;
+        value 65565;
         description
           "PM Optics pn min report";
       }
       enum "report-rx-sig-pow-min" {
-        value 65568;
+        value 65566;
         description
           "PM Optics rx sig pow min report";
       }
       enum "report-low-sig-freq-off-min" {
-        value 65569;
+        value 65567;
         description
           "PM Optics low sig freq off min report";
       }
-      enum "report-ampli-gain-min" {
-        value 65570;
-        description
-          "PM Optics ampli gain min report";
-      }
-      enum "report-ampli-gain-tilt-min" {
-        value 65571;
-        description
-          "PM Optics ampli gain tilt min report";
-      }
       enum "report-opt-max" {
-        value 65572;
+        value 65568;
         description
           "PM Optics opt max report";
       }
       enum "report-opr-max" {
-        value 65573;
+        value 65569;
         description
           "PM Optics opr max report";
       }
       enum "report-lbc-max" {
-        value 65574;
+        value 65570;
         description
           "PM Optics lbc max report";
       }
       enum "report-lbc-pc-max" {
-        value 65575;
+        value 65571;
         description
           "PM Optics lbcpc max report";
       }
       enum "report-cd-max" {
-        value 65579;
+        value 65575;
         description
           "PM Optics cd max report";
       }
       enum "report-dgd-max" {
-        value 65580;
+        value 65576;
         description
           "PM Optics dgd max report";
       }
       enum "report-pmd-max" {
-        value 65581;
+        value 65577;
         description
           "PM Optics sopmd max report";
       }
       enum "report-osnr-max" {
-        value 65582;
+        value 65578;
         description
           "PM Optics osnr max report";
       }
       enum "report-pdl-max" {
-        value 65583;
+        value 65579;
         description
           "PM Optics pdl max report";
       }
       enum "report-pcr-max" {
-        value 65584;
+        value 65580;
         description
           "PM Optics pcr max report";
       }
       enum "report-pn-max" {
-        value 65585;
+        value 65581;
         description
           "PM Optics pn max report";
       }
       enum "report-rx-sig-pow-max" {
-        value 65586;
+        value 65582;
         description
           "PM Optics rx sig pow max report";
       }
       enum "report-low-sig-freq-off-max" {
-        value 65587;
+        value 65583;
         description
           "PM Optics low sig freq off max report";
-      }
-      enum "report-ampli-gain-max" {
-        value 65588;
-        description
-          "PM Optics ampli gain max report";
-      }
-      enum "report-ampli-gain-tilt-max" {
-        value 65589;
-        description
-          "PM Optics ampli gain tilt max report";
       }
     }
     description
@@ -3226,7 +3186,7 @@ module Cisco-IOS-XR-pmengine-cfg {
               }
               leaf fec-threshold-value {
                 type string {
-                  length "1..20";
+                  length "1..16";
                 }
                 mandatory true;
                 description
@@ -3688,7 +3648,7 @@ module Cisco-IOS-XR-pmengine-cfg {
               }
               leaf fec-threshold-value {
                 type string {
-                  length "1..20";
+                  length "1..16";
                 }
                 mandatory true;
                 description
@@ -4414,7 +4374,7 @@ module Cisco-IOS-XR-pmengine-cfg {
               }
               leaf fec-threshold-value {
                 type string {
-                  length "1..20";
+                  length "1..16";
                 }
                 mandatory true;
                 description

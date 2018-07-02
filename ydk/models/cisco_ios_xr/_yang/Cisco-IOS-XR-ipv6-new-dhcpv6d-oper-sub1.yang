@@ -252,12 +252,12 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
   typedef Dhcpv6-issu-version {
     type enumeration {
       enum "version1" {
-        value 0;
+        value 1;
         description
           "Version 1";
       }
       enum "version2" {
-        value 1;
+        value 2;
         description
           "Version 2";
       }
@@ -583,6 +583,11 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
       }
       description
         "Server profile name";
+    }
+    leaf profile-allowed-duid-type {
+      type uint16;
+      description
+        "Allowed DUID Type";
     }
     leaf domain-name {
       type string {

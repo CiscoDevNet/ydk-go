@@ -24,7 +24,7 @@ type Location struct {
     Loc interface{}
 
     // The type is slice of Location_Fpd2.
-    Fpd2 []Location_Fpd2
+    Fpd2 []*Location_Fpd2
 }
 
 func (location *Location) GetEntityData() *types.CommonEntityData {
@@ -32,18 +32,21 @@ func (location *Location) GetEntityData() *types.CommonEntityData {
     location.EntityData.YangName = "location"
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-fpd-infra-cli-fpd-service"
-    location.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-fpd-infra-cli-fpd-service:location" + "[loc='" + fmt.Sprintf("%v", location.Loc) + "']"
+    location.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-fpd-infra-cli-fpd-service:location" + types.AddKeyToken(location.Loc, "loc")
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    location.EntityData.Children = make(map[string]types.YChild)
-    location.EntityData.Children["fpd2"] = types.YChild{"Fpd2", nil}
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Children.Append("fpd2", types.YChild{"Fpd2", nil})
     for i := range location.Fpd2 {
-        location.EntityData.Children[types.GetSegmentPath(&location.Fpd2[i])] = types.YChild{"Fpd2", &location.Fpd2[i]}
+        location.EntityData.Children.Append(types.GetSegmentPath(location.Fpd2[i]), types.YChild{"Fpd2", location.Fpd2[i]})
     }
-    location.EntityData.Leafs = make(map[string]types.YLeaf)
-    location.EntityData.Leafs["loc"] = types.YLeaf{"Loc", location.Loc}
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("loc", types.YLeaf{"Loc", location.Loc})
+
+    location.EntityData.YListKeys = []string {"Loc"}
+
     return &(location.EntityData)
 }
 
@@ -61,14 +64,17 @@ func (fpd2 *Location_Fpd2) GetEntityData() *types.CommonEntityData {
     fpd2.EntityData.YangName = "fpd2"
     fpd2.EntityData.BundleName = "cisco_ios_xr"
     fpd2.EntityData.ParentYangName = "location"
-    fpd2.EntityData.SegmentPath = "fpd2" + "[name='" + fmt.Sprintf("%v", fpd2.Name) + "']"
+    fpd2.EntityData.SegmentPath = "fpd2" + types.AddKeyToken(fpd2.Name, "name")
     fpd2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpd2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpd2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fpd2.EntityData.Children = make(map[string]types.YChild)
-    fpd2.EntityData.Leafs = make(map[string]types.YLeaf)
-    fpd2.EntityData.Leafs["name"] = types.YLeaf{"Name", fpd2.Name}
+    fpd2.EntityData.Children = types.NewOrderedMap()
+    fpd2.EntityData.Leafs = types.NewOrderedMap()
+    fpd2.EntityData.Leafs.Append("name", types.YLeaf{"Name", fpd2.Name})
+
+    fpd2.EntityData.YListKeys = []string {"Name"}
+
     return &(fpd2.EntityData)
 }
 

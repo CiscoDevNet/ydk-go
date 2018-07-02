@@ -19,16 +19,30 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-mdt-cfg:mdt-subscriptions", reflect.TypeOf(MdtSubscriptions{}))
 }
 
-// MdtXfrmAttrType represents Types of subscription transform attribute type
-type MdtXfrmAttrType string
+// MdtXfrmOperator represents Supported operator types
+type MdtXfrmOperator string
 
 const (
-    // Indicates that no filter has been 
-    // specified.
-    MdtXfrmAttrType_mdt_xfrm_attr_none MdtXfrmAttrType = "mdt-xfrm-attr-none"
+    // Default operator
+    MdtXfrmOperator_operator_none MdtXfrmOperator = "operator-none"
 
-    // Indicates that mandatory filter is set.
-    MdtXfrmAttrType_mandatory MdtXfrmAttrType = "mandatory"
+    // Equal operator
+    MdtXfrmOperator_eq MdtXfrmOperator = "eq"
+
+    // Not equal operator
+    MdtXfrmOperator_ne MdtXfrmOperator = "ne"
+
+    // Greater than operator
+    MdtXfrmOperator_gt MdtXfrmOperator = "gt"
+
+    // Greater than or equal operator
+    MdtXfrmOperator_ge MdtXfrmOperator = "ge"
+
+    // Less than operator
+    MdtXfrmOperator_lt MdtXfrmOperator = "lt"
+
+    // Less than or equal operator
+    MdtXfrmOperator_le MdtXfrmOperator = "le"
 )
 
 // MdtXfrmOpType represents Types of subscription transform operations.
@@ -59,30 +73,16 @@ const (
     MdtXfrmLogicOp_or MdtXfrmLogicOp = "or"
 )
 
-// MdtXfrmOperator represents Supported operator types
-type MdtXfrmOperator string
+// MdtXfrmAttrType represents Types of subscription transform attribute type
+type MdtXfrmAttrType string
 
 const (
-    // Default operator
-    MdtXfrmOperator_operator_none MdtXfrmOperator = "operator-none"
+    // Indicates that no filter has been 
+    // specified.
+    MdtXfrmAttrType_mdt_xfrm_attr_none MdtXfrmAttrType = "mdt-xfrm-attr-none"
 
-    // Equal operator
-    MdtXfrmOperator_eq MdtXfrmOperator = "eq"
-
-    // Not equal operator
-    MdtXfrmOperator_ne MdtXfrmOperator = "ne"
-
-    // Greater than operator
-    MdtXfrmOperator_gt MdtXfrmOperator = "gt"
-
-    // Greater than or equal operator
-    MdtXfrmOperator_ge MdtXfrmOperator = "ge"
-
-    // Less than operator
-    MdtXfrmOperator_lt MdtXfrmOperator = "lt"
-
-    // Less than or equal operator
-    MdtXfrmOperator_le MdtXfrmOperator = "le"
+    // Indicates that mandatory filter is set.
+    MdtXfrmAttrType_mandatory MdtXfrmAttrType = "mandatory"
 )
 
 // MdtSubscriptions
@@ -93,11 +93,11 @@ type MdtSubscriptions struct {
 
     // List of subscriptions. The type is slice of
     // MdtSubscriptions_MdtSubscription.
-    MdtSubscription []MdtSubscriptions_MdtSubscription
+    MdtSubscription []*MdtSubscriptions_MdtSubscription
 
     // List of subscription transforms. The type is slice of
     // MdtSubscriptions_MdtXfrm.
-    MdtXfrm []MdtSubscriptions_MdtXfrm
+    MdtXfrm []*MdtSubscriptions_MdtXfrm
 }
 
 func (mdtSubscriptions *MdtSubscriptions) GetEntityData() *types.CommonEntityData {
@@ -110,16 +110,19 @@ func (mdtSubscriptions *MdtSubscriptions) GetEntityData() *types.CommonEntityDat
     mdtSubscriptions.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtSubscriptions.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mdtSubscriptions.EntityData.Children = make(map[string]types.YChild)
-    mdtSubscriptions.EntityData.Children["mdt-subscription"] = types.YChild{"MdtSubscription", nil}
+    mdtSubscriptions.EntityData.Children = types.NewOrderedMap()
+    mdtSubscriptions.EntityData.Children.Append("mdt-subscription", types.YChild{"MdtSubscription", nil})
     for i := range mdtSubscriptions.MdtSubscription {
-        mdtSubscriptions.EntityData.Children[types.GetSegmentPath(&mdtSubscriptions.MdtSubscription[i])] = types.YChild{"MdtSubscription", &mdtSubscriptions.MdtSubscription[i]}
+        mdtSubscriptions.EntityData.Children.Append(types.GetSegmentPath(mdtSubscriptions.MdtSubscription[i]), types.YChild{"MdtSubscription", mdtSubscriptions.MdtSubscription[i]})
     }
-    mdtSubscriptions.EntityData.Children["mdt-xfrm"] = types.YChild{"MdtXfrm", nil}
+    mdtSubscriptions.EntityData.Children.Append("mdt-xfrm", types.YChild{"MdtXfrm", nil})
     for i := range mdtSubscriptions.MdtXfrm {
-        mdtSubscriptions.EntityData.Children[types.GetSegmentPath(&mdtSubscriptions.MdtXfrm[i])] = types.YChild{"MdtXfrm", &mdtSubscriptions.MdtXfrm[i]}
+        mdtSubscriptions.EntityData.Children.Append(types.GetSegmentPath(mdtSubscriptions.MdtXfrm[i]), types.YChild{"MdtXfrm", mdtSubscriptions.MdtXfrm[i]})
     }
-    mdtSubscriptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    mdtSubscriptions.EntityData.Leafs = types.NewOrderedMap()
+
+    mdtSubscriptions.EntityData.YListKeys = []string {}
+
     return &(mdtSubscriptions.EntityData)
 }
 
@@ -138,7 +141,7 @@ type MdtSubscriptions_MdtSubscription struct {
 
     // Configuration of receivers of configured  subscriptions. The type is slice
     // of MdtSubscriptions_MdtSubscription_MdtReceivers.
-    MdtReceivers []MdtSubscriptions_MdtSubscription_MdtReceivers
+    MdtReceivers []*MdtSubscriptions_MdtSubscription_MdtReceivers
 }
 
 func (mdtSubscription *MdtSubscriptions_MdtSubscription) GetEntityData() *types.CommonEntityData {
@@ -146,19 +149,22 @@ func (mdtSubscription *MdtSubscriptions_MdtSubscription) GetEntityData() *types.
     mdtSubscription.EntityData.YangName = "mdt-subscription"
     mdtSubscription.EntityData.BundleName = "cisco_ios_xe"
     mdtSubscription.EntityData.ParentYangName = "mdt-subscriptions"
-    mdtSubscription.EntityData.SegmentPath = "mdt-subscription" + "[subscription-id='" + fmt.Sprintf("%v", mdtSubscription.SubscriptionId) + "']"
+    mdtSubscription.EntityData.SegmentPath = "mdt-subscription" + types.AddKeyToken(mdtSubscription.SubscriptionId, "subscription-id")
     mdtSubscription.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtSubscription.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtSubscription.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mdtSubscription.EntityData.Children = make(map[string]types.YChild)
-    mdtSubscription.EntityData.Children["base"] = types.YChild{"Base", &mdtSubscription.Base}
-    mdtSubscription.EntityData.Children["mdt-receivers"] = types.YChild{"MdtReceivers", nil}
+    mdtSubscription.EntityData.Children = types.NewOrderedMap()
+    mdtSubscription.EntityData.Children.Append("base", types.YChild{"Base", &mdtSubscription.Base})
+    mdtSubscription.EntityData.Children.Append("mdt-receivers", types.YChild{"MdtReceivers", nil})
     for i := range mdtSubscription.MdtReceivers {
-        mdtSubscription.EntityData.Children[types.GetSegmentPath(&mdtSubscription.MdtReceivers[i])] = types.YChild{"MdtReceivers", &mdtSubscription.MdtReceivers[i]}
+        mdtSubscription.EntityData.Children.Append(types.GetSegmentPath(mdtSubscription.MdtReceivers[i]), types.YChild{"MdtReceivers", mdtSubscription.MdtReceivers[i]})
     }
-    mdtSubscription.EntityData.Leafs = make(map[string]types.YLeaf)
-    mdtSubscription.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", mdtSubscription.SubscriptionId}
+    mdtSubscription.EntityData.Leafs = types.NewOrderedMap()
+    mdtSubscription.EntityData.Leafs.Append("subscription-id", types.YLeaf{"SubscriptionId", mdtSubscription.SubscriptionId})
+
+    mdtSubscription.EntityData.YListKeys = []string {"SubscriptionId"}
+
     return &(mdtSubscription.EntityData)
 }
 
@@ -181,9 +187,9 @@ type MdtSubscriptions_MdtSubscription_Base struct {
 
     // The source address for the notifications. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Placeholder for unset value. The type is interface{} with range:
@@ -227,19 +233,22 @@ func (base *MdtSubscriptions_MdtSubscription_Base) GetEntityData() *types.Common
     base.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     base.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    base.EntityData.Children = make(map[string]types.YChild)
-    base.EntityData.Leafs = make(map[string]types.YLeaf)
-    base.EntityData.Leafs["stream"] = types.YLeaf{"Stream", base.Stream}
-    base.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", base.Encoding}
-    base.EntityData.Leafs["source-vrf"] = types.YLeaf{"SourceVrf", base.SourceVrf}
-    base.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", base.SourceAddress}
-    base.EntityData.Leafs["no-trigger"] = types.YLeaf{"NoTrigger", base.NoTrigger}
-    base.EntityData.Leafs["period"] = types.YLeaf{"Period", base.Period}
-    base.EntityData.Leafs["no-synch-on-start"] = types.YLeaf{"NoSynchOnStart", base.NoSynchOnStart}
-    base.EntityData.Leafs["no-filter"] = types.YLeaf{"NoFilter", base.NoFilter}
-    base.EntityData.Leafs["xpath"] = types.YLeaf{"Xpath", base.Xpath}
-    base.EntityData.Leafs["tdl-uri"] = types.YLeaf{"TdlUri", base.TdlUri}
-    base.EntityData.Leafs["transform-name"] = types.YLeaf{"TransformName", base.TransformName}
+    base.EntityData.Children = types.NewOrderedMap()
+    base.EntityData.Leafs = types.NewOrderedMap()
+    base.EntityData.Leafs.Append("stream", types.YLeaf{"Stream", base.Stream})
+    base.EntityData.Leafs.Append("encoding", types.YLeaf{"Encoding", base.Encoding})
+    base.EntityData.Leafs.Append("source-vrf", types.YLeaf{"SourceVrf", base.SourceVrf})
+    base.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", base.SourceAddress})
+    base.EntityData.Leafs.Append("no-trigger", types.YLeaf{"NoTrigger", base.NoTrigger})
+    base.EntityData.Leafs.Append("period", types.YLeaf{"Period", base.Period})
+    base.EntityData.Leafs.Append("no-synch-on-start", types.YLeaf{"NoSynchOnStart", base.NoSynchOnStart})
+    base.EntityData.Leafs.Append("no-filter", types.YLeaf{"NoFilter", base.NoFilter})
+    base.EntityData.Leafs.Append("xpath", types.YLeaf{"Xpath", base.Xpath})
+    base.EntityData.Leafs.Append("tdl-uri", types.YLeaf{"TdlUri", base.TdlUri})
+    base.EntityData.Leafs.Append("transform-name", types.YLeaf{"TransformName", base.TransformName})
+
+    base.EntityData.YListKeys = []string {}
+
     return &(base.EntityData)
 }
 
@@ -252,9 +261,9 @@ type MdtSubscriptions_MdtSubscription_MdtReceivers struct {
 
     // This attribute is a key. IP address of the receiver. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory..
     Address interface{}
 
@@ -275,17 +284,20 @@ func (mdtReceivers *MdtSubscriptions_MdtSubscription_MdtReceivers) GetEntityData
     mdtReceivers.EntityData.YangName = "mdt-receivers"
     mdtReceivers.EntityData.BundleName = "cisco_ios_xe"
     mdtReceivers.EntityData.ParentYangName = "mdt-subscription"
-    mdtReceivers.EntityData.SegmentPath = "mdt-receivers" + "[address='" + fmt.Sprintf("%v", mdtReceivers.Address) + "']" + "[port='" + fmt.Sprintf("%v", mdtReceivers.Port) + "']"
+    mdtReceivers.EntityData.SegmentPath = "mdt-receivers" + types.AddKeyToken(mdtReceivers.Address, "address") + types.AddKeyToken(mdtReceivers.Port, "port")
     mdtReceivers.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtReceivers.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtReceivers.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mdtReceivers.EntityData.Children = make(map[string]types.YChild)
-    mdtReceivers.EntityData.Leafs = make(map[string]types.YLeaf)
-    mdtReceivers.EntityData.Leafs["address"] = types.YLeaf{"Address", mdtReceivers.Address}
-    mdtReceivers.EntityData.Leafs["port"] = types.YLeaf{"Port", mdtReceivers.Port}
-    mdtReceivers.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", mdtReceivers.Protocol}
-    mdtReceivers.EntityData.Leafs["security-profile"] = types.YLeaf{"SecurityProfile", mdtReceivers.SecurityProfile}
+    mdtReceivers.EntityData.Children = types.NewOrderedMap()
+    mdtReceivers.EntityData.Leafs = types.NewOrderedMap()
+    mdtReceivers.EntityData.Leafs.Append("address", types.YLeaf{"Address", mdtReceivers.Address})
+    mdtReceivers.EntityData.Leafs.Append("port", types.YLeaf{"Port", mdtReceivers.Port})
+    mdtReceivers.EntityData.Leafs.Append("protocol", types.YLeaf{"Protocol", mdtReceivers.Protocol})
+    mdtReceivers.EntityData.Leafs.Append("security-profile", types.YLeaf{"SecurityProfile", mdtReceivers.SecurityProfile})
+
+    mdtReceivers.EntityData.YListKeys = []string {"Address", "Port"}
+
     return &(mdtReceivers.EntityData)
 }
 
@@ -304,11 +316,11 @@ type MdtSubscriptions_MdtXfrm struct {
 
     // Transform input information. The type is slice of
     // MdtSubscriptions_MdtXfrm_MdtXfrmInput.
-    MdtXfrmInput []MdtSubscriptions_MdtXfrm_MdtXfrmInput
+    MdtXfrmInput []*MdtSubscriptions_MdtXfrm_MdtXfrmInput
 
     // Transform operations information. The type is slice of
     // MdtSubscriptions_MdtXfrm_MdtXfrmOp.
-    MdtXfrmOp []MdtSubscriptions_MdtXfrm_MdtXfrmOp
+    MdtXfrmOp []*MdtSubscriptions_MdtXfrm_MdtXfrmOp
 }
 
 func (mdtXfrm *MdtSubscriptions_MdtXfrm) GetEntityData() *types.CommonEntityData {
@@ -316,23 +328,26 @@ func (mdtXfrm *MdtSubscriptions_MdtXfrm) GetEntityData() *types.CommonEntityData
     mdtXfrm.EntityData.YangName = "mdt-xfrm"
     mdtXfrm.EntityData.BundleName = "cisco_ios_xe"
     mdtXfrm.EntityData.ParentYangName = "mdt-subscriptions"
-    mdtXfrm.EntityData.SegmentPath = "mdt-xfrm" + "[name='" + fmt.Sprintf("%v", mdtXfrm.Name) + "']"
+    mdtXfrm.EntityData.SegmentPath = "mdt-xfrm" + types.AddKeyToken(mdtXfrm.Name, "name")
     mdtXfrm.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtXfrm.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtXfrm.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mdtXfrm.EntityData.Children = make(map[string]types.YChild)
-    mdtXfrm.EntityData.Children["mdt-xfrm-input"] = types.YChild{"MdtXfrmInput", nil}
+    mdtXfrm.EntityData.Children = types.NewOrderedMap()
+    mdtXfrm.EntityData.Children.Append("mdt-xfrm-input", types.YChild{"MdtXfrmInput", nil})
     for i := range mdtXfrm.MdtXfrmInput {
-        mdtXfrm.EntityData.Children[types.GetSegmentPath(&mdtXfrm.MdtXfrmInput[i])] = types.YChild{"MdtXfrmInput", &mdtXfrm.MdtXfrmInput[i]}
+        mdtXfrm.EntityData.Children.Append(types.GetSegmentPath(mdtXfrm.MdtXfrmInput[i]), types.YChild{"MdtXfrmInput", mdtXfrm.MdtXfrmInput[i]})
     }
-    mdtXfrm.EntityData.Children["mdt-xfrm-op"] = types.YChild{"MdtXfrmOp", nil}
+    mdtXfrm.EntityData.Children.Append("mdt-xfrm-op", types.YChild{"MdtXfrmOp", nil})
     for i := range mdtXfrm.MdtXfrmOp {
-        mdtXfrm.EntityData.Children[types.GetSegmentPath(&mdtXfrm.MdtXfrmOp[i])] = types.YChild{"MdtXfrmOp", &mdtXfrm.MdtXfrmOp[i]}
+        mdtXfrm.EntityData.Children.Append(types.GetSegmentPath(mdtXfrm.MdtXfrmOp[i]), types.YChild{"MdtXfrmOp", mdtXfrm.MdtXfrmOp[i]})
     }
-    mdtXfrm.EntityData.Leafs = make(map[string]types.YLeaf)
-    mdtXfrm.EntityData.Leafs["name"] = types.YLeaf{"Name", mdtXfrm.Name}
-    mdtXfrm.EntityData.Leafs["fully-specify"] = types.YLeaf{"FullySpecify", mdtXfrm.FullySpecify}
+    mdtXfrm.EntityData.Leafs = types.NewOrderedMap()
+    mdtXfrm.EntityData.Leafs.Append("name", types.YLeaf{"Name", mdtXfrm.Name})
+    mdtXfrm.EntityData.Leafs.Append("fully-specify", types.YLeaf{"FullySpecify", mdtXfrm.FullySpecify})
+
+    mdtXfrm.EntityData.YListKeys = []string {"Name"}
+
     return &(mdtXfrm.EntityData)
 }
 
@@ -361,7 +376,7 @@ type MdtSubscriptions_MdtXfrm_MdtXfrmInput struct {
 
     // Transform input URI table fields. The type is slice of
     // MdtSubscriptions_MdtXfrm_MdtXfrmInput_MdtXfrmInputField.
-    MdtXfrmInputField []MdtSubscriptions_MdtXfrm_MdtXfrmInput_MdtXfrmInputField
+    MdtXfrmInputField []*MdtSubscriptions_MdtXfrm_MdtXfrmInput_MdtXfrmInputField
 }
 
 func (mdtXfrmInput *MdtSubscriptions_MdtXfrm_MdtXfrmInput) GetEntityData() *types.CommonEntityData {
@@ -369,22 +384,25 @@ func (mdtXfrmInput *MdtSubscriptions_MdtXfrm_MdtXfrmInput) GetEntityData() *type
     mdtXfrmInput.EntityData.YangName = "mdt-xfrm-input"
     mdtXfrmInput.EntityData.BundleName = "cisco_ios_xe"
     mdtXfrmInput.EntityData.ParentYangName = "mdt-xfrm"
-    mdtXfrmInput.EntityData.SegmentPath = "mdt-xfrm-input" + "[table-name='" + fmt.Sprintf("%v", mdtXfrmInput.TableName) + "']"
+    mdtXfrmInput.EntityData.SegmentPath = "mdt-xfrm-input" + types.AddKeyToken(mdtXfrmInput.TableName, "table-name")
     mdtXfrmInput.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtXfrmInput.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtXfrmInput.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mdtXfrmInput.EntityData.Children = make(map[string]types.YChild)
-    mdtXfrmInput.EntityData.Children["mdt-xfrm-input-field"] = types.YChild{"MdtXfrmInputField", nil}
+    mdtXfrmInput.EntityData.Children = types.NewOrderedMap()
+    mdtXfrmInput.EntityData.Children.Append("mdt-xfrm-input-field", types.YChild{"MdtXfrmInputField", nil})
     for i := range mdtXfrmInput.MdtXfrmInputField {
-        mdtXfrmInput.EntityData.Children[types.GetSegmentPath(&mdtXfrmInput.MdtXfrmInputField[i])] = types.YChild{"MdtXfrmInputField", &mdtXfrmInput.MdtXfrmInputField[i]}
+        mdtXfrmInput.EntityData.Children.Append(types.GetSegmentPath(mdtXfrmInput.MdtXfrmInputField[i]), types.YChild{"MdtXfrmInputField", mdtXfrmInput.MdtXfrmInputField[i]})
     }
-    mdtXfrmInput.EntityData.Leafs = make(map[string]types.YLeaf)
-    mdtXfrmInput.EntityData.Leafs["table-name"] = types.YLeaf{"TableName", mdtXfrmInput.TableName}
-    mdtXfrmInput.EntityData.Leafs["uri"] = types.YLeaf{"Uri", mdtXfrmInput.Uri}
-    mdtXfrmInput.EntityData.Leafs["join-key"] = types.YLeaf{"JoinKey", mdtXfrmInput.JoinKey}
-    mdtXfrmInput.EntityData.Leafs["attr-type"] = types.YLeaf{"AttrType", mdtXfrmInput.AttrType}
-    mdtXfrmInput.EntityData.Leafs["lop"] = types.YLeaf{"Lop", mdtXfrmInput.Lop}
+    mdtXfrmInput.EntityData.Leafs = types.NewOrderedMap()
+    mdtXfrmInput.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", mdtXfrmInput.TableName})
+    mdtXfrmInput.EntityData.Leafs.Append("uri", types.YLeaf{"Uri", mdtXfrmInput.Uri})
+    mdtXfrmInput.EntityData.Leafs.Append("join-key", types.YLeaf{"JoinKey", mdtXfrmInput.JoinKey})
+    mdtXfrmInput.EntityData.Leafs.Append("attr-type", types.YLeaf{"AttrType", mdtXfrmInput.AttrType})
+    mdtXfrmInput.EntityData.Leafs.Append("lop", types.YLeaf{"Lop", mdtXfrmInput.Lop})
+
+    mdtXfrmInput.EntityData.YListKeys = []string {"TableName"}
+
     return &(mdtXfrmInput.EntityData)
 }
 
@@ -404,14 +422,17 @@ func (mdtXfrmInputField *MdtSubscriptions_MdtXfrm_MdtXfrmInput_MdtXfrmInputField
     mdtXfrmInputField.EntityData.YangName = "mdt-xfrm-input-field"
     mdtXfrmInputField.EntityData.BundleName = "cisco_ios_xe"
     mdtXfrmInputField.EntityData.ParentYangName = "mdt-xfrm-input"
-    mdtXfrmInputField.EntityData.SegmentPath = "mdt-xfrm-input-field" + "[field='" + fmt.Sprintf("%v", mdtXfrmInputField.Field) + "']"
+    mdtXfrmInputField.EntityData.SegmentPath = "mdt-xfrm-input-field" + types.AddKeyToken(mdtXfrmInputField.Field, "field")
     mdtXfrmInputField.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtXfrmInputField.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtXfrmInputField.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mdtXfrmInputField.EntityData.Children = make(map[string]types.YChild)
-    mdtXfrmInputField.EntityData.Leafs = make(map[string]types.YLeaf)
-    mdtXfrmInputField.EntityData.Leafs["field"] = types.YLeaf{"Field", mdtXfrmInputField.Field}
+    mdtXfrmInputField.EntityData.Children = types.NewOrderedMap()
+    mdtXfrmInputField.EntityData.Leafs = types.NewOrderedMap()
+    mdtXfrmInputField.EntityData.Leafs.Append("field", types.YLeaf{"Field", mdtXfrmInputField.Field})
+
+    mdtXfrmInputField.EntityData.YListKeys = []string {"Field"}
+
     return &(mdtXfrmInputField.EntityData)
 }
 
@@ -428,12 +449,12 @@ type MdtSubscriptions_MdtXfrm_MdtXfrmOp struct {
     // Transform operation filters.  These are evaluated before performing
     // transform action (e.g. subrecord)  on the response record. The type is
     // slice of MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters.
-    MdtXfrmOpFilters []MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters
+    MdtXfrmOpFilters []*MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters
 
     // Transform operation fields.  Default operation is subrecord. It is
     // performed on each field. The type is slice of
     // MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFields.
-    MdtXfrmOpFields []MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFields
+    MdtXfrmOpFields []*MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFields
 }
 
 func (mdtXfrmOp *MdtSubscriptions_MdtXfrm_MdtXfrmOp) GetEntityData() *types.CommonEntityData {
@@ -441,22 +462,25 @@ func (mdtXfrmOp *MdtSubscriptions_MdtXfrm_MdtXfrmOp) GetEntityData() *types.Comm
     mdtXfrmOp.EntityData.YangName = "mdt-xfrm-op"
     mdtXfrmOp.EntityData.BundleName = "cisco_ios_xe"
     mdtXfrmOp.EntityData.ParentYangName = "mdt-xfrm"
-    mdtXfrmOp.EntityData.SegmentPath = "mdt-xfrm-op" + "[id='" + fmt.Sprintf("%v", mdtXfrmOp.Id) + "']"
+    mdtXfrmOp.EntityData.SegmentPath = "mdt-xfrm-op" + types.AddKeyToken(mdtXfrmOp.Id, "id")
     mdtXfrmOp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtXfrmOp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtXfrmOp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mdtXfrmOp.EntityData.Children = make(map[string]types.YChild)
-    mdtXfrmOp.EntityData.Children["mdt-xfrm-op-filters"] = types.YChild{"MdtXfrmOpFilters", nil}
+    mdtXfrmOp.EntityData.Children = types.NewOrderedMap()
+    mdtXfrmOp.EntityData.Children.Append("mdt-xfrm-op-filters", types.YChild{"MdtXfrmOpFilters", nil})
     for i := range mdtXfrmOp.MdtXfrmOpFilters {
-        mdtXfrmOp.EntityData.Children[types.GetSegmentPath(&mdtXfrmOp.MdtXfrmOpFilters[i])] = types.YChild{"MdtXfrmOpFilters", &mdtXfrmOp.MdtXfrmOpFilters[i]}
+        mdtXfrmOp.EntityData.Children.Append(types.GetSegmentPath(mdtXfrmOp.MdtXfrmOpFilters[i]), types.YChild{"MdtXfrmOpFilters", mdtXfrmOp.MdtXfrmOpFilters[i]})
     }
-    mdtXfrmOp.EntityData.Children["mdt-xfrm-op-fields"] = types.YChild{"MdtXfrmOpFields", nil}
+    mdtXfrmOp.EntityData.Children.Append("mdt-xfrm-op-fields", types.YChild{"MdtXfrmOpFields", nil})
     for i := range mdtXfrmOp.MdtXfrmOpFields {
-        mdtXfrmOp.EntityData.Children[types.GetSegmentPath(&mdtXfrmOp.MdtXfrmOpFields[i])] = types.YChild{"MdtXfrmOpFields", &mdtXfrmOp.MdtXfrmOpFields[i]}
+        mdtXfrmOp.EntityData.Children.Append(types.GetSegmentPath(mdtXfrmOp.MdtXfrmOpFields[i]), types.YChild{"MdtXfrmOpFields", mdtXfrmOp.MdtXfrmOpFields[i]})
     }
-    mdtXfrmOp.EntityData.Leafs = make(map[string]types.YLeaf)
-    mdtXfrmOp.EntityData.Leafs["id"] = types.YLeaf{"Id", mdtXfrmOp.Id}
+    mdtXfrmOp.EntityData.Leafs = types.NewOrderedMap()
+    mdtXfrmOp.EntityData.Leafs.Append("id", types.YLeaf{"Id", mdtXfrmOp.Id})
+
+    mdtXfrmOp.EntityData.YListKeys = []string {"Id"}
+
     return &(mdtXfrmOp.EntityData)
 }
 
@@ -494,19 +518,22 @@ func (mdtXfrmOpFilters *MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters) Get
     mdtXfrmOpFilters.EntityData.YangName = "mdt-xfrm-op-filters"
     mdtXfrmOpFilters.EntityData.BundleName = "cisco_ios_xe"
     mdtXfrmOpFilters.EntityData.ParentYangName = "mdt-xfrm-op"
-    mdtXfrmOpFilters.EntityData.SegmentPath = "mdt-xfrm-op-filters" + "[filter-id='" + fmt.Sprintf("%v", mdtXfrmOpFilters.FilterId) + "']"
+    mdtXfrmOpFilters.EntityData.SegmentPath = "mdt-xfrm-op-filters" + types.AddKeyToken(mdtXfrmOpFilters.FilterId, "filter-id")
     mdtXfrmOpFilters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtXfrmOpFilters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtXfrmOpFilters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mdtXfrmOpFilters.EntityData.Children = make(map[string]types.YChild)
-    mdtXfrmOpFilters.EntityData.Children["op-event"] = types.YChild{"OpEvent", &mdtXfrmOpFilters.OpEvent}
-    mdtXfrmOpFilters.EntityData.Children["condition"] = types.YChild{"Condition", &mdtXfrmOpFilters.Condition}
-    mdtXfrmOpFilters.EntityData.Leafs = make(map[string]types.YLeaf)
-    mdtXfrmOpFilters.EntityData.Leafs["filter-id"] = types.YLeaf{"FilterId", mdtXfrmOpFilters.FilterId}
-    mdtXfrmOpFilters.EntityData.Leafs["field"] = types.YLeaf{"Field", mdtXfrmOpFilters.Field}
-    mdtXfrmOpFilters.EntityData.Leafs["lop"] = types.YLeaf{"Lop", mdtXfrmOpFilters.Lop}
-    mdtXfrmOpFilters.EntityData.Leafs["next-lop"] = types.YLeaf{"NextLop", mdtXfrmOpFilters.NextLop}
+    mdtXfrmOpFilters.EntityData.Children = types.NewOrderedMap()
+    mdtXfrmOpFilters.EntityData.Children.Append("op-event", types.YChild{"OpEvent", &mdtXfrmOpFilters.OpEvent})
+    mdtXfrmOpFilters.EntityData.Children.Append("condition", types.YChild{"Condition", &mdtXfrmOpFilters.Condition})
+    mdtXfrmOpFilters.EntityData.Leafs = types.NewOrderedMap()
+    mdtXfrmOpFilters.EntityData.Leafs.Append("filter-id", types.YLeaf{"FilterId", mdtXfrmOpFilters.FilterId})
+    mdtXfrmOpFilters.EntityData.Leafs.Append("field", types.YLeaf{"Field", mdtXfrmOpFilters.Field})
+    mdtXfrmOpFilters.EntityData.Leafs.Append("lop", types.YLeaf{"Lop", mdtXfrmOpFilters.Lop})
+    mdtXfrmOpFilters.EntityData.Leafs.Append("next-lop", types.YLeaf{"NextLop", mdtXfrmOpFilters.NextLop})
+
+    mdtXfrmOpFilters.EntityData.YListKeys = []string {"FilterId"}
+
     return &(mdtXfrmOpFilters.EntityData)
 }
 
@@ -530,9 +557,12 @@ func (opEvent *MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_OpEvent) GetE
     opEvent.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     opEvent.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    opEvent.EntityData.Children = make(map[string]types.YChild)
-    opEvent.EntityData.Leafs = make(map[string]types.YLeaf)
-    opEvent.EntityData.Leafs["onchange"] = types.YLeaf{"Onchange", opEvent.Onchange}
+    opEvent.EntityData.Children = types.NewOrderedMap()
+    opEvent.EntityData.Leafs = types.NewOrderedMap()
+    opEvent.EntityData.Leafs.Append("onchange", types.YLeaf{"Onchange", opEvent.Onchange})
+
+    opEvent.EntityData.YListKeys = []string {}
+
     return &(opEvent.EntityData)
 }
 
@@ -559,10 +589,13 @@ func (condition *MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_Condition) 
     condition.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     condition.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    condition.EntityData.Children = make(map[string]types.YChild)
-    condition.EntityData.Leafs = make(map[string]types.YLeaf)
-    condition.EntityData.Leafs["operator"] = types.YLeaf{"Operator", condition.Operator}
-    condition.EntityData.Leafs["value"] = types.YLeaf{"Value", condition.Value}
+    condition.EntityData.Children = types.NewOrderedMap()
+    condition.EntityData.Leafs = types.NewOrderedMap()
+    condition.EntityData.Leafs.Append("operator", types.YLeaf{"Operator", condition.Operator})
+    condition.EntityData.Leafs.Append("value", types.YLeaf{"Value", condition.Value})
+
+    condition.EntityData.YListKeys = []string {}
+
     return &(condition.EntityData)
 }
 
@@ -592,16 +625,19 @@ func (mdtXfrmOpFields *MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFields) GetEn
     mdtXfrmOpFields.EntityData.YangName = "mdt-xfrm-op-fields"
     mdtXfrmOpFields.EntityData.BundleName = "cisco_ios_xe"
     mdtXfrmOpFields.EntityData.ParentYangName = "mdt-xfrm-op"
-    mdtXfrmOpFields.EntityData.SegmentPath = "mdt-xfrm-op-fields" + "[field-id='" + fmt.Sprintf("%v", mdtXfrmOpFields.FieldId) + "']"
+    mdtXfrmOpFields.EntityData.SegmentPath = "mdt-xfrm-op-fields" + types.AddKeyToken(mdtXfrmOpFields.FieldId, "field-id")
     mdtXfrmOpFields.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtXfrmOpFields.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtXfrmOpFields.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mdtXfrmOpFields.EntityData.Children = make(map[string]types.YChild)
-    mdtXfrmOpFields.EntityData.Leafs = make(map[string]types.YLeaf)
-    mdtXfrmOpFields.EntityData.Leafs["field-id"] = types.YLeaf{"FieldId", mdtXfrmOpFields.FieldId}
-    mdtXfrmOpFields.EntityData.Leafs["field"] = types.YLeaf{"Field", mdtXfrmOpFields.Field}
-    mdtXfrmOpFields.EntityData.Leafs["op-type"] = types.YLeaf{"OpType", mdtXfrmOpFields.OpType}
+    mdtXfrmOpFields.EntityData.Children = types.NewOrderedMap()
+    mdtXfrmOpFields.EntityData.Leafs = types.NewOrderedMap()
+    mdtXfrmOpFields.EntityData.Leafs.Append("field-id", types.YLeaf{"FieldId", mdtXfrmOpFields.FieldId})
+    mdtXfrmOpFields.EntityData.Leafs.Append("field", types.YLeaf{"Field", mdtXfrmOpFields.Field})
+    mdtXfrmOpFields.EntityData.Leafs.Append("op-type", types.YLeaf{"OpType", mdtXfrmOpFields.OpType})
+
+    mdtXfrmOpFields.EntityData.YListKeys = []string {"FieldId"}
+
     return &(mdtXfrmOpFields.EntityData)
 }
 

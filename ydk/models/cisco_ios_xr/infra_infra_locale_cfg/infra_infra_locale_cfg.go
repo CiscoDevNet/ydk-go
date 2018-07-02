@@ -1188,10 +1188,13 @@ func (locale *Locale) GetEntityData() *types.CommonEntityData {
     locale.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locale.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    locale.EntityData.Children = make(map[string]types.YChild)
-    locale.EntityData.Leafs = make(map[string]types.YLeaf)
-    locale.EntityData.Leafs["country"] = types.YLeaf{"Country", locale.Country}
-    locale.EntityData.Leafs["language"] = types.YLeaf{"Language", locale.Language}
+    locale.EntityData.Children = types.NewOrderedMap()
+    locale.EntityData.Leafs = types.NewOrderedMap()
+    locale.EntityData.Leafs.Append("country", types.YLeaf{"Country", locale.Country})
+    locale.EntityData.Leafs.Append("language", types.YLeaf{"Language", locale.Language})
+
+    locale.EntityData.YListKeys = []string {}
+
     return &(locale.EntityData)
 }
 

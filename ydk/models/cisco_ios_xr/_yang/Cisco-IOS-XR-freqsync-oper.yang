@@ -121,19 +121,20 @@ module Cisco-IOS-XR-freqsync-oper {
             "Selection backtrace operational data for
              clock-interfaces";
           list clock-interface-selection-back-trace {
-            key "clock-type port";
+            key "clock-type id";
             description
               "Selection backtrace operational data for a
-               particular clock-interface";
+               particular clock-interface or GNSS receiver";
             leaf clock-type {
               type dt1:Fsync-clock;
               description
                 "Clock type";
             }
-            leaf port {
-              type int32;
+            leaf id {
+              type uint32;
               description
-                "Clock port";
+                "Clock ID (port number for clock interfaces,
+                 receiver number for GNSS receivers";
             }
             uses FSYNC-SELECTION-BACKTRACE-INFO;
           }
@@ -153,7 +154,7 @@ module Cisco-IOS-XR-freqsync-oper {
                 "Clock type";
             }
             leaf port {
-              type int32;
+              type uint32;
               description
                 "Clock port";
             }
@@ -252,7 +253,7 @@ module Cisco-IOS-XR-freqsync-oper {
             description
               "Operational data for a given selection point";
             leaf selection-point {
-              type int32;
+              type uint32;
               description
                 "Selection point ID";
             }
@@ -278,7 +279,7 @@ module Cisco-IOS-XR-freqsync-oper {
           description
             "Table for clock operational data";
           list clock-data {
-            key "clock-type port";
+            key "clock-type id";
             description
               "Operational data for a particular clock";
             leaf clock-type {
@@ -286,10 +287,11 @@ module Cisco-IOS-XR-freqsync-oper {
               description
                 "Clock type";
             }
-            leaf port {
-              type int32;
+            leaf id {
+              type uint32;
               description
-                "Clock port";
+                "Clock ID (port number for clock interfaces,
+                 receiver number for GNSS receivers";
             }
             uses FSYNC-CLOCK-INFO-V2;
           }
@@ -303,7 +305,7 @@ module Cisco-IOS-XR-freqsync-oper {
               "Operational data for a particular selection
                point input";
             leaf selection-point {
-              type int32;
+              type uint32;
               description
                 "Selection point ID";
             }
@@ -323,7 +325,7 @@ module Cisco-IOS-XR-freqsync-oper {
                 "Interface";
             }
             leaf clock-port {
-              type int32;
+              type uint32;
               description
                 "Clock port";
             }
@@ -333,13 +335,13 @@ module Cisco-IOS-XR-freqsync-oper {
                 "Last node for a selection point stream";
             }
             leaf last-selection-point {
-              type int32;
+              type uint32;
               description
                 "Last selection point for a selection point
                  stream";
             }
             leaf output-id {
-              type int32;
+              type uint32;
               description
                 "Output ID for a selection point stream";
             }

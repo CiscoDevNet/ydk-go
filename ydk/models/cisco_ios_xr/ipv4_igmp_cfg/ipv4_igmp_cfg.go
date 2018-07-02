@@ -46,7 +46,6 @@ const (
 
 // Igmp
 // IGMPconfiguration
-// This type is a presence type.
 type Igmp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -68,10 +67,13 @@ func (igmp *Igmp) GetEntityData() *types.CommonEntityData {
     igmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    igmp.EntityData.Children = make(map[string]types.YChild)
-    igmp.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &igmp.Vrfs}
-    igmp.EntityData.Children["default-context"] = types.YChild{"DefaultContext", &igmp.DefaultContext}
-    igmp.EntityData.Leafs = make(map[string]types.YLeaf)
+    igmp.EntityData.Children = types.NewOrderedMap()
+    igmp.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &igmp.Vrfs})
+    igmp.EntityData.Children.Append("default-context", types.YChild{"DefaultContext", &igmp.DefaultContext})
+    igmp.EntityData.Leafs = types.NewOrderedMap()
+
+    igmp.EntityData.YListKeys = []string {}
+
     return &(igmp.EntityData)
 }
 
@@ -82,7 +84,7 @@ type Igmp_Vrfs struct {
     YFilter yfilter.YFilter
 
     // Configuration for a particular vrf. The type is slice of Igmp_Vrfs_Vrf.
-    Vrf []Igmp_Vrfs_Vrf
+    Vrf []*Igmp_Vrfs_Vrf
 }
 
 func (vrfs *Igmp_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -95,12 +97,15 @@ func (vrfs *Igmp_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -142,21 +147,24 @@ func (vrf *Igmp_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["traffic"] = types.YChild{"Traffic", &vrf.Traffic}
-    vrf.EntityData.Children["inheritable-defaults"] = types.YChild{"InheritableDefaults", &vrf.InheritableDefaults}
-    vrf.EntityData.Children["ssm-access-groups"] = types.YChild{"SsmAccessGroups", &vrf.SsmAccessGroups}
-    vrf.EntityData.Children["maximum"] = types.YChild{"Maximum", &vrf.Maximum}
-    vrf.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &vrf.Interfaces}
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
-    vrf.EntityData.Leafs["ssmdns-query-group"] = types.YLeaf{"SsmdnsQueryGroup", vrf.SsmdnsQueryGroup}
-    vrf.EntityData.Leafs["robustness"] = types.YLeaf{"Robustness", vrf.Robustness}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("traffic", types.YChild{"Traffic", &vrf.Traffic})
+    vrf.EntityData.Children.Append("inheritable-defaults", types.YChild{"InheritableDefaults", &vrf.InheritableDefaults})
+    vrf.EntityData.Children.Append("ssm-access-groups", types.YChild{"SsmAccessGroups", &vrf.SsmAccessGroups})
+    vrf.EntityData.Children.Append("maximum", types.YChild{"Maximum", &vrf.Maximum})
+    vrf.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &vrf.Interfaces})
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+    vrf.EntityData.Leafs.Append("ssmdns-query-group", types.YLeaf{"SsmdnsQueryGroup", vrf.SsmdnsQueryGroup})
+    vrf.EntityData.Leafs.Append("robustness", types.YLeaf{"Robustness", vrf.Robustness})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -180,9 +188,12 @@ func (traffic *Igmp_Vrfs_Vrf_Traffic) GetEntityData() *types.CommonEntityData {
     traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    traffic.EntityData.Children = make(map[string]types.YChild)
-    traffic.EntityData.Leafs = make(map[string]types.YLeaf)
-    traffic.EntityData.Leafs["profile"] = types.YLeaf{"Profile", traffic.Profile}
+    traffic.EntityData.Children = types.NewOrderedMap()
+    traffic.EntityData.Leafs = types.NewOrderedMap()
+    traffic.EntityData.Leafs.Append("profile", types.YLeaf{"Profile", traffic.Profile})
+
+    traffic.EntityData.YListKeys = []string {}
+
     return &(traffic.EntityData)
 }
 
@@ -233,16 +244,19 @@ func (inheritableDefaults *Igmp_Vrfs_Vrf_InheritableDefaults) GetEntityData() *t
     inheritableDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritableDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inheritableDefaults.EntityData.Children = make(map[string]types.YChild)
-    inheritableDefaults.EntityData.Children["maximum-groups-per-interface-oor"] = types.YChild{"MaximumGroupsPerInterfaceOor", &inheritableDefaults.MaximumGroupsPerInterfaceOor}
-    inheritableDefaults.EntityData.Children["explicit-tracking"] = types.YChild{"ExplicitTracking", &inheritableDefaults.ExplicitTracking}
-    inheritableDefaults.EntityData.Leafs = make(map[string]types.YLeaf)
-    inheritableDefaults.EntityData.Leafs["query-timeout"] = types.YLeaf{"QueryTimeout", inheritableDefaults.QueryTimeout}
-    inheritableDefaults.EntityData.Leafs["access-group"] = types.YLeaf{"AccessGroup", inheritableDefaults.AccessGroup}
-    inheritableDefaults.EntityData.Leafs["query-max-response-time"] = types.YLeaf{"QueryMaxResponseTime", inheritableDefaults.QueryMaxResponseTime}
-    inheritableDefaults.EntityData.Leafs["version"] = types.YLeaf{"Version", inheritableDefaults.Version}
-    inheritableDefaults.EntityData.Leafs["router-enable"] = types.YLeaf{"RouterEnable", inheritableDefaults.RouterEnable}
-    inheritableDefaults.EntityData.Leafs["query-interval"] = types.YLeaf{"QueryInterval", inheritableDefaults.QueryInterval}
+    inheritableDefaults.EntityData.Children = types.NewOrderedMap()
+    inheritableDefaults.EntityData.Children.Append("maximum-groups-per-interface-oor", types.YChild{"MaximumGroupsPerInterfaceOor", &inheritableDefaults.MaximumGroupsPerInterfaceOor})
+    inheritableDefaults.EntityData.Children.Append("explicit-tracking", types.YChild{"ExplicitTracking", &inheritableDefaults.ExplicitTracking})
+    inheritableDefaults.EntityData.Leafs = types.NewOrderedMap()
+    inheritableDefaults.EntityData.Leafs.Append("query-timeout", types.YLeaf{"QueryTimeout", inheritableDefaults.QueryTimeout})
+    inheritableDefaults.EntityData.Leafs.Append("access-group", types.YLeaf{"AccessGroup", inheritableDefaults.AccessGroup})
+    inheritableDefaults.EntityData.Leafs.Append("query-max-response-time", types.YLeaf{"QueryMaxResponseTime", inheritableDefaults.QueryMaxResponseTime})
+    inheritableDefaults.EntityData.Leafs.Append("version", types.YLeaf{"Version", inheritableDefaults.Version})
+    inheritableDefaults.EntityData.Leafs.Append("router-enable", types.YLeaf{"RouterEnable", inheritableDefaults.RouterEnable})
+    inheritableDefaults.EntityData.Leafs.Append("query-interval", types.YLeaf{"QueryInterval", inheritableDefaults.QueryInterval})
+
+    inheritableDefaults.EntityData.YListKeys = []string {}
+
     return &(inheritableDefaults.EntityData)
 }
 
@@ -253,6 +267,7 @@ func (inheritableDefaults *Igmp_Vrfs_Vrf_InheritableDefaults) GetEntityData() *t
 type Igmp_Vrfs_Vrf_InheritableDefaults_MaximumGroupsPerInterfaceOor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of groups accepted per interface by this router. The type is
     // interface{} with range: 1..40000. This attribute is mandatory.
@@ -277,11 +292,14 @@ func (maximumGroupsPerInterfaceOor *Igmp_Vrfs_Vrf_InheritableDefaults_MaximumGro
     maximumGroupsPerInterfaceOor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumGroupsPerInterfaceOor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximumGroupsPerInterfaceOor.EntityData.Children = make(map[string]types.YChild)
-    maximumGroupsPerInterfaceOor.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["maximum-groups"] = types.YLeaf{"MaximumGroups", maximumGroupsPerInterfaceOor.MaximumGroups}
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", maximumGroupsPerInterfaceOor.WarningThreshold}
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", maximumGroupsPerInterfaceOor.AccessListName}
+    maximumGroupsPerInterfaceOor.EntityData.Children = types.NewOrderedMap()
+    maximumGroupsPerInterfaceOor.EntityData.Leafs = types.NewOrderedMap()
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("maximum-groups", types.YLeaf{"MaximumGroups", maximumGroupsPerInterfaceOor.MaximumGroups})
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", maximumGroupsPerInterfaceOor.WarningThreshold})
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", maximumGroupsPerInterfaceOor.AccessListName})
+
+    maximumGroupsPerInterfaceOor.EntityData.YListKeys = []string {}
+
     return &(maximumGroupsPerInterfaceOor.EntityData)
 }
 
@@ -291,6 +309,7 @@ func (maximumGroupsPerInterfaceOor *Igmp_Vrfs_Vrf_InheritableDefaults_MaximumGro
 type Igmp_Vrfs_Vrf_InheritableDefaults_ExplicitTracking struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Enabled or disabled, when value is TRUE or FALSE respectively. The type is
     // bool. This attribute is mandatory.
@@ -311,10 +330,13 @@ func (explicitTracking *Igmp_Vrfs_Vrf_InheritableDefaults_ExplicitTracking) GetE
     explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    explicitTracking.EntityData.Children = make(map[string]types.YChild)
-    explicitTracking.EntityData.Leafs = make(map[string]types.YLeaf)
-    explicitTracking.EntityData.Leafs["enable"] = types.YLeaf{"Enable", explicitTracking.Enable}
-    explicitTracking.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", explicitTracking.AccessListName}
+    explicitTracking.EntityData.Children = types.NewOrderedMap()
+    explicitTracking.EntityData.Leafs = types.NewOrderedMap()
+    explicitTracking.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", explicitTracking.Enable})
+    explicitTracking.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", explicitTracking.AccessListName})
+
+    explicitTracking.EntityData.YListKeys = []string {}
+
     return &(explicitTracking.EntityData)
 }
 
@@ -326,7 +348,7 @@ type Igmp_Vrfs_Vrf_SsmAccessGroups struct {
 
     // SSM static Access Group. The type is slice of
     // Igmp_Vrfs_Vrf_SsmAccessGroups_SsmAccessGroup.
-    SsmAccessGroup []Igmp_Vrfs_Vrf_SsmAccessGroups_SsmAccessGroup
+    SsmAccessGroup []*Igmp_Vrfs_Vrf_SsmAccessGroups_SsmAccessGroup
 }
 
 func (ssmAccessGroups *Igmp_Vrfs_Vrf_SsmAccessGroups) GetEntityData() *types.CommonEntityData {
@@ -339,12 +361,15 @@ func (ssmAccessGroups *Igmp_Vrfs_Vrf_SsmAccessGroups) GetEntityData() *types.Com
     ssmAccessGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssmAccessGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssmAccessGroups.EntityData.Children = make(map[string]types.YChild)
-    ssmAccessGroups.EntityData.Children["ssm-access-group"] = types.YChild{"SsmAccessGroup", nil}
+    ssmAccessGroups.EntityData.Children = types.NewOrderedMap()
+    ssmAccessGroups.EntityData.Children.Append("ssm-access-group", types.YChild{"SsmAccessGroup", nil})
     for i := range ssmAccessGroups.SsmAccessGroup {
-        ssmAccessGroups.EntityData.Children[types.GetSegmentPath(&ssmAccessGroups.SsmAccessGroup[i])] = types.YChild{"SsmAccessGroup", &ssmAccessGroups.SsmAccessGroup[i]}
+        ssmAccessGroups.EntityData.Children.Append(types.GetSegmentPath(ssmAccessGroups.SsmAccessGroup[i]), types.YChild{"SsmAccessGroup", ssmAccessGroups.SsmAccessGroup[i]})
     }
-    ssmAccessGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    ssmAccessGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    ssmAccessGroups.EntityData.YListKeys = []string {}
+
     return &(ssmAccessGroups.EntityData)
 }
 
@@ -356,9 +381,9 @@ type Igmp_Vrfs_Vrf_SsmAccessGroups_SsmAccessGroup struct {
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Access list specifying access group. The type is string with length: 1..64.
@@ -371,15 +396,18 @@ func (ssmAccessGroup *Igmp_Vrfs_Vrf_SsmAccessGroups_SsmAccessGroup) GetEntityDat
     ssmAccessGroup.EntityData.YangName = "ssm-access-group"
     ssmAccessGroup.EntityData.BundleName = "cisco_ios_xr"
     ssmAccessGroup.EntityData.ParentYangName = "ssm-access-groups"
-    ssmAccessGroup.EntityData.SegmentPath = "ssm-access-group" + "[source-address='" + fmt.Sprintf("%v", ssmAccessGroup.SourceAddress) + "']"
+    ssmAccessGroup.EntityData.SegmentPath = "ssm-access-group" + types.AddKeyToken(ssmAccessGroup.SourceAddress, "source-address")
     ssmAccessGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssmAccessGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssmAccessGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssmAccessGroup.EntityData.Children = make(map[string]types.YChild)
-    ssmAccessGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssmAccessGroup.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", ssmAccessGroup.SourceAddress}
-    ssmAccessGroup.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", ssmAccessGroup.AccessListName}
+    ssmAccessGroup.EntityData.Children = types.NewOrderedMap()
+    ssmAccessGroup.EntityData.Leafs = types.NewOrderedMap()
+    ssmAccessGroup.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", ssmAccessGroup.SourceAddress})
+    ssmAccessGroup.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", ssmAccessGroup.AccessListName})
+
+    ssmAccessGroup.EntityData.YListKeys = []string {"SourceAddress"}
+
     return &(ssmAccessGroup.EntityData)
 }
 
@@ -404,9 +432,12 @@ func (maximum *Igmp_Vrfs_Vrf_Maximum) GetEntityData() *types.CommonEntityData {
     maximum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximum.EntityData.Children = make(map[string]types.YChild)
-    maximum.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximum.EntityData.Leafs["maximum-groups"] = types.YLeaf{"MaximumGroups", maximum.MaximumGroups}
+    maximum.EntityData.Children = types.NewOrderedMap()
+    maximum.EntityData.Leafs = types.NewOrderedMap()
+    maximum.EntityData.Leafs.Append("maximum-groups", types.YLeaf{"MaximumGroups", maximum.MaximumGroups})
+
+    maximum.EntityData.YListKeys = []string {}
+
     return &(maximum.EntityData)
 }
 
@@ -417,8 +448,8 @@ type Igmp_Vrfs_Vrf_Interfaces struct {
     YFilter yfilter.YFilter
 
     // The name of the interface. The type is slice of
-    // Igmp_Vrfs_Vrf_Interfaces_Interface_.
-    Interface_ []Igmp_Vrfs_Vrf_Interfaces_Interface
+    // Igmp_Vrfs_Vrf_Interfaces_Interface.
+    Interface []*Igmp_Vrfs_Vrf_Interfaces_Interface
 }
 
 func (interfaces *Igmp_Vrfs_Vrf_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -431,12 +462,15 @@ func (interfaces *Igmp_Vrfs_Vrf_Interfaces) GetEntityData() *types.CommonEntityD
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -447,7 +481,7 @@ type Igmp_Vrfs_Vrf_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // IGMP previous querier timeout. The type is interface{} with range: 60..300.
@@ -492,24 +526,27 @@ func (self *Igmp_Vrfs_Vrf_Interfaces_Interface) GetEntityData() *types.CommonEnt
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["join-groups"] = types.YChild{"JoinGroups", &self.JoinGroups}
-    self.EntityData.Children["static-group-group-addresses"] = types.YChild{"StaticGroupGroupAddresses", &self.StaticGroupGroupAddresses}
-    self.EntityData.Children["maximum-groups-per-interface-oor"] = types.YChild{"MaximumGroupsPerInterfaceOor", &self.MaximumGroupsPerInterfaceOor}
-    self.EntityData.Children["explicit-tracking"] = types.YChild{"ExplicitTracking", &self.ExplicitTracking}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["query-timeout"] = types.YLeaf{"QueryTimeout", self.QueryTimeout}
-    self.EntityData.Leafs["access-group"] = types.YLeaf{"AccessGroup", self.AccessGroup}
-    self.EntityData.Leafs["query-max-response-time"] = types.YLeaf{"QueryMaxResponseTime", self.QueryMaxResponseTime}
-    self.EntityData.Leafs["version"] = types.YLeaf{"Version", self.Version}
-    self.EntityData.Leafs["router-enable"] = types.YLeaf{"RouterEnable", self.RouterEnable}
-    self.EntityData.Leafs["query-interval"] = types.YLeaf{"QueryInterval", self.QueryInterval}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("join-groups", types.YChild{"JoinGroups", &self.JoinGroups})
+    self.EntityData.Children.Append("static-group-group-addresses", types.YChild{"StaticGroupGroupAddresses", &self.StaticGroupGroupAddresses})
+    self.EntityData.Children.Append("maximum-groups-per-interface-oor", types.YChild{"MaximumGroupsPerInterfaceOor", &self.MaximumGroupsPerInterfaceOor})
+    self.EntityData.Children.Append("explicit-tracking", types.YChild{"ExplicitTracking", &self.ExplicitTracking})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("query-timeout", types.YLeaf{"QueryTimeout", self.QueryTimeout})
+    self.EntityData.Leafs.Append("access-group", types.YLeaf{"AccessGroup", self.AccessGroup})
+    self.EntityData.Leafs.Append("query-max-response-time", types.YLeaf{"QueryMaxResponseTime", self.QueryMaxResponseTime})
+    self.EntityData.Leafs.Append("version", types.YLeaf{"Version", self.Version})
+    self.EntityData.Leafs.Append("router-enable", types.YLeaf{"RouterEnable", self.RouterEnable})
+    self.EntityData.Leafs.Append("query-interval", types.YLeaf{"QueryInterval", self.QueryInterval})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -519,14 +556,15 @@ func (self *Igmp_Vrfs_Vrf_Interfaces_Interface) GetEntityData() *types.CommonEnt
 type Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // IP group address and optional source address to include. The type is slice
     // of Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroup.
-    JoinGroup []Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroup
+    JoinGroup []*Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroup
 
     // IP group address and optional source address to include. The type is slice
     // of Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress.
-    JoinGroupSourceAddress []Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress
+    JoinGroupSourceAddress []*Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress
 }
 
 func (joinGroups *Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups) GetEntityData() *types.CommonEntityData {
@@ -539,16 +577,19 @@ func (joinGroups *Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups) GetEntityData()
     joinGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    joinGroups.EntityData.Children = make(map[string]types.YChild)
-    joinGroups.EntityData.Children["join-group"] = types.YChild{"JoinGroup", nil}
+    joinGroups.EntityData.Children = types.NewOrderedMap()
+    joinGroups.EntityData.Children.Append("join-group", types.YChild{"JoinGroup", nil})
     for i := range joinGroups.JoinGroup {
-        joinGroups.EntityData.Children[types.GetSegmentPath(&joinGroups.JoinGroup[i])] = types.YChild{"JoinGroup", &joinGroups.JoinGroup[i]}
+        joinGroups.EntityData.Children.Append(types.GetSegmentPath(joinGroups.JoinGroup[i]), types.YChild{"JoinGroup", joinGroups.JoinGroup[i]})
     }
-    joinGroups.EntityData.Children["join-group-source-address"] = types.YChild{"JoinGroupSourceAddress", nil}
+    joinGroups.EntityData.Children.Append("join-group-source-address", types.YChild{"JoinGroupSourceAddress", nil})
     for i := range joinGroups.JoinGroupSourceAddress {
-        joinGroups.EntityData.Children[types.GetSegmentPath(&joinGroups.JoinGroupSourceAddress[i])] = types.YChild{"JoinGroupSourceAddress", &joinGroups.JoinGroupSourceAddress[i]}
+        joinGroups.EntityData.Children.Append(types.GetSegmentPath(joinGroups.JoinGroupSourceAddress[i]), types.YChild{"JoinGroupSourceAddress", joinGroups.JoinGroupSourceAddress[i]})
     }
-    joinGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    joinGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    joinGroups.EntityData.YListKeys = []string {}
+
     return &(joinGroups.EntityData)
 }
 
@@ -561,9 +602,9 @@ type Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroup struct {
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // Filter mode. The type is IgmpFilter. This attribute is mandatory.
@@ -575,15 +616,18 @@ func (joinGroup *Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroup) GetEnt
     joinGroup.EntityData.YangName = "join-group"
     joinGroup.EntityData.BundleName = "cisco_ios_xr"
     joinGroup.EntityData.ParentYangName = "join-groups"
-    joinGroup.EntityData.SegmentPath = "join-group" + "[group-address='" + fmt.Sprintf("%v", joinGroup.GroupAddress) + "']"
+    joinGroup.EntityData.SegmentPath = "join-group" + types.AddKeyToken(joinGroup.GroupAddress, "group-address")
     joinGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    joinGroup.EntityData.Children = make(map[string]types.YChild)
-    joinGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    joinGroup.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", joinGroup.GroupAddress}
-    joinGroup.EntityData.Leafs["mode"] = types.YLeaf{"Mode", joinGroup.Mode}
+    joinGroup.EntityData.Children = types.NewOrderedMap()
+    joinGroup.EntityData.Leafs = types.NewOrderedMap()
+    joinGroup.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", joinGroup.GroupAddress})
+    joinGroup.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", joinGroup.Mode})
+
+    joinGroup.EntityData.YListKeys = []string {"GroupAddress"}
+
     return &(joinGroup.EntityData)
 }
 
@@ -596,16 +640,16 @@ type Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress struct
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. Optional IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Filter mode. The type is IgmpFilter. This attribute is mandatory.
@@ -617,16 +661,19 @@ func (joinGroupSourceAddress *Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups_Join
     joinGroupSourceAddress.EntityData.YangName = "join-group-source-address"
     joinGroupSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     joinGroupSourceAddress.EntityData.ParentYangName = "join-groups"
-    joinGroupSourceAddress.EntityData.SegmentPath = "join-group-source-address" + "[group-address='" + fmt.Sprintf("%v", joinGroupSourceAddress.GroupAddress) + "']" + "[source-address='" + fmt.Sprintf("%v", joinGroupSourceAddress.SourceAddress) + "']"
+    joinGroupSourceAddress.EntityData.SegmentPath = "join-group-source-address" + types.AddKeyToken(joinGroupSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(joinGroupSourceAddress.SourceAddress, "source-address")
     joinGroupSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroupSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroupSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    joinGroupSourceAddress.EntityData.Children = make(map[string]types.YChild)
-    joinGroupSourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    joinGroupSourceAddress.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", joinGroupSourceAddress.GroupAddress}
-    joinGroupSourceAddress.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", joinGroupSourceAddress.SourceAddress}
-    joinGroupSourceAddress.EntityData.Leafs["mode"] = types.YLeaf{"Mode", joinGroupSourceAddress.Mode}
+    joinGroupSourceAddress.EntityData.Children = types.NewOrderedMap()
+    joinGroupSourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    joinGroupSourceAddress.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", joinGroupSourceAddress.GroupAddress})
+    joinGroupSourceAddress.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", joinGroupSourceAddress.SourceAddress})
+    joinGroupSourceAddress.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", joinGroupSourceAddress.Mode})
+
+    joinGroupSourceAddress.EntityData.YListKeys = []string {"GroupAddress", "SourceAddress"}
+
     return &(joinGroupSourceAddress.EntityData)
 }
 
@@ -639,32 +686,32 @@ type Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses struct {
     // IP group address and optional source address to include. The type is slice
     // of
     // Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddress.
-    StaticGroupGroupAddress []Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddress
+    StaticGroupGroupAddress []*Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddress
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddress.
-    StaticGroupGroupAddressSourceAddress []Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddress
+    StaticGroupGroupAddressSourceAddress []*Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddress
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddressSourceAddressMask.
-    StaticGroupGroupAddressSourceAddressSourceAddressMask []Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddressSourceAddressMask
+    StaticGroupGroupAddressSourceAddressSourceAddressMask []*Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddressSourceAddressMask
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMask.
-    StaticGroupGroupAddressGroupAddressMask []Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMask
+    StaticGroupGroupAddressGroupAddressMask []*Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMask
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddress.
-    StaticGroupGroupAddressGroupAddressMaskSourceAddress []Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddress
+    StaticGroupGroupAddressGroupAddressMaskSourceAddress []*Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddress
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.
-    StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask []Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask
+    StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask []*Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask
 }
 
 func (staticGroupGroupAddresses *Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses) GetEntityData() *types.CommonEntityData {
@@ -677,32 +724,35 @@ func (staticGroupGroupAddresses *Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupG
     staticGroupGroupAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddresses.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address"] = types.YChild{"StaticGroupGroupAddress", nil}
+    staticGroupGroupAddresses.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address", types.YChild{"StaticGroupGroupAddress", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddress {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddress[i])] = types.YChild{"StaticGroupGroupAddress", &staticGroupGroupAddresses.StaticGroupGroupAddress[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddress[i]), types.YChild{"StaticGroupGroupAddress", staticGroupGroupAddresses.StaticGroupGroupAddress[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-source-address"] = types.YChild{"StaticGroupGroupAddressSourceAddress", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-source-address", types.YChild{"StaticGroupGroupAddressSourceAddress", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress[i])] = types.YChild{"StaticGroupGroupAddressSourceAddress", &staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress[i]), types.YChild{"StaticGroupGroupAddressSourceAddress", staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-source-address-source-address-mask"] = types.YChild{"StaticGroupGroupAddressSourceAddressSourceAddressMask", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-source-address-source-address-mask", types.YChild{"StaticGroupGroupAddressSourceAddressSourceAddressMask", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask[i])] = types.YChild{"StaticGroupGroupAddressSourceAddressSourceAddressMask", &staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask[i]), types.YChild{"StaticGroupGroupAddressSourceAddressSourceAddressMask", staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-group-address-mask"] = types.YChild{"StaticGroupGroupAddressGroupAddressMask", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-group-address-mask", types.YChild{"StaticGroupGroupAddressGroupAddressMask", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask[i])] = types.YChild{"StaticGroupGroupAddressGroupAddressMask", &staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask[i]), types.YChild{"StaticGroupGroupAddressGroupAddressMask", staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-group-address-mask-source-address"] = types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddress", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-group-address-mask-source-address", types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddress", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress[i])] = types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddress", &staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress[i]), types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddress", staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-group-address-mask-source-address-source-address-mask"] = types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-group-address-mask-source-address-source-address-mask", types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask[i])] = types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask", &staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask[i]), types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask", staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask[i]})
     }
-    staticGroupGroupAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    staticGroupGroupAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    staticGroupGroupAddresses.EntityData.YListKeys = []string {}
+
     return &(staticGroupGroupAddresses.EntityData)
 }
 
@@ -715,9 +765,9 @@ type Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGro
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -737,17 +787,20 @@ func (staticGroupGroupAddress *Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGro
     staticGroupGroupAddress.EntityData.YangName = "static-group-group-address"
     staticGroupGroupAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddress.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddress.EntityData.SegmentPath = "static-group-group-address" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddress.GroupAddress) + "']"
+    staticGroupGroupAddress.EntityData.SegmentPath = "static-group-group-address" + types.AddKeyToken(staticGroupGroupAddress.GroupAddress, "group-address")
     staticGroupGroupAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddress.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddress.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddress.GroupAddress}
-    staticGroupGroupAddress.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddress.GroupCount}
-    staticGroupGroupAddress.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddress.SourceCount}
-    staticGroupGroupAddress.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddress.SuppressReport}
+    staticGroupGroupAddress.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddress.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddress.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddress.GroupAddress})
+    staticGroupGroupAddress.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddress.GroupCount})
+    staticGroupGroupAddress.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddress.SourceCount})
+    staticGroupGroupAddress.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddress.SuppressReport})
+
+    staticGroupGroupAddress.EntityData.YListKeys = []string {"GroupAddress"}
+
     return &(staticGroupGroupAddress.EntityData)
 }
 
@@ -760,16 +813,16 @@ type Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGro
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -789,18 +842,21 @@ func (staticGroupGroupAddressSourceAddress *Igmp_Vrfs_Vrf_Interfaces_Interface_S
     staticGroupGroupAddressSourceAddress.EntityData.YangName = "static-group-group-address-source-address"
     staticGroupGroupAddressSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressSourceAddress.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressSourceAddress.EntityData.SegmentPath = "static-group-group-address-source-address" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddress.GroupAddress) + "']" + "[source-address='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddress.SourceAddress) + "']"
+    staticGroupGroupAddressSourceAddress.EntityData.SegmentPath = "static-group-group-address-source-address" + types.AddKeyToken(staticGroupGroupAddressSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddress.SourceAddress, "source-address")
     staticGroupGroupAddressSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressSourceAddress.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressSourceAddress.GroupAddress}
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", staticGroupGroupAddressSourceAddress.SourceAddress}
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressSourceAddress.GroupCount}
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressSourceAddress.SourceCount}
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressSourceAddress.SuppressReport}
+    staticGroupGroupAddressSourceAddress.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressSourceAddress.GroupAddress})
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", staticGroupGroupAddressSourceAddress.SourceAddress})
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressSourceAddress.GroupCount})
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressSourceAddress.SourceCount})
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressSourceAddress.SuppressReport})
+
+    staticGroupGroupAddressSourceAddress.EntityData.YListKeys = []string {"GroupAddress", "SourceAddress"}
+
     return &(staticGroupGroupAddressSourceAddress.EntityData)
 }
 
@@ -813,23 +869,23 @@ type Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGro
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Mask for Source Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddressMask interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -849,19 +905,22 @@ func (staticGroupGroupAddressSourceAddressSourceAddressMask *Igmp_Vrfs_Vrf_Inter
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.YangName = "static-group-group-address-source-address-source-address-mask"
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-source-address-source-address-mask" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress) + "']" + "[source-address='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress) + "']" + "[source-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask) + "']"
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-source-address-source-address-mask" + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress, "source-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask, "source-address-mask")
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["source-address-mask"] = types.YLeaf{"SourceAddressMask", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupCount}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceCount}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressSourceAddressSourceAddressMask.SuppressReport}
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-address-mask", types.YLeaf{"SourceAddressMask", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupCount})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceCount})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressSourceAddressSourceAddressMask.SuppressReport})
+
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.YListKeys = []string {"GroupAddress", "SourceAddress", "SourceAddressMask"}
+
     return &(staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData)
 }
 
@@ -874,16 +933,16 @@ type Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGro
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. Mask for Group Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddressMask interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -903,18 +962,21 @@ func (staticGroupGroupAddressGroupAddressMask *Igmp_Vrfs_Vrf_Interfaces_Interfac
     staticGroupGroupAddressGroupAddressMask.EntityData.YangName = "static-group-group-address-group-address-mask"
     staticGroupGroupAddressGroupAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressGroupAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMask.GroupAddress) + "']" + "[group-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMask.GroupAddressMask) + "']"
+    staticGroupGroupAddressGroupAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMask.GroupAddressMask, "group-address-mask")
     staticGroupGroupAddressGroupAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressGroupAddressMask.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMask.GroupAddress}
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["group-address-mask"] = types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMask.GroupAddressMask}
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMask.GroupCount}
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMask.SourceCount}
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMask.SuppressReport}
+    staticGroupGroupAddressGroupAddressMask.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMask.GroupAddress})
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("group-address-mask", types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMask.GroupAddressMask})
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMask.GroupCount})
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMask.SourceCount})
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMask.SuppressReport})
+
+    staticGroupGroupAddressGroupAddressMask.EntityData.YListKeys = []string {"GroupAddress", "GroupAddressMask"}
+
     return &(staticGroupGroupAddressGroupAddressMask.EntityData)
 }
 
@@ -927,23 +989,23 @@ type Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGro
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. Mask for Group Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddressMask interface{}
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -963,19 +1025,22 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddress *Igmp_Vrfs_Vrf_Interf
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.YangName = "static-group-group-address-group-address-mask-source-address"
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress) + "']" + "[group-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask) + "']" + "[source-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress) + "']"
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask, "group-address-mask") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress, "source-address")
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["group-address-mask"] = types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupCount}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceCount}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMaskSourceAddress.SuppressReport}
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("group-address-mask", types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupCount})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceCount})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMaskSourceAddress.SuppressReport})
+
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.YListKeys = []string {"GroupAddress", "GroupAddressMask", "SourceAddress"}
+
     return &(staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData)
 }
 
@@ -988,30 +1053,30 @@ type Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGro
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. Mask for Group Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddressMask interface{}
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Mask for Source Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddressMask interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -1031,20 +1096,23 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask *Igm
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.YangName = "static-group-group-address-group-address-mask-source-address-source-address-mask"
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address-source-address-mask" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress) + "']" + "[group-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask) + "']" + "[source-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress) + "']" + "[source-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask) + "']"
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address-source-address-mask" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask, "group-address-mask") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress, "source-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask, "source-address-mask")
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["group-address-mask"] = types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["source-address-mask"] = types.YLeaf{"SourceAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupCount}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceCount}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SuppressReport}
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-address-mask", types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-address-mask", types.YLeaf{"SourceAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupCount})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceCount})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SuppressReport})
+
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.YListKeys = []string {"GroupAddress", "GroupAddressMask", "SourceAddress", "SourceAddressMask"}
+
     return &(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData)
 }
 
@@ -1055,6 +1123,7 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask *Igm
 type Igmp_Vrfs_Vrf_Interfaces_Interface_MaximumGroupsPerInterfaceOor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of groups accepted per interface by this router. The type is
     // interface{} with range: 1..40000. This attribute is mandatory.
@@ -1079,11 +1148,14 @@ func (maximumGroupsPerInterfaceOor *Igmp_Vrfs_Vrf_Interfaces_Interface_MaximumGr
     maximumGroupsPerInterfaceOor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumGroupsPerInterfaceOor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximumGroupsPerInterfaceOor.EntityData.Children = make(map[string]types.YChild)
-    maximumGroupsPerInterfaceOor.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["maximum-groups"] = types.YLeaf{"MaximumGroups", maximumGroupsPerInterfaceOor.MaximumGroups}
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", maximumGroupsPerInterfaceOor.WarningThreshold}
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", maximumGroupsPerInterfaceOor.AccessListName}
+    maximumGroupsPerInterfaceOor.EntityData.Children = types.NewOrderedMap()
+    maximumGroupsPerInterfaceOor.EntityData.Leafs = types.NewOrderedMap()
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("maximum-groups", types.YLeaf{"MaximumGroups", maximumGroupsPerInterfaceOor.MaximumGroups})
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", maximumGroupsPerInterfaceOor.WarningThreshold})
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", maximumGroupsPerInterfaceOor.AccessListName})
+
+    maximumGroupsPerInterfaceOor.EntityData.YListKeys = []string {}
+
     return &(maximumGroupsPerInterfaceOor.EntityData)
 }
 
@@ -1093,6 +1165,7 @@ func (maximumGroupsPerInterfaceOor *Igmp_Vrfs_Vrf_Interfaces_Interface_MaximumGr
 type Igmp_Vrfs_Vrf_Interfaces_Interface_ExplicitTracking struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Enabled or disabled, when value is TRUE or FALSE respectively. The type is
     // bool. This attribute is mandatory.
@@ -1113,10 +1186,13 @@ func (explicitTracking *Igmp_Vrfs_Vrf_Interfaces_Interface_ExplicitTracking) Get
     explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    explicitTracking.EntityData.Children = make(map[string]types.YChild)
-    explicitTracking.EntityData.Leafs = make(map[string]types.YLeaf)
-    explicitTracking.EntityData.Leafs["enable"] = types.YLeaf{"Enable", explicitTracking.Enable}
-    explicitTracking.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", explicitTracking.AccessListName}
+    explicitTracking.EntityData.Children = types.NewOrderedMap()
+    explicitTracking.EntityData.Leafs = types.NewOrderedMap()
+    explicitTracking.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", explicitTracking.Enable})
+    explicitTracking.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", explicitTracking.AccessListName})
+
+    explicitTracking.EntityData.YListKeys = []string {}
+
     return &(explicitTracking.EntityData)
 }
 
@@ -1126,6 +1202,7 @@ func (explicitTracking *Igmp_Vrfs_Vrf_Interfaces_Interface_ExplicitTracking) Get
 type Igmp_DefaultContext struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Enable SSM mapping using DNS Query. The type is interface{}.
     SsmdnsQueryGroup interface{}
@@ -1169,18 +1246,21 @@ func (defaultContext *Igmp_DefaultContext) GetEntityData() *types.CommonEntityDa
     defaultContext.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultContext.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultContext.EntityData.Children = make(map[string]types.YChild)
-    defaultContext.EntityData.Children["nsf"] = types.YChild{"Nsf", &defaultContext.Nsf}
-    defaultContext.EntityData.Children["unicast-qos-adjust"] = types.YChild{"UnicastQosAdjust", &defaultContext.UnicastQosAdjust}
-    defaultContext.EntityData.Children["accounting"] = types.YChild{"Accounting", &defaultContext.Accounting}
-    defaultContext.EntityData.Children["traffic"] = types.YChild{"Traffic", &defaultContext.Traffic}
-    defaultContext.EntityData.Children["inheritable-defaults"] = types.YChild{"InheritableDefaults", &defaultContext.InheritableDefaults}
-    defaultContext.EntityData.Children["ssm-access-groups"] = types.YChild{"SsmAccessGroups", &defaultContext.SsmAccessGroups}
-    defaultContext.EntityData.Children["maximum"] = types.YChild{"Maximum", &defaultContext.Maximum}
-    defaultContext.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &defaultContext.Interfaces}
-    defaultContext.EntityData.Leafs = make(map[string]types.YLeaf)
-    defaultContext.EntityData.Leafs["ssmdns-query-group"] = types.YLeaf{"SsmdnsQueryGroup", defaultContext.SsmdnsQueryGroup}
-    defaultContext.EntityData.Leafs["robustness"] = types.YLeaf{"Robustness", defaultContext.Robustness}
+    defaultContext.EntityData.Children = types.NewOrderedMap()
+    defaultContext.EntityData.Children.Append("nsf", types.YChild{"Nsf", &defaultContext.Nsf})
+    defaultContext.EntityData.Children.Append("unicast-qos-adjust", types.YChild{"UnicastQosAdjust", &defaultContext.UnicastQosAdjust})
+    defaultContext.EntityData.Children.Append("accounting", types.YChild{"Accounting", &defaultContext.Accounting})
+    defaultContext.EntityData.Children.Append("traffic", types.YChild{"Traffic", &defaultContext.Traffic})
+    defaultContext.EntityData.Children.Append("inheritable-defaults", types.YChild{"InheritableDefaults", &defaultContext.InheritableDefaults})
+    defaultContext.EntityData.Children.Append("ssm-access-groups", types.YChild{"SsmAccessGroups", &defaultContext.SsmAccessGroups})
+    defaultContext.EntityData.Children.Append("maximum", types.YChild{"Maximum", &defaultContext.Maximum})
+    defaultContext.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &defaultContext.Interfaces})
+    defaultContext.EntityData.Leafs = types.NewOrderedMap()
+    defaultContext.EntityData.Leafs.Append("ssmdns-query-group", types.YLeaf{"SsmdnsQueryGroup", defaultContext.SsmdnsQueryGroup})
+    defaultContext.EntityData.Leafs.Append("robustness", types.YLeaf{"Robustness", defaultContext.Robustness})
+
+    defaultContext.EntityData.YListKeys = []string {}
+
     return &(defaultContext.EntityData)
 }
 
@@ -1205,9 +1285,12 @@ func (nsf *Igmp_DefaultContext_Nsf) GetEntityData() *types.CommonEntityData {
     nsf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nsf.EntityData.Children = make(map[string]types.YChild)
-    nsf.EntityData.Leafs = make(map[string]types.YLeaf)
-    nsf.EntityData.Leafs["lifetime"] = types.YLeaf{"Lifetime", nsf.Lifetime}
+    nsf.EntityData.Children = types.NewOrderedMap()
+    nsf.EntityData.Leafs = types.NewOrderedMap()
+    nsf.EntityData.Leafs.Append("lifetime", types.YLeaf{"Lifetime", nsf.Lifetime})
+
+    nsf.EntityData.YListKeys = []string {}
+
     return &(nsf.EntityData)
 }
 
@@ -1242,11 +1325,14 @@ func (unicastQosAdjust *Igmp_DefaultContext_UnicastQosAdjust) GetEntityData() *t
     unicastQosAdjust.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unicastQosAdjust.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    unicastQosAdjust.EntityData.Children = make(map[string]types.YChild)
-    unicastQosAdjust.EntityData.Leafs = make(map[string]types.YLeaf)
-    unicastQosAdjust.EntityData.Leafs["download-interval"] = types.YLeaf{"DownloadInterval", unicastQosAdjust.DownloadInterval}
-    unicastQosAdjust.EntityData.Leafs["adjustment-delay"] = types.YLeaf{"AdjustmentDelay", unicastQosAdjust.AdjustmentDelay}
-    unicastQosAdjust.EntityData.Leafs["hold-off"] = types.YLeaf{"HoldOff", unicastQosAdjust.HoldOff}
+    unicastQosAdjust.EntityData.Children = types.NewOrderedMap()
+    unicastQosAdjust.EntityData.Leafs = types.NewOrderedMap()
+    unicastQosAdjust.EntityData.Leafs.Append("download-interval", types.YLeaf{"DownloadInterval", unicastQosAdjust.DownloadInterval})
+    unicastQosAdjust.EntityData.Leafs.Append("adjustment-delay", types.YLeaf{"AdjustmentDelay", unicastQosAdjust.AdjustmentDelay})
+    unicastQosAdjust.EntityData.Leafs.Append("hold-off", types.YLeaf{"HoldOff", unicastQosAdjust.HoldOff})
+
+    unicastQosAdjust.EntityData.YListKeys = []string {}
+
     return &(unicastQosAdjust.EntityData)
 }
 
@@ -1272,9 +1358,12 @@ func (accounting *Igmp_DefaultContext_Accounting) GetEntityData() *types.CommonE
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accounting.EntityData.Children = make(map[string]types.YChild)
-    accounting.EntityData.Leafs = make(map[string]types.YLeaf)
-    accounting.EntityData.Leafs["max-history"] = types.YLeaf{"MaxHistory", accounting.MaxHistory}
+    accounting.EntityData.Children = types.NewOrderedMap()
+    accounting.EntityData.Leafs = types.NewOrderedMap()
+    accounting.EntityData.Leafs.Append("max-history", types.YLeaf{"MaxHistory", accounting.MaxHistory})
+
+    accounting.EntityData.YListKeys = []string {}
+
     return &(accounting.EntityData)
 }
 
@@ -1298,9 +1387,12 @@ func (traffic *Igmp_DefaultContext_Traffic) GetEntityData() *types.CommonEntityD
     traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    traffic.EntityData.Children = make(map[string]types.YChild)
-    traffic.EntityData.Leafs = make(map[string]types.YLeaf)
-    traffic.EntityData.Leafs["profile"] = types.YLeaf{"Profile", traffic.Profile}
+    traffic.EntityData.Children = types.NewOrderedMap()
+    traffic.EntityData.Leafs = types.NewOrderedMap()
+    traffic.EntityData.Leafs.Append("profile", types.YLeaf{"Profile", traffic.Profile})
+
+    traffic.EntityData.YListKeys = []string {}
+
     return &(traffic.EntityData)
 }
 
@@ -1351,16 +1443,19 @@ func (inheritableDefaults *Igmp_DefaultContext_InheritableDefaults) GetEntityDat
     inheritableDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritableDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inheritableDefaults.EntityData.Children = make(map[string]types.YChild)
-    inheritableDefaults.EntityData.Children["maximum-groups-per-interface-oor"] = types.YChild{"MaximumGroupsPerInterfaceOor", &inheritableDefaults.MaximumGroupsPerInterfaceOor}
-    inheritableDefaults.EntityData.Children["explicit-tracking"] = types.YChild{"ExplicitTracking", &inheritableDefaults.ExplicitTracking}
-    inheritableDefaults.EntityData.Leafs = make(map[string]types.YLeaf)
-    inheritableDefaults.EntityData.Leafs["query-timeout"] = types.YLeaf{"QueryTimeout", inheritableDefaults.QueryTimeout}
-    inheritableDefaults.EntityData.Leafs["access-group"] = types.YLeaf{"AccessGroup", inheritableDefaults.AccessGroup}
-    inheritableDefaults.EntityData.Leafs["query-max-response-time"] = types.YLeaf{"QueryMaxResponseTime", inheritableDefaults.QueryMaxResponseTime}
-    inheritableDefaults.EntityData.Leafs["version"] = types.YLeaf{"Version", inheritableDefaults.Version}
-    inheritableDefaults.EntityData.Leafs["router-enable"] = types.YLeaf{"RouterEnable", inheritableDefaults.RouterEnable}
-    inheritableDefaults.EntityData.Leafs["query-interval"] = types.YLeaf{"QueryInterval", inheritableDefaults.QueryInterval}
+    inheritableDefaults.EntityData.Children = types.NewOrderedMap()
+    inheritableDefaults.EntityData.Children.Append("maximum-groups-per-interface-oor", types.YChild{"MaximumGroupsPerInterfaceOor", &inheritableDefaults.MaximumGroupsPerInterfaceOor})
+    inheritableDefaults.EntityData.Children.Append("explicit-tracking", types.YChild{"ExplicitTracking", &inheritableDefaults.ExplicitTracking})
+    inheritableDefaults.EntityData.Leafs = types.NewOrderedMap()
+    inheritableDefaults.EntityData.Leafs.Append("query-timeout", types.YLeaf{"QueryTimeout", inheritableDefaults.QueryTimeout})
+    inheritableDefaults.EntityData.Leafs.Append("access-group", types.YLeaf{"AccessGroup", inheritableDefaults.AccessGroup})
+    inheritableDefaults.EntityData.Leafs.Append("query-max-response-time", types.YLeaf{"QueryMaxResponseTime", inheritableDefaults.QueryMaxResponseTime})
+    inheritableDefaults.EntityData.Leafs.Append("version", types.YLeaf{"Version", inheritableDefaults.Version})
+    inheritableDefaults.EntityData.Leafs.Append("router-enable", types.YLeaf{"RouterEnable", inheritableDefaults.RouterEnable})
+    inheritableDefaults.EntityData.Leafs.Append("query-interval", types.YLeaf{"QueryInterval", inheritableDefaults.QueryInterval})
+
+    inheritableDefaults.EntityData.YListKeys = []string {}
+
     return &(inheritableDefaults.EntityData)
 }
 
@@ -1371,6 +1466,7 @@ func (inheritableDefaults *Igmp_DefaultContext_InheritableDefaults) GetEntityDat
 type Igmp_DefaultContext_InheritableDefaults_MaximumGroupsPerInterfaceOor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of groups accepted per interface by this router. The type is
     // interface{} with range: 1..40000. This attribute is mandatory.
@@ -1395,11 +1491,14 @@ func (maximumGroupsPerInterfaceOor *Igmp_DefaultContext_InheritableDefaults_Maxi
     maximumGroupsPerInterfaceOor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumGroupsPerInterfaceOor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximumGroupsPerInterfaceOor.EntityData.Children = make(map[string]types.YChild)
-    maximumGroupsPerInterfaceOor.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["maximum-groups"] = types.YLeaf{"MaximumGroups", maximumGroupsPerInterfaceOor.MaximumGroups}
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", maximumGroupsPerInterfaceOor.WarningThreshold}
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", maximumGroupsPerInterfaceOor.AccessListName}
+    maximumGroupsPerInterfaceOor.EntityData.Children = types.NewOrderedMap()
+    maximumGroupsPerInterfaceOor.EntityData.Leafs = types.NewOrderedMap()
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("maximum-groups", types.YLeaf{"MaximumGroups", maximumGroupsPerInterfaceOor.MaximumGroups})
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", maximumGroupsPerInterfaceOor.WarningThreshold})
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", maximumGroupsPerInterfaceOor.AccessListName})
+
+    maximumGroupsPerInterfaceOor.EntityData.YListKeys = []string {}
+
     return &(maximumGroupsPerInterfaceOor.EntityData)
 }
 
@@ -1409,6 +1508,7 @@ func (maximumGroupsPerInterfaceOor *Igmp_DefaultContext_InheritableDefaults_Maxi
 type Igmp_DefaultContext_InheritableDefaults_ExplicitTracking struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Enabled or disabled, when value is TRUE or FALSE respectively. The type is
     // bool. This attribute is mandatory.
@@ -1429,10 +1529,13 @@ func (explicitTracking *Igmp_DefaultContext_InheritableDefaults_ExplicitTracking
     explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    explicitTracking.EntityData.Children = make(map[string]types.YChild)
-    explicitTracking.EntityData.Leafs = make(map[string]types.YLeaf)
-    explicitTracking.EntityData.Leafs["enable"] = types.YLeaf{"Enable", explicitTracking.Enable}
-    explicitTracking.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", explicitTracking.AccessListName}
+    explicitTracking.EntityData.Children = types.NewOrderedMap()
+    explicitTracking.EntityData.Leafs = types.NewOrderedMap()
+    explicitTracking.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", explicitTracking.Enable})
+    explicitTracking.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", explicitTracking.AccessListName})
+
+    explicitTracking.EntityData.YListKeys = []string {}
+
     return &(explicitTracking.EntityData)
 }
 
@@ -1444,7 +1547,7 @@ type Igmp_DefaultContext_SsmAccessGroups struct {
 
     // SSM static Access Group. The type is slice of
     // Igmp_DefaultContext_SsmAccessGroups_SsmAccessGroup.
-    SsmAccessGroup []Igmp_DefaultContext_SsmAccessGroups_SsmAccessGroup
+    SsmAccessGroup []*Igmp_DefaultContext_SsmAccessGroups_SsmAccessGroup
 }
 
 func (ssmAccessGroups *Igmp_DefaultContext_SsmAccessGroups) GetEntityData() *types.CommonEntityData {
@@ -1457,12 +1560,15 @@ func (ssmAccessGroups *Igmp_DefaultContext_SsmAccessGroups) GetEntityData() *typ
     ssmAccessGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssmAccessGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssmAccessGroups.EntityData.Children = make(map[string]types.YChild)
-    ssmAccessGroups.EntityData.Children["ssm-access-group"] = types.YChild{"SsmAccessGroup", nil}
+    ssmAccessGroups.EntityData.Children = types.NewOrderedMap()
+    ssmAccessGroups.EntityData.Children.Append("ssm-access-group", types.YChild{"SsmAccessGroup", nil})
     for i := range ssmAccessGroups.SsmAccessGroup {
-        ssmAccessGroups.EntityData.Children[types.GetSegmentPath(&ssmAccessGroups.SsmAccessGroup[i])] = types.YChild{"SsmAccessGroup", &ssmAccessGroups.SsmAccessGroup[i]}
+        ssmAccessGroups.EntityData.Children.Append(types.GetSegmentPath(ssmAccessGroups.SsmAccessGroup[i]), types.YChild{"SsmAccessGroup", ssmAccessGroups.SsmAccessGroup[i]})
     }
-    ssmAccessGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    ssmAccessGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    ssmAccessGroups.EntityData.YListKeys = []string {}
+
     return &(ssmAccessGroups.EntityData)
 }
 
@@ -1474,9 +1580,9 @@ type Igmp_DefaultContext_SsmAccessGroups_SsmAccessGroup struct {
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Access list specifying access group. The type is string with length: 1..64.
@@ -1489,15 +1595,18 @@ func (ssmAccessGroup *Igmp_DefaultContext_SsmAccessGroups_SsmAccessGroup) GetEnt
     ssmAccessGroup.EntityData.YangName = "ssm-access-group"
     ssmAccessGroup.EntityData.BundleName = "cisco_ios_xr"
     ssmAccessGroup.EntityData.ParentYangName = "ssm-access-groups"
-    ssmAccessGroup.EntityData.SegmentPath = "ssm-access-group" + "[source-address='" + fmt.Sprintf("%v", ssmAccessGroup.SourceAddress) + "']"
+    ssmAccessGroup.EntityData.SegmentPath = "ssm-access-group" + types.AddKeyToken(ssmAccessGroup.SourceAddress, "source-address")
     ssmAccessGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssmAccessGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssmAccessGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssmAccessGroup.EntityData.Children = make(map[string]types.YChild)
-    ssmAccessGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssmAccessGroup.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", ssmAccessGroup.SourceAddress}
-    ssmAccessGroup.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", ssmAccessGroup.AccessListName}
+    ssmAccessGroup.EntityData.Children = types.NewOrderedMap()
+    ssmAccessGroup.EntityData.Leafs = types.NewOrderedMap()
+    ssmAccessGroup.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", ssmAccessGroup.SourceAddress})
+    ssmAccessGroup.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", ssmAccessGroup.AccessListName})
+
+    ssmAccessGroup.EntityData.YListKeys = []string {"SourceAddress"}
+
     return &(ssmAccessGroup.EntityData)
 }
 
@@ -1522,9 +1631,12 @@ func (maximum *Igmp_DefaultContext_Maximum) GetEntityData() *types.CommonEntityD
     maximum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximum.EntityData.Children = make(map[string]types.YChild)
-    maximum.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximum.EntityData.Leafs["maximum-groups"] = types.YLeaf{"MaximumGroups", maximum.MaximumGroups}
+    maximum.EntityData.Children = types.NewOrderedMap()
+    maximum.EntityData.Leafs = types.NewOrderedMap()
+    maximum.EntityData.Leafs.Append("maximum-groups", types.YLeaf{"MaximumGroups", maximum.MaximumGroups})
+
+    maximum.EntityData.YListKeys = []string {}
+
     return &(maximum.EntityData)
 }
 
@@ -1535,8 +1647,8 @@ type Igmp_DefaultContext_Interfaces struct {
     YFilter yfilter.YFilter
 
     // The name of the interface. The type is slice of
-    // Igmp_DefaultContext_Interfaces_Interface_.
-    Interface_ []Igmp_DefaultContext_Interfaces_Interface
+    // Igmp_DefaultContext_Interfaces_Interface.
+    Interface []*Igmp_DefaultContext_Interfaces_Interface
 }
 
 func (interfaces *Igmp_DefaultContext_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -1549,12 +1661,15 @@ func (interfaces *Igmp_DefaultContext_Interfaces) GetEntityData() *types.CommonE
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -1565,7 +1680,7 @@ type Igmp_DefaultContext_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // IGMP previous querier timeout. The type is interface{} with range: 60..300.
@@ -1610,24 +1725,27 @@ func (self *Igmp_DefaultContext_Interfaces_Interface) GetEntityData() *types.Com
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["join-groups"] = types.YChild{"JoinGroups", &self.JoinGroups}
-    self.EntityData.Children["static-group-group-addresses"] = types.YChild{"StaticGroupGroupAddresses", &self.StaticGroupGroupAddresses}
-    self.EntityData.Children["maximum-groups-per-interface-oor"] = types.YChild{"MaximumGroupsPerInterfaceOor", &self.MaximumGroupsPerInterfaceOor}
-    self.EntityData.Children["explicit-tracking"] = types.YChild{"ExplicitTracking", &self.ExplicitTracking}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["query-timeout"] = types.YLeaf{"QueryTimeout", self.QueryTimeout}
-    self.EntityData.Leafs["access-group"] = types.YLeaf{"AccessGroup", self.AccessGroup}
-    self.EntityData.Leafs["query-max-response-time"] = types.YLeaf{"QueryMaxResponseTime", self.QueryMaxResponseTime}
-    self.EntityData.Leafs["version"] = types.YLeaf{"Version", self.Version}
-    self.EntityData.Leafs["router-enable"] = types.YLeaf{"RouterEnable", self.RouterEnable}
-    self.EntityData.Leafs["query-interval"] = types.YLeaf{"QueryInterval", self.QueryInterval}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("join-groups", types.YChild{"JoinGroups", &self.JoinGroups})
+    self.EntityData.Children.Append("static-group-group-addresses", types.YChild{"StaticGroupGroupAddresses", &self.StaticGroupGroupAddresses})
+    self.EntityData.Children.Append("maximum-groups-per-interface-oor", types.YChild{"MaximumGroupsPerInterfaceOor", &self.MaximumGroupsPerInterfaceOor})
+    self.EntityData.Children.Append("explicit-tracking", types.YChild{"ExplicitTracking", &self.ExplicitTracking})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("query-timeout", types.YLeaf{"QueryTimeout", self.QueryTimeout})
+    self.EntityData.Leafs.Append("access-group", types.YLeaf{"AccessGroup", self.AccessGroup})
+    self.EntityData.Leafs.Append("query-max-response-time", types.YLeaf{"QueryMaxResponseTime", self.QueryMaxResponseTime})
+    self.EntityData.Leafs.Append("version", types.YLeaf{"Version", self.Version})
+    self.EntityData.Leafs.Append("router-enable", types.YLeaf{"RouterEnable", self.RouterEnable})
+    self.EntityData.Leafs.Append("query-interval", types.YLeaf{"QueryInterval", self.QueryInterval})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -1637,15 +1755,16 @@ func (self *Igmp_DefaultContext_Interfaces_Interface) GetEntityData() *types.Com
 type Igmp_DefaultContext_Interfaces_Interface_JoinGroups struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // IP group address and optional source address to include. The type is slice
     // of Igmp_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroup.
-    JoinGroup []Igmp_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroup
+    JoinGroup []*Igmp_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroup
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Igmp_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress.
-    JoinGroupSourceAddress []Igmp_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress
+    JoinGroupSourceAddress []*Igmp_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress
 }
 
 func (joinGroups *Igmp_DefaultContext_Interfaces_Interface_JoinGroups) GetEntityData() *types.CommonEntityData {
@@ -1658,16 +1777,19 @@ func (joinGroups *Igmp_DefaultContext_Interfaces_Interface_JoinGroups) GetEntity
     joinGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    joinGroups.EntityData.Children = make(map[string]types.YChild)
-    joinGroups.EntityData.Children["join-group"] = types.YChild{"JoinGroup", nil}
+    joinGroups.EntityData.Children = types.NewOrderedMap()
+    joinGroups.EntityData.Children.Append("join-group", types.YChild{"JoinGroup", nil})
     for i := range joinGroups.JoinGroup {
-        joinGroups.EntityData.Children[types.GetSegmentPath(&joinGroups.JoinGroup[i])] = types.YChild{"JoinGroup", &joinGroups.JoinGroup[i]}
+        joinGroups.EntityData.Children.Append(types.GetSegmentPath(joinGroups.JoinGroup[i]), types.YChild{"JoinGroup", joinGroups.JoinGroup[i]})
     }
-    joinGroups.EntityData.Children["join-group-source-address"] = types.YChild{"JoinGroupSourceAddress", nil}
+    joinGroups.EntityData.Children.Append("join-group-source-address", types.YChild{"JoinGroupSourceAddress", nil})
     for i := range joinGroups.JoinGroupSourceAddress {
-        joinGroups.EntityData.Children[types.GetSegmentPath(&joinGroups.JoinGroupSourceAddress[i])] = types.YChild{"JoinGroupSourceAddress", &joinGroups.JoinGroupSourceAddress[i]}
+        joinGroups.EntityData.Children.Append(types.GetSegmentPath(joinGroups.JoinGroupSourceAddress[i]), types.YChild{"JoinGroupSourceAddress", joinGroups.JoinGroupSourceAddress[i]})
     }
-    joinGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    joinGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    joinGroups.EntityData.YListKeys = []string {}
+
     return &(joinGroups.EntityData)
 }
 
@@ -1680,9 +1802,9 @@ type Igmp_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroup struct {
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // Filter mode. The type is IgmpFilter. This attribute is mandatory.
@@ -1694,15 +1816,18 @@ func (joinGroup *Igmp_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroup) 
     joinGroup.EntityData.YangName = "join-group"
     joinGroup.EntityData.BundleName = "cisco_ios_xr"
     joinGroup.EntityData.ParentYangName = "join-groups"
-    joinGroup.EntityData.SegmentPath = "join-group" + "[group-address='" + fmt.Sprintf("%v", joinGroup.GroupAddress) + "']"
+    joinGroup.EntityData.SegmentPath = "join-group" + types.AddKeyToken(joinGroup.GroupAddress, "group-address")
     joinGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    joinGroup.EntityData.Children = make(map[string]types.YChild)
-    joinGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    joinGroup.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", joinGroup.GroupAddress}
-    joinGroup.EntityData.Leafs["mode"] = types.YLeaf{"Mode", joinGroup.Mode}
+    joinGroup.EntityData.Children = types.NewOrderedMap()
+    joinGroup.EntityData.Leafs = types.NewOrderedMap()
+    joinGroup.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", joinGroup.GroupAddress})
+    joinGroup.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", joinGroup.Mode})
+
+    joinGroup.EntityData.YListKeys = []string {"GroupAddress"}
+
     return &(joinGroup.EntityData)
 }
 
@@ -1715,16 +1840,16 @@ type Igmp_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress 
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. Optional IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Filter mode. The type is IgmpFilter. This attribute is mandatory.
@@ -1736,16 +1861,19 @@ func (joinGroupSourceAddress *Igmp_DefaultContext_Interfaces_Interface_JoinGroup
     joinGroupSourceAddress.EntityData.YangName = "join-group-source-address"
     joinGroupSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     joinGroupSourceAddress.EntityData.ParentYangName = "join-groups"
-    joinGroupSourceAddress.EntityData.SegmentPath = "join-group-source-address" + "[group-address='" + fmt.Sprintf("%v", joinGroupSourceAddress.GroupAddress) + "']" + "[source-address='" + fmt.Sprintf("%v", joinGroupSourceAddress.SourceAddress) + "']"
+    joinGroupSourceAddress.EntityData.SegmentPath = "join-group-source-address" + types.AddKeyToken(joinGroupSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(joinGroupSourceAddress.SourceAddress, "source-address")
     joinGroupSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroupSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroupSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    joinGroupSourceAddress.EntityData.Children = make(map[string]types.YChild)
-    joinGroupSourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    joinGroupSourceAddress.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", joinGroupSourceAddress.GroupAddress}
-    joinGroupSourceAddress.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", joinGroupSourceAddress.SourceAddress}
-    joinGroupSourceAddress.EntityData.Leafs["mode"] = types.YLeaf{"Mode", joinGroupSourceAddress.Mode}
+    joinGroupSourceAddress.EntityData.Children = types.NewOrderedMap()
+    joinGroupSourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    joinGroupSourceAddress.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", joinGroupSourceAddress.GroupAddress})
+    joinGroupSourceAddress.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", joinGroupSourceAddress.SourceAddress})
+    joinGroupSourceAddress.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", joinGroupSourceAddress.Mode})
+
+    joinGroupSourceAddress.EntityData.YListKeys = []string {"GroupAddress", "SourceAddress"}
+
     return &(joinGroupSourceAddress.EntityData)
 }
 
@@ -1758,32 +1886,32 @@ type Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses struct {
     // IP group address and optional source address to include. The type is slice
     // of
     // Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddress.
-    StaticGroupGroupAddress []Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddress
+    StaticGroupGroupAddress []*Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddress
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddress.
-    StaticGroupGroupAddressSourceAddress []Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddress
+    StaticGroupGroupAddressSourceAddress []*Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddress
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddressSourceAddressMask.
-    StaticGroupGroupAddressSourceAddressSourceAddressMask []Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddressSourceAddressMask
+    StaticGroupGroupAddressSourceAddressSourceAddressMask []*Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddressSourceAddressMask
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMask.
-    StaticGroupGroupAddressGroupAddressMask []Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMask
+    StaticGroupGroupAddressGroupAddressMask []*Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMask
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddress.
-    StaticGroupGroupAddressGroupAddressMaskSourceAddress []Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddress
+    StaticGroupGroupAddressGroupAddressMaskSourceAddress []*Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddress
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.
-    StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask []Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask
+    StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask []*Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask
 }
 
 func (staticGroupGroupAddresses *Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses) GetEntityData() *types.CommonEntityData {
@@ -1796,32 +1924,35 @@ func (staticGroupGroupAddresses *Igmp_DefaultContext_Interfaces_Interface_Static
     staticGroupGroupAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddresses.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address"] = types.YChild{"StaticGroupGroupAddress", nil}
+    staticGroupGroupAddresses.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address", types.YChild{"StaticGroupGroupAddress", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddress {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddress[i])] = types.YChild{"StaticGroupGroupAddress", &staticGroupGroupAddresses.StaticGroupGroupAddress[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddress[i]), types.YChild{"StaticGroupGroupAddress", staticGroupGroupAddresses.StaticGroupGroupAddress[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-source-address"] = types.YChild{"StaticGroupGroupAddressSourceAddress", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-source-address", types.YChild{"StaticGroupGroupAddressSourceAddress", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress[i])] = types.YChild{"StaticGroupGroupAddressSourceAddress", &staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress[i]), types.YChild{"StaticGroupGroupAddressSourceAddress", staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-source-address-source-address-mask"] = types.YChild{"StaticGroupGroupAddressSourceAddressSourceAddressMask", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-source-address-source-address-mask", types.YChild{"StaticGroupGroupAddressSourceAddressSourceAddressMask", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask[i])] = types.YChild{"StaticGroupGroupAddressSourceAddressSourceAddressMask", &staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask[i]), types.YChild{"StaticGroupGroupAddressSourceAddressSourceAddressMask", staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-group-address-mask"] = types.YChild{"StaticGroupGroupAddressGroupAddressMask", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-group-address-mask", types.YChild{"StaticGroupGroupAddressGroupAddressMask", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask[i])] = types.YChild{"StaticGroupGroupAddressGroupAddressMask", &staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask[i]), types.YChild{"StaticGroupGroupAddressGroupAddressMask", staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-group-address-mask-source-address"] = types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddress", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-group-address-mask-source-address", types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddress", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress[i])] = types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddress", &staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress[i]), types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddress", staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-group-address-mask-source-address-source-address-mask"] = types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-group-address-mask-source-address-source-address-mask", types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask[i])] = types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask", &staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask[i]), types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask", staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask[i]})
     }
-    staticGroupGroupAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    staticGroupGroupAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    staticGroupGroupAddresses.EntityData.YListKeys = []string {}
+
     return &(staticGroupGroupAddresses.EntityData)
 }
 
@@ -1834,9 +1965,9 @@ type Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGr
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -1856,17 +1987,20 @@ func (staticGroupGroupAddress *Igmp_DefaultContext_Interfaces_Interface_StaticGr
     staticGroupGroupAddress.EntityData.YangName = "static-group-group-address"
     staticGroupGroupAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddress.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddress.EntityData.SegmentPath = "static-group-group-address" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddress.GroupAddress) + "']"
+    staticGroupGroupAddress.EntityData.SegmentPath = "static-group-group-address" + types.AddKeyToken(staticGroupGroupAddress.GroupAddress, "group-address")
     staticGroupGroupAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddress.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddress.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddress.GroupAddress}
-    staticGroupGroupAddress.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddress.GroupCount}
-    staticGroupGroupAddress.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddress.SourceCount}
-    staticGroupGroupAddress.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddress.SuppressReport}
+    staticGroupGroupAddress.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddress.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddress.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddress.GroupAddress})
+    staticGroupGroupAddress.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddress.GroupCount})
+    staticGroupGroupAddress.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddress.SourceCount})
+    staticGroupGroupAddress.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddress.SuppressReport})
+
+    staticGroupGroupAddress.EntityData.YListKeys = []string {"GroupAddress"}
+
     return &(staticGroupGroupAddress.EntityData)
 }
 
@@ -1879,16 +2013,16 @@ type Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGr
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -1908,18 +2042,21 @@ func (staticGroupGroupAddressSourceAddress *Igmp_DefaultContext_Interfaces_Inter
     staticGroupGroupAddressSourceAddress.EntityData.YangName = "static-group-group-address-source-address"
     staticGroupGroupAddressSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressSourceAddress.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressSourceAddress.EntityData.SegmentPath = "static-group-group-address-source-address" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddress.GroupAddress) + "']" + "[source-address='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddress.SourceAddress) + "']"
+    staticGroupGroupAddressSourceAddress.EntityData.SegmentPath = "static-group-group-address-source-address" + types.AddKeyToken(staticGroupGroupAddressSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddress.SourceAddress, "source-address")
     staticGroupGroupAddressSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressSourceAddress.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressSourceAddress.GroupAddress}
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", staticGroupGroupAddressSourceAddress.SourceAddress}
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressSourceAddress.GroupCount}
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressSourceAddress.SourceCount}
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressSourceAddress.SuppressReport}
+    staticGroupGroupAddressSourceAddress.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressSourceAddress.GroupAddress})
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", staticGroupGroupAddressSourceAddress.SourceAddress})
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressSourceAddress.GroupCount})
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressSourceAddress.SourceCount})
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressSourceAddress.SuppressReport})
+
+    staticGroupGroupAddressSourceAddress.EntityData.YListKeys = []string {"GroupAddress", "SourceAddress"}
+
     return &(staticGroupGroupAddressSourceAddress.EntityData)
 }
 
@@ -1932,23 +2069,23 @@ type Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGr
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Mask for Source Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddressMask interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -1968,19 +2105,22 @@ func (staticGroupGroupAddressSourceAddressSourceAddressMask *Igmp_DefaultContext
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.YangName = "static-group-group-address-source-address-source-address-mask"
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-source-address-source-address-mask" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress) + "']" + "[source-address='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress) + "']" + "[source-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask) + "']"
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-source-address-source-address-mask" + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress, "source-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask, "source-address-mask")
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["source-address-mask"] = types.YLeaf{"SourceAddressMask", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupCount}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceCount}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressSourceAddressSourceAddressMask.SuppressReport}
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-address-mask", types.YLeaf{"SourceAddressMask", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupCount})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceCount})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressSourceAddressSourceAddressMask.SuppressReport})
+
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.YListKeys = []string {"GroupAddress", "SourceAddress", "SourceAddressMask"}
+
     return &(staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData)
 }
 
@@ -1993,16 +2133,16 @@ type Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGr
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. Mask for Group Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddressMask interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -2022,18 +2162,21 @@ func (staticGroupGroupAddressGroupAddressMask *Igmp_DefaultContext_Interfaces_In
     staticGroupGroupAddressGroupAddressMask.EntityData.YangName = "static-group-group-address-group-address-mask"
     staticGroupGroupAddressGroupAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressGroupAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMask.GroupAddress) + "']" + "[group-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMask.GroupAddressMask) + "']"
+    staticGroupGroupAddressGroupAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMask.GroupAddressMask, "group-address-mask")
     staticGroupGroupAddressGroupAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressGroupAddressMask.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMask.GroupAddress}
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["group-address-mask"] = types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMask.GroupAddressMask}
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMask.GroupCount}
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMask.SourceCount}
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMask.SuppressReport}
+    staticGroupGroupAddressGroupAddressMask.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMask.GroupAddress})
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("group-address-mask", types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMask.GroupAddressMask})
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMask.GroupCount})
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMask.SourceCount})
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMask.SuppressReport})
+
+    staticGroupGroupAddressGroupAddressMask.EntityData.YListKeys = []string {"GroupAddress", "GroupAddressMask"}
+
     return &(staticGroupGroupAddressGroupAddressMask.EntityData)
 }
 
@@ -2046,23 +2189,23 @@ type Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGr
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. Mask for Group Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddressMask interface{}
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -2082,19 +2225,22 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddress *Igmp_DefaultContext_
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.YangName = "static-group-group-address-group-address-mask-source-address"
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress) + "']" + "[group-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask) + "']" + "[source-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress) + "']"
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask, "group-address-mask") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress, "source-address")
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["group-address-mask"] = types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupCount}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceCount}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMaskSourceAddress.SuppressReport}
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("group-address-mask", types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupCount})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceCount})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMaskSourceAddress.SuppressReport})
+
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.YListKeys = []string {"GroupAddress", "GroupAddressMask", "SourceAddress"}
+
     return &(staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData)
 }
 
@@ -2107,30 +2253,30 @@ type Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGr
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. Mask for Group Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddressMask interface{}
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Mask for Source Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddressMask interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -2150,20 +2296,23 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask *Igm
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.YangName = "static-group-group-address-group-address-mask-source-address-source-address-mask"
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address-source-address-mask" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress) + "']" + "[group-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask) + "']" + "[source-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress) + "']" + "[source-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask) + "']"
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address-source-address-mask" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask, "group-address-mask") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress, "source-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask, "source-address-mask")
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["group-address-mask"] = types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["source-address-mask"] = types.YLeaf{"SourceAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupCount}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceCount}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SuppressReport}
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-address-mask", types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-address-mask", types.YLeaf{"SourceAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupCount})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceCount})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SuppressReport})
+
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.YListKeys = []string {"GroupAddress", "GroupAddressMask", "SourceAddress", "SourceAddressMask"}
+
     return &(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData)
 }
 
@@ -2174,6 +2323,7 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask *Igm
 type Igmp_DefaultContext_Interfaces_Interface_MaximumGroupsPerInterfaceOor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of groups accepted per interface by this router. The type is
     // interface{} with range: 1..40000. This attribute is mandatory.
@@ -2198,11 +2348,14 @@ func (maximumGroupsPerInterfaceOor *Igmp_DefaultContext_Interfaces_Interface_Max
     maximumGroupsPerInterfaceOor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumGroupsPerInterfaceOor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximumGroupsPerInterfaceOor.EntityData.Children = make(map[string]types.YChild)
-    maximumGroupsPerInterfaceOor.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["maximum-groups"] = types.YLeaf{"MaximumGroups", maximumGroupsPerInterfaceOor.MaximumGroups}
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", maximumGroupsPerInterfaceOor.WarningThreshold}
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", maximumGroupsPerInterfaceOor.AccessListName}
+    maximumGroupsPerInterfaceOor.EntityData.Children = types.NewOrderedMap()
+    maximumGroupsPerInterfaceOor.EntityData.Leafs = types.NewOrderedMap()
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("maximum-groups", types.YLeaf{"MaximumGroups", maximumGroupsPerInterfaceOor.MaximumGroups})
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", maximumGroupsPerInterfaceOor.WarningThreshold})
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", maximumGroupsPerInterfaceOor.AccessListName})
+
+    maximumGroupsPerInterfaceOor.EntityData.YListKeys = []string {}
+
     return &(maximumGroupsPerInterfaceOor.EntityData)
 }
 
@@ -2212,6 +2365,7 @@ func (maximumGroupsPerInterfaceOor *Igmp_DefaultContext_Interfaces_Interface_Max
 type Igmp_DefaultContext_Interfaces_Interface_ExplicitTracking struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Enabled or disabled, when value is TRUE or FALSE respectively. The type is
     // bool. This attribute is mandatory.
@@ -2232,10 +2386,13 @@ func (explicitTracking *Igmp_DefaultContext_Interfaces_Interface_ExplicitTrackin
     explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    explicitTracking.EntityData.Children = make(map[string]types.YChild)
-    explicitTracking.EntityData.Leafs = make(map[string]types.YLeaf)
-    explicitTracking.EntityData.Leafs["enable"] = types.YLeaf{"Enable", explicitTracking.Enable}
-    explicitTracking.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", explicitTracking.AccessListName}
+    explicitTracking.EntityData.Children = types.NewOrderedMap()
+    explicitTracking.EntityData.Leafs = types.NewOrderedMap()
+    explicitTracking.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", explicitTracking.Enable})
+    explicitTracking.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", explicitTracking.AccessListName})
+
+    explicitTracking.EntityData.YListKeys = []string {}
+
     return &(explicitTracking.EntityData)
 }
 
@@ -2298,20 +2455,23 @@ func (amt *Amt) GetEntityData() *types.CommonEntityData {
     amt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     amt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    amt.EntityData.Children = make(map[string]types.YChild)
-    amt.EntityData.Children["relay-adv-add"] = types.YChild{"RelayAdvAdd", &amt.RelayAdvAdd}
-    amt.EntityData.Children["relay-anycast-prefix"] = types.YChild{"RelayAnycastPrefix", &amt.RelayAnycastPrefix}
-    amt.EntityData.Leafs = make(map[string]types.YLeaf)
-    amt.EntityData.Leafs["maximum-v4-route-gateway"] = types.YLeaf{"MaximumV4RouteGateway", amt.MaximumV4RouteGateway}
-    amt.EntityData.Leafs["gateway-filter"] = types.YLeaf{"GatewayFilter", amt.GatewayFilter}
-    amt.EntityData.Leafs["maximum-v4-routes"] = types.YLeaf{"MaximumV4Routes", amt.MaximumV4Routes}
-    amt.EntityData.Leafs["amttos"] = types.YLeaf{"Amttos", amt.Amttos}
-    amt.EntityData.Leafs["amtttl"] = types.YLeaf{"Amtttl", amt.Amtttl}
-    amt.EntityData.Leafs["maximum-v6-route-gateway"] = types.YLeaf{"MaximumV6RouteGateway", amt.MaximumV6RouteGateway}
-    amt.EntityData.Leafs["maximum-gateway"] = types.YLeaf{"MaximumGateway", amt.MaximumGateway}
-    amt.EntityData.Leafs["maximum-v6-routes"] = types.YLeaf{"MaximumV6Routes", amt.MaximumV6Routes}
-    amt.EntityData.Leafs["amtqqic"] = types.YLeaf{"Amtqqic", amt.Amtqqic}
-    amt.EntityData.Leafs["amtmtu"] = types.YLeaf{"Amtmtu", amt.Amtmtu}
+    amt.EntityData.Children = types.NewOrderedMap()
+    amt.EntityData.Children.Append("relay-adv-add", types.YChild{"RelayAdvAdd", &amt.RelayAdvAdd})
+    amt.EntityData.Children.Append("relay-anycast-prefix", types.YChild{"RelayAnycastPrefix", &amt.RelayAnycastPrefix})
+    amt.EntityData.Leafs = types.NewOrderedMap()
+    amt.EntityData.Leafs.Append("maximum-v4-route-gateway", types.YLeaf{"MaximumV4RouteGateway", amt.MaximumV4RouteGateway})
+    amt.EntityData.Leafs.Append("gateway-filter", types.YLeaf{"GatewayFilter", amt.GatewayFilter})
+    amt.EntityData.Leafs.Append("maximum-v4-routes", types.YLeaf{"MaximumV4Routes", amt.MaximumV4Routes})
+    amt.EntityData.Leafs.Append("amttos", types.YLeaf{"Amttos", amt.Amttos})
+    amt.EntityData.Leafs.Append("amtttl", types.YLeaf{"Amtttl", amt.Amtttl})
+    amt.EntityData.Leafs.Append("maximum-v6-route-gateway", types.YLeaf{"MaximumV6RouteGateway", amt.MaximumV6RouteGateway})
+    amt.EntityData.Leafs.Append("maximum-gateway", types.YLeaf{"MaximumGateway", amt.MaximumGateway})
+    amt.EntityData.Leafs.Append("maximum-v6-routes", types.YLeaf{"MaximumV6Routes", amt.MaximumV6Routes})
+    amt.EntityData.Leafs.Append("amtqqic", types.YLeaf{"Amtqqic", amt.Amtqqic})
+    amt.EntityData.Leafs.Append("amtmtu", types.YLeaf{"Amtmtu", amt.Amtmtu})
+
+    amt.EntityData.YListKeys = []string {}
+
     return &(amt.EntityData)
 }
 
@@ -2321,15 +2481,16 @@ func (amt *Amt) GetEntityData() *types.CommonEntityData {
 type Amt_RelayAdvAdd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // AMT Relay IPv4 Advertisement Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Address interface{}
 
     // Relay Advertisement Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9./-]+'.
-    Interface_ interface{}
+    // [a-zA-Z0-9./-]+.
+    Interface interface{}
 }
 
 func (relayAdvAdd *Amt_RelayAdvAdd) GetEntityData() *types.CommonEntityData {
@@ -2342,10 +2503,13 @@ func (relayAdvAdd *Amt_RelayAdvAdd) GetEntityData() *types.CommonEntityData {
     relayAdvAdd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relayAdvAdd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    relayAdvAdd.EntityData.Children = make(map[string]types.YChild)
-    relayAdvAdd.EntityData.Leafs = make(map[string]types.YLeaf)
-    relayAdvAdd.EntityData.Leafs["address"] = types.YLeaf{"Address", relayAdvAdd.Address}
-    relayAdvAdd.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", relayAdvAdd.Interface_}
+    relayAdvAdd.EntityData.Children = types.NewOrderedMap()
+    relayAdvAdd.EntityData.Leafs = types.NewOrderedMap()
+    relayAdvAdd.EntityData.Leafs.Append("address", types.YLeaf{"Address", relayAdvAdd.Address})
+    relayAdvAdd.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", relayAdvAdd.Interface})
+
+    relayAdvAdd.EntityData.YListKeys = []string {}
+
     return &(relayAdvAdd.EntityData)
 }
 
@@ -2355,9 +2519,10 @@ func (relayAdvAdd *Amt_RelayAdvAdd) GetEntityData() *types.CommonEntityData {
 type Amt_RelayAnycastPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Anycast-Prefix Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Address interface{}
 
@@ -2375,16 +2540,18 @@ func (relayAnycastPrefix *Amt_RelayAnycastPrefix) GetEntityData() *types.CommonE
     relayAnycastPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relayAnycastPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    relayAnycastPrefix.EntityData.Children = make(map[string]types.YChild)
-    relayAnycastPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
-    relayAnycastPrefix.EntityData.Leafs["address"] = types.YLeaf{"Address", relayAnycastPrefix.Address}
-    relayAnycastPrefix.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", relayAnycastPrefix.PrefixLength}
+    relayAnycastPrefix.EntityData.Children = types.NewOrderedMap()
+    relayAnycastPrefix.EntityData.Leafs = types.NewOrderedMap()
+    relayAnycastPrefix.EntityData.Leafs.Append("address", types.YLeaf{"Address", relayAnycastPrefix.Address})
+    relayAnycastPrefix.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", relayAnycastPrefix.PrefixLength})
+
+    relayAnycastPrefix.EntityData.YListKeys = []string {}
+
     return &(relayAnycastPrefix.EntityData)
 }
 
 // Mld
 // mld
-// This type is a presence type.
 type Mld struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2406,10 +2573,13 @@ func (mld *Mld) GetEntityData() *types.CommonEntityData {
     mld.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mld.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mld.EntityData.Children = make(map[string]types.YChild)
-    mld.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &mld.Vrfs}
-    mld.EntityData.Children["default-context"] = types.YChild{"DefaultContext", &mld.DefaultContext}
-    mld.EntityData.Leafs = make(map[string]types.YLeaf)
+    mld.EntityData.Children = types.NewOrderedMap()
+    mld.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &mld.Vrfs})
+    mld.EntityData.Children.Append("default-context", types.YChild{"DefaultContext", &mld.DefaultContext})
+    mld.EntityData.Leafs = types.NewOrderedMap()
+
+    mld.EntityData.YListKeys = []string {}
+
     return &(mld.EntityData)
 }
 
@@ -2420,7 +2590,7 @@ type Mld_Vrfs struct {
     YFilter yfilter.YFilter
 
     // Configuration for a particular vrf. The type is slice of Mld_Vrfs_Vrf.
-    Vrf []Mld_Vrfs_Vrf
+    Vrf []*Mld_Vrfs_Vrf
 }
 
 func (vrfs *Mld_Vrfs) GetEntityData() *types.CommonEntityData {
@@ -2433,12 +2603,15 @@ func (vrfs *Mld_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrfs.EntityData.Children = make(map[string]types.YChild)
-    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
+    vrfs.EntityData.Children = types.NewOrderedMap()
+    vrfs.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range vrfs.Vrf {
-        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
+        vrfs.EntityData.Children.Append(types.GetSegmentPath(vrfs.Vrf[i]), types.YChild{"Vrf", vrfs.Vrf[i]})
     }
-    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfs.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfs.EntityData.YListKeys = []string {}
+
     return &(vrfs.EntityData)
 }
 
@@ -2480,21 +2653,24 @@ func (vrf *Mld_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
-    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrf.EntityData.Children = make(map[string]types.YChild)
-    vrf.EntityData.Children["traffic"] = types.YChild{"Traffic", &vrf.Traffic}
-    vrf.EntityData.Children["inheritable-defaults"] = types.YChild{"InheritableDefaults", &vrf.InheritableDefaults}
-    vrf.EntityData.Children["ssm-access-groups"] = types.YChild{"SsmAccessGroups", &vrf.SsmAccessGroups}
-    vrf.EntityData.Children["maximum"] = types.YChild{"Maximum", &vrf.Maximum}
-    vrf.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &vrf.Interfaces}
-    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
-    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
-    vrf.EntityData.Leafs["ssmdns-query-group"] = types.YLeaf{"SsmdnsQueryGroup", vrf.SsmdnsQueryGroup}
-    vrf.EntityData.Leafs["robustness"] = types.YLeaf{"Robustness", vrf.Robustness}
+    vrf.EntityData.Children = types.NewOrderedMap()
+    vrf.EntityData.Children.Append("traffic", types.YChild{"Traffic", &vrf.Traffic})
+    vrf.EntityData.Children.Append("inheritable-defaults", types.YChild{"InheritableDefaults", &vrf.InheritableDefaults})
+    vrf.EntityData.Children.Append("ssm-access-groups", types.YChild{"SsmAccessGroups", &vrf.SsmAccessGroups})
+    vrf.EntityData.Children.Append("maximum", types.YChild{"Maximum", &vrf.Maximum})
+    vrf.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &vrf.Interfaces})
+    vrf.EntityData.Leafs = types.NewOrderedMap()
+    vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+    vrf.EntityData.Leafs.Append("ssmdns-query-group", types.YLeaf{"SsmdnsQueryGroup", vrf.SsmdnsQueryGroup})
+    vrf.EntityData.Leafs.Append("robustness", types.YLeaf{"Robustness", vrf.Robustness})
+
+    vrf.EntityData.YListKeys = []string {"VrfName"}
+
     return &(vrf.EntityData)
 }
 
@@ -2518,9 +2694,12 @@ func (traffic *Mld_Vrfs_Vrf_Traffic) GetEntityData() *types.CommonEntityData {
     traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    traffic.EntityData.Children = make(map[string]types.YChild)
-    traffic.EntityData.Leafs = make(map[string]types.YLeaf)
-    traffic.EntityData.Leafs["profile"] = types.YLeaf{"Profile", traffic.Profile}
+    traffic.EntityData.Children = types.NewOrderedMap()
+    traffic.EntityData.Leafs = types.NewOrderedMap()
+    traffic.EntityData.Leafs.Append("profile", types.YLeaf{"Profile", traffic.Profile})
+
+    traffic.EntityData.YListKeys = []string {}
+
     return &(traffic.EntityData)
 }
 
@@ -2571,16 +2750,19 @@ func (inheritableDefaults *Mld_Vrfs_Vrf_InheritableDefaults) GetEntityData() *ty
     inheritableDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritableDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inheritableDefaults.EntityData.Children = make(map[string]types.YChild)
-    inheritableDefaults.EntityData.Children["maximum-groups-per-interface-oor"] = types.YChild{"MaximumGroupsPerInterfaceOor", &inheritableDefaults.MaximumGroupsPerInterfaceOor}
-    inheritableDefaults.EntityData.Children["explicit-tracking"] = types.YChild{"ExplicitTracking", &inheritableDefaults.ExplicitTracking}
-    inheritableDefaults.EntityData.Leafs = make(map[string]types.YLeaf)
-    inheritableDefaults.EntityData.Leafs["query-timeout"] = types.YLeaf{"QueryTimeout", inheritableDefaults.QueryTimeout}
-    inheritableDefaults.EntityData.Leafs["access-group"] = types.YLeaf{"AccessGroup", inheritableDefaults.AccessGroup}
-    inheritableDefaults.EntityData.Leafs["query-max-response-time"] = types.YLeaf{"QueryMaxResponseTime", inheritableDefaults.QueryMaxResponseTime}
-    inheritableDefaults.EntityData.Leafs["version"] = types.YLeaf{"Version", inheritableDefaults.Version}
-    inheritableDefaults.EntityData.Leafs["router-enable"] = types.YLeaf{"RouterEnable", inheritableDefaults.RouterEnable}
-    inheritableDefaults.EntityData.Leafs["query-interval"] = types.YLeaf{"QueryInterval", inheritableDefaults.QueryInterval}
+    inheritableDefaults.EntityData.Children = types.NewOrderedMap()
+    inheritableDefaults.EntityData.Children.Append("maximum-groups-per-interface-oor", types.YChild{"MaximumGroupsPerInterfaceOor", &inheritableDefaults.MaximumGroupsPerInterfaceOor})
+    inheritableDefaults.EntityData.Children.Append("explicit-tracking", types.YChild{"ExplicitTracking", &inheritableDefaults.ExplicitTracking})
+    inheritableDefaults.EntityData.Leafs = types.NewOrderedMap()
+    inheritableDefaults.EntityData.Leafs.Append("query-timeout", types.YLeaf{"QueryTimeout", inheritableDefaults.QueryTimeout})
+    inheritableDefaults.EntityData.Leafs.Append("access-group", types.YLeaf{"AccessGroup", inheritableDefaults.AccessGroup})
+    inheritableDefaults.EntityData.Leafs.Append("query-max-response-time", types.YLeaf{"QueryMaxResponseTime", inheritableDefaults.QueryMaxResponseTime})
+    inheritableDefaults.EntityData.Leafs.Append("version", types.YLeaf{"Version", inheritableDefaults.Version})
+    inheritableDefaults.EntityData.Leafs.Append("router-enable", types.YLeaf{"RouterEnable", inheritableDefaults.RouterEnable})
+    inheritableDefaults.EntityData.Leafs.Append("query-interval", types.YLeaf{"QueryInterval", inheritableDefaults.QueryInterval})
+
+    inheritableDefaults.EntityData.YListKeys = []string {}
+
     return &(inheritableDefaults.EntityData)
 }
 
@@ -2591,6 +2773,7 @@ func (inheritableDefaults *Mld_Vrfs_Vrf_InheritableDefaults) GetEntityData() *ty
 type Mld_Vrfs_Vrf_InheritableDefaults_MaximumGroupsPerInterfaceOor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of groups accepted per interface by this router. The type is
     // interface{} with range: 1..40000. This attribute is mandatory.
@@ -2615,11 +2798,14 @@ func (maximumGroupsPerInterfaceOor *Mld_Vrfs_Vrf_InheritableDefaults_MaximumGrou
     maximumGroupsPerInterfaceOor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumGroupsPerInterfaceOor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximumGroupsPerInterfaceOor.EntityData.Children = make(map[string]types.YChild)
-    maximumGroupsPerInterfaceOor.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["maximum-groups"] = types.YLeaf{"MaximumGroups", maximumGroupsPerInterfaceOor.MaximumGroups}
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", maximumGroupsPerInterfaceOor.WarningThreshold}
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", maximumGroupsPerInterfaceOor.AccessListName}
+    maximumGroupsPerInterfaceOor.EntityData.Children = types.NewOrderedMap()
+    maximumGroupsPerInterfaceOor.EntityData.Leafs = types.NewOrderedMap()
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("maximum-groups", types.YLeaf{"MaximumGroups", maximumGroupsPerInterfaceOor.MaximumGroups})
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", maximumGroupsPerInterfaceOor.WarningThreshold})
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", maximumGroupsPerInterfaceOor.AccessListName})
+
+    maximumGroupsPerInterfaceOor.EntityData.YListKeys = []string {}
+
     return &(maximumGroupsPerInterfaceOor.EntityData)
 }
 
@@ -2629,6 +2815,7 @@ func (maximumGroupsPerInterfaceOor *Mld_Vrfs_Vrf_InheritableDefaults_MaximumGrou
 type Mld_Vrfs_Vrf_InheritableDefaults_ExplicitTracking struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Enabled or disabled, when value is TRUE or FALSE respectively. The type is
     // bool. This attribute is mandatory.
@@ -2649,10 +2836,13 @@ func (explicitTracking *Mld_Vrfs_Vrf_InheritableDefaults_ExplicitTracking) GetEn
     explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    explicitTracking.EntityData.Children = make(map[string]types.YChild)
-    explicitTracking.EntityData.Leafs = make(map[string]types.YLeaf)
-    explicitTracking.EntityData.Leafs["enable"] = types.YLeaf{"Enable", explicitTracking.Enable}
-    explicitTracking.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", explicitTracking.AccessListName}
+    explicitTracking.EntityData.Children = types.NewOrderedMap()
+    explicitTracking.EntityData.Leafs = types.NewOrderedMap()
+    explicitTracking.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", explicitTracking.Enable})
+    explicitTracking.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", explicitTracking.AccessListName})
+
+    explicitTracking.EntityData.YListKeys = []string {}
+
     return &(explicitTracking.EntityData)
 }
 
@@ -2664,7 +2854,7 @@ type Mld_Vrfs_Vrf_SsmAccessGroups struct {
 
     // SSM static Access Group. The type is slice of
     // Mld_Vrfs_Vrf_SsmAccessGroups_SsmAccessGroup.
-    SsmAccessGroup []Mld_Vrfs_Vrf_SsmAccessGroups_SsmAccessGroup
+    SsmAccessGroup []*Mld_Vrfs_Vrf_SsmAccessGroups_SsmAccessGroup
 }
 
 func (ssmAccessGroups *Mld_Vrfs_Vrf_SsmAccessGroups) GetEntityData() *types.CommonEntityData {
@@ -2677,12 +2867,15 @@ func (ssmAccessGroups *Mld_Vrfs_Vrf_SsmAccessGroups) GetEntityData() *types.Comm
     ssmAccessGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssmAccessGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssmAccessGroups.EntityData.Children = make(map[string]types.YChild)
-    ssmAccessGroups.EntityData.Children["ssm-access-group"] = types.YChild{"SsmAccessGroup", nil}
+    ssmAccessGroups.EntityData.Children = types.NewOrderedMap()
+    ssmAccessGroups.EntityData.Children.Append("ssm-access-group", types.YChild{"SsmAccessGroup", nil})
     for i := range ssmAccessGroups.SsmAccessGroup {
-        ssmAccessGroups.EntityData.Children[types.GetSegmentPath(&ssmAccessGroups.SsmAccessGroup[i])] = types.YChild{"SsmAccessGroup", &ssmAccessGroups.SsmAccessGroup[i]}
+        ssmAccessGroups.EntityData.Children.Append(types.GetSegmentPath(ssmAccessGroups.SsmAccessGroup[i]), types.YChild{"SsmAccessGroup", ssmAccessGroups.SsmAccessGroup[i]})
     }
-    ssmAccessGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    ssmAccessGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    ssmAccessGroups.EntityData.YListKeys = []string {}
+
     return &(ssmAccessGroups.EntityData)
 }
 
@@ -2694,9 +2887,9 @@ type Mld_Vrfs_Vrf_SsmAccessGroups_SsmAccessGroup struct {
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Access list specifying access group. The type is string with length: 1..64.
@@ -2709,15 +2902,18 @@ func (ssmAccessGroup *Mld_Vrfs_Vrf_SsmAccessGroups_SsmAccessGroup) GetEntityData
     ssmAccessGroup.EntityData.YangName = "ssm-access-group"
     ssmAccessGroup.EntityData.BundleName = "cisco_ios_xr"
     ssmAccessGroup.EntityData.ParentYangName = "ssm-access-groups"
-    ssmAccessGroup.EntityData.SegmentPath = "ssm-access-group" + "[source-address='" + fmt.Sprintf("%v", ssmAccessGroup.SourceAddress) + "']"
+    ssmAccessGroup.EntityData.SegmentPath = "ssm-access-group" + types.AddKeyToken(ssmAccessGroup.SourceAddress, "source-address")
     ssmAccessGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssmAccessGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssmAccessGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssmAccessGroup.EntityData.Children = make(map[string]types.YChild)
-    ssmAccessGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssmAccessGroup.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", ssmAccessGroup.SourceAddress}
-    ssmAccessGroup.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", ssmAccessGroup.AccessListName}
+    ssmAccessGroup.EntityData.Children = types.NewOrderedMap()
+    ssmAccessGroup.EntityData.Leafs = types.NewOrderedMap()
+    ssmAccessGroup.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", ssmAccessGroup.SourceAddress})
+    ssmAccessGroup.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", ssmAccessGroup.AccessListName})
+
+    ssmAccessGroup.EntityData.YListKeys = []string {"SourceAddress"}
+
     return &(ssmAccessGroup.EntityData)
 }
 
@@ -2742,9 +2938,12 @@ func (maximum *Mld_Vrfs_Vrf_Maximum) GetEntityData() *types.CommonEntityData {
     maximum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximum.EntityData.Children = make(map[string]types.YChild)
-    maximum.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximum.EntityData.Leafs["maximum-groups"] = types.YLeaf{"MaximumGroups", maximum.MaximumGroups}
+    maximum.EntityData.Children = types.NewOrderedMap()
+    maximum.EntityData.Leafs = types.NewOrderedMap()
+    maximum.EntityData.Leafs.Append("maximum-groups", types.YLeaf{"MaximumGroups", maximum.MaximumGroups})
+
+    maximum.EntityData.YListKeys = []string {}
+
     return &(maximum.EntityData)
 }
 
@@ -2755,8 +2954,8 @@ type Mld_Vrfs_Vrf_Interfaces struct {
     YFilter yfilter.YFilter
 
     // The name of the interface. The type is slice of
-    // Mld_Vrfs_Vrf_Interfaces_Interface_.
-    Interface_ []Mld_Vrfs_Vrf_Interfaces_Interface
+    // Mld_Vrfs_Vrf_Interfaces_Interface.
+    Interface []*Mld_Vrfs_Vrf_Interfaces_Interface
 }
 
 func (interfaces *Mld_Vrfs_Vrf_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -2769,12 +2968,15 @@ func (interfaces *Mld_Vrfs_Vrf_Interfaces) GetEntityData() *types.CommonEntityDa
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -2785,7 +2987,7 @@ type Mld_Vrfs_Vrf_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // IGMP previous querier timeout. The type is interface{} with range: 60..300.
@@ -2830,24 +3032,27 @@ func (self *Mld_Vrfs_Vrf_Interfaces_Interface) GetEntityData() *types.CommonEnti
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["join-groups"] = types.YChild{"JoinGroups", &self.JoinGroups}
-    self.EntityData.Children["static-group-group-addresses"] = types.YChild{"StaticGroupGroupAddresses", &self.StaticGroupGroupAddresses}
-    self.EntityData.Children["maximum-groups-per-interface-oor"] = types.YChild{"MaximumGroupsPerInterfaceOor", &self.MaximumGroupsPerInterfaceOor}
-    self.EntityData.Children["explicit-tracking"] = types.YChild{"ExplicitTracking", &self.ExplicitTracking}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["query-timeout"] = types.YLeaf{"QueryTimeout", self.QueryTimeout}
-    self.EntityData.Leafs["access-group"] = types.YLeaf{"AccessGroup", self.AccessGroup}
-    self.EntityData.Leafs["query-max-response-time"] = types.YLeaf{"QueryMaxResponseTime", self.QueryMaxResponseTime}
-    self.EntityData.Leafs["version"] = types.YLeaf{"Version", self.Version}
-    self.EntityData.Leafs["router-enable"] = types.YLeaf{"RouterEnable", self.RouterEnable}
-    self.EntityData.Leafs["query-interval"] = types.YLeaf{"QueryInterval", self.QueryInterval}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("join-groups", types.YChild{"JoinGroups", &self.JoinGroups})
+    self.EntityData.Children.Append("static-group-group-addresses", types.YChild{"StaticGroupGroupAddresses", &self.StaticGroupGroupAddresses})
+    self.EntityData.Children.Append("maximum-groups-per-interface-oor", types.YChild{"MaximumGroupsPerInterfaceOor", &self.MaximumGroupsPerInterfaceOor})
+    self.EntityData.Children.Append("explicit-tracking", types.YChild{"ExplicitTracking", &self.ExplicitTracking})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("query-timeout", types.YLeaf{"QueryTimeout", self.QueryTimeout})
+    self.EntityData.Leafs.Append("access-group", types.YLeaf{"AccessGroup", self.AccessGroup})
+    self.EntityData.Leafs.Append("query-max-response-time", types.YLeaf{"QueryMaxResponseTime", self.QueryMaxResponseTime})
+    self.EntityData.Leafs.Append("version", types.YLeaf{"Version", self.Version})
+    self.EntityData.Leafs.Append("router-enable", types.YLeaf{"RouterEnable", self.RouterEnable})
+    self.EntityData.Leafs.Append("query-interval", types.YLeaf{"QueryInterval", self.QueryInterval})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -2857,14 +3062,15 @@ func (self *Mld_Vrfs_Vrf_Interfaces_Interface) GetEntityData() *types.CommonEnti
 type Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // IP group address and optional source address to include. The type is slice
     // of Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroup.
-    JoinGroup []Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroup
+    JoinGroup []*Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroup
 
     // IP group address and optional source address to include. The type is slice
     // of Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress.
-    JoinGroupSourceAddress []Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress
+    JoinGroupSourceAddress []*Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress
 }
 
 func (joinGroups *Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups) GetEntityData() *types.CommonEntityData {
@@ -2877,16 +3083,19 @@ func (joinGroups *Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups) GetEntityData() 
     joinGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    joinGroups.EntityData.Children = make(map[string]types.YChild)
-    joinGroups.EntityData.Children["join-group"] = types.YChild{"JoinGroup", nil}
+    joinGroups.EntityData.Children = types.NewOrderedMap()
+    joinGroups.EntityData.Children.Append("join-group", types.YChild{"JoinGroup", nil})
     for i := range joinGroups.JoinGroup {
-        joinGroups.EntityData.Children[types.GetSegmentPath(&joinGroups.JoinGroup[i])] = types.YChild{"JoinGroup", &joinGroups.JoinGroup[i]}
+        joinGroups.EntityData.Children.Append(types.GetSegmentPath(joinGroups.JoinGroup[i]), types.YChild{"JoinGroup", joinGroups.JoinGroup[i]})
     }
-    joinGroups.EntityData.Children["join-group-source-address"] = types.YChild{"JoinGroupSourceAddress", nil}
+    joinGroups.EntityData.Children.Append("join-group-source-address", types.YChild{"JoinGroupSourceAddress", nil})
     for i := range joinGroups.JoinGroupSourceAddress {
-        joinGroups.EntityData.Children[types.GetSegmentPath(&joinGroups.JoinGroupSourceAddress[i])] = types.YChild{"JoinGroupSourceAddress", &joinGroups.JoinGroupSourceAddress[i]}
+        joinGroups.EntityData.Children.Append(types.GetSegmentPath(joinGroups.JoinGroupSourceAddress[i]), types.YChild{"JoinGroupSourceAddress", joinGroups.JoinGroupSourceAddress[i]})
     }
-    joinGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    joinGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    joinGroups.EntityData.YListKeys = []string {}
+
     return &(joinGroups.EntityData)
 }
 
@@ -2899,9 +3108,9 @@ type Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroup struct {
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // Filter mode. The type is IgmpFilter. This attribute is mandatory.
@@ -2913,15 +3122,18 @@ func (joinGroup *Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroup) GetEnti
     joinGroup.EntityData.YangName = "join-group"
     joinGroup.EntityData.BundleName = "cisco_ios_xr"
     joinGroup.EntityData.ParentYangName = "join-groups"
-    joinGroup.EntityData.SegmentPath = "join-group" + "[group-address='" + fmt.Sprintf("%v", joinGroup.GroupAddress) + "']"
+    joinGroup.EntityData.SegmentPath = "join-group" + types.AddKeyToken(joinGroup.GroupAddress, "group-address")
     joinGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    joinGroup.EntityData.Children = make(map[string]types.YChild)
-    joinGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    joinGroup.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", joinGroup.GroupAddress}
-    joinGroup.EntityData.Leafs["mode"] = types.YLeaf{"Mode", joinGroup.Mode}
+    joinGroup.EntityData.Children = types.NewOrderedMap()
+    joinGroup.EntityData.Leafs = types.NewOrderedMap()
+    joinGroup.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", joinGroup.GroupAddress})
+    joinGroup.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", joinGroup.Mode})
+
+    joinGroup.EntityData.YListKeys = []string {"GroupAddress"}
+
     return &(joinGroup.EntityData)
 }
 
@@ -2934,16 +3146,16 @@ type Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress struct 
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. Optional IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Filter mode. The type is IgmpFilter. This attribute is mandatory.
@@ -2955,16 +3167,19 @@ func (joinGroupSourceAddress *Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinG
     joinGroupSourceAddress.EntityData.YangName = "join-group-source-address"
     joinGroupSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     joinGroupSourceAddress.EntityData.ParentYangName = "join-groups"
-    joinGroupSourceAddress.EntityData.SegmentPath = "join-group-source-address" + "[group-address='" + fmt.Sprintf("%v", joinGroupSourceAddress.GroupAddress) + "']" + "[source-address='" + fmt.Sprintf("%v", joinGroupSourceAddress.SourceAddress) + "']"
+    joinGroupSourceAddress.EntityData.SegmentPath = "join-group-source-address" + types.AddKeyToken(joinGroupSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(joinGroupSourceAddress.SourceAddress, "source-address")
     joinGroupSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroupSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroupSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    joinGroupSourceAddress.EntityData.Children = make(map[string]types.YChild)
-    joinGroupSourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    joinGroupSourceAddress.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", joinGroupSourceAddress.GroupAddress}
-    joinGroupSourceAddress.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", joinGroupSourceAddress.SourceAddress}
-    joinGroupSourceAddress.EntityData.Leafs["mode"] = types.YLeaf{"Mode", joinGroupSourceAddress.Mode}
+    joinGroupSourceAddress.EntityData.Children = types.NewOrderedMap()
+    joinGroupSourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    joinGroupSourceAddress.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", joinGroupSourceAddress.GroupAddress})
+    joinGroupSourceAddress.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", joinGroupSourceAddress.SourceAddress})
+    joinGroupSourceAddress.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", joinGroupSourceAddress.Mode})
+
+    joinGroupSourceAddress.EntityData.YListKeys = []string {"GroupAddress", "SourceAddress"}
+
     return &(joinGroupSourceAddress.EntityData)
 }
 
@@ -2977,32 +3192,32 @@ type Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses struct {
     // IP group address and optional source address to include. The type is slice
     // of
     // Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddress.
-    StaticGroupGroupAddress []Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddress
+    StaticGroupGroupAddress []*Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddress
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddress.
-    StaticGroupGroupAddressSourceAddress []Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddress
+    StaticGroupGroupAddressSourceAddress []*Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddress
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddressSourceAddressMask.
-    StaticGroupGroupAddressSourceAddressSourceAddressMask []Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddressSourceAddressMask
+    StaticGroupGroupAddressSourceAddressSourceAddressMask []*Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddressSourceAddressMask
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMask.
-    StaticGroupGroupAddressGroupAddressMask []Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMask
+    StaticGroupGroupAddressGroupAddressMask []*Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMask
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddress.
-    StaticGroupGroupAddressGroupAddressMaskSourceAddress []Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddress
+    StaticGroupGroupAddressGroupAddressMaskSourceAddress []*Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddress
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.
-    StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask []Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask
+    StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask []*Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask
 }
 
 func (staticGroupGroupAddresses *Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses) GetEntityData() *types.CommonEntityData {
@@ -3015,32 +3230,35 @@ func (staticGroupGroupAddresses *Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGr
     staticGroupGroupAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddresses.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address"] = types.YChild{"StaticGroupGroupAddress", nil}
+    staticGroupGroupAddresses.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address", types.YChild{"StaticGroupGroupAddress", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddress {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddress[i])] = types.YChild{"StaticGroupGroupAddress", &staticGroupGroupAddresses.StaticGroupGroupAddress[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddress[i]), types.YChild{"StaticGroupGroupAddress", staticGroupGroupAddresses.StaticGroupGroupAddress[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-source-address"] = types.YChild{"StaticGroupGroupAddressSourceAddress", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-source-address", types.YChild{"StaticGroupGroupAddressSourceAddress", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress[i])] = types.YChild{"StaticGroupGroupAddressSourceAddress", &staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress[i]), types.YChild{"StaticGroupGroupAddressSourceAddress", staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-source-address-source-address-mask"] = types.YChild{"StaticGroupGroupAddressSourceAddressSourceAddressMask", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-source-address-source-address-mask", types.YChild{"StaticGroupGroupAddressSourceAddressSourceAddressMask", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask[i])] = types.YChild{"StaticGroupGroupAddressSourceAddressSourceAddressMask", &staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask[i]), types.YChild{"StaticGroupGroupAddressSourceAddressSourceAddressMask", staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-group-address-mask"] = types.YChild{"StaticGroupGroupAddressGroupAddressMask", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-group-address-mask", types.YChild{"StaticGroupGroupAddressGroupAddressMask", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask[i])] = types.YChild{"StaticGroupGroupAddressGroupAddressMask", &staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask[i]), types.YChild{"StaticGroupGroupAddressGroupAddressMask", staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-group-address-mask-source-address"] = types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddress", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-group-address-mask-source-address", types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddress", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress[i])] = types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddress", &staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress[i]), types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddress", staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-group-address-mask-source-address-source-address-mask"] = types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-group-address-mask-source-address-source-address-mask", types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask[i])] = types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask", &staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask[i]), types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask", staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask[i]})
     }
-    staticGroupGroupAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    staticGroupGroupAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    staticGroupGroupAddresses.EntityData.YListKeys = []string {}
+
     return &(staticGroupGroupAddresses.EntityData)
 }
 
@@ -3053,9 +3271,9 @@ type Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGrou
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -3075,17 +3293,20 @@ func (staticGroupGroupAddress *Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGrou
     staticGroupGroupAddress.EntityData.YangName = "static-group-group-address"
     staticGroupGroupAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddress.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddress.EntityData.SegmentPath = "static-group-group-address" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddress.GroupAddress) + "']"
+    staticGroupGroupAddress.EntityData.SegmentPath = "static-group-group-address" + types.AddKeyToken(staticGroupGroupAddress.GroupAddress, "group-address")
     staticGroupGroupAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddress.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddress.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddress.GroupAddress}
-    staticGroupGroupAddress.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddress.GroupCount}
-    staticGroupGroupAddress.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddress.SourceCount}
-    staticGroupGroupAddress.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddress.SuppressReport}
+    staticGroupGroupAddress.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddress.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddress.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddress.GroupAddress})
+    staticGroupGroupAddress.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddress.GroupCount})
+    staticGroupGroupAddress.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddress.SourceCount})
+    staticGroupGroupAddress.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddress.SuppressReport})
+
+    staticGroupGroupAddress.EntityData.YListKeys = []string {"GroupAddress"}
+
     return &(staticGroupGroupAddress.EntityData)
 }
 
@@ -3098,16 +3319,16 @@ type Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGrou
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -3127,18 +3348,21 @@ func (staticGroupGroupAddressSourceAddress *Mld_Vrfs_Vrf_Interfaces_Interface_St
     staticGroupGroupAddressSourceAddress.EntityData.YangName = "static-group-group-address-source-address"
     staticGroupGroupAddressSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressSourceAddress.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressSourceAddress.EntityData.SegmentPath = "static-group-group-address-source-address" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddress.GroupAddress) + "']" + "[source-address='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddress.SourceAddress) + "']"
+    staticGroupGroupAddressSourceAddress.EntityData.SegmentPath = "static-group-group-address-source-address" + types.AddKeyToken(staticGroupGroupAddressSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddress.SourceAddress, "source-address")
     staticGroupGroupAddressSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressSourceAddress.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressSourceAddress.GroupAddress}
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", staticGroupGroupAddressSourceAddress.SourceAddress}
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressSourceAddress.GroupCount}
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressSourceAddress.SourceCount}
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressSourceAddress.SuppressReport}
+    staticGroupGroupAddressSourceAddress.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressSourceAddress.GroupAddress})
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", staticGroupGroupAddressSourceAddress.SourceAddress})
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressSourceAddress.GroupCount})
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressSourceAddress.SourceCount})
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressSourceAddress.SuppressReport})
+
+    staticGroupGroupAddressSourceAddress.EntityData.YListKeys = []string {"GroupAddress", "SourceAddress"}
+
     return &(staticGroupGroupAddressSourceAddress.EntityData)
 }
 
@@ -3151,23 +3375,23 @@ type Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGrou
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Mask for Source Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddressMask interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -3187,19 +3411,22 @@ func (staticGroupGroupAddressSourceAddressSourceAddressMask *Mld_Vrfs_Vrf_Interf
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.YangName = "static-group-group-address-source-address-source-address-mask"
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-source-address-source-address-mask" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress) + "']" + "[source-address='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress) + "']" + "[source-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask) + "']"
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-source-address-source-address-mask" + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress, "source-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask, "source-address-mask")
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["source-address-mask"] = types.YLeaf{"SourceAddressMask", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupCount}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceCount}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressSourceAddressSourceAddressMask.SuppressReport}
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-address-mask", types.YLeaf{"SourceAddressMask", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupCount})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceCount})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressSourceAddressSourceAddressMask.SuppressReport})
+
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.YListKeys = []string {"GroupAddress", "SourceAddress", "SourceAddressMask"}
+
     return &(staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData)
 }
 
@@ -3212,16 +3439,16 @@ type Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGrou
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. Mask for Group Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddressMask interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -3241,18 +3468,21 @@ func (staticGroupGroupAddressGroupAddressMask *Mld_Vrfs_Vrf_Interfaces_Interface
     staticGroupGroupAddressGroupAddressMask.EntityData.YangName = "static-group-group-address-group-address-mask"
     staticGroupGroupAddressGroupAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressGroupAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMask.GroupAddress) + "']" + "[group-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMask.GroupAddressMask) + "']"
+    staticGroupGroupAddressGroupAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMask.GroupAddressMask, "group-address-mask")
     staticGroupGroupAddressGroupAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressGroupAddressMask.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMask.GroupAddress}
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["group-address-mask"] = types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMask.GroupAddressMask}
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMask.GroupCount}
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMask.SourceCount}
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMask.SuppressReport}
+    staticGroupGroupAddressGroupAddressMask.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMask.GroupAddress})
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("group-address-mask", types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMask.GroupAddressMask})
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMask.GroupCount})
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMask.SourceCount})
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMask.SuppressReport})
+
+    staticGroupGroupAddressGroupAddressMask.EntityData.YListKeys = []string {"GroupAddress", "GroupAddressMask"}
+
     return &(staticGroupGroupAddressGroupAddressMask.EntityData)
 }
 
@@ -3265,23 +3495,23 @@ type Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGrou
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. Mask for Group Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddressMask interface{}
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -3301,19 +3531,22 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddress *Mld_Vrfs_Vrf_Interfa
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.YangName = "static-group-group-address-group-address-mask-source-address"
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress) + "']" + "[group-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask) + "']" + "[source-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress) + "']"
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask, "group-address-mask") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress, "source-address")
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["group-address-mask"] = types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupCount}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceCount}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMaskSourceAddress.SuppressReport}
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("group-address-mask", types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupCount})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceCount})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMaskSourceAddress.SuppressReport})
+
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.YListKeys = []string {"GroupAddress", "GroupAddressMask", "SourceAddress"}
+
     return &(staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData)
 }
 
@@ -3326,30 +3559,30 @@ type Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGrou
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. Mask for Group Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddressMask interface{}
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Mask for Source Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddressMask interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -3369,20 +3602,23 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask *Mld
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.YangName = "static-group-group-address-group-address-mask-source-address-source-address-mask"
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address-source-address-mask" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress) + "']" + "[group-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask) + "']" + "[source-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress) + "']" + "[source-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask) + "']"
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address-source-address-mask" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask, "group-address-mask") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress, "source-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask, "source-address-mask")
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["group-address-mask"] = types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["source-address-mask"] = types.YLeaf{"SourceAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupCount}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceCount}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SuppressReport}
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-address-mask", types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-address-mask", types.YLeaf{"SourceAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupCount})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceCount})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SuppressReport})
+
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.YListKeys = []string {"GroupAddress", "GroupAddressMask", "SourceAddress", "SourceAddressMask"}
+
     return &(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData)
 }
 
@@ -3393,6 +3629,7 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask *Mld
 type Mld_Vrfs_Vrf_Interfaces_Interface_MaximumGroupsPerInterfaceOor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of groups accepted per interface by this router. The type is
     // interface{} with range: 1..40000. This attribute is mandatory.
@@ -3417,11 +3654,14 @@ func (maximumGroupsPerInterfaceOor *Mld_Vrfs_Vrf_Interfaces_Interface_MaximumGro
     maximumGroupsPerInterfaceOor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumGroupsPerInterfaceOor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximumGroupsPerInterfaceOor.EntityData.Children = make(map[string]types.YChild)
-    maximumGroupsPerInterfaceOor.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["maximum-groups"] = types.YLeaf{"MaximumGroups", maximumGroupsPerInterfaceOor.MaximumGroups}
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", maximumGroupsPerInterfaceOor.WarningThreshold}
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", maximumGroupsPerInterfaceOor.AccessListName}
+    maximumGroupsPerInterfaceOor.EntityData.Children = types.NewOrderedMap()
+    maximumGroupsPerInterfaceOor.EntityData.Leafs = types.NewOrderedMap()
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("maximum-groups", types.YLeaf{"MaximumGroups", maximumGroupsPerInterfaceOor.MaximumGroups})
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", maximumGroupsPerInterfaceOor.WarningThreshold})
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", maximumGroupsPerInterfaceOor.AccessListName})
+
+    maximumGroupsPerInterfaceOor.EntityData.YListKeys = []string {}
+
     return &(maximumGroupsPerInterfaceOor.EntityData)
 }
 
@@ -3431,6 +3671,7 @@ func (maximumGroupsPerInterfaceOor *Mld_Vrfs_Vrf_Interfaces_Interface_MaximumGro
 type Mld_Vrfs_Vrf_Interfaces_Interface_ExplicitTracking struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Enabled or disabled, when value is TRUE or FALSE respectively. The type is
     // bool. This attribute is mandatory.
@@ -3451,10 +3692,13 @@ func (explicitTracking *Mld_Vrfs_Vrf_Interfaces_Interface_ExplicitTracking) GetE
     explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    explicitTracking.EntityData.Children = make(map[string]types.YChild)
-    explicitTracking.EntityData.Leafs = make(map[string]types.YLeaf)
-    explicitTracking.EntityData.Leafs["enable"] = types.YLeaf{"Enable", explicitTracking.Enable}
-    explicitTracking.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", explicitTracking.AccessListName}
+    explicitTracking.EntityData.Children = types.NewOrderedMap()
+    explicitTracking.EntityData.Leafs = types.NewOrderedMap()
+    explicitTracking.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", explicitTracking.Enable})
+    explicitTracking.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", explicitTracking.AccessListName})
+
+    explicitTracking.EntityData.YListKeys = []string {}
+
     return &(explicitTracking.EntityData)
 }
 
@@ -3464,6 +3708,7 @@ func (explicitTracking *Mld_Vrfs_Vrf_Interfaces_Interface_ExplicitTracking) GetE
 type Mld_DefaultContext struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Enable SSM mapping using DNS Query. The type is interface{}.
     SsmdnsQueryGroup interface{}
@@ -3507,18 +3752,21 @@ func (defaultContext *Mld_DefaultContext) GetEntityData() *types.CommonEntityDat
     defaultContext.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultContext.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    defaultContext.EntityData.Children = make(map[string]types.YChild)
-    defaultContext.EntityData.Children["nsf"] = types.YChild{"Nsf", &defaultContext.Nsf}
-    defaultContext.EntityData.Children["unicast-qos-adjust"] = types.YChild{"UnicastQosAdjust", &defaultContext.UnicastQosAdjust}
-    defaultContext.EntityData.Children["accounting"] = types.YChild{"Accounting", &defaultContext.Accounting}
-    defaultContext.EntityData.Children["traffic"] = types.YChild{"Traffic", &defaultContext.Traffic}
-    defaultContext.EntityData.Children["inheritable-defaults"] = types.YChild{"InheritableDefaults", &defaultContext.InheritableDefaults}
-    defaultContext.EntityData.Children["ssm-access-groups"] = types.YChild{"SsmAccessGroups", &defaultContext.SsmAccessGroups}
-    defaultContext.EntityData.Children["maximum"] = types.YChild{"Maximum", &defaultContext.Maximum}
-    defaultContext.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &defaultContext.Interfaces}
-    defaultContext.EntityData.Leafs = make(map[string]types.YLeaf)
-    defaultContext.EntityData.Leafs["ssmdns-query-group"] = types.YLeaf{"SsmdnsQueryGroup", defaultContext.SsmdnsQueryGroup}
-    defaultContext.EntityData.Leafs["robustness"] = types.YLeaf{"Robustness", defaultContext.Robustness}
+    defaultContext.EntityData.Children = types.NewOrderedMap()
+    defaultContext.EntityData.Children.Append("nsf", types.YChild{"Nsf", &defaultContext.Nsf})
+    defaultContext.EntityData.Children.Append("unicast-qos-adjust", types.YChild{"UnicastQosAdjust", &defaultContext.UnicastQosAdjust})
+    defaultContext.EntityData.Children.Append("accounting", types.YChild{"Accounting", &defaultContext.Accounting})
+    defaultContext.EntityData.Children.Append("traffic", types.YChild{"Traffic", &defaultContext.Traffic})
+    defaultContext.EntityData.Children.Append("inheritable-defaults", types.YChild{"InheritableDefaults", &defaultContext.InheritableDefaults})
+    defaultContext.EntityData.Children.Append("ssm-access-groups", types.YChild{"SsmAccessGroups", &defaultContext.SsmAccessGroups})
+    defaultContext.EntityData.Children.Append("maximum", types.YChild{"Maximum", &defaultContext.Maximum})
+    defaultContext.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &defaultContext.Interfaces})
+    defaultContext.EntityData.Leafs = types.NewOrderedMap()
+    defaultContext.EntityData.Leafs.Append("ssmdns-query-group", types.YLeaf{"SsmdnsQueryGroup", defaultContext.SsmdnsQueryGroup})
+    defaultContext.EntityData.Leafs.Append("robustness", types.YLeaf{"Robustness", defaultContext.Robustness})
+
+    defaultContext.EntityData.YListKeys = []string {}
+
     return &(defaultContext.EntityData)
 }
 
@@ -3543,9 +3791,12 @@ func (nsf *Mld_DefaultContext_Nsf) GetEntityData() *types.CommonEntityData {
     nsf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nsf.EntityData.Children = make(map[string]types.YChild)
-    nsf.EntityData.Leafs = make(map[string]types.YLeaf)
-    nsf.EntityData.Leafs["lifetime"] = types.YLeaf{"Lifetime", nsf.Lifetime}
+    nsf.EntityData.Children = types.NewOrderedMap()
+    nsf.EntityData.Leafs = types.NewOrderedMap()
+    nsf.EntityData.Leafs.Append("lifetime", types.YLeaf{"Lifetime", nsf.Lifetime})
+
+    nsf.EntityData.YListKeys = []string {}
+
     return &(nsf.EntityData)
 }
 
@@ -3580,11 +3831,14 @@ func (unicastQosAdjust *Mld_DefaultContext_UnicastQosAdjust) GetEntityData() *ty
     unicastQosAdjust.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unicastQosAdjust.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    unicastQosAdjust.EntityData.Children = make(map[string]types.YChild)
-    unicastQosAdjust.EntityData.Leafs = make(map[string]types.YLeaf)
-    unicastQosAdjust.EntityData.Leafs["download-interval"] = types.YLeaf{"DownloadInterval", unicastQosAdjust.DownloadInterval}
-    unicastQosAdjust.EntityData.Leafs["adjustment-delay"] = types.YLeaf{"AdjustmentDelay", unicastQosAdjust.AdjustmentDelay}
-    unicastQosAdjust.EntityData.Leafs["hold-off"] = types.YLeaf{"HoldOff", unicastQosAdjust.HoldOff}
+    unicastQosAdjust.EntityData.Children = types.NewOrderedMap()
+    unicastQosAdjust.EntityData.Leafs = types.NewOrderedMap()
+    unicastQosAdjust.EntityData.Leafs.Append("download-interval", types.YLeaf{"DownloadInterval", unicastQosAdjust.DownloadInterval})
+    unicastQosAdjust.EntityData.Leafs.Append("adjustment-delay", types.YLeaf{"AdjustmentDelay", unicastQosAdjust.AdjustmentDelay})
+    unicastQosAdjust.EntityData.Leafs.Append("hold-off", types.YLeaf{"HoldOff", unicastQosAdjust.HoldOff})
+
+    unicastQosAdjust.EntityData.YListKeys = []string {}
+
     return &(unicastQosAdjust.EntityData)
 }
 
@@ -3610,9 +3864,12 @@ func (accounting *Mld_DefaultContext_Accounting) GetEntityData() *types.CommonEn
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accounting.EntityData.Children = make(map[string]types.YChild)
-    accounting.EntityData.Leafs = make(map[string]types.YLeaf)
-    accounting.EntityData.Leafs["max-history"] = types.YLeaf{"MaxHistory", accounting.MaxHistory}
+    accounting.EntityData.Children = types.NewOrderedMap()
+    accounting.EntityData.Leafs = types.NewOrderedMap()
+    accounting.EntityData.Leafs.Append("max-history", types.YLeaf{"MaxHistory", accounting.MaxHistory})
+
+    accounting.EntityData.YListKeys = []string {}
+
     return &(accounting.EntityData)
 }
 
@@ -3636,9 +3893,12 @@ func (traffic *Mld_DefaultContext_Traffic) GetEntityData() *types.CommonEntityDa
     traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    traffic.EntityData.Children = make(map[string]types.YChild)
-    traffic.EntityData.Leafs = make(map[string]types.YLeaf)
-    traffic.EntityData.Leafs["profile"] = types.YLeaf{"Profile", traffic.Profile}
+    traffic.EntityData.Children = types.NewOrderedMap()
+    traffic.EntityData.Leafs = types.NewOrderedMap()
+    traffic.EntityData.Leafs.Append("profile", types.YLeaf{"Profile", traffic.Profile})
+
+    traffic.EntityData.YListKeys = []string {}
+
     return &(traffic.EntityData)
 }
 
@@ -3689,16 +3949,19 @@ func (inheritableDefaults *Mld_DefaultContext_InheritableDefaults) GetEntityData
     inheritableDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritableDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    inheritableDefaults.EntityData.Children = make(map[string]types.YChild)
-    inheritableDefaults.EntityData.Children["maximum-groups-per-interface-oor"] = types.YChild{"MaximumGroupsPerInterfaceOor", &inheritableDefaults.MaximumGroupsPerInterfaceOor}
-    inheritableDefaults.EntityData.Children["explicit-tracking"] = types.YChild{"ExplicitTracking", &inheritableDefaults.ExplicitTracking}
-    inheritableDefaults.EntityData.Leafs = make(map[string]types.YLeaf)
-    inheritableDefaults.EntityData.Leafs["query-timeout"] = types.YLeaf{"QueryTimeout", inheritableDefaults.QueryTimeout}
-    inheritableDefaults.EntityData.Leafs["access-group"] = types.YLeaf{"AccessGroup", inheritableDefaults.AccessGroup}
-    inheritableDefaults.EntityData.Leafs["query-max-response-time"] = types.YLeaf{"QueryMaxResponseTime", inheritableDefaults.QueryMaxResponseTime}
-    inheritableDefaults.EntityData.Leafs["version"] = types.YLeaf{"Version", inheritableDefaults.Version}
-    inheritableDefaults.EntityData.Leafs["router-enable"] = types.YLeaf{"RouterEnable", inheritableDefaults.RouterEnable}
-    inheritableDefaults.EntityData.Leafs["query-interval"] = types.YLeaf{"QueryInterval", inheritableDefaults.QueryInterval}
+    inheritableDefaults.EntityData.Children = types.NewOrderedMap()
+    inheritableDefaults.EntityData.Children.Append("maximum-groups-per-interface-oor", types.YChild{"MaximumGroupsPerInterfaceOor", &inheritableDefaults.MaximumGroupsPerInterfaceOor})
+    inheritableDefaults.EntityData.Children.Append("explicit-tracking", types.YChild{"ExplicitTracking", &inheritableDefaults.ExplicitTracking})
+    inheritableDefaults.EntityData.Leafs = types.NewOrderedMap()
+    inheritableDefaults.EntityData.Leafs.Append("query-timeout", types.YLeaf{"QueryTimeout", inheritableDefaults.QueryTimeout})
+    inheritableDefaults.EntityData.Leafs.Append("access-group", types.YLeaf{"AccessGroup", inheritableDefaults.AccessGroup})
+    inheritableDefaults.EntityData.Leafs.Append("query-max-response-time", types.YLeaf{"QueryMaxResponseTime", inheritableDefaults.QueryMaxResponseTime})
+    inheritableDefaults.EntityData.Leafs.Append("version", types.YLeaf{"Version", inheritableDefaults.Version})
+    inheritableDefaults.EntityData.Leafs.Append("router-enable", types.YLeaf{"RouterEnable", inheritableDefaults.RouterEnable})
+    inheritableDefaults.EntityData.Leafs.Append("query-interval", types.YLeaf{"QueryInterval", inheritableDefaults.QueryInterval})
+
+    inheritableDefaults.EntityData.YListKeys = []string {}
+
     return &(inheritableDefaults.EntityData)
 }
 
@@ -3709,6 +3972,7 @@ func (inheritableDefaults *Mld_DefaultContext_InheritableDefaults) GetEntityData
 type Mld_DefaultContext_InheritableDefaults_MaximumGroupsPerInterfaceOor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of groups accepted per interface by this router. The type is
     // interface{} with range: 1..40000. This attribute is mandatory.
@@ -3733,11 +3997,14 @@ func (maximumGroupsPerInterfaceOor *Mld_DefaultContext_InheritableDefaults_Maxim
     maximumGroupsPerInterfaceOor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumGroupsPerInterfaceOor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximumGroupsPerInterfaceOor.EntityData.Children = make(map[string]types.YChild)
-    maximumGroupsPerInterfaceOor.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["maximum-groups"] = types.YLeaf{"MaximumGroups", maximumGroupsPerInterfaceOor.MaximumGroups}
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", maximumGroupsPerInterfaceOor.WarningThreshold}
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", maximumGroupsPerInterfaceOor.AccessListName}
+    maximumGroupsPerInterfaceOor.EntityData.Children = types.NewOrderedMap()
+    maximumGroupsPerInterfaceOor.EntityData.Leafs = types.NewOrderedMap()
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("maximum-groups", types.YLeaf{"MaximumGroups", maximumGroupsPerInterfaceOor.MaximumGroups})
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", maximumGroupsPerInterfaceOor.WarningThreshold})
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", maximumGroupsPerInterfaceOor.AccessListName})
+
+    maximumGroupsPerInterfaceOor.EntityData.YListKeys = []string {}
+
     return &(maximumGroupsPerInterfaceOor.EntityData)
 }
 
@@ -3747,6 +4014,7 @@ func (maximumGroupsPerInterfaceOor *Mld_DefaultContext_InheritableDefaults_Maxim
 type Mld_DefaultContext_InheritableDefaults_ExplicitTracking struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Enabled or disabled, when value is TRUE or FALSE respectively. The type is
     // bool. This attribute is mandatory.
@@ -3767,10 +4035,13 @@ func (explicitTracking *Mld_DefaultContext_InheritableDefaults_ExplicitTracking)
     explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    explicitTracking.EntityData.Children = make(map[string]types.YChild)
-    explicitTracking.EntityData.Leafs = make(map[string]types.YLeaf)
-    explicitTracking.EntityData.Leafs["enable"] = types.YLeaf{"Enable", explicitTracking.Enable}
-    explicitTracking.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", explicitTracking.AccessListName}
+    explicitTracking.EntityData.Children = types.NewOrderedMap()
+    explicitTracking.EntityData.Leafs = types.NewOrderedMap()
+    explicitTracking.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", explicitTracking.Enable})
+    explicitTracking.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", explicitTracking.AccessListName})
+
+    explicitTracking.EntityData.YListKeys = []string {}
+
     return &(explicitTracking.EntityData)
 }
 
@@ -3782,7 +4053,7 @@ type Mld_DefaultContext_SsmAccessGroups struct {
 
     // SSM static Access Group. The type is slice of
     // Mld_DefaultContext_SsmAccessGroups_SsmAccessGroup.
-    SsmAccessGroup []Mld_DefaultContext_SsmAccessGroups_SsmAccessGroup
+    SsmAccessGroup []*Mld_DefaultContext_SsmAccessGroups_SsmAccessGroup
 }
 
 func (ssmAccessGroups *Mld_DefaultContext_SsmAccessGroups) GetEntityData() *types.CommonEntityData {
@@ -3795,12 +4066,15 @@ func (ssmAccessGroups *Mld_DefaultContext_SsmAccessGroups) GetEntityData() *type
     ssmAccessGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssmAccessGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssmAccessGroups.EntityData.Children = make(map[string]types.YChild)
-    ssmAccessGroups.EntityData.Children["ssm-access-group"] = types.YChild{"SsmAccessGroup", nil}
+    ssmAccessGroups.EntityData.Children = types.NewOrderedMap()
+    ssmAccessGroups.EntityData.Children.Append("ssm-access-group", types.YChild{"SsmAccessGroup", nil})
     for i := range ssmAccessGroups.SsmAccessGroup {
-        ssmAccessGroups.EntityData.Children[types.GetSegmentPath(&ssmAccessGroups.SsmAccessGroup[i])] = types.YChild{"SsmAccessGroup", &ssmAccessGroups.SsmAccessGroup[i]}
+        ssmAccessGroups.EntityData.Children.Append(types.GetSegmentPath(ssmAccessGroups.SsmAccessGroup[i]), types.YChild{"SsmAccessGroup", ssmAccessGroups.SsmAccessGroup[i]})
     }
-    ssmAccessGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    ssmAccessGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    ssmAccessGroups.EntityData.YListKeys = []string {}
+
     return &(ssmAccessGroups.EntityData)
 }
 
@@ -3812,9 +4086,9 @@ type Mld_DefaultContext_SsmAccessGroups_SsmAccessGroup struct {
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Access list specifying access group. The type is string with length: 1..64.
@@ -3827,15 +4101,18 @@ func (ssmAccessGroup *Mld_DefaultContext_SsmAccessGroups_SsmAccessGroup) GetEnti
     ssmAccessGroup.EntityData.YangName = "ssm-access-group"
     ssmAccessGroup.EntityData.BundleName = "cisco_ios_xr"
     ssmAccessGroup.EntityData.ParentYangName = "ssm-access-groups"
-    ssmAccessGroup.EntityData.SegmentPath = "ssm-access-group" + "[source-address='" + fmt.Sprintf("%v", ssmAccessGroup.SourceAddress) + "']"
+    ssmAccessGroup.EntityData.SegmentPath = "ssm-access-group" + types.AddKeyToken(ssmAccessGroup.SourceAddress, "source-address")
     ssmAccessGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssmAccessGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssmAccessGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ssmAccessGroup.EntityData.Children = make(map[string]types.YChild)
-    ssmAccessGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    ssmAccessGroup.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", ssmAccessGroup.SourceAddress}
-    ssmAccessGroup.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", ssmAccessGroup.AccessListName}
+    ssmAccessGroup.EntityData.Children = types.NewOrderedMap()
+    ssmAccessGroup.EntityData.Leafs = types.NewOrderedMap()
+    ssmAccessGroup.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", ssmAccessGroup.SourceAddress})
+    ssmAccessGroup.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", ssmAccessGroup.AccessListName})
+
+    ssmAccessGroup.EntityData.YListKeys = []string {"SourceAddress"}
+
     return &(ssmAccessGroup.EntityData)
 }
 
@@ -3860,9 +4137,12 @@ func (maximum *Mld_DefaultContext_Maximum) GetEntityData() *types.CommonEntityDa
     maximum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximum.EntityData.Children = make(map[string]types.YChild)
-    maximum.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximum.EntityData.Leafs["maximum-groups"] = types.YLeaf{"MaximumGroups", maximum.MaximumGroups}
+    maximum.EntityData.Children = types.NewOrderedMap()
+    maximum.EntityData.Leafs = types.NewOrderedMap()
+    maximum.EntityData.Leafs.Append("maximum-groups", types.YLeaf{"MaximumGroups", maximum.MaximumGroups})
+
+    maximum.EntityData.YListKeys = []string {}
+
     return &(maximum.EntityData)
 }
 
@@ -3873,8 +4153,8 @@ type Mld_DefaultContext_Interfaces struct {
     YFilter yfilter.YFilter
 
     // The name of the interface. The type is slice of
-    // Mld_DefaultContext_Interfaces_Interface_.
-    Interface_ []Mld_DefaultContext_Interfaces_Interface
+    // Mld_DefaultContext_Interfaces_Interface.
+    Interface []*Mld_DefaultContext_Interfaces_Interface
 }
 
 func (interfaces *Mld_DefaultContext_Interfaces) GetEntityData() *types.CommonEntityData {
@@ -3887,12 +4167,15 @@ func (interfaces *Mld_DefaultContext_Interfaces) GetEntityData() *types.CommonEn
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    interfaces.EntityData.Children = make(map[string]types.YChild)
-    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
-    for i := range interfaces.Interface_ {
-        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
     }
-    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
     return &(interfaces.EntityData)
 }
 
@@ -3903,7 +4186,7 @@ type Mld_DefaultContext_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9./-]+'.
+    // pattern: [a-zA-Z0-9./-]+.
     InterfaceName interface{}
 
     // IGMP previous querier timeout. The type is interface{} with range: 60..300.
@@ -3948,24 +4231,27 @@ func (self *Mld_DefaultContext_Interfaces_Interface) GetEntityData() *types.Comm
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = make(map[string]types.YChild)
-    self.EntityData.Children["join-groups"] = types.YChild{"JoinGroups", &self.JoinGroups}
-    self.EntityData.Children["static-group-group-addresses"] = types.YChild{"StaticGroupGroupAddresses", &self.StaticGroupGroupAddresses}
-    self.EntityData.Children["maximum-groups-per-interface-oor"] = types.YChild{"MaximumGroupsPerInterfaceOor", &self.MaximumGroupsPerInterfaceOor}
-    self.EntityData.Children["explicit-tracking"] = types.YChild{"ExplicitTracking", &self.ExplicitTracking}
-    self.EntityData.Leafs = make(map[string]types.YLeaf)
-    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
-    self.EntityData.Leafs["query-timeout"] = types.YLeaf{"QueryTimeout", self.QueryTimeout}
-    self.EntityData.Leafs["access-group"] = types.YLeaf{"AccessGroup", self.AccessGroup}
-    self.EntityData.Leafs["query-max-response-time"] = types.YLeaf{"QueryMaxResponseTime", self.QueryMaxResponseTime}
-    self.EntityData.Leafs["version"] = types.YLeaf{"Version", self.Version}
-    self.EntityData.Leafs["router-enable"] = types.YLeaf{"RouterEnable", self.RouterEnable}
-    self.EntityData.Leafs["query-interval"] = types.YLeaf{"QueryInterval", self.QueryInterval}
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("join-groups", types.YChild{"JoinGroups", &self.JoinGroups})
+    self.EntityData.Children.Append("static-group-group-addresses", types.YChild{"StaticGroupGroupAddresses", &self.StaticGroupGroupAddresses})
+    self.EntityData.Children.Append("maximum-groups-per-interface-oor", types.YChild{"MaximumGroupsPerInterfaceOor", &self.MaximumGroupsPerInterfaceOor})
+    self.EntityData.Children.Append("explicit-tracking", types.YChild{"ExplicitTracking", &self.ExplicitTracking})
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("query-timeout", types.YLeaf{"QueryTimeout", self.QueryTimeout})
+    self.EntityData.Leafs.Append("access-group", types.YLeaf{"AccessGroup", self.AccessGroup})
+    self.EntityData.Leafs.Append("query-max-response-time", types.YLeaf{"QueryMaxResponseTime", self.QueryMaxResponseTime})
+    self.EntityData.Leafs.Append("version", types.YLeaf{"Version", self.Version})
+    self.EntityData.Leafs.Append("router-enable", types.YLeaf{"RouterEnable", self.RouterEnable})
+    self.EntityData.Leafs.Append("query-interval", types.YLeaf{"QueryInterval", self.QueryInterval})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
     return &(self.EntityData)
 }
 
@@ -3975,15 +4261,16 @@ func (self *Mld_DefaultContext_Interfaces_Interface) GetEntityData() *types.Comm
 type Mld_DefaultContext_Interfaces_Interface_JoinGroups struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // IP group address and optional source address to include. The type is slice
     // of Mld_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroup.
-    JoinGroup []Mld_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroup
+    JoinGroup []*Mld_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroup
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Mld_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress.
-    JoinGroupSourceAddress []Mld_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress
+    JoinGroupSourceAddress []*Mld_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress
 }
 
 func (joinGroups *Mld_DefaultContext_Interfaces_Interface_JoinGroups) GetEntityData() *types.CommonEntityData {
@@ -3996,16 +4283,19 @@ func (joinGroups *Mld_DefaultContext_Interfaces_Interface_JoinGroups) GetEntityD
     joinGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    joinGroups.EntityData.Children = make(map[string]types.YChild)
-    joinGroups.EntityData.Children["join-group"] = types.YChild{"JoinGroup", nil}
+    joinGroups.EntityData.Children = types.NewOrderedMap()
+    joinGroups.EntityData.Children.Append("join-group", types.YChild{"JoinGroup", nil})
     for i := range joinGroups.JoinGroup {
-        joinGroups.EntityData.Children[types.GetSegmentPath(&joinGroups.JoinGroup[i])] = types.YChild{"JoinGroup", &joinGroups.JoinGroup[i]}
+        joinGroups.EntityData.Children.Append(types.GetSegmentPath(joinGroups.JoinGroup[i]), types.YChild{"JoinGroup", joinGroups.JoinGroup[i]})
     }
-    joinGroups.EntityData.Children["join-group-source-address"] = types.YChild{"JoinGroupSourceAddress", nil}
+    joinGroups.EntityData.Children.Append("join-group-source-address", types.YChild{"JoinGroupSourceAddress", nil})
     for i := range joinGroups.JoinGroupSourceAddress {
-        joinGroups.EntityData.Children[types.GetSegmentPath(&joinGroups.JoinGroupSourceAddress[i])] = types.YChild{"JoinGroupSourceAddress", &joinGroups.JoinGroupSourceAddress[i]}
+        joinGroups.EntityData.Children.Append(types.GetSegmentPath(joinGroups.JoinGroupSourceAddress[i]), types.YChild{"JoinGroupSourceAddress", joinGroups.JoinGroupSourceAddress[i]})
     }
-    joinGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    joinGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    joinGroups.EntityData.YListKeys = []string {}
+
     return &(joinGroups.EntityData)
 }
 
@@ -4018,9 +4308,9 @@ type Mld_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroup struct {
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // Filter mode. The type is IgmpFilter. This attribute is mandatory.
@@ -4032,15 +4322,18 @@ func (joinGroup *Mld_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroup) G
     joinGroup.EntityData.YangName = "join-group"
     joinGroup.EntityData.BundleName = "cisco_ios_xr"
     joinGroup.EntityData.ParentYangName = "join-groups"
-    joinGroup.EntityData.SegmentPath = "join-group" + "[group-address='" + fmt.Sprintf("%v", joinGroup.GroupAddress) + "']"
+    joinGroup.EntityData.SegmentPath = "join-group" + types.AddKeyToken(joinGroup.GroupAddress, "group-address")
     joinGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    joinGroup.EntityData.Children = make(map[string]types.YChild)
-    joinGroup.EntityData.Leafs = make(map[string]types.YLeaf)
-    joinGroup.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", joinGroup.GroupAddress}
-    joinGroup.EntityData.Leafs["mode"] = types.YLeaf{"Mode", joinGroup.Mode}
+    joinGroup.EntityData.Children = types.NewOrderedMap()
+    joinGroup.EntityData.Leafs = types.NewOrderedMap()
+    joinGroup.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", joinGroup.GroupAddress})
+    joinGroup.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", joinGroup.Mode})
+
+    joinGroup.EntityData.YListKeys = []string {"GroupAddress"}
+
     return &(joinGroup.EntityData)
 }
 
@@ -4053,16 +4346,16 @@ type Mld_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress s
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. Optional IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Filter mode. The type is IgmpFilter. This attribute is mandatory.
@@ -4074,16 +4367,19 @@ func (joinGroupSourceAddress *Mld_DefaultContext_Interfaces_Interface_JoinGroups
     joinGroupSourceAddress.EntityData.YangName = "join-group-source-address"
     joinGroupSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     joinGroupSourceAddress.EntityData.ParentYangName = "join-groups"
-    joinGroupSourceAddress.EntityData.SegmentPath = "join-group-source-address" + "[group-address='" + fmt.Sprintf("%v", joinGroupSourceAddress.GroupAddress) + "']" + "[source-address='" + fmt.Sprintf("%v", joinGroupSourceAddress.SourceAddress) + "']"
+    joinGroupSourceAddress.EntityData.SegmentPath = "join-group-source-address" + types.AddKeyToken(joinGroupSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(joinGroupSourceAddress.SourceAddress, "source-address")
     joinGroupSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroupSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroupSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    joinGroupSourceAddress.EntityData.Children = make(map[string]types.YChild)
-    joinGroupSourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    joinGroupSourceAddress.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", joinGroupSourceAddress.GroupAddress}
-    joinGroupSourceAddress.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", joinGroupSourceAddress.SourceAddress}
-    joinGroupSourceAddress.EntityData.Leafs["mode"] = types.YLeaf{"Mode", joinGroupSourceAddress.Mode}
+    joinGroupSourceAddress.EntityData.Children = types.NewOrderedMap()
+    joinGroupSourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    joinGroupSourceAddress.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", joinGroupSourceAddress.GroupAddress})
+    joinGroupSourceAddress.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", joinGroupSourceAddress.SourceAddress})
+    joinGroupSourceAddress.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", joinGroupSourceAddress.Mode})
+
+    joinGroupSourceAddress.EntityData.YListKeys = []string {"GroupAddress", "SourceAddress"}
+
     return &(joinGroupSourceAddress.EntityData)
 }
 
@@ -4096,32 +4392,32 @@ type Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses struct {
     // IP group address and optional source address to include. The type is slice
     // of
     // Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddress.
-    StaticGroupGroupAddress []Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddress
+    StaticGroupGroupAddress []*Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddress
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddress.
-    StaticGroupGroupAddressSourceAddress []Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddress
+    StaticGroupGroupAddressSourceAddress []*Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddress
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddressSourceAddressMask.
-    StaticGroupGroupAddressSourceAddressSourceAddressMask []Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddressSourceAddressMask
+    StaticGroupGroupAddressSourceAddressSourceAddressMask []*Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddressSourceAddressMask
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMask.
-    StaticGroupGroupAddressGroupAddressMask []Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMask
+    StaticGroupGroupAddressGroupAddressMask []*Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMask
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddress.
-    StaticGroupGroupAddressGroupAddressMaskSourceAddress []Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddress
+    StaticGroupGroupAddressGroupAddressMaskSourceAddress []*Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddress
 
     // IP group address and optional source address to include. The type is slice
     // of
     // Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.
-    StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask []Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask
+    StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask []*Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask
 }
 
 func (staticGroupGroupAddresses *Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses) GetEntityData() *types.CommonEntityData {
@@ -4134,32 +4430,35 @@ func (staticGroupGroupAddresses *Mld_DefaultContext_Interfaces_Interface_StaticG
     staticGroupGroupAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddresses.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address"] = types.YChild{"StaticGroupGroupAddress", nil}
+    staticGroupGroupAddresses.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address", types.YChild{"StaticGroupGroupAddress", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddress {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddress[i])] = types.YChild{"StaticGroupGroupAddress", &staticGroupGroupAddresses.StaticGroupGroupAddress[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddress[i]), types.YChild{"StaticGroupGroupAddress", staticGroupGroupAddresses.StaticGroupGroupAddress[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-source-address"] = types.YChild{"StaticGroupGroupAddressSourceAddress", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-source-address", types.YChild{"StaticGroupGroupAddressSourceAddress", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress[i])] = types.YChild{"StaticGroupGroupAddressSourceAddress", &staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress[i]), types.YChild{"StaticGroupGroupAddressSourceAddress", staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-source-address-source-address-mask"] = types.YChild{"StaticGroupGroupAddressSourceAddressSourceAddressMask", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-source-address-source-address-mask", types.YChild{"StaticGroupGroupAddressSourceAddressSourceAddressMask", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask[i])] = types.YChild{"StaticGroupGroupAddressSourceAddressSourceAddressMask", &staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask[i]), types.YChild{"StaticGroupGroupAddressSourceAddressSourceAddressMask", staticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-group-address-mask"] = types.YChild{"StaticGroupGroupAddressGroupAddressMask", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-group-address-mask", types.YChild{"StaticGroupGroupAddressGroupAddressMask", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask[i])] = types.YChild{"StaticGroupGroupAddressGroupAddressMask", &staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask[i]), types.YChild{"StaticGroupGroupAddressGroupAddressMask", staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-group-address-mask-source-address"] = types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddress", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-group-address-mask-source-address", types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddress", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress[i])] = types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddress", &staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress[i]), types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddress", staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress[i]})
     }
-    staticGroupGroupAddresses.EntityData.Children["static-group-group-address-group-address-mask-source-address-source-address-mask"] = types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask", nil}
+    staticGroupGroupAddresses.EntityData.Children.Append("static-group-group-address-group-address-mask-source-address-source-address-mask", types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask", nil})
     for i := range staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask {
-        staticGroupGroupAddresses.EntityData.Children[types.GetSegmentPath(&staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask[i])] = types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask", &staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask[i]}
+        staticGroupGroupAddresses.EntityData.Children.Append(types.GetSegmentPath(staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask[i]), types.YChild{"StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask", staticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask[i]})
     }
-    staticGroupGroupAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    staticGroupGroupAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    staticGroupGroupAddresses.EntityData.YListKeys = []string {}
+
     return &(staticGroupGroupAddresses.EntityData)
 }
 
@@ -4172,9 +4471,9 @@ type Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGro
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -4194,17 +4493,20 @@ func (staticGroupGroupAddress *Mld_DefaultContext_Interfaces_Interface_StaticGro
     staticGroupGroupAddress.EntityData.YangName = "static-group-group-address"
     staticGroupGroupAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddress.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddress.EntityData.SegmentPath = "static-group-group-address" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddress.GroupAddress) + "']"
+    staticGroupGroupAddress.EntityData.SegmentPath = "static-group-group-address" + types.AddKeyToken(staticGroupGroupAddress.GroupAddress, "group-address")
     staticGroupGroupAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddress.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddress.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddress.GroupAddress}
-    staticGroupGroupAddress.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddress.GroupCount}
-    staticGroupGroupAddress.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddress.SourceCount}
-    staticGroupGroupAddress.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddress.SuppressReport}
+    staticGroupGroupAddress.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddress.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddress.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddress.GroupAddress})
+    staticGroupGroupAddress.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddress.GroupCount})
+    staticGroupGroupAddress.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddress.SourceCount})
+    staticGroupGroupAddress.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddress.SuppressReport})
+
+    staticGroupGroupAddress.EntityData.YListKeys = []string {"GroupAddress"}
+
     return &(staticGroupGroupAddress.EntityData)
 }
 
@@ -4217,16 +4519,16 @@ type Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGro
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -4246,18 +4548,21 @@ func (staticGroupGroupAddressSourceAddress *Mld_DefaultContext_Interfaces_Interf
     staticGroupGroupAddressSourceAddress.EntityData.YangName = "static-group-group-address-source-address"
     staticGroupGroupAddressSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressSourceAddress.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressSourceAddress.EntityData.SegmentPath = "static-group-group-address-source-address" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddress.GroupAddress) + "']" + "[source-address='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddress.SourceAddress) + "']"
+    staticGroupGroupAddressSourceAddress.EntityData.SegmentPath = "static-group-group-address-source-address" + types.AddKeyToken(staticGroupGroupAddressSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddress.SourceAddress, "source-address")
     staticGroupGroupAddressSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressSourceAddress.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressSourceAddress.GroupAddress}
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", staticGroupGroupAddressSourceAddress.SourceAddress}
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressSourceAddress.GroupCount}
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressSourceAddress.SourceCount}
-    staticGroupGroupAddressSourceAddress.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressSourceAddress.SuppressReport}
+    staticGroupGroupAddressSourceAddress.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressSourceAddress.GroupAddress})
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", staticGroupGroupAddressSourceAddress.SourceAddress})
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressSourceAddress.GroupCount})
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressSourceAddress.SourceCount})
+    staticGroupGroupAddressSourceAddress.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressSourceAddress.SuppressReport})
+
+    staticGroupGroupAddressSourceAddress.EntityData.YListKeys = []string {"GroupAddress", "SourceAddress"}
+
     return &(staticGroupGroupAddressSourceAddress.EntityData)
 }
 
@@ -4270,23 +4575,23 @@ type Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGro
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Mask for Source Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddressMask interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -4306,19 +4611,22 @@ func (staticGroupGroupAddressSourceAddressSourceAddressMask *Mld_DefaultContext_
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.YangName = "static-group-group-address-source-address-source-address-mask"
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-source-address-source-address-mask" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress) + "']" + "[source-address='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress) + "']" + "[source-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask) + "']"
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-source-address-source-address-mask" + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress, "source-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask, "source-address-mask")
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["source-address-mask"] = types.YLeaf{"SourceAddressMask", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupCount}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceCount}
-    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressSourceAddressSourceAddressMask.SuppressReport}
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-address-mask", types.YLeaf{"SourceAddressMask", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressSourceAddressSourceAddressMask.GroupCount})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressSourceAddressSourceAddressMask.SourceCount})
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressSourceAddressSourceAddressMask.SuppressReport})
+
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.YListKeys = []string {"GroupAddress", "SourceAddress", "SourceAddressMask"}
+
     return &(staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData)
 }
 
@@ -4331,16 +4639,16 @@ type Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGro
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. Mask for Group Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddressMask interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -4360,18 +4668,21 @@ func (staticGroupGroupAddressGroupAddressMask *Mld_DefaultContext_Interfaces_Int
     staticGroupGroupAddressGroupAddressMask.EntityData.YangName = "static-group-group-address-group-address-mask"
     staticGroupGroupAddressGroupAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressGroupAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMask.GroupAddress) + "']" + "[group-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMask.GroupAddressMask) + "']"
+    staticGroupGroupAddressGroupAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMask.GroupAddressMask, "group-address-mask")
     staticGroupGroupAddressGroupAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressGroupAddressMask.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMask.GroupAddress}
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["group-address-mask"] = types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMask.GroupAddressMask}
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMask.GroupCount}
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMask.SourceCount}
-    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMask.SuppressReport}
+    staticGroupGroupAddressGroupAddressMask.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMask.GroupAddress})
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("group-address-mask", types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMask.GroupAddressMask})
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMask.GroupCount})
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMask.SourceCount})
+    staticGroupGroupAddressGroupAddressMask.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMask.SuppressReport})
+
+    staticGroupGroupAddressGroupAddressMask.EntityData.YListKeys = []string {"GroupAddress", "GroupAddressMask"}
+
     return &(staticGroupGroupAddressGroupAddressMask.EntityData)
 }
 
@@ -4384,23 +4695,23 @@ type Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGro
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. Mask for Group Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddressMask interface{}
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -4420,19 +4731,22 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddress *Mld_DefaultContext_I
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.YangName = "static-group-group-address-group-address-mask-source-address"
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress) + "']" + "[group-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask) + "']" + "[source-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress) + "']"
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask, "group-address-mask") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress, "source-address")
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["group-address-mask"] = types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupCount}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceCount}
-    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMaskSourceAddress.SuppressReport}
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("group-address-mask", types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupCount})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceCount})
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMaskSourceAddress.SuppressReport})
+
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.YListKeys = []string {"GroupAddress", "GroupAddressMask", "SourceAddress"}
+
     return &(staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData)
 }
 
@@ -4445,30 +4759,30 @@ type Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGro
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
     // This attribute is a key. Mask for Group Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddressMask interface{}
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Mask for Source Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddressMask interface{}
 
     // Number of groups to join (do not set without GroupAddressMask). The type is
@@ -4488,20 +4802,23 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask *Mld
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.YangName = "static-group-group-address-group-address-mask-source-address-source-address-mask"
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address-source-address-mask" + "[group-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress) + "']" + "[group-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask) + "']" + "[source-address='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress) + "']" + "[source-address-mask='" + fmt.Sprintf("%v", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask) + "']"
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address-source-address-mask" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask, "group-address-mask") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress, "source-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask, "source-address-mask")
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Children = make(map[string]types.YChild)
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs = make(map[string]types.YLeaf)
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["group-address-mask"] = types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["source-address-mask"] = types.YLeaf{"SourceAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupCount}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["source-count"] = types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceCount}
-    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs["suppress-report"] = types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SuppressReport}
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Children = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs = types.NewOrderedMap()
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-address", types.YLeaf{"GroupAddress", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-address-mask", types.YLeaf{"GroupAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-address-mask", types.YLeaf{"SourceAddressMask", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("group-count", types.YLeaf{"GroupCount", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupCount})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("source-count", types.YLeaf{"SourceCount", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceCount})
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.Leafs.Append("suppress-report", types.YLeaf{"SuppressReport", staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SuppressReport})
+
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.YListKeys = []string {"GroupAddress", "GroupAddressMask", "SourceAddress", "SourceAddressMask"}
+
     return &(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData)
 }
 
@@ -4512,6 +4829,7 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask *Mld
 type Mld_DefaultContext_Interfaces_Interface_MaximumGroupsPerInterfaceOor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of groups accepted per interface by this router. The type is
     // interface{} with range: 1..40000. This attribute is mandatory.
@@ -4536,11 +4854,14 @@ func (maximumGroupsPerInterfaceOor *Mld_DefaultContext_Interfaces_Interface_Maxi
     maximumGroupsPerInterfaceOor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumGroupsPerInterfaceOor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    maximumGroupsPerInterfaceOor.EntityData.Children = make(map[string]types.YChild)
-    maximumGroupsPerInterfaceOor.EntityData.Leafs = make(map[string]types.YLeaf)
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["maximum-groups"] = types.YLeaf{"MaximumGroups", maximumGroupsPerInterfaceOor.MaximumGroups}
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["warning-threshold"] = types.YLeaf{"WarningThreshold", maximumGroupsPerInterfaceOor.WarningThreshold}
-    maximumGroupsPerInterfaceOor.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", maximumGroupsPerInterfaceOor.AccessListName}
+    maximumGroupsPerInterfaceOor.EntityData.Children = types.NewOrderedMap()
+    maximumGroupsPerInterfaceOor.EntityData.Leafs = types.NewOrderedMap()
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("maximum-groups", types.YLeaf{"MaximumGroups", maximumGroupsPerInterfaceOor.MaximumGroups})
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("warning-threshold", types.YLeaf{"WarningThreshold", maximumGroupsPerInterfaceOor.WarningThreshold})
+    maximumGroupsPerInterfaceOor.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", maximumGroupsPerInterfaceOor.AccessListName})
+
+    maximumGroupsPerInterfaceOor.EntityData.YListKeys = []string {}
+
     return &(maximumGroupsPerInterfaceOor.EntityData)
 }
 
@@ -4550,6 +4871,7 @@ func (maximumGroupsPerInterfaceOor *Mld_DefaultContext_Interfaces_Interface_Maxi
 type Mld_DefaultContext_Interfaces_Interface_ExplicitTracking struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Enabled or disabled, when value is TRUE or FALSE respectively. The type is
     // bool. This attribute is mandatory.
@@ -4570,10 +4892,13 @@ func (explicitTracking *Mld_DefaultContext_Interfaces_Interface_ExplicitTracking
     explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    explicitTracking.EntityData.Children = make(map[string]types.YChild)
-    explicitTracking.EntityData.Leafs = make(map[string]types.YLeaf)
-    explicitTracking.EntityData.Leafs["enable"] = types.YLeaf{"Enable", explicitTracking.Enable}
-    explicitTracking.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", explicitTracking.AccessListName}
+    explicitTracking.EntityData.Children = types.NewOrderedMap()
+    explicitTracking.EntityData.Leafs = types.NewOrderedMap()
+    explicitTracking.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", explicitTracking.Enable})
+    explicitTracking.EntityData.Leafs.Append("access-list-name", types.YLeaf{"AccessListName", explicitTracking.AccessListName})
+
+    explicitTracking.EntityData.YListKeys = []string {}
+
     return &(explicitTracking.EntityData)
 }
 

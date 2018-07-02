@@ -25,6 +25,14 @@ module Cisco-IOS-XR-sysadmin-sdr-console {
      Copyright(c) 2015-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-12-05 {
+    description
+      "Removed cli-incomplete-command statement";
+  }
+  revision 2017-07-22 {
+    description
+      "Updated location pattern to include Compute Cards";
+  }
   revision 2017-04-12 {
     description
       "Changed the namespace and module name";
@@ -47,7 +55,7 @@ module Cisco-IOS-XR-sysadmin-sdr-console {
           tailf:info "Location of console attach to apply";
           leaf location-rp {
             type string {
-              pattern "((0?[0-9]|1[1-5])/([rR][pP]\\d{1,2}))(/[cC][pP][uU]0)?";
+              pattern "((0?[0-9]|1[1-5]|[bB]\\d)/(([rR][pP]|[cC][bB])\\d{1,2}))(/[cC][pP][uU]0)?";
               tailf:info "Location string";
             }
             tailf:info "Enter location to apply the console attach config";
@@ -84,7 +92,7 @@ module Cisco-IOS-XR-sysadmin-sdr-console {
           tailf:info "Location of Console attach to apply";
           leaf location-rp {
             type string {
-              pattern "((0?[0-9]|1[1-5])/([rR][pP]\\d{1,2}))(/[cC][pP][uU]0)?";
+              pattern "((0?[0-9]|1[1-5]|[bB]\\d)/(([rR][pP]|[cC][bB])\\d{1,2}))(/[cC][pP][uU]0)?";
               tailf:info "Location string";
             }
             tailf:info "Location to apply the console attach config";

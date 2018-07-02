@@ -41,7 +41,7 @@ type CiscoPlatformSoftware struct {
 
     // Information about the filesystem. The type is slice of
     // CiscoPlatformSoftware_QFilesystem.
-    QFilesystem []CiscoPlatformSoftware_QFilesystem
+    QFilesystem []*CiscoPlatformSoftware_QFilesystem
 }
 
 func (ciscoPlatformSoftware *CiscoPlatformSoftware) GetEntityData() *types.CommonEntityData {
@@ -54,13 +54,16 @@ func (ciscoPlatformSoftware *CiscoPlatformSoftware) GetEntityData() *types.Commo
     ciscoPlatformSoftware.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoPlatformSoftware.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    ciscoPlatformSoftware.EntityData.Children = make(map[string]types.YChild)
-    ciscoPlatformSoftware.EntityData.Children["control-processes"] = types.YChild{"ControlProcesses", &ciscoPlatformSoftware.ControlProcesses}
-    ciscoPlatformSoftware.EntityData.Children["q-filesystem"] = types.YChild{"QFilesystem", nil}
+    ciscoPlatformSoftware.EntityData.Children = types.NewOrderedMap()
+    ciscoPlatformSoftware.EntityData.Children.Append("control-processes", types.YChild{"ControlProcesses", &ciscoPlatformSoftware.ControlProcesses})
+    ciscoPlatformSoftware.EntityData.Children.Append("q-filesystem", types.YChild{"QFilesystem", nil})
     for i := range ciscoPlatformSoftware.QFilesystem {
-        ciscoPlatformSoftware.EntityData.Children[types.GetSegmentPath(&ciscoPlatformSoftware.QFilesystem[i])] = types.YChild{"QFilesystem", &ciscoPlatformSoftware.QFilesystem[i]}
+        ciscoPlatformSoftware.EntityData.Children.Append(types.GetSegmentPath(ciscoPlatformSoftware.QFilesystem[i]), types.YChild{"QFilesystem", ciscoPlatformSoftware.QFilesystem[i]})
     }
-    ciscoPlatformSoftware.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscoPlatformSoftware.EntityData.Leafs = types.NewOrderedMap()
+
+    ciscoPlatformSoftware.EntityData.YListKeys = []string {}
+
     return &(ciscoPlatformSoftware.EntityData)
 }
 
@@ -72,7 +75,7 @@ type CiscoPlatformSoftware_ControlProcesses struct {
 
     // The list of control processes. The type is slice of
     // CiscoPlatformSoftware_ControlProcesses_ControlProcess.
-    ControlProcess []CiscoPlatformSoftware_ControlProcesses_ControlProcess
+    ControlProcess []*CiscoPlatformSoftware_ControlProcesses_ControlProcess
 }
 
 func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) GetEntityData() *types.CommonEntityData {
@@ -85,12 +88,15 @@ func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) GetEntityData() 
     controlProcesses.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     controlProcesses.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    controlProcesses.EntityData.Children = make(map[string]types.YChild)
-    controlProcesses.EntityData.Children["control-process"] = types.YChild{"ControlProcess", nil}
+    controlProcesses.EntityData.Children = types.NewOrderedMap()
+    controlProcesses.EntityData.Children.Append("control-process", types.YChild{"ControlProcess", nil})
     for i := range controlProcesses.ControlProcess {
-        controlProcesses.EntityData.Children[types.GetSegmentPath(&controlProcesses.ControlProcess[i])] = types.YChild{"ControlProcess", &controlProcesses.ControlProcess[i]}
+        controlProcesses.EntityData.Children.Append(types.GetSegmentPath(controlProcesses.ControlProcess[i]), types.YChild{"ControlProcess", controlProcesses.ControlProcess[i]})
     }
-    controlProcesses.EntityData.Leafs = make(map[string]types.YLeaf)
+    controlProcesses.EntityData.Leafs = types.NewOrderedMap()
+
+    controlProcesses.EntityData.YListKeys = []string {}
+
     return &(controlProcesses.EntityData)
 }
 
@@ -140,23 +146,26 @@ func (controlProcess *CiscoPlatformSoftware_ControlProcesses_ControlProcess) Get
     controlProcess.EntityData.YangName = "control-process"
     controlProcess.EntityData.BundleName = "cisco_ios_xe"
     controlProcess.EntityData.ParentYangName = "control-processes"
-    controlProcess.EntityData.SegmentPath = "control-process" + "[fru='" + fmt.Sprintf("%v", controlProcess.Fru) + "']" + "[slotnum='" + fmt.Sprintf("%v", controlProcess.Slotnum) + "']" + "[baynum='" + fmt.Sprintf("%v", controlProcess.Baynum) + "']" + "[chassisnum='" + fmt.Sprintf("%v", controlProcess.Chassisnum) + "']"
+    controlProcess.EntityData.SegmentPath = "control-process" + types.AddKeyToken(controlProcess.Fru, "fru") + types.AddKeyToken(controlProcess.Slotnum, "slotnum") + types.AddKeyToken(controlProcess.Baynum, "baynum") + types.AddKeyToken(controlProcess.Chassisnum, "chassisnum")
     controlProcess.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     controlProcess.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     controlProcess.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    controlProcess.EntityData.Children = make(map[string]types.YChild)
-    controlProcess.EntityData.Children["load-average-stats"] = types.YChild{"LoadAverageStats", &controlProcess.LoadAverageStats}
-    controlProcess.EntityData.Children["load-avg-minutes"] = types.YChild{"LoadAvgMinutes", &controlProcess.LoadAvgMinutes}
-    controlProcess.EntityData.Children["memory-stats"] = types.YChild{"MemoryStats", &controlProcess.MemoryStats}
-    controlProcess.EntityData.Children["per-core-stats"] = types.YChild{"PerCoreStats", &controlProcess.PerCoreStats}
-    controlProcess.EntityData.Leafs = make(map[string]types.YLeaf)
-    controlProcess.EntityData.Leafs["fru"] = types.YLeaf{"Fru", controlProcess.Fru}
-    controlProcess.EntityData.Leafs["slotnum"] = types.YLeaf{"Slotnum", controlProcess.Slotnum}
-    controlProcess.EntityData.Leafs["baynum"] = types.YLeaf{"Baynum", controlProcess.Baynum}
-    controlProcess.EntityData.Leafs["chassisnum"] = types.YLeaf{"Chassisnum", controlProcess.Chassisnum}
-    controlProcess.EntityData.Leafs["control-process-status"] = types.YLeaf{"ControlProcessStatus", controlProcess.ControlProcessStatus}
-    controlProcess.EntityData.Leafs["updated"] = types.YLeaf{"Updated", controlProcess.Updated}
+    controlProcess.EntityData.Children = types.NewOrderedMap()
+    controlProcess.EntityData.Children.Append("load-average-stats", types.YChild{"LoadAverageStats", &controlProcess.LoadAverageStats})
+    controlProcess.EntityData.Children.Append("load-avg-minutes", types.YChild{"LoadAvgMinutes", &controlProcess.LoadAvgMinutes})
+    controlProcess.EntityData.Children.Append("memory-stats", types.YChild{"MemoryStats", &controlProcess.MemoryStats})
+    controlProcess.EntityData.Children.Append("per-core-stats", types.YChild{"PerCoreStats", &controlProcess.PerCoreStats})
+    controlProcess.EntityData.Leafs = types.NewOrderedMap()
+    controlProcess.EntityData.Leafs.Append("fru", types.YLeaf{"Fru", controlProcess.Fru})
+    controlProcess.EntityData.Leafs.Append("slotnum", types.YLeaf{"Slotnum", controlProcess.Slotnum})
+    controlProcess.EntityData.Leafs.Append("baynum", types.YLeaf{"Baynum", controlProcess.Baynum})
+    controlProcess.EntityData.Leafs.Append("chassisnum", types.YLeaf{"Chassisnum", controlProcess.Chassisnum})
+    controlProcess.EntityData.Leafs.Append("control-process-status", types.YLeaf{"ControlProcessStatus", controlProcess.ControlProcessStatus})
+    controlProcess.EntityData.Leafs.Append("updated", types.YLeaf{"Updated", controlProcess.Updated})
+
+    controlProcess.EntityData.YListKeys = []string {"Fru", "Slotnum", "Baynum", "Chassisnum"}
+
     return &(controlProcess.EntityData)
 }
 
@@ -180,9 +189,12 @@ func (loadAverageStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_Lo
     loadAverageStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     loadAverageStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    loadAverageStats.EntityData.Children = make(map[string]types.YChild)
-    loadAverageStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    loadAverageStats.EntityData.Leafs["load-average-status"] = types.YLeaf{"LoadAverageStatus", loadAverageStats.LoadAverageStatus}
+    loadAverageStats.EntityData.Children = types.NewOrderedMap()
+    loadAverageStats.EntityData.Leafs = types.NewOrderedMap()
+    loadAverageStats.EntityData.Leafs.Append("load-average-status", types.YLeaf{"LoadAverageStatus", loadAverageStats.LoadAverageStatus})
+
+    loadAverageStats.EntityData.YListKeys = []string {}
+
     return &(loadAverageStats.EntityData)
 }
 
@@ -194,7 +206,7 @@ type CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes struct
 
     // List of Load averages based on a time frame. The type is slice of
     // CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute.
-    LoadAvgMinute []CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute
+    LoadAvgMinute []*CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute
 }
 
 func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes) GetEntityData() *types.CommonEntityData {
@@ -207,12 +219,15 @@ func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_Load
     loadAvgMinutes.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     loadAvgMinutes.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    loadAvgMinutes.EntityData.Children = make(map[string]types.YChild)
-    loadAvgMinutes.EntityData.Children["load-avg-minute"] = types.YChild{"LoadAvgMinute", nil}
+    loadAvgMinutes.EntityData.Children = types.NewOrderedMap()
+    loadAvgMinutes.EntityData.Children.Append("load-avg-minute", types.YChild{"LoadAvgMinute", nil})
     for i := range loadAvgMinutes.LoadAvgMinute {
-        loadAvgMinutes.EntityData.Children[types.GetSegmentPath(&loadAvgMinutes.LoadAvgMinute[i])] = types.YChild{"LoadAvgMinute", &loadAvgMinutes.LoadAvgMinute[i]}
+        loadAvgMinutes.EntityData.Children.Append(types.GetSegmentPath(loadAvgMinutes.LoadAvgMinute[i]), types.YChild{"LoadAvgMinute", loadAvgMinutes.LoadAvgMinute[i]})
     }
-    loadAvgMinutes.EntityData.Leafs = make(map[string]types.YLeaf)
+    loadAvgMinutes.EntityData.Leafs = types.NewOrderedMap()
+
+    loadAvgMinutes.EntityData.YListKeys = []string {}
+
     return &(loadAvgMinutes.EntityData)
 }
 
@@ -239,16 +254,19 @@ func (loadAvgMinute *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadA
     loadAvgMinute.EntityData.YangName = "load-avg-minute"
     loadAvgMinute.EntityData.BundleName = "cisco_ios_xe"
     loadAvgMinute.EntityData.ParentYangName = "load-avg-minutes"
-    loadAvgMinute.EntityData.SegmentPath = "load-avg-minute" + "[number='" + fmt.Sprintf("%v", loadAvgMinute.Number) + "']"
+    loadAvgMinute.EntityData.SegmentPath = "load-avg-minute" + types.AddKeyToken(loadAvgMinute.Number, "number")
     loadAvgMinute.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     loadAvgMinute.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     loadAvgMinute.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    loadAvgMinute.EntityData.Children = make(map[string]types.YChild)
-    loadAvgMinute.EntityData.Children["status"] = types.YChild{"Status", &loadAvgMinute.Status}
-    loadAvgMinute.EntityData.Leafs = make(map[string]types.YLeaf)
-    loadAvgMinute.EntityData.Leafs["number"] = types.YLeaf{"Number", loadAvgMinute.Number}
-    loadAvgMinute.EntityData.Leafs["average"] = types.YLeaf{"Average", loadAvgMinute.Average}
+    loadAvgMinute.EntityData.Children = types.NewOrderedMap()
+    loadAvgMinute.EntityData.Children.Append("status", types.YChild{"Status", &loadAvgMinute.Status})
+    loadAvgMinute.EntityData.Leafs = types.NewOrderedMap()
+    loadAvgMinute.EntityData.Leafs.Append("number", types.YLeaf{"Number", loadAvgMinute.Number})
+    loadAvgMinute.EntityData.Leafs.Append("average", types.YLeaf{"Average", loadAvgMinute.Average})
+
+    loadAvgMinute.EntityData.YListKeys = []string {"Number"}
+
     return &(loadAvgMinute.EntityData)
 }
 
@@ -279,11 +297,14 @@ func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinut
     status.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    status.EntityData.Children = make(map[string]types.YChild)
-    status.EntityData.Leafs = make(map[string]types.YLeaf)
-    status.EntityData.Leafs["condition"] = types.YLeaf{"Condition", status.Condition}
-    status.EntityData.Leafs["threshold-status"] = types.YLeaf{"ThresholdStatus", status.ThresholdStatus}
-    status.EntityData.Leafs["threshold-value"] = types.YLeaf{"ThresholdValue", status.ThresholdValue}
+    status.EntityData.Children = types.NewOrderedMap()
+    status.EntityData.Leafs = types.NewOrderedMap()
+    status.EntityData.Leafs.Append("condition", types.YLeaf{"Condition", status.Condition})
+    status.EntityData.Leafs.Append("threshold-status", types.YLeaf{"ThresholdStatus", status.ThresholdStatus})
+    status.EntityData.Leafs.Append("threshold-value", types.YLeaf{"ThresholdValue", status.ThresholdValue})
+
+    status.EntityData.YListKeys = []string {}
+
     return &(status.EntityData)
 }
 
@@ -346,19 +367,22 @@ func (memoryStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryS
     memoryStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     memoryStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    memoryStats.EntityData.Children = make(map[string]types.YChild)
-    memoryStats.EntityData.Children["status"] = types.YChild{"Status", &memoryStats.Status}
-    memoryStats.EntityData.Leafs = make(map[string]types.YLeaf)
-    memoryStats.EntityData.Leafs["memory-status"] = types.YLeaf{"MemoryStatus", memoryStats.MemoryStatus}
-    memoryStats.EntityData.Leafs["total"] = types.YLeaf{"Total", memoryStats.Total}
-    memoryStats.EntityData.Leafs["used-number"] = types.YLeaf{"UsedNumber", memoryStats.UsedNumber}
-    memoryStats.EntityData.Leafs["used-percent"] = types.YLeaf{"UsedPercent", memoryStats.UsedPercent}
-    memoryStats.EntityData.Leafs["free-number"] = types.YLeaf{"FreeNumber", memoryStats.FreeNumber}
-    memoryStats.EntityData.Leafs["free-percent"] = types.YLeaf{"FreePercent", memoryStats.FreePercent}
-    memoryStats.EntityData.Leafs["available-number"] = types.YLeaf{"AvailableNumber", memoryStats.AvailableNumber}
-    memoryStats.EntityData.Leafs["available-percent"] = types.YLeaf{"AvailablePercent", memoryStats.AvailablePercent}
-    memoryStats.EntityData.Leafs["committed-number"] = types.YLeaf{"CommittedNumber", memoryStats.CommittedNumber}
-    memoryStats.EntityData.Leafs["committed-percent"] = types.YLeaf{"CommittedPercent", memoryStats.CommittedPercent}
+    memoryStats.EntityData.Children = types.NewOrderedMap()
+    memoryStats.EntityData.Children.Append("status", types.YChild{"Status", &memoryStats.Status})
+    memoryStats.EntityData.Leafs = types.NewOrderedMap()
+    memoryStats.EntityData.Leafs.Append("memory-status", types.YLeaf{"MemoryStatus", memoryStats.MemoryStatus})
+    memoryStats.EntityData.Leafs.Append("total", types.YLeaf{"Total", memoryStats.Total})
+    memoryStats.EntityData.Leafs.Append("used-number", types.YLeaf{"UsedNumber", memoryStats.UsedNumber})
+    memoryStats.EntityData.Leafs.Append("used-percent", types.YLeaf{"UsedPercent", memoryStats.UsedPercent})
+    memoryStats.EntityData.Leafs.Append("free-number", types.YLeaf{"FreeNumber", memoryStats.FreeNumber})
+    memoryStats.EntityData.Leafs.Append("free-percent", types.YLeaf{"FreePercent", memoryStats.FreePercent})
+    memoryStats.EntityData.Leafs.Append("available-number", types.YLeaf{"AvailableNumber", memoryStats.AvailableNumber})
+    memoryStats.EntityData.Leafs.Append("available-percent", types.YLeaf{"AvailablePercent", memoryStats.AvailablePercent})
+    memoryStats.EntityData.Leafs.Append("committed-number", types.YLeaf{"CommittedNumber", memoryStats.CommittedNumber})
+    memoryStats.EntityData.Leafs.Append("committed-percent", types.YLeaf{"CommittedPercent", memoryStats.CommittedPercent})
+
+    memoryStats.EntityData.YListKeys = []string {}
+
     return &(memoryStats.EntityData)
 }
 
@@ -387,10 +411,13 @@ func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_
     status.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    status.EntityData.Children = make(map[string]types.YChild)
-    status.EntityData.Leafs = make(map[string]types.YLeaf)
-    status.EntityData.Leafs["warning-threshold-percent"] = types.YLeaf{"WarningThresholdPercent", status.WarningThresholdPercent}
-    status.EntityData.Leafs["critical-threshold-percent"] = types.YLeaf{"CriticalThresholdPercent", status.CriticalThresholdPercent}
+    status.EntityData.Children = types.NewOrderedMap()
+    status.EntityData.Leafs = types.NewOrderedMap()
+    status.EntityData.Leafs.Append("warning-threshold-percent", types.YLeaf{"WarningThresholdPercent", status.WarningThresholdPercent})
+    status.EntityData.Leafs.Append("critical-threshold-percent", types.YLeaf{"CriticalThresholdPercent", status.CriticalThresholdPercent})
+
+    status.EntityData.YListKeys = []string {}
+
     return &(status.EntityData)
 }
 
@@ -402,7 +429,7 @@ type CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats struct {
 
     // List of processor cores. The type is slice of
     // CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat.
-    PerCoreStat []CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat
+    PerCoreStat []*CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat
 }
 
 func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats) GetEntityData() *types.CommonEntityData {
@@ -415,12 +442,15 @@ func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCor
     perCoreStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     perCoreStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    perCoreStats.EntityData.Children = make(map[string]types.YChild)
-    perCoreStats.EntityData.Children["per-core-stat"] = types.YChild{"PerCoreStat", nil}
+    perCoreStats.EntityData.Children = types.NewOrderedMap()
+    perCoreStats.EntityData.Children.Append("per-core-stat", types.YChild{"PerCoreStat", nil})
     for i := range perCoreStats.PerCoreStat {
-        perCoreStats.EntityData.Children[types.GetSegmentPath(&perCoreStats.PerCoreStat[i])] = types.YChild{"PerCoreStat", &perCoreStats.PerCoreStat[i]}
+        perCoreStats.EntityData.Children.Append(types.GetSegmentPath(perCoreStats.PerCoreStat[i]), types.YChild{"PerCoreStat", perCoreStats.PerCoreStat[i]})
     }
-    perCoreStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    perCoreStats.EntityData.Leafs = types.NewOrderedMap()
+
+    perCoreStats.EntityData.YListKeys = []string {}
+
     return &(perCoreStats.EntityData)
 }
 
@@ -468,21 +498,24 @@ func (perCoreStat *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCore
     perCoreStat.EntityData.YangName = "per-core-stat"
     perCoreStat.EntityData.BundleName = "cisco_ios_xe"
     perCoreStat.EntityData.ParentYangName = "per-core-stats"
-    perCoreStat.EntityData.SegmentPath = "per-core-stat" + "[name='" + fmt.Sprintf("%v", perCoreStat.Name) + "']"
+    perCoreStat.EntityData.SegmentPath = "per-core-stat" + types.AddKeyToken(perCoreStat.Name, "name")
     perCoreStat.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     perCoreStat.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     perCoreStat.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    perCoreStat.EntityData.Children = make(map[string]types.YChild)
-    perCoreStat.EntityData.Leafs = make(map[string]types.YLeaf)
-    perCoreStat.EntityData.Leafs["name"] = types.YLeaf{"Name", perCoreStat.Name}
-    perCoreStat.EntityData.Leafs["user"] = types.YLeaf{"User", perCoreStat.User}
-    perCoreStat.EntityData.Leafs["system"] = types.YLeaf{"System", perCoreStat.System}
-    perCoreStat.EntityData.Leafs["nice"] = types.YLeaf{"Nice", perCoreStat.Nice}
-    perCoreStat.EntityData.Leafs["idle"] = types.YLeaf{"Idle", perCoreStat.Idle}
-    perCoreStat.EntityData.Leafs["irq"] = types.YLeaf{"Irq", perCoreStat.Irq}
-    perCoreStat.EntityData.Leafs["sirq"] = types.YLeaf{"Sirq", perCoreStat.Sirq}
-    perCoreStat.EntityData.Leafs["io-wait"] = types.YLeaf{"IoWait", perCoreStat.IoWait}
+    perCoreStat.EntityData.Children = types.NewOrderedMap()
+    perCoreStat.EntityData.Leafs = types.NewOrderedMap()
+    perCoreStat.EntityData.Leafs.Append("name", types.YLeaf{"Name", perCoreStat.Name})
+    perCoreStat.EntityData.Leafs.Append("user", types.YLeaf{"User", perCoreStat.User})
+    perCoreStat.EntityData.Leafs.Append("system", types.YLeaf{"System", perCoreStat.System})
+    perCoreStat.EntityData.Leafs.Append("nice", types.YLeaf{"Nice", perCoreStat.Nice})
+    perCoreStat.EntityData.Leafs.Append("idle", types.YLeaf{"Idle", perCoreStat.Idle})
+    perCoreStat.EntityData.Leafs.Append("irq", types.YLeaf{"Irq", perCoreStat.Irq})
+    perCoreStat.EntityData.Leafs.Append("sirq", types.YLeaf{"Sirq", perCoreStat.Sirq})
+    perCoreStat.EntityData.Leafs.Append("io-wait", types.YLeaf{"IoWait", perCoreStat.IoWait})
+
+    perCoreStat.EntityData.YListKeys = []string {"Name"}
+
     return &(perCoreStat.EntityData)
 }
 
@@ -509,11 +542,11 @@ type CiscoPlatformSoftware_QFilesystem struct {
 
     // Information about partitions. The type is slice of
     // CiscoPlatformSoftware_QFilesystem_Partitions.
-    Partitions []CiscoPlatformSoftware_QFilesystem_Partitions
+    Partitions []*CiscoPlatformSoftware_QFilesystem_Partitions
 
     // Information about core files. The type is slice of
     // CiscoPlatformSoftware_QFilesystem_CoreFiles.
-    CoreFiles []CiscoPlatformSoftware_QFilesystem_CoreFiles
+    CoreFiles []*CiscoPlatformSoftware_QFilesystem_CoreFiles
 }
 
 func (qFilesystem *CiscoPlatformSoftware_QFilesystem) GetEntityData() *types.CommonEntityData {
@@ -521,25 +554,28 @@ func (qFilesystem *CiscoPlatformSoftware_QFilesystem) GetEntityData() *types.Com
     qFilesystem.EntityData.YangName = "q-filesystem"
     qFilesystem.EntityData.BundleName = "cisco_ios_xe"
     qFilesystem.EntityData.ParentYangName = "cisco-platform-software"
-    qFilesystem.EntityData.SegmentPath = "q-filesystem" + "[fru='" + fmt.Sprintf("%v", qFilesystem.Fru) + "']" + "[slotnum='" + fmt.Sprintf("%v", qFilesystem.Slotnum) + "']" + "[baynum='" + fmt.Sprintf("%v", qFilesystem.Baynum) + "']" + "[chassisnum='" + fmt.Sprintf("%v", qFilesystem.Chassisnum) + "']"
+    qFilesystem.EntityData.SegmentPath = "q-filesystem" + types.AddKeyToken(qFilesystem.Fru, "fru") + types.AddKeyToken(qFilesystem.Slotnum, "slotnum") + types.AddKeyToken(qFilesystem.Baynum, "baynum") + types.AddKeyToken(qFilesystem.Chassisnum, "chassisnum")
     qFilesystem.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qFilesystem.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qFilesystem.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    qFilesystem.EntityData.Children = make(map[string]types.YChild)
-    qFilesystem.EntityData.Children["partitions"] = types.YChild{"Partitions", nil}
+    qFilesystem.EntityData.Children = types.NewOrderedMap()
+    qFilesystem.EntityData.Children.Append("partitions", types.YChild{"Partitions", nil})
     for i := range qFilesystem.Partitions {
-        qFilesystem.EntityData.Children[types.GetSegmentPath(&qFilesystem.Partitions[i])] = types.YChild{"Partitions", &qFilesystem.Partitions[i]}
+        qFilesystem.EntityData.Children.Append(types.GetSegmentPath(qFilesystem.Partitions[i]), types.YChild{"Partitions", qFilesystem.Partitions[i]})
     }
-    qFilesystem.EntityData.Children["core-files"] = types.YChild{"CoreFiles", nil}
+    qFilesystem.EntityData.Children.Append("core-files", types.YChild{"CoreFiles", nil})
     for i := range qFilesystem.CoreFiles {
-        qFilesystem.EntityData.Children[types.GetSegmentPath(&qFilesystem.CoreFiles[i])] = types.YChild{"CoreFiles", &qFilesystem.CoreFiles[i]}
+        qFilesystem.EntityData.Children.Append(types.GetSegmentPath(qFilesystem.CoreFiles[i]), types.YChild{"CoreFiles", qFilesystem.CoreFiles[i]})
     }
-    qFilesystem.EntityData.Leafs = make(map[string]types.YLeaf)
-    qFilesystem.EntityData.Leafs["fru"] = types.YLeaf{"Fru", qFilesystem.Fru}
-    qFilesystem.EntityData.Leafs["slotnum"] = types.YLeaf{"Slotnum", qFilesystem.Slotnum}
-    qFilesystem.EntityData.Leafs["baynum"] = types.YLeaf{"Baynum", qFilesystem.Baynum}
-    qFilesystem.EntityData.Leafs["chassisnum"] = types.YLeaf{"Chassisnum", qFilesystem.Chassisnum}
+    qFilesystem.EntityData.Leafs = types.NewOrderedMap()
+    qFilesystem.EntityData.Leafs.Append("fru", types.YLeaf{"Fru", qFilesystem.Fru})
+    qFilesystem.EntityData.Leafs.Append("slotnum", types.YLeaf{"Slotnum", qFilesystem.Slotnum})
+    qFilesystem.EntityData.Leafs.Append("baynum", types.YLeaf{"Baynum", qFilesystem.Baynum})
+    qFilesystem.EntityData.Leafs.Append("chassisnum", types.YLeaf{"Chassisnum", qFilesystem.Chassisnum})
+
+    qFilesystem.EntityData.YListKeys = []string {"Fru", "Slotnum", "Baynum", "Chassisnum"}
+
     return &(qFilesystem.EntityData)
 }
 
@@ -566,16 +602,19 @@ func (partitions *CiscoPlatformSoftware_QFilesystem_Partitions) GetEntityData() 
     partitions.EntityData.YangName = "partitions"
     partitions.EntityData.BundleName = "cisco_ios_xe"
     partitions.EntityData.ParentYangName = "q-filesystem"
-    partitions.EntityData.SegmentPath = "partitions" + "[name='" + fmt.Sprintf("%v", partitions.Name) + "']"
+    partitions.EntityData.SegmentPath = "partitions" + types.AddKeyToken(partitions.Name, "name")
     partitions.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     partitions.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     partitions.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    partitions.EntityData.Children = make(map[string]types.YChild)
-    partitions.EntityData.Leafs = make(map[string]types.YLeaf)
-    partitions.EntityData.Leafs["name"] = types.YLeaf{"Name", partitions.Name}
-    partitions.EntityData.Leafs["total-size"] = types.YLeaf{"TotalSize", partitions.TotalSize}
-    partitions.EntityData.Leafs["used-size"] = types.YLeaf{"UsedSize", partitions.UsedSize}
+    partitions.EntityData.Children = types.NewOrderedMap()
+    partitions.EntityData.Leafs = types.NewOrderedMap()
+    partitions.EntityData.Leafs.Append("name", types.YLeaf{"Name", partitions.Name})
+    partitions.EntityData.Leafs.Append("total-size", types.YLeaf{"TotalSize", partitions.TotalSize})
+    partitions.EntityData.Leafs.Append("used-size", types.YLeaf{"UsedSize", partitions.UsedSize})
+
+    partitions.EntityData.YListKeys = []string {"Name"}
+
     return &(partitions.EntityData)
 }
 
@@ -589,7 +628,7 @@ type CiscoPlatformSoftware_QFilesystem_CoreFiles struct {
     Filename interface{}
 
     // The date of generation. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     Time interface{}
 }
 
@@ -598,15 +637,18 @@ func (coreFiles *CiscoPlatformSoftware_QFilesystem_CoreFiles) GetEntityData() *t
     coreFiles.EntityData.YangName = "core-files"
     coreFiles.EntityData.BundleName = "cisco_ios_xe"
     coreFiles.EntityData.ParentYangName = "q-filesystem"
-    coreFiles.EntityData.SegmentPath = "core-files" + "[filename='" + fmt.Sprintf("%v", coreFiles.Filename) + "']"
+    coreFiles.EntityData.SegmentPath = "core-files" + types.AddKeyToken(coreFiles.Filename, "filename")
     coreFiles.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     coreFiles.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     coreFiles.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    coreFiles.EntityData.Children = make(map[string]types.YChild)
-    coreFiles.EntityData.Leafs = make(map[string]types.YLeaf)
-    coreFiles.EntityData.Leafs["filename"] = types.YLeaf{"Filename", coreFiles.Filename}
-    coreFiles.EntityData.Leafs["time"] = types.YLeaf{"Time", coreFiles.Time}
+    coreFiles.EntityData.Children = types.NewOrderedMap()
+    coreFiles.EntityData.Leafs = types.NewOrderedMap()
+    coreFiles.EntityData.Leafs.Append("filename", types.YLeaf{"Filename", coreFiles.Filename})
+    coreFiles.EntityData.Leafs.Append("time", types.YLeaf{"Time", coreFiles.Time})
+
+    coreFiles.EntityData.YListKeys = []string {"Filename"}
+
     return &(coreFiles.EntityData)
 }
 
